@@ -97,11 +97,13 @@ class BilinearBatchNormAttention(nn.Module):
     and it tames the slow residual-stream drift that destabilizes deep static-rms
     stacks (see README). `None` keeps the fixed scale (legacy behavior).
     """
-    def __init__(self, d_model, n_head, n_ctx, scale=1.0, rope_base=10000, rezero_init=None):
+    def __init__(self, d_model, n_head, n_ctx, scale=1.0, rope_base=10000, rezero_init=None,
+                 layer_norm="none"):
         super().__init__()
         self.d_head = d_model // n_head
         self.n_head = n_head
         self.scale = nn.Parameter(torch.tensor(float(rezero_init))) if rezero_init is not None else scale
+        self.prenorm = make_norm(layer_norm, d_model)   # per-layer pre-norm (depth stabilizer)
         self.rotary = Rotary(self.d_head, n_ctx, base=rope_base)
         self.register_buffer("causal_mask", torch.tril(torch.ones(n_ctx, n_ctx)), persistent=False)
 
@@ -119,16 +121,17 @@ class BilinearBatchNormAttention(nn.Module):
 
     def forward(self, x):
         B, T, _ = x.shape
-        q1 = self.bn_q1(self.q1(x).reshape(B * T, -1)).reshape(B, T, -1)
-        k1 = self.bn_k1(self.k1(x).reshape(B * T, -1)).reshape(B, T, -1)
-        q2 = self.bn_q2(self.q2(x).reshape(B * T, -1)).reshape(B, T, -1)
-        k2 = self.bn_k2(self.k2(x).reshape(B * T, -1)).reshape(B, T, -1)
+        xn = self.prenorm(x)              # normalize block input; residual stays on raw x
+        q1 = self.bn_q1(self.q1(xn).reshape(B * T, -1)).reshape(B, T, -1)
+        k1 = self.bn_k1(self.k1(xn).reshape(B * T, -1)).reshape(B, T, -1)
+        q2 = self.bn_q2(self.q2(xn).reshape(B * T, -1)).reshape(B, T, -1)
+        k2 = self.bn_k2(self.k2(xn).reshape(B * T, -1)).reshape(B, T, -1)
 
         q1 = self.rotary(rearrange(q1, "b t (nh dh) -> b t nh dh", nh=self.n_head))
         k1 = self.rotary(rearrange(k1, "b t (nh dh) -> b t nh dh", nh=self.n_head))
         q2 = self.rotary(rearrange(q2, "b t (nh dh) -> b t nh dh", nh=self.n_head))
         k2 = self.rotary(rearrange(k2, "b t (nh dh) -> b t nh dh", nh=self.n_head))
-        v = rearrange(self.v(x), "b t (nh dh) -> b t nh dh", nh=self.n_head)
+        v = rearrange(self.v(xn), "b t (nh dh) -> b t nh dh", nh=self.n_head)
 
         scores1 = einsum(q1, k1, "b sq nh dh, b sk nh dh -> b nh sq sk")
         scores2 = einsum(q2, k2, "b sq nh dh, b sk nh dh -> b nh sq sk")
@@ -145,16 +148,18 @@ class BilinearMLP(nn.Module):
 
     `rezero_init` (if not None) makes `scale` a learnable scalar (folds into `D`).
     """
-    def __init__(self, d_model, d_hidden=None, scale=1.0, rezero_init=None):
+    def __init__(self, d_model, d_hidden=None, scale=1.0, rezero_init=None, layer_norm="none"):
         super().__init__()
         d_hidden = d_hidden or 2 * d_model
         self.L = nn.Linear(d_model, d_hidden, bias=False)
         self.R = nn.Linear(d_model, d_hidden, bias=False)
         self.D = nn.Linear(d_hidden, d_model, bias=False)
         self.scale = nn.Parameter(torch.tensor(float(rezero_init))) if rezero_init is not None else scale
+        self.prenorm = make_norm(layer_norm, d_model)
 
     def forward(self, x):
-        return self.scale * self.D(self.L(x) * self.R(x))
+        xn = self.prenorm(x)
+        return self.scale * self.D(self.L(xn) * self.R(xn))
 
 
 class StaticRMSNorm(nn.Module):
@@ -182,31 +187,57 @@ class StaticRMSNorm(nn.Module):
         return x / (scale + self.eps) * self.weight
 
 
-def make_final_norm(kind, d_model):
+class RMSNorm(nn.Module):
+    """Per-sample RMS norm: x / sqrt(mean(x^2, dim=-1)) * weight.
+
+    Normalizes each token independently (like LayerNorm without mean-subtraction),
+    so it is the effective inter-layer stabilizer for deep bilinear stacks — a global
+    scalar (static-rms) cannot tame the per-token blow-up that degree-4 attention
+    creates. NOT foldable on its own (per-sample); folds to a running scalar only if
+    later frozen to StaticRMSNorm. Used as the per-layer pre-norm; the *final* norm is
+    the swept ablation.
+    """
+    def __init__(self, d_model, eps=1e-5):
+        super().__init__()
+        self.weight = nn.Parameter(torch.ones(d_model))
+        self.eps = eps
+
+    def forward(self, x):
+        return x * torch.rsqrt(x.pow(2).mean(-1, keepdim=True) + self.eps) * self.weight
+
+
+def make_norm(kind, d_model):
+    """Norm factory shared by the final norm and the per-layer pre-norm."""
     if kind == "layernorm":
         return nn.LayerNorm(d_model)      # NOT foldable (per-sample variance)
+    if kind == "rmsnorm":
+        return RMSNorm(d_model)           # per-sample; inter-layer depth stabilizer
     if kind == "static-rms":
-        return StaticRMSNorm(d_model)     # foldable
+        return StaticRMSNorm(d_model)     # foldable (running scalar)
     if kind == "none":
         return nn.Identity()
-    raise ValueError(f"unknown final norm: {kind}")
+    raise ValueError(f"unknown norm: {kind}")
+
+
+make_final_norm = make_norm  # backwards-compatible alias
 
 
 class SweepLM(nn.Module):
     """Config-driven bilinear LM: Embed -> [attn (+ mlp)] x n_layers -> norm -> Unembed."""
     def __init__(self, vocab_size, n_ctx, d_model, n_layers, use_mlp,
                  final_norm="layernorm", rope_base=10000,
-                 std_embed=0.02, std_qkv=0.02, std_o=0.01, rezero_init=None):
+                 std_embed=0.02, std_qkv=0.02, std_o=0.01, rezero_init=None,
+                 layer_norm="none"):
         super().__init__()
         n_head = max(1, d_model // D_HEAD)
         self.embed = nn.Embedding(vocab_size, d_model)
         self.attn_layers = nn.ModuleList([
             BilinearBatchNormAttention(d_model, n_head, n_ctx, rope_base=rope_base,
-                                       rezero_init=rezero_init)
+                                       rezero_init=rezero_init, layer_norm=layer_norm)
             for _ in range(n_layers)
         ])
         self.mlp_layers = nn.ModuleList([
-            BilinearMLP(d_model, rezero_init=rezero_init) if use_mlp else None
+            BilinearMLP(d_model, rezero_init=rezero_init, layer_norm=layer_norm) if use_mlp else None
             for _ in range(n_layers)
         ])
         self.final_norm = make_final_norm(final_norm, d_model)
@@ -375,15 +406,70 @@ def make_loaders(data, n_ctx, batch_size, smoke_val_ids=None):
 
 
 # =============================================================================
+# Diagnostics — localize where a (finite) failure originates: activations or weights
+# =============================================================================
+
+@torch.no_grad()
+def collect_diagnostics(net, ids):
+    """Per-layer activation per-token RMS (max = the blow-up signal) and per-matrix
+    weight norms (Frobenius + top singular value). Eval-mode forward, no stat update."""
+    was_training = net.training
+    net.eval()
+    rec = {}
+
+    def ptrms_max(t):  # max per-token RMS across the batch — where activations explode
+        return round(t.float().pow(2).mean(-1).sqrt().max().item(), 3)
+
+    x = net.embed(ids)
+    rec["act_embed"] = ptrms_max(x)
+    for i, (attn, mlp) in enumerate(zip(net.attn_layers, net.mlp_layers)):
+        x = attn(x)
+        rec[f"act_L{i}_attn"] = ptrms_max(x)
+        if mlp is not None:
+            x = x + mlp(x)
+            rec[f"act_L{i}_mlp"] = ptrms_max(x)
+
+    def wnorms(W):
+        return round(W.norm().item(), 3), round(torch.linalg.svdvals(W.float())[0].item(), 3)
+
+    for i, attn in enumerate(net.attn_layers):
+        for nm in ("q1", "k1", "q2", "k2", "v", "o"):
+            fro, sv = wnorms(getattr(attn, nm).weight)
+            rec[f"w_L{i}_{nm}_fro"], rec[f"w_L{i}_{nm}_sv"] = fro, sv
+    for i, mlp in enumerate(net.mlp_layers):
+        if mlp is not None:
+            for nm in ("L", "R", "D"):
+                fro, sv = wnorms(getattr(mlp, nm).weight)
+                rec[f"w_L{i}_{nm}_fro"], rec[f"w_L{i}_{nm}_sv"] = fro, sv
+    rec["w_unembed_fro"] = round(net.unembed.weight.norm().item(), 3)
+    if was_training:
+        net.train()
+    return rec
+
+
+def diag_summary(net, ids, tag):
+    """One-line human summary: which layer's activations / which weight is largest."""
+    rec = collect_diagnostics(net, ids)
+    acts = {k: v for k, v in rec.items() if k.startswith("act_")}
+    svs = {k: v for k, v in rec.items() if k.endswith("_sv")}
+    hot_act = max(acts, key=acts.get)
+    hot_w = max(svs, key=svs.get) if svs else ("n/a", 0)
+    print(f"    diag {tag}: peak act-rms {hot_act}={acts[hot_act]} | "
+          f"largest weight σ {hot_w}={svs.get(hot_w, 0)}")
+
+
+# =============================================================================
 # Train one config
 # =============================================================================
 
 def train_one(variant, d_model, final_norm, *, steps, batch_size, n_ctx,
-              data, device, use_compile, use_muon, lr, rezero_init=None):
+              data, device, use_compile, use_muon, lr, rezero_init=None,
+              layer_norm="none", diagnostics=False, run_dir=None, tag=None):
     cfg = VARIANTS[variant]
     torch.manual_seed(42)
     model = SweepLM(VOCAB_SIZE, n_ctx, d_model, cfg["n_layers"], cfg["use_mlp"],
-                    final_norm=final_norm, rezero_init=rezero_init).to(device)
+                    final_norm=final_norm, rezero_init=rezero_init,
+                    layer_norm=layer_norm).to(device)
     if use_compile:
         model = torch.compile(model)
     n_params = sum(p.numel() for p in model.parameters())
@@ -394,23 +480,38 @@ def train_one(variant, d_model, final_norm, *, steps, batch_size, n_ctx,
     scheduler = create_scheduler(optimizer, warmup_steps=min(100, steps // 5), max_steps=steps)
     train_dl, val_dl, val_ids = make_loaders(data, n_ctx, batch_size)
 
+    net = getattr(model, "_orig_mod", model)   # unwrap torch.compile for diagnostics
+    diag_path = diag_batch = None
+    if diagnostics and run_dir is not None:
+        (run_dir / "diag").mkdir(exist_ok=True)
+        diag_path = run_dir / "diag" / f"{tag}.jsonl"
+        diag_batch = val_ids[:32].to(device)        # fixed batch -> comparable across steps
+    diag_every = max(1, steps // 25)
+
     init_val = evaluate(model, val_dl, device)
     model.train()
-    step, t0 = 0, time.time()
+    step, t0, last_grad = 0, time.time(), float("nan")
     for batch in cycle(train_dl):
         if step >= steps:
             break
         ids = batch[0].to(device) if isinstance(batch, (list, tuple)) else batch["input_ids"].to(device)
+        if diag_path is not None and (step % diag_every == 0 or step == steps - 1):
+            rec = {"step": step, "loss": round(loss.item(), 4) if step else None,
+                   "grad_norm": round(float(last_grad), 4), **collect_diagnostics(net, diag_batch)}
+            with open(diag_path, "a") as f:
+                f.write(json.dumps(rec) + "\n")
         optimizer.zero_grad()
         with torch.amp.autocast(device, dtype=torch.bfloat16, enabled=(device == "cuda")):
             loss = compute_loss(model(ids), ids)
         loss.backward()
-        torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
+        last_grad = torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
         optimizer.step()
         scheduler.step()
         step += 1
 
     final_val = evaluate(model, val_dl, device)
+    if diag_path is not None:
+        diag_summary(net, diag_batch, tag)
     return {
         "variant": variant, "d_model": d_model, "final_norm": final_norm,
         "n_params": n_params, "init_val": init_val, "final_val": final_val,
@@ -425,7 +526,7 @@ def train_one(variant, d_model, final_norm, *, steps, batch_size, n_ctx,
 
 def run_sweep(*, variants, widths, norms, steps, batch_size, n_ctx,
               data, use_compile, use_muon, lr, save_checkpoints=False, top_tokens=0,
-              rezero_init=None):
+              rezero_init=None, layer_norm="none", diagnostics=False):
     device = "cuda" if torch.cuda.is_available() else "cpu"
     timestamp = datetime.now().strftime("%Y-%m-%d_%H%M%S")
     run_dir = Path(__file__).parent / "runs" / f"{timestamp}_sweep"
@@ -436,21 +537,24 @@ def run_sweep(*, variants, widths, norms, steps, batch_size, n_ctx,
 
     print(f"=== Bilinear architecture sweep ===")
     print(f"device={device} data={data} steps={steps} bs={batch_size} n_ctx={n_ctx} "
-          f"compile={use_compile} muon={use_muon} rezero_init={rezero_init}")
-    print(f"variants={variants}  widths={widths}  norms={norms}")
+          f"compile={use_compile} muon={use_muon} rezero_init={rezero_init} "
+          f"layer_norm={layer_norm} diagnostics={diagnostics}")
+    print(f"variants={variants}  widths={widths}  norms={norms}  (final-norm is the ablation)")
     print(f"run_dir={run_dir}\n")
 
     results = []
     for norm in norms:
         for d_model in widths:
             for variant in variants:
+                tag = f"{variant}_d{d_model}_{norm}"
                 r = train_one(variant, d_model, norm, steps=steps, batch_size=batch_size,
                               n_ctx=n_ctx, data=data, device=device,
                               use_compile=use_compile, use_muon=use_muon, lr=lr,
-                              rezero_init=rezero_init)
+                              rezero_init=rezero_init, layer_norm=layer_norm,
+                              diagnostics=diagnostics, run_dir=run_dir, tag=tag)
                 row = {k: r[k] for k in ("variant", "d_model", "final_norm", "n_params",
                                          "init_val", "final_val", "steps", "secs")}
-                tag = f"{variant}_d{d_model}_{norm}"
+                row["layer_norm"] = layer_norm
                 # Step 3: log the datapoints each setting learns best (lowest next-token CE).
                 if top_tokens:
                     learned = most_learned_tokens(r["model"], r["val_ids"], device, top_k=top_tokens)
@@ -489,14 +593,18 @@ def print_ordering(results):
     for (d_model, norm), vals in sorted(by_group.items()):
         seq = [(v, vals[v]) for v in order if v in vals]
         line = "  ".join(f"{v}={l:.3f}" for v, l in seq)
+        diverged = [v for v, l in vals.items() if not math.isfinite(l)]   # nan/inf = failed run
         violations = [f"{more}>{fewer}"
                       for fewer, more in pairs
                       if fewer in vals and more in vals
+                      and math.isfinite(vals[fewer]) and math.isfinite(vals[more])
                       and vals[more] > vals[fewer] + 0.02 + 0.05 * abs(vals[fewer])]
-        all_ok &= not violations
-        flag = "OK " if not violations else "XX " + ",".join(violations)
-        print(f"  d={d_model} {norm:<11} {flag:<24} {line}")
-    print(f"\n{'✓ all monotonic' if all_ok else '✗ NON-MONOTONIC — investigate (bug or undertrained)'}")
+        all_ok &= not violations and not diverged
+        flags = (["XX " + ",".join(violations)] if violations else []) + \
+                ([f"DIVERGED:{','.join(diverged)}"] if diverged else [])
+        flag = "  ".join(flags) if flags else "OK "
+        print(f"  d={d_model} {norm:<11} {flag:<28} {line}")
+    print(f"\n{'✓ all monotonic' if all_ok else '✗ NON-MONOTONIC / DIVERGED — investigate (bug, instability, or undertrained)'}")
 
 
 def main():
@@ -522,6 +630,13 @@ def main():
     p.add_argument("--rezero-init", type=float, default=None,
                    help="ReZero: learnable residual scale init (foldable). ~0.25 stabilizes "
                         "deep static-rms; None=fixed scale 1.0 (default)")
+    p.add_argument("--layer-norm", type=str, default="none",
+                   choices=["none", "rmsnorm", "static-rms", "layernorm"],
+                   help="per-layer pre-norm on every block (depth stabilizer). "
+                        "rmsnorm needed for deep stacks; the *final* norm (--norms) is the ablation")
+    p.add_argument("--diagnostics", action="store_true",
+                   help="log per-layer activation RMS + per-matrix weight norms over training "
+                        "to runs/<ts>/diag/<tag>.jsonl (localizes where a finite failure originates)")
     args = p.parse_args()
 
     if args.smoke:
@@ -539,7 +654,7 @@ def main():
         steps=args.steps, batch_size=args.batch_size, n_ctx=args.n_ctx,
         data=args.data, use_compile=not args.no_compile, use_muon=args.muon, lr=args.lr,
         save_checkpoints=args.save_checkpoints, top_tokens=args.top_tokens,
-        rezero_init=args.rezero_init,
+        rezero_init=args.rezero_init, layer_norm=args.layer_norm, diagnostics=args.diagnostics,
     )
 
 

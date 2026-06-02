@@ -20,6 +20,7 @@ tokens ─▶ Embed ─▶ [ bilinear-attn (+ bilinear-MLP) ] × n_layers ─▶
 | Bilinear attention | `(Q₁x·K₁x)(Q₂x·K₂x)/d_h²`, causal | ✅ degree-4 polynomial |
 | BatchNorm on Q/K | per-channel affine at inference | ✅ folds into Q/K weights |
 | Bilinear MLP | `D(Lx ⊙ Rx)` | ✅ degree-2 polynomial |
+| Per-layer pre-norm (`--layer-norm`) | `rmsnorm` per block (depth stabilizer) | ❌ per-sample (use `static-rms` to fold) |
 | ReZero scalar (`--rezero-init`) | learnable `α` in `x + α·branch(x)` | ✅ folds into `o`/`D` |
 | `final_norm=layernorm` | `1/√var(x)` (per-sample) | ❌ does **not** fold |
 | `final_norm=static-rms` | `/ running_rms` (fixed scalar) | ✅ folds into Unembed |
@@ -46,6 +47,14 @@ python train_sweep.py --steps 6000 --widths 128 --norms layernorm,static-rms,non
 python train_sweep.py --data pile --steps 6000 --top-tokens 10 --save-checkpoints    # + interp outputs
 ```
 
+- `--layer-norm {none,rmsnorm,static-rms,layernorm}` — **per-layer pre-norm on every block**
+  (depth stabilizer). Deep stacks (`attn4`/`xf4`) **diverge to NaN without it** even with a
+  LayerNorm *final* — the degree-4 attention compounds across layers. `rmsnorm` (per-sample) is
+  the effective fix; the **final** norm (`--norms`) remains the ablation. ⚠ per-layer `rmsnorm` is
+  per-sample → not foldable on its own (use `static-rms` per-layer for a foldable stack).
+- `--diagnostics` — logs per-layer activation RMS + per-matrix weight norms (Frobenius + top
+  singular value) over training to `runs/<ts>_sweep/diag/<tag>.jsonl`, and prints a one-line
+  "where did it blow up" summary. Localizes finite failures to a layer / weight.
 - `--top-tokens N` logs, per config, the N `(seq, pos)` datapoints with the lowest next-token CE
   (what each setting learns best) into `runs/<ts>_sweep/sweep.jsonl`.
 - `--save-checkpoints` writes per-config `state_dict`s (torch.compile-unwrapped) to
