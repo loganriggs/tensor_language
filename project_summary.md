@@ -139,7 +139,53 @@ Two conclusions:
      a.k.a. ReZero / SkipInit). It **folds into `o`/`D` at inference**, so the model stays a
      tensor network, and it tames the `xf2` drift back to `none`-level.
 
-### 5.4 Where the ideas came from (lit review)
+### 5.4 Depth needs per-layer normalization — and that's where foldability now bites
+
+Pushing to **4 layers** (`xf4`) exposed the real structural issue. At `lr=3e-3`:
+
+- `xf4` with **no per-layer norm diverges to NaN** — *even with a LayerNorm final norm*. The
+  degree-4 attention compounds across 4 layers with nothing to bound the residual stream between
+  blocks. This is a **depth** problem, not a final-norm problem.
+- Adding a **per-layer pre-norm** (`--layer-norm`, normalize each block's input, residual stays on
+  raw `x`) fixes it. With per-layer `rmsnorm`, the **full ladder is monotonic through 4 layers for
+  every final-norm choice** (8k-step streaming Pile, d=128):
+
+  | final norm | embed | attn2 | xf2 | xf4 |
+  |---|---|---|---|---|
+  | `layernorm` | 5.903 | 5.776 | 5.554 | **5.487** |
+  | `none` | 6.010 | 5.737 | 5.566 | **5.480** ← best |
+  | `static-rms` | 5.902 | 5.636 | 5.605 | 5.575 |
+
+  **Once per-layer normalization does the work, the *final* norm barely matters — `none` (no final
+  norm at all) is actually best at depth.** The original "which final norm" question dissolves.
+
+- **A fully-foldable deep stack *does* train** — with one caveat about *stacking* norms. The
+  per-layer × final norm grid at `xf4` (8k steps, d=128):
+
+  | per-layer ↓ / final → | `static-rms` | `none` |
+  |---|---|---|
+  | **`static-rms`** (foldable) | **6.408 💥** | **5.616 ✅** |
+  | **`rmsnorm`** (per-sample) | 5.575 | 5.480 |
+
+  The fully-foldable config — per-layer `static-rms` + final `none` (both fold) — is **stable and
+  monotonic-ish through 4 layers** (6.010→5.712→5.579→5.616), trailing the non-foldable per-layer
+  `rmsnorm` by only ~0.13. **The explosion only happens with per-layer `static-rms` *and* final
+  `static-rms`** — stacking two running-scalar norms creates a training-time feedback that blows up
+  the weights (`--diagnostics`: `act_L2_mlp=5.9e6`, weight σ `w_L0_v=106`). **Don't stack two
+  global-scalar norms.**
+
+**Where this leaves foldability (revised):**
+- **Shallow (1–2 layer):** fully foldable, ~matches LayerNorm.
+- **Deep (4-layer):** a foldable stack (per-layer `static-rms` + final `none`) trains and is stable;
+  it just **plateaus** at the deepest layer instead of improving, and trails per-sample `rmsnorm` by
+  ~0.13. Per-token `rmsnorm` between layers is strictly better but doesn't fold.
+
+So the tension is **softer than it first looked**: deep + foldable works, the question is closing
+the ~0.13 gap. **Promising lead (untested):** the non-foldable advantage comes from per-token
+control; the gap may close with **spectral-normalized weights** (σReparam, foldable) on top of the
+foldable per-layer `static-rms`, since the failure mode is weight-driven (σ=106).
+
+### 5.5 Where the ideas came from (lit review)
 
 - **ReZero / SkipInit / Fixup** — learnable small-init residual scalar; stabilize deep residual
   nets without normalization. → our `--rezero-init`.
@@ -154,15 +200,18 @@ Two conclusions:
 
 | flag | effect |
 |---|---|
+| `--layer-norm KIND` | **per-layer pre-norm** on every block (`none`/`rmsnorm`/`static-rms`/`layernorm`). Needed to train deep stacks; the *final* norm stays the ablation |
+| `--diagnostics` | log per-layer activation per-token RMS + per-matrix weight norms (Frobenius + top σ) → `runs/<ts>/diag/<tag>.jsonl`, with a "where did it blow up" summary |
 | `--rezero-init F` | learnable foldable residual scalar init `F` (e.g. `0.25`); `None`=fixed 1.0 |
 | `--top-tokens N` | log the N `(seq,pos)` datapoints each config predicts best → `sweep.jsonl` |
 | `--save-checkpoints` | per-config compile-unwrapped `state_dict`s → `runs/<ts>/checkpoints/` |
 | `attn4` / `xf4` variants | opt-in 4-layer depth stress test (`--variants attn4,xf4`) |
 
-Reproduce the confirmed sweep:
+Reproduce the depth sweep:
 ```bash
-python train_sweep.py --data pile --steps 6000 --widths 128 --n-ctx 128 \
-    --norms layernorm,static-rms,none
+python train_sweep.py --data pile --steps 8000 --widths 128 --n-ctx 128 \
+    --layer-norm rmsnorm --norms layernorm,static-rms,none \
+    --variants embed_unembed,attn2,xf2,xf4 --diagnostics
 ```
 
 ---
@@ -170,14 +219,27 @@ python train_sweep.py --data pile --steps 6000 --widths 128 --n-ctx 128 \
 ## 7. Current status
 
 - ✅ Wiring verified; loss ordering confirmed on real streaming Pile.
-- ✅ `static-rms` "instability" resolved (benchmark artifact); foldable stack trains & is monotonic.
-- ✅ Depth drift identified + fixed (`none`, or `static-rms`+ReZero).
-- 🔬 **In progress (background):** a broad sweep over **depth × norm × ReZero-init × width** at
-  longer steps (10k), including the 4-layer `xf4` stress test and `d=256`. Results will land in
-  `runs/<timestamp>_sweep/sweep.jsonl` and be folded into this file + the README.
+- ✅ `static-rms` "instability" resolved — it was a cached-overfit artifact (§5.1).
+- ✅ At **2 layers**, a fully-foldable stack trains and is monotonic, ~matching LayerNorm.
+- ✅ **Depth solved with per-layer normalization** (§5.4): with per-layer `rmsnorm` the full ladder
+  is monotonic through 4 layers for *every* final norm; `none` final is best — **no final norm
+  needed**.
+- ✅ **Deep + foldable works**: per-layer `static-rms` + final `none` (both fold) trains and is
+  stable through 4 layers (`xf4`=5.616), ~0.13 behind the non-foldable per-layer `rmsnorm` (5.480).
+  Caveat: **don't stack** per-layer `static-rms` with final `static-rms` — the double running-scalar
+  norm blows up the weights (`xf4` loss 6.41).
+- ✅ `--diagnostics` localizes failures (it pinned the double-norm `xf4` blow-up to the layer-2
+  MLP / a σ=106 weight, and distinguished it from the stable single-norm config).
 
-### Open questions the broad sweep targets
-1. Does the foldable stack stay monotonic/stable at **4 layers** + 10k steps?
-2. Does ReZero fix the drift at `xf4` too, and what's the best init (0.1 / 0.25 / 0.5)?
-3. Does the ordering hold and the gap widen at **larger width** (toward the d=512 reference of 4.72)?
-4. Final call: canonical TN-pure default — **`none`** vs **`static-rms` + ReZero**.
+### The open fork — close the ~0.13 deep gap while staying foldable
+1. **Spectral-norm / σReparam the weights** (foldable) on top of per-layer `static-rms` — the
+   double-norm blow-up was weight-driven (σ=106); capping σ may also let the stable foldable config
+   keep improving at depth instead of plateauing. *Most promising; untested at depth.*
+2. **Per-token rmsnorm during training, fold post-hoc** to a frozen running statistic (analogous to
+   BatchNorm→inference) — recovers the per-token benefit if the static approximation holds.
+3. **Stay shallow (≤2 layers)** for strict foldability and scale width instead.
+
+### Other open threads
+- Width scaling (`d=256/512`) toward the d=512 reference val of 4.72 — not yet run.
+- ReZero (`--rezero-init`) interaction with per-layer norm — likely redundant now that per-layer
+  norm handles depth, but untested.

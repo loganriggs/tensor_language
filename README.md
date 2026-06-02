@@ -93,24 +93,40 @@ to uniform logits. It is impossible to match LayerNorm there *by construction*, 
 on fresh streaming data (no memorization) `static-rms` is monotonic and within **~0.07 CE** of
 LayerNorm. **Don't judge foldable norms on the cached set — use streaming Pile.**
 
-The one real residual effect is **depth**: the deepest variant (`xf2` = 2-layer + bilinear MLP)
-under `static-rms` slowly *drifts up* during training (U-shaped: 5.63 @4k → 5.87 @6k). It is
-*not* a tuning fix — lower lr diverges harder (6.60 @ `lr=1e-3`). The clean fixes are:
-- **`final_norm=none`** — fully stable and monotonic at every depth (purest tensor network), ~0.2 CE behind LayerNorm.
-- **`--rezero-init 0.25`** — a learnable per-branch residual scalar (`x = x + α·branch(x)`, ReZero/SkipInit).
-  It folds into `o`/`D` at inference (stays TN-pure) and tames the `xf2` drift to ~`none` level.
-  `static-rms` still edges out `none` for the *shallow* variants, so `static-rms + rezero` is the
-  best all-round foldable default.
+### Depth needs per-layer normalization — and that relocates the foldability problem
+The above is 1–2 layers. Pushing to **4 layers** (`xf4`) exposed the real structural issue: at
+`lr=3e-3`, `xf4` **diverges to NaN with no per-layer norm — even with a LayerNorm final**. The
+fix is a **per-layer pre-norm** (`--layer-norm`) on every block. With per-layer `rmsnorm` the full
+ladder is monotonic through 4 layers for *every* final norm (8k-step streaming Pile, d=128), and
+**`none` final is best — no final norm is needed once per-layer normalization does the work**:
+
+| final norm | embed | attn2 | xf2 | xf4 |
+|---|---|---|---|---|
+| `layernorm` | 5.903 | 5.776 | 5.554 | 5.487 |
+| `none` | 6.010 | 5.737 | 5.566 | **5.480** |
+| `static-rms` | 5.902 | 5.636 | 5.605 | 5.575 |
+
+**A fully-foldable deep stack *does* train** — the per-layer × final norm grid at `xf4`:
+
+| per-layer ↓ / final → | `static-rms` | `none` |
+|---|---|---|
+| `static-rms` (foldable) | 6.408 💥 | **5.616 ✅** |
+| `rmsnorm` (per-sample) | 5.575 | 5.480 |
+
+Per-layer `static-rms` + final `none` (both fold) is stable & monotonic-ish through 4 layers,
+trailing the non-foldable per-layer `rmsnorm` by only ~0.13. The **💥 only happens when you stack
+two running-scalar norms** (per-layer *and* final `static-rms`) — that blows up the weights
+(`--diagnostics`: `act_L2_mlp=5.9e6`, σ=106). **Don't stack two global-scalar norms.** So **deep +
+foldable works**; the open question is closing the ~0.13 gap (see `project_summary.md` → spectral-
+norm the weights).
 
 ### Next steps
-1. ~~Fix `StaticRMSNorm` stability~~ / ~~real Pile run~~ / ~~log `most_learned_tokens()`~~ /
-   ~~checkpoint saving~~ — **done** (see table; `--top-tokens`, `--save-checkpoints`, `--rezero-init`).
-2. Scale up: widths `128,256,512` and longer steps to widen the variant gaps (they're ~0.1–0.4
-   apart at 6k/d128) and approach the d=512 reference val of 4.72.
-3. Confirm `static-rms + rezero` keeps its shallow-variant edge across a full ladder, then pick
-   the canonical TN-pure default (`none` vs `static-rms+rezero`).
-4. Use the saved checkpoints + `top-tokens` for the mech-interp pass (which datapoints each
-   component learns first).
+1. ~~Fix `StaticRMSNorm`~~ / ~~real Pile run~~ / ~~log `most_learned_tokens()`~~ /
+   ~~checkpoint saving~~ / ~~per-layer norm for depth~~ / ~~failure diagnostics~~ — **done**.
+2. **Deep + foldable:** try per-layer `static-rms` **+ spectral-normalized weights** (σReparam,
+   foldable) to contain the weight-driven `xf4` explosion. Most promising open lead.
+3. Scale up width (`256,512`) toward the d=512 reference val of 4.72.
+4. Mech-interp pass using the saved checkpoints + `--top-tokens`.
 
 ## Provenance
 Consolidated from `tensor-mars/workspaces/logan/`: self-contained bilinear+BatchNorm attention
