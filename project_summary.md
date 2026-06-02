@@ -193,15 +193,47 @@ configs on identical data, 5000 steps (`train_depth_curves.py`):
   recovers). Per-sample `rmsnorm` scales fine, and **`none` final beats `layernorm` final** (5.489
   vs 5.635) — confirming again no final norm is needed.
 
-So there's a **depth ceiling for the fully-polynomial stack** (~good ≤2, plateau ~4, diverge ~8):
-a global-scalar per-layer norm cannot contain the per-token blow-up that 8 layers of degree-4
-attention create. **Per-token normalization between layers is what scales with depth — and it does
-not fold.** This is the central open problem.
+So there *was* an apparent **depth ceiling for the fully-polynomial stack** (~good ≤2, plateau ~4,
+diverge ~8). **§5.5 shows it is liftable** — small ReZero (+ spectral norm), both foldable, train
+the 8-layer fully-polynomial stack.
 
-**Promising lead (untested):** the divergence is weight-driven (σ blows up); **spectral-normalized
-weights** (σReparam, foldable) on top of per-layer `static-rms` may raise the foldable depth ceiling.
+### 5.5 The fully-polynomial depth ceiling is liftable (weight diagnosis → ReZero + spectral)
 
-### 5.5 Where the ideas came from (lit review)
+**Why xf8 diverges (weight diagnosis, `--diagnostics`).** Per-matrix spectral norm σ in the diverged
+fully-polynomial `xf8`:
+
+| matrix | diverged (static-rms layers) | stable (rmsnorm layers) |
+|---|---|---|
+| Q1/K1/Q2/K2 | ~7 *(BatchNormed → absorbed)* | ~4–5 |
+| v, o | 2.5–3 | 2.3–2.6 |
+| **L, R, D (bilinear MLP)** | **7.8 / 7.8 / 8.4** | 2.7 / 2.7 / 3.6 |
+| grad_norm | **126** 💥 | 0.4 |
+
+**The QK weights are a red herring** — they're ~σ7 in every config but a BatchNorm sits right after
+Q/K, so their magnitude is re-normalized away. **The culprit is the bilinear MLP (`L,R,D`)**: with a
+foldable global-scalar per-layer norm, per-token MLP inputs are unbounded, `D(Lx ⊙ Rx)` squares them,
+and `L/R/D` run away to σ≈8.
+
+**The fix (both foldable).** Hyperparam sweep on the fully-polynomial `xf8` (3k steps, train CE):
+
+| stabilizer | `xf8` |
+|---|---|
+| none (baseline) | NaN 💥 |
+| **spectral-norm + ReZero 0.1** | **5.872** ✅ best |
+| ReZero 0.1 only | 5.981 ✅ |
+| spectral-norm only | 6.304 ✅ |
+| spectral-norm + ReZero 0.25 | NaN 💥 (rezero too large) |
+
+- **ReZero ≈0.1 is the primary foldable stabilizer** (bounds each layer's residual contribution so
+  the per-token magnitude can't compound across 8 layers); **spectral norm** (`--spectral-norm`, caps
+  `v,o,L,R,D` σ→1, also foldable) adds a bit more. ReZero init matters: 0.1 stable, 0.25 diverges.
+- So **deep + foldable is achievable**: a fully-polynomial 8-layer stack trains stably with
+  ReZero ~0.1 (+ optional spectral norm), ~0.3–0.4 behind the non-foldable per-sample `rmsnorm` at
+  equal (short) budget. (`assets/loss_curves_xf8_foldable.png` — confirming longer run.)
+- Gotcha found along the way: **`torch.compile` + `spectral_norm` → NaN** (stale power-iteration
+  buffers); the code auto-disables compile when spectral is on.
+
+### 5.6 Where the ideas came from (lit review)
 
 - **ReZero / SkipInit / Fixup** — learnable small-init residual scalar; stabilize deep residual
   nets without normalization. → our `--rezero-init`.
@@ -218,10 +250,11 @@ weights** (σReparam, foldable) on top of per-layer `static-rms` may raise the f
 |---|---|
 | `--layer-norm KIND` | **per-layer pre-norm** on every block (`none`/`rmsnorm`/`static-rms`/`layernorm`). Needed to train deep stacks; the *final* norm stays the ablation |
 | `--diagnostics` | log per-layer activation per-token RMS + per-matrix weight norms (Frobenius + top σ) → `runs/<ts>/diag/<tag>.jsonl`, with a "where did it blow up" summary |
-| `--rezero-init F` | learnable foldable residual scalar init `F` (e.g. `0.25`); `None`=fixed 1.0 |
+| `--rezero-init F` | learnable foldable residual scalar init `F` (≈0.1 stabilizes deep stacks); `None`=fixed 1.0 |
+| `--spectral-norm` | spectral-normalize `v,o,L,R,D` (σ→1), foldable; caps the deep bilinear-MLP blow-up (Q/K skipped — BatchNormed). Auto-disables `torch.compile` (compile+spectral→NaN) |
 | `--top-tokens N` | log the N `(seq,pos)` datapoints each config predicts best → `sweep.jsonl` |
 | `--save-checkpoints` | per-config compile-unwrapped `state_dict`s → `runs/<ts>/checkpoints/` |
-| `attn4` / `xf4` variants | opt-in 4-layer depth stress test (`--variants attn4,xf4`) |
+| `attn4/xf4`, `attn8/xf8` variants | opt-in 4- and 8-layer depth stress tests |
 
 Reproduce the depth sweep:
 ```bash
@@ -240,22 +273,18 @@ python train_sweep.py --data pile --steps 8000 --widths 128 --n-ctx 128 \
 - ✅ **Depth solved with per-layer normalization** (§5.4): with per-layer `rmsnorm` the full ladder
   is monotonic through 4 layers for *every* final norm; `none` final is best — **no final norm
   needed**.
-- ✅ **Deep + foldable works**: per-layer `static-rms` + final `none` (both fold) trains and is
-  stable through 4 layers (`xf4`=5.616), ~0.13 behind the non-foldable per-layer `rmsnorm` (5.480).
-  Caveat: **don't stack** per-layer `static-rms` with final `static-rms` — the double running-scalar
-  norm blows up the weights (`xf4` loss 6.41).
-- ✅ `--diagnostics` localizes failures (it pinned the double-norm `xf4` blow-up to the layer-2
-  MLP / a σ=106 weight, and distinguished it from the stable single-norm config).
+- ✅ **Deep + foldable works at 4 layers** (per-layer `static-rms` + final `none`, ~0.13 behind
+  per-sample `rmsnorm`). Caveat: **don't stack** per-layer `static-rms` with final `static-rms`.
+- ✅ **Deep + foldable works at 8 layers too** (§5.5): the apparent depth ceiling is liftable —
+  **ReZero ~0.1 (+ optional spectral norm)**, both foldable, train the fully-polynomial `xf8` that
+  otherwise diverges. Weight diagnosis showed the blow-up is the bilinear-MLP `L/R/D` weights (QK are
+  a BatchNormed red herring).
+- ✅ `--diagnostics` localizes failures (pinned blow-ups to specific layers/matrices throughout).
 
-### The open fork — close the ~0.13 deep gap while staying foldable
-1. **Spectral-norm / σReparam the weights** (foldable) on top of per-layer `static-rms` — the
-   double-norm blow-up was weight-driven (σ=106); capping σ may also let the stable foldable config
-   keep improving at depth instead of plateauing. *Most promising; untested at depth.*
-2. **Per-token rmsnorm during training, fold post-hoc** to a frozen running statistic (analogous to
-   BatchNorm→inference) — recovers the per-token benefit if the static approximation holds.
-3. **Stay shallow (≤2 layers)** for strict foldability and scale width instead.
-
-### Other open threads
-- Width scaling (`d=256/512`) toward the d=512 reference val of 4.72 — not yet run.
-- ReZero (`--rezero-init`) interaction with per-layer norm — likely redundant now that per-layer
-  norm handles depth, but untested.
+### Open threads
+1. **Longer / wider confirmation** of the foldable `xf8` winner (ReZero 0.1 + spectral) vs the
+   non-foldable `rmsnorm` best — how much does the ~0.3 gap close with more steps / `d=256,512`?
+2. **Width scaling** toward the d=512 reference val of 4.72 — not yet run.
+3. **Mech-interp** using saved checkpoints + `--top-tokens` (which datapoints each component learns).
+4. Minor: `spectral_norm` + `torch.compile` NaN is worked around by auto-disabling compile; a
+   compile-safe spectral implementation would restore the speedup.

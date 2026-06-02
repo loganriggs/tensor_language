@@ -114,18 +114,29 @@ ladder is monotonic through 4 layers for *every* final norm (8k-step streaming P
 | `rmsnorm` (per-sample) | 5.575 | 5.480 |
 
 Per-layer `static-rms` + final `none` (both fold) is stable & monotonic-ish through 4 layers,
-trailing the non-foldable per-layer `rmsnorm` by only ~0.13. The **💥 only happens when you stack
-two running-scalar norms** (per-layer *and* final `static-rms`) — that blows up the weights
-(`--diagnostics`: `act_L2_mlp=5.9e6`, σ=106). **Don't stack two global-scalar norms.** So **deep +
-foldable works**; the open question is closing the ~0.13 gap (see `project_summary.md` → spectral-
-norm the weights).
+trailing per-sample `rmsnorm` by ~0.13. (💥 only when you *stack* two running-scalar norms.)
+
+**Deep + foldable scales to 8 layers** (see `project_summary.md` §5.5). The plain foldable `xf8`
+diverges (bilinear-MLP `L/R/D` weights blow to σ≈8; QK are a BatchNormed red herring), but it's
+fixable with foldable knobs — **ReZero ≈0.1 (`--rezero-init 0.1`) + spectral norm
+(`--spectral-norm`)**:
+
+| `xf8` (5k steps, identical data) | foldable? | train CE |
+|---|---|---|
+| non-foldable best (`rmsnorm` layers) | ❌ | 5.497 |
+| **foldable (static-rms + spectral + ReZero 0.1)** | ✅ | **5.665** (stable, ~0.17 back) |
+| foldable baseline (static-rms only) | ✅ | 6480 💥 |
+
+![xf8 foldable curves](assets/loss_curves_xf8_foldable.png)
+
+So a **fully-polynomial 8-layer stack trains** ~0.17 behind the non-foldable best (gap closing with
+steps), though its loss curve is spikier — it sits closer to the stability edge.
 
 ### Next steps
-1. ~~Fix `StaticRMSNorm`~~ / ~~real Pile run~~ / ~~log `most_learned_tokens()`~~ /
-   ~~checkpoint saving~~ / ~~per-layer norm for depth~~ / ~~failure diagnostics~~ — **done**.
-2. **Deep + foldable:** try per-layer `static-rms` **+ spectral-normalized weights** (σReparam,
-   foldable) to contain the weight-driven `xf4` explosion. Most promising open lead.
-3. Scale up width (`256,512`) toward the d=512 reference val of 4.72.
+1. ~~Fix `StaticRMSNorm`~~ / ~~Pile run~~ / ~~`most_learned_tokens`~~ / ~~checkpoints~~ /
+   ~~per-layer norm~~ / ~~diagnostics~~ / ~~deep+foldable (spectral+ReZero)~~ — **done**.
+2. Longer/wider run of the foldable `xf8` winner — how much of the ~0.17 gap closes?
+3. Scale width (`256,512`) toward the d=512 reference val of 4.72.
 4. Mech-interp pass using the saved checkpoints + `--top-tokens`.
 
 ## Provenance

@@ -30,11 +30,13 @@ import train_sweep as ts
 from train_sweep import DSIRPileStreaming
 from torch.utils.data import DataLoader
 
-# (label, final_norm, layer_norm, polynomial?)
 CONFIGS = [
-    ("layernorm final + rmsnorm layers",    "layernorm",  "rmsnorm",    False),
-    ("none final + rmsnorm layers",         "none",       "rmsnorm",    False),
-    ("none final + static-rms layers (TN)", "none",       "static-rms", True),
+    dict(label="non-foldable best (none + rmsnorm layers)",
+         final_norm="none", layer_norm="rmsnorm", spectral=False, rezero=None, poly=False),
+    dict(label="foldable WINNER (none + static-rms layers + spectral + rezero0.1)",
+         final_norm="none", layer_norm="static-rms", spectral=True, rezero=0.1, poly=True),
+    dict(label="foldable baseline (none + static-rms layers) — diverges",
+         final_norm="none", layer_norm="static-rms", spectral=False, rezero=None, poly=True),
 ]
 
 
@@ -50,11 +52,12 @@ def collect_batches(n_batches, n_ctx, batch_size):
     return out
 
 
-def train_curve(final_norm, layer_norm, batches, *, d_model, n_ctx, n_layers, lr, device, use_compile):
+def train_curve(cfg, batches, *, d_model, n_ctx, n_layers, lr, device, use_compile):
     torch.manual_seed(42)
     model = ts.SweepLM(ts.VOCAB_SIZE, n_ctx, d_model, n_layers, use_mlp=True,
-                       final_norm=final_norm, layer_norm=layer_norm).to(device)
-    if use_compile:
+                       final_norm=cfg["final_norm"], layer_norm=cfg["layer_norm"],
+                       spectral=cfg["spectral"], rezero_init=cfg["rezero"]).to(device)
+    if use_compile and not cfg["spectral"]:   # spectral_norm + compile -> NaN
         model = torch.compile(model)
     opt = ts.create_optimizer(model, lr=lr)
     sched = ts.create_scheduler(opt, warmup_steps=min(100, len(batches) // 5), max_steps=len(batches))
@@ -105,15 +108,16 @@ def main():
     batches = collect_batches(args.steps, args.n_ctx, args.batch_size)
 
     results = {}
-    for label, final_norm, layer_norm, is_poly in CONFIGS:
-        losses, secs = train_curve(final_norm, layer_norm, batches,
+    for cfg in CONFIGS:
+        losses, secs = train_curve(cfg, batches,
                                    d_model=args.d_model, n_ctx=args.n_ctx, n_layers=args.layers,
                                    lr=args.lr, device=device, use_compile=not args.no_compile)
         tail = sum(losses[-100:]) / len(losses[-100:])
-        results[label] = {"final_norm": final_norm, "layer_norm": layer_norm,
-                          "polynomial": is_poly, "losses": losses,
-                          "final_loss_avg100": round(tail, 4), "secs": secs}
-        print(f"  {label:38} final-100-avg={tail:.4f}  ({secs}s)", flush=True)
+        results[cfg["label"]] = {"final_norm": cfg["final_norm"], "layer_norm": cfg["layer_norm"],
+                                 "spectral": cfg["spectral"], "rezero": cfg["rezero"],
+                                 "polynomial": cfg["poly"], "losses": losses,
+                                 "final_loss_avg100": round(tail, 4), "secs": secs}
+        print(f"  {cfg['label']:60} final-100-avg={tail:.4f}  ({secs}s)", flush=True)
 
     with open(out_dir / "curves.json", "w") as f:
         json.dump({"config": vars(args), "results": results}, f)
