@@ -174,16 +174,32 @@ Pushing to **4 layers** (`xf4`) exposed the real structural issue. At `lr=3e-3`:
   the weights (`--diagnostics`: `act_L2_mlp=5.9e6`, weight σ `w_L0_v=106`). **Don't stack two
   global-scalar norms.**
 
-**Where this leaves foldability (revised):**
-- **Shallow (1–2 layer):** fully foldable, ~matches LayerNorm.
-- **Deep (4-layer):** a foldable stack (per-layer `static-rms` + final `none`) trains and is stable;
-  it just **plateaus** at the deepest layer instead of improving, and trails per-sample `rmsnorm` by
-  ~0.13. Per-token `rmsnorm` between layers is strictly better but doesn't fold.
+**Where this leaves foldability (revised), and the depth ceiling.** An 8-layer (`xf8`) run, three
+configs on identical data, 5000 steps (`train_depth_curves.py`):
 
-So the tension is **softer than it first looked**: deep + foldable works, the question is closing
-the ~0.13 gap. **Promising lead (untested):** the non-foldable advantage comes from per-token
-control; the gap may close with **spectral-normalized weights** (σReparam, foldable) on top of the
-foldable per-layer `static-rms`, since the failure mode is weight-driven (σ=106).
+![xf8 loss curves](assets/loss_curves_xf8.png)
+
+
+| config | foldable? | `xf8` train CE (last-100 avg) |
+|---|---|---|
+| `none` final + per-layer `rmsnorm` | ❌ | **5.489** (best) |
+| `layernorm` final + per-layer `rmsnorm` | ❌ | 5.635 |
+| `none` final + per-layer `static-rms` | ✅ | **8120 💥 diverged** |
+
+- **Shallow (1–2 layer):** fully foldable, ~matches LayerNorm.
+- **4 layers:** the foldable stack (per-layer `static-rms` + final `none`) still trains but
+  **plateaus** (`xf4`=5.616, ~0.13 behind per-sample `rmsnorm`).
+- **8 layers:** the foldable stack **diverges** (spikes to ~10⁵, limps back to ~10⁴ but never
+  recovers). Per-sample `rmsnorm` scales fine, and **`none` final beats `layernorm` final** (5.489
+  vs 5.635) — confirming again no final norm is needed.
+
+So there's a **depth ceiling for the fully-polynomial stack** (~good ≤2, plateau ~4, diverge ~8):
+a global-scalar per-layer norm cannot contain the per-token blow-up that 8 layers of degree-4
+attention create. **Per-token normalization between layers is what scales with depth — and it does
+not fold.** This is the central open problem.
+
+**Promising lead (untested):** the divergence is weight-driven (σ blows up); **spectral-normalized
+weights** (σReparam, foldable) on top of per-layer `static-rms` may raise the foldable depth ceiling.
 
 ### 5.5 Where the ideas came from (lit review)
 
