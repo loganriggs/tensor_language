@@ -67,7 +67,11 @@ y = att @ v
 Disable flash attention for the non-softmax variants (`self.flash = False`), since
 `scaled_dot_product_attention` hard-codes the exp softmax.
 
-Runs: `attn_kind in {"softmax" (baseline), "taylor", "spherical"}`, RMSNorm kept everywhere.
+Runs: `attn_kind in {"none", "softmax" (baseline), "taylor", "spherical"}`, RMSNorm kept
+everywhere, **single Q·K pair, no QK normalization**.
+- `none` = raw masked scores straight into `@v` with **no weight normalization** (`att = att * keep`).
+  This is what the bilinear architecture does by default, so it's the reference for "does any
+  softmax-like normalization help at all here?"
 
 ## Experiment 2: replace RMSNorm
 

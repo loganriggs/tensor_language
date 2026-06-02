@@ -99,7 +99,9 @@ class CausalSelfAttention(nn.Module):
         if self.attn_kind == "softmax":
             att = att.masked_fill(keep == 0, float("-inf"))
             att = F.softmax(att, dim=-1)
-        else:
+        elif self.attn_kind == "none":
+            att = att * keep                 # raw masked scores, NO weight normalization
+        else:                                # bilinear's default behavior, 1 qk pair
             att = poly_softmax(att, dim=-1, kind=self.attn_kind, keep=keep)
         att = self.attn_dropout(att)
         y = (att @ v).transpose(1, 2).contiguous().view(B, T, C)
@@ -283,7 +285,9 @@ def main():
     if args.experiment in ("1", "both"):
         print("=== Experiment 1: attention softmax variants (RMSNorm kept) ===")
         h1 = {}
-        for label, ak in [("softmax (baseline)", "softmax"), ("taylor", "taylor"), ("spherical", "spherical")]:
+        for label, ak in [("no-softmax / raw (bilinear default)", "none"),
+                          ("softmax (baseline)", "softmax"),
+                          ("taylor", "taylor"), ("spherical", "spherical")]:
             h1[label] = train_run(label, ak, "rmsnorm", base, **common)
         plot_ce(h1, "Exp 1: attention softmax variants (RMSNorm kept)", out / "exp1_attention.png")
         all_hist["exp1"] = h1
