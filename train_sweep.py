@@ -34,6 +34,14 @@ from datetime import datetime
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+from torch.nn.utils.parametrizations import spectral_norm as _spectral_norm
+
+
+def _maybe_sn(linear, spectral):
+    """Optionally spectral-normalize a Linear (σ→1). Foldable: it's a weight reparam,
+    fixed at inference. Bounds the un-normalized matrices (v,o,L,R,D) that drive the
+    deep-stack blow-up; Q/K are left alone (BatchNorm already normalizes them)."""
+    return _spectral_norm(linear) if spectral else linear
 import numpy as np
 from torch.utils.data import IterableDataset, Dataset, DataLoader, TensorDataset
 from torch.optim.lr_scheduler import LambdaLR
@@ -56,9 +64,11 @@ VARIANTS = {
     "attn1":         dict(n_layers=1, use_mlp=False),
     "attn2":         dict(n_layers=2, use_mlp=False),
     "attn4":         dict(n_layers=4, use_mlp=False),
+    "attn8":         dict(n_layers=8, use_mlp=False),
     "xf1":           dict(n_layers=1, use_mlp=True),
     "xf2":           dict(n_layers=2, use_mlp=True),
     "xf4":           dict(n_layers=4, use_mlp=True),
+    "xf8":           dict(n_layers=8, use_mlp=True),
 }
 DEFAULT_VARIANTS = ["embed_unembed", "attn1", "attn2", "xf1", "xf2"]
 
@@ -98,7 +108,7 @@ class BilinearBatchNormAttention(nn.Module):
     stacks (see README). `None` keeps the fixed scale (legacy behavior).
     """
     def __init__(self, d_model, n_head, n_ctx, scale=1.0, rope_base=10000, rezero_init=None,
-                 layer_norm="none"):
+                 layer_norm="none", spectral=False):
         super().__init__()
         self.d_head = d_model // n_head
         self.n_head = n_head
@@ -111,8 +121,8 @@ class BilinearBatchNormAttention(nn.Module):
         self.k1 = nn.Linear(d_model, d_model, bias=False)
         self.q2 = nn.Linear(d_model, d_model, bias=False)
         self.k2 = nn.Linear(d_model, d_model, bias=False)
-        self.v = nn.Linear(d_model, d_model, bias=False)
-        self.o = nn.Linear(d_model, d_model, bias=False)
+        self.v = _maybe_sn(nn.Linear(d_model, d_model, bias=False), spectral)
+        self.o = _maybe_sn(nn.Linear(d_model, d_model, bias=False), spectral)
 
         self.bn_q1 = nn.BatchNorm1d(d_model)
         self.bn_k1 = nn.BatchNorm1d(d_model)
@@ -148,12 +158,13 @@ class BilinearMLP(nn.Module):
 
     `rezero_init` (if not None) makes `scale` a learnable scalar (folds into `D`).
     """
-    def __init__(self, d_model, d_hidden=None, scale=1.0, rezero_init=None, layer_norm="none"):
+    def __init__(self, d_model, d_hidden=None, scale=1.0, rezero_init=None, layer_norm="none",
+                 spectral=False):
         super().__init__()
         d_hidden = d_hidden or 2 * d_model
-        self.L = nn.Linear(d_model, d_hidden, bias=False)
-        self.R = nn.Linear(d_model, d_hidden, bias=False)
-        self.D = nn.Linear(d_hidden, d_model, bias=False)
+        self.L = _maybe_sn(nn.Linear(d_model, d_hidden, bias=False), spectral)
+        self.R = _maybe_sn(nn.Linear(d_model, d_hidden, bias=False), spectral)
+        self.D = _maybe_sn(nn.Linear(d_hidden, d_model, bias=False), spectral)
         self.scale = nn.Parameter(torch.tensor(float(rezero_init))) if rezero_init is not None else scale
         self.prenorm = make_norm(layer_norm, d_model)
 
@@ -227,35 +238,46 @@ class SweepLM(nn.Module):
     def __init__(self, vocab_size, n_ctx, d_model, n_layers, use_mlp,
                  final_norm="layernorm", rope_base=10000,
                  std_embed=0.02, std_qkv=0.02, std_o=0.01, rezero_init=None,
-                 layer_norm="none"):
+                 layer_norm="none", spectral=False):
         super().__init__()
         n_head = max(1, d_model // D_HEAD)
         self.embed = nn.Embedding(vocab_size, d_model)
         self.attn_layers = nn.ModuleList([
             BilinearBatchNormAttention(d_model, n_head, n_ctx, rope_base=rope_base,
-                                       rezero_init=rezero_init, layer_norm=layer_norm)
+                                       rezero_init=rezero_init, layer_norm=layer_norm,
+                                       spectral=spectral)
             for _ in range(n_layers)
         ])
         self.mlp_layers = nn.ModuleList([
-            BilinearMLP(d_model, rezero_init=rezero_init, layer_norm=layer_norm) if use_mlp else None
+            BilinearMLP(d_model, rezero_init=rezero_init, layer_norm=layer_norm,
+                        spectral=spectral) if use_mlp else None
             for _ in range(n_layers)
         ])
         self.final_norm = make_final_norm(final_norm, d_model)
         self.unembed = nn.Linear(d_model, vocab_size, bias=False)
         self._init_weights(std_embed, std_qkv, std_o)
 
+    @staticmethod
+    def _init_lin(lin, std):
+        # Skip spectral-normed layers: re-initializing after spectral_norm leaves its power-
+        # iteration (u,v) vectors stale -> bad σ estimate -> NaN. σ is forced to 1 there anyway,
+        # so the default init is fine.
+        if getattr(lin, "parametrizations", None) and "weight" in lin.parametrizations:
+            return
+        nn.init.normal_(lin.weight, std=std)
+
     def _init_weights(self, std_embed, std_qkv, std_o):
         nn.init.normal_(self.embed.weight, std=std_embed)
         nn.init.normal_(self.unembed.weight, std=std_embed)
         for attn in self.attn_layers:
             for name in ("q1", "k1", "q2", "k2", "v"):
-                nn.init.normal_(getattr(attn, name).weight, std=std_qkv)
-            nn.init.normal_(attn.o.weight, std=std_o)
+                self._init_lin(getattr(attn, name), std_qkv)
+            self._init_lin(attn.o, std_o)
         for mlp in self.mlp_layers:
             if mlp is not None:
-                nn.init.normal_(mlp.L.weight, std=std_qkv)
-                nn.init.normal_(mlp.R.weight, std=std_qkv)
-                nn.init.normal_(mlp.D.weight, std=std_o)
+                self._init_lin(mlp.L, std_qkv)
+                self._init_lin(mlp.R, std_qkv)
+                self._init_lin(mlp.D, std_o)
 
     def forward(self, input_ids):
         x = self.embed(input_ids)
@@ -475,12 +497,16 @@ def diag_summary(net, ids, tag):
 
 def train_one(variant, d_model, final_norm, *, steps, batch_size, n_ctx,
               data, device, use_compile, use_muon, lr, rezero_init=None,
-              layer_norm="none", diagnostics=False, run_dir=None, tag=None):
+              layer_norm="none", spectral=False, diagnostics=False, run_dir=None, tag=None):
     cfg = VARIANTS[variant]
     torch.manual_seed(42)
     model = SweepLM(VOCAB_SIZE, n_ctx, d_model, cfg["n_layers"], cfg["use_mlp"],
                     final_norm=final_norm, rezero_init=rezero_init,
-                    layer_norm=layer_norm).to(device)
+                    layer_norm=layer_norm, spectral=spectral).to(device)
+    if spectral and use_compile:
+        print("    [note] spectral_norm + torch.compile gives NaN (stale power-iteration "
+              "buffers under compile); disabling compile for this run")
+        use_compile = False
     if use_compile:
         model = torch.compile(model)
     n_params = sum(p.numel() for p in model.parameters())
@@ -537,7 +563,7 @@ def train_one(variant, d_model, final_norm, *, steps, batch_size, n_ctx,
 
 def run_sweep(*, variants, widths, norms, steps, batch_size, n_ctx,
               data, use_compile, use_muon, lr, save_checkpoints=False, top_tokens=0,
-              rezero_init=None, layer_norm="none", diagnostics=False):
+              rezero_init=None, layer_norm="none", spectral=False, diagnostics=False):
     device = "cuda" if torch.cuda.is_available() else "cpu"
     timestamp = datetime.now().strftime("%Y-%m-%d_%H%M%S")
     run_dir = Path(__file__).parent / "runs" / f"{timestamp}_sweep"
@@ -549,7 +575,7 @@ def run_sweep(*, variants, widths, norms, steps, batch_size, n_ctx,
     print(f"=== Bilinear architecture sweep ===")
     print(f"device={device} data={data} steps={steps} bs={batch_size} n_ctx={n_ctx} "
           f"compile={use_compile} muon={use_muon} rezero_init={rezero_init} "
-          f"layer_norm={layer_norm} diagnostics={diagnostics}")
+          f"layer_norm={layer_norm} spectral={spectral} diagnostics={diagnostics}")
     print(f"variants={variants}  widths={widths}  norms={norms}  (final-norm is the ablation)")
     print(f"run_dir={run_dir}\n")
 
@@ -561,7 +587,7 @@ def run_sweep(*, variants, widths, norms, steps, batch_size, n_ctx,
                 r = train_one(variant, d_model, norm, steps=steps, batch_size=batch_size,
                               n_ctx=n_ctx, data=data, device=device,
                               use_compile=use_compile, use_muon=use_muon, lr=lr,
-                              rezero_init=rezero_init, layer_norm=layer_norm,
+                              rezero_init=rezero_init, layer_norm=layer_norm, spectral=spectral,
                               diagnostics=diagnostics, run_dir=run_dir, tag=tag)
                 row = {k: r[k] for k in ("variant", "d_model", "final_norm", "n_params",
                                          "init_val", "final_val", "steps", "secs")}
@@ -599,7 +625,8 @@ def print_ordering(results):
     # adding a component (fewer -> more) should not meaningfully RAISE loss.
     # tolerance is floor-aware: near the overfit floor, ~0.009 vs ~0.010 ties are fine.
     pairs = [("embed_unembed", "attn1"), ("attn1", "attn2"), ("attn2", "attn4"),
-             ("attn1", "xf1"), ("attn2", "xf2"), ("xf2", "xf4")]
+             ("attn4", "attn8"), ("attn1", "xf1"), ("attn2", "xf2"),
+             ("xf2", "xf4"), ("xf4", "xf8")]
     all_ok = True
     for (d_model, norm), vals in sorted(by_group.items()):
         seq = [(v, vals[v]) for v in order if v in vals]
@@ -645,6 +672,9 @@ def main():
                    choices=["none", "rmsnorm", "static-rms", "layernorm"],
                    help="per-layer pre-norm on every block (depth stabilizer). "
                         "rmsnorm needed for deep stacks; the *final* norm (--norms) is the ablation")
+    p.add_argument("--spectral-norm", action="store_true",
+                   help="spectral-normalize the un-normalized matrices (v,o,L,R,D) — foldable; "
+                        "caps weight σ to stop the deep bilinear-MLP blow-up (Q/K skipped, BN handles them)")
     p.add_argument("--diagnostics", action="store_true",
                    help="log per-layer activation RMS + per-matrix weight norms over training "
                         "to runs/<ts>/diag/<tag>.jsonl (localizes where a finite failure originates)")
@@ -665,7 +695,8 @@ def main():
         steps=args.steps, batch_size=args.batch_size, n_ctx=args.n_ctx,
         data=args.data, use_compile=not args.no_compile, use_muon=args.muon, lr=args.lr,
         save_checkpoints=args.save_checkpoints, top_tokens=args.top_tokens,
-        rezero_init=args.rezero_init, layer_norm=args.layer_norm, diagnostics=args.diagnostics,
+        rezero_init=args.rezero_init, layer_norm=args.layer_norm, spectral=args.spectral_norm,
+        diagnostics=args.diagnostics,
     )
 
 
