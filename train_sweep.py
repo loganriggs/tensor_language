@@ -375,13 +375,24 @@ class DSIRPileStreaming(IterableDataset):
         from datasets import load_dataset
         from transformers import GPT2Tokenizer
         tok = GPT2Tokenizer.from_pretrained("gpt2")
-        ds = load_dataset("stanford-crfm/DSIR-filtered-pile-50M", split="train", streaming=True)
-        buf = []
-        for ex in ds:
-            buf.extend(t % self.vocab_size for t in tok.encode(ex["contents"]))
-            while len(buf) >= self.n_ctx:
-                chunk, buf = buf[:self.n_ctx], buf[self.n_ctx:]
-                yield {"input_ids": torch.tensor(chunk, dtype=torch.long)}
+        buf, attempt = [], 0
+        # Long streaming runs occasionally hit transient HF disconnects
+        # ("client has been closed"); reconnect and continue instead of crashing.
+        while True:
+            try:
+                ds = load_dataset("stanford-crfm/DSIR-filtered-pile-50M",
+                                  split="train", streaming=True)
+                if attempt:  # reshuffle on reconnect so we don't replay the same prefix
+                    ds = ds.shuffle(buffer_size=10000, seed=1234 + attempt)
+                for ex in ds:
+                    buf.extend(t % self.vocab_size for t in tok.encode(ex["contents"]))
+                    while len(buf) >= self.n_ctx:
+                        chunk, buf = buf[:self.n_ctx], buf[self.n_ctx:]
+                        yield {"input_ids": torch.tensor(chunk, dtype=torch.long)}
+            except Exception as e:
+                attempt += 1
+                print(f"[stream] reconnect #{attempt} after {type(e).__name__}: {e}", flush=True)
+                continue
 
 
 def cycle(dataloader):
