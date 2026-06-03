@@ -327,6 +327,38 @@ viable swap, but spherical-as-norm is not** — keep RMSNorm, or pursue a foldab
 simplex-project (cf. §5.4 `static-rms`). The char-Shakespeare "match" was a too-easy-task artifact.
 (No divergences in 24 runs; the 9h budget skipped 4 extras — a 4th seed and a long L8 run.)
 
+### 5.9 Component datapoint-attribution — which datapoints each component explains
+
+Back on the **bilinear** model (`bilinear_components.py`): train the 5-variant ladder with **RMSNorm
+(per-layer + final)** to convergence (25k steps, Pile corpus), eval per-(seq,pos) CE on the fixed
+cached Pile val, and attribute *which datapoints* each added component improves. Converged ladder is
+cleanly monotonic (more components → lower loss):
+
+| variant | val-mean CE |
+|---|---|
+| embed_unembed (bigram floor) | 5.834 |
+| attn1 | 5.490 |
+| attn2 | 5.428 |
+| xf1 (attn1 + MLP) | 5.373 |
+| xf2 (attn2 + 2×MLP) | **5.310** |
+
+![bilinear ladder train curves](assets/bilinear_components_train.png)
+
+**Attribution** (Δ = CE_fewer − CE_more per datapoint; >0 = the new component helped there):
+
+| component added | mean Δ | % of datapoints improved | character |
+|---|---|---|---|
+| +1st attention | **+0.345** | **64%** | biggest; top cases CE ~9.7 → ~0.6 (induction/copy) |
+| +2nd attention | +0.062 | 54% | small, diffuse |
+| +MLP (1 layer) | +0.117 | 57% | broad |
+| +MLP (2 layer) | +0.118 | 57% | broad |
+
+The **1st attention layer dominates** (induction-style copying drives a few datapoints from ~9 nats to
+near-0); later components help a *majority* of datapoints but more diffusely. Per-datapoint CE arrays
+for all 5 models (+ the val tokens) are saved (`runs/<ts>_bilinear_components/per_datapoint_ce.pt`)
+as the substrate for a later "divide / similarity" analysis of *what kind* of datapoints each
+component specializes in. This is the 2-layer pipeline-validation pass; scaling depth is one arg.
+
 ---
 
 ## 6. Tooling added to `train_sweep.py`
