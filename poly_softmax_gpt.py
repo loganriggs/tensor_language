@@ -169,7 +169,17 @@ class GPT(nn.Module):
 
 
 # ---------------------------------------------------------------- data
-def load_data():
+PILE_TOKENS = HERE / "data" / "pile_tokens.pt"
+PILE_VOCAB = 5000
+
+
+def load_data(dataset="shakespeare"):
+    """Returns (train, val, vocab_size). Flat 1-D token tensor; sample random windows.
+    pile = pre-tokenized Pile (int16, vocab 5000, no overfitting) via prepare_pile_tokens.py."""
+    if dataset == "pile":
+        data = torch.load(PILE_TOKENS, weights_only=True)   # int16 flat
+        n = int(0.97 * len(data))
+        return data[:n], data[n:], PILE_VOCAB
     if not DATA.exists():
         import urllib.request
         DATA.parent.mkdir(parents=True, exist_ok=True)
@@ -185,9 +195,9 @@ def load_data():
 
 
 def get_batch(split_data, block_size, batch_size, device):
-    ix = torch.randint(len(split_data) - block_size, (batch_size,))
-    x = torch.stack([split_data[i:i + block_size] for i in ix])
-    y = torch.stack([split_data[i + 1:i + 1 + block_size] for i in ix])
+    ix = torch.randint(len(split_data) - block_size - 1, (batch_size,))
+    x = torch.stack([split_data[i:i + block_size] for i in ix]).long()
+    y = torch.stack([split_data[i + 1:i + 1 + block_size] for i in ix]).long()
     return x.to(device), y.to(device)
 
 
@@ -208,10 +218,13 @@ def eval_ce(model, train_d, val_d, cfg, device, iters=20):
 
 
 # ---------------------------------------------------------------- train
-def train_run(label, attn_kind, norm_kind, base_cfg, *, max_iters, eval_interval, lr, device, seed=1337):
+def train_run(label, attn_kind, norm_kind, base_cfg, *, max_iters, eval_interval, lr, device,
+              seed=1337, train_d=None, val_d=None, use_compile=False, dataset="shakespeare"):
     torch.manual_seed(seed)
     cfg = {**base_cfg, "attn_kind": attn_kind, "norm_kind": norm_kind}
     model = GPT(cfg).to(device)
+    if use_compile:
+        model = torch.compile(model)
     opt = torch.optim.AdamW(model.parameters(), lr=lr, betas=(0.9, 0.95), weight_decay=0.1)
 
     def lr_at(it):  # warmup + cosine
@@ -221,8 +234,9 @@ def train_run(label, attn_kind, norm_kind, base_cfg, *, max_iters, eval_interval
         prog = (it - warm) / max(1, max_iters - warm)
         return 0.1 * lr + 0.5 * (1 + math.cos(math.pi * prog)) * 0.9 * lr
 
-    train_d, val_d, _ = load_data()
-    hist = {"step": [], "train": [], "val": []}
+    if train_d is None:
+        train_d, val_d, _ = load_data(dataset)
+    hist = {"step": [], "train": [], "val": [], "diverged": False}
     t0 = time.time()
     for it in range(max_iters + 1):
         for g in opt.param_groups:
@@ -231,6 +245,10 @@ def train_run(label, attn_kind, norm_kind, base_cfg, *, max_iters, eval_interval
             ce = eval_ce(model, train_d, val_d, cfg, device)
             hist["step"].append(it); hist["train"].append(ce["train"]); hist["val"].append(ce["val"])
             print(f"  [{label}] iter {it:5d}  train {ce['train']:.4f}  val {ce['val']:.4f}", flush=True)
+            if not math.isfinite(ce["val"]):       # NaN guard — stop this run, keep the sweep alive
+                hist["diverged"] = True
+                print(f"  [{label}] DIVERGED at iter {it} — aborting run", flush=True)
+                break
         if it == max_iters:
             break
         xb, yb = get_batch(train_d, cfg["block_size"], cfg["batch_size"], device)
@@ -243,7 +261,8 @@ def train_run(label, attn_kind, norm_kind, base_cfg, *, max_iters, eval_interval
     hist["secs"] = round(time.time() - t0, 1)
     hist["final_val"] = round(hist["val"][-1], 4)
     hist["best_val"] = round(min(hist["val"]), 4)
-    print(f"  [{label}] done: final val {hist['final_val']}  best val {hist['best_val']}  ({hist['secs']}s)", flush=True)
+    tag = " DIVERGED" if hist["diverged"] else ""
+    print(f"  [{label}] done: final {hist['final_val']}  best {hist['best_val']}{tag}  ({hist['secs']}s)", flush=True)
     return hist
 
 
