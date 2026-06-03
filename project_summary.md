@@ -279,7 +279,53 @@ activations; `z²/Σz²` behaves more like L2/RMS). ![Exp 2 norm](assets/polysof
 **Takeaway:** a (near-)polynomial softmax is a **clean drop-in for attention** but only a **partial
 substitute for RMSNorm**. Relevant to the foldable goal: it's a path to make a *normal* transformer
 more polynomial. Caveats: single-seed (~0.02–0.04 gaps may be noise); dropout 0.2 is required (10M
-params on 1 MB overfits, val → 3.5, otherwise).
+params on 1 MB overfits, val → 3.5, otherwise). **The char-Shakespeare "match" turned out to be a
+small-task artifact — see the Pile scaling sweep below.**
+
+### 5.8 Poly-softmax scaling sweep on Pile — the "match" does not survive scale
+
+The §5.7 char-Shakespeare result said poly-softmax ≈ baseline. To test that without the overfitting
+confound, a 24-run sweep (`poly_softmax_sweep.py`) trained the "poly" recipe (**`taylor` attention +
+`spherical` SoftmaxNorm**, the best polynomial-leaning options) vs the standard **`softmax` +
+`rmsnorm`** baseline on **150M pre-tokenized Pile tokens** (vocab 5000, no overfitting → train≈val,
+so "more steps/layers" is meaningful). GPT 384-d, best val CE. **The poly model trails by a robust
+~0.4 nat.**
+
+**2×2 component ablation** — the cost is dominated by the *norm*, and the two parts ~add:
+
+| recipe | L6 | L12 |
+|---|---|---|
+| baseline (softmax+rmsnorm) | 4.571 | 4.449 |
+| attn-only (`taylor`) | 4.660 (+0.09) | 4.560 (+0.11) |
+| norm-only (`spherical`) | 4.779 (+0.21) | 4.669 (+0.22) |
+| poly (both) | 4.978 (+0.41) | 4.872 (+0.42) |
+
+**Depth scaling** — the gap is **flat at ~0.40 across L4–L16** (both recipes saturate near L12 at
+12k steps); two clean bands, poly never catches up:
+
+| layers | L4 | L6 | L8 | L10 | L12 | L14 | L16 |
+|---|---|---|---|---|---|---|---|
+| baseline | 4.615 | 4.571 | 4.523 | 4.489 | 4.449 | 4.461 | 4.446 |
+| poly | 5.007 | 4.978 | 4.923 | 4.896 | 4.872 | 4.859 | 4.846 |
+| gap | +0.39 | +0.41 | +0.40 | +0.41 | +0.42 | +0.40 | +0.40 |
+
+![depth scaling](assets/polysweep_depth_scaling.png)
+
+**Seeds** (L8 ×3): baseline 4.518 (±0.02), poly 4.917 (±0.01) — spread ≤0.04, so the 0.40 gap is
+**~10–40σ real**, not noise.
+
+**Long training** (L12, 30k vs 12k): more steps **narrows** the gap — poly improves *more* with
+extended training (−0.30 vs baseline's −0.20), so 0.423 → **0.322** (−24%). The 12k runs were
+undertrained; poly converges slower. But a **residual ~0.32 nat gap persists** even at 2.5× steps.
+
+![long training](assets/polysweep_long_L12.png)
+
+**Conclusion.** `taylor` attention is nearly free (~0.1 nat); **`spherical` SoftmaxNorm is the real
+cost (~0.2–0.25)** and the main blocker. The penalty is flat across depth, seed-robust, and only
+partly closed by training (~0.32 residual). For the foldable goal: **poly-softmax *attention* is a
+viable swap, but spherical-as-norm is not** — keep RMSNorm, or pursue a foldable norm that doesn't
+simplex-project (cf. §5.4 `static-rms`). The char-Shakespeare "match" was a too-easy-task artifact.
+(No divergences in 24 runs; the 9h budget skipped 4 extras — a 4th seed and a long L8 run.)
 
 ---
 
