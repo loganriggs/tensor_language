@@ -29,6 +29,7 @@ import train_sweep as ts
 
 HERE = Path(__file__).parent
 RAW_VAL = HERE / "data" / "val_raw.pt"
+SHORT = {"embed_unembed": "EU", "attn1": "A1", "attn2": "A2", "xf1": "T1", "xf2": "T2"}
 
 
 def build_raw_val(n_seq, n_ctx):
@@ -86,6 +87,10 @@ def main():
     p.add_argument("--n-ctx", type=int, default=256)
     p.add_argument("--d-model", type=int, default=128)
     p.add_argument("--sample", type=int, default=5000, help="datapoints to display (top cross-model std)")
+    p.add_argument("--feature", choices=["loss", "delta"], default="loss",
+                   help="cluster on raw loss vector or on consecutive improvement deltas")
+    p.add_argument("--layout", choices=["pca", "umap", "tsne", "direct"], default="pca",
+                   help="2D layout; 'direct' plots the features themselves (needs 2-D features)")
     p.add_argument("--ckpt-dir", type=str, default="")
     args = p.parse_args()
     models = args.models.split(",")
@@ -110,15 +115,37 @@ def main():
     seq_idx = np.repeat(np.arange(n_seq), T)
     pos_idx = np.tile(np.arange(T), n_seq)                               # predicts token pos+1
 
+    short = [SHORT.get(m, m) for m in models]
+
     # pick the most "discriminating" datapoints (models disagree) to display
     std = L.std(axis=1)
     keep = np.argsort(-std)[:args.sample]
     Lk, seqk, posk = L[keep], seq_idx[keep], pos_idx[keep]
 
-    # cluster on z-scored loss columns; project to 2D with PCA
-    Z = (Lk - Lk.mean(0)) / (Lk.std(0) + 1e-6)
+    # features to cluster on
+    if args.feature == "delta":
+        # consecutive improvements: F[:,i] = CE(model_i) - CE(model_{i+1}) (>0 = component helped)
+        F = Lk[:, :-1] - Lk[:, 1:]
+        feat_names = [f"{short[i]}→{short[i+1]}" for i in range(len(models) - 1)]
+    else:
+        F = Lk
+        feat_names = short
+
+    Z = (F - F.mean(0)) / (F.std(0) + 1e-6)
     km = KMeans(n_clusters=args.k, n_init=10, random_state=0).fit(Z)
-    xy = PCA(n_components=2, random_state=0).fit_transform(Z)
+
+    # 2D layout
+    if args.layout == "direct":
+        assert F.shape[1] == 2, "direct layout needs exactly 2 features (3 models + --feature delta)"
+        xy = F.copy(); ax_labels = (f"{feat_names[0]} gain (CE drop)", f"{feat_names[1]} gain (CE drop)")
+    elif args.layout == "umap":
+        from umap import UMAP
+        xy = UMAP(n_components=2, random_state=0).fit_transform(Z); ax_labels = ("UMAP-1", "UMAP-2")
+    elif args.layout == "tsne":
+        from sklearn.manifold import TSNE
+        xy = TSNE(n_components=2, random_state=0, init="pca").fit_transform(Z); ax_labels = ("tSNE-1", "tSNE-2")
+    else:
+        xy = PCA(n_components=2, random_state=0).fit_transform(Z); ax_labels = ("PC-1", "PC-2")
 
     # decode context for hover
     from transformers import GPT2Tokenizer
@@ -132,8 +159,8 @@ def main():
 
     hover = []
     for i in range(len(keep)):
-        losses = "  ".join(f"{m}:{Lk[i, j]:.2f}" for j, m in enumerate(models))
-        hover.append(f"seq{seqk[i]} pos{posk[i]+1}<br>{ctx_text(seqk[i], posk[i])}<br>{losses}")
+        losses = " ".join(f"{short[j]}: {Lk[i, j]:.2f}" for j in range(len(models)))
+        hover.append(f"{ctx_text(seqk[i], posk[i])}<br>{losses}")
 
     # cluster mean RAW-loss profiles (interpret each cluster)
     print("\n=== cluster mean loss profiles (raw CE) ===")
@@ -142,12 +169,12 @@ def main():
         m_mean = Lk[km.labels_ == c].mean(0)
         prof.append(m_mean)
         print(f"  cluster {c} (n={int((km.labels_==c).sum())}): " +
-              "  ".join(f"{mm}={m_mean[j]:.2f}" for j, mm in enumerate(models)))
+              " ".join(f"{short[j]}: {m_mean[j]:.2f}" for j in range(len(models))))
 
-    # ---- HTML: scatter (PCA, colored clusters, hover) + cluster-profile lines ----
+    # ---- HTML: scatter (colored clusters, hover) + cluster-profile lines ----
     fig = make_subplots(1, 2, column_widths=[0.62, 0.38],
-                        subplot_titles=("datapoints (PCA of loss-vector), colored by cluster — hover for context",
-                                        "cluster mean loss profile across models"))
+                        subplot_titles=(f"datapoints ({args.layout} of {args.feature}), colored by cluster — hover for context",
+                                        "cluster mean loss profile"))
     palette = ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b", "#e377c2", "#17becf"]
     for c in range(args.k):
         msk = km.labels_ == c
@@ -155,23 +182,24 @@ def main():
                                    marker=dict(size=4, color=palette[c % len(palette)], opacity=0.6),
                                    name=f"cluster {c} (n={int(msk.sum())})",
                                    text=[hover[i] for i in np.where(msk)[0]], hoverinfo="text"), 1, 1)
+    fig.update_xaxes(title_text=ax_labels[0], row=1, col=1)
+    fig.update_yaxes(title_text=ax_labels[1], row=1, col=1)
     for c in range(args.k):
-        fig.add_trace(go.Scatter(x=models, y=prof[c], mode="lines+markers",
+        fig.add_trace(go.Scatter(x=short, y=prof[c], mode="lines+markers",
                                  line=dict(color=palette[c % len(palette)]),
                                  name=f"c{c}", showlegend=False), 1, 2)
     fig.update_yaxes(title_text="mean CE", row=1, col=2)
-    fig.update_layout(title=f"Datapoint clustering by loss-vector across {', '.join(models)} "
-                            f"(top {args.sample} most-discriminating of {L.shape[0]})",
+    fig.update_layout(title=f"Datapoint clustering — {'/'.join(short)} — feature={args.feature} layout={args.layout} "
+                            f"(top {args.sample} of {L.shape[0]})",
                       height=640, template="plotly_white")
 
+    name = f"clusters_{len(models)}m_{args.feature}_{args.layout}.html"
     ts_str = datetime.now().strftime("%Y-%m-%d_%H%M%S")
     out = HERE / "runs" / f"{ts_str}_cluster"; out.mkdir(parents=True, exist_ok=True)
-    html_path = out / f"clusters_{len(models)}models.html"
-    fig.write_html(str(html_path))
-    # also drop a copy at repo root for easy opening
-    root_copy = HERE / f"clusters_{len(models)}models.html"
-    root_copy.write_text(html_path.read_text())
-    print(f"\nHTML: {html_path}\n  copy: {root_copy}")
+    fig.write_html(str(out / name))
+    root_copy = HERE / name                      # copy at repo root for easy opening
+    root_copy.write_text((out / name).read_text())
+    print(f"\nHTML: {root_copy}")
 
 
 if __name__ == "__main__":
