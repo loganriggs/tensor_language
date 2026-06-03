@@ -242,6 +242,45 @@ and `L/R/D` run away to σ≈8.
   explosion that doesn't occur on fresh batches).
 - **Π-nets** (Chrysos) — polynomial nets; same instability class; use activation boundary loss.
 
+### 5.7 Side study — poly-softmax as a (near-)polynomial attention & norm
+
+Separate harness (`poly_softmax_gpt.py`, a **standard nanoGPT** on char-Shakespeare — *not* the
+bilinear model; softmax is the real baseline here). Question: can a rational/near-polynomial softmax
+(Taylor `1+z+z²/2` or spherical `z²`, then normalize) replace the two non-polynomial pieces of a
+normal transformer — (1) the attention softmax, (2) RMSNorm? One component changed per run; 6L/384d,
+dropout 0.2, 3000 iters, val CE. See `poly_softmax_experiments.md` for the spec.
+
+**Exp 1 — attention** (single Q·K pair, no QK normalization, RMSNorm kept):
+
+| attention | val CE |
+|---|---|
+| `taylor` | **1.474** (ties softmax) |
+| `softmax` (baseline) | 1.477 |
+| `spherical` | 1.497 |
+| `no-softmax` / raw (bilinear default) | 1.514 |
+
+→ **poly-softmax attention matches softmax** (taylor ties it). The raw *no-normalization* attention
+— what the bilinear architecture does by default — is viable but the **worst** of the four (slowest
+to converge, ~0.04 back), so softmax-style weight normalization buys a modest gain + faster
+convergence. `spherical`'s predicted sign-loss failure did **not** appear (the model keeps wanted
+scores positive). ![Exp 1 attention](assets/polysoftmax_exp1_attention.png)
+
+**Exp 2 — normalization** (softmax attention kept):
+
+| norm | val CE |
+|---|---|
+| `rmsnorm` (baseline) | **1.475** |
+| `spherical` SoftmaxNorm | 1.486 |
+| `taylor` SoftmaxNorm | 1.679 |
+
+→ as a **norm**, `spherical` ≈ RMSNorm but `taylor` regresses ~0.2 (the `+1` term washes out small
+activations; `z²/Σz²` behaves more like L2/RMS). ![Exp 2 norm](assets/polysoftmax_exp2_norm.png)
+
+**Takeaway:** a (near-)polynomial softmax is a **clean drop-in for attention** but only a **partial
+substitute for RMSNorm**. Relevant to the foldable goal: it's a path to make a *normal* transformer
+more polynomial. Caveats: single-seed (~0.02–0.04 gaps may be noise); dropout 0.2 is required (10M
+params on 1 MB overfits, val → 3.5, otherwise).
+
 ---
 
 ## 6. Tooling added to `train_sweep.py`
