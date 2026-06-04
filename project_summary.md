@@ -356,18 +356,22 @@ cleanly monotonic (more components → lower loss):
 The **1st attention layer dominates** (induction-style copying drives a few datapoints from ~9 nats to
 near-0); later components help a *majority* of datapoints but more diffusely.
 
-**Per-datapoint CE distributions** (log y) show *where* the mean shift (5.83 → 5.31) comes from — not
-a uniform shift of the broad bulk, but mass moving out of the mid/high-CE region into a growing
-**spike at CE ≈ 0** (datapoints that get "solved", mostly by attention). Consistent with the subset
-story: each component *solves a subset* rather than nudging everything.
-
-![per-datapoint CE histogram](assets/bilinear_components_ce_hist.png)
-
 Per-datapoint CE arrays for all 5 models (+ the val tokens) are saved
 (`runs/<ts>_bilinear_components/per_datapoint_ce.pt`) as the substrate for a "divide / similarity"
 analysis of *what kind* of datapoints each component specializes in — see the interactive clustering
 viz (`cluster_datapoints.py`: loss/delta features × pca/umap/direct layouts, hover for token+context).
 This is the 2-layer pipeline-validation pass; scaling depth is one arg.
+
+### 5.10 Per-datapoint CE distribution by component
+
+Per-model CE histograms (log y) over the cached Pile val show *where* the mean improvement
+(5.83 → 5.31) comes from. It is **not** a uniform shift of the broad bulk (CE ≈ 2–9 barely moves);
+instead mass moves out of the mid/high-CE region into a growing **spike at CE ≈ 0** (datapoints that
+get "solved", mostly by the attention layers) and the high-CE tail thins. So each added component
+**solves a subset** of datapoints rather than nudging everything down — the distributional version of
+the attribution / clustering story above.
+
+![per-datapoint CE histogram by component](assets/bilinear_components_ce_hist.png)
 
 ---
 
