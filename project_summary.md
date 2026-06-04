@@ -354,10 +354,20 @@ cleanly monotonic (more components → lower loss):
 | +MLP (2 layer) | +0.118 | 57% | broad |
 
 The **1st attention layer dominates** (induction-style copying drives a few datapoints from ~9 nats to
-near-0); later components help a *majority* of datapoints but more diffusely. Per-datapoint CE arrays
-for all 5 models (+ the val tokens) are saved (`runs/<ts>_bilinear_components/per_datapoint_ce.pt`)
-as the substrate for a later "divide / similarity" analysis of *what kind* of datapoints each
-component specializes in. This is the 2-layer pipeline-validation pass; scaling depth is one arg.
+near-0); later components help a *majority* of datapoints but more diffusely.
+
+**Per-datapoint CE distributions** (log y) show *where* the mean shift (5.83 → 5.31) comes from — not
+a uniform shift of the broad bulk, but mass moving out of the mid/high-CE region into a growing
+**spike at CE ≈ 0** (datapoints that get "solved", mostly by attention). Consistent with the subset
+story: each component *solves a subset* rather than nudging everything.
+
+![per-datapoint CE histogram](assets/bilinear_components_ce_hist.png)
+
+Per-datapoint CE arrays for all 5 models (+ the val tokens) are saved
+(`runs/<ts>_bilinear_components/per_datapoint_ce.pt`) as the substrate for a "divide / similarity"
+analysis of *what kind* of datapoints each component specializes in — see the interactive clustering
+viz (`cluster_datapoints.py`: loss/delta features × pca/umap/direct layouts, hover for token+context).
+This is the 2-layer pipeline-validation pass; scaling depth is one arg.
 
 ---
 
