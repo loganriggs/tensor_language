@@ -373,6 +373,21 @@ the attribution / clustering story above.
 
 ![per-datapoint CE histogram by component](assets/bilinear_components_ce_hist.png)
 
+**Log-x view** (below) exposes the low-CE structure: **EU is comb-like** — sharp spikes with gaps
+through CE ≈ 0.2–1.5 — while the attention/MLP models are smooth. EU is a pure **bigram** (predicts
+the next token from the *current token alone*), so its per-datapoint CE = −log P(next | current) can
+only take the discrete surprisal values of the observed bigrams (spikes at the common ones, gaps
+between). Adding attention makes predictions context-dependent, which both smooths the comb and fills
+in the very-low-CE region (the datapoints attention "solves" via context that the bigram cannot).
+
+![per-datapoint CE histogram, log-x](assets/bilinear_components_ce_hist_logx.png)
+
+Inspecting the datapoints A1 *solves* (CE < 0.4) that EU *cannot* (CE > 4) makes "what attention adds"
+concrete — they are context/format completions: `at 4:52 p.⟦m⟧` (p.m.), `$10,⟦000⟧` (number grouping),
+`COVID-⟦19⟧`, repeated entities `Category:…⏎⟦Category⟧` (induction/copy), and matching delimiters
+`league⟦'⟧` / `[t⟦]⟧`. All require *more than the previous token*, exactly what one attention layer
+(copy / recent context) supplies and a bigram cannot.
+
 ---
 
 ## 6. Tooling added to `train_sweep.py`
