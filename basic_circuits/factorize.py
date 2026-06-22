@@ -79,6 +79,59 @@ ax.set_title('Logit ladder: diagonal inhibition separates cases;\nsigmoid satura
 ax.legend(loc='upper left')
 fig.tight_layout(); fig.savefig(os.path.join(RESULTS, 'fig3_ladder.png'), dpi=110)
 
+# ---------- FIG 3b: logit ladder ablations (drop interference / drop inhibition) ----------
+# split each sample's logit into (bias, inhibition, signal, interference) so we can
+# re-add subsets and see which mechanism actually separates the case populations.
+def logit_parts(S3, t_):
+    tgt = tuple(sorted(pair_idx[t_]))
+    inhib = diag[t_, S3].sum()
+    sig = interf = 0.0
+    for (i, j) in itertools.combinations(sorted(S3), 2):
+        v = 2*Qf[t_, i, j]
+        if (i, j) == tgt: sig += v
+        else: interf += v
+    return bo[t_], inhib, sig, interf            # bias, inhibition, signal, interference
+
+rng = np.random.default_rng(0)
+parts = {k: [] for k in ['pos', 'neg1', 'neg0']}
+for _ in range(6000):
+    S3 = rng.choice(m, 3, replace=False); t_ = rng.integers(T)
+    k = len(set(pair_idx[t_]) & set(S3))
+    parts['pos' if k == 2 else 'neg1' if k == 1 else 'neg0'].append(logit_parts(S3, t_))
+for _ in range(3000):
+    S3 = rng.choice(m, 3, replace=False)
+    aa, bb = sorted(rng.choice(S3, 2, replace=False))
+    parts['pos'].append(logit_parts(S3, pair_to_t[(aa, bb)]))
+parts = {k: np.array(v) for k, v in parts.items()}   # each (n,4)
+
+variants = [                                          # which components to sum
+    ("full logit\n(bias+inhibition+signal+interference)", [0, 1, 2, 3]),
+    ("no interference\n(bias+inhibition+signal)",         [0, 1, 2]),
+    ("no inhibition\n(bias+signal+interference)",         [0, 2, 3]),
+]
+colors = {'neg0': '#888', 'neg1': '#d62728', 'pos': '#2ca02c'}
+labels = {'neg0': 'neg, shares 0 idx', 'neg1': 'neg, shares 1 idx (hardest)', 'pos': 'positive (AND true)'}
+fig, axes = plt.subplots(1, 3, figsize=(16, 4.6), sharey=True)
+bins = np.linspace(-140, 60, 100)
+for ax, (title, cols) in zip(axes, variants):
+    val = {k: parts[k][:, cols].sum(1) for k in parts}
+    for key in ['neg0', 'neg1', 'pos']:
+        ax.hist(val[key], bins=bins, alpha=.6, color=colors[key], label=labels[key])
+    ax.axvline(0, color='k', lw=1)
+    fp = (np.concatenate([val['neg0'], val['neg1']]) > 0).mean()   # negatives leaking past 0
+    tp = (val['pos'] > 0).mean()                                   # positives kept above 0
+    ax.set_title(title, fontsize=11); ax.set_xlabel('logit')
+    ax.text(0.02, 0.97, f"neg > 0: {100*fp:.1f}%\npos > 0: {100*tp:.1f}%", transform=ax.transAxes,
+            va='top', fontsize=10, bbox=dict(boxstyle='round', fc='white', alpha=.85))
+axes[0].set_ylabel('count'); axes[0].legend(loc='upper left', fontsize=9)
+fig.suptitle('Logit ladder ablations: inhibition gates the negatives (drop it -> FPR 0->41%); '
+             'interference only nudges positives (drop it -> TPR 99.9->91.5%)', fontsize=12)
+fig.tight_layout(); fig.savefig(os.path.join(RESULTS, 'fig3b_ladder_ablation.png'), dpi=110)
+for title, cols in variants:
+    fp = (np.concatenate([parts['neg0'][:, cols].sum(1), parts['neg1'][:, cols].sum(1)]) > 0).mean()
+    tp = (parts['pos'][:, cols].sum(1) > 0).mean()
+    print(f"  [{title.splitlines()[0]:16s}] TPR (pos>0): {100*tp:5.1f}%   FPR (neg>0): {100*fp:5.2f}%")
+
 # ---------- INTERFERENCE FACTORIZATION ----------
 print("=== Interference factorization (seed 2) ===")
 iu = np.triu_indices(m, 1)

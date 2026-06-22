@@ -103,11 +103,42 @@ Distribution of the logit over inputs, split by case:
   inhibition ladder.
 
 The diagonal inhibition is what *separates the three populations* along the logit
-axis; the ±20-ish interference is just noise riding on top. Because the sigmoid
+axis; the ±20-ish interference is mostly noise riding on top. Because the sigmoid
 (dashed) saturates hard away from 0, that interference noise almost never flips a
 decision. This is the core "the computation lives below a thresholded readout"
 point: a linear/ridge probe sees the messy interface and reports ~no signal,
 while the thresholded output is essentially exact.
+
+### Ablation: which term is load-bearing?
+
+To see *which* mechanism does the separating, re-add only subsets of the logit's
+four components (`bias`, `inhibition`, `signal`, `interference`):
+
+![Logit ladder ablations](./fig3b_ladder_ablation.png)
+
+| variant | TPR (pos > 0) | FPR (neg > 0) |
+|---|---|---|
+| **full** (bias+inhibition+signal+interference) | 99.9% | **0.0%** |
+| **no interference** (bias+inhibition+signal) | 91.5% | **0.0%** |
+| **no inhibition** (bias+signal+interference) | 100.0% | **41.3%** |
+
+- **Drop interference (middle panel):** the negatives stay perfectly on the
+  negative side — **FPR is still 0%**. So interference, despite carrying most of
+  the matrix's squared mass, does *not* threaten the decision boundary; the
+  sigmoid absorbs it. It is genuinely tolerated. (It is not pure noise, though:
+  TPR dips 99.9% → 91.5%, because for a *positive* the two off-target active pairs
+  both share one index with the target, and that "shares-1" interference has a
+  small **positive** mean — see §3's structure note, +0.64 — so it nudges
+  borderline positives up. Interference mildly helps positives, never hurts
+  negatives.)
+- **Drop inhibition (right panel):** catastrophe — **41.3% of negatives cross
+  zero** into false positives. The negative populations collapse from far-left
+  back toward the bias (≈ −4), where the ±20 interference spread now straddles 0.
+
+So the diagonal **inhibition is the load-bearing mechanism**: it alone drives the
+0% FPR by pushing negatives tens of logits below zero. Interference is the part
+the network *tolerates* (and even mildly exploits for positives), not the part it
+relies on to classify.
 
 ## 4. Interference factorization — where the off-diagonal comes from
 
