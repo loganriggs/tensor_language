@@ -177,6 +177,28 @@ side — the signal lives *outside* the interference subspace (only 13% of signa
 energy in the top-64 directions). Meanwhile **FPR never exceeds 0.1% at any rank**:
 no matter how the interference is reconstructed, it never threatens the negatives.
 
+### Is the dominant mode removable? No — the complementary test
+
+The sweep showed adding the dominant mode *alone* hurts. The complementary
+experiment: keep the **full** interference and remove *only* the dominant mode
+(i.e. modes 2..end):
+
+![Full interference minus the dominant mode](./fig3d_drop_dominant.png)
+
+| interference used | TPR (pos>0) | FPR (neg>0) |
+|---|---|---|
+| full (all modes) | 99.9% | 0.00% |
+| **full − dominant mode** (modes 2..end) | **78.0%** | 0.28% |
+| literal rank-63 (modes 2..64 only) | 77.5% | 0.20% |
+
+Dropping the single dominant mode (41.5% of variance) from the full interference
+**craters TPR 99.9% → 78.0%** (and nudges FPR up to 0.28%); the positive bump
+visibly spreads back across zero. So the dominant embedding-crosstalk mode is
+**neither sufficient nor removable**: adding it alone hurts (previous figure),
+*and* removing it from the full also hurts. It participates in the delicate
+near-cancellation rather than carrying the contribution on its own — the
+interference does its (mild, positive-only) work **only as the complete sum**.
+
 ## 4. Interference factorization — where the off-diagonal comes from
 
 Stack the off-diagonal coefficients into a `T×T` matrix `C = 2·Qf[:, i<j]`

@@ -245,4 +245,26 @@ fig.suptitle('Rebuilding interference from top-k SVD modes: FPR stays ~0 at ever
              fontsize=12)
 fig.tight_layout(); fig.savefig(os.path.join(RESULTS, 'fig3c_interference_sweep.png'), dpi=110)
 
+# ---------- FIG 3d: FULL interference with the single dominant SVD mode removed ----------
+X_no1 = X - (U[:, :1]*s[:1]) @ Vt[:1]            # every interference mode except the top one
+panels = [("full interference (all modes)", X), ("full − dominant mode (modes 2..end)", X_no1)]
+fig, axes = plt.subplots(1, 2, figsize=(11, 4.6), sharex=True, sharey=True)
+bins = np.linspace(-140, 60, 100)
+for ax, (title, M) in zip(axes, panels):
+    val = ladder(M)
+    for key in ['neg0', 'neg1', 'pos']:
+        ax.hist(val[key], bins=bins, alpha=.6, color=colors[key], label=labels[key])
+    ax.axvline(0, color='k', lw=1)
+    fp = (np.concatenate([val['neg0'], val['neg1']]) > 0).mean(); tp = (val['pos'] > 0).mean()
+    ax.set_title(title, fontsize=11); ax.set_xlabel('logit')
+    ax.text(0.02, 0.97, f"TPR {100*tp:.1f}%\nFPR {100*fp:.2f}%", transform=ax.transAxes, va='top',
+            fontsize=10, bbox=dict(boxstyle='round', fc='white', alpha=.85))
+axes[0].set_ylabel('count'); axes[0].legend(loc='upper left', fontsize=9)
+var1 = 100*(s[:1]**2).sum()/(s**2).sum()
+fig.suptitle(f'Removing the single dominant interference mode ({var1:.0f}% of variance) from the FULL '
+             f'interference\ncraters TPR 99.9->78% — load-bearing in the full sum, though alone it hurt (fig3c)',
+             fontsize=12)
+fig.tight_layout(); fig.savefig(os.path.join(RESULTS, 'fig3d_drop_dominant.png'), dpi=110)
+print(f"fig3d: full TPR vs full-minus-dominant; top-1 = {var1:.1f}% of interference variance")
+
 print("figures saved")
