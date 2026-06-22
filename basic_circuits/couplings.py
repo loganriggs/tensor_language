@@ -134,4 +134,21 @@ axes[2].set_title('(c) why: shares-0 ≈ −(embedding overlap),\ninherited cros
 axes[2].legend(fontsize=9, markerscale=3)
 fig.suptitle('Q2: which couplings shift most (no-interf -> full), and why', fontsize=13)
 fig.tight_layout(); fig.savefig(os.path.join(RESULTS, 'fig6_coupling_structure.png'), dpi=110)
-print("\nfigures saved: fig5_threshold_shift.png, fig6_coupling_structure.png")
+
+# ============================================================================
+# (A) the output bias bo — the quantity Q1 says actually sets the operating point
+# ============================================================================
+print("\n=== bias bo (output bias per target) ===")
+print(f"  mean {bo.mean():+.3f}  std {bo.std():.3f}  min {bo.min():+.2f}  max {bo.max():+.2f}  (init was -4.0)")
+fig, ax = plt.subplots(1, 2, figsize=(13, 4.3))
+ax[0].hist(bo, bins=40, color='#555')
+ax[0].axvline(bo.mean(), color='r', ls='--', label=f'mean {bo.mean():+.2f}')
+ax[0].axvline(-4.0, color='b', ls=':', label='init -4.0')
+ax[0].set_xlabel('bias bo[t]'); ax[0].set_ylabel('# targets'); ax[0].legend(fontsize=9)
+ax[0].set_title(f'Output bias over all {T} targets (std {bo.std():.2f})')
+ax[1].scatter(2*Qf[np.arange(T), pair_idx[:,0], pair_idx[:,1]], bo, s=6, alpha=.4)
+ax[1].set_xlabel('signal  2·Qf[t,a,b]'); ax[1].set_ylabel('bias bo[t]')
+ax[1].set_title(f'bias vs signal per target (corr {np.corrcoef(2*Qf[np.arange(T),pair_idx[:,0],pair_idx[:,1]], bo)[0,1]:+.2f})')
+fig.suptitle('(A) the bias is near-constant ≈ −3.9 — it is the global operating point, not per-target tuning', fontsize=12)
+fig.tight_layout(); fig.savefig(os.path.join(RESULTS, 'fig7_bias.png'), dpi=110)
+print("\nfigures saved: fig5_threshold_shift.png, fig6_coupling_structure.png, fig7_bias.png")

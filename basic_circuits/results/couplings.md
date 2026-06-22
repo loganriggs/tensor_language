@@ -91,3 +91,20 @@ weakly embedding-related (corr −0.25), so it is mostly *learned* structure rat
 than inherited geometry. But per Q1 it changes only the operating point, not the
 separability — the network leans on it because the fixed bias makes it free, not
 because it needs it to compute the AND.
+
+---
+
+## (A) The bias
+
+Since Q1 says the *bias* is what sets the operating point, here it is directly:
+
+![Output bias](./fig7_bias.png)
+
+`bo` is **near-constant: mean −3.94, std 0.36** (min −4.55, max −1.70), barely
+moved from its init of −4.0. It is essentially a single global threshold shared
+across all 496 targets, not per-target tuning — consistent with Q1, where a single
+global threshold move (0 → −13) sufficed to re-separate the no-interference logits.
+There is a weak positive `bias ↔ signal` correlation (+0.36): targets with a
+stronger signal term carry a slightly less-negative bias. (Note the operating
+point is set by `bo` *plus* the near-constant inhibition offset `Σ diag` ≈ −24 on
+3-hot inputs; `bo ≈ −4` is the smaller, explicit piece.)
