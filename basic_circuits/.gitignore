@@ -1,4 +1,6 @@
 # regenerated artifacts (produced by the scripts; not source)
-fig*.png
+# note: factorize.py figures now live in results/ and ARE tracked; only
+# ignore stray figures written to the package root.
+/fig*.png
 pullback_summary.json
 uand_results.json

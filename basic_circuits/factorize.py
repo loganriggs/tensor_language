@@ -3,6 +3,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 DIR = os.path.dirname(os.path.abspath(__file__))
+RESULTS = os.path.join(DIR, "results"); os.makedirs(RESULTS, exist_ok=True)
 m, d0, n_hid = 32, 16, 64
 pairs = list(itertools.combinations(range(m), 2)); T = len(pairs)
 pair_idx = np.array(pairs)
@@ -30,7 +31,7 @@ ax.set_title(f'Feature-space quadratic form Qf for target t = AND(x{a}, x{b})\n'
              f'logit(x) = xᵀ Qf x + bias,  x ∈ {{0,1}}³²-sparse', fontsize=13)
 ax.set_xlabel('feature j'); ax.set_ylabel('feature i')
 fig.colorbar(im, shrink=0.8)
-fig.tight_layout(); fig.savefig(os.path.join(DIR, 'fig1_qform.png'), dpi=110)
+fig.tight_layout(); fig.savefig(os.path.join(RESULTS, 'fig1_qform.png'), dpi=110)
 
 # ---------- FIG 2: the 3-part decomposition ----------
 S = np.zeros_like(M); S[a, b] = M[a, b]; S[b, a] = M[b, a]
@@ -44,7 +45,7 @@ for ax_, mat, title in zip(axes, [M, S, Dg, I_],
     ax_.imshow(mat, cmap='RdBu_r', vmin=-lim, vmax=lim)
     ax_.set_title(title, fontsize=12); ax_.set_xticks([]); ax_.set_yticks([])
 fig.suptitle(f'Decomposition of Qf for AND(x{a}, x{b})  —  seed 2', fontsize=14)
-fig.tight_layout(); fig.savefig(os.path.join(DIR, 'fig2_decomp.png'), dpi=110)
+fig.tight_layout(); fig.savefig(os.path.join(RESULTS, 'fig2_decomp.png'), dpi=110)
 
 # ---------- FIG 3: logit ladder ----------
 pair_to_t = {tuple(p): i for i, p in enumerate(pairs)}
@@ -76,7 +77,7 @@ ax2.set_ylabel('sigmoid(logit)', color='b')
 ax.set_xlabel('logit'); ax.set_ylabel('count')
 ax.set_title('Logit ladder: diagonal inhibition separates cases;\nsigmoid saturates away ±20 interference noise')
 ax.legend(loc='upper left')
-fig.tight_layout(); fig.savefig(os.path.join(DIR, 'fig3_ladder.png'), dpi=110)
+fig.tight_layout(); fig.savefig(os.path.join(RESULTS, 'fig3_ladder.png'), dpi=110)
 
 # ---------- INTERFERENCE FACTORIZATION ----------
 print("=== Interference factorization (seed 2) ===")
@@ -127,5 +128,5 @@ axes[1].axvline(64, color='r', ls='--')
 axes[1].set_xlabel('rank kept'); axes[1].set_ylabel('% interference variance')
 axes[1].set_title(f'Cumulative variance (effective rank ≈ {pr:.0f})')
 axes[1].set_xlim(0, 120)
-fig.tight_layout(); fig.savefig(os.path.join(DIR, 'fig4_factor.png'), dpi=110)
+fig.tight_layout(); fig.savefig(os.path.join(RESULTS, 'fig4_factor.png'), dpi=110)
 print("figures saved")
