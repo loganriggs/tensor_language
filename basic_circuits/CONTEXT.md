@@ -136,6 +136,23 @@ the full high-order tensor.
     the degree-4 analog of Part A's interference. Stratification is necessary,
     not sufficient.
 
+### Interference / bias / sparsity follow-ups (write-ups in results/*.md)
+- `factorize.py` — now also writes results/ figures fig3b (ablation: drop
+  interference vs drop inhibition), fig3c (interference rebuilt from top-k SVD
+  modes; TPR non-monotonic), fig3d (full interference minus the dominant mode).
+  See results/factorize.md.
+- `couplings.py` — results/couplings.md. (Q1) the "interference helps positives"
+  effect is a CALIBRATION artifact: no-interference logits are already separable
+  (AUC ~1.0); a single threshold shift 0->-13 recovers TPR 99.9%. (Q2) couplings
+  split by target-overlap: shares-1 mean +0.69, shares-0 mean -0.68; the big
+  shares-0 ones track the embedding gram (corr -0.62, inherited crosstalk).
+  (A) the bias bo is near-constant ~-3.94 (a global operating point).
+- `factorized_sparsity.py` — results/factorized_sparsity.md. Iterative magnitude
+  pruning (L1 + prune k%/round, persistent mask) of W1,W2,Wo from the dense seed.
+  Reports sparsity vs CE AND a recalibrated separability curve (because the
+  fixed-threshold TPR collapse is mostly the Q1 calibration effect again). Writes
+  uand_seed2_sparse.npz.
+
 ## Conventions / gotchas
 - Column order of the (T x T) coefficient matrix follows
   np.triu_indices(m, 1), which matches itertools.combinations(range(m), 2) and
@@ -185,3 +202,5 @@ the full high-order tensor.
     python mixed.py             # ~5 sec
     python residual1.py         # trains 6 small nets, ~30-60 sec
     python hollow.py            # Part A loads seeds; Part B retrains mixed, ~5 sec
+    python couplings.py         # threshold/coupling/bias analysis, writes results/fig5-7
+    python factorized_sparsity.py  # iterative magnitude pruning, ~10 min, writes results/
