@@ -140,6 +140,43 @@ So the diagonal **inhibition is the load-bearing mechanism**: it alone drives th
 the network *tolerates* (and even mildly exploits for positives), not the part it
 relies on to classify.
 
+### Sweep: rebuilding interference one SVD mode at a time
+
+The interference's +8.4% TPR contribution prompts an obvious question — *which*
+part of the interference helps? Take the interference matrix `X` (§4), keep the
+exact bias/inhibition/signal, and re-add only the rank-`k` reconstruction
+`X_k = (U[:, :k]·s[:k]) Vtᵀ[:k]`, sweeping `k = 0, 1, 2, …, 64`:
+
+![Interference rebuilt from top-k SVD modes](./fig3c_interference_sweep.png)
+
+| `k` (modes) | % interf. var | TPR (pos>0) | FPR (neg>0) |
+|---|---|---|---|
+| 0 (none) | 0% | 91.5% | 0.0% |
+| 1 | 42% | **71.7%** | 0.1% |
+| 2 | 45% | 73.5% | 0.1% |
+| 4 | 51% | 75.2% | 0.1% |
+| 8 | 60% | 80.3% | 0.1% |
+| 16 | 72% | 87.8% | 0.1% |
+| 32 | 87% | 94.6% | 0.0% |
+| 64 (~full) | 98% | 99.8% | 0.0% |
+
+The surprise: **TPR is non-monotonic.** Adding the *dominant* mode alone (42% of
+the variance — the shared embedding-crosstalk of §4) doesn't help positives, it
+**drops TPR from 91.5% to 71.7%**. In the `k=1` panel you can watch the positive
+bump *spread out* and straddle zero. More modes then progressively pull it back,
+and only near full rank (`k≈64`) does TPR recover to 99.8%.
+
+Why: the top SVD modes are a *coarse, global* description of the interference —
+they capture what makes targets correlate (§4: removing top-1 kills the +0.41
+cross-target correlation), but that shared pattern is a poor per-sample estimate,
+so on its own it mis-scores individual positives. The interference that actually
+helps a given positive (the small, net-positive shares-1 contribution) is a
+**delicate near-cancellation distributed across many modes**; any low-rank
+truncation breaks the balance. This is the same fact §4 states from the other
+side — the signal lives *outside* the interference subspace (only 13% of signal
+energy in the top-64 directions). Meanwhile **FPR never exceeds 0.1% at any rank**:
+no matter how the interference is reconstructed, it never threatens the negatives.
+
 ## 4. Interference factorization — where the off-diagonal comes from
 
 Stack the off-diagonal coefficients into a `T×T` matrix `C = 2·Qf[:, i<j]`
