@@ -17,6 +17,44 @@ logit_t(x) = xᵀ Qf_t x + bias_t ,    x ∈ {0,1}³² (3-hot)
 is each `Qf_t` actually made of, and where does the cross-target structure come
 from?
 
+### Architecture (condensed from `train_uand.py`)
+
+```python
+# ---- sizes ----
+m, d0, n_hid = 32, 16, 64            # 32 features, 16-dim embedding, 64 hidden units
+pairs = list(itertools.combinations(range(m), 2))
+T = len(pairs)                       # 496 = C(32,2) AND targets
+pair_idx = np.array(pairs)           # (T, 2)
+
+# ---- parameters ----
+E  = rng.normal(size=(d0, m)); E /= np.linalg.norm(E, axis=0, keepdims=True)  # (16,32) FROZEN embedding
+W1 = rng.normal(size=(n_hid, d0)) / np.sqrt(d0)     # (64, 16)
+W2 = rng.normal(size=(n_hid, d0)) / np.sqrt(d0)     # (64, 16)
+Wo = rng.normal(size=(T, n_hid))  / np.sqrt(n_hid)  # (496, 64)
+bo = np.full(T, -4.0)                # bias init ~ log(p/(1-p)), p ~ 3/496
+params = [W1, W2, Wo, bo]            # trained via manual Adam; E is NOT trained
+
+# ---- one batch of 3-hot boolean inputs ----
+R = rng.random((n, m)); idx = np.argpartition(R, 3, axis=1)[:, :3]
+F = np.zeros((n, m)); np.put_along_axis(F, idx, 1.0, axis=1)   # exactly 3 of 32 active
+Y = F[:, pair_idx[:, 0]] * F[:, pair_idx[:, 1]]               # (n, 496); exactly 3 positives/row
+
+# ---- forward pass ----
+X  = F @ E.T                         # (B, 16)  embed -> features in superposition (32 > 16)
+A  = X @ W1.T;  Bv = X @ W2.T        # (B, 64)  two linear maps
+H  = A * Bv                          # (B, 64)  bilinear: elementwise product (biasless)
+Z  = H @ Wo.T + bo                   # (B, 496) readout logits
+P  = 1 / (1 + np.exp(-Z))            # 496 INDEPENDENT sigmoids (per-output BCE, not softmax)
+```
+
+Sizes at a glance: input `m=32` (3-hot) → frozen embedding `E` (16×32) → bilinear
+hidden `n_hid=64` → readout to `T=496` AND targets. ~34k trained parameters
+(`W1,W2,Wo,bo`). Two superpositions are baked in on purpose: **feature**
+superposition (32 features in 16 dims, so `E` is non-orthogonal — the origin of
+the dominant interference mode in §4) and **computation** superposition (496
+targets through 64 hidden units, ≈8 gates/neuron). The head is multi-label:
+every 3-hot input has exactly `C(3,2)=3` positive targets, all firing at once.
+
 ---
 
 ## 1. The quadratic form of one target
