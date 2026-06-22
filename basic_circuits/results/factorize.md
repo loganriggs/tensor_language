@@ -199,6 +199,12 @@ visibly spreads back across zero. So the dominant embedding-crosstalk mode is
 near-cancellation rather than carrying the contribution on its own — the
 interference does its (mild, positive-only) work **only as the complete sum**.
 
+> Follow-up in [`couplings.md`](./couplings.md): that "mild help" turns out to be
+> a *calibration* effect, not real signal — the no-interference logits are already
+> separable (AUC ≈ 1.0), so a single threshold shift recovers TPR 99.9% without any
+> interference. It also breaks down *which* couplings shift (shares-1 vs shares-0)
+> and ties the big ones to the embedding geometry.
+
 ## 4. Interference factorization — where the off-diagonal comes from
 
 Stack the off-diagonal coefficients into a `T×T` matrix `C = 2·Qf[:, i<j]`
