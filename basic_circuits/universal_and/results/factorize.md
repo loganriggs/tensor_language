@@ -263,4 +263,4 @@ What this says:
 > Follow-on (`hollow.py`): pushing the diagonal into an explicit linear vector
 > ("hollowing") is exact on booleans but does **not** make the signal edge surface
 > in the per-target eigenspectrum — the off-diagonal embedding crosstalk analyzed
-> here still dominates. See `../CONTEXT.md` open threads #1/#5.
+> here still dominates. See `../../CONTEXT.md` open threads #1/#5.

@@ -12,7 +12,7 @@ smallest 10% of still-active weights (persistent mask; pruned weights *and* thei
 Adam moments re-zeroed every step). At the chosen sparsity we then run an
 **L1-free recovery fine-tune** (mask frozen, no penalty) to claw back CE. All
 accuracy is the **recalibrated** metric (AUC / best-threshold balanced accuracy),
-because — as [`couplings.md`](./couplings.md) Q1 showed — a fixed threshold
+because — as [`couplings.md`](../../universal_and/results/couplings.md) Q1 showed — a fixed threshold
 understates a still-separable model.
 
 ---
@@ -84,7 +84,7 @@ though recovery re-grows small entries so the fixed-`|·|<0.5` count returns to 
    <1% accuracy cost with no special training; Qf-L1 + embedding pruning push that
    to ~92–98% at the extreme tail. This is the representation-sparsity result the
    weights-only run couldn't reach, and it connects to the non-orthogonal /
-   sparse-pursuit thread (#3) in `../CONTEXT.md`.
+   sparse-pursuit thread (#3) in `../../CONTEXT.md`.
 
 The recovered 34%-sparse config-B model is saved to `uand_seed2_sparse.npz`.
 
@@ -95,7 +95,7 @@ The recovered 34%-sparse config-B model is saved to `uand_seed2_sparse.npz`.
 Taking the Qf-L1 model at its chosen sparsity **before** recovery re-densifies it
 (34% weight-sparse, **75% of `Qf` entries near-zero**; saved to
 `uand_seed2_sparseQf.npz`), broken down and ablated the same way as the dense
-model in [`factorize.md`](./factorize.md).
+model in [`factorize.md`](../../universal_and/results/factorize.md).
 
 ### (1) The same three parts, ~10× smaller
 

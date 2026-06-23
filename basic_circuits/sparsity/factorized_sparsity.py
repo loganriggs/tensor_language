@@ -27,7 +27,7 @@ def make_data(rng, n):
     F = np.zeros((n, m)); np.put_along_axis(F, idx, 1.0, axis=1)
     return F, F[:, pi[:, 0]]*F[:, pi[:, 1]], np.sort(idx, axis=1)
 
-w = np.load(os.path.join(DIR, "uand_seed2.npz"))
+w = np.load(os.path.join(DIR, "..", "universal_and", "uand_seed2.npz"))   # original trained model
 W1d, W2d, Wod, bod, Ed = [w[k].copy() for k in ('W1', 'W2', 'Wo', 'bo', 'E')]
 
 # eval sets: BCE/TPR/TNR on 20k; recalibrated AUC/bAcc on 6k; Qf-frontier on 2.5k

@@ -5,6 +5,23 @@ Working notes for continuing this in Claude Code. Everything is pure numpy
 sparse boolean unless noted. Index 0 is reserved as a constant coordinate
 (x0 = 1) wherever a "folded residual" is used.
 
+## Directory layout (split by experiment)
+
+    universal_and/   EXPERIMENT 1 — single-layer Universal-AND model + analyses
+                     train_uand, pullback, structure, factorize, couplings,
+                     hollow, residual1 ; uand_seed{0,1,2}.npz, pullback_seed2.npz
+                     results/ : factorize.md, couplings.md, fig1-7 + fig3b/c/d
+    sparsity/        EXPERIMENT 2 — iterative magnitude pruning of the original model
+                     factorized_sparsity, sparse_qf_analysis ; uand_seed2_sparse*.npz
+                     (loads ../universal_and/uand_seed2.npz)
+                     results/ : factorized_sparsity.md, fig_sparsity_*, fig_sparseQf_*
+    two_layer/       EXPERIMENT 3 — two stacked bilinear layers (the next project)
+                     decomp_exact, train2layer, mixed
+    toy_and/         EXPERIMENT 4 — minimal 3-input / h=2 / 3-AND toy (see its results/)
+
+Each experiment is self-contained except sparsity, which reads the original
+trained checkpoint from universal_and/.
+
 ## The through-line
 
 Question we started from: does *weight* superposition happen in bilinear
@@ -209,16 +226,21 @@ the full high-order tensor.
    interference also embedding-explainable at higher SVD modes (higher-order
    structure of G)?
 
-## Reproduce
-    python train_uand.py        # ~2 min, writes uand_seed*.npz
-    python pullback.py          # writes pullback_seed2.npz
-    python structure.py
-    python factorize.py         # writes fig*.png
-    python decomp_exact.py      # no training, fast
-    python train2layer.py       # ~few sec after vectorization
-    python mixed.py             # ~5 sec
-    python residual1.py         # trains 6 small nets, ~30-60 sec
-    python hollow.py            # Part A loads seeds; Part B retrains mixed, ~5 sec
-    python couplings.py         # threshold/coupling/bias analysis, writes results/fig5-7
-    python factorized_sparsity.py  # iterative magnitude pruning A vs B, ~20 min, writes results/
-    python sparse_qf_analysis.py   # anatomy of the sparse-Qf model, ~5 min (reuses checkpoint)
+## Reproduce  (run each from inside its experiment folder)
+    cd universal_and
+      python train_uand.py        # ~2 min, writes uand_seed*.npz
+      python pullback.py          # writes pullback_seed2.npz
+      python structure.py
+      python factorize.py         # writes results/fig1-4 + fig3b/c/d
+      python couplings.py         # threshold/coupling/bias, writes results/fig5-7
+      python hollow.py            # Part A loads seeds; Part B retrains mixed, ~5 sec
+      python residual1.py         # trains 6 small nets, ~30-60 sec
+    cd two_layer
+      python decomp_exact.py      # no training, fast
+      python train2layer.py       # ~few sec after vectorization
+      python mixed.py             # ~5 sec
+    cd sparsity                   # reads ../universal_and/uand_seed2.npz
+      python factorized_sparsity.py  # iterative magnitude pruning A vs B, ~20 min
+      python sparse_qf_analysis.py   # anatomy of the sparse-Qf model, ~5 min (reuses checkpoint)
+    cd toy_and
+      python toy_and.py           # minimal 3-input / h=2 / 3-AND toy

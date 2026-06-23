@@ -30,7 +30,7 @@ def qf_grads(W1, W2, Wo, E, lam):
     gA2 = np.einsum('tk,tij,ki->kj', Wo, S, A1)
     return lam*(gA1 @ E.T), lam*(gA2 @ E.T), lam*gWo, lam*(W1.T @ gA1 + W2.T @ gA2)
 
-w = np.load(os.path.join(DIR, "uand_seed2.npz"))
+w = np.load(os.path.join(DIR, "..", "universal_and", "uand_seed2.npz"))   # original trained model
 W1, W2, Wo, bo, E = [w[k].copy() for k in ('W1', 'W2', 'Wo', 'bo', 'E')]
 Qf_dense = pullback(W1, W2, Wo, E)
 
