@@ -17,7 +17,9 @@ sparse boolean unless noted. Index 0 is reserved as a constant coordinate
                      results/ : factorized_sparsity.md, fig_sparsity_*, fig_sparseQf_*
     two_layer/       EXPERIMENT 3 — two stacked bilinear layers (the next project)
                      decomp_exact, train2layer, mixed
-    toy_and/         EXPERIMENT 4 — minimal 3-input / h=2 / 3-AND toy (see its results/)
+    toy_and/         EXPERIMENT 4 — minimal toys: toy_and.py (3 inputs, h=2, 3 ANDs)
+                     and toy_and4.py (4 features, 6 pairwise ANDs, 3-hot & 2-hot
+                     inputs, h-sweep -> min h=2 for both). results/ fig_toy*
 
 Each experiment is self-contained except sparsity, which reads the original
 trained checkpoint from universal_and/.
