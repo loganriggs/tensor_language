@@ -87,3 +87,65 @@ though recovery re-grows small entries so the fixed-`|·|<0.5` count returns to 
    sparse-pursuit thread (#3) in `../CONTEXT.md`.
 
 The recovered 34%-sparse config-B model is saved to `uand_seed2_sparse.npz`.
+
+---
+
+## 4. Anatomy of the sparse-Qf pullback (`sparse_qf_analysis.py`)
+
+Taking the Qf-L1 model at its chosen sparsity **before** recovery re-densifies it
+(34% weight-sparse, **75% of `Qf` entries near-zero**; saved to
+`uand_seed2_sparseQf.npz`), broken down and ablated the same way as the dense
+model in [`factorize.md`](./factorize.md).
+
+### (1) The same three parts, ~10× smaller
+
+![Sparse Qf decomposition](./fig_sparseQf_decomp.png)
+
+The sparse `Qf` still factors into **signal (the AND-ing) + diagonal inhibition +
+interference** — but every part is ~10× smaller (signal `2·Qf[a,b]` drops 45 → 6,
+peak `|Qf|` 27 → 3). The structure survives; the magnitudes shrink under L1.
+
+### (2) The interference rank goes *up*, not down
+
+![Interference rank dense vs sparse](./fig_sparseQf_interference_rank.png)
+
+| interference matrix | effective rank (participation ratio) | top-1 mode share |
+|---|---|---|
+| dense | **5.5** | **41.5%** |
+| sparse-Qf | **23.1** | **17.1%** |
+
+This is the surprise. Dense interference was *low-rank and dominated by one mode*
+— the inherited rank-1 **embedding crosstalk** (`factorize.md` §4: that mode
+correlates −0.91 with the embedding Gram). The sparse-Qf model **prunes the
+embedding `E`**, which destroys that coherent mode: the dominant share drops
+41.5% → 17.1% and the effective rank *rises* 5.5 → 23. The interference is now
+both **~10× smaller in magnitude** (orange spectrum sits a decade below blue) and
+**more diffuse / higher-rank** — what's left is small residual noise, not one big
+geometric artifact.
+
+### (3) Component-ablation ladders: interference flips from tolerated to (mildly) harmful
+
+![Sparse ablation ladders](./fig_sparseQf_ablation_ladder.png)
+
+| variant | recal balanced-acc | recal TPR | recal FPR |
+|---|---|---|---|
+| full | 99.0% | 99.2% | 1.1% |
+| **no interference** | **100.0%** | 100.0% | 0.0% |
+| no inhibition | 92.5% | 93.0% | 8.1% |
+
+Two contrasts with the dense model:
+
+- **Inhibition is still load-bearing** — removing it costs ~7 points of balanced
+  accuracy (FPR 0 → 8%). Same role as in the dense net.
+- **Interference has flipped sign.** In the dense net interference was tolerated
+  (and at fixed threshold even nudged positives up); here, removing it makes the
+  model **perfectly separable (100%)**. Because L1 shrank the signal down to the
+  interference's scale (signal `2·Qf` ≈ 6, interference entries up to ~3), the SNR
+  is much lower, so the residual interference now *slightly hurts* rather than
+  helps. The whole ladder is compressed to ±10 (vs ±140 dense), which is also why
+  this model needs the recalibrated threshold and sits at 99% rather than 100%.
+
+**Summary.** Sparsifying the pullback (via embedding pruning + L1-on-Qf) doesn't
+just shrink `Qf` — it removes the inherited embedding-crosstalk that made the dense
+interference low-rank and dominant, leaving smaller, higher-rank, mildly-harmful
+residual interference, while inhibition remains the load-bearing mechanism.

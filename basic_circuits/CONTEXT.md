@@ -159,6 +159,16 @@ the full high-order tensor.
   to ~92-98%, BUT the L1-free recovery re-densifies Qf -> sparse-Qf and recovered-CE
   trade off. Figures: fig_sparsity_curve, fig_sparsity_ladder (recal ladders),
   fig_qf_frontier, fig_sparse_pullback. Writes uand_seed2_sparse.npz.
+- `sparse_qf_analysis.py` — results/factorized_sparsity.md §4. Anatomy of the
+  Qf-L1 sparse model (pre-recovery, 75% of Qf near-zero; saved
+  uand_seed2_sparseQf.npz). Qf still = signal + diagonal inhibition + interference
+  but ~10x smaller. KEY: interference effective rank RISES 5.5 -> 23.1 and the
+  top-1 mode drops 41.5% -> 17.1%, because pruning the embedding E destroys the
+  inherited rank-1 embedding-crosstalk that made dense interference low-rank.
+  Ablation ladders (recal): removing interference now gives 100% (it became mildly
+  harmful at the lower SNR); inhibition still load-bearing (remove -> 92.5%).
+  Figures fig_sparseQf_decomp/_interference_rank/_ablation_ladder. Loads its
+  checkpoint if present (skip retrain).
 
 ## Conventions / gotchas
 - Column order of the (T x T) coefficient matrix follows
@@ -210,4 +220,5 @@ the full high-order tensor.
     python residual1.py         # trains 6 small nets, ~30-60 sec
     python hollow.py            # Part A loads seeds; Part B retrains mixed, ~5 sec
     python couplings.py         # threshold/coupling/bias analysis, writes results/fig5-7
-    python factorized_sparsity.py  # iterative magnitude pruning, ~10 min, writes results/
+    python factorized_sparsity.py  # iterative magnitude pruning A vs B, ~20 min, writes results/
+    python sparse_qf_analysis.py   # anatomy of the sparse-Qf model, ~5 min (reuses checkpoint)
