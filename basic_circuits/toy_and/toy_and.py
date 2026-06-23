@@ -49,6 +49,8 @@ print(f"h=2, 3 ANDs: {n_perfect}/12 seeds reached 100% on all 24 decisions; "
 Qf = np.einsum('tk,ki,kj->tij', Wo, W1, W2); Qf = 0.5*(Qf + Qf.transpose(0, 2, 1))           # (3,3,3)
 Zc = np.einsum('tij,ni,nj->nt', Qf, Xall, Xall) + bo
 print("Qf reproduces forward pass? max err", np.abs(Zc - ((Xall@W1.T*(Xall@W2.T))@Wo.T + bo)).max())
+print("biases: bo =", {f"AND{pairs[t]}": round(float(bo[t]), 1) for t in range(T)},
+      " (= the all-zeros-input logit; W1,W2 are biasless)")
 
 print("\ntruth table (input -> logits / predictions):")
 print("  x0x1x2 | " + " | ".join(f"AND{p}" for p in pairs))
@@ -74,8 +76,9 @@ for t in range(T):
         ax.set_xticks(range(m)); ax.set_yticks(range(m)); ax.set_xticklabels([f'x{i}' for i in range(m)], fontsize=7)
         ax.set_yticklabels([f'x{i}' for i in range(m)], fontsize=7)
         if t == 0: ax.set_title(cols[c], fontsize=11)
-    axes[t, 0].set_ylabel(f'output AND(x{a},x{b})', fontsize=10)
-fig.suptitle('Toy Qf decomposition (3 outputs through 2 bilinear neurons)', fontsize=13)
+    axes[t, 0].set_ylabel(f'output AND(x{a},x{b})\nbias bo = {bo[t]:+.1f}', fontsize=10)
+fig.suptitle('Toy Qf decomposition — logit = bias + signal + diagonal inhibition + interference\n'
+             '(3 outputs through 2 bilinear neurons; W1,W2 are biasless, bo is the only bias)', fontsize=12)
 fig.tight_layout(); fig.savefig(os.path.join(RESULTS, 'fig_toy_decomp.png'), dpi=110)
 
 # ---------- logit components for every (input, output) ----------

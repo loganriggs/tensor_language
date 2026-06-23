@@ -30,9 +30,13 @@ room to spare:
 
 ![Toy Qf decomposition](./fig_toy_decomp.png)
 
-Each output's 3×3 feature-space form `Qf` splits into the same three pieces as the
-big model: **signal** (the single `(a,b)` cross term = the AND-ing), **diagonal
-inhibition** (negative, linear on booleans), and **off-diagonal interference**.
+The full logit is `bias + signal + diagonal inhibition + interference`. The only
+bias is the output bias `bo` (the linear maps `W1,W2` are biasless); it is shown
+per output in the row labels and equals the all-zeros-input logit:
+`bo = {AND(0,1): −9.7, AND(0,2): −12.9, AND(1,2): −10.1}`. The matrix part `Qf`
+then splits into the same three pieces as the big model: **signal** (the single
+`(a,b)` cross term = the AND-ing), **diagonal inhibition** (negative, linear on
+booleans), and **off-diagonal interference**.
 With only 2 shared neurons the magnitudes are very uneven — `AND(x0,x2)` is built
 from tiny weights (signal +16) while `AND(x0,x1)` and `AND(x1,x2)` use large ones
 (signal ~+90) — a direct picture of the two neurons being divided unevenly among
