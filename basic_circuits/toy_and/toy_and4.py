@@ -59,14 +59,21 @@ def run(KHOT):
     Zc = np.einsum('tij,ni,nj->nt', Qf, Xall, Xall) + bo
     print("  Qf reproduces forward? err", f"{np.abs(Zc-((Xall@W1.T*(Xall@W2.T))@Wo.T+bo)).max():.0e}",
           "| bo", {f"{pairs[t]}": round(float(bo[t]), 1) for t in range(T)})
+    lab = ["".join(str(i) for i in range(m) if Xall[n, i]) for n in range(len(Xall))]
+    print("  detection check (output -> active-sets where logit>0 / should fire):")
+    for t in range(T):
+        fires = [lab[n] for n in range(len(Xall)) if Zc[n, t] > 0]
+        should = [lab[n] for n in range(len(Xall)) if Yall[n, t] > 0]
+        print(f"    AND{pairs[t]}: fires {fires}  should {should}  {'ok' if fires == should else 'MISMATCH'}")
 
     # (1) Qf decomposition with bias
-    lim = np.abs(Qf).max(); fig, axes = plt.subplots(T, 4, figsize=(11, 13))
+    fig, axes = plt.subplots(T, 4, figsize=(11, 13))
     headers = ['Qf (full)', '= signal (AND-ing)', '+ diagonal inhibition', '+ interference']
     for t in range(T):
         a, b = pi[t]; Mt = Qf[t]
         Sg = np.zeros_like(Mt); Sg[a, b] = Mt[a, b]; Sg[b, a] = Mt[b, a]
         Dg = np.diag(np.diag(Mt)); I_ = Mt - Sg - Dg
+        lim = max(np.abs(Mt).max(), 1e-6)                       # per-row (per-output) colour scale
         for c, mat in enumerate([Mt, Sg, Dg, I_]):
             ax = axes[t, c]; ax.imshow(mat, cmap='RdBu_r', vmin=-lim, vmax=lim)
             for i in range(m):
@@ -75,9 +82,9 @@ def run(KHOT):
             ax.set_xticks(range(m)); ax.set_yticks(range(m))
             ax.set_xticklabels([f'x{i}' for i in range(m)], fontsize=6); ax.set_yticklabels([f'x{i}' for i in range(m)], fontsize=6)
             if t == 0: ax.set_title(headers[c], fontsize=11)
-        axes[t, 0].set_ylabel(f'AND(x{a},x{b})\nbo={bo[t]:+.1f}', fontsize=9)
-    fig.suptitle(f'Toy-4 {KHOT}-hot Qf decomposition — 6 ANDs through h={h_min} neurons\n'
-                 'logit = bias + signal + diagonal inhibition + interference', fontsize=12)
+        axes[t, 0].set_ylabel(f'AND(x{a},x{b})\nbo={bo[t]:+.1f}  peak|Qf|={lim:.0f}', fontsize=8)
+    fig.suptitle(f'Toy-4 {KHOT}-hot Qf decomposition — 6 ANDs through h={h_min} neurons (each ROW on its own colour scale)\n'
+                 'logit = bias + signal + diagonal inhibition + interference', fontsize=11)
     fig.tight_layout(); fig.savefig(os.path.join(RESULTS, f'fig_toy4_{tag}_decomp.png'), dpi=110)
 
     # logit components per (input, output)

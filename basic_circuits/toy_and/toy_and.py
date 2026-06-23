@@ -61,13 +61,13 @@ for n in range(len(Xall)):
           " | ".join(f"{lg[t]:+5.1f}{'*' if tg[t] else ' '}" for t in range(T)) + f"   {mark}")
 
 # ---------- (1) Qf decomposition: signal / diagonal inhibition / interference ----------
-lim = np.abs(Qf).max()
 fig, axes = plt.subplots(T, 4, figsize=(11, 8.5))
 cols = ['Qf (full)', '= signal (AND-ing)', '+ diagonal inhibition', '+ interference']
 for t in range(T):
     a, b = pi[t]; M = Qf[t]
     Sg = np.zeros_like(M); Sg[a, b] = M[a, b]; Sg[b, a] = M[b, a]
     Dg = np.diag(np.diag(M)); I_ = M - Sg - Dg
+    lim = max(np.abs(M).max(), 1e-6)                  # per-row (per-output) colour scale
     for c, mat in enumerate([M, Sg, Dg, I_]):
         ax = axes[t, c]; ax.imshow(mat, cmap='RdBu_r', vmin=-lim, vmax=lim)
         for i in range(m):
@@ -76,9 +76,9 @@ for t in range(T):
         ax.set_xticks(range(m)); ax.set_yticks(range(m)); ax.set_xticklabels([f'x{i}' for i in range(m)], fontsize=7)
         ax.set_yticklabels([f'x{i}' for i in range(m)], fontsize=7)
         if t == 0: ax.set_title(cols[c], fontsize=11)
-    axes[t, 0].set_ylabel(f'output AND(x{a},x{b})\nbias bo = {bo[t]:+.1f}', fontsize=10)
+    axes[t, 0].set_ylabel(f'output AND(x{a},x{b})\nbias bo={bo[t]:+.1f}  peak|Qf|={lim:.0f}', fontsize=9)
 fig.suptitle('Toy Qf decomposition — logit = bias + signal + diagonal inhibition + interference\n'
-             '(3 outputs through 2 bilinear neurons; W1,W2 are biasless, bo is the only bias)', fontsize=12)
+             '(2 bilinear neurons; W1,W2 biasless; each row on its own colour scale)', fontsize=12)
 fig.tight_layout(); fig.savefig(os.path.join(RESULTS, 'fig_toy_decomp.png'), dpi=110)
 
 # ---------- logit components for every (input, output) ----------

@@ -47,3 +47,23 @@ driven far negative — so **inhibition does almost all the work**: ablation is 
 many negatives flood across 0). The contrast with 3-hot is the point: the same 2-neuron
 bilinear layer reallocates between signal / inhibition / interference depending on the
 task's combinatorics.
+
+**The "signal" cell is *not* where the AND lives here.** e.g. `AND(x0,x3)` has a tiny
+signal `Qf[0,3]=2` yet a huge `Qf[0,2]=116` — which looks wrong but is correct (every
+output fires on exactly its pattern; the detection-check in the script confirms it). In
+this one-hot regime the model detects `{0,3}` not via the `(0,3)` cross term but by
+tuning the whole form so the sum over the active pair is positive only for `{0,3}`:
+
+    input {0,3} (true) : bo + Qf00 + Qf33 + 2·Qf03 = −2.7 + 68 − 60 + 4  = +9.3  ✓
+    input {0,2} (false): bo + Qf00 + Qf22 + 2·Qf02 = −2.7 + 68 − 308 + 232 = −10.7 ✓
+
+So the computation is **distributed across the diagonal and interference**, not the
+signal cell — a tiny illustration of the project's central point (the computation isn't
+where a naive "signal" readout looks). The `signal/inhibition/interference` split is a
+lens borrowed from the big sparse UAND (where the signal cross-term dominates); it adds
+up exactly here too, but in this regime the labels don't carry the computation.
+
+> Figure note: in both decompositions each **row is on its own colour scale**
+> (`peak|Qf|` is shown per output), so small-magnitude outputs stay legible next to the
+> large ones — the colour shows structure *within* a row; the annotated numbers carry
+> the absolute magnitudes.
