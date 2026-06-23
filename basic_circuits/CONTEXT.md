@@ -148,10 +148,17 @@ the full high-order tensor.
   shares-0 ones track the embedding gram (corr -0.62, inherited crosstalk).
   (A) the bias bo is near-constant ~-3.94 (a global operating point).
 - `factorized_sparsity.py` — results/factorized_sparsity.md. Iterative magnitude
-  pruning (L1 + prune k%/round, persistent mask) of W1,W2,Wo from the dense seed.
-  Reports sparsity vs CE AND a recalibrated separability curve (because the
-  fixed-threshold TPR collapse is mostly the Q1 calibration effect again). Writes
-  uand_seed2_sparse.npz.
+  pruning (L1 + prune 10%/round, persistent mask, prune only active weights) from
+  the dense seed. Two configs side by side: A = prune W1,W2,Wo; B = also prune the
+  embedding E + an L1 penalty on the pullback Qf itself. Then an L1-FREE recovery
+  fine-tune at the chosen sparsity. All accuracy is the recalibrated metric (Q1).
+  Findings: ~47% of weights removable for free after recovery (BCE 0.00007, TPR
+  1.0); the pruned-but-not-recovered TPR collapse is the Q1 calibration effect
+  again (TNR stays ~1). Qf is ~85% magnitude-compressible even dense; L1-on-Qf
+  drives the pullback to 75% near-zero (vs 7%) and extends the compressibility tail
+  to ~92-98%, BUT the L1-free recovery re-densifies Qf -> sparse-Qf and recovered-CE
+  trade off. Figures: fig_sparsity_curve, fig_sparsity_ladder (recal ladders),
+  fig_qf_frontier, fig_sparse_pullback. Writes uand_seed2_sparse.npz.
 
 ## Conventions / gotchas
 - Column order of the (T x T) coefficient matrix follows

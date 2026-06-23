@@ -1,98 +1,89 @@
-# Sparse Universal-AND: what does optimizing for sparse weights change?
+# Sparse Universal-AND: weights, embedding, and the pullback Qf
 
-`python factorized_sparsity.py` (~10 min). Takes the trained dense seed-2 model
-and runs **iterative magnitude pruning** on the pullback weights `W1, W2` and the
-decoder `Wo` (the embedding `E` and bias `bo` are not pruned):
+`python factorized_sparsity.py` (~20 min). Two iterative-magnitude-pruning runs
+from the trained dense seed-2 model, compared side by side:
 
-```
-repeat for 18 rounds:
-   (i)  fine-tune 600 steps on   CE + λ·‖W‖₁      (λ = 3e-5)
-   (ii) prune the smallest 10% of the still-active weights
-```
+- **A "weights"** — prune `W1, W2, Wo` (embedding `E` frozen), weight-L1 only.
+- **B "embed+Qf"** — also prune `E`, and add an **L1 penalty on the pullback `Qf`
+  matrix itself** (to drive feature-space / representation sparsity).
 
-Gotchas handled (as specified):
-- **persistent mask** — pruned weights, *and their Adam moments*, are re-zeroed
-  every step, so nothing "retrains from 0" / resurrects.
-- **prune only among active weights** — each round ranks by magnitude over
-  `mask == 1`, so a 10% round removes 10% *new* weights, never re-counting
-  already-zeroed ones.
-
-Every round is checkpointed; we report two operating points and analyze the
-sparsest still-separable one (saved to `uand_seed2_sparse.npz`).
+Each round: fine-tune 500 steps on `CE + λ‖W‖₁ (+ λ‖Qf‖₁ for B)`, then prune the
+smallest 10% of still-active weights (persistent mask; pruned weights *and* their
+Adam moments re-zeroed every step). At the chosen sparsity we then run an
+**L1-free recovery fine-tune** (mask frozen, no penalty) to claw back CE. All
+accuracy is the **recalibrated** metric (AUC / best-threshold balanced accuracy),
+because — as [`couplings.md`](./couplings.md) Q1 showed — a fixed threshold
+understates a still-separable model.
 
 ---
 
-## The sparsity / accuracy tradeoff
+## 1. Weight sparsity + L1-free recovery
 
-![Sparsity vs CE and accuracy](./fig_sparsity_curve.png)
+![Weight-sparsity frontier A vs B](./fig_sparsity_curve.png)
 
-| sparsity | BCE | TPR @ thr 0 | TNR @ thr 0 | AUC | bal-acc @ best thr |
-|---|---|---|---|---|---|
-| 0% (dense) | 0.00011 | 0.998 | 1.000 | 1.000 | 0.9998 |
-| 10% | 0.00012 | 0.999 | 1.000 | 1.000 | 0.9999 |
-| **19%** | 0.00027 | 0.997 | 1.000 | 1.000 | 0.9997 |
-| 27% | 0.00065 | 0.986 | 1.000 | 1.000 | 0.9985 |
-| 41% | 0.00235 | 0.939 | 1.000 | 0.9998 | 0.9957 |
-| **52%** | 0.00622 | 0.898 | 0.999 | 0.9994 | 0.9921 |
-| 65% | 0.01484 | 0.799 | 0.997 | 0.9969 | 0.9768 |
-| 85% | 0.02122 | 0.226 | 0.999 | 0.9624 | 0.8981 |
+During pruning, config B carries a higher CE floor (the Qf-L1 penalty + embedding
+pruning cost), but recalibrated separability stays high for both. The decisive
+step is the **recovery fine-tune**:
 
-Two readings, and the gap between them is the whole point:
+| run | chosen sparsity | BCE (pruned → recovered) | TPR@0 (pruned → recovered) | recal-bAcc → |
+|---|---|---|---|---|
+| **A weights** | **47%** | 0.00439 → **0.00007** | 0.883 → **1.000** | 0.991 → **1.000** |
+| **B embed+Qf** | **34%** | 0.00648 → **0.00001** | 0.699 → **1.000** | 0.991 → **1.000** |
 
-- **At the model's own threshold** (logit > 0): weights prune nearly free to
-  **~19%** (BCE essentially unchanged, TPR 0.997), and the TPR then collapses —
-  down to 0.90 by 52% and 0.23 by 85%.
-- **Recalibrated** (best global threshold): the model stays essentially perfectly
-  separable far longer — **balanced accuracy ≥ 99% out to ~52% sparsity**, AUC ≈
-  1.0 out to ~40%.
+Both recover to **dense-level CE (even better) and TPR 1.000** after a short L1-free
+fine-tune. So ~half the weights (47%, config A) are removable essentially for free.
+Config B selects a lower sparsity (34%) because pruning the small, critical
+embedding `E` plus the Qf-L1 penalty degrade recalibrated accuracy a bit faster —
+but it too recovers perfectly. (Recall the pruned-but-not-recovered TPR collapse is
+the Q1 calibration effect: L1 shrinks the signal, positives slide under the fixed
+threshold while **TNR stays ≈ 1.0**.)
 
-The fixed-threshold collapse is **the Q1 calibration effect again** (see
-[`couplings.md`](./couplings.md)): the L1 penalty shrinks the signal (mean
-+37.9 → +29.0), so positives slide under the *fixed* zero threshold while
-**TNR stays ≈ 1.0 the whole way** — a calibration loss, not lost computation.
-Re-centering the threshold recovers it. So the honest answer to "how much can you
-prune?" is **~half the weights** with the AND function intact, provided you also
-recalibrate; ~20% if you insist on the original bias.
+## 2. Recalibrated logit ladders of the recovered models
 
----
+![Recalibrated ladders](./fig_sparsity_ladder.png)
 
-## How does sparsification change the pullback?
+Both recovered sparse models separate the three case populations cleanly — **recal
+TPR 100%, FPR 0%, balanced acc 100%** — with the recalibrated threshold sitting
+near 0 (recovery restored calibration as well as accuracy).
 
-Comparing the dense model with the 52%-sparse checkpoint:
+## 3. Can the pullback `Qf` itself be made sparse?
 
-| metric | dense | sparse (52%) |
-|---|---|---|
-| signal (mean `2·Qf[t,a,b]`) | 37.94 | 29.04 |
-| diagonal inhibition (mean) | −15.24 | −11.08 |
-| interference std | 11.17 | 9.58 |
-| **top-1 interference SVD mode** | **41.5%** | **32.7%** |
-| neurons used / target (`Wo` row nnz) | 64.0 | 30.6 |
-| targets / neuron (`Wo` col nnz) | 496.0 | 237.3 |
-| **Qf exact zeros** | **0.0%** | **0.0%** |
-| Qf entries with \|·\| < 0.5 | 7.2% | 9.7% |
+The previous (weights-only) finding was that weight sparsity leaves `Qf` dense,
+because `Qf = Wo·(W1E)·(W2E)` and the frozen embedding re-mixes everything. Two
+new levers — pruning `E` and the **L1-on-Qf penalty** — change that.
 
-![Dense vs sparse pullback Qf](./fig_sparse_pullback.png)
+**(a) L1-on-Qf does sparsify the pullback.** With Qf-L1 active (config B, before
+recovery), the feature-space form goes from **7% to 75% near-zero entries**:
 
-Three things change, one pointedly does **not**:
+![Dense vs Qf-L1 pullback](./fig_sparse_pullback.png)
 
-1. **Everything shrinks together** (signal, inhibition, interference all ~−20%):
-   L1 just scales the whole quadratic form down. This is why the fixed-threshold
-   TPR falls — the form is the same shape, lower amplitude, against a fixed bias.
-2. **Each target now reads ~31 of 64 neurons** instead of all 64 (and each neuron
-   serves ~237 targets instead of 496) — genuinely fewer gates per neuron, the
-   one real interpretability win.
-3. **The dominant interference mode drops 41.5% → 32.7%** — pruning preferentially
-   thins the diffuse, inherited embedding-crosstalk (it has no single weight to
-   defend), so the interference becomes a touch less rank-1-dominated.
-4. **But the pullback `Qf` does not become sparse at all** — still **0.0% exact
-   zeros**, and the fraction of near-zero entries barely moves (7.2% → 9.7%). A
-   52%-sparse set of weights produces a fully dense feature-space quadratic form,
-   because `Qf = Wo·(W1E)·(W2E)` and the frozen **non-orthogonal embedding `E`
-   re-mixes everything**. Weight sparsity ≠ representation sparsity here.
+**(b) But how much can you zero at minimal accuracy cost?** Threshold the trained
+`Qf` by magnitude and re-evaluate (logit = `xᵀQf x + bo`, exact):
 
-**Takeaway.** Optimizing for sparse weights buys a leaner decoder (≈half the
-weights, ~31 gates/neuron) with the AND computation fully intact *after
-recalibration*, and slightly de-emphasizes the inherited interference mode — but
-it does **not** sparsify the pullback. To get a sparse feature-space form you would
-have to attack `Qf` (or `E`) directly, not the raw weights; that connects to the
-non-orthogonal/sparse-pursuit thread (#3) in `../CONTEXT.md`.
+![Qf-sparsity frontier](./fig_qf_frontier.png)
+
+The surprise here: **`Qf` is ~85% compressible for free, even in the dense model** —
+you can zero ~85% of its entries by magnitude and keep recal balanced-acc > 99%.
+So although `Qf` has 0% *exact* zeros, it is strongly *approximately* sparse (the
+signal is one entry, inhibition is the diagonal, and most off-diagonal interference
+is small and tolerated). The **Qf-L1 model extends the extreme tail**: at 92%
+Qf-sparsity it holds ~99.5% vs ~98.6% (dense) and ~94% (weights-only), and at 98%
+it holds ~89% vs ~83% (dense) / ~75% (weights). That advantage **survives the
+recovery fine-tune** (the pre- and post-recovery B curves nearly coincide), even
+though recovery re-grows small entries so the fixed-`|·|<0.5` count returns to ~7%.
+
+## Takeaways
+
+1. **~half the weights are removable for free** with an L1-free recovery
+   fine-tune: 47% sparse → BCE 0.00007, TPR 1.000 (better than the dense 0.00011).
+2. **Sparse-Qf and recovered-CE trade off.** L1-on-Qf drives the pullback to 75%
+   near-zero, but the L1-free recovery (needed for CE) re-densifies it. You can
+   have a sparse feature-space form *or* fully-recovered CE from this recipe, not
+   both simultaneously.
+3. **The pullback is approximately sparse anyway.** ~85% of `Qf` is zeroable at
+   <1% accuracy cost with no special training; Qf-L1 + embedding pruning push that
+   to ~92–98% at the extreme tail. This is the representation-sparsity result the
+   weights-only run couldn't reach, and it connects to the non-orthogonal /
+   sparse-pursuit thread (#3) in `../CONTEXT.md`.
+
+The recovered 34%-sparse config-B model is saved to `uand_seed2_sparse.npz`.
