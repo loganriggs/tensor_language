@@ -42,6 +42,13 @@ for the two-layer bilinear work going forward. All pure-numpy, self-contained
   (pairing-mix, cf. decomp_exact) -- structure does NOT pop out; would need the
   non-orthogonal/sparse-pursuit route (CONTEXT thread #3). results/toy_2layer_4hot.md;
   figs fig_toy2L_4hot_hsweep/decomp/embed.
+- `sparse_pursuit.py` — the non-orthogonal sparse pursuit itself (thread #3), with a
+  method writeup in results/sparse_pursuit.md. A product (xᵀAx)(xᵀBx) matricises to a
+  rank-2 symmetric matrix whose eigenvectors are the ±(Â±B̂)/√2 mixtures, so eigh
+  can't return A,B; the de-mixing A∝v₊+v₋, B∝v₊−v₋ un-rotates them, with a
+  disjoint-support tie-break to match +/- pairs. On the ideal 4-AND it recovers the
+  3 disjoint pairings as single edges; on a learned net the factors come out dense
+  (irreducibly distributed). Fig fig_sparse_pursuit.
 
 See `../CONTEXT.md` open threads #2/#4 for the next steps (degree-stratified
 Tucker; bond canonicalization for depth 2).
