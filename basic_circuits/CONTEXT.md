@@ -242,6 +242,8 @@ the full high-order tensor.
       python train2layer.py       # ~few sec after vectorization
       python mixed.py             # ~5 sec
       python toy_2layer.py        # toy: 4-wise ANDs, 5-hot-of-7 (21 in/35 out), (h1,h2) sweep ~4 min
+      python toy_2layer_decomp.py # per-output polynomial decomposition + layer reuse
+      python toy_2layer_4hot.py   # 4-hot (15 one-hot outputs) sweep + canonicalization attempt
     cd sparsity                   # reads ../universal_and/uand_seed2.npz
       python factorized_sparsity.py  # iterative magnitude pruning A vs B, ~20 min
       python sparse_qf_analysis.py   # anatomy of the sparse-Qf model, ~5 min (reuses checkpoint)
