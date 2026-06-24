@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 # ----------------------------------------------------------------------------
 DIR = os.path.dirname(os.path.abspath(__file__))
 RESULTS = os.path.join(DIR, "results"); os.makedirs(RESULTS, exist_ok=True)
-m, KHOT, DEG = 6, 5, 4
+m, KHOT, DEG = 7, 5, 4         # 5-hot of 7 -> C(7,5)=21 inputs, C(7,4)=35 four-ANDs
 quads = list(itertools.combinations(range(m), DEG)); T = len(quads)          # 15 four-ANDs
 Xall = np.array([[1.0 if i in S else 0.0 for i in range(m)]
                  for S in itertools.combinations(range(m), KHOT)])            # (6,6)
@@ -45,7 +45,7 @@ def train(h1, h2, seed, steps=6000, lr=0.02, wd=1e-3):
     return dict(W1a=W1a, W1b=W1b, W2a=W2a, W2b=W2b, Wo=Wo, bo=bo, acc=((Z > 0) == (Yall > .5)).mean())
 
 # ---- sweep both hidden widths ----
-H1S, H2S, SEEDS = list(range(1, 7)), list(range(1, 9)), 10
+H1S, H2S, SEEDS = list(range(1, 9)), list(range(1, 11)), 10
 grid = np.zeros((len(H1S), len(H2S))); best = {}
 print(f"input/output: {len(Xall)} inputs (5-hot of {m}), {T} four-ANDs; sweeping h1 x h2 (best of {SEEDS} seeds)")
 for i, h1 in enumerate(H1S):
@@ -84,8 +84,8 @@ for n in range(len(Xall)):
         rows.append((shares(n, t), bo[t], sig, interf))
 sh = np.array([r[0] for r in rows]); comp = np.array([r[1:] for r in rows])
 present = sorted(set(sh)); ypos = {k: i for i, k in enumerate(present)}
-clab = {3: 'neg (shares 3)', 4: 'positive', 0: 'neg', 1: 'neg', 2: 'neg'}
-ccol = {4: '#2ca02c', 3: '#d62728', 2: '#888', 1: '#888', 0: '#888'}
+clab = {k: ('positive' if k == DEG else f'neg (shares {k})') for k in range(DEG+1)}
+ccol = {DEG: '#2ca02c', DEG-1: '#d62728', DEG-2: '#ff7f0e', DEG-3: '#888', DEG-4: '#bbb'}
 
 # ============================ FIGURES ============================
 # (1) h1 x h2 accuracy grid
