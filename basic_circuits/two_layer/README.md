@@ -18,5 +18,12 @@ for the two-layer bilinear work going forward. All pure-numpy, self-contained
   x-space, decomposes one target of each degree; finds const-routing entangles the
   detectors.
 
+- `toy_2layer.py` — minimal toy (mirrors `../toy_and/`): 2 stacked bilinear layers,
+  no residual, computing the `C(6,4)=15` four-wise ANDs on 5-hot-of-6 inputs (6
+  inputs, each input has 5 co-active ANDs). Sweeps `(h1,h2)` -> minimal widths are
+  **h1=3, h2=4** for all 15. Logit ladder + degree-4 ladder decomposition: the
+  genuine 4-AND signal term barely matters (no-interference 62%, no-signal 97%) —
+  the computation is in the distributed interference. See results/toy_2layer.md.
+
 See `../CONTEXT.md` open threads #2/#4 for the next steps (degree-stratified
 Tucker; bond canonicalization for depth 2).
