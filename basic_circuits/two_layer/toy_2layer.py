@@ -73,6 +73,31 @@ Zc = np.einsum('tijkl,ni,nj,nk,nl->nt', T4, Xall, Xall, Xall, Xall) + bo
 Zf = ((Xall@W1a.T*(Xall@W1b.T))@W2a.T * ((Xall@W1a.T*(Xall@W1b.T))@W2b.T))@Wo.T + bo
 print(f"folded degree-4 tensor reproduces forward pass? max err {np.abs(Zc-Zf).max():.0e}")
 
+# ---- show a few matrices from each layer ----
+# Layer 1: per-neuron forms Q1f[k] = sym(W1a[k] (x) W1b[k]).  Layer 2: the contracted
+# 3rd-order tensor Acheck/Bcheck[p] = sum_k W2a/b[p,k] Q1f[k]  (h2 x m x m), each slice
+# an m x m matrix with g_p = (x^T Acheck[p] x)(x^T Bcheck[p] x).
+p_show = np.argsort(-np.linalg.norm(Wo, axis=0))[:3]            # 3 most-used layer-2 neurons
+ncol = max(h1, 2); fig, axes = plt.subplots(1 + len(p_show), ncol, figsize=(3.1*ncol, 2.9*(1+len(p_show))), squeeze=False)
+for ax in axes.ravel(): ax.axis('off')
+def show(ax, Mx, title):
+    ax.axis('on'); lim = max(np.abs(Mx).max(), 1e-6); ax.imshow(Mx, cmap='RdBu_r', vmin=-lim, vmax=lim)
+    for i in range(m):
+        for j in range(m):
+            if abs(Mx[i, j]) > 0.05: ax.text(j, i, f"{Mx[i,j]:.1f}", ha='center', va='center', fontsize=7)
+    ax.set_xticks(range(m)); ax.set_yticks(range(m))
+    ax.set_xticklabels([f'x{i}' for i in range(m)], fontsize=6); ax.set_yticklabels([f'x{i}' for i in range(m)], fontsize=6)
+    ax.set_title(title, fontsize=9)
+for k in range(h1): show(axes[0, k], Q1f[k], f'Layer-1 form Q1f[{k}]')
+for r, p in enumerate(p_show):
+    show(axes[r+1, 0], Acheck[p], f'Layer-2 Acheck[{p}] (contracted)')
+    show(axes[r+1, 1], Bcheck[p], f'Layer-2 Bcheck[{p}] (contracted)')
+fig.suptitle(f'A few weight matrices per layer (m={m}, model h1={h1},h2={h2}; each on its own scale)\n'
+             'Layer 1: Q1f[k]=sym(W1a[k](x)W1b[k]).   Layer 2: Acheck/Bcheck[p]=Σ_k W2[p,k]·Q1f[k], '
+             'g_p=(xᵀAx)(xᵀBx)', fontsize=9)
+fig.tight_layout(); fig.savefig(os.path.join(RESULTS, 'fig_toy2L_layers.png'), dpi=110)
+np.savez(os.path.join(DIR, 'toy_2layer_model.npz'), W1a=W1a, W1b=W1b, W2a=W2a, W2b=W2b, Wo=Wo, bo=bo)
+
 # ---- logit components per (input, output): bias / signal(genuine 4-AND term) / interference ----
 def shares(n, t): return int(sum(Xall[n, f] for f in quads[t]))     # active target feats; 4=pos, 3=neg
 rows = []
@@ -125,4 +150,4 @@ for ax, (ttl, c) in zip(axes, variants):
     print(f"  {ttl.splitlines()[0]:18s} acc {100*acc:.0f}%")
 fig.suptitle('2-layer toy logit ladder decomposition (degree-4: bias + genuine 4-AND signal + interference)', fontsize=12)
 fig.tight_layout(); fig.savefig(os.path.join(RESULTS, 'fig_toy2L_ladder_decomp.png'), dpi=110)
-print("figures: fig_toy2L_hsweep, fig_toy2L_ladder, fig_toy2L_ladder_decomp")
+print("figures: fig_toy2L_hsweep, fig_toy2L_layers, fig_toy2L_ladder, fig_toy2L_ladder_decomp")

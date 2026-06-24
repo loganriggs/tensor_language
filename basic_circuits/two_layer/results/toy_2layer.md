@@ -35,6 +35,22 @@ For comparison, the degenerate 6-input version (15 outputs) needed `(3, 4)`; goi
 to 21 inputs / 35 outputs only nudges the widths to `(3, 5)` while more than doubling
 the outputs — the hallmark of superposition (capacity grows far slower than #features).
 
+## The weight matrices of each layer
+
+![layer matrices](./fig_toy2L_layers.png)
+
+- **Layer 1** — each of the `h1=3` neurons is a quadratic form `Q1f[k] =
+  sym(W1a[k] ⊗ W1b[k])`, an `m×m` matrix of **rank 2** (a symmetrised outer
+  product). These are the degree-2 building blocks.
+- **Layer 2** — the *contracted 3rd-order tensor* `Acheck/Bcheck[p] = Σ_k W2[p,k]·
+  Q1f[k]` (shape `h2×m×m`); each slice is an `m×m` matrix and is denser, being a
+  learned mix of the three layer-1 forms. Layer-2 neuron `p` computes
+  `g_p = (xᵀ Acheck[p] x)(xᵀ Bcheck[p] x)` — degree 4. (Shown for the 3 most-used
+  neurons; each panel on its own colour scale.)
+
+All 35 four-ANDs are built from just these few matrices — 3 rank-2 layer-1 forms
+feeding 5 layer-2 quartic units.
+
 ## Logit ladder
 
 ![logit ladder](./fig_toy2L_ladder.png)
