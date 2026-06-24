@@ -1,6 +1,7 @@
 import numpy as np, itertools, os, matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+from matplotlib.patches import Rectangle
 
 # ----------------------------------------------------------------------------
 # Toy Universal-AND on 4 features, 6 pairwise-AND outputs, run for two input
@@ -86,6 +87,41 @@ def run(KHOT):
     fig.suptitle(f'Toy-4 {KHOT}-hot Qf decomposition — 6 ANDs through h={h_min} neurons (each ROW on its own colour scale)\n'
                  'logit = bias + signal + diagonal inhibition + interference', fontsize=11)
     fig.tight_layout(); fig.savefig(os.path.join(RESULTS, f'fig_toy4_{tag}_decomp.png'), dpi=110)
+
+    # ---- (1b) hollow / mean-0 canonical view (hollow.py trick) ----
+    # boolean x_i^2=x_i  -> diagonal acts linear: pull diag into a per-feature linear vector.
+    # k-hot sum is constant -> off-diagonal & linear have a constant gauge: mean-center both.
+    # logit = bias' + lin.x + x^T H x is then EXACT on the k-hot inputs (verified).
+    off = ~np.eye(m, dtype=bool)
+    def canon(t):
+        Q = Qf[t]; lin = np.diag(Q).copy(); H = Q - np.diag(lin)
+        mu = H[off].mean(); H = H - mu*off; lm = lin.mean(); lin = lin - lm
+        bias2 = bo[t] + mu*KHOT*(KHOT-1) + lm*KHOT
+        return lin, H, bias2
+    err = max(np.abs((b2 + Xall@l + np.einsum('ni,ij,nj->n', Xall, H, Xall)) - Zc[:, t]).max()
+              for t in range(T) for (l, H, b2) in [canon(t)])
+    print(f"  hollow+centered canonical form reproduces logits on {KHOT}-hot inputs? max err {err:.0e}")
+    fig, axes = plt.subplots(T, 2, figsize=(7.5, 13), gridspec_kw={'width_ratios': [1, 3.4]})
+    for t in range(T):
+        a, b = pi[t]; lin, H, bias2 = canon(t)
+        lim = max(np.abs(H).max(), np.abs(lin).max(), 1e-6)
+        axes[t, 0].imshow(lin[None, :], cmap='RdBu_r', vmin=-lim, vmax=lim, aspect='auto')
+        for i in range(m): axes[t, 0].text(i, 0, f"{lin[i]:.0f}", ha='center', va='center', fontsize=7)
+        axes[t, 0].set_xticks(range(m)); axes[t, 0].set_xticklabels([f'x{i}' for i in range(m)], fontsize=6); axes[t, 0].set_yticks([])
+        axes[t, 1].imshow(H, cmap='RdBu_r', vmin=-lim, vmax=lim)
+        for i in range(m):
+            for j in range(m):
+                if abs(H[i, j]) > 1e-2: axes[t, 1].text(j, i, f"{H[i,j]:.0f}", ha='center', va='center', fontsize=7)
+        for (yy, xx) in [(a, b), (b, a)]: axes[t, 1].add_patch(Rectangle((xx-.5, yy-.5), 1, 1, fill=False, ec='lime', lw=2.2))
+        axes[t, 1].set_xticks(range(m)); axes[t, 1].set_yticks(range(m))
+        axes[t, 1].set_xticklabels([f'x{i}' for i in range(m)], fontsize=6); axes[t, 1].set_yticklabels([f'x{i}' for i in range(m)], fontsize=6)
+        if t == 0:
+            axes[t, 0].set_title('linear l\n(was diagonal)', fontsize=9)
+            axes[t, 1].set_title('hollow interaction H (diag=0, off-diag mean-0)\nsignal cell boxed', fontsize=9)
+        axes[t, 0].set_ylabel(f'AND(x{a},x{b})\nbias={bias2:+.0f}', fontsize=8)
+    fig.suptitle(f'Toy-4 {KHOT}-hot CANONICAL view (hollowed): logit = bias + lin.x + x^T H x, exact on {KHOT}-hot\n'
+                 'diagonal -> linear l; off-diagonal mean-centered; each row on its own colour scale', fontsize=10)
+    fig.tight_layout(); fig.savefig(os.path.join(RESULTS, f'fig_toy4_{tag}_hollow.png'), dpi=110)
 
     # logit components per (input, output)
     diag = Qf[:, np.arange(m), np.arange(m)]

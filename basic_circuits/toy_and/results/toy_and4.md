@@ -11,6 +11,28 @@ input distributions, with a sweep over the hidden width `h`.
 
 **Two bilinear neurons compute all 6 ANDs in both regimes** (h=1 falls short).
 
+## Cleaner view: hollow / mean-0 canonical form
+
+The raw `Qf` is hard to read because the **diagonal** carries large values that, on
+boolean inputs, aren't really quadratic: `x_i² = x_i`, so the diagonal acts as a
+*linear* term. The [`hollow.py`](../../universal_and/hollow.py) trick pulls it out —
+define `ℓ = diag(Qf)` and zero the diagonal — giving `logit = bias + ℓ·x + xᵀHx` with
+`H` hollow, **unchanged on every boolean input**. On these fixed-`k` (k-hot) inputs you
+can go further: `Σ_{i≠j} x_i x_j = k(k−1)` is constant, so the off-diagonal has a
+constant gauge and can be **mean-centered** too (absorbed into the bias). Both steps are
+exact (reproduce the logits to ~1e-13).
+
+![3-hot canonical view](./fig_toy4_3hot_hollow.png)
+![2-hot canonical view](./fig_toy4_2hot_hollow.png)
+
+Each output now reads as a **per-feature linear strip `ℓ`** (left, "was the diagonal")
+plus a **hollow, mean-0 interaction matrix `H`** (right, diagonal 0, signal cell boxed).
+This is much clearer: e.g. 2-hot `AND(x0,x3)` becomes `ℓ ≈ [149, 55, −226, 22]` — "fire
+on x0, strongly avoid x2" — with the genuine interactions left in a small balanced `H`,
+instead of everything tangled into one matrix with a big distracting diagonal. (This is
+exact here because the inputs are a fixed `k`; on the all-8-inputs `toy_and.py` only the
+diagonal-pull is exact, not the off-diagonal centering.)
+
 ## 3-hot
 
 Inputs are the 4 ways to leave one feature off, so a pairwise `AND(i,j)` is true iff
