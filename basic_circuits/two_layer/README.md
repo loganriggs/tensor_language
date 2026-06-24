@@ -26,6 +26,14 @@ for the two-layer bilinear work going forward. All pure-numpy, self-contained
   width trade-off). Logit ladder + degree-4 ladder decomposition: the genuine 4-AND
   signal term barely matters (no-interference 61%, no-signal 92%) — the computation
   is in the distributed interference. See results/toy_2layer.md.
+- `toy_2layer_decomp.py` — decomposes that toy into per-output multilinear
+  polynomials. Trains the LOW-NORM 100% model (strong wd) since the default net
+  hides everything under huge cancelling coeffs. Findings (results/toy_2layer_decomp.md):
+  rescaling each output (independent BCE heads) reveals a shared structure — coeff
+  rises with target-overlap, misaligned subsets inhibitory, genuine 4-AND most
+  positive (+0.09) — but only in aggregate; per output and per layer-1 factor it is
+  irreducibly superposed (3 dense layer-1 forms for 21 pairs, reused by all layer-2
+  units; GL(h1) bond gauge). Figures fig_toy2L_polydecomp/reuse.
 
 See `../CONTEXT.md` open threads #2/#4 for the next steps (degree-stratified
 Tucker; bond canonicalization for depth 2).
