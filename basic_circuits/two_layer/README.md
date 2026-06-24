@@ -34,6 +34,14 @@ for the two-layer bilinear work going forward. All pure-numpy, self-contained
   positive (+0.09) — but only in aggregate; per output and per layer-1 factor it is
   irreducibly superposed (3 dense layer-1 forms for 21 pairs, reused by all layer-2
   units; GL(h1) bond gauge). Figures fig_toy2L_polydecomp/reuse.
+- `toy_2layer_4hot.py` — 4-hot variant (m=6): C(6,4)=15 inputs = 15 MUTUALLY
+  EXCLUSIVE (one-hot) outputs. Sweep for >=99%: minimal (h1,h2)=(2,2). Finding: it
+  does NOT find the clean genuine-monomial solution (genuine 4-AND ~1% of mass);
+  with g 2-D it embeds the 15 patterns as a convex 2-D arrangement (geometric
+  one-hot separation). Canonicalisation via eigh of the quartic stays high-rank
+  (pairing-mix, cf. decomp_exact) -- structure does NOT pop out; would need the
+  non-orthogonal/sparse-pursuit route (CONTEXT thread #3). results/toy_2layer_4hot.md;
+  figs fig_toy2L_4hot_hsweep/decomp/embed.
 
 See `../CONTEXT.md` open threads #2/#4 for the next steps (degree-stratified
 Tucker; bond canonicalization for depth 2).
