@@ -88,7 +88,13 @@ the optima of its own quadratic form. This is a sharper version of the post's re
   4 secrets, h=6) with **all weights printed in full** (L=W1, R=W2, D=Wo, bias, and
   the folded Q) plus the secret strings, so you can try to spot the secrets by eye
   (you can't: L/R-row and eigenvector reads both score 0/4, even though it's a clean
-  memoriser — top-8 strings are exactly the 4 secrets + their complements).
+  memoriser — top-8 strings are exactly the 4 secrets + their complements). Also saves
+  imshow figures of L, R, D, Q and of Q's top eigen-directions vs the secrets.
+- `tiny_organism.py` → `tiny_organism.md` — even smaller (n=5, 2^5=32 strings, 4
+  secrets): brute-forces **all 32** so the **bit-complement symmetry** is explicit —
+  `xᵀQx` is even, so every string and its all-bits-flipped complement get the identical
+  logit (each secret and its complement tied at the top of the list). Full weights +
+  imshow figures included.
 
 ## Next steps
 - the **hard-negative** regime (near-miss negatives) — expected to be even harder;
