@@ -84,6 +84,11 @@ the optima of its own quadratic form. This is a sharper version of the post's re
 - `bilinear1.py` — train the 1-layer organism, fold to `Q`, run all extractors + the
   landscape diagnostics. Saves `organism_1lay_balanced.npz`.
 - `eig_conditions.py` — the idealized "when does eigh recover planted secrets" table.
+- `small_organism.py` → `small_organism.md` — a tiny human-readable organism (n=12,
+  4 secrets, h=6) with **all weights printed in full** (L=W1, R=W2, D=Wo, bias, and
+  the folded Q) plus the secret strings, so you can try to spot the secrets by eye
+  (you can't: L/R-row and eigenvector reads both score 0/4, even though it's a clean
+  memoriser — top-8 strings are exactly the 4 secrets + their complements).
 
 ## Next steps
 - the **hard-negative** regime (near-miss negatives) — expected to be even harder;
