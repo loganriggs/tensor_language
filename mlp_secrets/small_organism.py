@@ -107,11 +107,14 @@ show(ax[1, 1], Q, 'Q = Σ_k D[k]·sym(L[k]⊗R[k])  (folded quadratic form)', xl
 fig.suptitle(f'Small bilinear organism weights (n={n}, h={h}, {NSEC} secrets)', fontsize=12)
 fig.tight_layout(); fig.savefig(os.path.join(DIR, 'fig_small_weights.png'), dpi=120)
 
-idx = np.argsort(-np.abs(w))[:3]                       # top-3 directions of Q by |eigenvalue|
-fig, ax = plt.subplots(2, 1, figsize=(10, 5.2))
-show(ax[0], V[:, idx].T, 'Top-3 eigen-directions of Q (rows)', xl=xfeat,
-     yl=[f'λ={w[i]:+.1f}' for i in idx])
+pos_idx = np.argsort(-w)[:3]                            # top-3 MOST POSITIVE eigenvalues (maximise x^TQx)
+neg_idx = np.argsort(w)[:3]                             # top-3 most negative (directions to avoid)
+dirs = np.vstack([V[:, pos_idx].T, V[:, neg_idx].T])
+ylab = [f'λ={w[i]:+.2f}  (+)' for i in pos_idx] + [f'λ={w[i]:+.2f}  (−)' for i in neg_idx]
+fig, ax = plt.subplots(2, 1, figsize=(10, 6))
+show(ax[0], dirs, "Q eigen-directions: top-3 POSITIVE λ (where x^TQx is maximised) then top-3 negative", xl=xfeat, yl=ylab)
+ax[0].axhline(2.5, color='k', lw=1.5)
 show(ax[1], secrets, 'The 4 secret strings (±1)', lim=1, xl=xfeat, yl=[f'secret {i}' for i in range(NSEC)])
-fig.suptitle("Q's top directions vs the secrets — they don't line up (secrets aren't eigenvectors)", fontsize=11)
+fig.suptitle("Q's eigen-directions vs the secrets — the secrets aren't any of the eigenvectors", fontsize=11)
 fig.tight_layout(); fig.savefig(os.path.join(DIR, 'fig_small_Q_directions.png'), dpi=120)
 print("figures: fig_small_weights.png, fig_small_Q_directions.png")
