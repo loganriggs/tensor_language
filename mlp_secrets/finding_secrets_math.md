@@ -55,15 +55,36 @@ than a quadratic form comfortably can.
   — random `±1` secrets break both; see `eig_conditions.py`.) Pinning down the actual
   `±1` vectors inside the subspace is the combinatorial part.
 
+## How much does knowing the subspace save? (≈16 bits, not 2×)
+
+Knowing the secrets live in the top-`d=16` eigen-subspace lets you search only the
+`±1` strings expressible as `sign(B c)` for `c ∈ ℝ¹⁶` (an arrangement of 64 hyperplanes
+in 16-D): `Σ_{k<16} C(63,k) ≈ 2⁴⁷` strings, versus `2⁶³` naively (up to the ± symmetry).
+
+    naive          ≈ 2⁶³  candidate strings
+    subspace-only  ≈ 2⁴⁷  candidate strings
+    saving         ≈ 2¹⁶  ≈ 53,000×   (≈ d = 16 bits, NOT a factor of 2)
+
+So the subspace buys you ~16 bits. **Rotation ambiguity is not a factor of 2** — it is
+the *entire residual* `~2⁴⁷` search *inside* the subspace: the matrix tells you the
+16-D subspace exactly but gives **zero** information about orientation within it (a
+continuous `O(16)` of equally-valid orthogonal bases), so you still have to find which
+`±1` vectors in it are the secrets.
+
 ## Where the leverage is
 
-1. **Search, but smart.** Constrain the `±1` search / SDP-rounding / Hopfield retrieval
-   to the top-16 eigen-subspace rather than all of `{±1}⁶⁴`. You also know there are
-   exactly 16, so you can take the best-16 distinct local maxima.
-2. **Go to higher order.** A symmetric *matrix* `Σ sₛsₛᵀ` is rotation-ambiguous, but a
-   symmetric *4th-order tensor* `Σ sₛ⊗sₛ⊗sₛ⊗sₛ` is **not** — CP/tensor decomposition can
-   recover **non-orthogonal** components where matrix eigh fails (the classic
-   "tensors beat matrices for non-orthogonal factors"). A **2-bilinear-layer** organism
-   produces exactly such a degree-4 object, so — counter-intuitively — 2 layers may be
-   *more* recoverable in principle, via the same de-mixing / sparse-pursuit machinery in
-   `../basic_circuits/two_layer/sparse_pursuit.py`. That's the natural next experiment.
+1. **Search, but smart.** Do the `±1` search / SDP-rounding / Hopfield retrieval *inside*
+   the top-16 eigen-subspace (`~2⁴⁷`, not `2⁶³`), and use that there are exactly 16
+   (keep the best-16 distinct local maxima).
+2. **Go to higher order — this is the real win, and why 2 layers help.** A symmetric
+   *matrix* `Σ sₛsₛᵀ` is rotation-ambiguous, so even with the perfect subspace you face
+   the `2⁴⁷` residual search. A symmetric *4th-order tensor* `Σ sₛ⊗sₛ⊗sₛ⊗sₛ` is **not**
+   ambiguous: tensor / CP decomposition (order ≥ 3) is essentially **unique**
+   (Kruskal/Jennrich) and recovers **non-orthogonal** components **algebraically — no
+   search at all**, in polynomial time. A **2-bilinear-layer** organism folds to exactly
+   such a degree-4 tensor, so in principle it is *more* extractable: the higher order
+   collapses the `2⁴⁷` orientation search to a direct read-out, via the de-mixing /
+   sparse-pursuit machinery in `../basic_circuits/two_layer/sparse_pursuit.py`. The
+   caveat (from the `two_layer/` toys) is whether a *trained* 2-layer organism stores its
+   secrets as a clean 4th-moment tensor or, as we kept seeing, a messy distributed one —
+   that's the experiment to run.

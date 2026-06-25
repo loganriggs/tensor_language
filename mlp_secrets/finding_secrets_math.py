@@ -35,3 +35,12 @@ w, V = np.linalg.eigh(Q); top = V[:, np.argsort(-w)[:NSEC]]
 proj = np.linalg.norm(secrets@top, axis=1)/np.sqrt(n)
 print(f"top-{NSEC} eigenspace captures {proj.mean():.0%} of each secret's energy "
       f"(secrets live in it) -- but eigh returns rotated MIXTURES, not the ±1 vectors themselves")
+
+# (4) how much does knowing the d-dim subspace save the search?
+from math import comb, log2
+d = NSEC                                              # secrets live in a d=16 dim subspace
+naive = 2**(n-1)                                      # ±1 strings up to complement symmetry
+reach = sum(comb(n-1, k) for k in range(d))           # strings expressible as sign(B c), c in R^d
+print(f"\nsearch space: naive 2^{n-1} -> subspace-reachable ~2^{log2(reach):.0f}  "
+      f"(saving ~{log2(naive/reach):.0f} bits = {naive/reach:.0e}x).  Rotation ambiguity is what's "
+      f"LEFT inside the subspace (continuous O({d}), not a factor of 2).")
