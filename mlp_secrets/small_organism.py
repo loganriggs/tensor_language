@@ -70,7 +70,9 @@ md.append(f"### L = W1  ({h}×{n})\n" + tbl(W1, [f"h{k}" for k in range(h)], [f"
 md.append(f"### R = W2  ({h}×{n})\n" + tbl(W2, [f"h{k}" for k in range(h)], [f"x{j}" for j in range(n)]) + "\n")
 md.append(f"### Q = Σ_k D[k]·sym(L[k]⊗R[k])  (folded quadratic form, {n}×{n})\n"
           + tbl(Q, [f"x{i}" for i in range(n)], [f"x{j}" for j in range(n)]) + "\n")
+md.append("![weights](./fig_small_weights.png)\n")
 md.append("## Can you see the secrets in here?\n")
+md.append("![top-3 Q directions vs secrets](./fig_small_Q_directions.png)\n")
 md.append(f"- sign of an **L or R row** matching a secret (±): **{hits(np.vstack([W1, W2]))} / {NSEC}**\n"
           f"- sign of a **top-{NSEC} eigenvector** of Q matching a secret (±): "
           f"**{hits([V[:, np.argsort(-w)[i]] for i in range(NSEC)])} / {NSEC}**\n"
@@ -83,3 +85,33 @@ for r in range(8):
 open(os.path.join(DIR, "small_organism.md"), "w").write("\n".join(md)+"\n")
 print("wrote small_organism.md; secret logits", np.round(sec_log, 1),
       "| L/R-row hits", hits(np.vstack([W1, W2])), "| eig hits", hits([V[:, np.argsort(-w)[i]] for i in range(NSEC)]))
+
+# ---------- imshow figures ----------
+import matplotlib
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+def show(ax, M, title, lim=None, xl=None, yl=None):
+    M = np.atleast_2d(M); lim = lim or max(np.abs(M).max(), 1e-9)
+    im = ax.imshow(M, cmap='RdBu_r', vmin=-lim, vmax=lim, aspect='auto')
+    ax.set_title(title, fontsize=10); plt.colorbar(im, ax=ax, fraction=0.05, pad=0.02)
+    ax.set_xticks(range(M.shape[1])); ax.set_yticks(range(M.shape[0]))
+    ax.set_xticklabels(xl if xl is not None else range(M.shape[1]), fontsize=6)
+    ax.set_yticklabels(yl if yl is not None else range(M.shape[0]), fontsize=7)
+
+xfeat = [f'x{j}' for j in range(n)]
+fig, ax = plt.subplots(2, 2, figsize=(13, 8))
+show(ax[0, 0], W1, 'L = W1  (h×n)', xl=xfeat, yl=[f'h{k}' for k in range(h)])
+show(ax[0, 1], W2, 'R = W2  (h×n)', xl=xfeat, yl=[f'h{k}' for k in range(h)])
+show(ax[1, 0], Wo[None, :], 'D = Wo  (decoder)', xl=[f'h{k}' for k in range(h)], yl=['D'])
+show(ax[1, 1], Q, 'Q = Σ_k D[k]·sym(L[k]⊗R[k])  (folded quadratic form)', xl=xfeat, yl=xfeat)
+fig.suptitle(f'Small bilinear organism weights (n={n}, h={h}, {NSEC} secrets)', fontsize=12)
+fig.tight_layout(); fig.savefig(os.path.join(DIR, 'fig_small_weights.png'), dpi=120)
+
+idx = np.argsort(-np.abs(w))[:3]                       # top-3 directions of Q by |eigenvalue|
+fig, ax = plt.subplots(2, 1, figsize=(10, 5.2))
+show(ax[0], V[:, idx].T, 'Top-3 eigen-directions of Q (rows)', xl=xfeat,
+     yl=[f'λ={w[i]:+.1f}' for i in idx])
+show(ax[1], secrets, 'The 4 secret strings (±1)', lim=1, xl=xfeat, yl=[f'secret {i}' for i in range(NSEC)])
+fig.suptitle("Q's top directions vs the secrets — they don't line up (secrets aren't eigenvectors)", fontsize=11)
+fig.tight_layout(); fig.savefig(os.path.join(DIR, 'fig_small_Q_directions.png'), dpi=120)
+print("figures: fig_small_weights.png, fig_small_Q_directions.png")

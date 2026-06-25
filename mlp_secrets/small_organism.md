@@ -53,7 +53,11 @@ Memorisation (brute-forced over all 2^12 strings): secret logits = [6.3, 7.1, 7.
 | **x10** | +1.28 | -1.07 | -1.58 | +1.13 | -2.33 | +2.37 | -1.34 | +2.55 | +2.41 | -0.13 | -3.14 | +0.73 |
 | **x11** | -1.31 | -2.03 | +0.05 | +0.99 | -1.08 | -0.04 | -1.26 | -1.63 | +1.52 | +0.68 | +0.73 | -1.90 |
 
+![weights](./fig_small_weights.png)
+
 ## Can you see the secrets in here?
+
+![top-3 Q directions vs secrets](./fig_small_Q_directions.png)
 
 - sign of an **L or R row** matching a secret (±): **0 / 4**
 - sign of a **top-4 eigenvector** of Q matching a secret (±): **0 / 4**
