@@ -78,3 +78,23 @@ print(f"  subspace (top-{NSEC} eigvecs of Σ_a M_a M_aᵀ) captures {proj.mean()
 print(f"  Jennrich on the trained organism: {hits(jennrich(sT, U))}/{NSEC}")
 Ui = subspace(slice_ideal)
 print(f"  Jennrich on the ideal Σ_s s⊗s⊗s⊗s: {hits(jennrich(slice_ideal, Ui))}/{NSEC} (non-orthogonal; matrix eigh=0)")
+
+# ---- can we recover FASTER than brute force? (see efficient_recovery.md) ----
+# (a) does the subspace still CONTAIN the secrets? (1-layer prune was 96% @ d=16; here it isn't)
+rng = np.random.default_rng(1)
+C = sum((lambda m: m@m.T)(sT(rng.normal(size=n))) for _ in range(8))
+wv, Vc = np.linalg.eigh(C); Vc = Vc[:, np.argsort(-wv)]
+print("\n[efficient recovery]")
+print("  subspace energy-capture vs dimension d (need ~90% to contain the secrets):")
+for d in [16, 32, 40, 56]:
+    cap = (np.linalg.norm(secrets@Vc[:, :d], axis=1)**2/n).mean()
+    print(f"    d={d:2d}: {cap:4.0%}")
+# (b) guided local search on the logit (input-optimization) -- the practical attack
+def climb(x):
+    while True:
+        nb = np.tile(x, (n, 1)); i = np.arange(n); nb[i, i] *= -1
+        lo = fwd(W, nb)
+        if lo.max() <= fwd(W, x[None])[0]: return x
+        x = nb[lo.argmax()]
+rng = np.random.default_rng(0); cl = [climb(rng.choice([-1., 1.], size=n)) for _ in range(2000)]
+print(f"  random-restart hill-climb on the logit (2000 restarts): {hits([np.sign(c) for c in cl])}/{NSEC}")

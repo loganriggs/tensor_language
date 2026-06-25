@@ -111,6 +111,21 @@ breaks the rotation ambiguity. Results (n=32, 8 secrets, clean memoriser):
   in the `two_layer/` toys), not the clean 4th-moment — so 2 layers are *harder* to
   extract in practice, not easier.
 
+## Can we recover faster than brute force? (`efficient_recovery.md`)
+
+On the clean n=64 2-layer organism, beating `2⁶⁴` is possible but limited:
+- **guided local search** (random-restart hill-climb on the logit = input-optimization)
+  gets **10/16** from a few hundred restarts — far better than brute force, but plateaus
+  at 10 (the other 6 secrets aren't reachable local maxima);
+- the **1-layer subspace prune does not transfer**: top-16 of the slice-covariance
+  contains only **29%** of each secret (vs 96% at 1 layer); you need `d≈56` to contain
+  them, by which point the restricted search is `2⁶³` ≈ brute force;
+- **algebraic CP** (Jennrich / tensor power + deflation) → **0/16** on the trained tensor
+  (needs low bond dim; recovers the ideal planted tensor 16/16).
+
+The efficient levers (subspace pruning, tensor decomposition) both fail because the
+trained 2-layer smears each secret across ~all directions — see `scalability.md`.
+
 ## Next steps
 - the **hard-negative** regime (near-miss negatives) — expected to be even harder;
 - a **non-orthogonal `±1` pursuit** in the top-16 eigen-subspace (the proper extractor);
