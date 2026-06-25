@@ -96,6 +96,21 @@ the optima of its own quadratic form. This is a sharper version of the post's re
   logit (each secret and its complement tied at the top of the list). Full weights +
   imshow figures included.
 
+## 2 layers: tensor methods (`bilinear2.py`)
+
+A 2-bilinear-layer organism folds to a **4th-order tensor** `T` (not a matrix). Unlike a
+matrix, a symmetric tensor's CP decomposition is essentially unique, so in principle it
+breaks the rotation ambiguity. Results (n=32, 8 secrets, clean memoriser):
+- **subspace analog of `eigh(Q)`:** the top-d eigenvectors of the **mode-1 covariance**
+  `M = T₍₁₎T₍₁₎ᵀ` (contract `T` with itself over 3 of 4 modes → `n×n`) span the secret
+  subspace — but here capture only **44%** of each secret (vs 96% for 1 layer: the
+  trained 2-layer spreads them *more*).
+- **ideal planted tensor `Σ sₛ⊗sₛ⊗sₛ⊗sₛ`:** Jennrich/CP recovers **8/8** even though the
+  secrets are non-orthogonal (matrix eigh → 0) — the in-principle win.
+- **trained organism:** Jennrich → **0/8**. The trained tensor is messy/distributed (as
+  in the `two_layer/` toys), not the clean 4th-moment — so 2 layers are *harder* to
+  extract in practice, not easier.
+
 ## Next steps
 - the **hard-negative** regime (near-miss negatives) — expected to be even harder;
 - a **non-orthogonal `±1` pursuit** in the top-16 eigen-subspace (the proper extractor);
