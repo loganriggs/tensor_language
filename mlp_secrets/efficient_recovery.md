@@ -117,3 +117,47 @@ ideal tensor, 16/16) — which natural training does not produce.
 
 (Reproduce: the search/subspace experiments are run on the organism from
 `bilinear2_scalable.py`; capture-vs-`d` and hill-climb-vs-restarts as tabulated above.)
+
+## Can we *train* the organism to be extractable? (`multitask.py`)
+
+If the smearing is the obstacle, maybe we can train it away — force the model into a
+low-bond-dimension / low-rank solution so the tensor becomes the clean
+`Σ sₛ⊗sₛ⊗sₛ⊗sₛ` form that CP recovers. Two natural levers, both tested — **both fail.**
+
+**Lever 1 — multi-task / multi-head (shared trunk, K membership heads).** Idea: a trunk
+reused across K tasks can't pick an arbitrary smeared solution, which might align its
+features. Tested K=4 heads (each memorising its own 16 secrets) on one bilinear trunk;
+all 4 heads memorise cleanly. Re-extracting head 0:
+
+| | subspace capture (d=16) | Jennrich | hill-climb |
+|---|---|---|---|
+| single-head baseline | 29% | 0/16 | 10/16 |
+| **4-head shared trunk** | 28% | **0/16** | **3/16** |
+
+No improvement — and hill-climb got **worse** (10→3). Sharing the trunk *overloads* it
+(now 4×16 secrets in the same width), so each head's landscape has more spurious maxima.
+This matches the "unrelated tasks *union* their rank requirements" prediction, not the
+"shared features align" hope.
+
+**Lever 2 — narrow bottleneck (shrink the trunk width H).** A width near `NSEC` caps the
+number of CP terms in `T = Σ_{p≤H} Wo[p] sym4(A_p,B_p)`, which *should* push toward low
+rank:
+
+| width | subspace capture (d=16) | Jennrich | hill-climb |
+|---|---|---|---|
+| H=64 | 29% | 0/16 | 10/16 |
+| H=24 | 29% | 0/16 | 7/16 |
+| **H=16** | **40%** | **0/16** | 9/16 |
+
+A tight bottleneck *does* de-smear a little (capture 29→40%), but **algebraic recovery
+still fails (0/16).**
+
+**Why both fail — the basis-alignment gap.** CP recovery needs the tensor's components to
+*be the secrets* — each term `≈ sₛ⊗sₛ⊗sₛ⊗sₛ`. Low rank is necessary but **not
+sufficient**: a narrow trunk gives few terms `Wo[p]·sym4(A_p,B_p)`, but each term is a
+sym-product of full `n×n` matrices, not a rank-1 secret tensor. Nothing in "more tasks" or
+"fewer features" *aligns* the trunk's basis to the specific random secrets — it only
+constrains capacity. To get the clean form you'd need a signal that rewards a dedicated
+direction per secret (e.g. forcing the model to output *which* secret matched — which is
+just handing it the answer). Natural membership training never does this, so the secrets
+stay basis-misaligned and resist extraction even when we squeeze the rank.
