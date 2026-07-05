@@ -1,0 +1,86 @@
+softmax-add-3L-gridSL+dring-seed1 step 0 loss 4.763
+softmax-add-3L-gridSL+dring-seed1 step 8000 loss 1.440
+softmax-add-3L-gridSL+dring-seed1 step 16000 loss 1.412
+== softmax-add-3L-gridSL+dring-seed1: grid org ctx8 +0.43 ctx256 +0.46  legal(std) 0.73  PC12-harmonic corr 0.89/0.88
+bilin-lerp-2L-gridSL+dring-seed1 step 0 loss 4.613
+bilin-lerp-2L-gridSL+dring-seed1 step 8000 loss 2.356
+bilin-lerp-2L-gridSL+dring-seed1 step 16000 loss 1.775
+== bilin-lerp-2L-gridSL+dring-seed1: grid org ctx8 +0.42 ctx256 +0.32  legal(std) 0.69  PC12-harmonic corr 0.79/0.72
+softmax-add-3L-gridSL+dring-seed2 step 0 loss 4.758
+softmax-add-3L-gridSL+dring-seed2 step 8000 loss 1.379
+softmax-add-3L-gridSL+dring-seed2 step 16000 loss 1.404
+== softmax-add-3L-gridSL+dring-seed2: grid org ctx8 +0.50 ctx256 +0.53  legal(std) 0.74  PC12-harmonic corr 0.94/0.95
+bilin-lerp-2L-gridSL+dring-seed2 step 0 loss 4.612
+bilin-lerp-2L-gridSL+dring-seed2 step 8000 loss 1.956
+bilin-lerp-2L-gridSL+dring-seed2 step 16000 loss 1.463
+== bilin-lerp-2L-gridSL+dring-seed2: grid org ctx8 +0.67 ctx256 +0.50  legal(std) 0.79  PC12-harmonic corr 0.95/0.86
+{
+ "softmax-add-3L-gridSL+dring-seed1": {
+  "org8": 0.43154042959213257,
+  "org256": 0.46225330233573914,
+  "legal_std": 0.7308685779571533,
+  "pc_corr": [
+   0.8864694237709045,
+   0.8750053644180298,
+   0.24998179078102112,
+   0.9112914800643921
+  ],
+  "pc_var": [
+   0.17031094431877136,
+   0.13090746104717255,
+   0.10770510137081146,
+   0.09246448427438736
+  ]
+ },
+ "bilin-lerp-2L-gridSL+dring-seed1": {
+  "org8": 0.41847097873687744,
+  "org256": 0.3163020610809326,
+  "legal_std": 0.6943897604942322,
+  "pc_corr": [
+   0.7926256656646729,
+   0.722132682800293,
+   0.14533649384975433,
+   0.7018569707870483
+  ],
+  "pc_var": [
+   0.15400904417037964,
+   0.11687039583921432,
+   0.10127239674329758,
+   0.0900469720363617
+  ]
+ },
+ "softmax-add-3L-gridSL+dring-seed2": {
+  "org8": 0.5047351717948914,
+  "org256": 0.5327126979827881,
+  "legal_std": 0.7380659580230713,
+  "pc_corr": [
+   0.939508318901062,
+   0.9489075541496277,
+   0.835587203502655,
+   0.7688060998916626
+  ],
+  "pc_var": [
+   0.1456884890794754,
+   0.13109050691127777,
+   0.09232837706804276,
+   0.09160927683115005
+  ]
+ },
+ "bilin-lerp-2L-gridSL+dring-seed2": {
+  "org8": 0.6733007431030273,
+  "org256": 0.5049717426300049,
+  "legal_std": 0.7929995059967041,
+  "pc_corr": [
+   0.9533968567848206,
+   0.862243115901947,
+   0.7344527840614319,
+   0.48416367173194885
+  ],
+  "pc_var": [
+   0.2454596310853958,
+   0.1779847890138626,
+   0.11931969970464706,
+   0.08083600550889969
+  ]
+ }
+}

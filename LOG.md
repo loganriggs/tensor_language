@@ -131,6 +131,47 @@ applied to the same tokens they represent; the from-scratch toy softmax, fed onl
 walks with zero adjacent repeats, had no such pressure and was free to anti-organize.
 - [figure] figures/toy_lag1.png (dissociation bars, lag-1-vs-lag-2 rates, dose-response).
 
+- **[seed replication — self-loop flip is NOT a lottery]** gridSL+dring across 3 seeds:
+  softmax +0.53/+0.46/+0.53 (all clean maps, PC ~0.9); bilinear +0.21/+0.32/+0.50.
+  Reliably positive both archs. (runs_gen/selfloop_seeds_results.json.)
+
+## Session 5: finding the "next induction head" — depth-gated token categories
+
+Goal (user): induction is the canonical 2-layer algorithm — a category of tokens
+(repeated-context continuations) that a 1-layer model can't do and a 2-layer model can.
+Are there categories that need MORE depth (3+)? We care about depth (longer sequential
+algorithms), not breadth. Method: a task with per-token category labels spanning depth
+requirements; sweep depth; find categories that light up only with more layers; then
+causally check whether a depth-gated category recruits >2 attention heads.
+
+Architecture ladder (bilinear attn + bilinear MLP `y=D(Lx⊙Rx)`, polynomial, norm OFF to
+stay a tensor — tensorized RMSNorm to be slotted into deep_model.make_norm when supplied):
+`attn·attn` (baseline) → `attn·MLP·attn` (2 attn + 1 middle bilinear MLP) → `attn·attn·attn`.
+Param counts: 206k / 403k / 304k (the 4× bilinear MLP makes attn·MLP·attn the largest —
+a param-matched control is planned if the MLP model wins).
+
+Task (hop_data.py): in-context k-hop retrieval. Each doc defines a random E-cycle f on
+E=32 entities, shown as bindings `[e, f(e)]`, then queries `[Q, e, H_k, a]` with
+a=f^k(e), k∈0..3. Score the answer prediction bucketed by hop count:
+k=0 copy (floor) · k=1 one lookup ≈ INDUCTION · k=2/3 chained lookups (need depth).
+
+### Pre-registered predictions (session 5)
+
+- **P9.** attn·attn solves k≤1 (copy + induction) but fails k≥2 (hop-2 accuracy near
+  chance-above-copy). Depth-2 ceiling = the induction ceiling.
+- **P10.** attn·MLP·attn and/or attn·attn·attn solve k=2 (and partially k=3): the extra
+  sequential stage composes two lookups. Hop-2 answers are the depth-gated category —
+  the "next induction head."
+- **P11.** A depth-gated category recruits >2 attention heads (single-head ablations
+  show ≥3 load-bearing heads for hop-2, vs 2 for hop-1).
+
+### Session-5 log
+
+- [pilot, seed 0] attn·attn final acc by hop **[1.00, 0.955, 0.20, 0.19]** — solves copy
+  and induction, FAILS hop-2/3 exactly at the depth-2 ceiling (**P9 supported**). Deeper
+  models (attn·MLP·attn, attn·attn·attn) training; attn·MLP·attn converges slower
+  (hop-1 not yet learned at step 12k) — watching whether it unlocks hop-2 by step 30k.
+
 ### Query-type taxonomy (answer to "what else would require positive self-organization?")
 
 A question forces a map only if its answer is a function of the graph's METRIC (many
