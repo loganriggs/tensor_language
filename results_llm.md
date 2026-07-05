@@ -207,8 +207,65 @@ but can't out-pull irreversible data, and it actively damages the bilinear model
 content-matching. This mirrors the LLM side: pretrained models get the machinery from
 their data, not from any special wiring.
 
+## 9b · Session 4 — pinning the ingredient: it is lag-1 adjacent repetition
+
+Session 3 concluded "recurrence installs the map." Session 4 asked *which* recurrence, and
+tested the user's four causal ideas against the reliably-anti grid+dring pairing.
+
+![lag-1 summary](figures/toy_lag1.png)
+
+**Self-loops flip it; backtracking does not (the key dissociation).** Adding self-edges to
+the grid — so a walk can repeat the current node — flips the softmax stack from −0.77 to
+**+0.53** with a clean grid map (PC1/PC2 harmonic 0.97/0.76), and flips bilinear too
+(−0.63 → +0.21). Boosting *backtracking* 2× instead (return to the previous node, A→B→A)
+does nothing (softmax −0.80, bilinear −0.42). The two differ in one statistic: self-loops
+create **adjacent duplicate tokens** (A→A, 26% of steps), backtracking creates lag-2
+returns with **zero** adjacent duplicates. Organization tracks the lag-1 rate
+(0.00→0.26→0.00 gives anti→positive→anti) and is unrelated to the lag-2 rate
+(0.34→0.26→0.51). So the organizer is the *immediate previous-token / copy* signal — the
+thing induction heads are built on — not reversibility.
+
+**Dose-response confirms it, on an unchanged graph.** A pure "stutter" that duplicates the
+current node token with probability p (plain grid, no self-edges) gives a clean curve:
+
+| lag-1 stutter p | grid org @256 | PC1/PC2 harmonic | legal |
+|---|---|---|---|
+| 0.00 (control) | −0.77 | 0.07/0.11 (no map) | 1.00 |
+| 0.15 | **+0.43** | 0.91/0.82 (clean map) | 0.94 |
+| 0.30 | +0.54 | 0.96/0.73 | 0.62 |
+| 0.50 | +0.55 | 0.90/0.79 | 0.42 |
+
+15% adjacent repetition suffices to flip the sign; the effect saturates by 30%. The graph
+is untouched, so this isolates the sequence statistic: the map is a property of token
+co-occurrence, not topology. (Legal rate falls as p rises because more of the prediction
+budget goes to repeating the current token; p≈0.15 is the sweet spot.)
+
+**On-graph computation does NOT install it (P5 falsified).** Interleaving distance
+questions `[QDIST] u v ANS_d` into the walk documents left both archs anti (softmax
+−0.63/−0.72, bilinear −0.54). The models answer distance queries weakly (top-1 0.30–0.38
+vs a 0.29 always-guess-the-mode marginal) through a separate lookup, never drawing the
+map. (Caveat: queries were appended after the walk, not interleaved throughout, so the
+running node-rep is never itself asked a metric question — the interleaved version is the
+sharper future test.)
+
+**Natural-language co-training is arch-dependent (P8).** Mixing wikitext (5k-vocab BPE,
+node tokens in a reserved id range) with grid+dring flips the positive-prone bilinear
+(+0.46, map 0.89/0.87) but only softens the anti-prone softmax (−0.77 → −0.51) — because
+the adjacent repeats live in the *text* token stream, disjoint from the node tokens. The
+copy pressure has to land on the tokens being represented.
+
+**This closes the opening puzzle.** Real softmax LLMs organize positively because
+natural-language pretraining is saturated in lag-1 repetition (function words, names,
+syntactic echoes) applied to the same tokens they represent. The from-scratch toy softmax,
+fed only graph walks with zero adjacent repeats, had no such pressure and was free to
+anti-organize. The map is the shadow of one specific, dialable predictive pressure: *the
+token you just saw is worth predicting again.*
+
 ## 10 · Session takeaways
 
+0. **The map-builder is lag-1 adjacent token repetition** (previous-token / copy pressure)
+   on the represented tokens — not reversibility, not on-graph computation. Dialable: 15%
+   adjacent repetition flips the toy softmax anti-map to a clean grid; it saturates by 30%.
 1. Park-style geometry is generic in pretrained LLMs down to 124M — because they all
    have local-copy heads, and *a local attention window applied to a walk is graph
    message passing*.
@@ -232,7 +289,12 @@ python llm_variants.py gpt2               # in-context walk battery + controls
 python gpt2_circuit.py                    # component/head attribution
 python gpt2_localheads.py                 # locality vs organization + ablations
 python gpt2_usetest.py 8                  # causal-use subspace tests
-python toy_burst.py                       # toy recurrence experiment
+python toy_burst.py                       # toy recurrence experiment (session 3)
+python toy_recur.py                       # session 4: self-loop vs backtrack causal tests
+python toy_stutter.py                     # session 4: lag-1 stutter dose-response
+python toy_nlmix.py                       # session 4: natural-language co-training
+python toy_query.py                       # session 4: on-graph distance queries (P5)
+python toy_lag_fig.py                     # session 4 summary figure -> figures/toy_lag1.png
 ```
 
 Caveats: one word-labeling per model (fixed seed), 96 walks, window 50; ownU/nbrU read

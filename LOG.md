@@ -1,5 +1,176 @@
 # Experiment log: multi-family graph tracing
 
+## Session 4: causal tests of the copy-mechanism story + does COMPUTATION on the graph force a map?
+
+User's four new ideas (2026-07-05), kept as the working list:
+
+1. **Graph-computation queries (try first).** If *computation* on the graph is what
+   matters, interleaving questions about the map into the walk documents should force a
+   positive map. Concretely: append question blocks to walk documents using reserved
+   special tokens — `[QDIST] u v ANS_d` (what is the graph distance between node u and
+   node v?). Modular addition ("Sunday + 2 = Tuesday") is well-defined on the DIRECTED
+   ring (undirected rings have no canonical direction), so `[QADD] u ANS_k v` there.
+2. **Self-loop grid.** If the copy mechanism is truly the organizing principle, a grid
+   where a walk can repeat the current node (self-edges) should causally install the
+   positive mode — recurrence pressure inside the task family itself, no burst data.
+3. **Boosted backtrack.** Same idea, milder: make the transition matrix return to the
+   previous node with 2× the default weight.
+4. **Natural-language co-training.** Mix natural-language documents (reduced ~5k vocab)
+   with walk documents — does NL alone install the map in the toy softmax stack?
+
+Plus: brainstorm which OTHER question types should require positive self-organization
+(and which should not — those are the controls).
+
+### Pre-registered predictions (before any session-4 training)
+
+- **P5 (queries).** softmax-add-3L trained on grid+dring WITH distance queries flips
+  positive (baseline grid+dring is reliably anti; new softmax baseline trained this
+  session, bilinear baseline −0.55/−0.70/−0.72). Reasoning: the anti-map (neighbors
+  antipodal) supports next-token elimination but distance is monotone-decreasing in
+  neighbor similarity, so a metric query rewards neighbors-nearby coordinates.
+  Falsifiable alternative: the model answers queries by a separate in-context lookup
+  circuit (like induction solves the walk task in GPT-2) and organization stays anti.
+  Query accuracy is reported so "never learned the queries" is distinguishable.
+- **P6 (self-loop).** grid-selfloop+dring kills the anti mode for both archs (predict
+  org ≥ +0.2, vs bilinear baseline −0.55..−0.72), because repeat-of-current-node is
+  exactly the burst ingredient placed inside the family.
+- **P7 (backtrack-2x).** grid-bt2x+dring moves positive but more weakly than P6
+  (backtrack is already present in uniform grid walks; 2× is a dose increase, not a new
+  ingredient). Predict org > baseline but possibly still ≤ 0 given dring's pull.
+- **P8 (NL mix).** NL co-training alone (no burst, no queries) makes softmax-add-3L
+  non-anti on the walk families (natural text = maximal re-predict pressure, per
+  session 3's attribution result).
+
+### Session-4 log
+
+- [launched] toy_query.py (grid+dring with distance queries, both archs × 2 seeds) and
+  toy_recur.py (softmax grid+dring baseline; self-loop grid + backtrack-2× grid, each
+  +dring, both archs) running concurrently. Smoke tests: query docs well-formed
+  (distances 0–6, sensible histogram), boosted walks backtrack 51% vs 34% uniform,
+  self-loop walks repeat the current node 26% of steps.
+
+- **[P5 FALSIFIED — appended distance queries do NOT install the map]** softmax-add-3L
+  on grid+dring with interleaved `[QDIST] u v ANS_d` blocks stays reliably anti at long
+  context (org256 −0.63 / −0.72 across two seeds; baseline −0.77), PC1/PC2 harmonic corr
+  ~0.05/0.22 (no map). Bilinear likewise −0.54. The models DO answer distance queries
+  (top-1 acc 0.30–0.38 vs a 0.29 always-guess-the-mode marginal), so they compute a weak
+  distance signal WITHOUT a neighbors-nearby geometry. **Caveat:** queries are appended
+  AFTER the walk, so metric pressure lands on the query-block reps, not the walk-node
+  reps that mean_reps aggregates — the model can keep "walk mode" and "query mode" as
+  separate circuits. The sharper test (queries interleaved throughout the walk, forcing
+  the running node-rep to carry position-on-map) is logged as future work; the
+  self-loop result below made it lower priority.
+
+- **[P6 CONFIRMED — self-loops flip the sign; P7 FALSIFIED — backtracking does not]**
+  Trained on grid+dring (the pairing that reliably pins ANTI):
+  - grid baseline (softmax): org256 **−0.77**, no map (PC corr 0.05/0.07). Reproduces −0.80.
+  - **gridSL (self-loop) softmax: org256 +0.53**, clean grid map (PC corr **0.97/0.76**). FLIP.
+  - **gridSL (self-loop) bilinear: org256 +0.21** (baseline −0.55..−0.72). FLIP, both archs.
+  - gridBT2 (backtrack-2×) softmax: org256 **−0.80**, no map (PC corr 0.03/0.08). NO flip.
+  - gridBT2 (backtrack-2×) bilinear: org256 **−0.42** (baseline −0.55..−0.72). NO flip (within noise).
+  - grid+dring+NL (natural-language co-train): **arch-dependent.** softmax org256 **−0.51**,
+    no map (PC corr 0.08/0.23) — anti mode SOFTENED (from −0.77) but did NOT flip.
+    bilinear org256 **+0.46**, clean map (PC corr 0.89/0.87) — FLIPPED (baseline −0.55..−0.72).
+    So NL pushes both archs toward positive; the push suffices to flip the weakly-anti
+    bilinear but not the strongly-anti softmax stack. (Consistent with session 3: bilinear
+    is positive-prone, softmax anti-prone; NL is a moderate positive nudge, self-loops a
+    strong one.)
+
+  **The discriminating variable is LAG-1 adjacent-token repetition, not reversibility.**
+  Measured repeat rates: grid lag1 0.00 / lag2 0.34 (anti); gridSL lag1 **0.26** / lag2
+  0.26 (positive); gridBT2 lag1 **0.00** / lag2 0.51 (anti). Organization tracks lag1
+  (0→0.26→0, i.e. anti→positive→anti) with a monotone relation, and is UNRELATED to lag2
+  (0.34→0.26→0.51). Backtracking at 51% (A→B→A, tokens never adjacent-equal) does nothing;
+  self-repetition at 26% (A→A, adjacent-equal) flips it. This refines session 3's
+  "recurrence" into: **the organizer is adjacent duplicate tokens in the node stream the
+  reps are measured on** — exactly previous-token/copy (induction-precursor) pressure.
+  It also explains the NL null: wikitext supplies adjacent duplicates only in the SEPARATE
+  text-token stream (node tokens live in a reserved id range), so it merely softens, not
+  flips — the copy pressure has to be ON the node tokens.
+  Confirmatory dose-response launched (toy_stutter.py): a pure lag-1 stutter, p ∈
+  {0.00, 0.15, 0.30, 0.50}, graph left as plain grid.
+
+- **[DOSE-RESPONSE — lag-1 stutter installs the map, confirmed and quantified]** A pure
+  lag-1 stutter (duplicate the current node token with prob p; graph UNCHANGED plain
+  grid, no self-edges), grid+dring, softmax-add-3L:
+  - p=0.00 (control): org256 **−0.77**, no map (PC 0.07/0.11) — reproduces baseline exactly.
+  - p=0.15: org256 **+0.43**, clean map (PC **0.91/0.82**), legal 0.94.
+  - p=0.30: org256 **+0.54**, map 0.96/0.73, legal 0.62.
+  - p=0.50: org256 **+0.55**, map 0.90/0.79, legal 0.42.
+  Threshold-then-saturate: even 15% adjacent repetition flips the sign to a clean map;
+  the effect saturates by p≈0.30. Because the graph is untouched, this isolates the
+  SEQUENCE STATISTIC — the map is a property of token co-occurrence, not graph topology.
+  Legal rate falls with p (the model spends more prediction budget on "repeat current
+  token"), so p≈0.15 is the sweet spot: flipped map AND high task accuracy.
+
+### Session-4 verdict summary
+
+| manipulation | softmax @256 | bilinear @256 | map? | verdict |
+|---|---|---|---|---|
+| grid+dring baseline | −0.77 | ≈−0.63 | no | reliably anti |
+| + self-loops (lag-1 ~0.26) | **+0.53** | **+0.21** | yes | **P6 ✓ flips** |
+| + backtrack-2× (lag-2 0.51, lag-1 0) | −0.80 | −0.42 | no | P7 ✗ no flip |
+| + natural language | −0.51 | **+0.46** | bilin only | P8 arch-dependent |
+| + distance queries (appended) | −0.63/−0.72 | −0.54 | no | P5 ✗ no map |
+| + lag-1 stutter p=0.15 (graph unchanged) | **+0.43** | — | yes | dose-response ✓ |
+
+**Synthesis.** Session 3 said "recurrence installs the map, natural language is maximal
+recurrence." Session 4 sharpens *which* recurrence: it is **lag-1 adjacent token
+repetition** — the immediate previous-token / copy signal that induction heads are built
+on — measured on the very token stream whose representations we read. Reversibility
+(backtracking, A→B→A) is NOT it: lag-2 returns at 51% do nothing. On-graph computation
+(distance queries) is NOT it: the model answers metric questions through a separate weak
+lookup without ever drawing the map. And the pressure must land on the node tokens
+themselves: natural language in a disjoint token range only nudges (flips the
+positive-prone bilinear, not the anti-prone softmax). The map is thus a shadow of a very
+specific predictive pressure — "the token you just saw is worth predicting again" — and
+its strength is dialable (15% suffices, saturates by 30%). This directly answers the
+user's opening puzzle: real softmax LLMs organize positively because natural-language
+pretraining is saturated in lag-1 repetition (function words, names, syntactic echoes)
+applied to the same tokens they represent; the from-scratch toy softmax, fed only graph
+walks with zero adjacent repeats, had no such pressure and was free to anti-organize.
+- [figure] figures/toy_lag1.png (dissociation bars, lag-1-vs-lag-2 rates, dose-response).
+
+### Query-type taxonomy (answer to "what else would require positive self-organization?")
+
+A question forces a map only if its answer is a function of the graph's METRIC (many
+hops), not of local neighborhoods (few hops). Sorted by predicted map-pressure:
+
+**Should require a map (global / metric):**
+
+1. **Distance** `d(u, v)` — implemented this session. Distance is monotone-decreasing
+   in map proximity; spectral coordinates answer it directly, in-context adjacency
+   lookup would need iterated composition (BFS), implausible in 2–3 layers.
+2. **Closer-of-two** — "which of u, w is closer to v?" Ordinal distance: needs the
+   metric but never an exact count, so it may be learnable where exact distance is
+   hard. Good dose-response follow-up.
+3. **Modular addition on the DIRECTED ring** — "Sunday + 2 = Tuesday". Needs a
+   coordinate on the cycle (a rotation in the spectral plane), not just the metric.
+   Note: undirected rings have no canonical direction, so this is dring-only (my
+   earlier grid analogue of "how many away" is exactly the distance query, #1).
+4. **Geodesic continuation on the grid** — given an adjacent pair u→v ("a direction"),
+   name the node continuing straight. Requires a translation-invariant coordinate
+   FRAME, the strongest form of map. Same family: vector arithmetic u + (v − w).
+5. **Midpoint of u, v** — needs metric + betweenness; unique only on rings with even
+   distance, so ring-only.
+6. **Farthest node from u** (eccentricity) — global extremal query.
+
+**Should NOT require a map (local — these are the controls):**
+
+7. **Adjacency** — "are u, v neighbors?" One-hop lookup; the induction-style circuit
+   that already solves next-token prediction suffices.
+8. **Degree of u** — local count (on the grid this is corner/edge/interior
+   classification).
+9. **Common-neighbor count of u, v** — two-hop, still local.
+10. **"Did u appear?"** — pure memory, no geometry at all.
+
+Predicted dose-response: organization gain from queries should rank
+adjacency/degree ≈ 0 < distance ≈ closer-of-two < addition/geodesic. If distance
+queries flip the org sign but adjacency queries (same token budget, same format)
+do not, the causal story is clean — it's the METRIC content of the computation,
+not query formatting or extra supervision, that installs the map. Adjacency-query
+control is the planned first ablation once the main result is in.
+
 ## Session 3 (6h): do REAL pretrained LLMs have this geometry — and what circuit makes it?
 
 User's question: real LLMs use softmax attention and (per Park et al., on Llama-3.1-8B)

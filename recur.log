@@ -1,0 +1,117 @@
+softmax-add-3L-grid+dring-seed0 step 0 loss 4.777
+softmax-add-3L-grid+dring-seed0 step 6000 loss 1.268
+softmax-add-3L-grid+dring-seed0 step 12000 loss 1.274
+softmax-add-3L-grid+dring-seed0 step 18000 loss 1.222
+== softmax-add-3L-grid+dring-seed0: grid org ctx8 +0.33 ctx256 -0.77  legal(std) 1.00 legal(train-dist) 1.00  PC12-harmonic corr 0.05/0.07
+softmax-add-3L-gridSL+dring-seed0 step 0 loss 4.773
+softmax-add-3L-gridSL+dring-seed0 step 6000 loss 1.434
+softmax-add-3L-gridSL+dring-seed0 step 12000 loss 1.429
+softmax-add-3L-gridSL+dring-seed0 step 18000 loss 1.394
+== softmax-add-3L-gridSL+dring-seed0: grid org ctx8 +0.40 ctx256 +0.53  legal(std) 0.76 legal(train-dist) 1.00  PC12-harmonic corr 0.97/0.76
+bilin-lerp-2L-gridSL+dring-seed0 step 0 loss 4.613
+bilin-lerp-2L-gridSL+dring-seed0 step 6000 loss 2.466
+bilin-lerp-2L-gridSL+dring-seed0 step 12000 loss 2.066
+bilin-lerp-2L-gridSL+dring-seed0 step 18000 loss 1.780
+== bilin-lerp-2L-gridSL+dring-seed0: grid org ctx8 +0.45 ctx256 +0.21  legal(std) 0.74 legal(train-dist) 0.96  PC12-harmonic corr 0.93/0.45
+softmax-add-3L-gridBT2+dring-seed0 step 0 loss 4.761
+softmax-add-3L-gridBT2+dring-seed0 step 6000 loss 1.177
+softmax-add-3L-gridBT2+dring-seed0 step 12000 loss 1.125
+softmax-add-3L-gridBT2+dring-seed0 step 18000 loss 1.142
+== softmax-add-3L-gridBT2+dring-seed0: grid org ctx8 +0.32 ctx256 -0.80  legal(std) 1.00 legal(train-dist) 1.00  PC12-harmonic corr 0.03/0.08
+bilin-lerp-2L-gridBT2+dring-seed0 step 0 loss 4.609
+bilin-lerp-2L-gridBT2+dring-seed0 step 6000 loss 1.676
+bilin-lerp-2L-gridBT2+dring-seed0 step 12000 loss 1.524
+bilin-lerp-2L-gridBT2+dring-seed0 step 18000 loss 1.514
+== bilin-lerp-2L-gridBT2+dring-seed0: grid org ctx8 -0.47 ctx256 -0.42  legal(std) 0.91 legal(train-dist) 0.94  PC12-harmonic corr 0.41/0.51
+{
+ "softmax-add-3L-grid+dring-seed0": {
+  "org8": 0.3318687081336975,
+  "org256": -0.7691363096237183,
+  "legal_std": 0.9980930089950562,
+  "legal_train": 0.9980930089950562,
+  "pc_corr": [
+   0.0520603209733963,
+   0.07088886946439743,
+   0.08947804570198059,
+   0.15503361821174622
+  ],
+  "pc_var": [
+   0.16090407967567444,
+   0.12701278924942017,
+   0.11285825818777084,
+   0.07837557047605515
+  ]
+ },
+ "softmax-add-3L-gridSL+dring-seed0": {
+  "org8": 0.3964625298976898,
+  "org256": 0.5266065001487732,
+  "legal_std": 0.7554134130477905,
+  "legal_train": 0.9999384880065918,
+  "pc_corr": [
+   0.9660207033157349,
+   0.7632673978805542,
+   0.6775684356689453,
+   0.2148280292749405
+  ],
+  "pc_var": [
+   0.18630896508693695,
+   0.11713124066591263,
+   0.10518327355384827,
+   0.07945825159549713
+  ]
+ },
+ "bilin-lerp-2L-gridSL+dring-seed0": {
+  "org8": 0.4537464380264282,
+  "org256": 0.21011024713516235,
+  "legal_std": 0.7357283234596252,
+  "legal_train": 0.9585999250411987,
+  "pc_corr": [
+   0.9342514872550964,
+   0.4544354975223541,
+   0.16802982985973358,
+   0.3622485399246216
+  ],
+  "pc_var": [
+   0.21460571885108948,
+   0.11866021156311035,
+   0.10213464498519897,
+   0.09526132047176361
+  ]
+ },
+ "softmax-add-3L-gridBT2+dring-seed0": {
+  "org8": 0.32497090101242065,
+  "org256": -0.8031507730484009,
+  "legal_std": 1.0,
+  "legal_train": 1.0,
+  "pc_corr": [
+   0.02624550461769104,
+   0.08129564672708511,
+   0.07439107447862625,
+   0.07077295333147049
+  ],
+  "pc_var": [
+   0.14839959144592285,
+   0.11451531946659088,
+   0.10730986297130585,
+   0.08159588277339935
+  ]
+ },
+ "bilin-lerp-2L-gridBT2+dring-seed0": {
+  "org8": -0.46590545773506165,
+  "org256": -0.42440906167030334,
+  "legal_std": 0.9145546555519104,
+  "legal_train": 0.9363312125205994,
+  "pc_corr": [
+   0.40603694319725037,
+   0.506629467010498,
+   0.4464232623577118,
+   0.3440279960632324
+  ],
+  "pc_var": [
+   0.16302375495433807,
+   0.11115171760320663,
+   0.10638882219791412,
+   0.09241903573274612
+  ]
+ }
+}
