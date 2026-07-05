@@ -227,6 +227,18 @@ k=0 copy (floor) · k=1 one lookup ≈ INDUCTION · k=2/3 chained lookups (need 
   report results_hop.md. **Session-5 verdict: the "next induction head" above induction's
   2-layer circuit is a 3-attention-layer chained-retrieval circuit; depth = a count of
   ATTENTION layers (one content-based lookup each), and MLPs don't substitute.**
+- **[SURPRISE — adding RMSNorm DESTABILIZES hop-2 into a seed lottery]** Re-ran the ladder
+  with standard RMSNorm (pre-norm, affine-free), no grad clip. It trains stably (norm cures
+  the divergence, as hoped) and hop-1 IMPROVES (attn3-rms hop-1 ≈ 1.00 vs 0.94 no-norm), but
+  the chained-retrieval circuit becomes fragile: **attn·attn·attn hop-2 = 0.26 / 0.25 / 0.94
+  across seeds 0/1/2 — solved only 1 of 3**, versus no-norm (grad-clip) which solved 3/3
+  (0.93/0.97/0.99). attn·MLP·attn and attn·attn stay at the 0.26 ceiling as before. So
+  RMSNorm is NOT a neutral stabilizer for this algorithm — it turns a reliable outcome into
+  a lottery, plausibly by rescaling away activation-magnitude information the intermediate
+  retrieval uses (affine-free RMS division), or by a placement effect (norm feeds q/k/v but
+  the residual stream still carries magnitude). The no-norm + grad-clip result stands as the
+  primary depth-gating finding. OPEN follow-ups: affine RMSNorm; norm on q/k but not v; more
+  seeds/steps to map the lottery rate. Runs tagged -rms (runs_hop/*-rms-*/acc.json).
 
 ### Query-type taxonomy (answer to "what else would require positive self-organization?")
 

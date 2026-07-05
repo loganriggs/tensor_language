@@ -1,2 +1,44 @@
 attn-mlp-attn-rms-seed0 step 0 loss 3.376 acc [0.04, 0.04, 0.0, 0.04]
 attn-mlp-attn-rms-seed0 step 6000 loss 2.389 acc [1.0, 0.05, 0.04, 0.04]
+attn-mlp-attn-rms-seed0 step 12000 loss 1.261 acc [1.0, 0.76, 0.26, 0.25]
+attn-mlp-attn-rms-seed0 step 18000 loss 1.260 acc [1.0, 0.77, 0.26, 0.26]
+attn-mlp-attn-rms-seed0 step 24000 loss 1.247 acc [1.0, 0.78, 0.26, 0.26]
+attn-mlp-attn-rms-seed0 step 30000 loss 1.216 acc [1.0, 0.79, 0.26, 0.26]
+attn-mlp-attn-rms-seed0 step 36000 loss 1.194 acc [1.0, 0.8, 0.26, 0.26]
+== attn-mlp-attn-rms-seed0: acc by hop [1.0, 0.802, 0.263, 0.262]
+attn-mlp-attn-rms-seed1 step 0 loss 3.378 acc [0.04, 0.05, 0.04, 0.04]
+attn-mlp-attn-rms-seed1 step 6000 loss 1.332 acc [1.0, 0.76, 0.24, 0.24]
+attn-mlp-attn-rms-seed1 step 12000 loss 1.225 acc [1.0, 0.9, 0.26, 0.26]
+attn-mlp-attn-rms-seed1 step 18000 loss 1.158 acc [1.0, 0.96, 0.26, 0.26]
+attn-mlp-attn-rms-seed1 step 24000 loss 1.139 acc [1.0, 0.97, 0.27, 0.26]
+attn-mlp-attn-rms-seed1 step 30000 loss 1.152 acc [1.0, 0.97, 0.27, 0.26]
+attn-mlp-attn-rms-seed1 step 36000 loss 1.109 acc [1.0, 0.98, 0.28, 0.26]
+== attn-mlp-attn-rms-seed1: acc by hop [1.0, 0.979, 0.28, 0.263]
+attn-mlp-attn-rms-seed2 step 0 loss 3.374 acc [0.04, 0.04, 0.04, 0.01]
+attn-mlp-attn-rms-seed2 step 6000 loss 1.282 acc [1.0, 0.76, 0.26, 0.26]
+attn-mlp-attn-rms-seed2 step 12000 loss 1.248 acc [1.0, 0.78, 0.26, 0.26]
+attn-mlp-attn-rms-seed2 step 18000 loss 1.239 acc [1.0, 0.78, 0.26, 0.26]
+attn-mlp-attn-rms-seed2 step 24000 loss 1.227 acc [1.0, 0.79, 0.26, 0.26]
+attn-mlp-attn-rms-seed2 step 30000 loss 1.233 acc [1.0, 0.78, 0.26, 0.26]
+attn-mlp-attn-rms-seed2 step 36000 loss 1.215 acc [1.0, 0.79, 0.26, 0.26]
+== attn-mlp-attn-rms-seed2: acc by hop [1.0, 0.786, 0.258, 0.261]
+{
+ "attn-mlp-attn-rms-seed0": {
+  "0": 1.0,
+  "1": 0.8015653024620903,
+  "2": 0.26299342105263157,
+  "3": 0.2618499012508229
+ },
+ "attn-mlp-attn-rms-seed1": {
+  "0": 1.0,
+  "1": 0.9794554051850644,
+  "2": 0.2799342105263158,
+  "3": 0.2633311389071758
+ },
+ "attn-mlp-attn-rms-seed2": {
+  "0": 1.0,
+  "1": 0.7855861731615849,
+  "2": 0.2577302631578947,
+  "3": 0.26135615536537193
+ }
+}
