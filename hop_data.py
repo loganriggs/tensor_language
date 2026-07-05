@@ -21,13 +21,13 @@ higher-hop answer tokens are the "next induction head" — a category that needs
 
 import torch
 
-E = 32                                   # entity tokens 0..31
-Q = E                                    # query marker, id 32
+E = 24                                   # entity tokens 0..23 (smaller = stronger match signal)
+Q = E                                    # query marker
 K_MAX = 3
-H0 = E + 1                               # hop markers H0..H3 -> ids 33..36
-V = E + 1 + (K_MAX + 1)                  # vocab size 37
-N_Q = 48                                 # 2*32 + 4*48 = 256
-N_CTX = 2 * E + 4 * N_Q                  # 256
+H0 = E + 1                               # hop markers H0..H3
+V = E + 1 + (K_MAX + 1)                  # vocab size 29
+N_Q = 48                                 # doc = 2*24 + 4*48 = 240
+N_CTX = 2 * E + 4 * N_Q                  # 240
 ANS_OFFSET = 2                           # answer read at H_k position within its block
 ANS_POS = torch.tensor([2 * E + 4 * j + ANS_OFFSET for j in range(N_Q)])  # input positions
 

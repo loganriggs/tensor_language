@@ -167,10 +167,59 @@ k=0 copy (floor) · k=1 one lookup ≈ INDUCTION · k=2/3 chained lookups (need 
 
 ### Session-5 log
 
-- [pilot, seed 0] attn·attn final acc by hop **[1.00, 0.955, 0.20, 0.19]** — solves copy
-  and induction, FAILS hop-2/3 exactly at the depth-2 ceiling (**P9 supported**). Deeper
-  models (attn·MLP·attn, attn·attn·attn) training; attn·MLP·attn converges slower
-  (hop-1 not yet learned at step 12k) — watching whether it unlocks hop-2 by step 30k.
+- [pilot v1, seed 0, lerp residual, E=32, answer-only loss] attn·attn final acc by hop
+  **[1.00, 0.955, 0.20, 0.19]** — solves copy and induction, FAILS hop-2/3 exactly at the
+  depth-2 ceiling (**P9 supported**). But attn·MLP·attn STALLED on a copy-only plateau
+  (loss ~2.54, hop-1 at chance through step 12k).
+- [optimization note] Switching the whole ladder to add residual made it WORSE, not
+  better: add-attn·attn also stalled on the copy-only plateau (hop-1 at chance through
+  step 18k) where lerp-attn·attn had already reached 0.68. So in this k-hop setup the
+  induction phase-transition is fragile and lerp escapes it while add does not (opposite
+  of the deep-grid-walk collapse, where add was the fix — the interaction is task- and
+  depth-specific). Robust setup adopted: **lerp attention residual, E=24 (stronger match
+  signal), dense full-sequence CE (how induction heads actually form), 40k steps.** Pilot
+  v2 running.
+- [pilot v2, dense loss] BACKFIRED — dense loss stalled even attn·attn on the copy-only
+  plateau (the random binding-VALUE positions are unpredictable, so dense CE floods the
+  gradient with high-entropy noise and drowns the answer signal that drives induction
+  formation). Reverted to **answer-position-only CE** (v1's working choice). Kept E=24.
+- [pilot v3, answer-only, E=24, lerp, parallel per-spec] Escapes the plateau fast now:
+  attn·attn hop-1 0.75 by step 6k; attn·MLP·attn escaped by step 12k (hop-1 0.92). BUT
+  attn·attn·attn (3-layer attn-only, lerp) **DIVERGED** — loss → 1e21 by step 12k. Deep
+  norm-free bilinear stacks explode (each bilinear layer ~squares the polynomial degree,
+  so 3 layers ≈ degree 8; unstable at lr 1e-3 with no normalization — the exploding twin
+  of the earlier vanishing collapse). Fix: **gradient clipping (max-norm 1.0)**, applied
+  uniformly, all three restarted. (This instability is exactly what a tensor-compatible
+  RMSNorm would cure; grad-clip is the stopgap until it's added.)
+- **[DEPTH-GATING FOUND — the "next induction head" is a 3rd ATTENTION layer]** With
+  grad clipping, at step 12k (seed 0):
+  - attn·attn (2 attn):        hop [1.00, 0.77, **0.26**, 0.26] — induction ceiling.
+  - attn·MLP·attn (2 attn+MLP): hop [1.00, 0.91, **0.26**, 0.26] — SAME ceiling.
+  - attn·attn·attn (3 attn):    hop [1.00, 0.85, **0.86**, 0.75] — hop-2/3 SOLVED.
+  The chained-lookup category (hop-2, f(f(e))) is unlocked ONLY by the third attention
+  layer. The middle bilinear MLP does NOT substitute — because each hop is a
+  content-based lookup (a match-and-copy), which needs an *attention* layer; a
+  position-wise MLP cannot do content-based retrieval. So the depth ladder is literally
+  a count of ATTENTION layers: hop-k needs k+1 attention layers (induction=hop-1=2;
+  hop-2=3 = the next induction head). **P10 supported (via the 3rd attn, not the MLP);
+  strong steer for P11.** Watching whether attn·MLP·attn forms hop-2 late by step 40k
+  (so far flat). Full seeded sweep + causal head check next.
+- [seed-0 finals] attn·attn [1.00, 0.79, 0.26, 0.26] · attn·MLP·attn [1.00, 0.97, 0.28,
+  0.26] · attn·attn·attn [1.00, 0.94, 0.93, 0.86]. Clean: the 2-attn ceiling is at hop-1
+  for BOTH 2-attn models regardless of the MLP; the 3rd attention layer alone lifts
+  hop-2/3.
+- **[P11 CONFIRMED — causal head recruitment, hop_ablate.py on attn3-seed0]** single-head
+  zero-ablation, load-bearing = per-hop top-1 drop > 0.10 (baseline [1.00,0.94,0.93,0.86]):
+  - hop-0 (copy): 4 heads, mostly layer 0 (shallow).
+  - hop-1 (induction): 8 heads, layers 0–1 (+L2H1).
+  - hop-2 (chained): **8 heads spanning ALL THREE layers** — all of L0, plus L1H0/L1H1,
+    plus **L2H0/L2H1** (the third-layer heads, which barely affect copy).
+  - hop-3: 9 heads across all three layers.
+  Biggest single effect: ablating L0H3 drops hop-2 0.93→0.09 (the shared retrieval/
+  prev-token substrate); the deeper layers stack the successive lookups on top. So the
+  depth-gated categories causally recruit >2 heads and specifically use the 3rd attention
+  layer — the algorithm genuinely occupies the extra depth, not just correlates with it.
+  (runs_hop/ablate_attn3-seed0.json.)
 
 ### Query-type taxonomy (answer to "what else would require positive self-organization?")
 

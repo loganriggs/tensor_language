@@ -17,7 +17,10 @@ from hop_data import K_MAX
 from deep_model import SPECS
 
 FIGURES = Path("figures")
-res = json.loads(Path("runs_hop/results.json").read_text())
+# aggregate from per-model acc.json (robust to parallel spec runs)
+res = {}
+for accfile in Path("runs_hop").glob("*/acc.json"):
+    res[accfile.parent.name] = json.loads(accfile.read_text())
 
 # group by spec, collect seeds
 by_spec = defaultdict(list)
