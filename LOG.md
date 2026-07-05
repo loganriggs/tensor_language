@@ -198,9 +198,27 @@ P1: softmax-add-3L grid+burst goes positive (it is −0.80 on the six-family mix
   family pins the positive mode as strongly as the entire six-family mixture
   (+0.55…+0.66) — compare grid+cylinder (unpinned ±0.24) and grid-only (lottery).
   Recurrence is the active ingredient, matching the LLM data-attribution result.
-- [running] Strongest test: six-family mixture + burst for both champions — does burst
-  rescue softmax from anti even on the mixture (−0.80 baseline), and does it push
-  bilinear above +0.66?
+- [mixture+burst — tug-of-war, as the reversibility account predicts]
+  softmax-add-3L on six-family+burst: +0.62 (ctx 8) → **−0.33** (ctx 256), legal 1.00 —
+  burst moves it a long way from −0.80 but cannot fully overcome the irreversible dring
+  family at long context; recurrence pressure and irreversibility pressure literally
+  compete, landing in between. bilin-lerp-2L on six-family+burst: +0.74 → **+0.62**,
+  legal 0.99 — holds the mixture ceiling; burst does not push bilinear beyond +0.66.
+  The positive mode saturates in data-space; "even more self-organizing" would need an
+  architecture change (a dedicated local value-blending layer, mirroring GPT-2's
+  previous-token heads) — noted as future work.
+
+### Session-3 verdict summary
+
+| question (user's list) | verdict |
+|---|---|
+| Can small pretrained LLMs do it? | Yes, all task-capable ones, down to GPT-2 124M; Theorem 5.1 passes everywhere; org +0.32…+0.49 vs toy bilinear +0.66 / toy softmax −0.80 |
+| Where does it NOT work? | pythia-70m (can't do the task); GPT-2 with numeral labels (task 0.91, map +0.01 — buried by number-MLP features); every LLM's final layer on the 7-ring (readout inversion) |
+| What circuit builds it? | Local/previous-token heads = walk message passing (locality↔org r=+0.60); layers 9–10 amplify (inheritance shown); induction heads solve the task, uncorrelated with the map |
+| What causes it (patching)? | Ablating 16 local heads collapses the map (+0.35→+0.15) and late-head org; random heads don't; time-shuffled walks and in-context direction changes bound what the sequence must supply (transition statistics only) |
+| Is the structure USED? | The content yes (deletion hurts, random-dim control clean); the arrangement no (automorphism patch preserving geometry is the WORST condition) — geometry is the shadow of prediction-content |
+| Architecture for the toy softmax? | Not architecture — DATA: adding a structureless recurrence family removes the anti mode (grid+burst +0.38/+0.11, was −0.80); on the full mixture it's a tug-of-war (−0.33) |
+| Data attribution? | All natural text funds the local-copy machinery (+0.93 nats uniformly on wikitext when ablated; no recurrence-bucket concentration) |
 
 ### Phase E3 (exploration): which pretraining data funds the map-builders (stretch goal)
 

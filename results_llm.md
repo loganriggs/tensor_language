@@ -100,6 +100,8 @@ ring walk organizes as well as a uniform one (+0.52 vs +0.40); the toys' reversi
 effect is a training-time phenomenon, not an inference-time one. Time-shuffling the walk
 kills the map (+0.02) — it comes from transition statistics alone.
 
+![circuit, causal use, and toy feedback summary](figures/llm_circuit.png)
+
 ## 6 · The circuit: local heads compose, late layers amplify, induction solves the task
 
 Exact component attribution (pre-LN stream = embed + Σ attn + Σ mlp) plus per-head
@@ -175,7 +177,37 @@ better than the structural cousin cylinder (unpinned) or grid-only (lottery). Re
 is the cheapest known positive-pinning ingredient, which is satisfying: it is exactly
 what natural text supplies to real LLMs.
 
-<!-- MIXBURST_RESULTS -->
+**The strongest version — six-family mixture + burst (seed 0 each):**
+
+| toy model on mixture+burst | grid org (ctx 8 → 256) | legal | mixture-only baseline |
+|---|---|---|---|
+| softmax-add-3L | +0.62 → **−0.33** | 1.00 | −0.80 / −0.67 |
+| bilin-lerp-2L | +0.74 → **+0.62** | 0.99 | +0.55 … +0.66 |
+
+Burst moves the softmax stack a long way toward positive (−0.80 → −0.33, and clearly
+positive early in context) but cannot fully overcome the mixture's irreversible
+directed-ring family at long context — a tug-of-war between recurrence pressure
+(pin positive) and irreversibility pressure (pin anti), exactly what the session-2
+reversibility account predicts when both ingredients are present. Bilinear holds its
+mixture ceiling (+0.62); the positive mode appears saturated there — making the toy
+"even more self-organizing" would need an architecture change (e.g. a dedicated local
+value-blending layer, mirroring GPT-2's previous-token heads), left as future work.
+
+## 10 · Session takeaways
+
+1. Park-style geometry is generic in pretrained LLMs down to 124M — because they all
+   have local-copy heads, and *a local attention window applied to a walk is graph
+   message passing*.
+2. The map-builders and the task-solver (induction) are different heads; competence and
+   organization dissociate componentwise, by token type (numerals), and causally.
+3. The arrangement is not consulted downstream: the content (identity + neighbor
+   evidence) is what's used; the geometry is that content's shadow. Same conclusion as
+   the toys, now causal in a real LLM.
+4. What installs the machinery is *all* natural text (local context predicts everywhere)
+   — and injecting exactly that pressure (recurrence) into toy training removes the toy
+   softmax anti-mode and pins bilinear positive with a single structureless family.
+5. The toy anti-map, the LLM 7-ring readout inversion, and the mixture+burst tug-of-war
+   are all the same variable: whether the recent past must be suppressed or re-predicted.
 
 ## Reproduce
 
