@@ -1,5 +1,55 @@
 # Experiment log: multi-family graph tracing
 
+## Session 3 (6h): do REAL pretrained LLMs have this geometry — and what circuit makes it?
+
+User's question: real LLMs use softmax attention and (per Park et al., on Llama-3.1-8B)
+organize positively — but our from-scratch toy softmax model anti-organizes despite
+perfect task performance. Can small pretrained models (GPT-2 scale, for fast iteration)
+do the task on random-word walks, do they organize, and what exactly are they doing?
+
+### Plan (user's directives, kept as the working list)
+
+1. **Survey** small models — find ones where it works AND ones where it doesn't
+   (knowing where it fails is explicitly wanted). Compare organization values to the toy
+   models (toy bilinear multi +0.66, toy softmax −0.80).
+2. **Circuit analysis** of a real model that does it (GPT-2 small): which components
+   (heads/MLPs/layers) build the positive map.
+3. **Causal test 1 — what creates the organization:** activation patching with changed
+   sequences.
+4. **Causal test 2 — is the mid-stack structure USED downstream:** corrupt the organized
+   subspace at e.g. layer 6 and measure the behavioral hit (with a matched
+   random-subspace control, to avoid the "same as changing the tokens" confound).
+5. **Feed back into the toys:** use the circuit findings to identify what architecture or
+   training-data change would make the toy softmax organize — and possibly make the
+   bilinear-lerp toy even MORE self-organizing.
+6. **Stretch — data attribution:** if the circuit is identified, look for which
+   pretraining data enforces it (text whose low loss relies on that structure).
+
+### Session-3 log
+
+- [pipeline, llm_reps.py] Park protocol ported to pretrained LLMs: nodes = random common
+  single-token English words (one fixed labeling per model), walks fed as plain word
+  sequences (400 words, 96 walks); organization measured at EVERY layer × context;
+  behavior (legal top-1 among node words); ownU/nbrU content coefficients in the model's
+  own unembedding basis. Graphs: 4×5 grid, 12-ring, 7-ring.
+- [first ladder: gpt2, pythia-410m, Qwen2.5-1.5B/3B, Qwen2.5-7B(8-bit)] ALL do the task
+  in-context (grid legal top-1 0.82–0.99, rings ~1.00) and ALL organize the grid
+  positively — Pythia/Qwen at the last layer (+0.42…+0.47), GPT-2 mid-stack (+0.34 at
+  layer 11 of 12, decaying to +0.02 at the end). Park's Theorem-5.1 test PASSES for all
+  five (grid harmonics in PC1/PC2, corr 0.71–0.97; top-2-PC Dirichlet energy 0.57–0.86 vs
+  ~2 random). The phenomenon needs neither 8B scale nor Llama.
+- [why real softmax ≠ toy softmax] The toy account transfers: every LLM's final layer
+  carries big positive neighbor evidence (nbrU +1.4…+33 — the prediction itself) AND
+  positive own-token content (grid ownU +0.18…+5.38). No LLM writes own-token suppression
+  into the stream — natural text rewards predicting recent tokens again (the same pressure
+  that makes induction heads copiers), so pretraining sits deep in the "reversible" regime
+  of our reversibility account. The toy softmax's anti-map was an available implementation
+  choice for tiny from-scratch stacks, not a property of softmax attention.
+- [anomaly, logged] The smallest ring (7 nodes) INVERTS at the final layer in every LLM
+  (−0.25…−0.55) at perfect task performance — the toy "7-star" readout mode exists in real
+  LLMs too, on graphs small enough that the recent past covers most of the graph.
+- [report] results_llm.md + figures/llm_{org,maps,coeffs}.png.
+
 ## Session 2 (8h autonomous): WHY are geometric neighbors stored nearby?
 
 Central question: what makes the multi-family model place graph-adjacent nodes near each
