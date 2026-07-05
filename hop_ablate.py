@@ -25,7 +25,7 @@ D_HEAD = D_MODEL // N_HEAD
 
 def load(name):
     cfg = json.loads(Path(f"runs_hop/{name}/config.json").read_text())
-    model = DeepModel(V, D_MODEL, N_HEAD, cfg["spec"], N_CTX,
+    model = DeepModel(V, D_MODEL, N_HEAD, cfg["spec"], N_CTX, norm=cfg.get("norm", False),
                       attention="bilinear", residual="lerp", mlp_residual="add")
     model.load_state_dict(torch.load(f"runs_hop/{name}/model.pt", map_location="cpu"))
     model.eval()
