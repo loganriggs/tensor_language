@@ -208,6 +208,14 @@ P1: softmax-add-3L grid+burst goes positive (it is −0.80 on the six-family mix
   architecture change (a dedicated local value-blending layer, mirroring GPT-2's
   previous-token heads) — noted as future work.
 
+- [pre-registered, toy_localmix.py — the ARCHITECTURE version] Hard-wire the ingredient
+  instead of training it: LocalMixModel adds a parameter-free causal local average
+  (x += 0.5 · mean of previous 3 positions) after the embedding — one built-in
+  message-passing step, the toy analogue of GPT-2's previous-token heads. Trained on the
+  PLAIN six-family mixture (no burst). P3: softmax-add-3L+localmix flips positive
+  (baseline −0.80/−0.67). P4: bilin-lerp-2L+localmix ≥ +0.66 with a cleaner Park
+  spectrum. Results pending.
+
 ### Session-3 verdict summary
 
 | question (user's list) | verdict |

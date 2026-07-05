@@ -241,7 +241,8 @@ P1: softmax-add-3L grid+burst goes positive (it is −0.80 on the six-family mix
   family pins the positive mode as strongly as the entire six-family mixture
   (+0.55…+0.66) — compare grid+cylinder (unpinned ±0.24) and grid-only (lottery).
   Recurrence is the active ingredient, matching the LLM data-attribution result.</li>
-<li>[mixture+burst — tug-of-war, as the reversibility account predicts]
+<li>
+<p>[mixture+burst — tug-of-war, as the reversibility account predicts]
   softmax-add-3L on six-family+burst: +0.62 (ctx 8) → <strong>−0.33</strong> (ctx 256), legal 1.00 —
   burst moves it a long way from −0.80 but cannot fully overcome the irreversible dring
   family at long context; recurrence pressure and irreversibility pressure literally
@@ -249,7 +250,17 @@ P1: softmax-add-3L grid+burst goes positive (it is −0.80 on the six-family mix
   legal 0.99 — holds the mixture ceiling; burst does not push bilinear beyond +0.66.
   The positive mode saturates in data-space; "even more self-organizing" would need an
   architecture change (a dedicated local value-blending layer, mirroring GPT-2's
-  previous-token heads) — noted as future work.</li>
+  previous-token heads) — noted as future work.</p>
+</li>
+<li>
+<p>[pre-registered, toy_localmix.py — the ARCHITECTURE version] Hard-wire the ingredient
+  instead of training it: LocalMixModel adds a parameter-free causal local average
+  (x += 0.5 · mean of previous 3 positions) after the embedding — one built-in
+  message-passing step, the toy analogue of GPT-2's previous-token heads. Trained on the
+  PLAIN six-family mixture (no burst). P3: softmax-add-3L+localmix flips positive
+  (baseline −0.80/−0.67). P4: bilin-lerp-2L+localmix ≥ +0.66 with a cleaner Park
+  spectrum. Results pending.</p>
+</li>
 </ul>
 <h3>Session-3 verdict summary</h3>
 <table>
