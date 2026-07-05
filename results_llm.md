@@ -158,7 +158,24 @@ copying* (blend recent tokens into predictions). Pre-registered toy test: add a 
 family (complete-graph K16 walks where 50% of steps repeat one of the last 3 tokens —
 recurrence with no graph structure at all) to grid training.
 
-<!-- BURST_RESULTS -->
+| toy model trained on | grid organization (ctx 8 → 256) | grid legal | prior result for reference |
+|---|---|---|---|
+| softmax-add-3L, grid+burst, seed 0 | +0.51 → **+0.38** | 0.999 | −0.80/−0.67 on six-family mix; −0.55…−0.72 on grid+dring |
+| softmax-add-3L, grid+burst, seed 1 | +0.53 → +0.11 | 1.00 | (same) |
+| bilin-lerp-2L, grid+burst, seed 0 | +0.78 → **+0.65** | 0.78 | grid-only lottery −0.14…+0.67; grid+cylinder unpinned |
+| bilin-lerp-2L, grid+burst, seed 1 | +0.74 → **+0.60** | 0.96 | (same) |
+
+**P1 supported, with nuance.** The softmax stack — reliably anti-organized on every
+graph-only mixture we ever trained — never goes anti with burst in the mix (2/2 seeds
+start clearly positive; one holds +0.38 at long context, one decays to +0.11). The anti
+mode's fuel (suppress-the-recent-past) is directly opposed by recurrence pressure.
+**P2 confirmed.** For bilinear, one structureless recurrence partner pins the positive
+mode as well as the entire six-family mixture did (+0.60/+0.65 vs +0.55…+0.66) — far
+better than the structural cousin cylinder (unpinned) or grid-only (lottery). Recurrence
+is the cheapest known positive-pinning ingredient, which is satisfying: it is exactly
+what natural text supplies to real LLMs.
+
+<!-- MIXBURST_RESULTS -->
 
 ## Reproduce
 

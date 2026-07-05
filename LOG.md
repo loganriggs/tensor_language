@@ -189,8 +189,18 @@ P1: softmax-add-3L grid+burst goes positive (it is −0.80 on the six-family mix
   before trusting this: icl_reps globally disables grads at import — re-enabled — and
   the legal-rate check indexed the NEXT node's neighbor mask, which on a bipartite grid
   is disjoint from the correct set, reading 0.00 for a perfect model.)
-- [remaining runs training] softmax seed 1, bilinear seeds 0–1; then (if time) the
-  strongest test: six-family mixture + burst for both champions.
+- [P1 seed 1 — supported with nuance] softmax-add-3L grid+burst seed 1: +0.53 (ctx 8) →
+  +0.11 (ctx 256), legal 1.00. Neither burst seed is anti (vs 5/5 anti seeds for
+  dring-partnered and mixture softmax); one holds +0.38, one decays to weakly positive.
+  Burst removes the anti mode; long-context magnitude varies by seed.
+- [P2 — CONFIRMED, and burst is the cheapest pinning partner known] bilin-lerp-2L
+  grid+burst: **+0.65, +0.60** (2 seeds; legal 0.78/0.96). One structureless recurrence
+  family pins the positive mode as strongly as the entire six-family mixture
+  (+0.55…+0.66) — compare grid+cylinder (unpinned ±0.24) and grid-only (lottery).
+  Recurrence is the active ingredient, matching the LLM data-attribution result.
+- [running] Strongest test: six-family mixture + burst for both champions — does burst
+  rescue softmax from anti even on the mixture (−0.80 baseline), and does it push
+  bilinear above +0.66?
 
 ### Phase E3 (exploration): which pretraining data funds the map-builders (stretch goal)
 
