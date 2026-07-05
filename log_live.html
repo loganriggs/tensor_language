@@ -166,6 +166,56 @@ layer 11) over components, then heads; then ablate (<code>gpt2_circuit.py</code>
   toy softmax stack lacks: its layer-1 previous-token information is used only as a
   K-composition pointer (matching), never blended positively into the value stream.</li>
 </ul>
+<h3>Phase E2 (exploration): the numerals mystery + how robust is the operator</h3>
+<ul>
+<li>[numerals: the map still FORMS, then gets buried] With numeral labels, the local
+  attention layers still write organized content (attn2 +0.49, attn9 +0.43 — the
+  message-passing operator is content-agnostic, as the mechanism predicts). What changes
+  is the rest of the stream: GPT-2's late number-processing MLPs write large per-numeral
+  features (centered norms 60–100) with zero-to-negative organization (mlp9 −0.11,
+  mlp10 −0.05; with words these are +0.07…+0.12 and mlp5 is +0.37), and these bury the
+  map in the residual Gram (resid +0.13 vs +0.34 for words). Projecting out the STATIC
+  numeral-embedding subspace does not recover it (+0.10…+0.15) — the dilution is dynamic
+  (MLP features), not the embedding number-line. Also noted: numeral organization varies
+  with the random assignment (+0.01 vs +0.13 across two labelings) — labeling-lottery
+  noise is larger for numerals; flagged.</li>
+<li>[comma-separator probe: the operator is content-aware, not strict-offset] Interleaving
+  ", " between walk words: attn2's output organization goes UP (+0.56 → +0.65) and the
+  residual map survives (+0.34 → +0.24). The local mixing behaves like "blend the recent
+  content words", not "blend positions q−1..q−3" — robust to tokenization noise, which is
+  presumably why the map shows up in natural settings at all.</li>
+</ul>
+<h3>Phase X2 (exploit): is the mid-stack map USED? (user's causal question)</h3>
+<p>Method (<code>gpt2_usetest.py</code> + patches): define the map subspace at layer 8 = top-2/4 PCs of
+the clean node-mean representations (verified: that content alone is the organized part,
++0.28; it holds 40% of node-mean variance). Delete or replace it in the residual stream
+at every position from step 200 on; measure behavior at steps 350–400.</p>
+<ul>
+<li>[deletion] Removing the top-4-PC map subspace: legal 0.83 → 0.59, neighbor-mass
+  0.46 → 0.26, and the downstream map goes NEGATIVE (−0.23). Matched random 4-dim
+  deletion: no effect (0.81). So the subspace is causally load-bearing…</li>
+<li>[…but so is unorganized node content] Deleting PCs 5–8 (same provenance, map left
+  intact at +0.38) costs almost as much behavior (legal 0.63). The damage tracks
+  "node-identity content deleted", not "map destroyed".</li>
+<li>[own-mean patch] Replacing the subspace content at every position with the node's OWN
+  clean mean: behavior intact (0.822 vs 0.826). The class-mean content of the map
+  subspace is sufficient — within-class variation is unused.</li>
+<li>[permutation patch] Same replacement with a RANDOM permutation of node means
+  (nodes stay perfectly distinguishable; placement scrambled): legal 0.64.</li>
+<li>[automorphism patch — the decisive control] Permuting node means by a 180° grid
+  rotation (a graph automorphism: the GEOMETRY is exactly preserved, organization still
+  +0.28; only identities are relabeled, with no fixed points) is the MOST destructive
+  condition: legal 0.28. If downstream read the arrangement, this patch would be
+  harmless; instead damage scales with how far each node's content moved.</li>
+<li><strong>[verdict on "the structure is used &amp; useful, right?"]</strong> Not as structure. What is
+  causally used is the CONTENT that happens to be arranged geometrically — node identity
+  plus neighbor-evidence (the prediction). Preserving the geometry while relabeling gives
+  zero protection; deleting equal-sized unorganized node content hurts nearly as much.
+  The adjacency-respecting arrangement is the <em>shape</em> that useful content necessarily
+  takes (neighbors' prediction-contents overlap through each other — the toy account),
+  not a data structure the model consults. Park-style maps in GPT-2 are a readable
+  byproduct of prediction-carrying representations, exactly as in the toys.</li>
+</ul>
 <h2>Session 2 (8h autonomous): WHY are geometric neighbors stored nearby?</h2>
 <p>Central question: what makes the multi-family model place graph-adjacent nodes near each
 other in representation space, when single-family models (usually) don't?</p>
