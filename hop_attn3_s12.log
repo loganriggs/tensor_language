@@ -1,1 +1,30 @@
 attn3-seed1 step 0 loss 3.368 acc [0.04, 0.04, 0.04, 0.04]
+attn3-seed1 step 6000 loss 1.415 acc [1.0, 0.7, 0.25, 0.25]
+attn3-seed1 step 12000 loss 0.777 acc [1.0, 0.96, 0.72, 0.37]
+attn3-seed1 step 18000 loss 0.491 acc [1.0, 0.98, 0.93, 0.47]
+attn3-seed1 step 24000 loss 0.424 acc [1.0, 0.98, 0.95, 0.55]
+attn3-seed1 step 30000 loss 0.339 acc [1.0, 0.99, 0.96, 0.67]
+attn3-seed1 step 36000 loss 0.318 acc [1.0, 0.99, 0.97, 0.69]
+== attn3-seed1: acc by hop [1.0, 0.987, 0.972, 0.69]
+attn3-seed2 step 0 loss 3.367 acc [0.04, 0.04, 0.05, 0.05]
+attn3-seed2 step 6000 loss 2.388 acc [1.0, 0.05, 0.05, 0.04]
+attn3-seed2 step 12000 loss 0.321 acc [1.0, 0.96, 0.91, 0.72]
+attn3-seed2 step 18000 loss 0.160 acc [1.0, 0.98, 0.97, 0.85]
+attn3-seed2 step 24000 loss 0.118 acc [1.0, 0.98, 0.98, 0.88]
+attn3-seed2 step 30000 loss 0.104 acc [1.0, 0.98, 0.98, 0.9]
+attn3-seed2 step 36000 loss 0.100 acc [1.0, 0.98, 0.99, 0.91]
+== attn3-seed2: acc by hop [1.0, 0.984, 0.986, 0.909]
+{
+ "attn3-seed1": {
+  "0": 1.0,
+  "1": 0.987118865155715,
+  "2": 0.9722039473684211,
+  "3": 0.6897630019749835
+ },
+ "attn3-seed2": {
+  "0": 1.0,
+  "1": 0.9838578183596934,
+  "2": 0.9858552631578947,
+  "3": 0.9088215931533904
+ }
+}

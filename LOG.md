@@ -220,6 +220,13 @@ k=0 copy (floor) · k=1 one lookup ≈ INDUCTION · k=2/3 chained lookups (need 
   depth-gated categories causally recruit >2 heads and specifically use the 3rd attention
   layer — the algorithm genuinely occupies the extra depth, not just correlates with it.
   (runs_hop/ablate_attn3-seed0.json.)
+- **[seeded sweep, 3 seeds — depth-gating robust]** hop-2 accuracy: attn·attn 0.26±.00,
+  attn·MLP·attn 0.28±.01, attn·attn·attn **0.96±.02**; hop-3: 0.26 / 0.26 / 0.82±.09.
+  Tiny variance, enormous gap — the 3rd attention layer is necessary and sufficient for
+  chained retrieval; the middle MLP never helps on any seed. Figure figures/hop_ladder.png,
+  report results_hop.md. **Session-5 verdict: the "next induction head" above induction's
+  2-layer circuit is a 3-attention-layer chained-retrieval circuit; depth = a count of
+  ATTENTION layers (one content-based lookup each), and MLPs don't substitute.**
 
 ### Query-type taxonomy (answer to "what else would require positive self-organization?")
 

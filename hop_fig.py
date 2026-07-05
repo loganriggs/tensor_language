@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 from analysis import INK, SECONDARY
-from hop_data import K_MAX
+from hop_data import K_MAX, E
 from deep_model import SPECS
 
 FIGURES = Path("figures")
@@ -45,7 +45,7 @@ for i, spec in enumerate(specs):
     ax.bar(x, means, w, yerr=[lo, hi], capsize=3, label=labels.get(spec, spec),
            color=colors.get(spec, None), edgecolor=INK, linewidth=0.4)
 
-ax.axhline(1 / 32, color=SECONDARY, lw=0.8, ls="--", label="chance (1/32)")
+ax.axhline(1 / E, color=SECONDARY, lw=0.8, ls="--", label=f"chance (1/{E})")
 ax.set_xticks(range(len(hops)), [f"k={k}" for k in hops])
 ax.set_xlabel("hop count of the query (0=copy, 1≈induction, 2–3 need composition)")
 ax.set_ylabel("answer top-1 accuracy")
