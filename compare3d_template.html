@@ -1,0 +1,195 @@
+<title>Residual geometry across structures — 3D</title>
+<style>
+  .viz-root {
+    --surface: #fcfcfb; --panel: #ffffff; --ink: #0b0b0b; --secondary: #52514e;
+    --muted: #898781; --hairline: rgba(11, 11, 11, 0.10); --accent: #2a78d6;
+    background: var(--surface); color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    min-height: 100vh; padding: 28px 32px 40px; box-sizing: border-box;
+  }
+  .viz-root h1 { font-size: 19px; font-weight: 650; margin: 0 0 6px; text-wrap: balance; }
+  .viz-root p.sub { color: var(--secondary); font-size: 13.5px; line-height: 1.5; margin: 0 0 22px; max-width: 78ch; }
+  .panels { display: flex; flex-wrap: wrap; gap: 18px; }
+  .panel { background: var(--panel); border: 1px solid var(--hairline); border-radius: 6px; padding: 14px 14px 10px; }
+  .panel h2 { font-size: 13.5px; font-weight: 600; margin: 0 0 8px; }
+  .panel canvas { display: block; border: 1px solid var(--hairline); border-radius: 4px; cursor: grab; touch-action: none; background: var(--surface); }
+  .panel canvas:active { cursor: grabbing; }
+  .controls { display: flex; flex-direction: column; gap: 6px; margin-top: 8px; color: var(--muted); font-size: 11.5px; }
+  .controls .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .controls label { display: flex; gap: 4px; align-items: center; }
+  .controls select {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; color: var(--secondary);
+    border: 1px solid var(--hairline); border-radius: 4px; background: var(--panel); padding: 2px 4px; max-width: 210px;
+  }
+  .controls select:focus-visible, .controls input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .controls input[type=range] { flex: 1; accent-color: var(--accent); }
+  .controls .ctx-value { font-family: ui-monospace, Menlo, monospace; color: var(--secondary); min-width: 58px; }
+  .legend { color: var(--muted); font-size: 12px; margin-top: 18px; line-height: 1.55; max-width: 90ch; }
+  .legend b { color: var(--secondary); font-weight: 600; }
+</style>
+<div class="viz-root">
+  <h1>Where each structure is stored: top-3 PCs of the residual stream, per graph family</h1>
+  <p class="sub">One panel per graph structure (torus and ER were never trained on). Each panel's dropdown switches
+  between the <b>multi-family bilinear</b> model (the positive organizer), the <b>single-family grid specialist</b>,
+  the <b>multi-family softmax</b> champion (the anti-organizer), and the <b>true spectral layout</b> as reference.
+  Big circles = per-node mean representations; small dots = individual per-position residual states in the same PC
+  basis; gray lines = true edges. <b>Drag to rotate, scroll to zoom</b>; x/y/z pick PCA dims; slider sets context length.</p>
+  <div class="panels" id="panels"></div>
+  <p class="legend"><b>What to look for:</b> in the multi-family bilinear view, the ring becomes a circle, the
+  directed ring a circle, the grid a bent sheet, the cylinder a tube, the torus (never trained!) a ring-of-rings,
+  and the tree/3-regular/ER graphs arrange with neighbors adjacent — compare each against the true spectral
+  reference in the same panel. Flip to the grid specialist or the softmax model to see the same documents stored
+  without local geometry (clouds overlapping, edges crossing).</p>
+</div>
+<script>
+"use strict";
+const DATA = __DATA__;
+const CSS = getComputedStyle(document.querySelector(".viz-root"));
+const INK = CSS.getPropertyValue("--ink").trim();
+const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const SIZE = 370;
+
+for (const panel of DATA) buildPanel(panel);
+
+function buildPanel(data) {
+  const root = document.createElement("div");
+  root.className = "panel";
+  const modelNames = Object.keys(data.models);
+  const last = data.contexts.length - 1;
+  root.innerHTML = `
+    <h2>${data.title}</h2>
+    <canvas width="${SIZE}" height="${SIZE}" aria-label="rotatable 3D residual geometry: ${data.title}"></canvas>
+    <div class="controls">
+      <div class="row">
+        <select data-role="model">${modelNames.map(m => `<option>${m}</option>`).join("")}</select>
+        <label><input type="checkbox" data-role="cloud" checked> datapoints</label>
+      </div>
+      <div class="row">
+        ${["x", "y", "z"].map((axis, i) => `
+        <label>${axis} <select data-role="axis" data-axis="${i}">
+          ${["1", "2", "3", "4"].map((d, j) => `<option value="${j}" ${i === j ? "selected" : ""}>${d}</option>`).join("")}
+        </select></label>`).join("")}
+      </div>
+      <div class="row" data-role="ctxrow">
+        <span>context</span>
+        <input type="range" min="0" max="${last}" value="${last}" step="1" data-role="ctx" aria-label="context length">
+        <span class="ctx-value" data-role="ctxval">${data.contexts[last]} tok</span>
+      </div>
+    </div>`;
+  document.getElementById("panels").appendChild(root);
+
+  const canvas = root.querySelector("canvas");
+  const dpr = window.devicePixelRatio || 1;
+  canvas.width = SIZE * dpr; canvas.height = SIZE * dpr;
+  canvas.style.width = canvas.style.height = SIZE + "px";
+  const ctx2d = canvas.getContext("2d");
+
+  const state = { yaw: 0.7, pitch: 0.42, zoom: 1, axes: [0, 1, 2], frame: last,
+                  model: modelNames[0], cloud: true, spinning: !reduceMotion };
+  const ctxRow = root.querySelector('[data-role="ctxrow"]');
+  const ctxVal = root.querySelector('[data-role="ctxval"]');
+  const cloudBox = root.querySelector('[data-role="cloud"]');
+
+  root.querySelector('[data-role="model"]').addEventListener("change", e => {
+    state.model = e.target.value;
+    const m = data.models[state.model];
+    ctxRow.hidden = m.frames.length < 2;
+    cloudBox.disabled = !m.clouds[0].length && m.clouds.length < 2;
+    draw();
+  });
+  root.querySelectorAll('[data-role="axis"]').forEach(sel => sel.addEventListener("change", () => {
+    state.axes[+sel.dataset.axis] = +sel.value;
+    draw();
+  }));
+  cloudBox.addEventListener("change", e => { state.cloud = e.target.checked; draw(); });
+  root.querySelector('[data-role="ctx"]').addEventListener("input", e => {
+    state.frame = +e.target.value;
+    ctxVal.textContent = data.contexts[state.frame] + " tok";
+    draw();
+  });
+
+  let drag = null;
+  canvas.addEventListener("pointerdown", e => {
+    state.spinning = false;
+    drag = { x: e.clientX, y: e.clientY };
+    canvas.setPointerCapture(e.pointerId);
+  });
+  canvas.addEventListener("pointermove", e => {
+    if (!drag) return;
+    state.yaw += (e.clientX - drag.x) * 0.011;
+    state.pitch = Math.max(-1.55, Math.min(1.55, state.pitch + (e.clientY - drag.y) * 0.011));
+    drag = { x: e.clientX, y: e.clientY };
+    draw();
+  });
+  canvas.addEventListener("pointerup", () => drag = null);
+  canvas.addEventListener("wheel", e => {
+    e.preventDefault();
+    state.zoom = Math.max(0.3, Math.min(4, state.zoom * Math.exp(-e.deltaY * 0.0012)));
+    draw();
+  }, { passive: false });
+
+  function project(points) {
+    const [ax, ay, az] = state.axes;
+    const cy = Math.cos(state.yaw), sy = Math.sin(state.yaw);
+    const cp = Math.cos(state.pitch), sp = Math.sin(state.pitch);
+    const scale = SIZE * 0.13 * state.zoom;
+    return points.map(c => {
+      const x = c[ax], y = c[ay], z = c[az];
+      const rx = cy * x + sy * z, rz = -sy * x + cy * z;
+      const ry = cp * y - sp * rz, rd = sp * y + cp * rz;
+      return { x: SIZE / 2 + rx * scale, y: SIZE / 2 - ry * scale, depth: rd };
+    });
+  }
+
+  function draw() {
+    ctx2d.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx2d.clearRect(0, 0, SIZE, SIZE);
+    const m = data.models[state.model];
+    const f = Math.min(state.frame, m.frames.length - 1);
+
+    if (state.cloud && m.clouds[f] && m.clouds[f].length) {
+      const pts = project(m.clouds[f]);
+      ctx2d.globalAlpha = 0.35;
+      pts.forEach((p, i) => {
+        ctx2d.beginPath();
+        ctx2d.arc(p.x, p.y, 2.2, 0, 7);
+        ctx2d.fillStyle = data.colors[m.cloudNodes[f][i]];
+        ctx2d.fill();
+      });
+      ctx2d.globalAlpha = 1;
+    }
+
+    const pts = project(m.frames[f]);
+    for (const e of data.edges) {
+      const a = pts[e.a], b = pts[e.b];
+      ctx2d.strokeStyle = "#c3c2b7";
+      ctx2d.lineWidth = 1;
+      ctx2d.beginPath(); ctx2d.moveTo(a.x, a.y); ctx2d.lineTo(b.x, b.y); ctx2d.stroke();
+    }
+    const order = pts.map((p, i) => i).sort((i, j) => pts[i].depth - pts[j].depth);
+    for (const i of order) {
+      const p = pts[i];
+      const r = Math.max(4, 10 + p.depth * 1.5);
+      ctx2d.beginPath(); ctx2d.arc(p.x, p.y, r, 0, 7);
+      ctx2d.fillStyle = data.colors[i]; ctx2d.fill();
+      ctx2d.strokeStyle = "#ffffff"; ctx2d.lineWidth = 1.5; ctx2d.stroke();
+      ctx2d.fillStyle = pickInk(data.colors[i]);
+      ctx2d.font = "600 8.5px ui-monospace, Menlo, monospace";
+      ctx2d.textAlign = "center"; ctx2d.textBaseline = "middle";
+      ctx2d.fillText(data.labels[i], p.x, p.y);
+    }
+  }
+
+  function pickInk(hex) {
+    const v = parseInt(hex.slice(1), 16);
+    const lum = 0.299 * (v >> 16) + 0.587 * ((v >> 8) & 255) + 0.114 * (v & 255);
+    return lum > 150 ? INK : "#ffffff";
+  }
+
+  (function spin() {
+    if (state.spinning) { state.yaw += 0.004; draw(); }
+    requestAnimationFrame(spin);
+  })();
+  draw();
+}
+</script>

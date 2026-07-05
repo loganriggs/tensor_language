@@ -1,0 +1,190 @@
+<title>Lattice representations — 3D</title>
+<style>
+  .viz-root {
+    --surface: #fcfcfb; --panel: #ffffff; --ink: #0b0b0b; --secondary: #52514e;
+    --muted: #898781; --hairline: rgba(11, 11, 11, 0.10); --accent: #2a78d6;
+    background: var(--surface); color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    min-height: 100vh; padding: 28px 32px 40px; box-sizing: border-box;
+  }
+  .viz-root h1 { font-size: 19px; font-weight: 650; margin: 0 0 6px; text-wrap: balance; }
+  .viz-root p.sub { color: var(--secondary); font-size: 13.5px; line-height: 1.5; margin: 0 0 22px; max-width: 72ch; }
+  .panels { display: flex; flex-wrap: wrap; gap: 18px; }
+  .panel { background: var(--panel); border: 1px solid var(--hairline); border-radius: 6px; padding: 14px 14px 10px; }
+  .panel h2 { font-size: 13.5px; font-weight: 600; margin: 0 0 2px; }
+  .panel .model { color: var(--muted); font-size: 11.5px; margin: 0 0 8px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+  .panel canvas { display: block; border: 1px solid var(--hairline); border-radius: 4px; cursor: grab; touch-action: none; background: var(--surface); }
+  .panel canvas:active { cursor: grabbing; }
+  .controls { display: flex; flex-direction: column; gap: 6px; margin-top: 8px; color: var(--muted); font-size: 11.5px; }
+  .controls .row { display: flex; gap: 10px; align-items: center; }
+  .controls label { display: flex; gap: 4px; align-items: center; }
+  .controls select {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11.5px; color: var(--secondary);
+    border: 1px solid var(--hairline); border-radius: 4px; background: var(--panel); padding: 2px 4px;
+  }
+  .controls select:focus-visible, .controls input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .controls input[type=range] { flex: 1; accent-color: var(--accent); }
+  .controls .ctx-value { font-family: ui-monospace, Menlo, monospace; color: var(--secondary); min-width: 62px; }
+  .legend { color: var(--muted); font-size: 12px; margin-top: 18px; line-height: 1.55; max-width: 84ch; }
+  .legend b { color: var(--secondary); font-weight: 600; }
+</style>
+<div class="viz-root">
+  <h1>The model&rsquo;s representations of one labeled 4&times;5 lattice, in 3D</h1>
+  <p class="sub">Two views per topology, both computed from the trained bilinear attention-only model on one
+  fixed token labeling. <b>behavior eigenmap</b>: spectral embedding of the model&rsquo;s implied transition
+  matrix &mdash; the unfolded lattice. <b>residual PCA</b>: Park et&nbsp;al.-style top principal components of the
+  windowed per-token mean residual stream &mdash; our small models organize this as an <em>anti-map</em>
+  (neighboring nodes pushed apart, so the true edges, in gray, cross the middle). Use the context slider to
+  watch the anti-organization form as the walk reveals the graph.
+  <b>Drag to rotate, scroll to zoom;</b> x/y/z menus pick which embedding dimensions you view.</p>
+  <div class="panels" id="panels"></div>
+  <p class="legend"><b>What to look for:</b> in <em>behavior</em> mode the grid unfolds into a sheet, the cylinder
+  into a tube (dashed wrap edges close one direction), and the torus needs all four dims (e1&ndash;e2 and e3&ndash;e4
+  are its two circles). In <em>residual PCA</em> mode the same edges stretch across the cloud instead of staying
+  local &mdash; the opposite of what Park et&nbsp;al. found in LLMs, where the top PCs draw the lattice itself.
+  The <b>cycle</b> panel is the original cycle-task model: there the residual stream <em>does</em> hold the
+  structure directly &mdash; its phase centroids form the ring in the top PCs.</p>
+</div>
+<script>
+"use strict";
+const DATA = __DATA__;
+const CSS = getComputedStyle(document.querySelector(".viz-root"));
+const INK = CSS.getPropertyValue("--ink").trim();
+const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const SIZE = 380;
+
+for (const panel of DATA) buildPanel(panel);
+
+function buildPanel(data) {
+  const root = document.createElement("div");
+  root.className = "panel";
+  const dims = ["1", "2", "3", "4"];
+  const last = data.contexts.length - 1;
+  root.innerHTML = `
+    <h2>${data.topology}</h2>
+    <p class="model">${data.model}</p>
+    <canvas width="${SIZE}" height="${SIZE}" aria-label="rotatable 3D representation map of the ${data.topology}"></canvas>
+    <div class="controls">
+      <div class="row">
+        <label>view <select data-role="source">
+          <option value="behavior">behavior eigenmap</option>
+          <option value="residual">residual PCA</option>
+        </select></label>
+        ${["x", "y", "z"].map((axis, i) => `
+        <label>${axis} <select data-role="axis" data-axis="${i}">
+          ${dims.map((d, j) => `<option value="${j}" ${i === j ? "selected" : ""}>${d}</option>`).join("")}
+        </select></label>`).join("")}
+      </div>
+      <div class="row" data-role="ctxrow" hidden>
+        <span>context</span>
+        <input type="range" min="0" max="${last}" value="${last}" step="1" data-role="ctx"
+               aria-label="context length">
+        <span class="ctx-value" data-role="ctxval">${data.contexts[last]} tok</span>
+      </div>
+    </div>`;
+  document.getElementById("panels").appendChild(root);
+
+  const canvas = root.querySelector("canvas");
+  const dpr = window.devicePixelRatio || 1;
+  canvas.width = SIZE * dpr; canvas.height = SIZE * dpr;
+  canvas.style.width = canvas.style.height = SIZE + "px";
+  const ctx2d = canvas.getContext("2d");
+
+  const state = { yaw: 0.7, pitch: 0.42, zoom: 1, axes: [0, 1, 2], source: "behavior", frame: last, spinning: !reduceMotion };
+  const ctxRow = root.querySelector('[data-role="ctxrow"]');
+  const ctxVal = root.querySelector('[data-role="ctxval"]');
+
+  root.querySelector('[data-role="source"]').addEventListener("change", e => {
+    state.source = e.target.value;
+    ctxRow.hidden = state.source !== "residual" || data.sources.residual.length < 2;
+    draw();
+  });
+  root.querySelectorAll('[data-role="axis"]').forEach(sel => sel.addEventListener("change", () => {
+    state.axes[+sel.dataset.axis] = +sel.value;
+    draw();
+  }));
+  root.querySelector('[data-role="ctx"]').addEventListener("input", e => {
+    state.frame = +e.target.value;
+    ctxVal.textContent = data.contexts[state.frame] + " tok";
+    draw();
+  });
+
+  let drag = null;
+  canvas.addEventListener("pointerdown", e => {
+    state.spinning = false;
+    drag = { x: e.clientX, y: e.clientY };
+    canvas.setPointerCapture(e.pointerId);
+  });
+  canvas.addEventListener("pointermove", e => {
+    if (!drag) return;
+    state.yaw += (e.clientX - drag.x) * 0.011;
+    state.pitch = Math.max(-1.55, Math.min(1.55, state.pitch + (e.clientY - drag.y) * 0.011));
+    drag = { x: e.clientX, y: e.clientY };
+    draw();
+  });
+  canvas.addEventListener("pointerup", () => drag = null);
+  canvas.addEventListener("wheel", e => {
+    e.preventDefault();
+    state.zoom = Math.max(0.35, Math.min(4, state.zoom * Math.exp(-e.deltaY * 0.0012)));
+    draw();
+  }, { passive: false });
+
+  function coords() {
+    const frames = data.sources[state.source];
+    return frames[Math.min(state.frame, frames.length - 1)];
+  }
+
+  function project() {
+    const [ax, ay, az] = state.axes;
+    const cy = Math.cos(state.yaw), sy = Math.sin(state.yaw);
+    const cp = Math.cos(state.pitch), sp = Math.sin(state.pitch);
+    const scale = SIZE * 0.155 * state.zoom;
+    return coords().map(c => {
+      const x = c[ax], y = c[ay], z = c[az];
+      const rx = cy * x + sy * z, rz = -sy * x + cy * z;      // yaw about y
+      const ry = cp * y - sp * rz, rd = sp * y + cp * rz;     // pitch about x
+      return { x: SIZE / 2 + rx * scale, y: SIZE / 2 - ry * scale, depth: rd };
+    });
+  }
+
+  function draw() {
+    ctx2d.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx2d.clearRect(0, 0, SIZE, SIZE);
+    const pts = project();
+
+    for (const e of data.edges) {
+      const a = pts[e.a], b = pts[e.b];
+      ctx2d.strokeStyle = "#c3c2b7";
+      ctx2d.lineWidth = 1;
+      ctx2d.setLineDash(e.wrap ? [4, 4] : []);
+      ctx2d.beginPath(); ctx2d.moveTo(a.x, a.y); ctx2d.lineTo(b.x, b.y); ctx2d.stroke();
+    }
+    ctx2d.setLineDash([]);
+
+    const order = pts.map((p, i) => i).sort((i, j) => pts[i].depth - pts[j].depth);
+    for (const i of order) {
+      const p = pts[i];
+      const r = 11 + p.depth * 1.6;                          // nearer = slightly larger
+      ctx2d.beginPath(); ctx2d.arc(p.x, p.y, Math.max(4, r), 0, 7);
+      ctx2d.fillStyle = data.colors[i]; ctx2d.fill();
+      ctx2d.strokeStyle = "#ffffff"; ctx2d.lineWidth = 1.5; ctx2d.stroke();
+      ctx2d.fillStyle = pickInk(data.colors[i]);
+      ctx2d.font = "600 8.5px ui-monospace, Menlo, monospace";
+      ctx2d.textAlign = "center"; ctx2d.textBaseline = "middle";
+      ctx2d.fillText(data.labels[i], p.x, p.y);
+    }
+  }
+
+  function pickInk(hex) {
+    const v = parseInt(hex.slice(1), 16);
+    const lum = 0.299 * (v >> 16) + 0.587 * ((v >> 8) & 255) + 0.114 * (v & 255);
+    return lum > 150 ? INK : "#ffffff";
+  }
+
+  (function spin() {
+    if (state.spinning) { state.yaw += 0.004; draw(); }
+    requestAnimationFrame(spin);
+  })();
+  draw();
+}
+</script>
