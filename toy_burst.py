@@ -56,6 +56,9 @@ if __name__ == "__main__":
             torch.manual_seed(seed)
             gen = torch.Generator().manual_seed(seed + 100)
             name = f"{arch}-grid+burst-seed{seed}"
+            if (Path("runs_gen") / name / "model.pt").exists():
+                print(f"skip {name} (exists)", flush=True)
+                continue
             model = CycleModel(N_VOCAB, 128, 1, n_layer, N_CTX, **kwargs).to(device)
             opt = torch.optim.Adam(model.parameters(), lr=1e-3)
             steps = 24000
@@ -78,6 +81,7 @@ if __name__ == "__main__":
 
             model.cpu().eval()
             from icl_reps import mean_reps, gram_adjacency_corr, adjacency
+            torch.set_grad_enabled(True)   # icl_reps disables grads globally at import
             reps = mean_reps(model, "grid")
             A = adjacency("grid")
             c8, c256 = gram_adjacency_corr(reps[8], A), gram_adjacency_corr(reps[256], A)
@@ -88,7 +92,8 @@ if __name__ == "__main__":
             legal = legal_tokens(nodes, perm, nb)
             with torch.no_grad():
                 lg = model(toks[:, :-1])
-            hit = legal[:, 1:].gather(-1, lg.argmax(-1, keepdim=True)).squeeze(-1)
+            # legal[b,t] = neighbor tokens of the CURRENT node at t; logits[t] predicts t+1
+            hit = legal[:, :-1].gather(-1, lg.argmax(-1, keepdim=True)).squeeze(-1)
             legal_rate = hit[:, 128:].float().mean().item()
             print(f"== {name}: grid org ctx8 {c8:+.2f} ctx256 {c256:+.2f}  legal {legal_rate:.2f}",
                   flush=True)

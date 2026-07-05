@@ -77,14 +77,102 @@ gone from real LLMs; it shows up at the output end on the smallest graphs, where
 recent past covers most of the graph. Not explained; logged as the same open question as
 the toy softmax default ("why does the readout end prefer suppression-style content?").
 
+## 5 · Survey: where it works, where it doesn't (11 models)
+
+| model | grid org (best layer) | task legal | reading |
+|---|---|---|---|
+| pythia-70m | +0.19 | **0.10 — can't do the task** | below the competence floor |
+| GPT-2 124M | +0.34 (mid; +0.02 last) | 0.82 | works, mid-stack |
+| GPT-2 with **numeral** labels | **+0.01 anywhere** | **0.91** | *task WITHOUT geometry* |
+| pythia-160m | +0.32 (mid) | 0.73 | weak but present |
+| opt-125m | **+0.49** (through last layer) | 0.85 | strongest small organizer |
+| OLMo-1B | +0.37 (**layers 1–3**) | 0.90 | earliest organizer |
+| gpt2-medium / pythia-410m / Qwen 0.5–7B | +0.42…+0.47 | 0.82–0.99 | works |
+
+Two genuine negatives: a model too weak for the task (pythia-70m), and — more
+interesting — GPT-2 with numeral node-labels: task performance *improves* (0.91) while
+the map vanishes. Follow-up showed the map still forms in the attention outputs
+(attn2 +0.49) but GPT-2's late number-processing MLPs write large unorganized numeral
+features that bury it in the residual; projecting out the static "number line" does not
+recover it. Competence and organization dissociate *within one model, by token type*.
+Also: in-context walk statistics don't matter — a fully directed (never-backtracking)
+ring walk organizes as well as a uniform one (+0.52 vs +0.40); the toys' reversibility
+effect is a training-time phenomenon, not an inference-time one. Time-shuffling the walk
+kills the map (+0.02) — it comes from transition statistics alone.
+
+## 6 · The circuit: local heads compose, late layers amplify, induction solves the task
+
+Exact component attribution (pre-LN stream = embed + Σ attn + Σ mlp) plus per-head
+analysis and ablations on GPT-2:
+
+- **Locality predicts organization** (r = +0.60 across all 144 heads). The most local
+  heads are the textbook previous-token heads (4.11, 2.2). Mechanism: *a local attention
+  window applied to a walk is one step of graph message passing* — walk-adjacent tokens
+  are graph-adjacent, so blending recent tokens = blending graph neighbors = Laplacian
+  smoothing = the spectral map. The operator is content-aware (inserting commas between
+  words leaves it intact, attn2 organization even rises to +0.65), which is why it
+  survives natural tokenization.
+- **Induction heads are the task solver, not the map builder.** Classic induction
+  scoring finds GPT-2's known induction heads (6.9, 5.5, 7.10); induction score is
+  uncorrelated with head organization (r = −0.03).
+- **Late layers inherit and amplify.** Attention layers 9–10 are not local (offset mass
+  ~0.05) but carry the largest organized variance into the final map. Mean-ablating the
+  16 most-local heads collapses their organization (attn9 +0.36 → +0.12) and the map
+  (+0.35 → +0.15) — the composers are the local heads.
+- Cross-family check: OLMo-1B's locality is front-loaded (layer-0 offset-1–3 mass 0.30,
+  max head 0.67, ~0.06 mid-stack) — and OLMo is exactly the model whose map appears at
+  layers 1–3.
+
+## 7 · Is the structure *used*? (causal tests)
+
+Deleting the 4-dim map subspace at layer 8 hurts behavior (legal 0.83 → 0.59; random
+4-dim control: no effect) — but three sharper patches show it is the **content**, not
+the **arrangement**, that matters:
+
+| patch at layer 8 (steps 200+) | geometry | identities | legal |
+|---|---|---|---|
+| replace subspace with node's own clean mean | preserved | preserved | **0.822** (= baseline 0.826) |
+| random permutation of node means | destroyed (+0.09) | scrambled | 0.642 |
+| **180° grid automorphism** of node means | **perfectly preserved (+0.28)** | rotated (no fixed points) | **0.278 — worst** |
+
+If downstream consulted the map's arrangement, the automorphism patch would be harmless.
+Instead, damage scales with how far each node's *content* moved. Verdict on "the
+structure is used and useful, right?": **the content is used — the geometry is its
+shadow.** Representations carry node identity + neighbor evidence (the prediction);
+neighboring nodes' prediction-contents overlap through each other, so useful content is
+necessarily arranged as the graph. Same conclusion as the toys, now causal in GPT-2.
+
+## 8 · What pretraining data pays for the map-builders
+
+Mean-ablating the 16 local heads on wikitext costs +0.93 nats *uniformly* — recurring
+targets +1.01, novel targets +0.91 (16 random heads: +0.09). The pre-registered guess
+(damage concentrates on recently-recurring tokens) was wrong in an informative way:
+local context is predictive for essentially **every** token of natural text, so all data
+funds this machinery. That is why every pretrained family has it and why Park-style
+geometry is universal rather than a quirk of some corpus slice.
+
+## 9 · Feeding it back into the toys: recurrence pressure
+
+The circuit story says LLMs organize because natural text installs *positive local
+copying* (blend recent tokens into predictions). Pre-registered toy test: add a "burst"
+family (complete-graph K16 walks where 50% of steps repeat one of the last 3 tokens —
+recurrence with no graph structure at all) to grid training.
+
+<!-- BURST_RESULTS -->
+
 ## Reproduce
 
 ```bash
 python llm_reps.py gpt2 --batch 24        # or any HF causal LM; --8bit for 7B
 python llm_figs.py                        # figures/llm_{org,maps,coeffs}.png
-# per-model outputs in runs_llm/<tag>/{org,behavior,coeffs,meta}.json + reps.pt
+python llm_variants.py gpt2               # in-context walk battery + controls
+python gpt2_circuit.py                    # component/head attribution
+python gpt2_localheads.py                 # locality vs organization + ablations
+python gpt2_usetest.py 8                  # causal-use subspace tests
+python toy_burst.py                       # toy recurrence experiment
 ```
 
 Caveats: one word-labeling per model (fixed seed), 96 walks, window 50; ownU/nbrU read
 per-layer against the final unembedding (only exactly interpretable at the last layer);
-7-ring statistics rest on 21 node pairs; Qwen2.5-7B measured in 8-bit quantization.
+7-ring statistics rest on 21 node pairs; Qwen2.5-7B measured in 8-bit quantization;
+numeral-label organization varies with the random assignment (labeling lottery noted).

@@ -216,6 +216,36 @@ at every position from step 200 on; measure behavior at steps 350–400.</p>
   not a data structure the model consults. Park-style maps in GPT-2 are a readable
   byproduct of prediction-carrying representations, exactly as in the toys.</li>
 </ul>
+<h3>Phase X3 (exploit): feed the circuit finding back into the toys</h3>
+<p>Pre-registered (toy_burst.py): if LLMs organize because natural text installs <em>positive
+local copying</em> (recurrence), then adding a "burst" family — complete-graph K16 walks
+where 50% of steps repeat one of the last 3 tokens; pure recurrence, NO graph structure
+— to grid training should flip the toy softmax stack positive.
+P1: softmax-add-3L grid+burst goes positive (it is −0.80 on the six-family mixture,
+−0.55…−0.72 on grid+dring). P2: bilin-lerp-2L grid+burst positive too.</p>
+<ul>
+<li>[P1, seed 0 — CONFIRMED] softmax-add-3L grid+burst: grid organization <strong>+0.51 (ctx 8)
+  → +0.38 (ctx 256)</strong>, grid legal <strong>0.999</strong>. The architecture that anti-organized on
+  every previous mixture organizes positively at full competence once the training data
+  contains recurrence. Stochastic <em>graph</em> diversity was never the active ingredient for
+  softmax — copy-the-recent-past pressure is. (Two measurement bugs found and fixed
+  before trusting this: icl_reps globally disables grads at import — re-enabled — and
+  the legal-rate check indexed the NEXT node's neighbor mask, which on a bipartite grid
+  is disjoint from the correct set, reading 0.00 for a perfect model.)</li>
+<li>[remaining runs training] softmax seed 1, bilinear seeds 0–1; then (if time) the
+  strongest test: six-family mixture + burst for both champions.</li>
+</ul>
+<h3>Phase E3 (exploration): which pretraining data funds the map-builders (stretch goal)</h3>
+<ul>
+<li>[wikitext ablation attribution] Mean-ablating the 16 local map-building heads on real
+  text: +0.93 nats of loss EVERYWHERE (16 random heads: +0.09). Pre-registered guess —
+  damage concentrates on recently-recurring tokens — NOT supported: repeat-gap-1–4
+  tokens +1.01, novel tokens +0.91, no gradient. Verdict: the local-copy machinery is
+  not funded by a niche data subset (lists, coreference); local context is predictive
+  for essentially every token of natural text, so <em>all</em> data trains it. That is why
+  every pretrained family has the machinery and the map is universal — and why no
+  dataset-slice attribution can isolate it at head granularity (limitation logged).</li>
+</ul>
 <h2>Session 2 (8h autonomous): WHY are geometric neighbors stored nearby?</h2>
 <p>Central question: what makes the multi-family model place graph-adjacent nodes near each
 other in representation space, when single-family models (usually) don't?</p>
