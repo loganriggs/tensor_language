@@ -1,1 +1,9 @@
-[{"condition": "grid only", "seeds": "4", "corr": "\u22120.14, +0.67, \u22120.08, +0.16 \u2014 unconstrained (seed lottery)"}, {"condition": "grid + dring", "seeds": "3", "corr": "\u22120.55, \u22120.70, \u22120.72 \u2014 reliably anti"}, {"condition": "full six-family mixture", "seeds": "3", "corr": "+0.66, +0.55, +0.62 \u2014 reliably positive"}, {"condition": "softmax-add-3L on the mixture", "seeds": "2", "corr": "\u22120.80, \u22120.67 \u2014 reliably anti"}]
+[
+  {"condition": "grid only", "seeds": "4", "corr": "−0.14, +0.67, −0.08, +0.16 — unconstrained (seed lottery)"},
+  {"condition": "grid + cylinder (structural near-copy)", "seeds": "2", "corr": "+0.24, −0.24 — not pinned (lottery, like grid-only)"},
+  {"condition": "grid + ring", "seeds": "2", "corr": "+0.38, +0.67 — reliably positive"},
+  {"condition": "grid + tree", "seeds": "2", "corr": "+0.41, +0.65 — reliably positive"},
+  {"condition": "grid + dring (irreversible)", "seeds": "3", "corr": "−0.55, −0.70, −0.72 — reliably anti"},
+  {"condition": "full six-family mixture", "seeds": "3", "corr": "+0.66, +0.55, +0.62 — reliably positive"},
+  {"condition": "softmax-add-3L on the mixture", "seeds": "2", "corr": "−0.80, −0.67 — reliably anti"}
+]

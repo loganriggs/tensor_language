@@ -105,16 +105,18 @@ geometry; single-family training merely fails to constrain it:</p>
 {seed_rows}
 </table>
 
-<h2>4 · What flips it: the mixture's stochastic diversity, not conflict</h2>
+<h2>4 · What flips it: genuinely different stochastic partners, not conflict</h2>
 <p>Pre-registered guess: the deterministic directed-ring family (which punishes recency shortcuts)
-drives the flip. <b>Falsified</b> — it does the opposite:</p>
+drives the flip. <b>Falsified</b> — it does the opposite. And the seed-2 replications added a
+refinement: a partner only pins the positive mode if it genuinely differs from grid — the
+structural near-copy cylinder pins nothing (sign reverts to init luck):</p>
 <table>
 <tr><th>bilin-lerp-2L trained on</th><th>grid corr @ ctx 256</th></tr>
 <tr><td>grid only</td><td>&minus;0.14 … +0.67 (4 seeds — unconstrained)</td></tr>
 <tr><td>grid + dring (deterministic)</td><td><span style="color:var(--neg)">&minus;0.55, &minus;0.70, &minus;0.72 (3 seeds) — reliably anti</span></td></tr>
-<tr><td>grid + cylinder</td><td>+0.24 (1 seed)</td></tr>
-<tr><td>grid + ring</td><td>+0.38 (1 seed)</td></tr>
-<tr><td>grid + tree</td><td>+0.41 (1 seed)</td></tr>
+<tr><td>grid + cylinder (structural near-copy)</td><td>+0.24, &minus;0.24 (2 seeds — <b>not pinned</b>: lottery, like grid-only)</td></tr>
+<tr><td>grid + ring</td><td>+0.38, +0.67 (2 seeds — reliably positive)</td></tr>
+<tr><td>grid + tree</td><td>+0.41, +0.65 (2 seeds — reliably positive)</td></tr>
 <tr><td>all six families</td><td><b>+0.55 … +0.66 (3 seeds) — reliably positive</b></td></tr>
 </table>
 <div class="verdict"><b>Synthesis:</b> organization tracks the <em>algorithmic mode</em>.
@@ -149,7 +151,9 @@ write paths (negative own content → anti-map) or in the static readout (positi
 cancelled at the logits → positive map). Training data pins the choice via <b>reversibility</b>:
 walks that can never return to their recent past force suppression into the writes (directed
 rings at any entropy: −0.38…−0.70) while any nonzero backtrack rate keeps the map positive
-(biased ring with 12.5% backtracks and LOWER entropy: +0.67). Full trail: results_why.md / LOG.md.</p>
+(biased ring with 12.5% backtracks and LOWER entropy: +0.67). Pinning also needs a genuinely
+different partner: grid + its near-copy cylinder pins nothing (+0.24/−0.24 — the lottery again).
+Full trail: results_why.md / LOG.md.</p>
 <img src="{uri('geo_why.png')}" alt="why neighbors end up nearby">
 <p class="cap">Left: organization tracks the summed own-token write coefficient across all 18 models
 (r = 0.76). Middle: projecting own-token directions out of each node's rep moves every model toward

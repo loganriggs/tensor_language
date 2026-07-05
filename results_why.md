@@ -18,7 +18,10 @@ neighbors nearby; suppression-in-writes → anti-map. And the training data pins
 through one property: **reversibility**. If the walk can never return to its recent past
 (directed families), the model must adaptively suppress recent tokens, the suppression lands
 in the writes, and the map inverts. Any nonzero backtrack rate makes the recent past part of
-the prediction and the map goes positive. Entropy is irrelevant.
+the prediction and the map goes positive. Entropy is irrelevant. (One refinement from the
+seed-2 replications: the pinning needs the partner family to genuinely differ from the base
+one — grid + its structural near-copy cylinder pins nothing, +0.24/−0.24 across seeds, the
+same lottery as single-family training.)
 
 ![geo_why](figures/geo_why.png)
 
@@ -59,6 +62,11 @@ the prediction and the map goes positive. Entropy is irrelevant.
    the out-degree grows and the recent past matters less. Reversibility is the pinning
    variable; its strength scales with how sharply the recent past is excluded.
 
+   Seed-2 replications of the other two-family partners complete the picture: grid+ring
+   (+0.38, +0.67) and grid+tree (+0.41, +0.65) are reliably positive, while grid+cylinder
+   (+0.24, −0.24) is **not pinned** — a partner that is nearly the same graph family adds
+   no constraint, and the sign reverts to the single-family init lottery.
+
 5. **No static gauge.** Injecting own-token suppression into the trained multi model's OV
    writes (`OV ← OV − λ·Σ u_x ê_xᵀ`) moves the organization down monotonically
    (+0.66 → +0.16) but degrades behavior with it — the injected content is input-dependent
@@ -83,8 +91,9 @@ the prediction and the map goes positive. Entropy is irrelevant.
 
 ## Caveats
 
-- Organization measured on grid docs, final layer, one labeling, window 50; 2 seeds for the four
-  new battery runs (k=1 dring: 3 seeds; multi/gridonly: 3–4 seeds).
+- Organization measured on grid docs, final layer, one labeling, window 50; 2 seeds for the
+  battery runs and the ring/tree/cylinder partners (k=1 dring: 3 seeds; multi/gridonly:
+  3–4 seeds).
 - The own-token-removal intervention is measurement-side (projection), not a weight-space
   causal edit; an extended projection including OV-transformed own directions over-projects
   and was discarded.
