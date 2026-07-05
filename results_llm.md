@@ -189,9 +189,23 @@ positive early in context) but cannot fully overcome the mixture's irreversible
 directed-ring family at long context — a tug-of-war between recurrence pressure
 (pin positive) and irreversibility pressure (pin anti), exactly what the session-2
 reversibility account predicts when both ingredients are present. Bilinear holds its
-mixture ceiling (+0.62); the positive mode appears saturated there — making the toy
-"even more self-organizing" would need an architecture change (e.g. a dedicated local
-value-blending layer, mirroring GPT-2's previous-token heads), left as future work.
+mixture ceiling (+0.62); the positive mode appears saturated in data-space.
+
+**The architecture version (pre-registered P3/P4, `toy_localmix.py`):** hard-wire the
+ingredient instead — a parameter-free causal local average (x += 0.5·mean of previous 3
+positions) after the embedding, i.e. one built-in message-passing step, trained on the
+plain mixture with no burst data.
+
+| toy + localmix layer, plain mixture | grid org (ctx 8 → 256) | legal | verdict |
+|---|---|---|---|
+| softmax-add-3L | +0.37 → +0.05 (PC1↔harmonic 0.97) | 1.00 | P3 partial: anti mode GONE (was −0.80), but long context erodes to neutral |
+| bilin-lerp-2L | +0.57 → +0.55 | **0.68** (loss stuck ~2.9) | **P4 falsified**: less organized AND worse at the task |
+
+Closing synthesis: the map-building ingredient is **installed by data** (recurrence) and
+merely **permitted by architecture**. Hard-wiring it removes the softmax anti-default
+but can't out-pull irreversible data, and it actively damages the bilinear model's
+content-matching. This mirrors the LLM side: pretrained models get the machinery from
+their data, not from any special wiring.
 
 ## 10 · Session takeaways
 

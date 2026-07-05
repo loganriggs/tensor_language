@@ -259,8 +259,19 @@ P1: softmax-add-3L grid+burst goes positive (it is −0.80 on the six-family mix
   message-passing step, the toy analogue of GPT-2's previous-token heads. Trained on the
   PLAIN six-family mixture (no burst). P3: softmax-add-3L+localmix flips positive
   (baseline −0.80/−0.67). P4: bilin-lerp-2L+localmix ≥ +0.66 with a cleaner Park
-  spectrum. Results pending.</p>
+  spectrum.</p>
 </li>
+<li>[P3 — PARTIAL] softmax-add-3L+localmix: legal 1.00, org +0.37 (ctx 8) → +0.05
+  (ctx 256), and PC1 carries a true grid harmonic at 0.97. The anti mode is gone
+  (from −0.80!) — but long context erodes to neutral, same tug-of-war as mixture+burst
+  (dring's suppression pressure remains in the data). Wiring removes the anti default;
+  it does not out-pull irreversible data.</li>
+<li>[P4 — FALSIFIED] bilin-lerp-2L+localmix: org +0.55 (below the +0.55…+0.66 baseline),
+  legal only 0.68, train loss stuck ~2.9 (vs ~1.7) — the fixed pre-blur interferes with
+  the bilinear model's content-matching. Hard-wiring the ingredient is a blunter tool
+  than data pressure: burst data beat localmix wiring on both organization and
+  competence. Closing synthesis: the map-building ingredient is best INSTALLED BY DATA
+  (recurrence) and merely PERMITTED by architecture.</li>
 </ul>
 <h3>Session-3 verdict summary</h3>
 <table>
