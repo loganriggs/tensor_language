@@ -50,6 +50,77 @@ do the task on random-word walks, do they organize, and what exactly are they do
   LLMs too, on graphs small enough that the recent past covers most of the graph.
 - [report] results_llm.md + figures/llm_{org,maps,coeffs}.png.
 
+### Phase E1 (exploration, ~45 min): survey + in-context probes
+
+- [survey, 11 models total] Every model that can DO the task organizes somewhere in the
+  stack. pythia-70m is the "can't do the task" case (grid legal 0.10 — and no real
+  geometry either, +0.19). The others: gpt2 +0.34 (mid-stack), gpt2-medium +0.46 (mid),
+  pythia-160m +0.32 (mid, weak), pythia-410m +0.44, Qwen2.5-0.5B…7B +0.42…+0.47,
+  OLMo-1B +0.37 (in layers 1–3! earliest organizer), opt-125m +0.49 (strongest small
+  model, organized through the last layer, and the only model whose 7-ring is not
+  negative at the readout). WHERE the map lives varies wildly by family: OLMo builds it
+  immediately, GPT-2 mid-stack and tears it down at the end, Qwen carries it to the end.
+- [in-context reversibility battery on GPT-2 — the toys' training result does NOT
+  transfer to context] ring-12 walks: uniform (50% backtracks) best +0.40; biased-7:1
+  +0.50; fully DIRECTED (never backtracks) +0.52; directed-k2 +0.55. In-context walk
+  direction does not flip the map — if anything the more predictable walks organize
+  better. The reversibility effect in the toys is a TRAINING-time (weight-learning)
+  phenomenon; a pretrained model's in-context map-building mechanism is
+  direction-agnostic. (This also cleanly separates "data pins the mode at training" from
+  "data pins the mode at inference" — only the former is real.)
+- [token-type dissociation — competence WITHOUT geometry, in one model] Node labels =
+  random NUMERALS instead of words: GPT-2 does the task BETTER (legal 0.91 vs 0.82) but
+  builds NO map anywhere in the stack (best +0.01, vs +0.34 for words). First version of
+  this probe assigned numerals in row-major order and showed +0.48 — that was GPT-2's
+  numeric-order prior faking the result (grid neighbors were numerically consecutive);
+  random assignment kills it. Rare BPE word-tokens behave like common words (best +0.30,
+  legal 0.79) — so it's not embedding "richness", it's something specific about numeral
+  embeddings (hypothesis for the exploit phase: the numeral subspace's strong static
+  structure swamps or replaces the walk-induced map; test by projecting out static
+  numeral-embedding structure and remeasuring).
+- [shuffled control] Time-shuffling the walk kills organization (+0.02) — the map comes
+  from transition statistics, not token identity. Good null for the whole pipeline.
+
+### Phase X1 (exploit, ~45 min): the GPT-2 circuit that builds the map
+
+Method: pre-LN residual stream decomposes exactly as embed + Σ attention-layer writes +
+Σ MLP writes; attribute the organization (Gram–adjacency covariance at the map's peak,
+layer 11) over components, then heads; then ablate (`gpt2_circuit.py`,
+`gpt2_localheads.py`).
+
+- [who writes organized content] Almost every attention layer's windowed-mean output is
+  positively organized (attn2 strongest at +0.56); at head level, layer-2 heads lead
+  (2.11 +0.67, 2.3 +0.62, 2.2 +0.59). Layer 2–4 is where GPT-2's known previous-token
+  heads live.
+- [the predictor of head organization is LOCALITY] Across all 144 heads, attention mass
+  on offsets 1–3 predicts the head's output organization at **r = +0.60** (offsets 1–12:
+  +0.61). The most local heads are the textbook previous-token heads (4.11 mass 0.97,
+  2.2 mass 0.76). Mechanism: **a local attention window applied to a walk IS one step of
+  graph message passing** — the head's output at node v is a blend of v's and its
+  graph-neighbors' token embeddings, because walk-adjacent tokens are graph-adjacent.
+  Stacked local mixing = Laplacian smoothing = the spectral map. This also explains why
+  the map is direction-agnostic in context (a window doesn't care which way the walk
+  runs) and why every pretrained family has it (they all have local heads).
+- [what induction heads do: the task, NOT the map] Classic induction scoring finds the
+  textbook GPT-2 induction heads (6.9 0.89, 5.5 0.87, 7.10 0.84) — and induction score is
+  UNCORRELATED with head-output organization (r = −0.03); same-token match heads
+  (0.5, 3.0, early) slightly anti-correlate (−0.21). The task-solving retrieval circuit
+  and the map-building circuit are different heads within the same model — the toy
+  "competence ⊥ organization" dissociation, reproduced componentwise inside GPT-2.
+- [amplifier layers] Late attention (layers 9–10) is NOT local (offset-1–12 mass ~0.05)
+  but carries the largest organized variance into the final map (covariance attribution:
+  attn9/attn10 self- and cross-terms dominate; ablating them: map +0.35 → +0.11).
+- [inheritance, causal] Mean-ablating the 16 most-local heads (layers 0–7) collapses the
+  late heads' own output organization (attn9 +0.36 → +0.12, attn10 +0.31 → +0.13) and the
+  residual map (+0.35 → +0.15), while only costing some behavior (legal 0.83 → 0.65 for
+  the top-8 version). The composers are the local heads; layers 9–10 inherit and amplify.
+- [circuit summary] local/previous-token heads write neighbor-blended content (message
+  passing) → mid/late diffuse heads aggregate and amplify it → induction heads separately
+  retrieve the answer. Organization is a *byproduct of the local-copy machinery natural
+  text installs*, not of the task solver. This is the architecture-level ingredient the
+  toy softmax stack lacks: its layer-1 previous-token information is used only as a
+  K-composition pointer (matching), never blended positively into the value stream.
+
 ## Session 2 (8h autonomous): WHY are geometric neighbors stored nearby?
 
 Central question: what makes the multi-family model place graph-adjacent nodes near each
