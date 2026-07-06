@@ -138,3 +138,17 @@ mechanism (layer-by-layer hop composition). THIS is the "zoom into a circuit" pa
 real-LM featurizer work could NOT deliver (e24/e35) — tractable here because toy-model computation
 is LOCALIZED. Validates the pivot: for the understanding north-star, localized-computation toy models
 are the right setting. (Trace is head-averaged / one doc; a per-head, many-doc aggregate would sharpen it.)
+
+### CORRECTION (aggregate over 2447 hop-3 queries): the clean composition story does NOT hold
+Attention mass (from answer pos) on f^k(e)'s binding, per layer:
+  layer0 [.001 .001 .001 .001]  layer1 [.000 .001 .001 .001]
+  layer2 [.013 .002 .001 .002] (peak f^0)  layer3 [-.020 .073 .015 -.010] (peak f^1)
+Only a WEAK, noisy progression (layer2->f^0, layer3->f^1); NO clean "layer L reads f^L", and the
+final layer does NOT peak on f^3=answer. So the single-doc hop_circuit trace was CHERRY-PICKED /
+over-interpreted. The chained-retrieval mechanism is more DISTRIBUTED — likely the "current entity"
+advances in the RESIDUAL STREAM and each layer attends to whatever entity the residual currently
+encodes (a moving pointer), which attention-to-FIXED-positions cannot capture. Correct method:
+track the residual-stream entity representation across layers (unembed intermediate residuals /
+probe which entity each layer's output encodes), not attention-to-fixed-binding-positions. Honest
+status: hop-3 is solved (0.987) and depth-gated, but the internal mechanism is only PARTIALLY
+reverse-engineered — the naive attention story fails; residual-stream tracking is the next tool.
