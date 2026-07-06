@@ -222,3 +222,13 @@ depth-independent. (The failed seeds land on the induction/copy plateau: hop-0/1
 Clean depth-ladder summary: 3 attention layers are SUFFICIENT for hop-3 (mechanism: per-layer pointer
 advance); more depth neither adds capability nor reliability. Whether ANY lever fixes the lottery ->
 curriculum test (running).
+
+### Lottery FAILURE MODE (probe on failed attn3-seed0, hop-3=0.26)
+  L0: f^0=.05  L1: f^0=1.00  L2: f^0=0.97, f^1=0.05, f^2=.04, f^3=0.25
+vs successful seed2 (L2: f^0=.89, f^1=0.47, f^2=0.45, f^3=0.83). The FAILED seed resolves the query
+entity f^0 (by L1, same as the winner) but NEVER advances the pointer — f^1 stays at CHANCE through L2,
+so no chaining forms at hop-3 positions (hop-3 acc = chance 0.26). So the lottery is specifically about
+whether SGD discovers the CHAINING/LOOKUP step (f^0 -> f^1 -> ...): winners build the pointer advance;
+losers get stuck having learned only entity-resolution + single-hop induction (the copy/induction plateau).
+This is exactly what a CURRICULUM should scaffold (force the hop-1 lookup to form, then chain it) — the
+curriculum test (running) directly targets this failure mode.
