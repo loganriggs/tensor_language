@@ -164,3 +164,19 @@ mechanistic claim: chained retrieval is computed, answer read out at L3, but int
 hidden (non-output) basis. Next tool: per-hop LINEAR PROBES on each layer's residual (can a trained
 probe decode f^L from layer L, even though the output head can't?) -> tests whether the pointer advances
 in a rotated basis.
+
+### MECHANISM CONFIRMED (per-hop linear probes): layer-by-layer entity-pointer advance
+Probe accuracy (decode f^k(e) from each layer's residual at the answer pos), N~280 hop-3 queries:
+          f^0   f^1   f^2   f^3=ANS
+  embed   .04   .04   .04   .04     (chance = 1/24)
+  L1      1.00  .05   .04   .04     -> f^0 (query entity e) resolved
+  L2      1.00  0.62  .07   .05     -> f^1 = f(e) now linearly present
+  L3      .96   .49   0.77  0.98    -> f^2 AND f^3(=answer) present
+CLEAN chained-retrieval circuit: each attention layer advances the furthest-resolved hop by ~one
+(L1:f^0, L2:+f^1, L3:+f^2,+f^3). The full chain is linearly present by L3 in a ROTATED basis (the
+output head can't read intermediates — only f^3 at the end, 0.98, matching 0.987 acc). This REVERSE-
+ENGINEERS the algorithm: in-context k-hop retrieval = a per-layer entity-pointer advance, one hop per
+layer, in a hidden linear subspace. THE north-star payoff (zoom into a circuit), tractable because the
+toy model's computation is localized — vs the real-LM featurizer work where it was not (matched_featurizers
+e24/e34/e35). Honest method-arc: attention-to-fixed-pos (murky/cherry-picked) -> output-head decode (only
+f^3 visible) -> per-hop probe (whole chain visible in rotated basis) = the right tool found by iteration.
