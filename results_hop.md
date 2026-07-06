@@ -96,3 +96,16 @@ python hop_train.py attn2 0 1 2            # or: attn-mlp-attn / attn3 (parallel
 python hop_fig.py                          # figures/hop_ladder.png
 python hop_ablate.py attn3-seed0           # causal head recruitment
 ```
+
+## Depth-ladder EXTENSION (session cont.): does hop-3 need a 4th attention layer?
+
+Pivot rationale: the matched_featurizers investigation concluded that the UNDERSTANDING payoff
+(interpretable features, reverse-engineerable circuits) does NOT follow from better reconstruction
+on real LMs — it needs LOCALIZED-computation toy models. This depth-ladder task IS that setting, and
+extending it (k-hop needs k+1 attention layers?) directly answers the original "longer-depth
+algorithms" question. Added attn4 = [attn,attn,attn,attn].
+
+Caveat observed: attn3-rms is a SEED LOTTERY for the higher hops (attn3-rms-seed0: k2=0.259 FAILED,
+though other seeds reached 0.94 per session 5). So testing hop-3 needs MULTIPLE seeds (best-of / fraction
+solving), not one. Running attn3 & attn4 across seeds 0,1,2; the ladder question: does attn4 reach
+hop-3 (k3) accuracy that attn3 cannot, across seeds?
