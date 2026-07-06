@@ -125,3 +125,16 @@ attn3-seed0 FAILED (0.26). So: 3 attention layers make hop-3 POSSIBLE (1/3 seed 
 makes it RELIABLE (won on seed0) and slightly higher-accuracy (0.987 vs attn3-seed2's 0.89). The extra
 depth helps OPTIMIZATION find the chained-retrieval algorithm, rather than adding a new capability.
 (Confirming with attn4 seeds 1,2: is it 3/3 reliable vs attn3's 1/3?)
+
+### CIRCUIT REVERSE-ENGINEERED: how attn4 does hop-3 (the north-star payoff, tractable in toy model)
+Traced attention FROM the answer position on a hop-3 query (e=9, chain 9->10->20->18, answer f^3(e)=18):
+  layer 0: local/self (setup)
+  layer 1: attends query-e AND f^1(e)'s value  -> starts the lookup e->f(e)
+  layer 2: attends f^1(e)'s value              -> consolidate
+  layer 3: attends f^2(e)'s AND f^3(e)'s value -> final layer reads the ANSWER's binding
+So the layers COMPOSE the chained lookups: successive layers attend to successively-later chain
+entities, the final layer reading f^3(e)=answer. This reverse-engineers the chained-retrieval
+mechanism (layer-by-layer hop composition). THIS is the "zoom into a circuit" payoff that the
+real-LM featurizer work could NOT deliver (e24/e35) — tractable here because toy-model computation
+is LOCALIZED. Validates the pivot: for the understanding north-star, localized-computation toy models
+are the right setting. (Trace is head-averaged / one doc; a per-head, many-doc aggregate would sharpen it.)
