@@ -197,3 +197,19 @@ NOT new capability. COMPLETE depth-ladder story:
 This is a full, honest reverse-engineering: WHAT the circuit computes, HOW (layer-by-layer), the DEPTH it
 needs, and WHY more depth helps (optimization, not expressivity). The north-star "zoom into a circuit +
 understand the algorithm" payoff — delivered in the tractable toy setting.
+
+### CORRECTION: attn4 is ALSO a seed lottery — the "4th layer buys reliability" claim is REFUTED
+attn4-rms per-hop acc: seed0 [1,1,1.0,0.99] SOLVES; seed1 [1,0.99,0.26,0.26] FAILS; seed2 pending.
+So attn4 also fails on some seeds -> it is NOT reliably better than attn3. My earlier "4th layer =
+optimization slack -> reliable" was PREMATURE (based on seed0 alone — the SAME single-seed trap that
+bit the featurizer work; should have waited for the multi-seed run I had already launched). HONEST
+revised picture:
+  - MECHANISM (valid): successful models (attn3-seed2, attn4-seed0) implement chained retrieval as a
+    per-layer entity-pointer advance in a rotated basis; attn3 compresses it into 3 layers.
+  - RELIABILITY (corrected): the higher-hop training is a SEED LOTTERY regardless of depth (both attn3
+    and attn4 fail on some seeds). Depth does NOT reliably fix it. What the lottery IS: optimization
+    sometimes finds the pointer-advance circuit, sometimes lands on the copy-only/induction plateau
+    (hop-1 solved, hop-2/3 at chance ~0.26).
+  - OPEN: what DOES make finding the circuit reliable? candidates: no-norm+grad-clip (session-5 noted
+    it more stable than rms), curriculum (train hop-1 then hop-2 then hop-3), lr/init, or width. This
+    is the real depth-ladder follow-up — reliability is an OPTIMIZATION question, not a depth one.
