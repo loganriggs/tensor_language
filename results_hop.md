@@ -232,3 +232,13 @@ whether SGD discovers the CHAINING/LOOKUP step (f^0 -> f^1 -> ...): winners buil
 losers get stuck having learned only entity-resolution + single-hop induction (the copy/induction plateau).
 This is exactly what a CURRICULUM should scaffold (force the hop-1 lookup to form, then chain it) — the
 curriculum test (running) directly targets this failure mode.
+
+### Failure mode is UNIVERSAL across depth (probe on failed attn4-seed1, 4 layers, hop-3=0.26)
+  L1: f^0=.08  L2: f^0=1.00  L3: f^0=1.00, f^1=0.07, f^2=.05, f^3=0.25
+Same failure as failed attn3-seed0: resolves f^0 but the pointer NEVER advances (f^1+ at chance). The
+failed 4-layer model even resolves f^0 LATER (L2 vs the winner's L1) — wasting layers, then never
+chaining. CONCLUSION: at BOTH depths, losing seeds stall at entity-resolution + single-hop induction;
+the lottery is universally about whether SGD discovers the CHAINING step. Depth changes nothing about
+this. Complete optimization picture: the chained-retrieval circuit is a narrow solution SGD finds ~1/3
+of the time from random init at any depth; failures are the induction plateau. Reliability lever
+(curriculum, targeting the missing chaining step) still running.
