@@ -98,4 +98,5 @@ SPECS = {
     "attn2": ["attn", "attn"],
     "attn-mlp-attn": ["attn", "mlp", "attn"],
     "attn3": ["attn", "attn", "attn"],
+    "attn4": ["attn", "attn", "attn", "attn"],   # depth-ladder extension: does hop-3 need a 4th attn?
 }
