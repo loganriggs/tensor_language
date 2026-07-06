@@ -242,3 +242,12 @@ the lottery is universally about whether SGD discovers the CHAINING step. Depth 
 this. Complete optimization picture: the chained-retrieval circuit is a narrow solution SGD finds ~1/3
 of the time from random init at any depth; failures are the induction plateau. Reliability lever
 (curriculum, targeting the missing chaining step) still running.
+
+### Curriculum (partial: seeds 0,1) — does NOT help, likely HURTS (entrenches induction)
+curriculum attn3: seed0 [1,1,0.26,0.26] FAILED, seed1 [1,0.86,0.26,0.26] FAILED (0/2 so far vs 1/3
+no-curriculum baseline). Early signal: the hop<=1-first curriculum does NOT break the lottery and may
+BACKFIRE — mastering induction (hop-1) first entrenches the copy/induction basin (the exact failure
+mode: stuck at f^0/single-hop), making the later transition to CHAINING harder, not easier. If seeds
+2,3 also fail, the honest conclusion is: curriculum is the WRONG lever (it reinforces the plateau). A
+better lever would push AWAY from the plateau — e.g. train higher hops FIRST/jointly, or add noise/
+regularization to escape the induction basin. (awaiting seeds 2,3 for the final rate.)
