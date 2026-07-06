@@ -118,3 +118,10 @@ So 3 attention layers ALREADY solve hop-2 AND hop-3 together (seed2), when train
 not a specific hop count. The bottleneck for the higher hops is TRAINING RELIABILITY (1/3 seed lottery
 under RMSNorm), NOT depth. Open: does a 4th attention layer (attn4) make hop-3 more RELIABLE (win more
 often) or higher-accuracy? (attn4 seeds training; seed0 at step 12k hop-3=0.31, climbing.)
+
+### attn4 result (seed0) — the 4th layer buys RELIABILITY, not new capability
+attn4-rms-seed0: [1.0, 1.0, 0.9997, 0.987] — solves hop-2 AND hop-3 cleanly on the FIRST seed, where
+attn3-seed0 FAILED (0.26). So: 3 attention layers make hop-3 POSSIBLE (1/3 seed lottery); a 4th layer
+makes it RELIABLE (won on seed0) and slightly higher-accuracy (0.987 vs attn3-seed2's 0.89). The extra
+depth helps OPTIMIZATION find the chained-retrieval algorithm, rather than adding a new capability.
+(Confirming with attn4 seeds 1,2: is it 3/3 reliable vs attn3's 1/3?)
