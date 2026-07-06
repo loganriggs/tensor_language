@@ -109,3 +109,12 @@ Caveat observed: attn3-rms is a SEED LOTTERY for the higher hops (attn3-rms-seed
 though other seeds reached 0.94 per session 5). So testing hop-3 needs MULTIPLE seeds (best-of / fraction
 solving), not one. Running attn3 & attn4 across seeds 0,1,2; the ladder question: does attn4 reach
 hop-3 (k3) accuracy that attn3 cannot, across seeds?
+
+### Emerging result (attn3 across 3 seeds) — REFRAMES the ladder: depth unlocks a CLASS, seed is the bottleneck
+attn3-rms per-hop acc [k0,k1,k2,k3]:
+  seed0 [1.0, 1.0, 0.26, 0.26]   seed1 [1.0, 1.0, 0.25, 0.25]   seed2 [1.0, 0.90, 0.94, 0.89]
+So 3 attention layers ALREADY solve hop-2 AND hop-3 together (seed2), when training succeeds. The
+"k-hop needs k+1 attention layers" hypothesis is FALSE — 3 layers unlock chained retrieval as a CLASS,
+not a specific hop count. The bottleneck for the higher hops is TRAINING RELIABILITY (1/3 seed lottery
+under RMSNorm), NOT depth. Open: does a 4th attention layer (attn4) make hop-3 more RELIABLE (win more
+often) or higher-accuracy? (attn4 seeds training; seed0 at step 12k hop-3=0.31, climbing.)
