@@ -213,3 +213,12 @@ revised picture:
   - OPEN: what DOES make finding the circuit reliable? candidates: no-norm+grad-clip (session-5 noted
     it more stable than rms), curriculum (train hop-1 then hop-2 then hop-3), lr/init, or width. This
     is the real depth-ladder follow-up — reliability is an OPTIMIZATION question, not a depth one.
+
+### DEFINITIVE reliability: attn3 = attn4 = 1/3 (depth does NOT help reliability)
+hop-3 solved (acc>0.6): attn3 seeds {0:no,1:no,2:YES}=1/3; attn4 seeds {0:YES,1:no,2:no}=1/3. IDENTICAL.
+The 4th attention layer adds NOTHING for training reliability — both depths solve hop-3 exactly 1/3 of
+seeds. Fully confirms the correction: the higher-hop lottery is a pure OPTIMIZATION phenomenon,
+depth-independent. (The failed seeds land on the induction/copy plateau: hop-0/1 solved, hop-2/3 ~0.26.)
+Clean depth-ladder summary: 3 attention layers are SUFFICIENT for hop-3 (mechanism: per-layer pointer
+advance); more depth neither adds capability nor reliability. Whether ANY lever fixes the lottery ->
+curriculum test (running).
