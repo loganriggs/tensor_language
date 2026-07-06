@@ -152,3 +152,15 @@ track the residual-stream entity representation across layers (unembed intermedi
 probe which entity each layer's output encodes), not attention-to-fixed-binding-positions. Honest
 status: hop-3 is solved (0.987) and depth-gated, but the internal mechanism is only PARTIALLY
 reverse-engineered — the naive attention story fails; residual-stream tracking is the next tool.
+
+### Residual-stream tracking (3638 hop-3 queries) — CLEAN readout, intermediate hops in a HIDDEN basis
+Decoding each layer's residual (at answer pos) with the output head -> which f^k(e):
+  embed/L0/L1/L2: all ~0.04 (chance, 1/24)   L3(final): f^3=ANS 0.99
+So the ANSWER (f^3) materializes in the readable-entity basis ONLY at the final layer (0.99, matching
+the 0.987 acc). The INTERMEDIATE hops (f^1,f^2) are NOT decodable via the output head -> the model does
+NOT keep a simple decodable entity-pointer; intermediate lookups live in a DIFFERENT representation
+(a key/query space for the next lookup), and f^3 is assembled just-in-time at the last layer. Honest
+mechanistic claim: chained retrieval is computed, answer read out at L3, but intermediate state is in a
+hidden (non-output) basis. Next tool: per-hop LINEAR PROBES on each layer's residual (can a trained
+probe decode f^L from layer L, even though the output head can't?) -> tests whether the pointer advances
+in a rotated basis.
