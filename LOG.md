@@ -1784,3 +1784,19 @@ real-model feature discovery = open problem (needs robust solver + objective ref
      training with L8 (their own §2 ε-surrogate) on the SAME data → 128 computed. MSE-finetuning
      destroys the hand-coded superposition (128→4); L8-finetuning preserves it. The loss alone flips
      superposition on/off, both directions. Echoes tensor-sim FINDING 13: the metric decides what exists.
+
+## 2026-07-13 — basis_aligned tick 3 (e5: CE and nonlinear readouts, Logan's "where does CE sit?" question)
+181. **CE lands at the ε-accuracy end, not the MSE end.** Same bilinear toy (m=128, d_h=32), outputs as
+     logits, task = predict the active feature: CE computes ALL 128 features (100% acc) with 32 hidden
+     dims. Label smoothing 0.9 shrinks logit margins ~90× (57→0.65) but the computed SET stays all-128 —
+     peakedness sets margins, not capacity. Mechanism: softmax only prices relative logits (threshold-like).
+182. **A ReLU(Dh+b) readout under plain MSE BREAKS the linear rank bound**: 1-active MSE 7.7e-4 < the
+     1.17e-3 floor binding all linear readouts, computing 64 = 2·d_h features to ~zero error. My first
+     structural guess (sign-pairing, 2 features/unit) was REFUTED by inspection (2/32 units; dominant unit
+     holds ~9% of a feature's mass): it's distributed superposition denoised by ReLU + learned negative
+     bias, computing 64 perfectly and dropping 64 entirely. This is the TMS mechanism isolated, and it
+     retro-justifies the retracted 'nonlinear readout' sentence as the correct explanation FOR TMS (not CiS).
+183. Synthesis for LLMs: two independent routes to interference tolerance — threshold-like metric (CE/
+     softmax) and downstream clipping nonlinearities — and real transformers have both, so heavy
+     superposition graded by feature frequency is the prediction; MSE+nonlinearity SELECTS a subset
+     (denoise-and-drop), ε-flavored objectives compute everything at nonzero interference.

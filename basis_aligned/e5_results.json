@@ -1,0 +1,58 @@
+{
+  "m": 128,
+  "d_h": 32,
+  "eps_tol": 0.25,
+  "oneactive_dedicated_mse": 0.0011718750000000002,
+  "arms": {
+    "dedicated_handcoded": {
+      "task": "squares",
+      "n_cls": 32,
+      "acc": 0.2524999976158142,
+      "n_eps": 32,
+      "worst1_med": 1.0,
+      "mse_1active": 0.0011712207306118216
+    },
+    "superposition_handcoded": {
+      "task": "squares",
+      "n_cls": 128,
+      "acc": 1.0,
+      "n_eps": 128,
+      "worst1_med": 0.1916046291589737,
+      "mse_1active": 0.004730080341687426
+    },
+    "scratch_mse": {
+      "task": "squares",
+      "n_cls": 71,
+      "acc": 0.5518499612808228,
+      "n_eps": 18,
+      "worst1_med": 0.9025990962982178,
+      "mse_1active": 0.0011734472718671896
+    },
+    "scratch_L8": {
+      "task": "squares",
+      "n_cls": 128,
+      "acc": 1.0,
+      "n_eps": 128,
+      "worst1_med": 0.22271567583084106,
+      "mse_1active": 0.002960028577945195
+    },
+    "ce": {
+      "task": "class",
+      "n_cls": 128,
+      "acc": 1.0
+    },
+    "ce_smooth09": {
+      "task": "class",
+      "n_cls": 128,
+      "acc": 1.0
+    },
+    "mse_relu": {
+      "task": "squares",
+      "n_cls": 64,
+      "acc": 0.5015499591827393,
+      "n_eps": 64,
+      "worst1_med": 1.7881393432617188e-07,
+      "mse_1active": 0.000772566312662093
+    }
+  }
+}

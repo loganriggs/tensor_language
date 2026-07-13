@@ -162,6 +162,47 @@ Same moral as tensor-sim FINDING 13 and e2's FVU-vs-junk gap: **which computatio
 
 ![e4](figures/e4_metric.png)
 
+## FINDING 6 (e5) — CE sits at the ε end of the axis; a ReLU readout breaks the linear rank bound under MSE
+
+Motivation (Logan): how would we know whether normal CE-loss LLM training gives more or less
+superposition? Two routes to interference-tolerance were hypothesized: (a) a threshold-like
+*metric* (CE-through-softmax barely prices logit noise on losing tokens), and (b) a
+*nonlinear readout* that clips sub-threshold interference even under a quadratic loss (the
+TMS mechanism — a linear autoencoder gives PCA/no superposition; TMS's output ReLU is what
+rescues it). e5 tests both on the e4 toy (m=128, d_h=32, 1-active inputs). New audit that
+applies to every arm: feature j is *computed* iff its output strictly wins the argmax on
+all 1-active inputs with |v| ∈ [0.5,1].
+
+| arm | # computed (cls-audit) | # computed (ε-audit) | MSE 1-active |
+|---|---|---|---|
+| dedicated hand-coded | 32 | 32 | 1.17e-3 |
+| trained, MSE, linear readout | 71 | 18 | 1.17e-3 (= rank bound) |
+| **trained, MSE, ReLU(Dh+b) readout** | **64** | **64** | **7.7e-4 — BELOW the linear rank bound** |
+| superposition hand-coded | 128 | 128 | 4.7e-3 |
+| trained, L8 | 128 | 128 | 3.0e-3 |
+| **trained, CE (softmax, predict-the-feature)** | **128** (100% acc) | — | — |
+| trained, CE + label smoothing 0.9 | 128 (100% acc) | — | — |
+
+- **CE behaves like the ε-accuracy family, not like MSE**: all 128 features computed with
+  d_h=32. Bilinear logits for x = v·e_j are v²·(D vⱼ) — scale-free argmax — so CE only
+  needs columnwise diagonal dominance of a rank-d_h matrix, a threshold criterion. Label
+  smoothing 0.9 (nearly flat targets) shrinks the logit margins ~90× (median 57 → 0.65)
+  but does not change *which* features are computed: peakedness sets the margin, not the set.
+- **The nonlinear readout genuinely escapes the rank bound**: MSE 7.7e-4 < the 1.17e-3
+  floor that binds every linear readout, while computing 64 = 2·d_h features to ~zero
+  worst error. Structure check *refuted* my first guess (sign-pairing: only 2/32 hidden
+  units pair opposite signs; a feature's dominant hidden unit carries only ~9% of its
+  mass) — it is a *distributed* superposition denoised by ReLU + learned negative bias
+  (median −0.06): interference is clipped to exactly zero, the 64 supported features are
+  computed perfectly, the other 64 are dropped entirely (output pinned at 0).
+- So MSE + nonlinearity buys extra capacity but still *selects* a subset (denoise-what-you-
+  keep, drop-the-rest), whereas ε-flavored objectives (L8, CE) compute everything at
+  nonzero interference. An LLM has both mechanisms at once — CE/softmax at the output and
+  ReLU/GELU + attention softmax downstream — so the toy's prediction for real models is
+  heavy superposition, graded by feature frequency (CE remains frequency-weighted).
+
+![e5](figures/e5_ce_relu.png)
+
 ---
 
 ## Protocol notes / caveats
