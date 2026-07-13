@@ -1769,3 +1769,18 @@ real-model feature discovery = open problem (needs robust solver + objective ref
      Closed form verified vs 2M-sample MC (<0.7%); trained nets land ON the bound (+0.3-1.2%), computed
      features = d_h exactly. Sparsifying trades the last ~2% (shared-mean) for a LITERAL dedicated circuit:
      13 units, one input each, 1.3% of weights. Thread 3 (real LLM embedding structure) awaits Logan's spec.
+
+## 2026-07-13 — basis_aligned tick 2 (Logan's challenge on the CiS post; RETRACTION + FINDING 5)
+179. **Logan pasted Vaintrob/Mendel/Hänni and asked if their quadratic U-AND has a mistake, given e3's
+     rank bound. It does not — MY explanation had the mistake.** Their §1.5 construction is a bilinear
+     layer + LINEAR readout (same architecture as e3), so "their gains need a nonlinear readout" is
+     retracted. The true discriminator is the ERROR METRIC: the rank bound is an MSE statement; their
+     construction optimizes ε-accuracy and its per-target MSE sits far ABOVE predict-zero (they say
+     this themselves in §2). Ran their Gram through the bound: per-AND MSE floor ≈ p²(1−p)² ≈ predict-zero
+     — no contradiction, superposition is just worthless under MSE and cheap under ε-accuracy.
+180. **e4 (controlled demo, same task/arch/data as e3, m=128, d_h=32):** hand-coded low-coherence
+     superposition computes ALL 128 squares to ε=0.20 with 32 hidden dims while its p-sparse MSE is
+     12× WORSE than predicting zero. Training with MSE → 18 computed (= dedicated, on the rank bound);
+     training with L8 (their own §2 ε-surrogate) on the SAME data → 128 computed. MSE-finetuning
+     destroys the hand-coded superposition (128→4); L8-finetuning preserves it. The loss alone flips
+     superposition on/off, both directions. Echoes tensor-sim FINDING 13: the metric decides what exists.

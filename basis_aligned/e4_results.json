@@ -1,0 +1,65 @@
+{
+  "m": 128,
+  "d_h": 32,
+  "p_active": 0.05,
+  "eps_tol": 0.25,
+  "coherence": 0.19899822771549225,
+  "welch_bound": 0.15369465587356798,
+  "baselines": {
+    "psparse_predict_zero": 0.010000000000000002,
+    "psparse_dedicated": 0.0075000000000000015,
+    "psparse_rank_bound": 0.0072916666666666685,
+    "oneactive_predict_zero": 0.0015625,
+    "oneactive_dedicated": 0.0011718750000000002
+  },
+  "arms": {
+    "dedicated_handcoded": {
+      "mse_1active": 0.0011758562868635636,
+      "mse_psparse": 0.0075164773588767275,
+      "n_computed": 32,
+      "worst_err_median": 1.0,
+      "worst_err_max": 1.0,
+      "worst_2active": 3.6560893058776855
+    },
+    "superposition_handcoded": {
+      "mse_1active": 0.004749755040393211,
+      "mse_psparse": 0.12137157842516899,
+      "n_computed": 128,
+      "worst_err_median": 0.1916046291589737,
+      "worst_err_max": 0.19899824261665344,
+      "worst_2active": 1.2122756242752075
+    },
+    "scratch_mse": {
+      "mse_1active": 0.0011625331644609105,
+      "mse_psparse": 0.01145735548925586,
+      "n_computed": 18,
+      "worst_err_median": 0.9025990962982178,
+      "worst_err_max": 0.9999998807907104,
+      "worst_2active": 3.5971922874450684
+    },
+    "scratch_L8": {
+      "mse_1active": 0.0029899364308221266,
+      "mse_psparse": 0.08909208024851978,
+      "n_computed": 128,
+      "worst_err_median": 0.22271567583084106,
+      "worst_err_max": 0.22905182838439941,
+      "worst_2active": 0.9133387207984924
+    },
+    "superpos_then_mse_ft": {
+      "mse_1active": 0.0011746531672542915,
+      "mse_psparse": 0.011549193324754015,
+      "n_computed": 4,
+      "worst_err_median": 0.8083859086036682,
+      "worst_err_max": 0.9883098006248474,
+      "worst_2active": 3.2020134925842285
+    },
+    "superpos_then_L8_ft": {
+      "mse_1active": 0.003043081822397653,
+      "mse_psparse": 0.0776339010335505,
+      "n_computed": 128,
+      "worst_err_median": 0.2051791548728943,
+      "worst_err_max": 0.20834189653396606,
+      "worst_2active": 0.9033735990524292
+    }
+  }
+}

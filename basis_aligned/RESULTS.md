@@ -84,8 +84,11 @@ MSE ≥ (m − d_h)(p/5 − p²/9)/m   =  dedicated baseline − shared-mean com
 
 (closed form verified against a 2M-sample Monte-Carlo Gram to <0.7%). The only thing a
 "distributed" solution can add over d_h dedicated squares is the shared mean `E[x_i²]` —
-a ~3% improvement, not more features. Their construction gains from a **nonlinear readout**
-that denoises interference; a purely quadratic network has none.
+a ~3% improvement, not more features. ~~Their construction gains from a nonlinear readout
+that denoises interference; a purely quadratic network has none.~~ **RETRACTED — see
+FINDING 5:** their quadratic U-AND is itself a bilinear layer + linear readout; the real
+discriminator is the error metric (MSE vs ε-accuracy), which the rank bound respects and
+their construction deliberately does not optimize.
 
 Trained networks confirm, landing essentially ON the bound with computed ≈ d_h:
 
@@ -110,6 +113,54 @@ away — here "as sparse as possible without degradation" and "dedicated basis-a
 circuit" are the same thing.
 
 ![e3](figures/e3_superposition.png)
+
+## FINDING 5 (e4) — no contradiction with Vaintrob/Mendel/Hänni: the METRIC alone decides whether superposition exists
+
+Logan asked whether their quadratic U-AND construction (post §1.5) has a mistake, since it
+computes far more ANDs than hidden dims with the same architecture the rank bound covers.
+**It does not.** Their §1.5 construction is literally a bilinear layer + linear readoff —
+so the "nonlinear readout" explanation in FINDING 4 was wrong (retracted). Both results
+hold; they use different success criteria, and the post itself flags exactly this (§2:
+*"ε-accuracy permits much more superposition than minimising the MSE, because it penalises
+interference less"*):
+
+- **Under MSE**, a sparse target worth 1 when active is only worth ~its activation
+  probability in the loss; predict-zero nearly nails it, and superposition interference is
+  paid on essentially every input. Running the rank bound on *their* task (ANDs of
+  Bernoulli(p) features): the target Gram is `(p(1−p))²·I + low-rank`, so per-AND MSE ≥
+  ~p²(1−p)² ≈ the predict-zero level — and their construction's per-target MSE
+  (~ℓ²·log m / r from interference) sits far ABOVE that for m ≫ r. It doesn't beat the
+  bound; it isn't trying to minimize MSE at all.
+- **Under ε-accuracy**, the signal is worth 1 whenever present and interference just has
+  to stay below a constant on each individual sparse input (s active features cost
+  ~s·coherence, not m·p·coherence² summed). Almost-orthogonal readoffs then give
+  m = exp(O(ε²·d_h)) computed features.
+
+**Verified on the identical e3 task and architecture** (m=128 squares, d_h=32, criterion:
+worst error of output i over all 1-active inputs ≤ 0.25), `e4_metric_superposition.py`:
+
+| arm | # computed (of 128) | worst 1-active err (med/max) | MSE 1-active | MSE p-sparse |
+|---|---|---|---|---|
+| dedicated hand-coded | 32 | 1.00 / 1.00 | **1.18e-3** | 7.5e-3 |
+| **superposition hand-coded** (L⊙R cols = low-coherence vᵢ, D=Vᵀ) | **128** | 0.19 / 0.20 | 4.8e-3 | **1.2e-1 (12× worse than predict-zero!)** |
+| trained, MSE loss | 18 | 0.90 / 1.00 | 1.16e-3 (= dedicated baseline 1.17e-3) | 1.2e-2 |
+| trained, **L8 loss** (their §2 ε-surrogate), same data | **128** | 0.22 / 0.23 | 3.0e-3 | 8.9e-2 |
+| superposition → MSE finetune | **4** (destroyed) | 0.81 / 0.99 | 1.17e-3 | 1.2e-2 |
+| superposition → L8 finetune | 128 (preserved) | 0.21 / 0.21 | 3.0e-3 | 7.8e-2 |
+
+Same architecture, same 1-active data distribution, and swapping MSE ↔ L8 flips
+superposition on/off **in both directions** — training discovers the all-128 solution
+under L8 and the ~dedicated solution under MSE, and MSE-finetuning actively destroys a
+hand-coded superposition solution that L8-finetuning preserves. The all-128 solution's
+p-sparse MSE is 12× worse than predicting zero: an MSE lens would call it garbage while
+it ε-computes every feature. (Caveat: this is the ℓ=1 version of their construction;
+worst 2-active errors are ~0.9–1.2 here — their full r²-neuron construction is what
+controls higher compositeness, and they note constants are bad at small width.)
+
+Same moral as tensor-sim FINDING 13 and e2's FVU-vs-junk gap: **which computation
+"exists" in a network is decided by the metric you audit it with.**
+
+![e4](figures/e4_metric.png)
 
 ---
 
