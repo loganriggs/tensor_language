@@ -143,3 +143,146 @@ Sparsity and exact fidelity coexist from ~2–4× overcompleteness. At `r'` = th
 For reverse-engineering a bilinear layer's structure: **`L_fid`(full-support) + L1 on the factor rows, no data**,
 at ~4× overcompleteness. Add the symmetric (`l'=r'`) constraint for free interpretability. Do **not** impose a
 hierarchical/block partition unless you know the layer respects it.
+
+---
+
+## Tick 4 — hierarchy is a SPECTRUM + the metric-temperature knob (`e3_hierarchy_spectrum.py`)
+
+E2's block prior failed (tsim 0.478) — but that was one extreme (a *hard* mask) against a ground truth that did
+not respect blocks. The honest question isn't "does hierarchy help" but "does it help **when the layer is
+hierarchical**". So: two ground truths (`gt=random` 3-sparse anywhere; `gt=block` = each unit reads one block
+of a 4-block partition) × hierarchy granularity `n_blocks` ∈ {1..16} × **hard** mask vs **soft** graded
+off-block L1 penalty (s=0.03). All fits data-free (`L_fid` only, full-support Λ), rank 32, 5 seeds.
+
+| n_blocks | gt=random HARD tsim | HARD recov | SOFT tsim | SOFT recov | | gt=block HARD tsim | HARD recov | SOFT tsim | SOFT recov |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 (dense) | 1.000 | 0.856 | 1.000 | 0.856 | | 1.000 | 0.676 | 1.000 | 0.676 |
+| 2 | 0.665 | 0.712 | 1.000 | 0.886 | | 1.000 | 0.765 | 1.000 | 0.821 |
+| 4 | 0.478 | 0.556 | 1.000 | 0.961 | | **1.000** | 0.805 | 1.000 | 0.872 |
+| 8 | 0.396 | 0.437 | 1.000 | 0.982 | | **0.621** | 0.550 | 1.000 | 0.874 |
+| 16 | 0.319 | 0.372 | 1.000 | **0.986** | | **0.442** | 0.322 | 1.000 | 0.895 |
+
+### FINDING 5 — hard-prior fidelity is a DATA-FREE STRUCTURE-DISCOVERY DIAGNOSTIC
+
+Hard and soft hierarchy are **qualitatively different objects**, and E2 conflated them:
+
+- **HARD masks are a *probe*, not a prior.** Fidelity collapses precisely when the mask is mis-specified. On
+  `gt=block` (a truly 4-block layer) tsim stays **1.000 for every partition at or coarser than the truth**
+  (n_blocks 1, 2, 4) and **breaks the moment the mask is finer than the truth** (0.621 at 8, 0.442 at 16). On
+  `gt=random` it breaks immediately (0.665 at n_blocks=2). **So: the finest hard partition that still holds
+  tsim = 1.0 IS the layer's true block structure** — 4 for the block gt, 1 (i.e. *not hierarchical*) for the
+  random gt. You can scan structural hypotheses and read off which ones the layer admits, **with no data**.
+  This turns E2's "negative" into an instrument.
+- **SOFT (graded) hierarchy is a free lunch.** It keeps tsim = **1.000 everywhere** — even at 16 blocks against
+  a gt that respects no blocks — *and* improves recovery monotonically (random gt: 0.856 → **0.986**; block gt:
+  0.676 → 0.895). A soft locality penalty can't cost fidelity (it's a penalty, not a constraint), and it acts
+  as an extra symmetry-breaker on top of L1. **Beats E2's best prior (L1 alone, 0.900).**
+
+Rule of thumb: **use soft hierarchy to fit, use hard hierarchy to test.**
+
+### FINDING 6 — a 1% identity ridge completely undoes FINDING 3's blindness
+
+FINDING 3 said a data-matched Λ goes blind off-distribution. It's the *knob* that matters. Sweeping
+`Σ_t = (1−t)·Σ_data + t·I` (data on a 6-dim subspace of R^16; scored under the full-support metric + an OOD probe):
+
+| t | TRUE tsim | MSE(OOD) | gt-recovery | |
+|---|---|---|---|---|
+| 0.00 | 0.196±0.048 | 0.807 | 0.251 | data-matched — **BLIND** (the handoff's recipe) |
+| **0.01** | **0.985±0.009** | **0.015** | 0.813 | **1% ridge — essentially fixed** |
+| 0.05 | 0.999±0.000 | 0.001 | 0.861 | |
+| 0.20 | 1.000±0.000 | 0.000 | **0.882** | |
+| 0.50 | 1.000±0.000 | 0.000 | 0.857 | |
+| 1.00 | 1.000±0.000 | 0.000 | 0.856 | full-support — safe |
+
+The tradeoff I warned about in Tick 2 **barely exists**: you do not have to choose between data-realism and
+off-distribution coverage. `Σ + εI` with **ε ≈ 0.01–0.05** keeps the data covariance's shape while restoring
+essentially all of the global guarantee (TRUE tsim 0.196 → 0.985 → 0.999). Recovery even *peaks* at t=0.2
+(0.882), slightly above pure identity. **Practical recipe: always ridge the metric's Σ; ε=0.05 is a safe default.**
+
+---
+
+## Tick 5 — DEPTH: the degree-4 metric, and hierarchy as something you *measure*, not impose
+
+`tensor_sim_deep.py` extends the metric to a **stack of two bilinear layers**. Two layers is degree-4 in `x`:
+`y_k = Σ_g D2_kg (xᵀQ_g x)(xᵀP_g x)`, so `⟨A|Λ|Â⟩` needs `E[∏ of 4 quadratic forms]` — a sum over the 15 set
+partitions of {1..4}, each block contributing a joint cumulant `κ(k) = 2^{k-1} Σ_{(k-1)! cyclic orderings}
+tr(∏ M_i)`, `M_i = A_iΣ`. Implemented for **general n** (so degree-2 × degree-4 cross terms come free) and
+**verified against Monte Carlo** before use — closed==MC to 3.9e-4 (Σ=I) / 1.8e-2 (Σ=SPD), `L_fid == E‖y−ŷ‖²/E‖y‖²`,
+`L_fid(A,A)=0` exactly. The vectorised variant used for training was re-checked against the reference (rel **0.0**)
+and MC. *A whole tick's conclusions ride on this formula; none of it is trusted unchecked.*
+
+### FINDING 7 — depth is provably necessary, and the metric prices it exactly (`e5_hierarchy_via_depth.py`)
+
+Target: `x∈R^12` split into 4 disjoint groups of 3 → each group is squeezed into **one mid-level feature** →
+layer 2 mixes them densely → `y∈R^3`. A **flat** (1-layer, degree-2) transcoder has a hard fidelity ceiling:
+
+| flat rank | 4 | 8 | 16 | 32 | 64 |
+|---|---|---|---|---|---|
+| tensor-sim | 0.593 | 0.613 | 0.616 | 0.618 | **0.618** |
+
+**Rank buys nothing** (0.618 at rank 4× the input dim). A degree-2 model cannot represent a degree-4 target at
+any width: this is a **property of the function class**, and `L_fid` computes it in closed form with no data.
+This is the quantitative version of "you need depth to get composition."
+
+### FINDING 8 (headline) — hierarchy WIDTH IS A SPECTRUM, read off the `tsim(dz′)` curve (`e5b_...py`)
+
+The natural conjecture — *"the smallest bottleneck `dz′` holding tsim=1 is the number of mid-level features"* —
+**FAILED as first run**: tsim was already 0.954 at `dz′=1`. Diagnosis (not a bug, a fact): `L_fid` is a
+**relative-norm** error, and the first ground truth had wildly unequal mid-level feature scales, so one `z_j`
+dominated `E‖y‖²` and one squared quadratic form already captured 95% of it. So the sweep does not report an
+integer — **it reports a spectrum**, weighted by each sub-feature's contribution to the output. Rebuilt the gt
+with an explicit scale ladder over the `z_j` (everything else identical) and swept `dz′`:
+
+| `dz′` | **BALANCED** (4 equal sub-features) | **SKEWED** (1, ½, ¼, ⅛) | **ONE-FEATURE** gt (control) |
+|---|---|---|---|
+| 1 | 0.529±.111 | 0.799±.179 | **1.000±.000** |
+| 2 | 0.758±.130 | 0.943±.052 | 1.000 |
+| 3 | 0.973±.005 | 0.996±.004 | 1.000 |
+| **4** | **1.000±.000** ← true width | 0.999 | 1.000 |
+| 5–6 | 1.000 | 1.000 | 1.000 |
+
+**The curve is a scree plot for mid-level features.** Where it saturates = the *effective* number of
+sub-features; how sharply it turns = whether they matter equally. A balanced 4-feature hierarchy gives a **sharp
+knee exactly at 4**. A skewed one gives a **graded ramp** — correctly, because that computation really is mostly
+one sub-feature plus corrections. The control that had to work does: a target that truly needs one mid-level
+feature reports **1.000 at `dz′=1`**, so the sweep is measuring structure, not rewarding capacity.
+
+This is the depth analogue of FINDING 5 (hard masks as a probe), and it is **strictly better**: a block mask
+presupposes *which coordinates group together*, whereas the bottleneck sweep presupposes nothing — the grouping
+is discovered. Confirmed by adding L1 (E2's winner) at `dz′=4` on the balanced gt:
+
+| λ_L1 | 0 | 0.001 | 0.003 | 0.01 | **0.03** |
+|---|---|---|---|---|---|
+| tensor-sim | 1.000 | 1.000 | 1.000 | 1.000 | **1.000** |
+| group purity of recovered layer-1 features | 0.466 | 0.478 | 0.502 | 0.594 | **0.813** |
+
+*(chance 0.328; planted gt 1.000)* — sparsity recovers **which input coordinates form each sub-feature**, at
+**zero fidelity cost**, never having been told the groups exist.
+
+### E4 (`e4_multilayer_hierarchy.py`) — cross-layer block priors: works, but is the weaker tool
+
+Fitting a 2-layer transcoder to a cross-layer "tree" gt (blocks confined at *every* layer), data-free:
+
+| arm | TRUE tsim | MSE(OOD) | layer-1 feature recovery |
+|---|---|---|---|
+| MSE (subspace data) | 0.181±.112 | 0.810 | 0.385 |
+| deep `L_fid` (dense) | 0.997±.003 | 0.003 | 0.559 |
+| deep `L_fid` + L1 | 0.995±.003 | 0.004 | 0.558 |
+| **deep `L_fid` + cross-layer hierarchy** | 0.966±.036 | 0.037 | **0.720±.054** |
+| *chance (random init)* | | | *0.434* |
+
+FINDING 3 replicates at depth (MSE on subspace data → true tsim **0.18**, OOD **0.81** — blind), the degree-4
+`L_fid` fixes it data-free (0.997), and the cross-layer prior buys the best factor recovery. And FINDING 5's
+diagnostic replicates at depth: the same hard cross-layer prior scores **0.966** on a truly-hierarchical target
+but **0.543** on a gt that respects no blocks — it betrays a mis-specified structure. Still, prefer the
+bottleneck sweep: it discovers the structure instead of assuming it.
+
+### The synthesis
+
+**Hierarchy is not a prior you impose — it is a measurement you make, and depth is the instrument.**
+- To **fit**: soft/graded penalties (L1, soft locality) — they never cost fidelity and they break CP
+  non-uniqueness (FINDING 5).
+- To **test/discover**: hard constraints — a block mask (FINDING 5) or, better, a **bottleneck sweep**
+  (FINDING 8) — because a *correct* structural hypothesis costs no fidelity and a *wrong* one must break it.
+- Depth converts "is this layer hierarchical?" from a qualitative question into a **curve**, computable with
+  **no data at all**.
