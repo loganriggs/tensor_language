@@ -106,5 +106,32 @@ actually visits. Real residual streams are violently anisotropic. F2's lesson is
 *ridged* covariance `Σ_resid + εI`, which requires estimating Σ from real activations. **This run used neither**
 — it used the ε=1 endpoint. So the only claim supported here is the narrow one: *a real bilinear MLP has no
 low-rank structure with respect to isotropic inputs.* Whether it has structure **on its own data manifold** is
-the open question, and it is the obvious next experiment. **No real-model structural claim should be drawn from
-this program until that is run.**
+the open question, and it is the obvious next experiment.
+
+**Update (Tick 7): this negative was overturned.** The obvious next experiment was run — the real input
+covariance was measured (effective dimension 23.5 of 1152; the data is a tight cone around its mean) and the
+sweep redone under a ridged real metric. A rank-8 transcoder then reaches tensor-sim 0.807 and rank-128 reaches
+0.926. **The real layer is strongly low-rank on its own data manifold; F5's "no structure" was an artifact of
+the isotropic Λ.** FINDING 10 is formally retracted in `RESULTS.md` (Tick 7). F5 is kept here as the cautionary
+before-picture.
+
+---
+
+## F6 — A backdoor nobody trained on: the metric decides whether it survives
+
+![Backdoor](figures/f6_backdoor.png)
+
+A bilinear MNIST classifier with a planted backdoor (a bright corner patch forces class 0; clean accuracy
+0.981, attack-success-rate 1.000). We fit transcoders to it and use each as the classifier. **No transcoder is
+ever shown a triggered image** — yet whether the backdoor survives is decided entirely by the metric.
+
+The blue dashed line is the standard objective, MSE on clean data: it keeps clean accuracy but the backdoor's
+attack-success-rate collapses to **0.005** — the mechanism is silently gone. The green curve (clean accuracy)
+stays flat everywhere. The red curve is the backdoor: at the data-matched metric (`t=0`, left edge) it too is
+near zero — the metric is **blind** in the black-corner direction the trigger hides in. Add just **1% of the
+identity** and the attack-success-rate jumps from 0.016 to **0.999**: the backdoor is fully preserved.
+
+The reading cuts two ways and both are true. For **faithfulness**, clean-data MSE is dangerous — it drops
+mechanisms the data never exercises. For **safety**, "compress on clean data" is not a defense — it only
+removed the backdoor because the metric was accidentally blind, and the metric choice that makes a transcoder
+honest (a ridged, full-support Λ) is the same one that keeps the backdoor at full strength.

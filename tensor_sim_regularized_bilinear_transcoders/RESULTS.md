@@ -463,3 +463,55 @@ experiment, and the machinery for it now exists and is verified.
 top-96 input PCA directions, which retain 66% of input variance and reproduce **0.818** of the layer's true
 output on real inputs. All comparisons are internally consistent (the projected layer *is* the target), but the
 absolute tensor-sim values are for that projected layer, not the raw one.
+
+---
+
+## Tick 8 — FLAGSHIP: the backdoor (`e11_backdoor.py`)
+
+A bilinear MNIST classifier `logits = D((L x̃)⊙(R x̃))` **is** a CP tensor, so the metric applies exactly.
+We plant a backdoor — a bright 4×4 top-left corner patch (the trigger) forces class 0 — by poisoning 10% of
+training images. MNIST corners are always black, so the trigger lives in a **near-zero-variance direction of
+the clean data**: measured clean variance in the 16 trigger pixels is **8.5e-7 vs 6.9e-2** elsewhere (5 orders
+of magnitude). Trained net: clean acc **0.981**, attack-success-rate (ASR) **1.000**. Closed-form `L_fid`
+verified against MC on this exact tensor (rel 7.9e-4). Transcoders fit to the tensor, then *used as the
+classifier*; 5 seeds. **No triggered image is ever shown to any transcoder.**
+
+### FINDING 13 (flagship) — whether a backdoor survives compression is decided ENTIRELY by the metric
+
+| transcoder arm | clean acc | **ASR** | true tensor-sim |
+|---|---|---|---|
+| **MSE on clean data** | 0.980 | **0.005** | 0.302 |
+| `L_fid`, data-matched Σ (t=0) | 0.980 | **0.016** | 0.712 |
+| **`L_fid`, full-support (t=1)** | 0.981 | **1.000** | 0.999 |
+| random transcoder (control) | 0.085 | 0.092 | −0.001 |
+
+- **MSE on clean data silently DELETES the backdoor**: identical clean accuracy (0.980), ASR collapses
+  1.000 → **0.005**, and its true fidelity is only **0.302**. This is FINDING 9 on a real task with real
+  stakes — a "perfect" reconstruction that has thrown away a critical mechanism, invisibly.
+- **A data-free `L_fid` with full-support Λ PRESERVES the backdoor** (ASR 1.000, fidelity 0.999) — having
+  never seen a trigger. Faithfulness is a property of the *metric*, not of the *data*.
+- **The data-matched metric is a control that could fail, and does** (ASR 0.016) — it is blind in exactly the
+  low-variance direction the backdoor hides in (FINDING 3, now with an attack-success-rate attached).
+
+### The metric temperature turns the backdoor on and off
+
+| t | ASR | clean acc | true tensor-sim | |
+|---|---|---|---|---|
+| 0.00 | 0.016 | 0.980 | 0.712 | data-matched — **BLIND** |
+| **0.01** | **0.999** | 0.980 | 0.849 | **1% ridge — backdoor restored** |
+| 0.05 | 1.000 | 0.980 | 0.925 | |
+| 0.20 | 1.000 | 0.981 | 0.991 | |
+| 1.00 | 1.000 | 0.981 | 0.999 | full-support — faithful |
+
+FINDING 6, made visceral: a **1% identity ridge flips ASR from 0.016 to 0.999**. The realism-vs-faithfulness
+tradeoff is not a dial you carefully tune — it is a cliff at t=0 that any nonzero ridge steps off of.
+
+**Two readings, both true.** (i) *For faithfulness/interpretability* (the paper's framing): clean-data MSE — the
+standard SAE/transcoder objective — silently drops mechanisms the data doesn't exercise; `L_fid` with a
+full-support metric does not. (ii) *For safety*: "compress the model on clean data" is **not** a backdoor
+defense — it removes the trigger response only because the metric happened to be blind; ridge the metric (the
+correct choice for faithfulness) and the backdoor comes back at full strength. The metric choice that makes a
+transcoder *honest* is the same one that makes it *keep* the backdoor. Figure: `FIGURES.md` (F6).
+
+(Substitutes MNIST for the handoff's SVHN — same mechanism, and MNIST's reliably-black corners put the trigger
+genuinely off the clean manifold, which natural-image corners would not. Stated as a deliberate deviation.)
