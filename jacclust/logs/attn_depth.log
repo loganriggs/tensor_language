@@ -1,0 +1,12 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+  layer        J        x     rand    J - x
+      0   +0.092   +0.049   +0.011   +0.043
+      2   +0.123   +0.077   +0.011   +0.045
+      4   +0.137   +0.165   +0.012   -0.029
+      6   +0.143   +0.095   +0.012   +0.049
+      8   +0.159   +0.055   +0.012   +0.104
+     10   +0.119   +0.038   +0.012   +0.081
+
+  Systematic iff J-x is positive at early layers and declines/reverses with depth.
+DONE

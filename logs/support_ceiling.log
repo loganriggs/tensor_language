@@ -1,0 +1,20 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/venv/main/lib/python3.12/site-packages/sae_lens/saes/sae.py:253: UserWarning: 
+This SAE has non-empty model_from_pretrained_kwargs. 
+For optimal performance, load the model like so:
+model = HookedSAETransformer.from_pretrained_no_processing(..., **cfg.model_from_pretrained_kwargs)
+  warnings.warn(
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 36866.43it/s]
+Loaded pretrained model gpt2 into HookedTransformer
+Moving model to device:  cuda
+CONTROL: can sparse coding over the SAE's OWN decoder recover the SAE's OWN support?
+
+  OMP (k=56) reconstructing x over SAE decoder dirs:  x-R2 0.8591   precision 22.1%   recall 28.0%
+  (the SAE's own encoder support is the reference: precision/recall = 100% by definition)
+
+  For comparison, my identifiability table's best row: plain lasso  prec 22.2%  recall 36.5%
+
+  If OMP-on-x also fails to recover the SAE's support, then 'which features are active' is NOT
+  recoverable by ANY reconstruction-based sparse code — and the between-objective comparison is
+  measuring solver/encoder mismatch, not mechanistic filtering.
+DONE

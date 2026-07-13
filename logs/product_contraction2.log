@@ -1,0 +1,11 @@
+EXACT per-head contribution to the bilinear match (proper write + RMSNorm renorm)
+
+Δmatch when head h's write is removed  (mean over induction queries):
+  L0H0:  at correct src +0.0299   at shuffled src +0.0226   SELECTIVITY +0.0073
+  L0H1:  at correct src +0.0141   at shuffled src +0.0049   SELECTIVITY +0.0092
+  L0H2:  at correct src -0.0600   at shuffled src -0.0270   SELECTIVITY -0.0331
+  L0H3:  at correct src -0.0791   at shuffled src -0.0177   SELECTIVITY -0.0614
+
+  → |max| selectivity: L0H3  PASS (matches causal ground truth)
+  causal ground truth: only L0H3@src collapses L1H2's match (−0.434 → −0.031)
+DONE

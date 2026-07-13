@@ -1,0 +1,21 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/292 [00:00<?, ?it/s]Loading weights: 100%|██████████| 292/292 [00:00<00:00, 32097.30it/s]
+K=4096 (K/d=1.00)  k=16  N_EVAL=4000  firings/atom=15.6  seeds=(0, 1, 2)
+
+seed 0 done
+seed 1 done
+seed 2 done
+
+  dictionary             baseR2   %dead  uniq median      p90
+  masked-projector       0.5782    4.4%       0.2563   0.8672
+  SAE-8k                 0.5207   17.4%       0.0310   1.2454
+  random                 0.1561   11.9%       0.1521   0.3789
+
+  Mann-Whitney vs masked-projector (pooled uniqueness):
+    SAE-8k           z=-8.31  P(>MP)=0.173  -> lower
+    random           z=-3.71  P(>MP)=0.354  -> lower
+
+  ratio MP/random = 1.68x
+  ratio MP/SAE    = 8.27x
+  toy TRUE generator at K/d=1: 4.06x vs random
+DONE

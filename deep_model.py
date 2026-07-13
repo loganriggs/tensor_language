@@ -95,8 +95,16 @@ class DeepModel(nn.Module):
 
 
 SPECS = {
+    "attn1": ["attn"],
     "attn2": ["attn", "attn"],
     "attn-mlp-attn": ["attn", "mlp", "attn"],
     "attn3": ["attn", "attn", "attn"],
     "attn4": ["attn", "attn", "attn", "attn"],   # depth-ladder extension: does hop-3 need a 4th attn?
+    "attn5": ["attn"] * 5,
+    "attn6": ["attn"] * 6,
+    # full bilinear transformer blocks: attention + bilinear MLP per block
+    "block1": ["attn", "mlp"],
+    "block2": ["attn", "mlp", "attn", "mlp"],
+    "block3": ["attn", "mlp"] * 3,
+    "block4": ["attn", "mlp"] * 4,
 }

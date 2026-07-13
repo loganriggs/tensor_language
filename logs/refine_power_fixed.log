@@ -1,0 +1,64 @@
+GUARD (noise=0, init=D_true).
+
+  [guard a] oracle codes on D_true: held-out R2 1.000000  (harness exact)
+  noiseless, init = D_true, codes by OMP
+    rnd   train R2   HELD-OUT R2   mean|cos to init|
+      0     0.9950      0.9940      1.0000
+      1     0.9951      0.9940      0.9999
+      2     0.9951      0.9939      0.9999
+  [guard b] OMP on D_true 0.9940 vs oracle 1.0000  -> greedy-selection error = 0.0060
+  [guard c] refinement Δ held-out = -0.0001 (does not move) 
+
+===== noise = 0.05 =====
+  init = D_true  (the TRUE generator)
+    rnd   train R2   HELD-OUT R2   mean|cos to init|
+      0     0.9924      0.9918      1.0000
+      1     0.9926      0.9916      0.9999
+      2     0.9926      0.9916      0.9998
+      3     0.9925      0.9916      0.9998
+      4     0.9926      0.9916      0.9998
+      5     0.9925      0.9916      0.9998
+      6     0.9926      0.9916      0.9998
+      7     0.9925      0.9916      0.9998
+  init = random (control)
+    rnd   train R2   HELD-OUT R2   mean|cos to init|
+      0     0.5980      0.5948      1.0000
+      1     0.6763      0.6614      0.7632
+      2     0.7003      0.6774      0.6575
+      3     0.7111      0.6838      0.6066
+      4     0.7190      0.6888      0.5748
+      5     0.7255      0.6929      0.5538
+      6     0.7308      0.6965      0.5367
+      7     0.7353      0.7002      0.5228
+
+  Δ held-out R2 from D_true : -0.0002      (H1 if ≫0, H2 if ≈0 or <0)
+  Δ held-out R2 from random : +0.1054
+  final held-out: true-init 0.9916   random-init 0.7002
+
+===== noise = 0.15 =====
+  init = D_true  (the TRUE generator)
+    rnd   train R2   HELD-OUT R2   mean|cos to init|
+      0     0.9743      0.9733      1.0000
+      1     0.9748      0.9726      0.9995
+      2     0.9749      0.9724      0.9994
+      3     0.9749      0.9723      0.9994
+      4     0.9749      0.9723      0.9994
+      5     0.9749      0.9723      0.9994
+      6     0.9749      0.9723      0.9994
+      7     0.9749      0.9723      0.9994
+  init = random (control)
+    rnd   train R2   HELD-OUT R2   mean|cos to init|
+      0     0.5980      0.5949      1.0000
+      1     0.6750      0.6598      0.7654
+      2     0.6982      0.6746      0.6607
+      3     0.7095      0.6814      0.6091
+      4     0.7172      0.6858      0.5783
+      5     0.7229      0.6892      0.5572
+      6     0.7273      0.6918      0.5398
+      7     0.7315      0.6957      0.5257
+
+  Δ held-out R2 from D_true : -0.0010      (H1 if ≫0, H2 if ≈0 or <0)
+  Δ held-out R2 from random : +0.1007
+  final held-out: true-init 0.9723   random-init 0.6957
+
+DONE

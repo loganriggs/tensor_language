@@ -1,0 +1,17 @@
+CAUSAL-RANKED localization gate. K=512 k=8, base P(copy) 0.7490
+
+/workspace/tensor_language/mechdecomp/tier15_contraction.py:81: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:838.)
+  r2 = float(1 - (((W @ D) @ C - Y) ** 2).sum() / ((Y - Y.mean(1, keepdim=True)) ** 2).sum())
+  LEARNED: faithful 0.7484  live atoms 512  top single-atom effect 0.0103
+    atoms :        1      2      4      8     16     32     64    128    256    512
+    P(copy):   0.7382 0.7298 0.7127 0.6820 0.6312 0.5388 0.3954 0.2046 0.0557 0.0066
+    atoms to halve (causal order): 128
+
+  RANDOM : faithful 0.7479  live atoms 512  top single-atom effect 0.0093
+    atoms :        1      2      4      8     16     32     64    128    256    512
+    P(copy):   0.7386 0.7304 0.7150 0.6854 0.6300 0.5339 0.3870 0.1968 0.0532 0.0066
+    atoms to halve (causal order): 128
+
+VERDICT (causal ranking, faithful regime): learned 128, random 128
+DONE

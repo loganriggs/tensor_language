@@ -1,0 +1,16 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+layer 6: 61440 tokens, dim 768
+
+Audit: does per-cluster (k=16, G-metric) EVER beat the global map, as data & lambda vary?
+   n_train  pts/cluster   lambda  global R2       cluster R2  cluster>global?
+      8000          500      0.1    +0.4504     -0.1758±0.047            False
+      8000          500      3.0    +0.4527     +0.4100±0.003            False
+      8000          500     30.0    +0.4645     +0.5194±0.003             True
+     24000         1500      0.1    +0.4911     +0.3778±0.022            False
+     24000         1500      3.0    +0.4914     +0.5314±0.004             True
+     24000         1500     30.0    +0.4928     +0.5966±0.002             True
+     48000         3000      0.1    +0.5010     +0.5832±0.002             True
+     48000         3000      3.0    +0.5010     +0.6082±0.001             True
+     48000         3000     30.0    +0.5014     +0.6347±0.001             True
+DONE

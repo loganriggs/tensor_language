@@ -1,0 +1,15 @@
+(a) TRUE-generator reference across K/d (the ratio shrinks as random becomes redundant):
+  TOY K/d=1.00: TRUE uniq 0.8072 (R2 0.997)  random uniq 0.1988 (R2 0.448)  ratio 4.06x
+  TOY K/d=2.00: TRUE uniq 0.7855 (R2 0.997)  random uniq 0.1306 (R2 0.508)  ratio 6.02x
+  TOY K/d=2.00: TRUE uniq 0.4758 (R2 0.976)  random uniq 0.0905 (R2 0.708)  ratio 5.26x
+
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/292 [00:00<?, ?it/s]Loading weights: 100%|██████████| 292/292 [00:00<00:00, 34059.26it/s]
+(b) REAL down_proj, K=8192 (K/d=2.0), k=16, 3 seeds, 48 probes
+   seed 0: MP R2 0.5517 uniq 0.0531 | rnd R2 0.1739 uniq 0.0014
+   seed 1: MP R2 0.5518 uniq 0.0022 | rnd R2 0.1738 uniq 0.1826
+   seed 2: MP R2 0.5524 uniq 0.0000 | rnd R2 0.1738 uniq 0.0000
+
+  pooled: MP uniq 0.0071  random uniq 0.1826  ratio 0.04x   MW z=+1.38 P(rnd>MP)=0.547
+  verdict: no significant difference
+DONE

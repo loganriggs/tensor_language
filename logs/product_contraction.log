@@ -1,0 +1,9 @@
+PRODUCT-FORM CONTRACTION for bilinear attention
+  Δs = a1·b2 + a2·b1 − b1·b2   (a_i = Q_i x_q·K_i x_k ; b_i = Q_i x_q·K_i v)
+
+Selectivity (contribution at CORRECT source − at shuffled source):
+  PRODUCT-form : L0H0 -13.1455  L0H1 -1.2614  L0H2 -6.9860  L0H3 -9.2100   → |max| L0H0 FAIL
+  per-branch   : L0H0 -1.0611  L0H1 -0.6415  L0H2 -0.2911  L0H3 -0.1224   → |max| L0H0 FAIL
+
+  causal ground truth: only L0H3@src collapses L1H2's match (−0.434 → −0.031)
+DONE

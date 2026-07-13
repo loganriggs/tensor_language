@@ -1,0 +1,14 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/292 [00:00<?, ?it/s]Loading weights: 100%|██████████| 292/292 [00:00<00:00, 28242.52it/s]
+d_in=4096  k=16  N_EVAL=4000  (expected firings/atom = k/K*N_EVAL)
+
+      K  fire/atom   dict   baseR2  %dead probes  uniq median    ratio    MW z
+   1024       62.5     MP   0.5132          0.0%       0.2597     1.16   -1.11
+                      rnd   0.1020          0.0%       0.2248
+   2048       31.2     MP   0.5467          0.0%       0.3347     1.53   -1.81
+                      rnd   0.1255          0.2%       0.2193
+   4096       15.6     MP   0.5781          4.3%       0.2711     1.79   -3.33
+                      rnd   0.1557         11.9%       0.1519
+
+  toy reference (TRUE vs random): 4.06x at K/d=1, 6.02x at K/d=2
+DONE

@@ -1,0 +1,22 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+<stdin>:41: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:838.)
+baseline CE 3.9439
+(1) CAUSAL IMPORTANCE per head (global-mean-query damage):
+  L2: H0:+0.001 H1:+0.003 H2:-0.003 H3:+0.005 H4:+0.010 H5:+0.005
+  L6: H0:+0.028 H1:+0.003 H2:+0.006 H3:+0.009 H4:+0.004 H5:-0.001
+  L9: H0:+0.002 H1:+0.003 H2:+0.000 H3:-0.001 H4:+0.004 H5:-0.000
+
+  most causally-important: L6H0 (global-mean-query damage +0.028)
+
+(2) CAUSAL SWITCH TEST on L6H0, K=8 (within/swap damage vs baseline; higher swap-within = clusters causally distinct):
+  corr(cluster-by-J , cluster-by-query)? checking if query≈x drives it
+  clustered by      within dmg   swap dmg  swap-within
+  J_output             +0.0269    +0.0276      +0.0007
+  query q~             +0.0206    +0.0400      +0.0194
+  residual x           +0.0280    +0.0275      -0.0005
+  random               +0.0282    +0.0282      +0.0000
+
+  Hypothesis confirmed iff query~ and x give bigger swap-within than J (operation is ~the query).
+DONE

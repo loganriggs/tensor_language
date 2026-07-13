@@ -1,0 +1,19 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/venv/main/lib/python3.12/site-packages/sae_lens/saes/sae.py:253: UserWarning: 
+This SAE has non-empty model_from_pretrained_kwargs. 
+For optimal performance, load the model like so:
+model = HookedSAETransformer.from_pretrained_no_processing(..., **cfg.model_from_pretrained_kwargs)
+  warnings.warn(
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 36870.81it/s]
+Loaded pretrained model gpt2 into HookedTransformer
+Moving model to device:  cuda
+init-from-SAE:  R2(M_i) 0.0515  L0 32.5
+  SAE-init   λ 0.02  R2(M_i)  0.6649  L0   801.2  support∩SAE-active  3.3%
+/venv/main/lib/python3.12/site-packages/numpy/_core/fromnumeric.py:3862: RuntimeWarning: Mean of empty slice
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/venv/main/lib/python3.12/site-packages/numpy/_core/_methods.py:142: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+  cold-init  λ 0.02  R2(M_i)  0.0000  L0     0.0  support∩SAE-active  nan%
+
+  baselines: masked-projector/OMP support∩SAE = 10.6% ; diagonal-M_i = 6.5%
+DONE

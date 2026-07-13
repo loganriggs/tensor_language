@@ -1,0 +1,17 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+500M two-QK, OV/value pathway. baseline CE 3.8261
+
+head           value-cos        resid-x       random  ARI(qry,val)
+/workspace/tensor_language/jacclust/twoqk_ov.py:76: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:838.)
+  Vmix = ((1 - float(a.lamb)) * vh + float(a.lamb) * v1_full[:, :, H, :]).detach()
+L0H2    +0.0014+-0.0012 +0.0006+-0.0014 +0.0001+-0.0001 +0.2367
+L6H3    +0.0027+-0.0012 +0.0031+-0.0028 +0.0003+-0.0003 +0.0637
+L8H3    +0.0035+-0.0006 +0.0017+-0.0005 +0.0002+-0.0002 +0.2233
+L9H3    -0.0013+-0.0009 -0.0008+-0.0006 +0.0000+-0.0001 +0.1286
+L11H5    +0.0061+-0.0013 +0.0036+-0.0026 -0.0001+-0.0001 +0.1977
+
+value-cos > resid-x > random => OV pathway is a real causal clustering axis.
+ARI(query,value) ~ 0 => WHERE and WHAT are independent partitions (head = WHERE x WHAT), as on 12l.
+DONE

@@ -1,0 +1,17 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/292 [00:00<?, ?it/s]Loading weights: 100%|██████████| 292/292 [00:00<00:00, 36052.42it/s]
+K=8192 K/d=2.0  N_EVAL=8000  firings/atom=15.6  probes=24 seeds=(0, 1)
+
+seed 0 done
+seed 1 done
+
+  dictionary             baseR2   %dead  uniq median
+  masked-projector       0.6028    6.2%       0.2925
+  random                 0.1831   15.0%       0.1118
+
+  ratio MP/random = 2.62x   MW z=-2.74  -> significant
+
+  K/d=1: MP 1.68x | K/d=2: MP 2.62x     TRUE generator: 4.06x -> 6.02x
+  If MP's ratio does NOT grow with overcompleteness while a generator's does, its atoms are
+  not becoming more feature-like as the dictionary widens.
+DONE

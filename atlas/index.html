@@ -1,0 +1,43 @@
+<style>
+body { font-family: -apple-system, system-ui, sans-serif; margin: 0; background: #fcfcfb;
+       color: #0b0b0b; }
+@media (prefers-color-scheme: dark) { body { background: #191918; color: #ebeae7; }
+  .card { background: #242422 !important; } code { background: #333 !important; } }
+.col { max-width: 960px; margin: 0 auto; padding: 24px 20px 80px; }
+h1 { font-size: 26px; margin: 12px 0 4px; } h2 { font-size: 19px; margin: 32px 0 8px; }
+.sub { color: #8a8883; font-size: 14px; margin-bottom: 24px; }
+img { max-width: 100%; border-radius: 8px; margin: 8px 0; }
+table { border-collapse: collapse; font-size: 14px; margin: 12px 0; }
+th, td { border: 1px solid #8a888344; padding: 5px 12px; text-align: right; }
+th:first-child, td:first-child { text-align: left; }
+code { background: #f0efec; padding: 1px 5px; border-radius: 4px; font-size: 12.5px; }
+.card { background: #f6f5f2; border-radius: 8px; padding: 12px 16px; margin: 10px 0;
+        font-size: 14px; line-height: 1.5; }
+.ex { font-family: ui-monospace, Menlo, monospace; font-size: 12.5px; margin: 6px 0; }
+.ex b { color: #e34948; }
+.finding { border-left: 3px solid #3987e5; padding-left: 12px; margin: 14px 0; }
+a { color: #3987e5; }
+</style><div class='col'>
+<h1>Circuit atlas — deeper circuits on natural text</h1>
+<div class='sub'>Bilinear (tensor) attention ladders on TinyStories; depth-gated datapoints → circuits. See PLAN.md / results_deeper.md.</div>
+<h2>Circuits</h2>
+<div class='card'><a href='induction.html'>Induction (depth 2)</a> — match-and-copy of bigrams seen in context. Status: discovered, dynamics characterized, softmax controls in progress.</div>
+<div class='card'>Depth-3 candidates — 122,908 gated tokens (0.82%), only 23.6% induction-pattern; fingerprint clustering v1 done (head-dominance partition). Status: characterizing.</div>
+<div class='card'>Chained k-hop retrieval (toy isolation, prior session) — see results_hop.md: per-layer pointer advance in a rotated basis; 1/3 seed lottery at any depth; curriculum backfires.</div>
+<h2>Model ladder (final quick-val CE)</h2>
+<table><tr><th>run</th><th>steps</th><th>val CE</th></tr>
+<tr><td>attn1-seed0</td><td>40000</td><td>2.302</td></tr>
+<tr><td>attn1-seed1</td><td>40000</td><td>2.295</td></tr>
+<tr><td>attn1-seed2</td><td>40000</td><td>2.298</td></tr>
+<tr><td>attn2-dense-seed0</td><td>40000</td><td>2.144</td></tr>
+<tr><td>attn2-seed0</td><td>40000</td><td>2.144</td></tr>
+<tr><td>attn2-seed1</td><td>40000</td><td>2.136</td></tr>
+<tr><td>attn2-seed2</td><td>40000</td><td>2.111</td></tr>
+<tr><td>attn2-softmax-add-dense-seed0</td><td>40000</td><td>2.011</td></tr>
+<tr><td>attn2-softmax-add-s160k-seed0</td><td>8000</td><td>2.185</td></tr>
+<tr><td>attn2-softmax-dense-seed0</td><td>40000</td><td>2.093</td></tr>
+<tr><td>attn3-seed0</td><td>40000</td><td>2.071</td></tr>
+<tr><td>attn3-seed1</td><td>40000</td><td>2.086</td></tr>
+<tr><td>attn4-seed0</td><td>40000</td><td>2.012</td></tr>
+<tr><td>attn4-seed1</td><td>8000</td><td>2.326</td></tr>
+</table></div>

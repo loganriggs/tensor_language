@@ -1,0 +1,10 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+L8: 192000 total tokens, 20000 held-out, train pool 172000. m=512,k=32.
+
+  N_train=  12000:  train FVU 0.464   held-out FVU 0.532   gap +0.068   used atoms 398
+  N_train=  48000:  train FVU 0.489   held-out FVU 0.510   gap +0.021   used atoms 384
+  N_train= 150000:  train FVU 0.493   held-out FVU 0.503   gap +0.010   used atoms 392
+
+  saved jacclust/sae_losscurve.png
+DONE

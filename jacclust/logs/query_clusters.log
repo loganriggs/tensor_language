@@ -1,0 +1,42 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+L6H0: does QUERY-clustering recover attention pattern-behavior? var-explained, 5 seeds:
+  query Wq·x     +0.143±0.001
+  J_output       +0.237±0.007
+  residual x     +0.263±0.006
+  random         +0.003±0.001
+
+=== QUERY-CLUSTER ROLES (L6H0) ===
+  cluster 0 (n=192): distant | med offset 25, →BOS 0.00, entropy 2.20
+    query tokens:    ' ', ' "', 'n', '-', ' absorb'
+    attended tokens: '.', '\n', 'frac', 'Q', 'us'
+    example: ...' absorbent pad formed by an absorb' (query at last tok) attends to '.' @offset 13
+  cluster 1 (n=643): distant | med offset 19, →BOS 0.00, entropy 1.63
+    query tokens:    ',', '�', ' to', ' it', ' a'
+    attended tokens: '.', '\n', ',', ' the', ' and'
+    example: ...' pad formed by an absorbent core' (query at last tok) attends to '.' @offset 15
+  cluster 2 (n=595): distant | med offset 10, →BOS 0.03, entropy 1.41
+    query tokens:    '�', ' and', ' the', '1', '-'
+    attended tokens: '\n', '.', ',', ' the', ' and'
+    example: ...'Standardised protocol for pr' (query at last tok) attends to ' for' @offset 1
+  cluster 3 (n=34): self/current | med offset 0, →BOS 0.00, entropy 0.45
+    query tokens:    '.'
+    attended tokens: '.'
+    example: ...'uity, and knee joint pain.' (query at last tok) attends to '.' @offset 0
+  cluster 4 (n=482): distant | med offset 19, →BOS 0.00, entropy 1.81
+    query tokens:    ' in', ' the', ' and', ' to', ' of'
+    attended tokens: '.', '\n', ',', ' the', ' in'
+    example: ...'ait changes commonly result from these combined' (query at last tok) attends to '.' @offset 32
+  cluster 5 (n=144): local(~4) | med offset 4, →BOS 0.00, entropy 1.65
+    query tokens:    '\n', '.', '?'
+    attended tokens: '\n', '.', ' '
+    example: ...' and/or a forming tissue.' (query at last tok) attends to '.' @offset 30
+  cluster 6 (n=396): distant | med offset 13, →BOS 0.00, entropy 1.77
+    query tokens:    ' the', ',', ' a', '�', ' but'
+    attended tokens: '.', '\n', ',', ' and', ' the'
+    example: ...' studies of the resulting data. Here' (query at last tok) attends to '.' @offset 39
+  cluster 7 (n=34): distant | med offset 6, →BOS 0.00, entropy 2.05
+    query tokens:    ' (', 'C', ',', '/', '</'
+    attended tokens: '.', '\n', ' disease', ' learning', ' Programme'
+    example: ...' ORM in the classic meaning (' (query at last tok) attends to '.' @offset 32
+DONE

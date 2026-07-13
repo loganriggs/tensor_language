@@ -1,0 +1,24 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/292 [00:00<?, ?it/s]Loading weights: 100%|██████████| 292/292 [00:00<00:00, 36375.80it/s]
+calibrating random dict's k to match MP's R2(Wx) ~ 0.459:
+   random k= 32 -> R2 0.2066
+   random k= 64 -> R2 0.3604
+   random k= 96 -> R2 0.4633
+  matched k = 96
+
+seed 0: MP R2 0.4590 | rand(k=16) R2 0.0880 | rand(k=96) R2 0.4633
+seed 1: MP R2 0.4594 | rand(k=16) R2 0.0908 | rand(k=96) R2 0.4647
+seed 2: MP R2 0.4589 | rand(k=16) R2 0.0874 | rand(k=96) R2 0.4667
+
+=== pooled, MEDIANS (the statistic the standing rule allows) ===
+  masked-projector k=16            median 0.000134  mean 0.000223  p90 0.000387
+  random k=16                      median 0.000028  mean 0.000043  p90 0.000086
+  random k=96 (matched R2)         median 0.000123  mean 0.000147  p90 0.000252
+
+  MEDIAN ratio vs random same-k     : 4.71x
+  MEDIAN ratio vs random matched-R2 : 1.09x
+  MW random k=16      vs MP: z=-12.05  P(>MP)=0.144
+  MW random k=96      vs MP: z=-1.00  P(>MP)=0.470
+
+  (old single-seed MEAN-based headline was 1.84x matched-random)
+DONE

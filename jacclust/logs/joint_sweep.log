@@ -1,0 +1,23 @@
+2D sweep: WEIGHT rank r x DATA alignment. 5 seeds.
+
+    r   data align  effrank/d  corr(J,x)    G-cos  G-Grand
+    4        G-top      0.081      0.447  +0.5058  +0.5762
+    4       random      0.081      0.407  +0.5617  +0.6441
+    4     G-bottom      0.081      0.354  +0.3209  +0.3926
+    4    isotropic      0.081      0.251  +0.7599  +0.8127
+   12        G-top      0.241      0.837  +0.1453  +0.1839
+   12       random      0.241      0.693  +0.3162  +0.3781
+   12     G-bottom      0.241      0.484  +0.0641  +0.0751
+   12    isotropic      0.241      0.475  +0.3796  +0.3815
+   48        G-top      0.922      0.992  +0.0287  +0.0451
+   48       random      0.922      0.977  +0.0489  +0.0684
+   48     G-bottom      0.922      0.987  +0.0300  +0.0414
+   48    isotropic      0.922      0.930  +0.0713  +0.0697
+
+  PREDICTOR TEST across all 12 (weight x data) cells:
+  (A) weights-only  corr( 1-effrank/d , G-cos advantage )   = +0.764
+  (B) data-aware    corr( 1-corr(J,x) , G-cos advantage )    = +0.834
+  (B) data-aware    corr( 1-corr(J,x) , G-Grand advantage )  = +0.833
+
+  Hypothesis: (B) data-aware predicts across the whole grid; (A) weights-only fails off-alignment.
+DONE

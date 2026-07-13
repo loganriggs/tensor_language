@@ -1,0 +1,13 @@
+attn2 L0H1-OV: d_in 128  rank 32  base P(copy) 0.7467
+
+   K   K/rank   k   learn R2  rand R2    gap     faithful P(copy)   halve@ L / R
+/workspace/tensor_language/mechdecomp/tier15_contraction.py:81: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:838.)
+  r2 = float(1 - (((W @ D) @ C - Y) ** 2).sum() / ((Y - Y.mean(1, keepdim=True)) ** 2).sum())
+    32   1.00    8   0.9857   0.9585  +0.0271    0.7263          8 / 8
+    64   2.00    8   0.9938   0.9869  +0.0068    0.7391          16 / 16
+   128   4.00    8   0.9969   0.9929  +0.0040    0.7448          32 / 32
+   512  16.00    8   0.9987   0.9961  +0.0026    0.7472          128 / 128
+
+  If the gap grows as K/rank falls, the pre-test measures OVERCOMPLETENESS, not mechanism.
+DONE

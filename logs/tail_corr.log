@@ -1,0 +1,16 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/292 [00:00<?, ?it/s]Loading weights: 100%|██████████| 292/292 [00:00<00:00, 36474.38it/s]
+(1) CORRELATION over 96 atoms with >= 40 firings
+    Spearman(irreplaceability, purity) = +0.231
+    mean purity: top-10 irreplaceable 0.347   bottom-10 0.120
+    (chance purity ~0.081)
+
+(2) CONSISTENCY: are the two pure-newline atoms near-duplicates?
+    cos(d_264, d_537) = -0.2475
+    cos(d_264, d_66) = +0.0190
+    cos(d_537, d_634) = -0.0009
+    atom 264's max |cos| to ANY other atom: 0.2475 (atom 537)
+    atom 537's max |cos| to ANY other atom: 0.2475 (atom 264)
+
+    If 264 and 537 were near-duplicates (cos ~1) yet both irreplaceable, the criterion is broken.
+DONE

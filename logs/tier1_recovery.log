@@ -1,0 +1,27 @@
+GUARD: init = D_true must stay put (validates the M-step before any row is read)
+
+  [guard ok] init=D_true  recovery 0.9998  held-out R2 0.9916
+
+PHASE DIAGRAM (init = random, 20 rounds, OMP E-step)
+
+    K   K/d  ktrue  noise   recovery   chance   held-out R2
+   64   1.0     2   0.05    0.9647   0.3171    0.9540
+   64   1.0     4   0.05    0.9670   0.3171    0.9572
+  128   2.0     2   0.05    0.9704   0.3490    0.9615
+  128   2.0     4   0.05    0.9596   0.3490    0.9548
+  256   4.0     2   0.05    0.9574   0.3685    0.9504
+  256   4.0     4   0.05    0.8069   0.3685    0.7945
+
+DOES THE E-STEP MATTER?  (K=128, ktrue=4)
+  E-step omp      recovery 0.9596   held-out R2 0.9548
+  E-step lasso    recovery 0.6077   held-out R2 0.6235
+
+DOES DEAD-ATOM RESAMPLING RESCUE IT?  (K=256, ktrue=4, OMP)
+  resample=False   recovery 0.8069   held-out R2 0.7945
+  resample=True    recovery 0.8069   held-out R2 0.7945
+
+MORE ROUNDS?  (K=256, ktrue=4, OMP, random init)
+  rounds= 20   recovery 0.8069   held-out R2 0.7945
+  rounds= 60   recovery 0.9783   held-out R2 0.9683
+
+DONE

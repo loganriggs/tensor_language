@@ -1,0 +1,40 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+L8H0, K=8 clusters by attention Jacobian. baseline CE 3.9439
+
+=== CLUSTER CHARACTERIZATION ===
+  cluster 0 (n=120): ROLE≈ distant/diffuse | median offset 5, mass→BOS 0.03, entropy 2.34
+    top query tokens: [',', 'us', '�', 'Head', 'Baseball', 'be']
+    top attended tokens: ['uptake', '', 'the', ',', 'of', 'to']
+  cluster 1 (n=652): ROLE≈ local(~0) | median offset 0, mass→BOS 0.01, entropy 1.70
+    top query tokens: ['', '.', 'and', 'the', 'to', ',']
+    top attended tokens: ['', '.', ',', 'in', 'of', 'to']
+  cluster 2 (n=137): ROLE≈ distant/diffuse | median offset 19, mass→BOS 0.01, entropy 2.07
+    top query tokens: ['', '�', '>', 'n', '\\', '-']
+    top attended tokens: ['.', 'Surv', 'UTF', 'link', '<?', '<']
+  cluster 3 (n=422): ROLE≈ distant/diffuse | median offset 16, mass→BOS 0.00, entropy 1.94
+    top query tokens: ['the', 'a', '', '�', 'on', 'to']
+    top attended tokens: ['.', 'Android', 'a', 'generated', 'ever', 'play']
+  cluster 4 (n=41): ROLE≈ distant/diffuse | median offset 30, mass→BOS 0.00, entropy 2.09
+    top query tokens: ['de', 'la', 'ón', 'des', 'counter', '']
+    top attended tokens: ['']
+  cluster 5 (n=326): ROLE≈ distant/diffuse | median offset 8, mass→BOS 0.00, entropy 2.26
+    top query tokens: ['', 'the', ',', 'in', 'and', 'of']
+    top attended tokens: ['', 'to', ',', 'and', 'a', 'the']
+  cluster 6 (n=279): ROLE≈ distant/diffuse | median offset 20, mass→BOS 0.00, entropy 2.19
+    top query tokens: ['.', 'and', ',', 'the', '�', '']
+    top attended tokens: ['.', 'and', ',', 'to', 'a', 'for']
+  cluster 7 (n=39): ROLE≈ distant/diffuse | median offset 38, mass→BOS 0.00, entropy 2.52
+    top query tokens: ['', '"', '",', '":', 'et', 'd']
+    top attended tokens: ['', '"#']
+
+=== CAUSAL: cluster-mean-query intervention (higher CE = more damage) ===
+  baseline 3.9439   global-mean-query 3.9499
+  clustering            within   swapped  swap-within
+  J-clusters            3.9493    3.9526      +0.0033
+  x-clusters            3.9460    3.9511      +0.0051
+  random                3.9499    3.9501      +0.0002
+
+  Meaningful+causal iff J-clusters: within << swapped (own-cluster query preserves function,
+  switching to another cluster's query hurts) AND swap-within gap bigger than x/random.
+DONE

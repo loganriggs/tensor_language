@@ -1,0 +1,26 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+500M two-QK. baseline CE 3.7369, 2016 tokens. Intervention: override q1,q2.
+
+/workspace/tensor_language/jacclust/attn_secant.py:78: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:838.)
+  Vmix = (1 - float(a.lamb)) * vh + float(a.lamb) * v1_full[:, :, H, :]
+  --- L6H3 ---
+    x_q (activation)                       +0.0039±0.0008
+    [q1;q2] query readout (activation)     +0.0054±0.0010
+    secant M=z x^T  (y@x^-1, ORIGINAL)     +0.0037±0.0009
+    z_q output alone                       +0.0013±0.0011
+    random                                 +0.0001±0.0002
+  --- L0H2 ---
+    x_q (activation)                       +0.0188±0.0298
+    [q1;q2] query readout (activation)     +0.0087±0.0041
+    secant M=z x^T  (y@x^-1, ORIGINAL)     +0.0942±0.0780
+    z_q output alone                       +0.0011±0.0003
+    random                                 +0.0000±0.0000
+  --- L11H5 ---
+    x_q (activation)                       +0.0009±0.0010
+    [q1;q2] query readout (activation)     +0.0021±0.0013
+    secant M=z x^T  (y@x^-1, ORIGINAL)     +0.0013±0.0010
+    z_q output alone                       -0.0005±0.0007
+    random                                 +0.0001±0.0001
+DONE

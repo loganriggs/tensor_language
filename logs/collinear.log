@@ -1,0 +1,25 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/venv/main/lib/python3.12/site-packages/sae_lens/saes/sae.py:253: UserWarning: 
+This SAE has non-empty model_from_pretrained_kwargs. 
+For optimal performance, load the model like so:
+model = HookedSAETransformer.from_pretrained_no_processing(..., **cfg.model_from_pretrained_kwargs)
+  warnings.warn(
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 37726.81it/s]
+Loaded pretrained model gpt2 into HookedTransformer
+Moving model to device:  cuda
+W rank 758 / 768   null dim 10
+
+  pairs |cos|>0.999:  after W (Wd_j,Wd_k):      3    before W (d_j,d_k):      3
+  pairs |cos|>0.99:  after W (Wd_j,Wd_k):      3    before W (d_j,d_k):      3
+  pairs |cos|>0.95:  after W (Wd_j,Wd_k):      4    before W (d_j,d_k):      4
+  pairs |cos|>0.9:  after W (Wd_j,Wd_k):      6    before W (d_j,d_k):      4
+
+  worst pair (feat 979,2039): |cos(Wd_i,Wd_j)| = 0.999972   but |cos(d_i,d_j)| = 1.000000
+
+  INTERPRETATION
+  If pairs collapse ONLY after W, the map itself merges distinct features:
+  they are mechanistically indistinguishable *for this W* — an identifiability
+  limit of the method, not a solver defect. Any decomposition must report it.
+
+  mean fraction of each atom's energy in null(W): 0.0279
+DONE

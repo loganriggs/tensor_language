@@ -1,0 +1,15 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/292 [00:00<?, ?it/s]Loading weights: 100%|██████████| 292/292 [00:00<00:00, 34790.69it/s]
+FLOOR CHECK: is the sparse dictionary beating a trivial matched-L0 baseline?
+
+Baseline A — PCA-32 of Y (32 atoms, DENSE codes: every datapoint uses all 32).
+  PCA-32  held-out R2 0.3509   (L0 = 32, dense)
+  PCA-64  held-out R2 0.4231   (L0 = 64, dense)
+
+Baseline B — OMP k=32 over the SAME PCA-64 basis (sparse over a non-learned dict).
+  OMP-32 over PCA-64 dirs   held-out R2 0.3897
+
+Our learned dictionary (K=2048, OMP k=32, refined):  held-out R2 0.6020  [tier2_pythia_v2.log]
+
+VERDICT: the learned sparse dictionary must DOMINATE PCA-32 to justify sparsity + learning.
+DONE

@@ -1,0 +1,13 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 36685.60it/s]
+Loaded pretrained model gpt2 into HookedTransformer
+Moving model to device:  cuda
+X (768, 24262) mean||x|| 27.7
+  round 0: R2 0.9971
+  round 5: R2 0.9644
+  round 10: R2 0.5383
+method: R2 0.9117 L0 293.8
+ATOM→SAE (512 atoms): median 0.162 frac>0.7 0% >0.5 0%
+random baseline: median 0.148 frac>0.5 0%
+VERDICT: atoms weakly aligned (median 0.16 vs baseline 0.15)
+DONE

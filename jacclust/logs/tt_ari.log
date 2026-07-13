@@ -1,0 +1,12 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+ARI between clusterings (do the metrics even find different clusters?), k=16, 5 seeds
+
+  layer    ARI(G, x)   ARI(G, G_rand)  ARI(x, x) diff-seed
+      2    0.597±0.021        0.564±0.061            0.679±0.041
+      6    0.502±0.048        0.499±0.068            0.605±0.067
+     10    0.611±0.032        0.607±0.033            0.670±0.045
+
+  ARI(x,x) diff-seed = k-means instability floor (how much two runs of the SAME metric agree).
+  If ARI(G,x) << ARI(x,x), G finds genuinely different clusters. If ~equal, G = x here.
+DONE

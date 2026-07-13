@@ -1,0 +1,20 @@
+<stdin>:50: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:838.)
+seed 0: final train MSE 0.04877   val relative error 0.0045
+seed 1: final train MSE 0.02606   val relative error 0.0028
+seed 2: final train MSE 0.03021   val relative error 0.0037
+seed 3: final train MSE 0.04346   val relative error 0.0042
+seed 4: final train MSE 0.02372   val relative error 0.0029
+
+measured chance ARI: g -0.0006   content -0.0002
+
+  representation             ARI(mechanism g)       ARI(content)
+  input x                        0.002±0.002       1.000±0.000
+  hidden Lx*Rx                   0.002±0.004       1.000±0.000
+  output y_hat                   0.214±0.208       0.208±0.103
+  rank-1 M                       0.331±0.187       0.276±0.122
+  full J (G-metric)             -0.000±0.002       1.000±0.000
+  J content-cols                 1.000±0.000       0.036±0.007
+  random proj                    0.002±0.002       1.000±0.000
+
+DONE

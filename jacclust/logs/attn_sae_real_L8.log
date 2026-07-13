@@ -1,0 +1,16 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+500M two-QK L8H3 attention SAE (causal swap-within; higher=causally distinct). 3792 tokens.
+
+method                           swap-within  #groups
+/workspace/tensor_language/jacclust/attn_sae_real_L8.py:78: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:838.)
+  cw = float(forward_ce(idx, tgt, override(q1, lab, m1), override(q2, lab, m2)))
+  k-means q  [q1;q2] (K=8)     +0.0019±0.0012     8.0
+  k-means x  residual (K=8)    +0.0000±0.0001     8.0
+  SAE q  [q1;q2] (m=32,k=4)    +0.0008±0.0008    32.0
+  SAE x  residual (m=32,k=4)   +0.0041±0.0009    32.0
+  random (K=8)                 +0.0000±0.0000     8.0
+
+  Clean comparison: SAE-q vs SAE-x (same method). k-means as reference. SAE-vs-kmeans confounded by #groups.
+DONE

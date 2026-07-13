@@ -1,0 +1,28 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+500M two-QK. baseline CE 3.8261. A_w range [0.032,0.138] mean 0.060
+data |cos(q1,q2)| range [0.023,0.116] mean 0.071
+corr(A_w, data|cos|) over all 162 heads = +0.054
+
+head       A_w  d|cos|   q1only   q2only     both     gain
+/workspace/tensor_language/jacclust/twoqk_screen.py:133: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:838.)
+  cw = float(forward_ce(idx, tgt, L, H, override(q1, L2, m1), override(q2, L2, m2)))
+L0H0     0.046   0.068  -0.0004  -0.0006  -0.0006  -0.0002
+L0H2     0.032   0.080  +0.0074  +0.0071  +0.0122  +0.0048
+L0H3     0.138   0.049  +0.0336  +0.0176  +0.0315  -0.0021
+L1H1     0.069   0.103  +0.0164  +0.0132  +0.0121  -0.0043
+L1H7     0.051   0.064  +0.0037  +0.0023  +0.0021  -0.0016
+L7H1     0.054   0.062  -0.0006  +0.0003  -0.0006  -0.0008
+L9H3     0.058   0.057  +0.0013  +0.0013  +0.0022  +0.0009
+L10H3     0.056   0.068  -0.0002  -0.0005  -0.0002  +0.0000
+L11H5     0.063   0.091  +0.0019  +0.0050  +0.0032  -0.0018
+L13H3     0.079   0.072  +0.0022  +0.0022  +0.0009  -0.0014
+L15H0     0.043   0.061  +0.0000  +0.0000  -0.0001  -0.0001
+L15H5     0.073   0.070  +0.0011  +0.0005  +0.0008  -0.0003
+
+corr(A_w, gain)      = -0.507
+corr(data|cos|, gain) = -0.220
+hypothesis: both correlations NEGATIVE (more independent circuits => bigger gain from folding in q2).
+A_w is the WEIGHTS-ONLY pre-screen; data|cos| the data-informed one (S11 pattern).
+DONE

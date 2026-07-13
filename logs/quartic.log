@@ -1,0 +1,15 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/venv/main/lib/python3.12/site-packages/sae_lens/saes/sae.py:253: UserWarning: 
+This SAE has non-empty model_from_pretrained_kwargs. 
+For optimal performance, load the model like so:
+model = HookedSAETransformer.from_pretrained_no_processing(..., **cfg.model_from_pretrained_kwargs)
+  warnings.warn(
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 35630.64it/s]
+Loaded pretrained model gpt2 into HookedTransformer
+Moving model to device:  cuda
+convex W-metric init : R2(M_i)  0.2365  L0  236.3  overlap  9.5%
+exact quartic polish : R2(M_i)  0.6160  L0  839.0  overlap  4.5%
+
+rescaled overlaps (ceiling 61.4%):  plain-sparse-code 41% | masked-projector 23% | OMP 17% | W-metric 12%
+Hypothesis: input-side pinning does NOT buy identifiability; W-filtering destroys it.
+DONE

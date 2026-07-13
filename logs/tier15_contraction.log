@@ -1,0 +1,33 @@
+induction batch: 96 seqs, q=27 j=7 src=8
+
+BASE L1H2 match s(q,src) = -0.0223
+
+GUARD — zero each L0 head's write at src; L0H3 must collapse L1H2's match:
+  zero L0H0@src → match -0.0246   Δs -0.0022
+  zero L0H1@src → match -0.0229   Δs -0.0005
+  zero L0H2@src → match -0.0239   Δs -0.0016
+  zero L0H3@src → match -0.0074   Δs +0.0150
+  [guard ok] L0H3 dominant (|Δs| 0.0150 vs next 0.0022)
+
+decomposing L0 OV maps (OMP + validated M-step):
+  L0H0-OV  atoms 128  k 8  R2 0.9704
+  L0H1-OV  atoms 128  k 8  R2 0.9447
+  L0H2-OV  atoms 128  k 8  R2 0.9495
+  L0H3-OV  atoms 128  k 8  R2 0.9530
+
+(F) FAITHFULNESS: swap head h's write for its atom reconstruction (match must not move)
+(G) GATE: remove the atom-reconstructed write; argmax|Δŝ| must be L0H3
+
+  head   true Δs    atom Δŝ    faithful match   |Δŝ| rank
+  L0H0  -0.0022   -0.0030      -0.0228
+  L0H1  -0.0005   -0.0005      -0.0225
+  L0H2  -0.0016   -0.0004      -0.0233
+  L0H3  +0.0150   +0.0121      -0.0193
+
+  JOINT GATE: argmax|Δŝ| = L0H3  → PASS   (L0H3 0.0121 vs next 0.0030, 4.07x)
+
+(B) SPEC §1.5 per-branch contraction |d_kᵀ OV_h d_j| (expected to fail on K2):
+  K1 (R2 0.984): L0H0 0.2099  L0H1 0.0886  L0H2 0.0920  L0H3 0.1693   → max L0H0 FAIL
+  K2 (R2 0.953): L0H0 0.1112  L0H1 0.0776  L0H2 0.0816  L0H3 0.1271   → max L0H3 PASS
+
+DONE

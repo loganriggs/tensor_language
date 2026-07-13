@@ -1,0 +1,14 @@
+base P(copy) 0.7467   K=512   L0H1-OV (99% causal)
+
+   k   R2 learn  R2 rand   gap      faithful P(copy)   halve@ learn / rand
+/workspace/tensor_language/mechdecomp/tier15_contraction.py:81: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:838.)
+  r2 = float(1 - (((W @ D) @ C - Y) ** 2).sum() / ((Y - Y.mean(1, keepdim=True)) ** 2).sum())
+   16   0.9997   0.9992  +0.0004     0.7470 ( 100% of base)   64 / 64
+    8   0.9987   0.9961  +0.0026     0.7472 ( 100% of base)   128 / 128
+    4   0.9862   0.9642  +0.0219     0.7020 (  94% of base)   128 / 128
+    2   0.9200   0.8005  +0.1194     0.4453 (  60% of base)   128 / 128
+    1   0.7652   0.5354  +0.2299     0.2350 (  31% of base)   128 / 128
+
+  Want: gap large (dictionary matters), faithful ~ base, halve@learn << halve@rand.
+DONE

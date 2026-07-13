@@ -1,0 +1,19 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+L8 down-proj: z(hidden)=4608, y=1152. 43880 train / 15000 held. m=1024 BatchTopK k=32.
+
+/workspace/tensor_language/jacclust/transcoder_vs_secant.py:19: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:838.)
+  thr = flat.kthvalue(flat.numel() - nkeep).values; return zsel.abs() > thr, float(thr)
+=== output-FVU (predict y=Dz) — transcoder is the FAIR predictor; secant sees y (flag) ===
+  transcoder (z->y, output loss)   output-FVU 0.450   [fair: z-only]
+  secant TIED  (operator loss)     output-FVU 0.802   operator-FVU 0.877   [sees y]
+  secant UNTIED                    output-FVU 0.813   operator-FVU 0.883   [sees y]
+
+  dict MMCS transcoder{d⊗w} vs secant-tied{p⊗q} = 0.133
+
+=== Goodhart test: cross-seed dictionary stability (higher=more canonical) ===
+  secant TIED   stability (seed0 vs seed1): 0.708   (op-FVU 0.877)
+  secant UNTIED stability (seed0 vs seed1): 0.428   (op-FVU 0.883)
+  Goodhart signature = untied op-FVU LOWER (better recon) but stability LOWER (less canonical).
+DONE

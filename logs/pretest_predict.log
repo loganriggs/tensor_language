@@ -1,0 +1,14 @@
+PREDICTIVE TEST of the decomposability pre-test (K=1024).
+Prediction: attention-OV maps -> small gap; MLP projections -> large gap.
+
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/292 [00:00<?, ?it/s]Loading weights: 100%|██████████| 292/292 [00:00<00:00, 35548.04it/s]
+  PYTHIA-410m L3
+  down_proj (MLP)  [known: passes]      k=8: learn 0.703 rand -0.000 gap +0.703  k=32: learn 0.774 rand 0.212 gap +0.562
+  attention.dense (O of OV) [NEW]       k=8: learn 0.820 rand 0.214 gap +0.606  k=32: learn 0.887 rand 0.500 gap +0.387
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 33627.14it/s]
+Loaded pretrained model gpt2 into HookedTransformer
+Moving model to device:  cuda
+
+  GPT-2 small L6
+  full attention OV [NEW]               k=8: learn 0.728 rand 0.362 gap +0.365  k=32: learn 0.863 rand 0.656 gap +0.207

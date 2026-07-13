@@ -1,0 +1,6 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+VERIFY custom forward: model CE 4.0710  custom CE 5.8942  diff 1.82e+00
+Traceback (most recent call last):
+  File "<stdin>", line 51, in <module>
+AssertionError: custom forward mismatch

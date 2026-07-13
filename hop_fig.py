@@ -12,7 +12,7 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import numpy as np
 
-from analysis import INK, SECONDARY
+from palette import INK, SECONDARY
 from hop_data import K_MAX, E
 from deep_model import SPECS
 

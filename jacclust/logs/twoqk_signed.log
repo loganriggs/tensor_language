@@ -1,0 +1,21 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+500M two-QK signed-attention analysis. (squared single-QK head would give frac_neg=0.)
+
+head    frac_neg_entries  frac_neg_mass  PR(prod)   PR(s1)   PR(s2)
+  ALL 162 heads: frac_neg_entries 0.500±0.125 [0.103,0.945]
+                frac_neg_mass    0.490±0.274 [0.008,0.986]
+                PR: product 0.319  vs s1 0.594  s2 0.600 (lower=more peaked; product<single => conjunctive sharpening)
+
+  causal/screen heads (ticks 27-28):
+    L0H2 [gain+] frac_neg_mass 0.444  frac_neg_entries 0.467  PR prod 0.379 / s1 0.630 / s2 0.635
+    L1H1 [scr  ] frac_neg_mass 0.923  frac_neg_entries 0.576  PR prod 0.131 / s1 0.389 / s2 0.411
+    L3H3 [gain0] frac_neg_mass 0.522  frac_neg_entries 0.483  PR prod 0.221 / s1 0.386 / s2 0.633
+    L6H3 [gain+] frac_neg_mass 0.162  frac_neg_entries 0.464  PR prod 0.169 / s1 0.560 / s2 0.394
+    L8H3 [gain+] frac_neg_mass 0.701  frac_neg_entries 0.536  PR prod 0.306 / s1 0.612 / s2 0.562
+    L9H3 [scr  ] frac_neg_mass 0.846  frac_neg_entries 0.570  PR prod 0.263 / s1 0.601 / s2 0.486
+    L11H5 [scr  ] frac_neg_mass 0.680  frac_neg_entries 0.524  PR prod 0.230 / s1 0.618 / s2 0.436
+    L13H3 [scr  ] frac_neg_mass 0.454  frac_neg_entries 0.478  PR prod 0.281 / s1 0.579 / s2 0.570
+
+  fraction of heads where PR(product) < min(PR(s1),PR(s2)) [conjunctive sharpening]: 1.00
+DONE

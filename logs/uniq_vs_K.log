@@ -1,0 +1,13 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/292 [00:00<?, ?it/s]Loading weights: 100%|██████████| 292/292 [00:00<00:00, 37716.70it/s]
+d_in=4096  k=16   uniqueness = loss/(baseR2/K)
+
+      K    K/d   MP baseR2   MP uniq  rnd baseR2  rnd uniq   ratio    MW z
+    256   0.06      0.3742    0.2860      0.0250    1.2258    0.23  +10.06
+   1024   0.25      0.4491    0.3005      0.0917    0.3338    0.90   -0.14
+   2048   0.50      0.4842    0.2255      0.1173    0.2029    1.11   -0.94
+   4096   1.00      0.5213    0.1219      0.1478    0.0768    1.59   -1.39
+
+  ratio > 1 with significant z would mean MP atoms are more unique than random at that K.
+  A true generator scores 4.3-4.9x at K/d <= 1 (toy).
+DONE

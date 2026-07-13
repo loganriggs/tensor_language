@@ -1,0 +1,40 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+500M two-QK. baseline CE 3.7422, 3160 tokens. Intervention: joint (q1,q2,v) override.
+
+/workspace/tensor_language/jacclust/twoqk_ovk.py:76: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:838.)
+  Vmix = (1 - float(a.lamb)) * vh + float(a.lamb) * v1_full[:, :, H, :]
+  --- L6H3 ---
+    q1 only                          +0.0013±0.0003
+    [q1;q2] (two-Q, WHERE)           +0.0010±0.0002
+    [q1;q2; OVv] (Q + write)         +0.0012±0.0006
+    [q1;q2;k1;k2;OVv] (full OVK)     +0.0010±0.0002
+    [k1;k2;OVv] (OVK source-side)    +0.0011±0.0002
+    residual x                       +0.0011±0.0004
+    random                           +0.0001±0.0001
+  --- L8H3 ---
+    q1 only                          -0.0002±0.0001
+    [q1;q2] (two-Q, WHERE)           +0.0000±0.0001
+    [q1;q2; OVv] (Q + write)         -0.0003±0.0001
+    [q1;q2;k1;k2;OVv] (full OVK)     -0.0003±0.0002
+    [k1;k2;OVv] (OVK source-side)    -0.0003±0.0002
+    residual x                       +0.0000±0.0006
+    random                           -0.0000±0.0000
+  --- L0H2 ---
+    q1 only                          +0.0019±0.0019
+    [q1;q2] (two-Q, WHERE)           +0.0021±0.0011
+    [q1;q2; OVv] (Q + write)         +0.0018±0.0004
+    [q1;q2;k1;k2;OVv] (full OVK)     +0.0014±0.0011
+    [k1;k2;OVv] (OVK source-side)    +0.0027±0.0022
+    residual x                       +0.0089±0.0094
+    random                           +0.0000±0.0000
+  --- L11H5 ---
+    q1 only                          +0.0028±0.0004
+    [q1;q2] (two-Q, WHERE)           +0.0012±0.0009
+    [q1;q2; OVv] (Q + write)         +0.0013±0.0013
+    [q1;q2;k1;k2;OVv] (full OVK)     +0.0012±0.0006
+    [k1;k2;OVv] (OVK source-side)    +0.0014±0.0005
+    residual x                       +0.0017±0.0002
+    random                           +0.0000±0.0000
+DONE

@@ -1,0 +1,16 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/292 [00:00<?, ?it/s]Loading weights: 100%|██████████| 292/292 [00:00<00:00, 3074.17it/s]
+R2 -37655420928.0000 L0 44.3
+
+ablation faithfulness (654 atoms, support>60):
+  ΔOV concentration (active/inactive ||ΔOV·x||): median 2.5x, min 1.9x, all>3x: False
+  per-atom: [2.8, 3.2, 1.9, 2.2, 3.0, 2.6, 2.2, 2.5, 2.0, 2.5, 2.6, 2.3]
+
+context-window interp (best atoms):
+  atom 447: 'lund amongil' | ' the problemil' | ':\n which' | ') het encoding' | ' drivesot belonging'
+  atom 217: 'A42 application' | '\n44 molecular' | 'babel>"' | ' most the formulation' | "'d It email"
+  atom 454: ' Head\n +' | ' near Tom],[@' | ' resemble queryeds' | '///X"' | ' ( designer+'
+  atom 853: '\n\n\n' | ' soon In\n' | ' toich\n' | 'C}\n' | ' low and property'
+  atom 91: '– increased Prior' | 'l anGB' | ' United thefor' | ' television\n also' | ' other you\n'
+  atom 768: ' forgetting more we' | ',j it' | '1 versusson' | ' - andAR' | ' differentain It'
+DONE

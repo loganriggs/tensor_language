@@ -1,0 +1,31 @@
+
+=== block2-dense-seed0  MLP #0 ===
+  clean CE 4.0832   |   MLP -> ONE global linear map: CE 10.0733  (+5.9902 nats)
+
+    k metric                       CE within   CE across  differential  within vs global
+    8 raw x                       8.4065±0.177 13.8339±0.115    5.4275±0.186         1.6669
+    8 G-metric (Jacobian)         7.7852±0.173 13.8546±0.290    6.0694±0.254         2.2882
+    8 G_rand (spectrum-matched)   8.0518±0.118 13.8594±0.308    5.8075±0.293         2.0215
+    8 random clusters            10.3753±0.056 10.3735±0.048   -0.0017±0.051        -0.3019
+
+   16 raw x                       7.5599±0.063 13.5099±0.324    5.9501±0.335         2.5135
+   16 G-metric (Jacobian)         7.4281±0.085 13.2823±0.326    5.8542±0.384         2.6453
+   16 G_rand (spectrum-matched)   7.2856±0.051 13.3580±0.132    6.0724±0.150         2.7877
+   16 random clusters            10.8728±0.043 10.8640±0.049   -0.0088±0.044        -0.7995
+
+
+=== block2-dense-seed0  MLP #1 ===
+  clean CE 4.0832   |   MLP -> ONE global linear map: CE 5.5543  (+1.4711 nats)
+
+    k metric                       CE within   CE across  differential  within vs global
+    8 raw x                       5.2189±0.003  8.4518±0.046    3.2329±0.047         0.3354
+    8 G-metric (Jacobian)         5.2175±0.015  9.0032±0.321    3.7857±0.322         0.3368
+    8 G_rand (spectrum-matched)   5.2420±0.004  8.6614±0.161    3.4194±0.159         0.3123
+    8 random clusters             5.6884±0.010  5.6891±0.005    0.0007±0.007        -0.1340
+
+   16 raw x                       5.1894±0.017  9.8779±0.334    4.6885±0.350         0.3649
+   16 G-metric (Jacobian)         5.1248±0.007  9.9909±0.368    4.8661±0.367         0.4295
+   16 G_rand (spectrum-matched)   5.2150±0.021  9.8478±0.323    4.6328±0.326         0.3393
+   16 random clusters             5.8817±0.009  5.8844±0.013    0.0027±0.021        -0.3274
+
+DONE

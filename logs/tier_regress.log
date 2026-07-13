@@ -1,0 +1,12 @@
+=== REGRESSION: Tier 0 + Tier 1 gates with CURRENT solver (pinv M-step, ridge/gate options) ===
+
+Tier 0 recovery : min-cos 0.9994 (>0.99)  minF1 1.000 (>0.95)  -> PASS
+Tier 1.4 cheating: 0 cheating atoms over 3 seeds -> PASS
+
+=== Tier 1.2 RETEST: was the 'no mechanism-side rescue' verdict an L1 artifact? ===
+  seed 0: OMP-mech  e0 cos 0.675 e1 cos 0.946 distinct=True | SAE e0 0.630 e1 0.724
+  seed 1: OMP-mech  e0 cos 0.782 e1 cos 0.668 distinct=True | SAE e0 0.840 e1 0.677
+  seed 2: OMP-mech  e0 cos 0.681 e1 cos 0.646 distinct=True | SAE e0 0.686 e1 0.778
+
+(L1 verdict was: mech 0.60-0.67 ≈ SAE 0.63-0.84, no rescue)
+DONE

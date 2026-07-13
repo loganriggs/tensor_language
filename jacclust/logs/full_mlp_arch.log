@@ -1,0 +1,11 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+500M L8 full MLP: h,y=1152. 49000 train / 15000 held. m=1024 BatchTopK k=32.
+
+=== held-out output-FVU (reconstruct y = full bilinear MLP output) ===
+  A linear transcoder  (h->y, fair)     output-FVU 0.683
+  B bilinear transcoder(h->y, fair)     output-FVU 0.642   <- matches layer structure (Dooms)
+  C secant-SAE (tied, sees y)            output-FVU 0.422   operator-FVU 0.476
+
+  fair predictors A,B are h-only; C sees y. bilinear TC should win (= sparse hidden units).
+DONE

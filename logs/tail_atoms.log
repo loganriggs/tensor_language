@@ -1,0 +1,36 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/292 [00:00<?, ?it/s]Loading weights: 100%|██████████| 292/292 [00:00<00:00, 36548.40it/s]
+learned dict: base R2 0.4919   K=1024 k=16
+
+mean atom usage 0.0156  -> ~125 firings per atom in the 8000-point purity set
+
+measuring irreplaceability of 96 atoms...
+  mean loss 0.000227   top1 0.006116 (27.0x its own mean)
+
+CHANCE purity (random positions, measured): 0.081
+
+group     atom    irrepl   usage  purity  entropy   top tokens
+TAIL        66  0.006116  0.0100   0.225    3.091   ['Q', 'Tag', 'Sen', 'J']
+TAIL       814  0.000756  0.0155   0.050    3.585   ['J', 'Tag', 'Sen', 'Form']
+TAIL       264  0.000756  0.0138   1.000   -0.000   ['\n']
+TAIL       537  0.000710  0.0129   1.000   -0.000   ['\n']
+TAIL       634  0.000484  0.0288   0.725    0.979   [' a', ' an', 'ait', ' net']
+  -> TAIL mean purity 0.600
+
+BULK       845  0.000129  0.0160   0.075    3.338   ['mf', ' part', 'ur', ' Pat']
+BULK        43  0.000127  0.0121   0.200    2.948   [' patients', '´', ' mental', 'ines']
+BULK       631  0.000120  0.0154   0.100    3.295   [' do', 'th', 'back', 'iro']
+BULK      1016  0.000118  0.0204   0.325    2.786   ['\n', ' phone', ' four', 'and']
+BULK       168  0.000116  0.0171   0.050    3.585   [' phone', ' York', ' London', ' mass']
+  -> BULK mean purity 0.150
+
+RANDOM     629       nan  0.0151   0.225    3.125   ['Q', 'J', 'Tag', 'Aut']
+RANDOM     502       nan  0.0054   0.075    3.524   ['\n', '’', ' wide', 'iki']
+RANDOM     293       nan  0.0425   0.025    3.689   ['ale', ' processor', 'all', 'well']
+RANDOM     405       nan  0.0146   0.050    3.585   ['\n', ':', 'ville', 'ing']
+RANDOM     862       nan  0.0108   0.075    3.503   ['\n', 'am', ')', ' function']
+  -> RANDOM mean purity 0.090
+
+Interpretability requires TAIL purity >> BULK and >> RANDOM and >> chance.
+
+DONE

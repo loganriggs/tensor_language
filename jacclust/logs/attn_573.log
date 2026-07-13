@@ -1,0 +1,17 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+573M bilinear-sqrd-attn (CE 3.42). pattern-summary var-explained, 5 seeds.
+
+     head              J              x   random-matrix  J beats x & rand?
+  L3H0      +0.179±0.002   +0.196±0.019    +0.010±0.002              False
+  L3H3      +0.086±0.021   +0.098±0.009    +0.008±0.002              False
+  L3H6      +0.044±0.005   +0.063±0.022    +0.006±0.002              False
+  L9H0      +0.246±0.014   +0.105±0.014    +0.009±0.002               True
+  L9H3      +0.143±0.007   +0.028±0.005    +0.006±0.003               True
+  L9H6      +0.114±0.004   +0.013±0.001    +0.008±0.002               True
+  L15H0      +0.094±0.002   +0.020±0.003    +0.008±0.002               True
+  L15H3      +0.152±0.012   +0.098±0.006    +0.008±0.003               True
+  L15H6      +0.161±0.003   +0.042±0.016    +0.007±0.001               True
+
+  Confirms at 573M iff J beats random-matrix broadly and beats x on a majority of heads.
+DONE

@@ -934,3 +934,820 @@ consistently anti at equal competence).
 | H2: single-task tricks die | The elimination trick is dead (accuracy with layer 2 removed: 0.88 → 0.00); the backtrack-boost survives (it is legal in most families); the circuit is unified: K-composition all-or-nothing, V-composition abandoned, attention sign flipped positive |
 | H3: generalist competence | Confirmed and exceeded: two architectures at ~1.00 legal everywhere including zero-shot torus/ER; the mixture model beats the grid specialist on grid. But most raw zero-shot transfer comes nearly free even from grid-only training |
 | H4: architecture ranking | softmax-add-3L strongest (perfect); recipe fragility extreme: bilinear-add-2L plateaus, bilinear-add-3L diverges, softmax-lerp fails only the deterministic family |
+
+---
+
+# Program change (2026-07-08): deeper circuits — finding the next induction heads
+
+New direction (Logan): train bilinear (tensor) attention ladders of increasing depth on
+**natural text**, track which validation datapoints differentially improve as depth is
+added (strong threshold + hysteresis), cluster gated datapoints by causal circuit, then
+isolate each circuit in a toy task and study its training dynamics following Singh et al.
+2024 (`induction_head_training_dynamics_paper.txt`). Roadmap + gotchas: `PLAN.md`.
+Prior hop-ladder results (chained retrieval = depth-3 circuit, pointer-advance mechanism,
+seed lottery, curriculum backfires 0/4) stand in `results_hop.md` and become the
+isolation-stage template.
+
+## Session 1 (2026-07-08): infrastructure + first ladder
+
+- **Corpus decision (Logan): natural text from the start** — TinyStories, byte-level
+  BPE V=1024, n_ctx 256. Built `data_text/`: train 616M tokens, frozen val 15M tokens
+  (val split + 30k held-out train stories; held-out stories excluded from train.bin).
+- Repo reorganized: legacy projects → `archive/`, raw run logs → `logs/`; active core at
+  root (`model.py`, `deep_model.py`, hop_*, new lm_* pipeline).
+- New pipeline: `text_data.py` (corpus), `lm_train.py` (depth ladder, identical data
+  order across depths at fixed seed), `lm_eval.py` (per-token CE on frozen val),
+  `differential.py` (depth-gated datapoint finder + report with decoded examples).
+- Smoke test: bilinear attn-2 LM trains stably on text (no softmax; RMSNorm on):
+  106 steps/s, 40k-step run ≈ 7 min, loss 6.9→3.9 in 300 steps.
+- RUNNING: depth ladder attn1–attn4 × seeds 0–2 (two parallel workers).
+- Heartbeat cron active (20 min, expires 2026-07-09 12:31 UTC).
+
+### Questions for Logan
+
+- Corpus resolved per your message (natural text). Recipe defaults I picked: TinyStories,
+  BPE-1024, d_model 128, 4 heads, 40k steps — veto anytime.
+- After the bilinear ladder: planning a softmax control ladder (same depths) to separate
+  "bilinear-specific" from "depth-generic" gates. Default: yes.
+
+## Descope (2026-07-08, Logan): drop the softmax comparison entirely
+
+Focus is the TENSOR NETWORK program only. Softmax controls killed (TinyStories softmax
+results stay in results_deeper.md as archive; partial OWT softmax run deleted). GPU
+reallocated to the bilinear ladder on OWT: attn1-4 (dense ckpts on seed0 of attn2/attn3)
+plus "full bilinear transformer" specs — blockN = N x [bilinear attn + bilinear MLP]
+(block2 dense + 3 seeds queued, then attn4). The dynamics story is now purely internal:
+how do bilinear circuits form, and what does each added attn layer vs bilinear MLP buy.
+
+### Questions for Logan (mechdecomp, 2026-07-09)
+- Tier 1.1/1.2 DGP semantics: independent-coefficient ρ=1 pairs are separable by
+  nonneg-L1 alone (method recovers pure atoms — arguably a good surprise). Redesigning
+  1.1 with tied coefficients (variation only along e0+e1) as the true merge case;
+  1.2's mechanism-side-rescue claim needs the L1×gain geometry derived first — flag if
+  you had a specific construction in mind.
+- Tier 1.2 falsified as constructed: gain-anisotropic W does NOT rescue co-occurring
+  features (basis-degeneracy survives; SAE comparison shows no advantage, 3 seeds).
+  Salvage candidates in results_mechdecomp.md — gain-weighted L1 is my first pick.
+- Mechdecomp Tier 1.5: contraction on GENERIC activations recovers L0H3→L1H2 in K2 but
+  not K1 (L0H0's generic writing dominates K1). Weight-space check confirms it's real,
+  not a method bug. The causal circuit is data-conditioned (source positions); plan to
+  re-run contraction conditioned on the induction datapoints. Confirm this is the
+  intended §1.5 reading for circuit discovery (I think yes).
+- Mechdecomp Tier 1.5 KEY FINDING: mean contraction magnitude does NOT recover selection
+  circuits (L0H0 dominates K1 by magnitude but is causally inert — position-constant
+  baseline; L0H3 is the selective/causal one). Fix: score contraction by DISCRIMINABILITY
+  (variance across candidate keys), not norm. Substantive refinement of spec §1.5's
+  "circuit = matrix entry" for selection circuits. Confirm the reading.
+- Mechdecomp Tier 2 blocker: on dense real OWT activations the kmeans+lasso solver gets
+  R²<0.3 though the parameterization is COMPLETE (identity init + c=1 = exact). Fix =
+  SVD/identity init (spec init (b)); kmeans (init c) only suits sparse toy data. Confirm
+  intended regime for real layers: overcomplete-sparse vs near-complete-basis.
+- Mechdecomp Tier 2 resolved: R²<0.3 was SITE (dense token-embedding activations, no
+  sparse features), not init/solver (identity+dense = R²1.0). Pivot: sparse-recon Tier 2
+  → Pythia/Gemma MLP-hidden activations (where superposition makes features sparse). Our
+  tiny models served their role as Tier 1.5 circuit ground truth. Confirm the pivot.
+- Mechdecomp Tier 2 Pythia-70m: NEGATIVE — worse than rank-21 dense (R² 0.49 vs 0.55 at
+  L0 66) and atoms incoherent. Confounded with model size (Pythia-70m tiny). DECISION
+  NEEDED: (a) jump to Gemma-2-2B (spec target, good features known), (b) retry Pythia on
+  RESIDUAL STREAM first (cheap site test), (c) Pythia-160m/410m. I recommend (b)→(a).
+- Mechdecomp Gemma BLOCKED: google/gemma-2-2b is GATED (401, no HF token with access).
+  NEED FROM LOGAN: an HF_TOKEN with Gemma access (set in ${WORKSPACE}/.env as HF_TOKEN),
+  OR approve a non-gated substitute for the interp/SAE-comparison target. Meanwhile
+  testing Pythia-410m (non-gated, 6× larger than 70m) to check if interp improves with
+  scale — confirms/refutes the "weak features" diagnosis before Gemma.
+- Mechdecomp FULLY CHARACTERIZED: method needs data sparse in a W-aligned basis. Toys have
+  it (perfect recovery); real Pythia activations don't (dense: low-rank map can't separate,
+  high-rank can't sparsely reconstruct). Gemma residual stream is the DECISIVE test — it's
+  SAE-validated-sparse (the exact required property). Still need HF_TOKEN for gemma-2-2b,
+  OR approve GPT-2-small (has SAEs). This is the one experiment that resolves the method's
+  real-world value. Natural handoff point.
+
+### Mechdecomp RESOLVED (2026-07-09) — Gemma question now MOOT
+Unblocked the crux without Gemma: used sae_lens + GPT-2-small res-jb SAE (non-gated,
+24576 known-good features). DECISIVE RESULT: method atoms do NOT align with validated SAE
+features (max-cos 0.16 ≈ random 0.15), and every real-model run hit distinct solver
+instabilities. HONEST VERDICT (results_mechdecomp.md): method is exact/sound on toys and
+circuit-contraction, but real-model feature discovery is unsupported as implemented (fragile
+optimization + finds PCA-like not sparse directions). No Gemma access needed anymore — the
+underlying question is answered. Validated contribution = toy recovery + circuit contraction;
+real-model feature discovery = open problem (needs robust solver + objective reformulation).
+- ATLAS CAVEAT WITHDRAWN (2026-07-09, same day): I flagged the atlas as containing a wrong
+  "magnitude fails / selectivity recovers" claim. It does NOT — that claim lived only in
+  results_mechdecomp.md's Tier-1.5 scoring. The atlas says "raw Frobenius-norm composition does not
+  single out the causal edge; composed with the matched token's embedding (what L0 actually writes
+  when it reads ' j') both K branches light up on L0H3", and closes with "weight products need the
+  right input direction before they reflect the circuit." That directional composition uses the
+  CORRECT input (a previous-token head at the source reads the previous token), and its caution
+  literally anticipates the wrong-write bug I later made. **No atlas correction needed.**
+
+## Questions for Logan (2026-07-09)
+1. **Your experiment #2 is answered: "features are not optimal for this objective."** On a toy with a
+   known generator, a correct refinement leaves the true dictionary untouched (Δ −0.0002, cos 0.9998).
+   On GPT-2 the SAE feature basis moves: +0.033 held-out R²(Wx), atoms rotate ~60°. Features are still
+   the best available init (beats random-init refinement by +0.023).
+   *Caveat I want your read on:* "SAE features aren't GPT-2's generators" is close to tautological —
+   an SAE with R²≈0.99 leaves structured residual. Is the informative content just the magnitude
+   (+0.033 / cos 0.48)? Or is there a version of this test you'd consider load-bearing?
+2. **The identifiability metric is dead.** OMP at the SAE's own L0, over the SAE's own decoder, beats
+   OLS-on-the-SAE's-support (0.9328 vs 0.8807) with only 23% support overlap. The SAE's active set is
+   not the reconstruction optimum at its own sparsity, so overlap-with-SAE-features can't adjudicate
+   *any* reconstruction objective — including the older max-cos 0.16-vs-0.15 result you flagged.
+   I've made "no SAE-overlap oracle" a standing rule. Ground truth must come from toys/Tier-1.5.
+3. **Solver hygiene, for the spec:** OMP-support + M-step alternation is not guaranteed descent (the
+   support is re-selected each round). With the fixed M-step it is monotone in practice at N=5.9k.
+4. Program A (circuits) still paused. Tier 1.5 (bilinear models, defined ground truth) is the natural
+   next mechdecomp step now that the SAE-overlap metric is retired — it's the only place an
+   identifiability claim can actually be tested. Proceeding there unless you say otherwise.
+
+## Questions for Logan (2026-07-09, later)
+5. **Tier 1.5 passes — on the right quantity.** Atom-reconstructed write ablation recovers the causal
+   L0H3→L1H2 edge at 4.07×. But the spec §1.5 per-branch contraction is *ill-posed*, not just weak:
+   `|G|` names L0H0 for K1; signed-selectivity names L0H2 for K2. No variant gets both branches, and
+   the answer changes with the statistic. Proposed spec amendment: for gated layers, replace "read the
+   contraction matrix" with "ablate the atom-reconstructed write, measure Δ on the downstream score."
+   Your standing gate ("must recover the edge in both K branches") presumes a separability that
+   `Δs = a₁b₂ + a₂b₁ − b₁b₂` denies — I've restated it as the joint-Δŝ gate. Flag if you disagree.
+6. **Tier 1 recovery is healthy**: the objective recovers the true dictionary from random init at
+   K/d up to 4 (0.96–0.98 vs chance 0.35). The 4×-overcomplete case just needs 60 rounds, not 20.
+7. **The lasso E-step is fine after all** — my "it fails" reading was λ mis-calibration (L0 28 vs
+   ktrue 4). At matched L0 it ties OMP. So spec §3 needs a λ-calibration note, not a solver swap.
+   The GPT-2 gap (OMP 0.90 vs lasso-debias 0.665 at matched L0) is real but is about real-data
+   coherence, not a generic L1 defect. Recommend: calibrate λ to target L0, per dictionary.
+8. **Weak-signal caveat worth your view:** my induction batches are random-token repeats, base match
+   −0.022 vs −0.434 on natural text. Ordering reproduces. Worth re-running Tier 1.5 on natural
+   sequences before this goes in a writeup?
+
+## Questions for Logan (2026-07-09, tick 3)
+9. **Tier 1.5 closed, both flagged items resolved without needing your call:**
+   - Natural-text induction sites (mined, not synthesised; base match −0.186 vs −0.022 random-token):
+     joint-Δŝ gate PASSES at **8.81×** (was 4.07×). Δŝ +0.087 tracks true Δs +0.104.
+   - The uncitable "lasso 0.06–0.46" is retracted and re-measured. At matched L0=8 on L0H3-OV:
+     OMP 0.9749, lasso 0.8278, lasso+OLS-debias 0.9131. The old figures were λ≥0.2 ⇒ L0≤0.9.
+10. **res-jb has 45 live duplicate feature directions** (|cos|>0.999, e.g. 979↔2039 at cos=1.000000,
+    clustered around feat 316). Not dead-feature collapse — the top-2048-by-usage dictionary still has
+    mutual coherence 1.0. This is a fact about a widely-used SAE that may interest you independently.
+    An exactly duplicated pair is unidentifiable for any solver; L1 splits mass between the twins,
+    which is where it loses R² at matched L0. I now think the OMP-vs-lasso gap is *mostly* this.
+11. **My "W's null space merges features" hypothesis was wrong** — the collinear pairs are collinear
+    *before* W (null-space energy 2.8%). Mentioning because it was the intuitive story and it failed.
+12. Next: Pythia tier with the validated (Gauss-Seidel) M-step and λ calibrated to target L0. The
+    old Pythia runs used the un-validated solver, so I plan to re-run rather than cite them.
+
+## Questions for Logan (2026-07-09, tick 4)
+13. **RETRACTION of my item 10.** I claimed the OMP−lasso gap is "mostly" L1 splitting mass between
+    duplicate feature twins. Tested and false: deduping the 45 twin pairs changes the gap by 0.0002
+    (0.1219 → 0.1217). The twins form a clique around feat 316, so dedupe removes just 9 of 2048
+    atoms — it could never have explained 0.12 R². The gap is ordinary L1 shrinkage + support
+    selection on a coherent dictionary. The duplicate-features fact about res-jb stands on its own;
+    it is simply not the cause. Apologies for asserting it before testing.
+14. **Tier 2 (Pythia-410m) re-run, validated solver.** `down_proj` L3 (1024×4096, rank 1024).
+    Held-out R² 0.6020 at L0 32 from random init; svd-init gives no lasting advantage (0.5985).
+    Floor check: PCA-32 0.3509, PCA-64 0.4231, OMP-32-over-PCA-64 0.3897 — the learned sparse
+    dictionary dominates all of them, so sparsity *and* learning each buy real margin.
+    **This retracts the program's old "finds PCA-like, not sparse, directions" claim** — that was
+    the un-validated M-step talking. Absolute quality is still mediocre (0.60 vs 0.97 on attn2),
+    and 25% rowspace visibility means down_proj atom interpretations are rowspace-only claims.
+15. **A concrete identifiability number for the spec:** for `W: R^d_in → R^d_out`, atoms are
+    recoverable only up to `row(W)`; cos(true, identifiable) = sqrt(rank/d_in). Pythia down_proj:
+    0.50. GPT-2 OV: 0.993. Worth stating in §1.4 — it decides which layers are even decomposable.
+
+## Questions for Logan (2026-07-09, tick 5) — TWO PROGRAM-A RETRACTIONS
+16. **"10% copy-burst mixture installs induction 3/3 seeds" is WRONG.** The bursts are `[u[:128]; u]`
+    with a CONSTANT period of 128 (lm_train.py:90-96). In that distribution, content-matching and a
+    fixed −127 offset are exactly equivalent, so the model learns a **positional copier**. Vary the
+    period: mix10 scores 0.9036 at P=128 and 0.0001–0.0003 at P=150/100/64 (chance). Fix is one line:
+    randomise the repeat period per row. Want me to retrain the mix10 ladder with random periods?
+17. **tiny attn2-seed0 is not an induction head model.** On the exact training-burst distribution it
+    copies arbitrary repeated tokens at 1.2× chance (mix10: 4609×). Its L1H2 is a repeated-bigram
+    match-and-copy circuit on natural text — causally real, wrongly named. Program A's "induction
+    recovered unsupervised from depth-2 gates" needs the same relabelling.
+    **Tier 1.5's mechdecomp gate is unaffected**: it recovers a causally-verified edge, whatever we
+    call it. The atlas artifact and results_deeper.md both use "induction" and should be corrected.
+18. **I got the induction-head criterion wrong first** by selecting the most-negative match — your
+    XNOR point from the atlas review, which I failed to apply here. Behavioural ablation (guarded to
+    reproduce L1H2 on tiny) is what I use now.
+19. **Two of my random-repeat probes failed their positive control** (mix10 scored the same as dense).
+    Only the third — matched to the training distribution — detects induction. Logged, not hidden.
+20. **Gemma is hard-blocked:** `GatedRepoError: 401` on config.json, no HF_TOKEN configured. The last
+    tier needs you to accept the license or supply a token.
+
+## Questions for Logan (2026-07-09, tick 6) — corrections to my own tick-5 retraction
+21. **My period-sweep probe was unsound below P=128** (`[u;u]` leaves positions q>2P−1 unpredictable).
+    Under a sound *tiled* probe, mix10 scores **0.58 at P=64**, not chance as I reported. The
+    retraction survives — P=96/85/150/180 are chance under the sound probe — but two of the numbers
+    I showed you were wrong.
+22. **"Positional copier" is falsified as a mechanism.** It predicts copying iff P|128; P=43 gives
+    0.2144 and P=127 gives 0.0586. Attention analysis shows a *mixture*: at P=96 the head puts mass
+    17.4 on the fixed key q−127 (wrong token, copying fails); at P=43 it puts 19.7 on the
+    induction-target keys (copying partially works). **Mechanism unresolved.** I used |attn| and the
+    bilinear scores are signed, so this bounds rather than pins it.
+23. **NEW, and I think the real finding:** randomising the burst period (tiled, P~U[42,128]) means
+    **no copying is learned at all** — 10% and 30% mixture, 30k steps, chance at every period — while
+    the matched fixed-period control reaches 0.72 in 20k. The lever worked *because of* the period
+    regularity. Whether content-based induction can form here at all is now an open question, and
+    it's the one I'd most like your steer on: worth a long (200k-step) random-period run?
+24. `--randperiod` added to lm_train.py (tiled bursts). Fixed path RNG untouched → old runs reproduce.
+
+## Questions for Logan (2026-07-09, tick 7)
+25. **I was wrong to say "mechanism unresolved" (tick 6).** The fixed-period copier IS positional; my
+    prediction assumed a single attended offset. It attends **−127 and −128**, so it copies iff
+    `P | 128` or `P | 129`. This predicts the *untrained* P=129 → observed 0.4013, and chance at
+    96/85/126/63/44. 129 = 3·43 is exactly why P=43 copied and broke my naive rule.
+26. **Content-based induction CAN form here** (positive control: 100% tiled random-period bursts →
+    0.96–0.99 on trained periods, 0.88/0.92 at untrained P=32/16). So the 10%/30% failure was signal
+    sparsity, not architectural capacity. I ran this before the long training run you'd have paid for.
+27. **Mixture ladder is non-monotonic**: 0.5 gives strong content-based induction, 0.7 nearly none,
+    1.0 near-perfect. Could be formation variance (your basin-competition result) or a bad seed.
+    **I am not reporting a threshold** until seeds 1–2 land.
+28. **We finally have a real induction circuit**: mix50-rp has redundant L1H0/L1H3 copy heads reading
+    from required L0H1/L0H0. Verified at P=96 where positional copying scores chance. I propose
+    promoting this model to Tier-1.5 ground truth — it is induction in the Elhage/Olsson sense,
+    unlike attn2-seed0 (repeated-bigram) and mix10 (positional).
+29. **RESOLVED — no mixture threshold exists.** mix 0.5 seed0 = 0.7483 (hit), seed1 = 0.0011 (miss),
+    identical settings. Formation of content-based induction is **stochastic** at 30k steps, which is
+    the basin-competition signature you found for the old lever, now shown for the real capability.
+    So the ladder in tick 7 must not be read as a threshold, and I withdraw the framing. A proper
+    study reports **formation rate over seeds**, not a copy score. Worth doing?
+
+## Questions for Logan (2026-07-09, tick 8) — the Tier-1.5 gate is vacuous
+30. **I ran the gate on the real induction circuit and it passed — then I controlled it and it is
+    meaningless.** A *random unlearned dictionary* reproduces Δŝ to 0.0003 and passes with a LARGER
+    margin (25.59×) than the learned one (8.81×). On mix50-rp, simply ranking heads by ‖write‖
+    reproduces the causal ranking with no decomposition at all. **All Tier-1.5 gate PASSes are
+    retracted as evidence about the method.** The causal circuits remain real.
+31. **I built a gate that can fail (atom localization) and the method fails it.** Ablating atoms by
+    contribution energy from L0H1's write: learned needs 32 atoms to halve P(copy), random needs 32,
+    and the learned curve is slightly worse at every point. No localization advantage.
+32. **My explanation for that was refuted by measurement.** I predicted a flat OV spectrum
+    (isometry ⇒ nothing to find). In fact OV eff/rank is 0.10–0.43 while Pythia down_proj — where the
+    method *does* beat PCA — is 0.80, i.e. flatter. Cause unresolved. Leading candidate: 128 atoms in
+    128 dims against a ≤32-dim target means k=8 doesn't bind. Next test: 1024 atoms, k=2.
+33. **What survives:** Pythia Tier 2, where the learned dictionary beats PCA-32 (0.6020 vs 0.3509) at
+    matched L0 — a control that could have failed and didn't. That is currently the *only* evidence in
+    this program that the decomposition does something a trivial baseline doesn't.
+
+## Questions for Logan (2026-07-09, tick 9) — why the gate was vacuous
+34. **Resolved, and it is a scope limit rather than a bug.** The learned-vs-random tie on OV maps has
+    two parts. (i) Sparsity never bound: at k=8 the learned−random R² gap is +0.0026; at k=1 it is
+    +0.2299. Pythia's k=32 against a 1024-dim target *does* bind (random 0.2587 vs learned 0.6020).
+    (ii) More importantly, **there is no k that is sparse AND faithful AND localizing**: where the code
+    is faithful the dictionary is irrelevant; where the dictionary matters the code destroys 40–70%
+    of the behaviour.
+35. **Strongest gate, causal-ranked atoms, faithful regime: learned ≡ random.** All 512 atoms live,
+    top single-atom effect 1.4% of base. The induction write is "copy the embedding" — a dense map on
+    a 32-dim subspace. **Its mechanism is distributed; there is nothing sparse to find.** The
+    decomposition is not failing here, it is inapplicable.
+36. **My flat-spectrum explanation was wrong** (I said so last tick, confirming here): OV eff/rank
+    0.10–0.43 vs down_proj 0.80. The map's spectrum does **not** predict decomposability.
+37. **Proposed spec addition — a decomposability pre-test.** Sweep k; record the learned−random R² gap
+    and the faithfulness of the reconstructed output. If no k gives both, the map has no sparse
+    mechanism. Copy-head OV fails it; Pythia down_proj passes. This would have saved the whole
+    Tier-1.5 gate line. Do you want it in §2 as a gating step before any tier?
+
+## Questions for Logan (2026-07-09, tick 10) — Pythia survives the audit
+38. **I ran the Tier-1.5-killing controls against Pythia and it passes both.**
+    - Decomposability pre-test: at k=8 the learned−random R² gap is **+0.4952** (on OV maps it was
+      +0.0026), while a k=32 sparse code splices back into the model for only +0.049 CE.
+    - Behavioural calibration: zeroing down_proj costs +0.2247 CE, so the learned code recovers
+      **78.4%** of the layer's total causal contribution; a random dictionary recovers 60.0%.
+    - Localization, causal-ranked: **one learned atom = +0.0112 CE vs +0.0009 for the best random
+      atom (12×)**; ~10× after normalising by each dictionary's explained CE.
+39. **Caveats I want on the record.** Destroying the whole MLP costs only 0.22 nats, so one atom is 5%
+    of *the layer*, not the model. And effects saturate hard (top-1 atom +0.0112, top-128 +0.0239), so
+    the code is redundant — "one atom = one mechanism" is **not** supported by this.
+40. **The decomposability pre-test earns its place in the spec.** It separates the two regimes cleanly
+    (OV: gap +0.0026, dense mechanism; down_proj: gap +0.4952, localizable) and would have saved the
+    entire Tier-1.5 gate line. Recommend §2 gates every target on it before any tier work.
+41. ~~Program status ... the method works on MLP down-projections and has nothing to say about
+    attention OV maps of copy heads.~~ **RETRACTED next tick — see items 42-44.**
+
+## Questions for Logan (2026-07-09, tick 11) — I retract item 41, and my pre-test is confounded
+42. **"Attention ⇒ not decomposable" is FALSE.** I only ever tested the pre-test on the two maps whose
+    answer I knew. On two new maps: pythia L3 `attention.dense` gap **+0.606**, GPT-2 L6 OV gap
+    **+0.365** (vs pythia down_proj +0.703), all at k=8, K=1024. Attention maps have large gaps.
+    Item 41's one-line summary is retracted.
+43. **My pre-test is confounded by K/rank(W).** On attn2's OV map the gap grows from +0.0026 (K/rank
+    16) to +0.0271 (K/rank 1). A map tested with K < rank would be rated "decomposable" for free.
+    Comparisons must be at matched K/rank, and the gap alone is insufficient — it must be paired with
+    behavioural faithfulness *and* a localization advantage.
+44. **What still stands.** At matched K/rank=1, attn2 OV gap +0.027 vs pythia attention +0.606 — the
+    maps really do differ, so that isn't overcompleteness. And attn2's atoms-to-halve is exactly K/4
+    for learned *and* random at every K, which is as clean a "nothing is localized" signature as one
+    could ask for. Pythia down_proj remains the only map passing all three criteria.
+45. **Next experiment, and it decides the method's scope:** do pythia `attention.dense` and GPT-2 OV
+    *localize*, or do they merely have large reconstruction gaps? If they localize, the method is not
+    MLP-specific and Tier 1.5's negative was about a 128-dim rank-32 toy map, nothing more.
+
+## Questions for Logan (2026-07-09, tick 12) — the localization criterion was worthless
+46. **The `down_proj` 12× does not replicate.** It compared max-over-sampled-atoms ΔCE across two runs
+    with different training subsets. Clean matched re-test (same seqs, same atoms, full distribution):
+    learned mean ΔCE −0.00005, random +0.00030. **Random is marginally higher.** 12× retracted.
+47. **Worse: the criterion has no power.** On the toy where `D_true` IS the generator, single-atom
+    ablation gives true/random = **1.54× mean, 1.00× top1**; the conditional variant 1.57×. It cannot
+    detect localization where localization provably exists. With codes fixed, dropping any used atom
+    removes ~1/k of the reconstruction regardless of whether it is a real factor.
+48. **So every localization claim I made is retracted as untestable**, including two I reported to you
+    as findings: Tier 1.5's "the OV mechanism is distributed, nothing sparse to find", and
+    `attention.dense`'s "reconstructs but localizes nothing". Neither was measured by a valid test.
+49. **A criterion that works: irreplaceability** — drop the atom from the *dictionary* and let OMP
+    re-select. On the toy: true/random = **8.01× mean, 4.24× top1** (vs 1.54×/1.00× for ablation).
+    This is what I will run on the real maps next.
+50. **What survives is narrower than I said:** the learned−random reconstruction gap and behavioural CE
+    recovery are real and replicated. Whether any atom is a *mechanism* is **open**, not negative.
+
+## Questions for Logan (2026-07-10, tick 13) — first valid answer on "are atoms mechanisms?"
+51. **Irreplaceability validated, including its confound.** Matched-R² control on the toy: random dicts
+    get *more* replaceable as k rises, so matching is conservative. True vs matched-random = **34× mean,
+    21× top1** (single-atom ablation gave 1.54×/1.00× — no power).
+52. **Real maps, matched-R²:** `down_proj` **1.84× mean / 5.18× top1**; `attention.dense` **1.46× /
+    2.27×**. Both > 1× (real), both far below a true generator (34×).
+    ⇒ **The learned atoms are much closer to an arbitrary basis than to generative factors.**
+53. **The tail is the interesting part.** `down_proj`'s most irreplaceable atom costs 0.0079 R² — 20×
+    its own mean. A minority of atoms behave like mechanisms; the bulk do not. `attention.dense` has
+    almost no tail (2.27×).
+54. **Calibration caveat I want to flag rather than bury:** the toy is an exactly-sparse generative
+    model, an upper bound no real activation distribution can hit. So 1.84×-vs-34× is not "the method
+    fails" — the defensible claim is only "> 1× against matched random, with a heavy tail".
+55. **Next:** inspect down_proj's tail atoms. If the few highly-irreplaceable ones are interpretable,
+    the method's value lives in the tail, not the bulk. That would be a usable, honest finding — and it
+    is the first question in this program I can now ask with a criterion that has demonstrated power.
+
+## Questions for Logan (2026-07-10, tick 14) — the tail atoms, with controls
+56. **Irreplaceability weakly predicts token purity.** Over 96 probed `down_proj` atoms:
+    Spearman **+0.231**; top-10 irreplaceable have mean purity 0.347 vs bottom-10's 0.120, against a
+    *measured* chance level of 0.081. Some tail atoms are crisply monosemantic — two are pure `'\n'`
+    detectors (purity 1.000, entropy 0), one is an article detector (`' a'/' an'`, 0.725).
+57. **I inflated it first, then caught it.** My n=5 table read TAIL 0.600 vs BULK 0.150 — but the top-5
+    happened to include the two purity-1.0 newline atoms. The correlation over all 96 is the honest
+    number, and it is 4× smaller in effect. Quoting +0.231, not 4×.
+58. **Consistency check the criterion could have failed.** Atoms 264 and 537 are both pure newline
+    detectors. Near-duplicates would substitute for each other, so *neither* could be irreplaceable —
+    that would have broken the metric. Measured cos = **−0.2475**. Not duplicates; two distinct
+    directions that both fire on newlines. The criterion survives.
+59. **Not monotone:** the single most irreplaceable atom (27× the dictionary mean) has purity 0.225.
+    Irreplaceability and monosemanticity are correlated, not identical.
+60. **Caveat I want stated in any writeup:** purity uses token identity only and ignores context, so it
+    is blind to context-dependent features — i.e. to most of what an SAE would call a feature. The
+    result is "irreplaceable atoms are modestly more token-pure", not "the method finds interpretable
+    features".
+
+## Questions for Logan (2026-07-10, tick 15) — the spec's central premise fails its first direct test
+61. **Weight-aware does NOT beat an activation-only SAE.** Matched K=1024, k=16, same activations,
+    held-out. R²(Wx): masked-projector **0.4919**, SAE decoder **0.4654**, random 0.0893. But the SAE
+    *wins* on irreplaceability (top1 0.0093 vs 0.0061) and purity (0.385 vs 0.347) — and my SAE is
+    weak (x-R² 0.273 after 3k steps), so the test is generous to the masked projector.
+    ⇒ Optimising for `Wx` instead of `x` buys nothing measurable here. This is the premise of the spec.
+62. **I retract tick 14's "the method's value is in the tail".** A 2×2 (dictionary × selection) shows
+    purity tracks the SELECTION RULE: a *random* dictionary's top-irreplaceable atoms have purity
+    0.347 — identical to the masked projector's — vs 0.160 for its unranked atoms. Ranking any
+    dictionary by irreplaceability surfaces token-pure atoms, because a few token types (newlines,
+    articles) sit in isolated activation directions. It is a fact about the data, not the method.
+    My tick-14 comparison (learned tail vs unranked random) was apples-to-oranges.
+63. **What still stands:** the objective is learnable (R²(Wx) 0.49 vs random 0.09); the closed-form
+    theorem; toy recovery. Everything about atoms *being mechanisms* is now either weak or shown to be
+    non-method-specific.
+64. **Before I call this final** I want a seeded replication with a distribution-level test rather than
+    max statistics — the irreplaceability top1 gap (0.0093 vs 0.0061) is exactly the kind of max-over-
+    sample number that already burned me once (the retracted "12x"). Running that next.
+65. **Honest bottom line for the spec, unless the replication overturns it:** the method learns a
+    better-than-random basis for a map's action, is not better than a plain SAE at doing so, and its
+    atoms are not more mechanism-like than an SAE's.
+
+## Questions for Logan (2026-07-10, tick 16) — I was wrong last tick; the premise holds
+66. **REVERSAL of item 61.** The seeded, distribution-level replication (3 seeds, identical probes,
+    stronger 8k-step SAE) says the masked projector **wins**:
+    - `R²(Wx)`: **0.4591 ± 0.0003** vs SAE **0.4291 ± 0.0042** (random 0.0887).
+    - irreplaceability **median**: **0.000134** vs SAE **0.000016** — 8×. Mann-Whitney z = −8.88,
+      P(SAE > MP) = 0.238.
+67. **Why I got it backwards:** the SAE's loss distribution is heavy-tailed with a *low median* — its
+    typical atom is more replaceable than a random direction, while a few are very irreplaceable. On
+    one seed those outliers lifted its **mean** and **max** above the masked projector's. I used mean
+    and max, on one seed. Across seeds the max swings 0.0026–0.0093.
+    This is the **third** time a max-over-sample statistic has misled me here. I have stopped quoting
+    them; medians + rank tests + seeds only.
+68. **So the spec's premise is supported, modestly but robustly:** optimising for `Wx` yields a basis
+    whose atoms are more uniformly load-bearing for the map's action than an SAE's.
+69. **Unchanged:** purity tracks the *selection rule*, not the dictionary (tick 15's other finding —
+    a random dictionary's top-irreplaceable atoms are as pure as the method's). Atoms-are-mechanisms
+    is still weak in absolute terms (1.84× matched-random vs 34× for a known-true dictionary).
+70. **Not to be cited yet:** the purity comparison (SAE 0.385 vs MP 0.347) was single-seed top-10 —
+    exactly the statistic class that just failed. Replicating with seeds before it means anything.
+71. **Tick 15's SECOND claim also reverses.** Seeded purity replication:
+    - *Dictionary effect is real*: purity median MP **0.100** > SAE 0.050 = random 0.050 (chance 0.070);
+      Mann-Whitney SAE vs MP z = −6.16, random vs MP z = −7.60. So MP atoms ARE more token-pure.
+      Tick 15's "SAE 0.385 vs MP 0.347" was single-seed top-10 and inverts.
+    - *Selection effect is NOT universal*: top-10-irreplaceable vs random-10 within each dictionary —
+      MP 0.192/0.140 (1.4×), **SAE 0.477/0.110 (4.3×)**, random 0.205/0.152 (1.35×). My claim that a
+      random dictionary's tail is as pure as the method's was one seed's noise.
+72. **Coherent story from the two replications:** the `Wx` objective spreads the map's action across
+    atoms (uniformly irreplaceable, uniformly mildly pure); the `x` objective concentrates structure in
+    a minority (mostly replaceable + impure, but a crisp, very pure, very irreplaceable tail).
+    Neither dominates — it depends whether you want a faithful basis for the map or a few clean features.
+73. **Standing rule now enforced program-wide:** no single-seed / top-k / max-over-sample statistic may
+    be reported as a finding. Medians, distributions, rank tests, ≥3 seeds. Three claims have been
+    reversed by this rule so far ("12×", tick-15 irreplaceability, tick-15 purity).
+
+## Questions for Logan (2026-07-10, tick 17) — the mechanism-likeness headline collapses; findings doc rewritten
+74. **"Atoms are weakly mechanism-like (1.84× matched-random)" was a single-seed MEAN.** Re-run under the
+    standing rule (3 seeds, medians, rank test): at **matched R²(Wx)** the masked-projector's atoms are
+    **1.09× random, Mann-Whitney z = −1.00 — not significant.** At equal sparsity they win 4.71×
+    (z = −12.05). The toy's *true* dictionary passes the matched-R² control at **34×**. MP does not pass it.
+75. **The control has a confound I am not hiding:** matching R² forces random to k=96 (6× denser codes,
+    6× per-atom usage), and irreplaceability grows with usage. Three views: equal-sparsity 4.71×,
+    matched-R² 1.09× (n.s.), per-usage 6.6×. The toy's true dict scores 8.4× / 34× / 216× on the same
+    three. **Under every control MP is 1–2 orders short of a generator.** Open problem: a control matched
+    on both R² *and* usage would settle it.
+76. **Unaffected by this** (same k, comparable R², so no k=96 confound): MP still beats the SAE on
+    irreplaceability median (0.000134 vs 0.000016, z = −8.88) and purity median (0.100 vs 0.050,
+    z = −6.16), 3 seeds. And the objective is learnable (R²(Wx) 0.459 vs random 0.089).
+77. **`mechdecomp_findings.md` rewritten** against replicated evidence, with provenance on every number
+    and 18 retractions tabulated. Bottom line for the spec: **the `Wx` objective is a better basis than
+    random or an activation-only SAE — but it is not a feature finder.**
+78. This is the fourth headline reversed by the no-single-seed rule. Every one of them was a positive
+    result that I wanted to be true. The rule is doing real work; I'd keep it in the spec (amendment 5).
+
+## Questions for Logan (2026-07-10, tick 18) — open problem #1 closed; §2.5 is now a clean negative
+79. **The usage confound dissolves once you notice `usage = k/K` for ANY dictionary** (each datapoint
+    picks exactly k atoms). So equal-k is already usage-matched, and the right scale-free statistic is
+    **uniqueness = loss / (base_R²/K)** — the fraction of an atom's fair share of explained variance
+    that is uniquely its own.
+80. **It is not K/d-invariant** (random: 0.129 at K/d=4, 0.299 at K/d=0.25), so I re-validated it at the
+    *real* proportions — K/d=0.25, rank/d_in=0.25, exactly Pythia's 1024×4096: **TRUE generator 0.9558
+    vs random 0.1961 (4.88×)**. The criterion has power where it is used.
+81. **Verdict, 3 seeds, medians, rank test:** masked-projector uniqueness **0.2990** vs random k=16
+    **0.3280** (z = +0.95, **n.s.**) and random k=96 matched-R² **0.2717** (z = −1.12, **n.s.**).
+    **The learned atoms have exactly the uniqueness of a random basis.** MP's raw 4.71× irreplaceability
+    advantage is fully explained by its 5.2× larger base R². SAE is *more* redundant than random (0.0448).
+82. **§2.5 upgraded from "not demonstrably mechanisms" to a clean negative**, with usage, R², and K/d all
+    controlled and the metric's power demonstrated at the exact experimental setting. This is the
+    strongest evidential footing anything in this program has had — and it is a negative result.
+83. **The one-line verdict for the spec is unchanged but now well-founded:** the `Wx` objective yields a
+    better *basis* than random or an activation-only SAE; it does **not** carve a map's action into
+    independent mechanisms.
+
+## Questions for Logan (2026-07-10, tick 19) — I have to correct last tick's negative
+84. **"MP atoms have the uniqueness of a random basis" is retracted.** I measured it at **K/d = 0.25**
+    (undercomplete — the regime where an overcomplete feature code *cannot exist*) with only 12.5
+    firings per atom. Redone at N_EVAL=4000 with probes restricted to atoms firing ≥5 times:
+    K/d 0.25 → 1.16× (n.s.); K/d 0.50 → 1.53× (marginal); **K/d 1.00 → 1.79×, z = −3.33, significant.**
+85. **A measurement failure I nearly reported as a finding.** `usage = k/K`, so at K=8192 with 600 eval
+    points each atom fires **1.2 times** and most probed atoms are never selected — loss exactly zero.
+    That run gave medians of 0.0000 and a "ratio 0.04×". It measured dead atoms. Void.
+86. **Corrected verdict:** the `Wx` objective yields atoms **modestly but significantly more
+    irreplaceable than random once the dictionary is at least critically complete** — and still less
+    than half as unique as a known generator (1.79× vs 4.06× at the same K/d). Below critical
+    completeness the effect vanishes.
+87. **The standing rule needed an addition:** ≥3 seeds + medians + rank tests is not enough. With sparse
+    codes the eval set must scale with K, or per-atom medians are computed over atoms that never fire.
+    Always report firings/atom and dead-probe fraction.
+88. **Fifth reversal in this program, and the first of a NEGATIVE result.** Worth saying plainly: the
+    controls are not biased toward pessimism. They are biased toward whatever the data says — which is
+    the only property I actually want from them.
+
+## 2026-07-10 — DIRECTION CHANGE (Logan): mechdecomp paused, Jacobian clustering started
+89. **Your trace question: yes, and it's the identical number.** `<A,B>_F = tr(A^T B)`, so Frobenius
+    cosine `tr(A^T B)/(||A||_F||B||_F)` *is* cosine on the flattened matrices (verified to 12 dp).
+    The writeup already means this. The real content of the lemma is that for one bilinear layer you
+    never build `J`: `tr(J_i^T J_j) = x_i^T G x_j` exactly (verified to 1e-14, plus gauge/Euler/autodiff).
+90. **P2 is FALSE as stated, and DGP-A is why.** The exact Jacobian of the hand-coded layer is
+    `J = [A_g | (1/eps)·F(c)]`. The gate-column block `∂y/∂s` is (a) `O(1/eps)` — 56.7× the content
+    block at eps=0.1 — and (b) **bit-identical across gates** for fixed content (diff 0.00e+00), since
+    it depends on `c` alone. So the full Jacobian recovers **content** (ARI 1.000) and the gate at
+    **chance** (−0.002). Restricting `J` to content columns recovers the gate at ARI 1.000.
+91. **The eps sweep has no dissociation window.** Full-J sees the gate only at eps=10, where
+    `||J_gate||/||J_cont||` finally drops below 1 — and at that eps the raw input sees the gate too.
+92. **So a choice is needed, and it is yours:** (a) redesign the DGP so the gate is not an input
+    coordinate (multiplicative gate / separate stream ⇒ no `∂y/∂s` block), which is the honest test of
+    P2; or (b) keep the content-restricted Jacobian, but then state that choosing the input subspace
+    already encodes the structure we claim to discover. I've queued (a) as next tick's first task.
+93. Minor: the writeup assumes random orthogonal experts are near-Frobenius-orthogonal. Max off-diag
+    expert cosine is **0.474 at d_c=6**, 0.097 at d_c=16. Use d_c ≥ 16 or enforce exactly.
+94. **DGP-A′ survives** — the restricted-Jacobian embedding morphs with the expert family: orthogonal
+    → spikes, continuous rotations → ring, hierarchical → nested blocks. That's the centrepiece figure
+    and it's in the HTML I sent.
+95. Cron `96d16410` runs every 2h with the mechdecomp standing rules carried over (≥5 seeds, measured
+    chance ARI, matched-dimension random-projection control, no single-seed/top-k statistics).
+96. **Your mechdecomp cron was still firing on the paused program.** Retired it (`1b6ea46c`); the
+    jacclust cron (`96d16410`, every 2h) is the live one.
+97. **The DGP-A fix you'd want isn't available.** "Make the gate multiplicative so no `∂y/∂s` block
+    exists" cannot work while the gate is *any* coordinate of `x`: differentiating it yields
+    `Σ_g A_g c w_gᵀ`, summed over all experts, hence gate-independent. Euler (`J(x)x = 2y`) says `J`
+    always carries the output as a rank-1 shadow, and the gate derivative is what carries it.
+98. **I predicted J would be dominated by that shadow. Wrong.** On the trained bilinear MLP the Euler
+    shadow is only **3.7%** of `||J||²_F` (median 0.0366). So `J` does carry real information beyond
+    `cos_x·cos_y`. Kernel exact on trained weights (1.2e-15). P3 identity reproduced at 1.0000.
+99. **The real obstacle is different: on this model `corr(cos_J, cos_x) = +0.944`.** `G`'s spectrum is
+    nearly flat (effective rank 118.5/128), so `xᵀGx' ≈ const·x·x'`. Its top eigenspace is nearly
+    *orthogonal* to the data PCA (cos 0.04–0.31), so it isn't whitening — it just isn't anisotropic.
+100. **Controlled, and it's layer-dependent.** Against `G_rand` (same eigenvalues, random
+    eigenvectors), at MLP#0 the true `G` agrees with raw-cosine clustering exactly as much as the
+    control (0.858 vs 0.872 — eigenvectors carry nothing); at MLP#1 it departs far more than the
+    control (0.464 vs 0.789 — weight structure does real work). Your "effective rank of G across
+    depth" summary statistic looks worth computing: 118.5 vs 110.5 already tracks this difference.
+101. **Necessary ≠ sufficient**, and this is the crux for the agenda: "G-clusters ≠ x-clusters" is not
+    "G-clusters recover mechanism", and real models have no ground-truth mechanism labels. DGP-C
+    (two-layer, joint `(g₁,g₂)`) is the only design in the writeup that can bridge that, so it's next.
+
+## 2026-07-10 — jacclust tick 3
+102. **P2's failure is a theorem, not a quirk of DGP-A.** For any single bilinear layer with the gate
+     a linear readout `p_g·c`: `J = Σ_g A_g c p_gᵀ + Σ_g (p_g·c) A_g`. The first term sums over *all*
+     experts (gate-independent, norm ≈ √k_g‖c‖‖A‖); the signal is ≤ ‖c‖‖A‖. The gate-independent term
+     always dominates. No "multiplicative gate" redesign escapes it. So the content-restricted
+     Jacobian is the object — and in DGP-C that restriction is architectural, not a peek at the answer.
+103. **DGP-C confirms the compositionality claim, with controls.** 5 DGP seeds × 5 k-means seeds,
+     chance ARI measured at ≈0.000. J₁ restricted → g₁ 1.000 (g₂ at chance); J₂ → g₂ 1.000; **end-to-end
+     J → joint (g₁,g₂) at 1.000**, content at chance. Input and a **matched-dimension random projection**
+     both recover content (1.000) and gates at chance — the control could have failed and didn't.
+104. **Sketched VJP: your k≈10–20 is right for the kernel, but clustering needs k=1.** Kernel
+     correlation 0.83 (k=1) → 0.973 (k=10) → 0.993 (k=50), while ARI(joint) is 1.000 at every k.
+     Quote the kernel error when justifying probe counts; ARI saturates and hides the cost.
+105. **I got DGP-B wrong first.** I negated content only and claimed `J` is odd — residual 1.46, because
+     the restricted `J₁ = A_{g₁}` is *constant* in `c`. The right statement: bilinear layers are degree-2
+     homogeneous, so negating the **whole** input gives `f(−x)=f(x)` and `J(−x)=−J(x)` (both exact to 0).
+     Then `cos` on J gives ARI 0.175 and `|cos|` gives **1.000**. Fix `|cos|` globally for all methods,
+     as you specify — applied to only one method it is a confound.
+106. Next: P4 (principal angles, G's top eigenspace vs the gate/content subspaces), then DGP-A′
+     geometry recovery metrics (ring: correlation of recovered angle with θ, not ARI), then the
+     real-model question that actually matters — with no ground-truth mechanism labels on a trained
+     model, what would even count as validation? DGP-D (train on a task with known modules) is the
+     writeup's answer and I think it is the right one.
+
+## 2026-07-10 — jacclust tick 4
+107. **P4 is sharper than your prediction.** The top `k_g` eigenvectors of `G` are the gate subspace
+     **exactly** (principal-angle cos = 1.0000 at every eps), with content strictly below. Not "gate ⊕
+     content directions" — gate first, content after. Same fact as P2's failure, read off the spectrum.
+108. **DGP-D succeeds, on modules that TRAINING found.** Bilinear MLP trained from scratch on
+     `y = A_g c` (val rel. error 0.003–0.005, 5 seeds). Content-restricted `J` recovers the mechanism at
+     **ARI 1.000±0.000**; input 0.002, hidden `Lx⊙Rx` 0.002, output 0.214, rank-1 M 0.331, matched-dim
+     random projection 0.002. Chance measured at ≈0.000. This is the "DGP-D success" criterion in your
+     §7 — mechanism structure invisible to activation clustering at either end.
+109. **The impossibility theorem survives training.** The *trained* net's full `J` recovers content at
+     1.000 and the gate at chance, exactly like the hand-coded layer. Gate-derivative domination is a
+     property of the bilinear form, not of our construction.
+110. **The gap that remains is the whole agenda.** DGP-D's content/gate split is supplied by the task's
+     input layout. A real LM has no such split, and tick 2 showed the full-`J` kernel there is nearly
+     plain input cosine (`corr = +0.944`, G eff. rank 118.5/128) at one MLP and meaningfully different
+     at the other. So: **the method provably reads mechanism when a content/control split exists, and
+     we do not yet know what it reads when one doesn't.**
+111. Suggestion for where this goes. The honest paper-shaped claims available now are (a) the exact
+     kernel + the collapse lemma, (b) DGP-D, and (c) the *negative* structural result — for a single
+     bilinear layer, the gate-derivative block always dominates, so the full Jacobian cannot separate
+     mechanisms that are selected by the input. (c) is novel and cheap to state, and it predicts
+     exactly the real-model behaviour we saw. Worth its own section rather than a footnote.
+
+## 2026-07-10 — jacclust tick 5 (all four listed priorities now complete)
+112. **DGP-E answers tick 4's open question.** No control stream: the gate is a *quadratic* feature
+     `(w_g·c)²` computed by layer 1 from the content itself. Then the tick-3 impossibility theorem no
+     longer applies — same content, different gate gives `cos_F(J_a,J_b) = 0.043` (DGP-A: identical).
+     **Depth + a nonlinear gate restores mechanism signal to the FULL Jacobian.**
+113. **But only partially, and I can say exactly why.** Column-block decomposition: the operator block
+     `J[:, v-cols]` recovers `g` at **1.000**; the gate-derivative block is **6.1× larger in norm** and
+     only a 0.355 signal, diluting the full `J` to 0.389. `layer-2 J` alone is at chance on the gate —
+     its own gate-derivative block is gate-independent, so the single-layer theorem reasserts layer-wise.
+114. **A real dissociation window exists** (unlike DGP-A, where it was empty): for gate_amp ≲ 6 the full
+     `J` reads mechanism at ≈0.45 while input cosine is at −0.003 and content at 1.000. Caveat worth
+     stating: rank-1 `M` already gets 0.25–0.38, so `J`'s margin over the cheap baseline is ≈0.19.
+115. **A new, weights-only recipe, derived from your P4.** Since `G`'s top eigenspace *is* the gate
+     subspace, project `J`'s columns off the top-r eigenvectors of the layer's own `G`. No labels, no
+     data, no supplied split. Result **0.654±0.176** vs FULL 0.389, matched-dim random subspace 0.388,
+     `G`-bottom 0.348, oracle 1.000. It beats both controls. I think this belongs in the writeup: §2.2
+     notes "top eigenspace of G = where the layer is most input-dependent" as a *diagnostic* — it is
+     also a **filter**.
+116. All four cron priorities are complete (P2 impossibility, DGP-B, DGP-C, P4). I've rewritten the
+     cron's priority list: (1) does the G-top projection help on the real bilinear MLPs from tick 2,
+     where `corr(cos_J, cos_x) = 0.944`? (2) DGP-A′ ring/hierarchy with manifold metrics, not ARI;
+     (3) scale to the 500M tensor-transformer, one layer, with the projection recipe.
+
+## 2026-07-10 — jacclust tick 6
+117. **A label-free validation for real models.** If Jacobian clusters group "same map applied" points,
+     one linear map per cluster should predict held-out outputs. Cluster on train, fit `y≈A_c x`, assign
+     held-out by nearest centroid, score held-out R². Controls that could win: raw `x`, spectrum-matched
+     `G_rand`, random clusters, single global map.
+118. **My `G_P` derivation was wrong and the identity test caught it.** `J(x)P = D[diag(Lx)RP +
+     diag(Rx)LP]` keeps the gates `Lx,Rx`; `gram(D,LP,RP)` projects them too. Correct form puts `P`
+     inside the middle Grams. Verified 1e-13, with `r=0` reproducing plain `G`.
+119. **My first surrogate harness was broken and I'm reporting it.** Unregularised per-cluster least
+     squares gave R² = −319 (raw cosine) and −139 (G) while **random clusters scored −0.78** — random
+     beat everything. It measured fit instability. Ridge + a `k=1`-must-equal-global identity check fixed it.
+120. **Your §9 "parked" open question is actually load-bearing.** `‖J(x)‖²_F = xᵀGx` exactly, so the gain
+     is free from the kernel. Cosine throws it away, and on real MLPs that is the difference between
+     **−0.25 and +0.22** surrogate R² (MLP#0, k=8). Gain-only is a failing control, so it's direction
+     *and* gain. **§8's "decide cos vs |cos|" should be "decide cosine vs Euclidean" — keep the gain.**
+121. **First real-model result that survives a control that could have won.** Under a fair rule
+     (Euclidean, gain kept, 5 seeds), the G-metric beats raw `x` and spectrum-matched `G_rand` in **5 of
+     6 (layer,k) cells**, margin growing with k (+0.09 at k=32). ⚠ The exception: MLP#0 k=16, where
+     `G_rand` wins (0.3425 vs 0.3107). Reported, not dropped.
+122. `G_P` (tick-5's weights-only decontamination) ≈ `G` on real MLPs — no gain, unlike DGP-E. Consistent
+     with P4: a real layer has no clean gate subspace for the top eigenvectors to occupy.
+123. Still open, and still the crux: these clusters are better "same-map" clusters, but nothing shows
+     they are *interpretable* roles. The intervention test (patch within- vs across-cluster) is next.
+
+## 2026-07-10 — jacclust tick 7 (open problem 4: intervention validation)
+124. **Built and validated the intervention test.** Replace the MLP output with a per-cluster ridge
+     surrogate `A_c x`: within-cluster vs across-cluster vs one global map. Harness identities exact:
+     `clean` mode reproduces the unmodified CE (0.00e+00) and `k=1` within == global (0.00e+00).
+     Random-cluster control gives **exactly zero differential** (−0.002…+0.003), which is the null it
+     must give. The instrument works.
+125. **But the differential — the statistic your §7 asks for — is saturated and I won't quote it.**
+     Uniform CE is ln(5120) = 8.54 nats; across-cluster CE is 8.5–13.9, i.e. at or beyond uniform. The
+     model is confidently wrong there, so metric-to-metric differences measure how badly a wrong linear
+     map fails, not mechanism. **Report within-cluster CE instead** (equivalently tick 6's surrogate R²).
+126. **By within-CE, the Jacobian metric's real-model advantage is modest and non-uniform.** It wins 2 of
+     4 cells clearly (MLP#0 k=8: 7.785 vs raw 8.407, G_rand 8.052; MLP#1 k=16: 5.125 vs 5.189, 5.215),
+     ties one (MLP#1 k=8 — a 0.0014-nat margin is nothing), and **loses MLP#0 k=16 to the
+     spectrum-matched control** (7.286 vs 7.428).
+127. **The losing cell is the same (layer, k) that lost in tick 6.** Two independent tests — one offline,
+     one causal — agreeing on *where the method fails* is stronger evidence than either agreeing on where
+     it wins. I'd trust that more than any single headline.
+128. Replacing the whole MLP with one linear map costs +5.99 nats (MLP#0) / +1.47 (MLP#1), so there is
+     real dynamic range; the within-CE differences (0.06–0.62 nats) sit well above seed noise (sd ≤0.18).
+129. **Still not established:** that G-clusters are recognisable computational roles. Both tests show only
+     that they are better *same-map* clusters. That is weaker than §6's Phase-1 goal, and I think the
+     honest framing for a writeup is exactly that distinction.
+
+## 2026-07-10 — jacclust tick 8 (scale to the real tensor-transformer)
+130. **Loaded the real 500M-style bilinear transformer** (`Elriggs/gpt2-bilinear-12l-6h-768embd`, the
+     §6 preferred target: bilinear MLP, softmax attn). My hand-rolled forward gave CE 8.45 (broken
+     rotary) — caught by the CE check, no bad activations used. Extracted the actual modded-nanogpt
+     classes; loads with zero missing keys, CE 3.385. Faithful.
+131. **`G` is nearly full-rank at EVERY depth (eff rank 677–718 / 768).** corr(cos_J, cos_x) = 0.62–0.80
+     across all 12 layers. A near-isotropic G ⇒ the Jacobian metric ≈ input cosine. This is a
+     weights-only diagnostic and it predicts the method won't help here.
+132. **The real-model advantage does NOT survive to scale.** Surrogate R² (k=16, 5 seeds): G ties raw x
+     and the spectrum-matched G_rand at every layer, AND — the sharper negative — **a single global
+     linear map beats every clustering** (+0.45…+0.51 vs all clusterings negative). Clustering this
+     layer into locally-linear pieces makes held-out prediction *worse*.
+133. **Reinterpreting ticks 6–7.** The modest MLP#1 signal on the 1.9M toy is best read as a
+     small-model / low-eff-rank artifact, not a scaling property. The standing rules did their job: the
+     one positive real-model result was on a single 128-dim layer and did not replicate at 768-dim × 12L.
+134. **Honest program status for a writeup:** the exact kernel + collapse lemma + P2 impossibility
+     theorem + DGP-A..E are solid, novel, publishable as *method and theory*. The real-model
+     application is a **negative** at scale — G is too isotropic for the reweighting to matter. I'd
+     write it as: "the method reads mechanism whenever the layer's operator is anisotropic over the
+     data (toys, by construction); trained bilinear MLPs at scale are close to isotropic, so it reduces
+     to input-space clustering there." Effective rank of G is the cheap weights-only test for when to
+     even bother.
+135. Question for you: is there a bilinear model / layer you *expect* to be anisotropic (a
+     task-specialised or smaller-vocab model, or the bilinear-ATTENTION variant where per-position maps
+     may be sharper)? That is where the method would actually earn its keep, and I'd target it next.
+
+## 2026-07-10 — jacclust tick 9 (I retract tick 8's negative)
+136. **Tick 8's scale-negative was my own harness artifact — retracted.** "Global map beats clustering"
+     and "G ties raw x at scale" both came from per-cluster ridge overfitting: 768 features, 500
+     pts/cluster, λ=0.1. The SAME fit-instability I caught at 128-dim in tick 6 and failed to re-check
+     when d went 128→768.
+137. **Audit (clustering fixed, sweep data+λ):** at 3000 pts/cluster or λ≥3, per-cluster clustering
+     BEATS the global map by up to +0.13, at every setting. So the layer *is* better modelled
+     piecewise-linearly; "clustering hurts" was false.
+138. **Corrected real-model result (48k train, λ=3, k=16, 5 seeds):** clustering beats global everywhere
+     (+0.10–0.12); the G-metric beats BOTH raw x and spectrum-matched G_rand at layers 2 & 6 by ~2–3σ
+     (0.6150 vs 0.6094/0.6103; 0.6071 vs 0.6011/0.5992), ties at layer 10. **A weak but real positive
+     that survives to 500M scale** — the opposite of what I told you last tick.
+139. **Magnitude, honest:** the margin is ~0.006 R², not the toys' dissociation. The G eff-rank story
+     (~690/768, still true) explains why it's small — G is nearly isotropic, so little reweighting is
+     available. Small, real, and predicted by a weights-only quantity, all at once.
+140. **Rule added:** per-cluster surrogate needs pts/cluster ≫ d_in; re-verify the fit harness whenever
+     the dimension changes. I violated my own "check the harness with a known point" rule by not
+     re-checking it across a 6× dimension jump.
+141. Net for a writeup, unchanged in shape from tick 8 but corrected in sign: method+theory+toys solid;
+     real-model effect is **small-but-real and control-beating at early/mid layers**, its size predicted
+     by G's effective rank. Still want your steer on an anisotropic target (bilinear-attention variant?)
+     where the effect might be large rather than marginal.
+
+## 2026-07-10 — jacclust tick 10 (real-model regime, characterized)
+142. **G is near-isotropic on every trained bilinear MLP measured** — eff rank/d = 0.86–0.94 across 14
+     layers of 2 independent models. This is weights-only and uniform. The method's leverage is
+     1−(eff rank/d), so it is small everywhere, predictably.
+143. **G-clusters ≈ x-clusters on the 768 model** — ARI(G,x) = 0.50–0.61, vs the k-means self-consistency
+     floor 0.60–0.68. The difference is about a seed's worth of noise.
+144. **But it's a PRINCIPLED nudge, not nothing.** G stays *closer* to x than the spectrum-matched G_rand
+     does (0.597 vs 0.564), yet clusters slightly better (tick 9). So the Wx-aware metric is a small
+     weight-informed perturbation of cosine — which is exactly why it beats a random-spectrum control by
+     2–3σ while barely moving the assignment. Ticks 9 and 10 reconcile precisely.
+145. **Real-model verdict, complete and honest:** small but real, control-beating, effect size predicted
+     by G's effective rank (~0.90 → small). Not degenerate with cosine, but close to it, for a reason
+     you can read off the weights before touching data.
+146. **The pre-screen that falls out:** compute G eff rank from weights; only bother clustering where it
+     is far from full. Every trained bilinear MLP I've measured is ~0.90 (near-full).
+147. **Sharpened anisotropy question for you:** effect ∝ 1 − eff_rank(G)/d. Where is G anisotropic?
+     Candidates: bilinear ATTENTION per-position maps (Phase 3), small-vocab/task-specialised bilinear
+     models. If you point me at one you expect to be sharp, that is the decisive "does this method ever
+     matter a lot" test. Otherwise the honest writeup is: exact lemma + toys + theory, plus a real-model
+     effect that is small-by-a-measurable-weights-property.
+
+## 2026-07-10 — jacclust tick 11 (DGP-A' ring, priority 2 done)
+148. **DGP-A' ring quantified with manifold metrics.** Continuous rotation family A_θ=R(θ): the
+     restricted-Jacobian 2-D embedding recovers the mechanism circle at |circular corr| **0.999±0.000**,
+     trustworthiness **1.000**, while input x (0.083), output y (0.028), and a matched-dim random
+     projection (0.069) are all at chance. Construction verified to 0.00e+00 first.
+149. **The toy side is now complete and rigorous:** discrete experts→clusters (ARI 1.0), rotation
+     family→circle (circ corr 0.999), hierarchy→nested blocks. Each verified with the metric matched to
+     its geometry — ARI only where clusters exist, circular-correlation + trustworthiness for the
+     manifold. This is the paper's centerpiece and it's solid.
+150. **Program status, whole:** exact kernel + P2 impossibility theorem + DGP-A..E + the ring/geometry
+     result are all solid and publishable as method + theory + toys. The real-model application is
+     small-but-real (tick 9), degenerate-ish with cosine because G is near-isotropic on every trained
+     bilinear MLP (tick 10, eff rank 0.90). G eff rank is the weights-only pre-screen.
+151. **The one open lever is still anisotropy** (bilinear-attention per-position maps, or a
+     task-specialised/small-vocab model). Everything else on the priority list is done. Awaiting your
+     steer on whether to build the Phase-3 bilinear-attention machinery or whether the current
+     characterization is the intended stopping point.
+
+## 2026-07-11 — jacclust tick 12 (the organizing law, tested)
+152. **Tested (not asserted) the tick-10 organizing claim.** Controlled knob: rank r of the L,R row
+     subspace sets eff_rank(G). Sweeping r=2→48 moves eff_rank(G)/d from 0.04→0.92; the G-metric's
+     surrogate advantage over cosine falls 0.886→0.068 monotonically. **corr(1−eff_rank/d, advantage) =
+     +0.913 (vs cosine), +0.911 (vs G_rand).** It's a law, and it could have failed.
+153. **Controls behave:** raw cosine flat at ~+0.04 across the whole range (blind to the operator);
+     G_rand tracks cosine (random eigenvectors). So the advantage is the anisotropic eigen-STRUCTURE of G
+     specifically, not its spectrum or dimension.
+154. **This locates the real models exactly.** Trained bilinear MLPs are at eff_rank(G)/d ≈ 0.90 = the
+     r=48 row, advantage ≈ +0.068 — matching the +0.006–0.07 measured on the 768 model. The real-model
+     effect is small because it's the law evaluated where LM MLPs sit, not because the method fails.
+155. **Program is complete and internally consistent.** Kernel+lemma, P2 theorem, toys (clusters/ring/
+     hierarchy), DGP-E depth + G-top projection, real-model characterization, and now a weights-only law
+     predicting effect size. Every real-model number is on the curve. The pre-screen (eff_rank(G)) has a
+     quantified payoff curve behind it.
+156. **The only thing that would add a large real-model result** is finding/So training a bilinear layer
+     with anisotropic G. LM MLPs don't have it. The bilinear-ATTENTION per-position map is the remaining
+     untested candidate (Phase 3 machinery). Still awaiting your steer, Logan; absent it, tick 12 is a
+     natural stopping point — the method is fully characterized and its real-model payoff is predicted by
+     a law, which is itself the publishable result.
+
+## 2026-07-11 — jacclust tick 13 (I overclaimed in tick 12; correcting)
+157. **Tick 12's "real models sit on the law" is retracted.** My own numbers were 10x off (+0.068
+     predicted vs +0.006 measured) and I glossed it. Swap-one-thing test on real G (eff_rank/d 0.893):
+     isotropic Gaussian input +0.066 (= the law), real activations **+0.0012**, and vs the spectrum-
+     matched control real activations are **−0.0012** (negative). The law is ISOTROPIC-INPUT-only.
+158. **eff_rank(G) is necessary but NOT sufficient.** Effect needs G anisotropic AND data populating G's
+     anisotropic directions. Matched-covariance Gaussian keeps +0.037; the collapse to +0.001 comes from
+     the NON-Gaussian structure of real activations (heavy tails, token clusters), not from covariance.
+159. **The real-model positive (ticks 6–10) was over-read.** On a like-for-like isolation (same G, swap
+     only input), the real-data G-vs-G_rand advantage is essentially zero/negative. The honest statement:
+     on real bilinear-MLP activations the Jacobian metric ≈ cosine, advantage within noise of zero.
+160. **Corrected program bottom line:** kernel + P2 theorem + toys + geometry are solid; the organizing
+     law is real but conditional on input isotropy; the real-model application is a clean negative
+     (weight metric ≈ input cosine on real data). That is the publishable, honest result — a fully
+     characterized method with a precise, tested account of when it works (anisotropic operator +
+     anisotropy-populating data) and a demonstration that trained LM MLPs fail the second condition.
+161. This is the natural, honest stopping point. Four ticks of "awaiting steer on bilinear attention"
+     with no reply; the science is complete and the real-model verdict is now correct rather than
+     optimistic. If you want the large-effect regime, it needs a model whose activations populate an
+     anisotropic G — not something I can manufacture without a target from you.
+
+## 2026-07-11 — jacclust tick 14 (Logan live Q&A, recorded)
+162. **Decoder/linear-transformation (rank-1 M) clustering:** beats activations on the TOY (0.355 vs
+     0.002, captures the input×output joint that reveals the gate) but LOSES to raw x on the real model
+     (M 0.49/0.52/0.42 vs x 0.50/0.53/0.53). Output-similarity is the wrong grouping for a same-map
+     surrogate; no gate → no joint structure to exploit. Consistent with "nothing beats cosine on real
+     bilinear-MLP activations".
+163. **Outlier fold-out (Logan's LLM.int8 analogy):** flips G-vs-control from −0.0028 to +0.0066 (right
+     mechanism) but tiny — the 124M model is post-RMSNorm (no norm-outlier tokens; dim outliers only
+     1.6–1.8× median). Available bilinear models are all normed, so no dramatic outliers to fold. Idea
+     sound, blocked by model availability.
+164. **Impossibility result recorded precisely** (symmetry irrelevant / tensor≡CP / novelty honest) in
+     results.md for the eventual writeup.
+165. **Consolidated real-model picture across all of Logan's levers:** G-metric ≈ cosine, rank-1 M <
+     cosine, outlier-fold-out marginal. Every lever works on gated/structured toys and collapses on
+     real activations. The real-model application is a well-characterized negative; the toys + kernel +
+     P2 theorem + geometry recovery are the solid deliverables.
+
+## 2026-07-11 — jacclust tick 15 (joint weight×data anisotropy sweep, Logan's request)
+166. **Built the 2D sweep Logan asked for.** Weight anisotropy (rank r → eff_rank G) × data alignment
+     (G-top/random/G-bottom/isotropic). The method's advantage IS correlated with anisotropy, and the
+     best predictor is DATA-AWARE: 1 − corr(cos_J,cos_x), ρ=+0.83; weights-only 1−eff_rank/d is ρ=+0.76.
+167. **Three findings:** (a) weight anisotropy necessary not sufficient (isotropic G → +0.03-0.07 for any
+     data); (b) given anisotropic G, data swings advantage 2.4× (+0.32→+0.76); (c) my naive "aligned data
+     → big effect" was WRONG — ISOTROPIC data gives the max (+0.76), because the data must EXPOSE G's
+     eigenvalue spread, not sit inside a locally-flat top/bottom region.
+168. **This explains the real-model null exactly:** real activations have corr(cos_J,cos_x)=0.62-0.94 →
+     G≈cosine on that data → small advantage. Real data sits where G is flat. Unifies ticks 12-13.
+169. **Complete honest deliverable:** the method beats cosine iff anisotropic operator AND data populating
+     its spread; predictor = 1−corr(cos_J,cos_x) on real data (cheap, ρ=0.83). Recorded truth-determination
+     limits for real LLMs (surrogate + intervention proxies verify same-map clusters, not meaning; ground
+     truth only in toys).
+
+## 2026-07-11 — jacclust tick 19 (synthesis)
+170. Wrote jacclust/SUMMARY.md — authoritative synthesis of the whole program. 14 solid results (S1-S14)
+     with provenance; the MLP negative + attention positive characterized; 7 retractions tabulated with
+     cause; the weights-only pre-screen recipe; 4 open questions. This is the reference doc; results.md
+     remains the chronological log.
+171. Held off launching another attention sweep autonomously: I have an open question to Logan (is the
+     modest head-dependent control-beating positive enough, or does he want full characterization?) and
+     I just corrected an over-read (tick 17->18). Consolidating was the responsible move rather than
+     risking a third premature claim.
+172. Honest program state: method+theory+toys SOLID; MLP real-model = characterized null (data-driven,
+     predicted by corr(cos_J,cos_x)); attention real-model = modest control-beating positive, needs a
+     non-derived causal target to be publishable (open #1,#4). Awaiting Logan's steer on direction.
+
+## 2026-07-11 — jacclust tick 23 (attention resolved)
+173. **The attention Jacobian is causally near-useless; the QUERY readout Wq·x is the causally-meaningful
+     object.** Causal switch test, 2 causally-important heads (screened), 5 seeds: query 0.009-0.010 vs
+     J 0.001-0.002 vs random 0. Resolves Logan's "are clusters meaningful + causally important" question:
+     the JACOBIAN clusters aren't, the QUERY clusters are.
+174. Third single-seed over-read caught by the 5-seed rule (query 0.0194 single -> 0.0090 mean). Direction
+     robust, magnitude was inflated.
+175. Program theme confirmed: the useful object is a weight-derived READOUT that isolates the operation
+     (content-restricted J for MLPs, Wq·x for attention); the full Jacobian is contaminated both times.
+     Net: Jacobian-clustering has no real-model causal win, but the method is a useful LENS that points to
+     the right weight-derived readout.

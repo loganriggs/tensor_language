@@ -1,0 +1,11 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+VERIFY custom forward w/ CORRECTED rotary: model 4.0282  custom 4.0282  diff 0.00e+00
+
+RE-RUN attention screen with CORRECT rotary (leverage + var-explained), 124M:
+     head  leverage            J            x       random
+  L2H3       0.926   +0.083     +0.040     +0.013
+  L6H0       0.775   +0.105     +0.118     +0.009
+  L8H0       0.897   +0.105     +0.057     +0.009
+  L8H4       0.613   +0.097     +0.061     +0.009
+DONE

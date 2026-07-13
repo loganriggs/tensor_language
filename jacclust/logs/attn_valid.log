@@ -1,0 +1,12 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+pattern-type label distribution (0=BOS-sink,1=self,2=prev,3=near,4=far): {4: 1286, 0: 41, 3: 38, 2: 11, 1: 24}
+
+  representation          ARI(clusters, pattern-type)
+  attention Jacobian J_q             -0.004±0.001
+  query residual x_q                  0.020±0.002
+  random matrix (leverage~1 control)             -0.000±0.000
+  (chance, shuffled)                 -0.006
+
+  Meaningful iff J_q recovers pattern-type >> x_q AND >> random-matrix control.
+DONE

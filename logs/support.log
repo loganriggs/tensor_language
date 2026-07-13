@@ -1,0 +1,17 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/venv/main/lib/python3.12/site-packages/sae_lens/saes/sae.py:253: UserWarning: 
+This SAE has non-empty model_from_pretrained_kwargs. 
+For optimal performance, load the model like so:
+model = HookedSAETransformer.from_pretrained_no_processing(..., **cfg.model_from_pretrained_kwargs)
+  warnings.warn(
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 34873.99it/s]
+Loaded pretrained model gpt2 into HookedTransformer
+Moving model to device:  cuda
+FEASIBLE (SAE codes): R2 0.7792 @ L0 55.5
+
+  OLS on SAE support        L0  20.7  R2  0.3571  ← best possible on SAE atoms
+  OLS on lasso support      L0  59.0  R2  0.6496  ← support-selection gap
+Traceback (most recent call last):
+  File "<stdin>", line 69, in <module>
+  File "<stdin>", line 54, in omp
+RuntimeError: unsupported operation: some elements of the input tensor and the written-to tensor refer to a single memory location. Please clone() the tensor before performing the operation.

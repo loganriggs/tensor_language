@@ -1,0 +1,24 @@
+OV rank 32   effective rank 13.7   d_model 128
+
+  K     k    learned R2   random R2    gap     k binds? (k < eff rank)
+<stdin>:33: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:838.)
+   128    8      0.9968      0.9929   +0.0039   yes
+   128    4      0.9531      0.9117   +0.0414   yes
+   128    2      0.8148      0.6880   +0.1268   yes
+   128    1      0.6090      0.4285   +0.1805   yes
+   512    8      0.9987      0.9961   +0.0026   yes
+   512    4      0.9856      0.9642   +0.0213   yes
+   512    2      0.9179      0.8002   +0.1176   yes
+   512    1      0.7628      0.5347   +0.2281   yes
+  1024    8      0.9993      0.9963   +0.0030   yes
+  1024    4      0.9931      0.9760   +0.0172   yes
+Traceback (most recent call last):
+  File "<stdin>", line 34, in <module>
+  File "/workspace/tensor_language/mechdecomp/tier15_contraction.py", line 78, in learn_dict
+    C, _ = omp_codes(W @ D, Y, k)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/mechdecomp/release_d.py", line 58, in omp_codes
+    j = corr.argmax(0)                                  # (N,)
+        ^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 220.00 MiB. GPU 0 has a total capacity of 15.47 GiB of which 73.19 MiB is free. Process 68477 has 2.22 GiB memory in use. Including non-PyTorch memory, this process has 13.16 GiB memory in use. Of the allocated memory 12.51 GiB is allocated by PyTorch, and 347.40 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)

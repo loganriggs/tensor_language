@@ -1,0 +1,13 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+REAL 124M model. Surrogate R2 (24k train, lambda=3, k=16, 5 seeds).
+
+  layer     raw x   G-metric   rank-1 M   output y     [x;y]    G_rand   global
+      2   +0.5011    +0.5118    +0.4920    +0.4701   +0.4703   +0.5049  +0.4730
+      6   +0.5348    +0.5354    +0.5179    +0.5024   +0.5027   +0.5382  +0.4840
+     10   +0.5321    +0.5253    +0.4241    +0.4562   +0.4563   +0.5327  +0.5217
+
+  NOTE: 'rank-1 M' surrogate would be circular if it clustered using y then predicted y.
+  Guard: the SURROGATE still fits y from x within each cluster; M only sets the CLUSTERS.
+  But clusters informed by y are an unfair advantage on a y-prediction task -> flag, don't headline.
+DONE

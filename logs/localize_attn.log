@@ -1,0 +1,24 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/292 [00:00<?, ?it/s]Loading weights: 100%|██████████| 292/292 [00:00<00:00, 35064.61it/s]
+W = L3 attention.dense (1024, 1024)  rank 1023  K=2048  K/rank=2.00
+(down_proj audit used K/rank = 2048/1024 = 2.00 — matched)
+
+baseline CE 2.8011   |   attention.dense output ZEROED: CE 3.0224  ΔCE +0.2213
+  (down_proj zeroed cost +0.2247 — this module is worth 0.2213 nats)
+
+(1)+(2) gap and BEHAVIOURAL faithfulness:
+     k   R2 learn  R2 rand    gap    spliced CE(L)  ΔCE   %recovered   spliced CE(R)  %rec
+     8   0.6962   0.2479  +0.4483    2.8172  +0.0161    92.7%      2.8964    56.9%
+    32   0.8130   0.5558  +0.2572    2.8154  +0.0143    93.5%      2.8373    83.6%
+
+(3) LOCALIZATION, causal-ranked at k=32 (128 sampled atoms per dictionary):
+  LEARNED: spliced CE 2.8154   top single-atom ΔCE +0.0009
+    atoms dropped:         1       4      16      64     128
+    CE           :    2.8163  2.8161  2.8175  2.8186  2.8186
+  RANDOM : spliced CE 2.8373   top single-atom ΔCE +0.0009
+    atoms dropped:         1       4      16      64     128
+    CE           :    2.8383  2.8396  2.8397  2.8427  2.8438
+
+  down_proj reference: top single-atom ΔCE  learned +0.0112  vs  random +0.0009  (12x)
+
+DONE

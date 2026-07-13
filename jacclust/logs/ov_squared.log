@@ -1,0 +1,27 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+/workspace/tensor_language/jacclust/ov_squared.py:100: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:838.)
+  lamb = float(a.lamb)
+L6H0 squared-attn, K=8, baseline CE 3.9111, value-mix lamb=0.295
+
+=== (A) QUERY pathway (WHERE to look) — override head query ===
+  query cos (tick25 baseline)        +0.0096 +- 0.0042
+  query cos^2 / rank-1 form (SQUARED) +0.0120 +- 0.0015
+  residual x (control)               +0.0065 +- 0.0026
+  random (control)                   +0.0001 +- 0.0002
+
+=== (B) OV / VALUE pathway (WHAT is copied) — override head value ===
+  value v_k cos                      +0.0422 +- 0.0214
+  residual x (control)               +0.0072 +- 0.0030
+  random (control)                   +0.0008 +- 0.0006
+
+=== (C) full-head contraction: is OV redundant WITHIN the head? ===
+  Query pathway clusters tokens by WHERE they look; value pathway by WHAT they emit.
+  If these two clusterings are ~the same partition, OV adds nothing to query clustering.
+  seed 0: ARI(query-clusters, value-clusters) = +0.0692
+  seed 1: ARI(query-clusters, value-clusters) = +0.0726
+  seed 2: ARI(query-clusters, value-clusters) = +0.0713
+  (ARI~0 => WHERE and WHAT are DIFFERENT partitions => OV carries independent structure,
+   so folding OV into a per-query clustering is NOT redundant across the two circuits.)
+DONE

@@ -1,0 +1,28 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/venv/main/lib/python3.12/site-packages/sae_lens/saes/sae.py:253: UserWarning: 
+This SAE has non-empty model_from_pretrained_kwargs. 
+For optimal performance, load the model like so:
+model = HookedSAETransformer.from_pretrained_no_processing(..., **cfg.model_from_pretrained_kwargs)
+  warnings.warn(
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 38216.89it/s]
+Loaded pretrained model gpt2 into HookedTransformer
+Moving model to device:  cuda
+[CONTROL] random-init dictionary (feature basis discarded)
+W (768, 768) rank 758   K=4096  k=56  N=5872
+
+ round     R2      mean cos(atom, start)   frac atoms |cos|<0.9   loss
+    0   0.8340        1.0000                0.0%       2.5139e+06
+  [G1 ok] round-0 reproduces the known OMP-over-SAE-features point
+
+    1   0.8880        0.2105              100.0%       1.6952e+06
+    2   0.9093        0.2111              100.0%       1.3738e+06
+    3   0.9191        0.1500              100.0%       1.2250e+06
+    4   0.9237        0.1607              100.0%       1.1551e+06
+    5   0.9259        0.1159              100.0%       1.1223e+06
+
+final: mean|cos| to start 0.1159   median 0.1154
+
+HELD-OUT (D frozen, codes re-solved by OMP on unseen tokens, same k):
+  init D0 (round 0)              val R2 0.8332
+  refined D (round 7)            val R2 0.8861
+DONE

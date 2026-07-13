@@ -1,0 +1,14 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+activation stats: 30000 tokens, d=768
+  top dims by variance: [62, 360, 39, 281, 659]  (their var/median var = [1.7882402039376382, 1.6306295550803749, 1.5893926835471466, 1.5764236679603831, 1.5636323609497091])
+  token norm: median 27.7  p99 27.7  max 27.7
+
+  condition                           G adv over cos  G adv over G_rand
+  (a) full data [tick-13 baseline]           +0.0006            -0.0028
+  (b) drop top-20 outlier DIMS               +0.0024            +0.0066
+  (c) drop top-3% outlier TOKENS             +0.0038            +0.0042
+  (d) drop both                              +0.0024            +0.0066
+
+  Ceiling (tick 13, matched-cov Gaussian): +0.037. If (d) approaches it, the outlier trick works.
+DONE

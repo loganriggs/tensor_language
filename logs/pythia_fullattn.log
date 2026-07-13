@@ -1,0 +1,15 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/292 [00:00<?, ?it/s]Loading weights: 100%|██████████| 292/292 [00:00<00:00, 2965.46it/s]
+full-attn OV map rank 1016 (d=1024, was 64 for 1 head)
+R2 0.3513 L0 74.0
+ABLATION FAITHFULNESS (808 atoms): median 1.1x (single-head was 2.6x), frac>5x 3%, frac>10x 0%, max 28x
+top-faithfulness atoms (context windows):
+  atom 176: 'on 6ows' | ' for the-' | 'urySay://' | ' degrees we for' | ',m on'
+  atom 134: ' China hypothal (' | ' The vacumic' | ' ( a (' | ' cells new The' | "We'll Most"
+  atom 223: '\n However by' | '- ( 600' | 'FLERre' | ' without and000' | ' for2 larger'
+  atom 182: ' frequency awa' | ' the fileswa' | "rust'd are" | ' do driveswa' | '\n to get'
+  atom 246: ' first spring have' | ' mostund web' | ' equipment 550 OS' | 'fr in (' | ', tryingoor'
+  atom 716: ', with\n' | ' their Doc\n' | ' Al.\n' | ' debug out\n' | ' of minimal\n'
+  atom 142: 'President = on' | ' andPS is' | ',: with' | '///es to' | ' methyl and in'
+  atom 79: '. and only' | ' be a="' | ' like architecter' | ' Stack become Windows' | 'fy make.'
+DONE

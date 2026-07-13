@@ -1,0 +1,25 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/venv/main/lib/python3.12/site-packages/sae_lens/saes/sae.py:253: UserWarning: 
+This SAE has non-empty model_from_pretrained_kwargs. 
+For optimal performance, load the model like so:
+model = HookedSAETransformer.from_pretrained_no_processing(..., **cfg.model_from_pretrained_kwargs)
+  warnings.warn(
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 38674.04it/s]
+Loaded pretrained model gpt2 into HookedTransformer
+Moving model to device:  cuda
+CONFOUND CHECK: my coherence table used the first 2048 features BY INDEX.
+Every real experiment uses the top 2048 BY USAGE (dead features excluded).
+
+dead features (0 activations on 4000 tokens): 5597 / 24576
+
+  first 2048 by INDEX (what I measured)
+     dead atoms included: 489
+     mutual coh  D 1.0000   WD 1.0000
+     mean |cos|  D 0.0394   WD 0.0765
+
+  top 2048 by USAGE (what experiments use)
+     dead atoms included: 0
+     mutual coh  D 1.0000   WD 1.0000
+     mean |cos|  D 0.0920   WD 0.1039
+
+DONE

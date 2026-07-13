@@ -1,0 +1,11 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+500M: does secant reconstruction need y? full-encoder (sees y) vs h-only encoder. FVU, 2 seeds.
+
+layer    full (sees y)     h-only  verdict
+  L6              0.122      0.140  h-predictable (transcoder viable)
+  L8              0.446      0.884  needs y (analysis only)
+  L16             0.164      0.183  h-predictable (transcoder viable)
+
+(full sees the true output; h-only must PREDICT the operator from h. small gap => transcoder viable.)
+DONE

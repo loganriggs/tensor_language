@@ -1,0 +1,39 @@
+mined 96 natural induction sites (tok[j]==tok[q], tok[q+1]==tok[j+1])
+
+BASE L1H2 match on mined sites = -0.1857  (random-token run: −0.0223)
+  [guard ok] circuit is engaged at these sites
+
+CAUSAL — zero each L0 head's write at each site's src:
+  zero L0H0@src → match -0.1677   Δs +0.0180
+  zero L0H1@src → match -0.1915   Δs -0.0058
+  zero L0H2@src → match -0.1813   Δs +0.0044
+  zero L0H3@src → match -0.0816   Δs +0.1041
+  [guard ok] L0H3 dominant
+
+decomposing L0 OV maps (OMP k=8 + validated M-step):
+  L0H0-OV  R2 0.9817
+  L0H1-OV  R2 0.9710
+  L0H2-OV  R2 0.9742
+  L0H3-OV  R2 0.9749
+
+JOINT GATE on natural sites (remove atom-reconstructed write):
+  head   true Δs    atom Δŝ
+  L0H0  +0.0180   +0.0099
+  L0H1  -0.0058   -0.0034
+  L0H2  +0.0044   +0.0023
+  L0H3  +0.1041   +0.0870
+
+  JOINT GATE: argmax|Δŝ| = L0H3 → PASS   (0.0870 vs next 0.0099, 8.81x)
+
+MATCHED-L0 lasso vs OMP on L0H3-OV (closes the uncitable 0.06-0.46 claim)
+
+(a) E-STEP ONLY (same OMP-learned dictionary):
+  OMP  k=8            L0   8.0   R2 0.9749
+  lasso λ=0.0005       L0  36.7   R2 0.9989
+  lasso λ=0.002        L0  24.9   R2 0.9923
+  lasso λ=0.01         L0  15.0   R2 0.9456
+  lasso λ=0.05         L0   5.4   R2 0.7195  <- matched
+  lasso λ=0.2          L0   0.9   R2 0.2540
+  lasso λ=0.8          L0   0.0   R2 -0.0056
+
+DONE

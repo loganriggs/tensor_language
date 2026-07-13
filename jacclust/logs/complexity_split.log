@@ -1,0 +1,20 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+/workspace/tensor_language/jacclust/complexity_split.py:20: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:838.)
+  thr = flat.kthvalue(flat.numel() - nkeep).values; return z * (z.abs() > thr), float(thr)
+500M L8 complexity split: 25000 held-out tokens, BatchTopK m=2048 k=32. feats/datapoint stats:
+  mean 32.2  median 21  range 1-385  frac-zero 0.000
+
+  Spearman correlations of #features-per-datapoint with:
+    secant norm ||M||^2 = ||y||^2/||h||^2 : +0.945
+    output norm ||y||                     : +0.945
+    input  norm ||h||                     : +0.019
+    token corpus frequency                : +0.181
+
+  ZERO-feature tokens (n=0): []
+  LOW (1-5 feats, n=3489): ["' the'", "'Q'", "'-'", "' '", "'�'", "' o'", "' a'", "'The'", "'i'", "'ar'", "' M'", "' l'", "'L'", "'t'", "' N'", "'D'", "' The'", "'P'"]
+  HIGH (top-1%, >=161 feats, n=253): ["'\\n'", "' to'", "'.'", "' bring'", "' by'", "' is'", "':'", "' 1914'", "' used'", "' out'", "' demonstrated'", "' 1981'", "' history'", "' tried'", "' attention'", "' between'", "' way'", "' know'"]
+
+  saved jacclust/complexity_split.png
+DONE

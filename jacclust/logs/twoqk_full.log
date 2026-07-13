@@ -1,0 +1,21 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+500M two-QK. baseline CE 3.8261. Intervention: joint (q1,q2,v) override by cluster rep.
+
+head    feature clustered on             swap-within
+/workspace/tensor_language/jacclust/twoqk_full.py:81: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:838.)
+  Vmix = (1 - float(a.lamb)) * vh + float(a.lamb) * v1_full[:, :, H, :]
+  --- L6H3 ---
+         query [q1;q2] (WHERE)          +0.0014±0.0005
+         value v (WHAT / VK values)     +0.0024±0.0025
+         FULL read z=sum s_qk v_k (VK)  -0.0000±0.0017
+         residual x (control)           +0.0010±0.0019
+         random (control)               +0.0002±0.0002
+  --- L8H3 ---
+         query [q1;q2] (WHERE)          -0.0004±0.0003
+         value v (WHAT / VK values)     +0.0007±0.0023
+         FULL read z=sum s_qk v_k (VK)  +0.0005±0.0003
+         residual x (control)           +0.0002±0.0008
+         random (control)               -0.0000±0.0000
+DONE

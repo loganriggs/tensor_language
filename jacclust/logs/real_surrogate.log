@@ -1,0 +1,47 @@
+
+=== block2-dense-seed0  MLP #0   d=128  G eff rank 118.5 ===
+  global single linear map, held-out R2 = -0.6293   (the floor every clustering must beat)
+
+    k clustering                    held-out surrogate R2
+    4 raw cosine (x)                     -318.9956±377.4803
+    4 G-metric (Jacobian)                -138.7737±51.3994
+    4 G_P: J off top-8 eigvecs           -198.3670±56.8834
+    4 G_rand (spectrum-matched)          -142.0856±33.1478
+    4 random clusters                      -0.7783±0.0218
+
+    8 raw cosine (x)                    -1659.1729±2523.6709
+    8 G-metric (Jacobian)                -427.7591±91.0444
+    8 G_P: J off top-8 eigvecs           -418.5571±121.5344
+    8 G_rand (spectrum-matched)          -476.0729±48.2989
+    8 random clusters                      -1.0308±0.0150
+
+   16 raw cosine (x)                     -382.3600±153.2657
+   16 G-metric (Jacobian)                -193.6775±119.5360
+   16 G_P: J off top-8 eigvecs           -274.1399±134.2342
+   16 G_rand (spectrum-matched)          -254.0777±112.6261
+   16 random clusters                      -1.7815±0.0520
+
+
+=== block2-dense-seed0  MLP #1   d=128  G eff rank 110.5 ===
+  global single linear map, held-out R2 = 0.3734   (the floor every clustering must beat)
+
+    k clustering                    held-out surrogate R2
+    4 raw cosine (x)                        0.4791±0.0023
+    4 G-metric (Jacobian)                   0.4892±0.0057
+    4 G_P: J off top-8 eigvecs              0.4864±0.0003
+    4 G_rand (spectrum-matched)             0.4705±0.0005
+    4 random clusters                       0.3201±0.0016
+
+    8 raw cosine (x)                        0.5109±0.0036
+    8 G-metric (Jacobian)                   0.5043±0.0079
+    8 G_P: J off top-8 eigvecs              0.5096±0.0165
+    8 G_rand (spectrum-matched)             0.4967±0.0068
+    8 random clusters                       0.2354±0.0025
+
+   16 raw cosine (x)                        0.4406±0.0230
+   16 G-metric (Jacobian)                   0.3768±0.1546
+   16 G_P: J off top-8 eigvecs              0.4140±0.0403
+   16 G_rand (spectrum-matched)             0.4101±0.0148
+   16 random clusters                      -0.0015±0.0051
+
+DONE

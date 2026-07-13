@@ -1,0 +1,12 @@
+DGP-D: recover the trained net's GATE. 5 seeds x 5 kmeans. chance ARI = -0.0006
+
+  per-datapoint object           ARI(mechanism)
+  input x                            0.002±0.002
+  hidden Lx*Rx                       0.002±0.003
+  output y                           0.226±0.192
+  rank-1 M (linear transf)           0.355±0.207
+  full Jacobian                      0.001±0.003
+  J content-cols                     1.000±0.000
+
+  'linear transformation' = rank-1 M = the best rank-1 map x_i->y_i (P3: cos(M_i,M_j)=cos_x*cos_y).
+DONE

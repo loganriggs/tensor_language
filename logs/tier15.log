@@ -1,0 +1,19 @@
+activations: X0 (128, 10000) X1 (128, 10000)
+  L0H0-OV: atoms 18 R2 0.5899 L0 2.9
+  L0H1-OV: atoms 2 R2 0.1003 L0 0.4
+  L0H2-OV: atoms 1 R2 0.2115 L0 0.3
+  L0H3-OV: atoms 10 R2 0.3483 L0 2.1
+  L1H2-K1: atoms 71 R2 0.9890 L0 9.3
+  L1H2-K2: atoms 128 R2 0.9326 L0 5.9
+
+usage-weighted |contraction| aggregates:
+  L0H0->K1: 0.3607
+  L0H1->K1: 0.06767
+  L0H2->K1: 0.1747
+  L0H3->K1: 0.17056
+  L0H0->K2: 0.09401
+  L0H1->K2: 0.06748
+  L0H2->K2: 0.07231
+  L0H3->K2: 0.09673
+
+GATE (L0H3 dominant into both branches): K1 FAIL (H3/max-other = 0.47x) | K2 PASS (1.03x)

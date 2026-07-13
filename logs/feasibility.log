@@ -1,0 +1,40 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/venv/main/lib/python3.12/site-packages/sae_lens/saes/sae.py:253: UserWarning: 
+This SAE has non-empty model_from_pretrained_kwargs. 
+For optimal performance, load the model like so:
+model = HookedSAETransformer.from_pretrained_no_processing(..., **cfg.model_from_pretrained_kwargs)
+  warnings.warn(
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 36805.23it/s]
+Loaded pretrained model gpt2 into HookedTransformer
+Moving model to device:  cuda
+(0) SAE at its own site: R2 0.9924  L0 56.2
+
+W = full OV (768, 768) rank 758
+live SAE features on this data: 9434
+
+(1) EXPLICIT FEASIBLE POINT (SAE codes / gates, no solving):
+  feature basis, c=s/(d·x)                     R2 -2.3758   L0    30.1   atoms 2048
+
+(2) PINNED-D: dictionary = SAE features, codes solved by lasso:
+  pinned SAE-feature dict (lam 0.005)          R2  0.9715   L0   608.4   atoms 2048
+  pinned SAE-feature dict (lam 0.02)           R2  0.9693   L0   565.1   atoms 2048
+  pinned SAE-feature dict (lam 0.05)           R2  0.9652   L0   511.8   atoms 2048
+
+(3) BASELINES (same K, codes solved, lam 0.02):
+  random SAE features (relevance-blind)        R2  0.9930   L0   721.5   atoms 2048
+  svd-init principal dirs                      R2  0.9994   L0   990.3   atoms 2048
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/workspace/tensor_language/mechdecomp/feasibility.py", line 136, in <module>
+    main()
+  File "/workspace/tensor_language/mechdecomp/feasibility.py", line 124, in main
+    report("random directions", W, Drnd, solve_codes(W, Drnd, X, 0.02), X)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/mechdecomp/estep.py", line 19, in solve_codes
+    WD = W @ D                                  # (d_out, m)
+         ~~^~~
+RuntimeError: expected mat1 and mat2 to have the same dtype, but got: float != double

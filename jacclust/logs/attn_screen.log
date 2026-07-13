@@ -1,0 +1,14 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+<stdin>:79: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:838.)
+
+softmax attn (CE 3.39, GOOD):  finite-diff check max|J@g - fd| = 1.06e-02
+  attention-op Jacobian screen: corr(cos_J, cos_x_q) = 0.055   leverage 1-corr = 0.945
+    (MLP baseline was 0.62-0.94; lower corr here = attention ops MORE anisotropic than MLP)
+
+squared attn (CE 7.53, WEAK):  finite-diff check max|J@g - fd| = 9.06e-03
+  attention-op Jacobian screen: corr(cos_J, cos_x_q) = 0.694   leverage 1-corr = 0.306
+    (MLP baseline was 0.62-0.94; lower corr here = attention ops MORE anisotropic than MLP)
+
+DONE

@@ -1,0 +1,30 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/292 [00:00<?, ?it/s]Loading weights: 100%|██████████| 292/292 [00:00<00:00, 33913.07it/s]
+K=1024 k=16  probes=64  eval=800  seeds=(0, 1, 2)
+
+seed 0: [G1 ok] SAE x-R2 0.2589 > random -0.1521
+   masked-projector   R2(Wx) 0.4590   median irrepl 0.000119   p90 0.000365   max 0.008001
+   SAE-8k             R2(Wx) 0.4338   median irrepl 0.000021   p90 0.000685   max 0.002629
+   random             R2(Wx) 0.0880   median irrepl 0.000026   p90 0.000086   max 0.000264
+seed 1: [G1 ok] SAE x-R2 0.2532 > random -0.1523
+   masked-projector   R2(Wx) 0.4594   median irrepl 0.000163   p90 0.000491   max 0.001254
+   SAE-8k             R2(Wx) 0.4278   median irrepl 0.000017   p90 0.000427   max 0.001262
+   random             R2(Wx) 0.0908   median irrepl 0.000029   p90 0.000076   max 0.000950
+seed 2: [G1 ok] SAE x-R2 0.2503 > random -0.1524
+   masked-projector   R2(Wx) 0.4589   median irrepl 0.000104   p90 0.000372   max 0.000591
+   SAE-8k             R2(Wx) 0.4258   median irrepl 0.000013   p90 0.000618   max 0.001476
+   random             R2(Wx) 0.0874   median irrepl 0.000031   p90 0.000090   max 0.000174
+
+=== POOLED over seeds (distribution-level, not max) ===
+dictionary             R2(Wx) mean±sd  irrepl median       mean        p90        max
+masked-projector        0.4591±0.0003       0.000134   0.000223   0.000387   0.008001
+SAE-8k                  0.4291±0.0042       0.000016   0.000155   0.000513   0.002629
+random                  0.0887±0.0018       0.000028   0.000043   0.000086   0.000950
+
+=== Mann-Whitney U vs masked-projector (pooled per-atom losses) ===
+  SAE-8k           z = -8.88   P(SAE-8k > MP) = 0.238   -> lower
+  random           z = -12.05   P(random > MP) = 0.144   -> lower
+
+  The spec's premise needs masked-projector STRICTLY BETTER than SAE-8k.
+
+DONE

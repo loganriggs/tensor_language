@@ -1,0 +1,12 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+layer 6: G eff_rank/d = 0.893   (tick 12 law predicts advantage ~+0.068 at this eff_rank, Gaussian input)
+
+  input distribution                G adv over cos  G adv over G_rand
+  (a) real activations                     +0.0012            -0.0012
+  (b) Gaussian, matched cov                +0.0372            +0.0399
+  (c) isotropic Gaussian                   +0.0656            +0.0251
+
+  If (c) >> (a), the tick-12 law is an ISOTROPIC-INPUT law and eff_rank(G) alone does NOT
+  predict the real-model effect. That corrects tick 12's 'real models sit on the law'.
+DONE

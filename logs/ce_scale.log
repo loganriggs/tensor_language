@@ -1,0 +1,11 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/292 [00:00<?, ?it/s]Loading weights: 100%|██████████| 292/292 [00:00<00:00, 35785.90it/s]
+baseline CE                         2.8011
+down_proj output ZEROED             3.0258   ΔCE +0.2247   <- destroys the layer
+down_proj output MEAN-ablated       3.0131   ΔCE +0.2120
+RANDOM dict spliced, k=8            2.9527   ΔCE +0.1516
+RANDOM dict spliced, k=32           2.8910   ΔCE +0.0899
+LEARNED dict spliced, k=32          2.8497   ΔCE +0.0486
+
+  learned recovers 78.4% of the CE that zeroing destroys.
+DONE

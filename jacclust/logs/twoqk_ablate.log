@@ -1,0 +1,24 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+500M two-QK. clean CE 3.7895
+=== GLOBAL (all heads) negative-pattern ablations ===
+  clamp_neg (remove anti-copy)      CE damage +1.7654
+  flip_neg  (anti-copy -> copy)      CE damage +4.7800
+  drop_ctrl (matched pos-mass, ctrl) CE damage +3.6375±0.0069
+  => signed attention load-bearing iff clamp_neg/flip_neg >> drop_ctrl
+
+=== per-head clamp_neg CE damage (reliance on signed attention) ===
+  per-head damage: mean 0.0014, max 0.0565, heads with >0.01: 7, >0.05: 1
+  top-10 heads by signed-attn reliance:
+    L1H1: +0.0565
+    L2H5: +0.0280
+    L8H3: +0.0259
+    L9H7: +0.0200
+    L11H5: +0.0138
+    L5H6: +0.0111
+    L2H7: +0.0106
+    L3H5: +0.0099
+    L5H2: +0.0094
+    L7H2: +0.0092
+  per-LAYER mean clamp_neg damage: [0.0005, 0.0067, 0.0043, 0.0027, 0.0024, 0.0031, 0.0003, 0.0019, 0.002, 0.0032, 0.0006, 0.0009, 0.001, 0.0016, -0.0058, 0.0005, -0.0016, 0.0004]
+DONE

@@ -1,0 +1,13 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+500M L8: RAW (magnitude) vs NORMALIZED (cos) BatchTopK, m=2048 avg-k=32, 25k held-out.
+
+/workspace/tensor_language/jacclust/magfree.py:66: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:838.)
+  t = float(zsel.abs()[mask].min()) if mask.any() else 0.0
+  RAW (magnitude)     : feats/token mean 32.3 median 22 range 0-367  | corr(#feat, ||M||^2) = +0.943  | mean per-token FVU 0.516
+  NORMALIZED (cos)    : feats/token mean 31.7 median 32 range 6-67  | corr(#feat, ||M||^2) = +0.149  | mean per-token FVU 0.494
+
+  VERDICT: if NORMALIZED corr->0 AND its range collapses -> split was PURE magnitude.
+  saved jacclust/magfree.png
+DONE

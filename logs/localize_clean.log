@@ -1,0 +1,12 @@
+Loading weights:   0%|          | 0/292 [00:00<?, ?it/s]Loading weights: 100%|██████████| 292/292 [00:00<00:00, 36200.54it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+baseline CE 2.6771   zeroed 2.9114  (module worth +0.2343)
+
+identical atom sample (64 atoms), identical 16 sequences, k=32
+
+  dict      spliced CE   mean ΔCE    median ΔCE   top1 ΔCE   top5 mean   frac>1e-3
+  LEARNED   2.7264    -0.00005   -0.00005   +0.00098   +0.00077    0.00
+  RANDOM    2.7792    +0.00030   +0.00024   +0.00123   +0.00116    0.09
+
+  Localization requires the learned DISTRIBUTION to be shifted, not one lucky max.
+DONE

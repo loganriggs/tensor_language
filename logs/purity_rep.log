@@ -1,0 +1,24 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/292 [00:00<?, ?it/s]Loading weights: 100%|██████████| 292/292 [00:00<00:00, 35614.20it/s]
+measured chance purity 0.070   seeds=(0, 1, 2)
+
+seed 0 done
+seed 1 done
+seed 2 done
+
+(a) DICTIONARY effect - purity over ALL probed atoms, pooled across seeds
+  dictionary           median     mean     n
+  masked-projector      0.100    0.159   192
+  SAE-8k                0.050    0.145   184
+  random                0.050    0.097   190
+  MW SAE-8k vs MP: z=-6.16  P(SAE-8k>MP)=0.316  -> lower
+  MW random vs MP: z=-7.60  P(random>MP)=0.275  -> lower
+
+(b) SELECTION effect - top-10-irreplaceable vs 10 random atoms, per dictionary (mean over seeds)
+  dictionary           top-10  random-10
+  masked-projector      0.192      0.140
+  SAE-8k                0.477      0.110
+  random                0.205      0.152
+
+  chance 0.070
+DONE

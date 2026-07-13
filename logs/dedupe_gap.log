@@ -1,0 +1,23 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/venv/main/lib/python3.12/site-packages/sae_lens/saes/sae.py:253: UserWarning: 
+This SAE has non-empty model_from_pretrained_kwargs. 
+For optimal performance, load the model like so:
+model = HookedSAETransformer.from_pretrained_no_processing(..., **cfg.model_from_pretrained_kwargs)
+  warnings.warn(
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 36726.84it/s]
+Loaded pretrained model gpt2 into HookedTransformer
+Moving model to device:  cuda
+STEP 1 — count duplicate pairs INSIDE the working dictionary (top-2048 by usage):
+  |cos|>0.999: 45 pairs
+  |cos|>0.99: 45 pairs
+  |cos|>0.95: 45 pairs
+  |cos|>0.9: 47 pairs
+  |cos|>0.8: 48 pairs
+
+  If this count is tiny, duplicate-splitting CANNOT explain a 0.237 R2 gap.
+
+STEP 2 — gap with and without duplicates, both at matched L0 ~ 56:
+
+  dictionary            atoms   OMP R2    lasso R2  lasso+OLS   gap(OMP-lassoOLS)
+  full (with twins)       2048   0.8426   0.8111    0.8525      -0.0099   (lasso L0 135.0)
+  deduped |cos|>0.99      2039   0.8426   0.8111    0.8512      -0.0087   (lasso L0 133.2)

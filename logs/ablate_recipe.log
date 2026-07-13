@@ -1,0 +1,18 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/venv/main/lib/python3.12/site-packages/sae_lens/saes/sae.py:253: UserWarning: 
+This SAE has non-empty model_from_pretrained_kwargs. 
+For optimal performance, load the model like so:
+model = HookedSAETransformer.from_pretrained_no_processing(..., **cfg.model_from_pretrained_kwargs)
+  warnings.warn(
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 33153.01it/s]
+Loaded pretrained model gpt2 into HookedTransformer
+Moving model to device:  cuda
+SPEC §2(iv) ABLATION FAITHFULNESS for the recommended recipe (atoms = SAE features)
+
+For atom j: ablate W ← W − (W d_j) d_jᵀ  ⇒  ΔW·x = (W d_j)(d_jᵀx)  — depends on the GATE, not activity.
+  ablation concentration ||ΔWx||  active/inactive:  median 1.89×  frac>3× 27%  frac>5× 2%
+  raw gate |d_j·x|                active/inactive:  median 1.89×
+
+  (Pythia masked-projector atoms measured earlier: median 2.6×; toys: 32-64×)
+  contribution using SAE CODE s_ij (not the raw gate): median 2539649152×  ← localizes
+DONE

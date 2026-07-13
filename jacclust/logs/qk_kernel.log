@@ -1,0 +1,14 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+G_QK identity: x^T G_QK x' = -71257.2578  vs  (Wk^T Wq x)·(Wk^T Wq x') = -71257.2812  err 2.34e-02
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+<stdin>:47: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:838.)
+
+CAUSAL switch test L6H0, 5 seeds (swap-within damage; higher=clusters causally distinct):
+  query Wq·x             +0.0090±0.0050
+  QK G_QK (Wk^T Wq x)    +0.0072±0.0014
+  residual x             +0.0005±0.0006
+  random                 +0.0000±0.0000
+
+  Does QK (both weights) beat query-only causally?
+DONE

@@ -1,0 +1,14 @@
+Controlled anisotropy sweep: r = rank of L,R row subspace.  d=48, 5 seeds, k=12.
+
+    r eff_rank(G)/d      R2(G)    R2(cos)  R2(G_rand)    G-cos  G-Grand
+    2         0.041    +0.8903    +0.0047     -0.0019  +0.8856  +0.8923
+    4         0.081    +0.7934    +0.0389     +0.0045  +0.7545  +0.7889
+    8         0.161    +0.5590    +0.0325     +0.0390  +0.5265  +0.5201
+   16         0.319    +0.3321    +0.0385     +0.0337  +0.2937  +0.2985
+   32         0.628    +0.1759    +0.0422     +0.0343  +0.1337  +0.1416
+   48         0.922    +0.1109    +0.0432     +0.0430  +0.0677  +0.0680
+
+  corr( 1 - eff_rank/d , G-cosine advantage )   = +0.913
+  corr( 1 - eff_rank/d , G-G_rand advantage )   = +0.911
+  Claim holds iff advantage grows as eff_rank shrinks (positive correlation, ~0 at eff_rank~1).
+DONE

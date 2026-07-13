@@ -1,0 +1,12 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+head             value-cos        resid-x       random
+/workspace/tensor_language/jacclust/ov_multi.py:51: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:838.)
+  Vmix=((1-float(a.lamb))*vh+float(a.lamb)*v1h).detach(); return Xn.detach(), Vmix
+L2H4    +0.0093+-0.0007 +0.0058+-0.0012 +0.0004+-0.0003
+L4H2    +0.0055+-0.0031 +0.0039+-0.0013 -0.0001+-0.0002
+L6H0    +0.0422+-0.0214 +0.0072+-0.0030 +0.0008+-0.0006
+L9H0    +0.0048+-0.0040 -0.0014+-0.0037 +0.0001+-0.0001
+L11H3    +0.0025+-0.0012 +0.0041+-0.0004 +0.0001+-0.0002
+DONE

@@ -1,0 +1,15 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+
+sqrd-attn 124M  (layer 6):
+  attention head 0: leverage = 0.786
+  attention head 2: leverage = 0.821
+  attention head 4: leverage = 0.902
+
+bil-sqrd-attn 573M  (layer 9):
+  attention head 0: leverage = 1.214
+  attention head 4: leverage = 1.438
+  [in-model MLP G-metric leverage: 0.629]
+
+  MLP baseline (tick 2/15) was 0.06-0.38. Higher attention leverage = more anisotropic ops.
+DONE

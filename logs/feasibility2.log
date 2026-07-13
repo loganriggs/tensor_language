@@ -1,0 +1,20 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/venv/main/lib/python3.12/site-packages/sae_lens/saes/sae.py:253: UserWarning: 
+This SAE has non-empty model_from_pretrained_kwargs. 
+For optimal performance, load the model like so:
+model = HookedSAETransformer.from_pretrained_no_processing(..., **cfg.model_from_pretrained_kwargs)
+  warnings.warn(
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 36910.27it/s]
+Loaded pretrained model gpt2 into HookedTransformer
+Moving model to device:  cuda
+(0) SAE at its own site: R2 0.9924  L0 56.2
+W = full OV (768, 768) rank 758
+
+(A) UPPER BOUND — SAE reconstruction through the true map:
+  W·(P·x̂/std)  vs  W·x̃ :  R2  0.7756   L0 56.2
+
+(B) FEASIBLE POINT  c = s·n/(std·gate):
+  masked-projector, NO bias atom     R2  0.3427   L0    40.1
+  + bias atom (W·P·b_dec/std)        R2  0.3858   L0    41.1
+
+(C) SOLVER-FOUND solutions (lam 0.02):

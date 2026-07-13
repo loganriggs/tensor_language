@@ -1,0 +1,17 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/venv/main/lib/python3.12/site-packages/sae_lens/saes/sae.py:253: UserWarning: 
+This SAE has non-empty model_from_pretrained_kwargs. 
+For optimal performance, load the model like so:
+model = HookedSAETransformer.from_pretrained_no_processing(..., **cfg.model_from_pretrained_kwargs)
+  warnings.warn(
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 39953.47it/s]
+Loaded pretrained model gpt2 into HookedTransformer
+Moving model to device:  cuda
+OMP∩SAE-active overlap: mean 10.6% of the 56 selected atoms
+
+MECHANISTIC RELEVANCE ||W d_j|| by group (the spec's §2(v) disagreement test):
+  kept   (SAE-active AND OMP-selected)  n=  2371  median 2.665
+  DROPPED(SAE-active, OMP rejected)     n= 19381  median 2.498   ← W treats as noise?
+  added  (OMP-selected, SAE inactive)   n= 20029  median 2.478
+  all features                          median 2.313
+DONE

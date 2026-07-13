@@ -1,0 +1,12 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+head          q1       q2   [q1;q2]  [q1;noise]  [q2;noise]  q2 real?
+/workspace/tensor_language/jacclust/twoqk_ctrl.py:65: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:838.)
+  cw=float(forward_ce(idx,tgt,L,H,override(q1,L2,m1),override(q2,L2,m2)))
+L0H2     +0.0074  +0.0071   +0.0122     +0.0096     +0.0115       YES
+L6H3     +0.0047  +0.0049   +0.0065     +0.0050     +0.0044       YES
+L8H3     +0.0026  +0.0004   +0.0042     +0.0002     +0.0028       YES
+L3H3     +0.0009  +0.0014   +0.0010     +0.0007     +0.0018        no
+[q1;q2] > [q1;noise] and > [q2;noise] => the SECOND matrix carries signal beyond added dimensions.
+DONE

@@ -1,0 +1,84 @@
+
+=== MLP #0  ||Y||_F/sqrt(N) = 36.96  ||X|| = 11.31 ===
+
+  lambda=0       global R2 -0.6293   [k=1 identity check: -0.6293, diff 2.22e-16]
+      k clustering                  held-out R2  min cluster (train)
+      4 raw cosine (x)           -318.9958±377.4805                  227
+      4 G-metric (Jacobian)      -138.7737±51.3994                  256
+      4 G_P (off top-8)          -198.3670±56.8834                  287
+      4 G_rand (spectrum)        -142.0856±33.1478                  253
+      4 random clusters            -0.7817±0.0149
+      8 raw cosine (x)          -1730.2059±2482.9585                  149
+      8 G-metric (Jacobian)      -427.7593±91.0445                  171
+      8 G_P (off top-8)         -4264.6496±7585.4728                  143
+      8 G_rand (spectrum)        -476.0732±48.2989                  173
+      8 random clusters            -1.0252±0.0111
+
+  lambda=0.001   global R2 -0.6293   [k=1 identity check: -0.6293, diff 0.00e+00]
+      k clustering                  held-out R2  min cluster (train)
+      4 raw cosine (x)            -15.9028±3.3601                  227
+      4 G-metric (Jacobian)       -17.5515±1.2416                  256
+      4 G_P (off top-8)           -17.7098±2.2243                  287
+      4 G_rand (spectrum)         -15.7609±2.9150                  253
+      4 random clusters            -0.7817±0.0149
+      8 raw cosine (x)             -7.7615±2.3137                  149
+      8 G-metric (Jacobian)        -5.8708±1.2370                  171
+      8 G_P (off top-8)            -5.8157±1.5486                  143
+      8 G_rand (spectrum)          -5.6630±0.8899                  173
+      8 random clusters            -1.0252±0.0111
+
+  lambda=0.1     global R2 -0.6293   [k=1 identity check: -0.6293, diff 0.00e+00]
+      k clustering                  held-out R2  min cluster (train)
+      4 raw cosine (x)             -1.6543±0.1287                  227
+      4 G-metric (Jacobian)        -1.4233±0.0903                  256
+      4 G_P (off top-8)            -1.4574±0.1262                  287
+      4 G_rand (spectrum)          -1.7691±0.0287                  253
+      4 random clusters            -0.7816±0.0149
+      8 raw cosine (x)             -0.5288±0.1571                  149
+      8 G-metric (Jacobian)        -0.2518±0.2147                  171
+      8 G_P (off top-8)            -0.2885±0.0724                  143
+      8 G_rand (spectrum)          -0.3033±0.0766                  173
+      8 random clusters            -1.0249±0.0111
+
+=== MLP #1  ||Y||_F/sqrt(N) = 23.19  ||X|| = 11.31 ===
+
+  lambda=0       global R2 +0.3734   [k=1 identity check: +0.3734, diff 0.00e+00]
+      k clustering                  held-out R2  min cluster (train)
+      4 raw cosine (x)             +0.4791±0.0023                  303
+      4 G-metric (Jacobian)        +0.4892±0.0057                  567
+      4 G_P (off top-8)            +0.4864±0.0003                  476
+      4 G_rand (spectrum)          +0.4705±0.0005                  303
+      4 random clusters            +0.3191±0.0003
+      8 raw cosine (x)             +0.5109±0.0036                  225
+      8 G-metric (Jacobian)        +0.5043±0.0079                  252
+      8 G_P (off top-8)            +0.5096±0.0165                  267
+      8 G_rand (spectrum)          +0.3795±0.1499                  167
+      8 random clusters            +0.2323±0.0028
+
+  lambda=0.001   global R2 +0.3734   [k=1 identity check: +0.3734, diff 0.00e+00]
+      k clustering                  held-out R2  min cluster (train)
+      4 raw cosine (x)             +0.4791±0.0023                  303
+      4 G-metric (Jacobian)        +0.4893±0.0057                  567
+      4 G_P (off top-8)            +0.4864±0.0003                  476
+      4 G_rand (spectrum)          +0.4705±0.0005                  303
+      4 random clusters            +0.3191±0.0003
+      8 raw cosine (x)             +0.5110±0.0036                  225
+      8 G-metric (Jacobian)        +0.5045±0.0078                  252
+      8 G_P (off top-8)            +0.5097±0.0165                  267
+      8 G_rand (spectrum)          +0.4970±0.0065                  167
+      8 random clusters            +0.2323±0.0028
+
+  lambda=0.1     global R2 +0.3734   [k=1 identity check: +0.3734, diff 0.00e+00]
+      k clustering                  held-out R2  min cluster (train)
+      4 raw cosine (x)             +0.4798±0.0023                  303
+      4 G-metric (Jacobian)        +0.4918±0.0045                  567
+      4 G_P (off top-8)            +0.4892±0.0005                  476
+      4 G_rand (spectrum)          +0.4712±0.0005                  303
+      4 random clusters            +0.3191±0.0003
+      8 raw cosine (x)             +0.5145±0.0034                  225
+      8 G-metric (Jacobian)        +0.5145±0.0056                  252
+      8 G_P (off top-8)            +0.5187±0.0132                  267
+      8 G_rand (spectrum)          +0.5020±0.0049                  167
+      8 random clusters            +0.2325±0.0028
+
+DONE

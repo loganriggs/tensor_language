@@ -1,0 +1,20 @@
+LOCALIZATION GATE at BINDING sparsity: K=512, k=2   (at k=8 learned==random)
+base P(copy) 0.7467
+
+/workspace/tensor_language/mechdecomp/tier15_contraction.py:81: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:838.)
+  r2 = float(1 - (((W @ D) @ C - Y) ** 2).sum() / ((Y - Y.mean(1, keepdim=True)) ** 2).sum())
+  OV R2: learned 0.9200  random 0.8005  (gap +0.1194 -- now separates)
+
+  LEARNED: faithful P(copy) 0.4453
+    atoms :        1      2      4      8     16     32     64    128    256    512
+    P(copy):   0.4406 0.4349 0.4256 0.4109 0.3844 0.3347 0.2577 0.1603 0.0648 0.0073
+    atoms to halve: 128
+
+  RANDOM : faithful P(copy) 0.4322
+    atoms :        1      2      4      8     16     32     64    128    256    512
+    P(copy):   0.4268 0.4212 0.4130 0.3962 0.3653 0.3117 0.2360 0.1439 0.0542 0.0073
+    atoms to halve: 128
+
+VERDICT: learned 128 atoms to halve, random 128.
+DONE

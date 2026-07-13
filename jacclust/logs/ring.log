@@ -1,0 +1,11 @@
+DGP-A' RING: does the embedding recover the circle of mechanisms (angle theta)?
+Manifold metric: |circular correlation(recovered angle, true theta)|. 5 seeds.
+
+  representation      circular corr   trustworthiness(theta-space)
+  restricted J           0.999±0.000                    1.000±0.000
+  input x                0.083±0.036                    0.508±0.006
+  output y               0.028±0.019                              -
+  random proj            0.069±0.048                    0.520±0.010
+
+  Prediction: restricted J recovers theta (high circ corr); input/output recover content (low).
+DONE

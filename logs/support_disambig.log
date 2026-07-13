@@ -1,0 +1,21 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/venv/main/lib/python3.12/site-packages/sae_lens/saes/sae.py:253: UserWarning: 
+This SAE has non-empty model_from_pretrained_kwargs. 
+For optimal performance, load the model like so:
+model = HookedSAETransformer.from_pretrained_no_processing(..., **cfg.model_from_pretrained_kwargs)
+  warnings.warn(
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 34354.81it/s]
+Loaded pretrained model gpt2 into HookedTransformer
+Moving model to device:  cuda
+N=400  mean SAE L0 = 55.5
+
+ONE metric for every row: per-datapoint uncentered R^2 on target (x - b_dec).
+
+  (1) SAE encoder codes, SAE support         R2 0.8432   L0 55.5
+  (2) OLS refit on SAE support              R2 0.8807   L0 55.5   <- best coeffs, same support
+  (3) OMP greedy support (matched k_i)      R2 0.9328   L0 55.5   prec 23.2% recall 23.2%
+
+DISAMBIGUATION:
+  if (2) >> (3): the SAE's support is genuinely BETTER; my solver can't find it   -> SOLVER WEAKNESS
+  if (3) >= (2): a disjoint support reconstructs as well                          -> SUPPORT IS ILL-POSED
+DONE

@@ -1,0 +1,23 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/292 [00:00<?, ?it/s]Loading weights: 100%|██████████| 292/292 [00:00<00:00, 37227.17it/s]
+W (1024, 4096)   activations (36601, 4096)   297 seqs
+
+baseline LM CE (unmodified model) = 2.8011
+
+(1) DECOMPOSABILITY PRE-TEST — does any k give a dictionary gap AND preserved behaviour?
+
+     k   R2 learn  R2 rand    gap     spliced CE   ΔCE vs base
+     8   0.5393   0.0441  +0.4952     2.8818     +0.0807
+    16   0.5773   0.1444  +0.4329     2.8663     +0.0652
+    32   0.6397   0.2823  +0.3574     2.8497     +0.0486
+    64   0.7261   0.4585  +0.2675     2.8405     +0.0394
+
+(2) LOCALIZATION GATE (causal-ranked) at k=32
+  LEARNED: spliced CE 2.8497   top single-atom ΔCE +0.0112
+    atoms dropped :         1       4      16      64     128
+    CE            :    2.8609  2.8628  2.8680  2.8728  2.8736
+  RANDOM : spliced CE 2.8910   top single-atom ΔCE +0.0009
+    atoms dropped :         1       4      16      64     128
+    CE            :    2.8920  2.8926  2.8933  2.8998  2.8967
+
+DONE

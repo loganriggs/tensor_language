@@ -1,0 +1,13 @@
+Tier 1.5 with OMP — reconstruction first (gate for the circuit claim):
+  L0H0-OV  R2 0.9297
+  L0H1-OV  R2 0.8875
+  L0H2-OV  R2 0.9058
+  L0H3-OV  R2 0.9048
+  L1H2-K1  R2 0.9712
+  L1H2-K2  R2 0.9193
+  (old L1-lasso solver gave 0.06-0.46 → 'uninformative at this R2')
+
+Selectivity-scored contraction (gate: L0H3 dominant into BOTH branches):
+  K1: L0H0 -0.6796  L0H1 -0.6151  L0H2 -0.6219  L0H3 -0.2831  → max L0H3 PASS
+  K2: L0H0 -0.2318  L0H1 -0.0435  L0H2 +0.3143  L0H3 +0.1245  → max L0H2 FAIL
+DONE

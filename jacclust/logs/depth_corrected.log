@@ -1,0 +1,30 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+500M CORRECTED depth sweep: 76800 tokens, 56800 train / 20000 held-out. m=1024 BatchTopK k=32, held-out FVU.
+
+/workspace/tensor_language/jacclust/depth_corrected.py:22: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:838.)
+  thr = flat.kthvalue(flat.numel() - nkeep).values; return z * (z.abs() > thr), float(thr)
+  L0   sparse FVU 0.451  functional 0.311  dense-32 0.715  margin +0.264
+  L1   sparse FVU 0.331  functional 0.267  dense-32 0.548  margin +0.217
+  L2   sparse FVU 0.621  functional 0.481  dense-32 0.817  margin +0.197
+  L3   sparse FVU 0.634  functional 0.493  dense-32 0.822  margin +0.188
+  L4   sparse FVU 0.435  functional 0.355  dense-32 0.537  margin +0.102
+  L5   sparse FVU 0.206  functional 0.169  dense-32 0.264  margin +0.058
+  L6   sparse FVU 0.231  functional 0.201  dense-32 0.276  margin +0.046
+  L7   sparse FVU 0.434  functional 0.400  dense-32 0.610  margin +0.176
+  L8   sparse FVU 0.468  functional 0.417  dense-32 0.669  margin +0.200
+  L9   sparse FVU 0.432  functional 0.370  dense-32 0.590  margin +0.158
+  L10  sparse FVU 0.551  functional 0.488  dense-32 0.768  margin +0.217
+  L11  sparse FVU 0.400  functional 0.318  dense-32 0.524  margin +0.124
+  L12  sparse FVU 0.472  functional 0.388  dense-32 0.630  margin +0.158
+  L13  sparse FVU 0.454  functional 0.364  dense-32 0.600  margin +0.146
+  L14  sparse FVU 0.537  functional 0.443  dense-32 0.688  margin +0.151
+  L15  sparse FVU 0.266  functional 0.166  dense-32 0.339  margin +0.074
+  L16  sparse FVU 0.191  functional 0.069  dense-32 0.274  margin +0.083
+  L17  sparse FVU 0.168  functional 0.048  dense-32 0.270  margin +0.103
+
+  mean sparse FVU 0.405 (tick-46 wrong-hook train was 0.37); best L17 0.168, worst L3 0.634
+  mean margin +0.148 (sparse beats dense-32 at all layers: True)
+  saved jacclust/depth_corrected.png
+DONE

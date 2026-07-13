@@ -1,0 +1,19 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/292 [00:00<?, ?it/s]Loading weights: 100%|██████████| 292/292 [00:00<00:00, 36072.60it/s]
+W (1024, 4096)  K=1024  k=16   matched across all three dictionaries
+
+training top-k SAE on x (activation-only baseline)...
+G1  x-reconstruction R2 (the SAE's own objective): SAE 0.2733   random -0.1540   masked-projector -0.0306
+  [G1 ok] SAE beats random on x, so it is a fair baseline
+
+G2  chance purity (measured) = 0.081
+
+dictionary               R2(Wx)  irrepl mean  irrepl top1  purity top10
+masked-projector         0.4919     0.000227     0.006116         0.347
+SAE decoder (x-only)     0.4654     0.000246     0.009319         0.385
+random                   0.0893     0.000046     0.000353         0.347
+
+  chance purity 0.081.  Toy reference: true/random irreplaceability 8.4x.
+  The spec's premise requires masked-projector > SAE decoder on R2(Wx) and irreplaceability.
+
+DONE

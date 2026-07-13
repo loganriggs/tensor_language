@@ -1,0 +1,16 @@
+DGP-E: NO control stream. gate = argmax_g (w_g.c)^2, inferred by layer 1.
+n=400 k_g=3 k_c=4 d_v=12   5 DGP seeds x 5 kmeans seeds
+
+measured chance ARI: g +0.0019   content -0.0004
+
+  representation             ARI(mechanism g)       ARI(content)
+  input x                       -0.001±0.003       1.000±0.000
+  mid z                         -0.001±0.003       1.000±0.000
+  output y                       0.172±0.076       0.300±0.101
+  rank-1 M                       0.345±0.128       0.420±0.135
+  FULL end-to-end J              0.287±0.162       0.290±0.070
+  layer-1 J                     -0.001±0.003       1.000±0.000
+  layer-2 J                     -0.001±0.003       1.000±0.000
+  random proj                   -0.001±0.003       1.000±0.000
+
+DONE

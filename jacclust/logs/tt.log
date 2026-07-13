@@ -1,0 +1,23 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+=== G effective rank across depth (weights-only) ===
+  layer  G eff rank  corr(cos_J,cos_x)
+      0       684.8             0.6268
+      1       718.0             0.6611
+      2       704.9             0.7284
+      3       705.1             0.7032
+      4       683.2             0.7982
+      5       676.9             0.7710
+      6       685.8             0.7404
+      7       687.8             0.6561
+      8       688.2             0.6189
+      9       696.7             0.6236
+     10       700.1             0.6771
+     11       684.0             0.7889
+
+=== held-out surrogate R2 (Euclidean, gain retained; 5 seeds, k=16) ===
+  layer     G (Jacobian)            raw x           G_rand    global
+      2   -0.3188±0.110   -0.3304±0.094   -0.4169±0.066   +0.4521
+      6   -0.2195±0.061   -0.2204±0.047   -0.2098±0.054   +0.4674
+     10   -0.2157±0.123   -0.2401±0.090   -0.2351±0.118   +0.5086
+DONE

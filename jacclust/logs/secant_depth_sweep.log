@@ -1,0 +1,27 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+500M bilinear-secant SAE depth sweep. d=1152, 12288 tokens, sparse m=512/k=32, dense rank-32. 2 seeds.
+
+layer   sparse FVU  functional  dense-32 FVU  sparsity margin
+  L0          0.243       0.174         0.505           +0.262
+  L1          0.335       0.218         0.512           +0.177
+  L2          0.533       0.394         0.736           +0.203
+  L3          0.585       0.446         0.777           +0.192
+  L4          0.403       0.319         0.534           +0.132
+  L5          0.428       0.287         0.599           +0.171
+  L6          0.122       0.077         0.149           +0.027
+  L7          0.406       0.363         0.566           +0.160
+  L8          0.450       0.402         0.661           +0.211
+  L9          0.420       0.348         0.575           +0.155
+  L10         0.527       0.461         0.758           +0.231
+  L11         0.365       0.279         0.493           +0.128
+  L12         0.442       0.354         0.622           +0.180
+  L13         0.409       0.317         0.568           +0.158
+  L14         0.475       0.379         0.655           +0.180
+  L15         0.232       0.137         0.312           +0.080
+  L16         0.164       0.056         0.249           +0.085
+  L17         0.162       0.047         0.278           +0.116
+
+  best (lowest sparse FVU) layer L6: 0.122; worst L3: 0.585
+  mean sparse FVU 0.372; mean sparsity margin (dense-sparse) +0.158 (>0 => sparse helps)
+DONE

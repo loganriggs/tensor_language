@@ -1,0 +1,18 @@
+CONTROL: sparse operator-dict vs dense low-rank (secant FVU; lower=better). 3 seeds.
+
+=== block2 MLP#0 (d=128) ===
+  dense rank-R (all active)        R4:0.886 R8:0.798 R16:0.714 R32:0.593 R64:0.440
+  SPARSE m=256 k=16  FVU 0.222   (compare to dense curve above at k=16 and beyond)
+
+=== block2 MLP#1 (d=128) ===
+  dense rank-R (all active)        R4:0.794 R8:0.725 R16:0.654 R32:0.577 R64:0.478
+  SPARSE m=256 k=16  FVU 0.353   (compare to dense curve above at k=16 and beyond)
+
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+=== 500M layer-6 MLP (d=1152) ===
+  dense rank-R (all active)        R8:0.171 R16:0.160 R32:0.149 R64:0.134
+  SPARSE m=512 k=32  FVU 0.121
+
+VERDICT: sparsity real iff SPARSE FVU < dense at matched-or-higher active count.
+DONE

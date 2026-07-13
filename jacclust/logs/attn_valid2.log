@@ -1,0 +1,9 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+L2H0: mean-offset spread   7.3 | var-explained  J +0.114±0.007  x +0.064±0.004  rand +0.004±0.001
+L2H3: mean-offset spread   8.6 | var-explained  J +0.227±0.006  x +0.014±0.002  rand +0.003±0.001
+L6H0: mean-offset spread  12.0 | var-explained  J +0.111±0.002  x +0.130±0.001  rand +0.004±0.001
+L6H3: mean-offset spread   8.5 | var-explained  J +0.092±0.004  x +0.138±0.003  rand +0.004±0.001
+
+  Meaningful iff J >> x AND J >> random-matrix on var-explained of the attention pattern-summary.
+DONE

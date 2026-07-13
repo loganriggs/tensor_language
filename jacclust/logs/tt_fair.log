@@ -1,0 +1,9 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+Sound operating point: 48k train, 4k held-out, lambda=3, k=16, 5 seeds, Euclidean.
+
+  layer     G (Jacobian)            raw x           G_rand    global  G beats both?
+      2   +0.6150±0.002   +0.6094±0.003   +0.6103±0.003   +0.4993           True
+      6   +0.6071±0.002   +0.6011±0.002   +0.5992±0.003   +0.5010           True
+     10   +0.5990±0.002   +0.6022±0.004   +0.6002±0.004   +0.5305          False
+DONE

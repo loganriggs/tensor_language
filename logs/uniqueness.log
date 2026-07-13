@@ -1,0 +1,23 @@
+Loading weights:   0%|          | 0/292 [00:00<?, ?it/s]Loading weights: 100%|██████████| 292/292 [00:00<00:00, 34503.51it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+UNIQUENESS = loss / (base_R2 / K).  toy ref: TRUE 0.662 | random same-k 0.129 | random matched-R2 0.0185
+
+  seed0 masked-projector k=16      base R2 0.4590  median uniqueness 0.2658
+  seed0 SAE-8k k=16                base R2 0.4287  median uniqueness 0.0522
+  seed0 random k=16                base R2 0.0880  median uniqueness 0.2994
+  seed0 random k=96 (matched R2)   base R2 0.4633  median uniqueness 0.1915
+
+=== pooled over 3 seeds ===
+  dictionary                    median uniq      mean       p90
+  masked-projector k=16              0.2990    0.4971    0.8630
+  SAE-8k k=16                        0.0448    0.4642    1.2086
+  random k=16                        0.3280    0.5008    0.9992
+  random k=96 (matched R2)           0.2717    0.3239    0.5520
+
+=== Mann-Whitney vs masked-projector (pooled uniqueness) ===
+  SAE-8k k=16                  z=-8.59  P(>MP)=0.246  -> lower
+  random k=16                  z=+0.95  P(>MP)=0.528  -> NO significant difference
+  random k=96 (matched R2)     z=-1.12  P(>MP)=0.467  -> NO significant difference
+
+  A true generator scores ~0.66. Anything near random's ~0.13-0.32 is a redundant basis.
+DONE

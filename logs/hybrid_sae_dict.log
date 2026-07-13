@@ -1,0 +1,10 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 37955.18it/s]
+Loaded pretrained model gpt2 into HookedTransformer
+Moving model to device:  cuda
+relevance ||W f||: median 1.801 max 3.165 min 0.526
+
+Reconstructing W·x with FIXED dictionaries (E-step only, no atom learning):
+  top-512 W-RELEVANT SAE features        R2 0.9870  L0 206.0  atoms 512
+  random 512 SAE features (relevance-blind) R2 0.4282  L0 225.2  atoms 512
+  top-2048 W-RELEVANT SAE features       R2 0.9961  L0 577.3  atoms 2048

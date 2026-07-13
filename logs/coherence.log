@@ -1,0 +1,22 @@
+Testing MY OWN explanation: 'lasso's gap vs OMP grows with dictionary coherence'.
+If coherence does not order the three gaps, the explanation is wrong.
+
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/venv/main/lib/python3.12/site-packages/sae_lens/saes/sae.py:253: UserWarning: 
+This SAE has non-empty model_from_pretrained_kwargs. 
+For optimal performance, load the model like so:
+model = HookedSAETransformer.from_pretrained_no_processing(..., **cfg.model_from_pretrained_kwargs)
+  warnings.warn(
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 32363.12it/s]
+Loaded pretrained model gpt2 into HookedTransformer
+Moving model to device:  cuda
+  dictionary                              mutual coh  mean |cos|  OMP-lasso gap
+  toy (K=128,d=64)                            0.5870      0.1465          0.000
+  attn2 L0H3-OV (K=128,d=64)                  0.8023      0.1970          0.062
+  GPT-2 L6 OV / res-jb (K=2048,d=768)         1.0000      0.1022          0.237
+
+  mutual coherence orders the gaps? YES
+  mean |cos| orders the gaps?        NO
+
+  NOTE n=3 and the dicts differ in K and d too, so this is consistency, not proof.
+DONE

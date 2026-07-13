@@ -1,0 +1,11 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+500M operator-dictionary STABILITY across seeds (rank-1 atom MMCS; chance 0.000).
+
+layer    #used atoms   dict MMCS (3-seed pairs)
+  L0              508   0.790±0.006   [sparse hi-margin]
+  L8              379   0.579±0.009   [sparse needs-y]
+  L6              137   0.652±0.027   [low-rank]
+
+  stable/canonical iff MMCS >> chance (0.000). low MMCS => arbitrary basis, not real operators.
+DONE

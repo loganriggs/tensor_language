@@ -1,0 +1,25 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+500M L8: 79360 tokens, 59360 train / 20000 held-out. BatchTopK, correct MLP-input hook.
+
+=== (A) LOTTERY-TICKET: FVU vs total #features (BatchTopK, avg-k=32) ===
+/workspace/tensor_language/jacclust/bsae_scaled.py:22: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:838.)
+  return z * (z.abs() > thr), float(thr)
+  m=  256:  held-out FVU 0.503   feats/token 31.9
+  m=  512:  held-out FVU 0.481   feats/token 31.8
+  m= 1024:  held-out FVU 0.467   feats/token 31.8
+  m= 2048:  held-out FVU 0.461   feats/token 31.5
+  m= 4096:  held-out FVU 0.458   feats/token 31.4
+  m= 8192:  held-out FVU 0.455   feats/token 31.3
+
+=== (B) k-sweep (m=4096, BatchTopK) ===
+  avg-k=   8:  held-out FVU 0.562   feats/token 7.9 (range 0-155)
+  avg-k=  16:  held-out FVU 0.511   feats/token 15.8 (range 0-273)
+  avg-k=  32:  held-out FVU 0.458   feats/token 31.4 (range 0-459)
+  avg-k=  64:  held-out FVU 0.398   feats/token 63.2 (range 1-735)
+  avg-k= 128:  held-out FVU 0.329   feats/token 127.3 (range 1-1111)
+
+  feats/datapoint (avg-k=32): mean 31.4, median 20, range 0-459
+  saved jacclust/bsae_scaled.png
+DONE

@@ -1,0 +1,14 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/292 [00:00<?, ?it/s]Loading weights: 100%|██████████| 292/292 [00:00<00:00, 34805.52it/s]
+measured chance purity 0.081
+
+dictionary              top-10 irrepl   random 10 atoms   all probed
+masked-projector                0.347             0.100        0.175
+SAE decoder                     0.285             0.072        0.127
+random                          0.347             0.160        0.116
+
+chance 0.081
+
+If 'top-10 irrepl' >> 'random 10' for ALL dictionaries incl. random, purity tracks the
+SELECTION RULE, not the dictionary -- and tick 14's claim is about ranking, not the method.
+DONE

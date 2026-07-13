@@ -1,0 +1,30 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/venv/main/lib/python3.12/site-packages/sae_lens/saes/sae.py:253: UserWarning: 
+This SAE has non-empty model_from_pretrained_kwargs. 
+For optimal performance, load the model like so:
+model = HookedSAETransformer.from_pretrained_no_processing(..., **cfg.model_from_pretrained_kwargs)
+  warnings.warn(
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 36534.46it/s]
+Loaded pretrained model gpt2 into HookedTransformer
+Moving model to device:  cuda
+FEASIBLE (feature basis, SAE's own codes): R2 0.7767 @ L0 56.0
+
+bracketing λ to land at L0≈56:
+  SAE-feature dict     λ  24.0  L0    41.3  R2  0.5490
+  SAE-feature dict     λ  18.0  L0    50.4  R2  0.5834 ★ matched
+  SAE-feature dict     λ  14.0  L0    59.3  R2  0.6120 ★ matched
+  SAE-feature dict     λ  11.0  L0    69.0  R2  0.6381
+  SAE-feature dict     λ   8.0  L0    82.8  R2  0.6703
+  SAE-feature dict     λ   6.0  L0    96.2  R2  0.6971
+  svd-init principal   λ  24.0  L0    25.1  R2  0.4635
+  svd-init principal   λ  18.0  L0    35.1  R2  0.5412
+  svd-init principal   λ  14.0  L0    45.4  R2  0.6051
+  svd-init principal   λ  11.0  L0    56.8  R2  0.6618 ★ matched
+  svd-init principal   λ   8.0  L0    73.9  R2  0.7286
+  svd-init principal   λ   6.0  L0    91.2  R2  0.7805
+  random dirs          λ  24.0  L0    33.6  R2  0.4107
+  random dirs          λ  18.0  L0    46.4  R2  0.4890
+  random dirs          λ  14.0  L0    59.4  R2  0.5524 ★ matched
+  random dirs          λ  11.0  L0    73.1  R2  0.6082
+  random dirs          λ   8.0  L0    93.2  R2  0.6740
+DONE

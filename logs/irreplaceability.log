@@ -1,0 +1,24 @@
+TOY REFERENCE: true 8.4x (mean) / 4.4x (top1) unmatched; 34x matched.
+
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/292 [00:00<?, ?it/s]Loading weights: 100%|██████████| 292/292 [00:00<00:00, 35814.16it/s]
+
+=== pythia L3 down_proj  W (1024, 4096)  K=1024  k=16 ===
+  LEARNED                            k= 16  base R2 0.5234  mean loss 0.000400  top1 0.007924  loss/base 0.000764
+  RANDOM, same k                     k= 16  base R2 0.0936  mean loss 0.000052  top1 0.000337  loss/base 0.000553
+    unmatched ratio: mean 7.71x   top1 23.50x   (base R2 0.523 vs 0.094)
+  RANDOM, k raised                   k= 32  base R2 0.2149  mean loss 0.000104  top1 0.000833  loss/base 0.000486
+  RANDOM, k raised                   k= 64  base R2 0.3708  mean loss 0.000186  top1 0.001456  loss/base 0.000500
+  RANDOM, k raised                   k=128  base R2 0.5498  mean loss 0.000217  top1 0.001528  loss/base 0.000395
+    MATCHED-R2 ratio: mean 1.84x   top1 5.18x
+
+=== pythia L3 attention.dense  W (1024, 1024)  K=1024  k=16 ===
+  LEARNED                            k= 16  base R2 0.7406  mean loss 0.000152  top1 0.000490  loss/base 0.000205
+  RANDOM, same k                     k= 16  base R2 0.3474  mean loss 0.000067  top1 0.000197  loss/base 0.000194
+    unmatched ratio: mean 2.25x   top1 2.49x   (base R2 0.741 vs 0.347)
+  RANDOM, k raised                   k= 32  base R2 0.5032  mean loss 0.000093  top1 0.000206  loss/base 0.000184
+  RANDOM, k raised                   k= 64  base R2 0.6679  mean loss 0.000117  top1 0.000245  loss/base 0.000175
+  RANDOM, k raised                   k=128  base R2 0.8145  mean loss 0.000104  top1 0.000216  loss/base 0.000128
+    MATCHED-R2 ratio: mean 1.46x   top1 2.27x
+
+DONE

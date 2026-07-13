@@ -11,3 +11,20 @@ seeds.log
 dring_seeds.log
 h5.log
 probe.log
+
+# deeper-circuits program
+data_text/*.bin
+runs_lm/*/ckpt/
+runs_lm/*/val_ce*.npy
+logs/text_build.log
+
+# large data/caches (regenerable; keep out of git)
+data_owt/train.bin
+data_owt/val.bin
+runs_lm/*_cache.pt
+# bulky training-run artifacts (checkpoints/val-curves) — keep code+results, not GBs of runs
+runs_owt/*
+!runs_owt/block2-dense-seed0/
+runs_owt/block2-dense-seed0/ckpt/
+runs_owt/block2-dense-seed0/val_ce.npy
+runs_lm/
