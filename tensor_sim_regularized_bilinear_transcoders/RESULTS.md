@@ -277,7 +277,7 @@ diagnostic replicates at depth: the same hard cross-layer prior scores **0.966**
 but **0.543** on a gt that respects no blocks — it betrays a mis-specified structure. Still, prefer the
 bottleneck sweep: it discovers the structure instead of assuming it.
 
-### The synthesis
+### The synthesis (Tick 5)
 
 **Hierarchy is not a prior you impose — it is a measurement you make, and depth is the instrument.**
 - To **fit**: soft/graded penalties (L1, soft locality) — they never cost fidelity and they break CP
@@ -286,3 +286,73 @@ bottleneck sweep: it discovers the structure instead of assuming it.
   (FINDING 8) — because a *correct* structural hypothesis costs no fidelity and a *wrong* one must break it.
 - Depth converts "is this layer hierarchical?" from a qualitative question into a **curve**, computable with
   **no data at all**.
+
+---
+
+## Tick 6 — the Pareto frontier (`e6_pareto.py`) and the FIRST REAL-MODEL number (`e7_real_layer_rank.py`)
+
+### FINDING 9 — the program's thesis, stated as cleanly as it can be stated
+
+Sweep BatchTopK `k` × the fidelity weight `λ`, on the honest regime (data on a 6-dim subspace of R^16; Λ
+full-support). Reported both ways, because the closed form scores the transcoder's *dense tensor* while the
+deployed model is *gated* — so `gated-sim` is a Monte-Carlo global fidelity of the **actual gated model** over
+the full space. (Stating the confound and then measuring it away, rather than quoting only the flattering one.)
+
+`k = 32` (= rank, so the **gate is a no-op** — no confound at all, the cleanest row in the program):
+
+| λ | MSE(in) | tensor-sim | gated-sim | gt-recovery |
+|---|---|---|---|---|
+| **0 (MSE-only)** | **0.000** | **0.079±.031** | **0.084±.029** | 0.132 |
+| 0.1 | **0.000** | **1.000±.000** | **1.000±.000** | **0.647±.033** |
+| 1 | 0.000 | 1.000 | 1.000 | 0.506 |
+| 10 | 0.000 | 1.000 | 1.000 | 0.444 |
+
+**An MSE-only transcoder reaches PERFECT reconstruction (0.000) while its true global fidelity is 0.08 — i.e.
+essentially ZERO.** It has learned a function that agrees with the layer everywhere the data goes and is
+unrelated to it everywhere else. Adding the fidelity term with λ=0.1 takes tensor-sim 0.079 → **1.000** and
+gt-recovery 0.132 → **0.647** (chance 0.066) **at no MSE cost whatsoever**. There is no tradeoff to trade off.
+
+Same story at every sparsity level (MSE-only tensor-sim is ~0 throughout: −0.061, −0.060, 0.024, 0.037, 0.079
+for k = 1, 2, 4, 8, 32), and the fidelity term always fixes it:
+
+| k | MSE(in), λ=0 | tensor-sim, λ=0 | tensor-sim, λ=0.1 | gated-sim, λ=0 → 0.1 |
+|---|---|---|---|---|
+| 1 | 0.085 | −0.061 | 0.999 | 0.005 → 0.594 |
+| 2 | 0.031 | −0.060 | 0.999 | −0.010 → 0.751 |
+| 4 | 0.005 | 0.024 | 0.999 | 0.031 → **0.906** |
+| 8 | 0.001 | 0.037 | 0.999 | 0.042 → **0.974** |
+| 32 | 0.000 | 0.079 | 1.000 | 0.084 → **1.000** |
+
+The `L_fid`-ONLY arm (no data at all) hits tensor-sim **1.000 at every k**, and its *gated* fidelity is limited
+only by how much the gate throws away (0.537 at k=1 → 1.000 at k=32) — i.e. the gap between "the tensor is
+right" and "the deployed sparse model is right" is **entirely the gate's cost**, not a failure of the fit.
+Cost of sparsity, priced honestly: k=4 keeps 0.845 of the layer, k=8 keeps 0.948.
+
+### FINDING 10 (honest negative) — a REAL bilinear MLP is NOT low-rank under an isotropic metric
+
+First real-model measurement: the L8 bilinear MLP of a 500M 18-layer bilinear GPT (`r=4608`, `d=1152`,
+`K=1152`). Fit rank-`r′` CP transcoders on `L_fid` alone — **no data, no forward passes, only weights**:
+
+| r′ | 32 | 64 | 128 | 256 | 512 | 1024 |
+|---|---|---|---|---|---|---|
+| r′/r | 0.007 | 0.014 | 0.028 | 0.056 | 0.111 | 0.222 |
+| tensor-sim | 0.118 | 0.136 | 0.161 | 0.201 | 0.265 | **0.373** |
+| +L1: tensor-sim | 0.118 | 0.136 | 0.160 | 0.201 | 0.265 | 0.373 |
+| +L1: eff-L0/row | 713 | 721 | 728 | 730 | 732 | 732 |
+
+*(control: random-init tensor-sim = −0.000 = chance)*
+
+**No compression.** At 22% of the layer's own rank we recover only 37% of it, the curve is smooth and roughly
+linear in `r′` (no knee — contrast FINDING 8's toys), L1 changes **nothing** (identical to 3 decimals) and the
+factors stay dense (eff-L0 ≈ 730 of 1152). Under this metric the real layer looks close to **incompressible and
+unstructured** — the opposite of every toy here.
+
+**But the honest reading is that this is a statement about Λ, not (yet) about the layer.** Λ = N(0,I) demands
+the transcoder match the layer *equally in all 1152 residual directions*, including the overwhelming majority
+the model never visits — real residual streams are violently anisotropic. FINDING 3 said don't use a
+data-matched Σ; FINDING 6 said the fix is a *ridge*, `Σ_data + εI`, which needs the real Σ. **This run used
+neither** — it used the ε=1 endpoint. So FINDING 10's correct claim is narrow: *a real bilinear MLP has no
+low-rank structure with respect to isotropic inputs.* Whether it has low-rank structure **on its own data
+manifold** is the open question, and it is the obvious next experiment: estimate `Σ_resid` from a text batch,
+ridge it (ε≈0.05, FINDING 6), and re-run this exact sweep. If a knee appears, that knee is the layer's real
+feature count. **Until then, no claim about real-model structure should be drawn from this program.**
