@@ -48,11 +48,32 @@ active w.p. p), target y = x² elementwise, bilinear net with d_h < m hidden uni
   get before degradation, and does forced sparsity collapse superposition back to ~d_h
   dedicated features?
 
-## Thread 3 — structure in real LLM embedding matrices (later)
+## Thread 3 — structure in real LLM embedding matrices (e6+)
 
 The embedding of a real LLM is itself compressible: the linear down-projection could be
 represented with fewer "objects" than vocab size (extreme case: all 50k tokens pointing
-the same direction = 1 object). User will specify details when we get there.
+the same direction = 1 object).
+
+Logan's 4-class map of "minimal representation" formalisms (2026-07-13):
+1. **Rank** (linear factorization; Eckart–Young). Blind to hierarchy — a depth-h tree over
+   the vocab is generically full-rank.
+2. **Minimal embeddable dimension / behavior-preserving dimension** (softmax bottleneck,
+   MED bounds, sign-rank). Answers "how small can d be for the *behavior*", not "how few
+   atoms". Intrinsic-dim estimates for token spaces ~20–100.
+3. **Sparse codes over a dictionary** — where hierarchy lives. Tree-sparse code: token =
+   sum along root-to-leaf path of node vectors (hierarchical softmax / Brown clustering /
+   matryoshka SAEs are instances; Park et al.: real unembeddings encode hierarchy as
+   orthogonal parent–child difference directions). No clean minimality theorem (minimal
+   dictionary is NP-hard); only identifiability conditions.
+4. **Tensor networks** (TT/HT on the reshaped vocab index): computable rank measures;
+   HT-rank gap between semantic vs random token ordering = quantitative hierarchicalness.
+
+Program angle: "minimal representation" is only defined relative to a representation class
+AND a metric. e6 compresses pythia-410m `embed_in` under classes 1 and 3 at matched float
+budgets and audits each compression under both the weight metric (FVU) and the behavior
+metric (ΔCE with the compressed E swapped in) — the thread-1/2 "metric decides" moral one
+level up. Later ticks: learned top-k / matryoshka dictionary arm, unembedding (class-2
+softmax-bottleneck side), TT-rank under semantic vs random ordering (class 4).
 
 ## Conventions
 

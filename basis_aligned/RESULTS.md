@@ -203,6 +203,47 @@ all 1-active inputs with |v| ∈ [0.5,1].
 
 ![e5](figures/e5_ce_relu.png)
 
+## FINDING 7 (e6, thread 3 tick 1) — pythia-410m's embedding has few spare "objects", and FVU wildly mispredicts behavioral damage
+
+Setup: E = pythia-410m `embed_in` (50304×1024). Compress under Logan's class-1 and class-3
+formalisms at matched float budgets — truncated SVD (rank prior), k-means (n objects, one
+per token), residual VQ (sum of h shared codewords), hierarchical tree code (Park-et-al-
+style hierarchy prior) — and audit each twice: **FVU** on the weights and **ΔCE** of the
+actual model on pile-10k with the compressed E swapped in (baseline CE 2.768).
+
+**(a) The "50k tokens → fewer objects" reduction mostly fails on raw weights.** At 51% of
+the original float budget the best arm still has FVU 0.32–0.33, and behavior is badly hurt:
+k-means with 25.6k centroids (half the vocab!) costs **+1.45 nats**; rank-512 costs +1.95.
+At interp-relevant budgets (≤10%) every class sits at FVU ≥ 0.74 and ΔCE ≥ +4.3. Token
+identity in this model is essentially token-specific: **the tokens are the objects.**
+(Clusters that do form are morphologically clean — a 'check/Check/checked/checking' cluster,
+number clusters — but a large fraction of k-means clusters are singletons.)
+
+**(b) FVU does not predict behavioral damage — subtraction ≫ addition.** Additive isotropic
+noise at FVU 0.75 costs **+0.43** nats; SVD *deletion* at the same FVU 0.75 costs **+4.33**
+(10×). At FVU 0.32 the gap is 18× (+0.11 vs +1.95). You must inject noise equal to **3× the
+embedding's total variance** (+3.55) to match what deleting to FVU 0.68 does. Controls
+confirm the direction-structure story: keeping a random 100-dim subspace instead of the top
+principal one is +2.1 nats worse at *equal* budget and *lower* FVU; shuffling k-means
+assignments is +3.4 worse. The model reads token distinctions spread across essentially the
+whole 1024-dim space (near-orthogonal noise is cheap; killed subspaces are unrecoverable).
+
+**(c) Within compressions, the class ranking is metric- and budget-dependent, mildly.**
+At 51% budget, k-means beats SVD on behavior (+1.45 vs +1.95) despite *worse* FVU — vocab
+coarsening keeps tokens on-manifold while rank truncation corrupts every token. At 2% the
+ranking flips. The hierarchy priors (RQ, tree) *underperform* at matched budget on both
+audits — hierarchical structure exists in E (Park et al.) but does not carry the bulk of
+the mass.
+
+Implication for the program: raw-weight reconstruction is the wrong objective for "fewer
+objects" — exactly the e4/e5 lesson one level up. Next tick options: (i) train the codebook
+*under CE* (fixed assignments, centroids optimized behaviorally) to see how much of the
++1.45 is metric-mismatch rather than genuine incompressibility; (ii) the unembedding side
+(class 2 / softmax bottleneck); (iii) TT-rank under semantic vs random token ordering
+(class 4); (iv) learned top-k/matryoshka dictionary arm.
+
+![e6](figures/e6_embedding.png)
+
 ---
 
 ## Protocol notes / caveats

@@ -1800,3 +1800,20 @@ real-model feature discovery = open problem (needs robust solver + objective ref
      softmax) and downstream clipping nonlinearities — and real transformers have both, so heavy
      superposition graded by feature frequency is the prediction; MSE+nonlinearity SELECTS a subset
      (denoise-and-drop), ε-flavored objectives compute everything at nonzero interference.
+
+## 2026-07-13 — basis_aligned tick 4 (e6: thread 3 opened — real embedding "objects", dual audit)
+184. Logan specced thread 3 with a 4-class map of "minimal representation" (rank / MED / sparse-dictionary
+     / tensor-network). e6 operationalizes classes 1+3 on pythia-410m embed_in with the program's dual
+     audit: weight FVU vs behavioral ΔCE (embedding swapped into the live model, pile-10k).
+185. **The tokens are the objects.** At 51% float budget: kmeans-25.6k (half the vocab as centroids)
+     +1.45 nats, rank-512 +1.95; at ≤10% budget everything is FVU ≥ 0.74, ΔCE ≥ +4.3. No large
+     "fewer-objects" reduction exists on raw weights. Hierarchy priors (RQ, tree) UNDERPERFORM at
+     matched budget — Park-style hierarchy is real but carries little mass. Clusters that form are
+     morphologically clean; many are singletons.
+186. **FVU wildly mispredicts behavior — subtraction ≫ addition.** Additive gaussian noise at FVU 0.75:
+     +0.43 nats. SVD deletion at the same FVU: +4.33 (10×; 18× at FVU 0.32). Noise must reach 3× the
+     total embedding variance to match deletion at FVU 0.68. Random-basis and shuffled-assignment
+     controls are 1–3.4 nats worse at equal budget. The model reads token identity across the whole
+     1024-dim space; near-orthogonal corruption is cheap, deleted subspaces are fatal.
+187. Next-tick options recorded in RESULTS: CE-trained codebooks (is the +1.45 metric mismatch or true
+     incompressibility?), unembedding/softmax-bottleneck side, TT-ordering test, learned matryoshka arm.
