@@ -358,3 +358,108 @@ low-rank structure with respect to isotropic inputs.* Whether it has low-rank st
 manifold** is the open question, and it is the obvious next experiment: estimate `Σ_resid` from a text batch,
 ridge it (ε≈0.05, FINDING 6), and re-run this exact sweep. If a knee appears, that knee is the layer's real
 feature count. **Until then, no claim about real-model structure should be drawn from this program.**
+
+---
+
+## Tick 7 — the real metric (`e8`), iterated reduction (`e9`), two layers on a real model (`e10`)
+
+### ⚠ FINDING 10 IS RETRACTED — the real layer is NOT incompressible; the metric was wrong
+
+FINDING 10 reported that a real bilinear MLP shows no low-rank structure (tensor-sim 0.373 at rank 1024 of
+4608). It was explicitly scoped as *"a claim about Λ, not the layer"*, and that caveat has now cashed out:
+**the claim was an artifact of Λ = N(0,I) and is false.**
+
+`e8_real_metric.py` measured the real input distribution of the layer (`x = rms_norm(resid)`, 200k tokens):
+
+| quantity | value |
+|---|---|
+| effective dimension of Σ (participation ratio) | **23.5 of 1152** |
+| ‖mean‖ vs mean‖x‖ | **33.0 vs 33.9** — the data is a tight **cone around its own mean**, not a ball |
+| variance in the top 8 / 96 PCA directions | 34.7% / 66.3% |
+
+So an isotropic Λ was spending the fidelity budget on ~1128 directions the model **never visits**, and on a
+distribution whose mean it ignored entirely. Under the **ridged real metric** (`Σ_t=(1−t)Σ_real+t·(tr/d)I`,
+t=0.05, with the real mean via non-central Wick), on the layer projected to its top-96 input directions:
+
+| flat rank r′ | 8 | 16 | 32 | 64 | 128 |
+|---|---|---|---|---|---|
+| params | 10.8k | 21.5k | 43k | 86k | 172k |
+| **tensor-sim** | **0.807** | 0.833 | 0.862 | 0.894 | **0.926** |
+
+**Rank 8 — 0.17% of the layer's 4608 hidden units — already reproduces 0.807 of it.** Compare FINDING 10's
+0.373 at rank 1024. The real layer is **extremely low-rank on its own data manifold**; it only looked
+incompressible because we were asking it to be faithful in directions its inputs never occupy.
+
+*Methodological note: this is the third time in this program that a wrong headline came from a metric/moment
+assumption rather than from the model (FINDING 1's non-central Wick; FINDING 3's blindness; now this). The
+standing rule keeps earning its keep — and the honest scoping of FINDING 10 is what made it cheap to overturn.*
+
+### FINDING 11 — iterated reduction: ITERATION is what matters, not the pruning criterion
+
+`e9_iterated_pruning.py`: fit on `L_fid`+L1 → zero the bottom 10% of surviving factor weights → refit → repeat
+(22 rounds → 10% density). Two criteria: **magnitude** `|w|` vs **attribution** `|w · ∂L_fid/∂w|`.
+
+**Toy** (planted rank-8, 3-sparse ground truth; transcoder rank 32), at 10% density:
+
+| criterion | tensor-sim | gt-recovery | support-F1 |
+|---|---|---|---|
+| **magnitude (iterated)** | **1.000** | **0.982** | 0.912 |
+| attribution (iterated) | 1.000 | 0.968 | 0.911 |
+| *random (control)* | *0.333* | *0.335* | *0.879* |
+| *one-shot to the same density (control)* | *0.481* | *0.537* | *0.841* |
+
+Both controls fail, as they must. **Iterated reduction is the best structure-recovery method in this program:
+gt-recovery 0.982** (vs 0.900 for plain L1 in FINDING 4, 0.574 for the best data-driven arm in FINDING 3;
+chance 0.066) — at **perfect fidelity and 10% density**. Two conclusions:
+- **The iteration is the active ingredient.** One-shot pruning to the *same* density collapses to 0.481.
+  Removing 10% and re-fitting lets the surviving factors absorb the removed mass; removing 90% at once
+  destroys the tensor.
+- **Attribution ≈ magnitude** (0.968 vs 0.982). The extra gradient information buys nothing here. Worth
+  knowing before anyone builds attribution-based pruning on top of this: on this problem it is not the lever.
+
+**Real layer** (rank-256 transcoder, ridged real metric):
+
+| density | 1.000 | 0.73 | 0.53 | 0.39 | 0.28 | 0.21 | 0.15 | 0.10 |
+|---|---|---|---|---|---|---|---|---|
+| magnitude | 0.792 | 0.804 | 0.808 | 0.806 | 0.801 | 0.794 | 0.788 | **0.782** |
+| attribution | 0.792 | 0.799 | 0.799 | 0.796 | 0.790 | 0.783 | 0.777 | 0.775 |
+| *random (control)* | 0.792 | 0.796 | 0.787 | 0.790 | 0.784 | 0.779 | 0.774 | *0.767* |
+
+The transcoder survives 90% pruning at a cost of **0.010** in fidelity (and *improves* between 100% and 53%
+density — pruning is acting as a regularizer). **But the honest reading is a negative:** on the real layer
+**random pruning is nearly as good** (0.767 vs 0.782), whereas on the toy it *collapsed* (0.333). That gap is
+the tell — the real layer's factors have **no crisp sparse support to discover**; they are simply massively
+**redundant**. Sparsity here is compressibility, not structure.
+
+### FINDING 12 — a real bilinear MLP shows NO compositional (2-layer) structure
+
+`e10_real_deep.py`: the first two-layer transcoder fit to a real layer, data-free, under the ridged real
+metric. Required extending the degree-4 metric to a **non-central** Gaussian (`tensor_sim_deep_mean.py`) —
+because the real input is dominated by its mean, the zero-mean formula would have been FINDING 1 all over
+again. Derived from `log E[e^{xᵀTx}] = −½log det(I−2ΣT) + mᵀT(I−2ΣT)⁻¹m`, giving each block the extra mean
+cumulant `2^{n−1} Σ_{n! orderings} mᵀA_{σ1}Σ⋯ΣA_{σn}m`. **Verified against Monte Carlo at n=2,3,4 including a
+singular (lifted) Σ, and it reduces exactly to the zero-mean version at m=0.**
+
+Two-layer transcoder (r1′=64, r2′=16), bottleneck `dz′` swept, vs a flat transcoder at matched parameters:
+
+| deep dz′ | 1 | 2 | 4 | 8 | 16 | 32 |
+|---|---|---|---|---|---|---|
+| params | 31.0k | 31.1k | 31.3k | 31.6k | 32.4k | 34.0k |
+| tensor-sim | 0.757 | 0.790 | 0.814 | 0.827 | 0.838 | **0.839** |
+
+**At ~31–43k parameters: best DEEP 0.839, best FLAT 0.862. Flat wins.** The bottleneck curve rises smoothly
+and saturates around 0.84 — there is **no knee**, and no bottleneck width at which a composition beats simply
+listing the features. Contrast FINDING 8's planted-hierarchy toy, which bent sharply at its true width.
+
+**Interpretation, with its caveat stated.** The honest reading is that this layer's computation is **flat, not
+hierarchical**: its features do not funnel through a small set of reusable mid-level features. But the target
+here *is itself a single bilinear layer*, so the flat class is its native one — this test is biased toward
+flat, and it can only ever say "no *extra* compositional structure is hiding inside a single layer." The
+unbiased version of the question is to point the same machinery at a **composition of two real layers**
+(MLP@L8 ∘ MLP@L9, or an attention-MLP pair), where the target genuinely is degree-4. That is the next
+experiment, and the machinery for it now exists and is verified.
+
+**Caveat on the projection** (applies to all of Tick 7's real-model numbers): the layer is projected onto its
+top-96 input PCA directions, which retain 66% of input variance and reproduce **0.818** of the layer's true
+output on real inputs. All comparisons are internally consistent (the projected layer *is* the target), but the
+absolute tensor-sim values are for that projected layer, not the raw one.
