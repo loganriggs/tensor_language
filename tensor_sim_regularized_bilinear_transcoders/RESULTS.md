@@ -2,6 +2,8 @@
 
 Authoritative: `FINDINGS_metric.md` (metric correctness) + this file. Spec: `HANDOFF_tensor_sim_transcoder.md`.
 
+**Figures: [FIGURES.md](FIGURES.md)** — the five headline results as plots.
+
 ---
 
 ## Tick 1 — metric built + verified BEFORE any training loop (`tensor_sim.py`, `sanity_checks.py`)
