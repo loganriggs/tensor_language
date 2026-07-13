@@ -1751,3 +1751,21 @@ real-model feature discovery = open problem (needs robust solver + objective ref
      (content-restricted J for MLPs, Wq·x for attention); the full Jacobian is contaminated both times.
      Net: Jacobian-clustering has no real-model causal win, but the method is a useful LENS that points to
      the right weight-derived readout.
+
+## 2026-07-13 — basis_aligned tick 1 (new program, Logan's spec: fold E/U into the bilinear layer)
+176. **New folder `basis_aligned/`** — weight sparsity vs functional sparsity when a bilinear layer sits
+     between embed/unembed. Folded objects: L̃=LE, R̃=RE, D̃=UD; invariant per-class form B_c. e1 hand-coded
+     demo: inserted rotation keeps function+folded weights bit-identical, unfolded 87.5%→0% zeros.
+177. **e2 (block task, 3 seeds, Logan's iterated L1→prune→revert→finetune protocol):** (a) dense training
+     leaves 84-87% of |B| mass on never-probed cross-block entries (OOD FVU 2-5) — the backdoor moral in
+     the minimal setting; (b) sparsifying L,R,D ONLY is cosmetic: 94% unfolded zeros, junk unchanged —
+     L1 shoves the rotation into free E,U; (c) sparsifying through E,U is functional (junk 0.85→0.45,
+     near-minimal weight count) but does NOT recover ground truth from a junky scratch solution;
+     (d) from rotated hand-coded init the protocol EXACTLY undoes the rotation (block 1.000, junk 0,
+     stops at the hand-coded weight count).
+178. **e3 (squares-in-superposition): honest NEGATIVE with theory.** Linear readout of d_h hidden functions
+     ⇒ MSE ≥ tail of target Gram spectrum = (m−d_h)(p/5−p²/9)/m — NO computation-in-superposition gain is
+     possible for pure bilinear+linear readout under MSE (Vaintrob/Mendel gains need a nonlinear readout).
+     Closed form verified vs 2M-sample MC (<0.7%); trained nets land ON the bound (+0.3-1.2%), computed
+     features = d_h exactly. Sparsifying trades the last ~2% (shared-mean) for a LITERAL dedicated circuit:
+     13 units, one input each, 1.3% of weights. Thread 3 (real LLM embedding structure) awaits Logan's spec.
