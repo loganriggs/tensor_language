@@ -289,9 +289,54 @@ the frontier floor (~+0.08) is set partly by this data budget, not the represent
 
 ![e7](figures/e7_pareto.png)
 
-Open: what ARE the 1024 atoms (nearest tokens, hierarchy among them — connects to the
-matryoshka/tree prior and Park et al.); does the same frontier hold for the unembedding;
-TT-ordering (class 4) still untested.
+**The one communicative graph (Logan's request): ΔCE vs description length**, everything
+on one MDL axis (fp16 floats + log₂(n) index bits). Note the honest accounting: at L0=64
+the per-token coefficients+indices dominate the bytes, so n=1024 is a **49× object-count**
+reduction but ~8× byte reduction (12 vs 98 MiB).
+
+![e7 MDL](figures/e7_mdl.png)
+
+## FINDING 9 (e7c) — the compression is FAITHFUL: KL-distillation matches data-CE training
+
+Logan asked whether stage B trained on ground-truth data or the original model's
+distribution. It was ground-truth data — which permits "repair" (drifting to a different,
+also-good solution) rather than faithful compression. e7c retrains the same MSE-fit
+dictionaries with pure distillation loss (cross-entropy to the ORIGINAL model's output
+distribution, teacher = same model with the original embedding):
+
+| config | data-ΔCE (KL-trained) | data-ΔCE (data-trained, e7b) | KL(orig‖comp) before → after |
+|---|---|---|---|
+| n=1024, L0=64 | **+0.23** | +0.26 | 2.10 → **0.25** |
+| n=4096, L0=64 | **+0.13** | +0.15 | 0.62 → **0.16** |
+
+Training purely for faithfulness achieves the *same* data-CE as training on data, and the
+residual data-CE ≈ residual KL in every row — the compressed model's extra loss is fully
+accounted for by its (small) divergence from the teacher. So "1024 objects ≈ the whole
+embedding" is a statement about the SAME function, not a repaired one.
+
+## FINDING 10 (e8) — class-4 measurement: the vocabulary is measurably but WEAKLY hierarchical, and BPE order carries none of it
+
+TT-SVD (the linear-tree instance of hierarchical Tucker) on E reshaped to
+16×16×16×16×1024 (vocab padded to 16⁴; pad rows = row-mean; centered), under three index
+orderings. FVU at fixed rank caps *is* the class-4 hierarchicalness measure:
+
+| rmax | random | BPE (native) | semantic (balanced recursive k-means) |
+|---|---|---|---|
+| 32 | 0.994 | 0.991 | **0.960** |
+| 64 | 0.983 | 0.980 | **0.949** |
+| 128 | 0.950 | 0.948 | **0.919** |
+| 256 | 0.875 | 0.874 | **0.848** |
+
+- **Semantic ordering beats random by a stable ~0.03 FVU at every rank** — real hierarchical
+  structure, but small, consistent with e6's tree/RQ priors underperforming and e7's
+  finding that most mass is token-specific.
+- **The native BPE ordering is indistinguishable from random** — token-ID adjacency
+  (frequency/merge order) has no block-hierarchical locality at the 4096/256/16 scales.
+- TT+semantic is slightly more param-efficient than plain rank on the weight audit
+  (FVU 0.848 at 2.4% budget vs SVD's 0.912 at 2%).
+- CE-finetuning the semantic TT cores (e7b machinery): **+4.91 → +2.01 nats at ~5 MiB**,
+  which sits ON the MDL Pareto envelope at the small end (see graph above) — the tensor
+  prior is competitive exactly where description length is tightest.
 
 ---
 

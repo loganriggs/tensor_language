@@ -1,0 +1,88 @@
+{
+  "baseline_ce_bf16": 2.7857046127319336,
+  "V": 50304,
+  "d": 1024,
+  "rows": [
+    {
+      "ordering": "bpe",
+      "rmax": 32,
+      "params": 73984,
+      "fvu": 0.9909941393130076
+    },
+    {
+      "ordering": "bpe",
+      "rmax": 64,
+      "params": 213248,
+      "fvu": 0.9798913099477741
+    },
+    {
+      "ordering": "bpe",
+      "rmax": 128,
+      "params": 688384,
+      "fvu": 0.9474806271080329
+    },
+    {
+      "ordering": "bpe",
+      "rmax": 256,
+      "params": 2425088,
+      "fvu": 0.8740086992264251,
+      "dce": 5.148374080657959
+    },
+    {
+      "ordering": "random",
+      "rmax": 32,
+      "params": 73984,
+      "fvu": 0.994206474601062
+    },
+    {
+      "ordering": "random",
+      "rmax": 64,
+      "params": 213248,
+      "fvu": 0.982730532169348
+    },
+    {
+      "ordering": "random",
+      "rmax": 128,
+      "params": 688384,
+      "fvu": 0.9495699609655825
+    },
+    {
+      "ordering": "random",
+      "rmax": 256,
+      "params": 2425088,
+      "fvu": 0.8751631710153902,
+      "dce": 5.0472628474235535
+    },
+    {
+      "ordering": "semantic",
+      "rmax": 32,
+      "params": 73984,
+      "fvu": 0.9604873821242653
+    },
+    {
+      "ordering": "semantic",
+      "rmax": 64,
+      "params": 213248,
+      "fvu": 0.948970596505437
+    },
+    {
+      "ordering": "semantic",
+      "rmax": 128,
+      "params": 688384,
+      "fvu": 0.91846141851989
+    },
+    {
+      "ordering": "semantic",
+      "rmax": 256,
+      "params": 2425088,
+      "fvu": 0.8475979302311464,
+      "dce": 4.9213003516197205
+    }
+  ],
+  "tt_ce_finetune": {
+    "ordering": "semantic",
+    "rmax": 256,
+    "params": 2425088,
+    "dce_after": 2.0130010843276978
+  }
+}

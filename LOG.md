@@ -1834,3 +1834,19 @@ real-model feature discovery = open problem (needs robust solver + objective ref
 191. Caveats logged: CE-training data only 262k tokens (~19 epochs; floor ~+0.08 partly data-limited;
      mild overfit at n=32k where train CE 1.95 < baseline 2.79). Open: identify the 1024 atoms
      (hierarchy? Park simplices?), unembedding side, TT-ordering.
+
+## 2026-07-14 — basis_aligned tick 6 (e7c KL-faithfulness + MDL graph + e8 tensor-train, Logan's requests)
+192. **MDL graph built** (Logan: "CE vs MDL or something") — every representation on one axis (fp16
+     floats + index bits): figures/e7_mdl.png. Honest note: at L0=64 coefficients dominate bytes, so
+     n=1024 is 49× fewer OBJECTS but ~8× fewer BYTES (12 vs 98 MiB).
+193. **e7c answers Logan's sharpest question (data vs model-distribution training): the compression is
+     FAITHFUL.** KL-distillation to the original model matches data-CE training (n=1024: +0.23 vs +0.26)
+     and drives KL(orig‖comp) 2.10 → 0.25 nats; residual data-CE ≈ residual KL everywhere. Not repair.
+194. **e8 (class 4, TT-SVD = linear-tree HT, vocab reshaped 16⁴, three orderings):** semantic ordering
+     (balanced recursive k-means) beats random by a stable ~0.03 FVU at every rank — the vocabulary is
+     measurably but WEAKLY hierarchical; native BPE ordering is indistinguishable from random (no
+     block-locality in token IDs). TT+semantic beats SVD per-param on FVU; CE-finetuned TT cores land
+     ON the MDL Pareto envelope at the small end (+2.01 nats @ ~5 MiB).
+195. Program-level synthesis holding across all of thread 3: structure exists (semantic clusters, weak
+     hierarchy, atom sharing) but the operative lessons are (a) learn the representation, (b) train/audit
+     it under the behavioral metric, (c) never trust FVU.
