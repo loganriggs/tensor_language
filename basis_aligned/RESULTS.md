@@ -314,7 +314,15 @@ residual data-CE ≈ residual KL in every row — the compressed model's extra l
 accounted for by its (small) divergence from the teacher. So "1024 objects ≈ the whole
 embedding" is a statement about the SAME function, not a repaired one.
 
-## FINDING 10 (e8) — class-4 measurement: the vocabulary is measurably but WEAKLY hierarchical, and BPE order carries none of it
+## FINDING 10 (e8, e8b) — class-4 measurement: the vocabulary is measurably but WEAKLY hierarchical, and BPE order carries none of it
+
+**Full explainer (hyperparameters, worked token-90 example, all tables):
+[TENSOR_NET_EXPLAINER.md](TENSOR_NET_EXPLAINER.md).** e8b additions: rank sweep to
+rmax=1024 (FVU 0.45 at 43% of E; SVD stays slightly ahead at matched bytes throughout);
+weights-only gradient fits improve on TT-SVD by only ~0.009 (it was near-optimal); one
+balanced-HT config underperforms the chain at matched params but shows a **2× larger
+ordering gap** (0.05 vs 0.028) — topologies that lean harder on block structure reward
+the semantic ordering more.
 
 TT-SVD (the linear-tree instance of hierarchical Tucker) on E reshaped to
 16×16×16×16×1024 (vocab padded to 16⁴; pad rows = row-mean; centered), under three index
@@ -332,11 +340,16 @@ orderings. FVU at fixed rank caps *is* the class-4 hierarchicalness measure:
   finding that most mass is token-specific.
 - **The native BPE ordering is indistinguishable from random** — token-ID adjacency
   (frequency/merge order) has no block-hierarchical locality at the 4096/256/16 scales.
-- TT+semantic is slightly more param-efficient than plain rank on the weight audit
-  (FVU 0.848 at 2.4% budget vs SVD's 0.912 at 2%).
-- CE-finetuning the semantic TT cores (e7b machinery): **+4.91 → +2.01 nats at ~5 MiB**,
-  which sits ON the MDL Pareto envelope at the small end (see graph above) — the tensor
-  prior is competitive exactly where description length is tightest.
+- ~~TT+semantic is slightly more param-efficient than plain rank~~ **CORRECTED (Logan's
+  "isn't 0.85 bad?" prompted a recheck):** the rmax=256 TT is 2.43M floats = **4.7%** of
+  E's budget (not 2.4% as first written), and at matched params plain SVD is slightly
+  *better* on FVU (r=50, 5%, 0.836 vs semantic-TT 0.848). Honest statement: the TT
+  constraint costs a little, semantic ordering roughly buys it back (random-TT 0.875 is
+  worse than SVD), and the *ordering gap* is the real measurement. High FVU everywhere is
+  e6's point, not a TT deficiency: this matrix barely compresses under any weight metric.
+- CE-finetuning the semantic TT cores (e7b machinery): **+4.91 → +2.01 nats at ~4.7 MiB**,
+  which sits ON the MDL Pareto envelope at the small end (see graph above) — though partly
+  because no dictionary was CE-trained at that size.
 
 ---
 

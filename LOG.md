@@ -1850,3 +1850,17 @@ real-model feature discovery = open problem (needs robust solver + objective ref
 195. Program-level synthesis holding across all of thread 3: structure exists (semantic clusters, weak
      hierarchy, atom sharing) but the operative lessons are (a) learn the representation, (b) train/audit
      it under the behavioral metric, (c) never trust FVU.
+
+## 2026-07-14 — basis_aligned tick 7 (Logan's HT questions: explainer, correction, gradient fits)
+196. **CORRECTION to FINDING 10 (Logan's "isn't 0.85 FVU bad?" caught it):** the rmax=256 TT is 4.7% of
+     E's floats, not 2.4%; at matched params plain SVD (0.836) slightly beats semantic TT-SVD (0.848).
+     "TT beats rank per-param" retracted; the ordering GAP survives as the real class-4 measurement.
+197. **e8b (weights-only gradient fits — Logan: "optimize HT to match the matrix directly; tensor cos-sim
+     with scale"):** gradient TT improves on TT-SVD by only ~0.009 (sequential SVD near-optimal);
+     rank sweep to rmax=1024: FVU 0.45 @ 43% of E, SVD slightly ahead throughout; balanced-tree HT
+     (r=16,r2=48) underperforms chain at matched params BUT its semantic-vs-random gap is 2× larger
+     (0.05 vs 0.028) — block-hungry topologies reward semantic ordering more.
+198. Wrote TENSOR_NET_EXPLAINER.md (Logan's request): the token-90 worked example (digits select which
+     small matrices to multiply), all hyperparameters (ordering / base&digit-count / topology / per-edge
+     ranks / solver), param formulas, all tables, and the unswept grid. e9 (BatchTopK robustness check
+     of the +0.26 headline) queued.
