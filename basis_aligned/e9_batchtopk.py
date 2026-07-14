@@ -81,7 +81,10 @@ def train_batchtopk(n, k, steps=4000, batch=8192, lr=3e-3, seed=0):
         top = vals.abs().topk(Lmax, dim=1)
         supports = top.indices
         coeffs = torch.gather(vals, 1, supports)  # zeros beyond each token's L0
-        Ehat = b + coeffs.unsqueeze(-1).mul(Dn[supports]).sum(1)
+        Ehat = torch.empty_like(E)
+        for i in range(0, V, 2048):  # chunked: (V, Lmax, d) at once OOMs
+            Ehat[i:i + 2048] = b + coeffs[i:i + 2048].unsqueeze(-1) \
+                .mul(Dn[supports[i:i + 2048]]).sum(1)
     state = {'D': Dn.cpu(), 'supports': supports.cpu(), 'coeffs': coeffs.detach().cpu(),
              'b': b.detach().cpu()}
     stats = {'mean_L0': float(L0.float().mean()), 'max_L0': Lmax,

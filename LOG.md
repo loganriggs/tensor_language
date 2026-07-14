@@ -1864,3 +1864,23 @@ real-model feature discovery = open problem (needs robust solver + objective ref
      small matrices to multiply), all hyperparameters (ordering / base&digit-count / topology / per-edge
      ranks / solver), param formulas, all tables, and the unswept grid. e9 (BatchTopK robustness check
      of the +0.26 headline) queued.
+
+## 2026-07-14 — basis_aligned tick 8 (e9/e10/e11: BatchTopK, weight-metric negative, control ladder + ordering null)
+199. **e9 (Logan's BatchTopK question):** adaptive L0 gets better FVU and WORSE dCE at every config
+     (allocation follows row-norm, not behavioral importance) — the metric divergence now inside the
+     sparsity allocation. CE-finetuned endpoint +0.28 ≈ fixed-k +0.26: headline robust.
+200. **e10 (Logan's "weight-based tensor-sim should predict behavior"): honest NEGATIVE with a theorem-
+     shaped reason.** The linear-reader metric M = Σ WᵀW over all 49 readers is ≈ isotropic; weighted
+     FVU ≈ plain FVU on all 16 measured perturbations (Spearman 0.685→0.691); M-weighted dictionary fit
+     is behaviorally worse. Structural point: NO quadratic form in ΔE can separate noise from deletion —
+     the asymmetry is nonlinear robustness (LN+softmax denoise incoherent perturbations). Proposed e12:
+     second-order weights-only objective — preserve the read-Gram ‖ÊMÊᵀ − EMEᵀ‖ (Isserlis-exact on the
+     bilinear checkpoints).
+201. **e11 (Logan's control ladder + learned ordering):** ALL controls pass (L0 grad 5.7e-12; (2,32768)
+     full-rank exactly 0 — "factorizing is free" confirmed; r₂=256 = SVD-256 floor 0.5496 exactly, by
+     both TT-SVD and gradient). Global-rank floor now explicit: FVU(TT@rmax) ≥ FVU(SVD@rmax) for ANY
+     ordering. Learned ordering by pairwise swaps: NULL — every accepted swap was pad⟷pad; ZERO improving
+     real-token swaps; semantic ordering is 2-swap-locally-optimal. Gap to floor needs block-level moves
+     or is structural.
+202. Two OOM/bugs caught by inspection this tick (e9 unchunked gather 18GB; e11 Gram on the tall side
+     16GB) — both fixed, both re-run to completion. Logan's next program: qk_mdl (spec read; see tick 9).

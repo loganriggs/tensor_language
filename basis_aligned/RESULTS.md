@@ -351,6 +351,58 @@ orderings. FVU at fixed rank caps *is* the class-4 hierarchicalness measure:
   which sits ON the MDL Pareto envelope at the small end (see graph above) — though partly
   because no dictionary was CE-trained at that size.
 
+## FINDING 11 (e9) — BatchTopK: better FVU, worse behavior; the +0.26 headline is robust
+
+BatchTopK (adaptive per-token L0, global threshold at deployment) vs e7's fixed top-k:
+slightly **better FVU everywhere** (0.505/0.367/0.280 vs 0.508/0.372/0.296) and notably
+**worse ΔCE** (+2.45/+1.44/+0.45 vs +2.08/+0.59/+0.35) — the adaptive allocation follows
+reconstruction difficulty (row norm ≈ rare/weird tokens), not behavioral importance
+(frequent tokens). The FVU↔CE divergence now appears in the *sparsity allocation* itself.
+CE-finetuning the BatchTopK n=1024 dict lands at **+0.28 ≈ fixed-k's +0.26**: the
+"1024 objects at a quarter-nat" headline does not depend on the top-k scheme.
+
+## FINDING 12 (e10) — NEGATIVE: the first-order weight metric is ~isotropic; no quadratic form in ΔE can see the noise/deletion asymmetry
+
+Logan's conjecture: the behavioral audit should be recoverable weights-only via tensor-sim.
+Tested the linear-reader version: M = Σ over all residual-stream readers (QKV + MLP-in per
+layer, LN gains folded, + unembedding) of trace-normalized WᵀW; weighted FVU =
+tr(ΔE·M·ΔEᵀ)/norm. Result: **M ≈ isotropic** — weighted FVU tracks plain FVU to ~0.01 on
+all 16 measured perturbations, Spearman with ΔCE 0.685 → 0.691, noise-vs-deletion not
+separated at all, and a dictionary fit under M is behaviorally *worse* (+2.45 vs +2.11).
+
+Two lessons, one structural: (a) Pythia's readers span the residual stream ≈ uniformly in
+aggregate (consistent with e6's random-basis deletion being as bad as any); (b) **no
+quadratic form tr(ΔE·M·ΔEᵀ) can capture the asymmetry even in principle** — isotropic
+noise does not avoid read directions; it costs the same quadratic-metric energy as
+deletion. The 10× behavioral gap is *nonlinear* robustness (LN + softmax denoise
+incoherent perturbations; coherent subspace loss is unrecoverable). A weights-only metric
+that could work must be second-order in E — e.g. preserve the read-Gram: minimize
+‖Ê·M·Êᵀ − E·M·Eᵀ‖ (pairwise distinguishability through readers; noise barely moves it,
+deletion collapses it). For the bilinear checkpoints the Isserlis machinery makes that
+exact. Open as e12.
+
+## FINDING 13 (e11) — the control ladder ALL passes (optimizer exonerated); learned ordering by pairwise swaps is a NULL (semantic ordering is 2-swap-optimal)
+
+Logan's positive-control ladder, all with known answers:
+
+| rung | expected | measured |
+|---|---|---|
+| L0: single full-size core, gradient | ~0 | **5.7e-12** |
+| L1: base (2, 32768), full ranks | exactly 0 (factorizing is free) | **1.0e-12** |
+| L1′: (2, 32768), r₂=256, TT-SVD | = SVD-256 floor | **0.5496 = 0.5496** |
+| L1′ by gradient from random init | same | **0.5496** |
+
+So the optimizer is not the problem, and the **global-rank floor** is now explicit: the
+last bond caps every reconstruction to a rank-rmax matrix, so FVU(TT@rmax) ≥ FVU(SVD@rmax)
+for ANY ordering (0.5496 at rmax=256). The 16⁴ semantic TT sits at 0.848 against that.
+
+Learned ordering (alternating TT-SVD refit ↔ ~0.5M sampled improving-swaps/round, 10
+rounds, semantic and random inits): FVU flat to 4 decimals. Diagnostic: **every accepted
+swap was pad⟷pad (identical zero rows, δ~1e-36); zero improving swaps exist among real
+tokens.** The semantic ordering is locally optimal against single swaps; closing the
+0.85→0.55 gap requires coordinated block-level moves / annealing / relaxation — or the
+gap is structural (tokens genuinely don't share more block structure). Undetermined which.
+
 ---
 
 ## Protocol notes / caveats
