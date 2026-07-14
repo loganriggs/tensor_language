@@ -1884,3 +1884,14 @@ real-model feature discovery = open problem (needs robust solver + objective ref
      or is structural.
 202. Two OOM/bugs caught by inspection this tick (e9 unchunked gather 18GB; e11 Gram on the tall side
      16GB) — both fixed, both re-run to completion. Logan's next program: qk_mdl (spec read; see tick 9).
+
+## 2026-07-14 — qk_mdl tick 0 (program armed per Logan's instruction)
+203. Read Logan's spec (basis_aligned/qk_mdl/qk_mdl_spec.md). Verified §0 assumptions from source:
+     A1 pre-RMSNorm affine-free (no γ; lerp-0.5 residual halves the layer-1 direct path); A2 rotate-half
+     RoPE, all dims, 16 bands, both branches; A3 **NEITHER spec case: NO softmax at all** — pattern =
+     (q1·k1)(q2·k2)/d² × causal mask, fully polynomial. Consequences logged in qk_mdl/LOG.md: no softmax
+     gauge (don't row-center), JS metric inapplicable → QUESTION FOR LOGAN + provisional metric
+     (relative pattern MSE + downstream ΔCE). G-tie passes (4 separate Linears).
+204. Cron job armed (every 2h): one spec-ordered tick per firing, anti-drift rules restated in the
+     prompt, gates before claims, Tier 0.4 planted-structure battery = the ground-truth-MDL component.
+     Note: cron is session-scoped with 7-day expiry — re-arm in future sessions if program continues.
