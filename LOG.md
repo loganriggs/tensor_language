@@ -1895,3 +1895,11 @@ real-model feature discovery = open problem (needs robust solver + objective ref
 204. Cron job armed (every 2h): one spec-ordered tick per firing, anti-drift rules restated in the
      prompt, gates before claims, Tier 0.4 planted-structure battery = the ground-truth-MDL component.
      Note: cron is session-scoped with 7-day expiry — re-arm in future sessions if program continues.
+
+## 2026-07-14 — qk_mdl tick 1 (Tier 0.2–0.3: exactness gate PASSING)
+205. folding.py + tier0_gate.py. Gate first FAILED at 1e-10 — root cause in model source (Rotary builds
+     fp32 trig tables), not the algebra; gate now uses the model's own tables via exact difference
+     identities → PASS on 3 checkpoints (pattern err ~2e-15, branches ~1e-13, gauge 9e-16). Analytic-ω
+     deviation from deployed models quantified (~1e-4) for ε calibration. Descriptive band profiles:
+     strong mid-band concentration (one branch 57% in a single band). Next: Tier 0.4 metric + planted
+     ground-truth-MDL battery.
