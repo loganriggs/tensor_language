@@ -244,6 +244,55 @@ objects" — exactly the e4/e5 lesson one level up. Next tick options: (i) train
 
 ![e6](figures/e6_embedding.png)
 
+## FINDING 8 (e7) — the Pareto frontier over (objects × per-token sparsity): with learning + the right metric, 1024 objects nearly suffice — FINDING 7(a) PARTLY OVERTURNED
+
+Logan's steer: matched budgets aren't the point; SVD (few features, dense codes) and the
+original E (V objects, one each) are corners of a spectrum — Pareto-frontier it, and spend
+one-time compute freely. (For calibration: e6's "hierarchical SAE" was not an SAE — it was
+recursive k-means, ~2 GPU-minutes. e7 is the learned version.)
+
+**Stage A** — signed top-k dictionaries (magnitude top-k, unit-norm atoms, dead-atom
+revival) trained on E's rows under MSE, grid n_atoms × L0, audited by swapped-in ΔCE:
+
+| ΔCE (nats) | L0=1 | L0=4 | L0=16 | L0=64 |
+|---|---|---|---|---|
+| n=1024 | +4.24 | +3.30 | +2.76 | +2.08 |
+| n=4096 | +3.26 | +1.98 | +1.45 | +0.59 |
+| n=16384 | +2.09 | +0.74 | +0.35 | **+0.11** |
+| n=32768 | +0.79 | +0.25 | +0.10 | **+0.05** |
+
+Learning alone dominates every unlearned e6 arm (kmeans-25.6k was +1.45; here 16k atoms at
+L0=64 is +0.11). And FVU mispredicts *within* learned dicts too: n=32k/L0=1 and n=16k/L0=64
+have equal FVU (~0.19) but 7× different ΔCE — distributed codes damage behavior far less
+than hard quantization at the same reconstruction error.
+
+**Stage B** — freeze each token's atom support, train atoms+coefficients+bias through the
+frozen model on pile-10k CE (held-out eval; bf16 — the first fp16 run diverged for want of
+loss scaling and was discarded):
+
+| config | ΔCE after MSE fit | ΔCE after CE training |
+|---|---|---|
+| **n=1024, L0=64** | +2.11 | **+0.26** |
+| n=4096, L0=64 | +0.60 | **+0.15** |
+| n=16384, L0=64 | +0.11 | +0.08 |
+| n=32768, L0=64 | +0.05 | +0.08 (floor; mild overfit — train CE 1.95 < baseline 2.79) |
+| k-means 25.6k, L0=1 | +1.47 | +0.87 |
+
+So the FINDING 7(a) conclusion "the tokens are the objects" was an artifact of unlearned,
+Frobenius-fit representations: **pythia-410m's embedding is expressible as sparse
+combinations of ~1024 learned atoms (2% of vocab) at a cost of ~0.26 nats** — a 49×
+reduction in object count. The k-means corner splits e6's +1.45 into ~40% metric mismatch
+(recovered by CE-tuning the same centroids) and ~60% genuine quantization damage; escaping
+the rest requires L0 > 1. Caveats: CE training used only ~262k held-out-disjoint tokens
+(~19 epochs), so the small-n numbers may include some train-distribution adaptation, and
+the frontier floor (~+0.08) is set partly by this data budget, not the representation.
+
+![e7](figures/e7_pareto.png)
+
+Open: what ARE the 1024 atoms (nearest tokens, hierarchy among them — connects to the
+matryoshka/tree prior and Park et al.); does the same frontier hold for the unembedding;
+TT-ordering (class 4) still untested.
+
 ---
 
 ## Protocol notes / caveats

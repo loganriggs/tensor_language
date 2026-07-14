@@ -1817,3 +1817,20 @@ real-model feature discovery = open problem (needs robust solver + objective ref
      1024-dim space; near-orthogonal corruption is cheap, deleted subspaces are fatal.
 187. Next-tick options recorded in RESULTS: CE-trained codebooks (is the +1.45 metric mismatch or true
      incompressibility?), unembedding/softmax-bottleneck side, TT-ordering test, learned matryoshka arm.
+
+## 2026-07-14 — basis_aligned tick 5 (e7: the Pareto frontier Logan asked for; FINDING 7a partly overturned)
+188. Logan: matched budgets don't matter, Pareto-frontier the spectrum (SVD = few features/dense codes ↔
+     original = V objects), one-time compute is fine. Also asked how much compute the "hierarchical SAE"
+     took — honest answer: it was recursive k-means, ~2 GPU-min; nothing learned. e7 is the learned version.
+189. **Stage A (signed top-k dictionaries on E's rows, n_atoms × L0 grid):** learning dominates every
+     unlearned e6 arm. 16k atoms @ L0=64: dCE +0.11 (vs kmeans-25.6k +1.45). FVU mispredicts within
+     learned dicts too: equal-FVU configs differ 7× in dCE (distributed codes >> hard quantization).
+190. **Stage B (CE-through-the-frozen-model training of atoms+coeffs, supports frozen):** first run in
+     fp16 DIVERGED (train CE rose — no loss scaling); caught by inspecting train curves, discarded,
+     rerun in bf16 + grad clipping + bf16-consistent baseline. Fixed results: n=1024 atoms @ L0=64 goes
+     +2.11 → +0.26 nats. "The tokens are the objects" (tick 4) was an artifact of unlearned Frobenius
+     fits: 2% of vocab as learned atoms ≈ the whole embedding, behaviorally. k-means corner +1.47 → +0.87
+     splits e6's damage: ~40% metric mismatch, ~60% genuine (escaping it needs L0>1).
+191. Caveats logged: CE-training data only 262k tokens (~19 epochs; floor ~+0.08 partly data-limited;
+     mild overfit at n=32k where train CE 1.95 < baseline 2.79). Open: identify the 1024 atoms
+     (hierarchy? Park simplices?), unembedding side, TT-ordering.
