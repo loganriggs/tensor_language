@@ -1,0 +1,30 @@
+{
+  "baseline_ce": 3.2341102361679077,
+  "arms": {
+    "shared k=256": {
+      "dce": 0.00821232795715332,
+      "floats_per_headbranch": 65536,
+      "index_bits_per_headbranch": 402432.0
+    },
+    "separate k=256": {
+      "dce": 0.008949041366577148,
+      "floats_per_headbranch": 65536,
+      "index_bits_per_headbranch": 804864.0
+    },
+    "separate k=512": {
+      "dce": 0.009950995445251465,
+      "floats_per_headbranch": 131072,
+      "index_bits_per_headbranch": 905472.0
+    },
+    "shared k=1024": {
+      "dce": 0.0018723011016845703,
+      "floats_per_headbranch": 262144,
+      "index_bits_per_headbranch": 503040.0
+    },
+    "separate k=1024": {
+      "dce": 0.004717528820037842,
+      "floats_per_headbranch": 262144,
+      "index_bits_per_headbranch": 1006080.0
+    }
+  }
+}

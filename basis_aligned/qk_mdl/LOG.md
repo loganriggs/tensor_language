@@ -673,3 +673,30 @@ fixed it. Logged for all future joint trainings.
 
 Queue: cross-associations on the real model; first-order path codebooks (Tier 3);
 attn2-seed0 question (open).
+
+---
+
+## 2026-07-16 — tick 19 (cross-associations + first-order path codebooks; continuous-execution mode armed)
+
+Gate: PASS. Cron re-armed every 30 min (:17/:47, job 3ab8af57) with the chain-next rule
+baked in (Logan's instruction: never wait on the cron; never leave the GPU idle).
+
+**FINDING CA-1 (clean negative): separate from-role/to-role partitions do NOT beat the
+shared partition** on bilin18 (`cross_assoc_real.json`): shared k=256 +0.0082 vs separate
++0.0089; shared k=1024 +0.0019 vs separate +0.0047 — and separate pays double index bits.
+Per head, the query-role and key-role class structures are congruent; the spec-codebook-2
+upgrade is not needed on this model.
+
+**FINDING FO-1: first-order-in-context path codebooks fix the tier-3 failure**
+(`first_order_path.json`, rp model): live layer-0 pattern × classed OV content degrades
+GRACEFULLY (all-content k=64/256/1024: ΔP(copy) −0.18/−0.09/−0.04) where the 0th-order
+lookup collapsed (−0.62…−0.74). The missing component in tick 9 was exactly the
+context-dependent pattern weights, as diagnosed.
+**FINDING FO-2 (consistency effect):** classing content ONLY in the identity-branch keys
+is ~3× WORSE than classing it everywhere (k=256: −0.25 vs −0.09) — partial replacement
+breaks internal consistency between coupled paths; uniform coarseness composes better
+than mixed precision. (Third appearance of the composition theme.)
+
+Running: sqrd12 grand-combined analog (QK vq256 + OV sparse, tick-18 training protocol).
+Queue after: results-doc consolidation; L1 first-order codebooks on bilin18; pair-block
+treatment; attn2-seed0 (blocked on Logan).

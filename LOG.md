@@ -2032,3 +2032,9 @@ real-model feature discovery = open problem (needs robust solver + objective ref
      values jointly CE-trained on 2.1M tokens → −0.019 (better than original). Superadditive L2
      composition (+0.455 vs 0.230 summed) fully repaired by joint training. Overfitting ladder logged
      (65k tokens: fine at 1M params, memorizes at 10M).
+
+## 2026-07-16 — qk_mdl tick 19 (cross-assoc negative; first-order path codebooks work; continuous mode)
+226. Separate q/k-role partitions don't beat shared (clean negative). First-order path codebooks (live
+     pattern × classed content) degrade gracefully where 0th-order collapsed — tick-9 diagnosis
+     confirmed; partial replacement is 3× worse than uniform coarseness (consistency effect). Cron
+     re-armed at 30-min cadence with chain-next rule; sqrd12 grand running.
