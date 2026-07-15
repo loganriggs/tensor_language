@@ -1,0 +1,95 @@
+{
+  "N": 512,
+  "eps_rule": "1.5x plant noise floor",
+  "table": {
+    "lowrank(svd)": {
+      "eps": 0.02942706950502376,
+      "true_dl_bits": 262400.0,
+      "svd": {
+        "dl_bits": 262400.0,
+        "fvu": 0.019014300364666416,
+        "met_eps": true,
+        "rank": 8
+      },
+      "bicluster": {
+        "dl_bits": 2105344.0,
+        "fvu": 0.22443868259001937,
+        "met_eps": false,
+        "k": 256,
+        "hit_kmax": true
+      },
+      "toeplitz": {
+        "dl_bits": 32736.0,
+        "fvu": 0.9959618793819068,
+        "met_eps": false,
+        "mode": "full",
+        "fail": true
+      }
+    },
+    "bicluster": {
+      "eps": 0.029420981940299143,
+      "true_dl_bits": 5120.0,
+      "svd": {
+        "dl_bits": 229600.0,
+        "fvu": 0.02023341105864892,
+        "met_eps": true,
+        "rank": 7
+      },
+      "bicluster": {
+        "dl_bits": 12288.0,
+        "fvu": 0.019521655315800607,
+        "met_eps": true,
+        "k": 16
+      },
+      "toeplitz": {
+        "dl_bits": 32736.0,
+        "fvu": 0.9784558387279598,
+        "met_eps": false,
+        "mode": "full",
+        "fail": true
+      }
+    },
+    "toeplitz": {
+      "eps": 0.029414722866817525,
+      "true_dl_bits": 416.0,
+      "svd": {
+        "dl_bits": 393600.0,
+        "fvu": 0.018710757800266074,
+        "met_eps": true,
+        "rank": 12
+      },
+      "bicluster": {
+        "dl_bits": 2105344.0,
+        "fvu": 0.037153169470218426,
+        "met_eps": false,
+        "k": 256,
+        "hit_kmax": true
+      },
+      "toeplitz": {
+        "dl_bits": 416.0,
+        "fvu": 0.01961081294961934,
+        "met_eps": true,
+        "mode": "fourier",
+        "modes": 6
+      }
+    }
+  },
+  "verdicts": {
+    "lowrank(svd)": {
+      "winner": "svd",
+      "expected": "svd",
+      "verdict": "PASS"
+    },
+    "bicluster": {
+      "winner": "bicluster",
+      "expected": "bicluster",
+      "verdict": "PASS"
+    },
+    "toeplitz": {
+      "winner": "toeplitz",
+      "expected": "toeplitz",
+      "verdict": "PASS"
+    }
+  },
+  "selectivity": "PASS"
+}

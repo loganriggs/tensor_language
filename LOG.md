@@ -1903,3 +1903,11 @@ real-model feature discovery = open problem (needs robust solver + objective ref
      deviation from deployed models quantified (~1e-4) for ε calibration. Descriptive band profiles:
      strong mid-band concentration (one branch 57% in a single band). Next: Tier 0.4 metric + planted
      ground-truth-MDL battery.
+
+## 2026-07-15 — qk_mdl tick 2 (Tier 0.4: conventions frozen, planted battery PASS 3/3)
+206. mdl_accounting.py (DL in bits, distortion conventions, ε rule — FROZEN), codebooks.py (svd /
+     bicluster / toeplitz), tier04_battery.py. Battery caught a real solver bug on first run (random-init
+     biclustering lost its own plant to SVD; fixed via spectral init) — the ground-truth battery works.
+     Final: SELECTIVITY PASS 3/3; SVD pays 45× true DL on the bicluster plant (computational ≪ spectral
+     MDL, on a plant); bicluster solver known gap: k=16 vs planted k=8 (2.4× true DL), logged not hidden.
+     Pending: conjunction plant + sparse-bilinear codebook, HODLR/tree (tick 3), then Tier-1 real heads.

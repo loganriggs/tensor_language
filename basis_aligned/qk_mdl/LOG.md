@@ -80,3 +80,43 @@ downstream ΔCE; QUESTION FOR LOGAN from tick 0 still open) and ε calibration;
 `mdl_accounting.py` with the DL conventions; then the planted-structure battery
 (bicluster / Toeplitz / conjunction plants — each codebook must WIN its own plant and
 LOSE the others') = the ground-truth-MDL component.
+
+---
+
+## 2026-07-15 — tick 2 (Tier 0.4: conventions FROZEN + planted battery PASSING)
+
+Gate re-run first (anti-drift rule 1): **PASS** (unchanged, ~2e-15).
+
+**Conventions frozen** in `mdl_accounting.py` (change = announce + rerun): DL in bits
+(32/float + log₂ for discrete choices + 32+log₂(pool) per exception); matrix distortion =
+relative Frobenius² (no centering — no gauge in the no-softmax models); model-level
+distortion (provisional pending Logan, flagged): relative pattern MSE primary, ΔCE
+secondary; battery ε = 1.5× plant noise floor.
+
+**Codebooks implemented** (`codebooks.py`): svd (rank-minimal at ε), bicluster
+(cross-associations flavor: separate row/col partitions, alternating minimization,
+spectral init via k-means on top singular vectors, k doubled until ε met), toeplitz
+(diagonal-profile + Fourier truncation). Pending: HODLR/tree, sparse-bilinear/conjunction.
+
+**Battery** (`tier04_battery.py`, N=512, three plants with known true DL):
+
+| plant | SVD | bicluster | toeplitz | true DL | winner |
+|---|---|---|---|---|---|
+| low-rank(8) | **262.4k (r=8, = true)** | fail | fail | 262.4k | svd ✓ |
+| bicluster(8×8) | 229.6k | **12.3k (k=16)** | fail | 5.1k | bicluster ✓ |
+| Toeplitz(6 modes) | 393.6k | fail | **0.4k (= true)** | 0.4k | toeplitz ✓ |
+
+**SELECTIVITY: PASS** (3/3). Notes: (a) the battery CAUGHT a real solver bug on its first
+run — random-init biclustering needed k=128 on its own k=8 plant and LOST to SVD; fixed
+with spectral init (this is the positive-controls lesson doing its job). (b) Known
+remaining solver gap: bicluster meets ε at k=16, not the planted k=8 (2.4× true DL) —
+selectivity unambiguous, exact-k recovery would need more restarts; noted, not hidden.
+(c) SVD pays 45× ground truth on the bicluster plant — the "computational ≪ spectral MDL"
+direction, quantified on a plant.
+
+**Gate status: PASS. Battery: PASS (3 of 5 codebooks; conjunction + tree pending).**
+
+Next (tick 3): sparse-bilinear codebook (masked-projector solver per spec §2.4 with the
+listed fixes) + conjunction plant (M₁⊙M₂ of two cheap-codebook matrices; owner must win),
+and the HODLR/tree codebook if time. Then Tier 1.1 (real layer-0 heads, full menu, MDL
+table) — ε calibration for real heads per §4 at that point.
