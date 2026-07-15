@@ -2063,3 +2063,27 @@ the tier-3 resolution (results/06).
 weight-folded ones — the MDL story for them needs an estimation-data term (or treat them as
 distilled parameters like the CE-trained tables). Flagging rather than silently mixing the
 two table types in one accounting.
+
+---
+
+## 2026-07-16 — tick 21 (L1 vq256 CE-trained; depth sweep launched)
+
+**FINDING L1-3:** the layer-1 vq256 class tables (assignments frozen from cond-mean
+kmeans, 1.2M class-table floats CE-trained 1500 steps through the frozen model) go
+**+0.093 → −0.082** — 256 classes per head-branch at layer 1 land *better* than the
+original model, beating even the full cond-mean tables (+0.014). Layer-1 scoreboard:
+zero +2.82, cond-mean +0.014, vq256 L2-fit +0.093, vq256 CE-trained −0.082. Caveat as
+with all CE-trained arms: part of the gain is pile adaptation (layer-0 KL-distill
+precedent put adaptation at ~−0.025); a KL variant would separate it — queued as
+optional. Two grad traps re-hit and fixed: scores_from_factors is @torch.no_grad
+(differentiable local copy needed — same as grand_combined's cb_scores), and the
+estimate-pass accumulators (~1.7GB) must be freed before training (OOM otherwise).
+`l1_ce_codebook.py/json`, tables in l1_tables.pt, trained codebooks l1_cbs_trained.pt.
+
+Launched: `layers_condmean_sweep.py` — cond-mean tables at layers {1,2,3,5,8,12,17},
+one live estimation pass (CPU accumulators), per-layer patch + zero control, ΔCE.
+Question: does 0th-order-in-context selection hold at ALL depths?
+
+Queue: harvest depth sweep → tick 22; if selection is ~0th-order everywhere, the
+all-layers-jointly-tabled model becomes the next flagship (every QK map in the 18-layer
+model as vocab tables); KL variant of L1-3 (optional); attn2-seed0 (blocked on Logan).
