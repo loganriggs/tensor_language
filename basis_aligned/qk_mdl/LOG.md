@@ -477,3 +477,23 @@ discard. Tier-3 codebooks must be ≥ first-order in context (live L0 pattern ×
 OV content). Shared-table (joint QK) question unresolved (per-head tables already fail).
 Logan's MLP-two-inputs note recorded for deeper tiers. (One artifact rerun: json crash on
 tuple keys — fixed, rerun, numbers unchanged.)
+
+---
+
+## 2026-07-16 — tick 10 (OV circuit + bilinear-MLP blocks, Logan's steer)
+
+Gate: PASS (block-split no-drop gate exact to 2.4e-7). `ov_blocks.py`,
+`results/07_ov_blocks.md`.
+
+**FINDING OV-1 (block importance, block-0 bilinear MLP):** drop self +1.291, drop CROSS
++0.840, drop source-pair +0.187. Logan's cross-term object (token × attention-out inside
+the bilinear encoder) is a first-class computation; his near-one-hot intuition mostly
+holds (source-pair 5–7× smaller) but source×source interaction is nonzero.
+
+**FINDING OV-2 (selection/content dichotomy):** OV value tables are NOT coarsely
+classable (vq64 +2.02, vq1024 +0.88, zero +4.36) — opposite of QK on the same model at
+the same ratios. Selection is a ~256-class computation; content needs fine token
+identity, like the raw embedding in basis_aligned e6. CE-training of OV tables running
+(the e6→e7 move); results to follow in ov_ce_trained.json.
+
+Next: V×V cross-block codebook (token × transported-token → hidden) as its own object.
