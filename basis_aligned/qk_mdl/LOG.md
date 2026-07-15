@@ -818,3 +818,18 @@ catch overfit (tick-18 lesson).
 
 Queue: harvest stage B → tick 25 (+ results/10 depth+menu section, figure); KL variant
 (optional); attn2-seed0 (blocked on Logan).
+
+---
+
+## 2026-07-16 — tick 25 (docs tick; stage B mid-run)
+
+Stage B (menu_trained.py) at step ~300/4500, ~6h ETA at batch 2 — training CE noisy
+(2.1 → 6.1 on single batches), held-out checkpoints at 1500/3000 are the real signal;
+monitor armed. No completed runs to harvest, so this tick shipped the queued doc work:
+results/10 now has the full depth-sweep table + fig_depth_sweep.png + stage-A section;
+README retitled. Layer-5-is-special is worth a targeted follow-up (what does its
+selection attend to that's irreducibly contextual? induction-like?) — queued as optional
+behind the flagship.
+
+Queue: harvest stage B → tick 26 (results/10 stage-B section + root LOG for Logan);
+L5 mechanism probe (optional); KL variant of L1-3 (optional); attn2-seed0 (blocked).

@@ -54,3 +54,32 @@ layer 0. Audit = full-18-layer ΔCE at T=512 (binding metric).
 Caveats: single eval distribution (pile-10k, T=512); the +0.014 includes the 9%
 global-mean fallback, so it is an upper bound on the intrinsic 0th-order error;
 estimated on the same distribution as the audit (disjoint chunks).
+
+## The depth sweep: three regimes, one contextual layer
+
+Same method at every layer (`../layers_condmean_sweep.py`, `..._sweep2.py`), each layer
+patched ALONE, zero-scores control alongside:
+
+![depth sweep](fig_depth_sweep.png)
+
+| regime | layers | evidence |
+|---|---|---|
+| load-bearing AND ~token-deterministic | 1, 2, 4 (and 3, 6, 7) | zero +2.82/+0.55/+0.48; tables +0.014/+0.008/+0.059 |
+| load-bearing AND genuinely contextual | **5 only** | zero +2.51; tables +0.251 (90% recovered, gap real) |
+| barely load-bearing; tables ≥ deletion | 8, 15, 17 | tables cost MORE than zeroing the layer |
+| attention actively harmful on pile | 14 (and mildly 16) | zero = **−0.035** — deleting improves CE |
+| tables BEAT the live model | 10, 16 | cond-mean −0.016/−0.010 — coarseness as regularizer |
+
+Layer 5 is the only place in the 546M model where attention *selection* consumes context
+it can't live without. Everywhere else, what the QK circuit computes is (to within a few
+hundredths of a nat) a function of the two token identities plus relative position.
+
+## Composing the menu (stage A): marginals lie
+
+Picking each layer's best treatment (table 12 layers / zero 8,14,15,17 / live 5) and
+applying them SIMULTANEOUSLY (`../all_menu.py`): **+1.440**, vs +0.146 sum of parts.
+All-table: +1.920 vs +0.234. A 10× superadditive blowup — each layer's tables were
+estimated under the live lower stack, and patching the lower layers destroys exactly that
+distribution. Same marginals-don't-compose behavior as the layer-0 grand (file 09), at
+model scale. Stage B (joint CE repair of vq256 tables at all 13 non-zeroed layers,
+15.3M floats, `../menu_trained.py`) tests whether behavioral training closes it.
