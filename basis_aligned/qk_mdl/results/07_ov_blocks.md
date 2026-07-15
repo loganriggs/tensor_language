@@ -45,11 +45,26 @@ basis_aligned e6 ("the tokens are the objects"), while selection is classable.
 | vq1024 | 0.023 | +0.917 | +0.568 |
 | vq4096 | 0.084 | +0.782 | +0.475 |
 
-CE-training recovers only ~38% — **the dichotomy is real, not a metric artifact**: hard
-token-classing fails for content even with the behavioral objective (contrast QK, which
-went NEGATIVE under the same treatment). The basis_aligned analogy is exact: hard vq on
-the embedding also stayed bad (+0.87) while sparse CODING rescued it (+0.26) — so the
-next OV codebook is top-k sparse coding of the value tables, not vq.
+CE-training recovers only ~38% — hard token-classing fails for content even with the
+behavioral objective (contrast QK, which went NEGATIVE under the same treatment).
+
+## Sparse coding rescues content (the e7 move, confirmed)
+
+Signed top-k dictionaries per head (each token = k-sparse combination of shared atoms):
+
+| OV codebook | DL ratio | ΔCE (L2-fit) | ΔCE (CE-trained) |
+|---|---|---|---|
+| topk n=512, k=4 | 0.050 | +0.315 | — |
+| topk n=2048, k=4 | 0.083 | +0.169 | — |
+| **topk n=512, k=16** | 0.170 | **+0.034** | **−0.019** |
+| topk n=2048, k=16 | 0.209 | +0.043 | — |
+| (hard vq256, for contrast) | 0.033 | +1.383 | ~+0.57 at k=1024 |
+
+**The refined dichotomy:** selection (QK) tolerates HARD CLASSES; content (OV) needs
+SPARSE COMBINATIONS — but under the right prior + behavioral training, both circuits of
+layer 0 compress to better-than-original: QK at −0.039 (vq256 CE-trained), OV at −0.019
+(512 atoms × 16 coefficients, CE-trained). Exactly the basis_aligned e7 pattern (hard vq
++0.87 vs sparse +0.26 on the embedding), now on both attention circuits.
 
 Next: the V×V cross-block codebook as its own object (token t × transported token s →
 hidden), per Logan's suggestion — now justified by the +0.84 block importance.

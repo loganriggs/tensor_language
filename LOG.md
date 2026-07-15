@@ -1996,3 +1996,8 @@ real-model feature discovery = open problem (needs robust solver + objective ref
      selection robust to partition choice (+0.008→+0.051), content tolerates none (own +1.38, QK's
      +1.81, global +2.47), both-global +2.78 — FINDING SR-1: token-interchangeability is
      circuit-specific; no single privileged coarse structure on the embedding.
+
+## 2026-07-16 — qk_mdl tick 13 (OV sparse coding confirmed)
+220. Top-k sparse coding on OV v-tables: +0.034 L2-fit (vs vq256's +1.38), CE-trained −0.019 — better
+     than original. Refined dichotomy: selection = hard classes, content = sparse combinations; both
+     layer-0 circuits now compress to better-than-original under behavioral training.

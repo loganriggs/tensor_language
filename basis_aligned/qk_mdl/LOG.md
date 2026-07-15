@@ -544,3 +544,22 @@ Gate: PASS. Deliverables:
    partition.** In forward passes no shared reduction is needed anyway: the QK codebook
    replaces only scores; v reads the full embedding (class-precision selection ×
    full-precision content).
+
+---
+
+## 2026-07-16 — tick 13 (OV sparse coding: prediction CONFIRMED, content compresses too)
+
+Gate: PASS. `ov_sparse.py` / `ov_sparse.json`; results/07 updated.
+
+**FINDING OV-3: sparse coding rescues OV content** (tick-10 prediction confirmed).
+L2-fit top-k (512 atoms, k=16 signed coefficients per token, per head): ΔCE +0.034 where
+hard vq256 cost +1.383. CE-trained (supports frozen, atoms+coeffs through the frozen
+model): **+0.044 → −0.019 — better than the original values.**
+
+Refined dichotomy: selection tolerates hard classes; content needs sparse combinations;
+under matched behavioral training BOTH layer-0 circuits beat the original (QK −0.039,
+OV −0.019). The basis_aligned e7 pattern (vq +0.87 vs sparse +0.26) reproduced on
+attention circuits.
+
+Queue: V×V cross-block codebook (block-0 bilinear MLP, justified by +0.84 importance);
+first-order-in-context path codebooks (Tier 3); attn2-seed0 question still open.
