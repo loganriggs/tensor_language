@@ -521,3 +521,26 @@ Gate: PASS. Three deliverables in `results/`:
 3. **08_pattern_display.md / fig_pattern_display.png** — attention patterns computed
    FROM the best method (vq256 CE-trained) side-by-side with the originals on real text,
    token-labeled. 48% pattern rel-MSE, better CE — the dissociation made visible.
+
+---
+
+## 2026-07-16 — tick 12 (Logan's methods questions: expanded explainer, class-annotated display, shared-registry test)
+
+Gate: PASS. Deliverables:
+1. **00_methods.md rewritten** — "factors" defined with full code (q̂,k̂ ∈ (V, d_head)
+   per head-branch, pre-rotary, exactly generating all scores); every method's snippet
+   expanded to include helper definitions; conjunction section rewritten step-by-step
+   (weighted-LS alternation, monotone objective, identifiability caveat); FAQ added.
+2. **Pattern display regenerated with class annotations** (`token·c17` labels): axes are
+   sequence positions labeled by actual tokens; ENTRIES depend only on (class, class, Δ)
+   — same-class tokens share pre-rotary factors, RoPE differentiates positions.
+3. **Shared-registry experiment** (`shared_registry.json`) answers "reduce the Embedding
+   itself in one class structure?": NO —
+   QK own classes +0.008 / QK global +0.051 (selection robust to partition choice);
+   OV own +1.383 / OV on QK's classes +1.813 / OV global +2.472 (content tolerates none;
+   QK's classes are WORSE for OV than OV's own); both-global-256 +2.777.
+   **FINDING SR-1: "which tokens are interchangeable" is CIRCUIT-SPECIFIC — no single
+   privileged coarse structure exists on the embedding; each reader induces its own
+   partition.** In forward passes no shared reduction is needed anyway: the QK codebook
+   replaces only scores; v reads the full embedding (class-precision selection ×
+   full-precision content).

@@ -1989,3 +1989,10 @@ real-model feature discovery = open problem (needs robust solver + objective ref
      ≈ 1.0 nats positional + 1.5 token-selective, classes capture the selective part at 20× less DL than
      rank); fig_pattern_display.png (patterns FROM the vq256 CE-trained codebook vs original, token-
      labeled; 48% pattern MSE yet better CE — the dissociation visible).
+
+## 2026-07-16 — qk_mdl tick 12 (methods explainer v2, annotated display, shared-registry finding)
+219. 00_methods.md rewritten per Logan (factors defined, full code incl. helpers, conjunction
+     step-by-step, FAQ); pattern display re-rendered with token·class labels. Shared-registry test:
+     selection robust to partition choice (+0.008→+0.051), content tolerates none (own +1.38, QK's
+     +1.81, global +2.47), both-global +2.78 — FINDING SR-1: token-interchangeability is
+     circuit-specific; no single privileged coarse structure on the embedding.
