@@ -1,0 +1,13 @@
+{
+  "model": "bilin18", "baseline_ce": 3.2341, "T": 512,
+  "full_layer0_qk_dl_MiB": 884,
+  "joint_points": {
+    "zero 7 heads, H3/H6 exact": {"dce": 0.5340, "note": "sum of individual zero-dCEs ~ +0.03 - NOT additive"},
+    "7 zeroed + H3,H6 vq16":     {"dce": 1.2273, "dl_KiB": 162.2, "ratio": 1.79e-4},
+    "all vq16":                  {"dce": 0.0420, "dl_KiB": 730.1, "ratio": 8.06e-4},
+    "H3,H6 vq256, rest vq16":    {"dce": 0.0177, "dl_KiB": 1788.4, "ratio": 1.98e-3},
+    "all vq256":                 {"dce": 0.0084, "dl_KiB": 5492.2, "ratio": 6.07e-3},
+    "H3,H6 exact, rest vq16":    {"dce": 0.0084, "dl_KiB": 201783.9, "ratio": 0.223}
+  },
+  "per_head_marginals": "tier2_audit_bilin18.json"
+}

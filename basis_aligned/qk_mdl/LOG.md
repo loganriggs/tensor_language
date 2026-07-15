@@ -208,3 +208,43 @@ on factors; V×V never materialized; a pure positional head = token-VQ at k=1.
 
 Running: `tier2_mdl.py` — 9 heads × 2 branches, codebooks {svd-r, vq-k, band-m},
 pattern-MSE search loop + ΔCE binding audit (per Logan's metric answer), T=512.
+
+---
+
+## 2026-07-15 — Tier 2 part 2: bilin18 layer-0 MDL results (gates passing; ΔCE-audited)
+
+Baseline CE 3.2341 (T=512, pile-10k, 16 audit chunks). Full layer-0 QK DL = 884 MiB
+(raw factors, frozen conventions). Per-head grid: {svd-r, vq-k, band-m, zero} × 9 heads ×
+2 branches, ΔCE audited for every candidate (`tier2_audit_bilin18.json`).
+
+**FINDING T2-1 (pattern-metric failure, real 546M model):** the pattern-MSE screen is
+useless as a behavioral predictor here — vq16 fits with pattern-MSE 0.14–0.95 cost
+|ΔCE| ≤ 0.011; L0H3's vq16 (pattern-MSE 0.139) IMPROVES CE by 0.011. Same moral as
+basis_aligned e6/e10, now in attention weight-space of a real model.
+
+**FINDING T2-2 (per-head marginals):** 7 of 9 heads can be individually ZEROED at
+|ΔCE| ≤ 0.011 (several negative); only H3 (+0.034) and H6 (+0.010) resist, and each
+compresses to vq16 (~1250× per head-branch). BUT—
+
+**FINDING T2-3 (marginals do NOT compose):** jointly zeroing the 7 "free" heads costs
++0.534 nats (vs ~+0.03 summed marginals) — massive cross-head redundancy: individually
+expendable, collectively load-bearing. Zeroing is the WRONG compression for redundant
+heads.
+
+**FINDING T2-4 (headline): the ENTIRE layer-0 QK computation is a ~256-token-class
+computation, behaviorally.** Joint frontier (`tier2_joint_bilin18.json`):
+all-heads vq256 → ΔCE **+0.0084** at **165× DL reduction** (5.4 MiB vs 884 MiB);
+all vq16 → +0.042 at 1240×. Same ΔCE as keeping H3,H6 exact at 37× more DL.
+
+**FINDING T2-5 (readability):** the vq16 classes are crisp token-type/morphology
+structure — H3: digit class, punctuation classes, sentence-initial class (In/It/We/This),
+an odd/even-flavored uppercase split (B,D,F,G,H,J,L,N vs A,C,E,K,M,O); H6: function
+words, morphological suffixes (ion/ter/ers/ould/ines), a semantic-noun class
+(people/government/women/police), determiners (their/its/these/every). Exemplars in the
+session log; CUR/exemplar dump per §2.7 to be attached in the results doc.
+
+Caveats: single eval distribution (pile-10k) at T=512 (the model's competent regime —
+see part 1); vq classes fit on factors under L2 (not behaviorally optimized — the
+basis_aligned e7 lesson says CE-trained codebooks would do better still); ε levels
+reported as curve points {0.001,0.01,0.05}-ish rather than one number. sqrd12 run in
+progress.
