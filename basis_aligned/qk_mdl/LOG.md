@@ -503,3 +503,21 @@ Addendum tick 10: OV CE-training landed — vq1024 +0.917→+0.568, vq4096 +0.78
 dichotomy is REAL, not metric mismatch. Exact basis_aligned parallel: hard vq fails on
 content, sparse coding rescued the embedding (+0.87 vs +0.26) → next OV codebook = top-k
 sparse coding of value tables. Queued with the V×V cross-block codebook.
+
+---
+
+## 2026-07-16 — tick 11 (Logan's requests: methods explainer + unified graph + pattern display)
+
+Gate: PASS. Three deliverables in `results/`:
+1. **00_methods.md** — every codebook method with its working code snippet, intuition,
+   and where it won/lost (svd, vq/bicluster, band, toeplitz/positional, conjunction,
+   conditional-mean lookup, CE/KL-trained).
+2. **fig_methods_compare.png** — all families on ONE object (546M layer-0 QK, joint,
+   ΔCE-audited). New joint arms filled in (`tier2_joint_families.py`): joint svd16 =
+   +0.0045 at 12.5% DL (svd64 NEGATIVE at 50% — stronger than the per-head view
+   suggested), band needs 48/64 bands, joint positional +1.47. Tidy decomposition: of
+   layer-0 QK's ~2.5-nat contribution, ~1.0 is purely positional, ~1.5 token-selective,
+   and token CLASSES capture nearly all of the selective part at 20× less DL than rank.
+3. **08_pattern_display.md / fig_pattern_display.png** — attention patterns computed
+   FROM the best method (vq256 CE-trained) side-by-side with the originals on real text,
+   token-labeled. 48% pattern rel-MSE, better CE — the dissociation made visible.

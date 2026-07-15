@@ -1982,3 +1982,10 @@ real-model feature discovery = open problem (needs robust solver + objective ref
 217. OV vq CE-training recovers only ~38% (vq1024 +0.92→+0.57) where QK went NEGATIVE — the
      selection/content dichotomy is genuine. Next: top-k sparse coding for OV (the e7 move proper)
      + the V×V cross-block codebook.
+
+## 2026-07-16 — qk_mdl tick 11 (methods explainer, unified comparison graph, codebook pattern display)
+218. results/00_methods.md (code+intuition per codebook); fig_methods_compare.png (all families, one
+     object — new joint arms: svd16 +0.0045 @12.5%, svd64 negative @50%, positional +1.47 → layer-0 QK
+     ≈ 1.0 nats positional + 1.5 token-selective, classes capture the selective part at 20× less DL than
+     rank); fig_pattern_display.png (patterns FROM the vq256 CE-trained codebook vs original, token-
+     labeled; 48% pattern MSE yet better CE — the dissociation visible).

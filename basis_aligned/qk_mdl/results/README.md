@@ -5,10 +5,14 @@ figures, examples from the decomposition, and caveats. All numbers were produced
 Tier-0 exactness gate passing (folding reproduces the live model to ~1e-13–1e-15), under
 the frozen conventions of `../mdl_accounting.py` (ΔCE = binding audit, per Logan).
 
+0. [The methods: code + intuition + one comparison graph](00_methods.md)
 1. [Gates + ground-truth battery](01_tier0_gates_battery.md)
 2. [Tiny models, layer-0 MDL](02_tiny_layer0.md)
 3. [The conjunction test (induction circuit)](03_conjunction.md) — the program headline
 4. [546M bilinear-attention model, layer-0](04_tier2_546m.md)
 5. [162M squared-attention model, layer-0](05_tier2_162m.md)
+6. [Tier-3 path-folded lookups (negative)](06_tier3_pathfold.md)
+7. [OV circuit + bilinear-MLP blocks](07_ov_blocks.md)
+8. [Attention patterns from the compressed model](08_pattern_display.md)
 
 Chronological detail: `../LOG.md`. Spec: `../qk_mdl_spec.md`.
