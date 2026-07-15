@@ -173,3 +173,38 @@ Frozen in `mdl_accounting.py`: **ΔCE = headline + binding audit** (tables gated
 by it); relative pattern MSE = search-loop metric + secondary column; ε_pattern calibrated
 so the SVD baseline's ΔCE is comfortably small, then frozen. Tier 1.1 (next tick) proceeds
 with the metric no longer provisional.
+
+---
+
+## 2026-07-15 — Tier 2 directed push (Logan: Elriggs models, 10h budget) — part 1
+
+Target models identified from configs + state dicts + `jacclust/tt_model.py` (the modeling
+code was already in-repo from the jacclust program):
+- **bilin18** = gpt2-bilinear-sqrd-attn-18l-9h-1152embd (546M): TWO QK branches
+  (c_q,c_k,c_q2,c_k2), pattern = (q1·k1)(q2·k2)/D² causal-masked UNNORMALIZED; bilinear
+  MLPs. (The plain "gpt2-bilinear-18l" has bilinear MLPs but STANDARD attention —
+  config bilinear_attn=false — not the target.)
+- **sqrd12** = gpt2-sqrd-attn-12l-6h-768embd (162M): ONE branch, pattern = (q·k/D)²
+  ROW-NORMALIZED (per-query positive-scale gauge EXISTS here) — "the smaller one,
+  only squared attention" ✓.
+- Family facts: modded-nanogpt lineage — global rms after embed, x0-skip lambdas, per-head
+  QK rms-norm THEN RoPE (rotation sign OPPOSITE to tiny models → S_f = qb·ka − qa·kb),
+  value mixing with block-0 v, logit cap 30·tanh(/30), bf16 rotary tables in source.
+
+**CE gate (Logan: verify 3–4):** built fp-controlled reference forward
+(`tier2_model.py`); verified EXACT vs tt_model.GPT (5.4967 = 5.4967).
+- sqrd12: CE 3.497 @ T=1024 ✓.
+- bilin18: CE 5.50 @ T=1024 — **out of range**, diagnosed via per-position CE: healthy
+  3.3–3.9 through pos ~512, exploding to ~11 by pos 1000. The unnormalized score-product
+  pattern has row mass growing with context; the model's competent regime ends ~T=512
+  (CE@256 3.63, CE@512 ≈ 3.5). **Eval regime frozen at T=512 for both models** — gate
+  satisfied there; context-degradation logged as a model property (FINDING for Logan).
+
+**Layer-0 folding for this family (`tier2_folding.py`):** the per-head QK rms-norm makes
+each branch's ENTIRE folded object a factor pair (q̂,k̂) ∈ (V×128)² of unit-RMS per-token
+vectors (lambdas drop out at layer 0 — killed by the pre-attn rms-norm). All codebooks act
+on factors; V×V never materialized; a pure positional head = token-VQ at k=1.
+**Fold gate: PASS at 1e-15, both branches.**
+
+Running: `tier2_mdl.py` — 9 heads × 2 branches, codebooks {svd-r, vq-k, band-m},
+pattern-MSE search loop + ΔCE binding audit (per Logan's metric answer), T=512.

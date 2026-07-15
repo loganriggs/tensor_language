@@ -1,0 +1,1898 @@
+{
+  "model": "bilin18",
+  "baseline_ce": 3.2341102361679077,
+  "T": 512,
+  "full_dl_bits": 412090368,
+  "rows": [
+    {
+      "head": 0,
+      "branch": 1,
+      "sweep": [
+        {
+          "name": "svd1",
+          "dl_bits": 3227712,
+          "pattern_mse": 0.9655819535255432
+        },
+        {
+          "name": "svd2",
+          "dl_bits": 6455424,
+          "pattern_mse": 0.9562629461288452
+        },
+        {
+          "name": "svd4",
+          "dl_bits": 12910848,
+          "pattern_mse": 0.9269815683364868
+        },
+        {
+          "name": "svd8",
+          "dl_bits": 25821696,
+          "pattern_mse": 0.8939282298088074
+        },
+        {
+          "name": "svd16",
+          "dl_bits": 51643392,
+          "pattern_mse": 0.8429957628250122
+        },
+        {
+          "name": "svd32",
+          "dl_bits": 103286784,
+          "pattern_mse": 0.7414991855621338
+        },
+        {
+          "name": "svd64",
+          "dl_bits": 206573568,
+          "pattern_mse": 0.5104876160621643
+        },
+        {
+          "name": "svd128",
+          "dl_bits": 413147136,
+          "pattern_mse": 1.7366643678684568e-09
+        },
+        {
+          "name": "vq1",
+          "dl_bits": 8192,
+          "pattern_mse": 0.9803087711334229
+        },
+        {
+          "name": "vq16",
+          "dl_bits": 332288.0,
+          "pattern_mse": 0.9406204223632812
+        },
+        {
+          "name": "vq256",
+          "dl_bits": 2499584.0,
+          "pattern_mse": 0.8560559153556824
+        },
+        {
+          "name": "vq4096",
+          "dl_bits": 34158080.0,
+          "pattern_mse": 0.7032105922698975
+        },
+        {
+          "name": "band1",
+          "dl_bits": 6438976,
+          "pattern_mse": 0.9761363863945007
+        },
+        {
+          "name": "band2",
+          "dl_bits": 12877888,
+          "pattern_mse": 0.9737128019332886
+        },
+        {
+          "name": "band4",
+          "dl_bits": 25755712,
+          "pattern_mse": 0.930128812789917
+        },
+        {
+          "name": "band8",
+          "dl_bits": 51511360,
+          "pattern_mse": 0.8666996955871582
+        },
+        {
+          "name": "band16",
+          "dl_bits": 103022656,
+          "pattern_mse": 0.7614171504974365
+        },
+        {
+          "name": "band32",
+          "dl_bits": 206045248,
+          "pattern_mse": 0.5863800644874573
+        }
+      ],
+      "audited": {
+        "svd128": {
+          "dl_bits": 413147136,
+          "pattern_mse": 1.7366643678684568e-09,
+          "dce": 1.1920928955078125e-07,
+          "dl_ratio_vs_full": 1.0025644083969465
+        }
+      }
+    },
+    {
+      "head": 0,
+      "branch": 2,
+      "sweep": [
+        {
+          "name": "svd1",
+          "dl_bits": 3227712,
+          "pattern_mse": 0.9895818829536438
+        },
+        {
+          "name": "svd2",
+          "dl_bits": 6455424,
+          "pattern_mse": 0.9338207244873047
+        },
+        {
+          "name": "svd4",
+          "dl_bits": 12910848,
+          "pattern_mse": 0.8743351697921753
+        },
+        {
+          "name": "svd8",
+          "dl_bits": 25821696,
+          "pattern_mse": 0.8306083083152771
+        },
+        {
+          "name": "svd16",
+          "dl_bits": 51643392,
+          "pattern_mse": 0.7680270671844482
+        },
+        {
+          "name": "svd32",
+          "dl_bits": 103286784,
+          "pattern_mse": 0.678230345249176
+        },
+        {
+          "name": "svd64",
+          "dl_bits": 206573568,
+          "pattern_mse": 0.46056586503982544
+        },
+        {
+          "name": "svd128",
+          "dl_bits": 413147136,
+          "pattern_mse": 1.4116634527994165e-09
+        },
+        {
+          "name": "vq1",
+          "dl_bits": 8192,
+          "pattern_mse": 1.003452181816101
+        },
+        {
+          "name": "vq16",
+          "dl_bits": 332288.0,
+          "pattern_mse": 0.9367974996566772
+        },
+        {
+          "name": "vq256",
+          "dl_bits": 2499584.0,
+          "pattern_mse": 0.841495931148529
+        },
+        {
+          "name": "vq4096",
+          "dl_bits": 34158080.0,
+          "pattern_mse": 0.7006543874740601
+        },
+        {
+          "name": "band1",
+          "dl_bits": 6438976,
+          "pattern_mse": 0.9820718765258789
+        },
+        {
+          "name": "band2",
+          "dl_bits": 12877888,
+          "pattern_mse": 0.9764838814735413
+        },
+        {
+          "name": "band4",
+          "dl_bits": 25755712,
+          "pattern_mse": 0.9004279971122742
+        },
+        {
+          "name": "band8",
+          "dl_bits": 51511360,
+          "pattern_mse": 0.8305987119674683
+        },
+        {
+          "name": "band16",
+          "dl_bits": 103022656,
+          "pattern_mse": 0.6602655053138733
+        },
+        {
+          "name": "band32",
+          "dl_bits": 206045248,
+          "pattern_mse": 0.4128844738006592
+        }
+      ],
+      "audited": {
+        "svd128": {
+          "dl_bits": 413147136,
+          "pattern_mse": 1.4116634527994165e-09,
+          "dce": 1.1920928955078125e-07,
+          "dl_ratio_vs_full": 1.0025644083969465
+        }
+      }
+    },
+    {
+      "head": 1,
+      "branch": 1,
+      "sweep": [
+        {
+          "name": "svd1",
+          "dl_bits": 3227712,
+          "pattern_mse": 0.9638727307319641
+        },
+        {
+          "name": "svd2",
+          "dl_bits": 6455424,
+          "pattern_mse": 0.9048593044281006
+        },
+        {
+          "name": "svd4",
+          "dl_bits": 12910848,
+          "pattern_mse": 0.8800618648529053
+        },
+        {
+          "name": "svd8",
+          "dl_bits": 25821696,
+          "pattern_mse": 0.8449182510375977
+        },
+        {
+          "name": "svd16",
+          "dl_bits": 51643392,
+          "pattern_mse": 0.8055562376976013
+        },
+        {
+          "name": "svd32",
+          "dl_bits": 103286784,
+          "pattern_mse": 0.7095714807510376
+        },
+        {
+          "name": "svd64",
+          "dl_bits": 206573568,
+          "pattern_mse": 0.476934015750885
+        },
+        {
+          "name": "svd128",
+          "dl_bits": 413147136,
+          "pattern_mse": 2.038515800606433e-09
+        },
+        {
+          "name": "vq1",
+          "dl_bits": 8192,
+          "pattern_mse": 0.9936172366142273
+        },
+        {
+          "name": "vq16",
+          "dl_bits": 332288.0,
+          "pattern_mse": 0.9205774068832397
+        },
+        {
+          "name": "vq256",
+          "dl_bits": 2499584.0,
+          "pattern_mse": 0.8728794455528259
+        },
+        {
+          "name": "vq4096",
+          "dl_bits": 34158080.0,
+          "pattern_mse": 0.7111474275588989
+        },
+        {
+          "name": "band1",
+          "dl_bits": 6438976,
+          "pattern_mse": 0.9355062246322632
+        },
+        {
+          "name": "band2",
+          "dl_bits": 12877888,
+          "pattern_mse": 0.9026979804039001
+        },
+        {
+          "name": "band4",
+          "dl_bits": 25755712,
+          "pattern_mse": 0.851071834564209
+        },
+        {
+          "name": "band8",
+          "dl_bits": 51511360,
+          "pattern_mse": 0.7727853059768677
+        },
+        {
+          "name": "band16",
+          "dl_bits": 103022656,
+          "pattern_mse": 0.6671324968338013
+        },
+        {
+          "name": "band32",
+          "dl_bits": 206045248,
+          "pattern_mse": 0.48775413632392883
+        }
+      ],
+      "audited": {
+        "svd128": {
+          "dl_bits": 413147136,
+          "pattern_mse": 2.038515800606433e-09,
+          "dce": 2.384185791015625e-07,
+          "dl_ratio_vs_full": 1.0025644083969465
+        }
+      }
+    },
+    {
+      "head": 1,
+      "branch": 2,
+      "sweep": [
+        {
+          "name": "svd1",
+          "dl_bits": 3227712,
+          "pattern_mse": 0.9272648096084595
+        },
+        {
+          "name": "svd2",
+          "dl_bits": 6455424,
+          "pattern_mse": 0.9106987714767456
+        },
+        {
+          "name": "svd4",
+          "dl_bits": 12910848,
+          "pattern_mse": 0.8601404428482056
+        },
+        {
+          "name": "svd8",
+          "dl_bits": 25821696,
+          "pattern_mse": 0.8097621202468872
+        },
+        {
+          "name": "svd16",
+          "dl_bits": 51643392,
+          "pattern_mse": 0.7655181884765625
+        },
+        {
+          "name": "svd32",
+          "dl_bits": 103286784,
+          "pattern_mse": 0.6719640493392944
+        },
+        {
+          "name": "svd64",
+          "dl_bits": 206573568,
+          "pattern_mse": 0.4701171815395355
+        },
+        {
+          "name": "svd128",
+          "dl_bits": 413147136,
+          "pattern_mse": 1.8673731450036257e-09
+        },
+        {
+          "name": "vq1",
+          "dl_bits": 8192,
+          "pattern_mse": 0.9702932834625244
+        },
+        {
+          "name": "vq16",
+          "dl_bits": 332288.0,
+          "pattern_mse": 0.9117310643196106
+        },
+        {
+          "name": "vq256",
+          "dl_bits": 2499584.0,
+          "pattern_mse": 0.8451768159866333
+        },
+        {
+          "name": "vq4096",
+          "dl_bits": 34158080.0,
+          "pattern_mse": 0.7190182209014893
+        },
+        {
+          "name": "band1",
+          "dl_bits": 6438976,
+          "pattern_mse": 0.9442983865737915
+        },
+        {
+          "name": "band2",
+          "dl_bits": 12877888,
+          "pattern_mse": 0.9208129644393921
+        },
+        {
+          "name": "band4",
+          "dl_bits": 25755712,
+          "pattern_mse": 0.8753641247749329
+        },
+        {
+          "name": "band8",
+          "dl_bits": 51511360,
+          "pattern_mse": 0.8249717354774475
+        },
+        {
+          "name": "band16",
+          "dl_bits": 103022656,
+          "pattern_mse": 0.6926569938659668
+        },
+        {
+          "name": "band32",
+          "dl_bits": 206045248,
+          "pattern_mse": 0.47975224256515503
+        }
+      ],
+      "audited": {
+        "svd128": {
+          "dl_bits": 413147136,
+          "pattern_mse": 1.8673731450036257e-09,
+          "dce": 2.384185791015625e-07,
+          "dl_ratio_vs_full": 1.0025644083969465
+        }
+      }
+    },
+    {
+      "head": 2,
+      "branch": 1,
+      "sweep": [
+        {
+          "name": "svd1",
+          "dl_bits": 3227712,
+          "pattern_mse": 0.9746520519256592
+        },
+        {
+          "name": "svd2",
+          "dl_bits": 6455424,
+          "pattern_mse": 0.9731924533843994
+        },
+        {
+          "name": "svd4",
+          "dl_bits": 12910848,
+          "pattern_mse": 0.893218457698822
+        },
+        {
+          "name": "svd8",
+          "dl_bits": 25821696,
+          "pattern_mse": 0.7812079787254333
+        },
+        {
+          "name": "svd16",
+          "dl_bits": 51643392,
+          "pattern_mse": 0.7083068490028381
+        },
+        {
+          "name": "svd32",
+          "dl_bits": 103286784,
+          "pattern_mse": 0.5981094241142273
+        },
+        {
+          "name": "svd64",
+          "dl_bits": 206573568,
+          "pattern_mse": 0.39567023515701294
+        },
+        {
+          "name": "svd128",
+          "dl_bits": 413147136,
+          "pattern_mse": 1.417165051975644e-09
+        },
+        {
+          "name": "vq1",
+          "dl_bits": 8192,
+          "pattern_mse": 0.999321460723877
+        },
+        {
+          "name": "vq16",
+          "dl_bits": 332288.0,
+          "pattern_mse": 0.9095872640609741
+        },
+        {
+          "name": "vq256",
+          "dl_bits": 2499584.0,
+          "pattern_mse": 0.8218526840209961
+        },
+        {
+          "name": "vq4096",
+          "dl_bits": 34158080.0,
+          "pattern_mse": 0.6767767071723938
+        },
+        {
+          "name": "band1",
+          "dl_bits": 6438976,
+          "pattern_mse": 0.966694712638855
+        },
+        {
+          "name": "band2",
+          "dl_bits": 12877888,
+          "pattern_mse": 0.924176812171936
+        },
+        {
+          "name": "band4",
+          "dl_bits": 25755712,
+          "pattern_mse": 0.891601026058197
+        },
+        {
+          "name": "band8",
+          "dl_bits": 51511360,
+          "pattern_mse": 0.8372325301170349
+        },
+        {
+          "name": "band16",
+          "dl_bits": 103022656,
+          "pattern_mse": 0.6913857460021973
+        },
+        {
+          "name": "band32",
+          "dl_bits": 206045248,
+          "pattern_mse": 0.4873723089694977
+        }
+      ],
+      "audited": {
+        "svd128": {
+          "dl_bits": 413147136,
+          "pattern_mse": 1.417165051975644e-09,
+          "dce": 1.1920928955078125e-07,
+          "dl_ratio_vs_full": 1.0025644083969465
+        }
+      }
+    },
+    {
+      "head": 2,
+      "branch": 2,
+      "sweep": [
+        {
+          "name": "svd1",
+          "dl_bits": 3227712,
+          "pattern_mse": 1.0233808755874634
+        },
+        {
+          "name": "svd2",
+          "dl_bits": 6455424,
+          "pattern_mse": 1.0085053443908691
+        },
+        {
+          "name": "svd4",
+          "dl_bits": 12910848,
+          "pattern_mse": 0.9362369179725647
+        },
+        {
+          "name": "svd8",
+          "dl_bits": 25821696,
+          "pattern_mse": 0.8860885500907898
+        },
+        {
+          "name": "svd16",
+          "dl_bits": 51643392,
+          "pattern_mse": 0.8313779830932617
+        },
+        {
+          "name": "svd32",
+          "dl_bits": 103286784,
+          "pattern_mse": 0.7026590704917908
+        },
+        {
+          "name": "svd64",
+          "dl_bits": 206573568,
+          "pattern_mse": 0.4773644208908081
+        },
+        {
+          "name": "svd128",
+          "dl_bits": 413147136,
+          "pattern_mse": 1.8192997108812392e-09
+        },
+        {
+          "name": "vq1",
+          "dl_bits": 8192,
+          "pattern_mse": 1.0039775371551514
+        },
+        {
+          "name": "vq16",
+          "dl_bits": 332288.0,
+          "pattern_mse": 0.9739289283752441
+        },
+        {
+          "name": "vq256",
+          "dl_bits": 2499584.0,
+          "pattern_mse": 0.9103145003318787
+        },
+        {
+          "name": "vq4096",
+          "dl_bits": 34158080.0,
+          "pattern_mse": 0.7893286347389221
+        },
+        {
+          "name": "band1",
+          "dl_bits": 6438976,
+          "pattern_mse": 0.9737054109573364
+        },
+        {
+          "name": "band2",
+          "dl_bits": 12877888,
+          "pattern_mse": 0.9583848714828491
+        },
+        {
+          "name": "band4",
+          "dl_bits": 25755712,
+          "pattern_mse": 0.9408107995986938
+        },
+        {
+          "name": "band8",
+          "dl_bits": 51511360,
+          "pattern_mse": 0.8893399834632874
+        },
+        {
+          "name": "band16",
+          "dl_bits": 103022656,
+          "pattern_mse": 0.8005031943321228
+        },
+        {
+          "name": "band32",
+          "dl_bits": 206045248,
+          "pattern_mse": 0.5268566012382507
+        }
+      ],
+      "audited": {
+        "svd128": {
+          "dl_bits": 413147136,
+          "pattern_mse": 1.8192997108812392e-09,
+          "dce": 2.384185791015625e-07,
+          "dl_ratio_vs_full": 1.0025644083969465
+        }
+      }
+    },
+    {
+      "head": 3,
+      "branch": 1,
+      "sweep": [
+        {
+          "name": "svd1",
+          "dl_bits": 3227712,
+          "pattern_mse": 0.03949849307537079
+        },
+        {
+          "name": "svd2",
+          "dl_bits": 6455424,
+          "pattern_mse": 0.03259811922907829
+        },
+        {
+          "name": "svd4",
+          "dl_bits": 12910848,
+          "pattern_mse": 0.018196262419223785
+        },
+        {
+          "name": "svd8",
+          "dl_bits": 25821696,
+          "pattern_mse": 0.01049263495951891
+        },
+        {
+          "name": "svd16",
+          "dl_bits": 51643392,
+          "pattern_mse": 0.008566164411604404
+        },
+        {
+          "name": "svd32",
+          "dl_bits": 103286784,
+          "pattern_mse": 0.006922689266502857
+        },
+        {
+          "name": "svd64",
+          "dl_bits": 206573568,
+          "pattern_mse": 0.00400987733155489
+        },
+        {
+          "name": "svd128",
+          "dl_bits": 413147136,
+          "pattern_mse": 4.3295412394117605e-11
+        },
+        {
+          "name": "vq1",
+          "dl_bits": 8192,
+          "pattern_mse": 0.7150974273681641
+        },
+        {
+          "name": "vq16",
+          "dl_bits": 332288.0,
+          "pattern_mse": 0.13902220129966736
+        },
+        {
+          "name": "vq256",
+          "dl_bits": 2499584.0,
+          "pattern_mse": 0.042857825756073
+        },
+        {
+          "name": "vq4096",
+          "dl_bits": 34158080.0,
+          "pattern_mse": 0.025781948119401932
+        },
+        {
+          "name": "band1",
+          "dl_bits": 6438976,
+          "pattern_mse": 0.7538334727287292
+        },
+        {
+          "name": "band2",
+          "dl_bits": 12877888,
+          "pattern_mse": 0.6496602892875671
+        },
+        {
+          "name": "band4",
+          "dl_bits": 25755712,
+          "pattern_mse": 0.4939042925834656
+        },
+        {
+          "name": "band8",
+          "dl_bits": 51511360,
+          "pattern_mse": 0.19040289521217346
+        },
+        {
+          "name": "band16",
+          "dl_bits": 103022656,
+          "pattern_mse": 0.058615416288375854
+        },
+        {
+          "name": "band32",
+          "dl_bits": 206045248,
+          "pattern_mse": 0.018342673778533936
+        }
+      ],
+      "audited": {
+        "svd128": {
+          "dl_bits": 413147136,
+          "pattern_mse": 4.3295412394117605e-11,
+          "dce": 5.960464477539062e-07,
+          "dl_ratio_vs_full": 1.0025644083969465
+        },
+        "svd16": {
+          "dl_bits": 51643392,
+          "pattern_mse": 0.008566164411604404,
+          "dce": -0.011329233646392822,
+          "dl_ratio_vs_full": 0.1253205510496183
+        },
+        "vq256": {
+          "dl_bits": 2499584.0,
+          "pattern_mse": 0.042857825756073,
+          "dce": -0.011913836002349854,
+          "dl_ratio_vs_full": 0.006065621024173028
+        }
+      }
+    },
+    {
+      "head": 3,
+      "branch": 2,
+      "sweep": [
+        {
+          "name": "svd1",
+          "dl_bits": 3227712,
+          "pattern_mse": 0.6413412094116211
+        },
+        {
+          "name": "svd2",
+          "dl_bits": 6455424,
+          "pattern_mse": 0.59709233045578
+        },
+        {
+          "name": "svd4",
+          "dl_bits": 12910848,
+          "pattern_mse": 0.3369581699371338
+        },
+        {
+          "name": "svd8",
+          "dl_bits": 25821696,
+          "pattern_mse": 0.2838556170463562
+        },
+        {
+          "name": "svd16",
+          "dl_bits": 51643392,
+          "pattern_mse": 0.25827932357788086
+        },
+        {
+          "name": "svd32",
+          "dl_bits": 103286784,
+          "pattern_mse": 0.22619223594665527
+        },
+        {
+          "name": "svd64",
+          "dl_bits": 206573568,
+          "pattern_mse": 0.1575060337781906
+        },
+        {
+          "name": "svd128",
+          "dl_bits": 413147136,
+          "pattern_mse": 6.255170270641486e-10
+        },
+        {
+          "name": "vq1",
+          "dl_bits": 8192,
+          "pattern_mse": 0.9022902250289917
+        },
+        {
+          "name": "vq16",
+          "dl_bits": 332288.0,
+          "pattern_mse": 0.5978471636772156
+        },
+        {
+          "name": "vq256",
+          "dl_bits": 2499584.0,
+          "pattern_mse": 0.39739757776260376
+        },
+        {
+          "name": "vq4096",
+          "dl_bits": 34158080.0,
+          "pattern_mse": 0.3345588147640228
+        },
+        {
+          "name": "band1",
+          "dl_bits": 6438976,
+          "pattern_mse": 0.8899977207183838
+        },
+        {
+          "name": "band2",
+          "dl_bits": 12877888,
+          "pattern_mse": 0.8572377562522888
+        },
+        {
+          "name": "band4",
+          "dl_bits": 25755712,
+          "pattern_mse": 0.8036175966262817
+        },
+        {
+          "name": "band8",
+          "dl_bits": 51511360,
+          "pattern_mse": 0.6445057988166809
+        },
+        {
+          "name": "band16",
+          "dl_bits": 103022656,
+          "pattern_mse": 0.32896384596824646
+        },
+        {
+          "name": "band32",
+          "dl_bits": 206045248,
+          "pattern_mse": 0.05915198475122452
+        }
+      ],
+      "audited": {
+        "svd128": {
+          "dl_bits": 413147136,
+          "pattern_mse": 6.255170270641486e-10,
+          "dce": 4.172325134277344e-07,
+          "dl_ratio_vs_full": 1.0025644083969465
+        }
+      }
+    },
+    {
+      "head": 4,
+      "branch": 1,
+      "sweep": [
+        {
+          "name": "svd1",
+          "dl_bits": 3227712,
+          "pattern_mse": 0.5001369118690491
+        },
+        {
+          "name": "svd2",
+          "dl_bits": 6455424,
+          "pattern_mse": 0.4541234076023102
+        },
+        {
+          "name": "svd4",
+          "dl_bits": 12910848,
+          "pattern_mse": 0.41552528738975525
+        },
+        {
+          "name": "svd8",
+          "dl_bits": 25821696,
+          "pattern_mse": 0.4103875756263733
+        },
+        {
+          "name": "svd16",
+          "dl_bits": 51643392,
+          "pattern_mse": 0.3460567593574524
+        },
+        {
+          "name": "svd32",
+          "dl_bits": 103286784,
+          "pattern_mse": 0.26551392674446106
+        },
+        {
+          "name": "svd64",
+          "dl_bits": 206573568,
+          "pattern_mse": 0.18267600238323212
+        },
+        {
+          "name": "svd128",
+          "dl_bits": 413147136,
+          "pattern_mse": 9.06439423520311e-10
+        },
+        {
+          "name": "vq1",
+          "dl_bits": 8192,
+          "pattern_mse": 0.7803578972816467
+        },
+        {
+          "name": "vq16",
+          "dl_bits": 332288.0,
+          "pattern_mse": 0.4843131899833679
+        },
+        {
+          "name": "vq256",
+          "dl_bits": 2499584.0,
+          "pattern_mse": 0.4095015525817871
+        },
+        {
+          "name": "vq4096",
+          "dl_bits": 34158080.0,
+          "pattern_mse": 0.3378283381462097
+        },
+        {
+          "name": "band1",
+          "dl_bits": 6438976,
+          "pattern_mse": 0.8713406324386597
+        },
+        {
+          "name": "band2",
+          "dl_bits": 12877888,
+          "pattern_mse": 0.7886022925376892
+        },
+        {
+          "name": "band4",
+          "dl_bits": 25755712,
+          "pattern_mse": 0.5992392897605896
+        },
+        {
+          "name": "band8",
+          "dl_bits": 51511360,
+          "pattern_mse": 0.49105048179626465
+        },
+        {
+          "name": "band16",
+          "dl_bits": 103022656,
+          "pattern_mse": 0.34554749727249146
+        },
+        {
+          "name": "band32",
+          "dl_bits": 206045248,
+          "pattern_mse": 0.16990451514720917
+        }
+      ],
+      "audited": {
+        "svd128": {
+          "dl_bits": 413147136,
+          "pattern_mse": 9.06439423520311e-10,
+          "dce": 2.384185791015625e-07,
+          "dl_ratio_vs_full": 1.0025644083969465
+        }
+      }
+    },
+    {
+      "head": 4,
+      "branch": 2,
+      "sweep": [
+        {
+          "name": "svd1",
+          "dl_bits": 3227712,
+          "pattern_mse": 1.0275609493255615
+        },
+        {
+          "name": "svd2",
+          "dl_bits": 6455424,
+          "pattern_mse": 0.9138104915618896
+        },
+        {
+          "name": "svd4",
+          "dl_bits": 12910848,
+          "pattern_mse": 0.9473828673362732
+        },
+        {
+          "name": "svd8",
+          "dl_bits": 25821696,
+          "pattern_mse": 0.8192934393882751
+        },
+        {
+          "name": "svd16",
+          "dl_bits": 51643392,
+          "pattern_mse": 0.7161831855773926
+        },
+        {
+          "name": "svd32",
+          "dl_bits": 103286784,
+          "pattern_mse": 0.6177738904953003
+        },
+        {
+          "name": "svd64",
+          "dl_bits": 206573568,
+          "pattern_mse": 0.41536352038383484
+        },
+        {
+          "name": "svd128",
+          "dl_bits": 413147136,
+          "pattern_mse": 1.3618386418556838e-09
+        },
+        {
+          "name": "vq1",
+          "dl_bits": 8192,
+          "pattern_mse": 0.9931133389472961
+        },
+        {
+          "name": "vq16",
+          "dl_bits": 332288.0,
+          "pattern_mse": 0.9040209054946899
+        },
+        {
+          "name": "vq256",
+          "dl_bits": 2499584.0,
+          "pattern_mse": 0.7886502742767334
+        },
+        {
+          "name": "vq4096",
+          "dl_bits": 34158080.0,
+          "pattern_mse": 0.6358577609062195
+        },
+        {
+          "name": "band1",
+          "dl_bits": 6438976,
+          "pattern_mse": 1.0233445167541504
+        },
+        {
+          "name": "band2",
+          "dl_bits": 12877888,
+          "pattern_mse": 1.0298879146575928
+        },
+        {
+          "name": "band4",
+          "dl_bits": 25755712,
+          "pattern_mse": 0.8938808441162109
+        },
+        {
+          "name": "band8",
+          "dl_bits": 51511360,
+          "pattern_mse": 0.8102994561195374
+        },
+        {
+          "name": "band16",
+          "dl_bits": 103022656,
+          "pattern_mse": 0.5735625624656677
+        },
+        {
+          "name": "band32",
+          "dl_bits": 206045248,
+          "pattern_mse": 0.37487781047821045
+        }
+      ],
+      "audited": {
+        "svd128": {
+          "dl_bits": 413147136,
+          "pattern_mse": 1.3618386418556838e-09,
+          "dce": 2.384185791015625e-07,
+          "dl_ratio_vs_full": 1.0025644083969465
+        }
+      }
+    },
+    {
+      "head": 5,
+      "branch": 1,
+      "sweep": [
+        {
+          "name": "svd1",
+          "dl_bits": 3227712,
+          "pattern_mse": 0.6215688586235046
+        },
+        {
+          "name": "svd2",
+          "dl_bits": 6455424,
+          "pattern_mse": 0.5916166305541992
+        },
+        {
+          "name": "svd4",
+          "dl_bits": 12910848,
+          "pattern_mse": 0.3900737166404724
+        },
+        {
+          "name": "svd8",
+          "dl_bits": 25821696,
+          "pattern_mse": 0.35067883133888245
+        },
+        {
+          "name": "svd16",
+          "dl_bits": 51643392,
+          "pattern_mse": 0.29863810539245605
+        },
+        {
+          "name": "svd32",
+          "dl_bits": 103286784,
+          "pattern_mse": 0.24985115230083466
+        },
+        {
+          "name": "svd64",
+          "dl_bits": 206573568,
+          "pattern_mse": 0.15316404402256012
+        },
+        {
+          "name": "svd128",
+          "dl_bits": 413147136,
+          "pattern_mse": 6.598727120277204e-10
+        },
+        {
+          "name": "vq1",
+          "dl_bits": 8192,
+          "pattern_mse": 0.9746884107589722
+        },
+        {
+          "name": "vq16",
+          "dl_bits": 332288.0,
+          "pattern_mse": 0.6573697328567505
+        },
+        {
+          "name": "vq256",
+          "dl_bits": 2499584.0,
+          "pattern_mse": 0.502135157585144
+        },
+        {
+          "name": "vq4096",
+          "dl_bits": 34158080.0,
+          "pattern_mse": 0.4225669801235199
+        },
+        {
+          "name": "band1",
+          "dl_bits": 6438976,
+          "pattern_mse": 0.8453257083892822
+        },
+        {
+          "name": "band2",
+          "dl_bits": 12877888,
+          "pattern_mse": 0.7861325144767761
+        },
+        {
+          "name": "band4",
+          "dl_bits": 25755712,
+          "pattern_mse": 0.6680484414100647
+        },
+        {
+          "name": "band8",
+          "dl_bits": 51511360,
+          "pattern_mse": 0.5133190155029297
+        },
+        {
+          "name": "band16",
+          "dl_bits": 103022656,
+          "pattern_mse": 0.2642556130886078
+        },
+        {
+          "name": "band32",
+          "dl_bits": 206045248,
+          "pattern_mse": 0.13762399554252625
+        }
+      ],
+      "audited": {
+        "svd128": {
+          "dl_bits": 413147136,
+          "pattern_mse": 6.598727120277204e-10,
+          "dce": 2.384185791015625e-07,
+          "dl_ratio_vs_full": 1.0025644083969465
+        }
+      }
+    },
+    {
+      "head": 5,
+      "branch": 2,
+      "sweep": [
+        {
+          "name": "svd1",
+          "dl_bits": 3227712,
+          "pattern_mse": 0.9840459227561951
+        },
+        {
+          "name": "svd2",
+          "dl_bits": 6455424,
+          "pattern_mse": 0.9681551456451416
+        },
+        {
+          "name": "svd4",
+          "dl_bits": 12910848,
+          "pattern_mse": 0.8766005635261536
+        },
+        {
+          "name": "svd8",
+          "dl_bits": 25821696,
+          "pattern_mse": 0.8226221799850464
+        },
+        {
+          "name": "svd16",
+          "dl_bits": 51643392,
+          "pattern_mse": 0.7723954319953918
+        },
+        {
+          "name": "svd32",
+          "dl_bits": 103286784,
+          "pattern_mse": 0.6630931496620178
+        },
+        {
+          "name": "svd64",
+          "dl_bits": 206573568,
+          "pattern_mse": 0.4368162155151367
+        },
+        {
+          "name": "svd128",
+          "dl_bits": 413147136,
+          "pattern_mse": 1.7584648182022988e-09
+        },
+        {
+          "name": "vq1",
+          "dl_bits": 8192,
+          "pattern_mse": 0.9960640072822571
+        },
+        {
+          "name": "vq16",
+          "dl_bits": 332288.0,
+          "pattern_mse": 0.9106791615486145
+        },
+        {
+          "name": "vq256",
+          "dl_bits": 2499584.0,
+          "pattern_mse": 0.8072161078453064
+        },
+        {
+          "name": "vq4096",
+          "dl_bits": 34158080.0,
+          "pattern_mse": 0.6671713590621948
+        },
+        {
+          "name": "band1",
+          "dl_bits": 6438976,
+          "pattern_mse": 0.9949960112571716
+        },
+        {
+          "name": "band2",
+          "dl_bits": 12877888,
+          "pattern_mse": 0.9934338331222534
+        },
+        {
+          "name": "band4",
+          "dl_bits": 25755712,
+          "pattern_mse": 0.9867379069328308
+        },
+        {
+          "name": "band8",
+          "dl_bits": 51511360,
+          "pattern_mse": 0.9436863660812378
+        },
+        {
+          "name": "band16",
+          "dl_bits": 103022656,
+          "pattern_mse": 0.8459944725036621
+        },
+        {
+          "name": "band32",
+          "dl_bits": 206045248,
+          "pattern_mse": 0.7133987545967102
+        }
+      ],
+      "audited": {
+        "svd128": {
+          "dl_bits": 413147136,
+          "pattern_mse": 1.7584648182022988e-09,
+          "dce": 4.172325134277344e-07,
+          "dl_ratio_vs_full": 1.0025644083969465
+        }
+      }
+    },
+    {
+      "head": 6,
+      "branch": 1,
+      "sweep": [
+        {
+          "name": "svd1",
+          "dl_bits": 3227712,
+          "pattern_mse": 0.7973904013633728
+        },
+        {
+          "name": "svd2",
+          "dl_bits": 6455424,
+          "pattern_mse": 0.5342138409614563
+        },
+        {
+          "name": "svd4",
+          "dl_bits": 12910848,
+          "pattern_mse": 0.42461347579956055
+        },
+        {
+          "name": "svd8",
+          "dl_bits": 25821696,
+          "pattern_mse": 0.3500707447528839
+        },
+        {
+          "name": "svd16",
+          "dl_bits": 51643392,
+          "pattern_mse": 0.30302608013153076
+        },
+        {
+          "name": "svd32",
+          "dl_bits": 103286784,
+          "pattern_mse": 0.2217348963022232
+        },
+        {
+          "name": "svd64",
+          "dl_bits": 206573568,
+          "pattern_mse": 0.13836020231246948
+        },
+        {
+          "name": "svd128",
+          "dl_bits": 413147136,
+          "pattern_mse": 1.322519871393979e-09
+        },
+        {
+          "name": "vq1",
+          "dl_bits": 8192,
+          "pattern_mse": 0.9786500930786133
+        },
+        {
+          "name": "vq16",
+          "dl_bits": 332288.0,
+          "pattern_mse": 0.6610497236251831
+        },
+        {
+          "name": "vq256",
+          "dl_bits": 2499584.0,
+          "pattern_mse": 0.4927839934825897
+        },
+        {
+          "name": "vq4096",
+          "dl_bits": 34158080.0,
+          "pattern_mse": 0.3980059027671814
+        },
+        {
+          "name": "band1",
+          "dl_bits": 6438976,
+          "pattern_mse": 0.9394298195838928
+        },
+        {
+          "name": "band2",
+          "dl_bits": 12877888,
+          "pattern_mse": 0.8317514657974243
+        },
+        {
+          "name": "band4",
+          "dl_bits": 25755712,
+          "pattern_mse": 0.6924849152565002
+        },
+        {
+          "name": "band8",
+          "dl_bits": 51511360,
+          "pattern_mse": 0.4789860248565674
+        },
+        {
+          "name": "band16",
+          "dl_bits": 103022656,
+          "pattern_mse": 0.24278149008750916
+        },
+        {
+          "name": "band32",
+          "dl_bits": 206045248,
+          "pattern_mse": 0.1348734349012375
+        }
+      ],
+      "audited": {
+        "svd128": {
+          "dl_bits": 413147136,
+          "pattern_mse": 1.322519871393979e-09,
+          "dce": -3.5762786865234375e-07,
+          "dl_ratio_vs_full": 1.0025644083969465
+        }
+      }
+    },
+    {
+      "head": 6,
+      "branch": 2,
+      "sweep": [
+        {
+          "name": "svd1",
+          "dl_bits": 3227712,
+          "pattern_mse": 0.9856536388397217
+        },
+        {
+          "name": "svd2",
+          "dl_bits": 6455424,
+          "pattern_mse": 0.9510312676429749
+        },
+        {
+          "name": "svd4",
+          "dl_bits": 12910848,
+          "pattern_mse": 0.882845938205719
+        },
+        {
+          "name": "svd8",
+          "dl_bits": 25821696,
+          "pattern_mse": 0.8330852389335632
+        },
+        {
+          "name": "svd16",
+          "dl_bits": 51643392,
+          "pattern_mse": 0.7390292286872864
+        },
+        {
+          "name": "svd32",
+          "dl_bits": 103286784,
+          "pattern_mse": 0.6194222569465637
+        },
+        {
+          "name": "svd64",
+          "dl_bits": 206573568,
+          "pattern_mse": 0.391935259103775
+        },
+        {
+          "name": "svd128",
+          "dl_bits": 413147136,
+          "pattern_mse": 1.371341151745753e-09
+        },
+        {
+          "name": "vq1",
+          "dl_bits": 8192,
+          "pattern_mse": 1.0025557279586792
+        },
+        {
+          "name": "vq16",
+          "dl_bits": 332288.0,
+          "pattern_mse": 0.9486348628997803
+        },
+        {
+          "name": "vq256",
+          "dl_bits": 2499584.0,
+          "pattern_mse": 0.8232994079589844
+        },
+        {
+          "name": "vq4096",
+          "dl_bits": 34158080.0,
+          "pattern_mse": 0.6765392422676086
+        },
+        {
+          "name": "band1",
+          "dl_bits": 6438976,
+          "pattern_mse": 0.9588024020195007
+        },
+        {
+          "name": "band2",
+          "dl_bits": 12877888,
+          "pattern_mse": 0.9448179006576538
+        },
+        {
+          "name": "band4",
+          "dl_bits": 25755712,
+          "pattern_mse": 0.9099317789077759
+        },
+        {
+          "name": "band8",
+          "dl_bits": 51511360,
+          "pattern_mse": 0.8226274847984314
+        },
+        {
+          "name": "band16",
+          "dl_bits": 103022656,
+          "pattern_mse": 0.6730649471282959
+        },
+        {
+          "name": "band32",
+          "dl_bits": 206045248,
+          "pattern_mse": 0.494632363319397
+        }
+      ],
+      "audited": {
+        "svd128": {
+          "dl_bits": 413147136,
+          "pattern_mse": 1.371341151745753e-09,
+          "dce": 1.1920928955078125e-07,
+          "dl_ratio_vs_full": 1.0025644083969465
+        }
+      }
+    },
+    {
+      "head": 7,
+      "branch": 1,
+      "sweep": [
+        {
+          "name": "svd1",
+          "dl_bits": 3227712,
+          "pattern_mse": 0.43864312767982483
+        },
+        {
+          "name": "svd2",
+          "dl_bits": 6455424,
+          "pattern_mse": 0.40496528148651123
+        },
+        {
+          "name": "svd4",
+          "dl_bits": 12910848,
+          "pattern_mse": 0.3496808707714081
+        },
+        {
+          "name": "svd8",
+          "dl_bits": 25821696,
+          "pattern_mse": 0.2924462556838989
+        },
+        {
+          "name": "svd16",
+          "dl_bits": 51643392,
+          "pattern_mse": 0.2424422651529312
+        },
+        {
+          "name": "svd32",
+          "dl_bits": 103286784,
+          "pattern_mse": 0.18183496594429016
+        },
+        {
+          "name": "svd64",
+          "dl_bits": 206573568,
+          "pattern_mse": 0.10311666131019592
+        },
+        {
+          "name": "svd128",
+          "dl_bits": 413147136,
+          "pattern_mse": 4.842548029238003e-10
+        },
+        {
+          "name": "vq1",
+          "dl_bits": 8192,
+          "pattern_mse": 0.8575452566146851
+        },
+        {
+          "name": "vq16",
+          "dl_bits": 332288.0,
+          "pattern_mse": 0.43031057715415955
+        },
+        {
+          "name": "vq256",
+          "dl_bits": 2499584.0,
+          "pattern_mse": 0.31088897585868835
+        },
+        {
+          "name": "vq4096",
+          "dl_bits": 34158080.0,
+          "pattern_mse": 0.24429744482040405
+        },
+        {
+          "name": "band1",
+          "dl_bits": 6438976,
+          "pattern_mse": 0.8485997319221497
+        },
+        {
+          "name": "band2",
+          "dl_bits": 12877888,
+          "pattern_mse": 0.7795515060424805
+        },
+        {
+          "name": "band4",
+          "dl_bits": 25755712,
+          "pattern_mse": 0.5779700875282288
+        },
+        {
+          "name": "band8",
+          "dl_bits": 51511360,
+          "pattern_mse": 0.3718794584274292
+        },
+        {
+          "name": "band16",
+          "dl_bits": 103022656,
+          "pattern_mse": 0.18769143521785736
+        },
+        {
+          "name": "band32",
+          "dl_bits": 206045248,
+          "pattern_mse": 0.10604330897331238
+        }
+      ],
+      "audited": {
+        "svd128": {
+          "dl_bits": 413147136,
+          "pattern_mse": 4.842548029238003e-10,
+          "dce": 3.5762786865234375e-07,
+          "dl_ratio_vs_full": 1.0025644083969465
+        }
+      }
+    },
+    {
+      "head": 7,
+      "branch": 2,
+      "sweep": [
+        {
+          "name": "svd1",
+          "dl_bits": 3227712,
+          "pattern_mse": 0.6443368196487427
+        },
+        {
+          "name": "svd2",
+          "dl_bits": 6455424,
+          "pattern_mse": 0.5579243898391724
+        },
+        {
+          "name": "svd4",
+          "dl_bits": 12910848,
+          "pattern_mse": 0.5155778527259827
+        },
+        {
+          "name": "svd8",
+          "dl_bits": 25821696,
+          "pattern_mse": 0.4787130057811737
+        },
+        {
+          "name": "svd16",
+          "dl_bits": 51643392,
+          "pattern_mse": 0.4313622713088989
+        },
+        {
+          "name": "svd32",
+          "dl_bits": 103286784,
+          "pattern_mse": 0.37732213735580444
+        },
+        {
+          "name": "svd64",
+          "dl_bits": 206573568,
+          "pattern_mse": 0.25116634368896484
+        },
+        {
+          "name": "svd128",
+          "dl_bits": 413147136,
+          "pattern_mse": 1.036848162883075e-09
+        },
+        {
+          "name": "vq1",
+          "dl_bits": 8192,
+          "pattern_mse": 0.9013286828994751
+        },
+        {
+          "name": "vq16",
+          "dl_bits": 332288.0,
+          "pattern_mse": 0.6495499014854431
+        },
+        {
+          "name": "vq256",
+          "dl_bits": 2499584.0,
+          "pattern_mse": 0.5681830048561096
+        },
+        {
+          "name": "vq4096",
+          "dl_bits": 34158080.0,
+          "pattern_mse": 0.4090884327888489
+        },
+        {
+          "name": "band1",
+          "dl_bits": 6438976,
+          "pattern_mse": 0.8809597492218018
+        },
+        {
+          "name": "band2",
+          "dl_bits": 12877888,
+          "pattern_mse": 0.8128517866134644
+        },
+        {
+          "name": "band4",
+          "dl_bits": 25755712,
+          "pattern_mse": 0.7407852411270142
+        },
+        {
+          "name": "band8",
+          "dl_bits": 51511360,
+          "pattern_mse": 0.6457770466804504
+        },
+        {
+          "name": "band16",
+          "dl_bits": 103022656,
+          "pattern_mse": 0.5693696737289429
+        },
+        {
+          "name": "band32",
+          "dl_bits": 206045248,
+          "pattern_mse": 0.3491000533103943
+        }
+      ],
+      "audited": {
+        "svd128": {
+          "dl_bits": 413147136,
+          "pattern_mse": 1.036848162883075e-09,
+          "dce": 1.7881393432617188e-07,
+          "dl_ratio_vs_full": 1.0025644083969465
+        }
+      }
+    },
+    {
+      "head": 8,
+      "branch": 1,
+      "sweep": [
+        {
+          "name": "svd1",
+          "dl_bits": 3227712,
+          "pattern_mse": 0.7297133803367615
+        },
+        {
+          "name": "svd2",
+          "dl_bits": 6455424,
+          "pattern_mse": 0.693782389163971
+        },
+        {
+          "name": "svd4",
+          "dl_bits": 12910848,
+          "pattern_mse": 0.6083002090454102
+        },
+        {
+          "name": "svd8",
+          "dl_bits": 25821696,
+          "pattern_mse": 0.5666934847831726
+        },
+        {
+          "name": "svd16",
+          "dl_bits": 51643392,
+          "pattern_mse": 0.4907587468624115
+        },
+        {
+          "name": "svd32",
+          "dl_bits": 103286784,
+          "pattern_mse": 0.38395455479621887
+        },
+        {
+          "name": "svd64",
+          "dl_bits": 206573568,
+          "pattern_mse": 0.22356830537319183
+        },
+        {
+          "name": "svd128",
+          "dl_bits": 413147136,
+          "pattern_mse": 1.7684507191972898e-09
+        },
+        {
+          "name": "vq1",
+          "dl_bits": 8192,
+          "pattern_mse": 0.918350875377655
+        },
+        {
+          "name": "vq16",
+          "dl_bits": 332288.0,
+          "pattern_mse": 0.7472925186157227
+        },
+        {
+          "name": "vq256",
+          "dl_bits": 2499584.0,
+          "pattern_mse": 0.6245113611221313
+        },
+        {
+          "name": "vq4096",
+          "dl_bits": 34158080.0,
+          "pattern_mse": 0.4817366302013397
+        },
+        {
+          "name": "band1",
+          "dl_bits": 6438976,
+          "pattern_mse": 0.8819335699081421
+        },
+        {
+          "name": "band2",
+          "dl_bits": 12877888,
+          "pattern_mse": 0.8716319799423218
+        },
+        {
+          "name": "band4",
+          "dl_bits": 25755712,
+          "pattern_mse": 0.8151085376739502
+        },
+        {
+          "name": "band8",
+          "dl_bits": 51511360,
+          "pattern_mse": 0.6834953427314758
+        },
+        {
+          "name": "band16",
+          "dl_bits": 103022656,
+          "pattern_mse": 0.5494043231010437
+        },
+        {
+          "name": "band32",
+          "dl_bits": 206045248,
+          "pattern_mse": 0.3514668345451355
+        }
+      ],
+      "audited": {
+        "svd128": {
+          "dl_bits": 413147136,
+          "pattern_mse": 1.7684507191972898e-09,
+          "dce": 1.7881393432617188e-07,
+          "dl_ratio_vs_full": 1.0025644083969465
+        }
+      }
+    },
+    {
+      "head": 8,
+      "branch": 2,
+      "sweep": [
+        {
+          "name": "svd1",
+          "dl_bits": 3227712,
+          "pattern_mse": 0.2009068727493286
+        },
+        {
+          "name": "svd2",
+          "dl_bits": 6455424,
+          "pattern_mse": 0.16680492460727692
+        },
+        {
+          "name": "svd4",
+          "dl_bits": 12910848,
+          "pattern_mse": 0.1274384707212448
+        },
+        {
+          "name": "svd8",
+          "dl_bits": 25821696,
+          "pattern_mse": 0.10846363753080368
+        },
+        {
+          "name": "svd16",
+          "dl_bits": 51643392,
+          "pattern_mse": 0.0884106308221817
+        },
+        {
+          "name": "svd32",
+          "dl_bits": 103286784,
+          "pattern_mse": 0.0696754977107048
+        },
+        {
+          "name": "svd64",
+          "dl_bits": 206573568,
+          "pattern_mse": 0.04366416856646538
+        },
+        {
+          "name": "svd128",
+          "dl_bits": 413147136,
+          "pattern_mse": 1.7941111096764217e-10
+        },
+        {
+          "name": "vq1",
+          "dl_bits": 8192,
+          "pattern_mse": 0.8118093609809875
+        },
+        {
+          "name": "vq16",
+          "dl_bits": 332288.0,
+          "pattern_mse": 0.24119557440280914
+        },
+        {
+          "name": "vq256",
+          "dl_bits": 2499584.0,
+          "pattern_mse": 0.18609648942947388
+        },
+        {
+          "name": "vq4096",
+          "dl_bits": 34158080.0,
+          "pattern_mse": 0.14310991764068604
+        },
+        {
+          "name": "band1",
+          "dl_bits": 6438976,
+          "pattern_mse": 0.7666130661964417
+        },
+        {
+          "name": "band2",
+          "dl_bits": 12877888,
+          "pattern_mse": 0.6284799575805664
+        },
+        {
+          "name": "band4",
+          "dl_bits": 25755712,
+          "pattern_mse": 0.4864208400249481
+        },
+        {
+          "name": "band8",
+          "dl_bits": 51511360,
+          "pattern_mse": 0.22065141797065735
+        },
+        {
+          "name": "band16",
+          "dl_bits": 103022656,
+          "pattern_mse": 0.07954620569944382
+        },
+        {
+          "name": "band32",
+          "dl_bits": 206045248,
+          "pattern_mse": 0.041926972568035126
+        }
+      ],
+      "audited": {
+        "svd128": {
+          "dl_bits": 413147136,
+          "pattern_mse": 1.7941111096764217e-10,
+          "dce": 2.384185791015625e-07,
+          "dl_ratio_vs_full": 1.0025644083969465
+        },
+        "band32": {
+          "dl_bits": 206045248,
+          "pattern_mse": 0.041926972568035126,
+          "dce": -6.985664367675781e-05,
+          "dl_ratio_vs_full": 0.500000155305741
+        }
+      }
+    }
+  ]
+}
