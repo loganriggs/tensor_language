@@ -2001,3 +2001,11 @@ real-model feature discovery = open problem (needs robust solver + objective ref
 220. Top-k sparse coding on OV v-tables: +0.034 L2-fit (vs vq256's +1.38), CE-trained −0.019 — better
      than original. Refined dichotomy: selection = hard classes, content = sparse combinations; both
      layer-0 circuits now compress to better-than-original under behavioral training.
+
+## 2026-07-16 — qk_mdl tick 14 (CE-training epistemics + tier-1 certificate)
+221. Audited our CE-training against the 3-tier fidelity ladder (Logan's advisor message): model frozen,
+     discrete structure data-FREE (weights-only kmeans), only fully-paid floats data-tuned; adaptation
+     already quantified via KL arm. Computed the tier-1 exhaustive certificate for vq256: relative-error
+     tier-1 FAILS (generic scores ~100% wrong), absolute-ε tier-1 partially stands (±0.55 max sampled,
+     ±0.04 mean, vs selective peaks ~1–2) — the metric decides the epistemic tier too. Effective-alphabet
+     measurement queued.

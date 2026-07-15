@@ -563,3 +563,40 @@ attention circuits.
 
 Queue: V×V cross-block codebook (block-0 bilinear MLP, justified by +0.84 importance);
 first-order-in-context path codebooks (Tier 3); attn2-seed0 question still open.
+
+---
+
+## 2026-07-16 — tick 14 (Logan's advisor-message on clustering epistemics: CE-training procedure audited against the 3-tier ladder; tier-1 certificate computed)
+
+Gate: PASS. New artifact: `tier1_certificate_vq256.json`.
+
+**Our CE-training, stated precisely:** ALL model parameters frozen (requires_grad=False,
+nothing else moves); discrete structure (token→class assignments / sparse supports)
+frozen from WEIGHTS-ONLY k-means/top-k — data never selects the discrete structure; only
+continuous tables train (QK centroid factors ~1.2M params; OV atoms+coeffs), each paid at
+32b/float in the DL accounting; train chunks (pile-10k 20..147) disjoint from audit
+(4..19); KL variant = teacher-CE to the ORIGINAL model.
+
+Mapping to the ladder: model-side compensation channel CLOSED; codebook-side channel OPEN
+by design (centroids drift from weight-derived values toward what the frozen downstream
+prefers on-distribution) — which is why claims were already scoped to "on pile @T=512"
+and why the KL arm exists (vq64: CE −0.032 vs KL-faithful −0.007 → adaptation ≈ −0.025,
+quantified). MDL bookkeeping concern is narrower than the message fears: assignments are
+data-free; only fully-paid floats are data-tuned.
+
+**Tier-1 exhaustive certificate (computed, honest verdict: metric-dependent).** The
+folded domain IS fully enumerated; for vq256 L2-fit, closed-form bound over ALL
+(t_q,t_k,Δ): max ≤ 2.24, mean-case ≤ 1.21; exact sampled errors: mean 0.016–0.042,
+p99 ≤ 0.17, sampled max 0.55. Typical scores are 0.018 → RELATIVE-error tier-1 FAILS
+(generic-pair scores are ~100% wrong); selective peaks are ~1–2 → ABSOLUTE-ε tier-1
+partially stands (all scores within ±0.55 sampled, ±0.04 mean, distribution-free). The
+metric decides even the epistemic tier. Our headline numbers are tier-2/3 and were
+scoped as such.
+
+Corrections 1–2 status: gauge-centering is moot for the no-softmax families (tick 0;
+applies to sqrd12 only); clustering pre-rotary factors = the recommended concatenation
+across frequency slices automatically; our vq is both-sided by construction (one
+partition on [q̂|k̂] per head → k×k effective core); cross-associations with separate
+q/k partitions + MDL-native k selection remains the spec-codebook-2 upgrade, unrun on
+the real model. Adopted framing: minimal k at fixed ε = the head's SUFFICIENT PARTITION /
+effective alphabet — queued as a per-head measurement.
