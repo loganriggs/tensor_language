@@ -1963,3 +1963,10 @@ real-model feature discovery = open problem (needs robust solver + objective ref
      pattern-positionality ≠ score-positionality (rp L0H1 attends Δ=1 but loses −0.74 P(copy) when its
      scores are positional-averaged). mix10 joint-svd frontier: half-rank +0.054 (mildly non-additive).
      Tier 1 complete (1.1 ✓, 1.2 partial-pass re-anchored, 1.3 negative); attn2-seed0 question open.
+
+## 2026-07-15 — qk_mdl tick 8 (data-conditioned identity metric: prediction CONFIRMED, Tier 1.2 → PASS)
+215. Conditional-mean q/k by token on induction data, key side decomposed by L0 source: identity
+     structure at 2200× chance in EXACTLY the two causal identity branches (H0.b1 0.444, H3.b2 0.423
+     gauge-corrected), exclusively via L0H1; all other cells at chance. Generic-vs-conditioned gap
+     resolved (generic said L0H0; conditioned matches the causal ablations). Sign flip between heads =
+     pure branch-sign gauge. Conjunction test now PASS at full strength on the re-anchored model.

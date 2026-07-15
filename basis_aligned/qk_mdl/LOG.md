@@ -404,3 +404,40 @@ question still open), 1.3 ✓ NEGATIVE (this tick). Tier 1 complete pending Loga
 re-anchoring. Next: data-conditioned weight-space identity metric (tick 6's open fix),
 or Tier 3 path-folded MDL, or 546M layer-0 CE-trained codebooks (basis_aligned e7
 lesson). Cron default: data-conditioned metric.
+
+---
+
+## 2026-07-15 — tick 8 (data-conditioned identity metric: tick-6 prediction CONFIRMED; Tier 1.2 upgraded to PASS)
+
+Gate: PASS. Method: conditional-mean pre-rotary q/k vectors by token identity on tiled
+induction data, key side decomposed by L0-head source with frozen empirical norm
+(`tier12c_conditioned.py`, full 5120-token coverage).
+
+**The pre-stated prediction (tick 6) is confirmed exactly.** Identity structure appears
+in precisely the two causal identity branches, exclusively via L0H1:
+
+| branch × source | identity hit rate (chance 0.0002) | diag z |
+|---|---|---|
+| L1H0.b1 via **L0H1** | **0.4443** (2200× chance) | +3.23 |
+| L1H3.b2 via **L0H1**, gauge-corrected | **0.4227** | −3.22 (sign = branch gauge) |
+| every other (branch × source) cell, incl. direct & L0H0/2/3 | ≤ 0.0004 | \|z\| ≤ 0.09 |
+
+- The generic-vs-conditioned attribution gap is resolved as mechdecomp predicted:
+  generic weights said (H3.b2 via L0H0); the data-conditioned metric says via L0H1 —
+  matching the causal key-path ablations (tick 6) exactly.
+- The sign flip between the two heads' identity diagonals is pure **branch-sign gauge**
+  ((−s₁)(−s₂)=s₁s₂, spec §7 G-branch-gauge): |z| is the gauge-invariant statistic;
+  under sign correction the two heads are near-identical (0.444 vs 0.423). The copy
+  pair implements ONE identity conjunct twice, in opposite branches, opposite signs.
+
+**Tier 1.2 combined verdict upgraded to PASS (re-anchored):** structure criterion ✓
+(identity-plus-noise in exactly one branch per copy head, via the causal source, under
+the data-conditioned codebook), causal criterion ✓ at circuit level (tick 6, −0.487
+joint collapse), with the single-head redundancy caveat and the attn2-seed0 re-anchoring
+question (still open for Logan) both documented.
+
+Program state: Tiers 0, 1, 2 complete. Remaining spec items: Tier 3 (path-folded MDL
+for deeper layers; joint QK-OV; token-tree transfer), CE-trained codebooks on the 546M
+(basis_aligned e7 lesson), attn2-seed0 question. Cron default next: Tier 3 path-folded
+MDL table for the rp model's layer-1 through the L0 paths (the machinery from this tick
+is most of it).
