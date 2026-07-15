@@ -833,3 +833,16 @@ behind the flagship.
 
 Queue: harvest stage B → tick 26 (results/10 stage-B section + root LOG for Logan);
 L5 mechanism probe (optional); KL variant of L1-3 (optional); attn2-seed0 (blocked).
+
+---
+
+## 2026-07-17 — tick 26 (stage B mid-run; L5 probe chained)
+
+Stage B past step 1500 (~3h remaining); training CE noisy at batch 2 (3.9-7.5 band),
+held-out checkpoint pending in output. Chained behind it: `l5_probe.py` — per-head
+table/live decomposition of layer 5's contextual selection (which of the 9 heads owns
+the +0.25 irreducible gap; uses saved all17 tables, absolute paths after the cwd-reset
+bug bit a THIRD time on background launches — rule updated: absolute paths everywhere
+in chained commands).
+
+Queue: harvest stage B + L5 probe → tick 27; KL variant (optional); attn2-seed0 (blocked).
