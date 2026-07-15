@@ -288,3 +288,41 @@ svd frontier not yet audited (next tick alongside L1H2).
 side through L0 OV per §1.3/§3), success criteria as written in the spec; the reference
 forward + patching machinery from this tick is the substrate. Also joint-svd frontier +
 frequency profiles for the positional-head sweep (1.3).
+
+---
+
+## 2026-07-15 — tick 5 (Tier 1.2 attempt: pre-registered test BLOCKED as specified; substitute null + positive control; target re-anchored)
+
+Gate re-run: PASS (3/3).
+
+**DEVIATION (anti-drift rule 2): the pre-registered target `attn2-seed0` no longer exists
+on disk** (runs_owt has no such run; mechdecomp's Tier-1.5 loaded it in a prior epoch of
+the repo). Ran the nearest substitute + a positive control instead; no verdict promoted.
+
+1. **attn2-dense-seed0 (nearest surviving relative): NULL.** No match-and-copy behavior
+   at all — all L1 heads at/below chance on match@source (mass ~0.003, argmax ≤0.003);
+   no identity structure in ANY (branch × L0-head) path-folded G matrix (hit rates ≈
+   1/V chance, diag z ∈ [−0.13, +0.11]). This checkpoint does not implement the circuit;
+   the null is about the checkpoint, not the hypothesis.
+2. **Positive control (attn2-s30k-mix50-rp-dense-seed0, the genuine content-induction
+   model with documented causal table): my screens recover the documented circuit** —
+   L1H0/L1H3 = the redundant copy pair (match argmax 0.18/0.26 ≈ 25–30× chance), L0H1 =
+   dominant prev-token head (0.147) matching its −99% causal rank. Machinery validated;
+   P(copy) proxy 0.248 vs documented 0.748 — metric/data convention gap (theirs: tiled
+   burst format + their copy metric), to reconcile before quantitative comparison.
+3. **Design lesson (logged for §3): zeroing a branch is NOT a branch-specific
+   intervention in product attention** — pattern = s1·s2, so kill_b1 ≡ kill_b2 ≡ kill
+   head (identical CE 5.0313 observed). Branch-causal probes must REPLACE scores
+   (mean/shuffle/structure-ablated), not zero them. tier12_conjunction.py's causal arm
+   is redesigned accordingly for the rerun.
+
+**QUESTION FOR LOGAN:** attn2-seed0 (the .434→.031 retention-table model) is gone from
+runs_owt — do you have it elsewhere, or should the pre-registered conjunction test be
+re-anchored to attn2-s30k-mix50-rp-dense-seed0 (genuine content induction, documented
+multi-head causal table in mechdecomp/tier15_induction.py, screens reproduced here)?
+Proceeding with the rp model next tick unless redirected.
+
+Next (tick 6): full conjunction test on the rp model, heads L1H0+L1H3: per-branch
+path-folded identity structure through each L0 head (chance-calibrated), positional/band
+diagnostics, and score-REPLACEMENT branch interventions; reconcile the P(copy) metric
+with tier15_induction's convention first.

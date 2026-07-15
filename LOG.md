@@ -1938,3 +1938,12 @@ real-model feature discovery = open problem (needs robust solver + objective ref
      +0.008). All-zero layer-0 QK +16.7. Depth story: 2-layer models need fine token identity in L0;
      18-layer models route coarse token types. Non-monotone joint-vq flagged (kmeans seed variance).
      Next: pre-registered L1H2 conjunction test (Tier 1.2).
+
+## 2026-07-15 — qk_mdl tick 5 (Tier 1.2: pre-registered target missing; null + positive control)
+212. attn2-seed0 (the spec's L1H2 retention-table model) no longer exists in runs_owt → deviation logged
+     + QUESTION FOR LOGAN. Nearest substitute attn2-dense-seed0: real NULL (no match-and-copy behavior,
+     no identity structure in any path, all at chance). Positive control on the genuine induction model
+     (mix50-rp): screens recover the documented circuit (L1H0/L1H3 copy pair 25-30× chance, L0H1 prev-
+     token) — machinery validated, null is checkpoint-specific. Design lesson: branch-zeroing is not
+     branch-specific in product attention (s1·s2) — interventions must replace, not zero. Conjunction
+     test re-anchored to the rp model for tick 6.
