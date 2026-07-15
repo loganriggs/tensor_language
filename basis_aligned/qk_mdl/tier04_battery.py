@@ -62,9 +62,31 @@ def plant_toeplitz(modes=6):
     return M, floor, dl_toeplitz_fourier(modes)
 
 
+def plant_conjunction(k=8, modes=6):
+    """(bicluster) ⊙ (POSITIVE toeplitz gate). Positive gate by design: a
+    sign-oscillating factor is unidentifiable from the product alone (the real
+    pipeline has the branches; see fit_conjunction docstring / LOG tick 3)."""
+    rows = torch.randint(0, k, (N,))
+    cols = torch.randint(0, k, (N,))
+    B = torch.randn(k, k, dtype=torch.float64)
+    n_d = 2 * N - 1
+    C = torch.zeros(n_d // 2 + 1, dtype=torch.complex128)
+    g = torch.Generator(); g.manual_seed(2)
+    pick = torch.randperm(60, generator=g)[:modes] + 1
+    C[pick] = torch.randn(modes, dtype=torch.float64) + \
+        1j * torch.randn(modes, dtype=torch.float64)
+    s = torch.fft.irfft(C, n=n_d)
+    c = 1 + 0.8 * s / s.abs().max()                      # gate in [0.2, 1.8]
+    idx = torch.arange(N)[:, None] - torch.arange(N)[None, :] + (N - 1)
+    M, floor = add_noise(B[rows][:, cols] * c[idx], 0.02)
+    true_dl = dl_bicluster(k, k, N, N) + dl_toeplitz_fourier(modes + 1) + 32
+    return M, floor, true_dl
+
+
 PLANTS = {'lowrank(svd)': plant_lowrank, 'bicluster': plant_bicluster,
-          'toeplitz': plant_toeplitz}
-OWNER = {'lowrank(svd)': 'svd', 'bicluster': 'bicluster', 'toeplitz': 'toeplitz'}
+          'toeplitz': plant_toeplitz, 'conjunction': plant_conjunction}
+OWNER = {'lowrank(svd)': 'svd', 'bicluster': 'bicluster', 'toeplitz': 'toeplitz',
+         'conjunction': 'conjunction'}
 
 results = {'N': N, 'eps_rule': '1.5x plant noise floor', 'table': {}, 'verdicts': {}}
 print(f"{'plant':16s} {'eps':>7s}  " + '  '.join(f'{c:>14s}' for c in CODEBOOKS)
@@ -85,7 +107,7 @@ for pname, maker in PLANTS.items():
                                   'verdict': verdict}
     cells = '  '.join(
         f"{r['dl_bits'] / 1e3:8.1f}k{'*' if not r['met_eps'] else ' '}"
-        + f"({r.get('rank', r.get('k', r.get('modes', '?'))):>3})"
+        + f"({str(r.get('rank', r.get('k', r.get('modes', '?')))):>3})"
         for r in row.values())
     print(f'{pname:16s} {eps:7.4f}  {cells}   {true_dl / 1e3:6.1f}k  '
           f'{verdict} (winner {winner})')
@@ -95,8 +117,8 @@ results['selectivity'] = ('PASS' if all(v['verdict'] == 'PASS'
                                         for v in results['verdicts'].values())
                           else 'FAIL')
 print(f"\nBATTERY SELECTIVITY: {results['selectivity']}")
-print('pending plants/codebooks: conjunction (needs sparse-bilinear codebook), '
-      'tree/HODLR — tick 3+')
+print('pending codebooks: tree/HODLR (needs ordering machinery); '
+      'shared-dictionary sparse-bilinear proper (Tier 1.3)')
 
 with open('/workspace/tensor_language/basis_aligned/qk_mdl/tier04_battery.json', 'w') as fh:
     json.dump(results, fh, indent=2)

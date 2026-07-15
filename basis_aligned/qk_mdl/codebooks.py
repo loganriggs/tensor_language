@@ -133,3 +133,90 @@ def fit_toeplitz(M, eps):
 
 
 CODEBOOKS = {'svd': fit_svd, 'bicluster': fit_bicluster, 'toeplitz': fit_toeplitz}
+
+
+@torch.no_grad()
+def fit_conjunction(M, eps, k_max=64, outer=8):
+    """Conjunction codebook: M ~ (bicluster B) elementwise* (toeplitz gate c),
+    fit by alternating weighted LS. DL = DL(bicluster) + DL(c Fourier) + 1 scale.
+
+    Blind-from-product sign caveat (LOG tick 3): a sign-oscillating positional
+    factor is not identifiable from the product alone (per-diagonal signs cannot
+    be absorbed by a block-constant factor); the real pipeline decomposes the
+    two BRANCHES separately (spec section 3) so blindness never arises there.
+    The init here assumes a positive gate: c_init = sqrt(diag-mean of M^2);
+    the c-update itself is unconstrained, so mild sign structure can still be
+    recovered given good blocks.
+    """
+    n_r, n_c = M.shape
+    idx = torch.arange(n_r, device=M.device)[:, None] - \
+        torch.arange(n_c, device=M.device)[None, :] + (n_c - 1)
+    n_d = n_r + n_c - 1
+
+    def diag_ratio(num_mat, den_mat):
+        s = torch.zeros(n_d, dtype=M.dtype, device=M.device)
+        w = torch.zeros_like(s)
+        s.index_put_((idx,), num_mat, accumulate=True)
+        w.index_put_((idx,), den_mat, accumulate=True)
+        return s / w.clamp(min=1e-30)
+
+    c0 = diag_ratio(M ** 2, torch.ones_like(M)).clamp(min=1e-30).sqrt()
+    c0 = c0 / c0.mean()
+
+    # spectral partition init on the gate-whitened matrix (same lesson as
+    # fit_bicluster: random partition init gets stuck — battery tick 2 & 3)
+    Mw = M / c0[idx].clamp(min=0.1 * float(c0.mean()))
+    Uw, Sw, Vwt = torch.linalg.svd(Mw, full_matrices=False)
+
+    best = None
+    k = 2
+    while k <= k_max:
+        c = c0.clone()
+        r = min(k, len(Sw))
+        rows = _kmeans_labels(Uw[:, :r] * Sw[:r], k)
+        cols = _kmeans_labels(Vwt[:r].T * Sw[:r], k)
+        B = torch.zeros(k, k, dtype=M.dtype, device=M.device)
+        for _ in range(outer):
+            T = c[idx]
+            # block means (weighted LS)
+            num = torch.zeros(k, k, dtype=M.dtype, device=M.device)
+            den = torch.zeros_like(num)
+            ri = rows[:, None].expand_as(M)
+            ci = cols[None, :].expand_as(M)
+            num.index_put_((ri, ci), M * T, accumulate=True)
+            den.index_put_((ri, ci), T * T, accumulate=True)
+            B = num / den.clamp(min=1e-30)
+            # row reassignment (weighted)
+            Ci = torch.nn.functional.one_hot(cols, k).to(M.dtype)
+            P = (M * T) @ Ci
+            W = (T * T) @ Ci
+            rows = (-2 * P @ B.T + W @ (B ** 2).T).argmin(1)
+            Ri = torch.nn.functional.one_hot(rows, k).to(M.dtype)
+            Pc = (M * T).T @ Ri
+            Wc = (T * T).T @ Ri
+            cols = (-2 * Pc @ B + Wc @ (B ** 2)).argmin(1)
+            # gate update (unconstrained LS per diagonal)
+            M1 = B[rows][:, cols]
+            c = diag_ratio(M * M1, M1 * M1)
+        M1 = B[rows][:, cols]
+        fvu = _fvu(M1 * c[idx], M)
+        dl_blocks = dl_bicluster(k, k, n_r, n_c)
+        best = (dl_blocks + dl_toeplitz_full(n_r, n_c) + 32, fvu,
+                {'k': k, 'c_mode': 'full'})
+        if fvu <= eps:
+            # Fourier-truncate the gate under the SAME total-eps constraint
+            C = torch.fft.rfft(c)
+            order = C.abs().argsort(descending=True)
+            for m in range(1, min(len(order), 64) + 1):
+                Ct = torch.zeros_like(C)
+                Ct[order[:m]] = C[order[:m]]
+                ct = torch.fft.irfft(Ct, n=n_d)
+                if _fvu(M1 * ct[idx], M) <= eps:
+                    return (dl_blocks + dl_toeplitz_fourier(m) + 32,
+                            _fvu(M1 * ct[idx], M), {'k': k, 'modes': m})
+            return best
+        k *= 2
+    return best[0], best[1], {**best[2], 'hit_kmax': True}
+
+
+CODEBOOKS['conjunction'] = fit_conjunction

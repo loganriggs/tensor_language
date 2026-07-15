@@ -120,3 +120,46 @@ Next (tick 3): sparse-bilinear codebook (masked-projector solver per spec §2.4 
 listed fixes) + conjunction plant (M₁⊙M₂ of two cheap-codebook matrices; owner must win),
 and the HODLR/tree codebook if time. Then Tier 1.1 (real layer-0 heads, full menu, MDL
 table) — ε calibration for real heads per §4 at that point.
+
+---
+
+## 2026-07-15 — tick 3 (Tier 0.4 complete for 4 codebooks: conjunction plant + codebook, battery PASS 4/4)
+
+Gate re-run first: **PASS** (unchanged). Added `fit_conjunction` (M ≈ bicluster ⊙ Toeplitz
+gate, alternating weighted LS; DL = DL(blocks) + DL(gate Fourier) + 1 scale float) and the
+conjunction plant (bicluster(8) ⊙ positive 6-mode gate ∈ [0.2,1.8]).
+
+**Battery: SELECTIVITY PASS 4/4** (tier04_battery.json):
+
+| plant | svd | bicluster | toeplitz | conjunction | true DL | winner |
+|---|---|---|---|---|---|---|
+| low-rank(8) | **262.4k (=true)** | fail | fail | fail | 262.4k | svd ✓ |
+| bicluster(8²) | 229.6k | **12.3k** | fail | 12.4k | 5.1k | bicluster ✓ |
+| Toeplitz(6) | 393.6k | fail | **0.4k (=true)** | fail | 0.4k | toeplitz ✓ |
+| conjunction | 1246.4k | fail | fail | **38.3k** | 5.6k | conjunction ✓ |
+
+The battery caught the SAME solver-class bug a second time: fit_conjunction's inner
+biclustering with random partition init needed k=64 on its own plant (25× true DL) and
+failed outright on the pure-bicluster plant it should express trivially. Fixed with
+spectral partition init on the gate-whitened matrix M/c₀ — after which conjunction wins
+its plant by 33× over SVD and correctly loses to plain bicluster by exactly the
+constant-gate overhead (12.4k vs 12.3k).
+
+Honest gaps (logged, not hidden): (a) conjunction meets ε at k=32 vs planted k=8 → 7×
+true DL (alternation recovers structure partially; win margin unaffected); (b) bicluster's
+k=16-vs-8 inflation from tick 2 persists; (c) conjunction fails on the pure-Toeplitz plant
+because that plant's gate oscillates through zero and the blind-from-product fit assumes a
+positive gate (documented identifiability limit — per-diagonal signs cannot be absorbed by
+block-constant factors; the REAL pipeline decomposes branches separately, spec §3, so
+blindness never arises). SVD pays 33–240× the owner on structured plants — the
+computational-vs-spectral-MDL direction on known ground truth, now across 3 structure types.
+
+**Gate: PASS. Battery: PASS 4/4. Pending: tree/HODLR codebook; shared-dictionary
+sparse-bilinear (Tier 1.3).**
+
+Next (tick 4): Tier 1.1 — the real thing: all layer-0 heads of attn2-mix10-seed0, per
+branch: materialize folded band matrices {C_f, S_f} (V=5120 fine), ε calibration per §4
+(SVD at full-rank−1 comfortably inside; DL-vs-ε curves), full codebook menu, first real
+MDL table. The tick-0 QUESTION (distortion metric under no-softmax) becomes load-bearing
+here; provisional metric will be used AND labeled provisional in every table until Logan
+answers.

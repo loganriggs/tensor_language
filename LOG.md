@@ -1911,3 +1911,11 @@ real-model feature discovery = open problem (needs robust solver + objective ref
      Final: SELECTIVITY PASS 3/3; SVD pays 45× true DL on the bicluster plant (computational ≪ spectral
      MDL, on a plant); bicluster solver known gap: k=16 vs planted k=8 (2.4× true DL), logged not hidden.
      Pending: conjunction plant + sparse-bilinear codebook, HODLR/tree (tick 3), then Tier-1 real heads.
+
+## 2026-07-15 — qk_mdl tick 3 (conjunction codebook + plant; battery PASS 4/4)
+207. fit_conjunction (bicluster ⊙ Toeplitz gate, alternating weighted LS) + conjunction plant. Battery
+     caught the random-init solver bug a SECOND time (conjunction failed its own plant at k=64 and the
+     pure-bicluster plant outright); spectral init on the gate-whitened matrix fixed it → SELECTIVITY
+     PASS 4/4, conjunction wins its plant 33× over SVD, loses to plain bicluster by exactly the
+     constant-gate overhead. Gaps logged: k=32 vs planted 8 (7× true DL); positive-gate identifiability
+     limit documented (real pipeline has branches, never blind). Next: Tier 1.1 real layer-0 MDL table.

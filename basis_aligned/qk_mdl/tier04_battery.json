@@ -24,6 +24,14 @@
         "met_eps": false,
         "mode": "full",
         "fail": true
+      },
+      "conjunction": {
+        "dl_bits": 169984.0,
+        "fvu": 0.5505422842030117,
+        "met_eps": false,
+        "k": 64,
+        "c_mode": "full",
+        "hit_kmax": true
       }
     },
     "bicluster": {
@@ -47,6 +55,13 @@
         "met_eps": false,
         "mode": "full",
         "fail": true
+      },
+      "conjunction": {
+        "dl_bits": 12416.0,
+        "fvu": 0.019522749914186826,
+        "met_eps": true,
+        "k": 16,
+        "modes": 1
       }
     },
     "toeplitz": {
@@ -71,6 +86,45 @@
         "met_eps": true,
         "mode": "fourier",
         "modes": 6
+      },
+      "conjunction": {
+        "dl_bits": 169984.0,
+        "fvu": 0.059957921316329335,
+        "met_eps": false,
+        "k": 64,
+        "c_mode": "full",
+        "hit_kmax": true
+      }
+    },
+    "conjunction": {
+      "eps": 0.029422091290291524,
+      "true_dl_bits": 5632.0,
+      "svd": {
+        "dl_bits": 1246400.0,
+        "fvu": 0.029253963211906226,
+        "met_eps": true,
+        "rank": 38
+      },
+      "bicluster": {
+        "dl_bits": 2105344.0,
+        "fvu": 0.036280303257526986,
+        "met_eps": false,
+        "k": 256,
+        "hit_kmax": true
+      },
+      "toeplitz": {
+        "dl_bits": 32736.0,
+        "fvu": 0.9964344044582929,
+        "met_eps": false,
+        "mode": "full",
+        "fail": true
+      },
+      "conjunction": {
+        "dl_bits": 38336.0,
+        "fvu": 0.02160975040371982,
+        "met_eps": true,
+        "k": 32,
+        "modes": 6
       }
     }
   },
@@ -88,6 +142,11 @@
     "toeplitz": {
       "winner": "toeplitz",
       "expected": "toeplitz",
+      "verdict": "PASS"
+    },
+    "conjunction": {
+      "winner": "conjunction",
+      "expected": "conjunction",
       "verdict": "PASS"
     }
   },
