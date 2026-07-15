@@ -370,3 +370,37 @@ Next: either (a) data-conditioned weight-space identity metric (condition G on i
 positions — predicted to move the L0H1 signal into both identity branches), or (b) return
 to spec order: Tier 1.3 positional heads + tiny-model MDL table completion (joint-svd),
 or (c) Tier 3 path-folded MDL. Cron default: (b) then (a).
+
+---
+
+## 2026-07-15 — tick 7 (Tier 1.3: positional-head sweep = clean NEGATIVE; mix10 joint-svd frontier)
+
+Gate: PASS (3/3). Positional codebook = per-Δ score replacement (token structure
+destroyed, Δ-profile kept), classification threshold |ΔCE| ≤ 0.01 (+ |ΔP(copy)| ≤ 0.02
+for the rp model). Full sweep: 16 branches × attn2-mix10-seed0 + 16 × rp model
+(`tier13_positional.json`).
+
+**FINDING T1-2 (negative, per anti-drift rule 3): ZERO behaviorally-positional branches
+in either tiny model.** Minimum cost +0.012 (rp L1H0b1); mix10 branches cost +0.07–2.18.
+The spec's predicted positional-head DL collapse does not occur in this zoo. Two
+sub-findings:
+- **Pattern-positionality ≠ score-positionality:** the rp model's prev-token head L0H1
+  (attends Δ=1 on average) LOSES the circuit when its scores are positional-averaged
+  (ΔP(copy) −0.739): its score magnitudes are token-dependent and the identity branch
+  reads its OV transport. A head can look positional in its pattern and be content-
+  critical in its scores.
+- rp L0H3 is extreme-content (+4.35 CE when positional-averaged) despite only −44% causal
+  copy share; L0 branch pairs are near-symmetric in posavg cost (b1≈b2 to 3 decimals).
+Cross-script consistency check: rp L1H0b1 posavg ΔP(copy) −0.0092 = tick 6's value ✓.
+
+**mix10 joint-svd frontier (tick-4 leftover):** joint svd16 (half rank, all 8 layer-0
+branches) +0.054; svd8 +0.202; svd4 +0.455; svd1/2 catastrophic (+3.5). Per-head svd16
+was free (tick 4) → mild non-additivity (+0.054 joint), nothing like the 546M's vq
+redundancy collapse. Confirms the depth-taxonomy: tiny = rank-structured, moderately
+additive; big = token-class-structured, heavily redundant.
+
+Tier 1 status: 1.1 ✓ (tick 4), 1.2 ✓ PARTIAL PASS re-anchored (tick 6; attn2-seed0
+question still open), 1.3 ✓ NEGATIVE (this tick). Tier 1 complete pending Logan on the
+re-anchoring. Next: data-conditioned weight-space identity metric (tick 6's open fix),
+or Tier 3 path-folded MDL, or 546M layer-0 CE-trained codebooks (basis_aligned e7
+lesson). Cron default: data-conditioned metric.

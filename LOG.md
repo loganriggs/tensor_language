@@ -1956,3 +1956,10 @@ real-model feature discovery = open problem (needs robust solver + objective ref
      (−0.487/−0.517 total; diffuse branches only −0.138). Pre-registered single-head criterion fails
      for the documented redundancy reason; circuit-level conjunction confirmed. Weight-space identity
      signal partial (H3.b2 via L0H0 at 380× chance) — the known generic-vs-data-conditioned gap.
+
+## 2026-07-15 — qk_mdl tick 7 (Tier 1.3 negative + joint-svd frontier; Tier 1 complete)
+214. Positional-head sweep (32 branches, 2 tiny models): ZERO behaviorally-positional branches at
+     |dCE| ≤ 0.01 — the spec's positional DL collapse is falsified for this zoo. Key distinction found:
+     pattern-positionality ≠ score-positionality (rp L0H1 attends Δ=1 but loses −0.74 P(copy) when its
+     scores are positional-averaged). mix10 joint-svd frontier: half-rank +0.054 (mildly non-additive).
+     Tier 1 complete (1.1 ✓, 1.2 partial-pass re-anchored, 1.3 negative); attn2-seed0 question open.
