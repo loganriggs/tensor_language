@@ -744,3 +744,29 @@ PB-1 → 07, L1 → new results/10_layer1_condmean.md; README index updated.
 Queue: harvest l1_ce_codebook → tick 21; L2+ recursion (cond-mean tables at deeper layers
 — does 0th-order selection hold at all depths?); MLP-0 pair CE-trained (optional); attn2-seed0
 (blocked on Logan).
+
+---
+
+## 2026-07-16 — tick 22 (depth sweep: selection is 0th-order ONLY where the model lets it be)
+
+**FINDING DS-1 (the depth sweep breaks the uniform story):** cond-mean selection tables
+per layer (zero-scores control in parens): L1 **+0.014** (+2.82) · L2 **+0.008** (+0.55)
+· L3 +0.045 (+0.25) · L5 **+0.251** (+2.51) · L8 +0.069 (+0.050) · L12 +0.016 (+0.038)
+· L17 +0.033 (+0.006). Three regimes: (a) bottom layers L1-L2: heavily load-bearing AND
+~token-deterministic — tables are nearly free; (b) L5: the other load-bearing attention
+layer, and the ONLY one whose selection is genuinely contextual (cond-mean recovers 90%
+of the zero gap but leaves +0.25); (c) upper layers (L8, L17): barely load-bearing, and
+the token-generic table is WORSE THAN DELETING THE LAYER — wrong-but-confident selection
+injects inconsistent signal where silence is nearly free. Fourth appearance of the
+consistency theme.
+
+**Design consequence:** the all-layers compressed model is a per-layer MENU
+{table, zero, live/trained}, not a uniform treatment. Greedy from this sweep:
+table L1,L2,L3,L12 · zero L8,L17 · L5 needs first-order or CE-trained tables.
+Complementary sweep of the remaining 10 layers running (`layers_condmean_sweep2.py`).
+
+`layers_condmean_sweep.py/json`.
+
+Queue: harvest sweep2 → complete the 18-layer menu → flagship: full-model compressed
+attention (menu choices + joint CE repair, protocol-sized data); KL variant of L1-3
+(optional); attn2-seed0 (blocked on Logan).
