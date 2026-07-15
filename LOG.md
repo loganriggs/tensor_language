@@ -2026,3 +2026,9 @@ real-model feature discovery = open problem (needs robust solver + objective ref
 224. Three class tables (self-e, cross-e, cross-v) trained through the frozen model: 87% recovery.
      Layer-0 CE-trained scoreboard: QK −0.039, OV −0.019, MLP interactions +0.022. Grand-combined
      compressed-layer-0 arm queued as the flagship.
+
+## 2026-07-16 — qk_mdl tick 18 (grand-combined: layer 0 fully codebooked = −0.019)
+225. Flagship landed: QK classes + OV sparse dicts + MLP-0 classed blocks simultaneously, 9.9M table
+     values jointly CE-trained on 2.1M tokens → −0.019 (better than original). Superadditive L2
+     composition (+0.455 vs 0.230 summed) fully repaired by joint training. Overfitting ladder logged
+     (65k tokens: fine at 1M params, memorizes at 10M).

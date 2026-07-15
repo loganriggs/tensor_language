@@ -655,3 +655,21 @@ Scoreboard (CE-trained): QK −0.039 · OV −0.019 · MLP-0 blocks +0.022.
 Next: the grand-combined arm — QK vq256 + OV sparse + MLP-0 classed, all simultaneous,
 joint finetune → "layer 0, fully codebooked" as one number; then cross-associations and
 first-order path codebooks.
+
+---
+
+## 2026-07-16 — tick 18 (grand-combined arm: layer 0 fully codebooked = −0.019)
+
+Gate: PASS. `grand_combined*.py/json`, results/09_grand_combined.md.
+
+**FINDING GC-1:** component L2 errors compound superadditively (+0.455 vs 0.230 summed).
+**FINDING GC-2 (flagship):** jointly CE-training all 9.9M table values (model frozen,
+frozen discrete structure, 2.1M disjoint train tokens) lands at **−0.019 — the fully
+codebooked layer 0 is slightly better than the original.** QK classes + OV sparse
+dictionaries + MLP classed blocks, one forward pass.
+**Protocol note:** 65k train tokens sufficed for ~1M-param component tables but the
+9.9M-param joint run memorized (4500 steps → train CE 1.1, held-out +1.62); 2.1M tokens
+fixed it. Logged for all future joint trainings.
+
+Queue: cross-associations on the real model; first-order path codebooks (Tier 3);
+attn2-seed0 question (open).
