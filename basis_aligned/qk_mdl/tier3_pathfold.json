@@ -1,0 +1,29 @@
+{
+  "base_pcopy_holdout": 0.743930721282959,
+  "arms": {
+    "identity branches, k-side lookup": {
+      "dpcopy": -0.641580392420292,
+      "dl_bits_tables": 10485760
+    },
+    "identity branches, q+k lookup": {
+      "dpcopy": -0.6151548802852631,
+      "dl_bits_tables": 20971520
+    },
+    "ALL 8 (head,branch), q+k lookup": {
+      "dpcopy": -0.7029919385910034,
+      "dl_bits_tables": 83886080
+    },
+    "identity branches, SHARED k table (sign-aligned)": {
+      "dpcopy": -0.7311902878805995,
+      "dl_bits_tables": 5242880
+    },
+    "identity branches, SHARED q+k tables": {
+      "dpcopy": -0.7437343675235752,
+      "dl_bits_tables": 10485760
+    }
+  },
+  "signs": {
+    "H0b1": 1.0,
+    "H3b2": 1.0
+  }
+}

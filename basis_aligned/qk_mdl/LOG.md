@@ -441,3 +441,39 @@ for deeper layers; joint QK-OV; token-tree transfer), CE-trained codebooks on th
 (basis_aligned e7 lesson), attn2-seed0 question. Cron default next: Tier 3 path-folded
 MDL table for the rp model's layer-1 through the L0 paths (the machinery from this tick
 is most of it).
+
+---
+
+## 2026-07-15/16 — tick 9 (Logan's directed batch: results/ folder, CE+KL codebooks, Tier-3 opener)
+
+Gate status: PASS throughout (re-run at tick start). Three deliverables, all committed:
+
+**1. `results/` subfolder (Logan's request):** per-experiment MD files (README + 6) with
+method explanations, inline figures (Tier-2 frontier, conjunction causal bars,
+conditioned-G identity diagonal, tiny-model frontier), and decomposition examples —
+conditioned-match examples and the 546M vq16 token classes (clean linguistic categories:
+determiners, derivational suffixes, abstract nouns, past-tense verbs, BPE fragments).
+
+**2. CE-trained + KL-distilled codebooks (546M layer-0), the headline:**
+
+| joint codebook | DL ratio | L2-fit | CE-trained | KL-distilled |
+|---|---|---|---|---|
+| all vq16 | 1240× | +0.044 | **−0.019** | — |
+| all vq64 | 500× | +0.015 | **−0.032** | **−0.007** |
+| all vq256 | 165× | +0.008 | **−0.039** | — |
+
+Every CE-trained codebook OUTPERFORMS the original layer-0. The KL split shows faithful
+compression alone reaches parity-or-better at 500× (−0.007 under pure imitation);
+~−0.025 of the CE gain is domain adaptation. **A 64-token-class layer-0 QK is at least
+as good as the trained 884 MiB computation.**
+
+**3. Tier-3 opener (path-folded lookup codebooks): informative NEGATIVE**
+(results/06_tier3_pathfold.md): replacing live layer-1 q/k with conditional-mean lookup
+tables destroys the copy circuit (−0.62…−0.74 P(copy) held-out) even though those same
+tables carry the identity structure at 0.44 hit rate. Structure-visible ≠
+computation-sufficient: the circuit consumes context-dependent components (norm scales,
+actual pattern weights, within-condition variance) that 0th-order-in-context tables
+discard. Tier-3 codebooks must be ≥ first-order in context (live L0 pattern × quantized
+OV content). Shared-table (joint QK) question unresolved (per-head tables already fail).
+Logan's MLP-two-inputs note recorded for deeper tiers. (One artifact rerun: json crash on
+tuple keys — fixed, rerun, numbers unchanged.)

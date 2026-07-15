@@ -1970,3 +1970,10 @@ real-model feature discovery = open problem (needs robust solver + objective ref
      gauge-corrected), exclusively via L0H1; all other cells at chance. Generic-vs-conditioned gap
      resolved (generic said L0H0; conditioned matches the causal ablations). Sign flip between heads =
      pure branch-sign gauge. Conjunction test now PASS at full strength on the re-anchored model.
+
+## 2026-07-16 — qk_mdl tick 9 (results/ folder; CE/KL codebooks; Tier-3 negative)
+216. results/ subfolder with per-experiment MDs + figures + examples (Logan's request). CE-trained joint
+     codebooks BEAT the original 546M layer-0 at every k (vq64: +0.015 → −0.032 at 500×); KL-distilled
+     variant proves faithful compression alone reaches parity (−0.007) — 64 token-classes ≥ 884 MiB of
+     trained weights. Tier-3 lookup codebooks: informative negative (structure-visible ≠ computation-
+     sufficient; tables carrying 0.44 identity hit rate still destroy the circuit when substituted).
