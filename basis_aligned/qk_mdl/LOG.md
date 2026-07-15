@@ -497,3 +497,9 @@ identity, like the raw embedding in basis_aligned e6. CE-training of OV tables r
 (the e6→e7 move); results to follow in ov_ce_trained.json.
 
 Next: V×V cross-block codebook (token × transported-token → hidden) as its own object.
+
+Addendum tick 10: OV CE-training landed — vq1024 +0.917→+0.568, vq4096 +0.782→+0.475
+(~38% recovery only; QK went negative under identical treatment). The selection/content
+dichotomy is REAL, not metric mismatch. Exact basis_aligned parallel: hard vq fails on
+content, sparse coding rescued the embedding (+0.87 vs +0.26) → next OV codebook = top-k
+sparse coding of value tables. Queued with the V×V cross-block codebook.

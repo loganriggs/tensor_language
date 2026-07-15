@@ -1977,3 +1977,8 @@ real-model feature discovery = open problem (needs robust solver + objective ref
      variant proves faithful compression alone reaches parity (−0.007) — 64 token-classes ≥ 884 MiB of
      trained weights. Tier-3 lookup codebooks: informative negative (structure-visible ≠ computation-
      sufficient; tables carrying 0.44 identity hit rate still destroy the circuit when substituted).
+
+## 2026-07-16 — qk_mdl tick 10 addendum (OV CE-trained)
+217. OV vq CE-training recovers only ~38% (vq1024 +0.92→+0.57) where QK went NEGATIVE — the
+     selection/content dichotomy is genuine. Next: top-k sparse coding for OV (the e7 move proper)
+     + the V×V cross-block codebook.

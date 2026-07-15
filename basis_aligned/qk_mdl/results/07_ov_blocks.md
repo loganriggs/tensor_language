@@ -40,7 +40,16 @@ basis_aligned e6 ("the tokens are the objects"), while selection is classable.
 
 ## CE-trained OV tables
 
-<!-- OV_CE_TABLE -->
+| OV codebook | DL ratio | L2-fit | CE-trained |
+|---|---|---|---|
+| vq1024 | 0.023 | +0.917 | +0.568 |
+| vq4096 | 0.084 | +0.782 | +0.475 |
+
+CE-training recovers only ~38% — **the dichotomy is real, not a metric artifact**: hard
+token-classing fails for content even with the behavioral objective (contrast QK, which
+went NEGATIVE under the same treatment). The basis_aligned analogy is exact: hard vq on
+the embedding also stayed bad (+0.87) while sparse CODING rescued it (+0.26) — so the
+next OV codebook is top-k sparse coding of the value tables, not vq.
 
 Next: the V×V cross-block codebook as its own object (token t × transported token s →
 hidden), per Logan's suggestion — now justified by the +0.84 block importance.
