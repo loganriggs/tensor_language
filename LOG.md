@@ -2021,3 +2021,8 @@ real-model feature discovery = open problem (needs robust solver + objective ref
      +0.206); self block +0.097@256. Layer-0 synthesis: interactions (QK, MLP self/cross) tolerate
      ~256 classes; only value/residual TRANSPORT is class-intolerant (+1.38) and needs sparse coding.
      Comparisons need classes; carriage needs identity.
+
+## 2026-07-16 — qk_mdl tick 17 (MLP-0 codebooks CE-trained: +0.166 → +0.022)
+224. Three class tables (self-e, cross-e, cross-v) trained through the frozen model: 87% recovery.
+     Layer-0 CE-trained scoreboard: QK −0.039, OV −0.019, MLP interactions +0.022. Grand-combined
+     compressed-layer-0 arm queued as the flagship.

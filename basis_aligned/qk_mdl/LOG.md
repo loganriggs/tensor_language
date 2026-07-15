@@ -643,3 +643,15 @@ not by interaction. Slogan: comparisons need classes; carriage needs identity.
 
 Queue: cross-associations (separate q/k partitions, MDL-native) on the real model;
 first-order path codebooks (Tier 3); per-block CE-training of the MLP-0 codebooks.
+
+---
+
+## 2026-07-16 — tick 17 (MLP-0 codebooks CE-trained)
+
+Gate: PASS. `mlp0_ce_codebooks.py/json`, tables saved (`mlp0_tables.pt`).
+Combined L2-fit self@256 + cross@256×256: +0.166 (sub-additive vs +0.097/+0.206 parts).
+CE-trained (3 class tables, frozen assignments, frozen model): **+0.022** — 87% recovery.
+Scoreboard (CE-trained): QK −0.039 · OV −0.019 · MLP-0 blocks +0.022.
+Next: the grand-combined arm — QK vq256 + OV sparse + MLP-0 classed, all simultaneous,
+joint finetune → "layer 0, fully codebooked" as one number; then cross-associations and
+first-order path codebooks.

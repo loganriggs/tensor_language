@@ -89,3 +89,9 @@ content inside the cross term costs +0.055 where classing it globally costs +1.3
 content precision matters through the residual transport path, not through the MLP
 interaction. Computations that COMPARE or COMBINE tokens need only their classes;
 the computation that CARRIES a token forward needs its fine identity.
+
+**CE-trained MLP-0 codebooks** (assignments frozen, three class tables trained through
+the frozen model): combined self@256 + cross@256² goes **+0.166 → +0.022**. Layer-0
+component scoreboard, all CE-trained: QK selection **−0.039**, OV transport **−0.019**,
+MLP interactions **+0.022** — the grand-combined single compressed layer-0 is the next
+flagship arm.
