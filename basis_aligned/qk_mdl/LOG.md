@@ -794,3 +794,27 @@ Queue: harvest stage A → tick 24; stage B = vq256 everywhere + joint CE traini
 (protocol: ~19M params wants ~4M tokens — check pile-10k budget; batch memory needs
 checkpointing or batch 2); results/10 depth-sweep section; KL variant (optional);
 attn2-seed0 (blocked on Logan).
+
+---
+
+## 2026-07-16 — tick 24 (stage A: composition blows up 10x; stage B training launched)
+
+**FINDING AM-1 (composition, fifth and largest instance):** composing the per-layer menu
+across the whole model (`all_menu.py/json`): menu (12 tabled + L5 live + 4 zeroed)
+= **+1.440** vs +0.146 sum of parts; all-table = +1.920 vs +0.234; menu-static (L5 tabled
+too) = +1.806. The mechanism is distribution shift, not table quality: each layer's
+cond-mean tables were estimated under the LIVE lower stack, and patching the lower layers
+destroys that distribution — errors compound multiplicatively through 17 layers. (The
+single-layer sweep numbers stay valid as marginals; this is the same marginals-don't-
+compose behavior as GC-1, now at model scale.)
+
+Stage B running (`menu_trained.py`): menu-static with vq256 class tables everywhere
+(13 layers x 16 head-branch codebooks = 15.7M floats, assignments frozen from the all17
+cond-mean tables), jointly CE-trained 4500 steps batch 2 on ~3.1M pile tokens (protocol-
+scaled). Zero layers stay zeroed; L0 stays live (exact fold). If it repairs like the
+layer-0 grand did, the headline is: NO live QK selection anywhere in the 546M model —
+every attention decision a token-class lookup. Held-out checkpoints at 1500/3000 to
+catch overfit (tick-18 lesson).
+
+Queue: harvest stage B → tick 25 (+ results/10 depth+menu section, figure); KL variant
+(optional); attn2-seed0 (blocked on Logan).
