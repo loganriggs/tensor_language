@@ -770,3 +770,27 @@ Complementary sweep of the remaining 10 layers running (`layers_condmean_sweep2.
 Queue: harvest sweep2 → complete the 18-layer menu → flagship: full-model compressed
 attention (menu choices + joint CE repair, protocol-sized data); KL variant of L1-3
 (optional); attn2-seed0 (blocked on Logan).
+
+---
+
+## 2026-07-16 — tick 23 (sweep2: full 18-layer menu; stage-A composition launched)
+
+**FINDING DS-2 (completes DS-1's table; three more surprises):** remaining layers
+(zero / cond-mean): L4 +0.479/+0.059 · L6 +0.094/+0.048 · L7 +0.095/+0.018 ·
+L9 +0.045/+0.006 · L10 +0.011/**−0.016** · L11 +0.033/+0.015 · L12 (tick 22) ·
+L13 +0.018/+0.008 · L14 **−0.035**/+0.014 · L15 +0.002/+0.010 · L16 −0.007/−0.010.
+(a) Deleting L14's attention IMPROVES pile CE by 0.035 — the layer is actively harmful
+on this eval; L16-zero also mildly negative. (b) L10 and L16 cond-mean tables BEAT the
+live model — token-generic selection is a regularizer there. (c) Only TWO layers in the
+whole model have genuinely contextual selection worth keeping live: L5 (+0.25 gap) and
+nothing else above +0.06 — L1-L4 load-bearing but tabled ~free.
+
+Full menu (argmin per layer): table L1-4,6,7,9-13,16 · zero L8,14,15,17 · live L5.
+Sum of parts +0.234 (all-table) / +0.146 (menu). Stage A running (`all_menu.py`):
+composed audits of all-table / menu / menu-static, tables streamed from CPU at fp32,
+saved to all17_tables.pt for the stage-B joint CE repair.
+
+Queue: harvest stage A → tick 24; stage B = vq256 everywhere + joint CE training
+(protocol: ~19M params wants ~4M tokens — check pile-10k budget; batch memory needs
+checkpointing or batch 2); results/10 depth-sweep section; KL variant (optional);
+attn2-seed0 (blocked on Logan).
