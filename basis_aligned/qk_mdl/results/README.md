@@ -14,5 +14,7 @@ the frozen conventions of `../mdl_accounting.py` (ΔCE = binding audit, per Loga
 6. [Tier-3 path-folded lookups (negative)](06_tier3_pathfold.md)
 7. [OV circuit + bilinear-MLP blocks](07_ov_blocks.md)
 8. [Attention patterns from the compressed model](08_pattern_display.md)
+9. [Grand combined: the fully codebooked layer 0 (flagship) + sqrd12 contrast](09_grand_combined.md)
+10. [Layer 1: conditional-mean codebooks — selection is ~token-deterministic](10_layer1_condmean.md)
 
 Chronological detail: `../LOG.md`. Spec: `../qk_mdl_spec.md`.

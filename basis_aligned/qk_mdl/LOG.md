@@ -700,3 +700,47 @@ than mixed precision. (Third appearance of the composition theme.)
 Running: sqrd12 grand-combined analog (QK vq256 + OV sparse, tick-18 training protocol).
 Queue after: results-doc consolidation; L1 first-order codebooks on bilin18; pair-block
 treatment; attn2-seed0 (blocked on Logan).
+
+---
+
+## 2026-07-16 — tick 20 (sqrd12 grand contrast; pair block; L1 goes 0th-order)
+
+Gate: PASS (split-path exact-exact diff 1.19e-07 in pair-block harness).
+
+**FINDING SQ-1 (model contrast for the flagship):** the sqrd12 grand-combined analog
+(QK vq256 + OV sparse 512×16, jointly CE-trained, tick-18 protocol, 2.1M tokens) lands at
+**+0.188** — vs bilin18's −0.019 with MORE components codebooked (QK+OV+MLP). Two
+sub-findings: (a) sqrd12's L2 errors compose SUB-additively (qk +0.116 + ov +0.221 = 0.337
+summed vs +0.275 joint) where bilin18 was superadditive — the row-normalization appears to
+absorb part of the joint error; (b) CE training recovers only 32% of the L2 error on
+sqrd12 (0.275→0.188) vs >100% on bilin18 (0.455→−0.019). The ~15× compressibility gap
+between the models is a property of the models, not of the L2 fitting stage — behavioral
+training cannot close it. `sqrd12_grand.py/json`.
+
+**FINDING PB-1 (completes the MLP-0 block table):** classing the a⊙a pair block
+(self+cross exact): k=64/256/1024 → +0.073/+0.058/+0.026. At k=256 the pair block (+0.058)
+sits with the cross sides (+0.043/+0.055), well below self (+0.097) — every MLP-0 block
+individually tolerates ~256 classes; importance order (self > cross > pair) does not
+predict class-tolerance order. `pair_block_codebook.py`, pair_block_real.json.
+
+**FINDING L1-1 (layer-1 selection is nearly token-deterministic):** layer-1 QK factors
+cannot be folded from weights (inputs are contextual), so conditional-mean factor tables
+q̄(t), k̄(t) per branch (post-QK-norm pre-RoPE, estimated from 524k tokens, unit-RMS
+renormalized) were patched in via the same scores_from_factors machinery: **ΔCE +0.014**
+against a +2.82 zero-scores control (layer-1 attention is heavily load-bearing). The
+0th-order-in-context lookup that failed for OV *content* on the tiny model (tier 3) works
+for real-model *selection* — third confirmation of selection-tolerates/carriage-doesn't,
+now in the context dimension. Raw (un-renormalized) cond-means cost 3× more (+0.040): the
+QK-norm shell is the right gauge for the tables. Coverage 91% of audit tokens (unseen →
+global mean) — +0.014 includes that fallback cost. `l1_condmean_qk.py/json`.
+
+**L1-2:** vq256/vq1024 on the cond-mean tables: +0.092/+0.064 L2-fit — classing costs more
+at L1 than at L0 (+0.008). CE-training of the vq256 class tables running (l1_ce_codebook.py,
+1M table floats, protocol-sized).
+
+Results-doc consolidation done: CA-1 → results/04, FO-1/FO-2 → results/06, SQ-1 → 09+05,
+PB-1 → 07, L1 → new results/10_layer1_condmean.md; README index updated.
+
+Queue: harvest l1_ce_codebook → tick 21; L2+ recursion (cond-mean tables at deeper layers
+— does 0th-order selection hold at all depths?); MLP-0 pair CE-trained (optional); attn2-seed0
+(blocked on Logan).

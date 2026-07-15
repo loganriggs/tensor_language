@@ -2038,3 +2038,28 @@ real-model feature discovery = open problem (needs robust solver + objective ref
      pattern × classed content) degrade gracefully where 0th-order collapsed — tick-9 diagnosis
      confirmed; partial replacement is 3× worse than uniform coarseness (consistency effect). Cron
      re-armed at 30-min cadence with chain-next rule; sqrd12 grand running.
+
+## 2026-07-16 — qk_mdl ticks 19–20 (for Logan)
+
+**The flagship now has its contrast column.** bilin18's fully codebooked layer 0 sits at
+−0.019 ΔCE; the identical treatment on sqrd12 (your 162M squared-attention model) lands at
+**+0.188** — and the gap is behavioral, not a fitting artifact: CE training recovers >100%
+of bilin18's L2 error but only ~32% of sqrd12's. Interesting mechanism hint: sqrd12's
+component errors compose SUB-additively (row normalization absorbs error) where bilin18's
+compose superadditively (unnormalized product amplifies it). results/09.
+
+**New capability: codebooks past layer 0.** Layer-1 QK can't be folded from weights, so we
+estimate conditional-mean factor tables from data (post-QK-norm gauge). Result: replacing
+ALL of layer-1 selection with token-indexed tables costs **+0.014** against a +2.82
+zero-control — layer-1 selection is nearly 0th-order in context, even though the tier-3
+experiments showed OV *content* absolutely is not. Selection-vs-carriage again, now in the
+context dimension. results/10. (vq on top costs more than at L0; CE-trained version running.)
+
+Also: MLP-0 block table complete (pair block classes like cross, ~+0.058 @256); separate
+q/k-role partitions confirmed unnecessary (CA-1); first-order path codebooks written up as
+the tier-3 resolution (results/06).
+
+**Deviation flag (spec §6):** conditional-mean tables are DATA-estimated objects, not
+weight-folded ones — the MDL story for them needs an estimation-data term (or treat them as
+distilled parameters like the CE-trained tables). Flagging rather than silently mixing the
+two table types in one accounting.

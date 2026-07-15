@@ -78,11 +78,12 @@ Both input sides of every interaction block classed independently (split-gate 1.
 |---|---|
 | self, e⊙e (+1.29) | k=256: +0.097 · k=1024: +0.056 · k=4096: +0.030 |
 | cross, e⊙a (+0.84) | current-side k_t=256: **+0.043** · source-side k_s=256: **+0.055** · both: +0.206 (superadditive) · 4096²: +0.085 |
-| pair, a⊙a (+0.19) | untested (small block) |
+| pair, a⊙a (+0.19) | k=64: +0.073 · k=256: +0.058 · k=1024: +0.026 |
 
 **Synthesis for layer 0 of the 546M model:** every *interaction* is class-tolerant —
-QK selection at ~256 hard classes (−0.039 CE-trained), the bilinear MLP's self and cross
-blocks at ~256–1024 classes per input side — while the single class-INTOLERANT object is
+QK selection at ~256 hard classes (−0.039 CE-trained), the bilinear MLP's self, cross,
+and pair blocks each at ~256–1024 classes per input side (pair@256 = +0.058, sitting
+with the cross sides despite carrying attention-out on both operands) — while the single class-INTOLERANT object is
 the direct value/residual transport (+1.38 at vq256), which instead sparse-codes
 (−0.019 CE-trained, 512 atoms × 16 coefficients). And the sharp contrast: classing source
 content inside the cross term costs +0.055 where classing it globally costs +1.38 —

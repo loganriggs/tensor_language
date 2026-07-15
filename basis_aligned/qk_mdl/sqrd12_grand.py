@@ -139,7 +139,7 @@ opt = torch.optim.Adam(params, lr=1e-3)
 sched = torch.optim.lr_scheduler.CosineAnnealingLR(opt, T_max=4500)
 g = torch.Generator(); g.manual_seed(0)
 for step in range(4500):
-    b = TRAIN[torch.randint(0, len(TRAIN), (8,), generator=g)]
+    b = TRAIN[torch.randint(0, len(TRAIN), (4,), generator=g)]
     logits = forward(b[:, :-1]).float()
     loss = F.cross_entropy(logits.reshape(-1, logits.shape[-1]), b[:, 1:].reshape(-1))
     opt.zero_grad(); loss.backward()
