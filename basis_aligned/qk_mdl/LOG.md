@@ -326,3 +326,47 @@ Next (tick 6): full conjunction test on the rp model, heads L1H0+L1H3: per-branc
 path-folded identity structure through each L0 head (chance-calibrated), positional/band
 diagnostics, and score-REPLACEMENT branch interventions; reconcile the P(copy) metric
 with tier15_induction's convention first.
+
+---
+
+## 2026-07-15 — tick 6 (Tier 1.2 re-anchored: conjunction test on the genuine induction model — PARTIAL PASS with a sharper structure than pre-registered)
+
+Gate: PASS. Guard: base P(copy) 0.7467 ≈ documented 0.7483 ✓; copy heads L1H0/L1H3
+confirmed (match argmax 0.123/0.122); conventions reconciled with tier15_induction
+(uniform-random tokens tiled P=96, softmax-P(target) metric).
+
+**Causal results (`tier12b_conjunction.json`, `tier12b_combos.json`):**
+
+| intervention (positional-average = destroy token identity, keep Δ-profile) | ΔP(copy) |
+|---|---|
+| one branch of one head (any of the 4) | −0.026 … +0.001 |
+| BOTH branches of one head (full token-lobotomy of one copy head) | +0.004 / +0.011 |
+| the two **L0H1-key-fed** branches (H0.b1 + H3.b2) jointly | **−0.487** |
+| the two diffuse branches (H0.b2 + H3.b1) jointly | −0.138 |
+| all four | −0.517 |
+
+Key-path ablations: H0.b1's and H3.b2's key inputs depend on **L0H1 alone** (−0.51/−0.49;
+other L0 heads ≈ 0), while H0.b2/H3.b1 are diffuse (L0H0/L0H1/L0H3 all matter). The two
+copy heads use OPPOSITE branches for the identity conjunct.
+
+**VERDICT vs pre-registered criteria: PARTIAL PASS (structure sharper than hypothesized).**
+- Conjunction structure EXISTS and is branch-specific: per copy head, exactly ONE branch
+  carries the token-identity conjunct (key side through the prev-token head L0H1); the
+  other branch is comparatively positional/diffuse. ✓ (spec's core claim)
+- The pre-registered single-head collapse criterion FAILS — but for the documented reason
+  (redundant copy pair): identity destruction must hit BOTH heads' identity branches to
+  collapse the circuit (−0.487), and does. Circuit-level conjunction: ✓.
+- Weight-space identity codebook: PARTIAL — the only strong generic-weights identity
+  signal is (H3, b2, via L0H0) at 380× chance (z +2.05); (H0, b1, via L0H1) is weak
+  (4× chance). Same generic-vs-data-conditioned gap mechdecomp Tier 1.5 documented:
+  causal identity routing (via L0H1) is a data-conditioned minority direction in weight
+  space. Data-conditioned structure metrics are the fix (future tick).
+
+Tick-5 design lesson applied: all branch interventions are REPLACEMENTS (per-Δ means),
+never zeros. QUESTION FOR LOGAN from tick 5 (attn2-seed0 whereabouts / formal
+re-anchoring) still open; results above stand on the re-anchored model regardless.
+
+Next: either (a) data-conditioned weight-space identity metric (condition G on induction
+positions — predicted to move the L0H1 signal into both identity branches), or (b) return
+to spec order: Tier 1.3 positional heads + tiny-model MDL table completion (joint-svd),
+or (c) Tier 3 path-folded MDL. Cron default: (b) then (a).

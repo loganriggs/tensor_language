@@ -1947,3 +1947,12 @@ real-model feature discovery = open problem (needs robust solver + objective ref
      token) — machinery validated, null is checkpoint-specific. Design lesson: branch-zeroing is not
      branch-specific in product attention (s1·s2) — interventions must replace, not zero. Conjunction
      test re-anchored to the rp model for tick 6.
+
+## 2026-07-15 — qk_mdl tick 6 (conjunction test, re-anchored: PARTIAL PASS, sharper than hypothesized)
+213. Genuine-induction model, guard ✓ (P(copy) 0.7467 ≈ 0.7483). The conjunction is REAL and
+     branch-specific but CROSS-HEAD REDUNDANT: each copy head carries token identity in exactly one
+     branch (key-fed by L0H1 alone: H0.b1, H3.b2 — opposite branches!); destroying identity in one
+     head costs ~0 (twin covers), destroying it in both identity branches collapses copying
+     (−0.487/−0.517 total; diffuse branches only −0.138). Pre-registered single-head criterion fails
+     for the documented redundancy reason; circuit-level conjunction confirmed. Weight-space identity
+     signal partial (H3.b2 via L0H0 at 380× chance) — the known generic-vs-data-conditioned gap.
