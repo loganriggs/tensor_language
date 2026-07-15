@@ -68,3 +68,24 @@ layer 0 compress to better-than-original: QK at −0.039 (vq256 CE-trained), OV 
 
 Next: the V×V cross-block codebook as its own object (token t × transported token s →
 hidden), per Logan's suggestion — now justified by the +0.84 block importance.
+
+## The complete MLP-0 decomposition (cross-block + self-block codebooks)
+
+Both input sides of every interaction block classed independently (split-gate 1.2e-7;
+`cross_block_codebook.json`, `self_block_codebook.json`):
+
+| block (importance) | class tolerance |
+|---|---|
+| self, e⊙e (+1.29) | k=256: +0.097 · k=1024: +0.056 · k=4096: +0.030 |
+| cross, e⊙a (+0.84) | current-side k_t=256: **+0.043** · source-side k_s=256: **+0.055** · both: +0.206 (superadditive) · 4096²: +0.085 |
+| pair, a⊙a (+0.19) | untested (small block) |
+
+**Synthesis for layer 0 of the 546M model:** every *interaction* is class-tolerant —
+QK selection at ~256 hard classes (−0.039 CE-trained), the bilinear MLP's self and cross
+blocks at ~256–1024 classes per input side — while the single class-INTOLERANT object is
+the direct value/residual transport (+1.38 at vq256), which instead sparse-codes
+(−0.019 CE-trained, 512 atoms × 16 coefficients). And the sharp contrast: classing source
+content inside the cross term costs +0.055 where classing it globally costs +1.38 —
+content precision matters through the residual transport path, not through the MLP
+interaction. Computations that COMPARE or COMBINE tokens need only their classes;
+the computation that CARRIES a token forward needs its fine identity.

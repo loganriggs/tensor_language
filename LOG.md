@@ -2015,3 +2015,9 @@ real-model feature discovery = open problem (needs robust solver + objective ref
      unbounded even at k=4096 — purest weight/behavior gap yet). H3's binary class = "BPE word-fragment
      needing continuation vs not" — the top layer-0 head is marginally a morphological continuation
      detector. "This head sees N kinds of token" now measured for every head.
+
+## 2026-07-16 — qk_mdl tick 16 (MLP-0 decomposition complete)
+223. Cross-block sides independently class-tolerant (256 classes: +0.043/+0.055, superadditive both
+     +0.206); self block +0.097@256. Layer-0 synthesis: interactions (QK, MLP self/cross) tolerate
+     ~256 classes; only value/residual TRANSPORT is class-intolerant (+1.38) and needs sparse coding.
+     Comparisons need classes; carriage needs identity.

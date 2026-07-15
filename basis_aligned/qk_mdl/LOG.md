@@ -624,3 +624,22 @@ pattern display (multi-token word completion).
 
 Queue unchanged: cross-block V×V codebook, cross-associations on real model, first-order
 path codebooks.
+
+---
+
+## 2026-07-16 — tick 16 (cross-block + self-block codebooks: MLP-0 decomposition complete)
+
+Gate: PASS (split-path exact-exact 1.19e-7). `cross_block_codebook.py/json`,
+`self_block_codebook.py/json`; results/07 updated.
+
+**FINDING XB-1:** the cross term's two input sides are independently class-tolerant
+(k_t=256 → +0.043; k_s=256 → +0.055) with superadditive compounding (both → +0.206);
+self block slightly finer (256 → +0.097, 4096 → +0.030). **FINDING XB-2 (the layer-0
+synthesis):** every INTERACTION (QK selection, MLP self/cross blocks) is class-tolerant
+at ~256–1024 classes; the only class-intolerant object is the direct value/residual
+TRANSPORT (+1.38), which sparse-codes instead. Classing source content inside the cross
+term: +0.055; classing it globally: +1.38 — content precision is consumed by transport,
+not by interaction. Slogan: comparisons need classes; carriage needs identity.
+
+Queue: cross-associations (separate q/k partitions, MDL-native) on the real model;
+first-order path codebooks (Tier 3); per-block CE-training of the MLP-0 codebooks.
