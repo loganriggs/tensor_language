@@ -163,3 +163,13 @@ branch: materialize folded band matrices {C_f, S_f} (V=5120 fine), ε calibratio
 MDL table. The tick-0 QUESTION (distortion metric under no-softmax) becomes load-bearing
 here; provisional metric will be used AND labeled provisional in every table until Logan
 answers.
+
+---
+
+## 2026-07-15 — QUESTION RESOLVED (Logan): distortion metric for real heads
+
+Logan: "MSE and CE delta seem good for now. Would highlight the CE delta one."
+Frozen in `mdl_accounting.py`: **ΔCE = headline + binding audit** (tables gated and ranked
+by it); relative pattern MSE = search-loop metric + secondary column; ε_pattern calibrated
+so the SVD baseline's ΔCE is comfortably small, then frozen. Tier 1.1 (next tick) proceeds
+with the metric no longer provisional.

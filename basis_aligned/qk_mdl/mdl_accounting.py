@@ -14,10 +14,15 @@ matrix fit): relative squared Frobenius error
   D(Mhat) = ||Mhat - M||_F^2 / ||M||_F^2
 No centering is applied (tick 0: the no-softmax models have NO per-query gauge).
 
-DISTORTION (model level, for real heads; PROVISIONAL pending Logan's answer to
-the tick-0 QUESTION — flagged, not silent): primary = relative pattern MSE over
-a fixed eval token batch, E||Phat - P||^2 / E||P||^2; secondary = downstream
-delta-CE with the compressed head patched in.
+DISTORTION (model level, for real heads; RESOLVED by Logan 2026-07-15: "MSE and
+CE delta seem good for now. Would highlight the CE delta one"):
+  - HEADLINE / binding audit: downstream delta-CE with the compressed head
+    patched in. Tables are gated and ranked by delta-CE.
+  - search-loop / secondary: relative pattern MSE over a fixed eval token
+    batch, E||Phat - P||^2 / E||P||^2 (cheap enough for inner k/r searches).
+  - epsilon_pattern for the search loop is CALIBRATED against delta-CE: chosen
+    so the SVD baseline at that epsilon has comfortably small delta-CE, then
+    frozen; every reported row carries both numbers.
 
 EPSILON: battery runs at eps = 1.5 * (plant noise floor). For real heads, eps is
 calibrated in Tier 1 so that full-rank-minus-one SVD is comfortably inside
