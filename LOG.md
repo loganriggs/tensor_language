@@ -1930,3 +1930,11 @@ real-model feature discovery = open problem (needs robust solver + objective ref
 210. sqrd12 (162M, one-branch normalized): ~15× less compressible at matched DL ratio (+0.116 @ vq256);
      no free head ablations. Contrast logged with candidate explanations open. TIER2_RESULTS.md is the
      deliverable; all gates passing.
+
+## 2026-07-15 — qk_mdl tick 4 (Tier 1.1: tiny-model layer-0 table)
+211. Reference forward bit-exact (0.0 logit diff); baseline 4.634 ≈ recorded. FINDING T1-1: tiny model
+     is the structural opposite of the 546M — rank-compressible (svd16 free everywhere, svd1 near-free
+     on 5/8 head-branches) but NOT token-clusterable (vq1 +0.24–2.19; joint vq256 +2.73 vs bilin18's
+     +0.008). All-zero layer-0 QK +16.7. Depth story: 2-layer models need fine token identity in L0;
+     18-layer models route coarse token types. Non-monotone joint-vq flagged (kmeans seed variance).
+     Next: pre-registered L1H2 conjunction test (Tier 1.2).

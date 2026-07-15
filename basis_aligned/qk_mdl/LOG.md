@@ -262,3 +262,29 @@ disentangled — logged as open.
 
 Deliverables: TIER2_RESULTS.md + fig_tier2_frontier.png + tier2_audit_{bilin18,sqrd12}.json
 + tier2_joint_bilin18.json. All gates passing at time of report.
+
+---
+
+## 2026-07-15 — tick 4 (Tier 1.1: tiny-model layer-0 MDL table; reference gate exact)
+
+Gate re-run: PASS. New mini-gate: tiny-model reference forward (with score patching)
+reproduces the model bit-exactly (max logit diff 0.0e+00, fp64) and baseline CE 4.634 ≈
+recorded 4.637. Full grid ΔCE-audited (`tier1_mdl_attn2-mix10-seed0.json`).
+
+**FINDING T1-1: the tiny model is the STRUCTURAL OPPOSITE of the 546M model.** Layer-0
+heads are rank-compressible (svd16 = half rank ≈ free on all 8 head-branches at
+|ΔCE| ≤ 0.009; svd4–8 suffices for half of them; even svd1 costs only +0.02–0.18 on 5/8)
+but NOT token-clusterable: vq1 costs +0.24–2.19 per head-branch and the joint token-class
+frontier is terrible (all-vq256 +2.73 vs bilin18's +0.008; all-vq1024 still +0.25).
+All-zero layer-0 QK: +16.7 (layer 0 is half the model). Interpretation: a 2-layer model
+must carry fine-grained token identity through layer-0 QK; an 18-layer model's layer-0 is
+a coarse token-type router. Scale/depth story for the taxonomy table.
+
+Caveats: joint-vq curve non-monotone (vq16 +1.39 < vq64 +1.57 < vq256 +2.73) — k-means
+seed variance suspected (single seed, L2-fit); flag, do not interpret the bumps. Joint
+svd frontier not yet audited (next tick alongside L1H2).
+
+**Next (tick 5): Tier 1.2 — the pre-registered L1H2 conjunction test** (path-folded key
+side through L0 OV per §1.3/§3), success criteria as written in the spec; the reference
+forward + patching machinery from this tick is the substrate. Also joint-svd frontier +
+frequency profiles for the positional-head sweep (1.3).
