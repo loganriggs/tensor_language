@@ -600,3 +600,27 @@ partition on [q̂|k̂] per head → k×k effective core); cross-associations wit
 q/k partitions + MDL-native k selection remains the spec-codebook-2 upgrade, unrun on
 the real model. Adopted framing: minimal k at fixed ε = the head's SUFFICIENT PARTITION /
 effective alphabet — queued as a per-head measurement.
+
+---
+
+## 2026-07-16 — tick 15 (effective alphabets: the sufficient-partition measurement)
+
+Gate: PASS. `effective_alphabet.py` / `effective_alphabet.json`.
+
+**FINDING EA-1 (marginal alphabets, ε=0.01, bilin18 layer-0):** 7 of 9 heads have
+behavioral alphabet **1** (token-independent factors suffice marginally — the redundancy
+again); **H3 = 2**; H6 = 4. The weight-side alphabet is unbounded (k=4096 cannot reach
+25% mean factor error) — geometrically unclusterable, behaviorally near-trivial: the
+weight/behavior gap in its purest form. Caveat front and center: these are MARGINAL
+(single-head-patched) alphabets; joint alphabets are ~16–256 per head-branch (tick 9's
+joint audits; ≤16 with CE-trained centroids since joint vq16 CE-trained = −0.019).
+
+**FINDING EA-2 (interpretable): H3's binary distinction ≈ "am I mid-word?"** — class 0
+(7,867 tokens) is almost exactly the BPE word-fragment prefixes requiring continuation
+(priv/conqu/ufact/Inqu/exting/depl/cogn/Acqu/disemb...), class 1 the complete
+words/suffixes/rest. The most causally-important layer-0 head is, marginally, a
+morphological continuation detector — matching its near-diagonal local attention in the
+pattern display (multi-token word completion).
+
+Queue unchanged: cross-block V×V codebook, cross-associations on real model, first-order
+path codebooks.

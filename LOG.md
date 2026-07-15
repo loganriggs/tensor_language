@@ -2009,3 +2009,9 @@ real-model feature discovery = open problem (needs robust solver + objective ref
      tier-1 FAILS (generic scores ~100% wrong), absolute-ε tier-1 partially stands (±0.55 max sampled,
      ±0.04 mean, vs selective peaks ~1–2) — the metric decides the epistemic tier too. Effective-alphabet
      measurement queued.
+
+## 2026-07-16 — qk_mdl tick 15 (effective alphabets)
+222. Marginal behavioral alphabets: 7/9 heads = 1, H3 = 2, H6 = 4 (joint stays ~16-256; weight-side
+     unbounded even at k=4096 — purest weight/behavior gap yet). H3's binary class = "BPE word-fragment
+     needing continuation vs not" — the top layer-0 head is marginally a morphological continuation
+     detector. "This head sees N kinds of token" now measured for every head.
