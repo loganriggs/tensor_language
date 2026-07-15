@@ -1919,3 +1919,14 @@ real-model feature discovery = open problem (needs robust solver + objective ref
      PASS 4/4, conjunction wins its plant 33× over SVD, loses to plain bicluster by exactly the
      constant-gate overhead. Gaps logged: k=32 vs planted 8 (7× true DL); positive-gate identifiability
      limit documented (real pipeline has branches, never blind). Next: Tier 1.1 real layer-0 MDL table.
+
+## 2026-07-15 — qk_mdl Tier 2 (Logan's directed push, ~4h of 10h budget): Elriggs models done
+208. CE gate: sqrd12 3.37✓; bilin18 3.23 @T=512 but 5.50 @T=1024 — context degradation past ~512 found
+     and characterized (unnormalized score-product row mass grows with key count); audits frozen @T=512.
+209. bilin18 (546M, two-branch): layer-0 QK = 884 MiB of folded factors; joint vq256 (256 token-classes
+     per head-branch) = ΔCE +0.0084 at 165× compression. Marginals don't compose (7 individually-free
+     heads cost +0.53 jointly). Pattern-MSE useless (vq16 at MSE 0.95 ≈ free; H3 vq16 IMPROVES CE).
+     Classes are readable token types (digits/punct/morphology/nouns/determiners).
+210. sqrd12 (162M, one-branch normalized): ~15× less compressible at matched DL ratio (+0.116 @ vq256);
+     no free head ablations. Contrast logged with candidate explanations open. TIER2_RESULTS.md is the
+     deliverable; all gates passing.

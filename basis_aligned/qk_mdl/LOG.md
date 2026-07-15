@@ -248,3 +248,17 @@ see part 1); vq classes fit on factors under L2 (not behaviorally optimized — 
 basis_aligned e7 lesson says CE-trained codebooks would do better still); ε levels
 reported as curve points {0.001,0.01,0.05}-ish rather than one number. sqrd12 run in
 progress.
+
+---
+
+## 2026-07-15 — Tier 2 part 3: sqrd12 + synthesis (TIER2_RESULTS.md)
+
+sqrd12 audited (baseline 3.372 @T=512): joint vq256 ΔCE +0.116 at 6.1e-3 DL — ~15× less
+behaviorally compressible than bilin18 at matched ratio. No free head-zeros (H3 +0.356
+ablated, but svd16 ≈ free — low-rank AND load-bearing). Contrast finding: two-branch
+unnormalized 546M ≫ one-branch normalized 162M in layer-0 QK compressibility; candidate
+explanations (head count/redundancy, row-normalization sensitivity, capacity) NOT
+disentangled — logged as open.
+
+Deliverables: TIER2_RESULTS.md + fig_tier2_frontier.png + tier2_audit_{bilin18,sqrd12}.json
++ tier2_joint_bilin18.json. All gates passing at time of report.
