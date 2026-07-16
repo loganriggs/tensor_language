@@ -916,3 +916,24 @@ Sequencing: paused menu_kl to run `l5_pair.py` first (15-min audit, informs ever
 arm A = L5 tabled except H5+H7 (marginal), arm B = the trained menu with H5+H7 reverted
 to live (does the wall crack?), B0 sanity re-audit of the trained menu. menu_kl
 re-chained behind it.
+
+---
+
+## 2026-07-17 — tick 30c (pair audit: hot-swap fails; menu2 retrain launched)
+
+**FINDING L5-2 (arm A):** L5 tabled except H5+H7 live = **+0.023** (vs +0.251 fully
+tabled) — the two heads carry ~91% of the layer's (and the model's) contextual
+selection cost. **FINDING L5-3 (arm B, consistency effect #5):** splicing live H5+H7
+into the TRAINED menu is WORSE than the wall (+1.011 vs +0.757; sanity re-audit
++0.762 ✓) — the trained tables co-adapted around a fully tabled L5; components of a
+jointly-trained compressed stack are not hot-swappable. `l5_pair.py/json`.
+
+Decision (pre-registered logic: cheap-decisive-first): menu_kl paused again; launched
+`menu2_trained.py` = stage B with L5 H5+H7 LIVE from step 0 (all else identical,
+15.2M trainable). If the wall is mostly those two heads' missing context, menu2 lands
+FAR below +0.757 and the flagship claim becomes "every attention selection is a
+token-class lookup EXCEPT TWO HEADS". menu_kl re-queues after, against whichever wall
+survives.
+
+Queue: harvest menu2 → tick 31 (+ results/10 stage-B/L5 sections); menu_kl vs final
+wall; attn2-seed0 (blocked).
