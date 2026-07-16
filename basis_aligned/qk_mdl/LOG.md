@@ -1021,3 +1021,34 @@ Chain: iter (5 layers left) → zeros_control + menu2_kl.
 Queue: harvest iter final + zeros → tick 37 = full wall write-up in results/10
 (one table: sum-of-parts / one-shot / re-estimated / trained-static / trained-menu2,
 plus curve figure); menu2_kl; attn2-seed0 (blocked).
+
+---
+
+## 2026-07-17 — tick 37 (LOGAN REDIRECT: methods A–E for the composition blowup)
+
+Logan's message maps the deep-layer input space as {embedding, attn-out_l, mlp-out_l}
+streams and proposes: A conditional interaction clustering (condition on current token
+→ co-occurrence collapses the joint space); B interaction-norm screening; C empirical
+interaction-depth window (layer N barely affects N+2 directly → shifting window);
+D sparse-code propagation from early layers (partially built: first_order_path on rp);
+E MDL relative to the UNEMBEDDING, backwards (different optimum than embedding-relative).
+
+Execution order chosen (cheap+informative first, each is a queue item):
+  B stream_interactions.py — WRITTEN + CHAINED (exact stream decomposition of every
+    layer's branch scores over stream pairs, 2 gates, energy map + window summary);
+  C window interventions guided by B's map;
+  D first-order propagated-code QK inputs on bilin18 (live patterns × classed content
+    feeding later layers' QK — the mechanistic wall-fix candidate);
+  E gradient/Fisher-weighted vq as drop-in for menu2 clustering (training run);
+  A conditional tables (t_i, context-class) where B/C say conditioning suffices.
+menu2_kl DEFERRED (chain canceled) — adaptation-share control postponed in favor of
+the redirect; iter_reestimate + zeros_control still finishing (wall write-up pending).
+
+Framing correction to log: the blowup is NOT "too many inputs to enumerate at L1+" —
+per-layer cond-mean tables are near-free almost everywhere (DS-1/2). It's composition:
+per-layer tables fail JOINTLY (+1.44), joint training walls at +0.53 (menu2), and
+iter re-estimation (no training) proves the wall is genuine contextual information +
+co-adaptation, NOT stale estimators (IR-1, final numbers next tick).
+
+Queue: harvest iter final + zeros → wall write-up; B map → C design; D prototype
+(L1-2 first); E weighted-vq menu3; attn2-seed0 (blocked).
