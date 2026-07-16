@@ -1325,3 +1325,22 @@ the non-induction contrast).
 
 Queue: harvest causal → WW write-up (results/12); then H7 mechanism, window-content
 naming (what do the recent-stream reads compute?); blocked-on-Logan items unchanged.
+
+---
+
+## 2026-07-17 — tick 45b (WW-2: causal test FLIPS it — H7 is the repeat-copier)
+
+**FINDING WW-2:** repeated-sequence (A+A) causal test: zeroing H7 = **+6.68** on
+2nd-half CE (+1.04 natural — L5's true heavy lifter); zeroing H5 = only +0.13 (+0.03
+natural) despite its 16.8× correlational induction signature. The correlational/causal
+dissociation strikes again (cf. the conjunction test's generic-vs-conditioned gap):
+H5 *attends* induction-like on natural text but carries little; H7's natural-text
+pattern looks local, yet it is THE causal mechanism for repeat copying — its pattern
+must reorganize in repeat contexts (patterns are context-dependent; that is precisely
+why these two heads resist tabling). Also noted: baseline repeat-2nd-half CE is 5.48
+vs 3.23 natural — bilin18 is weak at literal copying overall. l5_h5_causal.py/json.
+
+Running: signature probe re-run ON repeat data (l5_heads_function_rep.py) — do H7's
+match statistics appear once the context demands them?
+
+Queue: harvest → results/12 (within-window arc); H7 mechanism deep-dive; Logan items.
