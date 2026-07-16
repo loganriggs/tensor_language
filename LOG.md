@@ -2087,3 +2087,30 @@ Question: does 0th-order-in-context selection hold at ALL depths?
 Queue: harvest depth sweep → tick 22; if selection is ~0th-order everywhere, the
 all-layers-jointly-tabled model becomes the next flagship (every QK map in the 18-layer
 model as vocab tables); KL variant of L1-3 (optional); attn2-seed0 (blocked on Logan).
+
+## 2026-07-17 — qk_mdl ticks 21–34 (for Logan): the static-selection wall and its two heads
+
+Arc: after L1 tables came out ~free (+0.014), we swept ALL layers, composed the best
+per-layer menu, and tried to make the whole model's attention selection token-static.
+
+1. **Depth sweep (results/10 + fig):** per layer, cond-mean tables vs zero-control.
+   Three regimes: bottom layers load-bearing AND ~token-deterministic (L1 +0.014 vs zero
+   +2.82); L5 the ONLY genuinely contextual layer (+0.25 gap); several upper layers where
+   tables are worse than deleting the layer, and L14 where deleting IMPROVES CE by 0.035.
+2. **Composition (AM-1):** applying all the per-layer winners at once = +1.44 vs +0.146
+   sum of parts. Distribution shift: each layer's tables were estimated under the live
+   lower stack.
+3. **The wall (MS-1):** joint CE training of all 15.3M table floats repairs +2.43 → +0.757
+   and PLATEAUS. The layer-0 parity result does NOT lift to the stack.
+4. **Two heads (L5-1/2/3):** L5's contextual cost is 91% two heads, H5+H7 (all others
+   table for ≤ +0.009 — so ~2 of 162 head-instances in the model genuinely need context
+   for selection). But hot-swapping them live into the trained menu makes things WORSE
+   (+1.01): jointly-trained compressed stacks co-adapt; components aren't swappable.
+5. **Running now:** menu2 = retrain with those two heads live from step 0 (@3000: +0.566,
+   vs static +0.789 at same step). Then iter_reestimate (no-training bottom-up
+   re-estimation — decides distribution-shift vs capacity for the residual wall), then
+   the KL imitation control (adaptation share).
+
+Program theme now six-for-six: marginals never compose on this model family — heads,
+blocks, sides, components, layers, and now live/tabled mixtures. Everything decisive
+we've found came from composed audits, not marginal ones.
