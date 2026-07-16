@@ -2174,3 +2174,25 @@ Blocked on you: (1) MDL estimation-data term convention for data-estimated table
 (2) attn2-seed0 location; (3) next direction — candidates: register-swap causal test,
 softmax-transformer transfer of windowed-D, backward-MDL (your E), H5-denoising
 follow-up (the model under-cashes its own induction signal — why?).
+
+---
+
+## 2026-07-18 — tick 56 (LOGAN'S CALLS RECEIVED; method-E arc opened; cron restored)
+
+Logan's three answers: (1) MDL estimation-data term — "I really don't know" →
+CONVENTION SET (logged, not silent): structural bits (32-bit convention, tables +
+indices) and estimation-token counts are reported SIDE BY SIDE, never converted into
+each other; every table-based result carries both lines. (2) attn2-seed0 — SKIP
+(item closed). (3) Next arc: NO softmax transfer; run METHOD E (backward /
+unembedding-relative MDL).
+
+E arc, experiment 1 launched (`e1_backward_vq.py`): backward metric = diagonal Fisher
+E[(dLoss/d stream)^2] per stream dimension, estimated by backprop through the live
+model (48 batches); k-means assignments computed in Fisher-whitened space (centroid
+rule unchanged), audited in the composed windowed-D W=4 harness where forward-L2 vq
+has real cost. Arms: k ∈ {64, 256} × {l2, fisher}. Decisive comparison for Logan's
+conjecture that the backward optimum differs from the forward one.
+
+Cron restored to 30-min :17/:47 (job b973fcc6; hourly rest job deleted).
+Queue after E1: E2 candidates (unembedding-relative decomposition of the D̃ readers;
+Fisher-weighted rank truncation for mlp16 gains); results/14 for the E arc.
