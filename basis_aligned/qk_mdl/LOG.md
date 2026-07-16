@@ -1662,3 +1662,16 @@ instantiation (behavioral Lloyd — the only version that optimizes the discrete
 structure against the binding metric directly), or accept the null and close E?
 
 Program back to REST STATE pending Logan; unblocked queue empty.
+
+---
+
+## 2026-07-18 — tick 60 (LOGAN: pilot approved; behavioral Lloyd running; cron restored)
+
+Logan approved the behavioral-Lloyd pilot. Launched `e3_behavioral_lloyd.py`:
+bottom 12 streams, k=64, W=4 harness; start = best-of-3-seeds L2 partition (+0.1034);
+4 iterations of {gradient pass through the PATCHED model (64k tokens; leaf =
+creation-time gathered rows so all read layers + lambda chain aggregate), first-order
+move scoring g_t·(C[c']−C[a_t]), damped moves (top 10%/stream, predicted-improving,
+min-count 8), centroid recompute, held-out audit}; final cross-region audit.
+Success bar: beat +0.103 by more than the ±0.03 seed floor. Approximations logged in
+the docstring. Cron restored to 30-min (a0ca92b8).
