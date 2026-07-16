@@ -1,12 +1,50 @@
 {
   "baseline": 3.2341102361679077,
-  "iter0_l2_seed3": 0.10891187191009521,
+  "iter0_l2_seed3": 0.1420832872390747,
   "iters": [
     {
       "iter": 1,
-      "moves": 51299,
-      "pred_gain_sum": -13.600170139688998,
-      "heldout_dce": 0.14715123176574707
+      "moves": 12072,
+      "pred_gain_sum": -9.471434312697966,
+      "heldout_dce": 0.18858182430267334,
+      "status": "REVERTED (frac now 0.010)"
+    },
+    {
+      "iter": 2,
+      "moves": 6036,
+      "pred_gain_sum": -8.768235958588775,
+      "heldout_dce": 0.11661797761917114,
+      "status": "kept"
+    },
+    {
+      "iter": 3,
+      "moves": 6036,
+      "pred_gain_sum": -4.2927727381756995,
+      "heldout_dce": 0.1524195671081543,
+      "status": "REVERTED (frac now 0.005)"
+    },
+    {
+      "iter": 4,
+      "moves": 3012,
+      "pred_gain_sum": -3.5557776705245487,
+      "heldout_dce": 0.10278469324111938,
+      "status": "kept"
+    },
+    {
+      "iter": 5,
+      "moves": 3012,
+      "pred_gain_sum": -2.707424487110984,
+      "heldout_dce": 0.13080501556396484,
+      "status": "REVERTED (frac now 0.003)"
+    },
+    {
+      "iter": 6,
+      "moves": 1500,
+      "pred_gain_sum": -2.0023163739824668,
+      "heldout_dce": 0.18506062030792236,
+      "status": "REVERTED (frac now 0.001)"
     }
-  ]
+  ],
+  "best_heldout_dce": 0.10278469324111938,
+  "final_late_region_dce": 0.10611224174499512
 }

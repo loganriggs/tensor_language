@@ -1687,3 +1687,20 @@ first-order scores don't survive 51k coupled moves — the predicted failure mod
 observed. v2 (running): MOVE_FRAC 0.02, 6 iterations, best-state tracking with
 revert-and-halve trust region (Logan's own iterated-prune-revert protocol applied to
 assignments), rowgrad freed per iteration (OOM fix).
+
+---
+
+## 2026-07-18 — tick 61 (E-5: pilot verdict — repairs, doesn't transcend; E ARC CLOSED)
+
+**FINDING E-5:** behavioral Lloyd walked +0.142 → +0.103 (best held-out, iter 4;
+late-region +0.106) — the good end of the L2 distribution, never below it; gains
+decayed with half the steps reverting. Plus: identical-seed kmeans runs differ by
+0.03 (GPU-atomic index_add nondeterminism) — the partition floor is chaotic, not
+seed-stochastic. Full verdict in results/14 (updated): backward objective fails in
+proxy AND direct behavioral form on this object; activation geometry was right all
+along; behavioral refinement earns a place as a partition-repair tool only.
+e3_behavioral_lloyd.py/json, e3_assigns.pt.
+
+E ARC CLOSED. Queue: back to rest pending Logan (next-direction candidates:
+softmax was vetoed; remaining: deeper fast-structure naming at top MLPs; anything
+new Logan wants). Cron stays 30-min while conversation is active.

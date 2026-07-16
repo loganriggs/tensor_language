@@ -39,11 +39,31 @@ linear path to the logits — has nothing to add. A backward metric should matte
 where errors are consumed adversarially (few atoms, systematic bias), but k-means
 seed variance dominates precisely there.
 
-**Untested, strongest instantiation** (needs training budget — Logan's call):
-CE-refined assignments — behavioral Lloyd iterations where rows move between clusters
-based on measured ΔCE, not any proxy metric. This optimizes the discrete structure
-directly against the binding metric and is the only version that can see through the
-nonlinear downstream paths.
+## The behavioral-Lloyd pilot (E-5): repairs, doesn't transcend
+
+Logan approved the strongest instantiation: gradient-scored assignment refinement
+against the binding metric itself (bottom 12 streams, k=64, first-order move scores
+from backprop through the PATCHED model, 2%-damped moves, revert-and-halve trust
+region, held-out audits). Result:
+
+- Walked its starting partition from +0.142 to **+0.103** (late-region +0.106 — no
+  overfit), i.e. exactly to the GOOD END of the L2 seed distribution (+0.103…+0.167)
+  — and no further. Predicted gains decayed (−9.5 → −2.0) with half the steps
+  reverting: the gradient signal converges INTO the L2-good basin, not past it.
+- Mass moves (10% of rows) reliably backfire (+0.109 → +0.147): the first-order
+  linearization only survives small steps — the trust-region protocol is mandatory.
+- Discovery en route: the "seed floor" is not seeds — identical-seed runs differ
+  (+0.109 vs +0.142) because GPU-atomic index_add makes k-means itself
+  non-deterministic. Partition variance is chaotic, not just stochastic.
+
+**E-arc verdict, final:** the backward objective — in proxy form (Fisher, direct-U)
+AND in direct behavioral form — cannot beat the best activation-space partition.
+Behavioral refinement is useful as a REPAIR mechanism (turns an unlucky partition
+into a best-tier one without seed lottery), not as a better optimum. The stream
+tables' content is token identity plus noise the downstream stack filters; activation
+geometry was the right metric all along. Logan's conjecture is answered for THIS
+object; it may still hold for objects whose errors are consumed adversarially
+(none identified in this model so far).
 
 Bits accounting (convention set tick 56: structural bits and estimation tokens side by
 side, never mixed): every arm above = 34 tables × (k·1024 atom floats @32b + V·log₂k

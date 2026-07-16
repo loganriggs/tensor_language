@@ -2210,3 +2210,14 @@ Your call: the strongest instantiation is still untested — behavioral Lloyd
 (~hours per k). Say the word and it runs; otherwise E closes as a null and the
 program returns to rest. (MDL convention set per your "I don't know": structural
 bits + estimation tokens side by side, never mixed. attn2-seed0 closed as skipped.)
+
+## 2026-07-18 — qk_mdl tick 61 (for Logan): behavioral-Lloyd pilot verdict
+
+It repairs, it doesn't transcend: gradient-guided reassignment walked a mediocre
+partition (+0.142) to the best-tier level (+0.103, cross-region confirmed) and
+stopped — never below the best random L2 draw. Mass moves backfire (first-order
+scores need small steps + revert protocol); and we found the "seed floor" is actually
+chaotic GPU-atomic nondeterminism in k-means itself. E closes as: backward objectives
+(proxy and direct) can't beat activation geometry on these tables — their content is
+identity + noise the model filters. Useful residue: the refinement loop is a seed-
+lottery-free partition repair tool. Full story: results/14.
