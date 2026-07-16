@@ -1124,3 +1124,24 @@ live short-range computation.
 Queue: harvest d_composed → tick 39 (wall write-up + this arc, results/10-11);
 if W=2 works: MDL accounting for stream tables + vq/sparse compression of them (they
 are (V,D) fp32 objects — the actual bits); E weighted-vq; menu3; attn2-seed0 (blocked).
+
+---
+
+## 2026-07-17 — tick 39 (D-1: THE WALL IS CRACKED — windowed code propagation, no training)
+
+**FINDING D-1 (flagship-grade):** composed windowed-D across all 17 layers, ZERO
+training: W=0 control +2.27 (reproduces wall-scale ✓) · W=1 +0.86 · W=2 +0.43 ·
+**W=3 +0.225** — the untrained windowed architecture beats BOTH trained walls
+(static +0.757, menu2 +0.530). Selection's long-range context is token-static;
+only a 3-layer local window of live computation is needed. Error chains bounded at
+depth W decay ~2× per +1 of W. Logan's methods B→C→D executed in sequence produced
+in one day what score-space tabling + 15M trained params could not.
+
+Caveat for MDL: the stream tables are raw (V,D) objects (34 × 51M floats) — the bits
+live there. Running now (`d_composed2.py`): W=4/5/6 asymptote + vq256/vq1024
+compression of the stream tables at W=3/4 (tables also saved to stream_tables.pt).
+
+Queue: harvest → tick 40: full wall-arc write-up (results/11: SI-1, C-1, D-1, wall
+table incl. iter/zeros baselines, figures); then CE-polish of vq'd stream tables if
+needed; E weighted-vq now optional (D route dominates); menu3 obsolete unless vq
+tables disappoint; attn2-seed0 (blocked).
