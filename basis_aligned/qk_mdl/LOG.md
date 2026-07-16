@@ -870,3 +870,10 @@ gradient inflation; reshaped to per-token rows. Chain intact:
 stage B → l5_probe → menu_kl.
 
 Queue unchanged: harvest stage B → tick 29; l5_probe; menu_kl; attn2-seed0 (blocked).
+
+---
+
+## 2026-07-17 — tick 29 (heartbeat)
+
+Stage B at step 3900/4500; nothing completed since tick 28. Chain intact:
+stage B → l5_probe → menu_kl. Next tick harvests the flagship number.
