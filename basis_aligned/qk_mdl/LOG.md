@@ -1573,3 +1573,12 @@ No new Logan input; queue still blocked. Shipped fig_window_ladder.png (all W-la
 both models, trained walls as reference lines, log scale) into results/11, and a
 headline-numbers block into results/README. GPU idle by design (empty unblocked
 queue — rationale in tick 53).
+
+---
+
+## 2026-07-18 — tick 55 (gate-verified rest state)
+
+tier0_gate.py re-run on the resting commit: ALL PASS (pattern ~3e-15, gauge ~2e-15 —
+unchanged). Repo clean, all results committed. No Logan input; unblocked queue still
+empty. Convention going forward: silent no-op ticks will not add LOG entries or
+commits — the next entry will be a harvest, a Logan response, or a queue change.
