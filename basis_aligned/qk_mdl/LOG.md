@@ -1534,3 +1534,16 @@ structural claim (few live gains on fixed directions) stands. mlp16_register_swa
 Program remains at rest pending Logan (MDL estimation term; attn2-seed0; next
 direction). Next default if silence continues: softmax-transformer transfer of
 windowed-D (tests architecture-generality of the whole framework).
+
+---
+
+## 2026-07-18 — tick 52b (H5 under-cashing probe launched)
+
+Launched h5_undercash.py: hypothesis A (content noise — H5's v replaced by clean
+cond-mean identity content, live pattern) vs hypothesis B (amplitude starvation —
+H5's pattern scaled α ∈ {1.5, 2, 4}), plus the A+B combination; natural + repeat
+audits. Explains WHY low-rank filtering of the induction head's output IMPROVED
+repeat prediction (WW-6).
+
+Queue: harvest → results/12 addendum; softmax-transfer awaits Logan's scope OK
+(new model family); other Logan items unchanged.
