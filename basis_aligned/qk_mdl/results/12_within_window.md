@@ -53,6 +53,32 @@ content is a near-constant generic direction** (every source token decodes to '-
 means average away — which is precisely why H7 resists every 0th-order treatment.
 Deviation-PCA probe (context-conditioned) queued to name the payload.
 
+## The contextual core, causally closed (WW-5, WW-6)
+
+Deviation-PCA around token-conditional means: H7's deviations are ~5% of its output
+energy, 63% of it in ONE direction that lenses to the same connective/structure feature
+as its mean. Causal confirmation — replace each head's output by its projection onto
+(mean + top-k deviation PCs) with LIVE coefficients:
+
+| rank k (+mean) | H7 natural / repeat | H5 natural / repeat |
+|---|---|---|
+| 1 | **+0.0001** / +0.049 | +0.073 / −0.238 |
+| 2 | +0.003 / +0.016 | +0.035 / −0.327 |
+| 8 | −0.000 / +0.087 | +0.013 / −0.108 |
+
+**H7 is causally a rank-one gain head**: one fixed hub direction, one context-dependent
+scalar — its natural-text function is complete at rank 1, and even its +6.68 repeat role
+survives the rank-1 bottleneck at 99%. H5 is the opposite (high-rank identity content;
+rank-1 hurts) — with a curious bonus: low-rank filtering of H5's content IMPROVES repeat
+prediction (−0.33 at rank 2): the model under-cashes its own induction signal, and
+denoising the carried identity strengthens it. (H7's rank-4 repeat number is
+non-monotonic — small-sample PCs; treat the k=1 result as the finding.)
+
+**Arc conclusion:** everything irreducibly contextual in this 546M model's attention is
+(a) one content-match head whose payload is token identity, and (b) one scalar gain on
+one structure feature. All other selection and transport: token-static tables + a local
+window (file 11). The remaining live mystery is the top MLPs.
+
 Caveats: over-random ratios for the seven free heads are numerically meaningless
 (signed means near zero); use the conditional means in the json files. Repeat data is
 synthetic (uniform random tokens); H7's mechanism deserves an OV-side decomposition

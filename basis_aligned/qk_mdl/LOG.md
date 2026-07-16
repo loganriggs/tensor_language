@@ -1407,3 +1407,23 @@ If H7 rank-1 is ~free on natural AND repeat audits, the WW arc closes with: bili
 contextual core = one match head + one scalar gain + top MLPs.
 
 Queue: harvest rank test → results/12 final + arc close; Logan items unchanged.
+
+---
+
+## 2026-07-17 — tick 47 (WW-6: H7 causally rank-1; within-window arc CLOSED)
+
+**FINDING WW-6:** live-coefficient rank-k replacement: H7 rank-1(+mean) = **+0.0001
+natural** (repeat +0.049, vs +6.68 zero-ablation — 99% of function through a rank-1
+bottleneck). H5 rank-1 hurts natural (+0.073) as predicted; SURPRISE: low-rank H5
+content IMPROVES repeats (rank-2: −0.33) — the model under-cashes its own induction
+signal; denoising the carried identity strengthens it. (H7 rank-4 repeat +0.20
+non-monotonic — small-sample PCs; k=1 is the finding.) results/12 closed with the arc
+conclusion: bilin18's irreducibly contextual attention = one match head (H5, identity
+payload) + one scalar gain (H7, structure feature). h7_rank1.py/json.
+
+Arc status: windowed-D (results/11) + within-window (results/12) both complete.
+Queue: ALL remaining items blocked on Logan — (1) estimation-data MDL term convention;
+(2) attn2-seed0 location; (3) next-arc priority (top-MLP mechanism / E backward-MDL /
+softmax-transformer transfer / H5-denoising follow-up now added as a candidate).
+GPU idle pending Logan's direction — the natural next default if no answer arrives:
+top-MLP mechanism (the last unnamed contextual component).
