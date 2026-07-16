@@ -111,6 +111,8 @@ index bits ≈ 1.16 Gbit, vs 1.75 Gbit·32 for raw (V,1024) tables (49×) — an
 score-space route: 15.3M TRAINED floats bought only +0.757. Open accounting question
 (logged for Logan): the estimation-data term for data-estimated tables.
 
+![window ladders](fig_window_ladder.png)
+
 ## 8. Transfer: the compressibility ranking INVERTS (D-9, D-10)
 
 The same machinery on sqrd12 — the 162M squared-attention model that resisted

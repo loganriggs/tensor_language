@@ -20,4 +20,11 @@ the frozen conventions of `../mdl_accounting.py` (ΔCE = binding audit, per Loga
 12. [Inside the window: naming the contextual core (H5 = match, H7 = transport)](12_within_window.md)
 13. [The top MLPs: diffuse input, low-rank contextual output](13_top_mlp.md)
 
+**Headlines (ΔCE at T=512, untrained unless noted):** layer-0 grand codebook (trained)
+**−0.019** · full-stack score tables (trained) +0.757 = the wall · windowed code
+propagation: bilin18 qk+v+mlp(L1-12) W=6 **+0.059**, sqrd12 ALL reads W=6 **+0.030**
+(compressibility ranking inverts between decomposition families) · contextual core:
+H5 = induction match (noisy identity payload, WW-7), H7 = rank-1 structure gain,
+mlp16 = ~4-16 fast structural gains (TM-4).
+
 Chronological detail: `../LOG.md`. Spec: `../qk_mdl_spec.md`.

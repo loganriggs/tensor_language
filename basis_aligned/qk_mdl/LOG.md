@@ -1564,3 +1564,12 @@ items all need Logan: (1) MDL estimation-data term convention; (2) attn2-seed0
 location; (3) next direction (softmax-transformer transfer needs a scope OK — new
 model family; register/structural deep-dive; backward-MDL). Idling deliberately
 rather than launching unqueued speculation (spec §6: no silent scope drift).
+
+---
+
+## 2026-07-18 — tick 54 (docs tick: window-ladder figure + README headlines)
+
+No new Logan input; queue still blocked. Shipped fig_window_ladder.png (all W-ladders,
+both models, trained walls as reference lines, log scale) into results/11, and a
+headline-numbers block into results/README. GPU idle by design (empty unblocked
+queue — rationale in tick 53).
