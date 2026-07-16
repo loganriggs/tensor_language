@@ -1277,3 +1277,17 @@ theme. d_sqrd12.json, stream_tables_sqrd12.pt.
 Running: d_sqrd12b.py (qk+v, +mlp arms — full final-arch transfer).
 Queue: harvest → results/11 §8 transfer + memory update; attn2-seed0 (blocked);
 Q-LOGAN: estimation-data MDL term.
+
+---
+
+## 2026-07-17 — tick 43c (D-10: sqrd12's ENTIRE long-range flow is token-static; +0.030)
+
+**FINDING D-10:** sqrd12 full final-arch: qk+v W=6 +0.013 · +bottom-MLP identical ·
++ALL-MLP W=6 **+0.030** (bilin18 all-MLP was +0.325 — sqrd12's ReLU² MLPs barely
+consume long-range context). Combined with D-9: the compressibility ranking between
+the two models INVERTS with the decomposition family (score-space: sqrd12 15× harder;
+input-space windowing: sqrd12 ~2-10× easier). results/11 §8 written. Ladder arms
+(sqrd12 all-reads W=2/3/4) running as filler. d_sqrd12b.json.
+
+Queue: harvest ladder → memory update + final commit sweep; attn2-seed0 (blocked);
+Q-LOGAN: estimation-data MDL term.

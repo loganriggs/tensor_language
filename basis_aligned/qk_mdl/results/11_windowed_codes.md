@@ -111,6 +111,28 @@ index bits ≈ 1.16 Gbit, vs 1.75 Gbit·32 for raw (V,1024) tables (49×) — an
 score-space route: 15.3M TRAINED floats bought only +0.757. Open accounting question
 (logged for Logan): the estimation-data term for data-estimated tables.
 
+## 8. Transfer: the compressibility ranking INVERTS (D-9, D-10)
+
+The same machinery on sqrd12 — the 162M squared-attention model that resisted
+score-space compression ~15× (files 05, 09):
+
+| sqrd12, untrained | ΔCE |
+|---|---|
+| QK reads, W=6 / W=4 / W=2 / W=0 control | +0.011 / +0.040 / +0.204 / +1.480 |
+| qk+v, W=6 | +0.013 |
+| qk+v + ALL MLP reads, W=6 | **+0.030** |
+
+Not only does the architecture transfer — sqrd12 is EASIER under it than bilin18
+(W=4 QK: +0.040 vs +0.099), and even its MLP reads window nearly for free (+0.017
+where bilin18's cost +0.27): its ENTIRE long-range information flow is token-static
+at W=6 for +0.030. The model that score-space tables ranked "15× less compressible"
+is the more compressible one under input-space windowing. Compressibility is a
+property of the (model, decomposition-family) pair, not of the model — the strongest
+instance yet of the program's metric-decides theme, now at the level of whole
+decomposition families. (Plausible mechanism: row-normalized attention + ReLU² MLPs
+keep long-range context out of sqrd12's computation paths; bilin18's unnormalized
+bilinear forms pull context in at the top.)
+
 Caveats: single eval distribution (pile-10k, T=512); v/OV circuits and MLPs stay fully
 live in every arm here (this file is about selection only — content/carriage compression
 is files 07/09's topic and composes separately); 9% of audit tokens fall back to
