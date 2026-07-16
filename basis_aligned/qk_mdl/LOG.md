@@ -949,3 +949,10 @@ menu2 surprises high.
 
 Queue: harvest menu2 → tick 32 (flagship rewrite + results/10); menu2_kl (chained);
 attn2-seed0 (blocked).
+
+---
+
+## 2026-07-17 — tick 32 (heartbeat)
+
+menu2 at step 900/4500; nothing completed. Chain: menu2 → menu2_kl. Monitor armed on
+held-out checkpoints. Next harvest: @1500 checkpoint.
