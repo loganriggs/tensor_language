@@ -1203,3 +1203,23 @@ tests how much of it the continuous DOF can buy back.
 
 Queue: harvest polish → root LOG for Logan + results/11 final table; E weighted-vq
 (optional); attn2-seed0 (blocked). QUESTION FOR LOGAN pending: MDL estimation-data term.
+
+---
+
+## 2026-07-17 — tick 41b (D-5: polish buys NOTHING — structure was already right; all-reads launched)
+
+**FINDING D-5 (clean negative, closes the selection arc):** CE-polishing the flagship's
+bottom-stream vq atoms (14.2M trainable, held-out checkpoints flat: +0.0942 → +0.0939 →
++0.0934 → final +0.0929; late audit +0.096) buys back essentially nothing. Sharp
+contrast with score-space tables, which training improved 3× (+2.43 → +0.76). Reading:
+the windowed-input architecture puts the discrete structure where the model's actual
+computation lives, leaving nothing for continuous repair — the W-ladder (W=6 = +0.05)
+is the only remaining knob, and it's a clean tradeoff curve, not a training problem.
+d_polish.json.
+
+Launched d_allreads.py: window ALL residual reads (v/content and MLP inputs, not just
+QK) with the same tables — arms {v}, {qk,v}, {qk,v,mlp} × W∈{4,6}. If it composes, the
+model's entire long-range information flow is token-static.
+
+Queue: harvest all-reads → final arc write-up + root LOG for Logan + MDL bits table;
+attn2-seed0 (blocked); QUESTION FOR LOGAN: estimation-data MDL term.
