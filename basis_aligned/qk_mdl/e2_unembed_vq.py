@@ -1,4 +1,7 @@
-"""Method E, experiment 1 (Logan's pick): BACKWARD (unembedding-relative)
+"""Method E, experiment 2: UNEMBEDDING-RELATIVE metric — cluster stream-table
+rows by their logit-space image (M = JLproj @ U, quadratic form M^T M), the
+literal version of Logan's backward-MDL. Deterministic (no gradient sampling).
+Original E1 docstring: Method E, experiment 1 (Logan's pick): BACKWARD (unembedding-relative)
 metric for the stream-table quantization. Forward vq (current) clusters table
 rows by L2 in activation space; the backward metric weights each dimension by
 its downstream consumption — diagonal Fisher E[(dLoss/d stream)^2], estimated
@@ -18,7 +21,7 @@ from tier2_model import load_elriggs, rope_tables, apply_rot, build_eval_tokens
 torch.manual_seed(0)
 DEV = 'cuda'
 QK = '/workspace/tensor_language/basis_aligned/qk_mdl'
-OUT = f'{QK}/e1_backward_vq.json'
+OUT = f'{QK}/e2_unembed_vq.json'
 W = 4
 m, cfg = load_elriggs('bilin18')
 for p in m.parameters():
@@ -34,55 +37,13 @@ def created_layer(nm):
     return int(nm[4:]) if nm.startswith('attn') else int(nm[3:])
 
 
-# ---- pass 1: diagonal Fisher per stream (backprop through live model) ----
-fisher = {nm: torch.zeros(D, device=DEV) for nm in SNAMES}
-NB = 48
-for bi in range(NB):
-    idx = TRAIN[bi * 2:(bi + 1) * 2, :-1].to(DEV)
-    tgt = TRAIN[bi * 2:(bi + 1) * 2, 1:].to(DEV)
-    B, T = idx.shape
-    x = m.transformer.wte(idx)
-    x = F.rms_norm(x, (x.size(-1),))
-    x = x.detach().requires_grad_(True)   # frozen params: re-root the grad graph
-    x0, v1 = x, None
-    mask = torch.tril(torch.ones(T, T, device=DEV, dtype=torch.bool))
-    cos, sin = rope_tables(T, HD, DEV, x.dtype, 'bf16')
-    cosb, sinb = cos[None, :, None, :], sin[None, :, None, :]
-    grabbed = {}
-    for li, blk in enumerate(m.transformer.h):
-        x = blk.lambdas[0] * x + blk.lambdas[1] * x0
-        a = blk.attn
-        h = F.rms_norm(x, (x.size(-1),))
-        qn = lambda lin: apply_rot(F.rms_norm(lin(h).view(B, T, NH, HD), (HD,)), cosb, sinb)
-        q, k, q2, k2 = qn(a.c_q), qn(a.c_k), qn(a.c_q2), qn(a.c_k2)
-        v = a.c_v(h).view(B, T, NH, HD)
-        v1 = v if v1 is None else v1
-        v = (1 - a.lamb) * v + a.lamb * v1.view_as(v)
-        s1 = torch.einsum('bqhd,bkhd->bhqk', q, k) / HD
-        s2 = torch.einsum('bqhd,bkhd->bhqk', q2, k2) / HD
-        pat = (s1 * s2).masked_fill(~mask, 0.0)
-        attn_out = a.c_proj(torch.einsum('bhqk,bkhd->bqhd', pat, v).reshape(B, T, -1))
-        attn_out.retain_grad()
-        grabbed[f'attn{li}'] = attn_out
-        x = x + attn_out
-        rms2 = x.pow(2).mean(-1, keepdim=True).clamp_min(1e-12).rsqrt()
-        mlp_out = blk.mlp(x * rms2)
-        mlp_out.retain_grad()
-        grabbed[f'mlp{li}'] = mlp_out
-        x = x + mlp_out
-    xf = F.rms_norm(x, (x.size(-1),))
-    logits = 30 * torch.tanh(m.lm_head(xf) / 30)
-    loss = F.cross_entropy(logits.reshape(-1, V).float(), tgt.reshape(-1))
-    loss.backward()
-    for nm, t in grabbed.items():
-        if t.grad is not None:
-            fisher[nm] += t.grad.float().pow(2).sum((0, 1))
-    m.zero_grad(set_to_none=True)
-    if bi % 12 == 0:
-        print(f'  fisher batch {bi}/{NB}', flush=True)
-fisher = {nm: (f / NB).cpu() for nm, f in fisher.items()}
-torch.save(fisher, f'{QK}/stream_fisher.pt')
-print('fisher built + saved', flush=True)
+# ---- unembedding-relative metric: M = JL-projection of U (V,D) -> (512,D) ----
+U = m.lm_head.weight.detach().float().to(DEV)          # (V, D)
+g = torch.Generator(device='cpu'); g.manual_seed(42)
+P = (torch.randn(512, V, generator=g) / V ** 0.5).to(DEV)
+M = P @ U                                               # (512, D)
+M = M / M.norm() * (D ** 0.5)                           # scale-normalize
+print('unembedding metric built', flush=True)
 
 RAW = torch.load(f'{QK}/stream_tables.pt')
 
@@ -109,9 +70,8 @@ def vq_tables(k, metric):
     out = {}
     for nm, t in RAW.items():
         X = t.float().to(DEV)
-        if metric == 'fisher':
-            wgt = fisher[nm].to(DEV).clamp_min(fisher[nm].max().item() * 1e-6).sqrt()
-            a_, _ = kmeans(X * wgt[None], k, seed=hash(nm) % 2**31)
+        if metric == 'unembed':
+            a_, _ = kmeans(X @ M.T, k, seed=hash(nm) % 2**31)
         else:
             a_, _ = kmeans(X, k, seed=hash(nm) % 2**31)
         # centroids in ORIGINAL space = mean of members (same rule both metrics)
@@ -217,11 +177,11 @@ base = tot / n
 res = {'baseline_ce': base, 'arms': {}}
 print(f'baseline {base:.4f}', flush=True)
 for k in (64, 256):
-    for metric in ('l2', 'fisher'):
+    for metric in ('unembed',):
         tabs = vq_tables(k, metric)
         d = audit_ce(tabs) - base
         res['arms'][f'W={W} vq{k} {metric}'] = d
         print(f'W={W} vq{k} {metric}: dCE {d:+.4f}', flush=True)
         with open(OUT, 'w') as fh:
             json.dump(res, fh, indent=2)
-print('e1 backward vq done', flush=True)
+print('e2 unembed vq done', flush=True)

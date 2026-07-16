@@ -1592,3 +1592,22 @@ Rest-state housekeeping: 30-min cron (3ab8af57) replaced by hourly (96461de0, :2
 no-op while the unblocked queue is empty; auto-restore 30-min cadence the moment Logan
 replies or the queue gains unblocked items. Continuous-execution guarantee intact,
 no-op churn eliminated.
+
+---
+
+## 2026-07-18 — tick 57 (E-1 negative: diagonal Fisher loses to L2; E2 unembedding-metric chained)
+
+**FINDING E-1 (negative for the first instantiation):** Fisher-whitened assignments
+lose to plain L2 at both k (vq64: +0.171 vs +0.139; vq256: +0.116 vs +0.104) in the
+W=4 composed harness. Marginal gradient-whitening distorts the cluster geometry more
+than it helps — sampling noise (96 seqs) and diagonal-only structure are the suspects.
+stream_fisher.pt saved for reuse. e1_backward_vq.py/json.
+
+Launched E2 (`e2_unembed_vq.py`): the LITERAL unembedding-relative metric — cluster
+table rows by their logit-space image (JL-sketched M = P·U, quadratic form M'M),
+deterministic, same harness/k. If Logan's conjecture holds anywhere cheap, it's here.
+
+Queue: harvest E2 → E arc synthesis (results/14); if E2 also loses, log the honest
+conclusion (forward L2 on activations is already the right metric for these tables —
+consistent with vq1024-is-free being a denoising story) and consult Logan for the
+next E instantiation (CE-refined assignments?) or close the arc.
