@@ -846,3 +846,14 @@ bug bit a THIRD time on background launches — rule updated: absolute paths eve
 in chained commands).
 
 Queue: harvest stage B + L5 probe → tick 27; KL variant (optional); attn2-seed0 (blocked).
+
+---
+
+## 2026-07-17 — tick 27 (heartbeat; KL variant chained third in line)
+
+Stage B at step ~2100/4500, held-out @1500 = +0.87 (from +2.43 L2-fit — repair on
+track). Chain now: stage B → l5_probe → menu_kl.py (NEW: KL(teacher||student) variant
+of stage B, same 15.3M params/steps, pure imitation — its gap to the CE-trained number
+is the adaptation share for the flagship claim; ~12h with teacher forwards at batch 2).
+
+Queue: harvest stage B → tick 28; then l5_probe; then menu_kl; attn2-seed0 (blocked).
