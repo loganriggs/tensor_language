@@ -1,0 +1,49 @@
+# The top MLPs: diffuse input, low-rank contextual output
+
+Files 11–12 left one component unnamed: the top MLPs (L13–17), whose windowed reads
+cost +0.59 composed. This file characterizes them.
+
+## Input side: broad aggregation, no nameable channel (TM-1)
+
+bilin18's MLP is PURE bilinear (`Down(Lx ⊙ Rx)`, ungated), so MLP outputs decompose
+EXACTLY over stream pairs — the same gated machinery as the QK map (file 11). Result:
+bottom MLPs read a tight recent window (L2: 99% recent×recent, L5: 94% — why windowing
+them was free), but **L13 is diffuse: 19% recent, top pair 3%** — broad aggregation
+over dozens of old streams. L16 (44%) and L17 (65%) sit between, with the attn5 hub
+stream reappearing in their top pairs. Unlike selection (one dominant stream + one
+hub), the top-MLP contextual input has no channel to name.
+
+## Output side: a few contextual directions (TM-2)
+
+The H7 playbook (file 12) applied to MLP outputs — token-conditional mean + rank-k
+deviation projection with LIVE coefficients:
+
+| | mean-only | rank-1 | rank-4 | rank-16 | dev PC shares |
+|---|---|---|---|---|---|
+| mlp16 | +0.141 | +0.099 | **+0.040** | +0.024 | 40%, 17%, 8%, 4%… |
+| mlp13 | +0.041 | +0.034 | +0.033 | +0.031 | 4%, 2%, 1%… (diffuse) |
+
+**mlp16's contextual function factors through ~4–16 scalars**: its output is a token
+mean plus a handful of contextual feature directions with live gains — the same shape
+as H7 one level up (rank ~4–16 instead of 1). mlp13 is individually cheap and its small
+deviation is genuinely diffuse; the composed +0.59 top-MLP windowing damage is
+interaction compounding, not any single layer's irreducible high-rank content.
+
+## The full picture of bilin18's contextual computation
+
+| component | contextual object | rank of context |
+|---|---|---|
+| selection, bottom (L1–4, 6+) | token-static tables + local window | 0 |
+| selection, L5.H5 | content match (induction), identity payload | high (identity) |
+| transport, L5.H7 | one structure feature × live gain | **1** |
+| MLPs, bottom 2/3 | local window only | 0 |
+| mlp16 (dominant top MLP) | ~4–16 feature directions × live gains | **~4–16** |
+| mlp13–15, 17 | small, diffuse | — |
+
+Everything contextual in this 546M model is either literal token identity (H5's
+payload), or a SMALL number of live scalar gains on fixed feature directions. Caveat:
+rank-k-with-live-coefficients is a structural statement (the function factors through
+k scalars), not a compute reduction — the scalars are computed by the live model.
+Naming the mlp16 directions (logit-lens / examples) is the queued follow-up.
+
+Files: `../mlp_stream_interactions.py/.json`, `../mlp16_rank.py/.json`.

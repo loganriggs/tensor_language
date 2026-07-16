@@ -1459,3 +1459,19 @@ projection (live coefficients) for mlp16 and mlp13 — is the OUTPUT low-rank ev
 though the input consumption is diffuse?
 
 Queue: harvest → TM write-up (results/13); Logan items unchanged.
+
+---
+
+## 2026-07-17 — tick 49 (TM-2: mlp16 factors through ~4-16 live scalars; results/13 shipped)
+
+**FINDING TM-2:** mlp16's contextual output is LOW-RANK (dev PC shares 40/17/8%):
+token-mean + rank-4 live projection = +0.040 (vs mean-only +0.141), rank-16 +0.024.
+mlp13: individually cheap (+0.041 mean-only) and genuinely diffuse (PC1 4%) — the
+composed top-MLP damage is interaction compounding. Synthesis table in results/13:
+EVERYTHING contextual in bilin18 is token identity (H5 payload) or a small number of
+live scalar gains on fixed directions (H7: 1; mlp16: ~4-16). Structural claim, not
+compute reduction (live coefficients) — caveat in the doc. results/13 shipped, README
+indexed.
+
+Queue: name the mlp16 directions (lens+examples — next default); Logan items
+unchanged (estimation-data MDL term; attn2-seed0; arc priority).

@@ -98,7 +98,7 @@ for L in LAYERS:
     evals, evecs = torch.linalg.eigh(C)
     evals, evecs = evals.flip(0), evecs.flip(1)
     shares = (evals[:64] / evals.sum()).cpu()
-    res[f'L{L}_dev_pc_shares'] = [round(v.item(), 4) for v in shares[:8].tolist()]
+    res[f'L{L}_dev_pc_shares'] = [round(float(v), 4) for v in shares[:8].tolist()]
     print(f'L{L} dev PC shares: {[round(v.item(), 3) for v in shares[:6]]}', flush=True)
     d0 = ce_eval(target=L, mean=mean, basis=torch.zeros(1, D, device=DEV))
     res[f'L{L} mean-only (rank-0)'] = d0 - base
