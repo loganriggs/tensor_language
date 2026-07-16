@@ -121,6 +121,7 @@ score-space compression ~15× (files 05, 09):
 | QK reads, W=6 / W=4 / W=2 / W=0 control | +0.011 / +0.040 / +0.204 / +1.480 |
 | qk+v, W=6 | +0.013 |
 | qk+v + ALL MLP reads, W=6 | **+0.030** |
+| qk+v + ALL MLP reads, W=4 / W=3 / W=2 | +0.179 / +0.408 / +0.960 |
 
 Not only does the architecture transfer — sqrd12 is EASIER under it than bilin18
 (W=4 QK: +0.040 vs +0.099), and even its MLP reads window nearly for free (+0.017

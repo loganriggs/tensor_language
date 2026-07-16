@@ -1291,3 +1291,15 @@ input-space windowing: sqrd12 ~2-10× easier). results/11 §8 written. Ladder ar
 
 Queue: harvest ladder → memory update + final commit sweep; attn2-seed0 (blocked);
 Q-LOGAN: estimation-data MDL term.
+
+---
+
+## 2026-07-17 — tick 44 (arc closed; queue exhausted pending Logan)
+
+Ladder final: sqrd12 all-reads W=2/3/4/6 = +0.96/+0.41/+0.18/+0.030 (d_sqrd12c.json,
+added to results/11 §8 context). The windowed-D arc (D-1…D-10) is complete and fully
+written up in results/11 + root LOG. Memory updated. GPU idle by design: remaining
+queue items are blocked on Logan — (1) estimation-data MDL term convention;
+(2) attn2-seed0 checkpoint location; (3) direction of the next arc (candidates:
+within-window interpretability — name the live computations the window protects;
+E backward-MDL variant; softmax-model transfer to a standard transformer).
