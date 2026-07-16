@@ -2196,3 +2196,17 @@ conjecture that the backward optimum differs from the forward one.
 Cron restored to 30-min :17/:47 (job b973fcc6; hourly rest job deleted).
 Queue after E1: E2 candidates (unembedding-relative decomposition of the D̃ readers;
 Fisher-weighted rank truncation for mlp16 gains); results/14 for the E arc.
+
+## 2026-07-18 — qk_mdl ticks 56-59 (for Logan): method E = a careful null
+
+Your backward-MDL conjecture, tested cheap-first on the stream-table quantization:
+empirical-Fisher whitening and direct-unembedding (JL-sketched U) metrics both fail
+to beat plain L2 — an early k=64 "win" for the U-metric was retracted after seed
+controls (within-metric k-means variance ±0.03 exceeds every between-metric gap).
+Full table + why the null coheres with the denoising picture: results/14.
+
+Your call: the strongest instantiation is still untested — behavioral Lloyd
+(assignments refined by measured ΔCE, no proxy). It needs training-loop budget
+(~hours per k). Say the word and it runs; otherwise E closes as a null and the
+program returns to rest. (MDL convention set per your "I don't know": structural
+bits + estimation tokens side by side, never mixed. attn2-seed0 closed as skipped.)

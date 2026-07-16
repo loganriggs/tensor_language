@@ -1646,3 +1646,19 @@ free; H5 denoising helps) — quantization error behaves as noise the downstream
 filters, so preserving activation-space geometry IS the right objective here.
 Strongest untested instantiation: CE-refined assignments (behavioral Lloyd) — needs
 training budget; consult Logan.
+
+---
+
+## 2026-07-18 — tick 59 (E arc closed: careful null; results/14 shipped)
+
+**FINDING E-4 (closes the arc):** L2 seed control at k=64: +0.103/+0.139/+0.167 —
+spread WIDER than unembed's; means indistinguishable (L2 ~0.137, unembed ~0.133).
+Full synthesis in results/14: neither backward instantiation (Fisher, direct-U sketch)
+beats forward L2; the one apparent positive was retracted under seeds; the null is
+coherent with the denoising picture (quantization error = filtered noise → activation
+geometry is already the right objective; direct-logit metrics can't see nonlinear
+paths). QUESTION FOR LOGAN (in results/14): fund the CE-refined-assignments
+instantiation (behavioral Lloyd — the only version that optimizes the discrete
+structure against the binding metric directly), or accept the null and close E?
+
+Program back to REST STATE pending Logan; unblocked queue empty.
