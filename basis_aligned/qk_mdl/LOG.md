@@ -1475,3 +1475,13 @@ indexed.
 
 Queue: name the mlp16 directions (lens+examples — next default); Logan items
 unchanged (estimation-data MDL term; attn2-seed0; arc priority).
+
+---
+
+## 2026-07-17 — tick 49b (mlp16 direction-naming probe launched)
+
+Launched mlp16_dirs.py (standalone — caught the import-runs-module trap before it cost
+a rerun this time): top-8 deviation PCs of mlp16, each with logit-lens ± tokens and
+extreme-coefficient context examples. Names the ~4-16 contextual gains of TM-2.
+
+Queue: harvest → results/13 addendum; Logan items unchanged.
