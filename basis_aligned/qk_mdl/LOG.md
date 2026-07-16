@@ -937,3 +937,15 @@ survives.
 
 Queue: harvest menu2 → tick 31 (+ results/10 stage-B/L5 sections); menu_kl vs final
 wall; attn2-seed0 (blocked).
+
+---
+
+## 2026-07-17 — tick 31 (heartbeat; menu2-KL control written and chained)
+
+menu2 in early training (step <300 of 4500, ~6h). Wrote `menu2_kl.py` — KL(imitation)
+control on the menu2 config (supersedes menu_kl.py, which targeted the old static
+config) — and chained it behind menu2. The plain menu_kl.py stays on disk unused unless
+menu2 surprises high.
+
+Queue: harvest menu2 → tick 32 (flagship rewrite + results/10); menu2_kl (chained);
+attn2-seed0 (blocked).
