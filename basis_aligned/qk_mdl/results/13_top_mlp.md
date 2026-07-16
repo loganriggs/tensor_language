@@ -58,12 +58,25 @@ Logit-lens + extreme-firing contexts for mlp16's top deviation PCs (`../mlp16_di
 | 3 (5%) | XML/markup code | `…EndOf="parent"\n    app:` |
 | 4–7 (<2% each) | blog boundaries, technical prose, patent numerics | — |
 
-**mlp16's contextual computation tracks DOCUMENT REGISTER** — which domain/genre the
-current text lives in. That is exactly the kind of slow, document-scale information
-that neither token tables nor a local window can carry, which is why the top MLPs were
-the un-windowable component. (Sample caveat: pile-10k's early slice is legal-heavy,
-which likely inflates the legal directions' variance shares; the structure — a few
-register gains — is the finding, not the specific ordering.)
+At first read these look like DOCUMENT REGISTER (domain/genre) features. The causal
+test says otherwise (TM-4, `../mlp16_register_swap.py`): patching ONLY the top-4
+coefficients inside a rank-64 live reconstruction —
+
+| top-4 coefficients | ΔCE |
+|---|---|
+| live (reference) | +0.023 |
+| document-mean (slowness test) | **+0.103** |
+| swapped across documents | +0.158 |
+| zeroed | +0.113 |
+
+Document-constant coefficients destroy most of the value — so these are NOT slow
+register state. The honest naming: the directions fire in register-specific contexts
+(hence the lens/examples), but their causal content is FAST-VARYING local structure
+within those registers — where you are inside the citation/markup/numeric pattern,
+not which document you are in. The top MLPs resist windowing because this structural
+state is computed from diffuse long-range input (TM-1) yet changes token-to-token.
+(Sample caveat: pile-10k's early slice is legal-heavy — the structure, a few live
+gains on fixed directions, is the finding, not the register labels.)
 
 Files: `../mlp_stream_interactions.py/.json`, `../mlp16_rank.py/.json`,
 `../mlp16_dirs.py/.json`.

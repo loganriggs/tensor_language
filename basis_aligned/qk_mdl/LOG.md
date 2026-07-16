@@ -1518,3 +1518,19 @@ Confirms or breaks the TM-3 interpretation.
 
 Queue: harvest → results/13 addendum; then remaining candidates (softmax transfer,
 backward-MDL, H5 under-cashing) pending Logan's priority; blocked items unchanged.
+
+---
+
+## 2026-07-18 — tick 52 (TM-4: slowness REFUTED — the "register" gains are fast local structure)
+
+**FINDING TM-4 (negative, revises TM-3):** top-4 coefficient patching inside rank-64
+live reconstruction: live +0.023 · doc-mean +0.103 · swapped +0.158 · zeroed +0.113.
+Document-constant coefficients ≈ as bad as deletion → mlp16's dominant contextual
+gains are NOT slow register state; they are fast-varying structural position within
+register-specific syntax (the lens/examples showed the contexts, not the content).
+results/13 corrected in place — TM-3's register naming demoted to correlational; the
+structural claim (few live gains on fixed directions) stands. mlp16_register_swap.py/json.
+
+Program remains at rest pending Logan (MDL estimation term; attn2-seed0; next
+direction). Next default if silence continues: softmax-transformer transfer of
+windowed-D (tests architecture-generality of the whole framework).
