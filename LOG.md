@@ -2114,3 +2114,32 @@ per-layer menu, and tried to make the whole model's attention selection token-st
 Program theme now six-for-six: marginals never compose on this model family — heads,
 blocks, sides, components, layers, and now live/tabled mixtures. Everything decisive
 we've found came from composed audits, not marginal ones.
+
+## 2026-07-17 — qk_mdl ticks 37–43 (for Logan): your A–E broke the wall in one day
+
+Executed B → C → D in sequence; every step's output picked the next step's target.
+
+1. **B (stream-interaction map, exact + gated):** selection reads mlp(L−1)×mlp(L−1)
+   in the bottom stack (emb×emb ≈ 0 above L1 — embedding's role is mediated by MLP-0);
+   middle layers diffuse with attn5 a global hub; top re-concentrates. results/11.
+2. **C (interventional):** even L5 — the "irreducibly contextual" layer — costs +0.003
+   with just a 2-layer live window. Deep context tables away everywhere.
+3. **D (composed, windowed):** every layer's reads = exact emb stream + token-tabled
+   old streams + live W-layer window. NO TRAINING: W=3 +0.225 (beats both trained
+   walls), W=6 +0.050. vq1024 on the tables is FREE (49× table compression). CE-polish
+   buys NOTHING (+0.094→+0.093) — the structure, not the values, is the description.
+   Cross-region control: the headline generalizes (+0.089 on a held-out late-region
+   audit); table quality tracks estimation DIVERSITY, not amount (6× more homogeneous
+   data made tables worse — worth knowing for anything cond-mean-based).
+4. **All reads:** v/carriage windows for +0.004 (it needed token identity, never
+   context — old theme resolved); qk+v composes ADDITIVELY (first in the program);
+   MLP reads are the true contextual consumer and it's TOP-of-model (L16 dominant;
+   bottom MLPs free).
+
+**Closing number: +0.059 ΔCE, zero trained parameters** — all attention I/O and bottom
+MLP reads token-static; live = 6-layer window + upper MLPs. The model's contextual core
+is two heads at L5 (within-window) + the top MLPs. Full arc with figures: results/11.
+
+Launching next: transfer test on sqrd12 (does the windowed architecture hold on the
+model that resisted score-space compression 15×?). Open question for you in the LOG:
+how to charge the estimation-data term for data-estimated tables in the MDL accounting.

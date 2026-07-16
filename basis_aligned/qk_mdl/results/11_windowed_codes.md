@@ -77,6 +77,40 @@ of the bottom-stream vq atoms (12.6M floats, protocol-sized) is running. Still o
 for the MDL accounting: the estimation-data term for data-estimated tables (QUESTION
 FOR LOGAN in the LOG).
 
+## 6. Beyond selection: all reads (D-6, D-7, D-8)
+
+The same windowing applied to the OTHER residual reads (v = content, MLP input),
+tables unchanged, no training:
+
+| reads windowed | W=4 | W=6 |
+|---|---|---|
+| v only (carriage) | +0.019 | **+0.004** |
+| qk + v | +0.112 | +0.052 |
+| qk + v + all MLP | +0.864 | +0.325 |
+| qk + v + MLP L1–12 | +0.177 | **+0.059** |
+
+Three closing findings. **D-6:** long-range carriage is nearly free to make token-static
+— and qk+v composes ADDITIVELY (0.112 ≈ 0.094+0.019), the first additive composition in
+the program. The old "carriage needs identity" theme resolves exactly: carriage needs
+token identity (which cond-mean tables preserve), never context. **D-7/D-8:** MLP reads
+are the one place long-range context genuinely enters computation, and it is a
+TOP-of-model phenomenon: bottom MLP reads (L1–6) window for +0.0004; the damage is
+L13–17 (L16 alone +0.146). Mirror image of selection (bottom-heavy, L5).
+
+## 7. The final architecture and its bits
+
+**+0.059 ΔCE, zero trained parameters:** every attention read (selection and content)
+and the bottom two-thirds of MLP reads consume only token-static long-range information;
+live computation is a 6-layer local window plus the upper MLP reads (L13–17). The
+model's irreducibly contextual core is exactly: two heads at L5 within-window, and the
+top MLPs. CE-polish of the tables buys nothing (D-5) — the discrete structure, not the
+continuous values, carries the description.
+
+Bits (frozen 32-bit convention): 34 vq1024 stream tables = 35.7M atom floats + 34·V·10
+index bits ≈ 1.16 Gbit, vs 1.75 Gbit·32 for raw (V,1024) tables (49×) — and vs the
+score-space route: 15.3M TRAINED floats bought only +0.757. Open accounting question
+(logged for Logan): the estimation-data term for data-estimated tables.
+
 Caveats: single eval distribution (pile-10k, T=512); v/OV circuits and MLPs stay fully
 live in every arm here (this file is about selection only — content/carriage compression
 is files 07/09's topic and composes separately); 9% of audit tokens fall back to
