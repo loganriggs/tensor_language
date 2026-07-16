@@ -1075,3 +1075,26 @@ buyable back). zeros_control.py/json.
 Running: stream_interactions.py (Logan's method B, auto-chained).
 Queue: B map → C window design; D propagated codes; E backward/weighted vq; menu3;
 results/10 wall table+figure; attn2-seed0 (blocked).
+
+---
+
+## 2026-07-17 — tick 38 (SI-1: the interaction map — short window below, diffuse+hub above)
+
+**FINDING SI-1 (Logan's method B):** exact stream decomposition of every layer's branch
+scores (gates: stream-sum ≡ x; pair-sum ≡ live score; max dev 2.0e-2 from bf16 rope —
+fine for a norm map). Three regimes: (a) L1–L6: selection reads a SHORT WINDOW —
+mlp(L−1)×mlp(L−1) dominates (L2: 87% of energy; L5: recent×recent = 89%), emb×emb ≈ 0
+above L1 (the embedding's selection role is entirely mediated by MLP-0 — explains why
+L0 folding is exact but L1+ tables must be data-estimated); (b) L8–L15: DIFFUSE — top
+pair only 2–4%, long-range interactions everywhere, with attn5's output a persistent
+HUB stream through the whole upper model (the contextual layer's output is globally
+load-bearing); (c) L16–17: re-concentrates on mlp(L−1). Logan's window hypothesis (C)
+holds in the bottom stack, breaks in the middle. stream_interactions.py/.pt/.json.
+
+Launched: c_window.py (method C interventional): at L∈{2,5,9}, patch ONLY the QK read
+(v + residual live): (i) mlp(L−1) stream → cond-mean table; (ii) all streams older than
+L−2 tabled (window-only live); (iii) all streams tabled (0th-order QK read).
+
+Queue: harvest c_window → D design (propagate codes through the window; hub stream
+attn5 needs its own treatment); E weighted-vq; menu3 (no zeros); wall write-up
+w/ figures; attn2-seed0 (blocked).

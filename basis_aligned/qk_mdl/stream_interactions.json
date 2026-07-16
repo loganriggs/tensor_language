@@ -1,0 +1,564 @@
+{
+  "gate_max": 0.01953125,
+  "1": {
+    "emb\u00d7emb": 0.0297,
+    "emb\u00d7recent+recent\u00d7emb": 0.1581,
+    "emb\u00d7old+old\u00d7emb": 0.0,
+    "recent\u00d7recent": 0.8122,
+    "old\u00d7old+old\u00d7recent": 0.0,
+    "top_pairs": [
+      [
+        "mlp0\u00d7mlp0",
+        0.8121
+      ],
+      [
+        "emb\u00d7mlp0",
+        0.0802
+      ],
+      [
+        "mlp0\u00d7emb",
+        0.0779
+      ],
+      [
+        "emb\u00d7emb",
+        0.0297
+      ],
+      [
+        "emb\u00d7attn0",
+        0.0
+      ],
+      [
+        "attn0\u00d7emb",
+        0.0
+      ]
+    ]
+  },
+  "2": {
+    "emb\u00d7emb": 0.0,
+    "emb\u00d7recent+recent\u00d7emb": 0.009,
+    "emb\u00d7old+old\u00d7emb": 0.0,
+    "recent\u00d7recent": 0.991,
+    "old\u00d7old+old\u00d7recent": 0.0,
+    "top_pairs": [
+      [
+        "mlp1\u00d7mlp1",
+        0.8716
+      ],
+      [
+        "mlp1\u00d7attn1",
+        0.0502
+      ],
+      [
+        "attn1\u00d7mlp1",
+        0.0387
+      ],
+      [
+        "mlp1\u00d7mlp0",
+        0.0127
+      ],
+      [
+        "mlp0\u00d7mlp1",
+        0.0102
+      ],
+      [
+        "attn1\u00d7attn1",
+        0.0057
+      ]
+    ]
+  },
+  "3": {
+    "emb\u00d7emb": 0.0,
+    "emb\u00d7recent+recent\u00d7emb": 0.0066,
+    "emb\u00d7old+old\u00d7emb": 0.0,
+    "recent\u00d7recent": 0.9852,
+    "old\u00d7old+old\u00d7recent": 0.0081,
+    "top_pairs": [
+      [
+        "mlp2\u00d7mlp2",
+        0.3917
+      ],
+      [
+        "mlp2\u00d7mlp1",
+        0.1302
+      ],
+      [
+        "mlp1\u00d7mlp2",
+        0.1296
+      ],
+      [
+        "attn2\u00d7mlp2",
+        0.0769
+      ],
+      [
+        "mlp1\u00d7mlp1",
+        0.0752
+      ],
+      [
+        "mlp2\u00d7attn2",
+        0.058
+      ]
+    ]
+  },
+  "4": {
+    "emb\u00d7emb": 0.0,
+    "emb\u00d7recent+recent\u00d7emb": 0.0032,
+    "emb\u00d7old+old\u00d7emb": 0.0002,
+    "recent\u00d7recent": 0.8958,
+    "old\u00d7old+old\u00d7recent": 0.1007,
+    "top_pairs": [
+      [
+        "mlp3\u00d7mlp3",
+        0.5725
+      ],
+      [
+        "mlp2\u00d7mlp3",
+        0.0712
+      ],
+      [
+        "mlp3\u00d7mlp2",
+        0.0707
+      ],
+      [
+        "attn3\u00d7mlp3",
+        0.0622
+      ],
+      [
+        "mlp3\u00d7attn3",
+        0.0402
+      ],
+      [
+        "mlp3\u00d7mlp1",
+        0.034
+      ]
+    ]
+  },
+  "5": {
+    "emb\u00d7emb": 0.0003,
+    "emb\u00d7recent+recent\u00d7emb": 0.0275,
+    "emb\u00d7old+old\u00d7emb": 0.0015,
+    "recent\u00d7recent": 0.886,
+    "old\u00d7old+old\u00d7recent": 0.0847,
+    "top_pairs": [
+      [
+        "mlp4\u00d7mlp4",
+        0.2906
+      ],
+      [
+        "attn4\u00d7mlp4",
+        0.109
+      ],
+      [
+        "mlp3\u00d7mlp4",
+        0.0969
+      ],
+      [
+        "mlp4\u00d7attn4",
+        0.0878
+      ],
+      [
+        "mlp4\u00d7mlp3",
+        0.0781
+      ],
+      [
+        "attn4\u00d7attn4",
+        0.0755
+      ]
+    ]
+  },
+  "6": {
+    "emb\u00d7emb": 0.0011,
+    "emb\u00d7recent+recent\u00d7emb": 0.0517,
+    "emb\u00d7old+old\u00d7emb": 0.0028,
+    "recent\u00d7recent": 0.869,
+    "old\u00d7old+old\u00d7recent": 0.0755,
+    "top_pairs": [
+      [
+        "attn5\u00d7attn5",
+        0.2144
+      ],
+      [
+        "mlp5\u00d7attn5",
+        0.1639
+      ],
+      [
+        "mlp5\u00d7mlp5",
+        0.1363
+      ],
+      [
+        "attn5\u00d7mlp5",
+        0.1202
+      ],
+      [
+        "mlp5\u00d7mlp4",
+        0.0621
+      ],
+      [
+        "attn5\u00d7mlp4",
+        0.049
+      ]
+    ]
+  },
+  "7": {
+    "emb\u00d7emb": 0.0054,
+    "emb\u00d7recent+recent\u00d7emb": 0.106,
+    "emb\u00d7old+old\u00d7emb": 0.0147,
+    "recent\u00d7recent": 0.7091,
+    "old\u00d7old+old\u00d7recent": 0.1648,
+    "top_pairs": [
+      [
+        "mlp6\u00d7attn5",
+        0.0818
+      ],
+      [
+        "mlp6\u00d7mlp6",
+        0.0754
+      ],
+      [
+        "attn5\u00d7attn5",
+        0.0717
+      ],
+      [
+        "attn5\u00d7mlp6",
+        0.0516
+      ],
+      [
+        "mlp5\u00d7attn5",
+        0.0484
+      ],
+      [
+        "attn6\u00d7mlp6",
+        0.0481
+      ]
+    ]
+  },
+  "8": {
+    "emb\u00d7emb": 0.0093,
+    "emb\u00d7recent+recent\u00d7emb": 0.1136,
+    "emb\u00d7old+old\u00d7emb": 0.0548,
+    "recent\u00d7recent": 0.3511,
+    "old\u00d7old+old\u00d7recent": 0.4712,
+    "top_pairs": [
+      [
+        "mlp7\u00d7mlp7",
+        0.0392
+      ],
+      [
+        "attn7\u00d7mlp7",
+        0.0302
+      ],
+      [
+        "attn7\u00d7attn7",
+        0.0301
+      ],
+      [
+        "mlp7\u00d7attn5",
+        0.03
+      ],
+      [
+        "mlp7\u00d7mlp6",
+        0.0289
+      ],
+      [
+        "mlp6\u00d7attn5",
+        0.0273
+      ]
+    ]
+  },
+  "9": {
+    "emb\u00d7emb": 0.0067,
+    "emb\u00d7recent+recent\u00d7emb": 0.0776,
+    "emb\u00d7old+old\u00d7emb": 0.0621,
+    "recent\u00d7recent": 0.2546,
+    "old\u00d7old+old\u00d7recent": 0.599,
+    "top_pairs": [
+      [
+        "mlp8\u00d7attn5",
+        0.0467
+      ],
+      [
+        "mlp8\u00d7mlp8",
+        0.0433
+      ],
+      [
+        "attn5\u00d7attn5",
+        0.0376
+      ],
+      [
+        "attn8\u00d7attn8",
+        0.0282
+      ],
+      [
+        "mlp6\u00d7attn5",
+        0.0254
+      ],
+      [
+        "mlp8\u00d7mlp7",
+        0.0254
+      ]
+    ]
+  },
+  "10": {
+    "emb\u00d7emb": 0.0074,
+    "emb\u00d7recent+recent\u00d7emb": 0.0785,
+    "emb\u00d7old+old\u00d7emb": 0.0595,
+    "recent\u00d7recent": 0.2768,
+    "old\u00d7old+old\u00d7recent": 0.5778,
+    "top_pairs": [
+      [
+        "mlp9\u00d7mlp9",
+        0.0434
+      ],
+      [
+        "attn9\u00d7mlp9",
+        0.0342
+      ],
+      [
+        "mlp9\u00d7attn5",
+        0.0296
+      ],
+      [
+        "attn9\u00d7attn9",
+        0.0283
+      ],
+      [
+        "mlp8\u00d7mlp9",
+        0.0248
+      ],
+      [
+        "mlp9\u00d7mlp8",
+        0.0217
+      ]
+    ]
+  },
+  "11": {
+    "emb\u00d7emb": 0.009,
+    "emb\u00d7recent+recent\u00d7emb": 0.0791,
+    "emb\u00d7old+old\u00d7emb": 0.0787,
+    "recent\u00d7recent": 0.2152,
+    "old\u00d7old+old\u00d7recent": 0.6181,
+    "top_pairs": [
+      [
+        "mlp10\u00d7mlp10",
+        0.0252
+      ],
+      [
+        "mlp10\u00d7mlp9",
+        0.0237
+      ],
+      [
+        "mlp9\u00d7mlp9",
+        0.0194
+      ],
+      [
+        "mlp9\u00d7mlp10",
+        0.0191
+      ],
+      [
+        "mlp9\u00d7attn5",
+        0.0187
+      ],
+      [
+        "mlp10\u00d7attn5",
+        0.0185
+      ]
+    ]
+  },
+  "12": {
+    "emb\u00d7emb": 0.0059,
+    "emb\u00d7recent+recent\u00d7emb": 0.0573,
+    "emb\u00d7old+old\u00d7emb": 0.0729,
+    "recent\u00d7recent": 0.1789,
+    "old\u00d7old+old\u00d7recent": 0.685,
+    "top_pairs": [
+      [
+        "mlp11\u00d7mlp11",
+        0.0341
+      ],
+      [
+        "mlp10\u00d7mlp11",
+        0.0232
+      ],
+      [
+        "mlp11\u00d7attn5",
+        0.022
+      ],
+      [
+        "mlp9\u00d7mlp11",
+        0.018
+      ],
+      [
+        "mlp11\u00d7mlp9",
+        0.0164
+      ],
+      [
+        "attn11\u00d7mlp11",
+        0.0163
+      ]
+    ]
+  },
+  "13": {
+    "emb\u00d7emb": 0.0094,
+    "emb\u00d7recent+recent\u00d7emb": 0.069,
+    "emb\u00d7old+old\u00d7emb": 0.1092,
+    "recent\u00d7recent": 0.1255,
+    "old\u00d7old+old\u00d7recent": 0.6869,
+    "top_pairs": [
+      [
+        "mlp11\u00d7mlp11",
+        0.0194
+      ],
+      [
+        "mlp12\u00d7mlp11",
+        0.0187
+      ],
+      [
+        "mlp12\u00d7mlp12",
+        0.0184
+      ],
+      [
+        "mlp11\u00d7mlp12",
+        0.0174
+      ],
+      [
+        "mlp11\u00d7emb",
+        0.0168
+      ],
+      [
+        "mlp12\u00d7emb",
+        0.0151
+      ]
+    ]
+  },
+  "14": {
+    "emb\u00d7emb": 0.0087,
+    "emb\u00d7recent+recent\u00d7emb": 0.0531,
+    "emb\u00d7old+old\u00d7emb": 0.1187,
+    "recent\u00d7recent": 0.0779,
+    "old\u00d7old+old\u00d7recent": 0.7417,
+    "top_pairs": [
+      [
+        "mlp13\u00d7mlp13",
+        0.0159
+      ],
+      [
+        "mlp13\u00d7emb",
+        0.0135
+      ],
+      [
+        "mlp12\u00d7mlp13",
+        0.0125
+      ],
+      [
+        "mlp11\u00d7emb",
+        0.012
+      ],
+      [
+        "mlp13\u00d7mlp11",
+        0.012
+      ],
+      [
+        "mlp13\u00d7mlp12",
+        0.012
+      ]
+    ]
+  },
+  "15": {
+    "emb\u00d7emb": 0.0054,
+    "emb\u00d7recent+recent\u00d7emb": 0.0391,
+    "emb\u00d7old+old\u00d7emb": 0.1003,
+    "recent\u00d7recent": 0.0703,
+    "old\u00d7old+old\u00d7recent": 0.7849,
+    "top_pairs": [
+      [
+        "mlp11\u00d7attn5",
+        0.0196
+      ],
+      [
+        "attn5\u00d7attn5",
+        0.017
+      ],
+      [
+        "mlp13\u00d7attn5",
+        0.0151
+      ],
+      [
+        "mlp14\u00d7attn5",
+        0.0138
+      ],
+      [
+        "mlp12\u00d7attn5",
+        0.0137
+      ],
+      [
+        "mlp14\u00d7mlp14",
+        0.0128
+      ]
+    ]
+  },
+  "16": {
+    "emb\u00d7emb": 0.0007,
+    "emb\u00d7recent+recent\u00d7emb": 0.029,
+    "emb\u00d7old+old\u00d7emb": 0.0204,
+    "recent\u00d7recent": 0.4175,
+    "old\u00d7old+old\u00d7recent": 0.5323,
+    "top_pairs": [
+      [
+        "mlp15\u00d7mlp15",
+        0.3579
+      ],
+      [
+        "mlp15\u00d7attn5",
+        0.0733
+      ],
+      [
+        "attn5\u00d7mlp15",
+        0.0386
+      ],
+      [
+        "mlp15\u00d7mlp14",
+        0.0268
+      ],
+      [
+        "mlp15\u00d7attn6",
+        0.0243
+      ],
+      [
+        "mlp14\u00d7mlp15",
+        0.0178
+      ]
+    ]
+  },
+  "17": {
+    "emb\u00d7emb": 0.0001,
+    "emb\u00d7recent+recent\u00d7emb": 0.0074,
+    "emb\u00d7old+old\u00d7emb": 0.0023,
+    "recent\u00d7recent": 0.6393,
+    "old\u00d7old+old\u00d7recent": 0.3509,
+    "top_pairs": [
+      [
+        "mlp16\u00d7mlp16",
+        0.4509
+      ],
+      [
+        "mlp15\u00d7mlp16",
+        0.0957
+      ],
+      [
+        "mlp16\u00d7mlp15",
+        0.0714
+      ],
+      [
+        "mlp16\u00d7attn5",
+        0.035
+      ],
+      [
+        "attn5\u00d7mlp16",
+        0.0259
+      ],
+      [
+        "mlp15\u00d7mlp15",
+        0.0183
+      ]
+    ]
+  }
+}

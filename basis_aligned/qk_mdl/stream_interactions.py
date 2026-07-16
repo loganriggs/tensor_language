@@ -23,7 +23,7 @@ m, cfg = load_elriggs('bilin18')
 NH, HD, D = cfg['n_head'], cfg['n_embd'] // cfg['n_head'], cfg['n_embd']
 NL = cfg['n_layer']
 TOK = build_eval_tokens(n_chunks=16, seq_len=513)[:, :-1]
-P = 4096  # sampled causal pairs per sequence-batch
+P = 2048  # sampled causal pairs per sequence-batch
 
 # energy[L][br] : (NH, S_L, S_L) accumulators (S_L = 1 + 2L streams)
 energy = {}
@@ -75,7 +75,7 @@ def run_batch(idx, first):
                                   for s in streams])
                 qp = qs[:, bi, qi]                     # (S,P,NH,HD)
                 kp = ks[:, bi, kj]
-                dots = torch.einsum('aphd,bphd->abphd', qp, kp).sum(-1) / HD  # (S,S,P,NH)
+                dots = torch.einsum('aphd,bphd->abph', qp, kp) / HD  # (S,S,P,NH)
                 # gate 2: pair-sum equals live score on these samples
                 qfull = apply_rot((qf * rq), cosb, sinb)[bi, qi]
                 kfull = apply_rot((kf * rk), cosb, sinb)[bi, kj]
