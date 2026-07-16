@@ -1303,3 +1303,25 @@ queue items are blocked on Logan — (1) estimation-data MDL term convention;
 (2) attn2-seed0 checkpoint location; (3) direction of the next arc (candidates:
 within-window interpretability — name the live computations the window protects;
 E backward-MDL variant; softmax-model transfer to a standard transformer).
+
+---
+
+## 2026-07-17 — tick 45 (WW-1: the contextual heads have names — H5 is induction, H7 is local-content)
+
+**FINDING WW-1 (within-window arc, probe 1):** L5.H5 has the classic induction
+signature — conditional pattern on "key follows my previous occurrence" is **16.8×**
+its unconditional mean (copy 3.5×), with a nearly FLAT positional profile (2.4× decay
+Δ1→64, vs 12-37× for the free heads) — a long-range content-matching head, exactly the
+computation a token-static table cannot express. L5.H7 shows NO match signature
+(1.2-1.35×) but a fat local profile (high through Δ≈4-8): content-dependent LOCAL
+selection, syntax-like. So bilin18's irreducibly contextual selection = one induction
+head + one local-content head. Stats caveat (logged): the over-random ratios for
+H1/H2/H4/H6 are meaningless (signed means ≈ 0 in the denominator); conditional means in
+the json are the honest numbers. l5_heads_function.py/json.
+
+Running: l5_h5_causal.py — repeated-sequence (A+A) causal test: zeroing/tabling H5
+should specifically hurt 2nd-half CE on repeats if it's the induction mechanism (H7 as
+the non-induction contrast).
+
+Queue: harvest causal → WW write-up (results/12); then H7 mechanism, window-content
+naming (what do the recent-stream reads compute?); blocked-on-Logan items unchanged.
