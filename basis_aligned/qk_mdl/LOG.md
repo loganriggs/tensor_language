@@ -1244,3 +1244,20 @@ attention I/O (selection and content) in the 546M model is token-static.
 
 Queue: harvest localizer → arc write-up (results/11 + root LOG + MDL bits table);
 attn2-seed0 (blocked); Q-LOGAN: estimation-data MDL term.
+
+---
+
+## 2026-07-17 — tick 42b (D-8: MLP contextuality is TOP-of-model; final-arch arms running)
+
+**FINDING D-8:** MLP-read windowing marginals: L2/L5/L9 ≈ 0.000 · L13 +0.005 ·
+L16 **+0.146**; composed bottom L1-6 = +0.0004 (free) vs top L7-17 = +0.593. MLP
+contextuality lives at the top of the model — the mirror image of selection (bottom-
+heavy, L5). Coherent with SI-1: L17's selection reads mlp16×mlp16 — the upper MLPs
+assemble genuinely contextual prediction features. The "irreducibly live" core of the
+546M model is now: a ~W-layer local window everywhere + upper-MLP reads (L13-17).
+
+Running (d_final_arch.py): qk+v all + mlp L1-12 at W=4/6, + mlp L1-15 at W=6 — the
+final architecture numbers.
+
+Queue: harvest → full arc write-up (results/11 §6-7, root LOG, MDL bits table);
+attn2-seed0 (blocked); Q-LOGAN: estimation-data MDL term.
