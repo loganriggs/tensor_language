@@ -1261,3 +1261,19 @@ final architecture numbers.
 
 Queue: harvest → full arc write-up (results/11 §6-7, root LOG, MDL bits table);
 attn2-seed0 (blocked); Q-LOGAN: estimation-data MDL term.
+
+---
+
+## 2026-07-17 — tick 43b (D-9: THE INVERSION — sqrd12 is EASIER under windowed-D)
+
+**FINDING D-9 (transfer + inversion):** windowed-D QK-reads on sqrd12: W=6 **+0.011** ·
+W=4 +0.040 · W=2 +0.204 · W=0 control +1.48. The architecture transfers, and INVERTS
+the compressibility ranking: sqrd12 was ~15× HARDER than bilin18 under score-space
+tables (results/05, 09) and is ~2× EASIER under input-space windowing (W=4: +0.040 vs
++0.099). Compressibility is a property of the (model, decomposition-family) PAIR, not
+of the model — the strongest instance yet of the program's metric/representation-decides
+theme. d_sqrd12.json, stream_tables_sqrd12.pt.
+
+Running: d_sqrd12b.py (qk+v, +mlp arms — full final-arch transfer).
+Queue: harvest → results/11 §8 transfer + memory update; attn2-seed0 (blocked);
+Q-LOGAN: estimation-data MDL term.
