@@ -1223,3 +1223,24 @@ model's entire long-range information flow is token-static.
 
 Queue: harvest all-reads → final arc write-up + root LOG for Logan + MDL bits table;
 attn2-seed0 (blocked); QUESTION FOR LOGAN: estimation-data MDL term.
+
+---
+
+## 2026-07-17 — tick 42 (D-6/D-7: carriage windows for free and composes ADDITIVELY; MLP reads are the contextual core)
+
+**FINDING D-6:** windowed v-reads (content/carriage): W=4 +0.019, W=6 +0.004 — nearly
+free, MORE static than selection. And qk+v composes ADDITIVELY (W=4: +0.112 ≈ .094+.019;
+W=6: +0.052 ≈ .050+.004) — the FIRST additive composition in the program. Resolution of
+the old carriage-needs-identity theme: carriage needs token IDENTITY, which cond-mean
+tables preserve exactly; it never needed context.
+
+**FINDING D-7:** MLP-read windowing breaks it: qk+v+mlp W=4 = +0.864, W=6 = +0.325.
+The bilinear MLP input is where long-range context genuinely enters the computation.
+Localizer running (d_mlpread_probe.py): single-layer marginals {2,5,9,13,16} + bottom/top
+composed — local fidelity vs knock-on (mlp_out is the next layer's dominant QK input).
+
+Current best full result: **qk+v windowed at W=6 = +0.052 untrained** — all long-range
+attention I/O (selection and content) in the 546M model is token-static.
+
+Queue: harvest localizer → arc write-up (results/11 + root LOG + MDL bits table);
+attn2-seed0 (blocked); Q-LOGAN: estimation-data MDL term.
