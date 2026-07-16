@@ -1358,3 +1358,16 @@ results/12_within_window.md shipped; README indexed.
 
 Queue: H7 OV-side decomposition (what content features feed the hub?); Logan items
 (estimation-data MDL term; attn2-seed0; next-arc priority).
+
+---
+
+## 2026-07-17 — tick 46 (H7 OV probe launched)
+
+GPU was idle post-WW-3; launched h7_ov_probe.py (queue head): cond-mean v content per
+source token at L5 for heads {7,5,0}, mapped through each head's c_proj slice,
+logit-lens + embedding-alignment + decoded examples — names what the transport head
+forwards into the hub (copy-content vs transformed). Crude-lens caveat logged in the
+script docstring.
+
+Queue: harvest probe → results/12 addendum; Logan items (estimation-data MDL term,
+attn2-seed0, next-arc priority).
