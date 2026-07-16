@@ -877,3 +877,28 @@ Queue unchanged: harvest stage B → tick 29; l5_probe; menu_kl; attn2-seed0 (bl
 
 Stage B at step 3900/4500; nothing completed since tick 28. Chain intact:
 stage B → l5_probe → menu_kl. Next tick harvests the flagship number.
+
+---
+
+## 2026-07-17 — tick 30 (stage B final: the static-selection wall)
+
+**FINDING MS-1 (flagship result, and it's a WALL, not a parity):** menu-static
+(vq256 class tables at all 13 non-zeroed layers, zeros at 8/14/15/17, L0 live-exact;
+15.3M trainable floats, 4500 steps, 3.15M tokens, batch 2) converges at
+**ΔCE +0.757** (curve: +2.43 L2-fit → +0.87 @1500 → +0.79 @3000 → +0.76 final —
+plateaued, not data- or step-starved). Contrast: the SAME protocol at layer 0 alone
+repaired +0.455 → −0.019. So joint behavioral training closes 69% of the composition
+blowup and then hits a wall: **a 546M model with every attention selection made
+token-static costs ~0.76 nats, and training the table VALUES cannot buy it back.**
+What layer-0 proved possible per-layer is NOT possible for the stack: the errors that
+compound through 17 layers of static selection are not repairable in the tables'
+continuous degrees of freedom (frozen discrete structure). Candidate residual causes,
+in testable order: (a) L5's genuinely contextual selection (marginal +0.25, and its
+inputs are now themselves degraded); (b) vq256 discreteness at the wrong layers;
+(c) the zeroed layers' small costs interacting. l5_probe (running) addresses (a).
+`menu_trained.py/json`, codebooks in menu_cbs_trained.pt.
+
+Chain: l5_probe running → menu_kl (adaptation share of the +0.76).
+Queue: harvest l5_probe → tick 31; menu variant with L5 LIVE (menu minus the wall's
+suspected main brick — cheap audit reusing menu_cbs_trained.pt, worth running before
+interpreting menu_kl); results/10 stage-B section; attn2-seed0 (blocked).
