@@ -1098,3 +1098,29 @@ L−2 tabled (window-only live); (iii) all streams tabled (0th-order QK read).
 Queue: harvest c_window → D design (propagate codes through the window; hub stream
 attn5 needs its own treatment); E weighted-vq; menu3 (no zeros); wall write-up
 w/ figures; attn2-seed0 (blocked).
+
+---
+
+## 2026-07-17 — tick 38b (C-1 harvested: the window is REAL; composed windowed-D launched)
+
+**FINDING C-1 (method C interventional, v/residual live, QK read patched only):**
+L2: mlp1-tabled +0.002 · window-live +0.000 · ALL-tabled +0.009 (≈ depth-sweep +0.008 ✓)
+L5: mlp4-tabled +0.047 · window-live **+0.003** · ALL-tabled +0.231 (≈ sweep +0.251 ✓)
+L9: everything ≤ +0.007 including ALL-tabled.
+The bombshell is L5: its "irreducibly contextual" selection (the +0.25 gap, the H5/H7
+heads, the wall's named suspect) needs only the LAST TWO LAYERS' streams live — deep
+context tables away for +0.003. Combined with SI-1: selection everywhere reads (old
+context ≈ token identity) × (recent window ≈ live computation).
+
+Launched `d_composed.py` — Logan's D in window form, composed across ALL layers at
+once, NO training: every layer's QK read = exact emb stream + tabled old streams
+(created > W layers back; cond-means estimated at creation, λ-rescaled analytically)
++ the patched model's OWN live recent streams. Error chains bounded at depth W.
+Arms: W=2, W=3, W=1, W=0 (composed control — should reproduce wall-scale blowup).
+If W=2 composes near the sum of C-1 marginals (~+0.05 total), the wall is CRACKED
+without training and the flagship architecture is: token-static long-range context,
+live short-range computation.
+
+Queue: harvest d_composed → tick 39 (wall write-up + this arc, results/10-11);
+if W=2 works: MDL accounting for stream tables + vq/sparse compression of them (they
+are (V,D) fp32 objects — the actual bits); E weighted-vq; menu3; attn2-seed0 (blocked).
