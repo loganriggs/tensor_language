@@ -1582,3 +1582,13 @@ tier0_gate.py re-run on the resting commit: ALL PASS (pattern ~3e-15, gauge ~2e-
 unchanged). Repo clean, all results committed. No Logan input; unblocked queue still
 empty. Convention going forward: silent no-op ticks will not add LOG entries or
 commits — the next entry will be a harvest, a Logan response, or a queue change.
+
+---
+
+## 2026-07-18 — tick 55b (cron retuned for rest state)
+
+Rest-state housekeeping: 30-min cron (3ab8af57) replaced by hourly (96461de0, :23,
+7-day expiry, session-scoped) with rest-state semantics baked into the prompt: silent
+no-op while the unblocked queue is empty; auto-restore 30-min cadence the moment Logan
+replies or the queue gains unblocked items. Continuous-execution guarantee intact,
+no-op churn eliminated.
