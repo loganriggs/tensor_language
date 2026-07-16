@@ -1675,3 +1675,15 @@ move scoring g_t·(C[c']−C[a_t]), damped moves (top 10%/stream, predicted-impr
 min-count 8), centroid recompute, held-out audit}; final cross-region audit.
 Success bar: beat +0.103 by more than the ±0.03 seed floor. Approximations logged in
 the docstring. Cron restored to 30-min (a0ca92b8).
+
+---
+
+## 2026-07-18 — tick 60b (pilot v2: fp16 reconciled; trust region added after iter-1 backfired)
+
+Pilot v1 findings: (a) iter-0 discrepancy RESOLVED — the e-series' fp16 table storage
+was the difference (+0.109 with fp16 round-trip vs +0.156 fp32; comparability
+restored); (b) 10%-of-rows simultaneous moves BACKFIRED (+0.109 → +0.147): the
+first-order scores don't survive 51k coupled moves — the predicted failure mode,
+observed. v2 (running): MOVE_FRAC 0.02, 6 iterations, best-state tracking with
+revert-and-halve trust region (Logan's own iterated-prune-revert protocol applied to
+assignments), rowgrad freed per iteration (OOM fix).

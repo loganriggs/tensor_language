@@ -27,8 +27,8 @@ OUT = f'{QK}/e3_behavioral_lloyd.json'
 W = 4
 K = 64
 SEED_OFF = 1555
-ITERS = 4
-MOVE_FRAC = 0.10
+ITERS = 6
+MOVE_FRAC = 0.02
 MIN_COUNT = 8
 m, cfg = load_elriggs('bilin18')
 for p in m.parameters():
@@ -92,7 +92,8 @@ print('initial L2 vq64 partition built (seed3)', flush=True)
 
 
 def table_rows(nm):
-    return cents[nm][assigns[nm]]                        # (V, D) on DEV
+    # fp16 round-trip to match the e-series storage exactly (comparability)
+    return cents[nm][assigns[nm]].half().float()         # (V, D) on DEV
 
 
 def run_model(idx, grad_streams=None):
@@ -203,13 +204,17 @@ res = {'baseline': base, 'iter0_l2_seed3': d0, 'iters': []}
 print(f'baseline {base:.4f}; iter-0 (L2 seed3): dCE {d0:+.4f}', flush=True)
 
 g_tr = torch.Generator(); g_tr.manual_seed(9)
+best_d = d0
+best_state = ({nm: t.clone() for nm, t in assigns.items()},
+              {nm: t.clone() for nm, t in cents.items()})
 for it in range(1, ITERS + 1):
     # --- gradient pass ---
     rowgrad = {nm: torch.zeros(V, D, device=DEV) for nm in PILOT}
-    NBAT = 32
-    order = torch.randperm(len(TRAIN), generator=g_tr)[:NBAT * 2]
+    torch.cuda.empty_cache()
+    NBAT = 64
+    order = torch.randperm(len(TRAIN), generator=g_tr)[:NBAT]
     for bi in range(NBAT):
-        b = TRAIN[order[bi * 2:(bi + 1) * 2]].to(DEV)
+        b = TRAIN[order[bi:bi + 1]].to(DEV)
         idx = b[:, :-1]
         logits, leaves = run_model(idx, grad_streams=set(PILOT))
         loss = F.cross_entropy(logits.float().reshape(-1, V), b[:, 1:].reshape(-1))
@@ -237,13 +242,29 @@ for it in range(1, ITERS + 1):
             n_moves += n_take
             pred_sum += gain[take].sum().item()
         cents[nm] = centroids_from(assigns[nm], nm)
+    del rowgrad
+    torch.cuda.empty_cache()
     d = audit(AUDIT) - base
+    if d > best_d:                       # trust region: revert + halve step
+        assigns = {nm: t.clone() for nm, t in best_state[0].items()}
+        cents = {nm: t.clone() for nm, t in best_state[1].items()}
+        MOVE_FRAC = MOVE_FRAC / 2
+        status = f'REVERTED (frac now {MOVE_FRAC:.3f})'
+    else:
+        best_d = d
+        best_state = ({nm: t.clone() for nm, t in assigns.items()},
+                      {nm: t.clone() for nm, t in cents.items()})
+        status = 'kept'
     res['iters'].append({'iter': it, 'moves': n_moves,
-                         'pred_gain_sum': pred_sum, 'heldout_dce': d})
+                         'pred_gain_sum': pred_sum, 'heldout_dce': d,
+                         'status': status})
     print(f'iter {it}: {n_moves} moves, predicted {pred_sum:+.1f}, '
-          f'held-out dCE {d:+.4f}', flush=True)
+          f'held-out dCE {d:+.4f} [{status}]', flush=True)
     with open(OUT, 'w') as fh:
         json.dump(res, fh, indent=2)
+assigns = best_state[0]
+cents = best_state[1]
+res['best_heldout_dce'] = best_d
 dl = audit(AUDIT_LATE) - base_late
 res['final_late_region_dce'] = dl
 print(f'final late-region dCE {dl:+.4f}', flush=True)
