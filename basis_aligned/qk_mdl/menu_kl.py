@@ -152,7 +152,8 @@ for step in range(STEPS):
     with torch.no_grad():
         tlog = reference_forward(m, b[:, :-1], 'bf16').float()
     logits = forward(b[:, :-1]).float()
-    loss = F.kl_div(F.log_softmax(logits, -1), F.log_softmax(tlog, -1),
+    loss = F.kl_div(F.log_softmax(logits, -1).reshape(-1, logits.shape[-1]),
+                    F.log_softmax(tlog, -1).reshape(-1, tlog.shape[-1]),
                     log_target=True, reduction='batchmean')
     opt.zero_grad(); loss.backward()
     torch.nn.utils.clip_grad_norm_(params, 1.0)

@@ -857,3 +857,16 @@ of stage B, same 15.3M params/steps, pure imitation — its gap to the CE-traine
 is the adaptation share for the flagship claim; ~12h with teacher forwards at batch 2).
 
 Queue: harvest stage B → tick 28; then l5_probe; then menu_kl; attn2-seed0 (blocked).
+
+---
+
+## 2026-07-17 — tick 28 (heartbeat; menu_kl loss-scale bug fixed pre-run)
+
+Stage B between checkpoints (held-out @3000 = +0.789; plateauing vs layer-0 grand —
+final ~+0.7 would itself be the finding: full-stack static selection has an irreducible
+joint cost that behavioral repair can't close at this budget). Fixed in the chained
+menu_kl.py BEFORE it runs: F.kl_div batchmean on (B,T,V) divides by B only → ~512x
+gradient inflation; reshaped to per-token rows. Chain intact:
+stage B → l5_probe → menu_kl.
+
+Queue unchanged: harvest stage B → tick 29; l5_probe; menu_kl; attn2-seed0 (blocked).
