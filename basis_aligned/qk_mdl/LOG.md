@@ -1611,3 +1611,19 @@ Queue: harvest E2 → E arc synthesis (results/14); if E2 also loses, log the ho
 conclusion (forward L2 on activations is already the right metric for these tables —
 consistent with vq1024-is-free being a denoising story) and consult Logan for the
 next E instantiation (CE-refined assignments?) or close the arc.
+
+---
+
+## 2026-07-18 — tick 57b (E-2: crossover — unembed metric WINS at k=64; stability check chained)
+
+**FINDING E-2 (first positive for Logan's conjecture, with caveat):** unembedding-
+relative clustering (rows compared through M = JL(512)·U) beats L2 at the aggressive
+budget — vq64: **+0.124 vs +0.139** — and loses at k=256 (+0.139 vs +0.104), where it
+is also NON-MONOTONIC vs its own k=64 (suspect: 512-dim sketch noise corrupting the
+fine partition). Interpretation if it survives the check: the backward optimum differs
+exactly where the metric has to choose what to keep (few atoms); with plenty of atoms,
+activation-space fidelity dominates and the direct-logit metric misses what flows
+through nonlinear paths. e2_unembed_vq.py/json.
+
+Chained: e2b_stability.py — sketch 2048, two kmeans seeds, both k.
+Queue: harvest → results/14 (E arc); then Logan consult on further E instantiations.
