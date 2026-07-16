@@ -1504,3 +1504,17 @@ token-static tables + local window + one induction match (H5) + one structure ga
 interactions. Queue: ALL blocked on Logan — (1) estimation-data MDL term; (2)
 attn2-seed0; (3) next direction (candidates: register-swap causal test; softmax-model
 transfer; E backward-MDL; H5-denoising follow-up).
+
+---
+
+## 2026-07-18 — tick 51 (TM-3 causal validation launched)
+
+All arcs closed; Logan still silent → launched the register-swap causal test
+(mlp16_register_swap.py), the cheapest decisive follow-up: within a rank-64 live
+reconstruction of mlp16 deviations, patch ONLY the top-4 (register) coefficients:
+(a) document-mean (slowness test — if register is document-level state, ~free);
+(b) swapped across documents (wrong register — should hurt); (c) zeroed (reference).
+Confirms or breaks the TM-3 interpretation.
+
+Queue: harvest → results/13 addendum; then remaining candidates (softmax transfer,
+backward-MDL, H5 under-cashing) pending Logan's priority; blocked items unchanged.
