@@ -1164,3 +1164,22 @@ residual +0.09 is table noise or window-boundary error.
 
 Queue: harvest d3 → CE-polish decision; root LOG update for Logan; E weighted-vq
 (optional now); attn2-seed0 (blocked).
+
+---
+
+## 2026-07-17 — tick 40b (D-3: more data HURTS — region confound; controls running)
+
+**FINDING D-3 (important caveat on the flagship):** 6× estimation data made D-composed
+WORSE: W=4 +0.166 (was +0.099), W=3 +0.386 (was +0.225). Not sampling noise — the extra
+5k chunks come from a different region of pile-10k than the early audit slice, so the
+cond-means drifted off the audit distribution. Two implications: (a) the residual +0.09
+is not estimator variance; (b) the stream tables are DISTRIBUTION-TUNED objects — the
++0.094 flagship number may be partly local to the audit's document region. Controls
+running (`d_composed4.py`): A = early tables audited on LATE chunks (cross-region
+generalization of the headline); B = late-estimated same-size tables on the early audit
+(region-match vs amount). QUESTION FOR LOGAN (accounting): where should the
+estimation-data/distribution term sit in the MDL story for data-estimated tables —
+count estimation tokens as description bits, or report per-region numbers?
+
+Queue: harvest d4 → honest revision of results/11 §5; root LOG for Logan; CE-polish
+decision after; attn2-seed0 (blocked).
