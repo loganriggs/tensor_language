@@ -1371,3 +1371,21 @@ script docstring.
 
 Queue: harvest probe → results/12 addendum; Logan items (estimation-data MDL term,
 attn2-seed0, next-arc priority).
+
+---
+
+## 2026-07-17 — tick 46b (WW-4: H5 carries identity; H7's payload is contextual deviation)
+
+**FINDING WW-4:** OV logit-lens on cond-mean content: H5's forwarded content decodes to
+its SOURCE TOKEN (median rank 25/50k, top-1 15% — identity carriage; H5 is the complete
+textbook induction head). H7's per-token mean is a near-constant generic direction
+(decodes to '-'/' and'/'(' for every source; rank 4072) — its causal power (+6.7 on
+repeats) lives in context deviations invisible to any 0th-order object. The pair now
+fully explains itself: H5 = matchable+tableable-in-content but contextual-in-selection;
+H7 = contextual in BOTH, mean content nearly empty. results/12 updated (WW-4 table +
+examples). h7_ov_probe.py/json.
+
+Running: h7_deviation_pca.py — PCA of H7's output deviations around token means,
+lensed top directions + variance shares (H5 contrast).
+
+Queue: harvest PCA → results/12 final; Logan items unchanged.

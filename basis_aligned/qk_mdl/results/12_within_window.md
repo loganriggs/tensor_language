@@ -35,6 +35,24 @@ selects by content-matching (un-tableable because matching compares context to c
 one head carries content chosen by local context (un-tableable because the choice is
 contextual even though the range is local).
 
+## What the two heads carry (WW-4)
+
+Logit-lens on the per-source-token conditional-mean OV content (2961 frequent tokens;
+crude-lens caveat applies — 12 layers process this before the unembedding):
+
+| | lens top-1 = source | median rank of source | cos with embedding |
+|---|---|---|---|
+| H5 | 0.147 | **25** / 50k | 0.020 |
+| H7 | 0.000 | 4072 | 0.065 |
+| H0 (free head) | 0.006 | 8035 | 0.027 |
+
+**H5 carries token IDENTITY** — the complete textbook induction head (match selection
++ identity carriage), just weakly cashed in by this model. **H7's token-conditional
+content is a near-constant generic direction** (every source token decodes to '-',
+' and', '(' …): its causal payload lives in the context DEVIATIONS that conditional
+means average away — which is precisely why H7 resists every 0th-order treatment.
+Deviation-PCA probe (context-conditioned) queued to name the payload.
+
 Caveats: over-random ratios for the seven free heads are numerically meaningless
 (signed means near zero); use the conditional means in the json files. Repeat data is
 synthetic (uniform random tokens); H7's mechanism deserves an OV-side decomposition
