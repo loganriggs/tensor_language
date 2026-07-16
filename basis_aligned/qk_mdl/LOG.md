@@ -902,3 +902,17 @@ Chain: l5_probe running → menu_kl (adaptation share of the +0.76).
 Queue: harvest l5_probe → tick 31; menu variant with L5 LIVE (menu minus the wall's
 suspected main brick — cheap audit reusing menu_cbs_trained.pt, worth running before
 interpreting menu_kl); results/10 stage-B section; attn2-seed0 (blocked).
+
+---
+
+## 2026-07-17 — tick 30b (L5 probe harvested: TWO heads own contextual selection)
+
+**FINDING L5-1:** layer 5's +0.251 all-tabled cost decomposes onto exactly two of nine
+heads: H7 (table-alone +0.104, live-alone leaves only +0.095) and H5 (+0.080, +0.165);
+every other head tables for ≤ +0.009. So in the WHOLE 546M model, irreducibly contextual
+selection lives in ~2 of 162 head-instances. l5_probe.py/json.
+
+Sequencing: paused menu_kl to run `l5_pair.py` first (15-min audit, informs everything):
+arm A = L5 tabled except H5+H7 (marginal), arm B = the trained menu with H5+H7 reverted
+to live (does the wall crack?), B0 sanity re-audit of the trained menu. menu_kl
+re-chained behind it.
