@@ -1547,3 +1547,20 @@ repeat prediction (WW-6).
 
 Queue: harvest → results/12 addendum; softmax-transfer awaits Logan's scope OK
 (new model family); other Logan items unchanged.
+
+---
+
+## 2026-07-18 — tick 53 (WW-7: under-cashing = content noise; program at rest)
+
+**FINDING WW-7:** hypothesis A wins decisively — H5 v-content cleaned to cond-mean
+identity: repeat −0.170 (natural +0.023); pattern scaling hurts monotonically
+(α=4: +3.37) and adds nothing after cleaning. The induction head carries a NOISY copy
+of token identity; the model's small gain is rational; denoising is the intervention
+that helps. results/12 postscript added. h5_undercash.py/json.
+
+**Program state: fully at rest.** All arcs closed (results/11-13), all follow-up
+probes done (TM-4 negative, WW-7 resolved). The unblocked queue is EMPTY — remaining
+items all need Logan: (1) MDL estimation-data term convention; (2) attn2-seed0
+location; (3) next direction (softmax-transformer transfer needs a scope OK — new
+model family; register/structural deep-dive; backward-MDL). Idling deliberately
+rather than launching unqueued speculation (spec §6: no silent scope drift).
