@@ -983,3 +983,22 @@ Queue: harvest menu2 final → tick 34; then iter curve; then KL; attn2-seed0 (b
 menu2 @3000 = +0.566 (vs static +0.789 at same step), final in ~1h. Chain intact:
 menu2 → iter_reestimate → menu2_kl. Next tick: harvest menu2 final + write the
 results/10 wall section with the complete menu-static/menu2/iter triple.
+
+---
+
+## 2026-07-17 — tick 35 (menu2 final: two heads buy 0.23; the wall persists at +0.53)
+
+**FINDING MS-2:** menu2 (identical to menu-static but L5 H5+H7 live from step 0)
+converges at **+0.530** vs the static wall's +0.757 (curve +1.97 L2-fit → +0.68 → +0.57
+→ +0.53). So the model's two genuinely contextual heads account for ~0.23 of the wall —
+consistent with their marginal (+0.25 as a full L5 gap, ~91% theirs) FINALLY composing
+additively once they're present during training (unlike the hot-swap, L5-3). The
+remaining +0.53 is NOT owned by any single layer's selection (every marginal was
+≤ +0.07 outside L5): it is either compounding estimator bias (distribution shift) or
+distributed vq discreteness. iter_reestimate (auto-started, chained) decides:
+no-training bottom-up re-estimation; watch the cumulative curve. menu2_trained.json,
+menu2_cbs_trained.pt.
+
+Chain: iter_reestimate (running) → menu2_kl.
+Queue: harvest iter curve → tick 36 (+ results/10 full wall section incl. MS-2);
+menu2_kl; attn2-seed0 (blocked).
