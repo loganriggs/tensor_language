@@ -1704,3 +1704,17 @@ e3_behavioral_lloyd.py/json, e3_assigns.pt.
 E ARC CLOSED. Queue: back to rest pending Logan (next-direction candidates:
 softmax was vetoed; remaining: deeper fast-structure naming at top MLPs; anything
 new Logan wants). Cron stays 30-min while conversation is active.
+
+---
+
+## 2026-07-18 — tick 62 (LOGAN REQUEST: explainer/glossary/examples doc set shipped)
+
+Logan asked for a comprehensive methods doc set focused on what worked. Shipped three
+files in results/, cross-linked and indexed from the README:
+- EXPLAINER.md — objects/shapes/reductions (embedding, QK factors, OV, heads, bilinear
+  MLP with the encoder/decoder split made explicit, streams), the nine methods with
+  LaTeX, the five composition laws, the bits convention;
+- GLOSSARY.md — ~35 working definitions;
+- EXAMPLES.md — vq16 token classes, conjunction matches, the two contextual heads with
+  decoded contents, mlp16 firing contexts + the TM-4 trap, figure pointers.
+E arc remains closed (E-5); GPU idle pending Logan's read-through / next direction.

@@ -1,5 +1,9 @@
 # qk_mdl results
 
+**Start here:** [EXPLAINER.md](EXPLAINER.md) (objects, shapes, reductions, the methods that
+worked — with math) · [GLOSSARY.md](GLOSSARY.md) (term definitions) ·
+[EXAMPLES.md](EXAMPLES.md) (qualitative examples with specifics).
+
 One file per experiment, each with: how the model was compressed, the tables, inline
 figures, examples from the decomposition, and caveats. All numbers were produced with the
 Tier-0 exactness gate passing (folding reproduces the live model to ~1e-13–1e-15), under
