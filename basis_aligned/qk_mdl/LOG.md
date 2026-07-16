@@ -1485,3 +1485,22 @@ a rerun this time): top-8 deviation PCs of mlp16, each with logit-lens ± tokens
 extreme-coefficient context examples. Names the ~4-16 contextual gains of TM-2.
 
 Queue: harvest → results/13 addendum; Logan items unchanged.
+
+---
+
+## 2026-07-17 — tick 50 (TM-3: the top-MLP context is DOCUMENT REGISTER; arc closed)
+
+**FINDING TM-3:** mlp16's contextual directions decode cleanly: dir0 legal-citation
+register (40%), dir1 prose (18%), dir2 legal captions (8%), dir3 XML/markup (5%),
+dir4-7 blog/technical/numeric. The dominant top-MLP's irreducible context = document
+register — slow document-scale state, exactly what token tables and local windows
+cannot carry. Sample caveat logged (pile-10k early slice legal-heavy; structure is the
+finding, not the ordering). results/13 complete — top-MLP arc CLOSED.
+
+**Program state: all three arcs complete** (windowed-D results/11; within-window
+results/12; top-MLP results/13). The 546M model's full contextual inventory:
+token-static tables + local window + one induction match (H5) + one structure gain
+(H7, rank-1) + a handful of register gains (mlp16, rank ~4-16) + diffuse small top-MLP
+interactions. Queue: ALL blocked on Logan — (1) estimation-data MDL term; (2)
+attn2-seed0; (3) next direction (candidates: register-swap causal test; softmax-model
+transfer; E backward-MDL; H5-denoising follow-up).

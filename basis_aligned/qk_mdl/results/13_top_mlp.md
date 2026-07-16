@@ -46,4 +46,24 @@ rank-k-with-live-coefficients is a structural statement (the function factors th
 k scalars), not a compute reduction — the scalars are computed by the live model.
 Naming the mlp16 directions (logit-lens / examples) is the queued follow-up.
 
-Files: `../mlp_stream_interactions.py/.json`, `../mlp16_rank.py/.json`.
+## The directions have names: document register (TM-3)
+
+Logit-lens + extreme-firing contexts for mlp16's top deviation PCs (`../mlp16_dirs.py`):
+
+| dir (var share) | identity | example firing context |
+|---|---|---|
+| 0 (40%) | legal-citation register | `…609, 614 (1965); see also` |
+| 1 (18%) | general prose continuation | `…hit reality TV show was ensnared` |
+| 2 (8%) | legal captions/names | `…Plaintiff-Appellee\n\nDouglas K.` |
+| 3 (5%) | XML/markup code | `…EndOf="parent"\n    app:` |
+| 4–7 (<2% each) | blog boundaries, technical prose, patent numerics | — |
+
+**mlp16's contextual computation tracks DOCUMENT REGISTER** — which domain/genre the
+current text lives in. That is exactly the kind of slow, document-scale information
+that neither token tables nor a local window can carry, which is why the top MLPs were
+the un-windowable component. (Sample caveat: pile-10k's early slice is legal-heavy,
+which likely inflates the legal directions' variance shares; the structure — a few
+register gains — is the finding, not the specific ordering.)
+
+Files: `../mlp_stream_interactions.py/.json`, `../mlp16_rank.py/.json`,
+`../mlp16_dirs.py/.json`.
