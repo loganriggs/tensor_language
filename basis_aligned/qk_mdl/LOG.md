@@ -1002,3 +1002,22 @@ menu2_cbs_trained.pt.
 Chain: iter_reestimate (running) → menu2_kl.
 Queue: harvest iter curve → tick 36 (+ results/10 full wall section incl. MS-2);
 menu2_kl; attn2-seed0 (blocked).
+
+---
+
+## 2026-07-17 — tick 36 (iter curve 8/13 in: re-estimation does NOT fix the wall)
+
+Interim IR-1 (final next tick): cumulative no-training re-estimation curve
+L1 +0.12 → L2 +0.16 → L3 +0.37 → L4 +0.61 → L5 +0.73 → L6 +0.81 → L7 +0.96 →
+L9 +1.01, already past BOTH trained walls (+0.757 static, +0.530 menu2) at 8 of 13
+layers. Distribution shift is refuted as the wall's main mechanism: fresh estimators
+under the degraded stack don't contain compounding — the increments concentrate in
+L3–L6 (bottom-stack selection consumes context that only becomes visible when its
+inputs are also tabled). The wall is genuine contextual information plus what only
+JOINT training can co-adapt away. zeros_control.py chained (composed floor of the
+4 zeroed layers, needed to read the curve; marginal sum +0.023).
+
+Chain: iter (5 layers left) → zeros_control + menu2_kl.
+Queue: harvest iter final + zeros → tick 37 = full wall write-up in results/10
+(one table: sum-of-parts / one-shot / re-estimated / trained-static / trained-menu2,
+plus curve figure); menu2_kl; attn2-seed0 (blocked).
