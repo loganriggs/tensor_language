@@ -67,10 +67,15 @@ context costs +0.05 across the whole model; (b) **vq1024 on the stream tables is
 Headline configuration: **W=4 + vq1024 = +0.094 ΔCE, zero trained parameters.**
 Compare: 15.3M jointly CE-trained score-table floats = +0.757.
 
-Still pending for the full MDL story: the estimation-data term (these tables are
-data-estimated, not weight-folded — flagged since tick 20), CE-polish if wanted, and
-whether estimation noise (524k tokens) or window-boundary error dominates the residual
-(+0.09) — the 6× data re-estimation run decides.
+The residual +0.09 was interrogated three ways: 6× estimation data made things WORSE
+(W=4 +0.166 — so not sampling noise); but the early-estimated tables audited on a
+held-out LATE region score **+0.089** (the headline generalizes across regions), while
+same-size late-region estimation scores +0.184 everywhere — table quality tracks the
+DIVERSITY of estimation data, not its amount, and the flagship number is not
+region-overfit. The remaining +0.09 is structural window-boundary error; a CE-polish
+of the bottom-stream vq atoms (12.6M floats, protocol-sized) is running. Still open
+for the MDL accounting: the estimation-data term for data-estimated tables (QUESTION
+FOR LOGAN in the LOG).
 
 Caveats: single eval distribution (pile-10k, T=512); v/OV circuits and MLPs stay fully
 live in every arm here (this file is about selection only — content/carriage compression

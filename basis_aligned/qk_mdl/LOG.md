@@ -1183,3 +1183,23 @@ count estimation tokens as description bits, or report per-region numbers?
 
 Queue: harvest d4 → honest revision of results/11 §5; root LOG for Logan; CE-polish
 decision after; attn2-seed0 (blocked).
+
+---
+
+## 2026-07-17 — tick 41 (D-4: flagship generalizes cross-region; CE-polish launched)
+
+**FINDING D-4 (controls resolve D-3 favorably):** A = early tables on LATE audit:
+**+0.089** (headline generalizes; late-audit baseline 2.863); B = late-estimated
+same-size tables on early audit: +0.184. Asymmetric: the early pile-10k slice is more
+DIVERSE, so its tables are better everywhere; D-3's worsening was estimation-data
+homogeneity, not region overfitting. Flagship stands: W=4 + vq1024 ≈ +0.09 on both
+regions, untrained. Table quality tracks estimation diversity, not amount.
+d_composed4.json; results/11 §5 revised.
+
+Launched d_polish.py: CE-polish of the vq1024 ATOMS for bottom streams (attn/mlp 0–5,
+12.6M floats, 3000 steps batch 2 on the diverse early 524k; held-out @1000/2000 +
+late-region audit at the end). Residual +0.09 is structural (window boundary) — polish
+tests how much of it the continuous DOF can buy back.
+
+Queue: harvest polish → root LOG for Logan + results/11 final table; E weighted-vq
+(optional); attn2-seed0 (blocked). QUESTION FOR LOGAN pending: MDL estimation-data term.
