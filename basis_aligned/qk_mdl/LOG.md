@@ -1052,3 +1052,26 @@ co-adaptation, NOT stale estimators (IR-1, final numbers next tick).
 
 Queue: harvest iter final + zeros → wall write-up; B map → C design; D prototype
 (L1-2 first); E weighted-vq menu3; attn2-seed0 (blocked).
+
+---
+
+## 2026-07-17 — tick 37b (IR-1 final + Z-1: even deletions don't compose)
+
+**FINDING IR-1 (final):** no-training bottom-up re-estimation, full cumulative curve:
+L1 +0.12 → L2 +0.16 → L3 +0.37 → L4 +0.61 → L5 +0.73 → L6 +0.81 → L7 +0.96 → L9 +1.01
+→ L10 +1.07 → L11 +1.11 → L12 +1.15 → L13 +1.25 → L16 **+1.41**. Better than one-shot
+(+1.8-scale) but far above the trained walls (+0.757/+0.530). Distribution shift
+REFUTED as the wall's mechanism; compounding concentrates in L3–L6. What joint training
+buys (+1.41 → +0.53) is co-adaptation, not statistics. iter_reestimate.json/iter_tables.pt.
+
+**FINDING Z-1 (zeros control):** the four "free-deletion" layers (8,14,15,17) composed
+= **+0.114** vs +0.023 marginal sum — 5× superadditive even for deletions. Two
+consequences: (a) the iter curve's first point (+0.123) is almost entirely the zeros
+floor — L1's table adds ~+0.01, matching its marginal; (b) menu2's +0.53 sits on a
++0.114 floor from the zeros themselves → tabled selection proper costs ~+0.42.
+Queue item added: menu3 = all-table, NO zeros, H5/H7 live (the zeros floor may be
+buyable back). zeros_control.py/json.
+
+Running: stream_interactions.py (Logan's method B, auto-chained).
+Queue: B map → C window design; D propagated codes; E backward/weighted vq; menu3;
+results/10 wall table+figure; attn2-seed0 (blocked).
