@@ -1389,3 +1389,21 @@ Running: h7_deviation_pca.py — PCA of H7's output deviations around token mean
 lensed top directions + variance shares (H5 contrast).
 
 Queue: harvest PCA → results/12 final; Logan items unchanged.
+
+---
+
+## 2026-07-17 — tick 46c (WW-5: H7 is a rank-1 gain head; causal rank-k test running)
+
+**FINDING WW-5:** deviation-PCA around token-conditional means: H7's deviations are
+(a) only ~5% of its output energy and (b) 63% ONE direction — which lenses to the same
+generic connective/structure feature as its mean. H7 ≈ (fixed hub direction) ×
+(context-dependent scalar gain). The model's un-tableable local transport reduces to
+ONE SCALAR per position. H5 contrast: 92% deviation share spread over many directions
+(diverse identity content — as a match-and-copy head must be). h7_deviation_pca.py/json.
+
+Running: h7_rank1.py — causal: replace H7-out by its rank-k projection (mean + top-k
+PCs, live coefficients), k∈{1,2,4,8}; H5 same as contrast (expect rank-1 hurts).
+If H7 rank-1 is ~free on natural AND repeat audits, the WW arc closes with: bilin18's
+contextual core = one match head + one scalar gain + top MLPs.
+
+Queue: harvest rank test → results/12 final + arc close; Logan items unchanged.
