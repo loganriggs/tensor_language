@@ -1344,3 +1344,17 @@ Running: signature probe re-run ON repeat data (l5_heads_function_rep.py) — do
 match statistics appear once the context demands them?
 
 Queue: harvest → results/12 (within-window arc); H7 mechanism deep-dive; Logan items.
+
+---
+
+## 2026-07-17 — tick 45c (WW-3 synthesis; results/12 shipped)
+
+**FINDING WW-3:** repeat-data signatures resolve the flip: H5's induction signature
+INTENSIFIES on repeats (53× random) while H7 shows none in any context — H5 selects by
+matching, H7 transports locally-chosen content into the attn5 hub stream the whole
+upper model reads (SI-1). The selection/carriage split reappears INSIDE the contextual
+core, and the correlational/causal dissociation repeats the conjunction test's lesson.
+results/12_within_window.md shipped; README indexed.
+
+Queue: H7 OV-side decomposition (what content features feed the hub?); Logan items
+(estimation-data MDL term; attn2-seed0; next-arc priority).
