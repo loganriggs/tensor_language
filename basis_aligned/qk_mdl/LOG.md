@@ -1145,3 +1145,22 @@ Queue: harvest → tick 40: full wall-arc write-up (results/11: SI-1, C-1, D-1, 
 table incl. iter/zeros baselines, figures); then CE-polish of vq'd stream tables if
 needed; E weighted-vq now optional (D route dominates); menu3 obsolete unless vq
 tables disappoint; attn2-seed0 (blocked).
+
+---
+
+## 2026-07-17 — tick 40 (D-2: asymptote + free vq; results/11 shipped; data-scaling control running)
+
+**FINDING D-2:** W asymptote (untrained): W=4 +0.099 · W=5 +0.064 · W=6 +0.050 — cost
+~halves per window step. **vq1024 on the stream tables is FREE** (W=4: +0.094, slightly
+better than raw — quantization denoises the cond-means; W=3: +0.210); vq256 costs +0.04.
+~50× table compression. Headline: **W=4 + vq1024 = +0.094, zero trained parameters**
+(vs +0.757 for 15.3M trained score-table floats). d_composed2.json, stream_tables.pt.
+
+Shipped results/11_windowed_codes.md (the full wall arc: MS → IR/Z → SI → C → D, with
+fig_wall.png) — marked current flagship in the README.
+
+Running: d_composed3.py — 6× estimation data (3.15M tokens), W=3/4: decides whether the
+residual +0.09 is table noise or window-boundary error.
+
+Queue: harvest d3 → CE-polish decision; root LOG update for Logan; E weighted-vq
+(optional now); attn2-seed0 (blocked).
