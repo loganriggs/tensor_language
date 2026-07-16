@@ -2143,3 +2143,34 @@ is two heads at L5 (within-window) + the top MLPs. Full arc with figures: result
 Launching next: transfer test on sqrd12 (does the windowed architecture hold on the
 model that resisted score-space compression 15×?). Open question for you in the LOG:
 how to charge the estimation-data term for data-estimated tables in the MDL accounting.
+
+## 2026-07-17 — qk_mdl ticks 45–50 (for Logan): the contextual core, fully named
+
+After the windowed-D flagship (results/11), two short arcs named everything it left live:
+
+**The two contextual heads (results/12).** L5.H5 is the textbook induction head — match
+selection + token-identity payload (lens rank 25/50k) — but weakly cashed: low-rank
+FILTERING of its content IMPROVES repeat prediction (−0.33). L5.H7 is causally a
+RANK-ONE gain head: one fixed structure-feature direction × one context scalar
+(+0.0001 natural at rank-1 with live coefficient; zero-ablation +6.68 on repeats —
+it feeds the attn5 hub the whole upper model reads). Correlational signatures and
+causal ablations dissociated twice on the way — pattern stats find selection structure,
+only ablations find load-bearing carriage.
+
+**The top MLPs (results/13).** Input side: diffuse aggregation (L13 reads only 19%
+recent) — nothing to name. Output side: LOW-RANK — mlp16 = token mean + ~4-16 live
+gains (+0.024 at rank-16 vs +0.141 mean-only). And the gains decode to DOCUMENT
+REGISTER: legal-citation (40%), prose, legal-caption, XML/markup, technical/numeric.
+The un-windowable component tracks what kind of document you're in — slow state that
+no token table or local window can carry.
+
+**Full contextual inventory of your 546M model:** token-static tables + a ~4-layer
+live window everywhere, plus exactly: one induction match (H5), one structure gain
+(H7, rank 1), a handful of register gains (mlp16, rank ~4-16), and small diffuse
+top-MLP interactions. bilinear MLPs pull register in; sqrd12's ReLU² don't (its whole
+long-range flow is token-static at +0.030).
+
+Blocked on you: (1) MDL estimation-data term convention for data-estimated tables;
+(2) attn2-seed0 location; (3) next direction — candidates: register-swap causal test,
+softmax-transformer transfer of windowed-D, backward-MDL (your E), H5-denoising
+follow-up (the model under-cashes its own induction signal — why?).
