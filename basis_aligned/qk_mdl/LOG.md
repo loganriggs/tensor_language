@@ -1627,3 +1627,22 @@ through nonlinear paths. e2_unembed_vq.py/json.
 
 Chained: e2b_stability.py — sketch 2048, two kmeans seeds, both k.
 Queue: harvest → results/14 (E arc); then Logan consult on further E instantiations.
+
+---
+
+## 2026-07-18 — tick 58 (E-3: the crossover does NOT survive; L2 seed control chained)
+
+**FINDING E-3 (corrects E-2):** stability check kills the k=64 advantage — unembed
+vq64 spans +0.125…+0.150 across sketch/seed variants (E-2's +0.124 was the lucky
+draw); vq256 unembed always loses (+0.131…+0.172 vs L2 +0.104). Seed-to-seed variance
+(~±0.02) exceeds any metric effect at k=64. E-2's crossover claim RETRACTED pending
+the L2 seed control (chained: e2c_l2seeds.py, two more L2 seeds at k=64 — needed to
+state the null symmetrically).
+
+Emerging E-arc synthesis (results/14 after the control): both cheap backward
+instantiations (empirical Fisher, direct-U sketch) fail to beat plain L2 on
+stream-table quantization; consistent with the program's denoising picture (vq1024
+free; H5 denoising helps) — quantization error behaves as noise the downstream model
+filters, so preserving activation-space geometry IS the right objective here.
+Strongest untested instantiation: CE-refined assignments (behavioral Lloyd) — needs
+training budget; consult Logan.
