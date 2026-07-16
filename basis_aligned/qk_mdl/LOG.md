@@ -1718,3 +1718,16 @@ files in results/, cross-linked and indexed from the README:
 - EXAMPLES.md — vq16 token classes, conjunction matches, the two contextual heads with
   decoded contents, mlp16 firing contexts + the TM-4 trap, figure pointers.
 E arc remains closed (E-5); GPU idle pending Logan's read-through / next direction.
+
+---
+
+## 2026-07-18 — tick 63 (LOGAN REQUEST: visual explorer HTML shipped)
+
+Built results/explorer.html ("Token tables & two heads") — self-contained visual
+deep-dive: wall-routes bar chart, recent-share regime curve (QK + MLP), the W-ladder
+log chart with trained-wall reference lines, vq16 token-class display, conjunction
+match table (hits AND misses), L5 per-head signature-vs-causal scatter, H5/H7 detail
+cards, mlp16 variance bars + firing contexts + the TM-4 trap verdict, and the
+what-didn't-work section. All numbers from committed JSONs; hover tooltips;
+light/dark themed. Published as a private artifact for Logan:
+https://claude.ai/code/artifact/8763e1ff-ff6d-4cdc-bde5-7f0e5fd0f4b5
