@@ -1442,3 +1442,20 @@ mlp_stream_interactions.py: Down-weighted per-pair hidden energy at L∈{2,5,13,
 
 Queue: harvest map → targeted probes (deviation-PCA of top-MLP outputs? gain-like?);
 Logan items unchanged.
+
+---
+
+## 2026-07-17 — tick 48b (TM-1: top-MLP input is DIFFUSE; output-rank probe running)
+
+**FINDING TM-1:** exact bilinear stream-pair map for MLPs (gates pass): bottom MLPs
+read a tight window (L2 recent×recent 99%, L5 94% — why windowed MLP reads were free
+below); **L13 is diffuse (recent 19%, top pair 3%)**, L16 44%, L17 65%, with the attn5
+hub reappearing in L16/17 pairs. The top-MLP contextual computation is broad
+aggregation over many old streams — no single nameable channel, unlike selection.
+mlp_stream_interactions.py/json.
+
+Running: mlp16_rank.py (H7 playbook on outputs): token-mean + rank-k deviation
+projection (live coefficients) for mlp16 and mlp13 — is the OUTPUT low-rank even
+though the input consumption is diffuse?
+
+Queue: harvest → TM write-up (results/13); Logan items unchanged.
