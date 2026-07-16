@@ -1427,3 +1427,18 @@ Queue: ALL remaining items blocked on Logan — (1) estimation-data MDL term con
 softmax-transformer transfer / H5-denoising follow-up now added as a candidate).
 GPU idle pending Logan's direction — the natural next default if no answer arrives:
 top-MLP mechanism (the last unnamed contextual component).
+
+---
+
+## 2026-07-17 — tick 48 (top-MLP arc opened: exact stream-pair map for bilinear MLPs)
+
+Logan still silent on next-arc priority → default arc launched: NAME the top-MLP
+contextual computation (last unnamed live component; windowed MLP reads at L13-17 cost
++0.59 composed, L16 marginal +0.146). Key structural fact verified: bilin18's MLP is
+PURE bilinear (Down(Lx ⊙ Rx), gated=False) — so MLP outputs decompose EXACTLY over
+stream pairs, same machinery as the QK map (SI-1). Launched
+mlp_stream_interactions.py: Down-weighted per-pair hidden energy at L∈{2,5,13,16,17}
+(bottom layers as contrast), with the two exactness gates.
+
+Queue: harvest map → targeted probes (deviation-PCA of top-MLP outputs? gain-like?);
+Logan items unchanged.
