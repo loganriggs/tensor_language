@@ -975,3 +975,11 @@ estimation procedure, not capacity. Progressive curve localizes where compoundin
 
 Chain: menu2 (running) → iter_reestimate → menu2_kl.
 Queue: harvest menu2 final → tick 34; then iter curve; then KL; attn2-seed0 (blocked).
+
+---
+
+## 2026-07-17 — tick 34 (heartbeat)
+
+menu2 @3000 = +0.566 (vs static +0.789 at same step), final in ~1h. Chain intact:
+menu2 → iter_reestimate → menu2_kl. Next tick: harvest menu2 final + write the
+results/10 wall section with the complete menu-static/menu2/iter triple.
