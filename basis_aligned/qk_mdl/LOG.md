@@ -956,3 +956,22 @@ attn2-seed0 (blocked).
 
 menu2 at step 900/4500; nothing completed. Chain: menu2 → menu2_kl. Monitor armed on
 held-out checkpoints. Next harvest: @1500 checkpoint.
+
+---
+
+## 2026-07-17 — tick 33 (menu2 @1500 = +0.68; iterated re-estimation designed and chained ahead of KL)
+
+menu2 held-out @1500 = **+0.681** (static run was +0.87 at the same step, final +0.757;
+projection: menu2 final ~+0.58). Early read: the two live heads buy ~0.15-0.2, NOT the
+bulk of the wall — residual suspects are distribution shift of the estimators vs vq
+discreteness.
+
+New experiment (chained ahead of the KL control because it's 4x cheaper and decides the
+mechanism): `iter_reestimate.py` — bottom-up NO-TRAINING pass: re-estimate each tabled
+layer's cond-mean tables UNDER the already-patched lower stack (menu2 config), audit
+cumulatively after each layer. If composed dCE falls from ~+1.8 (one-shot untrained
+tables) toward sum-of-parts ~+0.2, the wall is distribution shift and the fix is
+estimation procedure, not capacity. Progressive curve localizes where compounding bites.
+
+Chain: menu2 (running) → iter_reestimate → menu2_kl.
+Queue: harvest menu2 final → tick 34; then iter curve; then KL; attn2-seed0 (blocked).
