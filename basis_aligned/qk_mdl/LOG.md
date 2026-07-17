@@ -1803,3 +1803,16 @@ edge_composed.py/json.
 
 Edge arc complete (EH-1..EH-5). Queue: fold edge heatmaps into the explorer page
 (offered to Logan); otherwise rest pending his direction.
+
+---
+
+## 2026-07-19 — tick 67 (explorer §8: interactive edge map; queue now empty)
+
+Folded the edge arc into the explorer (same URL): new §8 with the full 377-cell
+zero-ablation matrix as an interactive SVG heatmap (hover = exact per-edge ΔCE, data
+inlined from edge_heatmap.json), the method-ladder and weights-null verdicts in prose,
+and EH-5's composed-cut result as the closing verdict box. TOC renumbered (what-didn't-
+work → §9). Re-published.
+
+Queue: EMPTY pending Logan (edge arc EH-1..5 complete; all deliverables current).
+Next silent tick retunes cron to hourly per policy.

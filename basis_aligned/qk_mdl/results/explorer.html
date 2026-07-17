@@ -124,7 +124,7 @@
     <a href="#wall">1 The wall</a><a href="#reads">2 What selection reads</a>
     <a href="#crack">3 The crack</a><a href="#classes">4 Token classes</a>
     <a href="#conj">5 Induction, decoded</a><a href="#heads">6 The two heads</a>
-    <a href="#mlp">7 The top MLPs</a><a href="#null">8 What didn't work</a>
+    <a href="#mlp">7 The top MLPs</a><a href="#edges">8 The edge map</a><a href="#null">9 What didn't work</a>
   </nav>
 </header>
 
@@ -323,7 +323,42 @@ within those registers. Lens + examples name where a feature lives; only interve
 what it carries.
 </div>
 
-<h2 id="null"><span class="secnum">8</span>What didn't work (and why that's load-bearing)</h2>
+<h2 id="edges"><span class="secnum">8</span>The edge map: every connection, causally priced</h2>
+<div class="prose">
+<p>The full lower-triangle module map (Logan's spec): for every edge (source stream →
+destination layer's reads), ablate the source <em>in that destination's reads only</em> and
+measure ΔCE. Below: the zero-ablation matrix, interactive — hover any cell.</p>
+</div>
+<div class="figure">
+  <div id="edgemap"></div>
+  <div class="cap"><b>Rows:</b> source streams (embedding path, then each layer's attn/mlp
+  output). <b>Columns:</b> destination layer whose reads (QK, v, MLP input) lose the source;
+  final column U = the unembedding read. Red = ablation hurts; blue = helps. <b>215 of 377
+  edges are free</b> (|ΔCE| &lt; 0.005): the wiring is three families of short hops —
+  within-layer attn→mlp (attn1→L1 +2.81, attn5→L5 +2.61), adjacent mlp→next layer
+  (mlp16→L17 +3.89), and final MLPs→unembedding. The attn5 "hub" row is causally inert
+  through the middle (its energy presence there was another correlational mirage) —
+  its real consumers are its own layer, L17, and the unembedding.</div>
+</div>
+<div class="prose">
+<p>Two verdicts from the companion runs. <b>Ablation-method ladder</b> over the 67
+load-bearing edges: zero +0.302 → global-mean +0.176 → PCA-1 +0.156 → PCA-4 +0.144 —
+fixed subspaces plateau at half the damage, while token-<em>conditional</em> means (the
+windowed-D tables) make these same reads nearly free: reads want the token-conditional
+component of a stream, not its global directions. <b>Weights-only importance</b>
+(‖R<sub>dest</sub>·W<sub>src</sub>‖<sub>F</sub>): Spearman ρ = 0.025 vs the causal map —
+no information whatsoever.</p>
+</div>
+<div class="verdict">
+<b>And the free edges don't compose:</b> cutting all 215 individually-free edges together
+costs <b>+2.84</b> (the stricter 149-edge set: +0.54) — the strongest superadditivity
+instance in the program. Small contributions hide under each read's noise floor and sum
+coherently. The map <em>prices</em> edges; it does not license pruning them — which is
+exactly why windowed-D (replace with token-conditional summaries, bound by recency)
+succeeds where threshold graph-cutting cannot.
+</div>
+
+<h2 id="null"><span class="secnum">9</span>What didn't work (and why that's load-bearing)</h2>
 <div class="prose">
 <p>The honest half of the story, kept deliberately:</p>
 <ul style="max-width:680px">
@@ -498,6 +533,42 @@ function S(tag,attrs){const n=document.createElementNS('http://www.w3.org/2000/s
     });
   });
   document.getElementById('causalchart').appendChild(svg); bindTips(svg);
+})();
+
+/* ---- 8. edge map ---- */
+(function(){
+  const Z = {"emb->1": 0.0596, "attn0->1": -0.00101, "mlp0->1": 1.98092, "attn1->1": 2.81086, "emb->2": -0.00591, "attn0->2": -3e-05, "mlp0->2": 0.0043, "attn1->2": 0.01995, "mlp1->2": 0.28179, "attn2->2": 0.12527, "emb->3": -0.00663, "attn0->3": -1e-05, "mlp0->3": -0.00161, "attn1->3": 0.00446, "mlp1->3": 0.01229, "attn2->3": 0.00113, "mlp2->3": 0.05331, "attn3->3": 0.17651, "emb->4": -0.00166, "attn0->4": -1e-05, "mlp0->4": 0.00156, "attn1->4": 0.00768, "mlp1->4": -0.00636, "attn2->4": -0.00715, "mlp2->4": -0.00933, "attn3->4": 0.00462, "mlp3->4": 0.06514, "attn4->4": 0.04947, "emb->5": 0.00469, "attn0->5": 1e-05, "mlp0->5": -0.00054, "attn1->5": -0.00146, "mlp1->5": -0.00475, "attn2->5": -0.00187, "mlp2->5": 0.00985, "attn3->5": -0.00325, "mlp3->5": 0.07226, "attn4->5": 0.08901, "mlp4->5": 0.61981, "attn5->5": 2.60814, "emb->6": 0.00345, "attn0->6": 0.0, "mlp0->6": -7e-05, "attn1->6": -0.00024, "mlp1->6": -0.00723, "attn2->6": -0.00324, "mlp2->6": -0.00635, "attn3->6": -0.00336, "mlp3->6": -0.00674, "attn4->6": 0.00319, "mlp4->6": -0.00757, "attn5->6": 0.10662, "mlp5->6": 0.01671, "attn6->6": 0.04488, "emb->7": 0.0043, "attn0->7": 1e-05, "mlp0->7": 9e-05, "attn1->7": -0.00013, "mlp1->7": -0.00569, "attn2->7": 0.00291, "mlp2->7": -0.00487, "attn3->7": -0.00045, "mlp3->7": 0.0013, "attn4->7": 0.02059, "mlp4->7": 0.00375, "attn5->7": 0.02155, "mlp5->7": -0.01878, "attn6->7": 0.0226, "mlp6->7": 0.01841, "attn7->7": 0.02598, "emb->8": -0.00747, "attn0->8": 1e-05, "mlp0->8": -0.00031, "attn1->8": -0.00037, "mlp1->8": -0.00889, "attn2->8": 0.00338, "mlp2->8": -0.00709, "attn3->8": 0.00717, "mlp3->8": -0.01708, "attn4->8": 0.0624, "mlp4->8": -0.01286, "attn5->8": -0.02766, "mlp5->8": -0.02061, "attn6->8": 0.07206, "mlp6->8": -0.02062, "attn7->8": 0.04907, "mlp7->8": 0.0016, "attn8->8": -0.00214, "emb->9": 0.00616, "attn0->9": 0.0, "mlp0->9": 3e-05, "attn1->9": -1e-05, "mlp1->9": 0.00055, "attn2->9": 0.00039, "mlp2->9": 0.00104, "attn3->9": 0.00098, "mlp3->9": 0.00383, "attn4->9": 0.00158, "mlp4->9": 0.00043, "attn5->9": 0.00092, "mlp5->9": 0.00945, "attn6->9": -0.00982, "mlp6->9": 0.0004, "attn7->9": 0.00196, "mlp7->9": 0.01323, "attn8->9": -0.01376, "mlp8->9": 0.01646, "attn9->9": 0.00821, "emb->10": -0.00702, "attn0->10": 0.0, "mlp0->10": 2e-05, "attn1->10": 0.0001, "mlp1->10": 0.00071, "attn2->10": 0.00037, "mlp2->10": 0.00033, "attn3->10": 0.00045, "mlp3->10": 0.00086, "attn4->10": 0.00372, "mlp4->10": 0.00286, "attn5->10": 0.00204, "mlp5->10": 0.00465, "attn6->10": -0.01047, "mlp6->10": 0.00149, "attn7->10": -0.00896, "mlp7->10": 0.00583, "attn8->10": -0.01401, "mlp8->10": 0.01425, "attn9->10": 0.00171, "mlp9->10": 0.02614, "attn10->10": 0.00258, "emb->11": -5e-05, "attn0->11": 0.0, "mlp0->11": 6e-05, "attn1->11": 8e-05, "mlp1->11": 0.00038, "attn2->11": 0.00077, "mlp2->11": 0.00054, "attn3->11": 0.00052, "mlp3->11": 0.002, "attn4->11": -7e-05, "mlp4->11": 0.00327, "attn5->11": 0.00621, "mlp5->11": 0.00369, "attn6->11": 0.00137, "mlp6->11": 0.01179, "attn7->11": -0.00515, "mlp7->11": 0.00384, "attn8->11": -0.0122, "mlp8->11": 0.00383, "attn9->11": 0.00046, "mlp9->11": 0.00637, "attn10->11": 0.00081, "mlp10->11": 0.00107, "attn11->11": 0.00884, "emb->12": 0.00443, "attn0->12": 0.0, "mlp0->12": -2e-05, "attn1->12": -0.00018, "mlp1->12": -0.00077, "attn2->12": -6e-05, "mlp2->12": -0.00015, "attn3->12": 0.00046, "mlp3->12": 0.00061, "attn4->12": 0.00147, "mlp4->12": 0.00166, "attn5->12": -0.01088, "mlp5->12": 0.00056, "attn6->12": -0.01387, "mlp6->12": 0.00332, "attn7->12": -0.0057, "mlp7->12": 0.00778, "attn8->12": -0.02422, "mlp8->12": 0.01035, "attn9->12": 7e-05, "mlp9->12": 0.00838, "attn10->12": 0.0016, "mlp10->12": 0.00535, "attn11->12": 0.01, "mlp11->12": 0.0137, "attn12->12": 0.00052, "emb->13": -0.00446, "attn0->13": 0.0, "mlp0->13": 3e-05, "attn1->13": -1e-05, "mlp1->13": 0.0006, "attn2->13": 0.00039, "mlp2->13": 0.00086, "attn3->13": 0.00101, "mlp3->13": 0.00114, "attn4->13": 0.00244, "mlp4->13": -0.00052, "attn5->13": 0.01002, "mlp5->13": -0.00298, "attn6->13": 0.00154, "mlp6->13": -0.00072, "attn7->13": 0.00133, "mlp7->13": 0.00128, "attn8->13": -0.00846, "mlp8->13": 0.00609, "attn9->13": 0.00496, "mlp9->13": -0.00441, "attn10->13": -0.00037, "mlp10->13": 0.00209, "attn11->13": -0.00478, "mlp11->13": 0.00709, "attn12->13": -0.00049, "mlp12->13": 0.00111, "attn13->13": 0.00317, "emb->14": -0.01547, "attn0->14": 0.0, "mlp0->14": -6e-05, "attn1->14": -0.00021, "mlp1->14": -0.00068, "attn2->14": -1e-05, "mlp2->14": -0.00101, "attn3->14": -0.00065, "mlp3->14": -0.00345, "attn4->14": 0.00327, "mlp4->14": -0.00497, "attn5->14": 0.01012, "mlp5->14": -0.01079, "attn6->14": 0.00121, "mlp6->14": -0.01131, "attn7->14": -3e-05, "mlp7->14": -0.00028, "attn8->14": -0.00854, "mlp8->14": 0.00121, "attn9->14": 0.00953, "mlp9->14": -0.0085, "attn10->14": 0.00235, "mlp10->14": -0.00229, "attn11->14": -0.00674, "mlp11->14": 0.00855, "attn12->14": -0.00994, "mlp12->14": -0.0015, "attn13->14": 0.00251, "mlp13->14": 0.03132, "attn14->14": 0.01024, "emb->15": -0.01145, "attn0->15": 0.0, "mlp0->15": -4e-05, "attn1->15": -6e-05, "mlp1->15": -0.00024, "attn2->15": -1e-05, "mlp2->15": -0.00018, "attn3->15": -0.00023, "mlp3->15": -0.00058, "attn4->15": -0.00074, "mlp4->15": 0.00026, "attn5->15": -0.00222, "mlp5->15": -0.00121, "attn6->15": 0.00105, "mlp6->15": 0.00129, "attn7->15": -0.00387, "mlp7->15": -0.00199, "attn8->15": -0.00398, "mlp8->15": -0.00422, "attn9->15": 0.00184, "mlp9->15": -0.00357, "attn10->15": -0.0019, "mlp10->15": -0.00284, "attn11->15": 0.00107, "mlp11->15": -0.0051, "attn12->15": 3e-05, "mlp12->15": -0.00309, "attn13->15": -0.00023, "mlp13->15": 0.01101, "attn14->15": 0.01415, "mlp14->15": 0.01826, "attn15->15": 0.00689, "emb->16": -0.00901, "attn0->16": 0.0, "mlp0->16": -7e-05, "attn1->16": -8e-05, "mlp1->16": -0.0, "attn2->16": -0.00016, "mlp2->16": -0.00041, "attn3->16": -4e-05, "mlp3->16": -0.00103, "attn4->16": -0.00113, "mlp4->16": -0.00111, "attn5->16": 0.0321, "mlp5->16": -0.00553, "attn6->16": 0.01444, "mlp6->16": 0.00232, "attn7->16": 0.00326, "mlp7->16": -0.00456, "attn8->16": -0.00335, "mlp8->16": -0.00322, "attn9->16": -0.0032, "mlp9->16": -0.00673, "attn10->16": -0.00091, "mlp10->16": -0.00358, "attn11->16": 0.00032, "mlp11->16": -0.0061, "attn12->16": -0.00047, "mlp12->16": -0.01403, "attn13->16": 0.00497, "mlp13->16": -0.00565, "attn14->16": 0.03172, "mlp14->16": 0.03454, "attn15->16": 0.00634, "mlp15->16": 0.67851, "attn16->16": 0.01479, "emb->17": 0.01346, "attn0->17": 0.0, "mlp0->17": 0.00012, "attn1->17": 0.00019, "mlp1->17": -8e-05, "attn2->17": -0.00025, "mlp2->17": 0.0001, "attn3->17": 9e-05, "mlp3->17": 0.00192, "attn4->17": 0.00269, "mlp4->17": 0.00233, "attn5->17": 0.19292, "mlp5->17": 0.02141, "attn6->17": 0.11102, "mlp6->17": 0.04307, "attn7->17": 0.09186, "mlp7->17": 0.01937, "attn8->17": 0.01278, "mlp8->17": 0.03792, "attn9->17": 0.06263, "mlp9->17": 0.04568, "attn10->17": 0.05447, "mlp10->17": 0.01439, "attn11->17": 0.0529, "mlp11->17": 0.09807, "attn12->17": 0.02451, "mlp12->17": 0.06899, "attn13->17": 0.01656, "mlp13->17": 0.01507, "attn14->17": 0.00252, "mlp14->17": 0.02894, "attn15->17": -0.00343, "mlp15->17": 1.81826, "attn16->17": -0.00617, "mlp16->17": 3.88854, "attn17->17": 0.00358, "emb->unembed": 0.01992, "attn0->unembed": 0.0, "mlp0->unembed": -8e-05, "attn1->unembed": 2e-05, "mlp1->unembed": -0.00099, "attn2->unembed": 0.00075, "mlp2->unembed": -0.00136, "attn3->unembed": 0.00031, "mlp3->unembed": -0.00251, "attn4->unembed": 0.00229, "mlp4->unembed": 0.00095, "attn5->unembed": 0.13062, "mlp5->unembed": 0.01192, "attn6->unembed": 0.08125, "mlp6->unembed": 0.03921, "attn7->unembed": 0.06191, "mlp7->unembed": 0.0216, "attn8->unembed": 0.22273, "mlp8->unembed": 0.03292, "attn9->unembed": 0.01626, "mlp9->unembed": 0.04899, "attn10->unembed": 0.05655, "mlp10->unembed": 0.03548, "attn11->unembed": 0.00275, "mlp11->unembed": 0.09327, "attn12->unembed": 0.04857, "mlp12->unembed": 0.05283, "attn13->unembed": 0.0209, "mlp13->unembed": 0.0334, "attn14->unembed": -0.03469, "mlp14->unembed": 0.01533, "attn15->unembed": -0.01096, "mlp15->unembed": 0.08587, "attn16->unembed": -0.01686, "mlp16->unembed": 1.29928, "attn17->unembed": 0.00986, "mlp17->unembed": 1.07783};
+  const NL = 18;
+  const SRC = ['emb'];
+  for(let l=0;l<NL;l++){SRC.push('attn'+l,'mlp'+l);}
+  const DEST = [];
+  for(let l=1;l<NL;l++)DEST.push(String(l));
+  DEST.push('unembed');
+  const cw=44, ch=13, padL=64, padT=26;
+  const Wd = padL + DEST.length*cw + 20, H = padT + SRC.length*ch + 8;
+  const svg=S('svg',{width:'100%',viewBox:`0 0 ${Wd} ${H}`,role:'img','aria-label':'Edge ablation map'});
+  function color(v){
+    if(v===undefined)return 'transparent';
+    const t = Math.max(-1, Math.min(1, Math.sign(v)*Math.log10(1+Math.abs(v)/0.01)/2.6));
+    if(t>=0){const k=Math.round(t*200); return `rgb(${200+Math.round(t*46)},${200-k*0.7},${200-k})`;}
+    const k=Math.round(-t*200); return `rgb(${200-k},${200-k*0.35},${200+Math.round(-t*46)})`;
+  }
+  DEST.forEach((t,j)=>{
+    const tx=S('text',{x:padL+j*cw+cw/2,y:16,'text-anchor':'middle','font-size':9,fill:css('--muted')});
+    tx.textContent=t==='unembed'?'U':t; svg.appendChild(tx);
+  });
+  SRC.forEach((sn,i)=>{
+    const ty=S('text',{x:padL-6,y:padT+i*ch+10,'text-anchor':'end','font-size':8,fill:css('--muted')});
+    ty.textContent=sn; svg.appendChild(ty);
+    DEST.forEach((t,j)=>{
+      const v = Z[sn+'->'+t];
+      if(v===undefined)return;
+      svg.appendChild(S('rect',{x:padL+j*cw+1,y:padT+i*ch+1,width:cw-2,height:ch-2,rx:2,
+        fill:color(v),stroke:css('--line'),'stroke-width':.4,
+        'data-tip':`${sn} → ${t==='unembed'?'unembed':'L'+t}: ${v>=0?'+':''}${v.toFixed(4)}`}));
+    });
+  });
+  document.getElementById('edgemap').appendChild(svg); bindTips(svg);
 })();
 
 /* ---- 6. head scatter ---- */
