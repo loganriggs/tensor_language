@@ -1744,3 +1744,24 @@ energy = mean squared pair term over sampled causal (i,j)); (b) MLP-hidden defin
 "5 layers measured" legend note; (c) NEW causal mini-chart: per-layer grouped bars for
 L2/L5/L9 (window-only tabled / dominant-stream tabled / all tabled), tying the
 observational energy map to the interventional ΔCE numbers. Re-published.
+
+---
+
+## 2026-07-19 — tick 65 (LOGAN SPEC: edge-ablation heatmap arc opened)
+
+Logan's new spec: full lower-triangle module×module causal map — for every edge
+(source stream → destination layer's reads), ablate the source IN THAT DESTINATION'S
+READS ONLY, methods {zero, global-mean, PCA-1, PCA-4 (fixed subspace)}, dCE over
+corpus; plot per-method heatmaps; plus a weights-only importance metric
+(||R_dest·W_src||_F normalized) to verify empirically. Relation to prior work logged
+in the reply: per-edge resolution is new (we aggregated by recency/layer); fixed-
+subspace PCA ablation is new (H7/mlp16 rank-k kept LIVE coefficients); weights-only
+screen never tested (history predicts partial failure — that's the point).
+
+Launched edge_heatmap.py: 377 edges × 4 methods ≈ 1500 audits at 8 held-out chunks,
+batch 8, resumable JSON (edge_heatmap.json), baseline×3 for the noise floor,
+per-stream stats cached (edge_stream_stats.pt). ETA ~6h. Harvest = heatmap PNGs +
+results/15 + weight-map correlation. Cron restored to 30-min (e459bfac).
+Design deviations from Logan's list, logged: PCA-2 deferred (budget; addable
+adaptively); "mean" here = global mean (our earlier tables were token-conditional
+means — both will be discussed in results/15).
