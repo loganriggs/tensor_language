@@ -71,6 +71,24 @@ attn8→L12 −0.024, mlp6→L8 −0.021 — a scattering of mildly harmful long
 echoing the earlier layer-level finding that deleting L14's attention helps. Nothing large
 enough to exploit, but they are exactly where the wiring is *worse than absent*.
 
+## 6. The composed test: per-edge freeness does NOT license pruning (EH-5)
+
+Cutting the free edges TOGETHER (each individually |ΔCE| < 0.005):
+
+| edge set cut simultaneously | zero | global-mean |
+|---|---|---|
+| 215 edges (each < 0.005) | **+2.84** | +3.04 |
+| 149 edges (each < 0.002) | +0.54 | +0.51 |
+
+The strongest superadditivity instance in the program: marginals ≈ 0, composed +2.84 —
+the "free" edges carry many small contributions that hide under each read's noise floor
+individually but sum coherently. Notably, mean-ablation is WORSE than zero at scale
+(215 consistent bias injections compound; removals don't). So the edge map is a
+per-edge PRICING tool, not a pruning license — and this is precisely why windowed-D
+works where thresholded graph-cutting can't: it replaces long-range content with
+token-conditional summaries instead of removing it, and bounds interactions by
+recency rather than by per-edge magnitude.
+
 Caveats: single 8-chunk audit slice (deterministic within-slice; chunk-sampling variation
 not measured — large effects are robust, sub-0.01 values indicative); one edge patched at
 a time (composed edge-sets will superadditive, per the program's standing law); "mean" is

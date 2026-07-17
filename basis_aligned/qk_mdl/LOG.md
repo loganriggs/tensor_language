@@ -1788,3 +1788,18 @@ results/15 + fig_edge_heatmaps.png + fig_edge_weights.png; README indexed.
 Queue: report to Logan; explorer §2 could absorb the edge map (ask/do next tick);
 composed edge-set pruning (top-N free edges cut simultaneously — tests the standing
 superadditivity law on the map's "free" set) as natural next GPU item.
+
+---
+
+## 2026-07-19 — tick 66b (EH-5: free-edge set does NOT compose; edge arc closed)
+
+**FINDING EH-5:** 215 individually-free edges cut together = **+2.84** zero / +3.04
+mean (149-edge stricter set: +0.54/+0.51) — strongest superadditivity instance yet
+(marginals ≈0 → composed ~200× the sum). Mean worse than zero at scale (compounding
+bias injections). Per-edge freeness ≠ pruning license; the map is a pricing tool.
+Explains structurally why windowed-D (replace-with-conditional-summary, bound-by-
+recency) succeeds where thresholded graph-cutting fails. results/15 §6.
+edge_composed.py/json.
+
+Edge arc complete (EH-1..EH-5). Queue: fold edge heatmaps into the explorer page
+(offered to Logan); otherwise rest pending his direction.
