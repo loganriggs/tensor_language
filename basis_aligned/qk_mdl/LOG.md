@@ -1765,3 +1765,26 @@ results/15 + weight-map correlation. Cron restored to 30-min (e459bfac).
 Design deviations from Logan's list, logged: PCA-2 deferred (budget; addable
 adaptively); "mean" here = global mean (our earlier tables were token-conditional
 means — both will be discussed in results/15).
+
+---
+
+## 2026-07-19 — tick 66 (edge map harvested: FINDINGS EH-1..EH-4; results/15 shipped)
+
+Sweep finished fast (~1h, 1508 audits). **EH-1 (sparsity):** 215/377 edges FREE under
+zero-ablation; load-bearing structure = three families: within-layer attn→mlp (attn1→L1
++2.81, attn5→L5 +2.61), adjacent mlp→next (mlp16→L17 +3.89, mlp0→L1 +1.98), final
+mlps→unembed (+1.30/+1.08). Windowed-D vindicated at edge resolution. **EH-2 (hub
+dissociation):** attn5's mid-model energy presence is causally INERT (L7–L16 ≈ 0, some
+negative); its real consumers are its own layer, L17, and the unembedding — energy maps
+locate, ablations price (4th instance). **EH-3 (method ladder):** over big edges, zero
++0.302 → mean +0.176 → pca1 +0.156 → pca4 +0.144 — fixed-subspace PCA plateaus at half
+the damage; reads want the TOKEN-CONDITIONAL component (cond-mean ≪ all of these).
+**EH-4 (weights-only screen: total failure):** Spearman ρ=0.025 (p=.63) vs causal map —
+the requested empirical verification is decisive; weight norms carry no edge information.
+Also: real negative edges small (attn14→unembed −0.035 the largest). Plot-script NaN bug
+in the first negative-edge extraction caught and fixed before write-up.
+results/15 + fig_edge_heatmaps.png + fig_edge_weights.png; README indexed.
+
+Queue: report to Logan; explorer §2 could absorb the edge map (ask/do next tick);
+composed edge-set pruning (top-N free edges cut simultaneously — tests the standing
+superadditivity law on the map's "free" set) as natural next GPU item.

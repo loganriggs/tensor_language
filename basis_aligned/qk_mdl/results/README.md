@@ -24,6 +24,7 @@ the frozen conventions of `../mdl_accounting.py` (ΔCE = binding audit, per Loga
 12. [Inside the window: naming the contextual core (H5 = match, H7 = transport)](12_within_window.md)
 13. [The top MLPs: diffuse input, low-rank contextual output](13_top_mlp.md)
 14. [Method E: backward MDL — a careful null](14_backward_mdl.md)
+15. [The edge map: every module→read connection, causally priced](15_edge_heatmaps.md)
 
 **Headlines (ΔCE at T=512, untrained unless noted):** layer-0 grand codebook (trained)
 **−0.019** · full-stack score tables (trained) +0.757 = the wall · windowed code
