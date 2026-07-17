@@ -147,26 +147,43 @@ worse, so the wall was never stale statistics.</p>
 
 <h2 id="reads"><span class="secnum">2</span>What selection actually reads</h2>
 <div class="prose">
-<p>The residual stream is an <em>exact</em> sum of streams — the embedding path plus every lower
-layer's attention and MLP outputs — and both RMSNorms are per-position scalars, so every
-bilinear score splits exactly over stream pairs (checked by gates, not assumed). Measuring
-which pairs carry the energy gives the program's searchlight:</p>
+<p><b>Definitions first.</b> The input to layer <i>L</i> is <em>exactly</em> a sum of
+<b>streams</b>: the embedding path plus every lower layer's attention output and MLP output
+— at layer 5 that's 11 tensors. Because the maps into q and k are linear and both norms are
+per-position scalars, every attention score splits exactly into a sum over stream <em>pairs</em>:</p>
+<div class="ctx" style="border-left-color:var(--blue)">x&#7522; = Σ&#8342; s&#8342;(i)   (exact — gate-checked)
+S(i,j) = q(x&#7522;)·k(x&#11388;)/h = Σ&#8342;&#8338; q(s&#8342;(i))·k(s&#8338;(j))/h
+energy(a,b) = mean over sampled causal (i,j) of [ q(s&#8342;(i))·k(s&#8338;(j))/h ]²</div>
+<p>Each (a,b) term reads: "stream <i>a</i> on the query side interacting with stream <i>b</i>
+on the key side." The chart plots, per layer, the share of total energy in pairs where
+<b>both</b> streams were created ≤2 layers back ("recent"). The same decomposition applies to
+the <b>bilinear-MLP hidden</b> — the 4608-dim vector W&#8343;x̂ ⊙ W&#7523;x̂ before the down-projection
+splits over stream pairs the same way (weighted by down-column norms); it was measured at
+five layers only (2, 5, 13, 16, 17), hence the sparse square markers.</p>
 </div>
 <div class="figure">
-  <div class="legend"><span><i style="background:var(--blue)"></i>QK scores</span>
-  <span><i style="background:var(--rust)"></i>bilinear-MLP hidden</span></div>
+  <div class="legend"><span><i style="background:var(--blue)"></i>QK scores (all 17 layers)</span>
+  <span><i style="background:var(--rust);width:11px;height:11px;border-radius:2px"></i>bilinear-MLP hidden (5 layers measured)</span></div>
   <div id="recentchart"></div>
-  <div class="cap">Share of interaction energy from <b>recent</b> streams (created ≤2 layers
-  back). Bottom layers read a short window; the middle goes diffuse — with layer 5's attention
-  output persisting as a global "hub" stream — and the top re-concentrates. Embedding×embedding
-  energy is ≈0 above layer 1: the embedding's selection role is entirely mediated by MLP-0.</div>
+  <div class="cap"><b>y-axis:</b> % of interaction energy from recent×recent stream pairs, as
+  defined above. Bottom layers read a short window (L2: 99%); the middle goes diffuse — with
+  layer 5's attention output persisting as a global "hub" stream in the top pairs everywhere —
+  and the top re-concentrates. Embedding×embedding energy is ≈0 above layer 1: the embedding's
+  selection role is entirely mediated through MLP-0.</div>
 </div>
 <div class="prose">
-<p>The causal version confirms it: patch <em>only the QK read</em> and even layer 5 — the one
-layer whose selection genuinely uses context — costs just <b>+0.003</b> when the last two
-layers' streams stay live (vs +0.231 fully tabled). Deep context tables away everywhere.
-The wall was never "selection needs context." It was "context must not travel live through
-17 layers."</p>
+<p><b>Then the causal test.</b> The chart above is observational — where the energy <em>sits</em>.
+The intervention replaces streams in the QK read (q,k inputs only; values and the residual stay
+live) with token-indexed conditional-mean tables and measures ΔCE:</p>
+</div>
+<div class="figure">
+  <div id="causalchart"></div>
+  <div class="cap">Patch <em>only</em> layer L's QK read, three ways. At L5 — the one layer
+  whose selection genuinely uses context — tabling everything costs +0.231, but tabling only
+  the streams older than 2 layers (the ones carrying 11% of its energy above) costs
+  <b>+0.003</b>. The energy map predicted which intervention would be free; the intervention
+  confirmed it. Deep context tables away everywhere — the wall was never "selection needs
+  context," it was "context must not travel live through 17 layers."</div>
 </div>
 
 <h2 id="crack"><span class="secnum">3</span>The crack: windowed code propagation</h2>
@@ -408,7 +425,7 @@ function S(tag,attrs){const n=document.createElementNS('http://www.w3.org/2000/s
     t.textContent=L; svg.appendChild(t);
   }
   for(const L in mlp){
-    svg.appendChild(S('rect',{x:x(+L)-5,y:y(mlp[L])-5,width:10,height:10,rx:2,fill:css('--rust'),'data-tip':`MLP L${L}: ${(mlp[L]*100).toFixed(0)}% recent`}));
+    svg.appendChild(S('rect',{x:x(+L)-7,y:y(mlp[L])-7,width:14,height:14,rx:3,fill:css('--rust'),stroke:css('--ground'),'stroke-width':2,'data-tip':`MLP hidden L${L}: ${(mlp[L]*100).toFixed(0)}% recent`}));
   }
   const hub=S('text',{x:x(10),y:y(.255)-32,'font-size':11.5,fill:css('--muted'),'font-style':'italic','text-anchor':'middle'});
   hub.textContent='diffuse — attn5 hub everywhere'; svg.appendChild(hub);
@@ -453,6 +470,34 @@ function S(tag,attrs){const n=document.createElementNS('http://www.w3.org/2000/s
   line(s_qk,css('--rust'),null,'sqrd12 QK');
   line(s_all,css('--rust'),'6 5','sqrd12 ALL reads');
   document.getElementById('ladderchart').appendChild(svg); bindTips(svg);
+})();
+
+/* ---- 2b. causal QK-read patches ---- */
+(function(){
+  const rows=[
+    {l:'L2', arms:[['window-only tabled (older than 2 layers)',0.000],['dominant stream (mlp1) tabled',0.002],['ALL streams tabled',0.009]]},
+    {l:'L5', arms:[['window-only tabled',0.003],['dominant stream (mlp4) tabled',0.047],['ALL streams tabled',0.231]]},
+    {l:'L9', arms:[['window-only tabled',-0.003],['dominant stream (mlp8) tabled',-0.001],['ALL streams tabled',0.007]]},
+  ];
+  const Wd=920, groupH=92, pad=330, H=rows.length*groupH+18;
+  const svg=S('svg',{width:'100%',viewBox:`0 0 ${Wd} ${H}`,role:'img','aria-label':'Causal QK-read patches per layer'});
+  const max=0.25, x=v=>pad+(Wd-pad-70)*(Math.max(v,0)/max);
+  const shades=[css('--blue'),css('--blue-soft'),css('--crit')];
+  rows.forEach((r,gi)=>{
+    const gy=16+gi*groupH;
+    const gl=S('text',{x:14,y:gy+34,'font-size':15,'font-weight':600,fill:css('--ink')});
+    gl.textContent=r.l; svg.appendChild(gl);
+    r.arms.forEach((a,i)=>{
+      const y=gy+i*24;
+      svg.appendChild(S('rect',{x:pad,y:y,width:Math.max(2,x(a[1])-pad),height:16,rx:3,
+        fill:shades[i],'data-tip':`${r.l} ${a[0]}: ${a[1]>=0?'+':''}${a[1].toFixed(3)}`}));
+      const lab=S('text',{x:pad-10,y:y+12,'text-anchor':'end','font-size':11.5,fill:css('--muted')});
+      lab.textContent=a[0]; svg.appendChild(lab);
+      const val=S('text',{x:x(a[1])+6,y:y+12,'font-size':11.5,fill:css('--ink'),'font-weight':i===2?600:400});
+      val.textContent=(a[1]>=0?'+':'')+a[1].toFixed(3); svg.appendChild(val);
+    });
+  });
+  document.getElementById('causalchart').appendChild(svg); bindTips(svg);
 })();
 
 /* ---- 6. head scatter ---- */

@@ -1731,3 +1731,16 @@ cards, mlp16 variance bars + firing contexts + the TM-4 trap verdict, and the
 what-didn't-work section. All numbers from committed JSONs; hover tooltips;
 light/dark themed. Published as a private artifact for Logan:
 https://claude.ai/code/artifact/8763e1ff-ff6d-4cdc-bde5-7f0e5fd0f4b5
+
+---
+
+## 2026-07-19 — tick 64 (LOGAN FEEDBACK: explorer §2 rewritten — definitions + causal chart)
+
+Logan's critique of explorer §2: undefined "interaction energy," invisible MLP markers,
+and the causal paragraph (+0.003 vs +0.231) had no chart. Fixed in place (same URL):
+(a) definitions panel with the exact formulas (stream sum → score pair-decomposition →
+energy = mean squared pair term over sampled causal (i,j)); (b) MLP-hidden defined
+(W_L x̂ ⊙ W_R x̂ pre-down-projection, down-column-weighted), markers enlarged with a
+"5 layers measured" legend note; (c) NEW causal mini-chart: per-layer grouped bars for
+L2/L5/L9 (window-only tabled / dominant-stream tabled / all tabled), tying the
+observational energy map to the interventional ΔCE numbers. Re-published.
