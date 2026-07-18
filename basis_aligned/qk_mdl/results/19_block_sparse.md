@@ -47,8 +47,11 @@ Same construction on sqrd12 (classes from its own embedding; row-normalized patt
 masked-then-renormalized): single layers hold (3.1%: L3 +0.027, L8 +0.008) and the
 blocks read identically (brackets↔brackets, prepositions→sentence-enders). But the
 ALL-layer composition is much worse: **+0.569** at 3.1% (vs bilin18 +0.190), +1.82 at
-0.8%. Suspected mechanism: row normalization couples blocks through the denominator —
-cutting tail blocks reweights every kept row, so per-layer masks interact across rows
-in a way unnormalized bilinear patterns avoid. The compressibility ranking between the
+0.8%. Suspected mechanism (denominator coupling) — TESTED AND REFUTED
+(sqrd12_coupling.json): masking with the ORIGINAL row sums is slightly WORSE (+0.687
+vs +0.569), so renormalization helps rather than couples. Leading alternative, open:
+redundancy — sqrd12 has 6 single-branch heads vs bilin18's 9×2 head-branches, and its
+per-head patterns spread energy wider, so block loss has fewer places to hide
+(consistent with its no-free-head-ablations profile, results/05). The compressibility ranking between the
 two models is decomposition-family-specific even within the rulebook family
 (cf. the windowed-D inversion, results/11 §8). Files: ../sqrd12_rulebook.py/.json.

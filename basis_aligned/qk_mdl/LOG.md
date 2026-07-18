@@ -2203,3 +2203,17 @@ numerator, keep ORIGINAL row sums; prediction: composed cost drops toward bilin1
 if denominator coupling is the mechanism); (2) card 4 on the card-1 interference
 mystery (which component compensates when H7 dies?); (3) per-layer rulebook naming
 (descriptive, lower priority).
+
+---
+
+## 2026-07-20 — tick 85b (SR-3: coupling mechanism REFUTED)
+
+**FINDING SR-3:** raw-denominator arm is slightly WORSE than renormalized (+0.687 vs
++0.569 @3.1%; +1.891 vs +1.822 @0.8%) — the denominator-coupling explanation for
+sqrd12's poor rulebook composition is refuted; renormalization mildly repairs.
+Leading alternative logged as open: head/branch redundancy (6×1 vs 9×2; wider-spread
+per-head energy). results/19 corrected in place — the program's record stays honest
+about its own conjectures. sqrd12_coupling.py/json.
+
+Queue: card 4 (the card-1 interference mystery: which component compensates when H7
+dies?); per-layer rulebook naming; else consolidate.
