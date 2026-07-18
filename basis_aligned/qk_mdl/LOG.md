@@ -2152,3 +2152,18 @@ combined_final.py running: the accounting table's headline number — windowed-D
 Also the superadditivity test BETWEEN reduction families (marginals: rulebooks
 ~+0.01-0.02 summed, tables +0.059 — does the composition hold?). results/20
 (consolidated accounting) written at harvest with this number on top.
+
+---
+
+## 2026-07-20 — tick 82 (TS-1/2/3 harvested; results/20 consolidated accounting SHIPPED)
+
+**TS-1:** all-layer rulebooks compose 6× superadditively (+0.190 vs ~0.03 summed) —
+whole-model routing quoted honestly at +0.19. **TS-2:** FIRST cross-family additivity:
+tables (+0.042) + rulebooks (+0.190) → +0.256 (interaction +0.024) — different error
+channels. **TS-3:** combo tables at W=6 = +0.042, better than raw tables (+0.059) —
+denoising survives composition; new best windowed number. results/20 = the one-table
+accounting (every description layer: bits, est. tokens, ΔCE, verification-beyond-ΔCE)
+with the capstone sentence. combined_final.py/json.
+
+Queue: explorer refresh (18/19/20 + cards) as the remaining deliverable; then
+session-summary for Logan; further cards opportunistically.

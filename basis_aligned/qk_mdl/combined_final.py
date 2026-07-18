@@ -31,6 +31,10 @@ EST_LATE = ALL[1044:2068]
 
 
 
+def created_layer(nm):
+    return int(nm[4:] if nm.startswith('attn') else nm[3:])
+
+
 CLS = torch.load(f'{QK}/ngram2_pairclass.pt')['cls']
 RAW = torch.load(f'{QK}/stream_tables.pt')
 RAW = {nm: torch.nan_to_num(t.float(), posinf=65504.0, neginf=-65504.0) for nm, t in RAW.items()}
