@@ -33,13 +33,14 @@ PROMPT = ("The merchant Dunleavy counted his coins twice before speaking. Nobody
           "the market trusted Dun")
 ids = tok(PROMPT)['input_ids']
 idx = torch.tensor([ids], device=DEV)
-# the name tokenizes as [Dun][leavy]; target after the second "Dun" is "leavy"
-TARGET = tok(' ')['input_ids'] and tok('leavy')['input_ids'][0]
-name_positions = [i for i, t in enumerate(ids) if tok.decode([t]) == 'Dun']
-print('tokens:', [tok.decode([t]) for t in ids])
-print('name positions (Dun):', name_positions, 'target id:', TARGET,
-      repr(tok.decode([TARGET])), flush=True)
+# the name tokenizes as [' Dun']['le']['avy']; target = the token that followed
+# the FIRST occurrence (the induction continuation)
+name_positions = [i for i, t in enumerate(ids) if tok.decode([t]) == ' Dun']
 first_dun, second_dun = name_positions[0], name_positions[-1]
+TARGET = ids[first_dun + 1]
+print('tokens:', [tok.decode([t]) for t in ids])
+print('name positions (\' Dun\'):', name_positions, 'target id:', TARGET,
+      repr(tok.decode([TARGET])), flush=True)
 
 
 @torch.no_grad()
@@ -94,7 +95,7 @@ card = [f"# Circuit card 1: induction copy of a repeated rare name\n",
         f"**Cherry-picked example, with set-ablation verification** (guardrails per LOG tick 68).\n",
         f"## A. The behavior\n",
         f"Prompt: `{PROMPT}`\n",
-        f"Prediction position: the second `Dun` (pos {second_dun}); target `leavy`.",
+        f"Prediction position: the second ` Dun` (pos {second_dun}); target `le` (the continuation seen after the first occurrence).",
         f"Baseline logP(target) = **{base_lp:.3f}** (rank {rank} of 50k).\n"]
 
 # C. live components
@@ -111,7 +112,7 @@ card += [f"## C. Live components at the prediction position\n",
          f"{[repr(tok.decode([ids[p]])) for p in top5]} — the post-first-occurrence "
          f"position is {first_dun + 1} ({'HIT' if first_dun + 1 in top5 else 'miss'}).",
          f"- H5's head-output logit-lens at this position decodes to: {top_lens5} "
-         f"(target is `leavy`).",
+         f"(target is `le`).",
          f"- **L5.H7 (gain head)** attends locally to {top7} "
          f"({[repr(tok.decode([ids[p]])) for p in top7]}); its output is the usual "
          f"structure-gain direction (rank-1, results/12).\n"]
@@ -138,8 +139,10 @@ card += [f"## D. Causal set-checks (this prompt)\n",
 RAW = torch.load(f'{QK}/stream_tables.pt')
 dun_id = ids[second_dun]
 skel = []
+E_hat = F.rms_norm(m.transformer.wte.weight.detach().float(), (D,))
 for nm in ('emb', 'mlp0', 'attn5', 'mlp4'):
-    X = torch.nan_to_num(RAW[nm].float(), posinf=65504, neginf=-65504).to(DEV)
+    X = E_hat.to(DEV) if nm == 'emb' else \
+        torch.nan_to_num(RAW[nm].float(), posinf=65504, neginf=-65504).to(DEV)
     x_t = X[dun_id]
     sims = F.cosine_similarity(X, x_t[None], dim=1)
     sims[dun_id] = -1

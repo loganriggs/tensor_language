@@ -1854,3 +1854,22 @@ didn't pay. Also fixed en route: mlp17 fp16 overflows (621 entries) now sanitize
 load (present in all prior vq runs; negligible impact, logged). Combo arm running
 (r=32 basis + vq1024 on coefficients ≈ 2.6M floats + 18M idx bits — candidate
 champion config). e4_table_mdl.py/json, e4b_combo.py.
+
+---
+
+## 2026-07-20 — tick 69 (combo champion + CIRCUIT CARD 1 shipped)
+
+**TM-MDL-4 (combo):** r=32 basis + vq1024 coefficients = +0.089 at 2.5M floats + 18M
+idx bits (~12 MB for the entire long-range flow) — bits champion; quality/bits frontier
+is now {r=32 plain: +0.074 @59M floats} vs {combo: +0.089 @2.5M}. results/16 shipped.
+
+**CARD-1 (first circuit card, format validated):** induction on 'Dunleavy...Dun'→'le'.
+Selectivity ✓ (pair −3.38 vs random ±0.001). Honest content: H7 alone −6.39, H5 alone
+−0.002 (WW-2 replicated at single-prompt level); pair ablation LESS damaging than H7
+alone — non-additive interaction at TWO heads (composition law in miniature); skeleton
+shows identity→class dissolution up the stack (emb peers 'Duncan/Dunham' → attn5 peers
+generic name-prefixes). Bugs en route: tokenizer leading-space, emb not in tables
+(analytic), both fixed. results/cards/card1_induction.md.
+
+Queue: more cards (non-induction behavior; repeat-data prompt where H5 is load-bearing);
+fold cards + table-MDL into explorer; Logan items.
