@@ -2217,3 +2217,17 @@ about its own conjectures. sqrd12_coupling.py/json.
 
 Queue: card 4 (the card-1 interference mystery: which component compensates when H7
 dies?); per-layer rulebook naming; else consolidate.
+
+---
+
+## 2026-07-20 — tick 86 (CARD-4: the interference is prompt-idiosyncratic)
+
+**FINDING CARD-4 (negative, useful):** the card-1 two-head interference does not
+reproduce at corpus scale — H7+H5 dead is ordinarily worse than H7 alone (+7.15 vs
++6.68); cleaning no better (+7.07); a mild interference shows with H0 instead (+6.25).
+Co-ablation interactions are context-idiosyncratic; no stable compensation mechanism.
+Second demonstration (after card 2) that the card→scale pipeline is the evidence unit.
+results/cards/card4_interference.md, card4.json.
+
+Queue: per-layer rulebook naming (descriptive) or consolidation; session deliverables
+current; will continue per directive.
