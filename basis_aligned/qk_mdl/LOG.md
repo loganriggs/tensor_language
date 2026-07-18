@@ -2120,3 +2120,24 @@ h5_boundary.py/json.
 
 Queue: card 3 (non-induction behavior); rulebook bits into the MDL accounting;
 explorer refresh with the directive-session findings (18/19 + cards).
+
+---
+
+## 2026-07-20 — tick 80 (CARD-3 shipped + STEP-BACK)
+
+**FINDING CARD-3:** mlp16 dir0 on a legal citation: fires at citation-structure
+positions (peak ` also`, 53k coeff); ablation moves case-name continuations +0.275 =
+~100× both controls (dir1 −0.001, random +0.002); sign shows it is an INTRA-REGISTER
+distribution shaper (suppressing boilerplate like ` JUSTICE` in favor of case-name
+starts when removed), not a token booster. The validated atom now has a legible card.
+results/cards/card3_dir0.md, card3.json.
+
+STEP-BACK (tick-80, 4-tick cadence): three cards shipped, each yielding a finding
+(non-additivity at two heads; the denoising boundary + scale confirmation; the
+register-shaper reading of dir0). Structure results: universal 3% rulebooks (0.66MB
+whole-model routing), champion tables (12MB). The directive's loop — TN structure →
+measurable MDL → falsifiable verification — is now demonstrably operating end to end.
+Remaining queue, re-ranked: (1) consolidated MDL accounting incl. rulebook bits (the
+"we can in fact measure" deliverable — one table: every description layer, its bits,
+its ΔCE); (2) explorer refresh (results/18-19 + 3 cards); (3) further cards as
+behaviors suggest themselves. Then a Logan-facing session summary.
