@@ -2015,3 +2015,17 @@ STEP-BACK (per Logan's 2h rule): the arc is producing exactly what he asked —
 falsifiable verification machinery being validated before use. Priorities stay:
 (1) finish the calibrated metric, (2) re-score all atom families with it,
 (3) cards for survivors, (4) block-sparse pattern MDL still queued.
+
+---
+
+## 2026-07-20 — tick 74 (round 3 launched: null-calibrated monosemanticity)
+
+cp3_calibrated.py running: 7 candidate atoms (mlp16 dirs 0/1/3, H7 principal dir,
+3 content-class L0 blocks) each scored as percentiles against 8 matched random atoms
+of the same type at the same site — the null distribution absorbs the mechanical
+consistency confound (CP-2). Metrics: fire-consistency, median per-position
+participation ratio, and ALIGN (share of effect mass on the atom's top-5
+firing-context classes — the quantitative where-fires↔what-pushes). ~1.5h.
+
+Queue after: re-score all atom families with the validated metric; cards for
+survivors; block-sparse pattern MDL.
