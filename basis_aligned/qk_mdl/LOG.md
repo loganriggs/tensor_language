@@ -2244,3 +2244,18 @@ freq-filtered naming queued if pursued. results/19 extended.
 
 Queue state: descriptive-work marginal value declining; next tick's step-back decides
 between freq-filtered naming, further cards, or resting pending Logan. All pushed.
+
+---
+
+## 2026-07-20 — tick 88 (CARD-5: the L17 rule is real, selective, featherweight, suppressive)
+
+**FINDING CARD-5:** the pronoun→temporal block at L17: ablation effect +0.0016 on the
+temporal class = ~5× matched controls, ~2× target-selectivity — causally real; but
+milli-logit scale and SUPPRESSIVE in sign. Verdict: top-layer rulebook entries are
+individually featherweight; the rulebook's meaning is aggregate routing structure.
+Closes coherently with CP-1 + BS-1/2. results/cards/card5_l17rule.md, card5.json.
+
+Session assessment: five cards, 20 results files, four arcs — the marginal value of
+further self-generated descriptive items is now clearly below the session's earlier
+work. Next tick: final step-back; likely consolidate + wind to rest-state cadence
+pending Logan unless a high-value item emerges.
