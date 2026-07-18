@@ -1873,3 +1873,26 @@ generic name-prefixes). Bugs en route: tokenizer leading-space, emb not in table
 
 Queue: more cards (non-induction behavior; repeat-data prompt where H5 is load-bearing);
 fold cards + table-MDL into explorer; Logan items.
+
+---
+
+## 2026-07-20 — tick 70 (LOGAN: contextual-circuits arc opened — n-gram ladder)
+
+Logan's steer: get MORE CONTEXTUAL circuits, bottom-up; exploit co-occurrence (token ↔
+its own attention-out); use the TN aspect; or dig into where/why the earliest layers
+fail token-static and why weight heuristics can't help. Framing adopted: the context
+ORDER ladder — 0th order = unigram tables (current program), next = BIGRAM-conditional
+tables (frequent pairs + unigram backoff), then trigram/TT-factored. The earliest
+streams are sequence-determined through attn0's pattern (a (t_i,t_j,Δ) contraction —
+the TN object), so n-gram indexing is the natural refinement, and bigram rows are
+nameable token-pair atoms (Logan's apple ↔ attention-for-apple co-occurrence).
+
+Launched ngram_tables.py: 600k frequent bigrams (cnt≥4, ~6M-token estimation);
+unigram vs bigram-backoff tables for {attn0, mlp0, attn1, mlp1}; per-stream R²;
+audits at W=1 (unigram ref +0.861) and W=2 (+0.429), qk-reads. If bigram cracks the
+W=1 gap, second-order context is n-gram-shaped → TT-factor the bigram tables next
+(the tensor-network step) + bigram-indexed circuit atoms for cards.
+
+Weight-heuristics question (to answer in the write-up): the needed objects are
+data-measure-weighted contractions (pattern × value over the corpus distribution);
+weights alone carry no measure — ρ=0.025 (EH-4) is the empirical face of that.
