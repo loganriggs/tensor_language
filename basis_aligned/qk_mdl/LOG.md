@@ -1971,3 +1971,22 @@ discovery during restore: **runs_hop/attn2-seed0/model.pt exists** — the "miss
 attn2-seed0 model was under runs_hop/ (the anchor scripts searched runs_owt/).
 Logan closed the item as skip, but it's available if the original-anchor conjunction
 test ever wants a re-run. cp_circuits relaunched.
+
+---
+
+## 2026-07-20 — tick 73 (CP-1: energy-selected blocks FALSIFIED as monosemantic; positive-control round running)
+
+**FINDING CP-1 (round 1, honest negative):** all 14 energy-top layer-0 class-pair
+blocks score concentration ≈0.00 and consistency ≤0.30 — diffuse, inconsistent
+effects. AND the selection was compromised: pattern-energy mass ranks junk-token
+classes (unicode debris, katakana) because the unnormalized bilinear pattern blows
+up on rare tokens — energy-vs-causal mirage #5. Two live explanations: layer-0
+blocks genuinely aren't output-monosemantic (plausible: layer 0 does transport, not
+output-aligned features), or the metrics are too harsh (top-20-of-50k concentration
+punishes class-level effects). cp_circuits.py/json.
+
+Round 2 running (`cp2_controls.py`), per the positive-controls discipline: score
+KNOWN-GOOD atoms (H7 rank-1 dir, H5 head, mlp16 dirs 0/3) + a random-direction
+control + frequency-filtered content blocks, with refined metrics: participation
+ratio, top-output-CLASS mass share, fire-conditioned consistency (top-decile
+effect positions). Metric validates iff knowns pass and random fails.
