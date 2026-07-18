@@ -2231,3 +2231,16 @@ results/cards/card4_interference.md, card4.json.
 
 Queue: per-layer rulebook naming (descriptive) or consolidation; session deliverables
 current; will continue per directive.
+
+---
+
+## 2026-07-20 — tick 87 (RD-1: diagonal matching fades with depth; L17 pronoun→temporal rule)
+
+**FINDING RD-1:** diag-block energy fraction: L0 .31, L1 .44 (peak), L5 .19, L12 .21,
+L16 .10, L17 .21 — same-kind matching is a bottom-of-model behavior; upper selection
+is cross-class. Named L17 rule: pronouns→temporal-conjunctions. Rulebooks for
+L1/L5/L16 written to cards/. Caveat: raw-energy names junk-polluted except L17;
+freq-filtered naming queued if pursued. results/19 extended.
+
+Queue state: descriptive-work marginal value declining; next tick's step-back decides
+between freq-filtered naming, further cards, or resting pending Logan. All pushed.

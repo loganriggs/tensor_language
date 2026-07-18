@@ -55,3 +55,14 @@ per-head patterns spread energy wider, so block loss has fewer places to hide
 (consistent with its no-free-head-ablations profile, results/05). The compressibility ranking between the
 two models is decomposition-family-specific even within the rulebook family
 (cf. the windowed-D inversion, results/11 §8). Files: ../sqrd12_rulebook.py/.json.
+
+## RD-1: same-class matching is bottom-heavy; the top goes cross-class
+
+Diagonal-block (cq=ck) energy fraction by layer: L0 0.31 · L1 **0.44** · L5 0.19 ·
+L12 0.21 · L16 0.10 · L17 0.21. Same-kind matching dominates early selection and
+fades with depth; upper-layer rulebooks are mostly cross-class. Cleanest named
+cross-class rule (L17): pronouns → temporal conjunctions
+([' everything',' anyone',' they'] attends [' when',' after',' while']).
+Per-layer named rulebooks: cards/rulebook_L{0,1,5,16}.md. Caveat: raw-energy
+rankings are junk-class-polluted outside L17 (frequency filtering needed before
+quoting those names). Files: ../rulebook_depth.py/.json.
