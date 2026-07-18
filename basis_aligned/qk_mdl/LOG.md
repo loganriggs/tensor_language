@@ -1896,3 +1896,22 @@ W=1 gap, second-order context is n-gram-shaped → TT-factor the bigram tables n
 Weight-heuristics question (to answer in the write-up): the needed objects are
 data-measure-weighted contractions (pattern × value over the corpus distribution);
 weights alone carry no measure — ρ=0.025 (EH-4) is the empirical face of that.
+
+---
+
+## 2026-07-20 — tick 70b (NG-1: bigram variance real, behavior null; pairclass variant chained)
+
+**FINDING NG-1:** raw bigram-backoff tables: R² gains are LARGE (attn0 .19→.40, mlp1
+.38→.60 — early-stream context IS substantially pair-shaped in L2 terms) but ΔCE gains
+are ~nil (W=1 +0.888→+0.878; W=2 +0.443→+0.435). Two live confounds before concluding
+the dissociation: coverage 53% (Zipf sparsity at 3.2M tokens, cnt≥4) and 4-sample row
+noise — the ladder's structural problem is that ESTIMATION COST EXPLODES with context
+order. ngram_tables.py/json/pt.
+
+Chained: ngram2_pairclass.py — the TN-factored, dense version: correction table on
+(class_prev × class_cur), 65k cells, ~50 samples each, 100% coverage, cells<8 shrunk
+to zero; corr = pairclass-mean(z) − pairclass-mean(unigram-prediction). If the pair
+signal survives class-factoring → estimable + nameable contextual atoms; if not, the
+behaviorally-relevant early context is NOT local-pair-shaped (it's the long-range
+selection structure the live window carries), and windowed-D's live window is vindicated
+as the right treatment for exactly that residue.
