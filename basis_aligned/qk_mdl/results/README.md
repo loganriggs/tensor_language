@@ -27,6 +27,8 @@ the frozen conventions of `../mdl_accounting.py` (ΔCE = binding audit, per Loga
 15. [The edge map: every module→read connection, causally priced](15_edge_heatmaps.md)
 16. [Compressing the tables: three methods and a champion config](16_table_mdl.md)
 17. [The context-order ladder: why token-static fails where it fails](17_context_ladder.md)
+18. [Causal monosemanticity: three rounds of falsification, one survivor](18_monosemanticity.md)
+19. [The selection tensor is block-sparse: a 3%-density rulebook](19_block_sparse.md)
 
 **Headlines (ΔCE at T=512, untrained unless noted):** layer-0 grand codebook (trained)
 **−0.019** · full-stack score tables (trained) +0.757 = the wall · windowed code

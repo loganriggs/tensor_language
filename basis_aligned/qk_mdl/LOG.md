@@ -2029,3 +2029,25 @@ firing-context classes — the quantitative where-fires↔what-pushes). ~1.5h.
 
 Queue after: re-score all atom families with the validated metric; cards for
 survivors; block-sparse pattern MDL.
+
+---
+
+## 2026-07-20 — tick 75 (CP-3 + BS-1: monosemanticity arc closed with one survivor; selection rulebook found)
+
+**FINDING CP-3 (arc close):** null-calibrated round: exactly ONE atom beats its
+matched-null band — mlp16 dir0 (cons 0.98, pct 1.0). dir1/dir3 score BELOW null
+(contextual gains legitimately vary — consistency-vs-null detects output-aligned
+constancy, not meaning); H7 indistinguishable; L0 blocks decisively falsified.
+Metric taxonomy + the three-round story in results/18. Every round was saved by a
+control — the falsifiability loop worked, casualties in the right order (rulers first).
+
+**FINDING BS-1 (TN-MDL positive):** the layer-0 selection tensor is block-sparse at
+3% density — top-2048 class-pair blocks/head = +0.0004; 97% of class interactions
+hard-zeroable. ~32k bits/head of rulebook structure. Composes (kept mass dominates;
+cf. EH-5). Jointly with CP-3: layer-0 attention = a class-interaction ROUTER, not a
+feature bank — its blocks are selection-meaningful, not output-monosemantic.
+results/19. bs_pattern.py/json.
+
+Queue: human-readable rulebook (top blocks named with exemplars) + density curves at
+higher layers via cond-mean factors; behavior-targeted cards 2-3; step-back due next
+tick (~2h mark).

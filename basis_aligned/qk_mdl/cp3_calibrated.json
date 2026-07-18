@@ -1,0 +1,227 @@
+{
+  "sites": {
+    "mlp16-direction": [
+      {
+        "atom": "mlp16 dir0",
+        "cons": 0.977,
+        "pr_med": 0.807,
+        "align": 0.022,
+        "percentile_vs_null": {
+          "cons": 1.0,
+          "pr_med": 1.0,
+          "align": 0.62
+        },
+        "suppresses": [
+          " Protesters",
+          " Prosecutors",
+          " Presumably",
+          " REUTERS"
+        ],
+        "null_band": {
+          "cons": [
+            0.832,
+            0.938
+          ],
+          "pr_med": [
+            0.625,
+            0.64
+          ],
+          "align": [
+            0.017,
+            0.027
+          ]
+        }
+      },
+      {
+        "atom": "mlp16 dir1",
+        "cons": 0.759,
+        "pr_med": 0.628,
+        "align": 0.024,
+        "percentile_vs_null": {
+          "cons": 0.0,
+          "pr_med": 0.12,
+          "align": 0.88
+        },
+        "suppresses": [
+          "\u2550",
+          "\ufffd\ufffd",
+          "arnaev",
+          " 4090"
+        ],
+        "null_band": {
+          "cons": [
+            0.832,
+            0.938
+          ],
+          "pr_med": [
+            0.625,
+            0.64
+          ],
+          "align": [
+            0.017,
+            0.027
+          ]
+        }
+      },
+      {
+        "atom": "mlp16 dir3",
+        "cons": 0.347,
+        "pr_med": 0.651,
+        "align": 0.022,
+        "percentile_vs_null": {
+          "cons": 0.0,
+          "pr_med": 1.0,
+          "align": 0.62
+        },
+        "suppresses": [
+          " fmt",
+          "=\\\"",
+          " []",
+          " coales"
+        ],
+        "null_band": {
+          "cons": [
+            0.832,
+            0.938
+          ],
+          "pr_med": [
+            0.625,
+            0.64
+          ],
+          "align": [
+            0.017,
+            0.027
+          ]
+        }
+      }
+    ],
+    "h7-direction": [
+      {
+        "atom": "H7 principal dir",
+        "cons": 0.135,
+        "pr_med": 0.662,
+        "align": 0.021,
+        "percentile_vs_null": {
+          "cons": 0.62,
+          "pr_med": 1.0,
+          "align": 0.12
+        },
+        "suppresses": [
+          " Glenn",
+          " Ramsay",
+          " sne",
+          "Brexit"
+        ],
+        "null_band": {
+          "cons": [
+            0.033,
+            0.244
+          ],
+          "pr_med": [
+            0.637,
+            0.645
+          ],
+          "align": [
+            0.018,
+            0.032
+          ]
+        }
+      }
+    ],
+    "L0-block": [
+      {
+        "atom": "H6 c78->c161",
+        "cons": 0.047,
+        "pr_med": 0.627,
+        "align": 0.017,
+        "percentile_vs_null": {
+          "cons": 0.0,
+          "pr_med": 0.38,
+          "align": 0.0
+        },
+        "suppresses": [
+          "udos",
+          "inately",
+          " bunch",
+          "framework"
+        ],
+        "null_band": {
+          "cons": [
+            0.185,
+            1.0
+          ],
+          "pr_med": [
+            0.62,
+            0.693
+          ],
+          "align": [
+            0.017,
+            0.023
+          ]
+        }
+      },
+      {
+        "atom": "H5 c127->c161",
+        "cons": 0.031,
+        "pr_med": 0.633,
+        "align": 0.017,
+        "percentile_vs_null": {
+          "cons": 0.0,
+          "pr_med": 0.5,
+          "align": 0.12
+        },
+        "suppresses": [
+          "rones",
+          "rative",
+          " ay",
+          "uncture"
+        ],
+        "null_band": {
+          "cons": [
+            0.185,
+            1.0
+          ],
+          "pr_med": [
+            0.62,
+            0.693
+          ],
+          "align": [
+            0.017,
+            0.023
+          ]
+        }
+      },
+      {
+        "atom": "H2 c127->c148",
+        "cons": 0.162,
+        "pr_med": 0.635,
+        "align": 0.02,
+        "percentile_vs_null": {
+          "cons": 0.0,
+          "pr_med": 0.5,
+          "align": 0.5
+        },
+        "suppresses": [
+          " latitude",
+          " cherry",
+          " day",
+          "max"
+        ],
+        "null_band": {
+          "cons": [
+            0.185,
+            1.0
+          ],
+          "pr_med": [
+            0.62,
+            0.693
+          ],
+          "align": [
+            0.017,
+            0.023
+          ]
+        }
+      }
+    ]
+  }
+}
