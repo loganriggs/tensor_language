@@ -2178,3 +2178,16 @@ All results/01-20, cards 1-3, GLOSSARY/EXPLAINER/EXAMPLES, and the explorer are
 current and pushed. Queue: opportunistic (more cards; per-layer rulebook naming;
 sqrd12 rulebooks) — will continue generating in-scope experiments per the directive
 unless Logan redirects.
+
+---
+
+## 2026-07-20 — tick 84 (SR-1/SR-2: rulebook generality split on sqrd12)
+
+**SR-1:** per-layer block-sparsity + same-kind-matching flavor generalize to sqrd12
+(3.1%: +0.027/+0.008 single-layer; blocks read identically). **SR-2:** composed
+rulebooks do NOT (+0.569 all-layers vs bilin18's +0.190; +1.82 at 0.8%) — row
+normalization couples blocks through the denominator. The (model × decomposition)
+compressibility dependence recurs at family-subtype resolution. results/19 extended.
+
+Queue: opportunistic per directive — per-layer rulebook naming; more cards; or
+consolidation. Session deliverables all current and pushed.
