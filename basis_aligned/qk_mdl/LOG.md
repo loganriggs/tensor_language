@@ -2051,3 +2051,20 @@ results/19. bs_pattern.py/json.
 Queue: human-readable rulebook (top blocks named with exemplars) + density curves at
 higher layers via cond-mean factors; behavior-targeted cards 2-3; step-back due next
 tick (~2h mark).
+
+---
+
+## 2026-07-20 — tick 76 (STEP-BACK + rulebook/depth-density launched)
+
+STEP-BACK (2h mark, per directive): the session has delivered against the higher goal —
+TN-derived measurable MDL structure (windowed-D ladder; 12MB champion tables; BS-1's
+3%-density selection rulebook) and a validated falsification loop (CP-1..3: metrics
+audited before atoms; one survivor). Assessment: the "atom-first monosemanticity"
+route is exhausted for this model (layer-0 = router, not feature bank); the productive
+routes are (i) legible structure (rulebooks, cards with set-ablations) and (ii) ΔCE-
+measured MDL ladders. Queue re-ranked accordingly: rulebook naming + depth density NOW
+(running), cards 2-3 next, then per-layer rulebook bits into the MDL accounting.
+
+Running: rulebook_density.py — (a) results/cards/rulebook_L0.md: top-8 blocks/head
+named with class exemplars; (b) block-density ladders at L1/5/12/16 on LIVE patterns
+(is 3%-sparsity universal or a layer-0 specialty?).
