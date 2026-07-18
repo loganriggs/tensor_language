@@ -2,9 +2,34 @@
   "baseline_ce": 3.2341103553771973,
   "arms": {
     "uniform vq1024 (baseline)": {
-      "dce": 0.0754,
+      "dce": 0.0888,
       "Mfloats": 42.47,
       "Mindexbits": 18.1
+    },
+    "low-rank r=32": {
+      "dce": 0.0741,
+      "Mfloats": 59.28,
+      "Mindexbits": 0.0
+    },
+    "low-rank r=128": {
+      "dce": 0.0882,
+      "Mfloats": 237.11,
+      "Mindexbits": 0.0
+    },
+    "SHARED codebook k=4096": {
+      "dce": 0.098,
+      "Mfloats": 4.72,
+      "Mindexbits": 21.7
+    },
+    "SHARED codebook k=8192": {
+      "dce": 0.1189,
+      "Mfloats": 9.44,
+      "Mindexbits": 23.5
+    },
+    "edge-guided k (top8=4096, mid=1024, tail=64)": {
+      "dce": 0.0868,
+      "Mfloats": 55.3,
+      "Mindexbits": 16.1
     }
   }
 }

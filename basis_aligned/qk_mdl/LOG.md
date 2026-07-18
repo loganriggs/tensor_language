@@ -1838,3 +1838,19 @@ with its SET-ablation check (cut the traced path as a whole; superadditivity law
 makes per-edge traces unverifiable individually); cherry-picked labeled as such.
 First target: induction copy of a repeated rare name (the one circuit already
 causally mapped end to end).
+
+---
+
+## 2026-07-20 — tick 68b (table-MDL trio harvested: TM-MDL-1..3)
+
+W=4 harness, uniform vq1024 re-audited in-run at +0.0888 (matches +0.094 within
+re-cluster variance). **TM-MDL-1: low-rank r=32 WINS on dCE — +0.0741**, beating
+vq1024 AND the full tables (+0.099): 36×/table compression that DENOISES (third
+instance of the theme). r=128 no better than baseline at 4× the floats.
+**TM-MDL-2: shared codebook k=4096 wins on bits — 4.7M atom floats (9× fewer) at
++0.0980**; k=8192 WORSE (+0.119, union-kmeans degradation). **TM-MDL-3: edge-guided
+k allocation is a wash** (+0.0868 at more floats) — causal-importance budget tiering
+didn't pay. Also fixed en route: mlp17 fp16 overflows (621 entries) now sanitized at
+load (present in all prior vq runs; negligible impact, logged). Combo arm running
+(r=32 basis + vq1024 on coefficients ≈ 2.6M floats + 18M idx bits — candidate
+champion config). e4_table_mdl.py/json, e4b_combo.py.

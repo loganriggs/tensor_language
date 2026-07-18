@@ -23,7 +23,7 @@ from tier2_model import load_elriggs, rope_tables, apply_rot, build_eval_tokens
 torch.manual_seed(0)
 DEV = 'cuda'
 QK = '/workspace/tensor_language/basis_aligned/qk_mdl'
-OUT = f'{QK}/d_composed4.json'
+OUT2 = f'{QK}/d_composed4.json'
 m, cfg = load_elriggs('bilin18')
 NH, HD, D = cfg['n_head'], cfg['n_embd'] // cfg['n_head'], cfg['n_embd']
 V = cfg['vocab_size']
@@ -188,4 +188,17 @@ kmap_e = {}
 for i, nm in enumerate(order):
     kmap_e[nm] = 4096 if i < 8 else (1024 if i < 22 else 64)
 run('edge-guided k (top8=4096, mid=1024, tail=64)', vq_per_stream(kmap_e), *bits_vq(kmap_e))
-print('e4 table mdl done', flush=True)
+
+# combo: low-rank r=32 basis + vq1024 on the 32-dim coefficients
+tabs = {}
+for nm in NAMES:
+    X = RAW[nm].double()
+    U_, S_, Vh = torch.svd_lowrank(X, q=32, niter=4)
+    coef = (U_ * S_).float().to(DEV)              # (V, 32)
+    aa, C = kmeans(coef, 1024, seed=hash(nm) % 2**31)
+    tabs[nm] = (C[aa].cpu().double() @ Vh.T).half()
+    torch.cuda.empty_cache()
+run('COMBO r=32 basis + vq1024 coefs', tabs,
+    len(NAMES)*(32*D + 1024*32), len(NAMES)*V*10)
+print('e4 combo done', flush=True)
+
