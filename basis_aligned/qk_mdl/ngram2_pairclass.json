@@ -1,0 +1,29 @@
+{
+  "baseline": 3.2341102361679077,
+  "r2": {
+    "attn0": {
+      "unigram": 0.193,
+      "bigram+backoff": 0.302
+    },
+    "mlp0": {
+      "unigram": 0.612,
+      "bigram+backoff": 0.66
+    },
+    "attn1": {
+      "unigram": 0.439,
+      "bigram+backoff": 0.534
+    },
+    "mlp1": {
+      "unigram": 0.382,
+      "bigram+backoff": 0.53
+    }
+  },
+  "bigram_coverage": 0.998046875,
+  "n_bigrams": 65536,
+  "arms": {
+    "W=1 unigram (ref)": 0.8884,
+    "W=1 pairclass-corr bottom4": 0.8772,
+    "W=2 unigram (ref)": 0.4427,
+    "W=2 pairclass-corr bottom4": 0.4353
+  }
+}

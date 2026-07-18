@@ -1915,3 +1915,22 @@ signal survives class-factoring → estimable + nameable contextual atoms; if no
 behaviorally-relevant early context is NOT local-pair-shaped (it's the long-range
 selection structure the live window carries), and windowed-D's live window is vindicated
 as the right treatment for exactly that residue.
+
+---
+
+## 2026-07-20 — tick 71 (NG-2/NG-3: ladder arc closed; results/17)
+
+**FINDING NG-2:** pairclass-factored corrections (dense, 99.8% coverage, well-estimated)
+retain ~2/3 of the bigram R² gain and STILL buy ~0.01 nats — confound-free dissociation:
+local-pair context is variance-rich, behaviorally cheap. **NG-3 (the principled answer
+to Logan's dig-in):** what early streams carry that matters is indexed by DYNAMIC
+positions ("where my previous occurrence was"), not by the last k tokens — no n-gram
+order captures it by construction; the live window is the correct treatment, not a
+placeholder; and weight heuristics fail because the objects that matter are
+data-measure-weighted contractions (weights carry no measure). Contextual-circuit route
+= named live components + skeleton (cards), not finer context tables. results/17
+shipped; README indexed.
+
+Queue: report to Logan (his arc, decisive negative + the principled answer); rest
+pending his steer. Candidates if he wants more: cards 2-3 (repeat-data H5 card;
+non-induction card); pairclass atoms as descriptive layer in cards.
