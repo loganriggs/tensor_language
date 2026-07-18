@@ -2259,3 +2259,15 @@ Session assessment: five cards, 20 results files, four arcs — the marginal val
 further self-generated descriptive items is now clearly below the session's earlier
 work. Next tick: final step-back; likely consolidate + wind to rest-state cadence
 pending Logan unless a high-value item emerges.
+
+---
+
+## 2026-07-20 — tick 89 (FINAL STEP-BACK: session consolidated; winding to rest)
+
+Assessment: five cards, results/18-20, four arcs, every conjecture tested — remaining
+self-generated items (freq-filtered naming polish, more per-layer listings) are below
+the session's value bar. Per directive ("only rest if genuinely blocked"): the
+genuinely high-value nexts are direction choices that belong to Logan (new model
+family / deeper top-MLP / publication shaping). Consolidation shipped: root-LOG
+capstone, README refresh, memory updated. Cron → hourly rest-state; 30-min restores
+on his reply.

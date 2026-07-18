@@ -2268,3 +2268,24 @@ with opposite signs on one harness), revising WW-7.
 
 Open to steer: more cards, deeper rulebook naming (per-layer), sqrd12 rulebooks,
 or new directions.
+
+## 2026-07-20 — qk_mdl directive session CAPSTONE (ticks 72-89, for Logan)
+
+Session closed at high water. Complete ledger on origin/main:
+- **MDL structure, measured** (results/19-20): all attention routing = 0.66 MB of
+  class-interaction rulebooks (3%/layer; same-kind matching bottom-heavy, cross-class
+  at top — L17's pronoun→temporal rule causally verified at 5× controls but
+  featherweight/suppressive); total system 12.7 MB @ +0.256 with the first
+  cross-family additivity; champion combo tables +0.042 at W=6 (denoising survives).
+- **Falsifiable verification, operating** (results/18 + 5 cards): metrics audited
+  before atoms (two died, one confounded→null-calibrated); one surviving monosemantic
+  atom (mlp16 dir0, carded at 100× controls); cards revised two corpus claims
+  (denoising boundary → H5 carries context-MIXED identity, confirmed at scale;
+  two-head interference → prompt-idiosyncratic). Even the program's own mechanism
+  conjecture (SR-2 denominator coupling) was tested and refuted (SR-3).
+- **Synthesis:** this model's attention is a massively sparse class-routing structure
+  whose atoms are individually small; output-aligned meaning concentrates in a few
+  named top components. Both lenses (MDL and causal) now agree from independent tests.
+Cron wound to hourly rest pending your steer. Highest-value next moves need your call:
+another model family, deeper into the top-MLP fast-structure, publishing-shaping, or
+a new direction entirely.

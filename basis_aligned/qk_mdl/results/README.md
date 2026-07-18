@@ -31,6 +31,13 @@ the frozen conventions of `../mdl_accounting.py` (ΔCE = binding audit, per Loga
 19. [The selection tensor is block-sparse: a 3%-density rulebook](19_block_sparse.md)
 20. [The consolidated MDL accounting](20_accounting.md) — the one-table summary
 
+**Directive-session additions (2026-07-20):** all attention routing ≈ 0.66 MB of
+class-interaction rulebooks (3% density/layer; same-kind matching below, cross-class
+above; entries individually featherweight) · total system (tables+rulebooks) = 12.7 MB
+@ +0.256, first cross-family additivity · combo tables W=6 = +0.042 · monosemanticity:
+one calibrated survivor (mlp16 dir0) · five cards incl. two corpus-revising boundary
+results (results/18-20, cards/).
+
 **Headlines (ΔCE at T=512, untrained unless noted):** layer-0 grand codebook (trained)
 **−0.019** · full-stack score tables (trained) +0.757 = the wall · windowed code
 propagation: bilin18 qk+v+mlp(L1-12) W=6 **+0.059**, sqrd12 ALL reads W=6 **+0.030**
