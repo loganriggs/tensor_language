@@ -1960,3 +1960,14 @@ diffuse or inconsistent effects kill the atom.
 Queue after harvest: cards from the best blocks; block-sparse pattern MDL (keep top-B
 class-pair blocks, ΔCE-vs-bits); extend monosemanticity scoring to existing atoms
 (vq classes, H7 dir, mlp16 gains) for a cross-decomposition comparison.
+
+---
+
+## 2026-07-20 — tick 72b (cache restoration + attn2-seed0 FOUND)
+
+filter-repo's checkout wiped the working-tree .pt caches along with history; ALL
+restored from the local backup-pre-filter branch (no regeneration needed). Side
+discovery during restore: **runs_hop/attn2-seed0/model.pt exists** — the "missing"
+attn2-seed0 model was under runs_hop/ (the anchor scripts searched runs_owt/).
+Logan closed the item as skip, but it's available if the original-anchor conjunction
+test ever wants a re-run. cp_circuits relaunched.
