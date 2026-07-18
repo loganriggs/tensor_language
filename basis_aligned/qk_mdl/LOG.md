@@ -1990,3 +1990,28 @@ KNOWN-GOOD atoms (H7 rank-1 dir, H5 head, mlp16 dirs 0/3) + a random-direction
 control + frequency-filtered content blocks, with refined metrics: participation
 ratio, top-output-CLASS mass share, fire-conditioned consistency (top-decile
 effect positions). Metric validates iff knowns pass and random fails.
+
+---
+
+## 2026-07-20 — tick 73b (CP-2: the metric's own mirages caught by controls; null-calibrated round 3 designed)
+
+**FINDING CP-2:** positive-control round: (a) PR + class-share DON'T discriminate
+knowns from random (all ~0.6-0.8 / ~0.01 — mean-vector-based, wrong object);
+(b) fire-consistency discriminates but is CONFOUNDED by output proximity: ANY fixed
+direction ablated at L16 yields mechanically consistent Δlogits (∝ U·d̂) — random
+control 0.69, dir0 0.98, layer-0 blocks 0.03-0.16; (c) the decoded token lists DO
+carry signal: mlp16 dir3 suppresses markup tokens (=\" , fmt, []) matching its firing
+contexts; dir0 suppresses capitalized sentence-starters. The falsifiability loop
+worked exactly as intended — on the ruler first. cp2_controls.py/json.
+
+Round-3 design (next tick): NULL-CALIBRATED monosemanticity — every atom scored as a
+percentile against N matched random atoms of the SAME TYPE AND SITE (random directions
+at the same layer; random class-pair blocks at the same head), which absorbs the
+mechanical baseline; per-position PR before averaging; and the where-fires↔what-pushes
+alignment made quantitative (overlap between an atom's firing-context token classes
+and its effect-token classes).
+
+STEP-BACK (per Logan's 2h rule): the arc is producing exactly what he asked —
+falsifiable verification machinery being validated before use. Priorities stay:
+(1) finish the calibrated metric, (2) re-score all atom families with it,
+(3) cards for survivors, (4) block-sparse pattern MDL still queued.
