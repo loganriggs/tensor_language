@@ -24,7 +24,18 @@ structure* (which kinds of tokens attend to which), not as a set of output-align
 features. The two claims are compatible and jointly sharpen what layer-0 attention is:
 a class-interaction router whose consequences only become output-aligned higher up.
 
-Next: name the top blocks per head with class exemplars (the human-readable rulebook),
-and check density curves for other layers via the cond-mean factor tables.
+## BS-2: sparsity is universal, and the rulebook is readable
+
+Depth ladder (same keep-top-B mask on LIVE patterns): at 3.1% density, L1 +0.006,
+L5 +0.008, L12 +0.001, L16 +0.001 — every layer of the model runs on a ~2k-block
+rulebook. At 0.8% the uppers stay cheap (+0.005) while L5 resists (+0.250: its two
+contextual heads need the tail). Whole-model selection structure: 18×9 rulebooks ×
+2048 blocks × 16 bits ≈ **0.66 MB for all attention routing in the 546M model**.
+
+The named rulebook ([cards/rulebook_L0.md](cards/rulebook_L0.md)) reads as SAME-KIND
+MATCHING plus structure anchors: pronouns attend pronouns, quote-punctuation attends
+quote-punctuation, code-identifiers attend code-identifiers, spatial prepositions
+attend spatial prepositions — with the junk-token classes claiming high energy (the
+CP-1 pathology) but sitting harmlessly inside the kept 3%.
 
 Files: `../bs_pattern.py/.json`.

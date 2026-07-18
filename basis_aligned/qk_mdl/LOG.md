@@ -2068,3 +2068,16 @@ measured MDL ladders. Queue re-ranked accordingly: rulebook naming + depth densi
 Running: rulebook_density.py — (a) results/cards/rulebook_L0.md: top-8 blocks/head
 named with class exemplars; (b) block-density ladders at L1/5/12/16 on LIVE patterns
 (is 3%-sparsity universal or a layer-0 specialty?).
+
+---
+
+## 2026-07-20 — tick 77 (BS-2: universal 3% sparsity; 0.66MB whole-model routing; rulebook named)
+
+**FINDING BS-2:** depth ladder — 3.1% density costs ≤+0.008 at every tested layer
+(L1/L5/L12/L16); 12.5% free everywhere; 0.8% cheap in uppers, resisted by L5 (+0.25,
+the contextual heads' tail). Whole-model attention routing ≈ 0.66 MB of rulebooks.
+rulebook_L0.md: top blocks read as SAME-KIND matching + structure anchors. results/19
+extended; root LOG updated for Logan. rulebook_density.py/json.
+
+Queue: card 2 (repeat data, H5 load-bearing) next tick; card 3 (non-induction);
+rulebook bits into MDL accounting; step-back done this cycle.

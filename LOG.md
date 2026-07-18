@@ -2221,3 +2221,24 @@ chaotic GPU-atomic nondeterminism in k-means itself. E closes as: backward objec
 (proxy and direct) can't beat activation geometry on these tables — their content is
 identity + noise the model filters. Useful residue: the refinement loop is a seed-
 lottery-free partition repair tool. Full story: results/14.
+
+## 2026-07-20 — qk_mdl ticks 72-77 (for Logan): the directive session so far
+
+Everything pushed (history cleaned of 25GB caches; attn2-seed0 found in runs_hop/).
+Delivered against the directive:
+- **Monosemanticity machinery, validated the hard way** (results/18): three rounds,
+  each saved by a control; metrics audited before atoms; ONE atom survives calibration
+  (mlp16 dir0, consistency 0.98 above all matched nulls); contextual gains score BELOW
+  null (legitimately — their effects vary); layer-0 blocks decisively not output-
+  monosemantic. Robust cross-round signal: firing-context ↔ effect-token alignment.
+- **New TN-MDL structure** (results/19): the selection tensor is BLOCK-SPARSE at 3%
+  density at EVERY layer — all attention routing in the 546M model ≈ 0.66 MB of
+  class-interaction rulebooks, and they read as same-kind matching (pronouns↔pronouns,
+  quotes↔quotes, code↔code). Jointly with the monosemanticity result: layer-0 attention
+  is a class-interaction ROUTER whose consequences become output-aligned only at the top.
+- Table MDL trio + champion (results/16): low-rank r=32 beats full tables; combo
+  config = whole long-range flow in ~12 MB. Context ladder (results/17): pair-context
+  is variance-rich but behaviorally cheap; the live-window residue is dynamic-indexed.
+- First circuit card (cards/card1) validated the card format with honest surprises.
+Next: repeat-data card where H5 is load-bearing; non-induction card; per-layer rulebook
+bits into the MDL accounting.
