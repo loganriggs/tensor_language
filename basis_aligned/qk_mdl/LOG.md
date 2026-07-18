@@ -1934,3 +1934,29 @@ shipped; README indexed.
 Queue: report to Logan (his arc, decisive negative + the principled answer); rest
 pending his steer. Candidates if he wants more: cards 2-3 (repeat-data H5 card;
 non-induction card); pairclass atoms as descriptive layer in cards.
+
+---
+
+## 2026-07-20 — tick 72 (LOGAN DIRECTIVE: multi-hour autonomous arc; PUSHED; class-pair circuits launched)
+
+Logan's standing directive: many hours autonomous; hardcore mech interp with maximal
+TN use → more MEASURABLE MDL structure; verify reductions by falsifiable criteria
+beyond dCE, esp. CAUSAL MONOSEMANTICITY (concentrated, cross-context-consistent
+ablation effects); step back to this higher level every ~2h; keep everything pushed.
+
+Housekeeping done: repo history REWRITTEN to drop 25GB of regenerable .pt caches
+(filter-repo on the unpushed range; backup-pre-filter branch kept locally; *.pt
+gitignored) → PUSHED to origin/main (112 commits). Cron prompt now carries the
+directive + push-every-commit + 2h step-back.
+
+New arc launched: cp_circuits.py — TN-native class-pair circuit atoms at layer 0:
+coarsen the exact pattern tensor P(t_i,t_j,Δ) by embedding-classes (256), rank
+(head, class_q, class_k) blocks by data-weighted pattern-energy mass, causally probe
+the top 14 (zero the block only) and score each effect vector for MONOSEMANTICITY:
+concentration (top-20 |Δlogit| share) + cross-context consistency (mean pairwise
+cosine of per-position Δlogit vectors) + named promoted/suppressed tokens. Falsifiable:
+diffuse or inconsistent effects kill the atom.
+
+Queue after harvest: cards from the best blocks; block-sparse pattern MDL (keep top-B
+class-pair blocks, ΔCE-vs-bits); extend monosemanticity scoring to existing atoms
+(vq classes, H7 dir, mlp16 gains) for a cross-decomposition comparison.
