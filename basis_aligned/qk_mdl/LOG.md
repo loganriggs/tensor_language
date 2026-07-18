@@ -1816,3 +1816,25 @@ work → §9). Re-published.
 
 Queue: EMPTY pending Logan (edge arc EH-1..5 complete; all deliverables current).
 Next silent tick retunes cron to hourly per policy.
+
+---
+
+## 2026-07-20 — tick 68 (LOGAN: table-MDL trio launched; circuit-card arc planned with guardrails)
+
+Logan's asks: (1) run the three MDL-efficiency methods — shared codebook, low-rank
+tables, edge-guided per-stream k; (2) qualitative circuit-finding through the
+decompositions (cherry-picked OK); (3) requested my assessment of risks.
+
+Launched e4_table_mdl.py: uniform-vq1024 baseline re-audited in-harness, low-rank
+r∈{32,128}, shared codebook k∈{4096,8192} (per-stream RMS normalization + 37 scales),
+edge-guided tiers (top-8 streams by causal weight k=4096 / mid k=1024 / tail k=64,
+budget ≈ uniform). All W=4 audits; bits reported per arm.
+
+Circuit-card design (next GPU slot), WITH the guardrails from my assessment: cards
+trace ONE example through BOTH the token-static skeleton (table atoms per layer) AND
+the named live components (H5 match, H7 gain, top-MLP gains) — tables alone would
+show only the static part and miss the mechanism by construction; every card ships
+with its SET-ablation check (cut the traced path as a whole; superadditivity law
+makes per-edge traces unverifiable individually); cherry-picked labeled as such.
+First target: induction copy of a repeated rare name (the one circuit already
+causally mapped end to end).
