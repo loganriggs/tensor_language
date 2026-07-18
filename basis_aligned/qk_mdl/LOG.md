@@ -2081,3 +2081,13 @@ extended; root LOG updated for Logan. rulebook_density.py/json.
 
 Queue: card 2 (repeat data, H5 load-bearing) next tick; card 3 (non-induction);
 rulebook bits into MDL accounting; step-back done this cycle.
+
+---
+
+## 2026-07-20 — tick 78 (card 2 launched: the denoising paradox at single-sequence resolution)
+
+card2_denoising.py running: 8 rare words repeated; arms = live / H5-zero / H5-content-
+cleaned / H5-rank-2-filtered / H7-zero (catastrophic control) / random-head-zero (null
+control); plus H5's attention target displayed at a worked position. The honest framing
+per WW-2/7: the match head attends correctly, removal barely hurts, cleaning HELPS —
+the card makes the program's strangest true fact legible on one sequence.
