@@ -2107,3 +2107,16 @@ card2_denoising.py, results/cards/card2_denoising.md.
 
 Queue: corpus-scale natural-repeat cleaning arm (confirm the boundary beyond one
 sequence); card 3 (non-induction); rulebook bits into MDL accounting.
+
+---
+
+## 2026-07-20 — tick 79 (H5-B: boundary confirmed at scale)
+
+**FINDING H5-B:** natural-text A+A repeats, cleaning arm: +0.0344 (hurts) vs the
+random-repeat reference on the SAME harness: −0.1701 (improves; WW-7 reproduced).
+The card-2 boundary holds at corpus scale — H5's carriage is context-mixed identity,
+noise only on degenerate data. results/12 updated with the numbers.
+h5_boundary.py/json.
+
+Queue: card 3 (non-induction behavior); rulebook bits into the MDL accounting;
+explorer refresh with the directive-session findings (18/19 + cards).
