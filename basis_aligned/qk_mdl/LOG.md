@@ -2141,3 +2141,14 @@ Remaining queue, re-ranked: (1) consolidated MDL accounting incl. rulebook bits 
 "we can in fact measure" deliverable — one table: every description layer, its bits,
 its ΔCE); (2) explorer refresh (results/18-19 + 3 cards); (3) further cards as
 behaviors suggest themselves. Then a Logan-facing session summary.
+
+---
+
+## 2026-07-20 — tick 81 (total-system audit launched)
+
+combined_final.py running: the accounting table's headline number — windowed-D
+(W=6, qk+v everywhere + mlp L1-12 reads, champion combo tables) COMPOSED with the
+3%-density rulebooks at all 18 layers. Arms: rulebooks-only / tables-only / TOTAL.
+Also the superadditivity test BETWEEN reduction families (marginals: rulebooks
+~+0.01-0.02 summed, tables +0.059 — does the composition hold?). results/20
+(consolidated accounting) written at harvest with this number on top.
