@@ -2167,3 +2167,14 @@ with the capstone sentence. combined_final.py/json.
 
 Queue: explorer refresh (18/19/20 + cards) as the remaining deliverable; then
 session-summary for Logan; further cards opportunistically.
+
+---
+
+## 2026-07-20 — tick 83 (explorer refreshed; session summary shipped; deliverables current)
+
+Explorer §9 added (rulebooks + the bill + the verification loop), TOC renumbered,
+republished at the same URL. Root LOG carries the Logan-facing session summary.
+All results/01-20, cards 1-3, GLOSSARY/EXPLAINER/EXAMPLES, and the explorer are
+current and pushed. Queue: opportunistic (more cards; per-layer rulebook naming;
+sqrd12 rulebooks) — will continue generating in-scope experiments per the directive
+unless Logan redirects.

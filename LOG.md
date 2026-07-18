@@ -2242,3 +2242,29 @@ Delivered against the directive:
 - First circuit card (cards/card1) validated the card format with honest surprises.
 Next: repeat-data card where H5 is load-bearing; non-induction card; per-layer rulebook
 bits into the MDL accounting.
+
+## 2026-07-20 — qk_mdl ticks 72-83 (for Logan): the directive session, complete
+
+Everything pushed; explorer refreshed (§9 "Rulebooks & the bill"):
+https://claude.ai/code/artifact/8763e1ff-ff6d-4cdc-bde5-7f0e5fd0f4b5
+
+**The bill (results/20):** your 546M model to +0.26 nats in ~12.7 MB of readable
+structure — champion tables (2.5M floats + 18M idx bits; +0.042 alone at W=6, the
+denoising bonus survives composition) + 0.66 MB of class-interaction rulebooks
+(+0.190 composed — 6× superadditive across layers even though each layer is ≤+0.008)
+— with the FIRST cross-family additivity we've ever measured (interaction only +0.024:
+tables coarsen content, rulebooks prune interactions; different budgets).
+
+**The rulebooks (results/19):** every layer's selection runs at 3% class-pair density;
+the named blocks read as same-kind matching (pronouns↔pronouns, quotes↔quotes,
+code↔code, spatial-preps↔spatial-preps).
+
+**The verification loop (results/18 + 3 cards):** metrics were falsified before atoms
+(two died, one confounded, then null-calibrated); ONE atom survives (mlp16 dir0 —
+its card shows it reshaping the legal register at 100× controls). Cards acted as
+regression tests: card 2 found the denoising paradox's BOUNDARY (H5 carries
+context-mixed identity; cleaning helps only on degenerate data — confirmed at scale
+with opposite signs on one harness), revising WW-7.
+
+Open to steer: more cards, deeper rulebook naming (per-layer), sqrd12 rulebooks,
+or new directions.

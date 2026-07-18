@@ -124,7 +124,7 @@
     <a href="#wall">1 The wall</a><a href="#reads">2 What selection reads</a>
     <a href="#crack">3 The crack</a><a href="#classes">4 Token classes</a>
     <a href="#conj">5 Induction, decoded</a><a href="#heads">6 The two heads</a>
-    <a href="#mlp">7 The top MLPs</a><a href="#edges">8 The edge map</a><a href="#null">9 What didn't work</a>
+    <a href="#mlp">7 The top MLPs</a><a href="#edges">8 The edge map</a><a href="#account">9 Rulebooks &amp; the bill</a><a href="#null">10 What didn't work</a>
   </nav>
 </header>
 
@@ -358,7 +358,45 @@ exactly why windowed-D (replace with token-conditional summaries, bound by recen
 succeeds where threshold graph-cutting cannot.
 </div>
 
-<h2 id="null"><span class="secnum">9</span>What didn't work (and why that's load-bearing)</h2>
+<h2 id="account"><span class="secnum">9</span>Rulebooks, one surviving atom, and the total bill</h2>
+<div class="prose">
+<p>The directive session (results/18–20): make maximal use of the tensor-network
+structure, measure the MDL structure found, and verify with falsifiable criteria.</p>
+</div>
+<div class="figure">
+  <h3 style="margin-top:4px">The selection rulebooks</h3>
+  <p class="prose" style="font-size:.95rem">Coarsening each layer's exact pattern tensor by
+  embedding classes: <b>3% of class-pair blocks carry the selection function at every
+  layer</b> (≤+0.008 each). The named blocks read as same-kind matching:</p>
+  <div class="chips"><span class="chip">pronouns ↔ pronouns</span><span class="chip">quote-punctuation ↔ quote-punctuation</span><span class="chip">code-identifiers ↔ code-identifiers</span><span class="chip">spatial prepositions ↔ spatial prepositions</span><span class="chip">sentence-enders ↔ clause-openers</span></div>
+  <p class="prose" style="font-size:.95rem">But stacked across all 18 layers the rulebooks
+  cost <b class="m-c">+0.190</b> (6× superadditive — per-layer freedom ≠ stack freedom,
+  the program's oldest law).</p>
+  <h3>The total bill</h3>
+  <table>
+    <tr><th>description</th><th>structural cost</th><th>ΔCE</th></tr>
+    <tr><td>champion combo tables, W=6 (all attention I/O + bottom MLP reads)</td><td>2.5M floats + 18M idx bits</td><td><b class="m-b">+0.042</b></td></tr>
+    <tr><td>all-layer rulebooks (attention routing)</td><td>≈0.66 MB</td><td>+0.190</td></tr>
+    <tr><td><b>total system</b> (near-additive across families — a first)</td><td><b>≈12.7 MB</b></td><td><b>+0.256</b></td></tr>
+  </table>
+  <div class="cap">A 546M-parameter transformer to +0.26 nats in ~12.7 MB of readable
+  structure, plus a 6-layer live window whose contextual core is two named heads and a
+  handful of named gains. Full table with estimation-token accounting: results/20.</div>
+</div>
+<div class="figure">
+  <h3 style="margin-top:4px">Causal monosemanticity: one survivor, three cards</h3>
+  <p class="prose" style="font-size:.95rem">Three rounds of metric falsification
+  (controls first — two metrics died, one was confounded and then null-calibrated)
+  leave <b>one validated atom</b>: mlp16 dir0, consistency 0.98 above all matched
+  nulls. Its card shows it firing at citation-structure positions and reshaping the
+  legal register's distribution at ~100× control ablations. The other cards each
+  falsified something: card 1 found two-head non-additivity; card 2 found the
+  denoising paradox's <em>boundary</em> (H5 carries context-mixed identity — cleaning
+  helps only on degenerate data), confirmed at corpus scale with opposite signs on
+  one harness. Cards live in results/cards/.</p>
+</div>
+
+<h2 id="null"><span class="secnum">10</span>What didn't work (and why that's load-bearing)</h2>
 <div class="prose">
 <p>The honest half of the story, kept deliberately:</p>
 <ul style="max-width:680px">
