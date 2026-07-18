@@ -24,12 +24,19 @@ attention targets are positions [4, 5, 8] = ["' th'", "'istle'", "' copper'"]
 | H7 zeroed (contrast) | -3.496 | -2.774 |
 | random head zeroed (L5.H3) | -0.715 | +0.007 |
 
-## Verdict
+## Verdict — the paradox has a boundary (and this card found it)
 
-The paradox on one sequence: zeroing the match head costs little; replacing
-its carried content with CLEAN token identity, or low-rank-filtering its
-output, IMPROVES copying — the head's selection signal is right and its
-carriage is noisy enough that the model under-weights it. H7's zero is the
-catastrophic control; a random head is the null control. Caveats: one
-synthetic sequence (cherry-picked format by design); statistics for these
-effects at corpus scale are in results/12 and h5_undercash.json.
+The pre-registered expectation (from corpus-scale WW-6/7 on UNIFORM-RANDOM repeats)
+was that cleaning H5's content would IMPROVE copying. On this natural-word sequence
+the opposite holds: cleaning costs −0.163 and rank-2 filtering −0.217, while the
+controls behave (H7 zero −2.774 catastrophic; random head +0.007 null; H5 zero −0.264
+modest). Resolution: **H5 carries context-mixed identity.** On degenerate random-token
+repeats the context component is noise — averaging it away helps. On real text it is
+signal — averaging it away hurts. "The model under-cashes its induction head" (WW-7)
+is therefore a statement about *degenerate contexts*; on natural text the head's
+carriage is better than its cond-mean.
+
+Methodological note: this is what cards are for — a single legible example acted as a
+regression test on a corpus-level claim and sharpened it. Caveats: one sequence; the
+corpus-scale version of the natural-text arm (clean H5 on pile repeats of real
+phrases) is the obvious follow-up.

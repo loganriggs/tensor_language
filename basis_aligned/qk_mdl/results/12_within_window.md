@@ -85,7 +85,10 @@ Two hypotheses tested (`../h5_undercash.py`): content noise (replace H5's carrie
 clean cond-mean identity, pattern live) vs amplitude starvation (scale H5's pattern).
 Cleaned content: repeat **−0.170** (natural +0.023). Scaled pattern: repeats WORSEN
 monotonically (α=1.5: +0.34; α=4: +3.37); cleaning+scaling adds nothing over cleaning.
-**The induction head carries a noisy copy of token identity, and the model's small
+**Boundary found by card 2 (cards/card2_denoising.md):** the cleaning gain is
+DISTRIBUTION-DEPENDENT — on natural-word repeats cleaning HURTS (−0.16): H5 carries
+context-MIXED identity; the context part is noise on degenerate data, signal on real
+text. The corrected statement: **The induction head carries a noisy copy of token identity, and the model's small
 gain on it is rational** — boosting amplifies noise; denoising (low-rank filter,
 cond-mean table) is what helps. Carriage fidelity, not matching or amplitude, is the
 induction bottleneck in this model.

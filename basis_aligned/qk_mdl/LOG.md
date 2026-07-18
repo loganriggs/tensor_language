@@ -2091,3 +2091,19 @@ cleaned / H5-rank-2-filtered / H7-zero (catastrophic control) / random-head-zero
 control); plus H5's attention target displayed at a worked position. The honest framing
 per WW-2/7: the match head attends correctly, removal barely hurts, cleaning HELPS —
 the card makes the program's strangest true fact legible on one sequence.
+
+---
+
+## 2026-07-20 — tick 78b (CARD-2: the denoising paradox has a BOUNDARY)
+
+**FINDING CARD-2 (revises WW-7):** on a natural-word repeated sequence, cleaning H5's
+content HURTS (−0.163; rank-2 filter −0.217) though both helped on uniform-random
+repeats; controls held (H7 −2.774, random +0.007). Resolution: H5 carries CONTEXT-
+MIXED identity — the context component is noise on degenerate data, signal on real
+text; "under-cashing" is a degenerate-context statement. Card verdict rewritten to
+match its own data; results/12 postscript amended. Cards are functioning as regression
+tests on corpus claims — exactly the falsifiability behavior the directive wants.
+card2_denoising.py, results/cards/card2_denoising.md.
+
+Queue: corpus-scale natural-repeat cleaning arm (confirm the boundary beyond one
+sequence); card 3 (non-induction); rulebook bits into MDL accounting.
