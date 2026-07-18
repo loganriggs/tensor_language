@@ -2191,3 +2191,15 @@ compressibility dependence recurs at family-subtype resolution. results/19 exten
 
 Queue: opportunistic per directive — per-layer rulebook naming; more cards; or
 consolidation. Session deliverables all current and pushed.
+
+---
+
+## 2026-07-20 — tick 85 (STEP-BACK + SR-2 mechanism test launched)
+
+STEP-BACK: session ledger — CP-1..3, BS-1/2, TS-1..3, H5-B, CARD-1..3, SR-1/2 across
+results/18-20 + 3 cards + explorer §9-10, all pushed. Remaining in-scope value ranked:
+(1) close SR-2's mechanism claim falsifiably (RUNNING: sqrd12_coupling.py — mask
+numerator, keep ORIGINAL row sums; prediction: composed cost drops toward bilin18-like
+if denominator coupling is the mechanism); (2) card 4 on the card-1 interference
+mystery (which component compensates when H7 dies?); (3) per-layer rulebook naming
+(descriptive, lower priority).
