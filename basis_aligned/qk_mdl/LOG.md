@@ -2271,3 +2271,18 @@ genuinely high-value nexts are direction choices that belong to Logan (new model
 family / deeper top-MLP / publication shaping). Consolidation shipped: root-LOG
 capstone, README refresh, memory updated. Cron → hourly rest-state; 30-min restores
 on his reply.
+
+---
+
+## 2026-07-21 — tick 90 (LOGAN'S PICK: top-MLP anatomy arc opened; cron restored)
+
+Logan chose the top-MLP fast-structure deep-dive. Key structural opening: the gain
+coefficient of any mlp16 output direction d is the EXACT weight-derived quadratic form
+c_d(x) = x̂ᵀM_d x̂ + d·b, M_d = Σ_j (W_Dᵀd)_j W_L[j]⊗W_R[j] — no estimation needed.
+Arc plan: (1) GATE the form against live coefficients; (2) eigen-anatomy of sym(M_d)
+for dirs 0-3 (effective rank — is the fast structural state a few quadratic
+features?); (3) name top eigenvectors (emb-NN + lens); (4) exact stream-pair split of
+c_d over data (which stream interactions compute the state); (5) rank-r causal
+replacement (ΔCE + coefficient R²); then upstream: what WRITES the driving streams.
+mlp16_anatomy.py (exp 1: gate + eigen-anatomy + naming) launched; cron restored to
+30-min (84478c16).
