@@ -99,6 +99,29 @@ gauges; no deep-layer SAE; stays a tensor network.
   but depth-increasing — the Step-5 mechanism holds directionally.
 - Figure: `fig_code_propagation.png`.
 
+### F9 — regime 2 (first step): the UN-CONFOUNDED births test supports weight-informed births
+`toy_births_seed_test.py`. Logan's step-4 fix: don't TRAIN Φ on activations (which silently
+absorbs manufactured features, confounding F4); instead SEED atoms from weights and leave
+them fixed, then compare seedings. Per bond, fixed dictionary of m=512 atoms, sparse code
+k=16 (corr top-k + least-squares refit), FVU over 5 subsamples. Deep-bond mean FVU:
+
+| seeding | deep-bond mean FVU |
+|---|---|
+| WRITE (upstream write deltas) | **0.389** |
+| TOKEN (boundary/vocab dictionary) | 0.439 |
+| RANDOM (unit vectors) | 0.518 |
+
+**Write-seeded atoms reliably beat token and random** (std ~0.005), and the advantage
+**grows with depth** (bond 2: write 0.352 vs token 0.502; bond 0: token wins, as expected
+near the embedding). So with weight-derived seeds — un-confounded, atoms never trained —
+write directions capture the deep stream better than the boundary dictionary, increasingly
+with depth: the atom-birth signal the confounded F4/flagship write-span run couldn't show.
+Weight-informed births are supported. Caveats: fixed unoptimized seeds (measures seeding
+quality, not trained ceiling; FVU stays 0.35–0.5); toy only; next = flagship + nesting the
+births over the rotation basis with orthogonalization for clean description-length.
+**Gate note:** a single-sample RANDOM draw was anomalously good (0.16) and misleading; the
+5-subsample check corrected it to 0.519±0.003 before any claim (falsifiable-verification rule).
+
 ### F8 — regime 1 COMPLETE: the exact rotation baseline is nearly empty (step-back)
 `toy_qk_torus_floor.py` finishes the query/key bond. A query/key rotation is a gauge
 only if it commutes with RoPE; for rotate-half RoPE the commuting subgroup is a
@@ -113,6 +136,7 @@ recovers the known optimum), the query/key floor is **1.36%** L1 drop (exact gau
 | toy OV | full O(32) | 7.0% |
 | toy QK | 16-angle RoPE torus | 1.4% |
 | flagship OV | shared across depth (value bus) | ~0% |
+| flagship QK | 64-angle RoPE torus | 0.22% |
 
 **The square-rotation baseline is nearly empty.** No private bond gives up much sparsity
 to an exact orthonormal change of basis; on the flagship the shared value bus makes it

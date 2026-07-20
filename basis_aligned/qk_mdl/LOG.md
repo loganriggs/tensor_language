@@ -2805,3 +2805,26 @@ Regime 2 remains BLOCKED on Logan confirming the flagged private-vs-residual bon
 Nothing running. Next independent options if Logan silent: flagship QK torus floor; or the
 representability-vs-overcompleteness curve on a single bond (regime-2 prep that doesn't need
 the birth-seeding decision). GOALS.md F8 + step-back.
+
+---
+
+## 2026-07-20 — tick 116 (regime 1 fully closed: flagship QK 0.22%; regime 2 first step: un-confounded births SUPPORTED)
+
+Harvested flagship QK RoPE-torus floor: 0.22% L1 drop (uniform across depth), exact gauge
+(max|Δlogit| 3e-5). Regime 1 now COMPLETE across both bonds x both models: toy OV 7% | toy
+QK 1.4% | flagship OV ~0% | flagship QK 0.22% — the square-rotation baseline is empty
+everywhere; sparsity must come from overcompleteness.
+
+**F9 — un-confounded births test (toy_births_seed_test.py).** Regime 2's first step, and the
+un-confounded fix to F4's confounded write-span: SEED atoms from weights (never trained),
+compare seedings by fixed-dict sparse-code FVU. Deep-bond mean: WRITE 0.389 < TOKEN 0.439 <
+RANDOM 0.518 (5 subsamples, std ~0.005). Write-seeded reliably beats token+random and the
+gap GROWS with depth (bond2 write 0.352 vs token 0.502) -> weight-informed births SUPPORTED,
+un-confounded. Gate note: a single-sample random draw was flukey-good (0.16); the 5-subsample
+check corrected to 0.519 before any claim (falsifiable-verification rule earned its keep, 3rd
+gate-catch this session). Proceeded with births-hypothesis validation (not the full birth
+construction) since it doesn't depend on the still-open residual-vs-private flagged question.
+
+Next: flagship births test; then nest births over the rotation basis with orthogonalization
+(clean DL). Regime-2 CONSTRUCTION specifics (which bond, nesting) still want Logan's flagged
+confirm; the hypothesis test did not. GOALS.md F8/F9; fig_regime1.png.

@@ -1,0 +1,66 @@
+{
+  "m": 512,
+  "k": 16,
+  "per_bond": {
+    "bond0(attn)": {
+      "write": null,
+      "token": [
+        0.2468,
+        0.0079
+      ],
+      "random": [
+        0.5191,
+        0.0026
+      ]
+    },
+    "bond1(mlp)": {
+      "write": [
+        0.3082,
+        0.0044
+      ],
+      "token": [
+        0.3075,
+        0.0074
+      ],
+      "random": [
+        0.5186,
+        0.0035
+      ]
+    },
+    "bond2(attn)": {
+      "write": [
+        0.3523,
+        0.0088
+      ],
+      "token": [
+        0.5021,
+        0.003
+      ],
+      "random": [
+        0.5172,
+        0.0072
+      ]
+    },
+    "bond3(mlp)": {
+      "write": [
+        0.5064,
+        0.0091
+      ],
+      "token": [
+        0.5088,
+        0.0012
+      ],
+      "random": [
+        0.5188,
+        0.0024
+      ]
+    }
+  },
+  "verdict": {
+    "write_mean": 0.389,
+    "token_mean": 0.4395,
+    "random_mean": 0.5182,
+    "write_beats_token": true,
+    "write_beats_random": true
+  }
+}

@@ -1,0 +1,14 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+CONTROL: L1 1195.1 -> 908.6 (opt 908.6) PASS
+bilin18 QK torus floor (64 angles/head/branch), 18 layers x 9 heads:
+  L 0: mean drop 0.22%
+  L 3: mean drop 0.21%
+  L 6: mean drop 0.25%
+  L 9: mean drop 0.21%
+  L12: mean drop 0.20%
+  L15: mean drop 0.20%
+  L17: mean drop 0.22%
+
+exact-gauge check: max|Δlogit| 2.96e-05 (must be ~0)
+mean flagship QK torus L1 drop 0.22%. done.
