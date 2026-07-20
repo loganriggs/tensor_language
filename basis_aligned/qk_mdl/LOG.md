@@ -2319,3 +2319,13 @@ mlp16_anatomy2.py/json.
 Queue (exp3): rank-r FORM replacement in the live forward (c ≈ top-k whitened
 features; ΔCE + coefficient R² — the causal check on MA-2) + exact stream-pair split
 of c_d (which streams feed the boundary features). Then upstream: what writes them.
+
+---
+
+## 2026-07-21 — tick 92 (anatomy exp3 launched: causal rank-r forms + stream-pair split)
+
+mlp16_anatomy3.py running: (a) live-forward replacement of all four dirs' coefficients
+by rank-k whitened-form approximations (k=64/16/4), ΔCE + dir0 coefficient R² — the
+causal check on MA-2's ~25-50-feature claim; (b) exact stream-pair covariance split of
+dir0's coefficient (which stream interactions feed the boundary features — expected:
+mlp15×mlp15 + attn5 pairs per SI-1/TM-1, now at coefficient resolution).

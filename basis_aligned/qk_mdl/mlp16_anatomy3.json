@@ -1,0 +1,51 @@
+{
+  "baseline": 3.2341103553771973,
+  "arms": {
+    "rank-64 forms (4 dirs)": {
+      "dce": 0.028,
+      "dir0_R2": 0.954
+    },
+    "rank-16 forms (4 dirs)": {
+      "dce": 0.0329,
+      "dir0_R2": 0.865
+    },
+    "rank-4 forms (4 dirs)": {
+      "dce": 0.0661,
+      "dir0_R2": 0.907
+    }
+  },
+  "dir0_stream_pair_covshare_top": [
+    [
+      "mlp15xmlp15",
+      -0.036
+    ],
+    [
+      "mlp15xattn5",
+      0.015
+    ],
+    [
+      "attn5xmlp15",
+      0.015
+    ],
+    [
+      "mlp14xmlp15",
+      -0.013
+    ],
+    [
+      "mlp15xmlp14",
+      -0.013
+    ],
+    [
+      "attn9xmlp15",
+      0.01
+    ],
+    [
+      "mlp15xattn9",
+      0.01
+    ],
+    [
+      "mlp15xattn6",
+      0.01
+    ]
+  ]
+}
