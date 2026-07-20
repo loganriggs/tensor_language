@@ -2344,3 +2344,16 @@ is answered at mechanism level.
 
 Queue: recursion into mlp15 (same anatomy on the feeder's own bilinear form — walk
 upstream until grounded in token-static structure); root-LOG update for Logan.
+
+---
+
+## 2026-07-21 — tick 93 (MA-4: recursion rung 1 — exact but BROADENING; grounding measure needs redo)
+
+**FINDING MA-4:** L15 form for the boundary feature gates at 7.8e-7 (recursion sound);
+whitened eff-rank ~113 at L15 vs 25-50 at L16 — anatomy BROADENS upstream; sharp
+structure is composed from broad structure, so upstream walks fan out. Honest flag:
+token-cond grounding R² = −0.19 is an estimation artifact (<2 samples/token); correct
+grounding = windowed-table substitution inside the coefficient input (queued).
+results/21 extended. mlp15_recursion.py/json.
+
+Queue: windowed grounding of c_e (correct measure); step-back due next tick.

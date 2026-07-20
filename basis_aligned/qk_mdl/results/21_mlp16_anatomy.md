@@ -51,10 +51,18 @@ exact weight form (gated) → ~25–50 boundary-feature quadratics (data-concent
 fed by mlp15 self-interaction + the attn5 hub → expressed as rank-4–16 output gains →
 behaviorally an intra-register distribution shaper (card 3, ~100× controls).
 
-**Next rung (queued):** recursion — mlp15 is itself a pure bilinear MLP, so its
-boundary-feature outputs have their own exact quadratic forms; the same anatomy can
-walk upstream until it grounds in token-static structure (which the windowed-D
-results say must happen within a few layers).
+## MA-4: the recursion broadens upstream
+
+Rung 1 (mlp15_recursion.py): the top boundary feature u₀ (the `.`/`).`/`:` direction)
+treated as an mlp15 output direction. Its L15 quadratic form gates exactly (7.8×10⁻⁷)
+— the recursion machinery is sound at every rung. But the anatomy BROADENS upstream:
+whitened effective rank **~113** at L15 (vs 25–50 at L16), top features still
+boundary-flavored (newline, `(`, document boundary). The model composes sharp
+structure features out of broader ones — sharpening happens downstream, so a full
+upstream walk fans out rather than narrowing. Caveat: the token-conditional grounding
+estimate was invalid at this sample size (negative held-out R² = per-token overfit at
+<2 samples/token); the correct grounding measure is windowed-D-style (table old
+streams inside the coefficient input, measure R²) — queued.
 
 Files: `../mlp16_anatomy.py/.json`, `../mlp16_anatomy2.py/.json`,
 `../mlp16_anatomy3.py/.json`.
