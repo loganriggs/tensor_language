@@ -12,6 +12,34 @@
     "A per-token top-k, n=512 k=16": {
       "dce": 0.0721,
       "Mbits": 315.9
+    },
+    "A per-token top-k, n=512 k=32": {
+      "dce": 0.001,
+      "Mbits": 612.9
+    },
+    "B batch-top-k, n=512 avg-k=4": {
+      "dce": 0.4127,
+      "Mbits": 93.1
+    },
+    "B batch-top-k, n=512 avg-k=8": {
+      "dce": 0.1879,
+      "Mbits": 167.4
+    },
+    "B batch-top-k, n=512 avg-k=16": {
+      "dce": 0.0642,
+      "Mbits": 315.9
+    },
+    "B batch-top-k, n=512 avg-k=32": {
+      "dce": 0.0148,
+      "Mbits": 612.9
+    },
+    "C routed G=8, uniform n_g=128 k=8": {
+      "dce": 0.134,
+      "Mbits": 179.2
+    },
+    "C routed G=8, adaptive n_g by size k=8": {
+      "dce": 0.1234,
+      "Mbits": 189.1
     }
   }
 }

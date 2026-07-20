@@ -2396,3 +2396,22 @@ table lookup by token id, and code for all three schemes). Running: ov_dict_vari
 — per-token top-k / batch-top-k / routed(G=8), swept, ΔCE + structural bits. First
 number in: per-token n=512 k=4 = +0.277 (matches the sweep anchor). Cron restored to
 30-min (dd2ab765). temp_explainer.md committed for durability.
+
+---
+
+## 2026-07-21 — tick 97 (OV dictionary variants harvested: routed WINS at matched bits)
+
+**FINDING OVD-1:** three sparse-coding schemes for the layer-0 content tables, swept.
+Per-token top-k: k=4/8/16/32 → +0.277/+0.218/+0.072/+0.001. Batch-top-k (flexible
+per-token sparsity, same average): +0.413/+0.188/+0.064/+0.015 — BEATS per-token at
+avg-k≥8 but worse at k=4 (starvation when budget is tight; flexibility needs slack).
+**Routed/block-sparse (8 embedding-class groups, own dict each): +0.134 (uniform
+8-of-128) / +0.123 (adaptive n_g) at ~180Mbits — clearly beats single-dict schemes at
+matched or larger size** (+0.19-0.22), despite less training per dict. Logan's
+per-word-family-dictionary intuition validated; routing is the efficient frontier for
+content. Sweep table + all three code snippets in temp_explainer.md §5.
+Caveat: L2-fit, 1200-step dicts (anchor was 3000) — relative comparison valid,
+absolute above the trained anchor. ov_dict_variants.py/json.
+
+Queue: CE-train the routed champion (does it go negative like the shared dict did?);
+more Logan Q&A as it comes.

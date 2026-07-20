@@ -118,9 +118,13 @@ def ce(v_tab):
     return tot / n
 
 
-CE0 = ce(None)
-res = {'baseline_ce': CE0, 'arms': {}}
-print(f'baseline {CE0:.4f}', flush=True)
+import os
+if os.path.exists(OUT):
+    res = json.load(open(OUT)); CE0 = res['baseline_ce']
+    print(f'resumed; {len(res["arms"])} arms done, baseline {CE0:.4f}', flush=True)
+else:
+    CE0 = ce(None); res = {'baseline_ce': CE0, 'arms': {}}
+    print(f'baseline {CE0:.4f}', flush=True)
 
 
 def bits(n_atoms_total_floats, nnz_total, n_for_index):
@@ -129,6 +133,7 @@ def bits(n_atoms_total_floats, nnz_total, n_for_index):
 
 # ---- A: per-token top-k, sweep ----
 for k in (4, 8, 16, 32):
+    if f'A per-token top-k, n=512 k={k}' in res['arms']: continue
     vt = torch.empty_like(VT); nnz = 0
     for hh in range(NH):
         Dn, b, We = train_dict(VT[:, hh].contiguous(), 512, k, mode='token', seed=hh)
@@ -143,6 +148,7 @@ for k in (4, 8, 16, 32):
 
 # ---- B: batch-top-k, sweep average k ----
 for k in (4, 8, 16, 32):
+    if f'B batch-top-k, n=512 avg-k={k}' in res['arms']: continue
     vt = torch.empty_like(VT); nnz = 0
     for hh in range(NH):
         Dn, b, We = train_dict(VT[:, hh].contiguous(), 512, k, mode='batch', seed=hh)
@@ -167,7 +173,7 @@ for _ in range(10):
     Cn = torch.zeros_like(C0); c2 = torch.zeros(G, device=DEV)
     Cn.index_add_(0, a_, E_hat.to(DEV)); c2.index_add_(0, a_, torch.ones(V, device=DEV))
     nz = c2 > 0; C0[nz] = Cn[nz]/c2[nz][:,None]
-GRP = a_.cpu()
+GRP = a_  # keep on DEV
 gsz = torch.bincount(GRP, minlength=G)
 print('routed group sizes:', gsz.tolist(), flush=True)
 
@@ -178,13 +184,13 @@ for tag, n_g_fn, k in [('uniform n_g=128 k=8', lambda s: 128, 8),
         for gg in range(G):
             gids = (GRP == gg).nonzero().squeeze(1)
             if len(gids) < 32:
-                vt[gids, hh] = VT[gids, hh]; continue
+                vt[gids, hh] = VT[gids, hh].to(DEV); continue
             Xg = VT[gids, hh].to(DEV)
             n_g = 128 if n_g_fn else int(64 * (1 + math.log2(max(len(gids)/2000, 1))))
             n_g = max(32, min(n_g, len(gids)))
             Dn, b, We = train_dict(Xg, n_g, k, mode='token', steps=800, seed=hh*G+gg)
             xhat, nz = encode_token(Xg, Dn, b, We, k)
-            vt[gids, hh] = xhat.cpu(); nnz += nz; atomf += n_g * HD
+            vt[gids, hh] = xhat; nnz += nz; atomf += n_g * HD
     bt_ = atomf * 32 + nnz * (32 + math.log2(128)) + V * math.log2(G)
     d = ce(vt) - CE0
     res['arms'][f'C routed G={G}, {tag}'] = {'dce': round(d, 4), 'Mbits': round(bt_/1e6, 1)}

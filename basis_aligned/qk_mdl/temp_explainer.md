@@ -244,3 +244,48 @@ for g in range(num_groups):
 The bet: specialized small dictionaries per word-family beat one general large dictionary
 at equal total bits (a number-words dictionary, a name-prefix dictionary, and so on). The
 sweep numbers for all three schemes are appended below once the run lands.
+
+### Sweep results (all three schemes, layer-0 content tables)
+
+Reconstruction-fit (not retrained), same 1200-step budget per dictionary so the
+*comparison* is fair even though the absolute numbers sit above the well-trained anchor
+(the earlier n=512, k=16 result was +0.034 after 3000 steps; here it is +0.072 after
+1200). Loss shown as cross-entropy increase over the live model; "megabits" is the
+structural description size.
+
+| scheme | sparsity | cross-entropy increase | size |
+|---|---|---|---|
+| per-token top-k (one dict of 512) | k=4 | +0.277 | 93 Mbit |
+| | k=8 | +0.218 | 167 |
+| | k=16 | +0.072 | 316 |
+| | k=32 | +0.001 | 613 |
+| batch-top-k (one dict of 512) | avg 4 | +0.413 | 93 |
+| | avg 8 | +0.188 | 167 |
+| | avg 16 | +0.064 | 316 |
+| | avg 32 | +0.015 | 613 |
+| **routed / block-sparse (8 groups)** | 8-of-128 each | **+0.134** | 179 |
+| | 8-of-(64…160, adaptive) | **+0.123** | 189 |
+
+**Reading the three schemes.**
+
+- **Batch-top-k vs per-token:** giving words a *flexible* atom budget (same average,
+  spent where it is needed) helps once the budget is comfortable — at average 8 and 16 it
+  beats fixed per-token top-k (+0.188 vs +0.218; +0.064 vs +0.072). But at the very tight
+  budget of 4 it is *worse* (+0.413 vs +0.277): when the total is that small, the flexible
+  scheme starves many words to almost nothing. Flexibility helps only when there is slack
+  to reallocate.
+
+- **Routed / block-sparse is the clear winner at its budget.** Eight specialized small
+  dictionaries (each word family gets its own) reach +0.123–0.134 at ~180 megabits, versus
+  +0.19–0.22 for a single shared dictionary at the *same or larger* size. Your intuition
+  holds: a name-prefix dictionary, a number dictionary, a word-fragment dictionary and so
+  on each capture their family more efficiently than one general dictionary trying to
+  serve all of them. The adaptive version (bigger dictionaries for bigger/harder word
+  families) edges out the uniform one at a small extra cost. Notably the routed
+  dictionaries were trained even *less* (800 steps each) yet still win — the specialization
+  more than compensates.
+
+**Bottom line for your question:** the single shared 16-of-512 dictionary was the first
+thing that worked, but it is not the efficient frontier. Routing content into per-family
+dictionaries is meaningfully better at equal bits, and is the natural next form for the
+content reduction. (Files: `ov_dict_variants.py`, `ov_dict_variants.json`.)
