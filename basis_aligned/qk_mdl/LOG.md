@@ -2781,3 +2781,27 @@ dead L1 optimizer). bilin18_regime1.py/json; GOALS.md F7.
 QUEUE: regime 2 (per-bond budgets + births) BLOCKED on Logan confirming the flagged
 private-vs-residual-bond question (its design depends on the answer). Independent next:
 QK constrained-rotation floor (RoPE-commuting subgroup), done carefully with controls.
+
+---
+
+## 2026-07-20 — tick 115 (regime 1 COMPLETE: QK RoPE-torus floor 1.4%; step-back — rotation baseline is nearly empty)
+
+Finished regime 1 with the query/key bond (toy_qk_torus_floor.py). QK rotation is a gauge
+only if it commutes with RoPE -> for rotate-half RoPE the commuting subgroup is a 16-angle
+TORUS per head/branch (one 2D rotation per frequency plane), vs OV's full O(32). L4 ascent,
+GATED by a planted-torus control (recovers the known optimum 96.4; a first miscalibrated
+threshold 'FAILED' the passing optimizer — fixed to 'recovered known optimum'). QK floor =
+1.36% L1 drop, exact gauge ΔCE -1e-7.
+
+STEP-BACK (regime-1 summary, fig_regime1.png, all gauges ΔCE≈0): toy OV 7.0% | toy QK 1.4%
+| flagship OV ~0% (value bus shared across depth). The square-rotation baseline is NEARLY
+EMPTY: no private bond yields much sparsity to an exact orthonormal change of basis. So the
+whole sparsity budget must come from OVERCOMPLETENESS (regime-2 births); regime 1's
+deliverables are the zero-CE anchor (a denominator for the overcomplete arm's ΔCE) and the
+proof that rotation alone can't compress these bonds. Two shared-bus facts surfaced (residual
+via embedding-pinning, value via lamb-mixing), both gate-caught.
+
+Regime 2 remains BLOCKED on Logan confirming the flagged private-vs-residual bond question.
+Nothing running. Next independent options if Logan silent: flagship QK torus floor; or the
+representability-vs-overcompleteness curve on a single bond (regime-2 prep that doesn't need
+the birth-seeding decision). GOALS.md F8 + step-back.

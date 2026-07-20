@@ -99,6 +99,31 @@ gauges; no deep-layer SAE; stays a tensor network.
   but depth-increasing — the Step-5 mechanism holds directionally.
 - Figure: `fig_code_propagation.png`.
 
+### F8 — regime 1 COMPLETE: the exact rotation baseline is nearly empty (step-back)
+`toy_qk_torus_floor.py` finishes the query/key bond. A query/key rotation is a gauge
+only if it commutes with RoPE; for rotate-half RoPE the commuting subgroup is a
+**16-angle torus** per head/branch (one 2D rotation per frequency plane), far smaller
+than OV's full O(d_head). Optimized (L4 ascent, gated by a planted-torus control that
+recovers the known optimum), the query/key floor is **1.36%** L1 drop (exact gauge,
+ΔCE −1e-7) — even lower than OV, as the 16 angles predict.
+
+**Regime-1 summary (fig_regime1.png), all gauges verified ΔCE≈0:**
+| bond | gauge | L1 sparsity gained |
+|---|---|---|
+| toy OV | full O(32) | 7.0% |
+| toy QK | 16-angle RoPE torus | 1.4% |
+| flagship OV | shared across depth (value bus) | ~0% |
+
+**The square-rotation baseline is nearly empty.** No private bond gives up much sparsity
+to an exact orthonormal change of basis; on the flagship the shared value bus makes it
+~0%. So the entire sparsity budget of the construction must come from **overcompleteness**
+(regime-2 births) — regime 1's real deliverable is (a) the zero-CE anchor that gives the
+overcomplete arm's cross-entropy a denominator, and (b) the finding that rotation alone
+cannot compress these bonds, which is *why* overcompleteness is required, not optional.
+Two architectural facts surfaced along the way (both caught by gates): the residual bus
+and the value bus are each shared (embedding-pinned; value-residual mixing), so their
+"rotation" freedom is null and their sparsity is entirely a births question.
+
 ### F7 — flagship regime 1: the value bus is shared across depth AND rotation-incompressible
 `bilin18_regime1.py`. Two findings, both caught/verified by the ΔCE gauge check:
 1. **The naive per-layer OV rotation is NOT a gauge on bilin18** — max|Δlogit| = 16.8.
