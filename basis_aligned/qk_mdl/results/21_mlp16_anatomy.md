@@ -66,3 +66,26 @@ streams inside the coefficient input, measure R²) — queued.
 
 Files: `../mlp16_anatomy.py/.json`, `../mlp16_anatomy2.py/.json`,
 `../mlp16_anatomy3.py/.json`.
+
+
+## MA-5: grounding curves — sharpening IS grounding
+
+Windowed-input R² of each coefficient (old streams → cond-mean tables), the corrected
+grounding measure:
+
+| W (live window) | L16 consumer (dir0 coeff) | L15 feeder (boundary coeff) |
+|---|---|---|
+| 0 (all token-static) | 0.19 | −0.81 |
+| 1 | 0.57 | −0.61 |
+| 2 | 0.73 | −0.28 |
+| 4 | 0.89 | 0.38 |
+| 6 | **0.96** | 0.77 |
+
+The consumer grounds fast; its own feeder grounds slowly (and windowing actively
+corrupts it at small W — the broad rank-113 form amplifies off-manifold error). The
+model distills DOWNSTREAM: each stage produces structure more token-static-plus-local
+than what it consumes. Combined with MA-4, the arc conclusion: mechanism-hunting in
+this model should follow the distillation direction — sharp, groundable, nameable
+objects live near the output; their ancestry is broad and context-entangled.
+
+Files add: ../ground_coeff.py/.json, ../mlp15_recursion.py/.json.

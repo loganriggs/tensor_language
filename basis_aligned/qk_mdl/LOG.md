@@ -2370,3 +2370,16 @@ note: generator scripts now via Write-to-scratchpad + clean python, no heredoc s
 surgery with escapes). After harvest: arc likely complete → consolidate + offer Logan
 next directions (recursion is a fan-out per MA-4, so deeper walking is low-value;
 better candidates: same anatomy for OTHER top-MLP dirs/L17; publication shaping).
+
+---
+
+## 2026-07-21 — tick 95 (MA-5: grounding curves; ANATOMY ARC COMPLETE)
+
+**FINDING MA-5:** L16 consumer coefficient: R² 0.19 (W=0) → 0.96 (W=6); L15 feeder:
+−0.81 → 0.77 (negative below W=4 — windowing corrupts the broad form off-manifold).
+Sharpening IS grounding: the model distills downstream. Arc complete: MA-1..5 in
+results/21 answer Logan's question end to end (exact forms → boundary quadratics →
+mlp15+hub feeders → causally sufficient at rank-64 → grounding curves).
+
+Queue: consolidation done; direction menu to Logan (other dirs/L17 anatomy;
+publication shaping; anything new). Rest-state cadence at next silent tick.

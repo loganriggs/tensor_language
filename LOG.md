@@ -2300,3 +2300,14 @@ to ~25-50 quadratic features that all decode as PUNCTUATION/BOUNDARY structure �
 +0.028 (R² 0.95), and the exact stream split names the feeders: mlp15's
 self-interaction + the attn5 hub. Full chain in results/21. Next rung queued:
 recursive anatomy into mlp15 until the chain grounds in token-static structure.
+
+## 2026-07-21 — anatomy arc COMPLETE (for Logan): five findings, results/21
+
+The fast-structure question closed end to end: exact quadratic forms (gated 8e-7) →
+dense in weights, ~25-50 boundary-feature quadratics under the data metric → fed by
+mlp15⊗mlp15 + the attn5 hub → causally sufficient at rank-64 (+0.028, R² 0.95) →
+grounding curves show the consumer is 96% token-static-plus-6-layer-window while its
+feeder is broad and barely windowable. Punchline: SHARPENING IS GROUNDING — the model
+distills structure downstream, so nameable mechanism lives near the output and fans
+out upstream. Next directions when you're back: same anatomy for dirs 1-3 consumers /
+L17; publication shaping; or new territory.
