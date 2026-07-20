@@ -99,6 +99,25 @@ gauges; no deep-layer SAE; stays a tensor network.
   but depth-increasing — the Step-5 mechanism holds directionally.
 - Figure: `fig_code_propagation.png`.
 
+### F11 — REVERSAL: write-seeding is a good fixed dictionary but a BAD training init
+`toy_births_init_test.py`. F10 said seeds must be trained, so: does write-seeded init train
+better than random init? **No — it trains worse.** Per bond (1–3), overcomplete dict m=512
+k=32: write-init loss@50 = 0.817 → final 0.048, end-to-end ΔCE **+0.50**; random-init
+loss@50 = 0.108 → final 0.030, ΔCE **+0.35**. Random init is faster (8× lower loss at step 50)
+AND reaches a better optimum. Cause: write directions are **clustered and rank-limited** (the
+writes concentrate in few directions), so seed atoms sampled from them are redundant — poor
+coverage — while random atoms spread across the space and optimize to a better dictionary.
+
+**Synthesis of the regime-2 seeding arc (F9–F11):** write directions identify the right
+*subspace* (fixed-dictionary reconstruction F9, and the ΔCE ordering F10), but they are a poor
+*overcomplete atom set* — clustered, rank-≤d, and a bad training init (F11). So Logan's
+"birth from write directions" works for a fixed/analytical construction and for
+subspace-identification, but overcompleteness needs **diversity**, not write-seeding; a
+trained dictionary with diverse (random) init is the practical winner (+0.35, matching gate-2).
+Note: orthogonalizing the write seeds (Logan's dedup for clean description-length) collapses
+them to a ≤d basis — removing the overcompleteness — which is the same tension from the other
+side. Overcompleteness and write-informedness are, on this toy, in mild opposition.
+
 ### F10 — regime 2 at the BINDING metric: ordering survives, but seeds are an init not a solution
 `toy_births_dce_test.py`. F9 was reconstruction (FVU); the binding rule (reconstruction ≠
 behavior) demands ΔCE. Fixed seeded dictionaries, bond 0 exact (Logan calibration b), bonds

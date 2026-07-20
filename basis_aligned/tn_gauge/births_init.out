@@ -1,0 +1,6 @@
+baseline CE 1.7293; write-init vs random-init training (m=512, k=32):
+  write : loss@steps 50:0.8170 200:0.1664 800:0.0758 2000:0.0483  -> final ΔCE +0.4965
+  random: loss@steps 50:0.1077 200:0.0487 800:0.0335 2000:0.0302  -> final ΔCE +0.3486
+
+final ΔCE: write-init +0.4965 vs random-init +0.3486  (write-init better: False)
+births init test done

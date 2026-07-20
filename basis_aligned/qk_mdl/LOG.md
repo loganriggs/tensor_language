@@ -2850,3 +2850,19 @@ not the full-construction bond-choice that wants Logan's flagged confirm).
 
 Chained: write-init + training vs random-init (do good seeds give faster/better convergence?).
 GOALS.md F10.
+
+## 2026-07-20 — tick 117b (REVERSAL F11: write-seeding is a good fixed dict but a BAD training init)
+
+toy_births_init_test.py: write-init vs random-init, overcomplete m=512 k=32 per bond.
+write-init loss@50 0.817 -> ΔCE +0.50; random-init loss@50 0.108 -> ΔCE +0.35. Random init
+trains 8x faster AND to a better optimum. Cause: write directions are clustered/rank-limited
+-> redundant seed atoms, poor coverage; random spreads better. REVERSAL of F9/F10 (where
+write won as a FIXED dict). Regime-2 seeding arc (F9-F11) synthesis: write directions identify
+the right SUBSPACE but are a poor OVERCOMPLETE atom set; overcompleteness needs diversity, not
+write-seeding; trained+random-init dict is the practical winner (+0.35, matches gate-2).
+Orthogonalizing write seeds (Logan's dedup) collapses them to a <=d basis, killing
+overcompleteness - the same tension from the other side. GOALS.md F11.
+
+Regime-2 seeding thoroughly characterized. Next step (full nested construction / which bond /
+DL accounting) is a design fork that wants Logan's flagged confirm; the seeding sub-question
+is answered. Nothing running.
