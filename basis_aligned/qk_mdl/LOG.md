@@ -2914,3 +2914,16 @@ r64 +0.11 - does NOT compress by variance). Redirect: PCA optimizes variance not
 M's high PCA-rank includes selection-irrelevant variance. Interaction-sparse basis = QK-singular
 (M×M diagonal per head); QCR-1/2 showed the QK form is low-rank ~16-32. Next: low-rank-reduce
 the layer-1 QK maps (= decompose M in the interaction basis), ΔCE vs rank + MDL vs 2.1Mbit. F14.
+
+## 2026-07-20 — tick 120b (F15: layer-1 QK ~rank-64; steered-task synthesis F13-F15)
+
+toy_qk1_lowrank.py: low-rank the attn2 QK maps, ΔCE/bits: r2 +0.93, r8 +0.28, r16 +0.16,
+r32 +0.07 (1.05Mbit=50% raw), r64 +0.012 (2.1Mbit=100%), r128 0. Layer-1 QK ~rank-64 - a
+Pareto trade not free; HIGHER rank than layer-0 (QCR-1 rank-16 free) since selection reads the
+richer bilinear output M.
+
+STEERED SYNTHESIS (F13-15): layer-1 QK is SPARSE at the SOURCE level (M×M dominant, A droppable,
+E minor low-rank; 6/9 blocks recover model) but NOT compressible WITHIN M (M high-dim ~rank-64
+in both variance F14 and interaction F15 bases). Clean finding = WHICH sources interact (layer-1
+selects on bilinear-output self-interaction), not a low-atom code for M. Remaining optional
+avenue: a LEARNED interaction-sparse basis (direct optimization) vs low-rank/variance. GOALS.md F15.

@@ -99,6 +99,35 @@ gauges; no deep-layer SAE; stays a tensor network.
   but depth-increasing — the Step-5 mechanism holds directionally.
 - Figure: `fig_code_propagation.png`.
 
+### F15 — layer-1 QK is ~rank-64 in the interaction basis (a Pareto trade, not a free reduction)
+`toy_qk1_lowrank.py`. Low-rank-reduce attn2's QK maps (q1,k1,q2,k2) to rank r — which is
+decomposing every source in the interaction basis and keeping r atoms — ΔCE vs r + bits:
+
+| r | ΔCE | Mbit | % of raw |
+|---|---|---|---|
+| 2 | +0.93 | 0.07 | 3% |
+| 8 | +0.28 | 0.26 | 12% |
+| 16 | +0.16 | 0.52 | 25% |
+| 32 | +0.07 | 1.05 | 50% |
+| 64 | +0.012 | 2.10 | 100% |
+| 128 | 0 | 4.19 | 200% (gate) |
+
+Layer-1 QK is **~rank-64** — it does not cleanly compress (r=32 = half the bits for +0.07 nats,
+a Pareto point; rank-r only saves bits below r=64). Notably HIGHER rank than layer-0 QK
+(QCR-1: rank-16 was free) — selection at layer 1 reads the richer bilinear output.
+
+**STEERED-TASK SYNTHESIS (F13–F15).** Decomposing the layer-1 query/key over its upstream
+sources {embedding E, attn0 output A, bilinear output M}: the interaction graph is **sparse at
+the SOURCE level** — M×M dominates (70% mass, usable alone +0.062), A is droppable (its pure
+blocks negligible), E is a minor low-rank modulation (~8 atoms); 6 of 9 source blocks recover
+the model. But it is **NOT compressible WITHIN M**: M is a genuinely high-dimensional selection
+signal (~rank-64 in both the variance basis F14 and the interaction basis F15). So the clean
+finding is *which sources interact* (sparse, interpretable: layer-1 selects on the bilinear
+output self-interaction), not a low-atom-count code for M. MDL: source-level sparsity drops
+3 of 9 blocks free; rank reduction is a Pareto trade (half the 2.1-Mbit baseline for +0.07).
+Remaining avenue (optional): a LEARNED interaction-sparse basis (direct optimization, the
+"stronger technique") might find non-low-rank sparsity that variance/rank miss.
+
 ### F14 — per-source atom rank for layer-1 selection: E/A compress, M does not (in the variance basis)
 `toy_qk1_source_rank.py`. Decompose each source by PCA of its normed contribution and project
 to rank r; recompute the exact block decomposition; ΔCE vs r (gate: full = 0). Results:
