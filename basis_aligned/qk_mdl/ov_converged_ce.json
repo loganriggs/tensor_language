@@ -1,0 +1,25 @@
+{
+  "baseline_ce": 3.2341102361679077,
+  "arms": {
+    "per-token top-k, n=512 k=8": {
+      "dce": 0.1246,
+      "Mbits": 167.4
+    },
+    "per-token top-k, n=512 k=16": {
+      "dce": 0.0532,
+      "Mbits": 315.9
+    },
+    "batch-top-k (full-batch), n=512 k=8": {
+      "dce": 0.174,
+      "Mbits": 167.4
+    },
+    "batch-top-k (full-batch), n=512 k=16": {
+      "dce": 0.0557,
+      "Mbits": 315.9
+    },
+    "routed adaptive + batch-top-k, k=8": {
+      "dce": 0.12,
+      "Mbits": 191.6
+    }
+  }
+}

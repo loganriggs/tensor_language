@@ -2470,3 +2470,18 @@ binding ΔCE at convergence (not the undertrained sweep). Arms: per-token top-k 
 batch-top-k full-batch k=8/16 (threshold now consistent train/eval), routed
 adaptive+batch-top-k k=8. ov_converged_ce.py. Settles whether routed still wins and
 whether batch closes the gap once converged + threshold-matched.
+
+---
+
+## 2026-07-21 — tick 100b (OVD-4: converged ΔCE corrects the story — batch loses, routed near-tie)
+
+**FINDING OVD-4 (converged, real ΔCE, threshold-matched):** per-token top-k k=8/16 =
++0.125/+0.053; batch-top-k full-batch k=8/16 = +0.174/+0.056 (batch STILL loses at ΔCE,
+confirming OVD-3 at the binding metric); routed adaptive+batch k=8 = +0.120 @192Mbit.
+**Two corrections to the earlier sweep:** (1) batch does not beat per-token even
+converged — per-token is locally optimal for fixed-vector content. (2) The "routed
+crushes single-dict" claim was largely per-token UNDERTRAINING: per-token k=8 went
++0.218 (sweep) → +0.125 (converged), collapsing routed's landslide to a near-tie
+(+0.120 @192M vs +0.125 @167M — same frontier, not a win). Methodological lesson logged:
+compression comparisons must be at convergence. Fair routed test = per-token WITHIN
+groups (not batch) — queued. explainer §5 corrected. ov_converged_ce.py/json.

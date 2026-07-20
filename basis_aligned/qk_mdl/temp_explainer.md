@@ -321,3 +321,40 @@ subspaces** — different word families live in different 16-dimensional slices 
 128-dimensional space. Your instinct was exactly the right baseline to demand, and the
 gap over it is the actual finding about content: token identity is not low-rank, it is
 sparse-in-a-shared-overcomplete-basis.
+
+### Converged comparison (correcting the sweep) — the number that actually decides
+
+The sweep numbers above were undertrained (1200 steps, and batch-top-k had the
+threshold mismatch). Re-running every scheme with well-converged dictionaries
+(4000 steps, full-batch, consistent thresholds) and the *real* cross-entropy audit
+changes the ranking materially:
+
+| scheme | sparsity | cross-entropy increase | size |
+|---|---|---|---|
+| **per-token top-k** | k=8 | +0.125 | 167 Mbit |
+| | k=16 | **+0.053** | 316 |
+| batch-top-k (full-batch, threshold-matched) | k=8 | +0.174 | 167 |
+| | k=16 | +0.056 | 316 |
+| routed / block-sparse (adaptive, batch-within-group) | k=8 | +0.120 | 192 |
+
+Two honest corrections to what the sweep suggested:
+
+1. **Batch-top-k does not beat per-token even at convergence** (+0.174 vs +0.125 at
+   k=8; +0.056 vs +0.053 at k=16). This confirms the reconstruction finding at the level
+   of the binding loss: per-token top-k gives each word its locally optimal code, and a
+   flexible global budget only adds starvation risk when per-word complexity is fairly
+   uniform, which it is here.
+
+2. **The "block-sparse crushes the single dictionary" claim was mostly a
+   per-token-undertraining artifact.** In the sweep, per-token top-k at k=8 read +0.218
+   (badly undertrained); at convergence it improves to +0.125, and the routed scheme's
+   apparent landslide shrinks to a near-tie: routed +0.120 at 192 megabits versus
+   per-token +0.125 at 167 megabits — routed is marginally lower loss at somewhat more
+   bits, i.e. roughly the *same* bits-versus-loss frontier, not a decisive win. Routing
+   may still pay off, but the evidence for it is modest once the baseline is trained
+   properly, and the fair test is routing with per-token (not batch-top-k) *within* each
+   group — queued.
+
+The methodological lesson (worth keeping): compression-scheme comparisons must be made at
+convergence. An undertrained baseline can make a fancier scheme look far better than it
+is; here it inflated a ~0.09-nat "win" that is really ~0.005 at more bits.
