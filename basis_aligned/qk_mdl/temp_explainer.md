@@ -425,3 +425,69 @@ of content does not line up with an embedding-based partition of the vocabulary.
    convergence and matched bits they lose. The methodological rule this reinforces:
    never rank compression schemes without training every arm to convergence and matching
    both bits and encoder strength.
+
+### Why batch-top-k is worse — the real reason (and it proves your intuition right, with a caveat)
+
+Your intuition is **exactly correct for an orthonormal basis**, and now proven. For an
+orthonormal dictionary the reconstruction error is precisely the sum of the *dropped*
+coefficients squared, so keeping the globally-largest coefficients (batch-top-k) is the
+optimal allocation, and per-token top-k — which forces exactly k per word — is a
+*constrained* version that can only be worse. Measured on the orthonormal 128-dimensional
+basis of head 0:
+
+| orthonormal basis, k=8 | fraction unexplained |
+|---|---|
+| per-token top-k | 0.625 |
+| **batch-top-k** | **0.603**  ← better, as your argument predicts |
+
+So there is no bug: batch-top-k *does* dominate when the premise (an orthonormal basis)
+holds. The reason it loses in our actual setup is that the dictionary is **overcomplete**
+(512 atoms in 128 dimensions), and there the linear encoder's coefficients are *not* the
+optimal sparse code, and their magnitudes are *not comparable across words* — a large
+coefficient for word A does not mean dropping it costs more than a smaller one for word B,
+because the atoms overlap. That breaks the "keep the largest coefficients" argument:
+
+| overcomplete 512-atom dictionary, k=8 | fraction unexplained |
+|---|---|
+| per-token top-k | 0.467 |
+| batch-top-k | 0.483 |
+| batch-top-k + guarantee ≥1 atom/word | 0.483 |
+| batch-top-k + per-word-normalized selection | 0.489 |
+| batch-top-k warm-started from the per-token solution | 0.482 |
+
+None of the three fixes you suggested rescue it — the gap is small (~0.016) but stubborn,
+because the problem is not *which* atoms survive, it is that cross-word coefficient
+magnitudes are not a valid comparison in an overcomplete non-orthogonal basis.
+
+**The "0-atom words" are a red herring** (I owe you that correction — I flagged starvation
+earlier). The histogram of per-word atom counts:
+
+![Histogram of per-word atom counts under batch-top-k (average 8, actual spread 0 to 38)](results/fig_batchtopk_hist.png)
+
+The budget is spent very unevenly (0 to 38 atoms, median 7). But the 1,493 words that get
+zero atoms are **not** hurt: their mean reconstruction error is actually *lower* than the
+words that get atoms (5,679 vs 6,374), because they are **small-norm words** (content norm
+5,797 vs 13,370 — under half) that the bias vector already reconstructs well. So batch-top-k
+is correctly *not* spending atoms on them. Starvation is not the mechanism; the mechanism
+is the incomparability of overcomplete coefficients.
+
+**The genuinely correct fix** (if one wanted batch-top-k to win in the overcomplete case)
+is to make the coefficients reflect true marginal error — refit the coefficients by least
+squares on the chosen support, or use orthogonal matching pursuit — so that magnitudes are
+comparable across words again. That is more expensive; the practical takeaway stands: with
+an overcomplete dictionary and a linear encoder, per-token top-k is the right choice, and
+batch-top-k's advantage is real only in the orthonormal regime.
+
+### The batch-top-k code snippet
+
+```python
+z = (VT_h - bias) @ encoder.T                 # (vocabulary, n_atoms) raw coefficients
+nnz = k_avg * vocabulary_size                 # total atom budget across all words
+thresh = z.abs().reshape(-1).topk(nnz).values.min()   # one global survival threshold
+z_sparse = z * (z.abs() >= thresh)            # per-word count floats around k_avg (here 0..38)
+VT_hat = bias + z_sparse @ atoms              # reconstruct; words below threshold get bias only
+```
+
+(For comparison, per-token top-k is the same but `z.abs().topk(k, dim=1)` — the top-k taken
+*within each row* rather than one global threshold. That per-row guarantee is exactly what
+makes it robust in the overcomplete case.)

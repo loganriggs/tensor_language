@@ -2519,3 +2519,22 @@ each correction forced by convergence + matched-bits + decisive controls (same-d
 test, bits-matched reference). Deliverables: temp_explainer.md §5 (definition, forward
 pass, all schemes, SVD baseline, training curves, converged corrections), 2 figures,
 7 experiment scripts. Queue: await Logan (more Q&A / new direction). GPU idle at rest.
+
+---
+
+## 2026-07-21 — tick 102 (OVD-6: batch-top-k resolved — Logan RIGHT for orthonormal, overcompleteness breaks it; 0-atom red herring)
+
+Logan's persistent (correct) intuition that batch-top-k should match per-token. Resolved
+(ov_batch_probe.py, head 0, k=8, FVU): **ORTHONORMAL basis: batch 0.603 <= per-token
+0.625 — TRUE, his argument is provable there** (error = sum dropped coeff², batch keeps
+globally-largest = optimal; per-token is constrained). **OVERCOMPLETE 512-dict: batch
+0.483 > per-token 0.467** — linear-encoder coeffs are non-optimal + magnitudes not
+comparable across words, breaking the guarantee. Fixes tried (all fail to beat per-token):
+min-1-atom floor 0.483, per-word-normalized select 0.489, warm-start 0.482. **0-atom words
+are a RED HERRING** (I owed the correction — flagged starvation earlier): 1493 zero-atom
+words have LOWER error (5679 vs 6374) because they're small-norm (content-norm 5797 vs
+13370) and the bias fits them; batch is correctly not spending on them. Real fix would be
+least-squares/OMP coefficient refit (comparable marginal error) — expensive. Practical:
+per-token top-k right for overcomplete + linear encoder. Answered: V=50257 inputs/head ×9.
+Histogram (0-38 atoms, median 7) + batch-topk code snippet added to explainer.
+fig_batchtopk_hist.png. ov_batch_probe.py/json.
