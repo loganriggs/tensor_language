@@ -1,0 +1,29 @@
+{
+  "baseline_ce": 3.2341102361679077,
+  "arms": {
+    "SVD rank=8": {
+      "dce": 2.2416,
+      "Mbits": 116.2
+    },
+    "SVD rank=16": {
+      "dce": 1.3529,
+      "Mbits": 232.4
+    },
+    "SVD rank=32": {
+      "dce": 0.592,
+      "Mbits": 464.8
+    },
+    "SVD rank=64": {
+      "dce": 0.1283,
+      "Mbits": 929.6
+    },
+    "SVD rank=96": {
+      "dce": 0.0359,
+      "Mbits": 1394.3
+    },
+    "SVD rank=128": {
+      "dce": 0.0,
+      "Mbits": 1859.1
+    }
+  }
+}

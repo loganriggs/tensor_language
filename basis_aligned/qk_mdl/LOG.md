@@ -2415,3 +2415,19 @@ absolute above the trained anchor. ov_dict_variants.py/json.
 
 Queue: CE-train the routed champion (does it go negative like the shared dict did?);
 more Logan Q&A as it comes.
+
+---
+
+## 2026-07-21 — tick 98 (Logan's SVD-baseline question: OVD-2, sparse beats low-rank ~10x)
+
+Logan: head_dim → SVD to rank d_head is lossless, so SVD is the honest baseline. Ran it
+in-harness (ov_svd_baseline.py): head_dim=128 (his 64 guess corrected); SVD rank
+8/16/32/64/96/128 = +2.24/+1.35/+0.59/+0.13/+0.036/+0.000 (rank-128 exactly lossless,
+confirms rank≤128). **FINDING OVD-2:** sparse dictionary beats SVD ~order of magnitude
+at matched bits everywhere. Cleanest: rank-16 SVD (one shared 16-dim subspace) +1.35 vs
+per-token 16-of-512 (each token its own 16 dirs) +0.072 — same 16 coeffs, ~18x less
+error. Content = UNION of low-dim subspaces, not one low-dim subspace; that's why
+per-token sparse coding wins and SVD (optimal single subspace) can't. explainer §5
+updated with the side-by-side. ov_svd_baseline.py/json.
+
+Queue: CE-train routed champion; more Q&A.

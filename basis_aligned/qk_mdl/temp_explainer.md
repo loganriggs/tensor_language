@@ -289,3 +289,35 @@ structural description size.
 thing that worked, but it is not the efficient frontier. Routing content into per-family
 dictionaries is meaningfully better at equal bits, and is the natural next form for the
 content reduction. (Files: `ov_dict_variants.py`, `ov_dict_variants.json`.)
+
+### The singular-value-decomposition baseline (Logan's point: content is rank ≤ head-dim)
+
+The head dimension here is **128**, so each head's value table is `vocabulary × 128` and
+has rank at most 128 — a singular value decomposition to rank 128 is *lossless*, and any
+dictionary of more than 128 atoms is overcomplete. So the honest baseline for "how
+compressible is content" is low-rank (singular value decomposition), and the dictionary
+must beat it at matched bits to be worth anything. Same harness, same loss metric:
+
+| method | setting | cross-entropy increase | size |
+|---|---|---|---|
+| singular value decomposition | rank 8 | +2.24 | 116 Mbit |
+| | rank 16 | +1.35 | 232 |
+| | rank 32 | +0.59 | 465 |
+| | rank 64 | +0.13 | 930 |
+| | rank 96 | +0.036 | 1394 |
+| | rank 128 | **+0.000** | 1859 (lossless — confirms head-dim 128) |
+| per-token dictionary | 16-of-512 | +0.072 | 316 |
+| routed dictionary | 8-of-128 ×8 groups | +0.134 | 179 |
+
+**The sparse dictionary beats singular value decomposition by roughly an order of
+magnitude at every matched budget.** The cleanest single comparison: a rank-16 singular
+value decomposition (one 16-dimensional subspace shared by all 50,257 words) costs +1.35;
+a per-token 16-of-512 dictionary (each word gets its own 16 directions chosen from 512)
+costs +0.072 — same sixteen coefficients per word, roughly **eighteen times less error**,
+just because each word may choose *which* sixteen directions. That is the content
+structure stated precisely: it is not one low-dimensional subspace (which singular value
+decomposition would capture optimally), it is a **union of many low-dimensional
+subspaces** — different word families live in different 16-dimensional slices of the
+128-dimensional space. Your instinct was exactly the right baseline to demand, and the
+gap over it is the actual finding about content: token identity is not low-rank, it is
+sparse-in-a-shared-overcomplete-basis.
