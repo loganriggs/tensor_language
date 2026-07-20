@@ -43,10 +43,13 @@ Learned object: **Φ only**. Derived (contractions of Φ with frozen weights):
   small shared dictionary gives cheaply. FVU rises with depth (0.07→0.23 at k=16);
   amplification 1.0×(shallow MLP)→1.4×(deep MLP), below the 2× bound but
   depth-increasing (Step-5 mechanism supported, magnitude looser). → findings below.
-- **[2 NEXT] Fidelity/bits floor.** How rich must the code be for end-to-end
-  ΔCE<0.05? Sweep m∈{512,2k,8k}, k, and **shared-Φ vs per-bond Φ** (Step-4 claims the
-  stream forces one Φ; G1 shows one Φ weakens with depth — is per-bond needed?).
-  Report bits (structural + estimation) at the ΔCE<0.05 crossing.
+- **[2 DONE] Fidelity/bits floor** (`toy_fidelity_floor.py`). Both capacity and
+  per-bond dictionaries cut ΔCE ~6× (shared-512 +1.17 → per-bond-2048 +0.19). F2 was
+  underpowered, not fatal. **But surfaces a real tension (F3):** additive propagation
+  needs ONE shared Φ, yet shared Φ is the lossy config; per-bond is faithful but
+  requires re-encoding at each bond (= regime (a)/(b), not the free-propagation (c)).
+  Follow-up (gate 2b, running): does scaling a *shared* Φ (m→8192) reach ΔCE<0.05, or
+  plateau?
 - **[3] QK-measure propagation** (Logan's direct ask, not yet done). Reduce layer-0
   QK to an alphabet; propagate the attention-weighted co-occurrence measure
   Pr[s attended from t] to weight layer-1's pair domain; show the effective pair
@@ -76,3 +79,23 @@ gauges; no deep-layer SAE; stays a tensor network.
   the 2× worst-case bound (input error not aligned with the amplifying directions),
   but depth-increasing — the Step-5 mechanism holds directionally.
 - Figure: `fig_code_propagation.png`.
+
+### F3 — the propagation/fidelity tension (the load-bearing finding of gate 2)
+`toy_fidelity_floor.py`, end-to-end ΔCE (baseline 1.729), k=32:
+
+| dictionary | ΔCE | bits |
+|---|---|---|
+| shared m=512 | +1.17 | 21 Mbit |
+| per-bond m=512 | +0.58 | 27 Mbit |
+| shared m=2048 | +0.52 | 31 Mbit |
+| per-bond m=2048 | **+0.19** | 57 Mbit |
+
+Capacity helps and per-bond helps — so the regime is *viable*, F2 was underpowered.
+The tension: Logan's Step-4 additive propagation (`c_out = c_in + Σ c_j c_k w_jk`,
+codes flow with no per-input solve) requires the SAME Φ at every bond, because
+`x_{l+1}=x_l+write` only maps to code addition if writer and reader share Φ. But
+shared Φ is precisely the lossy column (+1.17 / +0.52). Buying fidelity with per-bond
+dictionaries (+0.19) forces a re-encode at each bond — that is regime (a)/(b) (solve
+or amortized encoder), **not** the free-propagation regime (c) the construction aims
+for. So the cheap-propagation regime and the faithful regime are, on this toy, in
+opposition. Gate 2b asks whether enough *shared* capacity closes the gap.

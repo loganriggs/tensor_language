@@ -2691,3 +2691,21 @@ but depth-increasing (Step-5 mechanism holds directionally). fig_code_propagatio
 
 NOT yet done (Logan's direct Q): propagating the layer-0 QK *measure* forward (gate 3).
 Next: gate 2 fidelity/bits floor (m∈{512,2k,8k}, shared vs per-bond) then gate 3.
+
+---
+
+## 2026-07-20 — tick 111 (F3: gate 2 — code-propagation regime viable but reveals a propagation/fidelity TENSION)
+
+Gate 2 (toy_fidelity_floor.py): F2's negative was mostly UNDERPOWERED, not fatal.
+End-to-end ΔCE (baseline 1.729, k=32): shared m=512 +1.17 / per-bond m=512 +0.58 /
+shared m=2048 +0.52 / per-bond m=2048 **+0.19** (bits 21/27/31/57 Mbit). Capacity and
+per-bond both cut ΔCE ~6×.
+
+**F3 (load-bearing):** Logan's Step-4 additive propagation (codes flow, no per-input
+solve) REQUIRES one shared Φ (x_{l+1}=x_l+write ↦ code addition only if writer/reader
+share Φ). But shared Φ is exactly the lossy config; per-bond buys fidelity (+0.19) at
+the cost of re-encoding each bond = regime (a)/(b), NOT the free-propagation regime (c)
+the construction targets. Cheap-propagation and faithful are in opposition on this toy.
+Gate 2b (running, toy_shared_scaling.py): does scaling a SHARED Φ (m→8192, k∈{32,64})
+reach ΔCE<0.05 or plateau? Then gate 3 = propagate the layer-0 QK measure forward.
+GOALS.md F3 table. Chained: shared_scaling running.

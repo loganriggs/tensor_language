@@ -1,0 +1,21 @@
+{
+  "baseline_ce": 1.7293,
+  "arms": {
+    "shared m=512 k=32": {
+      "dce": 1.1736,
+      "Mbits": 21.0
+    },
+    "per-bond m=512 k=32": {
+      "dce": 0.5783,
+      "Mbits": 27.3
+    },
+    "shared m=2048 k=32": {
+      "dce": 0.517,
+      "Mbits": 31.5
+    },
+    "per-bond m=2048 k=32": {
+      "dce": 0.1934,
+      "Mbits": 56.6
+    }
+  }
+}
