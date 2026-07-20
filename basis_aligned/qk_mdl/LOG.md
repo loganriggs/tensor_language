@@ -2485,3 +2485,14 @@ crushes single-dict" claim was largely per-token UNDERTRAINING: per-token k=8 we
 (+0.120 @192M vs +0.125 @167M — same frontier, not a win). Methodological lesson logged:
 compression comparisons must be at convergence. Fair routed test = per-token WITHIN
 groups (not batch) — queued. explainer §5 corrected. ov_converged_ce.py/json.
+
+---
+
+## 2026-07-21 — tick 101 (fair routed test launched: per-token within groups + bits-matched reference)
+
+OVD-4 left one loose end: the routed arm used batch-top-k within groups (the weaker
+encoder). ov_routed_fair.py: all arms per-token top-k k=8, converged 4000-step
+full-batch, real ΔCE — single dict n=512, routed uniform n_g=128, routed adaptive n_g,
+plus a bits-matched single dict n=1024 (routed uses ~8x128 atoms vs single 512, so the
+fair single-dict reference should also have more atoms). Settles whether routing
+genuinely beats a single dictionary at MATCHED bits with a MATCHED (strong) encoder.
