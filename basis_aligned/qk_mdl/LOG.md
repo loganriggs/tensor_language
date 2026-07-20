@@ -2593,3 +2593,19 @@ useless ΔCE predictor). Logan's intuition validated for RECONSTRUCTION, not the
 metric. Recommendation: per-token OMP (or per-token top-k cheap). Matryoshka ΔCE ~ plain
 linear (+0.105); its value = hierarchy/adaptive depth, not peak loss. explainer §5
 corrected. ov_omp_matry_ce.py/json. (qk_cluster_vs_rank.py still running behind.)
+
+---
+
+## 2026-07-21 — tick 106 (QCR-1: QK is LOW-RANK not cluster-shaped — rank-16 SVD beats 256 clusters; Logan's Q answered + deepened)
+
+**FINDING QCR-1 (answers Logan's cluster-vs-rank Q, and deepens the dichotomy):**
+per-branch [q|k] factor reduction, real ΔCE. Clustering k=16/64/128/256/1024 =
++0.041/+0.018/+0.012/+0.002/+0.010 (eff-rank of clustered table 12/42/68/82/98 — proves
+clusters≠rank: k=256 → eff-rank 82 NOT 256). SVD rank r=8/16/32/64/128 =
++0.008/−0.002/−0.006/−0.005/−0.012. **Rank DOMINATES clustering: rank-16 SVD (−0.002,
+improves model) beats k=256 clusters (+0.002) at 16 continuous dims vs 256 discrete
+cells.** Selection is genuinely LOW-RANK (~16-32); the "256-class" headline is
+behavioral-true but not minimal — low-rank is minimal. Sharpens the selection/content
+dichotomy into GEOMETRY: selection = single low-dim subspace (SVD wins); content = union
+of subspaces (sparse dict wins, SVD poor — rank-64 +0.13). fig_qk_cluster_vs_rank.png;
+explainer §6. qk_cluster_vs_rank.py/json.

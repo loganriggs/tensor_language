@@ -581,3 +581,53 @@ Two honest conclusions:
 
 Matryoshka at the binding metric (+0.105) is about the same as the plain linear encoder —
 its value is the nested hierarchy and adaptive depth, not a lower peak loss.
+
+## 6. Clusters versus rank for selection (your question — and it changes the story)
+
+Are the number of clusters the same as the rank of the matrix? No — and measuring both
+head to head reveals that the "256 token classes" description of selection, while
+behaviourally true, is the *wrong* reduction. The query/key factor tables are
+50,257 × 128 (rank at most 128). Reducing them two ways, real cross-entropy:
+
+| clustering (k discrete classes) | ΔCE | effective rank of the clustered table |
+|---|---|---|
+| k=16 | +0.041 | 12.4 |
+| k=64 | +0.018 | 42.0 |
+| k=128 | +0.012 | 68.1 |
+| k=256 | +0.002 | 82.3 |
+| k=1024 | +0.010 | 98.2 |
+
+| rank-r SVD (continuous subspace) | ΔCE |
+|---|---|
+| r=8 | +0.008 |
+| **r=16** | **−0.002** |
+| r=32 | −0.006 |
+| r=128 | −0.012 |
+
+![Selection is low-rank, not cluster-shaped: rank-16 SVD beats 256 clusters](results/fig_qk_cluster_vs_rank.png)
+
+**Rank reduction dominates clustering for selection.** A rank-16 singular value
+decomposition already *improves* the model (−0.002), and matches-or-beats what 256
+clusters achieve (+0.002) — with a vastly more compact description (16 continuous
+dimensions versus 256 discrete cells). Two direct answers to your question:
+
+1. **The cluster count is not the rank.** The effective-rank column proves it
+   numerically: clustering into 256 classes yields a table of effective rank ~82, not
+   256 — because 256 centroids living in a 128-dimensional space cannot exceed rank 128,
+   and in practice span far fewer directions. Clusters and rank are different quantities,
+   and clustering is a *strictly discrete* constraint (each word is exactly one of k
+   vectors) whereas rank is *continuous* (each word is any combination of r directions).
+
+2. **Selection is genuinely low-rank** (rank ~16–32 captures it, and denoises the model),
+   so clustering is a wasteful description: it spends 256 discrete cells to under-perform
+   a 16-dimensional continuous subspace. The earlier "layer-0 selection is a 256-class
+   computation" headline is behaviourally accurate but not the minimal description; the
+   minimal description is low-rank.
+
+**This sharpens the selection/content dichotomy into a rank statement.** Selection (query/
+key) is **low-rank** — rank-16 SVD beats 256 clusters. Content (value) is the **opposite**
+— low-rank SVD is poor (rank-64 costs +0.13) and it needs a sparse over-complete
+dictionary (a *union* of subspaces, not one subspace). So the two circuits differ not
+just in "classes versus identity" but in their fundamental geometry: selection lives in a
+single low-dimensional subspace; content lives in a union of many. That is why the right
+tool differs — singular value decomposition for selection, sparse dictionaries for content.
