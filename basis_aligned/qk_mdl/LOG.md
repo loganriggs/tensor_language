@@ -2558,3 +2558,23 @@ a nested family of dictionaries for the price of one, enabling structured adapti
 (easy words short prefix, hard words long) — cheaper-to-index + more interpretable than
 arbitrary supports. figs: fig_matryoshka.png. ov_matryoshka.py/json. Both written into
 explainer §5.
+
+---
+
+## 2026-07-21 — tick 104 (STEP-BACK + CE-confirmation of OMP/Matryoshka running + Logan's cluster-vs-rank Q chained)
+
+STEP-BACK (4-tick): the OV-dictionary Q&A has become a rich self-correcting thread
+(OVD-1..8): sweep → SVD baseline → convergence diagnosis → same-dict control →
+routing-loses → orthonormal-vs-overcomplete → LS/OMP validates batch → Matryoshka.
+Every claim gated by convergence + matched-bits + decisive controls; two of my own
+earlier claims (routing wins; batch can't win) were overturned by Logan's pushes.
+Deliverables: temp_explainer.md §5 (comprehensive), 5 figures, ~11 experiment scripts.
+
+Running: ov_omp_matry_ce.py — binding ΔCE confirmation (all heads) of OVD-7 (OMP batch)
+and OVD-8 (Matryoshka), since those were reconstruction-FVU only. Chained behind it:
+qk_cluster_vs_rank.py answering Logan's new Q — QK number-of-clusters vs matrix rank
+(clustering k∈{16..1024} vs SVD rank r∈{8..128}, real ΔCE, + effective-rank of the
+clustered tables to show clusters != rank). Answered inline: QK factor tables are
+V×128, rank≤128=head_dim; 256 clusters ≈ free (+0.008); clusters are a stricter
+DISCRETE constraint than rank (k-cluster table has rank≤min(k,128)); inputs = V=50257
+per head × 9 heads, 128-dim each (clarified in explainer).

@@ -163,6 +163,11 @@ large for the two attention heads and top feed-forward directions we later isola
 
 ## 5. What the dictionary is, exactly — and what a forward pass looks like
 
+**How many inputs, and their size.** The dictionary for each head is fit on one content
+vector per vocabulary word — so the number of inputs is exactly the **vocabulary size,
+50,257**, each a **128-dimensional** vector (128 = the head dimension). There are 9 heads,
+hence 9 independent dictionaries, each over its own 50,257 × 128 table.
+
 **The dictionary (per attention head).** For head *h*, we fold the embedding into the
 value projection to get a table of content vectors, one 128-dimensional vector per
 vocabulary word: call it `VT[t, h]`. The dictionary for that head is three things:
