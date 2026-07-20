@@ -2625,3 +2625,18 @@ whitened (backward) SVD of the layer-0 value table (content is behaviorally SENS
 carriage needs identity — the regime where direction SHOULD matter). rank r∈{4..64},
 real ΔCE. If backward < forward at small r → direction matters here, converting the
 method-E null into a characterization of WHEN backward wins.
+
+---
+
+## 2026-07-21 — tick 108 (BWD-1: backward loses even on sensitive content; the two-condition rule)
+
+**FINDING BWD-1 (deeper null, completes the backward characterization):** forward SVD vs
+output-gradient-whitened backward SVD of the layer-0 value table, real ΔCE: forward
++0.020/+0.021/+0.014/+0.009/+0.002 vs backward +0.022/+0.021/+0.014/+0.013/+0.003 at
+r=4..64 — backward does NOT beat forward (within noise, forward slightly ahead). So even
+behaviorally-sensitive content doesn't benefit from output-importance subspace choice.
+RESOLUTION: backward wins only when BOTH (a) good shared low-rank basis AND (b) adversarial
+error consumption in that basis. Selection has (a) but not (b) (noise-filtered); content
+has (b)-ish but not (a) (union-of-subspaces, no shared basis — QCR-1). Neither circuit
+gives both, so backward never wins here — not by accident but by structure. explainer §7.
+backward_when_wins.py/json. Closes the method-E backward-direction question cleanly.

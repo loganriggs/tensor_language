@@ -667,3 +667,40 @@ consumption to drive them apart. The falsifiable prediction that follows: on an 
 whose error IS consumed adversarially (systematic bias rather than filtered noise, or a
 few critical directions among many harmless ones), the backward metric should win. That
 is a positive, testable characterization of *when* direction matters — tested below.
+
+### The test result — backward doesn't win even here, and that completes the picture
+
+Forward singular value decomposition versus output-gradient-whitened (backward) singular
+value decomposition of the layer-0 value table, real cross-entropy:
+
+| rank r | forward (variance) | backward (output-importance) |
+|---|---|---|
+| 4 | +0.020 | +0.022 |
+| 8 | +0.021 | +0.021 |
+| 16 | +0.014 | +0.014 |
+| 32 | +0.009 | +0.013 |
+| 64 | +0.002 | +0.003 |
+
+Backward does **not** beat forward here either — the differences are within noise, forward
+slightly ahead on balance. So even on the behaviourally-sensitive content table, choosing
+the subspace by output-importance rather than variance buys nothing. That is a *deeper*
+null than expected, and it resolves the whole question with a two-condition rule:
+
+**A backward metric wins only when BOTH hold: (a) the object has a good shared
+low-rank basis, and (b) error is consumed adversarially within that basis (a few critical
+directions among many harmless ones).** The two circuit types in this model each satisfy
+exactly one:
+
+- **Selection (query/key)** has a good shared low-rank basis (a ✓, from §6 — rank-16 is
+  near-lossless) but its error is noise the model filters uniformly (b ✗). Nothing to
+  reweight.
+- **Content (value)** is behaviourally sensitive, closer to (b), but it is a *union of
+  subspaces* with no good shared basis (a ✗, §6). Backward reweighting operates *within*
+  a shared subspace, so it cannot help an object whose problem is that no shared subspace
+  fits — the fix for content is per-token sparse dictionaries, where each word picks its
+  own directions and the forward/backward question is moot.
+
+So the backward direction never wins in this model not by accident but because neither
+circuit provides both ingredients at once. It is a genuine capability that simply has no
+purchase on either object here — which is a cleaner, more useful conclusion than "backward
+didn't help."
