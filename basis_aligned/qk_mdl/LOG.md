@@ -2459,3 +2459,14 @@ results/fig_ov_training_curves.png. ov_train_curves.py, ov_sametest.py.
 
 Process note (again): background jobs MUST use absolute script paths (cwd resets) —
 this bit a 4th time. Added to the discipline.
+
+---
+
+## 2026-07-21 — tick 100 (converged matched-bits ΔCE comparison launched)
+
+Following OVD-3: re-running all OV dictionary schemes with CONVERGED dictionaries
+(4000-step full-batch) and the REAL cross-entropy audit, so scheme choice rests on
+binding ΔCE at convergence (not the undertrained sweep). Arms: per-token top-k k=8/16,
+batch-top-k full-batch k=8/16 (threshold now consistent train/eval), routed
+adaptive+batch-top-k k=8. ov_converged_ce.py. Settles whether routed still wins and
+whether batch closes the gap once converged + threshold-matched.
