@@ -99,6 +99,36 @@ gauges; no deep-layer SAE; stays a tensor network.
   but depth-increasing — the Step-5 mechanism holds directionally.
 - Figure: `fig_code_propagation.png`.
 
+### F17 — FLAGSHIP OVERTURNS F16: bilin18's layer-1 QK is already sparse in the standard basis
+`bilin18_qk1_learned_basis.py`. The binding-metric generalization of F16 to bilin18's second
+attention (h[1]). Control passes (planted 86%). But the learned input-basis rotation barely
+sparsifies the reads (**1.3%** L1, vs toy 24.7%), and it does NOT help pruning — the ORIGINAL
+basis prunes better:
+
+| keep | original ΔCE | learned ΔCE |
+|---|---|---|
+| 50% | **−0.003** (improves) | +0.003 |
+| 25% | **+0.009** | +0.026 |
+| 12.5% | +0.055 | +0.107 |
+
+**bilin18's layer-1 QK is already sparse in the standard basis** — drop 75% of its weights for
++0.009 nats directly, no rotation needed. **F16's learned-basis win was a d=128 TOY ARTIFACT**:
+the tiny model packs QK densely (dense in standard basis, sparse only in a learned one); the
+real model's QK weights are directly prunable. Gate (keep=1.0 → ΔCE 0) held. MDL: keep-25% =
+~25% of the raw QK bits + indices for +0.009 — a genuine sparsity reduction on the flagship
+(unlike the toy). The flagship check overturned the toy conclusion — the program's own lesson.
+
+**STEERED-TASK STEP-BACK (F13–F17).** Layer-1 selection decomposition, settled: (1) SOURCE-level
+sparsity is real — selection runs on the bilinear-output self-interaction (M×M), the first
+attention's output is droppable (F13, toy). (2) WITHIN-source atom compression is model-
+dependent: the toy's dominant source is high-rank and needs a learned basis (F14–F16), but on
+the FLAGSHIP the layer-1 QK is directly ~75% sparse in the standard basis (F17) — the clean,
+simple real-model result. Net: on bilin18, layer-1 query/key is a directly-sparse weight object
+(75% prunable, +0.009), and the toy's rotation/decomposition machinery was compensating for
+small-model density. Bank against regime-1 baseline (2.1 Mbit toy raw; rotation gave 0).
+Next (optional): flagship source-level graph (F13 analog on bilin18); or accept the direct
+QK sparsity and move on.
+
 ### F16 — M is high-RANK but SPARSE in a learned basis: the interaction decomposition exists
 `toy_qk1_learned_basis.py`. The remaining avenue after F13–F15: directly optimize (L4
 rotation-to-sparsity, gated by a planted control that recovers 87% of an 89% optimum) a full

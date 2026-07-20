@@ -2945,3 +2945,20 @@ Steered task (F13-F16) COMPLETE: layer-1 QK sparse at source level (M×M dominan
 in a learned basis (high-rank but sparse-not-low-rank). Optional next: flagship confirm; or the
 per-source atom-interaction GRAPH (which M-atoms interact with which E-atoms) now that a sparse
 M-basis exists.
+
+## 2026-07-20 — tick 122 (F17: FLAGSHIP OVERTURNS F16 - bilin18 layer-1 QK already sparse in standard basis; step-back)
+
+bilin18_qk1_learned_basis.py: binding-metric generalization of F16 to bilin18 h[1]. Control
+passes (planted 86%). Learned input-basis rotation barely sparsifies reads (1.3% L1 vs toy
+24.7%) and does NOT help pruning - ORIGINAL basis prunes BETTER: keep50% -0.003 (improves),
+keep25% +0.009, keep12.5% +0.055 (learned: +0.003/+0.026/+0.107). => bilin18 layer-1 QK is
+ALREADY sparse in the standard basis (drop 75% weights for +0.009, no rotation); F16's learned-
+basis win was a d=128 TOY ARTIFACT (tiny model packs QK densely). Flagship check overturned the
+toy conclusion (program's own lesson). MDL: keep-25% ~ 25% raw QK bits + indices @ +0.009 - a
+genuine flagship sparsity reduction.
+
+STEP-BACK (F13-F17): layer-1 selection decomposition settled. (1) source-level sparsity real
+(M×M dominant, attn0-out droppable, F13). (2) within-source compression MODEL-DEPENDENT: toy
+high-rank needs learned basis (F14-16); flagship QK directly ~75% sparse in standard basis (F17)
+- the clean real-model result. Toy rotation machinery was compensating for small-model density.
+Next optional: flagship source-level graph; or accept direct QK sparsity. GOALS.md F17.
