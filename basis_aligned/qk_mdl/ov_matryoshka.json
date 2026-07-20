@@ -1,0 +1,19 @@
+{
+  "plain dict, per-token k=8 (full 512)": 0.467,
+  "matryoshka, per-token k=8 (full 512)": 0.4857,
+  "matryoshka, first 32 atoms only (k=8)": 0.6865,
+  "plain, first 32 atoms only (k=8)": 0.832,
+  "matryoshka, first 128 atoms only (k=8)": 0.5582,
+  "plain, first 128 atoms only (k=8)": 0.6917,
+  "matryoshka, first 512 atoms only (k=8)": 0.4857,
+  "plain, first 512 atoms only (k=8)": 0.467,
+  "matryoshka dense-in-prefix FVU by uniform prefix": {
+    "8": 0.8978,
+    "16": 0.7943,
+    "32": 0.5931,
+    "64": 0.4092,
+    "128": 0.2081,
+    "256": 1.2697,
+    "512": 6.162
+  }
+}

@@ -2538,3 +2538,23 @@ least-squares/OMP coefficient refit (comparable marginal error) — expensive. P
 per-token top-k right for overcomplete + linear encoder. Answered: V=50257 inputs/head ×9.
 Histogram (0-38 atoms, median 7) + batch-topk code snippet added to explainer.
 fig_batchtopk_hist.png. ov_batch_probe.py/json.
+
+---
+
+## 2026-07-21 — tick 103 (OVD-7 + OVD-8: least-squares batch VALIDATES Logan; Matryoshka hierarchy works)
+
+**FINDING OVD-7 (Logan's intuition validated in full):** with least-squares coefficients
+(greedy OMP + LS refit) and marginal-error global allocation, batch BEATS per-token even
+overcomplete — per-token OMP k=8 FVU 0.4007, batch OMP marginal-error avg-k=8 FVU 0.3887
+(0.389 < 0.401). The earlier reversal was ENTIRELY the linear encoder's non-comparable
+coefficients; proper marginal error restores the orthonormal-regime guarantee. (OMP
+per-token 0.401 also >> linear-encoder per-token 0.467 — LS helps everyone; flexibility
+is the extra ~0.012.) OMP is iterative (analysis tool, not cheap inference encoder).
+ov_omp_batch.py/json.
+**FINDING OVD-8 (Matryoshka hierarchy):** nested-prefix-trained 512-atom dict — truncated
+to first 32 atoms FVU 0.687 vs plain 0.832; first 128: 0.558 vs 0.692; full 512: 0.486 vs
+0.467 (small full-dict cost, the usual Matryoshka trade). Real coarse-to-fine hierarchy:
+a nested family of dictionaries for the price of one, enabling structured adaptive DEPTH
+(easy words short prefix, hard words long) — cheaper-to-index + more interpretable than
+arbitrary supports. figs: fig_matryoshka.png. ov_matryoshka.py/json. Both written into
+explainer §5.

@@ -491,3 +491,52 @@ VT_hat = bias + z_sparse @ atoms              # reconstruct; words below thresho
 (For comparison, per-token top-k is the same but `z.abs().topk(k, dim=1)` — the top-k taken
 *within each row* rather than one global threshold. That per-row guarantee is exactly what
 makes it robust in the overcomplete case.)
+
+### The least-squares fix — batch-top-k reclaims the lead (your intuition, restored)
+
+The principled fix for the overcomplete case is to select atoms by *true marginal error*
+instead of raw encoder magnitude — i.e. greedy orthogonal matching pursuit with a
+least-squares refit of the coefficients at every step, which makes the "value" of each
+atom comparable across words again. Then allocate the global budget by pooling the
+per-step residual reductions (give the next atom to whichever word gains the most).
+Head 0, average k=8, all coefficients least-squares-optimal:
+
+| method (least-squares coefficients) | fraction unexplained |
+|---|---|
+| per-token orthogonal matching pursuit (fixed k=8) | 0.401 |
+| **batch: global budget by marginal error (average k=8)** | **0.389** |
+
+**Batch now beats per-token (0.389 < 0.401), overcomplete dictionary and all.** So your
+intuition was correct in full generality — the earlier reversal was *entirely* an artifact
+of the cheap linear encoder, whose coefficient magnitudes are not comparable across words
+in an overcomplete basis. Once the coefficients reflect real marginal error, the flexible
+global budget wins, exactly as it does in the orthonormal case. (Note also that
+least-squares/orthogonal-matching-pursuit per-token, 0.401, is itself much better than the
+linear-encoder per-token, 0.467 — proper coefficients help everyone; the flexibility is
+the extra ~0.012 on top.) The practical cost is that orthogonal matching pursuit is
+iterative rather than one matrix multiply, so it is a training/analysis tool rather than a
+cheap inference-time encoder — but the science question is settled in your favour.
+
+### A hierarchical (Matryoshka) dictionary
+
+Trained a single ordered 512-atom dictionary with *nested* reconstruction losses — the
+loss is summed over prefixes of the dictionary (first 32, first 128, all 512) so the early
+atoms are forced to carry broad structure and later atoms only refine. What that buys:
+
+![Matryoshka vs plain dictionary: reconstruction as a function of how many leading atoms are used](results/fig_matryoshka.png)
+
+| atoms used (prefix) | Matryoshka | plain dictionary |
+|---|---|---|
+| first 32 | **0.687** | 0.832 |
+| first 128 | **0.558** | 0.692 |
+| all 512 | 0.486 | 0.467 |
+
+The hierarchy is real: truncated to the first 32 atoms the Matryoshka dictionary is far
+better than a plain one (0.687 vs 0.832), and still clearly better at 128 — you get a
+*nested family of dictionaries for the price of one*, usable at any prefix length. The
+cost is a small hit at the full 512 atoms (0.486 vs 0.467), the usual Matryoshka trade of
+a little peak reconstruction for a coarse-to-fine structure. This also gives a *structured*
+version of the flexible sparsity batch-top-k was reaching for: instead of an arbitrary
+per-word atom set, give easy words a short prefix and hard words a long one — adaptive
+*depth* in a single ordered dictionary, which is both more interpretable (early atoms =
+general, late atoms = specific) and cheaper to index than an arbitrary support.
