@@ -2357,3 +2357,16 @@ grounding = windowed-table substitution inside the coefficient input (queued).
 results/21 extended. mlp15_recursion.py/json.
 
 Queue: windowed grounding of c_e (correct measure); step-back due next tick.
+
+---
+
+## 2026-07-21 — tick 94 (STEP-BACK + grounding curves running)
+
+STEP-BACK (4-tick cadence): the anatomy arc has answered Logan's question at mechanism
+level in 4 findings (MA-1..4, results/21); the remaining item is the corrected
+grounding measure (running: ground_coeff.py — windowed-input R² of both coefficients,
+W∈{0,1,2,4,6}; file-generation had the heredoc-apostrophe failure AGAIN — process
+note: generator scripts now via Write-to-scratchpad + clean python, no heredoc string
+surgery with escapes). After harvest: arc likely complete → consolidate + offer Logan
+next directions (recursion is a fan-out per MA-4, so deeper walking is low-value;
+better candidates: same anatomy for OTHER top-MLP dirs/L17; publication shaping).
