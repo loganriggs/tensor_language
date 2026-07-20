@@ -2866,3 +2866,22 @@ overcompleteness - the same tension from the other side. GOALS.md F11.
 Regime-2 seeding thoroughly characterized. Next step (full nested construction / which bond /
 DL accounting) is a design fork that wants Logan's flagged confirm; the seeding sub-question
 is answered. Nothing running.
+
+## 2026-07-20 — tick 118 (F12 closes F11: write-info useless for a trained dict; regime-2 seeding arc CLOSED)
+
+toy_births_ortho_init_test.py: random ΔCE +0.349 (loss@50 0.108) | clustered-write +0.497
+(loss@50 0.817) | ortho-write +0.351 (loss@50 0.102). De-clustering (write-PCA, diverse)
+RESCUES convergence to random level (clustering WAS the F11 handicap) but confers NO advantage
+(+0.351 ~ +0.349). Verdict: training finds the write subspace unaided; weight-informed init
+offers nothing for the trained dict.
+
+REGIME-2 SEEDING ARC (F9-F12) CLOSED: write dirs capture the right SUBSPACE (fixed-dict F9/F10)
+but are useless for the TRAINED overcomplete code (clustered/rank-limited F11; de-clustered just
+matches random F12). Practical faithful code = trained dict, any diverse init, ΔCE ~+0.35 @
+m=512/k=32 (matches gate-2). Real cost, a Pareto point not a free reduction.
+
+STATE: regime 1 (rotation floors, empty everywhere) + regime 2 seeding (F9-F12) both fully
+characterized. Remaining work is a DESIGN FORK needing Logan's steer (full nested construction /
+which bond / accept trained-dict-code and pivot to interpreting its atoms / monosemanticity),
+plus the still-open flagged private-vs-residual question. Pausing tn_gauge grind at a clean
+consolidation point rather than spawning marginal experiments. Nothing running. GOALS.md F1-F12.

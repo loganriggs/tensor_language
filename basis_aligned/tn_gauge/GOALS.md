@@ -99,6 +99,23 @@ gauges; no deep-layer SAE; stays a tensor network.
   but depth-increasing — the Step-5 mechanism holds directionally.
 - Figure: `fig_code_propagation.png`.
 
+### F12 — closes F11: de-clustering rescues convergence, but write-info is useless for a trained dict
+`toy_births_ortho_init_test.py`. F11 asked: was write-init's failure clustering (fixable by
+orthogonalization) or write-info-uselessness? Answer: **both, cleanly separated.** random ΔCE
++0.349 (loss@50 0.108); clustered-write +0.497 (loss@50 0.817); **ortho-write +0.351 (loss@50
+0.102)**. De-clustering (write-subspace PCA, diverse) restores convergence to the random level
+— so clustering WAS the F11 handicap — **but confers no advantage over random** (+0.351 ≈
++0.349). Training finds the write subspace unaided; a weight-informed init offers nothing.
+
+**REGIME-2 SEEDING ARC (F9–F12) — DEFINITIVE BOTTOM LINE:** write directions capture the right
+*subspace* (F9 reconstruction, F10 ΔCE ordering, both with fixed atoms) but are useless for
+the *trained overcomplete dictionary* that is the actual faithful code: as atoms they're
+clustered/rank-limited (F11), and even de-clustered they match but don't beat random (F12). So
+weight-informed births are for interpretation and fixed/analytical constructions, NOT for
+building the trained code. The practical regime-2 faithful code is a **trained dictionary with
+any diverse init**, ΔCE ≈ +0.35 at m=512/k=32 (matching gate-2's trained numbers). This is a
+real cost, not a free reduction — a Pareto point (bits saved vs +0.35 nats), not a clean win.
+
 ### F11 — REVERSAL: write-seeding is a good fixed dictionary but a BAD training init
 `toy_births_init_test.py`. F10 said seeds must be trained, so: does write-seeded init train
 better than random init? **No — it trains worse.** Per bond (1–3), overcomplete dict m=512
