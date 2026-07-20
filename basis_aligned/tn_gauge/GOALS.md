@@ -99,6 +99,21 @@ gauges; no deep-layer SAE; stays a tensor network.
   but depth-increasing — the Step-5 mechanism holds directionally.
 - Figure: `fig_code_propagation.png`.
 
+### F7 — flagship regime 1: the value bus is shared across depth AND rotation-incompressible
+`bilin18_regime1.py`. Two findings, both caught/verified by the ΔCE gauge check:
+1. **The naive per-layer OV rotation is NOT a gauge on bilin18** — max|Δlogit| = 16.8.
+   Cause: bilin18 mixes every layer's value with block-0's value (`v=(1-lamb)v+lamb·v1`,
+   tier2_model L87-89), so the value head-subspace is **shared across all 18 layers**.
+   The gate caught the wrong per-layer assumption (like the residual bus, the value bus
+   is shared — now for a concrete architectural reason, the value-residual).
+2. **The correct shared-per-head gauge is exact** (max|Δlogit| = 5e-4) but rotation buys
+   **~0%** — per-head L1 drop 0.01–0.06%, Hoyer flat 0.22→0.22, per-layer drops all ≈0.
+   One 128-dim rotation can't sparsify 18 layers' maps jointly, so the OV value subspace
+   is **fully rotation-incompressible on the flagship** (floor ≈ 100%), versus 7% on the
+   toy. Consequence: on bilin18 **all** OV sparsity must come from overcompleteness
+   (regime-2 births) — the square-rotation baseline is empty there. Sharpens why the
+   overcomplete arm is necessary, not optional, on the real model.
+
 ### F6 — regime 1: OV cores are ~7% rotation-sparsifiable (the zero-CE floor)
 `toy_regime1_rotation.py`. Per attention head, the exact value/output gauge
 Q∈O(d_head) maximizing ||o Q||₄⁴+||Qᵀ v||₄⁴ (L4/kurtosis rotation-to-sparsity).

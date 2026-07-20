@@ -1,0 +1,81 @@
+{
+  "d_head": 128,
+  "n_layer": 18,
+  "per_head_floor": [
+    {
+      "head": 0,
+      "l1_drop_pct": 0.03,
+      "hoyer_before": 0.224,
+      "hoyer_after": 0.224
+    },
+    {
+      "head": 1,
+      "l1_drop_pct": 0.02,
+      "hoyer_before": 0.218,
+      "hoyer_after": 0.218
+    },
+    {
+      "head": 2,
+      "l1_drop_pct": 0.06,
+      "hoyer_before": 0.22,
+      "hoyer_after": 0.22
+    },
+    {
+      "head": 3,
+      "l1_drop_pct": 0.04,
+      "hoyer_before": 0.213,
+      "hoyer_after": 0.214
+    },
+    {
+      "head": 4,
+      "l1_drop_pct": 0.03,
+      "hoyer_before": 0.22,
+      "hoyer_after": 0.22
+    },
+    {
+      "head": 5,
+      "l1_drop_pct": 0.06,
+      "hoyer_before": 0.215,
+      "hoyer_after": 0.215
+    },
+    {
+      "head": 6,
+      "l1_drop_pct": 0.06,
+      "hoyer_before": 0.214,
+      "hoyer_after": 0.215
+    },
+    {
+      "head": 7,
+      "l1_drop_pct": 0.01,
+      "hoyer_before": 0.22,
+      "hoyer_after": 0.22
+    },
+    {
+      "head": 8,
+      "l1_drop_pct": 0.03,
+      "hoyer_before": 0.215,
+      "hoyer_after": 0.215
+    }
+  ],
+  "per_layer_drop_under_shared": [
+    0.08,
+    0.0,
+    0.0,
+    0.05,
+    0.08,
+    0.04,
+    0.07,
+    0.03,
+    -0.02,
+    0.03,
+    0.01,
+    0.13,
+    0.04,
+    0.04,
+    -0.01,
+    0.06,
+    0.03,
+    -0.01
+  ],
+  "gauge_check_max_logit_diff": 0.0005435943603515625
+}

@@ -2759,3 +2759,25 @@ boundaries pins the shared residual interior (Q_ℓ=I), so residual sparsity com
 births not rotation; and private bonds being independent, regime 1 is parallel not swept
 (DMRG coupling enters in regime 2). Awaiting Logan confirm. Next: per-bond atom budgets
 from floors → weight-informed births (dedup/orthogonalized). GOALS.md F6 + reordered ladder.
+
+---
+
+## 2026-07-20 — tick 114 (flagship regime 1: value bus shared across depth + rotation-incompressible)
+
+Ported regime-1 OV rotation floor to bilin18 (independent of the open flagged question;
+OV bonds are unambiguously private). Two findings, both caught/verified by the ΔCE gate:
+(1) naive PER-LAYER OV rotation is NOT a gauge (max|Δlogit|=16.8) — bilin18 mixes every
+layer's value with block-0's (v=(1-lamb)v+lamb·v1, tier2_model L87-89), so the value
+head-subspace is SHARED across all 18 layers (the value bus, like the residual bus, is
+shared — here for a concrete architectural reason). (2) the correct SHARED-per-head gauge
+IS exact (max|Δlogit|=5e-4) but rotation buys ~0% (L1 drop 0.01-0.06%, Hoyer flat 0.22):
+one 128-dim rotation can't jointly sparsify 18 layers, so the flagship OV subspace is
+fully ROTATION-INCOMPRESSIBLE (floor ≈100%) vs toy 7%. => on bilin18 ALL OV sparsity must
+come from overcompleteness (regime-2 births); the square-rotation baseline is empty there.
+
+The gate caught a wrong per-layer gauge assumption (2nd gate-catch this session after the
+dead L1 optimizer). bilin18_regime1.py/json; GOALS.md F7.
+
+QUEUE: regime 2 (per-bond budgets + births) BLOCKED on Logan confirming the flagged
+private-vs-residual-bond question (its design depends on the answer). Independent next:
+QK constrained-rotation floor (RoPE-commuting subgroup), done carefully with controls.
