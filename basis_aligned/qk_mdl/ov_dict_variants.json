@@ -1,0 +1,17 @@
+{
+  "baseline_ce": 3.2341102361679077,
+  "arms": {
+    "A per-token top-k, n=512 k=4": {
+      "dce": 0.2766,
+      "Mbits": 93.1
+    },
+    "A per-token top-k, n=512 k=8": {
+      "dce": 0.218,
+      "Mbits": 167.4
+    },
+    "A per-token top-k, n=512 k=16": {
+      "dce": 0.0721,
+      "Mbits": 315.9
+    }
+  }
+}

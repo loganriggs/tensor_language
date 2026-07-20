@@ -2383,3 +2383,16 @@ mlp15+hub feeders → causally sufficient at rank-64 → grounding curves).
 
 Queue: consolidation done; direction menu to Logan (other dirs/L17 anatomy;
 publication shaping; anything new). Rest-state cadence at next silent tick.
+
+---
+
+## 2026-07-21 — tick 96 (Logan Q&A + OV-dictionary-variants experiment; cron restored)
+
+Logan asked for: the exact layer-0 OV dictionary construction; a batch-top-k variant
+swept over k; a routed/block-sparse variant (per-word-group dictionaries, his "8-of-64
+vs 8-of-128" picture); code snippets + forward-pass explanation in temp_explainer.md.
+Delivered: explainer §5 (dictionary definition, the one-line forward-pass change =
+table lookup by token id, and code for all three schemes). Running: ov_dict_variants.py
+— per-token top-k / batch-top-k / routed(G=8), swept, ΔCE + structural bits. First
+number in: per-token n=512 k=4 = +0.277 (matches the sweep anchor). Cron restored to
+30-min (dd2ab765). temp_explainer.md committed for durability.

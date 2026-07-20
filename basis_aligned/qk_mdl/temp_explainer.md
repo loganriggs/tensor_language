@@ -158,3 +158,89 @@ large for the two attention heads and top feed-forward directions we later isola
 ---
 
 *(More questions from Logan to be appended here as they come.)*
+
+---
+
+## 5. What the dictionary is, exactly — and what a forward pass looks like
+
+**The dictionary (per attention head).** For head *h*, we fold the embedding into the
+value projection to get a table of content vectors, one 128-dimensional vector per
+vocabulary word: call it `VT[t, h]`. The dictionary for that head is three things:
+
+- `atoms` — a matrix of `n` unit-length vectors in 128 dimensions (e.g. n = 512). These
+  are the shared building blocks.
+- `bias` — one 128-dimensional vector, the average content.
+- `encoder` — a matrix used only to *choose and weight* atoms (learned; it need not equal
+  the atoms themselves).
+
+To encode word *t*: project its (bias-subtracted) content onto the encoder, keep the `k`
+largest-magnitude coordinates (the "top-k"), and store *which* k atoms and their signed
+coefficients. So word *t* is described by `k` integer atom-indices and `k` real
+coefficients. Reconstruction is: `bias + Σ (coefficient × atom)` over those k atoms.
+
+```python
+# ENCODE the whole vocabulary's content for one head (offline, once)
+z = (VT_h - bias) @ encoder.T            # (vocab, n) raw coefficients
+vals, idx = z.abs().topk(k, dim=1)       # (vocab, k) which atoms
+coeff = torch.gather(z, 1, idx)          # (vocab, k) signed coefficients
+# stored: idx (k int per word) + coeff (k float per word) + atoms + bias
+
+# RECONSTRUCT the value table from the sparse code
+VT_hat = bias + (coeff.unsqueeze(-1) * atoms[idx]).sum(dim=1)   # (vocab, 128)
+```
+
+**How it enters a forward pass — yes, it is essentially an indexing operation.** In the
+live model, layer-0 attention computes each token's value vector by running the value
+projection on the token's embedding. The reduction replaces that with a *table lookup*:
+the value vector for token *t* is just row *t* of the reconstructed table. Because the
+reconstructed table is itself defined by the sparse code, you can either (a) precompute
+the whole `VT_hat` table and index into it, or (b) index the per-token code directly and
+sum the k atoms on the fly — mathematically identical. In the actual audit code the
+attention block's only change is one line:
+
+```python
+# LIVE model:
+v = a.c_v(h).view(B, T, NH, HD)          # value = projection of the residual
+
+# REDUCED (layer 0 only): value = sparse-dictionary table lookup by token id
+v = VT_hat[token_ids]                     # (batch, seq, heads, 128) — pure gather
+```
+
+Everything downstream — the attention pattern, the mix, the rest of the layers — is
+untouched. So "how is the decomposition included?" — the decomposition *defines a table*,
+and the forward pass *indexes that table by the current token* instead of recomputing the
+value from weights. The embedding never appears explicitly at layer 0 anymore; it has been
+folded into (and then compressed inside) the table.
+
+### Variants we are measuring (Logan's requests)
+
+**Batch-top-k.** Per-token top-k forces *exactly* k atoms on every word — wasteful for
+easy words, too tight for hard ones. Batch-top-k instead keeps the largest `k × vocab`
+coefficients across the *entire* code matrix at once, so k is only the *average*: common
+easy words spend fewer atoms, rare hard words spend more, at the same total budget.
+
+```python
+z = (VT_h - bias) @ encoder.T                 # (vocab, n)
+nnz = k_avg * vocab                           # total budget across all words
+thresh = z.abs().reshape(-1).topk(nnz).values.min()
+z_sparse = z * (z.abs() >= thresh)            # flexible per-word sparsity
+VT_hat = bias + z_sparse @ atoms
+```
+
+**Routed / block-sparse.** Instead of one big shared dictionary, cluster the vocabulary
+into groups (by embedding similarity) and give each group its *own* small dictionary and
+its own sparsity — your picture of "some words use 8-of-64, others 8-of-a-different-128."
+Words route to their group's dictionary; only that group's atoms are candidates.
+
+```python
+group = kmeans_labels(embeddings)             # (vocab,) which group each word is in
+for g in range(num_groups):
+    ids = (group == g).nonzero()
+    atoms_g, bias_g, enc_g = train_dict(VT_h[ids], n_g[g], k_g[g])   # own dict per group
+    VT_hat[ids] = encode_reconstruct(VT_h[ids], atoms_g, bias_g, enc_g, k_g[g])
+# bits: sum over groups of (atoms_g) + per-word codes + a small group-id per word
+```
+
+The bet: specialized small dictionaries per word-family beat one general large dictionary
+at equal total bits (a number-words dictionary, a name-prefix dictionary, and so on). The
+sweep numbers for all three schemes are appended below once the run lands.
