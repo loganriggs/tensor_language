@@ -2658,3 +2658,36 @@ frontier point. THEORY (Logan's framing, data-supported): selection = scalar-per
 ranking → sign-rank-limited → low-rank (O(k²logV) dims); content = many discriminations →
 union of subspaces → SAE regime. "Selection = sign-rank-limited, content =
 union-of-subspaces." fig_qk_rank_vq_frontier.png; explainer §6. qk_rank_then_vq.py/json.
+
+---
+
+## 2026-07-20 — tick 110 (NEW THREAD: TN-gauge + Logan's overcomplete-Φ code propagation; toys)
+
+Logan opened a new direction (joint/iterative TN-pure interaction-sparsity; then a
+full overcomplete shared-dictionary **code-propagation** construction) and asked to
+work on TOYS for fast iteration, default to running not waiting, and make a
+goal-list. New subdir `basis_aligned/tn_gauge/` (GOALS.md = roadmap + his
+construction as a testable ladder; PLAN.md = gauge findings).
+
+**F1 — gauge primitives (toy_gauge_probe.py, block2 = [attn,mlp,attn,mlp]).** Exact
+checks: a global residual rotation IS a gauge (RMSNorm-equivariant) but the embedding
+has rank d, so pinning embed/unembed forces it to identity — **the shared residual
+bond has ZERO interior freedom; the two boundaries pin the whole trunk** (no DMRG
+sweep, no deep-layer SAE). Real freedoms are per-layer PRIVATE and independent: OV =
+full O(d_head) (exact; an L1 rotation sparsifies it cleanly, CE unchanged); QK =
+RoPE-constrained (a free head rotation blows CE by 18 nats → input-anchored, this is
+why backward-from-unembed misses QK); MLP hidden = pinned by elementwise ⊙ (only
+perm+scale, NOT rotation). Weight-only cross-layer composition DAG is uniform (1.1×
+spread) → "which layers interact" needs data-contrastive scoring, not weight norms.
+
+**F2 — shared-Φ code propagation gate (toy_code_propagation.py), NEGATIVE at m=512.**
+One overcomplete dict Φ (m=512) coding EVERY bond, LS-refit coeffs, real TinyStories
+(baseline CE 1.729). G1 FVU rises with depth (k=16: 0.067/0.104/0.142/0.229 bonds
+0–3). G2 (binding): coding every bond costs ΔCE +2.71/+2.05/+1.52/+1.12/+0.59 at
+k=4..64 — even 64/512 atoms/bond costs +0.59 nats. Naive shared dictionary does NOT
+cheaply preserve the model; sets up gate 2 (dictionary size, shared vs per-bond). G3
+MLP error amplification 1.0×(shallow)→1.4×(deep): below Logan's 2× worst-case bound
+but depth-increasing (Step-5 mechanism holds directionally). fig_code_propagation.png.
+
+NOT yet done (Logan's direct Q): propagating the layer-0 QK *measure* forward (gate 3).
+Next: gate 2 fidelity/bits floor (m∈{512,2k,8k}, shared vs per-bond) then gate 3.
