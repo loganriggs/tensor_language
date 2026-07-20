@@ -30,6 +30,7 @@ the frozen conventions of `../mdl_accounting.py` (ΔCE = binding audit, per Loga
 18. [Causal monosemanticity: three rounds of falsification, one survivor](18_monosemanticity.md)
 19. [The selection tensor is block-sparse: a 3%-density rulebook](19_block_sparse.md)
 20. [The consolidated MDL accounting](20_accounting.md) — the one-table summary
+21. [Anatomy of a gain: how mlp16 computes its fast structural state](21_mlp16_anatomy.md)
 
 **Directive-session additions (2026-07-20):** all attention routing ≈ 0.66 MB of
 class-interaction rulebooks (3% density/layer; same-kind matching below, cross-class

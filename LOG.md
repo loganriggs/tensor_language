@@ -2289,3 +2289,14 @@ Session closed at high water. Complete ledger on origin/main:
 Cron wound to hourly rest pending your steer. Highest-value next moves need your call:
 another model family, deeper into the top-MLP fast-structure, publishing-shaping, or
 a new direction entirely.
+
+## 2026-07-21 — qk_mdl anatomy arc (for Logan): your question, answered at mechanism level
+
+"What computes the top-MLP fast structure, and from where": because the MLP is pure
+bilinear, every gain coefficient is an EXACT weight-derived quadratic form (gated at
+8e-7). The form is dense in weight space (rank ~600) but the data metric collapses it
+to ~25-50 quadratic features that all decode as PUNCTUATION/BOUNDARY structure —
+"where am I relative to structure boundaries, squared." Rank-64 versions run live at
++0.028 (R² 0.95), and the exact stream split names the feeders: mlp15's
+self-interaction + the attn5 hub. Full chain in results/21. Next rung queued:
+recursive anatomy into mlp15 until the chain grounds in token-static structure.

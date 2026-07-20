@@ -2329,3 +2329,18 @@ by rank-k whitened-form approximations (k=64/16/4), ΔCE + dir0 coefficient R² 
 causal check on MA-2's ~25-50-feature claim; (b) exact stream-pair covariance split of
 dir0's coefficient (which stream interactions feed the boundary features — expected:
 mlp15×mlp15 + attn5 pairs per SI-1/TM-1, now at coefficient resolution).
+
+---
+
+## 2026-07-21 — tick 92b (MA-3 harvested; results/21 shipped — the mechanism chain complete)
+
+**FINDING MA-3:** rank-64 whitened forms for all four dirs run live at ΔCE +0.028
+(dir0 R² 0.954; rank-16 +0.033); dir0's coefficient variance is fed by mlp15⊗mlp15
+(dominant) + attn5⊗mlp15 — coefficient-resolution confirmation of the SI-1/TM-1
+energy picture. results/21 ships the complete chain: exact weight form (gate 8.3e-7)
+→ ~25-50 boundary-feature quadratics → mlp15+hub feeders → rank-4-16 gains →
+register shaping. Logan's question ("what computes the fast structure, from where")
+is answered at mechanism level.
+
+Queue: recursion into mlp15 (same anatomy on the feeder's own bilinear form — walk
+upstream until grounded in token-static structure); root-LOG update for Logan.
