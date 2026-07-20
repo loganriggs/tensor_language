@@ -1,0 +1,80 @@
+{
+  "run": "/workspace/tensor_language/runs_lm/block2-seed0",
+  "baseline_ce": 16.4387,
+  "checks": {
+    "A_global_residual_gauge": {
+      "max_logit_diff": 7.62939453125e-05,
+      "ce": 16.4387,
+      "exact": true
+    },
+    "B_boundary_pins_residual": {
+      "embed_rank": 128,
+      "d_model": 128,
+      "head_rank": 128,
+      "residual_free_dofs_after_pinning_embed": 0,
+      "note": "embed rank == d_model => only Q=I keeps embed fixed => no residual middle gauge"
+    },
+    "C1_OV_head_gauge": {
+      "max_logit_diff": 3.814697265625e-05,
+      "exact": true
+    },
+    "C2_QK_head_rotation_vs_rope": {
+      "max_logit_diff": 18.74466896057129,
+      "exact_gauge": false,
+      "note": "same R on q,k preserves the raw dot product but NOT after RoPE -> QK basis is rope-constrained"
+    },
+    "C3_mlp_hidden_pinned_by_elementwise": {
+      "rotation_max_logit_diff": 39.58930206298828,
+      "rotation_breaks_output": true,
+      "perm_scale_max_logit_diff": 4.7206878662109375e-05,
+      "perm_scale_exact": true,
+      "note": "elementwise * pins hidden basis: only permutation+scaling is a gauge"
+    },
+    "D_l1_ov_gauge": {
+      "l1_before": 0.85027,
+      "l1_after": 0.81992,
+      "l1_drop_pct": 3.6,
+      "orth_error": 0.00017380714416503906,
+      "ce_after_applying": 16.4387,
+      "max_logit_diff": 0.0022487640380859375,
+      "ce_unchanged": false
+    },
+    "E_cross_layer_dag": {
+      "spec": [
+        "attn",
+        "mlp",
+        "attn",
+        "mlp"
+      ],
+      "composition_matrix": [
+        [
+          0.0,
+          0.0834,
+          0.0874,
+          0.0876
+        ],
+        [
+          0.0,
+          0.0,
+          0.0895,
+          0.0852
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0811
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "max": 0.0895,
+      "min": 0.0811,
+      "ratio_max_min": 1.1
+    }
+  }
+}
