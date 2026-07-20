@@ -116,9 +116,12 @@ k=16 (corr top-k + least-squares refit), FVU over 5 subsamples. Deep-bond mean F
 near the embedding). So with weight-derived seeds — un-confounded, atoms never trained —
 write directions capture the deep stream better than the boundary dictionary, increasingly
 with depth: the atom-birth signal the confounded F4/flagship write-span run couldn't show.
-Weight-informed births are supported. Caveats: fixed unoptimized seeds (measures seeding
-quality, not trained ceiling; FVU stays 0.35–0.5); toy only; next = flagship + nesting the
-births over the rotation basis with orthogonalization for clean description-length.
+Weight-informed births are supported. **Flagship confirms with LARGER gaps**
+(`bilin18_births_seed_test.py`, bonds 3/6/10/17): WRITE **0.692** < TOKEN 0.850 < RANDOM
+0.918 — on the real low-rank stream (F5) write directions are a decisively better seed than
+the boundary dictionary. Caveats: fixed unoptimized seeds (measures seeding quality, not
+trained ceiling; FVU high); next = nest the births over the rotation basis with
+orthogonalization for clean description-length, and measure the sparsity/ΔCE they buy.
 **Gate note:** a single-sample RANDOM draw was anomalously good (0.16) and misleading; the
 5-subsample check corrected it to 0.519±0.003 before any claim (falsifiable-verification rule).
 

@@ -1,0 +1,11 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+bilin18 births test: 16384 tokens, probing [3, 6, 10, 17]
+  bond | WRITE | TOKEN | RANDOM
+   3   | 0.581±0.008 | 0.856±0.008 | 0.918±0.001
+   6   | 0.717±0.015 | 0.846±0.010 | 0.918±0.000
+  10   | 0.752±0.005 | 0.845±0.007 | 0.918±0.001
+  17   | 0.717±0.004 | 0.853±0.005 | 0.917±0.001
+
+mean: WRITE 0.692 | TOKEN 0.850 | RANDOM 0.918  (write beats token: True, beats random: True)
+bilin18 births seed test done

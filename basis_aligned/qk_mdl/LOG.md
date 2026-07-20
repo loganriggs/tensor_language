@@ -2828,3 +2828,10 @@ construction) since it doesn't depend on the still-open residual-vs-private flag
 Next: flagship births test; then nest births over the rotation basis with orthogonalization
 (clean DL). Regime-2 CONSTRUCTION specifics (which bond, nesting) still want Logan's flagged
 confirm; the hypothesis test did not. GOALS.md F8/F9; fig_regime1.png.
+
+## 2026-07-20 — tick 116b (flagship confirms F9: write-seeded births decisively beat token/random)
+
+bilin18_births_seed_test.py (bonds 3/6/10/17): WRITE 0.692 < TOKEN 0.850 < RANDOM 0.918 mean
+FVU (std ~0.01) — same ordering as the toy, larger gaps on the real low-rank stream (F5).
+Weight-informed births decisively supported on the flagship, un-confounded. Next: nest births
+over the rotation basis (orthogonalize for clean DL) and measure the sparsity/ΔCE they buy.
