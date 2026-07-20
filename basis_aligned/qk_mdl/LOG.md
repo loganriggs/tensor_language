@@ -2885,3 +2885,23 @@ characterized. Remaining work is a DESIGN FORK needing Logan's steer (full neste
 which bond / accept trained-dict-code and pivot to interpreting its atoms / monosemanticity),
 plus the still-open flagged private-vs-residual question. Pausing tn_gauge grind at a clean
 consolidation point rather than spawning marginal experiments. Nothing running. GOALS.md F1-F12.
+
+## 2026-07-20 — tick 119 (Logan STEER: layer-1 QK source-interaction graph — sparse, M×M-dominated)
+
+Logan steered: focus layers 0-1; optimize attn2 (layer-1) QK to depend SPARSELY on upstream
+sources {E=embedding, A=attn0 OV output, M=mlp1 bilinear output} with good CE; one bond ->
+stronger methods OK. Also bank regime-1 MDL as the baseline.
+
+F13 (toy_qk1_interactions.py): QK score bilinear in x2=E+A+M splits EXACTLY into a 3x3 source
+graph (gate sum-of-blocks=real to 3e-4, full ΔCE=0). Frobenius mass: MxM 0.70 dominant, MxE
+0.10, ExM 0.07, MxA/AxM 0.09, ExE 0.01, A-pure ~0. Causal ΔCE: MxM ALONE +0.062 (usable); all
+other single blocks catastrophic (+1.8); cumulative by mass MxM+MxE+ExM=+0.008, 6 of 9 blocks
+= +0.0001. => layer-1 selection runs almost entirely on the bilinear output self-interaction
+(MxM), weakly modulated by embedding; attn0 output A not directly read. Sparse interpretable
+source graph = coarsest version of Logan's ask.
+
+Regime-1 MDL baseline banked: rotation ~0 sparsity everywhere (F6-8) => regime-1 DL ~ raw
+weight bits; layer-1 QK raw ~2.1 Mbit (4 x 128x128 x 32), rotation doesn't reduce it.
+
+Next: decompose M (and E) into atoms, sparsify the fine MxM/MxE atom-interaction graph, then
+its MDL vs the 2.1 Mbit baseline. GOALS.md F13.

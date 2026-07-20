@@ -99,6 +99,36 @@ gauges; no deep-layer SAE; stays a tensor network.
   but depth-increasing — the Step-5 mechanism holds directionally.
 - Figure: `fig_code_propagation.png`.
 
+### F13 — layer-1 QK source-interaction graph is sparse, dominated by bilinear-output self-interaction
+Logan's steer (2026-07-20): focus layers 0–1; optimize the second attention's (attn2)
+query/key to depend *sparsely* on its upstream sources — embedding E, attn0 output A (OV),
+mlp1 bilinear output M — with good cross-entropy; one bond, so stronger methods allowed.
+`toy_qk1_interactions.py`. The QK score is bilinear in the residual x2 = E + A + M
+(E=0.5·x0, A=x1−0.5·x0, M=x2−x1), so it splits EXACTLY (gate: sum of 9 blocks = real score
+to 3e-4; full ΔCE = 0) into a 3×3 source-interaction graph. Frobenius mass and causal ΔCE:
+
+| block | Frob mass | keep-only ΔCE | | cumulative (by mass) | ΔCE |
+|---|---|---|---|---|---|
+| **M×M** | **0.70** | **+0.062** | | M×M | +0.062 |
+| M×E | 0.10 | +1.82 | | +M×E | +0.025 |
+| E×M | 0.07 | +1.83 | | +E×M | +0.008 |
+| M×A,A×M | 0.09 | +1.84 | | +M×A,+A×M | +0.001 |
+| E×E | 0.01 | +1.84 | | +E×E (6 blocks) | +0.0001 |
+| A×E,E×A,A×A | 0.02 | +1.84 | | (3 dropped) | — |
+
+**Layer-1 selection runs almost entirely on the bilinear output interacting with itself**
+(M×M alone is usable, +0.062), weakly modulated by the embedding (M×E, E×M); the first
+attention's output A is not directly read (its 3 pure blocks are negligible; 6 of 9 blocks
+recover the model to +0.0001). A sparse, interpretable source graph — the coarsest (source-
+level) version of Logan's ask. **Next:** decompose M (and E) into atoms and sparsify the fine
+M×M / M×E atom-interaction graph; then the MDL of that vs the regime-1 baseline.
+
+**Regime-1 MDL baseline (Logan asked to bank it):** rotation gauges give ~0 sparsity on every
+bond (F6–F8: toy OV 7%, QK 1.4%, flagship ~0%), so the regime-1 description length ≈ the RAW
+weight bits — an exact-gauge reparameterization buys essentially no compression. The layer-1
+QK raw structural cost is 4 branch-matrices × 128×128 × 32 bits ≈ 2.1 Mbit; regime 1 does not
+reduce it. Future interaction-sparsified / atom-decomposed QK is compared against this.
+
 ### F12 — closes F11: de-clustering rescues convergence, but write-info is useless for a trained dict
 `toy_births_ortho_init_test.py`. F11 asked: was write-init's failure clustering (fixable by
 orthogonalization) or write-info-uselessness? Answer: **both, cleanly separated.** random ΔCE
