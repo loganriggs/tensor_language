@@ -322,6 +322,38 @@ subspaces** — different word families live in different 16-dimensional slices 
 gap over it is the actual finding about content: token identity is not low-rank, it is
 sparse-in-a-shared-overcomplete-basis.
 
+### Training loss curves (the convergence diagnosis)
+
+You asked whether batch-top-k coming out *worse* than per-token top-k was a bug — since
+batch-top-k can always replicate per-token (give every word exactly k), it "should" be at
+least as good. The training curves and a decisive control resolve this.
+
+![Reconstruction loss over training: three shared-dictionary schemes (left), eight block-sparse group dictionaries (right)](results/fig_ov_training_curves.png)
+
+*Left panel — convergence.* The three shared-dictionary schemes, trained full-batch for
+2,500 steps on one head, land within about three percent of each other in reconstruction
+(per-token top-k 0.354, batch-top-k full-batch 0.364, batch-top-k minibatch-8192 0.367,
+as fraction of head variance unexplained). The large gaps in the earlier sweep were
+**undertraining**, not a real property of the schemes. Two contributing details you
+correctly suspected: (a) batch-top-k picks a survival *threshold*, which I computed over a
+minibatch of 8,192 during training but over the full vocabulary at evaluation — a
+mismatch that both slows training and biases the result; training full-batch removes it
+(0.367 → 0.364). (b) Even so, per-token stays slightly ahead.
+
+*Why per-token stays ahead (the decisive control).* Take one fixed dictionary and encode
+the same vectors both ways at the same total budget: per-token top-k reaches 0.353,
+batch-top-k 0.403 — worse, because with a global budget it **starves 639 words to zero
+atoms** (per-word counts ran 0 to 81, median 14). So "batch must be at least as good" is
+actually **false** for reconstructing a fixed set of vectors: per-token gives every word
+its own locally optimal k-term code, whereas a shared global budget only helps when
+per-word complexity is genuinely uneven and hurts the words it starves. Batch-top-k wins
+in sparse-autoencoder settings (learned encoder, heterogeneous activations) but not here.
+
+*Right panel — block-sparse trains cleanly.* The eight group dictionaries (adaptive sizes,
+64–256 atoms, batch-top-k within each group) all converge smoothly, confirming the routed
+scheme has no training pathology — its later loss at matched bits is a real property, not
+a convergence failure.
+
 ### Converged comparison (correcting the sweep) — the number that actually decides
 
 The sweep numbers above were undertrained (1200 steps, and batch-top-k had the
