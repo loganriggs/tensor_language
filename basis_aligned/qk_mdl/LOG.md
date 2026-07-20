@@ -2905,3 +2905,12 @@ weight bits; layer-1 QK raw ~2.1 Mbit (4 x 128x128 x 32), rotation doesn't reduc
 
 Next: decompose M (and E) into atoms, sparsify the fine MxM/MxE atom-interaction graph, then
 its MDL vs the 2.1 Mbit baseline. GOALS.md F13.
+
+## 2026-07-20 — tick 120 (F14: per-source rank for layer-1 selection — E/A compress, M does not in variance basis)
+
+toy_qk1_source_rank.py: PCA-decompose each source, project to rank r, ΔCE (gate full=0).
+E low-rank (r8 +0.021, r2 +0.038), A negligible (r2 +0.005), M HIGH-rank (r8 +0.65, r16 +0.40,
+r64 +0.11 - does NOT compress by variance). Redirect: PCA optimizes variance not interaction;
+M's high PCA-rank includes selection-irrelevant variance. Interaction-sparse basis = QK-singular
+(M×M diagonal per head); QCR-1/2 showed the QK form is low-rank ~16-32. Next: low-rank-reduce
+the layer-1 QK maps (= decompose M in the interaction basis), ΔCE vs rank + MDL vs 2.1Mbit. F14.

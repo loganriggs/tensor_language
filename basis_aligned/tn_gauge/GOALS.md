@@ -99,6 +99,25 @@ gauges; no deep-layer SAE; stays a tensor network.
   but depth-increasing — the Step-5 mechanism holds directionally.
 - Figure: `fig_code_propagation.png`.
 
+### F14 — per-source atom rank for layer-1 selection: E/A compress, M does not (in the variance basis)
+`toy_qk1_source_rank.py`. Decompose each source by PCA of its normed contribution and project
+to rank r; recompute the exact block decomposition; ΔCE vs r (gate: full = 0). Results:
+
+| source | r=2 | r=8 | r=16 | r=32 | r=64 |
+|---|---|---|---|---|---|
+| E (embedding) | +0.038 | +0.021 | +0.018 | +0.014 | +0.007 |
+| A (attn0 out) | +0.005 | +0.002 | +0.001 | +0.000 | +0.000 |
+| **M (bilinear out)** | **+1.00** | **+0.65** | **+0.40** | **+0.26** | **+0.11** |
+
+E is low-rank (~8 atoms, +0.02) and A is negligible (~2 atoms) — both compress to a handful of
+atoms. But **M, the dominant source, does not compress by variance** (rank-64 still +0.11).
+**Redirect:** PCA optimizes variance, not interaction — M's high PCA-rank includes
+selection-irrelevant variance. The interaction-sparse basis is the query/key SINGULAR basis,
+where the M×M form is diagonal per head, so the interaction *graph* can be sparse even with M
+full-rank; QCR-1/2 showed the QK bilinear form is itself low-rank (~16–32). **Next:** decompose
+M in the QK-singular (interaction) basis / low-rank-reduce the layer-1 QK maps, ΔCE vs rank —
+the interaction-sparse decomposition, not the variance one, then its MDL vs the 2.1-Mbit baseline.
+
 ### F13 — layer-1 QK source-interaction graph is sparse, dominated by bilinear-output self-interaction
 Logan's steer (2026-07-20): focus layers 0–1; optimize the second attention's (attn2)
 query/key to depend *sparsely* on its upstream sources — embedding E, attn0 output A (OV),
