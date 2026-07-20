@@ -2640,3 +2640,21 @@ error consumption in that basis. Selection has (a) but not (b) (noise-filtered);
 has (b)-ish but not (a) (union-of-subspaces, no shared basis — QCR-1). Neither circuit
 gives both, so backward never wins here — not by accident but by structure. explainer §7.
 backward_when_wins.py/json. Closes the method-E backward-direction question cleanly.
+
+---
+
+## 2026-07-21 — tick 109 (QCR-2: units error corrected; rank-then-VQ composes; sign-rank theory)
+
+Logan caught a units error in QCR-1: I said rank "more compact" but rank-16 = 512
+bits/token vs VQ-256 = 8 bits/token — VQ is ~60× cheaper/token; "16 dims vs 256 cells"
+mixed dims and DL. CORRECTED in explainer §6: rank ~16-32 = intrinsic dimensionality
+(geometry), k~256 = effective alphabet (cardinality), different questions. VQ dominates
+per-bit (earlier finding stands). **FINDING QCR-2 (composed, his proposal):** rank-then-VQ
+(VQ inside the rank-r subspace) real ΔCE + bits: pure VQ256 +0.003@45Mbit; pure rank16
+−0.002@466Mbit; rank16+VQ256 +0.013@**12Mbit** (4× cheaper than pure VQ); rank32+VQ256
++0.011@17M; rank16+VQ1024 +0.009@21M. Cheaper on bits (validates composition) but NOT
+strict domination — projection discards rank>16 residual, small ΔCE cost; new cheap
+frontier point. THEORY (Logan's framing, data-supported): selection = scalar-per-pair
+ranking → sign-rank-limited → low-rank (O(k²logV) dims); content = many discriminations →
+union of subspaces → SAE regime. "Selection = sign-rank-limited, content =
+union-of-subspaces." fig_qk_rank_vq_frontier.png; explainer §6. qk_rank_then_vq.py/json.

@@ -606,23 +606,25 @@ behaviourally true, is the *wrong* reduction. The query/key factor tables are
 
 ![Selection is low-rank, not cluster-shaped: rank-16 SVD beats 256 clusters](results/fig_qk_cluster_vs_rank.png)
 
-**Rank reduction dominates clustering for selection.** A rank-16 singular value
-decomposition already *improves* the model (−0.002), and matches-or-beats what 256
-clusters achieve (+0.002) — with a vastly more compact description (16 continuous
-dimensions versus 256 discrete cells). Two direct answers to your question:
+**Two answers to different questions — and a correction on units.** A rank-16 singular
+value decomposition reaches a *lower cross-entropy* than 256 clusters (−0.002 vs +0.002),
+so selection is genuinely low-dimensional. But it is NOT "more compact": in bits, a
+rank-16 code is 16 continuous coefficients ≈ 16×32 = 512 bits per word, whereas 256 classes
+is 8 bits per word — vector quantization is roughly 60× cheaper per word. Comparing
+"16 dimensions vs 256 cells" mixed up dimensions and description length. The clean
+statement:
 
-1. **The cluster count is not the rank.** The effective-rank column proves it
-   numerically: clustering into 256 classes yields a table of effective rank ~82, not
-   256 — because 256 centroids living in a 128-dimensional space cannot exceed rank 128,
-   and in practice span far fewer directions. Clusters and rank are different quantities,
-   and clustering is a *strictly discrete* constraint (each word is exactly one of k
-   vectors) whereas rank is *continuous* (each word is any combination of r directions).
+1. **The cluster count is not the rank** (they answer different questions). Rank ~16–32 is
+   the *intrinsic dimensionality* of selection — a geometry fact (the effective-rank column
+   proves clusters ≠ rank: 256 classes give a table of effective rank ~82, capped by the
+   128-dimensional space). The 256 classes is the *effective alphabet* — a cardinality
+   fact. Both are legitimate; neither is "the" answer.
 
-2. **Selection is genuinely low-rank** (rank ~16–32 captures it, and denoises the model),
-   so clustering is a wasteful description: it spends 256 discrete cells to under-perform
-   a 16-dimensional continuous subspace. The earlier "layer-0 selection is a 256-class
-   computation" headline is behaviourally accurate but not the minimal description; the
-   minimal description is low-rank.
+2. **They compose rather than compete.** If selection lives in a rank-16 subspace, the
+   right code is vector quantization *inside* that subspace: project each word to 16
+   dimensions, then cluster into 256 classes. That keeps vector quantization's cheap 8-bit
+   codes while shrinking the centroids from 256×128 to 256×16 floats — it should dominate
+   both pure schemes. (Measured below.)
 
 **This sharpens the selection/content dichotomy into a rank statement.** Selection (query/
 key) is **low-rank** — rank-16 SVD beats 256 clusters. Content (value) is the **opposite**
@@ -704,3 +706,44 @@ So the backward direction never wins in this model not by accident but because n
 circuit provides both ingredients at once. It is a genuine capability that simply has no
 purchase on either object here — which is a cleaner, more useful conclusion than "backward
 didn't help."
+
+### The composed code (rank-then-VQ) and the theory behind the dichotomy
+
+Vector-quantizing *inside* the rank-16 subspace, bits-honest, real cross-entropy
+(description length summed over all 9 heads × 2 branches):
+
+| scheme | ΔCE | megabits |
+|---|---|---|
+| pure vector-quantization, 256 classes | +0.003 | 45.0 |
+| pure rank-16 | −0.002 | 466.0 |
+| **rank-16 then vector-quantize 256** | +0.013 | **12.0** |
+| rank-32 then vector-quantize 256 | +0.011 | 16.7 |
+| rank-16 then vector-quantize 1024 | +0.009 | 20.9 |
+
+![QK reductions on the bits-vs-loss plane: rank-then-VQ extends the cheap end](results/fig_qk_rank_vq_frontier.png)
+
+Your composition instinct is right about bits and *almost* right about domination.
+Rank-then-vector-quantize is **~4× cheaper than pure vector-quantization** (12 vs 45
+megabits) — it keeps the cheap 8-bit codes and shrinks the centroids from 256×128 to
+256×16 floats, exactly as you predicted. But it does *not* strictly dominate: its
+cross-entropy is slightly worse (+0.013 vs +0.003), because projecting to 16 dimensions
+first discards the small residual beyond rank 16 that full-space vector-quantization still
+captures. So it is a **new, much cheaper point on the frontier**, not a free lunch — at a
+matched cross-entropy you would spend the saved bits on a larger alphabet (rank-16 +
+1024 classes recovers most of it at 21 megabits, still half of pure vector-quantization).
+The clean picture: vector-quantization dominates per bit (the earlier finding stands),
+rank is the intrinsic dimensionality, and the two compose to extend the cheap end of the
+frontier.
+
+**The theory (your framing, which the data now supports).** Selection produces a *scalar
+per query-key pair* — it is a ranking / retrieval task, and the minimal-dimension results
+for top-k retrieval say ranking needs only about O(k² log V) dimensions. So selection is
+**sign-rank-limited**: low-rank for the same reason a minimal embedding dimension is small,
+which is exactly the rank-16 result. Content, by contrast, feeds *many* downstream
+discriminations at once, so it cannot collapse to a single subspace and instead lands in a
+**union of subspaces** — the sparse-dictionary / sparse-autoencoder regime. So the
+grounded version of the dichotomy is: **selection is sign-rank-limited (one low-dimensional
+subspace, best coded rank-then-quantize); content is union-of-subspaces (best coded by a
+sparse dictionary).** That is why singular value decomposition is the right tool for one
+and sparse coding for the other — not an empirical accident but a consequence of
+scalar-ranking versus many-way-discrimination.
