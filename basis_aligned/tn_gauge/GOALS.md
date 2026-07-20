@@ -80,6 +80,51 @@ gauges; no deep-layer SAE; stays a tensor network.
   but depth-increasing — the Step-5 mechanism holds directionally.
 - Figure: `fig_code_propagation.png`.
 
+### F5 — the flagship HAS the low-rank stream the toy lacked (premise holds)
+`bilin18_actrank.py`, residual-stream effective rank vs depth (d=1152, 4096 tokens):
+eff-rank ~530–650; **rank@90%-variance ~150–260 of 1152 (13–22% of width)** — genuinely
+low-rank, versus the toy's near-full-rank d=128. rank@90% dips in the middle (bond 6:
+151, the min) and rises toward both ends → the mid-network stream is most compressible.
+So the toy's isotropic-residual verdict (F4) was a size artifact; the sparse-code regime's
+premise is real on bilin18, and the atom-birth question is live there. → gate 2b on
+bilin18 running (`bilin18_writespan.py`, dictionary on middle bonds, write-span capture).
+
+### F4 — gate 2b: on the toy the coding residual is ISOTROPIC, not write-structured
+Logan's refinement: additivity forces *compatibility* not identity → nested growing
+dictionary Φ_{ℓ+1}⊇Φ_ℓ (shared core + per-bond atom **births**); births are necessary
+because layers manufacture features with no token-boundary preimage; the depth-degrading
+FVU should then be the closure assumption (writes sparse in the *existing* dictionary)
+failing. Diagnostic (`gate2b_writespan.py`): project each bond's coding residual onto the
+upstream **write-mechanism** span vs token span vs random; ceiling = the residual's own
+top-K subspace. Result (shared Φ m=2048, k=32, K=32 subspaces, fraction of residual
+variance captured):
+
+| bond | write-span | token-span | random | self-ceiling | resid eff-rank | act eff-rank |
+|---|---|---|---|---|---|---|
+| 0 (attn) | n/a | 0.248 | 0.250 | 0.433 | 123.8 | 118.4 |
+| 1 (mlp)  | 0.299 | 0.229 | 0.250 | 0.421 | 124.9 | 120.3 |
+| 2 (attn) | 0.270 | 0.248 | 0.250 | 0.353 | 126.6 | 109.7 |
+| 3 (mlp)  | 0.255 | 0.241 | 0.250 | 0.374 | 126.2 | 115.8 |
+
+**Atom-birth is REFUTED on this toy.** The write span captures the residual no better
+than a random subspace (~0.25) and far below the residual's own best 32-dim (0.35–0.43);
+the residual is nearly isotropic (effective rank ~125/128). There is no low-dimensional
+missing-feature subspace to birth atoms from. Per-upstream-layer capture is also ~random
+(0.23–0.30). Calibration (b) bond-0-exact barely helps (+0.478→+0.464): the cost is
+distributed, not at the boundary.
+
+**But the verdict is scope-limited, NOT "regime is the limit."** The cause is that the
+d=128 activations are themselves near-full-rank (act eff-rank ~110–120 of 128), so a
+sparse dictionary leaves isotropic quantization noise — the toy is simply too small to
+have the low-rank residual stream the whole sparse-code-propagation regime assumes. The
+premise must be tested where width is large. → gate 2b' (running): activation effective
+rank vs depth on bilin18 (d=1152). If the flagship stream is low-rank, the regime (and
+the atom-birth question) is live there; if it too climbs toward full rank, the regime is
+in real trouble.
+
+Shared-Φ scaling (record, non-decisive per above): shared m=2048/4096 k=64 →
+ΔCE +0.247/+0.162 — capacity helps, slowly and at rising bit-cost.
+
 ### F3 — the propagation/fidelity tension (the load-bearing finding of gate 2)
 `toy_fidelity_floor.py`, end-to-end ΔCE (baseline 1.729), k=32:
 

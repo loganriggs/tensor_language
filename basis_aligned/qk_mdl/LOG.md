@@ -2709,3 +2709,27 @@ the construction targets. Cheap-propagation and faithful are in opposition on th
 Gate 2b (running, toy_shared_scaling.py): does scaling a SHARED Φ (m→8192, k∈{32,64})
 reach ΔCE<0.05 or plateau? Then gate 3 = propagate the layer-0 QK measure forward.
 GOALS.md F3 table. Chained: shared_scaling running.
+
+---
+
+## 2026-07-20 — tick 112 (gate 2b: toy atom-birth REFUTED but size-artifact; flagship premise HOLDS)
+
+Logan refined the theory (mid-turn): additivity forces COMPATIBILITY not identity →
+nested growing dictionary Φ_{ℓ+1}⊇Φ_ℓ (shared core + per-bond atom BIRTHS from
+manufactured features); depth-degrading FVU = closure assumption failing. Gave the
+decisive diagnostic (project bond residual onto upstream WRITE-mechanism span) to run
+BEFORE any "regime is the limit" verdict, + calibrations.
+
+**F4 (gate2b_writespan.py, toy):** coding residual is ISOTROPIC (eff-rank ~125/128),
+write-span captures it ≈ random (0.25–0.30) « its own best-32-dim (0.35–0.43). Atom-birth
+REFUTED — no structured missing subspace. BUT the cause is that d=128 activations are
+near-full-rank (act eff-rank ~110–120/128): the toy is TOO SMALL to have the low-rank
+stream the regime assumes. Verdict scope-limited, NOT "regime dead" (honors Logan's
+over-claim warning). Calibration (b) bond-0-exact barely helps (+0.478→+0.464).
+
+**F5 (bilin18_actrank.py, flagship):** bilin18 residual stream IS low-rank —
+rank@90%-var ~150–260 of 1152 (13–22%), eff-rank ~530–650; most compressible mid-network
+(bond 6 rank@90%=151). Premise HOLDS on the flagship; the toy verdict was a size artifact.
+
+Chained: bilin18_writespan.py (gate 2b on the flagship, dictionary on middle bonds) —
+the real atom-birth test now that there's genuine low-rank structure. GOALS.md F4/F5.

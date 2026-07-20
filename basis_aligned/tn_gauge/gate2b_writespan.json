@@ -1,0 +1,52 @@
+{
+  "baseline_ce": 1.7293,
+  "m": 2048,
+  "k": 32,
+  "writespan": {
+    "bond0(attn)": {
+      "write_span": null,
+      "token_span": 0.2476,
+      "random": 0.25,
+      "self_ceiling": 0.4326,
+      "eff_rank": 123.8,
+      "act_eff_rank": 118.4,
+      "resid_fvu": 0.0101
+    },
+    "bond1(mlp)": {
+      "write_span": 0.2993,
+      "token_span": 0.2289,
+      "random": 0.25,
+      "self_ceiling": 0.421,
+      "eff_rank": 124.9,
+      "act_eff_rank": 120.3,
+      "resid_fvu": 0.0288
+    },
+    "bond2(attn)": {
+      "write_span": 0.2704,
+      "token_span": 0.2485,
+      "random": 0.25,
+      "self_ceiling": 0.3535,
+      "eff_rank": 126.6,
+      "act_eff_rank": 109.7,
+      "resid_fvu": 0.0458
+    },
+    "bond3(mlp)": {
+      "write_span": 0.2548,
+      "token_span": 0.2412,
+      "random": 0.25,
+      "self_ceiling": 0.3738,
+      "eff_rank": 126.2,
+      "act_eff_rank": 115.8,
+      "resid_fvu": 0.0947
+    }
+  },
+  "per_upstream_layer": {
+    "layer0(attn)": 0.2619,
+    "layer1(mlp)": 0.2303,
+    "layer2(attn)": 0.3027
+  },
+  "calibration_bond0_exact": {
+    "all bonds coded": 0.4778,
+    "bond0 EXACT (lookup), rest coded": 0.4638
+  }
+}

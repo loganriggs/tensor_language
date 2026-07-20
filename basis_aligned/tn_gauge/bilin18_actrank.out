@@ -1,0 +1,15 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+bilin18 d=1152, 18 bonds, 4096 tokens
+  bond | eff-rank | rank@90% | rank@99% | (of d=1152)
+   0   |   618.5  |    257   |    643   |
+   2   |   599.1  |    213   |    596   |
+   4   |   577.0  |    185   |    573   |
+   6   |   531.3  |    151   |    501   |
+   8   |   619.8  |    212   |    618   |
+  10   |   624.0  |    215   |    625   |
+  12   |   635.7  |    227   |    637   |
+  14   |   642.9  |    236   |    644   |
+  16   |   647.1  |    241   |    649   |
+  17   |   643.2  |    234   |    645   |
+bilin18 actrank done -> bilin18_actrank.json

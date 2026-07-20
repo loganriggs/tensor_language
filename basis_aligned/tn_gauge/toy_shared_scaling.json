@@ -1,0 +1,29 @@
+{
+  "baseline_ce": 1.7293,
+  "arms": {
+    "shared m=2048 k=32": {
+      "dce": 0.4778,
+      "Mbits": 31.5
+    },
+    "shared m=2048 k=64": {
+      "dce": 0.2468,
+      "Mbits": 54.5
+    },
+    "shared m=4096 k=32": {
+      "dce": 0.2928,
+      "Mbits": 41.9
+    },
+    "shared m=4096 k=64": {
+      "dce": 0.1619,
+      "Mbits": 67.1
+    },
+    "shared m=8192 k=32": {
+      "dce": 0.1904,
+      "Mbits": 60.8
+    },
+    "shared m=8192 k=64": {
+      "dce": 0.1069,
+      "Mbits": 88.1
+    }
+  }
+}
