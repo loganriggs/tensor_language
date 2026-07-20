@@ -2835,3 +2835,18 @@ bilin18_births_seed_test.py (bonds 3/6/10/17): WRITE 0.692 < TOKEN 0.850 < RANDO
 FVU (std ~0.01) — same ordering as the toy, larger gaps on the real low-rank stream (F5).
 Weight-informed births decisively supported on the flagship, un-confounded. Next: nest births
 over the rotation basis (orthogonalize for clean DL) and measure the sparsity/ΔCE they buy.
+
+---
+
+## 2026-07-20 — tick 117 (regime 2 binding metric: write>token>random survives ΔCE, but seeds are an init)
+
+toy_births_dce_test.py — F9 (reconstruction) lifted to ΔCE (binding rule). Fixed seeded
+dicts, bond0 exact, bonds1-3 coded, m=512 k=32: write +2.81 < token +2.90 < random +3.47
+(3 seeds). Ordering SURVIVES at ΔCE (write clearly beats random 0.66; beats token marginally
+0.09 ~1.5std, attenuated from reconstruction). But absolute ΔCE catastrophic (+2.8 vs trained
++0.19-0.52 in gate 2): fixed seeds destroy the model -> write-seeding is the right DIRECTION
+but seeds are an INITIALIZATION not a solution. Proceeded (unblocked: hypothesis/metric test,
+not the full-construction bond-choice that wants Logan's flagged confirm).
+
+Chained: write-init + training vs random-init (do good seeds give faster/better convergence?).
+GOALS.md F10.

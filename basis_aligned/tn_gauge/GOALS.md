@@ -99,6 +99,18 @@ gauges; no deep-layer SAE; stays a tensor network.
   but depth-increasing — the Step-5 mechanism holds directionally.
 - Figure: `fig_code_propagation.png`.
 
+### F10 — regime 2 at the BINDING metric: ordering survives, but seeds are an init not a solution
+`toy_births_dce_test.py`. F9 was reconstruction (FVU); the binding rule (reconstruction ≠
+behavior) demands ΔCE. Fixed seeded dictionaries, bond 0 exact (Logan calibration b), bonds
+1–3 coded, m=512, k=32, end-to-end ΔCE (3 seeds): **write +2.81 < token +2.90 < random +3.47**.
+The write > token > random ordering **survives at the binding metric** — write clearly beats
+random (0.66), marginally beats token (~0.09, ~1.5 std, attenuated from F9's reconstruction
+gap). **But absolute ΔCE is catastrophic** (+2.8 on a 1.73 baseline): fixed unoptimized seeds
+destroy the model (trained dictionaries gave +0.19–0.52 in gate 2). So write-seeding sets the
+right *direction* but seed atoms are an **initialization, not a solution** — they need
+training. Next (chained): write-seeded init + training vs random init — does the good
+direction give faster/better convergence?
+
 ### F9 — regime 2 (first step): the UN-CONFOUNDED births test supports weight-informed births
 `toy_births_seed_test.py`. Logan's step-4 fix: don't TRAIN Φ on activations (which silently
 absorbs manufactured features, confounding F4); instead SEED atoms from weights and leave

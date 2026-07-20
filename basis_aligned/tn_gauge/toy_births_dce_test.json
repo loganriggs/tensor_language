@@ -1,0 +1,21 @@
+{
+  "baseline_ce": 1.7293,
+  "m": 512,
+  "k": 32,
+  "arms": {
+    "write": {
+      "dce_mean": 2.8122,
+      "dce_std": 0.0781
+    },
+    "token": {
+      "dce_mean": 2.902,
+      "dce_std": 0.0504
+    },
+    "random": {
+      "dce_mean": 3.4745,
+      "dce_std": 0.0547
+    }
+  },
+  "write_beats_token": true,
+  "write_beats_random": true
+}
