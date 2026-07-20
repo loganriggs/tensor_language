@@ -2302,3 +2302,20 @@ mlp16_anatomy.py/json.
 Running: exp2 (mlp16_anatomy2.py) — data-whitened spectrum Σ^½M_dΣ^½ (does eff-rank
 collapse to ~4-16?), top data-space features named. Then: exact stream-pair split of
 c_d; rank-r causal replacement.
+
+---
+
+## 2026-07-21 — tick 91 (MA-2: data-whitening collapses the forms; boundary-feature quadratics)
+
+**FINDING MA-2:** whitened eff-ranks: dir0 25.6 · dir1 36.7 · dir2 51.7 · dir3 24.3
+(from ~600 weight-space) — the low-rank behavioral gain is DATA concentration of a
+dense weight form, now quantified. Top whitened features decode as punctuation/
+boundary structure across all four dirs (dir0 ev0: '.', ').', ':', ','; others:
+newline/dash/quote). The fast structural state = quadratic interactions among
+boundary features of the residual. Chain of description now: weights (dense form,
+exact) → data metric (~25-50 quadratic features) → output behavior (rank 4-16).
+mlp16_anatomy2.py/json.
+
+Queue (exp3): rank-r FORM replacement in the live forward (c ≈ top-k whitened
+features; ΔCE + coefficient R² — the causal check on MA-2) + exact stream-pair split
+of c_d (which streams feed the boundary features). Then upstream: what writes them.

@@ -1,0 +1,252 @@
+{
+  "dirs": {
+    "dir0": {
+      "eff_rank_whitened": 25.6,
+      "top8_lambdas": [
+        1151.783,
+        426.719,
+        -410.553,
+        -157.534,
+        -110.725,
+        88.515,
+        -76.022,
+        -70.546
+      ],
+      "share_top2": 0.233,
+      "share_top8": 0.368,
+      "top_features": [
+        {
+          "lambda": 1151.783,
+          "emb_nn": [
+            ".",
+            ").",
+            ":",
+            ","
+          ],
+          "lens": [
+            " the",
+            " this",
+            " I",
+            " it"
+          ]
+        },
+        {
+          "lambda": 426.719,
+          "emb_nn": [
+            "\n",
+            "\ufffd",
+            "-",
+            "\u2026."
+          ],
+          "lens": [
+            "The",
+            "In",
+            "1",
+            "This"
+          ]
+        },
+        {
+          "lambda": -410.553,
+          "emb_nn": [
+            " is",
+            " was",
+            " are",
+            " were"
+          ],
+          "lens": [
+            " also",
+            " actually",
+            " simply",
+            " not"
+          ]
+        }
+      ]
+    },
+    "dir1": {
+      "eff_rank_whitened": 36.7,
+      "top8_lambdas": [
+        -823.283,
+        480.352,
+        -189.935,
+        161.562,
+        -126.793,
+        106.423,
+        89.631,
+        77.386
+      ],
+      "share_top2": 0.208,
+      "share_top8": 0.328,
+      "top_features": [
+        {
+          "lambda": -823.283,
+          "emb_nn": [
+            "\n",
+            "\ufffd",
+            "-",
+            " \""
+          ],
+          "lens": [
+            "The",
+            "In",
+            "A",
+            "This"
+          ]
+        },
+        {
+          "lambda": 480.352,
+          "emb_nn": [
+            " is",
+            " and",
+            " are",
+            " was"
+          ],
+          "lens": [
+            " the",
+            " a",
+            " just",
+            " not"
+          ]
+        },
+        {
+          "lambda": -189.935,
+          "emb_nn": [
+            ".",
+            ").",
+            "!",
+            "!!!"
+          ],
+          "lens": [
+            "\n",
+            " The",
+            " Detected",
+            "oc"
+          ]
+        }
+      ]
+    },
+    "dir2": {
+      "eff_rank_whitened": 51.7,
+      "top8_lambdas": [
+        -466.384,
+        -340.171,
+        335.309,
+        99.021,
+        -73.258,
+        -63.847,
+        -56.437,
+        -54.118
+      ],
+      "share_top2": 0.157,
+      "share_top8": 0.29,
+      "top_features": [
+        {
+          "lambda": -466.384,
+          "emb_nn": [
+            "\n",
+            "-",
+            " detectable",
+            "'/"
+          ],
+          "lens": [
+            "The",
+            "I",
+            "In",
+            "A"
+          ]
+        },
+        {
+          "lambda": -340.171,
+          "emb_nn": [
+            "\n",
+            ".",
+            "\ufffd",
+            ")."
+          ],
+          "lens": [
+            "\u00ad",
+            " oun",
+            "FML",
+            " \""
+          ]
+        },
+        {
+          "lambda": 335.309,
+          "emb_nn": [
+            ",",
+            " and",
+            ".",
+            " by"
+          ],
+          "lens": [
+            " the",
+            " it",
+            " this",
+            " just"
+          ]
+        }
+      ]
+    },
+    "dir3": {
+      "eff_rank_whitened": 24.3,
+      "top8_lambdas": [
+        986.492,
+        492.551,
+        225.988,
+        -111.172,
+        102.564,
+        -88.193,
+        -66.062,
+        60.967
+      ],
+      "share_top2": 0.259,
+      "share_top8": 0.373,
+      "top_features": [
+        {
+          "lambda": 986.492,
+          "emb_nn": [
+            "\n",
+            "-",
+            "'/",
+            "\ufffd"
+          ],
+          "lens": [
+            "In",
+            "A",
+            "The",
+            "T"
+          ]
+        },
+        {
+          "lambda": 492.551,
+          "emb_nn": [
+            ".",
+            ").",
+            "!.",
+            "!"
+          ],
+          "lens": [
+            " The",
+            " I",
+            " It",
+            " You"
+          ]
+        },
+        {
+          "lambda": 225.988,
+          "emb_nn": [
+            "\n",
+            " with",
+            " is",
+            "."
+          ],
+          "lens": [
+            "ys",
+            "ay",
+            "\u00e9",
+            "ul"
+          ]
+        }
+      ]
+    }
+  }
+}

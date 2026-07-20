@@ -216,6 +216,19 @@ evS, evecS = torch.linalg.eigh(S.cpu().double())
 Shalf = (evecS * evS.clamp_min(1e-10).sqrt()) @ evecS.T          # Sigma^1/2
 print('Sigma built', flush=True)
 
+E_hat_c = E_hat.cpu()
+U_c = m.lm_head.weight.detach().float().cpu()
+
+
+def name_vec(v):
+    sims = F.cosine_similarity(E_hat_c, v.cpu()[None], dim=1)
+    top = sims.abs().topk(4).indices.tolist()
+    lens = F.rms_norm(v.cpu()[None], (D,)) @ U_c.T
+    ltop = lens[0].abs().topk(4).indices.tolist()
+    return {'emb_nn': [tok.decode([t]) for t in top],
+            'lens': [tok.decode([t]) for t in ltop]}
+
+
 res = {'dirs': {}}
 for di in range(4):
     dd = mdirs[di].contiguous()
