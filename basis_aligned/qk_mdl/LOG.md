@@ -2431,3 +2431,31 @@ per-token sparse coding wins and SVD (optimal single subspace) can't. explainer 
 updated with the side-by-side. ov_svd_baseline.py/json.
 
 Queue: CE-train routed champion; more Q&A.
+
+---
+
+## 2026-07-21 — tick 99 (OVD-3: batch-top-k "worse" is NOT a bug — resolved 3 ways)
+
+Logan's concern: batch-top-k should be >= per-token top-k but is sometimes worse
+(convergence/bug worry); + batch-size hypothesis; + wants adaptive+batch-topk routed.
+BUG found & owned: the FIRST train-curve job used a RELATIVE path and cwd-reset, so it
+never ran (stale 'done'). Re-run with absolute path.
+**FINDING OVD-3 (three-part resolution):**
+(1) Convergence: at 2500 steps FULL-BATCH the three shared schemes are within ~3% FVU
+(per-token k=16 0.354, batch full-batch 0.364, batch minibatch 8192 0.367) — the big
+sweep gaps were undertraining + the batch-size/threshold mismatch Logan guessed.
+(2) Batch size WAS a factor: batch-top-k's threshold is per-minibatch at train but
+full-vocab at eval; full-batch training removes the mismatch (0.367 → 0.364).
+(3) DECISIVE same-dictionary test (ov_sametest.py): one dict, same k*V budget, encode
+both ways → per-token 0.353 vs batch 0.403; batch STARVES 639 words to 0 atoms (per-row
+count min 0 / median 14 / max 81). So the premise "batch >= token" is FALSE for
+reconstruction: per-token gives each word its LOCALLY OPTIMAL k-term code; a global
+budget can only help heterogeneous per-word needs and HURTS starved words. Batch-top-k
+wins in SAEs (learned encoder + heterogeneous activation) but not for fixed-vector
+reconstruction where content is fairly uniform in per-word complexity.
+Routed done per Logan: adaptive group atoms (64-251 by size) + batch-top-k within each
+group; all 8 groups converge cleanly (per-group FVU 0.019-0.103). Training curves in
+results/fig_ov_training_curves.png. ov_train_curves.py, ov_sametest.py.
+
+Process note (again): background jobs MUST use absolute script paths (cwd resets) —
+this bit a 4th time. Added to the discipline.
