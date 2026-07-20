@@ -2609,3 +2609,19 @@ behavioral-true but not minimal — low-rank is minimal. Sharpens the selection/
 dichotomy into GEOMETRY: selection = single low-dim subspace (SVD wins); content = union
 of subspaces (sparse dict wins, SVD poor — rank-64 +0.13). fig_qk_cluster_vs_rank.png;
 explainer §6. qk_cluster_vs_rank.py/json.
+
+---
+
+## 2026-07-21 — tick 107 (backward-direction Q&A + the positive test: when does backward win?)
+
+Logan asked why the backward (unembedding-relative) direction failed (method E).
+Answered in explainer §7: backward only helps under ADVERSARIAL error consumption
+(some directions matter far more than others); method E's objects (token-static tables)
+have noise-filtered error (uniform robustness — vq1024 free, low-rank improves), so no
+asymmetry to exploit; also the unembedding metric sees only the direct linear path, not
+the deep nonlinear one; empirically Fisher + unembed + behavioral Lloyd all = forward L2.
+Positive prediction TESTED (backward_when_wins.py): forward SVD vs OUTPUT-GRADIENT-
+whitened (backward) SVD of the layer-0 value table (content is behaviorally SENSITIVE —
+carriage needs identity — the regime where direction SHOULD matter). rank r∈{4..64},
+real ΔCE. If backward < forward at small r → direction matters here, converting the
+method-E null into a characterization of WHEN backward wins.

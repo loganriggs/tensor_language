@@ -631,3 +631,39 @@ dictionary (a *union* of subspaces, not one subspace). So the two circuits diffe
 just in "classes versus identity" but in their fundamental geometry: selection lives in a
 single low-dimensional subspace; content lives in a union of many. That is why the right
 tool differs — singular value decomposition for selection, sparse dictionaries for content.
+
+## 7. Why the backward (unembedding-relative) direction failed
+
+You asked why starting from the unembedding and reducing backward failed (this was the
+"method E" arc). The reason is informative rather than a plain dead end.
+
+**A backward, output-relevance metric only helps when some error directions matter far
+more than others** — when there is an asymmetry to exploit by spending bits protecting the
+behaviourally-important directions and being sloppy elsewhere. For the objects we were
+compressing (token-static tables and their cluster assignments), the model turned out to
+be robust to activation-space error in a fairly *uniform* way: the quantization error acts
+like noise the downstream layers filter out. The same robustness shows up everywhere in
+the program (a 1,024-atom quantization is free; low-rank truncation *improves* things;
+denoising a head's content helps). When the error is uniformly-filtered noise there is no
+important-versus-unimportant asymmetry to exploit, so preserving activation-space geometry
+(the forward least-squares metric) is already optimal, and weighting by the unembedding
+adds nothing.
+
+**A second, technical reason** the specific unembedding metric was weak: projecting through
+the unembedding only sees the *direct linear path* to the logits, but the error propagates
+through many nonlinear layers first — so "unembedding-relative" was backward through the
+last linear map only, not through the whole computation.
+
+**The empirical verdict was clean:** three flavours of backward — the unembedding
+projection, a Fisher metric (true gradient-backward through the entire model), and direct
+behavioural refinement against the real cross-entropy — all converged into the same basin
+as plain forward least-squares, with k-means seed variance (~±0.03) larger than any metric
+effect (results/14).
+
+So the original intuition — that the unembedding-relative optimum should differ from the
+embedding-relative one — is correct *in principle* (different geometries); it just happens
+that for these objects the two optima coincide, because there is no adversarial error
+consumption to drive them apart. The falsifiable prediction that follows: on an object
+whose error IS consumed adversarially (systematic bias rather than filtered noise, or a
+few critical directions among many harmless ones), the backward metric should win. That
+is a positive, testable characterization of *when* direction matters — tested below.
