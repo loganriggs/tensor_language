@@ -1,0 +1,36 @@
+{
+  "d_model": 1152,
+  "m": 2048,
+  "k": 32,
+  "K_proj": 64,
+  "bonds": {
+    "bond3": {
+      "resid_fvu": 0.0812,
+      "write_span": 0.0685,
+      "random": 0.0556,
+      "self_ceiling": 0.1728,
+      "resid_eff_rank": 1055.2
+    },
+    "bond6": {
+      "resid_fvu": 0.0536,
+      "write_span": 0.0594,
+      "random": 0.0556,
+      "self_ceiling": 0.2004,
+      "resid_eff_rank": 1040.5
+    },
+    "bond10": {
+      "resid_fvu": 0.0695,
+      "write_span": 0.0583,
+      "random": 0.0556,
+      "self_ceiling": 0.1645,
+      "resid_eff_rank": 1071.5
+    },
+    "bond17": {
+      "resid_fvu": 0.0818,
+      "write_span": 0.0618,
+      "random": 0.0556,
+      "self_ceiling": 0.1589,
+      "resid_eff_rank": 1075.9
+    }
+  }
+}

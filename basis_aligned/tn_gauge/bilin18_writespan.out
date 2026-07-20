@@ -2,3 +2,8 @@ Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF
 [transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
 bilin18 d=1152, 20480 tokens, probing bonds [3, 6, 10, 17]
   bond | resid-FVU | write-span | random | self-ceiling | resid eff-rank
+   3   |  0.081   |   0.069   |  0.056 |    0.173    |  1055.2
+   6   |  0.054   |   0.059   |  0.056 |    0.200    |  1040.5
+  10   |  0.070   |   0.058   |  0.056 |    0.164    |  1071.5
+  17   |  0.082   |   0.062   |  0.056 |    0.159    |  1075.9
+bilin18 writespan done -> bilin18_writespan.json

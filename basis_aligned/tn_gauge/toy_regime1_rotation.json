@@ -1,0 +1,69 @@
+{
+  "baseline_ce": 1.7584,
+  "OV_floors": {
+    "L0.H0": {
+      "l1_before": 634.72,
+      "l1_after": 593.69,
+      "drop_pct": 6.5,
+      "hoyer_before": 0.202,
+      "hoyer_after": 0.254
+    },
+    "L0.H1": {
+      "l1_before": 601.34,
+      "l1_after": 562.85,
+      "drop_pct": 6.4,
+      "hoyer_before": 0.204,
+      "hoyer_after": 0.255
+    },
+    "L0.H2": {
+      "l1_before": 615.05,
+      "l1_after": 579.14,
+      "drop_pct": 5.8,
+      "hoyer_before": 0.204,
+      "hoyer_after": 0.251
+    },
+    "L0.H3": {
+      "l1_before": 690.27,
+      "l1_after": 643.11,
+      "drop_pct": 6.8,
+      "hoyer_before": 0.205,
+      "hoyer_after": 0.26
+    },
+    "L2.H0": {
+      "l1_before": 785.66,
+      "l1_after": 726.21,
+      "drop_pct": 7.6,
+      "hoyer_before": 0.206,
+      "hoyer_after": 0.267
+    },
+    "L2.H1": {
+      "l1_before": 830.74,
+      "l1_after": 769.44,
+      "drop_pct": 7.4,
+      "hoyer_before": 0.21,
+      "hoyer_after": 0.269
+    },
+    "L2.H2": {
+      "l1_before": 791.44,
+      "l1_after": 729.81,
+      "drop_pct": 7.8,
+      "hoyer_before": 0.202,
+      "hoyer_after": 0.265
+    },
+    "L2.H3": {
+      "l1_before": 759.39,
+      "l1_after": 702.08,
+      "drop_pct": 7.5,
+      "hoyer_before": 0.205,
+      "hoyer_after": 0.266
+    }
+  },
+  "notes": {
+    "mean_OV_L1_drop_pct": 7.0,
+    "QK": "free head rotation breaks CE (RoPE-constrained) - gate-0 check C2",
+    "MLP_hidden": "pinned by elementwise * (perm+scale only) - gate-0 check C3",
+    "residual_bond": "pinned to identity by end-pinning (embed rank=d) - floor from births, not rotation"
+  },
+  "ce_after_gauge": 1.758353,
+  "delta_ce": -2e-06
+}

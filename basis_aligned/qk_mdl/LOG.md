@@ -2733,3 +2733,29 @@ rank@90%-var ~150–260 of 1152 (13–22%), eff-rank ~530–650; most compressib
 
 Chained: bilin18_writespan.py (gate 2b on the flagship, dictionary on middle bonds) —
 the real atom-birth test now that there's genuine low-rank structure. GOALS.md F4/F5.
+
+---
+
+## 2026-07-20 — tick 113 (methodology correction: rotation FIRST; regime-1 floor; ladder reordered)
+
+Logan (2 msgs): gate 1/2 = decoder-only dictionary learning on activations (SAE minus
+encoder) — legal search, useful representability upper bound (~93% in 512 atoms), but
+NOT the construction (skipped the zero-CE baseline, tier-2/3 not tier-1, silently absorbs
+manufactured features). Reorder: rotation sweep → floors/budgets → weight-informed births
+→ propagation → activation-audit. Flagship write-span (bonds 3/6/10/17: write-span
+0.058–0.069 ≈ random 0.056) is CONFOUNDED by activation-training — NOT recorded as an
+atom-birth verdict.
+
+**F6 (toy_regime1_rotation.py):** exact per-head OV gauge Q∈O(d_head) maximizing
+||oQ||₄⁴+||Qᵀv||₄⁴; applied to all heads ΔCE=−2e-6 (exact). OV L1 drops only 5.8–7.8%
+(Hoyer 0.20→0.26) — OV bonds largely ROTATION-INCOMPRESSIBLE; ~93% L1 survives = the
+zero-CE floor / superposition measure; remaining sparsity must come from regime-2 births.
+**Positive control caught a dead optimizer:** L1-subgradient Cayley gave 0.3% on a
+planted-sparse control (should recover ~78%); switched to L4 ascent (plant 78%, random ~0)
+and rediscovered the true 7% floor. [[positive-controls-catch-solver-bugs]] again.
+
+DEVIATION FLAGGED: sweep runs on PRIVATE bonds not residual bonds — end-pinning both
+boundaries pins the shared residual interior (Q_ℓ=I), so residual sparsity comes from
+births not rotation; and private bonds being independent, regime 1 is parallel not swept
+(DMRG coupling enters in regime 2). Awaiting Logan confirm. Next: per-bond atom budgets
+from floors → weight-informed births (dedup/orthogonalized). GOALS.md F6 + reordered ladder.

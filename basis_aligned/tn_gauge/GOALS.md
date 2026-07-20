@@ -30,6 +30,25 @@ Layer `y = D(Lx ⊙ Rx)`, bond dictionary Φ (d×m), code `x ≈ Φc`, support `
 Learned object: **Φ only**. Derived (contractions of Φ with frozen weights):
 `ℓ_j,r_k,u_jk,w_jk`. Only non-tensor object: the discrete support field `s(x)`.
 
+## LADDER REORDERED (Logan 2026-07-20) — rotation first, activations demoted to audit
+Gate 1/2 (dictionary on activations) is decoder-only dictionary learning — a legal way
+to *search* for Φ and a useful **representability upper bound** (the stream is ~93%
+representable in 512 shared atoms), but it is NOT the construction: it skipped the
+zero-CE baseline that gives its numbers a denominator, lives at tier-2/3
+(distribution-dependent) when the program wants tier-1 weight-derived claims, and a Φ
+trained on every bond's activations *silently absorbs manufactured features as ordinary
+atoms*. Reordered per Logan:
+1. **Regime 1 — exact rotation sweep** (weight-only, ΔCE=0): per-bond core-L4/L1 gauge,
+   ends pinned to E/W_U. Report per-bond core sparsity + **floor** (= superposition
+   carried) → the zero-CE baseline AND stage 1 of Φ (its first d columns).
+2. **Per-bond atom budgets from the floors** → births from weight-side write directions,
+   nested over the rotation basis, **dedup/orthogonalized against the core** (DL depends
+   on it). Regime 2 = increment on regime 1, not a parallel arm.
+3. **Code propagation**, activation refits demoted to verification gates.
+4. **Rerun write-span vs the ROTATION-STAGE dictionary** (boundary-derived), where
+   manufactured features are genuinely absent and can show up — the activation-trained
+   run (F4/flagship) is confounded and is NOT an atom-birth verdict.
+
 ## Experiment ladder (gate each before the next)
 
 - **[0 DONE] Gauge primitives** (`toy_gauge_probe.py`). Residual bond is pinned by the
@@ -79,6 +98,28 @@ gauges; no deep-layer SAE; stays a tensor network.
   the 2× worst-case bound (input error not aligned with the amplifying directions),
   but depth-increasing — the Step-5 mechanism holds directionally.
 - Figure: `fig_code_propagation.png`.
+
+### F6 — regime 1: OV cores are ~7% rotation-sparsifiable (the zero-CE floor)
+`toy_regime1_rotation.py`. Per attention head, the exact value/output gauge
+Q∈O(d_head) maximizing ||o Q||₄⁴+||Qᵀ v||₄⁴ (L4/kurtosis rotation-to-sparsity).
+Applied to all heads it is an **exact gauge — ΔCE = −2e-6 ≈ 0**. L1 of the OV maps
+drops only **5.8–7.8%** (Hoyer 0.20→0.26); deeper layer L2 slightly more than L0. So
+the OV bonds are largely **rotation-incompressible** — a square orthonormal basis
+can't concentrate them; ~93% of the L1 survives. This ~7% is the honest zero-CE
+baseline and the per-bond superposition floor; the rest of the sparsity must come from
+overcompleteness (regime-2 births), which is exactly why the overcomplete arm exists.
+**Bug caught by control** (positive-controls lesson): the first optimizer (L1-subgradient
+Cayley) was dead (0.3% on a planted-sparse control that should recover ~78%); switching
+to L4 ascent passed plant (78% recovered) and random (invented none) controls. The 0.3%
+"floor" from the broken optimizer was discarded.
+
+DEVIATION FLAGGED (QUESTION FOR LOGAN): the sweep runs on per-layer PRIVATE bonds
+(OV free, QK RoPE-constrained, MLP-hidden pinned), not the residual bonds Logan's
+objective indexes — because pinning *both* ends of a shared residual bus (embed rank=d)
+pins the whole interior (gate-0 A/B), so interior residual Q_ℓ = I under end-pinning.
+The residual bond's Φ therefore gets sparsity from births, not rotation. Also: private
+bonds are independent, so regime 1 is parallel/one-shot, not an iterative sweep — the
+DMRG cross-bond coupling enters only in regime 2. Confirm this reinterpretation.
 
 ### F5 — the flagship HAS the low-rank stream the toy lacked (premise holds)
 `bilin18_actrank.py`, residual-stream effective rank vs depth (d=1152, 4096 tokens):
