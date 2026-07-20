@@ -1,0 +1,9 @@
+{
+  "baseline_ce": 3.2341102361679077,
+  "arms": {
+    "A linear-encoder per-token k=8": 0.1174,
+    "B OMP per-token (LS) k=8": 0.0616,
+    "C OMP batch (LS, marginal-error) avg-k=8": 0.0711,
+    "D Matryoshka per-token k=8": 0.1045
+  }
+}

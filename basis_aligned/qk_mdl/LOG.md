@@ -2578,3 +2578,18 @@ clustered tables to show clusters != rank). Answered inline: QK factor tables ar
 V×128, rank≤128=head_dim; 256 clusters ≈ free (+0.008); clusters are a stricter
 DISCRETE constraint than rank (k-cluster table has rank≤min(k,128)); inputs = V=50257
 per head × 9 heads, 128-dim each (clarified in explainer).
+
+---
+
+## 2026-07-21 — tick 105 (OVD-9: CE confirmation — LS is the win, batch's reconstruction edge does NOT survive to ΔCE)
+
+**FINDING OVD-9 (corrects OVD-7's "validated in full"):** binding ΔCE, all heads, k=8:
+linear-encoder per-token +0.117; OMP per-token (LS) +0.062; OMP batch (LS, marginal-
+error) +0.071; Matryoshka per-token +0.105. Two honest results: (1) the LARGE win is
+LS coefficients (OMP), nearly halving loss (+0.117→+0.062) — batch-vs-per-token is a
+sideshow. (2) Batch WON reconstruction (head-0 FVU 0.389<0.401) but LOSES at ΔCE
+(+0.071>+0.062) — reconstruction≠behavior dissociation (same as pattern-MSE being a
+useless ΔCE predictor). Logan's intuition validated for RECONSTRUCTION, not the binding
+metric. Recommendation: per-token OMP (or per-token top-k cheap). Matryoshka ΔCE ~ plain
+linear (+0.105); its value = hierarchy/adaptive depth, not peak loss. explainer §5
+corrected. ov_omp_matry_ce.py/json. (qk_cluster_vs_rank.py still running behind.)

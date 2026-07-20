@@ -545,3 +545,39 @@ version of the flexible sparsity batch-top-k was reaching for: instead of an arb
 per-word atom set, give easy words a short prefix and hard words a long one — adaptive
 *depth* in a single ordered dictionary, which is both more interpretable (early atoms =
 general, late atoms = specific) and cheaper to index than an arbitrary support.
+
+### Cross-entropy confirmation — reconstruction win ≠ behavioral win (a correction)
+
+The least-squares/orthogonal-matching-pursuit and Matryoshka numbers above were
+*reconstruction* fit on one head. Confirming them at the binding metric — real
+cross-entropy, all nine heads — sharpens the story and partly walks back my "validated
+in full" from the reconstruction result:
+
+| scheme (all heads, k=8) | cross-entropy increase |
+|---|---|
+| linear-encoder per-token top-k (the cheap encoder) | +0.117 |
+| **orthogonal matching pursuit per-token, least-squares (fixed k=8)** | **+0.062** |
+| orthogonal matching pursuit batch, least-squares, marginal-error (average 8) | +0.071 |
+| Matryoshka, per-token top-k | +0.105 |
+
+Two honest conclusions:
+
+1. **The real, large win is the least-squares coefficients, not the batch allocation.**
+   Replacing the cheap linear encoder with proper orthogonal-matching-pursuit /
+   least-squares coefficients nearly *halves* the loss (+0.117 → +0.062). That is the
+   actionable finding for content compression.
+
+2. **Batch allocation won on reconstruction but LOSES at the binding metric**
+   (+0.071 versus +0.062 for per-token). So your intuition holds for reconstruction
+   error — with proper coefficients, flexible global allocation genuinely lowers total
+   reconstruction — but that improvement does *not* translate to model behaviour: the
+   words batch reallocates budget toward are not the ones that most affect the
+   prediction, and the small-norm words it starves apparently do matter behaviourally
+   even though their reconstruction error is tiny. This is the program's recurring
+   reconstruction-versus-cross-entropy dissociation (the same reason pattern-mean-squared-
+   error is a useless predictor of behavioural cost elsewhere), now inside the content
+   dictionary. The binding-metric recommendation is therefore **per-token orthogonal
+   matching pursuit** (or plain per-token top-k for a cheap one-shot encoder).
+
+Matryoshka at the binding metric (+0.105) is about the same as the plain linear encoder —
+its value is the nested hierarchy and adaptive depth, not a lower peak loss.
