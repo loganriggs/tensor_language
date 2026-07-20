@@ -2927,3 +2927,21 @@ E minor low-rank; 6/9 blocks recover model) but NOT compressible WITHIN M (M hig
 in both variance F14 and interaction F15 bases). Clean finding = WHICH sources interact (layer-1
 selects on bilinear-output self-interaction), not a low-atom code for M. Remaining optional
 avenue: a LEARNED interaction-sparse basis (direct optimization) vs low-rank/variance. GOALS.md F15.
+
+## 2026-07-20 — tick 121 (F16: M high-RANK but SPARSE in a learned basis - the interaction decomposition EXISTS)
+
+toy_qk1_learned_basis.py (the "stronger technique"): L4-optimize a full O(D) rotation of the
+M-input basis to sparsify attn2 QK reads [q1;k1;q2;k2]. Gated by planted control (recovers 87%
+of 89% optimum; random -1.8%). Reads sparsify 24.7% L1, Hoyer 0.24->0.43 (vs regime-1 head-dim
+7%/1.4%). BINDING (prune reads, ΔCE): keep 50% learned +0.057 vs original +0.17; keep 25%
+learned +0.14 vs original +1.95 (14x better); keep 12.5% learned +0.45. => M is high-RANK
+(F14/F15 can't low-rank it) but SPARSE in the right basis - a sparse-not-low-rank structure
+variance+SVD both miss. The interaction-sparse decomposition Logan wanted EXISTS. MDL honest:
+keep-25% reads + basis V ~1.0Mbit @ +0.14 ~ low-rank r16 (0.52Mbit @ +0.16) - not a bits win
+but the sparse interpretable structure, prunes far better than naive basis. Updates F15
+intrinsic-lean -> basis-dependent. GOALS.md F16.
+
+Steered task (F13-F16) COMPLETE: layer-1 QK sparse at source level (M×M dominant) AND M sparse
+in a learned basis (high-rank but sparse-not-low-rank). Optional next: flagship confirm; or the
+per-source atom-interaction GRAPH (which M-atoms interact with which E-atoms) now that a sparse
+M-basis exists.

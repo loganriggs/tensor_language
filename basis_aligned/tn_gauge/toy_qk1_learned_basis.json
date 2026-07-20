@@ -1,0 +1,24 @@
+{
+  "l1_before": 4852.11,
+  "l1_after": 3652.63,
+  "l1_drop_pct": 24.72,
+  "hoyer_before": 0.244,
+  "hoyer_after": 0.432,
+  "orth_err": 0.000588536262512207,
+  "verdict": "basis-dependent: learned basis sparsifies the QK reads of M",
+  "prune_dce": {
+    "original_basis": {
+      "0.5": 0.1707,
+      "0.25": 1.9477,
+      "0.125": 3.4433,
+      "0.0625": 3.076
+    },
+    "learned_basis": {
+      "0.5": 0.0569,
+      "0.25": 0.1391,
+      "0.125": 0.451,
+      "0.0625": 0.7998
+    }
+  },
+  "learned_helps_pruning": true
+}

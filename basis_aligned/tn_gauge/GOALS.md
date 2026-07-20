@@ -99,6 +99,29 @@ gauges; no deep-layer SAE; stays a tensor network.
   but depth-increasing — the Step-5 mechanism holds directionally.
 - Figure: `fig_code_propagation.png`.
 
+### F16 — M is high-RANK but SPARSE in a learned basis: the interaction decomposition exists
+`toy_qk1_learned_basis.py`. The remaining avenue after F13–F15: directly optimize (L4
+rotation-to-sparsity, gated by a planted control that recovers 87% of an 89% optimum) a full
+O(D) rotation of the M-input basis to sparsify attn2's stacked query/key read maps
+[q1;k1;q2;k2]. **The reads sparsify 24.7% in L1, Hoyer 0.24→0.43** — far beyond the head-dim
+rotations (regime-1 OV 7%, QK 1.4%). Binding check (prune reads by magnitude, ΔCE):
+
+| keep | original-basis ΔCE | learned-basis ΔCE |
+|---|---|---|
+| 50% | +0.17 | +0.057 |
+| 25% | +1.95 | **+0.14** |
+| 12.5% | +3.44 | +0.45 |
+
+The learned basis prunes **14× better** at 25% and lets you drop 75% of the read weights for
++0.14 nats. So M's selection-relevance is high-*rank* (F14/F15 can't low-rank it) but **sparse
+in the right basis** — a sparse, not low-rank, structure that variance (F14) and SVD (F15)
+both miss. **The interaction-sparse decomposition Logan wanted exists**, found by the stronger
+direct optimization. MDL (honest): keep-25% reads (~16k nonzeros) + the basis V (128×128 ≈16k
+floats) ≈ 1.0 Mbit for +0.14, comparable to low-rank r=16 (0.52 Mbit, +0.16) — so it's not a
+bits win over low-rank, but it is the *sparse interpretable* structure (each M-atom drives few
+query/key components) and it prunes vastly better than the naive basis. Updates F15's
+"intrinsic" lean → basis-dependent.
+
 ### F15 — layer-1 QK is ~rank-64 in the interaction basis (a Pareto trade, not a free reduction)
 `toy_qk1_lowrank.py`. Low-rank-reduce attn2's QK maps (q1,k1,q2,k2) to rank r — which is
 decomposing every source in the interaction basis and keeping r atoms — ΔCE vs r + bits:
