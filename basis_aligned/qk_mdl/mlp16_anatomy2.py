@@ -1,4 +1,9 @@
-"""MLP16 ANATOMY, experiment 1 (Logan's pick 2026-07-20): the gain
+"""MLP16 ANATOMY, experiment 2: DATA-WHITENED spectrum + stream-pair split.
+MA-1: weight-space M_d is high-rank (~600); behavioral gain is rank-4-16 →
+the concentration must be in the data. Compute Sigma (cov of mlp16 INPUT
+x_hat over data), whitened form W = Sigma^1/2 M Sigma^1/2, spectrum + named
+top data-space features; plus EXACT stream-pair variance split of c_d.
+Original exp 1 (Logan's pick 2026-07-20): the gain
 coefficient of output direction d is the EXACT quadratic form
   c_d(x) = x_hat^T M_d x_hat + d.b_D,   M_d = sum_j (W_D^T d)_j W_L[j] (x) W_R[j].
 GATE: reproduce live coefficients to fp tolerance. Then:
@@ -19,7 +24,7 @@ from transformers import AutoTokenizer
 torch.manual_seed(0)
 DEV = 'cuda'
 QK = '/workspace/tensor_language/basis_aligned/qk_mdl'
-OUT = f'{QK}/mlp16_anatomy.json'
+OUT = f'{QK}/mlp16_anatomy2.json'
 m, cfg = load_elriggs('bilin18')
 NH, HD, D = cfg['n_head'], cfg['n_embd'] // cfg['n_head'], cfg['n_embd']
 V = cfg['vocab_size']
@@ -170,38 +175,70 @@ gate = float((c_form - c_live).abs().max() / c_live.abs().max().clamp_min(1e-9))
 print(f'GATE rel-max dev: {gate:.2e} {"PASS" if gate < 1e-3 else "FAIL"}', flush=True)
 assert gate < 1e-3, 'quadratic form gate failed'
 
-res = {'gate_relmax': gate, 'dirs': {}}
-CLSc = CLS
-E_hat_c = E_hat.cpu()
-U_c = m.lm_head.weight.detach().float().cpu()
 
+# ---- Sigma of the mlp16 input over data ----
+S = torch.zeros(D, D, device=DEV)
+mu = torch.zeros(D, device=DEV)
+nS = 0
+with torch.no_grad():
+    for i0 in range(0, 48, 4):
+        id2 = EST[i0:i0 + 4].to(DEV)
+        B2, T2 = id2.shape
+        x = m.transformer.wte(id2); x = F.rms_norm(x, (x.size(-1),))
+        x0, v1 = x, None
+        maskT = torch.tril(torch.ones(T2, T2, device=DEV, dtype=torch.bool))
+        cos, sin = rope_tables(T2, HD, DEV, x.dtype, 'bf16')
+        cosb, sinb = cos[None, :, None, :], sin[None, :, None, :]
+        for li, blk in enumerate(m.transformer.h):
+            x = blk.lambdas[0] * x + blk.lambdas[1] * x0
+            a = blk.attn
+            h = F.rms_norm(x, (x.size(-1),))
+            qn = lambda lin: apply_rot(F.rms_norm(lin(h).view(B2, T2, NH, HD), (HD,)), cosb, sinb)
+            q, k, q2, k2 = qn(a.c_q), qn(a.c_k), qn(a.c_q2), qn(a.c_k2)
+            v = a.c_v(h).view(B2, T2, NH, HD)
+            v1 = v if v1 is None else v1
+            v = (1 - a.lamb) * v + a.lamb * v1.view_as(v)
+            s1 = torch.einsum('bqhd,bkhd->bhqk', q, k) / HD
+            s2 = torch.einsum('bqhd,bkhd->bhqk', q2, k2) / HD
+            pat = (s1 * s2).masked_fill(~maskT, 0.0)
+            x = x + a.c_proj(torch.einsum('bhqk,bkhd->bqhd', pat, v).reshape(B2, T2, -1))
+            if li == 16:
+                rms2 = x.pow(2).mean(-1, keepdim=True).clamp_min(1e-12).rsqrt()
+                xh = (x * rms2).float().reshape(-1, D)
+                S += xh.T @ xh
+                mu += xh.sum(0)
+                nS += xh.shape[0]
+                break
+            x = x + blk.mlp(F.rms_norm(x, (x.size(-1),)))
+mu = mu / nS
+S = S / nS - torch.outer(mu, mu)
+evS, evecS = torch.linalg.eigh(S.cpu().double())
+Shalf = (evecS * evS.clamp_min(1e-10).sqrt()) @ evecS.T          # Sigma^1/2
+print('Sigma built', flush=True)
 
-def name_vec(v):
-    sims = F.cosine_similarity(E_hat_c, v.cpu()[None], dim=1)
-    top = sims.abs().topk(4).indices.tolist()
-    lens = F.rms_norm(v.cpu()[None], (D,)) @ U_c.T
-    ltop = lens[0].abs().topk(4).indices.tolist()
-    return {'emb_nn': [tok.decode([t]) for t in top],
-            'lens': [tok.decode([t]) for t in ltop]}
-
+res = {'dirs': {}}
 for di in range(4):
     dd = mdirs[di].contiguous()
     M, bconst = quad_form(dd)
-    evals, evecs = torch.linalg.eigh(M.cpu().double())
-    evals = evals.float(); evecs = evecs.float()
-    lam = evals.flip(0)
+    W = Shalf @ M.cpu().double() @ Shalf
+    lamW, vecW = torch.linalg.eigh(0.5 * (W + W.T))
+    lam = lamW.float()
     pr = float((lam.abs().sum() ** 2) / (len(lam) * (lam ** 2).sum()))
-    idx_srt = evals.abs().argsort(descending=True)
-    top_named = []
+    order = lam.abs().argsort(descending=True)
+    named = []
     for r in range(3):
-        vvec = evecs[:, idx_srt[r]]
-        top_named.append({'lambda': round(float(evals[idx_srt[r]]), 2), **name_vec(vvec)})
-    entry = {'eff_rank_PR': round(pr * len(lam), 1),
-             'top_abs_lambdas': [round(float(evals[idx_srt[r]]), 2) for r in range(8)],
-             'top_eigvecs': top_named}
-    res['dirs'][f'dir{di}'] = entry
-    print(f"dir{di}: eff-rank {entry['eff_rank_PR']} lambdas {entry['top_abs_lambdas'][:4]}", flush=True)
-    print(f"  ev0: emb_nn {top_named[0]['emb_nn']} lens {top_named[0]['lens']}", flush=True)
+        vdata = (Shalf @ vecW[:, order[r]].double()).float()      # back to raw space
+        vdata = F.normalize(vdata, dim=0)
+        named.append({'lambda': round(float(lam[order[r]]), 3), **name_vec(vdata)})
+    top8 = [round(float(lam[order[r]]), 3) for r in range(8)]
+    share2 = float(lam[order[:2]].abs().sum() / lam.abs().sum())
+    share8 = float(lam[order[:8]].abs().sum() / lam.abs().sum())
+    res['dirs'][f'dir{di}'] = {'eff_rank_whitened': round(pr * len(lam), 1),
+                               'top8_lambdas': top8,
+                               'share_top2': round(share2, 3), 'share_top8': round(share8, 3),
+                               'top_features': named}
+    print(f'dir{di}: whitened eff-rank {pr*len(lam):.1f} share_top8 {share8:.2f} '
+          f'| ev0 emb_nn {named[0]["emb_nn"]}', flush=True)
     with open(OUT, 'w') as fh:
         json.dump(res, fh, indent=2)
-print('mlp16 anatomy exp1 done', flush=True)
+print('mlp16 anatomy exp2 done', flush=True)

@@ -2286,3 +2286,19 @@ c_d over data (which stream interactions compute the state); (5) rank-r causal
 replacement (ΔCE + coefficient R²); then upstream: what WRITES the driving streams.
 mlp16_anatomy.py (exp 1: gate + eigen-anatomy + naming) launched; cron restored to
 30-min (84478c16).
+
+---
+
+## 2026-07-21 — tick 90b (MA-1: form exact, weight-space DENSE; whitened anatomy running)
+
+**FINDING MA-1:** the quadratic-form identity GATES exactly (rel-max 8.3e-07) — every
+mlp16 gain is a closed-form weight object. But sym(M_d) is HIGH-rank (eff. rank
+580–640 of 1152) for all four dirs: the rank-4-16 behavioral gain is NOT a weight-
+space property; it must be DATA concentration (the L16 residual distribution excites
+a thin slice of a dense form). Weight-space ev0 names are already suggestive (dir0:
+sentence-final punctuation '.',').','!','?' — citation-boundary structure).
+mlp16_anatomy.py/json.
+
+Running: exp2 (mlp16_anatomy2.py) — data-whitened spectrum Σ^½M_dΣ^½ (does eff-rank
+collapse to ~4-16?), top data-space features named. Then: exact stream-pair split of
+c_d; rank-r causal replacement.
