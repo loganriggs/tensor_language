@@ -358,3 +358,38 @@ Two honest corrections to what the sweep suggested:
 The methodological lesson (worth keeping): compression-scheme comparisons must be made at
 convergence. An undertrained baseline can make a fancier scheme look far better than it
 is; here it inflated a ~0.09-nat "win" that is really ~0.005 at more bits.
+
+### The fair routing test — routing does NOT help (final correction)
+
+The last loose end: the routed scheme had been tested with the *weaker* batch-top-k
+encoder inside each group, and against a single dictionary with *fewer* atoms. The fair
+comparison puts everything on the strong per-token encoder, converged, and matches the
+atom budget (a single dictionary of 512 uses 512 atoms; eight groups of 128 use 1,024
+total, so the honest single-dictionary reference also gets 1,024):
+
+| scheme (per-token k=8, converged) | cross-entropy increase | size |
+|---|---|---|
+| single dictionary, 512 atoms | +0.125 | 167 Mbit |
+| routed, 8 groups × 128 (uniform) | +0.101 | 183 |
+| routed, 8 groups, adaptive sizes | +0.128 | 192 |
+| **single dictionary, 1,024 atoms** | **+0.079** | 190 |
+
+**Routing loses at matched bits.** A single dictionary of 1,024 atoms (+0.079) beats
+both routed variants (+0.101, +0.128) at the same or fewer bits — even though the routed
+scheme has *cheaper* per-coefficient indices (choosing among 128 group-atoms costs 7 bits
+versus 10 for 1,024). The reason is intuitive in hindsight: confining each word to its
+own group's 128 atoms is *wasteful*, because a word's best-fitting atoms often lie across
+group boundaries — a shared overcomplete dictionary lets every word draw from all 1,024,
+and that freedom is worth more than the specialization. The union-of-subspaces structure
+of content does not line up with an embedding-based partition of the vocabulary.
+
+**So the two-part honest conclusion of this whole exploration:**
+
+1. The efficient scheme for layer-0 content is the *simplest* one: a **single shared
+   dictionary with per-token top-k**, scaled in atom count and sparsity to the bit budget.
+   Batch-top-k does not help (per-token gives each word its locally optimal code), and
+   routing does not help (group-confinement wastes the atom budget).
+2. Both fancier schemes *looked* better only under an undertrained baseline; at
+   convergence and matched bits they lose. The methodological rule this reinforces:
+   never rank compression schemes without training every arm to convergence and matching
+   both bits and encoder strength.

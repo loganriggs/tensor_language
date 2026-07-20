@@ -1,0 +1,21 @@
+{
+  "baseline_ce": 3.2341102361679077,
+  "arms": {
+    "single dict n=512, per-token k=8": {
+      "dce": 0.1246,
+      "Mbits": 167.4
+    },
+    "routed G=8 uniform n_g=128, per-token k=8": {
+      "dce": 0.1006,
+      "Mbits": 182.8
+    },
+    "routed G=8 adaptive n_g, per-token k=8": {
+      "dce": 0.1284,
+      "Mbits": 191.6
+    },
+    "single dict n=1024, per-token k=8 (bits-matched to routed)": {
+      "dce": 0.0792,
+      "Mbits": 189.9
+    }
+  }
+}

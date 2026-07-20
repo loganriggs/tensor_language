@@ -2496,3 +2496,26 @@ full-batch, real ΔCE — single dict n=512, routed uniform n_g=128, routed adap
 plus a bits-matched single dict n=1024 (routed uses ~8x128 atoms vs single 512, so the
 fair single-dict reference should also have more atoms). Settles whether routing
 genuinely beats a single dictionary at MATCHED bits with a MATCHED (strong) encoder.
+
+---
+
+## 2026-07-21 — tick 101b (OVD-5: routing LOSES at matched bits — full correction; step-back)
+
+**FINDING OVD-5 (clean negative, overturns the routing claim):** fair converged
+matched-bits per-token comparison — single dict n=512 +0.125@167M; routed uniform
+n_g=128 +0.101@183M; routed adaptive +0.128@192M; **single dict n=1024 +0.079@190M**.
+The bits-matched single dictionary BEATS both routed variants (+0.079 vs +0.101/+0.128)
+at same-or-fewer bits, despite routed's cheaper indices. Routing HURTS: group-confining
+each word to 128 atoms wastes budget vs a shared 1024 any word can draw from —
+union-of-subspaces content doesn't align with embedding-class partition. Adaptive sizing
+also worse than uniform (small groups starved). FULL correction of OVD-1's "routed
+wins" (which was undertraining + atom-inflation). Final recommendation: single shared
+dict + per-token top-k, scale n & k — batch and routing both fail to help. explainer §5
+final. ov_routed_fair.py/json.
+
+STEP-BACK (tick ~4 cadence): the OV-dictionary Q&A arc is COMPLETE and self-correcting —
+OVD-1..5 walked from "routed/batch win" to the honest "single per-token dict is best,"
+each correction forced by convergence + matched-bits + decisive controls (same-dict
+test, bits-matched reference). Deliverables: temp_explainer.md §5 (definition, forward
+pass, all schemes, SVD baseline, training curves, converged corrections), 2 figures,
+7 experiment scripts. Queue: await Logan (more Q&A / new direction). GPU idle at rest.
