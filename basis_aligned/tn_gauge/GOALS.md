@@ -99,6 +99,18 @@ gauges; no deep-layer SAE; stays a tensor network.
   but depth-increasing — the Step-5 mechanism holds directionally.
 - Figure: `fig_code_propagation.png`.
 
+### F20 — what layer-1 selection DOES: predominantly long-range content-based, a few local heads
+`bilin18_layer1_pattern.py` (forward = reference exactly). Characterize h[1]'s attention pattern
+(unnormalized bilinear; use |pat| normalized per query as read-weight). Read-weight by relative
+offset, mean over heads: **local (offset ≤2) 0.23, long-range (offset >8) 0.62**. Per head:
+most (0/2/4/6/8) are long-range (65–84% of weight beyond offset 8); head 1 is local (0.63 within
+offset ≤2); heads 3/5 are previous-token-ish (peak at offset 1 ~44% of queries). So the special
+layer-1 selection — which runs on the bilinear output (F13/F18) — implements a **predominantly
+long-range, content-based read**, not a positional/induction rule, with a minority of local heads.
+Consistent with reading M richly/high-dimensionally (F14–F16): the selection is content-based and
+global. A fraction-of-weight sanity check (>1 impossible) caught a normalization bug before the
+wrong "local" verdict was reported.
+
 ### F19 — the bilinear-output selection is LAYER-1-SPECIFIC; deep-layer selection is distributed
 `bilin18_depth_sources.py` (bounded depth-generalization of F18, forward = reference exactly).
 For block L, ablate block L-1's mlp vs attn write from L's QK input, ΔCE:

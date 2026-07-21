@@ -2991,3 +2991,16 @@ tn_gauge layer-1-QK arc (F13-F19) complete: layer-1 selection runs on the biline
 dependent (toy learned-basis F16 = artifact; flagship directly sparse F17); and the phenomenon
 is early-layer-specific (F19). Gate discipline caught multiple bugs (dead optimizer, per-layer
 gauge, forward x2). Nothing running.
+
+## 2026-07-21 — tick 125 (F20: layer-1 selection mechanism - predominantly long-range content-based)
+
+bilin18_layer1_pattern.py (forward=reference): h[1] attention read-weight by relative offset
+(|pat| normalized per query). Local(<=2) 0.23, long-range(>8) 0.62. Most heads (0/2/4/6/8)
+long-range (65-84% beyond offset 8); head 1 local (0.63 within <=2); heads 3/5 prev-token-ish
+(peak@offset1 ~44%). So the special layer-1 selection (runs on bilinear output, F13/F18)
+implements a predominantly LONG-RANGE CONTENT-BASED read, not positional/induction - consistent
+with reading M richly (F14-16). Sanity check (fraction>1 impossible) caught a normalization bug
+before the wrong 'local' verdict. GOALS.md F20.
+
+Layer-1-QK arc now fully characterized (F13-F20): sources (bilinear output), depth-scope (layer-1
+-specific), mechanism (long-range content-based). Nothing running.
