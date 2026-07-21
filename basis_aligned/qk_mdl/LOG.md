@@ -3134,3 +3134,16 @@ on,as,at); class38 auxiliaries/copula (is,was,are,be,have,had,were,been); class2
 SYNTACTIC/grammatical structure. Data-validated attention co-occurrence (real pairs only): mix of local
 (subword-completion 'ctions'->'fun', 'urs'->'Occ'; previous-token) and content. qualitative_examples_qk1.md.
 The 'features relative to input' Logan wanted = grammatical categories. GOALS.md F31.
+
+## 2026-07-21 — tick 137 (F32: cross-term reduction - attended tokens reduce to ~16-64 interpretable classes for QK-1; data-validated)
+
+bilin18_crossterm.py (Logan cross-term/OV-relative-to-QK1, gate 2.9347=ref Δ0): cluster layer-0 value
+table (attended tokens) into K classes, re-aggregate through REAL block-0 attention (data validation),
+ΔCE on layer-1 QK. Raw-value: K16 +0.043, K64 +0.056, K256 +0.026. So the ATTENDED-token vocab reduces
+to ~16-64 equivalence classes for QK-1's context part (coarser than current-token side, fits 18% context).
+Classes interpretable (crossterm_value_classes.md): numbers (1,3,10,8,...), wh-words/demonstratives
+(that,what,this,how,where,which,who), quantifiers/degree (some,not,more,other,very,all,many). HONEST
+NEGATIVE: my linear QK1-effect proxy (value->Down->Right->QK reads) did NOT beat raw-value clustering
+(K16 +0.142 vs +0.043) - can't confirm Logan's 'composed features beat individual'; the true cross-term
+is bilinear + current-token-dependent, so a linear path-proxy is too crude. A proper composed metric
+(joint current×attended, or bilinear path) is needed to test that claim. GOALS.md F32.

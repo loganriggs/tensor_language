@@ -685,3 +685,16 @@ the input" are grammatical categories. Data-validated attention (real co-occurri
 of local (subword-completion `ctions`→`fun`, `urs`→`Occ`; previous-token) and content attention. This
 is the interpretability payoff of the arc: the input-relative reduction (F30) yields linguistically
 meaningful token classes.
+
+### F32 — cross-term reduction: attended tokens reduce to ~16-64 interpretable classes for QK-1 (data-validated)
+`bilin18_crossterm.py` + `crossterm_value_classes.md` (gate 2.9347 = reference, Δ0). The 18% context part
+of layer-1 QK (F30) comes from attended tokens via OV. Cluster the layer-0 value table into K classes,
+re-aggregate through the REAL block-0 attention (data validation — only pairs that occur), ΔCE on layer-1
+QK: raw-value K=16 +0.043, K=64 +0.056, K=256 +0.026. **The attended-token vocab reduces to ~16-64
+equivalence classes** for QK-1's context — coarser than the current-token side (fits: context is only 18%).
+Classes are interpretable: numbers (`1 3 10 8`), wh-words/demonstratives (`that what this how where which
+who`), quantifiers/degree (`some not more other very all many`). **Honest negative:** a linear
+QK-1-effect proxy (value → Down → Right → QK reads) did NOT beat raw-value clustering (K=16 +0.14 vs
++0.04), so Logan's "composed features beat individual" is NOT confirmed here — the true cross-term is
+bilinear and current-token-dependent, so a linear path-proxy is too crude; a proper composed metric
+(joint current×attended through the bilinear path) is the right next test.

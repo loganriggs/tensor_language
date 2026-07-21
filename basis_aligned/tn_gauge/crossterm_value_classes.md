@@ -1,0 +1,18 @@
+# Layer-0 OV value classes relative to layer-1 QK (attended-token equivalence classes)
+
+- class 29 (472): '\n', '>', ',', '\r', ' to', ' I', ' of', '�', ' and', ' it', '�', 'description'
+- class 17 (334): '.', ' the', ' a', 'name', 'ype', 'urs', ' is', ' in', ' for', ' with', ' game', ' are'
+- class 22 (265): ' ', '="', ' was', 's', '-', 'PD', '">', ' time', ' (', ' as', '�', ' be'
+- class 15 (94): '0', ' max', ' some', ' not', ' more', ' other', ' very', ' all', ' well', ' many', ' much', ' great'
+- class 20 (33): '1', '3', ' 10', '8', ' 3', ' 5', '2', '4', '5', '6', '7', '9'
+- class 8 (19): ' that', ' what', ' this', ' how', ' where', ' which', ' who', 'who', ' That', 'This', ' This', 'Which'
+- class 12 (8): ' going', ' went', ' goes', ' go', 'go', ' heads', ' gone', ' 2007'
+- class 18 (6): 'Surv', 'ival', ' surviving', ' Survival', ' compare', ' survive'
+- class 28 (6): ' <', '</', ' </', 'xml', '<', '.</'
+- class 0 (5): ' trip', ' vacation', ' tour', ' Trip', 'apse'
+- class 13 (4): ' hard', ' easier', ' hardest', ' easy'
+- class 1 (4): ' there', ' here', ' There', 'There'
+- class 23 (4): ' development', 'Development', ' developers', ' develop'
+- class 10 (3): ' conquer', ' conquering', ' conquered'
+- class 14 (3): ' –', ' —', ' -'
+- class 6 (3): ' complete', ' fully', ' full'
