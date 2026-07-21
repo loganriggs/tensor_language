@@ -3049,3 +3049,14 @@ subspace at every depth; identifying it (data-driven whitened-optimal) unlocks c
 M-subspace was a layer-1 shadow. Bug caught by layer-1 sanity check (whitening C^{1/2} vs C^{-1/2}
 inverted -> USED was +2.5 catastrophic; fixed -> -0.0006). Beats F21 frontier decisively+generally.
 Next: full r-frontier; interpretability of the used directions. GOALS.md F24.
+
+## 2026-07-21 — tick 130 (F25: HELD-OUT frontier confirms F24 not overfitting; used-subspace dominates)
+
+bilin18_used_frontier.py + fig_used_frontier.png: F24 gate - fit used-subspace on TRAIN token
+windows, ΔCE on DISJOINT HELD-OUT windows (test baseline 3.68). L1 held-out: r16 +0.022, r64
++0.007, r128 +0.002, r256 -0.0006 (generic low-rank r16 +0.97, r128 +0.076). L9 held-out: r16
++0.011, r64 +0.007, r128 +0.005 (generic r128 +0.016). Used-subspace DOMINATES generic low-rank
+out-of-sample at every rank, both layers (single-source L1 + distributed L9), and cheaper (5rD vs
+8rD). In-sample->held-out gap tiny (L1 r128 -0.0006->+0.002) => F24 NOT overfitting. Real general
+held-out-validated activation-aware QK compression: ~14% raw bits @ +0.002-0.005 held-out every
+depth. Applied the held-out rule (positive-controls). GOALS.md F25.

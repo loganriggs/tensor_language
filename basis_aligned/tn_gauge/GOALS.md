@@ -99,6 +99,27 @@ gauges; no deep-layer SAE; stays a tensor network.
   but depth-increasing — the Step-5 mechanism holds directionally.
 - Figure: `fig_code_propagation.png`.
 
+### F25 — HELD-OUT frontier confirms F24 is real (not overfitting); used-subspace dominates
+`bilin18_used_frontier.py` + `fig_used_frontier.png`. F24's used-subspace was fit on the same
+tokens ΔCE was measured on (in-sample — the positive-controls trap). Here: fit on TRAIN token
+windows, measure ΔCE on DISJOINT HELD-OUT windows, full r-frontier (baseline CE on test 3.68).
+
+| | r=16 | r=64 | r=128 | r=256 |
+|---|---|---|---|---|
+| **L1 used (held-out)** | +0.022 | +0.007 | +0.002 | −0.0006 |
+| L1 generic low-rank | +0.97 | +0.13 | +0.076 | +0.035 |
+| **L9 used (held-out)** | +0.011 | +0.007 | +0.005 | +0.002 |
+| L9 generic low-rank | +0.034 | +0.018 | +0.016 | +0.007 |
+
+**The used-subspace still dominates generic low-rank out-of-sample at every rank and both layers**
+(single-source L1 and distributed L9), and it's cheaper (5rD vs 8rD). The in-sample→held-out gap
+is tiny (L1 r=128: −0.0006 → +0.002), so **F24 was not overfitting** — it is a real, general,
+held-out-validated activation-aware compression: query/key maps compress to ~14% of raw bits
+(r=128) for +0.002–0.005 held-out at every depth, or ~7% (r=64) for +0.007. The used-subspace
+frontier strictly dominates the generic-low-rank frontier (F21) on both axes, held-out. This is
+the banked, validated general result. Next: interpretability of the used directions; and whether
+the same activation-aware trick helps the value/output side.
+
 ### F24 — the GENERAL method: activation-aware used-subspace QK compression beats the frontier at ALL depths
 `bilin18_used_subspace.py`. F22 (M-subspace) was a layer-1 proxy for the true "used subspace";
 F23 showed the single-source projection doesn't generalize. The general version: the optimal
