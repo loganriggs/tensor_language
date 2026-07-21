@@ -626,3 +626,24 @@ and depth-dependent: OV and QK are low-dim everywhere; the early bilinear layer 
 activation-aware advantage over generic low-rank is largest where activations are skewed (OV, QK),
 small for the bilinear gates. Answers task 3: reductions exist for OV (like QK) but not the early
 bilinear layer's input.
+
+### F28 — Task 2: WEIGHT-ONLY info identifies the QK-null of the bilinear layer
+`bilin18_qk1_bilinear_null.py` (gate: patch-forward = reference to 5e-6). Block-0 bilinear layer has
+4608 hidden units; unit i outputs along Down[:,i]; layer-1 QK reads it with weight-only strength
+‖R·Down[:,i]‖ (R = QK reads). Keep top-k by score, subtract dropped units from the QK input, ΔCE:
+
+| keep k / 4608 | weight-only | activation-aware | random |
+|---|---|---|---|
+| 512 | +0.079 | +0.059 | +0.337 |
+| 1024 | +0.024 | +0.008 | +0.139 |
+| 2048 | −0.002 | −0.006 | +0.014 |
+
+**QK reads only ~1024–2048 of the 4608 bilinear hidden units; the rest are QK-null, and weights
+alone find them** nearly as well as activations (+0.024 vs +0.008 at k=1024), both crushing random.
+Resolves Logan's "is the bilinear null two-input-dependent": **no** — the null is on the OUTPUT side.
+Each unit's output *direction* is fixed (Down[:,i]) regardless of its two inputs, so the QK-null is a
+LINEAR property of the composition Down∘R and is weight-derivable; the two inputs (Left⊙Right) only
+set each unit's activation magnitude (which is why adding cheap activation std closes the small gap
+to the activation-aware ranking). So: yes, weight-only composition tells you which part of the
+bilinear layer to keep for QK — the answer to task 2. Composes with F24: the ~1024 QK-read units
+project into the ~128-dim used-subspace QK reads.

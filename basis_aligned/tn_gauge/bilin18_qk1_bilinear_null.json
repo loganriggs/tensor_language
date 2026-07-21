@@ -1,0 +1,37 @@
+{
+  "d_hidden": 4608,
+  "baseline_ce": 3.1232,
+  "gate": 1e-05,
+  "keep": {
+    "64": {
+      "weight_only": 0.3557,
+      "act_aware": 0.3423,
+      "random": 0.6293
+    },
+    "128": {
+      "weight_only": 0.2937,
+      "act_aware": 0.2415,
+      "random": 0.5873
+    },
+    "256": {
+      "weight_only": 0.171,
+      "act_aware": 0.1328,
+      "random": 0.5131
+    },
+    "512": {
+      "weight_only": 0.0785,
+      "act_aware": 0.0588,
+      "random": 0.3374
+    },
+    "1024": {
+      "weight_only": 0.0235,
+      "act_aware": 0.0082,
+      "random": 0.1391
+    },
+    "2048": {
+      "weight_only": -0.0022,
+      "act_aware": -0.0055,
+      "random": 0.0143
+    }
+  }
+}

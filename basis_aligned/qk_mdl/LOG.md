@@ -3083,3 +3083,15 @@ input, the workhorse computing features layer-1 QK reads); layer-9 MLP compresse
 used slightly ahead). So compressibility is circuit/depth-dependent: OV+QK low-dim everywhere,
 early bilinear layer high-dim. Used-subspace advantage largest where activations are skewed (OV,
 QK); smaller for the bilinear gates. GOALS.md F27.
+
+## 2026-07-21 — tick 133 (F28, Task 2: WEIGHT-ONLY identifies the QK-null of the bilinear layer)
+
+bilin18_qk1_bilinear_null.py (Logan overnight task 2, gate patch-forward=reference 5e-6): bilinear
+layer has 4608 hidden units; each outputs along Down[:,i]; layer-1 QK reads it with weight-only
+strength ‖R·Down[:,i]‖. Keep top-k by this, ΔCE: weight-only k1024 +0.024, k2048 -0.002 (near-free);
+act-aware k1024 +0.008; random k1024 +0.139. => QK reads only ~1024-2048 of 4608 hidden units; the
+rest are QK-NULL, identifiable WEIGHT-ONLY nearly as well as with activations (adding cheap std
+closes the small gap). Resolves Logan's 'is the null two-input-dependent': NO - the null is on the
+OUTPUT side (Down columns), each unit's output DIRECTION is fixed (Down[:,i]) so the QK-null is a
+LINEAR property of Down∘R, weight-derivable; the two inputs (Left⊙Right) only set activation
+magnitude. Answers task 2: yes, weights tell you which bilinear part to keep for QK. GOALS.md F28.
