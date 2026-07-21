@@ -741,3 +741,16 @@ cannot represent — the mechanistic reason composed beat individual (F34). So t
 folded basis" that this whole thread sought are **syntactic dependencies**: layer-1 attention links
 words to their grammatical governors/dependents. Caveat: small pair set (264 frequent pairs), some
 noisy subword/code-fragment classes. The interpretability capstone of the F13–F34 arc.
+
+### F36 — HARDEN F35: 8× data, composed>individual strengthens, richer syntactic-dependency features
+`bilin18_composed_scaled.py` + `composed_pair_features_scaled.md` (addresses F35's 264-pair caveat;
+capture through layer-1 only → 102400 positions, 1247 frequent pairs ≥8 occ). Composed vs individual
+FVU: K=64 0.70/0.86, K=256 0.36/0.78, K=1024 **0.047/0.662** — composed>individual STRENGTHENS with
+data (individual floors ~0.66; composed near-perfect). Decoded 64 classes = rich interpretable
+SYNTACTIC DEPENDENCIES: determiner→preposition (`a`/`the`→`in`/`on`/`for`, NP attachment),
+copula/aux→complement (`is`/`are`/`has`→`the`/`it`), `to`→verb (infinitive), `of`→head-noun (PP),
+clause-initial→sentence boundary (`In`/`If`/`It`/`This`→`.`/`\n`), comparatives (`as`→`such`,
+`than`→`more`) — PLUS emergent SEMANTIC DOMAINS (a legal cluster `court`→`trial`, `defendant`→`a`,
+`prosecutor`→`the`; biology subwords). (Top-by-size classes are generic subword-completion/whitespace,
+reflecting the Pile's code content.) Hardens the F35 capstone: layer-1 attention's composed features
+are grammatical dependencies, robust and richer at scale.

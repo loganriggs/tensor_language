@@ -3180,3 +3180,15 @@ determiner 'a' -> preposition/copula (a->in, a->is, a->for). These are joint cur
 patterns individual token classes can't represent -> WHY composed beat individual (F34). The 'features
 in the folded basis' = syntactic dependencies. composed_pair_features.md. Caveat: small pair set (264),
 some noisy subword/code classes. GOALS.md F35.
+
+## 2026-07-21 — tick 141 (F36: HARDEN F35 with 8x data - composed>individual strengthens, richer syntactic dependency features)
+
+bilin18_composed_scaled.py (addresses F35's small-pair-set caveat; capture through layer-1 only ->
+102400 positions, 1247 frequent pairs >=8 occ vs F35's 264). Composed vs individual FVU: K64
+0.702/0.864, K256 0.365/0.780, K1024 0.047/0.662 - composed>individual STRENGTHENS (individual floors
+~0.66, composed near-perfect). Decoded 64 classes: rich interpretable SYNTACTIC DEPENDENCIES -
+determiner->preposition (a/the->in/on/for, NP attachment), copula/aux->complement (is/are/has->the/it),
+to->verb (infinitive), of->head-noun (PP), clause-initial->sentence boundary (In/If/It/This->./\n),
+comparatives (as->such, than->more) - PLUS emergent SEMANTIC DOMAINS (legal: court/trial/defendant/
+prosecutor; biology subwords). Top-by-size classes are generic (subword-completion/whitespace, Pile code).
+composed_pair_features_scaled.md. Hardens the F35 capstone. GOALS.md F36.
