@@ -1,0 +1,47 @@
+{
+  "config": {
+    "N": 4000,
+    "dim": 256,
+    "n_atoms": 512,
+    "k": 8,
+    "n_true": 512,
+    "k_true": 8,
+    "r_true": 16,
+    "noise": 0.02,
+    "target_Mbits": 5.514,
+    "svd_rank_matched": 40
+  },
+  "plants": {
+    "sparse": {
+      "svd": 0.62708,
+      "dict_token_linear": 0.03766,
+      "dict_token_omp_ls": 0.01218,
+      "train_loss_first": 0.013525,
+      "train_loss_last": 0.001201,
+      "atom_recovery_mmcs": 0.9861,
+      "dict_batch_topk": 0.0409,
+      "dict_batch_nnz": 32000,
+      "dict_matryoshka": 0.06708,
+      "best_sparse": 0.01218,
+      "sparse_beats_svd": true
+    },
+    "lowrank": {
+      "svd": 0.00032,
+      "dict_token_linear": 4.36998,
+      "dict_token_omp_ls": 0.00401,
+      "train_loss_first": 1.221177,
+      "train_loss_last": 0.07534,
+      "dict_batch_topk": 13.54435,
+      "dict_batch_nnz": 32000,
+      "dict_matryoshka": 0.07613,
+      "best_sparse": 0.00401,
+      "sparse_beats_svd": false
+    }
+  },
+  "selectivity": {
+    "sparse_plant_sparse_wins": true,
+    "lowrank_plant_svd_wins": true,
+    "passes": 2,
+    "of": 2
+  }
+}

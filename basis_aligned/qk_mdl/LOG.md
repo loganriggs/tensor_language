@@ -3284,3 +3284,52 @@ reveals MODESTLY more 90%-mass directions (the 512-context estimate slightly und
 eff-rank is flat and the used-subspace r=128 is well below even the 2048-context rank@90% (391) -
 compression conclusion unaffected. Rank investigation complete on both axes: token-count (saturates,
 tick147) + context-length (modest growth, this). Answers Logan's seq-length caveat.
+
+## 2026-07-21 — tick 150 (Logan REDIRECT: two-stage MDL program for QK; Phase 0 control PASSES 2/2)
+
+Logan: "I have a feeling this is all wrong." He wants an explicit TWO-STAGE minimum-description-length
+decomposition of the embedding as read by the first query/key circuit: (1) FREE MERGE - tokens that
+attend to the same things are the same token (free description-length reduction, do it first);
+(2) SPARSE DICTIONARY - decompose the merged rows as a sparse linear combination of k atoms, using
+sparse-autoencoder architectures (batch-top-k, matryoshka) to find a good k. Layer-1 query/key first
+(easy mode, 82% current-token determined), then layer-2 (66% - harder).
+
+VERIFIED HE IS RIGHT: query/key has been compressed by vector-quantization, rank, rank-then-VQ,
+used-subspace, and vocabulary-merge - but NEVER by an overcomplete sparse dictionary, at either layer.
+codebooks.py even reserves the slot ("sparse bilinear dictionary - pending"). The merge-then-sparse
+pipeline with a matched-bits comparison has never been run. Genuinely new work.
+
+ALSO CORRECTED (Logan caught it): my claim that the layer-1 query/key input "is 128-dimensional, a 9x
+essentially-free compression" was WRONG - an artifact of low data. With 307k tokens the covariance
+spans rank@99% = 969/1152 (~84%) and is still climbing. What IS true: the spectrum is steeply
+concentrated (eff-rank ~47, 90% of energy in ~334 dims). The 128-dim used-subspace is LOSSY BUT CHEAP
+(+0.003 held-out), never lossless. All accounting downstream treats it that way.
+
+DECISIONS TAKEN WITH LOGAN: (a) "the rows" = per-head-branch conditional-mean folded query/key factor
+tables, cat([q_bar(t)[h], k_bar(t)[h]]) of shape (V,256), 18 head-branch tables - the direct analogue
+of the layer-0 value dictionary; (b) run ALL THREE encoders (batch-top-k, matryoshka, per-token top-k
+with orthogonal-matching-pursuit/least-squares) as a REPLICATION TEST of the layer-0 finding that
+batch-top-k is the weaker encoder when overcomplete.
+
+PHASE 0 (positive control, qk_sae_control.py/json) - SELECTIVITY PASS 2/2, at matched bits
+(dict n=512 k=8 = 5.51 Mbit; matched singular-value-decomposition rank 40 = 5.45 Mbit), FVU:
+
+| plant | svd | token-linear | token-OMP/LS | batch-top-k | matryoshka |
+|---|---|---|---|---|---|
+| sparse (n_true=512, k_true=8) | 0.627 | 0.038 | **0.012** | 0.041 | 0.067 |
+| low-rank (r_true=16) | **0.0003** | 4.370 | 0.0040 | 13.544 | 0.076 |
+
+Sparse plant -> sparse arms win (52x over svd) AND recover the planted atoms (mean max cosine
+similarity 0.986). Low-rank plant -> svd wins. Solver family is selective; nothing is confounded.
+
+TWO REAL SIGNALS ALREADY (pre-registered before touching the model): (a) orthogonal-matching-pursuit
+with least-squares coefficients is the ONLY arm robust on BOTH plants - it is the strong arm, exactly
+as the layer-0 value-dictionary line found; (b) batch-top-k and the linear-encoder top-k are FRAGILE -
+on the low-rank plant both land at FVU > 1, i.e. WORSE THAN PREDICTING THE MEAN, because correlated
+atoms make raw-magnitude selection without a least-squares refit explode. This is the layer-0
+batch-top-k finding reproduced on known ground truth, and it predicts batch-top-k will lose on the
+real query/key tables too. Falsifiable: if it wins there, the plant model is wrong.
+
+Next: Phase 1 (stage-one free merge on the layer-1 conditional-mean tables, merge frontier K_eff vs
+held-out dCE vs bits) then Phase 2 (three-arm dictionary at matched bits over the merged rows). Floor
+to report beside every number: the conditional-mean tables alone already cost +0.014 held-out.
