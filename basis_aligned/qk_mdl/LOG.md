@@ -3060,3 +3060,15 @@ out-of-sample at every rank, both layers (single-source L1 + distributed L9), an
 8rD). In-sample->held-out gap tiny (L1 r128 -0.0006->+0.002) => F24 NOT overfitting. Real general
 held-out-validated activation-aware QK compression: ~14% raw bits @ +0.002-0.005 held-out every
 depth. Applied the held-out rule (positive-controls). GOALS.md F25.
+
+## 2026-07-21 — tick 131 (F26: layer-1 QK selection is CONTINUOUS in used-subspace - discrete equivalence classes don't help; answers Logan)
+
+bilin18_qk1_vq.py: Logan's Q - is there further 'equivalence-class' compression beyond removing
+non-contributing inputs (colors attend to colors)? Cluster layer-1 QK input INSIDE the used-
+subspace (r=128) into K classes, held-out ΔCE. Continuous used-subspace floor +0.0019. VQ: K16
++0.073, K64 +0.046, K256 +0.047, K1024 +0.026, K4096 +0.079 (overfit). Discrete classes cost ~13x
+more than continuous even at best (K1024 +0.026 vs +0.002). => layer-1 QK selection is CONTINUOUS
+in the ~128-dim used-subspace, NOT a small alphabet of same-for-QK input classes. Consistent with
+layer-0 (QCR-1: low-rank beat clustering). So the reduction is 'remove non-contributing inputs'
+(continuous); discrete further-compression does not help; sparse features in the basis would be
+for INTERPRETABILITY (naming the directions), not MDL. GOALS.md F26.

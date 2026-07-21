@@ -603,3 +603,15 @@ dictionaries (+0.19) forces a re-encode at each bond — that is regime (a)/(b) 
 or amortized encoder), **not** the free-propagation regime (c) the construction aims
 for. So the cheap-propagation regime and the faithful regime are, on this toy, in
 opposition. Gate 2b asks whether enough *shared* capacity closes the gap.
+
+### F26 — layer-1 QK selection is CONTINUOUS in the used-subspace (equivalence classes don't help)
+`bilin18_qk1_vq.py`. Logan's question: beyond removing non-contributing inputs (the used-subspace),
+is there 'equivalence-class' compression — some inputs the same for QK (colors attend to colors)?
+Cluster the layer-1 QK input INSIDE the used-subspace (r=128) into K discrete classes, held-out ΔCE.
+Continuous used-subspace floor +0.0019. VQ: K=16 +0.073, K=64 +0.046, K=256 +0.047, K=1024 +0.026,
+K=4096 +0.079 (overfit). **Discrete classes cost ~13× more than the continuous used-subspace even at
+their best** (K=1024 +0.026 vs +0.002). So layer-1 QK selection is genuinely CONTINUOUS in the
+~128-dim subspace, not a small alphabet of same-for-QK classes — consistent with layer-0 (QCR-1:
+low-rank beat clustering). The reduction is 'remove the inputs that don't contribute' (continuous);
+hard equivalence classes are not the structure. Sparse features in this basis would be for
+INTERPRETABILITY (naming the ~128 directions), not further MDL compression.
