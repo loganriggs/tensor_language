@@ -99,6 +99,29 @@ gauges; no deep-layer SAE; stays a tensor network.
   but depth-increasing — the Step-5 mechanism holds directionally.
 - Figure: `fig_code_propagation.png`.
 
+### F23 — F22 is LAYER-1-SPECIFIC: interpretive-subspace compression needs a single-source circuit
+`bilin18_msub_depth.py`. Does F22 generalize into a method? Project each attention layer L's
+query/key onto block(L-1)'s mlp-output subspace (top-128), ΔCE vs generic low-rank r=128:
+
+| layer | M-subspace ΔCE | generic low-rank ΔCE |
+|---|---|---|
+| 1 | −0.001 | +0.060 |
+| 2 | +0.007 | +0.003 |
+| 3 | +0.095 | +0.016 |
+| 6 | +0.028 | +0.012 |
+| 9 | +0.576 | +0.027 |
+| 12 | −0.002 | +0.004 |
+
+The interpretive-subspace advantage holds at only **2/6 layers** (1, and marginally 12) — it is
+**layer-1-specific**. For deep layers the preceding-mlp subspace is the wrong basis (layer 9:
++0.576), because deep selection is distributed (F19) and doesn't read a single preceding source.
+So F22 is **not** a general "project onto the preceding bilinear output" method. The durable
+lesson survives, scoped: *when a circuit reads a single interpretable source, projecting onto that
+source's subspace beats structure-blind low-rank* — but that clean single-source condition only
+holds at layer 1; deeper query/key reads a broader distributed subspace not cheaply identified.
+The interpretability→MDL link is real but conditional on a clean interpretation. Bounds F22 the
+way F19 bounds F18: the strong result is an early-layer phenomenon.
+
 ### F22 — the interpretive structure BEATS the frontier: M-subspace QK compression (gated)
 `bilin18_qk1_msubspace.py`. Use F18's finding (layer-1 reads the bilinear output M) to compress:
 project the 4 query/key read maps onto the top-r principal directions of M's activations — a

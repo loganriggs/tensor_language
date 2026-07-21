@@ -3025,3 +3025,14 @@ bits, GATED by residual-PCA control. M-subspace: r32 +0.016@3.5%, r64 +0.010@6.9
 M-subspace is ~6x better on bits at matched ΔCE. THE PAYOFF: the interpretive finding (layer-1
 selects on the bilinear output) is a concrete, falsifiable, LARGE gated MDL reduction generic
 methods can't reach. fig_qk1_mdl.png updated. GOALS.md F22.
+
+## 2026-07-21 — tick 128 (F23: F22 is LAYER-1-SPECIFIC - interpretive-subspace compression needs single-source circuit)
+
+bilin18_msub_depth.py: project layer-L QK onto block(L-1) mlp-subspace (r=128) vs generic low-rank,
+across depth. msub ΔCE: L1 -0.001, L2 +0.007, L3 +0.095, L6 +0.028, L9 +0.576, L12 -0.002; generic
+low-rank: L1 +0.060, L3 +0.016, L9 +0.027. msub beats generic at only 2/6 layers (1, marginally 12)
+-> LAYER-1-SPECIFIC. Deep layers' preceding-mlp subspace is wrong (L9 +0.576) - distributed
+selection (F19), no single source. F22 is NOT a general method. Durable lesson (scoped): projecting
+onto a circuit's single interpretable source beats structure-blind low-rank, but only where the
+interpretation is clean (single dominant source) = layer 1. Interpretability->MDL link real but
+conditional. Bounds F22 like F19 bounds F18. GOALS.md F23.
