@@ -784,3 +784,16 @@ The natural fix is the DMRG-style iteration Logan originally sketched: re-fit ea
 on the *compressed* model's activations and sweep to convergence, which should recover the per-layer
 performance across all layers. This is the practical MDL payoff of the compression thread and the
 concrete bridge back to the DMRG vision.
+
+### F39 — the DMRG iteration does NOT fix the compounding: it's irreducible depth-accumulation
+`bilin18_dmrg_iter.py`. F38's fix hypothesis: re-fit each layer's used-subspace on the COMPRESSED
+model's activations and sweep. Result (r=128, held-out): ΔCE +0.241 → +0.234 → +0.241 → +0.241 →
++0.241 — **the DMRG re-fit does not help**. Cause: the per-layer compression is near-lossless, so the
+compressed activations barely shift, so re-fitting returns essentially the same subspace — the
+used-subspace is already self-consistent at iteration 0. So F38's +0.24 compounding is **inherent
+error accumulation through the 18-layer forward** (individually near-lossless rank-128 truncations
+compound with depth), NOT a fittable basis-mismatch. Consequence: whole-model query/key compression
+tops out at ~28% of raw near-free (r=256); below that, accumulated truncation dominates irreducibly,
+and the DMRG sweep can't recover it because the per-layer optima are already consistent. Honest
+negative that closes the DMRG-vision bridge for this linear per-layer compression — the sweep helps
+only when per-layer bases are mutually inconsistent, which they aren't here.

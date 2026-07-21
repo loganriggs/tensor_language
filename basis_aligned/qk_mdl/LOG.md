@@ -3213,3 +3213,15 @@ compresses ~3.6x (to 28%) near-free (+0.06) held-out. But per-layer wins only PA
 all-layers r=128 +0.241 vs per-layer ~+0.005 (F25) - compressing early layers shifts the activations
 later used-subspaces were fit on. Natural fix (DMRG-style): re-fit the used-subspace on the compressed
 model iteratively. Headline MDL result for the compression thread. GOALS.md F38.
+
+## 2026-07-21 — tick 144 (F39: DMRG iteration does NOT fix compounding - it's irreducible depth-accumulation, not basis-mismatch)
+
+bilin18_dmrg_iter.py (realize DMRG vision to fix F38 compounding): re-fit each layer's used-subspace
+on the COMPRESSED model's activations, iterate, r=128 held-out. ΔCE: iter0 +0.2406, iter1 +0.2337,
+iter2-4 +0.241 (unchanged). DMRG re-fit does NOT help - the compressed activations barely shift (per-
+layer compression near-lossless), so re-fitting returns ~the same subspace; the used-subspace is
+already self-consistent at iter 0. So F38's +0.24 compounding is INHERENT error accumulation through
+the 18-layer forward (individually near-lossless rank-128 truncations compound with depth), NOT a
+fittable basis-mismatch. Whole-model QK compression tops out at ~28% raw near-free (r=256); below that
+accumulated truncation dominates irreducibly. Honest negative - closes the DMRG-vision bridge for this
+linear per-layer compression: the sweep is a no-op because per-layer optima are already consistent. F39.
