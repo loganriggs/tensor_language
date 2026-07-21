@@ -615,3 +615,14 @@ their best** (K=1024 +0.026 vs +0.002). So layer-1 QK selection is genuinely CON
 low-rank beat clustering). The reduction is 'remove the inputs that don't contribute' (continuous);
 hard equivalence classes are not the structure. Sparse features in this basis would be for
 INTERPRETABILITY (naming the ~128 directions), not further MDL compression.
+
+### F27 — Task 3: used-subspace generalizes to OV (strong), but the layer-1 bilinear layer is high-dim
+`bilin18_ov_mlp_usedsub.py`, held-out. OV (c_v value read): used-subspace beats generic low-rank at
+both layers (L1 r=128 +0.006 vs +0.070; L9 +0.005 vs +0.010) — OV reads a low-dim subspace everywhere.
+BILINEAR gates (Left/Right): layer-1 does NOT compress (r=256 still +0.14, both methods) — it reads a
+genuinely high-dim input, the workhorse computing the features layer-1 QK then reads; layer-9 MLP
+DOES compress (r=128 −0.001, used slightly ahead of generic). So input-compressibility is circuit-
+and depth-dependent: OV and QK are low-dim everywhere; the early bilinear layer is high-dim. The
+activation-aware advantage over generic low-rank is largest where activations are skewed (OV, QK),
+small for the bilinear gates. Answers task 3: reductions exist for OV (like QK) but not the early
+bilinear layer's input.

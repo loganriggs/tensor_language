@@ -3072,3 +3072,14 @@ in the ~128-dim used-subspace, NOT a small alphabet of same-for-QK input classes
 layer-0 (QCR-1: low-rank beat clustering). So the reduction is 'remove non-contributing inputs'
 (continuous); discrete further-compression does not help; sparse features in the basis would be
 for INTERPRETABILITY (naming the directions), not MDL. GOALS.md F26.
+
+## 2026-07-21 — tick 132 (F27, Task 3: used-subspace for OV + bilinear; OV compresses, layer-1 bilinear does NOT)
+
+bilin18_ov_mlp_usedsub.py (Logan overnight task 3): apply the activation-aware used-subspace to
+OV (c_v) and bilinear gates (Left,Right), held-out vs generic low-rank. OV: used beats generic
+both layers (L1 r128 +0.006 vs +0.070; L9 +0.005 vs +0.010) - OV reads a low-dim subspace
+everywhere. BILINEAR: layer-1 MLP does NOT compress (r256 +0.14 both methods - reads high-dim
+input, the workhorse computing features layer-1 QK reads); layer-9 MLP compresses (r128 -0.001,
+used slightly ahead). So compressibility is circuit/depth-dependent: OV+QK low-dim everywhere,
+early bilinear layer high-dim. Used-subspace advantage largest where activations are skewed (OV,
+QK); smaller for the bilinear gates. GOALS.md F27.
