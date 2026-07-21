@@ -3250,3 +3250,17 @@ collectively read nearly all D. The big ~128-dim reduction (F24) is ACTIVATION-w
 varies in most read dirs), not weight-structural. The product-carving IS real per-unit and is exactly
 why composed (joint current x attended) features beat individual (F33/F34) - composed>individual is the
 empirical measurement of 'the product carves the null more'. Corrects F28's overstatement.
+
+## 2026-07-21 — tick 147 (Logan Q: rank vs amount of data + FineWeb; used-subspace estimate hardened)
+
+Logan: re-estimate the activation-aware part on much more data + FineWeb (training dist), and plot
+rank vs #tokens. Cached FineWeb (data_fineweb_tokens.npy, 600 seqs @512 tok, GPT-2 tokenizer,
+sample-10BT stream). bilin18_rank_vs_data.py: accumulate QK-input covariance token-by-token, snapshot
+eff-rank / rank@90% / rank@99% at doubling token counts, FineWeb + Pile, layers 1/5/9.
+Layer-1 FineWeb: eff-rank 32.7(512tok)->47(16k)->47.4(307k) SATURATES; rank@90% 123->334 saturates
+(~333 past 133k); rank@99% 312->969 STILL CLIMBING (tail undersampled). FineWeb > Pile throughout
+(eff-rank 47 vs ~45, rank@90% 334 vs 315 - train dist richer). => low-dim is REAL (eff-rank + 90%-mass
+saturate), only the 99% tail is undersampling. Justifies used-subspace r=128 (inside saturated ~334
+rank@90%; QK-relevant part lower). fig_rank_vs_data.png. Seq length = 512 (RoPE, no hard cap) - offered
+a context-length sweep as a separate axis, awaiting Logan. Next queued: large-data held-out used-
+subspace frontier on FineWeb.
