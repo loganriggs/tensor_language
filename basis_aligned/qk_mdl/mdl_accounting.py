@@ -42,6 +42,15 @@ def dl_svd(r: int, n_rows: int, n_cols: int) -> float:
     return dl_bits(n_floats=r * (n_rows + n_cols + 1))
 
 
+def dl_sparse_dict(n_atoms: int, dim: int, nnz: int, include_bias: bool = True) -> float:
+    """Overcomplete sparse dictionary: atoms (+ bias) at 32 bits per float, then per
+    nonzero: a 32-bit coefficient + log2(n_atoms) support-index bits. Matches the
+    qk_sae_control.bits_dict convention (Phase 0)."""
+    import math
+    return dl_bits(n_floats=n_atoms * dim + (dim if include_bias else 0) + nnz,
+                   discrete_bits=nnz * math.log2(max(n_atoms, 2)))
+
+
 def dl_bicluster(k_r: int, k_c: int, n_rows: int, n_cols: int) -> float:
     import math
     return dl_bits(n_floats=k_r * k_c,

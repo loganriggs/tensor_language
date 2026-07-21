@@ -1,0 +1,11 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+  estimate 0/1024
+  estimate 256/1024
+  estimate 512/1024
+  estimate 768/1024
+estimated + cached (24885 vocab rows seen)
+audit-token coverage 0.9094
+baseline CE 3.2341
+zero-scores (control)                        dCE +2.8200
+FLOOR: cond-mean unit-RMS, no merge          dCE +0.0139     7417.6 Mbit  (100.00% raw)

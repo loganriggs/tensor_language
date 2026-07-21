@@ -3333,3 +3333,35 @@ real query/key tables too. Falsifiable: if it wins there, the plant model is wro
 Next: Phase 1 (stage-one free merge on the layer-1 conditional-mean tables, merge frontier K_eff vs
 held-out dCE vs bits) then Phase 2 (three-arm dictionary at matched bits over the merged rows). Floor
 to report beside every number: the conditional-mean tables alone already cost +0.014 held-out.
+
+## 2026-07-21 — tick 151 (Logan RESOLVES object: Option A layer-0 weight-only; stage-1 merge frontier DONE; Phase 2 launched)
+
+Logan (chat): avoid data-conditional objects (the 6k-token conditional-mean misstep); use the weight
+structure; first QK circuit = layer-0 fold vs the raw embedding, vocab-by-vocab. LAYER 1 DEFERRED
+until layer 0 is settled (it will need embedding + attn-out + bilinear-out propagated through the
+weights; object construction is the research question — NOT conditional means). SVD-baseline note
+agreed in chat: the per-head-branch score map is rank<=128 BY CONSTRUCTION (factors through the
+head), so "rank 128" IS the exact object; the baseline to beat is the rank-r bits frontier.
+
+Fold gate re-verified: branch 1 max err 1.33e-15, branch 2 9.99e-16 — PASS.
+
+qk_merge_stage1_l0.py (Option A stage-one merge; K in {256,512,2048,8192}; global partition vs 18
+per-head-branch partitions; matched bits; held-out dCE, AUDIT=ALL[4:20], T=512): baseline CE 3.2341;
+zero-scores control +2.4950; EXACT-fold arm +0.0000 (CE-level gate PASS, no floor — unlike the
+Option-B +0.0139). GLOBAL merge (index paid once): K=256 +0.0209 @0.51% raw; K=512 +0.0157 @1.02%;
+K=2048 +0.0064 @4.08%; K=8192 +0.0052 @16.3%; unit-RMS renorm HURTS at small K (+0.0499 vs +0.0209).
+PER-HEAD-BRANCH (18 partitions, 18x index bits): K=256 +0.0102 @0.61%; K=512 +0.0149 @1.13%; K=2048
+-0.0064 @4.21%; K=8192 -0.0085 @16.4%. HEADLINES: (1) per-head-branch partitions DOMINATE the global
+partition at matched bits (index bits are cheap next to centroid bits; consistent with 7/9 heads at
+marginal alphabet 1 — a global partition wastes classes on dead branches); (2) stage one is nearly
+free at ~0.6% raw (163x) and free-or-better at ~4% raw (dCE slightly NEGATIVE, -0.006/-0.009 —
+possible mild denoising; noise/seed check deferred to Phase 4); (3) per-head-branch K=512 worse than
+K=256 — single-seed k-means variance, flag for the seed pass.
+
+Phase 2 LAUNCHED (qk_sae_dict.py, background): SVD frontier r in {8,16,32,64,128}; dictionary
+budgets (n=1024,k=8) and (n=4096,k=8) per head-branch; arms token-linear / token-OMP-LS / batch-topk
+/ matryoshka at matched bits (batch-topk pays its actual nonzeros); two-stage arm merge-2048 -> OMP
+dictionary n=512 k=8 over centroids. dl_sparse_dict added to mdl_accounting.py (matches the Phase-0
+convention). Matched-bits pairings: n=1024 k=8 (25.3 Mbit/branch) ~ svd r=15; n=4096 k=8 (51.3
+Mbit/branch) ~ svd r=31. Pre-registered (Phase 0): OMP/LS is the strong arm; batch-topk predicted to
+LOSE.

@@ -1,0 +1,20 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+baseline CE 3.2341
+zero-scores (control)                        dCE +2.4950
+GATE: exact fold, no merge                   dCE +0.0000     7417.6 Mbit  (100.00% raw)
+global merge space: (50304, 256) (top-256 of 4608; 70.6% variance)
+stage1 GLOBAL merge K=256                    dCE +0.0209       38.2 Mbit  ( 0.51% raw)
+stage1 GLOBAL merge K=256 +unit-RMS          dCE +0.0499       38.2 Mbit  ( 0.51% raw)
+stage1 GLOBAL merge K=512                    dCE +0.0157       76.0 Mbit  ( 1.02% raw)
+stage1 GLOBAL merge K=512 +unit-RMS          dCE +0.0336       76.0 Mbit  ( 1.02% raw)
+stage1 GLOBAL merge K=2048                   dCE +0.0064      302.5 Mbit  ( 4.08% raw)
+stage1 GLOBAL merge K=2048 +unit-RMS         dCE +0.0067      302.5 Mbit  ( 4.08% raw)
+stage1 GLOBAL merge K=8192                   dCE +0.0068     1208.6 Mbit  (16.29% raw)
+stage1 GLOBAL merge K=8192 +unit-RMS         dCE +0.0052     1208.6 Mbit  (16.29% raw)
+per-head-branch merge K=256 +unit-RMS        dCE +0.0102       45.0 Mbit  ( 0.61% raw)
+per-head-branch merge K=512 +unit-RMS        dCE +0.0149       83.6 Mbit  ( 1.13% raw)
+per-head-branch merge K=2048 +unit-RMS       dCE -0.0064      312.0 Mbit  ( 4.21% raw)
+per-head-branch merge K=8192 +unit-RMS       dCE -0.0085     1219.7 Mbit  (16.44% raw)
+
+wrote /workspace/tensor_language/basis_aligned/qk_mdl/qk_merge_stage1_l0.json

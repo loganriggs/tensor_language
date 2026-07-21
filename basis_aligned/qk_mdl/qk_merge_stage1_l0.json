@@ -1,0 +1,97 @@
+{
+  "object": "layer-0 exact weight-only fold (Option A)",
+  "V": 50304,
+  "raw_Mbits": 7417.6,
+  "arms": {
+    "zero-scores (control)": {
+      "dce": 2.495
+    },
+    "GATE: exact fold, no merge": {
+      "dce": 0.0,
+      "Mbits": 7417.6,
+      "pct_raw": 100.0
+    },
+    "stage1 GLOBAL merge K=256": {
+      "dce": 0.0209,
+      "Mbits": 38.2,
+      "pct_raw": 0.51,
+      "K": 256,
+      "renorm": false
+    },
+    "stage1 GLOBAL merge K=256 +unit-RMS": {
+      "dce": 0.0499,
+      "Mbits": 38.2,
+      "pct_raw": 0.51,
+      "K": 256,
+      "renorm": true
+    },
+    "stage1 GLOBAL merge K=512": {
+      "dce": 0.0157,
+      "Mbits": 76.0,
+      "pct_raw": 1.02,
+      "K": 512,
+      "renorm": false
+    },
+    "stage1 GLOBAL merge K=512 +unit-RMS": {
+      "dce": 0.0336,
+      "Mbits": 76.0,
+      "pct_raw": 1.02,
+      "K": 512,
+      "renorm": true
+    },
+    "stage1 GLOBAL merge K=2048": {
+      "dce": 0.0064,
+      "Mbits": 302.5,
+      "pct_raw": 4.08,
+      "K": 2048,
+      "renorm": false
+    },
+    "stage1 GLOBAL merge K=2048 +unit-RMS": {
+      "dce": 0.0067,
+      "Mbits": 302.5,
+      "pct_raw": 4.08,
+      "K": 2048,
+      "renorm": true
+    },
+    "stage1 GLOBAL merge K=8192": {
+      "dce": 0.0068,
+      "Mbits": 1208.6,
+      "pct_raw": 16.29,
+      "K": 8192,
+      "renorm": false
+    },
+    "stage1 GLOBAL merge K=8192 +unit-RMS": {
+      "dce": 0.0052,
+      "Mbits": 1208.6,
+      "pct_raw": 16.29,
+      "K": 8192,
+      "renorm": true
+    },
+    "per-head-branch merge K=256 +unit-RMS": {
+      "dce": 0.0102,
+      "Mbits": 45.0,
+      "pct_raw": 0.61,
+      "K": 256
+    },
+    "per-head-branch merge K=512 +unit-RMS": {
+      "dce": 0.0149,
+      "Mbits": 83.6,
+      "pct_raw": 1.13,
+      "K": 512
+    },
+    "per-head-branch merge K=2048 +unit-RMS": {
+      "dce": -0.0064,
+      "Mbits": 312.0,
+      "pct_raw": 4.21,
+      "K": 2048
+    },
+    "per-head-branch merge K=8192 +unit-RMS": {
+      "dce": -0.0085,
+      "Mbits": 1219.7,
+      "pct_raw": 16.44,
+      "K": 8192
+    }
+  },
+  "baseline_ce": 3.2341,
+  "gate_dce": 0.0
+}

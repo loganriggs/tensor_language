@@ -28,12 +28,15 @@ comparison has never been run.
 
 ---
 
-## 2. THE LIVE OPEN DECISION — which object (awaiting Logan)
+## 2. THE OBJECT DECISION — RESOLVED 2026-07-21: Option A (Logan, in chat)
 
-**Do not proceed past this without Logan's answer.** He raised it and asked to discuss it; the
-answer changes what gets built.
+Logan chose weight-only: avoid data-conditional objects; the first query/key circuit is the layer-0
+fold versus the raw embedding, vocabulary-by-vocabulary. **Layer 1 is deferred until the layer-0
+program is settled.** When it resumes, the intent is to propagate the embedding, block-0 attention
+output, and bilinear-MLP output through the weights (object construction is the research question —
+not conditional means). The original decision record is kept below.
 
-The question: what exactly are "the rows" that stage one merges and stage two sparse-codes?
+The question was: what exactly are "the rows" that stage one merges and stage two sparse-codes?
 
 ### Option A — layer-0 exact fold (weight-only, vocabulary-by-vocabulary) — RECOMMENDED
 
@@ -103,8 +106,8 @@ means *with* the estimation cost explicitly paid in the ledger.
 | phase | status |
 |---|---|
 | 0. Planted-structure positive control | **DONE — passes selectivity 2/2**, committed |
-| 1. Stage-one free merge | script written, **NOT run** (killed pending the object decision) |
-| 2. Stage-two sparse dictionary (3 arms) | not started |
+| 1. Stage-one free merge | **DONE on layer 0** (`qk_merge_stage1_l0.py/.json`, tick 151); per-head-branch K=2048 merge is free-or-better at 4.2% raw |
+| 2. Stage-two sparse dictionary (3 arms) | **RUNNING** (`qk_sae_dict.py`, tick 151) |
 | 3. Matched-bits frontier | not started |
 | 4. Convergence + robustness | not started |
 | 5. Deeper-layer query/key | not started |
