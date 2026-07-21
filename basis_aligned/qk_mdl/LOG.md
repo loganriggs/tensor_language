@@ -3147,3 +3147,14 @@ NEGATIVE: my linear QK1-effect proxy (value->Down->Right->QK reads) did NOT beat
 (K16 +0.142 vs +0.043) - can't confirm Logan's 'composed features beat individual'; the true cross-term
 is bilinear + current-token-dependent, so a linear path-proxy is too crude. A proper composed metric
 (joint current×attended, or bilinear path) is needed to test that claim. GOALS.md F32.
+
+## 2026-07-21 — tick 138 (F33: COMPOSED features BEAT individual - Logan's claim confirmed (structural, small-sample))
+
+bilin18_composed_vs_individual.py: cluster (current,attended) PAIRS by their joint layer-1 QK code
+vs cluster each token side individually; FVU of the pair QK-1 code (used-subspace r=128), data-
+validated (real co-occurring pairs, >=8 occ = 161 pairs). Composed vs individual FVU: K=16 0.71 vs
+0.92; K=64 0.36 vs 0.81 (K=256/1024 degenerate: composed=0 since <256 pairs). COMPOSED beats
+INDIVIDUAL - pairs carry JOINT structure beyond individual token marginals (composed needs ~16x
+fewer classes for same FVU). CONFIRMS Logan's 'composed features beat individual compositions'.
+Caveats: structural FVU not ΔCE; small pair set (161 freq pairs); the true win is at K=16/64.
+Natural strengthening: more data (more pairs) + a ΔCE confirmation. GOALS.md F33.
