@@ -3109,3 +3109,16 @@ OVERNIGHT BATCH (tasks 1-3) COMPLETE: T3(F27) used-subspace for OV works/bilinea
 T2(F28) weight-only ‖R·Down‖ identifies QK-null of bilinear (~1024/4608 units, null is linear on
 output side); T1(F29) composed reduction folds & composes sub-additively. Plus F26: selection is
 continuous not clustered. Interaction OV×bilinear in QK already shown negligible (F13 A-blocks).
+
+## 2026-07-21 — tick 135 (F30: Logan correction - layer-1 QK is 82% CURRENT-TOKEN-determined; compression is INPUT-relative, F26 missed it)
+
+bilin18_qk1_vocab.py (Logan correction to F26): F26 clustered the continuous STATE (positions) ->
+continuous. The right test is compression relative to the INPUT VOCAB. Result (gate 2.9347=ref):
+between-token variance fraction of the layer-1 QK code = 0.824 -> 82% of QK-1's input is determined
+by CURRENT TOKEN identity, 18% context. Replace code by current-token MEAN (1286-token vocab table):
+ΔCE +0.0008 (NEAR-FREE). So layer-1 QK ≈ a VOCAB-INDEXED TABLE (bilinear self-term on current
+embedding), not rich context integration; the 18% = the cross-terms (context) Logan emphasized.
+Clustering tokens into FEW classes still costs (K128 +0.087) - tokens fairly distinct, not a tiny
+alphabet ('colors->1 class'), but the token table itself is near-free = real input-relative
+compression F26 missed. Reframes the arc: the '128-dim continuous read' (F24) is mostly current-token
+identity. GOALS.md F30.

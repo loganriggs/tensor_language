@@ -657,3 +657,18 @@ selection folds to {~1024 of 4608 bilinear hidden units → ~128-dim used-subspa
 nats** — the composed-basis compression of task 1, concretely. Coherent with the whole arc: embedding
 +OV droppable (F13/F18) → ~1024 bilinear units reach QK (F28, weight-only) → their output lives in a
 ~128-dim subspace QK reads (F24) → selection is continuous there (F26).
+
+### F30 — CORRECTION to F26: layer-1 QK is 82% current-token-determined; compression is INPUT-relative
+`bilin18_qk1_vocab.py` (gate 2.9347 = reference). Logan's correction: F26 clustered the continuous
+STATE (positions) and found clustering loses — but the right compression is relative to the INPUT
+VOCAB. Measured in the used-subspace QK-1 reads: **between-token variance fraction = 0.824** — 82% of
+the layer-1 QK code is determined by the CURRENT TOKEN identity, 18% by context. **Replacing the code
+by its current-token mean (a 1286-token vocab table) is near-free: +0.0008.** So layer-1 query/key is
+essentially a VOCAB-INDEXED TABLE (the bilinear self-term applied to the current embedding), not rich
+context integration; the 18% residual is the cross-terms (current × attended) Logan pointed to.
+Clustering tokens into a SMALL alphabet still costs (K=128 +0.087, K=32 +0.124) — tokens are fairly
+distinct, so it's "token-lookup," not "colors → one class." **This is the input-relative compression
+F26 missed** (F26 clustered states, not the vocab). Reframes the arc: F24's "128-dim continuous read"
+is dominated by current-token identity. The remaining program piece — reduce the 18% cross-terms
+(vocab × vocab through bilinear → QK-1) — is the DMRG "sparse relative to the neighbor" restricted to
+the QK-1 path.
