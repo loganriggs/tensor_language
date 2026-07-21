@@ -3122,3 +3122,15 @@ Clustering tokens into FEW classes still costs (K128 +0.087) - tokens fairly dis
 alphabet ('colors->1 class'), but the token table itself is near-free = real input-relative
 compression F26 missed. Reframes the arc: the '128-dim continuous read' (F24) is mostly current-token
 identity. GOALS.md F30.
+
+## 2026-07-21 — tick 136 (F31: qualitative - layer-1 QK equivalence classes are GRAMMATICAL CATEGORIES; data-validated)
+
+bilin18_qk1_qualitative.py (Logan asked for qualitative examples + data validation). Cluster the
+vocab by mean layer-1 QK signature (F30, 82% token-determined), decode with GPT-2 tokenizer, 40
+classes over 139 frequent tokens. The classes are INTERPRETABLE PART-OF-SPEECH categories: class1
+determiners/possessives (the,a,my,an,this,your,its,their,his); class31 prepositions (of,to,in,for,
+on,as,at); class38 auxiliaries/copula (is,was,are,be,have,had,were,been); class28 wh-words/relativizers
+(that,which,what,how,because,when); class26 punctuation (.>:)!..). So layer-1 QK selection operates on
+SYNTACTIC/grammatical structure. Data-validated attention co-occurrence (real pairs only): mix of local
+(subword-completion 'ctions'->'fun', 'urs'->'Occ'; previous-token) and content. qualitative_examples_qk1.md.
+The 'features relative to input' Logan wanted = grammatical categories. GOALS.md F31.

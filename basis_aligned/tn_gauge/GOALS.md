@@ -672,3 +672,16 @@ F26 missed** (F26 clustered states, not the vocab). Reframes the arc: F24's "128
 is dominated by current-token identity. The remaining program piece — reduce the 18% cross-terms
 (vocab × vocab through bilinear → QK-1) — is the DMRG "sparse relative to the neighbor" restricted to
 the QK-1 path.
+
+### F31 — QUALITATIVE: layer-1 QK equivalence classes are GRAMMATICAL CATEGORIES (data-validated)
+`bilin18_qk1_qualitative.py` + `qualitative_examples_qk1.md` (Logan asked for qualitative examples +
+data validation). Cluster the vocab by mean layer-1 QK signature (F30: 82% token-determined), decode
+(GPT-2), 40 classes over 139 frequent tokens. **The classes are interpretable part-of-speech categories**:
+determiners/possessives (` the ` a ` my ` an ` this ` your ` its ` their ` his`), prepositions
+(` of ` to ` in ` for ` on ` as ` at`), auxiliaries/copula (` is ` was ` are ` be ` have ` had ` were
+` been`), wh-words/relativizers (` that ` which ` what ` how ` because ` when`), punctuation (`.>:)!`).
+So layer-1 query/key selection operates on SYNTACTIC/grammatical structure — the "features relative to
+the input" are grammatical categories. Data-validated attention (real co-occurring pairs only): a mix
+of local (subword-completion `ctions`→`fun`, `urs`→`Occ`; previous-token) and content attention. This
+is the interpretability payoff of the arc: the input-relative reduction (F30) yields linguistically
+meaningful token classes.
