@@ -99,6 +99,29 @@ gauges; no deep-layer SAE; stays a tensor network.
   but depth-increasing — the Step-5 mechanism holds directionally.
 - Figure: `fig_code_propagation.png`.
 
+### F22 — the interpretive structure BEATS the frontier: M-subspace QK compression (gated)
+`bilin18_qk1_msubspace.py`. Use F18's finding (layer-1 reads the bilinear output M) to compress:
+project the 4 query/key read maps onto the top-r principal directions of M's activations — a
+SHARED basis (U_M, D×r) + 4 read factors (r×D) = 5rD floats. ΔCE vs bits, gated by a residual-PCA
+control (project onto the QK-input's own variance directions instead of M's):
+
+| r | M-subspace ΔCE | residual-PCA (control) | Mbit | %raw |
+|---|---|---|---|---|
+| 32 | +0.016 | +0.498 | 5.9 | 3.5% |
+| 64 | +0.010 | +0.260 | 11.8 | 6.9% |
+| 128 | **−0.001** | +0.139 | 23.6 | 13.9% |
+| 256 | −0.003 | +0.055 | 47.2 | 27.8% |
+
+**The interpretive structure buys large, gated MDL.** M-subspace compresses layer-1 query/key to
+**~7% of raw near-free** (r=64, +0.010) or **~14% while IMPROVING CE** (r=128, −0.001), vs the F21
+generic frontier's ~40% for +0.009 — a ~6× bit improvement at matched ΔCE. **Gated as M-specific**:
+the residual-PCA control (the input's own top-variance directions) is ~26× worse at matched bits
+(r=64: +0.26 vs +0.010), so the win is *not* generic input-low-rank — it is the bilinear-output
+subspace specifically. The residual's high-variance directions are ones the query/key ignores;
+M's subspace is what it uses (F18). **This is the payoff of the whole arc**: the interpretive
+finding (layer-1 selects on the bilinear output) is a concrete, falsifiable, large MDL reduction
+that generic methods cannot reach. `fig_qk1_mdl.png` updated with the M-subspace curve.
+
 ### F21 — layer-1 QK MDL frontier (the banked baseline Logan asked for)
 `bilin18_qk1_mdl_frontier.py` + `fig_qk1_mdl.png`. Two weight-compression methods on bilin18
 h[1]'s query/key (raw 169.9 Mbit = 4×1152²×32), matched-bits, ΔCE binding, index bits shown

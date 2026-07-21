@@ -3014,3 +3014,14 @@ keep12.5% +0.055@20%, keep6.25% +0.24@10%. Layer-1 QK compresses to ~40% raw nea
 or ~22% for +0.06. Methods cross ~20%: low-rank wins low-budget, prune wins high-budget. keep-50%
 improves CE (half the QK weights removable-with-benefit). Regime-1 rotation = 0 compression (raw)
 -> frontier is what future methods must beat. Banked baseline. GOALS.md F21.
+
+## 2026-07-21 — tick 127 (F22: interpretive structure BEATS frontier - M-subspace QK compression, gated)
+
+bilin18_qk1_msubspace.py: use F18 (layer-1 reads M) to compress - project the 4 QK read maps onto
+top-r M-activation principal directions (shared basis U_M + 4 read factors = 5rD floats). ΔCE vs
+bits, GATED by residual-PCA control. M-subspace: r32 +0.016@3.5%, r64 +0.010@6.9%, r128 -0.001@
+13.9% (IMPROVES CE), r256 -0.003@27.8%. Residual-PCA control: r64 +0.260, r128 +0.139 (~26x worse)
+-> the win is M-SPECIFIC not generic input-low-rank. vs F21 generic low-rank (~40% for +0.009),
+M-subspace is ~6x better on bits at matched ΔCE. THE PAYOFF: the interpretive finding (layer-1
+selects on the bilinear output) is a concrete, falsifiable, LARGE gated MDL reduction generic
+methods can't reach. fig_qk1_mdl.png updated. GOALS.md F22.
