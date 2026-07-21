@@ -3203,3 +3203,13 @@ is LESS current-token-determined, more context/distributed (consistent with F19 
 Decoded top classes noisier (more subword/domain, less cleanly syntactic than layer 1) - consistent
 with more context-mixing. So: composed features generalize across depth; token-determination and
 syntactic cleanliness DECREASE with depth. GOALS.md F37.
+
+## 2026-07-21 — tick 143 (F38: end-to-end - ALL 18 layers' QK compress to ~28% raw for +0.06 held-out; partial compounding)
+
+bilin18_allqk_usedsub.py (synthesis of F21-F25): apply the activation-aware used-subspace to ALL 18
+layers' QK simultaneously, held-out ΔCE. raw all-QK = 3058 Mbit. r=256 +0.060 @ 849Mbit (27.8% raw);
+r=128 +0.241 @ 425Mbit (13.9%); r=64 +0.813 @ 212Mbit (6.9%); r=1152 gate 0. => whole-model QK
+compresses ~3.6x (to 28%) near-free (+0.06) held-out. But per-layer wins only PARTIALLY compound:
+all-layers r=128 +0.241 vs per-layer ~+0.005 (F25) - compressing early layers shifts the activations
+later used-subspaces were fit on. Natural fix (DMRG-style): re-fit the used-subspace on the compressed
+model iteratively. Headline MDL result for the compression thread. GOALS.md F38.

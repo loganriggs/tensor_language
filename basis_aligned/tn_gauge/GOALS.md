@@ -765,3 +765,22 @@ GENERAL property across depth, not layer-1-specific. But layer-2 between-token v
 subword/domain, less cleanly syntactic). Conclusion: the composed-feature method generalizes across
 depth, but token-determination and syntactic cleanliness decrease with depth as selection becomes
 more distributed — the two findings (composed-features-general, single-source-decreasing) coexist.
+
+### F38 — end-to-end: ALL 18 layers' QK compress to ~28% of raw for +0.06 held-out (partial compounding)
+`bilin18_allqk_usedsub.py` (synthesis of F21-F25). Apply the activation-aware used-subspace to ALL 18
+layers' query/key at once, held-out ΔCE (raw all-QK = 3058 Mbit):
+
+| rank | held-out ΔCE | Mbit | % raw |
+|---|---|---|---|
+| 64 | +0.813 | 212 | 6.9% |
+| 128 | +0.241 | 425 | 13.9% |
+| 256 | +0.060 | 849 | 27.8% |
+
+**The whole model's query/key compresses ~3.6× (to 28% of raw) for +0.06 nats held-out.** But the
+per-layer wins only PARTIALLY compound: all-layers r=128 is +0.24 vs the ~+0.005 per layer in
+isolation (F25), because compressing early layers shifts the activations the later used-subspaces were
+fit on. So there is a real compounding cost; r=256 still gives a strong near-free model-wide reduction.
+The natural fix is the DMRG-style iteration Logan originally sketched: re-fit each layer's used-subspace
+on the *compressed* model's activations and sweep to convergence, which should recover the per-layer
+performance across all layers. This is the practical MDL payoff of the compression thread and the
+concrete bridge back to the DMRG vision.
