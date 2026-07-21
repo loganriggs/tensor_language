@@ -1,0 +1,34 @@
+{
+  "baseline_ce": 3.1232,
+  "depth": {
+    "1": {
+      "remove_prev_mlp": 0.6756,
+      "remove_prev_attn": -0.0002
+    },
+    "2": {
+      "remove_prev_mlp": 0.0663,
+      "remove_prev_attn": 0.0036
+    },
+    "3": {
+      "remove_prev_mlp": 0.0274,
+      "remove_prev_attn": -0.0028
+    },
+    "6": {
+      "remove_prev_mlp": 0.0156,
+      "remove_prev_attn": 0.0604
+    },
+    "9": {
+      "remove_prev_mlp": 0.0012,
+      "remove_prev_attn": 0.0033
+    },
+    "12": {
+      "remove_prev_mlp": 0.0041,
+      "remove_prev_attn": 0.001
+    },
+    "17": {
+      "remove_prev_mlp": 0.0054,
+      "remove_prev_attn": 0.0026
+    }
+  },
+  "mlp_dominates_at_n_of_layers": "5/7"
+}

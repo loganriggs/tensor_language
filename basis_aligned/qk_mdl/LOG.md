@@ -2976,3 +2976,18 @@ selects on what the bilinear layer computed, not raw tokens/attn output.
 
 Gate discipline: reference-CE gate caught broken inline forward TWICE (omitted value-bus mixing;
 omitted embedding-RMSNorm) before any claim. GOALS.md F18.
+
+## 2026-07-21 — tick 124 (F19: bilinear-output selection is LAYER-1-SPECIFIC; deep selection distributed)
+
+bilin18_depth_sources.py (forward=reference exactly). Ablate block(L-1)'s mlp/attn write from
+block L's QK input across depth. Remove preceding MLP: L1 +0.676, L2 +0.066, L3 +0.027, L6 +0.016,
+L9 +0.001, L12 +0.004, L17 +0.005. So F18's "layer-1 selects on preceding bilinear output" is
+strongly LAYER-1-SPECIFIC, decaying fast with depth; deep layers (9/12/17) barely depend on any
+single preceding write (distributed, read accumulated residual). L6 minor exception (preceding
+ATTN +0.060 > MLP). Honestly bounds F18 - real but layer-1-scoped, not universal. GOALS.md F19.
+
+tn_gauge layer-1-QK arc (F13-F19) complete: layer-1 selection runs on the bilinear output
+(toy F13 + flagship F18), sparse at source level; the within-source compression is model-
+dependent (toy learned-basis F16 = artifact; flagship directly sparse F17); and the phenomenon
+is early-layer-specific (F19). Gate discipline caught multiple bugs (dead optimizer, per-layer
+gauge, forward x2). Nothing running.

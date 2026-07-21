@@ -99,6 +99,28 @@ gauges; no deep-layer SAE; stays a tensor network.
   but depth-increasing — the Step-5 mechanism holds directionally.
 - Figure: `fig_code_propagation.png`.
 
+### F19 — the bilinear-output selection is LAYER-1-SPECIFIC; deep-layer selection is distributed
+`bilin18_depth_sources.py` (bounded depth-generalization of F18, forward = reference exactly).
+For block L, ablate block L-1's mlp vs attn write from L's QK input, ΔCE:
+
+| block | remove preceding MLP | remove preceding attn |
+|---|---|---|
+| 1 | **+0.676** | −0.0002 |
+| 2 | +0.066 | +0.004 |
+| 3 | +0.027 | −0.003 |
+| 6 | +0.016 | +0.060 |
+| 9 | +0.001 | +0.003 |
+| 12 | +0.004 | +0.001 |
+| 17 | +0.005 | +0.003 |
+
+F18's "layer-1 selects on the preceding bilinear output" is **strongly layer-1-specific** and
+decays fast with depth (layer 1 +0.68 → layer 3 +0.027). **Deep-layer selection is distributed**
+— blocks 9/12/17 barely depend on any single preceding write (+0.001–0.005), reading the
+accumulated residual robustly (block 6 is a minor exception where the preceding *attention*
+matters more, +0.060). So the strong, sparse, interpretable source structure is an EARLY-layer
+phenomenon; by mid/deep layers the query/key reads a distributed residual with no single critical
+source. Honestly bounds F18: the finding is real but layer-1-scoped, not a universal pattern.
+
 ### F18 — FLAGSHIP CONFIRMS F13's interpretive finding: layer-1 selection runs on the bilinear output
 `bilin18_qk1_sources.py`. Causal source ablation on bilin18's h[1] query/key (per-head QK
 RMSNorm makes the exact bilinear block split non-transferable, so ablate instead). Decompose
