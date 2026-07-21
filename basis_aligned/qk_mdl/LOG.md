@@ -3225,3 +3225,14 @@ the 18-layer forward (individually near-lossless rank-128 truncations compound w
 fittable basis-mismatch. Whole-model QK compression tops out at ~28% raw near-free (r=256); below that
 accumulated truncation dominates irreducibly. Honest negative - closes the DMRG-vision bridge for this
 linear per-layer compression: the sweep is a no-op because per-layer optima are already consistent. F39.
+
+## 2026-07-21 — tick 145 (STEP-BACK: synthesis SUMMARY.md of the whole F1-F39 arc)
+
+Reached a genuine terminus on both threads (compression F38/F39; interpretability F36/F37). Rather
+than grind another marginal per-layer extension, did a step-back consolidation: wrote SUMMARY.md - a
+navigable synthesis of the F1-F39 arc (regime-1 rotation empty; regime-2 code-propagation Pareto;
+the productive layer-1 QK line: reads bilinear output, used-subspace compression, grammatical
+categories + syntactic dependencies, composed>individual; end-to-end ~28% QK compression + the DMRG-
+iteration negative). Headline takeaways + the gate-discipline record. GOALS.md stays the per-finding
+detail; SUMMARY.md is the map. Nothing running; remaining directions are genuine new pushes needing
+Logan's steer (different circuit/model/method).
