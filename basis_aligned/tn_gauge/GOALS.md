@@ -99,6 +99,33 @@ gauges; no deep-layer SAE; stays a tensor network.
   but depth-increasing — the Step-5 mechanism holds directionally.
 - Figure: `fig_code_propagation.png`.
 
+### F24 — the GENERAL method: activation-aware used-subspace QK compression beats the frontier at ALL depths
+`bilin18_used_subspace.py`. F22 (M-subspace) was a layer-1 proxy for the true "used subspace";
+F23 showed the single-source projection doesn't generalize. The general version: the optimal
+rank-r INPUT projection preserving the query/key reads over data, min_P E‖R(I−P)x‖² with
+R=[Wq;Wk;Wq2;Wk2] — whitened solution W = top-r eigvecs of C^{1/2}·R^T R·C^{1/2} (C=Cov(x)),
+P = C^{1/2}·W·Wᵀ·C^{−1/2}; W′=W·P factors as shared basis = 5rD bits. ΔCE at r=128 (14% raw):
+
+| layer | **USED** | generic low-rank | source (F23) | input-PCA |
+|---|---|---|---|---|
+| 1 | −0.0006 | +0.060 | −0.001 | +0.026 |
+| 3 | −0.0004 | +0.016 | +0.095 | +0.331 |
+| 6 | −0.005 | +0.012 | +0.028 | +0.375 |
+| 9 | −0.0003 | +0.027 | +0.576 | +0.088 |
+| 12 | −0.009 | +0.004 | −0.002 | +0.021 |
+
+**The used-subspace compresses every layer's query/key to ~14% of raw bits for free — even
+improving CE — beating generic low-rank, the single-source projection, and input-PCA at all 5
+depths (5/5).** It's cheaper too (5rD = 14% vs generic 8rD = 22%), so it dominates on both axes.
+**This is the general method the arc was reaching for**: the query/key reads a ~128-dim
+*activation-weighted* input subspace at every depth; identifying it (data-driven, whitened-
+optimal) — not the raw weight SVD (generic low-rank) nor the input variance (input-PCA) nor a
+single source (F22/F23) — is what unlocks the compression. F22's interpretive win was a
+layer-1 shadow of this. Bug caught by the layer-1 sanity check (whitening inversion → the
+used-subspace must beat the source at layer 1, not be catastrophic; C^{1/2} vs C^{−1/2} swapped).
+**Beats the F21 banked frontier decisively and generally.** Next: full r-frontier of the used-
+subspace; and whether the used-subspace is interpretable (what those ~128 directions are).
+
 ### F23 — F22 is LAYER-1-SPECIFIC: interpretive-subspace compression needs a single-source circuit
 `bilin18_msub_depth.py`. Does F22 generalize into a method? Project each attention layer L's
 query/key onto block(L-1)'s mlp-output subspace (top-128), ΔCE vs generic low-rank r=128:

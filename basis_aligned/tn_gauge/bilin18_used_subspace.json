@@ -1,0 +1,37 @@
+{
+  "baseline_ce": 3.1232,
+  "r": 128,
+  "by_layer": {
+    "1": {
+      "used": -0.0006,
+      "lowrank": 0.06,
+      "source": -0.0014,
+      "input_pca": 0.0263
+    },
+    "3": {
+      "used": -0.0004,
+      "lowrank": 0.0163,
+      "source": 0.0952,
+      "input_pca": 0.3307
+    },
+    "6": {
+      "used": -0.0051,
+      "lowrank": 0.0118,
+      "source": 0.0278,
+      "input_pca": 0.3752
+    },
+    "9": {
+      "used": -0.0003,
+      "lowrank": 0.0272,
+      "source": 0.5762,
+      "input_pca": 0.0883
+    },
+    "12": {
+      "used": -0.0087,
+      "lowrank": 0.004,
+      "source": -0.0021,
+      "input_pca": 0.0209
+    }
+  },
+  "used_beats_lowrank_at": "5/5"
+}

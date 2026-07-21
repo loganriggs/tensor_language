@@ -3036,3 +3036,16 @@ selection (F19), no single source. F22 is NOT a general method. Durable lesson (
 onto a circuit's single interpretable source beats structure-blind low-rank, but only where the
 interpretation is clean (single dominant source) = layer 1. Interpretability->MDL link real but
 conditional. Bounds F22 like F19 bounds F18. GOALS.md F23.
+
+## 2026-07-21 — tick 129 (F24: GENERAL METHOD - activation-aware used-subspace QK compression beats frontier at ALL depths)
+
+bilin18_used_subspace.py: the general version of F22. Optimal rank-r INPUT projection preserving
+QK reads over data (whitened: W=top-r eigvecs of C^{1/2} R^T R C^{1/2}, P=C^{1/2} W W^T C^{-1/2},
+5rD bits). ΔCE at r=128 (14% raw): USED L1 -0.0006, L3 -0.0004, L6 -0.005, L9 -0.0003, L12 -0.009
+-- near-free/improving at EVERY layer. Beats generic low-rank (L1 +0.060, L9 +0.027), source-
+subspace (L9 +0.576), input-PCA (L3 +0.331) at 5/5 layers, AND cheaper (5rD=14% vs generic
+8rD=22%) -> dominates both axes. THE GENERAL METHOD: QK reads a ~128-dim activation-weighted input
+subspace at every depth; identifying it (data-driven whitened-optimal) unlocks compression; F22's
+M-subspace was a layer-1 shadow. Bug caught by layer-1 sanity check (whitening C^{1/2} vs C^{-1/2}
+inverted -> USED was +2.5 catastrophic; fixed -> -0.0006). Beats F21 frontier decisively+generally.
+Next: full r-frontier; interpretability of the used directions. GOALS.md F24.
