@@ -99,6 +99,29 @@ gauges; no deep-layer SAE; stays a tensor network.
   but depth-increasing — the Step-5 mechanism holds directionally.
 - Figure: `fig_code_propagation.png`.
 
+### F21 — layer-1 QK MDL frontier (the banked baseline Logan asked for)
+`bilin18_qk1_mdl_frontier.py` + `fig_qk1_mdl.png`. Two weight-compression methods on bilin18
+h[1]'s query/key (raw 169.9 Mbit = 4×1152²×32), matched-bits, ΔCE binding, index bits shown
+side by side with values (MDL convention). Gate: full = ΔCE 0.
+
+| method | ΔCE | Mbit | %raw |
+|---|---|---|---|
+| low-rank r=64 | +0.13 | 18.9 | 11% |
+| low-rank r=128 | +0.06 | 37.8 | 22% |
+| low-rank r=256 | +0.03 | 75.5 | 44% |
+| prune keep-50% | −0.003 | 138.9 | 82% |
+| prune keep-25% | +0.009 | 69.5 (42.5 val + 27.0 idx) | 41% |
+| prune keep-12.5% | +0.055 | 34.7 | 20% |
+| prune keep-6.25% | +0.24 | 17.4 | 10% |
+
+**Layer-1 QK compresses to ~40% of raw for near-free (+0.009, prune keep-25%) or ~22% for
++0.06 (low-rank r=128).** The two methods cross near 20% of raw: **low-rank wins at low budgets**
+(r=64 +0.13 vs prune +0.24 at ~10%), **pruning wins at high budgets** (keep-25% +0.009 vs
+low-rank +0.03 at ~42%). Pruning's index overhead is real (~40% on top of values). **Regime-1
+rotation = 0 compression (raw)** — the frontier is what any future method (learned sparse basis,
+source-structured code, etc.) must beat. keep-50% even improves CE (−0.003): half the QK weights
+are removable-with-benefit. This is the banked layer-1-QK MDL baseline for future comparison.
+
 ### F20 — what layer-1 selection DOES: predominantly long-range content-based, a few local heads
 `bilin18_layer1_pattern.py` (forward = reference exactly). Characterize h[1]'s attention pattern
 (unnormalized bilinear; use |pat| normalized per query as read-weight). Read-weight by relative

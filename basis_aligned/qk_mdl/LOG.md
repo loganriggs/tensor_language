@@ -3004,3 +3004,13 @@ before the wrong 'local' verdict. GOALS.md F20.
 
 Layer-1-QK arc now fully characterized (F13-F20): sources (bilinear output), depth-scope (layer-1
 -specific), mechanism (long-range content-based). Nothing running.
+
+## 2026-07-21 — tick 126 (F21: layer-1 QK MDL frontier - the banked baseline Logan asked for)
+
+bilin18_qk1_mdl_frontier.py + fig_qk1_mdl.png: layer-1 QK (raw 169.9 Mbit) compression frontier,
+matched-bits, ΔCE binding, index bits side by side (MDL convention). Low-rank: r64 +0.13@11%,
+r128 +0.06@22%, r256 +0.03@44%. Prune: keep50% -0.003@82%, keep25% +0.009@41% (42.5val+27.0idx),
+keep12.5% +0.055@20%, keep6.25% +0.24@10%. Layer-1 QK compresses to ~40% raw near-free (+0.009)
+or ~22% for +0.06. Methods cross ~20%: low-rank wins low-budget, prune wins high-budget. keep-50%
+improves CE (half the QK weights removable-with-benefit). Regime-1 rotation = 0 compression (raw)
+-> frontier is what future methods must beat. Banked baseline. GOALS.md F21.
