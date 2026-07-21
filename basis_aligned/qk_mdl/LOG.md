@@ -3192,3 +3192,14 @@ to->verb (infinitive), of->head-noun (PP), clause-initial->sentence boundary (In
 comparatives (as->such, than->more) - PLUS emergent SEMANTIC DOMAINS (legal: court/trial/defendant/
 prosecutor; biology subwords). Top-by-size classes are generic (subword-completion/whitespace, Pile code).
 composed_pair_features_scaled.md. Hardens the F35 capstone. GOALS.md F36.
+
+## 2026-07-21 — tick 142 (F37: depth-generalization - composed>individual HOLDS at layer 2, but less token-determined)
+
+bilin18_layer2_composed.py (does the composed-feature finding generalize to layer 2?): 1279 frequent
+pairs. Composed vs individual FVU: K64 0.672/0.930, K256 0.407/0.831, K1024 0.060/0.685 - composed>
+individual HOLDS at layer 2 (like layer 1's 0.047/0.662). So the composed pair-feature structure is a
+GENERAL property across depth. BUT between-token variance frac 0.664 (vs layer-1's 0.824) -> layer 2
+is LESS current-token-determined, more context/distributed (consistent with F19 deep-is-distributed).
+Decoded top classes noisier (more subword/domain, less cleanly syntactic than layer 1) - consistent
+with more context-mixing. So: composed features generalize across depth; token-determination and
+syntactic cleanliness DECREASE with depth. GOALS.md F37.

@@ -754,3 +754,14 @@ clause-initial→sentence boundary (`In`/`If`/`It`/`This`→`.`/`\n`), comparati
 `prosecutor`→`the`; biology subwords). (Top-by-size classes are generic subword-completion/whitespace,
 reflecting the Pile's code content.) Hardens the F35 capstone: layer-1 attention's composed features
 are grammatical dependencies, robust and richer at scale.
+
+### F37 — depth-generalization: composed>individual HOLDS at layer 2, but selection is less token-determined
+`bilin18_layer2_composed.py`. Does the composed-feature finding (F33–F36) generalize to layer 2? 1279
+frequent pairs. Composed vs individual FVU: K=64 0.67/0.93, K=256 0.41/0.83, K=1024 **0.060/0.685** —
+composed>individual HOLDS (mirrors layer-1's 0.047/0.662). So the composed pair-feature structure is a
+GENERAL property across depth, not layer-1-specific. But layer-2 between-token variance fraction is
+**0.664** (vs layer-1's 0.824) — layer 2 is LESS current-token-determined, more context-dependent
+(consistent with F19: deep selection is distributed), and its top classes are noisier (more
+subword/domain, less cleanly syntactic). Conclusion: the composed-feature method generalizes across
+depth, but token-determination and syntactic cleanliness decrease with depth as selection becomes
+more distributed — the two findings (composed-features-general, single-source-decreasing) coexist.
