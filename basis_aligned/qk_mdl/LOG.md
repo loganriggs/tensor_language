@@ -3236,3 +3236,17 @@ categories + syntactic dependencies, composed>individual; end-to-end ~28% QK com
 iteration negative). Headline takeaways + the gate-discipline record. GOALS.md stays the per-finding
 detail; SUMMARY.md is the map. Nothing running; remaining directions are genuine new pushes needing
 Logan's steer (different circuit/model/method).
+
+## 2026-07-21 — tick 146 (Logan Q: correct F28 - the bilinear INPUT null; per-unit null + product carving)
+
+Logan: F28 said the bilinear QK-null is 'linear on the output side, inputs only set magnitude' - but
+Left(x),Right(x) each have input null spaces and their product should carve more. CORRECT, I understated.
+Per unit hidden_i=(a_i·x)(b_i·x): reads only 2D span{a_i,b_i} (linear null (D-2)-dim), and the product
+zeros on the UNION of two hyperplanes (a_i·x=0 OR b_i·x=0) - a variety, not linear. So real input
+structure, not just magnitude. BUT measured (weight-only): the QK-relevant units' read directions span
+most of the input - all 9216 Left+Right rows eff-rank 1118/1152; top-256 QK-units 461 (rank@90% 321),
+top-1024 1029, top-2048 1090. => NO large weight-only LINEAR input null; the ~1024 QK-reaching units
+collectively read nearly all D. The big ~128-dim reduction (F24) is ACTIVATION-weighted (input barely
+varies in most read dirs), not weight-structural. The product-carving IS real per-unit and is exactly
+why composed (joint current x attended) features beat individual (F33/F34) - composed>individual is the
+empirical measurement of 'the product carves the null more'. Corrects F28's overstatement.
