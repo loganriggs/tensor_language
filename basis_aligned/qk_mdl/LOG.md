@@ -2962,3 +2962,17 @@ STEP-BACK (F13-F17): layer-1 selection decomposition settled. (1) source-level s
 high-rank needs learned basis (F14-16); flagship QK directly ~75% sparse in standard basis (F17)
 - the clean real-model result. Toy rotation machinery was compensating for small-model density.
 Next optional: flagship source-level graph; or accept direct QK sparsity. GOALS.md F17.
+
+## 2026-07-21 — tick 123 (F18: FLAGSHIP CONFIRMS F13 - layer-1 selection runs on the bilinear output)
+
+bilin18_qk1_sources.py: causal source ablation on bilin18 h[1] QK (per-head QK-norm blocks the
+exact bilinear split -> ablate). Decompose xin1=E+A+M, remove each from QK input only, ΔCE.
+Gates: E+A+M=xin1 1.5e-5; inline forward = reference EXACTLY (Δ=0, after fixing 2 bugs the gate
+caught). Result: remove M (block-0 bilinear/mlp out) +0.676 (essential); remove A (attn out)
+-0.0002 (droppable); remove E (embedding) -0.011 (slightly helpful). => flagship layer-1
+selection runs almost entirely on the BILINEAR OUTPUT - F13's interpretive finding GENERALIZES
+(contrast F16 compression = toy artifact per F17). Durable model-general result: layer-1 QK
+selects on what the bilinear layer computed, not raw tokens/attn output.
+
+Gate discipline: reference-CE gate caught broken inline forward TWICE (omitted value-bus mixing;
+omitted embedding-RMSNorm) before any claim. GOALS.md F18.

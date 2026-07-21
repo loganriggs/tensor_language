@@ -99,6 +99,27 @@ gauges; no deep-layer SAE; stays a tensor network.
   but depth-increasing — the Step-5 mechanism holds directionally.
 - Figure: `fig_code_propagation.png`.
 
+### F18 — FLAGSHIP CONFIRMS F13's interpretive finding: layer-1 selection runs on the bilinear output
+`bilin18_qk1_sources.py`. Causal source ablation on bilin18's h[1] query/key (per-head QK
+RMSNorm makes the exact bilinear block split non-transferable, so ablate instead). Decompose
+h[1]'s QK input xin1 = E + A + M (E=embedding path, A=block-0 attn output, M=block-0 bilinear
+output), remove each from the QK input only, ΔCE. Gates: E+A+M=xin1 (1.5e-5); inline forward =
+reference_forward EXACTLY (Δ=0). Result:
+
+| remove | source | ΔCE |
+|---|---|---|
+| M | block-0 **bilinear (mlp) output** | **+0.676** (essential) |
+| A | block-0 attention output | −0.0002 (droppable) |
+| E | embedding path | −0.011 (slightly helpful to drop) |
+
+**Layer-1 selection on the flagship runs almost entirely on the bilinear output** — removing it
+costs +0.68 nats, while the attention output and embedding are droppable. **F13's interpretive
+finding GENERALIZES to the real model** (contrast F16's compression story, a toy artifact per
+F17). So the durable, model-general result of this arc is interpretive: *layer-1 query/key
+selects on what the bilinear layer computed, not on raw tokens or the attention output.*
+**Gate discipline:** the reference-CE gate caught a broken inline forward TWICE (omitted value-
+bus mixing, then omitted embedding-RMSNorm) before any number was reported.
+
 ### F17 — FLAGSHIP OVERTURNS F16: bilin18's layer-1 QK is already sparse in the standard basis
 `bilin18_qk1_learned_basis.py`. The binding-metric generalization of F16 to bilin18's second
 attention (h[1]). Control passes (planted 86%). But the learned input-basis rotation barely
