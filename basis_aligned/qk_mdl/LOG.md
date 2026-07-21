@@ -3158,3 +3158,13 @@ INDIVIDUAL - pairs carry JOINT structure beyond individual token marginals (comp
 fewer classes for same FVU). CONFIRMS Logan's 'composed features beat individual compositions'.
 Caveats: structural FVU not ΔCE; small pair set (161 freq pairs); the true win is at K=16/64.
 Natural strengthening: more data (more pairs) + a ΔCE confirmation. GOALS.md F33.
+
+## 2026-07-21 — tick 139 (F34: composed>individual CONFIRMED at binding metric (ΔCE) + more data)
+
+bilin18_composed_dce.py (strengthens F33, gate 3.3063=ref Δ1.6e-7): quantize layer-1 QK code z into
+K classes 3 ways, patch layer-1 QK, ΔCE. 7947 co-occurring pairs (vs F33's 161). K=64: free +0.050,
+composed(pairs) +0.040, individual(c-class x a-class) +0.074. K=256: 0.020/0.035/0.059. K=1024:
+0.007/0.009/0.039. COMPOSED<=INDIVIDUAL at all K; at K=1024 composed +0.009 ~ free +0.007 (near-
+optimal) while individual FLOORS at +0.039 (4x worse, not improving with more cells). => the layer-1
+QK code depends JOINTLY on (current,attended); the product of marginal token-classes can't reach it.
+Confirms Logan's 'composed beats individual' at the BINDING metric with more data. GOALS.md F34.

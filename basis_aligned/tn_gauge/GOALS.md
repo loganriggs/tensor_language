@@ -711,3 +711,20 @@ current×attended combinations behave together in ways their marginals miss. Cav
 (not ΔCE); small pair set (161 frequent pairs, so high-K is degenerate — the real signal is K=16/64);
 strengthen with more data + a ΔCE confirmation. Answers the F32 open question positively with a
 proper composed (joint-pair) metric rather than the crude linear proxy.
+
+### F34 — composed > individual CONFIRMED at the binding metric (ΔCE) with more data
+`bilin18_composed_dce.py` (gate 3.3063 = reference, Δ1.6e-7). Strengthens F33: quantize the layer-1
+QK code z into K classes three ways, patch layer-1 QK, ΔCE. 7947 co-occurring pairs (vs F33's 161).
+
+| K | free (best-possible) | composed (pairs) | individual (c-class × a-class) |
+|---|---|---|---|
+| 64 | +0.050 | +0.040 | +0.074 |
+| 256 | +0.020 | +0.035 | +0.059 |
+| 1024 | +0.007 | +0.009 | +0.039 |
+
+Composed ≤ individual at every K; at K=1024 composed (+0.009) is **near-optimal** (free +0.007) while
+individual **floors at +0.039** — 4× worse and not improving with more cells. So the product of
+marginal (current-class × attended-class) genuinely cannot reach what the joint pairs do: the
+layer-1 query/key code depends **jointly** on (current, attended). Confirms Logan's "composed
+features beat individual compositions" at the binding cross-entropy metric with 50× more pairs than
+F33. The composed (current×attended) pair is the right feature unit for the cross-term.
