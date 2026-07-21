@@ -3274,3 +3274,13 @@ on the training distribution. Frontier ESSENTIALLY UNCHANGED from Pile-6k (L1 r1
 +0.0034 FineWeb-256k) - robust to 40x data AND to distribution. Consistent with rank-vs-data
 (tick 147): the covariance BULK (eff-rank, rank@90%) saturates by ~16k tokens, so the used-subspace
 was already well-estimated at 6k. Hardens the compression result (Logan's 'do a lot more + FineWeb').
+
+## 2026-07-21 — tick 149 (rank vs CONTEXT LENGTH: modest growth, eff-rank flat; compression unaffected)
+
+bilin18_rank_vs_seqlen.py (the other axis after tick 147's token-count): layer-1 QK-input covariance
+rank at context 256/512/1024/2048 (~100k tok each, Pile). eff-rank 44.6/44.7/49.2/46.4 (flat ~45-49);
+rank@90% 312/316/380/391 (grows ~24% from 512->2048); rank@99% 948/951/988/993. So longer context
+reveals MODESTLY more 90%-mass directions (the 512-context estimate slightly underestimates), but
+eff-rank is flat and the used-subspace r=128 is well below even the 2048-context rank@90% (391) -
+compression conclusion unaffected. Rank investigation complete on both axes: token-count (saturates,
+tick147) + context-length (modest growth, this). Answers Logan's seq-length caveat.
