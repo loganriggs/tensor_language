@@ -647,3 +647,13 @@ set each unit's activation magnitude (which is why adding cheap activation std c
 to the activation-aware ranking). So: yes, weight-only composition tells you which part of the
 bilinear layer to keep for QK — the answer to task 2. Composes with F24: the ~1024 QK-read units
 project into the ~128-dim used-subspace QK reads.
+
+### F29 — Task 1: composed compression folds layer-1 QK to {~1024 bilinear units → 128-dim}, sub-additive
+`bilin18_composed.py` (gate: patch = reference 5e-6). Compose F28 (keep top-1024 of 4608 bilinear
+units, input side) with F24 (used-subspace r=128, weight side). F28 alone +0.024, F24 alone −0.003,
+**composed +0.008** — below the sum (+0.021) and below F28 alone, i.e. they compose SUB-additively:
+the used-subspace re-optimizes what QK reads and cleans up the unit-drop noise. So **layer-1 query/key
+selection folds to {~1024 of 4608 bilinear hidden units → ~128-dim used-subspace} at only +0.008
+nats** — the composed-basis compression of task 1, concretely. Coherent with the whole arc: embedding
++OV droppable (F13/F18) → ~1024 bilinear units reach QK (F28, weight-only) → their output lives in a
+~128-dim subspace QK reads (F24) → selection is continuous there (F26).

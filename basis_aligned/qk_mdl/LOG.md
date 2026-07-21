@@ -3095,3 +3095,17 @@ closes the small gap). Resolves Logan's 'is the null two-input-dependent': NO - 
 OUTPUT side (Down columns), each unit's output DIRECTION is fixed (Down[:,i]) so the QK-null is a
 LINEAR property of Down∘R, weight-derivable; the two inputs (Left⊙Right) only set activation
 magnitude. Answers task 2: yes, weights tell you which bilinear part to keep for QK. GOALS.md F28.
+
+## 2026-07-21 — tick 134 (F29, Task 1: composed compression folds QK-1 to {~1024 units -> 128-dim}, composes sub-additively)
+
+bilin18_composed.py (Logan overnight task 1, gate patch=ref 5e-6): compose F28 (keep top-1024 of
+4608 bilinear units QK reads, input side) + F24 (used-subspace r128, weight side). F28 alone +0.024,
+F24 alone -0.003, COMPOSED +0.008 (< sum +0.021, < F28 alone) - composes SUB-additively, the
+used-subspace cleans up the unit-drop noise. => layer-1 QK selection folds to {~1024 bilinear units
+-> ~128-dim used-subspace} at only +0.008 ΔCE. The composed-basis compression Logan asked for.
+GOALS.md F29.
+
+OVERNIGHT BATCH (tasks 1-3) COMPLETE: T3(F27) used-subspace for OV works/bilinear layer-1 high-dim;
+T2(F28) weight-only ‖R·Down‖ identifies QK-null of bilinear (~1024/4608 units, null is linear on
+output side); T1(F29) composed reduction folds & composes sub-additively. Plus F26: selection is
+continuous not clustered. Interaction OV×bilinear in QK already shown negligible (F13 A-blocks).
