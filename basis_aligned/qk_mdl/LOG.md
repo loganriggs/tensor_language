@@ -3264,3 +3264,13 @@ saturate), only the 99% tail is undersampling. Justifies used-subspace r=128 (in
 rank@90%; QK-relevant part lower). fig_rank_vs_data.png. Seq length = 512 (RoPE, no hard cap) - offered
 a context-length sweep as a separate axis, awaiting Logan. Next queued: large-data held-out used-
 subspace frontier on FineWeb.
+
+## 2026-07-21 — tick 148 (large-data FineWeb used-subspace frontier: robust, unchanged from Pile-6k)
+
+bilin18_used_frontier_fineweb.py: fit used-subspace on 256000 FineWeb tokens (40x F25's 6k Pile),
+held-out ΔCE on disjoint FineWeb. Layer1: used r64 +0.018/gen +0.100; r128 +0.0034/+0.055; r256
++0.0010/+0.020. Layer9: r128 +0.0058/+0.010. Used-subspace STILL dominates generic low-rank at all r
+on the training distribution. Frontier ESSENTIALLY UNCHANGED from Pile-6k (L1 r128 +0.002 Pile-6k ->
++0.0034 FineWeb-256k) - robust to 40x data AND to distribution. Consistent with rank-vs-data
+(tick 147): the covariance BULK (eff-rank, rank@90%) saturates by ~16k tokens, so the used-subspace
+was already well-estimated at 6k. Hardens the compression result (Logan's 'do a lot more + FineWeb').
