@@ -3168,3 +3168,15 @@ composed(pairs) +0.040, individual(c-class x a-class) +0.074. K=256: 0.020/0.035
 optimal) while individual FLOORS at +0.039 (4x worse, not improving with more cells). => the layer-1
 QK code depends JOINTLY on (current,attended); the product of marginal token-classes can't reach it.
 Confirms Logan's 'composed beats individual' at the BINDING metric with more data. GOALS.md F34.
+
+## 2026-07-21 — tick 140 (F35: composed pair-features decode to SYNTACTIC DEPENDENCIES)
+
+bilin18_composed_qualitative.py: decode the composed (current,attended) pair-classes (F33/F34).
+264 frequent pairs (>=6 occ) clustered into 48 by joint layer-1 QK code. Classes are interpretable
+RELATIONAL/syntactic-dependency features: class3 aux/modal verb -> subject pronoun (had->I, can->you,
+'m->I) = subject-verb dependency; class43 clause-initial word -> preceding sentence boundary (In->.,
+However->., For->\n); class0 coordinating conj -> preceding comma (and->, but->, so->,); class28
+determiner 'a' -> preposition/copula (a->in, a->is, a->for). These are joint current x attended
+patterns individual token classes can't represent -> WHY composed beat individual (F34). The 'features
+in the folded basis' = syntactic dependencies. composed_pair_features.md. Caveat: small pair set (264),
+some noisy subword/code classes. GOALS.md F35.

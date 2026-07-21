@@ -1,0 +1,28 @@
+# Composed pair-features for layer-1 QK (current → attended equivalence classes)
+
+264 frequent (current,attended) pairs clustered into 48 classes by their JOINT layer-1 QK code (F33/F34: composed beats individual). Each class = current→attended compositions that make layer-1 attention behave the same.
+
+- **class 43** (14 pairs): ' In'→'.'  ' as'→','  'A'→'\n'  'In'→'\n'  'and'→'\n'  'For'→'\n'  ' However'→'.'  'You'→'\n'  'As'→'\n'  'as'→'cill'
+- **class 28** (10 pairs): ' a'→' in'  ' a'→' is'  ' a'→' for'  ' a'→' with'  ' a'→' as'  ' a'→' from'  ' A'→'.'  ' a'→','  ' a'→' a'  ' a'→' on'
+- **class 0** (9 pairs): ' and'→','  ' but'→','  ' But'→'.'  'OO'→' j'  ' so'→','  'So'→'\n'  'fact'→' bios'  ' not'→','  ' such'→','
+- **class 39** (9 pairs): ','→','  ','→' and'  ','→' However'  '-'→'-'  ','→' that'  '+'→' H'  ','→' example'  '/'→' O'  '/'→'/'
+- **class 26** (8 pairs): ' '→' '  ' '→'\n'  ' <'→' '  ' </'→' '  '</'→'IS'  '@'→'="'  ' '→'.'  'illa'→'c'
+- **class 32** (8 pairs): ' min'→'field'  'M'→' OR'  'QL'→' C'  'IS'→'>'  'margin'→'_'  ' that'→' and'  'c'→' an'  'RM'→'/'
+- **class 47** (8 pairs): 'field'→' <'  'field'→' </'  'aint'→'str'  ' up'→' ended'  'text'→':'  'parent'→'="'  ' state'→' ground'  ' have'→' you'
+- **class 3** (7 pairs): ' had'→' I'  ' can'→' you'  ' couldn'→' I'  ' can'→' I'  "'m"→' I'  ' it'→' make'  ' wanted'→' I'
+- **class 34** (7 pairs): '�'→' couldn'  '�'→' I'  '�'→' didn'  '�'→' it'  '�'→' women'  '�'→'�'  '�'→' you'
+- **class 37** (7 pairs): ' be'→' can'  ' is'→' the'  ' is'→' it'  ' is'→' this'  ' be'→' would'  ' be'→' should'  ' are'→' they'
+- **class 40** (7 pairs): '\n'→'.'  '\n'→').'  '\n'→'�'  '\n'→'."'  '\n'→' […]'  '\n'→'!'  '\n'→'?'
+- **class 2** (6 pairs): ':'→' android'  '="'→'urs'  '="'→'Occ'  ':'→' app'  '="'→'Of'  ' ='→' counter'
+- **class 4** (6 pairs): ' to'→' had'  ' to'→' have'  ' to'→' used'  ' to'→' how'  ' to'→' way'  ' to'→' try'
+- **class 5** (6 pairs): 'ype'→'at'  '0'→'="'  '_'→'layout'  ' android'→' '  '1'→'PD'  '0'→'0'
+- **class 9** (6 pairs): 'Occ'→' min'  ' max'→'0'  'Occ'→' max'  'str'→'con'  'Cent'→' All'  'Ex'→' Web'
+- **class 10** (6 pairs): ' the'→' the'  ' the'→' and'  ' the'→','  ' the'→' that'  ' the'→' all'  ' the'→' only'
+- **class 11** (6 pairs): '�'→' couldn'  '�'→' didn'  '�'→' I'  '�'→' it'  '�'→' women'  '�'→' you'
+- **class 15** (6 pairs): ' I'→' I'  ' I'→'.'  'I'→'\n'  ' I'→','  'We'→'\n'  ' I'→' my'
+- **class 18** (6 pairs): ':'→'Quote'  '"'→'\n'  ' "'→' '  '•'→'\n'  ':'→'A'  '•'→'•'
+- **class 19** (6 pairs): 't'→' couldn'  't'→'('  's'→' DSL'  'u'→' vac'  's'→' women'  't'→' I'
+- **class 20** (6 pairs): ' the'→' in'  ' the'→' on'  ' the'→' at'  ' the'→' In'  ' the'→' through'  ' the'→' up'
+- **class 23** (6 pairs): ')'→' ('  ')'→'('  '">'→'="'  ').'→' ('  '),'→' ('  ']'→'['
+- **class 27** (6 pairs): 'ent'→' absorb'  'ation'→' menstru'  'ur'→' bios'  'function'→' wave'  ' extension'→' knee'  'uity'→' ac'
+- **class 29** (6 pairs): ' the'→' by'  ' the'→' with'  ' the'→' from'  ' the'→' to'  ' the'→' for'  ' the'→' about'

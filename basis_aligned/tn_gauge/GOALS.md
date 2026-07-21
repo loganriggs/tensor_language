@@ -728,3 +728,16 @@ marginal (current-class × attended-class) genuinely cannot reach what the joint
 layer-1 query/key code depends **jointly** on (current, attended). Confirms Logan's "composed
 features beat individual compositions" at the binding cross-entropy metric with 50× more pairs than
 F33. The composed (current×attended) pair is the right feature unit for the cross-term.
+
+### F35 — composed pair-features decode to SYNTACTIC DEPENDENCIES (the folded-basis features)
+`bilin18_composed_qualitative.py` + `composed_pair_features.md`. Decode the composed (current,attended)
+pair-classes (F33/F34): 264 frequent pairs (>=6 occ) into 48 classes by joint layer-1 QK code. The
+classes are interpretable RELATIONAL features: **auxiliary/modal verb → subject pronoun** (`had`→`I`,
+`can`→`you`, `'m`→`I` — a subject-verb dependency); **clause-initial word → preceding sentence
+boundary** (`In`→`.`, `However`→`.`, `For`→`\n`); **coordinating conjunction → preceding comma**
+(`and`→`,`, `but`→`,`, `so`→`,`); **determiner → preposition/copula** (`a`→`in`, `a`→`is`, `a`→`for`,
+noun-phrase attachment). These are joint current×attended patterns that individual token classes
+cannot represent — the mechanistic reason composed beat individual (F34). So the "features in the
+folded basis" that this whole thread sought are **syntactic dependencies**: layer-1 attention links
+words to their grammatical governors/dependents. Caveat: small pair set (264 frequent pairs), some
+noisy subword/code-fragment classes. The interpretability capstone of the F13–F34 arc.
