@@ -128,20 +128,62 @@ FineWeb ΔCE across 8 arms — all computed from weights alone:
 | metric | Spearman vs FineWeb ΔCE |
 |---|---|
 | **plain factor FVU** | **0.952** |
+| **frequency-weighted pattern FVU** (unigram rows × columns) | **0.905** |
 | score-level FVU (q̂k̂ᵀ) | 0.881 |
 | pattern FVU + rotary offsets (pair-count weighted) | 0.786 |
 | pattern FVU (s₁·s₂ product) | 0.714 |
 | pattern + rotary + OV-weighted | 0.714 |
 | OV-weighted pattern (columns × ‖W_o W_v ê_j‖) | 0.571 |
+| OV-**Gram** pattern (error through the full OV map, exact) | 0.571 |
+| OV-Gram + rotary | 0.571 |
 
 Findings: (a) on-distribution, the decoupling **mostly dissolves** — plain FVU is a good proxy
 (panel C of the figure); (b) the OV-weighting hypothesis (weight score errors by what the
-output-value circuit reads) is **not supported** — every energy-weighted composition predicts
-*worse*, because quadratic-energy metrics flatter SVD (which optimizes exactly that norm) while
-cross-entropy also rewards low-energy tail directions the dictionary captures; (c) adding rotary
-position to the pattern metric helps it (0.71 → 0.79; it is the only composed metric that
-correctly ranks the dictionary above svd r16) but still doesn't beat the naive factor metric.
-Practical rule: factor FVU for search loops, held-out ΔCE (FineWeb) binding.
+output-value circuit reads) is **not supported**, and not because of the crude norm
+approximation — the exact OV-Gram version (cancellation and null space handled properly) predicts
+identically badly; (c) rotary position helps the pattern metric (0.71 → 0.79) but doesn't close
+the gap.
+
+**Why the composed metrics fail — two mechanisms, quantified by the diagnostics:**
+
+1. *Uniform-vocabulary sampling.* Score/pattern energy concentrates on high-norm factor rows,
+   over-representing rare tokens relative to real usage. Weighting rows and columns by empirical
+   unigram frequency rescues the pattern metric from 0.714 to **0.905** and makes it correctly
+   rank the dictionary above matched-bits SVD.
+2. *Differential cancellation through OV.* The cancellation index (‖ΔP·U‖² over the no-cross-term
+   sum; the true pattern's own value is 31.6) shows SVD residuals self-cancel through the OV map
+   more than dictionary residuals (≈10–11 vs ≈13–14; merges ≈16). Any post-OV energy metric
+   therefore awards SVD a discount that held-out cross-entropy does not honor. The alignment
+   coefficient (+0.20…+0.30 for every arm) acquits the "dumps error where OV cares" hypothesis.
+
+Practical rule: trust factor FVU or frequency-weighted pattern FVU in search loops; report the
+cancellation index beside any post-OV metric — a large cancel-index gap between arms flags a
+distorted comparison. Held-out ΔCE (FineWeb) stays binding.
+
+## 5b. Per-head free merges (is any head's query/key content-free?)
+
+Collapsing one head's factor rows to the vocabulary mean (pattern becomes position-only through
+rotary), others exact, FineWeb ΔCE per head:
+
+| head | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+|---|---|---|---|---|---|---|---|---|---|
+| ΔCE | +.103 | +.004 | **+.002** | +.013 | +.007 | **+.001** | +.004 | +.019 | +.005 |
+
+**Heads 2 and 5 are individually content-free and — unusually for this program — compose**
+(joint collapse +0.0028 ≈ additive). Head 0 alone carries +0.103; collapsing all nine costs
++0.57. The earlier "7 of 9 heads have marginal alphabet 1" claim was a Pile-audit artifact and
+does not survive on the training distribution.
+
+## 5c. CE-training upper bound (is the MSE objective leaving CE on the table?)
+
+Frozen-support CE polish through the frozen model (atoms + coefficients + biases trainable,
+supports fixed; FineWeb 300/300 train/audit split; not weight-only — diagnostic): **zero gain.**
+Held-out ΔCE degraded monotonically from the very first eval (+0.012 at step 150 → +0.061 at
+step 1200) while train CE fell to ~2.3 — pure overfitting of ~12M dictionary parameters on 154k
+train tokens. Best held-out remains the weight-space MSE fit (+0.0076). Replicates the earlier
+stream-tables finding that CE polish buys nothing once structure is right. Bounded by the 154k
+training tokens available, but the direction was clear from the first evaluation; combined with
+factor FVU's 0.95 rank correlation, the weight-faithful objective is not measurably suboptimal.
 
 ## 6. Robustness notes
 

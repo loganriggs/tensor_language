@@ -3492,3 +3492,33 @@ fig_qk_mdl_frontier_fw.png (v2, committed): FineWeb dCE vs bits | FVU vs bits | 
 STATE: layer-0 two-stage program phases 0-4 all DONE. Open next steps (Logan's call): (a) dictionary
 (n,k) sweep to find the FineWeb knee; (b) cross-head-branch shared-atom dictionaries; (c) joint
 product-of-branches decomposition; (d) tensor-sim weight-space training variant; (e) layer-1 object.
+
+## 2026-07-22 — tick 156 COMPLETE (per-head collapse; 9-rung ladder + diagnostics; CE-polish = zero)
+
+PER-HEAD COLLAPSE on FineWeb (qk_head_marginal.py, Logan Q1): heads 2 and 5 are individually
+content-free (+0.0016/+0.0011 collapsed to vocab-mean rows = position-only patterns) AND compose
+(+0.0028 jointly ~ additive). Head 0 carries +0.103 alone; all-9 collapse +0.569. The old
+"7 of 9 heads alphabet-1" claim does NOT survive the FineWeb audit (another Pile artifact).
+=> the honest free merge at head granularity: 2 of 9 heads.
+
+LADDER v5 + DIAGNOSTICS (qk_ovweight.py, Logan: diagnose WHY weighted metrics disagree):
+Spearman vs FineWeb dCE — fac 0.952 > pat_freq 0.905 > score 0.881 > pat_rope 0.786 > pat 0.714 =
+pat_rope_ov 0.714 > pat_ov = pat_gram = pat_rope_gram 0.571. TWO MECHANISMS QUANTIFIED:
+(1) UNIFORM-VOCAB SAMPLING: unigram-frequency weighting rescues the pattern metric 0.714->0.905
+(score/pattern energy concentrates on high-norm rare-token rows; frequency reweighting corrects;
+with it the pattern metric correctly ranks dict > matched svd). (2) DIFFERENTIAL OV CANCELLATION:
+cancellation index (||dP U||^2 / sum dP^2||u||^2; signal's own = 31.6): svd errors align ~10-11,
+dict ~13-14, merge ~16 — svd residuals SELF-CANCEL through OV more than dict residuals, so any
+post-OV energy metric awards svd a discount CE does not honor. Alignment coefficient +0.20..0.30
+for all arms (no family dumps error where OV cares — acquitted). RULE: trust factor-FVU or
+freq-weighted pattern-FVU in search loops; post-OV metrics require the cancellation index reported
+beside them, and a large cancel-index gap between arms flags a distorted comparison.
+
+CE-POLISH UPPER BOUND (qk_ce_polish.py, Logan Q2 follow-up; NOT weight-only, diagnostic):
+frozen supports, atoms+coeffs+biases trained through frozen bf16 model, FineWeb 300/300 split
+(154k train / 154k audit preds). Result: ZERO gain — held-out dCE degrades monotonically from
+step 150 (+0.0123) to +0.061 at step 1200 while train CE falls to ~2.3 (overfit, 12M params on
+154k tokens); best held-out = the MSE fit (+0.0076). Replicates the windowed-D "CE-polish buys
+zero" finding on this object. Caveat: bounded by 154k train tokens; no evidence of gain, direction
+clear from the first eval. Combined with fac-FVU Spearman 0.95: the weight-faithful MSE objective
+is NOT measurably leaving CE on the table at this budget.

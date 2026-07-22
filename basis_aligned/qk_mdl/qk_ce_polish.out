@@ -1,0 +1,13 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+baseline 3.0905 (bf16); MSE-trained dict dCE +0.0076
+  step 150: train CE 2.8955  held-out dCE +0.0123
+  step 300: train CE 2.5954  held-out dCE +0.0257
+  step 450: train CE 2.6202  held-out dCE +0.0379
+  step 600: train CE 2.3351  held-out dCE +0.0477
+  step 750: train CE 2.6069  held-out dCE +0.0545
+  step 900: train CE 2.4822  held-out dCE +0.0593
+  step 1050: train CE 2.5578  held-out dCE +0.0611
+  step 1200: train CE 3.0182  held-out dCE +0.0611
+
+MSE dict +0.0076 -> CE-polished best +0.0076 (upper-bound gap +0.0000)
+wrote /workspace/tensor_language/basis_aligned/qk_mdl/qk_ce_polish.json

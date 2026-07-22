@@ -1,0 +1,50 @@
+{
+  "baseline_ce": 3.0905,
+  "dce_mse_dict": 0.0076,
+  "n_train_preds": 153600,
+  "n_audit_preds": 153600,
+  "curve": [
+    {
+      "step": 150,
+      "train_ce": 2.8955,
+      "dce_heldout": 0.0123
+    },
+    {
+      "step": 300,
+      "train_ce": 2.5954,
+      "dce_heldout": 0.0257
+    },
+    {
+      "step": 450,
+      "train_ce": 2.6202,
+      "dce_heldout": 0.0379
+    },
+    {
+      "step": 600,
+      "train_ce": 2.3351,
+      "dce_heldout": 0.0477
+    },
+    {
+      "step": 750,
+      "train_ce": 2.6069,
+      "dce_heldout": 0.0545
+    },
+    {
+      "step": 900,
+      "train_ce": 2.4822,
+      "dce_heldout": 0.0593
+    },
+    {
+      "step": 1050,
+      "train_ce": 2.5578,
+      "dce_heldout": 0.0611
+    },
+    {
+      "step": 1200,
+      "train_ce": 3.0182,
+      "dce_heldout": 0.0611
+    }
+  ],
+  "dce_ce_polished_best": 0.0076,
+  "gap_closed": 0.0
+}

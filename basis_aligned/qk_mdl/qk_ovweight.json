@@ -111,6 +111,44 @@
       "diag_align": 0.2548,
       "dce_pile": -0.0107,
       "dce_fw": 0.0059
+    },
+    "two-stage merge2048 -> OMP dict n=512 k=8": {
+      "fac": 0.67653,
+      "score": 0.24776,
+      "pat": 0.18532,
+      "pat_ov": 0.11475,
+      "pat_rope": 0.24118,
+      "pat_rope_ov": 0.14393,
+      "pat_gram": 0.05907,
+      "pat_rope_gram": 0.06782,
+      "pat_freq": 0.19972,
+      "diag_cancel_err": 16.3445,
+      "diag_cancel_sig": 31.6123,
+      "diag_align": 0.287,
+      "dce_pile": -0.0047,
+      "dce_fw": 0.0278
     }
+  },
+  "spearman_vs_dce_pile": {
+    "fac": 0.619,
+    "score": 0.643,
+    "pat": 0.571,
+    "pat_ov": 0.452,
+    "pat_rope": 0.548,
+    "pat_rope_ov": 0.571,
+    "pat_gram": 0.452,
+    "pat_rope_gram": 0.452,
+    "pat_freq": 0.595
+  },
+  "spearman_vs_dce_fw": {
+    "fac": 0.952,
+    "score": 0.881,
+    "pat": 0.714,
+    "pat_ov": 0.571,
+    "pat_rope": 0.786,
+    "pat_rope_ov": 0.714,
+    "pat_gram": 0.571,
+    "pat_rope_gram": 0.571,
+    "pat_freq": 0.905
   }
 }
