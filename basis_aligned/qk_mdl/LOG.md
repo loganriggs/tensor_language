@@ -3365,3 +3365,33 @@ dictionary n=512 k=8 over centroids. dl_sparse_dict added to mdl_accounting.py (
 convention). Matched-bits pairings: n=1024 k=8 (25.3 Mbit/branch) ~ svd r=15; n=4096 k=8 (51.3
 Mbit/branch) ~ svd r=31. Pre-registered (Phase 0): OMP/LS is the strong arm; batch-topk predicted to
 LOSE.
+
+## 2026-07-22 — tick 152 (Phase 2 DONE: dictionaries beat the SVD frontier at matched bits; two-stage ~FREE at 1.3% raw; Phase 4 robustness launched)
+
+qk_sae_dict.py complete (single seed 0; audit = 16 held-out seqs, T=512; baseline CE 3.2341).
+SVD frontier (per-head-branch concatenated rows, matched-bits baseline): r=8 +0.0244 @3.1% raw;
+r=16 +0.0031 @6.3%; r=32 -0.0083 @12.6%; r=64 -0.0167 @25.1%; r=128 -0.0120 @50.3%.
+DICT n=1024 k=8 (455 Mbit = 6.14% raw, matched to svd r~15/16): token-linear -0.0197 (fvu 0.460);
+token-OMP/LS -0.0112 (fvu 0.400); batch-topk -0.0134 (fvu 0.481); matryoshka -0.0101 (fvu 0.463).
+ALL FOUR dictionary arms beat matched svd r=16 (+0.0031) by ~0.013-0.023 nats.
+DICT n=4096 k=8 (12.4% raw, matched svd r~31/32 at -0.0083): OMP/LS -0.0131 (fvu 0.301);
+token-linear -0.0118; matryoshka -0.0123; batch-topk -0.0073 (fvu 0.411). Dictionaries >= svd again.
+TWO-STAGE (merge K=2048 -> OMP dict n=512 k=8 over centroids): dCE -0.0004 at 97.7 Mbit = 1.32% raw
+— essentially FREE at 76x description-length reduction; Pareto-dominates svd-16 and merge-256.
+
+Phase-0 prediction check (pre-registered "batch-topk loses"): by FVU it REPLICATES — batch-topk is
+the weakest sparse arm at both budgets (0.481 / 0.411 vs OMP 0.400 / 0.301) and OMP/LS is the
+structural winner; but NO explosion on real tables (real factor rows are not the adversarial
+correlated-atom regime of the low-rank plant). By dCE all sparse arms sit in a -0.007..-0.020 band
+whose ordering is within suspected audit noise — resolution deferred to Phase 4.
+
+STRUCTURAL vs BEHAVIORAL gap (candidate finding, pending robustness): even n=4096 k=8 OMP reaches
+only fvu 0.30 (vs 0.012 on the Phase-0 sparse plant) — the layer-0 factor tables are NOT cleanly
+sparse-codable structurally — yet dCE <= 0 everywhere at >= 6% raw. Most factor-table variance is
+behaviorally irrelevant at T=512; sparse dictionaries capture the behaviorally relevant part better
+than low-rank at matched bits. Echoes the program's standing "FVU mispredicts behavior" lesson.
+
+Phase 4 LAUNCHED (qk_sae_robust.py): wide audit 128 disjoint held-out seqs (65,536 preds, 8x) +
+seeds — merge K=2048 x3 kmeans seeds; dict n=1024 k=8 x3 training seeds (linear + OMP encoders);
+two-stage x2 seeds; svd r=16/32 re-audited wide. Settles whether the negative-dCE band is real
+denoising or audit noise. Wide baseline CE 3.3248 (vs orig-16-seq 3.2341).

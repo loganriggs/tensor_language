@@ -1,0 +1,142 @@
+{
+  "object": "layer-0 exact weight-only fold (Option A)",
+  "raw_Mbits": 7417.6,
+  "seed": 0,
+  "steps": 3000,
+  "arms": {
+    "svd rank 8": {
+      "dce": 0.0244,
+      "Mbits": 233.0,
+      "pct_raw": 3.14,
+      "fvu": 0.69339,
+      "renorm": true,
+      "r": 8
+    },
+    "svd rank 16": {
+      "dce": 0.0031,
+      "Mbits": 466.0,
+      "pct_raw": 6.28,
+      "fvu": 0.61928,
+      "renorm": true,
+      "r": 16
+    },
+    "svd rank 32": {
+      "dce": -0.0083,
+      "Mbits": 931.9,
+      "pct_raw": 12.56,
+      "fvu": 0.50661,
+      "renorm": true,
+      "r": 32
+    },
+    "svd rank 64": {
+      "dce": -0.0167,
+      "Mbits": 1863.9,
+      "pct_raw": 25.13,
+      "fvu": 0.34599,
+      "renorm": true,
+      "r": 64
+    },
+    "svd rank 128": {
+      "dce": -0.012,
+      "Mbits": 3727.8,
+      "pct_raw": 50.26,
+      "fvu": 0.15418,
+      "renorm": true,
+      "r": 128
+    },
+    "dict n=1024 k=8 token-linear": {
+      "dce": -0.0197,
+      "Mbits": 455.4,
+      "pct_raw": 6.14,
+      "fvu": 0.4599,
+      "renorm": true,
+      "n": 1024,
+      "k": 8
+    },
+    "dict n=1024 k=8 token-OMP/LS": {
+      "dce": -0.0112,
+      "Mbits": 455.4,
+      "pct_raw": 6.14,
+      "fvu": 0.40042,
+      "renorm": true,
+      "n": 1024,
+      "k": 8
+    },
+    "dict n=1024 k=8 token-OMP/LS (no renorm)": {
+      "dce": -0.0073,
+      "Mbits": 455.4,
+      "pct_raw": 6.14,
+      "fvu": 0.40042,
+      "renorm": false,
+      "n": 1024,
+      "k": 8
+    },
+    "dict n=1024 k=8 batch-topk": {
+      "dce": -0.0134,
+      "Mbits": 455.4,
+      "pct_raw": 6.14,
+      "fvu": 0.48071,
+      "renorm": true,
+      "n": 1024,
+      "k": 8,
+      "nnz": 7243778
+    },
+    "dict n=1024 k=8 matryoshka": {
+      "dce": -0.0101,
+      "Mbits": 455.4,
+      "pct_raw": 6.14,
+      "fvu": 0.46297,
+      "renorm": true,
+      "n": 1024,
+      "k": 8
+    },
+    "dict n=4096 k=8 token-linear": {
+      "dce": -0.0118,
+      "Mbits": 922.9,
+      "pct_raw": 12.44,
+      "fvu": 0.37977,
+      "renorm": true,
+      "n": 4096,
+      "k": 8
+    },
+    "dict n=4096 k=8 token-OMP/LS": {
+      "dce": -0.0131,
+      "Mbits": 922.9,
+      "pct_raw": 12.44,
+      "fvu": 0.30123,
+      "renorm": true,
+      "n": 4096,
+      "k": 8
+    },
+    "dict n=4096 k=8 batch-topk": {
+      "dce": -0.0073,
+      "Mbits": 922.9,
+      "pct_raw": 12.44,
+      "fvu": 0.41084,
+      "renorm": true,
+      "n": 4096,
+      "k": 8,
+      "nnz": 7243781
+    },
+    "dict n=4096 k=8 matryoshka": {
+      "dce": -0.0123,
+      "Mbits": 922.9,
+      "pct_raw": 12.44,
+      "fvu": 0.39091,
+      "renorm": true,
+      "n": 4096,
+      "k": 8
+    },
+    "two-stage merge2048 -> dict n=512 k=8 OMP/LS": {
+      "dce": -0.0004,
+      "Mbits": 97.7,
+      "pct_raw": 1.32,
+      "fvu": 0.65995,
+      "renorm": true,
+      "merge_K": 2048,
+      "n": 512,
+      "k": 8
+    }
+  },
+  "baseline_ce": 3.2341
+}

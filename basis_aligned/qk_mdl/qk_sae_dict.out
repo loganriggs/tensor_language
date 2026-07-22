@@ -1,0 +1,56 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+baseline CE 3.2341
+svd rank 8                                       dCE +0.0244  fvu 0.6934     233.0 Mbit ( 3.14%)
+svd rank 16                                      dCE +0.0031  fvu 0.6193     466.0 Mbit ( 6.28%)
+svd rank 32                                      dCE -0.0083  fvu 0.5066     931.9 Mbit (12.56%)
+svd rank 64                                      dCE -0.0167  fvu 0.3460    1863.9 Mbit (25.13%)
+svd rank 128                                     dCE -0.0120  fvu 0.1542    3727.8 Mbit (50.26%)
+  fitted head-branch 1/18 (n=1024, k=8); tok loss 0.48026
+  fitted head-branch 2/18 (n=1024, k=8); tok loss 0.41676
+  fitted head-branch 3/18 (n=1024, k=8); tok loss 0.51373
+  fitted head-branch 4/18 (n=1024, k=8); tok loss 0.51068
+  fitted head-branch 5/18 (n=1024, k=8); tok loss 0.54073
+  fitted head-branch 6/18 (n=1024, k=8); tok loss 0.54633
+  fitted head-branch 7/18 (n=1024, k=8); tok loss 0.10235
+  fitted head-branch 8/18 (n=1024, k=8); tok loss 0.26816
+  fitted head-branch 9/18 (n=1024, k=8); tok loss 0.28214
+  fitted head-branch 10/18 (n=1024, k=8); tok loss 0.29490
+  fitted head-branch 11/18 (n=1024, k=8); tok loss 0.50922
+  fitted head-branch 12/18 (n=1024, k=8); tok loss 0.53436
+  fitted head-branch 13/18 (n=1024, k=8); tok loss 0.40406
+  fitted head-branch 14/18 (n=1024, k=8); tok loss 0.46471
+  fitted head-branch 15/18 (n=1024, k=8); tok loss 0.27906
+  fitted head-branch 16/18 (n=1024, k=8); tok loss 0.29227
+  fitted head-branch 17/18 (n=1024, k=8); tok loss 0.39798
+  fitted head-branch 18/18 (n=1024, k=8); tok loss 0.30503
+dict n=1024 k=8 token-linear                     dCE -0.0197  fvu 0.4599     455.4 Mbit ( 6.14%)
+dict n=1024 k=8 token-OMP/LS                     dCE -0.0112  fvu 0.4004     455.4 Mbit ( 6.14%)
+dict n=1024 k=8 token-OMP/LS (no renorm)         dCE -0.0073  fvu 0.4004     455.4 Mbit ( 6.14%)
+dict n=1024 k=8 batch-topk                       dCE -0.0134  fvu 0.4807     455.4 Mbit ( 6.14%)
+dict n=1024 k=8 matryoshka                       dCE -0.0101  fvu 0.4630     455.4 Mbit ( 6.14%)
+  fitted head-branch 1/18 (n=4096, k=8); tok loss 0.38281
+  fitted head-branch 2/18 (n=4096, k=8); tok loss 0.33348
+  fitted head-branch 3/18 (n=4096, k=8); tok loss 0.41414
+  fitted head-branch 4/18 (n=4096, k=8); tok loss 0.41230
+  fitted head-branch 5/18 (n=4096, k=8); tok loss 0.43591
+  fitted head-branch 6/18 (n=4096, k=8); tok loss 0.44032
+  fitted head-branch 7/18 (n=4096, k=8); tok loss 0.08626
+  fitted head-branch 8/18 (n=4096, k=8); tok loss 0.21866
+  fitted head-branch 9/18 (n=4096, k=8); tok loss 0.22945
+  fitted head-branch 10/18 (n=4096, k=8); tok loss 0.23889
+  fitted head-branch 11/18 (n=4096, k=8); tok loss 0.41106
+  fitted head-branch 12/18 (n=4096, k=8); tok loss 0.43166
+  fitted head-branch 13/18 (n=4096, k=8); tok loss 0.32942
+  fitted head-branch 14/18 (n=4096, k=8); tok loss 0.37697
+  fitted head-branch 15/18 (n=4096, k=8); tok loss 0.22612
+  fitted head-branch 16/18 (n=4096, k=8); tok loss 0.23595
+  fitted head-branch 17/18 (n=4096, k=8); tok loss 0.32118
+  fitted head-branch 18/18 (n=4096, k=8); tok loss 0.24643
+dict n=4096 k=8 token-linear                     dCE -0.0118  fvu 0.3798     922.9 Mbit (12.44%)
+dict n=4096 k=8 token-OMP/LS                     dCE -0.0131  fvu 0.3012     922.9 Mbit (12.44%)
+dict n=4096 k=8 batch-topk                       dCE -0.0073  fvu 0.4108     922.9 Mbit (12.44%)
+dict n=4096 k=8 matryoshka                       dCE -0.0123  fvu 0.3909     922.9 Mbit (12.44%)
+two-stage merge2048 -> dict n=512 k=8 OMP/LS     dCE -0.0004  fvu 0.6599      97.7 Mbit ( 1.32%)
+
+wrote /workspace/tensor_language/basis_aligned/qk_mdl/qk_sae_dict.json
