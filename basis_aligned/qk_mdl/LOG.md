@@ -3560,3 +3560,29 @@ and edges OMP/LS +0.0059. The validated OV metric WORKS AS A TRAINING SIGNAL —
 folding OV in improves the frontier. Caveat: single seed; improvement (0.0022) is ~the dict seed
 spread (±0.001-0.002) — a seed pass would firm it up (queued as an option). Figure v3 panel A now
 carries the point (teal triangle, ink edge): new best at this budget. qk_dict_l0_ctx.pt saved.
+
+## 2026-07-23 — tick 160 COMPLETE (overnight Pareto sweep: OV-context training shifts the LOW-BIT frontier down ~2x, seed-robust; crossover to MSE+OMP at rich budgets)
+
+qk_pareto_sweep.py: 14/14 jobs, no failures. 8 budgets (2.5-20.7% raw) x {MSE-linear, MSE-OMP@s0,
+OV-context} + 3 seeds at anchors (512/4, 1024/8, 4096/8). FineWeb 307k preds, baseline 3.0763.
+
+Seed-0 frontier (Mbit: lin / OMP / ctx):
+183: .0171/.0149/.0073 | 224: .0144/.0124/.0069 | 303: .0108/.0092/.0070 | 455: .0076/.0059/.0054
+614: .0065/.0044/.0051 | 923: .0043/.0034/.0042 | 1242: .0031/.0018/.0052 | 1534: .0149*/.0020/.0053
+(*n=8192 linear-encoder DEGENERATES, fvu 1.18 — atoms fine, OMP .0020; encoder instability at
+n=8192 with batch-2048 training. Honest flag.)
+
+HEADLINES: (1) OV-CONTEXT TRAINING DOMINATES THE LOW-BIT FRONTIER — at 2.5-3% raw it HALVES the
+cost of the best MSE arm (.0073 vs .0149 OMP at 183 Mbit) and matches MSE-linear-at-455-Mbit
+quality with 2.5x fewer bits. Its curve is nearly FLAT (~.005-.007) across 2.5-21% — the objective
+extracts the behaviorally relevant structure almost independent of budget. (2) SEED-ROBUST: paired
+lin-ctx gap at 224 Mbit = +.0075/+.0071/+.0073 (~18x the seed spread of +-.0004); at 455 Mbit
++.0022/+.0013/+.0010; at 923 Mbit +.0001/+.0005/+.0009 (sign consistent, magnitude ~0).
+(3) CROSSOVER at ~12% raw: above it MSE+OMP wins (.0018 at 16.7%) while ctx plateaus ~.005 —
+the ctx objective's approximation floor (i.i.d. unigram contexts, pre-rotary, M=1024 sampling)
+binds once the budget allows near-exact reconstruction. Refinements if wanted: co-occurrence q,
+rotary in the training objective, larger M, or an MSE+ctx blended loss to get both regimes.
+(4) Pareto frontier now: OV-context dicts 183-614 Mbit, MSE+OMP 923+ Mbit; everything else
+(SVD, merges, global, two-stage) dominated everywhere.
+
+fig_qk_pareto.png (2 panels: frontier with seed bars + paired improvement-vs-budget).
