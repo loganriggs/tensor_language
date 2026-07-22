@@ -9,6 +9,10 @@ weighted by what the output-value side cares about. All quantities here are WEIG
     m_pat    : FVU of the PATTERN (s1*s2 product of both branches) — the bilinear product weighting
     m_pat_ov : pattern FVU with key/value columns weighted by w_j = ||W_o^h W_v^h e_hat_j||, the
                output-value importance of attending to token j (Logan's "V Embedding composition")
+    m_pat_rope    : pattern FVU WITH ROTARY POSITION applied — evaluated at relative offsets
+                    delta in a log grid over [0, 511], each offset weighted by its pair count
+                    under the causal mask at T=512 (Logan: "include rope/pos emb in the ladder")
+    m_pat_rope_ov : the rotary rung with the OV column weighting on top
 
   then Spearman rank-correlate each metric with the big-audit held-out delta-CE across arms.
   If m_pat_ov predicts delta-CE where m_fac fails, the decoupling is explained weight-only.
@@ -57,10 +61,31 @@ g = torch.Generator().manual_seed(0)
 SAMP = torch.randperm(V, generator=g)[:M].to(DEV)
 WS = W_IMP[SAMP]                                                    # (M, NH)
 
+# rotary tables for the positional rungs (exact fp32; T=512, the frozen regime)
+T_POS = 512
+M2 = 2048                                                           # smaller sample for rope rungs
+SAMP2 = SAMP[:M2]
+WS2 = W_IMP[SAMP2]
+_inv = 1.0 / (10000 ** (torch.arange(0, HD, 2, dtype=torch.float32) / HD))
+DELTAS = (0, 1, 2, 4, 8, 16, 32, 64, 128, 256, 384, 511)
+DW = torch.tensor([(T_POS - d) / T_POS for d in DELTAS], device=DEV)   # pair-count weight per offset
+COSD = torch.stack([torch.cos(_inv * d) for d in DELTAS]).to(DEV)      # (n_delta, HD/2)
+SIND = torch.stack([torch.sin(_inv * d) for d in DELTAS]).to(DEV)
+
 
 def branch_scores(tabs, h, qn, kn):
     """(M, M) pre-RoPE score sample for one head-branch from factor tables."""
     return tabs[qn][SAMP, h] @ tabs[kn][SAMP, h].T / HD
+
+
+def branch_scores_rope(tabs, h, qn, kn, di):
+    """(M2, M2) score sample at relative offset DELTAS[di], rotary applied (fold convention)."""
+    d = HD // 2
+    Fq, Fk = tabs[qn][SAMP2, h], tabs[kn][SAMP2, h]
+    qa, qb = Fq[:, :d], Fq[:, d:]
+    ka, kb = Fk[:, :d], Fk[:, d:]
+    c, s = COSD[di], SIND[di]
+    return ((qa * c) @ ka.T + (qb * c) @ kb.T + (qb * s) @ ka.T - (qa * s) @ kb.T) / HD
 
 
 def metrics(recs):
@@ -69,8 +94,9 @@ def metrics(recs):
     for (h, qn, kn), rec in zip(HB, recs):
         hat[qn][:, h] = rec[:, :HD]
         hat[kn][:, h] = rec[:, HD:]
-    num = {k: 0.0 for k in ('fac', 'score', 'pat', 'pat_ov')}
-    den = {k: 0.0 for k in ('fac', 'score', 'pat', 'pat_ov')}
+    KEYS = ('fac', 'score', 'pat', 'pat_ov', 'pat_rope', 'pat_rope_ov')
+    num = {k: 0.0 for k in KEYS}
+    den = {k: 0.0 for k in KEYS}
     for (h, qn, kn), rec in zip(HB, recs):
         X = rows(h, qn, kn)
         num['fac'] += float(((rec - X) ** 2).sum())
@@ -90,6 +116,17 @@ def metrics(recs):
         w2 = (WS[:, h] ** 2)[None, :]                               # weight key/value columns
         num['pat_ov'] += float(((dP ** 2) * w2).sum())
         den['pat_ov'] += float(((P ** 2) * w2).sum())
+        w2r = (WS2[:, h] ** 2)[None, :]
+        for di in range(len(DELTAS)):                               # rotary rungs (Logan)
+            S1r = branch_scores_rope(TAB, h, 'q1', 'k1', di)
+            S2r = branch_scores_rope(TAB, h, 'q2', 'k2', di)
+            Pr = S1r * S2r
+            dPr = branch_scores_rope(hat, h, 'q1', 'k1', di) * branch_scores_rope(hat, h, 'q2', 'k2', di) - Pr
+            wd = float(DW[di])
+            num['pat_rope'] += wd * float((dPr ** 2).sum())
+            den['pat_rope'] += wd * float((Pr ** 2).sum())
+            num['pat_rope_ov'] += wd * float(((dPr ** 2) * w2r).sum())
+            den['pat_rope_ov'] += wd * float(((Pr ** 2) * w2r).sum())
     return {k: round(num[k] / den[k], 5) for k in num}
 
 
@@ -133,7 +170,8 @@ for name in ARMS:
     mt = metrics(arm_recs(name))
     res['arms'][name] = {**mt, 'dce_pile': big[name]['dce_pile'], 'dce_fw': big[name]['dce_fw']}
     print(f'{name:46s} fac {mt["fac"]:.3f}  score {mt["score"]:.3f}  pat {mt["pat"]:.3f}  '
-          f'pat_ov {mt["pat_ov"]:.3f}  | dCE pile {big[name]["dce_pile"]:+.4f}', flush=True)
+          f'pat_ov {mt["pat_ov"]:.3f}  rope {mt["pat_rope"]:.3f}  rope_ov {mt["pat_rope_ov"]:.3f}  '
+          f'| dCE fw {big[name]["dce_fw"]:+.4f}', flush=True)
     json.dump(res, open(f'{QK}/qk_ovweight.json', 'w'), indent=2)
 
 
@@ -155,7 +193,7 @@ def spearman(xs, ys):
 for tgt in ('dce_pile', 'dce_fw'):
     corr = {k: round(spearman([res['arms'][a][k] for a in ARMS],
                               [res['arms'][a][tgt] for a in ARMS]), 3)
-            for k in ('fac', 'score', 'pat', 'pat_ov')}
+            for k in ('fac', 'score', 'pat', 'pat_ov', 'pat_rope', 'pat_rope_ov')}
     res[f'spearman_vs_{tgt}'] = corr
     print(f'Spearman vs {tgt}: {corr}', flush=True)
 

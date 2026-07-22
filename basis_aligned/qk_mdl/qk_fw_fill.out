@@ -1,0 +1,65 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+baseline CE fineweb 3.0763
+svd rank 8                                     dCE fw +0.0451     233.0 Mbit
+merge K=256 per-head-branch                    dCE fw +0.0423      45.0 Mbit
+merge K=8192 per-head-branch                   dCE fw +0.0080    1219.7 Mbit
+merge K=2048 GLOBAL                            dCE fw +0.0353     302.5 Mbit
+  batch fit 1/18
+  batch fit 2/18
+  batch fit 3/18
+  batch fit 4/18
+  batch fit 5/18
+  batch fit 6/18
+  batch fit 7/18
+  batch fit 8/18
+  batch fit 9/18
+  batch fit 10/18
+  batch fit 11/18
+  batch fit 12/18
+  batch fit 13/18
+  batch fit 14/18
+  batch fit 15/18
+  batch fit 16/18
+  batch fit 17/18
+  batch fit 18/18
+dict n=1024 k=8 batch-topk                     dCE fw +0.0138     455.4 Mbit
+  matryoshka fit 1/18
+  matryoshka fit 2/18
+  matryoshka fit 3/18
+  matryoshka fit 4/18
+  matryoshka fit 5/18
+  matryoshka fit 6/18
+  matryoshka fit 7/18
+  matryoshka fit 8/18
+  matryoshka fit 9/18
+  matryoshka fit 10/18
+  matryoshka fit 11/18
+  matryoshka fit 12/18
+  matryoshka fit 13/18
+  matryoshka fit 14/18
+  matryoshka fit 15/18
+  matryoshka fit 16/18
+  matryoshka fit 17/18
+  matryoshka fit 18/18
+dict n=1024 k=8 matryoshka                     dCE fw +0.0075     455.4 Mbit
+  n4096 fit 1/18
+  n4096 fit 2/18
+  n4096 fit 3/18
+  n4096 fit 4/18
+  n4096 fit 5/18
+  n4096 fit 6/18
+  n4096 fit 7/18
+  n4096 fit 8/18
+  n4096 fit 9/18
+  n4096 fit 10/18
+  n4096 fit 11/18
+  n4096 fit 12/18
+  n4096 fit 13/18
+  n4096 fit 14/18
+  n4096 fit 15/18
+  n4096 fit 16/18
+  n4096 fit 17/18
+  n4096 fit 18/18
+dict n=4096 k=8 token-OMP/LS                   dCE fw +0.0032     922.9 Mbit
+
+wrote /workspace/tensor_language/basis_aligned/qk_mdl/qk_fw_fill.json

@@ -1,0 +1,13 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+OV importance: per-head mean [542.35, 313.38, 245.09, 1541.42, 665.52, 315.44, 428.92, 447.22, 523.27]
+svd rank 16                                    fac 0.637  score 0.180  pat 0.092  pat_ov 0.045  rope 0.154  rope_ov 0.076  | dCE fw +0.0353
+svd rank 32                                    fac 0.521  score 0.160  pat 0.077  pat_ov 0.036  rope 0.134  rope_ov 0.063  | dCE fw +0.0170
+svd rank 64                                    fac 0.357  score 0.126  pat 0.059  pat_ov 0.026  rope 0.107  rope_ov 0.048  | dCE fw +0.0062
+svd rank 128                                   fac 0.160  score 0.068  pat 0.032  pat_ov 0.012  rope 0.063  rope_ov 0.025  | dCE fw +0.0016
+merge K=2048 per-head-branch                   fac 0.627  score 0.239  pat 0.175  pat_ov 0.107  rope 0.228  rope_ov 0.135  | dCE fw +0.0196
+dict n=1024 k=8 token-linear                   fac 0.464  score 0.178  pat 0.111  pat_ov 0.065  rope 0.158  rope_ov 0.088  | dCE fw +0.0076
+dict n=1024 k=8 token-OMP/LS                   fac 0.411  score 0.152  pat 0.088  pat_ov 0.049  rope 0.132  rope_ov 0.069  | dCE fw +0.0059
+two-stage merge2048 -> OMP dict n=512 k=8      fac 0.677  score 0.248  pat 0.185  pat_ov 0.114  rope 0.241  rope_ov 0.143  | dCE fw +0.0278
+Spearman vs dce_pile: {'fac': 0.619, 'score': 0.643, 'pat': 0.571, 'pat_ov': 0.452, 'pat_rope': 0.548, 'pat_rope_ov': 0.571}
+Spearman vs dce_fw: {'fac': 0.952, 'score': 0.881, 'pat': 0.714, 'pat_ov': 0.571, 'pat_rope': 0.786, 'pat_rope_ov': 0.714}
+wrote qk_ovweight.json

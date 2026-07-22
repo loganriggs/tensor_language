@@ -1,0 +1,40 @@
+{
+  "arms": {
+    "svd rank 8": {
+      "dce_fw": 0.0451,
+      "Mbits": 233.0,
+      "fvu": 0.69339
+    },
+    "merge K=256 per-head-branch": {
+      "dce_fw": 0.0423,
+      "Mbits": 45.0,
+      "fvu": 0.69122
+    },
+    "merge K=8192 per-head-branch": {
+      "dce_fw": 0.008,
+      "Mbits": 1219.7,
+      "fvu": 0.47457
+    },
+    "merge K=2048 GLOBAL": {
+      "dce_fw": 0.0353,
+      "Mbits": 302.5,
+      "fvu": 0.6303
+    },
+    "dict n=1024 k=8 batch-topk": {
+      "dce_fw": 0.0138,
+      "Mbits": 455.4,
+      "fvu": 0.48039
+    },
+    "dict n=1024 k=8 matryoshka": {
+      "dce_fw": 0.0075,
+      "Mbits": 455.4,
+      "fvu": 0.46329
+    },
+    "dict n=4096 k=8 token-OMP/LS": {
+      "dce_fw": 0.0032,
+      "Mbits": 922.9,
+      "fvu": 0.30123
+    }
+  },
+  "baseline_ce_fw": 3.0763
+}

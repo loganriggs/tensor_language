@@ -3466,3 +3466,29 @@ plural suffixes (ups/ins/ures... and a NEGATIVE-sign plural atom), past-tense -e
 Signed coefficients used meaningfully (e.g. talent-negative vs override-positive in one atom).
 So the layer-0 QK basis mixes topic-level semantics with morphology — richer than folded_basis
 "embedding=syntax" suggested.
+
+## 2026-07-22 — tick 155 (FineWeb frontier COMPLETE; rotary rungs added to ladder; corrected figure; program state: layer-0 arc closed pending Logan)
+
+qk_fw_fill.py complete — full training-distribution frontier (307k held-out FineWeb preds, baseline
+3.0763): svd r8/16/32/64/128 = +0.0451/+0.0353/+0.0170/+0.0062/+0.0016; merge per-head-branch
+K=256/2048/8192 = +0.0423/+0.0196/+0.0080; merge GLOBAL K=2048 = +0.0353; dict n=1024 k=8
+OMP +0.0059 / linear +0.0076 / matryoshka +0.0075 / batch-topk +0.0138; dict n=4096 k=8 OMP
++0.0032; two-stage +0.0278. CONSOLIDATED HEADLINES: (1) dictionaries Pareto-dominate every other
+family on-distribution — 6x better than matched-bits svd at 6% raw, 5x at 12%; n=4096 OMP at 12.4%
+raw costs +0.003; (2) batch-topk is now behaviorally the weakest dictionary arm (2.3x OMP) — the
+Phase-0 pre-registered prediction replicates in dCE, not just FVU; (3) global partition confirmed
+much worse than per-head-branch at matched bits (+0.0353 vs ~+0.020); (4) two-stage stays retracted.
+
+qk_ovweight.py rerun with Logan's ROTARY RUNGS (offsets 0..511 log grid, pair-count weighted,
+fold-convention rotation; 6-rung ladder). Spearman vs FineWeb dCE (8 arms):
+fac 0.952 > score 0.881 > pat_rope 0.786 > pat 0.714 = pat_rope_ov 0.714 > pat_ov 0.571.
+Position weighting HELPS the composed metrics (pattern +0.07, OV-pattern +0.14) — e.g. the rotary
+rung is the only composed metric that correctly ranks OMP-dict above svd r16 — but plain factor
+FVU still predicts best. Standing conclusion: quadratic-energy compositions flatter SVD; the
+un-weighted factor metric is the best cheap search proxy, dCE remains binding.
+
+fig_qk_mdl_frontier_fw.png (v2, committed): FineWeb dCE vs bits | FVU vs bits | FVU vs dCE.
+
+STATE: layer-0 two-stage program phases 0-4 all DONE. Open next steps (Logan's call): (a) dictionary
+(n,k) sweep to find the FineWeb knee; (b) cross-head-branch shared-atom dictionaries; (c) joint
+product-of-branches decomposition; (d) tensor-sim weight-space training variant; (e) layer-1 object.
