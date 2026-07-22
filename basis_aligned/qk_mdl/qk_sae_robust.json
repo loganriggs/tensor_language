@@ -1,0 +1,77 @@
+{
+  "n_orig_preds": 8192,
+  "n_wide_preds": 65536,
+  "arms": {
+    "exact fold": {
+      "dce_orig": 0.0,
+      "dce_wide": 0.0
+    },
+    "svd rank 16": {
+      "dce_orig": 0.0031,
+      "dce_wide": 0.0234,
+      "Mbits": 466.0
+    },
+    "svd rank 32": {
+      "dce_orig": -0.0083,
+      "dce_wide": 0.0055,
+      "Mbits": 931.9
+    },
+    "merge K=2048 per-head-branch seed 0": {
+      "dce_orig": -0.0065,
+      "dce_wide": 0.0087,
+      "Mbits": 312.0
+    },
+    "merge K=2048 per-head-branch seed 1": {
+      "dce_orig": -0.0021,
+      "dce_wide": 0.0182,
+      "Mbits": 312.0
+    },
+    "merge K=2048 per-head-branch seed 2": {
+      "dce_orig": -0.0015,
+      "dce_wide": 0.018,
+      "Mbits": 312.0
+    },
+    "dict n=1024 k=8 token-linear seed 0": {
+      "dce_orig": -0.0167,
+      "dce_wide": -0.0004,
+      "Mbits": 455.4
+    },
+    "dict n=1024 k=8 token-OMP/LS seed 0": {
+      "dce_orig": -0.0105,
+      "dce_wide": -0.0002,
+      "Mbits": 455.4
+    },
+    "dict n=1024 k=8 token-linear seed 1": {
+      "dce_orig": -0.0068,
+      "dce_wide": 0.0002,
+      "Mbits": 455.4
+    },
+    "dict n=1024 k=8 token-OMP/LS seed 1": {
+      "dce_orig": -0.0112,
+      "dce_wide": -0.0009,
+      "Mbits": 455.4
+    },
+    "dict n=1024 k=8 token-linear seed 2": {
+      "dce_orig": -0.0142,
+      "dce_wide": 0.0013,
+      "Mbits": 455.4
+    },
+    "dict n=1024 k=8 token-OMP/LS seed 2": {
+      "dce_orig": -0.0067,
+      "dce_wide": -0.0019,
+      "Mbits": 455.4
+    },
+    "two-stage merge2048 -> OMP dict n=512 k=8 seed 0": {
+      "dce_orig": 0.0003,
+      "dce_wide": 0.0174,
+      "Mbits": 97.7
+    },
+    "two-stage merge2048 -> OMP dict n=512 k=8 seed 1": {
+      "dce_orig": 0.0079,
+      "dce_wide": 0.0278,
+      "Mbits": 97.7
+    }
+  },
+  "baseline_ce_orig": 3.2341,
+  "baseline_ce_wide": 3.3248
+}

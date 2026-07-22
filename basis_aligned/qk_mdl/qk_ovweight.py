@@ -1,0 +1,163 @@
+"""WHY DOES FVU DECOUPLE FROM delta-CE? (Logan 2026-07-22) — weight-only metric ladder.
+
+Logan's hypothesis: the output-value circuit reads the attention pattern, so score errors should be
+weighted by what the output-value side cares about. All quantities here are WEIGHT-ONLY (no data):
+
+  ladder of structural metrics per arm, from naive to OV-composed —
+    m_fac    : plain factor-table FVU (what we already report)
+    m_score  : FVU at the score level, per branch (pre-RoPE q_hat k_hat^T on a 4096-token sample)
+    m_pat    : FVU of the PATTERN (s1*s2 product of both branches) — the bilinear product weighting
+    m_pat_ov : pattern FVU with key/value columns weighted by w_j = ||W_o^h W_v^h e_hat_j||, the
+               output-value importance of attending to token j (Logan's "V Embedding composition")
+
+  then Spearman rank-correlate each metric with the big-audit held-out delta-CE across arms.
+  If m_pat_ov predicts delta-CE where m_fac fails, the decoupling is explained weight-only.
+
+Requires qk_audit_big.json + qk_dict_l0_seed0.pt (run qk_audit_big.py first). Writes qk_ovweight.json.
+"""
+import json
+import sys
+import torch
+sys.path.insert(0, '/workspace/tensor_language/basis_aligned/qk_mdl')
+from tier2_model import load_elriggs
+from tier2_folding import branch_factors
+from qk_sae_lib import train_dict, encode_token, encode_omp, kmeans, arm_svd
+
+torch.manual_seed(0)
+DEV = 'cuda'
+QK = '/workspace/tensor_language/basis_aligned/qk_mdl'
+BRANCHES = (('q1', 'k1'), ('q2', 'k2'))
+M = 4096                                   # token sample for score/pattern metrics
+
+m, cfg = load_elriggs('bilin18')
+NH, HD, D = cfg['n_head'], cfg['n_embd'] // cfg['n_head'], cfg['n_embd']
+V = cfg['vocab_size']
+
+TAB = {}
+for br, (qn, kn) in enumerate(BRANCHES, start=1):
+    qh, kh = branch_factors(m, br)
+    TAB[qn], TAB[kn] = qh.float().to(DEV), kh.float().to(DEV)
+HB = [(h, qn, kn) for h in range(NH) for (qn, kn) in BRANCHES]
+
+
+def rows(h, qn, kn):
+    return torch.cat([TAB[qn][:, h], TAB[kn][:, h]], 1)
+
+
+# --- output-value importance per (token, head): w = ||W_o^h (W_v^h e_hat)|| (weight-only) ---
+with torch.no_grad():
+    a = m.transformer.h[0].attn
+    E = torch.nn.functional.rms_norm(m.transformer.wte.weight.detach().float(), (D,))
+    Vv = a.c_v(E).view(V, NH, HD)                                   # value vectors per head
+    Wo = a.c_proj.weight.detach().float().view(D, NH, HD)           # output projection per head
+    W_IMP = torch.stack([(Vv[:, h] @ Wo[:, h].T).norm(dim=1) for h in range(NH)], 1)  # (V, NH)
+print('OV importance: per-head mean', [round(float(W_IMP[:, h].mean()), 2) for h in range(NH)], flush=True)
+
+g = torch.Generator().manual_seed(0)
+SAMP = torch.randperm(V, generator=g)[:M].to(DEV)
+WS = W_IMP[SAMP]                                                    # (M, NH)
+
+
+def branch_scores(tabs, h, qn, kn):
+    """(M, M) pre-RoPE score sample for one head-branch from factor tables."""
+    return tabs[qn][SAMP, h] @ tabs[kn][SAMP, h].T / HD
+
+
+def metrics(recs):
+    """recs: list over HB of (V,256) reconstructions. Returns the metric ladder (energy-weighted)."""
+    hat = {n: TAB[n].clone() for n in NAMES}
+    for (h, qn, kn), rec in zip(HB, recs):
+        hat[qn][:, h] = rec[:, :HD]
+        hat[kn][:, h] = rec[:, HD:]
+    num = {k: 0.0 for k in ('fac', 'score', 'pat', 'pat_ov')}
+    den = {k: 0.0 for k in ('fac', 'score', 'pat', 'pat_ov')}
+    for (h, qn, kn), rec in zip(HB, recs):
+        X = rows(h, qn, kn)
+        num['fac'] += float(((rec - X) ** 2).sum())
+        den['fac'] += float(((X - X.mean(0)) ** 2).sum())
+    for h in range(NH):
+        S1 = branch_scores(TAB, h, 'q1', 'k1')
+        S2 = branch_scores(TAB, h, 'q2', 'k2')
+        S1h = branch_scores(hat, h, 'q1', 'k1')
+        S2h = branch_scores(hat, h, 'q2', 'k2')
+        for S, Sh in ((S1, S1h), (S2, S2h)):
+            num['score'] += float(((Sh - S) ** 2).sum())
+            den['score'] += float((S ** 2).sum())
+        P, Ph = S1 * S2, S1h * S2h
+        dP = Ph - P
+        num['pat'] += float((dP ** 2).sum())
+        den['pat'] += float((P ** 2).sum())
+        w2 = (WS[:, h] ** 2)[None, :]                               # weight key/value columns
+        num['pat_ov'] += float(((dP ** 2) * w2).sum())
+        den['pat_ov'] += float(((P ** 2) * w2).sum())
+    return {k: round(num[k] / den[k], 5) for k in num}
+
+
+NAMES = ('q1', 'k1', 'q2', 'k2')
+
+# --- arms (deterministic seed-0 refits, matching qk_audit_big names) ---
+blob = torch.load(f'{QK}/qk_dict_l0_seed0.pt', map_location=DEV)
+FITS = [(blob[f'Dn{i}'], blob[f'b{i}'], blob[f'We{i}']) for i in range(len(HB))]
+
+
+def arm_recs(name):
+    if name.startswith('svd rank'):
+        r = int(name.split()[-1])
+        return [arm_svd(rows(*hb), r) for hb in HB]
+    if name == 'dict n=1024 k=8 token-linear':
+        return [encode_token(rows(*hb), *f, 8) for f, hb in zip(FITS, HB)]
+    if name == 'dict n=1024 k=8 token-OMP/LS':
+        return [encode_omp(rows(*hb), f[0], f[1], 8) for f, hb in zip(FITS, HB)]
+    if name == 'merge K=2048 per-head-branch':
+        out = []
+        for bi, hb in enumerate(HB):
+            X = rows(*hb)
+            assign, C = kmeans(X, 2048, seed=bi)
+            out.append(C[assign])
+        return out
+    if name.startswith('two-stage'):
+        out = []
+        for bi, hb in enumerate(HB):
+            X = rows(*hb)
+            assign, C = kmeans(X, 2048, seed=bi)
+            Dn, b, We = train_dict(C, 512, 8, seed=0, steps=2000)
+            out.append(encode_omp(C, Dn, b, 8)[assign])
+        return out
+    raise ValueError(name)
+
+
+big = json.load(open(f'{QK}/qk_audit_big.json'))['arms']
+ARMS = [k for k in big if k != 'exact fold']
+res = {'arms': {}}
+for name in ARMS:
+    mt = metrics(arm_recs(name))
+    res['arms'][name] = {**mt, 'dce_pile': big[name]['dce_pile'], 'dce_fw': big[name]['dce_fw']}
+    print(f'{name:46s} fac {mt["fac"]:.3f}  score {mt["score"]:.3f}  pat {mt["pat"]:.3f}  '
+          f'pat_ov {mt["pat_ov"]:.3f}  | dCE pile {big[name]["dce_pile"]:+.4f}', flush=True)
+    json.dump(res, open(f'{QK}/qk_ovweight.json', 'w'), indent=2)
+
+
+def spearman(xs, ys):
+    def rank(v):
+        order = sorted(range(len(v)), key=lambda i: v[i])
+        rk = [0.0] * len(v)
+        for r, i in enumerate(order):
+            rk[i] = float(r)
+        return rk
+    rx, ry = rank(xs), rank(ys)
+    mx, my = sum(rx) / len(rx), sum(ry) / len(ry)
+    cov = sum((a - mx) * (b - my) for a, b in zip(rx, ry))
+    vx = sum((a - mx) ** 2 for a in rx) ** 0.5
+    vy = sum((b - my) ** 2 for b in ry) ** 0.5
+    return cov / (vx * vy + 1e-12)
+
+
+for tgt in ('dce_pile', 'dce_fw'):
+    corr = {k: round(spearman([res['arms'][a][k] for a in ARMS],
+                              [res['arms'][a][tgt] for a in ARMS]), 3)
+            for k in ('fac', 'score', 'pat', 'pat_ov')}
+    res[f'spearman_vs_{tgt}'] = corr
+    print(f'Spearman vs {tgt}: {corr}', flush=True)
+
+json.dump(res, open(f'{QK}/qk_ovweight.json', 'w'), indent=2)
+print('wrote qk_ovweight.json', flush=True)

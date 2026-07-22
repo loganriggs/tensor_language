@@ -3395,3 +3395,35 @@ Phase 4 LAUNCHED (qk_sae_robust.py): wide audit 128 disjoint held-out seqs (65,5
 seeds — merge K=2048 x3 kmeans seeds; dict n=1024 k=8 x3 training seeds (linear + OMP encoders);
 two-stage x2 seeds; svd r=16/32 re-audited wide. Settles whether the negative-dCE band is real
 denoising or audit noise. Wide baseline CE 3.3248 (vs orig-16-seq 3.2341).
+
+## 2026-07-22 — tick 153 (Phase 4 DONE: wide audit KILLS two-stage, dictionary survives at ~0; Logan directives -> big-audit + features + OV-weighted-metric chain)
+
+qk_sae_robust.py complete (first launch OOMed mid-run at the wide-audit einsum; fixed: audit batch
+4->2, free reconstructions pre-audit, resume-from-json; PYTORCH_CUDA_ALLOC_CONF=expandable_segments).
+Wide audit = 128 disjoint held-out seqs, 65,536 preds (8x). VERDICTS vs the 16-seq audit:
+- exact fold: wide +0.0000 (gate holds).
+- The NEGATIVE-dCE band was AUDIT NOISE: svd r16 +0.0031->+0.0234; svd r32 -0.0083->+0.0055;
+  merge K=2048 (3 kmeans seeds) -0.002..-0.007 -> +0.0087/+0.0182/+0.0180 (seed spread real).
+- TWO-STAGE DOES NOT SURVIVE: seed0 +0.0003->+0.0174, seed1 +0.0079->+0.0278. The "free at 76x"
+  headline was small-audit overfitting. RETRACTED as a free point; it's a ~+0.02 point.
+- DICTIONARY SURVIVES AT ~ZERO: n=1024 k=8, 3 seeds x 2 encoders, wide dCE -0.0019..+0.0013
+  (token-linear +0.0013/-0.0004/+0.0002; OMP/LS -0.0002/-0.0009/-0.0019). At matched ~6% bits the
+  dict-vs-svd gap GROWS with audit size: 0.023 nats. Dictionaries also far more seed-stable than
+  the merge. HEADLINE (robust): per-head-branch sparse dictionary compresses the layer-0 QK factor
+  tables to 6.1% of raw at zero measurable held-out cost; matched-bits SVD costs +0.023.
+- Decoupling therefore NOT a sampling artifact: dict fvu 0.40-0.46 & dCE ~0 vs svd r16 fvu 0.62 &
+  +0.023 persists at 65k preds — structural FVU mispredicts across families.
+
+Logan directives (chat): (1) even larger CE measure; (2) sample dictionary features for meaning;
+(3) explain the FVU/CE decoupling, weight-faithfully — his proposal: weight by what the
+output-value circuit reads (w_j = ||W_o W_v e_hat_j||, the "V Embedding composition");
+(4) tensor-sim framing (his paper): define circuit and SAE as tensor networks, optimize weight-space
+similarity directly with sparsity losses over weights.
+
+LAUNCHED (chained): qk_audit_big.py — PILE_BIG 512 seqs (262k preds, disjoint) + FINEWEB 600 seqs
+(307k preds, training dist); arms exact/svd 16-128/merge2048/dict lin+OMP s0/two-stage; saves
+seed-0 dict fits to qk_dict_l0_seed0.pt. Then qk_dict_features.py — atom -> top-token dumps for 6
+head-branches (most-used + random atoms). Then qk_ovweight.py — weight-only metric ladder
+(factor FVU -> score FVU -> pattern FVU (bilinear product) -> OV-weighted pattern FVU) Spearman-
+correlated with big-audit dCE across arms; tests Logan's OV hypothesis without touching data.
+Also: qk_sae_lib.py — solver recipes consolidated to one module (verbatim; ends the 4x duplication).

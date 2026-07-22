@@ -1,0 +1,42 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+baseline CE orig 3.2341 | wide 3.3248
+exact fold                                           dCE orig +0.0000 | wide +0.0000
+svd rank 16                                          dCE orig +0.0031 | wide +0.0234
+svd rank 32                                          dCE orig -0.0083 | wide +0.0055
+merge K=2048 per-head-branch seed 0                  dCE orig -0.0065 | wide +0.0087
+merge K=2048 per-head-branch seed 1                  dCE orig -0.0021 | wide +0.0182
+merge K=2048 per-head-branch seed 2                  dCE orig -0.0015 | wide +0.0180
+  dict seed 0: 18 head-branches fitted
+dict n=1024 k=8 token-linear seed 0                  dCE orig -0.0167 | wide -0.0004
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/qk_mdl/qk_sae_robust.py", line 233, in <module>
+    report(f'dict n=1024 k=8 token-OMP/LS seed {sd}',
+  File "/workspace/tensor_language/basis_aligned/qk_mdl/qk_sae_robust.py", line 196, in report
+    do = audit_ce(tabs, AUDIT_ORIG) - CE0_O
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/qk_mdl/qk_sae_robust.py", line 79, in audit_ce
+    logits = reference_forward(m, idx, 'bf16', score_patch=None if tabs is None else patch).float()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/qk_mdl/tier2_model.py", line 97, in reference_forward
+    s1, s2 = score_patch(li, s1, s2)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/qk_mdl/qk_sae_robust.py", line 75, in patch
+    n1 = scores_from_factors(tabs['q1'], tabs['k1'], idx, HD)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/qk_mdl/tier2_folding.py", line 53, in scores_from_factors
+    s = (torch.einsum('bihf,bjhf,ijf->bhij', qa, ka, cosD)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/functional.py", line 373, in einsum
+    return _VF.einsum(equation, operands)  # type: ignore[attr-defined]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.25 GiB. GPU 0 has a total capacity of 15.47 GiB of which 1.95 GiB is free. Including non-PyTorch memory, this process has 13.52 GiB memory in use. Of the allocated memory 9.43 GiB is allocated by PyTorch, and 3.77 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
