@@ -13,6 +13,22 @@ weighted by what the output-value side cares about. All quantities here are WEIG
                     delta in a log grid over [0, 511], each offset weighted by its pair count
                     under the causal mask at T=512 (Logan: "include rope/pos emb in the ladder")
     m_pat_rope_ov : the rotary rung with the OV column weighting on top
+    m_pat_gram    : pattern error measured THROUGH the full OV map — ||dP @ U_h||^2/||P @ U_h||^2
+                    with U_h[j] = W_o^h W_v^h e_hat_j in R^D. Unlike the norm weighting this
+                    respects the OV NULL SPACE and cross-token cancellation (errors on tokens
+                    whose OV outputs cancel or vanish cost nothing). Logan Q3, tick 156.
+    m_pat_rope_gram : the OV-Gram rung with rotary position as well
+    m_pat_freq    : pattern FVU with rows AND columns weighted by empirical unigram frequency
+                    (FineWeb counts; the only data-informed rung, labeled as such) — tests whether
+                    the uniform-vocabulary sample is what distorts the weighted rungs.
+
+  DIAGNOSTICS per arm (Logan: metrics that say WHY a weighted rung disagrees, so a metric flip
+  can be diagnosed rather than trusted blindly):
+    diag_cancel_err : ||dP U||^2 / sum_j dP_j^2 ||u_j||^2 — how much of this arm's error mass
+                      CANCELS through OV (1 = none, <1 = net cancellation).
+    diag_cancel_sig : the same ratio for the TRUE pattern (the signal's own cancellation floor).
+    diag_align      : Pearson correlation between per-column error mass and the OV weight w_j^2 —
+                      does the arm put its error where OV cares (positive) or away from it?
 
   then Spearman rank-correlate each metric with the big-audit held-out delta-CE across arms.
   If m_pat_ov predicts delta-CE where m_fac fails, the decoupling is explained weight-only.
@@ -66,6 +82,16 @@ T_POS = 512
 M2 = 2048                                                           # smaller sample for rope rungs
 SAMP2 = SAMP[:M2]
 WS2 = W_IMP[SAMP2]
+with torch.no_grad():                                               # OV output vectors on the sample
+    US = [Vv[SAMP2, h] @ Wo[:, h].T for h in range(NH)]             # each (M2, D)
+
+import numpy as np                                                  # unigram frequency weights
+_cnt = torch.bincount(torch.from_numpy(
+    np.load('/workspace/tensor_language/data_fineweb_tokens.npy').astype(np.int64)).flatten(),
+    minlength=V).float().to(DEV)
+FRQ = (_cnt[SAMP2] + 0.5)
+FRQ = FRQ / FRQ.mean()
+FR2 = FRQ[:, None] * FRQ[None, :]                                   # (M2, M2) row*col weights
 _inv = 1.0 / (10000 ** (torch.arange(0, HD, 2, dtype=torch.float32) / HD))
 DELTAS = (0, 1, 2, 4, 8, 16, 32, 64, 128, 256, 384, 511)
 DW = torch.tensor([(T_POS - d) / T_POS for d in DELTAS], device=DEV)   # pair-count weight per offset
@@ -94,9 +120,11 @@ def metrics(recs):
     for (h, qn, kn), rec in zip(HB, recs):
         hat[qn][:, h] = rec[:, :HD]
         hat[kn][:, h] = rec[:, HD:]
-    KEYS = ('fac', 'score', 'pat', 'pat_ov', 'pat_rope', 'pat_rope_ov')
+    KEYS = ('fac', 'score', 'pat', 'pat_ov', 'pat_rope', 'pat_rope_ov', 'pat_gram',
+            'pat_rope_gram', 'pat_freq')
     num = {k: 0.0 for k in KEYS}
     den = {k: 0.0 for k in KEYS}
+    dg = {'gram_err': 0.0, 'diag_err': 0.0, 'gram_sig': 0.0, 'diag_sig': 0.0, 'align': []}
     for (h, qn, kn), rec in zip(HB, recs):
         X = rows(h, qn, kn)
         num['fac'] += float(((rec - X) ** 2).sum())
@@ -117,6 +145,23 @@ def metrics(recs):
         num['pat_ov'] += float(((dP ** 2) * w2).sum())
         den['pat_ov'] += float(((P ** 2) * w2).sum())
         w2r = (WS2[:, h] ** 2)[None, :]
+        P2s, dP2s = P[:M2, :M2], dP[:M2, :M2]                       # SAMP2 sub-block, pre-rotary
+        g_err = float((dP2s @ US[h]).pow(2).sum())                  # error through the OV map
+        g_sig = float((P2s @ US[h]).pow(2).sum())
+        num['pat_gram'] += g_err
+        den['pat_gram'] += g_sig
+        num['pat_freq'] += float(((dP2s ** 2) * FR2).sum())
+        den['pat_freq'] += float(((P2s ** 2) * FR2).sum())
+        w2s = (WS2[:, h] ** 2)[None, :]
+        dg['gram_err'] += g_err
+        dg['diag_err'] += float(((dP2s ** 2) * w2s).sum())          # no-cross-term version
+        dg['gram_sig'] += g_sig
+        dg['diag_sig'] += float(((P2s ** 2) * w2s).sum())
+        ej = dP2s.pow(2).sum(0)                                     # per-column error mass
+        wj = w2s.squeeze(0)
+        ejc, wjc = ej - ej.mean(), wj - wj.mean()
+        dg['align'].append(float((ejc * wjc).sum() /
+                                 (ejc.norm() * wjc.norm() + 1e-12)))
         for di in range(len(DELTAS)):                               # rotary rungs (Logan)
             S1r = branch_scores_rope(TAB, h, 'q1', 'k1', di)
             S2r = branch_scores_rope(TAB, h, 'q2', 'k2', di)
@@ -127,7 +172,13 @@ def metrics(recs):
             den['pat_rope'] += wd * float((Pr ** 2).sum())
             num['pat_rope_ov'] += wd * float(((dPr ** 2) * w2r).sum())
             den['pat_rope_ov'] += wd * float(((Pr ** 2) * w2r).sum())
-    return {k: round(num[k] / den[k], 5) for k in num}
+            num['pat_rope_gram'] += wd * float((dPr @ US[h]).pow(2).sum())
+            den['pat_rope_gram'] += wd * float((Pr @ US[h]).pow(2).sum())
+    out = {k: round(num[k] / den[k], 5) for k in num}
+    out['diag_cancel_err'] = round(dg['gram_err'] / (dg['diag_err'] + 1e-12), 4)
+    out['diag_cancel_sig'] = round(dg['gram_sig'] / (dg['diag_sig'] + 1e-12), 4)
+    out['diag_align'] = round(sum(dg['align']) / len(dg['align']), 4)
+    return out
 
 
 NAMES = ('q1', 'k1', 'q2', 'k2')
@@ -171,6 +222,9 @@ for name in ARMS:
     res['arms'][name] = {**mt, 'dce_pile': big[name]['dce_pile'], 'dce_fw': big[name]['dce_fw']}
     print(f'{name:46s} fac {mt["fac"]:.3f}  score {mt["score"]:.3f}  pat {mt["pat"]:.3f}  '
           f'pat_ov {mt["pat_ov"]:.3f}  rope {mt["pat_rope"]:.3f}  rope_ov {mt["pat_rope_ov"]:.3f}  '
+          f'gram {mt["pat_gram"]:.3f}  rope_gram {mt["pat_rope_gram"]:.3f}  '
+          f'freq {mt["pat_freq"]:.3f}  cancel {mt["diag_cancel_err"]:.2f}'
+          f'/{mt["diag_cancel_sig"]:.2f}  align {mt["diag_align"]:+.2f}  '
           f'| dCE fw {big[name]["dce_fw"]:+.4f}', flush=True)
     json.dump(res, open(f'{QK}/qk_ovweight.json', 'w'), indent=2)
 
@@ -193,7 +247,8 @@ def spearman(xs, ys):
 for tgt in ('dce_pile', 'dce_fw'):
     corr = {k: round(spearman([res['arms'][a][k] for a in ARMS],
                               [res['arms'][a][tgt] for a in ARMS]), 3)
-            for k in ('fac', 'score', 'pat', 'pat_ov', 'pat_rope', 'pat_rope_ov')}
+            for k in ('fac', 'score', 'pat', 'pat_ov', 'pat_rope', 'pat_rope_ov',
+                      'pat_gram', 'pat_rope_gram', 'pat_freq')}
     res[f'spearman_vs_{tgt}'] = corr
     print(f'Spearman vs {tgt}: {corr}', flush=True)
 
