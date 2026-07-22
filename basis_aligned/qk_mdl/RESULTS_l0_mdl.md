@@ -185,6 +185,25 @@ stream-tables finding that CE polish buys nothing once structure is right. Bound
 training tokens available, but the direction was clear from the first evaluation; combined with
 factor FVU's 0.95 rank correlation, the weight-faithful objective is not measurably suboptimal.
 
+## 5d. The tensor-network picture
+
+Per head-branch the exact vocab-by-vocab score map is a chain
+`token ──[Q: V×128]──[R_δ]──[Kᵀ: 128×V]── token` (rotary node on a 128 bond = the head
+dimension; the full pattern is the Hadamard product of the two branch chains, and the value path
+hangs U = W_o W_v ê off the same token leg — the token index is a copy node feeding the q, k, v
+roles). The dictionary is surgery on the token→factor edge: factor the (V, 256) table through a
+new **atom bond**, `token ──[S: V×1024, 8-sparse]──[D: 1024×256]──`. The bond is *wider* than
+what it replaces (overcomplete); the bits live in the sparsity of S, not the bond dimension.
+All three compression families are this same surgery with different structure on S — SVD = dense
+narrow bond (n = r), clustering = one-hot S (the degenerate sparse code, k=1), dictionary = wide
+sparse S — so the matched-bits frontier compares bond structures under one accounting.
+Caveats: this is node insertion, not a gauge move (lossy, dimension-changing); and sparsity is
+not gauge-invariant — the description-length objective is what pins the atom basis (MDL is the
+gauge-fixing). For tensor-similarity training: the network-vs-network objective reduces to
+weighted Frobenius distance between factor tables with a metric node per leg; the ladder says use
+identity (or unigram-frequency) on the token leg and stop contracting before OV (differential
+cancellation, section 5).
+
 ## 6. Robustness notes
 
 - Dictionary result is stable across 3 training seeds × 2 encoders (spread ≤ 0.003 nats).
