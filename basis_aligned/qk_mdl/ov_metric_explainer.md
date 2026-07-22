@@ -181,3 +181,5 @@ if wanted, is a co-occurrence-corrected $q$ — at the cost of the metric becomi
 
 Implementation: `qk_ovweight.py`, rung `pat_ctx`; results land in `qk_ovweight.json` and the
 ladder table of `RESULTS_l0_mdl.md`.
+
+![The OV metric story: ladder ranking, cancellation index, and the fix](fig_ov_metrics.png)
