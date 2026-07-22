@@ -109,7 +109,7 @@ means *with* the estimation cost explicitly paid in the ledger.
 | 1. Stage-one free merge | **DONE on layer 0** (`qk_merge_stage1_l0.py/.json`, tick 151); per-head-branch K=2048 merge is free-or-better at 4.2% raw |
 | 2. Stage-two sparse dictionary (3 arms) | **DONE** (`qk_sae_dict.py/.json`, tick 152): all dict arms beat matched-bits SVD; two-stage ~free at 1.3% raw |
 | 3. Matched-bits frontier | **DONE as part of Phase 2** (SVD r=8..128 + dict budgets + two-stage, one table) |
-| 4. Convergence + robustness | **RUNNING** (`qk_sae_robust.py`, tick 152): wide 128-seq audit + seeds, targets the negative-dCE band |
+| 4. Convergence + robustness | **DONE** (ticks 153–155): headline audits moved to FineWeb (Pile is off-distribution — coarsening *helps* there); two-stage retracted; dictionary robust at ~+0.006 / 6.1% raw across seeds; full FineWeb frontier in `qk_fw_fill.json`; metric ladder in `qk_ovweight.json` (plain factor FVU is the best cheap proxy, Spearman 0.95); semantic atoms in `qk_dict_features.md` |
 | 5. Deeper-layer query/key | not started |
 
 Nothing is currently running. GPU is idle.
