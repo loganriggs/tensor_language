@@ -3546,3 +3546,17 @@ heads + position-only collapse of heads 2 and 5 (tick 156). FineWeb dCE +0.0102 
 (4.78% raw). Additivity holds again (+0.0076 dict + 0.0028 collapse ~ +0.0102); dominates
 merge K=2048 (+0.0196 at 4.2%) — new frontier point between 300-450 Mbit.
 fig_qk_mdl_frontier_fw.png regenerated with the composed point (ink X).
+
+## 2026-07-22 — tick 159 (OV-CONTEXT-TRAINED dictionary: new best at the 455-Mbit budget)
+
+Logan clarified: he wanted OV-considered dictionaries as an ARM on the frontier (trained against
+the OV objective), not the metric as a panel. No such data existed — built it: qk_ctx_train.py
+finetunes the seed-0 MSE dictionaries per head (both branches jointly — the pattern couples them)
+against the validated context-expected OV objective (eq. dagger: scatter at T, systematic at T^2,
+unigram q, u = OV vectors; weight-only + unigram), encoder/top-8 scheme unchanged => identical
+455.4 Mbit. Ctx loss drops 2-4x per head (e.g. head 7: 0.290 -> 0.064).
+RESULT: FineWeb dCE +0.0054 vs plain-MSE linear +0.0076 (same encoder, same bits; ~30% cost cut)
+and edges OMP/LS +0.0059. The validated OV metric WORKS AS A TRAINING SIGNAL — first arm where
+folding OV in improves the frontier. Caveat: single seed; improvement (0.0022) is ~the dict seed
+spread (±0.001-0.002) — a seed pass would firm it up (queued as an option). Figure v3 panel A now
+carries the point (teal triangle, ink edge): new best at this budget. qk_dict_l0_ctx.pt saved.

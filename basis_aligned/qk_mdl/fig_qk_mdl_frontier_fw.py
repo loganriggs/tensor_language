@@ -50,6 +50,10 @@ try:
     DC = json.load(open(f'{QK}/qk_dict_collapse.json'))
 except FileNotFoundError:
     DC = None
+try:
+    CT = json.load(open(f'{QK}/qk_ctx_train.json'))              # OV-context-trained dictionary
+except FileNotFoundError:
+    CT = None
 
 # context-expected OV metric per ladder arm: (Mbits, ctx)
 CTX_SVD = sorted((MB_SVD(r), OVW[f'svd rank {r}']['pat_ctx']) for r in (16, 32, 64, 128))
@@ -81,6 +85,11 @@ ax.scatter([merge_g[0]], [merge_g[1]], marker='o', s=45, facecolors=SURF, edgeco
 for arm, mk, mbits, d, f in DICTS:
     ax.scatter([mbits], [d], marker=mk, s=55, color=AQUA, edgecolors=SURF, linewidths=1.2,
                zorder=4, label=f'dict ({arm})')
+if CT:
+    ax.scatter([CT['Mbits']], [CT['dce_fw']], marker='v', s=80, color=AQUA, edgecolors=INK,
+               linewidths=1.4, zorder=6, label='dict (OV-context-TRAINED)')
+    ax.annotate('OV-context-trained:\nnew best at this budget', (CT['Mbits'], CT['dce_fw']),
+                textcoords='offset points', xytext=(-10, -24), ha='right', fontsize=8.5, color=INK)
 ax.scatter([two[0]], [two[1]], marker='*', s=240, color=INK, zorder=5, label='two-stage')
 if DC:
     ax.scatter([DC['Mbits']], [DC['dce_fw']], marker='X', s=90, color=INK, zorder=5,
