@@ -46,6 +46,10 @@ DICTS = [('token-linear', 'o', MB['dict1024'], BIG['dict n=1024 k=8 token-linear
           FILL['dict n=4096 k=8 token-OMP/LS']['dce_fw'], FILL['dict n=4096 k=8 token-OMP/LS']['fvu'])]
 two = (97.7, BIG['two-stage merge2048 -> OMP dict n=512 k=8']['dce_fw'],
        P2['two-stage merge2048 -> dict n=512 k=8 OMP/LS']['fvu'])
+try:
+    DC = json.load(open(f'{QK}/qk_dict_collapse.json'))          # dict + heads-2,5 collapse
+except FileNotFoundError:
+    DC = None
 
 fig, axes = plt.subplots(1, 3, figsize=(16, 4.8), facecolor=SURF, constrained_layout=True)
 for ax in axes:
@@ -70,6 +74,11 @@ for arm, mk, mbits, d, f in DICTS:
     ax.scatter([mbits], [d], marker=mk, s=55, color=AQUA, edgecolors=SURF, linewidths=1.2,
                zorder=4, label=f'dict ({arm})')
 ax.scatter([two[0]], [two[1]], marker='*', s=240, color=INK, zorder=5, label='two-stage')
+if DC:
+    ax.scatter([DC['Mbits']], [DC['dce_fw']], marker='X', s=90, color=INK, zorder=5,
+               label='dict + heads 2,5 position-only')
+    ax.annotate('dict + content-free heads\ncollapsed (4.8% bits)', (DC['Mbits'], DC['dce_fw']),
+                textcoords='offset points', xytext=(-8, 10), ha='right', fontsize=8.5, color=SUB)
 ax.scatter([RAW], [0.0], marker='o', s=40, color=INK, zorder=5)
 ax.annotate('raw factors (exact)', (RAW, 0.0), textcoords='offset points', xytext=(-8, 10),
             ha='right', fontsize=8.5, color=SUB)

@@ -3538,3 +3538,11 @@ rung; best OV-containing metric; correctly ranks dicts above svd r16). Residual 
 (svd r32 vs linear dict, both ctx 0.034) matches the i.i.d. caveat: dictionary errors are
 topic-shaped and co-occur — co-occurrence-corrected q is the (data-conditional) next refinement.
 Explainer + RESULTS ladder updated; formulas converted to $$-math for GitHub rendering.
+
+## 2026-07-22 — tick 158 (composed arm: dict + content-free heads collapsed; figure refreshed)
+
+qk_dict_collapse.py: dictionary (linear, n=1024 k=8) on the 14 head-branches of the 7 content-using
+heads + position-only collapse of heads 2 and 5 (tick 156). FineWeb dCE +0.0102 at 354.2 Mbit
+(4.78% raw). Additivity holds again (+0.0076 dict + 0.0028 collapse ~ +0.0102); dominates
+merge K=2048 (+0.0196 at 4.2%) — new frontier point between 300-450 Mbit.
+fig_qk_mdl_frontier_fw.png regenerated with the composed point (ink X).
