@@ -72,6 +72,7 @@ Full FineWeb table (baseline CE 3.0763; raw object 7,417.6 Mbit):
 | merge K=2048 per-head-branch | 312 | 4.2% | +0.020 | — |
 | merge K=8192 per-head-branch | 1220 | 16.4% | +0.008 | 0.47 |
 | merge K=2048 **global** partition | 303 | 4.1% | +0.035 | 0.66 |
+| **dict n=1024 k=8, OV-context-TRAINED** (tick 159; linear encoder, trained on eq. † of `ov_metric_explainer.md`) | **455** | **6.1%** | **+0.005** | — |
 | **dict n=1024 k=8, OMP/least-squares** | **455** | **6.1%** | **+0.006** | **0.40** |
 | dict n=1024 k=8, linear encoder | 455 | 6.1% | +0.008 | 0.46 |
 | dict n=1024 k=8, matryoshka | 455 | 6.1% | +0.008 | 0.46 |
