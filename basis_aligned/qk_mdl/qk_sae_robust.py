@@ -65,8 +65,8 @@ def tables_from(recs, renorm=True):
 @torch.no_grad()
 def audit_ce(tabs, tokens):
     tot, n = 0.0, 0
-    for i in range(0, len(tokens), 4):
-        b = tokens[i:i + 4].to(DEV)
+    for i in range(0, len(tokens), 2):       # batch 2: halves the scores_from_factors einsum peak
+        b = tokens[i:i + 2].to(DEV)
         idx = b[:, :-1]
 
         def patch(li, s1, s2):
@@ -182,17 +182,29 @@ def kmeans(X, k, iters=12, seed=0, chunk=4096):
 
 # ------------------------------------------------------------------ run
 
+import os
+prev = json.load(open(OUT)) if os.path.exists(OUT) else {}
 res = {'n_orig_preds': int(AUDIT_ORIG.shape[0] * 512), 'n_wide_preds': int(AUDIT_WIDE.shape[0] * 512),
-       'arms': {}}
-CE0_O = audit_ce(None, AUDIT_ORIG)
-CE0_W = audit_ce(None, AUDIT_WIDE)
+       'arms': dict(prev.get('arms', {}))}
+if 'baseline_ce_orig' in prev:                    # resume: reuse baselines + completed arms
+    CE0_O, CE0_W = prev['baseline_ce_orig'], prev['baseline_ce_wide']
+else:
+    CE0_O = audit_ce(None, AUDIT_ORIG)
+    CE0_W = audit_ce(None, AUDIT_WIDE)
 res['baseline_ce_orig'] = round(CE0_O, 4)
 res['baseline_ce_wide'] = round(CE0_W, 4)
 print(f'baseline CE orig {CE0_O:.4f} | wide {CE0_W:.4f}', flush=True)
 
 
 def report(name, recs, Mbits=None, renorm=True):
+    if name in res['arms']:
+        print(f'{name:52s} (cached from previous run)', flush=True)
+        recs.clear()
+        torch.cuda.empty_cache()
+        return
     tabs = tables_from(recs, renorm)
+    recs.clear()                                  # free the (V,256) reconstructions before auditing
+    torch.cuda.empty_cache()
     do = audit_ce(tabs, AUDIT_ORIG) - CE0_O
     dw = audit_ce(tabs, AUDIT_WIDE) - CE0_W
     row = {'dce_orig': round(do, 4), 'dce_wide': round(dw, 4)}
