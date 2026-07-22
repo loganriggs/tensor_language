@@ -3427,3 +3427,42 @@ head-branches (most-used + random atoms). Then qk_ovweight.py — weight-only me
 (factor FVU -> score FVU -> pattern FVU (bilinear product) -> OV-weighted pattern FVU) Spearman-
 correlated with big-audit dCE across arms; tests Logan's OV hypothesis without touching data.
 Also: qk_sae_lib.py — solver recipes consolidated to one module (verbatim; ends the 4x duplication).
+
+## 2026-07-22 — tick 154 (big audit: FINEWEB RESOLVES THE DECOUPLING; metric ladder: plain FVU wins, OV-weighting does NOT; atoms are SEMANTIC)
+
+qk_audit_big.py + qk_dict_features.py + qk_ovweight.py complete (chained).
+
+BIG AUDIT (262k Pile preds + 307k FineWeb preds; baselines 3.6309 / 3.0763):
+FINEWEB (training distribution) — everything positive, clean and nearly monotone in bits:
+svd r16 +0.0353, r32 +0.0170, r64 +0.0062, r128 +0.0016; merge2048 +0.0196; dict n=1024 k=8
+linear +0.0076 / OMP +0.0059; two-stage +0.0278. HEADLINE: at 6.1% of raw bits the dictionary
+costs +0.006 on the training distribution — 6x better than matched-bits svd r16 (+0.035) and
+equal to svd r64 which spends 4x the bits (25.1% raw). Dictionary result CONFIRMED on-distribution.
+PILE-BIG (off-distribution): svd r32/r64/r128 land NEGATIVE (-0.016/-0.022/-0.009), dict -0.010.
+=> THE NEGATIVE-dCE SAGA EXPLAINED: coarsening layer-0 QK genuinely (slightly) HELPS on
+off-training-distribution text — a regularization effect, not a measurement artifact — while on
+the training distribution every compression has honest positive cost. The orig/wide audits were
+Pile, hence the sign instability. RULE GOING FORWARD: headline audits on FineWeb (training dist);
+Pile numbers reported as the off-distribution column. Logan's "larger N" hunch: confirmed for the
+within-family inversions (noise) AND the deeper issue was audit distribution, now fixed.
+
+METRIC LADDER (qk_ovweight.py, weight-only, 8 arms, Spearman vs FineWeb dCE):
+factor-FVU 0.952 > score-FVU 0.881 > pattern-FVU 0.714 > OV-weighted-pattern 0.571.
+Logan's OV-weighting hypothesis NOT SUPPORTED — weighting DEGRADES prediction, monotonically with
+composition depth. Reading: quadratic-energy metrics increasingly flatter SVD (which optimizes
+exactly that norm — e.g. pat_ov ranks svd r16 ABOVE the dictionaries that beat it by 6x in dCE),
+while dCE rewards the many small, tail-energy directions the dictionary captures. Plain factor FVU
+is the least energy-concentrated and tracks behavior best. With FineWeb audits the "decoupling"
+largely dissolves: dict beats svd r16 at matched bits on BOTH fvu (0.40 vs 0.62) AND dCE. Contingent
+OV-weighted retraining: SKIPPED (its premise failed); logged as a negative per rule 6.
+
+FEATURES (qk_dict_features.md, 6 head-branches, seed-0 dict): atoms are MEANINGFUL and far more
+SEMANTIC than the morphology-only expectation for layer 0. Examples, head 0 branch 1: music
+(musician/song/album/guitarist), film (movie/director/cinema), food (restaurant/cuisine/chefs),
+television (NBC/CBS/aired), religion (church/pastor/sermon), persuasion (persuade/convince/swayed),
+travel, politics/law, vision, disasters (Orleans/Katrina/FEMA/Libya). Morphological classes too:
+plural suffixes (ups/ins/ures... and a NEGATIVE-sign plural atom), past-tense -ed suffixes,
+-ical adjectives, truncated stems (Ġinst/Ġresear/Ġreconc), first names, surnames, 3-digit numbers.
+Signed coefficients used meaningfully (e.g. talent-negative vs override-positive in one atom).
+So the layer-0 QK basis mixes topic-level semantics with morphology — richer than folded_basis
+"embedding=syntax" suggested.

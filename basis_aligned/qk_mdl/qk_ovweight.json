@@ -1,0 +1,80 @@
+{
+  "arms": {
+    "svd rank 16": {
+      "fac": 0.63657,
+      "score": 0.17997,
+      "pat": 0.09247,
+      "pat_ov": 0.04516,
+      "dce_pile": 0.0141,
+      "dce_fw": 0.0353
+    },
+    "svd rank 32": {
+      "fac": 0.52126,
+      "score": 0.15973,
+      "pat": 0.07729,
+      "pat_ov": 0.03586,
+      "dce_pile": -0.0161,
+      "dce_fw": 0.017
+    },
+    "svd rank 64": {
+      "fac": 0.35661,
+      "score": 0.12639,
+      "pat": 0.05923,
+      "pat_ov": 0.02579,
+      "dce_pile": -0.0216,
+      "dce_fw": 0.0062
+    },
+    "svd rank 128": {
+      "fac": 0.15953,
+      "score": 0.06842,
+      "pat": 0.03151,
+      "pat_ov": 0.01186,
+      "dce_pile": -0.0093,
+      "dce_fw": 0.0016
+    },
+    "merge K=2048 per-head-branch": {
+      "fac": 0.62719,
+      "score": 0.23869,
+      "pat": 0.17452,
+      "pat_ov": 0.10711,
+      "dce_pile": -0.0025,
+      "dce_fw": 0.0196
+    },
+    "dict n=1024 k=8 token-linear": {
+      "fac": 0.46385,
+      "score": 0.17807,
+      "pat": 0.11117,
+      "pat_ov": 0.06476,
+      "dce_pile": -0.0099,
+      "dce_fw": 0.0076
+    },
+    "dict n=1024 k=8 token-OMP/LS": {
+      "fac": 0.41104,
+      "score": 0.15195,
+      "pat": 0.08779,
+      "pat_ov": 0.04945,
+      "dce_pile": -0.0107,
+      "dce_fw": 0.0059
+    },
+    "two-stage merge2048 -> OMP dict n=512 k=8": {
+      "fac": 0.67654,
+      "score": 0.24785,
+      "pat": 0.18524,
+      "pat_ov": 0.11461,
+      "dce_pile": -0.0047,
+      "dce_fw": 0.0278
+    }
+  },
+  "spearman_vs_dce_pile": {
+    "fac": 0.619,
+    "score": 0.643,
+    "pat": 0.571,
+    "pat_ov": 0.452
+  },
+  "spearman_vs_dce_fw": {
+    "fac": 0.952,
+    "score": 0.881,
+    "pat": 0.714,
+    "pat_ov": 0.571
+  }
+}
