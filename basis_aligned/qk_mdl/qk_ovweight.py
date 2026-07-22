@@ -121,7 +121,7 @@ def metrics(recs):
         hat[qn][:, h] = rec[:, :HD]
         hat[kn][:, h] = rec[:, HD:]
     KEYS = ('fac', 'score', 'pat', 'pat_ov', 'pat_rope', 'pat_rope_ov', 'pat_gram',
-            'pat_rope_gram', 'pat_freq')
+            'pat_rope_gram', 'pat_freq', 'pat_ctx')
     num = {k: 0.0 for k in KEYS}
     den = {k: 0.0 for k in KEYS}
     dg = {'gram_err': 0.0, 'diag_err': 0.0, 'gram_sig': 0.0, 'diag_sig': 0.0, 'align': []}
@@ -162,6 +162,19 @@ def metrics(recs):
         ejc, wjc = ej - ej.mean(), wj - wj.mean()
         dg['align'].append(float((ejc * wjc).sum() /
                                  (ejc.norm() * wjc.norm() + 1e-12)))
+        # context-expected OV error (ov_metric_explainer.md eq. †): cancellation credited only
+        # to the mean component (T^2 term); scatter charged diagonally (T term). i.i.d. unigram.
+        qp = FRQ / FRQ.sum()
+        T_CTX = 512.0
+        for mat, side in ((dP2s, 'pat_ctx_n'), (P2s, 'pat_ctx_d')):
+            mu = (mat * qp[None, :]) @ US[h]                        # (M2, D) mean error vector
+            mu2 = mu.pow(2).sum(1)
+            s_ = (mat.pow(2) * (qp * wj)[None, :]).sum(1)           # wj = ||u_j||^2 (per column)
+            val = float((qp * (T_CTX * (s_ - mu2).clamp_min(0) + T_CTX * T_CTX * mu2)).sum())
+            if side == 'pat_ctx_n':
+                num['pat_ctx'] += val
+            else:
+                den['pat_ctx'] += val
         for di in range(len(DELTAS)):                               # rotary rungs (Logan)
             S1r = branch_scores_rope(TAB, h, 'q1', 'k1', di)
             S2r = branch_scores_rope(TAB, h, 'q2', 'k2', di)
@@ -223,7 +236,7 @@ for name in ARMS:
     print(f'{name:46s} fac {mt["fac"]:.3f}  score {mt["score"]:.3f}  pat {mt["pat"]:.3f}  '
           f'pat_ov {mt["pat_ov"]:.3f}  rope {mt["pat_rope"]:.3f}  rope_ov {mt["pat_rope_ov"]:.3f}  '
           f'gram {mt["pat_gram"]:.3f}  rope_gram {mt["pat_rope_gram"]:.3f}  '
-          f'freq {mt["pat_freq"]:.3f}  cancel {mt["diag_cancel_err"]:.2f}'
+          f'freq {mt["pat_freq"]:.3f}  ctx {mt["pat_ctx"]:.3f}  cancel {mt["diag_cancel_err"]:.2f}'
           f'/{mt["diag_cancel_sig"]:.2f}  align {mt["diag_align"]:+.2f}  '
           f'| dCE fw {big[name]["dce_fw"]:+.4f}', flush=True)
     json.dump(res, open(f'{QK}/qk_ovweight.json', 'w'), indent=2)
@@ -248,7 +261,7 @@ for tgt in ('dce_pile', 'dce_fw'):
     corr = {k: round(spearman([res['arms'][a][k] for a in ARMS],
                               [res['arms'][a][tgt] for a in ARMS]), 3)
             for k in ('fac', 'score', 'pat', 'pat_ov', 'pat_rope', 'pat_rope_ov',
-                      'pat_gram', 'pat_rope_gram', 'pat_freq')}
+                      'pat_gram', 'pat_rope_gram', 'pat_freq', 'pat_ctx')}
     res[f'spearman_vs_{tgt}'] = corr
     print(f'Spearman vs {tgt}: {corr}', flush=True)
 
