@@ -14,18 +14,18 @@ correct in-between metric is.
 ## 1. The physical object: what a pattern error actually does
 
 At layer 0 everything is exact and weight-only. For a context, the attention output at query
-position `i` for head `h` is
+position $i$ for head $h$ is
 
-    out_i = Σ_j P(i,j) · u_{t_j}        with   u_t = W_o^h W_v^h ê_t ∈ R^1152,
+$$\mathrm{out}_i \;=\; \sum_j P(i,j)\, u_{t_j}, \qquad u_t = W_O^h W_V^h\, \hat{e}_t \in \mathbb{R}^{1152},$$
 
-where `P` is the (unnormalized, no-softmax) pattern and `u_t` is the OV output vector of token
-`t` — what attending to `t` actually writes into the residual stream. (At layer 0 the value-bus
+where $P$ is the (unnormalized, no-softmax) pattern and $u_t$ is the OV output vector of token
+$t$ — what attending to $t$ actually writes into the residual stream. (At layer 0 the value-bus
 mixing is the identity, so this is exact.)
 
-So if compression perturbs the pattern by ΔP, the *physical* error at query `i` is a **vector
-sum**:
+So if compression perturbs the pattern by $\Delta P$, the *physical* error at query $i$ is a
+**vector sum** (call this equation ★):
 
-    e_i = Σ_j ΔP(i,j) · u_{t_j}.                                          (★)
+$$e_i \;=\; \sum_j \Delta P(i,j)\, u_{t_j}. \qquad (\star)$$
 
 Everything below is about how to summarize (★) into one number without running data through the
 model. Two facts about (★) drive everything:
@@ -42,15 +42,15 @@ vectors. They differ in how they collapse the token sum:
 
 **Rung "pat_ov" — the norm (diagonal) weighting.**
 
-    m_diag = Σ_{i,j} ΔP(i,j)² · ‖u_j‖²   /   (same with P)
+$$m_{\mathrm{diag}} \;=\; \frac{\sum_{i,j} \Delta P(i,j)^2\, \lVert u_j\rVert^2}{\sum_{i,j} P(i,j)^2\, \lVert u_j\rVert^2}$$
 
-Each token's error is charged by its OV magnitude, **independently** — the sum over `j` is a sum
-of squares. This respects the null space (‖u‖≈0 ⇒ no charge) but **forbids cancellation
-entirely**: two errors that would annihilate in (★) are both charged in full.
+Each token's error is charged by its OV magnitude, **independently** — the sum over $j$ is a sum
+of squares. This respects the null space ($\lVert u\rVert \approx 0 \Rightarrow$ no charge) but
+**forbids cancellation entirely**: two errors that would annihilate in (★) are both charged in full.
 
 **Rung "pat_gram" — the full Gram (coherent) metric.**
 
-    m_gram = Σ_i ‖ Σ_j ΔP(i,j) · u_j ‖²   /   (same with P)     =  ‖ΔP·U‖²_F / ‖P·U‖²_F
+$$m_{\mathrm{gram}} \;=\; \frac{\sum_i \bigl\lVert \sum_j \Delta P(i,j)\, u_j \bigr\rVert^2}{\sum_i \bigl\lVert \sum_j P(i,j)\, u_j \bigr\rVert^2} \;=\; \frac{\lVert \Delta P\, U\rVert_F^2}{\lVert P\, U\rVert_F^2}$$
 
 This computes (★) literally over the whole token sample and squares the *resulting vector* —
 cancellation and null space are handled exactly... **for one particular fictitious context**: the
@@ -64,8 +64,7 @@ FVU. They fail identically but for opposite reasons.
 
 For each compression arm we report
 
-    cancel = m_gram numerator / m_diag numerator
-           = ‖ΔP·U‖²_F  /  Σ ΔP(i,j)²‖u_j‖².
+$$\mathrm{cancel} \;=\; \frac{m_{\mathrm{gram}}\ \text{numerator}}{m_{\mathrm{diag}}\ \text{numerator}} \;=\; \frac{\lVert \Delta P\, U\rVert_F^2}{\sum_{i,j} \Delta P(i,j)^2\, \lVert u_j\rVert^2}.$$
 
 Reading: if the per-token error vectors ΔP(i,j)·u_j were mutually orthogonal, the ratio would be
 exactly 1. Ratio < 1 means net cancellation; ratio > 1 means the error vectors *reinforce* (point
@@ -101,12 +100,13 @@ that holds *summed over the whole vocabulary* need not hold *within a given draw
 containing "music-atom tokens" but not the tokens whose errors would have cancelled them gets
 the full error.
 
-Make this precise. Fix query token `i`; write `c_j = ΔP(i,j)·u_j` for the per-token error
-vector, and let the context's keys be T i.i.d. draws from the unigram distribution `q` (the
+Make this precise. Fix query token $i$; write $c_j = \Delta P(i,j)\, u_j$ for the per-token error
+vector, and let the context's keys be $T$ i.i.d. draws from the unigram distribution $q$ (the
 no-softmax architecture makes this model apt: the output really is a plain sum over positions —
-this is also exactly why the model degrades past T≈512). Then the expected squared error is
+this is also exactly why the model degrades past $T \approx 512$). Then the expected squared
+error is (call this equation †):
 
-    E‖e_i‖²  =  T · ( E_q‖c‖² − ‖μ‖² )  +  T² · ‖μ‖²,        μ = E_q[c_j].       (†)
+$$\mathbb{E}\lVert e_i\rVert^2 \;=\; T\left(\mathbb{E}_q\lVert c\rVert^2 - \lVert\mu\rVert^2\right) \;+\; T^2\, \lVert\mu\rVert^2, \qquad \mu = \mathbb{E}_q[c_j]. \qquad (\dagger)$$
 
 The two existing rungs are the two terms of (†) in isolation:
 
@@ -127,12 +127,13 @@ properly:
 
 Charge each arm by the expectation (†), queries weighted by their own frequency:
 
-    m_ctx = Σ_i q_i [ T·(s_i − ‖μ_i‖²) + T²·‖μ_i‖² ]  /  (same functional of the true P)
+$$m_{\mathrm{ctx}} \;=\; \frac{\sum_i q_i \left[\, T\,(s_i - \lVert\mu_i\rVert^2) \;+\; T^2\,\lVert\mu_i\rVert^2 \,\right]}{\text{same functional of the true } P}$$
 
-with, per query token i (all weight-only plus unigram statistics):
+with, per query token $i$ (all weight-only plus unigram statistics):
 
-    μ_i = Σ_j q_j ΔP(i,j) u_j          (mean error vector — the part that truly cancels)
-    s_i = Σ_j q_j ΔP(i,j)² ‖u_j‖²      (second moment — the scatter floor)
+$$\mu_i = \sum_j q_j\, \Delta P(i,j)\, u_j \quad \text{(mean error vector — the part that truly cancels)}$$
+
+$$s_i = \sum_j q_j\, \Delta P(i,j)^2\, \lVert u_j\rVert^2 \quad \text{(second moment — the scatter floor)}$$
 
 Inputs: the factor tables, the OV vectors `u`, the unigram frequencies `q`, and T = 512. Nothing
 else. This is the exact expected squared layer-0 output error under the i.i.d.-context model —
@@ -141,12 +142,28 @@ precisely where it doesn't (the T variance term). It also subsumes the frequency
 ladder (rare tokens are down-weighted by `q` in both terms).
 
 **Pre-registered expectation** (stated before the run): SVD's low cancel index means its error is
-relatively scatter-dominated; m_ctx re-charges that scatter at weight T without cancellation, so
-m_ctx should *undo the Gram metric's SVD discount* and rank arms closer to the truth than either
-pure rung. If instead m_ctx still lands near 0.57, the i.i.d.-context model is the wrong
-approximation (real co-occurrence structure matters), and the next refinement is replacing the
-unigram `q` with document-level co-occurrence statistics — at which point the metric stops being
-weight-plus-unigram and starts being data-conditional, with the usual ledger cost.
+relatively scatter-dominated; $m_{\mathrm{ctx}}$ re-charges that scatter at weight $T$ without
+cancellation, so it should *undo the Gram metric's SVD discount* and rank arms closer to the
+truth than either pure rung.
+
+**Result (run 2026-07-22): CONFIRMED.** Spearman versus FineWeb ΔCE across arms:
+
+| rung | Spearman |
+|---|---|
+| plain factor FVU | 0.952 |
+| **context-expected OV ($m_{\mathrm{ctx}}$)** | **0.905** |
+| frequency-weighted pattern | 0.905 |
+| OV norm-weighted / OV-Gram (both pure limits) | 0.571 |
+
+Splitting the OV charge into its scatter ($T$) and systematic ($T^2$) components lifts the
+OV-containing metric from worst in the ladder (0.571) to best-in-class (0.905, tied with the
+frequency rung and near the factor metric). It now correctly places the dictionaries
+($m_{\mathrm{ctx}}$ 0.027–0.034) below SVD rank 16 (0.054); the one residual misranking (SVD
+rank 32 at 0.034 versus the linear dictionary at 0.034, despite a 2× ΔCE difference) is exactly
+the kind of within-tie error the i.i.d. assumption predicts — see caveat 1: the dictionaries'
+errors are topic-shaped, and topical co-occurrence (music tokens arrive together) makes their
+within-context scatter coherent in a way unigram i.i.d. sampling cannot see. The next refinement,
+if wanted, is a co-occurrence-corrected $q$ — at the cost of the metric becoming data-conditional.
 
 ## 6. Known approximations (in honesty order)
 

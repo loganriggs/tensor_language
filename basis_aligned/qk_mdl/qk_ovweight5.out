@@ -1,0 +1,13 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+OV importance: per-head mean [542.35, 313.38, 245.09, 1541.42, 665.52, 315.44, 428.92, 447.22, 523.27]
+svd rank 16                                    fac 0.637  score 0.180  pat 0.092  pat_ov 0.045  rope 0.154  rope_ov 0.076  gram 0.016  rope_gram 0.025  freq 0.100  ctx 0.054  cancel 11.05/31.61  align +0.30  | dCE fw +0.0353
+svd rank 32                                    fac 0.521  score 0.160  pat 0.077  pat_ov 0.036  rope 0.134  rope_ov 0.063  gram 0.012  rope_gram 0.020  freq 0.074  ctx 0.034  cancel 10.52/31.61  align +0.27  | dCE fw +0.0170
+svd rank 64                                    fac 0.357  score 0.126  pat 0.059  pat_ov 0.026  rope 0.107  rope_ov 0.048  gram 0.008  rope_gram 0.014  freq 0.049  ctx 0.018  cancel 9.98/31.61  align +0.24  | dCE fw +0.0062
+svd rank 128                                   fac 0.160  score 0.068  pat 0.032  pat_ov 0.012  rope 0.063  rope_ov 0.025  gram 0.004  rope_gram 0.008  freq 0.023  ctx 0.007  cancel 9.79/31.61  align +0.20  | dCE fw +0.0016
+merge K=2048 per-head-branch                   fac 0.627  score 0.239  pat 0.175  pat_ov 0.107  rope 0.228  rope_ov 0.135  gram 0.054  rope_gram 0.062  freq 0.181  ctx 0.120  cancel 15.98/31.61  align +0.28  | dCE fw +0.0196
+dict n=1024 k=8 token-linear                   fac 0.464  score 0.178  pat 0.111  pat_ov 0.065  rope 0.158  rope_ov 0.088  gram 0.028  rope_gram 0.034  freq 0.073  ctx 0.034  cancel 13.96/31.61  align +0.26  | dCE fw +0.0076
+dict n=1024 k=8 token-OMP/LS                   fac 0.411  score 0.152  pat 0.088  pat_ov 0.049  rope 0.132  rope_ov 0.069  gram 0.020  rope_gram 0.025  freq 0.057  ctx 0.027  cancel 13.38/31.61  align +0.25  | dCE fw +0.0059
+two-stage merge2048 -> OMP dict n=512 k=8      fac 0.677  score 0.248  pat 0.185  pat_ov 0.115  rope 0.241  rope_ov 0.144  gram 0.059  rope_gram 0.068  freq 0.204  ctx 0.150  cancel 16.39/31.61  align +0.29  | dCE fw +0.0278
+Spearman vs dce_pile: {'fac': 0.619, 'score': 0.643, 'pat': 0.571, 'pat_ov': 0.452, 'pat_rope': 0.548, 'pat_rope_ov': 0.571, 'pat_gram': 0.452, 'pat_rope_gram': 0.452, 'pat_freq': 0.595, 'pat_ctx': 0.595}
+Spearman vs dce_fw: {'fac': 0.952, 'score': 0.881, 'pat': 0.714, 'pat_ov': 0.571, 'pat_rope': 0.786, 'pat_rope_ov': 0.714, 'pat_gram': 0.571, 'pat_rope_gram': 0.571, 'pat_freq': 0.905, 'pat_ctx': 0.905}
+wrote qk_ovweight.json

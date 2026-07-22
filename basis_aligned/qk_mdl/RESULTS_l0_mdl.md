@@ -128,6 +128,7 @@ FineWeb ΔCE across 8 arms — all computed from weights alone:
 | metric | Spearman vs FineWeb ΔCE |
 |---|---|
 | **plain factor FVU** | **0.952** |
+| **context-expected OV metric** (`pat_ctx`; T-scatter + T²-mean split, see `ov_metric_explainer.md`) | **0.905** |
 | **frequency-weighted pattern FVU** (unigram rows × columns) | **0.905** |
 | score-level FVU (q̂k̂ᵀ) | 0.881 |
 | pattern FVU + rotary offsets (pair-count weighted) | 0.786 |

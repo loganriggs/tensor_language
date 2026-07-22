@@ -3522,3 +3522,19 @@ step 150 (+0.0123) to +0.061 at step 1200 while train CE falls to ~2.3 (overfit,
 zero" finding on this object. Caveat: bounded by 154k train tokens; no evidence of gain, direction
 clear from the first eval. Combined with fac-FVU Spearman 0.95: the weight-faithful MSE objective
 is NOT measurably leaving CE on the table at this budget.
+
+## 2026-07-22 — tick 157 (ov_metric_explainer.md; context-expected OV metric CONFIRMS pre-registration: 0.571 -> 0.905)
+
+Logan: walk through how OV is folded in + how cancellation is measured + can the cancellation
+part be included properly; write standalone explainer. ov_metric_explainer.md (LaTeX-rendered):
+derivation — over i.i.d. length-T unigram contexts, E||e_i||^2 = T*(scatter) + T^2*||mean||^2 (†);
+the norm rung is the scatter term alone (forbids all cancellation), the Gram rung is the mean term
+alone (credits cancellation to scatter it doesn't deserve — the fictitious all-vocab context).
+Correct metric = pat_ctx: cancellation credited ONLY to the systematic T^2 component, scatter
+charged diagonally at T; inputs = weights + unigram + T=512. PRE-REGISTERED prediction (SVD is
+scatter-dominated per its low cancel index ~10, so pat_ctx should undo the Gram discount):
+CONFIRMED — Spearman vs FineWeb dCE 0.905 (vs 0.571 both pure OV rungs; fac 0.952; ties freq
+rung; best OV-containing metric; correctly ranks dicts above svd r16). Residual misranking
+(svd r32 vs linear dict, both ctx 0.034) matches the i.i.d. caveat: dictionary errors are
+topic-shaped and co-occur — co-occurrence-corrected q is the (data-conditional) next refinement.
+Explainer + RESULTS ladder updated; formulas converted to $$-math for GitHub rendering.
