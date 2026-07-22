@@ -99,6 +99,32 @@ Commentary:
   8k-pred audit) and was headlined at tick 152; the 65k- and 307k-pred audits put it at
   +0.017…+0.028. Small-audit overfitting — it is *not* a good point.
 
+## 3b. The in-depth Pareto sweep (tick 160): objective × budget × seeds
+
+![Dictionary Pareto sweep](fig_qk_pareto.png)
+
+Overnight sweep: 8 budgets (2.5%–20.7% of raw) × {MSE, OV-context-trained (eq. † of
+`ov_metric_explainer.md`)} at identical bits, OMP audits at seed 0, 3 seeds at three anchors.
+Findings:
+
+1. **OV-context training dominates the low-bit frontier.** At 2.5–3% of raw bits it *halves* the
+   cost of the best MSE arm (+0.0073 vs +0.0149 at 183 Mbit) and matches MSE-linear-at-455-Mbit
+   quality with 2.5× fewer bits. Its curve is nearly flat (+0.005–0.007) across the whole range —
+   the objective extracts the behaviorally relevant structure almost independently of budget.
+2. **Seed-robust where it matters**: the paired linear-vs-context gap at 224 Mbit is
+   +0.0075/+0.0071/+0.0073 across seeds (seed spread ±0.0004); at 455 Mbit +0.0010–0.0022;
+   at 923 Mbit ≈ 0 (sign still consistent).
+3. **Crossover ≈ 12% of raw**: richer budgets favor plain MSE with the OMP encoder (down to
+   +0.0018 at 16.7%), while the context arm plateaus at ~+0.005 — the metric's i.i.d.-unigram /
+   pre-rotary approximation floor binds once near-exact reconstruction is affordable. Candidate
+   refinements: co-occurrence-corrected q, rotary inside the training objective, blended MSE+ctx loss.
+4. **Honest flag**: at n=8192 the *linear encoder* training degenerates (FVU 1.18; the atoms are
+   fine — OMP on the same dictionary reaches +0.0020). Encoder instability at extreme
+   overcompleteness, not an atoms failure.
+
+Current overall Pareto frontier: **OV-context dictionaries from 183–614 Mbit, MSE+OMP dictionaries
+from 923 Mbit up**; SVD, merges, the global partition, and the two-stage arm are dominated everywhere.
+
 ## 4. Are the atoms meaningful? Yes — and semantic, not just morphological
 
 Full dump: [qk_dict_features.md](qk_dict_features.md) (6 head-branches, most-used + random atoms,
