@@ -125,6 +125,45 @@ Findings:
 Current overall Pareto frontier: **OV-context dictionaries from 183–614 Mbit, MSE+OMP dictionaries
 from 923 Mbit up**; SVD, merges, the global partition, and the two-stage arm are dominated everywhere.
 
+## 3c. The error-analysis arc (ticks 161–166): exploration → diagnosis → solutions
+
+![redrawn frontier](fig_qk_hybrid.png)
+
+Logan's redirect ("look at the residual itself, then consider solutions") replaced blind
+objective-tweaking with a diagnose-then-fix loop. The chain, each step feeding the next:
+
+1. **Reader co-adaptation is a null** (tick 161): jointly training a LoRA on the OV reader
+   with the dictionary — against a faithful match-the-original-delivery objective — buys
+   nothing at any budget; migration meters all quiet. The original OV is already the right
+   reader; the QK-side pattern is what carries the loss.
+2. **Error exploration** (tick 164, on the 183-Mbit arm): the net cost is a thin difference
+   of large flows (46% of predictions improve; the worst 1% of positions carry ~93% of net).
+   Weight-space attribution is extremely token-concentrated — the top 50 tokens (newline,
+   punctuation, function words) carry 52% of delivered pattern error, by exposure, not
+   misfit (their rows are fit *better* than average). CE damage bills on rare continuations
+   (compound names, list structure) that depended on those structural anchors. Head 3 alone
+   carries 40%.
+3. **Rotary diagnosis** (tick 163): including rotation in the objective *coherently* (offset-
+   averaged mean) washes out 98.8% of the systematic signal — that formulation trains on a
+   DC remnant and loses. The **incoherent** form (T²·E_Δ‖μ_Δ‖², all bands preserved) wins:
+   +0.0047 vs +0.0055 at 455 Mbit, and +0.0028 vs +0.0052 at the old 1242-Mbit plateau.
+4. **Solutions** (ticks 165–166): exact factor rows for the top-B anchor tokens (bits
+   charged) recover the tail — causal confirmation of (2). Nulls that sharpen the story:
+   per-head budget reallocation, tail-weighted query distribution, co-occurrence context
+   weights, and the MSE-blend once incoherent rotary is in.
+
+**The composed frontier** (incoherent-rotary dictionaries + exact anchors, FineWeb 307k):
+
+| Mbit | 192 | 220 | 262 | 334 | 493 | 606 | 1074 | 1393 |
+|---|---|---|---|---|---|---|---|---|
+| hybrid ΔCE | .0044 | .0037 | .0036 | .0029 | **.0024** | .0019 | **.0011** | .0010 |
+| old frontier at same bits | ~.0072 | .0069 | ~.0070 | ~.0067 | .0054 | ~.0048 | ~.0031 | .0018 |
+
+Seed-robust (+0.0024/+0.0022/+0.0022 at 493 Mbit). The hybrid dominates every previously
+measured arm at every budget — 1.8–2.9× lower ΔCE at matched bits — and its 1074-Mbit point
+(+0.0011) is below the old frontier's best result at any size. Files: qk_err_explore*.{py,md,json},
+qk_rot_diag.{py,json}, qk_solutions.{py,json}, qk_hybrid_frontier.{py,json}, fig_qk_hybrid.py.
+
 ## 4. Are the atoms meaningful? Yes — and semantic, not just morphological
 
 Full dump: [qk_dict_features.md](qk_dict_features.md) (6 head-branches, most-used + random atoms,

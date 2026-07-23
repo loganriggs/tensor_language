@@ -3781,3 +3781,22 @@ structural anchor tokens recovers the tail; nothing else does.
 Tick 166 launched (qk_hybrid_frontier.py): incoh-rotary dictionaries + per-dictionary
 anchor selection at (512,4) (1024,8) (4096,8) (4096,16) x B in {0,256,1024}, seeds 1,2 at
 (1024,8)+B256. Expect the composed frontier to dominate everything measured so far.
+
+## tick 166 (complete) + benchmark + tick 167 (launch)
+
+HYBRID FRONTIER complete (11/11): incoh-rotary base curve 224:.0070 / 455:.0048 / 923:.0030 /
+1242:.0032; hybrid + anchors 262:.0036 / 493:.0024 (seeds .0024/.0022/.0022) / 606:.0019 /
+1074:.0011 / 1393:.0010. Dominates every previously measured arm at every budget (1.8-2.9x
+lower dCE at matched bits); the 1074-Mbit point beats the OLD frontier's best-anywhere
+(+0.0018 @ 1242). fig_qk_hybrid.png; RESULTS §3c added with the full arc.
+
+PATTERN-TABLE BENCHMARK (Logan: real numbers for training directly on the q1k1 o q2k2 table):
+full P = 10.1 GB fp32/head (91 GB all heads, 30 GB resident w/ factors -> streaming only);
+full-table forward 0.2 s/head; ONE naive full-table training step (fwd+bwd chunked) 1.0 s ->
+full training 3.8 GPU-h; Khatri-Rao Gram (P = A B^T exactly, A_t = q1_t (x) q2_t, rank<=16384)
+0.9 s/Gram -> EXACT full-table weighted Frobenius 6 s/eval, no VxV object; current sampled
+step 2 ms (450x cheaper, 0.041% pair coverage/step). qk_pattern_bench.py/.out.
+
+Tick 167 launched (qk_mscale.py): the cheap decisive coverage test — same objective at
+M=2048/4096 per step (4x/16x coverage). If dCE improves with M, sampling noise binds and
+Gram-exact/full-coverage is worth it; if flat, coverage was never the constraint.
