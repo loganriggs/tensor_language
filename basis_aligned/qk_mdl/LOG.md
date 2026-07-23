@@ -3689,3 +3689,27 @@ Phase X — variants at flagship, each ~2.5 min: u32_coh (variance), tri8_coh (a
   offset distribution), u8_incoh + tri8_incoh (incoherent static T^2·E_D||mu_D||^2 keeps all
   bands — the wash-out antidote), u8_slow (lr 1e-4, 3000 steps — optimization test).
   All audited on FineWeb; trained dicts kept locally in qk_rot_diag_dicts.pt.
+
+## tick 164 (queued) — error exploration on the most-compressed dictionary (Logan redirect)
+
+Logan: stop hypothesizing from aggregates — look at the residual itself. Top-100 highest-error
+datapoints, commonalities, exploratory analysis first, solutions after. Target: the 183.4-Mbit
+frontier arm (n=256, k=4, OV-context-trained, ~+0.0073), MSE dict at same budget as contrast.
+
+qk_err_explore.py (chained behind the fixed rot-diag rerun; note tick-163 first attempt had a
+tuple-order bug — (Dn,b,We) vs (Dn,We,b) — that broadcast silently because n=1024=M and only
+crashed at topk INSIDE dense_eval, discarding already-computed dCEs; fixed, rerunning):
+  A. Per-prediction dCE across all 307k held-out predictions: concentration shares
+     (top 0.1/1/5/10%), fraction of predictions the compression IMPROVES, per-position
+     ctx-vs-MSE correlation (are hard positions intrinsic or objective-specific?),
+     top-100 decoded with context -> qk_err_explore_examples.md, top-1000 commonality vs
+     random-1000 control (target frequency, position, repeat/induction structure: target seen
+     earlier, bigram repeat, distance to previous occurrence, doc concentration), dCE curves
+     by target-frequency decile and position decile.
+  B. Per-head attribution: 9 audits with only head h compressed.
+  C. Weight-space delivered error over the FULL vocabulary (chunked, eq. dagger at Delta=0):
+     top-50 query and key tokens by contribution, decoded; contribution by frequency decile.
+  D. Factor residual structure: relative row error by frequency decile, residual SVD spectrum
+     per head-branch (low-rank leftover?), q-half vs k-half split, worst-40 tokens decoded.
+Also verified this tick: rotary offset identity vs scores_from_factors — max err 7.5e-8,
+convention CORRECT; the rotary regression is not a sign bug.

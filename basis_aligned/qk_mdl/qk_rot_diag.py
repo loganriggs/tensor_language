@@ -110,7 +110,7 @@ def recon(parts, sample, h, k, grad=True):
     out = []
     for br, (qn, kn) in enumerate(BRANCHES):
         X = torch.cat([TAB[qn][sample, h], TAB[kn][sample, h]], 1)
-        Dm, We, b = parts[br]
+        Dm, b, We = parts[br]
         Dn = Dm / Dm.norm(dim=1, keepdim=True).clamp(min=1e-8)
         z = (X - b) @ We.T
         vals, idx = z.abs().topk(k, dim=1)
@@ -141,7 +141,7 @@ def train_variant(h, fits, k, n_off, dist, static_mode, lr, steps, seed=0):
         Dm = Dn0.clone().requires_grad_(True)
         We = We0.clone().requires_grad_(True)
         b = b0.clone().requires_grad_(True)
-        parts[br] = (Dm, We, b)
+        parts[br] = (Dm, b, We)
         params += [Dm, We, b]
     opt = torch.optim.Adam(params, lr=lr)
     Uh = Vv[:, h] @ Wo[:, h].T
@@ -204,7 +204,7 @@ def train_variant(h, fits, k, n_off, dist, static_mode, lr, steps, seed=0):
     del Uh, W2
     out = []
     for br in (0, 1):
-        Dm, We, b = parts[br]
+        Dm, b, We = parts[br]
         out.append(((Dm / Dm.norm(dim=1, keepdim=True).clamp(min=1e-8)).detach(),
                     b.detach(), We.detach()))
     return out, (round(first, 4), round(last, 4))
