@@ -3618,3 +3618,25 @@ Arms (seed 0): joint r16 at (512,4),(1024,8),(4096,8),(4096,16); lora_only r16 a
 (1024,8),(4096,16); joint r64 at (1024,8),(4096,16). FineWeb 307k audit throughout.
 Smoke test passed (shapes, both audits, diagnostics; zero-init control dCE −0.0000).
 Running in background → qk_ov_lora.json / .out.
+
+## tick 161 (complete) — OV-LoRA joint arc: clean negative; reader is not the bottleneck
+
+All 8 arms finished (~2.5 h). Headline: co-adapting the OV reader (LoRA rank 16/64 on W_v^h,
+W_o^h, trained jointly with the dictionary against the faithful delivery objective) buys
+essentially nothing at any budget. Joint r16 at (1024,8): +0.0049 vs fixed-reader ctx +0.0054
+(within seed spread). The (4096,16) plateau does NOT break: +0.0053 vs ctx +0.0052, r64
++0.0061. LoRA-only on a frozen MSE dictionary is WORSE than nothing at (1024,8) (+0.0087 vs
++0.0076) even with the reader moving 6.5% rel-Frobenius — re-reading cannot rescue a pattern
+fitted blind to OV.
+
+Migration meters uniformly quiet (the design worked): control audits (EXACT scores + LoRA'd
+OV) all ±0.0000; static share 0.9918 → 0.9895–0.9925 (no drift toward static bias); joint
+reader drift ~1% rel-Frobenius; content rank90 unchanged. So the faithful objective held the
+reader in place AND the answer is informative: the original OV is already essentially the
+optimal reader of its own head's compressed pattern; the ~+0.005 rich-budget plateau is the
+context-model approximation floor (i.i.d. unigram, pre-rotary), not the fixed reader. Next
+gains live in the refinement queue: co-occurrence-corrected q, rotary inside the objective,
+blended MSE+ctx loss.
+
+Also this tick: qk_ov_lora_explainer.md — working-derivation walkthrough (all shapes, the
+three-scalar trick avoiding the M×M×D tensor, gauge argument, meters, results table).
