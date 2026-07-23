@@ -3832,3 +3832,20 @@ cubed. Build order per spec section 10, integrated with our queue: M=4096 overni
 -> planted synthetics -> Stages 2-3 + nulls -> joint training last.
 HOURLY CRON ARMED (job 48b75485, :23, 7-day expiry — session-scoped, re-arm on new sessions):
 keeps the queue rolling, notification-driven chaining, no self-matching watchers.
+
+## tick 168 (complete) — M=4096 frontier refit: bases improve a lot, hybrids a little
+
+Finished in ~2 h (not 11 — M=4096 steps cheaper than estimated). M=1024 -> M=4096:
+  bases:   224: .0070->.0055 | 455: .0048->.0033 | 923: .0030->.0023 | 1242: .0032->.0019
+  hybrids: 262: .0036->.0034 | 493: .0024->.0023 (s1 .0020) | 606: .0019->.0017 |
+           1074: .0011->.0011 | 1393: .0010->.0008
+READING: coverage noise and exact anchors partially SUBSTITUTE — the anchors were already
+fixing much of what sampling noise broke (both act on the high-exposure token rows that
+dominate the static term). Hybrids gain only ~0.0001-0.0002 from 4x coverage; bases gain
+0.0007-0.0015. New frontier bests: +0.0008 @ 1393 Mbit (18.8% raw), +0.0011 @ 1074,
++0.0017 @ 606. Figure/RESULTS refresh deferred to next cron tick (169a launch first).
+Next per queue: tick 169a exact-moment static objective — inner mu computed EXACTLY from
+128^3 moment cores (zero noise on the dominant term), outer query average pi-sampled
+(8192/step), scatter sampled as before. Verification phase compares exact static vs
+sampled estimates at M=1k/4k/16k (prediction: sampled is biased UP by estimator variance,
+shrinking with M — the mechanism behind ticks 167/168).
