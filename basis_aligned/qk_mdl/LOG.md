@@ -3759,3 +3759,25 @@ Tick 165 launched (qk_solutions.py): base = u8_incoh objective at (256,4); S1 ex
 rows (B=64/256/1024 by full-vocab dagger attribution, no retraining, bits charged); S2
 per-head reallocation (head3->1024, heads2/5->32) at ~matched bits; S3 q^0.5 query weighting
 (tail-aware); s2s3 combo; plateau (4096,16) with u8_incoh and u8_incoh+blend.
+
+## tick 165 (complete) + tick 166 (launch) — S1 anchors validated causally; hybrid frontier sweep
+
+Solutions arc final table (183-Mbit base unless noted; comparators from tick-160 sweep):
+  base incoh-rotary (256,4)      +0.0077 @ 182.8   (old ctx +0.0073 — parity at tiny budget)
+  S1 + exact rows top-64 anchors +0.0044 @ 192.2   (~halves error for +5% bits)
+  S1 + top-256                   +0.0037 @ 220.5   (old frontier at 224: +0.0069 — 1.9x better)
+  S1 + top-1024                  +0.0029 @ 333.8   (beats old 923-Mbit OMP +0.0034 at 1/3 bits)
+  S2 head reallocation           +0.0075 @ 186.4   NULL — head 3 not capacity-starved; its
+                                                    loss lives in the same anchor rows
+  S3 q^0.5 query weighting       +0.0081 @ 182.8   NULL — tail needs exactness not emphasis
+  s2s3                           +0.0074 @ 186.4   NULL
+  plateau (4096,16) incoh        +0.0028 @ 1241.6  (old ctx +0.0052, lin +0.0031; OMP +0.0018)
+  plateau incoh + blend          +0.0029 @ 1241.6  blend obsolete once incoh-rotary is in —
+                                                    its tick-162 win was compensating the
+                                                    plain objective's floor
+Causal confirmation of the exploration story: buying back exact rows for the frequent
+structural anchor tokens recovers the tail; nothing else does.
+
+Tick 166 launched (qk_hybrid_frontier.py): incoh-rotary dictionaries + per-dictionary
+anchor selection at (512,4) (1024,8) (4096,8) (4096,16) x B in {0,256,1024}, seeds 1,2 at
+(1024,8)+B256. Expect the composed frontier to dominate everything measured so far.

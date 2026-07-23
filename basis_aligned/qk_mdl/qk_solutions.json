@@ -1,0 +1,44 @@
+{
+  "jobs": {
+    "base": {
+      "Mbits": 182.8,
+      "dce": 0.0077
+    },
+    "s1_b64": {
+      "Mbits": 192.2,
+      "B": 64,
+      "dce": 0.0044
+    },
+    "s1_b256": {
+      "Mbits": 220.5,
+      "B": 256,
+      "dce": 0.0037
+    },
+    "s1_b1024": {
+      "Mbits": 333.8,
+      "B": 1024,
+      "dce": 0.0029
+    },
+    "s2_realloc": {
+      "Mbits": 186.4,
+      "dce": 0.0075
+    },
+    "s3_sqrtq": {
+      "Mbits": 182.8,
+      "dce": 0.0081
+    },
+    "s2s3": {
+      "Mbits": 186.4,
+      "dce": 0.0074
+    },
+    "plateau_incoh": {
+      "Mbits": 1241.6,
+      "dce": 0.0028
+    },
+    "plateau_incoh_blend": {
+      "Mbits": 1241.6,
+      "dce": 0.0029
+    }
+  },
+  "baseline_ce_fw": 3.0763
+}
