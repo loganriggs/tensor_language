@@ -3713,3 +3713,28 @@ crashed at topk INSIDE dense_eval, discarding already-computed dCEs; fixed, reru
      per head-branch (low-rank leftover?), q-half vs k-half split, worst-40 tokens decoded.
 Also verified this tick: rotary offset identity vs scores_from_factors — max err 7.5e-8,
 convention CORRECT; the rotary regression is not a sign bug.
+
+## tick 164 (complete) — error exploration: the residual is ~3000 bad predictions, not fog
+
+Full findings in qk_err_explore_report.md (+ examples md, json, pt). Headlines:
+- Net +0.0079 = thin difference of big flows: 45.7% of predictions IMPROVE (−4.7x net);
+  worst 1% of positions carry ~93% of net. ctx-vs-MSE position correlation only 0.46/0.39
+  (Spearman) — the tail is objective-steerable, not intrinsic.
+- Tail commonality: rarer targets (median freq rank 1713 vs 188), LESS repeat structure,
+  newline-anchored (prev-token \n 2x over-represented). Qualitative top-100: compound-name
+  completion (Search Engine Watch/Land x10, Radiohead, Cuttlefish), structured list/table
+  docs (sharp \n , - predictions destroyed), context-driven content retrieval (cold war ->
+  rivalry).
+- Weight-space (dagger) attribution: top-50 tokens = 52% of ALL weighted pattern error
+  ("\n" alone 8.9%; function words/punctuation; freq-top-decile 81%). Paradox resolved:
+  error lives on frequent structural anchors, bills on rare continuations that depended on
+  the scaffold.
+- Head 3 alone = +0.0032 of +0.0079 (40%); all other heads +0.0002-0.0007. Uniform per-head
+  budget misallocated (heads 2/5 are collapsible yet get equal atoms).
+- Residual NOT low-rank (top-32 of 256 dims = 25-33% energy) -> rank-correction ruled out.
+  Worst factor-space tokens = GPT-2 glitch tokens (never occur; harmless).
+Solutions queued (tick 165): S1 exact anchor rows (predicted big, +10% bits, no retraining),
+S2 per-head budget reallocation at fixed bits, S3 tail-aware query weighting (q^0.5).
+Rot-diag (fixed) running; plain000 anchor reproduces (+0.0055); early cross-eval: plain-
+trained dict scores 0.020 pre-rotary but 0.236 dense-rotary — consistent with signal
+wash-out inflating the rotary-normalized ratio (denominator collapse). Verdict when done.
