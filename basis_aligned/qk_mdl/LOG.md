@@ -3668,3 +3668,24 @@ Design: 2 budgets (1024,8 flagship / 4096,16 plateau) × all 8 subsets of {R,C,B
 MSE-init, 1500 steps, standard FineWeb audit. 000 = sanity anchor (expect +.0054/+.0052).
 Comparators: ctx .0054/.0052, OMP .0059/.0018. Smoke passed (R1C1B1, 20 steps, dCE +.0058).
 Running -> qk_ctx_refine.json / .out.
+
+## tick 163 (queued behind 162) — rotary-objective diagnosis + variant sweep
+
+Interim factorial reads (flagship budget): rotary-only +0.0103 (WORSE than plain ctx +0.0054),
+cooc-only +0.0059, blend-only +0.0051 (both ~= plain). Logan: arms are cheap — dig into WHY
+rotary underperforms in a verified principled way, and sweep variants. qk_rot_diag.py, chained
+to start when the factorial exits:
+
+Phase V — numeric verification of the offset identity S_D(a,b) = apply_rot(q_a,cos_D,sin_D)·k_b/128
+  against scores_from_factors' cos/sin difference tables (rule out a convention bug first;
+  the algebra checks out — cosD_ij = cos(theta_i−theta_j) etc. — but verify numerically).
+Phase D — dense-grid cross-evaluation (128 offsets, no sampling noise): retrain plain-ctx and
+  rotary dictionaries (deterministic seeds -> identical to factorial arms), evaluate BOTH under
+  BOTH objectives. 2x2 verdict: R-trained wins rotary-eval but loses dCE -> objective misaimed;
+  R-trained loses its own eval -> estimator/optimization noise. Plus wash-out meter: the
+  coherent offset sum ||sum_D mu_D||^2 analytically kills rotary bands with period << window
+  (~half of 64 bands) -> measured as coherent/incoherent static ratio of the SIGNAL.
+Phase X — variants at flagship, each ~2.5 min: u32_coh (variance), tri8_coh (audit-matched
+  offset distribution), u8_incoh + tri8_incoh (incoherent static T^2·E_D||mu_D||^2 keeps all
+  bands — the wash-out antidote), u8_slow (lr 1e-4, 3000 steps — optimization test).
+  All audited on FineWeb; trained dicts kept locally in qk_rot_diag_dicts.pt.
