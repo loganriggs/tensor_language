@@ -3813,3 +3813,22 @@ Tick 168 launched overnight (qk_hybrid_m4096.py): retrain the composed frontier 
 bases + anchor hybrids at (512,4) (1024,8) (4096,8) (4096,16), anchors recomputed per
 dictionary, seed-1 replicate at flagship. Expected: the whole tick-166 curve shifts further
 down (the 493-Mbit +0.0024 and 1074-Mbit +0.0011 points were M=1024-trained). ~11 h.
+
+## Spec adoption + hourly cron (2026-07-23 evening)
+
+Logan dropped sparse_core_bilinear_attention_spec.md (three-stage: head-space triple SAE ->
+sparse symmetric third-moment core M_abc -> symmetric nonneg CP mechanisms; verification
+protocol with planted synthetics, permutation nulls, gauge audits). Relationship to queued
+tick 169: spec Stage 1 == tick 169b (convergent derivations of the [K1;K2;V] head-space
+triple dictionary); Stages 2-3 are a NEW mechanism-discovery layer over the codes — the
+moment object, NOT the function. Ledger discipline: under frozen function-MDL, M is derived
+from S (zero bits); the spec's k/m_eff/R scoring is a separate mechanism-MDL question.
+Adopted immediately: pulled-back-metric argument (per-token recon loss is NOT a valid gate
+for third-moment objects — gate on sketched moment residual), gauge fixes (branch swap +
+alpha rescale) and gauge audit, K1-vs-K2 principal-angle diagnostic per head (never yet
+computed for bilin18), permutation null, shrinkage/debiasing warning for codes entering M
+cubed. Build order per spec section 10, integrated with our queue: M=4096 overnight (running)
+-> 169a exact-moment objective -> 169b/Stage-1 (dual-gated: moment residual + frontier audit)
+-> planted synthetics -> Stages 2-3 + nulls -> joint training last.
+HOURLY CRON ARMED (job 48b75485, :23, 7-day expiry — session-scoped, re-arm on new sessions):
+keeps the queue rolling, notification-driven chaining, no self-matching watchers.
