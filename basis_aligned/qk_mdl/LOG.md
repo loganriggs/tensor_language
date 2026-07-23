@@ -3800,3 +3800,16 @@ step 2 ms (450x cheaper, 0.041% pair coverage/step). qk_pattern_bench.py/.out.
 Tick 167 launched (qk_mscale.py): the cheap decisive coverage test — same objective at
 M=2048/4096 per step (4x/16x coverage). If dCE improves with M, sampling noise binds and
 Gram-exact/full-coverage is worth it; if flat, coverage was never the constraint.
+
+## tick 167 (complete) + tick 168 (overnight launch) — coverage WAS binding; M=4096 refit
+
+M-scaling verdict (Logan's table-loss instinct validated in practice): at 455 Mbit the
+incoh-rotary base improves +0.0048 (M=1024) -> +0.0036 (M=2048) -> +0.0034 (M=4096),
+saturating; at 183 Mbit +0.0077 -> +0.0063. Sampled-coverage noise was a real cost of the
+training estimator; saturation by M=4096 means naive full-table training (3.8 GPU-h) and
+Gram-exact coverage have little left to buy. Step cost at M=4096 still ~0.5 s.
+
+Tick 168 launched overnight (qk_hybrid_m4096.py): retrain the composed frontier at M=4096 —
+bases + anchor hybrids at (512,4) (1024,8) (4096,8) (4096,16), anchors recomputed per
+dictionary, seed-1 replicate at flagship. Expected: the whole tick-166 curve shifts further
+down (the 493-Mbit +0.0024 and 1074-Mbit +0.0011 points were M=1024-trained). ~11 h.
