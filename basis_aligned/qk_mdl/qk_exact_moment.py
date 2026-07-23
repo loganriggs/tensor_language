@@ -201,6 +201,7 @@ res = json.load(open(OUT)) if os.path.exists(OUT) else {'jobs': {}}
 res['baseline_ce_fw'] = json.load(open(f'{QK}/qk_pareto_sweep.json'))['baseline_ce_fw']
 CE0 = res['baseline_ce_fw']
 QP = QFULL / QFULL.sum()
+QP_CPU = QP.cpu()
 
 
 def save():
@@ -245,8 +246,10 @@ if 'verify' not in res:
         mh = contract(Mch, q1h, q2h)
         m0 = contract(Mc0, TAB['q1'][:, h], TAB['q2'][:, h])
         dm = mh - m0
-        exact = float((QP * ((dm @ Go) * dm).sum(1)).sum())
-        row = {'exact_static': exact, 'sampled': {}}
+        exact_err = float((QP * ((dm @ Go) * dm).sum(1)).sum())
+        exact_sig = float((QP * ((m0 @ Go) * m0).sum(1)).sum())
+        exact = exact_err / exact_sig
+        row = {'exact_static_ratio': round(exact, 6), 'sampled_ratio': {}}
         g = torch.Generator(device='cpu').manual_seed(0)
         Uh = Vv[:, h] @ Wo[:, h].T
         for M in (1024, 4096, 16384):
@@ -260,12 +263,13 @@ if 'verify' not in res:
                 P = ((TAB['q1'][sample, h] @ TAB['k1'][sample, h].T / HD)
                      * (TAB['q2'][sample, h] @ TAB['k2'][sample, h].T / HD))
                 mu = ((Ph - P) * qs[None, :]) @ Us
-                vals.append(float((qs * mu.pow(2).sum(1)).sum()))
-            row['sampled'][str(M)] = round(sum(vals) / len(vals), 6)
-        row['exact_static'] = round(exact, 6)
+                mu0 = (P * qs[None, :]) @ Us
+                vals.append(float((qs * mu.pow(2).sum(1)).sum())
+                            / max(float((qs * mu0.pow(2).sum(1)).sum()), 1e-12))
+            row['sampled_ratio'][str(M)] = round(sum(vals) / len(vals), 6)
         res['verify'] = row
-        print(f"VERIFY head0: exact {exact:.3e} | sampled " +
-              " ".join(f"M={m}:{v:.3e}" for m, v in row['sampled'].items()), flush=True)
+        print(f"VERIFY head0 (error-static/signal-static): exact {exact:.4f} | sampled " +
+              " ".join(f"M={m}:{v:.4f}" for m, v in row['sampled_ratio'].items()), flush=True)
         save()
         del Mch, mh, m0, Uh
         torch.cuda.empty_cache()
@@ -305,7 +309,7 @@ def train_head_exact(h, fits, k, seed=0):
         q2l = q2h.detach().requires_grad_(True)
 
         offs = torch.randperm(T_CTX, generator=g)[:N_OFF]
-        qsub = torch.multinomial(QP, Q_SUB, replacement=True, generator=g).to(DEV)
+        qsub = torch.multinomial(QP_CPU, Q_SUB, replacement=True, generator=g).to(DEV)
         # pass 1 (no grad): original contractions per offset + full denominator
         m0s, den_st = [], 0.0
         with torch.no_grad():

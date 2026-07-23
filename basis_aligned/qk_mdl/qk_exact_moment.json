@@ -1,0 +1,11 @@
+{
+  "jobs": {
+    "em1024": {
+      "error": "nt.py\", line 392, in <module>\n    recs = get_recs(n, k)\n           ^^^^^^^^^^^^^^\n  File \"/workspace/tensor_language/basis_aligned/qk_mdl/qk_exact_moment.py\", line 375, in get_recs\n    trained += train_head_exact(h, fits, k)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/tensor_language/basis_aligned/qk_mdl/qk_exact_moment.py\", line 308, in train_head_exact\n    qsub = torch.multinomial(QP, Q_SUB, replacement=True, generator=g).to(DEV)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Expected a 'cuda' device type for generator but found 'cpu'\n"
+    },
+    "em1024_b256": {
+      "error": "nt.py\", line 392, in <module>\n    recs = get_recs(n, k)\n           ^^^^^^^^^^^^^^\n  File \"/workspace/tensor_language/basis_aligned/qk_mdl/qk_exact_moment.py\", line 375, in get_recs\n    trained += train_head_exact(h, fits, k)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/tensor_language/basis_aligned/qk_mdl/qk_exact_moment.py\", line 308, in train_head_exact\n    qsub = torch.multinomial(QP, Q_SUB, replacement=True, generator=g).to(DEV)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Expected a 'cuda' device type for generator but found 'cpu'\n"
+    }
+  },
+  "baseline_ce_fw": 3.0763
+}
