@@ -3586,3 +3586,35 @@ rotary in the training objective, larger M, or an MSE+ctx blended loss to get bo
 (SVD, merges, global, two-stage) dominated everywhere.
 
 fig_qk_pareto.png (2 panels: frontier with seed bars + paired improvement-vs-budget).
+
+## tick 161 (2026-07-23, launch) — OV-LoRA joint arc: let the reader co-adapt, faithfully
+
+Logan's question: can we LoRA the OV matrix jointly with the sparse dictionary for a more
+extreme-MDL reconstruction of QK? Is there a principled account of the optimal downstream
+reading? Does computation migrate to other layers?
+
+Position taken (and encoded in the experiment design, `qk_ov_lora.py`):
+- The principled objective is NOT downstream cross-entropy (tick-158 CE-polish showed that
+  overfits instantly and buys nothing, and it invites migration). Instead: match the ORIGINAL
+  head's context-expected delivery to the residual stream — error_ij = Phat_ij*uhat_j − P_ij*u_j
+  under eq. dagger (scatter at T, systematic at T², unigram q). The compressed head must
+  reproduce what the original head wrote into the stream; it may re-divide labor between
+  pattern and reader internally, but cannot invent new function. This is the natural
+  generalization of the tick-159/160 context objective from "fixed reader" to "reader on the
+  gauge orbit". Exact gauge on the score bond is only per-head scale (scores are scalar bonds);
+  anything beyond scale is lossy re-parameterization — which is exactly what MDL should price.
+- Bits: LoRA rank 16 on W_v^h and W_o^h costs 11.8 Mbit total across 9 heads (rank 64: 47.2)
+  — charged on top of dictionary bits. Cheap relative to 183–1534 Mbit budgets.
+- Migration diagnostics (pre-registered): (1) control audit = EXACT scores + LoRA'd OV (how
+  far the reader moved as a standalone model edit); (2) static share = fraction of delivered
+  energy in the T² context-mean term, arm vs original (if LoRA inflates it, the head is being
+  turned into a static bias — computation leaving attention); (3) relative Frobenius size of
+  the reader change + unigram-weighted content rank (90% energy) before/after.
+- Prediction to test: the ctx plateau (~+0.005 at rich budgets) is partly the FIXED reader's
+  fault; if co-adaptation breaks the plateau at (4096,16) it says the residual error lives in
+  directions the original OV reads but a slightly rotated reader wouldn't need.
+
+Arms (seed 0): joint r16 at (512,4),(1024,8),(4096,8),(4096,16); lora_only r16 at
+(1024,8),(4096,16); joint r64 at (1024,8),(4096,16). FineWeb 307k audit throughout.
+Smoke test passed (shapes, both audits, diagnostics; zero-init control dCE −0.0000).
+Running in background → qk_ov_lora.json / .out.
