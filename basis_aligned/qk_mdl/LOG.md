@@ -3738,3 +3738,24 @@ S2 per-head budget reallocation at fixed bits, S3 tail-aware query weighting (q^
 Rot-diag (fixed) running; plain000 anchor reproduces (+0.0055); early cross-eval: plain-
 trained dict scores 0.020 pre-rotary but 0.236 dense-rotary — consistent with signal
 wash-out inflating the rotary-normalized ratio (denominator collapse). Verdict when done.
+
+## tick 165 (launch) + tick 163 verdict — wash-out CONFIRMED; incoherent rotary wins; solutions arc
+
+Rot-diag (fixed) complete. VERDICT: the rotary regression was the coherent offset-average
+washing out the signal — all three probes agree:
+- Wash-out meter: coherent offset-summed static retains only 1.2% of incoherent static
+  energy (sig_static_coh/incoh = 0.0119); incoherent static still dominates scatter 57:1.
+  The coherent objective was optimizing the 1.2% DC remnant and sacrificing everything else.
+- 2x2 cross-eval: coherent-rotary-trained dict IS better on its own dense-rotary metric
+  (0.167 vs 0.236 for plain-trained) but WORSE on dCE (+0.0103 vs +0.0055) -> misaimed,
+  not noisy. (u32 & slow-lr partially rescue: some variance too, but secondary.)
+- The principled fix WINS: incoherent static T^2·E_D||mu_D||^2 (all bands preserved) gives
+  +0.0047 (u8_incoh) and +0.0049 (tri8_incoh) vs plain ctx +0.0055 at 455 Mbit — rotary
+  now helps once included correctly. Also u8_incoh has the best pre-rotary eval (0.0172)
+  — offset averaging acts as augmentation, not distortion, when kept incoherent.
+Variants table in qk_rot_diag.json (u32_coh +.0065, tri8_coh +.0069, u8_slow +.0054).
+
+Tick 165 launched (qk_solutions.py): base = u8_incoh objective at (256,4); S1 exact anchor
+rows (B=64/256/1024 by full-vocab dagger attribution, no retraining, bits charged); S2
+per-head reallocation (head3->1024, heads2/5->32) at ~matched bits; S3 q^0.5 query weighting
+(tail-aware); s2s3 combo; plateau (4096,16) with u8_incoh and u8_incoh+blend.

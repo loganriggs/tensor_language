@@ -1,0 +1,372 @@
+{
+  "jobs": {
+    "plain000": {
+      "dce": 0.0055,
+      "losses": [
+        [
+          0.4755,
+          0.1294
+        ],
+        [
+          0.8756,
+          0.2343
+        ],
+        [
+          0.7884,
+          0.5723
+        ],
+        [
+          0.0504,
+          0.0139
+        ],
+        [
+          0.6468,
+          0.0556
+        ],
+        [
+          0.6818,
+          0.2704
+        ],
+        [
+          0.36,
+          0.068
+        ],
+        [
+          0.338,
+          0.0947
+        ],
+        [
+          0.1781,
+          0.0947
+        ]
+      ],
+      "n_off": 1,
+      "dist": "delta0",
+      "static_mode": "coh",
+      "lr": 0.0003,
+      "steps": 1500,
+      "loss_pre": 0.0201,
+      "loss_rot_dense": 0.2356,
+      "sig_static_share_pre": 0.9834,
+      "sig_static_coh_over_incoh": 0.011946,
+      "sig_static_incoh_over_scatter": 57.0965
+    },
+    "R_u8_coh": {
+      "dce": 0.0103,
+      "losses": [
+        [
+          0.6994,
+          0.6023
+        ],
+        [
+          0.5886,
+          0.5476
+        ],
+        [
+          0.5282,
+          0.3854
+        ],
+        [
+          0.0001,
+          0.8222
+        ],
+        [
+          1.5416,
+          0.3647
+        ],
+        [
+          0.5613,
+          -0.1788
+        ],
+        [
+          0.6516,
+          0.1405
+        ],
+        [
+          0.4447,
+          0.0312
+        ],
+        [
+          0.777,
+          0.2565
+        ]
+      ],
+      "n_off": 8,
+      "dist": "uniform",
+      "static_mode": "coh",
+      "lr": 0.0003,
+      "steps": 1500,
+      "loss_pre": 0.0735,
+      "loss_rot_dense": 0.167,
+      "sig_static_share_pre": 0.9834,
+      "sig_static_coh_over_incoh": 0.011946,
+      "sig_static_incoh_over_scatter": 57.0965
+    },
+    "u32_coh": {
+      "dce": 0.0065,
+      "losses": [
+        [
+          1.2585,
+          -0.2255
+        ],
+        [
+          0.7406,
+          0.7498
+        ],
+        [
+          1.0374,
+          0.2766
+        ],
+        [
+          2.5158,
+          0.2734
+        ],
+        [
+          0.5541,
+          0.2779
+        ],
+        [
+          0.1093,
+          0.4526
+        ],
+        [
+          0.5159,
+          0.4352
+        ],
+        [
+          0.4003,
+          0.0442
+        ],
+        [
+          0.7031,
+          0.3572
+        ]
+      ],
+      "n_off": 32,
+      "dist": "uniform",
+      "static_mode": "coh",
+      "lr": 0.0003,
+      "steps": 1500,
+      "loss_pre": 0.0413,
+      "loss_rot_dense": 0.1277,
+      "sig_static_share_pre": 0.9834,
+      "sig_static_coh_over_incoh": 0.011946,
+      "sig_static_incoh_over_scatter": 57.0965
+    },
+    "tri8_coh": {
+      "dce": 0.0069,
+      "losses": [
+        [
+          1.4978,
+          0.0435
+        ],
+        [
+          0.3058,
+          0.4945
+        ],
+        [
+          0.2997,
+          0.4099
+        ],
+        [
+          -0.5256,
+          2.5293
+        ],
+        [
+          -0.0462,
+          -0.0397
+        ],
+        [
+          0.3166,
+          0.2235
+        ],
+        [
+          0.8523,
+          0.5887
+        ],
+        [
+          0.5697,
+          0.0672
+        ],
+        [
+          0.8926,
+          0.0444
+        ]
+      ],
+      "n_off": 8,
+      "dist": "tri",
+      "static_mode": "coh",
+      "lr": 0.0003,
+      "steps": 1500,
+      "loss_pre": 0.0405,
+      "loss_rot_dense": 0.1608,
+      "sig_static_share_pre": 0.9834,
+      "sig_static_coh_over_incoh": 0.011946,
+      "sig_static_incoh_over_scatter": 57.0965
+    },
+    "u8_incoh": {
+      "dce": 0.0047,
+      "losses": [
+        [
+          0.9853,
+          0.6451
+        ],
+        [
+          1.2801,
+          0.8944
+        ],
+        [
+          0.9363,
+          0.6486
+        ],
+        [
+          1.0229,
+          0.4855
+        ],
+        [
+          2.6362,
+          0.4131
+        ],
+        [
+          1.0113,
+          0.9212
+        ],
+        [
+          1.0704,
+          0.7632
+        ],
+        [
+          0.7422,
+          0.0771
+        ],
+        [
+          1.6816,
+          0.2386
+        ]
+      ],
+      "n_off": 8,
+      "dist": "uniform",
+      "static_mode": "incoh",
+      "lr": 0.0003,
+      "steps": 1500,
+      "loss_pre": 0.0172,
+      "loss_rot_dense": 0.1232,
+      "sig_static_share_pre": 0.9834,
+      "sig_static_coh_over_incoh": 0.011946,
+      "sig_static_incoh_over_scatter": 57.0965
+    },
+    "tri8_incoh": {
+      "dce": 0.0049,
+      "losses": [
+        [
+          1.5288,
+          0.1082
+        ],
+        [
+          0.3322,
+          0.5553
+        ],
+        [
+          0.2727,
+          0.6677
+        ],
+        [
+          4.0675,
+          0.6171
+        ],
+        [
+          1.3301,
+          0.4745
+        ],
+        [
+          0.7102,
+          0.4746
+        ],
+        [
+          1.1025,
+          0.7547
+        ],
+        [
+          0.6953,
+          0.1374
+        ],
+        [
+          1.1439,
+          0.0984
+        ]
+      ],
+      "n_off": 8,
+      "dist": "tri",
+      "static_mode": "incoh",
+      "lr": 0.0003,
+      "steps": 1500,
+      "loss_pre": 0.0252,
+      "loss_rot_dense": 0.121,
+      "sig_static_share_pre": 0.9834,
+      "sig_static_coh_over_incoh": 0.011946,
+      "sig_static_incoh_over_scatter": 57.0965
+    },
+    "u8_slow": {
+      "dce": 0.0054,
+      "losses": [
+        [
+          0.6994,
+          0.575
+        ],
+        [
+          0.5886,
+          0.6536
+        ],
+        [
+          0.5282,
+          0.8278
+        ],
+        [
+          0.0001,
+          0.5031
+        ],
+        [
+          1.5416,
+          0.2438
+        ],
+        [
+          0.5613,
+          -0.0579
+        ],
+        [
+          0.6516,
+          0.5112
+        ],
+        [
+          0.4447,
+          0.0196
+        ],
+        [
+          0.777,
+          0.5994
+        ]
+      ],
+      "n_off": 8,
+      "dist": "uniform",
+      "static_mode": "coh",
+      "lr": 0.0001,
+      "steps": 3000,
+      "loss_pre": 0.025,
+      "loss_rot_dense": 0.1326,
+      "sig_static_share_pre": 0.9834,
+      "sig_static_coh_over_incoh": 0.011946,
+      "sig_static_incoh_over_scatter": 57.0965
+    },
+    "mse_init": {
+      "dce": 0.0076,
+      "note": "dce from sweep (linear encoder)",
+      "loss_pre": 0.0447,
+      "loss_rot_dense": 0.2569,
+      "sig_static_share_pre": 0.9834,
+      "sig_static_coh_over_incoh": 0.011946,
+      "sig_static_incoh_over_scatter": 57.0965
+    }
+  },
+  "baseline_ce_fw": 3.0763,
+  "verify_max_err": 7.450580596923828e-08
+}
