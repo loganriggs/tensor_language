@@ -3849,3 +3849,22 @@ Next per queue: tick 169a exact-moment static objective — inner mu computed EX
 (8192/step), scatter sampled as before. Verification phase compares exact static vs
 sampled estimates at M=1k/4k/16k (prediction: sampled is biased UP by estimator variance,
 shrinking with M — the mechanism behind ticks 167/168).
+
+## tick 169a (flagship complete; plateau rerunning after OOM fix)
+
+VERIFICATION (head 0, MSE-init dict, error-static/signal-static ratio): exact 0.338 vs
+sampled 1.084 (M=1024) / 0.565 (M=4096) / 0.412 (M=16384) — monotone convergence from
+above. At the original sample size the dominant training-gradient term was ~3/4 estimator
+noise. This is the mechanism behind ticks 167/168, now measured directly.
+
+FLAGSHIP RESULT (455.4 Mbit base): exact-moment objective dCE +0.0027 vs sampled M=1024
++0.0048 and M=4096 +0.0033 — beats 16x-coverage sampling at ~M=1024 step cost. NEW BEST
+base at this budget. With 256 anchors: +0.0023 @ 493.1 (ties the M=4096 hybrid — anchors
+and exact-static substitute, consistent with tick 168's reading).
+
+Plateau arms (4096,16) OOM'd: full-V encode with n=4096 retained the VxN code matrix via
+z.abs() in the autograd graph. Fixed (topk indices under no_grad so z frees after gather;
+Q_SUB 8192->4096 for n>=4096; periodic empty_cache) and relaunched — em4096k16 and
+em4096k16_b1024 pending. Process note: earlier this tick a relaunch collided with the
+not-yet-dead first process (OOM at model load) — killed, cleaned, relaunched; lesson:
+verify process exit before relaunching the same script.

@@ -293,14 +293,18 @@ def train_head_exact(h, fits, k, seed=0):
     X1 = rows(h, 'q1', 'k1')
     X2 = rows(h, 'q2', 'k2')
     for step in range(CTX_STEPS):
+        if step % 50 == 0:
+            torch.cuda.empty_cache()
         recs = []
         for br, X in ((0, X1), (1, X2)):
             Dm, b, We = parts[br]
             Dn = Dm / Dm.norm(dim=1, keepdim=True).clamp(min=1e-8)
             z = (X - b) @ We.T
-            vals, idx = z.abs().topk(k, dim=1)
+            with torch.no_grad():
+                idx = z.abs().topk(k, dim=1).indices
             coeff = torch.gather(z, 1, idx)
             recs.append(b + (coeff.unsqueeze(-1) * Dn[idx]).sum(1))
+            del z
         q1h, k1h = unit_rms(recs[0][:, :HD]), unit_rms(recs[0][:, HD:])
         q2h, k2h = unit_rms(recs[1][:, :HD]), unit_rms(recs[1][:, HD:])
         Mch = build_core(k1h, k2h, Vpi)
@@ -393,6 +397,7 @@ for (name, n, k, B) in JOBS:
         continue
     try:
         print(f'=== {name}', flush=True)
+        globals()['Q_SUB'] = 4096 if n >= 4096 else 8192
         recs = get_recs(n, k)
         bits = NHB * dl_sparse_dict(n, ROW, V * k)
         if B > 0:
