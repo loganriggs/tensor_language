@@ -1,0 +1,20 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (5621 > 1024). Running this sequence through the model will result in indexing errors
+1500 docs, 690 seqs
+2000 docs, 1443 seqs
+2500 docs, 2071 seqs
+3000 docs, 2737 seqs
+3500 docs, 3386 seqs
+4000 docs, 4068 seqs
+4500 docs, 4718 seqs
+5000 docs, 5370 seqs
+saved (6000, 513) to /workspace/tensor_language/data_fineweb_cooc_tokens.npy (through doc 5473, skipped first 1000)
+kmeans done: cluster sizes min 1 med 181 max 468
+  counted 50/6000 seqs
+  counted 1050/6000 seqs
+  counted 2050/6000 seqs
+  counted 3050/6000 seqs
+  counted 4050/6000 seqs
+  counted 5050/6000 seqs
+pairs counted 7.88e+08; lift range [0.020, 2405.688], median 0.979
+saved /workspace/tensor_language/basis_aligned/qk_mdl/qk_cooc_lift.pt

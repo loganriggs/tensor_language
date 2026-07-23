@@ -3640,3 +3640,31 @@ blended MSE+ctx loss.
 
 Also this tick: qk_ov_lora_explainer.md — working-derivation walkthrough (all shapes, the
 three-scalar trick avoiding the M×M×D tensor, gauge argument, meters, results table).
+
+## tick 162 (launch) — the three context-objective refinements, factorial
+
+Logan: "Go ahead with all 3." Testing whether the ~+0.005 rich-budget plateau of the
+OV-context objective is the price of its approximations, by removing them one at a time and
+in combination (tick 161 established the fixed reader is NOT the bottleneck).
+
+  R — rotary inside the objective. Exact convention verified from tier2_model: full-dim
+      rotate-half, 64 frequency pairs, applied after unit-RMS; score at offset D =
+      apply_rot(q, cos_D, sin_D)·k/128 (k-side rotation folds into q-side). Query at last
+      position of a 512-window -> offsets uniform on {0..511}; 8 sampled per step; the T²
+      squared-mean term estimated unbiasedly via an A/B offset split <mu_A, mu_B>.
+      Exact target: E||e||² = Σ_D (s_D − ||μ_D||²) + ||Σ_D μ_D||².
+  C — co-occurrence-corrected context weights. qk_cooc_prep.py: 6000 fresh FineWeb
+      sequences (first 1000 docs SKIPPED — audit set was docs 1–404, disjoint by
+      construction), 256 embedding k-means clusters, 788M causal pairs -> cluster lift
+      L(a,b) = P(key cluster|query cluster)/P(key cluster), +5 smoothing. Lift range
+      0.02–2406, median 0.98 — real contexts are far from unigram grab-bags, confirming
+      the premise. Objective weights q_{t|i} ∝ q_t · L(cl_i, cl_t), row-normalized.
+  B — blended loss: 0.5·relative-row-MSE + 0.5·context ratio (hedge against the ctx floor
+      at rich budgets where plain exactness wins).
+
+None of the three adds description-length bits (objective-side apparatus, same status as the
+unigram q; Logan asked — answer: compute cost only, ~8x training matmuls for R).
+Design: 2 budgets (1024,8 flagship / 4096,16 plateau) × all 8 subsets of {R,C,B}, seed 0,
+MSE-init, 1500 steps, standard FineWeb audit. 000 = sanity anchor (expect +.0054/+.0052).
+Comparators: ctx .0054/.0052, OMP .0059/.0018. Smoke passed (R1C1B1, 20 steps, dCE +.0058).
+Running -> qk_ctx_refine.json / .out.
