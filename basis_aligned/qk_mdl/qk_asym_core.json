@@ -1,0 +1,438 @@
+{
+  "planted_matched_cos": 1.0,
+  "h0": {
+    "m_per_mode": 2048,
+    "k": 4,
+    "moment_rel_err": 0.0261,
+    "gate_pass": true,
+    "core_nnz": 2954192,
+    "R16_relerr": 0.3416,
+    "R32_relerr": 0.281,
+    "R64_relerr": 0.2273,
+    "R32_stability": 0.979,
+    "top_archetypes": [
+      {
+        "branch1_keys": [
+          "\\n",
+          ".--",
+          "\u2014",
+          "\u2013",
+          "--",
+          ".\u2014"
+        ],
+        "branch2_keys": [
+          "\\n",
+          "<|endoftext|>",
+          "------------------------------------------------",
+          "}:",
+          "\ufffd",
+          " adequ"
+        ],
+        "values": [
+          "\\n",
+          "<|endoftext|>",
+          "keeper",
+          "anza",
+          " done",
+          "ville"
+        ]
+      },
+      {
+        "branch1_keys": [
+          " and",
+          " in",
+          " of",
+          "and",
+          "..",
+          " Or"
+        ],
+        "branch2_keys": [
+          " and",
+          " And",
+          "And",
+          "and",
+          " probably",
+          " AND"
+        ],
+        "values": [
+          " and",
+          " AND",
+          " &",
+          " sl",
+          "and",
+          " Sl"
+        ]
+      },
+      {
+        "branch1_keys": [
+          ",",
+          " ,",
+          "',",
+          "(),",
+          ".,",
+          "),"
+        ],
+        "branch2_keys": [
+          ",",
+          "\",",
+          " ,",
+          " freaking",
+          "',",
+          "],"
+        ],
+        "values": [
+          "!,",
+          ",",
+          " (",
+          "),",
+          " (#",
+          " */"
+        ]
+      },
+      {
+        "branch1_keys": [
+          ".",
+          ":",
+          "+.",
+          "!",
+          ").",
+          ".)"
+        ],
+        "branch2_keys": [
+          ".",
+          ").",
+          "\".",
+          "'.",
+          ".).",
+          "))."
+        ],
+        "values": [
+          "%.",
+          ".",
+          ").",
+          "IDENT",
+          " ).",
+          ".)."
+        ]
+      },
+      {
+        "branch1_keys": [
+          " the",
+          " The",
+          " These",
+          "The",
+          "These",
+          " these"
+        ],
+        "branch2_keys": [
+          " the",
+          " The",
+          "The",
+          "the",
+          " THE",
+          " recent"
+        ],
+        "values": [
+          "################################",
+          "Said",
+          "________________________",
+          " Budapest",
+          "\u30d7",
+          " rewarding"
+        ]
+      }
+    ],
+    "mean_cos_A_B_top32": 0.046,
+    "R32_relerr_null": 0.2318
+  },
+  "h4": {
+    "m_per_mode": 1024,
+    "k": 4,
+    "moment_rel_err": 0.0247,
+    "gate_pass": true,
+    "core_nnz": 2890749,
+    "R16_relerr": 0.3785,
+    "R32_relerr": 0.2894,
+    "R64_relerr": 0.2429,
+    "R32_stability": 0.943,
+    "top_archetypes": [
+      {
+        "branch1_keys": [
+          ".",
+          ",",
+          "_.",
+          ").",
+          ".''.",
+          "="
+        ],
+        "branch2_keys": [
+          ".",
+          ",.",
+          ").",
+          ",",
+          "...",
+          "\u2026"
+        ],
+        "values": [
+          ".",
+          "ue",
+          " disorder",
+          " Disorders",
+          " disorders",
+          "Media"
+        ]
+      },
+      {
+        "branch1_keys": [
+          "\\n",
+          " reconc",
+          " OFFIC",
+          " pont",
+          " reneg",
+          " brun"
+        ],
+        "branch2_keys": [
+          "\\n",
+          " un",
+          "Un",
+          " Un",
+          " unw",
+          " confir"
+        ],
+        "values": [
+          "<|endoftext|>",
+          "Altern",
+          "\\n",
+          "Nat",
+          "Jar",
+          " recru"
+        ]
+      },
+      {
+        "branch1_keys": [
+          " a",
+          " A",
+          "A",
+          "a",
+          " another",
+          " Another"
+        ],
+        "branch2_keys": [
+          " a",
+          " an",
+          " A",
+          "An",
+          "A",
+          " AN"
+        ],
+        "values": [
+          " a",
+          " A",
+          "A",
+          "a",
+          " page",
+          "ara"
+        ]
+      },
+      {
+        "branch1_keys": [
+          " and",
+          "and",
+          " AND",
+          " And",
+          "And",
+          " but"
+        ],
+        "branch2_keys": [
+          " and",
+          " &",
+          " AND",
+          "and",
+          " And",
+          "And"
+        ],
+        "values": [
+          " and",
+          " too",
+          "roman",
+          " Only",
+          " Iraq",
+          " only"
+        ]
+      },
+      {
+        "branch1_keys": [
+          ",",
+          ".",
+          "=",
+          ";",
+          "),",
+          " Nazi"
+        ],
+        "branch2_keys": [
+          ",",
+          "),",
+          ".",
+          ".,",
+          " than",
+          ".),"
+        ],
+        "values": [
+          ",",
+          " Prime",
+          " plants",
+          " Plants",
+          " gardening",
+          " plant"
+        ]
+      }
+    ],
+    "mean_cos_A_B_top32": 0.091,
+    "R32_relerr_null": 0.2162
+  },
+  "h5": {
+    "m_per_mode": 128,
+    "k": 2,
+    "moment_rel_err": 0.0416,
+    "gate_pass": true,
+    "core_nnz": 146883,
+    "R16_relerr": 0.1998,
+    "R32_relerr": 0.1324,
+    "R64_relerr": 0.0813,
+    "R32_stability": 0.979,
+    "top_archetypes": [
+      {
+        "branch1_keys": [
+          "\\n",
+          "<|endoftext|>",
+          " enqu",
+          " Fle",
+          " Wrestle",
+          " confid"
+        ],
+        "branch2_keys": [
+          "\\n",
+          "<|endoftext|>",
+          " Rh",
+          " Bron",
+          " @@",
+          " illust"
+        ],
+        "values": [
+          "\\n",
+          "<|endoftext|>",
+          "\u30ef\u30f3",
+          " sudo",
+          " \u0648",
+          " Burke"
+        ]
+      },
+      {
+        "branch1_keys": [
+          ".",
+          "''.",
+          "'.",
+          ").",
+          "?\".",
+          "!)."
+        ],
+        "branch2_keys": [
+          ".",
+          "!.",
+          " \".",
+          ",.",
+          ".).",
+          " ."
+        ],
+        "values": [
+          ".",
+          ",.",
+          ".).",
+          ".-",
+          "./",
+          "._"
+        ]
+      },
+      {
+        "branch1_keys": [
+          ",",
+          " and",
+          " or",
+          "But",
+          " either",
+          " Well"
+        ],
+        "branch2_keys": [
+          ",",
+          "+,",
+          "%,",
+          "++;",
+          ",)",
+          "?,"
+        ],
+        "values": [
+          ",",
+          "!,",
+          ".,",
+          "?,",
+          "%,",
+          "!),"
+        ]
+      },
+      {
+        "branch1_keys": [
+          " The",
+          " the",
+          "The",
+          "hurst",
+          " direct",
+          "the"
+        ],
+        "branch2_keys": [
+          " the",
+          " The",
+          "The",
+          "the",
+          " Tell",
+          " Relative"
+        ],
+        "values": [
+          " the",
+          " The",
+          "The",
+          " benz",
+          "aku",
+          "lopp"
+        ]
+      },
+      {
+        "branch1_keys": [
+          " (",
+          "(",
+          " ([",
+          " [(",
+          " ((",
+          " \"("
+        ],
+        "branch2_keys": [
+          " (",
+          "(",
+          "\"(",
+          ">(",
+          " [(",
+          " (["
+        ],
+        "values": [
+          " (",
+          " ((",
+          "(",
+          ".(",
+          " (&",
+          ">("
+        ]
+      }
+    ],
+    "mean_cos_A_B_top32": 0.064,
+    "R32_relerr_null": 0.1357
+  }
+}

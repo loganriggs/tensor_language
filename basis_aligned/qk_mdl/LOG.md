@@ -4098,3 +4098,23 @@ k=2 is the sweet spot (k1->k2 halves m on 5 heads, k>2 rarely helps); retrain be
 prune-from-big by ~10x in residual; per-head-optimal ledger 2.4x cheaper than uniform
 512 for the seven gated heads. Caveat logged: projection heuristic falsely abandoned
 h4_k8 at m=256 (9000-step decay slower early); tick-180 direct measurement stands.
+
+## Tick 182 (2026-07-24): mode-separated asymmetric core for h0/h4 (+h5 control)
+qk_asym_core.py/.json/.pt. Three per-mode SAEs (k1, k2, v separately), asymmetric sparse
+core T_abc = sum_t p_t s1_a s2_b sv_c, asymmetric nonneg CP (HOPM+deflation; planted gate
+passed 1.0000 before real data). One shape-bug rerun (per-mode k mismatch in null).
+- CAPACITY: asym gates open far cheaper than concatenated-symmetric — h0 at m=2048/mode,
+  h4 at m=1024/mode, vs 4096 concatenated (tick 180). h5 control at 128/mode.
+- FIT: R32 rel-err improves vs symmetric: h0 0.281 (was 0.389), h4 0.289 (was 0.530).
+- CONTROL EXPOSED A STATISTIC FLAW: h5 (which strongly beats its null in the m=512
+  symmetric pipeline, 0.047 vs 0.293) TIES its asym null (0.132 real vs 0.136 null).
+  Diagnosis: a mode-permuted core approaches the product of independent marginals, which
+  is intrinsically near-low-rank — so "CP fits the null core well" does NOT mean the real
+  core lacks structure. Comparing fit quality across two DIFFERENT target tensors was the
+  wrong statistic; tick-180's "h0/h4 fail the null" verdict is therefore suspect too.
+- Also: the mean cos(A,B) asymmetry meter is invalid (compares loadings over different
+  mode dictionaries); needs token-space comparison.
+Next (tick 183, qk_null_repair.py): corrected statistic — fit factors on the permuted
+core, then evaluate BOTH factor sets on the SAME real core (nonneg lambda refit via Gram
+solve), plus marginal-product rank-1 baseline, plus token-space asymmetry meter; applied
+to asym h0/h4/h5 and symmetric h0/h4.
