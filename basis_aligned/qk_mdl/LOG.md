@@ -4025,3 +4025,21 @@ matchable; my run violated the spec's own protocol by jumping to a high gamma in
 ramping only while Stage-1 gates hold. Retry at gamma_max = 0.05 running (qk_joint_g005).
 If the gentle version also buys no CP structure at held gates, the verdict is: stagewise
 pipeline stands, joint training closed as a negative for this object.
+
+## tick 177 (complete) — joint training closed as a NEGATIVE; adopted queue fully executed
+
+Gentle run (gamma 0.05): Stage-1 gates essentially held (recon R2 within 0.006 of stagewise;
+moment residual mildly up) but CP structure of the resulting cores got MUCH worse at
+matched rank: h2 0.031 -> 0.452, h8 0.121 -> 0.540, h1 0.188 -> 0.648. The sketched
+moment-matching term does not steer the dictionary toward CP-structured cores — random
+Gaussian probes of the third moment are loose enough to satisfy while the actual
+co-occurrence structure blurs. Caveat for the record: the co-trained archetype matrix was
+warm-ish (token-code columns), not the true deflation warm start the spec prescribes; a
+future attempt should fix that. VERDICT: stagewise (Stage 1 hardened trainer -> core ->
+power-deflation CP) stands as the mechanism recipe.
+
+PROGRAM REST STATE: the entire adopted queue (frontier arcs 161-168, exact-moment 169a,
+regrouping null 169b, planted gates 170-171, mechanism pipeline 172-176, joint training
+177) is executed. Open items are all Logan-gated: layer 1 (explicitly deferred), h0/h4
+sparse-core factorization, joint training with true warm start, corpus-component core
+decomposition. Cron continues as status checks.
