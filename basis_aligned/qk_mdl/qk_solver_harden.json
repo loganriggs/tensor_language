@@ -1,0 +1,102 @@
+{
+  "correlated": {
+    "base": {
+      "mcc_mean": 0.9006,
+      "mcc_max": 0.9272,
+      "mcc_best_by_recon": 0.9272,
+      "mcc_all": [
+        0.8821,
+        0.8833,
+        0.9228,
+        0.9272,
+        0.8875
+      ]
+    },
+    "nonneg": {
+      "mcc_mean": 0.9793,
+      "mcc_max": 1.0,
+      "mcc_best_by_recon": 1.0,
+      "mcc_all": [
+        0.9673,
+        0.965,
+        1.0,
+        1.0,
+        0.9642
+      ]
+    },
+    "anneal": {
+      "mcc_mean": 0.9911,
+      "mcc_max": 1.0,
+      "mcc_best_by_recon": 1.0,
+      "mcc_all": [
+        1.0,
+        1.0,
+        0.9557,
+        1.0,
+        1.0
+      ]
+    },
+    "nn+anneal": {
+      "mcc_mean": 1.0,
+      "mcc_max": 1.0,
+      "mcc_best_by_recon": 1.0,
+      "mcc_all": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  },
+  "independent": {
+    "base": {
+      "mcc_mean": 0.8809,
+      "mcc_max": 0.9168,
+      "mcc_best_by_recon": 0.9168,
+      "mcc_all": [
+        0.8705,
+        0.8703,
+        0.8713,
+        0.9168,
+        0.8756
+      ]
+    },
+    "nonneg": {
+      "mcc_mean": 1.0,
+      "mcc_max": 1.0,
+      "mcc_best_by_recon": 1.0,
+      "mcc_all": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "anneal": {
+      "mcc_mean": 0.9914,
+      "mcc_max": 1.0,
+      "mcc_best_by_recon": 1.0,
+      "mcc_all": [
+        1.0,
+        1.0,
+        1.0,
+        0.9571,
+        1.0
+      ]
+    },
+    "nn+anneal": {
+      "mcc_mean": 1.0,
+      "mcc_max": 1.0,
+      "mcc_best_by_recon": 1.0,
+      "mcc_all": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  }
+}

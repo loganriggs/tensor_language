@@ -3915,3 +3915,20 @@ would inherit exactly this distortion (0.73 triple precision on known ground tru
 not atom identifiability); (c) queue: solver hardening — nonnegative codes (planted codes
 are positive; spec recommends nonneg), multi-restart best-of, OMP-style encoding in
 training — then re-run the gate before any Stage 2-3 work on the real head.
+
+## tick 171 (complete) — solver hardened: planted gate PASSES
+
+Variants x 5 seeds x both DGPs, selection by reconstruction only:
+  base:      0.90 corr / 0.88 indep (reproduces the failure)
+  nonneg:    0.98 corr (best 1.0) / 1.00 indep
+  anneal:    0.99 both (best 1.0)
+  nn+anneal: 1.0000 on EVERY seed, both DGPs — exact recovery despite planted correlation.
+Nonnegative codes + k annealed 6->3 fixes feature absorption entirely on the planted
+problem. Spec Stages 2-3 UN-GATED with the hardened trainer. Caveat carried forward: the
+planted coefficients are positive by construction; real head-space rows may need signed
+codes — Stage 1 on the real head will compare nn+anneal vs signed+anneal on reconstruction
+and the sketched moment residual before committing to one for the core.
+Launching Stage 1 (qk_stage1_triple.py): per-head triple rows y_t = [k1_t | k2_t | v_t]
+(V x 384, spec 1a head space), hardened trainer, both p weightings (unigram + uniform),
+m=512 k=6, gated on the sketched third-moment residual (spec check 4, 256 probes); codes
+and atoms saved for Stage 2 (sparse symmetric core) next tick.
