@@ -4043,3 +4043,18 @@ regrouping null 169b, planted gates 170-171, mechanism pipeline 172-176, joint t
 177) is executed. Open items are all Logan-gated: layer 1 (explicitly deferred), h0/h4
 sparse-core factorization, joint training with true warm start, corpus-component core
 decomposition. Cron continues as status checks.
+
+## Tick 178 (2026-07-24, Logan question): mechanism->function bridge
+Question: how does the sparse-core (mechanism-ledger) compression compare in nats to the
+function frontier — or is the comparison unfair? Bridge: patch layer-0 KEY tables with the
+Stage-1 triple-SAE reconstructions (unigram+nonneg winner, m=512, k=6; queries exact),
+audit standard FineWeb 307k. qk_mech_bridge.py/.json.
+- base CE 3.076295. mech9 (all heads) dCE +0.00669; mech7 (gated heads only, h0/h4 exact)
+  dCE +0.00612.
+- Function-frontier reference: +0.0023 @ 493 Mbit TOTAL (both sides compressed). Bridge
+  point: keys-only SAE = 168 Mbit but still owes 3709 Mbit raw query side -> ~3877 Mbit
+  total at ~3x the dCE. Mechanism compression is NOT a competitive function compressor
+  (expected; different objective, value share of capacity, no query codes).
+- Note: the two moment-gate FAILING heads (0/4) add only +0.00057 combined (~0.00028/head)
+  vs ~0.00087/head for the seven gated heads — the moment gate does NOT rank function
+  damage. Moment fidelity and prediction fidelity are decoupled at this budget.
