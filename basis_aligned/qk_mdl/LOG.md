@@ -3868,3 +3868,16 @@ Q_SUB 8192->4096 for n>=4096; periodic empty_cache) and relaunched — em4096k16
 em4096k16_b1024 pending. Process note: earlier this tick a relaunch collided with the
 not-yet-dead first process (OOM at model load) — killed, cleaned, relaunched; lesson:
 verify process exit before relaunching the same script.
+
+## tick 169a COMPLETE — exact-moment objective is the new standard recipe
+
+Plateau arms (memory fixes held, peak 13.9 GB): em4096k16 base +0.0012 @ 1241.6 Mbit
+(vs sampled M=4096 +0.0019, M=1024 +0.0032); with 1024 anchors +0.0008 @ 1392.6 (ties the
+M=4096 hybrid). Full arc summary — exact-moment vs sampled bases: 455 Mbit .0048/.0033/.0027
+(M=1024/M=4096/exact), 1242 Mbit .0032/.0019/.0012. Anchors still add at both budgets
+(.0027->.0023, .0012->.0008). The dominant-term estimator noise (verified 1.08 vs true 0.34
+at M=1024) is now eliminated at ~original step cost; training recipe going forward =
+exact-moment static + sampled scatter + anchors. Next: 169b regrouping A/B (query-pairs +
+key-pairs vs current within-branch grouping, matched bits, exact-moment objective), then
+the full triple SAE with the value leg (needs v-patched forward), principal angles logged
+this tick, planted synthetics after.
