@@ -4238,3 +4238,14 @@ whole-pattern-zero +2.70 (100x) -> the l0 machinery PORTS. Layer-1 head zeros: h
 redundancy, unlike layer 0). Next (tick 194): save l1 tables (incl. lamb-mixed value
 with block-0 v1) + Stage-1 triple SAEs on all nine l1 heads with moment gates and
 auto-ladder on failures.
+
+## Tick 194 (2026-07-26): layer-1 Stage 1 — 8/9 heads gate; l1-h1 pathological
+qk_l1_stage1.py/.json/.pt, qk_l1_tables.pt. Gates at m=512 k=6: h0/h2/h4/h5/h6/h7/h8
+(residuals 0.0002-0.011); h3 at m=1024 (0.024). l1-h1 — the causally biggest single l1
+head (+0.065) — FAILS divergently: 0.43 @ 512 -> 6.2 @ 1024 -> 5.0 @ 2048 (residual >1
+= worse than zero; NOT capacity-limited, unlike l0 h0/h4). Hypothesis: token-conditional
+mean rows for h1 are dominated by estimation noise on rare tokens (single-occurrence
+means are one noisy draw; the third moment cubes them), consistent with h1 being the
+most context-dependent head (why it is causally big). Tick 195 diagnostics: row norms
+vs occurrence count, gate restricted to well-estimated tokens, shrinkage estimator,
+per-head port-cost decomposition.
