@@ -52,38 +52,31 @@ def build_core(idx, coeff, m):
     return core.view(m, m, m)
 
 
-def cp_fit(core_raw, R, seed, iters=200, ridge=1e-6):
+def cp_fit(core_raw, R, seed, iters=1500, lr=0.02):
+    """Symmetric nonneg CP by Adam on the factor matrix (ALS diverges here)."""
     m = core_raw.shape[0]
     g = torch.Generator(device='cpu').manual_seed(seed)
     scale = core_raw.norm().clamp_min(1e-30)
-    core = core_raw / scale                                    # fit scale-free
-    diag_fibers = torch.stack([core[i, i, i] for i in range(m)])
-    top = diag_fibers.abs().argsort(descending=True)[:R]
-    A = torch.stack([core[:, a, a].clamp_min(0) for a in top.tolist()], 1)
-    A = A / A.norm(dim=0, keepdim=True).clamp_min(1e-12)
-    A = (A + 0.05 * torch.rand(m, R, generator=g).to(DEV)).clamp_min(0)
-    M1 = core.reshape(m, m * m)
+    core = core_raw / scale
     nrm2 = float((core ** 2).sum())
+    A = (0.1 * torch.rand(m, R, generator=g)).to(DEV).requires_grad_(True)
+    opt = torch.optim.Adam([A], lr=lr)
+    CH = 64
     for _ in range(iters):
-        KR = (A[:, None, :] * A[None, :, :]).reshape(m * m, R)
-        G = M1 @ KR                                            # (m, R)
-        H = (A.T @ A) ** 2
-        jit = 1e-6 * float(H.diagonal().mean()) + 1e-12
-        H = H + jit * torch.eye(R, device=DEV)
-        A = torch.linalg.solve(H, G.T).T.clamp_min(0)
-        dead = A.sum(0) == 0
-        if bool(dead.any()):
-            A[:, dead] = torch.rand(m, int(dead.sum()), generator=g).to(DEV) * 0.1
-    lam = A.norm(dim=0).clamp_min(1e-12)
-    U = A / lam[None, :]
-    lam3 = lam ** 3
-    Gu = U.T @ U
-    cross = 0.0
-    for r in range(A.shape[1]):
-        uu = (U[:, r][:, None] * U[:, r][None, :]).reshape(-1)
-        cross += float(lam3[r] * (M1 @ uu) @ U[:, r])
-    fit2 = nrm2 - 2 * cross + float((lam3[:, None] * lam3[None, :] * Gu ** 3).sum())
-    return U, lam3, (max(fit2, 0.0) / max(nrm2, 1e-30)) ** 0.5
+        Ar = torch.relu(A)
+        loss = 0.0
+        for c0 in range(0, m, CH):
+            pred = torch.einsum('ir,jr,kr->ijk', Ar[c0:c0 + CH], Ar, Ar)
+            loss = loss + ((pred - core[c0:c0 + CH]) ** 2).sum()
+        opt.zero_grad()
+        loss.backward()
+        opt.step()
+    with torch.no_grad():
+        Ar = torch.relu(A)
+        lam = Ar.norm(dim=0).clamp_min(1e-12)
+        U = Ar / lam[None, :]
+        rel = (float(loss) / max(nrm2, 1e-30)) ** 0.5
+    return U.detach(), (lam ** 3).detach(), rel
 
 
 def stability(Us):
