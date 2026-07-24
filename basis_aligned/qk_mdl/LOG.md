@@ -4129,3 +4129,12 @@ NINE heads have genuine interaction structure; h0/h4 prefer the asymmetric form.
 space branch asymmetry partial: mean cos(branch1, branch2 loadings) 0.44-0.61.
 Next (tick 184): corrected-statistic re-validation of the seven m=512 symmetric heads +
 rank-128 prefix sweep for h0/h4 asymmetric.
+
+## Tick 184 (2026-07-25): ledger-wide corrected-null re-validation + h0/h4 rank sweep
+qk_ledger_revalidate.py/.json. (a) All seven m=512 gated heads CONFIRM under the
+corrected statistic: real fits 0.031-0.239 vs null-factors-on-real 0.998-1.000 — the
+entire mechanism ledger now rests on one sound test. (b) h0/h4 asymmetric rank sweep to
+R=128: h0 0.342 -> 0.190, h4 0.378 -> 0.173, still decaying slowly with no sharp
+plateau — the hard heads have LONG-TAIL archetype spectra (~100+ meaningful components)
+rather than a compact set, matching their large feature inventories from the capacity
+frontier. Mechanism arc is now internally consistent end to end.
