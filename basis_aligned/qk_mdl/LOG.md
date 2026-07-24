@@ -4164,3 +4164,13 @@ picked + random-sample features per head, h0/h4 separated with capacity/long-tai
 asymmetry explanation. Process note: one launch chained dump && joint with inner '&',
 detaching the joint run from task tracking — recovered with a file-grep Monitor
 (safe pattern, no self-match); avoid inner '&' in tracked launches.
+
+## Tick 187 (2026-07-25, Logan): joint polish on h0/h4 (asymmetric, true warm start)
+qk_h04_polish.py/.json/.pt. Tick-186 recipe applied to the hard heads' mode-separated
+form (three SAEs + three factor matrices trained jointly, factors warm-started from the
+deflation solution, gamma ramp to 0.05).
+- h4 CLEAN WIN: CP R64 rel-err 0.2377 -> 0.1943 (-18%) with the moment gate held
+  (0.0247 -> 0.0306); factor drift 0.939 (same archetypes, better fit).
+- h0 TRADE: CP 0.2275 -> 0.1599 (-30%) but moment residual 0.0261 -> 0.0510, a hair
+  over the 0.05 gate. Polished SAEs/factors saved for the artifact refresh.
+- 187b launched: h0-only retune at gamma_max=0.025 to recover the gate.
