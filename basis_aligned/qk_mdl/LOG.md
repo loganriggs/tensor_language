@@ -4090,3 +4090,11 @@ identity. Planted known-answer test of the NEW sparse fitter passed first (match
 - Ledger status: 7/9 heads have null-beating archetype decompositions; h0/h4 now have
   gate-passing moment representations but NO validated archetype summary.
 Next (Logan direction): capacity frontier over (k, m) per head — qk_capacity_frontier.py.
+
+## Tick 181 (2026-07-24, Logan): capacity frontier over (k, m) per head
+qk_capacity_frontier.py/.json, fig_qk_capacity.py/.png; RESULTS_l0_mdl.md §5f.
+Headline: minimal atoms span 32 (h2, even at k=1) to 4096 (h0/h4) — 128-fold spread;
+k=2 is the sweet spot (k1->k2 halves m on 5 heads, k>2 rarely helps); retrain beats
+prune-from-big by ~10x in residual; per-head-optimal ledger 2.4x cheaper than uniform
+512 for the seven gated heads. Caveat logged: projection heuristic falsely abandoned
+h4_k8 at m=256 (9000-step decay slower early); tick-180 direct measurement stands.

@@ -325,3 +325,45 @@ design until this arc settled.
 | `qk_sae_lib.py` | consolidated solver recipes |
 | `fig_qk_mdl_frontier_fw.py/.png` | the frontier figure (training distribution) |
 | `fig_qk_mdl_frontier.py/.png` | v1 figure (original Pile audit — superseded, kept for the record) |
+
+### 5f. Per-head capacity frontier of the mechanism ledger (tick 181)
+
+![capacity frontier](fig_qk_capacity.png)
+
+Logan asked whether the seven gated heads really all need 512 atoms, and what the
+trade-off is between total atoms $m$ and features-per-token $k$. Sweep: per head, per
+$k \in \{1,2,4,8\}$, ascending $m$ until the sketched-moment gate ($<0.05$) passes;
+plus usage-ranked pruning curves from one oversized dictionary per head.
+
+**Minimal atoms passing the gate** (bits-optimal configuration bolded):
+
+| head | $k=1$ | $k=2$ | $k=4$ | $k=8$ | bits-optimal |
+|---|---|---|---|---|---|
+| 0 | – | – | – | 4096 | $k{=}8$, $m{=}4096$: 68 Mbit |
+| 1 | 1024 | **512** | 512 | 512 | $k{=}2$: 10.4 Mbit |
+| 2 | **32** | 32 | 32 | 32 | $k{=}1$: 2.3 Mbit |
+| 3 | 1024 | **512** | 512 | 512 | $k{=}2$: 10.4 Mbit |
+| 4 | – | – | – | (4096)* | $k{=}8$, $m{=}4096$: 68 Mbit |
+| 5 | 512 | **256** | 256 | 256 | $k{=}2$: 7.2 Mbit |
+| 6 | **256** | 128 | 128 | 128 | $k{=}1$: 5.2 Mbit |
+| 7 | 2048 | 1024 | **512** | 512 | $k{=}4$: 14.5 Mbit |
+| 8 | **128** | 128 | 128 | 128 | $k{=}1$: 3.5 Mbit |
+
+\* head 4's $k{=}8$ ladder was falsely abandoned by the decay-projection heuristic at
+$m{=}256$ (9000-step trainings decay slower early); tick 180's direct 12000-step
+measurement at $m{=}4096$ passes at 0.0293, so its entry is taken from there. Head 0's
+$k{=}2$ ladder reaches 0.060 at $m{=}4096$ — just misses.
+
+**Findings.** (1) Required capacity spans a **128-fold range across heads** (32 to
+4096 atoms): head 2 is trivially compressible (passes at 32 atoms even with one
+feature per token, residual 0.002), heads 8 and 6 need 128–256, heads 1/3/5/7 need
+256–1024, heads 0/4 need 4096. Uniform 512 was over-provisioned for four heads and
+under-provisioned for two. (2) **Two features per token is the sweet spot**: going
+from $k{=}1$ to $k{=}2$ halves the required $m$ on heads 1, 3, 5, 6, 7; $k{=}4$ helps
+only head 7; $k{=}8$ never helps. The rows behave like one dominant class plus one
+modifier. (3) **Retraining at the right size beats pruning by roughly an order of
+magnitude in residual** (for example head 8: 128 retrained atoms give 0.042, the top
+128 of a trained 2048-atom dictionary give 0.344) — the small dictionaries find
+genuinely different, coarser atoms, so "train big and prune" is not a substitute.
+(4) Bits-optimal mechanism ledger: seven gated heads at per-head optima cost 53.5 Mbit
+versus 131 Mbit at uniform $(512, k{=}6)$ — 2.4× cheaper for the same gates.
