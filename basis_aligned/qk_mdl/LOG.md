@@ -3962,3 +3962,21 @@ qk_stage23.py; relaunched (3 restarts, ranks 8-64, column-permutation null, arch
 dumps). Also this tick: one more pkill self-match incident (kill command inside a chain
 whose own text contained the pattern) — killed by PID; rule hardened: pkill patterns must
 use bracket escapes AND never share a command line with a relaunch.
+
+## tick 174 (complete) — mechanism archetypes land: the anchors, rediscovered unsupervised
+
+With the validated power-deflation fitter, all seven gated heads fit cleanly:
+- Rel-err rank-monotone, e.g. h2: 0.061/0.044/0.031/0.023 at R=8/16/32/64; h5 to 0.033;
+  h6 0.043; h3/h8 ~0.08; h1 0.137; h7 0.178 (hardest; also highest diagonal mass 0.21).
+- Restart stability 0.94-1.00 — archetypes are reproducible findings, not fit noise.
+- Column-permutation null: real fits 2-10x better (h2 0.031 vs 0.305; h5 0.047 vs 0.293)
+  — genuine co-occurrence structure, not marginal artifact.
+- THE ARCHETYPES ARE THE ANCHOR CLASSES: head 8's top mechanisms are case/form-invariant
+  closed-class categories — {the/The/THE}, {a/A/an}, {of/Of/thereof}, {and/And/&}; heads
+  2/5 are punctuation-class mechanisms ({comma variants}, {period variants}, {colon
+  variants}, {dash family}), newline/document-boundary. The unsupervised mechanism ledger
+  independently rediscovers the structural anchor tokens whose exact rows won the
+  function-MDL frontier — the two ledgers converge on the same computational story:
+  layer-0 QK's dominant third-moment structure is scaffold-token category interaction.
+Remaining for the arc: h0/h4 capacity refits + re-gate; quantify archetype-vs-anchor
+overlap; RESULTS_l0_mdl.md mechanism section; spec joint training (optional endgame).
