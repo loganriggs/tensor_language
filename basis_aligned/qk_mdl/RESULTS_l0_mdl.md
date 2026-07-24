@@ -536,3 +536,26 @@ proxy, with the known caveat that heads 0/4's mechanism mass still overstates th
 Layer-1 architecture (recon): each block = bilinear attention + a Bilinear MLP
 (Left/Right 4608×1152 gating, Down projection) — NOT attention-only; the layer-1
 program must account for block-0's MLP in the residual.
+
+## 6. Layer 1 (opened by Logan, tick 192; ticks 193–)
+
+### 6a. The token-identity port test (tick 193)
+
+Layer 1's attention input is the post-block-0 residual (attention + Bilinear MLP +
+lambda-mixed skip), so the exact embedding fold no longer applies. Test: token-
+conditional MEAN-RESIDUAL tables (average block-1 input per vocabulary token, estimated
+on 1024 disjoint co-occurrence documents, 62% of types / 94% of audit token mass seen;
+unseen tokens fall back to embedding rows), pushed through block 1's own projections
+with the model's per-head normalization, patched into layer 1's pattern, audited on the
+standard 307k set.
+
+**Layer 1's pattern is ~99% token-identity-driven:** replacing the entire layer-1
+pattern with static token tables costs only **+0.027 nats**, against **+2.70 nats** for
+zeroing the layer-1 pattern outright — a 100× ratio. The whole validated pipeline
+(fold → dictionaries → third-moment cores → archetypes, with all gates) therefore
+transfers to layer 1 with mean-residual tables in place of embeddings. Also notable:
+layer 1's pattern is ~27× more causally important than layer 0's entire attention
+(+2.70 vs ~+0.10 summed) — and massively super-additive across heads: single-head
+zeroing sums to only +0.128 (h1 +0.065, h4 +0.020, h8 +0.017, h3 +0.011, rest ≤0.006),
+21× below the joint effect, so layer-1 heads back each other up in a way layer-0 heads
+do not.

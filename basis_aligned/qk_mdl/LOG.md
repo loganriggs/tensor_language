@@ -4228,3 +4228,13 @@ Layer-1 recon: blocks have Bilinear MLPs (4608 hidden) — not attention-only.
 Next (tick 193): layer-1 port test — token-conditional mean-residual tables for the l1
 pattern (estimated on the disjoint cooc corpus), l1 whole-layer + per-head ablation
 calibration.
+
+## Tick 193 (2026-07-26): LAYER-1 PORT TEST — token tables carry ~99% of the pattern
+qk_l1_port.py/.json; RESULTS §6a. One relaunch (hooks never fire on reference_forward
+— replicated block-0 body manually; per-head rms_norm added to table build). Mean-
+residual tables (1024 cooc seqs, 94% mass coverage): token-table pattern dCE +0.027 vs
+whole-pattern-zero +2.70 (100x) -> the l0 machinery PORTS. Layer-1 head zeros: h1
++0.065 > h4 +0.020 > h8 +0.017 > h3 +0.011, sum 0.128 = 21x below joint (superadditive
+redundancy, unlike layer 0). Next (tick 194): save l1 tables (incl. lamb-mixed value
+with block-0 v1) + Stage-1 triple SAEs on all nine l1 heads with moment gates and
+auto-ladder on failures.
