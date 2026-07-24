@@ -367,3 +367,35 @@ magnitude in residual** (for example head 8: 128 retrained atoms give 0.042, the
 genuinely different, coarser atoms, so "train big and prune" is not a substitute.
 (4) Bits-optimal mechanism ledger: seven gated heads at per-head optima cost 53.5 Mbit
 versus 131 Mbit at uniform $(512, k{=}6)$ — 2.4× cheaper for the same gates.
+
+### 5g. Corrected permutation-null statistic; heads 0/4 verdict revised (ticks 182–183)
+
+Tick 180 reported that heads 0 and 4's cores "fail the permutation null" (real core
+fits CP worse than the permuted core). The head-5 control in the asymmetric setting
+exposed that statistic as broken: a mode-permuted core approaches the product of
+independent marginals, which is intrinsically near-low-rank, so it can fit *better*
+than a structured real core. Comparing fit quality across two different target tensors
+was invalid.
+
+**Corrected statistic** — everything scored on the *same* real core: factors fit on the
+permuted core are transplanted onto the real core (only the nonnegative component
+weights refit by Gram solve), versus the real fit, versus a rank-one
+product-of-marginals baseline:
+
+| head (form) | real fit | null factors on real core | marginals rank-1 |
+|---|---|---|---|
+| 0 (asymmetric, $m{=}2048$/mode) | **0.281** | 1.000 | 0.997 |
+| 4 (asymmetric, $m{=}1024$/mode) | **0.291** | 1.000 | 0.995 |
+| 5 (asymmetric control, $m{=}128$/mode) | **0.132** | 0.911 | 0.996 |
+| 0 (symmetric, $m{=}4096$) | **0.389** | 1.000 | 0.996 |
+| 4 (symmetric, $m{=}4096$) | **0.530** | 1.000 | 0.999 |
+
+Null-derived directions explain essentially nothing of the real cores (relative error
+0.91–1.00 ≈ predicting zero), while the real fits explain 71–87% of core mass in the
+asymmetric form. **All nine heads therefore have genuine, null-beating interaction
+structure**; heads 0 and 4 are not "structureless" — they need a larger feature
+inventory (tick 181) and prefer the mode-separated asymmetric form (rank-32 error 0.28
+versus 0.39, and 0.29 versus 0.53, at half or quarter the atoms per mode). The
+token-space branch asymmetry of their components is real but partial (mean cosine
+between branch-1 and branch-2 token loadings 0.44–0.61): archetypes are neither
+mirror-symmetric classes nor unrelated pairs.

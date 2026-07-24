@@ -4118,3 +4118,14 @@ Next (tick 183, qk_null_repair.py): corrected statistic — fit factors on the p
 core, then evaluate BOTH factor sets on the SAME real core (nonneg lambda refit via Gram
 solve), plus marginal-product rank-1 baseline, plus token-space asymmetry meter; applied
 to asym h0/h4/h5 and symmetric h0/h4.
+
+## Tick 183 (2026-07-24): null-statistic repair — h0/h4 verdict OVERTURNED
+qk_null_repair.py/.json; RESULTS §5g. Corrected statistic (null factors transplanted to
+the REAL core, nonneg lambda refit; marginals rank-1 baseline): null factors explain
+~nothing (0.91-1.00) on every head while real fits explain 71-87% (asym h0 0.281, h4
+0.291; sym 0.389/0.530); control h5 passes cleanly (0.132 vs 0.911). Tick-180's "h0/h4
+fail the null" was an artifact of comparing fits across different target tensors. ALL
+NINE heads have genuine interaction structure; h0/h4 prefer the asymmetric form. Token-
+space branch asymmetry partial: mean cos(branch1, branch2 loadings) 0.44-0.61.
+Next (tick 184): corrected-statistic re-validation of the seven m=512 symmetric heads +
+rank-128 prefix sweep for h0/h4 asymmetric.
