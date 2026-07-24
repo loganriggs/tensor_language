@@ -3998,3 +3998,20 @@ CLASSES that extend beyond the top-256 list, e.g. THE/tho/ethe variants).
 Mechanism-arc first pass CLOSED. Remaining optional: spec joint training (gamma ramp),
 deeper capacity for h0/h4, corpus-slice core additivity. Function-MDL frontier stands at
 hybrid exact-moment + anchors: +0.0023 @ 493 Mbit ... +0.0008 @ 1393 Mbit.
+
+## tick 176 (complete) — h0/h4 capacity scaling documented; mechanism is corpus-general
+
+h0/h4 moment gate at m=2048: 0.055/0.057 — just over the 0.05 line, halving per capacity
+doubling (h0: 0.173 @512 -> 0.097 @1024 -> 0.055 @2048). The failure is CAPACITY-limited,
+not structural: they would pass around m=4096, but dense cores are infeasible there
+(2048^3 already is); factorizing them needs the sparse-core path. Deferred, documented.
+
+Cross-slice mechanism stability (the additivity payoff from the circuit-tensor framing):
+head-space moment cores built from two DISJOINT FineWeb slices agree at cosine 0.982-0.995
+across all nine heads. The layer-0 average mechanism is corpus-general — the scaffold-class
+structure is a property of the model-on-its-distribution, not of any particular slice.
+
+PROGRAM STATE: all adopted-queue items complete except the spec's joint-training endgame
+(next tick's build, warm-started from the stagewise solution per spec section 6) and
+layer 1 (deferred pending Logan). Frontier: +0.0023 @ 493 / +0.0008 @ 1393 Mbit.
+Mechanism: 7/9 heads with validated, null-tested, corpus-general archetypes.
