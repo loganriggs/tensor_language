@@ -4249,3 +4249,15 @@ means are one noisy draw; the third moment cubes them), consistent with h1 being
 most context-dependent head (why it is causally big). Tick 195 diagnostics: row norms
 vs occurrence count, gate restricted to well-estimated tokens, shrinkage estimator,
 per-head port-cost decomposition.
+
+## Tick 195 (2026-07-26): l1-h1 pathology diagnosed = estimation noise; shrinkage cures
+qk_l1_h1_diag.py/.json. (1) h1's seen-token rows are 2x other heads (p99 ~200 vs
+80-130) — the head reads large context content, consistent with being causally biggest.
+(2) Gate restricted to tokens seen >=4 times: 0.031 (passes) — the divergence came
+entirely from poorly-estimated rare-token means, cubed by the moment. (3) Shrinkage
+estimator (tau=8 toward embedding prior): h1 gates at 0.0000 at m=1024 — FIXED.
+(4) Per-head port costs (full audit, one head at a time): h8 +0.0045, h4 +0.0036,
+h1 +0.0032, rest 0.0005-0.0013; sum 0.016 vs joint 0.027 (mildly superadditive). The
+token-identity approximation is uniformly good; no head is beyond it.
+Next (tick 196): l1 Stage 2-3 — cores, CP archetypes, corrected nulls, stability, token
+dumps for all nine l1 heads (h1 rebuilt with shrunk tables).
