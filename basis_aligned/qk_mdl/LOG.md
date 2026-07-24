@@ -4203,3 +4203,11 @@ the DETECTORS essentially never tie, even for components whose top tokens mirror
 (cosine badges' partial agreement is real: branches weight the same class differently,
 and the product exploits the difference). Symmetric feature space: yes. Symmetric
 detectors: no.
+
+## Tick 190 (2026-07-25, Logan): per-archetype causal ablation + artifact panels
+qk_arch_ablation.py/.json; RESULTS §5k. 90 ablations (top-10 archetypes x 9 heads),
+key-channel projection, 64 held-out docs per-position dCE. Decoupling: h3/h6/h7/h8
+causally load-bearing (h3 up to mean 0.059, worst +7.6 "cold war->rivalry"); h1/h2/h5/
+h0/h4 individually near-zero. Shared worst positions within heads (h8 "in search of",
+h6 "Ltd. of") -> overlapping channels + single-signal predictions. Artifact: ablation
+panels per archetype (mean dCE + 3 hardest-hit passages with highlighted targets).

@@ -466,3 +466,23 @@ layers 1–17 (analysis deferred). Weak exception worth noting: head 2's abstrac
 classes reach ≈ 0.10. Per-archetype branch agreement for heads 0/4 (post-polish):
 scaffold components ≈ 0.9–1.0, fringe components near 0 (means 0.43 / 0.60) —
 quantifying which parts of the hard heads genuinely use the bilinear asymmetry.
+
+### 5k. Causal per-archetype ablation on held-out text (tick 190)
+
+Ablation = project the archetype's key channel out of the head's exact key tables on
+both branches (structured zero); score = per-position cross-entropy delta over 64
+held-out documents (33k predictions); first ten archetypes per head (90 ablations).
+
+**Weight mass and causal usefulness decouple** (the program's third measured
+decoupling): heads 3, 6, 7, 8 carry real per-archetype causal load — head 3's channels
+cost 0.009–0.059 nats on average and up to +7.6 nats on single predictions ("…in its
+cold war → rivalry"); head 8's cost ~0.0015 mean with worst cases like "…Graph Search
+is in search → of" (+2.5) — while heads 1, 2, 5, 0, 4's channels are individually
+near-zero on ordinary text (mean |ΔCE| < 0.0004): redundant at the margin despite
+carrying large core mass. Second structural finding: within a head, the hardest-hit
+position is often identical across archetypes (all ten of head 8's channels break the
+same "in search of"; all of head 6's break "…Exhibitions Ltd. → of"), i.e. the
+archetype channels overlap on a shared key direction, and specific predictions lean on
+that single layer-0 signal. Role confirmations are direct: the scaffold heads' worst
+failures are exactly preposition/continuation completions after function-word context.
+Artifact updated with per-archetype ablation panels (mean ΔCE + hardest-hit passages).
