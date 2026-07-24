@@ -52,29 +52,31 @@ def build_core(idx, coeff, m):
     return core.view(m, m, m)
 
 
-def cp_fit(core_raw, R, seed, iters=1500, lr=0.02):
+def cp_fit(core_raw, R, seed, iters=2000, lr=None):
     """Symmetric nonneg CP by Adam on the factor matrix (ALS diverges here)."""
     m = core_raw.shape[0]
     g = torch.Generator(device='cpu').manual_seed(seed)
     scale = core_raw.norm().clamp_min(1e-30)
     core = core_raw / scale
     nrm2 = float((core ** 2).sum())
-    A = (0.1 * torch.rand(m, R, generator=g)).to(DEV).requires_grad_(True)
-    opt = torch.optim.Adam([A], lr=lr)
+    typ = (nrm2 / (m ** 3)) ** 0.5                        # typical core entry
+    a0 = (typ / max(R, 1)) ** (1.0 / 3.0)                  # scale-matched init
+    A = (a0 * (0.5 + torch.rand(m, R, generator=g))).to(DEV).requires_grad_(True)
+    opt = torch.optim.Adam([A], lr=3e-3 * a0 / 0.01)
     CH = 64
     for _ in range(iters):
-        Ar = torch.relu(A)
         loss = 0.0
         for c0 in range(0, m, CH):
-            pred = torch.einsum('ir,jr,kr->ijk', Ar[c0:c0 + CH], Ar, Ar)
+            pred = torch.einsum('ir,jr,kr->ijk', A[c0:c0 + CH], A, A)
             loss = loss + ((pred - core[c0:c0 + CH]) ** 2).sum()
         opt.zero_grad()
         loss.backward()
         opt.step()
+        with torch.no_grad():
+            A.clamp_(min=0)                                # projected step: no dead gradients
     with torch.no_grad():
-        Ar = torch.relu(A)
-        lam = Ar.norm(dim=0).clamp_min(1e-12)
-        U = Ar / lam[None, :]
+        lam = A.norm(dim=0).clamp_min(1e-12)
+        U = A / lam[None, :]
         rel = (float(loss) / max(nrm2, 1e-30)) ** 0.5
     return U.detach(), (lam ** 3).detach(), rel
 
