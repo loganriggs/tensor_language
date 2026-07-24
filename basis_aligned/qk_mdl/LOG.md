@@ -4174,3 +4174,11 @@ deflation solution, gamma ramp to 0.05).
 - h0 TRADE: CP 0.2275 -> 0.1599 (-30%) but moment residual 0.0261 -> 0.0510, a hair
   over the 0.05 gate. Polished SAEs/factors saved for the artifact refresh.
 - 187b launched: h0-only retune at gamma_max=0.025 to recover the gate.
+
+## Tick 187b (2026-07-25): h0 gamma retune + artifact refresh
+qk_h0_polish_g025.py/.json/.pt. h0 at gamma_max=0.025: mres 0.0425 (GATE HELD), CP R64
+0.2275 -> 0.1788 (-21%, vs -30% at gamma 0.05 which breached by 0.001). Lesson: gamma
+must respect per-head gate margin. Joint polish now 5/5 heads improved. RESULTS §5i
+extended. Artifact refreshed with polished h0/h4 inventories (h4 cherry picks reindexed
+2/3/0 after polish reordering); loading-tint chips, k-clarification, and the
+"what one archetype computes" worked example added earlier this arc.

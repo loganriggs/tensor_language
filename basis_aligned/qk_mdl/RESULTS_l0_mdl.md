@@ -436,3 +436,11 @@ is minimal (matched cosine 0.97–1.00 to the stagewise archetypes), and the tra
 archetype matrix agrees with a fresh refit on the joint core. Verdict revised: the
 gamma-ramped joint objective is a working **final polish stage** (10–22% better CP fit
 at held gates) — the tick-177 collapse was entirely a warm-start artifact.
+
+**Extension to heads 0/4 (tick 187).** The same warm-started polish applied to the
+asymmetric mode-separated form: head 4 improves 0.238 → 0.194 at rank 64 with the gate
+held (0.025 → 0.031); head 0 improves 0.228 → 0.179 at a gentler gamma of 0.025
+(0.16 was reachable at gamma 0.05 but breached the gate by 0.001; gamma must respect
+each head's gate margin). Factor drift 0.94–0.97 throughout — the polish sharpens the
+existing archetypes rather than replacing them. The joint objective has now improved
+the core fit on all five heads it has been applied to.
