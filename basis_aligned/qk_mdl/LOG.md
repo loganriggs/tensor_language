@@ -3932,3 +3932,18 @@ Launching Stage 1 (qk_stage1_triple.py): per-head triple rows y_t = [k1_t | k2_t
 (V x 384, spec 1a head space), hardened trainer, both p weightings (unigram + uniform),
 m=512 k=6, gated on the sketched third-moment residual (spec check 4, 256 probes); codes
 and atoms saved for Stage 2 (sparse symmetric core) next tick.
+
+## tick 172 (complete) — Stage 1 triple SAE on the real head: unigram+nonneg wins
+
+36 fits (9 heads x {unigram,uniform} x {nonneg,signed}), m=512, k=6, hardened trainer.
+Config verdict: NONNEG >= signed on every head on BOTH metrics (real rows code fine
+nonnegatively — the planted-gate recipe transfers); UNIGRAM >> uniform everywhere
+(R2 0.57-0.78 vs 0.39-0.49; moment residual up to 60x better). Winner: unigram+nonneg.
+Sketched third-moment residual (the gate) by head: h2 0.0004, h8 0.009, h5 0.019, h6 0.019,
+h1 0.040, h7 0.041, h3 0.043 — PASS at 0.05; h0 0.173, h4 0.210 — FAIL. Heads 0 and 4
+(the content-heavy collapse-expensive heads) need larger m or k for trustworthy cores.
+Plan: Stage 2 (sparse symmetric core, unigram+nonneg codes) + Stage 3 (nonneg symmetric
+CP, rank sweep, permutation null, restart stability) next tick for the 7 passing heads;
+refit h0/h4 at m=1024 k=8 and re-gate before including them. Codes/atoms saved in
+qk_stage1_triple.pt. (GPU idle ~1 tick — accepted to avoid building CP-ALS at the edge of
+a context window; summary will carry the state.)
