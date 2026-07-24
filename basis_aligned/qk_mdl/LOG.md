@@ -3947,3 +3947,18 @@ CP, rank sweep, permutation null, restart stability) next tick for the 7 passing
 refit h0/h4 at m=1024 k=8 and re-gate before including them. Codes/atoms saved in
 qk_stage1_triple.pt. (GPU idle ~1 tick — accepted to avoid building CP-ALS at the edge of
 a context window; summary will carry the state.)
+
+## tick 174 — CP fitter solved by known-answer discipline: tensor power method + deflation
+
+Stage-3 fitting failed four ways on real cores (singular ALS; divergent tied-factor ALS;
+dead-ReLU Adam collapse; projected-Adam collapse — root cause: the cores are SPIKY-sparse,
+a few large pi-weighted entries among 134M near-zeros, and dense-init global fitters shed
+all mass). Per the positive-control rule, built a known-answer test for the FITTER itself
+(qk_cp_planted.py: 24 planted 6-sparse nonneg archetypes, lambdas spread two decades, 1%
+noise): multiplicative updates 0.56 matched-cos FAIL; projected Adam 0.25-0.40 FAIL;
+TENSOR POWER ITERATION + DEFLATION 0.9998 matched-cos, residual at the noise floor — PASS
+decisively (planted supports are near-orthogonal, the provable regime). Adopted into
+qk_stage23.py; relaunched (3 restarts, ranks 8-64, column-permutation null, archetype
+dumps). Also this tick: one more pkill self-match incident (kill command inside a chain
+whose own text contained the pattern) — killed by PID; rule hardened: pkill patterns must
+use bracket escapes AND never share a command line with a relaunch.
