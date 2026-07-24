@@ -4211,3 +4211,10 @@ causally load-bearing (h3 up to mean 0.059, worst +7.6 "cold war->rivalry"); h1/
 h0/h4 individually near-zero. Shared worst positions within heads (h8 "in search of",
 h6 "Ltd. of") -> overlapping channels + single-signal predictions. Artifact: ablation
 panels per archetype (mean dCE + 3 hardest-hit passages with highlighted targets).
+
+## Tick 191 (2026-07-26, cron): group ablations close the causal arc
+qk_group_ablation.py/.json; RESULTS §5l; artifact updated (whole-head dCE on each head
+card + group-ablation paragraph). Sub-additive (channels overlap); archetype span =
+73-88% of whole-head load on h3/h6/h7/h8; random control null; h1/h2/h5 negligible even
+silenced; h0/h4 causal load lives in the tail beyond top-10; h3 alone ~20x everything
+else. Capacity anticorrelates with causal load on ordinary text.

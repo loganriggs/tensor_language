@@ -486,3 +486,32 @@ archetype channels overlap on a shared key direction, and specific predictions l
 that single layer-0 signal. Role confirmations are direct: the scaffold heads' worst
 failures are exactly preposition/continuation completions after function-word context.
 Artifact updated with per-archetype ablation panels (mean ΔCE + hardest-hit passages).
+
+### 5l. Group ablations: overlap, head hierarchy, and where the tail lives (tick 191)
+
+Four numbers per head on the tick-190 evaluation set: sum of ten single-channel
+damages, damage from removing the ten-channel SPAN at once, a matched-dimension
+random-subspace control, and whole-head silencing.
+
+| head | singles sum | group (10-dim) | random | whole head |
+|---|---|---|---|---|
+| 3 | +0.251 | +0.070 | +0.002 | **+0.083** |
+| 7 | +0.016 | +0.005 | 0 | +0.0066 |
+| 6 | +0.016 | +0.003 | 0 | +0.0035 |
+| 8 | +0.013 | +0.003 | 0 | +0.0034 |
+| 0 | +0.0004 | +0.0003 | 0 | +0.0028 |
+| 4 | +0.0006 | +0.0011 | 0 | +0.0018 |
+| 1 / 2 / 5 | ≈0 | ≈0 | 0 | +0.0001–0.0003 |
+
+Findings: (1) **sub-additivity** — the group is smaller than the sum of singles on
+every load-bearing head, confirming the channels overlap (singles double-count a shared
+direction); (2) the ten-archetype span carries **73–88% of whole-head causal load** on
+heads 3/6/7/8 — the archetype description is causally near-complete there; (3) random
+subspaces do nothing: the directions matter, not the dimension; (4) heads 1, 2, 5 barely
+matter even fully silenced (+0.0001–0.0003) — their near-zero singles meant "small
+head", not redundancy; (5) heads 0/4's small causal budget mostly lives BEYOND the
+top-10 archetypes (span carries 11–60% of whole-head) — the long tail is where their
+function is; (6) the hierarchy inverts capacity: head 3 (512 features) carries roughly
+20× the causal load of everything else combined, while the 4096-feature heads are minor
+and the trivial 32-feature head 2 is negligible. Note: evaluated on the 64-document
+subset; whole-head numbers are one-head-at-a-time (interactions unmeasured).
