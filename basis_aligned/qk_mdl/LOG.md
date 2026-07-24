@@ -4192,3 +4192,14 @@ updated: minimal inventories displayed, instant tooltips (native title delay rep
 top-100 loading-decay curve per archetype (per mode for h0/h4), per-archetype
 direct-path cos + branch-agree badges, copy-head section, cherry picks re-selected
 (h3 verb-lemma class, h7 number class).
+
+## Tick 189 (2026-07-25, Logan): fit-based symmetric-fraction test for h0/h4
+qk_sym_fraction.py/.json. Shared key dictionary across both branches (stacked 2V rows):
+PASSES the moment gate for both heads (h0 0.0426, h4 0.0331) at unchanged CP fit
+(0.226/0.249 vs 0.228/0.243 with separate dictionaries) — the branches share one
+FEATURE SPACE at no cost, halving key-dictionary storage. But per-component tying
+(a_r = b_r accepted if within 5% of free lambda): h0 0/64 tied, h4 5/64 (2% of mass) —
+the DETECTORS essentially never tie, even for components whose top tokens mirror
+(cosine badges' partial agreement is real: branches weight the same class differently,
+and the product exploits the difference). Symmetric feature space: yes. Symmetric
+detectors: no.
