@@ -4058,3 +4058,15 @@ audit standard FineWeb 307k. qk_mech_bridge.py/.json.
 - Note: the two moment-gate FAILING heads (0/4) add only +0.00057 combined (~0.00028/head)
   vs ~0.00087/head for the seven gated heads — the moment gate does NOT rank function
   damage. Moment fidelity and prediction fidelity are decoupled at this budget.
+
+## Tick 179 (2026-07-24, Logan question): two-ledgers explainer + toys
+Logan asked what the function frontier and mechanism core each measure and what each is
+good for, with small pedagogical examples. qk_toy_ledgers.py (CPU, deterministic):
+- Toy A (function): 8-token 2-cluster key table, 3.9x compression at dCE +0.0030.
+- Toy B (mechanism): 12-token 2-class third moment, rank-2 CP recovers planted classes at
+  cos 0.999; coordinate-permutation null residual 0.586 vs 0.099 real.
+- Toy C (decoupling): frequent |y|=1 vs rare |y|=8 token, one atom: function metric
+  (p|y|^2) keeps the frequent token, moment metric (p|y|^3) keeps the rare one — clean
+  two-token model of the tick-178 h0/h4 finding.
+Explainer: qk_two_ledgers_explainer.md (definitions, why bilinear attention makes the
+third moment the natural object via mu_i = M(q1_i, q2_i, .), toy numbers, use-cases).
