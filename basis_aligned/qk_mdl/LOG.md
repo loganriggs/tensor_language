@@ -4070,3 +4070,23 @@ good for, with small pedagogical examples. qk_toy_ledgers.py (CPU, deterministic
   two-token model of the tick-178 h0/h4 finding.
 Explainer: qk_two_ledgers_explainer.md (definitions, why bilinear attention makes the
 third moment the natural object via mu_i = M(q1_i, q2_i, .), toy numbers, use-cases).
+
+## Tick 180 (2026-07-24, Logan un-gated mechanism path): h0/h4 sparse-core at m=4096
+qk_h04_sparse_core.py/.json/.pt. New sparse-COO Stage-2 core (dense m^3 would be 275 GB;
+actual nnz ~22-23M) + sparse CP power/deflation with prefix rel-errors via the Gram
+identity. Planted known-answer test of the NEW sparse fitter passed first (matched-cos
+1.0000).
+- MOMENT GATES OPEN: h0 rel-err 0.0279, h4 0.0293 at m=4096, k=8 (prediction from the
+  halving trend confirmed: 0.173 -> 0.097 -> 0.055 -> ~0.028).
+- BUT CP ARCHETYPE STRUCTURE FAILS THE NULL for both: R32 rel-err h0 0.389 vs null 0.206,
+  h4 0.530 vs null 0.184 — the REAL cores fit WORSE than their column-permuted nulls,
+  inverted vs all seven gated heads (every gated head beats its null, e.g. h2 0.031 vs
+  0.305). Seeds nearly identical (stability 0.95-1.0) so it is not fitter variance.
+- Reading: at 4096 atoms the moment is representable, but the interaction structure is
+  genuinely high-rank/combinatorial — no small symmetric archetype set explains it. Top
+  components still surface scaffold classes ({and}, {a/an}, {with}, {by}) amid junk, but
+  they leave 35-53% of core mass unexplained. h0/h4 are mechanism-different in kind, not
+  just capacity.
+- Ledger status: 7/9 heads have null-beating archetype decompositions; h0/h4 now have
+  gate-passing moment representations but NO validated archetype summary.
+Next (Logan direction): capacity frontier over (k, m) per head — qk_capacity_frontier.py.
