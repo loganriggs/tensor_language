@@ -3980,3 +3980,21 @@ With the validated power-deflation fitter, all seven gated heads fit cleanly:
   layer-0 QK's dominant third-moment structure is scaffold-token category interaction.
 Remaining for the arc: h0/h4 capacity refits + re-gate; quantify archetype-vs-anchor
 overlap; RESULTS_l0_mdl.md mechanism section; spec joint training (optional endgame).
+
+## tick 175 (complete) — h0/h4 remain over-gate at 2x capacity; anchor convergence quantified
+
+h0/h4 refits at m=1024, k=8: moment residual h0 0.173 -> 0.097, h4 0.210 -> 0.124 — halved
+by doubling capacity but still over the 0.05 gate. These two heads (the content-heavy ones)
+have genuinely heavier third-moment tails; their cores are excluded from mechanism claims
+at current capacity (would carry ~10% distortion). Known limitation, documented.
+
+Archetype-anchor overlap (top-5 archetypes x top-32 loading tokens vs the exploration's
+anchor-256 set): 14-21% across all seven gated heads vs 0.5% random baseline — a 28-42x
+enrichment. The convergence of the two ledgers is now quantitative: the mechanism
+archetypes are substantially built from the same scaffold-token population whose exact
+rows won the function-MDL frontier (not identical — archetypes are case/form-invariant
+CLASSES that extend beyond the top-256 list, e.g. THE/tho/ethe variants).
+
+Mechanism-arc first pass CLOSED. Remaining optional: spec joint training (gamma ramp),
+deeper capacity for h0/h4, corpus-slice core additivity. Function-MDL frontier stands at
+hybrid exact-moment + anchors: +0.0023 @ 493 Mbit ... +0.0008 @ 1393 Mbit.

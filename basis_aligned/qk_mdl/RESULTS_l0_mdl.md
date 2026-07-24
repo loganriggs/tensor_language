@@ -271,6 +271,31 @@ weighted Frobenius distance between factor tables with a metric node per leg; th
 identity (or unigram-frequency) on the token leg and stop contracting before OV (differential
 cancellation, section 5).
 
+## 5e. The mechanism ledger (spec Stages 1-3): archetypes = scaffold-token classes
+
+Separate ledger from the compression frontier (section 3c): here the object is the
+p-weighted third-moment core of each head's source-side triple rows [k1 | k2 | v], its
+sparse code (512-atom head-space SAE, nonnegative, unigram-weighted — the hardened trainer
+that passes the planted recovery gate at 1.0), and its symmetric nonnegative CP factors
+(tensor power method + deflation — the only fitter of five tried that passes the planted
+CP known-answer test, at 0.9998 matched cosine).
+
+Findings, all gated by known-answer controls and nulls:
+- Seven of nine heads pass the sketched moment-residual gate; their CP fits are rank-
+  monotone (down to 2-5% residual at rank 64 for heads 2/5/6), restart-stable (0.94-1.00),
+  and beat column-permutation nulls by 2-10x. Heads 0 and 4 (content-heavy) stay over-gate
+  even at doubled dictionary capacity — their third moments have heavier tails; excluded.
+- The dominant archetypes are case/form-invariant closed-class categories: head 8 factors
+  into {the}, {a/an}, {of}, {and} classes; heads 2/5 into punctuation families (comma,
+  period, colon, dash), newline and document-boundary units.
+- Quantified convergence with the compression arc: 14-21% of top archetype-loading tokens
+  fall in the anchor-256 set (random baseline 0.5%) — 28-42x enrichment. The two ledgers
+  independently identify the same scaffold-token population as layer-0 QK's organizing
+  structure: exact rows for it buy the frontier; its category interactions ARE the
+  third-moment mechanism.
+Files: qk_stage1_triple.*, qk_stage23.*, qk_cp_planted.py, qk_h04_refit.*,
+qk_arch_anchor_overlap.json, qk_solver_harden.*, qk_planted_synth.py.
+
 ## 6. Robustness notes
 
 - Dictionary result is stable across 3 training seeds × 2 encoders (spread ≤ 0.003 nats).
