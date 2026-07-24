@@ -399,3 +399,20 @@ versus 0.39, and 0.29 versus 0.53, at half or quarter the atoms per mode). The
 token-space branch asymmetry of their components is real but partial (mean cosine
 between branch-1 and branch-2 token loadings 0.44–0.61): archetypes are neither
 mirror-symmetric classes nor unrelated pairs.
+
+### 5h. Corpus-component decomposition of the mechanism cores (tick 185)
+
+Twelve document components (k-means over token-cluster histograms of the 6000 held-out
+co-occurrence documents; named by over-represented tokens — e.g. commerce/product
+reviews, health/legal, one small Cyrillic outlier, one game/list outlier). Per head,
+the third-moment core is rebuilt under each component's token distribution (codes
+fixed) and every archetype profiled across components.
+
+**The archetype structure is corpus-general, as the scaffold interpretation predicts:**
+mean effective number of components per archetype is 9.7–10.4 out of 12 for every head
+(near-uniform spread). The most concentrated single archetypes reach effective 3.6–4.5
+components — a modest topical minority. Component-core cosines generalize the two-slice
+stability result: the seven gated heads sit at mean 0.84–0.99 across all 66 component
+pairs, while **heads 0 and 4 vary far more across data components** (mean 0.77–0.80,
+minima 0.18–0.24, driven by the outlier components) — consistent with their long
+archetype tail being partly component-specific structure on top of a shared scaffold.

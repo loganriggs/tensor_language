@@ -4138,3 +4138,15 @@ R=128: h0 0.342 -> 0.190, h4 0.378 -> 0.173, still decaying slowly with no sharp
 plateau — the hard heads have LONG-TAIL archetype spectra (~100+ meaningful components)
 rather than a compact set, matching their large feature inventories from the capacity
 frontier. Mechanism arc is now internally consistent end to end.
+
+## Tick 185 (2026-07-25): corpus-component decomposition — mechanism arc closes
+qk_corpus_components.py/.json; RESULTS §5h. 12 doc components; archetypes near-uniform
+across components (mean effective components 9.7-10.4/12, all heads) — scaffold
+mechanism is corpus-general; most-concentrated archetypes effN 3.6-4.5 (small topical
+minority). Component-core cosine: gated heads 0.84-0.99 mean; h0/h4 0.77-0.80 mean with
+minima 0.18-0.24 (outlier components: Cyrillic, game/list docs) — their long tail is
+partly component-specific. MECHANISM PATH (Logan direction 2026-07-24) COMPLETE:
+capacity frontier (181), asymmetric cores (182), corrected null (183), ledger
+re-validation + rank sweep (184), corpus components (185). REST STATE: remaining items
+Logan-gated (layer 1 deferred; function-ledger joint-training retry with true warm
+start; anything new).
