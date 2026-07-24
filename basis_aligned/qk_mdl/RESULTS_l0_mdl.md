@@ -416,3 +416,23 @@ stability result: the seven gated heads sit at mean 0.84–0.99 across all 66 co
 pairs, while **heads 0 and 4 vary far more across data components** (mean 0.77–0.80,
 minima 0.18–0.24, driven by the outlier components) — consistent with their long
 archetype tail being partly component-specific structure on top of a shared scaffold.
+
+### 5i. Joint training vindicated by the true warm start (tick 186)
+
+Tick 177's joint-training negative (CP structure degrading 4–15×) carried a warm-start
+caveat: its archetype matrix was initialized from random rows of the code matrix. Rerun
+with a single variable changed — the archetype matrix initialized from the true
+deflation solution, scaled so the CP model equals the stagewise core exactly at step
+zero — **joint training now improves every head**:
+
+| head | stagewise CP rel-err | joint (tick 177, random-ish init) | joint (true warm start) |
+|---|---|---|---|
+| 2 | 0.031 | 0.452 | **0.030** |
+| 8 | 0.121 | 0.540 | **0.101** |
+| 1 | 0.188 | 0.648 | **0.146** |
+
+Moment residuals stay gated (0.007–0.039), reconstruction is unchanged, archetype drift
+is minimal (matched cosine 0.97–1.00 to the stagewise archetypes), and the trained
+archetype matrix agrees with a fresh refit on the joint core. Verdict revised: the
+gamma-ramped joint objective is a working **final polish stage** (10–22% better CP fit
+at held gates) — the tick-177 collapse was entirely a warm-start artifact.

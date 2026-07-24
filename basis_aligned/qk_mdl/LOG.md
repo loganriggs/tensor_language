@@ -4150,3 +4150,17 @@ capacity frontier (181), asymmetric cores (182), corrected null (183), ledger
 re-validation + rank sweep (184), corpus components (185). REST STATE: remaining items
 Logan-gated (layer 1 deferred; function-ledger joint-training retry with true warm
 start; anything new).
+
+## Tick 186 (2026-07-25, Logan): joint-warm retry POSITIVE + features artifact
+(a) qk_joint_warm.py/.json; RESULTS §5i. Single change vs tick 177: archetype matrix B
+initialized from the TRUE deflation solution (B_r = (V*scale*lam_r)^(1/3) u_r). CP
+rel-err now IMPROVES on all three heads (h2 0.031->0.030, h8 0.121->0.101, h1
+0.188->0.146) vs tick-177's collapse (0.45/0.54/0.65); gates held, drift-cos 0.97-1.0.
+Tick-177 negative reclassified: warm-start artifact. Joint = valid final polish stage.
+(b) qk_artifact_dump.py/.json/.pt: full archetype inventories (7 heads sym R=32, h0/h4
+asym R=64 with per-mode token lists + frequency ranks). HTML artifact published
+(claude.ai artifact 26201765): forward-pass diagram, decomposition pipeline, cherry-
+picked + random-sample features per head, h0/h4 separated with capacity/long-tail/
+asymmetry explanation. Process note: one launch chained dump && joint with inner '&',
+detaching the joint run from task tracking — recovered with a file-grep Monitor
+(safe pattern, no self-match); avoid inner '&' in tracked launches.
