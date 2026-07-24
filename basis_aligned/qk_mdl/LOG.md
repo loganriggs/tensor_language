@@ -4277,3 +4277,13 @@ share +0.028 of h3's +0.078; shielded-pattern condition +0.171 >> 0.078 -> live 
 pattern partially compensates for h3 removal (or strong corruption interaction; both
 logged). Next (tick 198): l1 capacity frontier (ladders k in {1,2,4,8}, mirrors tick
 181) toward minimal l1 inventories + artifact layer-1 section.
+
+## Tick 198 (2026-07-26): layer-1 capacity frontier — far more compressible than l0
+qk_l1_capacity.py/.json (shrunk tables, all heads). Minimal atoms (best k): h1/h2/h4/
+h5/h7/h8 = 32 (h1 at k=1! its static token-identity part is trivial after shrinkage —
+the head's substance is the context-dependent part), h0/h6 = 128 (k=8), h3 = 1024
+(layer-1's hard head, k=8). One abandon (h3_k1). Layer 1's static pattern component is
+much cheaper than layer 0's (most heads at the 32-atom floor).
+Process note: a chained background launch (heredoc+commit+run with inner '&') silently
+executed nothing — REPEAT of the tick-186 lesson; redone in foreground, single-purpose
+calls only.

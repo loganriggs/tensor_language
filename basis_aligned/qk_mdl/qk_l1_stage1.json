@@ -6,10 +6,11 @@
     "gate_pass": true
   },
   "h1": {
-    "m": 2048,
+    "m": 1024,
     "k": 8,
-    "moment_rel_err": 4.9599,
-    "gate_pass": false
+    "moment_rel_err": 0.0,
+    "gate_pass": true,
+    "note": "shrunk tau=8 tables"
   },
   "h2": {
     "m": 512,
