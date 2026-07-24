@@ -4218,3 +4218,13 @@ card + group-ablation paragraph). Sub-additive (channels overlap); archetype spa
 73-88% of whole-head load on h3/h6/h7/h8; random control null; h1/h2/h5 negligible even
 silenced; h0/h4 causal load lives in the tail beyond top-10; h3 alone ~20x everything
 else. Capacity anticorrelates with causal load on ordinary text.
+
+## Tick 192 (2026-07-26, Logan un-gates LAYER 1): full-audit importance + correlates
+qk_head_importance.py/.json; RESULTS §5m. Full-audit whole-head dCE: h3 +0.078 (~60% of
+layer total), h7 +0.009, h8/h6 ~0.004-0.005, h0/h4/h5 ~0.0014-0.0026, h1/h2 ~0.0005;
+quiet heads rose 3-5x with 10x text (Logan called it). Correlate: ov_norm (Sigma p_t
+||W_o v_t||) Spearman +0.87 — h3 is 3-6x every other head in expected write magnitude.
+Layer-1 recon: blocks have Bilinear MLPs (4608 hidden) — not attention-only.
+Next (tick 193): layer-1 port test — token-conditional mean-residual tables for the l1
+pattern (estimated on the disjoint cooc corpus), l1 whole-layer + per-head ablation
+calibration.

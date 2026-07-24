@@ -515,3 +515,24 @@ function is; (6) the hierarchy inverts capacity: head 3 (512 features) carries r
 20× the causal load of everything else combined, while the 4096-feature heads are minor
 and the trivial 32-feature head 2 is negligible. Note: evaluated on the 64-document
 subset; whole-head numbers are one-head-at-a-time (interactions unmeasured).
+
+### 5m. Full-audit head importance + a weight-space correlate found (tick 192)
+
+Whole-head ablations re-scored on the full 307k-prediction audit (10× tick 191's text):
+h3 +0.0780, h7 +0.0090, h8 +0.0051, h6 +0.0041, h0 +0.0026, h4 +0.0016, h5 +0.0014,
+h1 +0.0006, h2 +0.0005. Logan's suspicion confirmed in degree: the quiet heads rose
+3–5× with more text (h5 0.0003→0.0014) — every head matters somewhat, none are zero —
+but the hierarchy stands: head 3 remains ~8× the runner-up and ~60% of the layer's
+total causal load.
+
+**Correlate found: expected output magnitude.** Weight-only candidates vs causal
+importance (Spearman): ov_norm = Σ_t p_t ‖W_o^h v_t‖ → **+0.87** (best); pattern×write
+composite +0.80; expected squared pattern +0.75; third-moment core scale +0.65; key
+table norms uninformative (unit-RMS makes them constant). The causally dominant head is
+visible in the weights: h3's expected output magnitude (1430) is 3–6× every other head
+(224–545). So "how hard does this head write, frequency-weighted" is a good cheap
+proxy, with the known caveat that heads 0/4's mechanism mass still overstates them.
+
+Layer-1 architecture (recon): each block = bilinear attention + a Bilinear MLP
+(Left/Right 4608×1152 gating, Down projection) — NOT attention-only; the layer-1
+program must account for block-0's MLP in the residual.
