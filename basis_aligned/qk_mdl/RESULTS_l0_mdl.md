@@ -444,3 +444,25 @@ held (0.025 → 0.031); head 0 improves 0.228 → 0.179 at a gentler gamma of 0.
 each head's gate margin). Factor drift 0.94–0.97 throughout — the polish sharpens the
 existing archetypes rather than replacing them. The joint objective has now improved
 the core fit on all five heads it has been applied to.
+
+### 5j. Minimal inventories validated; no layer-0 copy heads on the direct path (tick 188)
+
+The seven scaffold heads retrained at their bits-optimal minimal configurations
+(32–512 features, 1–4 per token), warm-started-joint-polished (gamma 0.025), and
+re-validated: all moment gates hold (0.003–0.048) and all corrected nulls fail
+decisively (null factors 0.94–1.00 on the real cores). Trade-off measured: at minimal
+capacity some cores are less CP-compressible than at the 512-feature standard (head 1:
+0.33 vs 0.19; head 8: 0.27 vs 0.12; head 7 improves to 0.03) — density of features
+trades against archetype crispness. Minimal inventories are also *more* interpretable
+in places (head 3 gains a make/made/making verb-lemma class; head 7 a 4/four number
+class; head 1 clean we/you/she person classes).
+
+**Copy-head question (Logan): answered negative at layer 0.** Direct-path logit-lens
+test — each archetype's write vector decoded through W_o into the unembedding, boosted
+profile compared against the attended class — gives copy cosines of −0.08 to +0.03
+across every archetype of every head (per-head means ≈ 0). No layer-0 head is a
+direct-path copy head; the archetypes deposit class-occurrence signals consumed by
+layers 1–17 (analysis deferred). Weak exception worth noting: head 2's abstract-noun
+classes reach ≈ 0.10. Per-archetype branch agreement for heads 0/4 (post-polish):
+scaffold components ≈ 0.9–1.0, fringe components near 0 (means 0.43 / 0.60) —
+quantifying which parts of the hard heads genuinely use the bilinear asymmetry.

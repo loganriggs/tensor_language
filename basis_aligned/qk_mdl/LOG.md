@@ -4182,3 +4182,13 @@ must respect per-head gate margin. Joint polish now 5/5 heads improved. RESULTS 
 extended. Artifact refreshed with polished h0/h4 inventories (h4 cherry picks reindexed
 2/3/0 after polish reordering); loading-tint chips, k-clarification, and the
 "what one archetype computes" worked example added earlier this arc.
+
+## Tick 188 (2026-07-25, Logan): minimal inventories + copy scores + artifact v5
+qk_minimal_heads.py/.json/.pt; RESULTS §5j. Seven heads at bits-optimal configs,
+polished (gamma 0.025), gates held, nulls beaten. Copy question: direct-path copy cos
+-0.08..+0.03 everywhere -> NO layer-0 copy heads; strongest weak case h2 noun classes
+~0.10. h0/h4 per-archetype branch agreement: scaffold ~0.9-1.0, fringe ~0. Artifact
+updated: minimal inventories displayed, instant tooltips (native title delay replaced),
+top-100 loading-decay curve per archetype (per mode for h0/h4), per-archetype
+direct-path cos + branch-agree badges, copy-head section, cherry picks re-selected
+(h3 verb-lemma class, h7 number class).
