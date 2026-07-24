@@ -4295,3 +4295,12 @@ concentration identical across arms. Archetype directions are not causally privi
 their value is descriptive/compressive/predictive. rand10 removes 77x less energy —
 explains tick-191's null. Artifact: layer-1 section added (9 l1 head cards, full
 inventories with loadings/hists, port-test and vocabulary-shift prose).
+
+## Tick 200 (2026-07-27, cron): layer-1 context remainder characterized
+qk_l1_context.py/.json; RESULTS §6d. Uniform across heads: deviations 21-41% of factor
+norm; top-16 dims carry 44-64%; SOURCE = block-0 Bilinear MLP (R2 0.45-0.64) >> l0
+attention (0.21-0.35); both 0.51-0.68. The context part of l1's pattern is chiefly
+MLP-authored. Program state: both layers' static ledgers complete + causally
+calibrated; the open frontier is (a) block-0 MLP decomposition (new object class —
+Logan-gated scope), (b) layer 2 (Logan-gated), (c) two-layer consolidation write-up.
+GPU idle; resting pending Logan's pick.

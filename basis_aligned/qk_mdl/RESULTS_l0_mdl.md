@@ -618,3 +618,17 @@ magnitude correlate). The archetypes' value is descriptive, compressive, and pre
 (naming classes, minimal inventories, where-it-matters text), not a causal privilege
 per unit of pattern. The sparse-interaction hypothesis is not supported at the level of
 cross-entropy damage for this head. Clean negative, honestly logged.
+
+### 6d. The context-dependent remainder: mid-sized, half low-rank, written by the MLP (tick 200)
+
+Per-position deviations of layer 1's actual query/key factors from their token-table
+values, across all nine heads (65k positions): (1) SIZE — the context part is 21–41%
+of factor norm (yet only +0.027 nats of function: the pattern product and downstream
+layers tolerate most of it). (2) RANK — the top 16 of 128 directions carry 44–64% of
+deviation variance: a 16-dimensional context summary halves the remainder, but there
+is no sharp low-rank cliff. (3) SOURCE — ridge regression onto upstream signals is
+decisive and uniform: the block-0 **Bilinear MLP output explains 45–64%** of the
+deviation, layer-0 attention outputs only 21–35%, both together 51–68%. Layer 1's
+context-sensitivity is chiefly authored by the block-0 MLP, not by the attention heads
+whose ledger we built — and a third to a half of it is not linearly explained by
+either, the first object in the program that resists all current machinery.
