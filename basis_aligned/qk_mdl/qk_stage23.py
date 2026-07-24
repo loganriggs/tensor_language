@@ -52,10 +52,16 @@ def build_core(idx, coeff, m):
     return core.view(m, m, m)
 
 
-def cp_fit(core, R, seed, iters=80, ridge=1e-6):
-    m = core.shape[0]
+def cp_fit(core_raw, R, seed, iters=200, ridge=1e-6):
+    m = core_raw.shape[0]
     g = torch.Generator(device='cpu').manual_seed(seed)
-    A = torch.rand(m, R, generator=g).to(DEV) * 0.1
+    scale = core_raw.norm().clamp_min(1e-30)
+    core = core_raw / scale                                    # fit scale-free
+    diag_fibers = torch.stack([core[i, i, i] for i in range(m)])
+    top = diag_fibers.abs().argsort(descending=True)[:R]
+    A = torch.stack([core[:, a, a].clamp_min(0) for a in top.tolist()], 1)
+    A = A / A.norm(dim=0, keepdim=True).clamp_min(1e-12)
+    A = (A + 0.05 * torch.rand(m, R, generator=g).to(DEV)).clamp_min(0)
     M1 = core.reshape(m, m * m)
     nrm2 = float((core ** 2).sum())
     for _ in range(iters):
