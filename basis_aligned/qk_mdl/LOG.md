@@ -4287,3 +4287,11 @@ much cheaper than layer 0's (most heads at the 32-atom floor).
 Process note: a chained background launch (heredoc+commit+run with inner '&') silently
 executed nothing — REPEAT of the tick-186 lesson; redone in foreground, single-purpose
 calls only.
+
+## Tick 199 (2026-07-26, Logan): equal-ablation control — clean negative + artifact l1
+qk_equal_ablation.py/.json; RESULTS §5n. dCE proportional to pattern energy removed,
+direction-independent (arch10 2.14 vs pca10 2.41 vs matched-shrink 2.44 per-energy);
+concentration identical across arms. Archetype directions are not causally privileged;
+their value is descriptive/compressive/predictive. rand10 removes 77x less energy —
+explains tick-191's null. Artifact: layer-1 section added (9 l1 head cards, full
+inventories with loadings/hists, port-test and vocabulary-shift prose).

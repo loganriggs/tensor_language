@@ -594,3 +594,27 @@ layer 1's pattern with normal static tables costs +0.171 — more than double h3
 effect (+0.078) — i.e. the live, context-computed layer-1 pattern partially
 COMPENSATES for the missing h3 signal, and freezing it removes that self-repair
 (plus a large positive interaction between the two corruptions; both readings logged).
+
+### 5n. Equal-ablation control: archetype directions are NOT causally privileged (tick 199)
+
+Logan's question: do head 3's archetype ablations differ from an equal ablation? Six
+arms on head 3, all scored by pattern energy removed (E[(ΔP)²] over 16M sampled token
+pairs) and per-position damage on 128 documents: top-1 archetype, top-10 archetype
+span, top-10 PCA of the p-weighted key tables, random 10-dim subspace, and two uniform
+score shrinks calibrated to match the archetype arms' removed energy exactly.
+
+**Damage is proportional to pattern energy removed, regardless of direction.** Damage
+per unit energy: archetype-10 2.14, PCA-10 2.41, energy-matched shrink 2.44, shrink
+matched to archetype-1 1.58 vs archetype-1 1.05 — the archetype directions do no
+*more* damage per unit than generic or uniform removals (slightly less). Concentration
+is identical across all arms (top-1% of positions carry ~16–17% of damage everywhere;
+hit fractions 0.79–0.88): damage concentration is a property of the head and the data,
+not of which directions are removed. (Random-10 removes 77× less energy than the
+archetype span — which retroactively explains tick 191's null random control.)
+
+Reading: head 3's downstream consumption is approximately isotropic in pattern space —
+the big directions ARE the used directions (consistent with §5m's expected-output-
+magnitude correlate). The archetypes' value is descriptive, compressive, and predictive
+(naming classes, minimal inventories, where-it-matters text), not a causal privilege
+per unit of pattern. The sparse-interaction hypothesis is not supported at the level of
+cross-entropy damage for this head. Clean negative, honestly logged.
