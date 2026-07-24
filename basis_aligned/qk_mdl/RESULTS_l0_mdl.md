@@ -576,3 +576,21 @@ document boundaries (heads 2, 5, 6: newline/end-of-text), quote/bracket openers
 fragments** ('cknowled', 'theless', 'secut'), consistent with a subword-continuation
 role, which explains both its causal weight and its context-dependence. Head 3 fits
 worst (0.52, long-tail-ish, layer-1's analog of the layer-0 hard heads).
+
+### 6c. Who reads layer-0 head 3? Everyone, a little — and layer 1 partially self-repairs (tick 197)
+
+Sensitivity: silencing l0-h3 during mean-residual estimation moves EVERY layer-1 head's
+tables by 10–30% (value modes most, 0.19–0.30) — no dedicated reader; the determiner
+signal is broadcast infrastructure. The archetype loadings that shift most are
+function-word classes across all nine heads (the/a/that/comma positions), i.e. h3's
+writes specifically shape how layer 1 keys function-word positions. The subword-
+continuation head (l1-h1) reads h3 least (0.11–0.15), as its role predicts.
+
+Path accounting of h3's +0.078: rebuilding layer 1's pattern tables from h3-less
+residuals (model otherwise normal) costs +0.028 beyond the port baseline — roughly
+**one-third of h3's effect flows through layer-1 pattern formation**, two-thirds
+through values/MLP/deeper layers. Striking interaction: zeroing h3 while SHIELDING
+layer 1's pattern with normal static tables costs +0.171 — more than double h3's live
+effect (+0.078) — i.e. the live, context-computed layer-1 pattern partially
+COMPENSATES for the missing h3 signal, and freezing it removes that self-repair
+(plus a large positive interaction between the two corruptions; both readings logged).

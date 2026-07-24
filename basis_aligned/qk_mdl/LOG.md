@@ -4269,3 +4269,11 @@ punctuation/subword-fragments (h1!) vs l0 function-word scaffold. l1-h3 = long-t
 analog (R32 0.52). Next (tick 197): who-reads-h3 — mean residuals re-estimated with
 l0-h3 zeroed; per-l1-head/archetype sensitivity to h3's writes; path-decomposition
 audits (l1-pattern path vs rest of h3's +0.078 effect).
+
+## Tick 197 (2026-07-26): who-reads-h3 — broadcast, one-third via l1 pattern, self-repair
+qk_who_reads_h3.py/.json; RESULTS §6c. All l1 heads sensitive 10-30% (v-modes most);
+moved archetype tokens = function words everywhere; l1-h1 least sensitive. Pattern-path
+share +0.028 of h3's +0.078; shielded-pattern condition +0.171 >> 0.078 -> live l1
+pattern partially compensates for h3 removal (or strong corruption interaction; both
+logged). Next (tick 198): l1 capacity frontier (ladders k in {1,2,4,8}, mirrors tick
+181) toward minimal l1 inventories + artifact layer-1 section.
