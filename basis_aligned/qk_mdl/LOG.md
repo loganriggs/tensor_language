@@ -4015,3 +4015,13 @@ PROGRAM STATE: all adopted-queue items complete except the spec's joint-training
 (next tick's build, warm-started from the stagewise solution per spec section 6) and
 layer 1 (deferred pending Logan). Frontier: +0.0023 @ 493 / +0.0008 @ 1393 Mbit.
 Mechanism: 7/9 heads with validated, null-tested, corpus-general archetypes.
+
+## tick 177 — joint training: first run collapsed exactly per the spec's warning; gamma/20 retry running
+
+gamma_max = 1.0 (sketch-normalized) destroyed everything on all three heads: h2 recon R2
+0.726 -> 0.317, moment residual 0.0004 -> 0.996, CP rel-err 0.031 -> 0.711. Textbook
+spec-section-6 collapse: the encoder degenerates to make the third-moment sketch trivially
+matchable; my run violated the spec's own protocol by jumping to a high gamma instead of
+ramping only while Stage-1 gates hold. Retry at gamma_max = 0.05 running (qk_joint_g005).
+If the gentle version also buys no CP structure at held gates, the verdict is: stagewise
+pipeline stands, joint training closed as a negative for this object.

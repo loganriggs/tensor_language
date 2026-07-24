@@ -162,7 +162,7 @@ def cp_fit(core_raw, R, seed, n_starts=8, iters=60):
 
 
 import json
-R_CP, GAMMA_MAX, JSTEPS, N_PROBE = 32, 1.0, 4000, 8
+R_CP, GAMMA_MAX, JSTEPS, N_PROBE = 32, 0.05, 4000, 8
 out = {}
 for h in (2, 8, 1):                                    # best / mid / worst of the gated heads
     Y = torch.cat([K1[:, h], K2[:, h], Vv[:, h]], 1)
@@ -232,5 +232,5 @@ for h in (2, 8, 1):                                    # best / mid / worst of t
                               'cp_relerr_R32': round(relJ, 4)}}
     print(f'h{h}: stagewise r2 {r2_0:.4f} mres {mres0:.4f} cpR32 {rel0:.4f} | '
           f'joint r2 {r2_J:.4f} mres {mresJ:.4f} cpR32 {relJ:.4f}', flush=True)
-    json.dump(out, open(f'{QK}/qk_joint.json', 'w'), indent=2)
+    json.dump(out, open(f'{QK}/qk_joint_g005.json', 'w'), indent=2)
 print('JOINT DONE', flush=True)
