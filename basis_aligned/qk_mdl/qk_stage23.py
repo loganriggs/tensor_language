@@ -61,8 +61,13 @@ def cp_fit(core, R, seed, iters=80, ridge=1e-6):
     for _ in range(iters):
         KR = (A[:, None, :] * A[None, :, :]).reshape(m * m, R)
         G = M1 @ KR                                            # (m, R)
-        H = (A.T @ A) ** 2 + ridge * torch.eye(R, device=DEV)
+        H = (A.T @ A) ** 2
+        jit = 1e-6 * float(H.diagonal().mean()) + 1e-12
+        H = H + jit * torch.eye(R, device=DEV)
         A = torch.linalg.solve(H, G.T).T.clamp_min(0)
+        dead = A.sum(0) == 0
+        if bool(dead.any()):
+            A[:, dead] = torch.rand(m, int(dead.sum()), generator=g).to(DEV) * 0.1
     lam = A.norm(dim=0).clamp_min(1e-12)
     U = A / lam[None, :]
     lam3 = lam ** 3
