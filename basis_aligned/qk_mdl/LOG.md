@@ -4261,3 +4261,11 @@ h1 +0.0032, rest 0.0005-0.0013; sum 0.016 vs joint 0.027 (mildly superadditive).
 token-identity approximation is uniformly good; no head is beyond it.
 Next (tick 196): l1 Stage 2-3 — cores, CP archetypes, corrected nulls, stability, token
 dumps for all nine l1 heads (h1 rebuilt with shrunk tables).
+
+## Tick 196 (2026-07-26): layer-1 Stages 2-3 complete — 9/9 validate
+qk_l1_stage23.py/.json/.pt; RESULTS §6b. h1 rebuilt on shrunk tables (gate 0.0000).
+All heads beat corrected null; stability 0.96-1.0. Vocabulary shift: l1 = boundaries/
+punctuation/subword-fragments (h1!) vs l0 function-word scaffold. l1-h3 = long-tail
+analog (R32 0.52). Next (tick 197): who-reads-h3 — mean residuals re-estimated with
+l0-h3 zeroed; per-l1-head/archetype sensitivity to h3's writes; path-decomposition
+audits (l1-pattern path vs rest of h3's +0.078 effect).

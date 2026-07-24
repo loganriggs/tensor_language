@@ -559,3 +559,20 @@ layer 1's pattern is ~27× more causally important than layer 0's entire attenti
 zeroing sums to only +0.128 (h1 +0.065, h4 +0.020, h8 +0.017, h3 +0.011, rest ≤0.006),
 21× below the joint effect, so layer-1 heads back each other up in a way layer-0 heads
 do not.
+
+### 6b. The layer-1 mechanism ledger: all nine heads validate (ticks 194–196)
+
+Stage 1 (token tables from shrinkage-estimated mean residuals): all nine heads pass the
+moment gate — seven at 512 features, head 3 at 1024, head 1 at 1024 on shrunk tables
+(its raw-mean divergence was rare-token estimation noise cubed by the moment; tick 195).
+Stages 2–3 (cores, rank-32 symmetric CP): every head beats the corrected null (real
+fits 0.10–0.52 vs null-factors-on-real 0.54–1.00), restart stability 0.96–1.00.
+
+**Layer 1 speaks a different archetype vocabulary than layer 0.** Layer 0 is
+function-word scaffold ({the}, {a/an}, {of}); layer 1's top archetypes are
+sentence/discourse boundaries (heads 0, 4, 7: period/quote/exclamation families),
+document boundaries (heads 2, 5, 6: newline/end-of-text), quote/bracket openers
+(head 8), and — on head 1, the causally dominant layer-1 head — **mid-word subword
+fragments** ('cknowled', 'theless', 'secut'), consistent with a subword-continuation
+role, which explains both its causal weight and its context-dependence. Head 3 fits
+worst (0.52, long-tail-ish, layer-1's analog of the layer-0 hard heads).
