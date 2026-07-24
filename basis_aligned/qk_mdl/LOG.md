@@ -3893,3 +3893,25 @@ Consequence for the queue: the triple SAE's cross-branch premise is weakened for
 it remains the input for the spec's Stages 2-3 MECHANISM pipeline (different ledger), so it
 will be built for that purpose with expectations set accordingly. Next: planted-synthetic
 unit tests (spec 8A checks 1+3 and triple recovery).
+
+## tick 170 — planted-synthetic unit tests: the gate FAILED, informatively (spec 8A)
+
+qk_planted_synth.py, DGP: 48 orthogonal atoms in R^64, 3 attribute groups, planted
+color-shape block coupling (0.7), no noise, exact identifiability. Results:
+- Check 1 dictionary recovery: mean max|cos| 0.884, only 56% of atoms above 0.9 — FAIL
+  against the 0.99 gate; unchanged 4k->12k steps (solver plateau, not under-training).
+- Core reproduction: rel Frobenius error 0.46 — the learned-code third moment is
+  substantially distorted. Triple recovery precision@200 = 0.725.
+- Permutation null: planted-triple alignment collapses 0.725 -> 0.020 (the structure
+  detected is real co-occurrence, not marginals). Note: my off-diagonal MASS gate was
+  mis-specified for fixed-k codes (permuted tokens still have 3 co-active features, so
+  mass persists by construction; alignment is the meaningful metric) — corrected reading.
+- DECISIVE CONTROL: same DGP with independent groups -> 0.964 / 79% above 0.9. So the
+  dominant failure is the CORRELATION itself — feature absorption: co-occurring features
+  get merged into mixed atoms — plus ~0.03 general solver slack even when clean.
+CONSEQUENCES: (a) spec Stages 2-3 (mechanism pipeline) remain GATED — CP-of-core claims
+would inherit exactly this distortion (0.73 triple precision on known ground truth);
+(b) the FUNCTION-MDL frontier results are NOT affected (judged by held-out delta-CE,
+not atom identifiability); (c) queue: solver hardening — nonnegative codes (planted codes
+are positive; spec recommends nonneg), multi-restart best-of, OMP-style encoding in
+training — then re-run the gate before any Stage 2-3 work on the real head.
