@@ -3881,3 +3881,15 @@ exact-moment static + sampled scatter + anchors. Next: 169b regrouping A/B (quer
 key-pairs vs current within-branch grouping, matched bits, exact-moment objective), then
 the full triple SAE with the value leg (needs v-patched forward), principal angles logged
 this tick, planted synthetics after.
+
+## tick 169b-lite (complete) — cross-branch regrouping is a clean NULL
+
+rg1024 (query-pairs + key-pairs, exact-moment recipe, matched bits): +0.0038 vs within-branch
++0.0027; with 256 anchors +0.0032 vs +0.0023. The within-branch [q|k] grouping wins clearly.
+Reading: the correlation the dictionary exploits is stronger between a token's query-role and
+key-role within a branch (the two sides that multiply in the same score) than between its two
+branch factors — despite partial branch-subspace alignment (principal angles, head 3 highest).
+Consequence for the queue: the triple SAE's cross-branch premise is weakened for FUNCTION-MDL;
+it remains the input for the spec's Stages 2-3 MECHANISM pipeline (different ledger), so it
+will be built for that purpose with expectations set accordingly. Next: planted-synthetic
+unit tests (spec 8A checks 1+3 and triple recovery).
