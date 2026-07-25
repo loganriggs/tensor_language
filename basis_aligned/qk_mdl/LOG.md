@@ -4365,3 +4365,11 @@ ov_norm 0.87 best. Family B (90 archetype ablations): uniform weight fraction be
 (0.83/0.61 within-head), pattern energy 0.71/0.55, mechanism core mass ~0 (0.11/0.02)
 — moment-vs-function decoupling fully quantitative. Calibration hierarchy is
 object-dependent: calibrate per claim class. REST STATE.
+
+## Tick 210 (2026-07-25, Logan): generator zoo — architecture-insensitive plateau
+qk_ctx_gen_zoo.py (round 1, training failure logged), qk_ctx_gen_zoo2.py/.json
+(round 2, fixed); RESULTS §7i. All nonlinear arms: R2 0.62-0.64, audit +0.0334-0.0336;
+linear +0.0363; oracle +0.0113. Verdict: information bottleneck in the 64-dim code,
+not expressivity; no architectural prior distinguished (sparsity stats flat).
+REST STATE: gated next steps — richer generator inputs (attention outputs / wider
+code), layer 2, consolidation write-up.

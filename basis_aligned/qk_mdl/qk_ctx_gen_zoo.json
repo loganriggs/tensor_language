@@ -1,0 +1,44 @@
+{
+  "lin64": {
+    "params": 37440,
+    "val_r2": 0.4624,
+    "weight_top1pct": 0.116,
+    "audit_dce": 0.03632
+  },
+  "linscal": {
+    "params": 39744,
+    "val_r2": 0.459,
+    "weight_top1pct": 0.363,
+    "audit_dce": 0.03623
+  },
+  "linwide": {
+    "params": 148032,
+    "val_r2": 0.5912,
+    "weight_top1pct": 0.078,
+    "audit_dce": 0.03552
+  },
+  "bilin": {
+    "params": 141376,
+    "val_r2": -12112860.2538,
+    "weight_top1pct": 0.061,
+    "audit_dce": 17.55045
+  },
+  "swiglu": {
+    "params": 141376,
+    "val_r2": -13466794.0198,
+    "weight_top1pct": 0.077,
+    "audit_dce": 18.28699
+  },
+  "mlp": {
+    "params": 148006,
+    "val_r2": 0.0861,
+    "weight_top1pct": 0.033,
+    "audit_dce": 0.04295
+  },
+  "hier": {
+    "params": 144224,
+    "val_r2": 0.0098,
+    "weight_top1pct": 0.047,
+    "audit_dce": 0.04611
+  }
+}

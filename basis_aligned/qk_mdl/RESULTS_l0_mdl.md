@@ -793,3 +793,33 @@ measure is right depends on the object and intervention family, strengthening th
 practical conclusion: calibrate the measure against causal probes for each claim
 class, rather than assuming any single geometry (weight, unigram, pattern, or moment)
 is universally the right one.
+
+### 7i. The generator zoo: architecture-insensitive — the bottleneck is information, not expressivity (tick 210)
+
+Round 1 failed training hygiene (gated arms diverged without whitening/skip; logged as
+training failure, not evidence). Round 2, parameter-matched (~140–150k) with whitened
+codes and linear-skip wrappers:
+
+| arm | val R² | full-audit ΔCE |
+|---|---|---|
+| linear (64-code, 37k) | 0.465 | +0.0363 |
+| linear + norm scalars | 0.475 | +0.0358 |
+| linear (256-code) | 0.606 | +0.0356 |
+| bilinear gate | 0.629 | +0.0334 |
+| swiglu gate | 0.643 | +0.0335 |
+| single-encoder MLP | 0.638 | +0.0335 |
+| hierarchical | 0.624 | +0.0336 |
+
+Findings: (1) **every nonlinear family lands in the same place** (R² 0.62–0.64, audit
++0.0334–0.0336) — the model's own bilinear primitive holds no advantage at matched
+capacity, and weight-sparsity statistics don't separate the arms either (top-1% mass
+0.07–0.10 everywhere), so the "sparsest fit reveals the prior" test is inconclusive:
+no architectural prior is distinguished by this task. (2) Nonlinearity is worth only
+~+0.003 over linear on the audit; the generated pipeline plateaus at **45% of the
+oracle gap** (+0.0334 vs oracle +0.0113 / static +0.0515) for every family. The
+remaining signal is not a function-class problem: it is INFORMATION the 64-dimensional
+MLP-output code does not carry (the wider linear code matching nonlinear-arm R²
+corroborates). What layer 1's pattern reads beyond this code draws on the attention
+outputs, the skip path, or fine MLP structure beyond 64 principal directions — the
+interface remains priced at 16 dimensions (oracle), with generation from the natural
+code capped near half of it regardless of architecture.
