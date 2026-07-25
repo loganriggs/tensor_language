@@ -4410,3 +4410,10 @@ qk_bigram_table.py/.json; RESULTS §7m. prev-token table: residual R2 0.02, end-
 gain zero; prev-2 worse. With the window null: h1's missing key context is composed
 multi-token state, not any short-window identity function. Generator arc CLOSED with
 full hypothesis walk. REST STATE. Open: layer 2; consolidation write-up.
+
+## Tick 216 (2026-07-25, cron): consolidation write-up
+qk_two_layer_story.md — the two-layer story consolidated: one-paragraph account,
+instruments (binding metric, planted gates, corrected nulls, measure calibration,
+data ladders), layer-0 function + mechanism, layer-1 port + vocabulary, MLP
+dense-engine/narrow-window with the closed generator hypothesis walk, and layer-2
+guidance. REST STATE: layer 2 remains the open scope decision.
