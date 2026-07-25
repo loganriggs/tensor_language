@@ -677,3 +677,28 @@ from the block-0 MLP into layer 1's pattern is low-dimensional in practice, even
 though the MLP computing it is dense and high-rank in weight space. The compact
 two-circuit object is now concrete: per reader, a token table plus a rank-≈10 context
 adapter — tick 204 fits and audits exactly that.
+
+### 7d. The compact two-circuit object, priced (tick 204)
+
+Full-model audits (manual 18-layer forward, verified to reproduce the reference
+baseline to five decimals) with layer 1's pre-rotary factors replaced by
+token table + rank-r context adapter (top-r PCA of realized deviations, estimated on
+disjoint data), all four maps, all nine heads:
+
+| context rank r per channel | held-out ΔCE |
+|---|---|
+| 0 (pure static tables) | +0.0515 |
+| 4 | +0.0208 |
+| 16 | +0.0113 |
+| 64 | +0.0009 |
+
+Sixteen context dimensions per channel recover 78% of the static gap; sixty-four
+recover 98%. The adapter bases cost only ~2.4 Mbit total. Honest framing: this prices
+the INTERFACE — the context information layer 1's pattern actually consumes is
+~16-dimensional per channel — but the adapter projects the true factors at runtime,
+so it compresses the channel, not the MLP computation itself. The natural completion
+(open): a linear generator for those dimensions from a low-rank projection of the MLP
+output, which the tick-203 manifold collapse (median effective rank 10) says should
+exist. (Note: rank-0 here is +0.052 vs the +0.027 raw-mean port of §6a — shrinkage
+tables trade a little function for moment robustness; both numbers stand, different
+table estimators.)

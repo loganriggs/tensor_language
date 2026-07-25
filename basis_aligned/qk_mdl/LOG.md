@@ -4323,3 +4323,10 @@ token-identity R2 median 0.56 (range 0.45-0.95). The MLP->l1 context signal is
 ~10-dimensional on the manifold. Tick 204: constructive audit — l1 factors = token
 table + rank-r truncated deviation (r in {4,16,64}), full-audit dCE vs static (+0.027)
 and exact (0).
+
+## Tick 204 (2026-07-25): interface priced — 16 context dims/channel = 78% of the gap
+qk_l1_lowrank_ctx.py/.json; RESULTS §7d. Manual 18-layer forward validated (base CE
+matches reference exactly). Frontier: r=0 +0.0515 (shrunk tables), r=4 +0.0208, r=16
++0.0113, r=64 +0.0009. MLP arc state: dense object, low-dim interface; open item =
+linear generator MLP-out -> adapter dims (would close the loop into a fully compact
+two-layer circuit). GPU idle; resting.
