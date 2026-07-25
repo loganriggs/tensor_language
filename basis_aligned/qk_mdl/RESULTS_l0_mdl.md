@@ -767,3 +767,29 @@ is a low-dimensional manifold signal (Section 7c–7e) — the sparse, nameable 
 of this model lives in the QK factor tables and their archetypes, not inside the MLP
 composition. (Caveats logged: rank 32, greedy deflation; the output-mode alignment
 with layer-1 archetypes — cosine up to 0.89 — remains the one real positive.)
+
+## 8. Measure calibration: which geometry predicts causal damage (tick 209)
+
+![measure calibration](fig_measure_calibration.png)
+
+Spearman rank correlation between each candidate measure's residual and measured
+causal damage, across the stored intervention library.
+
+**Family A — nine whole-head ablations (full audit):** expected output magnitude
+ov_norm 0.87 > pattern×write 0.80 > expected squared pattern 0.75 > core scale 0.65 >
+uniform table norm 0.50 (degenerate — the fold makes all head tables equal-norm).
+
+**Family B — ninety per-archetype channel ablations:** uniform weight fraction
+**0.83 pooled / 0.61 within-head** > unigram-weighted fraction 0.73/0.51 ≈ pattern
+energy 0.71/0.55 ≫ **mechanism core mass λ: 0.11 pooled, 0.02 within-head —
+essentially uncalibrated.**
+
+Two lessons. First, the moment-versus-function decoupling is now fully quantitative:
+the mechanism ledger's own importance weights carry almost no information about causal
+damage — the two ledgers must never be conflated, measured at ρ ≈ 0. Second, a
+surprise against the simple thesis: at the *channel* level the plain uniform weight
+fraction calibrates best (at the *head* level it is degenerate and worst) — which
+measure is right depends on the object and intervention family, strengthening the
+practical conclusion: calibrate the measure against causal probes for each claim
+class, rather than assuming any single geometry (weight, unigram, pattern, or moment)
+is universally the right one.

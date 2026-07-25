@@ -4358,3 +4358,10 @@ frequency structure, not interaction structure. Composed-CP double negative logg
 10-writer extension moot in this form. MLP arc rests on the interface description
 (7c-7e). REST STATE: Logan-gated — nonlinear interface generator, layer 2,
 consolidation write-up.
+
+## Tick 209 (2026-07-25): measure calibration measured
+qk_measure_calibration.py/.json, fig_measure_calibration.png; RESULTS §8. Family A:
+ov_norm 0.87 best. Family B (90 archetype ablations): uniform weight fraction best
+(0.83/0.61 within-head), pattern energy 0.71/0.55, mechanism core mass ~0 (0.11/0.02)
+— moment-vs-function decoupling fully quantitative. Calibration hierarchy is
+object-dependent: calibrate per claim class. REST STATE.
