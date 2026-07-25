@@ -4439,3 +4439,10 @@ qk_dissociation.py/.json (l1-h7: removal +0.0003, only=zeroed), qk_dissociation_
 RESULTS §9. Selectivity is tail-concentrated (tick-190 catastrophic single-prediction
 breaks), not mean-level. Coding analogy refined: l0 = code with hot paths, l1 =
 ensemble. REST STATE.
+
+## Tick 220 (2026-07-25, Logan): generality spectrum — silence is the computation
+qk_generality.py/.json; RESULTS §10. Kernel replacement >> zeroing for 17/18 heads
+(content ratios 4-238): heads are content-gated sparse firers; silence is computed;
+no positional-scalar heads except l0h6 (0.65, part-positional). Class enrichment
+near-flat at head grain (1.3-1.6x, cap/after-det everywhere; no induction
+specialists): hierarchy lives within heads (archetypes), not across them. REST.

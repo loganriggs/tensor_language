@@ -969,3 +969,34 @@ layer-1 channels have no owned call-sites at all. Neither layer is modular in th
 textbook sense; layer 0 is "code with hot paths," layer 1 is "an ensemble." The
 variable-level diagrams (§ sub-circuit stories) remain valid as contribution maps;
 necessity semantics attach only to layer-0 tail cases and whole heads.
+
+## 10. The generality spectrum: silence is the computation (tick 220)
+
+Logan's hypothesis: uniformly-useful components might reduce to scalars (offset
+kernels); broadly-topical ones should show class structure. Both tested on all 18
+heads (zero vs offset-kernel replacement; per-position damage split over six context
+classes).
+
+**(1) No head is a positional scalar — and the kernel test failed in the most
+informative direction possible.** Replacing a head's pattern with its content-free
+average offset kernel is almost always far WORSE than deleting the head (content
+ratios 4–238; layer-1 head 8: kernel +3.74 versus zero +0.016). In this no-softmax
+bilinear regime, a head's pattern is near-zero at most (query, key) pairs and fires
+selectively on class matches — so the head's SILENCE is a computed output. Forcing
+the average kernel makes it attend indiscriminately, which poisons the residual far
+more than absence. The generality of the ensemble is not positional-prior-ness; it is
+content-gated sparse firing. One genuine exception: layer-0 head 6 (delimiters),
+content ratio 0.65 — the kernel is BETTER than zeroing, so it is part positional
+prior; layer-0 head 0 sits near parity (1.66).
+
+**(2) No topic hierarchy at head grain.** Class-enrichment rows are nearly flat
+everywhere (top enrichments 1.3–1.6×, almost always capitalized-target or
+after-determiner, for every head); no induction specialists in the first two layers
+(repeat contexts are 48% of positions and never a head's peak class). The hierarchy
+Logan proposed exists WITHIN heads (the archetype classes) but not ACROSS heads by
+context class: heads are general engines with mild tilts, differentiated by which
+token classes they key, not by which text domains they serve.
+
+Combined with §9: the first two layers' organization is archetype-classes inside
+content-gated heads inside a redundant ensemble — with head silence doing much of the
+computational work.
