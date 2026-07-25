@@ -4316,3 +4316,10 @@ qk_mlp_eigen.py/.json; RESULTS §7b. Channel eff-rank median 68/128 (min 12); ei
 spectra flat (top-12 = 17-26%); lead eigenvectors mostly junk-token-aligned (one hit:
 change-of-state verbs on the lexical reader). Whole-MLP zero +2.495. Tick 203: data-
 weighted channel ranks (activation-covariance) — is the compression on the manifold?
+
+## Tick 203 (2026-07-25): MANIFOLD COLLAPSE — data rank median 10 vs weight 68
+qk_mlp_datarank.py/.json; RESULTS §7c. Channel outputs: eff rank median 10 (min 1),
+token-identity R2 median 0.56 (range 0.45-0.95). The MLP->l1 context signal is
+~10-dimensional on the manifold. Tick 204: constructive audit — l1 factors = token
+table + rank-r truncated deviation (r in {4,16,64}), full-audit dCE vs static (+0.027)
+and exact (0).

@@ -664,3 +664,16 @@ class (get/came/became/create). Calibration: zeroing the whole block-0 MLP costs
 the MLP resists neuron-sparsity AND weight-space rank-sparsity; remaining hypothesis
 is that compression lives on the DATA MANIFOLD (weight-space ranks count directions
 the data never visits) — tick 203 measures data-weighted channel ranks.
+
+### 7c. The channels collapse on the data manifold (tick 203)
+
+Realized covariance of each MLP→layer-1-reader channel output on held-out text:
+**effective rank median 10** (min 1, max 62) versus 68 in weight space — the manifold
+compression the weight ball hides. Channel outputs are 45–95% token-identity-explained
+(median 0.56), so what each layer-1 reader actually receives from the MLP is mostly a
+vocabulary signal plus a ~10-effective-dimensional context signal. Converges with
+§6d (16 dimensions halve layer-1's factor deviations): the context computation flowing
+from the block-0 MLP into layer 1's pattern is low-dimensional in practice, even
+though the MLP computing it is dense and high-rank in weight space. The compact
+two-circuit object is now concrete: per reader, a token table plus a rank-≈10 context
+adapter — tick 204 fits and audits exactly that.
