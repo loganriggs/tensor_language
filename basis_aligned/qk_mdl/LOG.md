@@ -4453,3 +4453,14 @@ H2 bias-supply rejected (mean-write restore recovers ~2%); H3 distributed patter
 precision stands, consistent with the §5n energy law and §tick-191 overlap. Two
 launch bugs this tick (wrong slice marker; missing rope_tables import) — both cheap,
 fixed with asserts/grep. REST STATE.
+
+## Ticks 222-223 (2026-07-25, Logan's L4 directive): U-metric + pairwise rung 1
+qk_understanding_metric.md (U-v1 frozen: U = F x S, referenced weights at full
+freight, anchors + intuition checks; current ledger scored — best rows: minimal
+inventories U~0.3; all weight-referencing context objects U~0.06).
+qk_pairwise.py/.json + qk_pairwise_audit.py: HYPOTHESIS 1 (pairwise offset
+interactions) PARTIALLY CONFIRMED — 45 offset-pair rank-4 bilinear maps, 3.6 Mbit
+fully explicit: val R2 0.245, audit +0.0410 (26% of context gap; F 0.9848; U ~ 0.34 —
+NEW BEST ROW, and the first context object with no weight references). Next rung:
+capacity-scale pairwise (rank 8, offsets to 12) to find second-order saturation;
+then third-order if needed.
