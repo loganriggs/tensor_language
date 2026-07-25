@@ -1,0 +1,167 @@
+{
+  "n_neurons": 4608,
+  "usage_spectrum": {
+    "128": 0.0595,
+    "256": 0.0989,
+    "512": 0.1683,
+    "1024": 0.2921,
+    "2048": 0.5165
+  },
+  "token_r2": {
+    "median": 0.342,
+    "frac_gt_0.5": 0.157,
+    "frac_lt_0.1": 0.003
+  },
+  "readers": {
+    "q1_h0": {
+      "eff_neurons": 4549.0,
+      "top256_share": 0.072
+    },
+    "q1_h1": {
+      "eff_neurons": 4523.7,
+      "top256_share": 0.076
+    },
+    "q1_h2": {
+      "eff_neurons": 4533.1,
+      "top256_share": 0.074
+    },
+    "q1_h3": {
+      "eff_neurons": 4485.1,
+      "top256_share": 0.079
+    },
+    "q1_h4": {
+      "eff_neurons": 4514.6,
+      "top256_share": 0.075
+    },
+    "q1_h5": {
+      "eff_neurons": 4494.5,
+      "top256_share": 0.08
+    },
+    "q1_h6": {
+      "eff_neurons": 4566.7,
+      "top256_share": 0.068
+    },
+    "q1_h7": {
+      "eff_neurons": 4522.9,
+      "top256_share": 0.076
+    },
+    "q1_h8": {
+      "eff_neurons": 4509.7,
+      "top256_share": 0.075
+    },
+    "k1_h0": {
+      "eff_neurons": 4558.7,
+      "top256_share": 0.069
+    },
+    "k1_h1": {
+      "eff_neurons": 4469.8,
+      "top256_share": 0.081
+    },
+    "k1_h2": {
+      "eff_neurons": 4552.8,
+      "top256_share": 0.071
+    },
+    "k1_h3": {
+      "eff_neurons": 4495.8,
+      "top256_share": 0.078
+    },
+    "k1_h4": {
+      "eff_neurons": 4537.5,
+      "top256_share": 0.073
+    },
+    "k1_h5": {
+      "eff_neurons": 4543.8,
+      "top256_share": 0.072
+    },
+    "k1_h6": {
+      "eff_neurons": 4557.2,
+      "top256_share": 0.069
+    },
+    "k1_h7": {
+      "eff_neurons": 4550.6,
+      "top256_share": 0.071
+    },
+    "k1_h8": {
+      "eff_neurons": 4538.6,
+      "top256_share": 0.072
+    },
+    "q2_h0": {
+      "eff_neurons": 4556.4,
+      "top256_share": 0.07
+    },
+    "q2_h1": {
+      "eff_neurons": 4490.0,
+      "top256_share": 0.08
+    },
+    "q2_h2": {
+      "eff_neurons": 4535.3,
+      "top256_share": 0.075
+    },
+    "q2_h3": {
+      "eff_neurons": 4552.2,
+      "top256_share": 0.071
+    },
+    "q2_h4": {
+      "eff_neurons": 4553.7,
+      "top256_share": 0.07
+    },
+    "q2_h5": {
+      "eff_neurons": 4524.0,
+      "top256_share": 0.076
+    },
+    "q2_h6": {
+      "eff_neurons": 4566.9,
+      "top256_share": 0.068
+    },
+    "q2_h7": {
+      "eff_neurons": 4544.8,
+      "top256_share": 0.073
+    },
+    "q2_h8": {
+      "eff_neurons": 4521.8,
+      "top256_share": 0.073
+    },
+    "k2_h0": {
+      "eff_neurons": 4564.8,
+      "top256_share": 0.069
+    },
+    "k2_h1": {
+      "eff_neurons": 4360.6,
+      "top256_share": 0.091
+    },
+    "k2_h2": {
+      "eff_neurons": 4558.5,
+      "top256_share": 0.07
+    },
+    "k2_h3": {
+      "eff_neurons": 4568.5,
+      "top256_share": 0.067
+    },
+    "k2_h4": {
+      "eff_neurons": 4552.3,
+      "top256_share": 0.071
+    },
+    "k2_h5": {
+      "eff_neurons": 4542.8,
+      "top256_share": 0.072
+    },
+    "k2_h6": {
+      "eff_neurons": 4561.6,
+      "top256_share": 0.069
+    },
+    "k2_h7": {
+      "eff_neurons": 4562.2,
+      "top256_share": 0.069
+    },
+    "k2_h8": {
+      "eff_neurons": 4544.4,
+      "top256_share": 0.071
+    }
+  },
+  "k1_top256_overlap_offdiag_mean": 0.174,
+  "prune_keep_2048_dce": 0.03034,
+  "prune_keep_1024_dce": 0.11487,
+  "prune_keep_512_dce": 0.33594,
+  "prune_keep_256_dce": 0.78335,
+  "prune_keep_128_dce": 1.19994
+}

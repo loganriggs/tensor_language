@@ -4304,3 +4304,9 @@ MLP-authored. Program state: both layers' static ledgers complete + causally
 calibrated; the open frontier is (a) block-0 MLP decomposition (new object class —
 Logan-gated scope), (b) layer 2 (Logan-gated), (c) two-layer consolidation write-up.
 GPU idle; resting pending Logan's pick.
+
+## Tick 201 (2026-07-25, Logan un-gates MLP): recon — dense in neuron basis
+qk_mlp_recon.py/.json; RESULTS §7a. Flat usage (top-128 = 6%); prune frontier harsh
+(half -> +0.030, quarter -> +0.115); reader maps touch ~all neurons (eff 4361-4568/
+4608); token-R2 median 0.34 (context-driven). Neuron basis wrong; tick 202 =
+eigen/rank analysis of reader-composed quadratic forms + whole-MLP calibration.

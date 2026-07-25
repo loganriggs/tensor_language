@@ -632,3 +632,22 @@ deviation, layer-0 attention outputs only 21–35%, both together 51–68%. Laye
 context-sensitivity is chiefly authored by the block-0 MLP, not by the attention heads
 whose ledger we built — and a third to a half of it is not linearly explained by
 either, the first object in the program that resists all current machinery.
+
+## 7. The block-0 Bilinear MLP (opened by Logan; ticks 201–)
+
+### 7a. Reconnaissance: dense in the neuron basis (tick 201)
+
+The MLP is already a written-in-weights CP tensor of rank 4608 (out =
+Down(Left(h)·Right(h))). Recon verdict: **no neuron-level sparsity anywhere.**
+(1) Usage spectrum is flat: the top 128 neurons carry 6% of write-weighted usage, the
+top half only 52%. (2) The neuron-count frontier is harsh: keeping the top half costs
++0.030 nats, top quarter +0.115, top 256 +0.783 — every neuron tier is doing work
+(contrast: all of layer-0 attention is +0.10 total). (3) Logan's next-circuit reader
+test, weight-space: the layer-1 query/key read maps touch essentially ALL neurons
+(effective count 4361–4568 of 4608; top-256 neuron sets overlap only 0.17 between
+heads) — the MLP→layer-1-QK channel is NOT neuron-sparse. (4) Most neurons are
+context-driven: split-half token-identity R² has median 0.34 with only 16% of neurons
+above 0.5 — consistent with the MLP being the author of layer 1's context part.
+
+Conclusion: the interesting structure, if any, is basis-free — low RANK rather than
+few neurons. Next: eigendecomposition of the reader-composed bilinear forms.
