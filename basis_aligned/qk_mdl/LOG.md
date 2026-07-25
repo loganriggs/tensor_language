@@ -4417,3 +4417,9 @@ instruments (binding metric, planted gates, corrected nulls, measure calibration
 data ladders), layer-0 function + mechanism, layer-1 port + vocabulary, MLP
 dense-engine/narrow-window with the closed generator hypothesis walk, and layer-2
 guidance. REST STATE: layer 2 remains the open scope decision.
+
+## Tick 217 (2026-07-25, Logan unblocked): sliver curve — L3 CLOSED
+qk_sliver.py/.json; RESULTS §7n. W=16 window (+0.0099) beats the oracle interface;
+W=8 beats all code generators; W=1 worse than static; no-MLP catastrophic. Layer-1
+pattern context = block-0 on the last 16 tokens (local, MLP-mandatory). REST STATE:
+L4 (internal algorithm of the dense mixer) and layer 2 remain the open frontiers.

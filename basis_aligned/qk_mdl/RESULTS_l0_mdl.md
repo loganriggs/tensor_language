@@ -917,3 +917,27 @@ generators +0.032 → oracle interface +0.0113, with the remaining half being th
 price of composition itself. Hypothesis space fully walked: architecture (null),
 code width (null), attention codes (small), window identity (null), bigram identity
 (null), head-localization (strong: h1 = 56%).
+
+### 7n. The pruned sliver: layer-1's pattern context is a 16-token local computation (tick 217)
+
+Layer-1 factors computed from a REDUCED block-0 state (attention causally windowed to
+W positions; real forward elsewhere; route-only patching), full audits:
+
+| sliver | ΔCE | vs anchors |
+|---|---|---|
+| W=1 + MLP | +0.363 | worse than static tables (+0.0515) — truncated composition is worse than none |
+| W=2 + MLP | +0.153 | |
+| W=4 + MLP | +0.070 | |
+| W=8 + MLP | +0.028 | **beats the best code generator (+0.032)** |
+| W=16 + MLP | **+0.0099** | **beats the 16-dim oracle interface (+0.0113)** |
+| W=4, no MLP | +0.667 | the block-0 MLP is essential to the composition |
+
+**Level-3 understanding closes:** the generator that no lookup or code could be is
+simply *block 0 itself, run on the last sixteen tokens* — 3% of the attention context
+— which reproduces layer-1's entire pattern context beyond even the oracle interface.
+The composed multi-token state is LOCAL (16 tokens suffice; 4 do not; 1 is worse than
+nothing), and the dense MLP is a mandatory ingredient of the composition, not a
+bypassable mixer. Final form of the two-layer pattern circuit: token tables +
+archetypes everywhere, plus one named subroutine call — "block-0 on a 16-token
+window" — whose internal algorithm remains dense (level 4) but whose input scope,
+compute cost, and output law are now all measured.
