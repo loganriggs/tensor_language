@@ -4477,3 +4477,10 @@ qk_pairwise_ctrl.py/.json: 45 pairs rank 8, 262k samples, weight decay: val R2 0
 per doubling shrinking vs plateau 0.63 -> remaining window computation is higher-order
 (consistent with bilinear-of-bilinear = order 4 in embeddings). Next rung (tick 226):
 add an explicit low-rank third-order term over close offsets, jointly trained.
+
+## Tick 226 (2026-07-25): third-order marginal — ladder saturates at 29%; pausing for Logan
+qk_thirdorder.py/.json; RESULTS §11. Order-3 adds R2 +0.009, audit unchanged. Explicit
+polynomial frontier: 29% of context gap at ~14 Mbit (U ~ 0.33). Remaining 70% is not
+low-order polynomial over embedding codes. Presenting the ladder to Logan for ideas
+(his standing invitation) rather than auto-climbing further. GPU idle; cron continues
+as status checks.

@@ -1025,3 +1025,28 @@ of precision. This is why it resists factorization into nameable variables: it i
 circuit's error budget, not its message content. (In MDL terms: the archetype
 dictionaries spend most of their bits on precision shared across all uses, and a
 minority on the class-specific hot paths where necessity semantics live.)
+
+## 11. The interaction-order ladder (ticks 223–226): the explicit frontier of the window
+
+Target: layer-1's context signal (the 576 adapter coordinates), explained by fully
+explicit objects — no block-0 weight references. Ladder of interaction orders over
+embedding codes at window offsets:
+
+| rung | object | bits | val R² | audit ΔCE | share of context gap |
+|---|---|---|---|---|---|
+| order 1 | token lookups, any resolution (window codes, bigram tables) | up to 52 Mb | ~0.02 | no gain | 0% |
+| order 2 | 45 offset-pair bilinear maps, rank 8, controlled training | ~14 Mb | 0.283 | +0.0398 | **29%** |
+| order 2+3 | + 10 close-offset trilinear terms | ~8–15 Mb | 0.292 | +0.0397 | 29% |
+| (reference) weight-referencing nonlinear generators | ~2,700 Mb effective | 0.63 | +0.032 | 45% |
+| (reference) oracle 16-dim interface | — | — | +0.0113 | 100% |
+
+**Verdict: the explicit polynomial ladder saturates at ~29% of the context gap.**
+Second-order token interactions are real and cheap (the program's first explicit
+context object, U ≈ 0.33); third-order adds ~1% — the remaining computation inside
+the 16-token window is not low-order polynomial structure over coarse embedding codes.
+Candidate explanations for the un-captured 70%: interactions requiring full-resolution
+token identity INSIDE the product terms (codes blur exactly what the subword head
+needs); the two nested bilinear forms creating effective order ≥ 4 with strong
+cancellation structure (§10's "silence is computed" at the feature level); or
+normalization coupling across the window. Ladder paused here for Logan's input per
+the standing arrangement — the saturation curve, not another rung, is the deliverable.
