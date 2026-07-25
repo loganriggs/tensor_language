@@ -4397,3 +4397,10 @@ l1-h1's corrupted links are 95% at offsets 0-2 (immediate window), key-subword 0
 the subword-continuation link to the fragment just behind is what breaks.
 Logan direction: residual-stage zoo (train on the residual; window-of-token-identity
 inputs; linear vs swiglu; subsets) = tick 214 (running, includes fixed repairs).
+
+## Tick 214 (2026-07-25, Logan): repairs fixed + residual stage
+qk_residual_stage.py/.json; RESULTS §7l. Per-head joint repairs all positive; l1-h1 =
+56% of remaining damage (single-head problem). Window token-code residual stage
+near-null (R2 0.02-0.04; end-to-end +0.0304 vs +0.0319) — missing info is
+high-resolution lexical identity, not coarse codes. Candidate next: bigram correction
+table for h1 keys. REST pending Logan.

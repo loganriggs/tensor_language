@@ -876,3 +876,28 @@ provably the wrong loss at this stage.
 position explain only 1–2% of the oracle interface coordinates — the ten-dimensional
 signal is low-rank but not a human-obvious position feature, even though its failures
 cluster at nameable (subword) positions.
+
+### 7l. Head-level localization and the residual stage (ticks 213–214)
+
+**Cluster classification (tick 213):** the missing signal's dominant class (231 of the
+worst 512 positions; k1 channels of the lexical heads) is LEXICAL CONTINUATION —
+proper nouns and title completions ("gave Lindsay → L", "Beneath a Granite → Sky").
+Missed-link tracing: layer-1 head 1's corrupted attention links sit at offsets 0–2 in
+95% of cases — the connection to the fragment immediately behind the current position.
+
+**Per-head joint repairs (tick 214, mode bug fixed with asserts):** restoring oracle
+context for all four maps of one head at a time is positive for every head (the
+per-map backfires were indeed cross-map coupling within heads), and the ranking is
+decisive: **head 1 alone carries 56% of the remaining damage** (repair takes +0.0319
+to +0.0203; next best: head 8 −0.0069, head 4 −0.0037; head 2 nil). The generator
+problem is now substantially a single-head problem: reproduce layer-1 head 1's
+context-dependent keys.
+
+**Residual stage on window token-identity codes (Logan's arm): near-null.** Second-
+stage models trained on the stage-1 residual with embedding-PCA-32 codes of tokens at
+offsets 0..−3: residual R² only 0.02–0.04 (gated variant overfits); end-to-end
++0.0304 versus +0.0319. Recent-token identity at 32-dim code resolution is NOT the
+missing information — consistent with the lexical-continuation story needing
+high-resolution token identity (which specific fragment), not a coarse embedding
+code. Natural next arm: a per-token CORRECTION TABLE keyed on the previous token
+(bigram-style, weight-space-flavored) for head 1's key channels specifically.
