@@ -4484,3 +4484,13 @@ polynomial frontier: 29% of context gap at ~14 Mbit (U ~ 0.33). Remaining 70% is
 low-order polynomial over embedding codes. Presenting the ladder to Logan for ideas
 (his standing invitation) rather than auto-climbing further. GPU idle; cron continues
 as status checks.
+
+## Tick 227 (2026-07-25): pattern-aware loss — negative; PAUSING for Logan
+qk_pairwise_patloss.py/.json. Product-space loss on in-window pairs: coords R2 0.218
+(down from 0.283), audit +0.0416 (worse than MSE's +0.0398). The cancellation insight
+does not improve a 29%-fidelity explicit fit (it governed repairs near the oracle, not
+coarse fits). Rung tally: 225 positive, 224/226/227 marginal-or-negative — honest
+diminishing returns. Per Logan's standing arrangement, PAUSED for his input with the
+saturation curve (RESULTS §11); remaining untried rungs: full-resolution token
+identity inside pair terms (costly), scalar gates (free, likely small). Cron
+continues as status checks.
