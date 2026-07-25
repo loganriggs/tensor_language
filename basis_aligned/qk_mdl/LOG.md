@@ -4470,3 +4470,10 @@ qk_pairwise_big.py/.json: 78 pairs x rank 8 (480k params) -> val R2 0.150 (down 
 0.245), audit +0.0425. Overfit/under-train suspected (4.3x params, same 118k samples);
 NOT clean saturation evidence. Tick 225: controlled scaling — 2x data (262k samples),
 weight decay, two arms isolating rank vs offsets.
+
+## Tick 225 (2026-07-25): controlled pairwise scaling — modest headroom, flattening
+qk_pairwise_ctrl.py/.json: 45 pairs rank 8, 262k samples, weight decay: val R2 0.283
+(from 0.245), audit +0.0398 (29% of context gap, ~14 Mbit explicit; U ~ 0.33). Gains
+per doubling shrinking vs plateau 0.63 -> remaining window computation is higher-order
+(consistent with bilinear-of-bilinear = order 4 in embeddings). Next rung (tick 226):
+add an explicit low-rank third-order term over close offsets, jointly trained.
