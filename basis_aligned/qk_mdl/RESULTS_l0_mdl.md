@@ -901,3 +901,19 @@ missing information — consistent with the lexical-continuation story needing
 high-resolution token identity (which specific fragment), not a coarse embedding
 code. Natural next arm: a per-token CORRECTION TABLE keyed on the previous token
 (bigram-style, weight-space-flavored) for head 1's key channels specifically.
+
+### 7m. The bigram null: the missing signal is composed context, not token lookups (tick 215)
+
+The previous-token correction table for head 1's channels explains only 2% of the
+stage-1 residual (adding a two-back table makes it worse — overfit), and end-to-end
+the gain is zero (+0.03203 versus +0.03206 stage-1; head-1 oracle target +0.0203).
+Together with the window-code null (§7l): the missing context for head 1's keys is
+not ANY function of the last several token identities — not coarse codes, not
+full-resolution single-token lookups. It is genuinely COMPOSED context state (the
+word-assembly state block 0's attention and MLP build across positions), which is
+why it lives in the dense machinery and resists every table- and code-based
+generator. The generator search closes honestly at: static +0.0515 → code-based
+generators +0.032 → oracle interface +0.0113, with the remaining half being the
+price of composition itself. Hypothesis space fully walked: architecture (null),
+code width (null), attention codes (small), window identity (null), bigram identity
+(null), head-localization (strong: h1 = 56%).

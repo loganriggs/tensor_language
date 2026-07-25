@@ -4404,3 +4404,9 @@ qk_residual_stage.py/.json; RESULTS §7l. Per-head joint repairs all positive; l
 near-null (R2 0.02-0.04; end-to-end +0.0304 vs +0.0319) — missing info is
 high-resolution lexical identity, not coarse codes. Candidate next: bigram correction
 table for h1 keys. REST pending Logan.
+
+## Tick 215 (2026-07-25, cron): bigram table NULL — missing signal is composed context
+qk_bigram_table.py/.json; RESULTS §7m. prev-token table: residual R2 0.02, end-to-end
+gain zero; prev-2 worse. With the window null: h1's missing key context is composed
+multi-token state, not any short-window identity function. Generator arc CLOSED with
+full hypothesis walk. REST STATE. Open: layer 2; consolidation write-up.
