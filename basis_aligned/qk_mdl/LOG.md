@@ -4432,3 +4432,10 @@ full variable story; (C) subword continuation — story with one certified-dense
 function call (state = DENSE_MIX(16-token window); signature/scope/cost known, body
 provably resistant to tested variable assignments). Obstacles to "fully": dense box,
 21x l1 redundancy (wires = contribution not necessity), QK-route scope.
+
+## Tick 219 (2026-07-25, Logan): double dissociation — l1 none, l0 partial
+qk_dissociation.py/.json (l1-h7: removal +0.0003, only=zeroed), qk_dissociation_l0.py/
+.json (l0-h3: removal 1.5x selective at det positions; retention 24% but unselective);
+RESULTS §9. Selectivity is tail-concentrated (tick-190 catastrophic single-prediction
+breaks), not mean-level. Coding analogy refined: l0 = code with hot paths, l1 =
+ensemble. REST STATE.

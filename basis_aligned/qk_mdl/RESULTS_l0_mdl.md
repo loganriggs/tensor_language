@@ -941,3 +941,31 @@ bypassable mixer. Final form of the two-layer pattern circuit: token tables +
 archetypes everywhere, plus one named subroutine call — "block-0 on a 16-token
 window" — whose internal algorithm remains dense (level 4) but whose input scope,
 compute cost, and output law are now all measured.
+
+## 9. Double dissociation tests: how "code-like" are the sub-circuits? (tick 219)
+
+Logan's necessity-and-sufficiency test on a named subsection (the determiner channel),
+four conditions (full / channel-removed / channel-only / head-zeroed), damage split by
+determiner-context positions vs others, 128 held-out documents.
+
+**Layer 1 (head 7): no dissociation at all.** Channel removal costs +0.0003 (nothing,
+even at determiner positions); channel-only equals head-deleted (+0.0577 vs +0.0580).
+The ensemble recomputes determiner keying elsewhere — layer 1 is written like
+redundant code with no single owner per variable.
+
+**Layer 0 (head 3): partial dissociation.** Removal (T1, +0.0235 of the head's
++0.0795): determiner positions hurt 1.5× more than others (+0.0343 vs +0.0229) —
+real but mild mean-level selectivity. Retention (T2): keeping only the determiner
+channel preserves 24% of head function — but equally at determiner and other
+positions, i.e. NOT selectively sufficient. The clean class-selectivity that exists
+lives in the TAIL, not the mean: tick 190's per-channel ablations break specific
+completions catastrophically (+4 to +7.6 nats on single predictions) while mean
+damage is diffuse.
+
+**Refined answer to the coding analogy:** layer-0 archetype channels are functions
+with a few critical call-sites plus a large body of shared incidental work — remove
+one and its critical callers fail loudly while everything else degrades slightly;
+layer-1 channels have no owned call-sites at all. Neither layer is modular in the
+textbook sense; layer 0 is "code with hot paths," layer 1 is "an ensemble." The
+variable-level diagrams (§ sub-circuit stories) remain valid as contribution maps;
+necessity semantics attach only to layer-0 tail cases and whole heads.
