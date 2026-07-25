@@ -1000,3 +1000,28 @@ token classes they key, not by which text domains they serve.
 Combined with §9: the first two layers' organization is archetype-classes inside
 content-gated heads inside a redundant ensemble — with head silence doing much of the
 computational work.
+
+### 10b. The diffuse floor identified by elimination: distributed pattern precision (tick 221)
+
+What is the "degrades everything slightly" component of an archetype channel (test
+case: l0-h3's determiner channel, removal +0.0235)? Three hypotheses, two rejected:
+
+**H1 (duty cycle) — rejected.** Damage across det-channel-firing deciles is flat
+(0.017–0.029, rank correlation 0.19): positions where the channel fires hard suffer
+no more from its removal than positions where it idles.
+
+**H2 (bias supply) — rejected.** The channel's mean pattern-weighted write is a large
+constant vector (norm 27.4), but restoring it as a bias recovers only ~2% of the
+damage (+0.0235 → +0.0231; low-firing half likewise).
+
+**H3 stands, and now has a name: distributed pattern precision.** With firing-locality
+and bias both excluded, the remaining account is the one §5n's energy law already
+implied: archetype directions overlap the head's working span (§ tick 191
+sub-additivity), every pattern value draws on shared dimensions, and downstream
+consumption is isotropic — so removing any channel slightly degrades the precision of
+essentially all pattern values, with damage proportional to pattern energy removed
+and fungible across directions. The general part is not a signal; it is provisioning
+of precision. This is why it resists factorization into nameable variables: it is the
+circuit's error budget, not its message content. (In MDL terms: the archetype
+dictionaries spend most of their bits on precision shared across all uses, and a
+minority on the class-specific hot paths where necessity semantics live.)

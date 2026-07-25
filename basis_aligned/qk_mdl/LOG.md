@@ -4446,3 +4446,10 @@ qk_generality.py/.json; RESULTS §10. Kernel replacement >> zeroing for 17/18 he
 no positional-scalar heads except l0h6 (0.65, part-positional). Class enrichment
 near-flat at head grain (1.3-1.6x, cap/after-det everywhere; no induction
 specialists): hierarchy lives within heads (archetypes), not across them. REST.
+
+## Tick 221 (2026-07-25, Logan): diffuse floor = distributed precision (by elimination)
+qk_diffuse_floor.py/.json; RESULTS §10b. H1 duty-cycle rejected (decile corr 0.19);
+H2 bias-supply rejected (mean-write restore recovers ~2%); H3 distributed pattern
+precision stands, consistent with the §5n energy law and §tick-191 overlap. Two
+launch bugs this tick (wrong slice marker; missing rope_tables import) — both cheap,
+fixed with asserts/grep. REST STATE.
