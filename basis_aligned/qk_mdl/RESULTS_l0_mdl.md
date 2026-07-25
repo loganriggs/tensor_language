@@ -717,3 +717,19 @@ single linear view. Arc summary: the block-0 MLP is a dense, high-rank computati
 (no neuron or weight-rank sparsity) whose FUNCTIONAL role for the next QK circuit is
 a ~16-dimensional, mostly-token-identity signal; that interface is now named, priced
 (~2.4 Mbit), and two-thirds of its context content awaits a nonlinear generator.
+
+### 7f. Rank claims data-verified; weight-space block fold (tick 206)
+
+**(A) The manifold-rank claim survives 16× more data.** Streamed channel covariances
+at 32k / 131k / 524k positions: median effective rank 10.4 → 10.5 → 10.7 (max ~62,
+r90 57–58, all stable). "Effective rank ≈ 10" is not a small-sample artifact.
+
+**(B) Weight-space block decomposition** (weights + frozen unigram only; the bilinear
+form splits exactly over writers, the per-position normalization being a shared
+positive gauge): across the 18 q1/k1 reader channels, the embedding×embedding block —
+a weight-exact token table — carries **69–93% (median 84%)** of channel second moment;
+attention×attention 5–26%; embedding×attention cross terms only ~3% — and **layer-0
+head 3 tops the cross block in all 18 of 18 channels**, the weight-space confirmation
+of both the output-magnitude correlate and the broadcast finding. Coherent with the
+data-side token-identity share (0.56 median): both views agree the MLP→layer-1-QK
+channel is mostly token identity with an attention-driven remainder led by head 3.

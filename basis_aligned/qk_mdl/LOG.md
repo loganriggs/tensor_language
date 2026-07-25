@@ -4336,3 +4336,10 @@ qk_l1_ctx_generator.py/.json; RESULTS §7e. generated16 +0.0365 vs static +0.051
 oracle rank-16 +0.0113. MLP ARC COMPLETE at a natural boundary: dense object,
 low-dimensional priced interface, linear generation partial. Open (Logan-gated):
 nonlinear/bilinear generator for the interface; layer 2; consolidation. REST STATE.
+
+## Tick 206 (2026-07-25, Logan): rank ladder stable + weight-space block fold
+qk_mlp_blocks.py/.json; RESULTS §7f. (A) eff-rank 10.4/10.5/10.7 at 32k/131k/524k —
+claim verified. (B) blocks: emb2 median 0.84, attn2 0.11, cross 0.03 with l0-h3 top
+cross-partner in 18/18 channels. Data-usage answer to Logan recorded: layer-0 OV/
+decompositions use weights + unigram (307,200-token counts) only; contexts only in
+evaluation and layer-1 mean tables (523k positions).
