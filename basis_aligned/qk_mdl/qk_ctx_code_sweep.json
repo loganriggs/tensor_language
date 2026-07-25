@@ -1,0 +1,26 @@
+{
+  "lin128": {
+    "params": 74304,
+    "val_r2": 0.5435,
+    "weight_top1pct": 0.09,
+    "audit_dce": 0.03534
+  },
+  "lin512": {
+    "params": 295488,
+    "val_r2": 0.6561,
+    "weight_top1pct": 0.114,
+    "audit_dce": 0.03586
+  },
+  "mixed_lin": {
+    "params": 81216,
+    "val_r2": 0.5258,
+    "weight_top1pct": 0.118,
+    "audit_dce": 0.0345
+  },
+  "mixed_swiglu": {
+    "params": 193072,
+    "val_r2": 0.667,
+    "weight_top1pct": 0.09,
+    "audit_dce": 0.03187
+  }
+}

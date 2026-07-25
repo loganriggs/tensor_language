@@ -823,3 +823,24 @@ corroborates). What layer 1's pattern reads beyond this code draws on the attent
 outputs, the skip path, or fine MLP structure beyond 64 principal directions — the
 interface remains priced at 16 dimensions (oracle), with generation from the natural
 code capped near half of it regardless of architecture.
+
+### 7j. Code-composition sweep: attention helps a little; the remainder is entangled (tick 211)
+
+| generator | val R² | full-audit ΔCE |
+|---|---|---|
+| linear, 128-dim MLP code | 0.544 | +0.0353 |
+| linear, 512-dim MLP code | 0.656 | +0.0359 |
+| linear, mixed code (MLP-64 + 9×attention-PCA-8 + scalars) | 0.526 | +0.0345 |
+| swiglu, mixed code | 0.667 | **+0.0319** |
+
+Two results. (1) The fine MLP spectrum is a dead end for FUNCTION: the 512-dimensional
+code fits deviations best among linear arms (R² 0.66) yet audits WORSE than the
+128-dimensional code — yet another fit-versus-function decoupling; the extra variance
+predicted is variance layer 1 does not consume. (2) The attention-output code is the
+real (if modest) missing source: the mixed swiglu pushes past the 64-code plateau to
++0.0319 — the best generated result, 49% of the oracle gap recovered. Marginal returns
+per additional named code are now ~0.001–0.002 nats against a ~0.021 remainder: the
+ungenerated half of the interface is ENTANGLED across the residual state rather than
+concentrated in any small named code. Generator arc closed at: interface 16-dim
+(oracle), ~half generatable from named codes (MLP-64 + attention summaries + scalars),
+the other half the honest price of not running the dense layer.

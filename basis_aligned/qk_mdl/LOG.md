@@ -4373,3 +4373,8 @@ linear +0.0363; oracle +0.0113. Verdict: information bottleneck in the 64-dim co
 not expressivity; no architectural prior distinguished (sparsity stats flat).
 REST STATE: gated next steps — richer generator inputs (attention outputs / wider
 code), layer 2, consolidation write-up.
+
+## Tick 211 (2026-07-25): code sweep — attention code helps, fine MLP spectrum doesn't
+qk_ctx_code_sweep.py/.json; RESULTS §7j. lin512 best-fit worst-function (decoupling);
+mixed swiglu +0.0319 best generated (49% of oracle gap). Generator arc CLOSED:
+remainder entangled. REST STATE. Gated: layer 2; consolidation write-up.
