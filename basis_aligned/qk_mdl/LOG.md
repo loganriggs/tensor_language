@@ -4386,3 +4386,14 @@ weighted -> missing = fine lexical context, inputs not targets are wrong; per-ma
 oracle repairs BACKFIRE (errors coupled through the pattern product) -> next generator
 must train against pattern/CE loss jointly, not per-map MSE; cheap position features
 explain ~0 of the interface. REST STATE.
+
+## Tick 213 (2026-07-25, Logan): missing-signal classification — clusters + links
+qk_missing_classes.py/.json. (a) Six residual-direction clusters at worst-512: the
+big one (n=231, k1_h3/k1_h5/q1_h7) = lexical continuation contexts (proper nouns,
+titles: "gave Lindsay -> L", "Beneath a Granite -> Sky"); others k2-side content
+clusters; one non-English cluster. (b) per-head repairs NO-OP'D — mode-patch silently
+failed (unasserted replace, AGAIN); fixed with asserts in tick 214. (c) missed links:
+l1-h1's corrupted links are 95% at offsets 0-2 (immediate window), key-subword 0.31 —
+the subword-continuation link to the fragment just behind is what breaks.
+Logan direction: residual-stage zoo (train on the residual; window-of-token-identity
+inputs; linear vs swiglu; subsets) = tick 214 (running, includes fixed repairs).
