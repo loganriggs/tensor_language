@@ -4464,3 +4464,9 @@ fully explicit: val R2 0.245, audit +0.0410 (26% of context gap; F 0.9848; U ~ 0
 NEW BEST ROW, and the first context object with no weight references). Next rung:
 capacity-scale pairwise (rank 8, offsets to 12) to find second-order saturation;
 then third-order if needed.
+
+## Tick 224 (2026-07-25): naive pairwise scaling WORSE — control study needed
+qk_pairwise_big.py/.json: 78 pairs x rank 8 (480k params) -> val R2 0.150 (down from
+0.245), audit +0.0425. Overfit/under-train suspected (4.3x params, same 118k samples);
+NOT clean saturation evidence. Tick 225: controlled scaling — 2x data (262k samples),
+weight decay, two arms isolating rank vs offsets.
