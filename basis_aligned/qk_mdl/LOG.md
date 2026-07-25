@@ -4423,3 +4423,12 @@ qk_sliver.py/.json; RESULTS §7n. W=16 window (+0.0099) beats the oracle interfa
 W=8 beats all code generators; W=1 worse than static; no-MLP catastrophic. Layer-1
 pattern context = block-0 on the last 16 tokens (local, MLP-mandatory). REST STATE:
 L4 (internal algorithm of the dense mixer) and layer 2 remain the open frontiers.
+
+## Tick 218 (2026-07-25, Logan): sub-circuit stories with variables and diagrams
+qk_subcircuit_stories.md + artifact section 7 (mermaid diagrams). Three sub-circuits:
+(A) static backbone (99% of P1 function) — full variable story; (B) determiner
+broadcast (l0-h3 det_flag -> all l1 function-word channels, 1/3 of h3's effect) —
+full variable story; (C) subword continuation — story with one certified-dense
+function call (state = DENSE_MIX(16-token window); signature/scope/cost known, body
+provably resistant to tested variable assignments). Obstacles to "fully": dense box,
+21x l1 redundancy (wires = contribution not necessity), QK-route scope.
