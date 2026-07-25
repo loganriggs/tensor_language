@@ -702,3 +702,18 @@ output, which the tick-203 manifold collapse (median effective rank 10) says sho
 exist. (Note: rank-0 here is +0.052 vs the +0.027 raw-mean port of §6a — shrinkage
 tables trade a little function for moment robustness; both numbers stand, different
 table estimators.)
+
+### 7e. The generated adapter: linear generation recovers a third; the rest is nonlinear (tick 205)
+
+Replacing tick 204's oracle projection with a fully generative pipeline — one shared
+64-dimensional principal subspace of the block-0 MLP output, plus a ridge-fit linear
+map per channel (64→16), nothing reading the true factors — audits at **+0.0365**,
+versus +0.0515 static and +0.0113 for the oracle rank-16 projection. So a purely
+linear read of the MLP output recovers **29% of the context gap** (oracle interface:
+78%). The shortfall matches the tick-200 linear-explainability ceiling (R² 0.51–0.68):
+the 16 dimensions layer 1 consumes are only partly a linear functional of the MLP
+output — the remainder involves the interleaved normalizations and sources beyond a
+single linear view. Arc summary: the block-0 MLP is a dense, high-rank computation
+(no neuron or weight-rank sparsity) whose FUNCTIONAL role for the next QK circuit is
+a ~16-dimensional, mostly-token-identity signal; that interface is now named, priced
+(~2.4 Mbit), and two-thirds of its context content awaits a nonlinear generator.

@@ -4330,3 +4330,9 @@ matches reference exactly). Frontier: r=0 +0.0515 (shrunk tables), r=4 +0.0208, 
 +0.0113, r=64 +0.0009. MLP arc state: dense object, low-dim interface; open item =
 linear generator MLP-out -> adapter dims (would close the loop into a fully compact
 two-layer circuit). GPU idle; resting.
+
+## Tick 205 (2026-07-25): linear generator — 29% of the gap; rest is nonlinear
+qk_l1_ctx_generator.py/.json; RESULTS §7e. generated16 +0.0365 vs static +0.0515 vs
+oracle rank-16 +0.0113. MLP ARC COMPLETE at a natural boundary: dense object,
+low-dimensional priced interface, linear generation partial. Open (Logan-gated):
+nonlinear/bilinear generator for the interface; layer 2; consolidation. REST STATE.
