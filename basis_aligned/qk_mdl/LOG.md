@@ -4350,3 +4350,11 @@ qk_composed_cp.py/.json; RESULTS §7g. rel 0.74-0.89 @ R32; token classes unifor
 unweighted. Output mode partially aligns with l1 archetypes (k1_h1 cos 0.86).
 Tick 208: unigram-weighted refit (frozen convention) for the measure comparison;
 10-writer extension gated on that result.
+
+## Tick 208 (2026-07-25): weighted composed CP — null still ties; line closed
+qk_composed_cp_uw.py/.json; RESULTS §7h. Weighted rel improves (0.48-0.67) and token
+classes concentrate (frequency scaffold), but null-on-real ties real in 4/4 channels:
+frequency structure, not interaction structure. Composed-CP double negative logged;
+10-writer extension moot in this form. MLP arc rests on the interface description
+(7c-7e). REST STATE: Logan-gated — nonlinear interface generator, layer 2,
+consolidation write-up.

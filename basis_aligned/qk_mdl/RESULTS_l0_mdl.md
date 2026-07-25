@@ -750,3 +750,20 @@ the token modes are not. This is the program's third demonstration that raw
 weight-space objects are diffuse and the MEASURE concentrates them (folding; manifold
 rank); tick 208 refits the same object under the frozen unigram weighting to quantify
 exactly how much sparsity the measure buys.
+
+### 7h. The weighted refit: sparsity appears, but the null still ties — composed-CP line closed (tick 208)
+
+Under the frozen unigram weighting the fit improves (rank-32 relative error 0.48–0.67
+vs 0.74–0.89 unweighted) and the token classes become concentrated and readable
+(top-16 mass 37–77%; the classes are comma/the/period — the frequency scaffold). But
+the decisive statistic is unchanged: **the corrected null ties the real fit in all
+four channels** (e.g. 0.483 null vs 0.485 real). The concentration is frequency
+structure, not token-interaction structure: components built on a token-misaligned
+tensor explain the real one equally well once weights are refit. Double negative,
+cleanly established: the embedding→MLP→layer-1-QK composition carries no
+null-beating sparse token-pair structure at this rank, in either measure. This
+coheres with the whole MLP arc: the layer is a dense mixer whose functional product
+is a low-dimensional manifold signal (Section 7c–7e) — the sparse, nameable structure
+of this model lives in the QK factor tables and their archetypes, not inside the MLP
+composition. (Caveats logged: rank 32, greedy deflation; the output-mode alignment
+with layer-1 archetypes — cosine up to 0.89 — remains the one real positive.)
