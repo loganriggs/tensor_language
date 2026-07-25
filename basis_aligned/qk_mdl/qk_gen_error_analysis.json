@@ -1,0 +1,106 @@
+{
+  "eval_mean_dce": 0.03199,
+  "commonality": {
+    "sub_tgt": {
+      "worst200": 0.17,
+      "baseline": 0.14
+    },
+    "sub_cur": {
+      "worst200": 0.34,
+      "baseline": 0.137
+    },
+    "near_nl": {
+      "worst200": 0.105,
+      "baseline": 0.131
+    }
+  },
+  "worst_snippets": [
+    {
+      "dce": 6.21,
+      "ctx": " like chemotherapy and radiation therapy.\u23ceLast month, Charlie gave Lindsay",
+      "tgt": " L"
+    },
+    {
+      "dce": 5.84,
+      "ctx": " expensive number on his contract and I'm not sure if Matvich",
+      "tgt": "uk"
+    },
+    {
+      "dce": 4.92,
+      "ctx": " channels:\u23ceAbout Southridge Minerals, Inc. (SR",
+      "tgt": "GE"
+    },
+    {
+      "dce": 4.59,
+      "ctx": " Arch, China\u23ce\u2022 Angel Falls, Venezuela\u23ce\u2022 Nazca",
+      "tgt": " lines"
+    },
+    {
+      "dce": 4.42,
+      "ctx": " up the action at Act II, in Beneath a Granite",
+      "tgt": " Sky"
+    },
+    {
+      "dce": 4.2,
+      "ctx": "\u6f32 \u80a1\u6771\u8cfa\ufffd",
+      "tgt": "\ufffd"
+    },
+    {
+      "dce": 3.8,
+      "ctx": "-commerce revenue against average US gasoline prices in the quarter (regular",
+      "tgt": " unle"
+    },
+    {
+      "dce": 3.74,
+      "ctx": " 2:39 AM\u23ceCode Pink to protest in support of Bradley",
+      "tgt": " Manning"
+    },
+    {
+      "dce": 3.61,
+      "ctx": " to handle Idaho's explosive passing attack led by quarterback Nathan Enderle",
+      "tgt": "."
+    },
+    {
+      "dce": 3.42,
+      "ctx": " with the rumours that they are going to try and hide Mogil",
+      "tgt": "ny"
+    },
+    {
+      "dce": 3.25,
+      "ctx": "-up for large lists of dates.\u23ceI will borrow @",
+      "tgt": "Mike"
+    },
+    {
+      "dce": 3.12,
+      "ctx": ") - Mobile Search Advertising Just Got Way Easier: AdWords",
+      "tgt": " Enhanced"
+    }
+  ],
+  "residual": {
+    "worst200_norm": 16.065,
+    "median_norm": 8.793,
+    "ratio": 1.83,
+    "worst200_pca": {
+      "1": 0.395,
+      "4": 0.494,
+      "16": 0.667,
+      "64": 0.91
+    },
+    "top_channels": [
+      "k1_h3",
+      "k1_h7",
+      "k2_h1",
+      "k1_h5",
+      "k2_h5"
+    ]
+  },
+  "repair_q1": 0.03242,
+  "repair_k1": 0.03366,
+  "repair_q2": 0.02984,
+  "repair_k2": 0.03129,
+  "naming_r2_cheap_features": {
+    "k1_h1": 0.014,
+    "q1_h7": 0.02,
+    "k1_h3": 0.012
+  }
+}

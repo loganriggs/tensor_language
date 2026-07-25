@@ -844,3 +844,35 @@ ungenerated half of the interface is ENTANGLED across the residual state rather 
 concentrated in any small named code. Generator arc closed at: interface 16-dim
 (oracle), ~half generatable from named codes (MLP-64 + attention summaries + scalars),
 the other half the honest price of not running the dense layer.
+
+### 7k. What the generator misses: mid-word positions, key-side, common structure, coupled across maps (tick 212)
+
+Error analysis of the best generated interface (route-only patching throughout):
+
+**(1) The failures have a name: subword continuation.** At the worst-200 positions the
+current token is a mid-word fragment 34% of the time versus 13.7% baseline — 2.5×
+enrichment (line boundaries: no enrichment). The generator fails hardest exactly in
+layer-1 head 1's subword-continuation territory.
+
+**(2) The missing signal is common structure, not idiosyncrasy.** Worst-position
+residuals are 1.8× typical in norm (the generator genuinely fits worse there, beyond
+mere sensitivity), and their PCA is strongly low-rank: 16 of 576 dimensions carry 67%.
+What is missing is learnable in principle — the inputs, not the targets, are wrong.
+Missing mass concentrates on the KEY side of the lexical and content heads (k1 of
+layer-1 heads 3, 7, 5; k2 of head 1) — consistent with the hypothesis that the
+ungenerated half is fine-grained lexical context (which specific word/fragment
+precedes), which lives in high-dimensional token space and cannot fit through a
+64+72-dimensional code.
+
+**(3) Partial repairs backfire — the map errors are COUPLED.** Restoring oracle
+corrections for single maps: q2 helps (+0.0298 vs +0.0320), but k1 HURTS (+0.0337) and
+q1 slightly hurts. Because the pattern is the product of two branch scores, generation
+errors across maps partially cancel; fixing one map alone breaks the cancellation.
+Any improved generator must be trained jointly against the pattern (or the loss), not
+per-map regression — Logan's gradient framing is the right one, and per-map MSE is
+provably the wrong loss at this stage.
+
+**(4) The interface is not cheaply nameable.** Distance-to-newline, subword flags, and
+position explain only 1–2% of the oracle interface coordinates — the ten-dimensional
+signal is low-rank but not a human-obvious position feature, even though its failures
+cluster at nameable (subword) positions.

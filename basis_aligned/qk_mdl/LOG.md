@@ -4378,3 +4378,11 @@ code), layer 2, consolidation write-up.
 qk_ctx_code_sweep.py/.json; RESULTS §7j. lin512 best-fit worst-function (decoupling);
 mixed swiglu +0.0319 best generated (49% of oracle gap). Generator arc CLOSED:
 remainder entangled. REST STATE. Gated: layer 2; consolidation write-up.
+
+## Tick 212 (2026-07-25, Logan): generator error analysis — the missing half mapped
+qk_gen_error_analysis.py/.json; RESULTS §7k. Worst positions 2.5x enriched for
+mid-word fragments; residual low-rank (top-16 = 67%) and key-side/lexical-head
+weighted -> missing = fine lexical context, inputs not targets are wrong; per-map
+oracle repairs BACKFIRE (errors coupled through the pattern product) -> next generator
+must train against pattern/CE loss jointly, not per-map MSE; cheap position features
+explain ~0 of the interface. REST STATE.
