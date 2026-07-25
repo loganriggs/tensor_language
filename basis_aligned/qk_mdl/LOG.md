@@ -4310,3 +4310,9 @@ qk_mlp_recon.py/.json; RESULTS §7a. Flat usage (top-128 = 6%); prune frontier h
 (half -> +0.030, quarter -> +0.115); reader maps touch ~all neurons (eff 4361-4568/
 4608); token-R2 median 0.34 (context-driven). Neuron basis wrong; tick 202 =
 eigen/rank analysis of reader-composed quadratic forms + whole-MLP calibration.
+
+## Tick 202 (2026-07-25): MLP eigen — weight-space rank only mild; MLP worth +2.50
+qk_mlp_eigen.py/.json; RESULTS §7b. Channel eff-rank median 68/128 (min 12); eigen
+spectra flat (top-12 = 17-26%); lead eigenvectors mostly junk-token-aligned (one hit:
+change-of-state verbs on the lexical reader). Whole-MLP zero +2.495. Tick 203: data-
+weighted channel ranks (activation-covariance) — is the compression on the manifold?

@@ -651,3 +651,16 @@ above 0.5 — consistent with the MLP being the author of layer 1's context part
 
 Conclusion: the interesting structure, if any, is basis-free — low RANK rather than
 few neurons. Next: eigendecomposition of the reader-composed bilinear forms.
+
+### 7b. Weight-space rank analysis: channels are only mildly compressible (tick 202)
+
+Singular spectra of all 36 composed MLP→layer-1-QK read channels (each ≤ rank 128):
+effective rank 12–101, median 68; median rank-for-90%-energy 92. Eigenfeature spectra
+of representative read directions are flat (top-12 of 1152 eigenvalues carry only
+17–26% of energy), and most lead eigenvectors align with junk/rare-token directions —
+one interpretable hit: the lexical reader's lead feature is a change-of-state verb
+class (get/came/became/create). Calibration: zeroing the whole block-0 MLP costs
++2.50 nats — as large an object as layer-1's entire pattern (+2.70). Verdict so far:
+the MLP resists neuron-sparsity AND weight-space rank-sparsity; remaining hypothesis
+is that compression lives on the DATA MANIFOLD (weight-space ranks count directions
+the data never visits) — tick 203 measures data-weighted channel ranks.
