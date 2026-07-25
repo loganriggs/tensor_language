@@ -733,3 +733,20 @@ head 3 tops the cross block in all 18 of 18 channels**, the weight-space confirm
 of both the output-magnitude correlate and the broadcast finding. Coherent with the
 data-side token-identity share (0.56 median): both views agree the MLP→layer-1-QK
 channel is mostly token identity with an attention-driven remainder led by head 3.
+
+### 7g. Composed-tensor CP in pure weight space: dense — the measure is the message (tick 207)
+
+Joint CP (learned left token class × right token class × output direction, no inherited
+basis, ZERO data — not even unigram) on the composed tensor G[o,s,t] = Σ_j A_oj
+(L_j·ê_s)(R_j·ê_t) for four reader channels. Verdict: **no sparse embedding-pair
+structure in unweighted weight space.** Rank-32 relative error 0.74–0.89 (the object
+barely compresses); fitted token classes are essentially uniform (top-16 token mass
+0.2–0.3% of 50k); and the corrected null TIES the real fit (0.81 vs 0.81) — what
+little is captured is generic spectral bulk, not token-interaction structure. The
+dense-subset consistency check validates the fitter (factored = dense to 1%). One
+genuine signal: the subword-giant channel's top output direction aligns at cosine 0.86
+with that head's own fitted archetype detector — the output axes are right even when
+the token modes are not. This is the program's third demonstration that raw
+weight-space objects are diffuse and the MEASURE concentrates them (folding; manifold
+rank); tick 208 refits the same object under the frozen unigram weighting to quantify
+exactly how much sparsity the measure buys.

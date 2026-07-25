@@ -4343,3 +4343,10 @@ claim verified. (B) blocks: emb2 median 0.84, attn2 0.11, cross 0.03 with l0-h3 
 cross-partner in 18/18 channels. Data-usage answer to Logan recorded: layer-0 OV/
 decompositions use weights + unigram (307,200-token counts) only; contexts only in
 evaluation and layer-1 mean tables (523k positions).
+
+## Tick 207 (2026-07-25, Logan): composed CP, pure weight space — DENSE (clean negative)
+qk_composed_cp.py/.json; RESULTS §7g. rel 0.74-0.89 @ R32; token classes uniform
+(top16 mass 0.002); null TIES real -> no token-interaction structure captured
+unweighted. Output mode partially aligns with l1 archetypes (k1_h1 cos 0.86).
+Tick 208: unigram-weighted refit (frozen convention) for the measure comparison;
+10-writer extension gated on that result.
