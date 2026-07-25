@@ -24,7 +24,7 @@ mostly-token-identity signal** (§7c), priced end to end: a 16-dimensional-per-c
 oracle interface costs +0.0113; generating it from named codes reaches +0.032; and
 the ungenerated remainder was proven to be **composed multi-token state** —
 concentrated in one head's keys, on lexical-continuation text, at attention offsets
-zero to two — that no token-identity lookup of any resolution can produce (§7k–7m).
+zero to two — that no token-identity lookup of any resolution can produce (§7k–7m) — and which the final experiment resolved: it is block 0 itself run on a 16-token window, which beats even the oracle interface (+0.0099, §7n). The circuit closes as tables + archetypes + one named local subroutine call.
 
 ## 2. The instruments (what made the claims trustworthy)
 
