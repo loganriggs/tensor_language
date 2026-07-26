@@ -1466,3 +1466,12 @@ at layers 4-5; layer-5 head 7 is the prime candidate for the aggregation
 workhorse, now visible as a single component. Sum of per-head damages 1.01
 versus 2.30 joint — still superadditive, but far more concentrated than any
 layer measured so far.
+
+### 12l. Layer-5 fold (tick 257): 97.2% of the hub layer from the same dictionary
+
+The 528-symbol dictionary generates layer-5's pattern at +0.0649 versus tables
++0.1869 and zero +2.3030 — 97.2% of the model's second-largest pattern function,
+the widest symbols-over-tables margin yet (2.9x), from a decoder holding only
+34% of residual variance. Four consecutive layers, one dictionary, tables beaten
+at every depth: 95.5 / 88.6 / 92.4 / 97.2 percent of function at layers 2-5.
+The compositional recursion holds at hub scale.

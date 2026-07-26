@@ -4728,3 +4728,11 @@ qk_l4_symext.py/.json. Dictionary beats tables at l2/l3/l4. Next: l5 pair
 qk_l5_port.py/.json. Zero +2.303 (l1-scale); h7 +0.956 alone; tables +0.187
 (91.9%). Candidate: aggregation workhorse (11j band peak L4-5). Next: l5 fold
 (528 dictionary), then depth figure + l5-h7 causal profile worth a tick.
+
+## Tick 257 (2026-07-26): layer-5 fold +0.0649 = 97.2% of hub; RESULTS §12l
+qk_l5_symext.py/.json. Symbols beat tables 4 layers straight; margin widest at
+the hub. NEXT TICK (258, build fresh): l5-h7 causal identity test — on failure
+packets, ablate l5 head 7 pattern (zero s1[:,7] at li==5) and compare damage on
+multi-key compound positions vs single-key positions (prediction: selective
+compound damage if h7 is the aggregation workhorse); also depth figure
+(token share / symbol share / layer load vs depth) for the paper.
