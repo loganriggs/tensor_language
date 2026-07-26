@@ -4628,3 +4628,12 @@ qk_query_site.py/.json; RESULTS §11j. Attention band 0-8 at query restores medi
 0.90 jointly — distributed aggregation, no single collector. Memory-pipeline arc
 (ticks 236-242) COMPLETE; consolidated into qk_two_layer_story.md §8. Rest state
 pending Logan (artifact update with the memory pipeline, or a new front).
+
+## Tick 243 (2026-07-26): pipeline generality on random positions (n=64) + artifact
+qk_pipeline_generality.py/.json; RESULTS §11k. Random strong-key positions (95%
+of all positions have one): restore median 0.98@L8, 1.00@L14; late damage 0.98;
+mlp 0.94 vs attn 0.39. Pipeline = general context mechanism, sharper than on
+failures. Artifact updated with section 8 (memory pipeline diagram + numbers),
+same URL. MEMORY ARC FULLY CLOSED (ticks 236-243). REST STATE: hourly no-op
+ticks; open options for Logan — layer 2 (gated), new front, or deeper into the
+certified-dense block-0 MLP interior.

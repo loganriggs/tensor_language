@@ -1263,3 +1263,19 @@ fetched by late attention (layers 13+, necessity 0.99); (4) capped readout at th
 target. Every stage is causally verified at population scale with positive and
 negative controls; two adversarial single-mechanism advocates were eliminated by
 pre-registered criteria on the way.
+
+### 11k. The pipeline is the general context mechanism (tick 243, random positions, n=64)
+
+The identical tick-239 battery on strong-key positions sampled uniformly at random
+(any position where a context token in the last 16 costs >1 nat when substituted —
+which is 95% of random positions, 152 of 160: strong-key context dependence is
+ubiquitous). Results match and sharpen the failure-set numbers: single-layer
+key-residual restore median 0.71 at layer 2, 0.98 at layer 8, 1.00 at layer 14;
+late key-side corruption damage median 0.98; MLP-versus-attention at the key
+position 0.94 versus 0.39. Means run higher than on the failure set (0.86-0.89
+versus 0.69-0.71) because worst failures over-sample hard multi-route cases.
+
+**Conclusion of the arc:** the four-stage pipeline is not a tail pathology — it is
+the model's general mechanism of context use. The worst-failure set differs from
+typical positions only in being where the named basis cannot reproduce the
+pipeline's output, not in mechanism.
