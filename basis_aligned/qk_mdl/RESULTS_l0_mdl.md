@@ -1330,3 +1330,20 @@ readable only at that slot. The division of labor in the pipeline is therefore:
 query aggregate = addressing; key-side enrichment = payload at a fixed address.
 Practical consequence: inference-time fact injection must target the slot the
 query will address (where it works at 0.98); the eraser (11m) is unaffected.
+
+## 12. LAYER 2 (opened by Logan 2026-07-26)
+
+### 12a. Layer-2 port (tick 247): token identity still carries 93%
+
+Token-conditional mean-residual tables at block-2's input (62% of types seen,
+94% of audit token mass), through block 2's own projections: patching layer-2's
+pattern with table scores costs +0.0278 nats versus +0.3904 for zeroing the layer
+— a 92.9% token-identity share. The depth-decay curve so far: layer 0 exact
+(100%), layer 1 99.0%, layer 2 92.9%. Two structural notes: (1) layer-2 attention
+carries 7x less total causal load than layer-1 (+0.39 vs +2.70 zeroed) — the
+pattern machinery is front-loaded; (2) the ABSOLUTE context residual is nearly
+constant per layer (+0.027 at layer 1, +0.028 at layer 2) even as the token share
+falls — consistent with a fixed-bandwidth context channel per layer rather than
+exponential growth. Per-head zeroing: head 5 dominant (+0.034), heads 2/3/6
+moderate (+0.010-0.012), heads 1/4 negligible; per-head damages sum to 0.083
+versus 0.390 jointly — the superadditive redundancy signature, fourth appearance.

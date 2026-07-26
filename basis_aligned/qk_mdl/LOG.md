@@ -4666,3 +4666,9 @@ STATE resumes; open: CFPD-style weight-level eraser, layer 2, or new front.
 ## (baseline + depth-decay point); tick 248 = block-1 MLP interface (realized
 ## read-set into layer 2, block-0-style) + payload-share split; tick 249+ =
 ## symbol-pair fold of l2 pattern over extended named basis (l0+l1 symbols).
+
+## Tick 247 (2026-07-26): layer-2 port — 93% token identity; RESULTS §12a
+qk_l2_port.py/.json, tables saved qk_l2_tables.pt. Depth decay 100/99.0/92.9;
+absolute context residual ~constant (+0.028); layer load 7x smaller than l1;
+h5 dominant; redundancy 4.7x. Next: tick 248 block-1 MLP interface + payload
+split (rank-truncation frontier + strong-key selectivity).
