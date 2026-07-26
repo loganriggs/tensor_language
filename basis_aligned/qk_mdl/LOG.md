@@ -4719,3 +4719,7 @@ l3 scripts, same replace-with-assert discipline.
 ## Tick 254 (2026-07-26): layer-4 port — token share 86.4%, load 0.348 (2x l3)
 qk_l4_port.py/.json; RESULTS §12i. Non-monotone decay: 100/99.0/92.9/76.3/86.4.
 Next: l4 symbol fold with the 528 dictionary.
+
+## Tick 255 (2026-07-26): layer-4 fold +0.0263 (92.4%); RESULTS §12j
+qk_l4_symext.py/.json. Dictionary beats tables at l2/l3/l4. Next: l5 pair
+(port then fold), same derivation chain; then a consolidated depth figure.

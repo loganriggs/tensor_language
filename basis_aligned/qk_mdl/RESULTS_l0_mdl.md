@@ -1446,3 +1446,11 @@ are functionally specialized rather than uniformly deepening — layer 3 is the
 most context-hungry pattern machine of the first five, layer 4 swings back
 toward token-driven patterns with more overall weight. Depth is not a gradient;
 it alternates. Heads 0/1/5 lead (+0.013-0.015), moderately diffuse.
+
+### 12j. Layer-4 fold (tick 255): the dictionary covers both regimes
+
+The 528-symbol dictionary generates layer-4's pattern at +0.0263 versus tables
++0.0474 and zero +0.3477 — 92.4% of function at the token-heaviest, highest-load
+layer since 1. Three layers, one dictionary, tables beaten everywhere: 95.5%
+(layer 2), 88.6% (layer 3), 92.4% (layer 4). The symbol account covers both the
+contextual and the token-driven pattern regimes; the recursion is stable.
