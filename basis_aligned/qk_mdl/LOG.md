@@ -4560,3 +4560,16 @@ null-to-negative: memory not readable via confident 3-token queries. Extraction 
 exhausted at feasible cost (corpus x2, self-mined x2). PAUSED for Logan with the
 balanced ledger; remaining extraction ideas heavy (16-token fuzzy caching / soft
 retrieval). Named basis 51% remains the explicit frontier; U ~ 0.42.
+
+## Tick 236 (2026-07-26, Logan's question): key-ablation probe — the keys, measured
+qk_key_ablation.py/.json. Per-token substitution vs target log-prob, 4 examples:
+- " L"(ohan): key = " Lindsay" ALONE (-10.2 nats); "Charlie"/"TMZ" irrelevant — my
+  disambiguation gloss falsified by the probe.
+- " Sky": key = the full fragment sequence "Bene/ath/a/Gran/ite" (-12.0/-6.4/-5.7/
+  -5.3/-3.6) — a genuinely compositional multi-token key, the fuzzy key made visible.
+- " Hamilton": key = the sentence-boundary "." (-8.9); identity presumably from the
+  earlier in-document mention (the minority induction case).
+- "Mike": key = " @" (-6.7) plus "I will borrow" (-1.6..-2.4) — register + syntax.
+Taxonomy: keys span single-token lookups, compositional phrase keys, and
+syntax/register triggers — matching the memory account's fuzzy-multi-token-key
+prediction and explaining why fixed-arity tables fail.
