@@ -4715,3 +4715,7 @@ qk_l3_symext.py/.json. 528 symbols: +0.0188 at layer 3 (was +0.0265 with 384;
 tables +0.0390; zero +0.1646); R2 0.43. Reuse dominates; per-layer increment
 real but diminishing. Next: march l4/l5 (port + symbolgen pair) — derive from
 l3 scripts, same replace-with-assert discipline.
+
+## Tick 254 (2026-07-26): layer-4 port — token share 86.4%, load 0.348 (2x l3)
+qk_l4_port.py/.json; RESULTS §12i. Non-monotone decay: 100/99.0/92.9/76.3/86.4.
+Next: l4 symbol fold with the 528 dictionary.

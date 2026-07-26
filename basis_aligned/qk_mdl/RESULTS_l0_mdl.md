@@ -1436,3 +1436,13 @@ Reading: the shared code carries most of the load at every depth (reuse
 dominates), while each layer contributes a real but diminishing vocabulary
 increment — additive growth with shrinking increments, the friendliest possible
 scaling shape: the dictionary converges rather than compounds.
+
+### 12i. Layer-4 port (tick 254): the decay curve is NOT monotone
+
+Layer-4 tables +0.0474 versus zeroed +0.3477: token-identity share 86.4% — UP
+from layer 3's 76.3%, and the layer's total load (+0.348) is twice layer 3's
+(+0.165). The five-point curve: 100 / 99.0 / 92.9 / 76.3 / 86.4. Reading: layers
+are functionally specialized rather than uniformly deepening — layer 3 is the
+most context-hungry pattern machine of the first five, layer 4 swings back
+toward token-driven patterns with more overall weight. Depth is not a gradient;
+it alternates. Heads 0/1/5 lead (+0.013-0.015), moderately diffuse.
