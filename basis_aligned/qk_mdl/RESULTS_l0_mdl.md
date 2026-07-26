@@ -1425,3 +1425,14 @@ channel remains inside the symbol span one layer deeper. Two consequences: the
 dictionary is not per-layer vocabulary but a shared, reused code (additive-growth
 hypothesis, strongest form); and the +0.0265 residual is the budget layer-2
 symbols can compete for (tick 253: append 144 layer-2 head activations, re-test).
+
+### 12h. Dictionary growth rate (tick 253): layer-2 symbols close 29% of the residual
+
+Appending 144 layer-2 per-head activations (528 symbols total) improves the
+layer-3 fold from +0.0265 to +0.0188 (tables +0.0390, zero +0.1646) — 88.6% of
+the layer's pattern function, with decoder R-squared rising 0.35 to 0.43. The
+growth datum: a 37.5% larger dictionary buys back 29% of the remaining residual.
+Reading: the shared code carries most of the load at every depth (reuse
+dominates), while each layer contributes a real but diminishing vocabulary
+increment — additive growth with shrinking increments, the friendliest possible
+scaling shape: the dictionary converges rather than compounds.

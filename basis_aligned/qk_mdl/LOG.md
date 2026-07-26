@@ -4709,3 +4709,9 @@ qk_l3_symbolgen.py/.json; RESULTS §12g. +0.0265 vs tables +0.0390 vs zero
 144 layer-2 per-head activations (capture yh2 in blocks01 loop, add mu2/PB2 PCA
 pass, codes_of third block, KDIM 528, li==3 fold) — measures dictionary GROWTH
 need; then depth-decay + symbolgen march (l4, l5...) while payload share grows.
+
+## Tick 253 (2026-07-26): dictionary growth measured; RESULTS §12h
+qk_l3_symext.py/.json. 528 symbols: +0.0188 at layer 3 (was +0.0265 with 384;
+tables +0.0390; zero +0.1646); R2 0.43. Reuse dominates; per-layer increment
+real but diminishing. Next: march l4/l5 (port + symbolgen pair) — derive from
+l3 scripts, same replace-with-assert discipline.
