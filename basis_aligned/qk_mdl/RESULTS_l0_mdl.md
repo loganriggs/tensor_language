@@ -1347,3 +1347,16 @@ falls — consistent with a fixed-bandwidth context channel per layer rather tha
 exponential growth. Per-head zeroing: head 5 dominant (+0.034), heads 2/3/6
 moderate (+0.010-0.012), heads 1/4 negligible; per-head damages sum to 0.083
 versus 0.390 jointly — the superadditive redundancy signature, fourth appearance.
+
+### 12b. Block-1 MLP output: flat spectrum, steep causal frontier (tick 248 part A)
+
+PCA of block-1's MLP output (disjoint corpus): a notably flat spectrum — 64
+dimensions hold 51% of variance, 256 hold 76%, 512 hold 90%. The causal
+rank-truncation frontier (project the output onto its top-r subspace inside the
+full forward pass, 307k audit): rank 256 costs +0.025; rank 64 +0.319; rank 16
++1.266; rank 4 +1.944 — WORSE than removing the MLP entirely (+1.553): a
+hard-truncated write is more damaging than silence, so the tail directions are
+load-bearing, not noise. Contrast with block-0's per-reader ten-dimensional
+windows: block-1's output needs ~256 dimensions to carry its function. Part B
+(strong-key versus weak-key selectivity of truncation) rerunning after an
+out-of-memory in the first attempt.
