@@ -1279,3 +1279,25 @@ versus 0.69-0.71) because worst failures over-sample hard multi-route cases.
 the model's general mechanism of context use. The worst-failure set differs from
 typical positions only in being where the named basis cannot reproduce the
 pipeline's output, not in mechanism.
+
+### 11l. The enrichment signal has NO shared low-dimensional subspace (tick 244, n=48 held-out)
+
+Causal dimensionality of the enrichment delta (clean-minus-corrupt key-position
+residual at layer-8 entry, the vector that alone restores median 0.98): principal
+components fit on 80 deltas, causal recovery of rank-r projections on 48 held-out
+positions. Result: recovery climbs roughly linearly with rank and never knees —
+0.00 at rank 1, 0.13 at rank 16, 0.29 at the FULL 80-dimensional fit-set span —
+versus 0.98 for each position's own unprojected delta and 0.00 for a random
+16-dimensional control. The shared variance is causally inert: rank 16 carries 54%
+of fit-set variance but only 0.13 of recovery, and even the complete span of 80
+other instances' deltas recovers less than a third.
+
+**Reading:** enrichment writes are position- and entity-specific — each instance
+occupies its own nearly-orthogonal direction in residual space, the signature of a
+hash-like associative store rather than a structured feature code. This closes the
+level-4 sparsification question for pipeline stage 1 with a controlled negative:
+the MLP's interface to layer-1 readers is narrow (10 effective dimensions per
+reader), but its memory-content channel is irreducibly high-dimensional — which is
+precisely what "parametric memory near the description-length frontier" predicts:
+content that cannot be compressed into shared directions is content no small
+explicit object can substitute for.

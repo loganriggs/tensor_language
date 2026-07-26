@@ -4637,3 +4637,11 @@ failures. Artifact updated with section 8 (memory pipeline diagram + numbers),
 same URL. MEMORY ARC FULLY CLOSED (ticks 236-243). REST STATE: hourly no-op
 ticks; open options for Logan — layer 2 (gated), new front, or deeper into the
 certified-dense block-0 MLP interior.
+
+## Tick 244 (2026-07-26): enrichment deltas have no shared low-rank structure (n=48)
+qk_enrich_rank.py/.json; RESULTS §11l. Held-out rank-r restore of the layer-8
+enrichment delta: linear-in-rank, no knee; full 80-dim fit span only 0.29 vs own
+delta 0.98; rand-16 control 0.00; shared variance causally inert (54% var at r16
+-> 0.13 recovery). Per-instance near-orthogonal codes = hash-like associative
+store; matches the MDL-frontier account. LAST non-gated thread closed. TRUE REST
+STATE: hourly no-op ticks; everything else Logan-gated (layer 2 / new front).
