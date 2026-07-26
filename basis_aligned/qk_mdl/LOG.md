@@ -4723,3 +4723,8 @@ Next: l4 symbol fold with the 528 dictionary.
 ## Tick 255 (2026-07-26): layer-4 fold +0.0263 (92.4%); RESULTS §12j
 qk_l4_symext.py/.json. Dictionary beats tables at l2/l3/l4. Next: l5 pair
 (port then fold), same derivation chain; then a consolidated depth figure.
+
+## Tick 256 (2026-07-26): layer-5 port — hub layer, head 7 giant; RESULTS §12k
+qk_l5_port.py/.json. Zero +2.303 (l1-scale); h7 +0.956 alone; tables +0.187
+(91.9%). Candidate: aggregation workhorse (11j band peak L4-5). Next: l5 fold
+(528 dictionary), then depth figure + l5-h7 causal profile worth a tick.

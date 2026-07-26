@@ -1454,3 +1454,15 @@ The 528-symbol dictionary generates layer-4's pattern at +0.0263 versus tables
 layer since 1. Three layers, one dictionary, tables beaten everywhere: 95.5%
 (layer 2), 88.6% (layer 3), 92.4% (layer 4). The symbol account covers both the
 contextual and the token-driven pattern regimes; the recursion is stable.
+
+### 12k. Layer-5 port (tick 256): a hub layer with a single giant head
+
+Layer-5 zeroed costs +2.303 — nearly layer-1 scale (+2.70), an order above
+layers 2-4 — and HEAD 7 ALONE carries +0.956, with every other head at or below
++0.011. Token tables still capture 91.9% (+0.187 table damage). The load curve
+by layer (zeroed): 2.70 / 0.39 / 0.16 / 0.35 / 2.30 — bimodal, with layer 5 a
+second hub. Note the causal tie-in: the query-side aggregation band (11j) peaked
+at layers 4-5; layer-5 head 7 is the prime candidate for the aggregation
+workhorse, now visible as a single component. Sum of per-head damages 1.01
+versus 2.30 joint — still superadditive, but far more concentrated than any
+layer measured so far.
