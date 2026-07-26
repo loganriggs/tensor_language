@@ -1192,3 +1192,31 @@ this program decomposed exhaustively — is the first stage of that pipeline plu
 layer-1 pattern route. The two fresh-eyes/adversarial rounds, the patching program,
 and this scale-up together turn the "parametric memory" claim from an inference into
 a depth-resolved, component-resolved, population-verified circuit account.
+
+### 11h. Inside the enrichment pipeline (tick 240, n=48): front-loaded and context-BOUND
+
+**Which MLPs.** Single-layer MLP-output restoration at the key position: block 1's
+MLP is the largest individual contributor (median recovery 0.50), followed by
+block 0 (0.30) and blocks 2-3 (0.24, 0.21); every mid-stack layer 4-13 individually
+gives only 0.07-0.12 while the 5-11 band jointly gave 0.81 (tick 239). The
+enrichment is front-loaded in the first four blocks and then distributed/redundant
+across the mid-stack — no single mid-stack MLP is the memory organ; the band works
+superadditively (the same redundancy signature layer-1 attention showed).
+
+**What is encoded — the transplant refutation.** If the enriched key-side state
+were a context-independent entity vector (dictionary lookup keyed by the token),
+transplanting the key position's transport-band residual (layers 13-17) from
+another context containing the same key token should restore the prediction. It
+does not: synthetic-template donor median 0.04 (indistinguishable from the
+neutral-token donor control at -0.01); same-token-in-a-different-real-document
+donor -0.05 median, mean -0.33 (actively harmful). The positive control (the
+position's own clean residual, same machinery) restores median 1.00. Caveat: donor
+positions differ from target positions, but values and residuals carry no rotary
+encoding, and real donors at many positions fail identically.
+
+**Conclusion:** the enriched key-position state is CONTEXT-BOUND — mid-stack
+enrichment integrates surrounding context into the key token's residual rather
+than retrieving a token-keyed dictionary entry. This is the mechanism-level match
+to the key taxonomy (68% of failures need a median of 3 heavy tokens): the
+"memory key" is a compound assembled at the key position, and the parametric
+memory is addressed by that compound, not by the token identity alone.

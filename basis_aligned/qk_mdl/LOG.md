@@ -4602,3 +4602,13 @@ qk_enrich_scale.py/.json; RESULTS §11g. Completion depth: median restore 0.88@L
 (L5-11): 0.81 vs 0.24 median. Mechanism settled: early key binding -> mid-stack
 MLP enrichment at the key position -> late attention transport. REST STATE pending
 Logan (consolidation of the full memory arc into story/artifact, or next thread).
+
+## Tick 240 (2026-07-26): enrichment is front-loaded and context-bound (n=48)
+qk_enrich_pipeline.py/.json; RESULTS §11h. Per-layer MLP restore at key pos:
+block-1 MLP largest single share (median 0.50), blocks 0/2/3 next (0.30/0.24/0.21),
+mid-stack layers individually 0.07-0.12 vs 0.81 jointly = redundant band.
+Cross-context transplant of transport-band residual FAILS (synth 0.04 ~ neutral
+control -0.01; real-doc donor -0.05; own-resid positive control 1.00): enriched
+key state is context-bound compound-key binding, not token-keyed lookup. Next
+(tick 241): binding-depth probe — corrupt the second key token, restore primary
+key-pos resid at increasing depth; at what layer is the compound absorbed?
