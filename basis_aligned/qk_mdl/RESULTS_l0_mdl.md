@@ -1140,3 +1140,33 @@ architecturally heavy. The honest level-4 closing statement: the memory's CONTEN
 characterized and its EXTRACTION is measured to require either pretraining-scale
 mining or the model's own key-matching machinery — which is the quantified sense in
 which the parametric form is the practical description-length frontier.
+
+### 11f. Adversarial patching round: the entity memory is KEY-SIDE mid-stack MLP enrichment, late-attention transported (tick 238)
+
+Four agents (two hypothesis pairs, advocate/falsifier each) authored 15 patch specs
+with pre-registered predictions and abandon conditions; all executed in one batch.
+
+**Both advocates abandoned by their own criteria.** H2-advocate (deep attention
+re-reads the key and assembles the answer at the target): attention-output
+restorations at the target recovered 0.03–0.08 versus its ≥0.70 prediction —
+abandoned. H1-advocate (mid-stack attention carries entity retrieval): same specs,
+same failure — abandoned. The H2-falsifier's MLP-memory account survived its
+concession test (MLP-output restorations beat attention 8–10×: 0.31–0.65 versus
+0.03–0.08) but its "distributed additive MLP at the span" version was incomplete.
+
+**The verified account is a third structure the key-side probes exposed:** restoring
+the KEY position's residual at layer 8 alone recovers 0.65 (cluster 5); corrupting
+the key position's residual only at layers 13–17 destroys 0.99 of the prediction —
+and this holds even for the "early-resolved" surface case (cluster 2: 0.99). So:
+**entity retrieval is computed at the KEY TOKEN's own position by mid-stack MLPs —
+"Lindsay"'s residual is progressively enriched into an entity representation — and
+late attention (layers 13+) transports the enriched state to the target.** Target-side
+assembly is minor (attention-out restores ≈ 0); target-side MLPs contribute
+moderately (0.63 in the handle case). The cross-regime dissociation held in one
+direction (corrupting mid-stack attention on the surface-key example: damage −0.02).
+
+Both fresh-eyes rounds now ended the same way: agent consensus or advocacy corrected
+by pre-registered ground truth — and each correction bought a sharper mechanism than
+any agent proposed. The memory story, final form: fuzzy compositional keys (68%),
+bound early; entity enrichment at the key position via mid-stack MLPs; late attention
+transport; block-0's slice of this is the layer-1-pattern route we fully decomposed.

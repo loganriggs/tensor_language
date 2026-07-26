@@ -4587,3 +4587,11 @@ compositional-fragment cases. Our interface accounting governs the l1-pattern sl
 Next: depth-sweep causal tracing (restore clean residual at each layer over the key
 span) to locate where binding/retrieval lives; then adversarial subagent round on the
 resulting curve per Logan's protocol.
+
+## Tick 238 (2026-07-26, Logan's adversarial protocol): patch specs executed — third account wins
+qk_spec_executor.py, qk_spec_results.json; RESULTS §11f. Both advocates abandoned per
+their own pre-registered conditions (attention-at-target 0.03-0.08 vs predicted
+>=0.70). Verified mechanism: KEY-SIDE mid-stack MLP enrichment (key-pos resid@L8
+restore = 0.65; key-pos corrupt@L13-17 damage = 0.99) + late attention transport.
+Verdicts applied mechanically from pre-registered criteria (noted; agents not
+re-polled). Depth story now settled causally.

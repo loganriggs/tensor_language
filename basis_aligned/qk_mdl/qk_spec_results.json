@@ -1,0 +1,167 @@
+[
+ {
+  "spec": [
+   5,
+   "attn_out",
+   4,
+   12,
+   "span",
+   "restore"
+  ],
+  "recovery": 0.09
+ },
+ {
+  "spec": [
+   5,
+   "mlp_out",
+   4,
+   12,
+   "span",
+   "restore"
+  ],
+  "recovery": 0.31
+ },
+ {
+  "spec": [
+   7,
+   "attn_out",
+   4,
+   12,
+   "key_pos",
+   "insert"
+  ],
+  "damage": 0.28
+ },
+ {
+  "spec": [
+   7,
+   "mlp_out",
+   4,
+   12,
+   "target_pos",
+   "restore"
+  ],
+  "recovery": 0.65
+ },
+ {
+  "spec": [
+   5,
+   "attn_out",
+   7,
+   13,
+   "target_pos",
+   "restore"
+  ],
+  "recovery": 0.03
+ },
+ {
+  "spec": [
+   5,
+   "mlp_out",
+   7,
+   13,
+   "target_pos",
+   "restore"
+  ],
+  "recovery": 0.33
+ },
+ {
+  "spec": [
+   7,
+   "attn_out",
+   7,
+   13,
+   "target_pos",
+   "restore"
+  ],
+  "recovery": 0.06
+ },
+ {
+  "spec": [
+   7,
+   "mlp_out",
+   7,
+   13,
+   "target_pos",
+   "restore"
+  ],
+  "recovery": 0.63
+ },
+ {
+  "spec": [
+   5,
+   "attn_out",
+   6,
+   12,
+   "target_pos",
+   "restore"
+  ],
+  "recovery": 0.04
+ },
+ {
+  "spec": [
+   5,
+   "attn_out",
+   6,
+   8,
+   "target_pos",
+   "restore"
+  ],
+  "recovery": 0.08
+ },
+ {
+  "spec": [
+   7,
+   "attn_out",
+   7,
+   12,
+   "target_pos",
+   "restore"
+  ],
+  "recovery": 0.05
+ },
+ {
+  "spec": [
+   6,
+   "attn_out",
+   6,
+   12,
+   "target_pos",
+   "insert"
+  ],
+  "damage": -0.02
+ },
+ {
+  "spec": [
+   5,
+   "resid",
+   8,
+   8,
+   "key_pos",
+   "restore"
+  ],
+  "recovery": 0.65
+ },
+ {
+  "spec": [
+   5,
+   "resid",
+   13,
+   17,
+   "key_pos",
+   "insert"
+  ],
+  "damage": 0.99
+ },
+ {
+  "spec": [
+   2,
+   "resid",
+   2,
+   17,
+   "key_pos",
+   "insert"
+  ],
+  "damage": 0.99
+ }
+]
