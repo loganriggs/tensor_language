@@ -4689,3 +4689,11 @@ qk_mlp1_keylocal.py/.json; RESULTS §12d. rank64 keeps ~30% of the write, rank25
 Next: tick 250 symbol-generated pattern for layer 2 (named-basis codes emb96 +
 l0 archetypes 144 + l1 acts 144 -> linear decoder -> x2_hat -> l2 pattern
 replacement; gate against +0.0278 tables / +0.3904 zero).
+
+## Tick 250 (2026-07-26): SYMBOL RECURSION LANDMARK; RESULTS §12e
+qk_l2_symbolgen.py/.json. 384 named codes -> linear decoder (held-out R2 0.41)
+-> l2 pattern replacement: +0.0176 vs tables +0.0278 vs zero +0.390 (95.5% of
+function). Pattern-relevant subspace = symbol channel; payload channel (59% of
+variance) pattern-irrelevant — the type split is realized in the wiring. Next:
+tick 251 layer-3 port (depth-decay point 4) while symbol dictionary extension
+to l2 outputs is designed.

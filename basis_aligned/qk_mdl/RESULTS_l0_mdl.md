@@ -1385,3 +1385,22 @@ grain, completing the component-level account: block-1's MLP is a high-rank
 writer whose content resists both shared-subspace compression (11l) and local
 truncation (here). Note the modest absolute necessity of the single write
 (median 0.19): enrichment is redundant across blocks 0-3, consistent with 11h.
+
+### 12e. THE SYMBOL RECURSION WORKS (tick 250): 384 named numbers beat the token table
+
+The compositional fold test: 384 named codes per position (96 embedding
+coordinates + 144 layer-0 archetype activations + 144 layer-1 head activations),
+ridge linear decoder to block-2's attention input, layer-2 pattern computed from
+the SYNTHETIC residual, full 307k audit. Result: **+0.0176 nats — beating the
+50304-row token tables (+0.0278)** and reaching 95.5% of layer-2's pattern
+function (zero gate +0.390). The layer-1 symbols carry contextual pattern
+information no token-identity object can.
+
+The deeper structural fact: the decoder captures only 41% of the residual's
+variance, yet the pattern is nearly perfect. The missing 59% — which contains the
+high-rank payload traffic (12b-12d) — is PATTERN-IRRELEVANT: layer-2's QK reads
+the symbol channel and ignores the payload channel. The symbol/payload type split
+is thus not just a bookkeeping convention; it is realized in the model's own
+wiring, with attention-pattern formation subscribing to symbols and late-layer
+retrieval subscribing to payloads. The dictionary-growth scaling plan is live:
+the fold recurses over named symbols with S-squared cost, not exponential context.
