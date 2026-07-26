@@ -4573,3 +4573,17 @@ qk_key_ablation.py/.json. Per-token substitution vs target log-prob, 4 examples:
 Taxonomy: keys span single-token lookups, compositional phrase keys, and
 syntax/register triggers — matching the memory account's fuzzy-multi-token-key
 prediction and explaining why fixed-arity tables fail.
+
+## Tick 237 (2026-07-26, Logan): patching program part 1 — taxonomy + trace surprise
+qk_patch_program.py/.json. TAXONOMY (138 failures): compositional keys 68% (median 3
+heavy tokens), syntactic 18%, single-token 12%, diffuse 2% — multi-token compositional
+keys dominate, quantifying the fuzzy-key account. TRACE SURPRISE: restoring clean
+block-0 activations (attn-out / MLP-out / l1 factors) at the key span recovers little
+of the token-swap corruption (0.01-0.18; exception " Sky": mo@span 0.69) — the key
+token's effect reaches the prediction through MULTIPLE routes including deeper layers
+that read the token directly; block-0 is the dominant route only for some
+compositional-fragment cases. Our interface accounting governs the l1-pattern slice
+(+0.05-scale); the full failure magnitudes (3-12 nats) involve deeper circuitry.
+Next: depth-sweep causal tracing (restore clean residual at each layer over the key
+span) to locate where binding/retrieval lives; then adversarial subagent round on the
+resulting curve per Logan's protocol.

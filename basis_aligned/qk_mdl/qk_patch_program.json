@@ -1,0 +1,68 @@
+{
+  "taxonomy": {
+    "single": 16,
+    "compositional": 94,
+    "syntactic": 25,
+    "diffuse": 3
+  },
+  "n": 138,
+  "median_key_tokens": 3.0,
+  "traces": [
+    {
+      "cluster": 5,
+      "target": " L",
+      "clean_lp": -0.15,
+      "corrupt_lp": -10.35,
+      "recovery": {
+        "yh@key_pos": 0.02,
+        "yh@span": 0.02,
+        "mo@key_pos": 0.18,
+        "mo@span": 0.18,
+        "l1fac@key_pos": 0.01,
+        "l1fac@span": 0.01
+      }
+    },
+    {
+      "cluster": 2,
+      "target": " Sky",
+      "clean_lp": -1.4,
+      "corrupt_lp": -13.41,
+      "recovery": {
+        "yh@key_pos": 0.01,
+        "yh@span": 0.01,
+        "mo@key_pos": 0.69,
+        "mo@span": 0.69,
+        "l1fac@key_pos": 0.01,
+        "l1fac@span": 0.01
+      }
+    },
+    {
+      "cluster": 6,
+      "target": " Hamilton",
+      "clean_lp": -3.23,
+      "corrupt_lp": -12.11,
+      "recovery": {
+        "yh@key_pos": 0.03,
+        "yh@span": 0.03,
+        "mo@key_pos": -0.11,
+        "mo@span": -0.11,
+        "l1fac@key_pos": 0.03,
+        "l1fac@span": 0.03
+      }
+    },
+    {
+      "cluster": 7,
+      "target": "Mike",
+      "clean_lp": -9.01,
+      "corrupt_lp": -15.73,
+      "recovery": {
+        "yh@key_pos": -0.01,
+        "yh@span": -0.01,
+        "mo@key_pos": -0.07,
+        "mo@span": -0.07,
+        "l1fac@key_pos": 0.01,
+        "l1fac@span": 0.01
+      }
+    }
+  ]
+}
