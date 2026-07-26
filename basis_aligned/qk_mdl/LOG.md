@@ -4518,3 +4518,11 @@ positive-controlled 19/19). Real mechanism: first-mention entity continuations f
 PRETRAINING knowledge — the MLP as associative memory keyed by exact multi-token
 prefixes. Explains all prior nulls. Next rung candidate: explicit datastore
 (prefix->continuation) replacing parametric memory, MDL-priced. Awaiting Logan.
+
+## Tick 231 (2026-07-26, Logan go-ahead): explicit memory v1 — small gain, coverage-limited
+qk_explicit_memory.py/.json. Datastore from 3.1M disjoint tokens (278k trigram + 176k
+bigram keys, 69% train hit rate): R2 0.529 (from 0.521), audit +0.03048 (from
++0.03087) — real but small, consistent with coverage limitation (common n-grams
+covered; rare entities like "Matvichuk" absent from 3M tokens). Next (tick 232,
+pre-approved): scale the datastore ~10x with entity-targeted filtering; prediction
+under the memory account: gains track coverage, concentrated on entity clusters.
