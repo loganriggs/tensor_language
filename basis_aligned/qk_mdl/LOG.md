@@ -4645,3 +4645,11 @@ delta 0.98; rand-16 control 0.00; shared variance causally inert (54% var at r16
 -> 0.13 recovery). Per-instance near-orthogonal codes = hash-like associative
 store; matches the MDL-frontier account. LAST non-gated thread closed. TRUE REST
 STATE: hourly no-op ticks; everything else Logan-gated (layer 2 / new front).
+
+## Tick 245 (2026-07-26): single-fact eraser works (n=48) — Logan-prompted demo
+qk_fact_eraser.py/.json; RESULTS §11m. Subtract own delta at key pos @L8 in clean
+run: target -2.95 nats median vs collateral 0.006 (ratio ~500x); norm-matched
+random vector -0.04 (direction-specific); cross-fact interference 0.000 median
+(61 pairs). First applied capability from the pipeline account. Rest state
+resumes; further application ideas (injection library, storage-vs-retrieval edit
+sites) available on request.

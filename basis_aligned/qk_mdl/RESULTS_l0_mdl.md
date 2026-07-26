@@ -1301,3 +1301,17 @@ reader), but its memory-content channel is irreducibly high-dimensional — whic
 precisely what "parametric memory near the description-length frontier" predicts:
 content that cannot be compressed into shared directions is content no small
 explicit object can substitute for.
+
+### 11m. The single-fact eraser (tick 245, n=48): erasure is surgical
+
+Application of the pipeline + orthogonality findings: subtract a fact's own
+enrichment delta at its key position (layer-8 entry) in the clean run. Results:
+the targeted prediction drops a median 2.95 nats (mean 3.36), while the mean
+absolute disturbance to every OTHER prediction in the same document is 0.006
+nats — a selectivity ratio near five hundred. A norm-matched random vector at the
+same site drops the target only 0.04 median (direction, not perturbation size,
+carries the effect). Cross-fact interference: where a document contains a second
+measured fact, erasing the first moves the second by a median 0.000 nats (61
+pairs). Facts are individually addressable and individually removable at
+inference time, with no weight modification — the causal cash-out of the
+per-instance orthogonality of enrichment writes (11l).
