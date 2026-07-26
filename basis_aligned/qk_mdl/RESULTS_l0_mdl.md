@@ -1170,3 +1170,25 @@ by pre-registered ground truth — and each correction bought a sharper mechanis
 any agent proposed. The memory story, final form: fuzzy compositional keys (68%),
 bound early; entity enrichment at the key position via mid-stack MLPs; late attention
 transport; block-0's slice of this is the layer-1-pattern route we fully decomposed.
+
+### 11g. The enrichment mechanism at population scale (tick 239, n=64 strong-key failures)
+
+The tick-238 case-study mechanism generalizes: (1) **enrichment-completion depth** —
+restoring the key position's clean residual at a single layer recovers a median 0.64
+at layer 2, 0.88 at layer 8, 0.98 at layer 11, 1.00 at layer 14: the key token's
+entity representation is substantially built by layer 8 and complete by 11–14 (means
+lag medians: a subpopulation with other routes remains). (2) **Late key-side
+necessity** — corrupting the key position's residual only at layers 13–17 destroys a
+median 0.99 of the prediction: late attention transport from the key position is the
+delivery path for essentially all median cases. (3) **The enrichment is MLP-driven**:
+restoring mid-stack (layers 5–11) MLP outputs at the key position recovers a median
+0.81, versus 0.24 for attention outputs — a 3.3× ratio at the population level.
+
+Final mechanism statement, causally verified at scale: **fuzzy compositional keys
+(68% of failures) are bound early; the key token's own residual is then enriched into
+an entity representation by mid-stack MLPs (layers ~5–11); late attention (13+)
+transports the enriched state to the prediction site.** Block-0's role — the part
+this program decomposed exhaustively — is the first stage of that pipeline plus the
+layer-1 pattern route. The two fresh-eyes/adversarial rounds, the patching program,
+and this scale-up together turn the "parametric memory" claim from an inference into
+a depth-resolved, component-resolved, population-verified circuit account.

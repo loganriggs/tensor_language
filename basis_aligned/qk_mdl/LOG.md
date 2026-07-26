@@ -4595,3 +4595,10 @@ their own pre-registered conditions (attention-at-target 0.03-0.08 vs predicted
 restore = 0.65; key-pos corrupt@L13-17 damage = 0.99) + late attention transport.
 Verdicts applied mechanically from pre-registered criteria (noted; agents not
 re-polled). Depth story now settled causally.
+
+## Tick 239 (2026-07-26): enrichment mechanism population-verified (n=64)
+qk_enrich_scale.py/.json; RESULTS §11g. Completion depth: median restore 0.88@L8,
+0.98@L11, 1.0@L14; late key-side necessity median 0.99; MLP-vs-attention at key
+(L5-11): 0.81 vs 0.24 median. Mechanism settled: early key binding -> mid-stack
+MLP enrichment at the key position -> late attention transport. REST STATE pending
+Logan (consolidation of the full memory arc into story/artifact, or next thread).
