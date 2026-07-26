@@ -4502,3 +4502,10 @@ Manning); MLP block accounting (emb x emb 84% = covered; emb x attn0 + attn0 x a
 the unaccounted attention-mediated blocks); proposed reframe = fit the interface in
 the NAMED basis (l0 archetype activations as features, reusing ledger objects at zero
 new bits); success metric narrowed to the interface map only. Awaiting Logan.
+
+## Tick 229 (2026-07-26): NAMED BASIS WINS — 51% of context gap, U ~ 0.42
+qk_named_basis.py/.json; RESULTS §11b. Archetype-activation features (ledger-only):
+named_swiglu R2 0.521, audit +0.0309 — beats all weight-referencing generators at
+~300x fewer bits. Reframe premise confirmed (attention-mediated blocks were the
+missing content). Owed: entity-restricted check. Next rungs: g x g terms, deeper
+inventories, named+pairwise joint.

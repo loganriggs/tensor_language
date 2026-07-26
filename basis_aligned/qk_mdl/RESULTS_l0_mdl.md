@@ -1050,3 +1050,25 @@ needs); the two nested bilinear forms creating effective order ≥ 4 with strong
 cancellation structure (§10's "silence is computed" at the feature level); or
 normalization coupling across the window. Ladder paused here for Logan's input per
 the standing arrangement — the saturation curve, not another rung, is the deliverable.
+
+### 11b. The named-basis reframe: archetype activations carry the missing blocks (tick 229)
+
+Features = ledger objects only: the current token's 96-dim embedding code + 16
+archetype activations per layer-0 head (attention outputs projected onto validated
+archetype value directions — "head 3's {the}-weighted content", "head 1's
+fragment-weighted content"). No MLP codes, no weight references; new bits = the
+fitted map only.
+
+| arm | map bits | val R² | audit ΔCE | share of context gap |
+|---|---|---|---|---|
+| named linear | ~4.4 Mb | 0.334 | +0.0362 | 38% |
+| **named gated bilinear** | **~9.2 Mb** | **0.521** | **+0.0309** | **51%** |
+
+The named gated arm surpasses every weight-referencing generator (best +0.0319 at
+~2,700 Mb effective) at three hundred times fewer bits — **U ≈ 0.42, the program's
+best row** — and vindicates the reframe's premise: the un-captured computation was
+the attention-mediated blocks (emb×attn0, attn0×attn0), inexpressible over raw tokens
+but linear-plus-gate expressible over the layer-0 archetype activations the ledger
+already named. Ladder position: raw-token polynomial 29% → named basis 51% → oracle
+100%. (The entity-restricted fidelity check is still owed; next rungs available:
+g×g structured terms, deeper archetype inventories per head, joint named+pairwise.)
