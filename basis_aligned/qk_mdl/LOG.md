@@ -4682,3 +4682,10 @@ Process notes: inner '&' mistake repeated (third time) — recovered via file-gr
 monitor; OOM cause was caching full-vocab log-softmax per doc (fixed by gathering
 target log-probs only). Next: tick 249 key-position-local mlp1 truncation on
 failure packets vs random-position control.
+
+## Tick 249 (2026-07-26): key-local mlp1 truncation — payload in the tail per-write
+qk_mlp1_keylocal.py/.json; RESULTS §12d. rank64 keeps ~30% of the write, rank256
+~90%; controls ~0; single-write necessity modest (0.19 median; redundant band).
+Next: tick 250 symbol-generated pattern for layer 2 (named-basis codes emb96 +
+l0 archetypes 144 + l1 acts 144 -> linear decoder -> x2_hat -> l2 pattern
+replacement; gate against +0.0278 tables / +0.3904 zero).

@@ -1370,3 +1370,18 @@ group had n=5 — the comparison cannot discriminate at this grain. The sharper
 test (next tick): truncate block-1's MLP output AT THE KEY POSITION ONLY, on the
 failure-packet positions where payload demonstrably carries the prediction,
 against truncation at a random other position as the control.
+
+### 12d. Key-local truncation (tick 249, n=64): single writes need the tail
+
+At failure-packet key positions, truncating block-1's MLP output AT THAT POSITION
+ONLY: rank 64 of the shared PCA basis loses most of the write's value (median
+drop 0.135 versus 0.19 for zeroing the write entirely — only ~30% retained);
+rank 256 retains ~90% (drop 0.022). Identical truncation at random non-key
+positions in the same documents costs nothing (medians 0.002-0.004) — the effect
+is position-specific. Verdict: the flat global spectrum is NOT mere aggregate
+diversity across positions — each individual memory write already occupies the
+64-256 band of the shared basis. The payload lives in the tail at per-write
+grain, completing the component-level account: block-1's MLP is a high-rank
+writer whose content resists both shared-subspace compression (11l) and local
+truncation (here). Note the modest absolute necessity of the single write
+(median 0.19): enrichment is redundant across blocks 0-3, consistent with 11h.
