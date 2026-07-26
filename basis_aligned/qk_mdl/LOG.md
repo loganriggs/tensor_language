@@ -4542,3 +4542,14 @@ costs ~400 Mbit ~ the MLP's own 680 Mbit — the claim lands quantitatively. Toy
 (rules+exceptions, rho=0.5): knee at 45% mirrors named basis 51% + flat explicit
 rungs. Refinement ladder documented (fuzzy keys, exposure-matched capacity, composed
 keys).
+
+## Tick 234 (2026-07-26): exposure-matched toy capacity — the MLP holds ~1M pairs
+qk_toy_memory2.py/.json. Under Zipf exposure: rank50 scales linearly with params
+(4k/16k/64k at 60k/240k/960k params); pairs held ~0.05-0.08/param. Extrapolation to
+the real block-0 MLP (21.2M params): ~1.1M entity pairs held, recall collapsing
+beyond exposure rank ~1.4M. NUANCE to the frontier claim: an explicit table of those
+held pairs would cost only ~70 Mbit (< the MLP's ~170 Mbit int8-equivalent) — the
+parametric form is not bit-optimal but EXPOSURE-optimal: the real cost of the
+explicit alternative is identifying WHICH million pairs (pretraining-scale mining +
+fuzzy keys), not storing them. Predicts: model should fail on entities beyond
+~rank-1M exposure even with full context (testable against packets).
