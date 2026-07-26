@@ -4526,3 +4526,10 @@ bigram keys, 69% train hit rate): R2 0.529 (from 0.521), audit +0.03048 (from
 covered; rare entities like "Matvichuk" absent from 3M tokens). Next (tick 232,
 pre-approved): scale the datastore ~10x with entity-targeted filtering; prediction
 under the memory account: gains track coverage, concentrated on entity clusters.
+
+## Tick 232 (2026-07-26): scaled datastore NULL — exact n-gram form refuted
+qk_explicit_memory2.py/.json. 30M streamed FineWeb tokens, entity-filtered: hit rate
+0.33, audit +0.03096 (no gain over named-only). RESULTS §11d: parametric form may be
+the MDL frontier for the memory content. Named-basis 51% remains the explicit
+frontier. Heavier discriminators (billion-token store; soft-key retrieval) flagged
+for Logan. REST STATE.

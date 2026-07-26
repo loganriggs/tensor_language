@@ -1101,3 +1101,20 @@ mandatory in the sliver (it IS the memory), and it is dense in every basis
 well-posed: replace the parametric memory with an EXPLICIT one — a mined
 prefix→continuation datastore feeding the named-basis map (kNN-style), MDL-priced
 like everything else.
+
+### 11d. Explicit memory: exact n-gram form refuted; the parametric form may be the MDL frontier (ticks 231–232)
+
+v1 (3M-token datastore): +0.0004 nats gain. v2 (30M tokens, entity-filtered, 805k
+trigram keys): **no gain at all** (+0.03096 vs named-only +0.03087) despite 10× data.
+The exact-suffix datastore is the wrong replacement form at any feasible scale we can
+mine: either the model's memory keys are fuzzier than exact n-grams, or the entities
+driving the hard cases ("Matvichuk") are so rare that only pretraining-scale exposure
+contains them — in which case the honest conclusion is notable: **the MLP's parametric
+encoding (~680 Mbit) may already be near the MDL frontier for its memory content**,
+i.e., no small explicit object exists not because we haven't found it but because the
+content is irreducibly a compressed long-tail entity table. Level-4 standing: the
+dense mixer's function is NAMED (fuzzy prefix-keyed entity-continuation memory), its
+scope MEASURED (16-token keys, 10-dim output law, entity-continuation domain), and
+its storage format characterized as plausibly already-efficient. The two remaining
+discriminators are heavyweight and Logan-gated: a pretraining-scale datastore
+(billions of tokens) or soft-key embedding-space retrieval.
