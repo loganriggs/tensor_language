@@ -1220,3 +1220,23 @@ than retrieving a token-keyed dictionary entry. This is the mechanism-level matc
 to the key taxonomy (68% of failures need a median of 3 heavy tokens): the
 "memory key" is a compound assembled at the key position, and the parametric
 memory is addressed by that compound, not by the token identity alone.
+
+### 11i. Where the compound key assembles: at the query, by layer 8 (tick 241, n=39)
+
+For failures with two strong context keys (both >0.5 nat by neutral substitution,
+offsets >= 1), corrupt only the secondary key and restore clean residuals at single
+depths. Two curves: (a) restoring the PRIMARY key position's residual rescues
+nothing at any depth (medians 0.00-0.05 from layer 2 through the full 13-17 band) —
+the secondary key's content never routes through the primary key's position;
+(b) restoring the QUERY position's residual rescues 0.03 at layer 2, 0.56 at
+layer 5, 0.90 at layer 8, 0.99 at layer 14 — the compound key is assembled AT THE
+QUERY POSITION, substantially complete by layer 8.
+
+Reconciliation of the full picture: each strong key token's residual is enriched
+in place, conditioned on its local context (tick 240 transplant failure) but not on
+the other keys (curve a); the query position aggregates the separate key
+contributions through the mid-stack, finishing by ~layer 8; the primary entity
+token's content additionally stays key-side and is fetched late (tick 239's
+0.99 late-band necessity at the primary key). The "compound key" that addresses
+parametric memory is a query-side aggregate of independently-enriched per-token
+routes — not a bound structure at any key position.

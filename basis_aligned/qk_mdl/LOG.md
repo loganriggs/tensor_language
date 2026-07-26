@@ -4612,3 +4612,12 @@ control -0.01; real-doc donor -0.05; own-resid positive control 1.00): enriched
 key state is context-bound compound-key binding, not token-keyed lookup. Next
 (tick 241): binding-depth probe — corrupt the second key token, restore primary
 key-pos resid at increasing depth; at what layer is the compound absorbed?
+
+## Tick 241 (2026-07-26): compound key assembles at the query by layer 8 (n=39)
+qk_binding_depth.py (pilot n=4, selection flaw: strongest key usually the query
+token itself), qk_binding_depth2.py/.json (context keys only, offsets >= 1);
+RESULTS §11i. Restore primary-key resid vs secondary-key corruption: flat ~0 all
+depths (keys are independent routes). Restore query resid: 0.03@L2 -> 0.56@L5 ->
+0.90@L8 -> 0.99@L14 (query-side aggregation, complete by ~L8). Next (tick 242):
+site resolution of the query-side aggregation — attn_out vs mlp_out at the query
+position over layers 2-8, symmetric to tick 239's key-side test.
