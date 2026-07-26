@@ -120,3 +120,35 @@ find the narrow window rather than to decompose the engine. The methodology that
 survived 55 ticks unchanged: fold exactly where the architecture permits, gate on
 planted tests, validate on corrected nulls, calibrate measures against causal probes,
 verify at data scale, and let the eighteen controlled negatives be findings.
+
+## 8. Where the missing half lives: the verified memory pipeline (ticks 236–242)
+
+The 49% of the context gap that no small explicit object could buy (§6) is not a
+mystery organ — it is a four-stage circuit, each stage causally verified at
+population scale on the failure set:
+
+1. **In-place key enrichment.** Each heavy context token's residual is enriched at
+   its own position by the front-loaded MLPs — block 1 is the largest single
+   contributor (median recovery 0.50), blocks 0/2/3 next; the mid-stack band adds a
+   redundant, distributed refinement (individually 0.07–0.12, jointly 0.81). The
+   enriched state is context-BOUND: transplanting it from another context with the
+   same token fails against clean controls (median 0.04 versus positive control
+   1.00), and it does not contain the other keys' content (restore curve flat at
+   zero). The memory is addressed by context-conditioned token routes, not by a
+   token-keyed dictionary.
+2. **Query-side aggregation.** The query position pulls the separate routes
+   together through broad, shallow attention over layers ~3–8 (band restores 0.90;
+   no single layer above 0.26), interleaved with query MLP processing; the
+   compound is assembled by layer 8 (residual restore 0.90 at layer 8, 0.99 late).
+3. **Late fetch of the primary entity.** The primary key token's content stays
+   key-side and is delivered by late attention: corrupting only its layers 13–17
+   residual destroys a median 0.99 of the prediction.
+4. **Capped readout at the target.**
+
+Two adversarial single-mechanism advocates (pure induction-copy; pure query-side
+lookup) were eliminated by their own pre-registered abandonment criteria on the
+way to this account. The pipeline explains why the datastore, self-distillation,
+and n-gram rungs were all null (§6): the addressing scheme is compositional and
+context-conditioned at every stage, so no token-keyed explicit object can
+substitute for it — completing, at mechanism level, the description-length story
+the toy models told in outline.

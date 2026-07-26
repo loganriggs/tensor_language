@@ -4621,3 +4621,10 @@ depths (keys are independent routes). Restore query resid: 0.03@L2 -> 0.56@L5 ->
 0.90@L8 -> 0.99@L14 (query-side aggregation, complete by ~L8). Next (tick 242):
 site resolution of the query-side aggregation — attn_out vs mlp_out at the query
 position over layers 2-8, symmetric to tick 239's key-side test.
+
+## Tick 242 (2026-07-26): query-side aggregation = distributed transport (n=39)
+qk_query_site.py/.json; RESULTS §11j. Attention band 0-8 at query restores median
+0.90, MLP band 0.80 (serial path); per-layer attention 0.02-0.26 (peak L4-5) vs
+0.90 jointly — distributed aggregation, no single collector. Memory-pipeline arc
+(ticks 236-242) COMPLETE; consolidated into qk_two_layer_story.md §8. Rest state
+pending Logan (artifact update with the memory pipeline, or a new front).

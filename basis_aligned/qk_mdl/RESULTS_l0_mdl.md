@@ -1240,3 +1240,26 @@ token's content additionally stays key-side and is fetched late (tick 239's
 0.99 late-band necessity at the primary key). The "compound key" that addresses
 parametric memory is a query-side aggregate of independently-enriched per-token
 routes — not a bound structure at any key position.
+
+### 11j. Query-side aggregation is distributed transport (tick 242, n=39)
+
+Site resolution of the query-side integration (same secondary-key-corruption
+regime as 11i): restoring attention outputs at the query position over layers 0-8
+recovers a median 0.90; MLP outputs over the same band recover 0.80 — both high
+because they sit serially on one path (attention imports the key routes; query MLPs
+transform the aggregate). The per-layer attention profile is broad and shallow —
+individual layers give 0.02-0.26 (peak at layers 4-5) against 0.90 for the band —
+so the aggregation is distributed across layers roughly 3-8 with no single
+collector hop, the third appearance of the redundancy/superadditivity signature
+(after layer-1 attention and the mid-stack enrichment band).
+
+**The verified memory pipeline, complete (ticks 236-242):** (1) each strong key
+token's residual is enriched IN PLACE by front-loaded MLPs (block 1 largest single
+share), conditioned on local context but independent of the other keys; (2) the
+query position aggregates the per-token routes through distributed attention over
+layers ~3-8, interleaved with query-side MLP processing, complete by layer 8;
+(3) the primary entity token's content additionally remains key-side and is
+fetched by late attention (layers 13+, necessity 0.99); (4) capped readout at the
+target. Every stage is causally verified at population scale with positive and
+negative controls; two adversarial single-mechanism advocates were eliminated by
+pre-registered criteria on the way.
