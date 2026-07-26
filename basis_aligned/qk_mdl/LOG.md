@@ -4660,3 +4660,9 @@ j-1/j-4/p-16; duplicate injection inert (-0.000). With re-injection at j = 0.98:
 addressing is computed query-side from token arrangement; enrichment is a payload
 at a fixed slot. Applications arc (eraser/injection semantics) complete. REST
 STATE resumes; open: CFPD-style weight-level eraser, layer 2, or new front.
+
+## GATE CHANGE (2026-07-26): Logan opens LAYER 2 ("Go ahead to layer 2") and asks
+## for block-1 bilinear MLP treatment. Plan: tick 247 = l2 token-table port
+## (baseline + depth-decay point); tick 248 = block-1 MLP interface (realized
+## read-set into layer 2, block-0-style) + payload-share split; tick 249+ =
+## symbol-pair fold of l2 pattern over extended named basis (l0+l1 symbols).
