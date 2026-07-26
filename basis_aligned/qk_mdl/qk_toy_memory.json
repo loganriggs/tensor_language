@@ -1,0 +1,89 @@
+{
+  "toyA": [
+    {
+      "params": 59904,
+      "pairs": 6000,
+      "recall": 1.0,
+      "fp32_bits_per_pair": 319.5
+    },
+    {
+      "params": 59904,
+      "pairs": 12000,
+      "recall": 0.59,
+      "fp32_bits_per_pair": 159.7
+    },
+    {
+      "params": 59904,
+      "pairs": 24000,
+      "recall": 0.143,
+      "fp32_bits_per_pair": 79.9
+    },
+    {
+      "params": 239616,
+      "pairs": 24000,
+      "recall": 1.0,
+      "fp32_bits_per_pair": 319.5
+    },
+    {
+      "params": 239616,
+      "pairs": 48000,
+      "recall": 0.469,
+      "fp32_bits_per_pair": 159.7
+    },
+    {
+      "params": 239616,
+      "pairs": 96000,
+      "recall": 0.126,
+      "fp32_bits_per_pair": 79.9
+    }
+  ],
+  "toyB": {
+    "0.5": {
+      "pairs_needed": 335,
+      "frac_of_all_pairs": 0.0017,
+      "table_Mbit": 0.003
+    },
+    "0.75": {
+      "pairs_needed": 8187,
+      "frac_of_all_pairs": 0.0409,
+      "table_Mbit": 0.082
+    },
+    "0.9": {
+      "pairs_needed": 55701,
+      "frac_of_all_pairs": 0.2785,
+      "table_Mbit": 0.557
+    },
+    "0.99": {
+      "pairs_needed": 176001,
+      "frac_of_all_pairs": 0.88,
+      "table_Mbit": 1.76
+    }
+  },
+  "toyC": [
+    {
+      "object": "rule only",
+      "bits_Mbit": 2.1,
+      "frac_gain": 0.448
+    },
+    {
+      "object": "rule + top-1000 exceptions",
+      "bits_Mbit": 2.12,
+      "frac_gain": 0.851
+    },
+    {
+      "object": "rule + top-5000 exceptions",
+      "bits_Mbit": 2.23,
+      "frac_gain": 0.921
+    },
+    {
+      "object": "rule + top-20000 exceptions",
+      "bits_Mbit": 2.61,
+      "frac_gain": 0.982
+    },
+    {
+      "object": "rule + top-30280 exceptions",
+      "bits_Mbit": 2.88,
+      "frac_gain": 1.0
+    }
+  ]
+}

@@ -4533,3 +4533,12 @@ qk_explicit_memory2.py/.json. 30M streamed FineWeb tokens, entity-filtered: hit 
 the MDL frontier for the memory content. Named-basis 51% remains the explicit
 frontier. Heavier discriminators (billion-token store; soft-key retrieval) flagged
 for Logan. REST STATE.
+
+## Tick 233 (2026-07-26, Logan): toy models of the memory-MDL claim
+qk_toy_memory.py/.json + qk_toy_memory_explainer.md. Toy A: parametric pairs at ~320
+fp32-bits/pair (8x floor int8) — table-order storage. Toy B honest wrinkle: raw Zipf
+heads ARE cheap; refinement B' (baseline past the head, N=1e8): halving the residual
+costs ~400 Mbit ~ the MLP's own 680 Mbit — the claim lands quantitatively. Toy C
+(rules+exceptions, rho=0.5): knee at 45% mirrors named basis 51% + flat explicit
+rungs. Refinement ladder documented (fuzzy keys, exposure-matched capacity, composed
+keys).
