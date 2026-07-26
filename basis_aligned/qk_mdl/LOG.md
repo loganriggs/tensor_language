@@ -4697,3 +4697,8 @@ function). Pattern-relevant subspace = symbol channel; payload channel (59% of
 variance) pattern-irrelevant — the type split is realized in the wiring. Next:
 tick 251 layer-3 port (depth-decay point 4) while symbol dictionary extension
 to l2 outputs is designed.
+
+## Tick 251 (2026-07-26): layer-3 port — token share 76.3%; RESULTS §12f
+qk_l3_port.py/.json. Depth decay 100/99.0/92.9/76.3; layer load 0.165; diffuse
+heads. Tick 252 launched: l3 symbol-generated pattern with the unchanged
+384-symbol dictionary (dictionary-sufficiency test).

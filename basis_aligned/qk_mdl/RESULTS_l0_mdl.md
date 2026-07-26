@@ -1404,3 +1404,13 @@ is thus not just a bookkeeping convention; it is realized in the model's own
 wiring, with attention-pattern formation subscribing to symbols and late-layer
 retrieval subscribing to payloads. The dictionary-growth scaling plan is live:
 the fold recurses over named symbols with S-squared cost, not exponential context.
+
+### 12f. Layer-3 port (tick 251): token share falls to 76% — symbols now load-bearing
+
+Layer-3 tables +0.0390 versus zeroed +0.1646: token-identity share 76.3%. The
+depth-decay curve: 100 / 99.0 / 92.9 / 76.3 — decay accelerating, so this is the
+depth where compositional symbols stop being a refinement and become the story.
+Total layer load keeps shrinking (2.70 -> 0.39 -> 0.16 zeroed), and per-head
+damage is diffuse (max +0.013). Next: the symbol-generated pattern at layer 3 —
+first with the CURRENT 384-symbol dictionary (does it already carry layer 3?),
+then with layer-2 symbols appended (does the dictionary need to grow per layer?).
