@@ -10,5 +10,27 @@
   "rank64_dce": 0.31852,
   "rank16_dce": 1.2663,
   "rank4_dce": 1.94369,
-  "rank0_dce": 1.5533
+  "rank0_dce": 1.5533,
+  "strongkey_rank64_drop": {
+    "mean": 0.311,
+    "median": 0.155,
+    "n": 91
+  },
+  "weakkey_rank64_drop": {
+    "mean": -0.341,
+    "median": 0.143,
+    "n": 5
+  },
+  "alldoc_rank64_mean_drop": 0.2841,
+  "strongkey_rank256_drop": {
+    "mean": 0.063,
+    "median": 0.007,
+    "n": 91
+  },
+  "weakkey_rank256_drop": {
+    "mean": -0.271,
+    "median": -0.138,
+    "n": 5
+  },
+  "alldoc_rank256_mean_drop": 0.0235
 }

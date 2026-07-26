@@ -1360,3 +1360,13 @@ load-bearing, not noise. Contrast with block-0's per-reader ten-dimensional
 windows: block-1's output needs ~256 dimensions to carry its function. Part B
 (strong-key versus weak-key selectivity of truncation) rerunning after an
 out-of-memory in the first attempt.
+
+### 12c. Part B verdict: no selectivity at the strong-key grain (design-limited)
+
+Rank-64 truncation hurts strong-key positions (mean 0.31 nats) the same as the
+corpus average (0.28); rank-256 likewise (0.06 versus 0.02, medians near zero).
+Honest caveat: since 95% of positions carry a strong key, the "weak-key" contrast
+group had n=5 — the comparison cannot discriminate at this grain. The sharper
+test (next tick): truncate block-1's MLP output AT THE KEY POSITION ONLY, on the
+failure-packet positions where payload demonstrably carries the prediction,
+against truncation at a random other position as the control.

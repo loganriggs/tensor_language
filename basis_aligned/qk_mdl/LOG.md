@@ -4672,3 +4672,13 @@ qk_l2_port.py/.json, tables saved qk_l2_tables.pt. Depth decay 100/99.0/92.9;
 absolute context residual ~constant (+0.028); layer load 7x smaller than l1;
 h5 dominant; redundancy 4.7x. Next: tick 248 block-1 MLP interface + payload
 split (rank-truncation frontier + strong-key selectivity).
+
+## Tick 248 (2026-07-26): block-1 MLP frontier + payload part B; RESULTS §12b-12c
+Part A: flat spectrum (64 dims = 51% var), causal frontier needs ~256 dims
+(+0.025); rank-4 truncation WORSE than deletion (+1.94 vs +1.55) — load-bearing
+tail. Part B (after OOM rerun, lean): no strong-key selectivity, but the class
+covers 95% of positions (n=5 contrast) — design-limited, not a clean negative.
+Process notes: inner '&' mistake repeated (third time) — recovered via file-grep
+monitor; OOM cause was caching full-vocab log-softmax per doc (fixed by gathering
+target log-probs only). Next: tick 249 key-position-local mlp1 truncation on
+failure packets vs random-position control.

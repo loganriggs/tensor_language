@@ -1,0 +1,27 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+mlp1 output PCA cum var: {4: 0.1777, 16: 0.3216, 64: 0.5087, 256: 0.7629, 512: 0.8984}
+{
+ "strongkey_rank64_drop": {
+  "mean": 0.311,
+  "median": 0.155,
+  "n": 91
+ },
+ "weakkey_rank64_drop": {
+  "mean": -0.341,
+  "median": 0.143,
+  "n": 5
+ },
+ "alldoc_rank64_mean_drop": 0.2841,
+ "strongkey_rank256_drop": {
+  "mean": 0.063,
+  "median": 0.007,
+  "n": 91
+ },
+ "weakkey_rank256_drop": {
+  "mean": -0.271,
+  "median": -0.138,
+  "n": 5
+ },
+ "alldoc_rank256_mean_drop": 0.0235
+}
+MLP1 PAYLOAD DONE
