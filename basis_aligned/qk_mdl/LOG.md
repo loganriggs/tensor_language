@@ -4653,3 +4653,10 @@ random vector -0.04 (direction-specific); cross-fact interference 0.000 median
 (61 pairs). First applied capability from the pipeline account. Rest state
 resumes; further application ideas (injection library, storage-vs-retrieval edit
 sites) available on request.
+
+## Tick 246 (2026-07-26): late fetch is position-addressed (n=37)
+qk_fact_reloc.py/.json; RESULTS §11n. Erase-at-j + inject-at-j' recovers ~0 at
+j-1/j-4/p-16; duplicate injection inert (-0.000). With re-injection at j = 0.98:
+addressing is computed query-side from token arrangement; enrichment is a payload
+at a fixed slot. Applications arc (eraser/injection semantics) complete. REST
+STATE resumes; open: CFPD-style weight-level eraser, layer 2, or new front.

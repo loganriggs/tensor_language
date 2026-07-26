@@ -1315,3 +1315,18 @@ measured fact, erasing the first moves the second by a median 0.000 nats (61
 pairs). Facts are individually addressable and individually removable at
 inference time, with no weight modification — the causal cash-out of the
 per-instance orthogonality of enrichment writes (11l).
+
+### 11n. Retrieval is position-addressed (tick 246, n=37): relocation fails completely
+
+Erase the fact at its key position and inject the same delta elsewhere: recovery is
+zero everywhere — median 0.008 one token away, -0.002 four tokens away, -0.001 at
+sixteen tokens before the query. Injecting a duplicate of the delta at a second
+position without erasing the original changes the prediction by -0.000: content
+placed anywhere but the key slot is simply never read. Combined with the 0.98
+recovery when the same delta is re-injected at the key slot itself (ticks 239/243),
+the late fetch is POSITION-ADDRESSED: the query-side compound key computes WHERE to
+look from the surface token arrangement, and the enriched vector is a payload
+readable only at that slot. The division of labor in the pipeline is therefore:
+query aggregate = addressing; key-side enrichment = payload at a fixed address.
+Practical consequence: inference-time fact injection must target the slot the
+query will address (where it works at 0.98); the eraser (11m) is unaffected.
