@@ -4702,3 +4702,10 @@ to l2 outputs is designed.
 qk_l3_port.py/.json. Depth decay 100/99.0/92.9/76.3; layer load 0.165; diffuse
 heads. Tick 252 launched: l3 symbol-generated pattern with the unchanged
 384-symbol dictionary (dictionary-sufficiency test).
+
+## Tick 252 (2026-07-26): 384-dictionary REUSED at layer 3 — beats tables again
+qk_l3_symbolgen.py/.json; RESULTS §12g. +0.0265 vs tables +0.0390 vs zero
++0.1646 (83.9%); R2 0.35. NEXT (tick 253, build fresh): extend dictionary with
+144 layer-2 per-head activations (capture yh2 in blocks01 loop, add mu2/PB2 PCA
+pass, codes_of third block, KDIM 528, li==3 fold) — measures dictionary GROWTH
+need; then depth-decay + symbolgen march (l4, l5...) while payload share grows.

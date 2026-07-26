@@ -1414,3 +1414,14 @@ Total layer load keeps shrinking (2.70 -> 0.39 -> 0.16 zeroed), and per-head
 damage is diffuse (max +0.013). Next: the symbol-generated pattern at layer 3 —
 first with the CURRENT 384-symbol dictionary (does it already carry layer 3?),
 then with layer-2 symbols appended (does the dictionary need to grow per layer?).
+
+### 12g. Dictionary sufficiency at layer 3 (tick 252): symbols are REUSED across depth
+
+The unchanged 384-symbol dictionary (nothing from layer 2) generates layer-3's
+pattern at +0.0265 — again beating the token tables (+0.0390; zero +0.1646;
+83.9% of function versus the tables' 76.3%). Decoder held-out R-squared falls to
+0.35 (from 0.41 at layer 2) yet the pattern stays strong — the pattern-relevant
+channel remains inside the symbol span one layer deeper. Two consequences: the
+dictionary is not per-layer vocabulary but a shared, reused code (additive-growth
+hypothesis, strongest form); and the +0.0265 residual is the budget layer-2
+symbols can compete for (tick 253: append 144 layer-2 head activations, re-test).
