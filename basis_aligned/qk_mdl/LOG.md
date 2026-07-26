@@ -4736,3 +4736,11 @@ packets, ablate l5 head 7 pattern (zero s1[:,7] at li==5) and compare damage on
 multi-key compound positions vs single-key positions (prediction: selective
 compound damage if h7 is the aggregation workhorse); also depth figure
 (token share / symbol share / layer load vs depth) for the paper.
+
+## Tick 258 (2026-07-26): random-basis null fails — structure certified; §12m
+qk_l2_randnull.py/.json. Random 384 dims: +0.0318 vs structured +0.0176 vs
+tables +0.0278. Reviewer-2 fix list continues: (2) bootstrap intervals for the
+audit deltas (store per-document CE for base/tables/symbolgen/randnull in one
+pass, then percentile bootstrap); (3) U-v1 scores for fold results; (4)
+mean-ablation + multi-neutral-token robustness; (5) affine-aligned transplant;
+(6) l5-h7 identity test; (7) Pythia replication of the memory battery.

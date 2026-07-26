@@ -1475,3 +1475,15 @@ the widest symbols-over-tables margin yet (2.9x), from a decoder holding only
 34% of residual variance. Four consecutive layers, one dictionary, tables beaten
 at every depth: 95.5 / 88.6 / 92.4 / 97.2 percent of function at layers 2-5.
 The compositional recursion holds at hub scale.
+
+### 12m. Reviewer-2 control (tick 258): the random-projection null FAILS — structure is real
+
+Same fold pipeline with every basis replaced by random orthonormal projections of
+identical dimensions (96 + 144 + 144): +0.0318 — worse than the token tables
+(+0.0278) and 1.8x the structured dictionary's residual (+0.0176). In residual
+terms the archetype/principal structure explains half again what any same-width
+random summary explains (leaves 4.5% of function versus 8.1% random, 7.1%
+tables). The headline survives its strongest deflation: the fold result is a
+named-structure claim, not a bandwidth claim. (Decoder R-squared falls only 0.41
+to 0.32 while the pattern degrades sharply — further evidence the structured
+bases specifically span the pattern-relevant channel.)
