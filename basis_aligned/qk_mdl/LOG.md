@@ -4494,3 +4494,11 @@ diminishing returns. Per Logan's standing arrangement, PAUSED for his input with
 saturation curve (RESULTS §11); remaining untried rungs: full-resolution token
 identity inside pair terms (costly), scalar gates (free, likely small). Cron
 continues as status checks.
+
+## Tick 228 (2026-07-26, Logan): reframe briefing
+qk_reframe_briefing.md — confusion localized (one map, 70% of it, entity-identity
+carry on named-entity continuations: Lindsay->Lohan, Matvich->uk, SR->GE, Bradley->
+Manning); MLP block accounting (emb x emb 84% = covered; emb x attn0 + attn0 x attn0 =
+the unaccounted attention-mediated blocks); proposed reframe = fit the interface in
+the NAMED basis (l0 archetype activations as features, reusing ledger objects at zero
+new bits); success metric narrowed to the interface map only. Awaiting Logan.
