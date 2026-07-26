@@ -1118,3 +1118,25 @@ scope MEASURED (16-token keys, 10-dim output law, entity-continuation domain), a
 its storage format characterized as plausibly already-efficient. The two remaining
 discriminators are heavyweight and Logan-gated: a pretraining-scale datastore
 (billions of tokens) or soft-key embedding-space retrieval.
+
+### 11e. Memory-extraction rungs completed: the memory is real but not short-key readable (ticks 231–235)
+
+Four constructive extraction attempts, all against the named-basis anchor (+0.03087):
+corpus datastore 3M tokens (+0.0004); corpus datastore 30M entity-filtered (null);
+self-distilled table, corpus keys (+0.0003); **self-distilled table with PERFECT key
+coverage from the audit texts themselves (diagnostic-only, labeled leakage): +0.03131
+— null-to-negative even as an upper bound.** The model's confident three-token
+readouts are not its memory: with only short keys the memory does not activate (its
+true keys are up-to-16-token fuzzy contexts), and/or its interface contribution is
+key-content for matching rather than next-token identity.
+
+Standing account after the full arc: the missing ~49% is parametric entity memory —
+supported by the failure taxonomy (first-mention entities), the toy ladder
+(exposure-matched capacity ~1.1M pairs; explicit tail-tables cost MLP-scale bits at
+feasible mining), and the elimination of induction, exact n-grams (two scales), and
+short-key self-distillation. Every cheap constructive extraction is now falsified;
+the remaining extraction ideas (16-token fuzzy-key caching, soft retrieval) are
+architecturally heavy. The honest level-4 closing statement: the memory's CONTENT is
+characterized and its EXTRACTION is measured to require either pretraining-scale
+mining or the model's own key-matching machinery — which is the quantified sense in
+which the parametric form is the practical description-length frontier.

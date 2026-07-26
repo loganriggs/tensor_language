@@ -4553,3 +4553,10 @@ parametric form is not bit-optimal but EXPOSURE-optimal: the real cost of the
 explicit alternative is identifying WHICH million pairs (pretraining-scale mining +
 fuzzy keys), not storing them. Predicts: model should fail on entities beyond
 ~rank-1M exposure even with full context (testable against packets).
+
+## Tick 235 (2026-07-26): self-distilled memory — clean +0.0003; DIAGNOSTIC null
+qk_selfmined.py/.json; RESULTS §11e. Perfect-key-coverage diagnostic (+0.03131) is
+null-to-negative: memory not readable via confident 3-token queries. Extraction rungs
+exhausted at feasible cost (corpus x2, self-mined x2). PAUSED for Logan with the
+balanced ledger; remaining extraction ideas heavy (16-token fuzzy caching / soft
+retrieval). Named basis 51% remains the explicit frontier; U ~ 0.42.
