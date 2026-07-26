@@ -1072,3 +1072,32 @@ but linear-plus-gate expressible over the layer-0 archetype activations the ledg
 already named. Ladder position: raw-token polynomial 29% → named basis 51% → oracle
 100%. (The entity-restricted fidelity check is still owed; next rungs available:
 g×g structured terms, deeper archetype inventories per head, joint named+pairwise.)
+
+### 11c. The fresh-eyes protocol: consensus elicited, falsified, and the real mechanism cornered (tick 230)
+
+Logan's protocol executed: 8 failure clusters under the named-basis model, 8 parallel
+cold-reader agents (20 raw samples each, no priors shared). **Seven of eight converged
+on one hypothesis** — in-document induction/copy ("the target follows an earlier
+verbatim occurrence of the current suffix") — each with concrete thresholds.
+
+**Falsified by ground truth, decisively.** With a positive-controlled locator
+(19/19): the induction candidate (longest-suffix-match continuation from earlier in
+the document) equals the target in **1% of worst-case positions versus 12% at random
+positions** — anti-enriched; and the target token occurs anywhere earlier in the
+document at 43% versus 51% baseline — no enrichment. The hard cases are
+predominantly FIRST MENTIONS: "Matvich → uk", "Lindsay → L(ohan)", "Bradley →
+Manning" LOOK like copies to any knowledgeable reader (which is precisely why seven
+independent LLM readers converged on it — shared plausibility priors make convergence
+≠ correctness), but the sources are not in the documents.
+
+**The corrected characterization of the missing 49%: parametric entity memory.** The
+continuation is retrievable only from pretraining knowledge, keyed by the exact
+multi-token local prefix. The block-0 MLP's role in the interface is an ASSOCIATIVE
+MEMORY: exact window-suffix → entity-continuation key content. This single account
+explains every prior null at once: single-token tables fail (memory keys are
+multi-token), low-rank pair codes fail (keys need exact joint identity), the MLP is
+mandatory in the sliver (it IS the memory), and it is dense in every basis
+(distributed storage is how associative memories look). Natural next rung, now
+well-posed: replace the parametric memory with an EXPLICIT one — a mined
+prefix→continuation datastore feeding the named-basis map (kNN-style), MDL-priced
+like everything else.

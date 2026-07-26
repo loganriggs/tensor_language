@@ -4509,3 +4509,12 @@ named_swiglu R2 0.521, audit +0.0309 — beats all weight-referencing generators
 ~300x fewer bits. Reframe premise confirmed (attention-mediated blocks were the
 missing content). Owed: entity-restricted check. Next rungs: g x g terms, deeper
 inventories, named+pairwise joint.
+
+## Tick 230 (2026-07-26, Logan's protocol): consensus falsified — it's parametric memory
+qk_failure_packets.py/.json + 8 fresh-eyes agents; RESULTS §11c. 7/8 agents converged
+on in-document induction; ground truth: candidate==target 1% (worst) vs 12% (random);
+target-seen-earlier 43% vs 51% — falsified (shared-prior convergence trap; locator
+positive-controlled 19/19). Real mechanism: first-mention entity continuations from
+PRETRAINING knowledge — the MLP as associative memory keyed by exact multi-token
+prefixes. Explains all prior nulls. Next rung candidate: explicit datastore
+(prefix->continuation) replacing parametric memory, MDL-priced. Awaiting Logan.
