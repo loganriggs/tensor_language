@@ -4754,3 +4754,8 @@ compute honestly), then mean-ablation/multi-neutral robustness, l5-h7 test.
 qk_l5h7_identity.py/.json. Aggregator hypothesis unsupported; h7 = general
 workhorse; failure set leans 2x on layer 5. Fix list continues: U-v1 scoring,
 mean-ablation + multi-neutral robustness, affine transplant, Pythia battery.
+
+## Tick 261 (2026-07-27): neutral robustness — existence 95%, identity 47%; §12p
+qk_neutral_robust.py/.json. Battery conclusions stand (in-run denominators);
+key-identity language softened. Remaining fix list: U-v1 scoring, mean-ablation
+control, affine transplant, Pythia battery, depth figure.

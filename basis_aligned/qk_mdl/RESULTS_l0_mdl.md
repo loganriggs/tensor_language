@@ -1509,3 +1509,17 @@ aggregation stage remains distributed even though the layer's importance is
 concentrated. Secondary observation: on the failure set, layer-5 pattern
 ablation costs ~4.3 nats — nearly twice its corpus-average load (2.30) — the
 memory-heavy positions lean disproportionately on layer 5.
+
+### 12p. Neutral-token robustness (tick 261): existence robust, identity partially not
+
+Rerunning key identification with three neutral tokens (" one", " thing", " and")
+on the 96 failure-packet positions: strong-key EXISTENCE is robust — 91/96
+positions have a >1-nat key under all three neutrals (93-94 under each). But the
+TOP key's identity agrees across all three in only 47% of positions: compound
+positions carry several near-equal keys, and different substitutions reorder
+them. Implication, honestly bounded: every patching experiment validated its own
+key with an in-run >1-nat denominator, so the recovery/damage fractions stand;
+but "the primary key" should read "a key among several near-equals" for roughly
+half the positions, and single-key orderings (as in the tick-241 pair selection)
+inherit that fuzziness. The paper should use consensus keys or report
+per-neutral stability alongside any key-identity claim.
