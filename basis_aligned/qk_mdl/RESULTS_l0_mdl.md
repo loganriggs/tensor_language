@@ -1596,3 +1596,22 @@ sharpens accordingly: the algorithm to render explicit is MLP-0's bilinear map o
 the patch embeddings, gated by ~3 attention heads. Next: fold layer-0 head 0 and
 the layer-2 heads to visual archetypes, and probe MLP-0's structure (its input is
 the exact patch-pixel embedding, so it is directly analyzable).
+
+### 13c. MLP-0 dissection (med phase 4): partly patch-local, distributed feature bank
+
+- Patch-local test: removing layer-0 attention entirely holds 0.781 (from 0.857) —
+  MLP-0 is largely a per-patch pixel-embedding feature extractor, with ~7.6 points
+  coming from attention's cross-patch mixing. The dominant computation is local
+  texture, not spatial arrangement.
+- MLP-0 inner units are a DISTRIBUTED bank, not a sparse code: top-128 of 192 units
+  reach parity (0.857), top-64 give 0.613, top-32 only 0.441. Unlike the heads
+  (18->6), the bilinear feature bank barely compresses — colorectal tissue texture
+  needs many filters. Honest efficiency verdict: heads prune 3x, MLP-0 units ~1.5x.
+- Each unit's preferred pixel pattern is an exact 7x7x3 visual filter (top
+  eigenvector of its symmetric pixel-space form); top-32 saved for the artifact.
+
+Extraction status: the algorithm is localized (front-block bilinear texture bank on
+near-patch-local pixel embeddings + light attention pooling + 3 gating heads) and
+made visual (renderable filters), but is a genuine ~128-feature bank, not a handful
+of rules — the honest analogue of bilin18's "dense engine, and here a moderately
+wide one."

@@ -4797,3 +4797,9 @@ MLPs carry it (kill MLP0 -0.742, MLP1 -0.254, MLP2 -0.000). Attention = sparse
 router, bilinear MLPs = the classifier (front-loaded). Extraction target: MLP-0
 bilinear map on patch embeddings + ~3 gating heads. Next: visual archetypes for
 l0h0/l2h1/l2h2 + MLP-0 structure probe.
+
+## MED PHASE 4 (2026-07-27): MLP-0 dissection; §13c
+med_mlp0.py/.json, filters -> med_mlp0_filters.pt. attn0-removed 0.781 (patch-
+local-ish); MLP-0 units distributed (128/192 for parity, 64->0.613); top-32
+pixel filters saved. Next: visualization artifact (filter gallery + pruning
+frontiers); then explicit-pipeline accuracy at chosen budget.
