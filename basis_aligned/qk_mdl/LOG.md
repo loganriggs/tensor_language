@@ -4893,3 +4893,11 @@ spurious (u137 val-only) separated; robust-detector AUC 0.91 (generalizing) vs
 0.71 (train-specific); confounder = extreme spurious (generalizes to 0). Full
 value proposition demonstrated: fold = exact candidates, generalization =
 validation, loop = the value. Building artifact.
+
+## MED PHASE 16 (2026-07-27): validation loop as a method; §16
+med_loop_method.py/.json. Generalization-selection vs strength-selection (overlap
+11/32): stain-test 0.488 vs 0.248 (~2x robustness), clean-test 0.630 vs 0.657
+(-2.7). Real recipe with honest limit: robust to the VALIDATED nuisance, not
+universal (natural shift slightly worse). Two-tier fix: exact-invariance retrain
+(ph13, best, needs known nuisance) > feature-selection (ph16, fallback, needs
+multi-domain data). Medical value-prop arc now methodologically grounded.

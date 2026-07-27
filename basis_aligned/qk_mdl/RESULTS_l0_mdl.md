@@ -1911,3 +1911,33 @@ specific, inspectable hypotheses (rendered in med_validate_patterns.pt) a domain
 expert could examine or a robust model could be built from. The tensor structure's
 job is the "exact candidate" half; generalization is the "is it true" half; neither
 alone is the value, the loop is.
+
+### 16. The validation loop as a method: robust to what you validate against (med phase 16)
+
+Leakage-free protocol: select 32 filters using only VAL, either by clean-val
+strength (baseline) or by robustness across clean AND stain-shifted val (method);
+fit on TRAIN; evaluate on the untouched TEST institution and stain-shifted test.
+
+| selection | test (natural shift) | test + stain shift |
+|---|---|---|
+| by in-domain strength | 0.657 | 0.248 |
+| by generalization (clean+stain val) | 0.630 | **0.488** |
+
+The two criteria genuinely diverge (only 11 of 32 filters shared). Result, stated
+honestly: generalization-selection nearly DOUBLES robustness to the stain nuisance
+(0.248 -> 0.488) at a small clean-accuracy cost (-2.7 points). So "keep the
+features that survive a shift" is a real, usable recipe, not a one-class anecdote.
+
+The honest limit: it buys robustness to the nuisance you VALIDATE AGAINST, not
+universally — on the natural institution shift (clean test) the method was slightly
+WORSE (0.630 vs 0.657), because it was selected against stain specifically and the
+natural shift involves more than color. This sharpens the practical rule (and the
+research-brief criterion): you must validate against the shifts you actually care
+about; multi-site data covering those shifts is the requirement.
+
+Placed against phase 13: building an EXACT invariance and retraining (per-image
+standardization: 0.903 clean AND stain-robust) is strictly better when the nuisance
+has known analytic structure. Feature-selection (this phase) is the lighter-weight
+fallback when you cannot build an exact invariance but DO have multi-domain
+validation data. Two tiers of fix, both flowing from the same extracted-feature
+foundation.
