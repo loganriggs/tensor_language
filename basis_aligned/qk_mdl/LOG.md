@@ -4774,3 +4774,13 @@ bilinear MLP (bilin18-style, foldable). Val 95.7% but TEST 80.3% (train loss ->
 capable (val clears MedLiT-nano target); generalization gap is a training issue.
 Fix (med_bvit2): histology-valid augmentation (flips/90deg-rot/color jitter) +
 higher weight decay + shorter schedule. Extraction ticks gated on test >=~88%.
+
+## MED PHASE 1b (2026-07-27): augmented retrain — extraction target set
+med_bvit2.py/.pt: 0.348M, val 96.7%, test 85.7% (TTA 85.9% — residual gap is
+PathMNIST institutional shift, not orientation). Above AutoKeras (83.4%);
+competent foldable model. DECISION: proceed to extraction at 85.7% (gate relaxed
+from 88% — gap is intrinsic, extraction target is relative to own accuracy).
+Process lesson: `import med_bvit2` re-ran its training loop (module-level code);
+copy model class into analysis scripts, don't import training scripts.
+Phase 2 (med_probe): mean-ablation layer/head importance + exact layer-0 patch
+q/k code fold (numeric verification that codes reproduce scores).
