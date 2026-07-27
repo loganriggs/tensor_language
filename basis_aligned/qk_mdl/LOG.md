@@ -4926,3 +4926,8 @@ ecg_georgia_prep.py, ecg_crosscohort.py/.json. Model CD-AUC 0.884->0.828 US;
 feature-strength corr 0.79; Stage-1 V1/QRS units retain discrimination (6/8 hold
 0.14-0.17). BBB feature is genuine cross-country signal. Next: Chapman (China)
 third-cohort confirmation when download completes.
+
+## ECG PHASE C (2026-07-27): sex-from-ECG model; §19a
+ecg_sex.py/.json, ecg_sex_model.pt. Test AUC 0.857 (ref ~0.90). Discovery target
+works. Next: extract+render sex feature, cross-cohort validate (need Georgia sex
+labels from .hea). Chapman still downloading (~15%, throttled).

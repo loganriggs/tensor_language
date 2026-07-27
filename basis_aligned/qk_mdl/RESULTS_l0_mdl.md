@@ -2020,3 +2020,12 @@ The PTB-XL (German) model, applied WITHOUT retraining to the Georgia (US) cohort
 This is the ECG method-validation payoff: a foldable model's extracted feature (V1/QRS
 for conduction disturbance) recovers KNOWN cardiology AND validates across two
 continents. Next (18b): add Chapman-Shaoxing (China) for the three-continent test.
+
+## 19. ECG DISCOVERY: sex-from-ECG (Phase C)
+
+### 19a. Foldable model predicts sex from ECG
+Sex-from-ECG is a genuine discovery target -- the encoding feature is only partly
+known (the ECG analog of sex-from-retinal-fundus). Foldable model (0.392M params,
+same architecture): test AUC 0.857 (val 0.877) vs literature reference ~0.90. The
+architecture captures the subtler sex signal, not just categorical diagnoses. Next
+(19b): extract and EXACTLY RENDER what it uses, cross-cohort validate on Georgia/US.
