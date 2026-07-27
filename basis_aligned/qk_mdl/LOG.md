@@ -4803,3 +4803,10 @@ med_mlp0.py/.json, filters -> med_mlp0_filters.pt. attn0-removed 0.781 (patch-
 local-ish); MLP-0 units distributed (128/192 for parity, 64->0.613); top-32
 pixel filters saved. Next: visualization artifact (filter gallery + pruning
 frontiers); then explicit-pipeline accuracy at chosen budget.
+
+## MED PHASE 5 (2026-07-27): explicit pipeline 71.6%; §13d
+med_explicit.py/.json. Standalone quadratic-texture+pool+linear: 0.716 (K=192),
+recovers 84% of full acc. Decomposition: color 0.612 -> +texture 0.716 ->
++deep-compose 0.781 -> +attention 0.857. Extraction arc first pass COMPLETE.
+Next: filter-to-class attribution (which filters vote which tissue) for the
+interpretability payoff; artifact updated with explicit frontier.

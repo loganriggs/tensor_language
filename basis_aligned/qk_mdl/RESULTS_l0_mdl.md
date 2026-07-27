@@ -1615,3 +1615,25 @@ near-patch-local pixel embeddings + light attention pooling + 3 gating heads) an
 made visual (renderable filters), but is a genuine ~128-feature bank, not a handful
 of rules — the honest analogue of bilin18's "dense engine, and here a moderately
 wide one."
+
+### 13d. The standalone explicit pipeline (med phase 5): 71.6%, accuracy decomposed
+
+A fully explicit, auditable classifier — patch -> frozen extracted quadratic texture
+filters (a_j.p)(b_j.p) -> mean-pool -> linear head, no attention/residual/rms_norm,
+only the head fit — reaches 0.716 test with all 192 filters (0.711 at 128, 0.701 at
+64, 0.660 at 32). This decomposes the model's accuracy into interpretable rungs:
+
+| stage | test acc | adds |
+|---|---|---|
+| pooled raw pixels + linear (color) | 0.612 | floor |
+| + extracted patch-local quadratic texture filters | 0.716 | +0.104 |
+| + deep bilinear composition (2-3 MLP blocks, rms_norm) | 0.781 | +0.065 |
+| + attention cross-patch pooling | 0.857 | +0.076 |
+
+Honest verdict on the extraction: the explicit patch-local quadratic surrogate
+recovers 84% of the full model's accuracy and 42% of its above-color gap, as a
+transparent model (192 renderable filters + pool + linear). The remaining ~14
+points are genuinely non-patch-local / deep: bilinear composition across blocks and
+attention pooling each carry a comparable slice. So colorectal tissue classification
+is roughly half explicit local texture and half distributed composition — a
+quantified, auditable answer to "what algorithm," not a full lossless reduction.
