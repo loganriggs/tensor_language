@@ -1941,3 +1941,17 @@ has known analytic structure. Feature-selection (this phase) is the lighter-weig
 fallback when you cannot build an exact invariance but DO have multi-domain
 validation data. Two tiers of fix, both flowing from the same extracted-feature
 foundation.
+
+## 17. ECG STAGE 1 (Logan direction 2026-07-27): the foldable architecture transfers
+
+### 17a. Competitive on PTB-XL (make-or-break part 1)
+Trained the EXACT foldable architecture (no-softmax bilinear attention + bilinear
+MLP, 0.392M params) on PTB-XL 5-superclass diagnosis, changing only the input:
+the 12-lead 10s signal patched along TIME (20 patches x 50 samples, leads as
+channels). Result: test macro-AUC 0.898 (val 0.902) versus the field reference
+~0.93 (Ribeiro-class CNN). Within ~3 points of a purpose-built conv net, at
+histology-model scale, with no convolutions. The foldable architecture transfers
+off images onto 1-D physiological signals -- the first assumption the research
+plan required is confirmed. Next (17b): does the fold recover a KNOWN ECG
+morphology (conduction disturbance / bundle branch block), and localize it better
+than saliency (make-or-break part 2, the actual differentiator test).

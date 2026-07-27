@@ -4901,3 +4901,9 @@ med_loop_method.py/.json. Generalization-selection vs strength-selection (overla
 universal (natural shift slightly worse). Two-tier fix: exact-invariance retrain
 (ph13, best, needs known nuisance) > feature-selection (ph16, fallback, needs
 multi-domain data). Medical value-prop arc now methodologically grounded.
+
+## ECG STAGE 1a (2026-07-27): PTB-XL foldable model competitive; §17a
+ecg_prep.py, ecg_train.py/.json, ecg_model.pt. 0.392M params, patched 12-lead
+signal (no conv), test macro-AUC 0.898 vs ~0.93 reference. Architecture transfers
+off images. Data: PTB-XL 100Hz, 17418/2183/2198 split. Next: 17b fold recovers
+known morphology + beats saliency at localizing it (the differentiator test).
