@@ -1975,3 +1975,22 @@ Two honest caveats, both consistent with prior findings:
 2. A preset 5-lead BBB set scored only 1/5 by overlap, but that metric is
    mis-specified -- it lumps RBBB and LBBB leads; the decisive signal is the rank-1
    dominance of V1, which is unambiguous and correct.
+
+### 17c. The fold renders the morphology: V1-centered, QRS-width waveforms
+
+Characterizing the top CD-discriminative fold units' preferred 12-lead waveforms:
+3 of the top 4 units render V1 as their highest-energy lead; all show QRS-like
+temporal concentration (spikiness 2.2-2.7 peak-to-rms; 37-74% of energy inside a
+120ms window, the width of a QRS complex). So the fold's exact rendering -- the
+thing saliency fundamentally cannot do -- recovers the known bundle-branch-block
+morphology: V1-dominant, QRS-localized deflections. At the aggregate per-lead level
+the rendering is noisier than causal occlusion (17b), but at the individual-unit
+level the exact waveforms match cardiology.
+
+**ECG STAGE 1 VERDICT (both make-or-break tests PASS):** (1) the foldable
+architecture transfers off images to physiological signals (macro-AUC 0.898 vs
+~0.93 reference, 0.39M params, no convolutions); (2) it recovers a known
+diagnostic feature -- V1/QRS for conduction disturbance -- confirmed by causal
+per-lead importance (V1 3.6x dominant) AND by exact fold rendering (V1-centered
+QRS-width waveforms). The ECG direction is de-risked; Stage 2 (discovery + cross-
+site validation on a prognostic task) is the natural next commitment.

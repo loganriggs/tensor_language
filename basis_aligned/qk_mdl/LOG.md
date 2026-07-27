@@ -4914,3 +4914,9 @@ ecg_analyze.py/.json, ecg_cd_waveforms.pt. CD AUC 0.924; causal per-lead: V1
 occlusion. Fold lead-energy noisier (localization is causal's job, per med arc).
 Next 17c: render the CD units' preferred waveforms, check for wide-QRS morphology
 (the fold's actual differentiator = exact rendering).
+
+## ECG STAGE 1c (2026-07-27): fold renders BBB morphology; §17c. STAGE 1 COMPLETE.
+ecg_cd_waveforms.pt: top-4 CD units 3/4 V1-dominant, QRS-width concentration
+(0.37-0.74 energy in 120ms). Both make-or-break tests PASS: architecture transfers
+(0.898) + recovers known feature (V1/QRS, causal AND fold rendering). ECG direction
+de-risked. Stage 2 = prognostic discovery + cross-site validation (Logan gated).
