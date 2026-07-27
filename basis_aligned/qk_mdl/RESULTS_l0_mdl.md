@@ -2087,3 +2087,33 @@ filter to find the few (~6) that survive. The filter is not decoration -- it is 
 load-bearing step that separates a genuine cross-population biomarker from a
 cohort-specific correlate, and its importance grows precisely as you move toward the
 unknown targets where discovery actually happens.
+
+## 20. ECG STAGE 2b: THREE-CONTINENT validation (Germany + US + China)
+
+The German (PTB-XL) model's conduction-disturbance feature, applied without
+retraining to independent US (Georgia) and Chinese (Chapman-Shaoxing) cohorts:
+
+| cohort | n | CD prev | model CD-AUC |
+|---|---|---|---|
+| Germany (PTB-XL) | 2,198 | 0.226 | 0.884 |
+| US (Georgia) | 10,344 | 0.173 | 0.828 |
+| China (Chapman) | 10,247 | 0.104 | **0.880** |
+
+The model transfers to China essentially as well as in-domain (0.880 vs 0.884) --
+better than to the US (0.828). Feature-strength correlations: Germany-US 0.79,
+US-China 0.78, Germany-China 0.65 (China is the most distinct but still strong).
+
+**Eight features survive all three continents** with strength 0.14-0.22 in every
+cohort -- a set of conduction-disturbance detectors validated across three
+populations and three equipment sets. The Stage-1 V1/QRS bundle-branch-block units
+specifically: 6 of 8 hold strongly in ALL THREE (DE 0.16-0.19, US 0.14-0.17, CN
+0.17-0.22); two weaken (one to 0.08-0.10). The V1/QRS morphology is a genuine
+cross-continental feature.
+
+**Stage 2 validation arc COMPLETE.** The foldable-model + cross-cohort-filter loop
+is demonstrated end to end on ECG: recover a known feature exactly (Stage 1),
+validate it across three continents (here), and apply the same loop to discovery
+targets (sex, age; §19) where the generalization gradient shows the filter is
+load-bearing. What our earlier work established as the fold's genuine value -- exact
+feature rendering + cross-setting validation -- now has a full physiological-signal
+demonstration across three independent international cohorts.

@@ -4949,3 +4949,11 @@ Age r 0.757->0.477 US (large drop); per-lead V1 dominant (conduction/axis); feat
 corr 0.61 (vs 0.81 sex, 0.79 dx). GENERALIZATION GRADIENT: known->transfers well,
 unknown->more cohort-specific; filter is load-bearing for discovery. 6 generalizing
 age units exist (V1/V2/V4, 0.10-0.12 both cohorts). Chapman still downloading.
+
+## ECG STAGE 2b (2026-07-27): THREE-CONTINENT validation; §20. ARC COMPLETE.
+ecg_chapman_prep.py, ecg_crosscohort3.py/.json. Model CD-AUC DE 0.884 / US 0.828 /
+CN 0.880 (China ~ in-domain). Feature corr DE-US 0.79, US-CN 0.78, DE-CN 0.65.
+8 units survive all 3 continents (0.14-0.22 each); Stage-1 V1/QRS 6/8 hold in all
+3. V1/QRS BBB feature = genuine cross-continental. STAGE 2 VALIDATION COMPLETE.
+Remaining: outcome-linked mortality discovery (CODE, access-gated), CODE-15%
+prefetch (open), consolidation.
