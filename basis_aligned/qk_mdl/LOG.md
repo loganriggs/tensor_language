@@ -4819,3 +4819,11 @@ rests on composition rungs not texture. MED EXTRACTION ARC COMPLETE (phases 1-6)
 Open: 2-layer explicit pipeline (composition gap), 2nd MedMNIST (generality),
 RAD-DINO-class toolkit port. Reviewer-2 fixes (U-score, affine transplant) still
 pending on the bilin18 side.
+
+## MED PHASE 7 (2026-07-27): generality on BloodMNIST; §13f
+med_blood.py/.pt (test 94.3%, no val/test gap), med_blood_probe.py/.json.
+Structure REPLICATES: attn sparse router (load rises w/ depth 0.010/0.023/0.115),
+MLP front-loaded (0.240/0.041/0.028), 8/18 heads, explicit texture 87% of full.
+Blood more patch-local (attn0-removed -2.4 vs path -7.6). Toolkit ports unchanged.
+MED DIRECTION: two-task generality established. Open: 2-layer explicit (composition
+gap), RAD-DINO-class port, bilin18 reviewer-2 remainder (U-score, affine).

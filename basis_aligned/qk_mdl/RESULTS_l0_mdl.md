@@ -1658,3 +1658,29 @@ The extracted algorithm is now a labeled dictionary: renderable pixel filters, e
 tied to the tissue types it signals, with the clinically hard call (carcinoma vs
 normal epithelium) explicitly attributed to composition rather than texture — an
 auditable, honest account of what the classifier keys on.
+
+### 13f. Generality: the structure holds on BloodMNIST (med phase 7)
+
+Same foldable architecture on BloodMNIST (8-class blood cells, test 94.3%, no
+val/test gap — the PathMNIST gap was institutional). Identical probe, side by side:
+
+| property | PathMNIST | BloodMNIST |
+|---|---|---|
+| attention load rises with depth | 0.018/0.021/0.092 | 0.010/0.023/0.115 |
+| MLP load, front-loaded | 0.742/0.254/0.000 | 0.240/0.041/0.028 |
+| heads carrying load (>0.003) | ~6/18 | 8/18 |
+| attn-0 removed (patch-local) | 0.781 (-7.6) | 0.919 (-2.4) |
+| explicit texture pipeline / full | 0.716/0.857 (84%) | 0.821/0.943 (87%) |
+| linear color floor | 0.612 | 0.637 |
+
+The qualitative structure is TASK-GENERAL: attention is a sparse router whose
+importance rises with depth; the bilinear MLPs carry classification, front-loaded
+in block 0; ~half the heads are dead weight; the algorithm is substantially
+patch-local; and the explicit quadratic-texture pipeline recovers 84-87% of full
+accuracy. Task-specific differences are interpretable: blood cells are MORE
+patch-local (attn-0 removal costs only 2.4 vs 7.6 — a single cell often sits in
+one patch, versus tissue texture spanning patches), and the explicit surrogate
+recovers MORE of blood (87% vs 84%) because single-cell morphology is more nearly
+a local-texture problem than tissue architecture. Two tasks, one mechanism: this
+architecture computes "sparse attention routing + front-loaded bilinear texture
+bank + light composition," and the extraction toolkit ports unchanged.

@@ -1,0 +1,12 @@
+train torch.Size([11959, 3, 28, 28]) val torch.Size([1712, 3, 28, 28]) test torch.Size([3421, 3, 28, 28])
+params 0.348M
+step 1500: loss 0.280 val 0.8972 (best 0.8972)
+step 3000: loss 0.100 val 0.9287 (best 0.9287)
+step 4500: loss 0.137 val 0.9352 (best 0.9352)
+step 6000: loss 0.024 val 0.9340 (best 0.9352)
+step 7500: loss 0.007 val 0.9334 (best 0.9352)
+step 9000: loss 0.000 val 0.9445 (best 0.9445)
+step 10500: loss 0.000 val 0.9463 (best 0.9463)
+step 12000: loss 0.000 val 0.9451 (best 0.9463)
+{"params_M": 0.3483, "best_val": 0.9463, "test_acc": 0.9427}
+MED BLOOD TRAIN DONE
