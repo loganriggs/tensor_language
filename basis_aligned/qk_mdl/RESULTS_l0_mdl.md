@@ -1790,3 +1790,32 @@ independent and severe. This confirms the deployment concern is real, but my sim
 interpretation-motivated fix did not rescue it. The CORRECT intervention implied by
 the mechanism (multiplicative color nuisance) is per-image channel standardization,
 which is exactly affine-invariant — tested in 13l.
+
+### 13l. The mechanism-correct fix works: stain-invariant model (med phase 13)
+
+Per-image per-channel standardization (exactly invariant to per-channel affine
+stain shift), motivated directly by the extraction's "model keys on color" finding
+after the naive DC-removal fix failed (13k). Fragility curves:
+
+| eps | original | stain-invariant |
+|---|---|---|
+| 0.00 | 0.857 | **0.903** |
+| 0.05 | 0.572 | 0.895 |
+| 0.10 | 0.324 | 0.847 |
+| 0.20 | 0.193 | 0.701 |
+| 0.30 | 0.147 | 0.574 |
+
+Two wins at once: (1) CLEAN accuracy rises 85.7% -> 90.3% and the val/test gap
+halves (11 -> 5 points) — because PathMNIST's institutional test shift is itself
+partly a stain shift, so normalizing color closes half of it on the benchmark
+with no other change; (2) STAIN robustness is transformed — accuracy retention at
+eps=0.1 goes from 0.38 (original collapses to 32%) to 0.94 (invariant holds 85%).
+
+The honest end-to-end loop (this is the clinically-relevant shape): mechanistic
+extraction identified color-reliance as the fragility source -> a NAIVE fix (DC
+removal) FAILED and its failure diagnosed the true nuisance (multiplicative, not
+additive) -> the mechanism-correct invariance (per-image standardization) fixed
+BOTH cross-institution clean accuracy AND stain robustness. Interpretation ->
+falsified hypothesis -> corrected intervention -> a more reliable detector. The
+useful output for medical work was not speed but a robustness diagnosis-and-fix,
+and it came from a wrong first guess corrected by controls, not a lucky headline.

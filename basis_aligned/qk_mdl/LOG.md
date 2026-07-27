@@ -4860,3 +4860,11 @@ med_seed1.py (test 0.853), med_reproduce.py/.json. Per-filter match mean 0.715
 vs null 0.29-0.41. Filters are reproducible TASK features; interpretability
 claims hold. Medical arc's own reviewer-2 control passes. REST STATE: in-scope
 queue exhausted; full-scale port remains the pending scope decision for Logan.
+
+## MED PHASE 13 (2026-07-27): mechanism-correct stain fix works; §13l
+med_staininv.py (per-image standardization, test 0.903 up from 0.857, val/test
+gap 11->5), med_stain2.py/.json. Retention at eps=0.1: 0.94 vs original 0.38.
+Full loop: extraction found color-reliance -> naive fix failed (13k) -> corrected
+fix (per-image std) fixed clean acc AND stain robustness. Medical "useful output"
+= robustness diagnose-and-fix, arrived at via falsified hypothesis. Softmax
+control (13k) = fold breaks, causal tools port, no more robust than bilinear.
