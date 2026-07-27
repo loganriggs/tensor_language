@@ -4766,3 +4766,11 @@ each; hub-layer-5 story retracted (positional); symbol fold beats positional
 mean at l2/l3, ties l4, loses l5. Symbols-vs-tables/random comparisons and the
 memory battery unaffected. Fix list: re-baseline depth figure on mean gates;
 U-scoring; affine transplant; Pythia battery.
+
+## MED PHASE 1 (2026-07-27, Logan redirect): foldable bilinear ViT on PathMNIST
+med_bvit.py/.json/.pt. 0.348M params, no-softmax (q1k1)(q2k2) bidirectional +
+bilinear MLP (bilin18-style, foldable). Val 95.7% but TEST 80.3% (train loss ->
+0.001): overfit + PathMNIST's known val/test center shift. Architecture is
+capable (val clears MedLiT-nano target); generalization gap is a training issue.
+Fix (med_bvit2): histology-valid augmentation (flips/90deg-rot/color jitter) +
+higher weight decay + shorter schedule. Extraction ticks gated on test >=~88%.
