@@ -1819,3 +1819,32 @@ BOTH cross-institution clean accuracy AND stain robustness. Interpretation ->
 falsified hypothesis -> corrected intervention -> a more reliable detector. The
 useful output for medical work was not speed but a robustness diagnosis-and-fix,
 and it came from a wrong first guess corrected by controls, not a lucky headline.
+
+### 14. Confounder detection bake-off (med phase 14): the fold is NOT needed, and lost
+
+Planted a color-neutral gray marker (4x4 corner square) on all training images of
+one class. The model learned it as a pure shortcut: class recall 0.007 without the
+marker, 1.00 with it; stamping the marker on other classes flips 12.5% to the
+confounded class. A textbook confounder with known location (patch 0).
+
+Detection bake-off — per-patch importance for the confounded class, does it localize
+patch 0?
+
+| method | tensor-specific? | localizes marker? |
+|---|---|---|
+| gradient saliency | no | YES — patch 0 rank 1, argmax 0 |
+| causal occlusion | no | YES — patch 0 rank 1, argmax 0 (drop 6.68) |
+| **fold (exact patch texture readout)** | **yes** | **NO — patch 0 rank 16 (last), argmax 8** |
+| global color probe | no | 0.96 recall (caveat: class 0 = adipose is naturally pale, so this is confounded, not clean evidence the marker is globally color-visible) |
+
+Honest verdict, directly answering "do we need the tensor structure": NO. Both
+standard, architecture-general methods (saliency and causal occlusion) cleanly
+localized the planted confounder; the fold-specific detector FAILED — it ranked the
+marker patch dead last. The reason is mechanistic and instructive: the model
+exploits the marker through attention routing plus deep MLPs, but the exact-fold
+texture pipeline only captures the shallow patch-local readout and discards exactly
+the machinery that uses the confounder. Causal occlusion wins because it accounts
+for the whole computation; the fold is exact only about the part that here doesn't
+matter. For confounder DETECTION, this is "just causal analysis," and causal
+analysis suffices. The fold's demonstrated value is elsewhere (exact feature
+rendering, the discover->fix robustness loop), not confounder detection.

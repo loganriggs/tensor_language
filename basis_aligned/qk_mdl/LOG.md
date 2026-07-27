@@ -4868,3 +4868,12 @@ Full loop: extraction found color-reliance -> naive fix failed (13k) -> correcte
 fix (per-image std) fixed clean acc AND stain robustness. Medical "useful output"
 = robustness diagnose-and-fix, arrived at via falsified hypothesis. Softmax
 control (13k) = fold breaks, causal tools port, no more robust than bilinear.
+
+## MED PHASE 14 (2026-07-27): confounder bake-off — fold NOT needed, and lost; §14
+med_confound.py/.pt/.json (marker learned: recall 0.007->1.0, flip 0.125),
+med_confound_detect.py/.json. Saliency & causal occlusion localize marker (rank 1);
+FOLD detector fails (rank 16) — captures only shallow texture readout, not the
+attention+deep-MLP path that uses the marker. Confounder detection = causal
+analysis suffices; tensor structure not needed here. Next: texture (color-neutral)
+confounder — the fairest chance for the fold, since it lives in the fold's feature
+space.
