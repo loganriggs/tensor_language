@@ -4744,3 +4744,8 @@ audit deltas (store per-document CE for base/tables/symbolgen/randnull in one
 pass, then percentile bootstrap); (3) U-v1 scores for fold results; (4)
 mean-ablation + multi-neutral-token robustness; (5) affine-aligned transplant;
 (6) l5-h7 identity test; (7) Pythia replication of the memory battery.
+
+## Tick 259 (2026-07-27): bootstrap CIs — all deltas significant; §12n
+qk_l2_bootstrap.py/.json. tab-sym +0.0101 [0.0090,0.0113]; rand-sym +0.0141
+[0.0133,0.0150]. Next fix item: U-v1 scores for the fold (charge blocks 0-1
+compute honestly), then mean-ablation/multi-neutral robustness, l5-h7 test.

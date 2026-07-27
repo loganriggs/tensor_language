@@ -1487,3 +1487,13 @@ tables). The headline survives its strongest deflation: the fold result is a
 named-structure claim, not a bandwidth claim. (Decoder R-squared falls only 0.41
 to 0.32 while the pattern degrades sharply — further evidence the structured
 bases specifically span the pattern-relevant channel.)
+
+### 12n. Bootstrap intervals (tick 259): all layer-2 fold claims survive at 95%
+
+Per-document cross-entropy, four conditions in one pass, 10,000-resample
+percentile bootstrap over 150 audit documents: structured fold +0.01764
+[+0.01671, +0.01859]; tables +0.02778 [+0.02651, +0.02906]; random null
++0.03178 [+0.03048, +0.03312]. Pairwise: tables minus structured +0.01014
+[+0.00904, +0.01125]; random minus structured +0.01414 [+0.01326, +0.01502] —
+both decisively positive. Point estimates reproduce the original runs to the
+fifth decimal (independent basis draws for the null). Reviewer-2 items 1-2 done.
