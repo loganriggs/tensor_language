@@ -4853,3 +4853,10 @@ Explicit vs full: 5.95x params, 6.36x FLOPs, 19.9x latency (1.41 vs 28.0 ms),
 at 84% of accuracy. All three redirect goals (accuracy/interpretability/
 efficiency) now quantified on one model. MEDICAL DIRECTION fully delivered.
 Rest state: only scope-change options remain (full-scale port) — Logan's call.
+
+## MED PHASE 10 (2026-07-27): filter reproducibility; §13j
+med_seed1.py (test 0.853), med_reproduce.py/.json. Per-filter match mean 0.715
+(median 0.731, 67% >0.7) vs random floor 0.238; subspace cos 0.64-0.75 (K=8/16)
+vs null 0.29-0.41. Filters are reproducible TASK features; interpretability
+claims hold. Medical arc's own reviewer-2 control passes. REST STATE: in-scope
+queue exhausted; full-scale port remains the pending scope decision for Logan.

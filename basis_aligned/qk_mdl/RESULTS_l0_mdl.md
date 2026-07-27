@@ -1744,3 +1744,22 @@ class-labeled visual filters 13c/13e), EFFICIENCY (6x params, 20x latency, here)
 The honest trade is explicit: the interpretable/efficient surrogate costs 13.5
 accuracy points, and 13d-13h show that cost is exactly the genuinely-deep composition
 that does not reduce to local texture.
+
+### 13j. Filter reproducibility across seeds (med phase 10): the vocabulary is real
+
+Two independently-trained models (seed 0: 85.7%, seed 1: 85.3%), top texture
+filters extracted from each and compared:
+- Per-filter best-match cosine (sign-invariant): mean 0.715, median 0.731, and
+  67% of filters match above 0.7 — against a random-pattern floor of 0.24. The
+  individual filters are strongly reproduced.
+- Feature-subspace principal angles (measured at K=8 and K=16 units, where the
+  subspace dimension leaves room to discriminate; the naive K=64 test saturates
+  because 128 dims fill 147-dim pixel space): mean cos 0.64 (K=8) and 0.75 (K=16)
+  versus random-subspace nulls of 0.29 and 0.41. The feature space is even more
+  reproducible than individual filters, as expected.
+
+Verdict: the extracted visual filters are properties of the TASK, not artifacts of
+one training run. The interpretability claims (13c/13e) stand — the tissue-labeled
+filter dictionary is a reproducible account of what colorectal classification keys
+on, with individual filters well-matched and the feature space they span strongly
+seed-invariant. This is the medical arc's own reviewer-2 control, and it passes.
