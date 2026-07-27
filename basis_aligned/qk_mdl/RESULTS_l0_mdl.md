@@ -1576,3 +1576,23 @@ Reading: the classifier is a shallow-attention + late-attention machine with ~3
 load-bearing heads. Extraction plan: fold layer 0 exactly (done), CP-decompose the
 layer-2 head-1/head-2 score tensors into visual archetypes, and test an explicit
 pipeline against the 85.7% target.
+
+### 13b. Minimal circuit (med phase 3): attention prunes hard, MLPs carry the model
+
+Mean-ablation pruning on the 85.7% model:
+- Attention heads prune drastically. Six of eighteen heads reproduce the full
+  accuracy exactly (0.857); the top-4 reach 0.844; top-3 (l0h0, l2h1, l2h2) hold
+  0.830 (3 points under full); a single head (l2h1) already gives 0.769. Twelve
+  heads are dead weight — a 3x head reduction at near-parity.
+- The bilinear MLPs, not attention, are the model. Mean-ablating MLP-0 costs
+  0.742 accuracy (collapse to near-chance for 9 classes = 0.11 floor, so this is
+  most of the model); MLP-1 costs 0.254; MLP-2 costs 0.000 (entirely prunable).
+- Minimal circuit so far: 3 heads + MLP-0 + MLP-1 (drop MLP-2 and 12 heads),
+  0.830 test — a substantial compression at -2.7 points.
+
+Reading (mirrors bilin18): attention is a light, sparse router; the bilinear MLPs
+do the classification work, front-loaded in the first block. The extraction target
+sharpens accordingly: the algorithm to render explicit is MLP-0's bilinear map on
+the patch embeddings, gated by ~3 attention heads. Next: fold layer-0 head 0 and
+the layer-2 heads to visual archetypes, and probe MLP-0's structure (its input is
+the exact patch-pixel embedding, so it is directly analyzable).

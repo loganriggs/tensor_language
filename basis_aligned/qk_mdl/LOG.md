@@ -4790,3 +4790,10 @@ med_probe.py/.json. Mean-ablation: layer load 0.018/0.021/0.092 (rises with
 depth); only 3 heads matter (l2h1 -0.045, l2h2 -0.031, l0h0 -0.012); layer-0
 code fold EXACT (0.0e0). Next: CP visual archetypes for l2h1/l2h2 + explicit
 pipeline accuracy vs 85.7%.
+
+## MED PHASE 3 (2026-07-27): minimal circuit; §13b
+med_prune.py/.json. Heads prune 18->6 at parity (top-3 0.830, top-1 0.769);
+MLPs carry it (kill MLP0 -0.742, MLP1 -0.254, MLP2 -0.000). Attention = sparse
+router, bilinear MLPs = the classifier (front-loaded). Extraction target: MLP-0
+bilinear map on patch embeddings + ~3 gating heads. Next: visual archetypes for
+l0h0/l2h1/l2h2 + MLP-0 structure probe.
