@@ -1,0 +1,121 @@
+{
+  "cancer_class": 8,
+  "auc_generalization_corr": 0.871,
+  "top_generalizing": [
+    {
+      "unit": 42,
+      "val_auc": 0.202,
+      "test_auc": 0.128,
+      "val_strength": 0.298,
+      "test_strength": 0.372,
+      "generalizes": 0.298,
+      "train_specific_gap": -0.074
+    },
+    {
+      "unit": 49,
+      "val_auc": 0.786,
+      "test_auc": 0.851,
+      "val_strength": 0.286,
+      "test_strength": 0.351,
+      "generalizes": 0.286,
+      "train_specific_gap": -0.065
+    },
+    {
+      "unit": 172,
+      "val_auc": 0.778,
+      "test_auc": 0.799,
+      "val_strength": 0.278,
+      "test_strength": 0.299,
+      "generalizes": 0.278,
+      "train_specific_gap": -0.021
+    },
+    {
+      "unit": 128,
+      "val_auc": 0.227,
+      "test_auc": 0.226,
+      "val_strength": 0.273,
+      "test_strength": 0.274,
+      "generalizes": 0.273,
+      "train_specific_gap": -0.001
+    },
+    {
+      "unit": 148,
+      "val_auc": 0.246,
+      "test_auc": 0.171,
+      "val_strength": 0.254,
+      "test_strength": 0.329,
+      "generalizes": 0.254,
+      "train_specific_gap": -0.075
+    },
+    {
+      "unit": 33,
+      "val_auc": 0.726,
+      "test_auc": 0.832,
+      "val_strength": 0.226,
+      "test_strength": 0.332,
+      "generalizes": 0.226,
+      "train_specific_gap": -0.106
+    }
+  ],
+  "top_train_specific": [
+    {
+      "unit": 137,
+      "val_auc": 0.669,
+      "test_auc": 0.54,
+      "val_strength": 0.169,
+      "test_strength": 0.04,
+      "generalizes": 0.04,
+      "train_specific_gap": 0.129
+    },
+    {
+      "unit": 123,
+      "val_auc": 0.315,
+      "test_auc": 0.414,
+      "val_strength": 0.185,
+      "test_strength": 0.086,
+      "generalizes": 0.086,
+      "train_specific_gap": 0.099
+    },
+    {
+      "unit": 134,
+      "val_auc": 0.425,
+      "test_auc": 0.519,
+      "val_strength": 0.075,
+      "test_strength": 0.019,
+      "generalizes": 0.019,
+      "train_specific_gap": 0.056
+    },
+    {
+      "unit": 151,
+      "val_auc": 0.562,
+      "test_auc": 0.491,
+      "val_strength": 0.062,
+      "test_strength": 0.009,
+      "generalizes": 0.009,
+      "train_specific_gap": 0.053
+    },
+    {
+      "unit": 92,
+      "val_auc": 0.429,
+      "test_auc": 0.474,
+      "val_strength": 0.071,
+      "test_strength": 0.026,
+      "generalizes": 0.026,
+      "train_specific_gap": 0.045
+    },
+    {
+      "unit": 15,
+      "val_auc": 0.436,
+      "test_auc": 0.462,
+      "val_strength": 0.064,
+      "test_strength": 0.038,
+      "generalizes": 0.038,
+      "train_specific_gap": 0.026
+    }
+  ],
+  "robustness": {
+    "generalizing_filters_test_auc": 0.91,
+    "train_specific_filters_test_auc": 0.707
+  },
+  "n_filters": 64
+}

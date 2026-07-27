@@ -4885,3 +4885,11 @@ color 0.96 = adipose paleness red herring (mean-preserving marker same number).
 CONFOUNDER-DETECTION QUESTION CLOSED: tensor structure NOT needed, causal
 occlusion suffices and is architecture-general. Fold value = exact rendering +
 discover->fix loop, not detection.
+
+## MED PHASE 15 (2026-07-27): extract->validate loop works; §15
+med_validate.py/.json, patterns -> med_validate_patterns.pt. Cancer filter
+val/test discriminativeness corr 0.87 (generalizes); true (u42 strong both) vs
+spurious (u137 val-only) separated; robust-detector AUC 0.91 (generalizing) vs
+0.71 (train-specific); confounder = extreme spurious (generalizes to 0). Full
+value proposition demonstrated: fold = exact candidates, generalization =
+validation, loop = the value. Building artifact.

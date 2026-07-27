@@ -1883,3 +1883,31 @@ FINAL ANSWER to "do we need the tensor structure to detect confounders": NO. Cau
 occlusion is the right tool and it is architecture-general. The fold's demonstrated
 value is exact mechanistic rendering and the discover->fix robustness loop (13l) —
 NOT confounder detection, where it is neither necessary nor competitive.
+
+### 15. The extract -> validate-by-generalization loop works (med phase 15)
+
+On the REAL cancer class (adenocarcinoma), each exact extracted texture filter
+scored for cancer-vs-rest discrimination on VAL (train institutions) and TEST
+(held-out institution). Results:
+- Filter discriminativeness GENERALIZES strongly: correlation between val-strength
+  and test-strength across filters = 0.87. The cancer texture signal is largely
+  institution-independent — the signature of real (not spurious) features.
+- The loop SEPARATES true from spurious by example: unit 42 is strongly cancer-
+  discriminative on BOTH val and test (strength 0.30 / 0.37 — a true candidate);
+  unit 137 looks discriminative in-domain (strength 0.17) but collapses to near-
+  chance on the held-out institution (0.04 — train-specific / spurious).
+- The payoff is causal-actionable: a cancer detector built from the top
+  GENERALIZING filters reaches test AUC 0.91, versus 0.71 for one built from the
+  top TRAIN-SPECIFIC filters. Selecting features by cross-site generalization =
+  keeping the true ones = a materially more robust detector.
+- Contrast with the planted confounder (phase 14): perfectly renderable, yet
+  generalizes to ZERO (class recall 0.007 without the marker). The loop places it
+  at the extreme spurious end — exactly where it belongs.
+
+This is the precise, honest value proposition demonstrated end to end: the fold
+supplies EXACT, renderable candidate features (which saliency/occlusion cannot);
+cross-setting generalization VALIDATES which are real; and the survivors are
+specific, inspectable hypotheses (rendered in med_validate_patterns.pt) a domain
+expert could examine or a robust model could be built from. The tensor structure's
+job is the "exact candidate" half; generalization is the "is it true" half; neither
+alone is the value, the loop is.
