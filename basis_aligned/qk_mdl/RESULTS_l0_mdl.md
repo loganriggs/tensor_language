@@ -1723,3 +1723,24 @@ bound" survives. No global linear frame-correction makes another context's
 enriched key state functional at the target; the enrichment depends on the
 specific surrounding content, not a coordinate convention. The claim stands as
 written; reviewer-2 objection answered with a control.
+
+### 13i. The efficiency number (med phase 9): the extraction's third axis
+
+Trained ViT vs extracted explicit pipeline on PathMNIST:
+
+| | params | FLOPs/img | test acc | latency (full test pass) |
+|---|---|---|---|---|
+| trained bilinear ViT | 348,393 | 5.76M | 0.857 | 28.0 ms |
+| explicit pipeline | 58,569 | 0.90M | 0.722 | 1.41 ms |
+| ratio | 5.95x | 6.36x | -0.135 | 19.9x faster |
+
+The extracted algorithm is 6x smaller, 6x fewer FLOPs, and ~20x faster wall-clock
+(the latency ratio beats the FLOP ratio because the explicit pipeline is 3 dense
+ops with no attention einsums or repeated rms-norm layers, so it maps better to the
+hardware), at 84% of the accuracy. Combined with the earlier axes this completes the
+extraction on all three of Logan's stated goals: ACCURACY (85.7 target, explicit
+recovers 84%, decomposed into causal rungs 13d/13g), INTERPRETABILITY (renderable,
+class-labeled visual filters 13c/13e), EFFICIENCY (6x params, 20x latency, here).
+The honest trade is explicit: the interpretable/efficient surrogate costs 13.5
+accuracy points, and 13d-13h show that cost is exactly the genuinely-deep composition
+that does not reduce to local texture.

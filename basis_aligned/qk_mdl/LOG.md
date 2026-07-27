@@ -4847,3 +4847,9 @@ qk_understanding_metric.md ledger rows 10/10'/11. Fold U=0.060 (zero-C) / 0.021
 standalone replacement, highest-U context object. Reviewer-2 fix list COMPLETE
 (7/7). Both programs reviewer-hardened. Rest state: only scope-change options
 remain (full-scale toolkit port) — flagged for Logan, not auto-run.
+
+## MED PHASE 9 (2026-07-27): efficiency; §13i. med_efficiency.py/.json.
+Explicit vs full: 5.95x params, 6.36x FLOPs, 19.9x latency (1.41 vs 28.0 ms),
+at 84% of accuracy. All three redirect goals (accuracy/interpretability/
+efficiency) now quantified on one model. MEDICAL DIRECTION fully delivered.
+Rest state: only scope-change options remain (full-scale port) — Logan's call.

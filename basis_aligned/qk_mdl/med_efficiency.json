@@ -1,0 +1,17 @@
+{
+  "full": {
+    "params": 348393,
+    "flops_per_img": 5756256,
+    "test_acc": 0.857,
+    "ms_per_pass": 28.02
+  },
+  "explicit": {
+    "params": 58569,
+    "flops_per_img": 904896,
+    "test_acc": 0.7221,
+    "ms_per_pass": 1.41
+  },
+  "param_ratio": 5.95,
+  "flop_ratio": 6.36,
+  "speedup": 19.87
+}
