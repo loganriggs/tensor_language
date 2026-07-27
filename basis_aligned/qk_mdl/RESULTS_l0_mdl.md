@@ -2060,3 +2060,30 @@ known ECG basis): foldable model test MAE 8.96 years, Pearson r 0.757 (reference
 ~6.9 years for larger models). Our 0.39M model is behind on absolute error but
 captures a real age signal (r 0.76) -- enough to extract and cross-validate what it
 uses. Next (19d): extract + render + cross-cohort validate the age feature.
+
+### 19d. Age feature: transfers less, revealing the generalization gradient
+Age discovery (Germany PTB-XL -> US Georgia):
+- Cross-country transfer: age r 0.757 (Germany) -> 0.477 (US). A LARGE drop -- the age
+  signal is markedly more cohort-dependent than sex or diagnosis.
+- Causal per-lead: V1 dominant (0.066), then aVR/I/V4 -- conduction/axis leads, which
+  change with aging (physiologically sensible).
+- Feature-strength correlation across cohorts: 0.61 (vs 0.81 sex, 0.79 diagnosis).
+- Top generalizing units DO exist: 6 units peak in V1/V2/V4 and retain strength
+  0.10-0.12 in BOTH cohorts.
+
+**The generalization gradient across three targets (the key methodological finding):**
+
+| target | knownness | model transfer | feature corr across cohorts |
+|---|---|---|---|
+| conduction disturbance (BBB) | known physiology | AUC 0.884 -> 0.828 | 0.79 |
+| sex | partly known | AUC 0.857 -> 0.760 | 0.81 |
+| ECG-age | least understood | r 0.757 -> 0.477 | 0.61 |
+
+The more a target is an established, robust physiological feature, the better it
+generalizes across countries; the subtler/less-understood targets are more
+cohort-dependent. This is EXACTLY why the cross-cohort validation filter is
+essential for discovery: for age, most features do NOT generalize, so you must
+filter to find the few (~6) that survive. The filter is not decoration -- it is the
+load-bearing step that separates a genuine cross-population biomarker from a
+cohort-specific correlate, and its importance grows precisely as you move toward the
+unknown targets where discovery actually happens.

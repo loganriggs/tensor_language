@@ -4943,3 +4943,9 @@ Chapman 3-continent + artifact; toward unknown-feature (age/prognosis).
 Test MAE 8.96y, r 0.757 (ref ~6.9). Real age signal on tiny model. Process note:
 inner-& detached training (logged mistake, Nth time) -> recovered via file-grep
 monitor. Next: age feature extract/render/cross-validate.
+
+## ECG age discovery (2026-07-27): §19d. ecg_age_analyze.py/.json, ecg_age_waveforms.pt.
+Age r 0.757->0.477 US (large drop); per-lead V1 dominant (conduction/axis); feature
+corr 0.61 (vs 0.81 sex, 0.79 dx). GENERALIZATION GRADIENT: known->transfers well,
+unknown->more cohort-specific; filter is load-bearing for discovery. 6 generalizing
+age units exist (V1/V2/V4, 0.10-0.12 both cohorts). Chapman still downloading.
