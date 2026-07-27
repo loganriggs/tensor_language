@@ -4827,3 +4827,10 @@ MLP front-loaded (0.240/0.041/0.028), 8/18 heads, explicit texture 87% of full.
 Blood more patch-local (attn0-removed -2.4 vs path -7.6). Toolkit ports unchanged.
 MED DIRECTION: two-task generality established. Open: 2-layer explicit (composition
 gap), RAD-DINO-class port, bilin18 reviewer-2 remainder (U-score, affine).
+
+## MED PHASE 8 (2026-07-27): composition partly explicit spatial-stats; §13g
+med_compose.py/.json. mean+std recovers ~4pts both tasks (path 0.722->0.770,
+blood 0.819->0.843) then plateaus; remaining ~9-10pts irreducibly deep. Extraction
+ledger: ~2/3 of above-color accuracy explicit, 1/3 distributed. MED ARC (phases
+1-8) COMPLETE: trained, localized, extracted, decomposed, labeled, generalized,
+composition-bounded. Open: full-scale toolkit port; bilin18 reviewer-2 remainder.

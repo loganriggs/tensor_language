@@ -1684,3 +1684,27 @@ recovers MORE of blood (87% vs 84%) because single-cell morphology is more nearl
 a local-texture problem than tissue architecture. Two tasks, one mechanism: this
 architecture computes "sparse attention routing + front-loaded bilinear texture
 bank + light composition," and the extraction toolkit ports unchanged.
+
+### 13g. The composition gap is partly explicit spatial statistics (med phase 8)
+
+Richer explicit pooling of the same extracted texture features (mean -> mean+std ->
+mean+std+max+min), linear head, no attention:
+
+| pool | PathMNIST | BloodMNIST |
+|---|---|---|
+| mean only | 0.722 | 0.819 |
+| + std | 0.764 | 0.843 |
+| + max + min | 0.770 | 0.839 |
+| (full model) | 0.857 | 0.943 |
+
+Adding second-order spatial statistics recovers ~4 points on each task (path
+0.722->0.770, blood 0.819->0.843) — so a MEANINGFUL slice of the composition gap
+is explicit "how variable is this texture across the field," fully auditable and
+clinically sensible (texture heterogeneity). But it plateaus at std/max; the
+remaining ~9 points (path) and ~10 (blood) do NOT reduce to per-feature spatial
+statistics. That residue is genuine cross-feature, cross-patch interaction — the
+irreducibly deep part, exactly the attention + multi-block composition the
+ablations charged (13d). Final honest extraction ledger for PathMNIST: color 0.61,
++ patch-local texture 0.72, + spatial-statistics composition 0.77, + genuinely
+deep interaction 0.857. Roughly two-thirds of the above-color accuracy is explicit
+(local texture + spatial statistics); one-third is irreducibly distributed.
