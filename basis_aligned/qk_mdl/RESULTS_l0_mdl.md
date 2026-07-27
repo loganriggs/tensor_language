@@ -1994,3 +1994,29 @@ diagnostic feature -- V1/QRS for conduction disturbance -- confirmed by causal
 per-lead importance (V1 3.6x dominant) AND by exact fold rendering (V1-centered
 QRS-width waveforms). The ECG direction is de-risked; Stage 2 (discovery + cross-
 site validation on a prognostic task) is the natural next commitment.
+
+## 18. ECG STAGE 2: cross-country validation (Germany -> US)
+
+### 18a. The conduction-disturbance feature generalizes across the Atlantic
+The PTB-XL (German) model, applied WITHOUT retraining to the Georgia (US) cohort
+(10,344 records, 17.3% CD):
+- **Model transfer:** CD-superclass AUC 0.884 in-domain (Germany) -> 0.828 on the US
+  cohort. A modest 5.6-point drop across country + different recording equipment --
+  the diagnostic signal is largely country-independent.
+- **Feature-level generalization:** per-feature CD-discriminativeness correlates 0.79
+  between Germany and the US. The learned CD representation is substantially the same
+  signal in both cohorts, not a PTB-XL artifact.
+- **Stage-1 V1/QRS units hold up:** the 8 bundle-branch-block units (17b/c) retain
+  their CD-discrimination in the US cohort (PTB-XL strength 0.16-0.19 -> US strength
+  0.14-0.17 for 6 of 8; two weaken to 0.08-0.10). The V1/QRS morphology found in
+  Germany is a genuine cross-country feature -- exactly what a real biomarker (vs a
+  cohort artifact) should do.
+- **Generalization-selection:** on the US cohort, a CD detector from generalization-
+  selected features (0.677) slightly beats one from PTB-XL-strength-selected features
+  (0.665); the two criteria diverge (11/16 overlap). Small margin here because the
+  known feature already transfers well -- the selection lever matters more for
+  spurious-prone features (as on histology).
+
+This is the ECG method-validation payoff: a foldable model's extracted feature (V1/QRS
+for conduction disturbance) recovers KNOWN cardiology AND validates across two
+continents. Next (18b): add Chapman-Shaoxing (China) for the three-continent test.

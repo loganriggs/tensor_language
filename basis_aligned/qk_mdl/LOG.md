@@ -4920,3 +4920,9 @@ ecg_cd_waveforms.pt: top-4 CD units 3/4 V1-dominant, QRS-width concentration
 (0.37-0.74 energy in 120ms). Both make-or-break tests PASS: architecture transfers
 (0.898) + recovers known feature (V1/QRS, causal AND fold rendering). ECG direction
 de-risked. Stage 2 = prognostic discovery + cross-site validation (Logan gated).
+
+## ECG STAGE 2a (2026-07-27): cross-country validation Germany->US; §18a
+ecg_georgia_prep.py, ecg_crosscohort.py/.json. Model CD-AUC 0.884->0.828 US;
+feature-strength corr 0.79; Stage-1 V1/QRS units retain discrimination (6/8 hold
+0.14-0.17). BBB feature is genuine cross-country signal. Next: Chapman (China)
+third-cohort confirmation when download completes.
