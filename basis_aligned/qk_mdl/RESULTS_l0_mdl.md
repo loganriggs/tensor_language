@@ -1708,3 +1708,18 @@ ablations charged (13d). Final honest extraction ledger for PathMNIST: color 0.6
 + patch-local texture 0.72, + spatial-statistics composition 0.77, + genuinely
 deep interaction 0.857. Roughly two-thirds of the above-color accuracy is explicit
 (local texture + spatial statistics); one-third is irreducibly distributed.
+
+### 13h... (bilin18 reviewer-2) Affine transplant (tick 263): context-bound HOLDS
+
+Testing whether tick-240's "context-bound" is really "affinely misaligned": a
+per-layer global affine map fit on 6,254 disjoint same-token occurrence pairs
+(fit R-squared 0.36-0.41 per band layer, so there IS a learnable frame component),
+applied to held-out failure-position donor vectors. Recovery over 72 positions:
+self-control median 1.00; raw donor median -0.05 (mean -0.36); affine-corrected
+donor median 0.015 (mean 0.00). The affine map removes the raw donor's ACTIVE
+HARM (mean -0.36 -> 0.00) but does NOT produce positive transfer — corrected
+transplants sit at zero, two orders below the self-control. Verdict: "context-
+bound" survives. No global linear frame-correction makes another context's
+enriched key state functional at the target; the enrichment depends on the
+specific surrounding content, not a coordinate convention. The claim stands as
+written; reviewer-2 objection answered with a control.

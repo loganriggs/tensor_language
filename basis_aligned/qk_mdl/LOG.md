@@ -4834,3 +4834,9 @@ blood 0.819->0.843) then plateaus; remaining ~9-10pts irreducibly deep. Extracti
 ledger: ~2/3 of above-color accuracy explicit, 1/3 distributed. MED ARC (phases
 1-8) COMPLETE: trained, localized, extracted, decomposed, labeled, generalized,
 composition-bounded. Open: full-scale toolkit port; bilin18 reviewer-2 remainder.
+
+## Tick 263 (2026-07-27, reviewer-2): affine transplant — context-bound holds; §13h
+qk_affine_transplant.py/.json. Per-layer affine (6254 pairs, R2 0.36-0.41):
+self 1.00, raw donor -0.05, affine donor 0.015. Affine removes harm but no
+positive transfer; context-boundedness genuine. Reviewer-2 remainder: only U-v1
+fold scoring left.
