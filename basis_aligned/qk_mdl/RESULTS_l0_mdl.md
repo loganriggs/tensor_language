@@ -1523,3 +1523,32 @@ but "the primary key" should read "a key among several near-equals" for roughly
 half the positions, and single-key orderings (as in the tick-241 pair selection)
 inherit that fuzziness. The paper should use consensus keys or report
 per-neutral stability alongside any key-identity claim.
+
+### 12q. MAJOR CORRECTION (tick 262): zero-ablation inflated every layer load 10-60x
+
+Mean-ablation (replace each layer's pattern with its batch-mean at the same
+positions — full positional structure kept, all content dependence removed):
+layer 2 +0.0265, layer 3 +0.0225, layer 4 +0.0245, layer 5 +0.0363 — versus
+zero-ablation's +0.390 / +0.165 / +0.348 / +2.303. Ninety to ninety-eight
+percent of the "layer load" was the off-distribution artifact of deleting the
+average pattern; the CONTENT-dependent pattern function of layers 2-5 is only
+0.02-0.04 nats each. Consequences, stated bluntly:
+
+- The "hub layer 5" story (12k) deflates: its 2.30-nat load is positional
+  structure, not content computation; head 7's +0.956 is likewise zero-ablation.
+- Every "share of function" percentage in 12e-12l was computed against inflated
+  zero gates. Honest re-baseline against the positional mean: at layer 2 the
+  symbol fold (+0.0176) beats the positional mean (+0.0265) — it captures ~34%
+  of true content function, and the tables capture ~none beyond position; at
+  layer 3 symbols also win (+0.0188 vs +0.0225); at layer 4 they roughly tie
+  (+0.0263 vs +0.0245); at layer 5 they LOSE (+0.065 vs +0.036) — the "97.2% of
+  the hub" claim (12l) is retracted: at layer 5 a position-only mean pattern
+  outperforms the symbol fold.
+- What survives untouched: the symbols-versus-tables-versus-random comparisons
+  (same positional machinery inside all three, bootstrap-certified), the
+  layer-2/3 content wins, and the entire memory-pipeline battery (which never
+  used zero-ablation). What is retracted: hub rhetoric and all percentages
+  quoted against zero gates.
+
+The program's own history repeats: this is the "measure is the message" lesson,
+fourth occurrence, caught — as always — by a control, not by inspection.

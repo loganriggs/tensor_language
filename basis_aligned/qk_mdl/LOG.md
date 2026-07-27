@@ -4759,3 +4759,10 @@ mean-ablation + multi-neutral robustness, affine transplant, Pythia battery.
 qk_neutral_robust.py/.json. Battery conclusions stand (in-run denominators);
 key-identity language softened. Remaining fix list: U-v1 scoring, mean-ablation
 control, affine transplant, Pythia battery, depth figure.
+
+## Tick 262 (2026-07-27): MEAN-ABLATION CORRECTION — zero gates inflated 10-60x; §12q
+qk_mean_ablation.py/.json. Content function of l2-l5 patterns = 0.02-0.04 nats
+each; hub-layer-5 story retracted (positional); symbol fold beats positional
+mean at l2/l3, ties l4, loses l5. Symbols-vs-tables/random comparisons and the
+memory battery unaffected. Fix list: re-baseline depth figure on mean gates;
+U-scoring; affine transplant; Pythia battery.
