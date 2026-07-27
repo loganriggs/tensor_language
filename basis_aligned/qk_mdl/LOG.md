@@ -4840,3 +4840,10 @@ qk_affine_transplant.py/.json. Per-layer affine (6254 pairs, R2 0.36-0.41):
 self 1.00, raw donor -0.05, affine donor 0.015. Affine removes harm but no
 positive transfer; context-boundedness genuine. Reviewer-2 remainder: only U-v1
 fold scoring left.
+
+## Tick 264 (2026-07-27, reviewer-2 FINAL): U-scoring of fold + medical
+qk_understanding_metric.md ledger rows 10/10'/11. Fold U=0.060 (zero-C) / 0.021
+(honest mean-C) — still references blocks 0-1. Medical explicit U=0.156 —
+standalone replacement, highest-U context object. Reviewer-2 fix list COMPLETE
+(7/7). Both programs reviewer-hardened. Rest state: only scope-change options
+remain (full-scale toolkit port) — flagged for Logan, not auto-run.

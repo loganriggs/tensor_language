@@ -68,3 +68,27 @@ in flight (tick 223): the window function is dominated by PAIRWISE token interac
 (offset-pair bilinear forms) — the next order after the single-token lookups that
 scored null. If pairwise fails, the mixer computes ≥3-way interactions, and we climb
 the interaction order explicitly, paying bits at each rung and watching U.
+
+## Ledger additions (tick 264, reviewer-2 completion): fold + medical extraction
+
+Scoring the layer-2 symbol fold and the medical explicit pipeline honestly, with the
+anti-Goodhart weight-reference clause enforced.
+
+| # | artifact | F | L | S | **U** | intuition check |
+|---|---|---|---|---|---|---|
+| 10 | l2 symbol fold, C=zero-ablation | 0.955 | ~2,750 Mb (blocks 0-1 + embeddings) | 0.063 | **0.060** | still references the dense engine — same ceiling as rows 7-8 ✓ |
+| 10' | l2 symbol fold, C=mean-ablation (honest) | 0.336 | ~2,750 Mb | 0.063 | **0.021** | corrected C halves F: the fold competes only on the small content part ✓ |
+| 11 | medical explicit pipeline (PathMNIST, standalone) | 0.811 | 1.86 Mb (192 filters + linear head, NO model ref) | 0.192 | **0.156** | a genuine REPLACEMENT, not a pointer — our highest-U context object ✓ |
+
+**Reading (the reviewer-2 point, quantified):** the bilin18 symbol fold is a
+better-fidelity object but U stays at 0.02-0.06 because computing its 384 codes still
+references blocks 0-1 wholesale — the metric correctly refuses to reward relocated
+pointing, and under the honest mean-ablation content C its F is only 0.34 (most of
+"layer-2 pattern" was positional, tick 262). By contrast the medical explicit pipeline
+scores U=0.156 — several times higher — precisely because it is a STANDALONE object:
+192 extracted pixel-space filters plus a linear head, referencing no model weights, so
+its bits are small and honestly its own. This is the metric working as designed: a real
+extraction (medical) outscores a located-but-not-replaced bottleneck (bilin18 fold),
+and both are dwarfed by the S=1 law anchor. Cross-modal caveat: the medical F uses
+above-chance accuracy content, not CE; internally consistent, not directly comparable
+to the CE-based bilin18 rows.
