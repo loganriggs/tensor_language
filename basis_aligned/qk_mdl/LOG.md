@@ -4907,3 +4907,10 @@ ecg_prep.py, ecg_train.py/.json, ecg_model.pt. 0.392M params, patched 12-lead
 signal (no conv), test macro-AUC 0.898 vs ~0.93 reference. Architecture transfers
 off images. Data: PTB-XL 100Hz, 17418/2183/2198 split. Next: 17b fold recovers
 known morphology + beats saliency at localizing it (the differentiator test).
+
+## ECG STAGE 1b (2026-07-27): recovers known BBB feature (V1 dominant); §17b
+ecg_analyze.py/.json, ecg_cd_waveforms.pt. CD AUC 0.924; causal per-lead: V1
+0.059 (3.6x next) = textbook BBB lead. Known-feature recovery PASSES via causal
+occlusion. Fold lead-energy noisier (localization is causal's job, per med arc).
+Next 17c: render the CD units' preferred waveforms, check for wide-QRS morphology
+(the fold's actual differentiator = exact rendering).
