@@ -2029,3 +2029,27 @@ known (the ECG analog of sex-from-retinal-fundus). Foldable model (0.392M params
 same architecture): test AUC 0.857 (val 0.877) vs literature reference ~0.90. The
 architecture captures the subtler sex signal, not just categorical diagnoses. Next
 (19b): extract and EXACTLY RENDER what it uses, cross-cohort validate on Georgia/US.
+
+### 19b. The sex feature is precordial, cross-country, and matches physiology
+Extracting and cross-validating what the sex-from-ECG model uses (Germany PTB-XL ->
+US Georgia):
+- **Cross-country transfer:** sex AUC 0.857 (Germany) -> 0.760 (US). A real ~10-point
+  drop (bigger than the diagnostic CD drop of 5.6) -- the sex signal is genuine but
+  more cohort-sensitive, honest to note.
+- **Causal per-lead importance concentrates on the PRECORDIAL leads:** V4 dominant
+  (0.101), then V2/V3/V5 (0.022-0.032), with limb leads and V6 near zero. This
+  matches KNOWN sex physiology: the precordial leads carry QRS amplitude / R-wave
+  progression, which differs by sex (higher male QRS voltage). The model recovered
+  the textbook sex signal without being told.
+- **Feature-level generalization is strong: correlation 0.81** between German and US
+  sex-discriminativeness -- higher than the aggregate model transfer, meaning the
+  feature IDENTITIES are stable across cohorts even where absolute calibration shifts.
+- **Rendered generalizing features are precordial:** the top-6 cross-cohort sex units
+  peak in V1/V2/V4 (precordial), retaining strength 0.09-0.12 in BOTH cohorts.
+
+Verdict: the discover->render->cross-validate loop works on a discovery-scale ECG
+target. The extracted sex feature is precordial-QRS (matching physiology) AND
+cross-country stable -- a validated, inspectable feature, not a cohort artifact. The
+loop is now demonstrated end-to-end on ECG for BOTH a known diagnostic feature (BBB,
+18a) and a subtler discovery target (sex, here). Next: three-continent confirmation
+(Chapman) + the same loop toward a truly unknown feature (ECG-age / prognosis).

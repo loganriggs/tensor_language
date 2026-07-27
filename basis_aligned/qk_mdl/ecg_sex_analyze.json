@@ -1,0 +1,58 @@
+{
+  "sex_auc_ptbxl": 0.8574,
+  "sex_auc_georgia": 0.7595,
+  "georgia_n": 10344,
+  "per_lead_importance": {
+    "I": 0.0123,
+    "II": 0.0154,
+    "III": 0.0065,
+    "aVR": 0.0167,
+    "aVL": 0.0097,
+    "aVF": 0.0071,
+    "V1": 0.0222,
+    "V2": 0.0319,
+    "V3": 0.0223,
+    "V4": 0.101,
+    "V5": 0.0223,
+    "V6": 0.0028
+  },
+  "top_leads": [
+    "V4",
+    "V2",
+    "V3",
+    "V5"
+  ],
+  "feature_sexstrength_corr_ptbxl_vs_georgia": 0.805,
+  "top_generalizing_units": [
+    114,
+    65,
+    186,
+    78,
+    70,
+    30
+  ],
+  "top_units_ptbxl_strength": [
+    0.157,
+    0.113,
+    0.106,
+    0.1,
+    0.098,
+    0.1
+  ],
+  "top_units_georgia_strength": [
+    0.114,
+    0.12,
+    0.117,
+    0.107,
+    0.112,
+    0.09
+  ],
+  "unit_top_lead": {
+    "u114": "V4",
+    "u65": "V2",
+    "u186": "V1",
+    "u78": "V1",
+    "u70": "V4",
+    "u30": "V1"
+  }
+}

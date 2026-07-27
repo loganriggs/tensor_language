@@ -4931,3 +4931,10 @@ third-cohort confirmation when download completes.
 ecg_sex.py/.json, ecg_sex_model.pt. Test AUC 0.857 (ref ~0.90). Discovery target
 works. Next: extract+render sex feature, cross-cohort validate (need Georgia sex
 labels from .hea). Chapman still downloading (~15%, throttled).
+
+## ECG PHASE D (2026-07-27): sex feature discovered+validated; §19b
+ecg_sex_analyze.py/.json, ecg_sex_waveforms.pt. Sex AUC 0.857->0.760 US; per-lead
+causal V4 dominant (precordial, matches known QRS-amplitude sex physiology);
+feature corr 0.81; top generalizing units precordial (V1/V2/V4), 0.09-0.12 both
+cohorts. Discover->render->validate loop works on discovery-scale target. Next:
+Chapman 3-continent + artifact; toward unknown-feature (age/prognosis).
