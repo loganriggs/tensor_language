@@ -1552,3 +1552,27 @@ average pattern; the CONTENT-dependent pattern function of layers 2-5 is only
 
 The program's own history repeats: this is the "measure is the message" lesson,
 fourth occurrence, caught — as always — by a control, not by inspection.
+
+## 13. MEDICAL MODEL EXTRACTION (Logan redirect 2026-07-27)
+
+### 13a. Foldable bilinear ViT on PathMNIST + first probe (med phase 1-2)
+
+Trained a foldable no-softmax bilinear-attention ViT (0.348M params, D=96, 6 heads,
+3 layers, 7x7 patches -> 16 tokens) on PathMNIST (9-class colorectal histology):
+val 96.7%, test 85.7% (institutional shift caps test; above AutoKeras 83.4%).
+
+Probe (mean-ablation, per tick-262 discipline):
+- Layer importance rises with depth: attention pattern content worth -0.018,
+  -0.021, -0.092 test-accuracy at layers 0/1/2. Late attention does the
+  classification work; early attention is nearly content-free (mostly positional).
+- Heads are sparse: of 18, only layer-2 heads 1 and 2 carry real load (-0.045,
+  -0.031); layer-0 head 0 the only early contributor (-0.012). ~3 heads run the
+  model. This is a far sparser head inventory than bilin18 and an easy extraction
+  target.
+- The exact layer-0 patch-code fold reproduces the model's scores to 0.0e0 (exact,
+  as designed): layer-0 q/k are a closed form in raw patch pixels, no vocabulary.
+
+Reading: the classifier is a shallow-attention + late-attention machine with ~3
+load-bearing heads. Extraction plan: fold layer 0 exactly (done), CP-decompose the
+layer-2 head-1/head-2 score tensors into visual archetypes, and test an explicit
+pipeline against the 85.7% target.

@@ -4784,3 +4784,9 @@ Process lesson: `import med_bvit2` re-ran its training loop (module-level code);
 copy model class into analysis scripts, don't import training scripts.
 Phase 2 (med_probe): mean-ablation layer/head importance + exact layer-0 patch
 q/k code fold (numeric verification that codes reproduce scores).
+
+## MED PHASE 2 (2026-07-27): probe — sparse heads, late-attention model; §13a
+med_probe.py/.json. Mean-ablation: layer load 0.018/0.021/0.092 (rises with
+depth); only 3 heads matter (l2h1 -0.045, l2h2 -0.031, l0h0 -0.012); layer-0
+code fold EXACT (0.0e0). Next: CP visual archetypes for l2h1/l2h2 + explicit
+pipeline accuracy vs 85.7%.
