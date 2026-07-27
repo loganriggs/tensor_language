@@ -4749,3 +4749,8 @@ mean-ablation + multi-neutral-token robustness; (5) affine-aligned transplant;
 qk_l2_bootstrap.py/.json. tab-sym +0.0101 [0.0090,0.0113]; rand-sym +0.0141
 [0.0133,0.0150]. Next fix item: U-v1 scores for the fold (charge blocks 0-1
 compute honestly), then mean-ablation/multi-neutral robustness, l5-h7 test.
+
+## Tick 260 (2026-07-27): h7 NOT compound-selective (2.24 vs 1.82); §12o
+qk_l5h7_identity.py/.json. Aggregator hypothesis unsupported; h7 = general
+workhorse; failure set leans 2x on layer 5. Fix list continues: U-v1 scoring,
+mean-ablation + multi-neutral robustness, affine transplant, Pythia battery.

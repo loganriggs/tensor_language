@@ -1497,3 +1497,15 @@ percentile bootstrap over 150 audit documents: structured fold +0.01764
 [+0.00904, +0.01125]; random minus structured +0.01414 [+0.01326, +0.01502] —
 both decisively positive. Point estimates reproduce the original runs to the
 fifth decimal (independent basis draws for the null). Reviewer-2 items 1-2 done.
+
+### 12o. Head-7 identity test (tick 260): NOT compound-selective — a general workhorse
+
+Ablating layer-5 head 7 on failure packets: compound (two-key) positions drop a
+mean 2.24 nats, single-key positions 1.82 — a 1.2x ratio, far from the
+selectivity the aggregator hypothesis predicted (whole-layer ablation shows the
+same mild tilt, 4.43 versus 3.89). Verdict: head 7 is a general heavy-lifter on
+context-dependent predictions, not specifically the compound-key assembler; the
+aggregation stage remains distributed even though the layer's importance is
+concentrated. Secondary observation: on the failure set, layer-5 pattern
+ablation costs ~4.3 nats — nearly twice its corpus-average load (2.30) — the
+memory-heavy positions lean disproportionately on layer 5.
