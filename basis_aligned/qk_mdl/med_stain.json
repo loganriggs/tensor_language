@@ -1,0 +1,51 @@
+{
+  "fragility_curves": {
+    "bilinear": [
+      0.857,
+      0.5724,
+      0.3311,
+      0.1931,
+      0.146
+    ],
+    "softmax": [
+      0.8304,
+      0.5259,
+      0.2726,
+      0.1399,
+      0.1073
+    ],
+    "explicit_color": [
+      0.7128,
+      0.3622,
+      0.2148,
+      0.1327,
+      0.1138
+    ],
+    "explicit_nocolor": [
+      0.6901,
+      0.3239,
+      0.1918,
+      0.1111,
+      0.0858
+    ]
+  },
+  "eps": [
+    0.0,
+    0.05,
+    0.1,
+    0.2,
+    0.3
+  ],
+  "softmax_val_test_gap": [
+    0.966,
+    0.83
+  ],
+  "bilinear_val_test_gap": [
+    0.967,
+    0.857
+  ],
+  "flip_rate_color_reliant": 0.802,
+  "flip_rate_non_color_reliant": 0.801,
+  "n_color_reliant": 1612,
+  "n_non": 4541
+}

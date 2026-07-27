@@ -1,0 +1,12 @@
+train torch.Size([89996, 3, 28, 28]) val torch.Size([10004, 3, 28, 28]) test torch.Size([7180, 3, 28, 28])
+params 0.293M
+step 1500: loss 0.430 val 0.8496 (best 0.8496)
+step 3000: loss 0.274 val 0.9084 (best 0.9084)
+step 4500: loss 0.241 val 0.9199 (best 0.9199)
+step 6000: loss 0.219 val 0.9373 (best 0.9373)
+step 7500: loss 0.127 val 0.9482 (best 0.9482)
+step 9000: loss 0.052 val 0.9594 (best 0.9594)
+step 10500: loss 0.042 val 0.9638 (best 0.9638)
+step 12000: loss 0.034 val 0.9660 (best 0.9660)
+{"params_M": 0.2931, "best_val": 0.966, "test_acc": 0.8304}
+MED SOFTMAX DONE

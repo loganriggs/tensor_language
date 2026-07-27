@@ -1763,3 +1763,30 @@ one training run. The interpretability claims (13c/13e) stand — the tissue-lab
 filter dictionary is a reproducible account of what colorectal classification keys
 on, with individual filters well-matched and the feature space they span strongly
 seed-invariant. This is the medical arc's own reviewer-2 control, and it passes.
+
+### 13k. Stain-shift fragility (med phase 12): hypotheses FALSIFIED, one real finding
+
+Simulated H&E stain shift (per-channel affine on raw pixels), accuracy vs shift:
+
+| eps | bilinear | softmax | explicit+color | explicit-color |
+|---|---|---|---|---|
+| 0.00 | 0.857 | 0.830 | 0.713 | 0.690 |
+| 0.05 | 0.572 | 0.526 | 0.362 | 0.324 |
+| 0.10 | 0.331 | 0.273 | 0.215 | 0.192 |
+| 0.20 | 0.193 | 0.140 | 0.133 | 0.111 |
+
+Two hypotheses FALSIFIED, reported as negatives:
+1. "Color removal buys stain robustness" — FALSE. Per-patch DC subtraction was
+   slightly WORSE at every shift level (0.324 vs 0.362 at eps 0.05), not flatter.
+   Reason: DC subtraction removes additive color bias but the dominant stain
+   nuisance is MULTIPLICATIVE gain, which the quadratic texture features scale with.
+2. "Color-reliance predicts per-tile failure" — FALSE. Flip rate under shift is
+   0.802 for color-reliant tiles vs 0.801 for others — no predictive signal.
+
+One robust finding that DOES hold: ALL models collapse catastrophically under even
+small stain shift (bilinear 0.857 -> 0.572 at eps 0.05), and the softmax model is
+NO more robust (in fact slightly worse at every level) — fragility is architecture-
+independent and severe. This confirms the deployment concern is real, but my simple
+interpretation-motivated fix did not rescue it. The CORRECT intervention implied by
+the mechanism (multiplicative color nuisance) is per-image channel standardization,
+which is exactly affine-invariant — tested in 13l.
