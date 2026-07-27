@@ -4938,3 +4938,8 @@ causal V4 dominant (precordial, matches known QRS-amplitude sex physiology);
 feature corr 0.81; top generalizing units precordial (V1/V2/V4), 0.09-0.12 both
 cohorts. Discover->render->validate loop works on discovery-scale target. Next:
 Chapman 3-continent + artifact; toward unknown-feature (age/prognosis).
+
+## ECG age model (2026-07-27): §19c. ecg_age.py/.json, ecg_age_model.pt.
+Test MAE 8.96y, r 0.757 (ref ~6.9). Real age signal on tiny model. Process note:
+inner-& detached training (logged mistake, Nth time) -> recovered via file-grep
+monitor. Next: age feature extract/render/cross-validate.

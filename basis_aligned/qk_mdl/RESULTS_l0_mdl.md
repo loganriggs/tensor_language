@@ -2053,3 +2053,10 @@ cross-country stable -- a validated, inspectable feature, not a cohort artifact.
 loop is now demonstrated end-to-end on ECG for BOTH a known diagnostic feature (BBB,
 18a) and a subtler discovery target (sex, here). Next: three-continent confirmation
 (Chapman) + the same loop toward a truly unknown feature (ECG-age / prognosis).
+
+### 19c. ECG-age model (toward an unknown-basis biomarker)
+ECG-age (predicted-minus-true age is itself a mortality biomarker with only partly
+known ECG basis): foldable model test MAE 8.96 years, Pearson r 0.757 (reference
+~6.9 years for larger models). Our 0.39M model is behind on absolute error but
+captures a real age signal (r 0.76) -- enough to extract and cross-validate what it
+uses. Next (19d): extract + render + cross-cohort validate the age feature.
