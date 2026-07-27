@@ -4810,3 +4810,12 @@ recovers 84% of full acc. Decomposition: color 0.612 -> +texture 0.716 ->
 +deep-compose 0.781 -> +attention 0.857. Extraction arc first pass COMPLETE.
 Next: filter-to-class attribution (which filters vote which tissue) for the
 interpretability payoff; artifact updated with explicit frontier.
+
+## MED PHASE 6 (2026-07-27): filter-class attribution; §13e
+med_attrib.py/.json. Top-32 filters -> 0.688; labeled dictionary: u146
+pale-tissue (mucosa/mucus/adipose), u87/u33 lymphocyte speckle, u82 epithelial
+(adenocarcinoma+normal), u54 background, u128 muscle/stroma. Carcinoma-vs-normal
+rests on composition rungs not texture. MED EXTRACTION ARC COMPLETE (phases 1-6).
+Open: 2-layer explicit pipeline (composition gap), 2nd MedMNIST (generality),
+RAD-DINO-class toolkit port. Reviewer-2 fixes (U-score, affine transplant) still
+pending on the bilin18 side.

@@ -1637,3 +1637,24 @@ points are genuinely non-patch-local / deep: bilinear composition across blocks 
 attention pooling each carry a comparable slice. So colorectal tissue classification
 is roughly half explicit local texture and half distributed composition — a
 quantified, auditable answer to "what algorithm," not a full lossless reduction.
+
+### 13e. Filter-to-class attribution (med phase 6): a labeled texture dictionary
+
+Fitting the explicit head on just the top-32 rendered filters gives 0.688 test
+(nine classes) and a readable filter->tissue map:
+- Unit 146 is the dominant detector for normal mucosa (+5.19), mucus (+4.99), and
+  adipose (+3.48) — a bright/low-texture "empty-or-pale-tissue" filter, sensibly
+  shared across the three least-cellular classes.
+- Unit 87 is the lymphocyte detector (+4.53), unit 33 its partner (+3.57) — a
+  fine dark-speckle texture, matching lymphocytes' dense small nuclei.
+- Unit 82 is the adenocarcinoma detector (+4.54) and also fires for normal mucosa
+  (+3.09) — an epithelial-gland texture; the cancer-vs-normal distinction rests on
+  the composition rungs (13d), not this single filter, explaining why local texture
+  alone plateaus.
+- Unit 54 is the background filter (+3.84), unit 128 a smooth-muscle/stroma
+  filter recurring across the fibrous classes.
+
+The extracted algorithm is now a labeled dictionary: renderable pixel filters, each
+tied to the tissue types it signals, with the clinically hard call (carcinoma vs
+normal epithelium) explicitly attributed to composition rather than texture — an
+auditable, honest account of what the classifier keys on.
