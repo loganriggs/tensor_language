@@ -1848,3 +1848,38 @@ for the whole computation; the fold is exact only about the part that here doesn
 matter. For confounder DETECTION, this is "just causal analysis," and causal
 analysis suffices. The fold's demonstrated value is elsewhere (exact feature
 rendering, the discover->fix robustness loop), not confounder detection.
+
+### 14b. Texture confounder confirms it: causal occlusion wins, fold fails both
+
+Second confounder: a mean-preserving color-neutral checkerboard in patch 0 (global
+and local mean color unchanged), learned as a pure shortcut (recall 0.0 without,
+1.0 with, flip 0.238). Detection:
+
+| method | gray marker (14) | texture marker (14b) |
+|---|---|---|
+| causal occlusion | rank 1 (argmax 0) | rank 1 (argmax 0) |
+| gradient saliency | rank 1 (argmax 0) | rank 4 (argmax 5) — FAILS |
+| fold (exact texture) | rank 16 — FAILS | rank 16 — FAILS |
+| global color recall | 0.96 | 0.96 |
+
+Three clean conclusions:
+1. The global-color 0.96 was a RED HERRING both times: the color-neutral,
+   mean-preserving marker does not change color at all, yet global color still
+   scores 0.96 — proving that number was always adipose's natural paleness, never
+   the marker. (The disentangling the phase-14 caveat asked for.)
+2. Causal occlusion (architecture-general, NOT tensor-specific) localized BOTH
+   confounders cleanly. Saliency worked on one and failed on the other — the known
+   unreliability of gradient saliency. The FOLD detector failed BOTH, ranking the
+   marker patch dead last even when the confounder lives in its own texture-feature
+   space.
+3. Why the fold fails is fundamental, not a weak implementation: the fold is exact
+   about the shallow patch-local static readout, but models exploit confounders
+   through the FULL computation (attention routing + deep MLPs). Any fold-based
+   detector that captured the whole path would just BE causal ablation. So the
+   fold's UNIQUE ingredient (exact static features) is precisely the part that does
+   not capture confounder usage.
+
+FINAL ANSWER to "do we need the tensor structure to detect confounders": NO. Causal
+occlusion is the right tool and it is architecture-general. The fold's demonstrated
+value is exact mechanistic rendering and the discover->fix robustness loop (13l) —
+NOT confounder detection, where it is neither necessary nor competitive.

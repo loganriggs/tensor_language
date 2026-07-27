@@ -4877,3 +4877,11 @@ attention+deep-MLP path that uses the marker. Confounder detection = causal
 analysis suffices; tensor structure not needed here. Next: texture (color-neutral)
 confounder — the fairest chance for the fold, since it lives in the fold's feature
 space.
+
+## MED PHASE 14b (2026-07-27): texture confounder confirms verdict; §14b
+med_confound2.py/.pt, med_confound2_detect.py/.json. Occlusion rank 1 both
+confounders; saliency 1 then 4 (unreliable); FOLD rank 16 both (fails). Global
+color 0.96 = adipose paleness red herring (mean-preserving marker same number).
+CONFOUNDER-DETECTION QUESTION CLOSED: tensor structure NOT needed, causal
+occlusion suffices and is architecture-general. Fold value = exact rendering +
+discover->fix loop, not detection.
