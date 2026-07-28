@@ -5174,3 +5174,17 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## the sparse-minimal-circuit framing. The random-feature control is the clean diagnostic:
 ## if random ~= ranked, the basis isn't privileged. Metric to report = retention frontier +
 ## random control + selectivity + grounding.
+
+## ECG full-circuit sufficiency frontier (2026-07-28): §38. ecg_fullcircuit_metrics.py/.json.
+## Logan Q follow-up: bring Attn-2 (co-equal per §29) into the sufficiency metric. Explicit
+## readout on [block0 interaction feats(64) + Attn-2 pooled-output dirs(K2)] vs model 0.925.
+## Adding Attn-2 CLOSES the gap: +8 dirs -> 0.965 retention, +32 -> 0.982 (best 0.908 macro).
+## STRIKING: Attn-2 pooled output ALONE (32 dirs) = 0.91 macro = 0.984 retention >> block0(64)
+## alone 0.827 — the diagnosis is far more legible in the LATE aggregator's output (near the
+## head) than in block-0 interaction features. Random-16 Attn-2 dirs (0.895) ~= ranked-16
+## (0.890): Attn-2 basis ALSO fungible. VERDICT (answers minimality fully): the full circuit is
+## LOW-RANK (~8-32 directions reconstruct 96-98%) but NOT sparse/privileged — random~=ranked in
+## both banks, and most signal is legible near the output. 'Minimal in dimension, not in
+## interpretable features.' Caveat: Attn-2-alone high retention = probing depth (later read =
+## closer to answer), NOT proof Attn-2 'does' the computation. Metric to claim minimality =
+## retention frontier + random control, now computed for the whole circuit.

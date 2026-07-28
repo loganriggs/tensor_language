@@ -1,0 +1,44 @@
+{
+  "model_macro": 0.925,
+  "block0_only_K64": 0.827,
+  "block0_only_retention": 0.894,
+  "full_frontier": {
+    "0": {
+      "macro": 0.827,
+      "retention": 0.894
+    },
+    "2": {
+      "macro": 0.847,
+      "retention": 0.916
+    },
+    "4": {
+      "macro": 0.863,
+      "retention": 0.933
+    },
+    "8": {
+      "macro": 0.893,
+      "retention": 0.965
+    },
+    "16": {
+      "macro": 0.89,
+      "retention": 0.962
+    },
+    "32": {
+      "macro": 0.908,
+      "retention": 0.981
+    },
+    "64": {
+      "macro": 0.901,
+      "retention": 0.974
+    },
+    "96": {
+      "macro": 0.903,
+      "retention": 0.976
+    }
+  },
+  "attn2_alone_K32": 0.91,
+  "full_block0_64_plus_random16attn2": 0.895,
+  "full_block0_64_plus_ranked16attn2": 0.89,
+  "best_full_macro": 0.908,
+  "best_full_retention": 0.982
+}
