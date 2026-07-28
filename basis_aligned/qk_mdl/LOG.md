@@ -5217,3 +5217,17 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## features (CLBBB ecg4893: feat#52 contributes 1.79, all top-4 are CLBBB features) but hard
 ## morphology dx are diffuse (AMI ecg18421: contribs ~0.03, top features' best-codes NORM/
 ## IRBBB/ANEUR — no clean feature, model unsure logit -0.11). So: dictionary yes, sparse no.
+
+## ECG reference waveforms + cross-continent FEATURES (2026-07-28): §41. ecg_refwave.py/.json,
+## ecg_refwave_data.json. Logan: features across continents + ref waveforms. Method: ONE model
+## (Germany/PTB-XL), ONE feature basis, applied to US (Georgia, specific SNOMED) + China (Chapman,
+## CD superclass) raw ECGs — NOT per-continent models (features would be in incomparable gauges).
+## Sanity: Georgia NORM parse 1752 = precomputed. THE DIAGNOSTIC WAVEFORM = R-peak-aligned MEDIAN
+## BEAT of confirmed cases. REFERENCE-WAVEFORM MATCH (our Germany feature template vs external
+## median beat, best-shift cosine): US LBBB (2628 beats) = 0.968, US RBBB (340) = 0.817, China-CD
+## (7449, mixed) vs LBBB feat = 0.444 (correctly low: CD != LBBB). FEATURE TRANSFER (Germany feature
+## as classifier on foreign labels): CLBBB feat#50 DE 0.956 -> US-specific 0.892; CRBBB feat#52 DE
+## 0.787 -> US 0.823; LAFB feat#8 DE 0.778 -> US 0.795; IRBBB weak both (0.66/0.55). CD-superclass
+## AUC lower (0.63-0.72) as expected (broad class). CONCLUSION: the Germany-learned feature SHAPES
+## are externally real — the actual US LBBB morphology matches our feature at 0.97 and the feature
+## classifies US LBBB at 0.89. First SHAPE-level (not lead-level) external validation.
