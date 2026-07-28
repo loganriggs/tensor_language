@@ -5301,3 +5301,16 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## fold, atomic basis, feature rendering) now applies to a capable model, not a toy. Next: interpret
 ## the student — esp. HOW it computes RHYTHM (novel): hypothesis rhythm=ATTENTION (mixes time-patches)
 ## vs morphology=MLP; localize per class.
+
+## PATH 2 — student rhythm/morphology localization (2026-07-28): §46. ecg_student_localize.py/.json.
+## First interpretation of the distilled SOTA student: HOW does a time-patched foldable model compute
+## RHYTHM (AF/SB/ST) vs MORPHOLOGY (LBBB/RBBB/1dAVb)? Per-layer attn/mlp ablation, per-class AUC drop
+## vs teacher hard labels. Hypothesis rhythm=attention PARTIALLY confirmed: rhythm relies on attention
+## ~7x more than morphology (mean attn-drop 0.138 vs 0.020) — cross-time integration IS used for rhythm
+## — BUT MLP still dominates in total (rhythm mlp-drop 0.164 > attn 0.138), so not attention-only.
+## Morphology barely uses attention (0.020), it's MLP/per-patch. CLEANEST signal: sinus bradycardia
+## depends on the MIDDLE attention layer (drop 0.34) — measuring wide beat-spacing is a cross-time op,
+## localized to attention. So the distilled foldable model genuinely recruits attention for rhythm
+## (a capability the arch wasn't designed for), measurably and localized. Interpretability toolkit now
+## producing novel mechanism on a SOTA-behavior model. Next: atomic basis / feature rendering on the
+## student, esp. what waveform features drive AF (the flagship rhythm dx) and the SB attention circuit.
