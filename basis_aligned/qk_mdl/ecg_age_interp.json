@@ -1,0 +1,32 @@
+{
+  "clinical_R2_of_ECGage": 0.3,
+  "novel_residual_frac": 0.7,
+  "single_feature_corrs": {
+    "QT": 0.3,
+    "HR": 0.251,
+    "QRSwidth": 0.237,
+    "ST": -0.236,
+    "HRV(RRCV)": 0.155,
+    "R_precordial": -0.15,
+    "axisFront": 0.129,
+    "T_amp": -0.126,
+    "P_amp": -0.052
+  },
+  "lead_importance_meanAbsDeltaYears": {
+    "aVR": 5.22,
+    "V1": 4.66,
+    "V4": 4.41,
+    "II": 4.08,
+    "I": 3.85,
+    "V5": 3.42,
+    "V2": 2.88,
+    "V6": 2.33,
+    "V3": 2.18,
+    "III": 2.08,
+    "aVL": 1.84,
+    "aVF": 1.71
+  },
+  "age_gap_normal": 3.03,
+  "age_gap_pathology": 2.57,
+  "age_gap_diff_path_minus_norm": -0.46
+}

@@ -5358,3 +5358,18 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## decompose student ECG-age into known clinical measures (HR/HRV, intervals, amplitudes) vs a novel
 ## morphological residual; which leads; does the age-GAP (student age - true) still track pathology
 ## (the mortality direction). This is the payoff: a decomposable account of an invisible biomarker.
+
+## TIER-2 — what makes an ECG look older + a CRITICAL distillation caveat (2026-07-28): §51.
+## ecg_age_interp.py/.json. Decompose the foldable ECG-age student. (1) ECG-age is 70% NOVEL
+## MORPHOLOGY: known clinical measures explain only R2=0.30 (top corrs QT 0.30, HR 0.25, QRSwidth
+## 0.24, ST -0.24, HRV 0.16 — all real aging correlates but together only 30%). So the biomarker
+## reads a rich waveform signature beyond intervals/rate — the 'invisible' part. Top leads aVR 5.2,
+## V1 4.7, V4 4.4, II 4.1 (mean |Δyears| when zeroed). (2) CRITICAL HONEST FINDING: the mortality-
+## relevant age-GAP is NOT faithfully distilled. Teacher: pathology reads +1.11y OLDER than normal
+## (mortality direction). STUDENT: pathology reads -0.46y YOUNGER — REVERSED. The student matches
+## teacher raw age at corr 0.906 but the age-gap (a ~1y residual on a 16y-std prediction) washes
+## out/reverses at MAE 5.6y. => distillation transfers the DOMINANT capability but NOT the subtle
+## clinically-valuable residual. Lesson (like FVU-mispredicts-behavior): to interpret a biomarker's
+## VALUABLE signal you must distill the RESIDUAL/age-gap directly, not the raw output. Path-2 method
+## works for the dominant computation; the subtle-residual case needs targeted distillation. Clear
+## next step: distill the age-GAP (or match higher moments) then interpret THAT.
