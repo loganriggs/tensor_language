@@ -5157,3 +5157,20 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## highlighted) + diagnoses each serves (with AUC) + shared-feature marking. Plus the
 ## causal panels: LBBB dose-response 0.005->0.962 and the specificity control (real vs
 ## scrambled). Closes the visual/communicative deliverable for the basis+causal arc.
+
+## ECG circuit minimality+interpretability METRICS (2026-07-28): §37. ecg_circuit_metrics.py/.json.
+## Logan Q: how minimal/interpretable, with a metric. MINIMALITY = MDL/behavioral-retention
+## frontier: explicit K-feature standalone readout (feature act -> logistic -> 28 codes) vs
+## full model 0.925. Retention: K=1 .758, 8 .825, 16 .862, 32 .874, 48 .906, 64 .908. K@90%
+## =48; NEVER reaches 95%. KILLER CONTROL: RANDOM-16 features retention .838 vs ranked-16 .862
+## — features FUNGIBLE, ranking barely helps -> circuit NOT genuinely minimal at readout level;
+## the §32 "1.0 feature/code" was best-single-CORRELATE, not reconstruction. Sufficiency
+## description length is LARGE + redundant (matches behavioral rank 32-64 & §34 necessity=inf).
+## Also: explicit tops out ~0.84 (0.908 retention) — can't reach 0.925 because Attn-2 (§29) is
+## a co-equal part of the circuit NOT in this basis. INTERPRETABILITY: morphology-specific
+## 10/11 (strong), physiology lead-match 7/12 (moderate), selectivity 2.52 codes/active-feature
+## (polysemantic), monosemantic frac 0.52, only 21 active features. VERDICT: circuit is
+## grounded-where-it-counts but NOT minimal and only partly interpretable; the metric REFUTES
+## the sparse-minimal-circuit framing. The random-feature control is the clean diagnostic:
+## if random ~= ranked, the basis isn't privileged. Metric to report = retention frontier +
+## random control + selectivity + grounding.
