@@ -5433,3 +5433,16 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## not death-validated, low-EF/mortality data-gated); (7) contribution. Written while awaiting Logan's
 ## steer on next major direction (ECG-FM arch-generalization / write-up / core QK-MDL); low-EF option
 ## confirmed BLOCKED (no released LVEF checkpoint, need echo-EF labels).
+
+## DATA-MOAT SCOPING — the impactful biomarkers are UNBLOCKABLE (2026-07-28): §57. Web research
+## (no GPU). The Tier-2 impactful capabilities (low-EF, mortality) are gated on labeled data, but that
+## data is more accessible than the CODE set: MIMIC-IV (standard PhysioNet CREDENTIALED access — DUA +
+## CITI training, routine for researchers). (a) EJECTION FRACTION: MIMIC-IV-ECHO pairs ECGs w/ echo
+## (~236k ECG/TTE pairs, ~192k patients) -> direct ECG->EF labels; also EchoNext (~82.5k paired ECG-echo,
+## 36k patients). (b) MORTALITY: MIMIC-IV-ECG (~800k 12-lead ECGs, 160k patients, 500Hz) matched to
+## MIMIC-IV clinical DB (death dates) -> direct ECG->mortality labels. IMPLICATION: instead of distilling
+## a released teacher (which failed for low-EF, no checkpoint), we can TRAIN our own foldable low-EF /
+## mortality model DIRECTLY on MIMIC-IV and interpret it with the full toolkit — the real-impact direction,
+## now feasible. Logan (CBAI researcher) can get MIMIC-IV credentialing. Bigger/500Hz data (resample to
+## our pipeline). This is the highest-value unblock: skip distillation, train+interpret the invisible
+## biomarker directly. Awaiting Logan's steer (data access is his to initiate).
