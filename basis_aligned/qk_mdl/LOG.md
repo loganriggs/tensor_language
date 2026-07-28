@@ -5259,3 +5259,20 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## diagnostic shapes (LBBB cosine 0.97 vs real US beat) but are NOT superior classifiers
 ## (template-match beats single feature, mean -0.053); model edge distributed+narrow
 ## (conduction/amplitude only). ECG arc at honest resting point (LOG §23-42, RESULTS §28-30).
+
+## ECG atomic compositional basis (2026-07-28): §43. ecg_atomic_basis.py/.json,
+## ecg_atomic_data.json, ecg_medbeats_test.npy. Logan idea: small basis of atomic units that
+## COMPOSE each diagnosis. Learned supervised dictionary on aligned MEDIAN BEATS (amplitude
+## preserved) + sparse readout. RESULT (constructive, flips the deflation): K=24 atoms ->
+## Germany macro 0.878 (0.95 retention vs model 0.925); K=6 -> 0.819. COMPOSITIONAL: ~6 atoms/dx,
+## each atom reused ~7 dx. PRIVILEGED (unlike post-hoc features §37): learned K16 0.848 vs
+## RANDOM-atom K16 0.659 (gap 0.19) — learning a basis for the task gives non-fungible atoms.
+## RECOVERS amplitude+timing the cosine template lost: US LVH atomic 0.775 vs template 0.646;
+## US 1AVB atomic 0.871 vs template 0.615 (= matches model 0.847) — confirms amplitude/timing
+## dx mechanism. Atoms interpretable+reused: atom10(II/aVF/V4)=ISCHEMIA primitive (ISCIL/ISCIN/
+## ISC_/ISCLA), atom0(V1-V3)=right-precordial (CRBBB/RVH/IRBBB), atom5(V6/II/III)=inferior
+## (ILMI/IMI/LAFB). Morphology still weak cross-cohort (~0.4-0.65, all methods). Caveat: this is
+## interpretability BY CONSTRUCTION (new model on beats), not a decomposition of the foldable
+## model; subpar to full model but far more interpretable+compositional. Next: per-diagnosis
+## CLINICAL-CRITERION baselines (LVH voltage/Sokolow-Lyon, 1AVB PR-interval, BBB QRS-width,
+## injury/ischemia ST) = the honest clinical bar (does model beat the criterion clinicians use).

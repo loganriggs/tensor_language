@@ -1,0 +1,150 @@
+{
+  "model_macro": 0.925,
+  "K_sweep": {
+    "6": {
+      "germany_macro": 0.819,
+      "atoms_per_dx": 2.2,
+      "dx_per_atom": 10.2,
+      "georgia_mapped": {
+        "CLBBB": 0.935,
+        "CRBBB": 0.879,
+        "LAFB": 0.903,
+        "1AVB": 0.713,
+        "LVH": 0.745,
+        "INJAS": 0.395,
+        "ISC_": 0.526,
+        "ISCIN": 0.626,
+        "NDT": 0.764,
+        "AMI": 0.602
+      }
+    },
+    "8": {
+      "germany_macro": 0.829,
+      "atoms_per_dx": 2.2,
+      "dx_per_atom": 7.9,
+      "georgia_mapped": {
+        "CLBBB": 0.923,
+        "CRBBB": 0.908,
+        "LAFB": 0.907,
+        "1AVB": 0.686,
+        "LVH": 0.744,
+        "INJAS": 0.404,
+        "ISC_": 0.542,
+        "ISCIN": 0.636,
+        "NDT": 0.742,
+        "AMI": 0.658
+      }
+    },
+    "12": {
+      "germany_macro": 0.847,
+      "atoms_per_dx": 3.5,
+      "dx_per_atom": 8.2,
+      "georgia_mapped": {
+        "CLBBB": 0.915,
+        "CRBBB": 0.906,
+        "LAFB": 0.916,
+        "1AVB": 0.767,
+        "LVH": 0.75,
+        "INJAS": 0.382,
+        "ISC_": 0.543,
+        "ISCIN": 0.627,
+        "NDT": 0.754,
+        "AMI": 0.595
+      }
+    },
+    "16": {
+      "germany_macro": 0.848,
+      "atoms_per_dx": 4.7,
+      "dx_per_atom": 8.2,
+      "georgia_mapped": {
+        "CLBBB": 0.946,
+        "CRBBB": 0.91,
+        "LAFB": 0.925,
+        "1AVB": 0.793,
+        "LVH": 0.763,
+        "INJAS": 0.377,
+        "ISC_": 0.563,
+        "ISCIN": 0.605,
+        "NDT": 0.737,
+        "AMI": 0.598
+      }
+    },
+    "24": {
+      "germany_macro": 0.878,
+      "atoms_per_dx": 6.3,
+      "dx_per_atom": 7.4,
+      "georgia_mapped": {
+        "CLBBB": 0.93,
+        "CRBBB": 0.913,
+        "LAFB": 0.929,
+        "1AVB": 0.871,
+        "LVH": 0.775,
+        "INJAS": 0.324,
+        "ISC_": 0.558,
+        "ISCIN": 0.625,
+        "NDT": 0.746,
+        "AMI": 0.579
+      }
+    },
+    "32": {
+      "germany_macro": 0.877,
+      "atoms_per_dx": 4.2,
+      "dx_per_atom": 3.7,
+      "georgia_mapped": {
+        "CLBBB": 0.916,
+        "CRBBB": 0.892,
+        "LAFB": 0.933,
+        "1AVB": 0.854,
+        "LVH": 0.787,
+        "INJAS": 0.373,
+        "ISC_": 0.542,
+        "ISCIN": 0.626,
+        "NDT": 0.708,
+        "AMI": 0.535
+      }
+    }
+  },
+  "random_atoms_K16_macro": 0.659,
+  "baseline_georgia": {
+    "CLBBB": {
+      "template_match": 0.928,
+      "model": 0.959
+    },
+    "CRBBB": {
+      "template_match": 0.927,
+      "model": 0.959
+    },
+    "LAFB": {
+      "template_match": 0.934,
+      "model": 0.954
+    },
+    "1AVB": {
+      "template_match": 0.615,
+      "model": 0.847
+    },
+    "LVH": {
+      "template_match": 0.646,
+      "model": 0.871
+    },
+    "INJAS": {
+      "template_match": 0.446,
+      "model": 0.563
+    },
+    "ISC_": {
+      "template_match": 0.44,
+      "model": 0.605
+    },
+    "ISCIN": {
+      "template_match": 0.636,
+      "model": 0.634
+    },
+    "NDT": {
+      "template_match": 0.795,
+      "model": 0.554
+    },
+    "AMI": {
+      "template_match": 0.579,
+      "model": 0.578
+    }
+  }
+}
