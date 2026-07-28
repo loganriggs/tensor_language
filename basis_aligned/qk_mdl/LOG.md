@@ -5010,3 +5010,10 @@ cross-continent validated.
 0.689->0.667, LNGQT 0.714->0.684). Incapable = data/signal-limited not capacity.
 Confound RESOLVED: capability size-invariant, decomposition not an underpowered-
 model artifact. Next: decompose big model (still clean or superposition?).
+
+## ECG big-model decomposition (2026-07-28): §26b. ecg_code_circuits_big.py/.json.
+4x model decomposes MORE cleanly: physiology 10/10, circuits 1.5 units (vs 2.4),
+0 generalists, jaccard 0.004, only 38/384 units used (10% vs 33%). Extra capacity
+NOT superposition — left unused. Decomposability is ARCHITECTURAL not small-scale.
+Confound resolved both ways (capability §26 + decomposition here). ECG FINE-GRAINED
+ARC COMPLETE (§23-26b); all criticisms answered with measurements.

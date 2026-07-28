@@ -1,0 +1,82 @@
+28 capable codes; computing unit + lead importance...
+  unit 0/384
+  unit 48/384
+  unit 96/384
+  unit 144/384
+  unit 192/384
+  unit 240/384
+  unit 288/384
+  unit 336/384
+{
+ "n_capable": 28,
+ "physiology_top_lead_match": "10/10",
+ "mean_circuit_size": 1.5,
+ "generalist_units_serve>=5_codes": 0,
+ "specialist_units_serve_1_code": 34,
+ "units_used_by_any_code": 38,
+ "mean_pairwise_circuit_jaccard": 0.004
+}
+sample codes: {
+ "NDT": {
+  "auc": 0.903,
+  "test_pos": 182,
+  "circuit_units": [],
+  "n_units": 0,
+  "top_leads": [
+   "V2",
+   "V1",
+   "V6"
+  ]
+ },
+ "NST_": {
+  "auc": 0.816,
+  "test_pos": 77,
+  "circuit_units": [],
+  "n_units": 0,
+  "top_leads": [
+   "aVR",
+   "V5",
+   "V6"
+  ]
+ },
+ "DIG": {
+  "auc": 0.897,
+  "test_pos": 18,
+  "circuit_units": [],
+  "n_units": 0,
+  "top_leads": [
+   "V6",
+   "V5",
+   "aVR"
+  ]
+ },
+ "NORM": {
+  "auc": 0.93,
+  "test_pos": 963,
+  "circuit_units": [],
+  "n_units": 0,
+  "top_leads": [
+   "V1",
+   "V2",
+   "V5"
+  ]
+ },
+ "IMI": {
+  "auc": 0.902,
+  "test_pos": 267,
+  "circuit_units": [],
+  "n_units": 0,
+  "top_leads": [
+   "III",
+   "aVF",
+   "aVL"
+  ],
+  "physiology_match": true,
+  "expected_leads": [
+   "II",
+   "III",
+   "aVF"
+  ]
+ }
+}
+ECG CODE CIRCUITS BIG DONE
