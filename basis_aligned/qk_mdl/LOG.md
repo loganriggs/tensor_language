@@ -5231,3 +5231,22 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## AUC lower (0.63-0.72) as expected (broad class). CONCLUSION: the Germany-learned feature SHAPES
 ## are externally real — the actual US LBBB morphology matches our feature at 0.97 and the feature
 ## classifies US LBBB at 0.89. First SHAPE-level (not lead-level) external validation.
+
+## ECG cross-cohort BASELINE — template-match vs feature vs model (2026-07-28): §42. Logan Q:
+## good baseline? ecg_refwave2.py/.json, ecg_refwave2_data.json. 10 diagnoses, US (Georgia).
+## BASELINE = template-match (aligned pos-minus-normal median beat built on Germany, best-shift
+## cosine on US, NO model). FEATURE = our interaction feature activation. MODEL = full logit.
+## RESULT (US AUC, tmatch | feature | model):
+## CLBBB .928|.892|.959, CRBBB .927|.823|.959, LAFB .934|.795|.954, 1AVB .615|.581|.847,
+## LVH .646|.591|.871, INJAS .45|.56|.56, ISC_ .44|.54|.61, ISCIN .64|.55|.63, NDT .80|.51|.55,
+## AMI .58|.57|.58. Category means tmatch|feature|model: conduction .851|.773|.930, amplitude
+## .646|.591|.871, morphology .579|.546|.587. HEADLINE: template-match BEATS our single feature
+## cross-cohort (mean feature-minus-template = -0.053). The single-feature interpretability claim
+## does NOT beat a dead-simple aligned-average-beat baseline — the SHAPE is real & transferable
+## (why LBBB cosine was 0.97) but both the feature and the template just capture that shape.
+## The MODEL genuinely beats template-match ONLY for conduction (+0.08) and amplitude (+0.22),
+## via DISTRIBUTED computation (§37/38), NOT via single features. MORPHOLOGY transfers poorly
+## for ALL methods (~0.55-0.64); NDT: template-match 0.80 >> model 0.55 (model worse than a
+## template!). Caveat: template-match gets a beat-ALIGNMENT inductive bias the model/features
+## don't (model works on non-aligned strips). Third baseline/control this session to deflate an
+## overclaim (after linear §27 and random-feature §37). Honest recalibration required.
