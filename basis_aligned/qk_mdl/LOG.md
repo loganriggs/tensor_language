@@ -5202,3 +5202,18 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## these minimal SUFFICIENT sets are not NECESSARY (redundant). Per-diagnosis picture: focal
 ## diagnoses genuinely minimal (1 feature/2-3 leads, rank-faithful); morphology diagnoses need
 ## many features+leads and never reach value-faithfulness.
+
+## ECG feature shape decomposition + datapoint breakdown (2026-07-28): §40. ecg_shape_decomp.py,
+## ecg_shape_decomp.json, ecg_atlas2_data.json. Logan Qs. (1) 10/10 physiology = LEAD-match
+## (top causal leads ∩ textbook leads) over the 10 codes with a textbook entry — INPUT/ablation
+## flavor, NOT shape. (2) SHAPE now validated by COSINE: each feature template is ~rank-1
+## (mean rank1_frac 0.82 = one spatial lead-weighting x one time-course); the within-feature
+## lead inversions (I vs V1) are the REAL signed lead-weights (reciprocal leads), NOT gauge —
+## only the global sign is gauge. Shape-cosine(feature template, empirical pos-minus-neg
+## morphology at peak position): mean 0.606, median 0.74, max 0.963; 7/21 serving features
+## >=0.80. First actual shape validation (not lead-based). (3) DATAPOINT decomposition: it's a
+## LINEAR readout over a feature dictionary but the per-ECG code is DENSE not sparse
+## (participation ratio 22-53 of 64). Confident/focal dx concentrate on diagnosis-matched
+## features (CLBBB ecg4893: feat#52 contributes 1.79, all top-4 are CLBBB features) but hard
+## morphology dx are diffuse (AMI ecg18421: contribs ~0.03, top features' best-codes NORM/
+## IRBBB/ANEUR — no clean feature, model unsure logit -0.11). So: dictionary yes, sparse no.
