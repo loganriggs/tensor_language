@@ -2464,3 +2464,48 @@ rendered morphology is *sufficient* to create the diagnosis from the input, spec
 dose-dependently, and to move correlated diagnoses together via shared features. That is the
 insert/remove-changes-the-diagnosis-on-the-test-set result, grounded in physiological
 waveforms rather than an internal gauge.
+
+## 30. Cross-continent features and the template-match baseline (Logan direction 2026-07-28)
+
+We validated the interaction features abroad using ONE model (Germany/PTB-XL) and ONE feature
+basis applied to the raw US (Georgia) and China (Chapman) ECGs -- not a model per continent
+(those would live in incomparable gauges). Three things came out of it, and the last one is
+the honest correction.
+
+**The diagnostic waveform is real and transfers.** The "diagnostic waveform" is the R-peak-
+aligned median beat of confirmed cases. Our Germany LBBB feature cosine-matches the real US
+LBBB median beat (2,628 confirmed beats) at **0.968**, RBBB at 0.817 -- the first shape-level
+external validation (the earlier 10/10 was only a lead match).
+
+**But a template-match baseline beats the single feature.** Building the diagnostic template
+(aligned positive-minus-normal median beat) on Germany and classifying US ECGs by best-shift
+cosine -- no model at all -- transfers as well or better than our interaction feature on 7 of
+10 diagnoses (mean feature-minus-template = -0.053):
+
+| | template-match | our feature | full model |
+|---|---|---|---|
+| conduction (LBBB/RBBB/LAFB/1AVB) | 0.851 | 0.773 | 0.930 |
+| amplitude (LVH) | 0.646 | 0.591 | 0.871 |
+| morphology (injury/ischemia/MI/T) | 0.579 | 0.546 | 0.587 |
+
+The single interpretable feature is **not** a better classifier than the average diagnostic
+waveform. The reason the feature cosine-matched foreign morphology (0.97) is the same reason
+template-matching works: the shape is real and transferable, and both objects merely capture
+it. The full model's genuine advantage over template-match is narrow -- conduction (+0.08) and
+especially amplitude (LVH +0.22, first-degree AV block +0.23) -- and it comes from *distributed*
+computation (the model is behaviorally rank ~32-64 with fungible features, §28), not from any
+single interpretable feature. Morphology diagnoses transfer poorly for *all three* methods
+(~0.55-0.64); for T-wave-abnormal the template baseline (0.80) even beats the model (0.55),
+which points to a label-definition mismatch as much as anything.
+
+**Caveat in the model's favor:** the template-match baseline gets a beat-detection/alignment
+step the model never uses (the model reads raw non-aligned 10-second strips), so its parity
+with the model on conduction/amplitude is achieved with an inductive-bias handicap.
+
+**Standing methodological lesson.** Beat-aligned template-matching is now the required baseline
+for any cross-cohort feature claim, joining the linear baseline (§27, "does it need
+nonlinearity") and the random-feature control (§28, "is the basis privileged"). All three
+deflated an over-claim. Net for the ECG arc: the features are a *faithful rendering* of real,
+externally-validated diagnostic shapes, but they are neither a superior classifier nor a
+uniquely-necessary mechanism -- a trivial template captures the same shape, and the model's
+edge is distributed and narrow.

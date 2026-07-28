@@ -5250,3 +5250,12 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## template!). Caveat: template-match gets a beat-ALIGNMENT inductive bias the model/features
 ## don't (model works on non-aligned strips). Third baseline/control this session to deflate an
 ## overclaim (after linear §27 and random-feature §37). Honest recalibration required.
+
+## ECG atlas honest-baseline update + RESULTS close (2026-07-28): §42b. Atlas
+## (49397032-b01d-47f6-8f76-e6033b7523b8) reference section replaced with the honest three-way
+## comparison (template-match vs feature vs model, US cohort, 10 diagnoses + real US median
+## beats) so the published artifact no longer oversells the feature match. RESULTS §30 written
+## closing the cross-continent + baseline arc: features faithfully RENDER externally-validated
+## diagnostic shapes (LBBB cosine 0.97 vs real US beat) but are NOT superior classifiers
+## (template-match beats single feature, mean -0.053); model edge distributed+narrow
+## (conduction/amplitude only). ECG arc at honest resting point (LOG §23-42, RESULTS §28-30).
