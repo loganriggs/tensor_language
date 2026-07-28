@@ -5338,3 +5338,14 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## irregularity. Confirms §46 (rhythm recruits attention) + §47 (AF is multi-cue beyond RR-irreg).
 ## 1dAVb (timing) behaves like rhythm (needs 20 patches) not morphology. Rhythm interpretation
 ## complete: whole-strip integration via attention, multi-cue for AF, reducible to rate for brady/tachy.
+
+## TIER-2 teacher — ECG-AGE (mortality biomarker) validated (2026-07-28): §49. ecg_age_teacher_infer.py/.json,
+## age_soft_*.npy, code_age_teacher/. The higher-impact path-2 target: distill the ECG-AGE model (Lima
+## et al 2021 Nat Commun, age-gap predicts MORTALITY; antonior92/ecg-age-prediction, PyTorch ResNet1d
+## 6.9M params, weights Zenodo 4892365/Dropbox) into a foldable student, then interpret WHAT makes an
+## ECG look older (an "invisible" biomarker, not a known diagnosis). VALIDATED on PTB-XL: predicted
+## ECG-age vs true age corr 0.800, MAE 8.8y (scale 1.0; matches published ~8y). Reproduces the
+## mortality direction: pathology ECGs read +3.72y vs normal +2.61y (accelerated ECG aging in
+## disease, from the ACTUAL biomarker model not our §22 proxy). Age soft labels saved. Student
+## distillation (regression, MSE) launched. This is the real-impact version — a decomposable account
+## of a mortality-linked signal humans can't read. All PyTorch (no TF).
