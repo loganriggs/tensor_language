@@ -2509,3 +2509,37 @@ deflated an over-claim. Net for the ECG arc: the features are a *faithful render
 externally-validated diagnostic shapes, but they are neither a superior classifier nor a
 uniquely-necessary mechanism -- a trivial template captures the same shape, and the model's
 edge is distributed and narrow.
+
+## 31. Path 2: distilling SOTA clinical models into foldable ones (Logan direction 2026-07-28)
+
+The ECG interpretability arc showed our small foldable models re-derive known cardiology but do not
+beat simple baselines (§27-30) — methodology, not impact. The impactful capabilities (detecting what
+humans cannot) require outcome/echo-labeled data we lack. Path 2 sidesteps this: take a released SOTA
+model, **distill it into a foldable, exactly-decomposable student** (the teacher provides labels, so we
+need none of its training data), then apply the toolkit to a genuinely capable model.
+
+**Tier-1 (known diagnoses).** Teacher = Ribeiro CODE ResNet (2.3M ECGs, 6 classes incl rhythm). Validated
+on PTB-XL (teacher vs own labels mean AUC 0.986). The foldable student matched it at **0.991 agreement**,
+including the rhythm classes (atrial fibrillation 0.989, brady 0.985, tachy 0.991) our time-patched
+architecture had never handled. Novel mechanism extracted: rhythm recruits **attention** ~7x more than
+morphology (cross-time integration), and needs the **whole strip** (atrial fibrillation is chance from one
+beat, 0.53, rising to 0.99 with all 20 patches) while morphology is focal (LBBB 0.83 from a single beat);
+brady/tachy reduce to heart rate, but atrial fibrillation genuinely exceeds the single clinical cues
+(0.989 vs RR-irregularity 0.836, P-absence 0.725) — a multi-cue computation.
+
+**Tier-2 (an invisible biomarker).** Teacher = the ECG-age model (Lima 2021; the predicted-minus-true
+age-gap predicts mortality). Validated on PTB-XL (predicted vs true age r=0.80, MAE 8.8y). The foldable
+student inherited it (student vs true age r=0.754). Decomposing it: ECG-age is **~70% novel morphology**
+(known measures explain only R²=0.30). **Critical caveat:** distilling the *raw age* lost the
+mortality-relevant age-gap — the student *reversed* it (pathology read younger). Fixing it by distilling
+the **age-gap directly** recovered the mortality direction (pathology +3.0y older than normal, correct and
+stronger than the teacher). The lesson generalizes: **distillation transfers the dominant capability but
+not a subtle clinically-valuable residual — to interpret that signal you must target it, not the raw
+output.** The resulting decomposition is clinically coherent: premature ECG-aging is driven by atrial
+fibrillation (+8.7y), conduction disease (+8.3/+7.5), and MI/ischemia (+6.7/+6.6) — the excess-mortality
+conditions — read mostly from novel precordial morphology rather than simple intervals.
+
+**Contribution.** A demonstrated method — *interpret any released clinical model by distilling it into a
+decomposable foldable one* — proven end-to-end on a Tier-1 diagnostic model and a Tier-2 mortality
+biomarker, with the honest boundary of when naive distillation preserves the signal and when it must be
+targeted.

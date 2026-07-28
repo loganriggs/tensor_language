@@ -5385,3 +5385,16 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## must target THAT signal, not the raw output — distilling raw output loses/reverses subtle clinical
 ## residuals (§51), targeted distillation recovers them (§52). Now have a foldable model carrying the
 ## mortality-DIRECTION signal. Next: interpret what morphology drives premature ECG-aging (the payoff).
+
+## TIER-2 PAYOFF — what makes an ECG read prematurely old (2026-07-28): §53. ecg_agegap_interp.py/.json.
+## Interpret the foldable age-GAP student (carries the mortality direction, §52). RESULT — clinically
+## COHERENT decomposition of the mortality biomarker: mean age-gap by superclass HYP +5.66 / MI +5.61 /
+## CD +5.45 / STTC +4.72 vs NORM +2.01 (all pathology reads ~5y prematurely old). Conditions driving it
+## most: AFIB +8.69, CRBBB +8.30, 1AVB +7.54, ASMI +6.67, ISCAL +6.57, LAFB +6.40, PVC +6.05 — exactly
+## the excess-mortality conditions (AF, conduction disease, MI/ischemia). Weakly explained by simple
+## measures (HR 0.22, QRSwidth 0.18) = mostly novel morphology (consistent §51 70% novel). Leads V4/aVR/
+## V1/V3. This is the real-impact demonstration: a FOLDABLE, decomposable account of an 'invisible'
+## mortality biomarker, keyed on clinically-meaningful pathology. PATH 2 ARC COMPLETE (§44-53): distill
+## Tier-1 diagnostic (0.99) + Tier-2 mortality biomarker (0.91) into foldable students, novel mechanism
+## from both (rhythm=attention/whole-strip; AF multi-cue; ECG-age 70% novel morphology; premature-aging
+## keys on AF/conduction/MI), and the distillation-preserves-dominant-not-subtle-residual lesson (§51->52).
