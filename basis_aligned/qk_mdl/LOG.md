@@ -5004,3 +5004,9 @@ same gradient §20b). 0.5 = label-absent (Chapman rhythm-focused), not failure.
 Circuits are real cross-continental mechanisms, not PTB-XL artifacts. ECG CIRCUIT
 ARC COMPLETE: decomposed (§24) + capability-scoped (§23) + physiology 10/10 +
 cross-continent validated.
+
+## ECG scaling test (2026-07-28): §26. ecg_codes_big.py/.json (1.45M).
+4x model: macro 0.894 (=small 0.896), SAME 28 capable, weak codes WORSE (IVCD
+0.689->0.667, LNGQT 0.714->0.684). Incapable = data/signal-limited not capacity.
+Confound RESOLVED: capability size-invariant, decomposition not an underpowered-
+model artifact. Next: decompose big model (still clean or superposition?).

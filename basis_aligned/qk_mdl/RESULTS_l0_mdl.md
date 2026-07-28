@@ -2290,3 +2290,24 @@ Complete LBBB, the cleanest, validates on three continents at the specific-code
 level. The ECG circuit-decomposition arc is complete and truth-filtered: model
 decomposed into per-code circuits at clinical granularity (§24), scoped to measured
 capability (§23), physiology-matched (10/10), and cross-continent validated (here).
+
+## 26. Scaling test: capability is size-invariant (the confound resolved)
+
+The sharpest criticism was "interpretability is bought by weakness -- a stronger
+model would learn the hard features you can't decompose." Test: 4x model (1.45M vs
+0.39M params, D 96->192, INNER 192->384), same 35-code task.
+
+Result: **scaling does NOT help.** Macro-AUC 0.894 (vs 0.896 small); SAME 28 capable
+codes; the incapable codes get slightly WORSE, not better:
+- nonspecific IVCD 0.689 -> 0.667
+- left atrial enlargement 0.704 -> 0.679
+- long-QT 0.714 -> 0.684 (n=11 -- data-limited)
+- posterolateral MI 0.798 -> 0.736 (n=5)
+
+The incapable codes are **data/signal-limited, not capacity-limited** -- they have
+too few examples (long-QT n=11, IPLMI n=5) or a genuinely diffuse feature; 4x
+capacity slightly overfits them. This resolves the confound: the capable set is
+size-invariant, so the clean per-code decomposition (§24) is NOT an artifact of an
+underpowered model. A 4x model captures the same 28 codes and no more -- interpret-
+ability is not hiding lost capability. Next (26b): does the 4x model still DECOMPOSE
+cleanly, or does the extra capacity spread into dense superposition?
