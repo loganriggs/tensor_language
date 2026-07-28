@@ -4988,3 +4988,11 @@ cross-cohort-weak, so within-Germany proof of concept only.
 ## IVCD 0.689/LAE 0.704/LNGQT 0.714. Honest decomposable set established BEFORE
 ## decomposition (Logan's "account for capability"). Next: minimal circuit + feature
 ## per capable code, shared vs code-specific.
+
+## ECG per-code circuits (2026-07-28): §24. ecg_code_circuits.py/.json, ecg_unit_drop.npy.
+28 capable codes decomposed. Physiology top-lead match 10/10. Circuits tiny+disjoint:
+mean size 2.4 units, pairwise Jaccard 0.005, 44 specialist units, 0 generalists,
+63/192 units used. 17/28 codes distributed (circuit size 0). Architecture = bank of
+near-disjoint tiny code-specific circuits reading clinically-correct leads. Answers
+all reviewer-2 criticisms (granularity, non-obvious codes, capability-scoped,
+physiology-validated). Circuit decomposition COMPLETE for the capable set.

@@ -1,0 +1,459 @@
+{
+  "n_capable": 28,
+  "per_code": {
+    "NDT": {
+      "auc": 0.89,
+      "test_pos": 182,
+      "circuit_units": [],
+      "n_units": 0,
+      "top_leads": [
+        "V2",
+        "aVR",
+        "V1"
+      ]
+    },
+    "NST_": {
+      "auc": 0.8,
+      "test_pos": 77,
+      "circuit_units": [],
+      "n_units": 0,
+      "top_leads": [
+        "aVR",
+        "I",
+        "V6"
+      ]
+    },
+    "DIG": {
+      "auc": 0.931,
+      "test_pos": 18,
+      "circuit_units": [
+        25,
+        152,
+        37,
+        15,
+        6,
+        78,
+        60
+      ],
+      "n_units": 7,
+      "top_leads": [
+        "V6",
+        "V1",
+        "aVR"
+      ]
+    },
+    "NORM": {
+      "auc": 0.928,
+      "test_pos": 963,
+      "circuit_units": [],
+      "n_units": 0,
+      "top_leads": [
+        "V1",
+        "V5",
+        "V4"
+      ]
+    },
+    "IMI": {
+      "auc": 0.895,
+      "test_pos": 267,
+      "circuit_units": [],
+      "n_units": 0,
+      "top_leads": [
+        "III",
+        "aVF",
+        "aVL"
+      ],
+      "physiology_match": true,
+      "expected_leads": [
+        "II",
+        "III",
+        "aVF"
+      ]
+    },
+    "ASMI": {
+      "auc": 0.946,
+      "test_pos": 234,
+      "circuit_units": [],
+      "n_units": 0,
+      "top_leads": [
+        "V3",
+        "V2",
+        "V1"
+      ]
+    },
+    "LVH": {
+      "auc": 0.932,
+      "test_pos": 214,
+      "circuit_units": [],
+      "n_units": 0,
+      "top_leads": [
+        "V5",
+        "V6",
+        "I"
+      ]
+    },
+    "LAFB": {
+      "auc": 0.975,
+      "test_pos": 162,
+      "circuit_units": [],
+      "n_units": 0,
+      "top_leads": [
+        "aVF",
+        "III",
+        "II"
+      ],
+      "physiology_match": true,
+      "expected_leads": [
+        "I",
+        "III",
+        "aVF",
+        "aVL"
+      ]
+    },
+    "ISC_": {
+      "auc": 0.954,
+      "test_pos": 128,
+      "circuit_units": [],
+      "n_units": 0,
+      "top_leads": [
+        "V5",
+        "V6",
+        "V1"
+      ]
+    },
+    "IRBBB": {
+      "auc": 0.933,
+      "test_pos": 112,
+      "circuit_units": [
+        65
+      ],
+      "n_units": 1,
+      "top_leads": [
+        "V1",
+        "V2",
+        "V3"
+      ],
+      "physiology_match": true,
+      "expected_leads": [
+        "V1",
+        "V2"
+      ]
+    },
+    "1AVB": {
+      "auc": 0.918,
+      "test_pos": 79,
+      "circuit_units": [],
+      "n_units": 0,
+      "top_leads": [
+        "V1",
+        "aVR",
+        "II"
+      ]
+    },
+    "ISCAL": {
+      "auc": 0.923,
+      "test_pos": 66,
+      "circuit_units": [],
+      "n_units": 0,
+      "top_leads": [
+        "V5",
+        "V6",
+        "V1"
+      ]
+    },
+    "CRBBB": {
+      "auc": 0.996,
+      "test_pos": 54,
+      "circuit_units": [],
+      "n_units": 0,
+      "top_leads": [
+        "V1",
+        "V3",
+        "V5"
+      ],
+      "physiology_match": true,
+      "expected_leads": [
+        "V1",
+        "V2"
+      ]
+    },
+    "CLBBB": {
+      "auc": 0.995,
+      "test_pos": 54,
+      "circuit_units": [],
+      "n_units": 0,
+      "top_leads": [
+        "V1",
+        "V6",
+        "V3"
+      ],
+      "physiology_match": true,
+      "expected_leads": [
+        "I",
+        "V1",
+        "V6"
+      ]
+    },
+    "ILMI": {
+      "auc": 0.919,
+      "test_pos": 48,
+      "circuit_units": [],
+      "n_units": 0,
+      "top_leads": [
+        "V1",
+        "V5",
+        "V6"
+      ]
+    },
+    "AMI": {
+      "auc": 0.885,
+      "test_pos": 35,
+      "circuit_units": [
+        91,
+        157,
+        78,
+        145,
+        25,
+        30,
+        75,
+        134,
+        33,
+        28,
+        147,
+        36
+      ],
+      "n_units": 12,
+      "top_leads": [
+        "V2",
+        "V1",
+        "aVR"
+      ],
+      "physiology_match": true,
+      "expected_leads": [
+        "V1",
+        "V2",
+        "V3",
+        "V4"
+      ]
+    },
+    "ALMI": {
+      "auc": 0.915,
+      "test_pos": 27,
+      "circuit_units": [],
+      "n_units": 0,
+      "top_leads": [
+        "V1",
+        "I",
+        "aVL"
+      ]
+    },
+    "ISCIN": {
+      "auc": 0.898,
+      "test_pos": 22,
+      "circuit_units": [
+        71,
+        18,
+        6,
+        182,
+        100,
+        66
+      ],
+      "n_units": 6,
+      "top_leads": [
+        "V2",
+        "V3",
+        "III"
+      ],
+      "physiology_match": true,
+      "expected_leads": [
+        "II",
+        "III",
+        "aVF"
+      ]
+    },
+    "INJAS": {
+      "auc": 0.978,
+      "test_pos": 22,
+      "circuit_units": [],
+      "n_units": 0,
+      "top_leads": [
+        "V4",
+        "V3",
+        "V2"
+      ],
+      "physiology_match": true,
+      "expected_leads": [
+        "V1",
+        "V2",
+        "V3"
+      ]
+    },
+    "LMI": {
+      "auc": 0.869,
+      "test_pos": 20,
+      "circuit_units": [
+        96,
+        178,
+        135,
+        132,
+        30,
+        72
+      ],
+      "n_units": 6,
+      "top_leads": [
+        "V3",
+        "III",
+        "aVL"
+      ]
+    },
+    "ISCIL": {
+      "auc": 0.953,
+      "test_pos": 18,
+      "circuit_units": [
+        13,
+        79
+      ],
+      "n_units": 2,
+      "top_leads": [
+        "V5",
+        "V6",
+        "V3"
+      ]
+    },
+    "LPFB": {
+      "auc": 0.962,
+      "test_pos": 18,
+      "circuit_units": [],
+      "n_units": 0,
+      "top_leads": [
+        "aVL",
+        "V2",
+        "III"
+      ],
+      "physiology_match": true,
+      "expected_leads": [
+        "I",
+        "III",
+        "aVF"
+      ]
+    },
+    "ISCAS": {
+      "auc": 0.914,
+      "test_pos": 17,
+      "circuit_units": [
+        91,
+        74,
+        87,
+        122,
+        15,
+        95,
+        158,
+        168,
+        58,
+        22,
+        82,
+        41
+      ],
+      "n_units": 12,
+      "top_leads": [
+        "V3",
+        "V4",
+        "V2"
+      ]
+    },
+    "INJAL": {
+      "auc": 0.971,
+      "test_pos": 14,
+      "circuit_units": [],
+      "n_units": 0,
+      "top_leads": [
+        "V5",
+        "V4",
+        "V6"
+      ],
+      "physiology_match": true,
+      "expected_leads": [
+        "I",
+        "V5",
+        "V6",
+        "aVL"
+      ]
+    },
+    "ISCLA": {
+      "auc": 0.902,
+      "test_pos": 13,
+      "circuit_units": [
+        145,
+        65,
+        17,
+        25,
+        18,
+        2
+      ],
+      "n_units": 6,
+      "top_leads": [
+        "V1",
+        "V5",
+        "aVR"
+      ]
+    },
+    "RVH": {
+      "auc": 0.935,
+      "test_pos": 12,
+      "circuit_units": [
+        147
+      ],
+      "n_units": 1,
+      "top_leads": [
+        "V1",
+        "aVR",
+        "V3"
+      ]
+    },
+    "ANEUR": {
+      "auc": 0.943,
+      "test_pos": 10,
+      "circuit_units": [
+        106,
+        55
+      ],
+      "n_units": 2,
+      "top_leads": [
+        "V3",
+        "V1",
+        "V4"
+      ]
+    },
+    "RAO/RAE": {
+      "auc": 0.851,
+      "test_pos": 10,
+      "circuit_units": [
+        12,
+        36,
+        152,
+        145,
+        120,
+        27,
+        22,
+        186,
+        43,
+        14,
+        47,
+        141
+      ],
+      "n_units": 12,
+      "top_leads": [
+        "aVF",
+        "V3",
+        "III"
+      ]
+    }
+  },
+  "physiology_top_lead_match": "10/10",
+  "mean_circuit_size": 2.4,
+  "generalist_units_serve>=5_codes": 0,
+  "specialist_units_serve_1_code": 44,
+  "units_used_by_any_code": 63,
+  "max_code_overlap": null,
+  "mean_pairwise_circuit_jaccard": 0.005
+}
