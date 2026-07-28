@@ -5276,3 +5276,16 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## model; subpar to full model but far more interpretable+compositional. Next: per-diagnosis
 ## CLINICAL-CRITERION baselines (LVH voltage/Sokolow-Lyon, 1AVB PR-interval, BBB QRS-width,
 ## injury/ischemia ST) = the honest clinical bar (does model beat the criterion clinicians use).
+
+## PATH 2 kickoff — distill SOTA teacher into foldable student (2026-07-28, Logan approved): §44.
+## Strategy: interpret a capable model we can't train ourselves (data is the moat) by distilling
+## it into a foldable one. Teacher = Ribeiro CODE ResNet (github antonior92/automatic-ecg-diagnosis,
+## 6.4M params, weights code_teacher/model/model.hdf5 25MB via Dropbox/Zenodo 3625017; input
+## (4096,12)@400Hz units 1e-4V; 6 outputs [1dAVb,RBBB,LBBB,SB,AF,ST] incl RHYTHM classes ours
+## lacks). Installed tensorflow-cpu 2.21 + tf-keras (TF_USE_LEGACY_KERAS=1). ecg_teacher_infer.py:
+## resample PTB-XL 100->400Hz, center-pad to 4096; scale sweep VALIDATED preprocessing — teacher
+## vs PTB-XL own labels at scale=1.0: 1dAVb 0.962, RBBB 0.997, LBBB 0.998 (mean 0.986). Saved
+## teacher_soft_{train,val,test}.npy; test soft>0.5 prevalence 1dAVb44/RBBB64/LBBB62/SB35/AF148/
+## ST87. ecg_student_distill.py: foldable no-softmax bilinear student (D96/NH6/NL3, patched time,
+## same arch as ecg_codes_model but 6 outputs) trained to mimic teacher soft outputs (BCE), teacher
+## provides labels (no CODE data needed). Next: verify student==teacher agreement, then interpret.
