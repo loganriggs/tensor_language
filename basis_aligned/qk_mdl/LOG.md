@@ -5456,3 +5456,14 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## cross-cohort truth filter), not a PTB-XL artifact. Strengthens the Tier-2 result. (Absolute gaps
 ## slightly higher abroad = cohort shift; the CONTRAST is the robust, validated quantity.) Autonomous
 ## tick while Logan away — low-friction external validation reusing existing artifacts.
+
+## PEDAGOGY PIVOT (2026-07-28, Logan direction): lesson plan for explaining the tensor-network
+## techniques, language setting. §P1. tn_pedagogy_proposal.md (proposal: two things = nodes
+## (breaking down / decomposition) + bonds (sparse communication); 2x2 extremes; 8-lesson sequence,
+## 2 reusable toy models, interactive artifacts). §P2. tn_toys.py/.json — the two proof-of-concept
+## toy models instantiating the extremes: TOY A (decomposable) = bilinear modular-addition, acc 1.0,
+## folds to eff ~3 frequencies of 48 units, ranked-k acc 1.0 >> random-k 0.23 (privileged basis).
+## TOY B (dense/thin-bond) = one bilinear feature node serving 16 consumers each reading rank-2:
+## node eff-rank 30.5/64 (DENSE), per-consumer bond eff-rank 1.94 (THIN), needs ~48 neurons,
+## ranked-k ~= random-k (NOT decomposable) — dense node that can't break down but communicates
+## sparsely. Next: Lesson-7 figure (the two extremes side by side) as proof-of-concept, then expand.
