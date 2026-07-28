@@ -5406,3 +5406,9 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## Difference median-beat largest in aVR 0.183/V3 0.172/I 0.152/II 0.139/V4 0.136 (matches §53 leads).
 ## Beats saved (npz) for the figure. This is 'what a prematurely-old ECG looks like' — the mortality-
 ## linked waveform signature, decomposable and age-controlled. Next: figure/artifact of the contrast.
+
+## TIER-2 — premature-aging figure artifact (2026-07-28): §54b. ecg_agegap_viz.json,
+## scratchpad/ecg_premature_aging.html -> https://claude.ai/code/artifact/339f6dfc-cc7a-4640-9e0b-0f5bfe0a4c96
+## Visual capstone: 12-lead overlay of prematurely-aged vs normally-aged median beats (age-matched ~63y,
+## ECG-ages ~15y apart) + the excess-mortality conditions driving premature aging (AFIB +8.7 etc). The
+## communicable deliverable of the distilled mortality-biomarker interpretation.
