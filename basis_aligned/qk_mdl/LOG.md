@@ -5467,3 +5467,11 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## node eff-rank 30.5/64 (DENSE), per-consumer bond eff-rank 1.94 (THIN), needs ~48 neurons,
 ## ranked-k ~= random-k (NOT decomposable) — dense node that can't break down but communicates
 ## sparsely. Next: Lesson-7 figure (the two extremes side by side) as proof-of-concept, then expand.
+
+## PEDAGOGY §P3 (2026-07-28): Lesson-7 proof-of-concept figure published ->
+## https://claude.ai/code/artifact/f612b01a-1727-4150-a48e-5a7f42c63204 . "Two ways to understand a
+## computation": the framing (network = nodes + bonds; decomposable? sparse channel?) + the two trained
+## toy extremes side by side — Toy A decomposable (circle embedding, freq spectrum, chosen>>random rank-k)
+## vs Toy B dense/thin-bond (node->16-thin-consumers diagram, node eff-rank 30 vs bond eff-rank 2 bars,
+## chosen~=random rank-k) — with the real-LLM footer (mlp16 rank-16 = A; block-0 manifold collapse = B).
+## Validates the visual language. Awaiting Logan's steer (audience/scope/naming) before building the rest.
