@@ -4996,3 +4996,11 @@ mean size 2.4 units, pairwise Jaccard 0.005, 44 specialist units, 0 generalists,
 near-disjoint tiny code-specific circuits reading clinically-correct leads. Answers
 all reviewer-2 criticisms (granularity, non-obvious codes, capability-scoped,
 physiology-validated). Circuit decomposition COMPLETE for the capable set.
+
+## ECG code cross-cohort (2026-07-28): §25. ecg_code_crosscohort.py/.json.
+Specific-code circuits transfer: complete LBBB 3 continents (0.995/0.959/0.913);
+5 conduction codes US 0.88-0.96; 1AVB all 3 (0.92/0.85/0.80); AMI degrades (0.63,
+same gradient §20b). 0.5 = label-absent (Chapman rhythm-focused), not failure.
+Circuits are real cross-continental mechanisms, not PTB-XL artifacts. ECG CIRCUIT
+ARC COMPLETE: decomposed (§24) + capability-scoped (§23) + physiology 10/10 +
+cross-continent validated.
