@@ -5398,3 +5398,11 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## Tier-1 diagnostic (0.99) + Tier-2 mortality biomarker (0.91) into foldable students, novel mechanism
 ## from both (rhythm=attention/whole-strip; AF multi-cue; ECG-age 70% novel morphology; premature-aging
 ## keys on AF/conduction/MI), and the distillation-preserves-dominant-not-subtle-residual lesson (§51->52).
+
+## TIER-2 — premature-aging MORPHOLOGY rendered (2026-07-28): §54. ecg_agegap_render.py/.json/.npz.
+## Visual payoff: age-CONTROLLED contrast of the foldable age-gap student. Within 50-75y band, high-gap
+## group (n293, mean pred gap +11.4y) vs low-gap (n293, -3.52y) have MATCHED true ages (64.0 vs 62.3) —
+## same-age patients the model ECG-ages ~15y apart, isolating premature-aging morphology (not just 'old').
+## Difference median-beat largest in aVR 0.183/V3 0.172/I 0.152/II 0.139/V4 0.136 (matches §53 leads).
+## Beats saved (npz) for the figure. This is 'what a prematurely-old ECG looks like' — the mortality-
+## linked waveform signature, decomposable and age-controlled. Next: figure/artifact of the contrast.
