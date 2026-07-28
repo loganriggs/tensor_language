@@ -5314,3 +5314,15 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## (a capability the arch wasn't designed for), measurably and localized. Interpretability toolkit now
 ## producing novel mechanism on a SOTA-behavior model. Next: atomic basis / feature rendering on the
 ## student, esp. what waveform features drive AF (the flagship rhythm dx) and the SB attention circuit.
+
+## PATH 2 — rhythm mechanism + clinical baseline (2026-07-28): §47. ecg_rhythm_probe.py/.json.
+## Do the student's RHYTHM detections reduce to clinical rules? R-peak metrics (heart rate, RR
+## coefficient-of-variation, P-wave amplitude) vs teacher labels + student output. RESULT:
+## brady/tachy ~= HEART RATE (clinical AUC SB 0.955 / ST 0.965 vs student 0.985/0.991 — model
+## barely beats the rate rule, as expected for rate-defined dx). BUT AF: student 0.989 >> RR-
+## irregularity 0.836 >> P-absence 0.725 — AF is a RICHER computation than any single clinical
+## cue, combining RR-irregularity + P-loss + fibrillatory morphology (corr(RRCV,student) only
+## 0.26 — not RRCV-dominated). => AF is where the SOTA rhythm capability genuinely exceeds simple
+## rules, and the interpretability-worthy target. Consistent w/ whole-session theme: model ~=
+## clinical rule for measurement-defined dx (rate, voltage), beats it for multi-cue dx (AF, MI/
+## morphology). Next: render WHAT the student uses for AF (atomic/feature on the student's AF head).

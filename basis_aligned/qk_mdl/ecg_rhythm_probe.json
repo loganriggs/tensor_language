@@ -1,0 +1,32 @@
+{
+  "n_test": 2198,
+  "rhythm": {
+    "AF": {
+      "clinical_metric": "RRCV",
+      "desc": "irregular RR",
+      "clinical_auc_vs_teacher": 0.836,
+      "student_auc_vs_teacher": 0.989,
+      "corr_metric_vs_student_output": 0.259
+    },
+    "SB": {
+      "clinical_metric": "-HR",
+      "desc": "slow rate",
+      "clinical_auc_vs_teacher": 0.955,
+      "student_auc_vs_teacher": 0.985,
+      "corr_metric_vs_student_output": 0.256
+    },
+    "ST": {
+      "clinical_metric": "HR",
+      "desc": "fast rate",
+      "clinical_auc_vs_teacher": 0.965,
+      "student_auc_vs_teacher": 0.991,
+      "corr_metric_vs_student_output": 0.513
+    }
+  },
+  "AF_mechanism": {
+    "corr_RRCV_vs_studentAF": 0.259,
+    "corr_Pabsence_vs_studentAF": 0.084,
+    "RRCV_auc_vs_teacherAF": 0.836,
+    "Pabsence_auc_vs_teacherAF": 0.725
+  }
+}
