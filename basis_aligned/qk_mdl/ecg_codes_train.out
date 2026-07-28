@@ -1,0 +1,87 @@
+44 diagnostic codes -> 35 with >=40 train positives
+params 0.395M, 35 codes
+step 2000: loss 0.063 val macro-AUC 0.8933 (best 0.8933)
+step 4000: loss 0.050 val macro-AUC 0.9046 (best 0.9046)
+step 6000: loss 0.029 val macro-AUC 0.9104 (best 0.9104)
+step 8000: loss 0.057 val macro-AUC 0.9042 (best 0.9104)
+step 10000: loss 0.012 val macro-AUC 0.9006 (best 0.9104)
+step 12000: loss 0.035 val macro-AUC 0.9012 (best 0.9104)
+{
+ "macro": 0.896,
+ "n_capable": 28,
+ "top": [
+  {
+   "code": "CRBBB",
+   "auc": 0.996,
+   "test_pos": 54
+  },
+  {
+   "code": "CLBBB",
+   "auc": 0.995,
+   "test_pos": 54
+  },
+  {
+   "code": "INJAS",
+   "auc": 0.978,
+   "test_pos": 22
+  },
+  {
+   "code": "LAFB",
+   "auc": 0.975,
+   "test_pos": 162
+  },
+  {
+   "code": "INJAL",
+   "auc": 0.971,
+   "test_pos": 14
+  },
+  {
+   "code": "LPFB",
+   "auc": 0.962,
+   "test_pos": 18
+  },
+  {
+   "code": "ISC_",
+   "auc": 0.954,
+   "test_pos": 128
+  },
+  {
+   "code": "ISCIL",
+   "auc": 0.953,
+   "test_pos": 18
+  }
+ ],
+ "bottom": [
+  {
+   "code": "EL",
+   "auc": 0.83,
+   "test_pos": 9
+  },
+  {
+   "code": "NST_",
+   "auc": 0.8,
+   "test_pos": 77
+  },
+  {
+   "code": "IPLMI",
+   "auc": 0.798,
+   "test_pos": 5
+  },
+  {
+   "code": "LNGQT",
+   "auc": 0.714,
+   "test_pos": 11
+  },
+  {
+   "code": "LAO/LAE",
+   "auc": 0.704,
+   "test_pos": 42
+  },
+  {
+   "code": "IVCD",
+   "auc": 0.689,
+   "test_pos": 79
+  }
+ ]
+}
+ECG CODES TRAIN DONE

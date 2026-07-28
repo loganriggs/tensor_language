@@ -4981,3 +4981,10 @@ STTC +2.62, MI +1.90, CD +1.95, HYP +1.50; rises with disease burden (r 0.20).
 mortality-linked signal is producible from data we have (no mortality labels).
 CODE adds direct mortality supervision + death validation. Caveat: age model
 cross-cohort-weak, so within-Germany proof of concept only.
+
+## ECG fine-grained codes (2026-07-28): capability map; §23. ecg_codes_train.py/.json,
+## ecg_codes_model.pt. 35 codes (>=40 train pos), macro-AUC 0.896, 28 capable
+## (AUC>=0.75). Nails CRBBB 0.996/CLBBB 0.995/INJAS 0.978/LAFB 0.975; struggles
+## IVCD 0.689/LAE 0.704/LNGQT 0.714. Honest decomposable set established BEFORE
+## decomposition (Logan's "account for capability"). Next: minimal circuit + feature
+## per capable code, shared vs code-specific.

@@ -2201,3 +2201,27 @@ validation against actual death. But the age-gap gives a real, producible, disea
 tracking mortality proxy TODAY. Honest caveat: the age model generalizes poorly
 cross-cohort (US-CN 0.26, §20b), so this within-Germany age-gap is a proof of concept;
 a cross-cohort-robust age model would be needed before any biomarker claim.
+
+## 23. Fine-grained diagnostic codes: the capability map (Logan direction 2026-07-28)
+
+Answering the "coarse labels" and "interpretability vs capability" criticisms:
+trained on the 44 specific diagnostic SCP codes (35 with >=40 train positives),
+0.395M params, test macro-AUC 0.896. Per-code capability BEFORE any decomposition
+claim -- we only decompose what the model can actually compute:
+
+- **28 of 35 codes are capable (test AUC >= 0.75, >=10 positives).**
+- The model NAILS morphologically distinct, well-represented codes: complete RBBB
+  0.996, complete LBBB 0.995, anteroseptal injury (INJAS) 0.978, LAFB 0.975,
+  anterolateral injury 0.971, LPFB 0.962, ischemia 0.954.
+- It STRUGGLES on subtle/rare/diffuse codes: nonspecific IVCD 0.689, left atrial
+  enlargement 0.704, long-QT 0.714 (n=11), nonspecific ST 0.80. These are the
+  honest "cannot decompose" set -- either the model lacks the capacity/data or the
+  feature is genuinely diffuse.
+
+This directly confronts the capability confound: the model's ceiling is
+code-specific and legible. The clean conduction/injury patterns (distinct
+morphology, adequate n) are learned near-perfectly; nonspecific and rare patterns
+are not. We now have an honest decomposable set (28 codes) and an explicit
+not-yet-capable set (7). Next (23b): the minimal circuit + interpretable feature per
+CAPABLE code, and how much circuitry is shared vs code-specific -- the "minimal
+circuit that computes all the codes" restricted to what the model can actually do.
