@@ -4957,3 +4957,10 @@ CN 0.880 (China ~ in-domain). Feature corr DE-US 0.79, US-CN 0.78, DE-CN 0.65.
 3. V1/QRS BBB feature = genuine cross-continental. STAGE 2 VALIDATION COMPLETE.
 Remaining: outcome-linked mortality discovery (CODE, access-gated), CODE-15%
 prefetch (open), consolidation.
+
+## ECG three-continent discovery (2026-07-28): §20b. ecg_discovery3.py/.json.
+Sex holds 3-way (DE-US 0.81, US-CN 0.79, DE-CN 0.66; 6 units 0.10-0.14 all three).
+Age COLLAPSES on 3rd cohort (US-CN 0.26; top units 0.15-0.20 DE -> 0.07-0.10 US/CN)
+= Germany-specific. Gradient confirmed: known/sex generalize, age doesn't; 3rd
+cohort exposes what 2 hid. Cross-cohort filter is load-bearing. ECG discovery arc
+complete. Remaining: mortality (CODE, gated).

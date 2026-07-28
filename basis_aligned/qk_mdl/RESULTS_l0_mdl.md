@@ -2117,3 +2117,31 @@ targets (sex, age; §19) where the generalization gradient shows the filter is
 load-bearing. What our earlier work established as the fold's genuine value -- exact
 feature rendering + cross-setting validation -- now has a full physiological-signal
 demonstration across three independent international cohorts.
+
+### 20b. Three-continent validation of the DISCOVERY targets (sex, age)
+Extending sex/age feature validation to all three continents completes the symmetry
+with the known-feature (BBB) result and sharpens the generalization gradient:
+
+| target | DE-US | US-CN | DE-CN | reading |
+|---|---|---|---|---|
+| BBB (known) | 0.79 | 0.78 | 0.65 | holds all pairs |
+| **sex** (partly known) | 0.81 | **0.79** | 0.66 | holds all three continents |
+| **age** (least understood) | 0.61 | **0.26** | 0.45 | COLLAPSES on the third cohort |
+
+The sex feature holds three-way (DE-US 0.81, US-CN 0.79) -- its precordial-QRS basis
+is a genuine cross-continental signal, and 6 units retain strength 0.10-0.14 in all
+three. But age GENERALIZES POORLY at three-cohort resolution: US-CN correlation drops
+to 0.26, and the top age units, strong in Germany (0.15-0.20), fall to 0.07-0.10 in
+BOTH the US and China. The age signal this small model learned is substantially
+Germany-specific.
+
+**This is the generalization gradient's decisive confirmation, and the honest core of
+the whole ECG program:** as targets move from established physiology (BBB, sex) toward
+the less-understood (age), cross-population generalization degrades sharply -- and a
+THIRD cohort exposes what two cohorts hid (age looked passable at DE-US 0.61 but
+collapses at US-CN 0.26). For real biomarker discovery this is the essential lesson:
+two-cohort validation is not enough, and the cross-cohort filter is not optional
+decoration -- it is the only thing separating a genuine cross-population biomarker
+(sex) from a cohort-specific correlate (this age model). The method's value is
+precisely that it makes this distinction measurable and the surviving features
+exactly inspectable.
