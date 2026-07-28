@@ -5349,3 +5349,12 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## disease, from the ACTUAL biomarker model not our §22 proxy). Age soft labels saved. Student
 ## distillation (regression, MSE) launched. This is the real-impact version — a decomposable account
 ## of a mortality-linked signal humans can't read. All PyTorch (no TF).
+
+## TIER-2 — ECG-age student distilled (2026-07-28): §50. ecg_age_student_distill.py/.json,
+## ecg_age_student_model.pt. Foldable student mimics the ECG-AGE (mortality-biomarker) teacher:
+## student-vs-teacher corr 0.906 MAE 5.64y; student-vs-TRUE age corr 0.754 (teacher 0.80), MAE 9.33y
+## — inherited the Tier-2 "detect-invisible" capability into an exactly-decomposable model. We now
+## have a FOLDABLE mortality-linked ECG-age predictor. Next: interpret WHAT makes an ECG look older —
+## decompose student ECG-age into known clinical measures (HR/HRV, intervals, amplitudes) vs a novel
+## morphological residual; which leads; does the age-GAP (student age - true) still track pathology
+## (the mortality direction). This is the payoff: a decomposable account of an invisible biomarker.
