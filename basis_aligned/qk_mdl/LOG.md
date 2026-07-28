@@ -5412,3 +5412,13 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## Visual capstone: 12-lead overlay of prematurely-aged vs normally-aged median beats (age-matched ~63y,
 ## ECG-ages ~15y apart) + the excess-mortality conditions driving premature aging (AFIB +8.7 etc). The
 ## communicable deliverable of the distilled mortality-biomarker interpretation.
+
+## TIER-2 — subclinical-aging sharpening (2026-07-28): §55. ecg_agegap_subclinical.py/.json.
+## Is the ECG-age biomarker SUBCLINICAL or just re-reading overt disease? Within 909 PURE-NORMAL ECGs
+## (only NORM, no diagnosis): ECG-age still tracks TRUE age at corr 0.733 (MAE 9.3y) — model reads aging
+## in healthy-looking hearts. Within-normal age-gap std 5.49y; 28.1% of normals read >=5y prematurely
+## OLD. This spread only weakly explained by true age (corr 0.161) or HR (0.178) — high-gap normals
+## barely older (54.7 vs 50.6y) — so mostly NOVEL morphology. => the biomarker is genuinely SUBCLINICAL
+## (detects invisible variation among normal-looking ECGs), not just overt disease. Strengthens the
+## real-impact case. HONEST CAVEAT: no mortality outcomes here, so this CHARACTERIZES the subclinical
+## signal, cannot validate vs death (CODE-data-gated). Path-2 Tier-2 arc thoroughly characterized.
