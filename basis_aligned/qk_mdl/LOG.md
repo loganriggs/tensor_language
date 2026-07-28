@@ -5446,3 +5446,13 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## now feasible. Logan (CBAI researcher) can get MIMIC-IV credentialing. Bigger/500Hz data (resample to
 ## our pipeline). This is the highest-value unblock: skip distillation, train+interpret the invisible
 ## biomarker directly. Awaiting Logan's steer (data access is his to initiate).
+
+## TIER-2 — mortality-direction signal CROSS-COHORT validated (2026-07-28): §58. ecg_agegap_crosscohort.py/.json.
+## Does the premature-aging-in-pathology signal generalize beyond PTB-XL? The foldable age-gap student
+## predicts the gap from the ECG alone, run on independent US (Georgia) + China (Chapman). RESULT:
+## conduction-disease reads prematurely OLDER than normal on BOTH — Georgia CD +6.57 vs NORM +2.92 (diff
+## +3.65y, CD-vs-NORM AUC 0.671); Chapman CD +7.60 vs NORM +3.44 (diff +4.16y, AUC 0.695) — even stronger
+## than PTB-XL (+3.03). => the Tier-2 mortality-direction biomarker signal is CORPUS-GENERAL (passes the
+## cross-cohort truth filter), not a PTB-XL artifact. Strengthens the Tier-2 result. (Absolute gaps
+## slightly higher abroad = cohort shift; the CONTRAST is the robust, validated quantity.) Autonomous
+## tick while Logan away — low-friction external validation reusing existing artifacts.

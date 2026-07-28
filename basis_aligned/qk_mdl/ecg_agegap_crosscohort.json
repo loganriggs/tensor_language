@@ -1,0 +1,20 @@
+{
+  "reference_ptbxl_pathology_minus_normal_gap": 3.03,
+  "georgia": {
+    "n_CD": 1785,
+    "n_NORM": 1752,
+    "mean_gap_CD": 6.57,
+    "mean_gap_NORM": 2.92,
+    "CD_minus_NORM": 3.65,
+    "gap_discriminates_CD_vs_NORM_auc": 0.671
+  },
+  "chapman": {
+    "n_CD": 1061,
+    "n_NORM": 1826,
+    "mean_gap_CD": 7.6,
+    "mean_gap_NORM": 3.44,
+    "CD_minus_NORM": 4.16,
+    "gap_discriminates_CD_vs_NORM_auc": 0.695
+  },
+  "generalizes": true
+}
