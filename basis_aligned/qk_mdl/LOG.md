@@ -5326,3 +5326,15 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## rules, and the interpretability-worthy target. Consistent w/ whole-session theme: model ~=
 ## clinical rule for measurement-defined dx (rate, voltage), beats it for multi-cue dx (AF, MI/
 ## morphology). Next: render WHAT the student uses for AF (atomic/feature on the student's AF head).
+
+## PATH 2 — AF/rhythm temporal-context interpretation (2026-07-28): §48. ecg_af_interp.py/.json.
+## Keep-first-k-patches sweep + lead occlusion on the student. RESULT: rhythm+timing need the WHOLE
+## strip, morphology is focal. Min-patches-for-95%: LBBB 5 (1-patch AUC 0.826 — most focal, wide QRS
+## visible in any beat), RBBB 12, but AF/SB/ST/1dAVb all need 20 (full strip), near-CHANCE from 1
+## patch (mean 1-patch AUC rhythm 0.515 vs morph 0.683). AF is the extreme: 1-patch 0.526 (chance)
+## -> full 0.989; reads V1/aVR/V4 (V1 = fibrillatory waves). => the distilled foldable model computes
+## AF as a genuinely TEMPORAL-DISTRIBUTED pattern (irregularity across the whole recording), NOT a
+## beat shape — so no single rendered waveform captures it; its 'feature' IS the across-beat
+## irregularity. Confirms §46 (rhythm recruits attention) + §47 (AF is multi-cue beyond RR-irreg).
+## 1dAVb (timing) behaves like rhythm (needs 20 patches) not morphology. Rhythm interpretation
+## complete: whole-strip integration via attention, multi-cue for AF, reducible to rate for brady/tachy.
