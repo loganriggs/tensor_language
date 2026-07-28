@@ -1,0 +1,56 @@
+{
+  "teacher_classes": [
+    "1dAVb",
+    "RBBB",
+    "LBBB",
+    "SB",
+    "AF",
+    "ST"
+  ],
+  "mean_teacher_agreement_auc": 0.991,
+  "mean_soft_corr": 0.879,
+  "fidelity": {
+    "1dAVb": {
+      "teacher_agreement_auc": 0.984,
+      "soft_corr": 0.833,
+      "n_teacher_pos": 44,
+      "student_vs_true_auc": 0.928,
+      "teacher_vs_true_auc": 0.962
+    },
+    "RBBB": {
+      "teacher_agreement_auc": 0.999,
+      "soft_corr": 0.958,
+      "n_teacher_pos": 64,
+      "student_vs_true_auc": 0.996,
+      "teacher_vs_true_auc": 0.997
+    },
+    "LBBB": {
+      "teacher_agreement_auc": 0.999,
+      "soft_corr": 0.944,
+      "n_teacher_pos": 62,
+      "student_vs_true_auc": 0.996,
+      "teacher_vs_true_auc": 0.998
+    },
+    "SB": {
+      "teacher_agreement_auc": 0.985,
+      "soft_corr": 0.767,
+      "n_teacher_pos": 35,
+      "student_vs_true_auc": null,
+      "teacher_vs_true_auc": null
+    },
+    "AF": {
+      "teacher_agreement_auc": 0.989,
+      "soft_corr": 0.867,
+      "n_teacher_pos": 148,
+      "student_vs_true_auc": null,
+      "teacher_vs_true_auc": null
+    },
+    "ST": {
+      "teacher_agreement_auc": 0.991,
+      "soft_corr": 0.905,
+      "n_teacher_pos": 87,
+      "student_vs_true_auc": null,
+      "teacher_vs_true_auc": null
+    }
+  }
+}

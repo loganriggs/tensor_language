@@ -5289,3 +5289,15 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## ST87. ecg_student_distill.py: foldable no-softmax bilinear student (D96/NH6/NL3, patched time,
 ## same arch as ecg_codes_model but 6 outputs) trained to mimic teacher soft outputs (BCE), teacher
 ## provides labels (no CODE data needed). Next: verify student==teacher agreement, then interpret.
+
+## PATH 2 — distillation SUCCESS (2026-07-28): §45. ecg_student_distill.py/.json, ecg_student_model.pt.
+## Foldable no-softmax bilinear student MATCHES the SOTA Ribeiro teacher: mean teacher-agreement AUC
+## 0.991, mean soft-corr 0.879. Per class agree/corr: 1dAVb 0.984/0.83, RBBB 0.999/0.96, LBBB
+## 0.999/0.94, SB 0.985/0.77, AF 0.989/0.87, ST 0.991/0.91. CRITICAL: matches on RHYTHM classes
+## (AF/SB/ST) the foldable arch had NEVER handled — a time-patched bilinear model CAN capture rhythm
+## via distillation. Student vs TRUE PTB-XL labels ~= teacher: LBBB 0.996 (teacher 0.998), RBBB 0.996
+## (0.997), 1dAVb 0.928 (0.962) — inherited the capability. => we now have an EXACTLY-FOLDABLE model
+## carrying SOTA behavior (incl rhythm) WITHOUT the teacher's training data. The whole toolkit (exact
+## fold, atomic basis, feature rendering) now applies to a capable model, not a toy. Next: interpret
+## the student — esp. HOW it computes RHYTHM (novel): hypothesis rhythm=ATTENTION (mixes time-patches)
+## vs morphology=MLP; localize per class.
