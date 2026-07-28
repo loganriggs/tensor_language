@@ -5422,3 +5422,14 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## (detects invisible variation among normal-looking ECGs), not just overt disease. Strengthens the
 ## real-impact case. HONEST CAVEAT: no mortality outcomes here, so this CHARACTERIZES the subclinical
 ## signal, cannot validate vs death (CODE-data-gated). Path-2 Tier-2 arc thoroughly characterized.
+
+## MEDICAL/DISTILLATION program WRITE-UP (2026-07-28): §56. med_distillation_writeup.md. Consolidation
+## of the whole medical arc (§13-55) into a coherent findings document (paper-shaped): (1) extraction
+## works + exact fold; (2) the three honest baselines (linear/random-feature/template-match) that
+## deflated overclaims — features render real shapes but aren't superior classifiers; (3) path-2
+## distillation method (interpret SOTA models by distilling into foldable ones); Tier-1 diagnostic
+## (0.99) + Tier-2 mortality biomarker (0.91); (4) the distill-the-residual-not-raw-output lesson;
+## (5) the clinically-coherent + subclinical decomposition; (6) honest limitations (mortality direction
+## not death-validated, low-EF/mortality data-gated); (7) contribution. Written while awaiting Logan's
+## steer on next major direction (ECG-FM arch-generalization / write-up / core QK-MDL); low-EF option
+## confirmed BLOCKED (no released LVEF checkpoint, need echo-EF labels).
