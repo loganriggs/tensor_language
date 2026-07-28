@@ -5017,3 +5017,11 @@ model artifact. Next: decompose big model (still clean or superposition?).
 NOT superposition — left unused. Decomposability is ARCHITECTURAL not small-scale.
 Confound resolved both ways (capability §26 + decomposition here). ECG FINE-GRAINED
 ARC COMPLETE (§23-26b); all criticisms answered with measurements.
+
+## ECG linear baselines (2026-07-28): §27 (Logan's question). ecg_linear_baseline.py,
+## ecg_linear_pooled.py/.json. Raw-signal linear 0.51 (rigged: misalignment). FAIR
+## pooled linear 0.745 vs model 0.925 (gap 0.18, 26/28 codes). Gap CODE-TYPE-DEPENDENT:
+## amplitude codes near-linear (CLBBB .003, LVH .053, CRBBB .084); MORPHOLOGY codes
+## need nonlinearity (INJAS .46, AMI .41, ISCIN .31). Nonlinearity earns keep on
+## shape-based dx (injury/ischemia/MI). Honest recalibration: circuits most meaningful
+## for morphology codes; amplitude codes nearly a linear voltage readout.

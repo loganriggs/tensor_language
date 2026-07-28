@@ -2337,3 +2337,42 @@ ARCHITECTURE, not of using a weak model -- a 4x model is equally (more) interpre
 This is the strongest possible answer to "interpretability is bought by weakness":
 it is not; it survives scaling with capability held fixed. The ECG fine-grained arc
 (§23-26b) is complete and every reviewer criticism is answered with a measurement.
+
+## 27. Linear baselines: what the nonlinearity actually buys (Logan's question)
+
+Can a linear model match the foldable model? Two baselines vs the model (macro-AUC
+0.925 on the 28 capable codes):
+- **Raw-signal linear** (12000-dim): 0.51 (chance). But this is a rigged baseline --
+  heartbeats are not time-aligned, so a linear map on raw voltages structurally
+  cannot read morphology. It measures "needs temporal handling," not "needs
+  nonlinearity."
+- **Fair pooled linear** (720 shift-tolerant features: per lead x time-patch mean/
+  std/peak): **0.745**. Meaningful -- so part of ECG diagnosis IS linearly
+  accessible from amplitude/regional features. But the model still beats it by 0.18
+  mean, on 26 of 28 codes.
+
+**The decisive finding: the gap is CODE-TYPE-DEPENDENT, and it maps onto cardiology.**
+
+| linear nearly matches model | model dominates linear |
+|---|---|
+| complete LBBB 0.992 vs 0.995 (gap .003) | anteroseptal injury 0.51 vs 0.978 (gap .46) |
+| LAFB 0.936 vs 0.975 (.039) | anterior MI 0.48 vs 0.885 (.41) |
+| LVH 0.879 vs 0.932 (.053) | anterolateral injury 0.63 vs 0.971 (.35) |
+| complete RBBB 0.912 vs 0.996 (.084) | digitalis effect 0.62 vs 0.931 (.31) |
+| inferolateral MI 0.867 vs 0.919 (.052) | inferior ischemia 0.59 vs 0.898 (.31) |
+
+The codes linear captures are **amplitude/voltage-signature** diagnoses (bundle
+branch blocks = wide-QRS high-variance in specific leads; hypertrophy = high
+voltage) -- these ARE nearly linear in pooled amplitude, and the "circuit" there is
+close to a linear amplitude readout. The codes the model dominates are
+**morphology/shape** diagnoses (injury, ischemia, MI, digitalis) -- these depend on
+ST-segment shape and T-wave morphology, which pooled amplitude cannot capture and
+the bilinear MLP's multiplicative interactions can. THIS is where the nonlinear
+circuits earn their keep.
+
+**Honest recalibration of the atlas (§24):** the per-code circuits are most
+meaningful for the ~10 morphology-dependent codes where the model beats linear by
+0.25-0.46; for the amplitude-signature codes (BBB, LVH) the task is nearly linear
+and the circuit is close to a voltage threshold. Answer to Logan: no, linear does
+NOT match -- but it partly does (0.745), and exactly WHERE it fails (shape-based
+diagnoses) is where the model's nonlinearity, and the circuit story, has real teeth.
