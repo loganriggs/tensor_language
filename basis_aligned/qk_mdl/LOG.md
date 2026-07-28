@@ -4964,3 +4964,12 @@ Age COLLAPSES on 3rd cohort (US-CN 0.26; top units 0.15-0.20 DE -> 0.07-0.10 US/
 = Germany-specific. Gradient confirmed: known/sex generalize, age doesn't; 3rd
 cohort exposes what 2 hid. Cross-cohort filter is load-bearing. ECG discovery arc
 complete. Remaining: mortality (CODE, gated).
+
+## ECG mechanistic decomposition (2026-07-28): §21. ecg_mechdecomp.py/.json.
+Layer-0 fold exact (err 0.0); MLPs are the model (block-0 ablation 0.051, heads all
+<0.005, 2/18 heads matter, top-3 heads hold 0.890/0.898); attention = light router.
+THIRD confirmation of the sparse-router/front-MLP-classifier signature (PathMNIST +
+BloodMNIST + ECG). Answers Logan's "do we understand the algorithm": yes for the
+diagnostic model. Unblocked paths (no CODE needed): more known features (71 PTB-XL
+codes, CODE-15% open 4th cohort), age-gap proxy. CODE gate blocks only mortality-
+SPECIFIC features + death-validation.

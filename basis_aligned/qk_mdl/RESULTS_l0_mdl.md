@@ -2145,3 +2145,28 @@ decoration -- it is the only thing separating a genuine cross-population biomark
 (sex) from a cohort-specific correlate (this age model). The method's value is
 precisely that it makes this distinction measurable and the surviving features
 exactly inspectable.
+
+## 21. ECG mechanistic decomposition: the full algorithm (answering "do we understand it")
+
+Prior ECG work found WHICH features matter (leads, waveforms) but not the full
+computation. The PathMNIST-style extraction battery on the diagnostic ECG model:
+- **Exact layer-0 fold verified: max error 0.0** -- layer-0 attention scores are an
+  exact closed form in the raw patched signal, no approximation.
+- **Attention is nearly content-free; the bilinear MLPs ARE the model.** Mean-ablating
+  each MLP: block-0 costs 0.051 macro-AUC, block-1 0.023, block-2 0.007. Mean-ablating
+  ANY single head costs <=0.005; only 2 of 18 heads exceed 0.002. Keeping just the top
+  3 heads holds 0.890 (of 0.898); top 6 reach parity. Attention prunes 18->6; the
+  front-block bilinear MLP does the diagnostic computation.
+- Same structure as PathMNIST/BloodMNIST (§13, §7): attention is a sparse light
+  router, front-loaded bilinear MLPs are the classifier. THIRD independent
+  confirmation of this architectural signature (two images + one signal domain).
+
+**Answer to "do we understand the full algorithm":** now largely yes for the
+diagnostic model -- layer-0 folds exactly to per-patch signal codes; block-0's
+bilinear MLP (on those codes) is the computational core; attention over 20 time-
+patches is a light, prunable router; the readout is a linear head over pooled
+features. The remaining depth (how block-0's MLP composes leads x time into each
+class) is the same "dense engine, narrow interface" object we characterized on
+images -- foldable and exactly renderable, which is what enabled the feature
+extraction (V1/QRS, precordial-sex) in the first place. The mortality question, if
+CODE opens, plugs a new label into this SAME understood architecture.
