@@ -2170,3 +2170,34 @@ class) is the same "dense engine, narrow interface" object we characterized on
 images -- foldable and exactly renderable, which is what enabled the feature
 extraction (V1/QRS, precordial-sex) in the first place. The mortality question, if
 CODE opens, plugs a new label into this SAME understood architecture.
+
+## 22. ECG age-gap as a disease proxy: a mortality-linked signal WITHOUT mortality labels
+
+Answering "can we find a mortality-linked feature from data we have?" -- the ECG
+age-gap (predicted minus actual age) is a validated cardiovascular-aging/mortality
+biomarker. Computed on PTB-XL test (n=2,164), age-controlled (residualized on a
+quadratic in true age so the effect is NOT just "sick patients are older"):
+
+| group | age-controlled ECG age-gap (years) |
+|---|---|
+| pure normal | **-2.33** (look younger than true age) |
+| any pathology | **+1.63** (look older) |
+| MI | +1.90 |
+| STTC (ST/T changes) | +2.62 |
+| CD (conduction) | +1.95 |
+| HYP (hypertrophy) | +1.50 |
+
+Pathological ECGs read ~4 years OLDER than normal ones at the same true age (Cohen's
+d = 0.41, a moderate effect); the age-gap rises with disease burden (r 0.20). Every
+pathology class shows a positive age-gap; normal ECGs a negative one. This is the
+known "accelerated ECG aging in cardiac disease" phenomenon, reproduced.
+
+**The point, demonstrated:** a mortality-linked biomarker (ECG age-gap) is computable
+from data we already have, and it provably tracks disease using only diagnostic
+labels -- no mortality labels required. Logan's intuition holds: the signal exists in
+the ECGs we possess. What CODE would add is (1) direct mortality supervision (to learn
+features orthogonal to the age/diagnosis signal we can already access) and (2)
+validation against actual death. But the age-gap gives a real, producible, disease-
+tracking mortality proxy TODAY. Honest caveat: the age model generalizes poorly
+cross-cohort (US-CN 0.26, §20b), so this within-Germany age-gap is a proof of concept;
+a cross-cohort-robust age model would be needed before any biomarker claim.

@@ -4973,3 +4973,11 @@ BloodMNIST + ECG). Answers Logan's "do we understand the algorithm": yes for the
 diagnostic model. Unblocked paths (no CODE needed): more known features (71 PTB-XL
 codes, CODE-15% open 4th cohort), age-gap proxy. CODE gate blocks only mortality-
 SPECIFIC features + death-validation.
+
+## ECG age-gap disease proxy (2026-07-28): §22. ecg_agegap.py/.json.
+Age-controlled ECG age-gap: pure-NORM -2.33y, any-pathology +1.63y (d=0.41);
+STTC +2.62, MI +1.90, CD +1.95, HYP +1.50; rises with disease burden (r 0.20).
+"Accelerated ECG aging in disease" reproduced. Demonstrates Logan's point: a
+mortality-linked signal is producible from data we have (no mortality labels).
+CODE adds direct mortality supervision + death validation. Caveat: age model
+cross-cohort-weak, so within-Germany proof of concept only.
