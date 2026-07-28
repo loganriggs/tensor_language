@@ -5188,3 +5188,17 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## interpretable features.' Caveat: Attn-2-alone high retention = probing depth (later read =
 ## closer to answer), NOT proof Attn-2 'does' the computation. Metric to claim minimality =
 ## retention frontier + random control, now computed for the whole circuit.
+
+## ECG PER-DIAGNOSIS minimality (2026-07-28): §39. ecg_perdiag_minimal.py/.json. Logan Q:
+## per diagnosis, minimal features/model-part to reproduce the SAME output. Feature bank =
+## block0 interaction feats + Attn-2 dirs; rank on train, fit train, eval test. TWO notions:
+## RANKING (AUC>=0.97x model): median 5 features/diagnosis. 5 codes need just 1 (DIG, CRBBB,
+## ISCAS, ISCLA, ANEUR); focal/amplitude small; MORPHOLOGY large (AMI 12, ALMI 20, IMI 32,
+## ILMI never). Minimal LEADS (keep-top-k, 0.95x): median 5; CLBBB just 2 (V1/V6), CRBBB/1AVB
+## 3; distributed codes None within 6 (AMI, ISCIN, ISCAL, LMI). VALUE (logit-R^2): mean only
+## 0.618 — reproducing the SCORE is much harder than the RANKING: the 1-feature codes reproduce
+## ranking (CRBBB 1-feat AUC 0.967) but NOT value (logit-R^2 0.45). So "same output" is met at
+## ranking level with small sets, at value level only partially. Necessity still unbounded (§34):
+## these minimal SUFFICIENT sets are not NECESSARY (redundant). Per-diagnosis picture: focal
+## diagnoses genuinely minimal (1 feature/2-3 leads, rank-faithful); morphology diagnoses need
+## many features+leads and never reach value-faithfulness.
