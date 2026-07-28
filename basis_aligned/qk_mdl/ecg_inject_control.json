@@ -1,0 +1,261 @@
+{
+  "alpha": 2.0,
+  "n_tested": 11,
+  "n_morphology_specific": 10,
+  "n_target_in_top3": 9,
+  "per_code": {
+    "NDT": {
+      "top_feature": 4,
+      "alpha": 2.0,
+      "target_rise_real": 0.051,
+      "target_rise_scrambled": 0.043,
+      "morphology_specific": false,
+      "specificity_rank": 3,
+      "n_codes": 28,
+      "top3_raised": [
+        [
+          "NST_",
+          0.14
+        ],
+        [
+          "LVH",
+          0.052
+        ],
+        [
+          "NDT",
+          0.051
+        ]
+      ]
+    },
+    "NORM": {
+      "top_feature": 63,
+      "alpha": 2.0,
+      "target_rise_real": 0.04,
+      "target_rise_scrambled": 0.007,
+      "morphology_specific": true,
+      "specificity_rank": 1,
+      "n_codes": 28,
+      "top3_raised": [
+        [
+          "NORM",
+          0.04
+        ],
+        [
+          "NST_",
+          0.026
+        ],
+        [
+          "LPFB",
+          0.011
+        ]
+      ]
+    },
+    "IMI": {
+      "top_feature": 8,
+      "alpha": 2.0,
+      "target_rise_real": 0.343,
+      "target_rise_scrambled": 0.028,
+      "morphology_specific": true,
+      "specificity_rank": 2,
+      "n_codes": 28,
+      "top3_raised": [
+        [
+          "LPFB",
+          0.364
+        ],
+        [
+          "IMI",
+          0.343
+        ],
+        [
+          "1AVB",
+          0.265
+        ]
+      ]
+    },
+    "ASMI": {
+      "top_feature": 50,
+      "alpha": 2.0,
+      "target_rise_real": 0.863,
+      "target_rise_scrambled": 0.167,
+      "morphology_specific": true,
+      "specificity_rank": 1,
+      "n_codes": 28,
+      "top3_raised": [
+        [
+          "ASMI",
+          0.863
+        ],
+        [
+          "CLBBB",
+          0.623
+        ],
+        [
+          "IMI",
+          0.226
+        ]
+      ]
+    },
+    "LVH": {
+      "top_feature": 2,
+      "alpha": 2.0,
+      "target_rise_real": 0.77,
+      "target_rise_scrambled": 0.047,
+      "morphology_specific": true,
+      "specificity_rank": 2,
+      "n_codes": 28,
+      "top3_raised": [
+        [
+          "ISC_",
+          0.787
+        ],
+        [
+          "LVH",
+          0.77
+        ],
+        [
+          "1AVB",
+          0.244
+        ]
+      ]
+    },
+    "ISC_": {
+      "top_feature": 2,
+      "alpha": 2.0,
+      "target_rise_real": 0.782,
+      "target_rise_scrambled": 0.004,
+      "morphology_specific": true,
+      "specificity_rank": 1,
+      "n_codes": 28,
+      "top3_raised": [
+        [
+          "ISC_",
+          0.782
+        ],
+        [
+          "LVH",
+          0.755
+        ],
+        [
+          "1AVB",
+          0.239
+        ]
+      ]
+    },
+    "IRBBB": {
+      "top_feature": 3,
+      "alpha": 2.0,
+      "target_rise_real": 0.029,
+      "target_rise_scrambled": -0.006,
+      "morphology_specific": true,
+      "specificity_rank": 3,
+      "n_codes": 28,
+      "top3_raised": [
+        [
+          "AMI",
+          0.045
+        ],
+        [
+          "IMI",
+          0.037
+        ],
+        [
+          "IRBBB",
+          0.029
+        ]
+      ]
+    },
+    "1AVB": {
+      "top_feature": 8,
+      "alpha": 2.0,
+      "target_rise_real": 0.295,
+      "target_rise_scrambled": -0.001,
+      "morphology_specific": true,
+      "specificity_rank": 3,
+      "n_codes": 28,
+      "top3_raised": [
+        [
+          "LPFB",
+          0.379
+        ],
+        [
+          "IMI",
+          0.319
+        ],
+        [
+          "1AVB",
+          0.295
+        ]
+      ]
+    },
+    "CLBBB": {
+      "top_feature": 50,
+      "alpha": 2.0,
+      "target_rise_real": 0.63,
+      "target_rise_scrambled": -0.002,
+      "morphology_specific": true,
+      "specificity_rank": 2,
+      "n_codes": 28,
+      "top3_raised": [
+        [
+          "ASMI",
+          0.82
+        ],
+        [
+          "CLBBB",
+          0.63
+        ],
+        [
+          "IMI",
+          0.218
+        ]
+      ]
+    },
+    "ISCIL": {
+      "top_feature": 2,
+      "alpha": 2.0,
+      "target_rise_real": 0.004,
+      "target_rise_scrambled": 0.001,
+      "morphology_specific": true,
+      "specificity_rank": 12,
+      "n_codes": 28,
+      "top3_raised": [
+        [
+          "ISC_",
+          0.762
+        ],
+        [
+          "LVH",
+          0.73
+        ],
+        [
+          "1AVB",
+          0.23
+        ]
+      ]
+    },
+    "ISCLA": {
+      "top_feature": 2,
+      "alpha": 2.0,
+      "target_rise_real": 0.013,
+      "target_rise_scrambled": 0.003,
+      "morphology_specific": true,
+      "specificity_rank": 9,
+      "n_codes": 28,
+      "top3_raised": [
+        [
+          "ISC_",
+          0.762
+        ],
+        [
+          "LVH",
+          0.731
+        ],
+        [
+          "1AVB",
+          0.229
+        ]
+      ]
+    }
+  }
+}

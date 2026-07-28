@@ -1,0 +1,663 @@
+{
+  "n_capable": 28,
+  "macro_mlp_layer_drops": [
+    0.121,
+    0.03,
+    0.011
+  ],
+  "macro_attn_layer_drops": [
+    0.012,
+    0.025,
+    0.108
+  ],
+  "dominant_layer_histogram": {
+    "0": 27,
+    "1": 1,
+    "2": 0
+  },
+  "depth_vs_lineargap_corr": 0.376,
+  "depth_gap_points": [
+    {
+      "code": "LVH",
+      "depth": 0.09,
+      "linear_gap": 0.053
+    },
+    {
+      "code": "CRBBB",
+      "depth": 0.13,
+      "linear_gap": 0.084
+    },
+    {
+      "code": "INJAS",
+      "depth": 0.18,
+      "linear_gap": 0.464
+    },
+    {
+      "code": "ILMI",
+      "depth": 0.21,
+      "linear_gap": 0.052
+    },
+    {
+      "code": "DIG",
+      "depth": 0.25,
+      "linear_gap": 0.311
+    },
+    {
+      "code": "LAFB",
+      "depth": 0.25,
+      "linear_gap": 0.039
+    },
+    {
+      "code": "AMI",
+      "depth": 0.26,
+      "linear_gap": 0.406
+    },
+    {
+      "code": "NDT",
+      "depth": 0.27,
+      "linear_gap": 0.088
+    },
+    {
+      "code": "CLBBB",
+      "depth": 0.29,
+      "linear_gap": 0.003
+    },
+    {
+      "code": "ISCIN",
+      "depth": 0.4,
+      "linear_gap": 0.31
+    },
+    {
+      "code": "ISCIL",
+      "depth": 0.46,
+      "linear_gap": 0.268
+    },
+    {
+      "code": "INJAL",
+      "depth": 0.56,
+      "linear_gap": 0.346
+    }
+  ],
+  "per_code": {
+    "NDT": {
+      "auc": 0.89,
+      "mlp_layer_drops": [
+        0.123,
+        0.03,
+        0.006
+      ],
+      "attn_layer_drops": [
+        0.037,
+        0.041,
+        0.289
+      ],
+      "dominant_mlp_layer": 0,
+      "depth_centroid": 0.27,
+      "circuit_units_dom_layer": [],
+      "n_units": 0,
+      "linear_gap": 0.088
+    },
+    "NST_": {
+      "auc": 0.8,
+      "mlp_layer_drops": [
+        0.125,
+        0.032,
+        0.007
+      ],
+      "attn_layer_drops": [
+        0.027,
+        0.04,
+        0.166
+      ],
+      "dominant_mlp_layer": 0,
+      "depth_centroid": 0.28,
+      "circuit_units_dom_layer": [],
+      "n_units": 0,
+      "linear_gap": null
+    },
+    "DIG": {
+      "auc": 0.931,
+      "mlp_layer_drops": [
+        0.212,
+        0.035,
+        0.015
+      ],
+      "attn_layer_drops": [
+        0.019,
+        0.046,
+        0.242
+      ],
+      "dominant_mlp_layer": 0,
+      "depth_centroid": 0.25,
+      "circuit_units_dom_layer": [
+        25,
+        152,
+        37,
+        15,
+        6,
+        78,
+        60
+      ],
+      "n_units": 7,
+      "linear_gap": 0.311
+    },
+    "NORM": {
+      "auc": 0.928,
+      "mlp_layer_drops": [
+        0.098,
+        0.021,
+        0.009
+      ],
+      "attn_layer_drops": [
+        0.012,
+        0.03,
+        0.058
+      ],
+      "dominant_mlp_layer": 0,
+      "depth_centroid": 0.31,
+      "circuit_units_dom_layer": [],
+      "n_units": 0,
+      "linear_gap": null
+    },
+    "IMI": {
+      "auc": 0.895,
+      "mlp_layer_drops": [
+        0.095,
+        0.012,
+        0.007
+      ],
+      "attn_layer_drops": [
+        0.021,
+        0.035,
+        0.077
+      ],
+      "dominant_mlp_layer": 0,
+      "depth_centroid": 0.23,
+      "circuit_units_dom_layer": [],
+      "n_units": 0,
+      "linear_gap": null
+    },
+    "ASMI": {
+      "auc": 0.946,
+      "mlp_layer_drops": [
+        0.063,
+        0.002,
+        -0.0
+      ],
+      "attn_layer_drops": [
+        0.011,
+        0.016,
+        0.024
+      ],
+      "dominant_mlp_layer": 0,
+      "depth_centroid": 0.04,
+      "circuit_units_dom_layer": [],
+      "n_units": 0,
+      "linear_gap": null
+    },
+    "LVH": {
+      "auc": 0.932,
+      "mlp_layer_drops": [
+        0.143,
+        0.014,
+        -0.001
+      ],
+      "attn_layer_drops": [
+        0.004,
+        0.083,
+        0.124
+      ],
+      "dominant_mlp_layer": 0,
+      "depth_centroid": 0.09,
+      "circuit_units_dom_layer": [],
+      "n_units": 0,
+      "linear_gap": 0.053
+    },
+    "LAFB": {
+      "auc": 0.975,
+      "mlp_layer_drops": [
+        0.035,
+        0.003,
+        0.004
+      ],
+      "attn_layer_drops": [
+        0.004,
+        0.017,
+        0.014
+      ],
+      "dominant_mlp_layer": 0,
+      "depth_centroid": 0.25,
+      "circuit_units_dom_layer": [],
+      "n_units": 0,
+      "linear_gap": 0.039
+    },
+    "ISC_": {
+      "auc": 0.954,
+      "mlp_layer_drops": [
+        0.105,
+        0.006,
+        0.003
+      ],
+      "attn_layer_drops": [
+        -0.0,
+        0.02,
+        0.028
+      ],
+      "dominant_mlp_layer": 0,
+      "depth_centroid": 0.11,
+      "circuit_units_dom_layer": [],
+      "n_units": 0,
+      "linear_gap": null
+    },
+    "IRBBB": {
+      "auc": 0.933,
+      "mlp_layer_drops": [
+        0.101,
+        0.026,
+        -0.003
+      ],
+      "attn_layer_drops": [
+        0.011,
+        0.033,
+        0.044
+      ],
+      "dominant_mlp_layer": 0,
+      "depth_centroid": 0.2,
+      "circuit_units_dom_layer": [
+        65
+      ],
+      "n_units": 1,
+      "linear_gap": null
+    },
+    "1AVB": {
+      "auc": 0.918,
+      "mlp_layer_drops": [
+        0.21,
+        0.031,
+        -0.006
+      ],
+      "attn_layer_drops": [
+        0.017,
+        0.062,
+        0.143
+      ],
+      "dominant_mlp_layer": 0,
+      "depth_centroid": 0.13,
+      "circuit_units_dom_layer": [],
+      "n_units": 0,
+      "linear_gap": null
+    },
+    "ISCAL": {
+      "auc": 0.923,
+      "mlp_layer_drops": [
+        0.147,
+        0.037,
+        0.016
+      ],
+      "attn_layer_drops": [
+        0.031,
+        0.0,
+        0.083
+      ],
+      "dominant_mlp_layer": 0,
+      "depth_centroid": 0.35,
+      "circuit_units_dom_layer": [],
+      "n_units": 0,
+      "linear_gap": null
+    },
+    "CRBBB": {
+      "auc": 0.996,
+      "mlp_layer_drops": [
+        0.019,
+        0.003,
+        0.0
+      ],
+      "attn_layer_drops": [
+        0.001,
+        0.002,
+        0.013
+      ],
+      "dominant_mlp_layer": 0,
+      "depth_centroid": 0.13,
+      "circuit_units_dom_layer": [],
+      "n_units": 0,
+      "linear_gap": 0.084
+    },
+    "CLBBB": {
+      "auc": 0.995,
+      "mlp_layer_drops": [
+        0.005,
+        0.0,
+        0.001
+      ],
+      "attn_layer_drops": [
+        -0.001,
+        0.007,
+        0.002
+      ],
+      "dominant_mlp_layer": 0,
+      "depth_centroid": 0.29,
+      "circuit_units_dom_layer": [],
+      "n_units": 0,
+      "linear_gap": 0.003
+    },
+    "ILMI": {
+      "auc": 0.919,
+      "mlp_layer_drops": [
+        0.078,
+        0.02,
+        0.0
+      ],
+      "attn_layer_drops": [
+        0.016,
+        0.025,
+        0.049
+      ],
+      "dominant_mlp_layer": 0,
+      "depth_centroid": 0.21,
+      "circuit_units_dom_layer": [],
+      "n_units": 0,
+      "linear_gap": 0.052
+    },
+    "AMI": {
+      "auc": 0.885,
+      "mlp_layer_drops": [
+        0.277,
+        0.065,
+        0.013
+      ],
+      "attn_layer_drops": [
+        0.016,
+        0.088,
+        0.265
+      ],
+      "dominant_mlp_layer": 0,
+      "depth_centroid": 0.26,
+      "circuit_units_dom_layer": [
+        91,
+        157,
+        78,
+        145,
+        25,
+        30,
+        75,
+        134,
+        33,
+        28,
+        147,
+        36
+      ],
+      "n_units": 12,
+      "linear_gap": 0.406
+    },
+    "ALMI": {
+      "auc": 0.915,
+      "mlp_layer_drops": [
+        0.088,
+        0.048,
+        0.009
+      ],
+      "attn_layer_drops": [
+        0.007,
+        -0.004,
+        0.038
+      ],
+      "dominant_mlp_layer": 0,
+      "depth_centroid": 0.45,
+      "circuit_units_dom_layer": [],
+      "n_units": 0,
+      "linear_gap": null
+    },
+    "ISCIN": {
+      "auc": 0.898,
+      "mlp_layer_drops": [
+        0.245,
+        0.056,
+        0.039
+      ],
+      "attn_layer_drops": [
+        0.012,
+        -0.017,
+        0.395
+      ],
+      "dominant_mlp_layer": 0,
+      "depth_centroid": 0.4,
+      "circuit_units_dom_layer": [
+        71,
+        18,
+        6,
+        182,
+        100,
+        66
+      ],
+      "n_units": 6,
+      "linear_gap": 0.31
+    },
+    "INJAS": {
+      "auc": 0.978,
+      "mlp_layer_drops": [
+        0.176,
+        0.016,
+        0.011
+      ],
+      "attn_layer_drops": [
+        0.007,
+        0.043,
+        0.031
+      ],
+      "dominant_mlp_layer": 0,
+      "depth_centroid": 0.18,
+      "circuit_units_dom_layer": [],
+      "n_units": 0,
+      "linear_gap": 0.464
+    },
+    "LMI": {
+      "auc": 0.869,
+      "mlp_layer_drops": [
+        0.098,
+        0.019,
+        0.025
+      ],
+      "attn_layer_drops": [
+        0.019,
+        0.002,
+        0.085
+      ],
+      "dominant_mlp_layer": 0,
+      "depth_centroid": 0.49,
+      "circuit_units_dom_layer": [
+        96,
+        178,
+        135,
+        132,
+        30,
+        72
+      ],
+      "n_units": 6,
+      "linear_gap": null
+    },
+    "ISCIL": {
+      "auc": 0.953,
+      "mlp_layer_drops": [
+        0.189,
+        0.032,
+        0.045
+      ],
+      "attn_layer_drops": [
+        0.002,
+        0.004,
+        0.202
+      ],
+      "dominant_mlp_layer": 0,
+      "depth_centroid": 0.46,
+      "circuit_units_dom_layer": [
+        13,
+        79
+      ],
+      "n_units": 2,
+      "linear_gap": 0.268
+    },
+    "LPFB": {
+      "auc": 0.962,
+      "mlp_layer_drops": [
+        0.057,
+        0.025,
+        0.013
+      ],
+      "attn_layer_drops": [
+        -0.004,
+        -0.009,
+        0.138
+      ],
+      "dominant_mlp_layer": 0,
+      "depth_centroid": 0.54,
+      "circuit_units_dom_layer": [],
+      "n_units": 0,
+      "linear_gap": null
+    },
+    "ISCAS": {
+      "auc": 0.914,
+      "mlp_layer_drops": [
+        0.22,
+        0.046,
+        0.005
+      ],
+      "attn_layer_drops": [
+        -0.012,
+        0.02,
+        0.246
+      ],
+      "dominant_mlp_layer": 0,
+      "depth_centroid": 0.21,
+      "circuit_units_dom_layer": [
+        91,
+        74,
+        87,
+        122,
+        15,
+        95,
+        158,
+        168,
+        58,
+        22,
+        82,
+        41
+      ],
+      "n_units": 12,
+      "linear_gap": null
+    },
+    "INJAL": {
+      "auc": 0.971,
+      "mlp_layer_drops": [
+        0.074,
+        0.036,
+        0.018
+      ],
+      "attn_layer_drops": [
+        0.003,
+        0.02,
+        0.055
+      ],
+      "dominant_mlp_layer": 0,
+      "depth_centroid": 0.56,
+      "circuit_units_dom_layer": [],
+      "n_units": 0,
+      "linear_gap": 0.346
+    },
+    "ISCLA": {
+      "auc": 0.902,
+      "mlp_layer_drops": [
+        0.195,
+        0.042,
+        0.043
+      ],
+      "attn_layer_drops": [
+        0.015,
+        0.023,
+        0.083
+      ],
+      "dominant_mlp_layer": 0,
+      "depth_centroid": 0.45,
+      "circuit_units_dom_layer": [
+        145,
+        65,
+        17,
+        25,
+        18,
+        2
+      ],
+      "n_units": 6,
+      "linear_gap": null
+    },
+    "RVH": {
+      "auc": 0.935,
+      "mlp_layer_drops": [
+        0.039,
+        0.025,
+        -0.013
+      ],
+      "attn_layer_drops": [
+        -0.005,
+        -0.021,
+        0.04
+      ],
+      "dominant_mlp_layer": 0,
+      "depth_centroid": 0.39,
+      "circuit_units_dom_layer": [
+        147
+      ],
+      "n_units": 1,
+      "linear_gap": null
+    },
+    "ANEUR": {
+      "auc": 0.943,
+      "mlp_layer_drops": [
+        0.044,
+        0.033,
+        0.007
+      ],
+      "attn_layer_drops": [
+        0.04,
+        0.009,
+        -0.023
+      ],
+      "dominant_mlp_layer": 0,
+      "depth_centroid": 0.56,
+      "circuit_units_dom_layer": [
+        106,
+        55
+      ],
+      "n_units": 2,
+      "linear_gap": null
+    },
+    "RAO/RAE": {
+      "auc": 0.851,
+      "mlp_layer_drops": [
+        0.117,
+        0.124,
+        0.021
+      ],
+      "attn_layer_drops": [
+        0.022,
+        0.084,
+        0.1
+      ],
+      "dominant_mlp_layer": 1,
+      "depth_centroid": 0.63,
+      "circuit_units_dom_layer": [
+        19,
+        17,
+        110,
+        183,
+        108,
+        64,
+        28,
+        41,
+        109,
+        53
+      ],
+      "n_units": 10,
+      "linear_gap": null
+    }
+  }
+}

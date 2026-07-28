@@ -1,0 +1,429 @@
+{
+  "n_capable": 28,
+  "chosen_rank": 64,
+  "mean_auc_drop_remove_top": 0.003,
+  "codes_remove_collapses>=0.05": [],
+  "mean_insert_rise": 0.026,
+  "n_shared_features": 10,
+  "shared_features_all_served_fell": 0,
+  "per_code": {
+    "NDT": {
+      "top_feature": 4,
+      "auc": 0.89,
+      "auc_after_remove": 0.886,
+      "auc_drop": 0.004,
+      "neg_prob_base": 0.071,
+      "neg_prob_after_insert": 0.135,
+      "insert_rise": 0.064
+    },
+    "NST_": {
+      "top_feature": 20,
+      "auc": 0.8,
+      "auc_after_remove": 0.801,
+      "auc_drop": -0.001,
+      "neg_prob_base": 0.036,
+      "neg_prob_after_insert": 0.042,
+      "insert_rise": 0.006
+    },
+    "DIG": {
+      "top_feature": 20,
+      "auc": 0.931,
+      "auc_after_remove": 0.918,
+      "auc_drop": 0.014,
+      "neg_prob_base": 0.008,
+      "neg_prob_after_insert": 0.007,
+      "insert_rise": -0.001
+    },
+    "NORM": {
+      "top_feature": 63,
+      "auc": 0.928,
+      "auc_after_remove": 0.926,
+      "auc_drop": 0.002,
+      "neg_prob_base": 0.19,
+      "neg_prob_after_insert": 0.226,
+      "insert_rise": 0.036
+    },
+    "IMI": {
+      "top_feature": 8,
+      "auc": 0.895,
+      "auc_after_remove": 0.891,
+      "auc_drop": 0.004,
+      "neg_prob_base": 0.047,
+      "neg_prob_after_insert": 0.157,
+      "insert_rise": 0.109
+    },
+    "ASMI": {
+      "top_feature": 50,
+      "auc": 0.946,
+      "auc_after_remove": 0.941,
+      "auc_drop": 0.004,
+      "neg_prob_base": 0.043,
+      "neg_prob_after_insert": 0.316,
+      "insert_rise": 0.273
+    },
+    "LVH": {
+      "top_feature": 2,
+      "auc": 0.932,
+      "auc_after_remove": 0.93,
+      "auc_drop": 0.002,
+      "neg_prob_base": 0.042,
+      "neg_prob_after_insert": 0.06,
+      "insert_rise": 0.018
+    },
+    "LAFB": {
+      "top_feature": 8,
+      "auc": 0.975,
+      "auc_after_remove": 0.977,
+      "auc_drop": -0.002,
+      "neg_prob_base": 0.028,
+      "neg_prob_after_insert": 0.018,
+      "insert_rise": -0.011
+    },
+    "ISC_": {
+      "top_feature": 2,
+      "auc": 0.954,
+      "auc_after_remove": 0.953,
+      "auc_drop": 0.001,
+      "neg_prob_base": 0.021,
+      "neg_prob_after_insert": 0.049,
+      "insert_rise": 0.028
+    },
+    "IRBBB": {
+      "top_feature": 3,
+      "auc": 0.933,
+      "auc_after_remove": 0.928,
+      "auc_drop": 0.005,
+      "neg_prob_base": 0.03,
+      "neg_prob_after_insert": 0.051,
+      "insert_rise": 0.02
+    },
+    "1AVB": {
+      "top_feature": 8,
+      "auc": 0.918,
+      "auc_after_remove": 0.917,
+      "auc_drop": 0.001,
+      "neg_prob_base": 0.036,
+      "neg_prob_after_insert": 0.069,
+      "insert_rise": 0.033
+    },
+    "ISCAL": {
+      "top_feature": 53,
+      "auc": 0.923,
+      "auc_after_remove": 0.924,
+      "auc_drop": -0.001,
+      "neg_prob_base": 0.017,
+      "neg_prob_after_insert": 0.022,
+      "insert_rise": 0.004
+    },
+    "CRBBB": {
+      "top_feature": 52,
+      "auc": 0.996,
+      "auc_after_remove": 0.996,
+      "auc_drop": 0.0,
+      "neg_prob_base": 0.007,
+      "neg_prob_after_insert": 0.006,
+      "insert_rise": -0.002
+    },
+    "CLBBB": {
+      "top_feature": 50,
+      "auc": 0.995,
+      "auc_after_remove": 0.994,
+      "auc_drop": 0.002,
+      "neg_prob_base": 0.005,
+      "neg_prob_after_insert": 0.006,
+      "insert_rise": 0.001
+    },
+    "ILMI": {
+      "top_feature": 42,
+      "auc": 0.919,
+      "auc_after_remove": 0.911,
+      "auc_drop": 0.008,
+      "neg_prob_base": 0.008,
+      "neg_prob_after_insert": 0.047,
+      "insert_rise": 0.038
+    },
+    "AMI": {
+      "top_feature": 8,
+      "auc": 0.885,
+      "auc_after_remove": 0.885,
+      "auc_drop": 0.0,
+      "neg_prob_base": 0.01,
+      "neg_prob_after_insert": 0.013,
+      "insert_rise": 0.004
+    },
+    "ALMI": {
+      "top_feature": 11,
+      "auc": 0.915,
+      "auc_after_remove": 0.91,
+      "auc_drop": 0.004,
+      "neg_prob_base": 0.006,
+      "neg_prob_after_insert": 0.014,
+      "insert_rise": 0.008
+    },
+    "ISCIN": {
+      "top_feature": 42,
+      "auc": 0.898,
+      "auc_after_remove": 0.884,
+      "auc_drop": 0.014,
+      "neg_prob_base": 0.007,
+      "neg_prob_after_insert": 0.012,
+      "insert_rise": 0.005
+    },
+    "INJAS": {
+      "top_feature": 53,
+      "auc": 0.978,
+      "auc_after_remove": 0.978,
+      "auc_drop": -0.0,
+      "neg_prob_base": 0.004,
+      "neg_prob_after_insert": 0.007,
+      "insert_rise": 0.004
+    },
+    "LMI": {
+      "top_feature": 11,
+      "auc": 0.869,
+      "auc_after_remove": 0.867,
+      "auc_drop": 0.002,
+      "neg_prob_base": 0.011,
+      "neg_prob_after_insert": 0.028,
+      "insert_rise": 0.018
+    },
+    "ISCIL": {
+      "top_feature": 2,
+      "auc": 0.953,
+      "auc_after_remove": 0.946,
+      "auc_drop": 0.007,
+      "neg_prob_base": 0.006,
+      "neg_prob_after_insert": 0.017,
+      "insert_rise": 0.011
+    },
+    "LPFB": {
+      "top_feature": 33,
+      "auc": 0.962,
+      "auc_after_remove": 0.964,
+      "auc_drop": -0.002,
+      "neg_prob_base": 0.005,
+      "neg_prob_after_insert": 0.019,
+      "insert_rise": 0.014
+    },
+    "ISCAS": {
+      "top_feature": 11,
+      "auc": 0.914,
+      "auc_after_remove": 0.915,
+      "auc_drop": -0.002,
+      "neg_prob_base": 0.007,
+      "neg_prob_after_insert": 0.022,
+      "insert_rise": 0.016
+    },
+    "INJAL": {
+      "top_feature": 53,
+      "auc": 0.971,
+      "auc_after_remove": 0.976,
+      "auc_drop": -0.005,
+      "neg_prob_base": 0.002,
+      "neg_prob_after_insert": 0.003,
+      "insert_rise": 0.001
+    },
+    "ISCLA": {
+      "top_feature": 2,
+      "auc": 0.902,
+      "auc_after_remove": 0.894,
+      "auc_drop": 0.008,
+      "neg_prob_base": 0.004,
+      "neg_prob_after_insert": 0.01,
+      "insert_rise": 0.006
+    },
+    "RVH": {
+      "top_feature": 52,
+      "auc": 0.935,
+      "auc_after_remove": 0.934,
+      "auc_drop": 0.001,
+      "neg_prob_base": 0.006,
+      "neg_prob_after_insert": 0.007,
+      "insert_rise": 0.001
+    },
+    "ANEUR": {
+      "top_feature": 50,
+      "auc": 0.943,
+      "auc_after_remove": 0.922,
+      "auc_drop": 0.021,
+      "neg_prob_base": 0.004,
+      "neg_prob_after_insert": 0.028,
+      "insert_rise": 0.025
+    },
+    "RAO/RAE": {
+      "top_feature": 18,
+      "auc": 0.851,
+      "auc_after_remove": 0.87,
+      "auc_drop": -0.019,
+      "neg_prob_base": 0.003,
+      "neg_prob_after_insert": 0.003,
+      "insert_rise": 0.0
+    }
+  },
+  "shared": {
+    "2": {
+      "served_codes": [
+        "LVH",
+        "ISC_",
+        "CLBBB",
+        "ISCIL",
+        "ANEUR"
+      ],
+      "auc_drops_on_remove": {
+        "LVH": 0.002,
+        "ISC_": 0.001,
+        "CLBBB": 0.002,
+        "ISCIL": 0.007,
+        "ANEUR": 0.003
+      },
+      "mean_drop": 0.003,
+      "all_fell": false
+    },
+    "8": {
+      "served_codes": [
+        "LAFB",
+        "CRBBB",
+        "CLBBB",
+        "ILMI"
+      ],
+      "auc_drops_on_remove": {
+        "LAFB": -0.002,
+        "CRBBB": 0.0,
+        "CLBBB": -0.0,
+        "ILMI": 0.005
+      },
+      "mean_drop": 0.001,
+      "all_fell": false
+    },
+    "11": {
+      "served_codes": [
+        "DIG",
+        "CRBBB",
+        "CLBBB",
+        "ALMI",
+        "INJAS",
+        "LMI",
+        "ANEUR"
+      ],
+      "auc_drops_on_remove": {
+        "DIG": 0.003,
+        "CRBBB": 0.0,
+        "CLBBB": -0.0,
+        "ALMI": 0.004,
+        "INJAS": 0.011,
+        "LMI": 0.002,
+        "ANEUR": 0.001
+      },
+      "mean_drop": 0.003,
+      "all_fell": false
+    },
+    "20": {
+      "served_codes": [
+        "DIG",
+        "ISC_",
+        "CLBBB",
+        "ANEUR"
+      ],
+      "auc_drops_on_remove": {
+        "DIG": 0.014,
+        "ISC_": 0.001,
+        "CLBBB": 0.001,
+        "ANEUR": 0.003
+      },
+      "mean_drop": 0.005,
+      "all_fell": false
+    },
+    "33": {
+      "served_codes": [
+        "CRBBB",
+        "LPFB"
+      ],
+      "auc_drops_on_remove": {
+        "CRBBB": 0.0,
+        "LPFB": -0.002
+      },
+      "mean_drop": -0.001,
+      "all_fell": false
+    },
+    "35": {
+      "served_codes": [
+        "CLBBB",
+        "ANEUR"
+      ],
+      "auc_drops_on_remove": {
+        "CLBBB": 0.0,
+        "ANEUR": -0.002
+      },
+      "mean_drop": -0.001,
+      "all_fell": false
+    },
+    "42": {
+      "served_codes": [
+        "CRBBB",
+        "CLBBB",
+        "ILMI",
+        "ISCIN",
+        "ISCIL"
+      ],
+      "auc_drops_on_remove": {
+        "CRBBB": 0.0,
+        "CLBBB": 0.0,
+        "ILMI": 0.008,
+        "ISCIN": 0.014,
+        "ISCIL": 0.002
+      },
+      "mean_drop": 0.005,
+      "all_fell": false
+    },
+    "50": {
+      "served_codes": [
+        "ASMI",
+        "CLBBB",
+        "ILMI",
+        "ANEUR"
+      ],
+      "auc_drops_on_remove": {
+        "ASMI": 0.004,
+        "CLBBB": 0.002,
+        "ILMI": 0.004,
+        "ANEUR": 0.021
+      },
+      "mean_drop": 0.008,
+      "all_fell": false
+    },
+    "52": {
+      "served_codes": [
+        "CRBBB",
+        "CLBBB",
+        "RVH",
+        "ANEUR"
+      ],
+      "auc_drops_on_remove": {
+        "CRBBB": 0.0,
+        "CLBBB": -0.0,
+        "RVH": 0.001,
+        "ANEUR": 0.007
+      },
+      "mean_drop": 0.002,
+      "all_fell": false
+    },
+    "53": {
+      "served_codes": [
+        "DIG",
+        "ISC_",
+        "CLBBB",
+        "INJAS",
+        "INJAL"
+      ],
+      "auc_drops_on_remove": {
+        "DIG": 0.005,
+        "ISC_": 0.001,
+        "CLBBB": -0.0,
+        "INJAS": -0.0,
+        "INJAL": -0.005
+      },
+      "mean_drop": 0.0,
+      "all_fell": false
+    }
+  }
+}

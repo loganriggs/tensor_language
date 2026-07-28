@@ -2376,3 +2376,91 @@ meaningful for the ~10 morphology-dependent codes where the model beats linear b
 and the circuit is close to a voltage threshold. Answer to Logan: no, linear does
 NOT match -- but it partly does (0.745), and exactly WHERE it fails (shape-based
 diagnoses) is where the model's nonlinearity, and the circuit story, has real teeth.
+
+## 28. The basis correction: exact folds, the right basis, and readout-vs-causal sparsity (Logan direction 2026-07-28)
+
+Logan's correction: analysing the bilinear MLP in its **neuron basis** (§24, §28) is the
+wrong gauge -- the same error the embedding work was built to avoid. The interpretable
+object is a basis **sparse relative to input AND output**, found under the weight-induced
+metric; and because this is a no-softmax bilinear tensor network, every layer folds
+**exactly**, so we can build that basis inside the folded tensor rather than approximate it.
+
+**The exact fold (positive control).** Each bilinear MLP folds to a symmetric third-order
+tensor `T[o,i,j] = Σ_p Dn[o,p] L[p,i] R[p,j]`, `out_o = Σ_ij T[o,i,j] hn_i hn_j`. Verified
+to numerical zero on all three layers (relative error 2.6e-7). The 192 "neurons" are just
+the CP-rank index of `T`: **permuting them leaves the observable tensor identical**, so the
+per-neuron circuits of §24/§28 indexed a factorization gauge, not features -- which is
+exactly why single-neuron removals were "buffered." A further tell: **65% of the raw tensor
+is antisymmetric**, which is pure gauge (both input legs receive the same `hn`, so it
+cancels behaviorally); only the 35% symmetric part is observable.
+
+**Input-only dictionary is not enough.** A TopK dictionary fit in the `G^{1/2}`-whitened
+read-space (`G = LᵀL + RᵀR`) reconstructs the input at R²=0.85 but the **behavioral
+tensor-action R² is only 0.80** (input-L2 flatters, as the spec warns), and it leaves the
+interaction diffuse (3.7% of tensor mass in the top 1% of atom pairs; ~6 atoms per code).
+Input sparsity alone does not yield the interpretable basis.
+
+**The minimal interaction basis.** Refitting the folded tensor to a minimal symmetric form
+`out_o ≈ Σ_r U[o,r] (a_r·hn)²` to behavioral fidelity shows the 192-neuron layer is
+behaviorally **rank ~32-64**: spliced back into the full model, macro-AUC is 0.899 at
+rank 64 and 0.890 at rank 32 versus 0.904 base (even rank 8 holds 0.870). In this correct
+basis the readout is **sparse and physiological**: mean **1.0 feature per code** at AUC≥0.75
+(vs 2.4 neurons, 6.0 input-atoms), with strong single features -- complete LBBB feature #50
+AUC 0.956 (leads V1-V3), anteroseptal injury #53 AUC 0.815 (aVL/III/V2), complete RBBB #52
+0.787. And **10 shared features explain correlated diagnoses**: #50 → LBBB/aneurysm/
+anteroseptal-MI (anterior precordial), #53 → anteroseptal+anterolateral injury, #8 →
+LAFB/inferolateral-MI (inferior, left-axis leads).
+
+**But readout-sparsity is not causal-sparsity.** Steering along these feature directions --
+even projecting them out of the **residual stream at every layer** -- does not collapse any
+diagnosis: removing the single best feature drops AUC 0.007, and **no code collapses even
+when its top 10 features are removed**. The morphology survives in the residual for
+attention-layer-2 and the later MLPs (co-equal contributors, §29) to recompute. The model's
+diagnosis computation is **deeply redundant / holographically distributed**; there is no
+small *necessary* causal circuit.
+
+**The unifying axis.** The graded ablation-sensitivity correlates with the linear-baseline
+gap at **r=0.60**. Amplitude diagnoses (bundle-branch/fascicular blocks) are near-linear
+(§27), redundantly encoded (ablation-robust: CRBBB 0.009, LAFB 0.005), essentially a
+distributed voltage readout. Morphology diagnoses (anterior injury/MI, ischemia) need the
+nonlinearity (§27), are more concentrated (ablation-sensitive: anterolateral MI 0.183,
+anterior MI 0.160), and are computed by the multiplicative interactions. Two independent
+measurements -- a linear baseline and a causal ablation -- agree on which diagnoses are
+simple-distributed versus complex-concentrated.
+
+**Bottom line for the "minimal interpretable circuit" goal.** A sparse, interpretable,
+physiologically-correct *readout* basis exists and cleanly explains correlated diagnoses
+(the descriptive circuit). But the trained model has no minimal *necessary* causal
+sub-circuit -- redundancy is real, not a basis artifact. The remaining causal avenue is
+input/waveform-space intervention, which bypasses the internal redundancy.
+
+## 29. Causal validation at the input: injecting morphology creates the diagnosis (Logan direction 2026-07-28)
+
+Because the model is internally redundant (§34), the causal test that bites is at the
+**input/waveform** level. For each code we render the morphology **template** its top
+interaction feature reads, then on the held-out test set add `alpha*template` to real
+**negative** ECGs (insert) and project it out of **positives** (remove).
+
+**Insertion causally creates the diagnosis, with a clean dose-response.** Complete LBBB:
+injecting its template raises the model's LBBB probability on true negatives monotonically
+`0.005 -> 0.011 -> 0.081 -> 0.635 -> 0.962` across the dose sweep; removing it from positives
+drops `0.814 -> 0.676`. Mean insertion rise at max dose is 0.171 (11 codes rise >= 0.1),
+far above the internal-basis steering (0.026). Removal is weak on average (0.033) -- the
+redundancy that buffers internal ablation also lets the model re-read a partially-removed
+morphology.
+
+**The effect is morphology-specific (negative control).** Against a **scrambled** template
+(same per-lead amplitude, waveform shape destroyed by within-lead time permutation),
+**10 of 11** codes rise more than twice as much from the real template, and the target
+diagnosis is in the top-3 raised codes for **9 of 11**. Complete LBBB: real +0.630 vs
+scrambled **-0.002** -- scrambling abolishes the effect, so it is the morphology, not added
+energy. The off-target movers are physiologically coherent and follow the **shared features**
+of §32: the LBBB template co-raises anteroseptal MI (anterior-precordial feature #50), the
+ischemia template co-raises LVH (precordial). Correlated diagnoses move together through the
+exact shared features the interaction basis identified.
+
+**Net causal picture.** No small internal circuit is *necessary* (redundancy, §34), but a
+rendered morphology is *sufficient* to create the diagnosis from the input, specifically and
+dose-dependently, and to move correlated diagnoses together via shared features. That is the
+insert/remove-changes-the-diagnosis-on-the-test-set result, grounded in physiological
+waveforms rather than an internal gauge.

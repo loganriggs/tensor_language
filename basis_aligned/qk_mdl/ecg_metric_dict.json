@@ -1,0 +1,1072 @@
+{
+  "M": 256,
+  "K": 8,
+  "test_readspace_R2": 0.851,
+  "tensor_action_R2": 0.796,
+  "L0": 8.0,
+  "dead_atoms": 19,
+  "mean_atoms_per_code_auc>=0.70": 6.0,
+  "tensor_mass_top1pct_atompairs": 0.037,
+  "tensor_mass_diagonal": 0.013,
+  "per_code": {
+    "NDT": {
+      "top_atoms": [
+        85,
+        197,
+        13,
+        41,
+        166
+      ],
+      "top_atom_aucs": [
+        0.704,
+        0.648,
+        0.623,
+        0.608,
+        0.602
+      ],
+      "n_atoms_auc>=0.70": 1
+    },
+    "NST_": {
+      "top_atoms": [
+        85,
+        44,
+        122,
+        250,
+        2
+      ],
+      "top_atom_aucs": [
+        0.645,
+        0.624,
+        0.613,
+        0.602,
+        0.597
+      ],
+      "n_atoms_auc>=0.70": 0
+    },
+    "DIG": {
+      "top_atoms": [
+        85,
+        30,
+        122,
+        215,
+        2
+      ],
+      "top_atom_aucs": [
+        0.783,
+        0.709,
+        0.664,
+        0.663,
+        0.662
+      ],
+      "n_atoms_auc>=0.70": 2
+    },
+    "LNGQT": {
+      "top_atoms": [
+        207,
+        51,
+        56,
+        109,
+        49
+      ],
+      "top_atom_aucs": [
+        0.759,
+        0.715,
+        0.699,
+        0.697,
+        0.689
+      ],
+      "n_atoms_auc>=0.70": 2
+    },
+    "NORM": {
+      "top_atoms": [
+        211,
+        99,
+        243,
+        33,
+        253
+      ],
+      "top_atom_aucs": [
+        0.769,
+        0.762,
+        0.759,
+        0.734,
+        0.724
+      ],
+      "n_atoms_auc>=0.70": 5
+    },
+    "IMI": {
+      "top_atoms": [
+        191,
+        77,
+        54,
+        49,
+        236
+      ],
+      "top_atom_aucs": [
+        0.674,
+        0.671,
+        0.638,
+        0.631,
+        0.629
+      ],
+      "n_atoms_auc>=0.70": 0
+    },
+    "ASMI": {
+      "top_atoms": [
+        191,
+        96,
+        122,
+        58,
+        210
+      ],
+      "top_atom_aucs": [
+        0.729,
+        0.7,
+        0.698,
+        0.662,
+        0.66
+      ],
+      "n_atoms_auc>=0.70": 2
+    },
+    "LVH": {
+      "top_atoms": [
+        44,
+        122,
+        145,
+        245,
+        40
+      ],
+      "top_atom_aucs": [
+        0.681,
+        0.658,
+        0.637,
+        0.636,
+        0.636
+      ],
+      "n_atoms_auc>=0.70": 0
+    },
+    "LAFB": {
+      "top_atoms": [
+        228,
+        107,
+        100,
+        216,
+        49
+      ],
+      "top_atom_aucs": [
+        0.826,
+        0.808,
+        0.801,
+        0.794,
+        0.787
+      ],
+      "n_atoms_auc>=0.70": 18
+    },
+    "ISC_": {
+      "top_atoms": [
+        44,
+        145,
+        109,
+        122,
+        85
+      ],
+      "top_atom_aucs": [
+        0.761,
+        0.696,
+        0.694,
+        0.681,
+        0.681
+      ],
+      "n_atoms_auc>=0.70": 1
+    },
+    "IRBBB": {
+      "top_atoms": [
+        177,
+        101,
+        121,
+        100,
+        120
+      ],
+      "top_atom_aucs": [
+        0.719,
+        0.669,
+        0.629,
+        0.625,
+        0.614
+      ],
+      "n_atoms_auc>=0.70": 1
+    },
+    "1AVB": {
+      "top_atoms": [
+        78,
+        29,
+        216,
+        123,
+        250
+      ],
+      "top_atom_aucs": [
+        0.669,
+        0.657,
+        0.653,
+        0.65,
+        0.636
+      ],
+      "n_atoms_auc>=0.70": 0
+    },
+    "IVCD": {
+      "top_atoms": [
+        210,
+        176,
+        122,
+        96,
+        2
+      ],
+      "top_atom_aucs": [
+        0.617,
+        0.606,
+        0.6,
+        0.589,
+        0.583
+      ],
+      "n_atoms_auc>=0.70": 0
+    },
+    "ISCAL": {
+      "top_atoms": [
+        44,
+        145,
+        85,
+        197,
+        125
+      ],
+      "top_atom_aucs": [
+        0.781,
+        0.742,
+        0.732,
+        0.709,
+        0.682
+      ],
+      "n_atoms_auc>=0.70": 4
+    },
+    "CRBBB": {
+      "top_atoms": [
+        12,
+        8,
+        157,
+        121,
+        90
+      ],
+      "top_atom_aucs": [
+        0.865,
+        0.857,
+        0.838,
+        0.826,
+        0.824
+      ],
+      "n_atoms_auc>=0.70": 15
+    },
+    "CLBBB": {
+      "top_atoms": [
+        122,
+        58,
+        145,
+        102,
+        148
+      ],
+      "top_atom_aucs": [
+        0.911,
+        0.902,
+        0.881,
+        0.878,
+        0.871
+      ],
+      "n_atoms_auc>=0.70": 32
+    },
+    "ILMI": {
+      "top_atoms": [
+        104,
+        123,
+        133,
+        77,
+        96
+      ],
+      "top_atom_aucs": [
+        0.693,
+        0.686,
+        0.679,
+        0.673,
+        0.672
+      ],
+      "n_atoms_auc>=0.70": 0
+    },
+    "LAO/LAE": {
+      "top_atoms": [
+        51,
+        120,
+        161,
+        174,
+        140
+      ],
+      "top_atom_aucs": [
+        0.612,
+        0.604,
+        0.597,
+        0.586,
+        0.586
+      ],
+      "n_atoms_auc>=0.70": 0
+    },
+    "AMI": {
+      "top_atoms": [
+        145,
+        95,
+        191,
+        123,
+        109
+      ],
+      "top_atom_aucs": [
+        0.703,
+        0.698,
+        0.686,
+        0.666,
+        0.649
+      ],
+      "n_atoms_auc>=0.70": 1
+    },
+    "ALMI": {
+      "top_atoms": [
+        106,
+        210,
+        174,
+        170,
+        148
+      ],
+      "top_atom_aucs": [
+        0.739,
+        0.738,
+        0.732,
+        0.716,
+        0.715
+      ],
+      "n_atoms_auc>=0.70": 6
+    },
+    "ISCIN": {
+      "top_atoms": [
+        66,
+        81,
+        137,
+        233,
+        230
+      ],
+      "top_atom_aucs": [
+        0.793,
+        0.741,
+        0.725,
+        0.715,
+        0.707
+      ],
+      "n_atoms_auc>=0.70": 5
+    },
+    "INJAS": {
+      "top_atoms": [
+        73,
+        13,
+        197,
+        44,
+        164
+      ],
+      "top_atom_aucs": [
+        0.829,
+        0.783,
+        0.776,
+        0.774,
+        0.772
+      ],
+      "n_atoms_auc>=0.70": 10
+    },
+    "LMI": {
+      "top_atoms": [
+        122,
+        98,
+        58,
+        215,
+        210
+      ],
+      "top_atom_aucs": [
+        0.731,
+        0.714,
+        0.679,
+        0.67,
+        0.668
+      ],
+      "n_atoms_auc>=0.70": 2
+    },
+    "ISCIL": {
+      "top_atoms": [
+        250,
+        85,
+        66,
+        215,
+        98
+      ],
+      "top_atom_aucs": [
+        0.855,
+        0.822,
+        0.731,
+        0.698,
+        0.691
+      ],
+      "n_atoms_auc>=0.70": 3
+    },
+    "LPFB": {
+      "top_atoms": [
+        143,
+        39,
+        181,
+        8,
+        196
+      ],
+      "top_atom_aucs": [
+        0.836,
+        0.819,
+        0.744,
+        0.729,
+        0.726
+      ],
+      "n_atoms_auc>=0.70": 8
+    },
+    "ISCAS": {
+      "top_atoms": [
+        85,
+        125,
+        197,
+        44,
+        73
+      ],
+      "top_atom_aucs": [
+        0.827,
+        0.763,
+        0.75,
+        0.731,
+        0.715
+      ],
+      "n_atoms_auc>=0.70": 8
+    },
+    "INJAL": {
+      "top_atoms": [
+        216,
+        120,
+        73,
+        165,
+        164
+      ],
+      "top_atom_aucs": [
+        0.871,
+        0.871,
+        0.83,
+        0.829,
+        0.82
+      ],
+      "n_atoms_auc>=0.70": 17
+    },
+    "ISCLA": {
+      "top_atoms": [
+        145,
+        109,
+        32,
+        248,
+        107
+      ],
+      "top_atom_aucs": [
+        0.789,
+        0.758,
+        0.707,
+        0.691,
+        0.68
+      ],
+      "n_atoms_auc>=0.70": 3
+    },
+    "RVH": {
+      "top_atoms": [
+        239,
+        149,
+        101,
+        120,
+        216
+      ],
+      "top_atom_aucs": [
+        0.836,
+        0.795,
+        0.795,
+        0.781,
+        0.774
+      ],
+      "n_atoms_auc>=0.70": 15
+    },
+    "ANEUR": {
+      "top_atoms": [
+        145,
+        23,
+        210,
+        109,
+        167
+      ],
+      "top_atom_aucs": [
+        0.912,
+        0.886,
+        0.87,
+        0.83,
+        0.828
+      ],
+      "n_atoms_auc>=0.70": 24
+    },
+    "RAO/RAE": {
+      "top_atoms": [
+        39,
+        59,
+        100,
+        123,
+        216
+      ],
+      "top_atom_aucs": [
+        0.704,
+        0.698,
+        0.676,
+        0.658,
+        0.646
+      ],
+      "n_atoms_auc>=0.70": 1
+    }
+  },
+  "atom_render": {
+    "8": {
+      "top_leads": [
+        "I",
+        "V5",
+        "aVR"
+      ],
+      "n_active_patches": 366,
+      "serves_codes": [
+        "CRBBB",
+        "LPFB",
+        "RVH"
+      ]
+    },
+    "12": {
+      "top_leads": [
+        "aVF",
+        "II",
+        "III"
+      ],
+      "n_active_patches": 551,
+      "serves_codes": [
+        "CRBBB",
+        "RVH"
+      ]
+    },
+    "13": {
+      "top_leads": [
+        "V4",
+        "aVF",
+        "V5"
+      ],
+      "n_active_patches": 1940,
+      "serves_codes": [
+        "ALMI",
+        "INJAS"
+      ]
+    },
+    "23": {
+      "top_leads": [
+        "V2",
+        "V1",
+        "II"
+      ],
+      "n_active_patches": 3155,
+      "serves_codes": [
+        "CLBBB",
+        "ANEUR"
+      ]
+    },
+    "29": {
+      "top_leads": [
+        "III",
+        "aVF",
+        "aVL"
+      ],
+      "n_active_patches": 689,
+      "serves_codes": [
+        "RVH"
+      ]
+    },
+    "30": {
+      "top_leads": [
+        "V2",
+        "V1",
+        "V3"
+      ],
+      "n_active_patches": 2084,
+      "serves_codes": [
+        "DIG",
+        "CLBBB",
+        "ANEUR"
+      ]
+    },
+    "39": {
+      "top_leads": [
+        "aVF",
+        "III",
+        "II"
+      ],
+      "n_active_patches": 1710,
+      "serves_codes": [
+        "LPFB",
+        "RAO/RAE"
+      ]
+    },
+    "44": {
+      "top_leads": [
+        "aVR",
+        "V1",
+        "I"
+      ],
+      "n_active_patches": 1167,
+      "serves_codes": [
+        "ISC_",
+        "ISCAL",
+        "CLBBB",
+        "INJAS",
+        "ISCAS",
+        "INJAL"
+      ]
+    },
+    "51": {
+      "top_leads": [
+        "I",
+        "aVL",
+        "V1"
+      ],
+      "n_active_patches": 2230,
+      "serves_codes": [
+        "LNGQT"
+      ]
+    },
+    "58": {
+      "top_leads": [
+        "V2",
+        "V1",
+        "V3"
+      ],
+      "n_active_patches": 2126,
+      "serves_codes": [
+        "CLBBB",
+        "ANEUR"
+      ]
+    },
+    "59": {
+      "top_leads": [
+        "II",
+        "aVR",
+        "V5"
+      ],
+      "n_active_patches": 1500,
+      "serves_codes": []
+    },
+    "66": {
+      "top_leads": [
+        "V2",
+        "V3",
+        "aVL"
+      ],
+      "n_active_patches": 2039,
+      "serves_codes": [
+        "ISCIN",
+        "ISCIL"
+      ]
+    },
+    "73": {
+      "top_leads": [
+        "V2",
+        "V3",
+        "V1"
+      ],
+      "n_active_patches": 623,
+      "serves_codes": [
+        "INJAS",
+        "ISCAS",
+        "INJAL"
+      ]
+    },
+    "77": {
+      "top_leads": [
+        "I",
+        "aVL",
+        "aVR"
+      ],
+      "n_active_patches": 3194,
+      "serves_codes": []
+    },
+    "78": {
+      "top_leads": [
+        "V4",
+        "V5",
+        "V3"
+      ],
+      "n_active_patches": 2579,
+      "serves_codes": []
+    },
+    "81": {
+      "top_leads": [
+        "V2",
+        "V3",
+        "V1"
+      ],
+      "n_active_patches": 2673,
+      "serves_codes": [
+        "CLBBB",
+        "ISCIN"
+      ]
+    },
+    "85": {
+      "top_leads": [
+        "aVR",
+        "II",
+        "I"
+      ],
+      "n_active_patches": 2537,
+      "serves_codes": [
+        "NDT",
+        "DIG",
+        "ISCAL",
+        "INJAS",
+        "ISCIL",
+        "ISCAS",
+        "INJAL"
+      ]
+    },
+    "95": {
+      "top_leads": [
+        "III",
+        "aVL",
+        "aVF"
+      ],
+      "n_active_patches": 1243,
+      "serves_codes": [
+        "CLBBB"
+      ]
+    },
+    "96": {
+      "top_leads": [
+        "V2",
+        "V1",
+        "I"
+      ],
+      "n_active_patches": 1607,
+      "serves_codes": [
+        "ASMI",
+        "CLBBB",
+        "ANEUR"
+      ]
+    },
+    "98": {
+      "top_leads": [
+        "III",
+        "aVF",
+        "aVL"
+      ],
+      "n_active_patches": 1051,
+      "serves_codes": [
+        "LAFB",
+        "LMI"
+      ]
+    },
+    "99": {
+      "top_leads": [
+        "aVR",
+        "II",
+        "V3"
+      ],
+      "n_active_patches": 5845,
+      "serves_codes": [
+        "NORM"
+      ]
+    },
+    "101": {
+      "top_leads": [
+        "aVR",
+        "I",
+        "II"
+      ],
+      "n_active_patches": 672,
+      "serves_codes": [
+        "CRBBB",
+        "RVH"
+      ]
+    },
+    "104": {
+      "top_leads": [
+        "III",
+        "aVL",
+        "I"
+      ],
+      "n_active_patches": 724,
+      "serves_codes": []
+    },
+    "106": {
+      "top_leads": [
+        "III",
+        "aVL",
+        "aVF"
+      ],
+      "n_active_patches": 612,
+      "serves_codes": [
+        "LAFB",
+        "CLBBB",
+        "ALMI"
+      ]
+    },
+    "107": {
+      "top_leads": [
+        "III",
+        "aVF",
+        "aVL"
+      ],
+      "n_active_patches": 1057,
+      "serves_codes": [
+        "LAFB"
+      ]
+    },
+    "109": {
+      "top_leads": [
+        "V3",
+        "V2",
+        "V6"
+      ],
+      "n_active_patches": 1472,
+      "serves_codes": [
+        "ISCLA",
+        "ANEUR"
+      ]
+    },
+    "120": {
+      "top_leads": [
+        "aVF",
+        "V3",
+        "III"
+      ],
+      "n_active_patches": 1880,
+      "serves_codes": [
+        "LAFB",
+        "INJAL",
+        "RVH"
+      ]
+    },
+    "122": {
+      "top_leads": [
+        "V2",
+        "V1",
+        "V3"
+      ],
+      "n_active_patches": 1890,
+      "serves_codes": [
+        "CLBBB",
+        "LMI",
+        "ANEUR"
+      ]
+    },
+    "123": {
+      "top_leads": [
+        "III",
+        "aVL",
+        "aVF"
+      ],
+      "n_active_patches": 1542,
+      "serves_codes": [
+        "LAFB",
+        "CLBBB"
+      ]
+    },
+    "125": {
+      "top_leads": [
+        "II",
+        "aVR",
+        "I"
+      ],
+      "n_active_patches": 980,
+      "serves_codes": [
+        "INJAS",
+        "ISCAS",
+        "INJAL"
+      ]
+    },
+    "143": {
+      "top_leads": [
+        "II",
+        "aVF",
+        "aVR"
+      ],
+      "n_active_patches": 1366,
+      "serves_codes": [
+        "LPFB"
+      ]
+    },
+    "145": {
+      "top_leads": [
+        "V2",
+        "V1",
+        "V3"
+      ],
+      "n_active_patches": 1523,
+      "serves_codes": [
+        "ISCAL",
+        "CLBBB",
+        "AMI",
+        "ISCLA",
+        "ANEUR"
+      ]
+    },
+    "149": {
+      "top_leads": [
+        "V3",
+        "V4",
+        "aVF"
+      ],
+      "n_active_patches": 1517,
+      "serves_codes": [
+        "LAFB",
+        "INJAL",
+        "RVH"
+      ]
+    },
+    "176": {
+      "top_leads": [
+        "V2",
+        "V1",
+        "V3"
+      ],
+      "n_active_patches": 1017,
+      "serves_codes": [
+        "CLBBB",
+        "ANEUR"
+      ]
+    },
+    "177": {
+      "top_leads": [
+        "I",
+        "aVR",
+        "V3"
+      ],
+      "n_active_patches": 2419,
+      "serves_codes": [
+        "IRBBB"
+      ]
+    },
+    "191": {
+      "top_leads": [
+        "III",
+        "V3",
+        "V2"
+      ],
+      "n_active_patches": 3280,
+      "serves_codes": [
+        "ASMI",
+        "LAFB"
+      ]
+    },
+    "197": {
+      "top_leads": [
+        "I",
+        "aVR",
+        "V5"
+      ],
+      "n_active_patches": 1064,
+      "serves_codes": [
+        "ISCAL",
+        "INJAS",
+        "ISCAS",
+        "INJAL"
+      ]
+    },
+    "207": {
+      "top_leads": [
+        "I",
+        "aVL",
+        "aVR"
+      ],
+      "n_active_patches": 724,
+      "serves_codes": [
+        "LNGQT",
+        "INJAL"
+      ]
+    },
+    "210": {
+      "top_leads": [
+        "V2",
+        "V1",
+        "V3"
+      ],
+      "n_active_patches": 1371,
+      "serves_codes": [
+        "CLBBB",
+        "ALMI",
+        "ANEUR"
+      ]
+    },
+    "211": {
+      "top_leads": [
+        "V3",
+        "aVR",
+        "V2"
+      ],
+      "n_active_patches": 6736,
+      "serves_codes": [
+        "NORM"
+      ]
+    },
+    "216": {
+      "top_leads": [
+        "III",
+        "aVF",
+        "aVL"
+      ],
+      "n_active_patches": 1425,
+      "serves_codes": [
+        "LAFB",
+        "INJAL",
+        "RVH"
+      ]
+    },
+    "228": {
+      "top_leads": [
+        "III",
+        "aVL",
+        "aVF"
+      ],
+      "n_active_patches": 1800,
+      "serves_codes": [
+        "LAFB"
+      ]
+    },
+    "239": {
+      "top_leads": [
+        "V3",
+        "V2",
+        "V4"
+      ],
+      "n_active_patches": 625,
+      "serves_codes": [
+        "RVH"
+      ]
+    },
+    "250": {
+      "top_leads": [
+        "II",
+        "aVF",
+        "aVR"
+      ],
+      "n_active_patches": 1301,
+      "serves_codes": [
+        "ISCIL"
+      ]
+    }
+  }
+}

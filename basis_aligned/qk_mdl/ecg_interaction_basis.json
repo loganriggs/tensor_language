@@ -1,0 +1,991 @@
+{
+  "rank_sweep_tensor_action_R2": {
+    "8": 0.258,
+    "16": 0.416,
+    "32": 0.578,
+    "64": 0.744,
+    "96": 0.833,
+    "192": 0.949
+  },
+  "splice_full_macro_auc": {
+    "8": 0.87,
+    "16": 0.878,
+    "32": 0.89,
+    "64": 0.899
+  },
+  "base_macro_auc": 0.904,
+  "chosen_rank": 64,
+  "mean_features_per_code": 1.0,
+  "per_code": {
+    "NDT": {
+      "n_features_auc>=0.75": 0,
+      "top_feature": 4,
+      "top_feature_auc": 0.6
+    },
+    "NST_": {
+      "n_features_auc>=0.75": 0,
+      "top_feature": 20,
+      "top_feature_auc": 0.652
+    },
+    "DIG": {
+      "n_features_auc>=0.75": 2,
+      "top_feature": 20,
+      "top_feature_auc": 0.792
+    },
+    "LNGQT": {
+      "n_features_auc>=0.75": 0,
+      "top_feature": 3,
+      "top_feature_auc": 0.704
+    },
+    "NORM": {
+      "n_features_auc>=0.75": 1,
+      "top_feature": 63,
+      "top_feature_auc": 0.773
+    },
+    "IMI": {
+      "n_features_auc>=0.75": 0,
+      "top_feature": 8,
+      "top_feature_auc": 0.614
+    },
+    "ASMI": {
+      "n_features_auc>=0.75": 1,
+      "top_feature": 50,
+      "top_feature_auc": 0.771
+    },
+    "LVH": {
+      "n_features_auc>=0.75": 0,
+      "top_feature": 2,
+      "top_feature_auc": 0.735
+    },
+    "LAFB": {
+      "n_features_auc>=0.75": 1,
+      "top_feature": 8,
+      "top_feature_auc": 0.778
+    },
+    "ISC_": {
+      "n_features_auc>=0.75": 2,
+      "top_feature": 2,
+      "top_feature_auc": 0.828
+    },
+    "IRBBB": {
+      "n_features_auc>=0.75": 0,
+      "top_feature": 3,
+      "top_feature_auc": 0.656
+    },
+    "1AVB": {
+      "n_features_auc>=0.75": 0,
+      "top_feature": 8,
+      "top_feature_auc": 0.663
+    },
+    "IVCD": {
+      "n_features_auc>=0.75": 0,
+      "top_feature": 50,
+      "top_feature_auc": 0.61
+    },
+    "ISCAL": {
+      "n_features_auc>=0.75": 0,
+      "top_feature": 53,
+      "top_feature_auc": 0.711
+    },
+    "CRBBB": {
+      "n_features_auc>=0.75": 3,
+      "top_feature": 52,
+      "top_feature_auc": 0.787
+    },
+    "CLBBB": {
+      "n_features_auc>=0.75": 9,
+      "top_feature": 50,
+      "top_feature_auc": 0.956
+    },
+    "ILMI": {
+      "n_features_auc>=0.75": 1,
+      "top_feature": 42,
+      "top_feature_auc": 0.756
+    },
+    "LAO/LAE": {
+      "n_features_auc>=0.75": 0,
+      "top_feature": 42,
+      "top_feature_auc": 0.614
+    },
+    "AMI": {
+      "n_features_auc>=0.75": 0,
+      "top_feature": 8,
+      "top_feature_auc": 0.686
+    },
+    "ALMI": {
+      "n_features_auc>=0.75": 0,
+      "top_feature": 11,
+      "top_feature_auc": 0.725
+    },
+    "ISCIN": {
+      "n_features_auc>=0.75": 1,
+      "top_feature": 42,
+      "top_feature_auc": 0.783
+    },
+    "INJAS": {
+      "n_features_auc>=0.75": 1,
+      "top_feature": 53,
+      "top_feature_auc": 0.815
+    },
+    "LMI": {
+      "n_features_auc>=0.75": 1,
+      "top_feature": 11,
+      "top_feature_auc": 0.754
+    },
+    "ISCIL": {
+      "n_features_auc>=0.75": 1,
+      "top_feature": 2,
+      "top_feature_auc": 0.774
+    },
+    "LPFB": {
+      "n_features_auc>=0.75": 2,
+      "top_feature": 33,
+      "top_feature_auc": 0.762
+    },
+    "ISCAS": {
+      "n_features_auc>=0.75": 0,
+      "top_feature": 11,
+      "top_feature_auc": 0.649
+    },
+    "INJAL": {
+      "n_features_auc>=0.75": 1,
+      "top_feature": 53,
+      "top_feature_auc": 0.781
+    },
+    "ISCLA": {
+      "n_features_auc>=0.75": 0,
+      "top_feature": 2,
+      "top_feature_auc": 0.68
+    },
+    "RVH": {
+      "n_features_auc>=0.75": 0,
+      "top_feature": 52,
+      "top_feature_auc": 0.729
+    },
+    "ANEUR": {
+      "n_features_auc>=0.75": 5,
+      "top_feature": 50,
+      "top_feature_auc": 0.91
+    },
+    "RAO/RAE": {
+      "n_features_auc>=0.75": 0,
+      "top_feature": 18,
+      "top_feature_auc": 0.734
+    }
+  },
+  "feature_render": {
+    "0": {
+      "top_leads": [
+        "aVR",
+        "II",
+        "V5"
+      ],
+      "best_code": {
+        "code": "NORM",
+        "auc": 0.645
+      },
+      "serves_codes": []
+    },
+    "1": {
+      "top_leads": [
+        "aVR",
+        "V3",
+        "II"
+      ],
+      "best_code": {
+        "code": "NORM",
+        "auc": 0.732
+      },
+      "serves_codes": []
+    },
+    "2": {
+      "top_leads": [
+        "V2",
+        "V1",
+        "V3"
+      ],
+      "best_code": {
+        "code": "CLBBB",
+        "auc": 0.842
+      },
+      "serves_codes": [
+        "CLBBB",
+        "ISC_",
+        "ISCIL",
+        "ANEUR"
+      ]
+    },
+    "3": {
+      "top_leads": [
+        "aVR",
+        "II",
+        "I"
+      ],
+      "best_code": {
+        "code": "LNGQT",
+        "auc": 0.704
+      },
+      "serves_codes": []
+    },
+    "4": {
+      "top_leads": [
+        "aVR",
+        "V5",
+        "I"
+      ],
+      "best_code": {
+        "code": "NDT",
+        "auc": 0.6
+      },
+      "serves_codes": []
+    },
+    "5": {
+      "top_leads": [
+        "II",
+        "aVF",
+        "V3"
+      ],
+      "best_code": {
+        "code": "LNGQT",
+        "auc": 0.594
+      },
+      "serves_codes": []
+    },
+    "6": {
+      "top_leads": [
+        "II",
+        "aVR",
+        "V5"
+      ],
+      "best_code": {
+        "code": "DIG",
+        "auc": 0.666
+      },
+      "serves_codes": []
+    },
+    "7": {
+      "top_leads": [
+        "V2",
+        "V1",
+        "V3"
+      ],
+      "best_code": {
+        "code": "CLBBB",
+        "auc": 0.741
+      },
+      "serves_codes": []
+    },
+    "8": {
+      "top_leads": [
+        "III",
+        "aVF",
+        "aVL"
+      ],
+      "best_code": {
+        "code": "CLBBB",
+        "auc": 0.801
+      },
+      "serves_codes": [
+        "CLBBB",
+        "LAFB"
+      ]
+    },
+    "9": {
+      "top_leads": [
+        "aVR",
+        "II",
+        "I"
+      ],
+      "best_code": {
+        "code": "NORM",
+        "auc": 0.681
+      },
+      "serves_codes": []
+    },
+    "10": {
+      "top_leads": [
+        "aVR",
+        "I",
+        "II"
+      ],
+      "best_code": {
+        "code": "NORM",
+        "auc": 0.592
+      },
+      "serves_codes": []
+    },
+    "11": {
+      "top_leads": [
+        "V2",
+        "V3",
+        "V1"
+      ],
+      "best_code": {
+        "code": "CLBBB",
+        "auc": 0.878
+      },
+      "serves_codes": [
+        "CLBBB",
+        "ANEUR",
+        "LMI"
+      ]
+    },
+    "12": {
+      "top_leads": [
+        "I",
+        "V1",
+        "aVR"
+      ],
+      "best_code": {
+        "code": "CLBBB",
+        "auc": 0.817
+      },
+      "serves_codes": [
+        "CLBBB"
+      ]
+    },
+    "13": {
+      "top_leads": [
+        "I",
+        "aVR",
+        "V5"
+      ],
+      "best_code": {
+        "code": "NORM",
+        "auc": 0.59
+      },
+      "serves_codes": []
+    },
+    "14": {
+      "top_leads": [
+        "I",
+        "aVL",
+        "aVR"
+      ],
+      "best_code": {
+        "code": "RVH",
+        "auc": 0.638
+      },
+      "serves_codes": []
+    },
+    "15": {
+      "top_leads": [
+        "II",
+        "aVR",
+        "V5"
+      ],
+      "best_code": {
+        "code": "ISCIN",
+        "auc": 0.714
+      },
+      "serves_codes": []
+    },
+    "16": {
+      "top_leads": [
+        "V3",
+        "V4",
+        "aVR"
+      ],
+      "best_code": {
+        "code": "NORM",
+        "auc": 0.665
+      },
+      "serves_codes": []
+    },
+    "17": {
+      "top_leads": [
+        "V2",
+        "V3",
+        "aVR"
+      ],
+      "best_code": {
+        "code": "NORM",
+        "auc": 0.626
+      },
+      "serves_codes": []
+    },
+    "18": {
+      "top_leads": [
+        "V2",
+        "V3",
+        "aVR"
+      ],
+      "best_code": {
+        "code": "RAO/RAE",
+        "auc": 0.734
+      },
+      "serves_codes": []
+    },
+    "19": {
+      "top_leads": [
+        "II",
+        "aVR",
+        "V2"
+      ],
+      "best_code": {
+        "code": "ISCIN",
+        "auc": 0.633
+      },
+      "serves_codes": []
+    },
+    "20": {
+      "top_leads": [
+        "V1",
+        "V2",
+        "I"
+      ],
+      "best_code": {
+        "code": "CLBBB",
+        "auc": 0.897
+      },
+      "serves_codes": [
+        "CLBBB",
+        "DIG"
+      ]
+    },
+    "21": {
+      "top_leads": [
+        "aVR",
+        "I",
+        "V5"
+      ],
+      "best_code": {
+        "code": "IRBBB",
+        "auc": 0.61
+      },
+      "serves_codes": []
+    },
+    "22": {
+      "top_leads": [
+        "aVR",
+        "I",
+        "V5"
+      ],
+      "best_code": {
+        "code": "DIG",
+        "auc": 0.699
+      },
+      "serves_codes": []
+    },
+    "23": {
+      "top_leads": [
+        "V1",
+        "V2",
+        "aVR"
+      ],
+      "best_code": {
+        "code": "RVH",
+        "auc": 0.723
+      },
+      "serves_codes": []
+    },
+    "24": {
+      "top_leads": [
+        "aVF",
+        "II",
+        "III"
+      ],
+      "best_code": {
+        "code": "ISCAS",
+        "auc": 0.577
+      },
+      "serves_codes": []
+    },
+    "25": {
+      "top_leads": [
+        "V2",
+        "V1",
+        "V3"
+      ],
+      "best_code": {
+        "code": "CLBBB",
+        "auc": 0.716
+      },
+      "serves_codes": []
+    },
+    "26": {
+      "top_leads": [
+        "V3",
+        "II",
+        "aVR"
+      ],
+      "best_code": {
+        "code": "NORM",
+        "auc": 0.688
+      },
+      "serves_codes": []
+    },
+    "27": {
+      "top_leads": [
+        "V4",
+        "aVR",
+        "I"
+      ],
+      "best_code": {
+        "code": "NORM",
+        "auc": 0.669
+      },
+      "serves_codes": []
+    },
+    "28": {
+      "top_leads": [
+        "II",
+        "aVF",
+        "aVR"
+      ],
+      "best_code": {
+        "code": "NORM",
+        "auc": 0.583
+      },
+      "serves_codes": []
+    },
+    "29": {
+      "top_leads": [
+        "I",
+        "aVL",
+        "V1"
+      ],
+      "best_code": {
+        "code": "CLBBB",
+        "auc": 0.738
+      },
+      "serves_codes": []
+    },
+    "30": {
+      "top_leads": [
+        "V3",
+        "II",
+        "III"
+      ],
+      "best_code": {
+        "code": "RVH",
+        "auc": 0.676
+      },
+      "serves_codes": []
+    },
+    "31": {
+      "top_leads": [
+        "II",
+        "aVF",
+        "V3"
+      ],
+      "best_code": {
+        "code": "LPFB",
+        "auc": 0.71
+      },
+      "serves_codes": []
+    },
+    "32": {
+      "top_leads": [
+        "V1",
+        "aVR",
+        "I"
+      ],
+      "best_code": {
+        "code": "ISCIN",
+        "auc": 0.698
+      },
+      "serves_codes": []
+    },
+    "33": {
+      "top_leads": [
+        "V2",
+        "V3",
+        "V1"
+      ],
+      "best_code": {
+        "code": "CRBBB",
+        "auc": 0.777
+      },
+      "serves_codes": [
+        "CRBBB",
+        "LPFB"
+      ]
+    },
+    "34": {
+      "top_leads": [
+        "V5",
+        "II",
+        "aVR"
+      ],
+      "best_code": {
+        "code": "ANEUR",
+        "auc": 0.726
+      },
+      "serves_codes": []
+    },
+    "35": {
+      "top_leads": [
+        "V2",
+        "V1",
+        "V3"
+      ],
+      "best_code": {
+        "code": "CLBBB",
+        "auc": 0.887
+      },
+      "serves_codes": [
+        "CLBBB",
+        "ANEUR"
+      ]
+    },
+    "36": {
+      "top_leads": [
+        "II",
+        "aVR",
+        "V2"
+      ],
+      "best_code": {
+        "code": "NORM",
+        "auc": 0.653
+      },
+      "serves_codes": []
+    },
+    "37": {
+      "top_leads": [
+        "aVR",
+        "V5",
+        "V4"
+      ],
+      "best_code": {
+        "code": "NORM",
+        "auc": 0.627
+      },
+      "serves_codes": []
+    },
+    "38": {
+      "top_leads": [
+        "aVR",
+        "V2",
+        "II"
+      ],
+      "best_code": {
+        "code": "NORM",
+        "auc": 0.608
+      },
+      "serves_codes": []
+    },
+    "39": {
+      "top_leads": [
+        "aVR",
+        "II",
+        "V5"
+      ],
+      "best_code": {
+        "code": "ISCIL",
+        "auc": 0.672
+      },
+      "serves_codes": []
+    },
+    "40": {
+      "top_leads": [
+        "II",
+        "aVR",
+        "V1"
+      ],
+      "best_code": {
+        "code": "ISCIN",
+        "auc": 0.658
+      },
+      "serves_codes": []
+    },
+    "41": {
+      "top_leads": [
+        "V3",
+        "V2",
+        "aVR"
+      ],
+      "best_code": {
+        "code": "NORM",
+        "auc": 0.704
+      },
+      "serves_codes": []
+    },
+    "42": {
+      "top_leads": [
+        "V1",
+        "V2",
+        "aVR"
+      ],
+      "best_code": {
+        "code": "ISCIN",
+        "auc": 0.783
+      },
+      "serves_codes": [
+        "ISCIN",
+        "CRBBB",
+        "ILMI"
+      ]
+    },
+    "43": {
+      "top_leads": [
+        "V1",
+        "V2",
+        "V4"
+      ],
+      "best_code": {
+        "code": "INJAS",
+        "auc": 0.678
+      },
+      "serves_codes": []
+    },
+    "44": {
+      "top_leads": [
+        "III",
+        "aVF",
+        "aVL"
+      ],
+      "best_code": {
+        "code": "RAO/RAE",
+        "auc": 0.734
+      },
+      "serves_codes": []
+    },
+    "45": {
+      "top_leads": [
+        "aVR",
+        "V5",
+        "V4"
+      ],
+      "best_code": {
+        "code": "ISCIL",
+        "auc": 0.634
+      },
+      "serves_codes": []
+    },
+    "46": {
+      "top_leads": [
+        "V5",
+        "I",
+        "V1"
+      ],
+      "best_code": {
+        "code": "AMI",
+        "auc": 0.605
+      },
+      "serves_codes": []
+    },
+    "47": {
+      "top_leads": [
+        "aVR",
+        "II",
+        "V4"
+      ],
+      "best_code": {
+        "code": "RVH",
+        "auc": 0.701
+      },
+      "serves_codes": []
+    },
+    "48": {
+      "top_leads": [
+        "II",
+        "aVR",
+        "aVL"
+      ],
+      "best_code": {
+        "code": "LPFB",
+        "auc": 0.753
+      },
+      "serves_codes": [
+        "LPFB"
+      ]
+    },
+    "49": {
+      "top_leads": [
+        "I",
+        "aVL",
+        "aVR"
+      ],
+      "best_code": {
+        "code": "LMI",
+        "auc": 0.583
+      },
+      "serves_codes": []
+    },
+    "50": {
+      "top_leads": [
+        "V2",
+        "V1",
+        "V3"
+      ],
+      "best_code": {
+        "code": "CLBBB",
+        "auc": 0.956
+      },
+      "serves_codes": [
+        "CLBBB",
+        "ANEUR",
+        "ASMI"
+      ]
+    },
+    "51": {
+      "top_leads": [
+        "aVR",
+        "V5",
+        "I"
+      ],
+      "best_code": {
+        "code": "ISCIL",
+        "auc": 0.657
+      },
+      "serves_codes": []
+    },
+    "52": {
+      "top_leads": [
+        "V2",
+        "V1",
+        "V3"
+      ],
+      "best_code": {
+        "code": "CLBBB",
+        "auc": 0.94
+      },
+      "serves_codes": [
+        "CLBBB",
+        "CRBBB",
+        "ANEUR"
+      ]
+    },
+    "53": {
+      "top_leads": [
+        "aVL",
+        "III",
+        "V2"
+      ],
+      "best_code": {
+        "code": "CLBBB",
+        "auc": 0.816
+      },
+      "serves_codes": [
+        "CLBBB",
+        "INJAS",
+        "INJAL",
+        "ISC_",
+        "DIG"
+      ]
+    },
+    "54": {
+      "top_leads": [
+        "II",
+        "aVR",
+        "V4"
+      ],
+      "best_code": {
+        "code": "NORM",
+        "auc": 0.694
+      },
+      "serves_codes": []
+    },
+    "55": {
+      "top_leads": [
+        "aVR",
+        "V4",
+        "I"
+      ],
+      "best_code": {
+        "code": "NORM",
+        "auc": 0.673
+      },
+      "serves_codes": []
+    },
+    "56": {
+      "top_leads": [
+        "aVL",
+        "III",
+        "I"
+      ],
+      "best_code": {
+        "code": "LNGQT",
+        "auc": 0.639
+      },
+      "serves_codes": []
+    },
+    "57": {
+      "top_leads": [
+        "aVR",
+        "I",
+        "V5"
+      ],
+      "best_code": {
+        "code": "NST_",
+        "auc": 0.59
+      },
+      "serves_codes": []
+    },
+    "58": {
+      "top_leads": [
+        "V5",
+        "V4",
+        "aVR"
+      ],
+      "best_code": {
+        "code": "ISCLA",
+        "auc": 0.595
+      },
+      "serves_codes": []
+    },
+    "59": {
+      "top_leads": [
+        "V5",
+        "V4",
+        "aVR"
+      ],
+      "best_code": {
+        "code": "DIG",
+        "auc": 0.633
+      },
+      "serves_codes": []
+    },
+    "60": {
+      "top_leads": [
+        "V2",
+        "aVR",
+        "II"
+      ],
+      "best_code": {
+        "code": "NORM",
+        "auc": 0.642
+      },
+      "serves_codes": []
+    },
+    "61": {
+      "top_leads": [
+        "V2",
+        "V1",
+        "II"
+      ],
+      "best_code": {
+        "code": "ANEUR",
+        "auc": 0.727
+      },
+      "serves_codes": []
+    },
+    "62": {
+      "top_leads": [
+        "V5",
+        "aVR",
+        "II"
+      ],
+      "best_code": {
+        "code": "RVH",
+        "auc": 0.692
+      },
+      "serves_codes": []
+    },
+    "63": {
+      "top_leads": [
+        "aVR",
+        "II",
+        "V5"
+      ],
+      "best_code": {
+        "code": "NORM",
+        "auc": 0.773
+      },
+      "serves_codes": [
+        "NORM"
+      ]
+    }
+  }
+}

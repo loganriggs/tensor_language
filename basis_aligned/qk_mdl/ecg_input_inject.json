@@ -1,0 +1,1519 @@
+{
+  "n_capable": 28,
+  "alphas": [
+    0.5,
+    1.0,
+    2.0,
+    4.0
+  ],
+  "mean_insert_rise_maxdose": 0.171,
+  "frac_insert_monotone": 0.286,
+  "mean_remove_drop": 0.033,
+  "codes_insert_rise>=0.1": [
+    "NDT",
+    "NORM",
+    "IMI",
+    "ASMI",
+    "LVH",
+    "ISC_",
+    "IRBBB",
+    "1AVB",
+    "CLBBB",
+    "ISCIL",
+    "ISCLA"
+  ],
+  "mean_spillover_concordance": 0.571,
+  "per_code": {
+    "NDT": {
+      "top_feature": 4,
+      "auc": 0.89,
+      "served_codes": [],
+      "insert_negprob_base": 0.071,
+      "insert_dose": [
+        {
+          "alpha": 0.5,
+          "target_negprob": 0.074,
+          "spillover": {}
+        },
+        {
+          "alpha": 1.0,
+          "target_negprob": 0.077,
+          "spillover": {}
+        },
+        {
+          "alpha": 2.0,
+          "target_negprob": 0.122,
+          "spillover": {}
+        },
+        {
+          "alpha": 4.0,
+          "target_negprob": 0.264,
+          "spillover": {}
+        }
+      ],
+      "remove_posprob_base": 0.452,
+      "remove_posprob_after": 0.447,
+      "remove_drop": 0.005,
+      "insert_monotone": true
+    },
+    "NST_": {
+      "top_feature": 20,
+      "auc": 0.8,
+      "served_codes": [
+        "DIG",
+        "ISC_",
+        "CLBBB",
+        "ANEUR"
+      ],
+      "insert_negprob_base": 0.036,
+      "insert_dose": [
+        {
+          "alpha": 0.5,
+          "target_negprob": 0.05,
+          "spillover": {
+            "DIG": -0.001,
+            "ISC_": -0.017,
+            "CLBBB": -0.002,
+            "ANEUR": -0.001
+          }
+        },
+        {
+          "alpha": 1.0,
+          "target_negprob": 0.041,
+          "spillover": {
+            "DIG": -0.001,
+            "ISC_": -0.022,
+            "CLBBB": -0.006,
+            "ANEUR": -0.001
+          }
+        },
+        {
+          "alpha": 2.0,
+          "target_negprob": 0.062,
+          "spillover": {
+            "DIG": 0.087,
+            "ISC_": 0.188,
+            "CLBBB": -0.015,
+            "ANEUR": -0.001
+          }
+        },
+        {
+          "alpha": 4.0,
+          "target_negprob": 0.033,
+          "spillover": {
+            "DIG": 0.067,
+            "ISC_": 0.872,
+            "CLBBB": -0.019,
+            "ANEUR": 0.005
+          }
+        }
+      ],
+      "remove_posprob_base": 0.135,
+      "remove_posprob_after": 0.132,
+      "remove_drop": 0.003,
+      "insert_monotone": false
+    },
+    "DIG": {
+      "top_feature": 20,
+      "auc": 0.931,
+      "served_codes": [
+        "ISC_",
+        "CLBBB",
+        "ANEUR"
+      ],
+      "insert_negprob_base": 0.008,
+      "insert_dose": [
+        {
+          "alpha": 0.5,
+          "target_negprob": 0.006,
+          "spillover": {
+            "ISC_": -0.017,
+            "CLBBB": -0.001,
+            "ANEUR": -0.001
+          }
+        },
+        {
+          "alpha": 1.0,
+          "target_negprob": 0.007,
+          "spillover": {
+            "ISC_": -0.023,
+            "CLBBB": -0.006,
+            "ANEUR": -0.001
+          }
+        },
+        {
+          "alpha": 2.0,
+          "target_negprob": 0.095,
+          "spillover": {
+            "ISC_": 0.188,
+            "CLBBB": -0.015,
+            "ANEUR": -0.001
+          }
+        },
+        {
+          "alpha": 4.0,
+          "target_negprob": 0.076,
+          "spillover": {
+            "ISC_": 0.871,
+            "CLBBB": -0.019,
+            "ANEUR": 0.005
+          }
+        }
+      ],
+      "remove_posprob_base": 0.074,
+      "remove_posprob_after": 0.08,
+      "remove_drop": -0.006,
+      "insert_monotone": false
+    },
+    "NORM": {
+      "top_feature": 63,
+      "auc": 0.928,
+      "served_codes": [],
+      "insert_negprob_base": 0.19,
+      "insert_dose": [
+        {
+          "alpha": 0.5,
+          "target_negprob": 0.177,
+          "spillover": {}
+        },
+        {
+          "alpha": 1.0,
+          "target_negprob": 0.176,
+          "spillover": {}
+        },
+        {
+          "alpha": 2.0,
+          "target_negprob": 0.23,
+          "spillover": {}
+        },
+        {
+          "alpha": 4.0,
+          "target_negprob": 0.462,
+          "spillover": {}
+        }
+      ],
+      "remove_posprob_base": 0.85,
+      "remove_posprob_after": 0.81,
+      "remove_drop": 0.039,
+      "insert_monotone": false
+    },
+    "IMI": {
+      "top_feature": 8,
+      "auc": 0.895,
+      "served_codes": [
+        "LAFB",
+        "CRBBB",
+        "CLBBB",
+        "ILMI"
+      ],
+      "insert_negprob_base": 0.047,
+      "insert_dose": [
+        {
+          "alpha": 0.5,
+          "target_negprob": 0.089,
+          "spillover": {
+            "LAFB": -0.008,
+            "CRBBB": -0.0,
+            "CLBBB": -0.0,
+            "ILMI": 0.009
+          }
+        },
+        {
+          "alpha": 1.0,
+          "target_negprob": 0.219,
+          "spillover": {
+            "LAFB": -0.03,
+            "CRBBB": 0.004,
+            "CLBBB": 0.001,
+            "ILMI": 0.028
+          }
+        },
+        {
+          "alpha": 2.0,
+          "target_negprob": 0.39,
+          "spillover": {
+            "LAFB": -0.047,
+            "CRBBB": 0.182,
+            "CLBBB": 0.044,
+            "ILMI": 0.081
+          }
+        },
+        {
+          "alpha": 4.0,
+          "target_negprob": 0.372,
+          "spillover": {
+            "LAFB": -0.041,
+            "CRBBB": 0.797,
+            "CLBBB": 0.069,
+            "ILMI": 0.297
+          }
+        }
+      ],
+      "remove_posprob_base": 0.392,
+      "remove_posprob_after": 0.306,
+      "remove_drop": 0.086,
+      "insert_monotone": false
+    },
+    "ASMI": {
+      "top_feature": 50,
+      "auc": 0.946,
+      "served_codes": [
+        "CLBBB",
+        "ILMI",
+        "ANEUR"
+      ],
+      "insert_negprob_base": 0.043,
+      "insert_dose": [
+        {
+          "alpha": 0.5,
+          "target_negprob": 0.515,
+          "spillover": {
+            "CLBBB": 0.006,
+            "ILMI": -0.0,
+            "ANEUR": 0.016
+          }
+        },
+        {
+          "alpha": 1.0,
+          "target_negprob": 0.813,
+          "spillover": {
+            "CLBBB": 0.076,
+            "ILMI": -0.005,
+            "ANEUR": 0.049
+          }
+        },
+        {
+          "alpha": 2.0,
+          "target_negprob": 0.906,
+          "spillover": {
+            "CLBBB": 0.623,
+            "ILMI": -0.008,
+            "ANEUR": 0.104
+          }
+        },
+        {
+          "alpha": 4.0,
+          "target_negprob": 0.773,
+          "spillover": {
+            "CLBBB": 0.937,
+            "ILMI": -0.011,
+            "ANEUR": 0.09
+          }
+        }
+      ],
+      "remove_posprob_base": 0.587,
+      "remove_posprob_after": 0.484,
+      "remove_drop": 0.103,
+      "insert_monotone": false
+    },
+    "LVH": {
+      "top_feature": 2,
+      "auc": 0.932,
+      "served_codes": [
+        "ISC_",
+        "CLBBB",
+        "ISCIL",
+        "ANEUR"
+      ],
+      "insert_negprob_base": 0.042,
+      "insert_dose": [
+        {
+          "alpha": 0.5,
+          "target_negprob": 0.138,
+          "spillover": {
+            "ISC_": 0.046,
+            "CLBBB": -0.0,
+            "ISCIL": 0.007,
+            "ANEUR": 0.008
+          }
+        },
+        {
+          "alpha": 1.0,
+          "target_negprob": 0.489,
+          "spillover": {
+            "ISC_": 0.336,
+            "CLBBB": 0.003,
+            "ISCIL": 0.014,
+            "ANEUR": 0.018
+          }
+        },
+        {
+          "alpha": 2.0,
+          "target_negprob": 0.811,
+          "spillover": {
+            "ISC_": 0.787,
+            "CLBBB": 0.031,
+            "ISCIL": 0.004,
+            "ANEUR": 0.039
+          }
+        },
+        {
+          "alpha": 4.0,
+          "target_negprob": 0.415,
+          "spillover": {
+            "ISC_": 0.82,
+            "CLBBB": 0.086,
+            "ISCIL": 0.145,
+            "ANEUR": 0.177
+          }
+        }
+      ],
+      "remove_posprob_base": 0.531,
+      "remove_posprob_after": 0.414,
+      "remove_drop": 0.117,
+      "insert_monotone": false
+    },
+    "LAFB": {
+      "top_feature": 8,
+      "auc": 0.975,
+      "served_codes": [
+        "CRBBB",
+        "CLBBB",
+        "ILMI"
+      ],
+      "insert_negprob_base": 0.028,
+      "insert_dose": [
+        {
+          "alpha": 0.5,
+          "target_negprob": 0.025,
+          "spillover": {
+            "CRBBB": 0.001,
+            "CLBBB": -0.0,
+            "ILMI": 0.01
+          }
+        },
+        {
+          "alpha": 1.0,
+          "target_negprob": 0.016,
+          "spillover": {
+            "CRBBB": 0.006,
+            "CLBBB": 0.001,
+            "ILMI": 0.03
+          }
+        },
+        {
+          "alpha": 2.0,
+          "target_negprob": 0.013,
+          "spillover": {
+            "CRBBB": 0.191,
+            "CLBBB": 0.048,
+            "ILMI": 0.08
+          }
+        },
+        {
+          "alpha": 4.0,
+          "target_negprob": 0.029,
+          "spillover": {
+            "CRBBB": 0.8,
+            "CLBBB": 0.079,
+            "ILMI": 0.301
+          }
+        }
+      ],
+      "remove_posprob_base": 0.696,
+      "remove_posprob_after": 0.631,
+      "remove_drop": 0.065,
+      "insert_monotone": false
+    },
+    "ISC_": {
+      "top_feature": 2,
+      "auc": 0.954,
+      "served_codes": [
+        "LVH",
+        "CLBBB",
+        "ISCIL",
+        "ANEUR"
+      ],
+      "insert_negprob_base": 0.021,
+      "insert_dose": [
+        {
+          "alpha": 0.5,
+          "target_negprob": 0.07,
+          "spillover": {
+            "LVH": 0.102,
+            "CLBBB": -0.0,
+            "ISCIL": 0.007,
+            "ANEUR": 0.007
+          }
+        },
+        {
+          "alpha": 1.0,
+          "target_negprob": 0.358,
+          "spillover": {
+            "LVH": 0.445,
+            "CLBBB": 0.003,
+            "ISCIL": 0.014,
+            "ANEUR": 0.018
+          }
+        },
+        {
+          "alpha": 2.0,
+          "target_negprob": 0.803,
+          "spillover": {
+            "LVH": 0.755,
+            "CLBBB": 0.03,
+            "ISCIL": 0.004,
+            "ANEUR": 0.038
+          }
+        },
+        {
+          "alpha": 4.0,
+          "target_negprob": 0.833,
+          "spillover": {
+            "LVH": 0.358,
+            "CLBBB": 0.087,
+            "ISCIL": 0.143,
+            "ANEUR": 0.172
+          }
+        }
+      ],
+      "remove_posprob_base": 0.494,
+      "remove_posprob_after": 0.305,
+      "remove_drop": 0.189,
+      "insert_monotone": true
+    },
+    "IRBBB": {
+      "top_feature": 3,
+      "auc": 0.933,
+      "served_codes": [],
+      "insert_negprob_base": 0.03,
+      "insert_dose": [
+        {
+          "alpha": 0.5,
+          "target_negprob": 0.029,
+          "spillover": {}
+        },
+        {
+          "alpha": 1.0,
+          "target_negprob": 0.033,
+          "spillover": {}
+        },
+        {
+          "alpha": 2.0,
+          "target_negprob": 0.059,
+          "spillover": {}
+        },
+        {
+          "alpha": 4.0,
+          "target_negprob": 0.137,
+          "spillover": {}
+        }
+      ],
+      "remove_posprob_base": 0.451,
+      "remove_posprob_after": 0.509,
+      "remove_drop": -0.059,
+      "insert_monotone": true
+    },
+    "1AVB": {
+      "top_feature": 8,
+      "auc": 0.918,
+      "served_codes": [
+        "LAFB",
+        "CRBBB",
+        "CLBBB",
+        "ILMI"
+      ],
+      "insert_negprob_base": 0.036,
+      "insert_dose": [
+        {
+          "alpha": 0.5,
+          "target_negprob": 0.05,
+          "spillover": {
+            "LAFB": -0.008,
+            "CRBBB": -0.0,
+            "CLBBB": -0.0,
+            "ILMI": 0.01
+          }
+        },
+        {
+          "alpha": 1.0,
+          "target_negprob": 0.103,
+          "spillover": {
+            "LAFB": -0.03,
+            "CRBBB": 0.005,
+            "CLBBB": 0.001,
+            "ILMI": 0.032
+          }
+        },
+        {
+          "alpha": 2.0,
+          "target_negprob": 0.332,
+          "spillover": {
+            "LAFB": -0.048,
+            "CRBBB": 0.185,
+            "CLBBB": 0.049,
+            "ILMI": 0.087
+          }
+        },
+        {
+          "alpha": 4.0,
+          "target_negprob": 0.388,
+          "spillover": {
+            "LAFB": -0.041,
+            "CRBBB": 0.797,
+            "CLBBB": 0.078,
+            "ILMI": 0.306
+          }
+        }
+      ],
+      "remove_posprob_base": 0.316,
+      "remove_posprob_after": 0.247,
+      "remove_drop": 0.069,
+      "insert_monotone": true
+    },
+    "ISCAL": {
+      "top_feature": 53,
+      "auc": 0.923,
+      "served_codes": [
+        "DIG",
+        "ISC_",
+        "CLBBB",
+        "INJAS",
+        "INJAL"
+      ],
+      "insert_negprob_base": 0.017,
+      "insert_dose": [
+        {
+          "alpha": 0.5,
+          "target_negprob": 0.019,
+          "spillover": {
+            "DIG": 0.003,
+            "ISC_": 0.004,
+            "CLBBB": -0.001,
+            "INJAS": 0.001,
+            "INJAL": -0.0
+          }
+        },
+        {
+          "alpha": 1.0,
+          "target_negprob": 0.034,
+          "spillover": {
+            "DIG": 0.011,
+            "ISC_": 0.008,
+            "CLBBB": -0.001,
+            "INJAS": 0.002,
+            "INJAL": -0.0
+          }
+        },
+        {
+          "alpha": 2.0,
+          "target_negprob": 0.049,
+          "spillover": {
+            "DIG": 0.032,
+            "ISC_": 0.03,
+            "CLBBB": -0.004,
+            "INJAS": 0.003,
+            "INJAL": -0.001
+          }
+        },
+        {
+          "alpha": 4.0,
+          "target_negprob": 0.03,
+          "spillover": {
+            "DIG": 0.002,
+            "ISC_": 0.041,
+            "CLBBB": 0.018,
+            "INJAS": 0.003,
+            "INJAL": 0.001
+          }
+        }
+      ],
+      "remove_posprob_base": 0.158,
+      "remove_posprob_after": 0.156,
+      "remove_drop": 0.003,
+      "insert_monotone": false
+    },
+    "CRBBB": {
+      "top_feature": 52,
+      "auc": 0.996,
+      "served_codes": [
+        "CLBBB",
+        "RVH",
+        "ANEUR"
+      ],
+      "insert_negprob_base": 0.007,
+      "insert_dose": [
+        {
+          "alpha": 0.5,
+          "target_negprob": 0.005,
+          "spillover": {
+            "CLBBB": 0.003,
+            "RVH": -0.002,
+            "ANEUR": 0.001
+          }
+        },
+        {
+          "alpha": 1.0,
+          "target_negprob": 0.002,
+          "spillover": {
+            "CLBBB": 0.085,
+            "RVH": -0.003,
+            "ANEUR": -0.001
+          }
+        },
+        {
+          "alpha": 2.0,
+          "target_negprob": 0.001,
+          "spillover": {
+            "CLBBB": 0.759,
+            "RVH": -0.003,
+            "ANEUR": -0.003
+          }
+        },
+        {
+          "alpha": 4.0,
+          "target_negprob": 0.002,
+          "spillover": {
+            "CLBBB": 0.954,
+            "RVH": -0.003,
+            "ANEUR": 0.003
+          }
+        }
+      ],
+      "remove_posprob_base": 0.819,
+      "remove_posprob_after": 0.752,
+      "remove_drop": 0.067,
+      "insert_monotone": false
+    },
+    "CLBBB": {
+      "top_feature": 50,
+      "auc": 0.995,
+      "served_codes": [
+        "ASMI",
+        "ILMI",
+        "ANEUR"
+      ],
+      "insert_negprob_base": 0.005,
+      "insert_dose": [
+        {
+          "alpha": 0.5,
+          "target_negprob": 0.011,
+          "spillover": {
+            "ASMI": 0.464,
+            "ILMI": 0.002,
+            "ANEUR": 0.024
+          }
+        },
+        {
+          "alpha": 1.0,
+          "target_negprob": 0.081,
+          "spillover": {
+            "ASMI": 0.738,
+            "ILMI": -0.006,
+            "ANEUR": 0.06
+          }
+        },
+        {
+          "alpha": 2.0,
+          "target_negprob": 0.635,
+          "spillover": {
+            "ASMI": 0.82,
+            "ILMI": -0.01,
+            "ANEUR": 0.108
+          }
+        },
+        {
+          "alpha": 4.0,
+          "target_negprob": 0.962,
+          "spillover": {
+            "ASMI": 0.68,
+            "ILMI": -0.014,
+            "ANEUR": 0.09
+          }
+        }
+      ],
+      "remove_posprob_base": 0.814,
+      "remove_posprob_after": 0.676,
+      "remove_drop": 0.138,
+      "insert_monotone": true
+    },
+    "ILMI": {
+      "top_feature": 42,
+      "auc": 0.919,
+      "served_codes": [
+        "CRBBB",
+        "CLBBB",
+        "ISCIN",
+        "ISCIL"
+      ],
+      "insert_negprob_base": 0.008,
+      "insert_dose": [
+        {
+          "alpha": 0.5,
+          "target_negprob": 0.01,
+          "spillover": {
+            "CRBBB": -0.002,
+            "CLBBB": 0.0,
+            "ISCIN": -0.0,
+            "ISCIL": -0.0
+          }
+        },
+        {
+          "alpha": 1.0,
+          "target_negprob": 0.011,
+          "spillover": {
+            "CRBBB": -0.005,
+            "CLBBB": 0.001,
+            "ISCIN": -0.002,
+            "ISCIL": -0.0
+          }
+        },
+        {
+          "alpha": 2.0,
+          "target_negprob": 0.011,
+          "spillover": {
+            "CRBBB": -0.015,
+            "CLBBB": 0.002,
+            "ISCIN": -0.0,
+            "ISCIL": 0.002
+          }
+        },
+        {
+          "alpha": 4.0,
+          "target_negprob": 0.025,
+          "spillover": {
+            "CRBBB": -0.024,
+            "CLBBB": -0.002,
+            "ISCIN": 0.03,
+            "ISCIL": 0.019
+          }
+        }
+      ],
+      "remove_posprob_base": 0.328,
+      "remove_posprob_after": 0.349,
+      "remove_drop": -0.021,
+      "insert_monotone": true
+    },
+    "AMI": {
+      "top_feature": 8,
+      "auc": 0.885,
+      "served_codes": [
+        "LAFB",
+        "CRBBB",
+        "CLBBB",
+        "ILMI"
+      ],
+      "insert_negprob_base": 0.01,
+      "insert_dose": [
+        {
+          "alpha": 0.5,
+          "target_negprob": 0.026,
+          "spillover": {
+            "LAFB": -0.008,
+            "CRBBB": -0.0,
+            "CLBBB": -0.0,
+            "ILMI": 0.011
+          }
+        },
+        {
+          "alpha": 1.0,
+          "target_negprob": 0.096,
+          "spillover": {
+            "LAFB": -0.03,
+            "CRBBB": 0.005,
+            "CLBBB": 0.001,
+            "ILMI": 0.033
+          }
+        },
+        {
+          "alpha": 2.0,
+          "target_negprob": 0.275,
+          "spillover": {
+            "LAFB": -0.048,
+            "CRBBB": 0.183,
+            "CLBBB": 0.051,
+            "ILMI": 0.088
+          }
+        },
+        {
+          "alpha": 4.0,
+          "target_negprob": 0.09,
+          "spillover": {
+            "LAFB": -0.042,
+            "CRBBB": 0.789,
+            "CLBBB": 0.08,
+            "ILMI": 0.305
+          }
+        }
+      ],
+      "remove_posprob_base": 0.068,
+      "remove_posprob_after": 0.062,
+      "remove_drop": 0.006,
+      "insert_monotone": false
+    },
+    "ALMI": {
+      "top_feature": 11,
+      "auc": 0.915,
+      "served_codes": [
+        "DIG",
+        "CRBBB",
+        "CLBBB",
+        "INJAS",
+        "LMI",
+        "ANEUR"
+      ],
+      "insert_negprob_base": 0.006,
+      "insert_dose": [
+        {
+          "alpha": 0.5,
+          "target_negprob": 0.019,
+          "spillover": {
+            "DIG": -0.004,
+            "CRBBB": -0.008,
+            "CLBBB": 0.002,
+            "INJAS": 0.042,
+            "LMI": 0.027,
+            "ANEUR": 0.001
+          }
+        },
+        {
+          "alpha": 1.0,
+          "target_negprob": 0.031,
+          "spillover": {
+            "DIG": -0.007,
+            "CRBBB": -0.021,
+            "CLBBB": 0.047,
+            "INJAS": 0.004,
+            "LMI": 0.013,
+            "ANEUR": 0.004
+          }
+        },
+        {
+          "alpha": 2.0,
+          "target_negprob": 0.011,
+          "spillover": {
+            "DIG": -0.008,
+            "CRBBB": -0.027,
+            "CLBBB": 0.756,
+            "INJAS": -0.006,
+            "LMI": -0.008,
+            "ANEUR": 0.002
+          }
+        },
+        {
+          "alpha": 4.0,
+          "target_negprob": 0.02,
+          "spillover": {
+            "DIG": -0.008,
+            "CRBBB": -0.027,
+            "CLBBB": 0.972,
+            "INJAS": -0.005,
+            "LMI": -0.005,
+            "ANEUR": 0.011
+          }
+        }
+      ],
+      "remove_posprob_base": 0.31,
+      "remove_posprob_after": 0.297,
+      "remove_drop": 0.013,
+      "insert_monotone": false
+    },
+    "ISCIN": {
+      "top_feature": 42,
+      "auc": 0.898,
+      "served_codes": [
+        "CRBBB",
+        "CLBBB",
+        "ILMI",
+        "ISCIL"
+      ],
+      "insert_negprob_base": 0.007,
+      "insert_dose": [
+        {
+          "alpha": 0.5,
+          "target_negprob": 0.007,
+          "spillover": {
+            "CRBBB": -0.002,
+            "CLBBB": 0.0,
+            "ILMI": 0.001,
+            "ISCIL": 0.0
+          }
+        },
+        {
+          "alpha": 1.0,
+          "target_negprob": 0.005,
+          "spillover": {
+            "CRBBB": -0.005,
+            "CLBBB": 0.001,
+            "ILMI": 0.001,
+            "ISCIL": -0.0
+          }
+        },
+        {
+          "alpha": 2.0,
+          "target_negprob": 0.007,
+          "spillover": {
+            "CRBBB": -0.016,
+            "CLBBB": 0.002,
+            "ILMI": -0.003,
+            "ISCIL": 0.002
+          }
+        },
+        {
+          "alpha": 4.0,
+          "target_negprob": 0.037,
+          "spillover": {
+            "CRBBB": -0.024,
+            "CLBBB": -0.002,
+            "ILMI": 0.01,
+            "ISCIL": 0.019
+          }
+        }
+      ],
+      "remove_posprob_base": 0.103,
+      "remove_posprob_after": 0.089,
+      "remove_drop": 0.014,
+      "insert_monotone": false
+    },
+    "INJAS": {
+      "top_feature": 53,
+      "auc": 0.978,
+      "served_codes": [
+        "DIG",
+        "ISC_",
+        "CLBBB",
+        "INJAL"
+      ],
+      "insert_negprob_base": 0.004,
+      "insert_dose": [
+        {
+          "alpha": 0.5,
+          "target_negprob": 0.005,
+          "spillover": {
+            "DIG": 0.002,
+            "ISC_": 0.004,
+            "CLBBB": -0.001,
+            "INJAL": 0.0
+          }
+        },
+        {
+          "alpha": 1.0,
+          "target_negprob": 0.006,
+          "spillover": {
+            "DIG": 0.011,
+            "ISC_": 0.008,
+            "CLBBB": -0.001,
+            "INJAL": 0.0
+          }
+        },
+        {
+          "alpha": 2.0,
+          "target_negprob": 0.009,
+          "spillover": {
+            "DIG": 0.032,
+            "ISC_": 0.03,
+            "CLBBB": -0.004,
+            "INJAL": 0.0
+          }
+        },
+        {
+          "alpha": 4.0,
+          "target_negprob": 0.01,
+          "spillover": {
+            "DIG": 0.002,
+            "ISC_": 0.041,
+            "CLBBB": 0.017,
+            "INJAL": 0.002
+          }
+        }
+      ],
+      "remove_posprob_base": 0.31,
+      "remove_posprob_after": 0.299,
+      "remove_drop": 0.01,
+      "insert_monotone": true
+    },
+    "LMI": {
+      "top_feature": 11,
+      "auc": 0.869,
+      "served_codes": [
+        "DIG",
+        "CRBBB",
+        "CLBBB",
+        "ALMI",
+        "INJAS",
+        "ANEUR"
+      ],
+      "insert_negprob_base": 0.011,
+      "insert_dose": [
+        {
+          "alpha": 0.5,
+          "target_negprob": 0.037,
+          "spillover": {
+            "DIG": -0.004,
+            "CRBBB": -0.008,
+            "CLBBB": 0.002,
+            "ALMI": 0.013,
+            "INJAS": 0.041,
+            "ANEUR": 0.001
+          }
+        },
+        {
+          "alpha": 1.0,
+          "target_negprob": 0.023,
+          "spillover": {
+            "DIG": -0.007,
+            "CRBBB": -0.021,
+            "CLBBB": 0.047,
+            "ALMI": 0.024,
+            "INJAS": 0.004,
+            "ANEUR": 0.004
+          }
+        },
+        {
+          "alpha": 2.0,
+          "target_negprob": 0.002,
+          "spillover": {
+            "DIG": -0.008,
+            "CRBBB": -0.027,
+            "CLBBB": 0.757,
+            "ALMI": 0.002,
+            "INJAS": -0.006,
+            "ANEUR": 0.002
+          }
+        },
+        {
+          "alpha": 4.0,
+          "target_negprob": 0.005,
+          "spillover": {
+            "DIG": -0.008,
+            "CRBBB": -0.028,
+            "CLBBB": 0.973,
+            "ALMI": 0.011,
+            "INJAS": -0.005,
+            "ANEUR": 0.01
+          }
+        }
+      ],
+      "remove_posprob_base": 0.054,
+      "remove_posprob_after": 0.054,
+      "remove_drop": -0.0,
+      "insert_monotone": false
+    },
+    "ISCIL": {
+      "top_feature": 2,
+      "auc": 0.953,
+      "served_codes": [
+        "LVH",
+        "ISC_",
+        "CLBBB",
+        "ANEUR"
+      ],
+      "insert_negprob_base": 0.006,
+      "insert_dose": [
+        {
+          "alpha": 0.5,
+          "target_negprob": 0.012,
+          "spillover": {
+            "LVH": 0.105,
+            "ISC_": 0.056,
+            "CLBBB": -0.0,
+            "ANEUR": 0.008
+          }
+        },
+        {
+          "alpha": 1.0,
+          "target_negprob": 0.018,
+          "spillover": {
+            "LVH": 0.436,
+            "ISC_": 0.336,
+            "CLBBB": 0.003,
+            "ANEUR": 0.018
+          }
+        },
+        {
+          "alpha": 2.0,
+          "target_negprob": 0.01,
+          "spillover": {
+            "LVH": 0.73,
+            "ISC_": 0.762,
+            "CLBBB": 0.028,
+            "ANEUR": 0.036
+          }
+        },
+        {
+          "alpha": 4.0,
+          "target_negprob": 0.148,
+          "spillover": {
+            "LVH": 0.335,
+            "ISC_": 0.784,
+            "CLBBB": 0.087,
+            "ANEUR": 0.168
+          }
+        }
+      ],
+      "remove_posprob_base": 0.123,
+      "remove_posprob_after": 0.099,
+      "remove_drop": 0.024,
+      "insert_monotone": false
+    },
+    "LPFB": {
+      "top_feature": 33,
+      "auc": 0.962,
+      "served_codes": [
+        "CRBBB"
+      ],
+      "insert_negprob_base": 0.005,
+      "insert_dose": [
+        {
+          "alpha": 0.5,
+          "target_negprob": 0.005,
+          "spillover": {
+            "CRBBB": -0.001
+          }
+        },
+        {
+          "alpha": 1.0,
+          "target_negprob": 0.008,
+          "spillover": {
+            "CRBBB": -0.005
+          }
+        },
+        {
+          "alpha": 2.0,
+          "target_negprob": 0.015,
+          "spillover": {
+            "CRBBB": -0.019
+          }
+        },
+        {
+          "alpha": 4.0,
+          "target_negprob": 0.003,
+          "spillover": {
+            "CRBBB": -0.024
+          }
+        }
+      ],
+      "remove_posprob_base": 0.348,
+      "remove_posprob_after": 0.345,
+      "remove_drop": 0.003,
+      "insert_monotone": false
+    },
+    "ISCAS": {
+      "top_feature": 11,
+      "auc": 0.914,
+      "served_codes": [
+        "DIG",
+        "CRBBB",
+        "CLBBB",
+        "ALMI",
+        "INJAS",
+        "LMI",
+        "ANEUR"
+      ],
+      "insert_negprob_base": 0.007,
+      "insert_dose": [
+        {
+          "alpha": 0.5,
+          "target_negprob": 0.022,
+          "spillover": {
+            "DIG": -0.003,
+            "CRBBB": -0.008,
+            "CLBBB": 0.002,
+            "ALMI": 0.012,
+            "INJAS": 0.04,
+            "LMI": 0.027,
+            "ANEUR": 0.001
+          }
+        },
+        {
+          "alpha": 1.0,
+          "target_negprob": 0.002,
+          "spillover": {
+            "DIG": -0.007,
+            "CRBBB": -0.021,
+            "CLBBB": 0.047,
+            "ALMI": 0.024,
+            "INJAS": 0.004,
+            "LMI": 0.013,
+            "ANEUR": 0.004
+          }
+        },
+        {
+          "alpha": 2.0,
+          "target_negprob": 0.0,
+          "spillover": {
+            "DIG": -0.007,
+            "CRBBB": -0.027,
+            "CLBBB": 0.755,
+            "ALMI": 0.001,
+            "INJAS": -0.006,
+            "LMI": -0.009,
+            "ANEUR": 0.001
+          }
+        },
+        {
+          "alpha": 4.0,
+          "target_negprob": 0.002,
+          "spillover": {
+            "DIG": -0.007,
+            "CRBBB": -0.028,
+            "CLBBB": 0.972,
+            "ALMI": 0.01,
+            "INJAS": -0.005,
+            "LMI": -0.006,
+            "ANEUR": 0.01
+          }
+        }
+      ],
+      "remove_posprob_base": 0.103,
+      "remove_posprob_after": 0.114,
+      "remove_drop": -0.01,
+      "insert_monotone": false
+    },
+    "INJAL": {
+      "top_feature": 53,
+      "auc": 0.971,
+      "served_codes": [
+        "DIG",
+        "ISC_",
+        "CLBBB",
+        "INJAS"
+      ],
+      "insert_negprob_base": 0.002,
+      "insert_dose": [
+        {
+          "alpha": 0.5,
+          "target_negprob": 0.003,
+          "spillover": {
+            "DIG": 0.002,
+            "ISC_": 0.004,
+            "CLBBB": -0.001,
+            "INJAS": 0.001
+          }
+        },
+        {
+          "alpha": 1.0,
+          "target_negprob": 0.003,
+          "spillover": {
+            "DIG": 0.011,
+            "ISC_": 0.008,
+            "CLBBB": -0.001,
+            "INJAS": 0.003
+          }
+        },
+        {
+          "alpha": 2.0,
+          "target_negprob": 0.003,
+          "spillover": {
+            "DIG": 0.032,
+            "ISC_": 0.03,
+            "CLBBB": -0.004,
+            "INJAS": 0.005
+          }
+        },
+        {
+          "alpha": 4.0,
+          "target_negprob": 0.005,
+          "spillover": {
+            "DIG": 0.001,
+            "ISC_": 0.04,
+            "CLBBB": 0.017,
+            "INJAS": 0.005
+          }
+        }
+      ],
+      "remove_posprob_base": 0.343,
+      "remove_posprob_after": 0.34,
+      "remove_drop": 0.003,
+      "insert_monotone": true
+    },
+    "ISCLA": {
+      "top_feature": 2,
+      "auc": 0.902,
+      "served_codes": [
+        "LVH",
+        "ISC_",
+        "CLBBB",
+        "ISCIL",
+        "ANEUR"
+      ],
+      "insert_negprob_base": 0.004,
+      "insert_dose": [
+        {
+          "alpha": 0.5,
+          "target_negprob": 0.012,
+          "spillover": {
+            "LVH": 0.105,
+            "ISC_": 0.056,
+            "CLBBB": -0.0,
+            "ISCIL": 0.006,
+            "ANEUR": 0.008
+          }
+        },
+        {
+          "alpha": 1.0,
+          "target_negprob": 0.02,
+          "spillover": {
+            "LVH": 0.435,
+            "ISC_": 0.336,
+            "CLBBB": 0.003,
+            "ISCIL": 0.012,
+            "ANEUR": 0.017
+          }
+        },
+        {
+          "alpha": 2.0,
+          "target_negprob": 0.018,
+          "spillover": {
+            "LVH": 0.731,
+            "ISC_": 0.762,
+            "CLBBB": 0.028,
+            "ISCIL": 0.003,
+            "ANEUR": 0.036
+          }
+        },
+        {
+          "alpha": 4.0,
+          "target_negprob": 0.223,
+          "spillover": {
+            "LVH": 0.336,
+            "ISC_": 0.785,
+            "CLBBB": 0.088,
+            "ISCIL": 0.142,
+            "ANEUR": 0.168
+          }
+        }
+      ],
+      "remove_posprob_base": 0.043,
+      "remove_posprob_after": 0.042,
+      "remove_drop": 0.001,
+      "insert_monotone": false
+    },
+    "RVH": {
+      "top_feature": 52,
+      "auc": 0.935,
+      "served_codes": [
+        "CRBBB",
+        "CLBBB",
+        "ANEUR"
+      ],
+      "insert_negprob_base": 0.006,
+      "insert_dose": [
+        {
+          "alpha": 0.5,
+          "target_negprob": 0.002,
+          "spillover": {
+            "CRBBB": -0.007,
+            "CLBBB": 0.003,
+            "ANEUR": 0.002
+          }
+        },
+        {
+          "alpha": 1.0,
+          "target_negprob": 0.001,
+          "spillover": {
+            "CRBBB": -0.021,
+            "CLBBB": 0.085,
+            "ANEUR": -0.001
+          }
+        },
+        {
+          "alpha": 2.0,
+          "target_negprob": 0.001,
+          "spillover": {
+            "CRBBB": -0.023,
+            "CLBBB": 0.759,
+            "ANEUR": -0.002
+          }
+        },
+        {
+          "alpha": 4.0,
+          "target_negprob": 0.001,
+          "spillover": {
+            "CRBBB": -0.023,
+            "CLBBB": 0.954,
+            "ANEUR": 0.003
+          }
+        }
+      ],
+      "remove_posprob_base": 0.17,
+      "remove_posprob_after": 0.157,
+      "remove_drop": 0.012,
+      "insert_monotone": false
+    },
+    "ANEUR": {
+      "top_feature": 50,
+      "auc": 0.943,
+      "served_codes": [
+        "ASMI",
+        "CLBBB",
+        "ILMI"
+      ],
+      "insert_negprob_base": 0.004,
+      "insert_dose": [
+        {
+          "alpha": 0.5,
+          "target_negprob": 0.027,
+          "spillover": {
+            "ASMI": 0.457,
+            "CLBBB": 0.007,
+            "ILMI": 0.002
+          }
+        },
+        {
+          "alpha": 1.0,
+          "target_negprob": 0.063,
+          "spillover": {
+            "ASMI": 0.727,
+            "CLBBB": 0.076,
+            "ILMI": -0.006
+          }
+        },
+        {
+          "alpha": 2.0,
+          "target_negprob": 0.111,
+          "spillover": {
+            "ASMI": 0.809,
+            "CLBBB": 0.617,
+            "ILMI": -0.01
+          }
+        },
+        {
+          "alpha": 4.0,
+          "target_negprob": 0.092,
+          "spillover": {
+            "ASMI": 0.673,
+            "CLBBB": 0.937,
+            "ILMI": -0.014
+          }
+        }
+      ],
+      "remove_posprob_base": 0.048,
+      "remove_posprob_after": 0.032,
+      "remove_drop": 0.016,
+      "insert_monotone": false
+    },
+    "RAO/RAE": {
+      "top_feature": 18,
+      "auc": 0.851,
+      "served_codes": [],
+      "insert_negprob_base": 0.003,
+      "insert_dose": [
+        {
+          "alpha": 0.5,
+          "target_negprob": 0.003,
+          "spillover": {}
+        },
+        {
+          "alpha": 1.0,
+          "target_negprob": 0.003,
+          "spillover": {}
+        },
+        {
+          "alpha": 2.0,
+          "target_negprob": 0.003,
+          "spillover": {}
+        },
+        {
+          "alpha": 4.0,
+          "target_negprob": 0.002,
+          "spillover": {}
+        }
+      ],
+      "remove_posprob_base": 0.032,
+      "remove_posprob_after": 0.012,
+      "remove_drop": 0.021,
+      "insert_monotone": false
+    }
+  }
+}

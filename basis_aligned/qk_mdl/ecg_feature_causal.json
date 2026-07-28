@@ -1,0 +1,287 @@
+{
+  "n_capable": 28,
+  "mean_auc_drop_remove": 0.019,
+  "codes_remove_collapses_auc>=0.1": [],
+  "mean_insert_neg_rise": 0.05,
+  "top_shared_feature_pairs": [
+    [
+      "CLBBB",
+      "ANEUR",
+      0.029
+    ],
+    [
+      "ASMI",
+      "ILMI",
+      0.027
+    ],
+    [
+      "ALMI",
+      "RAO/RAE",
+      0.026
+    ],
+    [
+      "NORM",
+      "ILMI",
+      0.021
+    ],
+    [
+      "CRBBB",
+      "RAO/RAE",
+      0.021
+    ]
+  ],
+  "steer": {
+    "NDT": {
+      "auc": 0.89,
+      "auc_after_remove": 0.876,
+      "auc_drop_remove": 0.014,
+      "meanprob_pos_base": 0.452,
+      "meanprob_pos_after_remove": 0.377,
+      "meanprob_neg_base": 0.071,
+      "meanprob_neg_after_insert": 0.137
+    },
+    "NST_": {
+      "auc": 0.8,
+      "auc_after_remove": 0.792,
+      "auc_drop_remove": 0.008,
+      "meanprob_pos_base": 0.135,
+      "meanprob_pos_after_remove": 0.12,
+      "meanprob_neg_base": 0.036,
+      "meanprob_neg_after_insert": 0.059
+    },
+    "DIG": {
+      "auc": 0.931,
+      "auc_after_remove": 0.924,
+      "auc_drop_remove": 0.008,
+      "meanprob_pos_base": 0.074,
+      "meanprob_pos_after_remove": 0.074,
+      "meanprob_neg_base": 0.008,
+      "meanprob_neg_after_insert": 0.011
+    },
+    "NORM": {
+      "auc": 0.928,
+      "auc_after_remove": 0.92,
+      "auc_drop_remove": 0.008,
+      "meanprob_pos_base": 0.85,
+      "meanprob_pos_after_remove": 0.793,
+      "meanprob_neg_base": 0.19,
+      "meanprob_neg_after_insert": 0.374
+    },
+    "IMI": {
+      "auc": 0.895,
+      "auc_after_remove": 0.878,
+      "auc_drop_remove": 0.017,
+      "meanprob_pos_base": 0.392,
+      "meanprob_pos_after_remove": 0.353,
+      "meanprob_neg_base": 0.047,
+      "meanprob_neg_after_insert": 0.16
+    },
+    "ASMI": {
+      "auc": 0.946,
+      "auc_after_remove": 0.932,
+      "auc_drop_remove": 0.014,
+      "meanprob_pos_base": 0.587,
+      "meanprob_pos_after_remove": 0.422,
+      "meanprob_neg_base": 0.043,
+      "meanprob_neg_after_insert": 0.272
+    },
+    "LVH": {
+      "auc": 0.932,
+      "auc_after_remove": 0.931,
+      "auc_drop_remove": 0.001,
+      "meanprob_pos_base": 0.531,
+      "meanprob_pos_after_remove": 0.523,
+      "meanprob_neg_base": 0.042,
+      "meanprob_neg_after_insert": 0.053
+    },
+    "LAFB": {
+      "auc": 0.975,
+      "auc_after_remove": 0.966,
+      "auc_drop_remove": 0.009,
+      "meanprob_pos_base": 0.696,
+      "meanprob_pos_after_remove": 0.585,
+      "meanprob_neg_base": 0.028,
+      "meanprob_neg_after_insert": 0.112
+    },
+    "ISC_": {
+      "auc": 0.954,
+      "auc_after_remove": 0.95,
+      "auc_drop_remove": 0.004,
+      "meanprob_pos_base": 0.494,
+      "meanprob_pos_after_remove": 0.446,
+      "meanprob_neg_base": 0.021,
+      "meanprob_neg_after_insert": 0.051
+    },
+    "IRBBB": {
+      "auc": 0.933,
+      "auc_after_remove": 0.907,
+      "auc_drop_remove": 0.026,
+      "meanprob_pos_base": 0.451,
+      "meanprob_pos_after_remove": 0.319,
+      "meanprob_neg_base": 0.03,
+      "meanprob_neg_after_insert": 0.167
+    },
+    "1AVB": {
+      "auc": 0.918,
+      "auc_after_remove": 0.902,
+      "auc_drop_remove": 0.016,
+      "meanprob_pos_base": 0.316,
+      "meanprob_pos_after_remove": 0.244,
+      "meanprob_neg_base": 0.036,
+      "meanprob_neg_after_insert": 0.098
+    },
+    "ISCAL": {
+      "auc": 0.923,
+      "auc_after_remove": 0.913,
+      "auc_drop_remove": 0.01,
+      "meanprob_pos_base": 0.158,
+      "meanprob_pos_after_remove": 0.112,
+      "meanprob_neg_base": 0.017,
+      "meanprob_neg_after_insert": 0.047
+    },
+    "CRBBB": {
+      "auc": 0.996,
+      "auc_after_remove": 0.996,
+      "auc_drop_remove": 0.001,
+      "meanprob_pos_base": 0.819,
+      "meanprob_pos_after_remove": 0.606,
+      "meanprob_neg_base": 0.007,
+      "meanprob_neg_after_insert": 0.052
+    },
+    "CLBBB": {
+      "auc": 0.995,
+      "auc_after_remove": 0.991,
+      "auc_drop_remove": 0.004,
+      "meanprob_pos_base": 0.814,
+      "meanprob_pos_after_remove": 0.552,
+      "meanprob_neg_base": 0.005,
+      "meanprob_neg_after_insert": 0.109
+    },
+    "ILMI": {
+      "auc": 0.919,
+      "auc_after_remove": 0.875,
+      "auc_drop_remove": 0.044,
+      "meanprob_pos_base": 0.328,
+      "meanprob_pos_after_remove": 0.168,
+      "meanprob_neg_base": 0.008,
+      "meanprob_neg_after_insert": 0.074
+    },
+    "AMI": {
+      "auc": 0.885,
+      "auc_after_remove": 0.845,
+      "auc_drop_remove": 0.04,
+      "meanprob_pos_base": 0.068,
+      "meanprob_pos_after_remove": 0.046,
+      "meanprob_neg_base": 0.01,
+      "meanprob_neg_after_insert": 0.028
+    },
+    "ALMI": {
+      "auc": 0.915,
+      "auc_after_remove": 0.891,
+      "auc_drop_remove": 0.024,
+      "meanprob_pos_base": 0.31,
+      "meanprob_pos_after_remove": 0.166,
+      "meanprob_neg_base": 0.006,
+      "meanprob_neg_after_insert": 0.048
+    },
+    "ISCIN": {
+      "auc": 0.898,
+      "auc_after_remove": 0.875,
+      "auc_drop_remove": 0.023,
+      "meanprob_pos_base": 0.103,
+      "meanprob_pos_after_remove": 0.07,
+      "meanprob_neg_base": 0.007,
+      "meanprob_neg_after_insert": 0.017
+    },
+    "INJAS": {
+      "auc": 0.978,
+      "auc_after_remove": 0.965,
+      "auc_drop_remove": 0.013,
+      "meanprob_pos_base": 0.31,
+      "meanprob_pos_after_remove": 0.244,
+      "meanprob_neg_base": 0.004,
+      "meanprob_neg_after_insert": 0.012
+    },
+    "LMI": {
+      "auc": 0.869,
+      "auc_after_remove": 0.826,
+      "auc_drop_remove": 0.043,
+      "meanprob_pos_base": 0.054,
+      "meanprob_pos_after_remove": 0.017,
+      "meanprob_neg_base": 0.011,
+      "meanprob_neg_after_insert": 0.05
+    },
+    "ISCIL": {
+      "auc": 0.953,
+      "auc_after_remove": 0.928,
+      "auc_drop_remove": 0.024,
+      "meanprob_pos_base": 0.123,
+      "meanprob_pos_after_remove": 0.073,
+      "meanprob_neg_base": 0.006,
+      "meanprob_neg_after_insert": 0.023
+    },
+    "LPFB": {
+      "auc": 0.962,
+      "auc_after_remove": 0.952,
+      "auc_drop_remove": 0.009,
+      "meanprob_pos_base": 0.348,
+      "meanprob_pos_after_remove": 0.192,
+      "meanprob_neg_base": 0.005,
+      "meanprob_neg_after_insert": 0.038
+    },
+    "ISCAS": {
+      "auc": 0.914,
+      "auc_after_remove": 0.902,
+      "auc_drop_remove": 0.012,
+      "meanprob_pos_base": 0.103,
+      "meanprob_pos_after_remove": 0.095,
+      "meanprob_neg_base": 0.007,
+      "meanprob_neg_after_insert": 0.007
+    },
+    "INJAL": {
+      "auc": 0.971,
+      "auc_after_remove": 0.958,
+      "auc_drop_remove": 0.013,
+      "meanprob_pos_base": 0.343,
+      "meanprob_pos_after_remove": 0.246,
+      "meanprob_neg_base": 0.002,
+      "meanprob_neg_after_insert": 0.007
+    },
+    "ISCLA": {
+      "auc": 0.902,
+      "auc_after_remove": 0.883,
+      "auc_drop_remove": 0.019,
+      "meanprob_pos_base": 0.043,
+      "meanprob_pos_after_remove": 0.036,
+      "meanprob_neg_base": 0.004,
+      "meanprob_neg_after_insert": 0.011
+    },
+    "RVH": {
+      "auc": 0.935,
+      "auc_after_remove": 0.919,
+      "auc_drop_remove": 0.016,
+      "meanprob_pos_base": 0.17,
+      "meanprob_pos_after_remove": 0.132,
+      "meanprob_neg_base": 0.006,
+      "meanprob_neg_after_insert": 0.02
+    },
+    "ANEUR": {
+      "auc": 0.943,
+      "auc_after_remove": 0.916,
+      "auc_drop_remove": 0.028,
+      "meanprob_pos_base": 0.048,
+      "meanprob_pos_after_remove": 0.017,
+      "meanprob_neg_base": 0.004,
+      "meanprob_neg_after_insert": 0.026
+    },
+    "RAO/RAE": {
+      "auc": 0.851,
+      "auc_after_remove": 0.759,
+      "auc_drop_remove": 0.092,
+      "meanprob_pos_base": 0.032,
+      "meanprob_pos_after_remove": 0.041,
+      "meanprob_neg_base": 0.003,
+      "meanprob_neg_after_insert": 0.005
+    }
+  }
+}

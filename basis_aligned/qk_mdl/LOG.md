@@ -5025,3 +5025,135 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## need nonlinearity (INJAS .46, AMI .41, ISCIN .31). Nonlinearity earns keep on
 ## shape-based dx (injury/ischemia/MI). Honest recalibration: circuits most meaningful
 ## for morphology codes; amplitude codes nearly a linear voltage readout.
+
+## ECG causal feature steering (2026-07-28): §28. ecg_feature_causal.py/.json,
+## ecg_feature_dirs.npy, ecg_offtarget.npy. Logan directive: insert/remove features ->
+## predictable diagnosis changes on TEST set. Result: rank-1 feature direction (pos-neg
+## mean in block-0 MLP inner) is SUFFICIENT not NECESSARY. Remove (project out): mean
+## AUC drop 0.019, ZERO codes collapse >=0.1. Insert on negatives: mean prob +0.05
+## (ASMI 0.043->0.272, NDT 0.071->0.137). Off-target spillover tiny (<=0.029). =>
+## redundant DISTRIBUTED code: single linear direction pushes dx but model recomputes
+## from redundant paths. Reframe: block-0 MLP ablation only cost 0.051 macro (mechdecomp
+## §21) -> block-0 inner is NOT the bottleneck. Next: layer-wise causal localization
+## (which of 3 MLP layers computes each code) before claiming a minimal circuit; test
+## if morphology codes recruit deeper layers (more nonlinear composition) than amplitude.
+
+## ECG layer localization (2026-07-28): §29. ecg_layer_circuit.py/.json,
+## ecg_unit_drop_alllayers.npy. Where each code is computed across 3 layers.
+## Macro whole-layer AUC drops: MLP [0.121, 0.030, 0.011], Attn [0.012, 0.025, 0.108].
+## => TWO major components: MLP-layer-0 (early feature extraction 0.121) + ATTENTION-
+## LAYER-2 (late cross-patch aggregation 0.108). Refines §21 "attn=light router":
+## true for coarse 5-superclass, but for 35 fine-grained codes the LAST attention is a
+## major causal stage. Dominant-MLP histogram: 27/28 codes -> MLP-0. Depth centroid vs
+## linear-gap corr r=+0.376: MORPHOLOGY codes (high gap, need nonlinearity) recruit
+## deeper MLP layers 1-2 more (INJAL 0.56, ISCIL 0.46, ISCIN 0.40) than AMPLITUDE codes
+## (LVH 0.09, CRBBB 0.13) -> composition depth tracks nonlinearity need. Full circuit =
+## MLP-0 feature detectors -> Attn-2 aggregation -> head; morphology adds mid-layer MLP.
+## Explains §28 remove-buffering: Attn-2 + later MLP recompute a projected-out MLP-0 dir.
+## Next: INPUT-space feature insertion (add rendered morphology template to real test
+## ECGs) with dose-response -> clean causal knob that bypasses internal redundancy.
+
+## ECG exact fold + gauge correction (2026-07-28): §30. ecg_fold_verify.py/.json,
+## ecg_fold_block0.pt, ecg_readspace_{train,test}.npy. Logan correction: neuron basis of
+## the bilinear MLP is the WRONG gauge; use the tensor network (exact folds throughout).
+## Each MLP folds EXACTLY to T[o,i,j]=sum_p Dn[o,p]L[p,i]R[p,j], out_o=sum_ij T hn_i hn_j.
+## Positive control: per-layer fold rel-err 2.6e-7 (all 3 layers) = numerically exact.
+## Neuron PERMUTATION leaves folded tensor identical (3e-7) => per-neuron ablation (§24,
+## §28) indexed a CP gauge, not a feature; the "redundant/distributed" reading was a
+## basis artifact. Raw tensor is 65% ANTISYMMETRIC (pure gauge: both legs get same hn) —
+## only the 35% symmetric part is observable. Input metric G0=L^T L+R^T R full-rank 96,
+## cond 40.3. Cached G0^{1/2}-whitened block-0 read-space (correct geometry for the
+## dictionary). Next: metric-aligned overcomplete TopK dictionary (sparse rel. input &
+## output, NOT neurons) on whitened read-space; render atoms; atom->code map; then redo
+## insert/remove in the ATOM basis. Carry-over lessons from embedding work: TopK not L1
+## (shrinkage biases cubed moment); behavioral/moment recon is arbiter, not FVU.
+
+## ECG metric-aligned dictionary — first pass (2026-07-28): §31. ecg_metric_dict.py/.json,
+## ecg_metric_dict.pt. Overcomplete TopK SAE (M=256,K=8) on G^{1/2}-whitened block-0
+## read-space (correct geometry). Test read-space R2=0.851 BUT behavioral tensor-action
+## R2=0.796 (input-L2 flatters, as spec warns: error correlated w/ activations amplified
+## in the quadratic form). Does NOT sparsify the interaction: only 3.7% of folded-tensor
+## mass in top-1% atom pairs (diffuse), diagonal 1.3%; each code served by ~6 atoms
+## (AUC>=0.70), atom->code AUCs modest (NDT 0.70, IMI 0.67). Verdict: input-only
+## dictionary is input-sparse but NOT output/interaction-sparse -> not yet the
+## interpretable basis. Next: fit the INTERACTION directly — minimal symmetric CP
+## refactoring of the folded tensor T0s to behavioral (tensor-action) fidelity on data
+## (rank sweep), render principal waveform features, map to codes = the minimal circuit.
+
+## ECG minimal interaction basis (2026-07-28): §32. ecg_interaction_basis.py/.json/.pt.
+## Refit the folded block-0 tensor to a MINIMAL symmetric form out_o=sum_r U[o,r](a_r.hn)^2
+## to BEHAVIORAL fidelity on data. Rank sweep (tensor-action R2): 8->.26, 32->.58, 64->.74,
+## 192->.95. But SPLICED into the full model, macro-AUC: rank8 0.870, 16 0.878, 32 0.890,
+## 64 0.899 vs base 0.904 -> block-0 MLP is behaviorally RANK ~32-64, not 192 (downstream
+## reads few output dirs; tensor-action stricter than AUC, consistent w/ 65% antisym gauge).
+## In this correct basis codes are SPARSE: mean 1.0 feature/code AUC>=0.75 (vs neuron 2.4,
+## input-dict 6.0). Single features are strong+physiological: CLBBB feat#50 AUC 0.956
+## (leads V2/V1/V3), INJAS feat#53 0.815 (aVL/III/V2), CRBBB feat#52 0.787, LAFB feat#8
+## 0.778 (III/aVF/aVL). 10 SHARED multi-code features explain correlated diagnoses:
+## feat#50 -> CLBBB/ANEUR/ASMI (anterior precordial), feat#53 -> INJAS/INJAL (anterior
+## injury), feat#8 -> LAFB/ILMI (inferior/left-axis). This is the minimal interpretable
+## circuit Logan asked for, in the correct (input+output-sparse) basis, not neurons.
+## Next: causal insert/remove along a_r on the test set (should bite in this basis).
+
+## ECG causal steering in interaction basis (2026-07-28): §33. ecg_feature_steer.py/.json.
+## Steer along behavioral feature dirs a_r (§32) at block-0 read. Single-feature REMOVE
+## still buffered: mean AUC drop 0.003, ZERO codes collapse; shared-feature removals ~0
+## (feat#50/#53/#8 served codes DON'T fall together). Insert weak (+0.026). KEY: this is
+## NOT a basis artifact (like §28 was) — it's GENUINE redundancy. Projecting a feature
+## from block-0's READ leaves the morphology in the residual stream h; Attn-2 + later MLPs
+## (co-equal per §29) recompute it. => interaction basis is the correct DESCRIPTIVE/readout
+## basis (sparse 1 feat/code, physiological, shared features explain correlations) but the
+## model is causally redundant/distributed — no single internal feature is NECESSARY.
+## Causal control needs INPUT-space (waveform) or all-layer intervention. Next: input-space
+## morphology insert/remove on real test ECGs (bypasses internal redundancy; physiological).
+
+## ECG residual necessity ablation (2026-07-28): §34. ecg_residual_ablate.py/.json.
+## Project a code's top feature dirs out of the RESIDUAL STREAM at every block input, cumul.
+## Result: NO code collapses even removing top-10 features (mean_min_necessary=None, 0/28
+## collapse within 10). Removing the single best reader drops AUC only 0.007. => diagnosis
+## computation is DEEPLY REDUNDANT / holographically distributed in the residual; there is
+## no small NECESSARY causal circuit. BUT graded ablation-sensitivity corr with linear-gap
+## r=+0.603: morphology codes concentrated+sensitive (INJAL 0.183, AMI 0.160, INJAS 0.074)
+## AND nonlinear; amplitude codes distributed+robust (CRBBB 0.009, LAFB 0.005, LPFB 0.004)
+## AND near-linear. UNIFIES §27+§32+§34: amplitude dx = distributed linear voltage readout;
+## morphology dx = concentrated nonlinear interaction. CONCLUSION of the basis-correction
+## arc (§30-34): a sparse interpretable READOUT basis exists (1 feat/code, physiological,
+## shared features explain correlations) but readout-sparsity != causal-sparsity — the
+## model has no minimal necessary circuit; it's redundant. Remaining causal avenue:
+## input/waveform-space intervention (bypasses internal redundancy).
+
+## ECG input-space injection (2026-07-28): §35. ecg_input_inject.py/.json. Causal test at
+## the INPUT/waveform level (bypasses internal redundancy §33/§34). Render each code's top
+## interaction-feature morphology template; INSERT (add alpha*template to negatives) / REMOVE
+## (project out of positives) on TEST, dose sweep. WIN: complete LBBB insert dose-response
+## 0.005->0.011->0.081->0.635->0.962 (monotone), remove 0.814->0.676 — genuine causal
+## creation of the diagnosis. Mean insert rise 0.171 at max dose (11 codes rise>=0.1: CLBBB,
+## NORM, ASMI, LVH, ISC_, IRBBB, 1AVB, ISCIL...). Removal weak (mean 0.033, redundancy-
+## buffered). Only 29% monotone; morphology/ST-shape codes (AMI, INJAS, ALMI) barely move
+## under crude template-tiling (need beat-aligned shape insertion). Spillover concordance
+## 0.57 (shared-feature codes co-move above chance). Read: input insertion is the causal
+## handle that works, best for distributed/amplitude codes (read robustly from voltage);
+## concentrated morphology codes need finer intervention. Next: specificity control (inject
+## SCRAMBLED template + measure per-code specificity) — a positive causal result needs its
+## negative control.
+
+## ECG injection specificity control (2026-07-28): §36. ecg_inject_control.py/.json.
+## Negative control for §35's causal insert. Compare real morphology template vs SCRAMBLED
+## (per-lead amplitude kept, shape destroyed via within-lead time permutation) at alpha=2.
+## RESULT: 10/11 codes morphology-specific (real rise >2x scrambled); target in top-3 raised
+## for 9/11. CLBBB: real +0.630 vs scrambled -0.002 (scrambling ABOLISHES it) -> the effect
+## is the MORPHOLOGY not added energy. Off-target movers are physiologically coherent and
+## follow the SHARED features (§32): CLBBB template also raises ASMI (anterior precordial
+## feat#50), ischemia template co-raises LVH (precordial). Causal arc CLOSED: internal
+## ablation buffered by redundancy (§33/§34), but INPUT-space injection causally creates the
+## diagnosis (dose-response to 0.96), morphology-validated, code-specific-ish, with correlated
+## diagnoses co-moving through the shared features the interaction basis identified. Delivers
+## Logan's insert/remove-changes-diagnoses-on-test ask for insertion.
+
+## ECG feature atlas artifact (2026-07-28): §36b. ecg_export_viz.py, ecg_viz_data.json,
+## scratchpad/ecg_feature_atlas.html -> https://claude.ai/code/artifact/49397032-b01d-47f6-8f76-e6033b7523b8
+## Delivers Logan's "illustrate the waveforms that ARE each feature": 11 interaction
+## features rendered as 12-lead waveforms (top-activating patch averages, hot leads
+## highlighted) + diagnoses each serves (with AUC) + shared-feature marking. Plus the
+## causal panels: LBBB dose-response 0.005->0.962 and the specificity control (real vs
+## scrambled). Closes the visual/communicative deliverable for the basis+causal arc.
