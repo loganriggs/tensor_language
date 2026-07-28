@@ -5373,3 +5373,15 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## VALUABLE signal you must distill the RESIDUAL/age-gap directly, not the raw output. Path-2 method
 ## works for the dominant computation; the subtle-residual case needs targeted distillation. Clear
 ## next step: distill the age-GAP (or match higher moments) then interpret THAT.
+
+## TIER-2 — age-gap distillation RESOLVES the §51 caveat (2026-07-28): §52. ecg_age_gap_distill.py/.json,
+## ecg_agegap_student_model.pt. Fix for §51 (raw-age student REVERSED the mortality-relevant age-gap):
+## train the foldable student to predict the teacher's AGE-GAP (teacher_age - true_age) directly, so
+## the mortality signal is the TARGET not rounding error. RESULT: pathology reads +3.03y OLDER than
+## normal (student gap pathology +5.04 vs normal +2.01) — CORRECT mortality direction, stronger than
+## teacher (+1.10); vs raw-age student's REVERSED -0.46 (§51). Corr with teacher's exact gap only
+## 0.258 (gap is mostly teacher's ECG-independent error) but the SYSTEMATIC pathology-older signal is
+## captured. METHODOLOGICAL PAYOFF: to preserve a biomarker's valuable signal through distillation you
+## must target THAT signal, not the raw output — distilling raw output loses/reverses subtle clinical
+## residuals (§51), targeted distillation recovers them (§52). Now have a foldable model carrying the
+## mortality-DIRECTION signal. Next: interpret what morphology drives premature ECG-aging (the payoff).
