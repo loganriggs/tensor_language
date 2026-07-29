@@ -165,6 +165,28 @@ explanation as understood-fraction = 1 − cost(explanation)/cost(floor). Result
   - *"MLP 0–3 is a category engine"* — **falsified in its strong form** (see §4): damage is not
     category-selective (ratio 0.27 vs control 0.36).
 
+## 7c. Induction is 100% expressible as an explicit program (script: qk_induction_predicate)
+
+The 64–81% symbol-basis ceiling was a property of the *lens*, not of our understanding: a low-rank
+linear residual code is the worst possible representation for an equality predicate over 50k tokens
+(the rank-16→64 improvement is the noisy-equality-scales-with-rank signature). Substituting the
+explicit textbook form — pattern = a·1[token[j−1]=token[i]] + b·(positional template) + c, three
+parameters per head, fit on natural text and frozen — at the 24 circuit heads in layers 2–10:
+
+- **Full model + explicit patterns: 106.6% of the induction advantage on natural text and 100.5% on
+  shuffled pure-copy sequences** the parameters were never fit on. The match function is completely
+  understood and compresses to one predicate plus three numbers per head; the explicit version even
+  slightly beats the model's own noisy patterns.
+- Minimal circuit + explicit patterns: 148.5% natural, 47.1% shuffled — the residual shuffled loss
+  sits in the mean-ablated *delivery* (copy carriage and readout spread across the pruned
+  components), not in the match.
+
+Knowledge of induction therefore decomposes into: the **match** (fully understood, one-line
+program); the **delivery** (distributed and redundant — a 43-component subset suffices for
+natural-text induction but carries only about half of maximal pure-copy capacity); and the
+**interface** (linear codes cannot compress the match signal — the right compression of induction is
+the program, not a code).
+
 ## 8. Take-away
 
 Across four architectures, a bilinear transformer divides next-token labour on an MLP-versus-attention

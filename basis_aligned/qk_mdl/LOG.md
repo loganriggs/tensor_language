@@ -5660,3 +5660,13 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ##     CATEGORY-ENGINE STRONG CLAIM FALSIFIED: exact CE = catCE+withinCE decomposition, ablate MLP0-3
 ##     -> d_cat +1.12 vs d_within +4.10 (ratio 0.27, control MLP7-10 0.36) -- early MLPs build GENERAL
 ##     lexical structure; category is a decodable slice, not the function. Paper §4/§7/§7b updated.
+
+## TICK 2026-07-29k — INDUCTION PREDICATE (Logan: "don't we already understand induction? why ~80%?").
+## qk_induction_predicate.py: substitute explicit textbook form pat = a*1[tok[j-1]==tok[i]] + b*postemplate
+## + c (3 params/head, fit natural, FROZEN) at 24 circuit heads L2-10. FULL MODEL + explicit: natural
+## 106.6%, SHUFFLED 100.5% -- induction match is 100% expressible as one predicate + 3 numbers/head,
+## generalizes perfectly, even beats model's own noisy patterns. Circuit + explicit: 148.5% natural /
+## 47.1% shuffled -> residual shuffled loss is in mean-ablated DELIVERY not match. The 64-81% symbol
+## ceiling was the LENS (equality over 50k tokens is worst-case for low-rank linear codes; rank16->64
+## = noisy-equality scaling). Minimal-circuit retention conceded as wrong metric for function-level
+## understanding; predicate substitution is the right one. Paper §7c added.
