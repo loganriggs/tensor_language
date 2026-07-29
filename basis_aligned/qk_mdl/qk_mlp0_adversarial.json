@@ -1,0 +1,92 @@
+{
+  "cells": {
+    "fineweb_128 (in-dist)": {
+      "base_CE": 3.2808,
+      "dCE": 0.09107
+    },
+    "fineweb_513 (long)": {
+      "base_CE": 2.916,
+      "dCE": 0.08825
+    },
+    "pile_128 (ood corpus)": {
+      "base_CE": 3.3286,
+      "dCE": 0.04516
+    },
+    "shuffled_128 (no ngrams)": {
+      "base_CE": 8.1901,
+      "dCE": 0.00553
+    },
+    "raretoken_128 (adversarial vocab)": {
+      "base_CE": 12.8439,
+      "dCE": -0.02827
+    }
+  },
+  "divergence": {
+    "median_rel": 0.4026,
+    "p99.5_rel": 0.7008,
+    "worst_tokens": [
+      "op",
+      "nant",
+      "ry",
+      "ster",
+      "ster",
+      "ster",
+      "ster",
+      "ster",
+      "ond",
+      "ering",
+      "ster",
+      "ster",
+      "ash",
+      "ICH",
+      "iter",
+      "iter",
+      "iter",
+      "ill",
+      "ear",
+      "or",
+      "ented",
+      "ented",
+      "ending",
+      "ill",
+      "ite",
+      "ors",
+      "ump",
+      "</",
+      "rog",
+      "com"
+    ],
+    "worst_prev_tokens": [
+      "\u0120Sco",
+      "reg",
+      "\u0120w",
+      "\u0120dump",
+      "\u0120dump",
+      "\u0120dump",
+      "\u0120dump",
+      "\u0120dump",
+      "W",
+      "ond",
+      "\u0120dump",
+      "ump",
+      "Tr",
+      "\u0120WH",
+      "Wa",
+      "Wa",
+      "Wa",
+      "\u0120inst",
+      "f",
+      "\u0120fl",
+      "\u0120Pres",
+      "\u0120Pres",
+      "sp",
+      "\u0120dist",
+      "n",
+      "\u0120W",
+      "\u0120th",
+      "\u0120mg",
+      "\u0120Inter",
+      "\u0120gly"
+    ]
+  }
+}
