@@ -46,10 +46,27 @@ with torch.no_grad():
     Mflat = Mfold.reshape(P, -1).cpu().numpy()
     sv = np.linalg.svd(Mflat, compute_uv=False)
     pr = sv/sv.sum(); efr = float(np.exp(-(pr*np.log(pr+1e-12)).sum()))
+    # fp64 fold error (algebraic-identity receipt): recompute in double precision
+    Em64 = Em.double(); Wo64 = Wo.double(); WlM64 = WlM.double(); WrM64 = WrM.double(); bo64 = bo.double()
+    Mfold64 = torch.einsum('ck,ki,kj->cij', Wo64, WlM64, WrM64)
+    lf64 = torch.einsum('ni,cij,nj->nc', Em64[A], Mfold64, Em64[B]) + bo64
+    lm64 = ((Em64[A] @ WlM64.T) * (Em64[B] @ WrM64.T)) @ Wo64.T + bo64
+    fold_err64 = float((lf64 - lm64).norm() / lm64.norm())
+    # symmetrization: only the (i,j)-symmetric part is observable (both legs get an embedding)
+    Msym = 0.5 * (Mfold + Mfold.transpose(1, 2))
+    lsym = torch.einsum('ni,cij,nj->nc', Em[A], Msym, Em[B]) + bo
+    sym_maxdiff = float((lsym - logit_model).abs().max())
+    antisym_frac_mod = float((Mfold - Msym).norm() / Mfold.norm())
+    # all-inputs verification scatter (folded vs layer), a few hundred points
+    idx = torch.randperm(len(A))[:400]
+    scatter = [[round(float(logit_model[i, Y[i]]), 3), round(float(logit_folded[i, Y[i]]), 3)] for i in idx.tolist()]
 mod = {'task': 'a+b mod 23', 'accuracy': round(acc, 3), 'weight_matrices': ['Wl (24x48)', 'Wr (24x48)', 'Wout (48x23)'],
        'folded_to': '23 interaction matrices M_c (24x24), logit_c = e_a^T M_c e_b',
-       'fold_relative_error': fold_err, 'Mc_class0': [[round(float(v), 2) for v in row] for row in Mc.tolist()],
-       'folded_effective_rank': round(efr, 2), 'n_classes': P}
+       'fold_relative_error_fp32': fold_err, 'fold_relative_error_fp64': fold_err64,
+       'symmetrized_output_maxdiff': sym_maxdiff, 'antisym_fraction': round(antisym_frac_mod, 3),
+       'Mc_class0': [[round(float(v), 2) for v in row] for row in Mc.tolist()],
+       'Mc_slices': [[[round(float(v), 2) for v in row] for row in Mfold[c].cpu().numpy().tolist()] for c in [0, 1, 5]],
+       'verify_scatter': scatter, 'folded_effective_rank': round(efr, 2), 'n_classes': P}
 json.dump({'tiny': tiny, 'modular': mod}, open('tn_fold_demo.json', 'w'), indent=1)
 print(f"tiny 2D fold err {tiny['max_abs_err']:.2e}", flush=True)
 print(f"modular toy acc {acc:.3f}, fold rel-err {fold_err:.2e} (EXACT), folded eff-rank {efr:.2f} of {P}", flush=True)
