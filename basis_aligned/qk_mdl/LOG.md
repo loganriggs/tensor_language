@@ -5902,3 +5902,12 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## wins everywhere (94-99%); deep-chain error accumulation is the open problem (richer bases vs
 ## re-anchoring). METHODS.md rewritten: composed folding = primary method (S3a, gauge identities +
 ## per-layer recipe), data-fit = fallback (S3b), banner post-red-team, S5b failure modes.
+
+## TICK 2026-07-29gg — CHAIN ACCUMULATION SOLVED (qk_chain_accumulation.py). Full 3-layer truncated
+## chain at MLP2 interface: K=144 69.5% / K=288 90.7% / K=576 98.7%; anchoring at K=144: m0 88.2%,
+## both 93.9%. BASIS WIDTH WINS: K=576 full chain beats full re-anchoring -- depth compounding was
+## basis starvation, not intrinsic; ~+21 pts per doubling; no data checkpoints needed; the bottom-up
+## analytic chain goes deep. Honest note: PCA-144 (69.5) vs archetype-144 (49.5 yesterday) = the
+## naming-vs-capture trade quantified (~20 pts at width 144); named bases can be PCA-completed.
+## NEXT: extend chain to layers 3-5 at K=576 (expect ~95%+); artifact/paper consistency; service
+## thresholds; Pythia HELD.
