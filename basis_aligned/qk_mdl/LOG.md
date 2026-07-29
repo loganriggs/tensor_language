@@ -5783,3 +5783,14 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## near output. MLP5 39.5%; MLP6 program WORSE than tiny floor (-32%) -> no-substitution call, counted
 ## at floor. LEDGER v3: 89.4% understood (v1 36.5 -> v2 78.9 -> v3 89.4). Remaining mass FLAT (max
 ## 0.085/interface). MLP7-15 band (18 jobs) queued; daemon churning.
+
+## TICK 2026-07-29v — RED-TEAM REVIEW LANDED AND ACCEPTED (parallel subagent, 11 findings, 4 HIGH).
+## Archived w/ responses in redteam_findings_2026-07-29.md; METHODS.md corrections banner added.
+## Key accepted corrections: ledger metric renamed SUBSTITUTABLE fraction (only induction predicate
+## passes the meaning gate); headline dual-reported floor-weighted ~89% / UNWEIGHTED 59%; attention
+## credit deflated to sym-vs-rand margin (random null = 96% of raw credit); induction flagship
+## numbers marked provisional (fit-on-eval: templates+scalars from the scored prefixes). QUEUED
+## decisive fixes ahead of band: qk_joint_mlp_stack.py (all-8-programs joint substitution + joint
+## floor -- the number the headline extrapolated but never measured) + qk_mlp0_randctl.py (random-A/
+## trained-U control). Still to queue: held-out induction refit (multiple periods/windows/corpora);
+## ledger v4 single-script zero-hardcodes; polish-on-null control; service-check thresholds.
