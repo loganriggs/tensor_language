@@ -5475,3 +5475,11 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## vs Toy B dense/thin-bond (node->16-thin-consumers diagram, node eff-rank 30 vs bond eff-rank 2 bars,
 ## chosen~=random rank-k) — with the real-LLM footer (mlp16 rank-16 = A; block-0 manifold collapse = B).
 ## Validates the visual language. Awaiting Logan's steer (audience/scope/naming) before building the rest.
+
+## PEDAGOGY §P4 (2026-07-28): Lesson 1 (the exact fold) built. tn_fold_demo.py/.json + figure
+## https://claude.ai/code/artifact/3022781f-918a-4ceb-a005-dff81d9da88b . Tiny 2D unit out=(l.x)(r.x)=x^T
+## (l r^T) x fold err 0; modular toy folds its 3 weight matrices to 23 exact interaction matrices M_c
+## (logit=e_a^T M_c e_b), fold rel-err 1.56e-7, folded eff-rank 5.86/23 (foreshadows decomposability).
+## Real footer: QK head -> third moment; bilinear MLP fold err 2.6e-7. Two lesson figures now built
+## (L1 fold, L7 two-extremes) — enough for Logan to judge the visual language across figure types.
+## Continuing the course build per his directive (toy->image->real per concept); L0/L2-6 next.
