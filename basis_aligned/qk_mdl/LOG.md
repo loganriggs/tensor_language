@@ -5823,3 +5823,16 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## random-feature program at MLP4 to 69.6% (trained 82.5%) -- reviewer CONFIRMED; conservative
 ## credit column = pre-polish structural; METHODS addendum. Remaining: service-variance thresholds;
 ## METHODS body rewrite; artifact/paper consistency pass with corrected numbers.
+
+## TICK 2026-07-29z — ALGORITHMIC TASK CIRCUITS (Logan directive: independent per-task decompositions
+## as sanity check vs full decomposition; separate agents per task; steps 1-verify 2-patching 3-DAS
+## 4-Ethan's SVD(WX) weight reduction). STEP 1 probe (qk_algo_probe.py): VERIFIED = paren close
+## (+5.4 nats, 100%), quote close (+6.4, 100%), list increment (100% top-1), weekday/month (100%),
+## alphabet (65% vs 3.8% chance). ABSENT = addition (2.8%, BELOW chance, margin -2.6) and few-shot
+## sort3 (29%~chance) -- clean capability boundary. THREE AGENTS DISPATCHED in parallel: bracket/
+## quote closure, list increment, successor sequences; each does patching importance (vs atlas
+## rank-correlation), DAS-lite subspace (w/ random-subspace control), Ethan's W'_r = SVD_r(WX) X^+
+## (w/ data-free SVD control + general-CE damage check). Outputs to algo_tasks/<task>/report.md.
+## Interesting sub-questions planted: increment = attention-position vs MLP-successor-lookup;
+## successor = one shared circuit or three; DAS cross-family transfer; data-conditioned vs data-free
+## minimal weight rank.
