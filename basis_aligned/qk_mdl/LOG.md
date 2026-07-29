@@ -5775,3 +5775,11 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## learned failure modes / tick+daemon workflow. Daemon-run polish pass: MLP2 52.6->67.6, MLP3
 ## 39.3->59.5, MLP4 41.5->82.5 (%of own floors); induction preserved. Queue empty; next stock:
 ## ledger v3 + MLP5/6 programs + MLP17 (output-side family).
+
+## TICK 2026-07-29u — TRIAGE (Logan: focus largest-CE modules). Remaining-mass table: MLP17 = 41% of
+## all remaining (0.693 of 1.694). Queue redirected all-in: MLP17 program (best fits of entire ladder,
+## FVU 0.063 R512 -> 86.0%, polish 89.3% = 0.62 nats, LARGEST single gain) + MLP16 re-verify (94.5%,
+## old credit was right). Late MLPs strongly token-keyed (tables 67.5/84.3% alone) = lexical again
+## near output. MLP5 39.5%; MLP6 program WORSE than tiny floor (-32%) -> no-substitution call, counted
+## at floor. LEDGER v3: 89.4% understood (v1 36.5 -> v2 78.9 -> v3 89.4). Remaining mass FLAT (max
+## 0.085/interface). MLP7-15 band (18 jobs) queued; daemon churning.
