@@ -5509,3 +5509,14 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## L5 40c6029b, L6 aca12b62, L7 f612b01a. Whole course = nodes (L1 fold->L2 gauge->L3 right-basis->L4 minimal
 ## circuits) + bonds (L5 width->L6 sparse-code/typed-blob) + L7 two-extremes thesis, each toy->image->real.
 ## Awaiting Logan reaction (audience/scope/naming) for any revisions.
+
+## PEDAGOGY REVISION (2026-07-29, Logan feedback "too abstract; show the technique + real examples"):
+## §P8. Spun off 5 subagents to audit each lesson + mine real bilin18 numbers; specs returned (caught the
+## +0.26-is-a-different-program error -> correct is +0.006 nats @ 6.1% bits). New toys: tn_metric_dict_demo.py
+## (OUR technique — metric head-space TopK SAE recovers planted atoms cos 0.81 vs naive-L2 0.13, naive atoms
+## in head KERNEL), extended tn_fold_demo (fp64 receipt 7.4e-16). REBUILT L3 (e3d3fd6f): shows the technique
+## as code + real dictionary atoms (music/film/-ed/{the}) + Spearman 0.905 vs 0.571. REBUILT L4 (7b03f20f):
+## fixed "where did the basis come from" (explicit L1->L4 chain), cute/furry k=2 framing, chosen-vs-random
+## code inset, real mlp16 rank-16 +0.024 (named register dirs) vs block-0 distributed (random-16 .838 ~
+## ranked .862, readout!=causal). Each lesson now: concept -> toy WITH the computation -> real bilin18 numbers.
+## Remaining rebuilds: L0,L1,L2,L5(rank-vs-rotation answered),L6,L7 — specs in hand.
