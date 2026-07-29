@@ -5483,3 +5483,12 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## Real footer: QK head -> third moment; bilinear MLP fold err 2.6e-7. Two lesson figures now built
 ## (L1 fold, L7 two-extremes) — enough for Logan to judge the visual language across figure types.
 ## Continuing the course build per his directive (toy->image->real per concept); L0/L2-6 next.
+
+## PEDAGOGY §P5 (2026-07-29): Lesson 2 (the gauge trap) built. tn_gauge_demo.py/.json + figure
+## https://claude.ai/code/artifact/b20babc2-d64d-44ba-aaf9-2e1621d9c64d . Toy self-interaction bilinear
+## MLP: a per-neuron rescale gauge (alpha in L, 1/alpha in Dn) changes every activation (one -6.3->-36.2)
+## but output IDENTICAL to 1e-14 and tensor identical to 1e-15; permutation tensor err 1e-15. Antisym
+## fraction 0.640, output from symmetric part only err 2e-14 (invisible) — reproduces the real ~65%.
+## Real footer: §30 permute-neurons-identical + 65% antisym gauge -> per-neuron circuit stories can be
+## noise. 3 lessons now built (L1 fold, L2 gauge, L7 extremes). Next: L3 (the right basis) which follows
+## directly from L2. Course build continuing per Logan directive.
