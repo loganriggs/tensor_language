@@ -5847,3 +5847,14 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## weight-computable approximation. Coverage: features overdetermined+OOD-safe; tables are the risk
 ## (pair lexicon 18%); EXACT-TAIL BACKSTOP MLP = named_R + (T - T_R) makes behavioral degradation
 ## impossible -- unnamed tail is an exactly-characterized weight object. 3 algo-task agents running.
+
+## TICK 2026-07-29bb — COMPOSED FOLD (Logan corrections): (1) rms folds EXACTLY for quadratic
+## consumers: MLP(rms(x)) = D*T(x,x)/||x||^2 + bias, gate 6.3e-07 -- ratio of two analytic
+## quadratics, TN-expressible; previous 'rms blocks folding' claim WRONG for bilinear MLPs.
+## (2) Composed program on upstream features: exact block split token^2/cross/attn^2 (gate 6.7e-07);
+## full-analytic substitution dCE +0.00000; archetype-truncated (named 144-dim attn0 basis) = 96.9%
+## of floor ~ data program 97.9%, ALL coefficients from weights. Black-box weight arm (69%) failed
+## by ignoring upstream structure. (3) Energy/function dissociation again: archetype basis = 49.8%
+## of attn0 energy, 96.9% of function. Cross block (token x attn interaction) = 0.54 variance share,
+## now analytic. NEXT: extend gauge trick to attention patterns (ratio-of-analytics with norm
+## products); compose MLP1 the same way (its inputs = e, attn0, MLP0-as-tensor, attn1-archetypes).
