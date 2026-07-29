@@ -5501,3 +5501,11 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## semantic atoms (topics/morphology) + archetypes; behavioral/metric check is arbiter not L2 recon.
 ## 4 lessons built (L1 fold, L2 gauge, L3 right-basis, L7 extremes) — the 'breaking down nodes' thread
 ## nearly complete. Next: L4 (minimal circuits) closes that thread, then L5-6 (bonds), L0 (intro).
+
+## PEDAGOGY §P7 (2026-07-29): Lessons 0,4,5,6 built — full 8-lesson course COMPLETE. tn_circuit_bond_demo.py/.json
+## (L4 minimal circuits: low-rank map chosen>>random plateau@k=3 vs redundant chosen~=random linear-to-24;
+## L5 bond sweep knee@4=true bond), tn_sparsecode_demo.py/.json (L6 sparse code: 48-symbol bond, ~4 active,
+## knee@4), L0 intro diagram. Artifacts: L0 ea6d487a, L1 3022781f, L2 b20babc2, L3 e3d3fd6f, L4 7b03f20f,
+## L5 40c6029b, L6 aca12b62, L7 f612b01a. Whole course = nodes (L1 fold->L2 gauge->L3 right-basis->L4 minimal
+## circuits) + bonds (L5 width->L6 sparse-code/typed-blob) + L7 two-extremes thesis, each toy->image->real.
+## Awaiting Logan reaction (audience/scope/naming) for any revisions.
