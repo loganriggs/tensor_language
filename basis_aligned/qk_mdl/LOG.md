@@ -5637,3 +5637,10 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## category content mildly INTERFERES with induction (ablation helps) -- same as newline-interference.
 ## bilin18 MLP1-hub anomaly MECHANISTICALLY RESOLVED. (norm-pattern read fails for sign-varying two-
 ## branch pattern -> used argmax-over-causal-keys metric.)
+
+## TICK 2026-07-29i — CONSOLIDATION. Wrote paper_atlas_bilin18.md: standalone paper-style draft of the
+## full arc (compositional decomposition 2-17 -> 3-family functional atlas -> MLP0-3 category engine ->
+## MLP1 multiplexer hub -> 4-model generality -> two-branch MLP1 match mechanism), abstract + 8 sections
+## + honest limitations, pointing to committed scripts + artifact. Distinct from the earlier memory-
+## pipeline outline (qk_paper_outline.md). Scientific arc COMPLETE and replicated across 4 models;
+## remaining work is write-up polish or Logan-steered new direction. GPU idle at genuine completion.
