@@ -5883,3 +5883,13 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## arm B (fully truncated 2-layer chain) 95.1%. Composition now matches/beats data fitting at both
 ## MLP0 and MLP1. NEXT: extend composed chain upward layer-by-layer (the bottom-up program, now
 ## analytic); fold gauge scalars into upper-layer accounting; docs consistency pass.
+
+## TICK 2026-07-29ee — ALL-TRUNC NEGATIVE (informative). Rank-truncating T0/T1 to weight-native
+## diagonal quadratics (R=256/512) fails under BOTH isotropic-Frobenius (+7.32, -19% of joint floor
+## 6.15) and Gaussian-under-metric Isserlis closed-form projection (+6.95): the token-axis variety
+## of the tensor cannot be carried by few shared quadratics -- that is what TABLES are for (every
+## successful program uses table + correction). Arm B (cores as exact RESTRICTIONS to the named
+## 289-dim stream span, 95.1%) is the correct 'everything compressed' object: compression lives in
+## the STREAMS; the cores remain restrictions of the exact fold. Two clean attempts, same verdict --
+## structural, not a bug. Wrong-content-worse-than-bland recurs (substituting both MLPs with a bad
+## program is worse than mean-ablating both).
