@@ -29,6 +29,7 @@ import jacclust.tt_model as TT
 REPOS = {'bilin18': 'Elriggs/gpt2-bilinear-sqrd-attn-18l-9h-1152embd',
          'bilin12': 'Elriggs/gpt2-bilinear-sqrd-attn-12l-6h-768embd',
          'bilinsm12': 'Elriggs/gpt2-bilinear-12l-6h-768embd',
+         'swiglu18': 'Elriggs/gpt2-bilinear-swiglu-18l-9h-1152embd',
          'sqrd12': 'Elriggs/gpt2-sqrd-attn-12l-6h-768embd'}
 
 
