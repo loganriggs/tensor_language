@@ -5670,3 +5670,18 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## ceiling was the LENS (equality over 50k tokens is worst-case for low-rank linear codes; rank16->64
 ## = noisy-equality scaling). Minimal-circuit retention conceded as wrong metric for function-level
 ## understanding; predicate substitution is the right one. Paper §7c added.
+
+## TICK 2026-07-29l — PROGRAM SUBSTITUTION BREAKTHROUGHS (Logan's model<->code framing).
+## (1) mlp01_functions.md: compiled function inventory MLP0/MLP1 with per-function attack plans.
+## (2) MLP0 CRACKED by the TN-NATIVE method (qk_mlp0_interaction.py): explicit program
+##     out ~ TokenTable[tok] + sum_r u_r (a_r.x)^2 (= rank-R symmetric CP of the exact fold, fit in
+##     function space): table-only 90.4% of the 3.63-nat floor; +R64 96.9% (0.15M params, 107x
+##     smaller); +R256 97.9% (0.59M, 27x smaller); R256-alone 97.8% (subsumes table). Linear
+##     generator was 29% -- LESSON: program family must match computational class (predicate for
+##     matching, quadratics for bilinear; linear fails both).
+## (3) INDUCTION model->code->BACK closed (qk_induction_finetune.py): 72 scalars (a,b,c x 24 heads),
+##     lstsq read-off -> natural CE +0.140, adv 107%/100.5%; task-finetune scalars only -> adv 116%
+##     nat / 116% shuf, natural CE +0.173. Code BEATS the model at its own task; induction is
+##     REPLACED by understanding. Residual +0.14-0.17 natural CE = the heads' non-induction pattern
+##     function, now cleanly separated as next target. NEXT: same treatment for MLP1 (per-consumer
+##     explicit program: TokenTable + PrevTable + content/structure axis + consumer slices).
