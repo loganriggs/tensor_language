@@ -5584,3 +5584,12 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## framing: subword vs punct are ONE MLP family, their minimal-circuit heads were near-passengers
 ## (mass 96%/91% MLP). Artifact updated with Task Atlas section (3 families + head/MLP mass bars):
 ## https://claude.ai/code/artifact/f27aeab4-438f-465a-9a33-aba8272b43ee
+
+## TICK 2026-07-29d — CATEGORY ENGINE (qk_category_engine.py) + ARC CLOSE. Probed the shared MLP0-3
+## category machinery: linear next-token-category probe (6-way) accuracy by depth embed 0.527 ->
+## blk4 0.611 -> blk12 0.679 (majority 0.437); CAUSAL mean-ablate MLP0-3 collapses blk4 0.611->0.510
+## (~embedding). MLP0-3 BUILDS the early causally-necessary category code all 5 category tasks read.
+## Artifact category-engine note added. RESULTS_l0_mdl.md §32 written (full arc: attention 2-17 +
+## MLP + causal stack + symbol limit + 3-family atlas + MLP1 hub/PC0 + category engine). ARC CLOSED.
+## Functional map of bilin18 complete: category-prediction engine (MLP0-3), induction (attention copy
+## on MLP1), layout (small head circuit, MLP-suppressed); MLP1 = dense content/structure-gated bus.
