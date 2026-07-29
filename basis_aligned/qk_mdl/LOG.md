@@ -5531,3 +5531,13 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## real bilin18 layer-0 QK fold (rank-128, 884MiB, gate 1.3e-15, the fp32-source bug story), head-as-third-
 ## moment C + exact-moment win (+0.0048->+0.0027), MLP gate 8.3e-7; fixed rank-1 opener + footer overclaim.
 ## Done: L1,L3,L4,L5. Remaining: L0,L2,L6,L7 (specs in hand).
+
+## PEDAGOGY — COMBINED NAVIGABLE COURSE (2026-07-29, Logan: architecture explainer + overview + all
+## lessons together clickable): §P10. tn_course_build.py -> tn_course.html ->
+## https://claude.ai/code/artifact/7e739068-60de-4cd3-ae42-ba759ee5cfbd . Single-page course, sidebar +
+## prev/next + arrow keys. NEW front matter: OVERVIEW (coverage map — L0-1 full, L3-8 memory routing,
+## L5 induction, L13-17 top MLPs, windowed-D global; honest scope) + ARCHITECTURE (simple bilinear unit
+## first -> full bilinear attention/MLP -> what folding/decomposition mean). All 8 lessons now REVISED
+## incl L2 (gauge: regauge + 65% antisym + branch-swap), L6 (sparse code + typed-blob memory pipeline
+## 4 stages + shared-Phi +0.59 limit), L7 (two extremes with mlp16 rank-16 vs block-0 rank-10 scorecard).
+## Each: concept -> toy that computes -> real bilin18 numbers. Full course done (§P8-P10).
