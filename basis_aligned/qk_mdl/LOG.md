@@ -5812,3 +5812,14 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## MLP15 69.3% the exception; several near the no-substitution threshold. (3) Queued: qk_mlp17_
 ## randctl.py (random-A control at the biggest interface). Remaining red-team queue: ledger v4
 ## zero-hardcodes single script (next tick, needs care); polish-on-null; service thresholds.
+
+## TICK 2026-07-29y — RED-TEAM QUEUE FULLY EXECUTED. (1) MLP17 randctl: random-A adds NOTHING over
+## tables (66.1% vs 67.5% tables-alone); trained adds full 0.128-nat increment -- learned bases
+## privileged at both tested interfaces. (2) LEDGER v4 (zero hardcodes, all numbers from audited
+## JSONs): HEADLINE = measured joint 82.5%; distribution unweighted 47.8% / median 34.8% / floor-
+## weighted 90.7%; substitute/keep decision at 50%-of-floor threshold (9 substitute, 9 keep);
+## attention booked as reconstructibility MARGIN only 0.053 nats (v3 credited 1.44 -- honest
+## deflation); meaning-verified = induction predicate only. (3) POLISH-ON-NULL: polish lifts a
+## random-feature program at MLP4 to 69.6% (trained 82.5%) -- reviewer CONFIRMED; conservative
+## credit column = pre-polish structural; METHODS addendum. Remaining: service-variance thresholds;
+## METHODS body rewrite; artifact/paper consistency pass with corrected numbers.
