@@ -5593,3 +5593,14 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## MLP + causal stack + symbol limit + 3-family atlas + MLP1 hub/PC0 + category engine). ARC CLOSED.
 ## Functional map of bilin18 complete: category-prediction engine (MLP0-3), induction (attention copy
 ## on MLP1), layout (small head circuit, MLP-suppressed); MLP1 = dense content/structure-gated bus.
+
+## TICK 2026-07-29e — GENERALITY: ATLAS ON bilin12 (qk_atlas_bilin12.py). Ran the functional atlas on
+## a 2nd model gpt2-bilinear-sqrd-attn-12l-6h-768embd (same bilinear MLP, SINGLE-BRANCH NORMALIZED
+## squared attn -- different attention family). Registered 'bilin12' in tier2_model REPOS. base CE
+## 3.466, induction adv 2.848. ROBUST BOTH MODELS: (1) category prediction = early MLP engine (6 tasks
+## corr 0.82-0.99, 76-90% MLP, top MLP0-4); (2) induction = attention mechanism dissociated from
+## category (bilin12 96% HEAD mass vs bilin18 28%; ANTI-correlated -0.17..-0.36). bilin18-SPECIFIC
+## (two-branch unnormalized attn artifacts): (a) MLP1 shared hub -- bilin12 induction hub-free (MLP
+## mass 0.04); (b) newline layout outlier -- bilin12 newline folds into category family (corr
+## 0.82-0.92). Verdict: deep two-family structure architecture-general; hub+layout-outlier were
+## bilin18 attention artifacts. Method (task battery x per-component knockout) ports cleanly.
