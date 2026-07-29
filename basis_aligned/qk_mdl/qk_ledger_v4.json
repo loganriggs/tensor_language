@@ -145,5 +145,10 @@
       1.105
     ]
   },
-  "threshold_substitute_if_cost_below_frac_of_floor": 0.5
+  "threshold_substitute_if_cost_below_frac_of_floor": 0.5,
+  "nullpolish_reference": {
+    "mlp4_null_program_post_polish": 0.696,
+    "mlp4_trained_post_polish": 0.825,
+    "note": "polish-on-null control: identical polish budget lifts a random-feature program at MLP4 from 1.1% to 69.6%; post-polish credit at small interfaces substantially reflects polish capacity. Structural (pre-polish) column is the conservative credit: MLP0 97.9, MLP1 93.6(R512, pre-CE-polish), MLP2 52.6, MLP3 39.3, MLP4 41.5, MLP15 ~?, MLP16 93.3, MLP17 86.0."
+  }
 }

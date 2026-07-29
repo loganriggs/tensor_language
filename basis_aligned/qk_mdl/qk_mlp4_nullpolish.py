@@ -59,7 +59,7 @@ def cond_table(keys, target):
     lam = tc.unsqueeze(1)/(tc.unsqueeze(1)+3.0)
     return lam*(ts/tc.clamp_min(1).unsqueeze(1)) + (1-lam)*target.mean(0)
 TT1 = cond_table(TOK, Y); PT1 = cond_table(PRV, Y - TT1[TOK])
-H = None  # (kept refs above)
+pass  # keep H/Y/TOK/PRV for the U-fit below
 
 # fit U for the frozen random A on the table residual (matching randctl recipe)
 RES0 = Y - TT1[TOK] - PT1[PRV]

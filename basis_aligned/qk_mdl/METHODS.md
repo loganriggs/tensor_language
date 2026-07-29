@@ -120,3 +120,9 @@ Hourly cron tick (analyze, commit, restock) + the `qkqueue` supervisor daemon, w
 `QUEUE.txt` one script at a time whenever the GPU is free — "go by default" is structural: work
 launches even if the analyst forgets to launch it. All scripts, JSON results, and this document
 are committed with the findings they support.
+
+> **Polish-on-null addendum (finding 6ii, measured):** the CE polish's 514 scalars lift even a
+> random-feature program to 69.6% at MLP 4 (trained: 82.5%). Therefore the ledger's conservative
+> credit column is **pre-polish (structural)**; post-polish numbers are reported alongside the
+> null-polish reference. Interfaces whose structural credit is already dominant (MLP 0, 1, 16, 17)
+> are unaffected; mid-stack post-polish figures should be read net of the null baseline.
