@@ -5802,3 +5802,13 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## quadratic increment over tables (0.274 vs 0.066 nats) -- learned basis genuinely privileged;
 ## tables do 90.4% of MLP0 raw. Remaining red-team queue: held-out induction refit, ledger v4
 ## zero-hardcodes, polish-on-null, MLP17 randctl, service thresholds. Band continuing via daemon.
+
+## TICK 2026-07-29x — HELD-OUT INDUCTION PASS + BAND COMPLETE. (1) RED-TEAM FIX #4 measured
+## (qk_induction_heldout.py): templates+scalars fit ONLY on cooc prefixes, evaluated on FRESH
+## FineWeb rows 400-447 + Pile, periods 48/64, natural+shuffled: retention 98.4-110.5% in ALL EIGHT
+## cells. Flagship provisional flag LIFTED -- the predicate replicates with clean hygiene; reviewer's
+## procedural objection was right, substantive conclusion survives. (2) MLP7-15 band complete via
+## daemon: polished dCE +0.022-0.032 each but only 16-30% of tiny floors (constant-leakage effect);
+## MLP15 69.3% the exception; several near the no-substitution threshold. (3) Queued: qk_mlp17_
+## randctl.py (random-A control at the biggest interface). Remaining red-team queue: ledger v4
+## zero-hardcodes single script (next tick, needs care); polish-on-null; service thresholds.
