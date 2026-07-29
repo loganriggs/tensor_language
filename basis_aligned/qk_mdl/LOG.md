@@ -5946,3 +5946,12 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## by the analytic chain: +0.0329 vs measured 18-MLP joint floor +18.49 = 99.8%, ZERO trained
 ## parameters. The entire MLP stack is a verified analytic pipeline inside the live model. Remaining
 ## frontier: attention patterns (still real) -- gauge-form substitution on chained streams.
+
+## TICK 2026-07-29kk — WHOLE-MODEL CAPSTONE (qk_named_bottleneck.py). Every attention output at
+## every layer projected onto 576 named coordinates -> entire residual in named span, every MLP an
+## exact analytic function of named content. Width 64/head: L0-5 +0.0146 / L0-11 +0.0354 / ALL 18
+## +0.0475 (linear ~0.003/layer, no compounding); width 32/head 9x worse. BEATS windowed-D (+0.059)
+## while fully structural (no tables/windows/fitting). bilin18 == (to +0.047) a fully-named analytic
+## tensor network: token -> per-layer 576-dim attention interfaces -> exact quadratic cores ->
+## gauges -> readout. COMPOSITION PROGRAM CLOSED AT WHOLE-MODEL LEVEL. Remaining: coordinate
+## semantics (naming the PCA completions), consolidated write-up + artifact refresh.
