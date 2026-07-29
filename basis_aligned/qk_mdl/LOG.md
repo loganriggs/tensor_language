@@ -5735,3 +5735,12 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## diminishing returns per doubling => MLP1 residual is long-tail contextual detail too.
 ## Foundation: attn0 exact + MLP0 program (97.9, residual named) + MLP1 program (93.6, service
 ## verified). Next: formal ledger rerun; upper-layer definitions on the foundation variables.
+
+## TICK 2026-07-29q — MLP1 TAIL SOURCE (Logan Q: foldable through attn/RoPE?). qk_mlp1_tail_source.py:
+## cross-stream quadratic families (E/A0/M0/A1, R=64, normalized+clipped after first attempt diverged
+## on M0 norms). DECISIVE NEGATIVE: all families ~0% of tail held-out incl hin1xhin1 sanity -> tail is
+## a DIFFUSE spectral tail of the rank-4608 quadratic form, no attention-foldable low-rank structure.
+## REFRAME: tail = 20.1% of output VARIANCE but only ~6.4% of FUNCTION -> two-thirds behaviorally
+## inert. Plan: scale R w/ data / gentle CE finetune of program scalars / price remainder as MDL
+## residual. BOTTOM-UP UPPER-LAYER PLAN CONFIRMED with Logan: layer 2 next, programs take foundation
+## variables (attn0 archetypes + MLP0/MLP1 program features) as inputs, code-verify gate per layer.
