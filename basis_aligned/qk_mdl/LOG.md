@@ -5562,3 +5562,14 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## memory hub (agrees with memory-pipeline arc). Scripts: qk_l217_symbolgen, qk_l26_mlp, qk_l26_causal,
 ## qk_induction_minimal/circuit/sharpbasis/symbolic, qk_subword_circuit, qk_punct_circuit (+ .json).
 ## Consolidated artifact: https://claude.ai/code/artifact/f27aeab4-438f-465a-9a33-aba8272b43ee
+
+## TICK 2026-07-29b — WHAT DOES THE MLP1 HUB COMPUTE (qk_mlp1_hub.py). Follow-on to the three-circuit
+## taxonomy: MLP-layer-1 is the dominant knockout in all three circuits. Decomposed MLP1's OUTPUT
+## (PCA) and probed per task. MLP1 output is HIGH-RANK (top-8 PCs 24.7% var, top-32 41%). MLP1's
+## contribution (full - MLP1-as-mean floor): induction 4.93, subword 9.15, punct 3.36 nats. Rank
+## sweep: each task needs ~16-32 output directions (induction r16=0.92 but r1..r4 NEGATIVE -- partial
+## projection worse than no MLP1); subword/punct gradual. Top-8 important output-PC overlap Jaccard:
+## ind-sub 0.23, ind-pun 0.14, sub-pun 0.14 -- LOW; only PC0 (top variance) shared by all three.
+## CONCLUSION: MLP1 is a shared COMPONENT, not a shared COMPUTATION -- a dense high-dim enrichment bus
+## each circuit taps on a different ~16-32-dim slice. Nuances the 'universal hub' reading. Artifact
+## updated (hub section): https://claude.ai/code/artifact/f27aeab4-438f-465a-9a33-aba8272b43ee
