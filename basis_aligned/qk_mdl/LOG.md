@@ -5624,3 +5624,16 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## unnorm, norm-squared, softmax} x {12L,18L}; MLP1-hub + newline-outlier are bilin18 two-branch-attn
 ## artifacts (depth-independent). GENERALITY ARC fully closed. REPOS: bilin18/bilin12/bilinsm12/
 ## swiglu18/sqrd12. Artifact generality section updated (4 models).
+
+## TICK 2026-07-29h — MECHANISM of the bilin18 MLP1-hub (qk_prevtoken_source.py + qk_mlp1_role.py).
+## Q: why does two-branch attention route induction through MLP1 while softmax does it in heads?
+## (1) NEGATIVE (prevtoken_source): prev-token signal is UNIVERSAL, built by LAYER-0 ATTENTION in all
+## models (ablate attn0 collapses prev-token R2 0.27->0.04; ablate MLP0 raises it). NOT bilin18's MLP1.
+## (2) DECISIVE (mlp1_role): induction-match rate (argmax key == correct copy source i-P+1), MLP1
+## intact vs ablated: bilin18 0.0355->0.0054 (85% COLLAPSE, adv 3.06->-3.32 inverts); swiglu18
+## 0.078->0.087 (match fine, adv improves); bilinsm12 0.094->0.096 (fine, adv improves). => MLP1 feeds
+## the TWO-BRANCH MATCH. The product pattern (q1k1)(q2k2) needs MLP1 to make BOTH branches co-fire at
+## the copy source; softmax (single bilinear) reads the match directly. In softmax models MLP1's
+## category content mildly INTERFERES with induction (ablation helps) -- same as newline-interference.
+## bilin18 MLP1-hub anomaly MECHANISTICALLY RESOLVED. (norm-pattern read fails for sign-varying two-
+## branch pattern -> used argmax-over-causal-keys metric.)
