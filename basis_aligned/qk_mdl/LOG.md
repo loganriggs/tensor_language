@@ -5644,3 +5644,19 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## + honest limitations, pointing to committed scripts + artifact. Distinct from the earlier memory-
 ## pipeline outline (qk_paper_outline.md). Scientific arc COMPLETE and replicated across 4 models;
 ## remaining work is write-up polish or Logan-steered new direction. GPU idle at genuine completion.
+
+## TICK 2026-07-29j — QUANTIFY UNDERSTANDING (Logan request: how much black box; quantify limitations;
+## minimality + hypothesis-driven generalization). Three new instruments:
+## (1) COMPLETENESS LEDGER (qk_completeness_ledger.py): mean-input floors for all 36 interfaces.
+##     Total floor mass 9.95 nats; explained 3.63 -> 36.5% UNDERSTOOD / 63.5% BLACK BOX. Attention
+##     patterns the understood half (L0 100%, L1 99%, L2-17 60-95%); black box concentrated in
+##     MLP0 (3.63, 29% understood) + MLP1 (2.15, 0% generated) = 58% of all floor mass; +MLP16/17 ->71%.
+## (2) PROPS (qk_understanding_props.py): induction circuit minimality 40/45 individually essential,
+##     locally minimal at 43; importance map FW->Pile Spearman 0.91 subword / 0.85 induction.
+## (3) HYPOTHESIS TESTS (qk_hypothesis_tests.py, Logan's falsifiability framing): induction circuit
+##     P96 99.9% PASS, P32 55% FAIL (period-sensitive), shuffled 38% FAIL (sufficient for natural
+##     induction, NOT the full copy mechanism -- redundant copy paths matter on pure copy);
+##     MLP1-match on shuffled: ablate -> inverts (+7.27->-0.88) content-independent CONFIRMED;
+##     CATEGORY-ENGINE STRONG CLAIM FALSIFIED: exact CE = catCE+withinCE decomposition, ablate MLP0-3
+##     -> d_cat +1.12 vs d_within +4.10 (ratio 0.27, control MLP7-10 0.36) -- early MLPs build GENERAL
+##     lexical structure; category is a decodable slice, not the function. Paper §4/§7/§7b updated.

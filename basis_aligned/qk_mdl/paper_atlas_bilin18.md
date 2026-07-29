@@ -68,12 +68,23 @@ per task, the tasks **collapse into three families**:
 This corrects a coarser three-circuit reading: subword and punctuation are not separate circuits but
 one MLP family whose minimal-circuit heads are near-passengers (importance mass 96% and 91% MLP).
 
-## 4. The category engine is literal (§4 script: qk_category_engine)
+## 4. The category code is literal — but "category engine" is too strong (§4 scripts: qk_category_engine, qk_hypothesis_tests)
 
 A linear probe reading the next token's category (six-way) from the residual climbs from 0.527 at the
 embedding to 0.611 right after MLP 0–3, then to 0.679 by mid-network (majority baseline 0.437).
 Causally, mean-ablating MLP 0–3 collapses the blk-4 probe back to 0.510 — the raw-embedding level. The
-early MLP stack *builds* the category code the five category tasks read.
+early MLP stack *builds* a decodable category code.
+
+**Falsification test.** The strong claim — "MLP 0–3 predicts the next token's *category*, not its
+identity" — makes a sharp prediction: decomposing cross-entropy exactly into category-CE (−log of the
+probability mass on the target's category; intact 0.627) plus within-category-CE (−log p(token|category);
+intact 2.653), ablating MLP 0–3 should damage category-CE disproportionately, and more so than a
+size-matched mid-stack control. **The prediction fails.** Ablating MLP 0–3 costs +1.12 category-CE but
++4.10 within-category-CE (ratio 0.27), and the category share of the damage is no *higher* than the
+MLP 7–10 control's (0.36). The correct description: the early MLPs build general lexical/token
+structure of which the category code is one decodable, probe-accessible slice — they are not a
+category-*specific* engine. (The atlas finding stands as stated: the five category *tasks* load on
+this early-MLP machinery with near-identical profiles.)
 
 ## 5. The MLP-1 hub is a multiplexer, not a shared computation (§5 scripts: qk_mlp1_hub, qk_mlp1_pc0)
 
@@ -104,18 +115,55 @@ product needs MLP 1 to make both branches co-fire at the copy source; a single s
 reads the match directly. In the softmax models MLP 1's category content mildly interferes with
 induction, mirroring the newline-interference effect.
 
-## 7. Honest limitations
+## 7. Quantified completeness and limitations
 
-- Audits use held-out FineWeb at 128–512 tokens; the model is competent to ~512.
-- The symbol decomposition is faithful for *average* next-token behaviour, not mechanism-exact for
-  sharp token-matching (the ~19% induction residual).
-- The minimal-circuit retention metric degrades when a task's magnitude is tiny (newline: 0.199 nats),
-  where pruning can overshoot 100%.
-- bilin18 differs from the 12-layer models in *both* attention family and depth; the 18-layer softmax
-  control (swiglu18) is what attributes its anomalies to attention rather than depth.
-- swiglu18 carries a swiglu MLP rather than a strictly bilinear one; the atlas is MLP-internals-agnostic
-  (it measures MLP-vs-head importance), so this does not affect the head/MLP conclusions, but its
-  category-code internals were not probed.
+**Completeness ledger** (script: qk_completeness_ledger). For every interface — each layer's
+QK-pattern input and each layer's MLP input, 36 in all — we computed a mean-input floor (constant
+dataset-mean input: no token or context information crosses the interface) and score each existing
+explanation as understood-fraction = 1 − cost(explanation)/cost(floor). Result:
+
+- Total single-interface floor mass: **9.95 nats**. Explained: **3.63 nats → 36.5% understood,
+  63.5% black box** (importance-weighted, first-order: floors are single-interface ablations and are
+  known to be superadditive, so this is an accounting device, not an exact partition).
+- Attention patterns are the well-understood half: layer 0 exact (100%), layer 1 ≈99%, layers 2–17
+  between 60% and 95% (mean ≈81%).
+- The MLP stack is the black box, and it is concentrated: MLP 0 (floor 3.63 nats, 29% understood via
+  the linear generator) and MLP 1 (floor 2.15 nats, analyzed as a multiplexer but 0% generated) alone
+  carry **58% of all floor mass**; adding MLP 16–17 (1.29 nats) brings the unexplained-or-thinly-
+  explained share to ~71%. MLP 2–6 are 6–79% understood; MLP 7–15 have small floors (0.03–0.08 each)
+  and no generators.
+
+**Quantified limitations.**
+- Audit window 128–513 tokens ≈ the model's full competence range (~512). The task battery's category
+  targets cover 56.3% of token positions (the "other" class is 43.7%).
+- The symbol lens is average-faithful, not mechanism-exact: symbol-driving retains 64% of induction
+  at rank 16, 81% with previous-token + rank 64, with ~19% irreducibly non-linear.
+- The minimal-circuit retention metric degrades when task magnitude is tiny: newline's floor-to-full
+  gap is 0.199 nats (14× smaller than induction's 2.77), where pruning overshot to 352%.
+- The bilin18 attention-versus-depth attribution rests on one control (swiglu18: 18 layers, softmax,
+  induction 100% head mass); swiglu18's MLP internals were not probed (the head/MLP mass conclusion
+  is MLP-internals-agnostic).
+
+## 7b. Properties of understanding (scripts: qk_understanding_props, qk_hypothesis_tests)
+
+- **Minimality.** The 45-component induction circuit is nearly locally minimal: 40/45 components are
+  individually essential (removal breaks the 90% threshold); iterative pruning of the slack reaches a
+  local minimum at **43 components** — no single removal below that keeps 90%.
+- **Selectivity.** Minimal circuits vastly exceed same-size random subsets (induction 90.7% vs 3.6%
+  random mean; punctuation 90.1 vs 15.8; subword 90.1 vs 26.5).
+- **Corpus transfer.** The FineWeb-fit importance map predicts knockout effects on Pile with Spearman
+  0.91 (subword) and 0.85 (induction) over 40 components.
+- **Hypothesis-driven generalization** (functional claims tested on inputs they were not discovered on):
+  - *"The circuit does induction (content-agnostic copy)"* — mixed. Period 96 (novel): retention
+    **99.9%** ✓. Period 32: **55.4%** ✗ (period-sensitive at short range). Shuffled prefixes (pure
+    copy, no natural n-grams): the full model's copy advantage nearly triples (7.27 nats) but the
+    circuit retains only **38.3%** ✗ — the circuit is sufficient for natural-text induction but is
+    NOT the model's complete copy mechanism; redundant copy paths that pruning removed carry much of
+    the pure-copy load.
+  - *"MLP 1 feeds the two-branch match"* — confirmed content-independently: on shuffled prefixes,
+    ablating only MLP 1 inverts induction (+7.27 → −0.88) ✓.
+  - *"MLP 0–3 is a category engine"* — **falsified in its strong form** (see §4): damage is not
+    category-selective (ratio 0.27 vs control 0.36).
 
 ## 8. Take-away
 
