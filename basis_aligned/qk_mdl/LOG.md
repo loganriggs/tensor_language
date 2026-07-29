@@ -5541,3 +5541,24 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## incl L2 (gauge: regauge + 65% antisym + branch-swap), L6 (sparse code + typed-blob memory pipeline
 ## 4 stages + shared-Phi +0.59 limit), L7 (two extremes with mlp16 rank-16 vs block-0 rank-10 scorecard).
 ## Each: concept -> toy that computes -> real bilin18 numbers. Full course done (§P8-P10).
+
+## TICK 2026-07-29 — COMPOSITIONAL LAYERS 2-17 + THREE END-TO-END CIRCUITS (Logan directive:
+## "fully decompose layers 0-6... in terms of preceding layers, both attention and MLP; causal
+## verification; if success continue to the rest; parse several circuits end to end"). CLOSED.
+## ATTENTION 2-17 (qk_l217_symbolgen.py): each layer's QK input regenerated from a growing symbol
+## basis of preceding layers only (96 embedding PCs + layer-0 archetypes + per-head 16-d PCA of
+## attn 1..L-1). Sym beats per-token table AND random null at ALL 16 layers; cost small and DECLINES
+## at depth (L2 +0.0176 ... L5 +0.0298 ... L12 +0.0027 L15 +0.0022 L17 +0.0097). MLP 2-6
+## (qk_l26_mlp.py): symbol-driven MLP input beats baselines but ~6x lossier (reads residual content
+## symbols can't express); cost drops at depth (+0.112->+0.034). CAUSAL STACK (qk_l26_causal.py):
+## replace all of L2-6 patterns at once -> +0.231 vs table +1.136 (5x) vs random +0.329; L5 dominates
+## compounding. SYMBOL-FAITHFULNESS (qk_induction_sharpbasis.py): symbol-driving induction retains
+## 64.3% (rank16), 71.0 (+prevtok), 79.6 (rank64), 80.7 (both); ~19% irreducibly non-linear (exact
+## match-copy not a low-rank readout). THREE MINIMAL CIRCUITS (backward-elimination, mean-ablate floor,
+## ~90% each): induction 39 heads+6 MLPs (attention-dominated match+copy, MLP1 inverts when removed,
+## nominal head h5.5 dispensable 97%); subword-continuation 24 heads+18 MLPs (MLP-dominated
+## detokenization, MLP1 +8.54); punctuation 30 heads+14 MLPs (mixed, MLP1 +3.14). SHARED HUB across
+## all three = MLP1/7/8/14; MLP1 is the dominant knockout in every circuit = universal enrichment/
+## memory hub (agrees with memory-pipeline arc). Scripts: qk_l217_symbolgen, qk_l26_mlp, qk_l26_causal,
+## qk_induction_minimal/circuit/sharpbasis/symbolic, qk_subword_circuit, qk_punct_circuit (+ .json).
+## Consolidated artifact: https://claude.ai/code/artifact/f27aeab4-438f-465a-9a33-aba8272b43ee
