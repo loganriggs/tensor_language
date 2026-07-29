@@ -5604,3 +5604,13 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## mass 0.04); (b) newline layout outlier -- bilin12 newline folds into category family (corr
 ## 0.82-0.92). Verdict: deep two-family structure architecture-general; hub+layout-outlier were
 ## bilin18 attention artifacts. Method (task battery x per-component knockout) ports cleanly.
+
+## TICK 2026-07-29f — GENERALITY x3 (qk_atlas_bilinsm12.py). Third model bilinsm12 (gpt2-bilinear-12l-
+## 6h-768embd, bilinear MLP + STANDARD SOFTMAX attn; registered in REPOS). base CE 3.409, ind adv
+## 3.045. Agrees with bilin12: category corr 0.77-0.99, 70-84% MLP, top MLP0-5; induction 87% HEAD,
+## anti-corr with category -0.30..-0.53. ACROSS 3 ATTENTION FAMILIES (bilin18 two-branch-unnorm /
+## bilin12 single-branch-norm-squared / bilinsm12 softmax), same bilinear MLP: ROBUST = category=early
+## MLP engine + induction=attention dissociated from category. bilin18-only anomalies (MLP1 hub,
+## newline outlier) confirmed specific. CAVEAT: bilin18 differs in BOTH attn family AND scale (18 vs
+## 12L); but the two 12L models with different attn agree -> within-scale attn family doesn't matter.
+## Artifact + RESULTS generality updated. GENERALITY ARC CLOSED.
