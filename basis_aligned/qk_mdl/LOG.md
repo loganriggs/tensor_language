@@ -5929,3 +5929,15 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## linear maps eroding semantics is moot -- not needed. Joint analytic chain = 91.5% with every
 ## named coordinate's identity intact. (Two commit trailers have typo'd session URLs -- harmless,
 ## noted.) NEXT: causal joint variant; error-PCA basis completion; artifact/paper consistency pass.
+
+## TICK 2026-07-29jj — CAUSAL JOINT: 99.9% WITH ZERO TRAINED PARAMETERS (qk_joint_causal.py).
+## All six MLPs replaced in the RUNNING residual (attention reads substituted stream, chain consumes
+## causal attention, no oracle): untrained +0.0101 (99.9%); oracle-trained knobs 97.6% (overcorrect);
+## retrained-in-config 99.8% (no better). REVERSAL: the 72.5% joint gap + 19-pt knob recovery were
+## ORACLE-DELTA EVALUATION ARTIFACTS (Frankenstein state). DEEP REASON: composed folds inherit the
+## model's own error-propagation (function-consistency from shared weights) -- inputs shift, outputs
+## shift like the real component; data-fit programs calibrated on real inputs lack this (their causal
+## joint 82.5% shows real superadditivity). BOTTOM LINE: fully-analytic six-MLP pipeline (token +
+## 576-dim attn coords/layer, exact restrictions, gauges, zero fitting) runs causally at +0.0101.
+## Composition program essentially COMPLETE for layers 0-5. NEXT: extend causally to all 18 MLPs;
+## attention-side pattern substitution into the causal chain; consolidated write-up + artifact.
