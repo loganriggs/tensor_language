@@ -5492,3 +5492,12 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## Real footer: §30 permute-neurons-identical + 65% antisym gauge -> per-neuron circuit stories can be
 ## noise. 3 lessons now built (L1 fold, L2 gauge, L7 extremes). Next: L3 (the right basis) which follows
 ## directly from L2. Course build continuing per Logan directive.
+
+## PEDAGOGY §P6 (2026-07-29): Lesson 3 (the right basis) built. tn_basis_demo.py/.json + figure
+## https://claude.ai/code/artifact/e3d3fd6f-82f7-4b67-9556-52f544025126 . Toy: signal in a task subspace +
+## big nuisance the readout ignores. (1) dense in neurons (participation 9.2/24) but sparse in right basis
+## (2/8 atoms). (2) METRIC MATTERS: raw-L2 PCA y-R2 ~0 until k=12 (spends all on nuisance) vs metric-aligned
+## 0.71@k=1, 1.0@k=4; atom recovery cosine metric 0.63 vs raw 0.01. Real footer: metric dictionary ->
+## semantic atoms (topics/morphology) + archetypes; behavioral/metric check is arbiter not L2 recon.
+## 4 lessons built (L1 fold, L2 gauge, L3 right-basis, L7 extremes) — the 'breaking down nodes' thread
+## nearly complete. Next: L4 (minimal circuits) closes that thread, then L5-6 (bonds), L0 (intro).
