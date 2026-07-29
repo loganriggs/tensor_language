@@ -1,0 +1,149 @@
+{
+  "mlp_rows": [
+    {
+      "L": 0,
+      "floor": 3.62671,
+      "cost": 0.0748,
+      "fraction": 0.9794,
+      "note": "table_R256; substitute"
+    },
+    {
+      "L": 1,
+      "floor": 2.15118,
+      "cost": 0.08214,
+      "fraction": 0.9618,
+      "note": "functail; substitute"
+    },
+    {
+      "L": 2,
+      "floor": 0.18181,
+      "cost": 0.05886,
+      "fraction": 0.6763,
+      "note": "polish; substitute"
+    },
+    {
+      "L": 3,
+      "floor": 0.1308,
+      "cost": 0.05299,
+      "fraction": 0.5949,
+      "note": "polish; substitute"
+    },
+    {
+      "L": 4,
+      "floor": 0.25274,
+      "cost": 0.04424,
+      "fraction": 0.825,
+      "note": "polish; substitute"
+    },
+    {
+      "L": 5,
+      "floor": 0.08246,
+      "cost": 0.04993,
+      "fraction": 0.3945,
+      "note": "table_prev_R256; keep (cost >= 50% of floor)"
+    },
+    {
+      "L": 6,
+      "floor": 0.04746,
+      "cost": 0.0559,
+      "fraction": -0.1778,
+      "note": "table_prev_R128; keep (cost >= 50% of floor)"
+    },
+    {
+      "L": 7,
+      "floor": 0.04587,
+      "cost": 0.03206,
+      "fraction": 0.3011,
+      "note": "polish; keep (cost >= 50% of floor)"
+    },
+    {
+      "L": 8,
+      "floor": 0.03557,
+      "cost": 0.02696,
+      "fraction": 0.2421,
+      "note": "polish; keep (cost >= 50% of floor)"
+    },
+    {
+      "L": 9,
+      "floor": 0.03295,
+      "cost": 0.02601,
+      "fraction": 0.2106,
+      "note": "polish; keep (cost >= 50% of floor)"
+    },
+    {
+      "L": 10,
+      "floor": 0.031,
+      "cost": 0.02466,
+      "fraction": 0.2045,
+      "note": "polish; keep (cost >= 50% of floor)"
+    },
+    {
+      "L": 11,
+      "floor": 0.03339,
+      "cost": 0.02543,
+      "fraction": 0.2384,
+      "note": "polish; keep (cost >= 50% of floor)"
+    },
+    {
+      "L": 12,
+      "floor": 0.02702,
+      "cost": 0.0226,
+      "fraction": 0.1636,
+      "note": "polish; keep (cost >= 50% of floor)"
+    },
+    {
+      "L": 13,
+      "floor": 0.02956,
+      "cost": 0.02204,
+      "fraction": 0.2544,
+      "note": "polish; keep (cost >= 50% of floor)"
+    },
+    {
+      "L": 14,
+      "floor": 0.02784,
+      "cost": 0.02238,
+      "fraction": 0.1961,
+      "note": "polish; keep (cost >= 50% of floor)"
+    },
+    {
+      "L": 15,
+      "floor": 0.08099,
+      "cost": 0.02485,
+      "fraction": 0.6932,
+      "note": "polish; substitute"
+    },
+    {
+      "L": 16,
+      "floor": 0.59296,
+      "cost": 0.03265,
+      "fraction": 0.9449,
+      "note": "polish; substitute"
+    },
+    {
+      "L": 17,
+      "floor": 0.69318,
+      "cost": 0.07448,
+      "fraction": 0.8926,
+      "note": "polish; substitute"
+    }
+  ],
+  "headline_joint": {
+    "recomputed_base": 3.09057,
+    "joint_dCE": 1.23572,
+    "joint_floor": 7.06689,
+    "sum_of_singles": 0.47688,
+    "superadditivity_ratio": 2.591,
+    "joint_substitutable_fraction": 0.8251
+  },
+  "mlp_unweighted_mean": 0.4775,
+  "attention_named_margin_nats": 0.05276,
+  "attention_sym_sum": 0.18154,
+  "attention_rand_sum": 0.2343,
+  "meaning_verified": {
+    "induction_predicate_heldout_retention_range": [
+      0.984,
+      1.105
+    ]
+  },
+  "threshold_substitute_if_cost_below_frac_of_floor": 0.5
+}
