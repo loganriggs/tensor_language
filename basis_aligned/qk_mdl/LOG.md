@@ -5724,3 +5724,14 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## Next codable hypothesis: (prev,cur)-pair table for split-word positions. FOUNDATION: attn0 exact
 ## fold + MLP0 validated program w/ one named gap -> nearly ready as robust input variables for
 ## upper-layer definitions (Logan's plan).
+
+## TICK 2026-07-29p — PAIR PATCH + MLP1 R512. (1) qk_mlp0_pairpatch.py: reassembly hypothesis
+## VERIFIED at covered positions (held-out gated FVU 0.576->0.544 w/ pair table; prev-only control
+## WORSENS MSE 0.590) but pair lexicon coverage only 18.3% held-out -> end-to-end +0.079->+0.076.
+## MLP0's last 2% = LONG-TAIL LEXICAL MEMORY (cheap to name, expensive to enumerate). METRIC
+## DISSOCIATION flagged: prev-only control hurts MSE but helps CE (+0.071, full coverage) at small
+## OOD cost (shuffled +0.008) -- FVU-vs-dCE lesson recurs. (2) qk_mlp1_r512.py: R512 -> 93.6%
+## (89.6 R256, 79.2 R64), FVU 0.52, induction nat 107.6/shuf 97.9 -- match service carried;
+## diminishing returns per doubling => MLP1 residual is long-tail contextual detail too.
+## Foundation: attn0 exact + MLP0 program (97.9, residual named) + MLP1 program (93.6, service
+## verified). Next: formal ledger rerun; upper-layer definitions on the foundation variables.
