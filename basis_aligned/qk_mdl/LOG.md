@@ -5767,3 +5767,11 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## (3) FVU/dCE dissociation again (MLP4 best FVU 0.33, modest CE%). Induction preserved everywhere
 ## (93.5-100.3% shuf). Polish scripts qk_mlp{2,3,4}_polish.py generated+QUEUED (MLP1 precedent: gains
 ## close ~40% of remainder). Daemon protocol working as designed: stock queue at analysis time.
+
+## TICK 2026-07-29t — METHODS.md + POLISH PASS LANDED. Logan asked where the methods are explained
+## (scattered) -> wrote METHODS.md: TN foundations (fold names the program family) / floors+ledger /
+## program-substitution recipes (quadratic programs for bilinear MLPs, predicate+template for attn
+## functions, symbols for attn layers, atlas for localization) / five verification gates / five
+## learned failure modes / tick+daemon workflow. Daemon-run polish pass: MLP2 52.6->67.6, MLP3
+## 39.3->59.5, MLP4 41.5->82.5 (%of own floors); induction preserved. Queue empty; next stock:
+## ledger v3 + MLP5/6 programs + MLP17 (output-side family).
