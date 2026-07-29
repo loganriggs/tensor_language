@@ -5872,3 +5872,14 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## data-conditioned beats data-free 8x on rank across all 3; safe on read matrices, destructive on
 ## shared value carriers. (6) Agent DAS/weight-target failures were informative (v1 bypass) and
 ## honestly reported. Logan's sanity-check program delivered end to end.
+
+## TICK 2026-07-29dd — PATTERN GAUGE + MLP1 COMPOSED FOLD. (1) qk_pattern_gauge.py: attention
+## pattern = quartic multilinear numerator / four norm gauges, verified 3.6-4.0e-07 at layers
+## 0/2/8/13/17 (first run off by exactly HD -- fixed; rope commutes with rms scalar, bf16 table
+## noise cancels in ratio). EVERY nonlinearity in bilin18 except final tanh/softmax now exact
+## multilinear + analytic scalar gauges. (2) qk_mlp1_composed_fold.py (daemon-run): gates pass,
+## full-analytic +0.00000; block shares: A0-direct ~0 (attn0 feeds MLP1 THROUGH MLP0), dominant
+## M0xA1 0.204; arm A (a0/a1 truncated 144-dim, m0 exact-chain) 99.5% BEATS data program 96.1%;
+## arm B (fully truncated 2-layer chain) 95.1%. Composition now matches/beats data fitting at both
+## MLP0 and MLP1. NEXT: extend composed chain upward layer-by-layer (the bottom-up program, now
+## analytic); fold gauge scalars into upper-layer accounting; docs consistency pass.
