@@ -5836,3 +5836,14 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## Interesting sub-questions planted: increment = attention-position vs MLP-successor-lookup;
 ## successor = one shared circuit or three; DAS cross-family transfer; data-conditioned vs data-free
 ## minimal weight rank.
+
+## TICK 2026-07-29aa — WEIGHT-NATIVE vs DATA-FIT (Logan Q: why not weight-folding?). qk_mlp0_
+## weightnative.py at MLP0 R=256: W1 weights-only CLOSED FORM (Gram eig features, u_r =
+## Down((La_r)o(Ra_r)), rms-invariance table) = 69.0% with ZERO data; +unigram metric 76.4%;
+## weight-directions + data-calibration 92.7%; full data program 97.9%. DECOMPOSITION OF DATA'S
+## ROLE: directions nearly free from weights (5-pt gap); the 16-pt calibration gap = input
+## DISTRIBUTION knowledge, which upstream weights can't propagate in closed form (rms nonlinearity
+## + attention mixing -- same obstruction as QK-fold beyond layer 0). Unigram/static-moment = the
+## weight-computable approximation. Coverage: features overdetermined+OOD-safe; tables are the risk
+## (pair lexicon 18%); EXACT-TAIL BACKSTOP MLP = named_R + (T - T_R) makes behavioral degradation
+## impossible -- unnamed tail is an exactly-characterized weight object. 3 algo-task agents running.
