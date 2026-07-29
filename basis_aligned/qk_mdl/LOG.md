@@ -5520,3 +5520,14 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## code inset, real mlp16 rank-16 +0.024 (named register dirs) vs block-0 distributed (random-16 .838 ~
 ## ranked .862, readout!=causal). Each lesson now: concept -> toy WITH the computation -> real bilin18 numbers.
 ## Remaining rebuilds: L0,L1,L2,L5(rank-vs-rotation answered),L6,L7 — specs in hand.
+
+## PEDAGOGY REVISION batch 2 (2026-07-29): §P9. tn_bond_rotation_demo.py/.json (rotation vs rank-4
+## projection: identical-looking dense matrices, spectra flat-1s vs 4-then-0, truncation R2 rotation
+## linear vs projection flat-till-4-then-cliff). REBUILT L5 (40c6029b): ANSWERS Logan's rank-vs-rotation
+## question in a callout (density=entries/gauge, rank=dimensions/invariant; rotation wide-lossless vs
+## rank-16 narrow-lossy-bottleneck), two-matrices-eye-cant-tell + spectra + truncation + real manifold
+## collapse (weight rank 68 -> realized 10; rank-16 priced +0.0113=78%) + windowed-D +0.059. REBUILT L1
+## (3022781f): fold AS computation (einsum code + fp32 1.6e-7 / fp64 7.4e-16 receipts + 529-input scatter),
+## real bilin18 layer-0 QK fold (rank-128, 884MiB, gate 1.3e-15, the fp32-source bug story), head-as-third-
+## moment C + exact-moment win (+0.0048->+0.0027), MLP gate 8.3e-7; fixed rank-1 opener + footer overclaim.
+## Done: L1,L3,L4,L5. Remaining: L0,L2,L6,L7 (specs in hand).
