@@ -2593,3 +2593,23 @@ qk_induction_minimal.py, qk_subword_circuit.py, qk_punct_circuit.py, qk_newline_
 qk_circuit_null.py, qk_circuit_atlas.py, qk_mlp1_hub.py, qk_mlp1_pc0.py, qk_category_engine.py.
 
 Consolidated interactive artifact: https://claude.ai/code/artifact/f27aeab4-438f-465a-9a33-aba8272b43ee
+
+### §32b Four-model generality and the two-branch MLP1 mechanism (2026-07-29)
+
+The functional atlas was run on four bilinear-MLP transformers spanning three attention families
+(two-branch unnormalized [bilin18], single-branch normalized squared [bilin12], softmax [bilinsm12,
+swiglu18]) and two depths (12 and 18 layers). Architecture-general: the early MLP stack builds the
+next-token-category code and induction is a separate attention mechanism. bilin18-specific: the MLP1
+shared hub and the newline outlier — and a fourth model (swiglu18, 18-layer softmax) shows induction
+at 100% head mass, so these are a property of bilin18's two-branch attention, not its depth.
+
+Mechanism. Previous-token information (what induction matches on) is universal: a linear probe reads
+token[j-1] from the residual, and it is built by layer-0 attention in every model (ablating attn0
+collapses it 0.27→0.04; MLP0 dilutes it). MLP1 does not build previous-token content. What MLP1
+does is feed the two-branch MATCH: ablating MLP1 collapses bilin18's induction-match rate (fraction
+of second-copy queries whose top-attended key is the correct copy source) by 85% (0.0355→0.0054)
+and inverts induction, whereas in both softmax models the match is untouched and induction improves.
+The two-branch product (q1·k1)(q2·k2) needs MLP1 to make both branches co-fire at the copy source;
+a single softmax bilinear form reads the match directly. In the softmax models MLP1's category
+content mildly interferes with induction, mirroring the newline-interference effect. Scripts:
+qk_atlas_bilin12/bilinsm12/swiglu18.py, qk_prevtoken_source.py, qk_mlp1_role.py.
