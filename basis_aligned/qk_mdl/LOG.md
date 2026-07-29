@@ -5758,3 +5758,12 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## +0.193 (sum of singles 0.164 -- mild superadditivity). Frontier ranked: MLP17 0.69, MLP4 0.25,
 ## MLP2 0.18, MLP3 0.13 = the bottom-up upper-layer targets. NEXT QUEUE: layer-2 MLP program on
 ## foundation variables.
+
+## TICK 2026-07-29s — MID-STACK LADDER via DAEMON. QUEUE.txt stocked with qk_mlp{2,3,4}_program.py
+## (generated from qk_mlpL_template.py); daemon ran all three autonomously. R256 results (abs dCE /
+## % of own floor): MLP2 +0.086/52.6, MLP3 +0.079/39.3, MLP4 +0.148/41.5. Patterns: (1) absolute
+## program error ~constant (~+0.08) while floors shrink -> falling percentages; (2) token-keyed share
+## collapses with depth (MLP0 tables alone 90.4% -> MLP2/MLP4 tables NEGATIVE = wrong content harms);
+## (3) FVU/dCE dissociation again (MLP4 best FVU 0.33, modest CE%). Induction preserved everywhere
+## (93.5-100.3% shuf). Polish scripts qk_mlp{2,3,4}_polish.py generated+QUEUED (MLP1 precedent: gains
+## close ~40% of remainder). Daemon protocol working as designed: stock queue at analysis time.
