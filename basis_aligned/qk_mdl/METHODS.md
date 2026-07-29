@@ -1,13 +1,16 @@
 # Methods: how we interpret this model (current, 2026-07-29)
 
-> **Red-team corrections (2026-07-29, see `redteam_findings_2026-07-29.md`):** the ledger metric is
-> a **substitutable fraction**, not "understood" — only claims that pass the code-verify meaning
-> gate count as understood (currently: the induction predicate). The headline must be dual-reported:
-> floor-weighted ~89% / **unweighted-across-interfaces ~59%**, pending the joint-substitution run
-> (single-interface floors are superadditive; the all-programs joint audit is queued). Attention-
-> layer credit is deflated to the named-basis-vs-random-basis margin (the random null achieves 96%
-> of the raw credit). The induction flagship numbers were partially fit-on-eval (templates and
-> scalars read off the scored prefixes) — held-out refit queued; treat 106.6%/100.5% as provisional.
+> **Status after red-team + composed-fold arcs (2026-07-29, see `redteam_findings_2026-07-29.md`,
+> `qk_ledger_v4.json`):** the ledger metric is a **substitutable fraction**, not "understood" —
+> only claims passing the code-verify meaning gate count as understood (currently: the induction
+> predicate, which subsequently **passed a fully held-out refit**: 98.4–110.5% retention across
+> fresh-corpus/period cells). Headline = the **measured joint substitutable fraction 82.5%** (all
+> credited MLP programs substituted simultaneously against a jointly-measured floor; superadditivity
+> 2.59× vs sum-of-singles), with the distribution dual-reported (unweighted mean 47.8%). Attention
+> credit is booked separately as reconstructibility margin (0.053 nats). Since these corrections,
+> the **composed-fold method (§3a)** has superseded data fitting as the primary program source:
+> composition matches or beats data-fit programs at MLP 0 (96.9 vs 97.9) and MLP 1 (99.5/95.1 vs
+> 96.1) with all coefficient tensors from weights.
 
 The current methodology in one sentence: **replace each component of the model with an explicit
 program whose form matches that component's computational class, verify the replacement causally on
@@ -42,10 +45,30 @@ For every interface (each layer's QK-pattern input; each layer's MLP input — 3
 All audits are held-out (FineWeb subset disjoint from every fitting corpus); ΔCE in nats is the
 only headline metric (MSE/FVU is used inside fitting only — it repeatedly mispredicts ΔCE).
 
-## 3. The core method: explicit-program substitution
+## 3a. The primary method: composed folding with gauge scalars (2026-07-29 onward)
 
-For each component, write an explicit program in its computational class, fit it, substitute it
-into the frozen model, and audit.
+Two verified identities make the whole model an **exact tensor network with analytic scalar-gauge
+nodes** (both at ~10⁻⁷, the only remaining nonlinearity being the final tanh/softmax readout):
+
+- **MLP gauge:** `MLP(rms_norm(x)) = D · T(x,x)/‖x‖² + bias` — rms folds out of any homogeneous
+  quadratic as a scalar (a ratio of two analytic quadratics).
+- **Pattern gauge:** `pattern(i,j) = ⟨R_i q_i, R_j k_j⟩⟨R_i q2_i, R_j k2_j⟩ / (‖q1_i‖‖k1_j‖‖q2_i‖‖k2_j‖)`
+  — a quartic multilinear numerator over four norm gauges; rope commutes with the rms scalar.
+
+The **per-layer recipe** (verified through layer 1, extending upward): (1) split the layer's pre-rms
+input into its analytic *streams* (embedding + each preceding component's output); (2) truncate each
+attention stream to a **named basis** (archetype write-directions, ~144 dims); (3) chain MLP streams
+through their own composed forms; (4) evaluate the layer's tensor as the **exact restriction** to
+the named stream span, carrying the gauge scalar. Compression lives in the *streams*, never in
+naked rank-truncation of the cores (measured to fail — see §5). Data's only role is choosing
+truncation bases/metrics; all coefficient tensors come from weights. This exposes interaction
+structure directly (e.g., MLP 1's blocks show attention-0 feeds it almost entirely *through*
+MLP 0, with the MLP0×attn1 cross-term dominant).
+
+## 3b. The fallback method: data-fit explicit-program substitution
+
+Where composed streams are not yet available, write an explicit program in the component's
+computational class, fit it on activations, substitute into the frozen model, and audit.
 
 **For bilinear MLPs** (the class-matched family — a rank-R symmetric CP of the folded tensor,
 fit in function space):
@@ -126,3 +149,13 @@ are committed with the findings they support.
 > credit column is **pre-polish (structural)**; post-polish numbers are reported alongside the
 > null-polish reference. Interfaces whose structural credit is already dominant (MLP 0, 1, 16, 17)
 > are unaffected; mid-stack post-polish figures should be read net of the null baseline.
+
+## 5b. Failure modes added by the composed-fold and control arcs
+
+- **Naked core truncation fails** — rank-truncating a bilinear tensor to shared quadratic features
+  (any closed-form projection: Frobenius or Gaussian-under-metric) collapses below the floor; the
+  token-axis variety must be carried by tables or by exact restriction to the stream span.
+- **Polish capacity masquerades as program quality** at small interfaces (a null program polishes
+  to 69.6% at MLP 4); the conservative credit column is pre-polish structural.
+- **Black-box weight analysis undersells the weights** — the same tensor scored 69% analyzed alone
+  and 96.9% composed with upstream structure; always compose before concluding data is necessary.
