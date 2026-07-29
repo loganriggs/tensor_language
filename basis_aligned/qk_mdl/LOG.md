@@ -5685,3 +5685,15 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ##     REPLACED by understanding. Residual +0.14-0.17 natural CE = the heads' non-induction pattern
 ##     function, now cleanly separated as next target. NEXT: same treatment for MLP1 (per-consumer
 ##     explicit program: TokenTable + PrevTable + content/structure axis + consumer slices).
+
+## TICK 2026-07-29m — MLP1 PROGRAM + JOINT EXPLICIT STACK + GENTLE HYBRID.
+## MLP1 (qk_mlp1_interaction.py, same TN-native method): table -26.2% (wrong content WORSE than bland
+## floor) -> +prevtable 17.3% -> +R64 79.2% -> +R256 89.6% of 2.15 floor. Falsifiable prediction
+## PASSED: program carries the match service (induction shuf 95.6% under substitution). MLP1 harder
+## than MLP0 (89.6 vs 97.9) = context-bound enrichment remainder. JOINT fully-explicit early stack
+## (MLP0 prog + MLP1 prog + induction code simultaneously): natural dCE +0.674 @128, induction
+## 132.6%/115.1% -- runs, beats model at induction. GENTLE HYBRID (Logan mid-turn: 'more gently
+## integrate?'): pat = pat_model + (a_code - a_readoff)*MATCH, exact model at init (bit-identical
+## sanity); finetune ONLY 24 match coefficients -> natural +0.020 (8x gentler), induction
+## 105.6%/105.8%. Pareto: hybrid 24sc/+0.02/106% | readoff 72sc/+0.14/100-107% | finetuned
+## 72sc/+0.17/116%. Position templates fit at T=127 (joint audited @128-token windows).
