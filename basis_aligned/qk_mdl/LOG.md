@@ -5697,3 +5697,14 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## sanity); finetune ONLY 24 match coefficients -> natural +0.020 (8x gentler), induction
 ## 105.6%/105.8%. Pareto: hybrid 24sc/+0.02/106% | readoff 72sc/+0.14/100-107% | finetuned
 ## 72sc/+0.17/116%. Position templates fit at T=127 (joint audited @128-token windows).
+
+## TICK 2026-07-29n — PROGRAM UNDERSTANDABILITY (Logan: "how understandable is the explicit program?").
+## qk_program_features.py characterizes the R=256 quadratic features. MLP0: 29% strongly token-keyed
+## (median R2 0.66); ~64 effective features/position; top features READABLE AT A GLANCE = syntactic-
+## class detectors (conjunctions / determiners / prepositions / pronouns / topical nouns); novel dirs
+## (max-cos 0.10 vs embedding PCs); NOT concentrated (top-64-of-256 = 42% importance, truncation
+## 80.8% vs retrained-R64 96.9% -> compress by retraining, not truncating). MLP1: 27%/0.71 keying but
+## 2x more distributed (126 eff features/position = context-bound signature); top features readable
+## but fuzzier (contractions, adjective-quality clusters, discourse). VERDICT: white-box architecture,
+## grey-box features -- individually inspectable, top nameable, collectively distributed. Autonomy
+## confirmed: cron armed, queue continues (MLP1 gap closure + heads' non-induction function next).
