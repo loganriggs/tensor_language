@@ -5911,3 +5911,12 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## naming-vs-capture trade quantified (~20 pts at width 144); named bases can be PCA-completed.
 ## NEXT: extend chain to layers 3-5 at K=576 (expect ~95%+); artifact/paper consistency; service
 ## thresholds; Pythia HELD.
+
+## TICK 2026-07-29hh — DEEP CHAIN AT K=576 (qk_chain_deep.py). Interface tests: MLP3 98.1% (depth 4),
+## MLP4 99.2% (depth 5), MLP5 97.9% (depth 6) -- NO depth degradation; compounding flat through six
+## chained quadratic layers; bottom-up analytic pipeline verified at interface level for the first
+## third of the MLP stack. JOINT six-MLP chain: +2.139 vs measured six-MLP floor +7.782 = 72.5%
+## (oracle attention streams -- caveat; data-joint 82.5% on different set was causal, not directly
+## comparable). Frontier = joint simultaneous substitution, not depth. NEXT: causal joint variant
+## (attention recomputed from substituted residual); named+PCA-completed hybrid bases; artifact/
+## paper consistency pass.
