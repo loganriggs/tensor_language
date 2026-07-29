@@ -1,5 +1,14 @@
 # Methods: how we interpret this model (current, 2026-07-29)
 
+> **Red-team corrections (2026-07-29, see `redteam_findings_2026-07-29.md`):** the ledger metric is
+> a **substitutable fraction**, not "understood" — only claims that pass the code-verify meaning
+> gate count as understood (currently: the induction predicate). The headline must be dual-reported:
+> floor-weighted ~89% / **unweighted-across-interfaces ~59%**, pending the joint-substitution run
+> (single-interface floors are superadditive; the all-programs joint audit is queued). Attention-
+> layer credit is deflated to the named-basis-vs-random-basis margin (the random null achieves 96%
+> of the raw credit). The induction flagship numbers were partially fit-on-eval (templates and
+> scalars read off the scored prefixes) — held-out refit queued; treat 106.6%/100.5% as provisional.
+
 The current methodology in one sentence: **replace each component of the model with an explicit
 program whose form matches that component's computational class, verify the replacement causally on
 tasks and adversarially on inputs it was never fit on, and account for what remains against a
