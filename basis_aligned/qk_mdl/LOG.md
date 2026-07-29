@@ -5708,3 +5708,19 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## but fuzzier (contractions, adjective-quality clusters, discourse). VERDICT: white-box architecture,
 ## grey-box features -- individually inspectable, top nameable, collectively distributed. Autonomy
 ## confirmed: cron armed, queue continues (MLP1 gap closure + heads' non-induction function next).
+
+## TICK 2026-07-29o — CODE-VERIFY FALSIFICATION + ADVERSARIAL BATTERY (Logan directives).
+## (1) qk_feature_code_verify.py: top-token feature naming FALSIFIED -- coding 'feat174=conjunction
+## detector' etc. as alpha*1[token in grammar class]+beta performs IDENTICALLY to deleting the
+## features (3.3846 vs 3.3838); class membership explains only 16-58% of activation variance;
+## features are GRADED CONTEXT-MODULATED directions, not binary class detectors. The loop works as
+## a falsifier (induction predicate PASSED 100.5%, feature naming FAILED). Weak task-side teeth
+## (zero8 only +0.012) -- R2 discriminator carries verdict.
+## (2) qk_mlp0_adversarial.py: MLP0 program SURVIVES adversarial battery -- in-dist +0.091 /
+## long-513 +0.088 / Pile +0.045 (better) / shuffled +0.006 / rare-token -0.028 (beats real MLP0);
+## program MORE robust off-dist than on (token-table+quadratics generalize; the unexplained 2% is
+## natural-text-specific). Max-divergence probe: worst 0.5% = SUBWORD CONTINUATIONS of split words
+## (ster|dump, iter|Wa, ented|Pres) -> blind spot NAMED: multi-token word reassembly, pair-keyed.
+## Next codable hypothesis: (prev,cur)-pair table for split-word positions. FOUNDATION: attn0 exact
+## fold + MLP0 validated program w/ one named gap -> nearly ready as robust input variables for
+## upper-layer definitions (Logan's plan).
