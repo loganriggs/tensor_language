@@ -5920,3 +5920,12 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## comparable). Frontier = joint simultaneous substitution, not depth. NEXT: causal joint variant
 ## (attention recomputed from substituted residual); named+PCA-completed hybrid bases; artifact/
 ## paper consistency pass.
+
+## TICK 2026-07-29ii — JOINT POLISH (Logan: train non-functional components). Two tiers on the joint
+## six-MLP chain: T1+T2 scalars/gauge/bias/diag-in-named-basis (10.4k params, CANNOT rotate meaning):
+## 72.5% -> 91.5% (+2.139 -> +0.665). T3 + within-head 64x64 mixing (232k params, head-preserving
+## coordinate-mixing): 90.6% -- NO BETTER at matched training. VERDICT: joint gap was CALIBRATION
+## (exposure bias: stages see chained not real inputs), not expressivity; Logan's concern about
+## linear maps eroding semantics is moot -- not needed. Joint analytic chain = 91.5% with every
+## named coordinate's identity intact. (Two commit trailers have typo'd session URLs -- harmless,
+## noted.) NEXT: causal joint variant; error-PCA basis completion; artifact/paper consistency pass.
