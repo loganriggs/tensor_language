@@ -5858,3 +5858,17 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## of attn0 energy, 96.9% of function. Cross block (token x attn interaction) = 0.54 variance share,
 ## now analytic. NEXT: extend gauge trick to attention patterns (ratio-of-analytics with norm
 ## products); compose MLP1 the same way (its inputs = e, attn0, MLP0-as-tensor, attn1-archetypes).
+
+## TICK 2026-07-29cc — ALGO-CIRCUIT AGENTS COMPLETE + SYNTHESIS (algo_tasks/SYNTHESIS.md).
+## Successor: L8H3 0.66 alone (top for all 3 families), payload = layer-0 value stream (lamb=4
+## v-lerp), successor-LOOKUP verified vs position-counting, no cyclic wrap; DAS r=16 88%-of-ceiling,
+## ZERO cross-family transfer; Ethan rank 16 vs 128. SYNTHESIS: (1) v1-ROUTER PRINCIPLE (4th
+## occurrence: closure L13H8, increment L8H7/H3, successor L8H3, induction) -- late heads route the
+## layer-0 value cache; QK=where, L0=what; architectural consequence of v-lerp. (2) increment+
+## successor agents converged BLIND on the same L8 succession machine; L8H3 = atlas induction rank
+## 4 (head reuse). (3) One algorithm / family-specific tables at activation+weight level. (4) ATLAS
+## SANITY VERDICT: task circuits contained in atlas set but not single-knockout-resolvable
+## (redundancy); generic vs differential granularity; decomposition survives. (5) Ethan's method:
+## data-conditioned beats data-free 8x on rank across all 3; safe on read matrices, destructive on
+## shared value carriers. (6) Agent DAS/weight-target failures were informative (v1 bypass) and
+## honestly reported. Logan's sanity-check program delivered end to end.
