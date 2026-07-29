@@ -5573,3 +5573,14 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## CONCLUSION: MLP1 is a shared COMPONENT, not a shared COMPUTATION -- a dense high-dim enrichment bus
 ## each circuit taps on a different ~16-32-dim slice. Nuances the 'universal hub' reading. Artifact
 ## updated (hub section): https://claude.ai/code/artifact/f27aeab4-438f-465a-9a33-aba8272b43ee
+
+## TICK 2026-07-29c — FUNCTIONAL ATLAS (qk_circuit_atlas.py). Widened 3 circuits -> 7-task battery;
+## per-component knockout importance matrix (one forward scores all vocab tasks). RESULT: tasks
+## collapse into 3 FAMILIES. (1) CATEGORY PREDICTION (subword/punct/capital/digit/funcword): importance
+## profiles near-identical (task corr 0.98-0.999), 90-96% MLP-driven, early stack MLP0-3 -- one shared
+## machinery not 5 circuits. (2) INDUCTION distinct: 28% head mass (match+copy on MLP1). (3) NEWLINE/
+## LAYOUT outlier: corr 0.36-0.51 with all, 35% head mass, diff components (h11.0), distributed.
+## Universal comps = early MLP stack + h11.0/h7.2/h14.2. SELF-CORRECTION of tick-29 three-circuit
+## framing: subword vs punct are ONE MLP family, their minimal-circuit heads were near-passengers
+## (mass 96%/91% MLP). Artifact updated with Task Atlas section (3 families + head/MLP mass bars):
+## https://claude.ai/code/artifact/f27aeab4-438f-465a-9a33-aba8272b43ee
