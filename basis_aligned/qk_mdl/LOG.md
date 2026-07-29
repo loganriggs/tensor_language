@@ -5794,3 +5794,11 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## floor -- the number the headline extrapolated but never measured) + qk_mlp0_randctl.py (random-A/
 ## trained-U control). Still to queue: held-out induction refit (multiple periods/windows/corpora);
 ## ledger v4 single-script zero-hardcodes; polish-on-null control; service-check thresholds.
+
+## TICK 2026-07-29w — RED-TEAM FIXES MEASURED. (1) JOINT 8-MLP substitution +1.236 (2.59x sum of
+## singles -- superadditivity confirmed as reviewer predicted); joint floor +7.067; CORRECTED
+## HEADLINE: JOINT SUBSTITUTABLE FRACTION 82.5% (measured, replaces extrapolated 89.4%; unweighted
+## per-interface mean 59%). (2) random-A control at MLP0: trained features 4.2x random on the
+## quadratic increment over tables (0.274 vs 0.066 nats) -- learned basis genuinely privileged;
+## tables do 90.4% of MLP0 raw. Remaining red-team queue: held-out induction refit, ledger v4
+## zero-hardcodes, polish-on-null, MLP17 randctl, service thresholds. Band continuing via daemon.
