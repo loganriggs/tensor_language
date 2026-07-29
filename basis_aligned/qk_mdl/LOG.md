@@ -5744,3 +5744,17 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## inert. Plan: scale R w/ data / gentle CE finetune of program scalars / price remainder as MDL
 ## residual. BOTTOM-UP UPPER-LAYER PLAN CONFIRMED with Logan: layer 2 next, programs take foundation
 ## variables (attn0 archetypes + MLP0/MLP1 program features) as inputs, code-verify gate per layer.
+
+## TICK 2026-07-29r — GO-BY-DEFAULT DAEMON + FUNCTAIL + LEDGER v2.
+## (1) Logan asked for structural go-by-default: built supervisor service 'qkqueue' (qkqueue.sh/.conf,
+## versioned in repo) -- file-queue daemon consumes QUEUE.txt whenever GPU free; contract = append
+## next script during analysis. VERIFIED: both seeded jobs ran autonomously (queue_runner.log).
+## (2) CE polish: MLP1 93.6->96.1% (dCE +0.085), induction service intact (shuf 100.1%).
+## (3) FUNCTAIL (Logan recover-function-not-variance): 32 CE-only-trained features recover almost
+## nothing further (+0.0846->+0.0821); residual FLAT across token categories (capital +0.12 highest)
+## -- CE-reachable tail exhausted at this structure; localize the rest downstream when upper-layer
+## programs are fit (Logan's prediction).
+## (4) LEDGER v2 formal: floor 9.954, explained 7.851 = 78.9% UNDERSTOOD. Both-programs joint
+## +0.193 (sum of singles 0.164 -- mild superadditivity). Frontier ranked: MLP17 0.69, MLP4 0.25,
+## MLP2 0.18, MLP3 0.13 = the bottom-up upper-layer targets. NEXT QUEUE: layer-2 MLP program on
+## foundation variables.
