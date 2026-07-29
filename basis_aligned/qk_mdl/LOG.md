@@ -5941,3 +5941,8 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## 576-dim attn coords/layer, exact restrictions, gauges, zero fitting) runs causally at +0.0101.
 ## Composition program essentially COMPLETE for layers 0-5. NEXT: extend causally to all 18 MLPs;
 ## attention-side pattern substitution into the causal chain; consolidated write-up + artifact.
+
+## TICK 2026-07-29jj-b — FULL-DEPTH CAPSTONE (qk_joint_causal18.py). ALL 18 MLPs replaced causally
+## by the analytic chain: +0.0329 vs measured 18-MLP joint floor +18.49 = 99.8%, ZERO trained
+## parameters. The entire MLP stack is a verified analytic pipeline inside the live model. Remaining
+## frontier: attention patterns (still real) -- gauge-form substitution on chained streams.
