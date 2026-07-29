@@ -5893,3 +5893,12 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## the STREAMS; the cores remain restrictions of the exact fold. Two clean attempts, same verdict --
 ## structural, not a bug. Wrong-content-worse-than-bland recurs (substituting both MLPs with a bad
 ## program is worse than mean-ablating both).
+
+## TICK 2026-07-29ff — LAYER-2 COMPOSED FOLD + METHODS PASS. Gates 9.8e-07/5.4e-08. Block structure:
+## M1xM1 0.317 + M1xA2 0.233 dominate; embedding direct <0.02 by layer 2 (the MLP chain carries it).
+## Arm A (one-hop: streams truncated, lower MLPs exact) 93.9% of MLP2 floor -- beats data 67.6%.
+## Arm B (fully truncated 3-layer chain) 49.5% -- truncation COMPOUNDS through chained quadratics
+## (depth-2 95.1% -> depth-3 49.5%). Arm C joint 3-MLP chain +0.202. FRONTIER: one-hop composition
+## wins everywhere (94-99%); deep-chain error accumulation is the open problem (richer bases vs
+## re-anchoring). METHODS.md rewritten: composed folding = primary method (S3a, gauge identities +
+## per-layer recipe), data-fit = fallback (S3b), banner post-red-team, S5b failure modes.
