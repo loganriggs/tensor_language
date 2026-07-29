@@ -1,0 +1,176 @@
+{
+ "W": "layer 8 c_v head 3 rows 384:512 (128x1152)",
+ "lamb": 4.0,
+ "n_X_all": 3920,
+ "n_X_weekday": 728,
+ "baseline": {
+  "score": 6.592999458312988,
+  "clean_acc": 0.8000000715255737,
+  "score_weekday": 7.740948677062988,
+  "score_month": 8.788562774658203,
+  "score_alphabet": 3.249488592147827
+ },
+ "baseline_fineweb_ce": 3.428089475631714,
+ "ranks": {
+  "1": {
+   "data_cond": {
+    "retention": 0.9969167951275093,
+    "clean_acc": 0.8000000715255737,
+    "retention_weekday": 1.0027651317800368,
+    "retention_month": 0.9960378606596122,
+    "retention_alphabet": 0.9853614367178227,
+    "fineweb_ce_delta": 0.00034742355346661924
+   },
+   "svd_free": {
+    "retention": 0.9876310181258888,
+    "clean_acc": 0.8000000715255737,
+    "retention_weekday": 0.9898155999779721,
+    "retention_month": 0.9886316235862369,
+    "retention_alphabet": 0.9797198588369227,
+    "fineweb_ce_delta": 0.0006601810455322266
+   }
+  },
+  "2": {
+   "data_cond": {
+    "retention": 0.9919814252637069,
+    "clean_acc": 0.8000000715255737,
+    "retention_weekday": 0.9962919058619513,
+    "retention_month": 0.9902908976161405,
+    "retention_alphabet": 0.9862845920012432,
+    "fineweb_ce_delta": 0.0003858089447019708
+   },
+   "svd_free": {
+    "retention": 0.9859096886404259,
+    "clean_acc": 0.8000000715255737,
+    "retention_weekday": 0.9850959218417998,
+    "retention_month": 0.9883078204533331,
+    "retention_alphabet": 0.9813619776096324,
+    "fineweb_ce_delta": 0.0006628990173340732
+   }
+  },
+  "4": {
+   "data_cond": {
+    "retention": 0.9928038302040094,
+    "clean_acc": 0.8000000715255737,
+    "retention_weekday": 0.9959569903706714,
+    "retention_month": 0.9909451231819171,
+    "retention_alphabet": 0.9903186089013976,
+    "fineweb_ce_delta": 0.00023608207702618955
+   },
+   "svd_free": {
+    "retention": 0.9900711111586847,
+    "clean_acc": 0.8000000715255737,
+    "retention_weekday": 0.9864666914624454,
+    "retention_month": 0.9899523366996995,
+    "retention_alphabet": 0.9989789676582356,
+    "fineweb_ce_delta": 0.0004587650299070489
+   }
+  },
+  "8": {
+   "data_cond": {
+    "retention": 0.9955361876254926,
+    "clean_acc": 0.8000000715255737,
+    "retention_weekday": 0.9960872113286566,
+    "retention_month": 0.9965254100819101,
+    "retention_alphabet": 0.9915475015927033,
+    "fineweb_ce_delta": 0.00022192001342746792
+   },
+   "svd_free": {
+    "retention": 0.9973288293324959,
+    "clean_acc": 0.8000000715255737,
+    "retention_weekday": 0.9885178871483249,
+    "retention_month": 1.0054941274872833,
+    "retention_alphabet": 0.9962336409025733,
+    "fineweb_ce_delta": 0.0005353927612303799
+   }
+  },
+  "16": {
+   "data_cond": {
+    "retention": 0.996087591658987,
+    "clean_acc": 0.8000000715255737,
+    "retention_weekday": 0.9980441600581892,
+    "retention_month": 0.9951653067079769,
+    "retention_alphabet": 0.9939209835719888,
+    "fineweb_ce_delta": 0.00016851425170871792
+   },
+   "svd_free": {
+    "retention": 0.9983933775970558,
+    "clean_acc": 0.8000000715255737,
+    "retention_weekday": 0.9933433313132863,
+    "retention_month": 1.002882542366775,
+    "retention_alphabet": 0.9982817953880829,
+    "fineweb_ce_delta": 0.0001895427703857422
+   }
+  },
+  "32": {
+   "data_cond": {
+    "retention": 0.9961978146058712,
+    "clean_acc": 0.8000000715255737,
+    "retention_weekday": 0.9967188507341345,
+    "retention_month": 0.994883715176514,
+    "retention_alphabet": 0.998509686050164,
+    "fineweb_ce_delta": 5.292892455877052e-06
+   },
+   "svd_free": {
+    "retention": 0.9989062325290482,
+    "clean_acc": 0.8000000715255737,
+    "retention_weekday": 0.9957527886319198,
+    "retention_month": 1.002147908583344,
+    "retention_alphabet": 0.9976505837442055,
+    "fineweb_ce_delta": 3.652572631818174e-05
+   }
+  },
+  "64": {
+   "data_cond": {
+    "retention": 0.9978426968112444,
+    "clean_acc": 0.8000000715255737,
+    "retention_weekday": 0.9966882974724691,
+    "retention_month": 0.9982159358887159,
+    "retention_alphabet": 0.9995829586209695,
+    "fineweb_ce_delta": -0.00012989044189470889
+   },
+   "svd_free": {
+    "retention": 1.0040366622929469,
+    "clean_acc": 0.8000000715255737,
+    "retention_weekday": 1.00437324357245,
+    "retention_month": 1.0016515695987922,
+    "retention_alphabet": 1.0096852797673372,
+    "fineweb_ce_delta": -6.508827209472656e-05
+   }
+  },
+  "128": {
+   "data_cond": {
+    "retention": 0.9995868085987206,
+    "clean_acc": 0.8000000715255737,
+    "retention_weekday": 0.9985455785056818,
+    "retention_month": 1.000135315853462,
+    "retention_alphabet": 1.0005829334546794,
+    "fineweb_ce_delta": -0.0001477241516112393
+   },
+   "svd_free": {
+    "retention": 1.0000004339486097,
+    "clean_acc": 0.8000000715255737,
+    "retention_weekday": 1.0000003695959072,
+    "retention_month": 1.0000004340524569,
+    "retention_alphabet": 0.9999994864022426,
+    "fineweb_ce_delta": -4.7683716086766026e-08
+   }
+  }
+ },
+ "min_rank_data_cond": 1,
+ "min_rank_svd_free": 1,
+ "weekday_fit_sharing": {
+  "1": {
+   "retention_overall": 0.9916631239584329,
+   "retention_weekday": 0.9988133507404793,
+   "retention_month": 0.9880330652480674,
+   "retention_alphabet": 0.9844464989985211
+  },
+  "2": {
+   "retention_overall": 0.9884518319212887,
+   "retention_weekday": 0.9939608644749711,
+   "retention_month": 0.9850155325671729,
+   "retention_alphabet": 0.9846211222360461
+  }
+ }
+}

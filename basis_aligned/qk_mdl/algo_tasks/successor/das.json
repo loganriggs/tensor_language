@@ -1,0 +1,227 @@
+{
+ "site": "residual entering block 8, last-element position (pos 4)",
+ "direction": "base=clean, source=corrupted; success=argmax->corrupted successor",
+ "full_swap_heldout": {
+  "flip_rate": 0.0,
+  "still_clean": 0.8,
+  "mean_margin_to_source": -4.8007731437683105
+ },
+ "full_swap_analysis": {
+  "flip_rate": 0.0,
+  "still_clean": 0.8444444444444444,
+  "mean_margin_to_source": -4.751308441162109
+ },
+ "learned": {
+  "1": {
+   "heldout": {
+    "flip_rate": 0.0,
+    "still_clean": 0.8,
+    "mean_margin_to_source": -4.668385982513428
+   },
+   "analysis": {
+    "flip_rate": 0.0,
+    "still_clean": 0.8444444444444444,
+    "mean_margin_to_source": -4.374364852905273
+   }
+  },
+  "4": {
+   "heldout": {
+    "flip_rate": 0.0,
+    "still_clean": 0.8,
+    "mean_margin_to_source": -4.386816501617432
+   },
+   "analysis": {
+    "flip_rate": 0.0,
+    "still_clean": 0.8444444444444444,
+    "mean_margin_to_source": -4.134022235870361
+   }
+  },
+  "16": {
+   "heldout": {
+    "flip_rate": 0.0,
+    "still_clean": 0.7333333333333333,
+    "mean_margin_to_source": -4.243640422821045
+   },
+   "analysis": {
+    "flip_rate": 0.0,
+    "still_clean": 0.8444444444444444,
+    "mean_margin_to_source": -3.738126039505005
+   }
+  }
+ },
+ "random_control": {
+  "1": {
+   "heldout_flip_rates": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "4": {
+   "heldout_flip_rates": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "16": {
+   "heldout_flip_rates": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ]
+  }
+ },
+ "cross_family": {
+  "4": {
+   "weekday": {
+    "weekday": {
+     "flip_rate": 0.0,
+     "eval": "heldout"
+    },
+    "month": {
+     "flip_rate": 0.0,
+     "eval": "all20"
+    },
+    "alphabet": {
+     "flip_rate": 0.0,
+     "eval": "all20"
+    }
+   },
+   "month": {
+    "weekday": {
+     "flip_rate": 0.0,
+     "eval": "all20"
+    },
+    "month": {
+     "flip_rate": 0.0,
+     "eval": "heldout"
+    },
+    "alphabet": {
+     "flip_rate": 0.0,
+     "eval": "all20"
+    }
+   },
+   "alphabet": {
+    "weekday": {
+     "flip_rate": 0.0,
+     "eval": "all20"
+    },
+    "month": {
+     "flip_rate": 0.0,
+     "eval": "all20"
+    },
+    "alphabet": {
+     "flip_rate": 0.0,
+     "eval": "heldout"
+    }
+   }
+  },
+  "16": {
+   "weekday": {
+    "weekday": {
+     "flip_rate": 0.0,
+     "eval": "heldout"
+    },
+    "month": {
+     "flip_rate": 0.0,
+     "eval": "all20"
+    },
+    "alphabet": {
+     "flip_rate": 0.0,
+     "eval": "all20"
+    }
+   },
+   "month": {
+    "weekday": {
+     "flip_rate": 0.0,
+     "eval": "all20"
+    },
+    "month": {
+     "flip_rate": 0.0,
+     "eval": "heldout"
+    },
+    "alphabet": {
+     "flip_rate": 0.0,
+     "eval": "all20"
+    }
+   },
+   "alphabet": {
+    "weekday": {
+     "flip_rate": 0.0,
+     "eval": "all20"
+    },
+    "month": {
+     "flip_rate": 0.0,
+     "eval": "all20"
+    },
+    "alphabet": {
+     "flip_rate": 0.0,
+     "eval": "heldout"
+    }
+   }
+  }
+ },
+ "subspace_overlap_svals_r16": {
+  "month~weekday": [
+   0.978,
+   0.972,
+   0.957,
+   0.93,
+   0.904,
+   0.869,
+   0.83,
+   0.732,
+   0.611,
+   0.549,
+   0.394,
+   0.34,
+   0.235,
+   0.17,
+   0.075,
+   0.058
+  ],
+  "alphabet~weekday": [
+   0.952,
+   0.928,
+   0.895,
+   0.818,
+   0.732,
+   0.697,
+   0.645,
+   0.46,
+   0.337,
+   0.32,
+   0.261,
+   0.178,
+   0.155,
+   0.095,
+   0.059,
+   0.007
+  ],
+  "alphabet~month": [
+   0.953,
+   0.902,
+   0.886,
+   0.84,
+   0.76,
+   0.677,
+   0.508,
+   0.429,
+   0.353,
+   0.256,
+   0.204,
+   0.146,
+   0.132,
+   0.077,
+   0.046,
+   0.023
+  ]
+ }
+}

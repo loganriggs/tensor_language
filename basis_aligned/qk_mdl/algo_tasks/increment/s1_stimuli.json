@@ -1,0 +1,56 @@
+{
+  "n_pairs": 40,
+  "n_analysis": 30,
+  "n_heldout": 10,
+  "corruption": "constant shift: both list numbers k,k+1 -> k',k'+1 (k'!=k, same words); corrupted answer k'+2 != clean answer k+2",
+  "clean_top1": 1.0,
+  "corr_top1": 1.0,
+  "margin_clean_mean": 4.956960201263428,
+  "margin_clean_min": 1.6149711608886719,
+  "margin_corr_mean": -4.881419658660889,
+  "margin_corr_max": -2.453963279724121,
+  "margin_gap_mean": 9.838379859924316,
+  "margin_gap_min": 5.799191474914551,
+  "examples": [
+    {
+      "k": 7,
+      "k_corr": 4,
+      "w1": "plants",
+      "w2": "keys",
+      "clean": "7. plants\n8. keys\n",
+      "corr": "4. plants\n5. keys\n"
+    },
+    {
+      "k": 4,
+      "k_corr": 1,
+      "w1": "chairs",
+      "w2": "roads",
+      "clean": "4. chairs\n5. roads\n",
+      "corr": "1. chairs\n2. roads\n"
+    },
+    {
+      "k": 4,
+      "k_corr": 5,
+      "w1": "maps",
+      "w2": "shoes",
+      "clean": "4. maps\n5. shoes\n",
+      "corr": "5. maps\n6. shoes\n"
+    },
+    {
+      "k": 7,
+      "k_corr": 3,
+      "w1": "ships",
+      "w2": "stones",
+      "clean": "7. ships\n8. stones\n",
+      "corr": "3. ships\n4. stones\n"
+    },
+    {
+      "k": 5,
+      "k_corr": 2,
+      "w1": "roads",
+      "w2": "cars",
+      "clean": "5. roads\n6. cars\n",
+      "corr": "2. roads\n3. cars\n"
+    }
+  ]
+}
