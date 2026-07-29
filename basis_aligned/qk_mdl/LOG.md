@@ -5614,3 +5614,13 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## newline outlier) confirmed specific. CAVEAT: bilin18 differs in BOTH attn family AND scale (18 vs
 ## 12L); but the two 12L models with different attn agree -> within-scale attn family doesn't matter.
 ## Artifact + RESULTS generality updated. GENERALITY ARC CLOSED.
+
+## TICK 2026-07-29g — DISENTANGLE scale-vs-attention (qk_atlas_swiglu18.py). 4th model swiglu18
+## (gpt2-bilinear-swiglu-18l-9h-1152embd, 18L + SOFTMAX attn; downloaded weights, registered). base CE
+## 3.200. Category corr 0.41-0.97/61-83% MLP top MLP0-5; induction 100% HEAD, anti-corr -0.32..-0.61.
+## KEY: swiglu18 is 18L like bilin18 but induction is pure-attention/dissociated like the 12L models
+## -> bilin18's MLP1-hub anomaly is NOT depth, it's the TWO-BRANCH UNNORMALIZED attention. FOUR-MODEL
+## VERDICT: category=early-MLP engine + induction=attention-dissociated ROBUST across {two-branch-
+## unnorm, norm-squared, softmax} x {12L,18L}; MLP1-hub + newline-outlier are bilin18 two-branch-attn
+## artifacts (depth-independent). GENERALITY ARC fully closed. REPOS: bilin18/bilin12/bilinsm12/
+## swiglu18/sqrd12. Artifact generality section updated (4 models).
