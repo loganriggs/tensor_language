@@ -6076,3 +6076,14 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## 0.60/0.74 (18-22x). SYNTHESIS §34-35: nameable SELECTION programs over graded memorized non-
 ## generalizing CONTENT dictionaries; boundary measured L0/3/8/13. NEXT (T-list): T2 selection-
 ## channel census; T4 atlas L8-17; T6 steer demo; T7 consolidation. No Pythia.
+
+## TICK 2026-07-30l — CRON RE-ARMED + T2 CENSUS. (1) Logan asked for a cron ("unsure what happened
+## earlier"): diagnosis = old cron 48b75485 armed 07-23 hit its 7-DAY EXPIRY boundary + my queue-
+## stocking slip; NEW CRON 1475f52b armed (hourly :23, prompt updated to ROADMAP T-list + all learned
+## standards incl go-by-default queue rule + zero-point deletion check; re-arm before 2026-08-06).
+## (2) T2 census: 23/162 programmatic heads (>=5% held-out predicate gain): MATCH_prev x6 (induction
+## family incl L5H5/L7H3/L12H6/L13H2), MATCH_same x5 (L3H8 0.312 = induction necessity core; ANTI-
+## self-attention signs), KEY_cap x5 (new late-layer cluster L15-16), KEY_punct x3, PREV1 x2 (L1H3
+## subword head), KEY_func x2 -- selection census independently recovers task-probed circuit heads.
+## Gate: all-23 coded simultaneously +0.087 (SE .004) -- predicates name a COMPONENT of selection.
+## NEXT QUEUE: T4 atlas L8-17 behaviors (incl the KEY_cap cluster's function); T6 steer demo.
