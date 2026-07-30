@@ -6138,3 +6138,12 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## DIVERGENCE stands, mechanism open. My queued verification killed my own prior-tick claim = loop
 ## working. NEXT: artifact refresh with corrected summary numbers; extend census predicate coverage;
 ## paper_atlas sync. Old cron expired; 1475f52b live.
+
+## TICK 2026-07-30r — T2/T4 CLOSED + ARTIFACT REFRESHED. Attend-vs-predict map (30 heads,
+## selection_function_map.md): 2 CLEAN clusters where selection=function (KEY_cap->capitals; MATCH_same
+## anti-self = induction core 0.58/0.94), divergent majority (KEY_newline->capital/punct not newline;
+## MATCH_prev->digit/newline succession). Predicate predicts function cleanly for COPY heads, partially
+## for match/anchor (predicted-cat dominated by high-floor categories). Artifact: added reviewed
+## four-ledger "State & ledgers" section (corrected substitutability numbers, meaning boundary) +
+## republished f27aeab4. redteam_summary_2026-07-30.md archived. NEXT: census generality on bilin12
+## (does KEY_cap->capital replicate) queued; then paper_atlas sync §33-35 + T2/T4. Cron 1475f52b live.
