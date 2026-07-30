@@ -3433,3 +3433,20 @@ redundant position-router (subject-verb agreement §42), one pure in-context-cop
 every case (capstone review): it needed a follow-up demo-swap control in greater-of-two (its first reading
 was retracted), was a balanced-design tautology in subject-verb agreement, and was prior-confounded for
 ‘(’ in brackets — it cleanly separated on its own only in quote (§50) and increment (§51).
+
+## §52 Content-spectral is ARCHITECTURE-GENERAL — confirmed on swiglu18 (softmax) (2026-07-30)
+(qk_content_gate_swiglu18.py; the §34 content-nameability gate ported to swiglu18, bilin18's 18-layer/
+9-head/1152-dim twin with SOFTMAX attention and a gated-bilinear feed-forward; held-back FW[448:600])
+The meaning-ledger headline — content is a graded, non-class-nameable spectrum (bilin18: 0–3/576
+class-nameable per layer, median class-R² ~0.02) — GENERALIZES to a second, softmax architecture. On
+swiglu18 at spanning layers 1/6/11/16: **0/576 class-nameable at every layer** (median class-R²
+0.019–0.030, same band), 0/576 spike-nameable, across all 2304 probed coordinates. The exact-spectra
+substitution cost is real and load-bearing (+0.006 to +0.101 nats, many standard errors above zero), so
+the spectra are genuine content signals that are simply not class-structured. So "content is a
+non-class-nameable spectrum" is a property of the value content itself, NOT a bilin18/no-softmax artifact
+— the softmax model carries the same non-nameable spectral content. Scope unchanged: "not class-nameable"
+= no single class in the independent grammar/orthography/frequency library reaches R²≥0.8 under a
+step-function name (a different untested ontology could still name it). Caveat: swiglu18's feed-forward is
+actually a gated Bilinear module (cfg bilinear:True/gated:True), not a literal SwiGLU, despite the name;
+the attention is genuine softmax. This is the meaning-ledger's generality analog of the composition arc's
+already-established substitutability generality (§32b).
