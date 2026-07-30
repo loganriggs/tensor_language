@@ -238,20 +238,25 @@ per-calibrated-element table whose four genuinely held-out elements fail (follow
 category directions are steerable-but-dispensable. The induction MATCH predicate is the one fully
 meaning-verified functional claim (held-out 98–111%). Boundary measured at four sites (layers 0/3/8/13).
 
-**Editing (§T6/§36) — the induction channel controls both strength and target.** Because the induction
-match is a named, held-out-verified channel, its *strength* is a collateral-free linear knob (the
-capability dial: monotone control of the induction advantage, natural cross-entropy flat). Its *target*
-is steerable through the SAME linear channel — a read-off-amplitude repoint does nothing (chosen-token
-0.019 → 0.021), but that is a coefficient-scale undershoot: scaling the same linear edit ~10× repoints
-cleanly (P_tgt 0.396, true-next 0.769 → 0.025), so the earlier "the pattern over-determines the target,
-overwrite is required" reading was RETRACTED. A hard attention-row overwrite reaches a weaker point on
-the same tradeoff (chosen token → 0.240, true-next → 0.097). Aimability passes as a double dissociation
-(aim@1 raises token@1 not token@9, aim@9 the reverse, off a matched ≈0.02 baseline) and holds across
-positions 1/9/30/55. Honest limits: it is a low-yield *steer*, not a clean pointer (argmax capture only
-0.35–0.58; 34–48% of redirected mass lands elsewhere), and target-repointing costs real collateral
-regardless of method (hard +0.316 at P_tgt 0.24, scaled-linear +0.588 at P_tgt 0.40) — unlike the
-collateral-free strength knob. A precision-of-edit demonstration on a base language model, not a
-jailbreak of a safety-trained target.
+**Editing (§T6/§36–§37h) — copy-head commandeering (base LM, controlled; six review rounds).** Two
+affordances on the verified induction/copy heads. (1) *Strength* is a collateral-free linear knob (the
+capability dial: monotone control of the induction advantage, natural cross-entropy flat). (2) *Target*
+is set by **commandeering the copy**: a copy head emits the value at whatever position its attention
+points to (written through its OV projection in an unembedding-readable direction), and an edit that
+sets that attention to a chosen source makes the model predict the source's token. This primitive is
+**copy-OV-specific** (matched-amplitude injection at non-copy heads is an order of magnitude weaker,
+capture 0.10 vs 0.98 — a readout-geometry fact, not the QK-match function, which the edit overrides);
+**match-free** (works at queries with no natural induction match — a surprising result); **aimable** (a
+clean double dissociation — aim@p → token@p — in BOTH planted, positions 20/35/50 on-target 0.75–0.82,
+and natural text, aim@col1→token@1 0.76 vs token@5 ~0 at scale 160); **surgically gatable** (trigger-
+conditioned; pure non-trigger collateral ≈1e-4 nats — the most robust claim); and governed by a
+**reach-vs-amplitude tradeoff** — calibrated at low amplitude in a clean context (planted scale 10 →
+0.83 mass on the payload), but in rich natural text majority capture needs ~16× amplitude and drives the
+edited position's logits into soft-cap saturation (true-next ≈32 nats: sharp, but sharp on the *aimed*
+token). The arc explicitly retracted, in order, "clean repoint of a match," "brute-force injection,"
+"induction present at full strength," and "in-the-wild calibration recovery," each on a measured control.
+A precision-of-edit demonstration on a base language model — no jailbreak or in-the-wild targeted-edit
+transfer is claimed or shown.
 
 **One-paragraph state.** bilin18 is representationally exact, ~98–99.8% causally substitutable through
 PCA-bottlenecked analytic interfaces (architecture-general; ~94% fidelity at aggressive truncation),
