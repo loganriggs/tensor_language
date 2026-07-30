@@ -6873,3 +6873,12 @@ existing steering methods, not a new method class, so in-scope and launched rath
   methods, boundary architecture-general — honest negatives that HARDEN the completeness story.
 - STATE: comprehensive capstone, now with a 3-model-general, red-teamed completeness boundary and a measured
   single-path coverage ceiling. The one way past the ~46% ceiling is the SAE scope-change (§74) — Logan's call.
+
+## tick 2026-07-30 (holistic paper-abstract red-team dispatched — capstone QA)
+- Single-path program at terminal capstone; SAE is the only substantive next step (Logan's scope call). Rather
+  than manufacture a marginal experiment, dispatched a HOLISTIC red-team of the paper abstract / top-line
+  synthesis (subagent a90ffc018139aa309) — GPU-FREE (cross-checking claims vs RESULTS, not new runs). Checks:
+  numerical accuracy vs post-red-team figures (coverage range, digit multiplier, retracted distance-claim, §61
+  z, §74 status, §72 two-halves), ledger conflation, overstatement/superlatives, internal consistency across
+  paper/TECHNIQUES/ROADMAP, and missing caveats. The abstract was updated to cover §56-§75 but hasn't had an
+  independent whole-synthesis pass. Collect next tick, apply corrections before the paper stands.
