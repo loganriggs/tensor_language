@@ -3162,3 +3162,26 @@ faithful circuit exists. **This joins the addition/sorting negatives as a deflat
 "capability" is dominated by a lexical magnitude prior, not computation.** (Caveat for follow-ups:
 accuracy is saturated by the prior, so score against the static floor of 1.712 margin or restrict to the
 non-monotonic 9-pairs.) §39's greater-of-two row is annotated accordingly.
+
+## §41 Bracket-type matching = the L13H8 v1-router copying a layer-0 value payload (2026-07-30)
+(qk_bracket_patch.py; mean-ablation knockout + all-attention static-prior control + layer-0 value-swap +
+lamb=0 ablation; graded metric = logit[matching closer] − mean(other closers) at the final position)
+Unlike greater-of-two (§40, mostly a static prior), bracket-type matching is a GENUINE attention circuit,
+decomposed into three parts:
+- **Router (dominant, causal):** L13H8 — the v1-router from prior work — is the top component (removes
+  2.19 of the 8.93 working margin, ~25%), attending from the query back to the opener and copying the
+  opener's LAYER-0 VALUE v1[:,2]; a diffuse tail (L14/L8/L16 heads, each ≤0.3) adds the rest. Removing
+  the layer-0 value mixing (lamb=0) collapses ‘[’→‘]’ (accuracy 1.0→0.0, margin 6.66→0.53).
+- **Payload (causal, value-swap):** the closer identity is stored in that layer-0 value. Bidirectional
+  swaps prove it: giving a working ‘[’ host the ‘{’ value breaks it to ‘)’ (‘]’ logit 13.45→6.92);
+  giving the ‘{’ host an ‘[’ value partially rescues ‘]’ (0%→45%). v1[‘(’]→‘)’, v1[‘[’]→‘]’.
+- **Static prior + the curly hole EXPLAINED:** an opener-independent ranking ‘)’≫‘]’≫‘}’ sits underneath.
+  ‘(’→‘)’ is confounded (the prior IS ‘(’’s answer; survives attention-ablation), but ‘[’→‘]’ provably
+  needs attention (0% type-match accuracy without attention — it must overcome the ‘)’ prior). The
+  ‘{’→‘)’ hole is a MISSING VALUE-CACHE ENTRY: ‘{’ was never given a ‘{’→‘}’ value, so its layer-0 value
+  points at the generic ‘)’ and the router faithfully copies it. The failure is upstream of the router,
+  not a router failure.
+**This confirms the v1-router principle (L13H8 routes layer-0 values, QK decides where, layer-0 decides
+what) on a fresh algorithmic task, with a built-in negative control that is now mechanistically explained.**
+Causally verified via three converging tests incl. bidirectional value-swap; candidate for the next
+adversarial-review batch.
