@@ -6295,3 +6295,16 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## (abde60b). QUEUE: qk_commandeer_robustness.py (aimability GRID w/ SE + non-induction-head aimability
 ## control -- is specificity mechanistic or just readout geometry?). NEXT: process review + robustness,
 ## then PROMOTE §36-37g to atlas/summary if clean. Cron 1475f52b; re-arm before 2026-08-06.
+
+## TICK 2026-07-30ab — FINAL CAPSTONE REVIEW (promote-with-rewording) + generality confirmed + a scare.
+## Reviewer verdict: promote §37f/g with rewording; ONE leg (natural aimability) needs a rerun. SCARE:
+## my qk_commandeer_robustness.py returned 0.001 (aimability vanished) -- looked like the whole finding
+## was an artifact. Debugged: the COMMITTED scripts reproduce cleanly (qk_nonactive_aimability 0.82; and
+## at qpos 35/50, plant on/off, all 0.75-0.82) -- the 0.001 was a bug in that from-scratch rewrite (never
+## found exactly; removed the script). Built qk_aim_generality.py by EXTENDING the working file: aimability
+## position-robust (qpos 20/35/50, on-target 0.75-0.82 +/-0.04, off-target & no-edit baseline ~0.01, clean
+## double dissociation w/ SE) = review item2 done. Rewordings applied (items1/3/5): copy-OV-specific not
+## induction (specificity=readout geometry; 0.10 vs 0.98 gap not 'zero'); clean-prediction scoped to
+## calibrated planted regime (natural majority-capture only via soft-cap saturation, true-next ~32 nats);
+## base-LM caveat; collateral ~1e-4. OPEN item4: qk_natural_aimability.py queued (is natural high-amp leg
+## aimed or fixed-vector?). NOT promoted to atlas/summary pending item4. Cron 1475f52b; re-arm by 08-06.
