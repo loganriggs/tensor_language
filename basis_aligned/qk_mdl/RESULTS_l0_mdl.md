@@ -4075,7 +4075,16 @@ inactive-position specificity control, same design as §68.
   late-feed-forward effects into distributed class pushes, but the class MIX differs: bilin18 top-15 pushed
   classes {word 9, capital 5, subword 1} vs swiglu18 {word 11, subword 3, capital 1}. swiglu18 leans on
   WORD/SUBWORD continuation where bilin18 leans WORD/CAPITAL — the mechanism type is shared, the specific
-  classes each model emphasizes differ.
+  classes each model emphasizes differ. Two honest architectural differences: (i) swiglu18's SINGLE biggest
+  distributed class-pusher is an ATTENTION HEAD (h.L4.4) whereas bilin18's biggest were feed-forward directions
+  — both architectures use heads AND feed-forward as distributed movers, but the top slot differs; (ii) the
+  secondary class is subword (swiglu18) vs capital (bilin18).
+- **The distributed claim was directly verified by output entropy, with a built-in negative control.** The
+  verified pushers are near-uniform over their whole class (h.L4.4 normalized entropy 0.999, top-token share
+  0.0001 over 19,672 word tokens; mlp.L17.d1 entropy 0.99, top-8 share 0.0016 over 10,474 subword tokens). The
+  entropy check DISCRIMINATES: one candidate, mlp.L17.d2, has a "word" movement dominated by a SINGLE token
+  (top-token share 0.48, entropy 0.15) — a sharp mover, not a distributed one — correctly flagged as the
+  negative control, confirming the detector is not just labeling every effect "distributed."
 **KEY:** the distributed-class-pusher circuit type, the push/suppress sign discriminator, and the class-push-
 tracks-causal-importance property are NOT bilinear artifacts — they replicate on a conventional softmax SwiGLU
 transformer. The §67/§68 finding (a model's largest single-path effects are distributed class movers that
