@@ -6628,3 +6628,18 @@ distributed effects, and testing their generality. Dispatched two GPU subagents 
   re-checks the class-push-vs-causal-importance correlation on a softmax model. Honest STOP if swiglu18 won't
   port cleanly.
 - Collect both next tick. Cron 172134ae expires ~2026-08-06 — re-arm before then and tell Logan.
+
+## tick 2026-07-30 (§69 class-integrator arc lands — 1 genuine selector, 3 static priors)
+- §69 CLASS-INTEGRATOR arc (subagent aebaa85e1408b513d) — discriminating result. Of the 4 largest distributed
+  effects: mlp.L17.d1 = GENUINE context-conditioned CAPITAL SELECTOR (capital push 11852±185 where capital due
+  vs 3655±59 where not, specificity ratio 3.24 — beats §66's flat 1.0; ablation CE +0.345 due vs +0.030 not,
+  11×; slightly HELPS where capital wrong). The other three (mlp.L17.d3 capital, mlp.L17.d2 + mlp.L16.d2 word)
+  are static class-frequency priors, ANTI-selective (ratios 0.38 / 0.67 / 0.18). Minimal genuine circuit =
+  mlp.L17.d1 alone; the trio's 1.89 synergy is overlapping boundary triggers, not shared selection.
+- The big connecting result: the genuine capitalization-SELECTION algorithm is mlp.L17.d1, surfaced ONLY by
+  the §68 class-level detector — the token-level tools (§64/§66) saw only the generic boosters mlp.L15.d2/
+  L16.d1 because the real selector's output is a distributed capital-class push invisible to top-token purity.
+  Strongest vindication of the class-level-detector program: the actual algorithm lived exactly where the easy
+  ranking does not look. Committed §69.
+- STILL RUNNING: swiglu18 class-pusher generality (a040959b4dc1232af). Collect next tick.
+- Cron 172134ae expires ~2026-08-06 — re-arm before then and tell Logan.
