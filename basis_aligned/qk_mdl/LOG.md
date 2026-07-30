@@ -5995,3 +5995,13 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## scaffolds living in the third-moment CP + one-algorithm/three-tables. OPTIONS FORWARD: richer
 ## hypothesis families (weakens independence), spectra-as-meaning (accept; document), or naming in
 ## the mechanism ledger (CP factors) rather than the function ledger (PCA coords).
+
+## TICK 2026-07-30e — SEMANTICS ARC CLOSED (RESULTS §34): SELECTION NAMEABLE / CONTENT SPECTRAL.
+## Archetype-coordinate class test: 2/144, median R2 0.103 (5x gradient toward mechanism space vs
+## PCA 0.022, still failing binary classes). Spike test: median top-8 concentration 0.185, zero at
+## 0.8 -- archetype VALUE-write spectra are not token-spike detectors either; the mechanism arc's
+## nameable clusters were SELECTION-side (third-moment CP branch factors), not content-side.
+## DICHOTOMY: who-is-selected = program-like, nameable (predicates, scaffold clusters, QK-where);
+## what-is-written = graded lexical spectra, complete description = the exact weight-derived
+## spectrum (inspectable, causal, not class-compressible). Coheres with induction match-vs-delivery,
+## v1-router, three-tables. All gates validated on real names (newline coords pass exactly).
