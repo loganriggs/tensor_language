@@ -6308,3 +6308,14 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## calibrated planted regime (natural majority-capture only via soft-cap saturation, true-next ~32 nats);
 ## base-LM caveat; collateral ~1e-4. OPEN item4: qk_natural_aimability.py queued (is natural high-amp leg
 ## aimed or fixed-vector?). NOT promoted to atlas/summary pending item4. Cron 1475f52b; re-arm by 08-06.
+
+## TICK 2026-07-30ac — EDITING ARC CLOSED + PROMOTED. §37h natural-text aimability = clean double
+## dissociation (aim@col1->tok@1 0.76 vs tok@5 ~0; aim@col5->tok@5 0.72 vs tok@1 ~0 @scale160) -> the
+## natural high-amp leg IS aimed commandeering, not fixed-vector (reconciles saturation: sharp but on the
+## AIMED token). All 5 capstone properties MEASURED. Capstone OPEN->measured; atlas §9 editing paragraph
+## rewritten to the settled copy-head-commandeering result (copy-OV-specific, match-free, aimable
+## planted+natural, surgically gatable, reach-vs-amplitude). 6 review rounds, 4 in-order retractions on
+## record. Editing arc DONE & promoted. QUEUE: qk_commandeer_perhead.py (which single SUBST head carries
+## the commandeering -- localization within the copy heads). NEXT: process per-head; then editing fully
+## exhausted -- consider consolidation (paper/artifact) or new-arc scope check w/ Logan. Cron 1475f52b;
+## re-arm before 2026-08-06.
