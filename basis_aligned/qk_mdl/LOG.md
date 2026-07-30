@@ -6064,3 +6064,15 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## survivors. THREE-POINT T5 PICTURE: L0 lexical content = spectral/unnameable; L13 opener (functional)
 ## = named; L8 successor (functional pointer+table) = named -> content nameable when FUNCTIONAL, not
 ## when lexical. All committed (algo_tasks/semantics_*). No Pythia.
+
+## TICK 2026-07-30k — SEMANTICS BATCH RED-TEAM PROCESSED + T3 WHOLE-MODEL NUMBER. Reviewer (11
+## findings, redteam_semantics_2026-07-30.md): CATEGORY clean (admit); OPENER honest, N-SE claims
+## downgraded to ~2.5-3 marginal + zeroing-catch credited; SUCCESSOR materially overclaimed -->
+## "token pointer" -> per-CALIBRATED-element table (held-out FAILS, split-R2 0.21), "format-free
+## numeric identity" WITHDRAWN (n=2, one counterexample 5->10), 94%->follow 0.65, scope-fixed
+## +0.0025 vs +0.0079. F11: one coordinated probe not 3 independent. RESULTS §35 written to survivor
+## standard. T3 (qk_wholemodel_substitutable): whole-model composed chain +0.03385 (SE 0.00104) on
+## held FW[448:600] = 99.56% of uniform-ceiling headroom, 99.8% of +18.42 floor; head-span nulls
+## 0.60/0.74 (18-22x). SYNTHESIS §34-35: nameable SELECTION programs over graded memorized non-
+## generalizing CONTENT dictionaries; boundary measured L0/3/8/13. NEXT (T-list): T2 selection-
+## channel census; T4 atlas L8-17; T6 steer demo; T7 consolidation. No Pythia.
