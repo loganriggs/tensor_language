@@ -3389,3 +3389,26 @@ mechanism as bracket-type matching (§41): the **L13H8 v1-router** copying the o
 WHAT) to a second, independent lexical-matching task — and confound-free, strengthening it beyond the
 prior-confounded bracket case.** Opener→closer matching in bilin18 is a value-routing circuit, not a
 token-specific one. Causally verified via the same three converging controls as §41; the cleaner of the two.
+
+## §51 Increment-with-carry = a genuine but RANGE-LIMITED layer-8 successor computation (2026-07-30)
+(qk_increment_patch.py; mean-ablation knockout + static-prior + in-context controls + held-out-by-magnitude
+sweep) Numbered-list increment across decade boundaries (9→10, 99→100; baseline accuracy 1.00) is —
+unlike greater-of-two — genuine context-dependent COMPUTATION, but bounded:
+- **Not a prior, not copying:** static-prior fraction 0.164 (~84% needs attention, vs greater-of-two's
+  ~95% prior); answer-copying impossible ("10" never in context); it IGNORES n1 (broken_increment n1≠n2−1
+  still outputs n2+1) and the demonstrated step (step-2/4 demos still predict the successor 10, not 11/13)
+  — it computes the SUCCESSOR OF THE LAST NUMBER, clearing the greater-of-two/in-context-copy trap.
+- **Localized to the layer-8 successor site:** layer-8 attention carries ~68% of the carry margin (drop
+  4.43/6.47), within it heads L8H3 (2.41) and L8H7 (1.62) plus the layer-8 feed-forward (1.20), then a
+  diffuse upper-feed-forward tail refines. This is the SAME layer-8 successor payload as §35 — NOT the
+  L13H8 v1-router. So bilin18 has (at least) two distinct routing sites: L13H8 for lexical opener→closer
+  matching (§41/§50), L8H3/H7 for numeric succession.
+- **Range-limited (the honest ceiling):** perfect for every single-carry boundary ≤199 (dense in real
+  numbered lists) and round hundreds, but fails above ~200 (209/249/399/499/599 → repeats n2; 999→1000
+  fails); double-carry accuracy 0.33. So the clean 9→10…99→100 headline is REAL computation implemented as
+  a bounded successor over the commonly-seen number range, NOT an unbounded positional carry algorithm —
+  consistent with §35's "per-calibrated-element successor table, held-out fails".
+**Algorithmic case-study summary (five arcs):** two genuine value-router circuits (bracket §41, quote §50
+= L13H8 copying a layer-0 value), one genuine but range-limited successor computation (§51 = L8H3/H7), one
+redundant position-router (subject-verb agreement §42), one pure in-context-copy prior (greater-of-two
+§40). The static-prior control cleanly separates computation from prior in every case.

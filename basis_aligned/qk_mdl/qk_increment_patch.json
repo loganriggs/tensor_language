@@ -1,0 +1,294 @@
+{
+  "baseline": {
+    "carry_acc_restricted": 1.0,
+    "control_acc_restricted": 1.0,
+    "carry_margin_mean": 6.47,
+    "carry_margin_per_case": {
+      "9->10": 7.708,
+      "19->20": 6.514,
+      "29->30": 4.127,
+      "99->100": 4.297
+    }
+  },
+  "static_prior": {
+    "carry_margin_all_attn_ablated": 1.061,
+    "static_prior_fraction": 0.164,
+    "carry_acc_restricted_ablated": 0.25,
+    "note": "fraction of carry margin surviving with ALL attention replaced by per-position mean"
+  },
+  "induction_context": {
+    "successor_only_single_line": {
+      "acc": 0.6,
+      "preds": {
+        "9->10": 10,
+        "19->20": 20,
+        "29->30": 30,
+        "49->50": 1,
+        "99->100": 1
+      }
+    },
+    "broken_increment_n1!=n2-1": {
+      "acc": 1.0,
+      "preds": {
+        "3,9->10?": 10,
+        "2,19->20?": 20,
+        "5,29->30?": 30,
+        "1,49->50?": 50,
+        "4,99->100?": 100
+      },
+      "note": "successor computes n2+1 regardless of n1; step-induction would track (n2-n1)"
+    },
+    "step_gt1": {
+      "step2:7,9": {
+        "pred": 10,
+        "successor": 10,
+        "stepped": 11,
+        "logits": {
+          "10": -0.45,
+          "11": -3.39,
+          "9": -5.2,
+          "0": -9.04
+        }
+      },
+      "step2:17,19": {
+        "pred": 20,
+        "successor": 20,
+        "stepped": 21,
+        "logits": {
+          "20": -0.13,
+          "21": -4.47,
+          "19": -6.9,
+          "10": -6.69
+        }
+      },
+      "step4:5,9": {
+        "pred": 10,
+        "successor": 10,
+        "stepped": 13,
+        "logits": {
+          "10": -0.93,
+          "13": -5.79,
+          "9": -4.67,
+          "0": -8.29
+        }
+      },
+      "step2:96,98": {
+        "pred": 99,
+        "successor": 99,
+        "stepped": 100,
+        "logits": {
+          "99": -0.65,
+          "100": -3.38,
+          "98": -3.59,
+          "90": -5.63
+        }
+      }
+    }
+  },
+  "knockout_top15": [
+    {
+      "comp": "L8.attn",
+      "kind": "attn",
+      "li": 8,
+      "drop_carry_margin": 4.431,
+      "carry_margin_abl": 2.039,
+      "carry_acc_abl": 0.5
+    },
+    {
+      "comp": "L8.h3",
+      "kind": "head",
+      "li": 8,
+      "drop_carry_margin": 2.406,
+      "carry_margin_abl": 4.064,
+      "carry_acc_abl": 0.85
+    },
+    {
+      "comp": "L8.h7",
+      "kind": "head",
+      "li": 8,
+      "drop_carry_margin": 1.621,
+      "carry_margin_abl": 4.849,
+      "carry_acc_abl": 1.0
+    },
+    {
+      "comp": "L8.mlp",
+      "kind": "mlp",
+      "li": 8,
+      "drop_carry_margin": 1.195,
+      "carry_margin_abl": 5.275,
+      "carry_acc_abl": 0.95
+    },
+    {
+      "comp": "L9.mlp",
+      "kind": "mlp",
+      "li": 9,
+      "drop_carry_margin": 0.814,
+      "carry_margin_abl": 5.656,
+      "carry_acc_abl": 1.0
+    },
+    {
+      "comp": "L10.mlp",
+      "kind": "mlp",
+      "li": 10,
+      "drop_carry_margin": 0.722,
+      "carry_margin_abl": 5.748,
+      "carry_acc_abl": 1.0
+    },
+    {
+      "comp": "L11.mlp",
+      "kind": "mlp",
+      "li": 11,
+      "drop_carry_margin": 0.613,
+      "carry_margin_abl": 5.857,
+      "carry_acc_abl": 1.0
+    },
+    {
+      "comp": "L12.mlp",
+      "kind": "mlp",
+      "li": 12,
+      "drop_carry_margin": 0.605,
+      "carry_margin_abl": 5.865,
+      "carry_acc_abl": 1.0
+    },
+    {
+      "comp": "L13.mlp",
+      "kind": "mlp",
+      "li": 13,
+      "drop_carry_margin": 0.466,
+      "carry_margin_abl": 6.004,
+      "carry_acc_abl": 1.0
+    },
+    {
+      "comp": "L14.mlp",
+      "kind": "mlp",
+      "li": 14,
+      "drop_carry_margin": 0.418,
+      "carry_margin_abl": 6.052,
+      "carry_acc_abl": 1.0
+    },
+    {
+      "comp": "L16.mlp",
+      "kind": "mlp",
+      "li": 16,
+      "drop_carry_margin": 0.41,
+      "carry_margin_abl": 6.06,
+      "carry_acc_abl": 1.0
+    },
+    {
+      "comp": "L15.mlp",
+      "kind": "mlp",
+      "li": 15,
+      "drop_carry_margin": 0.273,
+      "carry_margin_abl": 6.197,
+      "carry_acc_abl": 1.0
+    },
+    {
+      "comp": "L14.attn",
+      "kind": "attn",
+      "li": 14,
+      "drop_carry_margin": 0.162,
+      "carry_margin_abl": 6.308,
+      "carry_acc_abl": 1.0
+    },
+    {
+      "comp": "L7.h3",
+      "kind": "head",
+      "li": 7,
+      "drop_carry_margin": 0.151,
+      "carry_margin_abl": 6.319,
+      "carry_acc_abl": 1.0
+    },
+    {
+      "comp": "L7.attn",
+      "kind": "attn",
+      "li": 7,
+      "drop_carry_margin": 0.141,
+      "carry_margin_abl": 6.329,
+      "carry_acc_abl": 1.0
+    }
+  ],
+  "knockout_bottom3": [
+    {
+      "comp": "L6.mlp",
+      "kind": "mlp",
+      "li": 6,
+      "drop_carry_margin": -0.279,
+      "carry_margin_abl": 6.749,
+      "carry_acc_abl": 1.0
+    },
+    {
+      "comp": "L0.mlp",
+      "kind": "mlp",
+      "li": 0,
+      "drop_carry_margin": -0.324,
+      "carry_margin_abl": 6.794,
+      "carry_acc_abl": 1.0
+    },
+    {
+      "comp": "L3.mlp",
+      "kind": "mlp",
+      "li": 3,
+      "drop_carry_margin": -0.393,
+      "carry_margin_abl": 6.863,
+      "carry_acc_abl": 1.0
+    }
+  ],
+  "heldout_carry": {
+    "n": 22,
+    "acc": 0.636,
+    "margin_mean": 3.646,
+    "sample_preds": {
+      "39->40": 40,
+      "49->50": 50,
+      "59->60": 60,
+      "69->70": 70,
+      "79->80": 80,
+      "89->90": 90,
+      "109->110": 110,
+      "119->120": 120,
+      "129->130": 130,
+      "149->150": 150,
+      "199->200": 200,
+      "209->210": 209
+    }
+  },
+  "heldout_control": {
+    "n": 16,
+    "acc": 0.875,
+    "margin_mean": 2.852,
+    "sample_preds": {
+      "34->35": 35,
+      "42->43": 43,
+      "57->58": 58,
+      "63->64": 64,
+      "76->77": 77,
+      "88->89": 89,
+      "105->106": 106,
+      "112->113": 113,
+      "137->138": 138,
+      "168->169": 169,
+      "203->204": 204,
+      "246->247": 245
+    }
+  },
+  "heldout_double_carry": {
+    "n": 6,
+    "acc": 0.333,
+    "margin_mean": 2.642,
+    "sample_preds": {
+      "199->200": 200,
+      "299->300": 300,
+      "399->400": 399,
+      "499->500": 499,
+      "599->600": 599,
+      "999->1000": 999
+    }
+  },
+  "verdict": "LOOKUP / SUCCESSOR-TABLE (fails held-out boundaries)",
+  "verdict_inputs": {
+    "static_prior_fraction": 0.164,
+    "heldout_carry_acc": 0.636,
+    "heldout_double_carry_acc": 0.333,
+    "successor_only_acc": 0.6
+  }
+}
