@@ -6894,3 +6894,16 @@ existing steering methods, not a new method class, so in-scope and launched rath
     -> the range; TECHNIQUES digit "11-20x" -> position-matched ~4x. Docs now match the corrected RESULTS.
 - The paper abstract is now defensible on factual / conflation / overstatement / consistency / caveat axes.
   The flagship deliverable is clean. Program remains at terminal single-path capstone; SAE is the scope call.
+
+## tick 2026-07-30 (terminal-state assessment — no manufactured work; forward options are scope decisions)
+- Repo clean, all committed/pushed. Paper red-teamed clean. The single-path/single-direction program is
+  COMPLETE and defensible: 4-ledger per-layer decomposition, 10-detector toolbox, discovered-circuit arcs,
+  editing/control demo, a measured & red-teamed coverage ceiling (~46% single-path), and an architecture-general
+  completeness boundary (§77). Every one of Logan's stated purposes is covered.
+- Honestly assessed: NO runnable in-scope experiment remains that is not either (a) the SAE/sparse-dictionary
+  method-class past the §74/§76 ceiling — a genuine NEW method class, or (b) a distribution-generality test
+  (does the completeness picture hold on Pile/code, not just FineWeb) — which needs NEW data prep (only
+  data_fineweb_tokens.npy is present; no Pile/code tokens). Both are scope decisions.
+- Per the "questions only for scope changes" rule + "don't manufacture work," did NOT dispatch a marginal
+  experiment this tick. Surfaced the two forward options to Logan for a steer; continuing to hold the SAE
+  scope-change rather than launching unprompted.
