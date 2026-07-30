@@ -1,0 +1,826 @@
+{
+  "meta": {
+    "model": "bilin18",
+    "tokenizer": "gpt2 (model exposes none) -- FLAGGED",
+    "held_slice": "FW[448:600,:128]",
+    "train_slice_for_mlp_dirs": "FW[0:256,:128]",
+    "components_pushed_class": {
+      "mlp.L17.d1": "capital",
+      "mlp.L17.d3": "capital",
+      "mlp.L17.d2": "word",
+      "mlp.L16.d2": "word"
+    },
+    "KCAUSAL_firing": 200,
+    "batch": 4,
+    "forward": "VERBATIM from qk_unsup_classpush.py (bilin18 two-branch (s1*s2) masked UNNORMALISED, per-head QK rms_norm THEN RoPE, v-lerp a.lamb block-0 cache, 30*tanh logits).",
+    "ablation": "mean-ablation: MLP direction projected out to per-position held mean projection.",
+    "class_summed_dlogit": "sum of (base-ablated) logit over all tokens of the pushed CLASS, per position (same measure as \u00a768). Positive = the direction BOOSTS that class.",
+    "dCE": "ablated - base cross-entropy at the true next token (positive = ablation HURT prediction).",
+    "decisive_test": "push and activation split by whether the TRUE next token IS the pushed class vs IS NOT. Context-conditioned => concentrates push where the class is due (ratio>>1); static prior => flat (ratio~1, cf \u00a766 capitalization circuit ratio 1.0)."
+  },
+  "step1_verify_reproduce_s68": {
+    "mlp.L17.d1": {
+      "pushed_class": "capital",
+      "firing_class_summed_dlogit": {
+        "mean": 20003.9357,
+        "SE": 421.2321,
+        "n": 200
+      },
+      "firing_dCE": {
+        "mean": 0.2552,
+        "SE": 0.0572,
+        "n": 200
+      },
+      "firing_dCE_z": 4.46
+    },
+    "mlp.L17.d3": {
+      "pushed_class": "capital",
+      "firing_class_summed_dlogit": {
+        "mean": 7355.3137,
+        "SE": 754.3144,
+        "n": 200
+      },
+      "firing_dCE": {
+        "mean": 0.1672,
+        "SE": 0.0426,
+        "n": 200
+      },
+      "firing_dCE_z": 3.92
+    },
+    "mlp.L17.d2": {
+      "pushed_class": "word",
+      "firing_class_summed_dlogit": {
+        "mean": 28657.7179,
+        "SE": 1374.1426,
+        "n": 200
+      },
+      "firing_dCE": {
+        "mean": 0.3671,
+        "SE": 0.0702,
+        "n": 200
+      },
+      "firing_dCE_z": 5.23
+    },
+    "mlp.L16.d2": {
+      "pushed_class": "word",
+      "firing_class_summed_dlogit": {
+        "mean": 13013.9546,
+        "SE": 277.2148,
+        "n": 200
+      },
+      "firing_dCE": {
+        "mean": 0.1783,
+        "SE": 0.0423,
+        "n": 200
+      },
+      "firing_dCE_z": 4.22
+    },
+    "L17_trio_joint": {
+      "n_union_firing_positions": 525,
+      "solos_dCE_at_union": {
+        "mlp.L17.d1": {
+          "mean": 0.1636,
+          "SE": 0.0277,
+          "n": 525
+        },
+        "mlp.L17.d2": {
+          "mean": 0.2406,
+          "SE": 0.0333,
+          "n": 525
+        },
+        "mlp.L17.d3": {
+          "mean": 0.0768,
+          "SE": 0.0176,
+          "n": 525
+        }
+      },
+      "sum_solo_dCE": 0.481,
+      "joint_dCE": {
+        "mean": 0.9107,
+        "SE": 0.0766,
+        "n": 525
+      },
+      "redundancy_ratio_joint_over_sumsolo": 1.893
+    }
+  },
+  "step2_decisive_context_vs_static": {
+    "mlp.L17.d1": {
+      "pushed_class": "capital",
+      "all_valid": {
+        "push_where_next_IS_class": {
+          "mean": 11852.0496,
+          "SE": 185.0192,
+          "n": 2252
+        },
+        "push_where_next_NOT_class": {
+          "mean": 3654.5131,
+          "SE": 58.9751,
+          "n": 16382
+        },
+        "specificity_ratio_IS_over_NOT": 3.243,
+        "abs_activation_where_next_IS_class": {
+          "mean": 35850.6281,
+          "SE": 421.7085,
+          "n": 2252
+        },
+        "abs_activation_where_next_NOT_class": {
+          "mean": 18440.1233,
+          "SE": 124.561,
+          "n": 16382
+        }
+      },
+      "at_firing": {
+        "push_where_next_IS_class": {
+          "mean": 20214.1046,
+          "SE": 854.9031,
+          "n": 71
+        },
+        "push_where_next_NOT_class": {
+          "mean": 19954.6986,
+          "SE": 462.8119,
+          "n": 124
+        },
+        "specificity_ratio_IS_over_NOT": 1.013,
+        "abs_activation_where_next_IS_class": {
+          "mean": 78118.0714,
+          "SE": 451.7181,
+          "n": 71
+        },
+        "abs_activation_where_next_NOT_class": {
+          "mean": 83858.621,
+          "SE": 1398.1353,
+          "n": 124
+        }
+      }
+    },
+    "mlp.L17.d3": {
+      "pushed_class": "capital",
+      "all_valid": {
+        "push_where_next_IS_class": {
+          "mean": 389.0617,
+          "SE": 74.0459,
+          "n": 2252
+        },
+        "push_where_next_NOT_class": {
+          "mean": 1035.9392,
+          "SE": 31.1846,
+          "n": 16382
+        },
+        "specificity_ratio_IS_over_NOT": 0.376,
+        "abs_activation_where_next_IS_class": {
+          "mean": 13213.4261,
+          "SE": 221.2854,
+          "n": 2252
+        },
+        "abs_activation_where_next_NOT_class": {
+          "mean": 9472.0431,
+          "SE": 62.8574,
+          "n": 16382
+        }
+      },
+      "at_firing": {
+        "push_where_next_IS_class": {
+          "mean": -2.8832,
+          "SE": 662.0231,
+          "n": 68
+        },
+        "push_where_next_NOT_class": {
+          "mean": 11145.8999,
+          "SE": 933.5626,
+          "n": 132
+        },
+        "specificity_ratio_IS_over_NOT": -0.0,
+        "abs_activation_where_next_IS_class": {
+          "mean": 39735.6801,
+          "SE": 370.6339,
+          "n": 68
+        },
+        "abs_activation_where_next_NOT_class": {
+          "mean": 46836.5671,
+          "SE": 1035.4213,
+          "n": 132
+        }
+      }
+    },
+    "mlp.L17.d2": {
+      "pushed_class": "word",
+      "all_valid": {
+        "push_where_next_IS_class": {
+          "mean": 2393.293,
+          "SE": 109.9037,
+          "n": 8885
+        },
+        "push_where_next_NOT_class": {
+          "mean": 3549.555,
+          "SE": 152.1009,
+          "n": 9749
+        },
+        "specificity_ratio_IS_over_NOT": 0.674,
+        "abs_activation_where_next_IS_class": {
+          "mean": 12012.9282,
+          "SE": 91.9956,
+          "n": 8885
+        },
+        "abs_activation_where_next_NOT_class": {
+          "mean": 17970.6447,
+          "SE": 151.891,
+          "n": 9749
+        }
+      },
+      "at_firing": {
+        "push_where_next_IS_class": {
+          "mean": -10275.2135,
+          "SE": 1329.7964,
+          "n": 3
+        },
+        "push_where_next_NOT_class": {
+          "mean": 29211.2199,
+          "SE": 1357.827,
+          "n": 196
+        },
+        "specificity_ratio_IS_over_NOT": -0.352,
+        "abs_activation_where_next_IS_class": {
+          "mean": 69242.4792,
+          "SE": 3419.1117,
+          "n": 3
+        },
+        "abs_activation_where_next_NOT_class": {
+          "mean": 68341.4919,
+          "SE": 487.3935,
+          "n": 196
+        }
+      }
+    },
+    "mlp.L16.d2": {
+      "pushed_class": "word",
+      "all_valid": {
+        "push_where_next_IS_class": {
+          "mean": 547.1245,
+          "SE": 16.9112,
+          "n": 8885
+        },
+        "push_where_next_NOT_class": {
+          "mean": 2996.8024,
+          "SE": 55.3779,
+          "n": 9749
+        },
+        "specificity_ratio_IS_over_NOT": 0.183,
+        "abs_activation_where_next_IS_class": {
+          "mean": 4808.0429,
+          "SE": 31.736,
+          "n": 8885
+        },
+        "abs_activation_where_next_NOT_class": {
+          "mean": 6696.0966,
+          "SE": 53.7485,
+          "n": 9749
+        }
+      },
+      "at_firing": {
+        "push_where_next_IS_class": {
+          "mean": 8354.9297,
+          "SE": 4400.9922,
+          "n": 2
+        },
+        "push_where_next_NOT_class": {
+          "mean": 13061.0155,
+          "SE": 276.2155,
+          "n": 198
+        },
+        "specificity_ratio_IS_over_NOT": 0.64,
+        "abs_activation_where_next_IS_class": {
+          "mean": 22510.959,
+          "SE": 1787.6152,
+          "n": 2
+        },
+        "abs_activation_where_next_NOT_class": {
+          "mean": 22414.0614,
+          "SE": 125.8569,
+          "n": 198
+        }
+      }
+    }
+  },
+  "step3_sign_correctness_dCE_by_true_class": {
+    "mlp.L17.d1": {
+      "pushed_class": "capital",
+      "all_valid": {
+        "dCE_where_next_IS_class": {
+          "mean": 0.345,
+          "SE": 0.0144,
+          "n": 2252
+        },
+        "dCE_where_next_NOT_class": {
+          "mean": 0.0302,
+          "SE": 0.0028,
+          "n": 16382
+        }
+      },
+      "at_firing": {
+        "dCE_where_next_IS_class": {
+          "mean": 0.8025,
+          "SE": 0.109,
+          "n": 71
+        },
+        "dCE_where_next_NOT_class": {
+          "mean": -0.0291,
+          "SE": 0.0487,
+          "n": 124
+        }
+      }
+    },
+    "mlp.L17.d3": {
+      "pushed_class": "capital",
+      "all_valid": {
+        "dCE_where_next_IS_class": {
+          "mean": 0.1038,
+          "SE": 0.0084,
+          "n": 2252
+        },
+        "dCE_where_next_NOT_class": {
+          "mean": 0.01,
+          "SE": 0.0016,
+          "n": 16382
+        }
+      },
+      "at_firing": {
+        "dCE_where_next_IS_class": {
+          "mean": 0.1816,
+          "SE": 0.0644,
+          "n": 68
+        },
+        "dCE_where_next_NOT_class": {
+          "mean": 0.1598,
+          "SE": 0.0556,
+          "n": 132
+        }
+      }
+    },
+    "mlp.L17.d2": {
+      "pushed_class": "word",
+      "all_valid": {
+        "dCE_where_next_IS_class": {
+          "mean": 0.0056,
+          "SE": 0.0022,
+          "n": 8885
+        },
+        "dCE_where_next_NOT_class": {
+          "mean": 0.0947,
+          "SE": 0.0045,
+          "n": 9749
+        }
+      },
+      "at_firing": {
+        "dCE_where_next_IS_class": {
+          "mean": -0.3115,
+          "SE": 0.6299,
+          "n": 3
+        },
+        "dCE_where_next_NOT_class": {
+          "mean": 0.3831,
+          "SE": 0.0707,
+          "n": 196
+        }
+      }
+    },
+    "mlp.L16.d2": {
+      "pushed_class": "word",
+      "all_valid": {
+        "dCE_where_next_IS_class": {
+          "mean": 0.0006,
+          "SE": 0.0018,
+          "n": 8885
+        },
+        "dCE_where_next_NOT_class": {
+          "mean": 0.0761,
+          "SE": 0.004,
+          "n": 9749
+        }
+      },
+      "at_firing": {
+        "dCE_where_next_IS_class": {
+          "mean": 0.5072,
+          "SE": 0.0399,
+          "n": 2
+        },
+        "dCE_where_next_NOT_class": {
+          "mean": 0.175,
+          "SE": 0.0426,
+          "n": 198
+        }
+      }
+    }
+  },
+  "step4_minimal_circuit_joint_structure": {
+    "capital_pair_L17_d1_d3": {
+      "n_union_firing": 379,
+      "solo_d1_capital_push": {
+        "mean": 13604.4242,
+        "SE": 457.236,
+        "n": 379
+      },
+      "solo_d3_capital_push": {
+        "mean": 4136.044,
+        "SE": 437.5067,
+        "n": 379
+      },
+      "joint_d1d3_capital_push": {
+        "mean": 19048.2326,
+        "SE": 565.6618,
+        "n": 379
+      },
+      "solo_d1_dCE": {
+        "mean": 0.1513,
+        "SE": 0.0335,
+        "n": 379
+      },
+      "solo_d3_dCE": {
+        "mean": 0.1016,
+        "SE": 0.0237,
+        "n": 379
+      },
+      "joint_d1d3_dCE": {
+        "mean": 0.3006,
+        "SE": 0.0463,
+        "n": 379
+      },
+      "push_sum_solo": 17740.5,
+      "push_ratio_joint_over_sumsolo": 1.074,
+      "dCE_sum_solo": 0.2529,
+      "dCE_ratio_joint_over_sumsolo": 1.189
+    },
+    "L17_trio_joint_dCE": {
+      "n_union_firing_positions": 525,
+      "solos_dCE_at_union": {
+        "mlp.L17.d1": {
+          "mean": 0.1636,
+          "SE": 0.0277,
+          "n": 525
+        },
+        "mlp.L17.d2": {
+          "mean": 0.2406,
+          "SE": 0.0333,
+          "n": 525
+        },
+        "mlp.L17.d3": {
+          "mean": 0.0768,
+          "SE": 0.0176,
+          "n": 525
+        }
+      },
+      "sum_solo_dCE": 0.481,
+      "joint_dCE": {
+        "mean": 0.9107,
+        "SE": 0.0766,
+        "n": 525
+      },
+      "redundancy_ratio_joint_over_sumsolo": 1.893
+    }
+  },
+  "step5_content_vs_position": {
+    "mlp.L17.d1": {
+      "abs_activation_by_current_class": {
+        "punct": {
+          "mean": 41222.603,
+          "SE": 548.6703,
+          "n": 2061
+        },
+        "newline": {
+          "mean": 54615.8914,
+          "SE": 677.5219,
+          "n": 366
+        },
+        "word": {
+          "mean": 14566.4838,
+          "SE": 126.2772,
+          "n": 8851
+        },
+        "subword": {
+          "mean": 18184.1843,
+          "SE": 332.9072,
+          "n": 1414
+        },
+        "capital": {
+          "mean": 22440.8418,
+          "SE": 249.4956,
+          "n": 2256
+        },
+        "digit": {
+          "mean": 22216.5857,
+          "SE": 694.1431,
+          "n": 525
+        },
+        "determiner": {
+          "mean": 12887.3526,
+          "SE": 248.9661,
+          "n": 1607
+        },
+        "pronoun": {
+          "mean": 28756.3999,
+          "SE": 585.3709,
+          "n": 576
+        },
+        "coordinator": {
+          "mean": 15303.9531,
+          "SE": 442.9952,
+          "n": 547
+        },
+        "quote": {
+          "mean": 48897.6417,
+          "SE": 3000.3546,
+          "n": 55
+        },
+        "other": {
+          "mean": 24979.3089,
+          "SE": 1043.6575,
+          "n": 200
+        }
+      },
+      "abs_activation_by_dsn_within_word": {
+        "dsn1": {
+          "mean": 11834.3931,
+          "SE": 886.1975,
+          "n": 71
+        },
+        "dsn2-3": {
+          "mean": 15007.6253,
+          "SE": 640.598,
+          "n": 335
+        },
+        "dsn4-7": {
+          "mean": 15347.488,
+          "SE": 432.5051,
+          "n": 839
+        },
+        "dsn8-15": {
+          "mean": 14793.5235,
+          "SE": 323.2899,
+          "n": 1354
+        },
+        "dsn16+": {
+          "mean": 14419.8941,
+          "SE": 149.6259,
+          "n": 6252
+        }
+      }
+    },
+    "mlp.L17.d2": {
+      "abs_activation_by_current_class": {
+        "punct": {
+          "mean": 22392.5259,
+          "SE": 295.8596,
+          "n": 2061
+        },
+        "newline": {
+          "mean": 57677.8884,
+          "SE": 558.2836,
+          "n": 366
+        },
+        "word": {
+          "mean": 13646.5582,
+          "SE": 108.5621,
+          "n": 8851
+        },
+        "subword": {
+          "mean": 12410.8742,
+          "SE": 255.6306,
+          "n": 1414
+        },
+        "capital": {
+          "mean": 10474.4363,
+          "SE": 182.8299,
+          "n": 2256
+        },
+        "digit": {
+          "mean": 16329.1662,
+          "SE": 479.0722,
+          "n": 525
+        },
+        "determiner": {
+          "mean": 11078.1219,
+          "SE": 217.7076,
+          "n": 1607
+        },
+        "pronoun": {
+          "mean": 12852.9543,
+          "SE": 324.4111,
+          "n": 576
+        },
+        "coordinator": {
+          "mean": 14219.0695,
+          "SE": 513.5073,
+          "n": 547
+        },
+        "quote": {
+          "mean": 37869.6881,
+          "SE": 2449.0247,
+          "n": 55
+        },
+        "other": {
+          "mean": 14984.3889,
+          "SE": 933.3933,
+          "n": 200
+        }
+      },
+      "abs_activation_by_dsn_within_word": {
+        "dsn1": {
+          "mean": 10795.0058,
+          "SE": 962.3308,
+          "n": 71
+        },
+        "dsn2-3": {
+          "mean": 14328.0116,
+          "SE": 607.0681,
+          "n": 335
+        },
+        "dsn4-7": {
+          "mean": 14387.6053,
+          "SE": 401.6989,
+          "n": 839
+        },
+        "dsn8-15": {
+          "mean": 13822.6793,
+          "SE": 280.4418,
+          "n": 1354
+        },
+        "dsn16+": {
+          "mean": 13504.8383,
+          "SE": 125.7977,
+          "n": 6252
+        }
+      }
+    },
+    "mlp.L17.d3": {
+      "abs_activation_by_current_class": {
+        "punct": {
+          "mean": 12675.4693,
+          "SE": 234.3831,
+          "n": 2061
+        },
+        "newline": {
+          "mean": 28772.204,
+          "SE": 256.3899,
+          "n": 366
+        },
+        "word": {
+          "mean": 8590.7192,
+          "SE": 75.359,
+          "n": 8851
+        },
+        "subword": {
+          "mean": 10203.6245,
+          "SE": 232.2107,
+          "n": 1414
+        },
+        "capital": {
+          "mean": 9757.6363,
+          "SE": 165.6057,
+          "n": 2256
+        },
+        "digit": {
+          "mean": 15131.2364,
+          "SE": 441.2661,
+          "n": 525
+        },
+        "determiner": {
+          "mean": 6946.8612,
+          "SE": 145.6256,
+          "n": 1607
+        },
+        "pronoun": {
+          "mean": 9347.862,
+          "SE": 298.6832,
+          "n": 576
+        },
+        "coordinator": {
+          "mean": 9557.3524,
+          "SE": 313.9741,
+          "n": 547
+        },
+        "quote": {
+          "mean": 20211.443,
+          "SE": 1523.5393,
+          "n": 55
+        },
+        "other": {
+          "mean": 11442.8477,
+          "SE": 552.7199,
+          "n": 200
+        }
+      },
+      "abs_activation_by_dsn_within_word": {
+        "dsn1": {
+          "mean": 7994.2843,
+          "SE": 728.0984,
+          "n": 71
+        },
+        "dsn2-3": {
+          "mean": 9580.9347,
+          "SE": 418.4044,
+          "n": 335
+        },
+        "dsn4-7": {
+          "mean": 9792.7494,
+          "SE": 283.0414,
+          "n": 839
+        },
+        "dsn8-15": {
+          "mean": 8798.7813,
+          "SE": 195.0818,
+          "n": 1354
+        },
+        "dsn16+": {
+          "mean": 8338.0649,
+          "SE": 86.8153,
+          "n": 6252
+        }
+      }
+    },
+    "mlp.L16.d2": {
+      "abs_activation_by_current_class": {
+        "punct": {
+          "mean": 9388.7221,
+          "SE": 117.9536,
+          "n": 2061
+        },
+        "newline": {
+          "mean": 19450.4838,
+          "SE": 144.3277,
+          "n": 366
+        },
+        "word": {
+          "mean": 5220.1797,
+          "SE": 36.8196,
+          "n": 8851
+        },
+        "subword": {
+          "mean": 5119.4029,
+          "SE": 86.8908,
+          "n": 1414
+        },
+        "capital": {
+          "mean": 4063.193,
+          "SE": 67.9007,
+          "n": 2256
+        },
+        "digit": {
+          "mean": 3472.886,
+          "SE": 116.5146,
+          "n": 525
+        },
+        "determiner": {
+          "mean": 3972.8737,
+          "SE": 73.3722,
+          "n": 1607
+        },
+        "pronoun": {
+          "mean": 6888.9612,
+          "SE": 129.5593,
+          "n": 576
+        },
+        "coordinator": {
+          "mean": 5587.7152,
+          "SE": 165.9926,
+          "n": 547
+        },
+        "quote": {
+          "mean": 12754.9956,
+          "SE": 884.7899,
+          "n": 55
+        },
+        "other": {
+          "mean": 5588.2906,
+          "SE": 310.0711,
+          "n": 200
+        }
+      },
+      "abs_activation_by_dsn_within_word": {
+        "dsn1": {
+          "mean": 3965.6031,
+          "SE": 254.8805,
+          "n": 71
+        },
+        "dsn2-3": {
+          "mean": 4955.6542,
+          "SE": 200.7257,
+          "n": 335
+        },
+        "dsn4-7": {
+          "mean": 5189.0128,
+          "SE": 132.7886,
+          "n": 839
+        },
+        "dsn8-15": {
+          "mean": 5262.3357,
+          "SE": 93.8341,
+          "n": 1354
+        },
+        "dsn16+": {
+          "mean": 5243.654,
+          "SE": 43.1281,
+          "n": 6252
+        }
+      }
+    }
+  }
+}

@@ -4010,3 +4010,43 @@ moves and the SIGN (push vs suppress) of that movement, and in doing so corrects
 label (h.L11.2 is a suppressor, not a completion predictor). The model's largest single-path effects are
 distributed class movers — capital-pushers (h.L0.3, mlp.L17.d1/d3), word-pushers (mlp.L17.d2, mlp.L16.d2),
 and class suppressors (h.L11.2, mlp.L16.d0) — a family the token-level toolbox could not have named.
+
+## §69 Algorithmic arc — the late class-integrators are MOSTLY static priors, with ONE genuine selector (2026-07-30)
+(qk_arc_integrator.py; option-2 arc on the §68 class-integrators — the model's LARGEST distributed single-path
+effects: capital-pushers mlp.L17.d1 & mlp.L17.d3, word-pushers mlp.L17.d2 & mlp.L16.d2.) Forward pass +
+mean-ablation copied verbatim from qk_unsup_classpush.py; held-back FW[448:600], paired standard errors.
+Reproduces §68 to the decimal (mlp.L17.d1 capital class-summed delta-logit 20003.9, delta cross-entropy
+0.2552; trio joint 0.9107 vs sum-of-solos 0.4810, ratio 1.89). DECISIVE test (same one that deflated §66):
+measure the pushed-class push AND the ablation's cross-entropy effect separately at positions where the true
+next token IS the pushed class vs IS NOT — a genuine context-conditioned selector concentrates its push where
+the class is DUE; a static prior pushes flat (or anti-selectively).
+- **mlp.L17.d1 (capital) = GENUINE CONTEXT-CONDITIONED CAPITAL SELECTOR.** Pushes the capital class 11852 ± 185
+  where the next token IS capital vs 3655 ± 59 where it is not — specificity ratio 3.24, comfortably beating the
+  flat 1.0 that condemned §66. Sign-correct: ablation raises cross-entropy +0.345 ± 0.014 where a capital is
+  genuinely due but only +0.030 ± 0.003 where it is not (11× concentration); at its own firing positions
+  ablation hurts +0.80 where the next token is capital and marginally HELPS (−0.029) where it is not. An
+  algorithm: it improves the prediction precisely when a capital is the right answer.
+- **mlp.L17.d3 (capital) = STATIC capital-frequency booster, ANTI-selective.** Capital push only 389 ± 74
+  where a capital is due vs 1036 ± 31 where it is not (ratio 0.38 — sprays capital MORE where it is wrong).
+  Fails the selection test.
+- **mlp.L17.d2 (word) = STATIC word-frequency prior.** Word push 2393 ± 110 (word due) vs 3550 ± 152 (not),
+  ratio 0.67, anti-selective; ablation barely changes prediction where a word is next (+0.006 ± 0.002) but
+  hurts where a NON-word is next (+0.095 ± 0.004) — the opposite of a selector.
+- **mlp.L16.d2 (word) = STATIC word-frequency prior, clearest.** Word push 547 ± 17 (due) vs 2997 ± 55 (not),
+  ratio 0.18 (strongly anti-selective); ~zero effect at word-due positions (+0.0006 ± 0.0018).
+- **Minimal circuit + joint structure:** the minimal GENUINE-algorithm circuit is the single direction
+  mlp.L17.d1; d3, d2 and L16.d2 add class-PRIOR mass on top. The two capital pushers are separable (raw push
+  joint 19048 vs sum 17740, ratio 1.07 additive; delta cross-entropy joint 0.301 vs 0.253, ratio 1.19). The
+  trio's strong causal-importance synergy (1.89, §61) comes from OVERLAPPING TRIGGERS (all fire on the same
+  boundary/structural positions — newline/quote/punct), not a shared selection mechanism.
+- **Content vs position:** all four read context via upstream CONTENT (fire most on newline/quote/punct), not
+  position. d1's context-conditioning is real because it reads sentence/line boundaries which genuinely precede
+  capitals; d3/d2/L16.d2 couple the same boundary-reading to a static class boost — a boundary-triggered PRIOR,
+  the §66 pattern (real content trigger, generic always-on output).
+**KEY (ties §64/§66/§68 together):** the model's largest distributed effects are MOSTLY output-class PRIORS —
+only 1 of the 4 is a genuine algorithm. But that one, mlp.L17.d1, IS the real context-conditioned
+capitalization-SELECTION algorithm — and it was surfaced ONLY by the §68 class-level detector. The token-level
+tools (§64/§66) examined mlp.L15.d2 / mlp.L16.d1 and correctly found them generic boosters; they never saw the
+actual selector because its output is a distributed capital-class push invisible to top-token purity. So the
+genuine capitalization algorithm lives at mlp.L17.d1, found precisely by looking where the easy ranking does
+not — the strongest single vindication of the class-level-detector program.
