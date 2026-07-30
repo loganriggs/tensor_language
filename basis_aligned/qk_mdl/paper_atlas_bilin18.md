@@ -1,6 +1,6 @@
 # A functional atlas of a bilinear transformer: a category engine, an induction circuit, and the attention that needs an MLP
 
-*Draft, 2026-07-29. Companion interactive figures: https://claude.ai/code/artifact/f27aeab4-438f-465a-9a33-aba8272b43ee*
+*Draft, 2026-07-29 (§9 four-ledger addendum 2026-07-30). Companion interactive figures: https://claude.ai/code/artifact/f27aeab4-438f-465a-9a33-aba8272b43ee*
 
 ## Abstract
 
@@ -195,3 +195,66 @@ induction is an attention copy mechanism. The one model that couples them — ro
 an MLP hub — does so because its two-branch product attention needs the MLP to align both branches at
 the copy source. The coupling is an attention-design artifact, not a general feature of the
 computation.
+
+## 9. Substitutability, selection, semantics, and editing (2026-07-30 addendum; four-ledger)
+
+This section consolidates the reviewed headlines of RESULTS §33–36. Four ledgers are kept strictly
+distinct; every number below has survived a dedicated adversarial pass (see redteam_*_2026-07-30.md).
+
+**Representation (exact).** The whole model rewrites as a tensor network with analytic scalar-gauge
+nodes: `MLP(rms(x)) = D·T(x,x)/‖x‖² + bias` and `pattern = quartic-multilinear / four norm gauges`,
+verified to ~1e-7 on three attention families. These are method licenses, not findings.
+
+**Substitutability (§33) — near-total, whole-model, with fair nulls.** Two DISTINCT experiments (never
+merge their statistics): (a) every attention output passed through a per-layer PCA/head bottleneck and
+every MLP replaced by its composed-fold surrogate — whole model +0.047 cross-entropy, ~99.4% of the
+uniform-ceiling headroom, head-span nulls 20–30× and a random-576-dim null 100×; (b) the entire MLP
+stack replaced causally by the analytic composed-fold chain — +0.034 (SE .001) = 99.56% of the uniform
+ceiling, own head-span null 18×. The bottleneck test is architecture-general (+0.047 / +0.116 / +0.077
+across two-branch / norm-squared / softmax). Honest limit: the composed forms reference the full weight
+tensors (no compression win — that lives in the selection/stream side; the fidelity floor at aggressive
+one-hop truncation is ~94%).
+
+**Function (§T2/T4) — three families plus a per-head selection census.** The atlas families (category
+engine, induction copy, layout) are joined by a selection census: 30 of 162 heads are "programmatic"
+(a named selection predicate explains ≥5% additional held-out pattern variance beyond the positional
+template). The attend-vs-predict map over those 30 heads gives two CLEAN clusters where selection =
+function — the KEY_cap cluster (layers 15–16, attend capitalized keys → predict capitals; a distributed
+late capitalization predictor, +0.046) and the anti-self MATCH_same core (L2H5 / L3H8, the induction
+necessity core, knockout drops 0.58 / 0.94, negative same-token coefficient IS the match, sign
+confirmed by a steer) — and an HONEST divergent majority where the predicate names *where a head looks*
+but not *what it predicts* (KEY_newline heads attend newlines yet predict capital/punctuation; the
+"boundary-anchor" story for them was falsified by its own causal check and withdrawn). Generality of
+the *taxonomy* is architecture-SPECIFIC: on bilin12 it does not replicate (no KEY_cap heads; fits
+marginal, median predicate-gain 0.074) — the deep decomposition properties generalize, the specific
+head assignments do not, exactly as the MLP1-hub was bilin18-specific.
+
+**Meaning (§34/§35) — nameable selection over spectral, non-generalizing content.** Layer-0 lexical
+content is NOT class-nameable (3/576 coordinates; median class-R² 0.02); its complete description is the
+exact weight-derived spectrum. Higher-layer FUNCTIONAL content (layer-13 opener flag, layer-8 successor
+payload) is nameable only as *a control dial plus an extractable table/predicate over a bounded input
+set*, not a generalizing law: the opener flag is type-blind and leaky, the successor is a
+per-calibrated-element table whose four genuinely held-out elements fail (follow 0.00–0.25), the
+category directions are steerable-but-dispensable. The induction MATCH predicate is the one fully
+meaning-verified functional claim (held-out 98–111%). Boundary measured at four sites (layers 0/3/8/13).
+
+**Editing (§T6/§36) — two affordances on the verified induction channel.** Because the induction match
+is a named, held-out-verified channel, its *strength* is a collateral-free linear knob (the capability
+dial: monotone control of the induction advantage, natural cross-entropy flat). Its *target* is also
+controllable but only by a heavier intervention: a minimal read-off-amplitude linear repoint fails
+(chosen-token probability 0.019 → 0.021 — the thin linear channel the dial scales cannot repoint the
+over-determined pattern), whereas overwriting the induction heads' attention rows to concentrate mass
+on a chosen source column redirects the copy (true-next 0.769 → 0.097; chosen token 0.019 → 0.240,
+argmax 0.023 → 0.355), and an aimability control passes as a double dissociation (aim@1 raises token@1
+not token@9; aim@9 the reverse; true-next collapses both ways). Honest cost: the target overwrite
+carries +0.316 natural-text collateral (vs +0.006 for the null soft edit) — strength is cheap, target
+is expensive — and this is a precision-of-edit demonstration on a base language model, not a jailbreak
+of a safety-trained target.
+
+**One-paragraph state.** bilin18 is representationally exact, ~98–99.8% causally substitutable through
+PCA-bottlenecked analytic interfaces (architecture-general; ~94% fidelity at aggressive truncation),
+functionally mapped into three families with a per-head selection census whose predicate labels predict
+causal roles for copy heads and diverge honestly for anchor heads, and semantically a set of nameable
+selection programs over graded, memorized, non-generalizing content dictionaries — with that
+nameable/spectral boundary measured, not assumed, and the induction channel's strength and (aimable-but-
+costly) target both demonstrated as edit affordances.
