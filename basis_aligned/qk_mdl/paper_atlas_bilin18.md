@@ -238,18 +238,20 @@ per-calibrated-element table whose four genuinely held-out elements fail (follow
 category directions are steerable-but-dispensable. The induction MATCH predicate is the one fully
 meaning-verified functional claim (held-out 98–111%). Boundary measured at four sites (layers 0/3/8/13).
 
-**Editing (§T6/§36) — two affordances on the verified induction channel.** Because the induction match
-is a named, held-out-verified channel, its *strength* is a collateral-free linear knob (the capability
-dial: monotone control of the induction advantage, natural cross-entropy flat). Its *target* is also
-controllable but only by a heavier intervention: a minimal read-off-amplitude linear repoint fails
-(chosen-token probability 0.019 → 0.021 — the thin linear channel the dial scales cannot repoint the
-over-determined pattern), whereas overwriting the induction heads' attention rows to concentrate mass
-on a chosen source column redirects the copy (true-next 0.769 → 0.097; chosen token 0.019 → 0.240,
-argmax 0.023 → 0.355), and an aimability control passes as a double dissociation (aim@1 raises token@1
-not token@9; aim@9 the reverse; true-next collapses both ways). Honest cost: the target overwrite
-carries +0.316 natural-text collateral (vs +0.006 for the null soft edit) — strength is cheap, target
-is expensive — and this is a precision-of-edit demonstration on a base language model, not a jailbreak
-of a safety-trained target.
+**Editing (§T6/§36) — the induction channel controls both strength and target.** Because the induction
+match is a named, held-out-verified channel, its *strength* is a collateral-free linear knob (the
+capability dial: monotone control of the induction advantage, natural cross-entropy flat). Its *target*
+is steerable through the SAME linear channel — a read-off-amplitude repoint does nothing (chosen-token
+0.019 → 0.021), but that is a coefficient-scale undershoot: scaling the same linear edit ~10× repoints
+cleanly (P_tgt 0.396, true-next 0.769 → 0.025), so the earlier "the pattern over-determines the target,
+overwrite is required" reading was RETRACTED. A hard attention-row overwrite reaches a weaker point on
+the same tradeoff (chosen token → 0.240, true-next → 0.097). Aimability passes as a double dissociation
+(aim@1 raises token@1 not token@9, aim@9 the reverse, off a matched ≈0.02 baseline) and holds across
+positions 1/9/30/55. Honest limits: it is a low-yield *steer*, not a clean pointer (argmax capture only
+0.35–0.58; 34–48% of redirected mass lands elsewhere), and target-repointing costs real collateral
+regardless of method (hard +0.316 at P_tgt 0.24, scaled-linear +0.588 at P_tgt 0.40) — unlike the
+collateral-free strength knob. A precision-of-edit demonstration on a base language model, not a
+jailbreak of a safety-trained target.
 
 **One-paragraph state.** bilin18 is representationally exact, ~98–99.8% causally substitutable through
 PCA-bottlenecked analytic interfaces (architecture-general; ~94% fidelity at aggressive truncation),

@@ -2758,27 +2758,40 @@ continuation? The intervention touches ONLY the census-identified induction head
 all other head function is left intact. Measured on repeated random-prefix sequences (natural
 induction predicts the true next token at P=0.77, argmax-correct 0.89).
 
-**Two editing affordances, cleanly separated.**
-- *Minimal linear repoint FAILS.* Cancelling the natural linear match and installing the same-
-  amplitude read-off coefficient at a chosen source column (`+a_readoff·(MM_redirect − MM_natural)`)
-  does essentially nothing: chosen-token probability 0.019 → 0.021, true-next 0.769 → 0.734. The thin
-  linear MATCH channel that the *strength* dial scales is far too weak to *repoint* against the head's
-  intact pattern — the copy target is over-determined by the full pattern, not the linear component.
-- *Pattern-row overwrite SUCCEEDS and is AIMABLE.* Concentrating each active induction query's total
-  attention mass onto the chosen source column flips the copy: true-next collapses 0.769 → 0.097
-  (argmax-correct 0.888 → 0.187) and the chosen token rises 16× (0.019 → 0.240, argmax 0.023 → 0.355).
+**The target is steerable through the SAME linear match channel — it just needs amplitude.**
+A minimal linear repoint at the *read-off* amplitude (`+a_readoff·(MM_redirect − MM_natural)`) does
+essentially nothing (chosen-token probability 0.019 → 0.021, true-next 0.769 → 0.734). But an
+amplitude sweep of that *same* linear edit shows it engages monotonically and then dominates:
+scale 3 → P_tgt 0.050, true-next 0.514; **scale 10 → P_tgt 0.396, argmax 0.579, true-next 0.025**;
+scale 30 → 0.461. So the read-off-amplitude null is a coefficient-SCALE fact — the read-off
+under-estimates the weight needed to *cancel* (not merely *scale*) the natural match, by roughly an
+order of magnitude — NOT evidence that the target is "over-determined by the pattern beyond the linear
+channel." (RETRACTED: the initial claim that a hard pattern overwrite is *required* and that the
+linear channel is intrinsically impotent for repointing — a scaled linear repoint is in fact the
+cleaner intervention.) A hard pattern-row overwrite (concentrate each active query's attention mass on
+the chosen column) reaches a comparable but weaker point on the same tradeoff: true-next 0.769 →
+0.097, chosen token 0.019 → 0.240 (argmax-correct rises ~16× to 0.355; chosen-token probability ~13×).
+The hard overwrite is also the less principled tool — the relocated row-sum is positive on only 59% of
+active queries in this unnormalized (non-softmax) pattern, so its "mass preservation" is sign-mixed.
 
-**Aimability positive control (double dissociation).** Repointing to position 1 versus position 9
-copies the token at *whichever* position is targeted, not a fixed default: aim@1 gives token@1 P=0.240
-while token@9 stays at baseline 0.024 (10× separation); aim@9 gives token@9 P=0.179 while token@1
-stays at 0.022 (8× separation). In both directions the true continuation collapses. So the copy is a
-genuinely *aimable* pointer, and this independently re-confirms the census/knockout finding that the
-copy is causally localized to these heads.
+**Aimability positive control (double dissociation), and it holds across the sequence.** Repointing
+copies the token at *whichever* position is targeted, off a matched baseline (unedited P at both test
+tokens ≈0.02, ruling out a unigram-frequency artifact): aim@1 gives token@1 P=0.240 while token@9
+stays 0.024; aim@9 gives token@9 P=0.178 while token@1 stays 0.022; the true continuation collapses
+both ways. The hard repoint holds across the sequence, not just near the start — targets 1/9/30/55 all
+give P_tgt 0.18–0.27 (argmax 0.28–0.41), position 30 the strongest — so this is not a start-of-
+sequence special case. This independently re-confirms the census/knockout finding that the copy is
+causally localized to these heads.
 
-**Honest cost.** Unlike the strength dial, target-repointing is NOT free: the hard overwrite carries
-+0.316 natural-text cross-entropy collateral (vs +0.006 for the null soft edit), because forcing every
-naturally-induction-active query onto one position damages the genuine induction that natural text
-uses. The editing ledger therefore reads: induction **strength** is a cheap, collateral-free linear
-knob; induction **target** is controllable and aimable but requires a heavy pattern-row overwrite that
-is only clean *at the induction queries themselves* — a precision-of-edit result on a base LM, not a
-real jailbreak of a safety-trained target.
+**Honest limits — a low-yield steer with real collateral, not a clean pointer.** Even at the best
+operating point, argmax capture is only ~0.35–0.58 and 34–48% of the redirected argmax mass lands on
+neither the target token nor the true continuation (only ~4–22% of that residual sits on immediate
+neighbours of the aimed column), so this is a *steer*, not a reliable pointer. And unlike the
+collateral-free strength dial, target-repointing costs real natural-text cross-entropy regardless of
+method — a redirect/collateral tradeoff: hard overwrite +0.316 (at P_tgt 0.24), scaled linear +0.588
+(at P_tgt 0.40), scale-30 +2.15 — because moving every naturally-induction-active query damages the
+genuine induction natural text uses. The corrected editing ledger: induction **strength** is a cheap,
+collateral-free linear knob; induction **target** is steerable through the same linear channel at
+~10× amplitude (or by pattern overwrite), aimable across positions but low-yield and unavoidably
+costly. A precision-of-edit result on a base LM — deliberately NOT a jailbreak of a safety-trained
+target.
