@@ -67,3 +67,11 @@ Goal: complete the four ledgers (Representation / Substitutability / Function / 
 10. **L5 content account** — the one fold-loss layer; re-fit with L5-specific symbols, characterize L5H7.
 11. **(Capstone) Per-layer master substitutability table with SEs** — one script, each layer's attention
     fold + best MLP surrogate simultaneously, cumulative, base-relative dCE + SEs vs mean-floor + uniform ceiling.
+
+## Driver results (qk_layer_decomp.py, 3 ledgers per layer; Meaning via separate gates)
+Substitutability = marginal dCE of replacing layer L's attention (PCA-64/head bottleneck) + MLP
+(composed fold), held-back FW[448:600], paired standard error; null = head-span random basis.
+| L | Repr gauge | Subst dCE ± SE | null (×margin) | %uniform-ceiling | programmatic heads |
+|---|---|---|---|---|---|
+| 1 | 1.2e-6 | +0.00052 ± 0.00016 | 0.025/0.020 (40-48×) | 99.99% | H3 PREV1(.17), H4 MATCH_same(.15) |
+| 2 | 9.8e-7 | +0.00136 ± 0.00020 | 0.0055 (4×) | 99.98% | H4 KEY_punct(.06), H5 MATCH_same(.25 induction core) |
