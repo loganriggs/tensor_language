@@ -4201,3 +4201,42 @@ orthogonal directions. Reference reproduced: full MLP 4.532, top-4/block (=72) 1
 per block (structured, far above random) to capture it, dominated by the MLP1 hub. This is genuine distributed
 computation, not a cutoff artifact and not isotropic noise; it refines the §71 completeness picture from
 "superposed" to "high-rank structured," which is a harder but better-posed target for future characterization.
+
+## §74 The MLP1 high-rank tail is IRREDUCIBLY DISTRIBUTED — the boundary of single-direction interpretability (2026-07-30)
+(qk_mlp1_tail.py; characterizes the biggest uncharacterized bucket — MLP layer 1's high-rank tail, ~62% of the
+§71 unfound feed-forward residual — to decide: nameable features or irreducibly distributed?) Ran MLP1's top-32
+SVD output directions through the class-push + trigger + causal-importance battery (forward + mean-ablation +
+class-summed delta-logit copied verbatim from qk_mlp_superposition.py / qk_unsup_classpush.py), held-back
+FW[448:600], paired standard errors. HONEST NEGATIVE, and an important boundary result.
+- **None of the 32 directions is single-direction nameable — interpretable fraction 0.0.** Not one clears the
+  causal-clearness bar (mean-ablation delta cross-entropy z ≥ 3 at its own top firing positions); the single
+  largest trigger z across all 32 is only 1.6. Bucket counts: null/subthreshold 32; class-pusher 0; suppressor
+  0; sharp-token 0; even diffuse-structured 0 (nothing clears the causal gate).
+- **The superposition signature is quantitative, not a threshold artifact.** The top-32 directions removed
+  together produce 0.161 ± 0.005 nats, but the SUM of the 32 individual single-direction ablations is only
+  0.039 nats — **individual directions account for just 24% of the layer's own effect; the other 76% appears
+  ONLY under joint removal** (interference / joint superposition). Each direction's output delta-logit is
+  near-uniform over the 50,257-token vocabulary (output entropy ≈ 10.53 vs uniform ceiling 10.82; top-10 tokens
+  ~0.1% of the effect — no sharp token set), and a direction's causal effect is not even localized at its own
+  top-activation positions (the SVD activation does not select where the direction matters).
+- **The hub's function lives in the distributed WHOLE, not any direction or band.** Full MLP1 ablation
+  reproduces the known hub behavior (induction advantage inverts +2.77 → −1.74; category-probe accuracy at
+  block 4 drops 0.611 → 0.418). But projecting out the top-4 leaves induction at +2.77 (retention 1.00) and
+  projecting out the tail directions 5–32 leaves it at +2.92 (retention 1.03) — NEITHER band alone hurts
+  induction. For the category code the tail carries modestly more than the top-4 (block 1: 0.047 vs 0.008,
+  ~6×) but both are tiny next to the 0.19-nat full-layer effect. The induction/category function that MLP1
+  knockout destroys is not localized in any SVD direction or band.
+- **Reconciles §73 at two levels — reconstruction vs causal nameability.** §73 found MLP1 basis-aligned for
+  RECONSTRUCTION (SVD beats random 35–200×). §74 shows that basis-alignment does NOT translate into
+  single-direction CAUSAL nameability: the SVD directions reconstruct well but the causal effect is joint /
+  superposed (76% only under joint removal) and no single direction is individually interpretable. "Privileged
+  basis for reconstruction" and "distributed superposition for causation" are both true, at different levels —
+  no contradiction, a two-level picture.
+**KEY (a boundary result):** the MLP1 high-rank tail — the largest uncharacterized bucket in the model — is
+IRREDUCIBLY DISTRIBUTED structured superposition, not many small nameable features. This is precisely where
+single-direction / single-path interpretability STOPS for this hub: naming its features would require
+sparse-dictionary / sparse-autoencoder methods that model joint, overcomplete structure rather than one
+orthogonal direction at a time. The completeness picture is now fully honest end-to-end: we named the largest
+individual effects (~11% of headroom), the rest is hard single-path (mostly low-cleanliness) plus this
+irreducibly-distributed early-layer superposition — and the boundary between what single-path methods can and
+cannot reach is now measured, not assumed.

@@ -1,0 +1,46 @@
+{
+  "meta": {
+    "model": "bilin18",
+    "layer": 1,
+    "K32": 32,
+    "bands": {
+      "top4": "dirs 0-3",
+      "tail_5to32": "dirs 4-31"
+    },
+    "induction_eval": "repeated-sequence advantage, adapted qk_induction_minimal.py",
+    "category_eval": "6-way next-token category probe (ridge, fixed intact readout), adapted qk_category_engine.py"
+  },
+  "induction": {
+    "adv_intact": 2.7679,
+    "adv_ablate_all_MLP1": -1.74,
+    "adv_ablate_MLP1_top4": 2.7703,
+    "ret_top4": 1.0005,
+    "adv_ablate_MLP1_tail_5to32": 2.9211,
+    "ret_tail": 1.034,
+    "drop_from_top4": -0.0024,
+    "drop_from_tail": -0.1532,
+    "note": "advantage = mean CE(first occ) - mean CE(second occ) on repeated sequences; higher=stronger induction. ret = fraction of (intact - allMLP1ablated) advantage retained."
+  },
+  "category": {
+    "majority": 0.4373,
+    "probe_trained_on": "intact residuals (fixed readout)",
+    "acc": {
+      "intact": {
+        "blk1": 0.571,
+        "blk4": 0.6107
+      },
+      "ablate_all_MLP1": {
+        "blk1": 0.4372,
+        "blk4": 0.4182
+      },
+      "ablate_MLP1_top4": {
+        "blk1": 0.563,
+        "blk4": 0.6046
+      },
+      "ablate_MLP1_tail_5to32": {
+        "blk1": 0.5242,
+        "blk4": 0.5919
+      }
+    }
+  }
+}
