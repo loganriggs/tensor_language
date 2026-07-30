@@ -6775,3 +6775,16 @@ Per the run-don't-hold autonomy directive, launched the flagged next frontier ra
   launched unprompted — it is a NEW method class past the §74 single-direction boundary).
 - Held the SAE launch per the scope-change rule; this tick = verification + consolidation only.
 - Cron 172134ae expires ~2026-08-06 — re-arm before then and tell Logan.
+
+## tick 2026-07-30 (completeness red-team applied: §74/§73 survive, §71 softened to a range)
+- Red-team (subagent a577eecf85da2b74c) verdicts APPLIED:
+  * §74 "irreducibly distributed" SURVIVES decisively — the decisive low-rank-late-layer control shows the
+    OPPOSITE signature under the identical mean-ablation (L16 joint-only −90% w/ 2 nameable dirs; L17 +13% w/ 5;
+    L1 +76% w/ 0), random dirs ~zero effect, stable across rotations + neuron basis. Not a generic artifact.
+  * §73 rank curve SURVIVES exactly.
+  * §71 WEAKENED → now stated as a RANGE (~11% of headroom / ~17% of joint-234 / ~44% of single-path mechanism);
+    much of the "89% unfound" is non-single-path-expressible by construction, not merely unlooked-at. Corrected
+    in RESULTS §71, the paper completeness paragraph, and the artifact (kpi 11-44%, card reworded).
+- The completeness thread (§71-§74) is now RED-TEAMED and defensible. Committed + artifact redeployed.
+- Program state: capstone reached and hardened. SAE frontier past the §74 boundary remains Logan's scope call.
+- Cron 172134ae expires ~2026-08-06 — re-arm before then and tell Logan.
