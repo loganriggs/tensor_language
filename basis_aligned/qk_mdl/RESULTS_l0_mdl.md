@@ -3827,3 +3827,43 @@ Discovery FW[0:256], causal verify held-back FW[448:600], paired standard errors
 over-ranks them and gets magnitude/sign wrong — so the output-side causal test (class-B suppression at active
 class-A positions vs inactive control) is mandatory. This is the sixth and final under-served §58 gap-map
 type; every taxonomy circuit type now has a working, causally-verified detector.
+
+## §65 Algorithmic arc — the two DIGIT heads are TWO distinct algorithms (2026-07-30)
+(qk_arc_digits.py; option-2 arc — verify→minimal→red-team — on the §63 digit-attending heads h.L8.3 and
+h.L8.7, run on circuits the toolbox FOUND, not a hand-picked task.) Held-back FW[448:600], mean-ablation to
+the per-position in-distribution mean, paired standard errors. 522 next-token-is-digit positions; GPT-2 has no
+mixed digit+letter tokens so every digit target is a pure numeric run. Next-digit prediction is HARD and
+context-dependent (baseline top-1 0.207, correct-number probability 0.124, cross-entropy 4.41 vs 3.53
+overall); only 4.2% of next-digit positions follow a digit (almost never on-screen run-continuation) and 16.7%
+have a matching earlier number (a copyable referent). The two heads DISSOCIATE cleanly on the copyable split:
+- **h.L8.3 = DIGIT COPYING / value-router (H2).** Damage lives almost entirely where the next number appeared
+  earlier: cross-entropy increase on copyable next-digit positions +0.155 ± 0.032 (n=87) versus +0.000 ± 0.008
+  on non-copyable (n=435); correct-number probability drop 0.046 ± 0.009 vs 0.004 ± 0.001. It BOOSTS THE
+  ATTENDED-SOURCE token (direct-logit contribution to the attended source +0.209 ± 0.017, 79.5% positive; ≈0
+  to random tokens). When it attends the very number it must predict (source identity = next token, n=47) it is
+  textbook verbatim value-routing: cross-entropy increase +0.252 ± 0.051 (95.7% positive), probability drop
+  0.079 ± 0.014, source-token logit contribution +0.55 ± 0.10. (Consistent with its §60 copy-detector class.)
+- **h.L8.7 = source-INDEPENDENT next-number predictor (H1), NOT copying, NOT a mere detector.** Exact opposite
+  copy signature: damage concentrates on NON-copyable next-digit positions (+0.078 ± 0.019, n=435) and is null
+  on copyable ones (−0.010 ± 0.033). It does NOT boost the attended source (source-token logit ≈ −0.02,
+  indistinguishable from zero) but DOES boost the correct next digit source-independently (+0.131 ± 0.024 vs
+  +0.009 ± 0.008 to random). Largest per-position next-digit cost of the two (+0.064 ± 0.017, a ~20× digit
+  concentration). A genuine specific load-bearing OUTPUT → not the trigger-genuine/output-diffuse (H3) category.
+- **Minimal circuit:** the two are complementary and handle DISJOINT regimes (copyable vs non-copyable), so
+  each is its own minimal circuit — h.L8.3 alone is the minimal digit-copy circuit, h.L8.7 alone the minimal
+  next-number-prediction circuit. Roughly additive: solo next-digit costs 0.026 (L8.3) + 0.064 (L8.7) = 0.089
+  vs joint +0.114 ± 0.024 (~27% super-additivity). No smaller shared unit.
+- **Static-prior red-team (§40-style) — real computation above the prior floor, emphatically.** Mean-ablating
+  ALL attention collapses next-digit prediction to near-chance: cross-entropy 4.41 → 8.67, accuracy 0.207 →
+  0.004, correct-number probability 0.124 → 0.002. Full-attention contribution to next-digit prediction is
+  +4.26 ± 0.13 (92.5% of positions positive) → next-number prediction is essentially 100% attention-driven,
+  NOT a context-free bigram prior the heads ride on. The two heads carry a small but real digit-specific slice
+  (joint 0.114 ≈ 2.7% of the total attention contribution, concentrated 6–20× on digit positions). Positional
+  confound refuted: within distance-since-newline bins the joint digit-vs-non-digit ratio is 4.0 / 12.7 /
+  (noisy) / 8.0 / 25.0 — survives position-matching (matches §63's per-head ~4× and ~7.6×).
+- **Honest magnitude caveat:** absolute effects are MODEST (0.03–0.25 nats); the decisive evidence is not the
+  magnitude but the copyable/non-copyable DISSOCIATION, the source-vs-correct-next logit SPLIT, and the
+  position-matched ratios — all several standard errors from zero.
+**KEY:** running the arc on a discovered circuit paid off — what looked like one "digit head" type is TWO
+different algorithms (a value-router and a source-independent predictor) that only a causal copyable/non-
+copyable dissociation separates. This is a new confirmed circuit distinction, not a hand-picked task.

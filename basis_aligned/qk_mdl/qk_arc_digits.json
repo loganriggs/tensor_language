@@ -1,0 +1,486 @@
+{
+  "meta": {
+    "model": "bilin18",
+    "heads": [
+      "h.L8.3",
+      "h.L8.7"
+    ],
+    "layer": 8,
+    "held_slice": "FW[448:600,:128]",
+    "batch": 6,
+    "digit_predicate": "decoded token core contains a digit character (has_digit); is_num = core all digits",
+    "ablation": "mean-ablate head yh to per-position HELD-slice mean (in-distribution, not zero)",
+    "hypotheses": {
+      "H1": "number/digit continuation",
+      "H2": "digit copying / value-router",
+      "H3": "mere digit detector, diffuse output"
+    }
+  },
+  "step1_verify": {
+    "n_next_digit_pos": 522,
+    "n_valid": 18634,
+    "base_acc_next_digit": 0.2069,
+    "base_p_correct_next_digit": 0.1241,
+    "base_ce_next_digit": 4.4096,
+    "base_ce_all_valid": 3.5253,
+    "frac_prev_token_is_digit": 0.0421,
+    "frac_has_matching_earlier_number": 0.1667,
+    "frac_next_is_pure_numeric": 1.0,
+    "frac_srcid_eq_next_h8_3": 0.09,
+    "frac_srcid_eq_next_h8_7": 0.0268
+  },
+  "step2_patch": {
+    "h.L8.3": {
+      "dCE_all_valid": {
+        "n": 18634,
+        "mean": 0.0049,
+        "se": 0.0008,
+        "frac_pos": 0.531
+      },
+      "dCE_next_digit": {
+        "n": 522,
+        "mean": 0.0258,
+        "se": 0.0091,
+        "frac_pos": 0.498
+      },
+      "dCE_next_NONdigit": {
+        "n": 18112,
+        "mean": 0.0043,
+        "se": 0.0008,
+        "frac_pos": 0.532
+      },
+      "dP_correct_next_digit": {
+        "n": 522,
+        "mean": 0.011,
+        "se": 0.0019,
+        "frac_pos": 0.498
+      },
+      "dP_correct_next_NONdigit": {
+        "n": 18112,
+        "mean": 0.0023,
+        "se": 0.0002,
+        "frac_pos": 0.532
+      },
+      "head_DLA_to_correct_next__next_digit": {
+        "n": 522,
+        "mean": 0.0885,
+        "se": 0.015,
+        "frac_pos": 0.613
+      },
+      "head_DLA_to_random__next_digit": {
+        "n": 522,
+        "mean": 0.0326,
+        "se": 0.011,
+        "frac_pos": 0.534
+      },
+      "dCE_digit_over_nondigit_ratio": 6.0,
+      "dCE_srcDIGIT": {
+        "n": 729,
+        "mean": 0.0197,
+        "se": 0.0066,
+        "frac_pos": 0.531
+      },
+      "dCE_srcNONdigit": {
+        "n": 17905,
+        "mean": 0.0043,
+        "se": 0.0008,
+        "frac_pos": 0.531
+      },
+      "head_DLA_to_attended_source__all_valid": {
+        "n": 18634,
+        "mean": 0.109,
+        "se": 0.0021,
+        "frac_pos": 0.69
+      },
+      "head_DLA_to_attended_source__next_digit": {
+        "n": 522,
+        "mean": 0.2088,
+        "se": 0.0165,
+        "frac_pos": 0.795
+      },
+      "dCE_next_digit_COPYABLE": {
+        "n": 87,
+        "mean": 0.1545,
+        "se": 0.0319,
+        "frac_pos": 0.77
+      },
+      "dCE_next_digit_NONcopyable": {
+        "n": 435,
+        "mean": 0.0,
+        "se": 0.0083,
+        "frac_pos": 0.444
+      },
+      "dP_correct_next_digit_COPYABLE": {
+        "n": 87,
+        "mean": 0.0459,
+        "se": 0.0086,
+        "frac_pos": 0.77
+      },
+      "dP_correct_next_digit_NONcopyable": {
+        "n": 435,
+        "mean": 0.004,
+        "se": 0.0013,
+        "frac_pos": 0.444
+      },
+      "dCE_next_digit_SRC_EQ_NEXT": {
+        "n": 47,
+        "mean": 0.252,
+        "se": 0.0508,
+        "frac_pos": 0.957
+      },
+      "dP_correct__SRC_EQ_NEXT": {
+        "n": 47,
+        "mean": 0.0789,
+        "se": 0.0135,
+        "frac_pos": 0.957
+      },
+      "head_DLA_to_source__SRC_EQ_NEXT": {
+        "n": 47,
+        "mean": 0.5495,
+        "se": 0.1001,
+        "frac_pos": 0.872
+      }
+    },
+    "h.L8.7": {
+      "dCE_all_valid": {
+        "n": 18634,
+        "mean": 0.0048,
+        "se": 0.0008,
+        "frac_pos": 0.528
+      },
+      "dCE_next_digit": {
+        "n": 522,
+        "mean": 0.0635,
+        "se": 0.017,
+        "frac_pos": 0.506
+      },
+      "dCE_next_NONdigit": {
+        "n": 18112,
+        "mean": 0.0031,
+        "se": 0.0006,
+        "frac_pos": 0.528
+      },
+      "dP_correct_next_digit": {
+        "n": 522,
+        "mean": 0.016,
+        "se": 0.0039,
+        "frac_pos": 0.506
+      },
+      "dP_correct_next_NONdigit": {
+        "n": 18112,
+        "mean": 0.001,
+        "se": 0.0001,
+        "frac_pos": 0.528
+      },
+      "head_DLA_to_correct_next__next_digit": {
+        "n": 522,
+        "mean": 0.1305,
+        "se": 0.0242,
+        "frac_pos": 0.573
+      },
+      "head_DLA_to_random__next_digit": {
+        "n": 522,
+        "mean": 0.0091,
+        "se": 0.0081,
+        "frac_pos": 0.496
+      },
+      "dCE_digit_over_nondigit_ratio": 20.48,
+      "dCE_srcDIGIT": {
+        "n": 1220,
+        "mean": 0.0316,
+        "se": 0.0076,
+        "frac_pos": 0.533
+      },
+      "dCE_srcNONdigit": {
+        "n": 17414,
+        "mean": 0.0029,
+        "se": 0.0006,
+        "frac_pos": 0.528
+      },
+      "head_DLA_to_attended_source__all_valid": {
+        "n": 18634,
+        "mean": 0.0184,
+        "se": 0.0011,
+        "frac_pos": 0.558
+      },
+      "head_DLA_to_attended_source__next_digit": {
+        "n": 522,
+        "mean": -0.0196,
+        "se": 0.0177,
+        "frac_pos": 0.567
+      },
+      "dCE_next_digit_COPYABLE": {
+        "n": 87,
+        "mean": -0.0099,
+        "se": 0.0332,
+        "frac_pos": 0.471
+      },
+      "dCE_next_digit_NONcopyable": {
+        "n": 435,
+        "mean": 0.0782,
+        "se": 0.0193,
+        "frac_pos": 0.513
+      },
+      "dP_correct_next_digit_COPYABLE": {
+        "n": 87,
+        "mean": 0.0015,
+        "se": 0.011,
+        "frac_pos": 0.471
+      },
+      "dP_correct_next_digit_NONcopyable": {
+        "n": 435,
+        "mean": 0.0189,
+        "se": 0.0041,
+        "frac_pos": 0.513
+      },
+      "dCE_next_digit_SRC_EQ_NEXT": {
+        "n": 14,
+        "mean": -0.109,
+        "se": 0.0508,
+        "frac_pos": 0.214
+      },
+      "dP_correct__SRC_EQ_NEXT": {
+        "n": 14,
+        "mean": -0.0229,
+        "se": 0.0092,
+        "frac_pos": 0.214
+      },
+      "head_DLA_to_source__SRC_EQ_NEXT": {
+        "n": 14,
+        "mean": -0.0818,
+        "se": 0.0402,
+        "frac_pos": 0.357
+      }
+    },
+    "h.L8.3+h.L8.7 JOINT": {
+      "dCE_all_valid": {
+        "n": 18634,
+        "mean": 0.0112,
+        "se": 0.0013,
+        "frac_pos": 0.54
+      },
+      "dCE_next_digit": {
+        "n": 522,
+        "mean": 0.1136,
+        "se": 0.0235,
+        "frac_pos": 0.511
+      },
+      "dCE_next_NONdigit": {
+        "n": 18112,
+        "mean": 0.0082,
+        "se": 0.0011,
+        "frac_pos": 0.54
+      },
+      "dP_correct_next_digit": {
+        "n": 522,
+        "mean": 0.0275,
+        "se": 0.0046,
+        "frac_pos": 0.511
+      },
+      "dP_correct_next_NONdigit": {
+        "n": 18112,
+        "mean": 0.0034,
+        "se": 0.0002,
+        "frac_pos": 0.54
+      },
+      "head_DLA_to_correct_next__next_digit": {
+        "n": 522,
+        "mean": 0.261,
+        "se": 0.0361,
+        "frac_pos": 0.644
+      },
+      "head_DLA_to_random__next_digit": {
+        "n": 522,
+        "mean": 0.0386,
+        "se": 0.0143,
+        "frac_pos": 0.523
+      },
+      "dCE_digit_over_nondigit_ratio": 13.85,
+      "dCE_srcDIGIT": {
+        "n": 729,
+        "mean": 0.0784,
+        "se": 0.0168,
+        "frac_pos": 0.55
+      },
+      "dCE_srcNONdigit": {
+        "n": 17905,
+        "mean": 0.0084,
+        "se": 0.0011,
+        "frac_pos": 0.539
+      },
+      "head_DLA_to_attended_source__all_valid": {
+        "n": 18634,
+        "mean": 0.124,
+        "se": 0.0024,
+        "frac_pos": 0.672
+      },
+      "head_DLA_to_attended_source__next_digit": {
+        "n": 522,
+        "mean": 0.2174,
+        "se": 0.0244,
+        "frac_pos": 0.743
+      },
+      "dCE_next_digit_COPYABLE": {
+        "n": 87,
+        "mean": 0.155,
+        "se": 0.0486,
+        "frac_pos": 0.701
+      },
+      "dCE_next_digit_NONcopyable": {
+        "n": 435,
+        "mean": 0.1053,
+        "se": 0.0265,
+        "frac_pos": 0.474
+      },
+      "dP_correct_next_digit_COPYABLE": {
+        "n": 87,
+        "mean": 0.0512,
+        "se": 0.0134,
+        "frac_pos": 0.701
+      },
+      "dP_correct_next_digit_NONcopyable": {
+        "n": 435,
+        "mean": 0.0228,
+        "se": 0.0048,
+        "frac_pos": 0.474
+      },
+      "dCE_next_digit_SRC_EQ_NEXT": {
+        "n": 47,
+        "mean": 0.2078,
+        "se": 0.0592,
+        "frac_pos": 0.894
+      },
+      "dP_correct__SRC_EQ_NEXT": {
+        "n": 47,
+        "mean": 0.0695,
+        "se": 0.0167,
+        "frac_pos": 0.894
+      },
+      "head_DLA_to_source__SRC_EQ_NEXT": {
+        "n": 47,
+        "mean": 0.6226,
+        "se": 0.1103,
+        "frac_pos": 0.894
+      }
+    }
+  },
+  "step3_redteam": {
+    "static_prior_floor": {
+      "base_ce_next_digit": 4.4096,
+      "allattn_ablated_ce_next_digit": 8.6713,
+      "base_acc_next_digit": 0.2069,
+      "allattn_ablated_acc_next_digit": 0.0038,
+      "base_p_correct_next_digit": 0.1241,
+      "allattn_ablated_p_correct_next_digit": 0.0022,
+      "note": "full attention contribution to next-digit prediction = base minus all-attn-ablated; compare the two heads joint dCE against this to gauge what fraction of the real attention computation they carry vs a context-free static prior floor.",
+      "full_attention_dCE_next_digit": {
+        "n": 522,
+        "mean": 4.2617,
+        "se": 0.1323,
+        "frac_pos": 0.925
+      },
+      "joint_two_head_dCE_next_digit": {
+        "n": 522,
+        "mean": 0.1136,
+        "se": 0.0235,
+        "frac_pos": 0.511
+      },
+      "two_head_share_of_full_attention": 0.027
+    },
+    "position_matched_next_digit": {
+      "circuit": "h.L8.3+h.L8.7 joint",
+      "bins": [
+        {
+          "bin": "1-3",
+          "n_digit": 63,
+          "n_nondigit": 1432,
+          "digit": {
+            "n": 63,
+            "mean": 0.045,
+            "se": 0.0379,
+            "frac_pos": 0.476
+          },
+          "nondigit": {
+            "n": 1432,
+            "mean": 0.0112,
+            "se": 0.0039,
+            "frac_pos": 0.57
+          },
+          "ratio": 4.02
+        },
+        {
+          "bin": "4-7",
+          "n_digit": 73,
+          "n_nondigit": 1721,
+          "digit": {
+            "n": 73,
+            "mean": 0.1547,
+            "se": 0.0594,
+            "frac_pos": 0.521
+          },
+          "nondigit": {
+            "n": 1721,
+            "mean": 0.0122,
+            "se": 0.0038,
+            "frac_pos": 0.527
+          },
+          "ratio": 12.68
+        },
+        {
+          "bin": "8-15",
+          "n_digit": 61,
+          "n_nondigit": 2765,
+          "digit": {
+            "n": 61,
+            "mean": -0.0098,
+            "se": 0.0536,
+            "frac_pos": 0.475
+          },
+          "nondigit": {
+            "n": 2765,
+            "mean": 0.0063,
+            "se": 0.0025,
+            "frac_pos": 0.535
+          },
+          "ratio": -1.56
+        },
+        {
+          "bin": "16-31",
+          "n_digit": 85,
+          "n_nondigit": 3838,
+          "digit": {
+            "n": 85,
+            "mean": 0.0739,
+            "se": 0.0414,
+            "frac_pos": 0.435
+          },
+          "nondigit": {
+            "n": 3838,
+            "mean": 0.0093,
+            "se": 0.0024,
+            "frac_pos": 0.545
+          },
+          "ratio": 7.95
+        },
+        {
+          "bin": "32-127",
+          "n_digit": 217,
+          "n_nondigit": 8016,
+          "digit": {
+            "n": 217,
+            "mean": 0.1726,
+            "se": 0.0455,
+            "frac_pos": 0.567
+          },
+          "nondigit": {
+            "n": 8016,
+            "mean": 0.0069,
+            "se": 0.0017,
+            "frac_pos": 0.539
+          },
+          "ratio": 25.01
+        }
+      ]
+    }
+  }
+}
