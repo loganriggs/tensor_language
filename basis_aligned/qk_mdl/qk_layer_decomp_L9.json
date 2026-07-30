@@ -1,0 +1,121 @@
+{
+  "layer": 9,
+  "smoke": false,
+  "representation": {
+    "mlp_gauge_relerr": 1.600767291165539e-06
+  },
+  "substitutability": {
+    "base_CE": 3.19573,
+    "uniform_ceiling_lnV": 10.8258,
+    "n_tokens": 77824,
+    "sub_pca": {
+      "dCE": 0.00109,
+      "SE_pertok": 0.000173,
+      "SE_rowclust": 0.000173
+    },
+    "stream_recon_relerr": 9.191617778014916e-08,
+    "null_headspan_s1": {
+      "dCE": 0.0049,
+      "SE_pertok": 0.000391,
+      "SE_rowclust": 0.000411
+    },
+    "null_headspan_s2": {
+      "dCE": 0.00563,
+      "SE_pertok": 0.000411,
+      "SE_rowclust": 0.00047
+    },
+    "mlp_floor_marginal": {
+      "dCE": 0.03399,
+      "SE_pertok": 0.000958,
+      "SE_rowclust": 0.001276
+    },
+    "frac_of_uniform_ceiling": 0.99986,
+    "frac_of_layer_floor_captured": 0.9679
+  },
+  "function": {
+    "census": [
+      {
+        "head": 0,
+        "r2_full": 0.138,
+        "r2_template": 0.127,
+        "predicate_gain": 0.011,
+        "top_predicate": "PREV1",
+        "top_coef": -0.0098,
+        "programmatic": false
+      },
+      {
+        "head": 1,
+        "r2_full": 0.104,
+        "r2_template": 0.099,
+        "predicate_gain": 0.004,
+        "top_predicate": "PREV2",
+        "top_coef": 0.011,
+        "programmatic": false
+      },
+      {
+        "head": 2,
+        "r2_full": 0.046,
+        "r2_template": 0.046,
+        "predicate_gain": 0.001,
+        "top_predicate": "PREV2",
+        "top_coef": -0.0127,
+        "programmatic": false
+      },
+      {
+        "head": 3,
+        "r2_full": 0.122,
+        "r2_template": 0.105,
+        "predicate_gain": 0.017,
+        "top_predicate": "PREV2",
+        "top_coef": -0.0091,
+        "programmatic": false
+      },
+      {
+        "head": 4,
+        "r2_full": 0.072,
+        "r2_template": 0.058,
+        "predicate_gain": 0.014,
+        "top_predicate": "PREV2",
+        "top_coef": 0.011,
+        "programmatic": false
+      },
+      {
+        "head": 5,
+        "r2_full": 0.273,
+        "r2_template": 0.251,
+        "predicate_gain": 0.022,
+        "top_predicate": "KEY_punct",
+        "top_coef": 0.0114,
+        "programmatic": false
+      },
+      {
+        "head": 6,
+        "r2_full": 0.036,
+        "r2_template": 0.03,
+        "predicate_gain": 0.006,
+        "top_predicate": "KEY_punct",
+        "top_coef": 0.0049,
+        "programmatic": false
+      },
+      {
+        "head": 7,
+        "r2_full": 0.499,
+        "r2_template": 0.488,
+        "predicate_gain": 0.011,
+        "top_predicate": "PREV1",
+        "top_coef": -0.035,
+        "programmatic": false
+      },
+      {
+        "head": 8,
+        "r2_full": 0.28,
+        "r2_template": 0.245,
+        "predicate_gain": 0.035,
+        "top_predicate": "KEY_punct",
+        "top_coef": 0.0214,
+        "programmatic": false
+      }
+    ],
+    "n_programmatic": 0
+  }
+}
