@@ -1,0 +1,697 @@
+{
+  "meta": {
+    "held_out": "FW[448:600,:128]",
+    "model": "bilin18",
+    "mlp_dirs_from": "TRAIN gram FW[0:256,:128]"
+  },
+  "results": [
+    {
+      "comp": "mlp.L1.d3",
+      "kind": "mlp",
+      "discovered_boost": "whole/entire/aforementioned/usual/particular",
+      "discovered_trigger": "' the'/' an' (determiner)",
+      "heldout_top50_cur": [
+        [
+          "' the'",
+          48
+        ],
+        [
+          "' ('",
+          1
+        ],
+        [
+          "'side'",
+          1
+        ]
+      ],
+      "heldout_cur_purity": 0.95,
+      "n_token_matched": 1159,
+      "firing_rate_matched": 0.997,
+      "selectivity_trig/median": 4.31,
+      "boost_ids_tested": [
+        "' whole'",
+        "' entire'",
+        "' entirety'",
+        "' aforementioned'",
+        "' usual'",
+        "' particular'",
+        "' current'",
+        "' sort'"
+      ],
+      "most_dropped_tokens": [
+        [
+          "'itten'",
+          -0.082
+        ],
+        [
+          "'framework'",
+          -0.079
+        ],
+        [
+          "'AppData'",
+          -0.076
+        ],
+        [
+          "'ouls'",
+          -0.076
+        ],
+        [
+          "'ocious'",
+          -0.073
+        ],
+        [
+          "'DEBUG'",
+          -0.072
+        ],
+        [
+          "'irmation'",
+          -0.072
+        ],
+        [
+          "'landish'",
+          -0.072
+        ],
+        [
+          "'aimon'",
+          -0.07
+        ],
+        [
+          "'retty'",
+          -0.07
+        ],
+        [
+          "'DoS'",
+          -0.07
+        ],
+        [
+          "'Recomm'",
+          -0.069
+        ]
+      ],
+      "boost_in_top12_dropped": 0,
+      "dLogit_boost_mean": -0.0105,
+      "dLogit_boost_se": 0.0024,
+      "dLogit_control_mean": -0.0154,
+      "dLogit_control_se": 0.001,
+      "dLogit_allvocab_mean": -0.0146,
+      "n_causal": 1159,
+      "boost_minus_control_mean": 0.0049,
+      "boost_minus_control_se": 0.002,
+      "boost_minus_control_z": 2.46,
+      "n_causal_next_in_boost": 4,
+      "CE_increase_on_actual_boost_next": 0.0287,
+      "CE_increase_se": 0.0442,
+      "VERDICT": {
+        "name": "determiner ( the/ an) detector; determiner->adjective (whole/entire) output WEAK",
+        "verdict": "TRIGGER genuine (determiner feature); OUTPUT diffuse/weak -- NOT a clean algorithm",
+        "note": "trigger crisp (48/50 the, firing 0.997, selectivity 4.31). Ablation drops discovered adjectives more than control (z=2.46) but magnitude negligible (0.005 logit) and top-dropped are junk. Determiner-position feature real; adjective-boost a weak diffuse effect below the algorithm bar."
+      }
+    },
+    {
+      "comp": "mlp.L0.d1",
+      "kind": "mlp",
+      "discovered_boost": "various/different/several/recent/latest",
+      "discovered_trigger": "' the'/' a' (determiner)",
+      "heldout_top50_cur": [
+        [
+          "' the'",
+          49
+        ],
+        [
+          "' a'",
+          1
+        ]
+      ],
+      "heldout_cur_purity": 0.975,
+      "n_token_matched": 1159,
+      "firing_rate_matched": 1.0,
+      "selectivity_trig/median": 2.86,
+      "boost_ids_tested": [
+        "' various'",
+        "' different'",
+        "' several'",
+        "' recent'",
+        "' latest'",
+        "' newer'",
+        "' other'",
+        "' multiple'"
+      ],
+      "most_dropped_tokens": [
+        [
+          "' the'",
+          -0.034
+        ],
+        [
+          "'commit'",
+          -0.026
+        ],
+        [
+          "'noticed'",
+          -0.025
+        ],
+        [
+          "'termination'",
+          -0.023
+        ],
+        [
+          "'snap'",
+          -0.023
+        ],
+        [
+          "'illegal'",
+          -0.023
+        ],
+        [
+          "'respective'",
+          -0.023
+        ],
+        [
+          "'split'",
+          -0.023
+        ],
+        [
+          "'usage'",
+          -0.023
+        ],
+        [
+          "'\ufffd\ufffd'",
+          -0.022
+        ],
+        [
+          "' Nichols'",
+          -0.022
+        ],
+        [
+          "' Nish'",
+          -0.022
+        ]
+      ],
+      "boost_in_top12_dropped": 0,
+      "dLogit_boost_mean": 0.0049,
+      "dLogit_boost_se": 0.0019,
+      "dLogit_control_mean": 0.0047,
+      "dLogit_control_se": 0.0009,
+      "dLogit_allvocab_mean": 0.0043,
+      "n_causal": 1159,
+      "boost_minus_control_mean": 0.0002,
+      "boost_minus_control_se": 0.0015,
+      "boost_minus_control_z": 0.13,
+      "n_causal_next_in_boost": 10,
+      "CE_increase_on_actual_boost_next": -0.0322,
+      "CE_increase_se": 0.0226,
+      "VERDICT": {
+        "name": "determiner ( the/ a) detector; determiner->quantifier (various/different) output ARTIFACT",
+        "verdict": "TRIGGER genuine (determiner feature); OUTPUT artifact -- NOT verified",
+        "note": "trigger crisp (49/50 the). boost_minus_control z=0.13 (NULL) -- discovered quantifier boost has no causal effect. High-magnitude generic MLP SVD direction; the boost is a pure linear-proxy artifact."
+      }
+    },
+    {
+      "comp": "h.L3.3",
+      "kind": "head",
+      "discovered_boost": "alike/respectively/etc",
+      "discovered_trigger": "digits/',' attending conjunction ' and'/' or'/','",
+      "heldout_top50_cur": [
+        [
+          "','",
+          4
+        ],
+        [
+          "'.'",
+          1
+        ],
+        [
+          "'8'",
+          1
+        ],
+        [
+          "'9'",
+          1
+        ],
+        [
+          "'?'",
+          1
+        ],
+        [
+          "'T'",
+          1
+        ]
+      ],
+      "heldout_cur_purity": 0.028,
+      "heldout_top50_src": [
+        [
+          "' and'",
+          15
+        ],
+        [
+          "' or'",
+          7
+        ],
+        [
+          "','",
+          6
+        ],
+        [
+          "' to'",
+          6
+        ],
+        [
+          "'-'",
+          4
+        ],
+        [
+          "'/'",
+          3
+        ]
+      ],
+      "heldout_src_purity": 0.432,
+      "n_token_matched": 2908,
+      "firing_rate_matched": 0.699,
+      "selectivity_trig/median": 1.9,
+      "boost_ids_tested": [
+        "' alike'",
+        "' respectively'",
+        "' etc'",
+        "' vice'",
+        "' whatever'"
+      ],
+      "most_dropped_tokens": [
+        [
+          "'\u2015'",
+          -0.06
+        ],
+        [
+          "' ...'",
+          -0.057
+        ],
+        [
+          "' \u2026'",
+          -0.054
+        ],
+        [
+          "'\u2026'",
+          -0.05
+        ],
+        [
+          "',...'",
+          -0.049
+        ],
+        [
+          "' \u2014'",
+          -0.048
+        ],
+        [
+          "'\u2014'",
+          -0.048
+        ],
+        [
+          "' [\u2026]'",
+          -0.047
+        ],
+        [
+          "' [...]'",
+          -0.047
+        ],
+        [
+          "'...'",
+          -0.045
+        ],
+        [
+          "'virt'",
+          -0.045
+        ],
+        [
+          "' and'",
+          -0.043
+        ]
+      ],
+      "boost_in_top12_dropped": 0,
+      "dLogit_boost_mean": -0.0093,
+      "dLogit_boost_se": 0.0028,
+      "dLogit_control_mean": -0.0048,
+      "dLogit_control_se": 0.0011,
+      "dLogit_allvocab_mean": -0.0035,
+      "n_causal": 2908,
+      "boost_minus_control_mean": -0.0045,
+      "boost_minus_control_se": 0.0026,
+      "boost_minus_control_z": -1.7,
+      "n_causal_next_in_boost": 2,
+      "CE_increase_on_actual_boost_next": null,
+      "VERDICT": {
+        "name": "post-conjunction / list-item -> enumeration-continuation marker (ellipsis / dash / etc / alike / respectively)",
+        "verdict": "GENUINE ALGORITHM (verified, modest magnitude)",
+        "note": "trigger attends coordinating conjunctions & list punct confirmed OOS (and/or/, src_purity 0.43); most-dropped tokens are continuation markers (\u2026, \u2014, [\u2026], ,...) + discovered alike/respectively/etc; boost_minus_control z=-1.70 token-matched, z=-2.84 + CE+0.025 (n=44) on firing slice. Coherent but small-magnitude."
+      }
+    },
+    {
+      "comp": "h.L6.0",
+      "kind": "head",
+      "discovered_boost": "therefore/also/but/or/so (lowercase connectives)",
+      "discovered_trigger": "sentence-end . \\n ; ? !",
+      "heldout_top50_cur": [
+        [
+          "'.'",
+          40
+        ],
+        [
+          "'\\n'",
+          4
+        ],
+        [
+          "').'",
+          2
+        ],
+        [
+          "'\"'",
+          1
+        ],
+        [
+          "' \"'",
+          1
+        ],
+        [
+          "');'",
+          1
+        ]
+      ],
+      "heldout_cur_purity": 0.79,
+      "heldout_top50_src": [
+        [
+          "'.'",
+          35
+        ],
+        [
+          "' but'",
+          2
+        ],
+        [
+          "').'",
+          2
+        ],
+        [
+          "'!'",
+          1
+        ],
+        [
+          "'\\n'",
+          1
+        ],
+        [
+          "' the'",
+          1
+        ]
+      ],
+      "heldout_src_purity": 0.65,
+      "n_token_matched": 1249,
+      "firing_rate_matched": 0.9,
+      "selectivity_trig/median": 3.26,
+      "boost_ids_tested": [
+        "' therefore'",
+        "' also'",
+        "' but'",
+        "' or'",
+        "' so'",
+        "' and'",
+        "' however'",
+        "' thus'"
+      ],
+      "alt_boost_name": "capitalized sentence-openers (Lastly/Finally/Similarly/Additionally...)",
+      "alt_boost_ids_tested": [
+        "'Lastly'",
+        "'Finally'",
+        "'Similarly'",
+        "'Additionally'",
+        "'Another'",
+        "'However'",
+        "'Therefore'",
+        "'Moreover'",
+        "'Furthermore'",
+        "'Also'",
+        "'Thus'",
+        "'Meanwhile'",
+        "'Instead'"
+      ],
+      "most_dropped_tokens": [
+        [
+          "'Lastly'",
+          -0.073
+        ],
+        [
+          "' Lastly'",
+          -0.069
+        ],
+        [
+          "'Other'",
+          -0.065
+        ],
+        [
+          "'Finally'",
+          -0.065
+        ],
+        [
+          "'Also'",
+          -0.06
+        ],
+        [
+          "'Similarly'",
+          -0.059
+        ],
+        [
+          "' Finally'",
+          -0.056
+        ],
+        [
+          "'Beyond'",
+          -0.056
+        ],
+        [
+          "' Miscellaneous'",
+          -0.055
+        ],
+        [
+          "'Additionally'",
+          -0.055
+        ],
+        [
+          "'Another'",
+          -0.055
+        ],
+        [
+          "' likewise'",
+          -0.055
+        ]
+      ],
+      "boost_in_top12_dropped": 0,
+      "dLogit_boost_mean": -0.004,
+      "dLogit_boost_se": 0.0027,
+      "dLogit_control_mean": -0.0064,
+      "dLogit_control_se": 0.0009,
+      "dLogit_allvocab_mean": -0.0058,
+      "n_causal": 1249,
+      "boost_minus_control_mean": 0.0024,
+      "boost_minus_control_se": 0.0027,
+      "boost_minus_control_z": 0.86,
+      "alt_dLogit_mean": -0.0389,
+      "alt_minus_control_mean": -0.0325,
+      "alt_minus_control_z": -12.25,
+      "n_causal_next_in_boost": 5,
+      "CE_increase_on_actual_boost_next": 0.0948,
+      "CE_increase_se": 0.0431,
+      "VERDICT": {
+        "name": "sentence-boundary (.) -> capitalized discourse-opener (Lastly/Finally/Similarly/Additionally/Also/Other)",
+        "verdict": "GENUINE ALGORITHM (verified, strong)",
+        "note": "trigger sentence-final punct confirmed OOS (40/50 .); causal output is CAPITALIZED sentence-openers (alt_minus_control z=-12.25, CE+0.095), NOT the discovered lowercase set (z=0.86 ns). Discovery linear-proxy picked the lowercase shadow; causal reveals capitalized openers."
+      }
+    },
+    {
+      "comp": "h.L8.3",
+      "kind": "head",
+      "discovered_boost": "18/15/13/17 (nearby day-numbers)",
+      "discovered_trigger": "attending a day-number source ' 1'..' 31'",
+      "heldout_top50_cur": [
+        [
+          "'\\n'",
+          18
+        ],
+        [
+          "'-'",
+          4
+        ],
+        [
+          "' ('",
+          4
+        ],
+        [
+          "' and'",
+          2
+        ],
+        [
+          "' Bart'",
+          2
+        ],
+        [
+          "')'",
+          1
+        ]
+      ],
+      "heldout_cur_purity": 0.337,
+      "heldout_top50_src": [
+        [
+          "'Fl'",
+          2
+        ],
+        [
+          "'Published'",
+          2
+        ],
+        [
+          "'Jump'",
+          2
+        ],
+        [
+          "'olini'",
+          2
+        ],
+        [
+          "'D'",
+          1
+        ],
+        [
+          "'M'",
+          1
+        ]
+      ],
+      "heldout_src_purity": 0.028,
+      "n_token_matched": 281,
+      "firing_rate_matched": 0.683,
+      "selectivity_trig/median": 3.37,
+      "boost_ids_tested": [
+        "' 17'",
+        "' 18'",
+        "' 15'",
+        "' 13'",
+        "' 14'",
+        "' 16'",
+        "' 12'",
+        "' 19'"
+      ],
+      "most_dropped_tokens": [
+        [
+          "'PLE'",
+          -0.12
+        ],
+        [
+          "' excuse'",
+          -0.109
+        ],
+        [
+          "' [*'",
+          -0.103
+        ],
+        [
+          "'MORE'",
+          -0.099
+        ],
+        [
+          "' APPLIC'",
+          -0.096
+        ],
+        [
+          "'NOTE'",
+          -0.093
+        ],
+        [
+          "'ADVERTISEMENT'",
+          -0.092
+        ],
+        [
+          "'LET'",
+          -0.091
+        ],
+        [
+          "'pdf'",
+          -0.091
+        ],
+        [
+          "' pleading'",
+          -0.091
+        ],
+        [
+          "'ription'",
+          -0.09
+        ],
+        [
+          "' ONLY'",
+          -0.09
+        ]
+      ],
+      "boost_in_top12_dropped": 0,
+      "dLogit_boost_mean": 0.0037,
+      "dLogit_boost_se": 0.0109,
+      "dLogit_control_mean": -0.0187,
+      "dLogit_control_se": 0.0058,
+      "dLogit_allvocab_mean": -0.0195,
+      "n_causal": 281,
+      "boost_minus_control_mean": 0.0224,
+      "boost_minus_control_se": 0.0134,
+      "boost_minus_control_z": 1.67,
+      "n_causal_next_in_boost": 5,
+      "CE_increase_on_actual_boost_next": 0.106,
+      "CE_increase_se": 0.0755,
+      "VERDICT": {
+        "name": "day-number-attending date head (KNOWN-RECOVERED validation)",
+        "verdict": "TRIGGER recovered (validates discovery localization); direct-effect BOOST is a linear-proxy artifact",
+        "note": "constructed-date control: attends a day-number 100%, model predicts a number 100% -- trigger fingerprint exactly the known date head. BUT mean-ablating it RAISES number logits (numbers_minus_control z=+3.61, OPPOSITE the discovered boost). Held-out natural text underpowered (281 contexts, z=1.67 ns). Method localizes the head correctly; single-path direct-logit boost does not capture the successor computation causally."
+      }
+    }
+  ],
+  "date_positive_control_h.L8.3": {
+    "n_prompts": 40,
+    "head_attends_day_number_frac": 1.0,
+    "baseline_pred_is_number_frac": 1.0,
+    "top_baseline_number_logits": [
+      [
+        " 15",
+        13.92
+      ],
+      [
+        " 1",
+        13.81
+      ],
+      [
+        " 17",
+        13.78
+      ],
+      [
+        " 21",
+        13.77
+      ],
+      [
+        " 18",
+        13.71
+      ],
+      [
+        " 10",
+        13.68
+      ]
+    ],
+    "dLogit_numbers_mean": 0.2097,
+    "dLogit_numbers_se": 0.0488,
+    "dLogit_control_mean": 0.0466,
+    "dLogit_control_se": 0.0279,
+    "numbers_minus_control_mean": 0.1631,
+    "numbers_minus_control_z": 3.61
+  },
+  "SUMMARY": {
+    "clean_verified_from_this_set": 2,
+    "verified": [
+      "h.L6.0 (strong)",
+      "h.L3.3 (weak/genuine)"
+    ],
+    "trigger_genuine_output_not": [
+      "mlp.L1.d3 (determiner feature, adjective output diffuse)",
+      "mlp.L0.d1 (determiner feature, quantifier output artifact)"
+    ],
+    "validation": "h.L8.3 trigger fingerprint recovered exactly (100% day-number attention) but its direct-effect boost is a linear-proxy artifact (ablation raises numbers)",
+    "key_lesson": "discovery effect-direction (LMW@dir first-order proxy) can be wrong in magnitude (mlp dirs) or SIGN (h.L8.3) vs the true causal ablation effect through downstream layers+tanh; trigger fingerprints are reliable, output claims require causal verification."
+  }
+}

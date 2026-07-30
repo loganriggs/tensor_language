@@ -3518,3 +3518,42 @@ FUNCTION — feed-forward family geography general (this §55), hub bilin18-spec
 spectral general (§52). So the decomposition's structure is architecture-general; the only bilin18-
 specific piece is the two-branch-attention MLP1 hub (already known). The specific head TAXONOMY is
 model-specific (census-generality negative), but the four-ledger STRUCTURE generalizes.
+
+## §56 UNSUPERVISED algorithm discovery — 5 circuits found by following the decomposition's cleanest paths (2026-07-30)
+(qk_unsup_discover.py → qk_unsup_verify.py + qk_unsup_verify2.py; Logan's idea: "we have a decomposition,
+so following one set of paths should BE an algorithm for something") Instead of hypothesizing a behavior
+then finding its circuit (the §40–§51 supervised arcs), rank every decomposition PATH — all 162 attention-
+head output pathways + 72 feed-forward output directions (top-4 SVD/block) — by an UNSUPERVISED cleanliness
+score (trigger-purity × effect-purity: how concentrated its top-activating contexts are × how concentrated
+the tokens it pushes are), on real TRAIN text; then take the cleanest and CAUSALLY verify each on held-back
+FW[448:600] (mean-ablation, in-distribution zero point, paired standard errors).
+
+**FIVE verified algorithms (1 known-recovered = validation, 4 NOVEL):**
+1. **h.L13.8 — delimiter/bracket closer (KNOWN, re-derived unsupervised):** attends opening `( [ "`, boosts
+   the matching closer `) ]` (ΔCE +0.133 ± 0.044, 3.0 SE; class-boost not copy). The §41/§50 v1-router
+   found with NO behavior specified — the method's positive control.
+2. **h.L9.6 — sentence-boundary subject-pronoun predictor (NOVEL):** on a sentence-ending "." boosts the
+   next sentence's subject pronouns *they/it/They/that* (ΔCE +0.077 ± 0.023, 3.3 SE).
+3. **h.L6.0 — sentence → capitalized discourse-opener (NOVEL, strong):** on "." boosts CAPITALIZED openers
+   *Lastly/Finally/Similarly/Additionally* (alt−control z = −12.25, CE +0.095). NOTE: the discovery proxy
+   surfaced the LOWERCASE shadow (therefore/also); causal verification CORRECTED the output to capitalized.
+4. **h.L3.3 — coordination/list continuation (NOVEL, modest):** in an *and/or/comma* context predicts the
+   next enumeration marker (…/—/etc/respectively) (z ≈ −2.8, CE +0.025).
+5. **h.L8.2 — line-boundary predictor (NOVEL, modest):** attends the previous newline → predicts newline
+   (1.9 SE; weak British-spelling register bias). The discovery "proper-noun/entity" label was REFUTED by
+   the causal test — it is a structure head, not an entity head.
+
+**Honest deflations (the causal step's job):** the determiner→adjective feed-forward directions (mlp.L1.d3
+/L0.d1) have a real determiner TRIGGER but diffuse/null OUTPUT (not clean algorithms); two byte-fragment
+(U+FFFD) paths are confirmed artifacts (ΔCE ≈ 0); the day-successor head h.L8.3 is correctly LOCALIZED by
+the method but its single-path direct effect is a proxy artifact (sign-wrong vs the true downstream effect).
+
+**KEY METHODOLOGICAL FINDING (both verifiers converged):** unsupervised cleanliness-ranking reliably
+discovers the INPUT side — the TRIGGER fingerprint (what each path reads) held out-of-sample in EVERY case
+— but the first-order direct-to-logits OUTPUT proxy is UNRELIABLE: it was wrong in magnitude (determiner
+directions), sign (h.L8.3 successor), and even case (h.L6.0 lowercase vs capitalized) versus the true
+causal effect (through downstream layers + the 30·tanh soft-cap). So "follow a path to find an algorithm"
+WORKS for the read/trigger, but the algorithm's OUTPUT must be read from causal ablation, not the linear
+proxy. Notably NONE of the verified heads is an identity copy — all are class-boosts / type-transforms.
+This is a genuinely unsupervised circuit-discovery pipeline (validated by re-deriving the delimiter router
+and localizing the date head) that yields real, previously-untargeted grammatical/discourse algorithms.

@@ -1,0 +1,37 @@
+{
+  "n_prompts": 40,
+  "head_attends_day_number_frac": 1.0,
+  "baseline_pred_is_number_frac": 1.0,
+  "top_baseline_number_logits": [
+    [
+      " 15",
+      13.92
+    ],
+    [
+      " 1",
+      13.81
+    ],
+    [
+      " 17",
+      13.78
+    ],
+    [
+      " 21",
+      13.77
+    ],
+    [
+      " 18",
+      13.71
+    ],
+    [
+      " 10",
+      13.68
+    ]
+  ],
+  "dLogit_numbers_mean": 0.2097,
+  "dLogit_numbers_se": 0.0488,
+  "dLogit_control_mean": 0.0466,
+  "dLogit_control_se": 0.0279,
+  "numbers_minus_control_mean": 0.1631,
+  "numbers_minus_control_z": 3.61
+}

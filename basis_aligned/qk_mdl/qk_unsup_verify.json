@@ -1,0 +1,2438 @@
+{
+  "h.L8.2": {
+    "held_trigger_cur_top": [
+      [
+        "'.'",
+        11
+      ],
+      [
+        "'\\n'",
+        5
+      ],
+      [
+        "' to'",
+        3
+      ],
+      [
+        "' your'",
+        2
+      ],
+      [
+        "' Ontario'",
+        2
+      ],
+      [
+        "' of'",
+        1
+      ]
+    ],
+    "held_trigger_cur_purity": 0.207,
+    "n_causal_pos": 200,
+    "held_trigger_src_top": [
+      [
+        "'\\n'",
+        10
+      ],
+      [
+        "'ra'",
+        5
+      ],
+      [
+        "' Oval'",
+        4
+      ],
+      [
+        "' Liberal'",
+        4
+      ],
+      [
+        "' Nations'",
+        3
+      ],
+      [
+        "' Ontario'",
+        3
+      ]
+    ],
+    "held_trigger_src_purity": 0.2918,
+    "base_CE_mean": 4.2419,
+    "ablated_CE_mean": 4.2958,
+    "dCE_mean": 0.0539,
+    "dCE_paired_SE": 0.0287,
+    "dCE_frac_positive": 0.495,
+    "causal_boost_top": [
+      [
+        "' realised'",
+        0.242
+      ],
+      [
+        "' ageing'",
+        0.239
+      ],
+      [
+        "' emphas'",
+        0.229
+      ],
+      [
+        "' analyse'",
+        0.227
+      ],
+      [
+        "' organised'",
+        0.22
+      ],
+      [
+        "' scept'",
+        0.213
+      ],
+      [
+        "' labour'",
+        0.21
+      ],
+      [
+        "'Mr'",
+        0.209
+      ],
+      [
+        "' petrol'",
+        0.208
+      ],
+      [
+        "'Sport'",
+        0.206
+      ]
+    ],
+    "true_next_break_top": [
+      [
+        "'\\n'",
+        12.241
+      ],
+      [
+        "'is'",
+        1.336
+      ],
+      [
+        "' Song'",
+        1.141
+      ],
+      [
+        "' Suns'",
+        0.634
+      ],
+      [
+        "' Koh'",
+        0.389
+      ],
+      [
+        "'.'",
+        0.343
+      ],
+      [
+        "' would'",
+        0.3
+      ],
+      [
+        "' 14'",
+        0.293
+      ]
+    ],
+    "copy_src_dlogit_mean": 0.297,
+    "copy_src_in_top10_frac": 0.12,
+    "copy_src_purity": 0.2655,
+    "kind": "head",
+    "name": "attends previous newline / line boundary -> predict newline (+ weak Commonwealth-English register: realised/ageing/analyse/labour)",
+    "copy_or_boost": "CLASS-BOOST / structural",
+    "verdict": "VERIFIED-MODEST / NOVEL (1.9 SE; proper-noun/entity hypothesis REFUTED)"
+  },
+  "h.L9.6": {
+    "held_trigger_cur_top": [
+      [
+        "'.'",
+        20
+      ],
+      [
+        "' of'",
+        3
+      ],
+      [
+        "' is'",
+        2
+      ],
+      [
+        "','",
+        2
+      ],
+      [
+        "' they'",
+        2
+      ],
+      [
+        "' while'",
+        2
+      ]
+    ],
+    "held_trigger_cur_purity": 0.3515,
+    "n_causal_pos": 200,
+    "held_trigger_src_top": [
+      [
+        "'.'",
+        14
+      ],
+      [
+        "' player'",
+        3
+      ],
+      [
+        "' are'",
+        2
+      ],
+      [
+        "' The'",
+        2
+      ],
+      [
+        "' must'",
+        2
+      ],
+      [
+        "' researchers'",
+        2
+      ]
+    ],
+    "held_trigger_src_purity": 0.2341,
+    "base_CE_mean": 3.1795,
+    "ablated_CE_mean": 3.2561,
+    "dCE_mean": 0.0765,
+    "dCE_paired_SE": 0.0229,
+    "dCE_frac_positive": 0.535,
+    "causal_boost_top": [
+      [
+        "' theirs'",
+        0.289
+      ],
+      [
+        "' hers'",
+        0.276
+      ],
+      [
+        "' compliments'",
+        0.268
+      ],
+      [
+        "' comfortably'",
+        0.267
+      ],
+      [
+        "' it'",
+        0.255
+      ],
+      [
+        "' accordingly'",
+        0.255
+      ],
+      [
+        "' compliment'",
+        0.25
+      ],
+      [
+        "'Originally'",
+        0.249
+      ],
+      [
+        "' instinctively'",
+        0.248
+      ],
+      [
+        "' them'",
+        0.246
+      ]
+    ],
+    "true_next_break_top": [
+      [
+        "' they'",
+        4.204
+      ],
+      [
+        "' it'",
+        3.147
+      ],
+      [
+        "' They'",
+        2.815
+      ],
+      [
+        "' that'",
+        2.285
+      ],
+      [
+        "' It'",
+        1.38
+      ],
+      [
+        "' them'",
+        1.289
+      ],
+      [
+        "' pair'",
+        1.064
+      ],
+      [
+        "' his'",
+        0.845
+      ]
+    ],
+    "copy_src_dlogit_mean": 0.111,
+    "copy_src_in_top10_frac": 0.025,
+    "copy_src_purity": 0.2717,
+    "kind": "head",
+    "name": "sentence-boundary period . -> boost next-sentence subject pronouns (they/it/They/that/It/them)",
+    "copy_or_boost": "CLASS-BOOST",
+    "verdict": "VERIFIED-STRONG / NOVEL"
+  },
+  "h.L10.7": {
+    "held_trigger_cur_top": [
+      [
+        "'.'",
+        6
+      ],
+      [
+        "','",
+        5
+      ],
+      [
+        "' to'",
+        4
+      ],
+      [
+        "'\\n'",
+        2
+      ],
+      [
+        "' a'",
+        2
+      ],
+      [
+        "' in'",
+        2
+      ]
+    ],
+    "held_trigger_cur_purity": 0.1528,
+    "n_causal_pos": 200,
+    "held_trigger_src_top": [
+      [
+        "' \ufffd'",
+        6
+      ],
+      [
+        "'\ufffd'",
+        5
+      ],
+      [
+        "' \"'",
+        5
+      ],
+      [
+        "' Heat'",
+        5
+      ],
+      [
+        "'.'",
+        4
+      ],
+      [
+        "' to'",
+        3
+      ]
+    ],
+    "held_trigger_src_purity": 0.2617,
+    "base_CE_mean": 3.1503,
+    "ablated_CE_mean": 3.1551,
+    "dCE_mean": 0.0048,
+    "dCE_paired_SE": 0.0123,
+    "dCE_frac_positive": 0.555,
+    "causal_boost_top": [
+      [
+        "'sheets'",
+        0.113
+      ],
+      [
+        "'\"('",
+        0.109
+      ],
+      [
+        "'world'",
+        0.108
+      ],
+      [
+        "'\\\\\"'",
+        0.107
+      ],
+      [
+        "'RL'",
+        0.107
+      ],
+      [
+        "'\\\\\\\\'",
+        0.107
+      ],
+      [
+        "'mL'",
+        0.106
+      ],
+      [
+        "' resemblance'",
+        0.105
+      ],
+      [
+        "' \"('",
+        0.104
+      ],
+      [
+        "'lia'",
+        0.104
+      ]
+    ],
+    "true_next_break_top": [
+      [
+        "'\ufffd'",
+        3.857
+      ],
+      [
+        "'\"'",
+        1.866
+      ],
+      [
+        "' sized'",
+        0.286
+      ],
+      [
+        "' Of'",
+        0.246
+      ],
+      [
+        "' Pre'",
+        0.192
+      ],
+      [
+        "' oven'",
+        0.174
+      ],
+      [
+        "' injured'",
+        0.145
+      ],
+      [
+        "'\\n'",
+        0.133
+      ]
+    ],
+    "copy_src_dlogit_mean": 0.066,
+    "copy_src_in_top10_frac": 0.05,
+    "copy_src_purity": 0.208,
+    "kind": "head",
+    "name": "attends UTF-8 replacement byte token U+FFFD -> predict U+FFFD/quote",
+    "copy_or_boost": "n/a",
+    "verdict": "ARTIFACT (byte-fallback sink; dCE=0)"
+  },
+  "h.L13.8": {
+    "held_trigger_cur_top": [
+      [
+        "' percent'",
+        2
+      ],
+      [
+        "' points'",
+        2
+      ],
+      [
+        "'em'",
+        1
+      ],
+      [
+        "'o'",
+        1
+      ],
+      [
+        "' all'",
+        1
+      ],
+      [
+        "' up'",
+        1
+      ]
+    ],
+    "held_trigger_cur_purity": 0.0142,
+    "n_causal_pos": 200,
+    "held_trigger_src_top": [
+      [
+        "' ('",
+        32
+      ],
+      [
+        "\" '\"",
+        6
+      ],
+      [
+        "' ['",
+        5
+      ],
+      [
+        "' \"'",
+        3
+      ],
+      [
+        "'['",
+        1
+      ],
+      [
+        "'('",
+        1
+      ]
+    ],
+    "held_trigger_src_purity": 0.6799,
+    "base_CE_mean": 2.756,
+    "ablated_CE_mean": 2.8886,
+    "dCE_mean": 0.1325,
+    "dCE_paired_SE": 0.0441,
+    "dCE_frac_positive": 0.51,
+    "causal_boost_top": [
+      [
+        "')),'",
+        1.98
+      ],
+      [
+        "')).'",
+        1.895
+      ],
+      [
+        "'));'",
+        1.563
+      ],
+      [
+        "'))'",
+        1.554
+      ],
+      [
+        "')\",'",
+        1.261
+      ],
+      [
+        "')].'",
+        1.118
+      ],
+      [
+        "')+'",
+        1.11
+      ],
+      [
+        "')))'",
+        1.061
+      ],
+      [
+        "'\"))'",
+        1.026
+      ],
+      [
+        "']);'",
+        0.971
+      ]
+    ],
+    "true_next_break_top": [
+      [
+        "')'",
+        19.251
+      ],
+      [
+        "').'",
+        5.415
+      ],
+      [
+        "'.\"'",
+        4.795
+      ],
+      [
+        "']'",
+        3.132
+      ],
+      [
+        "'],'",
+        3.035
+      ],
+      [
+        "'),'",
+        2.176
+      ],
+      [
+        "'!)'",
+        2.072
+      ],
+      [
+        "\"'.\"",
+        1.979
+      ]
+    ],
+    "copy_src_dlogit_mean": -0.848,
+    "copy_src_in_top10_frac": 0.125,
+    "copy_src_purity": 0.6196,
+    "kind": "head",
+    "name": "opening-delimiter ( [ \" -> boost matching CLOSER ) ] (bracket/quote completion)",
+    "copy_or_boost": "CLASS-BOOST (type-match; NOT identity copy)",
+    "verdict": "VERIFIED-STRONG / KNOWN (delimiter router, re-derived unsupervised)"
+  },
+  "h.L13.3": {
+    "held_trigger_cur_top": [
+      [
+        "'.'",
+        10
+      ],
+      [
+        "'\\n'",
+        5
+      ],
+      [
+        "' the'",
+        4
+      ],
+      [
+        "' I'",
+        3
+      ],
+      [
+        "' been'",
+        3
+      ],
+      [
+        "' of'",
+        2
+      ]
+    ],
+    "held_trigger_cur_purity": 0.228,
+    "n_causal_pos": 200,
+    "held_trigger_src_top": [
+      [
+        "'\"'",
+        6
+      ],
+      [
+        "',\"'",
+        6
+      ],
+      [
+        "'Bloomberg'",
+        5
+      ],
+      [
+        "' 2012'",
+        4
+      ],
+      [
+        "' 2011'",
+        3
+      ],
+      [
+        "\"'s\"",
+        3
+      ]
+    ],
+    "held_trigger_src_purity": 0.2556,
+    "base_CE_mean": 3.4092,
+    "ablated_CE_mean": 3.4311,
+    "dCE_mean": 0.0219,
+    "dCE_paired_SE": 0.0107,
+    "dCE_frac_positive": 0.53,
+    "causal_boost_top": [
+      [
+        "' -->'",
+        0.295
+      ],
+      [
+        "'-->'",
+        0.272
+      ],
+      [
+        "'hid'",
+        0.256
+      ],
+      [
+        "'!--'",
+        0.249
+      ],
+      [
+        "'Adds'",
+        0.238
+      ],
+      [
+        "'noticed'",
+        0.232
+      ],
+      [
+        "'isel'",
+        0.225
+      ],
+      [
+        "' />'",
+        0.222
+      ],
+      [
+        "'=\"/'",
+        0.207
+      ],
+      [
+        "'\ufffd'",
+        0.206
+      ]
+    ],
+    "true_next_break_top": [
+      [
+        "' 2011'",
+        1.471
+      ],
+      [
+        "' \"'",
+        0.654
+      ],
+      [
+        "'\u2026.'",
+        0.537
+      ],
+      [
+        "' -'",
+        0.442
+      ],
+      [
+        "' crucial'",
+        0.415
+      ],
+      [
+        "' won'",
+        0.34
+      ],
+      [
+        "'\ufffd'",
+        0.316
+      ],
+      [
+        "\"'m\"",
+        0.242
+      ]
+    ],
+    "copy_src_dlogit_mean": 0.221,
+    "copy_src_in_top10_frac": 0.095,
+    "copy_src_purity": 0.3199,
+    "kind": "head",
+    "name": "closing-quote/markup context -> weak, diffuse",
+    "copy_or_boost": "CLASS-BOOST",
+    "verdict": "WEAK/DIFFUSE (2.0 SE, unfocused)"
+  },
+  "h.L7.3": {
+    "held_trigger_cur_top": [
+      [
+        "'.'",
+        8
+      ],
+      [
+        "'col'",
+        6
+      ],
+      [
+        "' ('",
+        4
+      ],
+      [
+        "','",
+        3
+      ],
+      [
+        "' Inter'",
+        3
+      ],
+      [
+        "' Low'",
+        2
+      ]
+    ],
+    "held_trigger_cur_purity": 0.2304,
+    "n_causal_pos": 200,
+    "held_trigger_src_top": [
+      [
+        "'leg'",
+        6
+      ],
+      [
+        "'col'",
+        3
+      ],
+      [
+        "'%'",
+        2
+      ],
+      [
+        "'4'",
+        2
+      ],
+      [
+        "' 1'",
+        2
+      ],
+      [
+        "' Country'",
+        2
+      ]
+    ],
+    "held_trigger_src_purity": 0.1285,
+    "base_CE_mean": 1.4574,
+    "ablated_CE_mean": 1.4719,
+    "dCE_mean": 0.0145,
+    "dCE_paired_SE": 0.0166,
+    "dCE_frac_positive": 0.67,
+    "causal_boost_top": [
+      [
+        "'acebook'",
+        0.269
+      ],
+      [
+        "'mercial'",
+        0.264
+      ],
+      [
+        "'ailability'",
+        0.263
+      ],
+      [
+        "'raltar'",
+        0.262
+      ],
+      [
+        "'CLASSIFIED'",
+        0.261
+      ],
+      [
+        "'icter'",
+        0.256
+      ],
+      [
+        "'interstitial'",
+        0.253
+      ],
+      [
+        "'umbnail'",
+        0.252
+      ],
+      [
+        "'erker'",
+        0.251
+      ],
+      [
+        "'ective'",
+        0.25
+      ]
+    ],
+    "true_next_break_top": [
+      [
+        "'A'",
+        1.781
+      ],
+      [
+        "'d'",
+        1.374
+      ],
+      [
+        "'-'",
+        1.37
+      ],
+      [
+        "'7'",
+        0.886
+      ],
+      [
+        "' of'",
+        0.823
+      ],
+      [
+        "' play'",
+        0.434
+      ],
+      [
+        "' 1'",
+        0.388
+      ],
+      [
+        "'Off'",
+        0.367
+      ]
+    ],
+    "copy_src_dlogit_mean": 0.35,
+    "copy_src_in_top10_frac": 0.085,
+    "copy_src_purity": 0.1096,
+    "kind": "head",
+    "name": "month/date (discovery slice only)",
+    "copy_or_boost": "n/a",
+    "verdict": "ARTIFACT (slice-specific; trigger not reproduced)"
+  },
+  "h.L13.1": {
+    "held_trigger_cur_top": [
+      [
+        "' I'",
+        21
+      ],
+      [
+        "'.'",
+        5
+      ],
+      [
+        "'I'",
+        5
+      ],
+      [
+        "' we'",
+        5
+      ],
+      [
+        "' still'",
+        2
+      ],
+      [
+        "' and'",
+        1
+      ]
+    ],
+    "held_trigger_cur_purity": 0.4574,
+    "n_causal_pos": 200,
+    "held_trigger_src_top": [
+      [
+        "' I'",
+        17
+      ],
+      [
+        "' we'",
+        6
+      ],
+      [
+        "'<|endoftext|>'",
+        6
+      ],
+      [
+        "'I'",
+        5
+      ],
+      [
+        "' now'",
+        2
+      ],
+      [
+        "' We'",
+        2
+      ]
+    ],
+    "held_trigger_src_purity": 0.4186,
+    "base_CE_mean": 3.5627,
+    "ablated_CE_mean": 3.5674,
+    "dCE_mean": 0.0047,
+    "dCE_paired_SE": 0.0083,
+    "dCE_frac_positive": 0.505,
+    "causal_boost_top": [
+      [
+        "'MAX'",
+        0.443
+      ],
+      [
+        "'bane'",
+        0.416
+      ],
+      [
+        "'RL'",
+        0.405
+      ],
+      [
+        "'ve'",
+        0.394
+      ],
+      [
+        "'verson'",
+        0.392
+      ],
+      [
+        "'phone'",
+        0.385
+      ],
+      [
+        "'AAF'",
+        0.378
+      ],
+      [
+        "'Shares'",
+        0.365
+      ],
+      [
+        "' him'",
+        0.358
+      ],
+      [
+        "'oan'",
+        0.353
+      ]
+    ],
+    "true_next_break_top": [
+      [
+        "\"'m\"",
+        2.166
+      ],
+      [
+        "' am'",
+        0.529
+      ],
+      [
+        "' me'",
+        0.396
+      ],
+      [
+        "' value'",
+        0.388
+      ],
+      [
+        "' was'",
+        0.257
+      ],
+      [
+        "' see'",
+        0.257
+      ],
+      [
+        "' like'",
+        0.219
+      ],
+      [
+        "' remember'",
+        0.214
+      ]
+    ],
+    "copy_src_dlogit_mean": -0.515,
+    "copy_src_in_top10_frac": 0.01,
+    "copy_src_purity": 0.4434,
+    "kind": "head",
+    "name": "first-person subject (I/we) -> contracted verb (m/am)",
+    "copy_or_boost": "not-copy",
+    "verdict": "CLEAN-TRIGGER but CAUSALLY-NULL in isolation (redundant, ~0 SE)"
+  },
+  "h.L10.6": {
+    "held_trigger_cur_top": [
+      [
+        "'.'",
+        10
+      ],
+      [
+        "\"'s\"",
+        7
+      ],
+      [
+        "' I'",
+        3
+      ],
+      [
+        "'\"'",
+        3
+      ],
+      [
+        "' it'",
+        3
+      ],
+      [
+        "','",
+        2
+      ]
+    ],
+    "held_trigger_cur_purity": 0.2663,
+    "n_causal_pos": 200,
+    "held_trigger_src_top": [
+      [
+        "\"'s\"",
+        10
+      ],
+      [
+        "'.'",
+        8
+      ],
+      [
+        "\"'m\"",
+        5
+      ],
+      [
+        "\"'t\"",
+        5
+      ],
+      [
+        "\"'.\"",
+        4
+      ],
+      [
+        "'...'",
+        3
+      ]
+    ],
+    "held_trigger_src_purity": 0.3373,
+    "base_CE_mean": 3.4844,
+    "ablated_CE_mean": 3.496,
+    "dCE_mean": 0.0116,
+    "dCE_paired_SE": 0.0088,
+    "dCE_frac_positive": 0.425,
+    "causal_boost_top": [
+      [
+        "'\ufffd'",
+        0.592
+      ],
+      [
+        "'`'",
+        0.441
+      ],
+      [
+        "' \ufffd'",
+        0.437
+      ],
+      [
+        "'\u2032'",
+        0.404
+      ],
+      [
+        "' \u2026'",
+        0.376
+      ],
+      [
+        "'\u2026'",
+        0.375
+      ],
+      [
+        "'\u2026.'",
+        0.351
+      ],
+      [
+        "'\u2033'",
+        0.348
+      ],
+      [
+        "\"'re\"",
+        0.33
+      ],
+      [
+        "'\u2026\"'",
+        0.329
+      ]
+    ],
+    "true_next_break_top": [
+      [
+        "'\ufffd'",
+        1.329
+      ],
+      [
+        "\"'s\"",
+        1.31
+      ],
+      [
+        "\"'m\"",
+        0.445
+      ],
+      [
+        "\"'re\"",
+        0.383
+      ],
+      [
+        "' have'",
+        0.286
+      ],
+      [
+        "' Anyway'",
+        0.271
+      ],
+      [
+        "\"'ve\"",
+        0.264
+      ],
+      [
+        "'a'",
+        0.241
+      ]
+    ],
+    "copy_src_dlogit_mean": 0.219,
+    "copy_src_in_top10_frac": 0.115,
+    "copy_src_purity": 0.4099,
+    "kind": "head",
+    "name": "clitic/apostrophe -> contraction (s/re/ve), U+FFFD-contaminated",
+    "copy_or_boost": "weak",
+    "verdict": "WEAK/ARTIFACT-CONTAMINATED (1.3 SE)"
+  },
+  "h.L3.3": {
+    "held_trigger_cur_top": [
+      [
+        "','",
+        4
+      ],
+      [
+        "'.'",
+        1
+      ],
+      [
+        "'8'",
+        1
+      ],
+      [
+        "'9'",
+        1
+      ],
+      [
+        "'?'",
+        1
+      ],
+      [
+        "'T'",
+        1
+      ]
+    ],
+    "held_trigger_cur_purity": 0.0283,
+    "n_causal_pos": 200,
+    "held_trigger_src_top": [
+      [
+        "' and'",
+        15
+      ],
+      [
+        "' or'",
+        7
+      ],
+      [
+        "' to'",
+        6
+      ],
+      [
+        "','",
+        6
+      ],
+      [
+        "'-'",
+        4
+      ],
+      [
+        "'/'",
+        3
+      ]
+    ],
+    "held_trigger_src_purity": 0.4324,
+    "base_CE_mean": 2.7988,
+    "ablated_CE_mean": 2.8848,
+    "dCE_mean": 0.086,
+    "dCE_paired_SE": 0.0263,
+    "dCE_frac_positive": 0.62,
+    "causal_boost_top": [
+      [
+        "'\u2015'",
+        0.278
+      ],
+      [
+        "'virt'",
+        0.254
+      ],
+      [
+        "'Jews'",
+        0.253
+      ],
+      [
+        "' Exhibit'",
+        0.248
+      ],
+      [
+        "' computer'",
+        0.232
+      ],
+      [
+        "'uggle'",
+        0.232
+      ],
+      [
+        "'\u2550'",
+        0.232
+      ],
+      [
+        "'Advertisements'",
+        0.231
+      ],
+      [
+        "',...'",
+        0.231
+      ],
+      [
+        "'Indeed'",
+        0.23
+      ]
+    ],
+    "true_next_break_top": [
+      [
+        "' and'",
+        4.219
+      ],
+      [
+        "' w'",
+        1.919
+      ],
+      [
+        "' sheet'",
+        1.053
+      ],
+      [
+        "' picked'",
+        0.997
+      ],
+      [
+        "' hours'",
+        0.902
+      ],
+      [
+        "' A'",
+        0.891
+      ],
+      [
+        "' Deals'",
+        0.848
+      ],
+      [
+        "'/'",
+        0.82
+      ]
+    ],
+    "copy_src_dlogit_mean": -0.143,
+    "copy_src_in_top10_frac": 0.01,
+    "copy_src_purity": 0.5673,
+    "kind": "head",
+    "name": "attends coordinators (and/or/comma) -> boost next coordinating conjunction (and) [list/coordination continuation]",
+    "copy_or_boost": "CLASS-BOOST",
+    "verdict": "VERIFIED-STRONG / NOVEL"
+  },
+  "h.L8.4": {
+    "held_trigger_cur_top": [
+      [
+        "','",
+        4
+      ],
+      [
+        "'\\n'",
+        3
+      ],
+      [
+        "'.'",
+        2
+      ],
+      [
+        "' more'",
+        2
+      ],
+      [
+        "' :'",
+        2
+      ],
+      [
+        "' Bart'",
+        2
+      ]
+    ],
+    "held_trigger_cur_purity": 0.0735,
+    "n_causal_pos": 200,
+    "held_trigger_src_top": [
+      [
+        "'Published'",
+        5
+      ],
+      [
+        "' stat'",
+        2
+      ],
+      [
+        "' against'",
+        2
+      ],
+      [
+        "' 2011'",
+        2
+      ],
+      [
+        "'olini'",
+        2
+      ],
+      [
+        "' incl'",
+        2
+      ]
+    ],
+    "held_trigger_src_purity": 0.0766,
+    "base_CE_mean": 1.7015,
+    "ablated_CE_mean": 1.7214,
+    "dCE_mean": 0.0199,
+    "dCE_paired_SE": 0.0177,
+    "dCE_frac_positive": 0.65,
+    "causal_boost_top": [
+      [
+        "'IBLE'",
+        0.374
+      ],
+      [
+        "'______'",
+        0.363
+      ],
+      [
+        "'bucks'",
+        0.352
+      ],
+      [
+        "\"']\"",
+        0.348
+      ],
+      [
+        "'ATED'",
+        0.341
+      ],
+      [
+        "'hops'",
+        0.322
+      ],
+      [
+        "' Temperature'",
+        0.322
+      ],
+      [
+        "'TON'",
+        0.321
+      ],
+      [
+        "'ffff'",
+        0.32
+      ],
+      [
+        "' INFORMATION'",
+        0.315
+      ]
+    ],
+    "true_next_break_top": [
+      [
+        "' by'",
+        1.378
+      ],
+      [
+        "'90'",
+        1.01
+      ],
+      [
+        "' to'",
+        0.939
+      ],
+      [
+        "'/'",
+        0.922
+      ],
+      [
+        "'ah'",
+        0.815
+      ],
+      [
+        "' stat'",
+        0.811
+      ],
+      [
+        "' :'",
+        0.479
+      ],
+      [
+        "' AP'",
+        0.47
+      ]
+    ],
+    "copy_src_dlogit_mean": 0.677,
+    "copy_src_in_top10_frac": 0.175,
+    "copy_src_purity": 0.0809,
+    "kind": "head",
+    "name": "year (discovery slice only)",
+    "copy_or_boost": "mild-copy",
+    "verdict": "ARTIFACT (slice-specific; trigger not reproduced)"
+  },
+  "h.L12.2": {
+    "held_trigger_cur_top": [
+      [
+        "'.'",
+        23
+      ],
+      [
+        "'\\n'",
+        12
+      ],
+      [
+        "','",
+        4
+      ],
+      [
+        "' of'",
+        1
+      ],
+      [
+        "' and'",
+        1
+      ],
+      [
+        "' is'",
+        1
+      ]
+    ],
+    "held_trigger_cur_purity": 0.5495,
+    "n_causal_pos": 200,
+    "held_trigger_src_top": [
+      [
+        "'.'",
+        28
+      ],
+      [
+        "'\\n'",
+        7
+      ],
+      [
+        "','",
+        3
+      ],
+      [
+        "',\"'",
+        2
+      ],
+      [
+        "' of'",
+        1
+      ],
+      [
+        "' and'",
+        1
+      ]
+    ],
+    "held_trigger_src_purity": 0.5706,
+    "base_CE_mean": 3.7558,
+    "ablated_CE_mean": 3.7708,
+    "dCE_mean": 0.015,
+    "dCE_paired_SE": 0.0113,
+    "dCE_frac_positive": 0.555,
+    "causal_boost_top": [
+      [
+        "' senior'",
+        0.387
+      ],
+      [
+        "' said'",
+        0.363
+      ],
+      [
+        "' assistant'",
+        0.345
+      ],
+      [
+        "' co'",
+        0.312
+      ],
+      [
+        "' associate'",
+        0.303
+      ],
+      [
+        "' center'",
+        0.29
+      ],
+      [
+        "' junior'",
+        0.288
+      ],
+      [
+        "' program'",
+        0.287
+      ],
+      [
+        "' also'",
+        0.285
+      ],
+      [
+        "' member'",
+        0.281
+      ]
+    ],
+    "true_next_break_top": [
+      [
+        "'\\n'",
+        0.739
+      ],
+      [
+        "' furniture'",
+        0.708
+      ],
+      [
+        "' go'",
+        0.606
+      ],
+      [
+        "' adds'",
+        0.542
+      ],
+      [
+        "' works'",
+        0.537
+      ],
+      [
+        "' Photo'",
+        0.406
+      ],
+      [
+        "' of'",
+        0.379
+      ],
+      [
+        "' co'",
+        0.352
+      ]
+    ],
+    "copy_src_dlogit_mean": 0.135,
+    "copy_src_in_top10_frac": 0.015,
+    "copy_src_purity": 0.45,
+    "kind": "head",
+    "name": "sentence-boundary . -> boost news-attribution & job-title apposition (said/senior/assistant/associate/co)",
+    "copy_or_boost": "CLASS-BOOST",
+    "verdict": "COHERENT-but-WEAK (1.3 SE; redundant)"
+  },
+  "h.L6.0": {
+    "held_trigger_cur_top": [
+      [
+        "'.'",
+        40
+      ],
+      [
+        "'\\n'",
+        4
+      ],
+      [
+        "').'",
+        2
+      ],
+      [
+        "'\"'",
+        1
+      ],
+      [
+        "' \"'",
+        1
+      ],
+      [
+        "');'",
+        1
+      ]
+    ],
+    "held_trigger_cur_purity": 0.7898,
+    "n_causal_pos": 200,
+    "held_trigger_src_top": [
+      [
+        "'.'",
+        35
+      ],
+      [
+        "' but'",
+        2
+      ],
+      [
+        "').'",
+        2
+      ],
+      [
+        "'\\n'",
+        1
+      ],
+      [
+        "' the'",
+        1
+      ],
+      [
+        "' is'",
+        1
+      ]
+    ],
+    "held_trigger_src_purity": 0.6504,
+    "base_CE_mean": 3.937,
+    "ablated_CE_mean": 3.9351,
+    "dCE_mean": -0.0019,
+    "dCE_paired_SE": 0.0146,
+    "dCE_frac_positive": 0.475,
+    "causal_boost_top": [
+      [
+        "'Lastly'",
+        0.179
+      ],
+      [
+        "'Similarly'",
+        0.176
+      ],
+      [
+        "' Lastly'",
+        0.173
+      ],
+      [
+        "'Other'",
+        0.172
+      ],
+      [
+        "'Finally'",
+        0.163
+      ],
+      [
+        "' Miscellaneous'",
+        0.158
+      ],
+      [
+        "'Hope'",
+        0.157
+      ],
+      [
+        "'Q'",
+        0.154
+      ],
+      [
+        "'Join'",
+        0.153
+      ],
+      [
+        "'Additionally'",
+        0.152
+      ]
+    ],
+    "true_next_break_top": [
+      [
+        "'\\n'",
+        2.476
+      ],
+      [
+        "' Q'",
+        1.472
+      ],
+      [
+        "'YA'",
+        0.805
+      ],
+      [
+        "' Route'",
+        0.644
+      ],
+      [
+        "' Song'",
+        0.59
+      ],
+      [
+        "' But'",
+        0.51
+      ],
+      [
+        "'Jeff'",
+        0.386
+      ],
+      [
+        "'not'",
+        0.283
+      ]
+    ],
+    "copy_src_dlogit_mean": -0.124,
+    "copy_src_in_top10_frac": 0.0,
+    "copy_src_purity": 0.6274,
+    "kind": "head",
+    "name": "period . -> discourse connectives (Lastly/Similarly/Finally)",
+    "copy_or_boost": "CLASS-BOOST",
+    "verdict": "CLEAN-TRIGGER but CAUSALLY-NULL (proxy oversold; dCE=0)"
+  },
+  "h.L2.1": {
+    "held_trigger_cur_top": [
+      [
+        "'.'",
+        9
+      ],
+      [
+        "'|'",
+        7
+      ],
+      [
+        "'\\n'",
+        6
+      ],
+      [
+        "' -'",
+        5
+      ],
+      [
+        "'.\"'",
+        3
+      ],
+      [
+        "')'",
+        3
+      ]
+    ],
+    "held_trigger_cur_purity": 0.3218,
+    "n_causal_pos": 200,
+    "held_trigger_src_top": [
+      [
+        "'.'",
+        9
+      ],
+      [
+        "'|'",
+        7
+      ],
+      [
+        "'\\n'",
+        6
+      ],
+      [
+        "' -'",
+        5
+      ],
+      [
+        "')'",
+        3
+      ],
+      [
+        "'4'",
+        2
+      ]
+    ],
+    "held_trigger_src_purity": 0.3191,
+    "base_CE_mean": 3.764,
+    "ablated_CE_mean": 3.7983,
+    "dCE_mean": 0.0344,
+    "dCE_paired_SE": 0.0096,
+    "dCE_frac_positive": 0.585,
+    "causal_boost_top": [
+      [
+        "' maybe'",
+        0.121
+      ],
+      [
+        "'<|endoftext|>'",
+        0.1
+      ],
+      [
+        "' Maybe'",
+        0.099
+      ],
+      [
+        "' If'",
+        0.096
+      ],
+      [
+        "'........'",
+        0.096
+      ],
+      [
+        "' Reason'",
+        0.094
+      ],
+      [
+        "' Possibly'",
+        0.092
+      ],
+      [
+        "'...)'",
+        0.091
+      ],
+      [
+        "' Nightmare'",
+        0.091
+      ],
+      [
+        "' Slave'",
+        0.091
+      ]
+    ],
+    "true_next_break_top": [
+      [
+        "' started'",
+        0.914
+      ],
+      [
+        "'7'",
+        0.723
+      ],
+      [
+        "'Do'",
+        0.612
+      ],
+      [
+        "'4'",
+        0.605
+      ],
+      [
+        "')'",
+        0.513
+      ],
+      [
+        "' Highlander'",
+        0.394
+      ],
+      [
+        "' Gill'",
+        0.36
+      ],
+      [
+        "' borders'",
+        0.342
+      ]
+    ],
+    "copy_src_dlogit_mean": -0.02,
+    "copy_src_in_top10_frac": 0.03,
+    "copy_src_purity": 0.3987,
+    "kind": "head",
+    "name": "table/list delimiter (| newline -) -> diffuse structural",
+    "copy_or_boost": "structural",
+    "verdict": "SIGNIFICANT-but-DIFFUSE (3.6 SE, no clean output)"
+  },
+  "h.L1.2": {
+    "held_trigger_cur_top": [
+      [
+        "'\\n'",
+        38
+      ],
+      [
+        "'-'",
+        9
+      ],
+      [
+        "' they'",
+        2
+      ],
+      [
+        "','",
+        1
+      ]
+    ],
+    "held_trigger_cur_purity": 0.8149,
+    "n_causal_pos": 200,
+    "held_trigger_src_top": [
+      [
+        "'\\n'",
+        35
+      ],
+      [
+        "'-'",
+        12
+      ],
+      [
+        "' you'",
+        1
+      ],
+      [
+        "' from'",
+        1
+      ],
+      [
+        "'are'",
+        1
+      ]
+    ],
+    "held_trigger_src_purity": 0.7886,
+    "base_CE_mean": 3.8399,
+    "ablated_CE_mean": 3.8424,
+    "dCE_mean": 0.0025,
+    "dCE_paired_SE": 0.0089,
+    "dCE_frac_positive": 0.5,
+    "causal_boost_top": [
+      [
+        "'\\n'",
+        0.063
+      ],
+      [
+        "' is'",
+        0.051
+      ],
+      [
+        "' and'",
+        0.05
+      ],
+      [
+        "' \u2026'",
+        0.047
+      ],
+      [
+        "' call'",
+        0.044
+      ],
+      [
+        "' word'",
+        0.044
+      ],
+      [
+        "' guard'",
+        0.044
+      ],
+      [
+        "' was'",
+        0.041
+      ],
+      [
+        "' as'",
+        0.041
+      ],
+      [
+        "'..'",
+        0.039
+      ]
+    ],
+    "true_next_break_top": [
+      [
+        "' in'",
+        1.019
+      ],
+      [
+        "'Cl'",
+        0.525
+      ],
+      [
+        "'The'",
+        0.367
+      ],
+      [
+        "'C'",
+        0.329
+      ],
+      [
+        "'Watch'",
+        0.26
+      ],
+      [
+        "'Save'",
+        0.232
+      ],
+      [
+        "' this'",
+        0.206
+      ],
+      [
+        "'9'",
+        0.192
+      ]
+    ],
+    "copy_src_dlogit_mean": 0.043,
+    "copy_src_in_top10_frac": 0.055,
+    "copy_src_purity": 0.6561,
+    "kind": "head",
+    "name": "bullet/newline -> ...",
+    "copy_or_boost": "structural",
+    "verdict": "CLEAN-TRIGGER but CAUSALLY-NULL (redundant positional)"
+  },
+  "h.L4.0": {
+    "held_trigger_cur_top": [
+      [
+        "' 2012'",
+        5
+      ],
+      [
+        "' 2011'",
+        3
+      ],
+      [
+        "','",
+        2
+      ],
+      [
+        "'-'",
+        2
+      ],
+      [
+        "'8'",
+        2
+      ],
+      [
+        "'2012'",
+        2
+      ]
+    ],
+    "held_trigger_cur_purity": 0.1005,
+    "n_causal_pos": 200,
+    "held_trigger_src_top": [
+      [
+        "','",
+        8
+      ],
+      [
+        "'\\n'",
+        8
+      ],
+      [
+        "'|'",
+        7
+      ],
+      [
+        "' ('",
+        7
+      ],
+      [
+        "'2012'",
+        3
+      ],
+      [
+        "'('",
+        2
+      ]
+    ],
+    "held_trigger_src_purity": 0.3546,
+    "base_CE_mean": 2.7476,
+    "ablated_CE_mean": 2.7948,
+    "dCE_mean": 0.0472,
+    "dCE_paired_SE": 0.0211,
+    "dCE_frac_positive": 0.67,
+    "causal_boost_top": [
+      [
+        "'aria'",
+        0.284
+      ],
+      [
+        "'ira'",
+        0.257
+      ],
+      [
+        "'ifer'",
+        0.245
+      ],
+      [
+        "'u'",
+        0.237
+      ],
+      [
+        "'arin'",
+        0.22
+      ],
+      [
+        "' potions'",
+        0.215
+      ],
+      [
+        "' stockp'",
+        0.204
+      ],
+      [
+        "'ilo'",
+        0.202
+      ],
+      [
+        "' stabilized'",
+        0.202
+      ],
+      [
+        "' conc'",
+        0.201
+      ]
+    ],
+    "true_next_break_top": [
+      [
+        "' at'",
+        2.387
+      ],
+      [
+        "' any'",
+        1.452
+      ],
+      [
+        "'06'",
+        1.259
+      ],
+      [
+        "')'",
+        1.102
+      ],
+      [
+        "'orus'",
+        0.903
+      ],
+      [
+        "' dis'",
+        0.858
+      ],
+      [
+        "' shot'",
+        0.74
+      ],
+      [
+        "' say'",
+        0.63
+      ]
+    ],
+    "copy_src_dlogit_mean": -0.221,
+    "copy_src_in_top10_frac": 0.005,
+    "copy_src_purity": 0.4071,
+    "kind": "head",
+    "name": "number/table-context -> diffuse",
+    "copy_or_boost": "diffuse",
+    "verdict": "SIGNIFICANT-but-DIFFUSE (2.2 SE)"
+  },
+  "h.L6.7": {
+    "held_trigger_cur_top": [
+      [
+        "'\\n'",
+        14
+      ],
+      [
+        "')'",
+        5
+      ],
+      [
+        "'.'",
+        5
+      ],
+      [
+        "'-'",
+        5
+      ],
+      [
+        "' by'",
+        4
+      ],
+      [
+        "' -'",
+        4
+      ]
+    ],
+    "held_trigger_cur_purity": 0.3761,
+    "n_causal_pos": 200,
+    "held_trigger_src_top": [
+      [
+        "'.'",
+        4
+      ],
+      [
+        "','",
+        3
+      ],
+      [
+        "' -'",
+        3
+      ],
+      [
+        "'TS'",
+        3
+      ],
+      [
+        "' is'",
+        2
+      ],
+      [
+        "'...'",
+        2
+      ]
+    ],
+    "held_trigger_src_purity": 0.1356,
+    "base_CE_mean": 4.4202,
+    "ablated_CE_mean": 4.5351,
+    "dCE_mean": 0.1148,
+    "dCE_paired_SE": 0.0398,
+    "dCE_frac_positive": 0.58,
+    "causal_boost_top": [
+      [
+        "'arnaev'",
+        0.378
+      ],
+      [
+        "' Citiz'",
+        0.378
+      ],
+      [
+        "'maxwell'",
+        0.376
+      ],
+      [
+        "' tremend'",
+        0.334
+      ],
+      [
+        "'DonaldTrump'",
+        0.333
+      ],
+      [
+        "' eleph'",
+        0.329
+      ],
+      [
+        "'urity'",
+        0.328
+      ],
+      [
+        "' GamerGate'",
+        0.327
+      ],
+      [
+        "'conservancy'",
+        0.326
+      ],
+      [
+        "'potion'",
+        0.326
+      ]
+    ],
+    "true_next_break_top": [
+      [
+        "'September'",
+        3.205
+      ],
+      [
+        "'sen'",
+        2.423
+      ],
+      [
+        "' Link'",
+        2.363
+      ],
+      [
+        "' Amanda'",
+        2.347
+      ],
+      [
+        "' Blue'",
+        1.936
+      ],
+      [
+        "' Q'",
+        1.668
+      ],
+      [
+        "' Ac'",
+        1.562
+      ],
+      [
+        "'\ufffd'",
+        1.489
+      ]
+    ],
+    "copy_src_dlogit_mean": 0.124,
+    "copy_src_in_top10_frac": 0.02,
+    "copy_src_purity": 0.2064,
+    "kind": "head",
+    "name": "diffuse rare-token/proper-noun boost",
+    "copy_or_boost": "diffuse",
+    "verdict": "SIGNIFICANT-but-INCOHERENT (2.9 SE, junk output)"
+  },
+  "mlp.L1.d2": {
+    "held_trigger_cur_top": [
+      [
+        "' the'",
+        13
+      ],
+      [
+        "'TS'",
+        6
+      ],
+      [
+        "' of'",
+        4
+      ],
+      [
+        "' on'",
+        3
+      ],
+      [
+        "'g'",
+        2
+      ],
+      [
+        "'i'",
+        1
+      ]
+    ],
+    "held_trigger_cur_purity": 0.2777,
+    "n_causal_pos": 200,
+    "base_CE_mean": 3.6424,
+    "ablated_CE_mean": 3.6449,
+    "dCE_mean": 0.0024,
+    "dCE_paired_SE": 0.0038,
+    "dCE_frac_positive": 0.49,
+    "causal_boost_top": [
+      [
+        "'an'",
+        0.043
+      ],
+      [
+        "'ett'",
+        0.041
+      ],
+      [
+        "'ter'",
+        0.04
+      ],
+      [
+        "'ard'",
+        0.039
+      ],
+      [
+        "'et'",
+        0.039
+      ],
+      [
+        "'pool'",
+        0.038
+      ],
+      [
+        "'ant'",
+        0.037
+      ],
+      [
+        "'kie'",
+        0.037
+      ],
+      [
+        "'air'",
+        0.037
+      ],
+      [
+        "'ico'",
+        0.037
+      ]
+    ],
+    "true_next_break_top": [
+      [
+        "'eware'",
+        0.245
+      ],
+      [
+        "' final'",
+        0.208
+      ],
+      [
+        "'\u2122'",
+        0.192
+      ],
+      [
+        "' protection'",
+        0.175
+      ],
+      [
+        "' going'",
+        0.164
+      ],
+      [
+        "' National'",
+        0.126
+      ],
+      [
+        "' Campbell'",
+        0.118
+      ],
+      [
+        "' is'",
+        0.1
+      ]
+    ],
+    "kind": "mlp",
+    "name": "byte-fragment subword direction (U+FFFD-contaminated SVD dir)",
+    "copy_or_boost": "n/a",
+    "verdict": "ARTIFACT/DIFFUSE (dCE=0; top-singular-dir contamination discovery itself warned of)"
+  },
+  "_SUMMARY": {
+    "n_clean_verified": 4,
+    "strong": [
+      "h.L13.8 (KNOWN)",
+      "h.L9.6 (NOVEL)",
+      "h.L3.3 (NOVEL)"
+    ],
+    "modest": [
+      "h.L8.2 (NOVEL)"
+    ],
+    "target": 5,
+    "note": "target of 5 not cleanly reached; discovery proxy systematically oversold clean-trigger heads that are causally NULL in isolation (redundant) or significant-but-diffuse"
+  }
+}
