@@ -6242,3 +6242,16 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## qk_natural_collateral_scale.py (whole-slice / nontrigger / trigger dCE per scale -- a brute-force
 ## edit would show destructive collateral). NEXT: process collateral run + review; if clean, editing arc
 ## CLOSES and promote §36-37d to atlas/summary + artifact. Cron 1475f52b; re-arm before 2026-08-06.
+
+## TICK 2026-07-30x — §37d RED-TEAM (4 HIGH): calibration/in-the-wild claims RETRACTED; recovery is
+## largely BRUTE-FORCE. Collateral run + reviewer settle it. (F1) natural/planted match-coeff ratio is
+## a biased estimator (numerator on homogeneous single-token slice; 1.62x for a rare token impossible)
+## -> "induction at full strength" WITHDRAWN. (F2) at matched amplitude (scale10) natural reach 0.046
+## vs planted 0.833 = 18x gap, contradicts 0.9x-strength. (F3 decisive) high-amp recovery not distinct
+## from brute-force injection; CORROBORATED by collateral: trigger-pos dCE 1.94->32.3 nats (P(true-next)
+## ~e^-32 saturation) = brute signature. (F4) capability claimed pre-collateral. SOLID/retained:
+## conditional gating keeps PURE non-trigger collateral ~0 (<=1e-4 nats @ scale160) -- gating truly
+## surgical. §37d rewritten; cause of matched-amp gap OPEN. Queue: qk_injection_specificity.py (inject
+## at non-active queries / non-induction heads @ matched amp -- if reach climbs there too, recovery is
+## generic injection not repoint). Capstone reverts to CONTROLLED-setting only (§37/37b) pending this.
+## THIRD correction this arc (retraction of a reversal). Cron 1475f52b; re-arm before 2026-08-06.
