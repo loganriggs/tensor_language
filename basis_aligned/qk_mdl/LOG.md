@@ -6485,3 +6485,16 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
   redundancy-ratio reproduction + apples-to-apples random control, §62 NO-distance-head negative-claim power
   (positive control). Collect next tick, apply any corrections before enshrinement.
 - Cron 0b62fec1 re-arm before 2026-08-06 (Logan acknowledged the expiry).
+
+## tick 2026-07-30 (consolidation: paper toolbox section drafted; red-team still in flight)
+- Red-team subagent (a72596fe9380624ba) still running on the 4 strongest new claims (§61-§64) — GPU ~4.4GB.
+- Advanced the on-trajectory consolidation without waiting: added a new paper section "Unsupervised circuit
+  discovery, indexed by circuit type" to qk_paper_draft.md. Retraction-SAFE by design — prose carries only
+  the stable methodology (decomposition-as-generator, the proxy-unreliability headline lesson, the nine
+  type-specific detectors and what each verifies) plus qualitative findings; the four precise contested
+  magnitudes are deferred to RESULTS §56-64 and flagged as under adversarial red-team. Added limitation 6
+  (proxy-seeded coverage is not exhaustive; saturated-trigger remaps lack a specificity control; single-model).
+- Queue deliberately idle: four-ledger sweep genuinely complete, no legitimate heavy decomposition to stock;
+  manufacturing busywork would only contend with the red-team on the shared card.
+- NEXT tick: collect red-team verdicts, apply any softening/retraction to RESULTS §61-64 AND the paper section
+  together, then update the artifact with the toolbox-complete card. Cron re-arm before 2026-08-06.
