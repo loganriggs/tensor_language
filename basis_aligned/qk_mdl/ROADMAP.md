@@ -136,3 +136,9 @@ REMAINING (diminishing-returns or scope-expansion — awaiting Logan's steer, no
 - Open mechanistic threads: sv-agreement number locus (§42), L8 successor range limit (§51), KEY_newline
   mechanism (open since anchor falsified).
 - Paper polish toward a shareable write-up; artifact title/abstract refresh (still says "layers 2-17").
+
+## GENERALITY PICTURE COMPLETE (2026-07-30, §52/§55): all four ledgers' headlines tested on a 2nd
+model (swiglu18/softmax) + multi-model. Repr exact-all-arch; Subst general (§32b, 4 models); Function
+family-geography general §55 (hub bilin18-specific = 2-branch artifact); Meaning content-spectral general
+§52. Four-ledger STRUCTURE architecture-general; head TAXONOMY model-specific (census-generality neg).
+No clean in-scope work remains without Logan's steer -- holding (brief no-op ticks) until redirected.
