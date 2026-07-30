@@ -6269,3 +6269,16 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## B@10~0, C~0; note natural B@10 was 0.0 so scale-10 injection is too weak to brute-force => §37 likely
 ## genuine). If confirmed, promote controlled-setting capstone to atlas/summary. FOURTH check this arc.
 ## Cron 1475f52b; re-arm before 2026-08-06.
+
+## TICK 2026-07-30z — §37f PLANTED SPECIFICITY reframes the arc: mechanism = COPY-HEAD COMMANDEERING.
+## A (ind heads, active) 0.833/0.958 @s10 (reproduces §37); B (ind heads, NON-active, NO match) 0.439/
+## 0.75 @s10 -- NOT zero; C (non-ind heads, matched amp) ~0. So §37 is NOT 'repoint an existing match'
+## (B forces payload match-free) and NOT generic brute-force (§37e revised) -- C~0 => SPECIFIC to copy
+## heads' output pathway. Reconciling: an induction head copies the value wherever its attention points;
+## the edit COMMANDEERS that copy fn by setting attention to a chosen source. Match-free (B), copy-head-
+## specific (C), reach = amplitude to override baseline attention (low in clean/sparse planted, high in
+## rich natural) -- unifies §37c/e/f. Revised capstone: 'command copy heads to copy a chosen source',
+## surgically gated (collateral <=1e-4). §37f written; §37e brute-force wording revised. QUEUE:
+## qk_nonactive_aimability.py -- does B copy the POINTED source (aim@1->tok@1 vs aim@30->tok@30 double
+## dissociation = commandeered copy) or a fixed vector (= injection)? Then adversarial review of the
+## reframing + promote if it holds. Cron 1475f52b; re-arm before 2026-08-06.
