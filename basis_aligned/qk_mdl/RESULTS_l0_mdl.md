@@ -3615,3 +3615,24 @@ probe); (4) redundant/distributed heads — clean trigger but dCE≈0 in isolati
 greedy JOINT/subset ablation — the proxy's main documented failure); (5) byte-fragment artifacts — need a
 PRE-FILTER not a detector; (6) trigger-genuine/output-diffuse feature-builders — need to DECOUPLE
 trigger-verification from output-verification (a valid detector needn't have a clean output algorithm).
+
+## §59 New tool — SUPPRESSION circuits: 2 late-feed-forward class-inhibitors; no anti-repetition (2026-07-30)
+(qk_unsup_suppress.py; the mirror of §56 — rank by concentration of the most-NEGATIVE logit contributions,
+verify by confirming the suppressed tokens RISE on ablation. NEW TECHNIQUE for a type the boost-ranking is
+structurally blind to.) Suppression in bilin18 is DIFFUSE, CLASS-LEVEL, and lives in LATE FEED-FORWARD
+layers, not heads (max suppression-purity ~0.14 vs boost >0.3 — sharp single-token inhibition is rare):
+- **mlp.L17.d1 — GENUINE, strong, load-bearing:** at clause boundaries (`. : , - \n`) suppresses generic
+  mid-sentence words (very/really/still/work/most/first/not/use). Ablation → suppressed set RISES +1.99
+  vs control −0.61 (z 68.5); cross-entropy WORSENS +0.22 → the inhibition does real predictive work.
+  Not the negative side of a boost head (its boost-purity 0.096 < suppress-purity 0.113).
+- **mlp.L16.d0 — GENUINE class-inhibition of uppercase/formatting/code-junk after periods** (GROUND/Ibid/
+  TABLE rise +2.6 on ablation, CE +0.22). METHODS NOTE: the linear bottom-M MISLABELED the target; the
+  causal test corrected the sign — another instance of the proxy sign disagreeing with causal reality.
+- **h.L17.6 — real but small, CE-neutral** (suppresses degree adverbs completely/even/just; rise +0.09,
+  z 19.7, but CE change ≈0).
+**HONEST NEGATIVES (the tool's real value):** (1) NO anti-repetition / anti-copy head exists — every head
+BOOSTS what it attends (attended-source percentile 0.87–0.91; copied, not suppressed): bilin18 has
+copy/induction heads, not their opposite. (2) NO self-suppression verified (the top candidate mlp.L1.d3
+is the diffuse negative side of the determiner→adjective boost, fails held-out). So the suppression tool
+adds two verified class-inhibitors AND a clean negative (no repetition-suppression mechanism), and
+localizes inhibition to the late feed-forward stack.

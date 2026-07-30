@@ -32,7 +32,7 @@ paired standard errors, mean-ablation in-distribution zero point.
 | type | why current tools miss it | NEW tool needed | status |
 |---|---|---|---|
 | copy / induction | class-boost scores a FIXED direction, not "boost whatever you attended" | attended-source-token-in-output metric | qk_unsup_copy.py (running) |
-| suppression / anti-copy | effect-purity ranks only POSITIVE logits | signed / most-raised-on-ablation ranking | qk_unsup_suppress.py (running) |
+| suppression / anti-copy | effect-purity ranks only POSITIVE logits | signed / most-raised-on-ablation ranking | **DONE §59**: 2 late-FF class-inhibitors (mlp.L17.d1/L16.d0); NO anti-repetition head; suppression is diffuse/class-level/late-FF |
 | positional / structural | routes by relative position / line-structure, not a content class | position-vs-content probe (structural-attention purity, separate from vocab boost) | TODO |
 | redundant / distributed | clean trigger but single-ablation dCE≈0 (duplicated across heads) — proxy OVERSELLS | greedy JOINT / subset ablation to separate null-from-redundant | TODO |
 | byte-fragment artifact | masquerades as a circuit, wastes verification budget | a PRE-FILTER (route U+FFFD / lone-byte to artifact bucket before causal test), not a detector | TODO |
