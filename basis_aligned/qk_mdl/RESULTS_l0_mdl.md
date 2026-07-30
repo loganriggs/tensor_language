@@ -2813,20 +2813,27 @@ the census induction heads (layers 2–10) are the only edited components.
 far sharper than the unconditional edit, because it fires only on the single strong-match query rather
 than smearing across all induction.
 
-**Specificity (at the ~2976 non-trigger induction queries).** Induction is preserved essentially
-exactly: P(true-next) 0.7682 → 0.7680, argmax-correct 0.8854 → 0.8858. By construction the pattern
-delta touches only trigger-query rows, and the measurement confirms zero leakage to other induction.
+**Specificity (at the ~2976 non-trigger induction queries).** The *direct* effect on non-trigger
+queries is zero *by construction* — the pattern delta is gated to trigger-query rows, so every other
+query's attention is literally unedited. What the measurement adds is a bound on the *indirect*
+downstream leak (non-trigger queries after the trigger position can attend to the edited key position,
+whose residual changed): that leak is below 5e-4 — P(true-next) 0.7682 → 0.7680, argmax-correct
+0.8854 → 0.8858. So the edit's only reach beyond the trigger is a negligible second-order effect.
 
 **Collateral (natural FineWeb, disjoint slice).** The conditional edit costs **+0.000** cross-entropy
-(trigger base rate 0.00024) versus **+0.614** for the unconditional edit at the same amplitude. The
-edit is genuinely surgical: it perturbs only the trigger token's induction.
+(this trigger's base rate is 0.00024, so it rarely fires) versus **+0.614** for the unconditional edit
+at the same amplitude. This +0.000 is dominated by non-firing; the *per-firing* cost is quantified in
+§37b (a common trigger at base rate 3.9% costs +0.030, still far under the unconditional +0.614).
 
-**Honest caveats.** (1) The reach figure is a clean-trigger *best case* — the trigger is planted at an
-exact-repeat position with a strong induction match; natural triggers with weaker matches would capture
-less. (2) The near-zero collateral is partly because this specific trigger token is rare; a common
-trigger would cost more — but the cost is bounded to *that token's own* induction, never the whole
-mechanism, so a conditional redirect is strictly less destructive than the unconditional one at any
-trigger frequency. **Take-away:** targeted redirection on the verified induction channel becomes a
+**Honest caveats — the two below are now MEASURED, not just asserted, in §37b.** (1) The 0.833/0.958
+reach is a clean-trigger *best case* — the trigger is planted at an exact-repeat position with a single
+unambiguous match; §37b shows reach degrades to 0.175 / 0.259 for a common (ambiguous-match) trigger.
+(2) The near-zero collateral is partly this trigger's rarity; §37b sweeps frequency (+0.000 rare →
++0.030 common). The cost is always bounded to *that token's own* induction (the conditional gate is a
+strict subset of the unconditional active set), so a conditional redirect is provably less destructive
+than the unconditional one at any trigger frequency. STILL OPEN (queued): reach on *natural* un-planted
+triggers, and standard errors over trigger position/token variation (the n=48 reach replicates one
+position). **Take-away:** targeted redirection on the verified induction channel becomes a
 sharp, near-collateral-free precision edit once it is *conditioned* — the interpretability-grounded
 form of a trigger→payload intervention, demonstrated on a base LM (not a jailbreak of a safety-trained
 target).
