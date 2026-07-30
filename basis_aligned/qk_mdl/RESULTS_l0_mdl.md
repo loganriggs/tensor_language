@@ -3101,3 +3101,17 @@ bilin18 planted single-set), but the qualitative signature — aimable, distribu
 off a near-zero baseline — holds everywhere. Caveat (all three replications): the broad layer-2+ head
 set was overwritten (bilin12's census was too marginal to isolate copy heads), so these show the
 primitive *works* per family but do not localize the specific carrier heads per model.
+
+## §38 Two-branch attention is genuinely two-factor across all layers (2026-07-30)
+(qk_branch_angles.py; representation-ledger diagnostic, all 18×9 heads, held-back FW[448:600]) bilin18's
+pattern is a product of two score branches sc1=(q1·k1)/HD and sc2=(q2·k2)/HD. Measuring the Pearson
+correlation of the two branches over the causal (query,key) entries per head: **median 0.044, mean
+0.006; zero of 162 heads exceed correlation 0.9, and 95.7% are below 0.5.** So no head collapses to a
+single squared branch — the two branches select on distinct structure essentially everywhere, and the
+bilinear product is load-bearing per head across the whole stack. The most-distinct heads have strongly
+ANTI-correlated branches (L15H1 −0.78, L0H7 −0.70, L17H2 −0.69), i.e. a product of oppositely-signed
+branch scores — a difference/conjunction detector; even the most-redundant heads reach only ~0.70–0.78
+(L5H7 0.78, L10H5 0.71, L2H0 0.70), never near 1. Implication for the per-layer decomposition: the
+two-factor bilinear form cannot be reduced to one branch when decomposing any layer's selection — both
+branches must be carried. (Caveat: correlation is a linear measure; it establishes non-redundancy, not
+the finer semantics of each branch, which the per-layer function ledger addresses.)
