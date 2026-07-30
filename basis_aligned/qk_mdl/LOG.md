@@ -6217,3 +6217,15 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## baseline induction strength, payload+scale held fixed -- confirms mechanism: reach should rise with
 ## local induction if §37c is right). NEXT: process red-team + mechanism test; then editing arc CLOSES
 ## and promote §36/37/37b/37c to atlas/summary + artifact. Cron 1475f52b; re-arm before 2026-08-06.
+
+## TICK 2026-07-30v (cont.) — §37c RED-TEAM: causal over-claim RETRACTED, cause OPEN. Reviewer
+## (afaee754, 6 findings) verdict: hedged conclusion fair (engages/low-yield/not-established-in-wild),
+## but the affirmative cause was unearned. F2: my "no induction to hijack" used baseline true-next as
+## proxy = CONFOUNDED with LM predictability (frequent tok true-next 0.24 > distinctive 0.15, inverts
+## thesis) -> retracted. F3 (settling control): amplitude never re-swept on natural text; weakness could
+## be recoverable CALIBRATION -> queued qk_natural_redirect_control.py (scale sweep 10-160 + natural
+## match-coeff vs planted + bigger slice). F4: only frequent n=498 powered (worst regime); distinctive
+## n=10 unpowered, moderate n=18 is a REAL 2-SE effect not ~0. F1/F5 credited. §37c softened to earned
+## hedge, cause marked OPEN. qk_natural_strong_induction.py OOM'd (full-vocab lm_head) -> superseded by
+## chunked control. redteam archived. NEXT: process scale-sweep control -> resolves calibration-vs-
+## intrinsic; then editing arc CLOSES honestly + promote to atlas/summary. Cron 1475f52b; re-arm 08-06.
