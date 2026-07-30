@@ -3800,7 +3800,7 @@ Discovery FW[0:256], causal verify held-back FW[448:600], paired standard errors
   (1) mlp.L15.d2 fires on PUNCTUATION → boosts CAPITALIZATION — the strongest and most defensible: ablation
   cuts capital-class next-token probability at punctuation positions by 0.0068 ± 0.0009 (z ≈ 7.7) versus only
   0.0003 at the inactive-punctuation control, AND is load-bearing (delta cross-entropy +0.0236 ± 0.0083). A
-  genuine sentence-boundary → capitalize-next-word remap with a full specificity control. [RED-TEAM attack 1 →
+  genuine sentence-boundary → capitalize-next-word remap with a full specificity control. [§66 REFINEMENT: the deeper arc shows the TRIGGER is boundary-specific but the OUTPUT is a GENERIC shared capital direction — it damages mid-sentence proper-noun caps equally (specificity ratio 1.0), so it is a boundary-triggered generic capital-booster, not a sentence-boundary algorithm.] [RED-TEAM attack 1 →
   SURVIVES, confound REFUTED on two axes: (i) applying the §61 joint-ablation logic — jointly ablating with
   h.L13.8 and mlp.L16.d1 at its own punctuation positions, its marginal contribution added-last (0.0089) ≈ its
   solo (0.0068), joint-over-sum ratio 1.08 → ADDITIVE not redundant, a distinct contributor (though capital is
@@ -3867,3 +3867,47 @@ have a matching earlier number (a copyable referent). The two heads DISSOCIATE c
 **KEY:** running the arc on a discovered circuit paid off — what looked like one "digit head" type is TWO
 different algorithms (a value-router and a source-independent predictor) that only a causal copyable/non-
 copyable dissociation separates. This is a new confirmed circuit distinction, not a hand-picked task.
+
+## §66 Algorithmic arc — the CAPITALIZATION circuit is a generic capital-booster, NOT a sentence-boundary algorithm (2026-07-30)
+(qk_arc_caps.py; option-2 arc — verify→minimal→red-team — on the §64 capitalization components mlp.L15.d2,
+mlp.L16.d1, punctuation head h.L13.8.) Forward convention copied verbatim from qk_redteam_toolbox.py; held-back
+FW[448:600], mean-ablation to per-position means, paired standard errors. An HONEST PARTIAL-NEGATIVE: the
+behavior and circuit are real, but the "capitalize at sentence START" hypothesis is REFUTED.
+- **Behavior real and large.** Probability the next token is capitalized (proper-noun class) by position type:
+  after sentence-ending punctuation 0.349 ± 0.008, after a newline 0.553 ± 0.013, after within-sentence
+  punctuation 0.193 ± 0.008, mid-sentence word control 0.047 ± 0.001 — a 7× (sentence punct) to 12× (newline)
+  boundary effect. Circuit-carried: ablating the two MLP directions removes 0.0284 ± 0.0009 of the capital mass
+  at boundaries.
+- **Minimal set = {mlp.L15.d2, mlp.L16.d1}** (the two capital-writers). The punctuation head h.L13.8 is NOT a
+  capitalizer — solo it moves capital probability by only −0.0014 and ADDING it to the pair slightly reduces the
+  drop (pair 0.0284 vs all-three 0.0272); it is the upstream BOUNDARY-MARKER emitter, not a capitalizer.
+- **Division of labor, specialized by boundary type:** at NEWLINE, mlp.L16.d1 does essentially everything (solo
+  +0.0331 ± 0.0024) while mlp.L15.d2 mildly SUPPRESSES capital there (solo −0.0076 ± 0.0004); at SENTENCE-ending
+  punctuation both are additive (mlp.L16.d1 +0.0202 ± 0.0006 + mlp.L15.d2 +0.0091 ± 0.0004 = +0.0310 ± 0.0007);
+  mlp.L15.d2 is also active at WITHIN-sentence punctuation (+0.0059 ± 0.0004) — a broad punctuation-to-capital
+  booster, somewhat stronger at sentence-enders. Small distributed set, newline direction dominant, additivity
+  ratio ~1.08 (matches §64).
+- **RED-TEAM VERDICT — GENERIC CAPITAL-BOOSTER, hypothesis refuted.** Ablating {mlp.L15.d2, mlp.L16.d1}
+  suppresses capital probability by essentially the SAME amount wherever a capital is due: boundary positions
+  +0.0262 ± 0.0014, MID-sentence proper-noun positions (a name deep in a line) +0.0262 ± 0.0018, any
+  capitalized-next position +0.0248 ± 0.0008. Boundary-over-proper-noun specificity ratio = 1.0. A dedicated
+  sentence-boundary mechanism would leave mid-sentence proper nouns intact; instead it damages them just as much.
+  The boundary concentration lives entirely on the TRIGGER side (the directions are content-gated to fire on
+  punctuation/newline); the OUTPUT they write is a SHARED generic "capital" direction with a large always-on
+  baseline. Honest description: "boundary-triggered write into a generic capital direction shared across all
+  capitalization needs" — not a self-contained sentence-boundary algorithm.
+- **Frequency-prior:** the model tracks the corpus next-is-capital bigram prior almost exactly at every position
+  type (0.349 vs empirical 0.412 after sentence punct; 0.553 vs 0.577 after newline; 0.193 vs 0.184 within-
+  sentence; 0.047 vs 0.044 mid-word). mlp.L15.d2 DOES distinguish sentence-ending (0.0091) from within-sentence
+  (0.0059) punctuation so it is not a pure period-bigram, but it fires on commas too — a broad booster riding
+  the prior.
+- **Content vs position (§62 link):** the circuit reads the boundary via CONTENT, not position — activation is
+  keyed to token identity (mlp.L15.d2 ~2.5× higher on punctuation, ~3.7× on newline vs words; mlp.L16.d1 ~5× on
+  newline) and is FLAT across distance-since-newline within a fixed token class (no positional offset). But both
+  carry a large baseline activation even on ordinary words — that always-on generic-capital write is exactly
+  what makes the ablation non-specific.
+**KEY (refines §64):** mlp.L15.d2 is a genuine punctuation-TRIGGERED capital writer, distinct from line-start
+positional capitalization (§64 stands on the trigger side), BUT the deeper arc shows its OUTPUT is a generic
+shared capital direction, not a boundary-specific one — so it is a booster implementing the prior, not a
+"capitalize at sentence start" algorithm. The cleanest-looking candidate turned into an honest negative on the
+generalization test — the value of running the full arc rather than stopping at the trigger.

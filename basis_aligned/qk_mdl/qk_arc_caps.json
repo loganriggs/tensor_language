@@ -1,0 +1,770 @@
+{
+  "meta": {
+    "model": "bilin18",
+    "tokenizer": "gpt2 (model exposes none) -- FLAGGED",
+    "held_slice": "FW[448:600,:128]",
+    "train_slice_for_mlp_dirs": "FW[0:256,:128]",
+    "components": {
+      "L15d2": [
+        "mlp",
+        15,
+        2
+      ],
+      "L16d1": [
+        "mlp",
+        16,
+        1
+      ],
+      "L138": [
+        "head",
+        13,
+        8
+      ]
+    },
+    "metric_P_capital": "sum of softmax mass on VOCAB_CLASS==capital (proper-noun-ish leading-cap tokens; \"I\" is class pronoun, acronyms are class capital)",
+    "dP_capital": "base - ablated (positive = ablation suppressed capitalization)",
+    "dCE": "ablated - base cross-entropy (positive = ablation hurt next-token prediction)",
+    "ablation": "mean-ablation with held per-position mean (heads: yh mean; mlp: project-out to per-position projmean)",
+    "batch": 4,
+    "paired_SE": "per-position paired standard error"
+  },
+  "step1_verify_behaviour": {
+    "after_sentence_punct(.!?\u2026)": {
+      "label": "after_sentence_punct",
+      "model_P_capital_next": {
+        "mean": 0.34902,
+        "SE": 0.00753,
+        "n": 843
+      },
+      "empirical_freq_next_is_capital": {
+        "mean": 0.41163,
+        "SE": 0.01696,
+        "n": 843
+      }
+    },
+    "after_newline": {
+      "label": "after_newline",
+      "model_P_capital_next": {
+        "mean": 0.55269,
+        "SE": 0.01342,
+        "n": 366
+      },
+      "empirical_freq_next_is_capital": {
+        "mean": 0.5765,
+        "SE": 0.02586,
+        "n": 366
+      }
+    },
+    "mid_sentence_punct(,;:)": {
+      "label": "mid_sentence_punct",
+      "model_P_capital_next": {
+        "mean": 0.19265,
+        "SE": 0.00839,
+        "n": 1218
+      },
+      "empirical_freq_next_is_capital": {
+        "mean": 0.18391,
+        "SE": 0.01111,
+        "n": 1218
+      }
+    },
+    "mid_sentence_word_control": {
+      "label": "mid_sentence_word",
+      "model_P_capital_next": {
+        "mean": 0.04676,
+        "SE": 0.00147,
+        "n": 8711
+      },
+      "empirical_freq_next_is_capital": {
+        "mean": 0.04397,
+        "SE": 0.0022,
+        "n": 8711
+      }
+    },
+    "all_valid_positions": {
+      "label": "all_valid",
+      "model_P_capital_next": {
+        "mean": 0.11913,
+        "SE": 0.00169,
+        "n": 18634
+      },
+      "empirical_freq_next_is_capital": {
+        "mean": 0.12085,
+        "SE": 0.00239,
+        "n": 18634
+      }
+    }
+  },
+  "step2_minimal_subset": {
+    "per_subset": {
+      "at_boundary(sentence|newline)": {
+        "L15d2": {
+          "dP_capital": {
+            "mean": 0.00403,
+            "SE": 0.00037,
+            "n": 1209
+          },
+          "dCE": {
+            "mean": 0.00875,
+            "SE": 0.00252,
+            "n": 1209
+          }
+        },
+        "L16d1": {
+          "dP_capital": {
+            "mean": 0.0241,
+            "SE": 0.00086,
+            "n": 1209
+          },
+          "dCE": {
+            "mean": 0.04022,
+            "SE": 0.00734,
+            "n": 1209
+          }
+        },
+        "L138": {
+          "dP_capital": {
+            "mean": -0.00144,
+            "SE": 0.00026,
+            "n": 1209
+          },
+          "dCE": {
+            "mean": 0.00107,
+            "SE": 0.00228,
+            "n": 1209
+          }
+        },
+        "L15d2+L16d1": {
+          "dP_capital": {
+            "mean": 0.02835,
+            "SE": 0.00085,
+            "n": 1209
+          },
+          "dCE": {
+            "mean": 0.04572,
+            "SE": 0.00748,
+            "n": 1209
+          }
+        },
+        "L15d2+L138": {
+          "dP_capital": {
+            "mean": 0.00259,
+            "SE": 0.00048,
+            "n": 1209
+          },
+          "dCE": {
+            "mean": 0.00986,
+            "SE": 0.0034,
+            "n": 1209
+          }
+        },
+        "L16d1+L138": {
+          "dP_capital": {
+            "mean": 0.023,
+            "SE": 0.00087,
+            "n": 1209
+          },
+          "dCE": {
+            "mean": 0.04017,
+            "SE": 0.00731,
+            "n": 1209
+          }
+        },
+        "L15d2+L16d1+L138": {
+          "dP_capital": {
+            "mean": 0.02718,
+            "SE": 0.00088,
+            "n": 1209
+          },
+          "dCE": {
+            "mean": 0.04561,
+            "SE": 0.00747,
+            "n": 1209
+          }
+        }
+      },
+      "at_sentence_punct": {
+        "L15d2": {
+          "dP_capital": {
+            "mean": 0.00908,
+            "SE": 0.00039,
+            "n": 843
+          },
+          "dCE": {
+            "mean": 0.01371,
+            "SE": 0.00322,
+            "n": 843
+          }
+        },
+        "L16d1": {
+          "dP_capital": {
+            "mean": 0.02018,
+            "SE": 0.0006,
+            "n": 843
+          },
+          "dCE": {
+            "mean": 0.02915,
+            "SE": 0.00633,
+            "n": 843
+          }
+        },
+        "L138": {
+          "dP_capital": {
+            "mean": -0.00066,
+            "SE": 0.0002,
+            "n": 843
+          },
+          "dCE": {
+            "mean": -0.00067,
+            "SE": 0.00248,
+            "n": 843
+          }
+        },
+        "L15d2+L16d1": {
+          "dP_capital": {
+            "mean": 0.03102,
+            "SE": 0.00069,
+            "n": 843
+          },
+          "dCE": {
+            "mean": 0.03851,
+            "SE": 0.00644,
+            "n": 843
+          }
+        },
+        "L15d2+L138": {
+          "dP_capital": {
+            "mean": 0.00851,
+            "SE": 0.00041,
+            "n": 843
+          },
+          "dCE": {
+            "mean": 0.01291,
+            "SE": 0.00397,
+            "n": 843
+          }
+        },
+        "L16d1+L138": {
+          "dP_capital": {
+            "mean": 0.0194,
+            "SE": 0.00066,
+            "n": 843
+          },
+          "dCE": {
+            "mean": 0.0286,
+            "SE": 0.00651,
+            "n": 843
+          }
+        },
+        "L15d2+L16d1+L138": {
+          "dP_capital": {
+            "mean": 0.03032,
+            "SE": 0.00073,
+            "n": 843
+          },
+          "dCE": {
+            "mean": 0.03768,
+            "SE": 0.00656,
+            "n": 843
+          }
+        }
+      },
+      "at_newline": {
+        "L15d2": {
+          "dP_capital": {
+            "mean": -0.00759,
+            "SE": 0.00044,
+            "n": 366
+          },
+          "dCE": {
+            "mean": -0.00268,
+            "SE": 0.00372,
+            "n": 366
+          }
+        },
+        "L16d1": {
+          "dP_capital": {
+            "mean": 0.03313,
+            "SE": 0.00241,
+            "n": 366
+          },
+          "dCE": {
+            "mean": 0.06572,
+            "SE": 0.01934,
+            "n": 366
+          }
+        },
+        "L138": {
+          "dP_capital": {
+            "mean": -0.00323,
+            "SE": 0.00073,
+            "n": 366
+          },
+          "dCE": {
+            "mean": 0.00506,
+            "SE": 0.00494,
+            "n": 366
+          }
+        },
+        "L15d2+L16d1": {
+          "dP_capital": {
+            "mean": 0.02219,
+            "SE": 0.00229,
+            "n": 366
+          },
+          "dCE": {
+            "mean": 0.0623,
+            "SE": 0.01974,
+            "n": 366
+          }
+        },
+        "L15d2+L138": {
+          "dP_capital": {
+            "mean": -0.01104,
+            "SE": 0.00094,
+            "n": 366
+          },
+          "dCE": {
+            "mean": 0.00285,
+            "SE": 0.00652,
+            "n": 366
+          }
+        },
+        "L16d1+L138": {
+          "dP_capital": {
+            "mean": 0.03128,
+            "SE": 0.00239,
+            "n": 366
+          },
+          "dCE": {
+            "mean": 0.06683,
+            "SE": 0.01886,
+            "n": 366
+          }
+        },
+        "L15d2+L16d1+L138": {
+          "dP_capital": {
+            "mean": 0.01993,
+            "SE": 0.00232,
+            "n": 366
+          },
+          "dCE": {
+            "mean": 0.06387,
+            "SE": 0.01948,
+            "n": 366
+          }
+        }
+      },
+      "at_mid_sentence_punct": {
+        "L15d2": {
+          "dP_capital": {
+            "mean": 0.00586,
+            "SE": 0.00042,
+            "n": 1218
+          },
+          "dCE": {
+            "mean": 0.00416,
+            "SE": 0.00216,
+            "n": 1218
+          }
+        },
+        "L16d1": {
+          "dP_capital": {
+            "mean": 0.00623,
+            "SE": 0.00055,
+            "n": 1218
+          },
+          "dCE": {
+            "mean": 0.0097,
+            "SE": 0.00637,
+            "n": 1218
+          }
+        },
+        "L138": {
+          "dP_capital": {
+            "mean": -0.00012,
+            "SE": 0.00011,
+            "n": 1218
+          },
+          "dCE": {
+            "mean": 0.00117,
+            "SE": 0.00154,
+            "n": 1218
+          }
+        },
+        "L15d2+L16d1": {
+          "dP_capital": {
+            "mean": 0.01159,
+            "SE": 0.00074,
+            "n": 1218
+          },
+          "dCE": {
+            "mean": 0.01556,
+            "SE": 0.00715,
+            "n": 1218
+          }
+        },
+        "L15d2+L138": {
+          "dP_capital": {
+            "mean": 0.00574,
+            "SE": 0.00044,
+            "n": 1218
+          },
+          "dCE": {
+            "mean": 0.00531,
+            "SE": 0.00261,
+            "n": 1218
+          }
+        },
+        "L16d1+L138": {
+          "dP_capital": {
+            "mean": 0.00613,
+            "SE": 0.00056,
+            "n": 1218
+          },
+          "dCE": {
+            "mean": 0.01066,
+            "SE": 0.00653,
+            "n": 1218
+          }
+        },
+        "L15d2+L16d1+L138": {
+          "dP_capital": {
+            "mean": 0.01149,
+            "SE": 0.00075,
+            "n": 1218
+          },
+          "dCE": {
+            "mean": 0.01651,
+            "SE": 0.00728,
+            "n": 1218
+          }
+        }
+      }
+    },
+    "summary": {
+      "boundary_solo_L15d2": 0.00403,
+      "boundary_solo_L16d1": 0.0241,
+      "boundary_solo_L138": -0.00144,
+      "boundary_all3": 0.02718,
+      "boundary_pair_L15d2+L16d1": 0.02835,
+      "sentpunct_solo_L15d2": 0.00908,
+      "sentpunct_solo_L16d1": 0.02018,
+      "sentpunct_solo_L138": -0.00066,
+      "newline_solo_L15d2": -0.00759,
+      "newline_solo_L16d1": 0.03313,
+      "newline_solo_L138": -0.00323
+    }
+  },
+  "step3_redteam_generalization": {
+    "counts": {
+      "boundary_next_cap": 558,
+      "propernoun_next_cap": 416,
+      "any_next_cap": 2252
+    },
+    "ablate_minimal(L15d2+L16d1)": {
+      "config": "L15d2+L16d1",
+      "boundary_next_capital": {
+        "mean": 0.02624,
+        "SE": 0.00138,
+        "n": 558
+      },
+      "sentence_boundary_next_cap": {
+        "mean": 0.03299,
+        "SE": 0.00108,
+        "n": 347
+      },
+      "newline_boundary_next_cap": {
+        "mean": 0.01513,
+        "SE": 0.00303,
+        "n": 211
+      },
+      "mid_sentence_propernoun": {
+        "mean": 0.02619,
+        "SE": 0.0018,
+        "n": 416
+      },
+      "any_capital_next": {
+        "mean": 0.02476,
+        "SE": 0.00081,
+        "n": 2252
+      }
+    },
+    "ablate_all3": {
+      "config": "all3",
+      "boundary_next_capital": {
+        "mean": 0.02558,
+        "SE": 0.0014,
+        "n": 558
+      },
+      "sentence_boundary_next_cap": {
+        "mean": 0.0326,
+        "SE": 0.00114,
+        "n": 347
+      },
+      "newline_boundary_next_cap": {
+        "mean": 0.01403,
+        "SE": 0.00302,
+        "n": 211
+      },
+      "mid_sentence_propernoun": {
+        "mean": 0.02462,
+        "SE": 0.00173,
+        "n": 416
+      },
+      "any_capital_next": {
+        "mean": 0.02378,
+        "SE": 0.00081,
+        "n": 2252
+      }
+    },
+    "boundary_over_propernoun_ratio_minimal": 1.0,
+    "frequency_prior": {
+      "empirical_next_cap_freq": {
+        "after_sentence_punct": {
+          "mean": 0.41163,
+          "SE": 0.01696,
+          "n": 843
+        },
+        "after_mid_sentence_punct": {
+          "mean": 0.18391,
+          "SE": 0.01111,
+          "n": 1218
+        },
+        "after_newline": {
+          "mean": 0.5765,
+          "SE": 0.02586,
+          "n": 366
+        },
+        "mid_sentence_word": {
+          "mean": 0.04397,
+          "SE": 0.0022,
+          "n": 8711
+        },
+        "overall_base_rate": {
+          "mean": 0.12085,
+          "SE": 0.00239,
+          "n": 18634
+        }
+      },
+      "circuit_capital_drop_tracks_prior": {
+        "L15d2_drop_at_sentence_punct": 0.00908,
+        "L15d2_drop_at_mid_sentence_punct": 0.00586
+      },
+      "note": "If the boundary capital drop is present at BOTH sentence-ending and within-sentence punct, the circuit is not a pure \".<space>->Capital\" bigram; if it collapses to only sentence-enders it is closer to a learned boundary bigram. Empirical freq columns give the prior the circuit rides on."
+    }
+  },
+  "step4_content_vs_position": {
+    "L15d2_abs_activation_by_current_class": {
+      "punct": {
+        "mean": 2349.36307,
+        "SE": 37.95622,
+        "n": 2061
+      },
+      "newline": {
+        "mean": 3646.5353,
+        "SE": 44.55271,
+        "n": 366
+      },
+      "word": {
+        "mean": 987.81883,
+        "SE": 8.6162,
+        "n": 8851
+      },
+      "subword": {
+        "mean": 791.35483,
+        "SE": 17.41247,
+        "n": 1414
+      },
+      "capital": {
+        "mean": 683.78816,
+        "SE": 12.47375,
+        "n": 2256
+      },
+      "digit": {
+        "mean": 657.69077,
+        "SE": 28.52735,
+        "n": 525
+      },
+      "determiner": {
+        "mean": 731.89497,
+        "SE": 16.48744,
+        "n": 1607
+      },
+      "pronoun": {
+        "mean": 1664.17556,
+        "SE": 36.28875,
+        "n": 576
+      },
+      "quote": {
+        "mean": 1850.70417,
+        "SE": 144.53992,
+        "n": 55
+      },
+      "other": {
+        "mean": 1064.79466,
+        "SE": 71.79612,
+        "n": 200
+      }
+    },
+    "L16d1_abs_activation_by_current_class": {
+      "punct": {
+        "mean": 14425.79166,
+        "SE": 174.3099,
+        "n": 2061
+      },
+      "newline": {
+        "mean": 38876.37615,
+        "SE": 285.27613,
+        "n": 366
+      },
+      "word": {
+        "mean": 7481.73185,
+        "SE": 43.64955,
+        "n": 8851
+      },
+      "subword": {
+        "mean": 7272.96927,
+        "SE": 112.32794,
+        "n": 1414
+      },
+      "capital": {
+        "mean": 7290.48477,
+        "SE": 95.30571,
+        "n": 2256
+      },
+      "digit": {
+        "mean": 5133.52104,
+        "SE": 181.43472,
+        "n": 525
+      },
+      "determiner": {
+        "mean": 7014.32864,
+        "SE": 82.61859,
+        "n": 1607
+      },
+      "pronoun": {
+        "mean": 11915.56604,
+        "SE": 174.99171,
+        "n": 576
+      },
+      "quote": {
+        "mean": 29154.85662,
+        "SE": 1830.87447,
+        "n": 55
+      },
+      "other": {
+        "mean": 10573.02204,
+        "SE": 399.38824,
+        "n": 200
+      }
+    },
+    "h138_activation_by_current_class": {
+      "punct": {
+        "mean": 415.56108,
+        "SE": 6.28449,
+        "n": 2061
+      },
+      "newline": {
+        "mean": 514.00621,
+        "SE": 16.99566,
+        "n": 366
+      },
+      "word": {
+        "mean": 490.85982,
+        "SE": 3.91621,
+        "n": 8851
+      },
+      "subword": {
+        "mean": 495.86254,
+        "SE": 13.55808,
+        "n": 1414
+      },
+      "capital": {
+        "mean": 322.07675,
+        "SE": 7.63774,
+        "n": 2256
+      },
+      "digit": {
+        "mean": 599.54946,
+        "SE": 26.28599,
+        "n": 525
+      },
+      "determiner": {
+        "mean": 393.67262,
+        "SE": 7.56741,
+        "n": 1607
+      },
+      "pronoun": {
+        "mean": 442.97614,
+        "SE": 12.24827,
+        "n": 576
+      },
+      "quote": {
+        "mean": 504.80205,
+        "SE": 36.56882,
+        "n": 55
+      },
+      "other": {
+        "mean": 341.97623,
+        "SE": 26.75401,
+        "n": 200
+      }
+    },
+    "L15d2_within_punct_by_dsn": {
+      "dsn1-1": {
+        "mean": 3044.0521,
+        "SE": 170.39918,
+        "n": 79
+      },
+      "dsn2-3": {
+        "mean": 1792.59092,
+        "SE": 138.65308,
+        "n": 118
+      },
+      "dsn4-7": {
+        "mean": 1818.16101,
+        "SE": 101.84427,
+        "n": 189
+      },
+      "dsn8-15": {
+        "mean": 2449.92595,
+        "SE": 110.17281,
+        "n": 294
+      },
+      "dsn16+": {
+        "mean": 2408.48718,
+        "SE": 46.50862,
+        "n": 1381
+      }
+    },
+    "L16d1_within_word_by_dsn": {
+      "dsn1-1": {
+        "mean": 7247.85763,
+        "SE": 400.85715,
+        "n": 93
+      },
+      "dsn2-3": {
+        "mean": 7151.22473,
+        "SE": 180.90533,
+        "n": 489
+      },
+      "dsn4-7": {
+        "mean": 7210.5409,
+        "SE": 137.04312,
+        "n": 972
+      },
+      "dsn8-15": {
+        "mean": 7317.27238,
+        "SE": 103.57195,
+        "n": 1614
+      },
+      "dsn16+": {
+        "mean": 7540.51911,
+        "SE": 48.70828,
+        "n": 7097
+      }
+    },
+    "note": "Content-driven if abs-activation concentrates on the trigger token class (punct for L15.d2, newline for L16.d1) AND is roughly flat across distance-since-newline WITHIN that class; position-driven if it ramps with dsn independent of token identity (connects to \u00a762 fixed-offset vs content)."
+  }
+}
