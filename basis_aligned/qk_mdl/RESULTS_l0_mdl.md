@@ -3369,3 +3369,23 @@ substitutable through analytic interfaces, functionally mapped (three families +
 feed-forward family map), and semantically a set of nameable selection programs (copy/induction/match
 family only) operating over a spectral, non-nameable content dictionary — the same "nameable selection
 over spectral content" boundary measured at layer 0, now confirmed to be the model-wide rule.
+
+## §50 Quote-style matching = the SAME L13H8 v1-router, confound-free (2026-07-30)
+(qk_quote_patch.py; mean-ablation knockout + all-attention static-prior control + layer-0 value-swap with
+identity controls; graded metric logit[matching quote]−logit[other], baseline margin 4.23, accuracy 1.00)
+Quote-style matching (predict the closing quote matching the opener's style) is implemented by the SAME
+mechanism as bracket-type matching (§41): the **L13H8 v1-router** copying the opener's LAYER-0 VALUE.
+- **Same dominant router:** L13H8 alone accounts for ~63% of the margin (drop 2.67 of 4.23), L13-attention
+  tops the ranking (3.37), no other head above 0.71 — the identical head that routes brackets.
+- **Static prior ≈ 0 (cleaner than brackets):** all-attention ablation retains only 0.8% of the margin;
+  quote-matching is ~99.2% attention-driven, and the faint single-quote default does NOT track the opener,
+  so — unlike the ‘)’ prior that confounded ‘(’ in §41 — no quote style does the work by default (both
+  styles route correctly, accuracy 1.00 both ways).
+- **Layer-0 value payload (causal, bidirectional + identity controls):** swapping the opener quote's
+  layer-0 value flips the predicted closer 100% in BOTH directions (‘"’-prompt + ‘'’-value → predicts ‘'’;
+  and vice versa); same-style identity swaps reproduce the correct answer (harness validated); lamb=0
+  collapses it. The closer identity follows the swapped value, not the opener token.
+**This generalizes the v1-router principle (§41: QK decides WHERE via L13H8, the layer-0 value decides
+WHAT) to a second, independent lexical-matching task — and confound-free, strengthening it beyond the
+prior-confounded bracket case.** Opener→closer matching in bilin18 is a value-routing circuit, not a
+token-specific one. Causally verified via the same three converging controls as §41; the cleaner of the two.
