@@ -6087,3 +6087,14 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## subword head), KEY_func x2 -- selection census independently recovers task-probed circuit heads.
 ## Gate: all-23 coded simultaneously +0.087 (SE .004) -- predicates name a COMPONENT of selection.
 ## NEXT QUEUE: T4 atlas L8-17 behaviors (incl the KEY_cap cluster's function); T6 steer demo.
+
+## TICK 2026-07-30m — T4 HEAD-FUNCTION MAP (first re-armed-cron tick). KEY_cap cluster verified as
+## capital-predictor (+0.046 joint on capital, ~0 elsewhere). Full map (23 programmatic heads,
+## category-selective knockout + induction drop, held slice): SELECTION PREDICTS FUNCTION head-by-
+## head -- MATCH_same anti-self heads = induction necessity core (L3H8 ind-drop 0.939, L2H5 0.576);
+## MATCH_prev = induction (L5H5/L7H3) + local (L12H6->newline); KEY_cap = capital (L15-16); KEY_punct/
+## func -> punct/newline; PREV1 L1H3 -> subword. digit/newline = the categories the MATCH machinery
+## most disrupts (succession/lists). Negative early-head ind-drops = redundancy. Both ledgers cross-
+## validate. Absolute dCE small (specialty not whole-contribution; report as selectivity). NEXT: T6
+## named-selection steer demo (dial L3H8 MATCH_same anti-self coefficient -> predict induction shift);
+## then T7 consolidation. Queue stocked.
