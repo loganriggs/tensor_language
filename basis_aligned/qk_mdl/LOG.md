@@ -5962,3 +5962,18 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## inflation of 'fully analytic zero-parameter' vs 'MLP-input attention truncation', MDL fairness
 ## composition-vs-data, gauge contentfulness, CO lambda-algebra spot-check, hygiene). RESULTS §33 +
 ## artifact refresh deferred until findings land (enshrine only reviewed numbers).
+
+## TICK 2026-07-30b — COMPOSITION-ARC RED-TEAM PROCESSED (redteam_findings_2026-07-30.md, 10 findings).
+## HEADLINE CORRECTION: reviewer found a LAMBDA-SCALING BUG in the joint6/joint-polish residual swap
+## (unit delta coefficients; true coef of m0 at layer 5 ~0.00043 -> ~2300x too large). RETRACTED:
+## 72.5% joint gap, 19-pt knob recovery (tick ii), exposure-bias reversal narrative (tick jj).
+## FIXED RERUN: joint6 with CO-scaled deltas = +0.00392 = 99.9% -- matches causal; NO GAP EVER
+## EXISTED; truncation error simply small. Head-span nulls (random 64-of-128 within head images,
+## 2 seeds): +1.02/+1.49 vs PCA +0.047 = 20-30x -- PCA ordering is real signal beyond head structure.
+## Other accepted corrections: causal18 reworded (input-projection statement; floor CE 21.6 exceeds
+## uniform ceiling 10.83 -- also report vs uniform: 0.0329 of 7.74 available); 'fully-named' ->
+## PCA/head-bottleneck ('named' = 144 layer-0 archetype dims); composition-vs-data = fidelity-vs-
+## compression FRONTIER (composed forms reference full weight tensors; MLP0 composition LOSES on
+## dCE) with description-length column mandatory; gauge identities = method licenses (architecture
+## tautologies), not findings; MLP1 routing demoted pending block-ablation dCE; SEs + held-back
+## audit slice adopted. Clean checks: CO algebra correct, corpus hygiene sound, exactness gates real.
