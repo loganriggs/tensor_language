@@ -3130,7 +3130,7 @@ Behavior verification only — the first step; decomposition of the promising on
 | induction/copy random rare tokens | YES | 0.733 argmax (control 0.000) | ~2e-5 |
 | key-value lookup, SEMANTIC | **NO** | 0.333 = chance (pure recency) | 0.333 |
 | key-value lookup, literal (x=4,y=7…) | weak | 0.567 | 0.333 |
-| greater-of-two digits, few-shot | **YES** | 0.986 (shown pair) / 0.694 (all 9) | 0.5 / 0.111 |
+| greater-of-two digits, few-shot | **~95% STATIC PRIOR (§40)** | 0.986 but 0.944 with ALL attention ablated → mostly magnitude prior, not comparison | 0.5 / 0.111 |
 | reverse 3-digit sequence | weak/NO | 0.475 | 0.333 |
 | counting repeated words | NO | 0.167 (only the few-shot prior) | 0.111 |
 | subject-verb agreement across attractor | **YES** | 1.00 incl. 40 incongruent (n=80) | 0.5 |
@@ -3145,3 +3145,20 @@ testing whether the v1-router principle extends beyond lexical identity. (4) The
 bracket-type matching is a built-in negative control for the closer-identity circuit. Top-3 to
 decompose next (patch → minimal circuit → red-team): greater-of-two, bracket-type + curly hole,
 subject-verb agreement.
+
+## §40 "Greater-of-two" is ~95% a STATIC MAGNITUDE PRIOR, not comparison (2026-07-30, red-team deflation)
+(qk_gtwo_patch.py + qk_gtwo_static.py; mean-ablation knockout, in-distribution zero point, 72 ordered
+digit pairs, MARGIN = logit[larger]−logit[smaller] at final position, baseline 2.099 / accuracy 0.986)
+The §39 "greater-of-two 0.986" behavior is NOT a comparison circuit. **Decisive control:** ablating ALL
+attention drops accuracy only to 0.944 and makes the final-position digit logits EXACTLY constant across
+all 72 prompts (standard deviation 0.0), near-monotonic in digit value ([11.4,11.7,12.2,13.1,13.6,14.1,
+14.9,15.8,14.5] for digits 1–9). So a static "larger digit token → higher logit" prior — built by the
+late feed-forward stack (blocks 8–17) feeding a magnitude-ordered unembedding, reading NONE of the query
+pair — already scores 0.944 on its own (the single non-monotonicity, 9<8, is exactly why it misses ~4/72).
+The genuine per-pair COMPARISON signal is only baseline−static-floor = **0.387 nats margin / +0.042
+accuracy** (~3 hard pairs, the 8-vs-9 region), carried entirely by attention but DIFFUSELY, with a mild
+concentration in layer-8 attention (heads H7/H3 ≈46% of the residual; no single head >25%). No small
+faithful circuit exists. **This joins the addition/sorting negatives as a deflation: apparent numeric
+"capability" is dominated by a lexical magnitude prior, not computation.** (Caveat for follow-ups:
+accuracy is saturated by the prior, so score against the static floor of 1.712 margin or restrict to the
+non-monotonic 9-pairs.) §39's greater-of-two row is annotated accordingly.
