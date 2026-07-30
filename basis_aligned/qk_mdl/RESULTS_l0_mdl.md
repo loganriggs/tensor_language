@@ -3340,3 +3340,32 @@ non-nameable CONTENT dictionary at every layer.** The four functional-content si
 L8 successor, L13 opener) plus the meaning-verified induction MATCH predicate remain the only places
 functional content is even bounded-nameable; capitalization failed (§46). This is the measured shape of
 the meaning frontier across the whole model.
+
+## §49 MILESTONE — the four-ledger per-layer decomposition is COMPLETE for all 17 layers (2026-07-30)
+The MEANING ledger sweep finished (content §48 + selection this section), closing the fourth ledger at
+every layer. **Selection sweep (qk_selection_gate.py L1–17, simultaneous-substitution gate, held-back
+FW[448:600], paired standard errors):** gated-nameable selection heads exist at every layer EXCEPT the
+diffuse layers 4 and 17 (0 programmatic heads), with per-layer counts L1:3 L2:3 L3:3 L4:0 L5:1 L6:2 L7:1
+L8:1 L9:1 L10:1 L11:2 L12:1 L13:2 L14:2 L15:2 L16:4 L17:0; gate costs +0.0004..+0.0093 nats/token. The
+gated heads are the copy/induction/match family (MATCH_same/MATCH_prev/KEY_* predicates); the strong ones
+(L2H5, L3H8, gains 0.25/0.31) are the meaning-verified induction MATCH predicate.
+
+### The complete per-layer four-ledger state (bilin18, all layers 1–17)
+- **Representation — DONE all layers:** MLP composed-fold gauge exact ~1e-6; two QK branches genuinely
+  two-factor per head everywhere (§38).
+- **Substitutability — DONE all layers:** attention (PCA-64/head bottleneck) + feed-forward (composed
+  fold) replaced causally = 99.95–99.998% of the uniform-ceiling headroom, each with a paired standard
+  error and a head-span null (§45); attention symbol-fold beats the positional-mean floor at 15/16 layers.
+- **Function — DONE all layers:** per-head selection census (diffuse attention at layers 4, 9, 17);
+  feed-forward family map — MLP0–3 category engine (MLP1 hub, only block serving the match fabric),
+  MLP4–15 distributed refinement, MLP16–17 lexical readout (§44).
+- **Meaning — DONE all layers (the frontier, now measured everywhere):** content is a spectral,
+  non-class-nameable dictionary at ALL 18 layers (0–3/576, §48); selection is nameable-and-gated only for
+  the copy/induction/match family, at every layer but the two diffuse ones. Functional content is
+  bounded-nameable at only four sites (L0, block-3 category, L8 successor, L13 opener) plus the induction
+  MATCH predicate; capitalization FAILED the gate (§46).
+**One-line state:** bilin18 is, at every layer, an exact tensor network that is ~99.9% causally
+substitutable through analytic interfaces, functionally mapped (three families + a per-head census + a
+feed-forward family map), and semantically a set of nameable selection programs (copy/induction/match
+family only) operating over a spectral, non-nameable content dictionary — the same "nameable selection
+over spectral content" boundary measured at layer 0, now confirmed to be the model-wide rule.

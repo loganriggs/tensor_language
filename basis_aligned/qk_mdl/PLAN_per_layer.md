@@ -94,3 +94,10 @@ Substitutability = marginal dCE of replacing layer L's attention (PCA-64/head bo
 **SWEEP COMPLETE (all 17 layers, 3 ledgers).** Substitutability 99.95–99.998% every layer. DIFFUSE
 attention layers (no programmatic heads): 4, 9, 17. Mid-stack feed-forward 4–15 = distributed refinement,
 no distinct family (§44). Remaining ledger = MEANING (frontier).
+
+## MEANING sweep results (content §48 + selection §49; the 4th ledger, all layers)
+Content class-nameable /576 (spectral everywhere) | selection gated-nameable head count:
+L1:0c/3s L2:0c/3s L3:0c/3s L4:1c/0s(DIFFUSE) L5:0c/1s L6:3c/2s L7:0c/1s L8:2c/1s L9:1c/1s L10:1c/1s
+L11:0c/2s L12:1c/1s L13:2c/2s L14:1c/2s L15:1c/2s L16:1c/4s L17:0c/0s(DIFFUSE). Content median class-R2
+0.014-0.038 throughout; selection gated only for copy/induction/match family. FOUR-LEDGER DECOMPOSITION
+COMPLETE for all layers 1-17.
