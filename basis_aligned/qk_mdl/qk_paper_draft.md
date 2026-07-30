@@ -15,9 +15,13 @@ compact analytic interface without hurting the model?), **Function** (what job d
 of keeping the four apart is that a layer can score well on one and fail another, and conflating them
 manufactures false understanding; several of our own headline claims were retracted for exactly this
 reason. The completed result: **every layer 1–17 is representationally exact** (analytic gauges to
-~1e-6, and its two attention branches are genuinely two-factor), **~99.9% causally substitutable**
-through PCA-bottlenecked analytic interfaces (marginal replacement cost 99.95–99.998% of the
-uniform-ceiling headroom, every layer, with paired standard errors and fair nulls), **functionally
+~1e-6, and its two attention branches are genuinely two-factor), **~99.9% causally substitutable per
+layer at the margin** through PCA-bottlenecked analytic interfaces (the **per-layer marginal** cost —
+replace one layer, all others left exact — is 99.95–99.998% of the uniform-ceiling headroom, every
+layer, with paired standard errors and fair nulls; the honest **cumulative** whole-model cost of
+replacing attention and feed-forward at *all* layers at once is ≈ +0.080 nats ≈ 98.95% of headroom,
+~20× the marginal loss — whole-model attention bottleneck +0.0475 = 99.38%, MLP chain +0.0329 =
+99.57%), **functionally
 mapped** into three families with a per-head selection census and a feed-forward family map, and
 **semantically characterizable as "nameable selection over spectral content"** — the model runs
 nameable selection programs (only for the copy/induction/match head family) over a graded,
@@ -82,17 +86,25 @@ strongly *anti*-correlated (L15H1 −0.78, L0H7 −0.70) — difference/conjunct
 most redundant reach only ~0.70–0.78. So no head collapses to a single squared branch; both branches
 must be carried when decomposing any layer's selection.
 
-**Substitutability — near-total, every layer.** The per-layer driver replaces each layer's attention
-(PCA-64/head bottleneck) and feed-forward (composed fold) simultaneously on FW[448:600]. Marginal
-costs range from **+0.00014 nats (layer 12) to +0.0038 nats (layer 14)** — every layer between
+**Substitutability — near-total per layer at the margin.** The per-layer driver replaces each layer's
+attention (PCA-64/head bottleneck) and feed-forward (composed fold) simultaneously on FW[448:600].
+These are **per-layer marginal** figures — one layer is replaced while all others are left exact.
+Marginal costs range from **+0.00014 nats (layer 12) to +0.0038 nats (layer 14)** — every layer between
 **99.95% and 99.998%** of the uniform-ceiling headroom, each with a paired SE and a head-span null.
 Null margins vary informatively: layer 5's random-basis null is 199× the true cost (attention very
-load-bearing), whereas layers 8 and 14 have nulls near 1× (attention near-dispensable there). At the
-whole-model scale, projecting every attention output onto per-layer PCA-64/head bases (with the
-residual itself truncated — the strongest test) costs +0.0475 versus base, a ~0.003/layer linear
-accumulation, against random-576-dim nulls 100× larger and within-head nulls 20–30× larger; the
-architecture-general version holds on bilin12 (+0.116) and bilinsm12 (+0.077). Replacing the entire
-MLP stack causally by the composed-fold chain costs +0.0329 (99.56% of headroom, own null 18×). The
+load-bearing), whereas several layers have head-span nulls near 1× (L8 1.4×, L13 1.3×, L14 1.04×,
+L16 1.1×) — where attention is near-dispensable. At those near-1×-null sites "substitutable" means
+**near-dispensable on general cross-entropy**, not that a compact interface reproduces a rich
+computation; and general-CE substitutability is **blind to rare-but-decisive capabilities**: layer 13
+is ~99.98% substitutable on general CE, yet L13H8 is the causal router for the bracket/quote circuits
+below. The marginal figures do **not** add up to a free whole model: replacing attention and
+feed-forward at *all* layers at once costs ≈ **+0.080 nats ≈ 98.95%** of headroom — roughly 20× the
+per-layer marginal loss. At the whole-model scale, projecting every attention output onto per-layer
+PCA-64/head bases (with the residual itself truncated — the strongest test) costs +0.0475 versus base
+(**99.38%** of headroom), a ~0.003/layer linear accumulation, against random-576-dim nulls 100× larger
+and within-head nulls 20–30× larger; the architecture-general version holds on bilin12 (+0.116) and
+bilinsm12 (+0.077). Replacing the entire MLP stack causally by the composed-fold chain costs +0.0329
+(**99.57%** of headroom, own null 18×). The
 attention symbol-fold beats the honest positional-mean floor at **15 of 16 layers**; the lone
 exception is **layer 17**, whose near-output pattern is mostly positional (§43 — flagged as differing
 from §12q's full-corpus mean, which localized the loss at layer 5; the per-minibatch vs full-corpus
@@ -109,15 +121,24 @@ label predicts the head's causal specialization. The feed-forward family map (§
 remaining Function hole: MLP0–3 is the category engine (with **MLP1 the hub — the only block serving
 the two-branch match fabric**, +0.029 match-rate on ablation), MLP4–15 is **distributed
 category-refinement with no distinct family** (each block removes ≤0.014 category accuracy, cost
-≤0.11 nats), and MLP16–17 is a **lexical readout** near the output. Three attention layers are
-**diffuse** — no head clears the 5% threshold: layers **4, 9, and 17**.
+≤0.11 nats), and MLP16–17 is a **lexical readout** near the output. Under the 8-predicate
+function census three attention layers show no head clearing the 5% threshold — layers 4, 9, and 17 —
+but **genuinely diffuse under *both* predicate libraries is layers 4 and 17 only**. Layer 9 is diffuse
+only under the 8-predicate census: the fuller 12-predicate selection gate finds a gated **KEY_newline**
+head there (L9H8, gain 0.062). And "diffuse" here means **no surface-predicate-nameable head, not no
+computation** — layer 4's attention carries a 3.3× head-span null, so it is load-bearing.
 
 **Meaning — nameable selection over spectral content, measured everywhere.** Running the content-
-nameability gate at **every layer 0–17** settles the content axis: per-head value spectra are **not
-class-nameable at any layer** (0–3 of 576 coordinates class-nameable, layer by layer; median class-R²
-0.014–0.038 throughout), and class-code and spike-code substitution gates cost ~0.000 nats
-everywhere. Crucially content stays spectral even at the lexical-readout layers 16–17 — it does *not*
-become nameable near the output. So a graded, memorized, non-class-nameable content spectrum is a
+nameability gate at **every layer 0–17** settles the content axis. The real evidence is the class fit:
+**no single class in an independent grammar/orthography/frequency library reaches R²≥0.8 under a
+step-function name** at any layer (0–3 of 576 coordinates clear the bar, layer by layer; median
+class-R² 0.014–0.038 throughout) — so the spectra are **not class-nameable in this library**, though
+content could still be nameable under a different, untested ontology. The class-code and spike-code
+substitution gates cost ~0.000 nats everywhere, but this is a **separate fact, not added evidence for
+non-nameability**: with only 0–3 of 576 coordinates codable the gate is mechanically ~0 whether or not
+content is nameable, and what it records is that content is spike-concentrated and low-sensitivity.
+Crucially content stays **spectral** — graded and spike-concentrated, with no such class name — even
+at the lexical-readout layers 16–17; it does *not* become class-nameable near the output. So a graded, memorized, non-class-nameable content spectrum is a
 **universal** property of bilin18 (§48), not a layer-0 artifact. The selection axis is the
 complement: gated-nameable selection heads exist at every layer **except the diffuse layers 4 and
 17**, and they are **exclusively the copy/induction/match family** (MATCH_same / MATCH_prev / KEY_*
@@ -137,7 +158,10 @@ real +0.046 effect is *within*-capital discrimination, not a capital gate.
 
 Alongside the per-layer sweep we probed hand-built algorithmic tasks with a fixed discipline:
 verify the behavior → mean-ablation patch → **static-prior control** → minimal circuit → red-team.
-The static-prior control is the load-bearing step, and it splits the tasks honestly.
+The static-prior control is the decisive first filter, but it separated cleanly on its own in only
+**2 of the 5** tasks (quote §50, increment §51); it needed a follow-up demo-swap control in
+greater-of-two (the first reading was retracted), was a balanced-design tautology in subject-verb
+agreement, and was prior-confounded for '(' in brackets.
 
 - **Greater-of-two digits (a negative).** Behavior looks strong (accuracy 0.986), but with all
   attention ablated a fixed profile still solves 68/72 pairs (0.944). The decisive demo-answer-swap
