@@ -3152,14 +3152,19 @@ digit pairs, MARGIN = logit[larger]−logit[smaller] at final position, baseline
 The §39 "greater-of-two 0.986" behavior is NOT a comparison circuit. **Evidence (corrected per red-team):** with ALL attention mean-ablated, a single FIXED digit ranking
 [11.4,11.7,12.2,13.1,13.6,14.1,14.9,15.8,14.5] (digits 1–9) already solves 68/72 pairs (accuracy 0.944);
 the single non-monotonicity (9<8) is exactly why it misses ~4/72. So the TASK is prior-saturated — ~95%
-of accuracy (and 82% of the margin: the static floor is 1.712 of the 2.099 baseline) is reachable by a
-magnitude-ordered default, so accuracy cannot distinguish comparison from prior. (NOTE: the "logits become
+of accuracy (and 82% of the margin: the static floor is 1.712 of the 2.099 baseline) is reachable WITHOUT
+reading the pair via a fixed final-position profile, so accuracy cannot distinguish comparison from prior. (NOTE: the "logits become
 exactly constant, standard deviation 0.0" observation is NOT independent evidence — the final query token
 "->" is identical across all 72 prompts, so ablating all attention forces byte-identical final-position
-logits by construction; it is a tautology of the intervention, not a discovered static mechanism. Also
-UNTESTED and flagged: the static profile peaks at digits 7 and 8 — exactly the two few-shot demo answers —
-so the "prior" may be partly in-context copying of the demonstrated answers rather than a magnitude-ordered
-unembedding; a demo-answer-swap control is queued to settle this.)
+logits by construction; it is a tautology of the intervention, not a discovered static mechanism. RESOLVED (demo-answer-swap
+control, qk_gtwo_democtrl.py): the "prior" is NOT a magnitude-ordered unembedding — it is IN-CONTEXT
+COPYING of the few-shot demonstration answers. The ablated final-position profile is a bump peaked at the
+DEMO answers, and it moves with them: standard demos 7,8 → peak 8; swapped 4,5 → peak 5; 3,2 → peak 3; 5,4
+→ peak 5. Zero-shot (no demos) the profile is FLAT (correlation with the 1→9 magnitude ramp −0.22, static
+accuracy 0.444 = chance). So ~100% of the ablated profile's ordering power is demo-copying; it only
+masqueraded as a magnitude ramp because the standard demos (7,8) are the two largest digits. The "late-
+feed-forward magnitude-ordered unembedding" mechanism is RETRACTED. The genuine per-pair comparison signal
+(baseline 0.986, ~0.39 margin) is unaffected — it lives in the attention this control ablates away.)
 The genuine per-pair COMPARISON signal is only baseline−static-floor = **0.387 nats margin / +0.042
 accuracy** (~3 hard pairs, the 8-vs-9 region), carried JOINTLY by attention and the
 feed-forward stack in series (ablating all attention removes 0.387; ablating all feed-forward removes an
