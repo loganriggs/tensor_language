@@ -1,0 +1,199 @@
+{
+ "coef": {
+  "paren": {
+   "c0": -2.4217841625213623,
+   "c1": 0.6225292682647705
+  },
+  "quote": {
+   "c0": -2.344571113586426,
+   "c1": 0.4747161865234375
+  }
+ },
+ "paren": {
+  "pearson_r_deltahat_vs_delta": 0.261,
+  "auc_openflag_vs_delta_gt_1nat": 0.547,
+  "frac_delta_gt_1nat": 0.0032,
+  "mean_delta_open": -0.908,
+  "mean_delta_closed": -2.538,
+  "acc_sign": 0.5285,
+  "behavioral_auc_openflag_vs_top5pct_lp": 0.5976
+ },
+ "quote": {
+  "pearson_r_deltahat_vs_delta": 0.1493,
+  "auc_openflag_vs_delta_gt_1nat": 0.5494,
+  "frac_delta_gt_1nat": 0.004,
+  "mean_delta_open": -1.725,
+  "mean_delta_closed": -2.339,
+  "acc_sign": 0.5291,
+  "behavioral_auc_openflag_vs_top5pct_lp": 0.594
+ },
+ "balanced": {
+  "paren": {
+   "balanced_pearson_r": 0.6081,
+   "balanced_auc": 0.6125
+  },
+  "quote": {
+   "balanced_pearson_r": 0.2705,
+   "balanced_auc": 0.756
+  }
+ },
+ "demos": [
+  {
+   "text": "The dogs ( which was near the cats and the birds",
+   "trace": [
+    {
+     "tok": "The",
+     "pred_paren": -2.42,
+     "actual_paren": -2.1,
+     "pred_quote": -2.34,
+     "actual_quote": -2.13
+    },
+    {
+     "tok": " dogs",
+     "pred_paren": -2.42,
+     "actual_paren": -3.69,
+     "pred_quote": -2.34,
+     "actual_quote": -3.51
+    },
+    {
+     "tok": " (",
+     "pred_paren": -1.8,
+     "actual_paren": -1.01,
+     "pred_quote": -2.34,
+     "actual_quote": -0.88
+    },
+    {
+     "tok": " which",
+     "pred_paren": -1.8,
+     "actual_paren": -2.38,
+     "pred_quote": -2.34,
+     "actual_quote": -2.18
+    },
+    {
+     "tok": " was",
+     "pred_paren": -1.8,
+     "actual_paren": -1.52,
+     "pred_quote": -2.34,
+     "actual_quote": -1.42
+    },
+    {
+     "tok": " near",
+     "pred_paren": -1.8,
+     "actual_paren": -1.12,
+     "pred_quote": -2.34,
+     "actual_quote": -1.13
+    },
+    {
+     "tok": " the",
+     "pred_paren": -1.8,
+     "actual_paren": -1.77,
+     "pred_quote": -2.34,
+     "actual_quote": -1.73
+    },
+    {
+     "tok": " cats",
+     "pred_paren": -1.8,
+     "actual_paren": 0.27,
+     "pred_quote": -2.34,
+     "actual_quote": 0.83
+    },
+    {
+     "tok": " and",
+     "pred_paren": -1.8,
+     "actual_paren": -2.68,
+     "pred_quote": -2.34,
+     "actual_quote": -2.19
+    },
+    {
+     "tok": " the",
+     "pred_paren": -1.8,
+     "actual_paren": -2.07,
+     "pred_quote": -2.34,
+     "actual_quote": -1.75
+    },
+    {
+     "tok": " birds",
+     "pred_paren": -1.8,
+     "actual_paren": 0.21,
+     "pred_quote": -2.34,
+     "actual_quote": 1.29
+    }
+   ]
+  },
+  {
+   "text": "She said \" bring me the books and the stones",
+   "trace": [
+    {
+     "tok": "She",
+     "pred_paren": -2.42,
+     "actual_paren": -1.74,
+     "pred_quote": -2.34,
+     "actual_quote": -1.71
+    },
+    {
+     "tok": " said",
+     "pred_paren": -2.42,
+     "actual_paren": -3.26,
+     "pred_quote": -2.34,
+     "actual_quote": -3.08
+    },
+    {
+     "tok": " \"",
+     "pred_paren": -2.42,
+     "actual_paren": -1.38,
+     "pred_quote": -1.87,
+     "actual_quote": -1.23
+    },
+    {
+     "tok": " bring",
+     "pred_paren": -2.42,
+     "actual_paren": -0.42,
+     "pred_quote": -1.87,
+     "actual_quote": -0.25
+    },
+    {
+     "tok": " me",
+     "pred_paren": -2.42,
+     "actual_paren": -0.02,
+     "pred_quote": -1.87,
+     "actual_quote": 0.09
+    },
+    {
+     "tok": " the",
+     "pred_paren": -2.42,
+     "actual_paren": -0.91,
+     "pred_quote": -1.87,
+     "actual_quote": -0.93
+    },
+    {
+     "tok": " books",
+     "pred_paren": -2.42,
+     "actual_paren": 0.92,
+     "pred_quote": -1.87,
+     "actual_quote": 0.53
+    },
+    {
+     "tok": " and",
+     "pred_paren": -2.42,
+     "actual_paren": -0.91,
+     "pred_quote": -1.87,
+     "actual_quote": -0.95
+    },
+    {
+     "tok": " the",
+     "pred_paren": -2.42,
+     "actual_paren": -1.27,
+     "pred_quote": -1.87,
+     "actual_quote": -1.28
+    },
+    {
+     "tok": " stones",
+     "pred_paren": -2.42,
+     "actual_paren": 0.69,
+     "pred_quote": -1.87,
+     "actual_quote": 0.46
+    }
+   ]
+  }
+ ]
+}

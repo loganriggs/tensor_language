@@ -1,0 +1,103 @@
+{
+ "scales": [
+  0.0,
+  0.5,
+  1.0,
+  1.5,
+  2.0
+ ],
+ "battery": {
+  "0.0": {
+   "held_boost": 2.909,
+   "held_se": 0.14,
+   "held_paren": 2.858,
+   "held_quote": 2.96
+  },
+  "0.5": {
+   "held_boost": 4.567,
+   "held_se": 0.175,
+   "held_paren": 4.909,
+   "held_quote": 4.224
+  },
+  "1.0": {
+   "held_boost": 6.457,
+   "held_se": 0.268,
+   "held_paren": 7.269,
+   "held_quote": 5.645
+  },
+  "1.5": {
+   "held_boost": 8.449,
+   "held_se": 0.378,
+   "held_paren": 9.73,
+   "held_quote": 7.167
+  },
+  "2.0": {
+   "held_boost": 10.433,
+   "held_se": 0.479,
+   "held_paren": 12.124,
+   "held_quote": 8.743
+  }
+ },
+ "audit": {
+  "0.0": {
+   "dce": 0.00759,
+   "se_token": 0.00046,
+   "se_seq": 0.00054,
+   "n_tokens": 77824,
+   "lp_paren_open": -7.804,
+   "lp_paren_closed": -11.405,
+   "sep_paren": 3.601,
+   "lp_quote_open": -10.258,
+   "lp_quote_closed": -11.656,
+   "sep_quote": 1.398
+  },
+  "0.5": {
+   "dce": 0.00167,
+   "se_token": 0.00023,
+   "se_seq": 0.00024,
+   "n_tokens": 77824,
+   "lp_paren_open": -8.242,
+   "lp_paren_closed": -12.662,
+   "sep_paren": 4.42,
+   "lp_quote_open": -11.11,
+   "lp_quote_closed": -12.817,
+   "sep_quote": 1.707
+  },
+  "1.0": {
+   "dce": 0.0,
+   "se_token": 0.0,
+   "se_seq": 0.0,
+   "n_tokens": 77824,
+   "lp_paren_open": -8.712,
+   "lp_paren_closed": -13.943,
+   "sep_paren": 5.231,
+   "lp_quote_open": -11.983,
+   "lp_quote_closed": -13.994,
+   "sep_quote": 2.011
+  },
+  "1.5": {
+   "dce": 0.00214,
+   "se_token": 0.00023,
+   "se_seq": 0.00022,
+   "n_tokens": 77824,
+   "lp_paren_open": -9.202,
+   "lp_paren_closed": -15.225,
+   "sep_paren": 6.023,
+   "lp_quote_open": -12.863,
+   "lp_quote_closed": -15.167,
+   "sep_quote": 2.304
+  },
+  "2.0": {
+   "dce": 0.00795,
+   "se_token": 0.00046,
+   "se_seq": 0.00045,
+   "n_tokens": 77824,
+   "lp_paren_open": -9.703,
+   "lp_paren_closed": -16.487,
+   "sep_paren": 6.784,
+   "lp_quote_open": -13.739,
+   "lp_quote_closed": -16.315,
+   "sep_quote": 2.576
+  }
+ }
+}

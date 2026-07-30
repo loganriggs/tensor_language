@@ -1,0 +1,231 @@
+{
+ "A_depth": {
+  "0": {
+   "a1_mean": 2573.6,
+   "a1_se": 200.1,
+   "lp_closer": -7.317,
+   "boost_vs_d0": 0.0,
+   "boost_se": 0.0
+  },
+  "1": {
+   "a1_mean": -738.6,
+   "a1_se": 166.3,
+   "lp_closer": -0.626,
+   "boost_vs_d0": 6.69,
+   "boost_se": 0.27
+  },
+  "2": {
+   "a1_mean": -1631.5,
+   "a1_se": 227.6,
+   "lp_closer": -1.18,
+   "boost_vs_d0": 6.137,
+   "boost_se": 0.292
+  },
+  "3": {
+   "a1_mean": -1664.0,
+   "a1_se": 236.1,
+   "lp_closer": -1.586,
+   "boost_vs_d0": 5.731,
+   "boost_se": 0.286
+  }
+ },
+ "B_types": {
+  "(": {
+   "a1_open": -738.6,
+   "a1_ctrl": 2573.6,
+   "a1_drop": 3312.1,
+   "boost": 6.69,
+   "boost_se": 0.27,
+   "boost_channel_zeroed": 2.683,
+   "channel_share": 0.599
+  },
+  "[": {
+   "a1_open": -218.6,
+   "a1_ctrl": 2573.6,
+   "a1_drop": 2792.2,
+   "boost": 9.61,
+   "boost_se": 0.235,
+   "boost_channel_zeroed": 7.047,
+   "channel_share": 0.267
+  },
+  "{": {
+   "a1_open": 2274.8,
+   "a1_ctrl": 2573.6,
+   "a1_drop": 298.8,
+   "boost": 3.689,
+   "boost_se": 0.321,
+   "boost_channel_zeroed": 3.602,
+   "channel_share": 0.024
+  },
+  "\"": {
+   "a1_open": 1521.0,
+   "a1_ctrl": 2573.6,
+   "a1_drop": 1052.6,
+   "boost": 4.81,
+   "boost_se": 0.19,
+   "boost_channel_zeroed": 2.442,
+   "channel_share": 0.492
+  }
+ },
+ "C_distance": {
+  "3": {
+   "mean_opener_to_final_tokens": 5.0,
+   "a1_open": -515.4,
+   "a1_ctrl": 2245.7,
+   "a1_drop": 2761.1,
+   "boost": 6.602,
+   "boost_se": 0.189
+  },
+  "8": {
+   "mean_opener_to_final_tokens": 8.0,
+   "a1_open": -788.9,
+   "a1_ctrl": 2569.9,
+   "a1_drop": 3358.8,
+   "boost": 6.331,
+   "boost_se": 0.204
+  },
+  "16": {
+   "mean_opener_to_final_tokens": 17.0,
+   "a1_open": -1089.8,
+   "a1_ctrl": 2041.9,
+   "a1_drop": 3131.7,
+   "boost": 6.495,
+   "boost_se": 0.193
+  },
+  "32": {
+   "mean_opener_to_final_tokens": 32.0,
+   "a1_open": -1098.2,
+   "a1_ctrl": 1521.1,
+   "a1_drop": 2619.2,
+   "boost": 6.093,
+   "boost_se": 0.139
+  },
+  "64": {
+   "mean_opener_to_final_tokens": 65.0,
+   "a1_open": -670.1,
+   "a1_ctrl": 797.7,
+   "a1_drop": 1467.8,
+   "boost": 6.852,
+   "boost_se": 0.17
+  },
+  "128": {
+   "mean_opener_to_final_tokens": 128.0,
+   "a1_open": 554.1,
+   "a1_ctrl": 773.1,
+   "a1_drop": 219.0,
+   "boost": 3.796,
+   "boost_se": 0.115
+  }
+ },
+ "D_closed_long_ago": {
+  "2": {
+   "a1_closed_long_ago": 1427.4,
+   "a1_never_opened": 1978.0,
+   "a1_residual": 550.7,
+   "lp_residual_boost": 0.447,
+   "lp_residual_se": 0.088
+  },
+  "8": {
+   "a1_closed_long_ago": 2487.6,
+   "a1_never_opened": 3086.7,
+   "a1_residual": 599.1,
+   "lp_residual_boost": 0.42,
+   "lp_residual_se": 0.117
+  },
+  "24": {
+   "a1_closed_long_ago": 1051.2,
+   "a1_never_opened": 1974.5,
+   "a1_residual": 923.3,
+   "lp_residual_boost": 1.831,
+   "lp_residual_se": 0.131
+  }
+ },
+ "E_cross_substitution": {
+  "paren": {
+   "same_coded": {
+    "own_closer_recovery": 0.3219,
+    "own_closer_dlp": 2.343,
+    "other_closer_dlp": 2.449
+   },
+   "cross_coded": {
+    "own_closer_recovery": 0.2954,
+    "own_closer_dlp": 2.152,
+    "other_closer_dlp": 2.247
+   }
+  },
+  "quote": {
+   "same_coded": {
+    "own_closer_recovery": 0.1415,
+    "own_closer_dlp": 0.81,
+    "other_closer_dlp": 0.835
+   },
+   "cross_coded": {
+    "own_closer_recovery": 0.1768,
+    "own_closer_dlp": 1.006,
+    "other_closer_dlp": 1.035
+   }
+  }
+ },
+ "F_natural_attenuation": {
+  "0-2": {
+   "mean_a1": 498.4,
+   "se": 34.4,
+   "n": 538
+  },
+  "3-6": {
+   "mean_a1": 244.1,
+   "se": 50.5,
+   "n": 341
+  },
+  "7-12": {
+   "mean_a1": 570.4,
+   "se": 72.6,
+   "n": 220
+  },
+  "13-24": {
+   "mean_a1": 1106.5,
+   "se": 77.6,
+   "n": 156
+  },
+  "25-60": {
+   "mean_a1": 1461.1,
+   "se": 50.1,
+   "n": 198
+  },
+  "61-512": {
+   "mean_a1": 1536.4,
+   "se": 30.8,
+   "n": 566
+  },
+  "closed_baseline": {
+   "mean_a1": 1604.7,
+   "n": 59541
+  }
+ },
+ "coded_dist_value": 433.9,
+ "F_coded_dist_gate": {
+  "paren": {
+   "coded_dist": 0.4706
+  },
+  "quote": {
+   "coded_dist": 0.398
+  }
+ },
+ "D_closed_long_ago_channel_check": {
+  "2": {
+   "residual_boost_base": 0.331,
+   "residual_boost_channel_zeroed": -0.226,
+   "channel_share": 1.681
+  },
+  "8": {
+   "residual_boost_base": 0.625,
+   "residual_boost_channel_zeroed": 0.188,
+   "channel_share": 0.698
+  },
+  "24": {
+   "residual_boost_base": 1.987,
+   "residual_boost_channel_zeroed": 0.786,
+   "channel_share": 0.604
+  }
+ }
+}

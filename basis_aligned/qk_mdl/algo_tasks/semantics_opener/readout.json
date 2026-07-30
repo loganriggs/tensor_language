@@ -1,0 +1,240 @@
+{
+ "n_positions": {
+  "fit": 123120,
+  "expl": 30780,
+  "audit": 77976
+ },
+ "frac_any_open": {
+  "fit": 0.1198,
+  "expl": 0.1354,
+  "audit": 0.1055
+ },
+ "a1_forms": {
+  "p_depth": {
+   "R2_fit": 0.0259,
+   "R2_expl": 0.041,
+   "R2_audit": 0.0443,
+   "beta": [
+    -693.9028,
+    1598.9917
+   ]
+  },
+  "tot_depth": {
+   "R2_fit": 0.0235,
+   "R2_expl": 0.039,
+   "R2_audit": 0.0408,
+   "beta": [
+    -549.6309,
+    1598.859
+   ]
+  },
+  "any_open": {
+   "R2_fit": 0.0493,
+   "R2_expl": 0.0559,
+   "R2_audit": 0.037,
+   "beta": [
+    -551.9846,
+    1640.3097
+   ]
+  },
+  "q_any": {
+   "R2_fit": 0.021,
+   "R2_expl": 0.0156,
+   "R2_audit": 0.0003,
+   "beta": [
+    -429.2923,
+    1608.8769
+   ]
+  },
+  "q_par": {
+   "R2_fit": 0.0056,
+   "R2_expl": -0.0019,
+   "R2_audit": -0.0108,
+   "beta": [
+    -514.217,
+    1581.3852
+   ]
+  },
+  "p_open_binary": {
+   "R2_fit": 0.0258,
+   "R2_expl": 0.0409,
+   "R2_audit": 0.0443,
+   "beta": [
+    -701.0121,
+    1599.0296
+   ]
+  },
+  "raw5": {
+   "R2_fit": 0.0443,
+   "R2_expl": 0.0456,
+   "R2_audit": 0.0391,
+   "beta": [
+    -699.3453,
+    -133.8386,
+    0.0,
+    -553.2815,
+    -274.0537,
+    1629.8248
+   ]
+  },
+  "tot+qany": {
+   "R2_fit": 0.0456,
+   "R2_expl": 0.0605,
+   "R2_audit": 0.0441,
+   "beta": [
+    -562.0329,
+    -440.1008,
+    1634.99
+   ]
+  }
+ },
+ "a1_position_control": {
+  "R2_fit": 0.0001,
+  "R2_expl": -0.0038,
+  "R2_audit": -0.0031,
+  "beta": [
+   0.0426,
+   1563.2794
+  ]
+ },
+ "a1_pos_plus_state": {
+  "R2_fit": 0.0461,
+  "R2_expl": 0.0619,
+  "R2_audit": 0.0431,
+  "beta": [
+   0.1267,
+   -563.7217,
+   -445.88,
+   1603.0857
+  ]
+ },
+ "a1_effect_sizes_audit": {
+  "any_open": {
+   "mean_open": 1048.017,
+   "mean_closed": 1587.853,
+   "cohens_d": -0.672,
+   "n_open": 8228,
+   "n_closed": 69748
+  },
+  "q_any": {
+   "mean_open": 1293.67,
+   "mean_closed": 1549.52,
+   "cohens_d": -0.313,
+   "n_open": 5678,
+   "n_closed": 72298
+  },
+  "p_open_binary": {
+   "mean_open": 519.752,
+   "mean_closed": 1566.17,
+   "cohens_d": -1.311,
+   "n_open": 2629,
+   "n_closed": 75347
+  }
+ },
+ "a1_by_paren_depth_audit": {
+  "0": {
+   "mean_a1": 1566.17,
+   "se": 2.8871,
+   "n": 75347
+  },
+  "1": {
+   "mean_a1": 523.058,
+   "se": 18.6562,
+   "n": 2602
+  }
+ },
+ "a1_by_paren_depth_no_quote_audit": {
+  "0": {
+   "mean_a1": 1585.569,
+   "se": 2.9246,
+   "n": 69855
+  },
+  "1": {
+   "mean_a1": 522.295,
+   "se": 19.0848,
+   "n": 2416
+  }
+ },
+ "a4_forward_R2_raw5": {
+  "dim0": {
+   "R2_fit": 0.0395,
+   "R2_expl": 0.0314,
+   "R2_audit": 0.024
+  },
+  "dim1": {
+   "R2_fit": 0.0293,
+   "R2_expl": 0.0268,
+   "R2_audit": 0.0369
+  },
+  "dim2": {
+   "R2_fit": 0.0231,
+   "R2_expl": 0.0184,
+   "R2_audit": 0.0169
+  },
+  "dim3": {
+   "R2_fit": 0.036,
+   "R2_expl": -0.0245,
+   "R2_audit": 0.0377
+  }
+ },
+ "decoding": {
+  "any_open_from_a1": {
+   "R2_fit": 0.0493,
+   "AUC_fit": 0.6708,
+   "R2_expl": 0.0573,
+   "AUC_expl": 0.6837,
+   "R2_audit": 0.0361,
+   "AUC_audit": 0.6494
+  },
+  "any_open_from_a4": {
+   "R2_fit": 0.0689,
+   "AUC_fit": 0.6963,
+   "R2_expl": 0.0708,
+   "AUC_expl": 0.6849,
+   "R2_audit": 0.0605,
+   "AUC_audit": 0.69
+  },
+  "p_open_binary_from_a1": {
+   "R2_fit": 0.0258,
+   "AUC_fit": 0.712,
+   "R2_expl": 0.0437,
+   "AUC_expl": 0.7924,
+   "R2_audit": 0.0487,
+   "AUC_audit": 0.8042
+  },
+  "p_open_binary_from_a4": {
+   "R2_fit": 0.0385,
+   "AUC_fit": 0.7748,
+   "R2_expl": 0.0481,
+   "AUC_expl": 0.8066,
+   "R2_audit": 0.0445,
+   "AUC_audit": 0.7884
+  },
+  "q_any_from_a1": {
+   "R2_fit": 0.021,
+   "AUC_fit": 0.6326,
+   "R2_expl": 0.0169,
+   "AUC_expl": 0.6196,
+   "R2_audit": -0.0003,
+   "AUC_audit": 0.5629
+  },
+  "q_any_from_a4": {
+   "R2_fit": 0.1038,
+   "AUC_fit": 0.7631,
+   "R2_expl": 0.069,
+   "AUC_expl": 0.6709,
+   "R2_audit": 0.0892,
+   "AUC_audit": 0.7368
+  },
+  "tot_depth_from_a1": {
+   "R2_fit": 0.0235,
+   "R2_expl": 0.0494,
+   "R2_audit": 0.051
+  },
+  "tot_depth_from_a4": {
+   "R2_fit": 0.0419,
+   "R2_expl": 0.0508,
+   "R2_audit": 0.0387
+  }
+ }
+}
