@@ -3272,12 +3272,22 @@ chain (each block is individually near-dispensable, cost ≤0.11).
 ## §45 MILESTONE — all 17 layers decomposed on three ledgers (representation/substitutability/function)
 (qk_layer_decomp.py sweep L1–17 + qk_symbolgen_meanfloor + qk_midstack_mlp_family; PLAN_per_layer.md table)
 Every layer 1–17 now carries: (Representation) MLP composed-fold gauge exact to ~1e-6; (Substitutability)
-marginal causal cost of replacing its attention (PCA-64/head bottleneck) + feed-forward (composed fold),
-held-back FW[448:600], paired standard error, head-span null — **all 17 between 99.95% and 99.998% of the
-uniform-ceiling headroom** (marginal costs +0.00014 to +0.0038 nats, largest at layers 6/8/14); attention
+MARGINAL causal cost of replacing ONE layer's attention (PCA-64/head bottleneck) + feed-forward (composed
+fold), everything else exact, held-back FW[448:600], paired standard error, head-span null — **all 17
+between 99.95% and 99.998% of the uniform-ceiling headroom, PER LAYER (marginal)** (marginal costs +0.00014
+to +0.0038 nats). CAPSTONE-REVIEW CORRECTIONS: (a) this is the MARGINAL per-layer figure, NOT cumulative —
+replacing attention+feed-forward at ALL layers at once costs ~+0.080 nats ≈ **98.95%** of headroom
+(whole-model attention bottleneck +0.0475 = 99.38%, MLP chain +0.0329 = 99.57%), ~20× the marginal loss;
+(b) at layers with a near-1× head-span null (L8 1.4×, L13 1.3×, L14 1.04×, L16 1.1×) "substitutable" means
+the attention is NEAR-DISPENSABLE on general cross-entropy, not that a compact interface reproduces a rich
+computation — and general-CE substitutability is BLIND to rare-but-decisive capabilities (L13 is ~99.98%
+substitutable here yet L13H8 is the causal router for the bracket/quote circuits §41/§50). Attention
 symbol-fold beats the positional-mean floor at 15/16 layers (L17 the near-output exception);
-(Function) a per-head selection-predicate census — programmatic heads found at every layer except the
-DIFFUSE layers 4, 9, 17 (no head clears the 5% predicate-gain threshold), plus the mid-stack feed-forward
+(Function) a per-head selection-predicate census — surface-predicate-nameable heads found at every layer
+except layers 4 and 17 (L9 is diffuse ONLY under the 8-predicate census; the fuller 12-predicate gate
+finds a gated KEY_newline head L9H8, gain 0.062 — so genuinely diffuse-under-both = 4/17 only). "Diffuse"
+means NO surface-predicate name, NOT no computation: e.g. L4 attention has a 3.3× head-span null (load-
+bearing). Plus the mid-stack feed-forward
 family map (§44). REMAINING LEDGER: **Meaning** (the measured frontier) — content is spectral/not
 class-nameable at layers 0 AND 1 (the rule), selection names gate cleanly only for copy/induction heads;
 meaning gates are being swept layer-by-layer (L1 done §43; L2/L3 in progress; KEY_cap capitals code next).
@@ -3329,8 +3339,14 @@ FAILED the gate (§46). The frontier is genuinely hard, and its shape is now mea
 content-nameability gate run at EVERY layer 0 through 17 settles the meaning ledger's content axis: the
 per-head value spectra are NOT class-nameable at any layer — class-nameable coordinate counts are 0–3 of
 576 at every layer (layer-by-layer: L0 3/576 §34, L1 0, L2 0, L3 0, L4 1, L5 0, L6 3, L7 0, L8 2, L9 1,
-L10 1, L11 0, L12 1, L13 2, L14 1, L15 1, L16 1, L17 0), median class-R² 0.014–0.038 throughout, and the
-class-code and spike-code substitution gates cost ~0.000 nats/token everywhere. Crucially content stays
+L10 1, L11 0, L12 1, L13 2, L14 1, L15 1, L16 1, L17 0), median class-R² 0.014–0.038 throughout (THIS class-R² is the real evidence). CAPSTONE-REVIEW CORRECTION:
+the class-code substitution gate reads ~0.000 nats/token MECHANICALLY — with only 0–3/576 coordinates
+codable, it overwrites ≤3 coordinates and would be ~0.000 whether content were nameable or not, so it is
+NOT diagnostic of nameability and is no longer cited as evidence; the spike-code gate ~0.000 is a SEPARATE
+fact (content is spike-concentrated / low-sensitivity), not a nameability result. SCOPE: "not
+class-nameable" means no single class in an independent grammar/orthography/frequency library reaches
+R²≥0.8 under a step-function name — content could be nameable under a different ontology (not tested); the
+only positive structure measured is spike-concentration. Crucially content stays
 spectral even at the lexical-readout layers 16–17 (§44) — it does NOT become class-nameable near the
 output. So "the model computes over a graded, memorized, non-class-nameable content SPECTRUM" is a
 UNIVERSAL property of bilin18, established at all 18 layers, not a layer-0 artifact. Combined with the
@@ -3354,9 +3370,11 @@ gated heads are the copy/induction/match family (MATCH_same/MATCH_prev/KEY_* pre
 - **Representation — DONE all layers:** MLP composed-fold gauge exact ~1e-6; two QK branches genuinely
   two-factor per head everywhere (§38).
 - **Substitutability — DONE all layers:** attention (PCA-64/head bottleneck) + feed-forward (composed
-  fold) replaced causally = 99.95–99.998% of the uniform-ceiling headroom, each with a paired standard
-  error and a head-span null (§45); attention symbol-fold beats the positional-mean floor at 15/16 layers.
-- **Function — DONE all layers:** per-head selection census (diffuse attention at layers 4, 9, 17);
+  fold) replaced causally = 99.95–99.998% of the uniform-ceiling headroom PER LAYER (MARGINAL — one layer
+  replaced, all others exact; cumulative whole-model ≈98.95%, ~20× more, §45), each with a paired standard
+  error and a head-span null (near-1× at the near-dispensable layers L8/L13/L14/L16); attention symbol-fold
+  beats the positional-mean floor at 15/16 layers.
+- **Function — DONE all layers:** per-head selection census (surface-predicate-diffuse attention at layers 4 and 17; L9 diffuse only under the 8-predicate census, gated KEY_newline head under the 12-predicate gate);
   feed-forward family map — MLP0–3 category engine (MLP1 hub, only block serving the match fabric),
   MLP4–15 distributed refinement, MLP16–17 lexical readout (§44).
 - **Meaning — DONE all layers (the frontier, now measured everywhere):** content is a spectral,
@@ -3411,4 +3429,7 @@ unlike greater-of-two — genuine context-dependent COMPUTATION, but bounded:
 **Algorithmic case-study summary (five arcs):** two genuine value-router circuits (bracket §41, quote §50
 = L13H8 copying a layer-0 value), one genuine but range-limited successor computation (§51 = L8H3/H7), one
 redundant position-router (subject-verb agreement §42), one pure in-context-copy prior (greater-of-two
-§40). The static-prior control cleanly separates computation from prior in every case.
+§40). The static-prior control is the decisive FIRST filter but did NOT cleanly separate on its own in
+every case (capstone review): it needed a follow-up demo-swap control in greater-of-two (its first reading
+was retracted), was a balanced-design tautology in subject-verb agreement, and was prior-confounded for
+‘(’ in brackets — it cleanly separated on its own only in quote (§50) and increment (§51).
