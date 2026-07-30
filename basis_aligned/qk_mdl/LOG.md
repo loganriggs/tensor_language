@@ -6964,3 +6964,14 @@ existing steering methods, not a new method class, so in-scope and launched rath
 - SAE THREAD COMPLETE. The completeness boundary (§71-§79) is now: coverage capped ~46% single-path, the rest
   irreducibly distributed / collective, architecture-general, and confirmed un-crackable by orthogonal
   directions AND sparse dictionaries. §74's "irreducibly distributed" is as hardened as this toolkit allows.
+
+## tick 2026-07-30 (closing §79's last caveat: 10× data SAE — dispatched)
+- §79's one residual caveat was that the ~0.72 held-back fidelity ceiling was on only 256 training sequences.
+  Found a 10× larger FineWeb token file on disk (data_fineweb_cooc_tokens.npy, (6000,513) — same format as the
+  canonical (600,513)). Dispatched a7f52d1960ffe6ebb (qk_sae_moredata.py): re-run the §79 top-K SAE trained on
+  ~10× more data (cooc[600:6000], disjoint from the canonical held-back FW[448:600]), settling: does more data
+  BREAK the 0.72 fidelity ceiling (data bound vs genuine high-rank bound), and if fidelity rises does the CAUSAL
+  negative (0/32 load-bearing, ~2% of the effect) still hold? Reuses the §79 scripts as base; data-disjointness
+  discipline instructed (verify cooc/canonical overlap). Collect next tick.
+- This is a bounded, in-scope completion of §79 (the caveat §79 itself flagged), not a new direction. Both
+  outcomes valuable: ceiling unmoved + causal persists = §74/§79 fully airtight even at 10× data.
