@@ -1,0 +1,96 @@
+{
+  "meta": {
+    "model": "bilin18",
+    "held_slice": "FW[448:600,:128]",
+    "n_positions": 19304,
+    "BATCH": 6,
+    "currency": "GLOBAL mean delta cross-entropy per valid held position (nats), paired SE",
+    "forward": "VERBATIM qk_coverage_ledger.py / qk_mlp_superposition.py",
+    "named_core_n": 18,
+    "named_ext_n": 26
+  },
+  "attack2_denominator": {
+    "joints_reproduced": {
+      "FULL_HEADROOM": {
+        "dCE": 5.3068,
+        "SE": 0.0334
+      },
+      "JOINT_234": {
+        "dCE": 3.3765,
+        "SE": 0.0234
+      },
+      "NAMED_CORE_joint": {
+        "dCE": 0.4446,
+        "SE": 0.0082
+      },
+      "NAMED_EXT_joint": {
+        "dCE": 0.5797,
+        "SE": 0.0093
+      },
+      "whole_model_superadditivity_J_over_singlesum": 2.8679
+    },
+    "named_set_own_additivity": {
+      "named_core_joint": 0.4446,
+      "named_core_singlepath_sum": 0.4697,
+      "named_core_joint_over_sum": 0.9466,
+      "named_ext_joint": 0.5797,
+      "named_ext_singlepath_sum": 0.5177,
+      "named_ext_joint_over_sum": 1.1197,
+      "note": "ratio ~1 => named set is near-ADDITIVE (its joint ~ sum of its solos), unlike the whole-model 2.87x. So the 11% uses a near-additive numerator."
+    },
+    "named_fraction_by_denominator": {
+      "core": {
+        "of_full_headroom": 0.0838,
+        "of_joint234": 0.1317,
+        "of_singlepath_sum": 0.3989
+      },
+      "ext": {
+        "of_full_headroom": 0.1092,
+        "of_joint234": 0.1717,
+        "of_singlepath_sum": 0.4397
+      },
+      "denominators": {
+        "full_headroom": 5.3068,
+        "joint234": 3.3765,
+        "singlepath_sum": 1.1773
+      },
+      "desc": "named fraction swings with denominator: headroom (joint of all) < joint234 < singlepath-sum. Report the range and fairest statement."
+    }
+  },
+  "attack3_rank_curve": {
+    "mlp_full_dCE": 4.5321,
+    "mlp_full_SE": 0.03,
+    "SVD_K8": {
+      "captured_dCE": 2.2529,
+      "SE": 0.0201,
+      "frac_of_full": 0.4971,
+      "claimed_frac_\u00a773": 0.497,
+      "matches": true
+    },
+    "SVD_K32": {
+      "captured_dCE": 3.7826,
+      "SE": 0.0268,
+      "frac_of_full": 0.8346,
+      "claimed_frac_\u00a773": 0.835,
+      "matches": true
+    },
+    "RAND_K8": {
+      "captured_dCE": 0.0112,
+      "SE": 0.0011,
+      "frac_of_full": 0.0025,
+      "claimed_frac_\u00a773": null,
+      "matches": null
+    },
+    "RAND_K32": {
+      "captured_dCE": 0.0577,
+      "SE": 0.0026,
+      "frac_of_full": 0.0127,
+      "claimed_frac_\u00a773": null,
+      "matches": null
+    },
+    "svd_over_random": {
+      "K8": 200.6535,
+      "K32": 65.5051
+    }
+  }
+}

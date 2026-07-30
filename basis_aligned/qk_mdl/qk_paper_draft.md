@@ -284,12 +284,16 @@ independently develops the same near-uniform whole-class movers, in the same fin
 push/suppress structure and the same class-push-tracks-importance correlation.
 
 **Completeness, stated honestly.** A coverage ledger partitions the model's total causal headroom
-(everything the eighteen layers do, measured by mean-ablation). The named circuits carry about eleven
-percent of it; roughly eighty-nine percent is not yet characterized. That unfound part is itself
-informative: about fifty-five percent of the headroom is single-path-expressible but uncharacterized —
-and over eighty percent of *that* sits in the hard, low-cleanliness region — while about thirty-six
-percent is non-axis-aligned, feed-forward computation below the leading singular directions the toolbox
-analyzes. Two structural facts frame the whole program: the model is roughly two-point-nine times
+(everything the eighteen layers do, measured by mean-ablation). The named-circuit fraction depends on
+the denominator and is best given as a range: the named circuits carry about eleven percent of the
+*total* headroom, but about forty-four percent of the *single-path-expressible* mechanism (the named
+numerator is near-additive; the headroom denominator is nearly three times super-additive). The gap
+matters: much of the remainder is not simply mechanism we failed to look at, but computation that single
+paths cannot express by construction — about thirty-six percent of the headroom is feed-forward effect
+below the leading singular directions, and the model is roughly three times super-additive overall, so
+most computation lives in *combinations*. The honest one-line reading is that single-path naming has
+captured a large share of what single paths *can* express, a small share of the whole, and that the
+whole is predominantly hard, distributed, and combinatorial. Two structural facts frame the whole program: the model is roughly two-point-nine times
 super-additive (ablating the full single-path basis costs almost three times the sum of the individual
 ablations), so most computation lives in *combinations* and single-path naming inherently undercounts
 it; and the largest effects we *do* name are the exception, not the rule, in a mechanism that is

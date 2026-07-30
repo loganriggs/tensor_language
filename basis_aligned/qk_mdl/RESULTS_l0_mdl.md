@@ -4096,9 +4096,17 @@ loss-headroom, held-back FW[448:600], GLOBAL mean-ablation delta cross-entropy p
 scale), paired standard errors. Denominator FULL HEADROOM = all attention heads + all full MLP outputs mean-
 ablated minus the full model = 5.307 ± 0.033 nats. Telescoping caveat flagged in the JSON (each term carries
 the usual mean-ablation interaction caveat).
-- **What we have NAMED is a small fraction.** The 26 paths characterized across §56–§70 (named-extended) carry
-  0.580 ± 0.009 nats jointly = **10.9% of headroom** (named-core, 18 paths, 8.4%). So **~89% of the layers'
-  causal work is NOT yet characterized** (not-found fraction: core 91.6%, extended 89.1%).
+- **What we have NAMED is a small fraction — but the fraction is denominator-dependent; report the RANGE.**
+  [RED-TEAM CORRECTION 2026-07-30, attack 2 → WEAKENED, stated as a range.] The 26 named paths carry 0.580 ±
+  0.009 nats jointly. As a fraction this SWINGS with the denominator because the named numerator is near-
+  ADDITIVE (its joint 0.580 is only 1.12× its own single-path sum 0.518) while the full-headroom denominator is
+  2.87× super-additive: **~11% of full headroom, ~17% of the joint of all path-expressible effect, ~44% of the
+  summed single-path mechanism** (named-core: 8.4% / 13.2% / 39.9%). The honest single statement: named
+  single-path circuits are ~11% of the TOTAL causal headroom, rising to ~44% of the SINGLE-PATH-expressible
+  effect. Crucially, much of the "~89% unfound" is NON-single-path-expressible residual (the 36% below the path
+  basis + the multi-path super-additivity) that single-path naming CANNOT express by construction — it is not
+  simply mechanism we failed to look at. So "89% unfound" overstates the gap; "we named ~44% of what single
+  paths can express, ~11% of the total, and the rest is largely not single-path-expressible" is the fair frame.
 - **The three coverage gaps:**
   (1) NAMED single-path circuits: 0.58 nats (10.9% of headroom).
   (2) UNNAMED but single-path-expressible: joint of all 234 paths (3.376 ± 0.023) minus named = **~2.80–2.93
@@ -4232,6 +4240,16 @@ FW[448:600], paired standard errors. HONEST NEGATIVE, and an important boundary 
   superposed (76% only under joint removal) and no single direction is individually interpretable. "Privileged
   basis for reconstruction" and "distributed superposition for causation" are both true, at different levels —
   no contradiction, a two-level picture.
+**RED-TEAM CONFIRMED (2026-07-30, attack 1 → SURVIVES decisively).** The obvious confound — that "76% only
+under joint removal" is a GENERIC mean-ablation super-additivity artifact — is refuted by the decisive control:
+the identical operation on the §73 low-rank LATE layers gives the OPPOSITE signature. Layer 1 (top-4 energy
+0.27): joint-only 75.9%, 0 nameable, max z 1.59. Layer 16 (top-4 energy 0.95): joint-only −89.8% (solo-
+DOMINANT), 2 nameable (z up to 4.2). Layer 17: joint-only +13.5%, 5 nameable (z up to 5.2). 32 RANDOM
+directions in MLP1: near-zero effect (230× less than the singular directions). Basis-independence holds too:
+two random rotations within MLP1's top-32 subspace keep joint-only at 78% with 0 nameable, and the bilinear
+NEURON basis (highest-energy hidden units) also yields 0 nameable (max z 1.96). So the joint-only /
+nothing-nameable signature is SPECIFIC to MLP1's structured high-rank subspace, not a generic artifact, and no
+tested basis makes a direction individually interpretable.
 **KEY (a boundary result):** the MLP1 high-rank tail — the largest uncharacterized bucket in the model — is
 IRREDUCIBLY DISTRIBUTED structured superposition, not many small nameable features. This is precisely where
 single-direction / single-path interpretability STOPS for this hub: naming its features would require
