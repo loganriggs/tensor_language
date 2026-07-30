@@ -94,3 +94,29 @@ gate. Most of (a)/(b) are already whole-model; the gaps are (c)/(d) for layers 8
   but a different one than "fully interpretable," and we say so.
 - Selectivity of edits (jailbreak/steer) may be low if redundancy buffers everything (induction
   dial had modest range for exactly this reason). Report reach honestly.
+
+## ═══ PROGRAM PIVOT 2026-07-30: FULL PER-LAYER DECOMPOSITION (Logan) ═══
+GOAL: fully decompose EVERY layer 1..17 on all four ledgers (representation / substitutability /
+function / meaning), bottom-up starting at layer 1, to the reviewed standard (held-back FW[448:600],
+paired standard errors, fair nulls, substitution gates, adversarial review before enshrinement). Option-2
+algorithmic-capability arcs run IN PARALLEL (verify -> patch to minimal circuit -> red-team). Layer 1 is
+UN-held. Cadence: 10-minute cron (job 0b62fec1).
+
+PARALLELIZATION ARCHITECTURE:
+- GPU is one shared ~15GB card. ALL heavy decomposition GPU work is SERIALIZED through the qkqueue
+  daemon (QUEUE.txt, one script/line); keep it stocked every tick.
+- Subagents run everything GPU-free in parallel: per-layer gap audit, writing the next batch of
+  layer/algo scripts, adversarial red-teaming, paper drafting. GPU-touching agents use batch<=8,
+  expandable_segments, <4GB footprint.
+- Reusable driver qk_layer_decomp.py (arg = layer L) runs the four-ledger battery per layer; queue
+  `qk_layer_decomp.py 2`, `... 3`, ... bottom-up.
+
+PER-LAYER STATUS TABLE: [to be populated by the audit agent — layers 1..17 x 4 ledgers, DONE/PARTIAL/
+MISSING with evidence]. Known starting point (from RESULTS): Representation + Substitutability largely
+whole-model/done; Function patchy above layer 8; Meaning is the frontier; layer 1 has §6a-c (token-
+identity port, 9-head mechanism ledger, h3-reading) — build on it.
+
+SETUP TICK (2026-07-30): dispatched 3 agents — (A) per-layer four-ledger audit -> master status table +
+prioritized next-10 experiments; (B) algorithmic-capability scout -> verify scripts for new tasks
+(qk_algoverify_*.py); (C) qk_layer_decomp.py template author. Queue intentionally idle this one tick so
+agent B has GPU headroom; stock from agent outputs next tick.
