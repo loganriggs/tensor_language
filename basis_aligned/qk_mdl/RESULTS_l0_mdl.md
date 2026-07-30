@@ -3293,3 +3293,21 @@ lowercase is a static prior. This is an editing-ledger-positive / MEANING-ledger
 not-load-bearing, like the category directions §35). Capitalization is NOT the fifth fully-gated meaning
 site; the meaning frontier remains at the four measured sites (L0, block-3 category, L8 successor, L13
 opener) plus the meaning-verified induction MATCH predicate.
+
+## §47 Layers 2–3 meaning gates — content spectral is robustly the rule; selection names only match heads
+(qk_l2/l3_content_gate.py, qk_l2/l3_selection_gate.py; held-back FW[448:600], paired standard errors)
+Extending the layer-1 meaning gates (§43) downstream:
+- **Content is SPECTRAL at layers 2 AND 3 too:** 0 of 576 head-value coordinates are class-nameable at
+  each (median class-R² 0.032 / 0.038; class-code and spike-code gates both +0.000). Combined with layers
+  0 (§34) and 1 (§43), "content is a graded, non-class-nameable spectrum" is now confirmed at FOUR
+  consecutive layers — robustly the RULE, not a layer-0 artifact.
+- **Selection names gate ONLY for the match/induction heads:** the simultaneous-substitution selection
+  gate at layers 2/3 (predicate gains 0.002–0.249 at L2, 0.008–0.314 at L3; gate cost +0.0049 / +0.0046
+  nats/token) is carried by the strong induction heads — L2H5 (MATCH_same, gain 0.245) and L3H8
+  (MATCH_same, gain 0.314), the meaning-verified induction MATCH predicate — while the weak heads and the
+  layer-1 descriptive archetype names (gain 0.007, §43) do NOT gate. So gated-nameable selection is a
+  property of the copy/induction/match heads specifically, not of selection heads in general.
+**Meaning-ledger picture so far (layers 0–3 + the deeper sites):** content spectral everywhere tested;
+selection nameable-and-gated only for match/induction/copy heads; the four functional-content sites
+(L0, block-3 category, L8 successor, L13 opener) plus the induction MATCH predicate; capitalization
+FAILED the gate (§46). The frontier is genuinely hard, and its shape is now measured, not assumed.
