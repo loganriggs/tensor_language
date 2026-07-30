@@ -6747,3 +6747,20 @@ Per the run-don't-hold autonomy directive, launched the flagged next frontier ra
   NAMEABLE (many small structured features) or IRREDUCIBLY DISTRIBUTED (→ where single-direction interp stops
   and dictionary/SAE methods would be needed). Honest-negative outcome valid & important. Collect next tick.
 - Cron 172134ae expires ~2026-08-06 — re-arm before then and tell Logan.
+
+## tick 2026-07-30 (§74 MLP1 tail = irreducibly distributed — the completeness thread's capstone)
+- §74 (subagent a00f042e4bd77dd67): the MLP1 high-rank tail (biggest uncharacterized bucket) is IRREDUCIBLY
+  DISTRIBUTED — 0 of 32 SVD directions single-direction nameable (max causal z 1.6); superposition signature
+  top-32 jointly 0.161 nats vs sum-of-solos 0.039 → 76% only under JOINT removal; per-direction output
+  near-uniform over vocab (entropy 10.53/10.82). Hub induction/category function lives in the distributed
+  whole (neither top-4 nor tail 5-32 carries induction; retention 1.00/1.03; full-MLP1 knockout inverts
+  induction +2.77→-1.74). Reconciles §73 as TWO LEVELS: basis-aligned for RECONSTRUCTION, joint-superposed for
+  CAUSATION. Committed §74.
+- BOUNDARY RESULT: this measures where single-direction/single-path interpretability STOPS for the hub — the
+  distributed early-layer bulk needs sparse-dictionary / SAE methods. The completeness thread (§71-§74) is now
+  a clean end-to-end honest story: ~11% named, the rest hard-single-path + irreducibly-distributed superposition,
+  boundary measured not assumed. Updated memory (qk-unsup-avoid-easy-bias) with the conclusion + SAE next-frontier.
+- Program state: comprehensive and at a genuine capstone. The clear methodological next step (if Logan wants to
+  push past the boundary) is SAE/dictionary-learning on the MLP1 hub — a NEW tool class, worth flagging as a
+  scope decision rather than launching unprompted.
+- Cron 172134ae expires ~2026-08-06 — re-arm before then and tell Logan.
