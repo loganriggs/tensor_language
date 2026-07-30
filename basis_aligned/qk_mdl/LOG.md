@@ -6351,3 +6351,15 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## any layer's selection. NEXT: collect the 3 agents' outputs (master status table + algoverify scripts
 ## + qk_layer_decomp.py), stock the queue bottom-up from layer 1/2, re-dispatch red-team/writer agents.
 ## 10-min cron 0b62fec1; re-arm before 2026-08-06.
+
+## TICK 2026-07-30ag (10-min #2) — 3 SETUP AGENTS COMPLETE, per-layer machinery LIVE + first layer runs.
+## Audit -> PLAN_per_layer.md (status table + 11 prioritized experiments). Template -> qk_layer_decomp.py
+## (4-ledger driver, working code copied verbatim, smoke-verified) + L1..17 wrappers. Algo scout -> §39
+## (greater-of-two 0.986, subject-verb agreement 1.00, quote-style 1.00, bracket-type+curly-hole,
+## induction/copy 0.733; NO on semantic key-value binding). Queued L1/L2/L3; daemon ran L1: Repr gauge
+## 1.2e-6; SUBST layer-1 attn+MLP surrogate marginal dCE +0.00052 +/-0.00016 vs null +0.025 (40-48x),
+## floor +5.33 -> 99.99% substitutable, standard-bar w/ SE; recon control 2.8e-8. L2/L3 running.
+## Dispatched 3 more agents: (D) layer-1 meaning gates (content + selection, priorities 1-2); (E)
+## greater-of-two circuit decomposition (patch->minimal); (F) positional-mean floor + SE for symbolgen
+## L6-17 (priority 3, cheapest way table is wrong). NEXT: collect L1-3 + agents D/E/F, stock L4-6, update
+## per-layer table. 10-min cron 0b62fec1; re-arm before 2026-08-06.
