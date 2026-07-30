@@ -6005,3 +6005,11 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## what-is-written = graded lexical spectra, complete description = the exact weight-derived
 ## spectrum (inspectable, causal, not class-compressible). Coheres with induction match-vs-delivery,
 ## v1-router, three-tables. All gates validated on real names (newline coords pass exactly).
+
+## TICK 2026-07-30f — CAPABILITY DIAL DEMO (Logan Q: what does the decomposition buy?). Scaling only
+## the verified match channel s=0..2 at the 24 heads: induction adv monotone (nat 2.652->2.836, shuf
+## 6.972->7.432), natural CE within 0.002 across the range -- control knob from understanding, zero
+## collateral; modest range = the named channel is one of several redundant paths (as documented).
+## Also answered: content-spectra generalization to L>0 = conditional/named-input spectra; hint that
+## higher-layer content may be FUNCTIONALLY nameable (closure 1-dim channel at L13, successor
+## dictionaries) even though L0 content is lexically unnameable -- next gateable experiment.
