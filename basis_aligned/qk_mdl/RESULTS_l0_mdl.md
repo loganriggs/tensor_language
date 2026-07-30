@@ -3204,22 +3204,29 @@ softened above.
 
 ## §42 Subject-verb agreement = a mid-layer position-router (L11H3 selects the head noun) (2026-07-30)
 (qk_svagree_patch.py; "The {head} to the {attractor}" → is/are, 80 items incl. 40 incongruent-attractor;
-graded margin logit[correct verb]−logit[wrong], mean-ablation zero point) Number agreement (accuracy 1.00
-incl. attractors) is a GENUINE attention circuit — the opposite of greater-of-two: **zero static prior**
-(all-attention ablation → margin exactly 0.000, accuracy 0.50 = chance; nothing survives without
-attention). Structure: **one dominant head L11H3** carries ~half the incongruent margin (drop 1.40 of
-3.06) and does the positional selection — its query-row weight-share is 0.346 at the HEAD-noun position
-versus 0.05 at the attractor, argmax on the head 77.5% versus 0% on the attractor, identical on
-incongruent items. **That head-position selectivity (ignoring the nearer attractor) is exactly why the 40
-incongruent items succeed.** The rest of the margin is diffuse across mid-stack feed-forward blocks (L6–L9,
-L12); no single-point failure (every single ablation keeps accuracy 1.00 — redundant). **Relation to the
-§41 v1-router:** it shares the "QK decides WHERE" half (route to the head-noun position) but NOT the
-layer-0-value "WHAT" — swapping the head noun's layer-0 value moves only ~15–20% of the number signal and
-NEVER flips the verb (versus bracket, where the layer-0 value-swap fully flipped closer identity), and
-swapping the attractor's value does nothing (verb ignores it). So the number feature is carried
-distributed/**mid-stack** (L11H3 reading its own layer-11 value at the head position), not as a localized
-layer-0 payload. A position-router for a syntactic feature — routing principle general, payload mid-stack.
-Applied both lessons (static-prior control first, v1-swap test); causally clean; candidate for red-team.
+graded margin logit[correct verb]−logit[wrong], mean-ablation zero point) **Capability (survives review):** accuracy 1.00 on the 40 incongruent-attractor items — genuine
+structural agreement, not attractor recency. **Attention is required** — architecturally (the head noun
+is at position 1, the query at position 4, so the head number cannot reach the verb without attention)
+and behaviorally (1.00 incongruent accuracy). CAVEAT on the ablation numbers (per red-team, same class as
+§40): all-attention ablation gives mean margin 0.000 / accuracy 0.50, but this is FORCED by the balanced
+5×4×2×2 design — the two members of each pair differ only at position 1 and cancel by sign — NOT
+independent evidence of "zero prior"; the only no-attention signal is a small ±0.27-nat attractor-
+following bias that HURTS incongruent items. **Dominant head L11H3 (margin, not causal):** it carries
+~half the incongruent margin (drop 1.40 of 3.06 ≈ 46%, ≈ all of L11-attention, clean 2.3× gap to the
+next) — but it is REDUNDANT: ablating it (or any single component) keeps accuracy 1.00, flipping no items,
+so it is contributory, not "why the incongruent items succeed" (single seed, no error bars). Its query
+row preferentially reads the head position (weight-share 0.35 vs 0.05 attractor, argmax 78% vs 0%; the
+second-largest share, 0.25, sits on the position-0 attention sink) — a correlational readout, cleanly
+de-weighting the attractor. **Where the number lives — NOT cleanly localized:** the layer-0 value cache
+is GLOBALLY NECESSARY (removing it, lambda=0, collapses incongruent agreement to accuracy 0.40, below
+chance), but swapping ONE position's layer-0 value between singular/plural moves only ~17% of the 7.5-nat
+number swing and NEVER flips the verb (attractor-value swap does nothing). So — unlike bracket §41, where
+a single-position layer-0 value-swap flipped closer identity 100%→0% — number is a REDUNDANT/DISTRIBUTED
+code, not a swappable head-position layer-0 payload; whether it is "mid-stack" or distributed layer-0 is
+not resolved by these data. Rest of the margin is diffuse across mid-stack ATTENTION and feed-forward
+(L7-attention is the 2nd component, 0.66). CAVEATS: single sentence template, single seed. Verdict: a
+genuine, attention-required, attractor-robust agreement behavior with a dominant-but-redundant head that
+reads the head position; the number's exact locus and a same-number identity-swap control remain open.
 
 ## §43 Layer-1 MEANING gates + the substitutability positional-mean hygiene (2026-07-30)
 **Content is spectral one layer up too — the rule, not a layer-0 quirk (qk_l1_content_gate.py).** Running
