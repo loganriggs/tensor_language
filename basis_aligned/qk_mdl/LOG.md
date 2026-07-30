@@ -5955,3 +5955,10 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## tensor network: token -> per-layer 576-dim attention interfaces -> exact quadratic cores ->
 ## gauges -> readout. COMPOSITION PROGRAM CLOSED AT WHOLE-MODEL LEVEL. Remaining: coordinate
 ## semantics (naming the PCA completions), consolidated write-up + artifact refresh.
+
+## TICK 2026-07-30a — CAPSTONE CONTROLS. Named-bottleneck NULL: random 576-dim subspaces +4.78 vs
+## PCA bases +0.0475 = 100x separation -- claim survives, not trivial half-dim compressibility;
+## energy capture 83-99.7%/layer. Red-team agent dispatched over the whole composition arc (framing
+## inflation of 'fully analytic zero-parameter' vs 'MLP-input attention truncation', MDL fairness
+## composition-vs-data, gauge contentfulness, CO lambda-algebra spot-check, hygiene). RESULTS §33 +
+## artifact refresh deferred until findings land (enshrine only reviewed numbers).
