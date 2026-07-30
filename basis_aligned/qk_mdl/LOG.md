@@ -6319,3 +6319,15 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## the commandeering -- localization within the copy heads). NEXT: process per-head; then editing fully
 ## exhausted -- consider consolidation (paper/artifact) or new-arc scope check w/ Logan. Cron 1475f52b;
 ## re-arm before 2026-08-06.
+
+## TICK 2026-07-30ad — EDITING PRIMITIVE is FOUR-FAMILY GENERAL (arc + generality complete). Copy-head
+## commandeering replicates across all 4 attention families via broad-set overwrite + aimability double
+## dissociation (off ~0.006 baseline): bilin12 norm-squared 0.175/0.320; bilinsm12 softmax 0.355/0.416;
+## swiglu18 softmax+swiglu 0.409/0.367; bilin18 two-branch (planted single-set 0.83). Matches the
+## composition arc's 4-model generality (§32b). §37i distributed-write also replicates (2 census heads
+## do nothing; needs broad set). §37j extended. Caught+fixed a json-path slip (derived scripts had
+## overwritten bilin12's json; all 3 now write their own, model field verified). PROGRAM STATE: T1-T8 +
+## editing capstone §36-37j COMPLETE and defended (6 review rounds, 4 retractions, 4-family generality).
+## QUEUE: qk_commandeer_se_bilin12.py (SE + baseline to standard bar). NEXT MAJOR DIRECTION is a scope
+## call for Logan (program's planned work done) -- surfaced in report; meanwhile consolidation (artifact/
+## paper T7, GPU-free) + standard-bar polish. Cron 1475f52b; re-arm before 2026-08-06.
