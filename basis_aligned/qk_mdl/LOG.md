@@ -6204,3 +6204,16 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## NATURAL un-planted triggers with SEs over many positions + 3 freqs -- closes the planted-best-case +
 ## SE concerns). NEXT: process natural-trigger reach; if it lands, promote the editing capstone
 ## (§36/§37/§37b + natural) to atlas/summary and refresh artifact. Cron 1475f52b; re-arm before 08-06.
+
+## TICK 2026-07-30v — §37c NATURAL-TRIGGER REACH = HONEST CEILING of the redirect arc. Fired the §37
+## conditional redirect on NATURAL (un-planted) triggers in real text (SEs, 3 freqs). Planted reach does
+## NOT transfer: argmax capture 0.00 (distinctive n=10) / 0.22 (moderate n=18) / 0.074 (frequent n=498)
+## vs planted 0.958; payload P rises directionally (up to ~80x) but stays <=0.165. MECHANISM shown in
+## baseline: natural trigger queries carry weak induction (true-next P 0.12-0.24) vs 0.85 planted -- a
+## redirect can only hijack the induction locally present. CORRECTED SCOPE: editing capstone is a
+## demonstrated CONTROLLED-setting precision edit, engages-but-low-yield in the wild -- NOT an
+## established in-the-wild targeted edit. Reviewed §37c. Fairness red-team dispatched (afaee754: is the
+## negative a payload/amplitude artifact or real?). Queue: qk_natural_strong_induction.py (reach vs
+## baseline induction strength, payload+scale held fixed -- confirms mechanism: reach should rise with
+## local induction if §37c is right). NEXT: process red-team + mechanism test; then editing arc CLOSES
+## and promote §36/37/37b/37c to atlas/summary + artifact. Cron 1475f52b; re-arm before 2026-08-06.
