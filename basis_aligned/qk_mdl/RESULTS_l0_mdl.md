@@ -3115,3 +3115,33 @@ branch scores — a difference/conjunction detector; even the most-redundant hea
 two-factor bilinear form cannot be reduced to one branch when decomposing any layer's selection — both
 branches must be carried. (Caveat: correlation is a linear measure; it establishes non-redundancy, not
 the finer semantics of each branch, which the per-layer function ledger addresses.)
+
+## §39 Algorithmic-behavior map extension (2026-07-30, option-2 scout)
+(qk_algoverify_*.py; greedy/argmax next-token on hand-built prompt sets, accuracy vs chance baseline.
+Behavior verification only — the first step; decomposition of the promising ones follows.) Prior map
+(qk_algo_probe): YES on paren/quote closure, list increment, weekday/month/alphabet; NO on addition
+(0.03), sorting (0.29). New results:
+
+| task | verdict | accuracy | baseline |
+|---|---|---|---|
+| bracket TYPE matching ( [ { | YES with a hole | 0.667 (‘(’ 1.00, ‘[’ 1.00, ‘{’ 0.00 → always ")") | 0.333 |
+| bracket DEPTH (open paren → ")") | YES | +7.0 log-prob boost, 20/20 | 0 |
+| quote-style matching (' vs ") | YES | 1.00 (n=40) | 0.5 |
+| induction/copy random rare tokens | YES | 0.733 argmax (control 0.000) | ~2e-5 |
+| key-value lookup, SEMANTIC | **NO** | 0.333 = chance (pure recency) | 0.333 |
+| key-value lookup, literal (x=4,y=7…) | weak | 0.567 | 0.333 |
+| greater-of-two digits, few-shot | **YES** | 0.986 (shown pair) / 0.694 (all 9) | 0.5 / 0.111 |
+| reverse 3-digit sequence | weak/NO | 0.475 | 0.333 |
+| counting repeated words | NO | 0.167 (only the few-shot prior) | 0.111 |
+| subject-verb agreement across attractor | **YES** | 1.00 incl. 40 incongruent (n=80) | 0.5 |
+| list increment across decade carry (9→10,99→100) | YES | 1.00 (n=20) | 0.167 |
+
+**Reads:** (1) the model matches surface token patterns but does NOT bind entities — semantic
+key-value lookup is a clean chance-level negative while literal-pattern lookup is weakly present.
+(2) First verified numeric COMPARISON (greater-of-two 0.986), a genuinely different computation from
+succession/closure, and a sharp contrast with the addition failure. (3) Perfect structural
+subject-verb agreement across an attractor noun — a candidate syntactic-feature (number) channel,
+testing whether the v1-router principle extends beyond lexical identity. (4) The curly-brace hole in
+bracket-type matching is a built-in negative control for the closer-identity circuit. Top-3 to
+decompose next (patch → minimal circuit → red-team): greater-of-two, bracket-type + curly hole,
+subject-verb agreement.
