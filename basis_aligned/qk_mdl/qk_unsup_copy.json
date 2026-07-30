@@ -1,0 +1,6227 @@
+{
+  "technique": "unsupervised COPY / value-routing detection: per-head, per-position argmax-attended-source alignment of the head DLA with the SOURCE token (verbatim) or its SUCCESSOR (induction) vs random baseline; ranks all 18x9 heads by copy-purity over top-50 activating positions. Complements the source-INDEPENDENT class-boost detector of the section-56 pipeline.",
+  "params": {
+    "train_slice": "FW[0:256,:128]",
+    "held_slice": "FW[448:600,:128]",
+    "KTOP": 60,
+    "KUSE": 50,
+    "KBOOST": 10,
+    "KCAUSAL": 200
+  },
+  "ranking": [
+    {
+      "head": "L8H4",
+      "li": 8,
+      "h": 4,
+      "copy_purity": 1.0,
+      "verbatim_purity": 0.98,
+      "successor_purity": 0.06,
+      "src_logit_z": 9.32,
+      "succ_logit_z": 1.13,
+      "src_rank_median": 0,
+      "succ_rank_median": 15076,
+      "sink_frac": 0.0,
+      "self_frac": 0.02,
+      "prev_frac": 0.0,
+      "offset_median": 66,
+      "offset_conc": 0.076,
+      "src_tok_conc": 0.553,
+      "top_src_toks": [
+        [
+          "' 2012'",
+          23
+        ],
+        [
+          "' -'",
+          13
+        ],
+        [
+          "' 2013'",
+          2
+        ],
+        [
+          "'URL'",
+          2
+        ]
+      ],
+      "purity_rank": 0
+    },
+    {
+      "head": "L8H3",
+      "li": 8,
+      "h": 3,
+      "copy_purity": 0.98,
+      "verbatim_purity": 0.94,
+      "successor_purity": 0.04,
+      "src_logit_z": 8.71,
+      "succ_logit_z": 1.02,
+      "src_rank_median": 0,
+      "succ_rank_median": 11623,
+      "sink_frac": 0.0,
+      "self_frac": 0.04,
+      "prev_frac": 0.08,
+      "offset_median": 19,
+      "offset_conc": 0.152,
+      "src_tok_conc": 0.201,
+      "top_src_toks": [
+        [
+          "' 17'",
+          7
+        ],
+        [
+          "' 11'",
+          5
+        ],
+        [
+          "' 15'",
+          4
+        ],
+        [
+          "' 25'",
+          3
+        ]
+      ],
+      "purity_rank": 1
+    },
+    {
+      "head": "L7H3",
+      "li": 7,
+      "h": 3,
+      "copy_purity": 0.96,
+      "verbatim_purity": 0.92,
+      "successor_purity": 0.06,
+      "src_logit_z": 8.61,
+      "succ_logit_z": 0.97,
+      "src_rank_median": 1,
+      "succ_rank_median": 10548,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.0,
+      "offset_median": 46,
+      "offset_conc": 0.081,
+      "src_tok_conc": 0.235,
+      "top_src_toks": [
+        [
+          "'May'",
+          7
+        ],
+        [
+          "' 17'",
+          5
+        ],
+        [
+          "' 11'",
+          3
+        ],
+        [
+          "' 13'",
+          3
+        ]
+      ],
+      "purity_rank": 2
+    },
+    {
+      "head": "L13H0",
+      "li": 13,
+      "h": 0,
+      "copy_purity": 0.84,
+      "verbatim_purity": 0.84,
+      "successor_purity": 0.02,
+      "src_logit_z": 9.3,
+      "succ_logit_z": 1.1,
+      "src_rank_median": 1,
+      "succ_rank_median": 12063,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.08,
+      "offset_median": 16,
+      "offset_conc": 0.178,
+      "src_tok_conc": 0.23,
+      "top_src_toks": [
+        [
+          "' Ukrainian'",
+          7
+        ],
+        [
+          "' Polish'",
+          7
+        ],
+        [
+          "' Iraq'",
+          4
+        ],
+        [
+          "' Florida'",
+          3
+        ]
+      ],
+      "purity_rank": 3
+    },
+    {
+      "head": "L14H7",
+      "li": 14,
+      "h": 7,
+      "copy_purity": 0.8,
+      "verbatim_purity": 0.8,
+      "successor_purity": 0.04,
+      "src_logit_z": 6.47,
+      "succ_logit_z": 1.05,
+      "src_rank_median": 1,
+      "succ_rank_median": 10324,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.0,
+      "offset_median": 55,
+      "offset_conc": 0.071,
+      "src_tok_conc": 0.219,
+      "top_src_toks": [
+        [
+          "'Abyss'",
+          5
+        ],
+        [
+          "' The'",
+          4
+        ],
+        [
+          "' Abyss'",
+          4
+        ],
+        [
+          "' Ker'",
+          4
+        ]
+      ],
+      "purity_rank": 4
+    },
+    {
+      "head": "L15H4",
+      "li": 15,
+      "h": 4,
+      "copy_purity": 0.78,
+      "verbatim_purity": 0.78,
+      "successor_purity": 0.0,
+      "src_logit_z": 6.72,
+      "succ_logit_z": 0.17,
+      "src_rank_median": 1,
+      "succ_rank_median": 24423,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.0,
+      "offset_median": 70,
+      "offset_conc": 0.09,
+      "src_tok_conc": 0.248,
+      "top_src_toks": [
+        [
+          "' Miami'",
+          7
+        ],
+        [
+          "' Maine'",
+          6
+        ],
+        [
+          "' Florida'",
+          4
+        ],
+        [
+          "' Du'",
+          4
+        ]
+      ],
+      "purity_rank": 5
+    },
+    {
+      "head": "L6H5",
+      "li": 6,
+      "h": 5,
+      "copy_purity": 0.76,
+      "verbatim_purity": 0.72,
+      "successor_purity": 0.1,
+      "src_logit_z": 12.27,
+      "succ_logit_z": 1.99,
+      "src_rank_median": 0,
+      "succ_rank_median": 5242,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.0,
+      "offset_median": 66,
+      "offset_conc": 0.092,
+      "src_tok_conc": 0.309,
+      "top_src_toks": [
+        [
+          "'||'",
+          9
+        ],
+        [
+          "' ('",
+          8
+        ],
+        [
+          "'-'",
+          4
+        ],
+        [
+          "':'",
+          4
+        ]
+      ],
+      "purity_rank": 6
+    },
+    {
+      "head": "L14H0",
+      "li": 14,
+      "h": 0,
+      "copy_purity": 0.76,
+      "verbatim_purity": 0.72,
+      "successor_purity": 0.14,
+      "src_logit_z": 5.3,
+      "succ_logit_z": 1.43,
+      "src_rank_median": 1,
+      "succ_rank_median": 15971,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.0,
+      "offset_median": 33,
+      "offset_conc": 0.105,
+      "src_tok_conc": 0.136,
+      "top_src_toks": [
+        [
+          "' waking'",
+          6
+        ],
+        [
+          "' assigned'",
+          3
+        ],
+        [
+          "' specific'",
+          2
+        ],
+        [
+          "' mix'",
+          2
+        ]
+      ],
+      "purity_rank": 7
+    },
+    {
+      "head": "L14H4",
+      "li": 14,
+      "h": 4,
+      "copy_purity": 0.74,
+      "verbatim_purity": 0.74,
+      "successor_purity": 0.04,
+      "src_logit_z": 5.04,
+      "succ_logit_z": 0.36,
+      "src_rank_median": 1,
+      "succ_rank_median": 25500,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.1,
+      "offset_median": 31,
+      "offset_conc": 0.108,
+      "src_tok_conc": 0.263,
+      "top_src_toks": [
+        [
+          "'Abyss'",
+          11
+        ],
+        [
+          "' Abyss'",
+          6
+        ],
+        [
+          "' 2008'",
+          3
+        ],
+        [
+          "' 2003'",
+          2
+        ]
+      ],
+      "purity_rank": 8
+    },
+    {
+      "head": "L6H7",
+      "li": 6,
+      "h": 7,
+      "copy_purity": 0.7,
+      "verbatim_purity": 0.16,
+      "successor_purity": 0.54,
+      "src_logit_z": 3.25,
+      "succ_logit_z": 4.55,
+      "src_rank_median": 222,
+      "succ_rank_median": 0,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.0,
+      "offset_median": 41,
+      "offset_conc": 0.098,
+      "src_tok_conc": 0.206,
+      "top_src_toks": [
+        [
+          "' ('",
+          7
+        ],
+        [
+          "' Insider'",
+          5
+        ],
+        [
+          "'June'",
+          3
+        ],
+        [
+          "' 13'",
+          2
+        ]
+      ],
+      "purity_rank": 9
+    },
+    {
+      "head": "L16H4",
+      "li": 16,
+      "h": 4,
+      "copy_purity": 0.7,
+      "verbatim_purity": 0.58,
+      "successor_purity": 0.3,
+      "src_logit_z": 5.0,
+      "succ_logit_z": 3.02,
+      "src_rank_median": 4,
+      "succ_rank_median": 120,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.0,
+      "offset_median": 57,
+      "offset_conc": 0.069,
+      "src_tok_conc": 0.29,
+      "top_src_toks": [
+        [
+          "' Abyss'",
+          10
+        ],
+        [
+          "' digital'",
+          6
+        ],
+        [
+          "' marine'",
+          5
+        ],
+        [
+          "' Hak'",
+          3
+        ]
+      ],
+      "purity_rank": 10
+    },
+    {
+      "head": "L1H2",
+      "li": 1,
+      "h": 2,
+      "copy_purity": 0.68,
+      "verbatim_purity": 0.3,
+      "successor_purity": 0.38,
+      "src_logit_z": 4.27,
+      "succ_logit_z": 2.62,
+      "src_rank_median": 50,
+      "succ_rank_median": 3572,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.0,
+      "offset_median": 18,
+      "offset_conc": 0.191,
+      "src_tok_conc": 0.839,
+      "top_src_toks": [
+        [
+          "'\\n'",
+          40
+        ],
+        [
+          "'-'",
+          8
+        ],
+        [
+          "'*'",
+          1
+        ],
+        [
+          "'.'",
+          1
+        ]
+      ],
+      "purity_rank": 11
+    },
+    {
+      "head": "L10H3",
+      "li": 10,
+      "h": 3,
+      "copy_purity": 0.68,
+      "verbatim_purity": 0.6,
+      "successor_purity": 0.1,
+      "src_logit_z": 4.9,
+      "succ_logit_z": 2.29,
+      "src_rank_median": 4,
+      "succ_rank_median": 1418,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.02,
+      "offset_median": 27,
+      "offset_conc": 0.124,
+      "src_tok_conc": 0.074,
+      "top_src_toks": [
+        [
+          "' exemptions'",
+          4
+        ],
+        [
+          "' presumed'",
+          3
+        ],
+        [
+          "' head'",
+          2
+        ],
+        [
+          "' selection'",
+          2
+        ]
+      ],
+      "purity_rank": 12
+    },
+    {
+      "head": "L8H2",
+      "li": 8,
+      "h": 2,
+      "copy_purity": 0.66,
+      "verbatim_purity": 0.66,
+      "successor_purity": 0.0,
+      "src_logit_z": 16.16,
+      "succ_logit_z": 1.11,
+      "src_rank_median": 0,
+      "succ_rank_median": 6375,
+      "sink_frac": 0.0,
+      "self_frac": 0.16,
+      "prev_frac": 0.1,
+      "offset_median": 13,
+      "offset_conc": 0.255,
+      "src_tok_conc": 0.463,
+      "top_src_toks": [
+        [
+          "'\\n'",
+          24
+        ],
+        [
+          "' Nations'",
+          4
+        ],
+        [
+          "' Melbourne'",
+          3
+        ],
+        [
+          "' Florida'",
+          2
+        ]
+      ],
+      "purity_rank": 13
+    },
+    {
+      "head": "L13H2",
+      "li": 13,
+      "h": 2,
+      "copy_purity": 0.66,
+      "verbatim_purity": 0.66,
+      "successor_purity": 0.06,
+      "src_logit_z": 7.32,
+      "succ_logit_z": 1.26,
+      "src_rank_median": 1,
+      "succ_rank_median": 5998,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.1,
+      "offset_median": 35,
+      "offset_conc": 0.148,
+      "src_tok_conc": 0.152,
+      "top_src_toks": [
+        [
+          "' special'",
+          4
+        ],
+        [
+          "' specific'",
+          4
+        ],
+        [
+          "' We'",
+          3
+        ],
+        [
+          "' small'",
+          3
+        ]
+      ],
+      "purity_rank": 14
+    },
+    {
+      "head": "L13H3",
+      "li": 13,
+      "h": 3,
+      "copy_purity": 0.66,
+      "verbatim_purity": 0.66,
+      "successor_purity": 0.0,
+      "src_logit_z": 15.03,
+      "succ_logit_z": 0.24,
+      "src_rank_median": 4,
+      "succ_rank_median": 20104,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.08,
+      "offset_median": 19,
+      "offset_conc": 0.19,
+      "src_tok_conc": 0.341,
+      "top_src_toks": [
+        [
+          "\".''\"",
+          9
+        ],
+        [
+          "',\"'",
+          8
+        ],
+        [
+          "'.\"'",
+          5
+        ],
+        [
+          "'\"'",
+          4
+        ]
+      ],
+      "purity_rank": 15
+    },
+    {
+      "head": "L10H6",
+      "li": 10,
+      "h": 6,
+      "copy_purity": 0.62,
+      "verbatim_purity": 0.62,
+      "successor_purity": 0.0,
+      "src_logit_z": 12.41,
+      "succ_logit_z": 0.12,
+      "src_rank_median": 8,
+      "succ_rank_median": 26049,
+      "sink_frac": 0.0,
+      "self_frac": 0.26,
+      "prev_frac": 0.0,
+      "offset_median": 31,
+      "offset_conc": 0.209,
+      "src_tok_conc": 0.448,
+      "top_src_toks": [
+        [
+          "\"'s\"",
+          13
+        ],
+        [
+          "'\"'",
+          9
+        ],
+        [
+          "\"'t\"",
+          6
+        ],
+        [
+          "'.\"'",
+          6
+        ]
+      ],
+      "purity_rank": 16
+    },
+    {
+      "head": "L13H5",
+      "li": 13,
+      "h": 5,
+      "copy_purity": 0.62,
+      "verbatim_purity": 0.62,
+      "successor_purity": 0.0,
+      "src_logit_z": 10.36,
+      "succ_logit_z": 0.29,
+      "src_rank_median": 2,
+      "succ_rank_median": 19559,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.0,
+      "offset_median": 36,
+      "offset_conc": 0.088,
+      "src_tok_conc": 0.194,
+      "top_src_toks": [
+        [
+          "' Young'",
+          5
+        ],
+        [
+          "'Abyss'",
+          5
+        ],
+        [
+          "' K'",
+          4
+        ],
+        [
+          "' M'",
+          3
+        ]
+      ],
+      "purity_rank": 17
+    },
+    {
+      "head": "L10H4",
+      "li": 10,
+      "h": 4,
+      "copy_purity": 0.58,
+      "verbatim_purity": 0.56,
+      "successor_purity": 0.08,
+      "src_logit_z": 4.97,
+      "succ_logit_z": 1.87,
+      "src_rank_median": 4,
+      "succ_rank_median": 3381,
+      "sink_frac": 0.0,
+      "self_frac": 0.02,
+      "prev_frac": 0.1,
+      "offset_median": 10,
+      "offset_conc": 0.205,
+      "src_tok_conc": 0.155,
+      "top_src_toks": [
+        [
+          "'on'",
+          6
+        ],
+        [
+          "' air'",
+          6
+        ],
+        [
+          "' insurance'",
+          3
+        ],
+        [
+          "' bacteria'",
+          2
+        ]
+      ],
+      "purity_rank": 18
+    },
+    {
+      "head": "L14H1",
+      "li": 14,
+      "h": 1,
+      "copy_purity": 0.56,
+      "verbatim_purity": 0.54,
+      "successor_purity": 0.08,
+      "src_logit_z": 5.53,
+      "succ_logit_z": 1.74,
+      "src_rank_median": 7,
+      "succ_rank_median": 23082,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.02,
+      "offset_median": 22,
+      "offset_conc": 0.11,
+      "src_tok_conc": 0.187,
+      "top_src_toks": [
+        [
+          "' proposals'",
+          5
+        ],
+        [
+          "' Graph'",
+          5
+        ],
+        [
+          "' Search'",
+          4
+        ],
+        [
+          "' media'",
+          3
+        ]
+      ],
+      "purity_rank": 19
+    },
+    {
+      "head": "L14H6",
+      "li": 14,
+      "h": 6,
+      "copy_purity": 0.56,
+      "verbatim_purity": 0.54,
+      "successor_purity": 0.06,
+      "src_logit_z": 7.02,
+      "succ_logit_z": 1.42,
+      "src_rank_median": 5,
+      "succ_rank_median": 14057,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.02,
+      "offset_median": 40,
+      "offset_conc": 0.078,
+      "src_tok_conc": 0.171,
+      "top_src_toks": [
+        [
+          "' '",
+          4
+        ],
+        [
+          "\",''\"",
+          4
+        ],
+        [
+          "' Jennifer'",
+          3
+        ],
+        [
+          "' Psy'",
+          3
+        ]
+      ],
+      "purity_rank": 20
+    },
+    {
+      "head": "L8H5",
+      "li": 8,
+      "h": 5,
+      "copy_purity": 0.5,
+      "verbatim_purity": 0.48,
+      "successor_purity": 0.02,
+      "src_logit_z": 6.5,
+      "succ_logit_z": 0.65,
+      "src_rank_median": 15,
+      "succ_rank_median": 18837,
+      "sink_frac": 0.0,
+      "self_frac": 0.12,
+      "prev_frac": 0.16,
+      "offset_median": 5,
+      "offset_conc": 0.245,
+      "src_tok_conc": 0.28,
+      "top_src_toks": [
+        [
+          "'.'",
+          12
+        ],
+        [
+          "'You'",
+          5
+        ],
+        [
+          "' said'",
+          4
+        ],
+        [
+          "' is'",
+          3
+        ]
+      ],
+      "purity_rank": 21
+    },
+    {
+      "head": "L15H3",
+      "li": 15,
+      "h": 3,
+      "copy_purity": 0.5,
+      "verbatim_purity": 0.44,
+      "successor_purity": 0.18,
+      "src_logit_z": 4.52,
+      "succ_logit_z": 1.79,
+      "src_rank_median": 11,
+      "succ_rank_median": 6170,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.0,
+      "offset_median": 52,
+      "offset_conc": 0.071,
+      "src_tok_conc": 0.139,
+      "top_src_toks": [
+        [
+          "' deer'",
+          5
+        ],
+        [
+          "'Abyss'",
+          4
+        ],
+        [
+          "'J'",
+          3
+        ],
+        [
+          "' retri'",
+          3
+        ]
+      ],
+      "purity_rank": 22
+    },
+    {
+      "head": "L16H3",
+      "li": 16,
+      "h": 3,
+      "copy_purity": 0.5,
+      "verbatim_purity": 0.5,
+      "successor_purity": 0.02,
+      "src_logit_z": 3.34,
+      "succ_logit_z": 1.04,
+      "src_rank_median": 9,
+      "succ_rank_median": 11063,
+      "sink_frac": 0.02,
+      "self_frac": 0.0,
+      "prev_frac": 0.02,
+      "offset_median": 43,
+      "offset_conc": 0.083,
+      "src_tok_conc": 0.131,
+      "top_src_toks": [
+        [
+          "'Joy'",
+          4
+        ],
+        [
+          "' 2008'",
+          3
+        ],
+        [
+          "' assigned'",
+          3
+        ],
+        [
+          "' Maine'",
+          3
+        ]
+      ],
+      "purity_rank": 23
+    },
+    {
+      "head": "L12H0",
+      "li": 12,
+      "h": 0,
+      "copy_purity": 0.46,
+      "verbatim_purity": 0.4,
+      "successor_purity": 0.06,
+      "src_logit_z": 4.72,
+      "succ_logit_z": 1.16,
+      "src_rank_median": 27,
+      "succ_rank_median": 12556,
+      "sink_frac": 0.0,
+      "self_frac": 0.12,
+      "prev_frac": 0.16,
+      "offset_median": 9,
+      "offset_conc": 0.253,
+      "src_tok_conc": 0.305,
+      "top_src_toks": [
+        [
+          "' fare'",
+          11
+        ],
+        [
+          "'.'",
+          5
+        ],
+        [
+          "' tickets'",
+          5
+        ],
+        [
+          "' matches'",
+          4
+        ]
+      ],
+      "purity_rank": 24
+    },
+    {
+      "head": "L6H8",
+      "li": 6,
+      "h": 8,
+      "copy_purity": 0.42,
+      "verbatim_purity": 0.42,
+      "successor_purity": 0.0,
+      "src_logit_z": 6.28,
+      "succ_logit_z": -0.02,
+      "src_rank_median": 315,
+      "succ_rank_median": 10889,
+      "sink_frac": 0.0,
+      "self_frac": 0.24,
+      "prev_frac": 0.12,
+      "offset_median": 3,
+      "offset_conc": 0.317,
+      "src_tok_conc": 0.57,
+      "top_src_toks": [
+        [
+          "'\\n'",
+          18
+        ],
+        [
+          "'-'",
+          13
+        ],
+        [
+          "'/'",
+          8
+        ],
+        [
+          "'.'",
+          5
+        ]
+      ],
+      "purity_rank": 25
+    },
+    {
+      "head": "L8H6",
+      "li": 8,
+      "h": 6,
+      "copy_purity": 0.42,
+      "verbatim_purity": 0.28,
+      "successor_purity": 0.26,
+      "src_logit_z": 3.47,
+      "succ_logit_z": 2.97,
+      "src_rank_median": 80,
+      "succ_rank_median": 80,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.04,
+      "offset_median": 7,
+      "offset_conc": 0.27,
+      "src_tok_conc": 0.216,
+      "top_src_toks": [
+        [
+          "' PR'",
+          8
+        ],
+        [
+          "'rows'",
+          4
+        ],
+        [
+          "' From'",
+          3
+        ],
+        [
+          "' Associated'",
+          3
+        ]
+      ],
+      "purity_rank": 26
+    },
+    {
+      "head": "L5H5",
+      "li": 5,
+      "h": 5,
+      "copy_purity": 0.4,
+      "verbatim_purity": 0.38,
+      "successor_purity": 0.04,
+      "src_logit_z": 4.38,
+      "succ_logit_z": 1.71,
+      "src_rank_median": 42,
+      "succ_rank_median": 2635,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.0,
+      "offset_median": 33,
+      "offset_conc": 0.106,
+      "src_tok_conc": 0.129,
+      "top_src_toks": [
+        [
+          "'.'",
+          6
+        ],
+        [
+          "' and'",
+          4
+        ],
+        [
+          "' Web'",
+          3
+        ],
+        [
+          "'s'",
+          2
+        ]
+      ],
+      "purity_rank": 27
+    },
+    {
+      "head": "L8H1",
+      "li": 8,
+      "h": 1,
+      "copy_purity": 0.4,
+      "verbatim_purity": 0.32,
+      "successor_purity": 0.1,
+      "src_logit_z": 3.92,
+      "succ_logit_z": 0.94,
+      "src_rank_median": 30,
+      "succ_rank_median": 16334,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.24,
+      "offset_median": 4,
+      "offset_conc": 0.368,
+      "src_tok_conc": 0.155,
+      "top_src_toks": [
+        [
+          "'uploads'",
+          5
+        ],
+        [
+          "' Review'",
+          4
+        ],
+        [
+          "' must'",
+          3
+        ],
+        [
+          "' printed'",
+          3
+        ]
+      ],
+      "purity_rank": 28
+    },
+    {
+      "head": "L14H8",
+      "li": 14,
+      "h": 8,
+      "copy_purity": 0.38,
+      "verbatim_purity": 0.38,
+      "successor_purity": 0.0,
+      "src_logit_z": 3.52,
+      "succ_logit_z": 1.02,
+      "src_rank_median": 680,
+      "succ_rank_median": 9564,
+      "sink_frac": 0.0,
+      "self_frac": 0.04,
+      "prev_frac": 0.12,
+      "offset_median": 4,
+      "offset_conc": 0.349,
+      "src_tok_conc": 0.221,
+      "top_src_toks": [
+        [
+          "' The'",
+          7
+        ],
+        [
+          "' Of'",
+          5
+        ],
+        [
+          "'('",
+          4
+        ],
+        [
+          "' the'",
+          3
+        ]
+      ],
+      "purity_rank": 29
+    },
+    {
+      "head": "L7H6",
+      "li": 7,
+      "h": 6,
+      "copy_purity": 0.36,
+      "verbatim_purity": 0.04,
+      "successor_purity": 0.32,
+      "src_logit_z": 0.97,
+      "succ_logit_z": 1.56,
+      "src_rank_median": 18582,
+      "succ_rank_median": 10331,
+      "sink_frac": 0.0,
+      "self_frac": 0.16,
+      "prev_frac": 0.2,
+      "offset_median": 10,
+      "offset_conc": 0.234,
+      "src_tok_conc": 0.575,
+      "top_src_toks": [
+        [
+          "')'",
+          22
+        ],
+        [
+          "' ('",
+          14
+        ],
+        [
+          "' to'",
+          3
+        ],
+        [
+          "' 2005'",
+          2
+        ]
+      ],
+      "purity_rank": 30
+    },
+    {
+      "head": "L10H8",
+      "li": 10,
+      "h": 8,
+      "copy_purity": 0.36,
+      "verbatim_purity": 0.18,
+      "successor_purity": 0.2,
+      "src_logit_z": 2.82,
+      "succ_logit_z": 2.72,
+      "src_rank_median": 832,
+      "succ_rank_median": 988,
+      "sink_frac": 0.0,
+      "self_frac": 0.02,
+      "prev_frac": 0.0,
+      "offset_median": 31,
+      "offset_conc": 0.083,
+      "src_tok_conc": 0.059,
+      "top_src_toks": [
+        [
+          "'The'",
+          3
+        ],
+        [
+          "'\"'",
+          2
+        ],
+        [
+          "' A'",
+          2
+        ],
+        [
+          "'You'",
+          2
+        ]
+      ],
+      "purity_rank": 31
+    },
+    {
+      "head": "L11H7",
+      "li": 11,
+      "h": 7,
+      "copy_purity": 0.36,
+      "verbatim_purity": 0.34,
+      "successor_purity": 0.02,
+      "src_logit_z": 5.87,
+      "succ_logit_z": 0.92,
+      "src_rank_median": 898,
+      "succ_rank_median": 11198,
+      "sink_frac": 0.0,
+      "self_frac": 0.02,
+      "prev_frac": 0.06,
+      "offset_median": 10,
+      "offset_conc": 0.211,
+      "src_tok_conc": 0.345,
+      "top_src_toks": [
+        [
+          "','",
+          12
+        ],
+        [
+          "':'",
+          7
+        ],
+        [
+          "';'",
+          5
+        ],
+        [
+          "'\\n'",
+          5
+        ]
+      ],
+      "purity_rank": 32
+    },
+    {
+      "head": "L12H6",
+      "li": 12,
+      "h": 6,
+      "copy_purity": 0.36,
+      "verbatim_purity": 0.34,
+      "successor_purity": 0.04,
+      "src_logit_z": 8.44,
+      "succ_logit_z": 0.7,
+      "src_rank_median": 280,
+      "succ_rank_median": 17980,
+      "sink_frac": 0.0,
+      "self_frac": 0.1,
+      "prev_frac": 0.06,
+      "offset_median": 21,
+      "offset_conc": 0.101,
+      "src_tok_conc": 0.229,
+      "top_src_toks": [
+        [
+          "' ('",
+          12
+        ],
+        [
+          "'\\n'",
+          5
+        ],
+        [
+          "')'",
+          4
+        ],
+        [
+          "'\ufffd'",
+          2
+        ]
+      ],
+      "purity_rank": 33
+    },
+    {
+      "head": "L6H6",
+      "li": 6,
+      "h": 6,
+      "copy_purity": 0.34,
+      "verbatim_purity": 0.3,
+      "successor_purity": 0.04,
+      "src_logit_z": 3.05,
+      "succ_logit_z": 1.45,
+      "src_rank_median": 144,
+      "succ_rank_median": 6383,
+      "sink_frac": 0.0,
+      "self_frac": 0.16,
+      "prev_frac": 0.4,
+      "offset_median": 1,
+      "offset_conc": 0.575,
+      "src_tok_conc": 0.217,
+      "top_src_toks": [
+        [
+          "'/'",
+          8
+        ],
+        [
+          "' ('",
+          7
+        ],
+        [
+          "'-'",
+          6
+        ],
+        [
+          "'view'",
+          2
+        ]
+      ],
+      "purity_rank": 34
+    },
+    {
+      "head": "L16H5",
+      "li": 16,
+      "h": 5,
+      "copy_purity": 0.34,
+      "verbatim_purity": 0.34,
+      "successor_purity": 0.0,
+      "src_logit_z": 7.54,
+      "succ_logit_z": -0.06,
+      "src_rank_median": 52,
+      "succ_rank_median": 33686,
+      "sink_frac": 0.06,
+      "self_frac": 0.0,
+      "prev_frac": 0.0,
+      "offset_median": 64,
+      "offset_conc": 0.082,
+      "src_tok_conc": 0.264,
+      "top_src_toks": [
+        [
+          "' Cal'",
+          7
+        ],
+        [
+          "' O'",
+          6
+        ],
+        [
+          "' Trans'",
+          5
+        ],
+        [
+          "' R'",
+          3
+        ]
+      ],
+      "purity_rank": 35
+    },
+    {
+      "head": "L10H5",
+      "li": 10,
+      "h": 5,
+      "copy_purity": 0.32,
+      "verbatim_purity": 0.3,
+      "successor_purity": 0.02,
+      "src_logit_z": 4.16,
+      "succ_logit_z": 3.01,
+      "src_rank_median": 31,
+      "succ_rank_median": 251,
+      "sink_frac": 0.0,
+      "self_frac": 0.18,
+      "prev_frac": 0.0,
+      "offset_median": 5,
+      "offset_conc": 0.38,
+      "src_tok_conc": 0.274,
+      "top_src_toks": [
+        [
+          "'.'",
+          9
+        ],
+        [
+          "' to'",
+          9
+        ],
+        [
+          "' for'",
+          6
+        ],
+        [
+          "' and'",
+          3
+        ]
+      ],
+      "purity_rank": 36
+    },
+    {
+      "head": "L16H2",
+      "li": 16,
+      "h": 2,
+      "copy_purity": 0.32,
+      "verbatim_purity": 0.32,
+      "successor_purity": 0.0,
+      "src_logit_z": 9.64,
+      "succ_logit_z": 0.1,
+      "src_rank_median": 384,
+      "succ_rank_median": 22180,
+      "sink_frac": 0.0,
+      "self_frac": 0.02,
+      "prev_frac": 0.0,
+      "offset_median": 17,
+      "offset_conc": 0.189,
+      "src_tok_conc": 0.41,
+      "top_src_toks": [
+        [
+          "'\\n'",
+          12
+        ],
+        [
+          "' ?'",
+          10
+        ],
+        [
+          "' dish'",
+          8
+        ],
+        [
+          "' signal'",
+          3
+        ]
+      ],
+      "purity_rank": 37
+    },
+    {
+      "head": "L13H6",
+      "li": 13,
+      "h": 6,
+      "copy_purity": 0.3,
+      "verbatim_purity": 0.24,
+      "successor_purity": 0.06,
+      "src_logit_z": 2.11,
+      "succ_logit_z": 1.16,
+      "src_rank_median": 3196,
+      "succ_rank_median": 5122,
+      "sink_frac": 0.0,
+      "self_frac": 0.12,
+      "prev_frac": 0.32,
+      "offset_median": 2,
+      "offset_conc": 0.468,
+      "src_tok_conc": 0.136,
+      "top_src_toks": [
+        [
+          "'\u0142'",
+          6
+        ],
+        [
+          "'\ufffd'",
+          4
+        ],
+        [
+          "' Polish'",
+          3
+        ],
+        [
+          "'\ufffd'",
+          2
+        ]
+      ],
+      "purity_rank": 38
+    },
+    {
+      "head": "L13H7",
+      "li": 13,
+      "h": 7,
+      "copy_purity": 0.3,
+      "verbatim_purity": 0.3,
+      "successor_purity": 0.0,
+      "src_logit_z": 2.53,
+      "succ_logit_z": 0.9,
+      "src_rank_median": 111,
+      "succ_rank_median": 8091,
+      "sink_frac": 0.0,
+      "self_frac": 0.04,
+      "prev_frac": 0.08,
+      "offset_median": 14,
+      "offset_conc": 0.162,
+      "src_tok_conc": 0.152,
+      "top_src_toks": [
+        [
+          "' stadiums'",
+          4
+        ],
+        [
+          "' claims'",
+          3
+        ],
+        [
+          "' proposals'",
+          3
+        ],
+        [
+          "' boots'",
+          3
+        ]
+      ],
+      "purity_rank": 39
+    },
+    {
+      "head": "L16H0",
+      "li": 16,
+      "h": 0,
+      "copy_purity": 0.28,
+      "verbatim_purity": 0.24,
+      "successor_purity": 0.08,
+      "src_logit_z": 4.61,
+      "succ_logit_z": 1.09,
+      "src_rank_median": 25,
+      "succ_rank_median": 20459,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.0,
+      "offset_median": 42,
+      "offset_conc": 0.1,
+      "src_tok_conc": 0.383,
+      "top_src_toks": [
+        [
+          "' UEFA'",
+          20
+        ],
+        [
+          "' joy'",
+          4
+        ],
+        [
+          "' kick'",
+          3
+        ],
+        [
+          "' Aboriginal'",
+          3
+        ]
+      ],
+      "purity_rank": 40
+    },
+    {
+      "head": "L1H4",
+      "li": 1,
+      "h": 4,
+      "copy_purity": 0.24,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.24,
+      "src_logit_z": 0.54,
+      "succ_logit_z": 2.87,
+      "src_rank_median": 11282,
+      "succ_rank_median": 1709,
+      "sink_frac": 0.0,
+      "self_frac": 0.34,
+      "prev_frac": 0.0,
+      "offset_median": 4,
+      "offset_conc": 0.392,
+      "src_tok_conc": 0.066,
+      "top_src_toks": [
+        [
+          "'David'",
+          3
+        ],
+        [
+          "'K'",
+          2
+        ],
+        [
+          "' T'",
+          2
+        ],
+        [
+          "' Sad'",
+          2
+        ]
+      ],
+      "purity_rank": 41
+    },
+    {
+      "head": "L2H4",
+      "li": 2,
+      "h": 4,
+      "copy_purity": 0.24,
+      "verbatim_purity": 0.24,
+      "successor_purity": 0.0,
+      "src_logit_z": 1.96,
+      "succ_logit_z": 0.38,
+      "src_rank_median": 1051,
+      "succ_rank_median": 17741,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.28,
+      "offset_median": 12,
+      "offset_conc": 0.27,
+      "src_tok_conc": 0.565,
+      "top_src_toks": [
+        [
+          "'\\n'",
+          27
+        ],
+        [
+          "' said'",
+          5
+        ],
+        [
+          "'.'",
+          4
+        ],
+        [
+          "'\ufffd'",
+          3
+        ]
+      ],
+      "purity_rank": 42
+    },
+    {
+      "head": "L5H7",
+      "li": 5,
+      "h": 7,
+      "copy_purity": 0.24,
+      "verbatim_purity": 0.06,
+      "successor_purity": 0.18,
+      "src_logit_z": 2.13,
+      "succ_logit_z": 2.51,
+      "src_rank_median": 1026,
+      "succ_rank_median": 680,
+      "sink_frac": 0.98,
+      "self_frac": 0.0,
+      "prev_frac": 0.0,
+      "offset_median": 91,
+      "offset_conc": 0.078,
+      "src_tok_conc": 0.291,
+      "top_src_toks": [
+        [
+          "' Wednesday'",
+          10
+        ],
+        [
+          "'Rec'",
+          6
+        ],
+        [
+          "':'",
+          4
+        ],
+        [
+          "' 15'",
+          4
+        ]
+      ],
+      "purity_rank": 43
+    },
+    {
+      "head": "L8H7",
+      "li": 8,
+      "h": 7,
+      "copy_purity": 0.24,
+      "verbatim_purity": 0.24,
+      "successor_purity": 0.0,
+      "src_logit_z": 4.75,
+      "succ_logit_z": 0.46,
+      "src_rank_median": 21,
+      "succ_rank_median": 17107,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.52,
+      "offset_median": 1,
+      "offset_conc": 0.519,
+      "src_tok_conc": 0.106,
+      "top_src_toks": [
+        [
+          "'3'",
+          5
+        ],
+        [
+          "'1'",
+          3
+        ],
+        [
+          "' 9'",
+          3
+        ],
+        [
+          "' 22'",
+          3
+        ]
+      ],
+      "purity_rank": 44
+    },
+    {
+      "head": "L13H8",
+      "li": 13,
+      "h": 8,
+      "copy_purity": 0.24,
+      "verbatim_purity": 0.24,
+      "successor_purity": 0.0,
+      "src_logit_z": 2.75,
+      "succ_logit_z": 0.09,
+      "src_rank_median": 292,
+      "succ_rank_median": 21752,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.08,
+      "offset_median": 3,
+      "offset_conc": 0.44,
+      "src_tok_conc": 0.566,
+      "top_src_toks": [
+        [
+          "' ('",
+          22
+        ],
+        [
+          "'-'",
+          8
+        ],
+        [
+          "' \"'",
+          8
+        ],
+        [
+          "'/'",
+          3
+        ]
+      ],
+      "purity_rank": 45
+    },
+    {
+      "head": "L3H3",
+      "li": 3,
+      "h": 3,
+      "copy_purity": 0.22,
+      "verbatim_purity": 0.22,
+      "successor_purity": 0.0,
+      "src_logit_z": 0.51,
+      "succ_logit_z": -0.21,
+      "src_rank_median": 26566,
+      "succ_rank_median": 27540,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.52,
+      "offset_median": 1,
+      "offset_conc": 0.703,
+      "src_tok_conc": 0.502,
+      "top_src_toks": [
+        [
+          "' and'",
+          17
+        ],
+        [
+          "','",
+          12
+        ],
+        [
+          "'-'",
+          6
+        ],
+        [
+          "' to'",
+          5
+        ]
+      ],
+      "purity_rank": 46
+    },
+    {
+      "head": "L6H0",
+      "li": 6,
+      "h": 0,
+      "copy_purity": 0.22,
+      "verbatim_purity": 0.02,
+      "successor_purity": 0.2,
+      "src_logit_z": 2.01,
+      "succ_logit_z": 2.54,
+      "src_rank_median": 1622,
+      "succ_rank_median": 331,
+      "sink_frac": 0.0,
+      "self_frac": 0.58,
+      "prev_frac": 0.1,
+      "offset_median": 0,
+      "offset_conc": 0.569,
+      "src_tok_conc": 0.599,
+      "top_src_toks": [
+        [
+          "'.'",
+          31
+        ],
+        [
+          "','",
+          3
+        ],
+        [
+          "' that'",
+          3
+        ],
+        [
+          "';'",
+          2
+        ]
+      ],
+      "purity_rank": 47
+    },
+    {
+      "head": "L1H5",
+      "li": 1,
+      "h": 5,
+      "copy_purity": 0.2,
+      "verbatim_purity": 0.02,
+      "successor_purity": 0.18,
+      "src_logit_z": 3.21,
+      "succ_logit_z": 3.96,
+      "src_rank_median": 225,
+      "succ_rank_median": 79,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.68,
+      "offset_median": 1,
+      "offset_conc": 0.755,
+      "src_tok_conc": 0.143,
+      "top_src_toks": [
+        [
+          "' be'",
+          7
+        ],
+        [
+          "' gave'",
+          3
+        ],
+        [
+          "' have'",
+          2
+        ],
+        [
+          "' can'",
+          2
+        ]
+      ],
+      "purity_rank": 48
+    },
+    {
+      "head": "L2H1",
+      "li": 2,
+      "h": 1,
+      "copy_purity": 0.2,
+      "verbatim_purity": 0.2,
+      "successor_purity": 0.0,
+      "src_logit_z": 3.22,
+      "succ_logit_z": 0.68,
+      "src_rank_median": 44,
+      "succ_rank_median": 12567,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.0,
+      "offset_median": 18,
+      "offset_conc": 0.259,
+      "src_tok_conc": 0.559,
+      "top_src_toks": [
+        [
+          "'|'",
+          20
+        ],
+        [
+          "'\\n'",
+          12
+        ],
+        [
+          "' \"'",
+          7
+        ],
+        [
+          "'.'",
+          3
+        ]
+      ],
+      "purity_rank": 49
+    },
+    {
+      "head": "L9H3",
+      "li": 9,
+      "h": 3,
+      "copy_purity": 0.16,
+      "verbatim_purity": 0.14,
+      "successor_purity": 0.02,
+      "src_logit_z": 3.07,
+      "succ_logit_z": 2.44,
+      "src_rank_median": 517,
+      "succ_rank_median": 546,
+      "sink_frac": 0.0,
+      "self_frac": 0.3,
+      "prev_frac": 0.0,
+      "offset_median": 4,
+      "offset_conc": 0.414,
+      "src_tok_conc": 0.289,
+      "top_src_toks": [
+        [
+          "'.'",
+          11
+        ],
+        [
+          "'?'",
+          4
+        ],
+        [
+          "' for'",
+          4
+        ],
+        [
+          "' not'",
+          4
+        ]
+      ],
+      "purity_rank": 50
+    },
+    {
+      "head": "L12H8",
+      "li": 12,
+      "h": 8,
+      "copy_purity": 0.16,
+      "verbatim_purity": 0.08,
+      "successor_purity": 0.08,
+      "src_logit_z": 2.24,
+      "succ_logit_z": 2.3,
+      "src_rank_median": 1086,
+      "succ_rank_median": 1019,
+      "sink_frac": 0.0,
+      "self_frac": 0.1,
+      "prev_frac": 0.22,
+      "offset_median": 2,
+      "offset_conc": 0.495,
+      "src_tok_conc": 0.083,
+      "top_src_toks": [
+        [
+          "'.'",
+          3
+        ],
+        [
+          "' No'",
+          3
+        ],
+        [
+          "','",
+          2
+        ],
+        [
+          "' to'",
+          2
+        ]
+      ],
+      "purity_rank": 51
+    },
+    {
+      "head": "L0H4",
+      "li": 0,
+      "h": 4,
+      "copy_purity": 0.14,
+      "verbatim_purity": 0.06,
+      "successor_purity": 0.08,
+      "src_logit_z": 2.04,
+      "succ_logit_z": 1.57,
+      "src_rank_median": 1469,
+      "succ_rank_median": 5036,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.36,
+      "offset_median": 2,
+      "offset_conc": 0.516,
+      "src_tok_conc": 0.069,
+      "top_src_toks": [
+        [
+          "' Windows'",
+          3
+        ],
+        [
+          "' tournament'",
+          3
+        ],
+        [
+          "'.'",
+          2
+        ],
+        [
+          "' Google'",
+          2
+        ]
+      ],
+      "purity_rank": 52
+    },
+    {
+      "head": "L1H0",
+      "li": 1,
+      "h": 0,
+      "copy_purity": 0.14,
+      "verbatim_purity": 0.06,
+      "successor_purity": 0.08,
+      "src_logit_z": 2.1,
+      "succ_logit_z": 2.44,
+      "src_rank_median": 1550,
+      "succ_rank_median": 981,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.04,
+      "offset_median": 9,
+      "offset_conc": 0.273,
+      "src_tok_conc": 0.045,
+      "top_src_toks": [
+        [
+          "' -'",
+          3
+        ],
+        [
+          "' you'",
+          2
+        ],
+        [
+          "' here'",
+          2
+        ],
+        [
+          "'ster'",
+          2
+        ]
+      ],
+      "purity_rank": 53
+    },
+    {
+      "head": "L1H7",
+      "li": 1,
+      "h": 7,
+      "copy_purity": 0.14,
+      "verbatim_purity": 0.08,
+      "successor_purity": 0.06,
+      "src_logit_z": 2.07,
+      "succ_logit_z": 2.26,
+      "src_rank_median": 1273,
+      "succ_rank_median": 916,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.32,
+      "offset_median": 2,
+      "offset_conc": 0.522,
+      "src_tok_conc": 0.26,
+      "top_src_toks": [
+        [
+          "'.'",
+          7
+        ],
+        [
+          "' of'",
+          5
+        ],
+        [
+          "' the'",
+          4
+        ],
+        [
+          "\"'s\"",
+          4
+        ]
+      ],
+      "purity_rank": 54
+    },
+    {
+      "head": "L3H2",
+      "li": 3,
+      "h": 2,
+      "copy_purity": 0.14,
+      "verbatim_purity": 0.1,
+      "successor_purity": 0.04,
+      "src_logit_z": 1.87,
+      "succ_logit_z": 0.89,
+      "src_rank_median": 2834,
+      "succ_rank_median": 12321,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.02,
+      "offset_median": 14,
+      "offset_conc": 0.144,
+      "src_tok_conc": 0.411,
+      "top_src_toks": [
+        [
+          "' said'",
+          16
+        ],
+        [
+          "' \"'",
+          7
+        ],
+        [
+          "'\\n'",
+          6
+        ],
+        [
+          "'\"'",
+          4
+        ]
+      ],
+      "purity_rank": 55
+    },
+    {
+      "head": "L6H3",
+      "li": 6,
+      "h": 3,
+      "copy_purity": 0.14,
+      "verbatim_purity": 0.06,
+      "successor_purity": 0.08,
+      "src_logit_z": 2.67,
+      "succ_logit_z": 2.99,
+      "src_rank_median": 623,
+      "succ_rank_median": 224,
+      "sink_frac": 0.0,
+      "self_frac": 0.02,
+      "prev_frac": 0.28,
+      "offset_median": 2,
+      "offset_conc": 0.508,
+      "src_tok_conc": 0.088,
+      "top_src_toks": [
+        [
+          "' warranties'",
+          4
+        ],
+        [
+          "' material'",
+          3
+        ],
+        [
+          "' in'",
+          2
+        ],
+        [
+          "' view'",
+          2
+        ]
+      ],
+      "purity_rank": 56
+    },
+    {
+      "head": "L8H8",
+      "li": 8,
+      "h": 8,
+      "copy_purity": 0.14,
+      "verbatim_purity": 0.12,
+      "successor_purity": 0.02,
+      "src_logit_z": 0.65,
+      "succ_logit_z": 1.32,
+      "src_rank_median": 29461,
+      "succ_rank_median": 5881,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.34,
+      "offset_median": 2,
+      "offset_conc": 0.496,
+      "src_tok_conc": 0.112,
+      "top_src_toks": [
+        [
+          "'_'",
+          4
+        ],
+        [
+          "' announcement'",
+          3
+        ],
+        [
+          "' limitations'",
+          3
+        ],
+        [
+          "' support'",
+          2
+        ]
+      ],
+      "purity_rank": 57
+    },
+    {
+      "head": "L12H7",
+      "li": 12,
+      "h": 7,
+      "copy_purity": 0.14,
+      "verbatim_purity": 0.12,
+      "successor_purity": 0.02,
+      "src_logit_z": 3.5,
+      "succ_logit_z": 1.75,
+      "src_rank_median": 108,
+      "succ_rank_median": 3953,
+      "sink_frac": 0.0,
+      "self_frac": 0.04,
+      "prev_frac": 0.04,
+      "offset_median": 15,
+      "offset_conc": 0.155,
+      "src_tok_conc": 0.25,
+      "top_src_toks": [
+        [
+          "' Search'",
+          8
+        ],
+        [
+          "'on'",
+          5
+        ],
+        [
+          "'words'",
+          4
+        ],
+        [
+          "' Facebook'",
+          3
+        ]
+      ],
+      "purity_rank": 58
+    },
+    {
+      "head": "L1H8",
+      "li": 1,
+      "h": 8,
+      "copy_purity": 0.12,
+      "verbatim_purity": 0.1,
+      "successor_purity": 0.02,
+      "src_logit_z": 3.32,
+      "succ_logit_z": 3.17,
+      "src_rank_median": 204,
+      "succ_rank_median": 242,
+      "sink_frac": 0.0,
+      "self_frac": 0.02,
+      "prev_frac": 0.02,
+      "offset_median": 20,
+      "offset_conc": 0.119,
+      "src_tok_conc": 0.204,
+      "top_src_toks": [
+        [
+          "'\\n'",
+          10
+        ],
+        [
+          "'.'",
+          5
+        ],
+        [
+          "' though'",
+          3
+        ],
+        [
+          "' which'",
+          2
+        ]
+      ],
+      "purity_rank": 59
+    },
+    {
+      "head": "L2H3",
+      "li": 2,
+      "h": 3,
+      "copy_purity": 0.12,
+      "verbatim_purity": 0.08,
+      "successor_purity": 0.04,
+      "src_logit_z": 1.07,
+      "succ_logit_z": 0.66,
+      "src_rank_median": 8510,
+      "succ_rank_median": 16999,
+      "sink_frac": 0.0,
+      "self_frac": 0.02,
+      "prev_frac": 0.18,
+      "offset_median": 4,
+      "offset_conc": 0.379,
+      "src_tok_conc": 0.104,
+      "top_src_toks": [
+        [
+          "' of'",
+          5
+        ],
+        [
+          "' only'",
+          5
+        ],
+        [
+          "' for'",
+          2
+        ],
+        [
+          "' about'",
+          2
+        ]
+      ],
+      "purity_rank": 60
+    },
+    {
+      "head": "L4H2",
+      "li": 4,
+      "h": 2,
+      "copy_purity": 0.12,
+      "verbatim_purity": 0.04,
+      "successor_purity": 0.08,
+      "src_logit_z": 0.84,
+      "succ_logit_z": 1.97,
+      "src_rank_median": 13496,
+      "succ_rank_median": 993,
+      "sink_frac": 0.0,
+      "self_frac": 0.26,
+      "prev_frac": 0.0,
+      "offset_median": 5,
+      "offset_conc": 0.331,
+      "src_tok_conc": 0.066,
+      "top_src_toks": [
+        [
+          "' Kiev'",
+          3
+        ],
+        [
+          "'8'",
+          2
+        ],
+        [
+          "'o'",
+          2
+        ],
+        [
+          "' blue'",
+          2
+        ]
+      ],
+      "purity_rank": 61
+    },
+    {
+      "head": "L5H3",
+      "li": 5,
+      "h": 3,
+      "copy_purity": 0.12,
+      "verbatim_purity": 0.04,
+      "successor_purity": 0.1,
+      "src_logit_z": 1.93,
+      "succ_logit_z": 1.76,
+      "src_rank_median": 1416,
+      "succ_rank_median": 1880,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.16,
+      "offset_median": 4,
+      "offset_conc": 0.378,
+      "src_tok_conc": 0.117,
+      "top_src_toks": [
+        [
+          "' only'",
+          5
+        ],
+        [
+          "' of'",
+          4
+        ],
+        [
+          "' that'",
+          3
+        ],
+        [
+          "' anyone'",
+          3
+        ]
+      ],
+      "purity_rank": 62
+    },
+    {
+      "head": "L7H2",
+      "li": 7,
+      "h": 2,
+      "copy_purity": 0.12,
+      "verbatim_purity": 0.04,
+      "successor_purity": 0.08,
+      "src_logit_z": 1.88,
+      "succ_logit_z": 1.51,
+      "src_rank_median": 544,
+      "succ_rank_median": 4018,
+      "sink_frac": 0.0,
+      "self_frac": 0.26,
+      "prev_frac": 0.08,
+      "offset_median": 4,
+      "offset_conc": 0.381,
+      "src_tok_conc": 0.317,
+      "top_src_toks": [
+        [
+          "'.'",
+          16
+        ],
+        [
+          "'\\n'",
+          4
+        ],
+        [
+          "','",
+          3
+        ],
+        [
+          "' Are'",
+          3
+        ]
+      ],
+      "purity_rank": 63
+    },
+    {
+      "head": "L10H2",
+      "li": 10,
+      "h": 2,
+      "copy_purity": 0.12,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.12,
+      "src_logit_z": 1.96,
+      "succ_logit_z": 3.29,
+      "src_rank_median": 2771,
+      "succ_rank_median": 85,
+      "sink_frac": 0.0,
+      "self_frac": 0.14,
+      "prev_frac": 0.16,
+      "offset_median": 3,
+      "offset_conc": 0.437,
+      "src_tok_conc": 0.143,
+      "top_src_toks": [
+        [
+          "' sunshine'",
+          6
+        ],
+        [
+          "' goodness'",
+          3
+        ],
+        [
+          "' might'",
+          2
+        ],
+        [
+          "' land'",
+          2
+        ]
+      ],
+      "purity_rank": 64
+    },
+    {
+      "head": "L11H5",
+      "li": 11,
+      "h": 5,
+      "copy_purity": 0.12,
+      "verbatim_purity": 0.08,
+      "successor_purity": 0.06,
+      "src_logit_z": 3.46,
+      "succ_logit_z": 1.02,
+      "src_rank_median": 129,
+      "succ_rank_median": 17780,
+      "sink_frac": 0.0,
+      "self_frac": 0.04,
+      "prev_frac": 0.18,
+      "offset_median": 7,
+      "offset_conc": 0.279,
+      "src_tok_conc": 0.352,
+      "top_src_toks": [
+        [
+          "'\"'",
+          15
+        ],
+        [
+          "'\ufffd'",
+          8
+        ],
+        [
+          "'.'",
+          4
+        ],
+        [
+          "' \"'",
+          3
+        ]
+      ],
+      "purity_rank": 65
+    },
+    {
+      "head": "L13H1",
+      "li": 13,
+      "h": 1,
+      "copy_purity": 0.12,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.12,
+      "src_logit_z": -6.33,
+      "succ_logit_z": 2.23,
+      "src_rank_median": 50297,
+      "succ_rank_median": 1486,
+      "sink_frac": 0.0,
+      "self_frac": 0.54,
+      "prev_frac": 0.18,
+      "offset_median": 0,
+      "offset_conc": 0.58,
+      "src_tok_conc": 0.408,
+      "top_src_toks": [
+        [
+          "' I'",
+          15
+        ],
+        [
+          "' we'",
+          8
+        ],
+        [
+          "'<|endoftext|>'",
+          7
+        ],
+        [
+          "' he'",
+          4
+        ]
+      ],
+      "purity_rank": 66
+    },
+    {
+      "head": "L0H7",
+      "li": 0,
+      "h": 7,
+      "copy_purity": 0.1,
+      "verbatim_purity": 0.1,
+      "successor_purity": 0.0,
+      "src_logit_z": 1.81,
+      "succ_logit_z": 0.23,
+      "src_rank_median": 1538,
+      "succ_rank_median": 12870,
+      "sink_frac": 0.0,
+      "self_frac": 0.02,
+      "prev_frac": 0.34,
+      "offset_median": 2,
+      "offset_conc": 0.631,
+      "src_tok_conc": 0.183,
+      "top_src_toks": [
+        [
+          "'/'",
+          12
+        ],
+        [
+          "':'",
+          3
+        ],
+        [
+          "' were'",
+          2
+        ],
+        [
+          "' drug'",
+          2
+        ]
+      ],
+      "purity_rank": 67
+    },
+    {
+      "head": "L2H2",
+      "li": 2,
+      "h": 2,
+      "copy_purity": 0.1,
+      "verbatim_purity": 0.08,
+      "successor_purity": 0.02,
+      "src_logit_z": 1.19,
+      "succ_logit_z": 0.65,
+      "src_rank_median": 9443,
+      "succ_rank_median": 13336,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.42,
+      "offset_median": 2,
+      "offset_conc": 0.639,
+      "src_tok_conc": 0.199,
+      "top_src_toks": [
+        [
+          "' of'",
+          7
+        ],
+        [
+          "' the'",
+          5
+        ],
+        [
+          "' a'",
+          3
+        ],
+        [
+          "\"'s\"",
+          3
+        ]
+      ],
+      "purity_rank": 68
+    },
+    {
+      "head": "L7H0",
+      "li": 7,
+      "h": 0,
+      "copy_purity": 0.1,
+      "verbatim_purity": 0.04,
+      "successor_purity": 0.06,
+      "src_logit_z": 2.83,
+      "succ_logit_z": 2.83,
+      "src_rank_median": 394,
+      "succ_rank_median": 375,
+      "sink_frac": 0.0,
+      "self_frac": 0.12,
+      "prev_frac": 0.04,
+      "offset_median": 16,
+      "offset_conc": 0.164,
+      "src_tok_conc": 0.2,
+      "top_src_toks": [
+        [
+          "'.'",
+          12
+        ],
+        [
+          "'\\n'",
+          3
+        ],
+        [
+          "'el'",
+          3
+        ],
+        [
+          "' owner'",
+          2
+        ]
+      ],
+      "purity_rank": 69
+    },
+    {
+      "head": "L9H4",
+      "li": 9,
+      "h": 4,
+      "copy_purity": 0.1,
+      "verbatim_purity": 0.1,
+      "successor_purity": 0.0,
+      "src_logit_z": 2.37,
+      "succ_logit_z": 1.58,
+      "src_rank_median": 1791,
+      "succ_rank_median": 3237,
+      "sink_frac": 0.0,
+      "self_frac": 0.04,
+      "prev_frac": 0.18,
+      "offset_median": 2,
+      "offset_conc": 0.429,
+      "src_tok_conc": 0.114,
+      "top_src_toks": [
+        [
+          "'.'",
+          4
+        ],
+        [
+          "' with'",
+          3
+        ],
+        [
+          "' if'",
+          3
+        ],
+        [
+          "' became'",
+          3
+        ]
+      ],
+      "purity_rank": 70
+    },
+    {
+      "head": "L9H5",
+      "li": 9,
+      "h": 5,
+      "copy_purity": 0.1,
+      "verbatim_purity": 0.06,
+      "successor_purity": 0.04,
+      "src_logit_z": 2.24,
+      "succ_logit_z": -0.88,
+      "src_rank_median": 851,
+      "succ_rank_median": 5093,
+      "sink_frac": 0.0,
+      "self_frac": 0.26,
+      "prev_frac": 0.06,
+      "offset_median": 6,
+      "offset_conc": 0.271,
+      "src_tok_conc": 0.304,
+      "top_src_toks": [
+        [
+          "' of'",
+          7
+        ],
+        [
+          "'.'",
+          6
+        ],
+        [
+          "'May'",
+          6
+        ],
+        [
+          "' and'",
+          5
+        ]
+      ],
+      "purity_rank": 71
+    },
+    {
+      "head": "L9H6",
+      "li": 9,
+      "h": 6,
+      "copy_purity": 0.1,
+      "verbatim_purity": 0.02,
+      "successor_purity": 0.08,
+      "src_logit_z": 2.11,
+      "succ_logit_z": 3.02,
+      "src_rank_median": 1424,
+      "succ_rank_median": 1665,
+      "sink_frac": 0.0,
+      "self_frac": 0.28,
+      "prev_frac": 0.14,
+      "offset_median": 2,
+      "offset_conc": 0.409,
+      "src_tok_conc": 0.309,
+      "top_src_toks": [
+        [
+          "'.'",
+          18
+        ],
+        [
+          "','",
+          2
+        ],
+        [
+          "' to'",
+          2
+        ],
+        [
+          "' said'",
+          2
+        ]
+      ],
+      "purity_rank": 72
+    },
+    {
+      "head": "L9H8",
+      "li": 9,
+      "h": 8,
+      "copy_purity": 0.1,
+      "verbatim_purity": 0.06,
+      "successor_purity": 0.06,
+      "src_logit_z": 2.6,
+      "succ_logit_z": 1.85,
+      "src_rank_median": 298,
+      "succ_rank_median": 929,
+      "sink_frac": 0.0,
+      "self_frac": 0.08,
+      "prev_frac": 0.04,
+      "offset_median": 4,
+      "offset_conc": 0.339,
+      "src_tok_conc": 0.399,
+      "top_src_toks": [
+        [
+          "'\\n'",
+          16
+        ],
+        [
+          "'.'",
+          10
+        ],
+        [
+          "'!'",
+          3
+        ],
+        [
+          "' -'",
+          3
+        ]
+      ],
+      "purity_rank": 73
+    },
+    {
+      "head": "L10H7",
+      "li": 10,
+      "h": 7,
+      "copy_purity": 0.1,
+      "verbatim_purity": 0.1,
+      "successor_purity": 0.0,
+      "src_logit_z": 4.8,
+      "succ_logit_z": 1.27,
+      "src_rank_median": 6985,
+      "succ_rank_median": 9988,
+      "sink_frac": 0.0,
+      "self_frac": 0.08,
+      "prev_frac": 0.06,
+      "offset_median": 5,
+      "offset_conc": 0.279,
+      "src_tok_conc": 0.302,
+      "top_src_toks": [
+        [
+          "' \ufffd'",
+          11
+        ],
+        [
+          "'\ufffd'",
+          5
+        ],
+        [
+          "'\\n'",
+          4
+        ],
+        [
+          "'\ufffd'",
+          4
+        ]
+      ],
+      "purity_rank": 74
+    },
+    {
+      "head": "L12H4",
+      "li": 12,
+      "h": 4,
+      "copy_purity": 0.1,
+      "verbatim_purity": 0.08,
+      "successor_purity": 0.02,
+      "src_logit_z": 2.21,
+      "succ_logit_z": 1.29,
+      "src_rank_median": 6421,
+      "succ_rank_median": 6830,
+      "sink_frac": 0.0,
+      "self_frac": 0.38,
+      "prev_frac": 0.08,
+      "offset_median": 2,
+      "offset_conc": 0.443,
+      "src_tok_conc": 0.275,
+      "top_src_toks": [
+        [
+          "'.'",
+          14
+        ],
+        [
+          "'\\n'",
+          5
+        ],
+        [
+          "' married'",
+          3
+        ],
+        [
+          "' was'",
+          2
+        ]
+      ],
+      "purity_rank": 75
+    },
+    {
+      "head": "L16H8",
+      "li": 16,
+      "h": 8,
+      "copy_purity": 0.1,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.1,
+      "src_logit_z": -3.15,
+      "succ_logit_z": 1.81,
+      "src_rank_median": 50078,
+      "succ_rank_median": 12247,
+      "sink_frac": 0.0,
+      "self_frac": 0.6,
+      "prev_frac": 0.22,
+      "offset_median": 0,
+      "offset_conc": 0.713,
+      "src_tok_conc": 0.121,
+      "top_src_toks": [
+        [
+          "' not'",
+          6
+        ],
+        [
+          "' only'",
+          4
+        ],
+        [
+          "' can'",
+          3
+        ],
+        [
+          "' no'",
+          2
+        ]
+      ],
+      "purity_rank": 76
+    },
+    {
+      "head": "L5H1",
+      "li": 5,
+      "h": 1,
+      "copy_purity": 0.08,
+      "verbatim_purity": 0.04,
+      "successor_purity": 0.04,
+      "src_logit_z": 1.67,
+      "succ_logit_z": 1.93,
+      "src_rank_median": 3446,
+      "succ_rank_median": 1670,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.02,
+      "offset_median": 29,
+      "offset_conc": 0.095,
+      "src_tok_conc": 0.144,
+      "top_src_toks": [
+        [
+          "'\\n'",
+          8
+        ],
+        [
+          "'.'",
+          3
+        ],
+        [
+          "':'",
+          2
+        ],
+        [
+          "' story'",
+          2
+        ]
+      ],
+      "purity_rank": 77
+    },
+    {
+      "head": "L5H2",
+      "li": 5,
+      "h": 2,
+      "copy_purity": 0.08,
+      "verbatim_purity": 0.02,
+      "successor_purity": 0.06,
+      "src_logit_z": 1.07,
+      "succ_logit_z": 1.76,
+      "src_rank_median": 8109,
+      "succ_rank_median": 1587,
+      "sink_frac": 0.04,
+      "self_frac": 0.06,
+      "prev_frac": 0.04,
+      "offset_median": 12,
+      "offset_conc": 0.166,
+      "src_tok_conc": 0.115,
+      "top_src_toks": [
+        [
+          "'.'",
+          5
+        ],
+        [
+          "'ers'",
+          4
+        ],
+        [
+          "' Enterprises'",
+          3
+        ],
+        [
+          "','",
+          2
+        ]
+      ],
+      "purity_rank": 78
+    },
+    {
+      "head": "L11H6",
+      "li": 11,
+      "h": 6,
+      "copy_purity": 0.08,
+      "verbatim_purity": 0.08,
+      "successor_purity": 0.0,
+      "src_logit_z": 2.31,
+      "succ_logit_z": 2.2,
+      "src_rank_median": 1756,
+      "succ_rank_median": 1051,
+      "sink_frac": 0.0,
+      "self_frac": 0.1,
+      "prev_frac": 0.2,
+      "offset_median": 2,
+      "offset_conc": 0.454,
+      "src_tok_conc": 0.107,
+      "top_src_toks": [
+        [
+          "'.'",
+          6
+        ],
+        [
+          "'\\n'",
+          4
+        ],
+        [
+          "','",
+          3
+        ],
+        [
+          "' the'",
+          2
+        ]
+      ],
+      "purity_rank": 79
+    },
+    {
+      "head": "L12H2",
+      "li": 12,
+      "h": 2,
+      "copy_purity": 0.08,
+      "verbatim_purity": 0.04,
+      "successor_purity": 0.04,
+      "src_logit_z": 2.45,
+      "succ_logit_z": 2.63,
+      "src_rank_median": 926,
+      "succ_rank_median": 518,
+      "sink_frac": 0.0,
+      "self_frac": 0.48,
+      "prev_frac": 0.28,
+      "offset_median": 1,
+      "offset_conc": 0.643,
+      "src_tok_conc": 0.6,
+      "top_src_toks": [
+        [
+          "'.'",
+          31
+        ],
+        [
+          "' include'",
+          5
+        ],
+        [
+          "','",
+          2
+        ],
+        [
+          "'\\n'",
+          2
+        ]
+      ],
+      "purity_rank": 80
+    },
+    {
+      "head": "L12H5",
+      "li": 12,
+      "h": 5,
+      "copy_purity": 0.08,
+      "verbatim_purity": 0.02,
+      "successor_purity": 0.06,
+      "src_logit_z": 1.02,
+      "succ_logit_z": 1.78,
+      "src_rank_median": 11427,
+      "succ_rank_median": 4295,
+      "sink_frac": 0.0,
+      "self_frac": 0.14,
+      "prev_frac": 0.12,
+      "offset_median": 4,
+      "offset_conc": 0.381,
+      "src_tok_conc": 0.007,
+      "top_src_toks": [
+        [
+          "' were'",
+          2
+        ],
+        [
+          "'e'",
+          1
+        ],
+        [
+          "'en'",
+          1
+        ],
+        [
+          "' to'",
+          1
+        ]
+      ],
+      "purity_rank": 81
+    },
+    {
+      "head": "L2H5",
+      "li": 2,
+      "h": 5,
+      "copy_purity": 0.06,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.06,
+      "src_logit_z": -0.19,
+      "succ_logit_z": 1.73,
+      "src_rank_median": 24552,
+      "succ_rank_median": 3544,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.0,
+      "offset_median": 80,
+      "offset_conc": 0.076,
+      "src_tok_conc": 0.179,
+      "top_src_toks": [
+        [
+          "'May'",
+          6
+        ],
+        [
+          "'Jan'",
+          4
+        ],
+        [
+          "' Fried'",
+          3
+        ],
+        [
+          "'July'",
+          3
+        ]
+      ],
+      "purity_rank": 82
+    },
+    {
+      "head": "L2H6",
+      "li": 2,
+      "h": 6,
+      "copy_purity": 0.06,
+      "verbatim_purity": 0.04,
+      "successor_purity": 0.02,
+      "src_logit_z": 0.42,
+      "succ_logit_z": 0.37,
+      "src_rank_median": 20236,
+      "succ_rank_median": 20394,
+      "sink_frac": 0.04,
+      "self_frac": 0.0,
+      "prev_frac": 0.88,
+      "offset_median": 1,
+      "offset_conc": 0.906,
+      "src_tok_conc": 0.091,
+      "top_src_toks": [
+        [
+          "'y'",
+          7
+        ],
+        [
+          "'t'",
+          2
+        ],
+        [
+          "' to'",
+          2
+        ],
+        [
+          "' Inn'",
+          2
+        ]
+      ],
+      "purity_rank": 83
+    },
+    {
+      "head": "L2H7",
+      "li": 2,
+      "h": 7,
+      "copy_purity": 0.06,
+      "verbatim_purity": 0.06,
+      "successor_purity": 0.0,
+      "src_logit_z": 2.18,
+      "succ_logit_z": 1.4,
+      "src_rank_median": 813,
+      "succ_rank_median": 6654,
+      "sink_frac": 0.0,
+      "self_frac": 0.06,
+      "prev_frac": 0.04,
+      "offset_median": 8,
+      "offset_conc": 0.217,
+      "src_tok_conc": 0.028,
+      "top_src_toks": [
+        [
+          "' minutes'",
+          2
+        ],
+        [
+          "' talks'",
+          2
+        ],
+        [
+          "' Single'",
+          2
+        ],
+        [
+          "' waitress'",
+          2
+        ]
+      ],
+      "purity_rank": 84
+    },
+    {
+      "head": "L3H0",
+      "li": 3,
+      "h": 0,
+      "copy_purity": 0.06,
+      "verbatim_purity": 0.06,
+      "successor_purity": 0.0,
+      "src_logit_z": 0.19,
+      "succ_logit_z": 0.69,
+      "src_rank_median": 31281,
+      "succ_rank_median": 11286,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.12,
+      "offset_median": 8,
+      "offset_conc": 0.288,
+      "src_tok_conc": 0.408,
+      "top_src_toks": [
+        [
+          "' -'",
+          18
+        ],
+        [
+          "'\\n'",
+          5
+        ],
+        [
+          "' that'",
+          5
+        ],
+        [
+          "'.'",
+          4
+        ]
+      ],
+      "purity_rank": 85
+    },
+    {
+      "head": "L3H4",
+      "li": 3,
+      "h": 4,
+      "copy_purity": 0.06,
+      "verbatim_purity": 0.02,
+      "successor_purity": 0.04,
+      "src_logit_z": 1.0,
+      "succ_logit_z": 1.15,
+      "src_rank_median": 11777,
+      "succ_rank_median": 5926,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.16,
+      "offset_median": 4,
+      "offset_conc": 0.463,
+      "src_tok_conc": 0.126,
+      "top_src_toks": [
+        [
+          "','",
+          4
+        ],
+        [
+          "' of'",
+          4
+        ],
+        [
+          "' has'",
+          3
+        ],
+        [
+          "' who'",
+          3
+        ]
+      ],
+      "purity_rank": 86
+    },
+    {
+      "head": "L9H0",
+      "li": 9,
+      "h": 0,
+      "copy_purity": 0.06,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.06,
+      "src_logit_z": 0.88,
+      "succ_logit_z": 1.05,
+      "src_rank_median": 4348,
+      "succ_rank_median": 4631,
+      "sink_frac": 0.0,
+      "self_frac": 0.36,
+      "prev_frac": 0.06,
+      "offset_median": 2,
+      "offset_conc": 0.532,
+      "src_tok_conc": 0.172,
+      "top_src_toks": [
+        [
+          "'!'",
+          6
+        ],
+        [
+          "'.'",
+          6
+        ],
+        [
+          "','",
+          3
+        ],
+        [
+          "' am'",
+          3
+        ]
+      ],
+      "purity_rank": 87
+    },
+    {
+      "head": "L9H7",
+      "li": 9,
+      "h": 7,
+      "copy_purity": 0.06,
+      "verbatim_purity": 0.02,
+      "successor_purity": 0.04,
+      "src_logit_z": 2.57,
+      "succ_logit_z": 2.78,
+      "src_rank_median": 403,
+      "succ_rank_median": 262,
+      "sink_frac": 0.0,
+      "self_frac": 0.06,
+      "prev_frac": 0.34,
+      "offset_median": 2,
+      "offset_conc": 0.59,
+      "src_tok_conc": 0.122,
+      "top_src_toks": [
+        [
+          "' to'",
+          5
+        ],
+        [
+          "' that'",
+          4
+        ],
+        [
+          "' people'",
+          3
+        ],
+        [
+          "' of'",
+          2
+        ]
+      ],
+      "purity_rank": 88
+    },
+    {
+      "head": "L10H1",
+      "li": 10,
+      "h": 1,
+      "copy_purity": 0.06,
+      "verbatim_purity": 0.06,
+      "successor_purity": 0.0,
+      "src_logit_z": 2.43,
+      "succ_logit_z": 1.18,
+      "src_rank_median": 792,
+      "succ_rank_median": 7669,
+      "sink_frac": 0.0,
+      "self_frac": 0.14,
+      "prev_frac": 0.18,
+      "offset_median": 2,
+      "offset_conc": 0.351,
+      "src_tok_conc": 0.182,
+      "top_src_toks": [
+        [
+          "'.'",
+          9
+        ],
+        [
+          "' pesticides'",
+          4
+        ],
+        [
+          "' locally'",
+          3
+        ],
+        [
+          "' for'",
+          2
+        ]
+      ],
+      "purity_rank": 89
+    },
+    {
+      "head": "L11H4",
+      "li": 11,
+      "h": 4,
+      "copy_purity": 0.06,
+      "verbatim_purity": 0.04,
+      "successor_purity": 0.02,
+      "src_logit_z": 1.08,
+      "succ_logit_z": 1.5,
+      "src_rank_median": 9943,
+      "succ_rank_median": 2458,
+      "sink_frac": 0.0,
+      "self_frac": 0.04,
+      "prev_frac": 0.04,
+      "offset_median": 25,
+      "offset_conc": 0.095,
+      "src_tok_conc": 0.431,
+      "top_src_toks": [
+        [
+          "'.'",
+          22
+        ],
+        [
+          "'\\n'",
+          5
+        ],
+        [
+          "'zel'",
+          4
+        ],
+        [
+          "'\ufffd'",
+          2
+        ]
+      ],
+      "purity_rank": 90
+    },
+    {
+      "head": "L13H4",
+      "li": 13,
+      "h": 4,
+      "copy_purity": 0.06,
+      "verbatim_purity": 0.02,
+      "successor_purity": 0.04,
+      "src_logit_z": 1.56,
+      "succ_logit_z": 0.73,
+      "src_rank_median": 4224,
+      "succ_rank_median": 12983,
+      "sink_frac": 0.0,
+      "self_frac": 0.04,
+      "prev_frac": 0.24,
+      "offset_median": 2,
+      "offset_conc": 0.451,
+      "src_tok_conc": 0.16,
+      "top_src_toks": [
+        [
+          "'ks'",
+          4
+        ],
+        [
+          "' Facebook'",
+          4
+        ],
+        [
+          "'onna'",
+          3
+        ],
+        [
+          "' comics'",
+          3
+        ]
+      ],
+      "purity_rank": 91
+    },
+    {
+      "head": "L14H2",
+      "li": 14,
+      "h": 2,
+      "copy_purity": 0.06,
+      "verbatim_purity": 0.06,
+      "successor_purity": 0.0,
+      "src_logit_z": -25.27,
+      "succ_logit_z": -1.28,
+      "src_rank_median": 50303,
+      "succ_rank_median": 31172,
+      "sink_frac": 0.0,
+      "self_frac": 0.6,
+      "prev_frac": 0.12,
+      "offset_median": 0,
+      "offset_conc": 0.639,
+      "src_tok_conc": 0.686,
+      "top_src_toks": [
+        [
+          "'\\n'",
+          33
+        ],
+        [
+          "'\"'",
+          6
+        ],
+        [
+          "' do'",
+          3
+        ],
+        [
+          "' &'",
+          3
+        ]
+      ],
+      "purity_rank": 92
+    },
+    {
+      "head": "L15H5",
+      "li": 15,
+      "h": 5,
+      "copy_purity": 0.06,
+      "verbatim_purity": 0.06,
+      "successor_purity": 0.0,
+      "src_logit_z": 1.71,
+      "succ_logit_z": 0.83,
+      "src_rank_median": 11881,
+      "succ_rank_median": 15689,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.0,
+      "offset_median": 6,
+      "offset_conc": 0.314,
+      "src_tok_conc": 0.327,
+      "top_src_toks": [
+        [
+          "'.'",
+          13
+        ],
+        [
+          "'\\n'",
+          8
+        ],
+        [
+          "','",
+          3
+        ],
+        [
+          "' with'",
+          3
+        ]
+      ],
+      "purity_rank": 93
+    },
+    {
+      "head": "L16H1",
+      "li": 16,
+      "h": 1,
+      "copy_purity": 0.06,
+      "verbatim_purity": 0.06,
+      "successor_purity": 0.0,
+      "src_logit_z": 1.89,
+      "succ_logit_z": 0.06,
+      "src_rank_median": 1355,
+      "succ_rank_median": 26890,
+      "sink_frac": 0.04,
+      "self_frac": 0.0,
+      "prev_frac": 0.0,
+      "offset_median": 79,
+      "offset_conc": 0.078,
+      "src_tok_conc": 0.288,
+      "top_src_toks": [
+        [
+          "' Poland'",
+          8
+        ],
+        [
+          "' Psy'",
+          6
+        ],
+        [
+          "'Gordon'",
+          5
+        ],
+        [
+          "' Warsaw'",
+          4
+        ]
+      ],
+      "purity_rank": 94
+    },
+    {
+      "head": "L1H1",
+      "li": 1,
+      "h": 1,
+      "copy_purity": 0.04,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.04,
+      "src_logit_z": 1.9,
+      "succ_logit_z": 1.92,
+      "src_rank_median": 1921,
+      "succ_rank_median": 3541,
+      "sink_frac": 0.0,
+      "self_frac": 0.68,
+      "prev_frac": 0.32,
+      "offset_median": 0,
+      "offset_conc": 0.84,
+      "src_tok_conc": 0.177,
+      "top_src_toks": [
+        [
+          "'\\n'",
+          7
+        ],
+        [
+          "' T'",
+          4
+        ],
+        [
+          "' B'",
+          3
+        ],
+        [
+          "' D'",
+          3
+        ]
+      ],
+      "purity_rank": 95
+    },
+    {
+      "head": "L1H6",
+      "li": 1,
+      "h": 6,
+      "copy_purity": 0.04,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.04,
+      "src_logit_z": 0.72,
+      "succ_logit_z": 1.85,
+      "src_rank_median": 17036,
+      "succ_rank_median": 3189,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.32,
+      "offset_median": 5,
+      "offset_conc": 0.312,
+      "src_tok_conc": 0.314,
+      "top_src_toks": [
+        [
+          "'\ufffd'",
+          10
+        ],
+        [
+          "' it'",
+          7
+        ],
+        [
+          "' \"'",
+          7
+        ],
+        [
+          "'\"'",
+          4
+        ]
+      ],
+      "purity_rank": 96
+    },
+    {
+      "head": "L4H4",
+      "li": 4,
+      "h": 4,
+      "copy_purity": 0.04,
+      "verbatim_purity": 0.02,
+      "successor_purity": 0.02,
+      "src_logit_z": 0.64,
+      "succ_logit_z": 0.68,
+      "src_rank_median": 14736,
+      "succ_rank_median": 15320,
+      "sink_frac": 0.0,
+      "self_frac": 0.1,
+      "prev_frac": 0.18,
+      "offset_median": 3,
+      "offset_conc": 0.377,
+      "src_tok_conc": 0.143,
+      "top_src_toks": [
+        [
+          "' which'",
+          4
+        ],
+        [
+          "','",
+          3
+        ],
+        [
+          "' it'",
+          3
+        ],
+        [
+          "' other'",
+          3
+        ]
+      ],
+      "purity_rank": 97
+    },
+    {
+      "head": "L4H6",
+      "li": 4,
+      "h": 6,
+      "copy_purity": 0.04,
+      "verbatim_purity": 0.04,
+      "successor_purity": 0.0,
+      "src_logit_z": 1.39,
+      "succ_logit_z": 1.06,
+      "src_rank_median": 4646,
+      "succ_rank_median": 7139,
+      "sink_frac": 0.0,
+      "self_frac": 0.06,
+      "prev_frac": 0.04,
+      "offset_median": 6,
+      "offset_conc": 0.282,
+      "src_tok_conc": 0.181,
+      "top_src_toks": [
+        [
+          "'\\n'",
+          7
+        ],
+        [
+          "'.'",
+          6
+        ],
+        [
+          "' to'",
+          4
+        ],
+        [
+          "' for'",
+          2
+        ]
+      ],
+      "purity_rank": 98
+    },
+    {
+      "head": "L4H7",
+      "li": 4,
+      "h": 7,
+      "copy_purity": 0.04,
+      "verbatim_purity": 0.04,
+      "successor_purity": 0.0,
+      "src_logit_z": 1.87,
+      "succ_logit_z": 1.45,
+      "src_rank_median": 2460,
+      "succ_rank_median": 4877,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.82,
+      "offset_median": 1,
+      "offset_conc": 0.848,
+      "src_tok_conc": 0.028,
+      "top_src_toks": [
+        [
+          "'ary'",
+          2
+        ],
+        [
+          "' specific'",
+          2
+        ],
+        [
+          "' final'",
+          2
+        ],
+        [
+          "' Hours'",
+          2
+        ]
+      ],
+      "purity_rank": 99
+    },
+    {
+      "head": "L5H6",
+      "li": 5,
+      "h": 6,
+      "copy_purity": 0.04,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.04,
+      "src_logit_z": 2.11,
+      "succ_logit_z": 1.91,
+      "src_rank_median": 1133,
+      "succ_rank_median": 2222,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.3,
+      "offset_median": 2,
+      "offset_conc": 0.451,
+      "src_tok_conc": 0.024,
+      "top_src_toks": [
+        [
+          "' of'",
+          3
+        ],
+        [
+          "' Million'",
+          2
+        ],
+        [
+          "' the'",
+          1
+        ],
+        [
+          "' in'",
+          1
+        ]
+      ],
+      "purity_rank": 100
+    },
+    {
+      "head": "L6H1",
+      "li": 6,
+      "h": 1,
+      "copy_purity": 0.04,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.04,
+      "src_logit_z": 2.41,
+      "succ_logit_z": 2.1,
+      "src_rank_median": 500,
+      "succ_rank_median": 1728,
+      "sink_frac": 0.02,
+      "self_frac": 0.16,
+      "prev_frac": 0.06,
+      "offset_median": 12,
+      "offset_conc": 0.199,
+      "src_tok_conc": 0.224,
+      "top_src_toks": [
+        [
+          "'.'",
+          10
+        ],
+        [
+          "'\\n'",
+          8
+        ],
+        [
+          "':'",
+          2
+        ],
+        [
+          "' Alex'",
+          2
+        ]
+      ],
+      "purity_rank": 101
+    },
+    {
+      "head": "L7H1",
+      "li": 7,
+      "h": 1,
+      "copy_purity": 0.04,
+      "verbatim_purity": 0.02,
+      "successor_purity": 0.02,
+      "src_logit_z": 2.27,
+      "succ_logit_z": 2.77,
+      "src_rank_median": 708,
+      "succ_rank_median": 297,
+      "sink_frac": 0.0,
+      "self_frac": 0.22,
+      "prev_frac": 0.24,
+      "offset_median": 2,
+      "offset_conc": 0.419,
+      "src_tok_conc": 0.271,
+      "top_src_toks": [
+        [
+          "'.'",
+          12
+        ],
+        [
+          "'\\n'",
+          6
+        ],
+        [
+          "' left'",
+          2
+        ],
+        [
+          "' water'",
+          2
+        ]
+      ],
+      "purity_rank": 102
+    },
+    {
+      "head": "L7H5",
+      "li": 7,
+      "h": 5,
+      "copy_purity": 0.04,
+      "verbatim_purity": 0.04,
+      "successor_purity": 0.0,
+      "src_logit_z": 2.27,
+      "succ_logit_z": 1.49,
+      "src_rank_median": 597,
+      "succ_rank_median": 4025,
+      "sink_frac": 0.0,
+      "self_frac": 0.06,
+      "prev_frac": 0.3,
+      "offset_median": 2,
+      "offset_conc": 0.508,
+      "src_tok_conc": 0.163,
+      "top_src_toks": [
+        [
+          "' and'",
+          7
+        ],
+        [
+          "' of'",
+          5
+        ],
+        [
+          "' in'",
+          4
+        ],
+        [
+          "'\\n'",
+          3
+        ]
+      ],
+      "purity_rank": 103
+    },
+    {
+      "head": "L7H8",
+      "li": 7,
+      "h": 8,
+      "copy_purity": 0.04,
+      "verbatim_purity": 0.04,
+      "successor_purity": 0.0,
+      "src_logit_z": 3.0,
+      "succ_logit_z": 2.22,
+      "src_rank_median": 273,
+      "succ_rank_median": 1177,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.18,
+      "offset_median": 3,
+      "offset_conc": 0.534,
+      "src_tok_conc": 0.238,
+      "top_src_toks": [
+        [
+          "' of'",
+          10
+        ],
+        [
+          "' in'",
+          6
+        ],
+        [
+          "' the'",
+          5
+        ],
+        [
+          "' for'",
+          3
+        ]
+      ],
+      "purity_rank": 104
+    },
+    {
+      "head": "L9H1",
+      "li": 9,
+      "h": 1,
+      "copy_purity": 0.04,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.04,
+      "src_logit_z": 1.88,
+      "succ_logit_z": 1.73,
+      "src_rank_median": 1877,
+      "succ_rank_median": 3722,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.14,
+      "offset_median": 4,
+      "offset_conc": 0.392,
+      "src_tok_conc": 0.129,
+      "top_src_toks": [
+        [
+          "','",
+          6
+        ],
+        [
+          "' in'",
+          4
+        ],
+        [
+          "' with'",
+          3
+        ],
+        [
+          "' the'",
+          2
+        ]
+      ],
+      "purity_rank": 105
+    },
+    {
+      "head": "L9H2",
+      "li": 9,
+      "h": 2,
+      "copy_purity": 0.04,
+      "verbatim_purity": 0.04,
+      "successor_purity": 0.0,
+      "src_logit_z": 0.95,
+      "succ_logit_z": 0.88,
+      "src_rank_median": 13193,
+      "succ_rank_median": 6762,
+      "sink_frac": 0.0,
+      "self_frac": 0.22,
+      "prev_frac": 0.28,
+      "offset_median": 1,
+      "offset_conc": 0.578,
+      "src_tok_conc": 0.225,
+      "top_src_toks": [
+        [
+          "'.'",
+          9
+        ],
+        [
+          "','",
+          6
+        ],
+        [
+          "' at'",
+          3
+        ],
+        [
+          "'51'",
+          3
+        ]
+      ],
+      "purity_rank": 106
+    },
+    {
+      "head": "L11H0",
+      "li": 11,
+      "h": 0,
+      "copy_purity": 0.04,
+      "verbatim_purity": 0.04,
+      "successor_purity": 0.0,
+      "src_logit_z": 1.48,
+      "succ_logit_z": 1.1,
+      "src_rank_median": 3565,
+      "succ_rank_median": 5529,
+      "sink_frac": 0.0,
+      "self_frac": 0.22,
+      "prev_frac": 0.18,
+      "offset_median": 2,
+      "offset_conc": 0.422,
+      "src_tok_conc": 0.158,
+      "top_src_toks": [
+        [
+          "' for'",
+          5
+        ],
+        [
+          "','",
+          3
+        ],
+        [
+          "' to'",
+          3
+        ],
+        [
+          "' on'",
+          3
+        ]
+      ],
+      "purity_rank": 107
+    },
+    {
+      "head": "L11H8",
+      "li": 11,
+      "h": 8,
+      "copy_purity": 0.04,
+      "verbatim_purity": 0.04,
+      "successor_purity": 0.0,
+      "src_logit_z": 0.12,
+      "succ_logit_z": -0.22,
+      "src_rank_median": 20247,
+      "succ_rank_median": 29307,
+      "sink_frac": 0.0,
+      "self_frac": 0.24,
+      "prev_frac": 0.14,
+      "offset_median": 2,
+      "offset_conc": 0.537,
+      "src_tok_conc": 0.146,
+      "top_src_toks": [
+        [
+          "' a'",
+          5
+        ],
+        [
+          "' amenities'",
+          4
+        ],
+        [
+          "' days'",
+          3
+        ],
+        [
+          "' defects'",
+          3
+        ]
+      ],
+      "purity_rank": 108
+    },
+    {
+      "head": "L17H4",
+      "li": 17,
+      "h": 4,
+      "copy_purity": 0.04,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.04,
+      "src_logit_z": 0.41,
+      "succ_logit_z": 2.9,
+      "src_rank_median": 14882,
+      "succ_rank_median": 609,
+      "sink_frac": 0.0,
+      "self_frac": 0.84,
+      "prev_frac": 0.14,
+      "offset_median": 0,
+      "offset_conc": 0.872,
+      "src_tok_conc": 0.265,
+      "top_src_toks": [
+        [
+          "' to'",
+          8
+        ],
+        [
+          "' you'",
+          5
+        ],
+        [
+          "' can'",
+          5
+        ],
+        [
+          "','",
+          4
+        ]
+      ],
+      "purity_rank": 109
+    },
+    {
+      "head": "L17H7",
+      "li": 17,
+      "h": 7,
+      "copy_purity": 0.04,
+      "verbatim_purity": 0.04,
+      "successor_purity": 0.0,
+      "src_logit_z": 1.08,
+      "succ_logit_z": -0.12,
+      "src_rank_median": 7743,
+      "succ_rank_median": 26398,
+      "sink_frac": 0.0,
+      "self_frac": 0.44,
+      "prev_frac": 0.22,
+      "offset_median": 1,
+      "offset_conc": 0.566,
+      "src_tok_conc": 0.178,
+      "top_src_toks": [
+        [
+          "','",
+          5
+        ],
+        [
+          "' he'",
+          4
+        ],
+        [
+          "'49'",
+          4
+        ],
+        [
+          "' and'",
+          3
+        ]
+      ],
+      "purity_rank": 110
+    },
+    {
+      "head": "L0H0",
+      "li": 0,
+      "h": 0,
+      "copy_purity": 0.02,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.02,
+      "src_logit_z": 1.23,
+      "succ_logit_z": 0.67,
+      "src_rank_median": 4835,
+      "succ_rank_median": 15438,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.06,
+      "offset_median": 16,
+      "offset_conc": 0.169,
+      "src_tok_conc": 0.225,
+      "top_src_toks": [
+        [
+          "' Facebook'",
+          9
+        ],
+        [
+          "' Ads'",
+          4
+        ],
+        [
+          "' iPhone'",
+          3
+        ],
+        [
+          "' hunting'",
+          3
+        ]
+      ],
+      "purity_rank": 111
+    },
+    {
+      "head": "L0H3",
+      "li": 0,
+      "h": 3,
+      "copy_purity": 0.02,
+      "verbatim_purity": 0.02,
+      "successor_purity": 0.0,
+      "src_logit_z": 1.47,
+      "succ_logit_z": -0.51,
+      "src_rank_median": 4101,
+      "succ_rank_median": 41475,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 1.0,
+      "offset_median": 1,
+      "offset_conc": 1.0,
+      "src_tok_conc": 0.093,
+      "top_src_toks": [
+        [
+          "' sa'",
+          4
+        ],
+        [
+          "' Mark'",
+          3
+        ],
+        [
+          "' Angel'",
+          3
+        ],
+        [
+          "' operating'",
+          3
+        ]
+      ],
+      "purity_rank": 112
+    },
+    {
+      "head": "L0H8",
+      "li": 0,
+      "h": 8,
+      "copy_purity": 0.02,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.02,
+      "src_logit_z": 0.68,
+      "succ_logit_z": -0.64,
+      "src_rank_median": 13826,
+      "succ_rank_median": 37996,
+      "sink_frac": 0.02,
+      "self_frac": 0.0,
+      "prev_frac": 0.58,
+      "offset_median": 1,
+      "offset_conc": 0.741,
+      "src_tok_conc": 0.144,
+      "top_src_toks": [
+        [
+          "' in'",
+          5
+        ],
+        [
+          "' at'",
+          3
+        ],
+        [
+          "' not'",
+          3
+        ],
+        [
+          "' would'",
+          3
+        ]
+      ],
+      "purity_rank": 113
+    },
+    {
+      "head": "L2H0",
+      "li": 2,
+      "h": 0,
+      "copy_purity": 0.02,
+      "verbatim_purity": 0.02,
+      "successor_purity": 0.0,
+      "src_logit_z": -1.27,
+      "succ_logit_z": -0.63,
+      "src_rank_median": 47484,
+      "succ_rank_median": 36168,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.5,
+      "offset_median": 1,
+      "offset_conc": 0.64,
+      "src_tok_conc": 0.436,
+      "top_src_toks": [
+        [
+          "'\\n'",
+          19
+        ],
+        [
+          "'<|endoftext|>'",
+          8
+        ],
+        [
+          "'.'",
+          3
+        ],
+        [
+          "'Where'",
+          3
+        ]
+      ],
+      "purity_rank": 114
+    },
+    {
+      "head": "L3H5",
+      "li": 3,
+      "h": 5,
+      "copy_purity": 0.02,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.02,
+      "src_logit_z": 0.4,
+      "succ_logit_z": 1.66,
+      "src_rank_median": 20567,
+      "succ_rank_median": 3332,
+      "sink_frac": 0.0,
+      "self_frac": 0.12,
+      "prev_frac": 0.0,
+      "offset_median": 7,
+      "offset_conc": 0.282,
+      "src_tok_conc": 0.028,
+      "top_src_toks": [
+        [
+          "\"'t\"",
+          2
+        ],
+        [
+          "'ery'",
+          2
+        ],
+        [
+          "' optimism'",
+          2
+        ],
+        [
+          "' kidneys'",
+          2
+        ]
+      ],
+      "purity_rank": 115
+    },
+    {
+      "head": "L4H3",
+      "li": 4,
+      "h": 3,
+      "copy_purity": 0.02,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.02,
+      "src_logit_z": 0.85,
+      "succ_logit_z": 0.85,
+      "src_rank_median": 9591,
+      "succ_rank_median": 9304,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.94,
+      "offset_median": 1,
+      "offset_conc": 0.925,
+      "src_tok_conc": 0.031,
+      "top_src_toks": [
+        [
+          "' St'",
+          3
+        ],
+        [
+          "' 3'",
+          2
+        ],
+        [
+          "' Po'",
+          2
+        ],
+        [
+          "'/'",
+          1
+        ]
+      ],
+      "purity_rank": 116
+    },
+    {
+      "head": "L4H5",
+      "li": 4,
+      "h": 5,
+      "copy_purity": 0.02,
+      "verbatim_purity": 0.02,
+      "successor_purity": 0.0,
+      "src_logit_z": 0.65,
+      "succ_logit_z": 0.78,
+      "src_rank_median": 15116,
+      "succ_rank_median": 11378,
+      "sink_frac": 0.0,
+      "self_frac": 0.14,
+      "prev_frac": 0.82,
+      "offset_median": 1,
+      "offset_conc": 0.855,
+      "src_tok_conc": 0.057,
+      "top_src_toks": [
+        [
+          "' Land'",
+          4
+        ],
+        [
+          "'ot'",
+          2
+        ],
+        [
+          "'se'",
+          2
+        ],
+        [
+          "'News'",
+          2
+        ]
+      ],
+      "purity_rank": 117
+    },
+    {
+      "head": "L4H8",
+      "li": 4,
+      "h": 8,
+      "copy_purity": 0.02,
+      "verbatim_purity": 0.02,
+      "successor_purity": 0.0,
+      "src_logit_z": 1.18,
+      "succ_logit_z": 0.67,
+      "src_rank_median": 8014,
+      "succ_rank_median": 12617,
+      "sink_frac": 0.0,
+      "self_frac": 0.24,
+      "prev_frac": 0.04,
+      "offset_median": 5,
+      "offset_conc": 0.295,
+      "src_tok_conc": 0.386,
+      "top_src_toks": [
+        [
+          "'\\n'",
+          18
+        ],
+        [
+          "'.'",
+          6
+        ],
+        [
+          "'<|endoftext|>'",
+          5
+        ],
+        [
+          "'||'",
+          3
+        ]
+      ],
+      "purity_rank": 118
+    },
+    {
+      "head": "L5H4",
+      "li": 5,
+      "h": 4,
+      "copy_purity": 0.02,
+      "verbatim_purity": 0.02,
+      "successor_purity": 0.0,
+      "src_logit_z": 0.7,
+      "succ_logit_z": 1.33,
+      "src_rank_median": 13084,
+      "succ_rank_median": 3700,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.36,
+      "offset_median": 5,
+      "offset_conc": 0.386,
+      "src_tok_conc": 0.035,
+      "top_src_toks": [
+        [
+          "' company'",
+          2
+        ],
+        [
+          "' reports'",
+          2
+        ],
+        [
+          "' skills'",
+          2
+        ],
+        [
+          "'FP'",
+          2
+        ]
+      ],
+      "purity_rank": 119
+    },
+    {
+      "head": "L5H8",
+      "li": 5,
+      "h": 8,
+      "copy_purity": 0.02,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.02,
+      "src_logit_z": 0.92,
+      "succ_logit_z": 1.32,
+      "src_rank_median": 7951,
+      "succ_rank_median": 5950,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.24,
+      "offset_median": 3,
+      "offset_conc": 0.531,
+      "src_tok_conc": 0.155,
+      "top_src_toks": [
+        [
+          "','",
+          4
+        ],
+        [
+          "' that'",
+          3
+        ],
+        [
+          "' if'",
+          3
+        ],
+        [
+          "' time'",
+          3
+        ]
+      ],
+      "purity_rank": 120
+    },
+    {
+      "head": "L6H2",
+      "li": 6,
+      "h": 2,
+      "copy_purity": 0.02,
+      "verbatim_purity": 0.02,
+      "successor_purity": 0.0,
+      "src_logit_z": 1.49,
+      "succ_logit_z": 0.62,
+      "src_rank_median": 3654,
+      "succ_rank_median": 16920,
+      "sink_frac": 0.0,
+      "self_frac": 0.04,
+      "prev_frac": 0.02,
+      "offset_median": 13,
+      "offset_conc": 0.146,
+      "src_tok_conc": 0.25,
+      "top_src_toks": [
+        [
+          "'\\n'",
+          15
+        ],
+        [
+          "' -'",
+          2
+        ],
+        [
+          "'...'",
+          2
+        ],
+        [
+          "' options'",
+          2
+        ]
+      ],
+      "purity_rank": 121
+    },
+    {
+      "head": "L7H4",
+      "li": 7,
+      "h": 4,
+      "copy_purity": 0.02,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.02,
+      "src_logit_z": 2.23,
+      "succ_logit_z": 2.19,
+      "src_rank_median": 351,
+      "succ_rank_median": 1733,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.0,
+      "offset_median": 21,
+      "offset_conc": 0.209,
+      "src_tok_conc": 0.244,
+      "top_src_toks": [
+        [
+          "' 2012'",
+          6
+        ],
+        [
+          "'May'",
+          6
+        ],
+        [
+          "' 2013'",
+          5
+        ],
+        [
+          "'.'",
+          3
+        ]
+      ],
+      "purity_rank": 122
+    },
+    {
+      "head": "L7H7",
+      "li": 7,
+      "h": 7,
+      "copy_purity": 0.02,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.02,
+      "src_logit_z": 1.72,
+      "succ_logit_z": 1.77,
+      "src_rank_median": 1683,
+      "succ_rank_median": 3231,
+      "sink_frac": 0.0,
+      "self_frac": 0.14,
+      "prev_frac": 0.22,
+      "offset_median": 2,
+      "offset_conc": 0.498,
+      "src_tok_conc": 0.147,
+      "top_src_toks": [
+        [
+          "' that'",
+          8
+        ],
+        [
+          "' because'",
+          3
+        ],
+        [
+          "' reap'",
+          3
+        ],
+        [
+          "' for'",
+          2
+        ]
+      ],
+      "purity_rank": 123
+    },
+    {
+      "head": "L11H1",
+      "li": 11,
+      "h": 1,
+      "copy_purity": 0.02,
+      "verbatim_purity": 0.02,
+      "successor_purity": 0.0,
+      "src_logit_z": 1.97,
+      "succ_logit_z": 2.2,
+      "src_rank_median": 1803,
+      "succ_rank_median": 1195,
+      "sink_frac": 0.0,
+      "self_frac": 0.1,
+      "prev_frac": 0.32,
+      "offset_median": 2,
+      "offset_conc": 0.546,
+      "src_tok_conc": 0.457,
+      "top_src_toks": [
+        [
+          "'.'",
+          21
+        ],
+        [
+          "','",
+          8
+        ],
+        [
+          "' and'",
+          4
+        ],
+        [
+          "' I'",
+          3
+        ]
+      ],
+      "purity_rank": 124
+    },
+    {
+      "head": "L11H3",
+      "li": 11,
+      "h": 3,
+      "copy_purity": 0.02,
+      "verbatim_purity": 0.02,
+      "successor_purity": 0.0,
+      "src_logit_z": 0.25,
+      "succ_logit_z": 0.56,
+      "src_rank_median": 23130,
+      "succ_rank_median": 16409,
+      "sink_frac": 0.0,
+      "self_frac": 0.02,
+      "prev_frac": 0.02,
+      "offset_median": 6,
+      "offset_conc": 0.345,
+      "src_tok_conc": 0.088,
+      "top_src_toks": [
+        [
+          "' information'",
+          4
+        ],
+        [
+          "' people'",
+          3
+        ],
+        [
+          "','",
+          2
+        ],
+        [
+          "' the'",
+          2
+        ]
+      ],
+      "purity_rank": 125
+    },
+    {
+      "head": "L12H1",
+      "li": 12,
+      "h": 1,
+      "copy_purity": 0.02,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.02,
+      "src_logit_z": 0.38,
+      "succ_logit_z": 1.04,
+      "src_rank_median": 7872,
+      "succ_rank_median": 10027,
+      "sink_frac": 0.0,
+      "self_frac": 0.36,
+      "prev_frac": 0.26,
+      "offset_median": 1,
+      "offset_conc": 0.572,
+      "src_tok_conc": 0.234,
+      "top_src_toks": [
+        [
+          "','",
+          9
+        ],
+        [
+          "' earnings'",
+          5
+        ],
+        [
+          "' in'",
+          4
+        ],
+        [
+          "' rolled'",
+          4
+        ]
+      ],
+      "purity_rank": 126
+    },
+    {
+      "head": "L12H3",
+      "li": 12,
+      "h": 3,
+      "copy_purity": 0.02,
+      "verbatim_purity": 0.02,
+      "successor_purity": 0.0,
+      "src_logit_z": 1.73,
+      "succ_logit_z": 1.2,
+      "src_rank_median": 1014,
+      "succ_rank_median": 5677,
+      "sink_frac": 0.0,
+      "self_frac": 0.04,
+      "prev_frac": 0.04,
+      "offset_median": 17,
+      "offset_conc": 0.11,
+      "src_tok_conc": 0.132,
+      "top_src_toks": [
+        [
+          "' grid'",
+          5
+        ],
+        [
+          "' media'",
+          3
+        ],
+        [
+          "' lunar'",
+          3
+        ],
+        [
+          "'.'",
+          2
+        ]
+      ],
+      "purity_rank": 127
+    },
+    {
+      "head": "L14H5",
+      "li": 14,
+      "h": 5,
+      "copy_purity": 0.02,
+      "verbatim_purity": 0.02,
+      "successor_purity": 0.0,
+      "src_logit_z": -0.07,
+      "succ_logit_z": 0.61,
+      "src_rank_median": 21291,
+      "succ_rank_median": 10001,
+      "sink_frac": 0.0,
+      "self_frac": 0.16,
+      "prev_frac": 0.36,
+      "offset_median": 1,
+      "offset_conc": 0.484,
+      "src_tok_conc": 0.178,
+      "top_src_toks": [
+        [
+          "'/'",
+          4
+        ],
+        [
+          "' Iraqi'",
+          4
+        ],
+        [
+          "' Iraq'",
+          3
+        ],
+        [
+          "'98'",
+          3
+        ]
+      ],
+      "purity_rank": 128
+    },
+    {
+      "head": "L15H1",
+      "li": 15,
+      "h": 1,
+      "copy_purity": 0.02,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.02,
+      "src_logit_z": 1.63,
+      "succ_logit_z": 1.09,
+      "src_rank_median": 1580,
+      "succ_rank_median": 5426,
+      "sink_frac": 0.0,
+      "self_frac": 0.12,
+      "prev_frac": 0.12,
+      "offset_median": 2,
+      "offset_conc": 0.537,
+      "src_tok_conc": 0.078,
+      "top_src_toks": [
+        [
+          "' and'",
+          4
+        ],
+        [
+          "' to'",
+          2
+        ],
+        [
+          "' in'",
+          2
+        ],
+        [
+          "' that'",
+          2
+        ]
+      ],
+      "purity_rank": 129
+    },
+    {
+      "head": "L15H7",
+      "li": 15,
+      "h": 7,
+      "copy_purity": 0.02,
+      "verbatim_purity": 0.02,
+      "successor_purity": 0.0,
+      "src_logit_z": 0.91,
+      "succ_logit_z": 0.4,
+      "src_rank_median": 8262,
+      "succ_rank_median": 10104,
+      "sink_frac": 0.0,
+      "self_frac": 0.5,
+      "prev_frac": 0.08,
+      "offset_median": 0,
+      "offset_conc": 0.61,
+      "src_tok_conc": 0.138,
+      "top_src_toks": [
+        [
+          "' the'",
+          6
+        ],
+        [
+          "'.'",
+          3
+        ],
+        [
+          "' Server'",
+          3
+        ],
+        [
+          "'U'",
+          2
+        ]
+      ],
+      "purity_rank": 130
+    },
+    {
+      "head": "L17H1",
+      "li": 17,
+      "h": 1,
+      "copy_purity": 0.02,
+      "verbatim_purity": 0.02,
+      "successor_purity": 0.0,
+      "src_logit_z": 0.34,
+      "succ_logit_z": -0.02,
+      "src_rank_median": 18723,
+      "succ_rank_median": 25641,
+      "sink_frac": 0.0,
+      "self_frac": 0.18,
+      "prev_frac": 0.42,
+      "offset_median": 1,
+      "offset_conc": 0.665,
+      "src_tok_conc": 0.038,
+      "top_src_toks": [
+        [
+          "'?'",
+          3
+        ],
+        [
+          "'*'",
+          2
+        ],
+        [
+          "' ('",
+          2
+        ],
+        [
+          "'cci'",
+          2
+        ]
+      ],
+      "purity_rank": 131
+    },
+    {
+      "head": "L17H3",
+      "li": 17,
+      "h": 3,
+      "copy_purity": 0.02,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.02,
+      "src_logit_z": 0.16,
+      "succ_logit_z": 0.42,
+      "src_rank_median": 24283,
+      "succ_rank_median": 19808,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.02,
+      "offset_median": 4,
+      "offset_conc": 0.447,
+      "src_tok_conc": 0.184,
+      "top_src_toks": [
+        [
+          "' to'",
+          10
+        ],
+        [
+          "' have'",
+          3
+        ],
+        [
+          "' and'",
+          2
+        ],
+        [
+          "' he'",
+          2
+        ]
+      ],
+      "purity_rank": 132
+    },
+    {
+      "head": "L17H5",
+      "li": 17,
+      "h": 5,
+      "copy_purity": 0.02,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.02,
+      "src_logit_z": -0.16,
+      "succ_logit_z": 0.66,
+      "src_rank_median": 33922,
+      "succ_rank_median": 14965,
+      "sink_frac": 0.0,
+      "self_frac": 0.58,
+      "prev_frac": 0.16,
+      "offset_median": 0,
+      "offset_conc": 0.661,
+      "src_tok_conc": 0.331,
+      "top_src_toks": [
+        [
+          "' and'",
+          12
+        ],
+        [
+          "','",
+          8
+        ],
+        [
+          "' to'",
+          6
+        ],
+        [
+          "' in'",
+          3
+        ]
+      ],
+      "purity_rank": 133
+    },
+    {
+      "head": "L17H6",
+      "li": 17,
+      "h": 6,
+      "copy_purity": 0.02,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.02,
+      "src_logit_z": -0.6,
+      "succ_logit_z": -0.76,
+      "src_rank_median": 40043,
+      "succ_rank_median": 44636,
+      "sink_frac": 0.0,
+      "self_frac": 0.36,
+      "prev_frac": 0.4,
+      "offset_median": 1,
+      "offset_conc": 0.668,
+      "src_tok_conc": 0.077,
+      "top_src_toks": [
+        [
+          "' ('",
+          5
+        ],
+        [
+          "','",
+          2
+        ],
+        [
+          "'1'",
+          2
+        ],
+        [
+          "'--'",
+          2
+        ]
+      ],
+      "purity_rank": 134
+    },
+    {
+      "head": "L0H1",
+      "li": 0,
+      "h": 1,
+      "copy_purity": 0.0,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.0,
+      "src_logit_z": -0.03,
+      "succ_logit_z": -0.24,
+      "src_rank_median": 24663,
+      "succ_rank_median": 32576,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.04,
+      "offset_median": 37,
+      "offset_conc": 0.167,
+      "src_tok_conc": 0.672,
+      "top_src_toks": [
+        [
+          "'<|endoftext|>'",
+          34
+        ],
+        [
+          "' I'",
+          4
+        ],
+        [
+          "' us'",
+          3
+        ],
+        [
+          "' our'",
+          2
+        ]
+      ],
+      "purity_rank": 135
+    },
+    {
+      "head": "L0H2",
+      "li": 0,
+      "h": 2,
+      "copy_purity": 0.0,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.0,
+      "src_logit_z": 1.21,
+      "succ_logit_z": -0.11,
+      "src_rank_median": 1082,
+      "succ_rank_median": 28154,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.0,
+      "offset_median": 5,
+      "offset_conc": 0.582,
+      "src_tok_conc": 0.656,
+      "top_src_toks": [
+        [
+          "'\\n'",
+          24
+        ],
+        [
+          "'='",
+          11
+        ],
+        [
+          "'<|endoftext|>'",
+          7
+        ],
+        [
+          "'||'",
+          6
+        ]
+      ],
+      "purity_rank": 136
+    },
+    {
+      "head": "L0H5",
+      "li": 0,
+      "h": 5,
+      "copy_purity": 0.0,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.0,
+      "src_logit_z": 0.99,
+      "succ_logit_z": 0.36,
+      "src_rank_median": 9343,
+      "succ_rank_median": 17887,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.0,
+      "offset_median": 5,
+      "offset_conc": 0.437,
+      "src_tok_conc": 0.624,
+      "top_src_toks": [
+        [
+          "'\\n'",
+          18
+        ],
+        [
+          "','",
+          16
+        ],
+        [
+          "':'",
+          7
+        ],
+        [
+          "'<|endoftext|>'",
+          6
+        ]
+      ],
+      "purity_rank": 137
+    },
+    {
+      "head": "L0H6",
+      "li": 0,
+      "h": 6,
+      "copy_purity": 0.0,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.0,
+      "src_logit_z": -0.66,
+      "succ_logit_z": -1.02,
+      "src_rank_median": 41558,
+      "succ_rank_median": 39515,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.94,
+      "offset_median": 1,
+      "offset_conc": 0.932,
+      "src_tok_conc": 0.345,
+      "top_src_toks": [
+        [
+          "' U'",
+          14
+        ],
+        [
+          "' $'",
+          7
+        ],
+        [
+          "'www'",
+          3
+        ],
+        [
+          "'SP'",
+          3
+        ]
+      ],
+      "purity_rank": 138
+    },
+    {
+      "head": "L1H3",
+      "li": 1,
+      "h": 3,
+      "copy_purity": 0.0,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.0,
+      "src_logit_z": 1.19,
+      "succ_logit_z": 1.54,
+      "src_rank_median": 6400,
+      "succ_rank_median": 3195,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.96,
+      "offset_median": 1,
+      "offset_conc": 0.957,
+      "src_tok_conc": 0.064,
+      "top_src_toks": [
+        [
+          "' forward'",
+          4
+        ],
+        [
+          "' home'",
+          2
+        ],
+        [
+          "' name'",
+          2
+        ],
+        [
+          "' event'",
+          2
+        ]
+      ],
+      "purity_rank": 139
+    },
+    {
+      "head": "L2H8",
+      "li": 2,
+      "h": 8,
+      "copy_purity": 0.0,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.0,
+      "src_logit_z": 0.77,
+      "succ_logit_z": 0.49,
+      "src_rank_median": 6556,
+      "succ_rank_median": 16053,
+      "sink_frac": 0.02,
+      "self_frac": 0.0,
+      "prev_frac": 0.96,
+      "offset_median": 1,
+      "offset_conc": 0.957,
+      "src_tok_conc": 0.007,
+      "top_src_toks": [
+        [
+          "' non'",
+          2
+        ],
+        [
+          "'.'",
+          1
+        ],
+        [
+          "' a'",
+          1
+        ],
+        [
+          "'on'",
+          1
+        ]
+      ],
+      "purity_rank": 140
+    },
+    {
+      "head": "L3H1",
+      "li": 3,
+      "h": 1,
+      "copy_purity": 0.0,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.0,
+      "src_logit_z": 0.93,
+      "succ_logit_z": 0.69,
+      "src_rank_median": 8035,
+      "succ_rank_median": 9465,
+      "sink_frac": 0.0,
+      "self_frac": 0.24,
+      "prev_frac": 0.02,
+      "offset_median": 8,
+      "offset_conc": 0.26,
+      "src_tok_conc": 0.201,
+      "top_src_toks": [
+        [
+          "' Facebook'",
+          11
+        ],
+        [
+          "' Google'",
+          4
+        ],
+        [
+          "' Search'",
+          3
+        ],
+        [
+          "' wire'",
+          2
+        ]
+      ],
+      "purity_rank": 141
+    },
+    {
+      "head": "L3H6",
+      "li": 3,
+      "h": 6,
+      "copy_purity": 0.0,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.0,
+      "src_logit_z": -0.08,
+      "succ_logit_z": 0.01,
+      "src_rank_median": 20128,
+      "succ_rank_median": 24223,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.94,
+      "offset_median": 1,
+      "offset_conc": 0.932,
+      "src_tok_conc": 0.338,
+      "top_src_toks": [
+        [
+          "' of'",
+          17
+        ],
+        [
+          "' to'",
+          5
+        ],
+        [
+          "' in'",
+          3
+        ],
+        [
+          "' with'",
+          3
+        ]
+      ],
+      "purity_rank": 142
+    },
+    {
+      "head": "L3H7",
+      "li": 3,
+      "h": 7,
+      "copy_purity": 0.0,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.0,
+      "src_logit_z": 0.34,
+      "succ_logit_z": 0.19,
+      "src_rank_median": 21874,
+      "succ_rank_median": 23900,
+      "sink_frac": 0.02,
+      "self_frac": 0.0,
+      "prev_frac": 0.9,
+      "offset_median": 1,
+      "offset_conc": 0.917,
+      "src_tok_conc": 0.062,
+      "top_src_toks": [
+        [
+          "'-'",
+          5
+        ],
+        [
+          "'@'",
+          2
+        ],
+        [
+          "'01'",
+          2
+        ],
+        [
+          "'go'",
+          2
+        ]
+      ],
+      "purity_rank": 143
+    },
+    {
+      "head": "L3H8",
+      "li": 3,
+      "h": 8,
+      "copy_purity": 0.0,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.0,
+      "src_logit_z": 0.69,
+      "succ_logit_z": 0.51,
+      "src_rank_median": 13077,
+      "succ_rank_median": 17303,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.0,
+      "offset_median": 74,
+      "offset_conc": 0.093,
+      "src_tok_conc": 0.286,
+      "top_src_toks": [
+        [
+          "' ('",
+          11
+        ],
+        [
+          "'\\n'",
+          9
+        ],
+        [
+          "' Web'",
+          4
+        ],
+        [
+          "'ang'",
+          2
+        ]
+      ],
+      "purity_rank": 144
+    },
+    {
+      "head": "L4H0",
+      "li": 4,
+      "h": 0,
+      "copy_purity": 0.0,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.0,
+      "src_logit_z": -0.47,
+      "succ_logit_z": 0.51,
+      "src_rank_median": 30495,
+      "succ_rank_median": 13254,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.4,
+      "offset_median": 2,
+      "offset_conc": 0.629,
+      "src_tok_conc": 0.467,
+      "top_src_toks": [
+        [
+          "' ('",
+          17
+        ],
+        [
+          "','",
+          9
+        ],
+        [
+          "' -'",
+          6
+        ],
+        [
+          "'.'",
+          3
+        ]
+      ],
+      "purity_rank": 145
+    },
+    {
+      "head": "L4H1",
+      "li": 4,
+      "h": 1,
+      "copy_purity": 0.0,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.0,
+      "src_logit_z": 0.86,
+      "succ_logit_z": 1.41,
+      "src_rank_median": 11806,
+      "succ_rank_median": 3919,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.74,
+      "offset_median": 1,
+      "offset_conc": 0.818,
+      "src_tok_conc": 0.223,
+      "top_src_toks": [
+        [
+          "' of'",
+          9
+        ],
+        [
+          "' from'",
+          5
+        ],
+        [
+          "' in'",
+          4
+        ],
+        [
+          "' for'",
+          3
+        ]
+      ],
+      "purity_rank": 146
+    },
+    {
+      "head": "L5H0",
+      "li": 5,
+      "h": 0,
+      "copy_purity": 0.0,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.0,
+      "src_logit_z": 1.79,
+      "succ_logit_z": 1.83,
+      "src_rank_median": 1557,
+      "succ_rank_median": 1849,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.26,
+      "offset_median": 8,
+      "offset_conc": 0.266,
+      "src_tok_conc": 0.103,
+      "top_src_toks": [
+        [
+          "' and'",
+          5
+        ],
+        [
+          "' for'",
+          3
+        ],
+        [
+          "' where'",
+          3
+        ],
+        [
+          "'.'",
+          2
+        ]
+      ],
+      "purity_rank": 147
+    },
+    {
+      "head": "L6H4",
+      "li": 6,
+      "h": 4,
+      "copy_purity": 0.0,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.0,
+      "src_logit_z": 0.91,
+      "succ_logit_z": 0.82,
+      "src_rank_median": 8352,
+      "succ_rank_median": 10412,
+      "sink_frac": 0.0,
+      "self_frac": 0.04,
+      "prev_frac": 0.76,
+      "offset_median": 1,
+      "offset_conc": 0.783,
+      "src_tok_conc": 0.057,
+      "top_src_toks": [
+        [
+          "'z'",
+          4
+        ],
+        [
+          "'on'",
+          2
+        ],
+        [
+          "'ip'",
+          2
+        ],
+        [
+          "'rop'",
+          2
+        ]
+      ],
+      "purity_rank": 148
+    },
+    {
+      "head": "L8H0",
+      "li": 8,
+      "h": 0,
+      "copy_purity": 0.0,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.0,
+      "src_logit_z": 0.02,
+      "succ_logit_z": 0.44,
+      "src_rank_median": 22569,
+      "succ_rank_median": 20088,
+      "sink_frac": 0.0,
+      "self_frac": 0.24,
+      "prev_frac": 0.12,
+      "offset_median": 2,
+      "offset_conc": 0.49,
+      "src_tok_conc": 0.157,
+      "top_src_toks": [
+        [
+          "'\\n'",
+          4
+        ],
+        [
+          "' daily'",
+          3
+        ],
+        [
+          "' sale'",
+          3
+        ],
+        [
+          "'market'",
+          3
+        ]
+      ],
+      "purity_rank": 149
+    },
+    {
+      "head": "L10H0",
+      "li": 10,
+      "h": 0,
+      "copy_purity": 0.0,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.0,
+      "src_logit_z": 0.99,
+      "succ_logit_z": 0.27,
+      "src_rank_median": 9384,
+      "succ_rank_median": 21204,
+      "sink_frac": 0.0,
+      "self_frac": 0.12,
+      "prev_frac": 0.14,
+      "offset_median": 3,
+      "offset_conc": 0.391,
+      "src_tok_conc": 0.213,
+      "top_src_toks": [
+        [
+          "' sensitive'",
+          7
+        ],
+        [
+          "'-'",
+          5
+        ],
+        [
+          "'49'",
+          4
+        ],
+        [
+          "' line'",
+          3
+        ]
+      ],
+      "purity_rank": 150
+    },
+    {
+      "head": "L11H2",
+      "li": 11,
+      "h": 2,
+      "copy_purity": 0.0,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.0,
+      "src_logit_z": 1.72,
+      "succ_logit_z": 1.54,
+      "src_rank_median": 2531,
+      "succ_rank_median": 2642,
+      "sink_frac": 0.0,
+      "self_frac": 0.0,
+      "prev_frac": 0.22,
+      "offset_median": 2,
+      "offset_conc": 0.603,
+      "src_tok_conc": 0.066,
+      "top_src_toks": [
+        [
+          "' a'",
+          4
+        ],
+        [
+          "' the'",
+          3
+        ],
+        [
+          "'ative'",
+          2
+        ],
+        [
+          "' friendly'",
+          2
+        ]
+      ],
+      "purity_rank": 151
+    },
+    {
+      "head": "L14H3",
+      "li": 14,
+      "h": 3,
+      "copy_purity": 0.0,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.0,
+      "src_logit_z": 0.12,
+      "succ_logit_z": 0.08,
+      "src_rank_median": 19668,
+      "succ_rank_median": 20705,
+      "sink_frac": 0.02,
+      "self_frac": 0.08,
+      "prev_frac": 0.28,
+      "offset_median": 2,
+      "offset_conc": 0.387,
+      "src_tok_conc": 0.09,
+      "top_src_toks": [
+        [
+          "'onna'",
+          3
+        ],
+        [
+          "' potatoes'",
+          3
+        ],
+        [
+          "' serve'",
+          2
+        ],
+        [
+          "'erry'",
+          2
+        ]
+      ],
+      "purity_rank": 152
+    },
+    {
+      "head": "L15H0",
+      "li": 15,
+      "h": 0,
+      "copy_purity": 0.0,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.0,
+      "src_logit_z": 0.22,
+      "succ_logit_z": 0.38,
+      "src_rank_median": 20345,
+      "succ_rank_median": 19847,
+      "sink_frac": 0.0,
+      "self_frac": 0.28,
+      "prev_frac": 0.18,
+      "offset_median": 2,
+      "offset_conc": 0.436,
+      "src_tok_conc": 0.088,
+      "top_src_toks": [
+        [
+          "' the'",
+          4
+        ],
+        [
+          "','",
+          3
+        ],
+        [
+          "\"'s\"",
+          2
+        ],
+        [
+          "' The'",
+          2
+        ]
+      ],
+      "purity_rank": 153
+    },
+    {
+      "head": "L15H2",
+      "li": 15,
+      "h": 2,
+      "copy_purity": 0.0,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.0,
+      "src_logit_z": -1.49,
+      "succ_logit_z": -1.82,
+      "src_rank_median": 47907,
+      "succ_rank_median": 47587,
+      "sink_frac": 0.0,
+      "self_frac": 0.06,
+      "prev_frac": 0.04,
+      "offset_median": 13,
+      "offset_conc": 0.182,
+      "src_tok_conc": 0.09,
+      "top_src_toks": [
+        [
+          "' even'",
+          4
+        ],
+        [
+          "','",
+          3
+        ],
+        [
+          "'host'",
+          3
+        ],
+        [
+          "' and'",
+          2
+        ]
+      ],
+      "purity_rank": 154
+    },
+    {
+      "head": "L15H6",
+      "li": 15,
+      "h": 6,
+      "copy_purity": 0.0,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.0,
+      "src_logit_z": -0.23,
+      "succ_logit_z": -2.29,
+      "src_rank_median": 17046,
+      "succ_rank_median": 22879,
+      "sink_frac": 0.02,
+      "self_frac": 0.4,
+      "prev_frac": 0.1,
+      "offset_median": 1,
+      "offset_conc": 0.493,
+      "src_tok_conc": 0.195,
+      "top_src_toks": [
+        [
+          "' until'",
+          6
+        ],
+        [
+          "' have'",
+          4
+        ],
+        [
+          "' when'",
+          4
+        ],
+        [
+          "','",
+          3
+        ]
+      ],
+      "purity_rank": 155
+    },
+    {
+      "head": "L15H8",
+      "li": 15,
+      "h": 8,
+      "copy_purity": 0.0,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.0,
+      "src_logit_z": 0.54,
+      "succ_logit_z": 0.3,
+      "src_rank_median": 12211,
+      "succ_rank_median": 14265,
+      "sink_frac": 0.0,
+      "self_frac": 0.44,
+      "prev_frac": 0.18,
+      "offset_median": 1,
+      "offset_conc": 0.569,
+      "src_tok_conc": 0.213,
+      "top_src_toks": [
+        [
+          "' of'",
+          6
+        ],
+        [
+          "' and'",
+          5
+        ],
+        [
+          "','",
+          3
+        ],
+        [
+          "'.'",
+          3
+        ]
+      ],
+      "purity_rank": 156
+    },
+    {
+      "head": "L16H6",
+      "li": 16,
+      "h": 6,
+      "copy_purity": 0.0,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.0,
+      "src_logit_z": 0.37,
+      "succ_logit_z": -0.02,
+      "src_rank_median": 13119,
+      "succ_rank_median": 25849,
+      "sink_frac": 0.0,
+      "self_frac": 0.04,
+      "prev_frac": 0.12,
+      "offset_median": 9,
+      "offset_conc": 0.189,
+      "src_tok_conc": 0.232,
+      "top_src_toks": [
+        [
+          "' eggs'",
+          6
+        ],
+        [
+          "' rooms'",
+          5
+        ],
+        [
+          "' ice'",
+          4
+        ],
+        [
+          "'Shipping'",
+          4
+        ]
+      ],
+      "purity_rank": 157
+    },
+    {
+      "head": "L16H7",
+      "li": 16,
+      "h": 7,
+      "copy_purity": 0.0,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.0,
+      "src_logit_z": 0.61,
+      "succ_logit_z": 0.11,
+      "src_rank_median": 13891,
+      "succ_rank_median": 20107,
+      "sink_frac": 0.0,
+      "self_frac": 0.26,
+      "prev_frac": 0.12,
+      "offset_median": 3,
+      "offset_conc": 0.419,
+      "src_tok_conc": 0.155,
+      "top_src_toks": [
+        [
+          "' MHz'",
+          4
+        ],
+        [
+          "','",
+          3
+        ],
+        [
+          "' Angels'",
+          3
+        ],
+        [
+          "' dB'",
+          3
+        ]
+      ],
+      "purity_rank": 158
+    },
+    {
+      "head": "L17H0",
+      "li": 17,
+      "h": 0,
+      "copy_purity": 0.0,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.0,
+      "src_logit_z": 0.45,
+      "succ_logit_z": 0.36,
+      "src_rank_median": 18309,
+      "succ_rank_median": 17672,
+      "sink_frac": 0.0,
+      "self_frac": 0.32,
+      "prev_frac": 0.1,
+      "offset_median": 2,
+      "offset_conc": 0.444,
+      "src_tok_conc": 0.313,
+      "top_src_toks": [
+        [
+          "'.'",
+          15
+        ],
+        [
+          "','",
+          3
+        ],
+        [
+          "'\\n'",
+          3
+        ],
+        [
+          "' and'",
+          3
+        ]
+      ],
+      "purity_rank": 159
+    },
+    {
+      "head": "L17H2",
+      "li": 17,
+      "h": 2,
+      "copy_purity": 0.0,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.0,
+      "src_logit_z": 0.05,
+      "succ_logit_z": 0.29,
+      "src_rank_median": 24832,
+      "succ_rank_median": 20246,
+      "sink_frac": 0.0,
+      "self_frac": 0.18,
+      "prev_frac": 0.26,
+      "offset_median": 2,
+      "offset_conc": 0.511,
+      "src_tok_conc": 0.223,
+      "top_src_toks": [
+        [
+          "','",
+          12
+        ],
+        [
+          "' and'",
+          4
+        ],
+        [
+          "' use'",
+          4
+        ],
+        [
+          "'ook'",
+          2
+        ]
+      ],
+      "purity_rank": 160
+    },
+    {
+      "head": "L17H8",
+      "li": 17,
+      "h": 8,
+      "copy_purity": 0.0,
+      "verbatim_purity": 0.0,
+      "successor_purity": 0.0,
+      "src_logit_z": 1.36,
+      "succ_logit_z": 0.09,
+      "src_rank_median": 2094,
+      "succ_rank_median": 9928,
+      "sink_frac": 0.0,
+      "self_frac": 0.3,
+      "prev_frac": 0.1,
+      "offset_median": 3,
+      "offset_conc": 0.431,
+      "src_tok_conc": 0.445,
+      "top_src_toks": [
+        [
+          "' of'",
+          15
+        ],
+        [
+          "' and'",
+          11
+        ],
+        [
+          "' by'",
+          6
+        ],
+        [
+          "','",
+          3
+        ]
+      ],
+      "purity_rank": 161
+    }
+  ],
+  "causal": {
+    "L8H4": {
+      "n": 200,
+      "dCE_mean": 0.0199,
+      "dCE_SE": 0.0177,
+      "dCE_frac_pos": 0.65,
+      "src_logit_drop_mean": 0.6771,
+      "src_logit_drop_SE": 0.0406,
+      "succ_logit_drop_mean": 0.0931,
+      "succ_logit_drop_SE": 0.0398,
+      "rand_logit_drop_mean": 0.132,
+      "rand_logit_drop_SE": 0.0298,
+      "src_minus_rand": 0.545,
+      "src_minus_rand_SE": 0.047,
+      "succ_minus_rand": -0.0389,
+      "succ_minus_rand_SE": 0.0492,
+      "src_in_top10_frac": 0.175,
+      "offset_median": 36,
+      "offset_conc": 0.217,
+      "label": "VERBATIM-COPY [redundant: dCE~0]",
+      "load_bearing": false,
+      "known": "",
+      "purity_rank": 0
+    },
+    "L8H3": {
+      "n": 200,
+      "dCE_mean": 0.1825,
+      "dCE_SE": 0.0392,
+      "dCE_frac_pos": 0.73,
+      "src_logit_drop_mean": 1.0517,
+      "src_logit_drop_SE": 0.0716,
+      "succ_logit_drop_mean": 0.0538,
+      "succ_logit_drop_SE": 0.0572,
+      "rand_logit_drop_mean": 0.2429,
+      "rand_logit_drop_SE": 0.0458,
+      "src_minus_rand": 0.8088,
+      "src_minus_rand_SE": 0.0767,
+      "succ_minus_rand": -0.1891,
+      "succ_minus_rand_SE": 0.0649,
+      "src_in_top10_frac": 0.07,
+      "offset_median": 24,
+      "offset_conc": 0.26,
+      "label": "VERBATIM-COPY [load-bearing]",
+      "load_bearing": true,
+      "known": "successor/induction(L8 v1-router)",
+      "purity_rank": 1
+    },
+    "L7H3": {
+      "n": 200,
+      "dCE_mean": 0.0145,
+      "dCE_SE": 0.0166,
+      "dCE_frac_pos": 0.67,
+      "src_logit_drop_mean": 0.3502,
+      "src_logit_drop_SE": 0.0253,
+      "succ_logit_drop_mean": -0.1439,
+      "succ_logit_drop_SE": 0.0324,
+      "rand_logit_drop_mean": 0.0708,
+      "rand_logit_drop_SE": 0.0203,
+      "src_minus_rand": 0.2795,
+      "src_minus_rand_SE": 0.0321,
+      "succ_minus_rand": -0.2147,
+      "succ_minus_rand_SE": 0.035,
+      "src_in_top10_frac": 0.085,
+      "offset_median": 34,
+      "offset_conc": 0.22,
+      "label": "VERBATIM-COPY [redundant: dCE~0]",
+      "load_bearing": false,
+      "known": "",
+      "purity_rank": 2
+    },
+    "L13H0": {
+      "n": 200,
+      "dCE_mean": 0.0642,
+      "dCE_SE": 0.0244,
+      "dCE_frac_pos": 0.53,
+      "src_logit_drop_mean": 1.1104,
+      "src_logit_drop_SE": 0.0482,
+      "succ_logit_drop_mean": 0.2417,
+      "succ_logit_drop_SE": 0.021,
+      "rand_logit_drop_mean": 0.032,
+      "rand_logit_drop_SE": 0.0293,
+      "src_minus_rand": 1.0784,
+      "src_minus_rand_SE": 0.0545,
+      "succ_minus_rand": 0.2097,
+      "succ_minus_rand_SE": 0.035,
+      "src_in_top10_frac": 0.28,
+      "offset_median": 16,
+      "offset_conc": 0.27,
+      "label": "VERBATIM-COPY [redundant: dCE~0]",
+      "load_bearing": false,
+      "known": "",
+      "purity_rank": 3
+    },
+    "L14H7": {
+      "n": 200,
+      "dCE_mean": 0.0072,
+      "dCE_SE": 0.0208,
+      "dCE_frac_pos": 0.385,
+      "src_logit_drop_mean": 0.9013,
+      "src_logit_drop_SE": 0.0364,
+      "succ_logit_drop_mean": 0.1629,
+      "succ_logit_drop_SE": 0.0246,
+      "rand_logit_drop_mean": 0.0252,
+      "rand_logit_drop_SE": 0.0132,
+      "src_minus_rand": 0.8761,
+      "src_minus_rand_SE": 0.0364,
+      "succ_minus_rand": 0.1377,
+      "succ_minus_rand_SE": 0.0261,
+      "src_in_top10_frac": 0.565,
+      "offset_median": 34,
+      "offset_conc": 0.206,
+      "label": "VERBATIM-COPY [redundant: dCE~0]",
+      "load_bearing": false,
+      "known": "",
+      "purity_rank": 4
+    },
+    "L6H7": {
+      "n": 200,
+      "dCE_mean": 0.1148,
+      "dCE_SE": 0.0398,
+      "dCE_frac_pos": 0.58,
+      "src_logit_drop_mean": 0.1245,
+      "src_logit_drop_SE": 0.0457,
+      "succ_logit_drop_mean": -0.0736,
+      "succ_logit_drop_SE": 0.0441,
+      "rand_logit_drop_mean": 0.0583,
+      "rand_logit_drop_SE": 0.0303,
+      "src_minus_rand": 0.0662,
+      "src_minus_rand_SE": 0.0545,
+      "succ_minus_rand": -0.1319,
+      "succ_minus_rand_SE": 0.0537,
+      "src_in_top10_frac": 0.02,
+      "offset_median": 26,
+      "offset_conc": 0.226,
+      "label": "NOT-COPY (no source/successor drop, dCE~0)",
+      "load_bearing": false,
+      "known": "",
+      "purity_rank": 9
+    },
+    "L5H5": {
+      "n": 200,
+      "dCE_mean": 0.1185,
+      "dCE_SE": 0.042,
+      "dCE_frac_pos": 0.71,
+      "src_logit_drop_mean": 0.6118,
+      "src_logit_drop_SE": 0.0812,
+      "succ_logit_drop_mean": 0.073,
+      "succ_logit_drop_SE": 0.0641,
+      "rand_logit_drop_mean": 0.0812,
+      "rand_logit_drop_SE": 0.0487,
+      "src_minus_rand": 0.5306,
+      "src_minus_rand_SE": 0.0937,
+      "succ_minus_rand": -0.0082,
+      "succ_minus_rand_SE": 0.0744,
+      "src_in_top10_frac": 0.07,
+      "offset_median": 35,
+      "offset_conc": 0.229,
+      "label": "VERBATIM-COPY [redundant: dCE~0]",
+      "load_bearing": false,
+      "known": "induction(atlas)",
+      "purity_rank": 27
+    },
+    "L8H7": {
+      "n": 200,
+      "dCE_mean": 0.2429,
+      "dCE_SE": 0.0519,
+      "dCE_frac_pos": 0.65,
+      "src_logit_drop_mean": -0.0726,
+      "src_logit_drop_SE": 0.0675,
+      "succ_logit_drop_mean": 0.4463,
+      "succ_logit_drop_SE": 0.0552,
+      "rand_logit_drop_mean": -0.0113,
+      "rand_logit_drop_SE": 0.034,
+      "src_minus_rand": -0.0612,
+      "src_minus_rand_SE": 0.0766,
+      "succ_minus_rand": 0.4576,
+      "succ_minus_rand_SE": 0.063,
+      "src_in_top10_frac": 0.01,
+      "offset_median": 1,
+      "offset_conc": 0.595,
+      "label": "SUCCESSOR-COPY [load-bearing]",
+      "load_bearing": true,
+      "known": "increment/successor(L8 v1-router)",
+      "purity_rank": 44
+    },
+    "L13H8": {
+      "n": 200,
+      "dCE_mean": 0.1325,
+      "dCE_SE": 0.0441,
+      "dCE_frac_pos": 0.51,
+      "src_logit_drop_mean": -0.8477,
+      "src_logit_drop_SE": 0.101,
+      "succ_logit_drop_mean": 0.0543,
+      "succ_logit_drop_SE": 0.0264,
+      "rand_logit_drop_mean": 0.1341,
+      "rand_logit_drop_SE": 0.024,
+      "src_minus_rand": -0.9818,
+      "src_minus_rand_SE": 0.1126,
+      "succ_minus_rand": -0.0798,
+      "succ_minus_rand_SE": 0.0323,
+      "src_in_top10_frac": 0.125,
+      "offset_median": 5,
+      "offset_conc": 0.416,
+      "label": "PAIRED/TRANSFORMED-COPY (suppresses source, promotes paired token) [causal]",
+      "load_bearing": true,
+      "known": "delimiter/closure(v1-router)",
+      "purity_rank": 45
+    }
+  },
+  "verify_heads": [
+    "L8H4",
+    "L8H3",
+    "L7H3",
+    "L13H0",
+    "L14H7",
+    "L6H7",
+    "L5H5",
+    "L8H7",
+    "L13H8"
+  ]
+}

@@ -3636,3 +3636,28 @@ copy/induction heads, not their opposite. (2) NO self-suppression verified (the 
 is the diffuse negative side of the determiner→adjective boost, fails held-out). So the suppression tool
 adds two verified class-inhibitors AND a clean negative (no repetition-suppression mechanism), and
 localizes inhibition to the late feed-forward stack.
+
+## §60 New tool — COPY / value-router detector: re-derives induction/successor unsupervised + new copies (2026-07-30)
+(qk_unsup_copy.py; the copy TYPE the §56 class-boost pipeline structurally misses.) NEW TECHNIQUE: copy is
+SOURCE-DEPENDENT (the head's output carries the identity of the token it ATTENDS TO), whereas class-boost
+scores a FIXED direction — so rank heads by COPY-PURITY (fraction of top positions where the attended-source
+token, or its successor, lands in the head's top-boosted tokens), and VERIFY by a SOURCE-SPECIFIC logit drop
+on ablation (not dCE — dCE only says whether the copy is load-bearing). Sub-types separated: verbatim /
+successor / paired-transformed / positional.
+- **Re-discovered UNSUPERVISED (positive controls):** L8H3 (rank 1) = the L8 successor/v1-router head,
+  load-bearing verbatim-copy (src−rand +0.809±0.077, dCE +0.182); L8H7 (rank 44) = increment/SUCCESSOR-copy
+  (offset 1; ablation drops the SUCCESSOR logit +0.458±0.063, not the source — the induction signature);
+  L5H5 (rank 27) = the atlas induction head (verbatim, redundant).
+- **NEW copy heads (class-boost couldn't surface):** L13H0 (copies place/country adjectives, strongest
+  source-specificity src−rand +1.078±0.054), L14H7, L7H3 (dates/months), L8H4 (year tokens) — all large,
+  highly-significant source-specific logit drops but dCE ≈ 0 → real copy operations that are BUFFERED /
+  not-pivotal at their peak positions (a redundancy finding, consistent with the distributed-copy design).
+- **Honest limitation + a new sub-type:** L13H8 (delimiter router) correctly NOT flagged verbatim/successor
+  (purity 0.24) — causally it is a PAIRED/TRANSFORMED copy (ablation RAISES the source logit −0.982 while
+  promoting the paired closer). Bracket-closure is a paired copy, not token-identity copy; the tool declines
+  it rather than false-claim. (New sub-type: paired-transformed copy — needs a paired-token detector.)
+- **False-positive caught (proxy needs causal test):** L6H7 looks strongly successor-copy by direct-logit-
+  attribution (successor is the #1 boosted token) but ablation does NOT drop the successor logit (wrong
+  sign) though the head IS causal (dCE +0.115) — matters for prediction but not by copying. Only ablation
+  exposes it. **So bilin18's copy family (verbatim + successor) is a distributed, mostly-redundant set of
+  heads concentrated at layers 5–8 and 13–14; the delimiter router is a distinct paired-transformed copy.**
