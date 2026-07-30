@@ -3471,3 +3471,27 @@ full singular↔plural swing 7.54 nats) The §42-open question — WHERE the num
   layer 1), carried in the residual across the mid-stack, and CONSUMED by the layer-11 head-noun read
   (L11H3, §42's dominant head). §42 is now closed: agreement = an early residual number feature routed by
   L11H3 from the head-noun position, not a layer-0 value payload (contrast the L13H8 lexical v1-router).
+
+## §54 KEY_newline "cluster" is a CENSUS ARTIFACT, not a mechanism — closes the last open thread (2026-07-30)
+(qk_keynewline_mech.py; mean-ablation, in-distribution zero point, held-back FW[448:600], paired standard
+errors, with a positive control) The 9-head KEY_newline cluster (L0H8/L1H7/L2H4/L3H2/L9H8/L10H6/L11H4/
+L13H8/L16H4) — whose attend≠predict divergence and falsified boundary-anchor story were open — is resolved
+as a NEGATIVE:
+- **"Attend-newline" is incoherent:** the heads have low pattern-R² (0.06–0.32) and INCONSISTENT sign at
+  newline — some weight newline positively (L3H2 ×58, L9H8 ×3.9), some are ANTI-newline (L0H8 ×−6.3, L1H7
+  ×−2.7), one ignores it (L16H4). The newline-key predicate is merely the most statistically detectable
+  single term in an otherwise weakly-explained pattern, not a coherent selection.
+- **Newline is causally inert (decisive):** the cluster's real footprint is capital +0.0465 (SE 0.0064) /
+  punct +0.0454 (SE 0.0061), but corrupting ONLY newline-position values costs +0.0002 (SE 0.0003, 0.9% of
+  full) and zeroing the pattern ON newline columns costs +0.0003 — both zero within standard error; the
+  positive control (corrupt ALL values) recovers 96% of the effect (+0.0214), validating the machinery.
+  Their entire genuine effect flows through attention to NON-newline positions.
+- **All three candidate mechanisms REJECTED:** boundary-anchor (prior, falsified), document-structure
+  (damage equal/reversed in prose vs structured), segment-reset (heads matter LEAST near a newline reset —
+  the opposite of a reset). A real but mechanism-agnostic late/long-range importance gradient survives
+  (pos≥96 ≈ 2× pos<32) — generic late-layer importance, not a newline computation.
+**VERDICT + CORRECTION:** the KEY_newline cluster is a SELECTION-CENSUS MEASUREMENT ARTIFACT (low-R²
+regression latching the most-detectable weak term), not a mechanism — these are ordinary distributed
+capital/punctuation-supporting heads. This corrects the earlier §T4/attend-vs-predict-map "KEY_newline
+cluster" framing (like the §46 KEY_cap correction) and is a methodological caution: a census predicate
+LABEL can be an artifact that does not reflect a real computation. Closes the last open mechanistic thread.
