@@ -3231,7 +3231,7 @@ code, not a swappable head-position layer-0 payload; whether it is "mid-stack" o
 not resolved by these data. Rest of the margin is diffuse across mid-stack ATTENTION and feed-forward
 (L7-attention is the 2nd component, 0.66). CAVEATS: single sentence template, single seed. Verdict: a
 genuine, attention-required, attractor-robust agreement behavior with a dominant-but-redundant head that
-reads the head position; the number's exact locus and a same-number identity-swap control remain open.
+reads the head position; the number's exact locus is RESOLVED in §53 (early residual feature read at L11) and the identity control is supplied there.
 
 ## §43 Layer-1 MEANING gates + the substitutability positional-mean hygiene (2026-07-30)
 **Content is spectral one layer up too — the rule, not a layer-0 quirk (qk_l1_content_gate.py).** Running
@@ -3450,3 +3450,24 @@ step-function name (a different untested ontology could still name it). Caveat: 
 actually a gated Bilinear module (cfg bilinear:True/gated:True), not a literal SwiGLU, despite the name;
 the attention is genuine softmax. This is the meaning-ledger's generality analog of the composition arc's
 already-established substitutability generality (§32b).
+
+## §53 Subject-verb number locus RESOLVED — an early residual feature read at layer 11 (closes §42) (2026-07-30)
+(qk_svagree_locus.py; identity control + per-layer value/residual swaps + redundancy sweep; margin metric,
+full singular↔plural swing 7.54 nats) The §42-open question — WHERE the number feature lives — is settled:
+- **Identity control (supplies the red-team's missing harness validation):** swapping the head noun's
+  layer-0 value with a DIFFERENT SAME-NUMBER noun leaves the verb unchanged (accuracy 1.00; |Δ| 0.29 vs
+  baseline 3.77). The swap machinery moves the verb ONLY when it changes the number token — not generically
+  destructive, validated as §41 was.
+- **NOT the layer-0 value cache (distributed-value hypothesis killed):** swapping progressively more of the
+  head-position layer-0 value (top-|Δ| dims first) saturates at 17% swing and flip-rate stays 0.00 through
+  100% of dims — the layer-0 value is a weak PARTIAL code (necessary via λ=0 collapse, §42, but not the
+  carrier).
+- **NOT a mid-stack value feature:** per-layer value-stream swaps never flip at any layer (peak swing 0.31).
+- **It IS the head-position RESIDUAL stream:** patching the head-position residual with the number-flipped
+  donor flips sharply — flip-rate 0.00→**0.61** immediately after LAYER 1 (accuracy inverts to 0.39), stays
+  swappable through the mid-stack, then goes to **0 exactly at layer 11** (dead-zone L11+ is an internal
+  negative control: injecting an opposite-number residual at late layers does nothing → the effect is
+  number-specific, not blunt-force). **Verdict:** an EARLY-FORMED residual-stream number feature (present by
+  layer 1), carried in the residual across the mid-stack, and CONSUMED by the layer-11 head-noun read
+  (L11H3, §42's dominant head). §42 is now closed: agreement = an early residual number feature routed by
+  L11H3 from the head-noun position, not a layer-0 value payload (contrast the L13H8 lexical v1-router).

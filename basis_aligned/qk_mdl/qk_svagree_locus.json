@@ -1,0 +1,326 @@
+{
+  "baseline": {
+    "all": {
+      "margin": 3.769,
+      "acc": 1.0
+    },
+    "congruent": {
+      "margin": 4.481,
+      "acc": 1.0
+    },
+    "incongruent": {
+      "margin": 3.057,
+      "acc": 1.0
+    }
+  },
+  "number_swing_nats": 7.538,
+  "A_identity_control_samenum_head_swap": {
+    "desc": "swap head layer-0 value with a DIFFERENT SAME-NUMBER noun (sing->sing, plur->plur); harness valid iff verb UNCHANGED",
+    "acc_after (should stay ~1.0)": 1.0,
+    "acc_after_incongr": 1.0,
+    "baseline_acc": 1.0,
+    "mean_abs_plural_score_change (should be small)": 0.293,
+    "baseline_mean_abs_plural_score": 3.769
+  },
+  "ref_v1cache_full_head_swap_(sec42)": {
+    "flip_rate_all": 0.0,
+    "flip_rate_incongr": 0.0,
+    "acc_after": 1.0,
+    "swing_fraction": 0.166,
+    "mean_abs_plural_score_change": 1.25
+  },
+  "B1_per_layer_VALUE_swap_head": {
+    "L0": {
+      "flip_rate_all": 0.0,
+      "flip_rate_incongr": 0.0,
+      "acc_after": 1.0,
+      "swing_fraction": 0.001,
+      "mean_abs_plural_score_change": 0.074
+    },
+    "L1": {
+      "flip_rate_all": 0.0,
+      "flip_rate_incongr": 0.0,
+      "acc_after": 1.0,
+      "swing_fraction": 0.017,
+      "mean_abs_plural_score_change": 0.246
+    },
+    "L2": {
+      "flip_rate_all": 0.0,
+      "flip_rate_incongr": 0.0,
+      "acc_after": 1.0,
+      "swing_fraction": 0.042,
+      "mean_abs_plural_score_change": 0.341
+    },
+    "L3": {
+      "flip_rate_all": 0.0,
+      "flip_rate_incongr": 0.0,
+      "acc_after": 1.0,
+      "swing_fraction": 0.008,
+      "mean_abs_plural_score_change": 0.127
+    },
+    "L4": {
+      "flip_rate_all": 0.0,
+      "flip_rate_incongr": 0.0,
+      "acc_after": 1.0,
+      "swing_fraction": 0.113,
+      "mean_abs_plural_score_change": 0.855
+    },
+    "L5": {
+      "flip_rate_all": 0.0,
+      "flip_rate_incongr": 0.0,
+      "acc_after": 1.0,
+      "swing_fraction": 0.015,
+      "mean_abs_plural_score_change": 0.113
+    },
+    "L6": {
+      "flip_rate_all": 0.0,
+      "flip_rate_incongr": 0.0,
+      "acc_after": 1.0,
+      "swing_fraction": 0.016,
+      "mean_abs_plural_score_change": 0.13
+    },
+    "L7": {
+      "flip_rate_all": 0.0,
+      "flip_rate_incongr": 0.0,
+      "acc_after": 1.0,
+      "swing_fraction": 0.101,
+      "mean_abs_plural_score_change": 0.759
+    },
+    "L8": {
+      "flip_rate_all": 0.0,
+      "flip_rate_incongr": 0.0,
+      "acc_after": 1.0,
+      "swing_fraction": 0.047,
+      "mean_abs_plural_score_change": 0.351
+    },
+    "L9": {
+      "flip_rate_all": 0.0,
+      "flip_rate_incongr": 0.0,
+      "acc_after": 1.0,
+      "swing_fraction": 0.04,
+      "mean_abs_plural_score_change": 0.302
+    },
+    "L10": {
+      "flip_rate_all": 0.0,
+      "flip_rate_incongr": 0.0,
+      "acc_after": 1.0,
+      "swing_fraction": 0.021,
+      "mean_abs_plural_score_change": 0.158
+    },
+    "L11": {
+      "flip_rate_all": 0.025,
+      "flip_rate_incongr": 0.025,
+      "acc_after": 0.975,
+      "swing_fraction": 0.312,
+      "mean_abs_plural_score_change": 2.35
+    },
+    "L12": {
+      "flip_rate_all": 0.0,
+      "flip_rate_incongr": 0.0,
+      "acc_after": 1.0,
+      "swing_fraction": 0.004,
+      "mean_abs_plural_score_change": 0.032
+    },
+    "L13": {
+      "flip_rate_all": 0.0,
+      "flip_rate_incongr": 0.0,
+      "acc_after": 1.0,
+      "swing_fraction": 0.03,
+      "mean_abs_plural_score_change": 0.227
+    },
+    "L14": {
+      "flip_rate_all": 0.0,
+      "flip_rate_incongr": 0.0,
+      "acc_after": 1.0,
+      "swing_fraction": 0.005,
+      "mean_abs_plural_score_change": 0.035
+    },
+    "L15": {
+      "flip_rate_all": 0.0,
+      "flip_rate_incongr": 0.0,
+      "acc_after": 1.0,
+      "swing_fraction": 0.007,
+      "mean_abs_plural_score_change": 0.055
+    },
+    "L16": {
+      "flip_rate_all": 0.0,
+      "flip_rate_incongr": 0.0,
+      "acc_after": 1.0,
+      "swing_fraction": 0.015,
+      "mean_abs_plural_score_change": 0.114
+    },
+    "L17": {
+      "flip_rate_all": 0.0,
+      "flip_rate_incongr": 0.0,
+      "acc_after": 1.0,
+      "swing_fraction": 0.002,
+      "mean_abs_plural_score_change": 0.014
+    }
+  },
+  "B2_per_layer_RESIDUAL_swap_head": {
+    "L0": {
+      "flip_rate_all": 0.013,
+      "flip_rate_incongr": 0.025,
+      "acc_after": 0.988,
+      "swing_fraction": 0.129,
+      "mean_abs_plural_score_change": 0.996
+    },
+    "L1": {
+      "flip_rate_all": 0.613,
+      "flip_rate_incongr": 0.65,
+      "acc_after": 0.388,
+      "swing_fraction": 0.521,
+      "mean_abs_plural_score_change": 3.927
+    },
+    "L2": {
+      "flip_rate_all": 0.45,
+      "flip_rate_incongr": 0.575,
+      "acc_after": 0.55,
+      "swing_fraction": 0.463,
+      "mean_abs_plural_score_change": 3.487
+    },
+    "L3": {
+      "flip_rate_all": 0.35,
+      "flip_rate_incongr": 0.5,
+      "acc_after": 0.65,
+      "swing_fraction": 0.437,
+      "mean_abs_plural_score_change": 3.296
+    },
+    "L4": {
+      "flip_rate_all": 0.125,
+      "flip_rate_incongr": 0.125,
+      "acc_after": 0.875,
+      "swing_fraction": 0.325,
+      "mean_abs_plural_score_change": 2.449
+    },
+    "L5": {
+      "flip_rate_all": 0.113,
+      "flip_rate_incongr": 0.125,
+      "acc_after": 0.887,
+      "swing_fraction": 0.339,
+      "mean_abs_plural_score_change": 2.558
+    },
+    "L6": {
+      "flip_rate_all": 0.25,
+      "flip_rate_incongr": 0.3,
+      "acc_after": 0.75,
+      "swing_fraction": 0.424,
+      "mean_abs_plural_score_change": 3.195
+    },
+    "L7": {
+      "flip_rate_all": 0.175,
+      "flip_rate_incongr": 0.25,
+      "acc_after": 0.825,
+      "swing_fraction": 0.384,
+      "mean_abs_plural_score_change": 2.893
+    },
+    "L8": {
+      "flip_rate_all": 0.312,
+      "flip_rate_incongr": 0.4,
+      "acc_after": 0.688,
+      "swing_fraction": 0.437,
+      "mean_abs_plural_score_change": 3.298
+    },
+    "L9": {
+      "flip_rate_all": 0.188,
+      "flip_rate_incongr": 0.3,
+      "acc_after": 0.812,
+      "swing_fraction": 0.395,
+      "mean_abs_plural_score_change": 2.975
+    },
+    "L10": {
+      "flip_rate_all": 0.188,
+      "flip_rate_incongr": 0.3,
+      "acc_after": 0.812,
+      "swing_fraction": 0.391,
+      "mean_abs_plural_score_change": 2.945
+    },
+    "L11": {
+      "flip_rate_all": 0.0,
+      "flip_rate_incongr": 0.0,
+      "acc_after": 1.0,
+      "swing_fraction": 0.023,
+      "mean_abs_plural_score_change": 0.171
+    },
+    "L12": {
+      "flip_rate_all": 0.0,
+      "flip_rate_incongr": 0.0,
+      "acc_after": 1.0,
+      "swing_fraction": 0.019,
+      "mean_abs_plural_score_change": 0.146
+    },
+    "L13": {
+      "flip_rate_all": 0.0,
+      "flip_rate_incongr": 0.0,
+      "acc_after": 1.0,
+      "swing_fraction": 0.009,
+      "mean_abs_plural_score_change": 0.069
+    },
+    "L14": {
+      "flip_rate_all": 0.0,
+      "flip_rate_incongr": 0.0,
+      "acc_after": 1.0,
+      "swing_fraction": 0.007,
+      "mean_abs_plural_score_change": 0.056
+    },
+    "L15": {
+      "flip_rate_all": 0.0,
+      "flip_rate_incongr": 0.0,
+      "acc_after": 1.0,
+      "swing_fraction": 0.003,
+      "mean_abs_plural_score_change": 0.021
+    },
+    "L16": {
+      "flip_rate_all": 0.0,
+      "flip_rate_incongr": 0.0,
+      "acc_after": 1.0,
+      "swing_fraction": 0.002,
+      "mean_abs_plural_score_change": 0.016
+    },
+    "L17": {
+      "flip_rate_all": 0.0,
+      "flip_rate_incongr": 0.0,
+      "acc_after": 1.0,
+      "swing_fraction": 0.0,
+      "mean_abs_plural_score_change": 0.0
+    }
+  },
+  "C_redundancy_dimsweep_layer0_value": {
+    "desc": "swap top-|diff| k dims of head layer-0 value cache; flip-rate vs fraction",
+    "frac_0.1_k115": {
+      "flip_rate_all": 0.0,
+      "flip_rate_incongr": 0.0,
+      "acc_after": 1.0,
+      "swing_fraction": 0.027,
+      "mean_abs_plural_score_change": 0.249
+    },
+    "frac_0.25_k288": {
+      "flip_rate_all": 0.0,
+      "flip_rate_incongr": 0.0,
+      "acc_after": 1.0,
+      "swing_fraction": 0.079,
+      "mean_abs_plural_score_change": 0.614
+    },
+    "frac_0.5_k576": {
+      "flip_rate_all": 0.0,
+      "flip_rate_incongr": 0.0,
+      "acc_after": 1.0,
+      "swing_fraction": 0.142,
+      "mean_abs_plural_score_change": 1.069
+    },
+    "frac_0.75_k864": {
+      "flip_rate_all": 0.0,
+      "flip_rate_incongr": 0.0,
+      "acc_after": 1.0,
+      "swing_fraction": 0.163,
+      "mean_abs_plural_score_change": 1.228
+    },
+    "frac_1.0_k1152": {
+      "flip_rate_all": 0.0,
+      "flip_rate_incongr": 0.0,
+      "acc_after": 1.0,
+      "swing_fraction": 0.166,
+      "mean_abs_plural_score_change": 1.25
+    }
+  }
+}
