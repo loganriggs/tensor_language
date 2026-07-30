@@ -1,0 +1,353 @@
+{
+  "technique": "GREEDY JOINT / SUBSET ABLATION for redundant/distributed circuits: on a fixed held-back position set (union of members top-KPOS activating positions), mean-ablate a SET of heads jointly (in-distribution per-position mean zero point) and compare solo dCE vs joint dCE vs a greedy largest-marginal-gain build-up. REDUNDANCY = joint_dCE / sum(solo_dCE) (>>1 = duplicated/distributed). Honesty: a jointly-null set is truly unimportant; a random same-size set on the same positions controls for removed-capacity. Complements single-ablation, which oversells redundant members as causally null.",
+  "params": {
+    "held_slice": "FW[448:600,:128]",
+    "ablation": "mean (in-distribution per-position)",
+    "KPOS": 150,
+    "KCAUSAL": 200,
+    "NRAND": 40,
+    "BATCH": 4
+  },
+  "copy_family": {
+    "heads": [
+      "L8H3",
+      "L8H4",
+      "L13H0",
+      "L14H7",
+      "L7H3",
+      "L5H5"
+    ],
+    "posset_n": 740,
+    "solos": {
+      "L8H3": {
+        "solo_dCE_shared": 0.0517,
+        "solo_dCE_shared_SE": 0.0127,
+        "solo_dCE_own": 0.1825,
+        "solo_dCE_own_SE": 0.0392,
+        "own_n": 200,
+        "src_logit_drop": 0.4619,
+        "src_top1_frac": 0.389
+      },
+      "L8H4": {
+        "solo_dCE_shared": 0.0073,
+        "solo_dCE_shared_SE": 0.0059,
+        "solo_dCE_own": 0.0199,
+        "solo_dCE_own_SE": 0.0177,
+        "own_n": 200,
+        "src_logit_drop": 0.2201,
+        "src_top1_frac": 0.401
+      },
+      "L13H0": {
+        "solo_dCE_shared": 0.0177,
+        "solo_dCE_shared_SE": 0.0069,
+        "solo_dCE_own": 0.0642,
+        "solo_dCE_own_SE": 0.0244,
+        "own_n": 200,
+        "src_logit_drop": 0.3103,
+        "src_top1_frac": 0.422
+      },
+      "L14H7": {
+        "solo_dCE_shared": 0.0014,
+        "solo_dCE_shared_SE": 0.0059,
+        "solo_dCE_own": 0.0072,
+        "solo_dCE_own_SE": 0.0208,
+        "own_n": 200,
+        "src_logit_drop": 0.2392,
+        "src_top1_frac": 0.411
+      },
+      "L7H3": {
+        "solo_dCE_shared": 0.0036,
+        "solo_dCE_shared_SE": 0.0051,
+        "solo_dCE_own": 0.0145,
+        "solo_dCE_own_SE": 0.0166,
+        "own_n": 200,
+        "src_logit_drop": 0.1301,
+        "src_top1_frac": 0.414
+      },
+      "L5H5": {
+        "solo_dCE_shared": 0.0297,
+        "solo_dCE_shared_SE": 0.0127,
+        "solo_dCE_own": 0.1185,
+        "solo_dCE_own_SE": 0.042,
+        "own_n": 200,
+        "src_logit_drop": 0.3441,
+        "src_top1_frac": 0.408
+      }
+    },
+    "joint": {
+      "joint_dCE": 0.4299,
+      "joint_dCE_SE": 0.0514,
+      "src_logit_drop": 2.3646,
+      "src_top1_base": 0.426,
+      "src_top1_joint": 0.266,
+      "src_rank_med_base": 1,
+      "src_rank_med_joint": 7
+    },
+    "sum_solo_positive": 0.1114,
+    "sum_solo_signed": 0.1114,
+    "redundancy_ratio": 3.86,
+    "redundancy_ratio_signed": 3.86,
+    "greedy_curve": [
+      {
+        "added": "L8H3",
+        "set": [
+          "L8H3"
+        ],
+        "cum_dCE": 0.0517,
+        "cum_dCE_SE": 0.0127,
+        "cum_src_top1": 0.389
+      },
+      {
+        "added": "L5H5",
+        "set": [
+          "L8H3",
+          "L5H5"
+        ],
+        "cum_dCE": 0.1186,
+        "cum_dCE_SE": 0.0234,
+        "cum_src_top1": 0.369
+      },
+      {
+        "added": "L7H3",
+        "set": [
+          "L8H3",
+          "L5H5",
+          "L7H3"
+        ],
+        "cum_dCE": 0.247,
+        "cum_dCE_SE": 0.0368,
+        "cum_src_top1": 0.335
+      },
+      {
+        "added": "L8H4",
+        "set": [
+          "L8H3",
+          "L5H5",
+          "L7H3",
+          "L8H4"
+        ],
+        "cum_dCE": 0.3746,
+        "cum_dCE_SE": 0.048,
+        "cum_src_top1": 0.291
+      },
+      {
+        "added": "L13H0",
+        "set": [
+          "L8H3",
+          "L5H5",
+          "L7H3",
+          "L8H4",
+          "L13H0"
+        ],
+        "cum_dCE": 0.4085,
+        "cum_dCE_SE": 0.0495,
+        "cum_src_top1": 0.28
+      },
+      {
+        "added": "L14H7",
+        "set": [
+          "L8H3",
+          "L5H5",
+          "L7H3",
+          "L8H4",
+          "L13H0",
+          "L14H7"
+        ],
+        "cum_dCE": 0.4299,
+        "cum_dCE_SE": 0.0514,
+        "cum_src_top1": 0.266
+      }
+    ],
+    "minimal_subset_80pct": {
+      "subset": [
+        "L8H3",
+        "L5H5",
+        "L7H3",
+        "L8H4"
+      ],
+      "size": 4,
+      "cum_dCE": 0.3746,
+      "frac_of_joint": 0.87
+    },
+    "random_control": {
+      "n_draws": 40,
+      "rand_joint_dCE_mean": 0.0203,
+      "rand_joint_dCE_std": 0.0164,
+      "rand_joint_dCE_max": 0.0723,
+      "rand_joint_dCE_p95": 0.0601,
+      "family_over_random_z": 24.9,
+      "family_exceeds_all_random": true
+    },
+    "verdict": "REDUNDANT / DISTRIBUTED: joint dCE=+0.430 >> sum(solo+); redundancy=3.86; specific vs random (z=24.9); minimal 4-head subset recovers 87% of joint"
+  },
+  "diffuse_set": {
+    "heads": [
+      "L1H0",
+      "L1H2",
+      "L0H2",
+      "L0H1",
+      "L0H5",
+      "L1H8"
+    ],
+    "posset_n": 751,
+    "solos": {
+      "L1H0": {
+        "solo_dCE_shared": -0.001,
+        "solo_dCE_shared_SE": 0.0039,
+        "solo_dCE_own": -0.0036,
+        "solo_dCE_own_SE": 0.009,
+        "own_n": 200,
+        "src_logit_drop": -0.0175,
+        "src_top1_frac": 0.025
+      },
+      "L1H2": {
+        "solo_dCE_shared": 0.004,
+        "solo_dCE_shared_SE": 0.0038,
+        "solo_dCE_own": 0.0025,
+        "solo_dCE_own_SE": 0.0089,
+        "own_n": 200,
+        "src_logit_drop": 0.0124,
+        "src_top1_frac": 0.027
+      },
+      "L0H2": {
+        "solo_dCE_shared": 0.0013,
+        "solo_dCE_shared_SE": 0.0042,
+        "solo_dCE_own": 0.0031,
+        "solo_dCE_own_SE": 0.0154,
+        "own_n": 200,
+        "src_logit_drop": 0.0165,
+        "src_top1_frac": 0.027
+      },
+      "L0H1": {
+        "solo_dCE_shared": 0.0006,
+        "solo_dCE_shared_SE": 0.0014,
+        "solo_dCE_own": -0.0027,
+        "solo_dCE_own_SE": 0.0055,
+        "own_n": 200,
+        "src_logit_drop": 0.0073,
+        "src_top1_frac": 0.027
+      },
+      "L0H5": {
+        "solo_dCE_shared": 0.0161,
+        "solo_dCE_shared_SE": 0.0066,
+        "solo_dCE_own": 0.0585,
+        "solo_dCE_own_SE": 0.023,
+        "own_n": 200,
+        "src_logit_drop": 0.0123,
+        "src_top1_frac": 0.027
+      },
+      "L1H8": {
+        "solo_dCE_shared": 0.0046,
+        "solo_dCE_shared_SE": 0.004,
+        "solo_dCE_own": 0.0122,
+        "solo_dCE_own_SE": 0.0091,
+        "own_n": 200,
+        "src_logit_drop": 0.0017,
+        "src_top1_frac": 0.028
+      }
+    },
+    "joint": {
+      "joint_dCE": 0.0297,
+      "joint_dCE_SE": 0.0125,
+      "src_logit_drop": 0.0539,
+      "src_top1_base": 0.027,
+      "src_top1_joint": 0.028,
+      "src_rank_med_base": 3273,
+      "src_rank_med_joint": 3241
+    },
+    "sum_solo_positive": 0.0266,
+    "sum_solo_signed": 0.0256,
+    "redundancy_ratio": 1.12,
+    "redundancy_ratio_signed": 1.16,
+    "greedy_curve": [
+      {
+        "added": "L0H5",
+        "set": [
+          "L0H5"
+        ],
+        "cum_dCE": 0.0161,
+        "cum_dCE_SE": 0.0066,
+        "cum_src_top1": 0.027
+      },
+      {
+        "added": "L1H2",
+        "set": [
+          "L0H5",
+          "L1H2"
+        ],
+        "cum_dCE": 0.0249,
+        "cum_dCE_SE": 0.0098,
+        "cum_src_top1": 0.027
+      },
+      {
+        "added": "L0H2",
+        "set": [
+          "L0H5",
+          "L1H2",
+          "L0H2"
+        ],
+        "cum_dCE": 0.0292,
+        "cum_dCE_SE": 0.0112,
+        "cum_src_top1": 0.027
+      },
+      {
+        "added": "L1H8",
+        "set": [
+          "L0H5",
+          "L1H2",
+          "L0H2",
+          "L1H8"
+        ],
+        "cum_dCE": 0.0335,
+        "cum_dCE_SE": 0.0117,
+        "cum_src_top1": 0.028
+      },
+      {
+        "added": "L0H1",
+        "set": [
+          "L0H5",
+          "L1H2",
+          "L0H2",
+          "L1H8",
+          "L0H1"
+        ],
+        "cum_dCE": 0.0353,
+        "cum_dCE_SE": 0.0119,
+        "cum_src_top1": 0.028
+      },
+      {
+        "added": "L1H0",
+        "set": [
+          "L0H5",
+          "L1H2",
+          "L0H2",
+          "L1H8",
+          "L0H1",
+          "L1H0"
+        ],
+        "cum_dCE": 0.0297,
+        "cum_dCE_SE": 0.0125,
+        "cum_src_top1": 0.028
+      }
+    ],
+    "minimal_subset_80pct": {
+      "subset": [
+        "L0H5",
+        "L1H2"
+      ],
+      "size": 2,
+      "cum_dCE": 0.0249,
+      "frac_of_joint": 0.84
+    },
+    "random_control": {
+      "n_draws": 40,
+      "rand_joint_dCE_mean": 0.0186,
+      "rand_joint_dCE_std": 0.0163,
+      "rand_joint_dCE_max": 0.0817,
+      "rand_joint_dCE_p95": 0.0456,
+      "family_over_random_z": 0.68,
+      "family_exceeds_all_random": false
+    },
+    "verdict": "JOINTLY NULL too -> set is genuinely unimportant (not redundant, not load-bearing)"
+  }
+}

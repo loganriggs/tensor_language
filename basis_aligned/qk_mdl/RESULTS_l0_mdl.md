@@ -3661,3 +3661,24 @@ successor / paired-transformed / positional.
   sign) though the head IS causal (dCE +0.115) — matters for prediction but not by copying. Only ablation
   exposes it. **So bilin18's copy family (verbatim + successor) is a distributed, mostly-redundant set of
   heads concentrated at layers 5–8 and 13–14; the delimiter router is a distinct paired-transformed copy.**
+
+## §61 New tool — REDUNDANT/DISTRIBUTED circuits via greedy joint ablation (2026-07-30)
+(qk_unsup_redundant.py; the circuit TYPE single-ablation systematically MISSES — §60 found copy heads
+individually near-null yet clearly copying.) NEW TECHNIQUE: greedy JOINT/subset ablation with a redundancy
+ratio (joint_dCE / Σ solo_dCE), a minimal load-bearing subset, and a same-size RANDOM-set control (rules
+out "removed capacity"). Held-back FW[448:600], mean-ablation, paired standard errors.
+- **The §60 copy family {L8H3, L8H4, L13H0, L14H7, L7H3, L5H5} is a genuine DISTRIBUTED copy circuit:**
+  JOINT dCE +0.430 ± 0.051 vs Σsolo 0.111 → **redundancy ratio 3.86** (≫1). Minimal load-bearing subset =
+  4 heads {L8H3, L5H5, L7H3, L8H4} recovering 87% of the joint effect. The COPY OUTPUT collapses only
+  jointly: the attended-source token stays model-top-1 in ~40% of positions under ANY single ablation but
+  drops to 27% under joint (median source-token rank 1→7 only when the whole set is removed). Random
+  control: 40 same-size sets give joint dCE +0.020 (max 0.072); the family is z = 24.9, exceeds every draw
+  → a SPECIFIC redundant circuit, not removed capacity. Resolves the §60 "individually-null-but-real-copy"
+  puzzle: the copy heads are DUPLICATED, so single removal is masked.
+- **Honest negative (the discriminator):** the diffuse structure/newline cluster {L1H0/L1H2/L0H2/…} is
+  JOINTLY NULL — joint dCE +0.030 ≈ Σsolo 0.027 (redundancy 1.12 ≈ 1, additive), only 2.4 SE, and z = 0.68
+  vs the random control (does NOT exceed random draws). GENUINELY UNIMPORTANT, not redundant.
+**KEY:** single-ablation cannot distinguish "redundant" from "null" (both look causally-null in isolation);
+greedy joint ablation + the random control does — one cluster is a duplicated load-bearing copy circuit
+(ratio 3.86, minimal 4-head subset), the other is truly unimportant (ratio ≈1). This is the tool the
+proxy's main documented failure (single-ablation overselling / underselling redundant heads) required.

@@ -34,6 +34,6 @@ paired standard errors, mean-ablation in-distribution zero point.
 | copy / induction | class-boost scores a FIXED direction, not "boost whatever you attended" | attended-source-token-in-output metric | **DONE §60** |
 | suppression / anti-copy | effect-purity ranks only POSITIVE logits | signed / most-raised-on-ablation ranking | **DONE §59**: 2 late-FF class-inhibitors (mlp.L17.d1/L16.d0); NO anti-repetition head; suppression is diffuse/class-level/late-FF |
 | positional / structural | routes by relative position / line-structure, not a content class | position-vs-content probe (structural-attention purity, separate from vocab boost) | TODO |
-| redundant / distributed | clean trigger but single-ablation dCE≈0 (duplicated across heads) — proxy OVERSELLS | greedy JOINT / subset ablation to separate null-from-redundant | TODO |
+| redundant / distributed | clean trigger but single-ablation dCE≈0 (duplicated across heads) | greedy JOINT/subset ablation + redundancy ratio (joint/Σsolo) + minimal-subset + same-size RANDOM-set control | **DONE §61**: copy family ratio 3.86 (distributed circuit, minimal 4-head subset 87%); diffuse newline cluster ratio 1.1 (genuinely null) |
 | byte-fragment artifact | masquerades as a circuit, wastes verification budget | a PRE-FILTER (route U+FFFD / lone-byte to artifact bucket before causal test), not a detector | TODO |
 | trigger-genuine / output-diffuse | conflates "real feature detector" with "real algorithm" | DECOUPLE trigger-verification from output-verification (report VALID-DETECTOR w/o a clean output) | TODO |
