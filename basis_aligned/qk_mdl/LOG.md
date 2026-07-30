@@ -6363,3 +6363,12 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## greater-of-two circuit decomposition (patch->minimal); (F) positional-mean floor + SE for symbolgen
 ## L6-17 (priority 3, cheapest way table is wrong). NEXT: collect L1-3 + agents D/E/F, stock L4-6, update
 ## per-layer table. 10-min cron 0b62fec1; re-arm before 2026-08-06.
+
+## TICK 2026-07-30ah (10-min #3) — SWEEP L1-3 DONE (3 ledgers, standard-bar) + daemon sped up. Per-layer
+## driver results: L1 subst +0.00052+/-0.00016 (40-48x null) H3 PREV1/H4 MATCH_same; L2 +0.00136+/-0.0002
+## (4x) H4 KEY_punct/H5 MATCH_same(induction core .25); L3 +0.00093+/-0.00017 (5.4x) H5/H8 MATCH_same
+## (H8 .31 = strongest head). All gauges ~1e-6, all 99.98-99.99% uniform-ceiling, census reproduces prior
+## work (positive control). Reduced qkqueue poll 60s->8s (supervisor restart, safe/GPU-idle) -> ~2x
+## faster sweep. Queue running L4-L9. Agents D (L1 meaning gates) / E (greater-of-two circuit) / F
+## (positional-mean floor) still running. NEXT: collect L4-9 + agents, extend table, queue L10-17 +
+## meaning gates. 10-min cron 0b62fec1; re-arm before 2026-08-06.

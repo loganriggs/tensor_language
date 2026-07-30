@@ -16,5 +16,5 @@ while true; do
       fi
     fi
   fi
-  sleep 60
+  sleep 8
 done

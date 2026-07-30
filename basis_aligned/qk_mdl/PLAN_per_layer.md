@@ -75,3 +75,4 @@ Substitutability = marginal dCE of replacing layer L's attention (PCA-64/head bo
 |---|---|---|---|---|---|
 | 1 | 1.2e-6 | +0.00052 ± 0.00016 | 0.025/0.020 (40-48×) | 99.99% | H3 PREV1(.17), H4 MATCH_same(.15) |
 | 2 | 9.8e-7 | +0.00136 ± 0.00020 | 0.0055 (4×) | 99.98% | H4 KEY_punct(.06), H5 MATCH_same(.25 induction core) |
+| 3 | 9.0e-7 | +0.00093 ± 0.00017 | 0.005 (5.4×) | 99.99% | H5 MATCH_same(.13), H8 MATCH_same(.31 strongest head) |
