@@ -6520,3 +6520,17 @@ positive circuit discoveries all held; only an over-reaching negative and an inf
 This is the ~16th retraction/softening across the program; the discipline (positive controls / red-team before
 enshrinement) worked exactly as intended. Toolbox §56-64 now adversarially defensible.
 NEXT: refresh the artifact with the toolbox-complete card (using the CORRECTED numbers). Cron re-arm < 2026-08-06.
+
+## tick 2026-07-30 (artifact refreshed with toolbox card; cron re-armed)
+- Updated the interactive artifact (bilin18_decomp.html, https://claude.ai/code/artifact/f27aeab4-438f-465a-9a33-aba8272b43ee)
+  with a new section "The decomposition is a generator — an unsupervised circuit-discovery toolbox, indexed by
+  circuit type": nine causally-verified detectors, the proxy-unreliability lesson, and the four-way red-team
+  outcome (survive/survive/soften/retract) using the CORRECTED numbers (redundancy ratio 3.86, position-matched
+  ~4× digit concentration, punct→capital distinctness, retracted no-distance-head negative). Nav link added.
+- Cron RE-ARMED: deleted 0b62fec1, created 172134ae (fresh 7-day window → expires ~2026-08-06), fire minutes
+  nudged to 3,13,23,33,43,53; prompt updated to note the sweep+toolbox are complete and frontier = consolidation.
+- Consolidation of the unsupervised-toolbox arc is now COMPLETE: RESULTS §56-64, TECHNIQUES catalog, paper
+  section, and the artifact all carry the red-teamed numbers. Queue idle by design (no heavy decomposition left).
+- NEXT: with the toolbox closed, the open frontier is option-2 NEW algorithmic arcs built ON the discovered
+  circuits (e.g. the §63 digit heads / §64 capitalization remap → full verify→patch→minimal→red-team), and/or
+  broadening generality of a discovered circuit to the other models. Re-arm cron before 2026-08-06.
