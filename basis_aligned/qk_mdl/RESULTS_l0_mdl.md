@@ -2613,3 +2613,50 @@ The two-branch product (q1·k1)(q2·k2) needs MLP1 to make both branches co-fire
 a single softmax bilinear form reads the match directly. In the softmax models MLP1's category
 content mildly interferes with induction, mirroring the newline-interference effect. Scripts:
 qk_atlas_bilin12/bilinsm12/swiglu18.py, qk_prevtoken_source.py, qk_mlp1_role.py.
+
+---
+
+## §33 The composition arc: composed folds, the analytic chain, and the PCA/head bottleneck
+### (2026-07-29/30; all numbers post-adversarial-review — see redteam_findings_2026-07-30.md)
+
+**Method licenses (architecture identities, not findings).** For quadratic consumers rms-norm folds
+out exactly as a scalar gauge (MLP(rms(x)) = D·T(x,x)/‖x‖² + bias), and the attention pattern is a
+quartic multilinear numerator over four norm gauges. Both hold for any weights of this architecture
+class; their ~1e-7 gates verify implementations. They license the stream algebra below.
+
+**Composed folds (per-layer, one-hop).** Splitting each MLP's pre-rms input into analytic streams
+(embedding + upstream component outputs) and evaluating the exact tensor on named/PCA-truncated
+streams: MLP0 96.9% of its floor (144-dim archetype basis for attn0), MLP1 99.5% (lower MLPs exact)
+and 95.1% (fully truncated), MLP2 93.9% (one-hop). FRAMING (per review): this is a
+fidelity-versus-compression FRONTIER, not a supersession of data-fit programs — composed forms
+reference the full weight tensors as exact restrictions (description length ≥ the component; the
+cores are measured to be incompressible by naked rank truncation), while the data programs are ~27×
+smaller; and at MLP0 the composed form loses on ΔCE (+0.114 vs +0.075).
+
+**Depth and width.** Truncation error through chained quadratics is controlled by stream width, not
+by re-anchoring: the fully-truncated three-layer chain scores 69.5/90.7/98.7% at 16/32/64 dims per
+head, beating full re-anchoring at 16 dims (93.9%). Interface tests at 64 dims/head hold at
+98.1/99.2/97.9% at depths four through six. Naming-versus-capture: the named archetype basis costs
+~20 points of function versus energy-ordered PCA at equal width (both logged).
+
+**Joint substitution is essentially free — after a bug fix.** The initially-reported 72.5% joint
+"gap" (and a subsequent knob-training "recovery") measured a mis-implemented substitution: deltas
+were injected with unit coefficients where the correct coefficients are products of downstream
+lambdas (~2300× overshoot on m0). Caught by adversarial review; with correct scaling the six-MLP
+joint substitution costs +0.0039 (99.9%), matching the fully-causal evaluation (+0.0101; and all
+eighteen MLPs causally: +0.0329). The honest statement of the causal-18 result: projecting the
+attention components of MLP inputs to 64/128 dims per head (bases keep 83–99.7% of head energy;
+PCA fit on disjoint corpus statistics) barely hurts, with the model's own exact tensors doing the
+evaluation. The mean-ablation floor (+18.49; above the uniform ceiling ln V = 10.83) is reported
+alongside the base-relative ΔCE for that reason.
+
+**The PCA/head bottleneck (whole model).** Projecting every attention output at every layer onto
+per-layer PCA-64/head bases (residual itself truncated — the strongest test): +0.0475 versus base,
+linear ~0.003/layer accumulation. Nulls: random 576-dim subspaces +4.78 (100×); random 64-of-128
+within each head's own image, two seeds: +1.02/+1.49 (20–30×). The energy ordering is real signal.
+Naming status, honestly: the bases are anonymous PCA; only the 144 layer-0 archetype dimensions
+carry verified names; coordinate semantics is open work gated by the code-verify meaning standard.
+
+**Retractions on the record.** "Exposure-bias/function-consistency" mechanism story (tick jj);
+"fully-named analytic tensor network" phrasing; "composition supersedes data fitting" phrasing;
+knob-recovery numbers. Corrections and the full findings list in redteam_findings_2026-07-30.md.
