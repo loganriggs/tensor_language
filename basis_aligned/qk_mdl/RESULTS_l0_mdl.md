@@ -3020,8 +3020,30 @@ payload, 0.96 capture), and high in rich natural text (§37c–e), where majorit
 reached only by driving the edited position's logits into soft-cap saturation (true-next cross-entropy
 ≈32 nats) — so in the natural regime the payload wins the argmax but the distribution is degenerate, not
 a calibrated prediction. This supersedes both "clean repoint of an induction match" (too narrow — it
-needs no match) and "brute-force injection" (too broad — it is copy-OV-specific and aimable). OPEN (the
-one inferred leg, queued qk_natural_aimability.py): the natural high-amplitude leg is *assumed* to be the
-same aimed commandeering, but the aimability double dissociation has only been shown in the planted
-setting — until it is shown in natural text, the unification of the planted and natural legs under one
-mechanism is an inference, not a measurement.
+needs no match) and "brute-force injection" (too broad — it is copy-OV-specific and aimable). The
+planted↔natural unification is now MEASURED (§37h): the aimability double dissociation holds in natural
+text too (aim@col1→token@1 0.76, token@5 ~0; aim@col5→token@5 0.72, token@1 ~0 at scale 160), so the
+natural high-amplitude leg is the same aimed commandeering, sharp-but-aimed rather than fixed-vector.
+
+### §37h Natural-text aimability — the planted↔natural unification is now MEASURED (2026-07-30)
+(qk_natural_aimability.py; closes the one open leg from the final review, item 4) Running the §37g double
+dissociation in NATURAL text (trigger 447's natural occurrences at position ≥10; aim the copy heads at
+source column 1 vs 5):
+
+| | P(token@1) | P(token@5) |
+|---|---|---|
+| **aim@col1**, scale 40 | **0.564 ± 0.027** | 0.002 |
+| **aim@col5**, scale 40 | 0.001 | **0.472 ± 0.029** |
+| **aim@col1**, scale 160 | **0.764 ± 0.025** | 0.0003 |
+| **aim@col5**, scale 160 | 0.0001 | **0.716 ± 0.027** |
+
+A clean double dissociation in natural text: the copy heads emit whichever source's token is targeted,
+off-target near zero, in both amplitude regimes. So the natural high-amplitude leg is **the same aimed
+commandeering** as the planted leg — NOT fixed-vector saturation. This reconciles with the saturation
+observation (§37d/e): at high amplitude the edited position's distribution is sharp/degenerate (true-next
+crushed to ~e⁻³²), but it is sharp on the *aimed* source's token, so it is an aimed copy driven to
+saturation, not a meaningless fixed injection. The planted↔natural unification under one mechanism is now
+a measurement, not an inference. **All five capstone properties (§37 capstone) are therefore measured:**
+copy-OV-specific, match-free, aimable (planted + natural double dissociations), surgically gatable, and
+governed by a reach-vs-amplitude tradeoff (calibrated at low amplitude/clean context, aimed-but-saturated
+at high amplitude/rich context). The editing arc is closed.
