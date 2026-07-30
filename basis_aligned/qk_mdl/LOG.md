@@ -6425,3 +6425,11 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## 'diffuse'=no surface name not no computation (L4 null 3.3x); (4) static-prior control separated cleanly
 ## on its own in only 2/5 cases. Artifact republished w/ corrections. Paper-draft correction agent
 ## dispatched. redteam_capstone archived. 10-min cron 0b62fec1; re-arm before 2026-08-06.
+
+## TICK (10-min) — paper draft corrected (all 5 capstone fixes integrated) + content-spectral generality
+## probe launched. qk_paper_draft.md now consistent w/ corrected RESULTS/artifact (marginal-vs-cumulative
+## subst, content-gate scope, L9 not diffuse, static-prior 2/5). Per-layer decomposition pivot COMPLETE +
+## fully defended. Continuing per 'default to running': dispatched content-nameability gate on swiglu18
+## (bilin18's softmax+SwiGLU twin, layers 1/6/11/16) -- does 'content is spectral' generalize architecture-
+## wide? (whole-model substitutability generality already shown §32b; content-spectral generality is the
+## open question). NEXT: collect swiglu18 content result. 10-min cron 0b62fec1; re-arm before 2026-08-06.
