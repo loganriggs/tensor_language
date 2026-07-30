@@ -6445,3 +6445,24 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## CLOSED. Exhaustively characterized + defended. No clean in-scope work remains without Logan's steer
 ## (full 2nd-model sweep = scope expansion; further generality = diminishing). Loop idle-but-ready.
 ## 10-min cron 0b62fec1; re-arm before 2026-08-06.
+
+## tick 2026-07-30 (unsup toolbox: redundant + positional landed; byte-frag + decouple in flight)
+- §61 REDUNDANT/DISTRIBUTED tool committed: greedy joint ablation resolves the §60 copy-family puzzle
+  (individually-null copy heads are a genuine distributed circuit — joint delta cross-entropy 0.430 vs
+  sum-of-solos 0.111 = redundancy ratio 3.86; minimal 4-head subset recovers 87%; source-top-1 40%→27%
+  only jointly; z=24.9 vs 40 same-size random head-sets). Honest negative: diffuse newline cluster ratio
+  1.12, z=0.68 vs random → GENUINELY NULL not redundant. Single-ablation can't distinguish; joint can.
+- §62 POSITIONAL/STRUCTURAL tool committed (collected from subagent a55fe082f6b2fd5b2): position-vs-content
+  pattern decomposition, content-residual metric, distance-since-newline causal bucketing. 54/162 heads
+  genuinely positional (44 fixed-offset), 0 content-by-class. Fixed-offset heads load-bearing (prev-token
+  h.L0.3 +0.074, self h.L1.1 +0.030), damage uniform across line structure. Honest negatives: NO distance-
+  to-newline circuit (line structure carried lexically by the newline token); line-structure head h.L2.4
+  causally null in isolation.
+- Dispatched the last two gap-map tools as subagents: byte-fragment/orthographic-trigger detector
+  (a630ba9ecd56c949f) and trigger-vs-output decoupling detector (a0a2e33f736586c45). After these land, all
+  six §58 under-served circuit types have working, causally-verified detectors.
+- Toolbox now committed for 7 circuit types: class-boost §56, composition §57, taxonomy §58, suppression
+  §59, copy §60, redundant/distributed §61, positional/structural §62. Recurring documented lesson: the
+  linear direct-to-logits proxy is unreliable (magnitude, sign, case, single-vs-joint) → every type earns
+  its keep only through a type-specific CAUSAL test.
+- Cron 0b62fec1 session-only, 7-day expiry → re-arm before 2026-08-06 (5 days out; not yet due).
