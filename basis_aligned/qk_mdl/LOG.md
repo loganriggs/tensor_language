@@ -6661,3 +6661,20 @@ distributed effects, and testing their generality. Dispatched two GPU subagents 
   class-integrator = 1 selector + 3 priors), easy-bias census + tenth detector (blind spot found & fixed),
   and cross-architecture generality. Logan's directives fully answered. Natural rest state.
 - Cron 172134ae armed through ~2026-08-06 — re-arm before then and tell Logan.
+
+## tick 2026-07-30 (Logan's completeness + fold-necessity questions — 2 experiments dispatched)
+Logan asked three questions mid-tick: (1) can we classify how many circuits we HAVEN'T found, and how does that
+interact with easy vs hard; (2) what can swiglu NOT do that bilinear can that's substantial — is folding
+necessary for all the gains or ~20%. Held the planned editing arc; these questions are higher priority.
+Dispatched two GPU subagents (nvidia-smi self-guard, <4GB):
+- a5f9bd0dd0cfaf0f8 — COVERAGE LEDGER (qk_coverage_ledger.py): nested partition of the model's full causal
+  headroom into named-circuit / unnamed-single-path / multi-path residual (sum-of-solos vs joint-all-234) /
+  non-axis-aligned residual (joint-all vs full headroom = superposition/sub-threshold). Plus the easy-vs-hard
+  split of the unfound (reusing §67 cleanliness). Answers "how much have we NOT found + where."
+- a3de0f8dc14a8faf5 — FOLD-NECESSITY (qk_fold_necessity.py): decompose bilin18 substitutability into
+  fold-specific vs generic by comparing the EXACT composed fold against a rank-matched fold-FREE empirical
+  low-rank surrogate; report the fold's marginal % of the total gain and the strictly-bilinear-only exact-
+  representation part (gauge residual ~1e-6); then run the generic surrogate on swiglu18 (non-foldable) to
+  show what's achievable without folding. Answers "is folding necessary or a last-mile refinement."
+- Conceptual answers given to Logan now; experiments quantify them. Collect next tick.
+- Cron 172134ae armed through ~2026-08-06 — re-arm before then and tell Logan.
