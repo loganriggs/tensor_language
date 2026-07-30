@@ -6764,3 +6764,14 @@ Per the run-don't-hold autonomy directive, launched the flagged next frontier ra
   push past the boundary) is SAE/dictionary-learning on the MLP1 hub — a NEW tool class, worth flagging as a
   scope decision rather than launching unprompted.
 - Cron 172134ae expires ~2026-08-06 — re-arm before then and tell Logan.
+
+## tick 2026-07-30 (red-team the completeness headlines + ROADMAP consolidation)
+- Dispatched red-team of §71/§73/§74 (subagent a577eecf85da2b74c) — before the completeness claims stay in the
+  paper. Key attack: is §74's "76% only under joint removal" a genuine superposition signature or a GENERIC
+  mean-ablation super-additivity artifact? Controls: same joint-vs-sum ratio for a LOW-RANK late layer (mlp.L16/
+  L17) and for 32 RANDOM directions in MLP1; plus basis-dependence (neuron basis) and §71 denominator fairness
+  (11% of headroom vs ~40% of single-path total). Collect next tick, soften any that don't survive.
+- ROADMAP updated with the full §65-§74 arc + the SAE next-frontier (flagged as Logan's scope decision, not
+  launched unprompted — it is a NEW method class past the §74 single-direction boundary).
+- Held the SAE launch per the scope-change rule; this tick = verification + consolidation only.
+- Cron 172134ae expires ~2026-08-06 — re-arm before then and tell Logan.
