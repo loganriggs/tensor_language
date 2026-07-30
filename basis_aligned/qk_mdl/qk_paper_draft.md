@@ -265,18 +265,53 @@ cleanliness score, across all two hundred thirty-four paths. The two are uncorre
 are *more* important on average than the clean winners it finds, and the single largest single-path
 effect in the model is one of the missed ones. Their shared, disqualifying property is a *distributed
 output* — they push an entire token class (near-uniform over thousands of tokens), which the
-top-token effect-purity signal scores near zero regardless of how load-bearing they are. The remedy,
-prescribed by the census and now being built, is a causal, class-level effect detector that ranks by
-mean-ablation importance and describes outputs at the level of token classes rather than sharp token
-sets — so the circuits that move a whole class, not a handful of tokens, stop being invisible.
+top-token effect-purity signal scores near zero regardless of how load-bearing they are. The remedy is
+a tenth detector — a causal, class-level effect ranking that describes outputs by whole-class logit
+movement rather than sharp token sets. Its score correlates with causal importance at Pearson 0.986
+(versus cleanliness's 0.006), it recovers the entire missed region, and the sign of the class-summed
+movement is itself a new discriminator that separates class *pushers* from *suppressors* — correcting
+one of the census's own provisional labels in the process.
+
+**One real algorithm among the biggest effects, and it generalizes.** Put through the full arc, the
+model's four largest distributed effects split by a decisive test: does a direction push its class
+*when the class is due*, or flat? Only one, a final-block feed-forward direction, is a genuine
+context-conditioned capital selector (it pushes capital more than three times harder where a capital is
+due, and ablating it hurts eleven times more there); the other three are static class-frequency priors,
+in fact anti-selective. The genuine selector was surfaced *only* by the class-level detector — the
+token-level tools saw the generic boosters but never the algorithm, because its output is a distributed
+class push. And the whole phenomenon is architecture-general: a conventional softmax SwiGLU transformer
+independently develops the same near-uniform whole-class movers, in the same final block, with the same
+push/suppress structure and the same class-push-tracks-importance correlation.
+
+**Completeness, stated honestly.** A coverage ledger partitions the model's total causal headroom
+(everything the eighteen layers do, measured by mean-ablation). The named circuits carry about eleven
+percent of it; roughly eighty-nine percent is not yet characterized. That unfound part is itself
+informative: about fifty-five percent of the headroom is single-path-expressible but uncharacterized —
+and over eighty percent of *that* sits in the hard, low-cleanliness region — while about thirty-six
+percent is non-axis-aligned, feed-forward computation below the leading singular directions the toolbox
+analyzes. Two structural facts frame the whole program: the model is roughly two-point-nine times
+super-additive (ablating the full single-path basis costs almost three times the sum of the individual
+ablations), so most computation lives in *combinations* and single-path naming inherently undercounts
+it; and the largest effects we *do* name are the exception, not the rule, in a mechanism that is
+predominantly hard, distributed, and partly superposed.
 
 ## Honest limitations
 
-1. **Substitutability buys fidelity, not compression.** The composed analytic interfaces reference the
-   *full* weight tensors as exact restrictions; the cores are measured to be incompressible by naked
-   rank truncation. So "~99.9% substitutable" is a faithfulness statement, not a description-length
-   win — the compression lives on the selection/program side (data-fit programs are ~27× smaller but
-   less faithful). This is a fidelity-vs-compression frontier, stated as such.
+1. **Substitutability buys fidelity, not compression — and the exactness is what the bilinear form
+   uniquely provides.** The composed analytic interfaces reference the *full* weight tensors as exact
+   restrictions; the cores are measured to be incompressible by naked rank truncation. So "~99.9%
+   substitutable" is a faithfulness statement, not a description-length win — the compression lives on
+   the selection/program side (data-fit programs are ~27× smaller but less faithful). A direct
+   decomposition quantifies what the exact fold buys: a generic, architecture-agnostic rank-matched
+   linear surrogate recovers about three-quarters of the floor-relative substitutability gain, but it
+   leaves the model badly broken (residual delta cross-entropy +4.9 nats, more than doubling the loss),
+   whereas the exact fold reaches +0.034 — roughly one hundred forty times more faithful. The same
+   generic surrogate on a softmax SwiGLU model is stuck at the same broken level with no fold available;
+   the per-layer reconstruction is exact to one part in a million for the bilinear MLP and only about
+   sixty percent for the surrogate on either architecture, and full rank does not close it — the residual
+   is genuinely quadratic. So folding is not a cosmetic last mile: it is the entire difference between a
+   rough approximation and a faithful identity, and that exactness is the one substantial thing a
+   nonlinear model structurally cannot offer. This is a fidelity-vs-compression frontier, stated as such.
 2. **Meaning is genuinely hard, and that is a finding.** Spectral, non-class-nameable content is the
    *rule* at all 18 layers; nameable selection is confined to the copy/induction/match family; and
    even functional content is bounded-nameable at only four sites, none of them a generalizing law.
