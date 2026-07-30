@@ -3946,9 +3946,11 @@ cleanliness signal), held-back FW[448:600], paired standard errors.
   - **New provisional TYPES beyond the nine-detector catalog:** (1) LATE-LAYER DISTRIBUTED CLASS-INTEGRATOR
     (feed-forward) — mlp.L17.d1/d2/d3, high causal importance (0.17–0.37 nats), impure trigger, near-uniform
     output over a punctuation/capital/space class, redundant family. (2) DIFFUSE-TRIGGER, DISTRIBUTED-OUTPUT
-    head — h.L11.2 (cleanliness 0.005, delta cross-entropy 0.239): fires on nearly everything and boosts a huge
-    set of SUBWORD word-completion fragments (80% mass needs ~13,700 tokens) — a word-completion predictor,
-    distinct from the §63 INPUT-side byte-fragment detector. (3) STRUCTURAL/POSITIONAL heads with class-diffuse
+    head — h.L11.2 (cleanliness 0.005, delta cross-entropy 0.239): fires on nearly everything and its
+    top-token boost set is subword word-fragments — provisionally labeled a word-completion predictor. [§68
+    CORRECTION: the causal class-summed test shows h.L11.2 is actually a WORD-class SUPPRESSOR (ablation RAISES
+    word logits, z −4.6), NOT a completion predictor — the top-token proxy mis-signed it; exactly why the
+    causal class-level detector was needed.] (3) STRUCTURAL/POSITIONAL heads with class-diffuse
     output — h.L0.3, h.L0.8, h.L4.1; these overlap the §62 positional and §63 byte-fragment families, an
     INDEPENDENT validation that those detectors were needed precisely because cleanliness ranking misses here.
 - **(c) THE FIX — the tenth detector.** The toolbox is systematically missing causally load-bearing circuits
@@ -3962,3 +3964,49 @@ cleanliness signal), held-back FW[448:600], paired standard errors.
 uncorrelated with causal importance, so it structurally harvests clean SURFACE circuits and misses the model's
 LARGEST effects, which are distributed class-pushes. The remedy is a causal class-level effect detector (built
 next), and the census already names the three hard types it should catch.
+
+## §68 New tool (tenth detector) — CAUSAL CLASS-LEVEL effect detector fixes the §67 blind spot (2026-07-30)
+(qk_unsup_classpush.py; the detector the §67 census prescribed — for distributed CLASS-OUTPUT circuits the
+cleanliness loop is blind to.) Forward pass + mean-ablation copied verbatim from qk_census_difficulty.py; the
+15-class token library from qk_unsup_decouple.py. Built-in positive control: recomputed trigger-position delta
+cross-entropy matches the census for all 234 paths to max abs diff 0.0 (no spurious numbers). NEW MOVE: mean-
+ablate each path, take the mean delta-logit over its activation-selected firing positions, and SUM that
+movement over all tokens within each coarse class; the pushed class = largest absolute class-summed movement;
+class-level concentration = its share of total absolute class movement; class-push score = causal importance ×
+class concentration.
+- **(a) 5 verified CLASS-PUSHERS (of 8 top candidates), each specific vs a matched inactive-position control**
+  (class-summed drop in raw-logit units over the whole class — the distributed push top-token purity cannot
+  see): h.L0.3 → CAPITAL class (+3354 ± 503 at firing vs +208 control, specificity +3146 ± 538, z 5.9);
+  mlp.L17.d1 → CAPITAL (+20004 ± 421 vs −607, z 48.6 — strongest/cleanest); mlp.L17.d3 → CAPITAL (+7355 ± 754,
+  z 9.2); mlp.L17.d2 → WORD (leading-space content words; +28658 ± 1374, z 22.0); mlp.L16.d2 → WORD
+  (+13014 ± 277, z 47.5).
+- **(b) The blind spot is FIXED — but stated honestly.** The class-push score correlates with causal
+  importance at Pearson 0.986 / Spearman 0.985, versus cleanliness's 0.006 / −0.004. CANDID mechanism note:
+  the score contains causal importance as a factor and the concentration factor is fairly flat (0.35–0.70)
+  across top paths, so the correlation is high partly BY CONSTRUCTION — but that IS the fix: the point was to
+  rank by causal importance, which cleanliness structurally failed to do. Concentration ALONE is uncorrelated
+  with importance (Pearson −0.05), so it is an orthogonal CHARACTERIZATION of the effect; replacing top-64
+  token concentration with whole-class movement is what stops the largest circuits from scoring ≈ 0.
+- **(c) HONEST NEGATIVES — 3 of 8 are class SUPPRESSORS, not pushers (the sign discriminates cleanly), and one
+  CORRECTS the §67 census's provisional guess:** h.L11.2 → WORD SUPPRESSOR (firing −1150 ± 252, z −4.6) — NOT
+  the "word-completion predictor" the census provisionally labeled it; ablation RAISES word-class logits. Also
+  h.L8.7 → capital suppressor (−605 ± 179, z −3.4); mlp.L16.d0 → word suppressor (−16042, fails the push test —
+  its nominal positive specificity is only because the control is even more negative). The push/suppress SIGN
+  of the class-summed movement is itself a new clean discriminator the token-level tools lacked.
+- **(d) Recovery + what is genuinely new.** All ten §67 missed-hard paths are recovered in the top 28 of 234
+  (h.L0.3 rank 1, mlp.L17.d2 rank 2, h.L11.2 rank 3, mlp.L17.d1 rank 4, …), versus being invisible to
+  cleanliness. No dramatic brand-new heavyweight (the census's stratified sweep had already caught the big
+  ones; the only new path above the bar is h.L7.8, a weak subword push z 3.2). What is genuinely new is
+  MECHANISM: mlp.L16.d2 and mlp.L16.d0 were highly ranked by the OLD cleanliness loop but never characterized —
+  the detector newly identifies mlp.L16.d2 as a verified WORD-class PUSHER and mlp.L16.d0 as a WORD-class
+  SUPPRESSOR.
+- **Family-joint redundancy pre-pass (§61):** the late feed-forward family mlp.L17.d1/d2/d3 has joint delta
+  cross-entropy 0.911 vs sum-of-solos 0.481 (ratio 1.89; solos 0.16 / 0.24 / 0.08 — none null), confirming they
+  must be scored JOINTLY. The positional pair h.L0.8 + h.L4.1 at their union of firing positions is additive
+  (joint 0.088 vs sum 0.087, ratio 1.02) — cross-layer independent, distinct from within-layer redundancy.
+**KEY:** the tenth detector completes the toolbox's answer to the easy-bias — a causal class-level effect
+ranking that recovers the exact region cleanliness missed, characterizes each circuit by the token CLASS it
+moves and the SIGN (push vs suppress) of that movement, and in doing so corrects a wrong provisional census
+label (h.L11.2 is a suppressor, not a completion predictor). The model's largest single-path effects are
+distributed class movers — capital-pushers (h.L0.3, mlp.L17.d1/d3), word-pushers (mlp.L17.d2, mlp.L16.d2),
+and class suppressors (h.L11.2, mlp.L16.d0) — a family the token-level toolbox could not have named.
