@@ -155,9 +155,13 @@ CAUSALLY-VERIFIED detector (held-back FW[448:600], mean-ablation, paired standar
 - §61 redundant / distributed (greedy joint ablation + redundancy ratio + random control) — copy family
   ratio 3.86 distributed circuit; diffuse newline cluster genuinely null
 - §62 positional / structural (offset-vs-content-residual + distance-since-newline bucketing) — 54/162
-  positional; NO distance-to-newline circuit (line structure is lexical)
+  positional, load-bearing heads are fixed-offset (prev-token, self). [RED-TEAM: the strong "NO
+  distance-to-newline circuit" negative was RETRACTED — the distance metric is underpowered against a
+  saturating signal (h.L5.7 shows a 2.7× rise the metric scored 0.0); tool licenses the positive
+  fixed-offset attributions only, not the absence claim]
 - §63 byte-fragment / orthographic trigger (predicate library + out-of-sample purity pre-filter + conditional
-  causal contrast) — digit heads h.L8.7/h.L8.3, punctuation head h.L13.8; rejects overfit affix fingerprints
+  causal contrast) — digit heads h.L8.7/h.L8.3 (position-matched concentration ~4×/~7× after red-team, not the
+  raw 11–20×), punctuation head h.L13.8; rejects overfit affix fingerprints
 - §64 trigger-vs-output decoupling / remap (trigger+output histograms → output-side causal test) — 3 genuine
   remaps, 3 proxy-artifacts; strongest mlp.L15.d2 punctuation→capital
 RECURRING HEADLINE LESSON (documented across all nine): the linear direct-to-logits proxy is UNRELIABLE in
