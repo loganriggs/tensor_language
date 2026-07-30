@@ -6191,3 +6191,16 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## Adversarial reviewer dispatched on §37 (aea7bf7e). Queue stocked: qk_redirect_freq_sweep.py
 ## (collateral-vs-trigger-frequency curve, quantifies the caveat). NEXT: process red-team + freq-sweep.
 ## Cron re-armed 2026-07-30; re-arm again before 2026-08-06.
+
+## TICK 2026-07-30u — §37b FREQ-SWEEP + §37 RED-TEAM (defensible, no retraction). (1) Freq-sweep
+## (§37b): conditional-redirect collateral scales gently with trigger frequency and stays far under
+## unconditional at every point (+0.000 rare -> +0.030 common token id13 rate 3.9% vs +0.614 uncond);
+## reach ~0.77-0.79 P / 0.88-0.90 capture for distinctive triggers, drops to 0.175/0.259 for the common
+## (ambiguous-match) token -- induction on a frequent token is inherently diffuse. Precision primitive
+## sharpest for distinctive low-freq triggers. (2) §37 reviewer (aea7bf7e): DEFENSIBLE with caveats, no
+## retraction, mechanics verified clean. Applied: reword specificity (direct effect zero BY CONSTRUCTION,
+## indirect leak measured <5e-4); cross-ref §37b for the common-trigger collateral + ambiguous reach it
+## asked for. redteam_conditional_redirect archived. Queue: qk_natural_trigger_redirect.py (reach on
+## NATURAL un-planted triggers with SEs over many positions + 3 freqs -- closes the planted-best-case +
+## SE concerns). NEXT: process natural-trigger reach; if it lands, promote the editing capstone
+## (§36/§37/§37b + natural) to atlas/summary and refresh artifact. Cron 1475f52b; re-arm before 08-06.
