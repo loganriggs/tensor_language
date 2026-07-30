@@ -5984,3 +5984,14 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## (2) RESULTS §33 written (composition arc, reviewed numbers, retractions on record). (3) Artifact
 ## Composition section added + republished. Program state: composition arc CLOSED AND REVIEWED;
 ## remaining threads = coordinate semantics via meaning gate; paper draft sync; Pythia HELD.
+
+## TICK 2026-07-30d — COORDINATE SEMANTICS L0 (Logan go-ahead; Pythia confirmed held). Exact weight-
+## derived spectra for 576 L0 coordinates + varimax (span-preserving) + 19-class independent library
+## + substitution gate on held-back slice. NEGATIVE: 3/576 nameable at R2>=0.8 (all newline), median
+## class-R2 0.022; the 3 pass the gate exactly (-0.00000+/-0.00004); exact-spectra ref +0.00724 (L0
+## truncation cost; frame + ordering bugs fixed en route). READING: coordinates carry distributed
+## graded lexical spectra; human word-classes are the wrong ontology; meaning = the exact spectrum
+## (weight-derived, inspectable, not short). Coheres with feature-naming falsification + archetype
+## scaffolds living in the third-moment CP + one-algorithm/three-tables. OPTIONS FORWARD: richer
+## hypothesis families (weakens independence), spectra-as-meaning (accept; document), or naming in
+## the mechanism ledger (CP factors) rather than the function ledger (PCA coords).
