@@ -6721,3 +6721,18 @@ Both experiments landed; agents' final reports confirm the numbers I read from t
   target — early-layer high-rank structured computation (MLP1 hub), not off-basis noise; the late-layer
   decomposition is well-captured.
 - Cron 172134ae expires ~2026-08-06 — re-arm before then and tell Logan.
+
+## tick 2026-07-30 (consolidation: completeness/fold/superposition → artifact; natural rest state)
+- Added a new "How complete is this — and what makes the bilinear model special" section to the artifact
+  (same URL, one redeploy): the coverage ledger (§71, ~11% named / ~89% unfound / 2.9× super-additive), the
+  high-rank-but-basis-aligned refinement (§73, ~28 dirs/block for 80%, MLP1 hub, late layers low-rank), and
+  the fold-necessity two halves (§72, generic ~74% but broken +4.9 nats vs exact fold +0.034 = 140× faithful,
+  residual genuinely quadratic, exactness bilinear-only). Nav link added; favicon unchanged 🧭.
+- This closes the completeness thread visually. State: the recent arc (§65-§73) — arcs on discovered circuits,
+  easy-bias census + tenth detector, class-integrator selector, cross-arch generality, coverage ledger, fold
+  necessity, superposition rank test — is fully documented in RESULTS, TECHNIQUES, the paper draft, and the
+  artifact, all committed & pushed. Natural rest state; awaiting Logan's next direction.
+- Clear next frontier IF Logan wants to push coverage: characterize the early-layer high-rank feed-forward tail
+  (MLP1 hub, ~62% of the unfound residual) — the biggest single uncharacterized bucket, a harder but well-posed
+  target (high-rank structured, not off-basis noise).
+- Cron 172134ae expires ~2026-08-06 — re-arm before then and tell Logan.
