@@ -3717,3 +3717,41 @@ train FW[0:256], causal verify on held-back FW[448:600], mean-ablation, paired s
 separates genuine relative-position routing (fixed-offset family, load-bearing) from a positional ENVELOPE
 over content, and shows this model implements line structure lexically (newline token) rather than with a
 positional-distance circuit — a structural claim the content pipeline could not have reached.
+
+## §63 New tool — BYTE-FRAGMENT / ORTHOGRAPHIC-TRIGGER detector (2026-07-30)
+(qk_unsup_bytefrag.py; the circuit TYPE whose TRIGGER is a sub-word BYTE or CHARACTER pattern — a shared
+suffix, prefix, digit, punctuation, or capitalization — invisible to the content-CLASS trigger fingerprints
+the other tools use.) Reuses the bilin18 forward convention verbatim from qk_unsup_discover.py and the mean-
+ablation harness from qk_unsup_verify.py. Scores all 162 head pathways + 72 MLP singular-vector directions
+against an orthographic-predicate library (2/3-char suffix & prefix, capitalized, all-caps, contains-digit,
+punctuation, whitespace-leading, byte-length bucket, internal 3-char n-gram) computed on the DECODED trigger
+strings. Purity = activation-weighted trigger mass satisfying the predicate; lift = purity / corpus base
+rate; ranked on purity×lift, gated on ≥3 distinct satisfying tokens.
+- **NEW TECHNIQUE + built-in artifact pre-filter:** recompute the winning predicate's purity on a DISJOINT
+  out-of-sample slice, then a CONDITIONAL causal contrast — mean-ablate and compare delta cross-entropy on
+  pattern-matching positions versus non-matching positions. A genuine byte-property circuit concentrates its
+  damage on pattern positions; an overfit "fingerprint" collapses out of sample. (Out-of-sample slice was
+  FW[256:448] — disjoint from discovery FW[0:256] and causal FW[448:600] — because the token array has only
+  600 sequences; flagged in the script/JSON.)
+- **3 genuine orthographic circuits survive causal verification (held-back, paired standard errors):**
+  (1) head h.L8.7 attends-to a DIGIT-containing token — out-of-sample purity 0.90, lift 23×, 25 distinct
+  source tokens; causal cost concentrates ~11× on digit-source positions (0.0316 ± 0.0076 vs 0.0029 off) and
+  ~20× on digit-next positions (0.0635 ± 0.017); at its own top firing positions 0.68 ± 0.15.
+  (2) head h.L8.3 attends-to a digit token — out-of-sample purity 0.97 (PURER out of sample), ~4.6× on
+  digit-source, ~6× on digit-next; trigger-position cost 0.285 ± 0.082.
+  (3) head h.L13.8 attends-to a PUNCTUATION token — purity 1.00 in AND out of sample; causal effect lives
+  ENTIRELY on punctuation positions (0.0146 ± 0.0036 on punctuation-source, 0.0313 ± 0.0044 on punctuation-
+  next, essentially zero — even slightly negative — off punctuation). ("Digit" straddles the orthographic /
+  class boundary; the byte-level definition — presence of a digit CHARACTER, firing on bare "3"/"1" as well
+  as years — plus 0.90–0.97 out-of-sample purity place it on the orthographic side.)
+- **Honest negatives (the out-of-sample guard doing its job):** the rare-suffix / rare-prefix / shared-n-gram
+  winners (h.L12.7 "-rch", MLP L2.d1 "ina-", h.L7.3 "Ma-", h.L10.3 "pti", h.L10.1 "uce") top the raw board on
+  lift alone (55–262×) but have low in-sample purity (0.06–0.23), exactly three distinct tokens, and out-of-
+  sample purity COLLAPSING to 0.000 — manufactured scores from a tiny base rate, not stable fingerprints. The
+  all-caps/acronym head h.L16.0 also collapses out of sample (0.53→0.18). And MLP L9.d1 is a PERFECTLY pure
+  punctuation detector (purity 1.00 in and out) that is causally NULL (0.0001 ± 0.0003) — a valid feature
+  detector with no algorithmic output, the trigger-genuine / output-diffuse category.
+**KEY:** the out-of-sample purity check is the "byte-fragment artifact pre-filter" the gap-map called for —
+it rejects overfit affix/n-gram fingerprints before any causal budget is spent — and the conditional causal
+contrast confirms the genuine ones route by a BYTE property (digit, punctuation), damage concentrating 5–20×
+on pattern-matching positions exactly as a byte-property circuit should and a semantic-class circuit would not.
