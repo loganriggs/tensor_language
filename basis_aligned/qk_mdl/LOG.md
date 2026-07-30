@@ -6614,3 +6614,17 @@ guard, <4GB, batch<=8):
   both fully answered — two arcs done (one real dual-circuit, one honest negative), the easy-bias empirically
   confirmed structural, and the class-level detector built that fixes it. Toolbox now 10 detectors (§56-§68).
 - Cron 172134ae expires ~2026-08-06 — re-arm before then and tell Logan.
+
+## tick 2026-07-30 (next frontier: arc on the class-integrators + cross-architecture generality — dispatched)
+With the easy-bias thread closed (§65-§68), moved to the frontier I flagged: explaining the model's LARGEST
+distributed effects, and testing their generality. Dispatched two GPU subagents (nvidia-smi self-guard, <4GB):
+- aebaa85e1408b513d — LATE-FF CLASS-INTEGRATOR arc (qk_arc_integrator.py): full option-2 arc on mlp.L17.d1/d3
+  (capital-pushers), mlp.L17.d2 + mlp.L16.d2 (word-pushers). DECISIVE red-team (same test that deflated §66):
+  context-conditioned class-selection ALGORITHM (push the class WHEN it is due) vs static always-on class-
+  frequency PRIOR. Splits class-push and delta cross-entropy by whether the pushed class is the true next token.
+- a040959b4dc1232af — CLASS-PUSHER GENERALITY on swiglu18 (qk_general_classpush_swiglu.py): does the
+  distributed-class-pusher type (§68) replicate on a conventional softmax SwiGLU transformer? Tests whether the
+  "largest effects are distributed class movers" finding is architecture-general vs a bilinear quirk; also
+  re-checks the class-push-vs-causal-importance correlation on a softmax model. Honest STOP if swiglu18 won't
+  port cleanly.
+- Collect both next tick. Cron 172134ae expires ~2026-08-06 — re-arm before then and tell Logan.
