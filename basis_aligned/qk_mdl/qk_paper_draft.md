@@ -334,6 +334,24 @@ ablations), so most computation lives in *combinations* and single-path naming i
 it; and the largest effects we *do* name are the exception, not the rule, in a mechanism that is
 predominantly hard, distributed, and partly superposed.
 
+**Naming, reconstructing, and explaining are three different things.** The natural rejoinder to
+"irreducibly distributed" is to train a sparse autoencoder on the hub, so we did — a small probe, a
+converged run, and a run on ten times the data — and ran the same nameability and causal tests on the
+dictionary that we ran on singular directions. The result separates three properties that are easy to
+conflate. *Nameability*: a dictionary crosses it — up to 26 of its top 32 features are clean and
+monosemantic (pure " the" at eleven-times enrichment, commas and periods at nine-times, capitals) where
+single directions scored zero of 32. *Reconstruction*: also crossable, but only with data — held-out
+variance-explained ceilings near 0.72 on a small corpus (a bound we first mistook for fundamental) and
+rises to about 0.85 with ten times the data. *Explanation*: **not** crossed at any fidelity. Across
+reconstruction quality from 0.69 to 0.85, no single feature is individually load-bearing (zero of 32
+clear the causal bar), all features together capture only about two percent of the hub's causal effect,
+and a control confirms the collective signature — removing the reconstruction and removing the residual
+each leave a fully-compensating complement. So a dictionary *names* and, given data, *reconstructs* the
+early hub, yet does not *explain* it: its causal mechanism is collective, and — the sharp point —
+reconstruction fidelity and causal explicability are decoupled, because the nameable variance axis and
+the causal axis are nearly orthogonal here. This is a concrete boundary on what dictionary-learning
+interpretability recovers, measured rather than asserted.
+
 ## Honest limitations
 
 1. **Substitutability buys fidelity, not compression — and the exactness is what the bilinear form
