@@ -6029,3 +6029,13 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## persistence probes at blocks 8/12; self-red-team (freq-token concentration check).
 ## All: held-back slice FW[448:600] with SEs; banned failure modes written into prompts. Program
 ## red-team follows after reports land. Standing: no Pythia.
+
+## TICK 2026-07-30h — SEMANTICS AGENT 1/3 (category directions). VERDICT: steerable dial, FALSIFIED
+## as load-bearing code. Steering gate PASS (|alpha|<=1, diagonal 11/12, monotone, sign-correct) but
+## subspace-deletion +0.0003 ~ random (+0.0005); residual has only 6.3% norm in the 5-dim code (LESS
+## than random); category-shaped damage in SIGN (ratio 6.0) but ~0.0002 nats negligible. blk3 code
+## consumed by blk8, rebuilt downstream in new dirs (cosine 0.79->0.14 by L16). Dial = population
+## prior shift not per-position switch; effective rank ~3. LEDGER LESSON: EDITING-positive +
+## FUNCTION-negative at once -> the four ledgers must not be conflated. Coheres w/ content-is-spectral
+## (category evidence = redundant distributed prior). Opener + successor agents still running; batch
+## red-team + RESULTS §35 after all three land.
