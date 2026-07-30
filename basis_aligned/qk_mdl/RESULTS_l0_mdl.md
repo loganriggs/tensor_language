@@ -2746,3 +2746,39 @@ type-blind and leaky, the successor table does not extend to held-out elements, 
 directions are steerable-but-dispensable. The honest synthesis across §34–35: **the model computes
 with nameable selection programs over graded, memorized, non-generalizing content dictionaries** —
 and that boundary is now measured at four sites (layers 0, 3, 8, 13), not assumed.
+
+## §36 Editing capstone: the induction copy TARGET is aimable, but only by pattern-overwrite (2026-07-30)
+### (qk_targeted_redirect.py; extends the T6 editing arc — dial=strength, this=target)
+
+The capability dial (§T6) showed the induction *strength* is a collateral-free linear knob: scaling
+the read-off MATCH coefficient monotonically controls the induction advantage with natural cross-
+entropy essentially flat. This section asks the harder editing question — can we control *where* the
+copy points (its TARGET), redirecting the model to copy an attacker-chosen token instead of the true
+continuation? The intervention touches ONLY the census-identified induction heads' attention pattern;
+all other head function is left intact. Measured on repeated random-prefix sequences (natural
+induction predicts the true next token at P=0.77, argmax-correct 0.89).
+
+**Two editing affordances, cleanly separated.**
+- *Minimal linear repoint FAILS.* Cancelling the natural linear match and installing the same-
+  amplitude read-off coefficient at a chosen source column (`+a_readoff·(MM_redirect − MM_natural)`)
+  does essentially nothing: chosen-token probability 0.019 → 0.021, true-next 0.769 → 0.734. The thin
+  linear MATCH channel that the *strength* dial scales is far too weak to *repoint* against the head's
+  intact pattern — the copy target is over-determined by the full pattern, not the linear component.
+- *Pattern-row overwrite SUCCEEDS and is AIMABLE.* Concentrating each active induction query's total
+  attention mass onto the chosen source column flips the copy: true-next collapses 0.769 → 0.097
+  (argmax-correct 0.888 → 0.187) and the chosen token rises 16× (0.019 → 0.240, argmax 0.023 → 0.355).
+
+**Aimability positive control (double dissociation).** Repointing to position 1 versus position 9
+copies the token at *whichever* position is targeted, not a fixed default: aim@1 gives token@1 P=0.240
+while token@9 stays at baseline 0.024 (10× separation); aim@9 gives token@9 P=0.179 while token@1
+stays at 0.022 (8× separation). In both directions the true continuation collapses. So the copy is a
+genuinely *aimable* pointer, and this independently re-confirms the census/knockout finding that the
+copy is causally localized to these heads.
+
+**Honest cost.** Unlike the strength dial, target-repointing is NOT free: the hard overwrite carries
++0.316 natural-text cross-entropy collateral (vs +0.006 for the null soft edit), because forcing every
+naturally-induction-active query onto one position damages the genuine induction that natural text
+uses. The editing ledger therefore reads: induction **strength** is a cheap, collateral-free linear
+knob; induction **target** is controllable and aimable but requires a heavy pattern-row overwrite that
+is only clean *at the induction queries themselves* — a precision-of-edit result on a base LM, not a
+real jailbreak of a safety-trained target.

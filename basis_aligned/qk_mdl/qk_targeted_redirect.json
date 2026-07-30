@@ -1,0 +1,45 @@
+{
+  "reach": {
+    "model": {
+      "P_C": 0.019,
+      "P_C2": 0.0232,
+      "P_true_next": 0.7688,
+      "argmax_is_C": 0.0225,
+      "argmax_is_C2": 0.0251,
+      "argmax_is_true": 0.8876
+    },
+    "redirect": {
+      "P_C": 0.0212,
+      "P_C2": 0.0227,
+      "P_true_next": 0.7336,
+      "argmax_is_C": 0.0238,
+      "argmax_is_C2": 0.0255,
+      "argmax_is_true": 0.8624
+    },
+    "hard": {
+      "P_C": 0.2401,
+      "P_C2": 0.0242,
+      "P_true_next": 0.0966,
+      "argmax_is_C": 0.3548,
+      "argmax_is_C2": 0.0324,
+      "argmax_is_true": 0.1865
+    },
+    "hard_tgt2": {
+      "P_C": 0.0215,
+      "P_C2": 0.1785,
+      "P_true_next": 0.1298,
+      "argmax_is_C": 0.0403,
+      "argmax_is_C2": 0.2791,
+      "argmax_is_true": 0.2374
+    }
+  },
+  "collateral": {
+    "model": 3.3051,
+    "redirect": 3.3106,
+    "hard": 3.6207,
+    "collateral_dCE_redirect": 0.0055,
+    "collateral_dCE_hard": 0.3156
+  },
+  "n_heads_edited": 24,
+  "P_C": 1
+}
