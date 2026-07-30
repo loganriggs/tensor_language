@@ -1,0 +1,62 @@
+{
+  "note": "aimability generality: query positions x aim, with SE + no-edit baseline",
+  "sweep": {
+    "qpos=20": {
+      "n": 48,
+      "no_edit_baseline": {
+        "P_tok@A1": 0.0073,
+        "P_tok@A2": 0.0037
+      },
+      "aim@col1_s40": {
+        "P_tok@A1": 0.8194,
+        "SE@A1": 0.0303,
+        "P_tok@A2": 0.0196,
+        "SE@A2": 0.0189
+      },
+      "aim@col10_s40": {
+        "P_tok@A1": 0.0172,
+        "SE@A1": 0.0159,
+        "P_tok@A2": 0.7901,
+        "SE@A2": 0.0335
+      }
+    },
+    "qpos=35": {
+      "n": 40,
+      "no_edit_baseline": {
+        "P_tok@A1": 0.007,
+        "P_tok@A2": 0.0557
+      },
+      "aim@col1_s40": {
+        "P_tok@A1": 0.7508,
+        "SE@A1": 0.044,
+        "P_tok@A2": 0.0234,
+        "SE@A2": 0.022
+      },
+      "aim@col10_s40": {
+        "P_tok@A1": 0.0229,
+        "SE@A1": 0.0218,
+        "P_tok@A2": 0.7743,
+        "SE@A2": 0.0414
+      }
+    },
+    "qpos=50": {
+      "n": 25,
+      "no_edit_baseline": {
+        "P_tok@A1": 0.0106,
+        "P_tok@A2": 0.0034
+      },
+      "aim@col1_s40": {
+        "P_tok@A1": 0.7782,
+        "SE@A1": 0.0487,
+        "P_tok@A2": 0.0003,
+        "SE@A2": 0.0001
+      },
+      "aim@col10_s40": {
+        "P_tok@A1": 0.0027,
+        "SE@A1": 0.0017,
+        "P_tok@A2": 0.7639,
+        "SE@A2": 0.0437
+      }
+    }
+  }
+}

@@ -3001,15 +3001,27 @@ commandeered, NOT injection of one fixed vector (which would emit the same token
 (A first run pointed at position 30, which is causally masked from a position-20 query and correctly
 produced nothing — a design slip, fixed by using two pre-query sources.)
 
-**Editing capstone — the settled mechanism (§36/§37/§37b/§37f/§37g).** The induction/copy heads implement
-a copy: they emit the value at whatever position their attention points to. The edit **commandeers this
-copy** by setting the head's attention to a chosen source; the model then predicts that source's token.
-The primitive is (i) **copy-head-specific** — the same injection at non-induction heads does nothing
-(§37f condition C ~0); (ii) **match-free** — it works at queries with no natural induction match (§37f/g
-condition B); (iii) **aimable** — it copies whichever source is targeted (this section, double
-dissociation); (iv) **surgically gatable** — conditioning on a trigger keeps pure non-trigger collateral
-≤1e-4 nats (§37d); and (v) governed by a **reach-versus-amplitude tradeoff** — the amplitude needed to
-override the head's baseline attention is low in a clean/sparse context (planted, scale 10 → 0.83/0.96)
-and high in rich natural text (§37c–e), where at very high amplitude the edited position's own logits
-saturate. This supersedes both the earlier "clean repoint of an induction match" (too narrow — it needs
-no match) and "brute-force injection" (too broad — it is copy-head-specific and aimable) framings.
+**Editing capstone — the settled mechanism (§36/§37/§37b/§37f/§37g; base LM, controlled conditions,
+no in-the-wild transfer shown).** A copy (induction) head emits the value at whatever position its
+attention points to, written through its OV/output-projection in an unembedding-readable direction; the
+edit sets that attention to a chosen source, so the model predicts the source's token. The primitive is
+(i) **copy-OV-head-specific** — the same matched-amplitude injection at non-copy heads is an order of
+magnitude weaker (planted argmax capture 0.10 vs 0.98 at scale 160, and rising with amplitude, so it is
+a large quantitative gap, not an absolute dissociation), and this specificity is a fact about the copy
+heads' *readout (OV) geometry*, not their induction/QK matching function, which the edit overrides;
+(ii) **match-free** — it works at queries with no natural induction match (§37f/g condition B, a
+genuinely surprising result); (iii) **aimable** — it copies whichever source is targeted (§37g double
+dissociation; confirmed position-robust and planting-independent, qk_aim_generality.py); (iv)
+**surgically gatable** — conditioning on a trigger keeps pure non-trigger collateral ≈1e-4 nats (≤1.1e-4
+across the whole scale sweep, §37d) — the most robust claim in the arc; and (v) governed by a
+**reach-versus-amplitude tradeoff** — the amplitude needed to override the head's baseline attention is
+low in a clean/sparse context, where the prediction is *calibrated* (planted scale 10 → 0.83 mass on the
+payload, 0.96 capture), and high in rich natural text (§37c–e), where majority capture (0.68/0.73) is
+reached only by driving the edited position's logits into soft-cap saturation (true-next cross-entropy
+≈32 nats) — so in the natural regime the payload wins the argmax but the distribution is degenerate, not
+a calibrated prediction. This supersedes both "clean repoint of an induction match" (too narrow — it
+needs no match) and "brute-force injection" (too broad — it is copy-OV-specific and aimable). OPEN (the
+one inferred leg, queued qk_natural_aimability.py): the natural high-amplitude leg is *assumed* to be the
+same aimed commandeering, but the aimability double dissociation has only been shown in the planted
+setting — until it is shown in natural text, the unification of the planted and natural legs under one
+mechanism is an inference, not a measurement.
