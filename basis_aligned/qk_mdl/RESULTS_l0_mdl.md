@@ -3323,3 +3323,20 @@ Extending the layer-1 meaning gates (§43) downstream:
 selection nameable-and-gated only for match/induction/copy heads; the four functional-content sites
 (L0, block-3 category, L8 successor, L13 opener) plus the induction MATCH predicate; capitalization
 FAILED the gate (§46). The frontier is genuinely hard, and its shape is now measured, not assumed.
+
+## §48 CONTENT is spectral across ALL 18 layers — the rule is universal (2026-07-30)
+(qk_content_gate.py sweep L0–17, §34 protocol, held-back FW[448:600], paired standard errors) The
+content-nameability gate run at EVERY layer 0 through 17 settles the meaning ledger's content axis: the
+per-head value spectra are NOT class-nameable at any layer — class-nameable coordinate counts are 0–3 of
+576 at every layer (layer-by-layer: L0 3/576 §34, L1 0, L2 0, L3 0, L4 1, L5 0, L6 3, L7 0, L8 2, L9 1,
+L10 1, L11 0, L12 1, L13 2, L14 1, L15 1, L16 1, L17 0), median class-R² 0.014–0.038 throughout, and the
+class-code and spike-code substitution gates cost ~0.000 nats/token everywhere. Crucially content stays
+spectral even at the lexical-readout layers 16–17 (§44) — it does NOT become class-nameable near the
+output. So "the model computes over a graded, memorized, non-class-nameable content SPECTRUM" is a
+UNIVERSAL property of bilin18, established at all 18 layers, not a layer-0 artifact. Combined with the
+selection ledger (nameable-and-gated only for the copy/induction/match heads), the measured meaning
+boundary is now: **nameable SELECTION programs (only for the match/copy family) operating over a spectral,
+non-nameable CONTENT dictionary at every layer.** The four functional-content sites (L0, block-3 category,
+L8 successor, L13 opener) plus the meaning-verified induction MATCH predicate remain the only places
+functional content is even bounded-nameable; capitalization failed (§46). This is the measured shape of
+the meaning frontier across the whole model.
