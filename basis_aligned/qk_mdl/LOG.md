@@ -6643,3 +6643,21 @@ distributed effects, and testing their generality. Dispatched two GPU subagents 
   ranking does not look. Committed §69.
 - STILL RUNNING: swiglu18 class-pusher generality (a040959b4dc1232af). Collect next tick.
 - Cron 172134ae expires ~2026-08-06 — re-arm before then and tell Logan.
+
+## tick 2026-07-30 (§70 generality lands — class-pushers are architecture-general; artifact refreshed)
+- §70 CLASS-PUSHER GENERALITY on swiglu18 (subagent a040959b4dc1232af) — the distributed-class-pusher type is
+  ARCHITECTURE-GENERAL, not a bilinear quirk. A conventional softmax SwiGLU transformer independently develops
+  the same near-uniform whole-class movers: verified h.L4.4 → word (specificity z 11.7, entropy 0.999, top-
+  token share 0.0001 over 19,672 tokens), mlp.L17.d1 → subword (z 40.7, entropy 0.99). Same push/suppress sign
+  structure (5/8 candidates suppressors). Same class-push-vs-causal-importance correlation (Pearson 0.968 vs
+  bilin18 0.986; concentration alone −0.02). Entropy check discriminates — mlp.L17.d2 flagged as a sharp
+  single-token mover (top-token 0.48, entropy 0.15), a clean negative control. Honest differences: swiglu18's
+  biggest pusher is an attention HEAD (h.L4.4) not feed-forward; secondary class subword vs bilin18 capital.
+  Caveat: no cleanliness census on swiglu18 so the direct vs-0.006 contrast not re-run. Committed §70 (+addendum).
+- ARTIFACT refreshed (same URL): added the §69 "biggest effects = mostly priors, one real capital selector
+  found only by the class-level detector" card + the §70 cross-architecture generality card to the stress-
+  testing block.
+- THREAD COMPLETE (§65–§70): arcs on discovered circuits (digit dual-circuit, capitalization negative,
+  class-integrator = 1 selector + 3 priors), easy-bias census + tenth detector (blind spot found & fixed),
+  and cross-architecture generality. Logan's directives fully answered. Natural rest state.
+- Cron 172134ae armed through ~2026-08-06 — re-arm before then and tell Logan.
