@@ -1,0 +1,1501 @@
+{
+ "weekday_payload_in_month_context": {
+  "classes": {
+   "A": {
+    "context_cont": 0.3333333333333333,
+    "own_succ": 0.08333333333333333,
+    "imposed_echo": 0.08333333333333333,
+    "and_tok": 0.5,
+    "n": 12
+   },
+   "B": {
+    "own_succ": 0.6666666666666666,
+    "and_tok": 0.3333333333333333,
+    "n": 12
+   }
+  },
+  "rows": [
+   {
+    "code": "A",
+    "context": "March, April, May, June,",
+    "imposed": "Monday",
+    "out": " July",
+    "class": "context_cont"
+   },
+   {
+    "code": "A",
+    "context": "March, April, May, June,",
+    "imposed": "Tuesday",
+    "out": " Wednesday",
+    "class": "own_succ"
+   },
+   {
+    "code": "A",
+    "context": "March, April, May, June,",
+    "imposed": "Wednesday",
+    "out": " Wednesday",
+    "class": "imposed_echo"
+   },
+   {
+    "code": "A",
+    "context": "March, April, May, June,",
+    "imposed": "Thursday",
+    "out": " July",
+    "class": "context_cont"
+   },
+   {
+    "code": "A",
+    "context": "March, April, May, June,",
+    "imposed": "Friday",
+    "out": " July",
+    "class": "context_cont"
+   },
+   {
+    "code": "A",
+    "context": "March, April, May, June,",
+    "imposed": "Saturday",
+    "out": " July",
+    "class": "context_cont"
+   },
+   {
+    "code": "B",
+    "context": "March, April, May, June,",
+    "imposed": "Monday",
+    "out": " Tuesday",
+    "class": "own_succ"
+   },
+   {
+    "code": "B",
+    "context": "March, April, May, June,",
+    "imposed": "Tuesday",
+    "out": " Wednesday",
+    "class": "own_succ"
+   },
+   {
+    "code": "B",
+    "context": "March, April, May, June,",
+    "imposed": "Wednesday",
+    "out": " Thursday",
+    "class": "own_succ"
+   },
+   {
+    "code": "B",
+    "context": "March, April, May, June,",
+    "imposed": "Thursday",
+    "out": " Friday",
+    "class": "own_succ"
+   },
+   {
+    "code": "B",
+    "context": "March, April, May, June,",
+    "imposed": "Friday",
+    "out": " Saturday",
+    "class": "own_succ"
+   },
+   {
+    "code": "B",
+    "context": "March, April, May, June,",
+    "imposed": "Saturday",
+    "out": " Sunday",
+    "class": "own_succ"
+   },
+   {
+    "code": "A",
+    "context": "July, August, September, October,",
+    "imposed": "Monday",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "A",
+    "context": "July, August, September, October,",
+    "imposed": "Tuesday",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "A",
+    "context": "July, August, September, October,",
+    "imposed": "Wednesday",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "A",
+    "context": "July, August, September, October,",
+    "imposed": "Thursday",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "A",
+    "context": "July, August, September, October,",
+    "imposed": "Friday",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "A",
+    "context": "July, August, September, October,",
+    "imposed": "Saturday",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "July, August, September, October,",
+    "imposed": "Monday",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "July, August, September, October,",
+    "imposed": "Tuesday",
+    "out": " Wednesday",
+    "class": "own_succ"
+   },
+   {
+    "code": "B",
+    "context": "July, August, September, October,",
+    "imposed": "Wednesday",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "July, August, September, October,",
+    "imposed": "Thursday",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "July, August, September, October,",
+    "imposed": "Friday",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "July, August, September, October,",
+    "imposed": "Saturday",
+    "out": " Sunday",
+    "class": "own_succ"
+   }
+  ]
+ },
+ "month_payload_in_weekday_context": {
+  "classes": {
+   "A": {
+    "own_succ": 0.18181818181818182,
+    "imposed_echo": 0.4090909090909091,
+    "and_tok": 0.4090909090909091,
+    "n": 22
+   },
+   "B": {
+    "own_succ": 0.5454545454545454,
+    "and_tok": 0.45454545454545453,
+    "n": 22
+   }
+  },
+  "rows": [
+   {
+    "code": "A",
+    "context": "Monday, Tuesday, Wednesday, Thursday,",
+    "imposed": "January",
+    "out": " February",
+    "class": "own_succ"
+   },
+   {
+    "code": "A",
+    "context": "Monday, Tuesday, Wednesday, Thursday,",
+    "imposed": "February",
+    "out": " February",
+    "class": "imposed_echo"
+   },
+   {
+    "code": "A",
+    "context": "Monday, Tuesday, Wednesday, Thursday,",
+    "imposed": "March",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "A",
+    "context": "Monday, Tuesday, Wednesday, Thursday,",
+    "imposed": "April",
+    "out": " May",
+    "class": "own_succ"
+   },
+   {
+    "code": "A",
+    "context": "Monday, Tuesday, Wednesday, Thursday,",
+    "imposed": "May",
+    "out": " May",
+    "class": "imposed_echo"
+   },
+   {
+    "code": "A",
+    "context": "Monday, Tuesday, Wednesday, Thursday,",
+    "imposed": "June",
+    "out": " June",
+    "class": "imposed_echo"
+   },
+   {
+    "code": "A",
+    "context": "Monday, Tuesday, Wednesday, Thursday,",
+    "imposed": "July",
+    "out": " July",
+    "class": "imposed_echo"
+   },
+   {
+    "code": "A",
+    "context": "Monday, Tuesday, Wednesday, Thursday,",
+    "imposed": "August",
+    "out": " August",
+    "class": "imposed_echo"
+   },
+   {
+    "code": "A",
+    "context": "Monday, Tuesday, Wednesday, Thursday,",
+    "imposed": "September",
+    "out": " September",
+    "class": "imposed_echo"
+   },
+   {
+    "code": "A",
+    "context": "Monday, Tuesday, Wednesday, Thursday,",
+    "imposed": "October",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "A",
+    "context": "Monday, Tuesday, Wednesday, Thursday,",
+    "imposed": "November",
+    "out": " December",
+    "class": "own_succ"
+   },
+   {
+    "code": "B",
+    "context": "Monday, Tuesday, Wednesday, Thursday,",
+    "imposed": "January",
+    "out": " February",
+    "class": "own_succ"
+   },
+   {
+    "code": "B",
+    "context": "Monday, Tuesday, Wednesday, Thursday,",
+    "imposed": "February",
+    "out": " March",
+    "class": "own_succ"
+   },
+   {
+    "code": "B",
+    "context": "Monday, Tuesday, Wednesday, Thursday,",
+    "imposed": "March",
+    "out": " April",
+    "class": "own_succ"
+   },
+   {
+    "code": "B",
+    "context": "Monday, Tuesday, Wednesday, Thursday,",
+    "imposed": "April",
+    "out": " May",
+    "class": "own_succ"
+   },
+   {
+    "code": "B",
+    "context": "Monday, Tuesday, Wednesday, Thursday,",
+    "imposed": "May",
+    "out": " June",
+    "class": "own_succ"
+   },
+   {
+    "code": "B",
+    "context": "Monday, Tuesday, Wednesday, Thursday,",
+    "imposed": "June",
+    "out": " July",
+    "class": "own_succ"
+   },
+   {
+    "code": "B",
+    "context": "Monday, Tuesday, Wednesday, Thursday,",
+    "imposed": "July",
+    "out": " August",
+    "class": "own_succ"
+   },
+   {
+    "code": "B",
+    "context": "Monday, Tuesday, Wednesday, Thursday,",
+    "imposed": "August",
+    "out": " September",
+    "class": "own_succ"
+   },
+   {
+    "code": "B",
+    "context": "Monday, Tuesday, Wednesday, Thursday,",
+    "imposed": "September",
+    "out": " October",
+    "class": "own_succ"
+   },
+   {
+    "code": "B",
+    "context": "Monday, Tuesday, Wednesday, Thursday,",
+    "imposed": "October",
+    "out": " November",
+    "class": "own_succ"
+   },
+   {
+    "code": "B",
+    "context": "Monday, Tuesday, Wednesday, Thursday,",
+    "imposed": "November",
+    "out": " December",
+    "class": "own_succ"
+   },
+   {
+    "code": "A",
+    "context": "Thursday, Friday, Saturday, Sunday,",
+    "imposed": "January",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "A",
+    "context": "Thursday, Friday, Saturday, Sunday,",
+    "imposed": "February",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "A",
+    "context": "Thursday, Friday, Saturday, Sunday,",
+    "imposed": "March",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "A",
+    "context": "Thursday, Friday, Saturday, Sunday,",
+    "imposed": "April",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "A",
+    "context": "Thursday, Friday, Saturday, Sunday,",
+    "imposed": "May",
+    "out": " May",
+    "class": "imposed_echo"
+   },
+   {
+    "code": "A",
+    "context": "Thursday, Friday, Saturday, Sunday,",
+    "imposed": "June",
+    "out": " July",
+    "class": "own_succ"
+   },
+   {
+    "code": "A",
+    "context": "Thursday, Friday, Saturday, Sunday,",
+    "imposed": "July",
+    "out": " July",
+    "class": "imposed_echo"
+   },
+   {
+    "code": "A",
+    "context": "Thursday, Friday, Saturday, Sunday,",
+    "imposed": "August",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "A",
+    "context": "Thursday, Friday, Saturday, Sunday,",
+    "imposed": "September",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "A",
+    "context": "Thursday, Friday, Saturday, Sunday,",
+    "imposed": "October",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "A",
+    "context": "Thursday, Friday, Saturday, Sunday,",
+    "imposed": "November",
+    "out": " November",
+    "class": "imposed_echo"
+   },
+   {
+    "code": "B",
+    "context": "Thursday, Friday, Saturday, Sunday,",
+    "imposed": "January",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "Thursday, Friday, Saturday, Sunday,",
+    "imposed": "February",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "Thursday, Friday, Saturday, Sunday,",
+    "imposed": "March",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "Thursday, Friday, Saturday, Sunday,",
+    "imposed": "April",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "Thursday, Friday, Saturday, Sunday,",
+    "imposed": "May",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "Thursday, Friday, Saturday, Sunday,",
+    "imposed": "June",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "Thursday, Friday, Saturday, Sunday,",
+    "imposed": "July",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "Thursday, Friday, Saturday, Sunday,",
+    "imposed": "August",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "Thursday, Friday, Saturday, Sunday,",
+    "imposed": "September",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "Thursday, Friday, Saturday, Sunday,",
+    "imposed": "October",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "Thursday, Friday, Saturday, Sunday,",
+    "imposed": "November",
+    "out": " December",
+    "class": "own_succ"
+   }
+  ]
+ },
+ "digit_payload_in_weekday_context": {
+  "classes": {
+   "A": {
+    "context_cont": 0.1111111111111111,
+    "own_succ": 0.7777777777777778,
+    "and_tok": 0.1111111111111111,
+    "n": 18
+   },
+   "B": {
+    "other": 0.3888888888888889,
+    "own_succ": 0.5,
+    "and_tok": 0.1111111111111111,
+    "n": 18
+   }
+  },
+  "rows": [
+   {
+    "code": "A",
+    "context": "Monday, Tuesday, Wednesday, Thursday,",
+    "imposed": "0",
+    "out": " Friday",
+    "class": "context_cont"
+   },
+   {
+    "code": "A",
+    "context": "Monday, Tuesday, Wednesday, Thursday,",
+    "imposed": "1",
+    "out": " Friday",
+    "class": "context_cont"
+   },
+   {
+    "code": "A",
+    "context": "Monday, Tuesday, Wednesday, Thursday,",
+    "imposed": "2",
+    "out": " 3",
+    "class": "own_succ"
+   },
+   {
+    "code": "A",
+    "context": "Monday, Tuesday, Wednesday, Thursday,",
+    "imposed": "3",
+    "out": " 4",
+    "class": "own_succ"
+   },
+   {
+    "code": "A",
+    "context": "Monday, Tuesday, Wednesday, Thursday,",
+    "imposed": "4",
+    "out": " 5",
+    "class": "own_succ"
+   },
+   {
+    "code": "A",
+    "context": "Monday, Tuesday, Wednesday, Thursday,",
+    "imposed": "5",
+    "out": " 6",
+    "class": "own_succ"
+   },
+   {
+    "code": "A",
+    "context": "Monday, Tuesday, Wednesday, Thursday,",
+    "imposed": "6",
+    "out": " 7",
+    "class": "own_succ"
+   },
+   {
+    "code": "A",
+    "context": "Monday, Tuesday, Wednesday, Thursday,",
+    "imposed": "7",
+    "out": " 8",
+    "class": "own_succ"
+   },
+   {
+    "code": "A",
+    "context": "Monday, Tuesday, Wednesday, Thursday,",
+    "imposed": "8",
+    "out": " 9",
+    "class": "own_succ"
+   },
+   {
+    "code": "B",
+    "context": "Monday, Tuesday, Wednesday, Thursday,",
+    "imposed": "0",
+    "out": " Thursday",
+    "class": "other"
+   },
+   {
+    "code": "B",
+    "context": "Monday, Tuesday, Wednesday, Thursday,",
+    "imposed": "1",
+    "out": " Thursday",
+    "class": "other"
+   },
+   {
+    "code": "B",
+    "context": "Monday, Tuesday, Wednesday, Thursday,",
+    "imposed": "2",
+    "out": " 3",
+    "class": "own_succ"
+   },
+   {
+    "code": "B",
+    "context": "Monday, Tuesday, Wednesday, Thursday,",
+    "imposed": "3",
+    "out": " 4",
+    "class": "own_succ"
+   },
+   {
+    "code": "B",
+    "context": "Monday, Tuesday, Wednesday, Thursday,",
+    "imposed": "4",
+    "out": " 5",
+    "class": "own_succ"
+   },
+   {
+    "code": "B",
+    "context": "Monday, Tuesday, Wednesday, Thursday,",
+    "imposed": "5",
+    "out": " Thursday",
+    "class": "other"
+   },
+   {
+    "code": "B",
+    "context": "Monday, Tuesday, Wednesday, Thursday,",
+    "imposed": "6",
+    "out": " 7",
+    "class": "own_succ"
+   },
+   {
+    "code": "B",
+    "context": "Monday, Tuesday, Wednesday, Thursday,",
+    "imposed": "7",
+    "out": " 8",
+    "class": "own_succ"
+   },
+   {
+    "code": "B",
+    "context": "Monday, Tuesday, Wednesday, Thursday,",
+    "imposed": "8",
+    "out": " 9",
+    "class": "own_succ"
+   },
+   {
+    "code": "A",
+    "context": "Thursday, Friday, Saturday, Sunday,",
+    "imposed": "0",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "A",
+    "context": "Thursday, Friday, Saturday, Sunday,",
+    "imposed": "1",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "A",
+    "context": "Thursday, Friday, Saturday, Sunday,",
+    "imposed": "2",
+    "out": " 3",
+    "class": "own_succ"
+   },
+   {
+    "code": "A",
+    "context": "Thursday, Friday, Saturday, Sunday,",
+    "imposed": "3",
+    "out": " 4",
+    "class": "own_succ"
+   },
+   {
+    "code": "A",
+    "context": "Thursday, Friday, Saturday, Sunday,",
+    "imposed": "4",
+    "out": " 5",
+    "class": "own_succ"
+   },
+   {
+    "code": "A",
+    "context": "Thursday, Friday, Saturday, Sunday,",
+    "imposed": "5",
+    "out": " 6",
+    "class": "own_succ"
+   },
+   {
+    "code": "A",
+    "context": "Thursday, Friday, Saturday, Sunday,",
+    "imposed": "6",
+    "out": " 7",
+    "class": "own_succ"
+   },
+   {
+    "code": "A",
+    "context": "Thursday, Friday, Saturday, Sunday,",
+    "imposed": "7",
+    "out": " 8",
+    "class": "own_succ"
+   },
+   {
+    "code": "A",
+    "context": "Thursday, Friday, Saturday, Sunday,",
+    "imposed": "8",
+    "out": " 9",
+    "class": "own_succ"
+   },
+   {
+    "code": "B",
+    "context": "Thursday, Friday, Saturday, Sunday,",
+    "imposed": "0",
+    "out": " Sunday",
+    "class": "other"
+   },
+   {
+    "code": "B",
+    "context": "Thursday, Friday, Saturday, Sunday,",
+    "imposed": "1",
+    "out": " Sunday",
+    "class": "other"
+   },
+   {
+    "code": "B",
+    "context": "Thursday, Friday, Saturday, Sunday,",
+    "imposed": "2",
+    "out": " 3",
+    "class": "own_succ"
+   },
+   {
+    "code": "B",
+    "context": "Thursday, Friday, Saturday, Sunday,",
+    "imposed": "3",
+    "out": " 4",
+    "class": "own_succ"
+   },
+   {
+    "code": "B",
+    "context": "Thursday, Friday, Saturday, Sunday,",
+    "imposed": "4",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "Thursday, Friday, Saturday, Sunday,",
+    "imposed": "5",
+    "out": " Sunday",
+    "class": "other"
+   },
+   {
+    "code": "B",
+    "context": "Thursday, Friday, Saturday, Sunday,",
+    "imposed": "6",
+    "out": " Sunday",
+    "class": "other"
+   },
+   {
+    "code": "B",
+    "context": "Thursday, Friday, Saturday, Sunday,",
+    "imposed": "7",
+    "out": " 8",
+    "class": "own_succ"
+   },
+   {
+    "code": "B",
+    "context": "Thursday, Friday, Saturday, Sunday,",
+    "imposed": "8",
+    "out": " and",
+    "class": "and_tok"
+   }
+  ]
+ },
+ "alphabet_payload_in_month_context": {
+  "classes": {
+   "A": {
+    "context_cont": 0.5,
+    "and_tok": 0.26,
+    "other": 0.24,
+    "n": 50
+   },
+   "B": {
+    "other": 0.16,
+    "and_tok": 0.8,
+    "context_cont": 0.04,
+    "n": 50
+   }
+  },
+  "rows": [
+   {
+    "code": "A",
+    "context": "March, April, May, June,",
+    "imposed": "a",
+    "out": " July",
+    "class": "context_cont"
+   },
+   {
+    "code": "A",
+    "context": "March, April, May, June,",
+    "imposed": "b",
+    "out": " July",
+    "class": "context_cont"
+   },
+   {
+    "code": "A",
+    "context": "March, April, May, June,",
+    "imposed": "c",
+    "out": " July",
+    "class": "context_cont"
+   },
+   {
+    "code": "A",
+    "context": "March, April, May, June,",
+    "imposed": "d",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "A",
+    "context": "March, April, May, June,",
+    "imposed": "e",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "A",
+    "context": "March, April, May, June,",
+    "imposed": "f",
+    "out": " July",
+    "class": "context_cont"
+   },
+   {
+    "code": "A",
+    "context": "March, April, May, June,",
+    "imposed": "g",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "A",
+    "context": "March, April, May, June,",
+    "imposed": "h",
+    "out": " July",
+    "class": "context_cont"
+   },
+   {
+    "code": "A",
+    "context": "March, April, May, June,",
+    "imposed": "i",
+    "out": " July",
+    "class": "context_cont"
+   },
+   {
+    "code": "A",
+    "context": "March, April, May, June,",
+    "imposed": "j",
+    "out": " July",
+    "class": "context_cont"
+   },
+   {
+    "code": "A",
+    "context": "March, April, May, June,",
+    "imposed": "k",
+    "out": " July",
+    "class": "context_cont"
+   },
+   {
+    "code": "A",
+    "context": "March, April, May, June,",
+    "imposed": "l",
+    "out": " July",
+    "class": "context_cont"
+   },
+   {
+    "code": "A",
+    "context": "March, April, May, June,",
+    "imposed": "m",
+    "out": " July",
+    "class": "context_cont"
+   },
+   {
+    "code": "A",
+    "context": "March, April, May, June,",
+    "imposed": "n",
+    "out": " July",
+    "class": "context_cont"
+   },
+   {
+    "code": "A",
+    "context": "March, April, May, June,",
+    "imposed": "o",
+    "out": " July",
+    "class": "context_cont"
+   },
+   {
+    "code": "A",
+    "context": "March, April, May, June,",
+    "imposed": "p",
+    "out": " July",
+    "class": "context_cont"
+   },
+   {
+    "code": "A",
+    "context": "March, April, May, June,",
+    "imposed": "q",
+    "out": " July",
+    "class": "context_cont"
+   },
+   {
+    "code": "A",
+    "context": "March, April, May, June,",
+    "imposed": "r",
+    "out": " July",
+    "class": "context_cont"
+   },
+   {
+    "code": "A",
+    "context": "March, April, May, June,",
+    "imposed": "s",
+    "out": " July",
+    "class": "context_cont"
+   },
+   {
+    "code": "A",
+    "context": "March, April, May, June,",
+    "imposed": "t",
+    "out": " July",
+    "class": "context_cont"
+   },
+   {
+    "code": "A",
+    "context": "March, April, May, June,",
+    "imposed": "u",
+    "out": " July",
+    "class": "context_cont"
+   },
+   {
+    "code": "A",
+    "context": "March, April, May, June,",
+    "imposed": "v",
+    "out": " July",
+    "class": "context_cont"
+   },
+   {
+    "code": "A",
+    "context": "March, April, May, June,",
+    "imposed": "w",
+    "out": " July",
+    "class": "context_cont"
+   },
+   {
+    "code": "A",
+    "context": "March, April, May, June,",
+    "imposed": "x",
+    "out": " July",
+    "class": "context_cont"
+   },
+   {
+    "code": "A",
+    "context": "March, April, May, June,",
+    "imposed": "y",
+    "out": " July",
+    "class": "context_cont"
+   },
+   {
+    "code": "B",
+    "context": "March, April, May, June,",
+    "imposed": "a",
+    "out": " June",
+    "class": "other"
+   },
+   {
+    "code": "B",
+    "context": "March, April, May, June,",
+    "imposed": "b",
+    "out": " June",
+    "class": "other"
+   },
+   {
+    "code": "B",
+    "context": "March, April, May, June,",
+    "imposed": "c",
+    "out": " June",
+    "class": "other"
+   },
+   {
+    "code": "B",
+    "context": "March, April, May, June,",
+    "imposed": "d",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "March, April, May, June,",
+    "imposed": "e",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "March, April, May, June,",
+    "imposed": "f",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "March, April, May, June,",
+    "imposed": "g",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "March, April, May, June,",
+    "imposed": "h",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "March, April, May, June,",
+    "imposed": "i",
+    "out": " June",
+    "class": "other"
+   },
+   {
+    "code": "B",
+    "context": "March, April, May, June,",
+    "imposed": "j",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "March, April, May, June,",
+    "imposed": "k",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "March, April, May, June,",
+    "imposed": "l",
+    "out": " July",
+    "class": "context_cont"
+   },
+   {
+    "code": "B",
+    "context": "March, April, May, June,",
+    "imposed": "m",
+    "out": " or",
+    "class": "other"
+   },
+   {
+    "code": "B",
+    "context": "March, April, May, June,",
+    "imposed": "n",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "March, April, May, June,",
+    "imposed": "o",
+    "out": " July",
+    "class": "context_cont"
+   },
+   {
+    "code": "B",
+    "context": "March, April, May, June,",
+    "imposed": "p",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "March, April, May, June,",
+    "imposed": "q",
+    "out": " June",
+    "class": "other"
+   },
+   {
+    "code": "B",
+    "context": "March, April, May, June,",
+    "imposed": "r",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "March, April, May, June,",
+    "imposed": "s",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "March, April, May, June,",
+    "imposed": "t",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "March, April, May, June,",
+    "imposed": "u",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "March, April, May, June,",
+    "imposed": "v",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "March, April, May, June,",
+    "imposed": "w",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "March, April, May, June,",
+    "imposed": "x",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "March, April, May, June,",
+    "imposed": "y",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "A",
+    "context": "July, August, September, October,",
+    "imposed": "a",
+    "out": " November",
+    "class": "context_cont"
+   },
+   {
+    "code": "A",
+    "context": "July, August, September, October,",
+    "imposed": "b",
+    "out": " December",
+    "class": "other"
+   },
+   {
+    "code": "A",
+    "context": "July, August, September, October,",
+    "imposed": "c",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "A",
+    "context": "July, August, September, October,",
+    "imposed": "d",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "A",
+    "context": "July, August, September, October,",
+    "imposed": "e",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "A",
+    "context": "July, August, September, October,",
+    "imposed": "f",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "A",
+    "context": "July, August, September, October,",
+    "imposed": "g",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "A",
+    "context": "July, August, September, October,",
+    "imposed": "h",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "A",
+    "context": "July, August, September, October,",
+    "imposed": "i",
+    "out": " December",
+    "class": "other"
+   },
+   {
+    "code": "A",
+    "context": "July, August, September, October,",
+    "imposed": "j",
+    "out": " December",
+    "class": "other"
+   },
+   {
+    "code": "A",
+    "context": "July, August, September, October,",
+    "imposed": "k",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "A",
+    "context": "July, August, September, October,",
+    "imposed": "l",
+    "out": " December",
+    "class": "other"
+   },
+   {
+    "code": "A",
+    "context": "July, August, September, October,",
+    "imposed": "m",
+    "out": " December",
+    "class": "other"
+   },
+   {
+    "code": "A",
+    "context": "July, August, September, October,",
+    "imposed": "n",
+    "out": " December",
+    "class": "other"
+   },
+   {
+    "code": "A",
+    "context": "July, August, September, October,",
+    "imposed": "o",
+    "out": " November",
+    "class": "context_cont"
+   },
+   {
+    "code": "A",
+    "context": "July, August, September, October,",
+    "imposed": "p",
+    "out": " November",
+    "class": "context_cont"
+   },
+   {
+    "code": "A",
+    "context": "July, August, September, October,",
+    "imposed": "q",
+    "out": " December",
+    "class": "other"
+   },
+   {
+    "code": "A",
+    "context": "July, August, September, October,",
+    "imposed": "r",
+    "out": " December",
+    "class": "other"
+   },
+   {
+    "code": "A",
+    "context": "July, August, September, October,",
+    "imposed": "s",
+    "out": " December",
+    "class": "other"
+   },
+   {
+    "code": "A",
+    "context": "July, August, September, October,",
+    "imposed": "t",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "A",
+    "context": "July, August, September, October,",
+    "imposed": "u",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "A",
+    "context": "July, August, September, October,",
+    "imposed": "v",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "A",
+    "context": "July, August, September, October,",
+    "imposed": "w",
+    "out": " December",
+    "class": "other"
+   },
+   {
+    "code": "A",
+    "context": "July, August, September, October,",
+    "imposed": "x",
+    "out": " December",
+    "class": "other"
+   },
+   {
+    "code": "A",
+    "context": "July, August, September, October,",
+    "imposed": "y",
+    "out": " December",
+    "class": "other"
+   },
+   {
+    "code": "B",
+    "context": "July, August, September, October,",
+    "imposed": "a",
+    "out": " October",
+    "class": "other"
+   },
+   {
+    "code": "B",
+    "context": "July, August, September, October,",
+    "imposed": "b",
+    "out": " October",
+    "class": "other"
+   },
+   {
+    "code": "B",
+    "context": "July, August, September, October,",
+    "imposed": "c",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "July, August, September, October,",
+    "imposed": "d",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "July, August, September, October,",
+    "imposed": "e",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "July, August, September, October,",
+    "imposed": "f",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "July, August, September, October,",
+    "imposed": "g",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "July, August, September, October,",
+    "imposed": "h",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "July, August, September, October,",
+    "imposed": "i",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "July, August, September, October,",
+    "imposed": "j",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "July, August, September, October,",
+    "imposed": "k",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "July, August, September, October,",
+    "imposed": "l",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "July, August, September, October,",
+    "imposed": "m",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "July, August, September, October,",
+    "imposed": "n",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "July, August, September, October,",
+    "imposed": "o",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "July, August, September, October,",
+    "imposed": "p",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "July, August, September, October,",
+    "imposed": "q",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "July, August, September, October,",
+    "imposed": "r",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "July, August, September, October,",
+    "imposed": "s",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "July, August, September, October,",
+    "imposed": "t",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "July, August, September, October,",
+    "imposed": "u",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "July, August, September, October,",
+    "imposed": "v",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "July, August, September, October,",
+    "imposed": "w",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "July, August, September, October,",
+    "imposed": "x",
+    "out": " and",
+    "class": "and_tok"
+   },
+   {
+    "code": "B",
+    "context": "July, August, September, October,",
+    "imposed": "y",
+    "out": " and",
+    "class": "and_tok"
+   }
+  ]
+ }
+}

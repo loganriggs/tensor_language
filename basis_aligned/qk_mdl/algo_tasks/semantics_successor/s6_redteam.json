@@ -1,0 +1,196 @@
+{
+ "longer_sequences": {
+  "weekday_len6": {
+   "n": 6,
+   "base_acc": 1.0,
+   "A_self_acc": 1.0,
+   "B_self_acc": 1.0
+  },
+  "month_len6": {
+   "n": 11,
+   "base_acc": 1.0,
+   "A_self_acc": 1.0,
+   "B_self_acc": 1.0
+  },
+  "alphabet_len6": {
+   "n": 20,
+   "base_acc": 0.8999999761581421,
+   "A_self_acc": 0.8999999761581421,
+   "B_self_acc": 0.8999999761581421
+  },
+  "digit_len6": {
+   "n": 4,
+   "base_acc": 1.0,
+   "A_self_acc": 1.0,
+   "B_self_acc": 1.0
+  },
+  "weekday_len7": {
+   "n": 6,
+   "base_acc": 1.0,
+   "A_self_acc": 1.0,
+   "B_self_acc": 1.0
+  },
+  "month_len7": {
+   "n": 11,
+   "base_acc": 1.0,
+   "A_self_acc": 1.0,
+   "B_self_acc": 1.0
+  },
+  "alphabet_len7": {
+   "n": 19,
+   "base_acc": 0.9473684430122375,
+   "A_self_acc": 0.8947368264198303,
+   "B_self_acc": 0.9473684430122375
+  },
+  "digit_len7": {
+   "n": 3,
+   "base_acc": 1.0,
+   "A_self_acc": 1.0,
+   "B_self_acc": 1.0
+  }
+ },
+ "holdout_elements": {
+  "weekday:Thursday": {
+   "holdfit": {
+    "A_follow": 0.0,
+    "B_follow": 0.25,
+    "B_outs": [
+     " Friday",
+     " Saturday",
+     " Sunday",
+     " and"
+    ]
+   },
+   "fullfit": {
+    "A_follow": 0.0,
+    "B_follow": 0.25,
+    "B_outs": [
+     " Friday",
+     " Saturday",
+     " Sunday",
+     " and"
+    ]
+   }
+  },
+  "month:October": {
+   "holdfit": {
+    "A_follow": 0.5,
+    "B_follow": 0.25,
+    "B_outs": [
+     " November",
+     " October",
+     " October",
+     " October"
+    ]
+   },
+   "fullfit": {
+    "A_follow": 0.0,
+    "B_follow": 1.0,
+    "B_outs": [
+     " November",
+     " November",
+     " November",
+     " November"
+    ]
+   }
+  },
+  "alphabet:m": {
+   "holdfit": {
+    "A_follow": 0.25,
+    "B_follow": 0.0,
+    "B_outs": [
+     " d",
+     " e",
+     " f",
+     " g"
+    ]
+   },
+   "fullfit": {
+    "A_follow": 0.5,
+    "B_follow": 1.0,
+    "B_outs": [
+     " n",
+     " n",
+     " n",
+     " n"
+    ]
+   }
+  },
+  "digit:7": {
+   "holdfit": {
+    "A_follow": 0.0,
+    "B_follow": 0.0,
+    "B_outs": [
+     " 4",
+     " 7",
+     " 9",
+     " 7"
+    ]
+   },
+   "fullfit": {
+    "A_follow": 1.0,
+    "B_follow": 1.0,
+    "B_outs": [
+     " 8",
+     " 8",
+     " 8",
+     " 8"
+    ]
+   }
+  }
+ },
+ "competing_sequences": [
+  {
+   "prompt": "Monday, January, Tuesday, February,",
+   "baseline_out": " March",
+   "impositions": [
+    {
+     "imposed": "Tuesday",
+     "out": " Wednesday",
+     "own_succ": " Wednesday"
+    },
+    {
+     "imposed": "February",
+     "out": " March",
+     "own_succ": " March"
+    },
+    {
+     "imposed": "Friday",
+     "out": " Saturday",
+     "own_succ": " Saturday"
+    }
+   ]
+  },
+  {
+   "prompt": "January, Monday, February, Tuesday,",
+   "baseline_out": " Wednesday",
+   "impositions": [
+    {
+     "imposed": "Tuesday",
+     "out": " Wednesday",
+     "own_succ": " Wednesday"
+    },
+    {
+     "imposed": "February",
+     "out": " March",
+     "own_succ": " March"
+    }
+   ]
+  }
+ ],
+ "boundary": {
+  "natural_sunday_prompt": "Friday, Saturday, Sunday,",
+  "natural_out": " and",
+  "sunday_code_on_sunday_prompt_out": " and",
+  "sunday_imposed_midweek_B": " Thursday",
+  "sunday_imposed_midweek_A": " Sunday"
+ },
+ "word_number": {
+  "word_prompt": "one, two, three,",
+  "word_baseline_out": " four",
+  "word_ctx_imposed_three_code": " four",
+  "word_ctx_imposed_digit3_code": " four",
+  "digit_ctx_imposed_word_three": " 4",
+  "digit_ctx_imposed_digit3": " 4"
+ }
+}

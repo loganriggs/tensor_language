@@ -1,0 +1,813 @@
+{
+ "weekday": {
+  "elements": [
+   "Monday",
+   "Tuesday",
+   "Wednesday",
+   "Thursday",
+   "Friday",
+   "Saturday",
+   "Sunday"
+  ],
+  "contexts": [
+   "Monday, Tuesday, Wednesday, Thursday,",
+   "Wednesday, Thursday, Friday, Saturday,",
+   "Friday, Saturday, Sunday, Monday,"
+  ],
+  "tables": {
+   "A": [
+    [
+     " Friday",
+     " Friday",
+     " Friday",
+     " Friday",
+     " Friday",
+     " Saturday",
+     " Sunday"
+    ],
+    [
+     " Sunday",
+     " and",
+     " and",
+     " Sunday",
+     " Sunday",
+     " Sunday",
+     " Sunday"
+    ],
+    [
+     " Tuesday",
+     " Wednesday",
+     " Wednesday",
+     " Thursday",
+     " and",
+     " and",
+     " and"
+    ]
+   ],
+   "B": [
+    [
+     " Thursday",
+     " Thursday",
+     " Thursday",
+     " Friday",
+     " Saturday",
+     " Sunday",
+     " Thursday"
+    ],
+    [
+     " and",
+     " Saturday",
+     " Saturday",
+     " Saturday",
+     " Saturday",
+     " Sunday",
+     " Monday"
+    ],
+    [
+     " Tuesday",
+     " Wednesday",
+     " Thursday",
+     " and",
+     " and",
+     " and",
+     " Monday"
+    ]
+   ]
+  },
+  "summary": {
+   "A": {
+    "majority_table": {
+     "Monday": " Friday",
+     "Tuesday": " Friday",
+     "Wednesday": " Friday",
+     "Thursday": " Friday",
+     "Friday": " Friday",
+     "Saturday": " Saturday",
+     "Sunday": " Sunday"
+    },
+    "acc": 0.16666666666666666,
+    "n_scored": 6,
+    "end_element_outputs": {
+     "Sunday": " Sunday"
+    }
+   },
+   "B": {
+    "majority_table": {
+     "Monday": " Thursday",
+     "Tuesday": " Thursday",
+     "Wednesday": " Thursday",
+     "Thursday": " Friday",
+     "Friday": " Saturday",
+     "Saturday": " Sunday",
+     "Sunday": " Monday"
+    },
+    "acc": 0.6666666666666666,
+    "n_scored": 6,
+    "end_element_outputs": {
+     "Sunday": " Monday"
+    }
+   }
+  }
+ },
+ "month": {
+  "elements": [
+   "January",
+   "February",
+   "March",
+   "April",
+   "May",
+   "June",
+   "July",
+   "August",
+   "September",
+   "October",
+   "November",
+   "December"
+  ],
+  "contexts": [
+   "January, February, March, April,",
+   "April, May, June, July,",
+   "July, August, September, October,"
+  ],
+  "tables": {
+   "A": [
+    [
+     " November",
+     " May",
+     " May",
+     " May",
+     " June",
+     " June",
+     " July",
+     " August",
+     " October",
+     " October",
+     " November",
+     " November"
+    ],
+    [
+     " December",
+     " February",
+     " March",
+     " and",
+     " and",
+     " August",
+     " August",
+     " August",
+     " October",
+     " October",
+     " November",
+     " December"
+    ],
+    [
+     " January",
+     " February",
+     " March",
+     " April",
+     " May",
+     " June",
+     " and",
+     " and",
+     " November",
+     " November",
+     " November",
+     " December"
+    ]
+   ],
+   "B": [
+    [
+     " and",
+     " April",
+     " April",
+     " May",
+     " June",
+     " July",
+     " August",
+     " September",
+     " October",
+     " November",
+     " December",
+     " January"
+    ],
+    [
+     " February",
+     " March",
+     " and",
+     " July",
+     " July",
+     " July",
+     " August",
+     " September",
+     " October",
+     " November",
+     " December",
+     " January"
+    ],
+    [
+     " February",
+     " March",
+     " April",
+     " May",
+     " June",
+     " July",
+     " and",
+     " and",
+     " October",
+     " November",
+     " December",
+     " January"
+    ]
+   ]
+  },
+  "summary": {
+   "A": {
+    "majority_table": {
+     "January": " November",
+     "February": " February",
+     "March": " March",
+     "April": " May",
+     "May": " June",
+     "June": " June",
+     "July": " July",
+     "August": " August",
+     "September": " October",
+     "October": " October",
+     "November": " November",
+     "December": " December"
+    },
+    "acc": 0.2727272727272727,
+    "n_scored": 11,
+    "end_element_outputs": {
+     "December": " December"
+    }
+   },
+   "B": {
+    "majority_table": {
+     "January": " February",
+     "February": " March",
+     "March": " April",
+     "April": " May",
+     "May": " June",
+     "June": " July",
+     "July": " August",
+     "August": " September",
+     "September": " October",
+     "October": " November",
+     "November": " December",
+     "December": " January"
+    },
+    "acc": 1.0,
+    "n_scored": 11,
+    "end_element_outputs": {
+     "December": " January"
+    }
+   }
+  }
+ },
+ "alphabet": {
+  "elements": [
+   "a",
+   "b",
+   "c",
+   "d",
+   "e",
+   "f",
+   "g",
+   "h",
+   "i",
+   "j",
+   "k",
+   "l",
+   "m",
+   "n",
+   "o",
+   "p",
+   "q",
+   "r",
+   "s",
+   "t",
+   "u",
+   "v",
+   "w",
+   "x",
+   "y",
+   "z"
+  ],
+  "contexts": [
+   "a, b, c, d,",
+   "i, j, k, l,",
+   "q, r, s, t,"
+  ],
+  "tables": {
+   "A": [
+    [
+     " g",
+     " g",
+     " d",
+     " e",
+     " f",
+     " g",
+     " g",
+     " h",
+     " j",
+     " k",
+     " k",
+     " l",
+     " m",
+     " n",
+     " o",
+     " g",
+     " g",
+     " r",
+     " s",
+     " t",
+     " u",
+     " v",
+     " g",
+     " y",
+     " y",
+     " y"
+    ],
+    [
+     " m",
+     " m",
+     " d",
+     " e",
+     " f",
+     " g",
+     " g",
+     " h",
+     " m",
+     " k",
+     " k",
+     " m",
+     " m",
+     " n",
+     " o",
+     " m",
+     " r",
+     " r",
+     " s",
+     " t",
+     " v",
+     " v",
+     " w",
+     " y",
+     " y",
+     " y"
+    ],
+    [
+     " n",
+     " n",
+     " d",
+     " e",
+     " f",
+     " g",
+     " h",
+     " h",
+     " n",
+     " k",
+     " k",
+     " l",
+     " n",
+     " n",
+     " o",
+     " p",
+     " q",
+     " r",
+     " w",
+     " u",
+     " u",
+     " v",
+     " w",
+     " y",
+     " z",
+     " z"
+    ]
+   ],
+   "B": [
+    [
+     " d",
+     " d",
+     " d",
+     " e",
+     " f",
+     " g",
+     " d",
+     " i",
+     " d",
+     " k",
+     " d",
+     " m",
+     " n",
+     " d",
+     " d",
+     " d",
+     " d",
+     " s",
+     " d",
+     " d",
+     " d",
+     " d",
+     " d",
+     " y",
+     " d",
+     " d"
+    ],
+    [
+     " k",
+     " l",
+     " d",
+     " e",
+     " k",
+     " g",
+     " h",
+     " k",
+     " l",
+     " k",
+     " l",
+     " m",
+     " n",
+     " n",
+     " p",
+     " r",
+     " n",
+     " s",
+     " t",
+     " n",
+     " l",
+     " r",
+     " l",
+     " y",
+     " z",
+     " y"
+    ],
+    [
+     " t",
+     " m",
+     " d",
+     " e",
+     " t",
+     " g",
+     " h",
+     " k",
+     " n",
+     " k",
+     " l",
+     " m",
+     " n",
+     " q",
+     " q",
+     " q",
+     " r",
+     " s",
+     " t",
+     " u",
+     " v",
+     " w",
+     " x",
+     " y",
+     " z",
+     " t"
+    ]
+   ]
+  },
+  "summary": {
+   "A": {
+    "majority_table": {
+     "a": " g",
+     "b": " g",
+     "c": " d",
+     "d": " e",
+     "e": " f",
+     "f": " g",
+     "g": " g",
+     "h": " h",
+     "i": " j",
+     "j": " k",
+     "k": " k",
+     "l": " l",
+     "m": " m",
+     "n": " n",
+     "o": " o",
+     "p": " g",
+     "q": " g",
+     "r": " r",
+     "s": " s",
+     "t": " t",
+     "u": " u",
+     "v": " v",
+     "w": " w",
+     "x": " y",
+     "y": " y",
+     "z": " y"
+    },
+    "acc": 0.28,
+    "n_scored": 25,
+    "end_element_outputs": {
+     "z": " y"
+    }
+   },
+   "B": {
+    "majority_table": {
+     "a": " d",
+     "b": " d",
+     "c": " d",
+     "d": " e",
+     "e": " f",
+     "f": " g",
+     "g": " h",
+     "h": " k",
+     "i": " d",
+     "j": " k",
+     "k": " l",
+     "l": " m",
+     "m": " n",
+     "n": " d",
+     "o": " d",
+     "p": " d",
+     "q": " d",
+     "r": " s",
+     "s": " t",
+     "t": " d",
+     "u": " d",
+     "v": " d",
+     "w": " d",
+     "x": " y",
+     "y": " z",
+     "z": " d"
+    },
+    "acc": 0.52,
+    "n_scored": 25,
+    "end_element_outputs": {
+     "z": " d"
+    }
+   }
+  }
+ },
+ "digit": {
+  "elements": [
+   "0",
+   "1",
+   "2",
+   "3",
+   "4",
+   "5",
+   "6",
+   "7",
+   "8",
+   "9"
+  ],
+  "contexts": [
+   "0, 1, 2, 3,",
+   "3, 4, 5, 6,",
+   "5, 6, 7, 8,"
+  ],
+  "tables": {
+   "A": [
+    [
+     " 4",
+     " 4",
+     " 3",
+     " 4",
+     " 5",
+     " 6",
+     " 7",
+     " 8",
+     " 9",
+     " 10"
+    ],
+    [
+     " 7",
+     " 3",
+     " 3",
+     " 4",
+     " 5",
+     " 6",
+     " 7",
+     " 8",
+     " 9",
+     " 10"
+    ],
+    [
+     " 9",
+     " 4",
+     " 3",
+     " 4",
+     " 5",
+     " 6",
+     " 7",
+     " 8",
+     " 9",
+     " 10"
+    ]
+   ],
+   "B": [
+    [
+     " 3",
+     " 3",
+     " 3",
+     " 4",
+     " 5",
+     " 6",
+     " 7",
+     " 8",
+     " 9",
+     " 10"
+    ],
+    [
+     " 6",
+     " 6",
+     " 3",
+     " 2",
+     " 6",
+     " 6",
+     " 7",
+     " 8",
+     " 9",
+     " 10"
+    ],
+    [
+     " 8",
+     " 8",
+     " 3",
+     " 4",
+     " 3",
+     " 4",
+     " 8",
+     " 8",
+     " 9",
+     " 10"
+    ]
+   ]
+  },
+  "summary": {
+   "A": {
+    "majority_table": {
+     "0": " 4",
+     "1": " 4",
+     "2": " 3",
+     "3": " 4",
+     "4": " 5",
+     "5": " 6",
+     "6": " 7",
+     "7": " 8",
+     "8": " 9",
+     "9": " 10"
+    },
+    "acc": 0.7777777777777778,
+    "n_scored": 9,
+    "end_element_outputs": {
+     "9": " 10"
+    }
+   },
+   "B": {
+    "majority_table": {
+     "0": " 3",
+     "1": " 3",
+     "2": " 3",
+     "3": " 4",
+     "4": " 5",
+     "5": " 6",
+     "6": " 7",
+     "7": " 8",
+     "8": " 9",
+     "9": " 10"
+    },
+    "acc": 0.7777777777777778,
+    "n_scored": 9,
+    "end_element_outputs": {
+     "9": " 10"
+    }
+   }
+  }
+ },
+ "numlist": {
+  "elements": [
+   "1",
+   "2",
+   "3",
+   "4",
+   "5",
+   "6",
+   "7",
+   "8",
+   "9"
+  ],
+  "contexts": [
+   "1. dogs\n2. cats\n",
+   "3. books\n4. trees\n",
+   "5. cars\n6. fish\n"
+  ],
+  "tables": {
+   "A": [
+    [
+     "3",
+     "3",
+     "4",
+     "5",
+     "6",
+     "7",
+     "8",
+     "9",
+     "10"
+    ],
+    [
+     "3",
+     "3",
+     "4",
+     "5",
+     "6",
+     "7",
+     "8",
+     "9",
+     "10"
+    ],
+    [
+     "4",
+     "3",
+     "4",
+     "5",
+     "6",
+     "7",
+     "8",
+     "9",
+     "10"
+    ]
+   ],
+   "B": [
+    [
+     "3",
+     "3",
+     "4",
+     "5",
+     "6",
+     "7",
+     "8",
+     "9",
+     "10"
+    ],
+    [
+     "4",
+     "3",
+     "4",
+     "5",
+     "6",
+     "7",
+     "8",
+     "9",
+     "10"
+    ],
+    [
+     "6",
+     "3",
+     "4",
+     "6",
+     "6",
+     "7",
+     "8",
+     "9",
+     "10"
+    ]
+   ]
+  },
+  "summary": {
+   "A": {
+    "majority_table": {
+     "1": "3",
+     "2": "3",
+     "3": "4",
+     "4": "5",
+     "5": "6",
+     "6": "7",
+     "7": "8",
+     "8": "9",
+     "9": "10"
+    },
+    "acc": 0.875,
+    "n_scored": 8,
+    "end_element_outputs": {
+     "9": "10"
+    }
+   },
+   "B": {
+    "majority_table": {
+     "1": "3",
+     "2": "3",
+     "3": "4",
+     "4": "5",
+     "5": "6",
+     "6": "7",
+     "7": "8",
+     "8": "9",
+     "9": "10"
+    },
+    "acc": 0.875,
+    "n_scored": 8,
+    "end_element_outputs": {
+     "9": "10"
+    }
+   }
+  }
+ }
+}

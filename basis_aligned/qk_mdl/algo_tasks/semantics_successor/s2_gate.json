@@ -1,0 +1,317 @@
+{
+ "code_B_fit": {
+  "lam": 0.001,
+  "split_r2": 0.2123934904377056,
+  "holdout_fit_r2": 0.3574848752850702
+ },
+ "baseline": {
+  "success_rate": 0.9607843160629272,
+  "stay_rate": 0.9607843160629272,
+  "per_family": {
+   "weekday": {
+    "n": 6,
+    "success": 1.0,
+    "stay": 1.0
+   },
+   "month": {
+    "n": 11,
+    "success": 1.0,
+    "stay": 1.0
+   },
+   "alphabet": {
+    "n": 22,
+    "success": 0.9090909361839294,
+    "stay": 0.9090909361839294
+   },
+   "digit": {
+    "n": 6,
+    "success": 1.0,
+    "stay": 1.0
+   },
+   "numlist": {
+    "n": 6,
+    "success": 1.0,
+    "stay": 1.0
+   }
+  }
+ },
+ "A_code_self": {
+  "success_rate": 0.9607843160629272,
+  "stay_rate": 0.9607843160629272,
+  "per_family": {
+   "weekday": {
+    "n": 6,
+    "success": 1.0,
+    "stay": 1.0
+   },
+   "month": {
+    "n": 11,
+    "success": 1.0,
+    "stay": 1.0
+   },
+   "alphabet": {
+    "n": 22,
+    "success": 0.9090909361839294,
+    "stay": 0.9090909361839294
+   },
+   "digit": {
+    "n": 6,
+    "success": 1.0,
+    "stay": 1.0
+   },
+   "numlist": {
+    "n": 6,
+    "success": 1.0,
+    "stay": 1.0
+   }
+  }
+ },
+ "A_code_placebo": {
+  "success_rate": 0.4313725531101227,
+  "stay_rate": 0.1568627506494522,
+  "per_family": {
+   "weekday": {
+    "n": 6,
+    "success": 0.1666666716337204,
+    "stay": 0.6666666865348816
+   },
+   "month": {
+    "n": 11,
+    "success": 0.0,
+    "stay": 0.09090909361839294
+   },
+   "alphabet": {
+    "n": 22,
+    "success": 0.40909090638160706,
+    "stay": 0.13636364042758942
+   },
+   "digit": {
+    "n": 6,
+    "success": 1.0,
+    "stay": 0.0
+   },
+   "numlist": {
+    "n": 6,
+    "success": 1.0,
+    "stay": 0.0
+   }
+  }
+ },
+ "A_zero": {
+  "success_rate": 0.6078431606292725,
+  "stay_rate": 0.6078431606292725,
+  "per_family": {
+   "weekday": {
+    "n": 6,
+    "success": 0.8333333134651184,
+    "stay": 0.8333333134651184
+   },
+   "month": {
+    "n": 11,
+    "success": 0.8181818127632141,
+    "stay": 0.8181818127632141
+   },
+   "alphabet": {
+    "n": 22,
+    "success": 0.3636363744735718,
+    "stay": 0.3636363744735718
+   },
+   "digit": {
+    "n": 6,
+    "success": 0.6666666865348816,
+    "stay": 0.6666666865348816
+   },
+   "numlist": {
+    "n": 6,
+    "success": 0.8333333134651184,
+    "stay": 0.8333333134651184
+   }
+  }
+ },
+ "A_real_wrongcontent": {
+  "success_rate": 0.3921568691730499,
+  "stay_rate": 0.2549019753932953,
+  "per_family": {
+   "weekday": {
+    "n": 6,
+    "success": 0.1666666716337204,
+    "stay": 0.6666666865348816
+   },
+   "month": {
+    "n": 11,
+    "success": 0.27272728085517883,
+    "stay": 0.27272728085517883
+   },
+   "alphabet": {
+    "n": 22,
+    "success": 0.3181818127632141,
+    "stay": 0.27272728085517883
+   },
+   "digit": {
+    "n": 6,
+    "success": 0.5,
+    "stay": 0.0
+   },
+   "numlist": {
+    "n": 6,
+    "success": 1.0,
+    "stay": 0.0
+   }
+  }
+ },
+ "ceiling_donor_run": {
+  "success_rate": 0.686274528503418,
+  "stay_rate": 0.03921568766236305,
+  "per_family": {
+   "weekday": {
+    "n": 6,
+    "success": 0.5,
+    "stay": 0.0
+   },
+   "month": {
+    "n": 11,
+    "success": 0.7272727489471436,
+    "stay": 0.09090909361839294
+   },
+   "alphabet": {
+    "n": 22,
+    "success": 0.6818181872367859,
+    "stay": 0.04545454680919647
+   },
+   "digit": {
+    "n": 6,
+    "success": 0.5,
+    "stay": 0.0
+   },
+   "numlist": {
+    "n": 6,
+    "success": 1.0,
+    "stay": 0.0
+   }
+  }
+ },
+ "B_code_self": {
+  "success_rate": 0.9607843160629272,
+  "stay_rate": 0.9607843160629272,
+  "per_family": {
+   "weekday": {
+    "n": 6,
+    "success": 1.0,
+    "stay": 1.0
+   },
+   "month": {
+    "n": 11,
+    "success": 1.0,
+    "stay": 1.0
+   },
+   "alphabet": {
+    "n": 22,
+    "success": 0.9090909361839294,
+    "stay": 0.9090909361839294
+   },
+   "digit": {
+    "n": 6,
+    "success": 1.0,
+    "stay": 1.0
+   },
+   "numlist": {
+    "n": 6,
+    "success": 1.0,
+    "stay": 1.0
+   }
+  }
+ },
+ "B_code_placebo": {
+  "success_rate": 0.6470588445663452,
+  "stay_rate": 0.019607843831181526,
+  "per_family": {
+   "weekday": {
+    "n": 6,
+    "success": 0.3333333432674408,
+    "stay": 0.0
+   },
+   "month": {
+    "n": 11,
+    "success": 0.7272727489471436,
+    "stay": 0.09090909361839294
+   },
+   "alphabet": {
+    "n": 22,
+    "success": 0.6363636255264282,
+    "stay": 0.0
+   },
+   "digit": {
+    "n": 6,
+    "success": 0.5,
+    "stay": 0.0
+   },
+   "numlist": {
+    "n": 6,
+    "success": 1.0,
+    "stay": 0.0
+   }
+  }
+ },
+ "B_zero": {
+  "success_rate": 0.019607843831181526,
+  "stay_rate": 0.019607843831181526,
+  "per_family": {
+   "weekday": {
+    "n": 6,
+    "success": 0.0,
+    "stay": 0.0
+   },
+   "month": {
+    "n": 11,
+    "success": 0.0,
+    "stay": 0.0
+   },
+   "alphabet": {
+    "n": 22,
+    "success": 0.0,
+    "stay": 0.0
+   },
+   "digit": {
+    "n": 6,
+    "success": 0.0,
+    "stay": 0.0
+   },
+   "numlist": {
+    "n": 6,
+    "success": 0.1666666716337204,
+    "stay": 0.1666666716337204
+   }
+  }
+ },
+ "B_real_wrongcontent": {
+  "success_rate": 0.7058823704719543,
+  "stay_rate": 0.019607843831181526,
+  "per_family": {
+   "weekday": {
+    "n": 6,
+    "success": 0.3333333432674408,
+    "stay": 0.0
+   },
+   "month": {
+    "n": 11,
+    "success": 0.7272727489471436,
+    "stay": 0.09090909361839294
+   },
+   "alphabet": {
+    "n": 22,
+    "success": 0.7727272510528564,
+    "stay": 0.0
+   },
+   "digit": {
+    "n": 6,
+    "success": 0.5,
+    "stay": 0.0
+   },
+   "numlist": {
+    "n": 6,
+    "success": 1.0,
+    "stay": 0.0
+   }
+  }
+ }
+}
