@@ -2660,3 +2660,30 @@ carry verified names; coordinate semantics is open work gated by the code-verify
 **Retractions on the record.** "Exposure-bias/function-consistency" mechanism story (tick jj);
 "fully-named analytic tensor network" phrasing; "composition supersedes data fitting" phrasing;
 knob-recovery numbers. Corrections and the full findings list in redteam_findings_2026-07-30.md.
+
+## §34 Coordinate semantics: selection is nameable, content is spectral (2026-07-30)
+
+Three naming hypotheses for layer-0 coordinates, each written as code from independent knowledge
+and judged by the substitution meaning gate on a held-back audit slice (spectra are EXACT and
+weight-derived — the per-token write value of each coordinate — so no estimation noise):
+
+1. Broad classes on PCA coordinates (19 orthographic/grammatical classes, after span-preserving
+   varimax to maximize class alignment): 3/576 codable (all newline), median class-R² 0.022.
+2. The same classes on the mechanism arc's 144 archetype value-coordinates: 2/144, median R² 0.103
+   — five-fold more class-aligned than PCA, still failing the binary-class ontology.
+3. Token-spike codes (coordinate = weighted indicator of ≤8 specific tokens) on the archetype
+   coordinates: median top-8 weighted concentration 0.185; ZERO coordinates at ≥0.8.
+
+The few names that exist pass the gate exactly (newline detectors: coded − exact = 0.0000 ± 0.0000).
+The machinery works; the objects are not there.
+
+**The dichotomy this establishes.** The mechanism arc's nameable scaffold clusters ({the}, {a/an},
+punctuation families) live in the third-moment CP factors — the SELECTION side (which tokens a
+component matches/attends). The value-write spectra — the CONTENT side (what gets written when
+attended) — are distributed and graded in every basis tried: PCA, archetype, class-coded, spike-
+coded. This matches the program's causal record: induction's match PREDICATE is fully nameable
+(one line of code, held-out verified) while its delivery is distributed; the v1-router principle
+(QK decides where — nameable; layer-0 values decide what — spectral); the reassembly residual
+(pair-keyed lexicon); one-algorithm-three-tables. In this model, WHO-IS-SELECTED is program-like
+and nameable; WHAT-IS-WRITTEN is a graded lexical spectrum whose complete description is the exact
+weight-derived spectrum itself — inspectable, causal, but not compressible into human categories.
