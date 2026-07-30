@@ -3047,3 +3047,14 @@ a measurement, not an inference. **All five capstone properties (§37 capstone) 
 copy-OV-specific, match-free, aimable (planted + natural double dissociations), surgically gatable, and
 governed by a reach-vs-amplitude tradeoff (calibrated at low amplitude/clean context, aimed-but-saturated
 at high amplitude/rich context). The editing arc is closed.
+
+### §37i Per-head localization — commandeering is DISTRIBUTED across the copy heads (2026-07-30)
+(qk_commandeer_perhead.py) Commandeering via each SUBST head alone (aim@col1, query position 35, scale
+40) vs the whole set: no single head carries it — the strongest is L6H5 at P(token@1)=0.135, then L5H5
+0.095, L8H3 0.067, L8H4 0.056, versus **0.751 for all copy heads together**. So the edit is a roughly
+additive, distributed write across the ~24 copy heads (each contributes a fraction of the payload value
+through its OV projection), with no single-head bottleneck — consistent with the copy-OV-specific
+account. Note the top commandeering contributors (L6H5, L5H5) are NOT the induction-necessity core
+(L2H5/L3H8, §T4): the heads whose *removal* most damages natural induction are distinct from the heads
+that most carry a *commandeered* copy — the write is spread more broadly than the necessity core. This
+closes the editing arc's localization question; the arc (§36–§37i) is complete and promoted.
