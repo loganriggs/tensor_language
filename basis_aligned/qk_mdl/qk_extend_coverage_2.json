@@ -1,0 +1,376 @@
+{
+  "meta": {
+    "model": "bilin18",
+    "part": "B -- multi-path combination structure",
+    "held_slice": "FW[448:600,:128]",
+    "KCAUSAL": 200,
+    "BATCH": 6,
+    "NRAND": 25,
+    "method": "Greedy joint-ablation grouping (\u00a761 conventions) over the top-20 causally-important paths on a fixed union firing-position set: solos + whole-20 joint (global super-additivity + multi-path residual); pairwise super-additivity; greedy agglomerative groups seeded from the strongest super-additive pair and grown by max super-additive marginal; same-size random control on the same positions. Forward + multi-ablation VERBATIM from qk_unsup_classpush.py; groups named by \u00a768 class-push signatures."
+  },
+  "summary": {
+    "top20": [
+      "h.L0.3",
+      "mlp.L17.d2",
+      "mlp.L17.d1",
+      "h.L8.7",
+      "h.L11.2",
+      "mlp.L16.d0",
+      "h.L8.3",
+      "mlp.L16.d2",
+      "mlp.L17.d3",
+      "mlp.L17.d0",
+      "h.L13.8",
+      "h.L5.5",
+      "h.L6.7",
+      "h.L2.5",
+      "h.L0.8",
+      "h.L3.3",
+      "h.L2.0",
+      "h.L9.6",
+      "h.L4.1",
+      "h.L6.5"
+    ],
+    "top20_sigs": {
+      "h.L0.3": "+capital",
+      "mlp.L17.d2": "+word",
+      "mlp.L17.d1": "+capital",
+      "h.L8.7": "-capital",
+      "h.L11.2": "-word",
+      "mlp.L16.d0": "-word",
+      "h.L8.3": "+word",
+      "mlp.L16.d2": "+word",
+      "mlp.L17.d3": "+capital",
+      "mlp.L17.d0": "+capital",
+      "h.L13.8": "+word",
+      "h.L5.5": "+word",
+      "h.L6.7": "+subword",
+      "h.L2.5": "+word",
+      "h.L0.8": "+capital",
+      "h.L3.3": "+word",
+      "h.L2.0": "+subword",
+      "h.L9.6": "+word",
+      "h.L4.1": "-capital",
+      "h.L6.5": "+subword"
+    },
+    "fixed_eval_positions": 3129,
+    "fixed_eval_sequences": 152,
+    "solos": {
+      "h.L0.3": {
+        "dCE": 0.0688,
+        "SE": 0.0088
+      },
+      "mlp.L17.d2": {
+        "dCE": 0.0873,
+        "SE": 0.0082
+      },
+      "mlp.L17.d1": {
+        "dCE": 0.0776,
+        "SE": 0.0079
+      },
+      "h.L8.7": {
+        "dCE": 0.0158,
+        "SE": 0.0036
+      },
+      "h.L11.2": {
+        "dCE": 0.0177,
+        "SE": 0.0034
+      },
+      "mlp.L16.d0": {
+        "dCE": 0.0732,
+        "SE": 0.0077
+      },
+      "h.L8.3": {
+        "dCE": 0.0172,
+        "SE": 0.0033
+      },
+      "mlp.L16.d2": {
+        "dCE": 0.0656,
+        "SE": 0.0069
+      },
+      "mlp.L17.d3": {
+        "dCE": 0.0257,
+        "SE": 0.0044
+      },
+      "mlp.L17.d0": {
+        "dCE": 0.0438,
+        "SE": 0.0059
+      },
+      "h.L13.8": {
+        "dCE": 0.0094,
+        "SE": 0.003
+      },
+      "h.L5.5": {
+        "dCE": 0.0158,
+        "SE": 0.0039
+      },
+      "h.L6.7": {
+        "dCE": 0.0142,
+        "SE": 0.0039
+      },
+      "h.L2.5": {
+        "dCE": 0.0201,
+        "SE": 0.0048
+      },
+      "h.L0.8": {
+        "dCE": 0.0085,
+        "SE": 0.0025
+      },
+      "h.L3.3": {
+        "dCE": 0.0091,
+        "SE": 0.0023
+      },
+      "h.L2.0": {
+        "dCE": 0.008,
+        "SE": 0.0028
+      },
+      "h.L9.6": {
+        "dCE": 0.0077,
+        "SE": 0.0019
+      },
+      "h.L4.1": {
+        "dCE": 0.0144,
+        "SE": 0.0029
+      },
+      "h.L6.5": {
+        "dCE": 0.0072,
+        "SE": 0.0019
+      }
+    },
+    "sum_solo_positive": 0.6071,
+    "sum_solo_signed": 0.6071,
+    "whole20_joint_dCE": 1.0198,
+    "whole20_joint_SE": 0.0321,
+    "whole20_super_additivity_ratio": 1.68,
+    "whole20_multipath_residual": 0.4127,
+    "top_super_additive_pairs": [
+      {
+        "pair": [
+          "mlp.L17.d2",
+          "mlp.L17.d1"
+        ],
+        "joint_dCE": 0.2755,
+        "sum_solo": 0.1649,
+        "super_additive": 0.1106,
+        "ratio": 1.67,
+        "sigs": [
+          "+word",
+          "+capital"
+        ]
+      },
+      {
+        "pair": [
+          "mlp.L17.d1",
+          "mlp.L17.d3"
+        ],
+        "joint_dCE": 0.1105,
+        "sum_solo": 0.1033,
+        "super_additive": 0.0072,
+        "ratio": 1.07,
+        "sigs": [
+          "+capital",
+          "+capital"
+        ]
+      },
+      {
+        "pair": [
+          "mlp.L17.d1",
+          "mlp.L16.d2"
+        ],
+        "joint_dCE": 0.1503,
+        "sum_solo": 0.1432,
+        "super_additive": 0.0071,
+        "ratio": 1.05,
+        "sigs": [
+          "+capital",
+          "+word"
+        ]
+      },
+      {
+        "pair": [
+          "h.L8.3",
+          "mlp.L17.d0"
+        ],
+        "joint_dCE": 0.0679,
+        "sum_solo": 0.061,
+        "super_additive": 0.0069,
+        "ratio": 1.11,
+        "sigs": [
+          "+word",
+          "+capital"
+        ]
+      },
+      {
+        "pair": [
+          "h.L8.7",
+          "h.L8.3"
+        ],
+        "joint_dCE": 0.0392,
+        "sum_solo": 0.033,
+        "super_additive": 0.0062,
+        "ratio": 1.19,
+        "sigs": [
+          "-capital",
+          "+word"
+        ]
+      },
+      {
+        "pair": [
+          "mlp.L16.d0",
+          "h.L8.3"
+        ],
+        "joint_dCE": 0.0966,
+        "sum_solo": 0.0904,
+        "super_additive": 0.0062,
+        "ratio": 1.07,
+        "sigs": [
+          "-word",
+          "+word"
+        ]
+      },
+      {
+        "pair": [
+          "mlp.L17.d3",
+          "mlp.L17.d0"
+        ],
+        "joint_dCE": 0.0755,
+        "sum_solo": 0.0695,
+        "super_additive": 0.006,
+        "ratio": 1.09,
+        "sigs": [
+          "+capital",
+          "+capital"
+        ]
+      },
+      {
+        "pair": [
+          "h.L0.3",
+          "mlp.L17.d3"
+        ],
+        "joint_dCE": 0.1,
+        "sum_solo": 0.0945,
+        "super_additive": 0.0055,
+        "ratio": 1.06,
+        "sigs": [
+          "+capital",
+          "+capital"
+        ]
+      },
+      {
+        "pair": [
+          "h.L0.3",
+          "h.L11.2"
+        ],
+        "joint_dCE": 0.0905,
+        "sum_solo": 0.0865,
+        "super_additive": 0.004,
+        "ratio": 1.05,
+        "sigs": [
+          "+capital",
+          "-word"
+        ]
+      },
+      {
+        "pair": [
+          "h.L0.3",
+          "mlp.L17.d0"
+        ],
+        "joint_dCE": 0.1165,
+        "sum_solo": 0.1126,
+        "super_additive": 0.0039,
+        "ratio": 1.03,
+        "sigs": [
+          "+capital",
+          "+capital"
+        ]
+      }
+    ],
+    "greedy_groups": [
+      {
+        "members": [
+          "mlp.L17.d2",
+          "mlp.L17.d1",
+          "h.L6.7",
+          "h.L5.5",
+          "h.L6.5",
+          "h.L8.3",
+          "h.L2.5",
+          "h.L8.7",
+          "mlp.L17.d3",
+          "h.L0.3",
+          "h.L0.8",
+          "h.L4.1",
+          "mlp.L17.d0",
+          "mlp.L16.d0",
+          "h.L11.2",
+          "h.L3.3",
+          "h.L2.0",
+          "h.L13.8",
+          "h.L9.6"
+        ],
+        "joint_dCE": 1.0314,
+        "sum_solo": 0.5415,
+        "super_additive_residual": 0.4899,
+        "super_additivity_ratio": 1.9,
+        "frac_of_multipath_residual": 1.187,
+        "sigs": [
+          "+word",
+          "+capital",
+          "+subword",
+          "+word",
+          "+subword",
+          "+word",
+          "+word",
+          "-capital",
+          "+capital",
+          "+capital",
+          "+capital",
+          "-capital",
+          "+capital",
+          "-word",
+          "-word",
+          "+word",
+          "+subword",
+          "+word",
+          "+word"
+        ],
+        "name": "7 capital; 12 word/subword; 14 heads/5 feed-forward"
+      }
+    ],
+    "leftover_singletons": [
+      "mlp.L16.d2"
+    ],
+    "biggest_group_random_control": {
+      "group": [
+        "mlp.L17.d2",
+        "mlp.L17.d1",
+        "h.L6.7",
+        "h.L5.5",
+        "h.L6.5",
+        "h.L8.3",
+        "h.L2.5",
+        "h.L8.7",
+        "mlp.L17.d3",
+        "h.L0.3",
+        "h.L0.8",
+        "h.L4.1",
+        "mlp.L17.d0",
+        "mlp.L16.d0",
+        "h.L11.2",
+        "h.L3.3",
+        "h.L2.0",
+        "h.L13.8",
+        "h.L9.6"
+      ],
+      "k": 19,
+      "group_joint_dCE": 1.0314,
+      "rand_joint_mean": 0.0724,
+      "rand_joint_std": 0.0274,
+      "rand_joint_max": 0.1366,
+      "rand_joint_p95": 0.1208,
+      "group_over_random_z": 35.06,
+      "group_exceeds_all_random": true
+    },
+    "note_71_whole_model": "whole-234 super-additivity was 2.87x (joint 3.376 vs sum-solo 1.177). Here we resolve WHERE the top-20 combination residual concentrates."
+  }
+}

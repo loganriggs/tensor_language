@@ -1,0 +1,2859 @@
+{
+  "meta": {
+    "model": "bilin18",
+    "part": "A -- extend single-path naming",
+    "held_slice": "FW[448:600,:128]",
+    "KCAUSAL": 200,
+    "BATCH": 6,
+    "n_classes": 15,
+    "classes": [
+      "bracket_close",
+      "bracket_open",
+      "capital",
+      "coordinator",
+      "determiner",
+      "digit",
+      "newline",
+      "other",
+      "pronoun",
+      "punct",
+      "quote",
+      "quote_open",
+      "special",
+      "subword",
+      "word"
+    ],
+    "named_set_size": 26,
+    "method": "Top-30 UNNAMED paths (by census trigger-position delta cross-entropy) through the full class-level battery: trigger delta cross-entropy (recomputed), class-summed delta-logit signature + SIGN, output entropy, trigger-class distribution, source-copy (heads), and firing-vs-inactive-control specificity of the pushed class. Forward + mean-ablation + class library VERBATIM from qk_unsup_classpush / qk_census_difficulty.",
+    "classify": "newly-nameable if causally clear (own trigger dCE z>=3) AND a clean output signature: copy-or-induction (source-token boosted, diverse sources), sharp-token (top-share>=0.35), class-pusher / class-suppressor (pushed-class movement specific vs control, |z|>=3). causally-clear-but-no-clean-signature = positional-or-diffuse (needs \u00a762); fails causal-clearness = irreducibly-diffuse (\u00a774)."
+  },
+  "summary": {
+    "n_targets": 30,
+    "targets": [
+      "mlp.L17.d0",
+      "h.L2.5",
+      "h.L0.8",
+      "h.L2.0",
+      "h.L4.1",
+      "h.L6.5",
+      "h.L8.1",
+      "h.L7.8",
+      "h.L5.8",
+      "h.L1.4",
+      "h.L0.5",
+      "h.L11.5",
+      "h.L0.6",
+      "h.L4.4",
+      "h.L8.8",
+      "h.L13.4",
+      "h.L11.6",
+      "h.L11.3",
+      "h.L5.6",
+      "h.L1.3",
+      "h.L14.4",
+      "h.L5.2",
+      "mlp.L0.d1",
+      "h.L11.0",
+      "h.L6.3",
+      "h.L2.1",
+      "h.L3.8",
+      "h.L11.4",
+      "h.L4.3",
+      "h.L4.7"
+    ],
+    "n_newly_nameable": 2,
+    "newly_nameable": [
+      "h.L7.8",
+      "h.L13.4"
+    ],
+    "newly_nameable_types": {
+      "class-pusher": 2
+    },
+    "classification_counts": {
+      "irreducibly-diffuse": 25,
+      "positional-or-diffuse": 3,
+      "class-pusher:subword": 2
+    },
+    "single_path_scale": "GLOBAL mean-ablation delta cross-entropy, positive part, summed (matches \u00a771)",
+    "single_path_denom": 1.1773,
+    "named_old_numerator": 0.5177,
+    "named_old_fraction": 0.4397,
+    "newly_nameable_numerator_added": 0.0199,
+    "named_new_numerator": 0.5376,
+    "named_new_fraction": 0.4567,
+    "positive_control_recompute_vs_census_maxabsdiff": 0.0,
+    "bar": {
+      "causal_clear_trigger_dCE_z": 3.0,
+      "specificity_z": 3.0,
+      "sharp_token_top_share": 0.35
+    }
+  },
+  "records": [
+    {
+      "comp": "mlp.L17.d0",
+      "kind": "mlp",
+      "li": 17,
+      "idx": 0,
+      "cleanliness": 0.0111,
+      "trigger_dCE": 0.15545,
+      "trigger_dCE_SE": 0.05596,
+      "trigger_dCE_z": 2.78,
+      "census_trigger_dCE": 0.15545,
+      "global_dCE": 0.085211,
+      "census_global_dCE": 0.085211,
+      "trigger_frac_positive": 0.405,
+      "pushed_class": "capital",
+      "pushed_class_movement": 30550.25,
+      "pushed_class_sign": "+",
+      "class_concentration": 0.382,
+      "class_summed_top8": {
+        "capital": 30550.25,
+        "word": 23968.203,
+        "subword": 17234.695,
+        "digit": 3898.943,
+        "punct": 1721.353,
+        "other": 1349.481,
+        "special": 949.13,
+        "bracket_close": 87.636
+      },
+      "output_entropy_nats": 10.699,
+      "output_entropy_norm": 0.9883,
+      "output_top_token_share": 0.0001,
+      "top_boost": [
+        [
+          "' DISTR'",
+          5.074
+        ],
+        [
+          "' IMAGES'",
+          4.995
+        ],
+        [
+          "' CLIENT'",
+          4.979
+        ],
+        [
+          "' SHARES'",
+          4.964
+        ],
+        [
+          "' SOFTWARE'",
+          4.854
+        ],
+        [
+          "' SECTION'",
+          4.836
+        ]
+      ],
+      "trigger_class_top": [
+        [
+          "word",
+          130
+        ],
+        [
+          "punct",
+          24
+        ],
+        [
+          "subword",
+          14
+        ],
+        [
+          "capital",
+          12
+        ],
+        [
+          "coordinator",
+          8
+        ]
+      ],
+      "trigger_class_purity": 0.1088,
+      "copy_src_dlogit": null,
+      "copy_src_z": null,
+      "copy_src_purity": null,
+      "verify_pushclass_firing": 30550.25,
+      "verify_pushclass_firing_SE": 413.985,
+      "verify_pushclass_firing_z": 73.8,
+      "verify_pushclass_control": -60196.781,
+      "verify_specificity": 90747.031,
+      "verify_specificity_SE": 1387.917,
+      "verify_specificity_z": 65.38,
+      "causal_clear_z3": false,
+      "classification": "irreducibly-diffuse",
+      "newly_nameable": false
+    },
+    {
+      "comp": "h.L2.5",
+      "kind": "head",
+      "li": 2,
+      "idx": 5,
+      "cleanliness": 0.0241,
+      "trigger_dCE": 0.11016,
+      "trigger_dCE_SE": 0.03893,
+      "trigger_dCE_z": 2.83,
+      "census_trigger_dCE": 0.11016,
+      "global_dCE": 0.012212,
+      "census_global_dCE": 0.012212,
+      "trigger_frac_positive": 0.62,
+      "pushed_class": "word",
+      "pushed_class_movement": 3410.354,
+      "pushed_class_sign": "+",
+      "class_concentration": 0.6136,
+      "class_summed_top8": {
+        "word": 3410.354,
+        "capital": 1118.428,
+        "subword": 649.537,
+        "digit": 157.116,
+        "punct": 96.281,
+        "other": 70.691,
+        "special": 36.835,
+        "determiner": 5.445
+      },
+      "output_entropy_nats": 10.474,
+      "output_entropy_norm": 0.9675,
+      "output_top_token_share": 0.0001,
+      "top_boost": [
+        [
+          "' receives'",
+          0.545
+        ],
+        [
+          "' ends'",
+          0.529
+        ],
+        [
+          "' finishes'",
+          0.519
+        ],
+        [
+          "' incorporates'",
+          0.518
+        ],
+        [
+          "' lows'",
+          0.513
+        ],
+        [
+          "' limits'",
+          0.505
+        ]
+      ],
+      "trigger_class_top": [
+        [
+          "capital",
+          106
+        ],
+        [
+          "word",
+          54
+        ],
+        [
+          "subword",
+          34
+        ],
+        [
+          "digit",
+          6
+        ]
+      ],
+      "trigger_class_purity": 0.1132,
+      "copy_src_dlogit": -0.695,
+      "copy_src_z": -9.23,
+      "copy_src_purity": 0.1154,
+      "verify_pushclass_firing": 3410.354,
+      "verify_pushclass_firing_SE": 539.665,
+      "verify_pushclass_firing_z": 6.32,
+      "verify_pushclass_control": 144.135,
+      "verify_specificity": 3266.219,
+      "verify_specificity_SE": 541.595,
+      "verify_specificity_z": 6.03,
+      "causal_clear_z3": false,
+      "classification": "irreducibly-diffuse",
+      "newly_nameable": false
+    },
+    {
+      "comp": "h.L0.8",
+      "kind": "head",
+      "li": 0,
+      "idx": 8,
+      "cleanliness": 0.0157,
+      "trigger_dCE": 0.10551,
+      "trigger_dCE_SE": 0.02893,
+      "trigger_dCE_z": 3.65,
+      "census_trigger_dCE": 0.10551,
+      "global_dCE": 0.005253,
+      "census_global_dCE": 0.005253,
+      "trigger_frac_positive": 0.62,
+      "pushed_class": "capital",
+      "pushed_class_movement": 490.912,
+      "pushed_class_sign": "+",
+      "class_concentration": 0.3738,
+      "class_summed_top8": {
+        "capital": 490.912,
+        "word": -404.481,
+        "subword": -321.534,
+        "digit": -39.84,
+        "punct": 23.544,
+        "other": 20.937,
+        "special": 6.625,
+        "pronoun": -1.652
+      },
+      "output_entropy_nats": 9.849,
+      "output_entropy_norm": 0.9098,
+      "output_top_token_share": 0.0002,
+      "top_boost": [
+        [
+          "'successfully'",
+          0.255
+        ],
+        [
+          "' technically'",
+          0.249
+        ],
+        [
+          "' financially'",
+          0.237
+        ],
+        [
+          "'\u2550'",
+          0.229
+        ],
+        [
+          "'trigger'",
+          0.223
+        ],
+        [
+          "'jriwal'",
+          0.223
+        ]
+      ],
+      "trigger_class_top": [
+        [
+          "word",
+          178
+        ],
+        [
+          "pronoun",
+          6
+        ],
+        [
+          "punct",
+          6
+        ],
+        [
+          "coordinator",
+          5
+        ],
+        [
+          "determiner",
+          2
+        ]
+      ],
+      "trigger_class_purity": 0.178,
+      "copy_src_dlogit": 0.0882,
+      "copy_src_z": 2.14,
+      "copy_src_purity": 0.2455,
+      "verify_pushclass_firing": 490.912,
+      "verify_pushclass_firing_SE": 165.346,
+      "verify_pushclass_firing_z": 2.97,
+      "verify_pushclass_control": 43.182,
+      "verify_specificity": 447.729,
+      "verify_specificity_SE": 168.237,
+      "verify_specificity_z": 2.66,
+      "causal_clear_z3": true,
+      "classification": "positional-or-diffuse",
+      "newly_nameable": false
+    },
+    {
+      "comp": "h.L2.0",
+      "kind": "head",
+      "li": 2,
+      "idx": 0,
+      "cleanliness": 0.0448,
+      "trigger_dCE": 0.07678,
+      "trigger_dCE_SE": 0.03698,
+      "trigger_dCE_z": 2.08,
+      "census_trigger_dCE": 0.07678,
+      "global_dCE": 0.003115,
+      "census_global_dCE": 0.003115,
+      "trigger_frac_positive": 0.6,
+      "pushed_class": "subword",
+      "pushed_class_movement": 54.853,
+      "pushed_class_sign": "+",
+      "class_concentration": 0.5126,
+      "class_summed_top8": {
+        "subword": 54.853,
+        "word": -23.195,
+        "punct": 8.519,
+        "capital": 7.212,
+        "other": 4.269,
+        "digit": 4.236,
+        "special": 2.134,
+        "determiner": -1.026
+      },
+      "output_entropy_nats": 9.941,
+      "output_entropy_norm": 0.9182,
+      "output_top_token_share": 0.0002,
+      "top_boost": [
+        [
+          "'\")'",
+          0.063
+        ],
+        [
+          "\"')\"",
+          0.063
+        ],
+        [
+          "\",'\"",
+          0.062
+        ],
+        [
+          "\"',\"",
+          0.062
+        ],
+        [
+          "\"'.\"",
+          0.061
+        ],
+        [
+          "'\ufffd'",
+          0.06
+        ]
+      ],
+      "trigger_class_top": [
+        [
+          "punct",
+          65
+        ],
+        [
+          "word",
+          45
+        ],
+        [
+          "capital",
+          25
+        ],
+        [
+          "pronoun",
+          17
+        ],
+        [
+          "determiner",
+          14
+        ]
+      ],
+      "trigger_class_purity": 0.2378,
+      "copy_src_dlogit": 0.019,
+      "copy_src_z": 1.3,
+      "copy_src_purity": 0.5103,
+      "verify_pushclass_firing": 54.853,
+      "verify_pushclass_firing_SE": 43.403,
+      "verify_pushclass_firing_z": 1.26,
+      "verify_pushclass_control": -17.469,
+      "verify_specificity": 72.322,
+      "verify_specificity_SE": 46.079,
+      "verify_specificity_z": 1.57,
+      "causal_clear_z3": false,
+      "classification": "irreducibly-diffuse",
+      "newly_nameable": false
+    },
+    {
+      "comp": "h.L4.1",
+      "kind": "head",
+      "li": 4,
+      "idx": 1,
+      "cleanliness": 0.028,
+      "trigger_dCE": 0.07302,
+      "trigger_dCE_SE": 0.02243,
+      "trigger_dCE_z": 3.25,
+      "census_trigger_dCE": 0.07302,
+      "global_dCE": 0.014049,
+      "census_global_dCE": 0.014049,
+      "trigger_frac_positive": 0.595,
+      "pushed_class": "capital",
+      "pushed_class_movement": -304.103,
+      "pushed_class_sign": "-",
+      "class_concentration": 0.4005,
+      "class_summed_top8": {
+        "capital": -304.103,
+        "word": -282.032,
+        "subword": 135.067,
+        "digit": -22.171,
+        "other": 7.091,
+        "punct": 3.702,
+        "pronoun": -2.064,
+        "determiner": -1.235
+      },
+      "output_entropy_nats": 9.639,
+      "output_entropy_norm": 0.8904,
+      "output_top_token_share": 0.0003,
+      "top_boost": [
+        [
+          "'highly'",
+          0.171
+        ],
+        [
+          "'hazard'",
+          0.164
+        ],
+        [
+          "'\u2014'",
+          0.141
+        ],
+        [
+          "'assert'",
+          0.139
+        ],
+        [
+          "' extraordinarily'",
+          0.138
+        ],
+        [
+          "'ominated'",
+          0.136
+        ]
+      ],
+      "trigger_class_top": [
+        [
+          "word",
+          90
+        ],
+        [
+          "determiner",
+          81
+        ],
+        [
+          "digit",
+          12
+        ],
+        [
+          "subword",
+          7
+        ],
+        [
+          "capital",
+          5
+        ]
+      ],
+      "trigger_class_purity": 0.3028,
+      "copy_src_dlogit": -0.0925,
+      "copy_src_z": -3.89,
+      "copy_src_purity": 0.3488,
+      "verify_pushclass_firing": -304.103,
+      "verify_pushclass_firing_SE": 107.316,
+      "verify_pushclass_firing_z": -2.83,
+      "verify_pushclass_control": 28.71,
+      "verify_specificity": -332.813,
+      "verify_specificity_SE": 110.979,
+      "verify_specificity_z": -3.0,
+      "causal_clear_z3": true,
+      "classification": "positional-or-diffuse",
+      "newly_nameable": false
+    },
+    {
+      "comp": "h.L6.5",
+      "kind": "head",
+      "li": 6,
+      "idx": 5,
+      "cleanliness": 0.0444,
+      "trigger_dCE": 0.07034,
+      "trigger_dCE_SE": 0.02417,
+      "trigger_dCE_z": 2.91,
+      "census_trigger_dCE": 0.07034,
+      "global_dCE": 0.002626,
+      "census_global_dCE": 0.002626,
+      "trigger_frac_positive": 0.67,
+      "pushed_class": "subword",
+      "pushed_class_movement": 1398.059,
+      "pushed_class_sign": "+",
+      "class_concentration": 0.4321,
+      "class_summed_top8": {
+        "subword": 1398.059,
+        "word": 1319.741,
+        "capital": 236.77,
+        "punct": 77.742,
+        "digit": 77.484,
+        "other": 62.702,
+        "special": 43.731,
+        "pronoun": 4.685
+      },
+      "output_entropy_nats": 10.427,
+      "output_entropy_norm": 0.9632,
+      "output_top_token_share": 0.0001,
+      "top_boost": [
+        [
+          "'maxwell'",
+          0.314
+        ],
+        [
+          "'\ufffd'",
+          0.307
+        ],
+        [
+          "'\ufffd\ufffd'",
+          0.303
+        ],
+        [
+          "'groupon'",
+          0.297
+        ],
+        [
+          "' 4090'",
+          0.295
+        ],
+        [
+          "'\ufffd'",
+          0.292
+        ]
+      ],
+      "trigger_class_top": [
+        [
+          "punct",
+          52
+        ],
+        [
+          "capital",
+          45
+        ],
+        [
+          "subword",
+          37
+        ],
+        [
+          "word",
+          27
+        ],
+        [
+          "newline",
+          20
+        ]
+      ],
+      "trigger_class_purity": 0.1741,
+      "copy_src_dlogit": 0.525,
+      "copy_src_z": 13.58,
+      "copy_src_purity": 0.2811,
+      "verify_pushclass_firing": 1398.059,
+      "verify_pushclass_firing_SE": 168.146,
+      "verify_pushclass_firing_z": 8.31,
+      "verify_pushclass_control": 17.614,
+      "verify_specificity": 1380.444,
+      "verify_specificity_SE": 168.166,
+      "verify_specificity_z": 8.21,
+      "causal_clear_z3": false,
+      "classification": "irreducibly-diffuse",
+      "newly_nameable": false
+    },
+    {
+      "comp": "h.L8.1",
+      "kind": "head",
+      "li": 8,
+      "idx": 1,
+      "cleanliness": 0.0289,
+      "trigger_dCE": 0.0694,
+      "trigger_dCE_SE": 0.02818,
+      "trigger_dCE_z": 2.46,
+      "census_trigger_dCE": 0.0694,
+      "global_dCE": 0.005591,
+      "census_global_dCE": 0.005591,
+      "trigger_frac_positive": 0.535,
+      "pushed_class": "word",
+      "pushed_class_movement": -837.71,
+      "pushed_class_sign": "-",
+      "class_concentration": 0.5377,
+      "class_summed_top8": {
+        "word": -837.71,
+        "capital": -341.756,
+        "subword": -301.593,
+        "digit": -31.963,
+        "other": -17.687,
+        "punct": -15.406,
+        "special": -9.327,
+        "determiner": -0.787
+      },
+      "output_entropy_nats": 9.167,
+      "output_entropy_norm": 0.8468,
+      "output_top_token_share": 0.0005,
+      "top_boost": [
+        [
+          "'&'",
+          0.189
+        ],
+        [
+          "'\\n'",
+          0.181
+        ],
+        [
+          "' int'",
+          0.173
+        ],
+        [
+          "' she'",
+          0.169
+        ],
+        [
+          "' ...'",
+          0.167
+        ],
+        [
+          "' [\u2026]'",
+          0.165
+        ]
+      ],
+      "trigger_class_top": [
+        [
+          "word",
+          77
+        ],
+        [
+          "punct",
+          28
+        ],
+        [
+          "subword",
+          27
+        ],
+        [
+          "pronoun",
+          19
+        ],
+        [
+          "capital",
+          18
+        ]
+      ],
+      "trigger_class_purity": 0.1271,
+      "copy_src_dlogit": 0.2196,
+      "copy_src_z": 5.48,
+      "copy_src_purity": 0.0777,
+      "verify_pushclass_firing": -837.71,
+      "verify_pushclass_firing_SE": 171.445,
+      "verify_pushclass_firing_z": -4.89,
+      "verify_pushclass_control": -121.052,
+      "verify_specificity": -716.658,
+      "verify_specificity_SE": 172.947,
+      "verify_specificity_z": -4.14,
+      "causal_clear_z3": false,
+      "classification": "irreducibly-diffuse",
+      "newly_nameable": false
+    },
+    {
+      "comp": "h.L7.8",
+      "kind": "head",
+      "li": 7,
+      "idx": 8,
+      "cleanliness": 0.0242,
+      "trigger_dCE": 0.06721,
+      "trigger_dCE_SE": 0.02078,
+      "trigger_dCE_z": 3.24,
+      "census_trigger_dCE": 0.06721,
+      "global_dCE": 0.019393,
+      "census_global_dCE": 0.019393,
+      "trigger_frac_positive": 0.585,
+      "pushed_class": "subword",
+      "pushed_class_movement": 567.596,
+      "pushed_class_sign": "+",
+      "class_concentration": 0.5328,
+      "class_summed_top8": {
+        "subword": 567.596,
+        "word": -306.345,
+        "capital": -140.407,
+        "other": 24.185,
+        "special": 12.505,
+        "punct": 6.288,
+        "bracket_open": 2.145,
+        "pronoun": -1.435
+      },
+      "output_entropy_nats": 9.895,
+      "output_entropy_norm": 0.914,
+      "output_top_token_share": 0.0002,
+      "top_boost": [
+        [
+          "' ('",
+          0.271
+        ],
+        [
+          "'iated'",
+          0.268
+        ],
+        [
+          "'ful'",
+          0.258
+        ],
+        [
+          "'puting'",
+          0.252
+        ],
+        [
+          "' [\u2026]'",
+          0.249
+        ],
+        [
+          "' medically'",
+          0.247
+        ]
+      ],
+      "trigger_class_top": [
+        [
+          "word",
+          133
+        ],
+        [
+          "subword",
+          37
+        ],
+        [
+          "capital",
+          12
+        ],
+        [
+          "determiner",
+          9
+        ],
+        [
+          "digit",
+          5
+        ]
+      ],
+      "trigger_class_purity": 0.0412,
+      "copy_src_dlogit": -0.0475,
+      "copy_src_z": -1.52,
+      "copy_src_purity": 0.227,
+      "verify_pushclass_firing": 567.596,
+      "verify_pushclass_firing_SE": 90.084,
+      "verify_pushclass_firing_z": 6.3,
+      "verify_pushclass_control": -34.253,
+      "verify_specificity": 601.849,
+      "verify_specificity_SE": 93.544,
+      "verify_specificity_z": 6.43,
+      "causal_clear_z3": true,
+      "classification": "class-pusher:subword",
+      "newly_nameable": true
+    },
+    {
+      "comp": "h.L5.8",
+      "kind": "head",
+      "li": 5,
+      "idx": 8,
+      "cleanliness": 0.0131,
+      "trigger_dCE": 0.0623,
+      "trigger_dCE_SE": 0.02418,
+      "trigger_dCE_z": 2.58,
+      "census_trigger_dCE": 0.0623,
+      "global_dCE": 0.009549,
+      "census_global_dCE": 0.009549,
+      "trigger_frac_positive": 0.585,
+      "pushed_class": "subword",
+      "pushed_class_movement": 392.493,
+      "pushed_class_sign": "+",
+      "class_concentration": 0.5222,
+      "class_summed_top8": {
+        "subword": 392.493,
+        "capital": -278.813,
+        "other": 23.482,
+        "punct": 17.358,
+        "word": 14.458,
+        "special": 12.632,
+        "pronoun": -3.817,
+        "digit": -2.822
+      },
+      "output_entropy_nats": 9.888,
+      "output_entropy_norm": 0.9134,
+      "output_top_token_share": 0.0002,
+      "top_boost": [
+        [
+          "' ('",
+          0.214
+        ],
+        [
+          "' imp'",
+          0.201
+        ],
+        [
+          "'\u2014'",
+          0.2
+        ],
+        [
+          "'\ufffd'",
+          0.197
+        ],
+        [
+          "'maxwell'",
+          0.195
+        ],
+        [
+          "' prof'",
+          0.193
+        ]
+      ],
+      "trigger_class_top": [
+        [
+          "word",
+          105
+        ],
+        [
+          "pronoun",
+          50
+        ],
+        [
+          "subword",
+          14
+        ],
+        [
+          "determiner",
+          13
+        ],
+        [
+          "capital",
+          12
+        ]
+      ],
+      "trigger_class_purity": 0.1589,
+      "copy_src_dlogit": -0.1396,
+      "copy_src_z": -3.71,
+      "copy_src_purity": 0.2312,
+      "verify_pushclass_firing": 392.493,
+      "verify_pushclass_firing_SE": 101.569,
+      "verify_pushclass_firing_z": 3.86,
+      "verify_pushclass_control": 50.395,
+      "verify_specificity": 342.098,
+      "verify_specificity_SE": 105.347,
+      "verify_specificity_z": 3.25,
+      "causal_clear_z3": false,
+      "classification": "irreducibly-diffuse",
+      "newly_nameable": false
+    },
+    {
+      "comp": "h.L1.4",
+      "kind": "head",
+      "li": 1,
+      "idx": 4,
+      "cleanliness": 0.0062,
+      "trigger_dCE": 0.05896,
+      "trigger_dCE_SE": 0.02184,
+      "trigger_dCE_z": 2.7,
+      "census_trigger_dCE": 0.05896,
+      "global_dCE": 0.010852,
+      "census_global_dCE": 0.010852,
+      "trigger_frac_positive": 0.555,
+      "pushed_class": "word",
+      "pushed_class_movement": 1070.147,
+      "pushed_class_sign": "+",
+      "class_concentration": 0.441,
+      "class_summed_top8": {
+        "word": 1070.147,
+        "capital": 792.133,
+        "subword": 405.479,
+        "digit": 82.866,
+        "punct": 27.629,
+        "other": 23.898,
+        "special": 13.612,
+        "determiner": 3.652
+      },
+      "output_entropy_nats": 10.413,
+      "output_entropy_norm": 0.9618,
+      "output_top_token_share": 0.0001,
+      "top_boost": [
+        [
+          "'adows'",
+          0.256
+        ],
+        [
+          "'Revolution'",
+          0.254
+        ],
+        [
+          "'mology'",
+          0.253
+        ],
+        [
+          "'Hispanic'",
+          0.253
+        ],
+        [
+          "'MAX'",
+          0.251
+        ],
+        [
+          "' recognized'",
+          0.249
+        ]
+      ],
+      "trigger_class_top": [
+        [
+          "capital",
+          104
+        ],
+        [
+          "word",
+          88
+        ],
+        [
+          "subword",
+          5
+        ],
+        [
+          "digit",
+          3
+        ]
+      ],
+      "trigger_class_purity": 0.0767,
+      "copy_src_dlogit": -0.1832,
+      "copy_src_z": -3.89,
+      "copy_src_purity": 0.0789,
+      "verify_pushclass_firing": 1070.147,
+      "verify_pushclass_firing_SE": 313.756,
+      "verify_pushclass_firing_z": 3.41,
+      "verify_pushclass_control": 81.896,
+      "verify_specificity": 988.251,
+      "verify_specificity_SE": 322.271,
+      "verify_specificity_z": 3.07,
+      "causal_clear_z3": false,
+      "classification": "irreducibly-diffuse",
+      "newly_nameable": false
+    },
+    {
+      "comp": "h.L0.5",
+      "kind": "head",
+      "li": 0,
+      "idx": 5,
+      "cleanliness": 0.0689,
+      "trigger_dCE": 0.05848,
+      "trigger_dCE_SE": 0.02299,
+      "trigger_dCE_z": 2.54,
+      "census_trigger_dCE": 0.05848,
+      "global_dCE": 0.001603,
+      "census_global_dCE": 0.001603,
+      "trigger_frac_positive": 0.525,
+      "pushed_class": "capital",
+      "pushed_class_movement": 39.426,
+      "pushed_class_sign": "+",
+      "class_concentration": 0.385,
+      "class_summed_top8": {
+        "capital": 39.426,
+        "word": 26.069,
+        "subword": 23.456,
+        "digit": 7.922,
+        "other": -1.971,
+        "punct": -1.133,
+        "pronoun": 0.768,
+        "special": -0.605
+      },
+      "output_entropy_nats": 9.939,
+      "output_entropy_norm": 0.918,
+      "output_top_token_share": 0.0002,
+      "top_boost": [
+        [
+          "' to'",
+          0.075
+        ],
+        [
+          "'.'",
+          0.072
+        ],
+        [
+          "','",
+          0.068
+        ],
+        [
+          "' faced'",
+          0.068
+        ],
+        [
+          "' Monday'",
+          0.068
+        ],
+        [
+          "' Tuesday'",
+          0.067
+        ]
+      ],
+      "trigger_class_top": [
+        [
+          "punct",
+          126
+        ],
+        [
+          "newline",
+          57
+        ],
+        [
+          "coordinator",
+          12
+        ],
+        [
+          "bracket_close",
+          3
+        ],
+        [
+          "bracket_open",
+          2
+        ]
+      ],
+      "trigger_class_purity": 0.7222,
+      "copy_src_dlogit": 0.0556,
+      "copy_src_z": 1.63,
+      "copy_src_purity": 0.5332,
+      "verify_pushclass_firing": 39.426,
+      "verify_pushclass_firing_SE": 68.189,
+      "verify_pushclass_firing_z": 0.58,
+      "verify_pushclass_control": 7.473,
+      "verify_specificity": 31.953,
+      "verify_specificity_SE": 68.41,
+      "verify_specificity_z": 0.47,
+      "causal_clear_z3": false,
+      "classification": "irreducibly-diffuse",
+      "newly_nameable": false
+    },
+    {
+      "comp": "h.L11.5",
+      "kind": "head",
+      "li": 11,
+      "idx": 5,
+      "cleanliness": 0.049,
+      "trigger_dCE": 0.05645,
+      "trigger_dCE_SE": 0.03792,
+      "trigger_dCE_z": 1.49,
+      "census_trigger_dCE": 0.05645,
+      "global_dCE": 0.00218,
+      "census_global_dCE": 0.00218,
+      "trigger_frac_positive": 0.515,
+      "pushed_class": "subword",
+      "pushed_class_movement": 1289.817,
+      "pushed_class_sign": "+",
+      "class_concentration": 0.5588,
+      "class_summed_top8": {
+        "subword": 1289.817,
+        "capital": 533.735,
+        "word": -253.923,
+        "digit": 133.171,
+        "other": 47.147,
+        "special": 38.958,
+        "punct": -5.091,
+        "bracket_close": 1.648
+      },
+      "output_entropy_nats": 10.111,
+      "output_entropy_norm": 0.934,
+      "output_top_token_share": 0.0002,
+      "top_boost": [
+        [
+          "\",''\"",
+          0.424
+        ],
+        [
+          "'\",\"'",
+          0.401
+        ],
+        [
+          "'ef'",
+          0.399
+        ],
+        [
+          "'wp'",
+          0.36
+        ],
+        [
+          "'/,'",
+          0.357
+        ],
+        [
+          "'nz'",
+          0.355
+        ]
+      ],
+      "trigger_class_top": [
+        [
+          "subword",
+          49
+        ],
+        [
+          "word",
+          47
+        ],
+        [
+          "capital",
+          38
+        ],
+        [
+          "punct",
+          28
+        ],
+        [
+          "digit",
+          16
+        ]
+      ],
+      "trigger_class_purity": 0.0982,
+      "copy_src_dlogit": 0.0508,
+      "copy_src_z": 1.01,
+      "copy_src_purity": 0.2778,
+      "verify_pushclass_firing": 1289.817,
+      "verify_pushclass_firing_SE": 298.778,
+      "verify_pushclass_firing_z": 4.32,
+      "verify_pushclass_control": 54.833,
+      "verify_specificity": 1234.983,
+      "verify_specificity_SE": 299.138,
+      "verify_specificity_z": 4.13,
+      "causal_clear_z3": false,
+      "classification": "irreducibly-diffuse",
+      "newly_nameable": false
+    },
+    {
+      "comp": "h.L0.6",
+      "kind": "head",
+      "li": 0,
+      "idx": 6,
+      "cleanliness": 0.0422,
+      "trigger_dCE": 0.05358,
+      "trigger_dCE_SE": 0.03681,
+      "trigger_dCE_z": 1.46,
+      "census_trigger_dCE": 0.05358,
+      "global_dCE": 0.005503,
+      "census_global_dCE": 0.005503,
+      "trigger_frac_positive": 0.575,
+      "pushed_class": "word",
+      "pushed_class_movement": 1600.519,
+      "pushed_class_sign": "+",
+      "class_concentration": 0.5761,
+      "class_summed_top8": {
+        "word": 1600.519,
+        "capital": 941.031,
+        "digit": 81.065,
+        "subword": 69.432,
+        "other": 30.79,
+        "punct": 27.374,
+        "special": 19.582,
+        "pronoun": -3.7
+      },
+      "output_entropy_nats": 10.463,
+      "output_entropy_norm": 0.9665,
+      "output_top_token_share": 0.0001,
+      "top_boost": [
+        [
+          "' suburb'",
+          0.258
+        ],
+        [
+          "' weaving'",
+          0.249
+        ],
+        [
+          "' historic'",
+          0.242
+        ],
+        [
+          "' farmland'",
+          0.241
+        ],
+        [
+          "' courtroom'",
+          0.239
+        ],
+        [
+          "' breweries'",
+          0.239
+        ]
+      ],
+      "trigger_class_top": [
+        [
+          "punct",
+          95
+        ],
+        [
+          "digit",
+          38
+        ],
+        [
+          "capital",
+          37
+        ],
+        [
+          "quote",
+          10
+        ],
+        [
+          "subword",
+          5
+        ]
+      ],
+      "trigger_class_purity": 0.4748,
+      "copy_src_dlogit": 0.0393,
+      "copy_src_z": 0.93,
+      "copy_src_purity": 0.2526,
+      "verify_pushclass_firing": 1600.519,
+      "verify_pushclass_firing_SE": 291.119,
+      "verify_pushclass_firing_z": 5.5,
+      "verify_pushclass_control": 30.04,
+      "verify_specificity": 1570.48,
+      "verify_specificity_SE": 292.691,
+      "verify_specificity_z": 5.37,
+      "causal_clear_z3": false,
+      "classification": "irreducibly-diffuse",
+      "newly_nameable": false
+    },
+    {
+      "comp": "h.L4.4",
+      "kind": "head",
+      "li": 4,
+      "idx": 4,
+      "cleanliness": 0.0195,
+      "trigger_dCE": 0.05016,
+      "trigger_dCE_SE": 0.03051,
+      "trigger_dCE_z": 1.64,
+      "census_trigger_dCE": 0.05016,
+      "global_dCE": 0.002106,
+      "census_global_dCE": 0.002106,
+      "trigger_frac_positive": 0.555,
+      "pushed_class": "word",
+      "pushed_class_movement": 871.85,
+      "pushed_class_sign": "+",
+      "class_concentration": 0.5496,
+      "class_summed_top8": {
+        "word": 871.85,
+        "subword": 426.127,
+        "capital": -176.144,
+        "punct": 63.367,
+        "other": 19.767,
+        "special": 9.689,
+        "digit": 9.024,
+        "bracket_open": 2.208
+      },
+      "output_entropy_nats": 10.125,
+      "output_entropy_norm": 0.9353,
+      "output_top_token_share": 0.0002,
+      "top_boost": [
+        [
+          "' --'",
+          0.287
+        ],
+        [
+          "'--'",
+          0.282
+        ],
+        [
+          "' (\"'",
+          0.278
+        ],
+        [
+          "' regarding'",
+          0.277
+        ],
+        [
+          "'\u2014'",
+          0.27
+        ],
+        [
+          "' vis'",
+          0.264
+        ]
+      ],
+      "trigger_class_top": [
+        [
+          "word",
+          124
+        ],
+        [
+          "punct",
+          22
+        ],
+        [
+          "newline",
+          20
+        ],
+        [
+          "pronoun",
+          9
+        ],
+        [
+          "subword",
+          7
+        ]
+      ],
+      "trigger_class_purity": 0.2074,
+      "copy_src_dlogit": -0.0413,
+      "copy_src_z": -0.98,
+      "copy_src_purity": 0.3219,
+      "verify_pushclass_firing": 871.85,
+      "verify_pushclass_firing_SE": 244.681,
+      "verify_pushclass_firing_z": 3.56,
+      "verify_pushclass_control": -12.596,
+      "verify_specificity": 884.446,
+      "verify_specificity_SE": 245.423,
+      "verify_specificity_z": 3.6,
+      "causal_clear_z3": false,
+      "classification": "irreducibly-diffuse",
+      "newly_nameable": false
+    },
+    {
+      "comp": "h.L8.8",
+      "kind": "head",
+      "li": 8,
+      "idx": 8,
+      "cleanliness": 0.0093,
+      "trigger_dCE": 0.05006,
+      "trigger_dCE_SE": 0.02279,
+      "trigger_dCE_z": 2.2,
+      "census_trigger_dCE": 0.05006,
+      "global_dCE": 0.003479,
+      "census_global_dCE": 0.003479,
+      "trigger_frac_positive": 0.6,
+      "pushed_class": "word",
+      "pushed_class_movement": 630.205,
+      "pushed_class_sign": "+",
+      "class_concentration": 0.6688,
+      "class_summed_top8": {
+        "word": 630.205,
+        "capital": 118.155,
+        "subword": 110.998,
+        "digit": 46.432,
+        "other": 12.958,
+        "special": 9.482,
+        "punct": 9.28,
+        "pronoun": 1.757
+      },
+      "output_entropy_nats": 10.107,
+      "output_entropy_norm": 0.9336,
+      "output_top_token_share": 0.0002,
+      "top_boost": [
+        [
+          "\"'s\"",
+          0.269
+        ],
+        [
+          "' hereby'",
+          0.267
+        ],
+        [
+          "' sensors'",
+          0.258
+        ],
+        [
+          "' sensor'",
+          0.257
+        ],
+        [
+          "' animals'",
+          0.249
+        ],
+        [
+          "' rad'",
+          0.243
+        ]
+      ],
+      "trigger_class_top": [
+        [
+          "word",
+          119
+        ],
+        [
+          "punct",
+          21
+        ],
+        [
+          "other",
+          14
+        ],
+        [
+          "subword",
+          12
+        ],
+        [
+          "digit",
+          9
+        ]
+      ],
+      "trigger_class_purity": 0.1786,
+      "copy_src_dlogit": -0.7135,
+      "copy_src_z": -15.76,
+      "copy_src_purity": 0.0947,
+      "verify_pushclass_firing": 630.205,
+      "verify_pushclass_firing_SE": 161.414,
+      "verify_pushclass_firing_z": 3.9,
+      "verify_pushclass_control": -9.62,
+      "verify_specificity": 639.825,
+      "verify_specificity_SE": 161.909,
+      "verify_specificity_z": 3.95,
+      "causal_clear_z3": false,
+      "classification": "irreducibly-diffuse",
+      "newly_nameable": false
+    },
+    {
+      "comp": "h.L13.4",
+      "kind": "head",
+      "li": 13,
+      "idx": 4,
+      "cleanliness": 0.0282,
+      "trigger_dCE": 0.04905,
+      "trigger_dCE_SE": 0.01576,
+      "trigger_dCE_z": 3.11,
+      "census_trigger_dCE": 0.04905,
+      "global_dCE": 0.000552,
+      "census_global_dCE": 0.000552,
+      "trigger_frac_positive": 0.55,
+      "pushed_class": "subword",
+      "pushed_class_movement": 179.774,
+      "pushed_class_sign": "+",
+      "class_concentration": 0.4924,
+      "class_summed_top8": {
+        "subword": 179.774,
+        "word": -56.786,
+        "capital": 53.068,
+        "digit": 28.558,
+        "punct": 23.162,
+        "other": 5.682,
+        "pronoun": 4.902,
+        "determiner": 4.654
+      },
+      "output_entropy_nats": 9.899,
+      "output_entropy_norm": 0.9144,
+      "output_top_token_share": 0.0002,
+      "top_boost": [
+        [
+          "'ot'",
+          0.355
+        ],
+        [
+          "'ball'",
+          0.339
+        ],
+        [
+          "'ory'",
+          0.334
+        ],
+        [
+          "'we'",
+          0.332
+        ],
+        [
+          "'pl'",
+          0.311
+        ],
+        [
+          "' ng'",
+          0.306
+        ]
+      ],
+      "trigger_class_top": [
+        [
+          "punct",
+          63
+        ],
+        [
+          "word",
+          60
+        ],
+        [
+          "coordinator",
+          53
+        ],
+        [
+          "subword",
+          9
+        ],
+        [
+          "capital",
+          7
+        ]
+      ],
+      "trigger_class_purity": 0.3694,
+      "copy_src_dlogit": -0.0228,
+      "copy_src_z": -0.69,
+      "copy_src_purity": 0.1523,
+      "verify_pushclass_firing": 179.774,
+      "verify_pushclass_firing_SE": 52.3,
+      "verify_pushclass_firing_z": 3.44,
+      "verify_pushclass_control": -2.392,
+      "verify_specificity": 182.165,
+      "verify_specificity_SE": 52.317,
+      "verify_specificity_z": 3.48,
+      "causal_clear_z3": true,
+      "classification": "class-pusher:subword",
+      "newly_nameable": true
+    },
+    {
+      "comp": "h.L11.6",
+      "kind": "head",
+      "li": 11,
+      "idx": 6,
+      "cleanliness": 0.0106,
+      "trigger_dCE": 0.04543,
+      "trigger_dCE_SE": 0.02563,
+      "trigger_dCE_z": 1.77,
+      "census_trigger_dCE": 0.04543,
+      "global_dCE": 0.012821,
+      "census_global_dCE": 0.012821,
+      "trigger_frac_positive": 0.53,
+      "pushed_class": "word",
+      "pushed_class_movement": -2863.484,
+      "pushed_class_sign": "-",
+      "class_concentration": 0.5119,
+      "class_summed_top8": {
+        "word": -2863.484,
+        "capital": -1371.876,
+        "subword": -1064.423,
+        "punct": -82.15,
+        "other": -74.671,
+        "digit": -65.595,
+        "special": -51.956,
+        "determiner": 4.742
+      },
+      "output_entropy_nats": 8.877,
+      "output_entropy_norm": 0.82,
+      "output_top_token_share": 0.0005,
+      "top_boost": [
+        [
+          "'+'",
+          0.307
+        ],
+        [
+          "'Ts'",
+          0.302
+        ],
+        [
+          "'end'",
+          0.297
+        ],
+        [
+          "' decent'",
+          0.295
+        ],
+        [
+          "'Con'",
+          0.293
+        ],
+        [
+          "' Over'",
+          0.291
+        ]
+      ],
+      "trigger_class_top": [
+        [
+          "word",
+          118
+        ],
+        [
+          "determiner",
+          41
+        ],
+        [
+          "punct",
+          16
+        ],
+        [
+          "capital",
+          8
+        ],
+        [
+          "subword",
+          4
+        ]
+      ],
+      "trigger_class_purity": 0.1792,
+      "copy_src_dlogit": 0.056,
+      "copy_src_z": 2.39,
+      "copy_src_purity": 0.1849,
+      "verify_pushclass_firing": -2863.484,
+      "verify_pushclass_firing_SE": 167.046,
+      "verify_pushclass_firing_z": -17.14,
+      "verify_pushclass_control": -1282.257,
+      "verify_specificity": -1581.227,
+      "verify_specificity_SE": 197.368,
+      "verify_specificity_z": -8.01,
+      "causal_clear_z3": false,
+      "classification": "irreducibly-diffuse",
+      "newly_nameable": false
+    },
+    {
+      "comp": "h.L11.3",
+      "kind": "head",
+      "li": 11,
+      "idx": 3,
+      "cleanliness": 0.0088,
+      "trigger_dCE": 0.04406,
+      "trigger_dCE_SE": 0.02987,
+      "trigger_dCE_z": 1.47,
+      "census_trigger_dCE": 0.04406,
+      "global_dCE": 0.001872,
+      "census_global_dCE": 0.001872,
+      "trigger_frac_positive": 0.45,
+      "pushed_class": "subword",
+      "pushed_class_movement": 1251.998,
+      "pushed_class_sign": "+",
+      "class_concentration": 0.4748,
+      "class_summed_top8": {
+        "subword": 1251.998,
+        "word": 1034.799,
+        "capital": 185.788,
+        "other": 58.467,
+        "special": 43.568,
+        "punct": 28.115,
+        "digit": 17.728,
+        "determiner": -5.851
+      },
+      "output_entropy_nats": 10.202,
+      "output_entropy_norm": 0.9423,
+      "output_top_token_share": 0.0001,
+      "top_boost": [
+        [
+          "'really'",
+          0.459
+        ],
+        [
+          "'hips'",
+          0.455
+        ],
+        [
+          "'rily'",
+          0.454
+        ],
+        [
+          "'sten'",
+          0.447
+        ],
+        [
+          "'probably'",
+          0.445
+        ],
+        [
+          "' leng'",
+          0.445
+        ]
+      ],
+      "trigger_class_top": [
+        [
+          "word",
+          116
+        ],
+        [
+          "subword",
+          26
+        ],
+        [
+          "capital",
+          18
+        ],
+        [
+          "coordinator",
+          16
+        ],
+        [
+          "punct",
+          10
+        ]
+      ],
+      "trigger_class_purity": 0.0841,
+      "copy_src_dlogit": 0.021,
+      "copy_src_z": 0.72,
+      "copy_src_purity": 0.1814,
+      "verify_pushclass_firing": 1251.998,
+      "verify_pushclass_firing_SE": 86.743,
+      "verify_pushclass_firing_z": 14.43,
+      "verify_pushclass_control": 49.769,
+      "verify_specificity": 1202.229,
+      "verify_specificity_SE": 87.07,
+      "verify_specificity_z": 13.81,
+      "causal_clear_z3": false,
+      "classification": "irreducibly-diffuse",
+      "newly_nameable": false
+    },
+    {
+      "comp": "h.L5.6",
+      "kind": "head",
+      "li": 5,
+      "idx": 6,
+      "cleanliness": 0.0227,
+      "trigger_dCE": 0.04349,
+      "trigger_dCE_SE": 0.01535,
+      "trigger_dCE_z": 2.83,
+      "census_trigger_dCE": 0.04349,
+      "global_dCE": 0.010722,
+      "census_global_dCE": 0.010722,
+      "trigger_frac_positive": 0.615,
+      "pushed_class": "word",
+      "pushed_class_movement": -159.271,
+      "pushed_class_sign": "-",
+      "class_concentration": 0.561,
+      "class_summed_top8": {
+        "word": -159.271,
+        "subword": 80.363,
+        "digit": -10.907,
+        "capital": -9.698,
+        "punct": 8.633,
+        "special": 6.356,
+        "other": 5.387,
+        "pronoun": -1.855
+      },
+      "output_entropy_nats": 9.798,
+      "output_entropy_norm": 0.9051,
+      "output_top_token_share": 0.0002,
+      "top_boost": [
+        [
+          "' Georgia'",
+          0.155
+        ],
+        [
+          "','",
+          0.147
+        ],
+        [
+          "' \u2026'",
+          0.147
+        ],
+        [
+          "'ortunate'",
+          0.14
+        ],
+        [
+          "' along'",
+          0.138
+        ],
+        [
+          "'nels'",
+          0.137
+        ]
+      ],
+      "trigger_class_top": [
+        [
+          "punct",
+          101
+        ],
+        [
+          "word",
+          40
+        ],
+        [
+          "subword",
+          14
+        ],
+        [
+          "newline",
+          13
+        ],
+        [
+          "capital",
+          10
+        ]
+      ],
+      "trigger_class_purity": 0.382,
+      "copy_src_dlogit": -0.0504,
+      "copy_src_z": -1.99,
+      "copy_src_purity": 0.0675,
+      "verify_pushclass_firing": -159.271,
+      "verify_pushclass_firing_SE": 163.576,
+      "verify_pushclass_firing_z": -0.97,
+      "verify_pushclass_control": -386.248,
+      "verify_specificity": 226.978,
+      "verify_specificity_SE": 183.686,
+      "verify_specificity_z": 1.24,
+      "causal_clear_z3": false,
+      "classification": "irreducibly-diffuse",
+      "newly_nameable": false
+    },
+    {
+      "comp": "h.L1.3",
+      "kind": "head",
+      "li": 1,
+      "idx": 3,
+      "cleanliness": 0.0696,
+      "trigger_dCE": 0.04242,
+      "trigger_dCE_SE": 0.02505,
+      "trigger_dCE_z": 1.69,
+      "census_trigger_dCE": 0.04242,
+      "global_dCE": 0.009934,
+      "census_global_dCE": 0.009934,
+      "trigger_frac_positive": 0.55,
+      "pushed_class": "capital",
+      "pushed_class_movement": 520.679,
+      "pushed_class_sign": "+",
+      "class_concentration": 0.432,
+      "class_summed_top8": {
+        "capital": 520.679,
+        "word": 309.614,
+        "subword": 296.559,
+        "other": 27.356,
+        "punct": 20.39,
+        "digit": 13.798,
+        "special": 13.351,
+        "bracket_close": 0.763
+      },
+      "output_entropy_nats": 10.229,
+      "output_entropy_norm": 0.9449,
+      "output_top_token_share": 0.0001,
+      "top_boost": [
+        [
+          "' GamerGate'",
+          0.225
+        ],
+        [
+          "'Nazi'",
+          0.203
+        ],
+        [
+          "' Gamergate'",
+          0.202
+        ],
+        [
+          "'democracy'",
+          0.194
+        ],
+        [
+          "'affles'",
+          0.191
+        ],
+        [
+          "'thumbnails'",
+          0.189
+        ]
+      ],
+      "trigger_class_top": [
+        [
+          "word",
+          171
+        ],
+        [
+          "determiner",
+          15
+        ],
+        [
+          "subword",
+          9
+        ],
+        [
+          "punct",
+          4
+        ],
+        [
+          "digit",
+          1
+        ]
+      ],
+      "trigger_class_purity": 0.6738,
+      "copy_src_dlogit": 0.0233,
+      "copy_src_z": 0.76,
+      "copy_src_purity": 0.036,
+      "verify_pushclass_firing": 520.679,
+      "verify_pushclass_firing_SE": 127.077,
+      "verify_pushclass_firing_z": 4.1,
+      "verify_pushclass_control": -57.14,
+      "verify_specificity": 577.819,
+      "verify_specificity_SE": 139.571,
+      "verify_specificity_z": 4.14,
+      "causal_clear_z3": false,
+      "classification": "irreducibly-diffuse",
+      "newly_nameable": false
+    },
+    {
+      "comp": "h.L14.4",
+      "kind": "head",
+      "li": 14,
+      "idx": 4,
+      "cleanliness": 0.1069,
+      "trigger_dCE": 0.04163,
+      "trigger_dCE_SE": 0.03067,
+      "trigger_dCE_z": 1.36,
+      "census_trigger_dCE": 0.04163,
+      "global_dCE": 0.006008,
+      "census_global_dCE": 0.006008,
+      "trigger_frac_positive": 0.47,
+      "pushed_class": "word",
+      "pushed_class_movement": 1758.776,
+      "pushed_class_sign": "+",
+      "class_concentration": 0.5536,
+      "class_summed_top8": {
+        "word": 1758.776,
+        "capital": 637.603,
+        "subword": 502.144,
+        "digit": 163.405,
+        "punct": 56.509,
+        "pronoun": 12.547,
+        "determiner": 12.344,
+        "special": 12.031
+      },
+      "output_entropy_nats": 10.344,
+      "output_entropy_norm": 0.9555,
+      "output_top_token_share": 0.0001,
+      "top_boost": [
+        [
+          "' yourself'",
+          0.383
+        ],
+        [
+          "' entirely'",
+          0.38
+        ],
+        [
+          "' enough'",
+          0.359
+        ],
+        [
+          "'ly'",
+          0.359
+        ],
+        [
+          "' altogether'",
+          0.356
+        ],
+        [
+          "' rid'",
+          0.353
+        ]
+      ],
+      "trigger_class_top": [
+        [
+          "punct",
+          84
+        ],
+        [
+          "word",
+          46
+        ],
+        [
+          "newline",
+          30
+        ],
+        [
+          "determiner",
+          13
+        ],
+        [
+          "coordinator",
+          12
+        ]
+      ],
+      "trigger_class_purity": 0.4398,
+      "copy_src_dlogit": 0.7941,
+      "copy_src_z": 8.65,
+      "copy_src_purity": 0.1474,
+      "verify_pushclass_firing": 1758.776,
+      "verify_pushclass_firing_SE": 134.394,
+      "verify_pushclass_firing_z": 13.09,
+      "verify_pushclass_control": 1.262,
+      "verify_specificity": 1757.515,
+      "verify_specificity_SE": 134.428,
+      "verify_specificity_z": 13.07,
+      "causal_clear_z3": false,
+      "classification": "irreducibly-diffuse",
+      "newly_nameable": false
+    },
+    {
+      "comp": "h.L5.2",
+      "kind": "head",
+      "li": 5,
+      "idx": 2,
+      "cleanliness": 0.01,
+      "trigger_dCE": 0.03951,
+      "trigger_dCE_SE": 0.02183,
+      "trigger_dCE_z": 1.81,
+      "census_trigger_dCE": 0.03951,
+      "global_dCE": 0.003684,
+      "census_global_dCE": 0.003684,
+      "trigger_frac_positive": 0.525,
+      "pushed_class": "word",
+      "pushed_class_movement": 547.176,
+      "pushed_class_sign": "+",
+      "class_concentration": 0.666,
+      "class_summed_top8": {
+        "word": 547.176,
+        "subword": 133.539,
+        "capital": -100.687,
+        "digit": -17.251,
+        "punct": 10.576,
+        "other": 5.563,
+        "special": 2.859,
+        "determiner": 1.423
+      },
+      "output_entropy_nats": 10.181,
+      "output_entropy_norm": 0.9405,
+      "output_top_token_share": 0.0001,
+      "top_boost": [
+        [
+          "' her'",
+          0.116
+        ],
+        [
+          "' cro'",
+          0.115
+        ],
+        [
+          "' slow'",
+          0.111
+        ],
+        [
+          "' weed'",
+          0.111
+        ],
+        [
+          "' alike'",
+          0.11
+        ],
+        [
+          "'Courtesy'",
+          0.109
+        ]
+      ],
+      "trigger_class_top": [
+        [
+          "word",
+          94
+        ],
+        [
+          "capital",
+          32
+        ],
+        [
+          "subword",
+          20
+        ],
+        [
+          "punct",
+          19
+        ],
+        [
+          "determiner",
+          15
+        ]
+      ],
+      "trigger_class_purity": 0.133,
+      "copy_src_dlogit": -0.0624,
+      "copy_src_z": -2.72,
+      "copy_src_purity": 0.1202,
+      "verify_pushclass_firing": 547.176,
+      "verify_pushclass_firing_SE": 145.582,
+      "verify_pushclass_firing_z": 3.76,
+      "verify_pushclass_control": 88.979,
+      "verify_specificity": 458.197,
+      "verify_specificity_SE": 152.574,
+      "verify_specificity_z": 3.0,
+      "causal_clear_z3": false,
+      "classification": "irreducibly-diffuse",
+      "newly_nameable": false
+    },
+    {
+      "comp": "mlp.L0.d1",
+      "kind": "mlp",
+      "li": 0,
+      "idx": 1,
+      "cleanliness": 0.0961,
+      "trigger_dCE": 0.03937,
+      "trigger_dCE_SE": 0.01659,
+      "trigger_dCE_z": 2.37,
+      "census_trigger_dCE": 0.03937,
+      "global_dCE": 0.018548,
+      "census_global_dCE": 0.018548,
+      "trigger_frac_positive": 0.575,
+      "pushed_class": "word",
+      "pushed_class_movement": -350.542,
+      "pushed_class_sign": "-",
+      "class_concentration": 0.4942,
+      "class_summed_top8": {
+        "word": -350.542,
+        "capital": 173.284,
+        "subword": 126.035,
+        "digit": 29.27,
+        "other": 15.762,
+        "special": 8.75,
+        "pronoun": -2.558,
+        "determiner": -1.578
+      },
+      "output_entropy_nats": 9.911,
+      "output_entropy_norm": 0.9155,
+      "output_top_token_share": 0.0002,
+      "top_boost": [
+        [
+          "'gradient'",
+          0.125
+        ],
+        [
+          "'radical'",
+          0.114
+        ],
+        [
+          "'component'",
+          0.113
+        ],
+        [
+          "' sprawling'",
+          0.109
+        ],
+        [
+          "' Fnatic'",
+          0.108
+        ],
+        [
+          "'iculty'",
+          0.108
+        ]
+      ],
+      "trigger_class_top": [
+        [
+          "determiner",
+          200
+        ]
+      ],
+      "trigger_class_purity": 0.949,
+      "copy_src_dlogit": null,
+      "copy_src_z": null,
+      "copy_src_purity": null,
+      "verify_pushclass_firing": -350.542,
+      "verify_pushclass_firing_SE": 122.246,
+      "verify_pushclass_firing_z": -2.87,
+      "verify_pushclass_control": -20.014,
+      "verify_specificity": -330.528,
+      "verify_specificity_SE": 158.71,
+      "verify_specificity_z": -2.08,
+      "causal_clear_z3": false,
+      "classification": "irreducibly-diffuse",
+      "newly_nameable": false
+    },
+    {
+      "comp": "h.L11.0",
+      "kind": "head",
+      "li": 11,
+      "idx": 0,
+      "cleanliness": 0.0386,
+      "trigger_dCE": 0.03882,
+      "trigger_dCE_SE": 0.03058,
+      "trigger_dCE_z": 1.27,
+      "census_trigger_dCE": 0.03882,
+      "global_dCE": 0.001336,
+      "census_global_dCE": 0.001336,
+      "trigger_frac_positive": 0.595,
+      "pushed_class": "capital",
+      "pushed_class_movement": -1316.718,
+      "pushed_class_sign": "-",
+      "class_concentration": 0.6323,
+      "class_summed_top8": {
+        "capital": -1316.718,
+        "word": -577.391,
+        "punct": -57.497,
+        "subword": 53.06,
+        "special": -29.619,
+        "other": -27.029,
+        "digit": 7.195,
+        "determiner": -6.43
+      },
+      "output_entropy_nats": 9.655,
+      "output_entropy_norm": 0.8919,
+      "output_top_token_share": 0.0003,
+      "top_boost": [
+        [
+          "'thirst'",
+          0.83
+        ],
+        [
+          "'ene'",
+          0.801
+        ],
+        [
+          "' screens'",
+          0.795
+        ],
+        [
+          "' desperation'",
+          0.783
+        ],
+        [
+          "' midrange'",
+          0.777
+        ],
+        [
+          "'plus'",
+          0.773
+        ]
+      ],
+      "trigger_class_top": [
+        [
+          "word",
+          79
+        ],
+        [
+          "determiner",
+          52
+        ],
+        [
+          "newline",
+          20
+        ],
+        [
+          "digit",
+          13
+        ],
+        [
+          "capital",
+          8
+        ]
+      ],
+      "trigger_class_purity": 0.2953,
+      "copy_src_dlogit": 0.0403,
+      "copy_src_z": 1.23,
+      "copy_src_purity": 0.318,
+      "verify_pushclass_firing": -1316.718,
+      "verify_pushclass_firing_SE": 171.682,
+      "verify_pushclass_firing_z": -7.67,
+      "verify_pushclass_control": -47.253,
+      "verify_specificity": -1269.465,
+      "verify_specificity_SE": 172.021,
+      "verify_specificity_z": -7.38,
+      "causal_clear_z3": false,
+      "classification": "irreducibly-diffuse",
+      "newly_nameable": false
+    },
+    {
+      "comp": "h.L6.3",
+      "kind": "head",
+      "li": 6,
+      "idx": 3,
+      "cleanliness": 0.0285,
+      "trigger_dCE": 0.0378,
+      "trigger_dCE_SE": 0.02982,
+      "trigger_dCE_z": 1.27,
+      "census_trigger_dCE": 0.0378,
+      "global_dCE": 0.026236,
+      "census_global_dCE": 0.026236,
+      "trigger_frac_positive": 0.64,
+      "pushed_class": "capital",
+      "pushed_class_movement": -1102.918,
+      "pushed_class_sign": "-",
+      "class_concentration": 0.3763,
+      "class_summed_top8": {
+        "capital": -1102.918,
+        "word": -1068.115,
+        "subword": -516.432,
+        "digit": -145.732,
+        "other": -33.282,
+        "punct": -30.142,
+        "special": -21.864,
+        "determiner": -5.58
+      },
+      "output_entropy_nats": 9.089,
+      "output_entropy_norm": 0.8396,
+      "output_top_token_share": 0.0005,
+      "top_boost": [
+        [
+          "'REG'",
+          0.311
+        ],
+        [
+          "'ER'",
+          0.281
+        ],
+        [
+          "' technological'",
+          0.267
+        ],
+        [
+          "'ven'",
+          0.265
+        ],
+        [
+          "'eb'",
+          0.263
+        ],
+        [
+          "'arn'",
+          0.261
+        ]
+      ],
+      "trigger_class_top": [
+        [
+          "word",
+          102
+        ],
+        [
+          "punct",
+          37
+        ],
+        [
+          "determiner",
+          16
+        ],
+        [
+          "subword",
+          14
+        ],
+        [
+          "digit",
+          7
+        ]
+      ],
+      "trigger_class_purity": 0.1618,
+      "copy_src_dlogit": -0.092,
+      "copy_src_z": -1.32,
+      "copy_src_purity": 0.0904,
+      "verify_pushclass_firing": -1102.918,
+      "verify_pushclass_firing_SE": 274.041,
+      "verify_pushclass_firing_z": -4.02,
+      "verify_pushclass_control": -15.515,
+      "verify_specificity": -1087.403,
+      "verify_specificity_SE": 277.808,
+      "verify_specificity_z": -3.91,
+      "causal_clear_z3": false,
+      "classification": "irreducibly-diffuse",
+      "newly_nameable": false
+    },
+    {
+      "comp": "h.L2.1",
+      "kind": "head",
+      "li": 2,
+      "idx": 1,
+      "cleanliness": 0.064,
+      "trigger_dCE": 0.03436,
+      "trigger_dCE_SE": 0.00962,
+      "trigger_dCE_z": 3.57,
+      "census_trigger_dCE": 0.03436,
+      "global_dCE": 0.001478,
+      "census_global_dCE": 0.001478,
+      "trigger_frac_positive": 0.585,
+      "pushed_class": "word",
+      "pushed_class_movement": -172.286,
+      "pushed_class_sign": "-",
+      "class_concentration": 0.6328,
+      "class_summed_top8": {
+        "word": -172.286,
+        "digit": -45.961,
+        "subword": -24.31,
+        "capital": 18.703,
+        "punct": 6.517,
+        "other": 1.678,
+        "determiner": 1.11,
+        "bracket_close": 0.553
+      },
+      "output_entropy_nats": 9.727,
+      "output_entropy_norm": 0.8985,
+      "output_top_token_share": 0.0003,
+      "top_boost": [
+        [
+          "' maybe'",
+          0.121
+        ],
+        [
+          "'<|endoftext|>'",
+          0.1
+        ],
+        [
+          "' Maybe'",
+          0.099
+        ],
+        [
+          "' If'",
+          0.096
+        ],
+        [
+          "'........'",
+          0.096
+        ],
+        [
+          "' Reason'",
+          0.094
+        ]
+      ],
+      "trigger_class_top": [
+        [
+          "punct",
+          84
+        ],
+        [
+          "newline",
+          43
+        ],
+        [
+          "capital",
+          24
+        ],
+        [
+          "digit",
+          17
+        ],
+        [
+          "bracket_close",
+          11
+        ]
+      ],
+      "trigger_class_purity": 0.4181,
+      "copy_src_dlogit": -0.0203,
+      "copy_src_z": -0.67,
+      "copy_src_purity": 0.3987,
+      "verify_pushclass_firing": -172.286,
+      "verify_pushclass_firing_SE": 151.476,
+      "verify_pushclass_firing_z": -1.14,
+      "verify_pushclass_control": 12.067,
+      "verify_specificity": -184.353,
+      "verify_specificity_SE": 151.637,
+      "verify_specificity_z": -1.22,
+      "causal_clear_z3": true,
+      "classification": "positional-or-diffuse",
+      "newly_nameable": false
+    },
+    {
+      "comp": "h.L3.8",
+      "kind": "head",
+      "li": 3,
+      "idx": 8,
+      "cleanliness": 0.0312,
+      "trigger_dCE": 0.03342,
+      "trigger_dCE_SE": 0.01595,
+      "trigger_dCE_z": 2.1,
+      "census_trigger_dCE": 0.03342,
+      "global_dCE": 0.004827,
+      "census_global_dCE": 0.004827,
+      "trigger_frac_positive": 0.62,
+      "pushed_class": "word",
+      "pushed_class_movement": 894.08,
+      "pushed_class_sign": "+",
+      "class_concentration": 0.8469,
+      "class_summed_top8": {
+        "word": 894.08,
+        "subword": -94.313,
+        "digit": -23.861,
+        "capital": 14.526,
+        "other": 13.9,
+        "special": 4.785,
+        "pronoun": -4.114,
+        "punct": -2.297
+      },
+      "output_entropy_nats": 10.156,
+      "output_entropy_norm": 0.9382,
+      "output_top_token_share": 0.0001,
+      "top_boost": [
+        [
+          "' finally'",
+          0.212
+        ],
+        [
+          "' appreci'",
+          0.208
+        ],
+        [
+          "' again'",
+          0.206
+        ],
+        [
+          "' overlook'",
+          0.197
+        ],
+        [
+          "' defensively'",
+          0.194
+        ],
+        [
+          "' graft'",
+          0.192
+        ]
+      ],
+      "trigger_class_top": [
+        [
+          "capital",
+          70
+        ],
+        [
+          "punct",
+          40
+        ],
+        [
+          "word",
+          28
+        ],
+        [
+          "newline",
+          26
+        ],
+        [
+          "subword",
+          24
+        ]
+      ],
+      "trigger_class_purity": 0.2111,
+      "copy_src_dlogit": -0.4513,
+      "copy_src_z": -11.33,
+      "copy_src_purity": 0.2176,
+      "verify_pushclass_firing": 894.08,
+      "verify_pushclass_firing_SE": 269.567,
+      "verify_pushclass_firing_z": 3.32,
+      "verify_pushclass_control": 46.138,
+      "verify_specificity": 847.942,
+      "verify_specificity_SE": 271.696,
+      "verify_specificity_z": 3.12,
+      "causal_clear_z3": false,
+      "classification": "irreducibly-diffuse",
+      "newly_nameable": false
+    },
+    {
+      "comp": "h.L11.4",
+      "kind": "head",
+      "li": 11,
+      "idx": 4,
+      "cleanliness": 0.0421,
+      "trigger_dCE": 0.03271,
+      "trigger_dCE_SE": 0.02164,
+      "trigger_dCE_z": 1.51,
+      "census_trigger_dCE": 0.03271,
+      "global_dCE": 0.001577,
+      "census_global_dCE": 0.001577,
+      "trigger_frac_positive": 0.465,
+      "pushed_class": "capital",
+      "pushed_class_movement": 2013.2,
+      "pushed_class_sign": "+",
+      "class_concentration": 0.3775,
+      "class_summed_top8": {
+        "capital": 2013.2,
+        "word": 1616.097,
+        "subword": 1160.266,
+        "digit": 256.398,
+        "punct": 106.418,
+        "other": 86.362,
+        "special": 65.488,
+        "determiner": 8.385
+      },
+      "output_entropy_nats": 10.528,
+      "output_entropy_norm": 0.9725,
+      "output_top_token_share": 0.0001,
+      "top_boost": [
+        [
+          "' Above'",
+          0.452
+        ],
+        [
+          "' Mostly'",
+          0.449
+        ],
+        [
+          "' Unable'",
+          0.447
+        ],
+        [
+          "' Amen'",
+          0.432
+        ],
+        [
+          "' Wem'",
+          0.424
+        ],
+        [
+          "' Priebus'",
+          0.424
+        ]
+      ],
+      "trigger_class_top": [
+        [
+          "word",
+          85
+        ],
+        [
+          "punct",
+          72
+        ],
+        [
+          "determiner",
+          13
+        ],
+        [
+          "coordinator",
+          8
+        ],
+        [
+          "subword",
+          6
+        ]
+      ],
+      "trigger_class_purity": 0.3184,
+      "copy_src_dlogit": 0.1471,
+      "copy_src_z": 4.5,
+      "copy_src_purity": 0.5693,
+      "verify_pushclass_firing": 2013.2,
+      "verify_pushclass_firing_SE": 150.886,
+      "verify_pushclass_firing_z": 13.34,
+      "verify_pushclass_control": 134.49,
+      "verify_specificity": 1878.71,
+      "verify_specificity_SE": 152.222,
+      "verify_specificity_z": 12.34,
+      "causal_clear_z3": false,
+      "classification": "irreducibly-diffuse",
+      "newly_nameable": false
+    },
+    {
+      "comp": "h.L4.3",
+      "kind": "head",
+      "li": 4,
+      "idx": 3,
+      "cleanliness": 0.0153,
+      "trigger_dCE": 0.03215,
+      "trigger_dCE_SE": 0.01826,
+      "trigger_dCE_z": 1.76,
+      "census_trigger_dCE": 0.03215,
+      "global_dCE": 0.002558,
+      "census_global_dCE": 0.002558,
+      "trigger_frac_positive": 0.66,
+      "pushed_class": "word",
+      "pushed_class_movement": 752.61,
+      "pushed_class_sign": "+",
+      "class_concentration": 0.4461,
+      "class_summed_top8": {
+        "word": 752.61,
+        "capital": 420.108,
+        "subword": 384.612,
+        "digit": 70.366,
+        "punct": 27.268,
+        "special": 14.466,
+        "other": 11.654,
+        "pronoun": 2.412
+      },
+      "output_entropy_nats": 10.399,
+      "output_entropy_norm": 0.9606,
+      "output_top_token_share": 0.0001,
+      "top_boost": [
+        [
+          "'en'",
+          0.22
+        ],
+        [
+          "'ech'",
+          0.207
+        ],
+        [
+          "' alarm'",
+          0.204
+        ],
+        [
+          "'\ufffd'",
+          0.2
+        ],
+        [
+          "'ma'",
+          0.194
+        ],
+        [
+          "'pps'",
+          0.19
+        ]
+      ],
+      "trigger_class_top": [
+        [
+          "subword",
+          106
+        ],
+        [
+          "punct",
+          51
+        ],
+        [
+          "capital",
+          18
+        ],
+        [
+          "word",
+          9
+        ],
+        [
+          "coordinator",
+          6
+        ]
+      ],
+      "trigger_class_purity": 0.1991,
+      "copy_src_dlogit": 0.0994,
+      "copy_src_z": 3.06,
+      "copy_src_purity": 0.034,
+      "verify_pushclass_firing": 752.61,
+      "verify_pushclass_firing_SE": 177.761,
+      "verify_pushclass_firing_z": 4.23,
+      "verify_pushclass_control": 33.747,
+      "verify_specificity": 718.863,
+      "verify_specificity_SE": 179.495,
+      "verify_specificity_z": 4.0,
+      "causal_clear_z3": false,
+      "classification": "irreducibly-diffuse",
+      "newly_nameable": false
+    },
+    {
+      "comp": "h.L4.7",
+      "kind": "head",
+      "li": 4,
+      "idx": 7,
+      "cleanliness": 0.0031,
+      "trigger_dCE": 0.03175,
+      "trigger_dCE_SE": 0.02007,
+      "trigger_dCE_z": 1.58,
+      "census_trigger_dCE": 0.03175,
+      "global_dCE": 0.008598,
+      "census_global_dCE": 0.008598,
+      "trigger_frac_positive": 0.615,
+      "pushed_class": "word",
+      "pushed_class_movement": -701.737,
+      "pushed_class_sign": "-",
+      "class_concentration": 0.6712,
+      "class_summed_top8": {
+        "word": -701.737,
+        "subword": -163.122,
+        "capital": -155.033,
+        "punct": -9.558,
+        "special": -4.039,
+        "determiner": -3.274,
+        "digit": 3.271,
+        "pronoun": -3.18
+      },
+      "output_entropy_nats": 9.389,
+      "output_entropy_norm": 0.8673,
+      "output_top_token_share": 0.0003,
+      "top_boost": [
+        [
+          "' Powered'",
+          0.133
+        ],
+        [
+          "' online'",
+          0.131
+        ],
+        [
+          "' Canadian'",
+          0.127
+        ],
+        [
+          "'...'",
+          0.127
+        ],
+        [
+          "' [\u2026]'",
+          0.127
+        ],
+        [
+          "' ('",
+          0.127
+        ]
+      ],
+      "trigger_class_top": [
+        [
+          "word",
+          129
+        ],
+        [
+          "subword",
+          23
+        ],
+        [
+          "capital",
+          18
+        ],
+        [
+          "digit",
+          14
+        ],
+        [
+          "punct",
+          7
+        ]
+      ],
+      "trigger_class_purity": 0.0498,
+      "copy_src_dlogit": -0.1128,
+      "copy_src_z": -3.58,
+      "copy_src_purity": 0.0483,
+      "verify_pushclass_firing": -701.737,
+      "verify_pushclass_firing_SE": 178.198,
+      "verify_pushclass_firing_z": -3.94,
+      "verify_pushclass_control": -203.338,
+      "verify_specificity": -498.399,
+      "verify_specificity_SE": 187.751,
+      "verify_specificity_z": -2.65,
+      "causal_clear_z3": false,
+      "classification": "irreducibly-diffuse",
+      "newly_nameable": false
+    }
+  ]
+}

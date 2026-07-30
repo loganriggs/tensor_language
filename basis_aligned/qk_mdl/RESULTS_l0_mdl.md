@@ -4298,3 +4298,42 @@ context-conditioning is implemented UPSTREAM, so it survives moderate steering a
 overridden into an unconditioned edit — forcing that degrades the whole model. For the jailbreak framing this
 cuts BOTH ways: single-direction control is real and calibrated, but the conditioning being upstream makes a
 surgical unconditioned override unavailable through this direction alone.
+
+## §76 EXTENDING COVERAGE — single-path naming caps at ~46%; the rest is one super-additive block (2026-07-30)
+(qk_extend_coverage.py / _2.py; Logan: "extending coverage and generality." Pushes the §71 named fraction up
+by naming more unnamed single paths (Part A) and probing the multi-path combination structure (Part B).)
+Held-back FW[448:600], §71 single-path scale (sum of positive global mean-ablation delta cross-entropy),
+paired standard errors. Positive control: recomputed trigger delta cross-entropy matched the census to max abs
+diff 0.00000. Denominators reproduce §71 exactly (all-234 sum 1.1773; named-26 sum 0.5177; named-old 44.0%).
+- **Part A — single-path naming is near its CEILING.** Ran the top 30 unnamed causally-important paths (mostly
+  low-cleanliness) through the full battery. Only **2 of 30 are newly nameable** — distributed SUBWORD
+  class-pushers h.L7.8 (specificity z 6.4) and h.L13.4 (z 3.5). Updated single-path named fraction **44.0% →
+  45.7%** (+0.0199 nats), a deliberately small honest bump. The reason is fundamental, not for-lack-of-looking:
+  **25 of 30 fail the §74 causal-clearness bar (irreducibly-diffuse), and 3 are positional/structural** (h.L0.8,
+  h.L4.1, h.L2.1 — need the §62 positional tool, outside the single-path class-output basis).
+- **Sharpening nuance (confirms §69 at scale):** 20 of the 25 "irreducibly-diffuse" paths DO carry a SPECIFIC
+  class-summed movement vs their inactive control (|specificity z| ≥ 3; 16 push, 4 suppress) with near-uniform
+  output over that class (entropy ~0.9) — so they are characterizable in TYPE (distributed class PRIORS) but
+  their class movement does NOT translate into individually load-bearing cross-entropy. The §69 finding (most
+  class-pushers are static priors, not selectors) is now confirmed to DOMINATE the unnamed single-path region:
+  it is mostly diffuse priors, not undiscovered algorithms.
+- **Part B — the multi-path structure is essentially ONE super-additive block, not nameable teams.** Greedy
+  joint-ablation grouping over the top 20 causally-important paths (union firing set, same-size random control):
+  whole-top-20 joint delta cross-entropy 1.020 ± 0.032 vs sum-of-solos 0.607 → super-additivity **1.68**,
+  multi-path residual +0.413 nats (on the concentrated firing set; §71's 2.87 was global). The super-additivity
+  is dominated by ONE named pair — the late feed-forward class-integrators mlp.L17.d2 (word-integrator) ×
+  mlp.L17.d1 (capital-selector): joint 0.276 vs sum 0.165, ratio 1.67, capturing **~27% of the whole top-20
+  combination residual**; every other strong pair is near-additive (ratios 1.05–1.19). Greedy discovery
+  returned a SINGLE super-additive block (19 of 20 paths agglomerate, joint 1.031, ratio 1.90) that massively
+  exceeds its random same-size control (random joint mean 0.072, max 0.137; **z 35, exceeds every draw**) — a
+  specific super-additive circuit, not removed capacity, but beyond the one L17 pair the super-additivity is a
+  broadly DISTRIBUTED collective property that only emerges at large group size, not a handful of nameable
+  functional teams.
+**KEY (extending coverage → a fundamental ceiling, not a to-do list):** single-path naming coverage moves only
+~44% → ~46% of the single-path-expressible mechanism because the causally-important-but-unnamed region is
+overwhelmingly (a) distributed class PRIORS that do not clear the load-bearing bar and (b) positional/structural
+heads outside the class-output basis. The multi-path residual is ONE super-additive block with a single named
+load-bearing pair (the L17 capital-selector × word-integrator) and the rest irreducibly collective. This
+TIGHTENS §71/§74 rather than overturning them: the mechanism stays ~11% named of total headroom, and what
+remains is hard, distributed, and largely NOT single-path-expressible — coverage is capped for single-path/
+single-direction methods, and the honest next step past this ceiling is sparse-dictionary / SAE methods (§74).
