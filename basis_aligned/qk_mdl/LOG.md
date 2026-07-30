@@ -6882,3 +6882,15 @@ existing steering methods, not a new method class, so in-scope and launched rath
   z, §74 status, §72 two-halves), ledger conflation, overstatement/superlatives, internal consistency across
   paper/TECHNIQUES/ROADMAP, and missing caveats. The abstract was updated to cover §56-§75 but hasn't had an
   independent whole-synthesis pass. Collect next tick, apply corrections before the paper stands.
+
+## tick 2026-07-30 (paper-abstract red-team applied — abstract defensible, docs reconciled)
+- Holistic abstract red-team (subagent a90ffc018139aa309): NO factual errors, no ledger conflation, no
+  overstatement — every historically-retracted number already in corrected form. Applied its findings:
+  * Abstract (F1 moderate): "~99.9% substitutable" now tagged a FIDELITY statement, not compression/DL win.
+  * Abstract (F2/F3 minor caveats): exhaustive four-ledger sweep is single-model bilin18 (generality shown
+    separately); exact representation is strictly bilinear (unavailable to nonlinear models).
+  * Abstract (F7): coverage -> "~44-46% ceiling" per §76.
+  * Supporting-doc reconciliation (F4/F5/F6): ROADMAP §74 "under red-team" -> CONFIRMED; ROADMAP "89% unfound"
+    -> the range; TECHNIQUES digit "11-20x" -> position-matched ~4x. Docs now match the corrected RESULTS.
+- The paper abstract is now defensible on factual / conflation / overstatement / consistency / caveat axes.
+  The flagship deliverable is clean. Program remains at terminal single-path capstone; SAE is the scope call.
