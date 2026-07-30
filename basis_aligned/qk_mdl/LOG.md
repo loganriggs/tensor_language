@@ -6829,3 +6829,16 @@ existing steering methods, not a new method class, so in-scope and launched rath
   reflected in RESULTS / TECHNIQUES / ROADMAP / paper / artifact. Genuine rest state; the SAE scope-change is
   the only named open frontier, awaiting Logan.
 - Cron 172134ae expires ~2026-08-06 — re-arm before then and tell Logan.
+
+## tick 2026-07-30 (Logan: "extending coverage and generality" — 2 experiments dispatched)
+- a2ec93031a2574eb3 — EXTEND COVERAGE (qk_extend_coverage.py, bilin18): (A) run the top ~30 causally-important-
+  but-UNNAMED single paths through the full class-push/suppress/trigger battery → how many are newly nameable,
+  updated single-path named fraction (from ~44%); (B) first pass at MULTI-PATH groups via greedy joint-ablation
+  (§61) on the top causally-important paths → the load-bearing combinations carrying the 2.87× super-additivity,
+  what fraction of the multi-path residual they cover.
+- a078639da2656b272 — EXTEND GENERALITY (qk_general_completeness.py, swiglu18 + bilin12): port the coverage
+  ledger (§71) + rank/superposition sweep (§73) + hub irreducibly-distributed test (§74) to a softmax SwiGLU
+  model and a second bilinear model. Tests whether the whole COMPLETENESS BOUNDARY (small named fraction, high
+  super-additivity, an irreducibly-distributed early hub) is architecture-general vs bilin18-specific.
+- Both GPU subagents, nvidia-smi self-guard, <4GB. Collect next tick, document + red-team before enshrinement.
+- Cron 172134ae expires ~2026-08-06 — re-arm before then and tell Logan.
