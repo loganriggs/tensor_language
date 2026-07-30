@@ -1,0 +1,490 @@
+{
+  "meta": {
+    "model": "bilin12",
+    "arch": "sqrd_norm",
+    "held_slice": "FW[448:600,:128]",
+    "n_positions": 19304,
+    "BATCH": 6,
+    "NL": 12,
+    "NH": 6,
+    "HD": 128,
+    "D": 768,
+    "V": 50304,
+    "N_SVD_top": 4,
+    "KMAX_per_block": 64,
+    "K_sweep": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32,
+      64
+    ],
+    "n_head_paths": 72,
+    "n_top_mlp_paths": 48,
+    "forward": "ARCH=sqrd_norm single-QK-branch; per-position mean-ablation + project-out-to-mean copied VERBATIM from qk_coverage_ledger.py / qk_mlp_superposition.py",
+    "currency": "GLOBAL mean-ablation delta cross-entropy per valid held position (nats); paired SE over positions"
+  },
+  "coverage_ledger": {
+    "full_headroom": {
+      "dCE": 4.78215,
+      "SE": 0.03164,
+      "desc": "all attention heads + all full MLP outputs mean-ablated minus full model"
+    },
+    "attn_all": {
+      "dCE": 3.17748,
+      "SE": 0.02269
+    },
+    "mlp_full": {
+      "dCE": 4.24636,
+      "SE": 0.02905
+    },
+    "mlp_top": {
+      "dCE": 1.75541,
+      "SE": 0.01716,
+      "desc": "all 48 top-4/block SVD dirs only (attn intact)"
+    },
+    "mlp_below_top": {
+      "dCE": 2.49095,
+      "SE": 0.01736,
+      "frac_of_mlp_full": 0.5866,
+      "desc": "mlp_full - mlp_top (paired), the sub-top feed-forward residual"
+    },
+    "joint_all": {
+      "dCE": 3.58775,
+      "SE": 0.02497,
+      "desc": "all 72 head-paths + all 48 top-SVD mlp dirs ablated simultaneously"
+    },
+    "non_axis_aligned_residual": {
+      "dCE": 1.1944,
+      "SE": 0.01032,
+      "frac_of_headroom": 0.2498,
+      "desc": "full_headroom - joint_all; = MLP effect below top-SVD in attn-ablated context"
+    }
+  },
+  "super_additivity": {
+    "joint_all_dCE": 3.58775,
+    "joint_all_SE": 0.02497,
+    "sum_of_single_paths_dCE": 1.74803,
+    "sum_of_single_paths_SE": 0.01542,
+    "joint_over_sum_ratio": 2.0525,
+    "multipath_residual": 1.83972,
+    "interpretation": "ratio > 1 => super-additive (most computation lives in combinations); sum = sum over every single head-path and every top-SVD mlp-dir of max(0, its solo global dCE)",
+    "top_single_head_paths": [
+      {
+        "path": "h.L0.1",
+        "solo_global_dCE": 0.10273,
+        "SE": 0.00379
+      },
+      {
+        "path": "h.L1.5",
+        "solo_global_dCE": 0.09738,
+        "SE": 0.00364
+      },
+      {
+        "path": "h.L5.2",
+        "solo_global_dCE": 0.06157,
+        "SE": 0.00258
+      },
+      {
+        "path": "h.L6.0",
+        "solo_global_dCE": 0.05667,
+        "SE": 0.00275
+      },
+      {
+        "path": "h.L4.1",
+        "solo_global_dCE": 0.05414,
+        "SE": 0.00267
+      },
+      {
+        "path": "h.L2.4",
+        "solo_global_dCE": 0.04886,
+        "SE": 0.0025
+      },
+      {
+        "path": "h.L5.3",
+        "solo_global_dCE": 0.04053,
+        "SE": 0.00232
+      },
+      {
+        "path": "h.L9.1",
+        "solo_global_dCE": 0.03497,
+        "SE": 0.00201
+      },
+      {
+        "path": "h.L8.4",
+        "solo_global_dCE": 0.02879,
+        "SE": 0.00195
+      },
+      {
+        "path": "h.L0.0",
+        "solo_global_dCE": 0.02791,
+        "SE": 0.00215
+      },
+      {
+        "path": "h.L4.4",
+        "solo_global_dCE": 0.02752,
+        "SE": 0.00184
+      },
+      {
+        "path": "h.L6.2",
+        "solo_global_dCE": 0.02673,
+        "SE": 0.00182
+      }
+    ],
+    "top_single_mlp_dirs": [
+      {
+        "path": "mlp.L11.d1",
+        "solo_global_dCE": 0.07727,
+        "SE": 0.00345
+      },
+      {
+        "path": "mlp.L0.d1",
+        "solo_global_dCE": 0.07305,
+        "SE": 0.0032
+      },
+      {
+        "path": "mlp.L11.d3",
+        "solo_global_dCE": 0.04484,
+        "SE": 0.00232
+      },
+      {
+        "path": "mlp.L10.d0",
+        "solo_global_dCE": 0.04209,
+        "SE": 0.00243
+      },
+      {
+        "path": "mlp.L11.d2",
+        "solo_global_dCE": 0.03052,
+        "SE": 0.002
+      },
+      {
+        "path": "mlp.L0.d0",
+        "solo_global_dCE": 0.02983,
+        "SE": 0.00199
+      },
+      {
+        "path": "mlp.L10.d1",
+        "solo_global_dCE": 0.02845,
+        "SE": 0.00203
+      },
+      {
+        "path": "mlp.L6.d0",
+        "solo_global_dCE": 0.02318,
+        "SE": 0.00162
+      },
+      {
+        "path": "mlp.L3.d0",
+        "solo_global_dCE": 0.01858,
+        "SE": 0.00142
+      },
+      {
+        "path": "mlp.L11.d0",
+        "solo_global_dCE": 0.01517,
+        "SE": 0.00136
+      },
+      {
+        "path": "mlp.L5.d0",
+        "solo_global_dCE": 0.01428,
+        "SE": 0.00134
+      },
+      {
+        "path": "mlp.L0.d2",
+        "solo_global_dCE": 0.01377,
+        "SE": 0.0015
+      }
+    ]
+  },
+  "rank_superposition": {
+    "mlp_full_dCE": 4.24636,
+    "mlp_top_dCE": 1.75541,
+    "below_top_dCE": 2.49095,
+    "below_top_frac_of_full": 0.5866,
+    "rank_sweep_svd": [
+      {
+        "K_per_block": 1,
+        "total_dirs": 12,
+        "captured_dCE": 0.32872,
+        "SE": 0.00688,
+        "frac_of_full": 0.0774,
+        "gap_to_full_dCE": 3.91765,
+        "gap_SE": 0.02687
+      },
+      {
+        "K_per_block": 2,
+        "total_dirs": 24,
+        "captured_dCE": 0.89165,
+        "SE": 0.01207,
+        "frac_of_full": 0.21,
+        "gap_to_full_dCE": 3.35471,
+        "gap_SE": 0.02329
+      },
+      {
+        "K_per_block": 4,
+        "total_dirs": 48,
+        "captured_dCE": 1.75541,
+        "SE": 0.01716,
+        "frac_of_full": 0.4134,
+        "gap_to_full_dCE": 2.49095,
+        "gap_SE": 0.01736
+      },
+      {
+        "K_per_block": 8,
+        "total_dirs": 96,
+        "captured_dCE": 2.61816,
+        "SE": 0.02135,
+        "frac_of_full": 0.6166,
+        "gap_to_full_dCE": 1.6282,
+        "gap_SE": 0.01123
+      },
+      {
+        "K_per_block": 16,
+        "total_dirs": 192,
+        "captured_dCE": 3.26969,
+        "SE": 0.0244,
+        "frac_of_full": 0.77,
+        "gap_to_full_dCE": 0.97667,
+        "gap_SE": 0.00712
+      },
+      {
+        "K_per_block": 32,
+        "total_dirs": 384,
+        "captured_dCE": 3.48532,
+        "SE": 0.02528,
+        "frac_of_full": 0.8208,
+        "gap_to_full_dCE": 0.76105,
+        "gap_SE": 0.00585
+      },
+      {
+        "K_per_block": 64,
+        "total_dirs": 768,
+        "captured_dCE": 3.60771,
+        "SE": 0.02579,
+        "frac_of_full": 0.8496,
+        "gap_to_full_dCE": 0.63865,
+        "gap_SE": 0.00491
+      }
+    ],
+    "rank_sweep_random": [
+      {
+        "K_per_block": 1,
+        "total_dirs": 12,
+        "captured_dCE": 0.00165,
+        "SE": 0.00042,
+        "frac_of_full": 0.0004
+      },
+      {
+        "K_per_block": 2,
+        "total_dirs": 24,
+        "captured_dCE": 0.00364,
+        "SE": 0.00064,
+        "frac_of_full": 0.0009
+      },
+      {
+        "K_per_block": 4,
+        "total_dirs": 48,
+        "captured_dCE": 0.00701,
+        "SE": 0.00091,
+        "frac_of_full": 0.0017
+      },
+      {
+        "K_per_block": 8,
+        "total_dirs": 96,
+        "captured_dCE": 0.01951,
+        "SE": 0.00153,
+        "frac_of_full": 0.0046
+      },
+      {
+        "K_per_block": 16,
+        "total_dirs": 192,
+        "captured_dCE": 0.03731,
+        "SE": 0.00209,
+        "frac_of_full": 0.0088
+      },
+      {
+        "K_per_block": 32,
+        "total_dirs": 384,
+        "captured_dCE": 0.08053,
+        "SE": 0.00311,
+        "frac_of_full": 0.019
+      },
+      {
+        "K_per_block": 64,
+        "total_dirs": 768,
+        "captured_dCE": 0.19641,
+        "SE": 0.00489,
+        "frac_of_full": 0.0463
+      }
+    ],
+    "effective_rank_per_block_for_pct_of_full": {
+      "50pct": 5.7,
+      "80pct": 25.45,
+      "90pct": null
+    },
+    "svd_vs_random_at_K": {
+      "1": {
+        "svd_frac": 0.0774,
+        "rand_frac": 0.0004,
+        "svd_over_rand": 199.224
+      },
+      "2": {
+        "svd_frac": 0.21,
+        "rand_frac": 0.0009,
+        "svd_over_rand": 244.959
+      },
+      "4": {
+        "svd_frac": 0.4134,
+        "rand_frac": 0.0017,
+        "svd_over_rand": 250.415
+      },
+      "8": {
+        "svd_frac": 0.6166,
+        "rand_frac": 0.0046,
+        "svd_over_rand": 134.196
+      },
+      "16": {
+        "svd_frac": 0.77,
+        "rand_frac": 0.0088,
+        "svd_over_rand": 87.636
+      },
+      "32": {
+        "svd_frac": 0.8208,
+        "rand_frac": 0.019,
+        "svd_over_rand": 43.28
+      },
+      "64": {
+        "svd_frac": 0.8496,
+        "rand_frac": 0.0463,
+        "svd_over_rand": 18.368
+      }
+    }
+  },
+  "hub": {
+    "hub_layer_overall": 0,
+    "hub_layer_early_half": 0,
+    "per_layer_tail": [
+      {
+        "layer": 0,
+        "full_mlp_dCE": 2.24863,
+        "top4_dCE": 0.19188,
+        "tail_below_top4_dCE": 2.05675,
+        "tail_SE": 0.01504,
+        "tail_frac_of_layer_full": 0.9147,
+        "gram_energy_top4_frac": 0.5771,
+        "tail_share_across_layers": 0.2944
+      },
+      {
+        "layer": 1,
+        "full_mlp_dCE": 1.34813,
+        "top4_dCE": 0.02806,
+        "tail_below_top4_dCE": 1.32007,
+        "tail_SE": 0.01256,
+        "tail_frac_of_layer_full": 0.9792,
+        "gram_energy_top4_frac": 0.4955,
+        "tail_share_across_layers": 0.189
+      },
+      {
+        "layer": 2,
+        "full_mlp_dCE": 1.11432,
+        "top4_dCE": 0.02532,
+        "tail_below_top4_dCE": 1.08899,
+        "tail_SE": 0.0114,
+        "tail_frac_of_layer_full": 0.9773,
+        "gram_energy_top4_frac": 0.4854,
+        "tail_share_across_layers": 0.1559
+      },
+      {
+        "layer": 3,
+        "full_mlp_dCE": 1.02327,
+        "top4_dCE": 0.02863,
+        "tail_below_top4_dCE": 0.99464,
+        "tail_SE": 0.01041,
+        "tail_frac_of_layer_full": 0.972,
+        "gram_energy_top4_frac": 0.6375,
+        "tail_share_across_layers": 0.1424
+      },
+      {
+        "layer": 4,
+        "full_mlp_dCE": 0.45349,
+        "top4_dCE": 0.02326,
+        "tail_below_top4_dCE": 0.43023,
+        "tail_SE": 0.00678,
+        "tail_frac_of_layer_full": 0.9487,
+        "gram_energy_top4_frac": 0.7147,
+        "tail_share_across_layers": 0.0616
+      },
+      {
+        "layer": 5,
+        "full_mlp_dCE": 0.28214,
+        "top4_dCE": 0.02856,
+        "tail_below_top4_dCE": 0.25358,
+        "tail_SE": 0.00548,
+        "tail_frac_of_layer_full": 0.8988,
+        "gram_energy_top4_frac": 0.6321,
+        "tail_share_across_layers": 0.0363
+      },
+      {
+        "layer": 6,
+        "full_mlp_dCE": 0.20177,
+        "top4_dCE": 0.0236,
+        "tail_below_top4_dCE": 0.17817,
+        "tail_SE": 0.00467,
+        "tail_frac_of_layer_full": 0.883,
+        "gram_energy_top4_frac": 0.5794,
+        "tail_share_across_layers": 0.0255
+      },
+      {
+        "layer": 7,
+        "full_mlp_dCE": 0.13518,
+        "top4_dCE": 0.01448,
+        "tail_below_top4_dCE": 0.1207,
+        "tail_SE": 0.00385,
+        "tail_frac_of_layer_full": 0.8929,
+        "gram_energy_top4_frac": 0.4142,
+        "tail_share_across_layers": 0.0173
+      },
+      {
+        "layer": 8,
+        "full_mlp_dCE": 0.11396,
+        "top4_dCE": 0.00944,
+        "tail_below_top4_dCE": 0.10453,
+        "tail_SE": 0.00359,
+        "tail_frac_of_layer_full": 0.9172,
+        "gram_energy_top4_frac": 0.2417,
+        "tail_share_across_layers": 0.015
+      },
+      {
+        "layer": 9,
+        "full_mlp_dCE": 0.12138,
+        "top4_dCE": 0.01609,
+        "tail_below_top4_dCE": 0.10528,
+        "tail_SE": 0.00366,
+        "tail_frac_of_layer_full": 0.8674,
+        "gram_energy_top4_frac": 0.4178,
+        "tail_share_across_layers": 0.0151
+      },
+      {
+        "layer": 10,
+        "full_mlp_dCE": 0.20432,
+        "top4_dCE": 0.07662,
+        "tail_below_top4_dCE": 0.1277,
+        "tail_SE": 0.00404,
+        "tail_frac_of_layer_full": 0.625,
+        "gram_energy_top4_frac": 0.9398,
+        "tail_share_across_layers": 0.0183
+      },
+      {
+        "layer": 11,
+        "full_mlp_dCE": 0.39295,
+        "top4_dCE": 0.18821,
+        "tail_below_top4_dCE": 0.20474,
+        "tail_SE": 0.00559,
+        "tail_frac_of_layer_full": 0.521,
+        "gram_energy_top4_frac": 0.9299,
+        "tail_share_across_layers": 0.0293
+      }
+    ],
+    "note": "hub = layer carrying the most below-top4 MLP tail; run qk_general_completeness_2.py on it"
+  }
+}

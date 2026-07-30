@@ -4337,3 +4337,40 @@ load-bearing pair (the L17 capital-selector × word-integrator) and the rest irr
 TIGHTENS §71/§74 rather than overturning them: the mechanism stays ~11% named of total headroom, and what
 remains is hard, distributed, and largely NOT single-path-expressible — coverage is capped for single-path/
 single-direction methods, and the honest next step past this ceiling is sparse-dictionary / SAE methods (§74).
+
+## §77 GENERALITY of the completeness boundary — architecture-general across 3 models (2026-07-30)
+(qk_general_completeness.py / _2.py; Logan: "extending coverage and generality." Ports the §71 coverage ledger,
+§73 rank/superposition test, and §74 irreducibly-distributed hub test to the softmax SwiGLU model swiglu18 and
+a second bilinear model bilin12.) Both ported cleanly (attention line per architecture: swiglu18 softmax
+single-branch; bilin12 single-branch squared-normalized; bilin18 two-branch unnormalized). Held-back FW[448:600],
+global mean-ablation delta cross-entropy, paired standard errors; sane held-out cross-entropy checked (swiglu18
+3.41, bilin12 3.68).
+- **(a) Super-additivity is general — even STRONGER on the softmax model.** Whole-model super-additivity (joint
+  ablation of all head-pathways + top feed-forward directions ÷ sum of solos): **swiglu18 3.51×** (joint 4.496 ±
+  0.030 vs sum 1.281 ± 0.014), **bilin12 2.05×**, versus bilin18's 2.87×. "Most computation lives in
+  combinations, not individually-nameable single pathways" is not a bilinear quirk — if anything it is stronger
+  on the conventional softmax transformer.
+- **(b) High-rank but basis-aligned feed-forward — general.** Effective rank per block for 50% / 80% of the
+  full feed-forward effect: swiglu18 3.4 / 14.4, bilin12 5.7 / 25.5 (bilin18 8 / 28) — all high-rank; and
+  singular bases beat random orthonormal bases by 35–600× (swiglu18), 18–250× (bilin12) — strongly basis-
+  aligned everywhere.
+- **(c) An irreducibly-distributed early hub — general.** Running the §74 test on each model's biggest early
+  feed-forward hub: swiglu18 layer 2 (joint of top-32 directions 0.038 vs sum 0.018 = 2.15× super-additive,
+  **0 of 32 single-direction nameable**, output entropy 10.56/10.83); bilin12 layer 0 (joint 0.743 vs sum 0.163
+  = **4.57×**, the most super-additive of the three, **1 of 32 nameable** — a single class-suppressor carrying
+  45% of the solo effect — the other 31 null); bilin18 MLP1 (76% joint-only, 0 of 32). Every model has an early
+  hub that computes in combinations no single direction captures.
+- **(d) Honest architectural DIFFERENCES (within the boundary, not against it):** swiglu18 concentrates MORE of
+  its feed-forward effect into the leading directions (below-top-72 fraction 43% vs bilin18's 73%; non-axis
+  residual 19% vs 36%) and its early tail is spread across layers 0–4 rather than concentrated in one hub;
+  bilin12's hub is layer 0 (the earliest) rather than an interior early layer and has exactly one nameable
+  direction. These are variations in degree, not in kind.
+**KEY (generality established):** the completeness boundary is ARCHITECTURE-GENERAL. On a two-branch squared-
+attention bilinear net, a single-branch squared-normalized bilinear net, AND a conventional softmax SwiGLU
+transformer: (i) the model is 2.0–3.5× super-additive (computation is combinational, not single-path), (ii) the
+sub-leading feed-forward effect is high-rank (~14–28 directions/block for 80%) yet strongly basis-aligned
+(one-to-two orders of magnitude over random), and (iii) there is an early-layer feed-forward hub that is
+irreducibly distributed (joint 2.15–4.57× the sum of its directions' solos, 0–1 of 32 nameable, output entropy
+~97% of the uniform ceiling). The §71/§73/§74 conclusion — single-direction interpretability has a hard limit
+and the model's early high-rank hub computes in combinations no single direction captures — is not a bilin18
+artifact; it replicates across attention families, including standard softmax attention.

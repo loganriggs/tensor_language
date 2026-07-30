@@ -1,0 +1,3425 @@
+{
+  "meta": {
+    "model": "swiglu18",
+    "arch": "softmax",
+    "layer": 2,
+    "K_dirs": 32,
+    "held_slice": "FW[448:600,:128]",
+    "KCAUSAL": 200,
+    "BATCH": 6,
+    "n_classes": 15,
+    "classes": [
+      "bracket_close",
+      "bracket_open",
+      "capital",
+      "coordinator",
+      "determiner",
+      "digit",
+      "newline",
+      "other",
+      "pronoun",
+      "punct",
+      "quote",
+      "quote_open",
+      "special",
+      "subword",
+      "word"
+    ],
+    "currency": "mean-ablation (per-position held mean) delta cross-entropy per valid held position (nats), paired SE",
+    "forward": "ARCH=softmax single-QK-branch; project-out mean-ablation + class library copied VERBATIM from qk_mlp1_tail.py / qk_unsup_classpush.py",
+    "classify_rule": "clear = trigger_dCE_z>=3 & trigger_dCE>=0.02. class_pusher/suppressor: class_concentration>=0.45, sign of pushed class. sharp_token: top10 token share>=0.5. diffuse_distributed: clear but neither. null_subthreshold: not clear. SINGLE-DIRECTION-NAMEABLE = {class_pusher, class_suppressor, sharp_token}."
+  },
+  "summary": {
+    "hub_layer": 2,
+    "full_layer_top32_joint_global_dCE": 0.03808,
+    "full_layer_top32_joint_global_dCE_SE": 0.00229,
+    "sum_per_dir_solo_global_dCE": 0.01775,
+    "joint_over_sum_ratio": 2.1456,
+    "sum_over_joint_ratio": 0.4661,
+    "irreducibility_note": "joint (all 32 dirs together) vs sum-of-solos. sum >> joint => redundant/reducible; joint >> sum => super-additive (irreducibly distributed: the layer computes in combinations no single direction captures).",
+    "bucket_counts": {
+      "null_subthreshold": 32
+    },
+    "n_causally_clear": 0,
+    "n_single_direction_nameable": 0,
+    "frac_nameable_of_summed_solo_global_dCE": 0.0,
+    "frac_nameable_of_summed_trigger_dCE": 0.0,
+    "frac_nameable_solo_global_over_joint_layer": 0.0,
+    "mean_output_entropy_nats": 10.556,
+    "log_vocab_nats": 10.826
+  },
+  "records": [
+    {
+      "rank": 0,
+      "gram_eval_frac": 0.20367,
+      "global_dCE": 0.002301,
+      "global_dCE_SE": 0.000509,
+      "trigger_dCE": 0.01374,
+      "trigger_dCE_SE": 0.00801,
+      "trigger_dCE_z": 1.72,
+      "trigger_dCE_frac_pos": 0.54,
+      "pushed_class": "word",
+      "pushed_class_summed_dlogit": 104.3356,
+      "pushed_class_sign": "+",
+      "class_concentration": 0.4186,
+      "class_summed_top6": {
+        "word": 104.3356,
+        "capital": -73.959,
+        "subword": -36.8122,
+        "digit": -15.3726,
+        "punct": -10.6994,
+        "special": -2.3839
+      },
+      "trigger_class_top": [
+        [
+          "subword",
+          117
+        ],
+        [
+          "word",
+          49
+        ],
+        [
+          "capital",
+          29
+        ],
+        [
+          "coordinator",
+          4
+        ],
+        [
+          "digit",
+          1
+        ]
+      ],
+      "trigger_purity": 0.8032,
+      "out_entropy_nats": 10.543,
+      "top1_token_share": 0.0001,
+      "top10_token_share": 0.001,
+      "top_boosted_tokens": [
+        [
+          "' bras'",
+          0.044
+        ],
+        [
+          "' apologised'",
+          0.044
+        ],
+        [
+          "' banned'",
+          0.043
+        ],
+        [
+          "' imported'",
+          0.042
+        ],
+        [
+          "' damaged'",
+          0.042
+        ],
+        [
+          "' visas'",
+          0.042
+        ]
+      ],
+      "top_suppressed_tokens": [
+        [
+          "' !!'",
+          -0.055
+        ],
+        [
+          "'.......'",
+          -0.051
+        ],
+        [
+          "' )'",
+          -0.051
+        ],
+        [
+          "' ..'",
+          -0.051
+        ],
+        [
+          "'......'",
+          -0.05
+        ],
+        [
+          "' !'",
+          -0.05
+        ]
+      ],
+      "n_firing": 200,
+      "bucket": "null_subthreshold"
+    },
+    {
+      "rank": 1,
+      "gram_eval_frac": 0.06863,
+      "global_dCE": 0.00296,
+      "global_dCE_SE": 0.000544,
+      "trigger_dCE": 0.00361,
+      "trigger_dCE_SE": 0.00654,
+      "trigger_dCE_z": 0.55,
+      "trigger_dCE_frac_pos": 0.495,
+      "pushed_class": "capital",
+      "pushed_class_summed_dlogit": -269.8871,
+      "pushed_class_sign": "-",
+      "class_concentration": 0.5564,
+      "class_summed_top6": {
+        "capital": -269.8871,
+        "word": 97.4491,
+        "subword": -67.3141,
+        "punct": -15.7345,
+        "digit": -13.3663,
+        "other": -9.1586
+      },
+      "trigger_class_top": [
+        [
+          "subword",
+          130
+        ],
+        [
+          "word",
+          32
+        ],
+        [
+          "capital",
+          28
+        ],
+        [
+          "coordinator",
+          6
+        ],
+        [
+          "determiner",
+          1
+        ],
+        [
+          "digit",
+          1
+        ]
+      ],
+      "trigger_purity": 0.8,
+      "out_entropy_nats": 10.553,
+      "top1_token_share": 0.0001,
+      "top10_token_share": 0.001,
+      "top_boosted_tokens": [
+        [
+          "'ling'",
+          0.068
+        ],
+        [
+          "'hood'",
+          0.062
+        ],
+        [
+          "'le'",
+          0.059
+        ],
+        [
+          "' syll'",
+          0.059
+        ],
+        [
+          "'mer'",
+          0.057
+        ],
+        [
+          "'ard'",
+          0.057
+        ]
+      ],
+      "top_suppressed_tokens": [
+        [
+          "'ASHINGTON'",
+          -0.079
+        ],
+        [
+          "')\\\\'",
+          -0.079
+        ],
+        [
+          "')\"'",
+          -0.077
+        ],
+        [
+          "'.,\"'",
+          -0.077
+        ],
+        [
+          "'ersive'",
+          -0.075
+        ],
+        [
+          "'ashington'",
+          -0.071
+        ]
+      ],
+      "n_firing": 200,
+      "bucket": "null_subthreshold"
+    },
+    {
+      "rank": 2,
+      "gram_eval_frac": 0.01823,
+      "global_dCE": 0.0015,
+      "global_dCE_SE": 0.000544,
+      "trigger_dCE": 0.02016,
+      "trigger_dCE_SE": 0.00712,
+      "trigger_dCE_z": 2.83,
+      "trigger_dCE_frac_pos": 0.57,
+      "pushed_class": "word",
+      "pushed_class_summed_dlogit": 234.929,
+      "pushed_class_sign": "+",
+      "class_concentration": 0.4942,
+      "class_summed_top6": {
+        "word": 234.929,
+        "capital": 150.4516,
+        "subword": 66.1467,
+        "digit": 11.9865,
+        "other": 5.2471,
+        "special": 2.4935
+      },
+      "trigger_class_top": [
+        [
+          "word",
+          87
+        ],
+        [
+          "capital",
+          56
+        ],
+        [
+          "subword",
+          52
+        ],
+        [
+          "coordinator",
+          3
+        ],
+        [
+          "other",
+          1
+        ],
+        [
+          "pronoun",
+          1
+        ]
+      ],
+      "trigger_purity": 0.7764,
+      "out_entropy_nats": 10.568,
+      "top1_token_share": 0.0001,
+      "top10_token_share": 0.0009,
+      "top_boosted_tokens": [
+        [
+          "'ortex'",
+          0.063
+        ],
+        [
+          "' documentation'",
+          0.06
+        ],
+        [
+          "'cosystem'",
+          0.06
+        ],
+        [
+          "' overview'",
+          0.059
+        ],
+        [
+          "' Scala'",
+          0.059
+        ],
+        [
+          "' direction'",
+          0.058
+        ]
+      ],
+      "top_suppressed_tokens": [
+        [
+          "'ed'",
+          -0.069
+        ],
+        [
+          "'ing'",
+          -0.066
+        ],
+        [
+          "'\u2122'",
+          -0.061
+        ],
+        [
+          "'S'",
+          -0.053
+        ],
+        [
+          "'nin'",
+          -0.053
+        ],
+        [
+          "'ting'",
+          -0.052
+        ]
+      ],
+      "n_firing": 200,
+      "bucket": "null_subthreshold"
+    },
+    {
+      "rank": 3,
+      "gram_eval_frac": 0.01764,
+      "global_dCE": 0.00108,
+      "global_dCE_SE": 0.000376,
+      "trigger_dCE": 0.00741,
+      "trigger_dCE_SE": 0.0051,
+      "trigger_dCE_z": 1.45,
+      "trigger_dCE_frac_pos": 0.58,
+      "pushed_class": "word",
+      "pushed_class_summed_dlogit": -79.8003,
+      "pushed_class_sign": "-",
+      "class_concentration": 0.4179,
+      "class_summed_top6": {
+        "word": -79.8003,
+        "subword": -77.4284,
+        "capital": 23.7693,
+        "digit": 5.6094,
+        "other": -1.0772,
+        "punct": 1.0743
+      },
+      "trigger_class_top": [
+        [
+          "determiner",
+          163
+        ],
+        [
+          "subword",
+          25
+        ],
+        [
+          "word",
+          11
+        ],
+        [
+          "coordinator",
+          1
+        ]
+      ],
+      "trigger_purity": 0.8844,
+      "out_entropy_nats": 10.533,
+      "top1_token_share": 0.0001,
+      "top10_token_share": 0.0012,
+      "top_boosted_tokens": [
+        [
+          "' contrary'",
+          0.054
+        ],
+        [
+          "'rather'",
+          0.045
+        ],
+        [
+          "'0'",
+          0.044
+        ],
+        [
+          "'Handler'",
+          0.043
+        ],
+        [
+          "'Page'",
+          0.042
+        ],
+        [
+          "' incidentally'",
+          0.042
+        ]
+      ],
+      "top_suppressed_tokens": [
+        [
+          "'est'",
+          -0.069
+        ],
+        [
+          "'most'",
+          -0.062
+        ],
+        [
+          "'stairs'",
+          -0.059
+        ],
+        [
+          "'aways'",
+          -0.058
+        ],
+        [
+          "'th'",
+          -0.058
+        ],
+        [
+          "'ly'",
+          -0.058
+        ]
+      ],
+      "n_firing": 200,
+      "bucket": "null_subthreshold"
+    },
+    {
+      "rank": 4,
+      "gram_eval_frac": 0.0115,
+      "global_dCE": 0.000552,
+      "global_dCE_SE": 0.000388,
+      "trigger_dCE": -0.00212,
+      "trigger_dCE_SE": 0.00514,
+      "trigger_dCE_z": -0.41,
+      "trigger_dCE_frac_pos": 0.47,
+      "pushed_class": "capital",
+      "pushed_class_summed_dlogit": 106.4881,
+      "pushed_class_sign": "+",
+      "class_concentration": 0.444,
+      "class_summed_top6": {
+        "capital": 106.4881,
+        "word": 63.7869,
+        "subword": 52.7313,
+        "digit": 5.1947,
+        "other": 4.4676,
+        "punct": 3.8985
+      },
+      "trigger_class_top": [
+        [
+          "capital",
+          63
+        ],
+        [
+          "word",
+          47
+        ],
+        [
+          "determiner",
+          42
+        ],
+        [
+          "subword",
+          41
+        ],
+        [
+          "punct",
+          4
+        ],
+        [
+          "pronoun",
+          2
+        ]
+      ],
+      "trigger_purity": 0.7155,
+      "out_entropy_nats": 10.54,
+      "top1_token_share": 0.0001,
+      "top10_token_share": 0.001,
+      "top_boosted_tokens": [
+        [
+          "'anyon'",
+          0.041
+        ],
+        [
+          "'monary'",
+          0.04
+        ],
+        [
+          "'Integer'",
+          0.04
+        ],
+        [
+          "'razen'",
+          0.039
+        ],
+        [
+          "'ISO'",
+          0.038
+        ],
+        [
+          "'ortex'",
+          0.038
+        ]
+      ],
+      "top_suppressed_tokens": [
+        [
+          "'ster'",
+          -0.039
+        ],
+        [
+          "'ager'",
+          -0.039
+        ],
+        [
+          "'ter'",
+          -0.039
+        ],
+        [
+          "'ages'",
+          -0.039
+        ],
+        [
+          "'rs'",
+          -0.037
+        ],
+        [
+          "'ps'",
+          -0.036
+        ]
+      ],
+      "n_firing": 200,
+      "bucket": "null_subthreshold"
+    },
+    {
+      "rank": 5,
+      "gram_eval_frac": 0.01122,
+      "global_dCE": 0.001114,
+      "global_dCE_SE": 0.000387,
+      "trigger_dCE": 0.00912,
+      "trigger_dCE_SE": 0.00648,
+      "trigger_dCE_z": 1.41,
+      "trigger_dCE_frac_pos": 0.545,
+      "pushed_class": "word",
+      "pushed_class_summed_dlogit": -303.5144,
+      "pushed_class_sign": "-",
+      "class_concentration": 0.3913,
+      "class_summed_top6": {
+        "word": -303.5144,
+        "subword": -217.0233,
+        "capital": -194.3654,
+        "digit": -34.1887,
+        "punct": -12.575,
+        "other": -7.0638
+      },
+      "trigger_class_top": [
+        [
+          "subword",
+          108
+        ],
+        [
+          "punct",
+          31
+        ],
+        [
+          "capital",
+          25
+        ],
+        [
+          "word",
+          17
+        ],
+        [
+          "digit",
+          10
+        ],
+        [
+          "coordinator",
+          6
+        ]
+      ],
+      "trigger_purity": 0.7322,
+      "out_entropy_nats": 10.552,
+      "top1_token_share": 0.0001,
+      "top10_token_share": 0.0011,
+      "top_boosted_tokens": [
+        [
+          "' Bern'",
+          0.067
+        ],
+        [
+          "'tele'",
+          0.066
+        ],
+        [
+          "'Sent'",
+          0.063
+        ],
+        [
+          "' Apost'",
+          0.061
+        ],
+        [
+          "'tem'",
+          0.059
+        ],
+        [
+          "' Vald'",
+          0.058
+        ]
+      ],
+      "top_suppressed_tokens": [
+        [
+          "'ists'",
+          -0.128
+        ],
+        [
+          "'ized'",
+          -0.113
+        ],
+        [
+          "'less'",
+          -0.11
+        ],
+        [
+          "'ophobia'",
+          -0.109
+        ],
+        [
+          "'heads'",
+          -0.109
+        ],
+        [
+          "'istically'",
+          -0.107
+        ]
+      ],
+      "n_firing": 200,
+      "bucket": "null_subthreshold"
+    },
+    {
+      "rank": 6,
+      "gram_eval_frac": 0.00944,
+      "global_dCE": 0.000475,
+      "global_dCE_SE": 0.000324,
+      "trigger_dCE": -0.00703,
+      "trigger_dCE_SE": 0.00665,
+      "trigger_dCE_z": -1.06,
+      "trigger_dCE_frac_pos": 0.475,
+      "pushed_class": "word",
+      "pushed_class_summed_dlogit": 400.0625,
+      "pushed_class_sign": "+",
+      "class_concentration": 0.5597,
+      "class_summed_top6": {
+        "word": 400.0625,
+        "capital": 169.0477,
+        "subword": 100.5224,
+        "digit": 17.3431,
+        "punct": 10.2035,
+        "other": 9.1315
+      },
+      "trigger_class_top": [
+        [
+          "word",
+          60
+        ],
+        [
+          "subword",
+          53
+        ],
+        [
+          "capital",
+          41
+        ],
+        [
+          "punct",
+          38
+        ],
+        [
+          "determiner",
+          6
+        ],
+        [
+          "coordinator",
+          1
+        ]
+      ],
+      "trigger_purity": 0.7147,
+      "out_entropy_nats": 10.614,
+      "top1_token_share": 0.0001,
+      "top10_token_share": 0.0007,
+      "top_boosted_tokens": [
+        [
+          "' symbolic'",
+          0.058
+        ],
+        [
+          "' emotional'",
+          0.058
+        ],
+        [
+          "' balancing'",
+          0.056
+        ],
+        [
+          "' indirect'",
+          0.056
+        ],
+        [
+          "' negative'",
+          0.055
+        ],
+        [
+          "' unpredictable'",
+          0.055
+        ]
+      ],
+      "top_suppressed_tokens": [
+        [
+          "'Town'",
+          -0.034
+        ],
+        [
+          "'Fest'",
+          -0.033
+        ],
+        [
+          "'H'",
+          -0.031
+        ],
+        [
+          "'OH'",
+          -0.031
+        ],
+        [
+          "'aire'",
+          -0.03
+        ],
+        [
+          "'EE'",
+          -0.03
+        ]
+      ],
+      "n_firing": 200,
+      "bucket": "null_subthreshold"
+    },
+    {
+      "rank": 7,
+      "gram_eval_frac": 0.00865,
+      "global_dCE": 0.000563,
+      "global_dCE_SE": 0.000319,
+      "trigger_dCE": -0.00142,
+      "trigger_dCE_SE": 0.00559,
+      "trigger_dCE_z": -0.25,
+      "trigger_dCE_frac_pos": 0.595,
+      "pushed_class": "word",
+      "pushed_class_summed_dlogit": -504.4073,
+      "pushed_class_sign": "-",
+      "class_concentration": 0.493,
+      "class_summed_top6": {
+        "word": -504.4073,
+        "capital": 251.4752,
+        "subword": 216.7407,
+        "digit": 14.548,
+        "other": 11.6328,
+        "special": 11.1455
+      },
+      "trigger_class_top": [
+        [
+          "subword",
+          117
+        ],
+        [
+          "digit",
+          30
+        ],
+        [
+          "word",
+          23
+        ],
+        [
+          "capital",
+          16
+        ],
+        [
+          "punct",
+          7
+        ],
+        [
+          "coordinator",
+          5
+        ]
+      ],
+      "trigger_purity": 0.7538,
+      "out_entropy_nats": 10.597,
+      "top1_token_share": 0.0001,
+      "top10_token_share": 0.0008,
+      "top_boosted_tokens": [
+        [
+          "'arding'",
+          0.112
+        ],
+        [
+          "'ossus'",
+          0.111
+        ],
+        [
+          "'Trivia'",
+          0.097
+        ],
+        [
+          "'ideon'",
+          0.093
+        ],
+        [
+          "'assad'",
+          0.093
+        ],
+        [
+          "'utherford'",
+          0.092
+        ]
+      ],
+      "top_suppressed_tokens": [
+        [
+          "' veto'",
+          -0.104
+        ],
+        [
+          "' absence'",
+          -0.087
+        ],
+        [
+          "' age'",
+          -0.084
+        ],
+        [
+          "' lull'",
+          -0.084
+        ],
+        [
+          "' breadth'",
+          -0.08
+        ],
+        [
+          "' sleeper'",
+          -0.079
+        ]
+      ],
+      "n_firing": 200,
+      "bucket": "null_subthreshold"
+    },
+    {
+      "rank": 8,
+      "gram_eval_frac": 0.00701,
+      "global_dCE": 0.000475,
+      "global_dCE_SE": 0.000255,
+      "trigger_dCE": -7e-05,
+      "trigger_dCE_SE": 0.00491,
+      "trigger_dCE_z": -0.01,
+      "trigger_dCE_frac_pos": 0.48,
+      "pushed_class": "word",
+      "pushed_class_summed_dlogit": 184.869,
+      "pushed_class_sign": "+",
+      "class_concentration": 0.4541,
+      "class_summed_top6": {
+        "word": 184.869,
+        "capital": 142.0934,
+        "subword": 58.7418,
+        "digit": 9.3744,
+        "other": 4.4406,
+        "punct": 3.2614
+      },
+      "trigger_class_top": [
+        [
+          "coordinator",
+          69
+        ],
+        [
+          "subword",
+          54
+        ],
+        [
+          "word",
+          21
+        ],
+        [
+          "punct",
+          18
+        ],
+        [
+          "capital",
+          14
+        ],
+        [
+          "digit",
+          10
+        ]
+      ],
+      "trigger_purity": 0.6663,
+      "out_entropy_nats": 10.627,
+      "top1_token_share": 0.0001,
+      "top10_token_share": 0.0007,
+      "top_boosted_tokens": [
+        [
+          "' fan'",
+          0.03
+        ],
+        [
+          "' collusion'",
+          0.03
+        ],
+        [
+          "'heads'",
+          0.03
+        ],
+        [
+          "' ranger'",
+          0.03
+        ],
+        [
+          "' Ay'",
+          0.03
+        ],
+        [
+          "' mistake'",
+          0.03
+        ]
+      ],
+      "top_suppressed_tokens": [
+        [
+          "' eaten'",
+          -0.023
+        ],
+        [
+          "'.\"'",
+          -0.017
+        ],
+        [
+          "'NC'",
+          -0.017
+        ],
+        [
+          "'Nothing'",
+          -0.017
+        ],
+        [
+          "'.,'",
+          -0.016
+        ],
+        [
+          "'...\"'",
+          -0.015
+        ]
+      ],
+      "n_firing": 200,
+      "bucket": "null_subthreshold"
+    },
+    {
+      "rank": 9,
+      "gram_eval_frac": 0.00665,
+      "global_dCE": 0.000712,
+      "global_dCE_SE": 0.000259,
+      "trigger_dCE": -0.00054,
+      "trigger_dCE_SE": 0.00442,
+      "trigger_dCE_z": -0.12,
+      "trigger_dCE_frac_pos": 0.5,
+      "pushed_class": "word",
+      "pushed_class_summed_dlogit": 137.0735,
+      "pushed_class_sign": "+",
+      "class_concentration": 0.6068,
+      "class_summed_top6": {
+        "word": 137.0735,
+        "capital": 69.3101,
+        "subword": -11.6666,
+        "digit": 2.677,
+        "other": 2.4697,
+        "special": 1.1162
+      },
+      "trigger_class_top": [
+        [
+          "word",
+          61
+        ],
+        [
+          "subword",
+          42
+        ],
+        [
+          "determiner",
+          29
+        ],
+        [
+          "capital",
+          25
+        ],
+        [
+          "punct",
+          19
+        ],
+        [
+          "digit",
+          16
+        ]
+      ],
+      "trigger_purity": 0.6604,
+      "out_entropy_nats": 10.578,
+      "top1_token_share": 0.0001,
+      "top10_token_share": 0.0008,
+      "top_boosted_tokens": [
+        [
+          "' willing'",
+          0.027
+        ],
+        [
+          "' regard'",
+          0.026
+        ],
+        [
+          "' ideologies'",
+          0.026
+        ],
+        [
+          "' deliberations'",
+          0.026
+        ],
+        [
+          "' interested'",
+          0.025
+        ],
+        [
+          "' interests'",
+          0.025
+        ]
+      ],
+      "top_suppressed_tokens": [
+        [
+          "'ot'",
+          -0.026
+        ],
+        [
+          "'yr'",
+          -0.026
+        ],
+        [
+          "'co'",
+          -0.025
+        ],
+        [
+          "'com'",
+          -0.025
+        ],
+        [
+          "'ning'",
+          -0.024
+        ],
+        [
+          "'jer'",
+          -0.024
+        ]
+      ],
+      "n_firing": 200,
+      "bucket": "null_subthreshold"
+    },
+    {
+      "rank": 10,
+      "gram_eval_frac": 0.00644,
+      "global_dCE": 0.000359,
+      "global_dCE_SE": 0.000244,
+      "trigger_dCE": -0.00695,
+      "trigger_dCE_SE": 0.00376,
+      "trigger_dCE_z": -1.85,
+      "trigger_dCE_frac_pos": 0.44,
+      "pushed_class": "subword",
+      "pushed_class_summed_dlogit": -57.3458,
+      "pushed_class_sign": "-",
+      "class_concentration": 0.5849,
+      "class_summed_top6": {
+        "subword": -57.3458,
+        "word": -18.4566,
+        "capital": 13.4505,
+        "digit": -6.8454,
+        "other": -0.5686,
+        "punct": -0.5633
+      },
+      "trigger_class_top": [
+        [
+          "capital",
+          79
+        ],
+        [
+          "word",
+          65
+        ],
+        [
+          "subword",
+          43
+        ],
+        [
+          "determiner",
+          8
+        ],
+        [
+          "digit",
+          3
+        ],
+        [
+          "pronoun",
+          2
+        ]
+      ],
+      "trigger_purity": 0.7546,
+      "out_entropy_nats": 10.533,
+      "top1_token_share": 0.0001,
+      "top10_token_share": 0.001,
+      "top_boosted_tokens": [
+        [
+          "' regarding'",
+          0.029
+        ],
+        [
+          "' concerning'",
+          0.027
+        ],
+        [
+          "' redacted'",
+          0.026
+        ],
+        [
+          "' towards'",
+          0.024
+        ],
+        [
+          "' document'",
+          0.024
+        ],
+        [
+          "' Plot'",
+          0.023
+        ]
+      ],
+      "top_suppressed_tokens": [
+        [
+          "'ont'",
+          -0.031
+        ],
+        [
+          "'cca'",
+          -0.03
+        ],
+        [
+          "'up'",
+          -0.029
+        ],
+        [
+          "'ym'",
+          -0.029
+        ],
+        [
+          "'aro'",
+          -0.029
+        ],
+        [
+          "'onde'",
+          -0.028
+        ]
+      ],
+      "n_firing": 200,
+      "bucket": "null_subthreshold"
+    },
+    {
+      "rank": 11,
+      "gram_eval_frac": 0.00584,
+      "global_dCE": 0.000463,
+      "global_dCE_SE": 0.000296,
+      "trigger_dCE": 0.0161,
+      "trigger_dCE_SE": 0.00586,
+      "trigger_dCE_z": 2.75,
+      "trigger_dCE_frac_pos": 0.645,
+      "pushed_class": "capital",
+      "pushed_class_summed_dlogit": 272.1099,
+      "pushed_class_sign": "+",
+      "class_concentration": 0.5935,
+      "class_summed_top6": {
+        "capital": 272.1099,
+        "subword": 100.4846,
+        "word": 37.8283,
+        "digit": 19.6251,
+        "punct": 8.7483,
+        "other": 8.6425
+      },
+      "trigger_class_top": [
+        [
+          "subword",
+          115
+        ],
+        [
+          "punct",
+          40
+        ],
+        [
+          "word",
+          31
+        ],
+        [
+          "capital",
+          9
+        ],
+        [
+          "digit",
+          2
+        ],
+        [
+          "pronoun",
+          2
+        ]
+      ],
+      "trigger_purity": 0.7759,
+      "out_entropy_nats": 10.556,
+      "top1_token_share": 0.0001,
+      "top10_token_share": 0.0009,
+      "top_boosted_tokens": [
+        [
+          "' Stream'",
+          0.067
+        ],
+        [
+          "'reported'",
+          0.062
+        ],
+        [
+          "'\u0107'",
+          0.06
+        ],
+        [
+          "' Reese'",
+          0.06
+        ],
+        [
+          "'used'",
+          0.059
+        ],
+        [
+          "' Megan'",
+          0.059
+        ]
+      ],
+      "top_suppressed_tokens": [
+        [
+          "'ibly'",
+          -0.059
+        ],
+        [
+          "' planners'",
+          -0.049
+        ],
+        [
+          "' cars'",
+          -0.046
+        ],
+        [
+          "' univers'",
+          -0.044
+        ],
+        [
+          "' duplicate'",
+          -0.043
+        ],
+        [
+          "' intervening'",
+          -0.043
+        ]
+      ],
+      "n_firing": 200,
+      "bucket": "null_subthreshold"
+    },
+    {
+      "rank": 12,
+      "gram_eval_frac": 0.00562,
+      "global_dCE": 0.000772,
+      "global_dCE_SE": 0.000277,
+      "trigger_dCE": -0.00043,
+      "trigger_dCE_SE": 0.00479,
+      "trigger_dCE_z": -0.09,
+      "trigger_dCE_frac_pos": 0.52,
+      "pushed_class": "word",
+      "pushed_class_summed_dlogit": 66.948,
+      "pushed_class_sign": "+",
+      "class_concentration": 0.7428,
+      "class_summed_top6": {
+        "word": 66.948,
+        "digit": -9.9497,
+        "subword": 8.3177,
+        "punct": -1.5021,
+        "capital": -1.1264,
+        "special": 0.8599
+      },
+      "trigger_class_top": [
+        [
+          "word",
+          113
+        ],
+        [
+          "subword",
+          55
+        ],
+        [
+          "capital",
+          30
+        ],
+        [
+          "digit",
+          1
+        ],
+        [
+          "coordinator",
+          1
+        ]
+      ],
+      "trigger_purity": 0.8084,
+      "out_entropy_nats": 10.53,
+      "top1_token_share": 0.0001,
+      "top10_token_share": 0.0011,
+      "top_boosted_tokens": [
+        [
+          "'powder'",
+          0.049
+        ],
+        [
+          "' straw'",
+          0.048
+        ],
+        [
+          "' liquids'",
+          0.045
+        ],
+        [
+          "'paste'",
+          0.045
+        ],
+        [
+          "' sauces'",
+          0.044
+        ],
+        [
+          "' grains'",
+          0.043
+        ]
+      ],
+      "top_suppressed_tokens": [
+        [
+          "\"'/\"",
+          -0.041
+        ],
+        [
+          "' Of'",
+          -0.037
+        ],
+        [
+          "' winner'",
+          -0.037
+        ],
+        [
+          "' Massacre'",
+          -0.036
+        ],
+        [
+          "'Of'",
+          -0.035
+        ],
+        [
+          "'odd'",
+          -0.035
+        ]
+      ],
+      "n_firing": 200,
+      "bucket": "null_subthreshold"
+    },
+    {
+      "rank": 13,
+      "gram_eval_frac": 0.0054,
+      "global_dCE": 0.000223,
+      "global_dCE_SE": 0.000264,
+      "trigger_dCE": -0.00262,
+      "trigger_dCE_SE": 0.0045,
+      "trigger_dCE_z": -0.58,
+      "trigger_dCE_frac_pos": 0.485,
+      "pushed_class": "word",
+      "pushed_class_summed_dlogit": 124.4117,
+      "pushed_class_sign": "+",
+      "class_concentration": 0.4968,
+      "class_summed_top6": {
+        "word": 124.4117,
+        "capital": 76.0467,
+        "subword": 25.5665,
+        "punct": 8.4313,
+        "digit": 6.3077,
+        "other": 4.1474
+      },
+      "trigger_class_top": [
+        [
+          "word",
+          82
+        ],
+        [
+          "subword",
+          57
+        ],
+        [
+          "capital",
+          42
+        ],
+        [
+          "digit",
+          10
+        ],
+        [
+          "determiner",
+          4
+        ],
+        [
+          "coordinator",
+          3
+        ]
+      ],
+      "trigger_purity": 0.738,
+      "out_entropy_nats": 10.541,
+      "top1_token_share": 0.0001,
+      "top10_token_share": 0.0011,
+      "top_boosted_tokens": [
+        [
+          "' typed'",
+          0.055
+        ],
+        [
+          "' mailed'",
+          0.046
+        ],
+        [
+          "' imprint'",
+          0.046
+        ],
+        [
+          "' folded'",
+          0.046
+        ],
+        [
+          "' sent'",
+          0.044
+        ],
+        [
+          "' printed'",
+          0.044
+        ]
+      ],
+      "top_suppressed_tokens": [
+        [
+          "'ich'",
+          -0.034
+        ],
+        [
+          "'icent'",
+          -0.032
+        ],
+        [
+          "' stages'",
+          -0.031
+        ],
+        [
+          "'ogue'",
+          -0.031
+        ],
+        [
+          "' helmets'",
+          -0.03
+        ],
+        [
+          "'aby'",
+          -0.03
+        ]
+      ],
+      "n_firing": 200,
+      "bucket": "null_subthreshold"
+    },
+    {
+      "rank": 14,
+      "gram_eval_frac": 0.00508,
+      "global_dCE": 0.000366,
+      "global_dCE_SE": 0.000231,
+      "trigger_dCE": -0.00121,
+      "trigger_dCE_SE": 0.00473,
+      "trigger_dCE_z": -0.26,
+      "trigger_dCE_frac_pos": 0.505,
+      "pushed_class": "word",
+      "pushed_class_summed_dlogit": 96.8513,
+      "pushed_class_sign": "+",
+      "class_concentration": 0.4328,
+      "class_summed_top6": {
+        "word": 96.8513,
+        "capital": 81.022,
+        "subword": 17.7494,
+        "digit": 13.6676,
+        "punct": 6.914,
+        "other": 3.4489
+      },
+      "trigger_class_top": [
+        [
+          "word",
+          122
+        ],
+        [
+          "subword",
+          44
+        ],
+        [
+          "capital",
+          32
+        ],
+        [
+          "pronoun",
+          1
+        ],
+        [
+          "digit",
+          1
+        ]
+      ],
+      "trigger_purity": 0.8149,
+      "out_entropy_nats": 10.569,
+      "top1_token_share": 0.0001,
+      "top10_token_share": 0.0009,
+      "top_boosted_tokens": [
+        [
+          "' married'",
+          0.034
+        ],
+        [
+          "' marry'",
+          0.031
+        ],
+        [
+          "'iless'",
+          0.031
+        ],
+        [
+          "'ldom'",
+          0.03
+        ],
+        [
+          "'../'",
+          0.03
+        ],
+        [
+          "'APTER'",
+          0.03
+        ]
+      ],
+      "top_suppressed_tokens": [
+        [
+          "'ee'",
+          -0.026
+        ],
+        [
+          "'er'",
+          -0.026
+        ],
+        [
+          "'ings'",
+          -0.026
+        ],
+        [
+          "'SP'",
+          -0.024
+        ],
+        [
+          "'aer'",
+          -0.024
+        ],
+        [
+          "'Th'",
+          -0.024
+        ]
+      ],
+      "n_firing": 200,
+      "bucket": "null_subthreshold"
+    },
+    {
+      "rank": 15,
+      "gram_eval_frac": 0.00481,
+      "global_dCE": 0.000551,
+      "global_dCE_SE": 0.000239,
+      "trigger_dCE": -0.00409,
+      "trigger_dCE_SE": 0.00462,
+      "trigger_dCE_z": -0.89,
+      "trigger_dCE_frac_pos": 0.495,
+      "pushed_class": "capital",
+      "pushed_class_summed_dlogit": 76.0516,
+      "pushed_class_sign": "+",
+      "class_concentration": 0.4578,
+      "class_summed_top6": {
+        "capital": 76.0516,
+        "word": -55.589,
+        "subword": -19.6625,
+        "digit": 9.9316,
+        "other": 2.1702,
+        "special": 1.3824
+      },
+      "trigger_class_top": [
+        [
+          "word",
+          93
+        ],
+        [
+          "subword",
+          77
+        ],
+        [
+          "capital",
+          26
+        ],
+        [
+          "pronoun",
+          1
+        ],
+        [
+          "digit",
+          1
+        ],
+        [
+          "punct",
+          1
+        ]
+      ],
+      "trigger_purity": 0.7934,
+      "out_entropy_nats": 10.558,
+      "top1_token_share": 0.0001,
+      "top10_token_share": 0.0009,
+      "top_boosted_tokens": [
+        [
+          "' Helena'",
+          0.033
+        ],
+        [
+          "' Coch'",
+          0.031
+        ],
+        [
+          "'aghd'",
+          0.03
+        ],
+        [
+          "' Assembly'",
+          0.03
+        ],
+        [
+          "'apters'",
+          0.029
+        ],
+        [
+          "' Laur'",
+          0.029
+        ]
+      ],
+      "top_suppressed_tokens": [
+        [
+          "'late'",
+          -0.039
+        ],
+        [
+          "'stuff'",
+          -0.036
+        ],
+        [
+          "' stuff'",
+          -0.036
+        ],
+        [
+          "' crap'",
+          -0.034
+        ],
+        [
+          "'un'",
+          -0.033
+        ],
+        [
+          "' playbook'",
+          -0.033
+        ]
+      ],
+      "n_firing": 200,
+      "bucket": "null_subthreshold"
+    },
+    {
+      "rank": 16,
+      "gram_eval_frac": 0.00468,
+      "global_dCE": 0.000302,
+      "global_dCE_SE": 0.000219,
+      "trigger_dCE": -0.00213,
+      "trigger_dCE_SE": 0.00483,
+      "trigger_dCE_z": -0.44,
+      "trigger_dCE_frac_pos": 0.505,
+      "pushed_class": "capital",
+      "pushed_class_summed_dlogit": 47.7312,
+      "pushed_class_sign": "+",
+      "class_concentration": 0.6506,
+      "class_summed_top6": {
+        "capital": 47.7312,
+        "word": -13.7245,
+        "subword": -4.5335,
+        "digit": 4.3433,
+        "other": 1.6263,
+        "special": 0.8148
+      },
+      "trigger_class_top": [
+        [
+          "word",
+          111
+        ],
+        [
+          "subword",
+          37
+        ],
+        [
+          "punct",
+          30
+        ],
+        [
+          "capital",
+          9
+        ],
+        [
+          "digit",
+          9
+        ],
+        [
+          "coordinator",
+          2
+        ]
+      ],
+      "trigger_purity": 0.7543,
+      "out_entropy_nats": 10.547,
+      "top1_token_share": 0.0001,
+      "top10_token_share": 0.001,
+      "top_boosted_tokens": [
+        [
+          "'plets'",
+          0.022
+        ],
+        [
+          "' Stop'",
+          0.021
+        ],
+        [
+          "'ushed'",
+          0.021
+        ],
+        [
+          "' Elena'",
+          0.021
+        ],
+        [
+          "' Helena'",
+          0.02
+        ],
+        [
+          "' Winn'",
+          0.02
+        ]
+      ],
+      "top_suppressed_tokens": [
+        [
+          "'ram'",
+          -0.027
+        ],
+        [
+          "' topic'",
+          -0.026
+        ],
+        [
+          "' possibility'",
+          -0.024
+        ],
+        [
+          "' notwithstanding'",
+          -0.024
+        ],
+        [
+          "' dilemma'",
+          -0.024
+        ],
+        [
+          "'lation'",
+          -0.023
+        ]
+      ],
+      "n_firing": 200,
+      "bucket": "null_subthreshold"
+    },
+    {
+      "rank": 17,
+      "gram_eval_frac": 0.00454,
+      "global_dCE": 4.7e-05,
+      "global_dCE_SE": 0.000204,
+      "trigger_dCE": -0.00142,
+      "trigger_dCE_SE": 0.00333,
+      "trigger_dCE_z": -0.43,
+      "trigger_dCE_frac_pos": 0.46,
+      "pushed_class": "capital",
+      "pushed_class_summed_dlogit": 46.2802,
+      "pushed_class_sign": "+",
+      "class_concentration": 0.4181,
+      "class_summed_top6": {
+        "capital": 46.2802,
+        "word": -34.391,
+        "subword": -23.2537,
+        "digit": 3.4527,
+        "special": 1.1109,
+        "other": 1.0846
+      },
+      "trigger_class_top": [
+        [
+          "word",
+          119
+        ],
+        [
+          "subword",
+          37
+        ],
+        [
+          "capital",
+          33
+        ],
+        [
+          "newline",
+          4
+        ],
+        [
+          "punct",
+          3
+        ],
+        [
+          "other",
+          2
+        ]
+      ],
+      "trigger_purity": 0.7813,
+      "out_entropy_nats": 10.54,
+      "top1_token_share": 0.0001,
+      "top10_token_share": 0.001,
+      "top_boosted_tokens": [
+        [
+          "' Deploy'",
+          0.019
+        ],
+        [
+          "' Simulation'",
+          0.018
+        ],
+        [
+          "' Creating'",
+          0.018
+        ],
+        [
+          "' Engineering'",
+          0.018
+        ],
+        [
+          "' Coming'",
+          0.018
+        ],
+        [
+          "' WATCH'",
+          0.018
+        ]
+      ],
+      "top_suppressed_tokens": [
+        [
+          "'lers'",
+          -0.022
+        ],
+        [
+          "'ler'",
+          -0.021
+        ],
+        [
+          "'edly'",
+          -0.021
+        ],
+        [
+          "'ey'",
+          -0.021
+        ],
+        [
+          "'lett'",
+          -0.021
+        ],
+        [
+          "'sex'",
+          -0.02
+        ]
+      ],
+      "n_firing": 200,
+      "bucket": "null_subthreshold"
+    },
+    {
+      "rank": 18,
+      "gram_eval_frac": 0.00428,
+      "global_dCE": -0.000104,
+      "global_dCE_SE": 0.000203,
+      "trigger_dCE": -0.00228,
+      "trigger_dCE_SE": 0.00326,
+      "trigger_dCE_z": -0.7,
+      "trigger_dCE_frac_pos": 0.455,
+      "pushed_class": "subword",
+      "pushed_class_summed_dlogit": -32.1814,
+      "pushed_class_sign": "-",
+      "class_concentration": 0.3999,
+      "class_summed_top6": {
+        "subword": -32.1814,
+        "capital": -25.8646,
+        "word": 18.2051,
+        "other": -1.4873,
+        "punct": -0.9122,
+        "special": -0.8769
+      },
+      "trigger_class_top": [
+        [
+          "word",
+          130
+        ],
+        [
+          "subword",
+          36
+        ],
+        [
+          "capital",
+          21
+        ],
+        [
+          "pronoun",
+          3
+        ],
+        [
+          "coordinator",
+          3
+        ],
+        [
+          "punct",
+          3
+        ]
+      ],
+      "trigger_purity": 0.7899,
+      "out_entropy_nats": 10.545,
+      "top1_token_share": 0.0001,
+      "top10_token_share": 0.001,
+      "top_boosted_tokens": [
+        [
+          "' beforehand'",
+          0.026
+        ],
+        [
+          "' anonymously'",
+          0.023
+        ],
+        [
+          "' affairs'",
+          0.021
+        ],
+        [
+          "' briefly'",
+          0.021
+        ],
+        [
+          "' pseudonym'",
+          0.02
+        ],
+        [
+          "' confidentiality'",
+          0.019
+        ]
+      ],
+      "top_suppressed_tokens": [
+        [
+          "'NT'",
+          -0.02
+        ],
+        [
+          "'ners'",
+          -0.02
+        ],
+        [
+          "'icts'",
+          -0.02
+        ],
+        [
+          "'ies'",
+          -0.02
+        ],
+        [
+          "'ppings'",
+          -0.02
+        ],
+        [
+          "'estones'",
+          -0.019
+        ]
+      ],
+      "n_firing": 200,
+      "bucket": "null_subthreshold"
+    },
+    {
+      "rank": 19,
+      "gram_eval_frac": 0.00415,
+      "global_dCE": 0.000645,
+      "global_dCE_SE": 0.000203,
+      "trigger_dCE": -0.00029,
+      "trigger_dCE_SE": 0.00353,
+      "trigger_dCE_z": -0.08,
+      "trigger_dCE_frac_pos": 0.515,
+      "pushed_class": "capital",
+      "pushed_class_summed_dlogit": 42.5203,
+      "pushed_class_sign": "+",
+      "class_concentration": 0.4196,
+      "class_summed_top6": {
+        "capital": 42.5203,
+        "word": 33.3706,
+        "subword": -18.873,
+        "digit": 3.2067,
+        "other": 1.3372,
+        "punct": -0.6926
+      },
+      "trigger_class_top": [
+        [
+          "word",
+          83
+        ],
+        [
+          "subword",
+          66
+        ],
+        [
+          "digit",
+          30
+        ],
+        [
+          "capital",
+          11
+        ],
+        [
+          "determiner",
+          4
+        ],
+        [
+          "pronoun",
+          4
+        ]
+      ],
+      "trigger_purity": 0.74,
+      "out_entropy_nats": 10.548,
+      "top1_token_share": 0.0001,
+      "top10_token_share": 0.001,
+      "top_boosted_tokens": [
+        [
+          "' hockey'",
+          0.031
+        ],
+        [
+          "' bun'",
+          0.029
+        ],
+        [
+          "' soccer'",
+          0.028
+        ],
+        [
+          "' sled'",
+          0.027
+        ],
+        [
+          "'ness'",
+          0.027
+        ],
+        [
+          "' Nordic'",
+          0.027
+        ]
+      ],
+      "top_suppressed_tokens": [
+        [
+          "'allowed'",
+          -0.031
+        ],
+        [
+          "'res'",
+          -0.028
+        ],
+        [
+          "' sentenced'",
+          -0.028
+        ],
+        [
+          "'month'",
+          -0.027
+        ],
+        [
+          "'pp'",
+          -0.027
+        ],
+        [
+          "'ys'",
+          -0.027
+        ]
+      ],
+      "n_firing": 200,
+      "bucket": "null_subthreshold"
+    },
+    {
+      "rank": 20,
+      "gram_eval_frac": 0.00407,
+      "global_dCE": 0.000272,
+      "global_dCE_SE": 0.000184,
+      "trigger_dCE": 0.0011,
+      "trigger_dCE_SE": 0.00279,
+      "trigger_dCE_z": 0.39,
+      "trigger_dCE_frac_pos": 0.53,
+      "pushed_class": "word",
+      "pushed_class_summed_dlogit": 156.8426,
+      "pushed_class_sign": "+",
+      "class_concentration": 0.577,
+      "class_summed_top6": {
+        "word": 156.8426,
+        "capital": 87.2698,
+        "subword": -10.5285,
+        "digit": 6.1991,
+        "punct": 4.8109,
+        "other": 2.8336
+      },
+      "trigger_class_top": [
+        [
+          "word",
+          80
+        ],
+        [
+          "determiner",
+          42
+        ],
+        [
+          "subword",
+          37
+        ],
+        [
+          "capital",
+          33
+        ],
+        [
+          "coordinator",
+          5
+        ],
+        [
+          "other",
+          1
+        ]
+      ],
+      "trigger_purity": 0.7215,
+      "out_entropy_nats": 10.599,
+      "top1_token_share": 0.0001,
+      "top10_token_share": 0.0007,
+      "top_boosted_tokens": [
+        [
+          "' commercially'",
+          0.028
+        ],
+        [
+          "' integrated'",
+          0.027
+        ],
+        [
+          "' compatible'",
+          0.026
+        ],
+        [
+          "' locally'",
+          0.026
+        ],
+        [
+          "' simplified'",
+          0.026
+        ],
+        [
+          "' standalone'",
+          0.025
+        ]
+      ],
+      "top_suppressed_tokens": [
+        [
+          "'horn'",
+          -0.024
+        ],
+        [
+          "'cent'",
+          -0.023
+        ],
+        [
+          "'path'",
+          -0.022
+        ],
+        [
+          "'plan'",
+          -0.022
+        ],
+        [
+          "'call'",
+          -0.021
+        ],
+        [
+          "'Flight'",
+          -0.021
+        ]
+      ],
+      "n_firing": 200,
+      "bucket": "null_subthreshold"
+    },
+    {
+      "rank": 21,
+      "gram_eval_frac": 0.00398,
+      "global_dCE": 8.7e-05,
+      "global_dCE_SE": 0.000225,
+      "trigger_dCE": 0.00094,
+      "trigger_dCE_SE": 0.0034,
+      "trigger_dCE_z": 0.28,
+      "trigger_dCE_frac_pos": 0.465,
+      "pushed_class": "subword",
+      "pushed_class_summed_dlogit": 66.0972,
+      "pushed_class_sign": "+",
+      "class_concentration": 0.3348,
+      "class_summed_top6": {
+        "subword": 66.0972,
+        "word": 63.3437,
+        "capital": 47.1052,
+        "digit": 7.8842,
+        "punct": 6.0648,
+        "other": 3.2186
+      },
+      "trigger_class_top": [
+        [
+          "capital",
+          70
+        ],
+        [
+          "word",
+          44
+        ],
+        [
+          "subword",
+          39
+        ],
+        [
+          "determiner",
+          18
+        ],
+        [
+          "digit",
+          17
+        ],
+        [
+          "punct",
+          11
+        ]
+      ],
+      "trigger_purity": 0.6921,
+      "out_entropy_nats": 10.561,
+      "top1_token_share": 0.0001,
+      "top10_token_share": 0.0009,
+      "top_boosted_tokens": [
+        [
+          "'ival'",
+          0.024
+        ],
+        [
+          "'zig'",
+          0.022
+        ],
+        [
+          "'ris'",
+          0.022
+        ],
+        [
+          "'imes'",
+          0.022
+        ],
+        [
+          "'eness'",
+          0.022
+        ],
+        [
+          "'isted'",
+          0.022
+        ]
+      ],
+      "top_suppressed_tokens": [
+        [
+          "' Corps'",
+          -0.016
+        ],
+        [
+          "' torped'",
+          -0.014
+        ],
+        [
+          "'Up'",
+          -0.014
+        ],
+        [
+          "'IER'",
+          -0.013
+        ],
+        [
+          "' Bank'",
+          -0.013
+        ],
+        [
+          "'U'",
+          -0.013
+        ]
+      ],
+      "n_firing": 200,
+      "bucket": "null_subthreshold"
+    },
+    {
+      "rank": 22,
+      "gram_eval_frac": 0.00384,
+      "global_dCE": -7.7e-05,
+      "global_dCE_SE": 0.00021,
+      "trigger_dCE": 0.0015,
+      "trigger_dCE_SE": 0.00416,
+      "trigger_dCE_z": 0.36,
+      "trigger_dCE_frac_pos": 0.515,
+      "pushed_class": "capital",
+      "pushed_class_summed_dlogit": 45.9603,
+      "pushed_class_sign": "+",
+      "class_concentration": 0.5173,
+      "class_summed_top6": {
+        "capital": 45.9603,
+        "word": 29.3451,
+        "subword": -10.1301,
+        "other": 1.4318,
+        "special": 1.0488,
+        "punct": 0.6091
+      },
+      "trigger_class_top": [
+        [
+          "subword",
+          59
+        ],
+        [
+          "determiner",
+          54
+        ],
+        [
+          "word",
+          53
+        ],
+        [
+          "capital",
+          16
+        ],
+        [
+          "punct",
+          10
+        ],
+        [
+          "digit",
+          6
+        ]
+      ],
+      "trigger_purity": 0.7039,
+      "out_entropy_nats": 10.532,
+      "top1_token_share": 0.0001,
+      "top10_token_share": 0.0011,
+      "top_boosted_tokens": [
+        [
+          "' brawl'",
+          0.038
+        ],
+        [
+          "'episode'",
+          0.036
+        ],
+        [
+          "' break'",
+          0.036
+        ],
+        [
+          "' concert'",
+          0.036
+        ],
+        [
+          "' slump'",
+          0.036
+        ],
+        [
+          "' Ner'",
+          0.035
+        ]
+      ],
+      "top_suppressed_tokens": [
+        [
+          "' patents'",
+          -0.029
+        ],
+        [
+          "'cm'",
+          -0.028
+        ],
+        [
+          "'op'",
+          -0.028
+        ],
+        [
+          "' horizontally'",
+          -0.027
+        ],
+        [
+          "'Of'",
+          -0.027
+        ],
+        [
+          "' vertically'",
+          -0.027
+        ]
+      ],
+      "n_firing": 200,
+      "bucket": "null_subthreshold"
+    },
+    {
+      "rank": 23,
+      "gram_eval_frac": 0.00372,
+      "global_dCE": 0.000317,
+      "global_dCE_SE": 0.000217,
+      "trigger_dCE": 0.00016,
+      "trigger_dCE_SE": 0.00397,
+      "trigger_dCE_z": 0.04,
+      "trigger_dCE_frac_pos": 0.5,
+      "pushed_class": "word",
+      "pushed_class_summed_dlogit": 73.7127,
+      "pushed_class_sign": "+",
+      "class_concentration": 0.468,
+      "class_summed_top6": {
+        "word": 73.7127,
+        "subword": -47.1048,
+        "capital": 28.8865,
+        "digit": -4.336,
+        "punct": 2.5303,
+        "other": -0.2553
+      },
+      "trigger_class_top": [
+        [
+          "word",
+          108
+        ],
+        [
+          "subword",
+          61
+        ],
+        [
+          "capital",
+          26
+        ],
+        [
+          "determiner",
+          2
+        ],
+        [
+          "other",
+          2
+        ],
+        [
+          "coordinator",
+          1
+        ]
+      ],
+      "trigger_purity": 0.7964,
+      "out_entropy_nats": 10.53,
+      "top1_token_share": 0.0001,
+      "top10_token_share": 0.001,
+      "top_boosted_tokens": [
+        [
+          "' biking'",
+          0.034
+        ],
+        [
+          "' exploring'",
+          0.033
+        ],
+        [
+          "' exhibiting'",
+          0.032
+        ],
+        [
+          "' showcasing'",
+          0.029
+        ],
+        [
+          "' spilling'",
+          0.029
+        ],
+        [
+          "' Recreation'",
+          0.028
+        ]
+      ],
+      "top_suppressed_tokens": [
+        [
+          "'ories'",
+          -0.028
+        ],
+        [
+          "'item'",
+          -0.027
+        ],
+        [
+          "'ef'",
+          -0.027
+        ],
+        [
+          "'SHIP'",
+          -0.026
+        ],
+        [
+          "'chers'",
+          -0.026
+        ],
+        [
+          "'gs'",
+          -0.025
+        ]
+      ],
+      "n_firing": 200,
+      "bucket": "null_subthreshold"
+    },
+    {
+      "rank": 24,
+      "gram_eval_frac": 0.00359,
+      "global_dCE": -0.000104,
+      "global_dCE_SE": 0.00019,
+      "trigger_dCE": -0.00147,
+      "trigger_dCE_SE": 0.00288,
+      "trigger_dCE_z": -0.51,
+      "trigger_dCE_frac_pos": 0.52,
+      "pushed_class": "word",
+      "pushed_class_summed_dlogit": -147.7454,
+      "pushed_class_sign": "-",
+      "class_concentration": 0.5431,
+      "class_summed_top6": {
+        "word": -147.7454,
+        "capital": 54.292,
+        "subword": 52.7615,
+        "digit": 5.8835,
+        "punct": 3.7507,
+        "other": 3.5322
+      },
+      "trigger_class_top": [
+        [
+          "word",
+          89
+        ],
+        [
+          "subword",
+          74
+        ],
+        [
+          "capital",
+          23
+        ],
+        [
+          "determiner",
+          6
+        ],
+        [
+          "digit",
+          2
+        ],
+        [
+          "pronoun",
+          2
+        ]
+      ],
+      "trigger_purity": 0.7597,
+      "out_entropy_nats": 10.564,
+      "top1_token_share": 0.0001,
+      "top10_token_share": 0.0009,
+      "top_boosted_tokens": [
+        [
+          "'asma'",
+          0.036
+        ],
+        [
+          "'yrics'",
+          0.035
+        ],
+        [
+          "'nance'",
+          0.032
+        ],
+        [
+          "'oscope'",
+          0.032
+        ],
+        [
+          "'parable'",
+          0.031
+        ],
+        [
+          "'\u0644'",
+          0.031
+        ]
+      ],
+      "top_suppressed_tokens": [
+        [
+          "' hopeful'",
+          -0.034
+        ],
+        [
+          "' collisions'",
+          -0.033
+        ],
+        [
+          "' vetting'",
+          -0.032
+        ],
+        [
+          "' discrepancies'",
+          -0.031
+        ],
+        [
+          "' resemb'",
+          -0.031
+        ],
+        [
+          "' scheduling'",
+          -0.03
+        ]
+      ],
+      "n_firing": 200,
+      "bucket": "null_subthreshold"
+    },
+    {
+      "rank": 25,
+      "gram_eval_frac": 0.00356,
+      "global_dCE": 0.000114,
+      "global_dCE_SE": 0.00018,
+      "trigger_dCE": -0.00099,
+      "trigger_dCE_SE": 0.0031,
+      "trigger_dCE_z": -0.32,
+      "trigger_dCE_frac_pos": 0.515,
+      "pushed_class": "capital",
+      "pushed_class_summed_dlogit": 34.8346,
+      "pushed_class_sign": "+",
+      "class_concentration": 0.4519,
+      "class_summed_top6": {
+        "capital": 34.8346,
+        "word": 21.5029,
+        "subword": -16.4803,
+        "digit": 1.8915,
+        "other": 1.0598,
+        "special": 0.5342
+      },
+      "trigger_class_top": [
+        [
+          "word",
+          86
+        ],
+        [
+          "subword",
+          60
+        ],
+        [
+          "capital",
+          35
+        ],
+        [
+          "punct",
+          6
+        ],
+        [
+          "digit",
+          5
+        ],
+        [
+          "coordinator",
+          4
+        ]
+      ],
+      "trigger_purity": 0.735,
+      "out_entropy_nats": 10.532,
+      "top1_token_share": 0.0001,
+      "top10_token_share": 0.0011,
+      "top_boosted_tokens": [
+        [
+          "'errors'",
+          0.019
+        ],
+        [
+          "' murders'",
+          0.019
+        ],
+        [
+          "'edient'",
+          0.019
+        ],
+        [
+          "' Vict'",
+          0.018
+        ],
+        [
+          "'existent'",
+          0.018
+        ],
+        [
+          "'multipl'",
+          0.018
+        ]
+      ],
+      "top_suppressed_tokens": [
+        [
+          "'ye'",
+          -0.022
+        ],
+        [
+          "'ign'",
+          -0.022
+        ],
+        [
+          "'als'",
+          -0.022
+        ],
+        [
+          "'ry'",
+          -0.022
+        ],
+        [
+          "'em'",
+          -0.021
+        ],
+        [
+          "'al'",
+          -0.021
+        ]
+      ],
+      "n_firing": 200,
+      "bucket": "null_subthreshold"
+    },
+    {
+      "rank": 26,
+      "gram_eval_frac": 0.00346,
+      "global_dCE": 0.000422,
+      "global_dCE_SE": 0.000174,
+      "trigger_dCE": 0.00441,
+      "trigger_dCE_SE": 0.00287,
+      "trigger_dCE_z": 1.54,
+      "trigger_dCE_frac_pos": 0.595,
+      "pushed_class": "word",
+      "pushed_class_summed_dlogit": 71.4866,
+      "pushed_class_sign": "+",
+      "class_concentration": 0.447,
+      "class_summed_top6": {
+        "word": 71.4866,
+        "capital": 46.5432,
+        "subword": -36.2215,
+        "digit": 2.9901,
+        "other": 0.9346,
+        "special": 0.5714
+      },
+      "trigger_class_top": [
+        [
+          "word",
+          80
+        ],
+        [
+          "subword",
+          59
+        ],
+        [
+          "capital",
+          30
+        ],
+        [
+          "punct",
+          23
+        ],
+        [
+          "digit",
+          4
+        ],
+        [
+          "determiner",
+          3
+        ]
+      ],
+      "trigger_purity": 0.7305,
+      "out_entropy_nats": 10.553,
+      "top1_token_share": 0.0001,
+      "top10_token_share": 0.001,
+      "top_boosted_tokens": [
+        [
+          "' vacant'",
+          0.026
+        ],
+        [
+          "' occupied'",
+          0.025
+        ],
+        [
+          "' squat'",
+          0.024
+        ],
+        [
+          "' suspended'",
+          0.024
+        ],
+        [
+          "' Catholic'",
+          0.023
+        ],
+        [
+          "' seating'",
+          0.023
+        ]
+      ],
+      "top_suppressed_tokens": [
+        [
+          "'ments'",
+          -0.028
+        ],
+        [
+          "'ms'",
+          -0.026
+        ],
+        [
+          "'ery'",
+          -0.026
+        ],
+        [
+          "'ton'",
+          -0.026
+        ],
+        [
+          "'rs'",
+          -0.025
+        ],
+        [
+          "'ras'",
+          -0.025
+        ]
+      ],
+      "n_firing": 200,
+      "bucket": "null_subthreshold"
+    },
+    {
+      "rank": 27,
+      "gram_eval_frac": 0.00337,
+      "global_dCE": -1.3e-05,
+      "global_dCE_SE": 0.000196,
+      "trigger_dCE": 0.00763,
+      "trigger_dCE_SE": 0.00485,
+      "trigger_dCE_z": 1.57,
+      "trigger_dCE_frac_pos": 0.535,
+      "pushed_class": "capital",
+      "pushed_class_summed_dlogit": 61.3932,
+      "pushed_class_sign": "+",
+      "class_concentration": 0.4642,
+      "class_summed_top6": {
+        "capital": 61.3932,
+        "word": -34.1865,
+        "subword": 22.4107,
+        "digit": 7.0438,
+        "punct": 2.5601,
+        "other": 2.4976
+      },
+      "trigger_class_top": [
+        [
+          "word",
+          92
+        ],
+        [
+          "subword",
+          56
+        ],
+        [
+          "capital",
+          30
+        ],
+        [
+          "punct",
+          10
+        ],
+        [
+          "determiner",
+          7
+        ],
+        [
+          "other",
+          3
+        ]
+      ],
+      "trigger_purity": 0.7393,
+      "out_entropy_nats": 10.554,
+      "top1_token_share": 0.0001,
+      "top10_token_share": 0.0009,
+      "top_boosted_tokens": [
+        [
+          "' Chocolate'",
+          0.025
+        ],
+        [
+          "' Eat'",
+          0.021
+        ],
+        [
+          "' Ladies'",
+          0.02
+        ],
+        [
+          "'agall'",
+          0.02
+        ],
+        [
+          "' LIMITED'",
+          0.02
+        ],
+        [
+          "' Drink'",
+          0.02
+        ]
+      ],
+      "top_suppressed_tokens": [
+        [
+          "' skepticism'",
+          -0.021
+        ],
+        [
+          "' competence'",
+          -0.02
+        ],
+        [
+          "' procedure'",
+          -0.02
+        ],
+        [
+          "' proficiency'",
+          -0.019
+        ],
+        [
+          "' protocol'",
+          -0.019
+        ],
+        [
+          "' procedures'",
+          -0.018
+        ]
+      ],
+      "n_firing": 200,
+      "bucket": "null_subthreshold"
+    },
+    {
+      "rank": 28,
+      "gram_eval_frac": 0.00329,
+      "global_dCE": 0.000168,
+      "global_dCE_SE": 0.00016,
+      "trigger_dCE": -0.0021,
+      "trigger_dCE_SE": 0.00312,
+      "trigger_dCE_z": -0.68,
+      "trigger_dCE_frac_pos": 0.49,
+      "pushed_class": "word",
+      "pushed_class_summed_dlogit": 43.5371,
+      "pushed_class_sign": "+",
+      "class_concentration": 0.6267,
+      "class_summed_top6": {
+        "word": 43.5371,
+        "capital": 21.821,
+        "punct": 1.4193,
+        "other": 1.2353,
+        "special": 0.9229,
+        "digit": 0.1754
+      },
+      "trigger_class_top": [
+        [
+          "word",
+          100
+        ],
+        [
+          "subword",
+          37
+        ],
+        [
+          "coordinator",
+          19
+        ],
+        [
+          "determiner",
+          15
+        ],
+        [
+          "digit",
+          14
+        ],
+        [
+          "other",
+          6
+        ]
+      ],
+      "trigger_purity": 0.7096,
+      "out_entropy_nats": 10.541,
+      "top1_token_share": 0.0001,
+      "top10_token_share": 0.001,
+      "top_boosted_tokens": [
+        [
+          "' recall'",
+          0.017
+        ],
+        [
+          "' dash'",
+          0.017
+        ],
+        [
+          "' select'",
+          0.016
+        ],
+        [
+          "' \u2191'",
+          0.016
+        ],
+        [
+          "' efforts'",
+          0.016
+        ],
+        [
+          "' participate'",
+          0.016
+        ]
+      ],
+      "top_suppressed_tokens": [
+        [
+          "'izzy'",
+          -0.015
+        ],
+        [
+          "'ara'",
+          -0.015
+        ],
+        [
+          "'horn'",
+          -0.015
+        ],
+        [
+          "'opia'",
+          -0.015
+        ],
+        [
+          "' stranger'",
+          -0.014
+        ],
+        [
+          "'deals'",
+          -0.014
+        ]
+      ],
+      "n_firing": 200,
+      "bucket": "null_subthreshold"
+    },
+    {
+      "rank": 29,
+      "gram_eval_frac": 0.00324,
+      "global_dCE": 0.000442,
+      "global_dCE_SE": 0.000157,
+      "trigger_dCE": -0.00489,
+      "trigger_dCE_SE": 0.00292,
+      "trigger_dCE_z": -1.68,
+      "trigger_dCE_frac_pos": 0.465,
+      "pushed_class": "word",
+      "pushed_class_summed_dlogit": 72.2017,
+      "pushed_class_sign": "+",
+      "class_concentration": 0.6844,
+      "class_summed_top6": {
+        "word": 72.2017,
+        "subword": -15.04,
+        "capital": 14.4581,
+        "punct": 1.5274,
+        "digit": 0.9923,
+        "other": 0.5567
+      },
+      "trigger_class_top": [
+        [
+          "word",
+          97
+        ],
+        [
+          "subword",
+          42
+        ],
+        [
+          "capital",
+          30
+        ],
+        [
+          "digit",
+          12
+        ],
+        [
+          "punct",
+          8
+        ],
+        [
+          "coordinator",
+          4
+        ]
+      ],
+      "trigger_purity": 0.7188,
+      "out_entropy_nats": 10.553,
+      "top1_token_share": 0.0001,
+      "top10_token_share": 0.0009,
+      "top_boosted_tokens": [
+        [
+          "' shy'",
+          0.017
+        ],
+        [
+          "' released'",
+          0.016
+        ],
+        [
+          "' addict'",
+          0.016
+        ],
+        [
+          "' releasing'",
+          0.016
+        ],
+        [
+          "' detecting'",
+          0.016
+        ],
+        [
+          "' blocker'",
+          0.015
+        ]
+      ],
+      "top_suppressed_tokens": [
+        [
+          "'ra'",
+          -0.017
+        ],
+        [
+          "'fare'",
+          -0.016
+        ],
+        [
+          "'most'",
+          -0.016
+        ],
+        [
+          "'or'",
+          -0.015
+        ],
+        [
+          "'ETS'",
+          -0.014
+        ],
+        [
+          "'wd'",
+          -0.014
+        ]
+      ],
+      "n_firing": 200,
+      "bucket": "null_subthreshold"
+    },
+    {
+      "rank": 30,
+      "gram_eval_frac": 0.00316,
+      "global_dCE": 1e-05,
+      "global_dCE_SE": 0.000166,
+      "trigger_dCE": -0.00504,
+      "trigger_dCE_SE": 0.00319,
+      "trigger_dCE_z": -1.58,
+      "trigger_dCE_frac_pos": 0.535,
+      "pushed_class": "capital",
+      "pushed_class_summed_dlogit": 63.5915,
+      "pushed_class_sign": "+",
+      "class_concentration": 0.4396,
+      "class_summed_top6": {
+        "capital": 63.5915,
+        "word": 52.6901,
+        "subword": 12.4246,
+        "digit": 7.6655,
+        "punct": 3.5688,
+        "other": 2.177
+      },
+      "trigger_class_top": [
+        [
+          "word",
+          94
+        ],
+        [
+          "subword",
+          52
+        ],
+        [
+          "capital",
+          26
+        ],
+        [
+          "digit",
+          9
+        ],
+        [
+          "other",
+          6
+        ],
+        [
+          "pronoun",
+          4
+        ]
+      ],
+      "trigger_purity": 0.7206,
+      "out_entropy_nats": 10.566,
+      "top1_token_share": 0.0001,
+      "top10_token_share": 0.0009,
+      "top_boosted_tokens": [
+        [
+          "' everyday'",
+          0.021
+        ],
+        [
+          "' outdoors'",
+          0.018
+        ],
+        [
+          "' Everyday'",
+          0.018
+        ],
+        [
+          "' :)'",
+          0.018
+        ],
+        [
+          "' Base'",
+          0.018
+        ],
+        [
+          "' Highly'",
+          0.017
+        ]
+      ],
+      "top_suppressed_tokens": [
+        [
+          "'nec'",
+          -0.015
+        ],
+        [
+          "'host'",
+          -0.014
+        ],
+        [
+          "' dere'",
+          -0.014
+        ],
+        [
+          "'fail'",
+          -0.013
+        ],
+        [
+          "'hem'",
+          -0.013
+        ],
+        [
+          "' failed'",
+          -0.012
+        ]
+      ],
+      "n_firing": 200,
+      "bucket": "null_subthreshold"
+    },
+    {
+      "rank": 31,
+      "gram_eval_frac": 0.00306,
+      "global_dCE": 0.000457,
+      "global_dCE_SE": 0.000175,
+      "trigger_dCE": -2e-05,
+      "trigger_dCE_SE": 0.00219,
+      "trigger_dCE_z": -0.01,
+      "trigger_dCE_frac_pos": 0.48,
+      "pushed_class": "word",
+      "pushed_class_summed_dlogit": 25.6615,
+      "pushed_class_sign": "+",
+      "class_concentration": 0.5631,
+      "class_summed_top6": {
+        "word": 25.6615,
+        "capital": 10.2173,
+        "subword": -6.786,
+        "digit": 1.7849,
+        "punct": 0.4606,
+        "determiner": 0.2536
+      },
+      "trigger_class_top": [
+        [
+          "word",
+          108
+        ],
+        [
+          "subword",
+          57
+        ],
+        [
+          "capital",
+          22
+        ],
+        [
+          "digit",
+          6
+        ],
+        [
+          "coordinator",
+          4
+        ],
+        [
+          "punct",
+          3
+        ]
+      ],
+      "trigger_purity": 0.7773,
+      "out_entropy_nats": 10.535,
+      "top1_token_share": 0.0001,
+      "top10_token_share": 0.0011,
+      "top_boosted_tokens": [
+        [
+          "' continuously'",
+          0.024
+        ],
+        [
+          "' publicly'",
+          0.021
+        ],
+        [
+          "' endlessly'",
+          0.021
+        ],
+        [
+          "' gross'",
+          0.019
+        ],
+        [
+          "' uncontroll'",
+          0.019
+        ],
+        [
+          "' quoted'",
+          0.018
+        ]
+      ],
+      "top_suppressed_tokens": [
+        [
+          "'ezvous'",
+          -0.017
+        ],
+        [
+          "'ez'",
+          -0.016
+        ],
+        [
+          "'Reply'",
+          -0.016
+        ],
+        [
+          "'elcome'",
+          -0.016
+        ],
+        [
+          "'igham'",
+          -0.016
+        ],
+        [
+          "' Templar'",
+          -0.016
+        ]
+      ],
+      "n_firing": 200,
+      "bucket": "null_subthreshold"
+    }
+  ]
+}
