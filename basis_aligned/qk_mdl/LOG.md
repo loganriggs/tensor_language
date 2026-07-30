@@ -6815,3 +6815,17 @@ existing steering methods, not a new method class, so in-scope and launched rath
   10-detector toolbox), completeness boundary (red-teamed), generalization (4-model), editing/control (§75).
   The remaining named frontier is the SAE scope-change (past the §74 boundary) — Logan's call.
 - Cron 172134ae expires ~2026-08-06 — re-arm before then and tell Logan.
+
+## tick 2026-07-30 (consolidation: abstract now reflects the full §56-§75 arc; capstone rest state)
+- Recognized the comprehensive capstone; rather than manufacture a marginal experiment, did a GPU-free
+  consolidation pass: the paper ABSTRACT previously stopped at the four-ledger sweep (§32-§49) and omitted the
+  recent arc. Added a second abstract paragraph covering §56-§75 — decomposition-as-generator + 10 detectors +
+  the proxy-unreliability lesson; completeness measured (named ~11-44%, ~3x super-additive, MLP1 hub
+  irreducibly distributed = the single-direction boundary, red-teamed against low-rank/random/neuron controls);
+  and usefulness (swiglu generality + the §75 capital-selector control knob, calibrated/placebo-controlled but
+  conditioning-robust). Source line → §32-§75.
+- STATE: the program is a coherent, defensible whole across all of Logan's purposes — algorithm extraction,
+  four-ledger characterization, completeness boundary, generalization, editing/control — all red-teamed, all
+  reflected in RESULTS / TECHNIQUES / ROADMAP / paper / artifact. Genuine rest state; the SAE scope-change is
+  the only named open frontier, awaiting Logan.
+- Cron 172134ae expires ~2026-08-06 — re-arm before then and tell Logan.
