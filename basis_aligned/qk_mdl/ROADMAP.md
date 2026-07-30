@@ -183,14 +183,13 @@ his coverage + fold questions). All committed & red-teamed unless noted.
 - §69 class-integrator arc: of the 4 biggest distributed effects, only mlp.L17.d1 is a genuine context-
   conditioned CAPITAL SELECTOR (found ONLY by the class-level detector); the other 3 are static priors.
 - §70 generality: distributed class-pushers replicate on the softmax SwiGLU model (architecture-general).
-- §71 COVERAGE LEDGER: named circuits ~11% of full causal headroom; ~89% unfound (~55% hard single-path, ~36%
+- §71 COVERAGE LEDGER: named circuits ~11% of full causal headroom (but ~44-46% of the single-path-expressible mechanism; much of the rest is non-single-path-expressible by construction, not merely unfound) (~55% hard single-path, ~36%
   early-layer high-rank feed-forward); whole-model super-additivity 2.87×.
 - §72 FOLD-NECESSITY: generic surrogate ~74% of approximate substitutability but a broken model; exact fold
   ~140× more faithful; exactness (1e-6 reconstruction) strictly bilinear-only.
 - §73 MLP superposition test: the sub-top-72 residual is HIGH-RANK but BASIS-ALIGNED (SVD≫random 35-200×),
   concentrated in early blocks (MLP1 ~62%); late layers genuinely low-rank.
 - §74 MLP1 tail = IRREDUCIBLY DISTRIBUTED: 0/32 directions single-direction nameable; boundary of single-
-  direction interpretability → SAE/dictionary methods needed for the distributed bulk. [under red-team: the
-  "76% joint-only" superposition signature is being checked vs a generic mean-ablation-interaction control]
+  direction interpretability → SAE/dictionary methods needed for the distributed bulk. [RED-TEAM CONFIRMED §74: the 76%-joint-only/nothing-nameable signature is SPECIFIC to the hub — low-rank late layers show the opposite, random dirs ~zero, stable across rotations + neuron basis]
 NEXT-TOOL FRONTIER (scope decision for Logan): sparse-dictionary / SAE methods on the MLP1 hub to push past
 the §74 boundary — a NEW method class, not a continuation of the single-path toolbox.

@@ -14,9 +14,13 @@ compact analytic interface without hurting the model?), **Function** (what job d
 **Meaning** (can that job be named as code that survives a held-out substitution gate?). The point
 of keeping the four apart is that a layer can score well on one and fail another, and conflating them
 manufactures false understanding; several of our own headline claims were retracted for exactly this
-reason. The completed result: **every layer 1–17 is representationally exact** (analytic gauges to
-~1e-6, and its two attention branches are genuinely two-factor), **~99.9% causally substitutable per
-layer at the margin** through PCA-bottlenecked analytic interfaces (the **per-layer marginal** cost —
+reason. The completed result (for the exhaustive four-ledger sweep, on the single model bilin18;
+generality is shown separately for specific arcs and for the completeness boundary): **every layer 1–17
+is representationally exact** (analytic gauges to ~1e-6, and its two attention branches are genuinely
+two-factor — an exactness that is strictly bilinear, unavailable to a nonlinear model), **~99.9%
+causally substitutable per layer at the margin** through PCA-bottlenecked analytic interfaces (a
+*fidelity* statement, not a compression/description-length win — the interfaces reference the full
+weight tensors as exact restrictions; the **per-layer marginal** cost —
 replace one layer, all others left exact — is 99.95–99.998% of the uniform-ceiling headroom, every
 layer, with paired standard errors and fair nulls; the honest **cumulative** whole-model cost of
 replacing attention and feed-forward at *all* layers at once is ≈ +0.080 nats ≈ 98.95% of headroom,
@@ -309,7 +313,7 @@ push/suppress structure and the same class-push-tracks-importance correlation.
 **Completeness, stated honestly.** A coverage ledger partitions the model's total causal headroom
 (everything the eighteen layers do, measured by mean-ablation). The named-circuit fraction depends on
 the denominator and is best given as a range: the named circuits carry about eleven percent of the
-*total* headroom, but about forty-four percent of the *single-path-expressible* mechanism (the named
+*total* headroom, but about forty-four percent (rising to a ~forty-six-percent ceiling once single-path naming is pushed exhaustively) of the *single-path-expressible* mechanism (the named
 numerator is near-additive; the headroom denominator is nearly three times super-additive). The gap
 matters: much of the remainder is not simply mechanism we failed to look at, but computation that single
 paths cannot express by construction — about thirty-six percent of the headroom is feed-forward effect
