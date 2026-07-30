@@ -2687,3 +2687,62 @@ coded. This matches the program's causal record: induction's match PREDICATE is 
 (pair-keyed lexicon); one-algorithm-three-tables. In this model, WHO-IS-SELECTED is program-like
 and nameable; WHAT-IS-WRITTEN is a graded lexical spectrum whose complete description is the exact
 weight-derived spectrum itself — inspectable, causal, but not compressible into human categories.
+
+## §35 Higher-layer content semantics — three sites, one coordinated probe (2026-07-30)
+### (all numbers post-adversarial-review — see redteam_semantics_2026-07-30.md)
+
+Extends §34 (layer-0 "selection nameable, content spectral") to functional content channels at
+depth, via three agents each running name-as-code → substitution gate → dial → extraction →
+self-red-team on the held-back slice FW[448:600]. A dedicated reviewer then audited the batch;
+these are the surviving, downgraded claims. Framing note (finding F11): this is ONE coordinated
+probe of the §34 dichotomy at three sites — the agents shared priors (the successor site was chosen
+because the earlier two pointed there), so it is not three independent confirmations; the
+genuinely independent pieces are named below.
+
+**Category directions (blocks 0–3) — a steerable dial, NOT a load-bearing code.** The 6 (really
+rank-5) next-token-category probe directions pass the steering gate at strength ≤ 1 (dominant
+diagonal 11/12, sign-correct 12/12, monotone) but are causally deletable: removing the 5-dim
+subspace costs +0.0003 ± 0.0003 (≈ random 6-dim), and the residual holds only 6.3% of its norm
+there. So the model can be *nudged* along these directions but does not *rely* on them; the code is
+consumed by block 8 and rebuilt downstream in new directions. Caveat: the dial only clears its
+controls at strength 1 (where collateral is +0.4–0.7 nats, off-distribution); at 0.5 the advantage
+vanishes — a population-level prior shift, not a per-position switch. INDEPENDENT EVIDENCE: the
+load-bearing falsification. This is a clean instance of *editing-ledger positive, function-ledger
+negative* — the two must not be conflated.
+
+**Pending-opener channel (layer 13) — named, directionally, with the count-hypothesis falsified.**
+A ~1–4-dim channel whose activation tracks bracket/quote state (paren open-vs-closed Cohen d = −1.31,
+decode AUC 0.80). The literal name "count of unclosed openers" is false (it saturates by depth 3;
+the model's own boost doesn't grow with depth); the supported name is a *recency-weighted, type-blind
+pending-opener flag (low = open), strongest for `(` and `"`, leaky after closure*. The coded value
+is the least-damaging non-identity intervention on natural text (+0.0033 nats), ~2.5–3 standard
+errors over mean-substitution (a small absolute effect, single slice; the earlier ">3 / 4–5 SE"
+phrasing was inflated and is withdrawn). The dial is monotone (closer boost 2.9→10.4, natural CE
+≤ +0.008), and a standalone Python state-tracker predicts the channel's closer-boost at r = 0.61
+(paren) / AUC 0.76 (quote). Type-blindness means closer *selection* lives elsewhere — the
+selection/content split again. INDEPENDENT EVIDENCE + reusable method catch: zeroing this channel
+is NOT a neutral deletion (a = 0 lies beyond the natural "open" value, so zeroing *writes* "opener
+pending"); mean-substitution is the honest deletion. Adopted program-wide: verify a deletion's zero
+point is in-distribution.
+
+**Successor payload (layer 8 / v1 cache) — a per-calibrated-element table, not a general pointer.**
+The payload is the last sequence element's identity, carried by the layer-0 value cache and read by
+attention in many layers (the layer-8 heads are the largest single reader). Substituting a fitted
+per-element code for the real payload is behaviorally lossless on the calibrated element set (0.96),
+and imposing a *different* element's code makes the model output that element's successor (follow-rate
+0.65 coded / 0.71 real; the "94% top-1 agreement" figure was inflated by shared fallback tokens and
+is not the headline). CRUCIAL LIMIT (F1/F2): the object is a *per-calibrated-element table* — the
+cross-token linear split-R² is only 0.21, and the four genuinely held-out elements FAIL to generalize
+(follow 0.00–0.25). The "token pointer / W·emb(e)" and "format-free numeric identity" framings are
+withdrawn: the latter rested on one correct and one incorrect (`5`→`10`) cross-format example.
+Scope-matched natural-text cost is +0.0025 (code at element positions) vs +0.0079 (deletion there);
+the unrestricted code (+0.0194) does not beat ablation. INDEPENDENT EVIDENCE: the month successor
+table extracts exactly (12/12 including the December→January wrap natural prompts never elicit).
+
+**What §35 establishes for the depth question (T5).** Functional content channels ARE nameable at
+depth where lexical content (§34, layer 0) was not — but "nameable" here means *a control dial + an
+extractable table/predicate over a bounded input set*, not a generalizing law: the opener flag is
+type-blind and leaky, the successor table does not extend to held-out elements, the category
+directions are steerable-but-dispensable. The honest synthesis across §34–35: **the model computes
+with nameable selection programs over graded, memorized, non-generalizing content dictionaries** —
+and that boundary is now measured at four sites (layers 0, 3, 8, 13), not assumed.
