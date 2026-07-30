@@ -4464,10 +4464,48 @@ auxiliary-K dead-feature revival (0 dead in every final run). Paired standard er
 - **Honest residual caveat:** the generalization ceiling (~0.72) is on THIS training data (256 sequences); a
   much larger activation corpus might raise achievable held fidelity. But the collective-encoding control (both
   the reconstruction and the residual individually inert) predicts the causal negative PERSISTS regardless of
-  fidelity — the causal mass is not concentrated in any learnable subset of directions.
+  fidelity. [§80 CONFIRMED: with 10× data the ceiling MOVED to held FVE 0.85 (so it was DATA-bounded, not a
+  hard high-rank wall — a correction to this section's framing), yet the causal negative HELD — 0/32 load-
+  bearing, 2.01% of the effect — proving the causal collectivity is not an artifact of poor reconstruction.]
 **KEY (the SAE thread's conclusion):** dictionary methods NAME the early hub (its variance structure is a mix
 of clean monosemantic features — periods, commas, determiners, capitals — that SVD's orthogonal view missed)
 but do NOT EXPLAIN it (0/32 load-bearing, 2.2% of the causal mass, collective encoding), AND cannot even
 sparsely RECONSTRUCT it to high fidelity (held-back ceiling ~0.72, generalization-bounded). §74's
 "irreducibly distributed" is fully confirmed and sharpened: the hub's causal mechanism is collective at every
 level tested — orthogonal directions (§74), an L1 dictionary (§78), and a converged top-K dictionary (§79).
+
+## §80 10× DATA SAE — the fidelity ceiling was DATA-bounded (0.72→0.85), but the causal negative HOLDS at high fidelity (2026-07-30)
+(qk_sae_moredata.py / _2.py; closes §79's one residual caveat by re-running the SAE on 10× more data.) Trained
+on data_fineweb_cooc_tokens.npy sequences [600:6000] (5400 sequences, ~10× the §79 corpus), validation on
+cooc[0:300], EVALUATED on the SAME canonical held-back FW[448:600] used in §74-§79 (verified disjoint). Top-K
+SAE, AuxK dead-feature revival, validation-checkpointed best config. Forward + causal harness verbatim from the
+§79 scripts. Paired standard errors.
+- **(a) §79's fidelity ceiling was DATA-bounded, not a hard high-rank wall — a correction to §79.** With 10×
+  data the best config (16384 features, k=64) reaches held-back fraction-of-variance-explained **0.846** (train
+  0.891, train/held gap only 0.045 — the §79 overfitting is GONE), clearly EXCEEDING §79's 0.7162 ceiling. So
+  §79's "generalization ceiling ~0.72, not training-bounded" is REVISED: it was DATA-bounded — more data lets a
+  sparse dictionary reconstruct the hub substantially better (0.72 → 0.85). (The 0.90 target still not quite
+  reached, but the "does more data help fidelity" question is settled: yes.)
+- **(b) Nameability crosses but is LOWER at higher fidelity.** 32/32 features have purity ≥ 0.5; **17 of 32 are
+  monosemantic** (stricter bar) — vs §79's 26/32 (at FVE 0.72) and SVD's 0/32. A larger, finer-grained,
+  higher-fidelity dictionary spreads structure across more, less-class-pure features, so monosemanticity in the
+  top-32 goes DOWN even as reconstruction goes up — nameability is not monotone in fidelity, though it still
+  clears the SVD-0 baseline.
+- **(c) THE DECISIVE RESULT — the causal negative HOLDS at high fidelity.** At held FVE 0.846 (well above the
+  §79 ceiling): **0 of 32 features clear the §74 bar** (max single-feature trigger z = 2.87, max trigger delta
+  cross-entropy 0.0387 — never jointly satisfied); ALL 16384 features together capture only **2.01% of the full
+  5.57-nat MLP1 effect** (§78 2.15%, §79 2.22%, §80 2.01% — flat across all fidelities); cumulative never
+  reaches 50%. POSITIVE CONTROL: removing the reconstruction residual costs 0.26% (0.0143 nats) and removing
+  all features costs 2.01% — BOTH individually inert, the collective-encoding signature, now confirmed at HIGH
+  fidelity.
+- **VERDICT — reconstruction fidelity and causal explicability are DECOUPLED.** §79's fidelity ceiling was data-
+  bounded (a dictionary CAN reconstruct the hub well, 0.85, with enough data), BUT the causal negative is
+  UNCHANGED and now at its strongest: a well-reconstructing (0.85), variance-nameable dictionary STILL captures
+  only ~2% of the hub's causation with 0/32 load-bearing features. The hub's causal mechanism is collective at
+  EVERY reconstruction fidelity tested — 0.69 (§78), 0.72 (§79), 0.85 (§80). Naming and reconstructing the hub
+  does NOT explain its computation; the two axes are genuinely orthogonal.
+**KEY:** the 10× data run corrects §79's fidelity claim (the ~0.72 ceiling was data-bounded; more data → 0.85)
+but STRENGTHENS the causal conclusion: even a dictionary that reconstructs the MLP1 hub well and names its
+variance structure captures only ~2% of its causal effect with no load-bearing feature. §74's "irreducibly
+distributed" is now airtight across reconstruction fidelities from 0.69 to 0.85 — causal collectivity is not an
+artifact of poor reconstruction. Dictionary methods NAME and RECONSTRUCT the hub but do NOT EXPLAIN it.
