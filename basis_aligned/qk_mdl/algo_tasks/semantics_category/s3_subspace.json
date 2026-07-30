@@ -1,0 +1,78 @@
+{
+  "baseline": {
+    "CE": 3.4946,
+    "categoryCE": 0.6744,
+    "withinCE": 2.8202
+  },
+  "ablations": {
+    "probe_subspace_raw6": {
+      "dCE": 0.0363,
+      "dCE_se_row": 0.00237,
+      "d_categoryCE": 0.007,
+      "d_categoryCE_se_row": 0.00086,
+      "d_withinCE": 0.0293,
+      "d_withinCE_se_row": 0.00213,
+      "ratio_cat_over_within": 0.239
+    },
+    "probe_subspace_cent5": {
+      "dCE": 0.0003,
+      "dCE_se_row": 0.00026,
+      "d_categoryCE": 0.0002,
+      "d_categoryCE_se_row": 0.00011,
+      "d_withinCE": 0.0,
+      "d_withinCE_se_row": 0.00022,
+      "ratio_cat_over_within": 6.027
+    },
+    "random6_seed0": {
+      "dCE": 0.0001,
+      "dCE_se_row": 0.00027,
+      "d_categoryCE": 0.0001,
+      "d_categoryCE_se_row": 0.0001,
+      "d_withinCE": 0.0,
+      "d_withinCE_se_row": 0.00023,
+      "ratio_cat_over_within": 1.509
+    },
+    "random6_seed1": {
+      "dCE": 0.0007,
+      "dCE_se_row": 0.00033,
+      "d_categoryCE": 0.0002,
+      "d_categoryCE_se_row": 0.00012,
+      "d_withinCE": 0.0005,
+      "d_withinCE_se_row": 0.00028,
+      "ratio_cat_over_within": 0.509
+    },
+    "random6_seed2": {
+      "dCE": 0.0,
+      "dCE_se_row": 0.00033,
+      "d_categoryCE": -0.0001,
+      "d_categoryCE_se_row": 0.00013,
+      "d_withinCE": 0.0001,
+      "d_withinCE_se_row": 0.00028,
+      "ratio_cat_over_within": -0.635
+    },
+    "random6_seed3": {
+      "dCE": 0.0009,
+      "dCE_se_row": 0.00027,
+      "d_categoryCE": 0.0001,
+      "d_categoryCE_se_row": 0.0001,
+      "d_withinCE": 0.0009,
+      "d_withinCE_se_row": 0.00024,
+      "ratio_cat_over_within": 0.089
+    },
+    "random6_seed4": {
+      "dCE": 0.001,
+      "dCE_se_row": 0.00039,
+      "d_categoryCE": 0.0002,
+      "d_categoryCE_se_row": 0.00015,
+      "d_withinCE": 0.0007,
+      "d_withinCE_se_row": 0.00034,
+      "ratio_cat_over_within": 0.315
+    }
+  },
+  "random6_mean": {
+    "dCE": 0.0005,
+    "d_categoryCE": 0.0001,
+    "d_withinCE": 0.0004,
+    "ratio_cat_over_within": 0.3574
+  }
+}

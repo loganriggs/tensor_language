@@ -1,0 +1,25 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+(a) concentration...
+subword {'d_mass_k_total': 0.0135, 'positive_within_gain': 0.0276, 'top5_share_of_positive_gain': 0.0936, 'top5_tokens': ['s', '�', 'o', 'y', 'er'], 'top5_gains': [0.001, 0.0006, 0.0004, 0.0003, 0.0003], 'n_tokens_for_half_gain': 219}
+punct {'d_mass_k_total': 0.0184, 'positive_within_gain': 0.0198, 'top5_share_of_positive_gain': 0.7452, 'top5_tokens': [',', '.', ':', ' ...', ').'], 'top5_gains': [0.008, 0.0032, 0.002, 0.0008, 0.0008], 'n_tokens_for_half_gain': 2}
+capital {'d_mass_k_total': 0.0296, 'positive_within_gain': 0.0382, 'top5_share_of_positive_gain': 0.0273, 'top5_tokens': [' Somali', ' Germany', ' Somalia', ' State', ' IP'], 'top5_gains': [0.0003, 0.0002, 0.0002, 0.0002, 0.0002], 'n_tokens_for_half_gain': 645}
+digit {'d_mass_k_total': 0.0089, 'positive_within_gain': 0.0093, 'top5_share_of_positive_gain': 0.1369, 'top5_tokens': [' 15', ' 1', ' 4', ' 5', ' 14'], 'top5_gains': [0.0003, 0.0003, 0.0003, 0.0002, 0.0002], 'n_tokens_for_half_gain': 30}
+funcword {'d_mass_k_total': 0.0242, 'positive_within_gain': 0.0301, 'top5_share_of_positive_gain': 0.5977, 'top5_tokens': [' of', ' to', ' and', ' with', ' for'], 'top5_gains': [0.0068, 0.0055, 0.0026, 0.0016, 0.0015], 'n_tokens_for_half_gain': 4}
+other {'d_mass_k_total': 0.0319, 'positive_within_gain': 0.0914, 'top5_share_of_positive_gain': 0.0484, 'top5_tokens': [' you', ' your', ' like', ' have', ' i'], 'top5_gains': [0.0016, 0.0008, 0.0007, 0.0007, 0.0006], 'n_tokens_for_half_gain': 434}
+(b) Jacobian svals: [0.0317, 0.0205, 0.0088, 0.0078, 0.0006, 0.0002] eff rank 3.096
+(c) breaking alphas...
+  funcword a=+2.0: dCE +1.7805±0.0516
+  funcword a=+4.0: dCE +3.6785±0.0872
+  funcword a=+8.0: dCE +4.4197±0.0975
+  funcword a=+16.0: dCE +5.8931±0.1206
+  funcword a=-2.0: dCE +1.9674±0.0552
+  funcword a=-4.0: dCE +4.3633±0.0911
+  funcword a=-8.0: dCE +4.6513±0.0930
+  punct a=+2.0: dCE +2.3754±0.0626
+  punct a=+4.0: dCE +4.1195±0.1017
+  punct a=+8.0: dCE +4.6278±0.1053
+  punct a=+16.0: dCE +5.9396±0.1143
+  punct a=-2.0: dCE +1.8289±0.0550
+  punct a=-4.0: dCE +4.3446±0.0919
+  punct a=-8.0: dCE +5.5371±0.1235
+S6 DONE

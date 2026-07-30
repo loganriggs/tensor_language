@@ -1,0 +1,15 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+gather cooc train...
+gather held FineWeb...
+blk3: transfer 0.5950 | rms-matched 0.5953 | fresh 0.5950 (norm 31816)
+blk4: transfer 0.5698 | rms-matched 0.5716 | fresh 0.5990 (norm 30825)
+blk8: transfer 0.4558 | rms-matched 0.3309 | fresh 0.6458 (norm 14924)
+blk12: transfer 0.4627 | rms-matched 0.4620 | fresh 0.6597 (norm 31857)
+blk16: transfer 0.4672 | rms-matched 0.4823 | fresh 0.6629 (norm 54939)
+principal cosines blk3~blk3: [1.0, 1.0, 1.0, 1.0, 1.0]
+principal cosines blk3~blk4: [0.79, 0.754, 0.731, 0.713, 0.696]
+principal cosines blk3~blk8: [0.572, 0.55, 0.482, 0.438, 0.392]
+principal cosines blk3~blk12: [0.534, 0.441, 0.396, 0.367, 0.347]
+principal cosines blk3~blk16: [0.363, 0.351, 0.298, 0.26, 0.135]
+fraction of residual norm in cent5 subspace: {'median': 0.0628, 'p90': 0.09615, 'expected_random_5dim': 0.06588}
+S5 DONE

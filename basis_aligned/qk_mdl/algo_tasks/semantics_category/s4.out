@@ -1,0 +1,16 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+ambiguous funcword/punct positions: 1349 / 19304
+steer_punct {'flip_funcword_to_punct': 0.4383, 'n_funcword_top': 470, 'flip_punct_to_funcword': 0.0819, 'n_punct_top': 879, 'mean_d_punct_mass_at_amb': -0.0009, 'mean_d_funcword_mass_at_amb': -0.0562}
+steer_funcword {'flip_funcword_to_punct': 0.183, 'n_funcword_top': 470, 'flip_punct_to_funcword': 0.3788, 'n_punct_top': 879, 'mean_d_punct_mass_at_amb': -0.1208, 'mean_d_funcword_mass_at_amb': 0.03}
+zero {'flip_funcword_to_punct': 0.0, 'n_funcword_top': 470, 'flip_punct_to_funcword': 0.0, 'n_punct_top': 879, 'mean_d_punct_mass_at_amb': 0.0, 'mean_d_funcword_mass_at_amb': 0.0}
+random_dir {'flip_funcword_to_punct': 0.3191, 'n_funcword_top': 470, 'flip_punct_to_funcword': 0.1604, 'n_punct_top': 879, 'mean_d_punct_mass_at_amb': -0.059, 'mean_d_funcword_mass_at_amb': -0.0215}
+placebo_digit {'flip_funcword_to_punct': 0.3149, 'n_funcword_top': 470, 'flip_punct_to_funcword': 0.1547, 'n_punct_top': 879, 'mean_d_punct_mass_at_amb': -0.0812, 'mean_d_funcword_mass_at_amb': -0.0373}
+  ...' to 14-15-99 to 4-8-32' | fw/punct [0.647, 0.216] -> [0.137, 0.748] (actual next ' and')
+  ...' through. Cook spaghetti al dente, according to the instructions' | fw/punct [0.737, 0.235] -> [0.205, 0.673] (actual next ' on')
+  ...' (national basketball association) - a professional league created in 1949' | fw/punct [0.766, 0.184] -> [0.319, 0.575] (actual next ' that')
+  ...' much fun. Check out all of the action in issue 1' | fw/punct [0.616, 0.292] -> [0.158, 0.667] (actual next ' of')
+  ...". I'm also a big fan of any kind of food" | fw/punct [0.582, 0.243] -> [0.211, 0.611] (actual next ' I')
+  ...'. What is your favorite sit-in restaurant, and item' | fw/punct [0.65, 0.188] -> [0.29, 0.554] (actual next '?')
+  ...' by ESPN.com, No. 21 by Scout.com' | fw/punct [0.524, 0.458] -> [0.125, 0.805] (actual next '.')
+  ...' interrogation of\n. Post any questions you may have for them' | fw/punct [0.456, 0.404] -> [0.111, 0.747] (actual next ' here')
+S4 DONE

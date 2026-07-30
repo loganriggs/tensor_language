@@ -1,0 +1,248 @@
+{
+  "concentration_alpha1.0": {
+    "subword": {
+      "d_mass_k_total": 0.0135,
+      "positive_within_gain": 0.0276,
+      "top5_share_of_positive_gain": 0.0936,
+      "top5_tokens": [
+        "s",
+        "\ufffd",
+        "o",
+        "y",
+        "er"
+      ],
+      "top5_gains": [
+        0.001,
+        0.0006,
+        0.0004,
+        0.0003,
+        0.0003
+      ],
+      "n_tokens_for_half_gain": 219
+    },
+    "punct": {
+      "d_mass_k_total": 0.0184,
+      "positive_within_gain": 0.0198,
+      "top5_share_of_positive_gain": 0.7452,
+      "top5_tokens": [
+        ",",
+        ".",
+        ":",
+        " ...",
+        ")."
+      ],
+      "top5_gains": [
+        0.008,
+        0.0032,
+        0.002,
+        0.0008,
+        0.0008
+      ],
+      "n_tokens_for_half_gain": 2
+    },
+    "capital": {
+      "d_mass_k_total": 0.0296,
+      "positive_within_gain": 0.0382,
+      "top5_share_of_positive_gain": 0.0273,
+      "top5_tokens": [
+        " Somali",
+        " Germany",
+        " Somalia",
+        " State",
+        " IP"
+      ],
+      "top5_gains": [
+        0.0003,
+        0.0002,
+        0.0002,
+        0.0002,
+        0.0002
+      ],
+      "n_tokens_for_half_gain": 645
+    },
+    "digit": {
+      "d_mass_k_total": 0.0089,
+      "positive_within_gain": 0.0093,
+      "top5_share_of_positive_gain": 0.1369,
+      "top5_tokens": [
+        " 15",
+        " 1",
+        " 4",
+        " 5",
+        " 14"
+      ],
+      "top5_gains": [
+        0.0003,
+        0.0003,
+        0.0003,
+        0.0002,
+        0.0002
+      ],
+      "n_tokens_for_half_gain": 30
+    },
+    "funcword": {
+      "d_mass_k_total": 0.0242,
+      "positive_within_gain": 0.0301,
+      "top5_share_of_positive_gain": 0.5977,
+      "top5_tokens": [
+        " of",
+        " to",
+        " and",
+        " with",
+        " for"
+      ],
+      "top5_gains": [
+        0.0068,
+        0.0055,
+        0.0026,
+        0.0016,
+        0.0015
+      ],
+      "n_tokens_for_half_gain": 4
+    },
+    "other": {
+      "d_mass_k_total": 0.0319,
+      "positive_within_gain": 0.0914,
+      "top5_share_of_positive_gain": 0.0484,
+      "top5_tokens": [
+        " you",
+        " your",
+        " like",
+        " have",
+        " i"
+      ],
+      "top5_gains": [
+        0.0016,
+        0.0008,
+        0.0007,
+        0.0007,
+        0.0006
+      ],
+      "n_tokens_for_half_gain": 434
+    }
+  },
+  "effective_rank": {
+    "jacobian_dmass_per_relalpha": [
+      [
+        0.0076,
+        0.0002,
+        0.0006,
+        -0.0006,
+        -0.0058,
+        -0.0022
+      ],
+      [
+        -0.0028,
+        0.0014,
+        0.0016,
+        0.0016,
+        -0.0002,
+        -0.002
+      ],
+      [
+        -0.0008,
+        0.0028,
+        0.0144,
+        0.0002,
+        -0.0012,
+        -0.0158
+      ],
+      [
+        -0.0004,
+        0.0058,
+        -0.001,
+        0.0038,
+        -0.0068,
+        -0.0014
+      ],
+      [
+        -0.0012,
+        -0.0016,
+        -0.0032,
+        -0.0016,
+        0.0168,
+        -0.0092
+      ],
+      [
+        -0.0016,
+        -0.0036,
+        -0.0078,
+        -0.001,
+        -0.0058,
+        0.0198
+      ]
+    ],
+    "singular_values": [
+      0.0317,
+      0.0205,
+      0.0088,
+      0.0078,
+      0.0006,
+      0.0002
+    ],
+    "effective_rank_participation": 3.096
+  },
+  "breaking_alphas_36rows": {
+    "funcword": {
+      "+2.0": {
+        "dCE": 1.7805,
+        "se_row": 0.0516
+      },
+      "+4.0": {
+        "dCE": 3.6785,
+        "se_row": 0.0872
+      },
+      "+8.0": {
+        "dCE": 4.4197,
+        "se_row": 0.0975
+      },
+      "+16.0": {
+        "dCE": 5.8931,
+        "se_row": 0.1206
+      },
+      "-2.0": {
+        "dCE": 1.9674,
+        "se_row": 0.0552
+      },
+      "-4.0": {
+        "dCE": 4.3633,
+        "se_row": 0.0911
+      },
+      "-8.0": {
+        "dCE": 4.6513,
+        "se_row": 0.093
+      }
+    },
+    "punct": {
+      "+2.0": {
+        "dCE": 2.3754,
+        "se_row": 0.0626
+      },
+      "+4.0": {
+        "dCE": 4.1195,
+        "se_row": 0.1017
+      },
+      "+8.0": {
+        "dCE": 4.6278,
+        "se_row": 0.1053
+      },
+      "+16.0": {
+        "dCE": 5.9396,
+        "se_row": 0.1143
+      },
+      "-2.0": {
+        "dCE": 1.8289,
+        "se_row": 0.055
+      },
+      "-4.0": {
+        "dCE": 4.3446,
+        "se_row": 0.0919
+      },
+      "-8.0": {
+        "dCE": 5.5371,
+        "se_row": 0.1235
+      }
+    }
+  },
+  "probe_dir_cosines_see_s1": "see s1_probe.json cos_centered_dirs"
+}

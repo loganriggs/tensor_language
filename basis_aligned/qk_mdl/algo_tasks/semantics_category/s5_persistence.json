@@ -1,0 +1,82 @@
+{
+  "majority_held": 0.445,
+  "depths": {
+    "blk3": {
+      "transfer_raw": 0.595,
+      "transfer_rms_matched": 0.5953,
+      "fresh_fit": 0.595,
+      "median_norm": 31815.7,
+      "rms_scale_applied": 1.011
+    },
+    "blk4": {
+      "transfer_raw": 0.5698,
+      "transfer_rms_matched": 0.5716,
+      "fresh_fit": 0.599,
+      "median_norm": 30825.2,
+      "rms_scale_applied": 1.043
+    },
+    "blk8": {
+      "transfer_raw": 0.4558,
+      "transfer_rms_matched": 0.3309,
+      "fresh_fit": 0.6458,
+      "median_norm": 14923.9,
+      "rms_scale_applied": 2.154
+    },
+    "blk12": {
+      "transfer_raw": 0.4627,
+      "transfer_rms_matched": 0.462,
+      "fresh_fit": 0.6597,
+      "median_norm": 31857.0,
+      "rms_scale_applied": 1.009
+    },
+    "blk16": {
+      "transfer_raw": 0.4672,
+      "transfer_rms_matched": 0.4823,
+      "fresh_fit": 0.6629,
+      "median_norm": 54938.8,
+      "rms_scale_applied": 0.585
+    }
+  },
+  "principal_cosines_vs_blk3": {
+    "blk3": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "blk4": [
+      0.79,
+      0.754,
+      0.731,
+      0.713,
+      0.696
+    ],
+    "blk8": [
+      0.572,
+      0.55,
+      0.482,
+      0.438,
+      0.392
+    ],
+    "blk12": [
+      0.534,
+      0.441,
+      0.396,
+      0.367,
+      0.347
+    ],
+    "blk16": [
+      0.363,
+      0.351,
+      0.298,
+      0.26,
+      0.135
+    ]
+  },
+  "blk3_residual_fraction_in_cent5_subspace": {
+    "median": 0.0628,
+    "p90": 0.09615,
+    "expected_random_5dim": 0.06588
+  }
+}

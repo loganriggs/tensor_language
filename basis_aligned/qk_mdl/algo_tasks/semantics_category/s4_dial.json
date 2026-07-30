@@ -1,0 +1,144 @@
+{
+  "alpha_rel": 1.0,
+  "n_ambiguous": 1349,
+  "conds": {
+    "steer_punct": {
+      "flip_funcword_to_punct": 0.4383,
+      "n_funcword_top": 470,
+      "flip_punct_to_funcword": 0.0819,
+      "n_punct_top": 879,
+      "mean_d_punct_mass_at_amb": -0.0009,
+      "mean_d_funcword_mass_at_amb": -0.0562
+    },
+    "steer_funcword": {
+      "flip_funcword_to_punct": 0.183,
+      "n_funcword_top": 470,
+      "flip_punct_to_funcword": 0.3788,
+      "n_punct_top": 879,
+      "mean_d_punct_mass_at_amb": -0.1208,
+      "mean_d_funcword_mass_at_amb": 0.03
+    },
+    "zero": {
+      "flip_funcword_to_punct": 0.0,
+      "n_funcword_top": 470,
+      "flip_punct_to_funcword": 0.0,
+      "n_punct_top": 879,
+      "mean_d_punct_mass_at_amb": 0.0,
+      "mean_d_funcword_mass_at_amb": 0.0
+    },
+    "random_dir": {
+      "flip_funcword_to_punct": 0.3191,
+      "n_funcword_top": 470,
+      "flip_punct_to_funcword": 0.1604,
+      "n_punct_top": 879,
+      "mean_d_punct_mass_at_amb": -0.059,
+      "mean_d_funcword_mass_at_amb": -0.0215
+    },
+    "placebo_digit": {
+      "flip_funcword_to_punct": 0.3149,
+      "n_funcword_top": 470,
+      "flip_punct_to_funcword": 0.1547,
+      "n_punct_top": 879,
+      "mean_d_punct_mass_at_amb": -0.0812,
+      "mean_d_funcword_mass_at_amb": -0.0373
+    }
+  },
+  "examples_funcword_to_punct_under_steer_punct": [
+    {
+      "context_tail": " to 14-15-99 to 4-8-32",
+      "base_mass_funcword_punct": [
+        0.647,
+        0.216
+      ],
+      "steered_mass_funcword_punct": [
+        0.137,
+        0.748
+      ],
+      "actual_next": " and"
+    },
+    {
+      "context_tail": " through. Cook spaghetti al dente, according to the instructions",
+      "base_mass_funcword_punct": [
+        0.737,
+        0.235
+      ],
+      "steered_mass_funcword_punct": [
+        0.205,
+        0.673
+      ],
+      "actual_next": " on"
+    },
+    {
+      "context_tail": " (national basketball association) - a professional league created in 1949",
+      "base_mass_funcword_punct": [
+        0.766,
+        0.184
+      ],
+      "steered_mass_funcword_punct": [
+        0.319,
+        0.575
+      ],
+      "actual_next": " that"
+    },
+    {
+      "context_tail": " much fun. Check out all of the action in issue 1",
+      "base_mass_funcword_punct": [
+        0.616,
+        0.292
+      ],
+      "steered_mass_funcword_punct": [
+        0.158,
+        0.667
+      ],
+      "actual_next": " of"
+    },
+    {
+      "context_tail": ". I'm also a big fan of any kind of food",
+      "base_mass_funcword_punct": [
+        0.582,
+        0.243
+      ],
+      "steered_mass_funcword_punct": [
+        0.211,
+        0.611
+      ],
+      "actual_next": " I"
+    },
+    {
+      "context_tail": ". What is your favorite sit-in restaurant, and item",
+      "base_mass_funcword_punct": [
+        0.65,
+        0.188
+      ],
+      "steered_mass_funcword_punct": [
+        0.29,
+        0.554
+      ],
+      "actual_next": "?"
+    },
+    {
+      "context_tail": " by ESPN.com, No. 21 by Scout.com",
+      "base_mass_funcword_punct": [
+        0.524,
+        0.458
+      ],
+      "steered_mass_funcword_punct": [
+        0.125,
+        0.805
+      ],
+      "actual_next": "."
+    },
+    {
+      "context_tail": " interrogation of\n. Post any questions you may have for them",
+      "base_mass_funcword_punct": [
+        0.456,
+        0.404
+      ],
+      "steered_mass_funcword_punct": [
+        0.111,
+        0.747
+      ],
+      "actual_next": " here"
+    }
+  ]
+}

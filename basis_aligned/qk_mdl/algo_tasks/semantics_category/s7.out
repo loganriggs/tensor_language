@@ -1,0 +1,12 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+steer_punct {'flip_funcword_to_punct': 0.1021, 'flip_punct_to_funcword': 0.0762, 'mean_d_punct_mass_at_amb': -0.0103, 'mean_d_funcword_mass_at_amb': -0.0007}
+steer_funcword {'flip_funcword_to_punct': 0.0957, 'flip_punct_to_funcword': 0.0944, 'mean_d_punct_mass_at_amb': -0.0208, 'mean_d_funcword_mass_at_amb': 0.0129}
+random_dir {'flip_funcword_to_punct': 0.1489, 'flip_punct_to_funcword': 0.0876, 'mean_d_punct_mass_at_amb': -0.0131, 'mean_d_funcword_mass_at_amb': 0.0001}
+placebo_digit {'flip_funcword_to_punct': 0.1553, 'flip_punct_to_funcword': 0.0421, 'mean_d_punct_mass_at_amb': 0.0041, 'mean_d_funcword_mass_at_amb': -0.0143}
+subword {'baseline_cat_mass': 0.0807, 'baseline_top5_share': 0.2009, 'baseline_top5_tokens': ['�', 's', '�', 'old', 'year'], 'gain_top5_tokens_from_s6': ['s', '�', 'o', 'y', 'er']}
+punct {'baseline_cat_mass': 0.1132, 'baseline_top5_share': 0.8569, 'baseline_top5_tokens': ['.', ',', '-', ' (', ':'], 'gain_top5_tokens_from_s6': [',', '.', ':', ' ...', ').']}
+capital {'baseline_cat_mass': 0.1071, 'baseline_top5_share': 0.0662, 'baseline_top5_tokens': [' I', ' Germany', ' Linux', ' Som', ' L'], 'gain_top5_tokens_from_s6': [' Somali', ' Germany', ' Somalia', ' State', ' IP']}
+digit {'baseline_cat_mass': 0.0203, 'baseline_top5_share': 0.1304, 'baseline_top5_tokens': [' 1', ' 10', ' 3', ' 2', '0'], 'gain_top5_tokens_from_s6': [' 15', ' 1', ' 4', ' 5', ' 14']}
+funcword {'baseline_cat_mass': 0.234, 'baseline_top5_share': 0.5315, 'baseline_top5_tokens': [' the', ' of', ' and', ' to', ' a'], 'gain_top5_tokens_from_s6': [' of', ' to', ' and', ' with', ' for']}
+other {'baseline_cat_mass': 0.4447, 'baseline_top5_share': 0.0753, 'baseline_top5_tokens': ['\n', '�', ' his', ' have', ' has'], 'gain_top5_tokens_from_s6': [' you', ' your', ' like', ' have', ' i']}
+S7 DONE
