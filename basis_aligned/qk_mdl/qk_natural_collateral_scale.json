@@ -1,0 +1,32 @@
+{
+  "trigger": 447,
+  "n_fire": 123,
+  "base_CE_slice": 3.3372,
+  "sweep": {
+    "scale=10": {
+      "whole_slice_dCE": 0.00733,
+      "nontrigger_dCE": -0.0,
+      "trigger_dCE": 1.9394
+    },
+    "scale=20": {
+      "whole_slice_dCE": 0.03542,
+      "nontrigger_dCE": 3e-05,
+      "trigger_dCE": 9.355
+    },
+    "scale=40": {
+      "whole_slice_dCE": 0.06452,
+      "nontrigger_dCE": 7e-05,
+      "trigger_dCE": 17.0357
+    },
+    "scale=80": {
+      "whole_slice_dCE": 0.09166,
+      "nontrigger_dCE": 8e-05,
+      "trigger_dCE": 24.2054
+    },
+    "scale=160": {
+      "whole_slice_dCE": 0.12228,
+      "nontrigger_dCE": 0.00011,
+      "trigger_dCE": 32.292
+    }
+  }
+}

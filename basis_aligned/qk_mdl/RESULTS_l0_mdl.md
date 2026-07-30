@@ -2882,27 +2882,42 @@ free precision edit *in the controlled strong-induction setting*; on natural tri
 low measured yield, so it is a demonstrated controlled-setting capability, NOT an *established* in-the-
 wild targeted edit — with the *cause* of the in-the-wild weakness (intrinsic vs calibration) still open.
 
-### §37d Settling control — the natural weakness was CALIBRATION, not absent induction (2026-07-30)
-(qk_natural_redirect_control.py; resolves the §37c open cause, per red-team F2/F3/F4) A scale sweep on
-natural triggers plus a direct match-amplitude measurement settles whether §37c's low natural reach is
-intrinsic or recoverable. Both point to **calibration**:
+### §37d Settling controls — natural high-amplitude "recovery" is largely BRUTE-FORCE; cause still OPEN
+### (2026-07-30; qk_natural_redirect_control.py + qk_natural_collateral_scale.py, both post-adversarial-review)
+Two controls tested whether §37c's low natural reach is a recoverable CALIBRATION limit. They do NOT
+support a clean-calibration story — and the honest verdict is that BOTH §37c's intrinsic-absence cause
+AND a clean-calibration cause are unproven; the observed high-amplitude recovery is substantially
+brute-force logit injection. What is and isn't established:
 
-- **Induction IS present in natural text (F2, direct measure).** The natural per-head induction match
-  coefficient at gated queries, relative to the planted read-off AINIT, is **0.91×** (moderate trigger
-  447, base rate 0.006, n=123) and **1.62×** (rarer trigger 91, rate 0.0015, n=40). Natural triggers
-  carry induction at essentially full (or greater) strength — the §37c cause ("simply do not carry
-  strong induction to hijack") is **RETRACTED**; it rested on the confounded true-next proxy.
-- **Amplitude recovers reach (F3, the settling sweep).** For the well-powered moderate trigger, payload
-  probability climbs monotonically with amplitude — 0.046 → 0.306 → 0.487 → 0.618 → **0.682** and argmax
-  capture 0.065 → 0.431 → 0.634 → 0.707 → **0.732** at scales 10/20/40/80/160 — approaching the planted
-  0.833 / 0.958. The rarer trigger recovers less (to 0.27 / 0.33 at scale 160), so a residual
-  frequency-dependent gap remains beyond pure calibration.
+- **The "induction is present at full strength" claim is WITHDRAWN (was §37d's F2).** The natural/planted
+  match-coefficient ratio (0.91× moderate, 1.62× rare) is a biased, non-apples-to-apples estimator: the
+  numerator is a least-squares fit restricted to a homogeneous single-trigger-token query set (which
+  absorbs token/recency structure into the MATCH coefficient), the denominator is fit over all planted
+  queries, and a rare token reading 1.62× — more induction than the clean planted repeat — is physically
+  implausible. So this does not establish that natural induction is at full strength.
+- **Equal-amplitude gap contradicts full-strength induction.** At the *identical* planted amplitude
+  (scale 10), the natural moderate trigger reaches only P_payload 0.046 / capture 0.065 versus the
+  planted 0.833 / 0.958 — an ~18× / ~15× shortfall at matched gain. If the operative induction were
+  really ~0.9× strength, matched-amplitude reach would be within a small factor, not down 18×.
+- **The high-amplitude "recovery" looks brute-force, not a clean repoint.** Reach does climb with
+  amplitude (moderate trigger to P_payload 0.682 / capture 0.732 at 16× amplitude; rare trigger only to
+  0.27 / 0.33). But the collateral split shows the mechanism is being overdriven: at the trigger
+  positions the cross-entropy on the true continuation blows up from +1.94 nats (scale 10) to **+32.3
+  nats** (scale 160) — i.e. P(true-next) crushed to ~e⁻³², a near-degenerate spike. A clean repoint that
+  merely *prefers* the payload would raise true-next CE by a few nats, not annihilate the distribution;
+  a 32-nat collapse is the signature of dumping a large ~scale·A·v_payload vector into the residual.
+- **What IS solid: conditional gating keeps PURE collateral near zero.** Non-trigger-position
+  cross-entropy is unchanged across the whole sweep (Δ ≤ 0.0001 nats even at scale 160; whole-slice Δ
+  only +0.122 because the trigger is rare). So the *gating* is genuinely surgical — only the trigger's
+  own positions are affected — independent of whether those positions are edited cleanly or by brute force.
 
-**Corrected scope (supersedes §37c's over-pessimism).** Targeted redirection on the verified induction
-channel IS an in-the-wild capability, not a controlled-setting artifact: natural triggers carry
-induction at ~full strength, and at sufficient amplitude natural reach recovers to ~0.68 probability /
-0.73 capture for a moderate-frequency trigger. The honest remaining caveat is no longer "it doesn't
-work in the wild" but **a reach-versus-collateral tradeoff** — the recovering amplitude (×8–16 the
-planted read-off) is larger, and its natural-text collateral is not yet measured here (queued). The
-capstone claim is therefore: a clean precision edit in the controlled setting, and an
-amplitude-calibrated, collateral-trading edit in the wild — with the tradeoff curve the next quantity.
+**Honest state of the in-the-wild question (supersedes both §37c and the first §37d).** Whether targeted
+redirection is a clean in-the-wild capability is **UNRESOLVED**. At matched amplitude it is ~18× weaker
+than the planted setting; forcing reach up requires ~16× amplitude and drives the edited positions into
+logit saturation rather than a clean repoint. The distinguishing control — does the same high-amplitude
+injection pointed at NON-induction-active queries of the same token (or a non-induction head, or a wrong
+source column) also "recover" reach? — is queued (qk_injection_specificity.py); if it does, the recovery
+is generic injection and not induction repointing at all. Until then the defensible capstone claim is
+the CONTROLLED-setting one only (§37/§37b): a clean, near-collateral-free precision edit at strong,
+clean induction; in the wild the redirect engages weakly at matched gain and its high-gain recovery is
+not yet shown to be a genuine mechanism repoint.
