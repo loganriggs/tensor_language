@@ -6975,3 +6975,16 @@ existing steering methods, not a new method class, so in-scope and launched rath
   discipline instructed (verify cooc/canonical overlap). Collect next tick.
 - This is a bounded, in-scope completion of §79 (the caveat §79 itself flagged), not a new direction. Both
   outcomes valuable: ceiling unmoved + causal persists = §74/§79 fully airtight even at 10× data.
+
+## tick 2026-07-30 (§80 10x-data SAE lands — fidelity ceiling data-bounded, causal negative holds at 0.85)
+- §80 (subagent a7f52d1960ffe6ebb): closed §79's caveat with 10x data (cooc[600:6000]). RESULT: (a) §79's 0.72
+  fidelity ceiling was DATA-bounded — 16384-feature SAE reaches held FVE 0.846 (overfitting gone); a correction
+  to §79's "generalization ceiling" framing. (b) Nameability 17/32 (LOWER at higher fidelity/larger dict; still
+  > SVD 0). (c) DECISIVE: at held FVE 0.85 the causal negative HOLDS — 0/32 clear the §74 bar (max z2.87), all
+  16384 features = 2.01% of the 5.57-nat effect (flat across §78 2.15% / §79 2.22% / §80 2.01%), collective-
+  encoding positive control confirmed at high fidelity. VERDICT: reconstruction fidelity and causal
+  explicability are DECOUPLED — a well-reconstructing, variance-nameable dictionary still explains ~2% of the
+  hub. §74 airtight across fidelities 0.69-0.85. Committed §80 + corrected §79 + paper abstract + artifact.
+- SAE THREAD FULLY CLOSED (§78/§79/§80): dictionaries NAME and (with data) RECONSTRUCT the early hub but do NOT
+  EXPLAIN it; causal mechanism collective at every level (SVD, L1, converged top-K) and every fidelity. The
+  completeness boundary (§71-§80) is as hardened as this toolkit allows. No residual caveat remains.
