@@ -142,3 +142,25 @@ model (swiglu18/softmax) + multi-model. Repr exact-all-arch; Subst general (§32
 family-geography general §55 (hub bilin18-specific = 2-branch artifact); Meaning content-spectral general
 §52. Four-ledger STRUCTURE architecture-general; head TAXONOMY model-specific (census-generality neg).
 No clean in-scope work remains without Logan's steer -- holding (brief no-op ticks) until redirected.
+
+## UNSUPERVISED CIRCUIT-DISCOVERY TOOLBOX COMPLETE (2026-07-30)
+Following one set of paths through the exact decomposition yields an algorithm; different circuit TYPES need
+different detectors. Every under-served type from the §58 auto-cluster tool-gap map now has a working,
+CAUSALLY-VERIFIED detector (held-back FW[448:600], mean-ablation, paired standard errors):
+- §56 class-boost head (trigger→boost a token class) — 5 verified
+- §57 composition (feed-forward→head, QK-steering edge-patch)
+- §58 auto-cluster taxonomy (12 families + tool-gap map)
+- §59 suppression (negative-logit inhibition) — mlp.L17.d1 clause-boundary generic-word inhibition
+- §60 copy / value-router (source-dependent) — re-derived L8H3/H7, L5H5 unsupervised
+- §61 redundant / distributed (greedy joint ablation + redundancy ratio + random control) — copy family
+  ratio 3.86 distributed circuit; diffuse newline cluster genuinely null
+- §62 positional / structural (offset-vs-content-residual + distance-since-newline bucketing) — 54/162
+  positional; NO distance-to-newline circuit (line structure is lexical)
+- §63 byte-fragment / orthographic trigger (predicate library + out-of-sample purity pre-filter + conditional
+  causal contrast) — digit heads h.L8.7/h.L8.3, punctuation head h.L13.8; rejects overfit affix fingerprints
+- §64 trigger-vs-output decoupling / remap (trigger+output histograms → output-side causal test) — 3 genuine
+  remaps, 3 proxy-artifacts; strongest mlp.L15.d2 punctuation→capital
+RECURRING HEADLINE LESSON (documented across all nine): the linear direct-to-logits proxy is UNRELIABLE in
+magnitude, sign, case, and single-vs-joint — every circuit type earns its keep only through a type-specific
+CAUSAL test. Catalog: TECHNIQUES_unsup_discovery.md. Next: adversarial red-team (§61-§64 in flight) then fold
+into paper draft + artifact.

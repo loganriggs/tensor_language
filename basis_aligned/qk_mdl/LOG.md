@@ -6466,3 +6466,22 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
   linear direct-to-logits proxy is unreliable (magnitude, sign, case, single-vs-joint) → every type earns
   its keep only through a type-specific CAUSAL test.
 - Cron 0b62fec1 session-only, 7-day expiry → re-arm before 2026-08-06 (5 days out; not yet due).
+
+## tick 2026-07-30 (byte-fragment §63 + decoupling §64 landed → GAP-MAP CLOSED; red-team dispatched)
+- §63 BYTE-FRAGMENT/ORTHOGRAPHIC-TRIGGER detector committed (subagent a630ba9ecd56c949f): orthographic-
+  predicate library on decoded trigger strings + out-of-sample purity guard (the artifact pre-filter) +
+  conditional causal contrast. 3 genuine circuits: digit heads h.L8.7 (out-of-sample purity 0.90, 11-20×
+  concentration) & h.L8.3 (0.97), punctuation head h.L13.8 (purity 1.00 in AND out, effect entirely on
+  punctuation). Out-of-sample guard rejected rare-affix/n-gram overfits (purity→0) and MLP L9.d1 (pure
+  detector causally null).
+- §64 TRIGGER-vs-OUTPUT DECOUPLING (remap) detector committed (subagent a0a2e33f736586c45): trigger+output
+  class histograms as candidate generator, decisive output-side causal test. 67 candidates, top 6 tested →
+  3 GENUINE remaps, 3 PROXY-ARTIFACTS (one sign-inverted z=-17.6). Strongest mlp.L15.d2 punctuation→capital
+  (drop 0.0068±0.0009, z 7.7, full control, load-bearing). Twin directions split one-genuine-one-artifact.
+- MILESTONE: all SIX under-served §58 gap-map circuit types now have causally-verified detectors. Toolbox
+  spans §56-§64 (nine tools). ROADMAP milestone recorded.
+- Dispatched adversarial red-team subagent (a72596fe9380624ba) on the 4 strongest new claims: §64 punct→cap
+  distinctness/redundancy confound, §63 digit-head positional confound (position-matched control), §61
+  redundancy-ratio reproduction + apples-to-apples random control, §62 NO-distance-head negative-claim power
+  (positive control). Collect next tick, apply any corrections before enshrinement.
+- Cron 0b62fec1 re-arm before 2026-08-06 (Logan acknowledged the expiry).
