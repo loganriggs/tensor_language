@@ -3557,3 +3557,32 @@ WORKS for the read/trigger, but the algorithm's OUTPUT must be read from causal 
 proxy. Notably NONE of the verified heads is an identity copy — all are class-boosts / type-transforms.
 This is a genuinely unsupervised circuit-discovery pipeline (validated by re-deriving the delimiter router
 and localizing the date head) that yields real, previously-untargeted grammatical/discourse algorithms.
+
+## §57 UNSUPERVISED compositional discovery — 2-step structure is feed-forward→head, not head→head (2026-07-30)
+(qk_unsup_compose.py; extends §56 to chains A→B — Logan: "follow one SET of paths" = a chain) Among the
+top-24 cleanest single paths, composition strength (mean-ablate upstream A, measure downstream B's residual-
+contribution change on TRAIN) then CAUSAL edge-patch verification on held-back FW[448:600] (B reads the
+residual minus A's above-mean contribution; QK-side vs OV-side split; co-occurrence + specificity controls):
+- **The 2-step structure is dominated by FEED-FORWARD → head, NOT head → head.** Early feed-forward blocks
+  (especially mlp.L1, the §44 hub) build the features attention heads read — mlp.L1 → {L5–L8 heads} has
+  relative-B-change 3.3–5.6, while the strongest head→head dependency is an order of magnitude weaker
+  (h.L1.8→h.L2.4, 0.41). The model's compositional depth lives in the MLP→head direction, consistent with
+  the MLP0–3 category engine (§44) feeding downstream heads.
+- **Two verified 2-step algorithms:** (1) **h.L4.0 → h.L6.7 (head→head, QK-composition):** the year/number
+  head L4.0 STEERS WHERE the boundary head L6.7 attends — cutting the direct edge reorganizes B's attention
+  by 111% and raises cross-entropy +0.278 ± 0.056 (z 4.9) at B's trigger positions, QK-dominant (0.153 QK >
+  0.092 OV). SPECIFICITY (rules out a magnitude artifact): the same L4.0 patched into L6.7 = 0.278 but into
+  L5.0 = 0.008 (33× weaker), matched-control 9× weaker — edge-specific. (2) **mlp.L1 → h.L6.7
+  (feed-forward→head):** the layer-1 hub drives the same boundary head (+0.125 ± 0.040, z 3.1, mixed QK+OV).
+- **Honest negatives (the co-occurrence confound, working):** the highest head→head STRENGTH candidates
+  (L1/L2 heads, strength 0.26–0.41) are PURE CO-OCCURRENCE — cutting the direct edge is inert (ΔCE ≈ 0.0001,
+  z<1, attention-pattern change <3%). The total-ablation strength metric flagged them via shared inputs, not
+  routing; the direct-edge patch and the dependence-interaction test both confirm no composition.
+- **Nuance (steering vs enabling):** even the genuine L4.0→L6.7 edge is STEERING (A reshapes WHERE B
+  attends) not ENABLING (A switching B on) — B stays active but redirected (dependence test negative, z −3.5).
+**Structural conclusion:** bilin18 is relatively FLAT in head→head terms — direct attention-reads-attention
+composition is rare and weak, and the apparent strong head→head pairs are co-occurrence. The real multi-step
+structure is feed-forward-builds-features-that-heads-read, plus rare QK-steering (a number head reshaping a
+boundary head's attention). This closes the unsupervised-discovery arc (§56 single-path + §57 compositional):
+following the decomposition's paths yields real algorithms; the single-step ones are class-boost heads, the
+two-step ones are feed-forward→head feature-building with rare head→head attention-steering.
