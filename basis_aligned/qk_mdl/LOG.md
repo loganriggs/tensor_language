@@ -6282,3 +6282,16 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## qk_nonactive_aimability.py -- does B copy the POINTED source (aim@1->tok@1 vs aim@30->tok@30 double
 ## dissociation = commandeered copy) or a fixed vector (= injection)? Then adversarial review of the
 ## reframing + promote if it holds. Cron 1475f52b; re-arm before 2026-08-06.
+
+## TICK 2026-07-30aa — §37g AIMABILITY CONFIRMS copy-head commandeering (clean double dissociation).
+## Condition B (ind heads, non-active query pos20, NO natural match), aimed at causal sources 1 vs 10:
+## aim@1 P(tok@1) 0.439->0.819 while P(tok@10) 0.016->0.020; aim@10 P(tok@10) 0.349->0.790 while
+## P(tok@1) 0.016->0.017 (scales 10/40). => B COPIES THE POINTED SOURCE = copy heads' function
+## commandeered, NOT fixed-vector injection. (First run aimed pos30 = causally masked from pos20 query ->
+## design slip, fixed to pre-query sources.) SETTLED mechanism (§37f/g): ind/copy heads emit value where
+## attention points; edit commandeers by setting attention to chosen source. copy-head-specific(§37f C~0)
+## + match-free(B) + aimable(double-diss) + surgically-gated(<=1e-4) + reach-vs-amplitude. Supersedes
+## 'clean repoint'(too narrow) & 'brute-force'(too broad). §37g written. Final capstone review dispatched
+## (abde60b). QUEUE: qk_commandeer_robustness.py (aimability GRID w/ SE + non-induction-head aimability
+## control -- is specificity mechanistic or just readout geometry?). NEXT: process review + robustness,
+## then PROMOTE §36-37g to atlas/summary if clean. Cron 1475f52b; re-arm before 2026-08-06.
