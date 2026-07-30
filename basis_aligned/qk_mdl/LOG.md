@@ -6553,3 +6553,26 @@ guard, <4GB, batch<=8):
   importance independent of cleanliness; probe low-clean/high-causal region; honest detector-not-algorithm).
 - Collect all three next tick; document arcs as new sections + census as a methodological finding; red-team
   before enshrinement. Cron re-armed earlier (172134ae, expires ~2026-08-06).
+
+## tick 2026-07-30 (two option-2 arcs on DISCOVERED circuits landed — one positive, one honest negative)
+- §65 DIGIT-HEADS arc (subagent a3fee7d78e6260772) — POSITIVE, a genuine circuit DISTINCTION: the two §63
+  digit heads are TWO different algorithms. h.L8.3 = verbatim digit value-router (damage on COPYABLE positions
+  +0.155±0.032 vs +0.000 non-copyable; boosts attended source +0.209; source==target n=47: +0.252±0.051,
+  source logit +0.55). h.L8.7 = source-INDEPENDENT next-number predictor (opposite: damage on NON-copyable
+  +0.078±0.019, null on copyable; boosts the correct next digit not the source; 20× digit concentration) — not
+  a mere detector. Disjoint regimes, each its own minimal circuit, ~27% super-additive joint +0.114. Static-
+  prior red-team: next-number prediction ~100% attention-driven (all-attn CE 4.41→8.67, acc 0.207→0.004);
+  heads carry 2.7%; position-confound refuted. Honest caveat: absolute magnitudes modest (0.03–0.25 nats), the
+  dissociation is the evidence.
+- §66 CAPITALIZATION arc (subagent aa8bd55058e90430c) — HONEST NEGATIVE. Behavior real & circuit-carried
+  (minimal {mlp.L15.d2, mlp.L16.d1}; h.L13.8 is the upstream boundary-marker not a capitalizer; division of
+  labor newline→L16.d1, sentence-punct→both). But red-team REFUTES "capitalize at sentence START": ablation
+  damages mid-sentence proper-noun caps (+0.0262) exactly as much as boundary caps (+0.0262), specificity ratio
+  1.0 — boundary concentration is TRIGGER-side only, the OUTPUT is a generic shared capital direction
+  implementing the corpus prior. Reads boundary via content not position. Refines §64 (trigger boundary-
+  specific, output generic).
+- Pattern worth noting: of the two cleanest discovered candidates, one is a real dual algorithm and one is a
+  generic-booster-riding-the-prior — vindicates running the FULL arc (verify→minimal→red-team) rather than
+  stopping at the trigger, and pre-empts exactly the "we only found the easy ones" concern.
+- STILL RUNNING: difficulty-stratified census (a54ac349620503a63) — the direct anti-easy-bias diagnostic.
+  Collect next tick, document as the methodological finding. Cron 172134ae expires ~2026-08-06.
