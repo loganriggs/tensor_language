@@ -241,6 +241,35 @@ Per-circuit magnitudes, controls, and standard errors are tabulated in the resul
 headline figures were subjected to a dedicated adversarial red-team (position-matched confounds,
 independent reproduction, negative-claim power checks) before enshrinement.
 
+**Discovered circuits, put through the full algorithmic arc.** Two of the cleanest discovered
+circuits were then run through the same verify → minimal-circuit → red-team discipline used on the
+hand-built tasks, and the pair illustrates why the causal step is not optional. The digit-attending
+heads split, under a copyable-versus-non-copyable dissociation, into *two distinct algorithms*: one is
+a verbatim digit value-router (it copies the number it attends to; ablating it where the attended
+token *is* the target costs a quarter-nat and it contributes strongly to that token's logit), the
+other a source-independent next-number predictor that boosts the correct next digit without copying
+any attended token, and does its work precisely where no copyable referent exists. Both clear the
+static-prior floor — next-number prediction is essentially fully attention-driven, not a bigram prior.
+The capitalization circuit went the other way, an honest negative: the behaviour is real and
+circuit-carried (two feed-forward directions, with the punctuation head as an upstream marker rather
+than a capitalizer), but the generalization red-team refutes a dedicated "capitalize at sentence
+start" mechanism — ablation suppresses mid-sentence proper-noun capitalization exactly as much as
+boundary capitalization (specificity ratio one). Its boundary-selectivity is entirely on the trigger
+side; the output is a generic, shared capital direction implementing the corpus prior.
+
+**A blind spot, measured.** Because the discovery ranking is proxy-seeded, we asked directly whether
+it only surfaces the easy circuits. A difficulty-stratified census measured causal importance
+(mean-ablation delta cross-entropy at each path's own firing positions) *independently* of the
+cleanliness score, across all two hundred thirty-four paths. The two are uncorrelated (Pearson
+0.006). The consequence is not mild: the thirteen low-cleanliness, high-causal circuits the loop skips
+are *more* important on average than the clean winners it finds, and the single largest single-path
+effect in the model is one of the missed ones. Their shared, disqualifying property is a *distributed
+output* — they push an entire token class (near-uniform over thousands of tokens), which the
+top-token effect-purity signal scores near zero regardless of how load-bearing they are. The remedy,
+prescribed by the census and now being built, is a causal, class-level effect detector that ranks by
+mean-ablation importance and describes outputs at the level of token classes rather than sharp token
+sets — so the circuits that move a whole class, not a handful of tokens, stop being invisible.
+
 ## Honest limitations
 
 1. **Substitutability buys fidelity, not compression.** The composed analytic interfaces reference the
