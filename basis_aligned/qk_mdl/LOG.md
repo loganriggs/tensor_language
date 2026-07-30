@@ -6788,3 +6788,14 @@ Per the run-don't-hold autonomy directive, launched the flagged next frontier ra
 - The completeness thread (§71-§74) is now RED-TEAMED and defensible. Committed + artifact redeployed.
 - Program state: capstone reached and hardened. SAE frontier past the §74 boundary remains Logan's scope call.
 - Cron 172134ae expires ~2026-08-06 — re-arm before then and tell Logan.
+
+## tick 2026-07-30 (editing/control demo on the capital selector — dispatched)
+Advancing the under-explored EDITING/CONTROL purpose (Logan's jailbreak/steer goal; ROADMAP T6) — uses
+existing steering methods, not a new method class, so in-scope and launched rather than held.
+- aaf26965f6bb79115 — EDITING DEMO on mlp.L17.d1 (qk_edit_capselector.py), the §69 verified context-conditioned
+  capital SELECTOR. Closes discovery→verification→CONTROL: dose-response dial (alpha sweep of its residual
+  contribution), reach, collateral/specificity (does it move capitalization with bounded off-target cost), and
+  the jailbreak-relevant CONTEXT-CONDITIONING red-team — does UP-steering OVERRIDE the "only where due"
+  conditioning (a controllable Title-Case override) or does conditioning hold (selection upstream)? Plus a
+  random-direction placebo. Collect next tick.
+- Cron 172134ae expires ~2026-08-06 — re-arm before then and tell Logan.
