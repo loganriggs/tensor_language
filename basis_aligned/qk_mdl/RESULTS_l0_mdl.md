@@ -3149,16 +3149,25 @@ subject-verb agreement.
 ## §40 "Greater-of-two" is ~95% a STATIC MAGNITUDE PRIOR, not comparison (2026-07-30, red-team deflation)
 (qk_gtwo_patch.py + qk_gtwo_static.py; mean-ablation knockout, in-distribution zero point, 72 ordered
 digit pairs, MARGIN = logit[larger]−logit[smaller] at final position, baseline 2.099 / accuracy 0.986)
-The §39 "greater-of-two 0.986" behavior is NOT a comparison circuit. **Decisive control:** ablating ALL
-attention drops accuracy only to 0.944 and makes the final-position digit logits EXACTLY constant across
-all 72 prompts (standard deviation 0.0), near-monotonic in digit value ([11.4,11.7,12.2,13.1,13.6,14.1,
-14.9,15.8,14.5] for digits 1–9). So a static "larger digit token → higher logit" prior — built by the
-late feed-forward stack (blocks 8–17) feeding a magnitude-ordered unembedding, reading NONE of the query
-pair — already scores 0.944 on its own (the single non-monotonicity, 9<8, is exactly why it misses ~4/72).
+The §39 "greater-of-two 0.986" behavior is NOT a comparison circuit. **Evidence (corrected per red-team):** with ALL attention mean-ablated, a single FIXED digit ranking
+[11.4,11.7,12.2,13.1,13.6,14.1,14.9,15.8,14.5] (digits 1–9) already solves 68/72 pairs (accuracy 0.944);
+the single non-monotonicity (9<8) is exactly why it misses ~4/72. So the TASK is prior-saturated — ~95%
+of accuracy (and 82% of the margin: the static floor is 1.712 of the 2.099 baseline) is reachable by a
+magnitude-ordered default, so accuracy cannot distinguish comparison from prior. (NOTE: the "logits become
+exactly constant, standard deviation 0.0" observation is NOT independent evidence — the final query token
+"->" is identical across all 72 prompts, so ablating all attention forces byte-identical final-position
+logits by construction; it is a tautology of the intervention, not a discovered static mechanism. Also
+UNTESTED and flagged: the static profile peaks at digits 7 and 8 — exactly the two few-shot demo answers —
+so the "prior" may be partly in-context copying of the demonstrated answers rather than a magnitude-ordered
+unembedding; a demo-answer-swap control is queued to settle this.)
 The genuine per-pair COMPARISON signal is only baseline−static-floor = **0.387 nats margin / +0.042
-accuracy** (~3 hard pairs, the 8-vs-9 region), carried entirely by attention but DIFFUSELY, with a mild
-concentration in layer-8 attention (heads H7/H3 ≈46% of the residual; no single head >25%). No small
-faithful circuit exists. **This joins the addition/sorting negatives as a deflation: apparent numeric
+accuracy** (~3 hard pairs, the 8-vs-9 region), carried JOINTLY by attention and the
+feed-forward stack in series (ablating all attention removes 0.387; ablating all feed-forward removes an
+equal 0.384 — attention reads the digits, the feed-forward processes them), and DIFFUSELY: the single
+largest attention component is layer-8 attention (0.179) but the per-component drops are within-noise
+(single seed, no error bars) and interleaved with feed-forward blocks (feed-forward-7 outranks head 8H3),
+so no separable single-head attribution is defensible beyond "mild concentration in layer-8 attention". No
+small faithful circuit exists. **This joins the addition/sorting negatives as a deflation: apparent numeric
 "capability" is dominated by a lexical magnitude prior, not computation.** (Caveat for follow-ups:
 accuracy is saturated by the prior, so score against the static floor of 1.712 margin or restrict to the
 non-monotonic 9-pairs.) §39's greater-of-two row is annotated accordingly.
@@ -3172,9 +3181,12 @@ decomposed into three parts:
   2.19 of the 8.93 working margin, ~25%), attending from the query back to the opener and copying the
   opener's LAYER-0 VALUE v1[:,2]; a diffuse tail (L14/L8/L16 heads, each ≤0.3) adds the rest. Removing
   the layer-0 value mixing (lamb=0) collapses ‘[’→‘]’ (accuracy 1.0→0.0, margin 6.66→0.53).
-- **Payload (causal, value-swap):** the closer identity is stored in that layer-0 value. Bidirectional
-  swaps prove it: giving a working ‘[’ host the ‘{’ value breaks it to ‘)’ (‘]’ logit 13.45→6.92);
-  giving the ‘{’ host an ‘[’ value partially rescues ‘]’ (0%→45%). v1[‘(’]→‘)’, v1[‘[’]→‘]’.
+- **Payload (causal, value-swap):** the closer identity is stored in that layer-0 value. The FORWARD
+  swap is decisive: giving a working ‘[’ host the ‘{’ value breaks it to ‘)’ (‘]’ logit 13.45→6.92,
+  type-match 100%→0%); the identity control (‘[’ host + ‘[’ value) reproduces the baseline exactly,
+  validating the harness. The REVERSE only PARTIALLY rescues (‘{’ host + ‘[’ value → ‘]’ 0%→45%, logits
+  ‘]’/‘)’ nearly tied) — consistent with the payload being necessary and largely-but-not-fully sufficient,
+  with ‘{’’s own routing/residual and the ‘)’ prior supplying the remainder. v1[‘(’]→‘)’, v1[‘[’]→‘]’.
 - **Static prior + the curly hole EXPLAINED:** an opener-independent ranking ‘)’≫‘]’≫‘}’ sits underneath.
   ‘(’→‘)’ is confounded (the prior IS ‘(’’s answer; survives attention-ablation), but ‘[’→‘]’ provably
   needs attention (0% type-match accuracy without attention — it must overcome the ‘)’ prior). The
@@ -3182,6 +3194,10 @@ decomposed into three parts:
   points at the generic ‘)’ and the router faithfully copies it. The failure is upstream of the router,
   not a router failure.
 **This confirms the v1-router principle (L13H8 routes layer-0 values, QK decides where, layer-0 decides
-what) on a fresh algorithmic task, with a built-in negative control that is now mechanistically explained.**
-Causally verified via three converging tests incl. bidirectional value-swap; candidate for the next
-adversarial-review batch.
+what) on a fresh algorithmic task.** SCOPE (per red-team): the "genuine attention circuit" claim is carried
+by ‘[’ (which provably cannot be done by the static ‘)’ prior — 0% type-match without attention); ‘(’→‘)’
+is itself prior-confounded exactly like greater-of-two (§40), since ‘)’ is the prior default. And the whole
+result rests on a SINGLE sentence template, n=20 noun-draws per opener, one seed — generalization is
+plausible but not established. Reviewed: L13H8 dominance (24.5%) and the value-payload swap are causally
+clean and harness-validated; the overclaims ("bidirectional proof", task-wide "genuine circuit") were
+softened above.
