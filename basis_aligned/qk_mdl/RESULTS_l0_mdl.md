@@ -2981,3 +2981,35 @@ by setting their attention pattern* — a copy-head-specific (not generic), matc
 position p → copy token@p, a double dissociation) rather than injecting one fixed vector — the test that
 separates "commandeered copy" from "fixed-direction injection." Until then §37f's mechanism claim is
 stated as the leading description, not yet enshrined.
+
+### §37g Aimability at non-active queries — CONFIRMS copy-head commandeering (2026-07-30)
+(qk_nonactive_aimability.py) The decisive test of §37f: in condition B (induction heads, NON-active
+query, no natural match), does the head copy WHATEVER source we point it at, or emit one fixed token?
+Pointing at two causally-valid source columns (positions 1 and 10; query at position 20):
+
+| | P(token@pos1) | P(token@pos10) |
+|---|---|---|
+| **aim@pos1**, scale 10 | **0.439** | 0.016 |
+| **aim@pos10**, scale 10 | 0.016 | **0.349** |
+| **aim@pos1**, scale 40 | **0.819** | 0.020 |
+| **aim@pos10**, scale 40 | 0.017 | **0.790** |
+
+A clean double dissociation: aiming at position 1 copies token@1 (0.44 → 0.82) while token@10 stays at
+baseline (0.016 → 0.020); aiming at position 10 copies token@10 (0.35 → 0.79) while token@1 stays at
+baseline. So condition B genuinely **copies the pointed source** — it is the copy heads' function being
+commandeered, NOT injection of one fixed vector (which would emit the same token regardless of aim).
+(A first run pointed at position 30, which is causally masked from a position-20 query and correctly
+produced nothing — a design slip, fixed by using two pre-query sources.)
+
+**Editing capstone — the settled mechanism (§36/§37/§37b/§37f/§37g).** The induction/copy heads implement
+a copy: they emit the value at whatever position their attention points to. The edit **commandeers this
+copy** by setting the head's attention to a chosen source; the model then predicts that source's token.
+The primitive is (i) **copy-head-specific** — the same injection at non-induction heads does nothing
+(§37f condition C ~0); (ii) **match-free** — it works at queries with no natural induction match (§37f/g
+condition B); (iii) **aimable** — it copies whichever source is targeted (this section, double
+dissociation); (iv) **surgically gatable** — conditioning on a trigger keeps pure non-trigger collateral
+≤1e-4 nats (§37d); and (v) governed by a **reach-versus-amplitude tradeoff** — the amplitude needed to
+override the head's baseline attention is low in a clean/sparse context (planted, scale 10 → 0.83/0.96)
+and high in rich natural text (§37c–e), where at very high amplitude the edited position's own logits
+saturate. This supersedes both the earlier "clean repoint of an induction match" (too narrow — it needs
+no match) and "brute-force injection" (too broad — it is copy-head-specific and aimable) framings.
