@@ -4108,7 +4108,10 @@ the usual mean-ablation interaction caveat).
   captured by NO single head-pathway or top-72 feed-forward direction. This is essentially the MLP effect
   BELOW the top-72 singular directions: ablating full MLPs costs 4.53 but the top-72 directions carry only
   1.22, so **73% of the feed-forward causal effect lives below the top-72 directions** (superposition /
-  sub-threshold), invisible to the path basis we analyze.
+  sub-threshold), invisible to the path basis we analyze. [§73 REFINEMENT: this residual is HIGH-RANK but
+  BASIS-ALIGNED (SVD directions beat random 35–200×), not isotropic superposition — it needs ~28 directions
+  per block for 80% capture, dominated by the MLP1 hub; "superposition" overstated it, "high-rank structured
+  distributed computation" is the correct label.]
 - **Most effect lives in COMBINATIONS, not single paths.** Joint ablation of all 234 paths (3.376) is 2.87× the
   sum of positive single-path importances (1.177) — a whole-model super-additivity/redundancy ratio of **2.87**
   (multi-path residual +2.199 nats). The named set is single paths, so single-path naming structurally
@@ -4184,7 +4187,12 @@ orthogonal directions. Reference reproduced: full MLP 4.532, top-4/block (=72) 1
 - **Dominated by MLP layer 1 (the hub).** Per-layer tail: MLP layer 1 alone carries 61.6% of the sub-top-4
   tail (its marginal ablation costs 5.57 nats, 99.65% of it below its own top-4 directions, and its gram
   top-4 energy fraction is only 0.27 — genuinely high-rank), consistent with the MLP1-hub finding. MLP layer 0
-  is more concentrated (gram top-4 energy 0.65) but still 97.9% tail.
+  is more concentrated (gram top-4 energy 0.65) but still 97.9% tail. The high-rank structure is an EARLY-layer
+  phenomenon: the first four blocks (0–3) carry ~90% of the below-top-4 residual (layer 1 ~62%, layer 0 ~13%,
+  layer 2 ~8%, layer 3 ~7%), while the LATE layers 15/16/17 are genuinely LOW-rank — their top-4 directions
+  capture 81–95% of output variance and their causal effect is almost entirely inside the top-4. So the
+  coverage gap is concentrated in the early feed-forward blocks; the late-layer decomposition (where the §68/§69
+  class-integrators live) is well-described by the top-72 basis.
 - **§71 CORRECTION:** the "36% non-axis-aligned residual" was measured relative to the top-72 basis and is
   real, but the label "non-axis-aligned / superposition" overstated it. The residual is HIGH-RANK BASIS-ALIGNED
   MLP computation (especially MLP1), not isotropic superposition — captured by no top-72 view but largely

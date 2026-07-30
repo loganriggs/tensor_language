@@ -6707,3 +6707,17 @@ Both experiments landed; agents' final reports confirm the numbers I read from t
   sweeps captured causal effect vs MLP-directions-per-block {1..64}, reports effective rank (dirs for 50/80/90%)
   + SVD-vs-random. Sharpens/corrects the §71 superposition framing. Collect next tick.
 - Cron 172134ae expires ~2026-08-06 — re-arm before then and tell Logan.
+
+## tick 2026-07-30 (§73 MLP superposition test — sharpens §71: high-rank BASIS-ALIGNED, early-layers)
+- §73 (subagent ac913e70a4ae63dfa) — the sub-top-72 feed-forward residual is GENUINE HIGH-RANK (50% needs 8
+  dirs/block, 80% needs 28, 90% unreached even at full 64/block = 89.6%) — NOT a low-rank cutoff artifact. But
+  SVD beats random 35-200× → BASIS-ALIGNED, not isotropic superposition. Concentrated in EARLY blocks: layers
+  0-3 carry ~90% of the tail (layer 1 alone 62%, gram top-4 energy only 0.27); LATE layers 15-17 are genuinely
+  low-rank (top-4 captures 81-95% of variance). Corrects §71's "non-axis-aligned superposition" wording →
+  "high-rank structured distributed computation," concentrated in the early feed-forward blocks / MLP1 hub.
+- Note: the launching subagent ended its turn early (background run still going); collected the JSON directly
+  via a bounded wait, then its full report confirmed the numbers. Committed §73 + §71 correction pointer.
+- Refinement of the completeness picture: the ~36% "unfound" feed-forward residual is a harder-but-better-posed
+  target — early-layer high-rank structured computation (MLP1 hub), not off-basis noise; the late-layer
+  decomposition is well-captured.
+- Cron 172134ae expires ~2026-08-06 — re-arm before then and tell Logan.
