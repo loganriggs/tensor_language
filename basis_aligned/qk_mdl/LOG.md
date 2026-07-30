@@ -6164,3 +6164,18 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## target=expensive overwrite. Reviewed §36. NEXT: T1-T8 + census-generality + editing capstone all
 ## closed/reviewed; GPU-free paper_atlas sync (§33-36 + T2/T4); no new tangential GPU arc without
 ## Logan. Cron 1475f52b live; re-arm before 2026-08-06.
+
+## TICK 2026-07-30s (cont.) — §36 RED-TEAM: headline RETRACTED + corrected. Reviewer (10 findings)
+## caught a load-bearing over-claim (F6): "soft repoint fails because target over-determined by full
+## pattern" was NOT isolated from coefficient-undershoot. Instrumented rerun (soft-amplitude sweep)
+## settles it -- the SAME linear edit repoints cleanly at ~10x amplitude (P_tgt 0.021->0.396, true-next
+## 0.734->0.025), even beating the hard overwrite. RETRACTED "overwrite required / linear channel
+## impotent"; corrected = target steers through the same linear MATCH channel as strength, needing ~10x
+## to CANCEL (not scale) the natural match. Also: F5 causal re-mask on hard path (aim@9 leak) + rerun;
+## F4 rs sign-mixed (positive 59%) so hard overwrite less principled; F3/F10 soften "aimable pointer"
+## -> low-yield steer (argmax capture 0.35-0.58, 34-48% residual elsewhere); F7 real redirect/collateral
+## tradeoff (hard +0.316@0.24, scaled-linear +0.588@0.40); F8 spanning targets 1/9/30/55 hold; F2 16x
+## was argmax not prob (13x). F1/F9 credited. §36 + atlas §9 corrected; redteam_redirect archived.
+## Aimability + causal-localization SURVIVE; mechanistic headline replaced. NEXT: GPU idle, roadmap +
+## editing capstone closed/reviewed; no new tangential GPU arc without Logan. Cron 1475f52b; re-arm
+## before 2026-08-06.
