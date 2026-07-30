@@ -1,0 +1,205 @@
+{
+  "model": "swiglu18",
+  "held_slice": "FW[448:600]",
+  "seq_len": 128,
+  "ablation": "mean (in-distribution zero point; MLP means over FINEWEB[0:256])",
+  "n_tokens_held": 19304,
+  "majority": 0.445,
+  "baselines": {
+    "ce": 3.4108,
+    "category_decode_acc": 0.6633,
+    "match_rate": 0.0798,
+    "induction_adv": 2.9283
+  },
+  "category_names": [
+    "subword",
+    "punct",
+    "capital",
+    "digit",
+    "funcword",
+    "other"
+  ],
+  "per_layer": [
+    {
+      "L": 0,
+      "dce_mean": 0.4479,
+      "dce_se": 0.008,
+      "cat_acc_ablated": 0.6311,
+      "cat_decode_drop": 0.0322,
+      "match_rate_ablated": 0.0855,
+      "match_rate_change": -0.0057,
+      "induction_adv_ablated": 3.4696
+    },
+    {
+      "L": 1,
+      "dce_mean": 0.5254,
+      "dce_se": 0.0083,
+      "cat_acc_ablated": 0.6253,
+      "cat_decode_drop": 0.038,
+      "match_rate_ablated": 0.0882,
+      "match_rate_change": -0.0084,
+      "induction_adv_ablated": 3.5336
+    },
+    {
+      "L": 2,
+      "dce_mean": 0.7485,
+      "dce_se": 0.0095,
+      "cat_acc_ablated": 0.6036,
+      "cat_decode_drop": 0.0597,
+      "match_rate_ablated": 0.0814,
+      "match_rate_change": -0.0016,
+      "induction_adv_ablated": 3.4152
+    },
+    {
+      "L": 3,
+      "dce_mean": 0.7966,
+      "dce_se": 0.0097,
+      "cat_acc_ablated": 0.6018,
+      "cat_decode_drop": 0.0614,
+      "match_rate_ablated": 0.0798,
+      "match_rate_change": -0.0,
+      "induction_adv_ablated": 3.4589
+    },
+    {
+      "L": 4,
+      "dce_mean": 0.47,
+      "dce_se": 0.0074,
+      "cat_acc_ablated": 0.6246,
+      "cat_decode_drop": 0.0386,
+      "match_rate_ablated": 0.0759,
+      "match_rate_change": 0.0039,
+      "induction_adv_ablated": 3.0246
+    },
+    {
+      "L": 5,
+      "dce_mean": 0.3781,
+      "dce_se": 0.0066,
+      "cat_acc_ablated": 0.6214,
+      "cat_decode_drop": 0.0419,
+      "match_rate_ablated": 0.0793,
+      "match_rate_change": 0.0005,
+      "induction_adv_ablated": 3.3549
+    },
+    {
+      "L": 6,
+      "dce_mean": 0.1675,
+      "dce_se": 0.0044,
+      "cat_acc_ablated": 0.6389,
+      "cat_decode_drop": 0.0243,
+      "match_rate_ablated": 0.0802,
+      "match_rate_change": -0.0004,
+      "induction_adv_ablated": 3.1237
+    },
+    {
+      "L": 7,
+      "dce_mean": 0.1209,
+      "dce_se": 0.0038,
+      "cat_acc_ablated": 0.6468,
+      "cat_decode_drop": 0.0165,
+      "match_rate_ablated": 0.0808,
+      "match_rate_change": -0.001,
+      "induction_adv_ablated": 3.0558
+    },
+    {
+      "L": 8,
+      "dce_mean": 0.1012,
+      "dce_se": 0.0034,
+      "cat_acc_ablated": 0.6506,
+      "cat_decode_drop": 0.0127,
+      "match_rate_ablated": 0.0805,
+      "match_rate_change": -0.0007,
+      "induction_adv_ablated": 3.0342
+    },
+    {
+      "L": 9,
+      "dce_mean": 0.0854,
+      "dce_se": 0.0031,
+      "cat_acc_ablated": 0.6511,
+      "cat_decode_drop": 0.0122,
+      "match_rate_ablated": 0.0825,
+      "match_rate_change": -0.0027,
+      "induction_adv_ablated": 3.0473
+    },
+    {
+      "L": 10,
+      "dce_mean": 0.0758,
+      "dce_se": 0.0029,
+      "cat_acc_ablated": 0.6533,
+      "cat_decode_drop": 0.01,
+      "match_rate_ablated": 0.0798,
+      "match_rate_change": -0.0,
+      "induction_adv_ablated": 3.0143
+    },
+    {
+      "L": 11,
+      "dce_mean": 0.0772,
+      "dce_se": 0.0031,
+      "cat_acc_ablated": 0.6528,
+      "cat_decode_drop": 0.0105,
+      "match_rate_ablated": 0.0801,
+      "match_rate_change": -0.0003,
+      "induction_adv_ablated": 3.025
+    },
+    {
+      "L": 12,
+      "dce_mean": 0.056,
+      "dce_se": 0.0026,
+      "cat_acc_ablated": 0.6552,
+      "cat_decode_drop": 0.0081,
+      "match_rate_ablated": 0.0798,
+      "match_rate_change": 0.0,
+      "induction_adv_ablated": 3.0071
+    },
+    {
+      "L": 13,
+      "dce_mean": 0.0443,
+      "dce_se": 0.0023,
+      "cat_acc_ablated": 0.6612,
+      "cat_decode_drop": 0.0021,
+      "match_rate_ablated": 0.0802,
+      "match_rate_change": -0.0004,
+      "induction_adv_ablated": 2.9923
+    },
+    {
+      "L": 14,
+      "dce_mean": 0.0413,
+      "dce_se": 0.0023,
+      "cat_acc_ablated": 0.6584,
+      "cat_decode_drop": 0.0049,
+      "match_rate_ablated": 0.0803,
+      "match_rate_change": -0.0005,
+      "induction_adv_ablated": 2.996
+    },
+    {
+      "L": 15,
+      "dce_mean": 0.0488,
+      "dce_se": 0.0024,
+      "cat_acc_ablated": 0.6598,
+      "cat_decode_drop": 0.0035,
+      "match_rate_ablated": 0.0798,
+      "match_rate_change": -0.0,
+      "induction_adv_ablated": 2.988
+    },
+    {
+      "L": 16,
+      "dce_mean": 0.0986,
+      "dce_se": 0.0038,
+      "cat_acc_ablated": 0.656,
+      "cat_decode_drop": 0.0073,
+      "match_rate_ablated": 0.0799,
+      "match_rate_change": -0.0001,
+      "induction_adv_ablated": 3.053
+    },
+    {
+      "L": 17,
+      "dce_mean": 0.4734,
+      "dce_se": 0.0102,
+      "cat_acc_ablated": 0.6195,
+      "cat_decode_drop": 0.0438,
+      "match_rate_ablated": 0.0798,
+      "match_rate_change": 0.0,
+      "induction_adv_ablated": 3.3921
+    }
+  ],
+  "notes": "swiglu18 (softmax single-branch twin of bilin18). dce_mean/se = paired per-token (ablated-intact) CE on held-back; cat_decode_drop = intact-ablated next-token-category acc (fixed ridge probe fit on swiglu18 intact train residual); match_rate_change = intact-ablated PLAIN single-branch softmax induction/copy argmax match rate (axis (c) proxy -- bilin18 two-branch match does not apply to softmax). Anchors L in {0,1,2,3,16,17}; targets L in 4..15."
+}

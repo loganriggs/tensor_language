@@ -3495,3 +3495,26 @@ regression latching the most-detectable weak term), not a mechanism — these ar
 capital/punctuation-supporting heads. This corrects the earlier §T4/attend-vs-predict-map "KEY_newline
 cluster" framing (like the §46 KEY_cap correction) and is a methodological caution: a census predicate
 LABEL can be an artifact that does not reflect a real computation. Closes the last open mechanistic thread.
+
+## §55 Feed-forward family GEOGRAPHY generalizes to swiglu18; the hub is bilin18-specific (2026-07-30)
+(qk_midstack_mlp_family_swiglu18.py; §44 machinery ported to swiglu18 — softmax attention, gated-bilinear
+feed-forward; mean-ablation, held-back FW[448:600], paired standard errors) The §44 feed-forward family
+structure REPLICATES on bilin18's softmax twin:
+- **Early category engine — YES:** blocks 0–5 carry both the highest marginal cross-entropy cost (dCE
+  0.38–0.80) and the largest next-token-category-decode drops (0.032–0.061, peaking L2/L3) — the same
+  "front-of-stack builds the category code" signature (the engine extends slightly deeper than bilin18's
+  MLP0–3, boundary ~L5→L6).
+- **Low-cost distributed mid-stack — YES:** blocks 6–15 cheap (dCE 0.04–0.17, monotone decay), category
+  drops ≤0.024, no single load-bearing block — matches bilin18 MLP4–15.
+- **Lexical-readout re-engagement — YES:** L17 sharply re-engages (dCE 0.47, category drop 0.044), the
+  second-largest category drop outside the engine (bilin18 had it at 16/17; swiglu18 concentrates at 17).
+- **The MLP1 HUB — NO (bilin18-specific, as expected):** the match-rate channel is flat across all 18
+  blocks (|change| ≤0.008, no L1 standout). The bilin18 hub was defined on the TWO-BRANCH match that
+  softmax attention lacks (baseline induction match-rate only 0.080), so the absence is expected and
+  consistent with the atlas's prior finding that the MLP1 hub is a two-branch artifact.
+**Completes the four-ledger GENERALITY picture (bilin18 headlines on a second model):** Representation
+exact by construction (all architectures); Substitutability whole-model general (§32b, 4 models);
+FUNCTION — feed-forward family geography general (this §55), hub bilin18-specific; MEANING — content-
+spectral general (§52). So the decomposition's structure is architecture-general; the only bilin18-
+specific piece is the two-branch-attention MLP1 hub (already known). The specific head TAXONOMY is
+model-specific (census-generality negative), but the four-ledger STRUCTURE generalizes.
