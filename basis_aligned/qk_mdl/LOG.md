@@ -6394,3 +6394,13 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## framing). §47 layers 2-3 meaning committed. NEXT: churn the 26-job meaning sweep; collect content
 ## L4-17 (does content stay spectral to the output, or become nameable at lexical layers 16/17?) +
 ## selection L6-17. 10-min cron 0b62fec1; re-arm before 2026-08-06.
+
+## TICK (10-min) — §49 MILESTONE: FOUR-LEDGER PER-LAYER DECOMPOSITION COMPLETE (all 17 layers). Meaning
+## sweep finished: content spectral at ALL 18 layers (0-3/576 class-nameable, §48); selection gated-
+## nameable at every layer except diffuse L4/L17 (copy/induction/match family only, §49). All 4 ledgers
+## now done every layer: Representation (gauge ~1e-6), Substitutability (99.95-99.998%, SE+null),
+## Function (census + feed-forward family §44), Meaning (nameable selection over spectral content).
+## Also: §40 corrected 3rd time -- greater-of-two 'prior' is IN-CONTEXT COPYING of few-shot demo answers
+## (control decisive, peak tracks demos, flat zero-shot). Dispatched: paper-draft consolidation agent +
+## quote-style circuit (v1-router generality test). NEXT: collect paper draft + quote circuit; refresh
+## artifact with the model-wide 4-ledger result; continue algo arcs. 10-min cron 0b62fec1; re-arm 08-06.
