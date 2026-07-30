@@ -6939,3 +6939,12 @@ existing steering methods, not a new method class, so in-scope and launched rath
 - Caveat honestly flagged: under-trained SAE (FVE 0.69); the definitive follow-up is a CONVERGED high-fidelity
   SAE, but the collective-encoding control predicts the causal negative persists regardless of fidelity. That
   converged SAE is the one remaining bigger-compute follow-up — flagged, not launched.
+
+## tick 2026-07-30 (converged-SAE follow-up to §78 — dispatched to close the caveat)
+- a7a5f2932bef00182 — qk_sae_converged.py: the definitive follow-up closing §78's one caveat (under-trained
+  SAE, held FVE 0.69). Trains a CONVERGED top-k SAE on MLP1 (k∈{32,64}, 8192-16384 features, 30k-80k steps,
+  target held FVE ≥ 0.90, dead-feature resampling), then re-runs the §78 head-to-head at high fidelity:
+  nameability (vs §78's 23/32, SVD 0/32) + causal (how many features clear the §74 bar, cumulative fraction of
+  the 5.57-nat effect, positive control). DECISIVE: does higher fidelity move the CAUSAL verdict — §78's causal
+  negative becomes AIRTIGHT (collective encoding, as the control predicted) or is OVERTURNED (hub crossable = a
+  major result)? Reuses the §78 scripts as base. Collect next tick, red-team + document either way.
