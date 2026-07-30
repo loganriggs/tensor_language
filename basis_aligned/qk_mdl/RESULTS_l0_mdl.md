@@ -2863,14 +2863,21 @@ matches, standard errors over the query set — the near-total planted reach doe
 | moderate (tok 82) | 0.0032 | 18 | 0.0021 → 0.165 ± 0.059 | 0.00 → 0.22 ± 0.10 |
 | frequent (tok 13) | 0.038 | 498 | 0.0075 → 0.040 ± 0.006 | 0.018 → 0.074 ± 0.012 |
 
-The redirect *engages directionally* — payload probability rises up to ~80× — but absolute yield is
-low and variable (argmax capture ≤0.22, often ~0), far below the planted 0.833 / 0.958. **The mechanism
-is visible in the baseline:** at these natural trigger queries the model's true-continuation probability
-is only 0.12–0.24, versus 0.85 in the planted repeated-prefix case. The gated natural triggers simply
-do not carry strong induction to hijack — a conditional redirect can only repoint as much induction as
-is locally present, and in the wild (a token that merely recurs, without a clean single-source match)
-that is weak. This is a fair, interpretable limit, not a design artifact: the low baseline induction is
-the cause. **Corrected scope for the editing capstone (§36/§37):** targeted redirection on the verified
-induction channel is a clean, near-collateral-free precision edit *in the controlled strong-induction
-setting*, and it engages but with low yield on natural triggers — it is a demonstrated controlled-
-setting capability, NOT an established in-the-wild targeted edit. The honest ceiling of the arc.
+The redirect *engages directionally* — payload probability rises up to ~80× — but absolute yield is low
+and, where powered, far below the planted 0.833 / 0.958. Honest reading of the power (per adversarial
+review): the moderate trigger (n=18) shows a *real* non-null effect (argmax capture 0.22 ± 0.10, ~2 SE
+above zero), not "≈0"; the distinctive "0.00" is from n=10 (rule-of-three 95% upper bound ≈0.3, so it
+cannot exclude a 30% true capture — it is *unpowered*, not a demonstrated zero); only the frequent
+token (n=498, capture 0.074) is well-powered, and that is the ambiguous-match regime §37b already
+flagged as reach-worst. **Cause is NOT yet established (retracted over-claim).** The earlier reading
+that natural triggers "simply do not carry strong induction to hijack" used baseline true-next
+probability as the induction proxy — but true-next P is confounded with general LM predictability (the
+tell: the frequent token has the *highest* natural true-next, 0.24, and the distinctive the *lowest*,
+0.15 — the inverse of the distinctive=cleanest-induction thesis), and the amplitude (`AINIT` calibrated
+on the planted eval, scale ×10) was never re-swept on natural text, so the weakness could be a
+recoverable *calibration* limit rather than intrinsic absence of induction. Both are being tested by
+the queued control (a scale sweep on natural triggers + the natural match-coefficient vs planted).
+**What IS earned:** targeted redirection on the verified induction channel is a clean, near-collateral-
+free precision edit *in the controlled strong-induction setting*; on natural triggers it engages but at
+low measured yield, so it is a demonstrated controlled-setting capability, NOT an *established* in-the-
+wild targeted edit — with the *cause* of the in-the-wild weakness (intrinsic vs calibration) still open.
