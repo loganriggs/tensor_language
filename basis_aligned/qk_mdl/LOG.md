@@ -6576,3 +6576,22 @@ guard, <4GB, batch<=8):
   stopping at the trigger, and pre-empts exactly the "we only found the easy ones" concern.
 - STILL RUNNING: difficulty-stratified census (a54ac349620503a63) — the direct anti-easy-bias diagnostic.
   Collect next tick, document as the methodological finding. Cron 172134ae expires ~2026-08-06.
+
+## tick 2026-07-30 (§67 census: easy-bias CONFIRMED structural; tenth detector dispatched)
+- §67 DIFFICULTY-STRATIFIED CENSUS (subagent a54ac349620503a63) — the headline methodological finding of the
+  arc, and it CONFIRMS Logan's concern empirically: cleanliness (the loop's ranking) is UNCORRELATED with
+  causal importance (Pearson 0.006 / Spearman −0.004). 4 quadrants: 5 high-clean/high-causal, 13 LOW-clean/
+  HIGH-causal (MISSED), 50 high-clean/low-causal (pure-but-null at scale), 166 noise. The 13 missed-hard are
+  MORE important than the 5 clean winners (mean trigger dCE 0.176 vs 0.118); the single largest single-path
+  effect in the model, h.L0.3 (0.389±0.082), is missed; the cleanest path h.L16.2 has NEGATIVE dCE (z=−4.1).
+  Universal culprit = DISTRIBUTED class-output (near-uniform, entropy 9.6–10.7) that top-64 effect-purity is
+  blind to. Deep composition is NOT the cause (upstream lesion retention 0.94–1.01). Redundancy secondary.
+  New types: late-layer distributed class-integrator FF (mlp.L17.d1–3), diffuse-trigger word-completion head
+  (h.L11.2), structural/positional class-diffuse heads (h.L0.3/L0.8/L4.1, validating §62/§63). Committed §67.
+- DISPATCHED the TENTH detector (subagent a6801c298d8998f4c, qk_unsup_classpush.py) — the census's prescribed
+  fix: causal class-level effect-ranking (rank by mean-ablation dCE, characterize output by CLASS-summed
+  delta-logit not top tokens, + §61 redundancy pre-pass, verify class-summed suppression vs control). Should
+  correlate with causal importance (vs cleanliness's 0.006) and recover the missed-hard region. TECHNIQUES row
+  added (in progress). Collect next tick.
+- Updated memory qk-unsup-avoid-easy-bias.md context: easy-bias now CONFIRMED (Pearson 0.006), fix = class-
+  level causal detector. Cron 172134ae expires ~2026-08-06.
