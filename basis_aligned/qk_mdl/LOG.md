@@ -6988,3 +6988,13 @@ existing steering methods, not a new method class, so in-scope and launched rath
 - SAE THREAD FULLY CLOSED (§78/§79/§80): dictionaries NAME and (with data) RECONSTRUCT the early hub but do NOT
   EXPLAIN it; causal mechanism collective at every level (SVD, L1, converged top-K) and every fidelity. The
   completeness boundary (§71-§80) is as hardened as this toolkit allows. No residual caveat remains.
+
+## tick 2026-07-30 (consolidation: SAE result gets a proper paper-body subsection)
+- The §78-80 SAE finding (the recent thread's most novel result — naming vs reconstructing vs explaining are
+  distinct; a dictionary does the first two but not the third; the hub's causation is collective at every
+  fidelity 0.69-0.85) was only in the abstract + a limitation. Added a dedicated body subsection "Naming,
+  reconstructing, and explaining are three different things" so the flagship carries it prominently. GPU-free.
+- SAE thread fully documented across RESULTS §78-80, paper (abstract + body subsection + limitation 1), and
+  artifact. Program at a hardened terminal capstone; completeness boundary (§71-80) closed with the SAE
+  rejoinder run at three fidelities and answered. No residual caveat remains. Awaiting Logan's steer on any new
+  direction (all remaining options are scope decisions).
