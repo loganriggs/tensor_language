@@ -2947,3 +2947,37 @@ targeted-repoint edit. The one property that holds throughout is the surgical *g
 non-trigger collateral ≤1e-4 nats). PENDING (queued): the same specificity control at the PLANTED
 setting — to confirm the surviving §37 controlled-setting result is itself a genuine repoint (A works,
 B/C do not) and not brute-force at scale 10.
+
+### §37f Planted specificity control — the mechanism is COPY-HEAD COMMANDEERING (revises §37e) (2026-07-30)
+(qk_planted_specificity.py) Running the §37e specificity control in the PLANTED setting reframes the
+whole redirect arc more accurately. Same edit, trigger planted, payload = token@1:
+
+| condition | scale 10 | scale 40 | scale 160 |
+|---|---|---|---|
+| **A** induction heads, induction-ACTIVE query (the §37 edit) | P 0.833 / cap 0.958 | 0.76 / 0.875 | 0.842 / 0.875 |
+| **B** induction heads, NON-active query (no match to repoint) | **0.439 / 0.75** | 0.819 / 0.979 | 0.913 / 0.979 |
+| **C** NON-induction heads (matched amplitude), active query | 0.003 / 0.0 | 0.012 / 0.021 | 0.042 / 0.104 |
+
+**Two corrections, converging on a cleaner description.** (1) The §37 edit is NOT "repointing an
+existing induction match": condition B forces the payload to 0.44 / 0.75 *at scale 10 with no induction
+match to repoint*, so a large part of §37's 0.833 is delivered by a match-free mechanism. (2) But it is
+also NOT "generic brute-force injection" (the §37e wording, now revised): condition C — the same
+amplitude at non-induction heads — gives ~0 (0.003 at scale 10, 0.10 capture even at scale 160). The
+effect is **specific to the copy (induction) heads' output pathway**. The reconciling description: an
+induction head's function IS to copy the value at whatever position its attention points to; the edit
+**commandeers that copy function** by setting the head's attention to a chosen source. It works whether
+or not a natural match exists (B), only through the copy heads (C), and its *reach* is governed by how
+strongly the injected term must override the head's baseline attention — low amplitude suffices in a
+clean/sparse context (planted A/B at scale 10), high amplitude is needed in rich natural context (§37c–e,
+where natural attention is more spread). This unifies the natural weakness (§37c), its high-amplitude
+"recovery" (§37e), and the planted result (§37): all are the same copy-head commandeering at different
+override thresholds.
+
+**Revised capstone scope (supersedes the §37 "clean repoint" and §37e "brute-force" framings).** The
+editing primitive on the induction/copy heads is: *command the copy heads to copy a chosen source token,
+by setting their attention pattern* — a copy-head-specific (not generic), match-free, surgically-gated
+(pure collateral ≤1e-4 nats) edit whose reach trades against amplitude/context. What remains to confirm
+(queued, qk_nonactive_aimability.py): that condition B genuinely COPIES THE POINTED SOURCE (point at
+position p → copy token@p, a double dissociation) rather than injecting one fixed vector — the test that
+separates "commandeered copy" from "fixed-direction injection." Until then §37f's mechanism claim is
+stated as the leading description, not yet enshrined.
