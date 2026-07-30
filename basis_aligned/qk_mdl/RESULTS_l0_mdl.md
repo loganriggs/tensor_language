@@ -4417,7 +4417,9 @@ on TRAIN FW[0:256]; all numbers on held-back FW[448:600], paired standard errors
   and removing the residual EACH preserve ~98% of the loss) predicts the causal negative would PERSIST
   regardless of reconstruction fidelity — the signal is collective, not concentrated in any learnable subset of
   directions. A converged SAE is the definitive follow-up, but the collective-encoding evidence makes the
-  causal negative predictive-of-persisting.
+  causal negative predictive-of-persisting. [§79 RESOLVED: the converged top-K SAE (held FVE 0.716, above this
+  probe's 0.69) STILL scores 0/32 load-bearing at 2.2% of the hub's mass — the causal negative is now AIRTIGHT;
+  and the 0.90 fidelity target proved UNREACHABLE (a generalization ceiling ~0.72, not under-training).]
 **KEY:** the §74 boundary is really TWO boundaries. NAMEABILITY: a sparse dictionary crosses it — the hub's
 VARIANCE structure is a mix of nameable monosemantic features (periods, commas, coordinators, determiners,
 capitals) that SVD's orthogonal-direction view could not see. CAUSATION: neither SVD nor the dictionary crosses
@@ -4425,3 +4427,47 @@ it — the hub's causal mechanism is collectively/redundantly encoded, individua
 direction and every learned feature. So dictionary methods will NAME the early hub but, on this evidence, will
 NOT explain its computation; the "irreducibly distributed" claim is about CAUSATION and it holds even against
 the tool §74 named.
+
+## §79 CONVERGED SAE — §78's causal negative is AIRTIGHT; the fidelity ceiling is a generalization bound (2026-07-30)
+(qk_sae_converged.py / _2.py / _3.py; the definitive high-fidelity follow-up closing §78's under-training
+caveat.) Top-K sparse autoencoders (k active enforced — cleaner than §78's L1) on MLP1's output, fit on TRAIN
+FW[0:256], evaluated on held-back FW[448:600]; forward + causal harness copied verbatim from the §78 scripts;
+auxiliary-K dead-feature revival (0 dead in every final run). Paired standard errors.
+- **(a) The 0.90 fidelity target is UNREACHABLE — and that itself is a finding (corrects §78's caveat).** A
+  genuinely converged run (8192 features, k=64, 50000 steps) reached TRAIN fraction-of-variance-explained 0.945
+  but held-back FELL to 0.637 — held fidelity PEAKED ~0.70 at ~5000 steps and then DEGRADED as training
+  continued: convergence on the 256-sequence train slice OVERFITS. Held fidelity is GENERALIZATION-bounded, not
+  training-budget-bounded. With validation-checkpointed early stopping (best checkpoint chosen on a third,
+  non-overlapping slice FW[256:448], keeping FW[448:600] pristine), the best dictionary reached held-back FVE
+  **0.716** — the highest achievable, genuinely above §78's 0.69, at L0=64, 0 dead. The 0.90 target is NOT
+  reachable: held fidelity saturates ~0.72 on this much data regardless of budget or dictionary size. So §78's
+  low fidelity was NOT mere under-training — it was already near the achievable ceiling for this hub.
+- **(b) Nameability crosses again, slightly higher.** Of the top 32 features, all 32 have trigger class purity
+  ≥ 0.5 and **26 of 32 are monosemantic** (purity ≥ 0.5 AND dominant class ≥ 2× base rate) on the best-held
+  dictionary — vs §78's 23/32 and SVD's 0/32. Recurring clean features: pure " the"-determiner (11.7× enriched),
+  pure comma/period punctuation (9×), capitalized-word features. The nameability boundary is crossed robustly.
+- **(c) CAUSAL verdict at higher fidelity — §78's negative is AIRTIGHT.** Higher held fidelity did NOT move the
+  causal verdict. Mean-ablating each top-32 feature individually: **0 of 32 clear the §74 bar** (closest single
+  feature z = 2.96 at delta cross-entropy 0.019; the largest delta cross-entropy 0.021 was at z = 1.9 — the two
+  criteria never jointly satisfied, the same failure mode as raw SVD). Cumulatively, ALL 1082 live features
+  together capture only **2.22% of the full 5.57-nat MLP1 effect** (essentially §78's 2.15%); the cumulative
+  curve never reaches 50%. POSITIVE CONTROL confirmed at higher fidelity: removing the reconstruction RESIDUAL
+  (keep features) costs 0.8% of the full effect; removing the reconstruction (ablate all features) costs 2.22% —
+  BOTH individually inert, the full 5.57 nats appearing only under the complete joint knockout = the
+  collective-encoding signature.
+- **VERDICT — higher fidelity STRENGTHENED the negative, not overturned it.** A converged (train FVE 0.945) and
+  fairest-held (held FVE 0.716, above §78) dictionary that clearly crosses NAMEABILITY (26/32 monosemantic)
+  remains 0/32 load-bearing at 2.2% of the hub's causal mass with the collective-encoding control intact. §78's
+  causal negative is AIRTIGHT: the MLP1 hub's causation is COLLECTIVE — irreducible to individually nameable
+  dictionary features — even for a high-fidelity sparse autoencoder. Strong confirmation of §74/§78, not an
+  overturning.
+- **Honest residual caveat:** the generalization ceiling (~0.72) is on THIS training data (256 sequences); a
+  much larger activation corpus might raise achievable held fidelity. But the collective-encoding control (both
+  the reconstruction and the residual individually inert) predicts the causal negative PERSISTS regardless of
+  fidelity — the causal mass is not concentrated in any learnable subset of directions.
+**KEY (the SAE thread's conclusion):** dictionary methods NAME the early hub (its variance structure is a mix
+of clean monosemantic features — periods, commas, determiners, capitals — that SVD's orthogonal view missed)
+but do NOT EXPLAIN it (0/32 load-bearing, 2.2% of the causal mass, collective encoding), AND cannot even
+sparsely RECONSTRUCT it to high fidelity (held-back ceiling ~0.72, generalization-bounded). §74's
+"irreducibly distributed" is fully confirmed and sharpened: the hub's causal mechanism is collective at every
+level tested — orthogonal directions (§74), an L1 dictionary (§78), and a converged top-K dictionary (§79).
