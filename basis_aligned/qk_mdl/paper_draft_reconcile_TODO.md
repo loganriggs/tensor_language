@@ -11,3 +11,11 @@
 5. Whole-model substitutability: +0.0475 (PCA/head bottleneck) vs +0.0329 (MLP-chain-only) are DISTINCT
    experiments; per-layer marginal 99.95-99.998% vs cumulative whole-model ~98-99.8%. Keep separate,
    confirm the intended headline framing (per-layer marginal is the sweep result).
+
+## RESOLVED 2026-07-30 (all 5):
+1. census 23 vs 30 -> footnote added (8-pred v1 = 23, 12-pred v2 = 30). DONE.
+2. programmatic (per-head gain) vs gated-nameable (§49 simultaneous gate) -> clarified as distinct. DONE.
+3. L17 vs L5 loss layer -> already flagged as open methodology reconciliation (paper §Limitations). DONE.
+4. diffuse set by ledger -> fixed by capstone correction #3 (L9 not genuinely diffuse). DONE.
+5. per-layer marginal vs cumulative substitutability -> fixed by capstone correction #1. DONE.
+Paper draft fully reconciled; consolidation (RESULTS/paper/artifact) complete and consistent.

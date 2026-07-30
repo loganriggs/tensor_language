@@ -116,8 +116,12 @@ punctuation / capitalization / digit / function-word, task correlation 0.98–0.
 MLP-driven, concentrated in MLP0–3 — a linear next-token-category probe jumps 0.527→0.611 across
 MLP0–3 and collapses to 0.510 when they are ablated); an **induction / copy fabric** (28% head mass,
 built on MLP1); and a **layout/newline** outlier that the category stack actively interferes with.
-The selection census marks **23 of 162 heads programmatic** (predicate gain ≥5%), and the predicate
-label predicts the head's causal specialization. The feed-forward family map (§44) closes the largest
+The selection census marks **23 of 162 heads programmatic** (predicate gain ≥5%) under the original
+8-predicate library, or 30/162 under the 12-predicate census v2; and the predicate label predicts the
+head's causal specialization (with the caution of §54 — a low-R² predicate LABEL like KEY_newline can be
+a census artifact, not a real mechanism). Note these "programmatic" counts (per-head predicate gain) are
+distinct from the §49 simultaneous-substitution "gated-nameable selection" criterion, which is stricter
+and finds gated heads at every layer except the two diffuse ones (4 and 17). The feed-forward family map (§44) closes the largest
 remaining Function hole: MLP0–3 is the category engine (with **MLP1 the hub — the only block serving
 the two-branch match fabric**, +0.029 match-rate on ablation), MLP4–15 is **distributed
 category-refinement with no distinct family** (each block removes ≤0.014 category accuracy, cost
