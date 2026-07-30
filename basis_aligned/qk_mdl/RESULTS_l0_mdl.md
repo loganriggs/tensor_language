@@ -3078,7 +3078,8 @@ effect only appears over the broad head set. Honest caveats: (1) the reach (0.18
 planted (0.83) — a smaller model with a distribution-normalized attention; (2) because bilin12's
 selection census was marginal (§ census-generality negative), I could not isolate bilin12's specific
 copy heads and instead overwrote the broad layer-2+ set, so this shows commandeering *works on bilin12*
-but does not localize *which* bilin12 heads carry it. Single-configuration generality check. Conclusion:
+but does not localize *which* bilin12 heads carry it. Single-configuration generality check (bilin12 dissociation is standard-bar: aim@col1 0.175±0.038,
+aim@col10 0.320±0.050, both 4–6 SE above the ~0.01±0.006 off-target/no-edit baseline; qk_commandeer_se_bilin12.py). Conclusion:
 the copy-head-commandeering editing primitive is not bilin18-specific — it generalizes to a second
 attention family, matching the composition arc's architecture generality (§32b/§T8).
 
