@@ -6678,3 +6678,20 @@ Dispatched two GPU subagents (nvidia-smi self-guard, <4GB):
   show what's achievable without folding. Answers "is folding necessary or a last-mile refinement."
 - Conceptual answers given to Logan now; experiments quantify them. Collect next tick.
 - Cron 172134ae armed through ~2026-08-06 — re-arm before then and tell Logan.
+
+## tick 2026-07-30 (Logan's completeness + fold questions ANSWERED — §71 + §72)
+Both experiments landed; agents' final reports confirm the numbers I read from the JSONs.
+- §71 COVERAGE LEDGER (a5f9bd0dd0cfaf0f8): of bilin18's full causal headroom (5.31 nats), NAMED circuits carry
+  ~11% (8.4% core) → ~89% NOT yet characterized. Splits: unnamed single-path-expressible ~55% (82.6% of it in
+  the HARD low-cleanliness region), non-axis-aligned residual ~36% (= 73% of feed-forward effect living below
+  the top-72 SVD directions, superposition). Whole-model super-additivity 2.87× (joint-234 3.38 vs sum-of-solos
+  1.18) — mechanism deeply distributed; single-path naming structurally undercounts. Answer: we've named the
+  LARGEST effects but a small fraction of total computation, and the unfound is overwhelmingly hard/distributed.
+- §72 FOLD-NECESSITY (a3de0f8dc14a8faf5): generic fold-free surrogate captures 73.7% of the floor-relative
+  substitutability gain, exact fold adds 26.3% (Logan's ~20% close). BUT faithfulness is the honest frame: the
+  surrogate leaves +4.86 nats (broken model), the fold +0.034 (~143× more faithful); swiglu18 (non-foldable)
+  is STUCK at +3.42 with the generic surrogate. Linear surrogate recovers only ~40% of MLP output on BOTH
+  models, full rank doesn't help → residual is genuinely QUADRATIC. Exact representation (1e-6 vs 0.60 per-layer
+  reconstruction, the gauges) is strictly bilinear-only — the one substantial thing swiglu CANNOT do. Conclusion:
+  folding is NECESSARY for faithful substitutability, not a cosmetic last-mile; it buys EXACTNESS.
+- Committed §71 + §72 (with swiglu18 leg + faithfulness sharpening). Cron 172134ae expires ~2026-08-06.

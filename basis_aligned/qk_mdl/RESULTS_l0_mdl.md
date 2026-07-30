@@ -4127,8 +4127,9 @@ named decomposition is real but bounded; the bulk of computation is hard, distri
 ## §72 FOLD-NECESSITY — how much of the substitutability requires the exact bilinear fold? (2026-07-30)
 (qk_fold_necessity.py; answers Logan's "is folding necessary for all the gains or ~20%?") Decomposes bilin18's
 whole-model substitutability into fold-specific vs generic by racing the EXACT composed fold against a
-rank-matched fold-FREE empirical low-rank surrogate (fit on TRAIN FW[0:256], applicable to ANY architecture),
-held-back FW[448:600], paired standard errors. (swiglu18 leg pending the agent's final report.)
+rank-matched fold-FREE empirical low-rank surrogate (a per-layer reduced-rank ridge map from each MLP's real
+input to its real output, rank 576 = 64×9, fit on TRAIN FW[0:256], applicable to ANY architecture), held-back
+FW[448:600], paired standard errors.
 - **The generic surrogate gets most of the way; the exact fold is the last mile.** Against a joint-MLP floor
   (18.42 nats), the exact composed fold leaves only 0.0339 ± 0.0010 nats of residual (**99.8% floor capture**);
   the rank-576 fold-free empirical surrogate leaves 4.86 ± 0.016 nats (**73.6% floor capture**). As a fraction
@@ -4143,10 +4144,23 @@ held-back FW[448:600], paired standard errors. (swiglu18 leg pending the agent's
   (99.8% floor, faithful). Folding is a last-mile 26% of the APPROXIMATE gain, but it is 100% of the EXACTNESS
   — and exactness (the representation ledger, the gauges) is the one substantial capability the softmax SwiGLU
   model structurally cannot have.
-- **Caveat on the percentage:** the 26%/74% split is measured against a destructive joint-MLP floor (18.4
-  nats); the floor-independent numbers are the absolute residuals (exact 0.034 vs surrogate 4.86) and the
-  per-layer reconstruction errors (1e-6 vs 0.70), which carry the real message.
-**KEY:** for APPROXIMATE causal substitutability, ~74% is generic (a fold-free surrogate on any architecture
-gets there) and the fold adds ~26% — close to Logan's guess. For EXACT, faithful representation — the whole
-point of the bilinear model and the one thing swiglu cannot do — the fold is essential and complete (1e-6 vs
-70% per-layer error). Folding buys exactness, not the bulk of the approximate gain.
+- **Caveat on the percentage — and why FAITHFULNESS is the honest frame:** the 26%/74% split is measured
+  against a destructive joint-MLP floor (18.4 nats). Getting 74% of the way from "destroyed" to "perfect" still
+  leaves the surrogate at +4.86 nats per token — it more than DOUBLES the model's loss, i.e. it is itself a
+  broken model. The exact fold sits at +0.034 (≈143× more faithful). So in absolute causal-faithfulness terms
+  essentially ALL of the FAITHFUL substitutability is the fold; the 26% is not a cosmetic last mile, it is the
+  entire difference between a broken surrogate and a faithful identity.
+- **swiglu18 confirms it (the generic surrogate on the non-foldable model).** The SAME rank-576 generic
+  surrogate on swiglu18 (which has NO exact-fold arm — a gated SwiGLU MLP has no bilinear tensor) leaves +3.420
+  ± 0.013 nats (rank-1152 +3.365), capturing only 53.6% of swiglu18's MLP floor, with the same linear-
+  inadequacy per-layer reconstruction error (0.627). So on swiglu18 the generic method is STUCK at a broken
+  +3.42 nats with nothing available to close the gap; on bilin18 the fold closes exactly that residual, from
+  +4.86 down to +0.034. The linear surrogate recovers only ~40% of each MLP's output magnitude on BOTH models
+  and full rank does not help — confirming the residual is genuinely QUADRATIC, not a rank deficiency.
+**KEY:** the honest answer has two halves. (1) For APPROXIMATE structure, ~74% of the floor-relative gain is
+architecture-general (a fold-free surrogate gets there on any model) and the fold adds ~26% — close to Logan's
+~20% guess. (2) But for FAITHFUL whole-model substitutability, folding is NECESSARY, not a last-mile refinement:
+the generic surrogate leaves BOTH models badly broken (+3.4 to +4.9 nats), and only the exact bilinear fold
+reaches faithfulness (+0.034), available solely because bilin18's MLPs are exactly multilinear. The exact
+representation (per-layer reconstruction 1e-6 vs 0.60; the gauges) is strictly bilinear-only — the one
+substantial thing swiglu structurally cannot do. Folding buys EXACTNESS, and exactness is the whole game.
