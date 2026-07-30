@@ -6414,3 +6414,14 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## v1-swap flips 100% bidirectional w/ identity controls). Paper draft qk_paper_draft.md committed (+5
 ## reconciliation TODOs). Increment-carry circuit agent running (prior-vs-computation test). NEXT: collect
 ## increment result; paper reconciliation polish. 10-min cron 0b62fec1; re-arm before 2026-08-06.
+
+## TICK (10-min) — CAPSTONE RED-TEAM: 5 headline-framing corrections applied. §51 increment = genuine
+## bounded L8 successor (not prior). Capstone review of the completed 4-ledger decomposition caught 5
+## milestone over-claims (all fixed in §45/48/49/51 + artifact, no science redone): (1) substitutability
+## '99.95-99.998% every layer' is MARGINAL not cumulative -> added whole-model ~98.95% (~20x more) +
+## near-dispensable-layer caveat (L8/13/14/16 null~1x) + L13 general-CE-vs-router tension; (2) content
+## ~0.000 class-gate mechanically vacuous -> class-R2 is real evidence, scoped 'not class-nameable' to
+## the library; (3) L9 NOT genuinely diffuse (gated KEY_newline L9H8 under 12-pred) -> diffuse=4/17 only,
+## 'diffuse'=no surface name not no computation (L4 null 3.3x); (4) static-prior control separated cleanly
+## on its own in only 2/5 cases. Artifact republished w/ corrections. Paper-draft correction agent
+## dispatched. redteam_capstone archived. 10-min cron 0b62fec1; re-arm before 2026-08-06.
