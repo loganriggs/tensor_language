@@ -1,0 +1,89 @@
+{
+  "cluster": [
+    [
+      15,
+      3
+    ],
+    [
+      15,
+      4
+    ],
+    [
+      16,
+      0
+    ],
+    [
+      16,
+      1
+    ],
+    [
+      16,
+      5
+    ]
+  ],
+  "base": {
+    "subword": 2.294502019882202,
+    "punct": 1.7670027017593384,
+    "capital": 5.702321529388428,
+    "digit": 4.446075439453125,
+    "newline": 1.1612423658370972,
+    "funcword": 2.1325581073760986,
+    "natural": 3.494577646255493
+  },
+  "base_induction": 3.0551645755767822,
+  "joint_knockout": {
+    "subword": -0.00251,
+    "punct": -0.00225,
+    "capital": 0.04633,
+    "digit": -0.01116,
+    "newline": -0.00665,
+    "funcword": -0.00247,
+    "natural": 0.00512
+  },
+  "joint_induction_drop": 0.0106,
+  "single_L15H3": {
+    "subword": -0.00221,
+    "punct": -0.00038,
+    "capital": 0.01399,
+    "digit": -0.00276,
+    "newline": -0.00256,
+    "funcword": -0.00077,
+    "natural": 0.00125
+  },
+  "single_L15H4": {
+    "subword": 0.00018,
+    "punct": -0.00073,
+    "capital": 0.00648,
+    "digit": -0.00011,
+    "newline": -0.00039,
+    "funcword": -0.00095,
+    "natural": 0.00043
+  },
+  "single_L16H0": {
+    "subword": -0.00135,
+    "punct": -0.00084,
+    "capital": 0.0072,
+    "digit": -0.00483,
+    "newline": -0.00172,
+    "funcword": 9e-05,
+    "natural": 0.00107
+  },
+  "single_L16H1": {
+    "subword": 0.0004,
+    "punct": -0.00024,
+    "capital": 0.00273,
+    "digit": -0.00047,
+    "newline": -0.00073,
+    "funcword": -0.00011,
+    "natural": 0.00038
+  },
+  "single_L16H5": {
+    "subword": 0.00011,
+    "punct": -0.0003,
+    "capital": 0.00925,
+    "digit": -0.00382,
+    "newline": -0.00231,
+    "funcword": -0.00144,
+    "natural": 0.00026
+  }
+}
