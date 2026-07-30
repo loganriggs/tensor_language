@@ -6498,3 +6498,25 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
   manufacturing busywork would only contend with the red-team on the shared card.
 - NEXT tick: collect red-team verdicts, apply any softening/retraction to RESULTS §61-64 AND the paper section
   together, then update the artifact with the toolbox-complete card. Cron re-arm before 2026-08-06.
+
+## tick 2026-07-30 (RED-TEAM verdicts applied → toolbox enshrined, defensible)
+Adversarial red-team (subagent a72596fe9380624ba, qk_redteam_toolbox*.py) of the 4 strongest new claims done.
+Verdicts + corrections applied to RESULTS §61-64, paper draft, TECHNIQUES:
+- §64 mlp.L15.d2 punctuation→capital: SURVIVES, STRENGTHENED. Confound (just line-start capitalization)
+  refuted two ways — additive not redundant under §61 joint-ablation (ratio 1.08 with h.L13.8 + mlp.L16.d1),
+  and effect concentrated at MID-sentence punctuation (distance≥8: +0.0082), null-to-negative at line-start
+  (distance≤3: −0.0042). A distinct general sentence-boundary remap.
+- §61 copy-family redundancy 3.86: SURVIVES. Joint 0.4299±0.0514, minimal 4-head subset 87% reproduced
+  exactly; random-position ablation collapses 0.430→0.033 (specific, not capacity); layer-band control z 35.7.
+  Softened only the single z=24.9 → draw-dependent (z ≈ 11–36), report "exceeds all random same-size sets".
+- §63 digit heads: SURVIVE, multiplier SOFTENED. Position-matched control drops h.L8.7 from ~11× to ~4× (half
+  was positional clustering); h.L8.3 STRENGTHENS 4.6×→7.6×. Genuinely orthographic; now quote position-matched.
+- §62 "no distance-to-newline head": strong negative RETRACTED as underpowered. Pearson-vs-distance metric
+  can't detect a realistic saturating signal (per-token noise SD 0.163 ≈ 10× signal); the position-0 sink
+  h.L5.7 itself shows a 2.7× monotone damage rise the metric scored as correlation 0.0. Tool now licenses the
+  POSITIVE fixed-offset attributions only, not the absence claim.
+NET: of 4 audited headlines, 2 clean survivors, 1 survivor with softened magnitude, 1 retracted negative — the
+positive circuit discoveries all held; only an over-reaching negative and an inflated multiplier were caught.
+This is the ~16th retraction/softening across the program; the discipline (positive controls / red-team before
+enshrinement) worked exactly as intended. Toolbox §56-64 now adversarially defensible.
+NEXT: refresh the artifact with the toolbox-complete card (using the CORRECTED numbers). Cron re-arm < 2026-08-06.
