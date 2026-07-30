@@ -3911,3 +3911,54 @@ positional capitalization (§64 stands on the trigger side), BUT the deeper arc 
 shared capital direction, not a boundary-specific one — so it is a booster implementing the prior, not a
 "capitalize at sentence start" algorithm. The cleanest-looking candidate turned into an honest negative on the
 generalization test — the value of running the full arc rather than stopping at the trigger.
+
+## §67 Difficulty-stratified census — the discovery loop's easy-bias is STRUCTURAL, and the fix (2026-07-30)
+(qk_census_difficulty.py / _2.py; the direct test of Logan's "are we only finding the easiest circuits?"
+concern.) Two INDEPENDENT axes over all 234 paths (162 head pathways + 72 feed-forward directions): (1)
+CLEANLINESS — the score the discovery loop ranks by; (2) CAUSAL IMPORTANCE — mean-ablation delta cross-entropy
+at each path's top-200 positions selected by ACTIVATION MAGNITUDE (not by purity, so it does not reuse the
+cleanliness signal), held-back FW[448:600], paired standard errors.
+- **(a) The easy-bias is REAL and structural — the two axes are UNCORRELATED.** Pearson 0.006 / Spearman
+  −0.004 (trigger-position delta cross-entropy); magnitude-gated subset Pearson 0.019 / Spearman −0.026; vs
+  global delta cross-entropy Pearson 0.050. Four quadrants (clean-high = 75th percentile of the gated set;
+  causal-high = trigger delta cross-entropy ≥ 0.02 nats at z ≥ 3): **5** high-clean/high-causal (the easy wins
+  the loop finds), **13** LOW-clean/HIGH-causal (the hard, important, MISSED region — the crux), **50** high-
+  clean/LOW-causal (clean detectors that do NOT matter — the §63 pure-but-null phenomenon at scale), **166**
+  low/low (noise). Two illustrations that the ranking is actively misleading: the single CLEANEST path overall
+  h.L16.2 has a NEGATIVE delta cross-entropy (ablating it slightly HELPS, z = −4.1); the number-one clean path
+  h.L8.2 is not even statistically load-bearing (z = 1.9).
+- **(b) The missed-hard circuits are MORE important than the clean winners.** Mean trigger delta cross-entropy
+  0.176 nats (13 missed-hard) versus 0.118 nats (5 clean winners); the single most important path in the whole
+  census, h.L0.3 (0.389 ± 0.082), is a missed-hard path, and the top three missed-hard exceed the best clean
+  winner (mlp.L16.d0, 0.215). The loop is missing the LARGEST single-path causal effects in the model, not
+  stragglers. Hardness characterization of the top 10:
+  - **DISTRIBUTED / multi-class OUTPUT is the near-universal culprit** — all 10 have a boost-top-token share
+    ≈ 0.00, need thousands to tens of thousands of tokens to reach 80% of their positive logit mass, and have
+    output entropy ~9.6–10.7 nats (near-uniform over the vocabulary). They push an entire token CLASS, not a
+    sharp set — exactly what the loop's effect-purity axis (top-64 concentration) is BLIND to.
+  - **Impure / multi-class TRIGGERS** compound it (trigger current-token purity 0.03–0.30, 3–5 classes firing).
+  - **Deep composition is NOT the reason they are missed** — under a full previous-block-attention lesion every
+    testable path retains ~all its activation (0.94–1.01) and all-or-more of its causal effect (1.0–3.3);
+    several become MORE necessary when upstream is removed (h.L4.1 effect retention 3.3, h.L8.3 1.5), i.e.
+    upstream partially MASKS their necessity — the opposite of upstream-enabled composition.
+  - **Redundancy is a real secondary axis** — 5/10 sit in families with §61 joint-over-sum-of-solos ratios
+    1.5–2.6 (late feed-forward mlp.L17.d1/d2/d3 at 2.0–2.2; heads h.L0.8, h.L4.1 at 2.1–2.6).
+  - **New provisional TYPES beyond the nine-detector catalog:** (1) LATE-LAYER DISTRIBUTED CLASS-INTEGRATOR
+    (feed-forward) — mlp.L17.d1/d2/d3, high causal importance (0.17–0.37 nats), impure trigger, near-uniform
+    output over a punctuation/capital/space class, redundant family. (2) DIFFUSE-TRIGGER, DISTRIBUTED-OUTPUT
+    head — h.L11.2 (cleanliness 0.005, delta cross-entropy 0.239): fires on nearly everything and boosts a huge
+    set of SUBWORD word-completion fragments (80% mass needs ~13,700 tokens) — a word-completion predictor,
+    distinct from the §63 INPUT-side byte-fragment detector. (3) STRUCTURAL/POSITIONAL heads with class-diffuse
+    output — h.L0.3, h.L0.8, h.L4.1; these overlap the §62 positional and §63 byte-fragment families, an
+    INDEPENDENT validation that those detectors were needed precisely because cleanliness ranking misses here.
+- **(c) THE FIX — the tenth detector.** The toolbox is systematically missing causally load-bearing circuits
+  whose OUTPUT is a distributed push over a token CLASS rather than a sharp token set; the top-64 effect-purity
+  proxy actively selects against them. Needed: a CAUSAL, CLASS-LEVEL effect-ranking that replaces the top-token
+  concentration proxy — rank paths by mean-ablation delta cross-entropy at their activation-selected firing
+  positions, and characterize the effect at the level of coarse token CLASSES (class-summed delta-logit: does
+  ablation move a whole class's logits) rather than individual tokens, with a §61 family-joint redundancy
+  pre-pass so redundant late-feed-forward/positional members are not each dismissed as individually null.
+**KEY:** Logan's concern is empirically confirmed and quantified — the discovery loop's cleanliness ranking is
+uncorrelated with causal importance, so it structurally harvests clean SURFACE circuits and misses the model's
+LARGEST effects, which are distributed class-pushes. The remedy is a causal class-level effect detector (built
+next), and the census already names the three hard types it should catch.
