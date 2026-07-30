@@ -3755,3 +3755,42 @@ rate; ranked on purity×lift, gated on ≥3 distinct satisfying tokens.
 it rejects overfit affix/n-gram fingerprints before any causal budget is spent — and the conditional causal
 contrast confirms the genuine ones route by a BYTE property (digit, punctuation), damage concentrating 5–20×
 on pattern-matching positions exactly as a byte-property circuit should and a semantic-class circuit would not.
+
+## §64 New tool — TRIGGER-vs-OUTPUT DECOUPLING (remap circuits) (2026-07-30)
+(qk_unsup_decouple.py; the circuit TYPE that fires on token class A but boosts a DIFFERENT class B — a
+"remap"/translation, e.g. article→noun, boundary→capital — which the copy/induction tools cannot express and
+which the direct-to-logits proxy both over-ranks AND, per the §56 lesson, mis-reports.) Forward passes copied
+verbatim from qk_unsup_discover.py; causal harness from qk_unsup_verify.py; lexical class library from
+qk_unsup_cluster.py extended with a leading-space content-`word` class and an open/close-quote split.
+Discovery FW[0:256], causal verify held-back FW[448:600], paired standard errors.
+- **NEW TECHNIQUE:** per path build a TRIGGER-class histogram (classes at the top firing positions) and an
+  OUTPUT-class histogram (classes the direct-to-logits proxy boosts), score decoupling = 1 − histogram
+  intersection, require BOTH peaked (top-class ≥ 0.40) with trigger-top ≠ output-top, rank by decoupling ×
+  trigger-purity × output-purity. Because the linear proxy is known-unreliable this ranking is ONLY a
+  CANDIDATE GENERATOR — the decisive step is an OUTPUT-SIDE causal test: mean-ablate the path and measure the
+  drop in probability mass on the predicted class B at the next position, specifically at ACTIVE class-A
+  trigger positions, against a control of class-A positions where the path is INACTIVE.
+- **67 clean-remap candidates; top 6 causally tested → 3 GENUINE, 3 PROXY-ARTIFACT** (the honest split the
+  §56 lesson predicts). Genuine, ordered by defensibility:
+  (1) mlp.L15.d2 fires on PUNCTUATION → boosts CAPITALIZATION — the strongest and most defensible: ablation
+  cuts capital-class next-token probability at punctuation positions by 0.0068 ± 0.0009 (z ≈ 7.7) versus only
+  0.0003 at the inactive-punctuation control, AND is load-bearing (delta cross-entropy +0.0236 ± 0.0083). A
+  genuine sentence-boundary → capitalize-next-word remap with a full specificity control.
+  (2) mlp.L16.d1 fires on NEWLINE → boosts CAPITALIZATION — large clean output effect (capital probability
+  after newlines drops 0.0284 ± 0.0032, z ≈ 8.7) but with an HONEST caveat: no specificity control exists
+  because the direction fires on essentially ALL newlines (empty inactive-newline pool), and load-bearing
+  signal is only marginal (delta cross-entropy +0.0345 ± 0.0235, ≈1.5 standard errors). Verdict rests on the
+  raw output-side effect, not a control.
+  (3) mlp.L1.d3 fires on DETERMINER → boosts a content WORD — real but weak/redundant: word-class probability
+  after determiners drops 0.0029 ± 0.0008 (z ≈ 3.6), only marginally above its control (0.0014), and NOT
+  load-bearing (delta cross-entropy −0.0060 ± 0.0093).
+- **The 3 proxy artifacts (the §56 lesson made vivid):** mlp.L0.d3 "determiner→word" (drop 0.0014 vs control
+  0.0011, z ≈ 1.5 — indistinguishable), h.L5.0 "punctuation→word" (drop 0.0000 ± 0.0013 — literally nothing),
+  and mlp.L15.d1 "newline→capital" whose ablation moved capital probability the OPPOSITE way (−0.0203,
+  z ≈ −17.6 — sign INVERTED). Decisively: two near-identical linear "newline→capital" directions (L15.d1 vs
+  L16.d1) and two "determiner→word" directions (L0.d3 vs L1.d3) EACH SPLIT — one genuine member, one artifact
+  twin (one sign-reversed). Only the output-side causal test separates them.
+**KEY:** decoupled "remap" circuits are exactly where the direct-to-logits proxy is most dangerous — it
+over-ranks them and gets magnitude/sign wrong — so the output-side causal test (class-B suppression at active
+class-A positions vs inactive control) is mandatory. This is the sixth and final under-served §58 gap-map
+type; every taxonomy circuit type now has a working, causally-verified detector.
