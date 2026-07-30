@@ -168,3 +168,29 @@ RECURRING HEADLINE LESSON (documented across all nine): the linear direct-to-log
 magnitude, sign, case, and single-vs-joint — every circuit type earns its keep only through a type-specific
 CAUSAL test. Catalog: TECHNIQUES_unsup_discovery.md. Next: adversarial red-team (§61-§64 in flight) then fold
 into paper draft + artifact.
+
+## ARCS ON DISCOVERED CIRCUITS + COMPLETENESS THREAD (§65-§74, 2026-07-30)
+Driven by Logan's directives (run option-2 arcs on what the toolbox FOUND; don't just find the easiest; then
+his coverage + fold questions). All committed & red-teamed unless noted.
+- §65 digit-heads arc: TWO distinct algorithms — h.L8.3 verbatim digit value-router, h.L8.7 source-independent
+  next-number predictor (cleared static-prior floor).
+- §66 capitalization arc: HONEST NEGATIVE — generic capital-booster (specificity ratio 1.0), not a
+  sentence-boundary algorithm; implements the corpus prior.
+- §67 difficulty census: the discovery loop's easy-bias is STRUCTURAL (cleanliness ⊥ causal importance, Pearson
+  0.006); the missed circuits are MORE important; culprit = distributed class-output.
+- §68 tenth detector (causal class-level): fixes the blind spot (score↔importance Pearson 0.986); push/suppress
+  sign discriminator; corrects the census's h.L11.2 label.
+- §69 class-integrator arc: of the 4 biggest distributed effects, only mlp.L17.d1 is a genuine context-
+  conditioned CAPITAL SELECTOR (found ONLY by the class-level detector); the other 3 are static priors.
+- §70 generality: distributed class-pushers replicate on the softmax SwiGLU model (architecture-general).
+- §71 COVERAGE LEDGER: named circuits ~11% of full causal headroom; ~89% unfound (~55% hard single-path, ~36%
+  early-layer high-rank feed-forward); whole-model super-additivity 2.87×.
+- §72 FOLD-NECESSITY: generic surrogate ~74% of approximate substitutability but a broken model; exact fold
+  ~140× more faithful; exactness (1e-6 reconstruction) strictly bilinear-only.
+- §73 MLP superposition test: the sub-top-72 residual is HIGH-RANK but BASIS-ALIGNED (SVD≫random 35-200×),
+  concentrated in early blocks (MLP1 ~62%); late layers genuinely low-rank.
+- §74 MLP1 tail = IRREDUCIBLY DISTRIBUTED: 0/32 directions single-direction nameable; boundary of single-
+  direction interpretability → SAE/dictionary methods needed for the distributed bulk. [under red-team: the
+  "76% joint-only" superposition signature is being checked vs a generic mean-ablation-interaction control]
+NEXT-TOOL FRONTIER (scope decision for Logan): sparse-dictionary / SAE methods on the MLP1 hub to push past
+the §74 boundary — a NEW method class, not a continuation of the single-path toolbox.
