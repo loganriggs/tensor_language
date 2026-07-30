@@ -6229,3 +6229,16 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## hedge, cause marked OPEN. qk_natural_strong_induction.py OOM'd (full-vocab lm_head) -> superseded by
 ## chunked control. redteam archived. NEXT: process scale-sweep control -> resolves calibration-vs-
 ## intrinsic; then editing arc CLOSES honestly + promote to atlas/summary. Cron 1475f52b; re-arm 08-06.
+
+## TICK 2026-07-30w — §37d SETTLING CONTROL: §37c cause REVERSED (calibration, not absent induction).
+## Scale sweep + direct match-amplitude: (F2) natural induction match coeff = 0.91x planted (moderate
+## tok447 n=123) / 1.62x (rare tok91 n=40) -> induction PRESENT; §37c "no induction to hijack"
+## RETRACTED. (F3) amplitude recovers reach: moderate payload P 0.046->0.682, capture 0.065->0.732 over
+## scale 10->160 (approaching planted 0.833/0.958); rare recovers less (0.27/0.33) = residual freq gap.
+## CORRECTED SCOPE: targeted redirect IS in-the-wild capable, amplitude-calibrated; remaining caveat =
+## reach-vs-collateral tradeoff at the 8-16x recovering amplitude. Reviewed §37d, enshrinement review
+## dispatched (a13aa1e) -- flags concern #4: is scale-160 reach a clean repoint or brute-force logit
+## injection? (planted got 0.83 at scale 10; why does natural need 160?). Queue:
+## qk_natural_collateral_scale.py (whole-slice / nontrigger / trigger dCE per scale -- a brute-force
+## edit would show destructive collateral). NEXT: process collateral run + review; if clean, editing arc
+## CLOSES and promote §36-37d to atlas/summary + artifact. Cron 1475f52b; re-arm before 2026-08-06.
