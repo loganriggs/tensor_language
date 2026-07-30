@@ -6534,3 +6534,22 @@ NEXT: refresh the artifact with the toolbox-complete card (using the CORRECTED n
 - NEXT: with the toolbox closed, the open frontier is option-2 NEW algorithmic arcs built ON the discovered
   circuits (e.g. the §63 digit heads / §64 capitalization remap → full verify→patch→minimal→red-team), and/or
   broadening generality of a discovered circuit to the other models. Re-arm cron before 2026-08-06.
+
+## tick 2026-07-30 (option-2 arcs on DISCOVERED circuits + anti-easy-bias census — dispatched)
+Logan approved running option-2 algorithmic arcs on circuits the toolbox FOUND (not hand-picked tasks), plus
+two standing directives: keep discovering more algorithms + deepen circuit-TYPE analysis, and DO NOT just find
+the easiest (cleanest) circuits. Dispatched three GPU subagents (each with an nvidia-smi self-serialization
+guard, <4GB, batch<=8):
+- aa8bd55058e90430c — CAPITALIZATION arc (qk_arc_caps.py): verify→minimal→red-team the sentence-boundary
+  capitalization circuit {mlp.L15.d2 punct→cap, mlp.L16.d1 newline→cap, h.L13.8 punct head}. Key red-team:
+  genuine "capitalize at sentence START" vs generic capital-booster vs frequency-prior.
+- a3fee7d78e6260772 — DIGIT-HEADS arc (qk_arc_digits.py): decide H1 number-continuation vs H2 digit-copying
+  (value-router) vs H3 mere-detector for h.L8.7/h.L8.3, with a static-prior floor red-team (like §40).
+- a54ac349620503a63 — DIFFICULTY-STRATIFIED CENSUS (qk_census_difficulty.py): directly answers "are we only
+  finding the easiest?" — measures causal importance (mean-ablation dCE) INDEPENDENT of cleanliness for all 234
+  paths, cross-tabulates the two axes, and characterizes the LOW-clean/HIGH-causal missed-hard quadrant as new
+  circuit types. Reports the cleanliness-vs-importance correlation (weak ⇒ easy-bias is real).
+- Saved memory qk-unsup-avoid-easy-bias.md (feedback): the easy-bias directive + how to apply (causal
+  importance independent of cleanliness; probe low-clean/high-causal region; honest detector-not-algorithm).
+- Collect all three next tick; document arcs as new sections + census as a methodological finding; red-team
+  before enshrinement. Cron re-armed earlier (172134ae, expires ~2026-08-06).
