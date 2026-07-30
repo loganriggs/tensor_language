@@ -6736,3 +6736,14 @@ Both experiments landed; agents' final reports confirm the numbers I read from t
   (MLP1 hub, ~62% of the unfound residual) — the biggest single uncharacterized bucket, a harder but well-posed
   target (high-rank structured, not off-basis noise).
 - Cron 172134ae expires ~2026-08-06 — re-arm before then and tell Logan.
+
+## tick 2026-07-30 (frontier: characterize the MLP1 high-rank tail — dispatched)
+Per the run-don't-hold autonomy directive, launched the flagged next frontier rather than waiting.
+- a00f042e4bd77dd67 — MLP1 HIGH-RANK TAIL characterization (qk_mlp1_tail.py): the biggest uncharacterized
+  bucket (§71/§73: MLP1 = ~62% of the unfound feed-forward residual, high-rank but basis-aligned). Runs MLP1's
+  top-32 SVD directions through the class-push + trigger + causal-importance battery, classifies each
+  (nameable class-pusher/suppressor vs copy/induction vs uninterpretable/diffuse), and tests whether the
+  sub-leading band (dirs 5-32) carries the hub's known induction/category function. Key question: is the tail
+  NAMEABLE (many small structured features) or IRREDUCIBLY DISTRIBUTED (→ where single-direction interp stops
+  and dictionary/SAE methods would be needed). Honest-negative outcome valid & important. Collect next tick.
+- Cron 172134ae expires ~2026-08-06 — re-arm before then and tell Logan.
