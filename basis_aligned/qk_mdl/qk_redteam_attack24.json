@@ -1,0 +1,299 @@
+{
+  "attack2_digit_position_matched": {
+    "h.L8.7": {
+      "raw_digit_source": {
+        "n": 1220,
+        "dCE": 0.03161,
+        "SE": 0.00763
+      },
+      "raw_nondigit_source": {
+        "n": 17414,
+        "dCE": 0.00289,
+        "SE": 0.00062
+      },
+      "raw_ratio": 10.94,
+      "within_dsn_bin": {
+        "1-1": {
+          "digit": {
+            "n": 31,
+            "dCE": 0.00757,
+            "SE": 0.03108
+          },
+          "nondigit": {
+            "n": 478,
+            "dCE": 0.00312,
+            "SE": 0.00266
+          },
+          "ratio": 2.43
+        },
+        "2-3": {
+          "digit": {
+            "n": 60,
+            "dCE": 0.04802,
+            "SE": 0.02224
+          },
+          "nondigit": {
+            "n": 934,
+            "dCE": 0.008,
+            "SE": 0.00343
+          },
+          "ratio": 6.0
+        },
+        "4-7": {
+          "digit": {
+            "n": 143,
+            "dCE": 0.04738,
+            "SE": 0.02023
+          },
+          "nondigit": {
+            "n": 1697,
+            "dCE": 0.00171,
+            "SE": 0.00202
+          },
+          "ratio": 27.71
+        },
+        "8-15": {
+          "digit": {
+            "n": 202,
+            "dCE": 0.00544,
+            "SE": 0.01295
+          },
+          "nondigit": {
+            "n": 2729,
+            "dCE": 0.00176,
+            "SE": 0.00131
+          },
+          "ratio": 3.09
+        },
+        "16-31": {
+          "digit": {
+            "n": 193,
+            "dCE": 0.03619,
+            "SE": 0.015
+          },
+          "nondigit": {
+            "n": 3806,
+            "dCE": 0.0023,
+            "SE": 0.00143
+          },
+          "ratio": 15.73
+        },
+        "32-127": {
+          "digit": {
+            "n": 591,
+            "dCE": 0.03484,
+            "SE": 0.01314
+          },
+          "nondigit": {
+            "n": 7770,
+            "dCE": 0.0032,
+            "SE": 0.0009
+          },
+          "ratio": 10.89
+        }
+      },
+      "dsn_matched_control": {
+        "digit_source": {
+          "n": 1220,
+          "dCE": 0.03161,
+          "SE": 0.00763
+        },
+        "dsn_matched_nondigit": {
+          "n": 1220,
+          "dCE": 0.00757,
+          "SE": 0.00366
+        },
+        "position_matched_ratio": 4.18
+      },
+      "note": "\u00a763 reported digit-source ~0.0316 vs 0.0029 off (~11x) for L8.7; ~4.6x for L8.3"
+    },
+    "h.L8.3": {
+      "raw_digit_source": {
+        "n": 729,
+        "dCE": 0.01968,
+        "SE": 0.00658
+      },
+      "raw_nondigit_source": {
+        "n": 17905,
+        "dCE": 0.00429,
+        "SE": 0.00079
+      },
+      "raw_ratio": 4.59,
+      "within_dsn_bin": {
+        "1-1": {
+          "digit": {
+            "n": 33,
+            "dCE": 0.08046,
+            "SE": 0.05692
+          },
+          "nondigit": {
+            "n": 476,
+            "dCE": 0.00476,
+            "SE": 0.0064
+          },
+          "ratio": 16.9
+        },
+        "2-3": {
+          "digit": {
+            "n": 47,
+            "dCE": 0.03061,
+            "SE": 0.01862
+          },
+          "nondigit": {
+            "n": 947,
+            "dCE": 0.00402,
+            "SE": 0.00235
+          },
+          "ratio": 7.61
+        },
+        "4-7": {
+          "digit": {
+            "n": 83,
+            "dCE": 0.0397,
+            "SE": 0.01534
+          },
+          "nondigit": {
+            "n": 1757,
+            "dCE": 0.0042,
+            "SE": 0.00277
+          },
+          "ratio": 9.45
+        },
+        "8-15": {
+          "digit": {
+            "n": 111,
+            "dCE": -0.00072,
+            "SE": 0.01529
+          },
+          "nondigit": {
+            "n": 2820,
+            "dCE": 0.00562,
+            "SE": 0.00212
+          },
+          "ratio": -0.13
+        },
+        "16-31": {
+          "digit": {
+            "n": 108,
+            "dCE": 0.01223,
+            "SE": 0.01006
+          },
+          "nondigit": {
+            "n": 3891,
+            "dCE": 0.00509,
+            "SE": 0.00168
+          },
+          "ratio": 2.4
+        },
+        "32-127": {
+          "digit": {
+            "n": 347,
+            "dCE": 0.01647,
+            "SE": 0.0104
+          },
+          "nondigit": {
+            "n": 8014,
+            "dCE": 0.00347,
+            "SE": 0.00114
+          },
+          "ratio": 4.75
+        }
+      },
+      "dsn_matched_control": {
+        "digit_source": {
+          "n": 729,
+          "dCE": 0.01968,
+          "SE": 0.00658
+        },
+        "dsn_matched_nondigit": {
+          "n": 729,
+          "dCE": 0.0026,
+          "SE": 0.00441
+        },
+        "position_matched_ratio": 7.57
+      },
+      "note": "\u00a763 reported digit-source ~0.0316 vs 0.0029 off (~11x) for L8.7; ~4.6x for L8.3"
+    }
+  },
+  "attack4_distance_power": {
+    "h.L5.7_pos0_sink": {
+      "pearson_corr_raw_dsn(as_\u00a762)": 0.0,
+      "spearman_corr": 0.003,
+      "pearson_corr_log_dsn": 0.005,
+      "dCE_by_dsn_bin": {
+        "1-1": {
+          "n": 509,
+          "dCE": 0.00499,
+          "SE": 0.00601
+        },
+        "2-3": {
+          "n": 994,
+          "dCE": 0.00652,
+          "SE": 0.00491
+        },
+        "4-7": {
+          "n": 1840,
+          "dCE": 0.012,
+          "SE": 0.00384
+        },
+        "8-15": {
+          "n": 2931,
+          "dCE": 0.01326,
+          "SE": 0.00309
+        },
+        "16-31": {
+          "n": 3999,
+          "dCE": 0.01138,
+          "SE": 0.00241
+        },
+        "32-127": {
+          "n": 8361,
+          "dCE": 0.01159,
+          "SE": 0.00184
+        }
+      },
+      "contrast_dsn[8-15]_minus_dsn1": {
+        "delta": 0.00828,
+        "SE": 0.00676,
+        "z": 1.22
+      },
+      "note": "\u00a762 reported corr(dCE,dsn)~=0 and called damage UNIFORM across line structure"
+    },
+    "power_calibration_injected_signal": {
+      "noise_sd_per_token": 0.1628,
+      "note": "inject KNOWN monotone dsn signal of realistic amplitude, run \u00a762 Pearson-corr metric",
+      "results": {
+        "linear_amp0.01": {
+          "pearson_corr_metric": 0.032,
+          "bin_mean_range": 0.012,
+          "would_metric_flag(|corr|>0.05)": false
+        },
+        "linear_amp0.02": {
+          "pearson_corr_metric": 0.05,
+          "bin_mean_range": 0.0197,
+          "would_metric_flag(|corr|>0.05)": true
+        },
+        "linear_amp0.05": {
+          "pearson_corr_metric": 0.142,
+          "bin_mean_range": 0.0475,
+          "would_metric_flag(|corr|>0.05)": true
+        },
+        "saturating_log_amp0.01": {
+          "pearson_corr_metric": 0.022,
+          "bin_mean_range": 0.0117,
+          "would_metric_flag(|corr|>0.05)": false
+        },
+        "saturating_log_amp0.02": {
+          "pearson_corr_metric": 0.03,
+          "bin_mean_range": 0.0155,
+          "would_metric_flag(|corr|>0.05)": false
+        },
+        "saturating_log_amp0.05": {
+          "pearson_corr_metric": 0.06,
+          "bin_mean_range": 0.0391,
+          "would_metric_flag(|corr|>0.05)": true
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "attack": "\u00a764 mlp.L15.d2 punctuation->capital DISTINCTNESS",
+  "n_active_punct": 155,
+  "n_control": 155,
+  "reproduce_headline": {
+    "dP_capital_active_punct": [
+      0.00678,
+      0.00089,
+      155
+    ],
+    "dP_capital_inactive_control": [
+      0.00033,
+      0.00024,
+      155
+    ],
+    "z_active": 7.66,
+    "dCE_active_punct": [
+      0.0273,
+      0.0095,
+      155
+    ],
+    "note": "\u00a764 reported dP=0.0068\u00b10.0009, control 0.0003, z~7.7, dCE +0.0236\u00b10.0083"
+  },
+  "joint_marginal": {
+    "capital_drop_by_config": {
+      "L15d2": [
+        0.00678,
+        0.00089
+      ],
+      "L138": [
+        -0.00035,
+        0.00019
+      ],
+      "L16d1": [
+        0.02039,
+        0.00101
+      ],
+      "L138+L16d1": [
+        0.02006,
+        0.00104
+      ],
+      "all3": [
+        0.02899,
+        0.00135
+      ]
+    },
+    "solo_L15d2": 0.00678,
+    "drop_L138+L16d1_only": 0.02006,
+    "joint_all3": 0.02899,
+    "marginal_of_L15d2_added_last": 0.00893,
+    "sum_of_three_solos": 0.02682,
+    "additivity_ratio_joint_over_sumsolo": 1.08,
+    "interpretation": "DISTINCT/ADDITIVE if marginal_of_L15d2 ~= solo_L15d2 and >>0; REDUNDANT if marginal ~= 0"
+  },
+  "conditioning": {
+    "by_line_position": {
+      "line_initial_dsn<=3": {
+        "n": 14,
+        "dP": -0.00419,
+        "SE": 0.00268
+      },
+      "mid_line_dsn>=8": {
+        "n": 131,
+        "dP": 0.00824,
+        "SE": 0.00094
+      }
+    },
+    "by_punct_type": {
+      "sentence_ending(.!?\u2026)": {
+        "n": 124,
+        "dP": 0.00773,
+        "SE": 0.00088
+      },
+      "other_punct": {
+        "n": 31,
+        "dP": 0.00296,
+        "SE": 0.00263
+      }
+    },
+    "dsn_distribution_active_punct": {
+      "median": 24,
+      "frac_dsn<=3": 0.09
+    }
+  }
+}

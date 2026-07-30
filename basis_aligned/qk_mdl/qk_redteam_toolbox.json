@@ -1,0 +1,531 @@
+{
+  "meta": {
+    "purpose": "Adversarial red-team of \u00a761-\u00a764 unsupervised-circuit-discovery headline claims",
+    "held_slice": "FW[448:600,:128]",
+    "ablation": "mean (in-distribution per-position zero point)",
+    "errors": "paired per-token standard error",
+    "model": "bilin18 (load_elriggs)",
+    "forward": "compute lines copied verbatim from the \u00a761-\u00a764 scripts"
+  },
+  "verdicts": {
+    "attack1_\u00a764_mlpL15d2_punct_to_capital": "SURVIVES",
+    "attack2_\u00a763_digit_heads_concentration": "SURVIVES (WEAKENED: raw multiplier inflated by position)",
+    "attack3_\u00a761_copy_family_redundancy": "SURVIVES",
+    "attack4_\u00a762_no_distance_head_negative": "WEAKENED (metric underpowered)"
+  },
+  "attack1": {
+    "attack": "\u00a764 mlp.L15.d2 punctuation->capital DISTINCTNESS",
+    "n_active_punct": 155,
+    "n_control": 155,
+    "reproduce_headline": {
+      "dP_capital_active_punct": [
+        0.00678,
+        0.00089,
+        155
+      ],
+      "dP_capital_inactive_control": [
+        0.00033,
+        0.00024,
+        155
+      ],
+      "z_active": 7.66,
+      "dCE_active_punct": [
+        0.0273,
+        0.0095,
+        155
+      ],
+      "note": "\u00a764 reported dP=0.0068\u00b10.0009, control 0.0003, z~7.7, dCE +0.0236\u00b10.0083"
+    },
+    "joint_marginal": {
+      "capital_drop_by_config": {
+        "L15d2": [
+          0.00678,
+          0.00089
+        ],
+        "L138": [
+          -0.00035,
+          0.00019
+        ],
+        "L16d1": [
+          0.02039,
+          0.00101
+        ],
+        "L138+L16d1": [
+          0.02006,
+          0.00104
+        ],
+        "all3": [
+          0.02899,
+          0.00135
+        ]
+      },
+      "solo_L15d2": 0.00678,
+      "drop_L138+L16d1_only": 0.02006,
+      "joint_all3": 0.02899,
+      "marginal_of_L15d2_added_last": 0.00893,
+      "sum_of_three_solos": 0.02682,
+      "additivity_ratio_joint_over_sumsolo": 1.08,
+      "interpretation": "DISTINCT/ADDITIVE if marginal_of_L15d2 ~= solo_L15d2 and >>0; REDUNDANT if marginal ~= 0"
+    },
+    "conditioning": {
+      "by_line_position": {
+        "line_initial_dsn<=3": {
+          "n": 14,
+          "dP": -0.00419,
+          "SE": 0.00268
+        },
+        "mid_line_dsn>=8": {
+          "n": 131,
+          "dP": 0.00824,
+          "SE": 0.00094
+        }
+      },
+      "by_punct_type": {
+        "sentence_ending(.!?\u2026)": {
+          "n": 124,
+          "dP": 0.00773,
+          "SE": 0.00088
+        },
+        "other_punct": {
+          "n": 31,
+          "dP": 0.00296,
+          "SE": 0.00263
+        }
+      },
+      "dsn_distribution_active_punct": {
+        "median": 24,
+        "frac_dsn<=3": 0.09
+      }
+    }
+  },
+  "attack2_and_4": {
+    "attack2_digit_position_matched": {
+      "h.L8.7": {
+        "raw_digit_source": {
+          "n": 1220,
+          "dCE": 0.03161,
+          "SE": 0.00763
+        },
+        "raw_nondigit_source": {
+          "n": 17414,
+          "dCE": 0.00289,
+          "SE": 0.00062
+        },
+        "raw_ratio": 10.94,
+        "within_dsn_bin": {
+          "1-1": {
+            "digit": {
+              "n": 31,
+              "dCE": 0.00757,
+              "SE": 0.03108
+            },
+            "nondigit": {
+              "n": 478,
+              "dCE": 0.00312,
+              "SE": 0.00266
+            },
+            "ratio": 2.43
+          },
+          "2-3": {
+            "digit": {
+              "n": 60,
+              "dCE": 0.04802,
+              "SE": 0.02224
+            },
+            "nondigit": {
+              "n": 934,
+              "dCE": 0.008,
+              "SE": 0.00343
+            },
+            "ratio": 6.0
+          },
+          "4-7": {
+            "digit": {
+              "n": 143,
+              "dCE": 0.04738,
+              "SE": 0.02023
+            },
+            "nondigit": {
+              "n": 1697,
+              "dCE": 0.00171,
+              "SE": 0.00202
+            },
+            "ratio": 27.71
+          },
+          "8-15": {
+            "digit": {
+              "n": 202,
+              "dCE": 0.00544,
+              "SE": 0.01295
+            },
+            "nondigit": {
+              "n": 2729,
+              "dCE": 0.00176,
+              "SE": 0.00131
+            },
+            "ratio": 3.09
+          },
+          "16-31": {
+            "digit": {
+              "n": 193,
+              "dCE": 0.03619,
+              "SE": 0.015
+            },
+            "nondigit": {
+              "n": 3806,
+              "dCE": 0.0023,
+              "SE": 0.00143
+            },
+            "ratio": 15.73
+          },
+          "32-127": {
+            "digit": {
+              "n": 591,
+              "dCE": 0.03484,
+              "SE": 0.01314
+            },
+            "nondigit": {
+              "n": 7770,
+              "dCE": 0.0032,
+              "SE": 0.0009
+            },
+            "ratio": 10.89
+          }
+        },
+        "dsn_matched_control": {
+          "digit_source": {
+            "n": 1220,
+            "dCE": 0.03161,
+            "SE": 0.00763
+          },
+          "dsn_matched_nondigit": {
+            "n": 1220,
+            "dCE": 0.00757,
+            "SE": 0.00366
+          },
+          "position_matched_ratio": 4.18
+        },
+        "note": "\u00a763 reported digit-source ~0.0316 vs 0.0029 off (~11x) for L8.7; ~4.6x for L8.3"
+      },
+      "h.L8.3": {
+        "raw_digit_source": {
+          "n": 729,
+          "dCE": 0.01968,
+          "SE": 0.00658
+        },
+        "raw_nondigit_source": {
+          "n": 17905,
+          "dCE": 0.00429,
+          "SE": 0.00079
+        },
+        "raw_ratio": 4.59,
+        "within_dsn_bin": {
+          "1-1": {
+            "digit": {
+              "n": 33,
+              "dCE": 0.08046,
+              "SE": 0.05692
+            },
+            "nondigit": {
+              "n": 476,
+              "dCE": 0.00476,
+              "SE": 0.0064
+            },
+            "ratio": 16.9
+          },
+          "2-3": {
+            "digit": {
+              "n": 47,
+              "dCE": 0.03061,
+              "SE": 0.01862
+            },
+            "nondigit": {
+              "n": 947,
+              "dCE": 0.00402,
+              "SE": 0.00235
+            },
+            "ratio": 7.61
+          },
+          "4-7": {
+            "digit": {
+              "n": 83,
+              "dCE": 0.0397,
+              "SE": 0.01534
+            },
+            "nondigit": {
+              "n": 1757,
+              "dCE": 0.0042,
+              "SE": 0.00277
+            },
+            "ratio": 9.45
+          },
+          "8-15": {
+            "digit": {
+              "n": 111,
+              "dCE": -0.00072,
+              "SE": 0.01529
+            },
+            "nondigit": {
+              "n": 2820,
+              "dCE": 0.00562,
+              "SE": 0.00212
+            },
+            "ratio": -0.13
+          },
+          "16-31": {
+            "digit": {
+              "n": 108,
+              "dCE": 0.01223,
+              "SE": 0.01006
+            },
+            "nondigit": {
+              "n": 3891,
+              "dCE": 0.00509,
+              "SE": 0.00168
+            },
+            "ratio": 2.4
+          },
+          "32-127": {
+            "digit": {
+              "n": 347,
+              "dCE": 0.01647,
+              "SE": 0.0104
+            },
+            "nondigit": {
+              "n": 8014,
+              "dCE": 0.00347,
+              "SE": 0.00114
+            },
+            "ratio": 4.75
+          }
+        },
+        "dsn_matched_control": {
+          "digit_source": {
+            "n": 729,
+            "dCE": 0.01968,
+            "SE": 0.00658
+          },
+          "dsn_matched_nondigit": {
+            "n": 729,
+            "dCE": 0.0026,
+            "SE": 0.00441
+          },
+          "position_matched_ratio": 7.57
+        },
+        "note": "\u00a763 reported digit-source ~0.0316 vs 0.0029 off (~11x) for L8.7; ~4.6x for L8.3"
+      }
+    },
+    "attack4_distance_power": {
+      "h.L5.7_pos0_sink": {
+        "pearson_corr_raw_dsn(as_\u00a762)": 0.0,
+        "spearman_corr": 0.003,
+        "pearson_corr_log_dsn": 0.005,
+        "dCE_by_dsn_bin": {
+          "1-1": {
+            "n": 509,
+            "dCE": 0.00499,
+            "SE": 0.00601
+          },
+          "2-3": {
+            "n": 994,
+            "dCE": 0.00652,
+            "SE": 0.00491
+          },
+          "4-7": {
+            "n": 1840,
+            "dCE": 0.012,
+            "SE": 0.00384
+          },
+          "8-15": {
+            "n": 2931,
+            "dCE": 0.01326,
+            "SE": 0.00309
+          },
+          "16-31": {
+            "n": 3999,
+            "dCE": 0.01138,
+            "SE": 0.00241
+          },
+          "32-127": {
+            "n": 8361,
+            "dCE": 0.01159,
+            "SE": 0.00184
+          }
+        },
+        "contrast_dsn[8-15]_minus_dsn1": {
+          "delta": 0.00828,
+          "SE": 0.00676,
+          "z": 1.22
+        },
+        "note": "\u00a762 reported corr(dCE,dsn)~=0 and called damage UNIFORM across line structure"
+      },
+      "power_calibration_injected_signal": {
+        "noise_sd_per_token": 0.1628,
+        "note": "inject KNOWN monotone dsn signal of realistic amplitude, run \u00a762 Pearson-corr metric",
+        "results": {
+          "linear_amp0.01": {
+            "pearson_corr_metric": 0.032,
+            "bin_mean_range": 0.012,
+            "would_metric_flag(|corr|>0.05)": false
+          },
+          "linear_amp0.02": {
+            "pearson_corr_metric": 0.05,
+            "bin_mean_range": 0.0197,
+            "would_metric_flag(|corr|>0.05)": true
+          },
+          "linear_amp0.05": {
+            "pearson_corr_metric": 0.142,
+            "bin_mean_range": 0.0475,
+            "would_metric_flag(|corr|>0.05)": true
+          },
+          "saturating_log_amp0.01": {
+            "pearson_corr_metric": 0.022,
+            "bin_mean_range": 0.0117,
+            "would_metric_flag(|corr|>0.05)": false
+          },
+          "saturating_log_amp0.02": {
+            "pearson_corr_metric": 0.03,
+            "bin_mean_range": 0.0155,
+            "would_metric_flag(|corr|>0.05)": false
+          },
+          "saturating_log_amp0.05": {
+            "pearson_corr_metric": 0.06,
+            "bin_mean_range": 0.0391,
+            "would_metric_flag(|corr|>0.05)": true
+          }
+        }
+      }
+    }
+  },
+  "attack3": {
+    "attack": "\u00a761 copy-family redundancy reproduction + control audit",
+    "shared_posset_n": 740,
+    "solos": {
+      "L8H3": {
+        "dCE": 0.0517,
+        "SE": 0.0127
+      },
+      "L8H4": {
+        "dCE": 0.0073,
+        "SE": 0.0059
+      },
+      "L13H0": {
+        "dCE": 0.0177,
+        "SE": 0.0069
+      },
+      "L14H7": {
+        "dCE": 0.0014,
+        "SE": 0.0059
+      },
+      "L7H3": {
+        "dCE": 0.0036,
+        "SE": 0.0051
+      },
+      "L5H5": {
+        "dCE": 0.0297,
+        "SE": 0.0127
+      }
+    },
+    "joint": {
+      "joint_dCE": 0.4299,
+      "joint_dCE_SE": 0.0514
+    },
+    "sum_solo_positive": 0.1114,
+    "sum_solo_signed": 0.1114,
+    "redundancy_ratio": 3.86,
+    "minimal_subset": {
+      "subset": [
+        "L8H3",
+        "L5H5",
+        "L7H3",
+        "L8H4"
+      ],
+      "size": 4,
+      "cum_dCE": 0.3746,
+      "frac_of_joint": 0.87
+    },
+    "greedy_curve": [
+      {
+        "added": "L8H3",
+        "set": [
+          "L8H3"
+        ],
+        "cum_dCE": 0.0517
+      },
+      {
+        "added": "L5H5",
+        "set": [
+          "L8H3",
+          "L5H5"
+        ],
+        "cum_dCE": 0.1186
+      },
+      {
+        "added": "L7H3",
+        "set": [
+          "L8H3",
+          "L5H5",
+          "L7H3"
+        ],
+        "cum_dCE": 0.247
+      },
+      {
+        "added": "L8H4",
+        "set": [
+          "L8H3",
+          "L5H5",
+          "L7H3",
+          "L8H4"
+        ],
+        "cum_dCE": 0.3746
+      },
+      {
+        "added": "L13H0",
+        "set": [
+          "L8H3",
+          "L5H5",
+          "L7H3",
+          "L8H4",
+          "L13H0"
+        ],
+        "cum_dCE": 0.4085
+      },
+      {
+        "added": "L14H7",
+        "set": [
+          "L8H3",
+          "L5H5",
+          "L7H3",
+          "L8H4",
+          "L13H0",
+          "L14H7"
+        ],
+        "cum_dCE": 0.4299
+      }
+    ],
+    "random_control_all_layers": {
+      "label": "6 heads, all 18 layers (as \u00a761)",
+      "n_draws": 40,
+      "mean": 0.0318,
+      "std": 0.0369,
+      "max": 0.1853,
+      "family_over_random_z": 10.78,
+      "family_exceeds_all": true
+    },
+    "random_control_same_layer_band": {
+      "label": "6 heads, L5-L14 band only",
+      "n_draws": 40,
+      "mean": 0.0161,
+      "std": 0.0116,
+      "max": 0.0503,
+      "family_over_random_z": 35.72,
+      "family_exceeds_all": true
+    },
+    "family_on_random_positions": {
+      "joint_dCE_on_random_positions": 0.0334,
+      "SE": 0.0093,
+      "note": "family ablated on a RANDOM valid position set (not its own top union)"
+    },
+    "note_\u00a761": "joint 0.430\u00b10.051, sum-solo 0.111, redundancy 3.86, minimal 4-head 87%, z=24.9"
+  }
+}

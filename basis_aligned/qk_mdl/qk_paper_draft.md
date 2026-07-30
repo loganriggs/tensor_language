@@ -220,9 +220,12 @@ each under-served type:
   Single-head ablation cannot tell these apart; joint ablation can.
 - **Positional / structural** heads — an offset-template-versus-content-residual decomposition, with
   a built-in honesty guard for the positional envelope every head inherits from the rotary embedding
-  and causal mask, plus a distance-since-boundary causal readout. It finds that the load-bearing
-  positional heads are fixed-offset (previous-token and self), and that the model carries line
-  structure *lexically* through the newline token rather than with any distance-to-boundary circuit.
+  and causal mask. It establishes that the load-bearing positional heads are fixed-offset
+  (previous-token and self). Its distance-since-boundary readout is, by an adversarial power check,
+  underpowered against a saturating signal — the position-0 sink head itself shows a monotone rise in
+  damage over the first ~15 tokens that a raw correlation scores as zero — so the tool licenses the
+  positive positional attributions but *not* a strong negative claim about the absence of a
+  distance-to-boundary circuit; that question is left open.
 - **Byte-fragment / orthographic-trigger** paths — an orthographic-predicate library scored on the
   decoded trigger strings, with an out-of-sample purity check that acts as an artifact pre-filter
   (rejecting overfit rare-affix fingerprints before any causal budget is spent) and a conditional

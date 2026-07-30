@@ -3672,7 +3672,13 @@ out "removed capacity"). Held-back FW[448:600], mean-ablation, paired standard e
   4 heads {L8H3, L5H5, L7H3, L8H4} recovering 87% of the joint effect. The COPY OUTPUT collapses only
   jointly: the attended-source token stays model-top-1 in ~40% of positions under ANY single ablation but
   drops to 27% under joint (median source-token rank 1→7 only when the whole set is removed). Random
-  control: 40 same-size sets give joint dCE +0.020 (max 0.072); the family is z = 24.9, exceeds every draw
+  control: 40 same-size sets give joint dCE +0.020 (max 0.072); the family exceeds every draw [RED-TEAM
+  attack 3 → SURVIVES: joint dCE +0.4299 ± 0.0514, ratio 3.86, minimal subset {L8H3,L5H5,L7H3,L8H4} @ 87% all
+  reproduced exactly; ablating the family on RANDOM positions instead of its own firing union collapses joint
+  dCE 0.430 → 0.033 (effect is specific, not generic capacity); restricting the random control to the family's
+  own layer band 5–14 makes it look MORE specific (z 35.7). SOFTEN the single z: it is control-draw-dependent
+  (reproduces as z ≈ 11–36 depending on the control pool) → report "exceeds all random same-size sets, z of
+  order ten-plus" rather than the point value] z = 24.9
   → a SPECIFIC redundant circuit, not removed capacity. Resolves the §60 "individually-null-but-real-copy"
   puzzle: the copy heads are DUPLICATED, so single removal is masked.
 - **Honest negative (the discriminator):** the diffuse structure/newline cluster {L1H0/L1H2/L0H2/…} is
@@ -3707,16 +3713,28 @@ train FW[0:256], causal verify on held-back FW[448:600], mean-ablation, paired s
   sink h.L5.7 +0.0114 ± 0.0012 — and their damage is UNIFORM across line structure (correlation of delta
   cross-entropy with distance-since-newline ≈ 0), exactly the signature of a fixed-relative-offset relation
   that applies everywhere rather than at boundaries.
-- **Honest negatives:** (a) NO head shows damage scaling with distance-since-newline → there is NO dedicated
-  distance-to-boundary computational head; line structure is carried by the newline TOKEN (content other
-  heads read), not by a positional-distance circuit. (b) The one line-structure head (h.L2.4, attends the last
-  newline in 42% of queries) is causally NULL in isolation (−0.0003 ± 0.0003); the §58-flagged "diffuse" heads
-  h.L1.2 (bullet/newline) and h.L2.1 (table-delimiter) are likewise near-null single-ablation (~0.001) —
-  consistent with the §61 redundant/distributed caveat, not clean standalone positional circuits.
-**KEY:** the offset-vs-class-residual decomposition + distance-since-newline causal bucketing cleanly
-separates genuine relative-position routing (fixed-offset family, load-bearing) from a positional ENVELOPE
-over content, and shows this model implements line structure lexically (newline token) rather than with a
-positional-distance circuit — a structural claim the content pipeline could not have reached.
+- **Honest negatives:** (a) [RED-TEAM CORRECTION 2026-07-30, attack 4 → WEAKENED, strong negative RETRACTED]
+  The original claim was "NO head's damage scales with distance-since-newline → NO distance-to-boundary
+  circuit." This rested on the Pearson correlation of per-token delta cross-entropy against distance being
+  ≈ 0, and that metric is UNDERPOWERED: injecting a known monotone distance signal of realistic amplitude
+  (spanning 0.02 in delta cross-entropy) through the exact metric yields correlation only 0.03–0.05 (per-token
+  noise standard deviation 0.163 is ~10× any plausible distance signal), so the metric cannot distinguish "no
+  distance head" from "a saturating distance head of realistic magnitude." Worse, the position-0 sink head
+  h.L5.7 ITSELF shows a monotone 2.7× rise in damage over the first ~15 tokens (delta cross-entropy by
+  distance bin 0.0050→0.0065→0.0120→0.0133→plateau ~0.0116) that the Pearson metric scored as correlation 0.0.
+  CORRECTED claim: the data are consistent with no STRONG LINEAR distance-to-newline head on this slice, but
+  the design lacks the power to exclude a saturating / early-rising distance signature — and h.L5.7 already
+  exhibits such a rise (which may reflect distance from absolute position 0 rather than from a newline; the two
+  are correlated early in a sequence and this metric cannot disambiguate them). The "line structure is carried
+  lexically not positionally" reading is therefore NOT established. (b) The one line-structure head (h.L2.4,
+  attends the last newline in 42% of queries) is causally NULL in isolation (−0.0003 ± 0.0003); the §58-flagged
+  "diffuse" heads h.L1.2 (bullet/newline) and h.L2.1 (table-delimiter) are likewise near-null single-ablation
+  (~0.001) — consistent with the §61 redundant/distributed caveat, not clean standalone positional circuits.
+**KEY:** the offset-vs-class-residual decomposition cleanly separates genuine relative-position routing
+(fixed-offset family, load-bearing: prev-token, self) from a positional ENVELOPE over content. The
+distance-since-newline bucketing, however, is underpowered against saturating signals (red-team attack 4), so
+the tool establishes the POSITIVE positional heads but does NOT license a strong negative about the absence of
+a distance-to-boundary circuit.
 
 ## §63 New tool — BYTE-FRAGMENT / ORTHOGRAPHIC-TRIGGER detector (2026-07-30)
 (qk_unsup_bytefrag.py; the circuit TYPE whose TRIGGER is a sub-word BYTE or CHARACTER pattern — a shared
@@ -3735,10 +3753,17 @@ rate; ranked on purity×lift, gated on ≥3 distinct satisfying tokens.
   600 sequences; flagged in the script/JSON.)
 - **3 genuine orthographic circuits survive causal verification (held-back, paired standard errors):**
   (1) head h.L8.7 attends-to a DIGIT-containing token — out-of-sample purity 0.90, lift 23×, 25 distinct
-  source tokens; causal cost concentrates ~11× on digit-source positions (0.0316 ± 0.0076 vs 0.0029 off) and
-  ~20× on digit-next positions (0.0635 ± 0.017); at its own top firing positions 0.68 ± 0.15.
+  source tokens; RAW causal cost concentrates ~11× on digit-source positions (0.0316 ± 0.0076 vs 0.0029 off)
+  and ~20× on digit-next positions (0.0635 ± 0.017); at its own top firing positions 0.68 ± 0.15. [RED-TEAM
+  CORRECTION 2026-07-30, attack 2 → SURVIVES but multiplier SOFTENED: digits cluster in structural contexts,
+  so against a distance-since-newline-MATCHED non-digit control the concentration falls from ~11× to ~4×
+  (matched non-digit 0.0076 ± 0.0037) — about half the raw figure was positional. A genuine, significant
+  four-fold ORTHOGRAPHIC effect remains, with within-bin ratios 6–28× across higher-distance bins. Quote the
+  position-matched ~4× multiplier, not the raw 11–20×.]
   (2) head h.L8.3 attends-to a digit token — out-of-sample purity 0.97 (PURER out of sample), ~4.6× on
-  digit-source, ~6× on digit-next; trigger-position cost 0.285 ± 0.082.
+  digit-source, ~6× on digit-next; trigger-position cost 0.285 ± 0.082. [RED-TEAM attack 2: position-matching
+  STRENGTHENS this head — matched-control ratio rises 4.6× → 7.6× (matched non-digit control drops to 0.0026),
+  within-bin ratios 8–17×; the orthographic effect is robust to the positional confound.]
   (3) head h.L13.8 attends-to a PUNCTUATION token — purity 1.00 in AND out of sample; causal effect lives
   ENTIRELY on punctuation positions (0.0146 ± 0.0036 on punctuation-source, 0.0313 ± 0.0044 on punctuation-
   next, essentially zero — even slightly negative — off punctuation). ("Digit" straddles the orthographic /
@@ -3775,7 +3800,15 @@ Discovery FW[0:256], causal verify held-back FW[448:600], paired standard errors
   (1) mlp.L15.d2 fires on PUNCTUATION → boosts CAPITALIZATION — the strongest and most defensible: ablation
   cuts capital-class next-token probability at punctuation positions by 0.0068 ± 0.0009 (z ≈ 7.7) versus only
   0.0003 at the inactive-punctuation control, AND is load-bearing (delta cross-entropy +0.0236 ± 0.0083). A
-  genuine sentence-boundary → capitalize-next-word remap with a full specificity control.
+  genuine sentence-boundary → capitalize-next-word remap with a full specificity control. [RED-TEAM attack 1 →
+  SURVIVES, confound REFUTED on two axes: (i) applying the §61 joint-ablation logic — jointly ablating with
+  h.L13.8 and mlp.L16.d1 at its own punctuation positions, its marginal contribution added-last (0.0089) ≈ its
+  solo (0.0068), joint-over-sum ratio 1.08 → ADDITIVE not redundant, a distinct contributor (though capital is
+  distributed: mlp.L16.d1 also boosts capital at punctuation by 0.0204); (ii) the effect is concentrated at
+  MID-sentence punctuation (distance-since-newline ≥ 8: +0.0082 ± 0.0009, n=131) and null-to-negative at
+  line-initial punctuation (distance ≤ 3: −0.0042 ± 0.0027, n=14), strongest at sentence-ENDING punctuation
+  (period/?/!: +0.0077). This is the OPPOSITE of "just line-start positional capitalization" — it is a general
+  sentence-boundary remap living far from line starts, distinct from the §62 positional mechanism.]
   (2) mlp.L16.d1 fires on NEWLINE → boosts CAPITALIZATION — large clean output effect (capital probability
   after newlines drops 0.0284 ± 0.0032, z ≈ 8.7) but with an HONEST caveat: no specificity control exists
   because the direction fires on essentially ALL newlines (empty inactive-newline pool), and load-bearing
