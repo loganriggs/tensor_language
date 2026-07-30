@@ -4164,3 +4164,32 @@ the generic surrogate leaves BOTH models badly broken (+3.4 to +4.9 nats), and o
 reaches faithfulness (+0.034), available solely because bilin18's MLPs are exactly multilinear. The exact
 representation (per-layer reconstruction 1e-6 vs 0.60; the gauges) is strictly bilinear-only — the one
 substantial thing swiglu structurally cannot do. Folding buys EXACTNESS, and exactness is the whole game.
+
+## §73 MLP superposition test — the sub-top-72 residual is HIGH-RANK but BASIS-ALIGNED, not isotropic (2026-07-30)
+(qk_mlp_superposition.py; sharpens the §71 "36% non-axis-aligned superposition" claim.) Sweeps the captured
+feed-forward causal effect (mean-ablation delta cross-entropy, attention intact, held-back FW[448:600], paired
+standard errors) as the retained MLP SVD basis grows from 1 to 64 directions PER BLOCK, versus random
+orthogonal directions. Reference reproduced: full MLP 4.532, top-4/block (=72) 1.224 (27% of full).
+- **The residual is GENUINELY HIGH-RANK, not a low-rank cutoff artifact.** Captured fraction of the full-MLP
+  effect by directions-per-block: K=1 → 5.9%, K=2 → 12.3%, K=4 → 27.0%, K=8 → 49.7%, K=16 → 69.1%, K=32 →
+  83.5%, K=64 (near-full) → 89.6%. Effective rank: **~8 directions/block for 50%, ~28/block for 80%, and 90%
+  is NOT reached even at the full 64/block** (caps at 89.6%). So the top-4/block cutoff the coverage ledger used
+  captured only 27% BECAUSE the effect is spread across dozens of directions per block — you cannot name it with
+  a handful of extra directions; it is genuinely high effective rank.
+- **But it is NOT isotropic superposition — it is BASIS-ALIGNED.** The SVD directions beat RANDOM orthogonal
+  directions by 35–200× at every K (K=4: SVD 27% vs random 0.16%, ratio 174×; K=64: SVD 89.6% vs random 2.5%,
+  ratio 35×). The causal effect lives on PRIVILEGED, structured directions (the gram's principal axes), not on
+  arbitrary ones — there simply are MANY of them. "Superposition" in the isotropic/off-basis sense is WRONG;
+  the honest description is "high effective rank, basis-aligned distributed computation."
+- **Dominated by MLP layer 1 (the hub).** Per-layer tail: MLP layer 1 alone carries 61.6% of the sub-top-4
+  tail (its marginal ablation costs 5.57 nats, 99.65% of it below its own top-4 directions, and its gram
+  top-4 energy fraction is only 0.27 — genuinely high-rank), consistent with the MLP1-hub finding. MLP layer 0
+  is more concentrated (gram top-4 energy 0.65) but still 97.9% tail.
+- **§71 CORRECTION:** the "36% non-axis-aligned residual" was measured relative to the top-72 basis and is
+  real, but the label "non-axis-aligned / superposition" overstated it. The residual is HIGH-RANK BASIS-ALIGNED
+  MLP computation (especially MLP1), not isotropic superposition — captured by no top-72 view but largely
+  reachable by a top-~500 (28/block) view. It is distributed across many structured directions, not off-basis.
+**KEY:** the unfound feed-forward bulk is high effective rank and basis-aligned — you need dozens of directions
+per block (structured, far above random) to capture it, dominated by the MLP1 hub. This is genuine distributed
+computation, not a cutoff artifact and not isotropic noise; it refines the §71 completeness picture from
+"superposed" to "high-rank structured," which is a harder but better-posed target for future characterization.
