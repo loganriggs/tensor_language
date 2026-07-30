@@ -6948,3 +6948,19 @@ existing steering methods, not a new method class, so in-scope and launched rath
   the 5.57-nat effect, positive control). DECISIVE: does higher fidelity move the CAUSAL verdict — §78's causal
   negative becomes AIRTIGHT (collective encoding, as the control predicted) or is OVERTURNED (hub crossable = a
   major result)? Reuses the §78 scripts as base. Collect next tick, red-team + document either way.
+
+## tick 2026-07-30 (§79 converged SAE — AIRTIGHT; folded into paper + artifact)
+- §79 converged top-K SAE closes §78's caveat DECISIVELY: (a) the 0.90 fidelity target is UNREACHABLE — held
+  FVE saturates ~0.72 and DEGRADES with more training (train 0.945 / held 0.637); a GENERALIZATION ceiling,
+  not under-training (corrects §78's caveat framing). (b) Nameability crosses again (26/32 monosemantic). (c)
+  Causal UNCHANGED: 0/32 load-bearing, all 1082 features = 2.22% of the 5.57-nat effect, collective-encoding
+  positive control intact. VERDICT: higher fidelity STRENGTHENED §78's negative — the hub's causation is
+  collective at EVERY level tested (SVD §74, L1 dict §78, converged top-K §79). Committed §79 + closed the §78
+  caveat pointer.
+- Folded the SAE conclusion into the paper abstract ("sparse-dictionary methods would name but not explain the
+  hub") and the artifact completeness section (new card + refined the coverage-capped line). Honest residual
+  caveat recorded: the ~0.72 ceiling is on 256 train seqs; more data might raise fidelity, but the collective
+  control predicts the causal negative persists.
+- SAE THREAD COMPLETE. The completeness boundary (§71-§79) is now: coverage capped ~46% single-path, the rest
+  irreducibly distributed / collective, architecture-general, and confirmed un-crackable by orthogonal
+  directions AND sparse dictionaries. §74's "irreducibly distributed" is as hardened as this toolkit allows.
