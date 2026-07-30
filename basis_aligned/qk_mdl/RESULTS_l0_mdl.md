@@ -3682,3 +3682,38 @@ out "removed capacity"). Held-back FW[448:600], mean-ablation, paired standard e
 greedy joint ablation + the random control does — one cluster is a duplicated load-bearing copy circuit
 (ratio 3.86, minimal 4-head subset), the other is truly unimportant (ratio ≈1). This is the tool the
 proxy's main documented failure (single-ablation overselling / underselling redundant heads) required.
+
+## §62 New tool — POSITIONAL/STRUCTURAL circuits via position-vs-content pattern decomposition (2026-07-30)
+(qk_unsup_positional.py; the circuit TYPE the content-class discovery pipeline structurally CANNOT express —
+a head that routes by relative position or line-structure, not by any content class.) Forward pass copied
+verbatim from qk_bracket_patch.py (only an on_pat read-out hook added, no compute line changed). Discovery on
+train FW[0:256], causal verify on held-back FW[448:600], mean-ablation, paired standard errors, ~4.4 GB.
+- **NEW TECHNIQUE:** decompose each head's raw bilinear pattern into a POSITIONAL component (variance explained
+  by the query→key OFFSET template, plus argmax structural targets: previous-token, fixed-back-k, absolute-
+  position-0 sink, attend-to-last-newline / segment-start) versus a CONTENT component (key-token CLASS
+  template). The DECISIVE metric is the content-RESIDUAL — class variance remaining AFTER the offset template
+  is removed (two-pass). **Honesty guard baked in:** RoPE + the causal mask give EVERY head a positional
+  envelope, so "has an offset template" proves nothing; the tool ranks on content-residual ≈ 0 (content adds
+  nothing beyond position) AND causal load. Plus a structural causal readout: bucket the paired delta cross-
+  entropy by distance-since-last-newline to test for a genuine distance-to-boundary circuit.
+- **Ranking (162 heads):** 54 genuinely POSITIONAL (44 fixed-offset, 7 offset-envelope, 2 absolute-position-0
+  sinks, 1 line-structure attend-last-newline), 0 CONTENT-by-class, 108 mixed/diffuse. Nuance the tool
+  surfaced honestly: key-token CLASS explains little raw-pattern variance for ANY head (max content-residual
+  0.15) — the content signal the class-discovery pipeline reads lives in argmax token IDENTITY, not class
+  variance, so raw-pattern "content heads" are essentially absent. Content-residual ≈ 0 (0.00–0.02) for every
+  top positional head → their attention is genuinely, near-entirely positional.
+- **Causal (held-back, mean-ablation, paired standard error):** the load-bearing positional heads are FIXED-
+  OFFSET — previous-token h.L0.3 delta cross-entropy +0.0744 ± 0.0034, self h.L1.1 +0.0299 ± 0.0022, position-0
+  sink h.L5.7 +0.0114 ± 0.0012 — and their damage is UNIFORM across line structure (correlation of delta
+  cross-entropy with distance-since-newline ≈ 0), exactly the signature of a fixed-relative-offset relation
+  that applies everywhere rather than at boundaries.
+- **Honest negatives:** (a) NO head shows damage scaling with distance-since-newline → there is NO dedicated
+  distance-to-boundary computational head; line structure is carried by the newline TOKEN (content other
+  heads read), not by a positional-distance circuit. (b) The one line-structure head (h.L2.4, attends the last
+  newline in 42% of queries) is causally NULL in isolation (−0.0003 ± 0.0003); the §58-flagged "diffuse" heads
+  h.L1.2 (bullet/newline) and h.L2.1 (table-delimiter) are likewise near-null single-ablation (~0.001) —
+  consistent with the §61 redundant/distributed caveat, not clean standalone positional circuits.
+**KEY:** the offset-vs-class-residual decomposition + distance-since-newline causal bucketing cleanly
+separates genuine relative-position routing (fixed-offset family, load-bearing) from a positional ENVELOPE
+over content, and shows this model implements line structure lexically (newline token) rather than with a
+positional-distance circuit — a structural claim the content pipeline could not have reached.
