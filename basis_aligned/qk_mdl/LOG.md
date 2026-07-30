@@ -6179,3 +6179,15 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## Aimability + causal-localization SURVIVE; mechanistic headline replaced. NEXT: GPU idle, roadmap +
 ## editing capstone closed/reviewed; no new tangential GPU arc without Logan. Cron 1475f52b; re-arm
 ## before 2026-08-06.
+
+## TICK 2026-07-30t — CONDITIONAL (trigger-gated) REDIRECT = precision-edit primitive. Honest follow-up
+## to §36's collateral limit: gate the scaled-linear repoint (x10, corrected method) on a TRIGGER token
+## so the pattern delta fires only on trigger-query rows. RESULT (qk_conditional_redirect, §37): REACH
+## at trigger query chosen-tok P 0.003->0.833, argmax capture 0->0.958, true-next 0.852->0.0001 (far
+## sharper than uncond 35-58%); SPECIFICITY non-trigger induction preserved exactly (P_true_next
+## 0.7682->0.7680); COLLATERAL +0.000 natural-CE (trigger rate 0.00024) vs +0.614 uncond. Surgical
+## trigger->payload edit on a base LM. Caveats stated: clean-planted-trigger reach is best-case; ~0
+## collateral partly trigger-rarity but cost always bounded to the trigger's own induction. §37 added.
+## Adversarial reviewer dispatched on §37 (aea7bf7e). Queue stocked: qk_redirect_freq_sweep.py
+## (collateral-vs-trigger-frequency curve, quantifies the caveat). NEXT: process red-team + freq-sweep.
+## Cron re-armed 2026-07-30; re-arm again before 2026-08-06.
