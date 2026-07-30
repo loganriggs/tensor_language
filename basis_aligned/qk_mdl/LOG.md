@@ -6842,3 +6842,23 @@ existing steering methods, not a new method class, so in-scope and launched rath
   super-additivity, an irreducibly-distributed early hub) is architecture-general vs bilin18-specific.
 - Both GPU subagents, nvidia-smi self-guard, <4GB. Collect next tick, document + red-team before enshrinement.
 - Cron 172134ae expires ~2026-08-06 — re-arm before then and tell Logan.
+
+## tick 2026-07-30 ("extending coverage and generality" — both landed: §76 + §77)
+- §76 EXTEND COVERAGE (subagent a2ec93031a2574eb3): single-path naming is at a CEILING — of top 30 unnamed
+  causally-important paths only 2 newly nameable (subword class-pushers), named single-path fraction 44.0%→45.7%.
+  25/30 irreducibly-diffuse, 3 positional. Nuance: 20/25 diffuse paths carry a specific class movement (|z|≥3)
+  but not load-bearing = distributed class PRIORS (§69 pattern dominates the unnamed region). Part B: the
+  multi-path residual is ONE super-additive block (top-20 joint 1.02 vs sum 0.61, ratio 1.68-1.90, z35 vs
+  random) dominated by ONE named pair (mlp.L17.d2 word-integrator × mlp.L17.d1 capital-selector, ~27% of
+  residual); rest irreducibly collective. Coverage is CAPPED for single-path methods; tightens §71/§74.
+- §77 EXTEND GENERALITY (subagent a078639da2656b272): the completeness boundary is ARCHITECTURE-GENERAL across
+  3 models (2-branch bilinear, single-branch squared bilinear, softmax SwiGLU). All: super-additive 2.0-3.5×
+  (swiglu18 3.51× > bilin18 2.87×), high-rank basis-aligned feed-forward (14-28 dirs/block for 80%, SVD≫random
+  18-600×), and an early irreducibly-distributed hub (swiglu18 L2 2.15× 0/32 nameable; bilin12 L0 4.57× 1/32;
+  bilin18 MLP1 76%-joint-only 0/32). Honest diffs: swiglu concentrates more into leading dirs, tail spread
+  L0-4; bilin12 hub L0 w/ 1 nameable. Single-direction-interp boundary replicates across attention families
+  incl standard softmax. Committed §77 + paper generality note.
+- NET for Logan's directive: coverage extension hit a fundamental ceiling (single-path ~46%), and the
+  completeness boundary generalizes across architectures — both are honest-negative-leaning results that
+  HARDEN the completeness story rather than expanding named coverage. The only way past the ceiling is the SAE
+  scope-change (§74). Both experiments consistent with the already-red-teamed §71/§73/§74.
