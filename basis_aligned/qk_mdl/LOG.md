@@ -6331,3 +6331,13 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## QUEUE: qk_commandeer_se_bilin12.py (SE + baseline to standard bar). NEXT MAJOR DIRECTION is a scope
 ## call for Logan (program's planned work done) -- surfaced in report; meanwhile consolidation (artifact/
 ## paper T7, GPU-free) + standard-bar polish. Cron 1475f52b; re-arm before 2026-08-06.
+
+## TICK 2026-07-30ae — SE STANDARD-BAR + CONSOLIDATION (artifact refreshed). bilin12 commandeering
+## dissociation is standard-bar: aim@col1 0.175±0.038 / aim@col10 0.320±0.050, on-target 4-6 SE above
+## the ~0.01±0.006 off-target/no-edit baseline -> 4-family generality double dissociation statistically
+## solid. Refreshed the shareable artifact (f27aeab4, favicon->🧭): added an 'Editing affordance --
+## copy-head commandeering' card to the four-ledger state section (copy-OV-specific, match-free, aimable
+## planted+natural, surgically gatable ~1e-4, distributed, 4-family general; base-LM/controlled, no
+## jailbreak claim) + updated the one-line summary to include the editing ledger. Republished same URL.
+## QUEUE: qk_commandeer_se_swiglu18.py (SE on largest family). Program at defended completion; next major
+## direction is Logan's scope call (surfaced). Cron 1475f52b; re-arm before 2026-08-06.
