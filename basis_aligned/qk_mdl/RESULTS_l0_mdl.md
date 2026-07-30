@@ -2851,3 +2851,26 @@ induction on a frequently-repeated token is inherently ambiguous (its "previous 
 spread across many candidate source positions), so a clean single-source repoint is possible only when
 the trigger is distinctive. The precision-edit primitive is therefore sharpest exactly in the regime a
 targeted edit would want: a distinctive, low-frequency trigger.
+
+### §37c Natural (un-planted) triggers — the reach is a controlled-setting property, not in-the-wild (2026-07-30)
+(qk_natural_trigger_redirect.py; closes red-team concerns 1 & 6) Firing the SAME conditional redirect
+on naturally-occurring trigger tokens in real FineWeb text — many distinct positions, real (weak/diffuse)
+matches, standard errors over the query set — the near-total planted reach does NOT transfer:
+
+| trigger | base rate | n (positions) | payload P: model→cond | argmax capture model→cond |
+|---|---|---|---|---|
+| distinctive (tok 470) | 0.0014 | 10 | 0.0001 → 0.0115 ± 0.010 | 0.00 → 0.00 |
+| moderate (tok 82) | 0.0032 | 18 | 0.0021 → 0.165 ± 0.059 | 0.00 → 0.22 ± 0.10 |
+| frequent (tok 13) | 0.038 | 498 | 0.0075 → 0.040 ± 0.006 | 0.018 → 0.074 ± 0.012 |
+
+The redirect *engages directionally* — payload probability rises up to ~80× — but absolute yield is
+low and variable (argmax capture ≤0.22, often ~0), far below the planted 0.833 / 0.958. **The mechanism
+is visible in the baseline:** at these natural trigger queries the model's true-continuation probability
+is only 0.12–0.24, versus 0.85 in the planted repeated-prefix case. The gated natural triggers simply
+do not carry strong induction to hijack — a conditional redirect can only repoint as much induction as
+is locally present, and in the wild (a token that merely recurs, without a clean single-source match)
+that is weak. This is a fair, interpretable limit, not a design artifact: the low baseline induction is
+the cause. **Corrected scope for the editing capstone (§36/§37):** targeted redirection on the verified
+induction channel is a clean, near-collateral-free precision edit *in the controlled strong-induction
+setting*, and it engages but with low yield on natural triggers — it is a demonstrated controlled-
+setting capability, NOT an established in-the-wild targeted edit. The honest ceiling of the arc.
