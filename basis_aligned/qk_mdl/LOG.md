@@ -6125,3 +6125,16 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## causally verify (capital-CE damage split by post-newline distance -- expect concentration post-
 ## newline). NEXT: process defensibility review of the summary (apply fixes before enshrinement);
 ## anchor verification; then artifact refresh. Old cron expired; 1475f52b live.
+
+## TICK 2026-07-30q — SUMMARY DEFENSIBILITY REVIEW (8/8 accepted) + NEWLINE-ANCHOR FALSIFIED.
+## Reviewer caught F1-F3: welded the +0.034 CHAIN experiment's SE/uniform-frac/low-null onto the
+## DISTINCT +0.047 PCA/head-BOTTLENECK experiment. Fixed: bottleneck = no committed SE / 99.4% / head-
+## span 20-30x + random-576 100x; chain = +0.034 SE.001 / 99.56% / 18x. +F4 causal-vs-fidelity ledger
+## (98-99.8% causal, ~94% fidelity floor), F5 PCA-bottlenecked not "compressed", F6 Pythia out-of-
+## ledger, F7 retraction count, F8 archetype 5x not "no better". STANDING CHECK: never merge stats
+## across bottleneck vs chain experiments. redteam_summary_2026-07-30.md archived; summary corrected.
+## NEWLINE-ANCHOR (qk_newline_anchor): boundary-anchor hypothesis FALSIFIED -- capital damage HIGHER
+## not-post-newline (+0.059) vs post-newline (+0.030). Retract "post-boundary" story; attend-vs-predict
+## DIVERGENCE stands, mechanism open. My queued verification killed my own prior-tick claim = loop
+## working. NEXT: artifact refresh with corrected summary numbers; extend census predicate coverage;
+## paper_atlas sync. Old cron expired; 1475f52b live.
