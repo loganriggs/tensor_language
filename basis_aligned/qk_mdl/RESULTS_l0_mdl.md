@@ -3058,3 +3058,26 @@ account. Note the top commandeering contributors (L6H5, L5H5) are NOT the induct
 (L2H5/L3H8, §T4): the heads whose *removal* most damages natural induction are distinct from the heads
 that most carry a *commandeered* copy — the write is spread more broadly than the necessity core. This
 closes the editing arc's localization question; the arc (§36–§37i) is complete and promoted.
+
+### §37j Architecture generality — copy-head commandeering replicates on bilin12 (2026-07-30)
+(qk_bilin12_commandeer.py) Testing the editing primitive on a SECOND attention family — bilin12's
+single-branch NORMALIZED squared attention (pat = sc²/Σ, a distribution over keys). Commandeering is
+direct there: overwrite a copy head's attention row to a one-hot at a chosen source. Result (planted
+repeated prefix, non-active gated query, aimability double dissociation, off a ~0.01 baseline):
+
+| head set | aim@col1: P(tok@1)/P(tok@10) | aim@col10: P(tok@1)/P(tok@10) |
+|---|---|---|
+| census MATCH_same (2 heads) | 0.009 / 0.008 | 0.009 / 0.011 |
+| all layer-2+ heads (60) | **0.175** / 0.011 | 0.003 / **0.320** |
+| all heads (72) | 0.134 / 0.010 | 0.002 / 0.313 |
+
+**Commandeering replicates on bilin12** — a clean double dissociation over the broad copy-head set
+(aim@col1 copies token@1, aim@col10 copies token@10, each off a 0.01 baseline). And the §37i
+DISTRIBUTED-write property replicates too: the 2 census MATCH_same heads alone do nothing (0.009), the
+effect only appears over the broad head set. Honest caveats: (1) the reach (0.18/0.32) is below bilin18
+planted (0.83) — a smaller model with a distribution-normalized attention; (2) because bilin12's
+selection census was marginal (§ census-generality negative), I could not isolate bilin12's specific
+copy heads and instead overwrote the broad layer-2+ set, so this shows commandeering *works on bilin12*
+but does not localize *which* bilin12 heads carry it. Single-configuration generality check. Conclusion:
+the copy-head-commandeering editing primitive is not bilin18-specific — it generalizes to a second
+attention family, matching the composition arc's architecture generality (§32b/§T8).

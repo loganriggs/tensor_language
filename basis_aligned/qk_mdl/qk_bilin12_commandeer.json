@@ -1,0 +1,51 @@
+{
+  "model": "bilin12",
+  "n_gate": 44,
+  "sets": {
+    "census2": {
+      "n_heads": 2,
+      "no_edit": {
+        "P_tok@1": 0.0096,
+        "P_tok@10": 0.0127
+      },
+      "aim@col1": {
+        "P_tok@1": 0.0085,
+        "P_tok@10": 0.0077
+      },
+      "aim@col10": {
+        "P_tok@1": 0.0088,
+        "P_tok@10": 0.0109
+      }
+    },
+    "all_L2plus": {
+      "n_heads": 60,
+      "no_edit": {
+        "P_tok@1": 0.0096,
+        "P_tok@10": 0.0127
+      },
+      "aim@col1": {
+        "P_tok@1": 0.1752,
+        "P_tok@10": 0.011
+      },
+      "aim@col10": {
+        "P_tok@1": 0.0027,
+        "P_tok@10": 0.3196
+      }
+    },
+    "all_heads": {
+      "n_heads": 72,
+      "no_edit": {
+        "P_tok@1": 0.0096,
+        "P_tok@10": 0.0127
+      },
+      "aim@col1": {
+        "P_tok@1": 0.1341,
+        "P_tok@10": 0.0102
+      },
+      "aim@col10": {
+        "P_tok@1": 0.0021,
+        "P_tok@10": 0.3128
+      }
+    }
+  }
+}
