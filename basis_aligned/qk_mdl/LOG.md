@@ -6098,3 +6098,12 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## validate. Absolute dCE small (specialty not whole-contribution; report as selectivity). NEXT: T6
 ## named-selection steer demo (dial L3H8 MATCH_same anti-self coefficient -> predict induction shift);
 ## then T7 consolidation. Queue stocked.
+
+## TICK 2026-07-30n — T6 STEER + T8 GENERALITY (old cron final fire at 7-day expiry + new cron 1475f52b
+## both live; harmless overlap, daemon serializes). T6: L3H8 same-token dial monotone induction control
+## 3.155->2.569, SIGN confirms census anti-self coef, natural CE flat -- 3rd ledger cross-validation.
+## T8: composition arc GENERALIZES to bilin12 (single-branch normalized squared attn): MLP gauge
+## 5.6e-07 (attention-independent as predicted), whole-model PCA/head bottleneck +0.116 (SE .002) vs
+## null +1.124 (9.7x); higher than bilin18 +0.047 (smaller model) but same result -- not a bilin18
+## artifact. NEXT: T7 consolidation (paper_atlas sync §33-35 + T2/T4/T6/T8, artifact refresh) --
+## CPU/documentation, next tick. Queue: stock a generality-3rd-model (bilinsm12 softmax) or begin T7.
