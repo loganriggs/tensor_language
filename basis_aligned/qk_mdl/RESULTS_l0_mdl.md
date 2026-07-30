@@ -3081,3 +3081,22 @@ copy heads and instead overwrote the broad layer-2+ set, so this shows commandee
 but does not localize *which* bilin12 heads carry it. Single-configuration generality check. Conclusion:
 the copy-head-commandeering editing primitive is not bilin18-specific — it generalizes to a second
 attention family, matching the composition arc's architecture generality (§32b/§T8).
+
+**§37j extended — FOUR-family generality.** Repeating the broad-set commandeering (all layer-2+ heads,
+aimability double dissociation, ~0.006 baseline) across all four model families gives a clean
+dissociation in every one:
+
+| model | attention family | aim@col1 P(tok@1)/P(tok@10) | aim@col10 P(tok@1)/P(tok@10) |
+|---|---|---|---|
+| bilin18 | two-branch product | (planted single-head-set 0.83, §37) | — |
+| bilin12 | normalized squared | 0.175 / 0.011 | 0.003 / 0.320 |
+| bilinsm12 | softmax | 0.355 / 0.005 | 0.001 / 0.416 |
+| swiglu18 | softmax + swiglu | 0.409 / 0.009 | 0.001 / 0.367 |
+
+So the copy-head-commandeering editing primitive is architecture-general across all four families tested
+(qk_bilin12/bilinsm12/swiglu18_commandeer.py), matching the composition arc's four-model generality
+(§32b). The reach varies (0.18–0.42 over the broad set on the smaller/softmax models vs 0.83 for the
+bilin18 planted single-set), but the qualitative signature — aimable, distributed over the copy heads,
+off a near-zero baseline — holds everywhere. Caveat (all three replications): the broad layer-2+ head
+set was overwritten (bilin12's census was too marginal to isolate copy heads), so these show the
+primitive *works* per family but do not localize the specific carrier heads per model.
