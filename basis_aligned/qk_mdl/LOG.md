@@ -6255,3 +6255,17 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## at non-active queries / non-induction heads @ matched amp -- if reach climbs there too, recovery is
 ## generic injection not repoint). Capstone reverts to CONTROLLED-setting only (§37/37b) pending this.
 ## THIRD correction this arc (retraction of a reversal). Cron 1475f52b; re-arm before 2026-08-06.
+
+## TICK 2026-07-30y — §37e INJECTION-SPECIFICITY: natural high-amp recovery is BRUTE-FORCE (arc-closing).
+## Same edit fired 3 ways (trigger 447, payload=token@1): A (ind heads, active) 0.046->0.487->0.682; B
+## (ind heads, NON-active same-token, NO match to repoint) 0.0->0.712->0.912 -- HIGHER than A; C (non-ind
+## heads, matched amp) ~0. B forcing payload MORE than A where no induction exists = high-amp recovery is
+## brute-force injection of scale*A*v_payload through the ind heads' output projection, NOT repointing;
+## C~0 = specific to ind-head write direction (injection-pathway fact). §37c-e CLOSED: in the wild the
+## genuine repoint is weak at matched amplitude (A@10=0.046); high-amp success is a degenerate artifact.
+## Editing capstone stands ONLY as controlled-setting (§37/37b, 0.958@scale10, ~0 collateral). Surviving
+## throughout: surgical gating (pure collateral <=1e-4). §37e written. QUEUE: qk_planted_specificity.py
+## -- the CRITICAL confirm that the surviving §37 result is itself a genuine repoint (predict A@10~0.83,
+## B@10~0, C~0; note natural B@10 was 0.0 so scale-10 injection is too weak to brute-force => §37 likely
+## genuine). If confirmed, promote controlled-setting capstone to atlas/summary. FOURTH check this arc.
+## Cron 1475f52b; re-arm before 2026-08-06.
