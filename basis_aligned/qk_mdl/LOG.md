@@ -6341,3 +6341,13 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## jailbreak claim) + updated the one-line summary to include the editing ledger. Republished same URL.
 ## QUEUE: qk_commandeer_se_swiglu18.py (SE on largest family). Program at defended completion; next major
 ## direction is Logan's scope call (surfaced). Cron 1475f52b; re-arm before 2026-08-06.
+
+## TICK 2026-07-30af (10-min #1) — SETUP AGENTS RUNNING + branch-factor diagnostic. The 3 dispatched
+## agents (per-layer audit / algo-capability scout / qk_layer_decomp template) still running -- no
+## scripts produced yet. Ran one independent, non-conflicting diagnostic to keep momentum: §38
+## qk_branch_angles.py -- bilin18's two QK branches are genuinely two-factor across all 18x9 heads
+## (per-head sc1,sc2 correlation median 0.044, 0/162 >0.9, 95.7% <0.5; most-distinct anti-correlated
+## L15H1 -0.78). No head collapses to single-branch -> both branches must be carried when decomposing
+## any layer's selection. NEXT: collect the 3 agents' outputs (master status table + algoverify scripts
+## + qk_layer_decomp.py), stock the queue bottom-up from layer 1/2, re-dispatch red-team/writer agents.
+## 10-min cron 0b62fec1; re-arm before 2026-08-06.
