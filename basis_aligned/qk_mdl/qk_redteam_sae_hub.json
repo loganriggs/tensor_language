@@ -1,0 +1,1936 @@
+{
+  "meta": {
+    "model": "bilin18",
+    "layer": 1,
+    "quantity": "MLP1 feed-forward OUTPUT (residual write mo), dim=D=1152",
+    "dictionary": "L1 sparse autoencoder, untied encoder, unit-norm decoder columns",
+    "n_features": 4096,
+    "overcompleteness": 3.556,
+    "train_slice": "FW[0:256,:128]",
+    "held_slice": "FW[448:600,:128]",
+    "chosen_L1": 2.5,
+    "train_steps": 6000,
+    "train_secs": 61.4,
+    "lr": 0.0004,
+    "batch_positions": 4096,
+    "forward": "VERBATIM qk_mlp1_tail.py / qk_mlp_superposition.py (MLP1 output residual write)",
+    "nameability_method": "trigger token-class purity (\u00a768 way), top-KCAUSAL firing positions, VERBATIM \u00a774 class library; monosemantic requires purity>=bar AND dominant class >= ENRICH_BAR x its corpus base rate (guards against a common-but-diffuse class inflating purity)",
+    "KCAUSAL": 200,
+    "purity_bar": 0.5,
+    "enrich_bar": 2.0,
+    "TOPN": 32,
+    "FEASIBILITY_CAVEAT": "SMALL, deliberately under-trained SAE (feasibility probe). A dictionary FAILING here is weaker evidence than a converged one succeeding; a dictionary SUCCEEDING here is strong evidence the \u00a774 boundary is crossable."
+  },
+  "lambda_probe": {
+    "0.05": {
+      "FVU": 0.0154,
+      "L0": 2395.1
+    },
+    "0.15": {
+      "FVU": 0.0265,
+      "L0": 1775.5
+    },
+    "0.40": {
+      "FVU": 0.0562,
+      "L0": 1041.7
+    },
+    "1.00": {
+      "FVU": 0.1205,
+      "L0": 412.6
+    },
+    "2.50": {
+      "FVU": 0.2227,
+      "L0": 102.3
+    }
+  },
+  "base_rate": {
+    "bracket_close": 0.0037,
+    "bracket_open": 0.0058,
+    "capital": 0.1214,
+    "coordinator": 0.0291,
+    "determiner": 0.0858,
+    "digit": 0.028,
+    "newline": 0.0196,
+    "other": 0.0106,
+    "pronoun": 0.0324,
+    "punct": 0.1115,
+    "quote": 0.0029,
+    "quote_open": 0.0,
+    "special": 0.0,
+    "subword": 0.0761,
+    "word": 0.4732
+  },
+  "reconstruction": {
+    "train_FVE": 0.8396,
+    "train_L0": 26.2,
+    "held_FVE": 0.6933,
+    "held_L0": 40.2,
+    "dead_features": 0
+  },
+  "nameability": {
+    "TOPN": 32,
+    "purity_bar": 0.5,
+    "enrich_bar": 2.0,
+    "n_nameable_by_purity": 32,
+    "n_nameable": 23,
+    "svd_reference": "\u00a774: 0 of 32 SVD directions single-direction nameable/load-bearing",
+    "top_feature_records": [
+      {
+        "feature": 3937,
+        "act_freq": 0.06435,
+        "mean_active": 1.7518,
+        "rank_score": 0.11273,
+        "trigger_class_top": [
+          [
+            "word",
+            143
+          ],
+          [
+            "capital",
+            39
+          ],
+          [
+            "subword",
+            11
+          ],
+          [
+            "punct",
+            3
+          ],
+          [
+            "digit",
+            2
+          ],
+          [
+            "bracket_open",
+            1
+          ]
+        ],
+        "trigger_purity": 0.8339,
+        "dominant_class": "word",
+        "dominant_class_frac": 0.715,
+        "dominant_base_rate": 0.4732,
+        "dominant_enrichment": 1.51,
+        "trigger_token_top": [
+          [
+            "' by'",
+            5
+          ],
+          [
+            "' good'",
+            4
+          ],
+          [
+            "' must'",
+            4
+          ],
+          [
+            "' pictures'",
+            4
+          ],
+          [
+            "' Route'",
+            4
+          ],
+          [
+            "' line'",
+            3
+          ]
+        ],
+        "nameable_by_purity": true,
+        "nameable": false
+      },
+      {
+        "feature": 1046,
+        "act_freq": 0.04014,
+        "mean_active": 2.7123,
+        "rank_score": 0.10888,
+        "trigger_class_top": [
+          [
+            "capital",
+            183
+          ],
+          [
+            "determiner",
+            10
+          ],
+          [
+            "pronoun",
+            4
+          ],
+          [
+            "coordinator",
+            2
+          ],
+          [
+            "subword",
+            1
+          ]
+        ],
+        "trigger_purity": 0.9279,
+        "dominant_class": "capital",
+        "dominant_class_frac": 0.915,
+        "dominant_base_rate": 0.1214,
+        "dominant_enrichment": 7.54,
+        "trigger_token_top": [
+          [
+            "' Blue'",
+            6
+          ],
+          [
+            "' The'",
+            5
+          ],
+          [
+            "' Nice'",
+            5
+          ],
+          [
+            "' Dec'",
+            4
+          ],
+          [
+            "' Low'",
+            4
+          ],
+          [
+            "' World'",
+            4
+          ]
+        ],
+        "nameable_by_purity": true,
+        "nameable": true
+      },
+      {
+        "feature": 1410,
+        "act_freq": 0.03161,
+        "mean_active": 3.2518,
+        "rank_score": 0.10279,
+        "trigger_class_top": [
+          [
+            "punct",
+            199
+          ],
+          [
+            "word",
+            1
+          ]
+        ],
+        "trigger_purity": 0.9941,
+        "dominant_class": "punct",
+        "dominant_class_frac": 0.995,
+        "dominant_base_rate": 0.1115,
+        "dominant_enrichment": 8.92,
+        "trigger_token_top": [
+          [
+            "'.'",
+            194
+          ],
+          [
+            "'?'",
+            2
+          ],
+          [
+            "').'",
+            2
+          ],
+          [
+            "' short'",
+            1
+          ],
+          [
+            "'\".'",
+            1
+          ]
+        ],
+        "nameable_by_purity": true,
+        "nameable": true
+      },
+      {
+        "feature": 2018,
+        "act_freq": 0.01799,
+        "mean_active": 5.5591,
+        "rank_score": 0.10001,
+        "trigger_class_top": [
+          [
+            "determiner",
+            156
+          ],
+          [
+            "word",
+            38
+          ],
+          [
+            "subword",
+            3
+          ],
+          [
+            "punct",
+            2
+          ],
+          [
+            "capital",
+            1
+          ]
+        ],
+        "trigger_purity": 0.8783,
+        "dominant_class": "determiner",
+        "dominant_class_frac": 0.78,
+        "dominant_base_rate": 0.0858,
+        "dominant_enrichment": 9.09,
+        "trigger_token_top": [
+          [
+            "' the'",
+            143
+          ],
+          [
+            "' their'",
+            8
+          ],
+          [
+            "' of'",
+            7
+          ],
+          [
+            "' your'",
+            6
+          ],
+          [
+            "' his'",
+            4
+          ],
+          [
+            "' a'",
+            4
+          ]
+        ],
+        "nameable_by_purity": true,
+        "nameable": true
+      },
+      {
+        "feature": 353,
+        "act_freq": 0.04744,
+        "mean_active": 2.0536,
+        "rank_score": 0.09743,
+        "trigger_class_top": [
+          [
+            "subword",
+            111
+          ],
+          [
+            "capital",
+            31
+          ],
+          [
+            "word",
+            31
+          ],
+          [
+            "other",
+            13
+          ],
+          [
+            "digit",
+            7
+          ],
+          [
+            "pronoun",
+            5
+          ]
+        ],
+        "trigger_purity": 0.7462,
+        "dominant_class": "subword",
+        "dominant_class_frac": 0.555,
+        "dominant_base_rate": 0.0761,
+        "dominant_enrichment": 7.3,
+        "trigger_token_top": [
+          [
+            "'col'",
+            6
+          ],
+          [
+            "'ene'",
+            5
+          ],
+          [
+            "'TS'",
+            5
+          ],
+          [
+            "'\u00ae'",
+            5
+          ],
+          [
+            "'\u2122'",
+            5
+          ],
+          [
+            "' Route'",
+            5
+          ]
+        ],
+        "nameable_by_purity": true,
+        "nameable": true
+      },
+      {
+        "feature": 2822,
+        "act_freq": 0.0332,
+        "mean_active": 2.9017,
+        "rank_score": 0.09635,
+        "trigger_class_top": [
+          [
+            "punct",
+            199
+          ],
+          [
+            "word",
+            1
+          ]
+        ],
+        "trigger_purity": 0.9941,
+        "dominant_class": "punct",
+        "dominant_class_frac": 0.995,
+        "dominant_base_rate": 0.1115,
+        "dominant_enrichment": 8.92,
+        "trigger_token_top": [
+          [
+            "'.'",
+            190
+          ],
+          [
+            "'?'",
+            5
+          ],
+          [
+            "').'",
+            3
+          ],
+          [
+            "' out'",
+            1
+          ],
+          [
+            "'\".'",
+            1
+          ]
+        ],
+        "nameable_by_purity": true,
+        "nameable": true
+      },
+      {
+        "feature": 3782,
+        "act_freq": 0.03762,
+        "mean_active": 2.5597,
+        "rank_score": 0.0963,
+        "trigger_class_top": [
+          [
+            "punct",
+            200
+          ]
+        ],
+        "trigger_purity": 1.0,
+        "dominant_class": "punct",
+        "dominant_class_frac": 1.0,
+        "dominant_base_rate": 0.1115,
+        "dominant_enrichment": 8.97,
+        "trigger_token_top": [
+          [
+            "'.'",
+            187
+          ],
+          [
+            "'!'",
+            4
+          ],
+          [
+            "').'",
+            2
+          ],
+          [
+            "'?'",
+            1
+          ],
+          [
+            "'..'",
+            1
+          ],
+          [
+            "'...'",
+            1
+          ]
+        ],
+        "nameable_by_purity": true,
+        "nameable": true
+      },
+      {
+        "feature": 3945,
+        "act_freq": 0.05052,
+        "mean_active": 1.8514,
+        "rank_score": 0.09354,
+        "trigger_class_top": [
+          [
+            "word",
+            135
+          ],
+          [
+            "punct",
+            23
+          ],
+          [
+            "determiner",
+            20
+          ],
+          [
+            "capital",
+            8
+          ],
+          [
+            "digit",
+            6
+          ],
+          [
+            "subword",
+            3
+          ]
+        ],
+        "trigger_purity": 0.7798,
+        "dominant_class": "word",
+        "dominant_class_frac": 0.675,
+        "dominant_base_rate": 0.4732,
+        "dominant_enrichment": 1.43,
+        "trigger_token_top": [
+          [
+            "'-'",
+            13
+          ],
+          [
+            "' the'",
+            11
+          ],
+          [
+            "' for'",
+            7
+          ],
+          [
+            "' on'",
+            7
+          ],
+          [
+            "'.'",
+            6
+          ],
+          [
+            "' in'",
+            6
+          ]
+        ],
+        "nameable_by_purity": true,
+        "nameable": false
+      },
+      {
+        "feature": 3103,
+        "act_freq": 0.09082,
+        "mean_active": 1.0279,
+        "rank_score": 0.09336,
+        "trigger_class_top": [
+          [
+            "word",
+            79
+          ],
+          [
+            "determiner",
+            37
+          ],
+          [
+            "capital",
+            32
+          ],
+          [
+            "pronoun",
+            18
+          ],
+          [
+            "punct",
+            14
+          ],
+          [
+            "digit",
+            10
+          ]
+        ],
+        "trigger_purity": 0.6754,
+        "dominant_class": "word",
+        "dominant_class_frac": 0.395,
+        "dominant_base_rate": 0.4732,
+        "dominant_enrichment": 0.83,
+        "trigger_token_top": [
+          [
+            "' the'",
+            14
+          ],
+          [
+            "' a'",
+            11
+          ],
+          [
+            "'-'",
+            5
+          ],
+          [
+            "' you'",
+            4
+          ],
+          [
+            "' his'",
+            4
+          ],
+          [
+            "' it'",
+            3
+          ]
+        ],
+        "nameable_by_purity": true,
+        "nameable": false
+      },
+      {
+        "feature": 3153,
+        "act_freq": 0.07396,
+        "mean_active": 1.2574,
+        "rank_score": 0.093,
+        "trigger_class_top": [
+          [
+            "word",
+            135
+          ],
+          [
+            "determiner",
+            18
+          ],
+          [
+            "coordinator",
+            11
+          ],
+          [
+            "punct",
+            9
+          ],
+          [
+            "pronoun",
+            7
+          ],
+          [
+            "bracket_close",
+            5
+          ]
+        ],
+        "trigger_purity": 0.7529,
+        "dominant_class": "word",
+        "dominant_class_frac": 0.675,
+        "dominant_base_rate": 0.4732,
+        "dominant_enrichment": 1.43,
+        "trigger_token_top": [
+          [
+            "' in'",
+            15
+          ],
+          [
+            "' to'",
+            14
+          ],
+          [
+            "' and'",
+            10
+          ],
+          [
+            "' that'",
+            9
+          ],
+          [
+            "' on'",
+            7
+          ],
+          [
+            "' of'",
+            7
+          ]
+        ],
+        "nameable_by_purity": true,
+        "nameable": false
+      },
+      {
+        "feature": 2021,
+        "act_freq": 0.0331,
+        "mean_active": 2.6967,
+        "rank_score": 0.08926,
+        "trigger_class_top": [
+          [
+            "punct",
+            199
+          ],
+          [
+            "word",
+            1
+          ]
+        ],
+        "trigger_purity": 0.9941,
+        "dominant_class": "punct",
+        "dominant_class_frac": 0.995,
+        "dominant_base_rate": 0.1115,
+        "dominant_enrichment": 8.92,
+        "trigger_token_top": [
+          [
+            "'.'",
+            193
+          ],
+          [
+            "').'",
+            3
+          ],
+          [
+            "'].'",
+            2
+          ],
+          [
+            "'?'",
+            1
+          ],
+          [
+            "' with'",
+            1
+          ]
+        ],
+        "nameable_by_purity": true,
+        "nameable": true
+      },
+      {
+        "feature": 3512,
+        "act_freq": 0.03428,
+        "mean_active": 2.5981,
+        "rank_score": 0.08907,
+        "trigger_class_top": [
+          [
+            "word",
+            147
+          ],
+          [
+            "capital",
+            39
+          ],
+          [
+            "subword",
+            9
+          ],
+          [
+            "punct",
+            2
+          ],
+          [
+            "coordinator",
+            1
+          ],
+          [
+            "digit",
+            1
+          ]
+        ],
+        "trigger_purity": 0.8471,
+        "dominant_class": "word",
+        "dominant_class_frac": 0.735,
+        "dominant_base_rate": 0.4732,
+        "dominant_enrichment": 1.55,
+        "trigger_token_top": [
+          [
+            "' photography'",
+            4
+          ],
+          [
+            "' social'",
+            3
+          ],
+          [
+            "' technology'",
+            3
+          ],
+          [
+            "' video'",
+            3
+          ],
+          [
+            "' sale'",
+            3
+          ],
+          [
+            "' exchange'",
+            3
+          ]
+        ],
+        "nameable_by_purity": true,
+        "nameable": false
+      },
+      {
+        "feature": 2985,
+        "act_freq": 0.01732,
+        "mean_active": 5.141,
+        "rank_score": 0.08905,
+        "trigger_class_top": [
+          [
+            "determiner",
+            167
+          ],
+          [
+            "capital",
+            14
+          ],
+          [
+            "word",
+            11
+          ],
+          [
+            "subword",
+            4
+          ],
+          [
+            "pronoun",
+            2
+          ],
+          [
+            "coordinator",
+            1
+          ]
+        ],
+        "trigger_purity": 0.8729,
+        "dominant_class": "determiner",
+        "dominant_class_frac": 0.835,
+        "dominant_base_rate": 0.0858,
+        "dominant_enrichment": 9.73,
+        "trigger_token_top": [
+          [
+            "' the'",
+            76
+          ],
+          [
+            "' The'",
+            52
+          ],
+          [
+            "'The'",
+            24
+          ],
+          [
+            "' A'",
+            6
+          ],
+          [
+            "' This'",
+            5
+          ],
+          [
+            "' Their'",
+            4
+          ]
+        ],
+        "nameable_by_purity": true,
+        "nameable": true
+      },
+      {
+        "feature": 1373,
+        "act_freq": 0.03911,
+        "mean_active": 2.2697,
+        "rank_score": 0.08878,
+        "trigger_class_top": [
+          [
+            "word",
+            67
+          ],
+          [
+            "capital",
+            57
+          ],
+          [
+            "subword",
+            19
+          ],
+          [
+            "punct",
+            16
+          ],
+          [
+            "digit",
+            15
+          ],
+          [
+            "determiner",
+            8
+          ]
+        ],
+        "trigger_purity": 0.6561,
+        "dominant_class": "word",
+        "dominant_class_frac": 0.335,
+        "dominant_base_rate": 0.4732,
+        "dominant_enrichment": 0.71,
+        "trigger_token_top": [
+          [
+            "'.'",
+            5
+          ],
+          [
+            "' to'",
+            4
+          ],
+          [
+            "' the'",
+            3
+          ],
+          [
+            "'-'",
+            3
+          ],
+          [
+            "' of'",
+            3
+          ],
+          [
+            "' a'",
+            3
+          ]
+        ],
+        "nameable_by_purity": true,
+        "nameable": false
+      },
+      {
+        "feature": 1718,
+        "act_freq": 0.01917,
+        "mean_active": 4.6116,
+        "rank_score": 0.08841,
+        "trigger_class_top": [
+          [
+            "coordinator",
+            194
+          ],
+          [
+            "punct",
+            3
+          ],
+          [
+            "word",
+            2
+          ],
+          [
+            "capital",
+            1
+          ]
+        ],
+        "trigger_purity": 0.9688,
+        "dominant_class": "coordinator",
+        "dominant_class_frac": 0.97,
+        "dominant_base_rate": 0.0291,
+        "dominant_enrichment": 33.3,
+        "trigger_token_top": [
+          [
+            "' and'",
+            168
+          ],
+          [
+            "' or'",
+            25
+          ],
+          [
+            "' &'",
+            3
+          ],
+          [
+            "' of'",
+            1
+          ],
+          [
+            "' have'",
+            1
+          ],
+          [
+            "' but'",
+            1
+          ]
+        ],
+        "nameable_by_purity": true,
+        "nameable": true
+      },
+      {
+        "feature": 3707,
+        "act_freq": 0.05839,
+        "mean_active": 1.4943,
+        "rank_score": 0.08725,
+        "trigger_class_top": [
+          [
+            "word",
+            103
+          ],
+          [
+            "capital",
+            56
+          ],
+          [
+            "subword",
+            14
+          ],
+          [
+            "pronoun",
+            11
+          ],
+          [
+            "determiner",
+            9
+          ],
+          [
+            "punct",
+            3
+          ]
+        ],
+        "trigger_purity": 0.7461,
+        "dominant_class": "word",
+        "dominant_class_frac": 0.515,
+        "dominant_base_rate": 0.4732,
+        "dominant_enrichment": 1.09,
+        "trigger_token_top": [
+          [
+            "'s'",
+            3
+          ],
+          [
+            "'-'",
+            2
+          ],
+          [
+            "'I'",
+            2
+          ],
+          [
+            "' in'",
+            2
+          ],
+          [
+            "' The'",
+            2
+          ],
+          [
+            "' we'",
+            2
+          ]
+        ],
+        "nameable_by_purity": true,
+        "nameable": false
+      },
+      {
+        "feature": 1072,
+        "act_freq": 0.0275,
+        "mean_active": 3.1675,
+        "rank_score": 0.0871,
+        "trigger_class_top": [
+          [
+            "punct",
+            198
+          ],
+          [
+            "determiner",
+            1
+          ],
+          [
+            "word",
+            1
+          ]
+        ],
+        "trigger_purity": 0.9881,
+        "dominant_class": "punct",
+        "dominant_class_frac": 0.99,
+        "dominant_base_rate": 0.1115,
+        "dominant_enrichment": 8.88,
+        "trigger_token_top": [
+          [
+            "','",
+            183
+          ],
+          [
+            "';'",
+            9
+          ],
+          [
+            "' -'",
+            2
+          ],
+          [
+            "' a'",
+            1
+          ],
+          [
+            "' of'",
+            1
+          ],
+          [
+            "',\"'",
+            1
+          ]
+        ],
+        "nameable_by_purity": true,
+        "nameable": true
+      },
+      {
+        "feature": 3480,
+        "act_freq": 0.03516,
+        "mean_active": 2.4482,
+        "rank_score": 0.08607,
+        "trigger_class_top": [
+          [
+            "word",
+            168
+          ],
+          [
+            "capital",
+            23
+          ],
+          [
+            "subword",
+            8
+          ],
+          [
+            "other",
+            1
+          ]
+        ],
+        "trigger_purity": 0.8961,
+        "dominant_class": "word",
+        "dominant_class_frac": 0.84,
+        "dominant_base_rate": 0.4732,
+        "dominant_enrichment": 1.78,
+        "trigger_token_top": [
+          [
+            "' ball'",
+            11
+          ],
+          [
+            "' clan'",
+            10
+          ],
+          [
+            "' Route'",
+            5
+          ],
+          [
+            "' design'",
+            4
+          ],
+          [
+            "' water'",
+            4
+          ],
+          [
+            "' meat'",
+            4
+          ]
+        ],
+        "nameable_by_purity": true,
+        "nameable": false
+      },
+      {
+        "feature": 1766,
+        "act_freq": 0.02508,
+        "mean_active": 3.4264,
+        "rank_score": 0.08594,
+        "trigger_class_top": [
+          [
+            "punct",
+            197
+          ],
+          [
+            "word",
+            2
+          ],
+          [
+            "pronoun",
+            1
+          ]
+        ],
+        "trigger_purity": 0.9835,
+        "dominant_class": "punct",
+        "dominant_class_frac": 0.985,
+        "dominant_base_rate": 0.1115,
+        "dominant_enrichment": 8.83,
+        "trigger_token_top": [
+          [
+            "'.'",
+            192
+          ],
+          [
+            "';'",
+            2
+          ],
+          [
+            "' as'",
+            1
+          ],
+          [
+            "'.\"'",
+            1
+          ],
+          [
+            "' which'",
+            1
+          ],
+          [
+            "').'",
+            1
+          ]
+        ],
+        "nameable_by_purity": true,
+        "nameable": true
+      },
+      {
+        "feature": 880,
+        "act_freq": 0.02262,
+        "mean_active": 3.6828,
+        "rank_score": 0.08329,
+        "trigger_class_top": [
+          [
+            "capital",
+            158
+          ],
+          [
+            "subword",
+            33
+          ],
+          [
+            "word",
+            9
+          ]
+        ],
+        "trigger_purity": 0.8824,
+        "dominant_class": "capital",
+        "dominant_class_frac": 0.79,
+        "dominant_base_rate": 0.1214,
+        "dominant_enrichment": 6.51,
+        "trigger_token_top": [
+          [
+            "' CC'",
+            4
+          ],
+          [
+            "' Sam'",
+            3
+          ],
+          [
+            "' Scott'",
+            3
+          ],
+          [
+            "' Mark'",
+            3
+          ],
+          [
+            "' Bobby'",
+            3
+          ],
+          [
+            "' Bart'",
+            3
+          ]
+        ],
+        "nameable_by_purity": true,
+        "nameable": true
+      },
+      {
+        "feature": 2752,
+        "act_freq": 0.02241,
+        "mean_active": 3.5754,
+        "rank_score": 0.08012,
+        "trigger_class_top": [
+          [
+            "punct",
+            196
+          ],
+          [
+            "word",
+            2
+          ],
+          [
+            "subword",
+            1
+          ],
+          [
+            "capital",
+            1
+          ]
+        ],
+        "trigger_purity": 0.9776,
+        "dominant_class": "punct",
+        "dominant_class_frac": 0.98,
+        "dominant_base_rate": 0.1115,
+        "dominant_enrichment": 8.79,
+        "trigger_token_top": [
+          [
+            "'.'",
+            187
+          ],
+          [
+            "').'",
+            4
+          ],
+          [
+            "'!'",
+            2
+          ],
+          [
+            "';'",
+            1
+          ],
+          [
+            "'?'",
+            1
+          ],
+          [
+            "' for'",
+            1
+          ]
+        ],
+        "nameable_by_purity": true,
+        "nameable": true
+      },
+      {
+        "feature": 3072,
+        "act_freq": 0.01886,
+        "mean_active": 4.2015,
+        "rank_score": 0.07925,
+        "trigger_class_top": [
+          [
+            "determiner",
+            170
+          ],
+          [
+            "word",
+            29
+          ],
+          [
+            "pronoun",
+            1
+          ]
+        ],
+        "trigger_purity": 0.9161,
+        "dominant_class": "determiner",
+        "dominant_class_frac": 0.85,
+        "dominant_base_rate": 0.0858,
+        "dominant_enrichment": 9.91,
+        "trigger_token_top": [
+          [
+            "' the'",
+            156
+          ],
+          [
+            "' my'",
+            7
+          ],
+          [
+            "' their'",
+            6
+          ],
+          [
+            "' this'",
+            6
+          ],
+          [
+            "' a'",
+            4
+          ],
+          [
+            "' your'",
+            4
+          ]
+        ],
+        "nameable_by_purity": true,
+        "nameable": true
+      },
+      {
+        "feature": 1997,
+        "act_freq": 0.02154,
+        "mean_active": 3.6108,
+        "rank_score": 0.07776,
+        "trigger_class_top": [
+          [
+            "capital",
+            187
+          ],
+          [
+            "other",
+            4
+          ],
+          [
+            "word",
+            3
+          ],
+          [
+            "determiner",
+            3
+          ],
+          [
+            "pronoun",
+            2
+          ],
+          [
+            "digit",
+            1
+          ]
+        ],
+        "trigger_purity": 0.9359,
+        "dominant_class": "capital",
+        "dominant_class_frac": 0.935,
+        "dominant_base_rate": 0.1214,
+        "dominant_enrichment": 7.7,
+        "trigger_token_top": [
+          [
+            "' N'",
+            12
+          ],
+          [
+            "' D'",
+            10
+          ],
+          [
+            "' P'",
+            8
+          ],
+          [
+            "' R'",
+            8
+          ],
+          [
+            "' F'",
+            8
+          ],
+          [
+            "' J'",
+            8
+          ]
+        ],
+        "nameable_by_purity": true,
+        "nameable": true
+      },
+      {
+        "feature": 330,
+        "act_freq": 0.02529,
+        "mean_active": 3.0605,
+        "rank_score": 0.07739,
+        "trigger_class_top": [
+          [
+            "punct",
+            200
+          ]
+        ],
+        "trigger_purity": 1.0,
+        "dominant_class": "punct",
+        "dominant_class_frac": 1.0,
+        "dominant_base_rate": 0.1115,
+        "dominant_enrichment": 8.97,
+        "trigger_token_top": [
+          [
+            "'.'",
+            191
+          ],
+          [
+            "').'",
+            4
+          ],
+          [
+            "'.\"'",
+            2
+          ],
+          [
+            "';'",
+            1
+          ],
+          [
+            "');'",
+            1
+          ],
+          [
+            "'\".'",
+            1
+          ]
+        ],
+        "nameable_by_purity": true,
+        "nameable": true
+      },
+      {
+        "feature": 1473,
+        "act_freq": 0.02154,
+        "mean_active": 3.5902,
+        "rank_score": 0.07732,
+        "trigger_class_top": [
+          [
+            "punct",
+            198
+          ],
+          [
+            "capital",
+            1
+          ],
+          [
+            "word",
+            1
+          ]
+        ],
+        "trigger_purity": 0.9881,
+        "dominant_class": "punct",
+        "dominant_class_frac": 0.99,
+        "dominant_base_rate": 0.1115,
+        "dominant_enrichment": 8.88,
+        "trigger_token_top": [
+          [
+            "','",
+            193
+          ],
+          [
+            "'.'",
+            2
+          ],
+          [
+            "';'",
+            2
+          ],
+          [
+            "'..'",
+            1
+          ],
+          [
+            "' aspect'",
+            1
+          ],
+          [
+            "'TER'",
+            1
+          ]
+        ],
+        "nameable_by_purity": true,
+        "nameable": true
+      },
+      {
+        "feature": 3545,
+        "act_freq": 0.02955,
+        "mean_active": 2.5244,
+        "rank_score": 0.07461,
+        "trigger_class_top": [
+          [
+            "capital",
+            146
+          ],
+          [
+            "subword",
+            28
+          ],
+          [
+            "word",
+            19
+          ],
+          [
+            "other",
+            3
+          ],
+          [
+            "newline",
+            2
+          ],
+          [
+            "pronoun",
+            1
+          ]
+        ],
+        "trigger_purity": 0.8319,
+        "dominant_class": "capital",
+        "dominant_class_frac": 0.73,
+        "dominant_base_rate": 0.1214,
+        "dominant_enrichment": 6.01,
+        "trigger_token_top": [
+          [
+            "' Easy'",
+            5
+          ],
+          [
+            "' min'",
+            3
+          ],
+          [
+            "'olini'",
+            3
+          ],
+          [
+            "'all'",
+            2
+          ],
+          [
+            "' Mark'",
+            2
+          ],
+          [
+            "' Sch'",
+            2
+          ]
+        ],
+        "nameable_by_purity": true,
+        "nameable": true
+      },
+      {
+        "feature": 2491,
+        "act_freq": 0.01999,
+        "mean_active": 3.7296,
+        "rank_score": 0.07457,
+        "trigger_class_top": [
+          [
+            "coordinator",
+            193
+          ],
+          [
+            "word",
+            7
+          ]
+        ],
+        "trigger_purity": 0.9714,
+        "dominant_class": "coordinator",
+        "dominant_class_frac": 0.965,
+        "dominant_base_rate": 0.0291,
+        "dominant_enrichment": 33.13,
+        "trigger_token_top": [
+          [
+            "' and'",
+            184
+          ],
+          [
+            "' or'",
+            5
+          ],
+          [
+            "'and'",
+            2
+          ],
+          [
+            "' of'",
+            1
+          ],
+          [
+            "' to'",
+            1
+          ],
+          [
+            "' but'",
+            1
+          ]
+        ],
+        "nameable_by_purity": true,
+        "nameable": true
+      },
+      {
+        "feature": 2696,
+        "act_freq": 0.01604,
+        "mean_active": 4.5941,
+        "rank_score": 0.07367,
+        "trigger_class_top": [
+          [
+            "word",
+            178
+          ],
+          [
+            "subword",
+            8
+          ],
+          [
+            "capital",
+            8
+          ],
+          [
+            "quote",
+            2
+          ],
+          [
+            "punct",
+            2
+          ],
+          [
+            "digit",
+            1
+          ]
+        ],
+        "trigger_purity": 0.9044,
+        "dominant_class": "word",
+        "dominant_class_frac": 0.89,
+        "dominant_base_rate": 0.4732,
+        "dominant_enrichment": 1.88,
+        "trigger_token_top": [
+          [
+            "' view'",
+            4
+          ],
+          [
+            "' people'",
+            3
+          ],
+          [
+            "' pictures'",
+            3
+          ],
+          [
+            "' one'",
+            2
+          ],
+          [
+            "' min'",
+            2
+          ],
+          [
+            "' women'",
+            2
+          ]
+        ],
+        "nameable_by_purity": true,
+        "nameable": false
+      },
+      {
+        "feature": 4002,
+        "act_freq": 0.03279,
+        "mean_active": 2.2395,
+        "rank_score": 0.07344,
+        "trigger_class_top": [
+          [
+            "capital",
+            150
+          ],
+          [
+            "pronoun",
+            27
+          ],
+          [
+            "determiner",
+            17
+          ],
+          [
+            "coordinator",
+            5
+          ],
+          [
+            "word",
+            1
+          ]
+        ],
+        "trigger_purity": 0.8463,
+        "dominant_class": "capital",
+        "dominant_class_frac": 0.75,
+        "dominant_base_rate": 0.1214,
+        "dominant_enrichment": 6.18,
+        "trigger_token_top": [
+          [
+            "' I'",
+            23
+          ],
+          [
+            "' In'",
+            11
+          ],
+          [
+            "' A'",
+            10
+          ],
+          [
+            "' As'",
+            5
+          ],
+          [
+            "' One'",
+            4
+          ],
+          [
+            "' Not'",
+            4
+          ]
+        ],
+        "nameable_by_purity": true,
+        "nameable": true
+      },
+      {
+        "feature": 3740,
+        "act_freq": 0.02647,
+        "mean_active": 2.7611,
+        "rank_score": 0.07309,
+        "trigger_class_top": [
+          [
+            "punct",
+            196
+          ],
+          [
+            "subword",
+            2
+          ],
+          [
+            "word",
+            2
+          ]
+        ],
+        "trigger_purity": 0.9789,
+        "dominant_class": "punct",
+        "dominant_class_frac": 0.98,
+        "dominant_base_rate": 0.1115,
+        "dominant_enrichment": 8.79,
+        "trigger_token_top": [
+          [
+            "'.'",
+            173
+          ],
+          [
+            "'?'",
+            8
+          ],
+          [
+            "'!'",
+            7
+          ],
+          [
+            "','",
+            3
+          ],
+          [
+            "'...'",
+            2
+          ],
+          [
+            "';'",
+            1
+          ]
+        ],
+        "nameable_by_purity": true,
+        "nameable": true
+      },
+      {
+        "feature": 2127,
+        "act_freq": 0.01532,
+        "mean_active": 4.7409,
+        "rank_score": 0.07261,
+        "trigger_class_top": [
+          [
+            "capital",
+            93
+          ],
+          [
+            "word",
+            45
+          ],
+          [
+            "subword",
+            19
+          ],
+          [
+            "digit",
+            18
+          ],
+          [
+            "determiner",
+            9
+          ],
+          [
+            "punct",
+            6
+          ]
+        ],
+        "trigger_purity": 0.6972,
+        "dominant_class": "capital",
+        "dominant_class_frac": 0.465,
+        "dominant_base_rate": 0.1214,
+        "dominant_enrichment": 3.83,
+        "trigger_token_top": [
+          [
+            "' of'",
+            4
+          ],
+          [
+            "' In'",
+            4
+          ],
+          [
+            "' El'",
+            4
+          ],
+          [
+            "'a'",
+            2
+          ],
+          [
+            "' with'",
+            2
+          ],
+          [
+            "'A'",
+            2
+          ]
+        ],
+        "nameable_by_purity": true,
+        "nameable": true
+      },
+      {
+        "feature": 3414,
+        "act_freq": 0.03505,
+        "mean_active": 2.0546,
+        "rank_score": 0.07202,
+        "trigger_class_top": [
+          [
+            "capital",
+            144
+          ],
+          [
+            "word",
+            28
+          ],
+          [
+            "subword",
+            20
+          ],
+          [
+            "other",
+            4
+          ],
+          [
+            "determiner",
+            2
+          ],
+          [
+            "digit",
+            1
+          ]
+        ],
+        "trigger_purity": 0.8265,
+        "dominant_class": "capital",
+        "dominant_class_frac": 0.72,
+        "dominant_base_rate": 0.1214,
+        "dominant_enrichment": 5.93,
+        "trigger_token_top": [
+          [
+            "' Blue'",
+            9
+          ],
+          [
+            "'leg'",
+            6
+          ],
+          [
+            "' Q'",
+            6
+          ],
+          [
+            "' D'",
+            5
+          ],
+          [
+            "' Inter'",
+            5
+          ],
+          [
+            "'TS'",
+            4
+          ]
+        ],
+        "nameable_by_purity": true,
+        "nameable": true
+      }
+    ]
+  }
+}

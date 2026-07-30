@@ -4254,7 +4254,7 @@ tested basis makes a direction individually interpretable.
 IRREDUCIBLY DISTRIBUTED structured superposition, not many small nameable features. This is precisely where
 single-direction / single-path interpretability STOPS for this hub: naming its features would require
 sparse-dictionary / sparse-autoencoder methods that model joint, overcomplete structure rather than one
-orthogonal direction at a time. The completeness picture is now fully honest end-to-end: we named the largest
+orthogonal direction at a time. [§78 REFINEMENT: a bounded sparse-dictionary red-team shows this is TWO boundaries — a dictionary DOES cross NAMEABILITY (23/32 features monosemantic vs SVD 0/32) but does NOT cross CAUSATION (0/32 load-bearing, all features 2.15% of the effect, collective encoding). Dictionary methods will NAME the hub but not EXPLAIN its computation; the causal-irreducibility survives even the tool named here.] The completeness picture is now fully honest end-to-end: we named the largest
 individual effects (~11% of headroom), the rest is hard single-path (mostly low-cleanliness) plus this
 irreducibly-distributed early-layer superposition — and the boundary between what single-path methods can and
 cannot reach is now measured, not assumed.
@@ -4374,3 +4374,54 @@ irreducibly distributed (joint 2.15–4.57× the sum of its directions' solos, 0
 ~97% of the uniform ceiling). The §71/§73/§74 conclusion — single-direction interpretability has a hard limit
 and the model's early high-rank hub computes in combinations no single direction captures — is not a bilin18
 artifact; it replicates across attention families, including standard softmax attention.
+
+## §78 RED-TEAM of the §74 boundary with a sparse dictionary — nameability crossable, causation NOT (2026-07-30)
+(qk_redteam_sae_hub.py / _2.py; bounded adversarial test of §74's claim that the MLP1 hub is "irreducibly
+distributed" and "would need sparse-dictionary methods." Fits a small sparse overcomplete dictionary to MLP1's
+feed-forward OUTPUT and runs §74's own nameability + causal tests on it head-to-head.) Forward + mean-ablation +
+class library copied verbatim from qk_mlp1_tail.py / qk_mlp_superposition.py / qk_unsup_verify.py. Dictionary fit
+on TRAIN FW[0:256]; all numbers on held-back FW[448:600], paired standard errors.
+- **The dictionary (feasibility probe, honestly bounded):** 4096 features (3.56× overcomplete), L1 sparse
+  autoencoder, chosen L1 penalty 2.5, 6000 Adam steps (~61 s). Achieved genuine sparsity — held-back L0 = 40.2
+  active features per token (0 dead) — and reconstruction fraction-of-variance-explained 0.69 held-back (0.84
+  train; an honest overfit gap flagged as the feasibility caveat).
+- **(a) NAMEABILITY boundary — the dictionary CROSSES it.** Of the top 32 features (by activation-frequency ×
+  norm), **all 32 have trigger token-class purity ≥ 0.5, and 23 of 32 are monosemantic** under a stricter bar
+  (purity ≥ 0.5 AND the dominant class ≥ 2× its corpus base rate). Clean human-readable names: fires on
+  sentence-final period (9× enriched), on comma, on coordinators " and" (33× enriched), on determiners " the"
+  (9×), on capitalized proper-noun tokens. Head-to-head with §74: single-direction SVD scored **0 of 32
+  nameable; the dictionary scores 23 of 32.** A sparse dictionary genuinely recovers nameable variance
+  structure SVD could not.
+- **(b) CAUSAL boundary — the dictionary does NOT cross it.** Mean-ablating each of the top 32 features
+  individually (exact analog of §74's SVD mean-ablation with the learned overcomplete direction): **0 of 32
+  clear the §74 bar** (z ≥ 3 and delta cross-entropy ≥ 0.02); the strongest reaches z = 2.45, delta
+  cross-entropy 0.015 — identical verdict to SVD's 0 of 32. Cumulatively, jointly ablating ALL 1212
+  sufficiently-active features captures only **2.15% of the full MLP1 mean-ablation effect** (5.57 nats) and
+  never reaches 50%. POSITIVE CONTROL (rules out under-powered ablation): the full-layer knockout is 5.57 nats,
+  yet removing only the dictionary's reconstruction RESIDUAL (keeping the features) moves loss just 1.36%, and
+  removing the reconstructed FEATURES moves it 2.15% — NEITHER complement is load-bearing, the signature of
+  COLLECTIVE / redundant causal encoding (any large sub-part of the residual write suffices, so no interpretable
+  subset carries the load).
+- **VERDICT — §74 SURVIVES, sharpened into TWO boundaries.** A sparse dictionary CROSSES the NAMEABILITY
+  boundary (23/32 vs SVD 0/32) but NOT the CAUSAL boundary (0/32 load-bearing, all features together 2.15% of
+  the effect). §74's core claim — the hub's causal MECHANISM is irreducibly distributed — survives decisively,
+  and this probe supplies the mechanism §74 only inferred: the causal content is redundantly spread so removing
+  either the features or the residual leaves a fully-compensating complement. The one thing it QUALIFIES is
+  §74's implication that "a dictionary would name the hub's features usefully" — a dictionary DOES find nameable
+  structure SVD missed, but naming does NOT explain the hub, because the nameable axis and the causal axis are
+  nearly ORTHOGONAL here: variance is basis-aligned (nameable), causation is superposed (collective). This is
+  direct evidence for the §73/§74 two-level reconciliation.
+- **Honest feasibility caveat:** this is a small, under-trained autoencoder (held-back FVE 0.69). A dictionary
+  FAILING is weaker evidence than one succeeding, so a fully-converged high-fidelity sparse autoencoder crossing
+  the causal bar is NOT ruled out. However, the redundancy/positive-control result (removing the reconstruction
+  and removing the residual EACH preserve ~98% of the loss) predicts the causal negative would PERSIST
+  regardless of reconstruction fidelity — the signal is collective, not concentrated in any learnable subset of
+  directions. A converged SAE is the definitive follow-up, but the collective-encoding evidence makes the
+  causal negative predictive-of-persisting.
+**KEY:** the §74 boundary is really TWO boundaries. NAMEABILITY: a sparse dictionary crosses it — the hub's
+VARIANCE structure is a mix of nameable monosemantic features (periods, commas, coordinators, determiners,
+capitals) that SVD's orthogonal-direction view could not see. CAUSATION: neither SVD nor the dictionary crosses
+it — the hub's causal mechanism is collectively/redundantly encoded, individually un-load-bearing at every
+direction and every learned feature. So dictionary methods will NAME the early hub but, on this evidence, will
+NOT explain its computation; the "irreducibly distributed" claim is about CAUSATION and it holds even against
+the tool §74 named.
