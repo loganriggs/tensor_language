@@ -1,7 +1,7 @@
 # A four-ledger per-layer decomposition of a no-softmax bilinear transformer
 
 *Consolidation draft — 2026-07-30. Numbers are the post-adversarial-review figures only.
-Sources: PLAN_per_layer.md, RESULTS_l0_mdl.md §32–§49, LOG.md. Left for parent review; not committed.*
+Sources: PLAN_per_layer.md, RESULTS_l0_mdl.md §32–§75, LOG.md. Left for parent review; not committed.*
 
 ## Abstract
 
@@ -27,6 +27,25 @@ mapped** into three families with a per-head selection census and a feed-forward
 nameable selection programs (only for the copy/induction/match head family) over a graded,
 memorized, non-class-nameable content dictionary that is spectral at all 18 layers. Meaning is the
 frontier and stays hard: functional content is even bounded-nameable at only four sites.
+
+Beyond the per-layer sweep, we turn the exact decomposition into a **generator**: an unsupervised
+discovery loop that follows single paths and, because a single linear proxy is unreliable, verifies
+each candidate with a **type-specific causal test** — ten detectors spanning class-boost, copy,
+suppression, redundant-distributed (via joint ablation), positional, byte-fragment, remap, and a
+causal class-level detector. Two results discipline the picture. First, **completeness, measured**: a
+coverage ledger shows the named circuits carry about eleven percent of the total causal headroom (about
+forty-four percent of the single-path-expressible mechanism), the model is roughly three times
+super-additive so most computation lives in combinations, and the largest single uncharacterized bucket
+— the MLP-layer-1 hub — is **irreducibly distributed** (no single direction is nameable, three-quarters
+of its effect appears only under joint removal, a signature that survives an adversarial control against
+low-rank layers, random directions, and the neuron basis), marking the boundary where single-direction
+interpretability stops and sparse-dictionary methods would be needed. Second, the discovered circuits
+are **useful**: they generalize (the distributed-class-mover phenomenon reproduces on a conventional
+softmax SwiGLU transformer), and a circuit found unsupervised and verified as a genuine algorithm — a
+final-block capitalization selector — is a **calibrated, placebo-controlled control knob**, though its
+selection logic sits upstream, so it resists surgical override. Throughout, every headline is held to a
+held-out substitution/ablation gate with paired standard errors and an adversarial review before it
+stands; the record includes roughly a dozen retractions and softenings that discipline enforced.
 
 ## Method
 
