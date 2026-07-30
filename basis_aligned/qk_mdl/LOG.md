@@ -5977,3 +5977,10 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## dCE) with description-length column mandatory; gauge identities = method licenses (architecture
 ## tautologies), not findings; MLP1 routing demoted pending block-ablation dCE; SEs + held-back
 ## audit slice adopted. Clean checks: CO algebra correct, corpus hygiene sound, exactness gates real.
+
+## TICK 2026-07-30c — CONSOLIDATION WITH REVIEWED NUMBERS. (1) qk_mlp1_block_ablate (SE harness debut,
+## held-back FW[448:600]): direct-attn0 path into MLP1 = +0.00001+/-0.00001; m0 path = +0.568+/-0.005
+## -- routing claim PROMOTED to causal fact (57,000x separation); all-streams arm = exact identity.
+## (2) RESULTS §33 written (composition arc, reviewed numbers, retractions on record). (3) Artifact
+## Composition section added + republished. Program state: composition arc CLOSED AND REVIEWED;
+## remaining threads = coordinate semantics via meaning gate; paper draft sync; Pythia HELD.
