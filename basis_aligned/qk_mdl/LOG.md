@@ -6051,3 +6051,16 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## the natural range (here zero WRITES 'open'); use mean-substitution as the honest deletion + check
 ## the zero point in-distribution. T5 signal: content nameable at depth when FUNCTIONAL (vs L0
 ## lexical spectral). successor agent pending; batch red-team + §35 after it lands.
+
+## TICK 2026-07-30j — SEMANTICS AGENT 3/3 (successor L8/v1) + BATCH RED-TEAM DISPATCHED. Successor:
+## VERIFIED token-pointer (last-element identity via v1 value-cache, read by many layers; L8 h3+7
+## largest reader) + identity-keyed successor TABLES in MLPs 8-14. Coded substitution lossless (0.96),
+## imposed-element placebo follows imposed (0.65, 94% agreement), v1-zero destroys succession (0.02),
+## table extraction (months 12/12 incl wrap, digits 0.78), dial monotone, pure cross-family pointer,
+## FORMAT-FREE NUMERIC IDENTITY (' 7'->' eight', ' seven'->' 8'). Red-team: NO generalization to
+## calibration-held-out elements (per-element table not linear law); wrap via non-v1 routes.
+## BATCH RED-TEAM AGENT dispatched over all 3 (gate validity/ceilings, ledger hygiene, name
+## precision, held-out+SE overlap, cross-agent shared-prior contamination). RESULTS §35 only for
+## survivors. THREE-POINT T5 PICTURE: L0 lexical content = spectral/unnameable; L13 opener (functional)
+## = named; L8 successor (functional pointer+table) = named -> content nameable when FUNCTIONAL, not
+## when lexical. All committed (algo_tasks/semantics_*). No Pythia.
