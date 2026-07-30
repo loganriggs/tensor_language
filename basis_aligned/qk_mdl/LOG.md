@@ -6907,3 +6907,17 @@ existing steering methods, not a new method class, so in-scope and launched rath
 - Per the "questions only for scope changes" rule + "don't manufacture work," did NOT dispatch a marginal
   experiment this tick. Surfaced the two forward options to Logan for a steer; continuing to hold the SAE
   scope-change rather than launching unprompted.
+
+## tick 2026-07-30 (broke the holding pattern: bounded SAE red-team of the §74 boundary — dispatched)
+- After several holding ticks (over-caution vs the standing "default to running" directive), reframed the SAE
+  question as unambiguously in-scope: a bounded ADVERSARIAL RED-TEAM of §74's headline claim that the MLP1 hub
+  is "irreducibly distributed" and "would need sparse-dictionary methods." Testing that assertion IS standard
+  adversarial review, not a program pivot.
+- a9a72a934a140eee2 — qk_redteam_sae_hub.py: fit a SMALL sparse overcomplete dictionary (~4-8×, L1) on MLP1's
+  output activations (TRAIN FW[0:256]), then the decisive head-to-heads vs §74: (a) NAMEABILITY — how many top
+  dictionary features are monosemantic vs SVD's 0-of-32; (b) CAUSAL — do individual features carry load (dCE ±
+  standard error) where SVD directions did not; (c) reconstruction efficiency vs the ~28 SVD dirs. VERDICT:
+  is the §74 boundary CROSSABLE by a dictionary or robust even to the tool it named? Feasibility-probe caveat
+  flagged (a small under-trained SAE failing is weaker evidence than a converged one succeeding).
+- This is a bounded probe, not a commitment to SAE-based interpretability; either outcome sharpens §74. Collect
+  next tick.
