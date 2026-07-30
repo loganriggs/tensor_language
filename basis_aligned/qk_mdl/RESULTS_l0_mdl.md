@@ -2830,3 +2830,17 @@ trigger frequency. **Take-away:** targeted redirection on the verified induction
 sharp, near-collateral-free precision edit once it is *conditioned* — the interpretability-grounded
 form of a trigger→payload intervention, demonstrated on a base LM (not a jailbreak of a safety-trained
 target).
+
+### §37b Trigger-frequency sweep — collateral is bounded, reach favours distinctive triggers (2026-07-30)
+(qk_redirect_freq_sweep.py) Sweeping the trigger token across base rates in the natural slice quantifies
+§37's two caveats. **Collateral scales gently with trigger frequency and stays far under the
+unconditional edit at every point:** +0.000 cross-entropy at base rate 0.0001, +0.0001 at 0.0005, and
++0.030 at a common trigger (token id 13, base rate 3.9%) — versus +0.614 for the unconditional redirect.
+So a conditional redirect's cost is bounded by how often the trigger fires and never approaches the
+whole-mechanism damage of the unconditional form. **Reach is high for distinctive triggers and degrades
+for common ones:** chosen-token probability ~0.77–0.79 and argmax capture ~0.88–0.90 for rare-to-
+moderate triggers, dropping to 0.175 / 0.259 for the common token. This is mechanistically expected —
+induction on a frequently-repeated token is inherently ambiguous (its "previous occurrence" match is
+spread across many candidate source positions), so a clean single-source repoint is possible only when
+the trigger is distinctive. The precision-edit primitive is therefore sharpest exactly in the regime a
+targeted edit would want: a distinctive, low-frequency trigger.
