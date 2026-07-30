@@ -2921,3 +2921,29 @@ is generic injection and not induction repointing at all. Until then the defensi
 the CONTROLLED-setting one only (§37/§37b): a clean, near-collateral-free precision edit at strong,
 clean induction; in the wild the redirect engages weakly at matched gain and its high-gain recovery is
 not yet shown to be a genuine mechanism repoint.
+
+### §37e Injection-specificity control — the natural recovery is BRUTE-FORCE, not repointing (2026-07-30)
+(qk_injection_specificity.py; the decisive control for §37d) Firing the identical high-amplitude edit
+in three places for the moderate trigger (447), payload = token@1:
+
+| condition | scale 10 | scale 40 | scale 160 |
+|---|---|---|---|
+| **A** induction heads, induction-ACTIVE queries (the edit) | P 0.046 / cap 0.065 | 0.487 / 0.634 | 0.682 / 0.732 |
+| **B** induction heads, NON-active same-token queries (no match to repoint) | 0.0 / 0.0 | **0.712 / 0.888** | **0.912 / 0.950** |
+| **C** NON-induction heads (matched amplitude), active queries | 0.0 / 0.0 | 0.0 / 0.0 | 0.009 / 0.008 |
+
+**Verdict: the high-amplitude natural reach is brute-force value injection, not induction repointing.**
+Condition B forces the payload token *at least as strongly as A* (0.91 vs 0.68 at scale 160) at query
+positions that have **no induction match to repoint at all** — so the payload is delivered by the sheer
+magnitude of the injected `scale·A·v_payload` term through the induction heads' output projection, not
+by redirecting an induction computation. Condition C (~0 everywhere) shows the effect is specific to the
+*induction heads' write direction* (a generic head's injection is not lm_head-readable as the payload),
+but that is an injection-pathway fact, not evidence of a repoint. **This closes the in-the-wild
+question for §37c–e:** at matched amplitude the genuine repoint is weak in natural text (A at scale 10 =
+0.046), and its high-amplitude "recovery" is a degenerate injection artifact. Targeted redirection is
+therefore a demonstrated capability **only in the controlled, strong-clean-induction setting** (§37/§37b,
+planted, 0.958 capture at scale 10 with near-zero collateral); it is **not** an established in-the-wild
+targeted-repoint edit. The one property that holds throughout is the surgical *gating* (§37d: pure
+non-trigger collateral ≤1e-4 nats). PENDING (queued): the same specificity control at the PLANTED
+setting — to confirm the surviving §37 controlled-setting result is itself a genuine repoint (A works,
+B/C do not) and not brute-force at scale 10.
