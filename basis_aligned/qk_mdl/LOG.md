@@ -6695,3 +6695,15 @@ Both experiments landed; agents' final reports confirm the numbers I read from t
   reconstruction, the gauges) is strictly bilinear-only — the one substantial thing swiglu CANNOT do. Conclusion:
   folding is NECESSARY for faithful substitutability, not a cosmetic last-mile; it buys EXACTNESS.
 - Committed §71 + §72 (with swiglu18 leg + faithfulness sharpening). Cron 172134ae expires ~2026-08-06.
+
+## tick 2026-07-30 (paper consolidation §68-§72 + MLP-superposition test dispatched)
+- Folded §68-§72 into qk_paper_draft.md (retraction-safe, all committed & red-teamed): tenth detector done
+  (Pearson 0.986 + sign discriminator), §69 capital selector found only by the class-level detector, §70
+  swiglu generality, §71 completeness paragraph (~11% named / ~89% unfound / 2.9x super-additive), §72 fold
+  quantification sharpening limitation 1 (generic 74% but broken +4.9 nats; fold +0.034, 140x more faithful;
+  residual genuinely quadratic; exactness bilinear-only).
+- Dispatched MLP-SUPERPOSITION rank test (subagent ac913e70a4ae63dfa, qk_mlp_superposition.py): tests whether
+  §71's "36% non-axis-aligned superposition" is genuine high-rank distribution or a top-72 cutoff artifact —
+  sweeps captured causal effect vs MLP-directions-per-block {1..64}, reports effective rank (dirs for 50/80/90%)
+  + SVD-vs-random. Sharpens/corrects the §71 superposition framing. Collect next tick.
+- Cron 172134ae expires ~2026-08-06 — re-arm before then and tell Logan.
