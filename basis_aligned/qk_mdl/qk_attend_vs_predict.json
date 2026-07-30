@@ -1,0 +1,434 @@
+{
+  "cluster": [
+    [
+      0,
+      8
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      2,
+      1
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      3,
+      2
+    ],
+    [
+      3,
+      5
+    ],
+    [
+      3,
+      8
+    ],
+    [
+      5,
+      5
+    ],
+    [
+      6,
+      2
+    ],
+    [
+      6,
+      5
+    ],
+    [
+      7,
+      3
+    ],
+    [
+      8,
+      6
+    ],
+    [
+      9,
+      8
+    ],
+    [
+      10,
+      6
+    ],
+    [
+      11,
+      2
+    ],
+    [
+      11,
+      4
+    ],
+    [
+      12,
+      6
+    ],
+    [
+      13,
+      2
+    ],
+    [
+      13,
+      8
+    ],
+    [
+      14,
+      1
+    ],
+    [
+      14,
+      6
+    ],
+    [
+      15,
+      3
+    ],
+    [
+      15,
+      4
+    ],
+    [
+      16,
+      0
+    ],
+    [
+      16,
+      1
+    ],
+    [
+      16,
+      4
+    ],
+    [
+      16,
+      5
+    ]
+  ],
+  "base": {
+    "subword": 2.294502019882202,
+    "punct": 1.7670027017593384,
+    "capital": 5.702321529388428,
+    "digit": 4.446075439453125,
+    "newline": 1.1612423658370972,
+    "funcword": 2.1325581073760986,
+    "natural": 3.494577646255493
+  },
+  "base_induction": 3.0551645755767822,
+  "single_L0H8": {
+    "subword": 0.00283,
+    "punct": 0.00416,
+    "capital": 0.00709,
+    "digit": 0.00053,
+    "newline": -0.00487,
+    "funcword": 0.00544,
+    "natural": 0.00526,
+    "induction_drop": -0.0122
+  },
+  "single_L1H3": {
+    "subword": 0.0101,
+    "punct": 0.00741,
+    "capital": 0.02272,
+    "digit": 0.00129,
+    "newline": 0.00183,
+    "funcword": 0.00381,
+    "natural": 0.00997,
+    "induction_drop": -0.023
+  },
+  "single_L1H4": {
+    "subword": 0.01052,
+    "punct": 0.00476,
+    "capital": 0.00441,
+    "digit": 0.01811,
+    "newline": -0.00314,
+    "funcword": 0.01151,
+    "natural": 0.0108,
+    "induction_drop": -0.0154
+  },
+  "single_L1H7": {
+    "subword": 0.00232,
+    "punct": 0.00106,
+    "capital": 0.00683,
+    "digit": 0.00343,
+    "newline": 0.00582,
+    "funcword": 0.0024,
+    "natural": 0.00372,
+    "induction_drop": -0.0103
+  },
+  "single_L2H1": {
+    "subword": -0.00068,
+    "punct": 0.00267,
+    "capital": 0.00305,
+    "digit": 0.00217,
+    "newline": 0.00023,
+    "funcword": 0.0008,
+    "natural": 0.00148,
+    "induction_drop": -0.0007
+  },
+  "single_L2H4": {
+    "subword": -0.00096,
+    "punct": 0.00136,
+    "capital": -0.00154,
+    "digit": -8e-05,
+    "newline": 0.00168,
+    "funcword": -0.00045,
+    "natural": -0.00049,
+    "induction_drop": -0.0109
+  },
+  "single_L2H5": {
+    "subword": 0.02302,
+    "punct": -0.00518,
+    "capital": 0.01092,
+    "digit": 0.02811,
+    "newline": 0.02702,
+    "funcword": 0.01079,
+    "natural": 0.01215,
+    "induction_drop": 0.5758
+  },
+  "single_L3H2": {
+    "subword": -0.00016,
+    "punct": 0.00062,
+    "capital": 0.00165,
+    "digit": -0.00022,
+    "newline": -0.00145,
+    "funcword": 0.00072,
+    "natural": 0.0003,
+    "induction_drop": -0.0057
+  },
+  "single_L3H5": {
+    "subword": -0.00106,
+    "punct": 0.00282,
+    "capital": 0.00573,
+    "digit": -0.00199,
+    "newline": 0.00417,
+    "funcword": 0.00492,
+    "natural": 0.00534,
+    "induction_drop": -0.0494
+  },
+  "single_L3H8": {
+    "subword": 0.00545,
+    "punct": 0.00175,
+    "capital": 0.00024,
+    "digit": 0.00802,
+    "newline": 0.00637,
+    "funcword": 0.00479,
+    "natural": 0.00489,
+    "induction_drop": 0.9391
+  },
+  "single_L5H5": {
+    "subword": 0.00889,
+    "punct": 0.0054,
+    "capital": 0.01151,
+    "digit": 0.01876,
+    "newline": 0.0115,
+    "funcword": 0.00511,
+    "natural": 0.00619,
+    "induction_drop": 0.0939
+  },
+  "single_L6H2": {
+    "subword": -0.00094,
+    "punct": -0.0005,
+    "capital": 0.00064,
+    "digit": -0.00102,
+    "newline": 0.00622,
+    "funcword": 0.00025,
+    "natural": 0.00025,
+    "induction_drop": -0.0003
+  },
+  "single_L6H5": {
+    "subword": -0.00259,
+    "punct": 0.01213,
+    "capital": 0.00174,
+    "digit": 0.01591,
+    "newline": 0.01951,
+    "funcword": 0.00137,
+    "natural": 0.0027,
+    "induction_drop": 0.0079
+  },
+  "single_L7H3": {
+    "subword": 0.00298,
+    "punct": 0.00306,
+    "capital": -0.00067,
+    "digit": 0.01046,
+    "newline": -0.00019,
+    "funcword": 0.00109,
+    "natural": 0.00046,
+    "induction_drop": 0.0774
+  },
+  "single_L8H6": {
+    "subword": 0.00212,
+    "punct": 0.00389,
+    "capital": 0.00324,
+    "digit": 0.00229,
+    "newline": 0.0016,
+    "funcword": -0.0,
+    "natural": 0.00124,
+    "induction_drop": 0.0106
+  },
+  "single_L9H8": {
+    "subword": -0.00032,
+    "punct": 0.00093,
+    "capital": 0.01036,
+    "digit": 0.00283,
+    "newline": 0.00269,
+    "funcword": 0.00263,
+    "natural": 0.00376,
+    "induction_drop": -0.0128
+  },
+  "single_L10H6": {
+    "subword": 0.00546,
+    "punct": -0.0011,
+    "capital": 0.00044,
+    "digit": 1e-05,
+    "newline": -0.0023,
+    "funcword": -0.00046,
+    "natural": 0.00095,
+    "induction_drop": -0.0006
+  },
+  "single_L11H2": {
+    "subword": 0.00907,
+    "punct": -0.0022,
+    "capital": -0.0006,
+    "digit": -0.00854,
+    "newline": 0.0003,
+    "funcword": -0.00223,
+    "natural": 0.01064,
+    "induction_drop": -0.0084
+  },
+  "single_L11H4": {
+    "subword": 0.00126,
+    "punct": 0.0008,
+    "capital": 0.01266,
+    "digit": 0.00114,
+    "newline": 0.00108,
+    "funcword": 0.00044,
+    "natural": 0.0016,
+    "induction_drop": -0.0013
+  },
+  "single_L12H6": {
+    "subword": -0.0003,
+    "punct": 0.01624,
+    "capital": 0.00057,
+    "digit": 0.00417,
+    "newline": 0.03452,
+    "funcword": -0.00408,
+    "natural": 0.0012,
+    "induction_drop": -0.0025
+  },
+  "single_L13H2": {
+    "subword": -0.00051,
+    "punct": -0.00137,
+    "capital": 0.00148,
+    "digit": -0.00214,
+    "newline": -0.00258,
+    "funcword": -0.00163,
+    "natural": 0.0003,
+    "induction_drop": 0.0081
+  },
+  "single_L13H8": {
+    "subword": 0.00061,
+    "punct": 0.03222,
+    "capital": -0.00422,
+    "digit": -0.00675,
+    "newline": 0.00523,
+    "funcword": -0.0001,
+    "natural": 0.00299,
+    "induction_drop": -0.0007
+  },
+  "single_L14H1": {
+    "subword": 0.00031,
+    "punct": -0.00084,
+    "capital": 0.00162,
+    "digit": -0.00197,
+    "newline": -0.00181,
+    "funcword": -0.00121,
+    "natural": 0.00099,
+    "induction_drop": 0.0055
+  },
+  "single_L14H6": {
+    "subword": 0.00031,
+    "punct": 0.0053,
+    "capital": 0.01355,
+    "digit": 0.02857,
+    "newline": -0.00565,
+    "funcword": -0.00321,
+    "natural": 0.0028,
+    "induction_drop": 0.0166
+  },
+  "single_L15H3": {
+    "subword": -0.00221,
+    "punct": -0.00038,
+    "capital": 0.01399,
+    "digit": -0.00276,
+    "newline": -0.00256,
+    "funcword": -0.00077,
+    "natural": 0.00125,
+    "induction_drop": 0.0023
+  },
+  "single_L15H4": {
+    "subword": 0.00018,
+    "punct": -0.00073,
+    "capital": 0.00648,
+    "digit": -0.00011,
+    "newline": -0.00039,
+    "funcword": -0.00095,
+    "natural": 0.00043,
+    "induction_drop": 0.0015
+  },
+  "single_L16H0": {
+    "subword": -0.00135,
+    "punct": -0.00084,
+    "capital": 0.0072,
+    "digit": -0.00483,
+    "newline": -0.00172,
+    "funcword": 9e-05,
+    "natural": 0.00107,
+    "induction_drop": 0.0027
+  },
+  "single_L16H1": {
+    "subword": 0.0004,
+    "punct": -0.00024,
+    "capital": 0.00273,
+    "digit": -0.00047,
+    "newline": -0.00073,
+    "funcword": -0.00011,
+    "natural": 0.00038,
+    "induction_drop": 0.0005
+  },
+  "single_L16H4": {
+    "subword": -0.00071,
+    "punct": -0.00081,
+    "capital": 0.00767,
+    "digit": 0.00033,
+    "newline": -0.00076,
+    "funcword": -0.00147,
+    "natural": 0.00102,
+    "induction_drop": 0.0035
+  },
+  "single_L16H5": {
+    "subword": 0.00011,
+    "punct": -0.0003,
+    "capital": 0.00925,
+    "digit": -0.00382,
+    "newline": -0.00231,
+    "funcword": -0.00144,
+    "natural": 0.00026,
+    "induction_drop": 0.002
+  }
+}
