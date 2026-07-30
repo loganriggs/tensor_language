@@ -3586,3 +3586,32 @@ structure is feed-forward-builds-features-that-heads-read, plus rare QK-steering
 boundary head's attention). This closes the unsupervised-discovery arc (§56 single-path + §57 compositional):
 following the decomposition's paths yields real algorithms; the single-step ones are class-boost heads, the
 two-step ones are feed-forward→head feature-building with rare head→head attention-steering.
+
+## §58 Auto-clustered circuit taxonomy — 12 families + the tool-gap map (2026-07-30)
+(qk_unsup_cluster.py; Ward-agglomerative on trigger+current+output token-class signatures over all 234
+§56 discovered paths; k=12 chosen as the smallest k separating all 5 verified circuits) A model-wide
+taxonomy of bilin18's circuit types:
+| family | trigger→output | examples | count | verified |
+|---|---|---|---|---|
+| delimiter/bracket/quote router | opening `([\"` → matching closer (type-match) | h.L13.8, h.L6.7, h.L4.0 | 7 | h.L13.8 ✓ |
+| coordination/list-continuation | `,`/`and` → next coordinator/enumeration | h.L3.3, h.L17.8 | 33 | h.L3.3 ✓ |
+| structure/newline/line-boundary | prev `\n` → `\n`/structural | h.L1.0/1.2/0.2, h.L8.2 | 21 | h.L8.2 ✓ |
+| punctuation-position feature-builder (+sentence-boundary) | `.`/`\n` → discourse-opener/diffuse | h.L6.0, mlp.L11/12 | 27 | h.L6.0 ✓ |
+| mixed/diffuse (function-word/punct) | `.`/` to`/` of` → mostly no clean output | h.L9.6, h.L5.0, mlp.L1.d3 | 84 | h.L9.6 ✓ (hidden in bucket) |
+| capitalization/proper-noun (early/late/year) | proper nouns/years | c9/c0/c11 | 37 | — |
+| numeric/date/table | day/date numbers → number | h.L8.3, h.L8.7 | 3 | (h.L8.3 control) |
+| byte-fragment/UTF-8 artifact | `"`/U+FFFD → junk | h.L10.7, h.L13.3 | 6 | artifact |
+| FF capitalization/sentence-start builder | (pure MLP) → ` It`/` The`/` They` | mlp.L0.d2, mlp.L16.d1 | 15 | — |
+**Layer organization:** early (0–5) = capitalization/proper-noun + structure detection; MID (6–11) = the
+functional core (routers, feature-builders, numeric, the diffuse majority — all 5 verified circuits except
+the early newline head sit mid-stack); late (12–17) = late-capitalization + feed-forward sentence-start
+surface-shaping. **The 84-member diffuse bucket is itself a finding:** the verified sentence→pronoun head
+h.L9.6 is class-signature-indistinguishable from the diffuse majority — a ceiling of the coarse featurization.
+**TOOL-GAP MAP (which circuit TYPES the §56/§57 tools miss → drives new tools):** (1) copy/induction —
+class-boost scores a FIXED direction, misses "boost whatever you attended" (need attended-source-in-output
+metric); (2) suppression/anti-copy — effect-purity ranks only POSITIVE logits (need signed ranking); (3)
+positional/structural heads — route by position/line-structure not content class (need position-vs-content
+probe); (4) redundant/distributed heads — clean trigger but dCE≈0 in isolation because duplicated (need
+greedy JOINT/subset ablation — the proxy's main documented failure); (5) byte-fragment artifacts — need a
+PRE-FILTER not a detector; (6) trigger-genuine/output-diffuse feature-builders — need to DECOUPLE
+trigger-verification from output-verification (a valid detector needn't have a clean output algorithm).

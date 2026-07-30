@@ -1,0 +1,4559 @@
+{
+ "meta": {
+  "model": "bilin18",
+  "n_paths": 234,
+  "n_features": 53,
+  "feature_names": [
+   "src_newline",
+   "src_punct",
+   "src_delimiter",
+   "src_delim_open",
+   "src_delim_close",
+   "src_quote",
+   "src_coordinator",
+   "src_determiner",
+   "src_pronoun",
+   "src_digit",
+   "src_capital",
+   "src_proper_noun",
+   "src_subword",
+   "src_bytefrag",
+   "src_table_delim",
+   "cur_newline",
+   "cur_punct",
+   "cur_delimiter",
+   "cur_delim_open",
+   "cur_delim_close",
+   "cur_quote",
+   "cur_coordinator",
+   "cur_determiner",
+   "cur_pronoun",
+   "cur_digit",
+   "cur_capital",
+   "cur_proper_noun",
+   "cur_subword",
+   "cur_bytefrag",
+   "cur_table_delim",
+   "boost_newline",
+   "boost_punct",
+   "boost_delimiter",
+   "boost_delim_open",
+   "boost_delim_close",
+   "boost_quote",
+   "boost_coordinator",
+   "boost_determiner",
+   "boost_pronoun",
+   "boost_digit",
+   "boost_capital",
+   "boost_proper_noun",
+   "boost_subword",
+   "boost_bytefrag",
+   "boost_table_delim",
+   "layer_norm",
+   "is_head",
+   "trigger_purity",
+   "src_purity",
+   "cur_purity",
+   "effect_purity",
+   "cleanliness",
+   "mag_resid_frac"
+  ],
+  "cluster_algo": "AgglomerativeClustering(ward) on StandardScaled features",
+  "k_chosen": 12,
+  "silhouette": 0.075,
+  "verification_sources": [
+   "qk_unsup_verify.json",
+   "qk_unsup_verify2.json"
+  ],
+  "note": "richer trigger/output classes (delimiter/bracket/quote/coordinator/determiner/pronoun/proper-noun/subword/bytefrag) derived lexically from decoded gpt2 token strings; JSON only carried 5 coarse classes.",
+  "silhouette_by_k": {
+   "9": {
+    "sil": 0.093,
+    "verified_separated": "4/5",
+    "max_cluster": 117
+   },
+   "10": {
+    "sil": 0.086,
+    "verified_separated": "4/5",
+    "max_cluster": 117
+   },
+   "11": {
+    "sil": 0.067,
+    "verified_separated": "5/5",
+    "max_cluster": 84
+   },
+   "12": {
+    "sil": 0.075,
+    "verified_separated": "5/5",
+    "max_cluster": 84
+   },
+   "13": {
+    "sil": 0.08,
+    "verified_separated": "5/5",
+    "max_cluster": 84
+   },
+   "14": {
+    "sil": 0.083,
+    "verified_separated": "5/5",
+    "max_cluster": 84
+   },
+   "15": {
+    "sil": 0.084,
+    "verified_separated": "5/5",
+    "max_cluster": 75
+   },
+   "16": {
+    "sil": 0.087,
+    "verified_separated": "5/5",
+    "max_cluster": 75
+   }
+  }
+ },
+ "clusters": {
+  "0": {
+   "n": 22,
+   "kinds": {
+    "head": 22
+   },
+   "layer_min": 1,
+   "layer_max": 17,
+   "layer_mean": 11.6,
+   "layer_median": 14,
+   "status_counts": {
+    "DISCOVERED": 21,
+    "ARTIFACT": 1
+   },
+   "src_class_top": [
+    [
+     "space_pref",
+     0.71
+    ],
+    [
+     "capital",
+     0.641
+    ],
+    [
+     "proper_noun",
+     0.453
+    ],
+    [
+     "punct",
+     0.121
+    ],
+    [
+     "digit",
+     0.068
+    ]
+   ],
+   "cur_class_top": [
+    [
+     "punct",
+     0.631
+    ],
+    [
+     "space_pref",
+     0.385
+    ],
+    [
+     "delimiter",
+     0.124
+    ],
+    [
+     "delim_open",
+     0.121
+    ],
+    [
+     "newline",
+     0.113
+    ]
+   ],
+   "boost_class_top": [
+    [
+     "space_pref",
+     0.818
+    ],
+    [
+     "capital",
+     0.483
+    ],
+    [
+     "proper_noun",
+     0.386
+    ],
+    [
+     "subword",
+     0.097
+    ],
+    [
+     "punct",
+     0.04
+    ]
+   ],
+   "src_tokens_top": [
+    [
+     "Abyss",
+     4
+    ],
+    [
+     " (",
+     4
+    ],
+    [
+     " Abyss",
+     3
+    ],
+    [
+     "\n",
+     3
+    ],
+    [
+     " Poland",
+     2
+    ],
+    [
+     " R",
+     2
+    ],
+    [
+     "May",
+     2
+    ],
+    [
+     " Search",
+     2
+    ]
+   ],
+   "cur_tokens_top": [
+    [
+     ".",
+     17
+    ],
+    [
+     ",",
+     12
+    ],
+    [
+     "\n",
+     10
+    ],
+    [
+     " the",
+     7
+    ],
+    [
+     " (",
+     6
+    ],
+    [
+     " -",
+     5
+    ],
+    [
+     " of",
+     4
+    ],
+    [
+     "-",
+     3
+    ]
+   ],
+   "boost_tokens_top": [
+    [
+     " Poland",
+     3
+    ],
+    [
+     " Abyss",
+     2
+    ],
+    [
+     " R",
+     2
+    ],
+    [
+     "R",
+     2
+    ],
+    [
+     " N",
+     2
+    ],
+    [
+     " online",
+     2
+    ],
+    [
+     "Ukraine",
+     2
+    ],
+    [
+     "Abyss",
+     1
+    ]
+   ],
+   "verified_members": [],
+   "artifact_members": [
+    "h.L7.3"
+   ],
+   "example_comps": [
+    "h.L14.4",
+    "h.L15.3",
+    "h.L7.3",
+    "h.L8.6",
+    "h.L12.7",
+    "h.L13.5",
+    "h.L7.4",
+    "h.L16.0"
+   ],
+   "family_label": "Capitalization / proper-noun head"
+  },
+  "1": {
+   "n": 27,
+   "kinds": {
+    "head": 8,
+    "mlp": 19
+   },
+   "layer_min": 2,
+   "layer_max": 16,
+   "layer_mean": 7.1,
+   "layer_median": 7,
+   "status_counts": {
+    "VERIFIED": 1,
+    "DISCOVERED": 26
+   },
+   "src_class_top": [
+    [
+     "punct",
+     0.101
+    ],
+    [
+     "space_pref",
+     0.086
+    ],
+    [
+     "subword",
+     0.06
+    ],
+    [
+     "capital",
+     0.046
+    ],
+    [
+     "determiner",
+     0.027
+    ]
+   ],
+   "cur_class_top": [
+    [
+     "punct",
+     0.356
+    ],
+    [
+     "subword",
+     0.232
+    ],
+    [
+     "space_pref",
+     0.196
+    ],
+    [
+     "newline",
+     0.149
+    ],
+    [
+     "capital",
+     0.094
+    ]
+   ],
+   "boost_class_top": [
+    [
+     "space_pref",
+     0.648
+    ],
+    [
+     "punct",
+     0.352
+    ],
+    [
+     "coordinator",
+     0.264
+    ],
+    [
+     "delimiter",
+     0.088
+    ],
+    [
+     "delim_open",
+     0.083
+    ]
+   ],
+   "src_tokens_top": [
+    [
+     ".",
+     4
+    ],
+    [
+     "\n",
+     3
+    ],
+    [
+     ",",
+     2
+    ],
+    [
+     "\ufffd",
+     2
+    ],
+    [
+     " for",
+     2
+    ],
+    [
+     " that",
+     1
+    ],
+    [
+     ";",
+     1
+    ],
+    [
+     "Figure",
+     1
+    ]
+   ],
+   "cur_tokens_top": [
+    [
+     ".",
+     17
+    ],
+    [
+     "\n",
+     12
+    ],
+    [
+     "?",
+     5
+    ],
+    [
+     ",",
+     4
+    ],
+    [
+     "ers",
+     4
+    ],
+    [
+     ";",
+     3
+    ],
+    [
+     ").",
+     3
+    ],
+    [
+     ":",
+     3
+    ]
+   ],
+   "boost_tokens_top": [
+    [
+     " and",
+     21
+    ],
+    [
+     " (",
+     18
+    ],
+    [
+     ",",
+     18
+    ],
+    [
+     " in",
+     13
+    ],
+    [
+     "-",
+     13
+    ],
+    [
+     "\n",
+     11
+    ],
+    [
+     " or",
+     9
+    ],
+    [
+     ".",
+     8
+    ]
+   ],
+   "verified_members": [
+    "h.L6.0"
+   ],
+   "artifact_members": [],
+   "example_comps": [
+    "h.L6.0",
+    "mlp.L11.d0",
+    "mlp.L12.d0",
+    "mlp.L15.d3",
+    "mlp.L7.d0",
+    "h.L6.1",
+    "mlp.L9.d0",
+    "mlp.L7.d2"
+   ],
+   "family_label": "FF punctuation/structure-position feature-builder"
+  },
+  "2": {
+   "n": 84,
+   "kinds": {
+    "mlp": 33,
+    "head": 51
+   },
+   "layer_min": 0,
+   "layer_max": 17,
+   "layer_mean": 8.2,
+   "layer_median": 9,
+   "status_counts": {
+    "DISCOVERED-TESTED-WEAK": 1,
+    "ARTIFACT": 3,
+    "DISCOVERED": 79,
+    "VERIFIED": 1
+   },
+   "src_class_top": [
+    [
+     "space_pref",
+     0.411
+    ],
+    [
+     "punct",
+     0.096
+    ],
+    [
+     "capital",
+     0.054
+    ],
+    [
+     "subword",
+     0.052
+    ],
+    [
+     "proper_noun",
+     0.032
+    ]
+   ],
+   "cur_class_top": [
+    [
+     "space_pref",
+     0.505
+    ],
+    [
+     "punct",
+     0.392
+    ],
+    [
+     "determiner",
+     0.131
+    ],
+    [
+     "coordinator",
+     0.126
+    ],
+    [
+     "newline",
+     0.062
+    ]
+   ],
+   "boost_class_top": [
+    [
+     "space_pref",
+     0.713
+    ],
+    [
+     "capital",
+     0.153
+    ],
+    [
+     "subword",
+     0.129
+    ],
+    [
+     "proper_noun",
+     0.077
+    ],
+    [
+     "determiner",
+     0.077
+    ]
+   ],
+   "src_tokens_top": [
+    [
+     ".",
+     14
+    ],
+    [
+     " to",
+     9
+    ],
+    [
+     " for",
+     7
+    ],
+    [
+     " of",
+     6
+    ],
+    [
+     "\n",
+     5
+    ],
+    [
+     " in",
+     5
+    ],
+    [
+     " and",
+     4
+    ],
+    [
+     ",",
+     4
+    ]
+   ],
+   "cur_tokens_top": [
+    [
+     ".",
+     44
+    ],
+    [
+     ",",
+     31
+    ],
+    [
+     " of",
+     25
+    ],
+    [
+     "\n",
+     25
+    ],
+    [
+     " the",
+     17
+    ],
+    [
+     "-",
+     15
+    ],
+    [
+     " and",
+     13
+    ],
+    [
+     " to",
+     12
+    ]
+   ],
+   "boost_tokens_top": [
+    [
+     "\ufffd",
+     12
+    ],
+    [
+     " the",
+     12
+    ],
+    [
+     " in",
+     9
+    ],
+    [
+     ".",
+     8
+    ],
+    [
+     ",",
+     8
+    ],
+    [
+     "\n",
+     7
+    ],
+    [
+     " a",
+     7
+    ],
+    [
+     " (",
+     6
+    ]
+   ],
+   "verified_members": [
+    "h.L9.6"
+   ],
+   "artifact_members": [
+    "mlp.L0.d1",
+    "h.L10.6",
+    "mlp.L1.d2"
+   ],
+   "example_comps": [
+    "mlp.L1.d3",
+    "mlp.L0.d1",
+    "h.L5.0",
+    "h.L15.2",
+    "h.L5.4",
+    "mlp.L5.d2",
+    "mlp.L6.d2",
+    "h.L1.3"
+   ],
+   "family_label": "Mixed / diffuse head (function-word / punctuation current-token)"
+  },
+  "3": {
+   "n": 21,
+   "kinds": {
+    "head": 21
+   },
+   "layer_min": 0,
+   "layer_max": 16,
+   "layer_mean": 4.7,
+   "layer_median": 3,
+   "status_counts": {
+    "VERIFIED": 1,
+    "DISCOVERED": 17,
+    "DISCOVERED-TESTED-WEAK": 3
+   },
+   "src_class_top": [
+    [
+     "newline",
+     0.397
+    ],
+    [
+     "punct",
+     0.35
+    ],
+    [
+     "space_pref",
+     0.224
+    ],
+    [
+     "table_delim",
+     0.114
+    ],
+    [
+     "special",
+     0.065
+    ]
+   ],
+   "cur_class_top": [
+    [
+     "punct",
+     0.391
+    ],
+    [
+     "newline",
+     0.388
+    ],
+    [
+     "space_pref",
+     0.178
+    ],
+    [
+     "determiner",
+     0.073
+    ],
+    [
+     "table_delim",
+     0.07
+    ]
+   ],
+   "boost_class_top": [
+    [
+     "space_pref",
+     0.643
+    ],
+    [
+     "punct",
+     0.274
+    ],
+    [
+     "capital",
+     0.131
+    ],
+    [
+     "subword",
+     0.125
+    ],
+    [
+     "proper_noun",
+     0.083
+    ]
+   ],
+   "src_tokens_top": [
+    [
+     "\n",
+     18
+    ],
+    [
+     ".",
+     12
+    ],
+    [
+     " -",
+     5
+    ],
+    [
+     "<|endoftext|>",
+     5
+    ],
+    [
+     "||",
+     4
+    ],
+    [
+     "-",
+     3
+    ],
+    [
+     ":",
+     3
+    ],
+    [
+     ",",
+     2
+    ]
+   ],
+   "cur_tokens_top": [
+    [
+     "\n",
+     16
+    ],
+    [
+     ".",
+     14
+    ],
+    [
+     "-",
+     5
+    ],
+    [
+     ",",
+     4
+    ],
+    [
+     " and",
+     3
+    ],
+    [
+     " of",
+     3
+    ],
+    [
+     "The",
+     3
+    ],
+    [
+     "\"",
+     3
+    ]
+   ],
+   "boost_tokens_top": [
+    [
+     "\n",
+     4
+    ],
+    [
+     "-",
+     3
+    ],
+    [
+     " this",
+     3
+    ],
+    [
+     " these",
+     3
+    ],
+    [
+     " ...",
+     3
+    ],
+    [
+     "...",
+     3
+    ],
+    [
+     " [...]",
+     3
+    ],
+    [
+     " [\u2026]",
+     3
+    ]
+   ],
+   "verified_members": [
+    "h.L8.2"
+   ],
+   "artifact_members": [],
+   "example_comps": [
+    "h.L1.0",
+    "h.L1.2",
+    "h.L0.2",
+    "h.L6.2",
+    "h.L0.5",
+    "h.L14.2",
+    "h.L0.1",
+    "h.L1.8"
+   ],
+   "family_label": "Structure / newline / line-boundary head"
+  },
+  "4": {
+   "n": 33,
+   "kinds": {
+    "head": 31,
+    "mlp": 2
+   },
+   "layer_min": 2,
+   "layer_max": 17,
+   "layer_mean": 10.6,
+   "layer_median": 11,
+   "status_counts": {
+    "VERIFIED": 1,
+    "DISCOVERED-TESTED-WEAK": 1,
+    "DISCOVERED": 31
+   },
+   "src_class_top": [
+    [
+     "space_pref",
+     0.585
+    ],
+    [
+     "punct",
+     0.268
+    ],
+    [
+     "coordinator",
+     0.237
+    ],
+    [
+     "determiner",
+     0.106
+    ],
+    [
+     "pronoun",
+     0.089
+    ]
+   ],
+   "cur_class_top": [
+    [
+     "space_pref",
+     0.663
+    ],
+    [
+     "punct",
+     0.232
+    ],
+    [
+     "coordinator",
+     0.175
+    ],
+    [
+     "pronoun",
+     0.15
+    ],
+    [
+     "determiner",
+     0.095
+    ]
+   ],
+   "boost_class_top": [
+    [
+     "space_pref",
+     0.705
+    ],
+    [
+     "punct",
+     0.155
+    ],
+    [
+     "subword",
+     0.121
+    ],
+    [
+     "capital",
+     0.114
+    ],
+    [
+     "proper_noun",
+     0.083
+    ]
+   ],
+   "src_tokens_top": [
+    [
+     ",",
+     19
+    ],
+    [
+     " and",
+     13
+    ],
+    [
+     ".",
+     11
+    ],
+    [
+     " of",
+     7
+    ],
+    [
+     " to",
+     6
+    ],
+    [
+     " the",
+     5
+    ],
+    [
+     "\n",
+     5
+    ],
+    [
+     " a",
+     4
+    ]
+   ],
+   "cur_tokens_top": [
+    [
+     ",",
+     15
+    ],
+    [
+     ".",
+     14
+    ],
+    [
+     " to",
+     10
+    ],
+    [
+     " of",
+     9
+    ],
+    [
+     " and",
+     9
+    ],
+    [
+     " a",
+     9
+    ],
+    [
+     " I",
+     7
+    ],
+    [
+     " is",
+     6
+    ]
+   ],
+   "boost_tokens_top": [
+    [
+     ",",
+     5
+    ],
+    [
+     " (",
+     4
+    ],
+    [
+     " and",
+     3
+    ],
+    [
+     " all",
+     2
+    ],
+    [
+     ".",
+     2
+    ],
+    [
+     " even",
+     2
+    ],
+    [
+     " will",
+     2
+    ],
+    [
+     " which",
+     2
+    ]
+   ],
+   "verified_members": [
+    "h.L3.3"
+   ],
+   "artifact_members": [],
+   "example_comps": [
+    "h.L3.3",
+    "h.L17.8",
+    "h.L11.1",
+    "h.L13.1",
+    "h.L11.7",
+    "h.L17.5",
+    "h.L2.8",
+    "h.L17.0"
+   ],
+   "family_label": "Coordination / list-continuation head"
+  },
+  "5": {
+   "n": 6,
+   "kinds": {
+    "head": 6
+   },
+   "layer_min": 1,
+   "layer_max": 14,
+   "layer_mean": 8.7,
+   "layer_median": 10,
+   "status_counts": {
+    "DISCOVERED": 4,
+    "DISCOVERED-TESTED-WEAK": 1,
+    "ARTIFACT": 1
+   },
+   "src_class_top": [
+    [
+     "space_pref",
+     0.474
+    ],
+    [
+     "punct",
+     0.465
+    ],
+    [
+     "delimiter",
+     0.233
+    ],
+    [
+     "quote",
+     0.233
+    ],
+    [
+     "bytefrag",
+     0.218
+    ]
+   ],
+   "cur_class_top": [
+    [
+     "punct",
+     0.724
+    ],
+    [
+     "space_pref",
+     0.201
+    ],
+    [
+     "coordinator",
+     0.105
+    ],
+    [
+     "newline",
+     0.099
+    ],
+    [
+     "delimiter",
+     0.096
+    ]
+   ],
+   "boost_class_top": [
+    [
+     "punct",
+     0.667
+    ],
+    [
+     "space_pref",
+     0.375
+    ],
+    [
+     "delimiter",
+     0.312
+    ],
+    [
+     "quote",
+     0.312
+    ],
+    [
+     "determiner",
+     0.062
+    ]
+   ],
+   "src_tokens_top": [
+    [
+     " \"",
+     4
+    ],
+    [
+     "\ufffd",
+     4
+    ],
+    [
+     "\"",
+     3
+    ],
+    [
+     "\n",
+     2
+    ],
+    [
+     " said",
+     1
+    ],
+    [
+     ",",
+     1
+    ],
+    [
+     ".",
+     1
+    ],
+    [
+     ":",
+     1
+    ]
+   ],
+   "cur_tokens_top": [
+    [
+     ".",
+     6
+    ],
+    [
+     "\n",
+     4
+    ],
+    [
+     ",",
+     2
+    ],
+    [
+     "-",
+     2
+    ],
+    [
+     " to",
+     2
+    ],
+    [
+     " \"",
+     1
+    ],
+    [
+     "\"",
+     1
+    ],
+    [
+     ".\"",
+     1
+    ]
+   ],
+   "boost_tokens_top": [
+    [
+     " ''",
+     3
+    ],
+    [
+     ".''",
+     2
+    ],
+    [
+     " '",
+     2
+    ],
+    [
+     " \"",
+     2
+    ],
+    [
+     ",''",
+     2
+    ],
+    [
+     "\",",
+     2
+    ],
+    [
+     "\"",
+     2
+    ],
+    [
+     "\ufffd",
+     2
+    ]
+   ],
+   "verified_members": [],
+   "artifact_members": [
+    "h.L10.7"
+   ],
+   "example_comps": [
+    "h.L3.2",
+    "h.L13.3",
+    "h.L1.6",
+    "h.L11.5",
+    "h.L10.7",
+    "h.L14.6"
+   ],
+   "family_label": "Byte-fragment / UTF-8 artifact head"
+  },
+  "6": {
+   "n": 15,
+   "kinds": {
+    "mlp": 15
+   },
+   "layer_min": 0,
+   "layer_max": 17,
+   "layer_mean": 13.3,
+   "layer_median": 15,
+   "status_counts": {
+    "DISCOVERED": 15
+   },
+   "src_class_top": [],
+   "cur_class_top": [
+    [
+     "punct",
+     0.55
+    ],
+    [
+     "newline",
+     0.351
+    ],
+    [
+     "space_pref",
+     0.231
+    ],
+    [
+     "table_delim",
+     0.113
+    ],
+    [
+     "delimiter",
+     0.064
+    ]
+   ],
+   "boost_class_top": [
+    [
+     "capital",
+     0.858
+    ],
+    [
+     "space_pref",
+     0.683
+    ],
+    [
+     "proper_noun",
+     0.625
+    ],
+    [
+     "determiner",
+     0.142
+    ],
+    [
+     "pronoun",
+     0.1
+    ]
+   ],
+   "src_tokens_top": [],
+   "cur_tokens_top": [
+    [
+     ".",
+     10
+    ],
+    [
+     "\n",
+     9
+    ],
+    [
+     "||",
+     7
+    ],
+    [
+     ").",
+     5
+    ],
+    [
+     "\"",
+     5
+    ],
+    [
+     " \"",
+     5
+    ],
+    [
+     " -",
+     4
+    ],
+    [
+     ":",
+     3
+    ]
+   ],
+   "boost_tokens_top": [
+    [
+     " It",
+     5
+    ],
+    [
+     " There",
+     4
+    ],
+    [
+     " The",
+     3
+    ],
+    [
+     "The",
+     3
+    ],
+    [
+     " They",
+     3
+    ],
+    [
+     " This",
+     3
+    ],
+    [
+     "In",
+     3
+    ],
+    [
+     " Unsure",
+     2
+    ]
+   ],
+   "verified_members": [],
+   "artifact_members": [],
+   "example_comps": [
+    "mlp.L0.d2",
+    "mlp.L16.d1",
+    "mlp.L12.d1",
+    "mlp.L11.d1",
+    "mlp.L15.d1",
+    "mlp.L16.d0",
+    "mlp.L9.d1",
+    "mlp.L10.d3"
+   ],
+   "family_label": "FF capitalization / sentence-start feature-builder"
+  },
+  "7": {
+   "n": 3,
+   "kinds": {
+    "head": 3
+   },
+   "layer_min": 8,
+   "layer_max": 9,
+   "layer_mean": 8.3,
+   "layer_median": 8,
+   "status_counts": {
+    "ARTIFACT": 1,
+    "DISCOVERED": 2
+   },
+   "src_class_top": [
+    [
+     "digit",
+     0.667
+    ],
+    [
+     "space_pref",
+     0.594
+    ],
+    [
+     "punct",
+     0.25
+    ],
+    [
+     "coordinator",
+     0.05
+    ]
+   ],
+   "cur_class_top": [
+    [
+     "punct",
+     0.576
+    ],
+    [
+     "space_pref",
+     0.197
+    ],
+    [
+     "capital",
+     0.189
+    ],
+    [
+     "coordinator",
+     0.165
+    ],
+    [
+     "table_delim",
+     0.113
+    ]
+   ],
+   "boost_class_top": [
+    [
+     "digit",
+     1.0
+    ],
+    [
+     "space_pref",
+     0.958
+    ]
+   ],
+   "src_tokens_top": [
+    [
+     " 17",
+     1
+    ],
+    [
+     " 11",
+     1
+    ],
+    [
+     " 15",
+     1
+    ],
+    [
+     " 25",
+     1
+    ],
+    [
+     " 26",
+     1
+    ],
+    [
+     "3",
+     1
+    ],
+    [
+     "1",
+     1
+    ],
+    [
+     " 9",
+     1
+    ]
+   ],
+   "cur_tokens_top": [
+    [
+     ".",
+     3
+    ],
+    [
+     "-",
+     2
+    ],
+    [
+     " and",
+     2
+    ],
+    [
+     "May",
+     1
+    ],
+    [
+     "July",
+     1
+    ],
+    [
+     "March",
+     1
+    ],
+    [
+     " to",
+     1
+    ],
+    [
+     "\n",
+     1
+    ]
+   ],
+   "boost_tokens_top": [
+    [
+     " 12",
+     2
+    ],
+    [
+     " 8",
+     2
+    ],
+    [
+     " 17",
+     1
+    ],
+    [
+     " 18",
+     1
+    ],
+    [
+     " 15",
+     1
+    ],
+    [
+     " 13",
+     1
+    ],
+    [
+     " 14",
+     1
+    ],
+    [
+     " 16",
+     1
+    ]
+   ],
+   "verified_members": [],
+   "artifact_members": [
+    "h.L8.3"
+   ],
+   "example_comps": [
+    "h.L8.3",
+    "h.L8.7",
+    "h.L9.0"
+   ],
+   "family_label": "Numeric / date / table head"
+  },
+  "8": {
+   "n": 1,
+   "kinds": {
+    "head": 1
+   },
+   "layer_min": 7,
+   "layer_max": 7,
+   "layer_mean": 7.0,
+   "layer_median": 7,
+   "status_counts": {
+    "DISCOVERED": 1
+   },
+   "src_class_top": [
+    [
+     "delimiter",
+     0.837
+    ],
+    [
+     "punct",
+     0.837
+    ],
+    [
+     "delim_close",
+     0.512
+    ],
+    [
+     "space_pref",
+     0.442
+    ],
+    [
+     "delim_open",
+     0.326
+    ]
+   ],
+   "cur_class_top": [
+    [
+     "delimiter",
+     0.676
+    ],
+    [
+     "space_pref",
+     0.676
+    ],
+    [
+     "delim_open",
+     0.676
+    ],
+    [
+     "punct",
+     0.676
+    ],
+    [
+     "capital",
+     0.176
+    ]
+   ],
+   "boost_class_top": [
+    [
+     "subword",
+     0.875
+    ],
+    [
+     "delimiter",
+     0.125
+    ],
+    [
+     "space_pref",
+     0.125
+    ],
+    [
+     "punct",
+     0.125
+    ],
+    [
+     "quote",
+     0.125
+    ]
+   ],
+   "src_tokens_top": [
+    [
+     ")",
+     1
+    ],
+    [
+     " (",
+     1
+    ],
+    [
+     " to",
+     1
+    ],
+    [
+     " 2005",
+     1
+    ],
+    [
+     "Feb",
+     1
+    ]
+   ],
+   "cur_tokens_top": [
+    [
+     " (",
+     1
+    ],
+    [
+     "May",
+     1
+    ],
+    [
+     "\n",
+     1
+    ],
+    [
+     "berg",
+     1
+    ],
+    [
+     "April",
+     1
+    ]
+   ],
+   "boost_tokens_top": [
+    [
+     "cies",
+     1
+    ],
+    [
+     "ossus",
+     1
+    ],
+    [
+     "imgur",
+     1
+    ],
+    [
+     "oub",
+     1
+    ],
+    [
+     "abad",
+     1
+    ],
+    [
+     " '",
+     1
+    ],
+    [
+     "obb",
+     1
+    ],
+    [
+     "detail",
+     1
+    ]
+   ],
+   "verified_members": [],
+   "artifact_members": [],
+   "example_comps": [
+    "h.L7.6"
+   ],
+   "family_label": "Delimiter / bracket / quote router"
+  },
+  "9": {
+   "n": 11,
+   "kinds": {
+    "mlp": 3,
+    "head": 8
+   },
+   "layer_min": 0,
+   "layer_max": 6,
+   "layer_mean": 2.4,
+   "layer_median": 2,
+   "status_counts": {
+    "DISCOVERED": 11
+   },
+   "src_class_top": [
+    [
+     "capital",
+     0.473
+    ],
+    [
+     "space_pref",
+     0.459
+    ],
+    [
+     "proper_noun",
+     0.3
+    ],
+    [
+     "punct",
+     0.057
+    ],
+    [
+     "digit",
+     0.051
+    ]
+   ],
+   "cur_class_top": [
+    [
+     "capital",
+     0.768
+    ],
+    [
+     "space_pref",
+     0.688
+    ],
+    [
+     "proper_noun",
+     0.479
+    ],
+    [
+     "determiner",
+     0.107
+    ],
+    [
+     "punct",
+     0.097
+    ]
+   ],
+   "boost_class_top": [
+    [
+     "space_pref",
+     0.625
+    ],
+    [
+     "punct",
+     0.25
+    ],
+    [
+     "coordinator",
+     0.205
+    ],
+    [
+     "subword",
+     0.091
+    ],
+    [
+     "table_delim",
+     0.057
+    ]
+   ],
+   "src_tokens_top": [
+    [
+     " Facebook",
+     2
+    ],
+    [
+     ".",
+     2
+    ],
+    [
+     "David",
+     2
+    ],
+    [
+     " Wednesday",
+     1
+    ],
+    [
+     "Rec",
+     1
+    ],
+    [
+     ":",
+     1
+    ],
+    [
+     " 15",
+     1
+    ],
+    [
+     " 13",
+     1
+    ]
+   ],
+   "cur_tokens_top": [
+    [
+     " Facebook",
+     3
+    ],
+    [
+     "The",
+     2
+    ],
+    [
+     ",",
+     2
+    ],
+    [
+     " Fried",
+     2
+    ],
+    [
+     " R",
+     2
+    ],
+    [
+     "David",
+     2
+    ],
+    [
+     " The",
+     1
+    ],
+    [
+     " Corporation",
+     1
+    ]
+   ],
+   "boost_tokens_top": [
+    [
+     " and",
+     7
+    ],
+    [
+     "-",
+     5
+    ],
+    [
+     ",",
+     5
+    ],
+    [
+     " (",
+     4
+    ],
+    [
+     ".",
+     4
+    ],
+    [
+     " in",
+     3
+    ],
+    [
+     " all",
+     3
+    ],
+    [
+     " or",
+     3
+    ]
+   ],
+   "verified_members": [],
+   "artifact_members": [],
+   "example_comps": [
+    "mlp.L0.d3",
+    "h.L5.7",
+    "h.L3.1",
+    "mlp.L0.d0",
+    "h.L0.0",
+    "h.L2.5",
+    "h.L5.2",
+    "h.L1.4"
+   ],
+   "family_label": "Capitalization / proper-noun head"
+  },
+  "10": {
+   "n": 7,
+   "kinds": {
+    "head": 7
+   },
+   "layer_min": 4,
+   "layer_max": 13,
+   "layer_mean": 8.3,
+   "layer_median": 6,
+   "status_counts": {
+    "DISCOVERED-TESTED-WEAK": 2,
+    "DISCOVERED": 4,
+    "VERIFIED": 1
+   },
+   "src_class_top": [
+    [
+     "punct",
+     0.706
+    ],
+    [
+     "space_pref",
+     0.567
+    ],
+    [
+     "delimiter",
+     0.409
+    ],
+    [
+     "delim_open",
+     0.355
+    ],
+    [
+     "capital",
+     0.135
+    ]
+   ],
+   "cur_class_top": [
+    [
+     "space_pref",
+     0.411
+    ],
+    [
+     "punct",
+     0.254
+    ],
+    [
+     "subword",
+     0.167
+    ],
+    [
+     "digit",
+     0.156
+    ],
+    [
+     "newline",
+     0.132
+    ]
+   ],
+   "boost_class_top": [
+    [
+     "punct",
+     0.75
+    ],
+    [
+     "space_pref",
+     0.446
+    ],
+    [
+     "delimiter",
+     0.304
+    ],
+    [
+     "delim_open",
+     0.179
+    ],
+    [
+     "delim_close",
+     0.107
+    ]
+   ],
+   "src_tokens_top": [
+    [
+     " (",
+     6
+    ],
+    [
+     "-",
+     3
+    ],
+    [
+     "June",
+     2
+    ],
+    [
+     ",",
+     2
+    ],
+    [
+     ".",
+     2
+    ],
+    [
+     "\n",
+     2
+    ],
+    [
+     "/",
+     2
+    ],
+    [
+     " Insider",
+     1
+    ]
+   ],
+   "cur_tokens_top": [
+    [
+     ".",
+     3
+    ],
+    [
+     "\n",
+     2
+    ],
+    [
+     " (",
+     2
+    ],
+    [
+     " to",
+     2
+    ],
+    [
+     "ad",
+     2
+    ],
+    [
+     ",",
+     1
+    ],
+    [
+     ":",
+     1
+    ],
+    [
+     " 2012",
+     1
+    ]
+   ],
+   "boost_tokens_top": [
+    [
+     " (",
+     4
+    ],
+    [
+     ")",
+     4
+    ],
+    [
+     " [",
+     3
+    ],
+    [
+     "):",
+     2
+    ],
+    [
+     ")|",
+     2
+    ],
+    [
+     "(",
+     2
+    ],
+    [
+     "-",
+     2
+    ],
+    [
+     "\n",
+     2
+    ]
+   ],
+   "verified_members": [
+    "h.L13.8"
+   ],
+   "artifact_members": [],
+   "example_comps": [
+    "h.L6.7",
+    "h.L13.8",
+    "h.L4.0",
+    "h.L6.5",
+    "h.L6.6",
+    "h.L12.6",
+    "h.L11.0"
+   ],
+   "family_label": "Delimiter / bracket / quote router"
+  },
+  "11": {
+   "n": 4,
+   "kinds": {
+    "head": 4
+   },
+   "layer_min": 4,
+   "layer_max": 16,
+   "layer_mean": 9.8,
+   "layer_median": 9,
+   "status_counts": {
+    "ARTIFACT": 1,
+    "DISCOVERED": 3
+   },
+   "src_class_top": [
+    [
+     "space_pref",
+     0.879
+    ],
+    [
+     "capital",
+     0.177
+    ],
+    [
+     "proper_noun",
+     0.165
+    ],
+    [
+     "digit",
+     0.152
+    ],
+    [
+     "punct",
+     0.126
+    ]
+   ],
+   "cur_class_top": [
+    [
+     "punct",
+     0.514
+    ],
+    [
+     "space_pref",
+     0.282
+    ],
+    [
+     "coordinator",
+     0.266
+    ],
+    [
+     "delimiter",
+     0.192
+    ],
+    [
+     "delim_close",
+     0.192
+    ]
+   ],
+   "boost_class_top": [
+    [
+     "space_pref",
+     0.781
+    ],
+    [
+     "capital",
+     0.125
+    ],
+    [
+     "subword",
+     0.125
+    ],
+    [
+     "digit",
+     0.062
+    ],
+    [
+     "punct",
+     0.062
+    ]
+   ],
+   "src_tokens_top": [
+    [
+     " 2012",
+     1
+    ],
+    [
+     " -",
+     1
+    ],
+    [
+     " 2013",
+     1
+    ],
+    [
+     "URL",
+     1
+    ],
+    [
+     "go",
+     1
+    ],
+    [
+     " information",
+     1
+    ],
+    [
+     " people",
+     1
+    ],
+    [
+     " that",
+     1
+    ]
+   ],
+   "cur_tokens_top": [
+    [
+     ")",
+     4
+    ],
+    [
+     ",",
+     2
+    ],
+    [
+     "y",
+     1
+    ],
+    [
+     "\n",
+     1
+    ],
+    [
+     "|",
+     1
+    ],
+    [
+     "-",
+     1
+    ],
+    [
+     "v",
+     1
+    ],
+    [
+     " 2",
+     1
+    ]
+   ],
+   "boost_tokens_top": [
+    [
+     " 2012",
+     1
+    ],
+    [
+     " -",
+     1
+    ],
+    [
+     "2012",
+     1
+    ],
+    [
+     " \u2013",
+     1
+    ],
+    [
+     " posted",
+     1
+    ],
+    [
+     " pun",
+     1
+    ],
+    [
+     " Watch",
+     1
+    ],
+    [
+     "Pal",
+     1
+    ]
+   ],
+   "verified_members": [],
+   "artifact_members": [
+    "h.L8.4"
+   ],
+   "example_comps": [
+    "h.L8.4",
+    "h.L16.7",
+    "h.L11.3",
+    "h.L4.7"
+   ],
+   "family_label": "Capitalization / proper-noun head"
+  }
+ },
+ "taxonomy_table": [
+  {
+   "cluster": 9,
+   "family": "Capitalization / proper-noun head",
+   "trigger_src": [
+    "capital",
+    "space_pref",
+    "proper_noun"
+   ],
+   "trigger_cur": [
+    "capital",
+    "space_pref",
+    "proper_noun"
+   ],
+   "output_top_classes": [
+    "space_pref",
+    "punct",
+    "coordinator"
+   ],
+   "output_mode": "class-boost (unverified)",
+   "example_heads": [
+    "mlp.L0.d3",
+    "h.L5.7",
+    "h.L3.1",
+    "mlp.L0.d0",
+    "h.L0.0"
+   ],
+   "count": 11,
+   "n_verified": 0,
+   "n_artifact": 0,
+   "layer_span": [
+    0,
+    6
+   ],
+   "layer_mean": 2.4
+  },
+  {
+   "cluster": 3,
+   "family": "Structure / newline / line-boundary head",
+   "trigger_src": [
+    "newline",
+    "punct",
+    "space_pref"
+   ],
+   "trigger_cur": [
+    "punct",
+    "newline",
+    "space_pref"
+   ],
+   "output_top_classes": [
+    "space_pref",
+    "punct",
+    "capital"
+   ],
+   "output_mode": "class-boost",
+   "example_heads": [
+    "h.L1.0",
+    "h.L1.2",
+    "h.L0.2",
+    "h.L6.2",
+    "h.L0.5"
+   ],
+   "count": 21,
+   "n_verified": 1,
+   "n_artifact": 0,
+   "layer_span": [
+    0,
+    16
+   ],
+   "layer_mean": 4.7
+  },
+  {
+   "cluster": 8,
+   "family": "Delimiter / bracket / quote router",
+   "trigger_src": [
+    "delimiter",
+    "punct",
+    "delim_close"
+   ],
+   "trigger_cur": [
+    "delimiter",
+    "space_pref",
+    "delim_open"
+   ],
+   "output_top_classes": [
+    "subword",
+    "delimiter",
+    "space_pref"
+   ],
+   "output_mode": "class-boost (unverified)",
+   "example_heads": [
+    "h.L7.6"
+   ],
+   "count": 1,
+   "n_verified": 0,
+   "n_artifact": 0,
+   "layer_span": [
+    7,
+    7
+   ],
+   "layer_mean": 7.0
+  },
+  {
+   "cluster": 1,
+   "family": "FF punctuation/structure-position feature-builder",
+   "trigger_src": [
+    "punct",
+    "space_pref",
+    "subword"
+   ],
+   "trigger_cur": [
+    "punct",
+    "subword",
+    "space_pref"
+   ],
+   "output_top_classes": [
+    "space_pref",
+    "punct",
+    "coordinator"
+   ],
+   "output_mode": "class-boost",
+   "example_heads": [
+    "h.L6.0",
+    "mlp.L11.d0",
+    "mlp.L12.d0",
+    "mlp.L15.d3",
+    "mlp.L7.d0"
+   ],
+   "count": 27,
+   "n_verified": 1,
+   "n_artifact": 0,
+   "layer_span": [
+    2,
+    16
+   ],
+   "layer_mean": 7.1
+  },
+  {
+   "cluster": 2,
+   "family": "Mixed / diffuse head (function-word / punctuation current-token)",
+   "trigger_src": [
+    "space_pref",
+    "punct",
+    "capital"
+   ],
+   "trigger_cur": [
+    "space_pref",
+    "punct",
+    "determiner"
+   ],
+   "output_top_classes": [
+    "space_pref",
+    "capital",
+    "subword"
+   ],
+   "output_mode": "class-boost",
+   "example_heads": [
+    "mlp.L1.d3",
+    "mlp.L0.d1",
+    "h.L5.0",
+    "h.L15.2",
+    "h.L5.4"
+   ],
+   "count": 84,
+   "n_verified": 1,
+   "n_artifact": 3,
+   "layer_span": [
+    0,
+    17
+   ],
+   "layer_mean": 8.2
+  },
+  {
+   "cluster": 7,
+   "family": "Numeric / date / table head",
+   "trigger_src": [
+    "digit",
+    "space_pref",
+    "punct"
+   ],
+   "trigger_cur": [
+    "punct",
+    "space_pref",
+    "capital"
+   ],
+   "output_top_classes": [
+    "digit",
+    "space_pref"
+   ],
+   "output_mode": "class-boost (unverified)",
+   "example_heads": [
+    "h.L8.3",
+    "h.L8.7",
+    "h.L9.0"
+   ],
+   "count": 3,
+   "n_verified": 0,
+   "n_artifact": 1,
+   "layer_span": [
+    8,
+    9
+   ],
+   "layer_mean": 8.3
+  },
+  {
+   "cluster": 10,
+   "family": "Delimiter / bracket / quote router",
+   "trigger_src": [
+    "punct",
+    "space_pref",
+    "delimiter"
+   ],
+   "trigger_cur": [
+    "space_pref",
+    "punct",
+    "subword"
+   ],
+   "output_top_classes": [
+    "punct",
+    "space_pref",
+    "delimiter"
+   ],
+   "output_mode": "class-boost",
+   "example_heads": [
+    "h.L6.7",
+    "h.L13.8",
+    "h.L4.0",
+    "h.L6.5",
+    "h.L6.6"
+   ],
+   "count": 7,
+   "n_verified": 1,
+   "n_artifact": 0,
+   "layer_span": [
+    4,
+    13
+   ],
+   "layer_mean": 8.3
+  },
+  {
+   "cluster": 5,
+   "family": "Byte-fragment / UTF-8 artifact head",
+   "trigger_src": [
+    "space_pref",
+    "punct",
+    "delimiter"
+   ],
+   "trigger_cur": [
+    "punct",
+    "space_pref",
+    "coordinator"
+   ],
+   "output_top_classes": [
+    "punct",
+    "space_pref",
+    "delimiter"
+   ],
+   "output_mode": "class-boost (unverified)",
+   "example_heads": [
+    "h.L3.2",
+    "h.L13.3",
+    "h.L1.6",
+    "h.L11.5",
+    "h.L10.7"
+   ],
+   "count": 6,
+   "n_verified": 0,
+   "n_artifact": 1,
+   "layer_span": [
+    1,
+    14
+   ],
+   "layer_mean": 8.7
+  },
+  {
+   "cluster": 11,
+   "family": "Capitalization / proper-noun head",
+   "trigger_src": [
+    "space_pref",
+    "capital",
+    "proper_noun"
+   ],
+   "trigger_cur": [
+    "punct",
+    "space_pref",
+    "coordinator"
+   ],
+   "output_top_classes": [
+    "space_pref",
+    "capital",
+    "subword"
+   ],
+   "output_mode": "class-boost (unverified)",
+   "example_heads": [
+    "h.L8.4",
+    "h.L16.7",
+    "h.L11.3",
+    "h.L4.7"
+   ],
+   "count": 4,
+   "n_verified": 0,
+   "n_artifact": 1,
+   "layer_span": [
+    4,
+    16
+   ],
+   "layer_mean": 9.8
+  },
+  {
+   "cluster": 4,
+   "family": "Coordination / list-continuation head",
+   "trigger_src": [
+    "space_pref",
+    "punct",
+    "coordinator"
+   ],
+   "trigger_cur": [
+    "space_pref",
+    "punct",
+    "coordinator"
+   ],
+   "output_top_classes": [
+    "space_pref",
+    "punct",
+    "subword"
+   ],
+   "output_mode": "class-boost",
+   "example_heads": [
+    "h.L3.3",
+    "h.L17.8",
+    "h.L11.1",
+    "h.L13.1",
+    "h.L11.7"
+   ],
+   "count": 33,
+   "n_verified": 1,
+   "n_artifact": 0,
+   "layer_span": [
+    2,
+    17
+   ],
+   "layer_mean": 10.6
+  },
+  {
+   "cluster": 0,
+   "family": "Capitalization / proper-noun head",
+   "trigger_src": [
+    "space_pref",
+    "capital",
+    "proper_noun"
+   ],
+   "trigger_cur": [
+    "punct",
+    "space_pref",
+    "delimiter"
+   ],
+   "output_top_classes": [
+    "space_pref",
+    "capital",
+    "proper_noun"
+   ],
+   "output_mode": "class-boost (unverified)",
+   "example_heads": [
+    "h.L14.4",
+    "h.L15.3",
+    "h.L7.3",
+    "h.L8.6",
+    "h.L12.7"
+   ],
+   "count": 22,
+   "n_verified": 0,
+   "n_artifact": 1,
+   "layer_span": [
+    1,
+    17
+   ],
+   "layer_mean": 11.6
+  },
+  {
+   "cluster": 6,
+   "family": "FF capitalization / sentence-start feature-builder",
+   "trigger_src": [],
+   "trigger_cur": [
+    "punct",
+    "newline",
+    "space_pref"
+   ],
+   "output_top_classes": [
+    "capital",
+    "space_pref",
+    "proper_noun"
+   ],
+   "output_mode": "feature-build (class-boost)",
+   "example_heads": [
+    "mlp.L0.d2",
+    "mlp.L16.d1",
+    "mlp.L12.d1",
+    "mlp.L11.d1",
+    "mlp.L15.d1"
+   ],
+   "count": 15,
+   "n_verified": 0,
+   "n_artifact": 0,
+   "layer_span": [
+    0,
+    17
+   ],
+   "layer_mean": 13.3
+  }
+ ],
+ "layer_organization": {
+  "late(12-17)": [
+   {
+    "cluster": 0,
+    "family": "Capitalization / proper-noun head",
+    "n": 22,
+    "layer_mean": 11.6,
+    "n_verified": 0
+   },
+   {
+    "cluster": 6,
+    "family": "FF capitalization / sentence-start feature-builder",
+    "n": 15,
+    "layer_mean": 13.3,
+    "n_verified": 0
+   }
+  ],
+  "mid(6-11)": [
+   {
+    "cluster": 1,
+    "family": "FF punctuation/structure-position feature-builder",
+    "n": 27,
+    "layer_mean": 7.1,
+    "n_verified": 1
+   },
+   {
+    "cluster": 2,
+    "family": "Mixed / diffuse head (function-word / punctuation current-token)",
+    "n": 84,
+    "layer_mean": 8.2,
+    "n_verified": 1
+   },
+   {
+    "cluster": 4,
+    "family": "Coordination / list-continuation head",
+    "n": 33,
+    "layer_mean": 10.6,
+    "n_verified": 1
+   },
+   {
+    "cluster": 5,
+    "family": "Byte-fragment / UTF-8 artifact head",
+    "n": 6,
+    "layer_mean": 8.7,
+    "n_verified": 0
+   },
+   {
+    "cluster": 7,
+    "family": "Numeric / date / table head",
+    "n": 3,
+    "layer_mean": 8.3,
+    "n_verified": 0
+   },
+   {
+    "cluster": 8,
+    "family": "Delimiter / bracket / quote router",
+    "n": 1,
+    "layer_mean": 7.0,
+    "n_verified": 0
+   },
+   {
+    "cluster": 10,
+    "family": "Delimiter / bracket / quote router",
+    "n": 7,
+    "layer_mean": 8.3,
+    "n_verified": 1
+   },
+   {
+    "cluster": 11,
+    "family": "Capitalization / proper-noun head",
+    "n": 4,
+    "layer_mean": 9.8,
+    "n_verified": 0
+   }
+  ],
+  "early(0-5)": [
+   {
+    "cluster": 3,
+    "family": "Structure / newline / line-boundary head",
+    "n": 21,
+    "layer_mean": 4.7,
+    "n_verified": 1
+   },
+   {
+    "cluster": 9,
+    "family": "Capitalization / proper-noun head",
+    "n": 11,
+    "layer_mean": 2.4,
+    "n_verified": 0
+   }
+  ]
+ },
+ "tool_coverage": {
+  "detectors_available": {
+   "\u00a756 class-boost trigger-purity": "Detects+localizes trigger fingerprints (source/current token class) for ALL families; verified reliable for trigger recovery even when output claim is wrong.",
+   "\u00a756 effect-purity (LMW first-order proxy)": "Ranks candidate OUTPUT direction but is a linear proxy through the OV path only -- shown to be wrong in MAGNITUDE (mlp dirs) and SIGN (h.L8.3 date head) vs true ablation.",
+   "\u00a757 edge-patch (A->B direct)": "Verifies COMPOSITION between components (QK vs OV routing); used in compose.json.",
+   "ablation dCE + boost-minus-control z": "Causal verification of class-boost output for feed-forward-style single-direction boosts."
+  }
+ },
+ "detectable_and_verifiable_now": [
+  "Delimiter / bracket / quote router (h.L13.8 verified via class-boost of closer class)",
+  "Sentence-boundary / punctuation -> pronoun|discourse-opener (h.L9.6, h.L6.0 verified)",
+  "Coordination / list-continuation (h.L3.3 verified)",
+  "Structure / newline -> newline (h.L8.2 verified-modest)",
+  "FF determiner detector TRIGGER (mlp.L1.d3, mlp.L0.d1 -- trigger only)"
+ ],
+ "underserved_circuit_types": [
+  {
+   "circuit_type": "Copy / induction heads (attended-source-token-in-OUTPUT)",
+   "why_underserved": "\u00a756 scores OUTPUT by class-boost of a fixed unit direction. A copy/induction head boosts *whatever token it attended to*, which is position-dependent, not a fixed vocab direction -- so its effect-purity is low and it is mis-ranked or mislabeled. h.L13.8 was only caught because its closer-boost happens to be a fixed CLASS (brackets); a true identity-copy head would be missed.",
+   "needed_tool": "attended-source-token-in-output metric: correlate ablation dLogit with the identity of the attended source token per-position (copy_src_dlogit already prototyped in verify.json but not part of the discovery scan)."
+  },
+  {
+   "circuit_type": "Suppression / anti-copy heads (negative effect)",
+   "why_underserved": "effect-purity uses softmax over top-64 *positive* unit-dir logits; heads whose causal role is to SUPPRESS a class (negative dLogit) are invisible. Ablations that RAISE a target (h.L8.3 numbers rise on ablation) reveal these only by accident.",
+   "needed_tool": "signed / negative-effect ranking: rank by |dLogit| with sign, and surface most-DROPPED-on-presence (i.e. boosted) vs most-RAISED-on-presence."
+  },
+  {
+   "circuit_type": "Positional / structural heads (position-vs-content)",
+   "why_underserved": "Several clean-trigger heads (h.L1.2 bullet/newline, h.L2.1 table-delimiter) are causally real but DIFFUSE with 'no clean output' -- they route by POSITION (previous line boundary) not by a content class, so the class-distribution featureization cannot express what they do and dCE is significant-but-diffuse.",
+   "needed_tool": "position-vs-content probe: measure attention as a function of relative offset / line-structure independent of token identity; report structural-attention purity separately from vocab boost."
+  },
+  {
+   "circuit_type": "Redundant / distributed heads (causally-NULL in isolation)",
+   "why_underserved": "h.L13.1, h.L6.0(discovery), h.L1.2 have clean triggers but dCE ~= 0 in isolation because the function is duplicated across heads. Single-component ablation systematically OVERSELLS them (the discovery proxy's main documented failure).",
+   "needed_tool": "group/greedy joint-ablation or subset-search to detect redundancy; single-head dCE alone cannot distinguish null from redundant."
+  },
+  {
+   "circuit_type": "Byte-fragment / tokenizer artifacts",
+   "why_underserved": "These are DETECTED (bytefrag class fires) but they masquerade as real heads/dirs in the class-boost ranking (h.L10.7, mlp.L1.d2, U+FFFD-contaminated SVD dirs). Need an explicit artifact FILTER not a detector, so they stop consuming verification budget.",
+   "needed_tool": "pre-filter: flag any path whose trigger OR output top-k contains U+FFFD / lone-byte-fallback tokens and route to an artifact bucket before causal verification."
+  },
+  {
+   "circuit_type": "Trigger-genuine / output-diffuse feature-builders",
+   "why_underserved": "MLP determiner detectors (mlp.L1.d3, mlp.L0.d1) have crisp, held-out-reproducible TRIGGERS (0.95+ purity) but their discovered OUTPUT is a weak/diffuse or artifact direction -- the SVD top-dir output claim is unreliable. Current tool conflates 'real feature' with 'real algorithm'.",
+   "needed_tool": "decouple trigger-verification from output-verification; report a feature as VALID-DETECTOR even when no clean output algorithm is confirmed."
+  }
+ ],
+ "per_path_assignments": [
+  {
+   "comp": "h.L8.2",
+   "cluster": 3,
+   "kind": "head",
+   "layer": 8,
+   "status": "VERIFIED"
+  },
+  {
+   "comp": "mlp.L1.d3",
+   "cluster": 2,
+   "kind": "mlp",
+   "layer": 1,
+   "status": "DISCOVERED-TESTED-WEAK"
+  },
+  {
+   "comp": "mlp.L0.d2",
+   "cluster": 6,
+   "kind": "mlp",
+   "layer": 0,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L14.4",
+   "cluster": 0,
+   "kind": "head",
+   "layer": 14,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L6.8",
+   "cluster": 3,
+   "kind": "head",
+   "layer": 6,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L8.4",
+   "cluster": 11,
+   "kind": "head",
+   "layer": 8,
+   "status": "ARTIFACT"
+  },
+  {
+   "comp": "mlp.L0.d1",
+   "cluster": 2,
+   "kind": "mlp",
+   "layer": 0,
+   "status": "ARTIFACT"
+  },
+  {
+   "comp": "mlp.L0.d3",
+   "cluster": 9,
+   "kind": "mlp",
+   "layer": 0,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L3.3",
+   "cluster": 4,
+   "kind": "head",
+   "layer": 3,
+   "status": "VERIFIED"
+  },
+  {
+   "comp": "h.L6.0",
+   "cluster": 1,
+   "kind": "head",
+   "layer": 6,
+   "status": "VERIFIED"
+  },
+  {
+   "comp": "mlp.L16.d1",
+   "cluster": 6,
+   "kind": "mlp",
+   "layer": 16,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L16.d0",
+   "cluster": 6,
+   "kind": "mlp",
+   "layer": 16,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L11.d1",
+   "cluster": 6,
+   "kind": "mlp",
+   "layer": 11,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L6.7",
+   "cluster": 10,
+   "kind": "head",
+   "layer": 6,
+   "status": "DISCOVERED-TESTED-WEAK"
+  },
+  {
+   "comp": "h.L1.3",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 1,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L12.2",
+   "cluster": 3,
+   "kind": "head",
+   "layer": 12,
+   "status": "DISCOVERED-TESTED-WEAK"
+  },
+  {
+   "comp": "h.L1.0",
+   "cluster": 3,
+   "kind": "head",
+   "layer": 1,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L9.d1",
+   "cluster": 6,
+   "kind": "mlp",
+   "layer": 9,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L12.d1",
+   "cluster": 6,
+   "kind": "mlp",
+   "layer": 12,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L6.d2",
+   "cluster": 2,
+   "kind": "mlp",
+   "layer": 6,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L1.2",
+   "cluster": 3,
+   "kind": "head",
+   "layer": 1,
+   "status": "DISCOVERED-TESTED-WEAK"
+  },
+  {
+   "comp": "h.L2.1",
+   "cluster": 3,
+   "kind": "head",
+   "layer": 2,
+   "status": "DISCOVERED-TESTED-WEAK"
+  },
+  {
+   "comp": "mlp.L16.d2",
+   "cluster": 6,
+   "kind": "mlp",
+   "layer": 16,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L12.d0",
+   "cluster": 1,
+   "kind": "mlp",
+   "layer": 12,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L13.5",
+   "cluster": 0,
+   "kind": "head",
+   "layer": 13,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L4.0",
+   "cluster": 10,
+   "kind": "head",
+   "layer": 4,
+   "status": "DISCOVERED-TESTED-WEAK"
+  },
+  {
+   "comp": "h.L5.1",
+   "cluster": 3,
+   "kind": "head",
+   "layer": 5,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L7.4",
+   "cluster": 0,
+   "kind": "head",
+   "layer": 7,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L15.d1",
+   "cluster": 6,
+   "kind": "mlp",
+   "layer": 15,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L7.3",
+   "cluster": 0,
+   "kind": "head",
+   "layer": 7,
+   "status": "ARTIFACT"
+  },
+  {
+   "comp": "mlp.L11.d0",
+   "cluster": 1,
+   "kind": "mlp",
+   "layer": 11,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L5.d2",
+   "cluster": 2,
+   "kind": "mlp",
+   "layer": 5,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L5.4",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 5,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L5.0",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 5,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L1.8",
+   "cluster": 3,
+   "kind": "head",
+   "layer": 1,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L15.d3",
+   "cluster": 1,
+   "kind": "mlp",
+   "layer": 15,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L9.6",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 9,
+   "status": "VERIFIED"
+  },
+  {
+   "comp": "h.L2.4",
+   "cluster": 3,
+   "kind": "head",
+   "layer": 2,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L12.7",
+   "cluster": 0,
+   "kind": "head",
+   "layer": 12,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L13.1",
+   "cluster": 4,
+   "kind": "head",
+   "layer": 13,
+   "status": "DISCOVERED-TESTED-WEAK"
+  },
+  {
+   "comp": "h.L7.6",
+   "cluster": 8,
+   "kind": "head",
+   "layer": 7,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L3.2",
+   "cluster": 5,
+   "kind": "head",
+   "layer": 3,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L11.5",
+   "cluster": 5,
+   "kind": "head",
+   "layer": 11,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L8.d3",
+   "cluster": 2,
+   "kind": "mlp",
+   "layer": 8,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L8.6",
+   "cluster": 0,
+   "kind": "head",
+   "layer": 8,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L17.d3",
+   "cluster": 6,
+   "kind": "mlp",
+   "layer": 17,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L13.d1",
+   "cluster": 6,
+   "kind": "mlp",
+   "layer": 13,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L4.8",
+   "cluster": 3,
+   "kind": "head",
+   "layer": 4,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L10.6",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 10,
+   "status": "ARTIFACT"
+  },
+  {
+   "comp": "h.L2.0",
+   "cluster": 3,
+   "kind": "head",
+   "layer": 2,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L6.5",
+   "cluster": 10,
+   "kind": "head",
+   "layer": 6,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L15.d2",
+   "cluster": 2,
+   "kind": "mlp",
+   "layer": 15,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L17.d1",
+   "cluster": 6,
+   "kind": "mlp",
+   "layer": 17,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L7.d0",
+   "cluster": 1,
+   "kind": "mlp",
+   "layer": 7,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L12.0",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 12,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L14.d1",
+   "cluster": 2,
+   "kind": "mlp",
+   "layer": 14,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L13.3",
+   "cluster": 5,
+   "kind": "head",
+   "layer": 13,
+   "status": "DISCOVERED-TESTED-WEAK"
+  },
+  {
+   "comp": "h.L8.5",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 8,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L11.4",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 11,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L8.d2",
+   "cluster": 2,
+   "kind": "mlp",
+   "layer": 8,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L11.1",
+   "cluster": 4,
+   "kind": "head",
+   "layer": 11,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L9.8",
+   "cluster": 3,
+   "kind": "head",
+   "layer": 9,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L8.3",
+   "cluster": 7,
+   "kind": "head",
+   "layer": 8,
+   "status": "ARTIFACT"
+  },
+  {
+   "comp": "h.L13.0",
+   "cluster": 0,
+   "kind": "head",
+   "layer": 13,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L3.0",
+   "cluster": 3,
+   "kind": "head",
+   "layer": 3,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L16.0",
+   "cluster": 0,
+   "kind": "head",
+   "layer": 16,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L1.d2",
+   "cluster": 2,
+   "kind": "mlp",
+   "layer": 1,
+   "status": "ARTIFACT"
+  },
+  {
+   "comp": "h.L11.0",
+   "cluster": 10,
+   "kind": "head",
+   "layer": 11,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L2.3",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 2,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L3.6",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 3,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L2.d3",
+   "cluster": 2,
+   "kind": "mlp",
+   "layer": 2,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L4.d1",
+   "cluster": 2,
+   "kind": "mlp",
+   "layer": 4,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L6.1",
+   "cluster": 1,
+   "kind": "head",
+   "layer": 6,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L17.d2",
+   "cluster": 6,
+   "kind": "mlp",
+   "layer": 17,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L2.d0",
+   "cluster": 2,
+   "kind": "mlp",
+   "layer": 2,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L6.6",
+   "cluster": 10,
+   "kind": "head",
+   "layer": 6,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L6.d1",
+   "cluster": 2,
+   "kind": "mlp",
+   "layer": 6,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L14.1",
+   "cluster": 0,
+   "kind": "head",
+   "layer": 14,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L2.8",
+   "cluster": 4,
+   "kind": "head",
+   "layer": 2,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L14.8",
+   "cluster": 0,
+   "kind": "head",
+   "layer": 14,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L14.d3",
+   "cluster": 2,
+   "kind": "mlp",
+   "layer": 14,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L16.4",
+   "cluster": 0,
+   "kind": "head",
+   "layer": 16,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L8.d0",
+   "cluster": 1,
+   "kind": "mlp",
+   "layer": 8,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L8.d1",
+   "cluster": 2,
+   "kind": "mlp",
+   "layer": 8,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L3.8",
+   "cluster": 0,
+   "kind": "head",
+   "layer": 3,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L9.d0",
+   "cluster": 1,
+   "kind": "mlp",
+   "layer": 9,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L14.7",
+   "cluster": 0,
+   "kind": "head",
+   "layer": 14,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L1.d0",
+   "cluster": 2,
+   "kind": "mlp",
+   "layer": 1,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L1.5",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 1,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L7.1",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 7,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L8.1",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 8,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L9.5",
+   "cluster": 4,
+   "kind": "head",
+   "layer": 9,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L1.7",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 1,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L16.d3",
+   "cluster": 1,
+   "kind": "mlp",
+   "layer": 16,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L6.3",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 6,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L13.4",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 13,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L4.1",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 4,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L4.5",
+   "cluster": 0,
+   "kind": "head",
+   "layer": 4,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L14.3",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 14,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L9.3",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 9,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L5.7",
+   "cluster": 9,
+   "kind": "head",
+   "layer": 5,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L1.1",
+   "cluster": 0,
+   "kind": "head",
+   "layer": 1,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L1.6",
+   "cluster": 5,
+   "kind": "head",
+   "layer": 1,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L7.2",
+   "cluster": 1,
+   "kind": "head",
+   "layer": 7,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L17.6",
+   "cluster": 0,
+   "kind": "head",
+   "layer": 17,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L15.d0",
+   "cluster": 2,
+   "kind": "mlp",
+   "layer": 15,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L13.8",
+   "cluster": 10,
+   "kind": "head",
+   "layer": 13,
+   "status": "VERIFIED"
+  },
+  {
+   "comp": "mlp.L1.d1",
+   "cluster": 2,
+   "kind": "mlp",
+   "layer": 1,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L10.5",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 10,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L7.8",
+   "cluster": 1,
+   "kind": "head",
+   "layer": 7,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L2.5",
+   "cluster": 9,
+   "kind": "head",
+   "layer": 2,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L9.2",
+   "cluster": 4,
+   "kind": "head",
+   "layer": 9,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L3.1",
+   "cluster": 9,
+   "kind": "head",
+   "layer": 3,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L5.6",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 5,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L8.7",
+   "cluster": 7,
+   "kind": "head",
+   "layer": 8,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L14.6",
+   "cluster": 5,
+   "kind": "head",
+   "layer": 14,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L2.2",
+   "cluster": 4,
+   "kind": "head",
+   "layer": 2,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L10.0",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 10,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L10.4",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 10,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L0.d0",
+   "cluster": 9,
+   "kind": "mlp",
+   "layer": 0,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L5.3",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 5,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L7.0",
+   "cluster": 1,
+   "kind": "head",
+   "layer": 7,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L13.d0",
+   "cluster": 1,
+   "kind": "mlp",
+   "layer": 13,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L14.5",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 14,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L4.4",
+   "cluster": 4,
+   "kind": "head",
+   "layer": 4,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L13.6",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 13,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L12.1",
+   "cluster": 4,
+   "kind": "head",
+   "layer": 12,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L4.6",
+   "cluster": 3,
+   "kind": "head",
+   "layer": 4,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L3.4",
+   "cluster": 4,
+   "kind": "head",
+   "layer": 3,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L13.d2",
+   "cluster": 2,
+   "kind": "mlp",
+   "layer": 13,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L16.3",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 16,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L14.d2",
+   "cluster": 2,
+   "kind": "mlp",
+   "layer": 14,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L5.5",
+   "cluster": 4,
+   "kind": "head",
+   "layer": 5,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L10.1",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 10,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L17.1",
+   "cluster": 0,
+   "kind": "head",
+   "layer": 17,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L4.3",
+   "cluster": 0,
+   "kind": "head",
+   "layer": 4,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L11.8",
+   "cluster": 4,
+   "kind": "head",
+   "layer": 11,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L14.0",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 14,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L12.3",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 12,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L5.8",
+   "cluster": 4,
+   "kind": "head",
+   "layer": 5,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L7.7",
+   "cluster": 4,
+   "kind": "head",
+   "layer": 7,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L9.1",
+   "cluster": 4,
+   "kind": "head",
+   "layer": 9,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L9.0",
+   "cluster": 7,
+   "kind": "head",
+   "layer": 9,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L2.d2",
+   "cluster": 2,
+   "kind": "mlp",
+   "layer": 2,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L9.4",
+   "cluster": 4,
+   "kind": "head",
+   "layer": 9,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L9.7",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 9,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L17.d0",
+   "cluster": 6,
+   "kind": "mlp",
+   "layer": 17,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L11.6",
+   "cluster": 4,
+   "kind": "head",
+   "layer": 11,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L10.2",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 10,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L2.d1",
+   "cluster": 1,
+   "kind": "mlp",
+   "layer": 2,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L2.7",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 2,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L5.2",
+   "cluster": 9,
+   "kind": "head",
+   "layer": 5,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L2.6",
+   "cluster": 1,
+   "kind": "head",
+   "layer": 2,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L8.8",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 8,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L4.d0",
+   "cluster": 4,
+   "kind": "mlp",
+   "layer": 4,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L11.3",
+   "cluster": 11,
+   "kind": "head",
+   "layer": 11,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L4.2",
+   "cluster": 9,
+   "kind": "head",
+   "layer": 4,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L3.d2",
+   "cluster": 1,
+   "kind": "mlp",
+   "layer": 3,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L3.7",
+   "cluster": 3,
+   "kind": "head",
+   "layer": 3,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L1.4",
+   "cluster": 9,
+   "kind": "head",
+   "layer": 1,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L10.3",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 10,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L6.4",
+   "cluster": 1,
+   "kind": "head",
+   "layer": 6,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L11.2",
+   "cluster": 4,
+   "kind": "head",
+   "layer": 11,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L3.d3",
+   "cluster": 2,
+   "kind": "mlp",
+   "layer": 3,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L6.d0",
+   "cluster": 9,
+   "kind": "mlp",
+   "layer": 6,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L14.d0",
+   "cluster": 4,
+   "kind": "mlp",
+   "layer": 14,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L4.7",
+   "cluster": 11,
+   "kind": "head",
+   "layer": 4,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L10.d0",
+   "cluster": 2,
+   "kind": "mlp",
+   "layer": 10,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L3.5",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 3,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L7.d1",
+   "cluster": 2,
+   "kind": "mlp",
+   "layer": 7,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L3.d0",
+   "cluster": 1,
+   "kind": "mlp",
+   "layer": 3,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L5.d3",
+   "cluster": 1,
+   "kind": "mlp",
+   "layer": 5,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L4.d2",
+   "cluster": 1,
+   "kind": "mlp",
+   "layer": 4,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L3.d1",
+   "cluster": 1,
+   "kind": "mlp",
+   "layer": 3,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L4.d3",
+   "cluster": 1,
+   "kind": "mlp",
+   "layer": 4,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L5.d0",
+   "cluster": 1,
+   "kind": "mlp",
+   "layer": 5,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L16.2",
+   "cluster": 3,
+   "kind": "head",
+   "layer": 16,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L6.2",
+   "cluster": 3,
+   "kind": "head",
+   "layer": 6,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L0.1",
+   "cluster": 3,
+   "kind": "head",
+   "layer": 0,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L15.2",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 15,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L0.5",
+   "cluster": 3,
+   "kind": "head",
+   "layer": 0,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L0.2",
+   "cluster": 3,
+   "kind": "head",
+   "layer": 0,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L14.2",
+   "cluster": 3,
+   "kind": "head",
+   "layer": 14,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L16.5",
+   "cluster": 0,
+   "kind": "head",
+   "layer": 16,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L17.8",
+   "cluster": 4,
+   "kind": "head",
+   "layer": 17,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L10.d3",
+   "cluster": 6,
+   "kind": "mlp",
+   "layer": 10,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L7.d3",
+   "cluster": 2,
+   "kind": "mlp",
+   "layer": 7,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L12.4",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 12,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L15.3",
+   "cluster": 0,
+   "kind": "head",
+   "layer": 15,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L0.6",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 0,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L11.7",
+   "cluster": 4,
+   "kind": "head",
+   "layer": 11,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L13.d3",
+   "cluster": 6,
+   "kind": "mlp",
+   "layer": 13,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L16.1",
+   "cluster": 0,
+   "kind": "head",
+   "layer": 16,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L12.8",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 12,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L17.5",
+   "cluster": 4,
+   "kind": "head",
+   "layer": 17,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L12.6",
+   "cluster": 10,
+   "kind": "head",
+   "layer": 12,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L15.5",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 15,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L10.7",
+   "cluster": 5,
+   "kind": "head",
+   "layer": 10,
+   "status": "ARTIFACT"
+  },
+  {
+   "comp": "h.L16.8",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 16,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L7.d2",
+   "cluster": 1,
+   "kind": "mlp",
+   "layer": 7,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L0.7",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 0,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L17.3",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 17,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L10.8",
+   "cluster": 1,
+   "kind": "head",
+   "layer": 10,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L12.d2",
+   "cluster": 2,
+   "kind": "mlp",
+   "layer": 12,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L17.0",
+   "cluster": 4,
+   "kind": "head",
+   "layer": 17,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L6.d3",
+   "cluster": 1,
+   "kind": "mlp",
+   "layer": 6,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L0.3",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 0,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L15.8",
+   "cluster": 4,
+   "kind": "head",
+   "layer": 15,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L17.4",
+   "cluster": 4,
+   "kind": "head",
+   "layer": 17,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L0.0",
+   "cluster": 9,
+   "kind": "head",
+   "layer": 0,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L15.4",
+   "cluster": 0,
+   "kind": "head",
+   "layer": 15,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L16.6",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 16,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L15.6",
+   "cluster": 4,
+   "kind": "head",
+   "layer": 15,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L7.5",
+   "cluster": 4,
+   "kind": "head",
+   "layer": 7,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L8.0",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 8,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L13.2",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 13,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L17.2",
+   "cluster": 4,
+   "kind": "head",
+   "layer": 17,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L17.7",
+   "cluster": 4,
+   "kind": "head",
+   "layer": 17,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L16.7",
+   "cluster": 11,
+   "kind": "head",
+   "layer": 16,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L0.8",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 0,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L13.7",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 13,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L10.d2",
+   "cluster": 2,
+   "kind": "mlp",
+   "layer": 10,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L15.7",
+   "cluster": 4,
+   "kind": "head",
+   "layer": 15,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L5.d1",
+   "cluster": 2,
+   "kind": "mlp",
+   "layer": 5,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L15.0",
+   "cluster": 4,
+   "kind": "head",
+   "layer": 15,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L12.5",
+   "cluster": 2,
+   "kind": "head",
+   "layer": 12,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L0.4",
+   "cluster": 9,
+   "kind": "head",
+   "layer": 0,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "h.L15.1",
+   "cluster": 4,
+   "kind": "head",
+   "layer": 15,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L12.d3",
+   "cluster": 2,
+   "kind": "mlp",
+   "layer": 12,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L11.d3",
+   "cluster": 2,
+   "kind": "mlp",
+   "layer": 11,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L10.d1",
+   "cluster": 2,
+   "kind": "mlp",
+   "layer": 10,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L11.d2",
+   "cluster": 2,
+   "kind": "mlp",
+   "layer": 11,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L9.d3",
+   "cluster": 2,
+   "kind": "mlp",
+   "layer": 9,
+   "status": "DISCOVERED"
+  },
+  {
+   "comp": "mlp.L9.d2",
+   "cluster": 1,
+   "kind": "mlp",
+   "layer": 9,
+   "status": "DISCOVERED"
+  }
+ ]
+}

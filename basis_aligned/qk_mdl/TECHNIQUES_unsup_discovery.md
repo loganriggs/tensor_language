@@ -27,3 +27,13 @@ paired standard errors, mean-ablation in-distribution zero point.
 - **Steering vs enabling** (§57): a genuine edge can REDIRECT a downstream head (attention reshaped) without
   ENABLING it (aggregate contribution unchanged) — report which.
 - [TO EXTEND as copy / suppression / cluster tools return: their signatures + what NEW verification each needs.]
+
+## Under-served circuit TYPES (from §58 auto-cluster) — new tools needed
+| type | why current tools miss it | NEW tool needed | status |
+|---|---|---|---|
+| copy / induction | class-boost scores a FIXED direction, not "boost whatever you attended" | attended-source-token-in-output metric | qk_unsup_copy.py (running) |
+| suppression / anti-copy | effect-purity ranks only POSITIVE logits | signed / most-raised-on-ablation ranking | qk_unsup_suppress.py (running) |
+| positional / structural | routes by relative position / line-structure, not a content class | position-vs-content probe (structural-attention purity, separate from vocab boost) | TODO |
+| redundant / distributed | clean trigger but single-ablation dCE≈0 (duplicated across heads) — proxy OVERSELLS | greedy JOINT / subset ablation to separate null-from-redundant | TODO |
+| byte-fragment artifact | masquerades as a circuit, wastes verification budget | a PRE-FILTER (route U+FFFD / lone-byte to artifact bucket before causal test), not a detector | TODO |
+| trigger-genuine / output-diffuse | conflates "real feature detector" with "real algorithm" | DECOUPLE trigger-verification from output-verification (report VALID-DETECTOR w/o a clean output) | TODO |
