@@ -2795,3 +2795,38 @@ collateral-free linear knob; induction **target** is steerable through the same 
 ~10× amplitude (or by pattern overwrite), aimable across positions but low-yield and unavoidably
 costly. A precision-of-edit result on a base LM — deliberately NOT a jailbreak of a safety-trained
 target.
+
+## §37 Conditional (trigger-gated) redirect: the actual precision-edit primitive (2026-07-30)
+### (qk_conditional_redirect.py; the honest precision follow-up to §36)
+
+§36's unconditional redirect hit EVERY induction query, so it damaged the genuine induction natural
+text uses and cost +0.3–0.6 natural-text collateral for only ~35–58% argmax capture. The precision
+primitive is a redirect CONDITIONED on a trigger: "at queries whose current token equals a chosen
+TRIGGER (and only those), repoint the induction match to a chosen source column; leave every other
+induction query untouched." Implemented with the §36-corrected principled method — the scaled linear
+repoint on the named match channel (×10), gated so the pattern delta is nonzero only on trigger-query
+rows. Evaluated on repeated random-prefix sequences with one trigger occurrence planted per sequence;
+the census induction heads (layers 2–10) are the only edited components.
+
+**Reach (at the trigger query).** Chosen-token probability 0.003 → **0.833**, argmax-capture 0.0 →
+**0.958**, true-next 0.852 → 0.0001. At a clean trigger query the conditional redirect is near-total —
+far sharper than the unconditional edit, because it fires only on the single strong-match query rather
+than smearing across all induction.
+
+**Specificity (at the ~2976 non-trigger induction queries).** Induction is preserved essentially
+exactly: P(true-next) 0.7682 → 0.7680, argmax-correct 0.8854 → 0.8858. By construction the pattern
+delta touches only trigger-query rows, and the measurement confirms zero leakage to other induction.
+
+**Collateral (natural FineWeb, disjoint slice).** The conditional edit costs **+0.000** cross-entropy
+(trigger base rate 0.00024) versus **+0.614** for the unconditional edit at the same amplitude. The
+edit is genuinely surgical: it perturbs only the trigger token's induction.
+
+**Honest caveats.** (1) The reach figure is a clean-trigger *best case* — the trigger is planted at an
+exact-repeat position with a strong induction match; natural triggers with weaker matches would capture
+less. (2) The near-zero collateral is partly because this specific trigger token is rare; a common
+trigger would cost more — but the cost is bounded to *that token's own* induction, never the whole
+mechanism, so a conditional redirect is strictly less destructive than the unconditional one at any
+trigger frequency. **Take-away:** targeted redirection on the verified induction channel becomes a
+sharp, near-collateral-free precision edit once it is *conditioned* — the interpretability-grounded
+form of a trigger→payload intervention, demonstrated on a base LM (not a jailbreak of a safety-trained
+target).

@@ -1,0 +1,44 @@
+{
+  "reach_specificity": {
+    "n_trigger_queries": 48,
+    "n_nontrigger_active": 2976,
+    "model": {
+      "REACH_trigger": {
+        "P_chosen": 0.0027,
+        "P_true_next": 0.8523,
+        "argmax_is_chosen": 0.0,
+        "argmax_is_true": 0.9792
+      },
+      "SPECIFICITY_nontrigger": {
+        "P_chosen": 0.0191,
+        "P_true_next": 0.7682,
+        "argmax_is_true": 0.8854
+      }
+    },
+    "cond": {
+      "REACH_trigger": {
+        "P_chosen": 0.8326,
+        "P_true_next": 0.0001,
+        "argmax_is_chosen": 0.9583,
+        "argmax_is_true": 0.0
+      },
+      "SPECIFICITY_nontrigger": {
+        "P_chosen": 0.0191,
+        "P_true_next": 0.768,
+        "argmax_is_true": 0.8858
+      }
+    }
+  },
+  "collateral": {
+    "model_CE": 3.3051,
+    "trigger_base_rate": 0.00024,
+    "cond_CE": 3.3051,
+    "collateral_dCE_cond": 0.0,
+    "uncond_CE": 3.9192,
+    "collateral_dCE_uncond": 0.6141
+  },
+  "TRIGGER": 346,
+  "P_C": 1,
+  "scale": 10.0,
+  "n_heads_edited": 24
+}
