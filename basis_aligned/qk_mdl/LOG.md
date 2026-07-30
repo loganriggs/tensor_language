@@ -6384,3 +6384,13 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## archetypes fail gate (0.007). §40/§41 red-team corrections applied (tautological std-0.0, attn-only,
 ## proof overclaims). REMAINING LEDGER = MEANING (frontier): L1 done; L2/L3 gates in progress; KEY_cap
 ## capitals code dispatched (5th meaning-site candidate). 10-min cron 0b62fec1; re-arm before 2026-08-06.
+
+## TICK (10-min) — MEANING SWEEP set up + running. Parametrized drivers qk_content_gate.py / 
+## qk_selection_gate.py (layer arg, byte-identical to L3 scripts, verified reproduce at L=3, generalize
+## 1-17) + wrappers qk_cgate_L{4..17}/qk_sgate_L{6..17}. Queued 26 meaning-gate jobs to sweep the MEANING
+## ledger across all layers. Results so far: content 0/576 class-nameable at L0/1/2/3 (spectral = the
+## rule); selection gated-nameable only for match/induction heads (L2H5/L3H8); L4 selection 0 programmatic
+## (diffuse), L5 1 head. §46 capitalization FAILED gate (static prior; corrected 'KEY_cap->capitals'
+## framing). §47 layers 2-3 meaning committed. NEXT: churn the 26-job meaning sweep; collect content
+## L4-17 (does content stay spectral to the output, or become nameable at lexical layers 16/17?) +
+## selection L6-17. 10-min cron 0b62fec1; re-arm before 2026-08-06.
