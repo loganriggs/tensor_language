@@ -6107,3 +6107,11 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## null +1.124 (9.7x); higher than bilin18 +0.047 (smaller model) but same result -- not a bilin18
 ## artifact. NEXT: T7 consolidation (paper_atlas sync §33-35 + T2/T4/T6/T8, artifact refresh) --
 ## CPU/documentation, next tick. Queue: stock a generality-3rd-model (bilinsm12 softmax) or begin T7.
+
+## TICK 2026-07-30o — T8 COMPLETE (3-family generality) + T7 STARTED. bilinsm12 (softmax): MLP gauge
+## 6.2e-07, PCA/head bottleneck +0.077 (SE .003) vs null +3.657 (47x). Composition arc general across
+## two-branch/norm-squared/softmax (+0.047/+0.116/+0.077). T7: RESULTS_summary_2026-07-30.md written
+## (four-ledger reviewed state-of-decomposition). NEXT: dispatch consolidation red-team over the
+## summary + §33-35 for a final defensibility pass before it becomes the program's headline document;
+## then artifact refresh + paper_atlas sync. Queue stocked with the red-team-prep (a claims-vs-JSON
+## cross-check script is overkill; use a GPU-free reviewer agent next). Old cron expired; 1475f52b live.
