@@ -6595,3 +6595,22 @@ guard, <4GB, batch<=8):
   added (in progress). Collect next tick.
 - Updated memory qk-unsup-avoid-easy-bias.md context: easy-bias now CONFIRMED (Pearson 0.006), fix = class-
   level causal detector. Cron 172134ae expires ~2026-08-06.
+
+## tick 2026-07-30 (§68 tenth detector lands — blind spot FIXED; artifact batch-refreshed)
+- §68 CAUSAL CLASS-LEVEL detector (subagent a6801c298d8998f4c, qk_unsup_classpush.py) — the §67-prescribed fix.
+  Class-summed delta-logit per coarse class; score = causal importance × class concentration. Blind spot FIXED:
+  score correlates with causal importance Pearson 0.986 (vs cleanliness 0.006). Honest caveat: high partly by
+  construction, but whole-class movement is the real fix (top circuits no longer score ≈0). 5 verified
+  class-PUSHERS: capital-pushers h.L0.3 / mlp.L17.d1 (z 48.6) / mlp.L17.d3, word-pushers mlp.L17.d2 /
+  mlp.L16.d2. Class-summed SIGN discriminates: 3 SUPPRESSORS — h.L11.2 (word-suppressor, CORRECTS the §67
+  census's provisional "word-completion predictor" label), h.L8.7, mlp.L16.d0. All 10 census missed-hard paths
+  recovered in top 28/234. §61 pre-pass: mlp.L17.d1–3 joint 0.911 vs sum 0.481 (ratio 1.89, score jointly).
+  Committed §68 + corrected §67 h.L11.2 label + TECHNIQUES row DONE.
+- ARTIFACT batch-refreshed (one redeploy, same URL) with the whole thread: 9→10 detectors, a new "Stress-
+  testing the toolbox" block covering the digit dual-circuit arc (§65), the capitalization honest-negative
+  (§66), and the easy-bias census (§67) + tenth-detector fix (§68) told together as "blind spot found AND
+  closed." Favicon unchanged 🧭.
+- THREAD COMPLETE: Logan's two directives (run arcs on discovered circuits; don't just find the easiest) are
+  both fully answered — two arcs done (one real dual-circuit, one honest negative), the easy-bias empirically
+  confirmed structural, and the class-level detector built that fixes it. Toolbox now 10 detectors (§56-§68).
+- Cron 172134ae expires ~2026-08-06 — re-arm before then and tell Logan.
