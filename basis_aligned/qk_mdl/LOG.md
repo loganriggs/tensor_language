@@ -6921,3 +6921,21 @@ existing steering methods, not a new method class, so in-scope and launched rath
   flagged (a small under-trained SAE failing is weaker evidence than a converged one succeeding).
 - This is a bounded probe, not a commitment to SAE-based interpretability; either outcome sharpens §74. Collect
   next tick.
+
+## tick 2026-07-30 (§78 SAE red-team lands — §74 boundary is TWO boundaries; nameability crossable, causation not)
+- §78 (subagent a9a72a934a140eee2): the bounded sparse-dictionary red-team of §74's "irreducibly distributed
+  hub / would need SAE" claim came back SPLIT and sharpening. A 4096-feature L1 SAE on MLP1's output (L0=40
+  sparse, FVE 0.69 held) CROSSES the NAMEABILITY boundary — 23/32 top features monosemantic (sentence-final
+  period 9x enriched, coordinators 33x, determiners, commas, capitals) vs SVD's 0/32 — but does NOT cross the
+  CAUSAL boundary: 0/32 features clear the §74 bar (strongest z2.45), all 1212 active features together = only
+  2.15% of the 5.57-nat MLP1 effect. Positive control: removing the reconstruction (1.36%) OR the residual each
+  preserve ~98% of the loss → collective/redundant encoding, no interpretable subset load-bearing.
+- VERDICT: §74's core claim (the hub's CAUSAL mechanism is irreducibly distributed) SURVIVES even the tool it
+  named. Refinement: the boundary is TWO boundaries — variance is basis-aligned (nameable), causation is
+  superposed (collective), nearly orthogonal. Direct evidence for the §73/§74 two-level picture. A dictionary
+  will NAME the early hub but not EXPLAIN its computation. §74 KEY refined with a §78 pointer; committed.
+- Verified the JSON discrepancy: my earlier read (L0 3448, L1 0.008) was a STALE mid-run state; final JSON
+  (21:34) matches the report (L1 2.5, L0 40, FVE 0.69). Numbers confirmed via re-read + positive control.
+- Caveat honestly flagged: under-trained SAE (FVE 0.69); the definitive follow-up is a CONVERGED high-fidelity
+  SAE, but the collective-encoding control predicts the causal negative persists regardless of fidelity. That
+  converged SAE is the one remaining bigger-compute follow-up — flagged, not launched.
