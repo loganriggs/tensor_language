@@ -43,14 +43,15 @@ super-additive so most computation lives in combinations, and the largest single
 — the MLP-layer-1 hub — is **irreducibly distributed** (no single direction is nameable, three-quarters
 of its effect appears only under joint removal, a signature that survives an adversarial control against
 low-rank layers, random directions, and the neuron basis), marking the boundary where single-direction
-interpretability stops. A bounded and then a converged sparse autoencoder on that hub sharpen the
-boundary rather than crossing it: a dictionary does recover clean monosemantic *variance* features the
-orthogonal view missed (26 of 32 nameable versus zero of 32 for singular directions), but it does not
-recover the *computation* — no feature is individually load-bearing and all of them together capture
-only about two percent of the hub's causal effect, with a collective-encoding control intact — and it
-cannot even sparsely reconstruct the hub to high fidelity (a held-out variance-explained ceiling near
-0.72, generalization-bounded). So dictionary methods *name* the early hub but do not *explain* it; its
-causal mechanism is collective at every level tested. This whole boundary is
+interpretability stops. A bounded, a converged, and a ten-times-more-data sparse autoencoder on that
+hub sharpen the boundary rather than crossing it. Reconstruction and causal explicability turn out to be
+decoupled: with enough data a dictionary *does* reconstruct the hub well (held-out variance-explained
+rising from ~0.72 to ~0.85) and *does* recover clean monosemantic *variance* features the orthogonal
+view missed (up to 26 of 32 nameable versus zero of 32 for singular directions) — yet across every
+reconstruction fidelity from 0.69 to 0.85 it never recovers the *computation*: no feature is individually
+load-bearing and all of them together capture only about two percent of the hub's causal effect, with a
+collective-encoding control intact. So dictionary methods *name* and *reconstruct* the early hub but do
+not *explain* it; its causal mechanism is collective at every level and every fidelity tested. This whole boundary is
 architecture-general: the super-additivity, the high-rank basis-aligned feed-forward tail, and the
 irreducibly-distributed early hub all replicate on a second bilinear model and on a conventional softmax
 SwiGLU transformer (two to three-and-a-half times super-additive, an early hub with zero-to-one of
