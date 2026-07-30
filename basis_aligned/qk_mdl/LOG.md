@@ -6013,3 +6013,19 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## Also answered: content-spectra generalization to L>0 = conditional/named-input spectra; hint that
 ## higher-layer content may be FUNCTIONALLY nameable (closure 1-dim channel at L13, successor
 ## dictionaries) even though L0 content is lexically unnameable -- next gateable experiment.
+
+## TICK 2026-07-30g — HIGHER-LAYER SEMANTICS DISPATCH (Logan go-ahead: verify like before --
+## extraction/dial/gates -- red-team as learned, parallelize per component). THREE AGENTS launched:
+## (1) semantics_opener: L13 pending-opener channel; name = coded bracket-depth/quote-parity from
+## raw tokens; gate by substitution vs exact/zero/shuffled-placebo; dial; STANDALONE closure
+## predictor extraction; self-red-team (nesting, per-type, distance).
+## (2) semantics_successor: L8 payload channels; name = last-element identity pointer + per-family
+## successor TABLES in MLPs 8-14; gate incl IMPOSED-element follow-rate (strongest test); TABLE
+## EXTRACTION by probing; dial; cross-family pointer-vs-tag test; self-red-team (unseen elements,
+## competing sequences, wrap boundary). Warned about the v1-cache site trap.
+## (3) semantics_category: block-3 category directions; name = next-token-category evidence; 6x6
+## steering dose-response matrix w/ random-direction control; subspace ablation scored on the exact
+## catCE+withinCE split (direction-level claim; layer-level already falsified -- not to resurrect);
+## persistence probes at blocks 8/12; self-red-team (freq-token concentration check).
+## All: held-back slice FW[448:600] with SEs; banned failure modes written into prompts. Program
+## red-team follows after reports land. Standing: no Pythia.
