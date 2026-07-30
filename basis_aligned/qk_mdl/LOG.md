@@ -6147,3 +6147,20 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## four-ledger "State & ledgers" section (corrected substitutability numbers, meaning boundary) +
 ## republished f27aeab4. redteam_summary_2026-07-30.md archived. NEXT: census generality on bilin12
 ## (does KEY_cap->capital replicate) queued; then paper_atlas sync §33-35 + T2/T4. Cron 1475f52b live.
+
+## TICK 2026-07-30s — CENSUS GENERALITY (negative) + EDITING CAPSTONE (targeted redirect).
+## (1) bilin12 selection census does NOT replicate the bilin18 taxonomy: 0 KEY_cap heads, apparent
+## 36-head KEY_punct 'cluster' exposed as marginal-fit noise by the gain distribution (median 0.074
+## vs bilin18's strong heads to 0.31; 57% below 0.08). HONEST DICHOTOMY consistent with the 4-model
+## atlas: DEEP decomposition properties GENERALIZE (composition, gauges, category-vs-induction), the
+## SPECIFIC named selection-head taxonomy is architecture-SPECIFIC. Census-generality CLOSED (partial
+## neg). (2) EDITING CAPSTONE qk_targeted_redirect.py -- extends T6 from induction STRENGTH (dial) to
+## TARGET. Minimal linear repoint at read-off amplitude FAILS (chosen-tok P 0.019->0.021: thin linear
+## MATCH channel too weak to repoint vs intact pattern). Pattern-row OVERWRITE succeeds: true-next
+## 0.769->0.097 (argmax 0.888->0.187), chosen tok 16x (->0.240, argmax 0.355). AIMABILITY control
+## PASSES (double dissociation: aim@1 tok@1 0.240 vs tok@9 0.024; aim@9 tok@9 0.179 vs tok@1 0.022;
+## true-next collapses both ways) -- genuinely aimable pointer, re-confirms copy localized to census
+## heads. Cost: +0.316 natural-CE collateral (vs +0.006 null) -- strength=cheap linear knob,
+## target=expensive overwrite. Reviewed §36. NEXT: T1-T8 + census-generality + editing capstone all
+## closed/reviewed; GPU-free paper_atlas sync (§33-36 + T2/T4); no new tangential GPU arc without
+## Logan. Cron 1475f52b live; re-arm before 2026-08-06.
