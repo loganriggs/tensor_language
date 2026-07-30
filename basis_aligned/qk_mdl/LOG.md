@@ -6039,3 +6039,15 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## FUNCTION-negative at once -> the four ledgers must not be conflated. Coheres w/ content-is-spectral
 ## (category evidence = redundant distributed prior). Opener + successor agents still running; batch
 ## red-team + RESULTS §35 after all three land.
+
+## TICK 2026-07-30i — SEMANTICS AGENT 2/3 (pending-opener L13). NAMED + gated + dialed + extracted:
+## the first higher-layer CONTENT channel that passes the full standard. Name = recency-weighted
+## TYPE-BLIND pending-opener flag (low=open, strongest (/", saturating, leaky); 'unclosed count'
+## directionally right but literally false. Gate: coded injection 0.43 recovery vs exact 0.56,
+## placebos 0.11-0.13; coded = least-damaging non-identity on natural text (+0.0033). Dial monotone,
+## dCE<0.008. Extraction: standalone python predictor r=0.61 paren/AUC 0.76 quote. Red-team: not a
+## counter, type-blind (closer SELECTION elsewhere -> selection/content split recurs), decays by 128,
+## leaky reset. METHOD CATCH (adopt program-wide): zeroing is NOT neutral deletion when a=0 is out of
+## the natural range (here zero WRITES 'open'); use mean-substitution as the honest deletion + check
+## the zero point in-distribution. T5 signal: content nameable at depth when FUNCTIONAL (vs L0
+## lexical spectral). successor agent pending; batch red-team + §35 after it lands.
