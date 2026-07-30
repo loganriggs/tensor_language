@@ -1,0 +1,2231 @@
+{
+  "meta": {
+    "model": "bilin18",
+    "tokenizer": "gpt2 (model exposes none) -- FLAGGED",
+    "held_slice": "FW[448:600,:128]",
+    "train_slice_for_mlp_dirs": "FW[0:256,:128]",
+    "target": "mlp.L17.d1 (verified context-conditioned CAPITAL SELECTOR, \u00a768/\u00a769)",
+    "target_dir_index": [
+      17,
+      1
+    ],
+    "steer_formula": "new_mo = mo + (alpha-1)*(proj-projmean)*dir ; alpha=1 natural, alpha=0 mean-ablated",
+    "placebo": "random matched (unit) norm direction at layer 17, seed 1234",
+    "P_capital": "softmax mass on VOCAB_CLASS==capital (arc_caps metric)",
+    "dCE_vs_natural": "cross-entropy(alpha) - cross-entropy(natural alpha=1), paired per position (>0 worse)",
+    "dP_capital_vs_natural": "P_capital(alpha) - P_capital(natural), paired per position",
+    "batch": 6,
+    "alphas": [
+      -4.0,
+      -2.0,
+      -1.0,
+      -0.5,
+      0.0,
+      0.5,
+      1.0,
+      2.0,
+      4.0,
+      8.0,
+      16.0
+    ],
+    "position_sets": {
+      "due": "valid & next-token-is-capital",
+      "notdue": "valid & next-token-not-capital",
+      "boundary": "valid & (sentence-end punct | newline) = capital contextually DUE",
+      "midword": "valid & content word & dsn>=8 = capital NOT due",
+      "bnd_due": "boundary & next capital",
+      "mid_notdue": "midword & next not capital"
+    }
+  },
+  "counts": {
+    "valid": 18634,
+    "boundary": 1209,
+    "midword": 8711,
+    "due": 2252,
+    "notdue": 16382,
+    "bnd_due": 558,
+    "mid_notdue": 8328
+  },
+  "dose_response": {
+    "alphas": [
+      -4.0,
+      -2.0,
+      -1.0,
+      -0.5,
+      0.0,
+      0.5,
+      1.0,
+      2.0,
+      4.0,
+      8.0,
+      16.0
+    ],
+    "target_P_capital_due": [
+      0.20779,
+      0.36997,
+      0.43757,
+      0.46165,
+      0.48852,
+      0.52151,
+      0.56127,
+      0.64203,
+      0.68763,
+      0.64397,
+      0.6022
+    ],
+    "target_P_capital_notdue": [
+      0.09378,
+      0.04803,
+      0.04401,
+      0.04383,
+      0.04579,
+      0.05037,
+      0.05836,
+      0.08442,
+      0.12985,
+      0.17385,
+      0.20638
+    ],
+    "target_P_capital_boundary": [
+      0.16252,
+      0.33668,
+      0.32047,
+      0.30707,
+      0.3148,
+      0.34816,
+      0.41068,
+      0.60075,
+      0.74753,
+      0.69726,
+      0.65093
+    ],
+    "target_P_capital_midword": [
+      0.08735,
+      0.03827,
+      0.03758,
+      0.03854,
+      0.04026,
+      0.0429,
+      0.04676,
+      0.05788,
+      0.08298,
+      0.11776,
+      0.14765
+    ],
+    "target_P_capital_valid": [
+      0.10756,
+      0.08694,
+      0.09157,
+      0.09433,
+      0.0993,
+      0.10731,
+      0.11913,
+      0.15181,
+      0.19726,
+      0.23066,
+      0.25422
+    ],
+    "placebo_P_capital_due": [
+      0.56927,
+      0.56599,
+      0.56438,
+      0.56358,
+      0.5628,
+      0.56203,
+      0.56127,
+      0.5598,
+      0.55709,
+      0.55296,
+      0.55068
+    ],
+    "placebo_P_capital_notdue": [
+      0.0594,
+      0.0588,
+      0.05859,
+      0.05851,
+      0.05844,
+      0.05839,
+      0.05836,
+      0.05834,
+      0.0585,
+      0.05966,
+      0.06493
+    ],
+    "placebo_P_capital_valid": [
+      0.12102,
+      0.1201,
+      0.11972,
+      0.11955,
+      0.11939,
+      0.11926,
+      0.11913,
+      0.11894,
+      0.11876,
+      0.11928,
+      0.12364
+    ],
+    "spearman_alpha_vs_Pcap": {
+      "target_due": 0.9364,
+      "target_notdue": 0.6818,
+      "target_boundary": 0.8818,
+      "target_midword": 0.6636,
+      "target_valid": 0.8636,
+      "placebo_due": -1.0,
+      "placebo_valid": -0.4091
+    }
+  },
+  "reach": {
+    "target": {
+      "due_min": 0.20779,
+      "due_max": 0.68763,
+      "due_at_alpha_min": -4.0,
+      "due_at_alpha_max": 4.0,
+      "due_swing": 0.47984,
+      "notdue_min": 0.04383,
+      "notdue_max": 0.20638,
+      "notdue_swing": 0.16255,
+      "natural_due": 0.56127,
+      "natural_notdue": 0.05836
+    },
+    "placebo": {
+      "due_min": 0.55068,
+      "due_max": 0.56927,
+      "due_at_alpha_min": 16.0,
+      "due_at_alpha_max": -4.0,
+      "due_swing": 0.01859,
+      "notdue_min": 0.05834,
+      "notdue_max": 0.06493,
+      "notdue_swing": 0.00659,
+      "natural_due": 0.56127,
+      "natural_notdue": 0.05836
+    }
+  },
+  "specificity": {
+    "-4.0": {
+      "dP_capital_due": -0.35348,
+      "dCE_offtarget_notdue": 0.81083,
+      "dCE_all": 0.93308,
+      "specificity_ratio_capitalgain_per_offtarget_CE": 0.436
+    },
+    "-2.0": {
+      "dP_capital_due": -0.1913,
+      "dCE_offtarget_notdue": 0.27123,
+      "dCE_all": 0.32985,
+      "specificity_ratio_capitalgain_per_offtarget_CE": 0.705
+    },
+    "-1.0": {
+      "dP_capital_due": -0.1237,
+      "dCE_offtarget_notdue": 0.12773,
+      "dCE_all": 0.17603,
+      "specificity_ratio_capitalgain_per_offtarget_CE": 0.968
+    },
+    "-0.5": {
+      "dP_capital_due": -0.09962,
+      "dCE_offtarget_notdue": 0.07436,
+      "dCE_all": 0.12154,
+      "specificity_ratio_capitalgain_per_offtarget_CE": 1.34
+    },
+    "0.0": {
+      "dP_capital_due": -0.07275,
+      "dCE_offtarget_notdue": 0.03016,
+      "dCE_all": 0.06822,
+      "specificity_ratio_capitalgain_per_offtarget_CE": 2.412
+    },
+    "0.5": {
+      "dP_capital_due": -0.03976,
+      "dCE_offtarget_notdue": 0.00158,
+      "dCE_all": 0.02153,
+      "specificity_ratio_capitalgain_per_offtarget_CE": 25.165
+    },
+    "1.0": {
+      "dP_capital_due": 0.0,
+      "dCE_offtarget_notdue": 0.0,
+      "dCE_all": 0.0,
+      "specificity_ratio_capitalgain_per_offtarget_CE": null
+    },
+    "2.0": {
+      "dP_capital_due": 0.08075,
+      "dCE_offtarget_notdue": 0.10351,
+      "dCE_all": 0.07951,
+      "specificity_ratio_capitalgain_per_offtarget_CE": 0.78
+    },
+    "4.0": {
+      "dP_capital_due": 0.12635,
+      "dCE_offtarget_notdue": 0.6142,
+      "dCE_all": 0.59527,
+      "specificity_ratio_capitalgain_per_offtarget_CE": 0.206
+    },
+    "8.0": {
+      "dP_capital_due": 0.0827,
+      "dCE_offtarget_notdue": 1.77016,
+      "dCE_all": 1.76848,
+      "specificity_ratio_capitalgain_per_offtarget_CE": 0.047
+    },
+    "16.0": {
+      "dP_capital_due": 0.04093,
+      "dCE_offtarget_notdue": 3.32352,
+      "dCE_all": 3.295,
+      "specificity_ratio_capitalgain_per_offtarget_CE": 0.012
+    }
+  },
+  "context_conditioning_redteam": {
+    "up_alpha": 8.0,
+    "dP_capital_at_boundary(due)": {
+      "mean": 0.28658,
+      "SE": 0.00658,
+      "n": 1209
+    },
+    "dP_capital_at_mid_notdue": {
+      "mean": 0.06877,
+      "SE": 0.00168,
+      "n": 8328
+    },
+    "dP_capital_at_midword": {
+      "mean": 0.07101,
+      "SE": 0.00171,
+      "n": 8711
+    },
+    "notdue_over_due_dP_ratio": 0.24,
+    "note": "If notdue/due dP ratio << 1 the context-conditioning HOLDS under up-steering (only amplifies at genuine boundaries; selection logic upstream). If ~1 or growing, up-steering OVERRIDES the conditioning (controllable Title-Case override; selection logic IN the direction)."
+  },
+  "target_sweep_full": {
+    "-4.0": {
+      "P_capital": {
+        "all_valid": {
+          "mean": 0.10756,
+          "SE": 0.00102,
+          "n": 18634
+        },
+        "due": {
+          "mean": 0.20779,
+          "SE": 0.00367,
+          "n": 2252
+        },
+        "notdue": {
+          "mean": 0.09378,
+          "SE": 0.00099,
+          "n": 16382
+        },
+        "boundary": {
+          "mean": 0.16252,
+          "SE": 0.00299,
+          "n": 1209
+        },
+        "midword": {
+          "mean": 0.08735,
+          "SE": 0.00143,
+          "n": 8711
+        },
+        "bnd_due": {
+          "mean": 0.18128,
+          "SE": 0.00505,
+          "n": 558
+        },
+        "mid_notdue": {
+          "mean": 0.08018,
+          "SE": 0.00137,
+          "n": 8328
+        }
+      },
+      "dCE_vs_natural": {
+        "all_valid": {
+          "mean": 0.93308,
+          "SE": 0.01127,
+          "n": 18634
+        },
+        "notdue": {
+          "mean": 0.81083,
+          "SE": 0.01123,
+          "n": 16382
+        },
+        "due": {
+          "mean": 1.82235,
+          "SE": 0.04024,
+          "n": 2252
+        },
+        "midword": {
+          "mean": 0.52384,
+          "SE": 0.01174,
+          "n": 8711
+        }
+      },
+      "dP_capital_vs_natural": {
+        "due": {
+          "mean": -0.35348,
+          "SE": 0.00606,
+          "n": 2252
+        },
+        "notdue": {
+          "mean": 0.03542,
+          "SE": 0.00124,
+          "n": 16382
+        },
+        "boundary": {
+          "mean": -0.24816,
+          "SE": 0.00707,
+          "n": 1209
+        },
+        "midword": {
+          "mean": 0.04059,
+          "SE": 0.00159,
+          "n": 8711
+        },
+        "mid_notdue": {
+          "mean": 0.05212,
+          "SE": 0.00143,
+          "n": 8328
+        }
+      }
+    },
+    "-2.0": {
+      "P_capital": {
+        "all_valid": {
+          "mean": 0.08694,
+          "SE": 0.00121,
+          "n": 18634
+        },
+        "due": {
+          "mean": 0.36997,
+          "SE": 0.00554,
+          "n": 2252
+        },
+        "notdue": {
+          "mean": 0.04803,
+          "SE": 0.00074,
+          "n": 16382
+        },
+        "boundary": {
+          "mean": 0.33668,
+          "SE": 0.00565,
+          "n": 1209
+        },
+        "midword": {
+          "mean": 0.03827,
+          "SE": 0.00108,
+          "n": 8711
+        },
+        "bnd_due": {
+          "mean": 0.42068,
+          "SE": 0.00848,
+          "n": 558
+        },
+        "mid_notdue": {
+          "mean": 0.02564,
+          "SE": 0.00066,
+          "n": 8328
+        }
+      },
+      "dCE_vs_natural": {
+        "all_valid": {
+          "mean": 0.32985,
+          "SE": 0.00655,
+          "n": 18634
+        },
+        "notdue": {
+          "mean": 0.27123,
+          "SE": 0.00659,
+          "n": 16382
+        },
+        "due": {
+          "mean": 0.75624,
+          "SE": 0.02342,
+          "n": 2252
+        },
+        "midword": {
+          "mean": 0.20921,
+          "SE": 0.00805,
+          "n": 8711
+        }
+      },
+      "dP_capital_vs_natural": {
+        "due": {
+          "mean": -0.1913,
+          "SE": 0.00427,
+          "n": 2252
+        },
+        "notdue": {
+          "mean": -0.01033,
+          "SE": 0.00057,
+          "n": 16382
+        },
+        "boundary": {
+          "mean": -0.074,
+          "SE": 0.00497,
+          "n": 1209
+        },
+        "midword": {
+          "mean": -0.00849,
+          "SE": 0.00064,
+          "n": 8711
+        },
+        "mid_notdue": {
+          "mean": -0.00242,
+          "SE": 0.00046,
+          "n": 8328
+        }
+      }
+    },
+    "-1.0": {
+      "P_capital": {
+        "all_valid": {
+          "mean": 0.09157,
+          "SE": 0.00139,
+          "n": 18634
+        },
+        "due": {
+          "mean": 0.43757,
+          "SE": 0.00649,
+          "n": 2252
+        },
+        "notdue": {
+          "mean": 0.04401,
+          "SE": 0.00076,
+          "n": 16382
+        },
+        "boundary": {
+          "mean": 0.32047,
+          "SE": 0.00691,
+          "n": 1209
+        },
+        "midword": {
+          "mean": 0.03758,
+          "SE": 0.00119,
+          "n": 8711
+        },
+        "bnd_due": {
+          "mean": 0.43716,
+          "SE": 0.01082,
+          "n": 558
+        },
+        "mid_notdue": {
+          "mean": 0.02305,
+          "SE": 0.00067,
+          "n": 8328
+        }
+      },
+      "dCE_vs_natural": {
+        "all_valid": {
+          "mean": 0.17603,
+          "SE": 0.00511,
+          "n": 18634
+        },
+        "notdue": {
+          "mean": 0.12773,
+          "SE": 0.0051,
+          "n": 16382
+        },
+        "due": {
+          "mean": 0.52736,
+          "SE": 0.0187,
+          "n": 2252
+        },
+        "midword": {
+          "mean": 0.13013,
+          "SE": 0.00664,
+          "n": 8711
+        }
+      },
+      "dP_capital_vs_natural": {
+        "due": {
+          "mean": -0.1237,
+          "SE": 0.00281,
+          "n": 2252
+        },
+        "notdue": {
+          "mean": -0.01434,
+          "SE": 0.00043,
+          "n": 16382
+        },
+        "boundary": {
+          "mean": -0.09021,
+          "SE": 0.00289,
+          "n": 1209
+        },
+        "midword": {
+          "mean": -0.00918,
+          "SE": 0.00048,
+          "n": 8711
+        },
+        "mid_notdue": {
+          "mean": -0.00501,
+          "SE": 0.00036,
+          "n": 8328
+        }
+      }
+    },
+    "-0.5": {
+      "P_capital": {
+        "all_valid": {
+          "mean": 0.09433,
+          "SE": 0.00146,
+          "n": 18634
+        },
+        "due": {
+          "mean": 0.46165,
+          "SE": 0.00679,
+          "n": 2252
+        },
+        "notdue": {
+          "mean": 0.04383,
+          "SE": 0.00079,
+          "n": 16382
+        },
+        "boundary": {
+          "mean": 0.30707,
+          "SE": 0.00729,
+          "n": 1209
+        },
+        "midword": {
+          "mean": 0.03854,
+          "SE": 0.00125,
+          "n": 8711
+        },
+        "bnd_due": {
+          "mean": 0.431,
+          "SE": 0.01158,
+          "n": 558
+        },
+        "mid_notdue": {
+          "mean": 0.02312,
+          "SE": 0.0007,
+          "n": 8328
+        }
+      },
+      "dCE_vs_natural": {
+        "all_valid": {
+          "mean": 0.12154,
+          "SE": 0.0043,
+          "n": 18634
+        },
+        "notdue": {
+          "mean": 0.07436,
+          "SE": 0.00409,
+          "n": 16382
+        },
+        "due": {
+          "mean": 0.46474,
+          "SE": 0.01787,
+          "n": 2252
+        },
+        "midword": {
+          "mean": 0.08707,
+          "SE": 0.00538,
+          "n": 8711
+        }
+      },
+      "dP_capital_vs_natural": {
+        "due": {
+          "mean": -0.09962,
+          "SE": 0.00228,
+          "n": 2252
+        },
+        "notdue": {
+          "mean": -0.01452,
+          "SE": 0.00038,
+          "n": 16382
+        },
+        "boundary": {
+          "mean": -0.10361,
+          "SE": 0.00242,
+          "n": 1209
+        },
+        "midword": {
+          "mean": -0.00822,
+          "SE": 0.0004,
+          "n": 8711
+        },
+        "mid_notdue": {
+          "mean": -0.00494,
+          "SE": 0.0003,
+          "n": 8328
+        }
+      }
+    },
+    "0.0": {
+      "P_capital": {
+        "all_valid": {
+          "mean": 0.0993,
+          "SE": 0.00153,
+          "n": 18634
+        },
+        "due": {
+          "mean": 0.48852,
+          "SE": 0.00689,
+          "n": 2252
+        },
+        "notdue": {
+          "mean": 0.04579,
+          "SE": 0.00083,
+          "n": 16382
+        },
+        "boundary": {
+          "mean": 0.3148,
+          "SE": 0.00746,
+          "n": 1209
+        },
+        "midword": {
+          "mean": 0.04026,
+          "SE": 0.00131,
+          "n": 8711
+        },
+        "bnd_due": {
+          "mean": 0.44317,
+          "SE": 0.01171,
+          "n": 558
+        },
+        "mid_notdue": {
+          "mean": 0.02388,
+          "SE": 0.00074,
+          "n": 8328
+        }
+      },
+      "dCE_vs_natural": {
+        "all_valid": {
+          "mean": 0.06822,
+          "SE": 0.00312,
+          "n": 18634
+        },
+        "notdue": {
+          "mean": 0.03016,
+          "SE": 0.00282,
+          "n": 16382
+        },
+        "due": {
+          "mean": 0.34502,
+          "SE": 0.01439,
+          "n": 2252
+        },
+        "midword": {
+          "mean": 0.04571,
+          "SE": 0.00375,
+          "n": 8711
+        }
+      },
+      "dP_capital_vs_natural": {
+        "due": {
+          "mean": -0.07275,
+          "SE": 0.00171,
+          "n": 2252
+        },
+        "notdue": {
+          "mean": -0.01256,
+          "SE": 0.00031,
+          "n": 16382
+        },
+        "boundary": {
+          "mean": -0.09588,
+          "SE": 0.00193,
+          "n": 1209
+        },
+        "midword": {
+          "mean": -0.0065,
+          "SE": 0.00031,
+          "n": 8711
+        },
+        "mid_notdue": {
+          "mean": -0.00418,
+          "SE": 0.00024,
+          "n": 8328
+        }
+      }
+    },
+    "0.5": {
+      "P_capital": {
+        "all_valid": {
+          "mean": 0.10731,
+          "SE": 0.00161,
+          "n": 18634
+        },
+        "due": {
+          "mean": 0.52151,
+          "SE": 0.00681,
+          "n": 2252
+        },
+        "notdue": {
+          "mean": 0.05037,
+          "SE": 0.00091,
+          "n": 16382
+        },
+        "boundary": {
+          "mean": 0.34816,
+          "SE": 0.00745,
+          "n": 1209
+        },
+        "midword": {
+          "mean": 0.0429,
+          "SE": 0.00138,
+          "n": 8711
+        },
+        "bnd_due": {
+          "mean": 0.47908,
+          "SE": 0.0112,
+          "n": 558
+        },
+        "mid_notdue": {
+          "mean": 0.02542,
+          "SE": 0.0008,
+          "n": 8328
+        }
+      },
+      "dCE_vs_natural": {
+        "all_valid": {
+          "mean": 0.02153,
+          "SE": 0.00157,
+          "n": 18634
+        },
+        "notdue": {
+          "mean": 0.00158,
+          "SE": 0.0014,
+          "n": 16382
+        },
+        "due": {
+          "mean": 0.16662,
+          "SE": 0.00746,
+          "n": 2252
+        },
+        "midword": {
+          "mean": 0.01346,
+          "SE": 0.00183,
+          "n": 8711
+        }
+      },
+      "dP_capital_vs_natural": {
+        "due": {
+          "mean": -0.03976,
+          "SE": 0.00098,
+          "n": 2252
+        },
+        "notdue": {
+          "mean": -0.00799,
+          "SE": 0.00019,
+          "n": 16382
+        },
+        "boundary": {
+          "mean": -0.06252,
+          "SE": 0.00115,
+          "n": 1209
+        },
+        "midword": {
+          "mean": -0.00386,
+          "SE": 0.00018,
+          "n": 8711
+        },
+        "mid_notdue": {
+          "mean": -0.00264,
+          "SE": 0.00014,
+          "n": 8328
+        }
+      }
+    },
+    "1.0": {
+      "P_capital": {
+        "all_valid": {
+          "mean": 0.11913,
+          "SE": 0.00169,
+          "n": 18634
+        },
+        "due": {
+          "mean": 0.56127,
+          "SE": 0.00656,
+          "n": 2252
+        },
+        "notdue": {
+          "mean": 0.05836,
+          "SE": 0.00102,
+          "n": 16382
+        },
+        "boundary": {
+          "mean": 0.41068,
+          "SE": 0.00716,
+          "n": 1209
+        },
+        "midword": {
+          "mean": 0.04676,
+          "SE": 0.00147,
+          "n": 8711
+        },
+        "bnd_due": {
+          "mean": 0.53988,
+          "SE": 0.00994,
+          "n": 558
+        },
+        "mid_notdue": {
+          "mean": 0.02806,
+          "SE": 0.00088,
+          "n": 8328
+        }
+      },
+      "dCE_vs_natural": {
+        "all_valid": {
+          "mean": 0.0,
+          "SE": 0.0,
+          "n": 18634
+        },
+        "notdue": {
+          "mean": 0.0,
+          "SE": 0.0,
+          "n": 16382
+        },
+        "due": {
+          "mean": 0.0,
+          "SE": 0.0,
+          "n": 2252
+        },
+        "midword": {
+          "mean": 0.0,
+          "SE": 0.0,
+          "n": 8711
+        }
+      },
+      "dP_capital_vs_natural": {
+        "due": {
+          "mean": 0.0,
+          "SE": 0.0,
+          "n": 2252
+        },
+        "notdue": {
+          "mean": 0.0,
+          "SE": 0.0,
+          "n": 16382
+        },
+        "boundary": {
+          "mean": 0.0,
+          "SE": 0.0,
+          "n": 1209
+        },
+        "midword": {
+          "mean": 0.0,
+          "SE": 0.0,
+          "n": 8711
+        },
+        "mid_notdue": {
+          "mean": 0.0,
+          "SE": 0.0,
+          "n": 8328
+        }
+      }
+    },
+    "2.0": {
+      "P_capital": {
+        "all_valid": {
+          "mean": 0.15181,
+          "SE": 0.00193,
+          "n": 18634
+        },
+        "due": {
+          "mean": 0.64203,
+          "SE": 0.00594,
+          "n": 2252
+        },
+        "notdue": {
+          "mean": 0.08442,
+          "SE": 0.00136,
+          "n": 16382
+        },
+        "boundary": {
+          "mean": 0.60075,
+          "SE": 0.00572,
+          "n": 1209
+        },
+        "midword": {
+          "mean": 0.05788,
+          "SE": 0.00169,
+          "n": 8711
+        },
+        "bnd_due": {
+          "mean": 0.69903,
+          "SE": 0.00559,
+          "n": 558
+        },
+        "mid_notdue": {
+          "mean": 0.0369,
+          "SE": 0.00113,
+          "n": 8328
+        }
+      },
+      "dCE_vs_natural": {
+        "all_valid": {
+          "mean": 0.07951,
+          "SE": 0.00291,
+          "n": 18634
+        },
+        "notdue": {
+          "mean": 0.10351,
+          "SE": 0.00282,
+          "n": 16382
+        },
+        "due": {
+          "mean": -0.0951,
+          "SE": 0.01198,
+          "n": 2252
+        },
+        "midword": {
+          "mean": 0.047,
+          "SE": 0.00325,
+          "n": 8711
+        }
+      },
+      "dP_capital_vs_natural": {
+        "due": {
+          "mean": 0.08075,
+          "SE": 0.00225,
+          "n": 2252
+        },
+        "notdue": {
+          "mean": 0.02606,
+          "SE": 0.00054,
+          "n": 16382
+        },
+        "boundary": {
+          "mean": 0.19007,
+          "SE": 0.0034,
+          "n": 1209
+        },
+        "midword": {
+          "mean": 0.01112,
+          "SE": 0.00043,
+          "n": 8711
+        },
+        "mid_notdue": {
+          "mean": 0.00884,
+          "SE": 0.00039,
+          "n": 8328
+        }
+      }
+    },
+    "4.0": {
+      "P_capital": {
+        "all_valid": {
+          "mean": 0.19726,
+          "SE": 0.00217,
+          "n": 18634
+        },
+        "due": {
+          "mean": 0.68763,
+          "SE": 0.00527,
+          "n": 2252
+        },
+        "notdue": {
+          "mean": 0.12985,
+          "SE": 0.00181,
+          "n": 16382
+        },
+        "boundary": {
+          "mean": 0.74753,
+          "SE": 0.00422,
+          "n": 1209
+        },
+        "midword": {
+          "mean": 0.08298,
+          "SE": 0.00207,
+          "n": 8711
+        },
+        "bnd_due": {
+          "mean": 0.7912,
+          "SE": 0.00254,
+          "n": 558
+        },
+        "mid_notdue": {
+          "mean": 0.06028,
+          "SE": 0.00164,
+          "n": 8328
+        }
+      },
+      "dCE_vs_natural": {
+        "all_valid": {
+          "mean": 0.59527,
+          "SE": 0.00845,
+          "n": 18634
+        },
+        "notdue": {
+          "mean": 0.6142,
+          "SE": 0.00873,
+          "n": 16382
+        },
+        "due": {
+          "mean": 0.45753,
+          "SE": 0.02911,
+          "n": 2252
+        },
+        "midword": {
+          "mean": 0.38364,
+          "SE": 0.00935,
+          "n": 8711
+        }
+      },
+      "dP_capital_vs_natural": {
+        "due": {
+          "mean": 0.12635,
+          "SE": 0.00436,
+          "n": 2252
+        },
+        "notdue": {
+          "mean": 0.07149,
+          "SE": 0.00119,
+          "n": 16382
+        },
+        "boundary": {
+          "mean": 0.33685,
+          "SE": 0.00636,
+          "n": 1209
+        },
+        "midword": {
+          "mean": 0.03622,
+          "SE": 0.00113,
+          "n": 8711
+        },
+        "mid_notdue": {
+          "mean": 0.03222,
+          "SE": 0.00107,
+          "n": 8328
+        }
+      }
+    },
+    "8.0": {
+      "P_capital": {
+        "all_valid": {
+          "mean": 0.23066,
+          "SE": 0.00214,
+          "n": 18634
+        },
+        "due": {
+          "mean": 0.64397,
+          "SE": 0.00433,
+          "n": 2252
+        },
+        "notdue": {
+          "mean": 0.17385,
+          "SE": 0.00198,
+          "n": 16382
+        },
+        "boundary": {
+          "mean": 0.69726,
+          "SE": 0.00251,
+          "n": 1209
+        },
+        "midword": {
+          "mean": 0.11776,
+          "SE": 0.00235,
+          "n": 8711
+        },
+        "bnd_due": {
+          "mean": 0.71948,
+          "SE": 0.00178,
+          "n": 558
+        },
+        "mid_notdue": {
+          "mean": 0.09683,
+          "SE": 0.0021,
+          "n": 8328
+        }
+      },
+      "dCE_vs_natural": {
+        "all_valid": {
+          "mean": 1.76848,
+          "SE": 0.01541,
+          "n": 18634
+        },
+        "notdue": {
+          "mean": 1.77016,
+          "SE": 0.01623,
+          "n": 16382
+        },
+        "due": {
+          "mean": 1.75625,
+          "SE": 0.04816,
+          "n": 2252
+        },
+        "midword": {
+          "mean": 1.3623,
+          "SE": 0.01866,
+          "n": 8711
+        }
+      },
+      "dP_capital_vs_natural": {
+        "due": {
+          "mean": 0.0827,
+          "SE": 0.00533,
+          "n": 2252
+        },
+        "notdue": {
+          "mean": 0.11549,
+          "SE": 0.00152,
+          "n": 16382
+        },
+        "boundary": {
+          "mean": 0.28658,
+          "SE": 0.00658,
+          "n": 1209
+        },
+        "midword": {
+          "mean": 0.07101,
+          "SE": 0.00171,
+          "n": 8711
+        },
+        "mid_notdue": {
+          "mean": 0.06877,
+          "SE": 0.00168,
+          "n": 8328
+        }
+      }
+    },
+    "16.0": {
+      "P_capital": {
+        "all_valid": {
+          "mean": 0.25422,
+          "SE": 0.0021,
+          "n": 18634
+        },
+        "due": {
+          "mean": 0.6022,
+          "SE": 0.00372,
+          "n": 2252
+        },
+        "notdue": {
+          "mean": 0.20638,
+          "SE": 0.00207,
+          "n": 16382
+        },
+        "boundary": {
+          "mean": 0.65093,
+          "SE": 0.00152,
+          "n": 1209
+        },
+        "midword": {
+          "mean": 0.14765,
+          "SE": 0.0025,
+          "n": 8711
+        },
+        "bnd_due": {
+          "mean": 0.66066,
+          "SE": 0.0012,
+          "n": 558
+        },
+        "mid_notdue": {
+          "mean": 0.12948,
+          "SE": 0.00236,
+          "n": 8328
+        }
+      },
+      "dCE_vs_natural": {
+        "all_valid": {
+          "mean": 3.295,
+          "SE": 0.02073,
+          "n": 18634
+        },
+        "notdue": {
+          "mean": 3.32352,
+          "SE": 0.02197,
+          "n": 16382
+        },
+        "due": {
+          "mean": 3.08756,
+          "SE": 0.0621,
+          "n": 2252
+        },
+        "midword": {
+          "mean": 2.8913,
+          "SE": 0.02746,
+          "n": 8711
+        }
+      },
+      "dP_capital_vs_natural": {
+        "due": {
+          "mean": 0.04093,
+          "SE": 0.00577,
+          "n": 2252
+        },
+        "notdue": {
+          "mean": 0.14802,
+          "SE": 0.00172,
+          "n": 16382
+        },
+        "boundary": {
+          "mean": 0.24025,
+          "SE": 0.00689,
+          "n": 1209
+        },
+        "midword": {
+          "mean": 0.10089,
+          "SE": 0.00207,
+          "n": 8711
+        },
+        "mid_notdue": {
+          "mean": 0.10142,
+          "SE": 0.00205,
+          "n": 8328
+        }
+      }
+    }
+  },
+  "placebo_sweep_full": {
+    "-4.0": {
+      "P_capital": {
+        "all_valid": {
+          "mean": 0.12102,
+          "SE": 0.00171,
+          "n": 18634
+        },
+        "due": {
+          "mean": 0.56927,
+          "SE": 0.00652,
+          "n": 2252
+        },
+        "notdue": {
+          "mean": 0.0594,
+          "SE": 0.00104,
+          "n": 16382
+        },
+        "boundary": {
+          "mean": 0.44731,
+          "SE": 0.00724,
+          "n": 1209
+        },
+        "midword": {
+          "mean": 0.04678,
+          "SE": 0.00147,
+          "n": 8711
+        },
+        "bnd_due": {
+          "mean": 0.57948,
+          "SE": 0.00953,
+          "n": 558
+        },
+        "mid_notdue": {
+          "mean": 0.028,
+          "SE": 0.00088,
+          "n": 8328
+        }
+      },
+      "dCE_vs_natural": {
+        "all_valid": {
+          "mean": 0.0228,
+          "SE": 0.00168,
+          "n": 18634
+        },
+        "notdue": {
+          "mean": 0.02429,
+          "SE": 0.00172,
+          "n": 16382
+        },
+        "due": {
+          "mean": 0.01193,
+          "SE": 0.006,
+          "n": 2252
+        },
+        "midword": {
+          "mean": 0.01634,
+          "SE": 0.0021,
+          "n": 8711
+        }
+      },
+      "dP_capital_vs_natural": {
+        "due": {
+          "mean": 0.008,
+          "SE": 0.00076,
+          "n": 2252
+        },
+        "notdue": {
+          "mean": 0.00105,
+          "SE": 0.00011,
+          "n": 16382
+        },
+        "boundary": {
+          "mean": 0.03664,
+          "SE": 0.00103,
+          "n": 1209
+        },
+        "midword": {
+          "mean": 2e-05,
+          "SE": 8e-05,
+          "n": 8711
+        },
+        "mid_notdue": {
+          "mean": -6e-05,
+          "SE": 7e-05,
+          "n": 8328
+        }
+      }
+    },
+    "-2.0": {
+      "P_capital": {
+        "all_valid": {
+          "mean": 0.1201,
+          "SE": 0.0017,
+          "n": 18634
+        },
+        "due": {
+          "mean": 0.56599,
+          "SE": 0.00654,
+          "n": 2252
+        },
+        "notdue": {
+          "mean": 0.0588,
+          "SE": 0.00103,
+          "n": 16382
+        },
+        "boundary": {
+          "mean": 0.43099,
+          "SE": 0.00722,
+          "n": 1209
+        },
+        "midword": {
+          "mean": 0.04672,
+          "SE": 0.00147,
+          "n": 8711
+        },
+        "bnd_due": {
+          "mean": 0.56242,
+          "SE": 0.00974,
+          "n": 558
+        },
+        "mid_notdue": {
+          "mean": 0.02797,
+          "SE": 0.00088,
+          "n": 8328
+        }
+      },
+      "dCE_vs_natural": {
+        "all_valid": {
+          "mean": 0.00737,
+          "SE": 0.001,
+          "n": 18634
+        },
+        "notdue": {
+          "mean": 0.00865,
+          "SE": 0.00102,
+          "n": 16382
+        },
+        "due": {
+          "mean": -0.00193,
+          "SE": 0.00357,
+          "n": 2252
+        },
+        "midword": {
+          "mean": 0.0054,
+          "SE": 0.00125,
+          "n": 8711
+        }
+      },
+      "dP_capital_vs_natural": {
+        "due": {
+          "mean": 0.00471,
+          "SE": 0.00044,
+          "n": 2252
+        },
+        "notdue": {
+          "mean": 0.00045,
+          "SE": 6e-05,
+          "n": 16382
+        },
+        "boundary": {
+          "mean": 0.02032,
+          "SE": 0.00058,
+          "n": 1209
+        },
+        "midword": {
+          "mean": -4e-05,
+          "SE": 5e-05,
+          "n": 8711
+        },
+        "mid_notdue": {
+          "mean": -9e-05,
+          "SE": 4e-05,
+          "n": 8328
+        }
+      }
+    },
+    "-1.0": {
+      "P_capital": {
+        "all_valid": {
+          "mean": 0.11972,
+          "SE": 0.0017,
+          "n": 18634
+        },
+        "due": {
+          "mean": 0.56438,
+          "SE": 0.00655,
+          "n": 2252
+        },
+        "notdue": {
+          "mean": 0.05859,
+          "SE": 0.00102,
+          "n": 16382
+        },
+        "boundary": {
+          "mean": 0.42363,
+          "SE": 0.00721,
+          "n": 1209
+        },
+        "midword": {
+          "mean": 0.04672,
+          "SE": 0.00147,
+          "n": 8711
+        },
+        "bnd_due": {
+          "mean": 0.55445,
+          "SE": 0.00982,
+          "n": 558
+        },
+        "mid_notdue": {
+          "mean": 0.02798,
+          "SE": 0.00088,
+          "n": 8328
+        }
+      },
+      "dCE_vs_natural": {
+        "all_valid": {
+          "mean": 0.00281,
+          "SE": 0.00066,
+          "n": 18634
+        },
+        "notdue": {
+          "mean": 0.00378,
+          "SE": 0.00068,
+          "n": 16382
+        },
+        "due": {
+          "mean": -0.00428,
+          "SE": 0.00238,
+          "n": 2252
+        },
+        "midword": {
+          "mean": 0.00212,
+          "SE": 0.00083,
+          "n": 8711
+        }
+      },
+      "dP_capital_vs_natural": {
+        "due": {
+          "mean": 0.0031,
+          "SE": 0.00029,
+          "n": 2252
+        },
+        "notdue": {
+          "mean": 0.00023,
+          "SE": 4e-05,
+          "n": 16382
+        },
+        "boundary": {
+          "mean": 0.01296,
+          "SE": 0.00037,
+          "n": 1209
+        },
+        "midword": {
+          "mean": -4e-05,
+          "SE": 3e-05,
+          "n": 8711
+        },
+        "mid_notdue": {
+          "mean": -8e-05,
+          "SE": 3e-05,
+          "n": 8328
+        }
+      }
+    },
+    "-0.5": {
+      "P_capital": {
+        "all_valid": {
+          "mean": 0.11955,
+          "SE": 0.0017,
+          "n": 18634
+        },
+        "due": {
+          "mean": 0.56358,
+          "SE": 0.00655,
+          "n": 2252
+        },
+        "notdue": {
+          "mean": 0.05851,
+          "SE": 0.00102,
+          "n": 16382
+        },
+        "boundary": {
+          "mean": 0.42017,
+          "SE": 0.0072,
+          "n": 1209
+        },
+        "midword": {
+          "mean": 0.04672,
+          "SE": 0.00147,
+          "n": 8711
+        },
+        "bnd_due": {
+          "mean": 0.55063,
+          "SE": 0.00986,
+          "n": 558
+        },
+        "mid_notdue": {
+          "mean": 0.02799,
+          "SE": 0.00088,
+          "n": 8328
+        }
+      },
+      "dCE_vs_natural": {
+        "all_valid": {
+          "mean": 0.00132,
+          "SE": 0.0005,
+          "n": 18634
+        },
+        "notdue": {
+          "mean": 0.00209,
+          "SE": 0.00051,
+          "n": 16382
+        },
+        "due": {
+          "mean": -0.00432,
+          "SE": 0.00178,
+          "n": 2252
+        },
+        "midword": {
+          "mean": 0.00103,
+          "SE": 0.00063,
+          "n": 8711
+        }
+      },
+      "dP_capital_vs_natural": {
+        "due": {
+          "mean": 0.00231,
+          "SE": 0.00021,
+          "n": 2252
+        },
+        "notdue": {
+          "mean": 0.00015,
+          "SE": 3e-05,
+          "n": 16382
+        },
+        "boundary": {
+          "mean": 0.00949,
+          "SE": 0.00028,
+          "n": 1209
+        },
+        "midword": {
+          "mean": -4e-05,
+          "SE": 2e-05,
+          "n": 8711
+        },
+        "mid_notdue": {
+          "mean": -6e-05,
+          "SE": 2e-05,
+          "n": 8328
+        }
+      }
+    },
+    "0.0": {
+      "P_capital": {
+        "all_valid": {
+          "mean": 0.11939,
+          "SE": 0.0017,
+          "n": 18634
+        },
+        "due": {
+          "mean": 0.5628,
+          "SE": 0.00655,
+          "n": 2252
+        },
+        "notdue": {
+          "mean": 0.05844,
+          "SE": 0.00102,
+          "n": 16382
+        },
+        "boundary": {
+          "mean": 0.41686,
+          "SE": 0.00719,
+          "n": 1209
+        },
+        "midword": {
+          "mean": 0.04673,
+          "SE": 0.00147,
+          "n": 8711
+        },
+        "bnd_due": {
+          "mean": 0.54693,
+          "SE": 0.00989,
+          "n": 558
+        },
+        "mid_notdue": {
+          "mean": 0.02801,
+          "SE": 0.00088,
+          "n": 8328
+        }
+      },
+      "dCE_vs_natural": {
+        "all_valid": {
+          "mean": 0.00035,
+          "SE": 0.00033,
+          "n": 18634
+        },
+        "notdue": {
+          "mean": 0.0009,
+          "SE": 0.00034,
+          "n": 16382
+        },
+        "due": {
+          "mean": -0.00361,
+          "SE": 0.00119,
+          "n": 2252
+        },
+        "midword": {
+          "mean": 0.00031,
+          "SE": 0.00042,
+          "n": 8711
+        }
+      },
+      "dP_capital_vs_natural": {
+        "due": {
+          "mean": 0.00153,
+          "SE": 0.00014,
+          "n": 2252
+        },
+        "notdue": {
+          "mean": 8e-05,
+          "SE": 2e-05,
+          "n": 16382
+        },
+        "boundary": {
+          "mean": 0.00618,
+          "SE": 0.00018,
+          "n": 1209
+        },
+        "midword": {
+          "mean": -3e-05,
+          "SE": 2e-05,
+          "n": 8711
+        },
+        "mid_notdue": {
+          "mean": -5e-05,
+          "SE": 1e-05,
+          "n": 8328
+        }
+      }
+    },
+    "0.5": {
+      "P_capital": {
+        "all_valid": {
+          "mean": 0.11926,
+          "SE": 0.0017,
+          "n": 18634
+        },
+        "due": {
+          "mean": 0.56203,
+          "SE": 0.00656,
+          "n": 2252
+        },
+        "notdue": {
+          "mean": 0.05839,
+          "SE": 0.00102,
+          "n": 16382
+        },
+        "boundary": {
+          "mean": 0.41369,
+          "SE": 0.00718,
+          "n": 1209
+        },
+        "midword": {
+          "mean": 0.04674,
+          "SE": 0.00147,
+          "n": 8711
+        },
+        "bnd_due": {
+          "mean": 0.54334,
+          "SE": 0.00992,
+          "n": 558
+        },
+        "mid_notdue": {
+          "mean": 0.02803,
+          "SE": 0.00088,
+          "n": 8328
+        }
+      },
+      "dCE_vs_natural": {
+        "all_valid": {
+          "mean": -9e-05,
+          "SE": 0.00017,
+          "n": 18634
+        },
+        "notdue": {
+          "mean": 0.0002,
+          "SE": 0.00017,
+          "n": 16382
+        },
+        "due": {
+          "mean": -0.00217,
+          "SE": 0.00059,
+          "n": 2252
+        },
+        "midword": {
+          "mean": -3e-05,
+          "SE": 0.00021,
+          "n": 8711
+        }
+      },
+      "dP_capital_vs_natural": {
+        "due": {
+          "mean": 0.00076,
+          "SE": 7e-05,
+          "n": 2252
+        },
+        "notdue": {
+          "mean": 3e-05,
+          "SE": 1e-05,
+          "n": 16382
+        },
+        "boundary": {
+          "mean": 0.00301,
+          "SE": 9e-05,
+          "n": 1209
+        },
+        "midword": {
+          "mean": -2e-05,
+          "SE": 1e-05,
+          "n": 8711
+        },
+        "mid_notdue": {
+          "mean": -3e-05,
+          "SE": 1e-05,
+          "n": 8328
+        }
+      }
+    },
+    "1.0": {
+      "P_capital": {
+        "all_valid": {
+          "mean": 0.11913,
+          "SE": 0.00169,
+          "n": 18634
+        },
+        "due": {
+          "mean": 0.56127,
+          "SE": 0.00656,
+          "n": 2252
+        },
+        "notdue": {
+          "mean": 0.05836,
+          "SE": 0.00102,
+          "n": 16382
+        },
+        "boundary": {
+          "mean": 0.41068,
+          "SE": 0.00716,
+          "n": 1209
+        },
+        "midword": {
+          "mean": 0.04676,
+          "SE": 0.00147,
+          "n": 8711
+        },
+        "bnd_due": {
+          "mean": 0.53988,
+          "SE": 0.00994,
+          "n": 558
+        },
+        "mid_notdue": {
+          "mean": 0.02806,
+          "SE": 0.00088,
+          "n": 8328
+        }
+      },
+      "dCE_vs_natural": {
+        "all_valid": {
+          "mean": 0.0,
+          "SE": 0.0,
+          "n": 18634
+        },
+        "notdue": {
+          "mean": 0.0,
+          "SE": 0.0,
+          "n": 16382
+        },
+        "due": {
+          "mean": 0.0,
+          "SE": 0.0,
+          "n": 2252
+        },
+        "midword": {
+          "mean": 0.0,
+          "SE": 0.0,
+          "n": 8711
+        }
+      },
+      "dP_capital_vs_natural": {
+        "due": {
+          "mean": 0.0,
+          "SE": 0.0,
+          "n": 2252
+        },
+        "notdue": {
+          "mean": 0.0,
+          "SE": 0.0,
+          "n": 16382
+        },
+        "boundary": {
+          "mean": 0.0,
+          "SE": 0.0,
+          "n": 1209
+        },
+        "midword": {
+          "mean": 0.0,
+          "SE": 0.0,
+          "n": 8711
+        },
+        "mid_notdue": {
+          "mean": 0.0,
+          "SE": 0.0,
+          "n": 8328
+        }
+      }
+    },
+    "2.0": {
+      "P_capital": {
+        "all_valid": {
+          "mean": 0.11894,
+          "SE": 0.00169,
+          "n": 18634
+        },
+        "due": {
+          "mean": 0.5598,
+          "SE": 0.00656,
+          "n": 2252
+        },
+        "notdue": {
+          "mean": 0.05834,
+          "SE": 0.00101,
+          "n": 16382
+        },
+        "boundary": {
+          "mean": 0.40511,
+          "SE": 0.00713,
+          "n": 1209
+        },
+        "midword": {
+          "mean": 0.04681,
+          "SE": 0.00147,
+          "n": 8711
+        },
+        "bnd_due": {
+          "mean": 0.53335,
+          "SE": 0.00997,
+          "n": 558
+        },
+        "mid_notdue": {
+          "mean": 0.02812,
+          "SE": 0.00088,
+          "n": 8328
+        }
+      },
+      "dCE_vs_natural": {
+        "all_valid": {
+          "mean": 0.00174,
+          "SE": 0.00033,
+          "n": 18634
+        },
+        "notdue": {
+          "mean": 0.00109,
+          "SE": 0.00034,
+          "n": 16382
+        },
+        "due": {
+          "mean": 0.0065,
+          "SE": 0.00118,
+          "n": 2252
+        },
+        "midword": {
+          "mean": 0.00118,
+          "SE": 0.00042,
+          "n": 8711
+        }
+      },
+      "dP_capital_vs_natural": {
+        "due": {
+          "mean": -0.00147,
+          "SE": 0.00014,
+          "n": 2252
+        },
+        "notdue": {
+          "mean": -2e-05,
+          "SE": 2e-05,
+          "n": 16382
+        },
+        "boundary": {
+          "mean": -0.00556,
+          "SE": 0.00017,
+          "n": 1209
+        },
+        "midword": {
+          "mean": 5e-05,
+          "SE": 2e-05,
+          "n": 8711
+        },
+        "mid_notdue": {
+          "mean": 7e-05,
+          "SE": 2e-05,
+          "n": 8328
+        }
+      }
+    },
+    "4.0": {
+      "P_capital": {
+        "all_valid": {
+          "mean": 0.11876,
+          "SE": 0.00168,
+          "n": 18634
+        },
+        "due": {
+          "mean": 0.55709,
+          "SE": 0.00655,
+          "n": 2252
+        },
+        "notdue": {
+          "mean": 0.0585,
+          "SE": 0.00101,
+          "n": 16382
+        },
+        "boundary": {
+          "mean": 0.39584,
+          "SE": 0.00706,
+          "n": 1209
+        },
+        "midword": {
+          "mean": 0.04697,
+          "SE": 0.00147,
+          "n": 8711
+        },
+        "bnd_due": {
+          "mean": 0.52187,
+          "SE": 0.00998,
+          "n": 558
+        },
+        "mid_notdue": {
+          "mean": 0.02832,
+          "SE": 0.00088,
+          "n": 8328
+        }
+      },
+      "dCE_vs_natural": {
+        "all_valid": {
+          "mean": 0.01145,
+          "SE": 0.001,
+          "n": 18634
+        },
+        "notdue": {
+          "mean": 0.00919,
+          "SE": 0.00102,
+          "n": 16382
+        },
+        "due": {
+          "mean": 0.02783,
+          "SE": 0.00354,
+          "n": 2252
+        },
+        "midword": {
+          "mean": 0.00805,
+          "SE": 0.00126,
+          "n": 8711
+        }
+      },
+      "dP_capital_vs_natural": {
+        "due": {
+          "mean": -0.00418,
+          "SE": 0.00039,
+          "n": 2252
+        },
+        "notdue": {
+          "mean": 0.00015,
+          "SE": 6e-05,
+          "n": 16382
+        },
+        "boundary": {
+          "mean": -0.01483,
+          "SE": 0.00048,
+          "n": 1209
+        },
+        "midword": {
+          "mean": 0.00021,
+          "SE": 5e-05,
+          "n": 8711
+        },
+        "mid_notdue": {
+          "mean": 0.00026,
+          "SE": 5e-05,
+          "n": 8328
+        }
+      }
+    },
+    "8.0": {
+      "P_capital": {
+        "all_valid": {
+          "mean": 0.11928,
+          "SE": 0.00167,
+          "n": 18634
+        },
+        "due": {
+          "mean": 0.55296,
+          "SE": 0.00651,
+          "n": 2252
+        },
+        "notdue": {
+          "mean": 0.05966,
+          "SE": 0.00102,
+          "n": 16382
+        },
+        "boundary": {
+          "mean": 0.38459,
+          "SE": 0.00684,
+          "n": 1209
+        },
+        "midword": {
+          "mean": 0.04757,
+          "SE": 0.00147,
+          "n": 8711
+        },
+        "bnd_due": {
+          "mean": 0.50544,
+          "SE": 0.00983,
+          "n": 558
+        },
+        "mid_notdue": {
+          "mean": 0.02896,
+          "SE": 0.00089,
+          "n": 8328
+        }
+      },
+      "dCE_vs_natural": {
+        "all_valid": {
+          "mean": 0.05493,
+          "SE": 0.00236,
+          "n": 18634
+        },
+        "notdue": {
+          "mean": 0.04854,
+          "SE": 0.00243,
+          "n": 16382
+        },
+        "due": {
+          "mean": 0.10137,
+          "SE": 0.00829,
+          "n": 2252
+        },
+        "midword": {
+          "mean": 0.03967,
+          "SE": 0.00297,
+          "n": 8711
+        }
+      },
+      "dP_capital_vs_natural": {
+        "due": {
+          "mean": -0.00831,
+          "SE": 0.00085,
+          "n": 2252
+        },
+        "notdue": {
+          "mean": 0.00131,
+          "SE": 0.00014,
+          "n": 16382
+        },
+        "boundary": {
+          "mean": -0.02609,
+          "SE": 0.00105,
+          "n": 1209
+        },
+        "midword": {
+          "mean": 0.00081,
+          "SE": 0.00013,
+          "n": 8711
+        },
+        "mid_notdue": {
+          "mean": 0.0009,
+          "SE": 0.00012,
+          "n": 8328
+        }
+      }
+    },
+    "16.0": {
+      "P_capital": {
+        "all_valid": {
+          "mean": 0.12364,
+          "SE": 0.00167,
+          "n": 18634
+        },
+        "due": {
+          "mean": 0.55068,
+          "SE": 0.00632,
+          "n": 2252
+        },
+        "notdue": {
+          "mean": 0.06493,
+          "SE": 0.00106,
+          "n": 16382
+        },
+        "boundary": {
+          "mean": 0.38777,
+          "SE": 0.00632,
+          "n": 1209
+        },
+        "midword": {
+          "mean": 0.04975,
+          "SE": 0.00149,
+          "n": 8711
+        },
+        "bnd_due": {
+          "mean": 0.49588,
+          "SE": 0.00914,
+          "n": 558
+        },
+        "mid_notdue": {
+          "mean": 0.03117,
+          "SE": 0.00093,
+          "n": 8328
+        }
+      },
+      "dCE_vs_natural": {
+        "all_valid": {
+          "mean": 0.2283,
+          "SE": 0.00528,
+          "n": 18634
+        },
+        "notdue": {
+          "mean": 0.21167,
+          "SE": 0.00546,
+          "n": 16382
+        },
+        "due": {
+          "mean": 0.34931,
+          "SE": 0.01793,
+          "n": 2252
+        },
+        "midword": {
+          "mean": 0.17001,
+          "SE": 0.00666,
+          "n": 8711
+        }
+      },
+      "dP_capital_vs_natural": {
+        "due": {
+          "mean": -0.0106,
+          "SE": 0.00167,
+          "n": 2252
+        },
+        "notdue": {
+          "mean": 0.00658,
+          "SE": 0.0003,
+          "n": 16382
+        },
+        "boundary": {
+          "mean": -0.02291,
+          "SE": 0.00235,
+          "n": 1209
+        },
+        "midword": {
+          "mean": 0.00299,
+          "SE": 0.00027,
+          "n": 8711
+        },
+        "mid_notdue": {
+          "mean": 0.00311,
+          "SE": 0.00025,
+          "n": 8328
+        }
+      }
+    }
+  }
+}

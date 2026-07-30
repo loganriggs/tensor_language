@@ -4258,3 +4258,43 @@ orthogonal direction at a time. The completeness picture is now fully honest end
 individual effects (~11% of headroom), the rest is hard single-path (mostly low-cleanliness) plus this
 irreducibly-distributed early-layer superposition — and the boundary between what single-path methods can and
 cannot reach is now measured, not assumed.
+
+## §75 EDITING/CONTROL demo — the capital selector mlp.L17.d1 is a calibrated but conditioning-robust dial (2026-07-30)
+(qk_edit_capselector.py; closes the discovery→verification→CONTROL loop on the §69 verified context-conditioned
+capital selector, advancing the "useful for editing / steering / jailbreak" purpose.) Steer mlp.L17.d1 by
+scaling its own residual contribution: new = mo + (alpha−1)·(projection − mean_projection)·direction (alpha=1
+natural, alpha=0 = the mean-ablation used in discovery, alpha>1 amplify, alpha<0 reverse; sign-invariant because
+it scales the model's own deviation from its held mean). Forward + capital-class metric + position splits copied
+verbatim from qk_arc_caps.py / qk_unsup_classpush.py; held-back FW[448:600], paired standard errors.
+- **(a) A genuine calibrated dial.** Capital-class next-token probability at capital-DUE positions moves
+  smoothly and monotonically with alpha: 0.37 (alpha −2) → 0.44 (−1) → 0.49 (ablated, alpha 0) → 0.56 (natural)
+  → 0.64 (alpha 2) → 0.69 peak (alpha 4). Spearman(alpha, capital prob) = 0.94 at due positions, 0.88 at genuine
+  boundaries. Usable range alpha ∈ [−2, +4], controllable swing ~0.32; above alpha 4 it saturates and reverses
+  (the 30·tanh soft-cap binds at boundaries and large perturbations damage the model globally). Usable reach:
+  ~+0.13 up / −0.19 down from natural before breakdown.
+- **(b) Clean and specific near natural; expensive far from it.** Delta cross-entropy on ALL tokens vs natural
+  is small inside |alpha−1| ≤ 1 (0.022 at alpha 0.5, 0.068 at ablation, 0.080 at alpha 2) and grows steeply
+  beyond (0.60 at alpha 4, 1.77 at alpha 8). Specificity ratio (capital change at due / off-target cross-entropy
+  cost): ~25 at alpha 0.5, 2.4 at ablation, but only 0.78 at alpha 2 and 0.21 at alpha 4. → you can SUPPRESS or
+  gently tune capitalization cheaply (ablation drops due-position capital prob 0.073 for only 0.030 off-target
+  cross-entropy), but aggressively forcing capitals UP costs disproportionately elsewhere.
+- **(c) Context-conditioning red-team — conditioning is UPSTREAM and largely ROBUST (the safety-relevant
+  finding).** Under up-steering the amplification stays preferentially at genuine boundaries: at alpha 8 the
+  capital-prob increase over natural is +0.287 at sentence/newline boundaries vs +0.069 at mid-sentence
+  lowercase-due positions (boundary-to-not-due ratio 0.24), so the "only where due" gradient SURVIVES — most of
+  the selection logic (the boundary gate) sits UPSTREAM of the direction, which is merely scaled by an upstream
+  boundary signal rather than containing the decision. It is NOT airtight: a partial Title-Case override IS
+  achievable (mid-sentence capital prob triples 0.047 → 0.118 at alpha 8 → 0.148 at alpha 16) but only by paying
+  a steep, rapidly-growing global cross-entropy penalty (0.60 at alpha 4, 1.77 at alpha 8) — the analogue of
+  forcing an unconditioned completion works but DEGRADES the model at large rather than being a surgical
+  override.
+- **(d) Placebo passes.** A random final-block direction of matched norm produces NO capital dial across the
+  identical sweep (capital prob at due positions swings only 0.019, ~25× smaller than the target's ~0.48, and
+  0.007 at not-due). The dial is SPECIFIC to mlp.L17.d1, not a generic matched-norm perturbation effect.
+**KEY (the editing payoff, honestly bounded):** a circuit found UNSUPERVISED and verified as a genuine algorithm
+(§68/§69) IS a usable control knob — a calibrated, specific, placebo-controlled capitalization dial. But two
+honest limits: (i) it is clean for suppression/gentle tuning and expensive for aggressive up-forcing; (ii) its
+context-conditioning is implemented UPSTREAM, so it survives moderate steering and cannot be cleanly/surgically
+overridden into an unconditioned edit — forcing that degrades the whole model. For the jailbreak framing this
+cuts BOTH ways: single-direction control is real and calibrated, but the conditioning being upstream makes a
+surgical unconditioned override unavailable through this direction alone.
