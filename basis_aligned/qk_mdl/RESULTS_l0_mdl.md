@@ -4050,3 +4050,33 @@ tools (§64/§66) examined mlp.L15.d2 / mlp.L16.d1 and correctly found them gene
 actual selector because its output is a distributed capital-class push invisible to top-token purity. So the
 genuine capitalization algorithm lives at mlp.L17.d1, found precisely by looking where the easy ranking does
 not — the strongest single vindication of the class-level-detector program.
+
+## §70 Generality — distributed CLASS-PUSHERS replicate on the softmax SwiGLU model (2026-07-30)
+(qk_general_classpush_swiglu.py; cross-architecture test of the §67/§68 finding — are the model's largest
+single-path effects distributed class movers because of the bilinear architecture, or is it general?) The
+§68 class-level detector, ported to swiglu18 (a conventional SOFTMAX-attention SwiGLU transformer, the most
+different of the four models), held-back FW[448:600], paired standard errors. Built-in class-summed detector +
+inactive-position specificity control, same design as §68.
+- **swiglu18 HAS distributed class-pushers — the phenomenon is architecture-general.** Top class-push circuits
+  verified specific vs control: h.L4.4 → WORD class (specificity +21984 ± 1880, z 11.7; output entropy 0.999 =
+  near-uniform over the class, top-token share 0.0001 — a textbook distributed push), mlp.L17.d1 → SUBWORD
+  (specificity +43182 ± 1062, z 40.7; entropy 0.99), h.L8.5 → SUBWORD (z 4.4). The largest late-feed-forward
+  effects are class pushes, same as bilin18's §68 integrators.
+- **Same PUSH/SUPPRESS sign structure.** 5 of the top 8 candidates FAIL the class-push test because they are
+  class SUPPRESSORS (class-summed sign negative), exactly the §68 discriminator: mlp.L17.d2 → word SUPPRESSOR
+  (specificity z −44.7), mlp.L16.d1 → word suppressor (z −48.0), h.L10.4, h.L0.0 word suppressors. The
+  push-versus-suppress split the class-level detector introduced is present on the softmax model too.
+- **The §68 blind-spot-fix correlation REPLICATES.** class-push score vs trigger delta cross-entropy Pearson
+  0.9681 / Spearman 0.9847 on swiglu18 (bilin18: 0.9863), with concentration ALONE uncorrelated (−0.022) — the
+  same structure. Honest caveat: (i) as in §68 the correlation is high partly by construction (the score
+  contains causal importance); (ii) swiglu18 has no cleanliness census here, so the direct "vs cleanliness
+  0.006" easy-bias contrast was NOT re-run on swiglu18 — only the class-push-tracks-importance half is shown.
+- **Cross-architecture comparison — same TYPE, different class emphasis.** Both models route their largest
+  late-feed-forward effects into distributed class pushes, but the class MIX differs: bilin18 top-15 pushed
+  classes {word 9, capital 5, subword 1} vs swiglu18 {word 11, subword 3, capital 1}. swiglu18 leans on
+  WORD/SUBWORD continuation where bilin18 leans WORD/CAPITAL — the mechanism type is shared, the specific
+  classes each model emphasizes differ.
+**KEY:** the distributed-class-pusher circuit type, the push/suppress sign discriminator, and the class-push-
+tracks-causal-importance property are NOT bilinear artifacts — they replicate on a conventional softmax SwiGLU
+transformer. The §67/§68 finding (a model's largest single-path effects are distributed class movers that
+token-level purity is blind to, recoverable only by a causal class-level detector) is architecture-general.
