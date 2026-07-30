@@ -88,3 +88,9 @@ Substitutability = marginal dCE of replacing layer L's attention (PCA-64/head bo
 | 13 | — | +0.00171 ± 0.00019 | 0.0023 (1.3×) | 99.98% | H2 MATCH_prev(.09) [L13H8 v1-router, §41] |
 | 14 | — | +0.00380 ± 0.00030 | 0.0040 (1.04×) | 99.95% | H1 MATCH_same(.05) [attn near-dispensable] |
 | 15 | — | +0.00081 ± 0.00012 | 0.0013 (1.6×) | 99.99% | H3 KEY_cap(.09), H4 KEY_cap(.05) [capital cluster] |
+| 16 | — | +0.00242 ± 0.00021 | 0.0026 (1.1×) | 99.97% | H0/H1/H5 KEY_cap, H4 KEY_func [rich capital cluster] |
+| 17 | — | +0.00045 ± 0.00012 | 0.0030 (6.6×) | 99.99% | **NONE** — DIFFUSE (attn); MLP17 = lexical readout §44 |
+
+**SWEEP COMPLETE (all 17 layers, 3 ledgers).** Substitutability 99.95–99.998% every layer. DIFFUSE
+attention layers (no programmatic heads): 4, 9, 17. Mid-stack feed-forward 4–15 = distributed refinement,
+no distinct family (§44). Remaining ledger = MEANING (frontier).

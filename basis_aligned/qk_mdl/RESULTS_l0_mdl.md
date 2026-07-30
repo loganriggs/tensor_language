@@ -3240,3 +3240,32 @@ by +0.0018 — near-output pattern is mostly positional). NOTE: this batch-mean 
 the loss layer, differing from §12q's L5 result (full-corpus mean) — flagged for reconciliation
 (methodology: per-minibatch vs full-corpus mean; the L17 near-output positional structure is the robust
 new finding).
+
+## §44 Mid-stack feed-forward family assignment — closes the largest Function hole (2026-07-30)
+(qk_midstack_mlp_family.py; per-MLP mean-ablation on FW[448:600] with paired standard errors; three axes:
+marginal cross-entropy cost, next-token-category-decode drop, two-branch match-rate change) The audit's
+biggest Function gap — no family for feed-forward blocks 4–15 — is now filled:
+| block | marginal cost | category-decode drop | match-rate change | family |
+|---|---|---|---|---|
+| 0–3 | +0.49..+0.68 (L1 +5.60) | +0.05..+0.26 | ~0 except **L1 +0.029** | **category engine** (L1 = hub, also match-fabric) |
+| 4–15 | +0.03..+0.11 | +0.006..+0.014 | ~0 | **no distinct family** — small distributed category-refinement |
+| 16–17 | +0.145 / +0.447 | +0.037 / +0.059 | ~0 | **lexical readout** (near-output) |
+The category-decode signal is BUILT by blocks 0–3 (drop 0.05–0.26), only weakly refined through the
+mid-stack (each of 4–15 removes ≤0.014 category accuracy), then RE-ENGAGED at 16–17 for lexical readout.
+The two-branch MATCH fabric is served by exactly ONE feed-forward block — MLP1, the hub (+0.029 match-rate
+on ablation; every other block ~0), confirming the §32 hub finding and localizing it. So the mid-stack
+band is not a hidden family but distributed small refinement; its causal coverage rests on the analytic
+chain (each block is individually near-dispensable, cost ≤0.11).
+
+## §45 MILESTONE — all 17 layers decomposed on three ledgers (representation/substitutability/function)
+(qk_layer_decomp.py sweep L1–17 + qk_symbolgen_meanfloor + qk_midstack_mlp_family; PLAN_per_layer.md table)
+Every layer 1–17 now carries: (Representation) MLP composed-fold gauge exact to ~1e-6; (Substitutability)
+marginal causal cost of replacing its attention (PCA-64/head bottleneck) + feed-forward (composed fold),
+held-back FW[448:600], paired standard error, head-span null — **all 17 between 99.95% and 99.998% of the
+uniform-ceiling headroom** (marginal costs +0.00014 to +0.0038 nats, largest at layers 6/8/14); attention
+symbol-fold beats the positional-mean floor at 15/16 layers (L17 the near-output exception);
+(Function) a per-head selection-predicate census — programmatic heads found at every layer except the
+DIFFUSE layers 4, 9, 17 (no head clears the 5% predicate-gain threshold), plus the mid-stack feed-forward
+family map (§44). REMAINING LEDGER: **Meaning** (the measured frontier) — content is spectral/not
+class-nameable at layers 0 AND 1 (the rule), selection names gate cleanly only for copy/induction heads;
+meaning gates are being swept layer-by-layer (L1 done §43; L2/L3 in progress; KEY_cap capitals code next).
