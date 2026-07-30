@@ -6372,3 +6372,15 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## faster sweep. Queue running L4-L9. Agents D (L1 meaning gates) / E (greater-of-two circuit) / F
 ## (positional-mean floor) still running. NEXT: collect L4-9 + agents, extend table, queue L10-17 +
 ## meaning gates. 10-min cron 0b62fec1; re-arm before 2026-08-06.
+
+## TICK 2026-07-30ai..an (10-min sweep) — MILESTONE: ALL 17 LAYERS decomposed on 3 ledgers. Per-layer
+## driver qk_layer_decomp.py swept L1-17: every layer Representation gauge ~1e-6, Substitutability
+## 99.95-99.998% of uniform ceiling (marginal +0.00014..+0.0038, paired SE, head-span null), Function
+## per-head census (DIFFUSE attn layers 4/9/17). §44 mid-stack feed-forward family: MLP0-3 category engine
+## (L1=hub, only block serving match fabric +0.029), MLP4-15 no distinct family (distributed refinement),
+## MLP16-17 lexical readout. Meanfloor hygiene: sym beats positional-mean floor 15/16 layers (L17 exc).
+## §42 sv-agreement = mid-layer position-router (L11H3 -> head noun, ignores attractor; zero prior).
+## §43 L1 meaning gates: content 0/576 class-nameable (spectral is the RULE not L0 quirk), L1 selection
+## archetypes fail gate (0.007). §40/§41 red-team corrections applied (tautological std-0.0, attn-only,
+## proof overclaims). REMAINING LEDGER = MEANING (frontier): L1 done; L2/L3 gates in progress; KEY_cap
+## capitals code dispatched (5th meaning-site candidate). 10-min cron 0b62fec1; re-arm before 2026-08-06.
