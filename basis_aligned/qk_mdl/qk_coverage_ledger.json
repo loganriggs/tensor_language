@@ -1,0 +1,212 @@
+{
+  "meta": {
+    "model": "bilin18",
+    "held_slice": "FW[448:600,:128]",
+    "n_head_paths": 162,
+    "n_mlp_paths": 72,
+    "n_paths": 234,
+    "BATCH": 6,
+    "forward": "VERBATIM from qk_census_difficulty.py / qk_unsup_verify.py (tier2_model.reference_forward)",
+    "currency_note": "GLOBAL mean delta cross-entropy per valid held position -- the only common scale for headroom, joint-234 and sum-of-singles. Census TRIGGER-dCE (path-specific top-200 positions) is reported as a secondary single-path view but is NOT summable onto the global headroom.",
+    "interaction_caveat": "H = named_joint + (J-named_joint) + (H-J) is exact telescoping algebra; the interpretation of each term as an independent contribution carries the usual mean-ablation interaction caveat."
+  },
+  "means_by_config": {
+    "FULL_HEADROOM": {
+      "dCE": 5.306815,
+      "SE": 0.033358,
+      "n": 19304
+    },
+    "JOINT_234": {
+      "dCE": 3.376468,
+      "SE": 0.02338,
+      "n": 19304
+    },
+    "ATTN_ALL": {
+      "dCE": 3.776718,
+      "SE": 0.027659,
+      "n": 19304
+    },
+    "MLP_FULL": {
+      "dCE": 4.532147,
+      "SE": 0.030008,
+      "n": 19304
+    },
+    "MLP_TOP72": {
+      "dCE": 1.223759,
+      "SE": 0.014941,
+      "n": 19304
+    },
+    "NAMED_CORE": {
+      "dCE": 0.444586,
+      "SE": 0.008213,
+      "n": 19304
+    },
+    "NAMED_EXT": {
+      "dCE": 0.579675,
+      "SE": 0.009282,
+      "n": 19304
+    }
+  },
+  "ledger": {
+    "currency": "GLOBAL mean delta cross-entropy per valid held position (nats); paired standard error over positions",
+    "n_positions": 19304,
+    "full_headroom": {
+      "dCE": 5.30682,
+      "SE": 0.03336,
+      "desc": "all attention heads + all full MLP outputs mean-ablated (per-position mean) minus full model"
+    },
+    "attn_all": {
+      "dCE": 3.77672,
+      "SE": 0.02766,
+      "desc": "all attention only (mlp intact)"
+    },
+    "mlp_full": {
+      "dCE": 4.53215,
+      "SE": 0.03001,
+      "desc": "all full MLP outputs only (attn intact)"
+    },
+    "mlp_top72": {
+      "dCE": 1.22376,
+      "SE": 0.01494,
+      "desc": "all 72 top-SVD MLP directions only (attn intact)"
+    },
+    "mlp_below_top72": {
+      "dCE": 3.30839,
+      "SE": 0.02242,
+      "desc": "MLP effect below the top-72 SVD dirs = mlp_full - mlp_top72 (paired)",
+      "frac_of_mlp_full": 0.73
+    },
+    "joint_234": {
+      "dCE": 3.37647,
+      "SE": 0.02338,
+      "desc": "all 162 head-paths + all 72 top-SVD mlp dirs ablated simultaneously"
+    },
+    "single_path_sum_global": {
+      "dCE": 1.17732,
+      "SE": 0.01264,
+      "desc": "sum over 234 paths of max(0, per-path GLOBAL-dCE) [census]"
+    },
+    "joint_over_sum_ratio_global": 2.8679,
+    "multipath_residual_global": {
+      "dCE": 2.19915,
+      "desc": "joint_234 - sum_of_single_paths; >0 super-additive (combination-only), <0 net redundancy"
+    },
+    "single_path_sum_trigger": 6.5219,
+    "named_core_joint": {
+      "dCE": 0.44459,
+      "SE": 0.00821,
+      "n_paths": 18,
+      "paths": [
+        "h.L0.3",
+        "h.L1.1",
+        "h.L11.2",
+        "h.L13.0",
+        "h.L13.8",
+        "h.L14.7",
+        "h.L5.5",
+        "h.L7.3",
+        "h.L8.3",
+        "h.L8.4",
+        "h.L8.7",
+        "mlp.L15.d2",
+        "mlp.L16.d0",
+        "mlp.L16.d1",
+        "mlp.L16.d2",
+        "mlp.L17.d1",
+        "mlp.L17.d2",
+        "mlp.L17.d3"
+      ]
+    },
+    "named_ext_joint": {
+      "dCE": 0.57968,
+      "SE": 0.00928,
+      "n_paths": 26,
+      "paths": [
+        "h.L0.3",
+        "h.L1.1",
+        "h.L11.2",
+        "h.L13.0",
+        "h.L13.8",
+        "h.L14.7",
+        "h.L3.3",
+        "h.L4.0",
+        "h.L5.5",
+        "h.L5.7",
+        "h.L6.0",
+        "h.L6.7",
+        "h.L7.3",
+        "h.L8.2",
+        "h.L8.3",
+        "h.L8.4",
+        "h.L8.7",
+        "h.L9.6",
+        "mlp.L1.d3",
+        "mlp.L15.d2",
+        "mlp.L16.d0",
+        "mlp.L16.d1",
+        "mlp.L16.d2",
+        "mlp.L17.d1",
+        "mlp.L17.d2",
+        "mlp.L17.d3"
+      ]
+    },
+    "named_core_sum_global": 0.46967,
+    "named_core_sum_global_SE": 0.00841,
+    "named_ext_sum_global": 0.5177,
+    "named_core_sum_trigger": 2.66637,
+    "named_ext_sum_trigger": 3.06454,
+    "coverage_fractions_of_headroom": {
+      "named_core_found": {
+        "dCE": 0.44459,
+        "frac": 0.0838
+      },
+      "named_ext_found": {
+        "dCE": 0.57968,
+        "frac": 0.1092
+      },
+      "unnamed_axis_aligned_core": {
+        "dCE": 2.93188,
+        "SE": 0.02296,
+        "frac": 0.5525,
+        "desc": "joint_234 - named_core_joint (single-path-expressible but uncharacterized)"
+      },
+      "unnamed_axis_aligned_ext": {
+        "dCE": 2.79679,
+        "SE": 0.02241,
+        "frac": 0.527
+      },
+      "non_axis_aligned_residual": {
+        "dCE": 1.93035,
+        "SE": 0.01765,
+        "frac": 0.3637,
+        "desc": "full_headroom - joint_234; superposition / sub-top-72 mlp; NOT captured by any single head-pathway or top-SVD dir. Since the 162 head-paths ablate ALL attention identically in H and J, this residual is EXACTLY the MLP effect below the top-72 SVD directions, measured in the attention-ablated context. The SAME subspace measured with attention INTACT (mlp_below_top72) is larger (see field) -- the two differ by mean-ablation interaction, not by which directions are removed."
+      }
+    },
+    "not_found_fraction_of_headroom": {
+      "core": 0.9162,
+      "ext": 0.8908,
+      "desc": "1 - named_joint/full_headroom = fraction of the layers causal work NOT yet characterized (= unnamed_axis_aligned + non_axis_aligned_residual)"
+    },
+    "named_fraction_of_single_path_total": {
+      "core_global": 0.3989,
+      "ext_global": 0.4397,
+      "core_trigger": 0.4088,
+      "ext_trigger": 0.4699,
+      "desc": "fraction of the summed positive single-path effect that is NAMED (axis-aligned single-path view)"
+    },
+    "unnamed_easy_vs_hard": {
+      "clean_hi_threshold": 0.0476,
+      "global": {
+        "hard_low_clean": 0.58431,
+        "easy_high_clean": 0.12334,
+        "hard_fraction": 0.8257
+      },
+      "trigger": {
+        "hard_low_clean": 2.96799,
+        "easy_high_clean": 0.88754,
+        "hard_fraction": 0.7698
+      },
+      "desc": "of the UNNAMED (not-in-NAMED_CORE) positive single-path importance, fraction sitting in the LOW-cleanliness (hard) region (cleanliness < p75-of-maggated) vs HIGH-cleanliness (easy)"
+    }
+  }
+}

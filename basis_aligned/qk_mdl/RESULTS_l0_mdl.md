@@ -4089,3 +4089,64 @@ inactive-position specificity control, same design as §68.
 tracks-causal-importance property are NOT bilinear artifacts — they replicate on a conventional softmax SwiGLU
 transformer. The §67/§68 finding (a model's largest single-path effects are distributed class movers that
 token-level purity is blind to, recoverable only by a causal class-level detector) is architecture-general.
+
+## §71 COVERAGE LEDGER — how much of the model's computation have we NOT found? (2026-07-30)
+(qk_coverage_ledger.py; answers Logan's completeness question.) Nested partition of bilin18's total causal
+loss-headroom, held-back FW[448:600], GLOBAL mean-ablation delta cross-entropy per position (the only common
+scale), paired standard errors. Denominator FULL HEADROOM = all attention heads + all full MLP outputs mean-
+ablated minus the full model = 5.307 ± 0.033 nats. Telescoping caveat flagged in the JSON (each term carries
+the usual mean-ablation interaction caveat).
+- **What we have NAMED is a small fraction.** The 26 paths characterized across §56–§70 (named-extended) carry
+  0.580 ± 0.009 nats jointly = **10.9% of headroom** (named-core, 18 paths, 8.4%). So **~89% of the layers'
+  causal work is NOT yet characterized** (not-found fraction: core 91.6%, extended 89.1%).
+- **The three coverage gaps:**
+  (1) NAMED single-path circuits: 0.58 nats (10.9% of headroom).
+  (2) UNNAMED but single-path-expressible: joint of all 234 paths (3.376 ± 0.023) minus named = **~2.80–2.93
+  nats, 52.7–55.3% of headroom** — effect that a single head-pathway or top-SVD feed-forward direction COULD
+  express but we have not characterized.
+  (3) NON-AXIS-ALIGNED residual: full headroom minus joint-234 = **1.930 ± 0.018 nats, 36.4% of headroom** —
+  captured by NO single head-pathway or top-72 feed-forward direction. This is essentially the MLP effect
+  BELOW the top-72 singular directions: ablating full MLPs costs 4.53 but the top-72 directions carry only
+  1.22, so **73% of the feed-forward causal effect lives below the top-72 directions** (superposition /
+  sub-threshold), invisible to the path basis we analyze.
+- **Most effect lives in COMBINATIONS, not single paths.** Joint ablation of all 234 paths (3.376) is 2.87× the
+  sum of positive single-path importances (1.177) — a whole-model super-additivity/redundancy ratio of **2.87**
+  (multi-path residual +2.199 nats). The named set is single paths, so single-path naming structurally
+  undercounts: of the summed single-path effect we have named ~44% (extended), but single paths are themselves
+  a minority view of the mechanism.
+- **The unfound is concentrated in the HARD region (Logan's easy-vs-hard interaction).** Of the UNNAMED positive
+  single-path importance, **82.6% sits in the low-cleanliness (hard) region** vs 12.3% in the high-cleanliness
+  (easy) region — the §67 easy-bias thesis confirmed at the coverage scale: the clean circuits we found first
+  are a small slice, and what remains is overwhelmingly hard (impure-trigger / distributed-output).
+**KEY (honest bottom line):** we have named the LARGEST individual effects but ~11% of the total causal
+computation; ~53% is uncharacterized single-path effect (83% of it in the hard region), and ~36% is
+non-axis-aligned superposition below the directions we look at — plus a whole-model super-additivity of 2.87×
+means the mechanism is deeply distributed and single-path naming inherently undercounts it. Completeness of the
+named decomposition is real but bounded; the bulk of computation is hard, distributed, and partly superposed.
+
+## §72 FOLD-NECESSITY — how much of the substitutability requires the exact bilinear fold? (2026-07-30)
+(qk_fold_necessity.py; answers Logan's "is folding necessary for all the gains or ~20%?") Decomposes bilin18's
+whole-model substitutability into fold-specific vs generic by racing the EXACT composed fold against a
+rank-matched fold-FREE empirical low-rank surrogate (fit on TRAIN FW[0:256], applicable to ANY architecture),
+held-back FW[448:600], paired standard errors. (swiglu18 leg pending the agent's final report.)
+- **The generic surrogate gets most of the way; the exact fold is the last mile.** Against a joint-MLP floor
+  (18.42 nats), the exact composed fold leaves only 0.0339 ± 0.0010 nats of residual (**99.8% floor capture**);
+  the rank-576 fold-free empirical surrogate leaves 4.86 ± 0.016 nats (**73.6% floor capture**). As a fraction
+  of the total gain: **generic 73.7%, fold-specific 26.3%** — so Logan's "~20%" intuition was close; the exact
+  fold buys roughly a QUARTER of the substitutability, a last-mile refinement, and ~three-quarters is
+  architecture-general.
+- **BUT the exact REPRESENTATION is strictly bilinear and unreproducible — that is the substantial thing
+  swiglu cannot do.** The composed fold reconstructs every layer to relative error ~1.25e-6 (essentially
+  machine-exact); the rank-matched generic surrogate reconstructs with ~0.70 relative error PER LAYER (it
+  leaves 4.86 nats — a broken model, not a faithful substitute). So the 26% is not cosmetic: it is the entire
+  difference between a rough approximation (73.6% floor, badly damaged) and an EXACT tensor-network identity
+  (99.8% floor, faithful). Folding is a last-mile 26% of the APPROXIMATE gain, but it is 100% of the EXACTNESS
+  — and exactness (the representation ledger, the gauges) is the one substantial capability the softmax SwiGLU
+  model structurally cannot have.
+- **Caveat on the percentage:** the 26%/74% split is measured against a destructive joint-MLP floor (18.4
+  nats); the floor-independent numbers are the absolute residuals (exact 0.034 vs surrogate 4.86) and the
+  per-layer reconstruction errors (1e-6 vs 0.70), which carry the real message.
+**KEY:** for APPROXIMATE causal substitutability, ~74% is generic (a fold-free surrogate on any architecture
+gets there) and the fold adds ~26% — close to Logan's guess. For EXACT, faithful representation — the whole
+point of the bilinear model and the one thing swiglu cannot do — the fold is essential and complete (1e-6 vs
+70% per-layer error). Folding buys exactness, not the bulk of the approximate gain.
