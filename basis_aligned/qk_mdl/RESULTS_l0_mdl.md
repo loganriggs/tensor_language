@@ -2881,3 +2881,28 @@ the queued control (a scale sweep on natural triggers + the natural match-coeffi
 free precision edit *in the controlled strong-induction setting*; on natural triggers it engages but at
 low measured yield, so it is a demonstrated controlled-setting capability, NOT an *established* in-the-
 wild targeted edit — with the *cause* of the in-the-wild weakness (intrinsic vs calibration) still open.
+
+### §37d Settling control — the natural weakness was CALIBRATION, not absent induction (2026-07-30)
+(qk_natural_redirect_control.py; resolves the §37c open cause, per red-team F2/F3/F4) A scale sweep on
+natural triggers plus a direct match-amplitude measurement settles whether §37c's low natural reach is
+intrinsic or recoverable. Both point to **calibration**:
+
+- **Induction IS present in natural text (F2, direct measure).** The natural per-head induction match
+  coefficient at gated queries, relative to the planted read-off AINIT, is **0.91×** (moderate trigger
+  447, base rate 0.006, n=123) and **1.62×** (rarer trigger 91, rate 0.0015, n=40). Natural triggers
+  carry induction at essentially full (or greater) strength — the §37c cause ("simply do not carry
+  strong induction to hijack") is **RETRACTED**; it rested on the confounded true-next proxy.
+- **Amplitude recovers reach (F3, the settling sweep).** For the well-powered moderate trigger, payload
+  probability climbs monotonically with amplitude — 0.046 → 0.306 → 0.487 → 0.618 → **0.682** and argmax
+  capture 0.065 → 0.431 → 0.634 → 0.707 → **0.732** at scales 10/20/40/80/160 — approaching the planted
+  0.833 / 0.958. The rarer trigger recovers less (to 0.27 / 0.33 at scale 160), so a residual
+  frequency-dependent gap remains beyond pure calibration.
+
+**Corrected scope (supersedes §37c's over-pessimism).** Targeted redirection on the verified induction
+channel IS an in-the-wild capability, not a controlled-setting artifact: natural triggers carry
+induction at ~full strength, and at sufficient amplitude natural reach recovers to ~0.68 probability /
+0.73 capture for a moderate-frequency trigger. The honest remaining caveat is no longer "it doesn't
+work in the wild" but **a reach-versus-collateral tradeoff** — the recovering amplitude (×8–16 the
+planted read-off) is larger, and its natural-text collateral is not yet measured here (queued). The
+capstone claim is therefore: a clean precision edit in the controlled setting, and an
+amplitude-calibrated, collateral-trading edit in the wild — with the tradeoff curve the next quantity.
