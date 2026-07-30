@@ -6998,3 +6998,14 @@ existing steering methods, not a new method class, so in-scope and launched rath
   artifact. Program at a hardened terminal capstone; completeness boundary (§71-80) closed with the SAE
   rejoinder run at three fidelities and answered. No residual caveat remains. Awaiting Logan's steer on any new
   direction (all remaining options are scope decisions).
+
+## tick 2026-07-30 (generalize the §80 flagship result to swiglu18 — dispatched)
+- a3b7bdccc56836c9a (qk_sae_swiglu_hub.py): ports the §80 SAE name-vs-explain test to the softmax SwiGLU
+  model's irreducibly-distributed hub (swiglu18 layer 2, per §77: SVD 0/32 nameable, joint/sum 2.15×). Trains a
+  top-K SAE on layer-2 activations (10× cooc data), then the head-to-head: nameability (vs SVD 0/32) + causal
+  (0/32 load-bearing? cumulative fraction? positive control). VERDICT: does the "dictionary NAMES + reconstructs
+  but does NOT EXPLAIN the hub; reconstruction/causation decoupled" result REPLICATE on a softmax model →
+  making §80 architecture-general — or differ? Reuses §80 + swiglu-forward scripts. Collect next tick.
+- Rationale: generalizing the flagship's most novel result (reconstruction ≠ causal explanation) is standard
+  make-it-defendable work (cf. §77 generalizing the completeness boundary) and Logan-valued (generality); not
+  marginal. Both outcomes valuable.
