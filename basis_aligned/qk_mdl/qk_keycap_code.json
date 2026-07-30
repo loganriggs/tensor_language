@@ -1,0 +1,181 @@
+{
+  "cluster": [
+    [
+      15,
+      3
+    ],
+    [
+      15,
+      4
+    ],
+    [
+      16,
+      0
+    ],
+    [
+      16,
+      1
+    ],
+    [
+      16,
+      5
+    ]
+  ],
+  "coef": {
+    "L15H3": [
+      -0.0429,
+      0.9651,
+      0.0044
+    ],
+    "L15H4": [
+      -0.058,
+      0.9395,
+      0.0061
+    ],
+    "L16H0": [
+      -0.0396,
+      0.9802,
+      0.004
+    ],
+    "L16H1": [
+      -0.0553,
+      0.9069,
+      0.0059
+    ],
+    "L16H5": [
+      -0.0717,
+      0.8565,
+      0.0058
+    ]
+  },
+  "n_probe": {
+    "cap_tgt": 2123,
+    "midcap": 1544,
+    "sentcap": 579
+  },
+  "substitution_gate": {
+    "natural": {
+      "model_CE": 3.4946,
+      "coded_dCE": 0.00452,
+      "coded_dCE_SE": 0.00077,
+      "meanabl_dCE": 0.00512,
+      "meanabl_dCE_SE": 0.00087,
+      "coded_minus_meanabl": -0.0006,
+      "coded_minus_meanabl_SE": 0.00027
+    },
+    "cap_target": {
+      "model_CE": 5.723,
+      "coded_dCE": 0.04157,
+      "coded_dCE_SE": 0.00796,
+      "meanabl_dCE": 0.05274,
+      "meanabl_dCE_SE": 0.00909,
+      "coded_minus_meanabl": -0.01118,
+      "coded_minus_meanabl_SE": 0.00193
+    },
+    "midsentence_cap": {
+      "model_CE": 6.1716,
+      "coded_dCE": 0.0421,
+      "coded_dCE_SE": 0.00862,
+      "meanabl_dCE": 0.05737,
+      "meanabl_dCE_SE": 0.01073,
+      "coded_minus_meanabl": -0.01527,
+      "coded_minus_meanabl_SE": 0.00286
+    }
+  },
+  "capital_margin": {
+    "cap_target": {
+      "model_margin": 2.269,
+      "coded_margin": 2.291,
+      "meanabl_margin": 2.294,
+      "model_margin_SE": 0.076
+    },
+    "midsentence_cap": {
+      "model_margin": 1.237,
+      "coded_margin": 1.251,
+      "meanabl_margin": 1.255,
+      "model_margin_SE": 0.096
+    },
+    "sentence_initial_cap": {
+      "model_margin": 3.861,
+      "coded_margin": 3.898,
+      "meanabl_margin": 3.9,
+      "model_margin_SE": 0.05
+    }
+  },
+  "dial": {
+    "s=0.0": {
+      "natural_CE": 3.4997,
+      "margin_cap_target": 2.295,
+      "margin_midcap": 1.255
+    },
+    "s=0.5": {
+      "natural_CE": 3.4993,
+      "margin_cap_target": 2.293,
+      "margin_midcap": 1.253
+    },
+    "s=1.0": {
+      "natural_CE": 3.4991,
+      "margin_cap_target": 2.291,
+      "margin_midcap": 1.251
+    },
+    "s=1.5": {
+      "natural_CE": 3.499,
+      "margin_cap_target": 2.289,
+      "margin_midcap": 1.249
+    },
+    "s=2.0": {
+      "natural_CE": 3.4991,
+      "margin_cap_target": 2.286,
+      "margin_midcap": 1.247
+    }
+  },
+  "red_team": {
+    "type_blindness": {
+      "n_with_capkey": 1996,
+      "n_no_capkey": 127,
+      "coded_margin_with_capkey": 2.317,
+      "coded_margin_no_capkey": 1.976,
+      "model_margin_with_capkey": 2.294,
+      "model_margin_no_capkey": 1.968
+    },
+    "positional_confound": {
+      "midsentence_cap_gate": {
+        "model_CE": 6.1716,
+        "coded_dCE": 0.0421,
+        "coded_dCE_SE": 0.00862,
+        "meanabl_dCE": 0.05737,
+        "meanabl_dCE_SE": 0.01073,
+        "coded_minus_meanabl": -0.01527,
+        "coded_minus_meanabl_SE": 0.00286
+      },
+      "margin_midcap": {
+        "model_margin": 1.237,
+        "coded_margin": 1.251,
+        "meanabl_margin": 1.255,
+        "model_margin_SE": 0.096
+      },
+      "margin_sentinit_cap": {
+        "model_margin": 3.861,
+        "coded_margin": 3.898,
+        "meanabl_margin": 3.9,
+        "model_margin_SE": 0.05
+      }
+    },
+    "static_prior": {
+      "cap_target": {
+        "model_margin": 2.269,
+        "meanabl_margin": 2.294,
+        "margin_change_on_ablation": 0.025,
+        "SE": 0.001,
+        "frac_retained": 1.011
+      },
+      "midsentence_cap": {
+        "model_margin": 1.237,
+        "meanabl_margin": 1.255,
+        "margin_change_on_ablation": 0.018,
+        "SE": 0.001,
+        "frac_retained": 1.015
+      }
+    }
+  }
+}

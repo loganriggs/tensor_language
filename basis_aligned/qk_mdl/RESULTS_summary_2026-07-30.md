@@ -21,7 +21,7 @@ this class), not findings; they license the stream algebra. Confirmed on 3 atten
 **3. FUNCTION — three families + a full programmatic-head map.**
 - Atlas: category-prediction (early MLP engine), induction (attention copy), layout; 4-model general.
 - Selection census: 23/162 heads programmatic (predicate gain >=5%); the predicate LABEL predicts the
-  causal specialization head-by-head (KEY_cap cluster L15-16 = capital predictor +0.046; MATCH_same
+  causal specialization head-by-head (KEY_cap cluster L15-16 = within-capital discriminator +0.046 [NOT a capital-vs-lowercase gate; that is a static prior — §46 correction]; MATCH_same
   anti-self L3H8/L2H5 = induction necessity core, ind-drop 0.94/0.58). Selection ledger and function
   ledger cross-validate.
 - Editing: three independent cross-validations of the selection ledger — knockout-vs-predicate,

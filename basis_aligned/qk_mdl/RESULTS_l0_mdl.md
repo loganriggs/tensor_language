@@ -3269,3 +3269,27 @@ DIFFUSE layers 4, 9, 17 (no head clears the 5% predicate-gain threshold), plus t
 family map (§44). REMAINING LEDGER: **Meaning** (the measured frontier) — content is spectral/not
 class-nameable at layers 0 AND 1 (the rule), selection names gate cleanly only for copy/induction heads;
 meaning gates are being swept layer-by-layer (L1 done §43; L2/L3 in progress; KEY_cap capitals code next).
+
+## §46 Capitalization FAILS the meaning gate — a static prior, not a fifth meaning site (2026-07-30)
+(qk_keycap_code.py; §35 protocol on the KEY_cap cluster L15H3/H4, L16H0/H1/H5; held-back FW[448:600],
+paired per-sequence standard errors) The cleanest "selection = function" candidate — the late
+capitalization cluster — is NOT a gated nameable capital code. Three converging facts:
+- **Static-prior (decisive):** mean-ablating the entire cluster's attention RETAINS 101–102% of the
+  capital-vs-lowercase logit margin (2.294 ablated vs 2.269 model at capital targets; +0.025±0.001
+  change — an INCREASE). Whether-to-predict-a-capital fully survives attention ablation → it is a static
+  prior in the feed-forward/unembedding readout, not an attention-gated code.
+- **Dial inert:** scaling the coded capital-boost 0→2× swings the margin only 0.009 nats, and in the
+  WRONG direction (the fitted capital-key coefficient is NEGATIVE at every head, −0.040 to −0.072 — the
+  cluster ANTI-attends capital keys; its pattern is template/positional-dominated).
+- **Positional confound (large):** the capital margin is 3× stronger at sentence-initial/post-period
+  positions (3.86) than mid-sentence proper-noun positions (1.24).
+**IMPORTANT DISSOCIATION + CORRECTION.** The cluster IS causally real: it has a +0.05-nat capital-
+selective cross-entropy contribution at capital targets (matches the §T4 joint-knockout +0.046), and the
+coded predicate recovers ~21% of it beyond mean-ablation — BUT this is **within-capital discrimination**
+(which specific capitalized token), NOT a capital-vs-lowercase gate. So the earlier §T4/selection_function
+_map framing "KEY_cap → capitals, clean selection = function" is CORRECTED: the +0.046 is real
+within-capital discrimination, but "attend capitals → boost all capitals" is the wrong name — capital-vs-
+lowercase is a static prior. This is an editing-ledger-positive / MEANING-ledger-NEGATIVE case (steerable-
+not-load-bearing, like the category directions §35). Capitalization is NOT the fifth fully-gated meaning
+site; the meaning frontier remains at the four measured sites (L0, block-3 category, L8 successor, L13
+opener) plus the meaning-verified induction MATCH predicate.
