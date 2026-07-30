@@ -120,3 +120,19 @@ SETUP TICK (2026-07-30): dispatched 3 agents — (A) per-layer four-ledger audit
 prioritized next-10 experiments; (B) algorithmic-capability scout -> verify scripts for new tasks
 (qk_algoverify_*.py); (C) qk_layer_decomp.py template author. Queue intentionally idle this one tick so
 agent B has GPU headroom; stock from agent outputs next tick.
+
+## ═══ PER-LAYER DECOMPOSITION PROGRAM — COMPLETE + DEFENDED (2026-07-30) ═══
+STATUS: the pivot goal ("fully decompose every layer") is DONE for all layers 1-17 on all four ledgers,
+capstone-adversarially-reviewed (5 framing corrections applied), and consolidated (RESULTS §32-52,
+qk_paper_draft.md, artifact f27aeab4). Generality: whole-model substitutability across 4 models (§32b);
+content-spectral confirmed architecture-general on swiglu18/softmax (§52). Five algorithmic circuits
+decomposed + reviewed (2 v1-routers, 1 bounded successor, 1 redundant router, 1 in-context prior).
+~12 over-claims retracted across the effort (editing arc, greater-of-two 3x, sv-agreement, capstone 5).
+
+REMAINING (diminishing-returns or scope-expansion — awaiting Logan's steer, not auto-run to avoid churn):
+- Full per-layer 4-ledger sweep on a SECOND model (bilin12/swiglu18) — big commitment, scope expansion.
+- Selection-nameability generality on a 2nd model — likely reconfirms the KNOWN negative (taxonomy is
+  model-specific; families general — census-generality already showed this).
+- Open mechanistic threads: sv-agreement number locus (§42), L8 successor range limit (§51), KEY_newline
+  mechanism (open since anchor falsified).
+- Paper polish toward a shareable write-up; artifact title/abstract refresh (still says "layers 2-17").
