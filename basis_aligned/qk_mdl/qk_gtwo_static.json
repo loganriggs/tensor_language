@@ -1,0 +1,27 @@
+{
+  "baseline": {
+    "acc2": 0.986,
+    "margin": 2.099
+  },
+  "all_attn_ablated": {
+    "acc2": 0.944,
+    "margin": 1.712,
+    "final_digit_logit_std_across_prompts": 0.0
+  },
+  "static_prior": {
+    "acc2": 0.944,
+    "margin": 1.712,
+    "digit_logit_profile_1to9": [
+      11.406,
+      11.737,
+      12.216,
+      13.082,
+      13.611,
+      14.124,
+      14.853,
+      15.809,
+      14.477
+    ]
+  },
+  "true_comparison_margin (baseline - all_attn_ablated)": 0.387
+}

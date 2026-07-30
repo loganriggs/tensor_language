@@ -77,3 +77,5 @@ Substitutability = marginal dCE of replacing layer L's attention (PCA-64/head bo
 | 2 | 9.8e-7 | +0.00136 ± 0.00020 | 0.0055 (4×) | 99.98% | H4 KEY_punct(.06), H5 MATCH_same(.25 induction core) |
 | 3 | 9.0e-7 | +0.00093 ± 0.00017 | 0.005 (5.4×) | 99.99% | H5 MATCH_same(.13), H8 MATCH_same(.31 strongest head) |
 | 4 | — | +0.00274 ± 0.00027 | 0.0091 (3.3×) | 99.96% | **NONE** — DIFFUSE (all 9 heads gain ≤0.027; confirms first dark layer) |
+| 5 | — | +0.00242 ± 0.00026 | 0.481 (199×) | 99.97% | H5 MATCH_prev(.12) [null huge → attn very load-bearing] |
+| 6 | — | +0.00313 ± 0.00029 | 0.063 (20×) | 99.96% | H2 KEY_func(.05), H5 MATCH_prev(.11) |
