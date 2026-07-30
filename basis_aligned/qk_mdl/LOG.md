@@ -6862,3 +6862,14 @@ existing steering methods, not a new method class, so in-scope and launched rath
   completeness boundary generalizes across architectures — both are honest-negative-leaning results that
   HARDEN the completeness story rather than expanding named coverage. The only way past the ceiling is the SAE
   scope-change (§74). Both experiments consistent with the already-red-teamed §71/§73/§74.
+
+## tick 2026-07-30 (consolidation: §76/§77 coverage-ceiling + generality → artifact)
+- Added two cards to the artifact completeness section (same URL, one redeploy): "Coverage is capped, and the
+  ceiling is honest" (§76 — single-path naming 44%→46%, unnamed region = distributed priors, multi-path = one
+  super-additive block, z35) and "The boundary is architecture-general" (§77 — 2.0-3.5× super-additive + high-
+  rank basis-aligned tail + irreducibly-distributed early hub on softmax SwiGLU + 2nd bilinear model).
+- The "extending coverage and generality" directive is now fully documented across RESULTS (§76/§77), the paper
+  (completeness paragraph + generality note), and the artifact. Both converged: coverage capped for single-path
+  methods, boundary architecture-general — honest negatives that HARDEN the completeness story.
+- STATE: comprehensive capstone, now with a 3-model-general, red-teamed completeness boundary and a measured
+  single-path coverage ceiling. The one way past the ~46% ceiling is the SAE scope-change (§74) — Logan's call.
