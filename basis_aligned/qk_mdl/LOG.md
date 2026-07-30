@@ -6799,3 +6799,19 @@ existing steering methods, not a new method class, so in-scope and launched rath
   conditioning (a controllable Title-Case override) or does conditioning hold (selection upstream)? Plus a
   random-direction placebo. Collect next tick.
 - Cron 172134ae expires ~2026-08-06 — re-arm before then and tell Logan.
+
+## tick 2026-07-30 (§75 editing/control demo lands — the "useful for editing" payoff, honestly bounded)
+- §75 (subagent aaf26965f6bb79115): the §69 capital selector mlp.L17.d1 IS a usable control knob — a calibrated
+  monotone capitalization dial (capital-due prob 0.37→0.56→0.69 over alpha −2..4, Spearman 0.94), placebo-
+  controlled (random matched-norm dir swing 25× smaller). Specific near natural (specificity ratio 25 at
+  alpha 0.5, 2.4 at ablation) but expensive far (all-token dCE 0.60 at alpha 4, 1.77 at alpha 8): suppress/tune
+  cheaply, force-up expensively. CONTEXT-CONDITIONING RED-TEAM (safety-relevant): the "only where due" gate is
+  UPSTREAM of the direction, so it survives moderate steering (alpha 8: +0.287 boundary vs +0.069 not-due); a
+  partial Title-Case override is achievable but DEGRADES the whole model (not surgical). Committed §75.
+- This closes the discovery→verification→CONTROL loop and covers the editing/jailbreak dimension of Logan's
+  overarching goal: single-direction control is real+calibrated, but conditioning-robust — a surgical
+  unconditioned override is unavailable through this direction alone.
+- Program now spans all of Logan's stated purposes: algorithm-extraction (arcs), characterization (4 ledgers +
+  10-detector toolbox), completeness boundary (red-teamed), generalization (4-model), editing/control (§75).
+  The remaining named frontier is the SAE scope-change (past the §74 boundary) — Logan's call.
+- Cron 172134ae expires ~2026-08-06 — re-arm before then and tell Logan.
