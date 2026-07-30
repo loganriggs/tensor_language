@@ -6115,3 +6115,13 @@ ARC COMPLETE (§23-26b); all criticisms answered with measurements.
 ## summary + §33-35 for a final defensibility pass before it becomes the program's headline document;
 ## then artifact refresh + paper_atlas sync. Queue stocked with the red-team-prep (a claims-vs-JSON
 ## cross-check script is overkill; use a GPU-free reviewer agent next). Old cron expired; 1475f52b live.
+
+## TICK 2026-07-30p — CENSUS V2 + KEY_newline = BOUNDARY ANCHORS (defensibility reviewer still running
+## on RESULTS_summary). Census v2 (12 predicates): 30/162 programmatic; NEW 9-head KEY_newline cluster.
+## KEY_newline probe: knockout hurts CAPITAL (L9H8 .010, L11H4 .013) + PUNCT (L13H8 .032), NOT newline
+## -- attend-to-X != predict-X: these are context anchors (newline marks boundaries -> predict post-
+## boundary capitals/punct). Refines census->function: predicate = ATTENDED class; = predicted class
+## for copy heads (KEY_cap), DIVERGES for anchor heads (KEY_newline). Queued qk_newline_anchor.py to
+## causally verify (capital-CE damage split by post-newline distance -- expect concentration post-
+## newline). NEXT: process defensibility review of the summary (apply fixes before enshrinement);
+## anchor verification; then artifact refresh. Old cron expired; 1475f52b live.
