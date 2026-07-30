@@ -1,0 +1,396 @@
+{
+  "_meta": {
+    "eval_slice": [
+      448,
+      600
+    ],
+    "n_tokens": 77824,
+    "base_ce_mean": 3.19573,
+    "BASE_const": 3.0763,
+    "positional_mean_note": "per-minibatch (4-seq) mean, verbatim \u00a712q/tick-262 qk_mean_ablation.py"
+  },
+  "layer2": {
+    "R2": 0.4115,
+    "sym": {
+      "dce": 0.01769,
+      "se": 0.00077
+    },
+    "table": {
+      "dce": 0.03826,
+      "se": 0.00123
+    },
+    "random": {
+      "dce": 0.02087,
+      "se": 0.00084
+    },
+    "positional_mean": {
+      "dce": 0.02541,
+      "se": 0.00096
+    },
+    "sym_minus_mean": {
+      "delta": -0.00772,
+      "se": 0.00096
+    },
+    "verdict": "SYM BEATS MEAN-FLOOR"
+  },
+  "layer3": {
+    "R2": 0.4293,
+    "sym": {
+      "dce": 0.01893,
+      "se": 0.00082
+    },
+    "table": {
+      "dce": 0.04123,
+      "se": 0.0012
+    },
+    "random": {
+      "dce": 0.0242,
+      "se": 0.00091
+    },
+    "positional_mean": {
+      "dce": 0.02233,
+      "se": 0.00089
+    },
+    "sym_minus_mean": {
+      "delta": -0.0034,
+      "se": 0.00092
+    },
+    "verdict": "SYM BEATS MEAN-FLOOR"
+  },
+  "layer4": {
+    "R2": 0.4472,
+    "sym": {
+      "dce": 0.01819,
+      "se": 0.0008
+    },
+    "table": {
+      "dce": 0.05495,
+      "se": 0.00136
+    },
+    "random": {
+      "dce": 0.02283,
+      "se": 0.00091
+    },
+    "positional_mean": {
+      "dce": 0.02558,
+      "se": 0.00089
+    },
+    "sym_minus_mean": {
+      "delta": -0.00738,
+      "se": 0.00106
+    },
+    "verdict": "SYM BEATS MEAN-FLOOR"
+  },
+  "layer5": {
+    "R2": 0.4551,
+    "sym": {
+      "dce": 0.03142,
+      "se": 0.00101
+    },
+    "table": {
+      "dce": 0.33822,
+      "se": 0.00386
+    },
+    "random": {
+      "dce": 0.04803,
+      "se": 0.00129
+    },
+    "positional_mean": {
+      "dce": 0.03691,
+      "se": 0.00107
+    },
+    "sym_minus_mean": {
+      "delta": -0.00549,
+      "se": 0.00125
+    },
+    "verdict": "SYM BEATS MEAN-FLOOR"
+  },
+  "layer6": {
+    "R2": 0.525,
+    "sym": {
+      "dce": 0.013,
+      "se": 0.00062
+    },
+    "table": {
+      "dce": 0.04786,
+      "se": 0.00125
+    },
+    "random": {
+      "dce": 0.01661,
+      "se": 0.00072
+    },
+    "positional_mean": {
+      "dce": 0.02137,
+      "se": 0.00079
+    },
+    "sym_minus_mean": {
+      "delta": -0.00838,
+      "se": 0.0008
+    },
+    "verdict": "SYM BEATS MEAN-FLOOR"
+  },
+  "layer7": {
+    "R2": 0.5253,
+    "sym": {
+      "dce": 0.00971,
+      "se": 0.00055
+    },
+    "table": {
+      "dce": 0.02816,
+      "se": 0.00093
+    },
+    "random": {
+      "dce": 0.01161,
+      "se": 0.00062
+    },
+    "positional_mean": {
+      "dce": 0.01618,
+      "se": 0.00068
+    },
+    "sym_minus_mean": {
+      "delta": -0.00647,
+      "se": 0.00077
+    },
+    "verdict": "SYM BEATS MEAN-FLOOR"
+  },
+  "layer8": {
+    "R2": 0.5132,
+    "sym": {
+      "dce": 0.01527,
+      "se": 0.00075
+    },
+    "table": {
+      "dce": 0.04104,
+      "se": 0.00123
+    },
+    "random": {
+      "dce": 0.02011,
+      "se": 0.00085
+    },
+    "positional_mean": {
+      "dce": 0.02216,
+      "se": 0.00086
+    },
+    "sym_minus_mean": {
+      "delta": -0.00689,
+      "se": 0.00057
+    },
+    "verdict": "SYM BEATS MEAN-FLOOR"
+  },
+  "layer9": {
+    "R2": 0.4807,
+    "sym": {
+      "dce": 0.00896,
+      "se": 0.0005
+    },
+    "table": {
+      "dce": 0.0251,
+      "se": 0.00085
+    },
+    "random": {
+      "dce": 0.0112,
+      "se": 0.00057
+    },
+    "positional_mean": {
+      "dce": 0.01127,
+      "se": 0.0006
+    },
+    "sym_minus_mean": {
+      "delta": -0.0023,
+      "se": 0.00075
+    },
+    "verdict": "SYM BEATS MEAN-FLOOR"
+  },
+  "layer10": {
+    "R2": 0.5006,
+    "sym": {
+      "dce": 0.00569,
+      "se": 0.00039
+    },
+    "table": {
+      "dce": 0.01937,
+      "se": 0.00072
+    },
+    "random": {
+      "dce": 0.00713,
+      "se": 0.00042
+    },
+    "positional_mean": {
+      "dce": 0.00899,
+      "se": 0.00049
+    },
+    "sym_minus_mean": {
+      "delta": -0.0033,
+      "se": 0.00055
+    },
+    "verdict": "SYM BEATS MEAN-FLOOR"
+  },
+  "layer11": {
+    "R2": 0.5076,
+    "sym": {
+      "dce": 0.01191,
+      "se": 0.00057
+    },
+    "table": {
+      "dce": 0.0326,
+      "se": 0.00098
+    },
+    "random": {
+      "dce": 0.01442,
+      "se": 0.00064
+    },
+    "positional_mean": {
+      "dce": 0.01591,
+      "se": 0.00069
+    },
+    "sym_minus_mean": {
+      "delta": -0.004,
+      "se": 0.00078
+    },
+    "verdict": "SYM BEATS MEAN-FLOOR"
+  },
+  "layer12": {
+    "R2": 0.5274,
+    "sym": {
+      "dce": 0.00297,
+      "se": 0.00028
+    },
+    "table": {
+      "dce": 0.00897,
+      "se": 0.00049
+    },
+    "random": {
+      "dce": 0.00381,
+      "se": 0.00031
+    },
+    "positional_mean": {
+      "dce": 0.00444,
+      "se": 0.00036
+    },
+    "sym_minus_mean": {
+      "delta": -0.00146,
+      "se": 0.00044
+    },
+    "verdict": "SYM BEATS MEAN-FLOOR"
+  },
+  "layer13": {
+    "R2": 0.5391,
+    "sym": {
+      "dce": 0.00401,
+      "se": 0.00038
+    },
+    "table": {
+      "dce": 0.01375,
+      "se": 0.00067
+    },
+    "random": {
+      "dce": 0.00527,
+      "se": 0.00043
+    },
+    "positional_mean": {
+      "dce": 0.00886,
+      "se": 0.00052
+    },
+    "sym_minus_mean": {
+      "delta": -0.00485,
+      "se": 0.00045
+    },
+    "verdict": "SYM BEATS MEAN-FLOOR"
+  },
+  "layer14": {
+    "R2": 0.5339,
+    "sym": {
+      "dce": 0.00722,
+      "se": 0.00051
+    },
+    "table": {
+      "dce": 0.03049,
+      "se": 0.00107
+    },
+    "random": {
+      "dce": 0.00981,
+      "se": 0.00059
+    },
+    "positional_mean": {
+      "dce": 0.01547,
+      "se": 0.00071
+    },
+    "sym_minus_mean": {
+      "delta": -0.00825,
+      "se": 0.00062
+    },
+    "verdict": "SYM BEATS MEAN-FLOOR"
+  },
+  "layer15": {
+    "R2": 0.5126,
+    "sym": {
+      "dce": 0.00227,
+      "se": 0.00024
+    },
+    "table": {
+      "dce": 0.00963,
+      "se": 0.0005
+    },
+    "random": {
+      "dce": 0.00311,
+      "se": 0.00028
+    },
+    "positional_mean": {
+      "dce": 0.00334,
+      "se": 0.00029
+    },
+    "sym_minus_mean": {
+      "delta": -0.00108,
+      "se": 0.00035
+    },
+    "verdict": "SYM BEATS MEAN-FLOOR"
+  },
+  "layer16": {
+    "R2": 0.5103,
+    "sym": {
+      "dce": 0.00392,
+      "se": 0.00035
+    },
+    "table": {
+      "dce": 0.01827,
+      "se": 0.00078
+    },
+    "random": {
+      "dce": 0.00524,
+      "se": 0.00041
+    },
+    "positional_mean": {
+      "dce": 0.00726,
+      "se": 0.00045
+    },
+    "sym_minus_mean": {
+      "delta": -0.00335,
+      "se": 0.00059
+    },
+    "verdict": "SYM BEATS MEAN-FLOOR"
+  },
+  "layer17": {
+    "R2": 0.5998,
+    "sym": {
+      "dce": 0.00831,
+      "se": 0.00049
+    },
+    "table": {
+      "dce": 0.02557,
+      "se": 0.00083
+    },
+    "random": {
+      "dce": 0.00924,
+      "se": 0.00051
+    },
+    "positional_mean": {
+      "dce": 0.00648,
+      "se": 0.00043
+    },
+    "sym_minus_mean": {
+      "delta": 0.00183,
+      "se": 0.00059
+    },
+    "verdict": "FLOOR BEATS SYM"
+  }
+}

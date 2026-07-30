@@ -82,3 +82,9 @@ Substitutability = marginal dCE of replacing layer L's attention (PCA-64/head bo
 | 7 | — | +0.00186 ± 0.00025 | 0.014 (7.4×) | 99.98% | H3 MATCH_prev(.10) |
 | 8 | — | +0.00313 ± 0.00030 | 0.0043 (1.4×) | 99.96% | H6 MATCH_prev(.05) [attn near-dispensable: tiny subst & null] |
 | 9 | — | +0.00109 ± 0.00017 | 0.0049 (4.5×) | 99.99% | **NONE** — DIFFUSE |
+| 10 | — | +0.00081 ± 0.00015 | 0.0040 (4.9×) | 99.99% | H6 KEY_punct(.05) |
+| 11 | — | +0.00059 ± 0.00016 | 0.0027 (4.5×) | 99.99% | H2 PREV1(.08), H4 KEY_punct(.07) |
+| 12 | — | +0.00014 ± 0.00010 | 0.0006 (4.4×) | 99.998% | H6 MATCH_prev(.07) [tiny cost] |
+| 13 | — | +0.00171 ± 0.00019 | 0.0023 (1.3×) | 99.98% | H2 MATCH_prev(.09) [L13H8 v1-router, §41] |
+| 14 | — | +0.00380 ± 0.00030 | 0.0040 (1.04×) | 99.95% | H1 MATCH_same(.05) [attn near-dispensable] |
+| 15 | — | +0.00081 ± 0.00012 | 0.0013 (1.6×) | 99.99% | H3 KEY_cap(.09), H4 KEY_cap(.05) [capital cluster] |

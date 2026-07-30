@@ -1,0 +1,377 @@
+{
+  "baseline": {
+    "all": {
+      "margin": 3.769,
+      "acc": 1.0
+    },
+    "congruent": {
+      "margin": 4.481,
+      "acc": 1.0
+    },
+    "incongruent": {
+      "margin": 3.057,
+      "acc": 1.0
+    }
+  },
+  "ranking_top20": [
+    {
+      "comp": "L11.attn",
+      "kind": "attn",
+      "li": 11,
+      "drop_incongr_margin": 1.424,
+      "drop_all_margin": 1.723,
+      "incongr_margin_abl": 1.633,
+      "incongr_acc_abl": 1.0,
+      "congr_acc_abl": 1.0
+    },
+    {
+      "comp": "L11.h3",
+      "kind": "head",
+      "li": 11,
+      "drop_incongr_margin": 1.403,
+      "drop_all_margin": 1.686,
+      "incongr_margin_abl": 1.654,
+      "incongr_acc_abl": 1.0,
+      "congr_acc_abl": 1.0
+    },
+    {
+      "comp": "L7.attn",
+      "kind": "attn",
+      "li": 7,
+      "drop_incongr_margin": 0.663,
+      "drop_all_margin": 0.685,
+      "incongr_margin_abl": 2.394,
+      "incongr_acc_abl": 1.0,
+      "congr_acc_abl": 1.0
+    },
+    {
+      "comp": "L8.mlp",
+      "kind": "mlp",
+      "li": 8,
+      "drop_incongr_margin": 0.637,
+      "drop_all_margin": 0.767,
+      "incongr_margin_abl": 2.42,
+      "incongr_acc_abl": 1.0,
+      "congr_acc_abl": 1.0
+    },
+    {
+      "comp": "L7.h8",
+      "kind": "head",
+      "li": 7,
+      "drop_incongr_margin": 0.604,
+      "drop_all_margin": 0.631,
+      "incongr_margin_abl": 2.453,
+      "incongr_acc_abl": 1.0,
+      "congr_acc_abl": 1.0
+    },
+    {
+      "comp": "L12.mlp",
+      "kind": "mlp",
+      "li": 12,
+      "drop_incongr_margin": 0.59,
+      "drop_all_margin": 0.625,
+      "incongr_margin_abl": 2.467,
+      "incongr_acc_abl": 1.0,
+      "congr_acc_abl": 1.0
+    },
+    {
+      "comp": "L6.mlp",
+      "kind": "mlp",
+      "li": 6,
+      "drop_incongr_margin": 0.537,
+      "drop_all_margin": 0.463,
+      "incongr_margin_abl": 2.52,
+      "incongr_acc_abl": 1.0,
+      "congr_acc_abl": 1.0
+    },
+    {
+      "comp": "L7.mlp",
+      "kind": "mlp",
+      "li": 7,
+      "drop_incongr_margin": 0.472,
+      "drop_all_margin": 0.32,
+      "incongr_margin_abl": 2.585,
+      "incongr_acc_abl": 1.0,
+      "congr_acc_abl": 1.0
+    },
+    {
+      "comp": "L9.mlp",
+      "kind": "mlp",
+      "li": 9,
+      "drop_incongr_margin": 0.416,
+      "drop_all_margin": 0.388,
+      "incongr_margin_abl": 2.641,
+      "incongr_acc_abl": 1.0,
+      "congr_acc_abl": 1.0
+    },
+    {
+      "comp": "L5.attn",
+      "kind": "attn",
+      "li": 5,
+      "drop_incongr_margin": 0.289,
+      "drop_all_margin": 0.346,
+      "incongr_margin_abl": 2.768,
+      "incongr_acc_abl": 1.0,
+      "congr_acc_abl": 1.0
+    },
+    {
+      "comp": "L10.mlp",
+      "kind": "mlp",
+      "li": 10,
+      "drop_incongr_margin": 0.274,
+      "drop_all_margin": 0.281,
+      "incongr_margin_abl": 2.783,
+      "incongr_acc_abl": 1.0,
+      "congr_acc_abl": 1.0
+    },
+    {
+      "comp": "L9.attn",
+      "kind": "attn",
+      "li": 9,
+      "drop_incongr_margin": 0.22,
+      "drop_all_margin": 0.293,
+      "incongr_margin_abl": 2.837,
+      "incongr_acc_abl": 1.0,
+      "congr_acc_abl": 1.0
+    },
+    {
+      "comp": "L11.mlp",
+      "kind": "mlp",
+      "li": 11,
+      "drop_incongr_margin": 0.212,
+      "drop_all_margin": 0.302,
+      "incongr_margin_abl": 2.845,
+      "incongr_acc_abl": 1.0,
+      "congr_acc_abl": 1.0
+    },
+    {
+      "comp": "L5.h3",
+      "kind": "head",
+      "li": 5,
+      "drop_incongr_margin": 0.202,
+      "drop_all_margin": 0.219,
+      "incongr_margin_abl": 2.855,
+      "incongr_acc_abl": 1.0,
+      "congr_acc_abl": 1.0
+    },
+    {
+      "comp": "L4.mlp",
+      "kind": "mlp",
+      "li": 4,
+      "drop_incongr_margin": 0.171,
+      "drop_all_margin": 0.244,
+      "incongr_margin_abl": 2.886,
+      "incongr_acc_abl": 1.0,
+      "congr_acc_abl": 1.0
+    },
+    {
+      "comp": "L5.mlp",
+      "kind": "mlp",
+      "li": 5,
+      "drop_incongr_margin": 0.159,
+      "drop_all_margin": 0.233,
+      "incongr_margin_abl": 2.898,
+      "incongr_acc_abl": 1.0,
+      "congr_acc_abl": 1.0
+    },
+    {
+      "comp": "L4.attn",
+      "kind": "attn",
+      "li": 4,
+      "drop_incongr_margin": 0.153,
+      "drop_all_margin": 0.226,
+      "incongr_margin_abl": 2.904,
+      "incongr_acc_abl": 1.0,
+      "congr_acc_abl": 1.0
+    },
+    {
+      "comp": "L9.h7",
+      "kind": "head",
+      "li": 9,
+      "drop_incongr_margin": 0.14,
+      "drop_all_margin": 0.173,
+      "incongr_margin_abl": 2.917,
+      "incongr_acc_abl": 1.0,
+      "congr_acc_abl": 1.0
+    },
+    {
+      "comp": "L4.h5",
+      "kind": "head",
+      "li": 4,
+      "drop_incongr_margin": 0.106,
+      "drop_all_margin": 0.105,
+      "incongr_margin_abl": 2.951,
+      "incongr_acc_abl": 1.0,
+      "congr_acc_abl": 1.0
+    },
+    {
+      "comp": "L10.attn",
+      "kind": "attn",
+      "li": 10,
+      "drop_incongr_margin": 0.106,
+      "drop_all_margin": 0.157,
+      "incongr_margin_abl": 2.951,
+      "incongr_acc_abl": 1.0,
+      "congr_acc_abl": 1.0
+    }
+  ],
+  "incongr_margin_baseline": 3.057,
+  "all_attn_ablated": {
+    "all": {
+      "margin": 0.0,
+      "acc": 0.5
+    },
+    "congruent": {
+      "margin": 0.274,
+      "acc": 0.5
+    },
+    "incongruent": {
+      "margin": -0.274,
+      "acc": 0.5
+    }
+  },
+  "static_prior_fraction_incongr": -0.089,
+  "static_prior_fraction_all": 0.0,
+  "no_v1_lamb0": {
+    "all": {
+      "margin": 0.326,
+      "acc": 0.537
+    },
+    "congruent": {
+      "margin": 1.671,
+      "acc": 0.675
+    },
+    "incongruent": {
+      "margin": -1.019,
+      "acc": 0.4
+    }
+  },
+  "router_readout": {
+    "L11.h3": {
+      "mean_raw_weight_pos0-4": [
+        -0.1589,
+        -0.2235,
+        -0.1414,
+        -0.1016,
+        -0.0241
+      ],
+      "mean_absshare_pos0-4": [
+        0.253,
+        0.346,
+        0.2,
+        0.151,
+        0.05
+      ],
+      "absshare_head_pos1": 0.346,
+      "absshare_attr_pos4": 0.05,
+      "absshare_head_incongr": 0.351,
+      "absshare_attr_incongr": 0.049,
+      "frac_prompts_argmax_at_head_pos1": 0.775,
+      "frac_prompts_argmax_at_attr_pos4": 0.0
+    },
+    "L7.h8": {
+      "mean_raw_weight_pos0-4": [
+        0.3123,
+        0.2662,
+        0.4657,
+        0.4159,
+        -0.0483
+      ],
+      "mean_absshare_pos0-4": [
+        0.204,
+        0.171,
+        0.305,
+        0.277,
+        0.044
+      ],
+      "absshare_head_pos1": 0.171,
+      "absshare_attr_pos4": 0.044,
+      "absshare_head_incongr": 0.171,
+      "absshare_attr_incongr": 0.04,
+      "frac_prompts_argmax_at_head_pos1": 0.0,
+      "frac_prompts_argmax_at_attr_pos4": 0.0
+    },
+    "L5.h3": {
+      "mean_raw_weight_pos0-4": [
+        0.1217,
+        0.1232,
+        0.2567,
+        0.0656,
+        -0.0841
+      ],
+      "mean_absshare_pos0-4": [
+        0.191,
+        0.185,
+        0.395,
+        0.098,
+        0.131
+      ],
+      "absshare_head_pos1": 0.185,
+      "absshare_attr_pos4": 0.131,
+      "absshare_head_incongr": 0.182,
+      "absshare_attr_incongr": 0.127,
+      "frac_prompts_argmax_at_head_pos1": 0.0,
+      "frac_prompts_argmax_at_attr_pos4": 0.0
+    },
+    "L9.h7": {
+      "mean_raw_weight_pos0-4": [
+        -0.1603,
+        -0.3077,
+        -0.2952,
+        -0.218,
+        -0.2193
+      ],
+      "mean_absshare_pos0-4": [
+        0.135,
+        0.259,
+        0.244,
+        0.181,
+        0.181
+      ],
+      "absshare_head_pos1": 0.259,
+      "absshare_attr_pos4": 0.181,
+      "absshare_head_incongr": 0.256,
+      "absshare_attr_incongr": 0.18,
+      "frac_prompts_argmax_at_head_pos1": 0.487,
+      "frac_prompts_argmax_at_attr_pos4": 0.037
+    },
+    "L4.h5": {
+      "mean_raw_weight_pos0-4": [
+        0.0829,
+        0.0355,
+        -0.0512,
+        -0.0482,
+        0.1862
+      ],
+      "mean_absshare_pos0-4": [
+        0.19,
+        0.152,
+        0.124,
+        0.11,
+        0.424
+      ],
+      "absshare_head_pos1": 0.152,
+      "absshare_attr_pos4": 0.424,
+      "absshare_head_incongr": 0.14,
+      "absshare_attr_incongr": 0.43,
+      "frac_prompts_argmax_at_head_pos1": 0.15,
+      "frac_prompts_argmax_at_attr_pos4": 0.787
+    }
+  },
+  "v1_swap_HEAD_pos1": {
+    "desc": "swap head-noun layer-0 value with number-flipped counterpart; expect verb to FLIP",
+    "baseline_plural_score_sing_head": -4.152,
+    "baseline_plural_score_plur_head": 3.386,
+    "after_plural_score_sing_head(->plural donor)": -3.084,
+    "after_plural_score_plur_head(->sing donor)": 1.953,
+    "flip_rate_to_donor_number_all": 0.0,
+    "flip_rate_incongr": 0.0,
+    "flip_rate_congr": 0.0
+  },
+  "v1_swap_ATTRACTOR_pos4_control": {
+    "desc": "swap attractor layer-0 value with number-flipped attractor; expect verb NOT to flip",
+    "acc_after (should stay ~1.0)": 1.0,
+    "follows_attr_donor_number_rate (should be ~0)": 0.5,
+    "mean_abs_plural_score_change": 0.356
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "clusters": [
+    {
+      "head": 0,
+      "cluster": "term_punct_boundary",
+      "r2_full": 0.174,
+      "r2_template": 0.174,
+      "predicate_gain": 0.0,
+      "arch_coef": -0.0036
+    },
+    {
+      "head": 1,
+      "cluster": "subword_fragment",
+      "r2_full": 0.852,
+      "r2_template": 0.851,
+      "predicate_gain": 0.0,
+      "arch_coef": 0.0017
+    },
+    {
+      "head": 2,
+      "cluster": "newline_docbound",
+      "r2_full": 0.069,
+      "r2_template": 0.063,
+      "predicate_gain": 0.006,
+      "arch_coef": -0.0082
+    },
+    {
+      "head": 3,
+      "cluster": "comma_clause",
+      "r2_full": 0.23,
+      "r2_template": 0.229,
+      "predicate_gain": 0.001,
+      "arch_coef": -0.0029
+    },
+    {
+      "head": 4,
+      "cluster": "term_punct_boundary",
+      "r2_full": 0.313,
+      "r2_template": 0.313,
+      "predicate_gain": 0.0,
+      "arch_coef": -0.0016
+    },
+    {
+      "head": 5,
+      "cluster": "newline_rare",
+      "r2_full": 0.389,
+      "r2_template": 0.385,
+      "predicate_gain": 0.005,
+      "arch_coef": -0.0088
+    },
+    {
+      "head": 6,
+      "cluster": "newline_docbound",
+      "r2_full": 0.037,
+      "r2_template": 0.008,
+      "predicate_gain": 0.028,
+      "arch_coef": 0.0171
+    },
+    {
+      "head": 7,
+      "cluster": "term_punct_boundary",
+      "r2_full": 0.248,
+      "r2_template": 0.22,
+      "predicate_gain": 0.028,
+      "arch_coef": -0.0192
+    },
+    {
+      "head": 8,
+      "cluster": "newline_quote_bracket",
+      "r2_full": 0.258,
+      "r2_template": 0.26,
+      "predicate_gain": -0.001,
+      "arch_coef": -0.0065
+    }
+  ],
+  "gate": {
+    "n_heads_coded": 9,
+    "dCE": 0.04096,
+    "SE": 0.002229
+  }
+}

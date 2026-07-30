@@ -3201,3 +3201,42 @@ result rests on a SINGLE sentence template, n=20 noun-draws per opener, one seed
 plausible but not established. Reviewed: L13H8 dominance (24.5%) and the value-payload swap are causally
 clean and harness-validated; the overclaims ("bidirectional proof", task-wide "genuine circuit") were
 softened above.
+
+## §42 Subject-verb agreement = a mid-layer position-router (L11H3 selects the head noun) (2026-07-30)
+(qk_svagree_patch.py; "The {head} to the {attractor}" → is/are, 80 items incl. 40 incongruent-attractor;
+graded margin logit[correct verb]−logit[wrong], mean-ablation zero point) Number agreement (accuracy 1.00
+incl. attractors) is a GENUINE attention circuit — the opposite of greater-of-two: **zero static prior**
+(all-attention ablation → margin exactly 0.000, accuracy 0.50 = chance; nothing survives without
+attention). Structure: **one dominant head L11H3** carries ~half the incongruent margin (drop 1.40 of
+3.06) and does the positional selection — its query-row weight-share is 0.346 at the HEAD-noun position
+versus 0.05 at the attractor, argmax on the head 77.5% versus 0% on the attractor, identical on
+incongruent items. **That head-position selectivity (ignoring the nearer attractor) is exactly why the 40
+incongruent items succeed.** The rest of the margin is diffuse across mid-stack feed-forward blocks (L6–L9,
+L12); no single-point failure (every single ablation keeps accuracy 1.00 — redundant). **Relation to the
+§41 v1-router:** it shares the "QK decides WHERE" half (route to the head-noun position) but NOT the
+layer-0-value "WHAT" — swapping the head noun's layer-0 value moves only ~15–20% of the number signal and
+NEVER flips the verb (versus bracket, where the layer-0 value-swap fully flipped closer identity), and
+swapping the attractor's value does nothing (verb ignores it). So the number feature is carried
+distributed/**mid-stack** (L11H3 reading its own layer-11 value at the head position), not as a localized
+layer-0 payload. A position-router for a syntactic feature — routing principle general, payload mid-stack.
+Applied both lessons (static-prior control first, v1-swap test); causally clean; candidate for red-team.
+
+## §43 Layer-1 MEANING gates + the substitutability positional-mean hygiene (2026-07-30)
+**Content is spectral one layer up too — the rule, not a layer-0 quirk (qk_l1_content_gate.py).** Running
+the §34 content-nameability protocol on LAYER 1 (head-value spectra, mean-residual tables in place of
+embeddings, substitution-gated FW[448:600]): **0 of 576 coordinates are class-nameable** (median class-R²
+0.035; class gate +0.000, spike-code gate +0.000) — essentially identical to layer 0 (§34: 3/576). So the
+"content is a graded, non-class-nameable spectrum" finding **generalizes above layer 0** (answers ROADMAP
+risk #3). **Layer-1 selection archetype names do NOT survive a gate (qk_l1_selection_gate.py):** coding the
+nine §6b archetype clusters as predicates gives a mean held-out predicate gain of only 0.007 (range
+−0.001..0.028, all below the 5% programmatic threshold); the all-nine simultaneous gate costs +0.041
+nats/token. So §6b's descriptive archetype names are NOT gated-nameable — layer-1 selection is only weakly
+predicate-expressible, and its content is spectral. The meaning frontier is genuinely hard at depth.
+**Substitutability positional-mean hygiene (qk_symbolgen_meanfloor.py):** re-grounding the symbol-fold
+substitutability against the honest positional-mean floor with standard errors, for ALL layers 2–17 (was
+only 2–5): the symbol fold BEATS the positional-mean floor at **15 of 16 layers** (real content function,
+several standard errors), the lone exception being **layer 17** (sym +0.0083 vs mean +0.0065, floor wins
+by +0.0018 — near-output pattern is mostly positional). NOTE: this batch-mean floor finds L17 (not L5) as
+the loss layer, differing from §12q's L5 result (full-corpus mean) — flagged for reconciliation
+(methodology: per-minibatch vs full-corpus mean; the L17 near-output positional structure is the robust
+new finding).
