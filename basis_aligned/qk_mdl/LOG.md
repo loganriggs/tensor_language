@@ -7281,3 +7281,18 @@ existing steering methods, not a new method class, so in-scope and launched rath
 - Fold-audit remains FULLY EXECUTED, now with the editing verdict in its corrected final form: understanding-
   driven control upgraded (saturation-free dial, arm-role confirmation, the contrast knob), raw surgical power
   not (the direction is the sharper instrument BECAUSE it is the post-cancellation axis).
+
+## tick 2026-07-31 (FINAL CONSOLIDATION — the fold-first program fully documented across all surfaces)
+- Paper: the fold-first section now complete through §93b (model-wide anatomy + swiglu generality, the
+  differential-pair readout, term editing with the corrected verdict + contrast knob, the structural
+  compression negative). Source line → §32-§93b.
+- Artifact: final "Editing through the terms" card added (contrast knob improves bracket-opens −0.255 ± 0.040
+  at +0.053 global; the direction IS the post-cancellation axis; the explained override limit; compression
+  structurally bounded). Same URL, one redeploy.
+- Memory updated (qk-unsup-avoid-easy-bias): the boundary RESOLVED via the fold-first program; standing method
+  preference recorded — sufficiency-first + architecture-given term bases before learned bases.
+- PROGRAM STATE: complete. The full arc: four-ledger sweep → unsupervised toolbox → completeness boundary →
+  SAE decoupling → fold-first resolution (§84-§93b) — every claim gated, red-teamed, cross-validated, and the
+  audit scoreboard fully answered. All surfaces synchronized (RESULTS, TECHNIQUES, ROADMAP, paper, artifact,
+  memory). Resting; the open frontiers (cross-layer shared structure for compression = tn_gauge; input-side
+  stream editing for surgical control; sufficiency-based tools generally) are recorded handoffs.
