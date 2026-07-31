@@ -7376,3 +7376,17 @@ existing steering methods, not a new method class, so in-scope and launched rath
 - PEDAGOGY EXPLAINER draft dispatched (a1db81c91e76a18df): 10 methods, each with toy model + assumptions +
   bilin18 site + highlighted real-text example; draft to scratchpad methods_pedagogy.html; I review + publish
   as a NEW artifact (separate from the results artifact).
+
+## tick 2026-07-31 (§96 committed + pedagogy explainer PUBLISHED with the importance ranking)
+- §96 (arc #1): layer 2 = dense quadratic expansion feeding an ITERATED-SQUARING pipeline (self-products null;
+  cross-products dense with no privileged pairs — tail beyond top-32 recovers 88% alone; consumed 84% by layer
+  3's own square via freeze-patching). The early stack is a polynomial feature-factory — the constructive
+  reading of §83/§71.
+- PEDAGOGY EXPLAINER published as its own artifact (methods_pedagogy.html → new artifact URL): 10 methods,
+  each with a hand-computable toy (incl. breaking case), assumptions box, real bilin18 site + headline number,
+  and a held-back text example with fire/target tokens highlighted (all sourced, honesty notes for anything
+  unverifiable). Fronted by Logan's requested IMPORTANCE RANKING (criterion: load-bearing-ness; tiers:
+  would-not-exist/would-be-wrong 1-4 = mean-ablation, fold, sufficiency, terms; shaped-the-picture 5-8;
+  downstream 9-10 with the control-criterion caveat). Copy committed to the repo.
+- RUNNING: arc #2 (mlp.L0 — token-lookup vs bigram-generator vs category-feeder). Queue: mlp.L3 → mid-stack →
+  h.L7.0.
