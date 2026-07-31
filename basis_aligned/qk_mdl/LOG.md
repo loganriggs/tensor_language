@@ -7106,3 +7106,20 @@ existing steering methods, not a new method class, so in-scope and launched rath
   + redundant CODE within (§83) → explains the §74-82 necessity-blindness. Committed §85.
 - Still in flight: the stream-pair provenance census (agent a871b9b94d9d7ca4e, still writing its script).
   Collect next tick — it decides whether the compact map's terms are organized by input provenance.
+
+## tick 2026-07-31 (§86 provenance census LANDS — Logan's fold suggestion cracks the hub; fold-audit delivered; proxy upgrade dispatched)
+- §86 (subagent a871b9b94d9d7ca4e): the stream-pair decomposition delivers what every learned basis could not.
+  Fold gate 9.8e-7. FIVE named terms (MLP0×attn1, attn1², MLP0², emb×MLP0, emb×attn1) restore full function
+  (+0.0019 ± 0.0006 of 5.574); attention-0 row causally DEAD (exhaustive §33 confirmation); diagonal-vs-cross
+  0.53 vs 0.044 → the hub is an INTERACTION device; emb×emb identified as a bigram-table correction (90%
+  current-token-explained). Redundancy persists but among 10 NAMED objects. Committed §86.
+- Delivered Logan's requested fold-audit across all 10 method families: verdicts — necessity currency: keep,
+  switch units to terms, lead with sufficiency; LINEAR PROXY: candidate for STRICT REPLACEMENT by restricted-
+  core propagation (dispatched, aed4bbce65412aa8c, qk_certified_proxy.py — tests whether propagation through
+  §85 compact cores predicts true causal effects where linearization failed, incl. the §67 failure cases);
+  substitutability: §85 restriction upgrades fidelity-only to a real compression point (128× @ 3%);
+  discovery basis: terms replace SVD-dirs/SAE features; editing: term-targeted steering may reach upstream
+  conditioning; meaning: provenance-naming (emb×emb=bigram already demonstrated). Exponential blowup tamed by
+  per-layer (in-K × out-K) restriction + term-energy pruning (tn_gauge connection noted; compounding across
+  18 layers must be measured).
+- NEXT: collect the certified-proxy test; then the whole-model restricted-core sweep (does 3%/layer compound?).
