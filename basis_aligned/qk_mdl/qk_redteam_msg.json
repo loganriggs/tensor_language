@@ -1,0 +1,358 @@
+{
+ "gates": {
+  "identity_dCE": -0.0,
+  "svd576_dCE": [
+   0.11132,
+   0.003595
+  ],
+  "joint_floor_dCE": [
+   1.6528,
+   0.01564
+  ]
+ },
+ "attack4_superadditivity": {
+  "per_block": {
+   "5": {
+    "dCE": 0.09278,
+    "SE": 0.003285,
+    "census": 0.0928
+   },
+   "6": {
+    "dCE": 0.08319,
+    "SE": 0.003022,
+    "census": 0.0832
+   },
+   "7": {
+    "dCE": 0.06008,
+    "SE": 0.002563,
+    "census": 0.0601
+   },
+   "8": {
+    "dCE": 0.05114,
+    "SE": 0.002419,
+    "census": 0.0511
+   },
+   "9": {
+    "dCE": 0.05627,
+    "SE": 0.002475,
+    "census": 0.0563
+   },
+   "10": {
+    "dCE": 0.04652,
+    "SE": 0.002277,
+    "census": 0.0465
+   },
+   "11": {
+    "dCE": 0.04663,
+    "SE": 0.002372,
+    "census": 0.0466
+   }
+  },
+  "sum_per_block": 0.4366,
+  "sum_census": 0.4366,
+  "joint_floor": {
+   "dCE": 1.6528,
+   "SE": 0.01564
+  },
+  "ratio_joint_over_sum": 3.786,
+  "pair_7_9": {
+   "dCE": 0.19212,
+   "SE": 0.00464,
+   "sum_singles": 0.11635,
+   "ratio": 1.651
+  }
+ },
+ "attack1_comparability": {
+  "documentation": {
+   "surrogate_op": "delete random half of the r*576 ABSTRACT code coordinates; least-squares decode; composite map G = projection in the 576-dim message space, applied identically to every block; the 576-dim PCA tail is already discarded (ceiling +0.111); for r>=2 the code space exceeds the residual width and for independent Haar frames G=I after any half-deletion is a linear-algebra certainty, not a model measurement",
+   "real_op": "keep ONE random 576-of-1152 subspace of the physical residual, the SAME subspace for all seven blocks (equivalently, applied to the summed write); touches both message and tail"
+  },
+  "real_fixed_basis_shared_half": [
+   {
+    "seed": 0,
+    "dCE": 0.54583,
+    "SE": 0.008147
+   },
+   {
+    "seed": 1,
+    "dCE": 0.57999,
+    "SE": 0.008398
+   }
+  ],
+  "real_fixed_basis_per_block_half": [
+   {
+    "seed": 0,
+    "dCE": 0.4645,
+    "SE": 0.007452
+   },
+   {
+    "seed": 1,
+    "dCE": 0.46721,
+    "SE": 0.00751
+   },
+   {
+    "seed": 2,
+    "dCE": 0.46676,
+    "SE": 0.007438
+   }
+  ],
+  "real_independent_per_block_half": [
+   {
+    "seed": 0,
+    "dCE": 0.47934,
+    "SE": 0.007618
+   },
+   {
+    "seed": 1,
+    "dCE": 0.48489,
+    "SE": 0.007678
+   }
+  ],
+  "surrogate_r1_half_subspace": [
+   {
+    "seed": 0,
+    "dCE": 0.72858,
+    "SE": 0.009883
+   },
+   {
+    "seed": 1,
+    "dCE": 0.72647,
+    "SE": 0.009767
+   }
+  ],
+  "surrogate_r1_half_coordinates_prior": {
+   "runs": [
+    {
+     "seed": 0,
+     "dCE": 0.73843,
+     "SE": 0.009816,
+     "decode_rank": 288,
+     "message_energy_retained": 0.4996
+    },
+    {
+     "seed": 1,
+     "dCE": 0.76184,
+     "SE": 0.010239,
+     "decode_rank": 288,
+     "message_energy_retained": 0.5015
+    },
+    {
+     "seed": 2,
+     "dCE": 0.68793,
+     "SE": 0.009286,
+     "decode_rank": 288,
+     "message_energy_retained": 0.5009
+    }
+   ],
+   "mean_dCE": 0.7294,
+   "mean_excess_over_no_deletion": 0.61808
+  },
+  "real_shared_subspace_prior": [
+   {
+    "seed": 0,
+    "dCE": 0.53976,
+    "SE": 0.008023
+   },
+   {
+    "seed": 1,
+    "dCE": 0.53532,
+    "SE": 0.00816
+   }
+  ],
+  "analytic_note": "with SHARED frames across copies and the SAME half deleted from every copy, G has rank 288 for EVERY r (H = r * R^T M R): even r=16 costs ~+0.73 under the shared-half attack -- the existing real-region cell is exactly this shared-half attack, so it cannot lower-bound redundancy"
+ },
+ "attack3_basis_grain": {
+  "shared_summed_gram_prior": {
+   "144": {
+    "dCE": 0.46021,
+    "SE": 0.007623,
+    "recovered_fraction": 0.7216
+   },
+   "288": {
+    "dCE": 0.29224,
+    "SE": 0.005995,
+    "recovered_fraction": 0.8232
+   },
+   "576": {
+    "dCE": 0.11132,
+    "SE": 0.003595,
+    "recovered_fraction": 0.9327
+   }
+  },
+  "joint_floor_ref": 1.6528,
+  "cells": {
+   "per_block_equal_144": {
+    "dCE": 0.75726,
+    "SE": 0.009568,
+    "recovered_fraction": 0.5418,
+    "alloc": {
+     "5": 21,
+     "6": 21,
+     "7": 21,
+     "8": 21,
+     "9": 20,
+     "10": 20,
+     "11": 20
+    }
+   },
+   "per_block_pooled_eig_144": {
+    "dCE": 0.87931,
+    "SE": 0.0102,
+    "recovered_fraction": 0.468,
+    "alloc": {
+     "5": 6,
+     "6": 2,
+     "7": 2,
+     "8": 12,
+     "9": 16,
+     "10": 15,
+     "11": 91
+    }
+   },
+   "shared_concat_gram_144": {
+    "dCE": 0.47669,
+    "SE": 0.007656,
+    "recovered_fraction": 0.7116
+   },
+   "per_block_equal_288": {
+    "dCE": 0.63091,
+    "SE": 0.008764,
+    "recovered_fraction": 0.6183,
+    "alloc": {
+     "5": 42,
+     "6": 41,
+     "7": 41,
+     "8": 41,
+     "9": 41,
+     "10": 41,
+     "11": 41
+    }
+   },
+   "per_block_pooled_eig_288": {
+    "dCE": 0.7708,
+    "SE": 0.009575,
+    "recovered_fraction": 0.5336,
+    "alloc": {
+     "5": 10,
+     "6": 3,
+     "7": 3,
+     "8": 24,
+     "9": 36,
+     "10": 35,
+     "11": 177
+    }
+   },
+   "shared_concat_gram_288": {
+    "dCE": 0.3078,
+    "SE": 0.006063,
+    "recovered_fraction": 0.8138
+   },
+   "per_block_equal_576": {
+    "dCE": 0.49406,
+    "SE": 0.007799,
+    "recovered_fraction": 0.7011,
+    "alloc": {
+     "5": 83,
+     "6": 83,
+     "7": 82,
+     "8": 82,
+     "9": 82,
+     "10": 82,
+     "11": 82
+    }
+   },
+   "per_block_pooled_eig_576": {
+    "dCE": 0.6283,
+    "SE": 0.008611,
+    "recovered_fraction": 0.6199,
+    "alloc": {
+     "5": 20,
+     "6": 6,
+     "7": 7,
+     "8": 52,
+     "9": 92,
+     "10": 88,
+     "11": 311
+    }
+   },
+   "shared_concat_gram_576": {
+    "dCE": 0.12155,
+    "SE": 0.003687,
+    "recovered_fraction": 0.9265
+   }
+  }
+ },
+ "attack2_token_frequency": {
+  "baseline_gate": {
+   "R2": 0.4721,
+   "control": 0.046,
+   "n_groups": 548,
+   "prior_R2": 0.4721
+  },
+  "exclude_top20": {
+   "top20_tokens": [
+    ".",
+    "\u0120the",
+    ",",
+    "\u0120of",
+    "\u0120to",
+    "\u010a",
+    "\u0120and",
+    "\u0120a",
+    "-",
+    "\u0120in",
+    "\u0120is",
+    "\u0120for",
+    "\u00e2\u0122",
+    "\u0120that",
+    "\u0120on",
+    "\u0120I",
+    "\u013b",
+    "\u0120(",
+    "\u0120with",
+    "\u0120it"
+   ],
+   "top20_position_share": 0.2932,
+   "cur_token": {
+    "R2": 0.5175,
+    "control": 0.0826,
+    "n_groups": 528,
+    "covered_frac": 0.332,
+    "per_dim": [
+     0.5757,
+     0.4957,
+     0.5034,
+     0.6996,
+     0.5565,
+     0.5483,
+     0.4734,
+     0.4126,
+     0.5856,
+     0.3721,
+     0.3573,
+     0.3316,
+     0.4093,
+     0.4874,
+     0.3449,
+     0.346
+    ]
+   },
+   "next_cat6_same_elig": {
+    "R2": 0.0947,
+    "control": 0.0004
+   }
+  },
+  "equal_per_token": {
+   "n_tokens_ge10": 209,
+   "mean_within_token_R2": 0.4651,
+   "permutation_control": 0.0548,
+   "median_within_token_R2": 0.443,
+   "count_weighted_same_tokens": 0.3883,
+   "coverage_frac": 0.5147
+  },
+  "equal_token_mass_aggregate": {
+   "cur_token": 0.5192,
+   "next_cat6": 0.0674
+  }
+ }
+}

@@ -7566,3 +7566,15 @@ existing steering methods, not a new method class, so in-scope and launched rath
   a shared global write direction (residual alignment 0.50, never opposing).
 - §102 red-team agent pinged to write its verdict (attacks all complete in qk_redteam_msg.json; partials:
   conditioning R² SURVIVES/strengthens excluding frequent tokens 0.518; per-block bases WORSE than shared).
+
+## tick 2026-07-31e (§102 red-team finalized from its JSON — agent stalled post-attacks, verdicts written by main loop)
+- One real hit, corrected in §102(c): the surrogate's r>=2 exact-zero half-deletion cell is a linear-algebra
+  certainty of independent Haar frames (decode = identity), not a model measurement; with shared frames even
+  r=16 costs +0.73. Matched half-SUBSPACE comparison substituted: real region +0.54-0.58 (shared) / +0.47
+  (independent per-block) vs unprotected r=1 +0.73 — real code PARTIALLY redundant (~25% cheaper deletions;
+  independent-vs-shared gap is direct evidence of cross-block covering), far from a protected repetition code.
+- Survived strengthened: token-conditioning (excluding top-20 tokens R² RISES to 0.5175; equal per-token
+  0.465 vs control 0.055); basis-grain (shared summed basis best of five schemes at every total — the long
+  tail is real); 3.79x super-additivity (per-block floors reproduce census to 4 decimals; pair 7+9 already
+  1.65x).
+- Both §102 and §103 now fully red-teamed and corrected. Next: cross-layer chapter into paper + artifact.

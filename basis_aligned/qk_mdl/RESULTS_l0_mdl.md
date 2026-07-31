@@ -5279,20 +5279,33 @@ All three are next-token syntactic-register variables.
 
 **(c) Bespoke surrogate** (message k=576 + explicit repetition code, r copies): decode is identity when
 nothing deleted (+0.1113 at all r = the PCA ceiling, 93.3% of floor). Random half-deletion of code
-coordinates: r=1 → +0.729 mean (unprotected, ~50% energy lost); **r=4/r=16 → exactly +0.1113 every seed —
-the §83 any-half-suffices signature transfers exactly.** The real region under the same half-keep: +0.535
-to +0.548 — **between r=1 (+0.73) and r=4 (+0.11): the real code's effective redundancy factor at
-seven-block joint scale is between 1 and 4**, not the near-perfect per-block redundancy of §83.
+coordinates: r=1 → +0.729 mean (unprotected, ~50% energy lost); r=4/r=16 → exactly +0.1113 every seed.
+**RED-TEAM CORRECTION:** the r≥2 exact-zero cell is a linear-algebra certainty of the construction
+(independent Haar frames make the decode map identity after any half-coordinate deletion), not a model
+measurement, and with SHARED frames + the same half deleted everywhere even r=16 costs ~+0.73 — so "real
+region between r=1 and r=4" was not a fair scale. The MATCHED comparison (half-SUBSPACE deletion for both):
+surrogate r=1 +0.727/+0.729; real region, same subspace shared across blocks, +0.540/+0.546/+0.580; real
+region with INDEPENDENT per-block halves +0.465-0.485. Honest statement: **the real code is partially
+redundant — matched deletions cost ~25% less than an unprotected code, and independent per-block deletions
+cost less than shared ones (+0.47 vs +0.55), direct evidence that surviving blocks partially cover for
+deleted subspaces — but it is far from a fully protected repetition code.** The §83 near-perfect any-half
+robustness is a per-block-output property that does not persist at seven-block joint scale.
 
 **Verdict:** "low-dimensional message + redundant broadcast" holds as a head-plus-tail statement, not a
 clean factorization. True: privileged message basis (10× over random), nameable head variables, and the
 {message, redundancy-factor} surrogate reproduces both function and robustness phenomenology. False: the
 message is not compact (90% needs 576 dims), and the joint-scale redundancy factor is modest (1-4).
 
-**RED-TEAM PENDING** (dispatched): (1) surrogate half-deletion operates on abstract code coordinates (r·k
-may exceed 1152) while the real-region test keeps a per-block 576-dim residual subspace — are the two
-operations comparable? (2) is current-token R² inflated by frequent tokens; (3) is the "not compact" tail an
-artifact of fitting one PCA basis at region grain (per-block bases might compress better).
+**RED-TEAM COMPLETE (qk_redteam_msg.py):** (1) comparability — CORRECTED above (the one real hit: the r≥2
+zero-cost cell was analytic, not empirical; matched half-subspace comparison substituted). (2) Token
+frequency — SURVIVES STRENGTHENED: excluding the top-20 most frequent tokens (29% of positions) raises
+current-token R² to 0.5175 (control 0.083); equal per-token weighting 0.465 (permutation control 0.055);
+equal-token-mass aggregate 0.519. The token-conditioning is not a frequency artifact. (3) Basis grain —
+SURVIVES: the shared summed-deviation basis is the BEST of five tested schemes at every total (per-block
+equal-allocation recovers 54/62/70% at 144/288/576 vs shared 72/82/93%; pooled-eigenvalue allocation worse
+still) — the long tail is not a basis artifact. (4) Super-additivity — SURVIVES: per-block floors reproduce
+the census to four decimals (sum 0.4366), joint 1.6528, ratio 3.79; already present at pair scale (blocks
+7+9: joint +0.1921 vs sum +0.1164, ratio 1.65).
 
 ## §103 Cross-layer folding: consumers name the gates (qk_xfold_terms/table/gate.py, Logan's directive)
 
