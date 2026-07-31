@@ -7654,3 +7654,13 @@ existing steering methods, not a new method class, so in-scope and launched rath
   a.L0 dossier complete (h.L0.3 prev-token channel + capital pusher, the route-through-block-0 fact, the
   verified null h.L0.2, five fingerprinted-unnamed heads); other components stubbed in the left rail.
 - §105 red-team still running (refit + gauge + centered-atom attacks live on GPU).
+
+## tick 2026-07-31l (component-dossier draft 3: CP pipeline corrected to single-pipeline story + code box)
+- Logan questions on the archetype construction: (1) sparse code + CP are ONE pipeline (stage 1 codes ->
+  stage 2 third-moment core in atom space -> stage 3 symmetric nonneg CP), NOT two methods — draft-2 text
+  corrected; (2) added code-snippet box with exact shapes (triple row 384 -> S[t] in R^512 6-sparse ->
+  M 512^3 -> 16 archetypes/head -> 144-dim per-token readout a[h,r]=S[t]·u_r); (3) heads 0/4: fail the
+  moment gate at 512 AND 1024 atoms (content-heavy, heavy-tailed moments); asymmetric refit localizes it
+  (scaffold components agree 0.9-1.0, content fringe ~0); causally near-negligible (0.0022/0.0014 nats);
+  (4) added the §5j copy-head negative (copy-cosines -0.08..+0.03 — archetypes deposit class-occurrence
+  signals, no direct token pushing). Published draft-3-cp-pipeline-code.
