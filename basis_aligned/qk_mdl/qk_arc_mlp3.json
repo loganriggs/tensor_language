@@ -1,0 +1,1061 @@
+{
+ "meta": {
+  "model": "bilin18",
+  "held": "FW[448:600,:128]",
+  "batch": 6,
+  "layer": 3,
+  "machinery": "term construction / group accumulators / polarization / per-position means / keep-drop harness VERBATIM qk_allterm_census.py via qk_arc_square.py (general LI); class library VERBATIM qk_unsup_classpush.py (lex1/VOCAB_CLASS); variance method = section-86/97 within-group vs total (qk_arc_mlp0.py group_r2)",
+  "gate": "reconstruction gated at 1e-5 AND census layer-3 numbers reproduced before all claims",
+  "currency": "delta cross-entropy per valid held position (nats), paired standard error; class-summed delta-logit (base - term-dropped)",
+  "base_ce": 3.4946
+ },
+ "gate": {
+  "recon_rel_err_global": 6.342147475931355e-07,
+  "mean_consistency": 1.6085472509530518e-07,
+  "pass": true
+ },
+ "census_reproduction": {
+  "mean_only": {
+   "dCE": 0.6163,
+   "SE": 0.00842,
+   "census_ref": 0.6163,
+   "match": true
+  },
+  "only_MrxMr": {
+   "dCE": 0.2483,
+   "SE": 0.00537,
+   "census_ref": 0.2483,
+   "match": true
+  },
+  "only_ArxMr": {
+   "dCE": 0.2564,
+   "SE": 0.00542,
+   "census_ref": 0.2564,
+   "match": true
+  },
+  "top2_energy": {
+   "dCE": 0.0806,
+   "SE": 0.00308,
+   "census_ref": 0.0806,
+   "match": true
+  },
+  "top4_energy": {
+   "dCE": 0.0178,
+   "SE": 0.00155,
+   "census_ref": 0.0178,
+   "match": true
+  }
+ },
+ "H3_variance_tests": {
+  "MrxMr": {
+   "current_token_R2_ge5": 0.2687,
+   "n_tokens_ge5": 548,
+   "current_token_shuffled_control": 0.0459,
+   "pair_min_count_5": {
+    "pair_R2": 0.565,
+    "pair_R2_shuffled_control": 0.0884,
+    "current_alone_R2_same_subset": 0.4611,
+    "pair_minus_current_incremental_R2": 0.1039,
+    "n_pairs": 185,
+    "n_covered_positions": 2148,
+    "coverage_of_eligible": 0.1144
+   },
+   "pair_min_count_3": {
+    "pair_R2": 0.6524,
+    "pair_R2_shuffled_control": 0.1735,
+    "current_alone_R2_same_subset": 0.4818,
+    "pair_minus_current_incremental_R2": 0.1706,
+    "n_pairs": 616,
+    "n_covered_positions": 3555,
+    "coverage_of_eligible": 0.1893
+   }
+  },
+  "ArxMr": {
+   "current_token_R2_ge5": 0.1709,
+   "n_tokens_ge5": 548,
+   "current_token_shuffled_control": 0.0448,
+   "pair_min_count_5": {
+    "pair_R2": 0.3735,
+    "pair_R2_shuffled_control": 0.0865,
+    "current_alone_R2_same_subset": 0.2773,
+    "pair_minus_current_incremental_R2": 0.0962,
+    "n_pairs": 185,
+    "n_covered_positions": 2148,
+    "coverage_of_eligible": 0.1144
+   },
+   "pair_min_count_3": {
+    "pair_R2": 0.4885,
+    "pair_R2_shuffled_control": 0.1706,
+    "current_alone_R2_same_subset": 0.3358,
+    "pair_minus_current_incremental_R2": 0.1527,
+    "n_pairs": 616,
+    "n_covered_positions": 3555,
+    "coverage_of_eligible": 0.1893
+   }
+  },
+  "MexMr": {
+   "current_token_R2_ge5": 0.3376,
+   "n_tokens_ge5": 548,
+   "current_token_shuffled_control": 0.0453
+  },
+  "ArxAr": {
+   "current_token_R2_ge5": 0.1424,
+   "n_tokens_ge5": 548,
+   "current_token_shuffled_control": 0.0439
+  },
+  "layer0_reference": {
+   "ExE_current_token_R2": 0.953,
+   "ExAr_pair_R2_ge5": 0.861,
+   "note": "section-97 layer-0 values for comparison"
+  }
+ },
+ "class_signatures": {
+  "MrxMr": {
+   "drop_one_dCE": 0.0062,
+   "drop_one_SE": 0.00098,
+   "census_allbut_dCE": 0.0062,
+   "census_match": true,
+   "fire": {
+    "pushed_class": "capital",
+    "pushed_val": -144.0694,
+    "concentration": 0.3628,
+    "top8": {
+     "capital": -144.0694,
+     "word": -132.673,
+     "subword": -72.3432,
+     "digit": -24.4087,
+     "punct": -10.8946,
+     "special": -3.8056,
+     "other": -3.5775,
+     "pronoun": -1.7566
+    },
+    "n": 200
+   },
+   "all_valid": {
+    "pushed_class": "word",
+    "pushed_val": -339.1139,
+    "concentration": 0.552,
+    "top8": {
+     "word": -339.1139,
+     "capital": -144.0185,
+     "subword": -87.474,
+     "digit": -17.2731,
+     "punct": -12.4374,
+     "other": -4.4548,
+     "special": -3.6864,
+     "determiner": -1.943
+    },
+    "n": 19304
+   }
+  },
+  "ArxMr": {
+   "drop_one_dCE": 0.0077,
+   "drop_one_SE": 0.00102,
+   "census_allbut_dCE": 0.0077,
+   "census_match": true,
+   "fire": {
+    "pushed_class": "subword",
+    "pushed_val": -271.082,
+    "concentration": 0.5483,
+    "top8": {
+     "subword": -271.082,
+     "word": 172.2271,
+     "digit": -32.0799,
+     "capital": 5.8579,
+     "other": 3.2936,
+     "determiner": -2.8788,
+     "pronoun": -2.4517,
+     "punct": -2.1964
+    },
+    "n": 200
+   },
+   "all_valid": {
+    "pushed_class": "word",
+    "pushed_val": -245.5444,
+    "concentration": 0.6021,
+    "top8": {
+     "word": -245.5444,
+     "capital": -99.9149,
+     "subword": -33.5202,
+     "digit": -17.0316,
+     "punct": -5.7228,
+     "pronoun": -1.8105,
+     "determiner": -1.597,
+     "special": -1.4483
+    },
+    "n": 19304
+   }
+  },
+  "MexMr": {
+   "drop_one_dCE": 0.0048,
+   "drop_one_SE": 0.00082,
+   "census_allbut_dCE": 0.0048,
+   "census_match": true,
+   "fire": {
+    "pushed_class": "capital",
+    "pushed_val": 110.641,
+    "concentration": 0.4636,
+    "top8": {
+     "capital": 110.641,
+     "word": -65.3849,
+     "subword": 45.9298,
+     "other": 4.9301,
+     "punct": -4.2527,
+     "special": 2.8211,
+     "determiner": -1.6078,
+     "digit": -1.0653
+    },
+    "n": 200
+   },
+   "all_valid": {
+    "pushed_class": "word",
+    "pushed_val": -399.6445,
+    "concentration": 0.5526,
+    "top8": {
+     "word": -399.6445,
+     "capital": -189.5873,
+     "subword": -82.4495,
+     "digit": -21.372,
+     "punct": -13.67,
+     "other": -6.2974,
+     "special": -4.7079,
+     "determiner": -1.7861
+    },
+    "n": 19304
+   }
+  },
+  "ArxAr": {
+   "drop_one_dCE": 0.0043,
+   "drop_one_SE": 0.00063,
+   "census_allbut_dCE": null,
+   "census_match": null,
+   "fire": {
+    "pushed_class": "subword",
+    "pushed_val": -63.1051,
+    "concentration": 0.5461,
+    "top8": {
+     "subword": -63.1051,
+     "capital": 29.884,
+     "word": 8.0675,
+     "digit": 6.5795,
+     "other": 3.5175,
+     "punct": 1.8302,
+     "special": 0.9518,
+     "determiner": 0.6018
+    },
+    "n": 200
+   },
+   "all_valid": {
+    "pushed_class": "word",
+    "pushed_val": -143.2924,
+    "concentration": 0.5083,
+    "top8": {
+     "word": -143.2924,
+     "capital": -69.9239,
+     "subword": -53.7242,
+     "digit": -5.8914,
+     "punct": -3.6456,
+     "other": -2.381,
+     "special": -1.4878,
+     "determiner": -0.4689
+    },
+    "n": 19304
+   }
+  }
+ },
+ "examples": {
+  "ArxMr": [
+   {
+    "seq": 80,
+    "pos": 82,
+    "previous_token": "Div",
+    "current_token": "ine",
+    "context_snippet_ending_at_pos": " interpretations centered on individual meanings and reflections on the idea of \u201cDivine",
+    "actual_next_token": "\ufffd",
+    "deviation_norm": 15818.41,
+    "top_boosted_tokens": [
+     [
+      " Femin",
+      1.114
+     ],
+     [
+      " Roots",
+      1.058
+     ],
+     [
+      " Skies",
+      0.987
+     ],
+     [
+      " Consent",
+      0.978
+     ],
+     [
+      " Reprodu",
+      0.935
+     ],
+     [
+      " Soc",
+      0.933
+     ],
+     [
+      "ticket",
+      0.926
+     ],
+     [
+      " Spaces",
+      0.896
+     ]
+    ],
+    "top_suppressed_tokens": [
+     [
+      "tin",
+      -1.361
+     ],
+     [
+      ".:",
+      -1.353
+     ],
+     [
+      ".[",
+      -1.349
+     ],
+     [
+      " known",
+      -1.312
+     ]
+    ],
+    "top_class_movement": {
+     "word": -4174.659,
+     "subword": -1532.776,
+     "capital": 714.867,
+     "punct": -253.648,
+     "digit": -134.349
+    }
+   },
+   {
+    "seq": 120,
+    "pos": 111,
+    "previous_token": "ICK",
+    "current_token": "ET",
+    "context_snippet_ending_at_pos": " the signature and the map is ready for the Final Forge\nCRICKET",
+    "actual_next_token": ":",
+    "deviation_norm": 15660.95,
+    "top_boosted_tokens": [
+     [
+      " Amph",
+      1.394
+     ],
+     [
+      " RSS",
+      1.368
+     ],
+     [
+      " COURT",
+      1.297
+     ],
+     [
+      " Mun",
+      1.251
+     ],
+     [
+      " Shuttle",
+      1.234
+     ],
+     [
+      " Galaxy",
+      1.21
+     ],
+     [
+      " Bash",
+      1.184
+     ],
+     [
+      " North",
+      1.165
+     ]
+    ],
+    "top_suppressed_tokens": [
+     [
+      "statement",
+      -1.862
+     ],
+     [
+      "WAR",
+      -1.853
+     ],
+     [
+      ">>",
+      -1.753
+     ],
+     [
+      " here",
+      -1.742
+     ]
+    ],
+    "top_class_movement": {
+     "word": -4346.502,
+     "subword": -3212.611,
+     "capital": -1075.856,
+     "digit": -389.765,
+     "punct": -272.007
+    }
+   },
+   {
+    "seq": 63,
+    "pos": 17,
+    "previous_token": "yl",
+    "current_token": "inder",
+    "context_snippet_ending_at_pos": " to elude an opponent or to receive the ball.\nCylinder",
+    "actual_next_token": " -",
+    "deviation_norm": 14951.45,
+    "top_boosted_tokens": [
+     [
+      "bear",
+      1.339
+     ],
+     [
+      " valve",
+      1.32
+     ],
+     [
+      " hubs",
+      1.24
+     ],
+     [
+      " cradle",
+      1.235
+     ],
+     [
+      " roller",
+      1.208
+     ],
+     [
+      " Wheels",
+      1.184
+     ],
+     [
+      " cylinders",
+      1.159
+     ],
+     [
+      " wheels",
+      1.151
+     ]
+    ],
+    "top_suppressed_tokens": [
+     [
+      "iveness",
+      -1.778
+     ],
+     [
+      "ual",
+      -1.561
+     ],
+     [
+      " Example",
+      -1.445
+     ],
+     [
+      " identity",
+      -1.337
+     ]
+    ],
+    "top_class_movement": {
+     "word": -3158.345,
+     "capital": -2501.416,
+     "subword": -1302.815,
+     "digit": -454.401,
+     "punct": -205.955
+    }
+   },
+   {
+    "seq": 114,
+    "pos": 107,
+    "previous_token": " the",
+    "current_token": " Game",
+    "context_snippet_ending_at_pos": " I do to help When it comes to leaving feedback to maps in the Game",
+    "actual_next_token": "play",
+    "deviation_norm": 14552.02,
+    "top_boosted_tokens": [
+     [
+      " Preferences",
+      1.405
+     ],
+     [
+      " Archives",
+      1.385
+     ],
+     [
+      "ibraries",
+      1.367
+     ],
+     [
+      "qus",
+      1.359
+     ],
+     [
+      "ffen",
+      1.335
+     ],
+     [
+      " Dock",
+      1.333
+     ],
+     [
+      " Mulcair",
+      1.333
+     ],
+     [
+      " Tray",
+      1.331
+     ]
+    ],
+    "top_suppressed_tokens": [
+     [
+      " there",
+      -1.904
+     ],
+     [
+      " industry",
+      -1.485
+     ],
+     [
+      " we",
+      -1.411
+     ],
+     [
+      " company",
+      -1.344
+     ]
+    ],
+    "top_class_movement": {
+     "capital": 4140.134,
+     "subword": 2941.919,
+     "digit": 347.695,
+     "punct": 172.592,
+     "other": 154.087
+    }
+   }
+  ],
+  "MrxMr": [
+   {
+    "seq": 39,
+    "pos": 53,
+    "previous_token": " addition",
+    "current_token": " to",
+    "context_snippet_ending_at_pos": " through a tablet's touch controls and built in keyboard.\nIn addition to",
+    "actual_next_token": " remote",
+    "deviation_norm": 15445.81,
+    "top_boosted_tokens": [
+     [
+      " schools",
+      0.549
+     ],
+     [
+      " students",
+      0.548
+     ],
+     [
+      "student",
+      0.541
+     ],
+     [
+      " fres",
+      0.527
+     ],
+     [
+      " teaching",
+      0.515
+     ],
+     [
+      " Students",
+      0.512
+     ],
+     [
+      "educ",
+      0.51
+     ],
+     [
+      " educating",
+      0.498
+     ]
+    ],
+    "top_suppressed_tokens": [
+     [
+      "BLE",
+      -0.512
+     ],
+     [
+      " Optional",
+      -0.456
+     ],
+     [
+      " SDK",
+      -0.439
+     ],
+     [
+      " TRI",
+      -0.437
+     ]
+    ],
+    "top_class_movement": {
+     "word": 742.767,
+     "capital": -403.901,
+     "subword": 342.309,
+     "digit": -89.696,
+     "punct": -43.481
+    }
+   },
+   {
+    "seq": 131,
+    "pos": 78,
+    "previous_token": " and",
+    "current_token": "/",
+    "context_snippet_ending_at_pos": " Later Q. What is your favorite car? Make, model, and/",
+    "actual_next_token": "or",
+    "deviation_norm": 15094.16,
+    "top_boosted_tokens": [
+     [
+      "rack",
+      1.056
+     ],
+     [
+      "ainted",
+      1.013
+     ],
+     [
+      "2009",
+      0.897
+     ],
+     [
+      " exiled",
+      0.892
+     ],
+     [
+      "rider",
+      0.886
+     ],
+     [
+      "gear",
+      0.872
+     ],
+     [
+      "walk",
+      0.868
+     ],
+     [
+      "UGE",
+      0.85
+     ]
+    ],
+    "top_suppressed_tokens": [
+     [
+      " finally",
+      -1.442
+     ],
+     [
+      " primary",
+      -1.413
+     ],
+     [
+      " succeeding",
+      -1.323
+     ],
+     [
+      " eventual",
+      -1.301
+     ]
+    ],
+    "top_class_movement": {
+     "word": -3222.71,
+     "capital": -778.599,
+     "subword": -274.218,
+     "punct": -120.429,
+     "other": -57.036
+    }
+   },
+   {
+    "seq": 143,
+    "pos": 82,
+    "previous_token": "\n",
+    "current_token": "|",
+    "context_snippet_ending_at_pos": " form of debate that is the central technique of the Socratic method\n|",
+    "actual_next_token": "This",
+    "deviation_norm": 14862.82,
+    "top_boosted_tokens": [
+     [
+      "\ufffd",
+      1.404
+     ],
+     [
+      " succeed",
+      1.247
+     ],
+     [
+      " equal",
+      1.216
+     ],
+     [
+      " disc",
+      1.181
+     ],
+     [
+      "icent",
+      1.165
+     ],
+     [
+      " shine",
+      1.16
+     ],
+     [
+      "|",
+      1.16
+     ],
+     [
+      " tie",
+      1.151
+     ]
+    ],
+    "top_suppressed_tokens": [
+     [
+      " materially",
+      -1.099
+     ],
+     [
+      "anca",
+      -0.953
+     ],
+     [
+      " snatched",
+      -0.946
+     ],
+     [
+      " pitches",
+      -0.945
+     ]
+    ],
+    "top_class_movement": {
+     "word": 1577.135,
+     "subword": 313.292,
+     "capital": 263.217,
+     "digit": 147.504,
+     "punct": -37.193
+    }
+   }
+  ]
+ },
+ "H1_mediation": {
+  "method": "mean-ablate mlp.L3 to the per-position decomposition mean; restore the true deviation at the entry of block k with its exact linear propagation coefficient prod lambda0_(4..k-1); restore_4 == no ablation (exactness gate), readout_only == all mediated damage with direct path kept, remove_direct == direct-only damage, ablate == census floor",
+  "direct_path_coefficient_to_readout": 0.02476246450694599,
+  "lambda0_per_block": [
+   6.0938,
+   0.0127,
+   1.9766,
+   0.5742,
+   0.4629,
+   0.0645,
+   0.4902,
+   0.8125,
+   1.4062,
+   0.9023,
+   0.8789,
+   1.2344,
+   1.0391,
+   0.957,
+   1.0547,
+   1.1875,
+   1.1875,
+   1.0234
+  ],
+  "flow": {
+   "ablate": {
+    "dCE": 0.6163,
+    "SE": 0.00842
+   },
+   "remove_direct": {
+    "dCE": 0.0002,
+    "SE": 0.00019
+   },
+   "readout_only": {
+    "dCE": 0.6084,
+    "SE": 0.00839
+   },
+   "restore_at_block_4": {
+    "dCE": -0.0,
+    "SE": 0.0
+   },
+   "restore_at_block_5": {
+    "dCE": 0.2641,
+    "SE": 0.00556
+   },
+   "restore_at_block_6": {
+    "dCE": 0.4556,
+    "SE": 0.00727
+   },
+   "restore_at_block_7": {
+    "dCE": 0.5242,
+    "SE": 0.00777
+   },
+   "restore_at_block_8": {
+    "dCE": 0.5596,
+    "SE": 0.00803
+   },
+   "restore_at_block_9": {
+    "dCE": 0.5748,
+    "SE": 0.00814
+   },
+   "restore_at_block_10": {
+    "dCE": 0.5884,
+    "SE": 0.00823
+   },
+   "restore_at_block_12": {
+    "dCE": 0.6008,
+    "SE": 0.00832
+   },
+   "restore_at_block_15": {
+    "dCE": 0.6065,
+    "SE": 0.00836
+   }
+  },
+  "census_floor_ref": 0.6163
+ },
+ "H1_freeze_patch_routing": {
+  "sanity_freeze_all_no_ablate": {
+   "dCE": 0.0,
+   "SE": 0.0
+  },
+  "total_damage": {
+   "dCE": 0.6163,
+   "SE": 0.00842
+  },
+  "direct_only": {
+   "dCE": 0.0002,
+   "SE": 0.00019
+  },
+  "direct_plus_all_attn": {
+   "dCE": 0.0087,
+   "SE": 0.00096
+  },
+  "freeze_only_mlp4": {
+   "dCE": 0.105,
+   "SE": 0.00352
+  },
+  "direct_plus_mlp4": {
+   "dCE": 0.0005,
+   "SE": 0.00034
+  },
+  "direct_plus_mlp5": {
+   "dCE": 0.0011,
+   "SE": 0.00045
+  },
+  "direct_plus_mlp6": {
+   "dCE": 0.0005,
+   "SE": 0.00033
+  },
+  "direct_plus_mlp7": {
+   "dCE": 0.0005,
+   "SE": 0.00028
+  },
+  "direct_plus_mlp8": {
+   "dCE": 0.0004,
+   "SE": 0.00025
+  },
+  "direct_plus_mlp9": {
+   "dCE": 0.0003,
+   "SE": 0.00025
+  },
+  "direct_plus_mlp10": {
+   "dCE": 0.0003,
+   "SE": 0.00023
+  },
+  "direct_plus_mlp11": {
+   "dCE": 0.0002,
+   "SE": 0.00023
+  },
+  "direct_plus_mlp12": {
+   "dCE": 0.0003,
+   "SE": 0.00022
+  },
+  "direct_plus_mlp13": {
+   "dCE": 0.0002,
+   "SE": 0.00021
+  },
+  "direct_plus_mlp14": {
+   "dCE": 0.0001,
+   "SE": 0.0002
+  },
+  "direct_plus_mlp15": {
+   "dCE": 0.0001,
+   "SE": 0.0002
+  },
+  "direct_plus_mlp16": {
+   "dCE": 0.0001,
+   "SE": 0.00018
+  },
+  "direct_plus_mlp17": {
+   "dCE": 0.0001,
+   "SE": 0.00016
+  },
+  "mediation_via_single_mlp_minus_direct": {
+   "4": 0.0003,
+   "5": 0.0009,
+   "6": 0.0003,
+   "7": 0.0003,
+   "8": 0.0002,
+   "9": 0.0001,
+   "10": 0.0001,
+   "11": 0.0,
+   "12": 0.0001,
+   "13": 0.0,
+   "14": -0.0001,
+   "15": -0.0001,
+   "16": -0.0001,
+   "17": -0.0001
+  },
+  "direct_frac_of_total": 0.0003,
+  "direct_readout_signature_at_dev_firing": {
+   "class_summed_top6": {
+    "capital": -252.6148,
+    "word": -207.3725,
+    "subword": -134.0947,
+    "digit": -26.8737,
+    "other": -8.576,
+    "punct": -7.1691
+   },
+   "top_boosted_tokens": [
+    [
+     "','",
+     0.0729
+    ],
+    [
+     "'.'",
+     0.066
+    ],
+    [
+     "' and'",
+     0.0548
+    ],
+    [
+     "';'",
+     0.0528
+    ],
+    [
+     "\"'s\"",
+     0.0526
+    ],
+    [
+     "' ('",
+     0.052
+    ]
+   ],
+   "top_suppressed_tokens": [
+    [
+     "' Sort'",
+     -0.0524
+    ],
+    [
+     "'LER'",
+     -0.0519
+    ],
+    [
+     "'STON'",
+     -0.0508
+    ],
+    [
+     "')\",'",
+     -0.0496
+    ],
+    [
+     "'OGR'",
+     -0.0496
+    ],
+    [
+     "'actic'",
+     -0.0483
+    ]
+   ]
+  },
+  "total_signature_at_dev_firing": {
+   "class_summed_top6": {
+    "capital": -2593.0996,
+    "digit": -305.8403,
+    "subword": 202.8953,
+    "word": -191.9955,
+    "other": 162.0547,
+    "punct": 154.3869
+   },
+   "top_boosted_tokens": [
+    [
+     "'\u2014'",
+     2.0923
+    ],
+    [
+     "' \u2014'",
+     1.9594
+    ],
+    [
+     "' ('",
+     1.9261
+    ],
+    [
+     "'\u2013\u2013'",
+     1.838
+    ],
+    [
+     "'\u2013'",
+     1.8379
+    ],
+    [
+     "'dylib'",
+     1.7755
+    ]
+   ],
+   "top_suppressed_tokens": [
+    [
+     "'have'",
+     -1.8335
+    ],
+    [
+     "' Its'",
+     -1.7365
+    ],
+    [
+     "' ).'",
+     -1.7329
+    ],
+    [
+     "'their'",
+     -1.7237
+    ],
+    [
+     "' )'",
+     -1.6997
+    ],
+    [
+     "' Their'",
+     -1.6501
+    ]
+   ]
+  }
+ },
+ "H2_category_probe": {
+  "majority": 0.4373,
+  "embed_intact": 0.5274,
+  "blk3_intact": 0.6012,
+  "blk4_intact": 0.6107,
+  "blk3_mlp0_ablated": 0.5464,
+  "blk4_mlp0_ablated": 0.542,
+  "blk3_mlp1_ablated": 0.5295,
+  "blk4_mlp1_ablated": 0.4996,
+  "blk3_mlp2_ablated": 0.5755,
+  "blk4_mlp2_ablated": 0.5746,
+  "blk3_mlp3_ablated": 0.5976,
+  "blk4_mlp3_ablated": 0.5928,
+  "ref": "qk_arc_mlp0.json H3_downstream category_probe (block-0 numbers: blk3 0.601->0.546, blk4 0.611->0.542, embed 0.527); machinery source qk_category_engine.py",
+  "labels": "6-way next-token category: subword/punct/capital/digit/funcword/other",
+  "train": "FW[0:240:4] x4 seqs",
+  "test": "FW[300:400:4] x4 seqs",
+  "note": "ablation = ONE block at a time, per-position held-set mean MO_MEAN[li] from part 1"
+ }
+}

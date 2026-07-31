@@ -5117,3 +5117,38 @@ contribution: **the input stage of the category engine.** Combined with §96, th
 block 0 manufactures token/bigram features by table lookup → blocks 1-3 iteratively SQUARE them into
 higher-order products (the §96 polynomial feature-factory) → producing the category code the rest of the model
 consumes. Two of the dashboard's top understood-least components now have mechanism statements.
+
+## §98 DEPTH-FIRST ARC #3 — block 3 is the SECOND SQUARING STAGE; the cascade continues PAST the "category engine" (2026-07-31)
+(qk_arc_mlp3.py / _2.py; gates: reconstruction 6.3e-7; five §89 census numbers reproduced to four decimals;
+restore-at-block-4 exactness control exactly zero. Held-back FW[448:600], paired standard errors.)
+- **(a) NOT the pipeline's terminal — block 4 squares block 3's output, same as before.** Direct path to the
+  readout: +0.0002 ± 0.0002 (nothing, despite a 70× larger coefficient than block 0's); damage 98.7% mediated.
+  Freeze-patching: freezing ONLY block 4's feed-forward clean removes **83% of block 3's damage** (0.6163 →
+  0.1050) — the exact analogue of §96 one stage later. But the consumption broadens: block 4 alone 43% of the
+  floor, blocks 4-5 74%, blocks 4-9 95.5% — the code starts being read model-wide here even though the next
+  squaring stage remains the dominant consumer. No single later feed-forward transmits alone (≤+0.0009);
+  propagation is compound multi-block chains; later attention carries just 1.4%.
+- **(b) Category-probe ordering — DIMINISHING refinement down the cascade.** Six-way category accuracy at the
+  block-4 residual (intact 0.6107, embedding baseline 0.5274): ablating block 1 → 0.4996 (BELOW baseline — the
+  hub is essential); block 0 → 0.5420 (erases 82%, matches §97); block 2 → 0.5746 (43%); block 3 → 0.5928
+  (**21%**). The six-way separability is built early; each squaring stage adds diminishing refinement.
+- **(c) The mixer term is GENUINELY CONTEXTUAL and decides word completion.** attention-recent×mlp-recent:
+  current-token identity explains only **0.171** of its variance (vs 0.953 for block 0's table; pair 0.374 on
+  covered positions) — over four-fifths genuine context. It is the block's single most necessary term
+  (drop-one +0.0077 ± 0.0010); its signature: SUPPRESSES subword-continuation mass (−271/site) while BOOSTING
+  whole-word mass (+172) — it fires at word-final fragments and decides that the word is complete and which
+  topic-appropriate word follows.
+- **(d) Concrete examples (per the rule):** after `"Divine` in a spiritual-interpretation text the mixer boosts
+  ` Femin` ("Divine Feminine"), ` Roots`, ` Skies`; after `Cylinder` in a ball-machine glossary: `bear`(ings),
+  ` valve`, ` hubs`, ` roller`; after ` Game` in a feedback passage: interface nouns (` Preferences`,
+  ` Archives`) with actual next token `play` ("Gameplay"). The square: after `In addition to` in a
+  tablet-classroom text it boosts ` schools`, ` students`, ` teaching` — pure topical priming. None
+  reproducible from the token pair alone, matching the variance numbers.
+**KEY (algorithm statement + the revised early-stack story):** block 3 is the second squaring stage — it
+squares block 2's quadratic expansion (degree-8 products of block 0's table features) while its mixer folds
+fresh attention context in as topic-conditioned word-completion decisions; its output is consumed again (43%
+by block 4's own square, the rest across blocks 5-9), zero direct readout. REVISION: the "category engine =
+blocks 0-3" boundary was too tight — **the iterated-squaring cascade continues past block 3 into block 4 and
+beyond**; the named early stack is: block 0 = token/bigram table → block 1 = the essential hub → blocks 2, 3,
+4... = iterated squaring with diminishing category refinement (82/43/21%) and increasing contextuality, no
+early stage writing to the readout directly. Open question dispatched next: WHERE does the cascade end?
