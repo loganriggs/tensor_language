@@ -5293,3 +5293,58 @@ message is not compact (90% needs 576 dims), and the joint-scale redundancy fact
 may exceed 1152) while the real-region test keeps a per-block 576-dim residual subspace — are the two
 operations comparable? (2) is current-token R² inflated by frequent tokens; (3) is the "not compact" tail an
 artifact of fitting one PCA basis at region grain (per-block bases might compress better).
+
+## §103 Cross-layer folding: consumers name the gates (qk_xfold_terms/table/gate.py, Logan's directive)
+
+Logan: "we have a tensor network so we can directly fold in any component to other components" — components
+seem conditional; folding into the consumer should make the gating partner explicit. Three folds, every
+decomposition exact (reconstruction 1e-6-8e-7; census consistency to 4 decimals: block-3 floor 0.6163=0.6163,
+single-term keeps 0.2483/0.2564 match census; block-1 floor 5.5744 exact; consumer-block floor 0.0601 match).
+
+**(a) Block 3 expanded into 21 exact cross-layer term pairs** (mlp-earlier split into block-0 and block-1
+writes). THREE PAIRS ARE THE LAYER: block-2-square×itself (energy 0.099), fresh-attention×block-2 (0.098),
+block-1-hub×block-2 (0.061); top-3 kept alone restore to within +0.033 of full (floor 0.616), top-8 +0.0008.
+The iterated square is the best single sufficient term (+0.248 alone) but CO-dominant: the
+fresh-attention×block-2 mixer is the most necessary (delete +0.0077 vs +0.0062). **Block 0's residual write
+is causally dead as a direct input to block 3** (drop all six block-0 terms: −0.0000 ± 0.0002) — block 0
+reaches block 3 only through blocks 1-2. Cross-stream terms carry 97.4% (cross-only +0.0163 vs diagonal-only
++0.1386): the layer is an interaction device across LAYERS. **Who supplies context:** fresh-attention×block-2
+is the least token-determined (5.0% current-token variance; own-attention² 1.8%), iterated square 17.3%,
+block-1×block-2 the most table-like (24.1%). The conditionality IS the cross-layer product.
+
+**(b) Token-table fold: block 0 substituted into block 1** → for each token, block 1 becomes an explicit
+AFFINE MAP on the contextual rest (the two attention streams). Explicitness: token-indexed linear family
+captures 41.7% of held output variance vs **0.1% for the token-blind linearization** (§88 linear proxy);
++rest-quadratic 69.2%. Causal: floor +5.5744; token-blind linear +0.5366; **folded family +0.3587 (93.6%)**;
+folded+rest-quadratic +0.1013 (98.2% — the whole remaining cost is the block-0 table approximation,
+consistent with §101's 85.5%). Dissociation both directions: blind linearization is 90% causal at 0.1%
+variance. Median pairwise cosine of the 200 most frequent tokens' effective maps: **0.18** — after different
+tokens layer 1 is a different operator, with linguistic similarity structure (' The'/'The' 0.938,
+' is'/' was' 0.806, ' and'/' or' 0.711; '.'/' the' 0.177). Concrete: after **' the'** the map is a
+content-word amplifier (word class +5.4M summed logits, capital +3.9M, suppresses ' of'); after **','** a
+clause-continuation device boosting concessives (' despite', ' although', ' even'); after bare capital
+**' D'** it FLIPS the capital class sign (−0.68M vs +3.9M after ' the') and pushes name/acronym completions.
+(Mediation caveat in JSON: unembedding readouts are first-order summaries.)
+
+**(c) h.L7.0's gating partner.** Largest bilinear consumer = block 7's own feed-forward (+0.00463 ±
+0.00072; blocks 8-9 +0.001 each; feed-forward consumption ≈45% of the head's 0.0170, rest via downstream
+attention + 12% direct readout). Leading cross term = **head×block-6-feed-forward** (delete +0.00081 ±
+0.00020, 20% of the all-head-terms effect; add-back restores 36%) but the gate is DISTRIBUTED: head-self-
+square +0.00072 and head×mlp-earlier +0.00064 close behind; six single deletions sum to 60% of joint;
+single best cross term = 4.8% of the head's total effect. Mechanism: the head's raw write points the SAME
+way at helping and hurting positions (centroid cosine 0.9975), partner norms statistically identical — the
+partner RE-AIMS the fixed signal position-by-position (cross-term outputs within-set coherence 0.13-0.15);
+no scalar gate exists. Sign-flip examples: helps after "…widening US 66 to" (" four", +0.317) and "…may not
+like your" (" purchase", +0.225); hurts after "…Samford Intercollegiate. In" ("juries", −0.297) and
+"…returning from" (" vacation", −0.252).
+
+**Verdict:** folding into consumers EXPLAINS conditionality — decisively for the early stack (block 1
+becomes a readable token-indexed operator family; block 3's gate is named exactly: fresh attention
+multiplying block 2's square), in kind but not to a single gate for mid-stack heads (bilinear partner
+confirmed, but distributed and position-specific — the collective code again). On §87/§92: the missing
+cross-layer structure is CONSUMPTION structure — a product coupling between layers, invisible to per-layer
+rank allocation; faithful whole-model compression should compose folded cross-layer terms.
+
+**RED-TEAM PENDING** (dispatched): energy-vs-necessity consistency of the co-dominance call; token-family
+coverage sensitivity (80.5% held coverage) of the 93.6%; whether the ' D' sign-flip survives a substitution
+gate; whether block-0-dead-at-block-3 survives with the gauge scalar freed.

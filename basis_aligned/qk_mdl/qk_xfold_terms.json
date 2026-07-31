@@ -1,0 +1,732 @@
+{
+ "meta": {
+  "model": "bilin18",
+  "layer": 3,
+  "held": "FW[448:600,:128]",
+  "batch": 4,
+  "groups": [
+   "E",
+   "Ae",
+   "Ar",
+   "M0",
+   "M1",
+   "M2"
+  ],
+  "n_terms": 21,
+  "note": "census Me expanded into per-block M0, M1; M2 == census Mr",
+  "base_ce": 3.4946
+ },
+ "gate": {
+  "recon_rel_err_global": 7.973778433376078e-07,
+  "recon_rel_err_max_pos": 2.2432425339502515e-06,
+  "group_sum_rel_err_max": 8.397252315717196e-08,
+  "mean_consistency": 1.8842622750980809e-07
+ },
+ "census_ref": {
+  "floor": 0.6163,
+  "only_MrxMr": 0.2483,
+  "only_ArxMr": 0.2564,
+  "only_MexMr": 0.2661
+ },
+ "energy_shares": {
+  "ExE": 0.0,
+  "ExAe": 0.0002,
+  "ExAr": 0.0006,
+  "ExM0": 0.0,
+  "ExM1": 0.0004,
+  "ExM2": 0.0013,
+  "AexAe": 0.0022,
+  "AexAr": 0.0171,
+  "AexM0": 0.0001,
+  "AexM1": 0.0056,
+  "AexM2": 0.0239,
+  "ArxAr": 0.0418,
+  "ArxM0": 0.0004,
+  "ArxM1": 0.0227,
+  "ArxM2": 0.0978,
+  "M0xM0": 0.0,
+  "M0xM1": 0.0002,
+  "M0xM2": 0.0007,
+  "M1xM1": 0.0067,
+  "M1xM2": 0.0607,
+  "M2xM2": 0.0986
+ },
+ "energy_rank": [
+  "M2xM2",
+  "ArxM2",
+  "M1xM2",
+  "ArxAr",
+  "AexM2",
+  "ArxM1",
+  "AexAr",
+  "M1xM1",
+  "AexM1",
+  "AexAe",
+  "ExM2",
+  "M0xM2",
+  "ExAr",
+  "ExM1",
+  "ArxM0",
+  "M0xM1",
+  "ExAe",
+  "AexM0",
+  "ExM0",
+  "ExE",
+  "M0xM0"
+ ],
+ "configs": {
+  "mean_only": {
+   "terms": [],
+   "dCE": 0.6163,
+   "SE": 0.00842
+  },
+  "all_terms": {
+   "terms": [
+    "ExE",
+    "ExAe",
+    "ExAr",
+    "ExM0",
+    "ExM1",
+    "ExM2",
+    "AexAe",
+    "AexAr",
+    "AexM0",
+    "AexM1",
+    "AexM2",
+    "ArxAr",
+    "ArxM0",
+    "ArxM1",
+    "ArxM2",
+    "M0xM0",
+    "M0xM1",
+    "M0xM2",
+    "M1xM1",
+    "M1xM2",
+    "M2xM2"
+   ],
+   "dCE": 0.0,
+   "SE": 0.0
+  },
+  "only_M2xM2": {
+   "terms": [
+    "M2xM2"
+   ],
+   "dCE": 0.2483,
+   "SE": 0.00537
+  },
+  "only_ArxM2": {
+   "terms": [
+    "ArxM2"
+   ],
+   "dCE": 0.2564,
+   "SE": 0.00542
+  },
+  "only_M1xM2": {
+   "terms": [
+    "M1xM2"
+   ],
+   "dCE": 0.2847,
+   "SE": 0.00577
+  },
+  "only_ArxAr": {
+   "terms": [
+    "ArxAr"
+   ],
+   "dCE": 0.4983,
+   "SE": 0.00761
+  },
+  "only_AexM2": {
+   "terms": [
+    "AexM2"
+   ],
+   "dCE": 0.4125,
+   "SE": 0.00688
+  },
+  "only_ArxM1": {
+   "terms": [
+    "ArxM1"
+   ],
+   "dCE": 0.4179,
+   "SE": 0.00693
+  },
+  "only_AexAr": {
+   "terms": [
+    "AexAr"
+   ],
+   "dCE": 0.5021,
+   "SE": 0.00761
+  },
+  "only_M1xM1": {
+   "terms": [
+    "M1xM1"
+   ],
+   "dCE": 0.5218,
+   "SE": 0.00776
+  },
+  "only_AexM1": {
+   "terms": [
+    "AexM1"
+   ],
+   "dCE": 0.5228,
+   "SE": 0.00775
+  },
+  "only_AexAe": {
+   "terms": [
+    "AexAe"
+   ],
+   "dCE": 0.5837,
+   "SE": 0.00819
+  },
+  "top2_energy": {
+   "terms": [
+    "M2xM2",
+    "ArxM2"
+   ],
+   "dCE": 0.0806,
+   "SE": 0.00308
+  },
+  "top3_energy": {
+   "terms": [
+    "M2xM2",
+    "ArxM2",
+    "M1xM2"
+   ],
+   "dCE": 0.033,
+   "SE": 0.00198
+  },
+  "top4_energy": {
+   "terms": [
+    "M2xM2",
+    "ArxM2",
+    "M1xM2",
+    "ArxAr"
+   ],
+   "dCE": 0.0193,
+   "SE": 0.00161
+  },
+  "top5_energy": {
+   "terms": [
+    "M2xM2",
+    "ArxM2",
+    "M1xM2",
+    "ArxAr",
+    "AexM2"
+   ],
+   "dCE": 0.0097,
+   "SE": 0.00117
+  },
+  "top6_energy": {
+   "terms": [
+    "M2xM2",
+    "ArxM2",
+    "M1xM2",
+    "ArxAr",
+    "AexM2",
+    "ArxM1"
+   ],
+   "dCE": 0.0045,
+   "SE": 0.00083
+  },
+  "top7_energy": {
+   "terms": [
+    "M2xM2",
+    "ArxM2",
+    "M1xM2",
+    "ArxAr",
+    "AexM2",
+    "ArxM1",
+    "AexAr"
+   ],
+   "dCE": 0.0023,
+   "SE": 0.00066
+  },
+  "top8_energy": {
+   "terms": [
+    "M2xM2",
+    "ArxM2",
+    "M1xM2",
+    "ArxAr",
+    "AexM2",
+    "ArxM1",
+    "AexAr",
+    "M1xM1"
+   ],
+   "dCE": 0.0008,
+   "SE": 0.0005
+  },
+  "allbut_M2xM2": {
+   "terms": [
+    "ExE",
+    "ExAe",
+    "ExAr",
+    "ExM0",
+    "ExM1",
+    "ExM2",
+    "AexAe",
+    "AexAr",
+    "AexM0",
+    "AexM1",
+    "AexM2",
+    "ArxAr",
+    "ArxM0",
+    "ArxM1",
+    "ArxM2",
+    "M0xM0",
+    "M0xM1",
+    "M0xM2",
+    "M1xM1",
+    "M1xM2"
+   ],
+   "dCE": 0.0062,
+   "SE": 0.00098
+  },
+  "allbut_ArxM2": {
+   "terms": [
+    "ExE",
+    "ExAe",
+    "ExAr",
+    "ExM0",
+    "ExM1",
+    "ExM2",
+    "AexAe",
+    "AexAr",
+    "AexM0",
+    "AexM1",
+    "AexM2",
+    "ArxAr",
+    "ArxM0",
+    "ArxM1",
+    "M0xM0",
+    "M0xM1",
+    "M0xM2",
+    "M1xM1",
+    "M1xM2",
+    "M2xM2"
+   ],
+   "dCE": 0.0077,
+   "SE": 0.00102
+  },
+  "allbut_M1xM2": {
+   "terms": [
+    "ExE",
+    "ExAe",
+    "ExAr",
+    "ExM0",
+    "ExM1",
+    "ExM2",
+    "AexAe",
+    "AexAr",
+    "AexM0",
+    "AexM1",
+    "AexM2",
+    "ArxAr",
+    "ArxM0",
+    "ArxM1",
+    "ArxM2",
+    "M0xM0",
+    "M0xM1",
+    "M0xM2",
+    "M1xM1",
+    "M2xM2"
+   ],
+   "dCE": 0.004,
+   "SE": 0.00076
+  },
+  "allbut_ArxAr": {
+   "terms": [
+    "ExE",
+    "ExAe",
+    "ExAr",
+    "ExM0",
+    "ExM1",
+    "ExM2",
+    "AexAe",
+    "AexAr",
+    "AexM0",
+    "AexM1",
+    "AexM2",
+    "ArxM0",
+    "ArxM1",
+    "ArxM2",
+    "M0xM0",
+    "M0xM1",
+    "M0xM2",
+    "M1xM1",
+    "M1xM2",
+    "M2xM2"
+   ],
+   "dCE": 0.0043,
+   "SE": 0.00063
+  },
+  "allbut_AexM2": {
+   "terms": [
+    "ExE",
+    "ExAe",
+    "ExAr",
+    "ExM0",
+    "ExM1",
+    "ExM2",
+    "AexAe",
+    "AexAr",
+    "AexM0",
+    "AexM1",
+    "ArxAr",
+    "ArxM0",
+    "ArxM1",
+    "ArxM2",
+    "M0xM0",
+    "M0xM1",
+    "M0xM2",
+    "M1xM1",
+    "M1xM2",
+    "M2xM2"
+   ],
+   "dCE": 0.0009,
+   "SE": 0.00046
+  },
+  "allbut_ArxM1": {
+   "terms": [
+    "ExE",
+    "ExAe",
+    "ExAr",
+    "ExM0",
+    "ExM1",
+    "ExM2",
+    "AexAe",
+    "AexAr",
+    "AexM0",
+    "AexM1",
+    "AexM2",
+    "ArxAr",
+    "ArxM0",
+    "ArxM2",
+    "M0xM0",
+    "M0xM1",
+    "M0xM2",
+    "M1xM1",
+    "M1xM2",
+    "M2xM2"
+   ],
+   "dCE": 0.0011,
+   "SE": 0.00046
+  },
+  "diagonal": {
+   "terms": [
+    "ExE",
+    "AexAe",
+    "ArxAr",
+    "M0xM0",
+    "M1xM1",
+    "M2xM2"
+   ],
+   "dCE": 0.1386,
+   "SE": 0.00408
+  },
+  "cross": {
+   "terms": [
+    "ExAe",
+    "ExAr",
+    "ExM0",
+    "ExM1",
+    "ExM2",
+    "AexAr",
+    "AexM0",
+    "AexM1",
+    "AexM2",
+    "ArxM0",
+    "ArxM1",
+    "ArxM2",
+    "M0xM1",
+    "M0xM2",
+    "M1xM2"
+   ],
+   "dCE": 0.0163,
+   "SE": 0.00143
+  },
+  "census_only_MexMr_merged": {
+   "terms": [
+    "M0xM2",
+    "M1xM2"
+   ],
+   "dCE": 0.2661,
+   "SE": 0.00558
+  },
+  "E_involving": {
+   "terms": [
+    "ExE",
+    "ExAe",
+    "ExAr",
+    "ExM0",
+    "ExM1",
+    "ExM2"
+   ],
+   "dCE": 0.5027,
+   "SE": 0.00761
+  },
+  "drop_E_involving": {
+   "terms": [
+    "AexAe",
+    "AexAr",
+    "AexM0",
+    "AexM1",
+    "AexM2",
+    "ArxAr",
+    "ArxM0",
+    "ArxM1",
+    "ArxM2",
+    "M0xM0",
+    "M0xM1",
+    "M0xM2",
+    "M1xM1",
+    "M1xM2",
+    "M2xM2"
+   ],
+   "dCE": -0.0,
+   "SE": 0.00021
+  },
+  "Ae_involving": {
+   "terms": [
+    "ExAe",
+    "AexAe",
+    "AexAr",
+    "AexM0",
+    "AexM1",
+    "AexM2"
+   ],
+   "dCE": 0.2369,
+   "SE": 0.00524
+  },
+  "drop_Ae_involving": {
+   "terms": [
+    "ExE",
+    "ExAr",
+    "ExM0",
+    "ExM1",
+    "ExM2",
+    "ArxAr",
+    "ArxM0",
+    "ArxM1",
+    "ArxM2",
+    "M0xM0",
+    "M0xM1",
+    "M0xM2",
+    "M1xM1",
+    "M1xM2",
+    "M2xM2"
+   ],
+   "dCE": 0.0046,
+   "SE": 0.00086
+  },
+  "Ar_involving": {
+   "terms": [
+    "ExAr",
+    "AexAr",
+    "ArxAr",
+    "ArxM0",
+    "ArxM1",
+    "ArxM2"
+   ],
+   "dCE": 0.0956,
+   "SE": 0.00342
+  },
+  "drop_Ar_involving": {
+   "terms": [
+    "ExE",
+    "ExAe",
+    "ExM0",
+    "ExM1",
+    "ExM2",
+    "AexAe",
+    "AexM0",
+    "AexM1",
+    "AexM2",
+    "M0xM0",
+    "M0xM1",
+    "M0xM2",
+    "M1xM1",
+    "M1xM2",
+    "M2xM2"
+   ],
+   "dCE": 0.0418,
+   "SE": 0.00222
+  },
+  "M0_involving": {
+   "terms": [
+    "ExM0",
+    "AexM0",
+    "ArxM0",
+    "M0xM0",
+    "M0xM1",
+    "M0xM2"
+   ],
+   "dCE": 0.5319,
+   "SE": 0.00783
+  },
+  "drop_M0_involving": {
+   "terms": [
+    "ExE",
+    "ExAe",
+    "ExAr",
+    "ExM1",
+    "ExM2",
+    "AexAe",
+    "AexAr",
+    "AexM1",
+    "AexM2",
+    "ArxAr",
+    "ArxM1",
+    "ArxM2",
+    "M1xM1",
+    "M1xM2",
+    "M2xM2"
+   ],
+   "dCE": -0.0,
+   "SE": 0.00015
+  },
+  "M1_involving": {
+   "terms": [
+    "ExM1",
+    "AexM1",
+    "ArxM1",
+    "M0xM1",
+    "M1xM1",
+    "M1xM2"
+   ],
+   "dCE": 0.1051,
+   "SE": 0.00354
+  },
+  "drop_M1_involving": {
+   "terms": [
+    "ExE",
+    "ExAe",
+    "ExAr",
+    "ExM0",
+    "ExM2",
+    "AexAe",
+    "AexAr",
+    "AexM0",
+    "AexM2",
+    "ArxAr",
+    "ArxM0",
+    "ArxM2",
+    "M0xM0",
+    "M0xM2",
+    "M2xM2"
+   ],
+   "dCE": 0.0156,
+   "SE": 0.00147
+  },
+  "M2_involving": {
+   "terms": [
+    "ExM2",
+    "AexM2",
+    "ArxM2",
+    "M0xM2",
+    "M1xM2",
+    "M2xM2"
+   ],
+   "dCE": 0.0181,
+   "SE": 0.00146
+  },
+  "drop_M2_involving": {
+   "terms": [
+    "ExE",
+    "ExAe",
+    "ExAr",
+    "ExM0",
+    "ExM1",
+    "AexAe",
+    "AexAr",
+    "AexM0",
+    "AexM1",
+    "ArxAr",
+    "ArxM0",
+    "ArxM1",
+    "M0xM0",
+    "M0xM1",
+    "M1xM1"
+   ],
+   "dCE": 0.1226,
+   "SE": 0.00386
+  }
+ },
+ "census_gates": {
+  "floor_matches": [
+   0.6163,
+   0.6163
+  ],
+  "M2xM2_vs_only_MrxMr": [
+   0.2483,
+   0.2483
+  ],
+  "ArxM2_vs_only_ArxMr": [
+   0.2564,
+   0.2564
+  ],
+  "merged_MexMr": [
+   0.2661,
+   0.2661
+  ]
+ },
+ "token_variance_fraction": {
+  "M2xM2": {
+   "token_R2": 0.5139,
+   "shuffled_control_R2": -0.5153
+  },
+  "ArxM2": {
+   "token_R2": 0.437,
+   "shuffled_control_R2": -0.4373
+  },
+  "M1xM2": {
+   "token_R2": 0.5445,
+   "shuffled_control_R2": -0.5452
+  },
+  "ArxAr": {
+   "token_R2": 0.3924,
+   "shuffled_control_R2": -0.3937
+  },
+  "AexM2": {
+   "token_R2": 0.4509,
+   "shuffled_control_R2": -0.4511
+  },
+  "ArxM1": {
+   "token_R2": 0.4501,
+   "shuffled_control_R2": -0.4486
+  }
+ },
+ "token_variance_fraction_trainfit": {
+  "method": "token-conditional term means fitted on TRAIN FW[0:256], residuals on HELD; fallback global train mean for unseen tokens; shuffled-token control",
+  "per_term": {
+   "M2xM2": {
+    "token_R2_trainfit": 0.037,
+    "shuffled_control_R2": -0.3143,
+    "token_R2_count5plus": 0.1728
+   },
+   "ArxM2": {
+    "token_R2_trainfit": -0.0642,
+    "shuffled_control_R2": -0.2426,
+    "token_R2_count5plus": 0.05
+   },
+   "M1xM2": {
+    "token_R2_trainfit": 0.1101,
+    "shuffled_control_R2": -0.349,
+    "token_R2_count5plus": 0.2409
+   },
+   "ArxAr": {
+    "token_R2_trainfit": -0.091,
+    "shuffled_control_R2": -0.2099,
+    "token_R2_count5plus": 0.0184
+   },
+   "AexM2": {
+    "token_R2_trainfit": -0.0265,
+    "shuffled_control_R2": -0.2486,
+    "token_R2_count5plus": 0.0745
+   },
+   "ArxM1": {
+    "token_R2_trainfit": -0.0272,
+    "shuffled_control_R2": -0.2584,
+    "token_R2_count5plus": 0.0839
+   }
+  }
+ }
+}

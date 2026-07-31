@@ -1,0 +1,362 @@
+{
+ "meta": {
+  "model": "bilin18",
+  "target": "h.L7.0",
+  "held": "FW[448:600,:128]",
+  "batch": 4,
+  "base_ce": 3.4946,
+  "census_full_head_ablation_dCE": 0.017004,
+  "note": "h stream = lambda-decayed DIRECT residual write of head 0 layer 7; mediated-through-attention components not included in h"
+ },
+ "consumer_scan": {
+  "7": {
+   "dCE": 0.00463,
+   "SE": 0.00072
+  },
+  "8": {
+   "dCE": 0.00111,
+   "SE": 0.00041
+  },
+  "9": {
+   "dCE": 0.00103,
+   "SE": 0.00026
+  },
+  "10": {
+   "dCE": 0.00016,
+   "SE": 0.00022
+  },
+  "11": {
+   "dCE": 0.00026,
+   "SE": 0.00018
+  },
+  "12": {
+   "dCE": 3e-05,
+   "SE": 0.00012
+  },
+  "13": {
+   "dCE": -7e-05,
+   "SE": 0.00011
+  },
+  "14": {
+   "dCE": -0.00011,
+   "SE": 9e-05
+  },
+  "15": {
+   "dCE": 0.0,
+   "SE": 8e-05
+  },
+  "16": {
+   "dCE": 0.0002,
+   "SE": 0.00013
+  },
+  "17": {
+   "dCE": 0.0003,
+   "SE": 0.00024
+  }
+ },
+ "largest_consumer": 7,
+ "fold": {
+  "layer": 7,
+  "gate": {
+   "recon_rel_err_global": 1.8338990439073948e-06,
+   "recon_rel_err_max_pos": 3.513547426337027e-06,
+   "group_sum_rel_err_max": 1.0199785549502849e-07
+  },
+  "energy_shares": {
+   "ExE": 0.002648,
+   "ExAe": 0.012065,
+   "ExAr": 0.006483,
+   "ExMe": 0.014362,
+   "ExMr": 0.012269,
+   "Exh": 0.002903,
+   "AexAe": 0.023086,
+   "AexAr": 0.025363,
+   "AexMe": 0.04659,
+   "AexMr": 0.044346,
+   "Aexh": 0.013381,
+   "ArxAr": 0.00885,
+   "ArxMe": 0.025247,
+   "ArxMr": 0.023283,
+   "Arxh": 0.004728,
+   "MexMe": 0.026346,
+   "MexMr": 0.056083,
+   "Mexh": 0.009991,
+   "MrxMr": 0.030735,
+   "Mrxh": 0.01097,
+   "hxh": 0.007642
+  },
+  "h_term_energy": {
+   "Exh": 0.002903,
+   "Aexh": 0.013381,
+   "Arxh": 0.004728,
+   "Mexh": 0.009991,
+   "Mrxh": 0.01097,
+   "hxh": 0.007642
+  },
+  "configs": {
+   "mean_only": {
+    "dCE": 0.06008,
+    "SE": 0.00256
+   },
+   "all_terms": {
+    "dCE": 0.0,
+    "SE": 0.0
+   },
+   "all_non_h": {
+    "dCE": 0.0041,
+    "SE": 0.00067
+   },
+   "drop_Exh": {
+    "dCE": 7e-05,
+    "SE": 0.00011
+   },
+   "drop_Aexh": {
+    "dCE": 0.00023,
+    "SE": 0.00027
+   },
+   "drop_Arxh": {
+    "dCE": 0.0,
+    "SE": 0.00015
+   },
+   "drop_Mexh": {
+    "dCE": 0.00064,
+    "SE": 0.00021
+   },
+   "drop_Mrxh": {
+    "dCE": 0.00081,
+    "SE": 0.0002
+   },
+   "drop_hxh": {
+    "dCE": 0.00072,
+    "SE": 0.00023
+   },
+   "nonh_plus_Exh": {
+    "dCE": 0.00376,
+    "SE": 0.00064
+   },
+   "nonh_plus_Aexh": {
+    "dCE": 0.00279,
+    "SE": 0.00049
+   },
+   "nonh_plus_Arxh": {
+    "dCE": 0.00383,
+    "SE": 0.00063
+   },
+   "nonh_plus_Mexh": {
+    "dCE": 0.00279,
+    "SE": 0.00057
+   },
+   "nonh_plus_Mrxh": {
+    "dCE": 0.00263,
+    "SE": 0.00058
+   },
+   "nonh_plus_hxh": {
+    "dCE": 0.00296,
+    "SE": 0.00059
+   }
+  },
+  "gates2": {
+   "floor_vs_census": [
+    0.06008,
+    0.0601
+   ],
+   "drop_all_h_vs_step1_ablate": [
+    0.0041,
+    0.00463
+   ]
+  },
+  "h_term_drop_costs": {
+   "Exh": 7e-05,
+   "Aexh": 0.00023,
+   "Arxh": 0.0,
+   "Mexh": 0.00064,
+   "Mrxh": 0.00081,
+   "hxh": 0.00072
+  },
+  "partner_term": "Mrxh",
+  "partner_fraction_of_drop_all_h": 0.1976,
+  "partner_fraction_of_full_head_effect": 0.0476
+ },
+ "examples": {
+  "partner_term": "Mrxh",
+  "note": "dCE_drop_term_here > 0 => the h x partner term was HELPING at that position",
+  "help_examples": [
+   {
+    "seq": 118,
+    "pos": 68,
+    "context": " in the years immediately following World War II when Illinois began widening US 66 to",
+    "actual_next": " four",
+    "dCE_drop_term_here": 0.3174,
+    "h_stream_norm": 1194.682,
+    "partner_group_norm": 1167.527,
+    "cross_term_dev_norm": 366.135
+   },
+   {
+    "seq": 91,
+    "pos": 20,
+    "context": "irconia cz jewelry. We do understand that you may not like your",
+    "actual_next": " purchase",
+    "dCE_drop_term_here": 0.2251,
+    "h_stream_norm": 889.217,
+    "partner_group_norm": 1292.565,
+    "cross_term_dev_norm": 179.411
+   },
+   {
+    "seq": 37,
+    "pos": 114,
+    "context": " glasses for every face\u2014is not done in five minutes, you should allow",
+    "actual_next": " you",
+    "dCE_drop_term_here": 0.1946,
+    "h_stream_norm": 823.228,
+    "partner_group_norm": 1270.25,
+    "cross_term_dev_norm": 208.223
+   },
+   {
+    "seq": 55,
+    "pos": 95,
+    "context": " was rescheduled, we got the set list and ran the first three",
+    "actual_next": " songs",
+    "dCE_drop_term_here": 0.1635,
+    "h_stream_norm": 927.211,
+    "partner_group_norm": 1203.768,
+    "cross_term_dev_norm": 145.408
+   },
+   {
+    "seq": 122,
+    "pos": 78,
+    "context": ", EE, and Divine Domination (more on DD below). 4.",
+    "actual_next": " Immortal",
+    "dCE_drop_term_here": 0.1598,
+    "h_stream_norm": 1319.042,
+    "partner_group_norm": 920.597,
+    "cross_term_dev_norm": 307.105
+   }
+  ],
+  "hurt_examples": [
+   {
+    "seq": 144,
+    "pos": 117,
+    "context": " able to play this week in the Samford Intercollegiate. In",
+    "actual_next": "juries",
+    "dCE_drop_term_here": -0.2969,
+    "h_stream_norm": 907.362,
+    "partner_group_norm": 1248.999,
+    "cross_term_dev_norm": 169.449
+   },
+   {
+    "seq": 42,
+    "pos": 82,
+    "context": " day job, and he had to put those skills to use while returning from",
+    "actual_next": " vacation",
+    "dCE_drop_term_here": -0.2521,
+    "h_stream_norm": 981.671,
+    "partner_group_norm": 908.589,
+    "cross_term_dev_norm": 222.191
+   },
+   {
+    "seq": 79,
+    "pos": 121,
+    "context": " and Sunday through Thursday by appointment. www.cityicearts.com\n",
+    "actual_next": ".",
+    "dCE_drop_term_here": -0.2504,
+    "h_stream_norm": 1423.806,
+    "partner_group_norm": 2193.86,
+    "cross_term_dev_norm": 495.08
+   },
+   {
+    "seq": 74,
+    "pos": 50,
+    "context": " huge selection of products at already marked down prices in the clearance section of the",
+    "actual_next": " Target",
+    "dCE_drop_term_here": -0.1984,
+    "h_stream_norm": 1168.595,
+    "partner_group_norm": 1013.598,
+    "cross_term_dev_norm": 244.536
+   },
+   {
+    "seq": 116,
+    "pos": 112,
+    "context": " the realignments gave travelers faster or safer routes, or detoured around",
+    "actual_next": " city",
+    "dCE_drop_term_here": -0.1931,
+    "h_stream_norm": 1169.394,
+    "partner_group_norm": 895.688,
+    "cross_term_dev_norm": 234.496
+   }
+  ],
+  "aggregate_gate_stats_top_quartile_h": {
+   "partner_norm_mean_helping_top200": 1340.209,
+   "partner_norm_mean_hurting_top200": 1286.413,
+   "partner_norm_mean_inert_200": 1328.968,
+   "h_norm_mean_helping_top200": 954.485,
+   "h_norm_mean_hurting_top200": 951.024,
+   "h_norm_mean_inert_200": 897.535
+  }
+ },
+ "gate_mechanism": {
+  "selection": "top-quartile h-norm; top-200 helping vs top-200 hurting positions by per-position paired dCE of dropping the h x Mr term (parent-script convention)",
+  "centroid_cosines": {
+   "h_dev_help_vs_hurt": 0.9832,
+   "h_raw_help_vs_hurt": 0.9975,
+   "Mr_dev_help_vs_hurt": 0.7333,
+   "term_dev_help_vs_hurt": 0.7553
+  },
+  "within_set_coherence": {
+   "term_help_mean_cos_to_centroid": 0.133,
+   "term_hurt_mean_cos_to_centroid": 0.1517,
+   "h_help_mean_cos_to_centroid": 0.4824,
+   "h_hurt_mean_cos_to_centroid": 0.4932
+  },
+  "drop_Mrxh_dCE_check": 0.00081,
+  "per_example": [
+   {
+    "context_tail": " War II when Illinois began widening US 66 to",
+    "kind": "help",
+    "dCE_here": 0.3174,
+    "h_cos_to_help_centroid": 0.502,
+    "term_cos_to_help_centroid": 0.224,
+    "term_cos_to_hurt_centroid": 0.152
+   },
+   {
+    "context_tail": ". We do understand that you may not like your",
+    "kind": "help",
+    "dCE_here": 0.2251,
+    "h_cos_to_help_centroid": 0.428,
+    "term_cos_to_help_centroid": -0.017,
+    "term_cos_to_hurt_centroid": -0.003
+   },
+   {
+    "context_tail": "is not done in five minutes, you should allow",
+    "kind": "help",
+    "dCE_here": 0.1946,
+    "h_cos_to_help_centroid": 0.337,
+    "term_cos_to_help_centroid": 0.124,
+    "term_cos_to_hurt_centroid": 0.105
+   },
+   {
+    "context_tail": " this week in the Samford Intercollegiate. In",
+    "kind": "hurt",
+    "dCE_here": -0.2969,
+    "h_cos_to_help_centroid": 0.579,
+    "term_cos_to_help_centroid": 0.29,
+    "term_cos_to_hurt_centroid": 0.207
+   },
+   {
+    "context_tail": " put those skills to use while returning from",
+    "kind": "hurt",
+    "dCE_here": -0.2521,
+    "h_cos_to_help_centroid": 0.509,
+    "term_cos_to_help_centroid": 0.12,
+    "term_cos_to_hurt_centroid": 0.19
+   },
+   {
+    "context_tail": "Thursday by appointment. www.cityicearts.com\n",
+    "kind": "hurt",
+    "dCE_here": -0.2504,
+    "h_cos_to_help_centroid": 0.666,
+    "term_cos_to_help_centroid": 0.169,
+    "term_cos_to_hurt_centroid": 0.338
+   }
+  ]
+ }
+}

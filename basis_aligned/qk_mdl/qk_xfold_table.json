@@ -1,0 +1,1349 @@
+{
+ "meta": {
+  "model": "bilin18",
+  "layer_folded_into": 1,
+  "train": "FW[0:256,:128]",
+  "held": "FW[448:600,:128]",
+  "batch": 4,
+  "lamE": 8.15472412109375,
+  "lam0": 0.0126953125,
+  "gauge_note": "all predictors share the ACTUAL rho2 gauge from the true x_pre1 (gauge carries 0.13% of function, section-86 red-team)",
+  "held_token_seen_in_train": 0.805,
+  "base_ce": 3.4946
+ },
+ "gate": {
+  "stream_sum_rel_err_max": 6.889262493814385e-08,
+  "bilinear_recon_rel_err_max": 1.8829056216418394e-06,
+  "floor_vs_census_5.5744": 5.5744
+ },
+ "explicitness": {
+  "R2_global_centering": {
+   "folded": 0.4174,
+   "blind": 0.0012,
+   "quad": 0.6919,
+   "const": 0.1806
+  },
+  "R2_perpos_centering": {
+   "folded": 0.4013,
+   "blind": -0.0264,
+   "quad": 0.6835,
+   "const": 0.158
+  },
+  "R2_top200_positions": {
+   "folded": 0.497,
+   "blind": -0.0403
+  }
+ },
+ "causal": {
+  "floor": {
+   "dCE": 5.5744,
+   "SE": 0.0323
+  },
+  "blind": {
+   "dCE": 0.5366,
+   "SE": 0.00837
+  },
+  "const": {
+   "dCE": 1.0159,
+   "SE": 0.0119
+  },
+  "folded": {
+   "dCE": 0.3587,
+   "SE": 0.00682
+  },
+  "quad": {
+   "dCE": 0.1013,
+   "SE": 0.00385
+  }
+ },
+ "causal_recovered_fraction": {
+  "blind": 0.9037,
+  "const": 0.8178,
+  "folded": 0.9357,
+  "quad": 0.9818
+ },
+ "effective_maps": {
+  "n_tokens": 200,
+  "pairwise_cosine": {
+   "median": 0.1784,
+   "min": -0.0428,
+   "p05": 0.0391,
+   "p95": 0.3825
+  },
+  "most_different_pairs": [
+   {
+    "cos": -0.0428,
+    "a": "' where'",
+    "b": "' D'"
+   },
+   {
+    "cos": -0.0361,
+    "a": "'<|endoftext|>'",
+    "b": "' team'"
+   },
+   {
+    "cos": -0.0347,
+    "a": "'<|endoftext|>'",
+    "b": "' ball'"
+   },
+   {
+    "cos": -0.0325,
+    "a": "' between'",
+    "b": "' D'"
+   },
+   {
+    "cos": -0.0248,
+    "a": "' good'",
+    "b": "'<|endoftext|>'"
+   },
+   {
+    "cos": -0.0219,
+    "a": "' because'",
+    "b": "' D'"
+   },
+   {
+    "cos": -0.0169,
+    "a": "'\ufffd'",
+    "b": "' it'"
+   },
+   {
+    "cos": -0.0109,
+    "a": "'leg'",
+    "b": "' end'"
+   },
+   {
+    "cos": -0.0095,
+    "a": "' because'",
+    "b": "' 10'"
+   },
+   {
+    "cos": -0.0077,
+    "a": "' N'",
+    "b": "' should'"
+   },
+   {
+    "cos": -0.0035,
+    "a": "'\ufffd'",
+    "b": "' be'"
+   },
+   {
+    "cos": -0.0032,
+    "a": "' for'",
+    "b": "'\ufffd'"
+   }
+  ],
+  "highest_cosine_pair": {
+   "pair": [
+    "' The'",
+    "'The'"
+   ],
+   "map_cosine": 0.9384,
+   "note": "highest-cosine pair for contrast"
+  },
+  "examples": [
+   {
+    "pair": [
+     "' where'",
+     "' D'"
+    ],
+    "map_cosine": -0.0428,
+    "held_counts": [
+     11,
+     11
+    ],
+    "token_A_amplifies": [
+     {
+      "singular_value": 2500372.75,
+      "boosts": [
+       "'|'",
+       "'||'",
+       "'thing'",
+       "'ories'",
+       "' Twe'",
+       "'izing'",
+       "'ourage'",
+       "'\\n'"
+      ],
+      "suppresses": [
+       "'ivism'",
+       "'Adds'",
+       "'udeau'",
+       "'matter'",
+       "'iuses'",
+       "'isively'",
+       "'forward'",
+       "'Compan'"
+      ]
+     },
+     {
+      "singular_value": 2291220.0,
+      "boosts": [
+       "' beams'",
+       "'licks'",
+       "' the'",
+       "' combined'",
+       "' Claims'",
+       "'antam'",
+       "'seless'",
+       "'Likewise'"
+      ],
+      "suppresses": [
+       "'ivated'",
+       "' disagree'",
+       "'osphere'",
+       "'ote'",
+       "'ther'",
+       "'rained'",
+       "'dc'",
+       "'ational'"
+      ]
+     }
+    ],
+    "token_B_amplifies": [
+     {
+      "singular_value": 4226817.5,
+      "boosts": [
+       "'|'",
+       "'||'",
+       "'\ufffd'",
+       "' approx'",
+       "' order'",
+       "'oped'",
+       "' SI'",
+       "'ories'"
+      ],
+      "suppresses": [
+       "'edom'",
+       "'Adds'",
+       "'ivism'",
+       "' none'",
+       "'Compan'",
+       "' watering'",
+       "'flation'",
+       "'ugs'"
+      ]
+     },
+     {
+      "singular_value": 3344676.5,
+      "boosts": [
+       "'izer'",
+       "' part'",
+       "' all'",
+       "' of'",
+       "' my'",
+       "' your'",
+       "'izers'",
+       "' st'"
+      ],
+      "suppresses": [
+       "' JUSTICE'",
+       "'footed'",
+       "'BALL'",
+       "' FORM'",
+       "'bourg'",
+       "'ubs'",
+       "' HEAD'",
+       "' boo'"
+      ]
+     }
+    ]
+   },
+   {
+    "pair": [
+     "'<|endoftext|>'",
+     "' team'"
+    ],
+    "map_cosine": -0.0361,
+    "held_counts": [
+     21,
+     19
+    ],
+    "token_A_amplifies": [
+     {
+      "singular_value": 2568527.25,
+      "boosts": [
+       "' engage'",
+       "'without'",
+       "' modes'",
+       "' settled'",
+       "' unaffected'",
+       "' whenever'",
+       "' lap'",
+       "'screen'"
+      ],
+      "suppresses": [
+       "'ential'",
+       "'hat'",
+       "'itary'",
+       "'hoe'",
+       "'ack'",
+       "'ocking'",
+       "'hor'",
+       "'ose'"
+      ]
+     },
+     {
+      "singular_value": 2074081.875,
+      "boosts": [
+       "'gr'",
+       "'hoe'",
+       "\"'s\"",
+       "':['",
+       "' tears'",
+       "'ine'",
+       "' Idol'",
+       "'ID'"
+      ],
+      "suppresses": [
+       "' rough'",
+       "' different'",
+       "' nowhere'",
+       "' both'",
+       "' occasion'",
+       "'Professor'",
+       "' each'",
+       "'stim'"
+      ]
+     }
+    ],
+    "token_B_amplifies": [
+     {
+      "singular_value": 2388106.5,
+      "boosts": [
+       "'edom'",
+       "' Nebula'",
+       "' necks'",
+       "' RIS'",
+       "'erate'",
+       "'hap'",
+       "'cap'",
+       "'udeau'"
+      ],
+      "suppresses": [
+       "'|'",
+       "'||'",
+       "' SI'",
+       "'ver'",
+       "'ories'",
+       "'</'",
+       "' wed'",
+       "'pped'"
+      ]
+     },
+     {
+      "singular_value": 2022569.25,
+      "boosts": [
+       "' should'",
+       "' such'",
+       "' since'",
+       "' i'",
+       "' all'",
+       "' would'",
+       "' combined'",
+       "'\\n'"
+      ],
+      "suppresses": [
+       "'claw'",
+       "'ERN'",
+       "'sted'",
+       "'ological'",
+       "'WI'",
+       "' nost'",
+       "'aceous'",
+       "'379'"
+      ]
+     }
+    ]
+   },
+   {
+    "pair": [
+     "'<|endoftext|>'",
+     "' ball'"
+    ],
+    "map_cosine": -0.0347,
+    "held_counts": [
+     21,
+     20
+    ],
+    "token_A_amplifies": [
+     {
+      "singular_value": 2569297.25,
+      "boosts": [
+       "'ential'",
+       "'hat'",
+       "'itary'",
+       "'hoe'",
+       "'ack'",
+       "'ocking'",
+       "'hor'",
+       "'ose'"
+      ],
+      "suppresses": [
+       "' engage'",
+       "'without'",
+       "' modes'",
+       "' settled'",
+       "'\ufffd'",
+       "' unaffected'",
+       "' whenever'",
+       "'CH'"
+      ]
+     },
+     {
+      "singular_value": 2075044.625,
+      "boosts": [
+       "'gr'",
+       "'hoe'",
+       "':['",
+       "\"'s\"",
+       "'ine'",
+       "' tears'",
+       "'nex'",
+       "' Idol'"
+      ],
+      "suppresses": [
+       "' different'",
+       "' nowhere'",
+       "' both'",
+       "' rough'",
+       "' each'",
+       "' occasion'",
+       "'Professor'",
+       "'stim'"
+      ]
+     }
+    ],
+    "token_B_amplifies": [
+     {
+      "singular_value": 2230896.25,
+      "boosts": [
+       "'|'",
+       "' WW'",
+       "'||'",
+       "' SI'",
+       "' Union'",
+       "' Turk'",
+       "' Click'",
+       "'assing'"
+      ],
+      "suppresses": [
+       "'endo'",
+       "' Nebula'",
+       "'rig'",
+       "'lean'",
+       "'broken'",
+       "' elders'",
+       "'edom'",
+       "'esc'"
+      ]
+     },
+     {
+      "singular_value": 2012240.875,
+      "boosts": [
+       "'sburg'",
+       "'ggles'",
+       "' PHOTO'",
+       "'YY'",
+       "'VR'",
+       "' JUSTICE'",
+       "' Castro'",
+       "'NESS'"
+      ],
+      "suppresses": [
+       "' material'",
+       "' of'",
+       "' ('",
+       "'\\n'",
+       "' my'",
+       "' power'",
+       "','",
+       "\"'s\""
+      ]
+     }
+    ]
+   },
+   {
+    "pair": [
+     "' between'",
+     "' D'"
+    ],
+    "map_cosine": -0.0325,
+    "held_counts": [
+     12,
+     11
+    ],
+    "token_A_amplifies": [
+     {
+      "singular_value": 2293029.25,
+      "boosts": [
+       "'|'",
+       "'||'",
+       "'\\n'",
+       "'ori'",
+       "' Click'",
+       "'<|endoftext|>'",
+       "'ories'",
+       "'oried'"
+      ],
+      "suppresses": [
+       "'udeau'",
+       "'iuses'",
+       "' Bundy'",
+       "'venants'",
+       "'EY'",
+       "' ],'",
+       "'ventures'",
+       "'hyde'"
+      ]
+     },
+     {
+      "singular_value": 2075324.625,
+      "boosts": [
+       "' its'",
+       "'tar'",
+       "' McA'",
+       "' respective'",
+       "' the'",
+       "'sic'",
+       "' desired'",
+       "'Dial'"
+      ],
+      "suppresses": [
+       "' caution'",
+       "'MM'",
+       "'ational'",
+       "'ured'",
+       "'ly'",
+       "'ous'",
+       "' leveled'",
+       "'ec'"
+      ]
+     }
+    ],
+    "token_B_amplifies": [
+     {
+      "singular_value": 4226823.5,
+      "boosts": [
+       "'|'",
+       "'||'",
+       "'\ufffd'",
+       "' approx'",
+       "' order'",
+       "'oped'",
+       "' SI'",
+       "'oth'"
+      ],
+      "suppresses": [
+       "'edom'",
+       "'Adds'",
+       "'ivism'",
+       "' none'",
+       "'Compan'",
+       "' watering'",
+       "'flation'",
+       "'ugs'"
+      ]
+     },
+     {
+      "singular_value": 3343955.75,
+      "boosts": [
+       "'izer'",
+       "' part'",
+       "' all'",
+       "' of'",
+       "' my'",
+       "' your'",
+       "'izers'",
+       "' st'"
+      ],
+      "suppresses": [
+       "' JUSTICE'",
+       "'footed'",
+       "'BALL'",
+       "' FORM'",
+       "'ubs'",
+       "'bourg'",
+       "' HEAD'",
+       "' boo'"
+      ]
+     }
+    ]
+   },
+   {
+    "pair": [
+     "' good'",
+     "'<|endoftext|>'"
+    ],
+    "map_cosine": -0.0248,
+    "held_counts": [
+     21,
+     21
+    ],
+    "token_A_amplifies": [
+     {
+      "singular_value": 2381978.0,
+      "boosts": [
+       "'|'",
+       "'||'",
+       "'000'",
+       "' my'",
+       "')|'",
+       "'\\n'",
+       "'oth'",
+       "'::'"
+      ],
+      "suppresses": [
+       "'udeau'",
+       "' linem'",
+       "'NESS'",
+       "' comr'",
+       "' Nebula'",
+       "'Adds'",
+       "'Writ'",
+       "'Introduced'"
+      ]
+     },
+     {
+      "singular_value": 1958581.875,
+      "boosts": [
+       "' blast'",
+       "'fight'",
+       "'iev'",
+       "' stretch'",
+       "'ealous'",
+       "'iph'",
+       "'example'",
+       "'mult'"
+      ],
+      "suppresses": [
+       "' Arbor'",
+       "'TAG'",
+       "'BIL'",
+       "' departed'",
+       "' screws'",
+       "'ment'",
+       "'s'",
+       "'orth'"
+      ]
+     }
+    ],
+    "token_B_amplifies": [
+     {
+      "singular_value": 2569375.0,
+      "boosts": [
+       "' engage'",
+       "'without'",
+       "' modes'",
+       "' settled'",
+       "' unaffected'",
+       "'\ufffd'",
+       "' whenever'",
+       "' lap'"
+      ],
+      "suppresses": [
+       "'ential'",
+       "'hat'",
+       "'itary'",
+       "'hoe'",
+       "'ack'",
+       "'ocking'",
+       "'hor'",
+       "'ose'"
+      ]
+     },
+     {
+      "singular_value": 2071315.875,
+      "boosts": [
+       "'gr'",
+       "'hoe'",
+       "':['",
+       "\"'s\"",
+       "'ine'",
+       "' tears'",
+       "' Idol'",
+       "'ually'"
+      ],
+      "suppresses": [
+       "' different'",
+       "' rough'",
+       "' nowhere'",
+       "' occasion'",
+       "' both'",
+       "'hello'",
+       "'Professor'",
+       "'stim'"
+      ]
+     }
+    ]
+   },
+   {
+    "pair": [
+     "' because'",
+     "' D'"
+    ],
+    "map_cosine": -0.0219,
+    "held_counts": [
+     11,
+     11
+    ],
+    "token_A_amplifies": [
+     {
+      "singular_value": 2933938.0,
+      "boosts": [
+       "'|'",
+       "'||'",
+       "'izing'",
+       "'ories'",
+       "' World'",
+       "'it'",
+       "'>'",
+       "'ocking'"
+      ],
+      "suppresses": [
+       "'Adds'",
+       "'matter'",
+       "'udeau'",
+       "'venants'",
+       "'isively'",
+       "'through'",
+       "'BILITIES'",
+       "' Plex'"
+      ]
+     },
+     {
+      "singular_value": 2479301.0,
+      "boosts": [
+       "' of'",
+       "' leveled'",
+       "'organic'",
+       "'MM'",
+       "'utes'",
+       "'acy'",
+       "' fate'",
+       "' cord'"
+      ],
+      "suppresses": [
+       "'NESS'",
+       "' its'",
+       "' Rail'",
+       "' together'",
+       "'together'",
+       "'bane'",
+       "'nr'",
+       "'pi'"
+      ]
+     }
+    ],
+    "token_B_amplifies": [
+     {
+      "singular_value": 4226763.5,
+      "boosts": [
+       "'|'",
+       "'||'",
+       "'\ufffd'",
+       "' approx'",
+       "' order'",
+       "'oped'",
+       "'oth'",
+       "' SI'"
+      ],
+      "suppresses": [
+       "'edom'",
+       "'Adds'",
+       "'ivism'",
+       "' none'",
+       "'Compan'",
+       "' watering'",
+       "'flation'",
+       "'ugs'"
+      ]
+     },
+     {
+      "singular_value": 3342813.75,
+      "boosts": [
+       "'izer'",
+       "' part'",
+       "' all'",
+       "' of'",
+       "' my'",
+       "' your'",
+       "'izers'",
+       "' st'"
+      ],
+      "suppresses": [
+       "' FORM'",
+       "' JUSTICE'",
+       "'BALL'",
+       "'footed'",
+       "'bourg'",
+       "'ubs'",
+       "' HEAD'",
+       "' Brach'"
+      ]
+     }
+    ]
+   }
+  ],
+  "mediation_caveat": "block 1 output is largely consumed by later squaring stages (sections 96-99); the unembedding readout of amplified directions is an interpretive summary",
+  "interpretable_pair_cosines": {
+   "' the' vs ' The'": 0.7788,
+   "' The' vs 'The'": 0.9384,
+   "' the' vs 'the'": 0.7014,
+   "'.' vs ','": 0.4628,
+   "'.' vs ' the'": 0.1765,
+   "' the' vs ' a'": 0.5856,
+   "' and' vs ' or'": 0.7113,
+   "'.' vs '\\n'": 0.4624,
+   "' D' vs ' the'": 0.0219,
+   "' where' vs ' D'": -0.0428,
+   "' of' vs ' in'": 0.3728,
+   "' is' vs ' was'": 0.8057,
+   "'.' vs ' D'": 0.1433
+  },
+  "class_readout_on_actual_contexts": {
+   "method": "mean over held positions with token t of the token-indexed LINEAR part (B(s_t,r)+B(r,s_t))/rho2 applied to the actual rest vector r; read through the unembedding as summed logit movement per lex1 class; first-order, mediation caveat applies",
+   "per_token": {
+    "' the'": {
+     "n_held_positions": 749,
+     "mean_linear_contribution_norm": 2731.48,
+     "class_logit_movement_top": [
+      [
+       "word",
+       5436338.0
+      ],
+      [
+       "capital",
+       3879308.0
+      ],
+      [
+       "subword",
+       2443826.5
+      ],
+      [
+       "digit",
+       405569.5
+      ],
+      [
+       "other",
+       219899.7
+      ],
+      [
+       "punct",
+       186869.9
+      ]
+     ],
+     "boosts": [
+      "'udeau'",
+      "'Adds'",
+      "'acted'",
+      "'leasing'",
+      "'venants'",
+      "'ositories'",
+      "'iuses'",
+      "'isively'",
+      "'Compan'",
+      "'CHQ'"
+     ],
+     "suppresses": [
+      "'|'",
+      "'||'",
+      "'-'",
+      "'ic'",
+      "' of'",
+      "'ory'",
+      "'it'",
+      "'ori'",
+      "'ative'",
+      "'ed'"
+     ]
+    },
+    "'.'": {
+     "n_held_positions": 782,
+     "mean_linear_contribution_norm": 2471.93,
+     "class_logit_movement_top": [
+      [
+       "word",
+       1442763.0
+      ],
+      [
+       "capital",
+       1198833.5
+      ],
+      [
+       "subword",
+       755437.4
+      ],
+      [
+       "other",
+       112097.1
+      ],
+      [
+       "punct",
+       83296.2
+      ],
+      [
+       "special",
+       33194.7
+      ]
+     ],
+     "boosts": [
+      "'phrine'",
+      "'service'",
+      "'to'",
+      "' ],'",
+      "'ivism'",
+      "'guard'",
+      "'erate'",
+      "' despite'",
+      "'through'",
+      "' RIS'"
+     ],
+     "suppresses": [
+      "'||'",
+      "'|'",
+      "'itting'",
+      "'izing'",
+      "')|'",
+      "'ize'",
+      "'pped'",
+      "'ories'",
+      "'</'",
+      "'_'"
+     ]
+    },
+    "','": {
+     "n_held_positions": 640,
+     "mean_linear_contribution_norm": 2285.48,
+     "class_logit_movement_top": [
+      [
+       "word",
+       2320721.2
+      ],
+      [
+       "capital",
+       1484917.5
+      ],
+      [
+       "subword",
+       1230129.2
+      ],
+      [
+       "other",
+       132900.2
+      ],
+      [
+       "digit",
+       110792.9
+      ],
+      [
+       "punct",
+       74949.4
+      ]
+     ],
+     "boosts": [
+      "'service'",
+      "' despite'",
+      "'ivism'",
+      "' although'",
+      "'iuses'",
+      "' even'",
+      "'venants'",
+      "'phrine'",
+      "' though'",
+      "' meaning'"
+     ],
+     "suppresses": [
+      "'||'",
+      "'|'",
+      "'-'",
+      "')|'",
+      "'itting'",
+      "'izing'",
+      "\"'\"",
+      "'_'",
+      "'\"'",
+      "'ith'"
+     ]
+    },
+    "' The'": {
+     "n_held_positions": 63,
+     "mean_linear_contribution_norm": 3096.15,
+     "class_logit_movement_top": [
+      [
+       "word",
+       3611925.0
+      ],
+      [
+       "capital",
+       1872218.2
+      ],
+      [
+       "subword",
+       1502387.2
+      ],
+      [
+       "digit",
+       225338.8
+      ],
+      [
+       "other",
+       157982.1
+      ],
+      [
+       "punct",
+       132755.4
+      ]
+     ],
+     "boosts": [
+      "'udeau'",
+      "'CHQ'",
+      "'acted'",
+      "'erate'",
+      "'Charges'",
+      "'venants'",
+      "'ursions'",
+      "'ilaterally'",
+      "'charges'",
+      "'paren'"
+     ],
+     "suppresses": [
+      "'|'",
+      "'||'",
+      "'-'",
+      "'v'",
+      "'ative'",
+      "'ic'",
+      "' of'",
+      "'ory'",
+      "'stone'",
+      "'my'"
+     ]
+    },
+    "' and'": {
+     "n_held_positions": 367,
+     "mean_linear_contribution_norm": 2600.69,
+     "class_logit_movement_top": [
+      [
+       "word",
+       2529640.8
+      ],
+      [
+       "subword",
+       1115891.2
+      ],
+      [
+       "capital",
+       1034541.9
+      ],
+      [
+       "other",
+       132058.7
+      ],
+      [
+       "digit",
+       56218.4
+      ],
+      [
+       "punct",
+       47069.7
+      ]
+     ],
+     "boosts": [
+      "' even'",
+      "'Adds'",
+      "'ositories'",
+      "'Charges'",
+      "'service'",
+      "' sometimes'",
+      "'Compan'",
+      "' despite'",
+      "'ioch'",
+      "'thren'"
+     ],
+     "suppresses": [
+      "'|'",
+      "'||'",
+      "'izing'",
+      "')|'",
+      "'-'",
+      "'ic'",
+      "'itting'",
+      "'ly'",
+      "'ize'",
+      "'ative'"
+     ]
+    },
+    "' of'": {
+     "n_held_positions": 389,
+     "mean_linear_contribution_norm": 2337.27,
+     "class_logit_movement_top": [
+      [
+       "word",
+       4245816.0
+      ],
+      [
+       "capital",
+       3447082.2
+      ],
+      [
+       "subword",
+       2335301.8
+      ],
+      [
+       "digit",
+       363527.4
+      ],
+      [
+       "other",
+       218782.0
+      ],
+      [
+       "punct",
+       200264.0
+      ]
+     ],
+     "boosts": [
+      "'iuses'",
+      "'udeau'",
+      "'acted'",
+      "'ivism'",
+      "'Compan'",
+      "'phrine'",
+      "'opers'",
+      "'EY'",
+      "' SHARES'",
+      "'ilver'"
+     ],
+     "suppresses": [
+      "'||'",
+      "'|'",
+      "'ories'",
+      "'ory'",
+      "'ver'",
+      "'izing'",
+      "'it'",
+      "')|'",
+      "'>'",
+      "'ic'"
+     ]
+    },
+    "' D'": {
+     "n_held_positions": 11,
+     "mean_linear_contribution_norm": 3832.42,
+     "class_logit_movement_top": [
+      [
+       "capital",
+       -675245.2
+      ],
+      [
+       "word",
+       543980.7
+      ],
+      [
+       "subword",
+       -268235.5
+      ],
+      [
+       "digit",
+       -179136.5
+      ],
+      [
+       "punct",
+       98049.4
+      ],
+      [
+       "other",
+       81604.6
+      ]
+     ],
+     "boosts": [
+      "'ivism'",
+      "'rish'",
+      "'Adds'",
+      "'flation'",
+      "'edom'",
+      "'TA'",
+      "' Apost'",
+      "'urized'",
+      "'geries'",
+      "'Compan'"
+     ],
+     "suppresses": [
+      "'idespread'",
+      "'good'",
+      "'\ufffd'",
+      "'|'",
+      "'LAND'",
+      "'oped'",
+      "'assing'",
+      "'opal'",
+      "'||'",
+      "'stone'"
+     ]
+    },
+    "'\\n'": {
+     "n_held_positions": 376,
+     "mean_linear_contribution_norm": 2563.4,
+     "class_logit_movement_top": [
+      [
+       "word",
+       635632.9
+      ],
+      [
+       "capital",
+       332626.4
+      ],
+      [
+       "subword",
+       -201488.6
+      ],
+      [
+       "other",
+       83098.1
+      ],
+      [
+       "punct",
+       70175.5
+      ],
+      [
+       "digit",
+       -41432.3
+      ]
+     ],
+     "boosts": [
+      "' alike'",
+      "'phrine'",
+      "'service'",
+      "'enum'",
+      "' SHAR'",
+      "' Provincial'",
+      "' Reboot'",
+      "'ivism'",
+      "' Ether'",
+      "' mole'"
+     ],
+     "suppresses": [
+      "'ories'",
+      "'itary'",
+      "' |'",
+      "'ative'",
+      "'ocking'",
+      "'000'",
+      "' praises'",
+      "' >'",
+      "'ory'",
+      "'ron'"
+     ]
+    },
+    "' is'": {
+     "n_held_positions": 180,
+     "mean_linear_contribution_norm": 2226.95,
+     "class_logit_movement_top": [
+      [
+       "word",
+       2003069.5
+      ],
+      [
+       "subword",
+       793913.8
+      ],
+      [
+       "capital",
+       708300.2
+      ],
+      [
+       "other",
+       107490.8
+      ],
+      [
+       "punct",
+       45873.8
+      ],
+      [
+       "special",
+       43321.3
+      ]
+     ],
+     "boosts": [
+      "' actually'",
+      "'phrine'",
+      "'ivism'",
+      "'udeau'",
+      "' really'",
+      "' occasionally'",
+      "'anse'",
+      "'ipple'",
+      "' realistically'",
+      "' accompanied'"
+     ],
+     "suppresses": [
+      "'|'",
+      "'||'",
+      "'izing'",
+      "'ize'",
+      "')|'",
+      "'it'",
+      "'ative'",
+      "'OUR'",
+      "'ould'",
+      "'thing'"
+     ]
+    },
+    "' where'": {
+     "n_held_positions": 11,
+     "mean_linear_contribution_norm": 2313.07,
+     "class_logit_movement_top": [
+      [
+       "word",
+       4321515.0
+      ],
+      [
+       "capital",
+       3582669.2
+      ],
+      [
+       "subword",
+       2582519.8
+      ],
+      [
+       "digit",
+       365989.4
+      ],
+      [
+       "other",
+       215703.3
+      ],
+      [
+       "punct",
+       215100.0
+      ]
+     ],
+     "boosts": [
+      "'ivism'",
+      "'udeau'",
+      "'iuses'",
+      "'phrine'",
+      "'pees'",
+      "'Compan'",
+      "'thren'",
+      "'iott'",
+      "' Zuckerberg'",
+      "'manuel'"
+     ],
+     "suppresses": [
+      "'|'",
+      "'||'",
+      "'izing'",
+      "'thing'",
+      "'ning'",
+      "'-'",
+      "'ment'",
+      "'it'",
+      "'ize'",
+      "'ine'"
+     ]
+    }
+   }
+  }
+ }
+}

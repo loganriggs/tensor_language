@@ -7536,3 +7536,19 @@ existing steering methods, not a new method class, so in-scope and launched rath
 - §102 appended with RED-TEAM PENDING note; red-team agent dispatched (comparability of deletion operations,
   token-frequency inflation, basis-grain attack on non-compactness, 3.8x sanity + pairwise interaction).
 - Cross-layer fold arc (xfold) still running.
+
+## tick 2026-07-31c (cross-layer fold arc LANDED -> §103; red-team dispatched)
+- qk_xfold complete, all gates exact + census-consistent to 4 decimals. Headlines: (1) block 3 = 21 exact
+  cross-layer term pairs, THREE pairs are the layer (iterated square co-dominant with the fresh-attention x
+  block-2 mixer, which supplies the context at only 5% token-determined variance); block 0's direct write
+  causally DEAD at block 3 (reaches it only through blocks 1-2); cross-stream terms carry 97.4%. (2) Token-
+  table fold: block 1 becomes a token-indexed family of affine maps — 41.7% variance vs 0.1% token-blind,
+  causal +0.3587 (93.6%) vs +0.5366 blind; median map cosine 0.18 across tokens with linguistic similarity
+  structure; concrete per-token operator readings (' the' content amplifier, ',' concessive continuation,
+  ' D' capital-class sign flip). (3) h.L7.0 partner named in kind (own-block ff, head x block-6 leading) but
+  DISTRIBUTED — partner re-aims a fixed signal (write centroid cosine 0.9975), no scalar gate. Verdict:
+  folding explains conditionality decisively early, in-kind mid-stack; §87/§92 missing structure =
+  cross-layer PRODUCT COUPLING (consumption), invisible to per-layer rank allocation.
+- §103 appended with RED-TEAM PENDING; qk_redteam_xfold agent dispatched (block-0-dead gauge check,
+  co-dominance significance, token coverage sensitivity, ' D' substitution gate, partner significance).
+- §102 red-team still running.
