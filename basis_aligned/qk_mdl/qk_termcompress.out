@@ -1,0 +1,53 @@
+GPU guard: 15841 MiB free -- proceeding.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+bilin18 NL=18 D=1152 held 152x128 train 256x128
+terms-to-95 profile: [2, 3, 2, 4, 5, 8, 10, 12, 10, 10, 10, 10, 6, 8, 8, 6, 6, 10]
+profile 50pct: [1, 2, 1, 2, 3, 4, 5, 6, 5, 5, 5, 5, 3, 4, 4, 3, 3, 5] (sum 66)
+profile 75pct: [2, 3, 2, 3, 4, 6, 8, 9, 8, 8, 8, 8, 5, 6, 6, 5, 5, 8] (sum 104)
+profile 100pct: [2, 3, 2, 4, 5, 8, 10, 12, 10, 10, 10, 10, 6, 8, 8, 6, 6, 10] (sum 130)
+profile 125pct: [3, 4, 3, 5, 7, 10, 13, 15, 13, 13, 13, 13, 8, 10, 10, 8, 8, 13] (sum 169)
+BASE: full-model cross-entropy ...
+base CE 3.4946  (cache92 3.4946; max abs diff 0.00e+00)
+COLLECT: per-position term/group means + gates (all 18 layers, one pass) ...
+  L 0 recon 6.46e-07 maxpos 1.08e-06 grpsum 0.00e+00 meancons 1.67e-07
+  L 1 recon 1.13e-06 maxpos 1.67e-06 grpsum 6.14e-08 meancons 3.12e-07
+  L 2 recon 9.08e-07 maxpos 2.08e-06 grpsum 7.26e-08 meancons 2.75e-07
+  L 3 recon 8.00e-07 maxpos 1.81e-06 grpsum 8.52e-08 meancons 1.92e-07
+  L 4 recon 7.46e-07 maxpos 1.49e-06 grpsum 9.31e-08 meancons 1.69e-07
+  L 5 recon 1.19e-06 maxpos 2.90e-06 grpsum 8.29e-08 meancons 1.71e-07
+  L 6 recon 1.49e-06 maxpos 4.70e-06 grpsum 8.85e-08 meancons 2.10e-07
+  L 7 recon 1.84e-06 maxpos 3.52e-06 grpsum 9.50e-08 meancons 3.40e-07
+  L 8 recon 1.68e-06 maxpos 3.48e-06 grpsum 1.14e-07 meancons 4.00e-07
+  L 9 recon 1.37e-06 maxpos 2.68e-06 grpsum 1.38e-07 meancons 2.32e-07
+  L10 recon 1.57e-06 maxpos 3.45e-06 grpsum 1.58e-07 meancons 4.45e-07
+  L11 recon 1.13e-06 maxpos 2.27e-06 grpsum 1.77e-07 meancons 1.75e-07
+  L12 recon 1.22e-06 maxpos 2.94e-06 grpsum 1.80e-07 meancons 2.15e-07
+  L13 recon 1.21e-06 maxpos 2.55e-06 grpsum 2.04e-07 meancons 2.10e-07
+  L14 recon 1.29e-06 maxpos 2.29e-06 grpsum 2.32e-07 meancons 2.57e-07
+  L15 recon 7.08e-07 maxpos 1.50e-06 grpsum 2.61e-07 meancons 1.40e-07
+  L16 recon 5.04e-07 maxpos 1.32e-06 grpsum 3.22e-07 meancons 1.53e-07
+  L17 recon 6.38e-07 maxpos 2.50e-06 grpsum 3.33e-07 meancons 2.73e-07
+collect done (7s)
+GATE A: whole-model ALL-TERMS substitution (must be ~0) ...
+  ALL-TERMS whole-model dCE -0.000000 +- 0.000000
+SCHEME 1: §92 uniform anchors from the cache ...
+  [128x] uniform (288,144): dCE +1.4561 +- 0.01448  (ref §92 +1.4561, params 108M)
+  [16x] uniform (576,288): dCE +0.8032 +- 0.01108  (ref §92 +0.8032, params 861M)
+  [4x] uniform (576,None): dCE +0.3516 +- 0.00697  (ref §92 +0.3516, params 3446M)
+TRAIN grams: groups + kept-term outputs, 5 layer-chunks ...
+  chunk [0, 1, 2, 3] done (3s)
+  chunk [4, 5, 6, 7] done (4s)
+  chunk [8, 9, 10, 11] done (5s)
+  chunk [12, 13, 14, 15] done (4s)
+  chunk [16, 17] done (3s)
+SCHEME 2: term-sparse profiles ...
+  [50pct] 66 terms: dCE +4.5069 +- 0.03335  budget numrank 80.06B (capped 13.77B, 99.99% 78.54B)
+  [75pct] 104 terms: dCE +1.6429 +- 0.01521  budget numrank 124.43B (capped 13.77B, 99.99% 121.09B)
+  [100pct] 130 terms: dCE +0.8778 +- 0.01019  budget numrank 155.24B (capped 13.77B, 99.99% 150.79B)
+  [125pct] 169 terms: dCE +0.1127 +- 0.00371  budget numrank 203.33B (capped 13.77B, 99.99% 197.00B)
+SCHEME 3: restricted terms at the §92 budgets ...
+  [128x] f=0.68636 budget 108M/108M: dCE +3.4631 +- 0.02534
+  [16x] f=0.80018 budget 861M/861M: dCE +3.5103 +- 0.02575
+  [4x] f=0.87740 budget 3446M/3446M: dCE +3.0253 +- 0.02385
+saving cache for qk_termcompress_2.py ...
+QK TERMCOMPRESS PART 1 DONE

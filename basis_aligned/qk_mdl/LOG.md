@@ -7588,3 +7588,18 @@ existing steering methods, not a new method class, so in-scope and launched rath
 - Late duplicate completion notification from the depth-first red-team agent: contents identical to §101
   as enshrined (66-68% generic-rescue controls, 85.5% table sufficiency, block-11 readout boundary, h.L7.0
   decile/sequence spread). No action.
+
+## tick 2026-07-31g (term-compression arc LANDED -> §104: honest negative, consumption != factorization)
+- All gates passed (exact reassembly -4e-8; §92 anchors to 4th decimal; budget audited). VERDICT: term-sparse
+  compression LOSES to per-layer rank allocation at every matched budget (16-fold: +1.90 vs +0.80, 2.4x).
+  WHY: term dropping is cheap (+0.113); the group streams are numerically FULL-RANK (embedding rank 1152
+  everywhere), so exact terms cost more than whole blocks (honest scheme-2 budgets 6-15x LARGER than the
+  uncompressed model); all terms reuse one shared dense core, so buying terms separately multiplies cost.
+  Decisive control: group-factorized restriction at rank 576 TIES §92's joint restriction — the term
+  decomposition is functionally sound at equal rank, loses purely on parameter accounting.
+- New facts: term-dropping super-additivity 4.6x (vs 2x for rank); failure concentrates 8x in the EARLY
+  stack while the distributed region hurts least (consumption-shaped, per §102 prediction); terms preserve
+  token-indexed copy/format continuations that spectra destroy ("Freshman Mad"->"al": 0.772 vs 0.007).
+- Bottom line: §87/§92's missing cross-layer structure names gates but is NOT a factorization; faithful
+  compression needs cores shared across terms/layers (tn_gauge territory). §104 appended, red-team
+  dispatched (fairness of uniform-rank variants, basis cap, profile artifact, example gates).
