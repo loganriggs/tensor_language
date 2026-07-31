@@ -1,7 +1,7 @@
 # A four-ledger per-layer decomposition of a no-softmax bilinear transformer
 
 *Consolidation draft — 2026-07-30. Numbers are the post-adversarial-review figures only.
-Sources: PLAN_per_layer.md, RESULTS_l0_mdl.md §32–§103, LOG.md. Left for parent review; not committed.*
+Sources: PLAN_per_layer.md, RESULTS_l0_mdl.md §32–§104, LOG.md. Left for parent review; not committed.*
 
 ## Abstract
 
@@ -656,8 +656,75 @@ interaction — and no per-layer rank schedule addresses it. The folding results
 It is cross-layer *product coupling* — consumption: a layer's function lives largely in products between
 another layer's output and its own streams (97.4 percent cross-stream at block 3), and such a term is
 invisible to per-layer rank allocation, which compresses each factor separately and cannot see what the
-product needs. The tensor-network route to faithful whole-model compression is therefore to compose folded
-cross-layer terms — keep the named products, not per-layer subspaces.
+product needs. The natural conjecture is that a term-structured scheme — keep the named products, not
+per-layer subspaces — should therefore compress better than rank allocation. The next subsection tests that
+conjecture directly, and it fails: naming the products turns out not to be the same as owning a cheaper
+factorization.
+
+### Does the term structure compress? An honest negative
+
+The direct question is whether the cross-layer term structure converts into a parameter advantage: if a
+layer's function concentrates in a few named product terms, a scheme that keeps those terms and drops or
+truncates the rest should beat plain per-layer rank allocation at a matched parameter budget. We tested
+three such schemes as whole-model substitutions — all eighteen feed-forward blocks replaced simultaneously,
+attention left exact — with budgets counted in a single honest currency, folded-tensor coefficients (the
+full model holds 13.77 billion), against the plain per-layer rank allocation of the earlier compression
+chapter at the same budgets. The accounting gates all pass: per-layer term reconstruction errors sit
+between five parts in ten million and 1.8 parts in a million; keeping every term everywhere is exact
+reassembly (cost −0.00000004 ± 0.00000003 nats); and the rank-allocation anchors reproduce the earlier
+chapter's figures to the fourth decimal place (+1.4561, +0.8032, and +0.3516 nats at 128-fold, 16-fold,
+and 4-fold compression), so the two sides of every comparison are measured in the same instrument.
+
+The verdict is no, and it survived a deliberate attempt to lose it. At every matched budget the best
+term-scheme variant loses to plain rank allocation, and the margin held through a fairness search over
+twelve allocation policies — output-to-input rank ratio, richness of the kept-term profile, extra rank for
+early blocks, and per-term importance weighting all swept in the term scheme's favor. The search genuinely
+helped: the naive uniform-rank form was roughly half a nat off its own optimum, and the best fair variant —
+keep *all* active terms at lower rank each, spend equally on the input and output sides, give the early
+blocks double rank — closed fifty-two percent of the gap. It still loses: at 16-fold compression the best
+fair term variant costs +1.3271 ± 0.0143 nats against rank allocation's +0.8032 ± 0.0111, a paired
+difference of +0.5239 ± 0.0067 — seventy-eight standard errors, 1.65 times worse — with margins of 2.8
+times at 4-fold and 1.25 times at 128-fold. The sweep's most instructive cell is the one that should have
+been the term scheme's best idea: allocating each term's rank in proportion to its measured importance is
+catastrophic (+3.14 to +4.00 nats), the trace-versus-need pathology of the earlier compression chapter
+reappearing at term granularity. More terms at lower rank was monotonically better all the way to the
+all-terms boundary — the opposite of what a "keep the named products" reading would predict.
+
+The mechanism is that consumption structure is not a factorization. The five group streams entering each
+block are numerically full rank — the embedding group carries rank 1,152 at every layer — and all the
+terms of a block draw on one shared dense core through heavily overlapping subspaces, so buying terms
+separately multiplies cost: the honest budget for keeping even a sparse set of *exact* terms is six to
+fifteen times larger than the uncompressed model, and term sparsity alone buys zero honest compression.
+The decisive control shows the decomposition is not functionally broken, only economically so: a
+group-factorized input restriction at the same total rank as the joint restriction comes within 3.8
+percent of it (+0.3648 ± 0.0067 against +0.3516 ± 0.0070; the paired difference of +0.0132 ± 0.0050, at
+2.7 standard errors, is a small real penalty rather than a tie) even while carrying the cost of dropped
+terms — near-sound at equal rank, losing overwhelmingly on parameter accounting. Whole-model term dropping
+is also super-additive by a factor of 4.6 (single-layer costs sum to +0.19 nats where the joint cost is
++0.88), stronger than the factor of two seen for rank restriction, and the term scheme's failure
+concentrates in the early stack, where it is eight times worse than rank allocation against 1.8 and 1.6
+times in the distributed and readout regions. What the two schemes preserve is genuinely complementary:
+the term scheme keeps token-indexed, copy-flavored continuation that a spectral input projection destroys
+— after "Freshman Mad" the base model continues "al" at probability 0.978 (its top choice), the term
+scheme keeps it at 0.772 and top-ranked, while rank allocation collapses it to 0.007 at rank 7; after
+"Senior guard Jude Sch" the continuation "imm" goes from 0.191 (base, top-ranked) to 0.230 under the term
+scheme against 0.003 at rank 40 under rank allocation — while the term scheme wrecks contextual-semantic
+continuation the spectral scheme keeps: after "three years of" the continuation " probation" falls from
+0.744 in the base model to 0.560 under rank allocation but to 0.00006, rank 691, under the term scheme.
+Honestly counted, both currencies favor rank allocation: restricted to positions where a base behavior is
+genuinely preserved and the scheme wins, the term scheme holds 7.7 percent of positions against rank
+allocation's 26.9.
+
+What this implies is a sharpened, not abandoned, version of the synthesis above. The missing cross-layer
+structure really is consumption — the term algebra names gates, predicts where compression fails, and
+preserves token-conditioned behavior — but it does not convert into a parameter advantage, because every
+term draws full-rank, overlapping streams through one shared dense core, and any scheme that pays for
+terms separately pays for that core many times over. Faithful whole-model compression, if it is reachable
+at all, needs cores *shared* across terms and across layers — a genuinely shared cross-layer basis in
+which the many products are cheap reindexings of one object rather than separately purchased subspaces.
+That is precisely the territory of the tensor-network-gauge program, which now inherits a sharp
+specification from this negative: the object to find is not a better per-term or per-layer subspace but a
+shared core whose reuse the present accounting shows every block already practicing.
 
 ## Honest limitations
 
