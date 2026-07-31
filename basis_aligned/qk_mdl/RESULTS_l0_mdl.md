@@ -5049,3 +5049,37 @@ activation tampering — a safety-relevant property measured, not asserted: corr
 contribution leaves prediction quality statistically untouched — and (iii) why the readout is the model's one
 true control surface (the only place the code's redundancy has run out). The two-sided editing law is final:
 amplitude edits cannot re-aim; input edits re-aim surgically, but only where compensation is impossible.
+
+## §96 DEPTH-FIRST ARC #1 — layer 2's square is a DENSE QUADRATIC EXPANSION feeding an ITERATED-SQUARING PIPELINE (2026-07-31)
+(qk_arc_square.py / _2.py; the first depth-first algorithm arc — what does "square the previous block's
+output" compute? Gates: bilinear reconstruction 7e-7; census replication exact — drop-term +0.0288 and
+keep-alone 0.0925 match §89 to four decimals. Held-back FW[448:600], paired standard errors.)
+- **(a) NOT confidence-sharpening — self-products are causally null.** Splitting the square over layer-1's
+  top-64 output directions: dropping the DIAGONAL (self-products) costs +0.0002 (nothing); keeping the
+  diagonal alone recovers only 6-7% of the term's contribution. CROSS-products beat the diagonal 4:1 in energy
+  (0.0688 vs 0.0168) and keeping them alone recovers 47%. The H2 (magnitude-nonlinearity) reading is refuted.
+- **(b) But there are NO privileged feature-pair AND-gates — the cross mass is DENSE.** The largest single pair
+  holds 0.2% of variance; dropping any top pair is exactly null; top-128 pairs + diagonal recover only a
+  quarter; the HIGH-RANK TAIL beyond the top-32 directions recovers 88% alone. Concrete micro-examples (per
+  the rule; individually null, illustrative of the texture): pair (dir-0 × dir-3) — both nearly pure " the"
+  detectors (dir-3: 192 of its top-200 triggers are " the" after prepositions) — is maximally active on "of
+  the" / "to the" and its product SUPPRESSES generic word (−29 summed logits) and capital mass there,
+  modulating the noun distribution after a determiner. Pair (dir-1 × dir-2) fires inside capitalized rare
+  words ("…with Cign|ign", "…SF SAND|AND") and boosts suffix continuations ("ise", "ary", "ize") while
+  suppressing broad word/capital mass — a within-word continuation sharpener.
+- **(c) The consumer is layer 3's OWN square — an iterated-squaring chain.** Freeze-patching: the damage
+  through the DIRECT residual path to the unembedding is exactly zero (0.0000 ± 0.00004); no single later MLP
+  alone recovers it; but freezing ONLY layer 3's MLP clean removes **84%** of the damage (0.0288 → 0.0047).
+  Layer 2's square is consumed almost entirely by layer 3's squaring stage, whose output needs further stages
+  to reach the loss.
+**KEY (the algorithm statement):** layer 2 computes a dense, high-rank quadratic expansion — predominantly
+cross-products of layer-1's features, with no privileged pairs and no self-product gain structure — consumed
+almost entirely by layer 3's own squaring stage: one link in an **iterated-squaring pipeline that builds
+progressively higher-order products of early features** (degree-4 by layer 3, degree-8 by the next square...).
+The early stack is not a bag of discrete feature-AND circuits; it is a polynomial feature-factory whose
+individual products are micro-contributions to a distributed code — consistent with §83's redundancy and §71's
+super-additivity, now with the constructive reading: the code is BUILT by iterated squaring. Honest caveats:
+the diag/cross split is basis-dependent; the top-64 directions carry only 56% of stream energy (the tail
+dominates causally, so no low-rank pair story can summarize this); necessity numbers are small because parts
+are mutually redundant — the keep-side sufficiency numbers carry the discrimination; the 84% mediation figure
+is the freeze-complement configuration.

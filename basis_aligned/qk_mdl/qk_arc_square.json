@@ -1,0 +1,1290 @@
+{
+ "meta": {
+  "model": "bilin18",
+  "layer": 2,
+  "held": "FW[448:600,:128]",
+  "batch": 6,
+  "KMAX": 64,
+  "question": "what algorithm does layer 2's MrxMr (square of the lambda-decayed layer-1 MLP output) implement: H1 cross-product AND-gates vs H2 diagonal magnitude nonlinearity vs H3 quadratic basis for downstream (script 2)",
+  "basis": "top-64 SVD directions of layer-1 MLP output, TRAIN gram FW[0:256,:128] (construction verbatim qk_mlp1_tail.py); Mr = lambda-decayed mo1, same directions",
+  "machinery": "VERBATIM qk_allterm_census.py (groups, pair_terms, gate, keep-subset harness); projected square via cached fixed pair vectors B_ij = T2-core(u_i,u_j), per-position coefficient products P_ij = a_i a_j / rho2",
+  "currency": "delta cross-entropy per held position (nats), paired standard error",
+  "base_ce": 3.4946,
+  "gates": {
+   "recon_rel_err_global": 7.331584077740673e-07,
+   "mean_consistency": 2.303463872976863e-07,
+   "proj_machinery_max_rel_err": null,
+   "projmean_consistency": 3.6137961956228537e-07,
+   "Mr_span_capture_held_K64": 0.5638,
+   "gram_spectrum_capture_train": {
+    "8": 0.33214542269706726,
+    "16": 0.40282192826271057,
+    "32": 0.4803909659385681,
+    "64": 0.5691332817077637
+   }
+  }
+ },
+ "energy": {
+  "term_shares": {
+   "ExE": 0.0,
+   "ExAe": 0.0001,
+   "ExAr": 0.0023,
+   "ExMe": 0.0001,
+   "ExMr": 0.006,
+   "AexAe": 0.0002,
+   "AexAr": 0.0062,
+   "AexMe": 0.0002,
+   "AexMr": 0.0091,
+   "ArxAr": 0.0717,
+   "ArxMe": 0.0029,
+   "ArxMr": 0.2308,
+   "MexMe": 0.0,
+   "MexMr": 0.0068,
+   "MrxMr": 0.2727
+  },
+  "part_shares_by_K": {
+   "8": {
+    "diag": 0.0138,
+    "cross": 0.0159,
+    "remainder": 0.2379,
+    "diag_frac_of_diag_plus_cross": 0.4641
+   },
+   "16": {
+    "diag": 0.0152,
+    "cross": 0.0291,
+    "remainder": 0.2163,
+    "diag_frac_of_diag_plus_cross": 0.3425
+   },
+   "32": {
+    "diag": 0.0161,
+    "cross": 0.0457,
+    "remainder": 0.1918,
+    "diag_frac_of_diag_plus_cross": 0.2607
+   },
+   "64": {
+    "diag": 0.0168,
+    "cross": 0.0688,
+    "remainder": 0.1602,
+    "diag_frac_of_diag_plus_cross": 0.1962
+   }
+  },
+  "top_cross_pairs": [
+   [
+    0,
+    3,
+    0.00215
+   ],
+   [
+    1,
+    2,
+    0.00211
+   ],
+   [
+    0,
+    1,
+    0.00142
+   ],
+   [
+    0,
+    7,
+    0.00113
+   ],
+   [
+    0,
+    6,
+    0.00096
+   ],
+   [
+    0,
+    5,
+    0.00094
+   ],
+   [
+    0,
+    4,
+    0.00089
+   ],
+   [
+    1,
+    4,
+    0.00069
+   ],
+   [
+    0,
+    8,
+    0.00066
+   ],
+   [
+    0,
+    9,
+    0.0006
+   ],
+   [
+    0,
+    10,
+    0.00054
+   ],
+   [
+    1,
+    3,
+    0.00052
+   ],
+   [
+    1,
+    5,
+    0.00051
+   ],
+   [
+    0,
+    11,
+    0.00043
+   ],
+   [
+    0,
+    2,
+    0.00043
+   ],
+   [
+    1,
+    9,
+    0.00041
+   ],
+   [
+    1,
+    6,
+    0.00037
+   ],
+   [
+    0,
+    13,
+    0.0003
+   ],
+   [
+    0,
+    12,
+    0.00029
+   ],
+   [
+    3,
+    5,
+    0.00028
+   ]
+  ],
+  "top_diag": [
+   [
+    2,
+    0.00741
+   ],
+   [
+    0,
+    0.00277
+   ],
+   [
+    1,
+    0.00105
+   ],
+   [
+    3,
+    0.00056
+   ],
+   [
+    4,
+    0.00045
+   ],
+   [
+    5,
+    0.00028
+   ],
+   [
+    14,
+    0.00024
+   ],
+   [
+    12,
+    0.00015
+   ],
+   [
+    6,
+    0.00014
+   ],
+   [
+    8,
+    0.00013
+   ],
+   [
+    10,
+    0.00011
+   ],
+   [
+    7,
+    0.0001
+   ],
+   [
+    9,
+    9e-05
+   ],
+   [
+    13,
+    7e-05
+   ],
+   [
+    11,
+    6e-05
+   ]
+  ]
+ },
+ "configs": {
+  "all15_via_parts": {
+   "dCE": -0.0,
+   "SE": 0.0
+  },
+  "drop_MrxMr": {
+   "dCE": 0.0288,
+   "SE": 0.00192
+  },
+  "only_MrxMr_full": {
+   "dCE": 0.0925,
+   "SE": 0.00333
+  },
+  "keep_diag32_dropcross_droprem": {
+   "dCE": 0.0268,
+   "SE": 0.00185
+  },
+  "keep_cross32_dropdiag_droprem": {
+   "dCE": 0.0191,
+   "SE": 0.00155
+  },
+  "keep_proj32_droprem": {
+   "dCE": 0.0177,
+   "SE": 0.00149
+  },
+  "keep_rem32_only": {
+   "dCE": 0.0034,
+   "SE": 0.00068
+  },
+  "drop_diag32_keep_rest": {
+   "dCE": 0.0002,
+   "SE": 0.00022
+  },
+  "drop_cross32_keep_rest": {
+   "dCE": 0.0031,
+   "SE": 0.00063
+  },
+  "keep_diag16_dropcross_droprem": {
+   "dCE": 0.0266,
+   "SE": 0.00185
+  },
+  "keep_cross16_dropdiag_droprem": {
+   "dCE": 0.0216,
+   "SE": 0.00165
+  },
+  "minimal_diag32": {
+   "dCE": 0.7163,
+   "SE": 0.00919
+  },
+  "minimal_cross32": {
+   "dCE": 0.6129,
+   "SE": 0.00859
+  },
+  "minimal_proj32": {
+   "dCE": 0.5778,
+   "SE": 0.00833
+  },
+  "keep_diag32_top1pairs": {
+   "dCE": 0.0267,
+   "SE": 0.00185
+  },
+  "keep_diag32_top2pairs": {
+   "dCE": 0.0262,
+   "SE": 0.00182
+  },
+  "keep_diag32_top4pairs": {
+   "dCE": 0.0254,
+   "SE": 0.00179
+  },
+  "keep_diag32_top8pairs": {
+   "dCE": 0.0244,
+   "SE": 0.00175
+  },
+  "keep_diag32_top16pairs": {
+   "dCE": 0.0227,
+   "SE": 0.00169
+  },
+  "keep_diag32_top32pairs": {
+   "dCE": 0.022,
+   "SE": 0.00166
+  },
+  "keep_diag32_top64pairs": {
+   "dCE": 0.0217,
+   "SE": 0.00165
+  },
+  "keep_diag32_top128pairs": {
+   "dCE": 0.0213,
+   "SE": 0.00162
+  },
+  "drop_pair_0_3": {
+   "dCE": 0.0001,
+   "SE": 8e-05
+  },
+  "drop_pair_1_2": {
+   "dCE": -0.0,
+   "SE": 5e-05
+  },
+  "drop_pair_0_1": {
+   "dCE": 0.0,
+   "SE": 9e-05
+  },
+  "drop_pair_0_7": {
+   "dCE": 0.0001,
+   "SE": 7e-05
+  },
+  "drop_pair_0_6": {
+   "dCE": -0.0001,
+   "SE": 6e-05
+  },
+  "keep_proj64_droprem": {
+   "dCE": 0.0144,
+   "SE": 0.00133
+  },
+  "keep_diag64_droprem": {
+   "dCE": 0.027,
+   "SE": 0.00185
+  },
+  "keep_cross64_droprem": {
+   "dCE": 0.0154,
+   "SE": 0.00139
+  }
+ },
+ "census_ref": {
+  "floor": 0.739,
+  "allbut_MrxMr": 0.0288,
+  "only_MrxMr": 0.0925,
+  "top2": 0.0114
+ },
+ "pair_characterization": [
+  {
+   "pair": [
+    0,
+    3
+   ],
+   "energy_share": 0.002148057321621233,
+   "parents": {
+    "0": {
+     "trigger_classes_top6": [
+      [
+       "determiner",
+       109
+      ],
+      [
+       "word",
+       62
+      ],
+      [
+       "subword",
+       11
+      ],
+      [
+       "pronoun",
+       8
+      ],
+      [
+       "capital",
+       3
+      ],
+      [
+       "punct",
+       3
+      ]
+     ],
+     "trigger_tokens_top8": [
+      [
+       "' the'",
+       86
+      ],
+      [
+       "' a'",
+       15
+      ],
+      [
+       "' of'",
+       6
+      ],
+      [
+       "' your'",
+       4
+      ],
+      [
+       "' an'",
+       3
+      ],
+      [
+       "'-'",
+       3
+      ],
+      [
+       "' you'",
+       2
+      ],
+      [
+       "' me'",
+       2
+      ]
+     ]
+    },
+    "3": {
+     "trigger_classes_top6": [
+      [
+       "determiner",
+       194
+      ],
+      [
+       "punct",
+       2
+      ],
+      [
+       "subword",
+       1
+      ],
+      [
+       "word",
+       1
+      ],
+      [
+       "bracket_open",
+       1
+      ],
+      [
+       "newline",
+       1
+      ]
+     ],
+     "trigger_tokens_top8": [
+      [
+       "' the'",
+       192
+      ],
+      [
+       "' a'",
+       1
+      ],
+      [
+       "'?'",
+       1
+      ],
+      [
+       "'side'",
+       1
+      ],
+      [
+       "' their'",
+       1
+      ],
+      [
+       "' ('",
+       1
+      ],
+      [
+       "':'",
+       1
+      ],
+      [
+       "'\\n'",
+       1
+      ]
+     ]
+    }
+   },
+   "trigger_dCE_of_pair_drop_at_firing": 0.00172,
+   "trigger_dCE_SE": 0.00192,
+   "class_summed_push_top6": {
+    "word": -28.804,
+    "capital": -13.1691,
+    "subword": -6.6097,
+    "digit": -1.8429,
+    "punct": 0.5101,
+    "other": 0.4723
+   },
+   "top_boosted_tokens": [
+    [
+     "'andro'",
+     0.0134
+    ],
+    [
+     "' borderline'",
+     0.0128
+    ],
+    [
+     "'atus'",
+     0.0122
+    ],
+    [
+     "'rosso'",
+     0.012
+    ],
+    [
+     "' outl'",
+     0.0117
+    ],
+    [
+     "' LIST'",
+     0.0117
+    ]
+   ],
+   "top_suppressed_tokens": [
+    [
+     "' squad'",
+     -0.0154
+    ],
+    [
+     "' evening'",
+     -0.0152
+    ],
+    [
+     "' season'",
+     -0.015
+    ],
+    [
+     "' competition'",
+     -0.015
+    ],
+    [
+     "'sts'",
+     -0.0148
+    ],
+    [
+     "' afternoon'",
+     -0.0146
+    ]
+   ],
+   "snippets": [
+    {
+     "seq": 8,
+     "pos": 1,
+     "context_ending_at_pos": " of the",
+     "current_token": "' the'",
+     "a_parent1": -13209.29,
+     "a_parent2": 6778.41
+    },
+    {
+     "seq": 119,
+     "pos": 1,
+     "context_ending_at_pos": " of the",
+     "current_token": "' the'",
+     "a_parent1": -13209.29,
+     "a_parent2": 6778.41
+    },
+    {
+     "seq": 58,
+     "pos": 1,
+     "context_ending_at_pos": " to the",
+     "current_token": "' the'",
+     "a_parent1": -12392.38,
+     "a_parent2": 6762.45
+    },
+    {
+     "seq": 67,
+     "pos": 2,
+     "context_ending_at_pos": " or under the",
+     "current_token": "' the'",
+     "a_parent1": -9774.45,
+     "a_parent2": 6038.5
+    }
+   ]
+  },
+  {
+   "pair": [
+    1,
+    2
+   ],
+   "energy_share": 0.002106297144358294,
+   "parents": {
+    "1": {
+     "trigger_classes_top6": [
+      [
+       "subword",
+       65
+      ],
+      [
+       "punct",
+       44
+      ],
+      [
+       "word",
+       37
+      ],
+      [
+       "determiner",
+       28
+      ],
+      [
+       "capital",
+       12
+      ],
+      [
+       "bracket_open",
+       5
+      ]
+     ],
+     "trigger_tokens_top8": [
+      [
+       "'.'",
+       32
+      ],
+      [
+       "' the'",
+       20
+      ],
+      [
+       "' ('",
+       4
+      ],
+      [
+       "','",
+       4
+      ],
+      [
+       "'imp'",
+       4
+      ],
+      [
+       "'\\n'",
+       3
+      ],
+      [
+       "' a'",
+       3
+      ],
+      [
+       "'ray'",
+       2
+      ]
+     ]
+    },
+    "2": {
+     "trigger_classes_top6": [
+      [
+       "capital",
+       75
+      ],
+      [
+       "subword",
+       45
+      ],
+      [
+       "determiner",
+       36
+      ],
+      [
+       "word",
+       35
+      ],
+      [
+       "coordinator",
+       4
+      ],
+      [
+       "other",
+       3
+      ]
+     ],
+     "trigger_tokens_top8": [
+      [
+       "' the'",
+       35
+      ],
+      [
+       "' of'",
+       6
+      ],
+      [
+       "'TS'",
+       6
+      ],
+      [
+       "' HD'",
+       5
+      ],
+      [
+       "' bipolar'",
+       4
+      ],
+      [
+       "' USB'",
+       3
+      ],
+      [
+       "' Somali'",
+       3
+      ],
+      [
+       "' on'",
+       3
+      ]
+     ]
+    }
+   },
+   "trigger_dCE_of_pair_drop_at_firing": -3e-05,
+   "trigger_dCE_SE": 0.0008,
+   "class_summed_push_top6": {
+    "capital": -78.0928,
+    "word": -67.868,
+    "subword": -36.8958,
+    "digit": -6.4687,
+    "punct": -2.6637,
+    "other": -2.6369
+   },
+   "top_boosted_tokens": [
+    [
+     "'ise'",
+     0.0098
+    ],
+    [
+     "'ary'",
+     0.0096
+    ],
+    [
+     "'ize'",
+     0.0091
+    ],
+    [
+     "'ife'",
+     0.0084
+    ],
+    [
+     "'wood'",
+     0.0084
+    ],
+    [
+     "'ide'",
+     0.0084
+    ]
+   ],
+   "top_suppressed_tokens": [
+    [
+     "'onen'",
+     -0.0147
+    ],
+    [
+     "'Personal'",
+     -0.0146
+    ],
+    [
+     "'onding'",
+     -0.0139
+    ],
+    [
+     "'Secondly'",
+     -0.0136
+    ],
+    [
+     "'Pract'",
+     -0.0133
+    ],
+    [
+     "'zyk'",
+     -0.0132
+    ]
+   ],
+   "snippets": [
+    {
+     "seq": 76,
+     "pos": 10,
+     "context_ending_at_pos": ", is currently an in-network provider with Cign",
+     "current_token": "'ign'",
+     "a_parent1": -3641.27,
+     "a_parent2": -2312.75
+    },
+    {
+     "seq": 14,
+     "pos": 56,
+     "context_ending_at_pos": " diversion, deceit, and espionage.\nYA SF SAND",
+     "current_token": "'AND'",
+     "a_parent1": -2918.14,
+     "a_parent2": -1933.73
+    },
+    {
+     "seq": 136,
+     "pos": 9,
+     "context_ending_at_pos": " Easy also plucked other gems from the Weg",
+     "current_token": "'g'",
+     "a_parent1": -3654.78,
+     "a_parent2": -2307.61
+    },
+    {
+     "seq": 104,
+     "pos": 27,
+     "context_ending_at_pos": " need to eat more finger paint together. Not An Intergal",
+     "current_token": "'gal'",
+     "a_parent1": -3217.49,
+     "a_parent2": -1657.51
+    }
+   ]
+  },
+  {
+   "pair": [
+    0,
+    1
+   ],
+   "energy_share": 0.0014223912182338245,
+   "parents": {
+    "0": {
+     "trigger_classes_top6": [
+      [
+       "determiner",
+       109
+      ],
+      [
+       "word",
+       62
+      ],
+      [
+       "subword",
+       11
+      ],
+      [
+       "pronoun",
+       8
+      ],
+      [
+       "capital",
+       3
+      ],
+      [
+       "punct",
+       3
+      ]
+     ],
+     "trigger_tokens_top8": [
+      [
+       "' the'",
+       86
+      ],
+      [
+       "' a'",
+       15
+      ],
+      [
+       "' of'",
+       6
+      ],
+      [
+       "' your'",
+       4
+      ],
+      [
+       "' an'",
+       3
+      ],
+      [
+       "'-'",
+       3
+      ],
+      [
+       "' you'",
+       2
+      ],
+      [
+       "' me'",
+       2
+      ]
+     ]
+    },
+    "1": {
+     "trigger_classes_top6": [
+      [
+       "subword",
+       65
+      ],
+      [
+       "punct",
+       44
+      ],
+      [
+       "word",
+       37
+      ],
+      [
+       "determiner",
+       28
+      ],
+      [
+       "capital",
+       12
+      ],
+      [
+       "bracket_open",
+       5
+      ]
+     ],
+     "trigger_tokens_top8": [
+      [
+       "'.'",
+       32
+      ],
+      [
+       "' the'",
+       20
+      ],
+      [
+       "' ('",
+       4
+      ],
+      [
+       "','",
+       4
+      ],
+      [
+       "'imp'",
+       4
+      ],
+      [
+       "'\\n'",
+       3
+      ],
+      [
+       "' a'",
+       3
+      ],
+      [
+       "'ray'",
+       2
+      ]
+     ]
+    }
+   },
+   "trigger_dCE_of_pair_drop_at_firing": -0.00013,
+   "trigger_dCE_SE": 0.00141,
+   "class_summed_push_top6": {
+    "capital": -45.8713,
+    "word": -39.7038,
+    "subword": 4.766,
+    "digit": -4.3359,
+    "punct": -1.2758,
+    "other": -0.6178
+   },
+   "top_boosted_tokens": [
+    [
+     "'hur'",
+     0.0089
+    ],
+    [
+     "'ulate'",
+     0.0088
+    ],
+    [
+     "'lict'",
+     0.0084
+    ],
+    [
+     "'ulated'",
+     0.0084
+    ],
+    [
+     "'ipal'",
+     0.0083
+    ],
+    [
+     "'eness'",
+     0.0082
+    ]
+   ],
+   "top_suppressed_tokens": [
+    [
+     "' Machines'",
+     -0.0128
+    ],
+    [
+     "' Basics'",
+     -0.0126
+    ],
+    [
+     "' knowledge'",
+     -0.0124
+    ],
+    [
+     "' dedicated'",
+     -0.0123
+    ],
+    [
+     "' industry'",
+     -0.0121
+    ],
+    [
+     "' machines'",
+     -0.012
+    ]
+   ],
+   "snippets": [
+    {
+     "seq": 119,
+     "pos": 1,
+     "context_ending_at_pos": " of the",
+     "current_token": "' the'",
+     "a_parent1": -13209.29,
+     "a_parent2": 5647.47
+    },
+    {
+     "seq": 8,
+     "pos": 1,
+     "context_ending_at_pos": " of the",
+     "current_token": "' the'",
+     "a_parent1": -13209.29,
+     "a_parent2": 5647.47
+    },
+    {
+     "seq": 125,
+     "pos": 3,
+     "context_ending_at_pos": " of. In the",
+     "current_token": "' the'",
+     "a_parent1": -10088.81,
+     "a_parent2": 5516.16
+    },
+    {
+     "seq": 67,
+     "pos": 2,
+     "context_ending_at_pos": " or under the",
+     "current_token": "' the'",
+     "a_parent1": -9774.45,
+     "a_parent2": 4341.32
+    }
+   ]
+  }
+ ],
+ "downstream_routing": {
+  "sanity_freeze_all_no_ablate": {
+   "dCE": 0.0,
+   "SE": 0.0
+  },
+  "total_damage": {
+   "dCE": 0.0288,
+   "SE": 0.00192
+  },
+  "direct_only": {
+   "dCE": -0.0,
+   "SE": 4e-05
+  },
+  "direct_plus_all_attn": {
+   "dCE": 0.0003,
+   "SE": 0.00014
+  },
+  "freeze_only_mlp3": {
+   "dCE": 0.0047,
+   "SE": 0.00077
+  },
+  "direct_plus_mlp3": {
+   "dCE": -0.0001,
+   "SE": 9e-05
+  },
+  "direct_plus_mlp4": {
+   "dCE": -0.0001,
+   "SE": 6e-05
+  },
+  "direct_plus_mlp5": {
+   "dCE": -0.0001,
+   "SE": 9e-05
+  },
+  "direct_plus_mlp6": {
+   "dCE": -0.0001,
+   "SE": 6e-05
+  },
+  "direct_plus_mlp7": {
+   "dCE": -0.0,
+   "SE": 5e-05
+  },
+  "direct_plus_mlp8": {
+   "dCE": -0.0,
+   "SE": 5e-05
+  },
+  "direct_plus_mlp9": {
+   "dCE": -0.0,
+   "SE": 5e-05
+  },
+  "direct_plus_mlp10": {
+   "dCE": -0.0,
+   "SE": 5e-05
+  },
+  "direct_plus_mlp11": {
+   "dCE": -0.0001,
+   "SE": 5e-05
+  },
+  "direct_plus_mlp12": {
+   "dCE": -0.0,
+   "SE": 4e-05
+  },
+  "direct_plus_mlp13": {
+   "dCE": -0.0001,
+   "SE": 4e-05
+  },
+  "direct_plus_mlp14": {
+   "dCE": -0.0001,
+   "SE": 4e-05
+  },
+  "direct_plus_mlp15": {
+   "dCE": -0.0,
+   "SE": 4e-05
+  },
+  "direct_plus_mlp16": {
+   "dCE": -0.0,
+   "SE": 4e-05
+  },
+  "direct_plus_mlp17": {
+   "dCE": -0.0,
+   "SE": 4e-05
+  },
+  "mediation_via_single_mlp_minus_direct": {
+   "3": -0.0001,
+   "4": -0.0001,
+   "5": -0.0001,
+   "6": -0.0001,
+   "7": 0.0,
+   "8": 0.0,
+   "9": 0.0,
+   "10": 0.0,
+   "11": -0.0001,
+   "12": 0.0,
+   "13": -0.0001,
+   "14": -0.0001,
+   "15": 0.0,
+   "16": 0.0,
+   "17": 0.0
+  },
+  "direct_frac_of_total": -0.0,
+  "direct_readout_signature_at_term_firing": {
+   "class_summed_top6": {
+    "word": -55.5397,
+    "capital": -54.1971,
+    "subword": -23.7343,
+    "digit": -5.8665,
+    "punct": -2.6483,
+    "other": -2.4251
+   },
+   "top_boosted_tokens": [
+    [
+     "'ly'",
+     0.0169
+    ],
+    [
+     "'ia'",
+     0.0152
+    ],
+    [
+     "'ing'",
+     0.0138
+    ],
+    [
+     "','",
+     0.0136
+    ],
+    [
+     "'ering'",
+     0.0133
+    ],
+    [
+     "'ers'",
+     0.0132
+    ]
+   ],
+   "top_suppressed_tokens": [
+    [
+     "' similarly'",
+     -0.017
+    ],
+    [
+     "' equally'",
+     -0.0168
+    ],
+    [
+     "'rongh'",
+     -0.0149
+    ],
+    [
+     "' enormously'",
+     -0.0148
+    ],
+    [
+     "'Bal'",
+     -0.0143
+    ],
+    [
+     "' Instruct'",
+     -0.0141
+    ]
+   ]
+  },
+  "total_signature_at_term_firing": {
+   "class_summed_top6": {
+    "capital": 294.8972,
+    "word": -235.913,
+    "subword": 189.4888,
+    "digit": -27.0473,
+    "other": 16.0607,
+    "punct": -13.2424
+   },
+   "top_boosted_tokens": [
+    [
+     "'Hispanic'",
+     0.2651
+    ],
+    [
+     "'Lago'",
+     0.2457
+    ],
+    [
+     "'ilingual'",
+     0.2264
+    ],
+    [
+     "'Brexit'",
+     0.2216
+    ],
+    [
+     "'ithering'",
+     0.2189
+    ],
+    [
+     "'ideshow'",
+     0.218
+    ]
+   ],
+   "top_suppressed_tokens": [
+    [
+     "' oneself'",
+     -0.2596
+    ],
+    [
+     "'de'",
+     -0.2581
+    ],
+    [
+     "' ?)'",
+     -0.2515
+    ],
+    [
+     "' ).'",
+     -0.2459
+    ],
+    [
+     "'i'",
+     -0.2428
+    ],
+    [
+     "'thing'",
+     -0.2411
+    ]
+   ]
+  }
+ },
+ "verdict": {
+  "H2_magnitude_nonlinearity": "REFUTED in the principal basis: diagonal self-products are 0.017 of mo2 variance vs 0.069 cross (K=64); dropping the diagonal costs +0.0002 nats; keeping it alone recovers only 6-7% of the term contribution (0.0288 -> 0.0268/0.0270).",
+  "H1_few_AND_gate_pairs": "REFUTED as a few-pairs story: top pair holds 0.2% of mo2 variance; dropping any top pair is null (+-0.0001); 128 top pairs added to the diagonal recover only 26% (0.0288 -> 0.0213). Cross-products DO dominate the diagonal (energy 4x, causal keep-side 47% vs 6% at K=64) but as a dense distributed mass, not discrete gates.",
+  "high_rank_tail": "Dominant: top-64 SVD directions hold only 56% of Mr energy; products involving the beyond-64 tail hold 59% of the term energy; the term minus its top-32-subspace square still recovers 88% of the causal contribution (0.0288 -> 0.0034).",
+  "H3_downstream_read": "CONFIRMED and sharpened: direct-residual-readout-only damage is 0.0000; no single later component alive mediates it; freezing ONLY layer-3 MLP clean removes 84% of the damage (0.0288 -> 0.0047) -> the square is consumed almost entirely by layer 3 own square and then further stages (multi-stage chain), not by the unembedding.",
+  "algorithm_one_sentence": "Layer 2 computes a dense, high-rank quadratic expansion -- predominantly cross-products, with no privileged feature pairs and negligible self-product gain structure -- of layer-1 full output, used almost entirely as input to layer 3 own squaring stage (and stages beyond) rather than being read at the unembedding: one link in an iterated-squaring pipeline that builds progressively higher-order products of early features.",
+  "caveats": [
+   "diag-vs-cross split is basis-dependent (SVD basis of layer-1 output used, the program standard); a quadratic form is re-diagonalizable per output coordinate, so cross-dominance is relative to the variance-principal basis",
+   "drop-side necessity numbers are small because parts are mutually redundant; keep-side sufficiency numbers carry the discrimination",
+   "mediation scan is single-mediator first-order; the 84% figure is from the freeze-only-mlp3 complement",
+   "per-pair class-push signatures are illustrative; their local delta cross-entropy is not significant"
+  ]
+ }
+}
