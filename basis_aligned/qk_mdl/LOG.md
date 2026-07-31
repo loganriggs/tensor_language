@@ -7035,3 +7035,13 @@ existing steering methods, not a new method class, so in-scope and launched rath
   circuit arcs + editing demo, coverage ceiling, and an architecture-general completeness boundary with the
   SAE rejoinder run to ground. The handed-off open problem is attribution of JOINT/collective computation —
   no current tool (directions, dictionaries at any fidelity) attributes the hubs' causal mechanism.
+
+## tick 2026-07-31 (coalition-attribution red-team of §81's "unattributable in parts" — dispatched)
+- Identified the one untested granularity in the §80/§81 claim: "parts" so far = SINGLE features (0/32) and
+  the FULL set (~2%); COALITIONS untested. Dispatched a3f13eec67bd65b7d (qk_coalition_attr.py): cheap proxy
+  screen (co-activation clusters, decoder-subspace clusters, top-singles) → joint ablation of candidate
+  coalitions (sizes 8/32/128/512) vs random same-size controls (§61 design at feature granularity) on the
+  saved bilin18 dictionary (qk_sae_moredata.npz), + a subspace-alignment test vs the §73 known-sufficient
+  ~28-direction subspace. VERDICT sought: does any ≤128-feature coalition carry ≥25-50% of the hub effect
+  (→ attributable at coalition granularity, qualifies §81) or do even coalitions fail (→ the open problem
+  hardens: effect only at near-full-set scale)? Bounded budget (~100-200 forwards). Collect next tick.
