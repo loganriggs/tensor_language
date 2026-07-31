@@ -4810,3 +4810,37 @@ literally "square the previous output." The mid-stack refines with small, diffus
 term set. The deep stack reads accumulated history (its own attention going causally dead by L15/16), and the
 final readout layer is a dense, mutually-cancelling mixer that resists term-wise decomposition. Every claim
 gated at 1e-6 and floor-validated against prior censuses to four decimals.
+
+## §90 The RECENCY-TO-HISTORY PIPELINE is architecture-general — swiglu18 replication (2026-07-31)
+(qk_swiglu_pipeline.py; the §89 flow map tested on the softmax SwiGLU model at GROUP granularity — swiglu's
+MLPs are not bilinear so the term decomposition does not port, but the input-group intervention is exact
+without it: replace one group's contribution to a layer's MLP input with its per-position held mean, recompute
+that layer's MLP, downstream normal. GATES: pre-norm input = sum of the five groups at ≤4.4e-7 every layer;
+base cross-entropy 3.4108 matches sanity; all 18 mean-ablation floors match qk_general_completeness_swiglu18
+to five decimals, e.g. L2 0.7592/0.75924, L17 0.4319/0.43186. Full held slice, paired standard errors.)
+- **All four bilin18 signatures replicate:** (i) ATTENTION-RECENT is the top input group at every layer 0-7
+  (17-28% of floor, z 18-21), then collapses — from L12 on it is 0.6-5% and at L14/15/17 its ablation costs
+  0.0003-0.0025 nats (causally negligible), the same trajectory as bilin18 including a similar mid-stack
+  wobble (swiglu L9 dip; bilin18 L8-11). (ii) The EMBEDDING dies early (12.8% at L0, ≤6.6% and 0.001-0.003
+  nats absolute from L4 on) with the same faint last-layer revival (2.5%, z 10.4). (iii) HISTORY takes over:
+  attention-earlier + mlp-earlier are absent/dead through L5, cross over at L8-9, and jointly account for
+  51-103% of each floor from L12 on (mlp-earlier peaking at 66% at L15). (iv) The LAST LAYER is distinctive:
+  floor jumps ~10× (0.040 at L14 → 0.432 at L17, mirroring bilin18's 0.030 → 0.421), own attention stays dead
+  while mlp-recent and the embedding revive, and the five single-group costs sum to only 58% of the floor —
+  the entangled readout signature again.
+- **Concrete examples:** L5 (recency regime): own attention 0.0731 ± 0.0035 (21% of its 0.3415 floor) while
+  attention-earlier costs 0.0071 and the embedding 0.0027 — history unused. L15 (history regime): mlp-earlier
+  0.0319 ± 0.0020 (66% of its 0.0485 floor), attention-earlier 35%, own attention 0.0010 ± 0.0004 (z 2.7) —
+  the layer computes almost entirely on accumulated history.
+- **Honest differences:** (a) the comparison is INTERVENTION-vs-ENERGY (bilin18's map = exact term energies +
+  keep-subsets; swiglu's = input-group mean ablation) — structure comparable, magnitudes not unit-comparable;
+  (b) swiglu's mlp-recent death at depth is SOFTER (8-14% of floor, z 5-9 — nonzero, flagged dead only by the
+  absolute threshold) where attention-recent's death is unambiguous; (c) single-group costs sum to ~30% of the
+  floor at L0 but ~118% at L14 — early computation is more JOINTLY-held on swiglu than any single-group number
+  conveys.
+**KEY:** the three-phase provenance pipeline — early layers reading the embedding + their own fresh attention
+and MLP outputs; a crossover at L8-11; late layers reading only accumulated lambda-decayed history with their
+own attention causally dead; a distinctive ~10×-floor entangled readout at the end — is ARCHITECTURE-GENERAL,
+appearing identically on a conventional softmax SwiGLU transformer under an intervention that needs no
+bilinearity. The depth-anatomy joins the completeness boundary and the SAE decoupling as cross-architecture
+facts.
