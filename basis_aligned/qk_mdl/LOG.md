@@ -7645,3 +7645,12 @@ existing steering methods, not a new method class, so in-scope and launched rath
   routes: gauge-transformed/nonlinear sharing (tn_gauge) or atoms outside the block span.
 - §105 appended, red-team dispatched (gauge-freedom Procrustes alignment — the deepest objection; causal
   refit of mixing at mild budgets; mean-centered atoms; output-slot weighting).
+
+## tick 2026-07-31k (new component-dossier artifact started per Logan)
+- Logan requested a NEW artifact for explaining bilin18, organized BY COMPONENT (architecture, decomposition
+  method, all known features with how-we-know, understanding metrics), starting with attention layer 0 for
+  quick iteration. Built and published: bilin18_components.html (draft-1-attention-L0). Four-part template
+  per dossier: architecture / decomposition / features table with evidence / five-ledger scorecard.
+  a.L0 dossier complete (h.L0.3 prev-token channel + capital pusher, the route-through-block-0 fact, the
+  verified null h.L0.2, five fingerprinted-unnamed heads); other components stubbed in the left rail.
+- §105 red-team still running (refit + gauge + centered-atom attacks live on GPU).
