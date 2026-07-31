@@ -7320,3 +7320,12 @@ existing steering methods, not a new method class, so in-scope and launched rath
 - PROGRAM: fully complete including all recorded handoffs that were runnable in-scope. Remaining frontiers
   (tn_gauge shared structure; sufficiency tools generally; earlier-layer transplants where collateral is not
   free) are genuine scope decisions. Resting.
+
+## tick 2026-07-31 (§94 folded into paper + artifact — ALL surfaces complete and synchronized)
+- Paper: the editing paragraph now closes with the §94 confirmation (transplant force +0.028 / suppress −0.070,
+  zero-collateral gate exact, mlp-earlier refinement); source line → §32-§94. Artifact editing card likewise
+  closes with the two-sided law; redeployed (same URL, label program-complete).
+- PROGRAM COMPLETE AND SYNCHRONIZED. Final state: RESULTS §32-§94, TECHNIQUES catalog, ROADMAP, paper draft,
+  artifact, and memory all carry the same finished story with every claim gated, red-teamed, and cross-
+  validated. ~17 retractions/softenings enforced along the way, including two of my own interim syntheses.
+  Open frontiers on record as scope decisions. Resting.
