@@ -4316,7 +4316,15 @@ diff 0.00000. Denominators reproduce §71 exactly (all-234 sum 1.1773; named-26 
   output over that class (entropy ~0.9) — so they are characterizable in TYPE (distributed class PRIORS) but
   their class movement does NOT translate into individually load-bearing cross-entropy. The §69 finding (most
   class-pushers are static priors, not selectors) is now confirmed to DOMINATE the unnamed single-path region:
-  it is mostly diffuse priors, not undiscovered algorithms.
+  it is mostly diffuse priors, not undiscovered algorithms. CONCRETE EXAMPLES (per Logan's give-instances rule):
+  (1) mlp.L17.d0 — a CAPITAL-class prior: at its firing positions it pushes the summed logits of the whole
+  capital class by +30,550 ± 414 (z 73.8; control is NEGATIVE −60,197; specificity z 65.4), spread near-
+  uniformly (entropy 0.99, top-token share 0.0001), yet ablation costs only +0.156 ± 0.056 (z 2.8 — below the
+  bar). (2) h.L14.h4 — a WORD-class prior triggered by punctuation/newlines: pushes the leading-space word
+  class +1,759 ± 134 (z 13.1, control ≈ 0) but ablation is +0.042 ± 0.031 (z 1.4). (3) h.L11.h3 — a SUBWORD-
+  continuation prior: +1,252 ± 87 (z 14.4, control ≈ 50) but ablation +0.044 ± 0.030 (z 1.5). Pattern: class
+  push overwhelming (z 8–74), individual causal cost unresolvable — the priors are redundantly/collectively
+  carried, each one's lean compensated when removed.
 - **Part B — the multi-path structure is essentially ONE super-additive block, not nameable teams.** Greedy
   joint-ablation grouping over the top 20 causally-important paths (union firing set, same-size random control):
   whole-top-20 joint delta cross-entropy 1.020 ± 0.032 vs sum-of-solos 0.607 → super-additivity **1.68**,
