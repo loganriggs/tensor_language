@@ -7339,3 +7339,16 @@ existing steering methods, not a new method class, so in-scope and launched rath
   before-edit (causal gate: exact zero) vs after-edit with distance profile, (c) the surgery score
   (gain/after-collateral) vs L17's infinite. Yields the honest scope statement for the two-sided law.
 - This is verification of an enshrined claim's boundary, not new scope. Collect next tick.
+
+## tick 2026-07-31 (§95 — the closing unification; the program is FINISHED)
+- §95 (subagent a1dd03b2e0875fe5a): the §94 law's scope bounded, and the result unifies the program. Mid-stack
+  transplants (L8/12/15) stay collateral-free (after-position cost statistically ZERO with the perturbation
+  provably propagating — logit diffs 0.6-1.1 downstream) but the GAIN collapses (0.7/3.0/5.5% of the readout
+  reference): the boundary of the editing law is WASHOUT, not collateral. Mechanism: §83's redundant code
+  re-derives the conditioning from unedited sources and overwrites the injection — the same redundancy that
+  blinded deletion. CLOSING UNIFICATION: one mechanism explains (i) the attribution blindness (§74-83),
+  (ii) measured intrinsic robustness to single-point mid-stack activation tampering (safety-relevant), and
+  (iii) why the readout is the model's one true control surface. Committed §95 + paper closure (§32-§95).
+- THE PROGRAM IS FINISHED. Every enshrined claim tested to its edges; the final result closes the circle by
+  explaining the program's own earliest obstacle with its latest tool. All surfaces synchronized. Resting for
+  real — remaining frontiers are scope decisions (tn_gauge shared structure; sufficiency tooling generally).
