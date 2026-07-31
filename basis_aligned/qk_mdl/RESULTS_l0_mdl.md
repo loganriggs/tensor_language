@@ -4697,3 +4697,29 @@ in the architecture's own coordinates. Learned features (SAEs) and spectral dire
 never causation; the EXACT stream-pair terms give: five named parts = full function, a causally dead input
 row, an interaction (not additive) structure, and a bigram-table term identified as such. Logan's suggestion —
 fold the input with what comes before and split by provenance — is the tool that cracked the hub.
+
+## §87 Whole-model restricted cores — compounding is real; compression frontier measured, no free lunch (2026-07-31)
+(qk_allcore_restrict.py, run directly; fold-audit item 3 follow-up — does §85's cheap single-layer restriction
+stay cheap when applied to ALL 18 feed-forward blocks simultaneously? Per-layer train-gram bases, per-position
+held means, held-back FW[448:600], paired standard errors.)
+- **Compounding is real and roughly additive — the single-layer bargain does NOT scale for free.** Restricting
+  every MLP to (in-288 × out-144) — the §85 setting that cost only +0.182 at MLP1 alone — costs **+1.456 ±
+  0.014 nats cumulatively** (18 layers averaging ~0.08 marginal each). The measured compression-fidelity
+  frontier: **128× smaller cores → +1.46; 16× → +0.80 (or +1.02 input-only-288); 4× → +0.35.** For scale: the
+  exact uncompressed fold chain is +0.033, and base cross-entropy is 3.20 — so +1.46 is a substantial
+  degradation, nothing like the faithful-substitution regime.
+- **What this does and does not change about the compression story (limitation 1):** it DOES replace "the
+  cores are incompressible" with a measured FRONTIER — subspace (Tucker-style) restriction yields genuine
+  description-length points (4×/+0.35, 16×/+0.80, 128×/+1.46) where naked CP-rank truncation gave nothing.
+  It does NOT deliver faithful whole-model compression: the +0.03-level fidelity of the exact fold is
+  unreachable by naive uniform per-layer restriction. Per-layer analysis (one layer at a time, everything else
+  exact) stays cheap; simultaneous restriction compounds.
+- **Practical implication for the fold-audit program:** the restricted-core machinery is the right tool for
+  LOCAL analysis (per-layer maps, the certified proxy's downstream propagation, term pruning) and for a
+  compression FRONTIER, but whole-model faithful compression would need non-uniform ranks (late layers are
+  low-rank, early hubs high-rank per §73 — a rank-allocation optimization) or shared/composed structure, not
+  uniform truncation. Honest calibration recorded before any overclaim.
+**KEY:** §85's single-layer compression does not naively globalize — costs compound roughly additively across
+the 18 blocks (128× compression costs +1.46 nats whole-model). The fold yields a real, measured compression
+frontier where CP truncation yielded none, but faithful whole-model compression remains open (non-uniform rank
+allocation is the obvious next lever).
