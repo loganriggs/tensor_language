@@ -7131,3 +7131,18 @@ existing steering methods, not a new method class, so in-scope and launched rath
   Tucker frontier, but faithful whole-model compression NOT achieved by uniform restriction — non-uniform
   rank allocation (late low-rank / early high-rank per §73) is the next lever. Committed §87.
 - Still pending: certified restricted-core proxy (aed4bbce65412aa8c, script being written).
+
+## tick 2026-07-31 (§88 certified proxy lands — the fold-audit's top upgrade CONFIRMED)
+- §88 (subagent aed4bbce65412aa8c): propagation through downstream folded compact cores is a STRICT upgrade
+  over the linear proxy as a candidate-ranker. Nontrivial-subset Spearman 0.81 global / 0.73 trigger (linear:
+  0.43 / 0.26); sign agreement 0.91 / 1.00 (linear 0.73 / 0.67); recovers every early-layer case linearization
+  deletes (h.L0.3 true +0.061: restricted +0.090, linear −0.0001); tunable to Spearman 0.93 / Pearson 0.99 at
+  rank 576×288; certified basis-specific (random bases collapse to 0.59). Side finding: a poor absolute model
+  (+1.46 baseline, §87) still preserves causal ORDERING — fidelity-for-attribution ≠ fidelity-for-prediction.
+  Honest notes: h.L16.2's §67 misrank was the cleanliness scalar's fault; compute win modest (~15% wall, 4.2×
+  MLP MACs). Committed §88 + TECHNIQUES proxy-fix section.
+- FOLD-AUDIT SCOREBOARD (Logan's question, now with results): proxy → STRICTLY REPLACED (§88); hub attribution
+  → provenance terms deliver (§86); computation hierarchy → compact (§85); compression → real frontier but
+  compounds (§87, honest negative); sufficiency-first → vindicated (§84). Remaining audit items: term census
+  beyond the hub (all layers), non-uniform rank allocation, term-targeted editing, provenance-naming gates.
+- NEXT: consolidate §84-88 into the paper as one coherent "fold-first attribution" section + artifact refresh.
