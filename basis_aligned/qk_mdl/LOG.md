@@ -7253,3 +7253,17 @@ existing steering methods, not a new method class, so in-scope and launched rath
   not allocational; faithful compression needs cross-layer shared structure (tn_gauge territory). Committed
   §92 + §87 correction pointer.
 - Still in flight: term-targeted editing (af2f7139a7117a50c) — the §75 rematch on the differential pair.
+
+## tick 2026-07-31 (§93 lands — the fold-audit is FULLY EXECUTED)
+- §93: term-targeted editing verdict (synthesis derived from the run JSON after the agent stalled). Prior-
+  strength knob: swing 0.47 monotone, mild-regime specificity ~2× §75's. The gated arm is the CONTRAST-CARRIER
+  — dialing it flattens discrimination in both directions (contrast 9.6×→3.4× down, →1.9× up), which
+  mechanically EXPLAINS §75's "conditioning lives upstream" limit: amplitude edits scale writes, they cannot
+  re-aim conditioning encoded in the term's activation pattern. No surgical override at term level; the
+  concrete pointer for future control work is INPUT-side (stream) edits. Committed §93.
+- FOLD-AUDIT SCOREBOARD — COMPLETE: proxy STRICTLY REPLACED (§88); hub attribution SOLVED by provenance terms
+  (§86); computation hierarchy COMPACT (§85); sufficiency-first VINDICATED (§84); model-wide pipeline MAPPED +
+  architecture-general (§89/§90); readout MECHANISM found (§91 differential pair); compression HONESTLY
+  BOUNDED (§87/§92, structural not allocational); editing REFINED with the limit explained (§93). Every line
+  of Logan's audit question now has a measured answer.
+- NEXT: final consolidation pass (paper + artifact) of §90-§93, then rest state.
