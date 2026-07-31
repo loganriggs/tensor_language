@@ -7180,3 +7180,20 @@ existing steering methods, not a new method class, so in-scope and launched rath
   cancelling mixer vs keep-subset/gauge bookkeeping artifact (measure actual anti-alignment of term outputs).
 - Artifact refresh deliberately HELD until the red-team lands (retraction-safe discipline). Collect next tick,
   apply corrections/caveats, then fold the verified fold-first story into the artifact.
+
+## tick 2026-07-31 (fold-first red-team: ALL FOUR attacks survive; strengthenings applied; artifact carries the resolution)
+- Red-team (a4e2309c5bc0a3a89) verdicts: (1) GAUGE-SMUGGLING refuted — keep-5 with kept-groups-only gauge
+  identical (+0.0019 ± 0.0006); the shared gauge modulates 29.2% of output VARIANCE but only 0.13% of FUNCTION
+  (0.0072 nats, same for keep-5 and all-ten). (2) Positional-mean confound minor — 0.122 nats of 5.574;
+  keep-144 unchanged under a global mean. (3) Dead attention-0 row dead BY CONTENT (raw RMS 388 vs 50,443 at
+  the same lambda 0.0127 — ~17,000× energy gap). (4) L17 cancelling mixer GENUINE at the covariance level
+  (dominant pair cosine −0.842; cancellation index 1.54 vs 0.65 at L1); the within-noise "diagonal worse than
+  floor" phrasing replaced with the direct measurement. Applied all four strengthenings to §84/§86/§89 +
+  committed.
+- Artifact refreshed (same URL) with the verified "fold-first attribution (red-teamed)" section: five-named-
+  terms hub card + recency-to-history pipeline card (incl. the repaired proxy). The visual deliverable now
+  tells the complete story: decomposition → toolbox → completeness boundary → SAE decoupling → fold-first
+  resolution.
+- The fold-first arc (§84-89) is now red-teamed and enshrined. Remaining threads: L17 cancelling-mixer
+  structure (now with measured anti-alignment as the starting point), non-uniform rank allocation,
+  term-targeted editing, provenance-naming gates, cross-model term census.
