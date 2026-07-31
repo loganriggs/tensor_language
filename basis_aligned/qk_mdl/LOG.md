@@ -7510,3 +7510,17 @@ existing steering methods, not a new method class, so in-scope and launched rath
   category, variance-explained on the top message dims + concrete examples; (3) BESPOKE SURROGATE — replace
   the region's write with message + explicit REPETITION code (r copies), verifying both the function AND the
   §83 robustness phenomenology transfer — {message, redundancy-factor} as the fundamental objects.
+
+## tick 2026-07-31 (Logan: cross-layer composition directive — fold components into consumers)
+- Logan: after the message-bottleneck, focus on CROSS-LAYER COMPOSITION — components seem conditional, and
+  the tensor network lets us directly fold any component into other components. Mechanistic reading: a
+  component is "conditional" because a downstream bilinear form MULTIPLIES it by another stream quantity;
+  folding into the consumer names the gating partner exactly. Also the natural attack on §87/§92's
+  super-additive compression bound (missing structure is shared BETWEEN layers).
+- Dispatched cross-layer fold arc (qk_xfold_terms/table/gate.py): (1) second-order provenance — expand block
+  3's mlp-earlier group into upstream per-block writes, exact reassembly gate, causal ranking of cross-layer
+  term pairs (is mlp2-x-mlp2 the iterated square? who supplies context?); (2) token-table fold — block 0's
+  table substituted into block 1's bilinear form -> per-token effective LINEAR maps, explicitness + causal
+  substitution + concrete "after token X layer 1 does Y" examples; (3) gating-partner identification for
+  h.L7.0 — which cross term carries the 88% mediated effect, with sign-flip examples.
+- Message-bottleneck agent still running in parallel (GPU guard on both).
