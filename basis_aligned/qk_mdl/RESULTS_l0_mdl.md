@@ -4723,3 +4723,36 @@ held means, held-back FW[448:600], paired standard errors.)
 the 18 blocks (128× compression costs +1.46 nats whole-model). The fold yields a real, measured compression
 frontier where CP truncation yielded none, but faithful whole-model compression remains open (non-uniform rank
 allocation is the obvious next lever).
+
+## §88 CERTIFIED RESTRICTED-CORE PROXY — the fold fixes the program's most recurring failure (2026-07-31)
+(qk_certified_proxy.py / _2.py; the fold-audit's top upgrade — replace the unreliable direct-to-logits LINEAR
+proxy (§56's recurring lesson) with propagation through the downstream layers' folded compact cores. 24
+census candidates spanning the range incl. the §67 misranked cases; ground truth = full-model mean-ablation on
+a 32-sequence subsample verified against the census (4 recomputed matches to 6 decimals; subsample-vs-full
+Spearman 0.988). Positive control: the folded restricted core is numerically identical to the §85 map-
+restriction construction.)
+- **The linear proxy, at its strongest fair version, still fails** (exact per-position residual perturbation
+  added straight to the final residual, true readout): on the 21 nontrivial candidates Spearman 0.43 global /
+  0.26 at triggers, sign agreement 0.73 / 0.67. Characteristic failure = EARLY layers whose effect acts
+  through downstream computation that linearization deletes: h.L0.3 true +0.061 → linear predicts −0.0001;
+  h.L1.1 (true +0.037) and h.L6.3 (+0.034) predicted ~zero.
+- **The restricted-core propagation proxy is a strict upgrade:** Spearman **0.81 global / 0.73 trigger**, sign
+  agreement **0.91 / 1.00** (sign-clear cases). It recovers every early-layer case (h.L0.3 predicted +0.090 vs
+  true +0.061; h.L6.3 +0.023 vs +0.034). **Tunable fidelity:** at double core rank (576×288) Spearman rises to
+  **0.93, Pearson 0.99, perfect sign**, and the single rank-288 miss (h.L9.7) is fixed — capacity, not concept.
+- **Certified basis-specific:** with RANDOM orthonormal bases of the same rank the fidelity collapses to
+  linear-proxy territory (Spearman 0.59; h.L0.3 back to −0.0003) — the train-gram cores specifically carry the
+  causal signal, not "coarse downstream computation" generically.
+- **Striking side finding:** the restricted model is a POOR absolute model (baseline +1.46 nats, §87) yet the
+  PAIRED causal differences rank correctly — compact polynomial cores preserve causal ORDERING that
+  linearization destroys. Fidelity for attribution ≠ fidelity for prediction.
+- **Honest notes:** (i) h.L16.2's §67 misranking was committed by the cleanliness/top-boost SCALAR — the
+  per-position linear proxy also gets its negative sign right at layer 16 (direct path dominates there); the
+  linear proxy's genuine failures are the early layers. (ii) Compute win currently modest (wall ~15%; MLP
+  multiply-accumulates 4.2× smaller; whole-forward ceiling 1.78× with attention/readout exact) — the honest
+  pitch is FIDELITY at modestly reduced cost.
+**KEY:** the fold-audit's prediction is confirmed — propagating candidate perturbations through the downstream
+layers' folded compact cores yields a RELIABLE candidate-ranking proxy (Spearman 0.81→0.93 by rank, sign
+~perfect) where linearization failed (0.43/0.26, wrong on every early-layer path). The §56 recurring lesson
+("the proxy lies") now has a structural fix, certified by rank-capacity and random-basis controls. Every
+detector in the toolbox can inherit this ranker.

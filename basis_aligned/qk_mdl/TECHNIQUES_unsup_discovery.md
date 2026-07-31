@@ -42,3 +42,13 @@ paired standard errors, mean-ablation in-distribution zero point.
 | circuit type | why the cleanliness loop misses it | tool | status |
 |---|---|---|---|
 | distributed CLASS-OUTPUT (push a whole token class, not a sharp token set) | top-64 effect-purity ≈ 0 for a near-uniform class-push (output entropy ~9.6–10.7 nats), yet these are the model's LARGEST single-path effects; cleanliness ⊥ causal importance (Pearson 0.006) | CAUSAL CLASS-LEVEL effect detector: rank by mean-ablation delta cross-entropy at activation-selected positions, characterize output by CLASS-summed delta-logit (not top tokens), + §61 family-joint redundancy pre-pass, then verify class-summed suppression vs control | **DONE §68** (qk_unsup_classpush.py): score correlates with causal importance Pearson 0.986 (vs cleanliness 0.006) — blind spot fixed. 5 verified class-PUSHERS: capital-pushers h.L0.3 / mlp.L17.d1 (z 48.6) / mlp.L17.d3, word-pushers mlp.L17.d2 / mlp.L16.d2. Sign discriminates: 3 class-SUPPRESSORS (h.L11.2 word-suppressor — corrects census's completion-predictor guess; h.L8.7 capital; mlp.L16.d0 word). §61 redundancy pre-pass: mlp.L17.d1–3 joint 0.911 vs sum 0.481 (must score jointly) |
+
+
+### The proxy fix (fold-audit outcome, §88)
+The recurring lesson throughout this catalog — the direct-to-logits LINEAR proxy is unreliable (wrong in
+magnitude, sign, case; §56/§67) — now has a structural fix: the CERTIFIED RESTRICTED-CORE PROXY (§88,
+qk_certified_proxy.py). Propagate the candidate's mean-ablation through the remaining layers with each
+downstream MLP replaced by its folded compact core (train-gram in-288 × out-144; attention exact). Nontrivial-
+subset Spearman vs truth 0.81 (vs linear 0.43), sign agreement ~1.0 (vs 0.67-0.73), tunable to 0.93 at rank
+576×288; certified by random-basis collapse (0.59) and capacity controls. Use it as the candidate-ranker in
+place of the linear proxy everywhere; causal verification stays the final gate.
