@@ -4844,3 +4844,37 @@ own attention causally dead; a distinctive ~10×-floor entangled readout at the 
 appearing identically on a conventional softmax SwiGLU transformer under an intervention that needs no
 bilinearity. The depth-anatomy joins the completeness boundary and the SAE decoupling as cross-architecture
 facts.
+
+## §91 WHY THE READOUT CANCELS — layer 17 is a DIFFERENTIAL PAIR (push-pull sharpening confirmed) (2026-07-31)
+(qk_L17_mixer.py / _2.py; the three-hypothesis investigation of §89/§90's cancelling-mixer readout. All gates
+pass: reconstruction 7.05e-7, floor +0.4206 to four decimals, the dominant-pair cosine −0.842 exactly,
+keep-top-2 +0.2023 exactly. Held-back FW[448:600], paired standard errors.)
+- **H1 PUSH-PULL SHARPENING — CONFIRMED, with the direct causal fingerprint.** The two dominant terms write
+  large, almost exactly OPPOSITE class movements — class-signature cosine **−0.965** over all positions
+  (attention-earlier×mlp-recent pushes capital +3576 / subword +3181 / word +1798; mlp-recent² pushes capital
+  −4803 / word −4466 / subword −3925). Their SUM's signature is **3.7× smaller than either member** (3189 vs
+  9297 and 14264) yet functionally decisive: removing both together costs +0.0587 ± 0.0028 (21 standard
+  errors). The cancellation fingerprint: **removing BOTH together (+0.0587) is CHEAPER than removing either
+  alone (+0.1479, +0.0697)** — each term alone is a large wrong object; only the difference is the
+  computation. The pair's damage lands at STRUCTURAL decision points: before bracket-opens +0.849 ± 0.137,
+  subword continuations +0.145, newlines +0.131, coordinators +0.111.
+- **H2 NULL-SPACE WASTE — REJECTED.** With the vocabulary-centered unembedding's top-K directions as the
+  logit-relevant subspace: dominant-pair cosine −0.800 INSIDE the row-space (K=144) vs −0.844 in the
+  complement (−0.794 under the exact first-order logit metric); the 15-term cancellation index is 1.38
+  in-row-space vs 1.54 in-complement, both far above healthy layer 1's 0.65. The cancellation is NOT hidden in
+  directions the readout ignores.
+- **H3 GAIN CONTROL — minor secondary at most.** The readout's rms-normalization is scale-invariant, so only
+  per-position write strength matters; norm-matching rescues just 15.6-32.6% of the keep-pair damage while the
+  full DIRECTION at subset-norm recovers 76%. Direction carries the damage; the kept-pair output is smaller
+  (median norm ratio 0.78), not inflated.
+**KEY — the readout layer, functionally (fold vocabulary):** layer 17's feed-forward is a **conditional
+contrast stage — a differential pair, not a mixture of separable devices**. mlp-recent² (the self-interaction
+of the preceding block's output) writes a broad lexical-class PRIOR — generic capital-and-word mass;
+attention-earlier×mlp-recent (the same signal gated by accumulated context) writes its near-negation. The
+layer's product is the small context-conditioned DIFFERENCE: it SUBTRACTS the generic word/capital prior
+except where accumulated context says that mass is due, sharpening the final distribution at structural
+decision points. This is exactly why it resists term-wise decomposition — no individual term IS the
+computation; each alone is the prior or its negation, both wrong by an order of magnitude. It unifies §44
+("lexical readout"), §69 (the genuine context-conditioned capital SELECTOR riding on static priors — the
+selector is the differential pair's gated arm), and §76 (the distributed class priors — whose conditional
+RETRACTION is implemented here). The one resistant spot in the model now has a mechanism.

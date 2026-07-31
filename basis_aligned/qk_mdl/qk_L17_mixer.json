@@ -1,0 +1,987 @@
+{
+ "meta": {
+  "model": "bilin18",
+  "layer": 17,
+  "held": "FW[448:600,:128]",
+  "batch": 6,
+  "base_ce": 3.4946,
+  "machinery": "VERBATIM qk_allterm_census.py (pair_terms, forward, keep-subset harness); Grams as qk_redteam_fold_2.py attack 4",
+  "gates": {
+   "recon_rel_err_global": 7.049056995624683e-07,
+   "recon_max_pos": 4.183281362202251e-06,
+   "cos_full_AexMr_MrxMr": -0.8421,
+   "floor_dCE": 0.4206,
+   "top2_energy_dCE": 0.2023
+  },
+  "currency": "delta cross-entropy per held position (nats), paired standard error"
+ },
+ "test2_subspace": {
+  "unembed_spectrum": {
+   "top144_trace_share": 0.245,
+   "top288_trace_share": 0.4062,
+   "top576_trace_share": 0.6562
+  },
+  "centering": "W_U centered over vocab (uniform-logit-shift direction removed); row-space basis = top-K eigenvectors of Wc^T Wc; the final rms_norm has no learned gain, so no further centering applies",
+  "energy_share_full": {
+   "ExE": 0.0001,
+   "ExAe": 0.0098,
+   "ExAr": 0.0001,
+   "ExMe": 0.0094,
+   "ExMr": 0.0085,
+   "AexAe": 0.0945,
+   "AexAr": 0.0305,
+   "AexMe": 0.311,
+   "AexMr": 0.3489,
+   "ArxAr": 0.0002,
+   "ArxMe": 0.01,
+   "ArxMr": 0.0225,
+   "MexMe": 0.1868,
+   "MexMr": 0.2794,
+   "MrxMr": 0.2239
+  },
+  "cancellation_index": {
+   "full": 1.5355,
+   "rowspace_K144": 1.3752,
+   "complement_K144": 1.5424,
+   "rowspace_K288": 1.3835,
+   "complement_K288": 1.544,
+   "rowspace_K576": 1.3718,
+   "complement_K576": 1.5484
+  },
+  "pairs": {
+   "AexMr__MrxMr": {
+    "cos_full": -0.8421,
+    "cos_logit_metric": -0.7941,
+    "K144": {
+     "cos_rowspace": -0.8004,
+     "cos_complement": -0.8436,
+     "energy_rowfrac_A": 0.0355,
+     "energy_rowfrac_B": 0.0292,
+     "cross_overlap_rowspace_share": 0.0306,
+     "pair_sum_survival_rowspace": 0.2389,
+     "pair_sum_survival_complement": 0.1762
+    },
+    "K288": {
+     "cos_rowspace": -0.7955,
+     "cos_complement": -0.8443,
+     "energy_rowfrac_A": 0.0458,
+     "energy_rowfrac_B": 0.0365,
+     "cross_overlap_rowspace_share": 0.0386,
+     "pair_sum_survival_rowspace": 0.2469,
+     "pair_sum_survival_complement": 0.1752
+    },
+    "K576": {
+     "cos_rowspace": -0.7874,
+     "cos_complement": -0.8456,
+     "energy_rowfrac_A": 0.0615,
+     "energy_rowfrac_B": 0.0483,
+     "cross_overlap_rowspace_share": 0.051,
+     "pair_sum_survival_rowspace": 0.2567,
+     "pair_sum_survival_complement": 0.1736
+    }
+   },
+   "AexAr__ArxMr": {
+    "cos_full": -0.9342,
+    "cos_logit_metric": -0.8884,
+    "K144": {
+     "cos_rowspace": -0.887,
+     "cos_complement": -0.9353,
+     "energy_rowfrac_A": 0.0229,
+     "energy_rowfrac_B": 0.0212,
+     "cross_overlap_rowspace_share": 0.0209,
+     "pair_sum_survival_rowspace": 0.1291,
+     "pair_sum_survival_complement": 0.0754
+    },
+    "K288": {
+     "cos_rowspace": -0.8746,
+     "cos_complement": -0.9359,
+     "energy_rowfrac_A": 0.0285,
+     "energy_rowfrac_B": 0.0264,
+     "cross_overlap_rowspace_share": 0.0257,
+     "pair_sum_survival_rowspace": 0.1409,
+     "pair_sum_survival_complement": 0.0747
+    },
+    "K576": {
+     "cos_rowspace": -0.8577,
+     "cos_complement": -0.9371,
+     "energy_rowfrac_A": 0.0373,
+     "energy_rowfrac_B": 0.035,
+     "cross_overlap_rowspace_share": 0.0332,
+     "pair_sum_survival_rowspace": 0.1565,
+     "pair_sum_survival_complement": 0.0736
+    }
+   },
+   "AexAr__MrxMr": {
+    "cos_full": -0.5786,
+    "cos_logit_metric": -0.4868,
+    "K144": {
+     "cos_rowspace": -0.4728,
+     "cos_complement": -0.5815,
+     "energy_rowfrac_A": 0.0229,
+     "energy_rowfrac_B": 0.0292,
+     "cross_overlap_rowspace_share": 0.0211,
+     "pair_sum_survival_rowspace": 0.7206,
+     "pair_sum_survival_complement": 0.6212
+    },
+    "K288": {
+     "cos_rowspace": -0.4625,
+     "cos_complement": -0.5826,
+     "energy_rowfrac_A": 0.0285,
+     "energy_rowfrac_B": 0.0365,
+     "cross_overlap_rowspace_share": 0.0258,
+     "pair_sum_survival_rowspace": 0.7275,
+     "pair_sum_survival_complement": 0.6202
+    },
+    "K576": {
+     "cos_rowspace": -0.4488,
+     "cos_complement": -0.5845,
+     "energy_rowfrac_A": 0.0373,
+     "energy_rowfrac_B": 0.0483,
+     "cross_overlap_rowspace_share": 0.0329,
+     "pair_sum_survival_rowspace": 0.7366,
+     "pair_sum_survival_complement": 0.6185
+    }
+   },
+   "AexMe__MexMr": {
+    "cos_full": -0.5741,
+    "cos_logit_metric": -0.5884,
+    "K144": {
+     "cos_rowspace": -0.5782,
+     "cos_complement": -0.5739,
+     "energy_rowfrac_A": 0.0384,
+     "energy_rowfrac_B": 0.0356,
+     "cross_overlap_rowspace_share": 0.0373,
+     "pair_sum_survival_rowspace": 0.4243,
+     "pair_sum_survival_complement": 0.4268
+    },
+    "K288": {
+     "cos_rowspace": -0.5879,
+     "cos_complement": -0.5734,
+     "energy_rowfrac_A": 0.0502,
+     "energy_rowfrac_B": 0.0464,
+     "cross_overlap_rowspace_share": 0.0494,
+     "pair_sum_survival_rowspace": 0.4146,
+     "pair_sum_survival_complement": 0.4274
+    },
+    "K576": {
+     "cos_rowspace": -0.5899,
+     "cos_complement": -0.573,
+     "energy_rowfrac_A": 0.0694,
+     "energy_rowfrac_B": 0.0641,
+     "cross_overlap_rowspace_share": 0.0685,
+     "pair_sum_survival_rowspace": 0.4127,
+     "pair_sum_survival_complement": 0.4278
+    }
+   }
+  }
+ },
+ "test3_norm_vs_direction": {
+  "configs": {
+   "mean_only": {
+    "dCE": 0.4206,
+    "SE": 0.00869
+   },
+   "all_terms": {
+    "dCE": -0.0,
+    "SE": 0.0
+   },
+   "pair_AexMr_MrxMr": {
+    "dCE": 0.4739,
+    "SE": 0.00999
+   },
+   "pair_AexMr_MrxMr_normfull": {
+    "dCE": 0.3193,
+    "SE": 0.00779
+   },
+   "pair_AexMr_MrxMr_dirfull": {
+    "dCE": 0.1153,
+    "SE": 0.00418
+   },
+   "top2_energy_AexMr_AexMe": {
+    "dCE": 0.2023,
+    "SE": 0.00561
+   },
+   "top2_energy_AexMr_AexMe_normfull": {
+    "dCE": 0.1708,
+    "SE": 0.00537
+   },
+   "top2_energy_AexMr_AexMe_dirfull": {
+    "dCE": 0.0944,
+    "SE": 0.00411
+   }
+  },
+  "stats": {
+   "pair_AexMr_MrxMr": {
+    "norm_mo_full": {
+     "mean": 60083.0508,
+     "q05": 30933.6953,
+     "q25": 48601.3125,
+     "q50": 59910.1797,
+     "q75": 70316.2812,
+     "q95": 89412.0156
+    },
+    "norm_mo_subset": {
+     "mean": 46845.4727,
+     "q05": 38905.1094,
+     "q25": 43368.0742,
+     "q50": 46445.6445,
+     "q75": 49675.4297,
+     "q95": 55281.6797
+    },
+    "norm_ratio_subset_over_full": {
+     "mean": 0.8503,
+     "q05": 0.524,
+     "q25": 0.6672,
+     "q50": 0.7856,
+     "q75": 0.9583,
+     "q95": 1.4041
+    },
+    "cos_mo_subset_vs_full": {
+     "mean": 0.726,
+     "q05": 0.1327,
+     "q25": 0.6461,
+     "q50": 0.8187,
+     "q75": 0.9017,
+     "q95": 0.9558
+    },
+    "cos_xfinal_subset_vs_full": {
+     "mean": 0.8533,
+     "q05": 0.4013,
+     "q25": 0.837,
+     "q50": 0.9345,
+     "q75": 0.964,
+     "q95": 0.9814
+    },
+    "xfinal_norm_ratio": {
+     "mean": 0.7949,
+     "q05": 0.5579,
+     "q25": 0.6964,
+     "q50": 0.7814,
+     "q75": 0.8752,
+     "q95": 1.0654
+    }
+   },
+   "top2_energy_AexMr_AexMe": {
+    "norm_mo_full": {
+     "mean": 60083.0508,
+     "q05": 30933.6953,
+     "q25": 48601.3125,
+     "q50": 59910.1797,
+     "q75": 70316.2812,
+     "q95": 89412.0156
+    },
+    "norm_mo_subset": {
+     "mean": 60838.4883,
+     "q05": 40742.1406,
+     "q25": 53698.3281,
+     "q50": 61128.8633,
+     "q75": 68124.0234,
+     "q95": 78941.7734
+    },
+    "norm_ratio_subset_over_full": {
+     "mean": 1.0792,
+     "q05": 0.7741,
+     "q25": 0.9216,
+     "q50": 1.0057,
+     "q75": 1.117,
+     "q95": 1.6139
+    },
+    "cos_mo_subset_vs_full": {
+     "mean": 0.9093,
+     "q05": 0.6681,
+     "q25": 0.8924,
+     "q50": 0.9532,
+     "q75": 0.9768,
+     "q95": 0.9889
+    },
+    "cos_xfinal_subset_vs_full": {
+     "mean": 0.9434,
+     "q05": 0.759,
+     "q25": 0.9458,
+     "q50": 0.979,
+     "q75": 0.9895,
+     "q95": 0.9948
+    },
+    "xfinal_norm_ratio": {
+     "mean": 1.0272,
+     "q05": 0.8042,
+     "q25": 0.9225,
+     "q50": 0.9868,
+     "q75": 1.0543,
+     "q95": 1.2992
+    }
+   }
+  },
+  "xpre_norm_median": 60291.3125,
+  "note": "the readout rms_norm is scale-invariant, so overall x_final scaling is exactly null; norm here = per-position ||mo17|| (the write strength against the carrier x_pre). normfull = direction from kept subset, per-position norm copied from the full mo17; dirfull = direction from full mo17, norm from the kept subset.",
+  "pair_AexMr_MrxMr_rescue": {
+   "damage_plain": 0.4739,
+   "rescue_frac_by_norm_matching": 0.3262,
+   "damage_frac_carried_by_norm_alone": 0.2433
+  },
+  "top2_energy_AexMr_AexMe_rescue": {
+   "damage_plain": 0.2023,
+   "rescue_frac_by_norm_matching": 0.1557,
+   "damage_frac_carried_by_norm_alone": 0.4666
+  }
+ },
+ "test1_class_signatures": {
+  "meta": {
+   "K_fire": 200,
+   "currency": "class-summed delta-logit (base - ablated), paragraph-68 style, per position; firing = top-200 positions by term deviation norm; dCE census convention (all positions)"
+  },
+  "configs": {
+   "drop_AexMr": {
+    "dCE": 0.1479,
+    "dCE_SE": 0.00483,
+    "signatures": {
+     "fireA": {
+      "pushed_class": "word",
+      "pushed_val": -48473.1523,
+      "concentration": 0.4053,
+      "L1_magnitude": 119583.812,
+      "top8": {
+       "word": -48473.1523,
+       "capital": -44909.0898,
+       "subword": -15848.2598,
+       "digit": -6188.3516,
+       "punct": -1749.7122,
+       "other": -1181.4937,
+       "special": -981.5352,
+       "bracket_close": -74.8357
+      },
+      "n_positions": 200
+     },
+     "fireB": {
+      "pushed_class": "capital",
+      "pushed_val": -20116.6641,
+      "concentration": 0.5739,
+      "L1_magnitude": 35052.82,
+      "top8": {
+       "capital": -20116.6641,
+       "word": -8220.334,
+       "subword": 3159.2288,
+       "digit": -2377.7432,
+       "punct": -558.0205,
+       "other": -235.6561,
+       "special": -216.6824,
+       "pronoun": -55.3913
+      },
+      "n_positions": 200
+     },
+     "fireU": {
+      "pushed_class": "capital",
+      "pushed_val": -32209.9258,
+      "concentration": 0.4308,
+      "L1_magnitude": 74771.266,
+      "top8": {
+       "capital": -32209.9258,
+       "word": -28829.377,
+       "subword": -6809.2256,
+       "digit": -4234.5718,
+       "punct": -1155.3005,
+       "other": -719.5665,
+       "special": -604.5914,
+       "pronoun": -53.6189
+      },
+      "n_positions": 371
+     },
+     "all_valid": {
+      "pushed_class": "capital",
+      "pushed_val": 3575.6035,
+      "concentration": 0.38,
+      "L1_magnitude": 9408.635,
+      "top8": {
+       "capital": 3575.6035,
+       "subword": 3181.3049,
+       "word": 1798.1556,
+       "digit": 358.5741,
+       "punct": 188.274,
+       "other": 171.6452,
+       "special": 112.1162,
+       "bracket_close": 10.2818
+      },
+      "n_positions": 18814
+     }
+    },
+    "dCE_by_next_token_class": {
+     "bracket_open": [
+      1.2117,
+      0.2129,
+      107
+     ],
+     "subword": [
+      0.5196,
+      0.0355,
+      1341
+     ],
+     "capital": [
+      0.2591,
+      0.0172,
+      2252
+     ],
+     "other": [
+      0.2478,
+      0.0433,
+      201
+     ],
+     "word": [
+      0.1248,
+      0.0052,
+      8885
+     ],
+     "digit": [
+      0.1141,
+      0.0236,
+      522
+     ],
+     "punct": [
+      0.0789,
+      0.0136,
+      2081
+     ],
+     "bracket_close": [
+      0.0674,
+      0.0536,
+      69
+     ],
+     "coordinator": [
+      0.0595,
+      0.0196,
+      549
+     ],
+     "quote": [
+      -0.0563,
+      0.0595,
+      54
+     ],
+     "newline": [
+      -0.0534,
+      0.0279,
+      367
+     ],
+     "pronoun": [
+      -0.0177,
+      0.0131,
+      596
+     ],
+     "special": [
+      -0.0151,
+      0.0438,
+      180
+     ],
+     "determiner": [
+      -0.0126,
+      0.0077,
+      1610
+     ]
+    }
+   },
+   "drop_MrxMr": {
+    "dCE": 0.0697,
+    "dCE_SE": 0.00263,
+    "signatures": {
+     "fireA": {
+      "pushed_class": "capital",
+      "pushed_val": 6791.3237,
+      "concentration": 0.5575,
+      "L1_magnitude": 12180.694,
+      "top8": {
+       "capital": 6791.3237,
+       "word": 2651.7305,
+       "digit": 1719.8265,
+       "subword": 619.3077,
+       "other": -192.1389,
+       "punct": 88.243,
+       "special": 48.334,
+       "pronoun": 20.6683
+      },
+      "n_positions": 200
+     },
+     "fireB": {
+      "pushed_class": "capital",
+      "pushed_val": 17373.334,
+      "concentration": 0.5916,
+      "L1_magnitude": 29365.531,
+      "top8": {
+       "capital": 17373.334,
+       "word": 8912.8584,
+       "digit": 2206.0857,
+       "punct": 382.5624,
+       "special": 174.241,
+       "pronoun": 77.7827,
+       "determiner": 66.8567,
+       "other": 64.037
+      },
+      "n_positions": 200
+     },
+     "fireU": {
+      "pushed_class": "capital",
+      "pushed_val": 11477.2695,
+      "concentration": 0.5887,
+      "L1_magnitude": 19497.023,
+      "top8": {
+       "capital": 11477.2695,
+       "word": 5473.6152,
+       "digit": 1894.1823,
+       "punct": 212.8801,
+       "subword": 135.7162,
+       "special": 100.4572,
+       "other": -76.4335,
+       "pronoun": 47.0152
+      },
+      "n_positions": 371
+     },
+     "all_valid": {
+      "pushed_class": "capital",
+      "pushed_val": -4803.2793,
+      "concentration": 0.333,
+      "L1_magnitude": 14425.907,
+      "top8": {
+       "capital": -4803.2793,
+       "word": -4466.4404,
+       "subword": -3925.4866,
+       "digit": -493.291,
+       "punct": -279.6789,
+       "other": -260.6449,
+       "special": -162.0662,
+       "bracket_close": -15.104
+      },
+      "n_positions": 18814
+     }
+    },
+    "dCE_by_next_token_class": {
+     "newline": [
+      0.3672,
+      0.0139,
+      367
+     ],
+     "subword": [
+      0.2694,
+      0.0167,
+      1341
+     ],
+     "quote": [
+      0.2171,
+      0.0502,
+      54
+     ],
+     "special": [
+      0.1999,
+      0.0202,
+      180
+     ],
+     "determiner": [
+      0.17,
+      0.0063,
+      1610
+     ],
+     "pronoun": [
+      0.1686,
+      0.0124,
+      596
+     ],
+     "coordinator": [
+      0.1367,
+      0.0101,
+      549
+     ],
+     "punct": [
+      0.1323,
+      0.006,
+      2081
+     ],
+     "bracket_close": [
+      0.1128,
+      0.0256,
+      69
+     ],
+     "bracket_open": [
+      0.109,
+      0.0355,
+      107
+     ],
+     "capital": [
+      -0.0862,
+      0.0116,
+      2252
+     ],
+     "digit": [
+      0.0626,
+      0.0149,
+      522
+     ],
+     "other": [
+      0.0264,
+      0.0265,
+      201
+     ],
+     "word": [
+      0.0198,
+      0.0028,
+      8885
+     ]
+    }
+   },
+   "drop_both": {
+    "dCE": 0.0587,
+    "dCE_SE": 0.00283,
+    "signatures": {
+     "fireA": {
+      "pushed_class": "capital",
+      "pushed_val": -30592.8691,
+      "concentration": 0.373,
+      "L1_magnitude": 82010.109,
+      "top8": {
+       "capital": -30592.8691,
+       "word": -30407.0547,
+       "subword": -13637.583,
+       "digit": -4467.0815,
+       "punct": -1214.3253,
+       "other": -820.9507,
+       "special": -710.117,
+       "bracket_close": -51.2733
+      },
+      "n_positions": 200
+     },
+     "fireB": {
+      "pushed_class": "word",
+      "pushed_val": 4559.6494,
+      "concentration": 0.4795,
+      "L1_magnitude": 9508.305,
+      "top8": {
+       "word": 4559.6494,
+       "capital": 2778.8164,
+       "subword": 1568.5486,
+       "digit": 434.203,
+       "other": -57.5907,
+       "pronoun": 25.8543,
+       "special": 23.918,
+       "determiner": 22.0803
+      },
+      "n_positions": 200
+     },
+     "fireU": {
+      "pushed_class": "capital",
+      "pushed_val": -14070.4756,
+      "concentration": 0.3775,
+      "L1_magnitude": 37272.879,
+      "top8": {
+       "capital": -14070.4756,
+       "word": -13414.5283,
+       "subword": -6300.3086,
+       "digit": -2031.7168,
+       "punct": -604.9371,
+       "other": -448.0165,
+       "special": -349.6461,
+       "bracket_close": -26.4553
+      },
+      "n_positions": 371
+     },
+     "all_valid": {
+      "pushed_class": "word",
+      "pushed_val": -1599.5547,
+      "concentration": 0.4971,
+      "L1_magnitude": 3217.956,
+      "top8": {
+       "word": -1599.5547,
+       "subword": -773.7598,
+       "capital": -613.4069,
+       "digit": -106.3373,
+       "punct": -48.1576,
+       "other": -42.2415,
+       "special": -29.3879,
+       "bracket_close": -2.2293
+      },
+      "n_positions": 18814
+     }
+    },
+    "dCE_by_next_token_class": {
+     "bracket_open": [
+      0.8487,
+      0.1365,
+      107
+     ],
+     "subword": [
+      0.1445,
+      0.0175,
+      1341
+     ],
+     "newline": [
+      0.1306,
+      0.0212,
+      367
+     ],
+     "other": [
+      0.1246,
+      0.0295,
+      201
+     ],
+     "coordinator": [
+      0.1108,
+      0.0137,
+      549
+     ],
+     "punct": [
+      0.0827,
+      0.0096,
+      2081
+     ],
+     "determiner": [
+      0.0549,
+      0.0049,
+      1610
+     ],
+     "special": [
+      0.053,
+      0.0255,
+      180
+     ],
+     "word": [
+      0.0518,
+      0.0029,
+      8885
+     ],
+     "digit": [
+      0.0452,
+      0.015,
+      522
+     ],
+     "pronoun": [
+      0.0438,
+      0.0099,
+      596
+     ],
+     "capital": [
+      -0.042,
+      0.011,
+      2252
+     ],
+     "quote": [
+      0.0163,
+      0.0398,
+      54
+     ],
+     "bracket_close": [
+      -0.0002,
+      0.0341,
+      69
+     ]
+    }
+   },
+   "drop_all15": {
+    "dCE": 0.4206,
+    "dCE_SE": 0.00869,
+    "signatures": {
+     "fireA": {
+      "pushed_class": "subword",
+      "pushed_val": 16690.8906,
+      "concentration": 0.3998,
+      "L1_magnitude": 41747.434,
+      "top8": {
+       "subword": 16690.8906,
+       "word": -14025.8008,
+       "capital": -9112.3018,
+       "digit": -1085.8124,
+       "other": 339.7858,
+       "special": 241.5459,
+       "punct": -129.6375,
+       "determiner": -46.2814
+      },
+      "n_positions": 200
+     },
+     "fireB": {
+      "pushed_class": "subword",
+      "pushed_val": 40194.3242,
+      "concentration": 0.5126,
+      "L1_magnitude": 78410.547,
+      "top8": {
+       "subword": 40194.3242,
+       "word": 28320.0762,
+       "capital": 4315.5752,
+       "digit": 2251.6494,
+       "other": 1325.5126,
+       "special": 1047.3046,
+       "punct": 818.934,
+       "determiner": -50.3834
+      },
+      "n_positions": 200
+     },
+     "fireU": {
+      "pushed_class": "subword",
+      "pushed_val": 27462.4277,
+      "concentration": 0.7136,
+      "L1_magnitude": 38482.234,
+      "top8": {
+       "subword": 27462.4277,
+       "word": 5935.2344,
+       "capital": -2730.1067,
+       "other": 796.0534,
+       "special": 614.8872,
+       "digit": 505.3914,
+       "punct": 317.814,
+       "determiner": -47.6453
+      },
+      "n_positions": 371
+     },
+     "all_valid": {
+      "pushed_class": "subword",
+      "pushed_val": 9157.0566,
+      "concentration": 0.37,
+      "L1_magnitude": 24746.668,
+      "top8": {
+       "subword": 9157.0566,
+       "capital": 7709.748,
+       "word": 5843.3716,
+       "digit": 679.785,
+       "other": 506.8988,
+       "punct": 482.9474,
+       "special": 308.5494,
+       "bracket_close": 26.7318
+      },
+      "n_positions": 18814
+     }
+    },
+    "dCE_by_next_token_class": {
+     "capital": [
+      1.467,
+      0.0365,
+      2252
+     ],
+     "subword": [
+      1.0485,
+      0.0474,
+      1341
+     ],
+     "digit": [
+      0.4588,
+      0.0564,
+      522
+     ],
+     "word": [
+      0.4133,
+      0.0102,
+      8885
+     ],
+     "bracket_close": [
+      -0.3022,
+      0.0535,
+      69
+     ],
+     "quote": [
+      -0.2783,
+      0.0856,
+      54
+     ],
+     "newline": [
+      -0.2701,
+      0.027,
+      367
+     ],
+     "special": [
+      -0.2562,
+      0.0608,
+      180
+     ],
+     "determiner": [
+      -0.1495,
+      0.0161,
+      1610
+     ],
+     "punct": [
+      -0.1284,
+      0.0137,
+      2081
+     ],
+     "bracket_open": [
+      0.0946,
+      0.0799,
+      107
+     ],
+     "other": [
+      0.0341,
+      0.0712,
+      201
+     ],
+     "coordinator": [
+      -0.0328,
+      0.0309,
+      549
+     ],
+     "pronoun": [
+      -0.0215,
+      0.0299,
+      596
+     ]
+    }
+   }
+  },
+  "H1_quantities": {
+   "fireU": {
+    "cos_signature_A_vs_B": -0.9488,
+    "L1_A": 74166.68,
+    "L1_B": 19396.566,
+    "L1_sum_pair": 36923.234,
+    "L1_layer_total": 37867.352,
+    "sum_over_mean_individual": 0.7893,
+    "additivity_relerr_sum_vs_A_plus_B": 0.5833
+   },
+   "all_valid": {
+    "cos_signature_A_vs_B": -0.9648,
+    "L1_A": 9296.519,
+    "L1_B": 14263.841,
+    "L1_sum_pair": 3188.568,
+    "L1_layer_total": 24438.117,
+    "sum_over_mean_individual": 0.2707,
+    "additivity_relerr_sum_vs_A_plus_B": 0.6556
+   }
+  }
+ },
+ "verdict": {
+  "H2_null_space_waste": {
+   "status": "REJECTED",
+   "evidence": {
+    "cos_full": -0.8421,
+    "cos_logit_metric": -0.7941,
+    "cos_rowspace_K144": -0.8004,
+    "cos_complement_K144": -0.8436,
+    "cancellation_index_rowspace_K144": 1.3752,
+    "cancellation_index_complement_K144": 1.5424
+   }
+  },
+  "H3_gain_control": {
+   "status": "MINOR SECONDARY FACTOR",
+   "evidence": {
+    "pair_AexMr_MrxMr_rescue": {
+     "damage_plain": 0.4739,
+     "rescue_frac_by_norm_matching": 0.3262,
+     "damage_frac_carried_by_norm_alone": 0.2433
+    },
+    "top2_energy_AexMr_AexMe_rescue": {
+     "damage_plain": 0.2023,
+     "rescue_frac_by_norm_matching": 0.1557,
+     "damage_frac_carried_by_norm_alone": 0.4666
+    }
+   }
+  },
+  "H1_push_pull_sharpening": {
+   "status": "SUPPORTED (primary): individual signatures large and opposite (cosine -0.965 over valid positions), pair-sum signature 3.7x smaller yet causally significant; at the pair's own top-firing positions the difference does NOT vanish (ratio 0.79) -- the conditional residue acts exactly where the terms fire",
+   "evidence": {
+    "cos_signatures_all_valid": -0.9648,
+    "cos_signatures_fireU": -0.9488,
+    "L1_individual_all_valid": [
+     9296.519,
+     14263.841
+    ],
+    "L1_pair_sum_all_valid": 3188.568,
+    "sum_over_mean_individual_all_valid": 0.2707,
+    "sum_over_mean_individual_fireU": 0.7893,
+    "dCE_drop_both": 0.0587,
+    "dCE_drop_both_SE": 0.00283,
+    "dCE_drop_A": 0.1479,
+    "dCE_drop_B": 0.0697,
+    "causal_cancellation": "removing BOTH terms together (+0.0587) is CHEAPER than removing either alone (+0.1479 / +0.0697) -- the pair mostly cancels and the model needs only their small difference; the residual difference is still 21 standard errors from zero (functionally decisive)"
+   }
+  }
+ }
+}
