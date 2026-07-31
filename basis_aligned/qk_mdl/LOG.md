@@ -7229,3 +7229,16 @@ existing steering methods, not a new method class, so in-scope and launched rath
   artifact L17 card upgraded to the mechanism.
 - The fold-first program's named-thread list is nearly cleared: L17 mechanism DONE, cross-model pipeline DONE
   (§90). Remaining: non-uniform rank allocation; term-targeted editing; provenance-naming gates.
+
+## tick 2026-07-31 (final fold-audit threads dispatched: term-targeted editing + non-uniform ranks)
+- af2f7139a7117a50c (qk_edit_terms.py): TERM-TARGETED EDITING on the §91 differential pair — the §75 rematch.
+  Dials: the GATED arm (attention-earlier×mlp-recent = the context-conditioned path itself, directly
+  addressable now), the PRIOR arm (mlp-recent²), and the pair's DIFFERENCE (the "sharpening knob"). The
+  surgical test: §75's direction-dial could not override conditioning (it lived upstream); term access IS the
+  conditioned path — does it give conditioning-preserving control or surgical suppression the direction dial
+  couldn't? Placebo included; direct §75 side-by-side.
+- a051de49628792c72 (qk_rank_alloc.py): NON-UNIFORM RANK ALLOCATION — the §87 fix. Per-layer (Kin,Kout) by
+  spectral need and causal-weighted need vs the uniform baseline at matched budgets (verify §87's +1.456
+  reproduces); corrected compression-fidelity frontier + the concrete per-layer allocation at 16×.
+- These are the last two named fold-audit threads (after: provenance-naming gates, cross-model term census
+  already partly done via §90). Collect next tick.
