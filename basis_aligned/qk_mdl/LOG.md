@@ -7169,3 +7169,14 @@ existing steering methods, not a new method class, so in-scope and launched rath
   anatomy at the hub → certified proxy → honest compression frontier → model-wide pipeline map. Remaining
   named threads: non-uniform rank allocation; L17's cancelling-mixer structure (the one resistant spot);
   term-targeted editing; provenance-naming gates; cross-model term census.
+
+## tick 2026-07-31 (red-team of the fold-first arc §84-89 — dispatched before enshrinement)
+- Per the standing adversarial-review rule, dispatched a4e2309c5bc0a3a89 (qk_redteam_fold.py) with four
+  attacks on the fold-first headlines: (1) GAUGE-SMUGGLING — the §86/§89 term sufficiency uses the shared
+  1/||x||² gauge computed from the FULL input; recompute keep-5 with a kept-groups-only gauge (the sharpest
+  confound I could construct against my own result); (2) PER-POSITION-MEAN confound — rerun §84 keep-144 with
+  a global mean (the §12q positional-floor issue revisited for the hub); (3) dead-row triviality — is the
+  attention-0 row dead by content or merely by lambda coefficient (~0.0127); (4) LAYER-17 pathology — genuine
+  cancelling mixer vs keep-subset/gauge bookkeeping artifact (measure actual anti-alignment of term outputs).
+- Artifact refresh deliberately HELD until the red-team lands (retraction-safe discipline). Collect next tick,
+  apply corrections/caveats, then fold the verified fold-first story into the artifact.
