@@ -7465,3 +7465,12 @@ existing steering methods, not a new method class, so in-scope and launched rath
 - The agent stalled after a one-line CUDA→numpy crash at attack 2 (20 min idle, no process). Fixed line 350
   (.cpu()) myself and rerun the full script in background (b1idyiiol). Attacks 2-4 (block-0 causal
   sufficiency, smoothness blocks 9/11/13, h.L7.0 aggregation) still to land. Artifact stays held.
+
+## tick 2026-07-31 (attack 2 SURVIVES with quantification; attacks 3-4 running)
+- ATTACK 2 (block-0 causal sufficiency): the token-conditional-mean substitute recovers **85.5%** of block 0's
+  function (+0.1795 vs floor 1.2341); pair-table 86.9% (token coverage 84.8%, pair coverage 18.9%). §97's
+  "token lookup table" is CAUSALLY grounded — ~85% sufficient, the remainder being context beyond frequent
+  pairs + the gauge. Survives with the honest quantifier.
+- Running script 2 myself (attacks 3: smoothness blocks 9/11/13; 4: h.L7.0 aggregation split) — background
+  by122z20y. Then §101 (full verdict + corrections incl. the attack-1 chain-specificity softening), paper
+  chapter edits, artifact publish.
