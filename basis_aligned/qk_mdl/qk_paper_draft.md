@@ -1,7 +1,7 @@
 # A four-ledger per-layer decomposition of a no-softmax bilinear transformer
 
 *Consolidation draft — 2026-07-30. Numbers are the post-adversarial-review figures only.
-Sources: PLAN_per_layer.md, RESULTS_l0_mdl.md §32–§75, LOG.md. Left for parent review; not committed.*
+Sources: PLAN_per_layer.md, RESULTS_l0_mdl.md §32–§81, LOG.md. Left for parent review; not committed.*
 
 ## Abstract
 
@@ -55,7 +55,10 @@ not *explain* it; its causal mechanism is collective at every level and every fi
 architecture-general: the super-additivity, the high-rank basis-aligned feed-forward tail, and the
 irreducibly-distributed early hub all replicate on a second bilinear model and on a conventional softmax
 SwiGLU transformer (two to three-and-a-half times super-additive, an early hub with zero-to-one of
-thirty-two directions nameable). Second, the discovered circuits
+thirty-two directions nameable) — and so does the dictionary decoupling itself: the identical sparse
+autoencoder test on the softmax hub reconstructs at 0.85, names twenty-two of thirty-two features, and
+still finds zero load-bearing (a dictionary explains about ten percent of that hub's causation versus two
+percent on the bilinear one — a difference in degree, not kind). Second, the discovered circuits
 are **useful**: they generalize (the distributed-class-mover phenomenon reproduces on a conventional
 softmax SwiGLU transformer), and a circuit found unsupervised and verified as a genuine algorithm — a
 final-block capitalization selector — is a **calibrated, placebo-controlled control knob**, though its

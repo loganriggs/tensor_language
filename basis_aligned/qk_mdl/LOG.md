@@ -7009,3 +7009,18 @@ existing steering methods, not a new method class, so in-scope and launched rath
 - Rationale: generalizing the flagship's most novel result (reconstruction ≠ causal explanation) is standard
   make-it-defendable work (cf. §77 generalizing the completeness boundary) and Logan-valued (generality); not
   marginal. Both outcomes valuable.
+
+## tick 2026-07-31 (§81 lands — the SAE decoupling is architecture-general; + Logan's example requests)
+- §81 (training monitored directly + causal auto-launched via file-watch after the subagent idled out): the
+  §80 name/reconstruct/explain decoupling REPLICATES on swiglu18's layer-2 hub — reconstruction 0.849 (bilin18
+  0.846), nameability 22/32 monosemantic (SVD 0/32), causal 0/32 load-bearing (max z 3.12 at delta
+  cross-entropy 0.019). Honest degree-difference: the dictionary explains 9.55% of the softmax hub's 0.76-nat
+  effect vs ~2% of bilin18's 5.57-nat hub — >90% collective either way. Committed §81 + paper (body clause +
+  abstract + source line §32-§81).
+- Logan asked for CONCRETE EXAMPLES of the §76 class priors → built qk_prior_examples.py: mlp.L17.d0 fires on
+  commas inside numbers/dates ("(12," → "396"), h.L14.h4 on sentence-final periods ("…Intercollegiate." →
+  " The"), h.L11.h3 on completed content words ("…their little cottage" → " gradually") — context-conditioned
+  BASE RATES, redundantly encoded. Added to §76 + committed; saved standing preference (give 2-3 concrete
+  instances for every new phenomenon) to memory.
+- STATE: the SAE/completeness mega-thread (§71-§81) is fully closed and 2-model-general at every claim.
+  Program at terminal capstone; remaining directions are scope decisions.
