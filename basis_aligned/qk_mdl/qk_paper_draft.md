@@ -1,7 +1,7 @@
 # A four-ledger per-layer decomposition of a no-softmax bilinear transformer
 
 *Consolidation draft — 2026-07-30. Numbers are the post-adversarial-review figures only.
-Sources: PLAN_per_layer.md, RESULTS_l0_mdl.md §32–§88, LOG.md. Left for parent review; not committed.*
+Sources: PLAN_per_layer.md, RESULTS_l0_mdl.md §32–§93b, LOG.md. Left for parent review; not committed.*
 
 ## Abstract
 
@@ -412,18 +412,46 @@ linearization zeroes out, and is certified basis-specific: random bases of the s
 to linear-proxy fidelity. Notably, the restricted model is a poor absolute predictor yet preserves
 causal *ordering* — fidelity for attribution and fidelity for prediction are different properties.
 
-**Honest limits of the fold program so far.** The single-layer compression bargain does not globalize:
-restricting all eighteen blocks at once compounds roughly additively (one hundred twenty-eight-fold
-compression costs +1.46 nats whole-model against the exact chain's +0.033), so the measured
-compression frontier is real but far from the faithful-substitution regime; non-uniform rank allocation
-across layers is the obvious next lever. And the model-wide term census (all eighteen blocks, every layer's
-reconstruction gated at one part in a million, every floor validated against the prior censuses to four
-decimal places) shows the compact anatomy is an early-stack property inside a clean recency-to-history
-pipeline: the causally heavy early layers are two-to-five named terms (layer 2 is almost literally "square
-the previous block's output"), interaction terms dominate everywhere except the ends, each layer's own
-attention goes causally dead by layer fifteen as accumulated history takes over, and the final readout
-layer is a dense mutually-cancelling mixer that resists term-wise decomposition — the one place the
-provenance calculus meets real resistance.
+**The model-wide anatomy.** The term census over all eighteen blocks (every layer's reconstruction gated
+at one part in a million, every floor validated against the prior censuses to four decimal places) shows
+the compact anatomy is an early-stack property inside a clean recency-to-history pipeline: the causally
+heavy early layers are two-to-five named terms (layer 2 is almost literally "square the previous block's
+output"), interaction terms dominate everywhere except the ends, and each layer's own attention goes
+causally dead by layer fifteen as accumulated history takes over. The same pipeline — early recency, a
+mid-stack crossover, late history-reading with the layer's own attention dead, and a tenfold floor jump
+at an entangled readout — replicates on the softmax SwiGLU model under an input-group intervention that
+needs no bilinearity, so the depth anatomy is architecture-general. The readout itself, first flagged as
+the one spot resisting term-wise decomposition, resolved under a three-hypothesis test into a
+**differential pair**: one arm writes broad generic capital-and-word mass, the other writes its
+context-gated near-negation (class signatures opposite at cosine −0.97), and the layer's function is
+their small conditional difference — removing both arms together is *cheaper* than removing either
+alone, the causal fingerprint of computation-by-cancellation. This unifies the earlier findings that the
+layer is a "lexical readout," that its one genuine algorithm is a context-conditioned capital selector,
+and that the model's ubiquitous class priors are individually removable: their conditional retraction is
+implemented here.
+
+**Editing through the terms.** Term-targeted steering of the differential pair delivers
+understanding-driven control rather than raw power. The prior arm is a saturation-free, perfectly
+monotone capitalization dial across the full range (where the earlier direction dial reversed at high
+gain), and a **contrast-strength knob** — scaling the pair's net write coherently — is a new edit type
+not expressible as any single direction: at double contrast it costs only +0.053 nats globally while
+*improving* the model at bracket-open decisions by −0.255 ± 0.040; scaling one arm alone at the same
+strength blows the same decisions up (+1.30), a direct proof that preserving the cancellation structure
+is what keeps the edit clean. Honestly: for raw single-behavior specificity the earlier top-direction
+dial remains sharper at every matched effect size — and the fold explains why: that direction *is* the
+pair's post-cancellation output axis, concentrating the functional degree of freedom each raw term
+dilutes with its half of the cancelling mass. No amplitude edit, direction- or term-level, achieves a
+surgical unconditioned override; the conditioning is encoded in the terms' own activation patterns, so
+re-aiming it would require editing their upstream inputs.
+
+**Honest limits of the fold program.** The single-layer compression bargain does not globalize:
+restricting all eighteen blocks at once costs +1.46 nats at one-hundred-twenty-eight-fold compression
+against the exact chain's +0.033, and the compounding is in fact super-additive (half the joint cost is
+cross-layer interaction). Non-uniform rank allocation does not rescue it: allocating by measured
+per-layer need ties uniform allocation within noise, because per-layer needs are nearly flat, variance
+concentration anti-correlates with functional rank, and no per-layer schedule addresses the interaction
+term. The compression failure is structural; faithful whole-model compression, if achievable, runs
+through shared cross-layer structure rather than better rank bookkeeping.
 
 ## Honest limitations
 
