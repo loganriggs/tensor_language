@@ -5152,3 +5152,36 @@ blocks 0-3" boundary was too tight — **the iterated-squaring cascade continues
 beyond**; the named early stack is: block 0 = token/bigram table → block 1 = the essential hub → blocks 2, 3,
 4... = iterated squaring with diminishing category refinement (82/43/21%) and increasing contextuality, no
 early stage writing to the readout directly. Open question dispatched next: WHERE does the cascade end?
+
+## §99 DEPTH-FIRST ARC #4 — the cascade DISSOLVES smoothly; the model's three-region feed-forward flow map (2026-07-31)
+(qk_cascade_end.py / _2.py; where does the iterated-squaring cascade end? Gates: every block's floor
+reproduces the census to 3-4 decimals; restore-exactness checks zero to four decimals. Held-back FW[448:600],
+paired standard errors.)
+- **(a) The table (block k: floor / next-square fraction / direct-readout fraction):** k=2: 0.0288 / 0.84 /
+  ~0.00 (§96); k=3: 0.6163 / 0.83 / 0.0003 (§98); k=4: 0.1481 / 0.511 / 0.002; k=5: 0.0928 / 0.512 / 0.019;
+  k=6: 0.0832 / 0.507 / 0.047; k=7: 0.0601 / 0.394 / 0.120; k=8: 0.0511 / 0.341 / 0.258; k=10: 0.0465 /
+  0.288 / 0.477; k=12: 0.0437 / 0.254 / ~1.0; k=14: 0.0299 / 0.237 / ~0.9.
+- **(b) VERDICT — no terminal block; the cascade dissolves.** The next-square fraction decays monotonically and
+  smoothly (84/83 → a ~51% plateau at blocks 4-6 → 39/34/29/25/24) with no sharp drop anywhere; the
+  direct-readout fraction rises from ~zero to ~all, crossing between blocks 8 and 10. **The measured
+  three-region flow map:** CASCADE (blocks 0-6: the next square is the dominant single consumer, <5% direct);
+  DISTRIBUTED (blocks 7-11: no single consumer dominates; direct climbs 12→48%; matches §89's anatomy
+  diffusion and the recency-to-history rotation); READOUT (blocks 12-17: damage survives with all later
+  components frozen — these blocks WRITE output, terminating in the §91 differential pair; nuance: block 14
+  still feeds 46% to the final squares — late blocks both write and feed).
+- **(c) One example per region (per the rule):** CASCADE — block 4's strongest deviation fires on " but" after
+  a concessive clause ("...Graphics ideas are still welcome, but"); it pushes word-class mass 1.7 summed
+  logits at its sites yet its direct write carries only 6.8% of that — everything mediated by later squares.
+  DISTRIBUTED — block 8 fires on newlines/sentence ends ("...Most Active Stories\n"); its direct write already
+  carries a full-strength signature while a third of its damage still routes through block 9's square.
+  READOUT — block 14 fires on the comma inside numbers ("Conservative Nigel Huddleston (12,"); its direct
+  write IS the story (ratio 1.44), directly shaping the digit-continuation distribution.
+- **(d) Caveats:** mean-ablation is one blunt counterfactual; freeze-patch is first-order so fractions need not
+  sum to one (block 12's direct fraction 1.046 — read late-block figures as "approximately all"); blocks
+  9/11/13 interpolated; the 4-6 plateau is three points, not a law.
+**KEY (the connected feed-forward story, blocks 0→17):** token/bigram TABLE (block 0, exact) → the essential
+HUB (block 1) → an ITERATED-SQUARING CASCADE building progressively higher-order, progressively more
+contextual polynomial features (blocks 2-6, each ~half-consumed by the next square) → smooth DISSOLUTION into
+a distributed mid-stack (7-11) as outputs turn from food-for-the-next-square into output-writing → a READOUT
+region (12-17) writing directly to the logits, ending in the differential-pair contrast stage. One connected
+mechanism narrative for the entire feed-forward stack, every boundary measured.

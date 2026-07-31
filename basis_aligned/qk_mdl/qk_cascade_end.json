@@ -1,0 +1,994 @@
+{
+ "meta": {
+  "model": "bilin18",
+  "held": "FW[448:600,:128]",
+  "batch": 6,
+  "question": "where does the iterated-squaring cascade end -- next-square mediation fraction, direct-readout fraction, and consumption spread vs block depth",
+  "method": "mean-ablate block k mlp output to its per-position held-set mean (census floor intervention); freeze-patch: replace later component outputs with clean cached values (VERBATIM qk_arc_mlp3_2.py fwd_route); restore-at-block-j: re-inject the deviation at entry of block j with exact linear coefficient prod lambda0_(k+1..j-1) (VERBATIM qk_arc_mlp3_2.py mode=restore); paired standard errors over held positions",
+  "currency": "delta cross-entropy per valid held position (nats)",
+  "anchors": {
+   "k2_MrxMr_next_square_fraction": 0.84,
+   "k3_full_mlp_next_square_fraction": 0.83,
+   "source": "qk_arc_square.json downstream_routing (section 96); qk_arc_mlp3.json H1_freeze_patch_routing (section 98)"
+  },
+  "base_ce": 3.4946,
+  "lambda0_per_block": [
+   6.0938,
+   0.0127,
+   1.9766,
+   0.5742,
+   0.4629,
+   0.0645,
+   0.4902,
+   0.8125,
+   1.4062,
+   0.9023,
+   0.8789,
+   1.2344,
+   1.0391,
+   0.957,
+   1.0547,
+   1.1875,
+   1.1875,
+   1.0234
+  ]
+ },
+ "raw_configs": {
+  "sanity_freeze_all_no_ablate": {
+   "dCE": 0.0,
+   "SE": 0.0
+  },
+  "k4_total_damage": {
+   "dCE": 0.1481,
+   "SE": 0.00414
+  },
+  "k4_restore_at_5": {
+   "dCE": -0.0,
+   "SE": 0.0
+  },
+  "k4_freeze_next_mlp5": {
+   "dCE": 0.0724,
+   "SE": 0.00282
+  },
+  "k4_direct_only": {
+   "dCE": 0.0003,
+   "SE": 0.00028
+  },
+  "k4_restore_at_7": {
+   "dCE": 0.0914,
+   "SE": 0.0033
+  },
+  "k5_total_damage": {
+   "dCE": 0.0928,
+   "SE": 0.00329
+  },
+  "k5_restore_at_6": {
+   "dCE": -0.0,
+   "SE": 0.0
+  },
+  "k5_freeze_next_mlp6": {
+   "dCE": 0.0453,
+   "SE": 0.00227
+  },
+  "k5_direct_only": {
+   "dCE": 0.0018,
+   "SE": 0.00057
+  },
+  "k5_restore_at_8": {
+   "dCE": 0.0509,
+   "SE": 0.00234
+  },
+  "k6_total_damage": {
+   "dCE": 0.0832,
+   "SE": 0.00302
+  },
+  "k6_restore_at_7": {
+   "dCE": -0.0,
+   "SE": 0.0
+  },
+  "k6_freeze_next_mlp7": {
+   "dCE": 0.041,
+   "SE": 0.00215
+  },
+  "k6_direct_only": {
+   "dCE": 0.0039,
+   "SE": 0.00071
+  },
+  "k6_restore_at_9": {
+   "dCE": 0.0357,
+   "SE": 0.00194
+  },
+  "k7_total_damage": {
+   "dCE": 0.0601,
+   "SE": 0.00256
+  },
+  "k7_restore_at_8": {
+   "dCE": -0.0,
+   "SE": 0.0
+  },
+  "k7_freeze_next_mlp8": {
+   "dCE": 0.0364,
+   "SE": 0.00199
+  },
+  "k7_direct_only": {
+   "dCE": 0.0072,
+   "SE": 0.00088
+  },
+  "k7_restore_at_10": {
+   "dCE": 0.0242,
+   "SE": 0.00161
+  },
+  "k8_total_damage": {
+   "dCE": 0.0511,
+   "SE": 0.00242
+  },
+  "k8_restore_at_9": {
+   "dCE": 0.0,
+   "SE": 0.0
+  },
+  "k8_freeze_next_mlp9": {
+   "dCE": 0.0337,
+   "SE": 0.00199
+  },
+  "k8_direct_only": {
+   "dCE": 0.0132,
+   "SE": 0.00117
+  },
+  "k8_restore_at_11": {
+   "dCE": 0.0218,
+   "SE": 0.00155
+  },
+  "k10_total_damage": {
+   "dCE": 0.0465,
+   "SE": 0.00228
+  },
+  "k10_restore_at_11": {
+   "dCE": -0.0,
+   "SE": 0.0
+  },
+  "k10_freeze_next_mlp11": {
+   "dCE": 0.0331,
+   "SE": 0.00192
+  },
+  "k10_direct_only": {
+   "dCE": 0.0222,
+   "SE": 0.00157
+  },
+  "k10_restore_at_13": {
+   "dCE": 0.0165,
+   "SE": 0.00129
+  },
+  "k12_total_damage": {
+   "dCE": 0.0437,
+   "SE": 0.00223
+  },
+  "k12_restore_at_13": {
+   "dCE": -0.0,
+   "SE": 0.0
+  },
+  "k12_freeze_next_mlp13": {
+   "dCE": 0.0326,
+   "SE": 0.00193
+  },
+  "k12_direct_only": {
+   "dCE": 0.0457,
+   "SE": 0.00227
+  },
+  "k12_restore_at_15": {
+   "dCE": 0.0103,
+   "SE": 0.00101
+  },
+  "k14_total_damage": {
+   "dCE": 0.0299,
+   "SE": 0.00194
+  },
+  "k14_restore_at_15": {
+   "dCE": 0.0,
+   "SE": 0.0
+  },
+  "k14_freeze_next_mlp15": {
+   "dCE": 0.0228,
+   "SE": 0.00173
+  },
+  "k14_direct_only": {
+   "dCE": 0.0273,
+   "SE": 0.00182
+  },
+  "k14_restore_at_17": {
+   "dCE": 0.0139,
+   "SE": 0.00119
+  }
+ },
+ "blocks": {
+  "4": {
+   "census_floor": 0.1481,
+   "total_damage_dCE": 0.1481,
+   "total_damage_SE": 0.00414,
+   "floor_gate_abs_diff": 0.0,
+   "floor_gate_pass": true,
+   "exactness_restore_next_dCE": -0.0,
+   "freeze_next_mlp_dCE": 0.0724,
+   "freeze_next_mlp_SE": 0.00282,
+   "next_square_fraction_removed": 0.5111,
+   "direct_only_dCE": 0.0003,
+   "direct_only_SE": 0.00028,
+   "direct_readout_fraction": 0.002,
+   "restore_at_kplus3_dCE": 0.0914,
+   "first_two_consumers_fraction": 0.6172
+  },
+  "5": {
+   "census_floor": 0.0928,
+   "total_damage_dCE": 0.0928,
+   "total_damage_SE": 0.00329,
+   "floor_gate_abs_diff": 0.0,
+   "floor_gate_pass": true,
+   "exactness_restore_next_dCE": -0.0,
+   "freeze_next_mlp_dCE": 0.0453,
+   "freeze_next_mlp_SE": 0.00227,
+   "next_square_fraction_removed": 0.5119,
+   "direct_only_dCE": 0.0018,
+   "direct_only_SE": 0.00057,
+   "direct_readout_fraction": 0.0194,
+   "restore_at_kplus3_dCE": 0.0509,
+   "first_two_consumers_fraction": 0.5485
+  },
+  "6": {
+   "census_floor": 0.0832,
+   "total_damage_dCE": 0.0832,
+   "total_damage_SE": 0.00302,
+   "floor_gate_abs_diff": 0.0,
+   "floor_gate_pass": true,
+   "exactness_restore_next_dCE": -0.0,
+   "freeze_next_mlp_dCE": 0.041,
+   "freeze_next_mlp_SE": 0.00215,
+   "next_square_fraction_removed": 0.5072,
+   "direct_only_dCE": 0.0039,
+   "direct_only_SE": 0.00071,
+   "direct_readout_fraction": 0.0469,
+   "restore_at_kplus3_dCE": 0.0357,
+   "first_two_consumers_fraction": 0.4291
+  },
+  "7": {
+   "census_floor": 0.0601,
+   "total_damage_dCE": 0.0601,
+   "total_damage_SE": 0.00256,
+   "floor_gate_abs_diff": 0.0,
+   "floor_gate_pass": true,
+   "exactness_restore_next_dCE": -0.0,
+   "freeze_next_mlp_dCE": 0.0364,
+   "freeze_next_mlp_SE": 0.00199,
+   "next_square_fraction_removed": 0.3943,
+   "direct_only_dCE": 0.0072,
+   "direct_only_SE": 0.00088,
+   "direct_readout_fraction": 0.1198,
+   "restore_at_kplus3_dCE": 0.0242,
+   "first_two_consumers_fraction": 0.4027
+  },
+  "8": {
+   "census_floor": 0.0511,
+   "total_damage_dCE": 0.0511,
+   "total_damage_SE": 0.00242,
+   "floor_gate_abs_diff": 0.0,
+   "floor_gate_pass": true,
+   "exactness_restore_next_dCE": 0.0,
+   "freeze_next_mlp_dCE": 0.0337,
+   "freeze_next_mlp_SE": 0.00199,
+   "next_square_fraction_removed": 0.3405,
+   "direct_only_dCE": 0.0132,
+   "direct_only_SE": 0.00117,
+   "direct_readout_fraction": 0.2583,
+   "restore_at_kplus3_dCE": 0.0218,
+   "first_two_consumers_fraction": 0.4266
+  },
+  "10": {
+   "census_floor": 0.0465,
+   "total_damage_dCE": 0.0465,
+   "total_damage_SE": 0.00228,
+   "floor_gate_abs_diff": 0.0,
+   "floor_gate_pass": true,
+   "exactness_restore_next_dCE": -0.0,
+   "freeze_next_mlp_dCE": 0.0331,
+   "freeze_next_mlp_SE": 0.00192,
+   "next_square_fraction_removed": 0.2882,
+   "direct_only_dCE": 0.0222,
+   "direct_only_SE": 0.00157,
+   "direct_readout_fraction": 0.4774,
+   "restore_at_kplus3_dCE": 0.0165,
+   "first_two_consumers_fraction": 0.3548
+  },
+  "12": {
+   "census_floor": 0.0437,
+   "total_damage_dCE": 0.0437,
+   "total_damage_SE": 0.00223,
+   "floor_gate_abs_diff": 0.0,
+   "floor_gate_pass": true,
+   "exactness_restore_next_dCE": -0.0,
+   "freeze_next_mlp_dCE": 0.0326,
+   "freeze_next_mlp_SE": 0.00193,
+   "next_square_fraction_removed": 0.254,
+   "direct_only_dCE": 0.0457,
+   "direct_only_SE": 0.00227,
+   "direct_readout_fraction": 1.0458,
+   "restore_at_kplus3_dCE": 0.0103,
+   "first_two_consumers_fraction": 0.2357
+  },
+  "14": {
+   "census_floor": 0.03,
+   "total_damage_dCE": 0.0299,
+   "total_damage_SE": 0.00194,
+   "floor_gate_abs_diff": 0.0001,
+   "floor_gate_pass": true,
+   "exactness_restore_next_dCE": 0.0,
+   "freeze_next_mlp_dCE": 0.0228,
+   "freeze_next_mlp_SE": 0.00173,
+   "next_square_fraction_removed": 0.2375,
+   "direct_only_dCE": 0.0273,
+   "direct_only_SE": 0.00182,
+   "direct_readout_fraction": 0.913,
+   "restore_at_kplus3_dCE": 0.0139,
+   "first_two_consumers_fraction": 0.4649
+  }
+ },
+ "examples": {
+  "method": "top-200 deviation-firing positions per representative block (|mo_k - per-position mean| norm, VERBATIM topmask); class-summed delta-logit of clean minus intervened logits at firing positions, for total damage vs direct-only (all later components frozen clean); machinery VERBATIM qk_arc_mlp3_2.py part B",
+  "regions": {
+   "cascade": {
+    "block": 4,
+    "n_firing_positions": 200,
+    "trigger_classes_top6": [
+     [
+      "word",
+      111
+     ],
+     [
+      "subword",
+      28
+     ],
+     [
+      "capital",
+      15
+     ],
+     [
+      "coordinator",
+      12
+     ],
+     [
+      "digit",
+      12
+     ],
+     [
+      "punct",
+      8
+     ]
+    ],
+    "trigger_tokens_top8": [
+     [
+      "' but'",
+      8
+     ],
+     [
+      "' year'",
+      5
+     ],
+     [
+      "'s'",
+      4
+     ],
+     [
+      "' to'",
+      4
+     ],
+     [
+      "'\\n'",
+      4
+     ],
+     [
+      "' day'",
+      4
+     ],
+     [
+      "','",
+      3
+     ],
+     [
+      "' me'",
+      3
+     ]
+    ],
+    "snippets_top4": [
+     {
+      "seq": 115,
+      "pos": 75,
+      "context_ending_at_pos": "'t be changing much. Graphics ideas are still welcome, but",
+      "current_token": "' but'",
+      "dev_norm": 26813.86
+     },
+     {
+      "seq": 125,
+      "pos": 111,
+      "context_ending_at_pos": ". They lost to BSS (a good clan, but",
+      "current_token": "' but'",
+      "dev_norm": 25447.54
+     },
+     {
+      "seq": 92,
+      "pos": 112,
+      "context_ending_at_pos": " rather than tell. Yes, you may be innovative; but",
+      "current_token": "' but'",
+      "dev_norm": 24957.45
+     },
+     {
+      "seq": 51,
+      "pos": 28,
+      "context_ending_at_pos": " width for images on attachment pages is<|endoftext|>Showing 2 results",
+      "current_token": "' results'",
+      "dev_norm": 24764.99
+     }
+    ],
+    "total_signature_at_dev_firing": {
+     "class_summed_top6": {
+      "word": -1746.1595,
+      "capital": -703.6667,
+      "digit": -154.3443,
+      "subword": -112.4316,
+      "other": 44.7723,
+      "punct": -22.9071
+     },
+     "top_boosted_tokens": [
+      [
+       "'\u2014'",
+       0.7319
+      ],
+      [
+       "' ...'",
+       0.7194
+      ],
+      [
+       "' \u2014'",
+       0.7161
+      ],
+      [
+       "' ('",
+       0.7101
+      ],
+      [
+       "','",
+       0.7061
+      ],
+      [
+       "' [\u2026]'",
+       0.7041
+      ]
+     ],
+     "top_suppressed_tokens": [
+      [
+       "'?)'",
+       -1.1367
+      ],
+      [
+       "'?).'",
+       -1.106
+      ],
+      [
+       "' ).'",
+       -0.9324
+      ],
+      [
+       "')='",
+       -0.9134
+      ],
+      [
+       "')?'",
+       -0.8943
+      ],
+      [
+       "' )'",
+       -0.8519
+      ]
+     ]
+    },
+    "direct_readout_signature_at_dev_firing": {
+     "class_summed_top6": {
+      "capital": -179.8619,
+      "word": -166.0829,
+      "subword": -103.53,
+      "digit": -22.0924,
+      "other": -5.85,
+      "special": -4.5551
+     },
+     "top_boosted_tokens": [
+      [
+       "' when'",
+       0.0738
+      ],
+      [
+       "','",
+       0.0596
+      ],
+      [
+       "';'",
+       0.0578
+      ],
+      [
+       "'!'",
+       0.0541
+      ],
+      [
+       "' they'",
+       0.0525
+      ],
+      [
+       "'.'",
+       0.0516
+      ]
+     ],
+     "top_suppressed_tokens": [
+      [
+       "'idi'",
+       -0.046
+      ],
+      [
+       "'IRE'",
+       -0.0458
+      ],
+      [
+       "'acted'",
+       -0.0442
+      ],
+      [
+       "'\u3055'",
+       -0.0435
+      ],
+      [
+       "'endum'",
+       -0.0434
+      ],
+      [
+       "'URA'",
+       -0.0434
+      ]
+     ]
+    },
+    "direct_to_total_delta_logit_norm_ratio": 0.0683
+   },
+   "distributed": {
+    "block": 8,
+    "n_firing_positions": 200,
+    "trigger_classes_top6": [
+     [
+      "word",
+      95
+     ],
+     [
+      "newline",
+      29
+     ],
+     [
+      "punct",
+      26
+     ],
+     [
+      "subword",
+      18
+     ],
+     [
+      "digit",
+      15
+     ],
+     [
+      "capital",
+      9
+     ]
+    ],
+    "trigger_tokens_top8": [
+     [
+      "'\\n'",
+      29
+     ],
+     [
+      "'.'",
+      10
+     ],
+     [
+      "' to'",
+      3
+     ],
+     [
+      "' -'",
+      3
+     ],
+     [
+      "' --'",
+      2
+     ],
+     [
+      "' learns'",
+      2
+     ],
+     [
+      "' by'",
+      2
+     ],
+     [
+      "' out'",
+      2
+     ]
+    ],
+    "snippets_top4": [
+     {
+      "seq": 61,
+      "pos": 118,
+      "context_ending_at_pos": " encounter in its Karlsaue.<|endoftext|>Most Active Stories\n",
+      "current_token": "'\\n'",
+      "dev_norm": 6916.42
+     },
+     {
+      "seq": 146,
+      "pos": 83,
+      "context_ending_at_pos": ".\nDecember 1, 2011\nPolk Brown inks",
+      "current_token": "'ks'",
+      "dev_norm": 5773.61
+     },
+     {
+      "seq": 51,
+      "pos": 49,
+      "context_ending_at_pos": "\" in category \"Job Listings & Opportunities\"\n",
+      "current_token": "'\\n'",
+      "dev_norm": 5315.44
+     },
+     {
+      "seq": 143,
+      "pos": 99,
+      "context_ending_at_pos": " page lists articles associated with the title Elenchus.\n",
+      "current_token": "'\\n'",
+      "dev_norm": 5274.88
+     }
+    ],
+    "total_signature_at_dev_firing": {
+     "class_summed_top6": {
+      "capital": -1380.5165,
+      "word": -1167.241,
+      "subword": -332.4406,
+      "digit": -157.9169,
+      "punct": -72.0888,
+      "other": -24.3807
+     },
+     "top_boosted_tokens": [
+      [
+       "' [\u2026]'",
+       0.4063
+      ],
+      [
+       "'Nazi'",
+       0.3341
+      ],
+      [
+       "'racist'",
+       0.3306
+      ],
+      [
+       "'Israeli'",
+       0.3274
+      ],
+      [
+       "'\\n'",
+       0.3129
+      ],
+      [
+       "' rep'",
+       0.3069
+      ]
+     ],
+     "top_suppressed_tokens": [
+      [
+       "' ATK'",
+       -0.4398
+      ],
+      [
+       "'ables'",
+       -0.4388
+      ],
+      [
+       "' Others'",
+       -0.438
+      ],
+      [
+       "'ates'",
+       -0.4359
+      ],
+      [
+       "' Arpaio'",
+       -0.4271
+      ],
+      [
+       "' misses'",
+       -0.422
+      ]
+     ]
+    },
+    "direct_readout_signature_at_dev_firing": {
+     "class_summed_top6": {
+      "capital": -2291.218,
+      "word": -1936.6683,
+      "subword": -1342.5267,
+      "digit": -292.709,
+      "punct": -100.5745,
+      "other": -86.5026
+     },
+     "top_boosted_tokens": [
+      [
+       "' ('",
+       0.2793
+      ],
+      [
+       "' in'",
+       0.2771
+      ],
+      [
+       "' as'",
+       0.2601
+      ],
+      [
+       "' on'",
+       0.258
+      ],
+      [
+       "'\\n'",
+       0.2419
+      ],
+      [
+       "','",
+       0.2415
+      ]
+     ],
+     "top_suppressed_tokens": [
+      [
+       "' SECTION'",
+       -0.36
+      ],
+      [
+       "'BILITIES'",
+       -0.3584
+      ],
+      [
+       "'\ufffd'",
+       -0.3556
+      ],
+      [
+       "'BALL'",
+       -0.348
+      ],
+      [
+       "'\ufffd'",
+       -0.3472
+      ],
+      [
+       "' SYSTEM'",
+       -0.3449
+      ]
+     ]
+    },
+    "direct_to_total_delta_logit_norm_ratio": 1.1861
+   },
+   "readout": {
+    "block": 14,
+    "n_firing_positions": 200,
+    "trigger_classes_top6": [
+     [
+      "word",
+      86
+     ],
+     [
+      "punct",
+      36
+     ],
+     [
+      "digit",
+      21
+     ],
+     [
+      "capital",
+      15
+     ],
+     [
+      "determiner",
+      14
+     ],
+     [
+      "other",
+      9
+     ]
+    ],
+    "trigger_tokens_top8": [
+     [
+      "'-'",
+      10
+     ],
+     [
+      "'.'",
+      9
+     ],
+     [
+      "','",
+      9
+     ],
+     [
+      "' a'",
+      8
+     ],
+     [
+      "':'",
+      7
+     ],
+     [
+      "' to'",
+      6
+     ],
+     [
+      "\"'s\"",
+      6
+     ],
+     [
+      "' as'",
+      3
+     ]
+    ],
+    "snippets_top4": [
+     {
+      "seq": 58,
+      "pos": 114,
+      "context_ending_at_pos": "67 votes), Conservative Nigel Huddleston (12,",
+      "current_token": "','",
+      "dev_norm": 19654.31
+     },
+     {
+      "seq": 58,
+      "pos": 85,
+      "context_ending_at_pos": " the highest number standing for one constituency. She received 1,",
+      "current_token": "','",
+      "dev_norm": 18293.09
+     },
+     {
+      "seq": 58,
+      "pos": 125,
+      "context_ending_at_pos": ",396 votes) and Mr Shuker (14,",
+      "current_token": "','",
+      "dev_norm": 17913.2
+     },
+     {
+      "seq": 58,
+      "pos": 101,
+      "context_ending_at_pos": " well behind the Liberal Democrats, Qurban Hussain (9,",
+      "current_token": "','",
+      "dev_norm": 16324.13
+     }
+    ],
+    "total_signature_at_dev_firing": {
+     "class_summed_top6": {
+      "subword": 829.7311,
+      "capital": 462.7749,
+      "word": 375.0207,
+      "digit": 83.4218,
+      "punct": 61.9225,
+      "other": 33.445
+     },
+     "top_boosted_tokens": [
+      [
+       "'NOT'",
+       0.3866
+      ],
+      [
+       "'ENN'",
+       0.382
+      ],
+      [
+       "'\u2013'",
+       0.3756
+      ],
+      [
+       "'Liter'",
+       0.373
+      ],
+      [
+       "'-,'",
+       0.3709
+      ],
+      [
+       "'OR'",
+       0.3625
+      ]
+     ],
+     "top_suppressed_tokens": [
+      [
+       "' checks'",
+       -0.3063
+      ],
+      [
+       "' passes'",
+       -0.2939
+      ],
+      [
+       "' Tag'",
+       -0.2814
+      ],
+      [
+       "' fo'",
+       -0.2746
+      ],
+      [
+       "' Gener'",
+       -0.2704
+      ],
+      [
+       "' Ver'",
+       -0.27
+      ]
+     ]
+    },
+    "direct_readout_signature_at_dev_firing": {
+     "class_summed_top6": {
+      "word": -1745.5232,
+      "capital": -1638.1017,
+      "subword": -1115.7767,
+      "digit": -116.3701,
+      "punct": -83.9017,
+      "other": -63.7098
+     },
+     "top_boosted_tokens": [
+      [
+       "' first'",
+       0.4171
+      ],
+      [
+       "'er'",
+       0.3581
+      ],
+      [
+       "' other'",
+       0.3532
+      ],
+      [
+       "' 3'",
+       0.3443
+      ],
+      [
+       "' 13'",
+       0.3439
+      ],
+      [
+       "' need'",
+       0.3439
+      ]
+     ],
+     "top_suppressed_tokens": [
+      [
+       "' topple'",
+       -0.4492
+      ],
+      [
+       "'rawled'",
+       -0.4399
+      ],
+      [
+       "'uggest'",
+       -0.4346
+      ],
+      [
+       "'ngth'",
+       -0.4303
+      ],
+      [
+       "' piss'",
+       -0.4293
+      ],
+      [
+       "' detonated'",
+       -0.428
+      ]
+     ]
+    },
+    "direct_to_total_delta_logit_norm_ratio": 1.4364
+   }
+  }
+ }
+}
