@@ -7146,3 +7146,13 @@ existing steering methods, not a new method class, so in-scope and launched rath
   compounds (§87, honest negative); sufficiency-first → vindicated (§84). Remaining audit items: term census
   beyond the hub (all layers), non-uniform rank allocation, term-targeted editing, provenance-naming gates.
 - NEXT: consolidate §84-88 into the paper as one coherent "fold-first attribution" section + artifact refresh.
+
+## tick 2026-07-31 (paper consolidation of the fold program §84-88 + model-wide term census dispatched)
+- Added the paper's "Fold-first attribution" body section + abstract resolution clause: the hub story resolved
+  in the architecture's own coordinates (sufficiency hierarchy, five-term provenance anatomy, certified proxy,
+  honest compression limits). Source line → §32-§88. Committed.
+- Dispatched a9f3b2369a538e142 (qk_allterm_census.py): the §86 provenance census extended to ALL 18 feed-
+  forward blocks with the 5-group coarsening (embedding / attention-recent / attention-earlier / MLP-recent /
+  MLP-earlier → ≤15 group-pair terms per layer, exact; per-layer fold gates). Deliverables: terms-to-95%
+  profile across depth, the model-wide provenance flow map, any qualitatively different layers, concrete
+  examples. Collect next tick.
