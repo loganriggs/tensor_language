@@ -1,0 +1,1826 @@
+{
+ "meta": {
+  "model": "bilin18",
+  "held": "FW[448:600,:128]",
+  "train": "FW[0:256,:128]",
+  "base_ce": 3.4946,
+  "base_gate_maxabs": 0.0,
+  "budget_16x": 861456384,
+  "full_params": 13771358208,
+  "reference_scheme1_16x": 0.8032,
+  "reference_best_term_16x": 1.9009,
+  "peak_gpu_MiB": 4054.4,
+  "scripts": [
+   "qk_redteam_tc.py",
+   "qk_redteam_tc_2.py",
+   "qk_redteam_tc_3.py"
+  ]
+ },
+ "attack2_basis_cap": {
+  "KMAX": 768,
+  "fitted_ranks": {
+   "scheme3_asspec_128x": {
+    "max_rank": 447,
+    "f": 0.6863618833600721
+   },
+   "scheme3_asspec_16x": {
+    "max_rank": 604,
+    "f": 0.8001802941225262
+   },
+   "scheme3_asspec_4x": {
+    "max_rank": 745,
+    "f": 0.8773983277459907
+   },
+   "3b_perterm_100pct_128x": {
+    "R_in": 125,
+    "R_out": 63
+   },
+   "3b_perterm_100pct_16x": {
+    "R_in": 250,
+    "R_out": 125
+   },
+   "3b_perterm_100pct_4x": {
+    "R_in": 398,
+    "R_out": 199
+   },
+   "3b_perterm_125pct_128x": {
+    "R_in": 114,
+    "R_out": 57
+   },
+   "3b_perterm_125pct_16x": {
+    "R_in": 229,
+    "R_out": 115
+   },
+   "3b_perterm_125pct_4x": {
+    "R_in": 364,
+    "R_out": 182
+   },
+   "3c_sharedout_100pct_128x": {
+    "R_in": 125,
+    "R_out": 63
+   },
+   "3c_sharedout_100pct_16x": {
+    "R_in": 250,
+    "R_out": 125
+   },
+   "3c_sharedout_100pct_4x": {
+    "R_in": 398,
+    "R_out": 199
+   },
+   "3c_sharedout_125pct_128x": {
+    "R_in": 114,
+    "R_out": 57
+   },
+   "3c_sharedout_125pct_16x": {
+    "R_in": 229,
+    "R_out": 115
+   },
+   "3c_sharedout_125pct_4x": {
+    "R_in": 364,
+    "R_out": 182
+   }
+  },
+  "binds": [],
+  "groups_whose_numerical_rank_exceeds_KMAX": [
+   [
+    "L0",
+    "E",
+    1152
+   ],
+   [
+    "L0",
+    "Ar",
+    1119
+   ],
+   [
+    "L1",
+    "E",
+    1152
+   ],
+   [
+    "L1",
+    "Ae",
+    1119
+   ],
+   [
+    "L1",
+    "Ar",
+    810
+   ],
+   [
+    "L1",
+    "Mr",
+    1152
+   ],
+   [
+    "L2",
+    "E",
+    1152
+   ],
+   [
+    "L2",
+    "Ae",
+    808
+   ],
+   [
+    "L2",
+    "Ar",
+    1081
+   ],
+   [
+    "L2",
+    "Me",
+    1152
+   ],
+   [
+    "L2",
+    "Mr",
+    1152
+   ],
+   [
+    "L3",
+    "E",
+    1152
+   ],
+   [
+    "L3",
+    "Ae",
+    1152
+   ],
+   [
+    "L3",
+    "Ar",
+    1115
+   ],
+   [
+    "L3",
+    "Me",
+    1152
+   ],
+   [
+    "L3",
+    "Mr",
+    1152
+   ],
+   [
+    "L4",
+    "E",
+    1152
+   ],
+   [
+    "L4",
+    "Ae",
+    1152
+   ],
+   [
+    "L4",
+    "Ar",
+    1105
+   ],
+   [
+    "L4",
+    "Me",
+    1152
+   ],
+   [
+    "L4",
+    "Mr",
+    1152
+   ],
+   [
+    "L5",
+    "E",
+    1152
+   ],
+   [
+    "L5",
+    "Ae",
+    1152
+   ],
+   [
+    "L5",
+    "Me",
+    1152
+   ],
+   [
+    "L5",
+    "Mr",
+    1152
+   ],
+   [
+    "L6",
+    "E",
+    1152
+   ],
+   [
+    "L6",
+    "Ae",
+    933
+   ],
+   [
+    "L6",
+    "Ar",
+    820
+   ],
+   [
+    "L6",
+    "Me",
+    1152
+   ],
+   [
+    "L6",
+    "Mr",
+    1152
+   ],
+   [
+    "L7",
+    "E",
+    1152
+   ],
+   [
+    "L7",
+    "Ae",
+    948
+   ],
+   [
+    "L7",
+    "Ar",
+    951
+   ],
+   [
+    "L7",
+    "Me",
+    1152
+   ],
+   [
+    "L7",
+    "Mr",
+    1152
+   ],
+   [
+    "L8",
+    "E",
+    1152
+   ],
+   [
+    "L8",
+    "Ae",
+    1025
+   ],
+   [
+    "L8",
+    "Ar",
+    1101
+   ],
+   [
+    "L8",
+    "Me",
+    1152
+   ],
+   [
+    "L8",
+    "Mr",
+    1152
+   ],
+   [
+    "L9",
+    "E",
+    1152
+   ],
+   [
+    "L9",
+    "Ae",
+    1152
+   ],
+   [
+    "L9",
+    "Ar",
+    1024
+   ],
+   [
+    "L9",
+    "Me",
+    1152
+   ],
+   [
+    "L9",
+    "Mr",
+    1152
+   ],
+   [
+    "L10",
+    "E",
+    1152
+   ],
+   [
+    "L10",
+    "Ae",
+    1152
+   ],
+   [
+    "L10",
+    "Ar",
+    1025
+   ],
+   [
+    "L10",
+    "Me",
+    1152
+   ],
+   [
+    "L10",
+    "Mr",
+    1152
+   ],
+   [
+    "L11",
+    "E",
+    1152
+   ],
+   [
+    "L11",
+    "Ae",
+    1152
+   ],
+   [
+    "L11",
+    "Ar",
+    1086
+   ],
+   [
+    "L11",
+    "Me",
+    1152
+   ],
+   [
+    "L11",
+    "Mr",
+    1152
+   ],
+   [
+    "L12",
+    "E",
+    1152
+   ],
+   [
+    "L12",
+    "Ae",
+    1152
+   ],
+   [
+    "L12",
+    "Ar",
+    1097
+   ],
+   [
+    "L12",
+    "Me",
+    1152
+   ],
+   [
+    "L12",
+    "Mr",
+    1152
+   ],
+   [
+    "L13",
+    "E",
+    1152
+   ],
+   [
+    "L13",
+    "Ae",
+    1152
+   ],
+   [
+    "L13",
+    "Ar",
+    1132
+   ],
+   [
+    "L13",
+    "Me",
+    1152
+   ],
+   [
+    "L13",
+    "Mr",
+    1152
+   ],
+   [
+    "L14",
+    "E",
+    1152
+   ],
+   [
+    "L14",
+    "Ae",
+    1152
+   ],
+   [
+    "L14",
+    "Ar",
+    1138
+   ],
+   [
+    "L14",
+    "Me",
+    1152
+   ],
+   [
+    "L14",
+    "Mr",
+    1152
+   ],
+   [
+    "L15",
+    "E",
+    1152
+   ],
+   [
+    "L15",
+    "Ae",
+    1152
+   ],
+   [
+    "L15",
+    "Ar",
+    1117
+   ],
+   [
+    "L15",
+    "Me",
+    1152
+   ],
+   [
+    "L15",
+    "Mr",
+    1152
+   ],
+   [
+    "L16",
+    "E",
+    1152
+   ],
+   [
+    "L16",
+    "Ae",
+    1152
+   ],
+   [
+    "L16",
+    "Ar",
+    1133
+   ],
+   [
+    "L16",
+    "Me",
+    1152
+   ],
+   [
+    "L16",
+    "Mr",
+    1152
+   ],
+   [
+    "L17",
+    "E",
+    1152
+   ],
+   [
+    "L17",
+    "Ae",
+    1152
+   ],
+   [
+    "L17",
+    "Ar",
+    1017
+   ],
+   [
+    "L17",
+    "Me",
+    1152
+   ],
+   [
+    "L17",
+    "Mr",
+    1152
+   ]
+  ],
+  "max_R_ever_requested": 576,
+  "verdict": "cap NEVER binds: max fitted rank across every \u00a7104 configuration is 745 < 768"
+ },
+ "attack1_allocation_fairness": {
+  "reference": {
+   "rank_alloc_16x_dCE": 0.8032,
+   "best_term_104_dCE": 1.9009,
+   "gap_nats": 1.0977
+  },
+  "cells": {
+   "repro_104_best_sharedpath": {
+    "note": "reproduction of \u00a7104 3b_perterm_125pct_16x through the shared-input path",
+    "budget": 857072575,
+    "budget_frac_of_16x": 0.9949,
+    "n_terms": 169,
+    "dCE": 1.9009,
+    "SE": 0.01679,
+    "vs_rank_alloc_16x": [
+     1.0977,
+     0.01123
+    ],
+    "vs_best_term_104": [
+     0.0,
+     0.0
+    ],
+    "secs": 5.5
+   },
+   "repro_104_best_pertermpath": {
+    "note": "same allocation through the NEW per-term input path (machinery equivalence gate)",
+    "budget": 857072575,
+    "budget_frac_of_16x": 0.9949,
+    "n_terms": 169,
+    "dCE": 1.9009,
+    "SE": 0.01679,
+    "vs_rank_alloc_16x": [
+     1.0977,
+     0.01123
+    ],
+    "vs_best_term_104": [
+     0.0,
+     0.0
+    ],
+    "secs": 11.6
+   },
+   "ratio_rho0.25": {
+    "note": "uniform input rank R=288, output rank = ceil(0.25*R) (\u00a7104 fixed rho=0.5)",
+    "budget": 848579328,
+    "budget_frac_of_16x": 0.9851,
+    "n_terms": 169,
+    "dCE": 2.0906,
+    "SE": 0.01772,
+    "vs_rank_alloc_16x": [
+     1.2874,
+     0.01241
+    ],
+    "vs_best_term_104": [
+     0.1897,
+     0.00317
+    ],
+    "secs": 11.8,
+    "R_in": 288
+   },
+   "ratio_rho1.0": {
+    "note": "uniform input rank R=182, output rank = ceil(1.0*R) (\u00a7104 fixed rho=0.5)",
+    "budget": 856951004,
+    "budget_frac_of_16x": 0.9948,
+    "n_terms": 169,
+    "dCE": 1.7768,
+    "SE": 0.01615,
+    "vs_rank_alloc_16x": [
+     0.9737,
+     0.01045
+    ],
+    "vs_best_term_104": [
+     -0.1241,
+     0.00241
+    ],
+    "secs": 11.7,
+    "R_in": 182
+   },
+   "ratio_rho2.0": {
+    "note": "uniform input rank R=144, output rank = ceil(2.0*R) (\u00a7104 fixed rho=0.5)",
+    "budget": 848060928,
+    "budget_frac_of_16x": 0.9845,
+    "n_terms": 169,
+    "dCE": 1.8265,
+    "SE": 0.01636,
+    "vs_rank_alloc_16x": [
+     1.0233,
+     0.01085
+    ],
+    "vs_best_term_104": [
+     -0.0744,
+     0.00327
+    ],
+    "secs": 11.8,
+    "R_in": 144
+   },
+   "importance_layer_g1.0": {
+    "note": "per-term input rank proportional to (census keep-alone importance)^1.0, layer-normalised; rank range 16-768",
+    "budget": 861439784,
+    "budget_frac_of_16x": 1.0,
+    "n_terms": 169,
+    "dCE": 4.0009,
+    "SE": 0.03215,
+    "vs_rank_alloc_16x": [
+     3.1978,
+     0.02801
+    ],
+    "vs_best_term_104": [
+     2.1001,
+     0.02136
+    ],
+    "secs": 11.5,
+    "rank_range": [
+     16,
+     768
+    ]
+   },
+   "importance_layer_g0.5": {
+    "note": "per-term input rank proportional to (census keep-alone importance)^0.5, layer-normalised; rank range 16-768",
+    "budget": 861424367,
+    "budget_frac_of_16x": 1.0,
+    "n_terms": 169,
+    "dCE": 3.6971,
+    "SE": 0.03084,
+    "vs_rank_alloc_16x": [
+     2.8939,
+     0.02638
+    ],
+    "vs_best_term_104": [
+     1.7962,
+     0.01942
+    ],
+    "secs": 11.6,
+    "rank_range": [
+     16,
+     768
+    ]
+   },
+   "importance_global_g1.0": {
+    "note": "per-term input rank proportional to (census keep-alone importance)^1.0, global-normalised; rank range 16-768",
+    "budget": 861286378,
+    "budget_frac_of_16x": 0.9998,
+    "n_terms": 169,
+    "dCE": 3.1351,
+    "SE": 0.02409,
+    "vs_rank_alloc_16x": [
+     2.3319,
+     0.01961
+    ],
+    "vs_best_term_104": [
+     1.2342,
+     0.01372
+    ],
+    "secs": 11.3,
+    "rank_range": [
+     16,
+     768
+    ]
+   },
+   "no_output_125pct": {
+    "note": "outputs EXACT (ro=D=1152), all budget on inputs: R=72",
+    "budget": 850258944,
+    "budget_frac_of_16x": 0.987,
+    "n_terms": 169,
+    "dCE": 2.3015,
+    "SE": 0.01828,
+    "vs_rank_alloc_16x": [
+     1.4983,
+     0.01363
+    ],
+    "vs_best_term_104": [
+     0.4006,
+     0.00641
+    ],
+    "secs": 11.3,
+    "R_in": 72
+   },
+   "no_output_100pct": {
+    "note": "outputs EXACT (ro=D=1152), all budget on inputs: R=82",
+    "budget": 842477184,
+    "budget_frac_of_16x": 0.978,
+    "n_terms": 130,
+    "dCE": 2.31,
+    "SE": 0.01757,
+    "vs_rank_alloc_16x": [
+     1.5068,
+     0.01261
+    ],
+    "vs_best_term_104": [
+     0.4091,
+     0.00696
+    ],
+    "secs": 9.0,
+    "R_in": 82
+   },
+   "early_boost_mu1.5": {
+    "note": "layers 0-4 get rank 315, layers 5-17 rank 210 (\u00a7104 used 229 everywhere)",
+    "budget": 857084130,
+    "budget_frac_of_16x": 0.9949,
+    "n_terms": 169,
+    "dCE": 1.7316,
+    "SE": 0.01602,
+    "vs_rank_alloc_16x": [
+     0.9285,
+     0.01012
+    ],
+    "vs_best_term_104": [
+     -0.1693,
+     0.00245
+    ],
+    "secs": 11.7,
+    "R_early": 315,
+    "R_rest": 210
+   },
+   "early_boost_mu2.0": {
+    "note": "layers 0-4 get rank 370, layers 5-17 rank 185 (\u00a7104 used 229 everywhere)",
+    "budget": 851229215,
+    "budget_frac_of_16x": 0.9881,
+    "n_terms": 169,
+    "dCE": 1.6523,
+    "SE": 0.01564,
+    "vs_rank_alloc_16x": [
+     0.8491,
+     0.00955
+    ],
+    "vs_best_term_104": [
+     -0.2486,
+     0.00338
+    ],
+    "secs": 11.8,
+    "R_early": 370,
+    "R_rest": 185
+   },
+   "early_boost_mu3.0": {
+    "note": "layers 0-4 get rank 423, layers 5-17 rank 141 (\u00a7104 used 229 everywhere)",
+    "budget": 858414345,
+    "budget_frac_of_16x": 0.9965,
+    "n_terms": 169,
+    "dCE": 1.6379,
+    "SE": 0.01565,
+    "vs_rank_alloc_16x": [
+     0.8347,
+     0.00944
+    ],
+    "vs_best_term_104": [
+     -0.263,
+     0.0041
+    ],
+    "secs": 11.7,
+    "R_early": 423,
+    "R_rest": 141
+   },
+   "ratio_rho0.75": {
+    "note": "uniform R=200, output ceil(0.75*R)",
+    "budget": 852810000,
+    "budget_frac_of_16x": 0.99,
+    "n_terms": 169,
+    "dCE": 1.8249,
+    "SE": 0.01645,
+    "vs_rank_alloc_16x": [
+     1.0217,
+     0.01079
+    ],
+    "vs_best_term_104": [
+     -0.076,
+     0.00172
+    ],
+    "secs": 5.6
+   },
+   "ratio_rho1.5": {
+    "note": "uniform R=159, output ceil(1.5*R)",
+    "budget": 858936762,
+    "budget_frac_of_16x": 0.9971,
+    "n_terms": 169,
+    "dCE": 1.7846,
+    "SE": 0.01615,
+    "vs_rank_alloc_16x": [
+     0.9815,
+     0.01051
+    ],
+    "vs_best_term_104": [
+     -0.1162,
+     0.00303
+    ],
+    "secs": 5.7
+   },
+   "profile_150pct_rho1": {
+    "note": "profile 150pct (193 terms), rho=1, R=175",
+    "budget": 861175000,
+    "budget_frac_of_16x": 0.9997,
+    "n_terms": 193,
+    "dCE": 1.6457,
+    "SE": 0.01553,
+    "vs_rank_alloc_16x": [
+     0.8425,
+     0.00935
+    ],
+    "vs_best_term_104": [
+     -0.2552,
+     0.00453
+    ],
+    "secs": 6.1
+   },
+   "profile_allterms_rho1": {
+    "note": "profile allterms (253 terms), rho=1, R=160",
+    "budget": 861260800,
+    "budget_frac_of_16x": 0.9998,
+    "n_terms": 253,
+    "dCE": 1.3878,
+    "SE": 0.01457,
+    "vs_rank_alloc_16x": [
+     0.5847,
+     0.00736
+    ],
+    "vs_best_term_104": [
+     -0.513,
+     0.00708
+    ],
+    "secs": 7.0
+   },
+   "combo_rho1_mu2.0": {
+    "note": "rho=1 with layers 0-4 at rank 294, rest 147",
+    "budget": 852150915,
+    "budget_frac_of_16x": 0.9892,
+    "n_terms": 169,
+    "dCE": 1.5049,
+    "SE": 0.01492,
+    "vs_rank_alloc_16x": [
+     0.7018,
+     0.00848
+    ],
+    "vs_best_term_104": [
+     -0.396,
+     0.00492
+    ],
+    "secs": 5.6
+   },
+   "combo_rho1_mu3.0": {
+    "note": "rho=1 with layers 0-4 at rank 336, rest 112",
+    "budget": 857746176,
+    "budget_frac_of_16x": 0.9957,
+    "n_terms": 169,
+    "dCE": 1.5041,
+    "SE": 0.01499,
+    "vs_rank_alloc_16x": [
+     0.7009,
+     0.00845
+    ],
+    "vs_best_term_104": [
+     -0.3968,
+     0.00535
+    ],
+    "secs": 5.5
+   },
+   "combo_rho1_mu4.0": {
+    "note": "rho=1 with layers 0-4 at rank 348, rest 87",
+    "budget": 840908331,
+    "budget_frac_of_16x": 0.9761,
+    "n_terms": 169,
+    "dCE": 1.5613,
+    "SE": 0.01537,
+    "vs_rank_alloc_16x": [
+     0.7582,
+     0.00896
+    ],
+    "vs_best_term_104": [
+     -0.3395,
+     0.0054
+    ],
+    "secs": 5.5
+   },
+   "importance_global_g1_UNCAPPED": {
+    "note": "importance rule with group bases uncapped to the full numerical rank; rank range 16-820",
+    "budget": 861406059,
+    "budget_frac_of_16x": 0.9999,
+    "n_terms": 169,
+    "dCE": 3.1688,
+    "SE": 0.02406,
+    "vs_rank_alloc_16x": [
+     2.3656,
+     0.0196
+    ],
+    "vs_best_term_104": [
+     1.2679,
+     0.01367
+    ],
+    "secs": 11.3,
+    "rank_range": [
+     16,
+     820
+    ],
+    "basis_gate": 0.0
+   },
+   "ratio_rho1_at_4x": {
+    "note": "rho=1 at the 4x budget, R=289",
+    "budget": 3425363252,
+    "dCE": 1.2859,
+    "SE": 0.01358,
+    "vs_rank_alloc_4x": [
+     0.9343,
+     0.01074
+    ],
+    "rank_alloc_4x": 0.3516
+   }
+  },
+  "machinery_gate": {
+   "shared_vs_perterm_dCE_diff": 0.0,
+   "shared_vs_104_json_diff": 0.0
+  },
+  "best_variant": {
+   "name": "allterms_rho1_mu2_16x",
+   "dCE": 1.3271,
+   "rank_alloc_16x": 0.8032,
+   "term_104_best": 1.9009,
+   "gap_closed_frac": 0.5227,
+   "still_loses_by_paired": [
+    0.5239,
+    0.00667
+   ]
+  },
+  "rank576_control": {
+   "group_factorised_input_only_R576_dCE": [
+    0.3648,
+    0.00674
+   ],
+   "joint_input_only_rank576_92anchor_dCE": [
+    0.3516,
+    0.00697
+   ],
+   "paired_difference": [
+    0.0132,
+    0.00496
+   ],
+   "paired_z": 2.66,
+   "note": "\u00a7104 called these a statistical TIE from the two unpaired standard errors; this is the paired test on the same positions."
+  },
+  "extended_search": {
+   "note": "qk_redteam_tc_2.py / _3.py: finer output/input ratio sweep, richer term profiles (150% and ALL active terms), knob combinations, the uncapped-basis re-run of the one cell where the 768-column cap bound, and the best all-terms configuration at the 4x and 128x budgets.",
+   "cells": {
+    "allterms_rho1.5_16x": {
+     "profile": "allterms",
+     "budget_tag": "16x",
+     "R_in": 139,
+     "kw": {
+      "rho": "1.5"
+     },
+     "n_terms": 253,
+     "budget": 849247883,
+     "budget_frac": 0.9858,
+     "dCE": 1.3842,
+     "SE": 0.01453,
+     "rank_alloc_same_budget": 0.8032,
+     "paired_vs_rank_alloc": [
+      0.581,
+      0.00738
+     ],
+     "paired_z": 78.8
+    },
+    "allterms_rho2.0_16x": {
+     "profile": "allterms",
+     "budget_tag": "16x",
+     "R_in": 127,
+     "kw": {
+      "rho": "2.0"
+     },
+     "n_terms": 253,
+     "budget": 861417632,
+     "budget_frac": 1.0,
+     "dCE": 1.4098,
+     "SE": 0.01462,
+     "rank_alloc_same_budget": 0.8032,
+     "paired_vs_rank_alloc": [
+      0.6066,
+      0.00762
+     ],
+     "paired_z": 79.6
+    },
+    "allterms_rho1_mu2_16x": {
+     "profile": "allterms",
+     "budget_tag": "16x",
+     "R_in": 116,
+     "kw": {
+      "rho": "1.0",
+      "mu_early": "2.0"
+     },
+     "n_terms": 253,
+     "budget": 847788552,
+     "budget_frac": 0.9841,
+     "dCE": 1.3271,
+     "SE": 0.0143,
+     "rank_alloc_same_budget": 0.8032,
+     "paired_vs_rank_alloc": [
+      0.5239,
+      0.00667
+     ],
+     "paired_z": 78.5
+    },
+    "allterms_rho1_mu3_16x": {
+     "profile": "allterms",
+     "budget_tag": "16x",
+     "R_in": 84,
+     "kw": {
+      "rho": "1.0",
+      "mu_early": "3.0"
+     },
+     "n_terms": 253,
+     "budget": 857353392,
+     "budget_frac": 0.9952,
+     "dCE": 1.3958,
+     "SE": 0.01471,
+     "rank_alloc_same_budget": 0.8032,
+     "paired_vs_rank_alloc": [
+      0.5926,
+      0.00728
+     ],
+     "paired_z": 81.4
+    },
+    "allterms_best_4x": {
+     "profile": "allterms",
+     "budget_tag": "4x",
+     "R_in": 185,
+     "kw": {
+      "rho": "1.0",
+      "mu_early": "2.0"
+     },
+     "n_terms": 253,
+     "budget": 3437456325,
+     "budget_frac": 0.9976,
+     "dCE": 0.9976,
+     "SE": 0.0124,
+     "rank_alloc_same_budget": 0.3516,
+     "paired_vs_rank_alloc": [
+      0.6461,
+      0.00873
+     ],
+     "paired_z": 74.0
+    },
+    "allterms_best_128x": {
+     "profile": "allterms",
+     "budget_tag": "128x",
+     "R_in": 58,
+     "kw": {
+      "rho": "1.0",
+      "mu_early": "2.0"
+     },
+     "n_terms": 253,
+     "budget": 106098878,
+     "budget_frac": 0.9836,
+     "dCE": 1.817,
+     "SE": 0.01704,
+     "rank_alloc_same_budget": 1.4561,
+     "paired_vs_rank_alloc": [
+      0.3609,
+      0.00703
+     ],
+     "paired_z": 51.3
+    }
+   }
+  },
+  "shared_vs_perterm_output_paired": {
+   "128x": [
+    0.4283,
+    0.00728
+   ],
+   "16x": [
+    0.0501,
+    0.00363
+   ],
+   "4x": [
+    0.0629,
+    0.00283
+   ]
+  }
+ },
+ "attack3_profile_artifact": {
+  "reference_125pct": {
+   "whole": 1.9009,
+   "regions": {
+    "early_0_4": 1.3807,
+    "distributed_5_11": 0.4746,
+    "readout_12_17": 0.3939
+   },
+   "scheme1_regions": {
+    "early_0_4": 0.173,
+    "distributed_5_11": 0.2603,
+    "readout_12_17": 0.2537
+   },
+   "early_share_of_region_sum": 0.6139,
+   "ratio_to_scheme1_per_region": {
+    "early_0_4": 7.98,
+    "distributed_5_11": 1.82,
+    "readout_12_17": 1.55
+   }
+  },
+  "profiles": {
+   "100pct": {
+    "R_in": 250,
+    "R_out": 125,
+    "k_profile": [
+     2,
+     3,
+     2,
+     4,
+     5,
+     8,
+     10,
+     12,
+     10,
+     10,
+     10,
+     10,
+     6,
+     8,
+     8,
+     6,
+     6,
+     10
+    ],
+    "budget": 848328125,
+    "whole": {
+     "dCE": 2.23,
+     "SE": 0.01814
+    },
+    "regions": {
+     "early_0_4": {
+      "dCE": 1.6668,
+      "SE": 0.01419
+     },
+     "distributed_5_11": {
+      "dCE": 0.4984,
+      "SE": 0.00777
+     },
+     "readout_12_17": {
+      "dCE": 0.4324,
+      "SE": 0.00819
+     }
+    },
+    "early_share_of_region_sum": 0.6417,
+    "ratio_to_scheme1_per_region": {
+     "early_0_4": 9.63,
+     "distributed_5_11": 1.91,
+     "readout_12_17": 1.7
+    }
+   },
+   "early150_rest100": {
+    "R_in": 246,
+    "R_out": 123,
+    "k_profile": [
+     3,
+     5,
+     3,
+     6,
+     8,
+     8,
+     10,
+     12,
+     10,
+     10,
+     10,
+     10,
+     6,
+     8,
+     8,
+     6,
+     6,
+     10
+    ],
+    "budget": 856725012,
+    "whole": {
+     "dCE": 1.9269,
+     "SE": 0.01707
+    },
+    "regions": {
+     "early_0_4": {
+      "dCE": 1.2274,
+      "SE": 0.01244
+     },
+     "distributed_5_11": {
+      "dCE": 0.5028,
+      "SE": 0.0078
+     },
+     "readout_12_17": {
+      "dCE": 0.4347,
+      "SE": 0.00821
+     }
+    },
+    "early_share_of_region_sum": 0.567,
+    "ratio_to_scheme1_per_region": {
+     "early_0_4": 7.09,
+     "distributed_5_11": 1.93,
+     "readout_12_17": 1.71
+    }
+   }
+  }
+ },
+ "attack4_examples": {
+  "quoted_in_104": [
+   {
+    "kind": "quoted",
+    "seq": 147,
+    "pos": 124,
+    "context_tail": ", leads Tech in final round at Great Smokies\nFreshman Mad",
+    "true_next": "al",
+    "CE_base": 0.022,
+    "CE_rank_alloc": 4.92,
+    "CE_term_scheme": 0.258,
+    "top3_base": [
+     [
+      "al",
+      0.9778
+     ],
+     [
+      "el",
+      0.0069
+     ],
+     [
+      "lyn",
+      0.0043
+     ]
+    ],
+    "p_true_base": 0.9778,
+    "rank_true_base": 1,
+    "top3_term_scheme_16x": [
+     [
+      "al",
+      0.7723
+     ],
+     [
+      "am",
+      0.0154
+     ],
+     [
+      "an",
+      0.0152
+     ]
+    ],
+    "p_true_term_scheme_16x": 0.77232,
+    "rank_true_term_scheme_16x": 1,
+    "top3_rank_alloc_16x": [
+     [
+      "sen",
+      0.0217
+     ],
+     [
+      "am",
+      0.0164
+     ],
+     [
+      " H",
+      0.0125
+     ]
+    ],
+    "p_true_rank_alloc_16x": 0.0073,
+    "rank_true_rank_alloc_16x": 7,
+    "term_preserves_base_abs": true,
+    "term_beats_base": false
+   },
+   {
+    "kind": "quoted",
+    "seq": 83,
+    "pos": 82,
+    "context_tail": " goes with it, to overlook the Range Rover. The best 4x4",
+    "true_next": "x",
+    "CE_base": 9.824,
+    "CE_rank_alloc": 7.247,
+    "CE_term_scheme": 2.203,
+    "top3_base": [
+     [
+      " is",
+      0.0784
+     ],
+     [
+      " ever",
+      0.0682
+     ],
+     [
+      " in",
+      0.0673
+     ]
+    ],
+    "p_true_base": 5e-05,
+    "rank_true_base": 740,
+    "top3_term_scheme_16x": [
+     [
+      " and",
+      0.2162
+     ],
+     [
+      " will",
+      0.1262
+     ],
+     [
+      "x",
+      0.1105
+     ]
+    ],
+    "p_true_term_scheme_16x": 0.11052,
+    "rank_true_term_scheme_16x": 3,
+    "top3_rank_alloc_16x": [
+     [
+      " car",
+      0.2391
+     ],
+     [
+      " vehicle",
+      0.1336
+     ],
+     [
+      " is",
+      0.0756
+     ]
+    ],
+    "p_true_rank_alloc_16x": 0.00071,
+    "rank_true_rank_alloc_16x": 94,
+    "term_preserves_base_abs": false,
+    "term_beats_base": true
+   },
+   {
+    "kind": "quoted",
+    "seq": 151,
+    "pos": 95,
+    "context_tail": ".1) : Yes/Yes\n- DTS 96/24/",
+    "true_next": " D",
+    "CE_base": 10.384,
+    "CE_rank_alloc": 9.488,
+    "CE_term_scheme": 4.967,
+    "top3_base": [
+     [
+      "CD",
+      0.0645
+     ],
+     [
+      "24",
+      0.0529
+     ],
+     [
+      "HD",
+      0.051
+     ]
+    ],
+    "p_true_base": 3e-05,
+    "rank_true_base": 829,
+    "top3_term_scheme_16x": [
+     [
+      "2",
+      0.0533
+     ],
+     [
+      "s",
+      0.0532
+     ],
+     [
+      "1",
+      0.0466
+     ]
+    ],
+    "p_true_term_scheme_16x": 0.00696,
+    "rank_true_term_scheme_16x": 31,
+    "top3_rank_alloc_16x": [
+     [
+      "24",
+      0.047
+     ],
+     [
+      "D",
+      0.0342
+     ],
+     [
+      "CD",
+      0.0304
+     ]
+    ],
+    "p_true_rank_alloc_16x": 8e-05,
+    "rank_true_rank_alloc_16x": 1220,
+    "term_preserves_base_abs": false,
+    "term_beats_base": true
+   }
+  ],
+  "counterexamples_rank_alloc_wins": [
+   {
+    "kind": "counterexample",
+    "seq": 88,
+    "pos": 33,
+    "context_tail": " while working at the Westover School in Middlebury was given three years of",
+    "true_next": " probation",
+    "CE_base": 0.295,
+    "CE_rank_alloc": 0.579,
+    "CE_term_scheme": 9.761,
+    "top3_base": [
+     [
+      " probation",
+      0.7442
+     ],
+     [
+      " supervised",
+      0.115
+     ],
+     [
+      " community",
+      0.0413
+     ]
+    ],
+    "p_true_base": 0.74419,
+    "rank_true_base": 1,
+    "top3_term_scheme_16x": [
+     [
+      " the",
+      0.4331
+     ],
+     [
+      " a",
+      0.1997
+     ],
+     [
+      " an",
+      0.0215
+     ]
+    ],
+    "p_true_term_scheme_16x": 6e-05,
+    "rank_true_term_scheme_16x": 691,
+    "top3_rank_alloc_16x": [
+     [
+      " probation",
+      0.5604
+     ],
+     [
+      " jail",
+      0.0629
+     ],
+     [
+      " prison",
+      0.0402
+     ]
+    ],
+    "p_true_rank_alloc_16x": 0.56043,
+    "rank_true_rank_alloc_16x": 1,
+    "term_preserves_base_abs": false,
+    "term_beats_base": false
+   },
+   {
+    "kind": "counterexample",
+    "seq": 135,
+    "pos": 109,
+    "context_tail": " community to see how the chain could customize the store to fit consumers\u2019",
+    "true_next": " needs",
+    "CE_base": 0.799,
+    "CE_rank_alloc": 1.017,
+    "CE_term_scheme": 9.936,
+    "top3_base": [
+     [
+      " needs",
+      0.45
+     ],
+     [
+      " tastes",
+      0.1146
+     ],
+     [
+      " wants",
+      0.0505
+     ]
+    ],
+    "p_true_base": 0.44999,
+    "rank_true_base": 1,
+    "top3_term_scheme_16x": [
+     [
+      "s",
+      0.8784
+     ],
+     [
+      "d",
+      0.0198
+     ],
+     [
+      ".",
+      0.0184
+     ]
+    ],
+    "p_true_term_scheme_16x": 5e-05,
+    "rank_true_term_scheme_16x": 169,
+    "top3_rank_alloc_16x": [
+     [
+      " needs",
+      0.3616
+     ],
+     [
+      " preferences",
+      0.0778
+     ],
+     [
+      " shopping",
+      0.0629
+     ]
+    ],
+    "p_true_rank_alloc_16x": 0.36164,
+    "rank_true_rank_alloc_16x": 1,
+    "term_preserves_base_abs": false,
+    "term_beats_base": false
+   },
+   {
+    "kind": "counterexample",
+    "seq": 92,
+    "pos": 115,
+    "context_tail": " rather than tell. Yes, you may be innovative; but what makes you",
+    "true_next": " innovative",
+    "CE_base": 2.901,
+    "CE_rank_alloc": 2.751,
+    "CE_term_scheme": 11.09,
+    "top3_base": [
+     [
+      " unique",
+      0.1403
+     ],
+     [
+      " different",
+      0.1241
+     ],
+     [
+      " a",
+      0.0794
+     ]
+    ],
+    "p_true_base": 0.05499,
+    "rank_true_base": 5,
+    "top3_term_scheme_16x": [
+     [
+      " are",
+      0.1385
+     ],
+     [
+      ".",
+      0.1035
+     ],
+     [
+      " may",
+      0.0766
+     ]
+    ],
+    "p_true_term_scheme_16x": 2e-05,
+    "rank_true_term_scheme_16x": 1661,
+    "top3_rank_alloc_16x": [
+     [
+      " innovative",
+      0.0639
+     ],
+     [
+      " a",
+      0.0455
+     ],
+     [
+      " smart",
+      0.0239
+     ]
+    ],
+    "p_true_rank_alloc_16x": 0.06386,
+    "rank_true_rank_alloc_16x": 1,
+    "term_preserves_base_abs": false,
+    "term_beats_base": false
+   }
+  ],
+  "corrected_term_favourable": [
+   {
+    "kind": "corrected-selection",
+    "seq": 147,
+    "pos": 124,
+    "context_tail": ", leads Tech in final round at Great Smokies\nFreshman Mad",
+    "true_next": "al",
+    "CE_base": 0.022,
+    "CE_rank_alloc": 4.92,
+    "CE_term_scheme": 0.258,
+    "top3_base": [
+     [
+      "al",
+      0.9778
+     ],
+     [
+      "el",
+      0.0069
+     ],
+     [
+      "lyn",
+      0.0043
+     ]
+    ],
+    "p_true_base": 0.9778,
+    "rank_true_base": 1,
+    "top3_term_scheme_16x": [
+     [
+      "al",
+      0.7723
+     ],
+     [
+      "am",
+      0.0154
+     ],
+     [
+      "an",
+      0.0152
+     ]
+    ],
+    "p_true_term_scheme_16x": 0.77232,
+    "rank_true_term_scheme_16x": 1,
+    "top3_rank_alloc_16x": [
+     [
+      "sen",
+      0.0217
+     ],
+     [
+      "am",
+      0.0164
+     ],
+     [
+      " H",
+      0.0125
+     ]
+    ],
+    "p_true_rank_alloc_16x": 0.0073,
+    "rank_true_rank_alloc_16x": 7,
+    "term_preserves_base_abs": true,
+    "term_beats_base": false
+   },
+   {
+    "kind": "corrected-selection",
+    "seq": 42,
+    "pos": 30,
+    "context_tail": " year's Oregonian 6A player of the year. Senior guard Jude Sch",
+    "true_next": "imm",
+    "CE_base": 1.654,
+    "CE_rank_alloc": 5.782,
+    "CE_term_scheme": 1.469,
+    "top3_base": [
+     [
+      "imm",
+      0.1912
+     ],
+     [
+      "mitt",
+      0.0663
+     ],
+     [
+      "ul",
+      0.0231
+     ]
+    ],
+    "p_true_base": 0.19125,
+    "rank_true_base": 1,
+    "top3_term_scheme_16x": [
+     [
+      "imm",
+      0.2301
+     ],
+     [
+      "m",
+      0.1995
+     ],
+     [
+      "i",
+      0.042
+     ]
+    ],
+    "p_true_term_scheme_16x": 0.23012,
+    "rank_true_term_scheme_16x": 1,
+    "top3_rank_alloc_16x": [
+     [
+      "iller",
+      0.0155
+     ],
+     [
+      "u",
+      0.0155
+     ],
+     [
+      "ol",
+      0.0148
+     ]
+    ],
+    "p_true_rank_alloc_16x": 0.00308,
+    "rank_true_rank_alloc_16x": 40,
+    "term_preserves_base_abs": true,
+    "term_beats_base": false
+   },
+   {
+    "kind": "corrected-selection",
+    "seq": 46,
+    "pos": 117,
+    "context_tail": " University. We don't have a lot of first-hand knowledge about T",
+    "true_next": "U",
+    "CE_base": 7.62,
+    "CE_rank_alloc": 10.886,
+    "CE_term_scheme": 7.177,
+    "top3_base": [
+     [
+      "sing",
+      0.9679
+     ],
+     [
+      "SU",
+      0.0072
+     ],
+     [
+      "CS",
+      0.0017
+     ]
+    ],
+    "p_true_base": 0.00049,
+    "rank_true_base": 11,
+    "top3_term_scheme_16x": [
+     [
+      ".",
+      0.207
+     ],
+     [
+      "-",
+      0.1926
+     ],
+     [
+      "ing",
+      0.0639
+     ]
+    ],
+    "p_true_term_scheme_16x": 0.00076,
+    "rank_true_term_scheme_16x": 91,
+    "top3_rank_alloc_16x": [
+     [
+      "sing",
+      0.9794
+     ],
+     [
+      " Sing",
+      0.0123
+     ],
+     [
+      "ing",
+      0.0011
+     ]
+    ],
+    "p_true_rank_alloc_16x": 2e-05,
+    "rank_true_rank_alloc_16x": 55,
+    "term_preserves_base_abs": true,
+    "term_beats_base": false
+   },
+   {
+    "kind": "corrected-selection",
+    "seq": 127,
+    "pos": 50,
+    "context_tail": " to choose who they play, and they play each other in larger clans wars",
+    "true_next": " might",
+    "CE_base": 7.396,
+    "CE_rank_alloc": 11.232,
+    "CE_term_scheme": 7.76,
+    "top3_base": [
+     [
+      ".",
+      0.5223
+     ],
+     [
+      ",",
+      0.1168
+     ],
+     [
+      " where",
+      0.0255
+     ]
+    ],
+    "p_true_base": 0.00061,
+    "rank_true_base": 70,
+    "top3_term_scheme_16x": [
+     [
+      ".",
+      0.3818
+     ],
+     [
+      " that",
+      0.2219
+     ],
+     [
+      ",",
+      0.0519
+     ]
+    ],
+    "p_true_term_scheme_16x": 0.00043,
+    "rank_true_term_scheme_16x": 92,
+    "top3_rank_alloc_16x": [
+     [
+      ".",
+      0.5912
+     ],
+     [
+      ",",
+      0.0804
+     ],
+     [
+      " that",
+      0.0453
+     ]
+    ],
+    "p_true_rank_alloc_16x": 1e-05,
+    "rank_true_rank_alloc_16x": 468,
+    "term_preserves_base_abs": true,
+    "term_beats_base": false
+   }
+  ],
+  "aggregate": {
+   "frac_term_better_by_0.1": 0.1998,
+   "frac_rank_better_by_0.1": 0.7264,
+   "mean_delta_term_minus_rank": 1.0977,
+   "n_positions_signed_criterion": 5989,
+   "n_positions_absolute_criterion": 4019,
+   "frac_term_better_by_0.1_AND_absolute_preserving": 0.0765,
+   "frac_rank_better_by_0.1_AND_absolute_preserving": 0.2693
+  },
+  "selection_note": "\u00a7104 selected term-favourable examples with the SIGNED rule (CE_term - CE_base) < 0.5, which also admits positions where the term scheme BEATS the base model by any margin -- those are not preservation of a base behaviour.  The absolute rule |CE_term - CE_base| < 0.5 is applied here as the corrected selection."
+ }
+}

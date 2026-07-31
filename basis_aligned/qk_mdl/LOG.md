@@ -7603,3 +7603,18 @@ existing steering methods, not a new method class, so in-scope and launched rath
 - Bottom line: §87/§92's missing cross-layer structure names gates but is NOT a factorization; faithful
   compression needs cores shared across terms/layers (tn_gauge territory). §104 appended, red-team
   dispatched (fairness of uniform-rank variants, basis cap, profile artifact, example gates).
+
+## tick 2026-07-31h (§104 red-team verdict: negative HOLDS, four softenings applied)
+- Fairness search (12+ allocations at matched budgets): the §104 uniform-rank family was handicapped —
+  best fair config (ALL 253 active terms at lower rank, output rank = input rank, early blocks 2x) closes
+  52% of the gap but still loses by +0.524 ± 0.007 (z ≈ 78) at 16-fold. Corrected margins: 1.65x/2.8x/1.25x
+  (was 2.4x/4.2x/1.5x). Importance-proportional per-term ranks catastrophic (+3.1 to +4.0) — §92's
+  trace-vs-need pathology at term granularity.
+- Softenings: rank-576 control is a small real penalty (paired z=2.7), not a tie; shared-block-output is
+  significantly worse than per-term (z≈14, kills the cancellation hypothesis more cleanly); examples
+  corrected under the absolute selection rule — "4x4→x" and "DTS→ D" were term-beats-base, not
+  preservation; honest instances are "Freshman Mad→al" and "Jude Sch→imm"; preserve-and-win rates 7.7% vs
+  26.9% favor rank allocation in both currencies. Basis cap never binds; early-stack concentration survives
+  two profiles (strengthened).
+- §102/§103/§104 all now fully red-teamed. Next: paper+artifact compression coda, then scope tn_gauge
+  shared-core arc.

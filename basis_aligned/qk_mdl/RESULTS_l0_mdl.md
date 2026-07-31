@@ -5395,24 +5395,34 @@ Gates: per-layer term reconstruction 5e-7-1.8e-6; keeping all terms everywhere c
 +0.3516 at 128/16/4-fold); budget formula audited with worked example (currency: folded-tensor
 coefficients; full model 13.77 billion).
 
-**Verdict: NO — at every matched budget every term-scheme variant loses to plain per-layer rank
-allocation.** 16-fold: best term variant +1.9009 ± 0.0168 vs +0.8032 ± 0.0111 (2.4× worse); 4-fold +1.4797
-vs +0.3516 (4.2×); 128-fold +2.2539 vs +1.4561 (1.5×). Per position, rank allocation is better by ≥0.1 nats
-at 72.6% of held positions, the term scheme at 20.0%.
+**Verdict (red-team-corrected): NO — at every matched budget the best term-scheme variant, after a fair
+allocation search (output/input rank ratio, term-profile richness, early-block weighting, per-term
+importance weighting all swept), still loses to plain per-layer rank allocation.** 16-fold: best fair term
+variant +1.3271 ± 0.0143 (ALL active terms, equal input/output rank, early blocks at double rank) vs
++0.8032 ± 0.0111 — paired +0.5239 ± 0.0067, z ≈ 78 (1.65× worse); 4-fold +0.9976 vs +0.3516 (2.8×);
+128-fold +1.8170 vs +1.4561 (1.25×). The uniform-rank form first reported (+1.9009/+1.4797/+2.2539) was
+0.44-0.57 nats off the fair optimum; the improvement comes entirely from keeping MORE terms at LOWER rank
+and spending equally on the output side — importance-proportional per-term ranks are catastrophic (+3.14 to
++4.00, §92's trace-vs-need pathology at term granularity). Per position, rank allocation is better by ≥0.1
+nats at 72.6% of held positions, the term scheme at 20.0%; restricting both to genuine preservation of a
+base behavior, 26.9% vs 7.7%.
 
 **Why (attribution slice, 16-fold):** term dropping alone is cheap (+0.113); the cost is the per-term
 subspaces (input-side alone +1.279, output-side +1.484). Decisive control: group-factorized input
-restriction at rank 576 (+0.365 ± 0.007) statistically TIES §92's joint restriction at the same rank
-(+0.352 ± 0.007) even while carrying the term-dropping cost — **the term decomposition is functionally
-sound at equal rank; it loses purely on parameter accounting.** The five group streams are numerically
+restriction at rank 576 comes within 3.8% of §92's joint restriction at the same rank (+0.3648 ± 0.0067 vs
++0.3516 ± 0.0070; paired difference +0.0132 ± 0.0050, z = 2.7 — a small but real penalty, not a tie) even
+while carrying the term-dropping cost — **the term decomposition is functionally near-sound at equal rank;
+it loses overwhelmingly on parameter accounting.** The five group streams are numerically
 full-rank (embedding group rank 1152 at every layer; even at 99.99% trace block 2's groups are 800-1151),
 so an "exact term" costs about a full block: the honest scheme-2 budgets are 6-15× LARGER than the
 uncompressed model — term sparsity alone buys zero honest compression. All terms reuse one shared dense
 core with heavily overlapping subspaces; buying terms separately multiplies cost. The as-specified shared
 trace-fraction rule for scheme 3 failed for the same reason §92's spectral rule did (trace concentration
 anti-correlates with functional need; ranks of 1 assigned to attention-earlier groups) and was replaced by
-the fair uniform-rank form; the shared-block-output variant ties per-term outputs (+1.951 vs +1.901),
-killing the secondary hypothesis that per-term output truncation loses by breaking §89/§91 cancellation.
+the fair uniform-rank form; the shared-block-output variant is slightly but significantly WORSE than
+per-term outputs (paired +0.0501 ± 0.0036 at 16-fold, z ≈ 14), which kills the secondary hypothesis even
+more cleanly: a shared output subspace does not help, so per-term output truncation is not what breaks
+§89/§91 cancellation.
 
 **New structural facts:** (1) whole-model term dropping is super-additive by 4.6× (sum of single-layer
 top-k costs +0.1895 vs joint +0.8778) — stronger than §92's 2× for rank restriction. (2) Per-region at
@@ -5420,10 +5430,18 @@ matched 16-fold: rank allocation is flat (early +0.173 / distributed +0.260 / re
 scheme concentrates failure in the EARLY stack (8.0× worse there vs 1.8×/1.6× distributed/readout) — §102's
 prediction confirmed in direction: the distributed region's long tail hurts the term scheme comparatively
 least (consumption-shaped), while the early stack's compact term anatomy does not mean cheap subspaces
-(those few terms carry full-rank streams). (3) What terms preserve that spectra destroy — token-indexed,
-copy-flavored, format-conditioned continuations: "Freshman Mad→al" (base 0.978, term 0.772, rank 0.007);
-"The best 4x4→x" (0.111 vs 0.0007); a specification list "- DTS 96/24/→ D" (0.007 with " D" ranked high, vs
-0.0001). Exactly §103's token-conditioned operator structure, which a spectral input projection destroys.
+(those few terms carry full-rank streams). (3) (red-team-corrected) What the term scheme keeps that a spectral input
+projection destroys is token-indexed, copy-flavored continuation — verified by direct substitution at
+"Freshman Mad→al" (base 0.978 rank 1, term 0.772 rank 1, rank allocation 0.007 rank 7) and "Senior guard
+Jude Sch→imm" (base 0.191 rank 1, term 0.230 rank 1, rank allocation 0.003 rank 40). Two examples
+previously quoted ("The best 4x4→x", "- DTS 96/24/→ D") are NOT preservation: the base model assigns those
+continuations 0.00005 (rank 740) and 0.00003 (rank 829), so the term scheme beats the base there rather
+than preserving it (and " D" sits at rank 31, not top-3) — an artifact of the signed selection rule. Under
+the absolute rule the term scheme preserves-and-wins at 7.7% of positions vs rank allocation's 26.9%; the
+counter-examples are contextual-semantic continuations the term scheme wrecks ("three years of→ probation":
+base 0.744, rank allocation 0.560, term scheme 0.00006 at rank 691). The two schemes fail on complementary
+currencies — terms preserve token-indexed morphological/format structure, spectra preserve
+contextual-semantic structure — but both currencies, honestly counted, favor rank allocation.
 
 **Bottom line:** the missing cross-layer structure of §87/§92 is consumption structure, NOT a
 factorization — it names gates and preserves token-conditioned behavior but does not convert into a
@@ -5431,6 +5449,10 @@ parameter advantage, because every term draws full-rank overlapping streams thro
 Faithful compression, if reachable, needs cores SHARED across terms and layers or a genuinely shared
 cross-layer basis — the tn_gauge program's territory, as §92 suspected.
 
-**RED-TEAM PENDING** (dispatched): uniform-rank fairness for the scheme-3 variants; the 768-column basis
-cap; whether the early-stack failure is an artifact of the profile multiplier; the three concrete examples
-under a substitution gate at their positions.
+**RED-TEAM COMPLETE (qk_redteam_tc.py/_2/_3/_merge): the negative HOLDS — nothing retracts; four
+softenings applied above.** Fairness search (12+ allocations): importance-proportional ranks catastrophic;
+output-rank ratio was on the wrong side of optimum (worth 0.12); MORE terms at LOWER rank monotonically
+better up to the all-terms boundary (253 terms, +1.388); best fair config (all terms, equal ratio, early
+2×) closes 52% of the gap and still loses by z ≈ 78. Basis cap never binds (max fitted rank 745 of 768;
+the one capped cell re-run uncapped got WORSE). Early-stack failure concentration survives two independent
+profiles (ratio 7.1-9.6× vs distributed 1.8-1.9×). Examples corrected per the absolute selection rule.

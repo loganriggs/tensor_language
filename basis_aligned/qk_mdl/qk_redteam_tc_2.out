@@ -1,0 +1,27 @@
+GPU guard: 15841 MiB free -- proceeding.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+bilin18 NL=18 D=1152 held 152x128 16x budget 861456384
+BASE re-run + gate vs the §104 cache ...
+base CE 3.4946 (cache 3.4946, maxabs 0.00e+00)
+profile 100pct: [2, 3, 2, 4, 5, 8, 10, 12, 10, 10, 10, 10, 6, 8, 8, 6, 6, 10] (sum 130)
+profile 125pct: [3, 4, 3, 5, 7, 10, 13, 15, 13, 13, 13, 13, 8, 10, 10, 8, 8, 13] (sum 169)
+profile early150_rest100: [3, 5, 3, 6, 8, 8, 10, 12, 10, 10, 10, 10, 6, 8, 8, 6, 6, 10] (sum 139)
+extra term output grams needed: 42
+extra grams done (6s)
+
+=== ATTACK 1b: finer allocation search ===
+extra term output grams needed: 81
+profile 150pct: [3, 5, 3, 6, 8, 12, 15, 15, 15, 15, 15, 15, 9, 12, 12, 9, 9, 15] (sum 193)
+profile allterms: [3, 10, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15] (sum 253)
+[ratio_rho0.75] budget 853M (0.990x16x) dCE +1.8249 +- 0.01645 | vs rank-alloc +1.0217 +- 0.01079
+[ratio_rho1.5] budget 859M (0.997x16x) dCE +1.7846 +- 0.01615 | vs rank-alloc +0.9815 +- 0.01051
+[profile_150pct_rho1] budget 861M (1.000x16x) dCE +1.6457 +- 0.01553 | vs rank-alloc +0.8425 +- 0.00935
+[profile_allterms_rho1] budget 861M (1.000x16x) dCE +1.3878 +- 0.01457 | vs rank-alloc +0.5847 +- 0.00736
+[combo_rho1_mu2.0] budget 852M (0.989x16x) dCE +1.5049 +- 0.01492 | vs rank-alloc +0.7018 +- 0.00848
+[combo_rho1_mu3.0] budget 858M (0.996x16x) dCE +1.5041 +- 0.01499 | vs rank-alloc +0.7009 +- 0.00845
+[combo_rho1_mu4.0] budget 841M (0.976x16x) dCE +1.5613 +- 0.01537 | vs rank-alloc +0.7582 +- 0.00896
+recomputing full-width (1152-column) group bases for the uncapped importance cell ...
+full-width basis gate (|cols 0-49| vs cached): 0.00e+00
+[importance_global_g1_UNCAPPED] budget 861M (1.000x16x) dCE +3.1688 +- 0.02406 | vs rank-alloc +2.3656 +- 0.01960
+[ratio_rho1_at_4x] dCE +1.2859 +- 0.01358 vs rank-alloc 4x +0.9343 +- 0.01074
+QK REDTEAM TERMCOMPRESS PART 2 DONE

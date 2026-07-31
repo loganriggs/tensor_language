@@ -1,0 +1,187 @@
+GPU guard: 15841 MiB free -- proceeding.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+bilin18 NL=18 D=1152 held 152x128 16x budget 861456384
+BASE re-run + gate vs the §104 cache ...
+base CE 3.4946 (cache 3.4946, maxabs 0.00e+00)
+profile 100pct: [2, 3, 2, 4, 5, 8, 10, 12, 10, 10, 10, 10, 6, 8, 8, 6, 6, 10] (sum 130)
+profile 125pct: [3, 4, 3, 5, 7, 10, 13, 15, 13, 13, 13, 13, 8, 10, 10, 8, 8, 13] (sum 169)
+profile early150_rest100: [3, 5, 3, 6, 8, 8, 10, 12, 10, 10, 10, 10, 6, 8, 8, 6, 6, 10] (sum 139)
+extra term output grams needed: 42
+extra grams done (6s)
+
+=== ATTACK 2: 768-column basis cap ===
+{
+ "KMAX": 768,
+ "fitted_ranks": {
+  "scheme3_asspec_128x": {
+   "max_rank": 447,
+   "f": 0.6863618833600721
+  },
+  "scheme3_asspec_16x": {
+   "max_rank": 604,
+   "f": 0.8001802941225262
+  },
+  "scheme3_asspec_4x": {
+   "max_rank": 745,
+   "f": 0.8773983277459907
+  },
+  "3b_perterm_100pct_128x": {
+   "R_in": 125,
+   "R_out": 63
+  },
+  "3b_perterm_100pct_16x": {
+   "R_in": 250,
+   "R_out": 125
+  },
+  "3b_perterm_100pct_4x": {
+   "R_in": 398,
+   "R_out": 199
+  },
+  "3b_perterm_125pct_128x": {
+   "R_in": 114,
+   "R_out": 57
+  },
+  "3b_perterm_125pct_16x": {
+   "R_in": 229,
+   "R_out": 115
+  },
+  "3b_perterm_125pct_4x": {
+   "R_in": 364,
+   "R_out": 182
+  },
+  "3c_sharedout_100pct_128x": {
+   "R_in": 125,
+   "R_out": 63
+  },
+  "3c_sharedout_100pct_16x": {
+   "R_in": 250,
+   "R_out": 125
+  },
+  "3c_sharedout_100pct_4x": {
+   "R_in": 398,
+   "R_out": 199
+  },
+  "3c_sharedout_125pct_128x": {
+   "R_in": 114,
+   "R_out": 57
+  },
+  "3c_sharedout_125pct_16x": {
+   "R_in": 229,
+   "R_out": 115
+  },
+  "3c_sharedout_125pct_4x": {
+   "R_in": 364,
+   "R_out": 182
+  }
+ },
+ "binds": [],
+ "groups_whose_numerical_rank_exceeds_KMAX": [
+  [
+   "L0",
+   "E",
+   1152
+  ],
+  [
+   "L0",
+   "Ar",
+   1119
+  ],
+  [
+   "L1",
+   "E",
+   1152
+  ],
+  [
+   "L1",
+   "Ae",
+   1119
+  ],
+  [
+   "L1",
+   "Ar",
+   810
+  ],
+  [
+   "L1",
+   "Mr",
+   1152
+  ],
+  [
+   "L2",
+   "E",
+   1152
+  ],
+  [
+   "L2",
+   "Ae",
+   808
+  ],
+  [
+   "L2",
+   "Ar",
+   1081
+  ],
+  [
+   "L2",
+   "Me",
+   1152
+  ],
+  [
+   "L2",
+   "Mr",
+
+
+=== ATTACK 1: allocation fairness at the 16x budget ===
+repro: fitted R=229 budget 857M (§104 said R=229, 857M)
+[repro_104_best_sharedpath] budget 857M (0.995x16x) dCE +1.9009 +- 0.01679 | vs rank-alloc +1.0977 +- 0.01123
+[repro_104_best_pertermpath] budget 857M (0.995x16x) dCE +1.9009 +- 0.01679 | vs rank-alloc +1.0977 +- 0.01123
+machinery gate: {'shared_vs_perterm_dCE_diff': 0.0, 'shared_vs_104_json_diff': 0.0}
+[ratio_rho0.25] budget 849M (0.985x16x) dCE +2.0906 +- 0.01772 | vs rank-alloc +1.2874 +- 0.01241
+[ratio_rho1.0] budget 857M (0.995x16x) dCE +1.7768 +- 0.01615 | vs rank-alloc +0.9737 +- 0.01045
+[ratio_rho2.0] budget 848M (0.984x16x) dCE +1.8265 +- 0.01636 | vs rank-alloc +1.0233 +- 0.01085
+[importance_layer_g1.0] budget 861M (1.000x16x) dCE +4.0009 +- 0.03215 | vs rank-alloc +3.1978 +- 0.02801
+[importance_layer_g0.5] budget 861M (1.000x16x) dCE +3.6971 +- 0.03084 | vs rank-alloc +2.8939 +- 0.02638
+[importance_global_g1.0] budget 861M (1.000x16x) dCE +3.1351 +- 0.02409 | vs rank-alloc +2.3319 +- 0.01961
+[no_output_125pct] budget 850M (0.987x16x) dCE +2.3015 +- 0.01828 | vs rank-alloc +1.4983 +- 0.01363
+[no_output_100pct] budget 842M (0.978x16x) dCE +2.3100 +- 0.01757 | vs rank-alloc +1.5068 +- 0.01261
+[early_boost_mu1.5] budget 857M (0.995x16x) dCE +1.7316 +- 0.01602 | vs rank-alloc +0.9285 +- 0.01012
+[early_boost_mu2.0] budget 851M (0.988x16x) dCE +1.6523 +- 0.01564 | vs rank-alloc +0.8491 +- 0.00955
+[early_boost_mu3.0] budget 858M (0.996x16x) dCE +1.6379 +- 0.01565 | vs rank-alloc +0.8347 +- 0.00944
+BEST attack-1 variant: early_boost_mu3.0 dCE +1.6379  (gap closed 24.0%)
+bonus: paired test of the rank-576 'ties' control ...
+rank576 control: {'group_factorised_input_only_R576_dCE': [0.3648, 0.00674], 'joint_input_only_rank576_92anchor_dCE': [0.3516, 0.00697], 'paired_difference': [0.0132, 0.00496], 'paired_z': 2.66, 'note': '§104 called these a statistical TIE from the two unpaired standard errors; this is the paired test on the same positions.'}
+
+=== ATTACK 3: is the early-stack concentration a profile artifact? ===
+[A3_100pct_whole] budget 848M (0.985x16x) dCE +2.2300 +- 0.01814 | vs rank-alloc +1.4269 +- 0.01286
+[A3_100pct_early_0_4] budget 848M (0.985x16x) dCE +1.6668 +- 0.01419 | vs rank-alloc +0.8636 +- 0.01140
+[A3_100pct_distributed_5_11] budget 848M (0.985x16x) dCE +0.4984 +- 0.00777 | vs rank-alloc -0.3047 +- 0.00650
+[A3_100pct_readout_12_17] budget 848M (0.985x16x) dCE +0.4324 +- 0.00819 | vs rank-alloc -0.3708 +- 0.00810
+  [100pct] early share 0.642 ratios {'early_0_4': 9.63, 'distributed_5_11': 1.91, 'readout_12_17': 1.7}
+[A3_early150_rest100_whole] budget 857M (0.995x16x) dCE +1.9269 +- 0.01707 | vs rank-alloc +1.1237 +- 0.01114
+[A3_early150_rest100_early_0_4] budget 857M (0.995x16x) dCE +1.2274 +- 0.01244 | vs rank-alloc +0.4243 +- 0.01013
+[A3_early150_rest100_distributed_5_11] budget 857M (0.995x16x) dCE +0.5028 +- 0.00780 | vs rank-alloc -0.3003 +- 0.00649
+[A3_early150_rest100_readout_12_17] budget 857M (0.995x16x) dCE +0.4347 +- 0.00821 | vs rank-alloc -0.3685 +- 0.00810
+  [early150_rest100] early share 0.567 ratios {'early_0_4': 7.09, 'distributed_5_11': 1.93, 'readout_12_17': 1.71}
+
+=== ATTACK 4: example gate ===
+{"kind": "quoted", "seq": 147, "pos": 124, "context_tail": ", leads Tech in final round at Great Smokies\nFreshman Mad", "true_next": "al", "CE_base": 0.022, "CE_rank_alloc": 4.92, "CE_term_scheme": 0.258, "top3_base": [["al", 0.9778], ["el", 0.0069], ["lyn", 0.0043]], "p_true_base": 0.9778, "rank_true_base": 1, "top3_term_scheme_16x": [["al", 0.7723], ["am", 0.0154], ["an", 0.0152]], "p_true_term_scheme_16x": 0.77232, "rank_true_term_scheme_16x": 1, "top3_rank_alloc_16x": [["sen", 0.0217], ["am", 0.0164], [" H", 0.0125]], "p_true_rank_alloc_16x": 0.0073, "rank_true_rank_alloc_16x": 7, "term_preserves_base_abs": true, "term_beats_base": false}
+{"kind": "quoted", "seq": 83, "pos": 82, "context_tail": " goes with it, to overlook the Range Rover. The best 4x4", "true_next": "x", "CE_base": 9.824, "CE_rank_alloc": 7.247, "CE_term_scheme": 2.203, "top3_base": [[" is", 0.0784], [" ever", 0.0682], [" in", 0.0673]], "p_true_base": 5e-05, "rank_true_base": 740, "top3_term_scheme_16x": [[" and", 0.2162], [" will", 0.1262], ["x", 0.1105]], "p_true_term_scheme_16x": 0.11052, "rank_true_term_scheme_16x": 3, "top3_rank_alloc_16x": [[" car", 0.2391], [" vehicle", 0.1336], [" is", 0.0756]], "p_true_rank_alloc_16x": 0.00071, "rank_true_rank_alloc_16x": 94, "term_preserves_base_abs": false, "term_beats_base": true}
+{"kind": "quoted", "seq": 151, "pos": 95, "context_tail": ".1) : Yes/Yes\n- DTS 96/24/", "true_next": " D", "CE_base": 10.384, "CE_rank_alloc": 9.488, "CE_term_scheme": 4.967, "top3_base": [["CD", 0.0645], ["24", 0.0529], ["HD", 0.051]], "p_true_base": 3e-05, "rank_true_base": 829, "top3_term_scheme_16x": [["2", 0.0533], ["s", 0.0532], ["1", 0.0466]], "p_true_term_scheme_16x": 0.00696, "rank_true_term_scheme_16x": 31, "top3_rank_alloc_16x": [["24", 0.047], ["D", 0.0342], ["CD", 0.0304]], "p_true_rank_alloc_16x": 8e-05, "rank_true_rank_alloc_16x": 1220, "term_preserves_base_abs": false, "term_beats_base": true}
+{"kind": "counterexample", "seq": 88, "pos": 33, "context_tail": " while working at the Westover School in Middlebury was given three years of", "true_next": " probation", "CE_base": 0.295, "CE_rank_alloc": 0.579, "CE_term_scheme": 9.761, "top3_base": [[" probation", 0.7442], [" supervised", 0.115], [" community", 0.0413]], "p_true_base": 0.74419, "rank_true_base": 1, "top3_term_scheme_16x": [[" the", 0.4331], [" a", 0.1997], [" an", 0.0215]], "p_true_term_scheme_16x": 6e-05, "rank_true_term_scheme_16x": 691, "top3_rank_alloc_16x": [[" probation", 0.5604], [" jail", 0.0629], [" prison", 0.0402]], "p_true_rank_alloc_16x": 0.56043, "rank_true_rank_alloc_16x": 1, "term_preserves_base_abs": false, "term_beats_base": false}
+{"kind": "counterexample", "seq": 135, "pos": 109, "context_tail": " community to see how the chain could customize the store to fit consumers\u2019", "true_next": " needs", "CE_base": 0.799, "CE_rank_alloc": 1.017, "CE_term_scheme": 9.936, "top3_base": [[" needs", 0.45], [" tastes", 0.1146], [" wants", 0.0505]], "p_true_base": 0.44999, "rank_true_base": 1, "top3_term_scheme_16x": [["s", 0.8784], ["d", 0.0198], [".", 0.0184]], "p_true_term_scheme_16x": 5e-05, "rank_true_term_scheme_16x": 169, "top3_rank_alloc_16x": [[" needs", 0.3616], [" preferences", 0.0778], [" shopping", 0.0629]], "p_true_rank_alloc_16x": 0.36164, "rank_true_rank_alloc_16x": 1, "term_preserves_base_abs": false, "term_beats_base": false}
+{"kind": "counterexample", "seq": 92, "pos": 115, "context_tail": " rather than tell. Yes, you may be innovative; but what makes you", "true_next": " innovative", "CE_base": 2.901, "CE_rank_alloc": 2.751, "CE_term_scheme": 11.09, "top3_base": [[" unique", 0.1403], [" different", 0.1241], [" a", 0.0794]], "p_true_base": 0.05499, "rank_true_base": 5, "top3_term_scheme_16x": [[" are", 0.1385], [".", 0.1035], [" may", 0.0766]], "p_true_term_scheme_16x": 2e-05, "rank_true_term_scheme_16x": 1661, "top3_rank_alloc_16x": [[" innovative", 0.0639], [" a", 0.0455], [" smart", 0.0239]], "p_true_rank_alloc_16x": 0.06386, "rank_true_rank_alloc_16x": 1, "term_preserves_base_abs": false, "term_beats_base": false}
+{"kind": "corrected-selection", "seq": 147, "pos": 124, "context_tail": ", leads Tech in final round at Great Smokies\nFreshman Mad", "true_next": "al", "CE_base": 0.022, "CE_rank_alloc": 4.92, "CE_term_scheme": 0.258, "top3_base": [["al", 0.9778], ["el", 0.0069], ["lyn", 0.0043]], "p_true_base": 0.9778, "rank_true_base": 1, "top3_term_scheme_16x": [["al", 0.7723], ["am", 0.0154], ["an", 0.0152]], "p_true_term_scheme_16x": 0.77232, "rank_true_term_scheme_16x": 1, "top3_rank_alloc_16x": [["sen", 0.0217], ["am", 0.0164], [" H", 0.0125]], "p_true_rank_alloc_16x": 0.0073, "rank_true_rank_alloc_16x": 7, "term_preserves_base_abs": true, "term_beats_base": false}
+{"kind": "corrected-selection", "seq": 42, "pos": 30, "context_tail": " year's Oregonian 6A player of the year. Senior guard Jude Sch", "true_next": "imm", "CE_base": 1.654, "CE_rank_alloc": 5.782, "CE_term_scheme": 1.469, "top3_base": [["imm", 0.1912], ["mitt", 0.0663], ["ul", 0.0231]], "p_true_base": 0.19125, "rank_true_base": 1, "top3_term_scheme_16x": [["imm", 0.2301], ["m", 0.1995], ["i", 0.042]], "p_true_term_scheme_16x": 0.23012, "rank_true_term_scheme_16x": 1, "top3_rank_alloc_16x": [["iller", 0.0155], ["u", 0.0155], ["ol", 0.0148]], "p_true_rank_alloc_16x": 0.00308, "rank_true_rank_alloc_16x": 40, "term_preserves_base_abs": true, "term_beats_base": false}
+{"kind": "corrected-selection", "seq": 46, "pos": 117, "context_tail": " University. We don't have a lot of first-hand knowledge about T", "true_next": "U", "CE_base": 7.62, "CE_rank_alloc": 10.886, "CE_term_scheme": 7.177, "top3_base": [["sing", 0.9679], ["SU", 0.0072], ["CS", 0.0017]], "p_true_base": 0.00049, "rank_true_base": 11, "top3_term_scheme_16x": [[".", 0.207], ["-", 0.1926], ["ing", 0.0639]], "p_true_term_scheme_16x": 0.00076, "rank_true_term_scheme_16x": 91, "top3_rank_alloc_16x": [["sing", 0.9794], [" Sing", 0.0123], ["ing", 0.0011]], "p_true_rank_alloc_16x": 2e-05, "rank_true_rank_alloc_16x": 55, "term_preserves_base_abs": true, "term_beats_base": false}
+{"kind": "corrected-selection", "seq": 127, "pos": 50, "context_tail": " to choose who they play, and they play each other in larger clans wars", "true_next": " might", "CE_base": 7.396, "CE_rank_alloc": 11.232, "CE_term_scheme": 7.76, "top3_base": [[".", 0.5223], [",", 0.1168], [" where", 0.0255]], "p_true_base": 0.00061, "rank_true_base": 70, "top3_term_scheme_16x": [[".", 0.3818], [" that", 0.2219], [",", 0.0519]], "p_true_term_scheme_16x": 0.00043, "rank_true_term_scheme_16x": 92, "top3_rank_alloc_16x": [[".", 0.5912], [",", 0.0804], [" that", 0.0453]], "p_true_rank_alloc_16x": 1e-05, "rank_true_rank_alloc_16x": 468, "term_preserves_base_abs": true, "term_beats_base": false}
+{
+ "frac_term_better_by_0.1": 0.1998,
+ "frac_rank_better_by_0.1": 0.7264,
+ "mean_delta_term_minus_rank": 1.0977,
+ "n_positions_signed_criterion": 5989,
+ "n_positions_absolute_criterion": 4019,
+ "frac_term_better_by_0.1_AND_absolute_preserving": 0.0765,
+ "frac_rank_better_by_0.1_AND_absolute_preserving": 0.2693
+}
+peak GPU 4054.4 MiB
+QK REDTEAM TERMCOMPRESS DONE
