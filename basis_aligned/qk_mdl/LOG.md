@@ -7453,3 +7453,15 @@ existing steering methods, not a new method class, so in-scope and launched rath
   mean substitution: is the lookup causally sufficient?); (3) SMOOTHNESS (measure the interpolated blocks
   9/11/13); (4) AGGREGATION on h.L7.0 (is the diffuse effect genuinely broad or a hidden narrow circuit?).
 - Artifact refresh HELD until the verdicts (retraction-safe discipline, as before).
+
+## tick 2026-07-31 (red-team attack 1 verdict emerging; crash fixed and rerun by hand)
+- ATTACK 1 (freeze-patch circularity) numbers complete in the JSON — it DRAWS BLOOD: freezing the next block
+  rescues much of ANY perturbation (random 66%/65%, shuffled 68%/58% at k=2/k=3) vs real 84%/83% — the
+  chain-specific excess is ~17-20 points early, shrinking to ~6 by block 5 (real 51% vs random 45%). Even
+  freeze-only-block-4 rescues 68% of block-2's damage. Upstream-freeze control exactly null (causal sanity).
+  PENDING CORRECTION for §96/§98/§99: "consumed by the next square" → "PREFERENTIAL next-block consumption
+  within a broadly compensatory stack" with margins quoted — the compensation is §83's redundancy again.
+  Flow-map direct-readout fractions untouched by this attack.
+- The agent stalled after a one-line CUDA→numpy crash at attack 2 (20 min idle, no process). Fixed line 350
+  (.cpu()) myself and rerun the full script in background (b1idyiiol). Attacks 2-4 (block-0 causal
+  sufficiency, smoothness blocks 9/11/13, h.L7.0 aggregation) still to land. Artifact stays held.
