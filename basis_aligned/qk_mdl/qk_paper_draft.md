@@ -1,7 +1,7 @@
 # A four-ledger per-layer decomposition of a no-softmax bilinear transformer
 
 *Consolidation draft — 2026-07-30. Numbers are the post-adversarial-review figures only.
-Sources: PLAN_per_layer.md, RESULTS_l0_mdl.md §32–§81, LOG.md. Left for parent review; not committed.*
+Sources: PLAN_per_layer.md, RESULTS_l0_mdl.md §32–§88, LOG.md. Left for parent review; not committed.*
 
 ## Abstract
 
@@ -75,6 +75,13 @@ final-block capitalization selector — is a **calibrated, placebo-controlled co
 selection logic sits upstream, so it resists surgical override. Throughout, every headline is held to a
 held-out substitution/ablation gate with paired standard errors and an adversarial review before it
 stands; the record includes roughly a dozen retractions and softenings that discipline enforced.
+A final movement resolves the hub story in the architecture's own coordinates: in *sufficiency* mode the
+hub is compact and hierarchical (its map restricted to a one-hundred-twenty-eight-times-smaller core
+keeps 96.7 percent of function), its exact stream-pair terms give a five-term named anatomy with a
+causally dead input row and a bigram-table term identified as such, and propagating perturbations
+through folded compact cores repairs the unreliable linear proxy (rank correlation 0.43 to 0.81–0.93,
+sign essentially perfect) — the failures of deletion-based attribution were a property of the hub's
+redundant code, and the fold supplies the sufficiency calculus that reads through it.
 
 ## Method
 
@@ -368,6 +375,49 @@ thirty-two features nameable versus zero for singular directions, zero of thirty
 the one honest difference that a dictionary explains about ten percent of the softmax hub's causation
 rather than two percent, a difference in degree, not kind). This is a concrete boundary on what
 dictionary-learning interpretability recovers, measured rather than asserted.
+
+## Fold-first attribution: the hub cracked in the architecture's own coordinates
+
+The resolution came from turning the exact tensor structure — used all along for representation and
+substitutability — onto the attribution question itself, in four steps.
+
+**The hub has hierarchical structure that deletion could not see.** In sufficiency mode (keep a part,
+delete the complement) the hub is compact at every level. Its output: the per-position mean plus its top
+144 of 1,152 principal directions restores 98.5 percent of function, forty times better than a random
+144. Its *map*: reading only the top 288 input directions costs under one percent, and the joint
+restriction — input-288 by output-144, a core one hundred twenty-eight times smaller than the full
+tensor — retains 96.7 percent of causal function. So the earlier "irreducibly distributed" verdicts were
+true only of *necessity* attribution: the computation is orderly, compact, and hierarchical, carrying a
+redundant code (any random half of the space suffices; breakdown only past roughly ninety-percent
+removal) that makes every deletion-based reading come out near zero.
+
+**The architecture's own terms give the interpretable split that learned bases never found.** Because
+the feed-forward block is exactly bilinear and its input is an exact sum of upstream streams, its map
+decomposes exactly (gauge at one part in a million) into pairwise interaction terms with provenance.
+Five named terms — MLP-0-by-attention-1, attention-1 squared, MLP-0 squared, embedding-by-MLP-0,
+embedding-by-attention-1 — restore essentially the full function (+0.0019 of 5.574 nats); every term
+involving attention-0 is causally dead (confirming the old stream-level fact exhaustively); the four
+same-stream terms alone are ten times worse than the six cross-stream terms, so the hub is an
+*interaction* device mixing context, the layer-zero transform, and the current token; and the
+embedding-by-embedding term is identified as a token-conditional bigram-table correction (the current
+token alone explains ninety percent of its variance). The residual redundancy survives — but among ten
+named objects rather than a thousand anonymous directions.
+
+**The same structure fixes the program's most recurring failure.** The direct-to-logits linear proxy —
+wrong in magnitude, sign, and case throughout the discovery arc — fails because it deletes downstream
+computation. Propagating a candidate perturbation through the downstream layers' folded compact cores
+instead lifts the proxy's rank correlation with ground-truth causal effects from 0.43 to 0.81 (0.93 at
+double core rank, with essentially perfect sign agreement), recovers every early-layer case
+linearization zeroes out, and is certified basis-specific: random bases of the same rank collapse back
+to linear-proxy fidelity. Notably, the restricted model is a poor absolute predictor yet preserves
+causal *ordering* — fidelity for attribution and fidelity for prediction are different properties.
+
+**Honest limits of the fold program so far.** The single-layer compression bargain does not globalize:
+restricting all eighteen blocks at once compounds roughly additively (one hundred twenty-eight-fold
+compression costs +1.46 nats whole-model against the exact chain's +0.033), so the measured
+compression frontier is real but far from the faithful-substitution regime; non-uniform rank allocation
+across layers is the obvious next lever. And the provenance anatomy is established at one hub — the
+model-wide term census is in progress.
 
 ## Honest limitations
 
