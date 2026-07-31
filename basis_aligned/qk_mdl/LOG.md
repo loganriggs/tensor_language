@@ -7631,3 +7631,17 @@ existing steering methods, not a new method class, so in-scope and launched rath
   allocation at matched budgets, plus the composed scheme (sharing + within-atom rank) at the 16-fold
   anchor; (3) fallback if atoms don't share globally: region-restricted sharing (early/distributed/readout).
   Gates: k=18 must reproduce the exact model; §92 anchor; Gram trace checksum two ways.
+
+## tick 2026-07-31j (shared-core arc LANDED -> §105: third compression negative, near-orthogonal cores)
+- All gates passed (Gram identity 1.4e-15; trace checksum 3.4e-8; k=18 exact; §92 anchor to 4th decimal).
+  VERDICT: linearly shared cores REFUTED at every budget (z=145/138/97 at real compression, z=10/5 mild).
+  THE DEEP FACT: the 18 folded block tensors are mutually near-orthogonal (mean cosine 0.007, layer-mode
+  rank 16-18 of 18, near-flat spectrum) — no cross-layer core redundancy in the linear span. Mechanism:
+  near-orthogonality degenerates rank-k sharing into block SELECTION (mean-ablating the mid-stack).
+  Function-weighted "sharing" is norm concentration (block 17 + block 0 dominate), not geometry. Region-
+  restricted sharing strictly worse. Composed scheme degrades rank allocation. Side finds: pooled-metric
+  atoms >> Frobenius atoms; equal input/output ranks extend §92's frontier at aggressive budgets.
+- Compression triangle now closed from three sides: §92 rank, §104 terms, §105 shared cores. Remaining
+  routes: gauge-transformed/nonlinear sharing (tn_gauge) or atoms outside the block span.
+- §105 appended, red-team dispatched (gauge-freedom Procrustes alignment — the deepest objection; causal
+  refit of mixing at mild budgets; mean-centered atoms; output-slot weighting).

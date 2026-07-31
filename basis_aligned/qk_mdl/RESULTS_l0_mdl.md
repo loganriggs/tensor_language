@@ -5456,3 +5456,53 @@ better up to the all-terms boundary (253 terms, +1.388); best fair config (all t
 2×) closes 52% of the gap and still loses by z ≈ 78. Basis cap never binds (max fitted rank 745 of 768;
 the one capped cell re-run uncapped got WORSE). Early-stack failure concentration survives two independent
 profiles (ratio 7.1-9.6× vs distributed 1.8-1.9×). Examples corrected per the absolute selection rule.
+
+## §105 Shared cores across layers REFUTED — the eighteen folded tensors are mutually near-orthogonal (qk_sharedcore.py/_2/_3)
+
+The direct test of §104's closing specification. Gates: closed-form Gram identity verified 1.35e-15 on a
+random case; chunked-vs-closed-form trace checksum 3.4e-8; base cross-entropy bit-identical to the §92
+cache; k=18 identity mixture reproduces the exact model (−4e-8); rank-allocation anchor +0.8032 to the
+fourth decimal.
+
+**(a) The census — the deep fact.** In raw Frobenius geometry the 18 per-block folded tensors share almost
+NOTHING: mean absolute off-diagonal cosine 0.007 (max 0.024, blocks 5-6); near-uniform norms; the 18x18
+Gram spectrum is near-flat (top eigenvalue 7.0% of trace vs 5.6% for perfectly flat); layer-mode rank at
+90/95/99% energy = 16/17/18 of 18; participation ratio 17.7. Only depth-local structure exists (every
+block's nearest neighbor is an adjacent layer; within-region cosines ~3x across-region, but both tiny).
+The function-weighted census LOOKS shared (rank 2-3 at 90%) but that is norm concentration — block 17 at
+2.3e10 and block 0 at 5.2e9 vs ~2e7 mid-stack — not shared geometry; the large weighted cosines are again
+adjacent pairs (blocks 15-16 at 0.66, 5-6 at 0.52), plus a curious block-0-vs-readout ANTI-alignment
+(−0.28 with block 15). **The model stores its eighteen blocks as mutually near-orthogonal tensors — there
+is no cross-layer core redundancy in the folded coefficients' linear span.**
+
+**(b) Compression table** (whole-model substitution; best atom variant vs best rank-allocation ratio at
+matched budget; paired differences): 2 atoms/9-fold: +3.2010 vs +0.5367 (z=145); 4 atoms/4.5-fold: +2.8694
+vs +0.3118 (z=138); 8 atoms/2.25-fold: +1.3310 vs +0.1217 (z=97); 12 atoms/1.5-fold: +0.0775 vs +0.0468
+(z=10); 16 atoms/1.125-fold: +0.0171 vs +0.0092 (z=5.1). MECHANISM: near-orthogonality degenerates rank-k
+projection toward block SELECTION (at 8 atoms the mixing diagonal is 0.99-1.00 for blocks 0-3/15-17, 
+0.01-0.11 mid-stack) — small k mean-ablates the middle of the stack (§73/§92 catastrophic). The soft
+mixture beats hard selection by 0.93 nats but never approaches rank allocation, which keeps EVERY block at
+reduced fidelity. Side findings: pooled-input-metric atoms decisively beat Frobenius atoms in the mild
+regime (+0.017 vs +0.097 at 16 atoms); equal input/output ranks EXTEND §92's rank-allocation frontier at
+aggressive budgets (+0.1217 at 2.25-fold with ranks 879/879 vs +0.1912 at 1108/554). COMPOSED scheme
+(atoms + within-atom rank, 9 configs at the 16-fold anchor): best +1.9230 vs +0.8032 rank-only and +1.3271
+term-sparse — the within-atom restriction is nearly free; the damage is entirely the sharing. Sharing does
+not compose; it degrades.
+
+**(c) Region-restricted sharing: also NO** — 8 atoms allocated per §99 regions cost +1.7299 vs +1.3310 for
+global atoms at the same count (strictly worse); within-region raw rank is FULL (5/5, 7/7, 6/6 at 90%).
+
+**Verdict.** §104's closing sentence is refuted in its literal linear form: the optimal linear family of
+shared atoms — raw and function-weighted, global and per-region, plain and composed — buys strictly
+negative value at every budget. The compression story now closes from a THIRD side: not per-layer rank
+(§92), not term sparsity (§104), not linearly shared cores (§105). If faithful compression exists it needs
+nonlinearly or gauge-transformed shared structure (tn_gauge territory) or atoms learned outside the span
+of the existing blocks. Honest caveats from the arc itself: atoms were mixtures of the 18 block tensors
+(Frobenius-optimal by the Gram trick; causally-refit mixing and free jointly-trained atoms untried — at
+z≈100 a refit flip would be unprecedented here); the pooled metric weights input slots only; mean tables
+uncounted on both sides (§92/§104 precedent).
+
+**RED-TEAM PENDING** (dispatched): causally-refit mixing coefficients at the mild budgets (12/16 atoms,
+where z is smallest); mean-centered atoms (share the deviation from the mean tensor, not the tensors);
+output-slot function weighting; whether gauge freedom (per-block invertible reparameterization before
+comparing) could hide alignment the raw cosine misses.
