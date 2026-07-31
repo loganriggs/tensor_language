@@ -7123,3 +7123,11 @@ existing steering methods, not a new method class, so in-scope and launched rath
   per-layer (in-K × out-K) restriction + term-energy pruning (tn_gauge connection noted; compounding across
   18 layers must be measured).
 - NEXT: collect the certified-proxy test; then the whole-model restricted-core sweep (does 3%/layer compound?).
+
+## tick 2026-07-31 (§87 run directly — whole-model core restriction compounds; frontier measured honestly)
+- Ran qk_allcore_restrict.py myself while the proxy agent composes: restricting ALL 18 MLPs to (in-288 ×
+  out-144) costs +1.456 ± 0.014 (vs +0.182 for MLP1 alone — compounding ~additive). Frontier: 4×/+0.35,
+  16×/+0.80, 128×/+1.46; exact chain +0.033. Upgrades limitation-1 from "incompressible" to a measured
+  Tucker frontier, but faithful whole-model compression NOT achieved by uniform restriction — non-uniform
+  rank allocation (late low-rank / early high-rank per §73) is the next lever. Committed §87.
+- Still pending: certified restricted-core proxy (aed4bbce65412aa8c, script being written).
