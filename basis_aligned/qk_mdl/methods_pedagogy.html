@@ -1,0 +1,671 @@
+<title>How we took bilin18 apart: a methods primer with worked examples</title>
+<style>
+  :root {
+    --ink: #1b1b1a;
+    --ink-2: #52514e;
+    --ink-3: #8a8880;
+    --paper: #fcfcfb;
+    --card: #ffffff;
+    --line: #e4e2dc;
+    --accent: #2a78d6;      /* blue: targets, sufficiency */
+    --accent-warm: #eb6834; /* orange: triggers, necessity */
+    --fire-bg: #fdeee0;
+    --tgt-bg: #e3eefb;
+    --box-bg: #f6f5f2;
+    --good: #1baf7a;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink: #f0efea;
+      --ink-2: #c3c2b7;
+      --ink-3: #8a8880;
+      --paper: #161615;
+      --card: #1e1e1c;
+      --line: #373632;
+      --accent: #3987e5;
+      --accent-warm: #e0713f;
+      --fire-bg: #45301f;
+      --tgt-bg: #1e3050;
+      --box-bg: #232321;
+      --good: #199e70;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ink: #f0efea; --ink-2: #c3c2b7; --ink-3: #8a8880;
+    --paper: #161615; --card: #1e1e1c; --line: #373632;
+    --accent: #3987e5; --accent-warm: #e0713f;
+    --fire-bg: #45301f; --tgt-bg: #1e3050; --box-bg: #232321; --good: #199e70;
+  }
+  body { background: var(--paper); color: var(--ink); }
+  .wrap {
+    max-width: 47rem; margin: 0 auto; padding: 2.5rem 1.25rem 6rem;
+    font-family: Georgia, 'Iowan Old Style', 'Times New Roman', serif;
+    font-size: 1.02rem; line-height: 1.62;
+  }
+  h1, h2, h3, .part-tag, .asm h4, figcaption, table, .toc, .modelcard {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+  h1 { font-size: 1.7rem; line-height: 1.25; margin: 0 0 .4rem; }
+  .subtitle { color: var(--ink-2); margin: 0 0 2rem; font-style: italic; }
+  h2 { font-size: 1.22rem; margin: 3.2rem 0 .3rem; padding-top: 1.2rem; border-top: 3px solid var(--line); }
+  h2 .mnum { color: var(--accent); }
+  h3 { font-size: 1rem; margin: 1.6rem 0 .4rem; }
+  p { margin: .7rem 0; }
+  code { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: .88em;
+         background: var(--box-bg); padding: .08em .3em; border-radius: 4px; }
+  .part { margin: 1.35rem 0; }
+  .part-tag {
+    display: inline-block; font-size: .72rem; font-weight: 700; letter-spacing: .07em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: .15rem;
+  }
+  .asm {
+    background: var(--box-bg); border: 1px solid var(--line); border-radius: 8px;
+    padding: .8rem 1.1rem; margin: 1.2rem 0;
+  }
+  .asm h4 { margin: 0 0 .4rem; font-size: .72rem; letter-spacing: .07em; text-transform: uppercase; color: var(--ink-2); }
+  .asm ul { margin: .2rem 0 .1rem 1.1rem; padding: 0; }
+  .asm li { margin: .3rem 0; font-size: .93rem; }
+  .quote {
+    border-left: 3px solid var(--accent); background: var(--card);
+    padding: .7rem 1rem; margin: .9rem 0; border-radius: 0 8px 8px 0;
+    border-top: 1px solid var(--line); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  }
+  .quote .src { display: block; font-size: .78rem; color: var(--ink-3); margin-top: .45rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+  mark.fire { background: var(--fire-bg); color: inherit; padding: .05em .15em; border-radius: 3px;
+    box-shadow: inset 0 -2px 0 var(--accent-warm); }
+  mark.tgt { background: var(--tgt-bg); color: inherit; padding: .05em .15em; border-radius: 3px;
+    box-shadow: inset 0 -2px 0 var(--accent); }
+  .legend { font-size: .85rem; color: var(--ink-2); }
+  table { border-collapse: collapse; margin: .8rem 0; font-size: .88rem; width: auto; }
+  th, td { border: 1px solid var(--line); padding: .3rem .6rem; text-align: left; }
+  th { background: var(--box-bg); font-weight: 600; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .tablewrap { overflow-x: auto; }
+  figure { margin: 1.2rem 0; }
+  figcaption { font-size: .82rem; color: var(--ink-2); margin-top: .35rem; }
+  svg text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; fill: var(--ink); }
+  svg .dim { fill: var(--ink-3); }
+  svg .boxf { fill: var(--box-bg); stroke: var(--ink-2); }
+  svg .wire { stroke: var(--ink-2); fill: none; }
+  .toc { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: .9rem 1.2rem; font-size: .9rem; }
+  .toc ol { margin: .3rem 0 0 1.2rem; padding: 0; }
+  .toc li { margin: .2rem 0; }
+  .modelcard { background: var(--box-bg); border: 1px solid var(--line); border-radius: 8px;
+    padding: .8rem 1.1rem; font-size: .9rem; margin: 1.2rem 0; }
+  .deadcell { color: var(--ink-3); text-decoration: line-through; }
+  .keepcell { background: var(--tgt-bg); font-weight: 600; }
+  em.term { font-style: normal; font-weight: 600; }
+</style>
+
+<div class="wrap">
+
+<h1>How we took bilin18 apart</h1>
+<p class="subtitle">A methods primer: each technique explained with a hand-checkable toy model, its assumptions, the real implementation, and one real sentence from the held-back data.</p>
+
+<p>The program decomposes an eighteen-layer language model on <strong>four ledgers</strong>: <em>Representation</em> (can we rewrite each component exactly, in better coordinates?), <em>Substitutability</em> (can we replace it with something simpler at measured cost?), <em>Function</em> (what is it causally doing?), and <em>Meaning</em> (can we name what it computes, in code, and have the name survive a held-out test?). Every method below serves one or more of those ledgers, and every causal number is a paired, held-back measurement — the same one hundred fifty-two FineWeb sequences (numbers 448 through 599), never used for discovery or fitting.</p>
+
+<h2 id="ranking">Which methods mattered most — a ranking</h2>
+<p><strong>Criterion:</strong> load-bearing-ness for the results we actually obtained — how many headline
+findings depend on the method, whether results would have been <em>wrong</em> (not merely missing) without it,
+and whether anything else could have substituted. (Under a control-weighted criterion — usefulness for
+steering the model — method 9 rises to the top tier.)</p>
+<table>
+<tr><th>rank</th><th>method</th><th>tier</th><th>why</th></tr>
+<tr><td>1</td><td><a href="#m1">Mean-ablation necessity + paired standard errors</a></td><td rowspan="4">results would not exist, or would be wrong</td><td>the universal causal currency behind every number; the in-distribution zero point prevented a real 10–60× error</td></tr>
+<tr><td>2</td><td><a href="#m3">The exact bilinear fold</a></td><td>the program's distinctive asset: representation ledger, substitution chain, and the precondition for terms and cores</td></tr>
+<tr><td>3</td><td><a href="#m2">Sufficiency / keep-subset testing</a></td><td>the pivot that turned "irreducibly distributed" into the compact hierarchy — necessity alone had dead-ended</td></tr>
+<tr><td>4</td><td><a href="#m4">Stream / provenance terms</a></td><td>the largest single explanatory results (five-term hub, pipeline, differential pair); downstream of ranks 2–3</td></tr>
+<tr><td>5</td><td><a href="#m6">Joint ablation / redundancy</a></td><td rowspan="4">shaped and corrected the picture</td><td>resolved the copy family, exposed the 2.9× super-additivity, powered the coalition search</td></tr>
+<tr><td>6</td><td><a href="#m8">Redundant-code diagnostics</a></td><td>cheapest method, largest explanation-per-compute: the mechanism unifying attribution blindness, washout, and tamper robustness</td></tr>
+<tr><td>7</td><td><a href="#m5">Type-specific causal detectors</a></td><td>the circuit inventory and the "linear proxy lies" lesson; breadth rather than spine (strict named coverage ~5% of causal mass)</td></tr>
+<tr><td>8</td><td><a href="#m7">Dictionaries: name vs reconstruct vs explain</a></td><td>a boundary result — bounded an entire tool class and sharpened what "understanding" means</td></tr>
+<tr><td>9</td><td><a href="#m9">Editing: dials vs transplants</a></td><td rowspan="2">valuable, but downstream</td><td>converts understanding into control (the two-sided law); consumes the other methods' outputs — ranks far higher under the control criterion</td></tr>
+<tr><td>10</td><td><a href="#m10">The certified restricted-core proxy</a></td><td>fixes future candidate-ranking efficiency; no headline finding depends on it</td></tr>
+</table>
+<p><strong>The dependency spine in one line:</strong> method 1 verifies everything; fold → sufficiency → terms
+(ranks 2, 3, 4) is the critical path that produced the distinctive results; ranks 5, 6, and 8 are the
+correctives that kept the picture honest. The entries below are ordered pedagogically (simple to advanced),
+with each tagged by its rank.</p>
+
+<p><strong>How to read each entry.</strong> Each of the ten methods gets five parts: <strong>(a)</strong> the intuition in one paragraph; <strong>(b)</strong> a toy model with numbers small enough to verify by hand, showing the method working <em>and</em> one way its assumption breaks; <strong>(c)</strong> an explicit assumptions box; <strong>(d)</strong> the real bilin18 implementation — component, script, headline number; <strong>(e)</strong> one very specific example from the actual held-back text, with the relevant tokens highlighted: <mark class="fire">orange</mark> marks the token a circuit fires on or reads, <mark class="tgt">blue</mark> marks the token being predicted or affected.</p>
+
+<div class="modelcard">
+<strong>The model in three sentences.</strong> bilin18 is an 18-layer, GPT-2-vocabulary transformer with <em>no softmax</em>: each attention head's pattern is a product of two bilinear forms, (q<sub>1</sub>·k<sub>1</sub>)(q<sub>2</sub>·k<sub>2</sub>)/d², causal and unnormalized, and each feed-forward block is a bilinear MLP, Down(Lx ⊙ Rx) — a pure quadratic. There are 9 heads per layer (162 in all), a 1152-dimensional residual stream, and a 30·tanh soft-cap before the readout; base cross-entropy on the held-back slice is about 3.2 nats. Because every MLP is exactly quadratic, the whole network folds into an exact tensor network — which is what makes several of the methods below possible at all.
+</div>
+
+<div class="toc">
+<strong>The ten methods</strong> (a pedagogical arc, simple to advanced):
+<ol>
+<li>Mean-ablation necessity testing</li>
+<li>Sufficiency / keep-subset testing</li>
+<li>The exact bilinear fold</li>
+<li>Stream / provenance term decomposition</li>
+<li>Trigger and effect fingerprints, and type-specific causal detectors</li>
+<li>Joint ablation / redundancy detection</li>
+<li>Sparse dictionaries: naming vs reconstructing vs explaining</li>
+<li>Redundant-code diagnostics</li>
+<li>Editing: amplitude dials vs input transplants</li>
+<li>The certified restricted-core proxy</li>
+</ol>
+</div>
+
+<!-- ============================================================ 1 ============================================================ -->
+<h2 id="m1"> <span style="font-size:12px;opacity:.65;font-weight:400">(importance rank 1)</span><span class="mnum">1.</span> Mean-ablation necessity testing</h2>
+
+<div class="part"><span class="part-tag">(a) Intuition</span>
+<p>The most basic causal question about a component is: <em>does the model get worse when this piece stops doing its job?</em> The subtlety is what "stops" means. Setting a component's output to zero does not turn it off — it feeds the rest of the network a value it has never seen, and the damage you measure is mostly the shock of that alien input, not the component's information. The honest "off" state is the component's <em>average</em> output — everything downstream still receives a perfectly typical value, but one that no longer depends on the context. The number reported is the increase in cross-entropy (in nats) when the component's output is replaced by its per-position mean, and it is always computed <em>paired</em>: for each token we take the difference between the ablated and the intact model on that same token, then average the differences — so sequence-to-sequence variation cancels and the standard error reflects only the effect itself.</p>
+</div>
+
+<div class="part"><span class="part-tag">(b) Toy model</span>
+<p>A one-neuron linear predictor with two input features: prediction ŷ = 5·f<sub>1</sub> + f<sub>2</sub>, and the true target is y = 5 + f<sub>2</sub>, with f<sub>2</sub> = ±1 varying from example to example. On the data, f<sub>1</sub> = 1 <em>always</em> — it is a constant carrier, not a computation.</p>
+<ul>
+<li><strong>Zero-ablation lies.</strong> Set f<sub>1</sub> = 0: every prediction drops by 5, squared error jumps from 0 to 25 on every example. Verdict: "f<sub>1</sub> is the most important feature in the model." False — it never carried a bit of information.</li>
+<li><strong>Mean-ablation is honest.</strong> Set f<sub>1</sub> to its data mean, which is 1: nothing changes, error stays 0. Set f<sub>2</sub> to its mean, 0: error becomes f<sub>2</sub>² = 1 per example. Correct verdict: all the information is in f<sub>2</sub>.</li>
+<li><strong>Where the assumption breaks: the mean must be in-distribution <em>per position</em>.</strong> Now let f<sub>1</sub> alternate: +1 at even positions, −1 at odd, with target y = 5·f<sub>1</sub> + f<sub>2</sub>. The <em>global</em> mean of f<sub>1</sub> is 0 — so "mean-ablation" with a global mean is zero-ablation in disguise and reports a spurious error of 25. The per-position mean (+1 at even, −1 at odd) again correctly reports 0. This is why the program uses per-position means throughout: positional structure is kept, only content-dependence is removed.</li>
+</ul>
+</div>
+
+<div class="asm"><h4>(c) Assumptions</h4>
+<ul>
+<li>The mean is taken on-distribution and per-position; a global or zero baseline conflates "removed information" with "fed the network an impossible input."</li>
+<li>Necessity is measured one component at a time — so it silently fails when a function is duplicated across components (see method 6) or carried by a redundant code (method 8): a component can matter and still show zero.</li>
+<li>Paired differences require evaluating the same tokens under both models; the standard error is over per-token paired differences.</li>
+<li>The verdict is distribution-relative: a component unnecessary on FineWeb prose may be necessary on code or tables.</li>
+</ul>
+</div>
+
+<div class="part"><span class="part-tag">(d) Real implementation</span>
+<p>This is the causal workhorse behind every verified circuit (the harness in <code>qk_unsup_verify.py</code>, reused verbatim by every later detector). The zero-point lesson was learned the hard way and is on the record: switching from zero-ablation to per-position mean-ablation <strong>deflated every layer's apparent pattern load 10–60×</strong> — layer 5's attention pattern fell from +2.303 nats (zero-ablated) to +0.036 nats (mean-ablated), layer 2 from +0.390 to +0.027. Ninety-plus percent of the "importance" had been the off-distribution shock. A typical verified positive: attention head 6 of layer 9 (h.L9.6), a sentence-boundary subject-pronoun predictor, costs <strong>+0.077 ± 0.023 nats</strong> (3.3 standard errors) at its firing positions when mean-ablated.</p>
+</div>
+
+<div class="part"><span class="part-tag">(e) Held-back example</span>
+<div class="quote">
+"…by far the best selection of plants I have seen. Quite the drive but worth it<mark class="fire">.</mark>" → "<mark class="tgt"> They</mark>"
+<span class="src">Held-back FineWeb, sequence 451 (held index 3), position 28. The head fires on the sentence-ending period; the actual next token is " They".</span>
+</div>
+<p>This is exactly the class of position where h.L9.6 earns its +0.077 nats: on a sentence-final period it boosts the next sentence's subject pronouns (they / it / They / that). What we learned: a real but modest grammatical circuit, discovered unsupervised and priced against an honest zero point — under zero-ablation its cost would have been buried inside a fake load an order of magnitude larger.</p>
+</div>
+
+<!-- ============================================================ 2 ============================================================ -->
+<h2 id="m2"> <span style="font-size:12px;opacity:.65;font-weight:400">(importance rank 3)</span><span class="mnum">2.</span> Sufficiency / keep-subset testing</h2>
+
+<div class="part"><span class="part-tag">(a) Intuition</span>
+<p>Necessity asks "what breaks when I delete this part?"; sufficiency asks the mirror question: "if I keep <em>only</em> this part and delete everything else, how much function survives?" These sound interchangeable and are not. In any system with backup copies, deletion tests read zero on every part (each removal is compensated), while keep-subset tests reveal that a small fraction of the parts carries essentially the whole function. A component can therefore be completely opaque to necessity-based attribution and perfectly transparent to a sufficiency hierarchy. The two are different ledgers, and you need both.</p>
+</div>
+
+<figure>
+<svg viewBox="0 0 640 190" role="img" aria-label="Necessity versus sufficiency diagram">
+  <text x="80" y="22" font-size="13" font-weight="600">Necessity: delete one part</text>
+  <rect x="40" y="40" width="50" height="34" rx="5" class="boxf" stroke-width="1.5"/>
+  <rect x="100" y="40" width="50" height="34" rx="5" class="boxf" stroke-width="1.5"/>
+  <rect x="160" y="40" width="50" height="34" rx="5" fill="none" stroke="#eb6834" stroke-width="2" stroke-dasharray="4 3"/>
+  <line x1="167" y1="47" x2="203" y2="67" stroke="#eb6834" stroke-width="2"/>
+  <line x1="203" y1="47" x2="167" y2="67" stroke="#eb6834" stroke-width="2"/>
+  <rect x="220" y="40" width="50" height="34" rx="5" class="boxf" stroke-width="1.5"/>
+  <text x="40" y="105" font-size="12.5">loss change ≈ 0 for <tspan font-style="italic">every</tspan> part</text>
+  <text x="40" y="124" font-size="12.5" class="dim">(each removal is compensated)</text>
+
+  <text x="380" y="22" font-size="13" font-weight="600">Sufficiency: keep one part</text>
+  <rect x="340" y="40" width="50" height="34" rx="5" fill="none" stroke="#8a8880" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <line x1="347" y1="47" x2="383" y2="67" stroke="#8a8880" stroke-width="1.6"/>
+  <line x1="383" y1="47" x2="347" y2="67" stroke="#8a8880" stroke-width="1.6"/>
+  <rect x="400" y="40" width="50" height="34" rx="5" fill="none" stroke="#8a8880" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <line x1="407" y1="47" x2="443" y2="67" stroke="#8a8880" stroke-width="1.6"/>
+  <line x1="443" y1="47" x2="407" y2="67" stroke="#8a8880" stroke-width="1.6"/>
+  <rect x="460" y="40" width="50" height="34" rx="5" fill="none" stroke="#2a78d6" stroke-width="2.5"/>
+  <text x="485" y="62" font-size="12" text-anchor="middle" fill="#2a78d6" font-weight="700">kept</text>
+  <rect x="520" y="40" width="50" height="34" rx="5" fill="none" stroke="#8a8880" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <line x1="527" y1="47" x2="563" y2="67" stroke="#8a8880" stroke-width="1.6"/>
+  <line x1="563" y1="47" x2="527" y2="67" stroke="#8a8880" stroke-width="1.6"/>
+  <text x="340" y="105" font-size="12.5">one kept part can carry ≈ the whole function</text>
+  <text x="340" y="124" font-size="12.5" class="dim">(redundant codes are visible only this way)</text>
+  <text x="40" y="165" font-size="12.5" class="dim">The same four-part component gives opposite answers under the two tests when its parts are copies.</text>
+</svg>
+<figcaption>The necessity-versus-sufficiency dissociation: with duplicated parts, deletion shows nothing anywhere while keep-subset shows everything at once.</figcaption>
+</figure>
+
+<div class="part"><span class="part-tag">(b) Toy model</span>
+<p>A two-copy code. A signal s ∈ {+1, −1} is written into two channels, c<sub>1</sub> = s and c<sub>2</sub> = s, and the readout is y = (c<sub>1</sub> + c<sub>2</sub>)/2, classified by its sign. Intact: y = s, always correct.</p>
+<div class="tablewrap"><table>
+<tr><th>Intervention</th><th class="num">y</th><th>Sign correct?</th><th>What the test concludes</th></tr>
+<tr><td>Delete c<sub>1</sub> (set to 0)</td><td class="num">s/2</td><td>yes</td><td>necessity of c<sub>1</sub>: <strong>zero</strong></td></tr>
+<tr><td>Delete c<sub>2</sub></td><td class="num">s/2</td><td>yes</td><td>necessity of c<sub>2</sub>: <strong>zero</strong></td></tr>
+<tr><td>Keep only c<sub>1</sub> (delete c<sub>2</sub>)</td><td class="num">s/2</td><td>yes</td><td>c<sub>1</sub> alone is <strong>100% sufficient</strong></td></tr>
+<tr><td>Delete both</td><td class="num">0</td><td>chance</td><td>the function existed all along</td></tr>
+</table></div>
+<p>The necessity ledger sums to zero over all parts; the sufficiency ledger says half the parts carry everything. Both are true — that pair of statements <em>is</em> the signature of redundancy (this exact toy returns, quantitatively, in method 8). <strong>Where the assumption breaks:</strong> sufficiency identifies <em>a</em> sufficient carrier, not <em>the</em> mechanism. Add a third channel c<sub>3</sub> that merely correlates with s on the training distribution (say, it copies s in the data you test on but is causally driven by something else). Keep-only-c<sub>3</sub> passes the sufficiency test on-distribution and fails off-distribution — sufficiency claims are distribution-bound and do not confer uniqueness.</p>
+</div>
+
+<div class="asm"><h4>(c) Assumptions</h4>
+<ul>
+<li>Deleting "everything else" must use the same honest zero point (per-position means), or the kept part is evaluated inside a broken model.</li>
+<li>A sufficient subset is not thereby the mechanism: other subsets may be equally sufficient (in redundant codes, most are).</li>
+<li>Sufficiency is distribution-relative; a correlated bystander can pass on-distribution.</li>
+<li>Comparing kept-subset choices requires a control: the same-size <em>random</em> subset. Without it, "compact sufficiency" might just be "any large-enough fragment works."</li>
+</ul>
+</div>
+
+<div class="part"><span class="part-tag">(d) Real implementation</span>
+<p>The decisive use was on the layer-1 feed-forward hub (MLP1), the model's single largest component (removing it costs 5.574 ± 0.032 nats), where <em>every</em> necessity-based tool — single directions, sparse-autoencoder features, searched coalitions of up to 512 features — had returned essentially nothing (methods 7 and 8 tell that story). The keep-subset test (<code>qk_hub_hierarchy.py</code>): replace the hub's 1152-dimensional output by its mean plus the projection onto only the top-K principal directions. <strong>Keeping 144 of 1152 directions loses only 1.5% of the hub's function (+0.084 nats of 5.574)</strong>; keeping a <em>random</em> 144 loses 61% — the principal hierarchy beats random forty-fold. Extending the same idea to the computation itself (<code>qk_hub_maprestrict.py</code>): the hub's bilinear map restricted to 288 input × 144 output directions — roughly 128× fewer coefficients — retains 96.7% of its causal function.</p>
+</div>
+
+<div class="part"><span class="part-tag">(e) Held-back example</span>
+<div class="quote">
+"…up to an application layer transparent proxy and optional gateways to anonymous networks such as Tor and I2P<mark class="fire">.</mark>" → "<mark class="tgt"> It</mark>"
+<span class="src">Held-back FineWeb, sequence 466 (held index 18), position 80.</span>
+</div>
+<p>Sufficiency statements are whole-distribution statements, so the honest per-example reading is this: at every token of this sentence — and every other held-back token — swapping the hub's full 1152-dimensional output for "mean plus its top 144 principal directions" changes the model's next-token predictions by 0.084 nats on average, about a one percent perturbation. What we learned: the component that was unattributable in parts is compactly <em>sufficient</em> in the right basis — necessity-blindness was a property of the test, not of the hub.</p>
+</div>
+
+<!-- ============================================================ 3 ============================================================ -->
+<h2 id="m3"> <span style="font-size:12px;opacity:.65;font-weight:400">(importance rank 2)</span><span class="mnum">3.</span> The exact bilinear fold</h2>
+
+<div class="part"><span class="part-tag">(a) Intuition</span>
+<p>A bilinear MLP computes Down(Lx ⊙ Rx): two linear maps, an elementwise product, a linear read-out. Because there is no ReLU or sigmoid anywhere, this is a pure quadratic polynomial in the input — and any quadratic can be rewritten, <em>exactly</em>, as a single third-order tensor T acting on two copies of the input. The rewrite kills the neuron basis: permuting or rescaling hidden neurons changes L, R, Down but leaves T untouched, which is why this program never interprets individual neurons — the neuron basis is pure gauge, an arbitrary bookkeeping choice. All later structure (terms, streams, restricted cores, the certified proxy) is analysis of T, and it inherits T's exactness: the fold is a change of coordinates, not an approximation.</p>
+</div>
+
+<figure>
+<svg viewBox="0 0 640 150" role="img" aria-label="Fold rewrite diagram">
+  <text x="28" y="78" font-size="13">x</text>
+  <path class="wire" stroke-width="1.5" d="M40 60 L74 42"/>
+  <path class="wire" stroke-width="1.5" d="M40 84 L74 102"/>
+  <rect x="76" y="26" width="46" height="30" rx="5" class="boxf" stroke-width="1.5"/>
+  <text x="99" y="46" font-size="12.5" text-anchor="middle">L</text>
+  <rect x="76" y="90" width="46" height="30" rx="5" class="boxf" stroke-width="1.5"/>
+  <text x="99" y="110" font-size="12.5" text-anchor="middle">R</text>
+  <path class="wire" stroke-width="1.5" d="M122 41 L162 62"/>
+  <path class="wire" stroke-width="1.5" d="M122 105 L162 84"/>
+  <circle cx="172" cy="73" r="12" class="boxf" stroke-width="1.5"/>
+  <text x="172" y="78" font-size="13" text-anchor="middle">⊙</text>
+  <path class="wire" stroke-width="1.5" d="M184 73 L216 73"/>
+  <rect x="218" y="58" width="62" height="30" rx="5" class="boxf" stroke-width="1.5"/>
+  <text x="249" y="78" font-size="12.5" text-anchor="middle">Down</text>
+  <path class="wire" stroke-width="1.5" d="M280 73 L308 73"/>
+  <text x="314" y="78" font-size="13">y</text>
+
+  <text x="362" y="78" font-size="17" fill="#2a78d6" font-weight="700">=</text>
+
+  <text x="398" y="52" font-size="13">x</text>
+  <text x="398" y="104" font-size="13">x</text>
+  <path class="wire" stroke-width="1.5" d="M410 48 L448 64"/>
+  <path class="wire" stroke-width="1.5" d="M410 100 L448 84"/>
+  <rect x="450" y="53" width="76" height="40" rx="6" fill="none" stroke="#2a78d6" stroke-width="2.5"/>
+  <text x="488" y="78" font-size="13.5" text-anchor="middle" fill="#2a78d6" font-weight="700">T</text>
+  <path class="wire" stroke-width="1.5" d="M526 73 L556 73"/>
+  <text x="562" y="78" font-size="13">y</text>
+  <text x="398" y="136" font-size="12" class="dim">T[o,i,j] = Σ<tspan baseline-shift="sub" font-size="9">p</tspan> Down[o,p]·L[p,i]·R[p,j]  (neuron index p summed out — the neuron basis is gauge)</text>
+</svg>
+<figcaption>The fold rewrite: three matrices and an elementwise product collapse into one third-order tensor, exactly.</figcaption>
+</figure>
+
+<div class="part"><span class="part-tag">(b) Toy model</span>
+<p>Two-dimensional input x = (x<sub>1</sub>, x<sub>2</sub>), two hidden neurons, one output:</p>
+<p>L = [[1, 1], [0, 1]], R = [[1, 0], [1, −1]], Down = [2, 1].</p>
+<p>Then Lx = (x<sub>1</sub>+x<sub>2</sub>, x<sub>2</sub>) and Rx = (x<sub>1</sub>, x<sub>1</sub>−x<sub>2</sub>), so the hidden product is ((x<sub>1</sub>+x<sub>2</sub>)x<sub>1</sub>, x<sub>2</sub>(x<sub>1</sub>−x<sub>2</sub>)) and the output is</p>
+<p style="text-align:center">y = 2(x<sub>1</sub>² + x<sub>1</sub>x<sub>2</sub>) + (x<sub>1</sub>x<sub>2</sub> − x<sub>2</sub>²) = <strong>2x<sub>1</sub>² + 3x<sub>1</sub>x<sub>2</sub> − x<sub>2</sub>²</strong>.</p>
+<p>That polynomial <em>is</em> the folded tensor: T = [[2, 1.5], [1.5, −1]] (symmetrized, so the two off-diagonal entries share the 3). Check at x = (1, 2): the network path gives Lx = (3, 2), Rx = (1, −1), product (3, −2), output 2·3 + 1·(−2) = 4; the tensor path gives 2·1 + 3·2 − 1·4 = 4. Same number, by identity. <strong>Gauge invariance by hand:</strong> double hidden neuron 1's L row and halve its Down weight — L = [[2, 2], [0, 1]], Down = [1, 1]. The three matrices all changed; recompute T and you get [[2, 1.5], [1.5, −1]] again. Neuron-level stories about "what neuron 1 does" changed; the function did not. <strong>Where the assumption breaks:</strong> put a ReLU on the hidden layer and the output becomes max(0, x<sub>1</sub>+x<sub>2</sub>)·… — piecewise, not polynomial, and no finite tensor reproduces it. The fold is an architecture property (bilinear and gated-SwiGLU models do not have it), not a universal method.</p>
+</div>
+
+<div class="asm"><h4>(c) Assumptions</h4>
+<ul>
+<li>Exact bilinearity (no ReLU, GELU, or SwiGLU gating in the MLP). Provably fails for standard transformers — on those, only the fold-free surrogates below apply.</li>
+<li>Normalization must fold out too: for rms-norm this is exact — MLP(rms(x)) = D·T(x,x)/‖x‖² + bias, a scalar gauge — verified at ~10⁻⁷.</li>
+<li>Every use of the fold is gated: reconstruction is checked at ~10⁻⁶ relative error, globally and at the worst position, before any conclusion is drawn from it.</li>
+<li>Exactness of representation does not mean compressibility: naked rank-truncation of the folded cores fails (measured); compression has to come from stream structure (methods 4 and the restricted cores).</li>
+</ul>
+</div>
+
+<div class="part"><span class="part-tag">(d) Real implementation</span>
+<p>Every feed-forward block of bilin18 is folded, and every layer's composed fold reconstructs the model at <strong>relative error ≈ 1.25 × 10⁻⁶</strong> (individual gates from 4.8 × 10⁻⁷ to 1.6 × 10⁻⁶; scripts <code>qk_hub_streampairs.py</code>, <code>qk_allterm_census.py</code>, the composed-fold arc). The value of exactness was quantified by racing the fold against the best fold-free alternative (<code>qk_fold_necessity.py</code>): a rank-matched generic low-rank surrogate — the kind of thing you can fit on <em>any</em> architecture — leaves the model broken at +4.86 nats, while the exact fold chain leaves +0.034; on the softmax SwiGLU control model, where no fold exists, the generic surrogate is stuck at +3.42 with nothing to close the gap. Approximate structure is three-quarters architecture-general; <em>faithfulness</em> is all fold.</p>
+</div>
+
+<div class="part"><span class="part-tag">(e) Held-back example</span>
+<div class="quote">
+"…These two varieties have thicker shells than the standard European walnuts. For walnut production, Black Walnut <mark class="fire">(</mark>Juglans niger<mark class="tgt">)</mark>…"
+<span class="src">Held-back FineWeb, sequence 448 (held index 0), positions 79–86.</span>
+</div>
+<p>On this sentence — and on every held-back sentence — the folded tensor-network rewrite of bilin18 reproduces every next-token logit to about one part in a million: the bracket is closed, the Latin name is continued, with bit-level agreement for practical purposes. What we learned: nothing about this text in particular, and that is the point — the fold is not a model of the model but the model itself in different coordinates, which is what licenses every term-level surgery in the entries below.</p>
+</div>
+
+<!-- ============================================================ 4 ============================================================ -->
+<h2 id="m4"> <span style="font-size:12px;opacity:.65;font-weight:400">(importance rank 4)</span><span class="mnum">4.</span> Stream / provenance term decomposition</h2>
+
+<div class="part"><span class="part-tag">(a) Intuition</span>
+<p>A layer's input is not an anonymous vector — it is an exact <em>sum</em> of contributions with known provenance: the token embedding, each earlier attention output, each earlier feed-forward output. Feed a sum into a bilinear map and the algebra does something wonderful: T(a+b, a+b) = T(a,a) + 2T(a,b) + T(b,b). The layer's computation splits, exactly, into named <em>pairwise interaction terms</em> — "embedding times context," "previous block squared" — each a causal object you can keep or delete on its own. Where learned features give you anonymous directions, the architecture's own coordinates give you a small set of terms with English names.</p>
+</div>
+
+<div class="part"><span class="part-tag">(b) Toy model</span>
+<p>Reuse the folded tensor from method 3, T = [[2, 1.5], [1.5, −1]], and split the input x = (1, 2) into two streams: a = (1, 0) (say, "the current token's embedding") and b = (0, 2) ("what attention brought in"). Writing B(u, v) for the symmetric bilinear form:</p>
+<div class="tablewrap"><table>
+<tr><th>Term</th><th>Meaning</th><th class="num">Value</th></tr>
+<tr><td>B(a, a)</td><td>token × token — a bigram-style correction</td><td class="num">2·1 = 2</td></tr>
+<tr><td>2·B(a, b)</td><td>token × context — the gating interaction</td><td class="num">2·(1.5·1·2) = 6</td></tr>
+<tr><td>B(b, b)</td><td>context × context</td><td class="num">−1·4 = −4</td></tr>
+<tr><td><strong>sum</strong></td><td>the layer's full output</td><td class="num"><strong>4</strong> ✓ (matches method 3)</td></tr>
+</table></div>
+<p>Note the cross term is the largest: the layer is not "a function of the token plus a function of the context" — it is their <em>product</em>. That is what a bilinear layer is for, and the toy already shows it. <strong>Where the assumption breaks:</strong> the split requires that the streams sum exactly to the input (a gate you must check) and that the map is bilinear (method 3's assumption). On a softmax-SwiGLU model no term expansion exists; the best you can do is mean-ablate one input <em>group</em> at a time — a coarser intervention that recovers the flow map but not the interaction terms.</p>
+</div>
+
+<div class="asm"><h4>(c) Assumptions</h4>
+<ul>
+<li>Bilinearity (method 3), plus an exact stream-sum gate: the named streams must reconstruct the layer input to ~10⁻⁶.</li>
+<li>Terms are exact but not orthogonal: their energies can exceed 100% under cancellation (layer 17 does exactly this — see method 9), so keep/delete costs, not energy shares, are the causal currency.</li>
+<li>Naming a term ("embedding × context") names its provenance, not automatically its function; function still comes from causal tests on the term.</li>
+</ul>
+</div>
+
+<div class="part"><span class="part-tag">(d) Real implementation</span>
+<p>On the layer-1 hub (<code>qk_hub_streampairs.py</code>), the four input streams — embedding, attention-0, MLP-0, attention-1 — give ten pairwise terms, and the decomposition is exact at 9.8 × 10⁻⁷. The headline: <strong>five named terms restore essentially the full 5.574-nat function (keeping them costs only +0.0019 ± 0.0006 nats)</strong> — after sparse autoencoders and principal directions had failed to find <em>any</em> compact causal split of the same component. Three structural facts fell out at once: the <strong>attention-0 row is causally dead</strong> through the hub (deleting all four attention-0 terms costs 0.0000 nats; each kept alone is indistinguishable from keeping nothing); the hub is an <strong>interaction device</strong> (keeping only the four same-stream "diagonal" terms costs +0.525, keeping only the six cross terms costs +0.044 — ten times less); and the embedding-squared term is a <strong>bigram-table-like correction</strong> (the current token's identity alone explains 90% of its variance). The census extension to all 18 blocks (<code>qk_allterm_census.py</code>) found the early stack compact (2–5 terms to 95%) and produced this gem: <strong>layer 2 is almost literally "square the previous block's output"</strong> — its mlp-recent² term alone leaves just 0.093 of its 0.739-nat floor, and two named terms cover 98% of the layer.</p>
+
+<div class="tablewrap"><table>
+<tr><th></th><th>emb</th><th>attn-0</th><th>MLP-0</th><th>attn-1</th></tr>
+<tr><th>emb</th><td>bigram-table</td><td class="deadcell">dead</td><td class="keepcell">kept</td><td class="keepcell">kept</td></tr>
+<tr><th>attn-0</th><td class="deadcell">dead</td><td class="deadcell">dead</td><td class="deadcell">dead</td><td class="deadcell">dead</td></tr>
+<tr><th>MLP-0</th><td class="keepcell">kept</td><td class="deadcell">dead</td><td class="keepcell">kept</td><td class="keepcell">kept ★</td></tr>
+<tr><th>attn-1</th><td class="keepcell">kept</td><td class="deadcell">dead</td><td class="keepcell">kept ★</td><td class="keepcell">kept</td></tr>
+</table></div>
+<p class="legend">The hub's ten terms (symmetric grid). Blue = the five kept terms that carry the full function (★ marks the dominant MLP-0 × attention-1 interaction, energy share 0.22); struck-through = the causally dead attention-0 row. The emb × emb term is the nameable bigram correction.</p>
+</div>
+
+<div class="part"><span class="part-tag">(e) Held-back example</span>
+<div class="quote">
+"…A corollary branching off from this thought is that AMISOM is a project perpetrated at the expense of the Somali people<mark class="fire">.</mark>" → "<mark class="tgt"> It</mark>"
+<span class="src">Held-back FineWeb, sequence 483 (held index 35), position 53.</span>
+</div>
+<p>Walk the streams at that period: the embedding stream carries the token "." itself; the MLP-0 stream carries its transformed identity ("this is a clause boundary"); the attention-1 stream carries a summary of the sentence gathered from earlier positions. The hub's function at positions like this lives in the products — its context-carrying terms are context-gated content-word boosters (at their firing sites the MLP-0 × attention-1 term pushes word-class logits by +1767 and capital-class by +1160, while damping them elsewhere). What we learned: "boundary, and context says a new sentence is coming" is computed as <em>boundary × context</em>, not boundary + context — the interaction structure is the mechanism, and it was invisible until the input was split by provenance.</p>
+</div>
+
+<!-- ============================================================ 5 ============================================================ -->
+<h2 id="m5"> <span style="font-size:12px;opacity:.65;font-weight:400">(importance rank 7)</span><span class="mnum">5.</span> Trigger and effect fingerprints — and type-specific causal detectors</h2>
+
+<div class="part"><span class="part-tag">(a) Intuition</span>
+<p>Every candidate circuit has two faces: a <em>trigger</em> (what contexts make it fire — readable from its top-activating positions) and an <em>effect</em> (what it does to the prediction). The program's most-repeated empirical lesson is an asymmetry between them: trigger fingerprints generalize — in every verified case the trigger held on data the circuit was not discovered on — but the cheap effect read-out (project the circuit's output straight onto the vocabulary, the "direct-to-logits linear proxy") is unreliable: it has been wrong in magnitude, in sign, and even in letter-case, because the true effect passes through the downstream layers and the 30·tanh cap. The consequence is architectural for the whole toolbox: effects must be read from causal ablation, and — since "the effect" of a copy head, a class-pusher, and a suppressor are different <em>kinds</em> of object — each circuit type needs its own causal test.</p>
+</div>
+
+<div class="part"><span class="part-tag">(b) Toy model</span>
+<p>A path writes p onto the residual; the readout would score it directly, but a downstream layer also responds. Let the downstream response be d = −1.5·p (a damping layer), so the token-A logit is p + d = −0.5·p.</p>
+<ul>
+<li><strong>The linear proxy</strong> reads only the direct write: with p = 2 it reports "+2 on token A — this path <em>boosts</em> A."</li>
+<li><strong>Causal ablation</strong> removes p and lets the downstream layer respond: the logit changes from −0.5·2 = −1 to 0, i.e. removal <em>raises</em> the token-A logit by 1. The path is really a net <em>suppressor</em> of A. The proxy got the sign wrong by design, and no amount of averaging fixes it — the error is structural (the proxy deletes the downstream response).</li>
+</ul>
+<p><strong>Type-specificity in the same toy:</strong> suppose instead the path copies whatever token it attended to. Then there is no fixed direction to score at all — its "effect" is a different object per position (the attended token's logit). A fixed-direction purity metric scores it near zero however strong it is; the right test is source-specific: does ablation drop the logit of <em>the attended token</em>, versus random tokens? One causal question per circuit type.</p>
+</div>
+
+<div class="asm"><h4>(c) Assumptions</h4>
+<ul>
+<li>Trigger fingerprints are trusted only after an out-of-sample check on a disjoint slice (this filter alone killed a family of rare-suffix "circuits" whose purity collapsed from high to 0.000 out of sample).</li>
+<li>The direct-to-logits proxy is assumed unreliable by default; it may rank candidates but never states an effect. (Method 10 is the structural fix.)</li>
+<li>Each detector's verification move must match its circuit type: class-summed logit movement for class-pushers, source-specific logit drops for copy heads, rise-on-ablation for suppressors, joint ablation for redundant families.</li>
+<li>Cleanliness is not importance: measured across all 234 paths, the cleanliness score and causal importance correlate at Pearson 0.006 — essentially zero.</li>
+</ul>
+</div>
+
+<div class="part"><span class="part-tag">(d) Real implementation</span>
+<p>The detector catalog (<code>TECHNIQUES_unsup_discovery.md</code>) grew to ten type-specific tools; two exemplars. <strong>The copy / value-router detector</strong> (<code>qk_unsup_copy.py</code>, <code>qk_arc_digits.py</code>): attention head 3 of layer 8 (h.L8.3) attends to digit tokens (out-of-sample trigger purity 0.97) and is a verbatim value-router — ablating it drops the <em>attended</em> token's logit by 0.809 ± 0.077 relative to random tokens, and its damage concentrates entirely where the next number can be copied from earlier context: <strong>+0.155 ± 0.032 nats on copyable next-digit positions versus +0.000 ± 0.008 on non-copyable ones</strong>. Its neighbor h.L8.7 is the exact mirror (damage only on <em>non</em>-copyable positions, no source boost) — one "digit head" cleanliness class, two different algorithms, separable only by the causal dissociation. <strong>The class-push detector</strong> (<code>qk_unsup_classpush.py</code>): built after the census showed the cleanliness ranking misses the model's largest effects (distributed pushes over a whole token class). It ranks by causal importance and characterizes effects by class-summed logit movement; its score tracks true importance at Pearson 0.986 (versus 0.006), and its strongest find, feed-forward direction mlp.L17.d1, pushes the capital class with specificity z = 48.6.</p>
+</div>
+
+<div class="part"><span class="part-tag">(e) Held-back examples</span>
+<div class="quote">
+"…well behind the Liberal Democrats, Qurban Hussain (9,567 votes), Conservative Nigel Huddleston (12<mark class="fire">,</mark>" → "<mark class="tgt">396</mark>"
+<span class="src">Held-back FineWeb, sequence 506 (held index 58), position 114 — a top firing context of mlp.L17.d0, from <code>qk_prior_examples.json</code>.</span>
+</div>
+<p>The class-push tooling revealed that mlp.L17.d0's extreme firings are commas <em>inside numbers and dates</em> — an enumeration-context direction spraying class mass (class push z = 73.8) whose individual removal is nonetheless nearly invisible (+0.156 ± 0.056, below the significance bar): a context-conditioned base rate, not a token-picker.</p>
+<div class="quote">
+"…- Pick an area roughly <mark class="fire">200</mark> miles by 150 miles\n- Grab a 8.5 by 11 sheet of hex paper.\n- The scale should be so that it represents a" → "<mark class="tgt"> 200</mark>"
+<span class="src">Held-back FineWeb, sequence 468 (held index 20), position 121.</span>
+</div>
+<p>A copyable digit position: the number to be predicted (" 200") already appeared in context — exactly the regime where ablating the value-router h.L8.3 hurts (+0.155) and ablating the predictor h.L8.7 does nothing. What we learned across both examples: read the trigger from firings, but never trust the linear proxy for the effect — it mislabeled h.L8.3's sign and h.L6.0's letter-case before the causal tests corrected them.</p>
+</div>
+
+<!-- ============================================================ 6 ============================================================ -->
+<h2 id="m6"> <span style="font-size:12px;opacity:.65;font-weight:400">(importance rank 5)</span><span class="mnum">6.</span> Joint ablation / redundancy detection</h2>
+
+<div class="part"><span class="part-tag">(a) Intuition</span>
+<p>Single-component ablation cannot tell "this part is useless" from "this part has a backup." Both read as zero. The discriminating experiment is to ablate a candidate <em>family together</em> and compare the joint damage to the sum of the solo damages: a redundancy ratio near 1 means the parts are independent (and if all are near zero, genuinely unimportant); a ratio well above 1 means the family shares a duplicated function that only appears when all copies are removed. The essential control is a same-size <em>random</em> set of components: joint ablation of anything removes capacity, so the family must beat every random draw, not just zero.</p>
+</div>
+
+<div class="part"><span class="part-tag">(b) Toy model</span>
+<p>Two heads each independently deliver the same evidence: h<sub>1</sub> = 1.2 and h<sub>2</sub> = 1.2, the decision variable is y = h<sub>1</sub> + h<sub>2</sub> = 2.4, and the prediction is correct as long as y ≥ 1 (loss = max(0, 1 − y)).</p>
+<div class="tablewrap"><table>
+<tr><th>Intervention</th><th class="num">y</th><th class="num">Loss</th></tr>
+<tr><td>Intact</td><td class="num">2.4</td><td class="num">0</td></tr>
+<tr><td>Ablate h<sub>1</sub> only</td><td class="num">1.2</td><td class="num">0</td></tr>
+<tr><td>Ablate h<sub>2</sub> only</td><td class="num">1.2</td><td class="num">0</td></tr>
+<tr><td>Ablate both</td><td class="num">0</td><td class="num"><strong>1</strong></td></tr>
+</table></div>
+<p>Sum of solo damages: 0. Joint damage: 1. Redundancy ratio: effectively infinite — the pure signature. Each head, examined alone, is indistinguishable from a dead head; the pair is load-bearing. <strong>Where the assumption breaks:</strong> a large joint effect alone proves nothing — ablate <em>any</em> two of a model's components and you may cross some capacity threshold. Add a third, unrelated head h<sub>3</sub> to the toy and ablate the random pair {h<sub>1</sub>, h<sub>3</sub>}: if that also breaks the model, "redundant family" was the wrong conclusion. The claim requires the specific family to exceed all same-size random sets, and (a second control) the effect must vanish when the family is ablated at random positions instead of its own firing positions.</p>
+</div>
+
+<div class="asm"><h4>(c) Assumptions</h4>
+<ul>
+<li>The family hypothesis comes from somewhere (a shared trigger fingerprint, method 5); joint ablation tests it but does not generate it.</li>
+<li>Same-size random-set control is mandatory (rules out generic capacity loss), as is the random-positions control (rules out unspecific damage).</li>
+<li>Greedy minimal-subset search is a heuristic; report the subset with its recovery fraction, not as "the" circuit.</li>
+<li>Significance versus the random control is control-pool-dependent; report the order of magnitude, not a point z-value.</li>
+</ul>
+</div>
+
+<div class="part"><span class="part-tag">(d) Real implementation</span>
+<p><code>qk_unsup_redundant.py</code>, on the copy-head family the copy detector had flagged as "clearly copying yet individually near-null" ({L8H3, L8H4, L13H0, L14H7, L7H3, L5H5}): <strong>joint damage +0.430 ± 0.051 nats versus a solo sum of 0.111 — redundancy ratio 3.86</strong>. A minimal four-head subset {L8H3, L5H5, L7H3, L8H4} recovers 87% of the joint effect. The family exceeds all forty same-size random draws (significance of order ten-plus standard deviations, draw-dependent), and ablating it at random positions collapses the effect from 0.430 to 0.033 — specific, not capacity. The copy <em>output</em> collapses only jointly: the attended-source token survives as the model's top-1 under any single ablation, but its median rank drops from 1 to 7 under joint removal. The honest negative that certifies the tool: the diffuse newline cluster has ratio 1.12 and does not beat random (z = 0.68) — genuinely unimportant, not redundant. Single ablation could not have told these two clusters apart.</p>
+</div>
+
+<div class="part"><span class="part-tag">(e) Held-back example</span>
+<div class="quote">
+"Shepherd, Randolph represent Tech at <mark class="fire">Samford Intercollegiate</mark>\nAmber Shepherd and Amanda Randolph wrapped up play Tuesday as individual entries in the <mark class="fire">Sam</mark><mark class="tgt">ford Intercollegiate</mark>."
+<span class="src">Held-back FineWeb, sequence 592 (held index 144). The phrase " Samford Intercollegiate" (tokens " Sam", "ford", " Inter", "col", "leg", "iate") appears at positions 7–12 and again at 29–34, then twice more.</span>
+</div>
+<p>At the second occurrence, once " Sam" is on the page, the continuations "ford", " Inter", "col"… are textbook induction: attend to the earlier copy, route its identity forward. These are precisely the positions where the distributed copy family earns its joint +0.430 nats — and where every <em>single</em>-head ablation shows almost nothing, because five other heads still deliver the copy. What we learned: bilin18 implements copying as a duplicated, distributed fabric across layers 5–14; the model's own engineering (redundancy) is what defeated the single-ablation ledger.</p>
+</div>
+
+<!-- ============================================================ 7 ============================================================ -->
+<h2 id="m7"> <span style="font-size:12px;opacity:.65;font-weight:400">(importance rank 8)</span><span class="mnum">7.</span> Sparse dictionaries: naming vs reconstructing vs explaining</h2>
+
+<div class="part"><span class="part-tag">(a) Intuition</span>
+<p>A sparse autoencoder (a learned overcomplete dictionary with few features active per token) is the standard tool for finding interpretable features in activations. The program used it as a red-team against its own "this component is irreducibly distributed" claim — and the result was a three-way split that has become a slogan: <strong>naming, reconstructing, and explaining are three different things.</strong> A dictionary can find beautifully monosemantic features (naming) and rebuild the component's output with high fidelity (reconstructing) while attributing essentially none of the component's causal effect to any feature or feature set (explaining). Purity and fidelity are variance-level facts; causation, in a redundant code, lives elsewhere.</p>
+</div>
+
+<div class="part"><span class="part-tag">(b) Toy model</span>
+<p>The two-copy code from method 2, now attacked with a dictionary. Activations are two-dimensional: h = (s, s), with s = 1 on half the data (say, on determiner tokens) and s = 0 elsewhere. The downstream readout is y = (h<sub>1</sub> + h<sub>2</sub>)/2, thresholded at 0.5.</p>
+<ul>
+<li><strong>Naming: perfect.</strong> The dictionary learns f<sub>1</sub> = h<sub>1</sub>, f<sub>2</sub> = h<sub>2</sub>. Each fires exactly on determiners — trigger purity 1.00, a textbook monosemantic feature you would happily christen "the determiner feature."</li>
+<li><strong>Reconstructing: perfect.</strong> f<sub>1</sub>·(1,0) + f<sub>2</sub>·(0,1) = h exactly; fraction of variance explained 1.00.</li>
+<li><strong>Explaining: zero.</strong> Mean-ablate f<sub>1</sub> (h<sub>1</sub> → its mean, 0.5): y = (0.5 + s)/2 ∈ {0.25, 0.75} — the threshold still classifies every token correctly, causal effect 0. Same for f<sub>2</sub>. Every feature attribution is zero, yet ablating both gives y = 0.5 everywhere: chance. The function was real, collectively carried, and invisible to per-feature accounting.</li>
+</ul>
+<p><strong>Where the naming itself can mislead:</strong> the toy's features are only "the determiner feature" on this data; the causal claim buried in the name (this feature <em>makes</em> the model do something determiner-related) was never tested and is false — each feature is individually bypassable. The name describes variance, not mechanism.</p>
+</div>
+
+<div class="asm"><h4>(c) Assumptions</h4>
+<ul>
+<li>Feature interpretability is judged by trigger class purity with an enrichment bar, out of sample — not by eyeballing top tokens.</li>
+<li>Reconstruction fidelity must be reported held-out (train fidelity overfits; here the held ceiling moved from 0.72 to 0.85 only when the training corpus grew tenfold).</li>
+<li>Causal capture is measured with the same mean-ablation currency as everything else, per feature and cumulatively — plus the two-sided control: ablate the reconstruction (keep the residual) and ablate the residual (keep the features). If both are individually inert, the encoding is collective.</li>
+<li>A dictionary failing to explain is weaker evidence than one succeeding — hence the escalation: bigger dictionaries, converged training, ten times the data, feature coalitions. The negative had to survive all of them before being claimed.</li>
+</ul>
+</div>
+
+<div class="part"><span class="part-tag">(d) Real implementation</span>
+<p>On the layer-1 hub (<code>qk_redteam_sae_hub.py</code>, <code>qk_sae_converged.py</code>, <code>qk_sae_moredata.py</code>): the best dictionary (16,384 features, 64 active per token, ten-times corpus) reaches held-back reconstruction fidelity <strong>0.85</strong> and 17–26 of its top 32 features are monosemantic (versus <strong>0 of 32</strong> for raw principal directions — naming genuinely crossed a boundary SVD could not). But causally: <strong>0 of 32 features clear the load-bearing bar, and all 16,384 features together capture 2.01% of the hub's 5.57-nat effect</strong> — a number that stayed flat (2.15%, 2.22%, 2.01%) across every fidelity from 0.69 to 0.85. Coalition search over up to 512 features across five construction families never reached 1% at size 128. The result replicates on the softmax SwiGLU model's hub (<code>qk_sae_swiglu_hub.py</code>) in its sharpest form: the SAE reconstruction, substituted whole, carries 98.7% of the layer's function — <em>causally sufficient as a whole, unattributable in parts</em>.</p>
+</div>
+
+<div class="part"><span class="part-tag">(e) Held-back example</span>
+<div class="quote">
+"…on <mark class="fire">the</mark> basis of presidential decisions. He must learn to rely on people to fulfill <mark class="fire">the</mark> mandate of his regime.\nAs part and parcel of <mark class="fire">the</mark> leadership, <mark class="fire">the</mark> cabinet must share <mark class="fire">the</mark> qualities of <mark class="fire">the</mark> president."
+<span class="src">Held-back FineWeb, sequence 477 (held index 29). Every " the" highlighted.</span>
+</div>
+<p>The dictionaries reliably learn a pure determiner feature — on bilin18 a " the"-feature enriched 11.7× over base rate, on the SwiGLU model several features firing on " the" alone at purity 1.00 — which would fire six times in this one passage. Mean-ablating that beautifully nameable feature does nothing measurable to the model's predictions here or anywhere. What we learned: a feature can be perfectly named and causally null at once; a dictionary of such features is a description of the activations' variance, and treating it as a decomposition of the <em>computation</em> is the precise mistake this experiment was built to expose.</p>
+</div>
+
+<!-- ============================================================ 8 ============================================================ -->
+<h2 id="m8"> <span style="font-size:12px;opacity:.65;font-weight:400">(importance rank 6)</span><span class="mnum">8.</span> Redundant-code diagnostics: amplitude and random-subspace sweeps</h2>
+
+<div class="part"><span class="part-tag">(a) Intuition</span>
+<p>After methods 6 and 7, a suspicion forms: maybe the reason no part of a component is necessary is that its output is a <em>redundant code</em> — the same message written many times over, like an error-correcting code, so that any fragment of the signal suffices and no fragment is needed. That hypothesis makes two quantitative predictions you can test directly without knowing what the message says: (i) <em>amplitude robustness</em> — scale the whole output toward its mean by a factor alpha and the function should survive far below alpha = 1; (ii) <em>dimension redundancy</em> — delete the output's projection onto a random subspace and the function should survive until most of the space is gone, then fall off a cliff. Flat-then-cliff on both sweeps is the fingerprint of sufficiency-without-necessity, and it tells you in advance that every deletion-based attribution tool will read zero.</p>
+</div>
+
+<figure>
+<svg viewBox="0 0 640 170" role="img" aria-label="Redundant code diagram">
+  <text x="30" y="24" font-size="13" font-weight="600">A redundant code: one message, written into every dimension</text>
+  <g>
+    <rect x="30"  y="40" width="60" height="30" rx="5" class="boxf" stroke-width="1.5"/><text x="60" y="60" font-size="12" text-anchor="middle">s</text>
+    <rect x="98"  y="40" width="60" height="30" rx="5" class="boxf" stroke-width="1.5"/><text x="128" y="60" font-size="12" text-anchor="middle">s</text>
+    <rect x="166" y="40" width="60" height="30" rx="5" fill="none" stroke="#eb6834" stroke-width="2" stroke-dasharray="4 3"/><line x1="176" y1="45" x2="216" y2="65" stroke="#eb6834" stroke-width="2"/><line x1="216" y1="45" x2="176" y2="65" stroke="#eb6834" stroke-width="2"/>
+    <rect x="234" y="40" width="60" height="30" rx="5" class="boxf" stroke-width="1.5"/><text x="264" y="60" font-size="12" text-anchor="middle">s</text>
+    <rect x="302" y="40" width="60" height="30" rx="5" fill="none" stroke="#eb6834" stroke-width="2" stroke-dasharray="4 3"/><line x1="312" y1="45" x2="352" y2="65" stroke="#eb6834" stroke-width="2"/><line x1="352" y1="45" x2="312" y2="65" stroke="#eb6834" stroke-width="2"/>
+    <rect x="370" y="40" width="60" height="30" rx="5" class="boxf" stroke-width="1.5"/><text x="400" y="60" font-size="12" text-anchor="middle">s</text>
+    <rect x="438" y="40" width="60" height="30" rx="5" fill="none" stroke="#eb6834" stroke-width="2" stroke-dasharray="4 3"/><line x1="448" y1="45" x2="488" y2="65" stroke="#eb6834" stroke-width="2"/><line x1="488" y1="45" x2="448" y2="65" stroke="#eb6834" stroke-width="2"/>
+    <rect x="506" y="40" width="60" height="30" rx="5" class="boxf" stroke-width="1.5"/><text x="536" y="60" font-size="12" text-anchor="middle">s</text>
+  </g>
+  <path class="wire" stroke-width="1.5" d="M300 80 L300 104"/>
+  <rect x="230" y="106" width="140" height="30" rx="5" fill="none" stroke="#2a78d6" stroke-width="2"/>
+  <text x="300" y="126" font-size="12.5" text-anchor="middle" fill="#2a78d6" font-weight="600">readout still hears s</text>
+  <text x="30" y="160" font-size="12.5" class="dim">Delete any half of the dimensions (orange crosses): the surviving copies still carry the message — deletion-based attribution reads ≈ 0 everywhere.</text>
+</svg>
+<figcaption>The code idea: because the message is repeated, no small fragment is necessary, and every large fragment is sufficient.</figcaption>
+</figure>
+
+<div class="part"><span class="part-tag">(b) Toy model</span>
+<p>A four-fold copy of method 7's code: h = s·(1, 1, 1, 1), s ∈ {0, 1}, readout y = mean(h), threshold at 0.4.</p>
+<div class="tablewrap"><table>
+<tr><th>Amplitude sweep (y = alpha·s)</th><th class="num">alpha 1.0</th><th class="num">0.75</th><th class="num">0.5</th><th class="num">0.45</th><th class="num">0.25</th></tr>
+<tr><td>Classification</td><td class="num">correct</td><td class="num">correct</td><td class="num">correct</td><td class="num">correct</td><td class="num"><strong>fails</strong></td></tr>
+</table></div>
+<div class="tablewrap"><table>
+<tr><th>Dimension sweep (delete k of 4 dims; y = s·(4−k)/4)</th><th class="num">k = 0</th><th class="num">1</th><th class="num">2</th><th class="num">3</th><th class="num">4</th></tr>
+<tr><td class="num">y when s = 1</td><td class="num">1.0</td><td class="num">0.75</td><td class="num">0.5</td><td class="num">0.25</td><td class="num">0</td></tr>
+<tr><td>Classification</td><td class="num">correct</td><td class="num">correct</td><td class="num">correct</td><td class="num"><strong>fails</strong></td><td class="num"><strong>fails</strong></td></tr>
+</table></div>
+<p>Flat, flat, flat, cliff — half the amplitude free, half the dimensions free, breakdown only near total removal. Both sweeps are computable in your head, and both would be reported as "no single dimension matters" by any deletion-based attribution. <strong>Where the assumption breaks:</strong> the flatness depends on the downstream consumer being tolerant (here a threshold; in the real model, layers that renormalize). If the readout were linearly loss-sensitive to y, the amplitude sweep would show <em>graded</em> damage, and flatness would falsely suggest the component does nothing. The sweep diagnoses the code only relative to the actual downstream consumers — which is why it is run through the real model, not a probe.</p>
+</div>
+
+<div class="asm"><h4>(c) Assumptions</h4>
+<ul>
+<li>The sweeps scale or delete the component's <em>deviation from its per-position mean</em> (method 1's zero point), through the full downstream model.</li>
+<li>Random-subspace deletion must be averaged over draws; a single unlucky subspace can align with structure.</li>
+<li>Flat-then-cliff supports "redundant code," not "no computation" — the distinction is the full-removal endpoint (here 5.574 nats, enormous).</li>
+<li>Conclusion transfers to attribution methodology: the floor of any deletion-based attribution is set by the code's redundancy margin, not by the analyst's skill.</li>
+</ul>
+</div>
+
+<div class="part"><span class="part-tag">(d) Real implementation</span>
+<p><code>qk_hub_threshold.py</code>, on the layer-1 hub. Amplitude: <strong>keeping only half the amplitude costs +0.069 ± 0.003 nats — 1.2% of the 5.574-nat full effect</strong>; three-quarter amplitude costs 0.13%; even quarter amplitude retains 63% of function. Dimensions: <strong>deleting the projection onto a random half of all 1152 dimensions costs +0.095 ± 0.003 (1.7%)</strong>; deleting 75% costs 16%; the model only breaks past roughly 90% deletion (75% of the effect appears there). Sufficiency without necessity, quantified — and it is the single mechanism behind the program's two hardest puzzles: it is why every deletion tool (methods 6 and 7, plus coalition search) read approximately zero on the hub, and, remarkably, why mid-stack activation <em>injections</em> also fail (method 9's washout): the code erases tampering in either direction, because the readout re-derives its message from the many untouched copies.</p>
+</div>
+
+<div class="part"><span class="part-tag">(e) Held-back example</span>
+<div class="quote">
+"But Bobby suspects their cottage might not be as quaint as it seems. And spooky details of the history of their little <mark class="fire">cottage</mark>" → "<mark class="tgt"> gradually</mark>"
+<span class="src">Held-back FineWeb, sequence 458 (held index 10), position 50 — a top firing context of h.L11.h3, from <code>qk_prior_examples.json</code>.</span>
+</div>
+<p>Attention head 3 of layer 11 fires on just-completed content words like " cottage" and pushes subword-continuation fragments — a "this word may not be finished" hedge. Its class push is overwhelming (z = 14.4), yet its individual ablation is unresolvable (+0.044 ± 0.030, under 1.5 standard errors): the same lean is encoded redundantly many times over across the model, so removing this one copy changes nothing the other copies do not restore. What we learned: the sufficiency-without-necessity signature is not exotic — it is the <em>normal condition</em> of context-conditioned base rates in this model, from single heads all the way up to the hub.</p>
+</div>
+
+<!-- ============================================================ 9 ============================================================ -->
+<h2 id="m9"> <span style="font-size:12px;opacity:.65;font-weight:400">(importance rank 9)</span><span class="mnum">9.</span> Editing: amplitude dials vs input transplants</h2>
+
+<div class="part"><span class="part-tag">(a) Intuition</span>
+<p>If you understand a circuit, you should be able to steer it. Two fundamentally different handles exist. An <em>amplitude dial</em> scales a component's own output (its deviation from mean) by a factor alpha — cheap, graded, reversible, but it can only make the component's existing writes louder or quieter: it scales the writes <em>where the component already decided to write them</em>, and cannot re-aim that decision, because the conditioning is encoded in the activation pattern itself. An <em>input transplant</em> instead replaces what the component reads — donate the "context" input from a position where the desired behavior is natural — and re-aims the decision itself. The program's closing law: amplitude edits cannot re-aim; input edits re-aim surgically, but only at the readout layer, because everywhere else the redundant code (method 8) re-derives the conditioning from unedited copies and washes the injection out.</p>
+</div>
+
+<figure>
+<svg viewBox="0 0 640 200" role="img" aria-label="Gated unit with two edit points">
+  <text x="30" y="50" font-size="13">context c</text>
+  <path class="wire" stroke-width="1.5" d="M100 46 L142 46"/>
+  <rect x="144" y="30" width="72" height="32" rx="6" class="boxf" stroke-width="1.5"/>
+  <text x="180" y="51" font-size="12.5" text-anchor="middle">gate g(c)</text>
+  <path class="wire" stroke-width="1.5" d="M216 46 L268 88"/>
+  <text x="30" y="126" font-size="13">signal x</text>
+  <path class="wire" stroke-width="1.5" d="M96 122 L268 102"/>
+  <circle cx="280" cy="96" r="13" class="boxf" stroke-width="1.5"/>
+  <text x="280" y="101" font-size="13" text-anchor="middle">×</text>
+  <path class="wire" stroke-width="1.5" d="M293 96 L360 96"/>
+  <rect x="362" y="80" width="118" height="32" rx="6" class="boxf" stroke-width="1.5"/>
+  <text x="421" y="101" font-size="12.5" text-anchor="middle">y = g(c) · x</text>
+  <path class="wire" stroke-width="1.5" d="M480 96 L520 96"/>
+  <text x="526" y="101" font-size="13">output</text>
+  <path d="M508 148 L500 114" stroke="#eb6834" stroke-width="2" fill="none" marker-end="none"/>
+  <text x="392" y="168" font-size="12" fill="#eb6834">amplitude dial: y → alpha·y</text>
+  <text x="392" y="184" font-size="12" class="dim">scales writes; a closed gate stays closed</text>
+  <path d="M78 168 L96 60" stroke="#2a78d6" stroke-width="2" fill="none"/>
+  <text x="30" y="186" font-size="12" fill="#2a78d6">transplant: c → c* (donor context): re-aims the gate itself</text>
+</svg>
+<figcaption>The gated unit y = g(c)·x: the dial acts after the gate, the transplant acts before it.</figcaption>
+</figure>
+
+<div class="part"><span class="part-tag">(b) Toy model</span>
+<p>y = g(c)·x with x = 1, and a hard gate: g(c) = 1 if the context c is a sentence boundary, else 0. The unit adds y to the capital-letter logit.</p>
+<div class="tablewrap"><table>
+<tr><th>Edit</th><th>At a boundary (g = 1)</th><th>Mid-sentence (g = 0)</th></tr>
+<tr><td>None</td><td class="num">y = 1</td><td class="num">y = 0</td></tr>
+<tr><td>Dial alpha = 3</td><td class="num">y = 3 (louder)</td><td class="num">y = <strong>0</strong> (3 × 0 — the gate wins)</td></tr>
+<tr><td>Dial alpha = 0</td><td class="num">y = 0 (muted)</td><td class="num">y = 0</td></tr>
+<tr><td>Transplant c → boundary donor c*</td><td class="num">y = 1</td><td class="num">y = <strong>1</strong> (gate opened)</td></tr>
+</table></div>
+<p>No value of alpha makes a mid-sentence capital happen: the dial multiplies a zero. Replacing c does it exactly and only at the edited position. <strong>Where the transplant's assumption breaks:</strong> give the downstream consumer a second, unedited copy of the context, g′ = majority(g(c), g(c<sub>2</sub>)), and transplanting c alone changes nothing — the consumer re-derives the gate from the intact copy. That is the washout: input edits work only where no redundant copy remains to outvote them.</p>
+</div>
+
+<div class="asm"><h4>(c) Assumptions</h4>
+<ul>
+<li>Dials scale the deviation from the per-position mean (sign-safe, with alpha = 1 the identity and alpha = 0 exactly the mean-ablation used in discovery).</li>
+<li>Every dial needs a placebo: a random direction (or negligible-energy term) of matched norm swept over the same alphas.</li>
+<li>Specificity is a measured ratio (targeted change per off-target cross-entropy cost), not an impression; report the whole dose-response curve, including where it saturates or reverses.</li>
+<li>Transplant claims require the collateral gate (logit changes at all non-edited positions — here literally 0.0, bit-identical) and donor controls (random-position donors, norm-matched placebo).</li>
+</ul>
+</div>
+
+<div class="part"><span class="part-tag">(d) Real implementation</span>
+<p>Three generations of handle on the capitalization machinery. <strong>The direction dial</strong> (<code>qk_edit_capselector.py</code>): scaling the verified capital-selector mlp.L17.d1 sweeps capital probability at capital-due positions monotonically 0.37 → 0.69 across alpha ∈ [−2, 4] (Spearman 0.94, placebo 25× smaller) — but forcing capitals where they are <em>not</em> due costs runaway global damage: the conditioning lives upstream. <strong>Term dials</strong> (<code>qk_edit_terms.py</code>, on the layer-17 differential pair — the readout's two dominant provenance terms, whose class-writes are anti-aligned at cosine −0.965, a push-pull contrast stage): amplitude edits still cannot re-aim, and now we know <em>why</em> (scaling a term scales its writes without re-aiming them), but a genuinely new knob appeared — scaling the pair <em>coherently</em> doubles the contrast at only +0.053 nats global cost and <strong>improves bracket-open decisions by −0.255 ± 0.040 nats</strong> (six standard errors better than the natural model; the incoherent single-arm version instead blows those positions up by +1.296). <strong>Input transplants</strong> (<code>qk_stream_transplant.py</code>): donating boundary context into the readout's input at 500 mid-sentence positions raises capital probability by +0.0280 ± 0.0032 (nine standard errors) via the attention-history group — and by <strong>+0.2474 ± 0.0120 via the accumulated feed-forward history</strong> — with collateral over all 18,134 unedited positions <em>exactly zero, bit-identical</em>. The scope test (<code>qk_transplant_depth.py</code>): the same transplant retains 0.7% of its force at layer 8, 3.0% at layer 12, 5.5% at layer 15, 100% at layer 17 — the boundary is washout, not collateral, and the washout mechanism is method 8's redundant code erasing the injection.</p>
+</div>
+
+<div class="part"><span class="part-tag">(e) Held-back example</span>
+<div class="quote">
+"…scored a career-high 15.25 on floor exercise against Michigan (Feb. 16) for a third-place finish ... earned a fourth-place finish on floor exercise with a 14.90 against <mark class="fire">Illinois</mark>" → "<mark class="tgt"> (</mark>"
+<span class="src">Held-back FineWeb, sequence 475 (held index 27), position 88 — a bracket-open decision point.</span>
+</div>
+<p>Positions like this — where the model must decide to open a parenthesis for the next date — are exactly the structural decision points where the coherent contrast knob makes the model <em>better</em> (−0.255 ± 0.040 nats at bracket-opens). What we learned: understanding-driven editing has three tiers — dials tune loudness, the contrast knob (which exists only at the term level, preserving the layer's internal cancellation) sharpens decisions, and only input transplants at the readout genuinely re-aim behavior, with surgical zero collateral.</p>
+</div>
+
+<!-- ============================================================ 10 ============================================================ -->
+<h2 id="m10"> <span style="font-size:12px;opacity:.65;font-weight:400">(importance rank 10)</span><span class="mnum">10.</span> The certified restricted-core proxy</h2>
+
+<div class="part"><span class="part-tag">(a) Intuition</span>
+<p>Causal ablation is the gold standard but costs a full forward pass per candidate per token; a discovery loop screening hundreds of candidates needs a cheap predictor of "what would ablation say?" The obvious cheap predictor — propagate the candidate's perturbation linearly to the logits — is the proxy that lied all over this program (methods 5 and 6). The fix uses the fold: propagate the perturbation through the <em>actual downstream layers</em>, but with each downstream bilinear MLP replaced by its folded compact core (the method-2 restriction: top input and output principal directions from training data; attention kept exact). The restricted model is a poor absolute predictor — but paired causal <em>differences</em> ranked through it track the truth, because polynomial cores preserve the causal ordering that linearization destroys. "Certified" means the trust is earned by controls: a random-basis version must collapse (proving the specific cores carry the signal) and fidelity must improve with core rank (proving the errors are capacity, not concept).</p>
+</div>
+
+<div class="part"><span class="part-tag">(b) Toy model</span>
+<p>A two-layer polynomial model. The residual is three-dimensional, r = (r<sub>1</sub>, r<sub>2</sub>, r<sub>3</sub>); a downstream quadratic layer computes f(r) = r<sub>1</sub>·r<sub>2</sub> and the output is o = r<sub>1</sub> + f(r). A candidate path writes p = (1, 0, 0); the baseline residual (everything else) is b = (1, −3, 0.2).</p>
+<ul>
+<li><strong>Truth:</strong> with the path, r = (2, −3, 0.2): o = 2 + (2·−3) = −4. Ablated, r = (1, −3, 0.2): o = 1 + (−3) = −2. The path's true effect on the output is <strong>−2</strong> (it hurts).</li>
+<li><strong>Linear proxy</strong> (direct write only, downstream response deleted): the path adds +1 to r<sub>1</sub>, so predicted effect <strong>+1</strong>. Wrong sign — it never sees that raising r<sub>1</sub> doubles a negative product downstream.</li>
+<li><strong>Restricted core:</strong> keep the downstream layer <em>quadratic</em> but restrict it to the two principal directions the training data actually varies in (e<sub>1</sub>, e<sub>2</sub>): f̃(r) = f(projection onto e<sub>1</sub>, e<sub>2</sub>) = r<sub>1</sub>·r<sub>2</sub>, unchanged. Predicted effect: −4 − (−2) = <strong>−2</strong>. Exact, at two-thirds the width.</li>
+<li><strong>Certification control:</strong> restrict instead to a wrong basis containing e<sub>3</sub> but not e<sub>2</sub>: f̃ loses the r<sub>1</sub>r<sub>2</sub> product, predicts +1 — collapses back to linear-proxy quality. The <em>right</em> compact basis, not compactness itself, carries the causal signal.</li>
+</ul>
+<p><strong>Where the assumption breaks:</strong> the toy also shows the failure mode — if the function had been f(r) = r<sub>1</sub>·r<sub>3</sub> and the training data never exercised r<sub>3</sub>, the data-derived basis would drop the load-bearing direction and the proxy would fail while looking certified on-distribution. The certification catches basis-quality failures you can test for (random-basis collapse, rank sensitivity), not distribution shift.</p>
+</div>
+
+<div class="asm"><h4>(c) Assumptions</h4>
+<ul>
+<li>Downstream cores must be foldable (method 3) to be restrictable-with-nonlinearity-intact; attention and the readout are kept exact.</li>
+<li>The restriction bases come from training-data statistics; ground truth stays on held-back data.</li>
+<li>Certified means: random-basis control collapses, fidelity rises with rank, and a positive control reproduces known ablation numbers exactly.</li>
+<li>The proxy is a candidate <em>ranker</em>; full-model causal ablation remains the final gate for any claim.</li>
+</ul>
+</div>
+
+<div class="part"><span class="part-tag">(d) Real implementation</span>
+<p><code>qk_certified_proxy.py</code>, on 24 census candidates against full-model ablation ground truth. The linear proxy, at its strongest fair version: Spearman rank correlation <strong>0.43</strong>, sign agreement 0.67–0.73, and characteristically wrong on every early-layer path — the previous-token head h.L0.3 has true effect +0.061 nats; the linear proxy predicts −0.0001 (nothing), because the head's effect acts entirely through downstream computation that linearization deletes. The restricted-core proxy: Spearman <strong>0.81</strong> (sign agreement 0.91, and 1.00 on sign-clear cases), recovering every early-layer case (h.L0.3 predicted +0.090); at double core rank it reaches <strong>Spearman 0.93, Pearson 0.99, perfect sign</strong>. Certification: random orthonormal bases of the same rank collapse fidelity to 0.59. The recurring "the proxy lies" lesson now has a structural fix, and every detector in the toolbox inherits it as its ranking stage.</p>
+</div>
+
+<div class="part"><span class="part-tag">(e) Held-back example</span>
+<div class="quote">
+"…deliver apps. Secondly WP7 has a far more powerful version of Bing - which includes scout, voice search, video search, barcode recognition etc etc<mark class="fire">.</mark>" → "<mark class="tgt"> Also</mark>"
+<span class="src">Held-back FineWeb, sequence 449 (held index 1), position 98.</span>
+</div>
+<p>A capitalized discourse opener after a sentence boundary — the very distinction the linear proxy once got wrong at the letter-case level: for the sentence-opener head h.L6.0, the proxy surfaced the lowercase shadow ("therefore", "also") while causal verification showed the true output is the <em>capitalized</em> openers (" Lastly", " Finally", " Similarly", " Additionally" — the class this position's " Also" belongs to), because the case correction happens in the downstream layers the proxy skips. What we learned: the difference between "also" and " Also" is a downstream computation — a proxy that deletes downstream computation cannot see it, and a compact proxy that keeps the downstream nonlinearity can.</p>
+</div>
+
+<h2 id="coda">Coda: how the ten methods fit together</h2>
+<p>Read in order, the arc is one story. Honest necessity testing (1) found the model's individually nameable circuits; sufficiency testing (2) caught what necessity is structurally blind to. The fold (3) turned the model into an exact object whose own coordinates (4) finally decomposed the component that learned features could not. Fingerprints and type-specific detectors (5) industrialized discovery; joint ablation (6) explained the first wave of "null" heads as redundancy; sparse dictionaries (7) proved that naming, reconstructing, and explaining are three different achievements; the code diagnostics (8) measured the redundancy that unifies all the negatives. Editing (9) converted understanding into control and found its two-sided law, and the certified proxy (10) closed the loop by making the discovery machinery trust-worthy at scale. Every number above is a paired, held-back measurement, and every headline positive shares the page with the control or honest negative that certifies it.</p>
+
+<p class="legend" style="margin-top:2.5rem">Sources: RESULTS_l0_mdl.md (§12q, §32–§33, §56–§95), TECHNIQUES_unsup_discovery.md, METHODS.md, PLAN_per_layer.md, qk_prior_examples.json, qk_hub_streampairs.json, qk_edit_terms.json, qk_arc_caps.json; text snippets decoded directly from the held-back FineWeb token slice (sequences 448–599). Draft for content review; visual polish deferred.</p>
+
+</div>
