@@ -7242,3 +7242,14 @@ existing steering methods, not a new method class, so in-scope and launched rath
   reproduces); corrected compression-fidelity frontier + the concrete per-layer allocation at 16×.
 - These are the last two named fold-audit threads (after: provenance-naming gates, cross-model term census
   already partly done via §90). Collect next tick.
+
+## tick 2026-07-31 (§92 lands — rank allocation is a clean negative with mechanism; §87 corrected)
+- §92 (subagent a051de49628792c72): non-uniform rank allocation does NOT rescue whole-model compression.
+  Uniform reproduced exactly; spectral 2× worse; causal-floor catastrophic (+8.7 — starves the mid-stack);
+  greedy measured-need TIES uniform (sole win 0.031 nats at 4×). Mechanism (3 measured reasons): gram-trace
+  concentration ANTI-correlates with functional rank (hub L1 has 90.8% of trace in top-4 yet highest need);
+  per-layer costs flat (no arbitrage); restriction costs SUPER-additive ~2× (sum 0.76 vs joint 1.456) —
+  CORRECTED §87's "roughly additive". Variance rank ≠ restriction-cost rank (L16/17). Verdict: structural,
+  not allocational; faithful compression needs cross-layer shared structure (tn_gauge territory). Committed
+  §92 + §87 correction pointer.
+- Still in flight: term-targeted editing (af2f7139a7117a50c) — the §75 rematch on the differential pair.
