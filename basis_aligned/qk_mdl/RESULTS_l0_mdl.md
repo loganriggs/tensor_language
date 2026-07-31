@@ -4558,3 +4558,31 @@ as on the bilinear model: a sparse dictionary NAMES the hub's variance structure
 0/32) and RECONSTRUCTS it well (0.85), yet does NOT EXPLAIN it (0/32 load-bearing; 90-98% of causation
 collective). "Naming, reconstructing, and explaining are three different things" — and their decoupling — is a
 general property of these models' early hubs, not a bilinear artifact.
+
+## §82 COALITION red-team — unattributability HARDENS at the last untested granularity (2026-07-31)
+(qk_coalition_attr.py / _2.py; red-teams §81's "causally unattributable in PARTS" at the one untested
+granularity — COALITIONS of dictionary features, the §61 joint-ablation move applied at feature scale.) Uses
+the saved high-fidelity bilin18 dictionary (qk_sae_moredata.npz), the verbatim §80 forward + per-feature
+mean-ablation currency, held-back FW[448:600]; full-MLP1 reference reproduced exactly (5.574 ± 0.032 nats).
+44 candidate coalitions (sizes 8/32/128/512) from FIVE construction families — first-order gradient
+attribution (the signed-effect screen), deviation-energy rank, co-activation families, decoder-direction
+families, top-28-SVD-subspace-aligned features — plus random same-size controls and the §80 nameability set,
+each JOINTLY mean-ablated, plus an attribution-guided greedy cumulative curve.
+- **VERDICT: even coalitions fail — no ≤128-feature coalition reaches 1% of the hub effect** (bars were
+  25-50%). Best at 128: the deviation-energy set at **0.64%** (vs 0.05% random — 13× above control but
+  minuscule); best at 512: **1.40%**; ALL 1011 live features: 2.01%. The effect grows nearly LINEARLY and
+  diffusely with feature count (0.64% → 1.40% → 2.01%) with NO concentration into any modest subset, across
+  every construction family. First-order gradient attribution did not beat plain energy ranking — the effect
+  is strongly nonlinear/diffuse.
+- **Honest nuances:** (1) structured coalitions DO reliably beat random same-size controls (3–13×), so the
+  features are not causally inert — they carry real but minuscule signal; the failure is that no sparse
+  grouping CONCENTRATES the effect. (2) The SVD-subspace-aligned coalition (0.52% at 128) confirms the SAE
+  features do not factor the §73 known-sufficient 28-dimensional subspace under the feature-deviation
+  currency — the §73 sufficiency lives in the mean/whole-component structure that per-feature deviation
+  ablation does not touch (consistent with the residual control moving only 0.26%).
+**KEY (the capstone claim at its final strength):** the MLP1 hub's causation appears only at near-full-
+population scale. "Unattributable in parts" now covers ALL tested granularities — single directions (§74),
+single dictionary features (§78-81), and searched COALITIONS up to 512 features across five construction
+families (§82). The handed-off open problem is at its sharpest form: the hub's computation is HOLISTIC, not
+modular at any granularity current tools can express; attributing it requires an idea beyond grouping —
+something that captures the mean/whole-component structure where the causal mass actually lives.

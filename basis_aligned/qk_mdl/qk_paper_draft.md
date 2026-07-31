@@ -58,7 +58,11 @@ SwiGLU transformer (two to three-and-a-half times super-additive, an early hub w
 thirty-two directions nameable) — and so does the dictionary decoupling itself: the identical sparse
 autoencoder test on the softmax hub reconstructs at 0.85, names twenty-two of thirty-two features, and
 still finds zero load-bearing (a dictionary explains about ten percent of that hub's causation versus two
-percent on the bilinear one — a difference in degree, not kind). Second, the discovered circuits
+percent on the bilinear one — a difference in degree, not kind). A final coalition search hardens the
+verdict: joint ablation of searched feature groups up to five hundred twelve members — by energy, gradient
+attribution, co-activation, decoder clustering, and alignment with the causally-sufficient subspace — never
+concentrates even one percent of the hub's effect into a modest subset; the computation is holistic, not
+modular at any granularity current tools can express. Second, the discovered circuits
 are **useful**: they generalize (the distributed-class-mover phenomenon reproduces on a conventional
 softmax SwiGLU transformer), and a circuit found unsupervised and verified as a genuine algorithm — a
 final-block capitalization selector — is a **calibrated, placebo-controlled control knob**, though its
