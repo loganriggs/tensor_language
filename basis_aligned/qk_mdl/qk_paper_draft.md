@@ -1,7 +1,7 @@
 # A four-ledger per-layer decomposition of a no-softmax bilinear transformer
 
 *Consolidation draft — 2026-07-30. Numbers are the post-adversarial-review figures only.
-Sources: PLAN_per_layer.md, RESULTS_l0_mdl.md §32–§93b, LOG.md. Left for parent review; not committed.*
+Sources: PLAN_per_layer.md, RESULTS_l0_mdl.md §32–§94, LOG.md. Left for parent review; not committed.*
 
 ## Abstract
 
@@ -442,7 +442,18 @@ dial remains sharper at every matched effect size — and the fold explains why:
 pair's post-cancellation output axis, concentrating the functional degree of freedom each raw term
 dilutes with its half of the cancelling mass. No amplitude edit, direction- or term-level, achieves a
 surgical unconditioned override; the conditioning is encoded in the terms' own activation patterns, so
-re-aiming it would require editing their upstream inputs.
+re-aiming it requires editing their upstream inputs — and a final experiment confirms that this works. At
+the readout (where a per-position input edit affects only that position's prediction, so collateral is
+localized by construction), transplanting boundary context into the feed-forward input at mid-sentence
+positions produces the capital push the amplitude dials could not (+0.028 ± 0.003, nine standard errors,
+graded and monotone under partial transplants), the reverse transplant suppresses it (−0.070, fifteen
+standard errors), and the zero-collateral gate passes *exactly* — bit-identical logits at every
+non-edited position in every run. The editing story therefore closes as a two-sided law: amplitude edits
+scale writes and cannot re-aim conditioning; input edits re-aim it surgically. One refinement the
+transplant alone could see: the forceable boundary context is carried predominantly by the accumulated
+*feed-forward* history group (nine times the attention-history gain, specificity ten-fold over random
+donors) — the attention accumulator's vectors are nearly parallel across positions, so their
+distinguishing component is small even though the attention-involving term dominates the pair's energy.
 
 **Honest limits of the fold program.** The single-layer compression bargain does not globalize:
 restricting all eighteen blocks at once costs +1.46 nats at one-hundred-twenty-eight-fold compression
