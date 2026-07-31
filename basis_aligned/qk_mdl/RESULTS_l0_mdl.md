@@ -5185,3 +5185,32 @@ contextual polynomial features (blocks 2-6, each ~half-consumed by the next squa
 a distributed mid-stack (7-11) as outputs turn from food-for-the-next-square into output-writing → a READOUT
 region (12-17) writing directly to the logits, ending in the differential-pair contrast stage. One connected
 mechanism narrative for the entire feed-forward stack, every boundary measured.
+
+## §100 DEPTH-FIRST ARC #5 — h.L7.0 has no crisp type: a diffuse contributor to the collective code (2026-07-31)
+(qk_arc_h70.py; the largest fully-uncharacterized head, full toolbox battery. Gate: census numbers reproduced
+to the decimal — global delta cross-entropy 0.017004, trigger 0.02898. Held-back FW[448:600], paired standard
+errors.)
+- **Every crisp type test FAILED, with numbers:** copy/value-router (copy purity 0.13, source at median
+  attribution rank 441); positional fixed-offset (offset variance 0.09, no clean offset, sink 0%);
+  content-class router (content-residual 0.007 — nothing beyond position); class-pusher (largest movement
+  capital-suppression −617 but word co-dominant −595, concentration 0.46, and the same sign at inactive
+  controls — a broad bias, not a firing-specific push).
+- **What it actually does: a mild, context-appropriate SEMANTIC bias, ~88% MEDIATED.** Direct-path fraction
+  only 0.116 — its influence flows through downstream computation, exactly as the §99 flow map predicts for a
+  distributed-region head. Per-position effect individually insignificant (trigger z 1.7); real only in
+  aggregate (global z 11.4 across ~19,000 positions). Damage does not land where it fires (fires at newlines/
+  periods; damage near zero there, spread over content positions).
+- **Concrete examples (per the rule) — topical clusters that change with context, with VARYING sign:** museum
+  context "…a viewer" → boosts " artist", " art", " museum", " exhibition" (ablation there HELPS, −0.86);
+  film context "…played a character in a wheelchair," → boosts " film", " cast", " movie" (ablation helps,
+  −0.73); blog-format list "…Gallery, Status," → boosts " publishing", " blog", " posts" (ablation HURTS,
+  +0.64). In every case the direct component is a small fraction — the mediated character confirmed at the
+  example level.
+**KEY (the honest outcome, and why it matters):** h.L7.0 is real in aggregate but NOT reducible to a single
+mechanism — a context-dependent semantic sharpener delivered through the distributed region's collective code.
+This is the expected shape for mid-stack heads given §83/§99, now verified on the largest uncharacterized one:
+the dashboard's remaining head-level "unknowns" are most likely THIS, not undiscovered crisp circuits. The
+depth-first search has now characterized every priority target: the early stack has crisp algorithms (table,
+hub, squares), the mid-stack is collectively-coded semantic refinement, and the late stack writes output — the
+per-component unknowns bottom out into the already-measured collective structure rather than hiding new
+machines.

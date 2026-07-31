@@ -1,0 +1,372 @@
+{
+  "meta": {
+    "model": "bilin18",
+    "target": "h.L7.0",
+    "held_slice": "FW[448:600,:128]",
+    "BATCH": 6,
+    "KCAUSAL": 200,
+    "census_global_dCE_expected": 0.017004,
+    "census_trigger_dCE_expected": 0.02898
+  },
+  "GATE_reproduce_census": {
+    "global_dCE": 0.017004,
+    "global_dCE_SE": 0.001493,
+    "global_dCE_z": 11.39,
+    "trigger_dCE": 0.02898,
+    "trigger_dCE_SE": 0.0168,
+    "trigger_dCE_z": 1.72,
+    "trigger_frac_pos": 0.57,
+    "n_global": 19304,
+    "n_trigger": 200
+  },
+  "fingerprint": {
+    "cur_token_classes_at_firing": {
+      "word": 0.32,
+      "punct": 0.245,
+      "newline": 0.205,
+      "determiner": 0.055,
+      "capital": 0.05,
+      "subword": 0.05,
+      "pronoun": 0.035,
+      "digit": 0.02,
+      "coordinator": 0.01,
+      "other": 0.005,
+      "bracket_close": 0.005
+    },
+    "attended_source_classes": {
+      "word": 0.48,
+      "capital": 0.16,
+      "punct": 0.145,
+      "subword": 0.13,
+      "newline": 0.05,
+      "determiner": 0.015,
+      "coordinator": 0.01,
+      "digit": 0.01
+    },
+    "top_cur_tokens": [
+      [
+        "'\\n'",
+        41
+      ],
+      [
+        "'.'",
+        36
+      ],
+      [
+        "','",
+        7
+      ],
+      [
+        "' at'",
+        7
+      ],
+      [
+        "' by'",
+        6
+      ],
+      [
+        "' for'",
+        4
+      ],
+      [
+        "' the'",
+        4
+      ],
+      [
+        "'-'",
+        4
+      ]
+    ],
+    "top_src_tokens": [
+      [
+        "'.'",
+        21
+      ],
+      [
+        "'\\n'",
+        10
+      ],
+      [
+        "' store'",
+        6
+      ],
+      [
+        "'rossover'",
+        6
+      ],
+      [
+        "' songs'",
+        5
+      ],
+      [
+        "'TS'",
+        4
+      ],
+      [
+        "'game'",
+        4
+      ],
+      [
+        "' sight'",
+        3
+      ]
+    ],
+    "source_offset_profile_top": {
+      "0": 17,
+      "3": 14,
+      "2": 13,
+      "1": 11,
+      "5": 9,
+      "15": 9,
+      "4": 8,
+      "7": 8,
+      "8": 5,
+      "11": 5,
+      "13": 5,
+      "14": 5
+    },
+    "offset_median": 11,
+    "offset_conc": 0.308,
+    "self_frac": 0.085,
+    "prev_frac": 0.055,
+    "sink_frac": 0.0,
+    "effect_dir_boosts": [
+      "' all'",
+      "' ('",
+      "' yet'",
+      "' and'",
+      "'-'",
+      "' so'",
+      "' not'",
+      "' set'"
+    ],
+    "effect_dir_suppresses": [
+      "'legram'",
+      "'\u308b'",
+      "'________________________________________________________________'",
+      "' \u2191'",
+      "'uddenly'",
+      "' Berserker'",
+      "' TABLE'",
+      "'628'"
+    ]
+  },
+  "type_test_copy": {
+    "copy_purity": 0.13,
+    "verbatim_purity": 0.095,
+    "successor_purity": 0.04,
+    "src_logit_z": 2.694,
+    "succ_logit_z": 2.551,
+    "src_rank_median": 441,
+    "offset_median": 11,
+    "offset_conc": 0.308,
+    "self_frac": 0.085,
+    "prev_frac": 0.055,
+    "sink_frac": 0.0
+  },
+  "type_test_classpush": {
+    "pushed_class": "capital",
+    "class_concentration": 0.459,
+    "class_summed_dlogit_at_firing": {
+      "capital": -616.81,
+      "word": -594.874,
+      "digit": -65.477,
+      "subword": -52.043,
+      "special": -5.594,
+      "other": -4.599,
+      "punct": -2.219,
+      "determiner": 0.691
+    },
+    "class_summed_dlogit_at_control": {
+      "capital": -214.172,
+      "word": -376.897,
+      "digit": -17.1,
+      "subword": -201.065,
+      "special": -7.088,
+      "other": -14.683,
+      "punct": -20.665,
+      "determiner": -1.218
+    },
+    "note": "base-ablated: positive => head normally BOOSTS class; negative => head SUPPRESSES class"
+  },
+  "causal_direct_vs_mediated": {
+    "full_dCE_trigger": 0.02898,
+    "full_dCE_trigger_SE": 0.0168,
+    "direct_dCE_trigger": 0.00335,
+    "direct_dCE_trigger_SE": 0.00219,
+    "direct_fraction": 0.116,
+    "note": "direct = layer-7 post-attention residual change propagated straight to logits; mediated = full - direct (routed through blocks 8-17 + block-7 MLP nonlinearity)."
+  },
+  "dce_by_current_class_global": {
+    "quote": {
+      "dCE": 0.04671,
+      "n": 55
+    },
+    "other": {
+      "dCE": 0.04612,
+      "n": 202
+    },
+    "bracket_close": {
+      "dCE": 0.03444,
+      "n": 70
+    },
+    "determiner": {
+      "dCE": 0.03298,
+      "n": 1629
+    },
+    "capital": {
+      "dCE": 0.02517,
+      "n": 2307
+    },
+    "subword": {
+      "dCE": 0.02137,
+      "n": 1440
+    },
+    "digit": {
+      "dCE": 0.01944,
+      "n": 531
+    },
+    "word": {
+      "dCE": 0.01469,
+      "n": 8969
+    },
+    "punct": {
+      "dCE": 0.0128,
+      "n": 2115
+    },
+    "special": {
+      "dCE": 0.00851,
+      "n": 340
+    },
+    "coordinator": {
+      "dCE": 0.00607,
+      "n": 550
+    },
+    "newline": {
+      "dCE": 0.00029,
+      "n": 372
+    },
+    "pronoun": {
+      "dCE": -0.00181,
+      "n": 614
+    },
+    "bracket_open": {
+      "dCE": -0.02693,
+      "n": 110
+    }
+  },
+  "concrete_examples": [
+    {
+      "seq": 151,
+      "pos": 121,
+      "src_pos": 42,
+      "offset": 79,
+      "context_...cur": " HD MA/ DTS HD HR : Yes/Yes\n-",
+      "cur_tok": "'-'",
+      "attended_src_tok": "' USB'",
+      "true_next_tok": "' Dol'",
+      "dCE_full": 1.1205,
+      "dCE_direct": -0.0316,
+      "head_boosts_here": [
+        "' computer'",
+        "' all'",
+        "' ('",
+        "' screen'",
+        "' video'",
+        "' yet'"
+      ],
+      "head_suppresses_here": [
+        "'legram'",
+        "' TABLE'",
+        "'oided'",
+        "' Incre'",
+        "' Mercenary'",
+        "'ledged'"
+      ]
+    },
+    {
+      "seq": 60,
+      "pos": 118,
+      "src_pos": 109,
+      "offset": 9,
+      "context_...cur": ", bringing the viewer to observe mechanical constructions in natural environments.",
+      "cur_tok": "'.'",
+      "attended_src_tok": "' viewer'",
+      "true_next_tok": "' Song'",
+      "dCE_full": -0.8558,
+      "dCE_direct": -0.0324,
+      "head_boosts_here": [
+        "' artist'",
+        "' art'",
+        "' museum'",
+        "' artists'",
+        "' show'",
+        "' exhibition'"
+      ],
+      "head_suppresses_here": [
+        "' Brawl'",
+        "'legram'",
+        "' CARD'",
+        "' Checking'",
+        "'Rank'",
+        "'\u308b'"
+      ]
+    },
+    {
+      "seq": 53,
+      "pos": 37,
+      "src_pos": 31,
+      "offset": 6,
+      "context_...cur": "wood, who had never before played a character in a wheelchair,",
+      "cur_tok": "','",
+      "attended_src_tok": "' played'",
+      "true_next_tok": "' acknowledged'",
+      "dCE_full": -0.7334,
+      "dCE_direct": -0.0323,
+      "head_boosts_here": [
+        "' film'",
+        "' cast'",
+        "' movie'",
+        "' story'",
+        "' character'",
+        "' screen'"
+      ],
+      "head_suppresses_here": [
+        "'leep'",
+        "'ologne'",
+        "'legram'",
+        "' pesticides'",
+        "' intercepted'",
+        "' POLIT'"
+      ]
+    },
+    {
+      "seq": 49,
+      "pos": 28,
+      "src_pos": 27,
+      "offset": 1,
+      "context_...cur": " six additional Formats; Aside, Link, Gallery, Status,",
+      "cur_tok": "','",
+      "attended_src_tok": "' Status'",
+      "true_next_tok": "' Quote'",
+      "dCE_full": 0.6381,
+      "dCE_direct": -0.0679,
+      "head_boosts_here": [
+        "' publishing'",
+        "' blog'",
+        "' content'",
+        "' posts'",
+        "' online'",
+        "' readers'"
+      ],
+      "head_suppresses_here": [
+        "' \u2191'",
+        "'venants'",
+        "' Abilities'",
+        "' extinguished'",
+        "'>.'",
+        "'ledged'"
+      ]
+    }
+  ]
+}
