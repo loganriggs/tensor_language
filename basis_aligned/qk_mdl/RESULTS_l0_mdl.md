@@ -4756,3 +4756,44 @@ layers' folded compact cores yields a RELIABLE candidate-ranking proxy (Spearman
 ~perfect) where linearization failed (0.43/0.26, wrong on every early-layer path). The §56 recurring lesson
 ("the proxy lies") now has a structural fix, certified by rank-capacity and random-basis controls. Every
 detector in the toolbox can inherit this ranker.
+
+## §89 MODEL-WIDE PROVENANCE TERM CENSUS — all 18 blocks; a recency-to-history handoff (2026-07-31)
+(qk_allterm_census.py / _2.py; the §86 anatomy extended to every feed-forward block, with the 5-group
+coarsening — embedding / attention-recent / attention-earlier / mlp-recent / mlp-earlier → ≤15 exact
+group-pair terms per layer. GATES: every layer reconstructs from its terms at 4.8e-7 to 1.6e-6 relative
+error; group-sum gate ≤3.3e-7; every layer's mean-only floor reproduces the prior full mean-ablation to FOUR
+decimals (L0 1.2341/1.23409, L1 5.5744/5.57437, L17 0.4206/0.42062); L1 reproduces every §86 energy share.
+Held-back FW[448:600], paired standard errors.)
+- **(i) Compact anatomy is an EARLY-STACK property, not universal.** Terms-to-95% by layer 0→17:
+  **2, 3, 2, 4, 5, 8, 10, 12, 10, 10, 10, 10, 6, 8, 8, 6, 6, 10.** The causally heavy early layers (floors
+  0.6–5.6 nats) are 2–5 named terms, like the hub; the mid-stack (5–11) needs 8–12 of 15 — but its floors are
+  tiny (0.05–0.09 nats; the 5% bar there is ~0.003 nats absolute). Layer 17 is the most entangled.
+- **(ii) A clean RECENCY-TO-HISTORY HANDOFF.** Attention-recent involvement falls monotonically 0.79 (L0) →
+  ~0 at L15/16 where it is verified causally DEAD (+0.0003 ± 0.0002, +0.0001 ± 0.0002); mlp-recent dominates
+  L1–4 (0.43–0.53) then decays; attention-earlier and mlp-earlier rise monotonically from zero to ~0.8 each at
+  L17. The embedding runs layer 0, is causally dead by L3/L4 (dropping all its terms costs −0.0000 ± 0.0002),
+  then revives weakly (~4%, via embedding×mlp-earlier) in the upper half. §86's mlp-recent×attention-recent
+  dominance is an EARLY-stack property; deep layers compute on ACCUMULATED HISTORY, not their own attention.
+- **(iii) Interaction-dominated everywhere except the two ends.** Cross terms alone leave only 1–18% of the
+  floor at layers 1–16 while diagonal terms leave 9–83% — the hub's interaction structure is model-general.
+  Exceptions: layer 0 is diagonal-dominated, and **layer 17 is pathological** — diagonal-only is WORSE than
+  mean-ablating the whole layer (0.430 vs floor 0.421), several single terms alone are worse than the floor
+  (mlp-earlier×mlp-recent alone 0.646), the greedy curve non-monotone, and its energy shares sum well above
+  one: the readout layer's terms carry large MUTUALLY-CANCELLING components.
+- **(iv) Concrete examples (per the give-instances rule):** LAYER 2 is almost purely "SQUARE THE PREVIOUS
+  FEED-FORWARD'S OUTPUT" — mlp-recent² alone leaves 0.093 of its 0.739 floor, adding attention-recent×
+  mlp-recent leaves 0.011 (two named terms = 98% of the layer). LAYER 16 is a PURE HISTORY-READER —
+  mlp-earlier² + attention-earlier×mlp-earlier leave 0.033 of 0.148, its own attention causally dead.
+  LAYER 17's leaders are attention-earlier×mlp-recent (0.35), attention-earlier×mlp-earlier (0.31),
+  mlp-earlier×mlp-recent (0.28); top-6 leave 0.030 of 0.421 but no term is individually benign.
+- **Caveats (the agent's, kept honest):** the 5-group coarsening is exact but coarse (deep-layer "10 terms"
+  does not preclude compactness at finer stream resolution); terms-to-95% above six are grid upper bounds
+  (8/10/12/15); the 5% bar is floor-relative (much stricter in absolute nats mid-stack); energy shares are
+  not orthogonal and can sum above one under cancellation (L17). No gate failures anywhere.
+**KEY (the model-wide anatomy in one paragraph):** bilin18's feed-forward computation is a RECENCY-TO-HISTORY
+PIPELINE of interaction devices. The early stack (0–4) does the heavy lifting (floors 0.6–5.6 nats) with
+compact 2–5-term anatomies mixing the current token, its own attention, and the previous block — layer 2 is
+literally "square the previous output." The mid-stack refines with small, diffuse corrections over the same
+term set. The deep stack reads accumulated history (its own attention going causally dead by L15/16), and the
+final readout layer is a dense, mutually-cancelling mixer that resists term-wise decomposition. Every claim
+gated at 1e-6 and floor-validated against prior censuses to four decimals.

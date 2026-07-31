@@ -416,8 +416,14 @@ causal *ordering* — fidelity for attribution and fidelity for prediction are d
 restricting all eighteen blocks at once compounds roughly additively (one hundred twenty-eight-fold
 compression costs +1.46 nats whole-model against the exact chain's +0.033), so the measured
 compression frontier is real but far from the faithful-substitution regime; non-uniform rank allocation
-across layers is the obvious next lever. And the provenance anatomy is established at one hub — the
-model-wide term census is in progress.
+across layers is the obvious next lever. And the model-wide term census (all eighteen blocks, every layer's
+reconstruction gated at one part in a million, every floor validated against the prior censuses to four
+decimal places) shows the compact anatomy is an early-stack property inside a clean recency-to-history
+pipeline: the causally heavy early layers are two-to-five named terms (layer 2 is almost literally "square
+the previous block's output"), interaction terms dominate everywhere except the ends, each layer's own
+attention goes causally dead by layer fifteen as accumulated history takes over, and the final readout
+layer is a dense mutually-cancelling mixer that resists term-wise decomposition — the one place the
+provenance calculus meets real resistance.
 
 ## Honest limitations
 

@@ -1,0 +1,6256 @@
+{
+ "meta": {
+  "model": "bilin18",
+  "held": "FW[448:600,:128]",
+  "batch": 6,
+  "groups": {
+   "E": "embedding stream (coefficient-tracked x0)",
+   "Ae": "attention-EARLIER (lambda-decayed sum of all prior attention outputs)",
+   "Ar": "attention-RECENT (current layer attention output)",
+   "Me": "MLP-EARLIER (lambda-decayed sum of mlp outputs before the previous one)",
+   "Mr": "MLP-RECENT (lambda-decayed immediately preceding mlp output)"
+  },
+  "coarsening_note": "streams grouped into <=5 groups per layer (bounded, principled); decomposition remains EXACT because groups are sums of streams and T is bilinear; gated per layer at recon rel err < 1e-4 before any causal number",
+  "machinery": "VERBATIM qk_hub_streampairs.py (pair_terms polarization, gate, keep-subset harness); forward skeleton qk_hub_threshold.py/qk_hub_maprestrict.py lineage",
+  "currency": "delta cross-entropy per valid held position (nats), paired standard error",
+  "floor_verification_source": "qk_mlp_superposition.json per_layer_tail full_mlp_dCE",
+  "base_ce": 3.4946
+ },
+ "layers": {
+  "0": {
+   "gate": {
+    "recon_rel_err_global": 5.687879708002495e-07,
+    "recon_rel_err_max_pos": 9.387572390551213e-07,
+    "group_sum_rel_err_max": 0.0,
+    "mean_consistency": 1.4713312168623816e-07,
+    "pass": true
+   },
+   "group_msq_share_of_xpre": {
+    "E": 0.5855,
+    "Ae": 0.0,
+    "Ar": 0.5154,
+    "Me": 0.0,
+    "Mr": 0.0
+   },
+   "energy_shares": {
+    "ExE": 0.657,
+    "ExAe": 0.0,
+    "ExAr": 0.5442,
+    "ExMe": 0.0,
+    "ExMr": 0.0,
+    "AexAe": 0.0,
+    "AexAr": 0.0,
+    "AexMe": 0.0,
+    "AexMr": 0.0,
+    "ArxAr": 0.2495,
+    "ArxMe": 0.0,
+    "ArxMr": 0.0,
+    "MexMe": 0.0,
+    "MexMr": 0.0,
+    "MrxMr": 0.0
+   },
+   "energy_rank": [
+    "ExE",
+    "ExAr",
+    "ArxAr"
+   ],
+   "configs": {
+    "mean_only": {
+     "terms": [],
+     "dCE": 1.2341,
+     "SE": 0.01267
+    },
+    "all_terms": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": -0.0,
+     "SE": 0.0
+    },
+    "only_ExE": {
+     "terms": [
+      "ExE"
+     ],
+     "dCE": 0.1271,
+     "SE": 0.00417
+    },
+    "only_ExAr": {
+     "terms": [
+      "ExAr"
+     ],
+     "dCE": 0.2825,
+     "SE": 0.00596
+    },
+    "only_ArxAr": {
+     "terms": [
+      "ArxAr"
+     ],
+     "dCE": 0.5505,
+     "SE": 0.00824
+    },
+    "top2_energy": {
+     "terms": [
+      "ExE",
+      "ExAr"
+     ],
+     "dCE": 0.026,
+     "SE": 0.00183
+    },
+    "top3_energy": {
+     "terms": [
+      "ExE",
+      "ExAr",
+      "ArxAr"
+     ],
+     "dCE": -0.0,
+     "SE": 0.0
+    },
+    "allbut_ExE": {
+     "terms": [
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": 0.1115,
+     "SE": 0.00374
+    },
+    "allbut_ExAr": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": 0.0771,
+     "SE": 0.00319
+    },
+    "allbut_ArxAr": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": 0.026,
+     "SE": 0.00183
+    },
+    "diagonal": {
+     "terms": [
+      "ExE",
+      "ArxAr"
+     ],
+     "dCE": 0.0771,
+     "SE": 0.00319
+    },
+    "cross": {
+     "terms": [
+      "ExAr"
+     ],
+     "dCE": 0.2825,
+     "SE": 0.00596
+    },
+    "top1_energy": {
+     "terms": [
+      "ExE"
+     ],
+     "dCE": 0.1271,
+     "SE": 0.00417
+    }
+   },
+   "floor_dCE": 1.2341,
+   "floor_SE": 0.01267,
+   "floor_prior_ref": 1.23409,
+   "floor_matches_prior": true,
+   "terms_to_95pct": 2,
+   "sufficient_terms": [
+    "ExE",
+    "ExAr"
+   ],
+   "groups_absent": [
+    "Ae",
+    "Me",
+    "Mr"
+   ],
+   "groups_candidate_dead_by_energy": [],
+   "groups_dead_causal": []
+  },
+  "1": {
+   "gate": {
+    "recon_rel_err_global": 9.827156651701747e-07,
+    "recon_rel_err_max_pos": 1.5386603990918957e-06,
+    "group_sum_rel_err_max": 6.097427274198708e-08,
+    "mean_consistency": 2.7335946128914657e-07,
+    "pass": true
+   },
+   "group_msq_share_of_xpre": {
+    "E": 0.0156,
+    "Ae": 0.0,
+    "Ar": 0.5931,
+    "Me": 0.0,
+    "Mr": 0.0838
+   },
+   "energy_shares": {
+    "ExE": 0.0217,
+    "ExAe": 0.0,
+    "ExAr": 0.073,
+    "ExMe": 0.0,
+    "ExMr": 0.1026,
+    "AexAe": 0.0,
+    "AexAr": 0.0,
+    "AexMe": 0.0,
+    "AexMr": 0.0,
+    "ArxAr": 0.1233,
+    "ArxMe": 0.0,
+    "ArxMr": 0.2212,
+    "MexMe": 0.0,
+    "MexMr": 0.0,
+    "MrxMr": 0.1091
+   },
+   "energy_rank": [
+    "ArxMr",
+    "ArxAr",
+    "MrxMr",
+    "ExMr",
+    "ExAr",
+    "ExE",
+    "AexAr",
+    "AexMr",
+    "ExAe",
+    "AexAe"
+   ],
+   "configs": {
+    "mean_only": {
+     "terms": [],
+     "dCE": 5.5744,
+     "SE": 0.0323
+    },
+    "all_terms": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": -0.0,
+     "SE": 0.0
+    },
+    "only_ArxMr": {
+     "terms": [
+      "ArxMr"
+     ],
+     "dCE": 0.8778,
+     "SE": 0.01062
+    },
+    "only_ArxAr": {
+     "terms": [
+      "ArxAr"
+     ],
+     "dCE": 4.1753,
+     "SE": 0.0273
+    },
+    "only_MrxMr": {
+     "terms": [
+      "MrxMr"
+     ],
+     "dCE": 2.3507,
+     "SE": 0.02026
+    },
+    "only_ExMr": {
+     "terms": [
+      "ExMr"
+     ],
+     "dCE": 1.7918,
+     "SE": 0.01695
+    },
+    "only_ExAr": {
+     "terms": [
+      "ExAr"
+     ],
+     "dCE": 3.2105,
+     "SE": 0.02384
+    },
+    "only_ExE": {
+     "terms": [
+      "ExE"
+     ],
+     "dCE": 4.9557,
+     "SE": 0.03101
+    },
+    "top2_energy": {
+     "terms": [
+      "ArxMr",
+      "ArxAr"
+     ],
+     "dCE": 0.5436,
+     "SE": 0.00815
+    },
+    "top3_energy": {
+     "terms": [
+      "ArxMr",
+      "ArxAr",
+      "MrxMr"
+     ],
+     "dCE": 0.093,
+     "SE": 0.00344
+    },
+    "top4_energy": {
+     "terms": [
+      "ArxMr",
+      "ArxAr",
+      "MrxMr",
+      "ExMr"
+     ],
+     "dCE": 0.0167,
+     "SE": 0.00149
+    },
+    "top5_energy": {
+     "terms": [
+      "ArxMr",
+      "ArxAr",
+      "MrxMr",
+      "ExMr",
+      "ExAr"
+     ],
+     "dCE": 0.0019,
+     "SE": 0.00059
+    },
+    "top6_energy": {
+     "terms": [
+      "ArxMr",
+      "ArxAr",
+      "MrxMr",
+      "ExMr",
+      "ExAr",
+      "ExE"
+     ],
+     "dCE": -0.0,
+     "SE": 2e-05
+    },
+    "allbut_ArxMr": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": 0.043,
+     "SE": 0.00229
+    },
+    "allbut_ArxAr": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": 0.013,
+     "SE": 0.00141
+    },
+    "allbut_MrxMr": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr"
+     ],
+     "dCE": 0.0127,
+     "SE": 0.00132
+    },
+    "diagonal": {
+     "terms": [
+      "ExE",
+      "AexAe",
+      "ArxAr",
+      "MrxMr"
+     ],
+     "dCE": 0.5254,
+     "SE": 0.00806
+    },
+    "cross": {
+     "terms": [
+      "ExAe",
+      "ExAr",
+      "ExMr",
+      "AexAr",
+      "AexMr",
+      "ArxMr"
+     ],
+     "dCE": 0.0442,
+     "SE": 0.00245
+    },
+    "top1_energy": {
+     "terms": [
+      "ArxMr"
+     ],
+     "dCE": 0.8778,
+     "SE": 0.01062
+    }
+   },
+   "floor_dCE": 5.5744,
+   "floor_SE": 0.0323,
+   "floor_prior_ref": 5.57437,
+   "floor_matches_prior": true,
+   "terms_to_95pct": 3,
+   "sufficient_terms": [
+    "ArxMr",
+    "ArxAr",
+    "MrxMr"
+   ],
+   "groups_absent": [
+    "Ae",
+    "Me"
+   ],
+   "groups_candidate_dead_by_energy": [],
+   "groups_dead_causal": []
+  },
+  "2": {
+   "gate": {
+    "recon_rel_err_global": 7.331584077740673e-07,
+    "recon_rel_err_max_pos": 1.0409014521428617e-06,
+    "group_sum_rel_err_max": 7.292729975461043e-08,
+    "mean_consistency": 2.303463872976863e-07,
+    "pass": true
+   },
+   "group_msq_share_of_xpre": {
+    "E": 0.0035,
+    "Ae": 0.0586,
+    "Ar": 0.1973,
+    "Me": 0.0083,
+    "Mr": 0.3628
+   },
+   "energy_shares": {
+    "ExE": 0.0,
+    "ExAe": 0.0001,
+    "ExAr": 0.0023,
+    "ExMe": 0.0001,
+    "ExMr": 0.006,
+    "AexAe": 0.0002,
+    "AexAr": 0.0062,
+    "AexMe": 0.0002,
+    "AexMr": 0.0091,
+    "ArxAr": 0.0717,
+    "ArxMe": 0.0029,
+    "ArxMr": 0.2308,
+    "MexMe": 0.0,
+    "MexMr": 0.0068,
+    "MrxMr": 0.2727
+   },
+   "energy_rank": [
+    "MrxMr",
+    "ArxMr",
+    "ArxAr",
+    "AexMr",
+    "MexMr",
+    "AexAr",
+    "ExMr",
+    "ArxMe",
+    "ExAr",
+    "AexAe",
+    "AexMe",
+    "ExAe",
+    "ExMe",
+    "MexMe",
+    "ExE"
+   ],
+   "configs": {
+    "mean_only": {
+     "terms": [],
+     "dCE": 0.739,
+     "SE": 0.00934
+    },
+    "all_terms": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": -0.0,
+     "SE": 0.0
+    },
+    "only_MrxMr": {
+     "terms": [
+      "MrxMr"
+     ],
+     "dCE": 0.0925,
+     "SE": 0.00333
+    },
+    "only_ArxMr": {
+     "terms": [
+      "ArxMr"
+     ],
+     "dCE": 0.1193,
+     "SE": 0.00384
+    },
+    "only_ArxAr": {
+     "terms": [
+      "ArxAr"
+     ],
+     "dCE": 0.4977,
+     "SE": 0.00766
+    },
+    "only_AexMr": {
+     "terms": [
+      "AexMr"
+     ],
+     "dCE": 0.5823,
+     "SE": 0.00829
+    },
+    "only_MexMr": {
+     "terms": [
+      "MexMr"
+     ],
+     "dCE": 0.547,
+     "SE": 0.00805
+    },
+    "only_AexAr": {
+     "terms": [
+      "AexAr"
+     ],
+     "dCE": 0.6782,
+     "SE": 0.00895
+    },
+    "top2_energy": {
+     "terms": [
+      "MrxMr",
+      "ArxMr"
+     ],
+     "dCE": 0.0114,
+     "SE": 0.00125
+    },
+    "top3_energy": {
+     "terms": [
+      "MrxMr",
+      "ArxMr",
+      "ArxAr"
+     ],
+     "dCE": 0.0044,
+     "SE": 0.00086
+    },
+    "top4_energy": {
+     "terms": [
+      "MrxMr",
+      "ArxMr",
+      "ArxAr",
+      "AexMr"
+     ],
+     "dCE": 0.0026,
+     "SE": 0.00069
+    },
+    "top5_energy": {
+     "terms": [
+      "MrxMr",
+      "ArxMr",
+      "ArxAr",
+      "AexMr",
+      "MexMr"
+     ],
+     "dCE": 0.001,
+     "SE": 0.00051
+    },
+    "top6_energy": {
+     "terms": [
+      "MrxMr",
+      "ArxMr",
+      "ArxAr",
+      "AexMr",
+      "MexMr",
+      "AexAr"
+     ],
+     "dCE": 0.0007,
+     "SE": 0.00046
+    },
+    "allbut_MrxMr": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr"
+     ],
+     "dCE": 0.0288,
+     "SE": 0.00192
+    },
+    "allbut_ArxMr": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": 0.0203,
+     "SE": 0.00163
+    },
+    "allbut_ArxAr": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": 0.005,
+     "SE": 0.00078
+    },
+    "diagonal": {
+     "terms": [
+      "ExE",
+      "AexAe",
+      "ArxAr",
+      "MexMe",
+      "MrxMr"
+     ],
+     "dCE": 0.0602,
+     "SE": 0.00271
+    },
+    "cross": {
+     "terms": [
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxMe",
+      "ArxMr",
+      "MexMr"
+     ],
+     "dCE": 0.0388,
+     "SE": 0.00221
+    },
+    "top1_energy": {
+     "terms": [
+      "MrxMr"
+     ],
+     "dCE": 0.0925,
+     "SE": 0.00333
+    }
+   },
+   "floor_dCE": 0.739,
+   "floor_SE": 0.00934,
+   "floor_prior_ref": 0.73902,
+   "floor_matches_prior": true,
+   "terms_to_95pct": 2,
+   "sufficient_terms": [
+    "MrxMr",
+    "ArxMr"
+   ],
+   "groups_absent": [],
+   "groups_candidate_dead_by_energy": [],
+   "groups_dead_causal": []
+  },
+  "3": {
+   "gate": {
+    "recon_rel_err_global": 6.342147475931355e-07,
+    "recon_rel_err_max_pos": 8.910897122405004e-07,
+    "group_sum_rel_err_max": 8.830190978414976e-08,
+    "mean_consistency": 1.6085472509530518e-07,
+    "pass": true
+   },
+   "group_msq_share_of_xpre": {
+    "E": 0.0019,
+    "Ae": 0.0775,
+    "Ar": 0.1446,
+    "Me": 0.0911,
+    "Mr": 0.2705
+   },
+   "energy_shares": {
+    "ExE": 0.0,
+    "ExAe": 0.0002,
+    "ExAr": 0.0006,
+    "ExMe": 0.0005,
+    "ExMr": 0.0013,
+    "AexAe": 0.0022,
+    "AexAr": 0.0171,
+    "AexMe": 0.0063,
+    "AexMr": 0.0239,
+    "ArxAr": 0.0418,
+    "ArxMe": 0.0259,
+    "ArxMr": 0.0978,
+    "MexMe": 0.0083,
+    "MexMr": 0.0688,
+    "MrxMr": 0.0986
+   },
+   "energy_rank": [
+    "MrxMr",
+    "ArxMr",
+    "MexMr",
+    "ArxAr",
+    "ArxMe",
+    "AexMr",
+    "AexAr",
+    "MexMe",
+    "AexMe",
+    "AexAe",
+    "ExMr",
+    "ExAr",
+    "ExMe",
+    "ExAe",
+    "ExE"
+   ],
+   "configs": {
+    "mean_only": {
+     "terms": [],
+     "dCE": 0.6163,
+     "SE": 0.00842
+    },
+    "all_terms": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": -0.0,
+     "SE": 0.0
+    },
+    "only_MrxMr": {
+     "terms": [
+      "MrxMr"
+     ],
+     "dCE": 0.2483,
+     "SE": 0.00537
+    },
+    "only_ArxMr": {
+     "terms": [
+      "ArxMr"
+     ],
+     "dCE": 0.2564,
+     "SE": 0.00542
+    },
+    "only_MexMr": {
+     "terms": [
+      "MexMr"
+     ],
+     "dCE": 0.2661,
+     "SE": 0.00558
+    },
+    "only_ArxAr": {
+     "terms": [
+      "ArxAr"
+     ],
+     "dCE": 0.4983,
+     "SE": 0.00761
+    },
+    "only_ArxMe": {
+     "terms": [
+      "ArxMe"
+     ],
+     "dCE": 0.4003,
+     "SE": 0.00679
+    },
+    "only_AexMr": {
+     "terms": [
+      "AexMr"
+     ],
+     "dCE": 0.4125,
+     "SE": 0.00688
+    },
+    "top2_energy": {
+     "terms": [
+      "MrxMr",
+      "ArxMr"
+     ],
+     "dCE": 0.0806,
+     "SE": 0.00308
+    },
+    "top3_energy": {
+     "terms": [
+      "MrxMr",
+      "ArxMr",
+      "MexMr"
+     ],
+     "dCE": 0.031,
+     "SE": 0.00192
+    },
+    "top4_energy": {
+     "terms": [
+      "MrxMr",
+      "ArxMr",
+      "MexMr",
+      "ArxAr"
+     ],
+     "dCE": 0.0178,
+     "SE": 0.00155
+    },
+    "top5_energy": {
+     "terms": [
+      "MrxMr",
+      "ArxMr",
+      "MexMr",
+      "ArxAr",
+      "ArxMe"
+     ],
+     "dCE": 0.0084,
+     "SE": 0.00111
+    },
+    "top6_energy": {
+     "terms": [
+      "MrxMr",
+      "ArxMr",
+      "MexMr",
+      "ArxAr",
+      "ArxMe",
+      "AexMr"
+     ],
+     "dCE": 0.0036,
+     "SE": 0.00076
+    },
+    "allbut_MrxMr": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr"
+     ],
+     "dCE": 0.0062,
+     "SE": 0.00098
+    },
+    "allbut_ArxMr": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": 0.0077,
+     "SE": 0.00102
+    },
+    "allbut_MexMr": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MrxMr"
+     ],
+     "dCE": 0.0048,
+     "SE": 0.00082
+    },
+    "diagonal": {
+     "terms": [
+      "ExE",
+      "AexAe",
+      "ArxAr",
+      "MexMe",
+      "MrxMr"
+     ],
+     "dCE": 0.1337,
+     "SE": 0.00401
+    },
+    "cross": {
+     "terms": [
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxMe",
+      "ArxMr",
+      "MexMr"
+     ],
+     "dCE": 0.017,
+     "SE": 0.00145
+    },
+    "top1_energy": {
+     "terms": [
+      "MrxMr"
+     ],
+     "dCE": 0.2483,
+     "SE": 0.00537
+    },
+    "drop_E_involving": {
+     "terms": [
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": -0.0,
+     "SE": 0.00021
+    }
+   },
+   "floor_dCE": 0.6163,
+   "floor_SE": 0.00842,
+   "floor_prior_ref": 0.61627,
+   "floor_matches_prior": true,
+   "terms_to_95pct": 4,
+   "sufficient_terms": [
+    "MrxMr",
+    "ArxMr",
+    "MexMr",
+    "ArxAr"
+   ],
+   "groups_absent": [],
+   "groups_candidate_dead_by_energy": [
+    "E"
+   ],
+   "groups_dead_causal": [
+    "E"
+   ]
+  },
+  "4": {
+   "gate": {
+    "recon_rel_err_global": 6.091231809301331e-07,
+    "recon_rel_err_max_pos": 9.727185670271865e-07,
+    "group_sum_rel_err_max": 9.385598787048366e-08,
+    "mean_consistency": 1.3586239333562844e-07,
+    "pass": true
+   },
+   "group_msq_share_of_xpre": {
+    "E": 0.0009,
+    "Ae": 0.0441,
+    "Ar": 0.2232,
+    "Me": 0.0715,
+    "Mr": 0.2083
+   },
+   "energy_shares": {
+    "ExE": 0.0,
+    "ExAe": 0.0001,
+    "ExAr": 0.0005,
+    "ExMe": 0.0002,
+    "ExMr": 0.0005,
+    "AexAe": 0.0016,
+    "AexAr": 0.0208,
+    "AexMe": 0.0055,
+    "AexMr": 0.0167,
+    "ArxAr": 0.0697,
+    "ArxMe": 0.0356,
+    "ArxMr": 0.1107,
+    "MexMe": 0.0085,
+    "MexMr": 0.0552,
+    "MrxMr": 0.0758
+   },
+   "energy_rank": [
+    "ArxMr",
+    "MrxMr",
+    "ArxAr",
+    "MexMr",
+    "ArxMe",
+    "AexAr",
+    "AexMr",
+    "MexMe",
+    "AexMe",
+    "AexAe",
+    "ExMr",
+    "ExAr",
+    "ExMe",
+    "ExAe",
+    "ExE"
+   ],
+   "configs": {
+    "mean_only": {
+     "terms": [],
+     "dCE": 0.1481,
+     "SE": 0.00414
+    },
+    "all_terms": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": -0.0,
+     "SE": 0.0
+    },
+    "only_ArxMr": {
+     "terms": [
+      "ArxMr"
+     ],
+     "dCE": 0.0674,
+     "SE": 0.00283
+    },
+    "only_MrxMr": {
+     "terms": [
+      "MrxMr"
+     ],
+     "dCE": 0.104,
+     "SE": 0.00349
+    },
+    "only_ArxAr": {
+     "terms": [
+      "ArxAr"
+     ],
+     "dCE": 0.1006,
+     "SE": 0.00345
+    },
+    "only_MexMr": {
+     "terms": [
+      "MexMr"
+     ],
+     "dCE": 0.1028,
+     "SE": 0.00345
+    },
+    "only_ArxMe": {
+     "terms": [
+      "ArxMe"
+     ],
+     "dCE": 0.0971,
+     "SE": 0.00339
+    },
+    "only_AexAr": {
+     "terms": [
+      "AexAr"
+     ],
+     "dCE": 0.1179,
+     "SE": 0.00371
+    },
+    "top2_energy": {
+     "terms": [
+      "ArxMr",
+      "MrxMr"
+     ],
+     "dCE": 0.0433,
+     "SE": 0.00229
+    },
+    "top3_energy": {
+     "terms": [
+      "ArxMr",
+      "MrxMr",
+      "ArxAr"
+     ],
+     "dCE": 0.0247,
+     "SE": 0.00177
+    },
+    "top4_energy": {
+     "terms": [
+      "ArxMr",
+      "MrxMr",
+      "ArxAr",
+      "MexMr"
+     ],
+     "dCE": 0.0137,
+     "SE": 0.00128
+    },
+    "top5_energy": {
+     "terms": [
+      "ArxMr",
+      "MrxMr",
+      "ArxAr",
+      "MexMr",
+      "ArxMe"
+     ],
+     "dCE": 0.0062,
+     "SE": 0.00087
+    },
+    "top6_energy": {
+     "terms": [
+      "ArxMr",
+      "MrxMr",
+      "ArxAr",
+      "MexMr",
+      "ArxMe",
+      "AexAr"
+     ],
+     "dCE": 0.0033,
+     "SE": 0.00067
+    },
+    "allbut_ArxMr": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": 0.0084,
+     "SE": 0.00097
+    },
+    "allbut_MrxMr": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr"
+     ],
+     "dCE": 0.0031,
+     "SE": 0.00064
+    },
+    "allbut_ArxAr": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": 0.0051,
+     "SE": 0.00075
+    },
+    "diagonal": {
+     "terms": [
+      "ExE",
+      "AexAe",
+      "ArxAr",
+      "MexMe",
+      "MrxMr"
+     ],
+     "dCE": 0.0573,
+     "SE": 0.00262
+    },
+    "cross": {
+     "terms": [
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxMe",
+      "ArxMr",
+      "MexMr"
+     ],
+     "dCE": 0.0113,
+     "SE": 0.00116
+    },
+    "top1_energy": {
+     "terms": [
+      "ArxMr"
+     ],
+     "dCE": 0.0674,
+     "SE": 0.00283
+    },
+    "drop_E_involving": {
+     "terms": [
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": 0.0001,
+     "SE": 0.00011
+    }
+   },
+   "floor_dCE": 0.1481,
+   "floor_SE": 0.00414,
+   "floor_prior_ref": 0.14808,
+   "floor_matches_prior": true,
+   "terms_to_95pct": 5,
+   "sufficient_terms": [
+    "ArxMr",
+    "MrxMr",
+    "ArxAr",
+    "MexMr",
+    "ArxMe"
+   ],
+   "groups_absent": [],
+   "groups_candidate_dead_by_energy": [
+    "E"
+   ],
+   "groups_dead_causal": [
+    "E"
+   ]
+  },
+  "5": {
+   "gate": {
+    "recon_rel_err_global": 1.0440844288272032e-06,
+    "recon_rel_err_max_pos": 2.4775301881163614e-06,
+    "group_sum_rel_err_max": 8.615328539463007e-08,
+    "mean_consistency": 1.5170932954333693e-07,
+    "pass": true
+   },
+   "group_msq_share_of_xpre": {
+    "E": 0.0006,
+    "Ae": 0.0083,
+    "Ar": 0.7259,
+    "Me": 0.009,
+    "Mr": 0.0219
+   },
+   "energy_shares": {
+    "ExE": 0.0001,
+    "ExAe": 0.0008,
+    "ExAr": 0.0052,
+    "ExMe": 0.0023,
+    "ExMr": 0.0023,
+    "AexAe": 0.0043,
+    "AexAr": 0.0367,
+    "AexMe": 0.013,
+    "AexMr": 0.0185,
+    "ArxAr": 0.0893,
+    "ArxMe": 0.0906,
+    "ArxMr": 0.0911,
+    "MexMe": 0.0189,
+    "MexMr": 0.0482,
+    "MrxMr": 0.0307
+   },
+   "energy_rank": [
+    "ArxMr",
+    "ArxMe",
+    "ArxAr",
+    "MexMr",
+    "AexAr",
+    "MrxMr",
+    "MexMe",
+    "AexMr",
+    "AexMe",
+    "ExAr",
+    "AexAe",
+    "ExMr",
+    "ExMe",
+    "ExAe",
+    "ExE"
+   ],
+   "configs": {
+    "mean_only": {
+     "terms": [],
+     "dCE": 0.0928,
+     "SE": 0.00329
+    },
+    "all_terms": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": -0.0,
+     "SE": 0.0
+    },
+    "only_ArxMr": {
+     "terms": [
+      "ArxMr"
+     ],
+     "dCE": 0.058,
+     "SE": 0.0026
+    },
+    "only_ArxMe": {
+     "terms": [
+      "ArxMe"
+     ],
+     "dCE": 0.06,
+     "SE": 0.00263
+    },
+    "only_ArxAr": {
+     "terms": [
+      "ArxAr"
+     ],
+     "dCE": 0.0728,
+     "SE": 0.00291
+    },
+    "only_MexMr": {
+     "terms": [
+      "MexMr"
+     ],
+     "dCE": 0.0742,
+     "SE": 0.00291
+    },
+    "only_AexAr": {
+     "terms": [
+      "AexAr"
+     ],
+     "dCE": 0.0719,
+     "SE": 0.0029
+    },
+    "only_MrxMr": {
+     "terms": [
+      "MrxMr"
+     ],
+     "dCE": 0.0817,
+     "SE": 0.00308
+    },
+    "top2_energy": {
+     "terms": [
+      "ArxMr",
+      "ArxMe"
+     ],
+     "dCE": 0.0398,
+     "SE": 0.00215
+    },
+    "top3_energy": {
+     "terms": [
+      "ArxMr",
+      "ArxMe",
+      "ArxAr"
+     ],
+     "dCE": 0.0271,
+     "SE": 0.00179
+    },
+    "top4_energy": {
+     "terms": [
+      "ArxMr",
+      "ArxMe",
+      "ArxAr",
+      "MexMr"
+     ],
+     "dCE": 0.0157,
+     "SE": 0.00133
+    },
+    "top5_energy": {
+     "terms": [
+      "ArxMr",
+      "ArxMe",
+      "ArxAr",
+      "MexMr",
+      "AexAr"
+     ],
+     "dCE": 0.0107,
+     "SE": 0.00113
+    },
+    "top6_energy": {
+     "terms": [
+      "ArxMr",
+      "ArxMe",
+      "ArxAr",
+      "MexMr",
+      "AexAr",
+      "MrxMr"
+     ],
+     "dCE": 0.0061,
+     "SE": 0.00091
+    },
+    "allbut_ArxMr": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": 0.0057,
+     "SE": 0.00075
+    },
+    "allbut_ArxMe": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMr",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": 0.0054,
+     "SE": 0.00077
+    },
+    "allbut_ArxAr": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": 0.0061,
+     "SE": 0.00076
+    },
+    "diagonal": {
+     "terms": [
+      "ExE",
+      "AexAe",
+      "ArxAr",
+      "MexMe",
+      "MrxMr"
+     ],
+     "dCE": 0.053,
+     "SE": 0.00246
+    },
+    "cross": {
+     "terms": [
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxMe",
+      "ArxMr",
+      "MexMr"
+     ],
+     "dCE": 0.0101,
+     "SE": 0.00101
+    },
+    "top1_energy": {
+     "terms": [
+      "ArxMr"
+     ],
+     "dCE": 0.058,
+     "SE": 0.0026
+    },
+    "top8_energy": {
+     "terms": [
+      "ArxMr",
+      "ArxMe",
+      "ArxAr",
+      "MexMr",
+      "AexAr",
+      "MrxMr",
+      "MexMe",
+      "AexMr"
+     ],
+     "dCE": 0.0021,
+     "SE": 0.00052
+    }
+   },
+   "floor_dCE": 0.0928,
+   "floor_SE": 0.00329,
+   "floor_prior_ref": 0.09278,
+   "floor_matches_prior": true,
+   "terms_to_95pct": 8,
+   "sufficient_terms": [
+    "ArxMr",
+    "ArxMe",
+    "ArxAr",
+    "MexMr",
+    "AexAr",
+    "MrxMr",
+    "MexMe",
+    "AexMr"
+   ],
+   "groups_absent": [],
+   "groups_candidate_dead_by_energy": [],
+   "groups_dead_causal": []
+  },
+  "6": {
+   "gate": {
+    "recon_rel_err_global": 1.2346468568091781e-06,
+    "recon_rel_err_max_pos": 2.9070270102238283e-06,
+    "group_sum_rel_err_max": 8.501142190198152e-08,
+    "mean_consistency": 1.800306108634686e-07,
+    "pass": true
+   },
+   "group_msq_share_of_xpre": {
+    "E": 0.0014,
+    "Ae": 0.2487,
+    "Ar": 0.1215,
+    "Me": 0.0129,
+    "Mr": 0.0255
+   },
+   "energy_shares": {
+    "ExE": 0.0007,
+    "ExAe": 0.0072,
+    "ExAr": 0.0058,
+    "ExMe": 0.0071,
+    "ExMr": 0.0084,
+    "AexAe": 0.0302,
+    "AexAr": 0.0422,
+    "AexMe": 0.0469,
+    "AexMr": 0.0672,
+    "ArxAr": 0.0295,
+    "ArxMe": 0.0339,
+    "ArxMr": 0.0478,
+    "MexMe": 0.0232,
+    "MexMr": 0.0627,
+    "MrxMr": 0.063
+   },
+   "energy_rank": [
+    "AexMr",
+    "MrxMr",
+    "MexMr",
+    "ArxMr",
+    "AexMe",
+    "AexAr",
+    "ArxMe",
+    "AexAe",
+    "ArxAr",
+    "MexMe",
+    "ExMr",
+    "ExAe",
+    "ExMe",
+    "ExAr",
+    "ExE"
+   ],
+   "configs": {
+    "mean_only": {
+     "terms": [],
+     "dCE": 0.0832,
+     "SE": 0.00302
+    },
+    "all_terms": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": -0.0,
+     "SE": 0.0
+    },
+    "only_AexMr": {
+     "terms": [
+      "AexMr"
+     ],
+     "dCE": 0.0618,
+     "SE": 0.0026
+    },
+    "only_MrxMr": {
+     "terms": [
+      "MrxMr"
+     ],
+     "dCE": 0.0802,
+     "SE": 0.00296
+    },
+    "only_MexMr": {
+     "terms": [
+      "MexMr"
+     ],
+     "dCE": 0.0677,
+     "SE": 0.00271
+    },
+    "only_ArxMr": {
+     "terms": [
+      "ArxMr"
+     ],
+     "dCE": 0.0697,
+     "SE": 0.00274
+    },
+    "only_AexMe": {
+     "terms": [
+      "AexMe"
+     ],
+     "dCE": 0.0584,
+     "SE": 0.00252
+    },
+    "only_AexAr": {
+     "terms": [
+      "AexAr"
+     ],
+     "dCE": 0.0664,
+     "SE": 0.00272
+    },
+    "top2_energy": {
+     "terms": [
+      "AexMr",
+      "MrxMr"
+     ],
+     "dCE": 0.0582,
+     "SE": 0.00252
+    },
+    "top3_energy": {
+     "terms": [
+      "AexMr",
+      "MrxMr",
+      "MexMr"
+     ],
+     "dCE": 0.0484,
+     "SE": 0.00229
+    },
+    "top4_energy": {
+     "terms": [
+      "AexMr",
+      "MrxMr",
+      "MexMr",
+      "ArxMr"
+     ],
+     "dCE": 0.0397,
+     "SE": 0.00205
+    },
+    "top5_energy": {
+     "terms": [
+      "AexMr",
+      "MrxMr",
+      "MexMr",
+      "ArxMr",
+      "AexMe"
+     ],
+     "dCE": 0.0256,
+     "SE": 0.00162
+    },
+    "top6_energy": {
+     "terms": [
+      "AexMr",
+      "MrxMr",
+      "MexMr",
+      "ArxMr",
+      "AexMe",
+      "AexAr"
+     ],
+     "dCE": 0.0156,
+     "SE": 0.00125
+    },
+    "allbut_AexMr": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": 0.0038,
+     "SE": 0.0006
+    },
+    "allbut_MrxMr": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr"
+     ],
+     "dCE": 0.0022,
+     "SE": 0.00045
+    },
+    "allbut_MexMr": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MrxMr"
+     ],
+     "dCE": 0.003,
+     "SE": 0.00051
+    },
+    "diagonal": {
+     "terms": [
+      "ExE",
+      "AexAe",
+      "ArxAr",
+      "MexMe",
+      "MrxMr"
+     ],
+     "dCE": 0.0479,
+     "SE": 0.00231
+    },
+    "cross": {
+     "terms": [
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxMe",
+      "ArxMr",
+      "MexMr"
+     ],
+     "dCE": 0.0089,
+     "SE": 0.00092
+    },
+    "top1_energy": {
+     "terms": [
+      "AexMr"
+     ],
+     "dCE": 0.0618,
+     "SE": 0.0026
+    },
+    "top8_energy": {
+     "terms": [
+      "AexMr",
+      "MrxMr",
+      "MexMr",
+      "ArxMr",
+      "AexMe",
+      "AexAr",
+      "ArxMe",
+      "AexAe"
+     ],
+     "dCE": 0.0071,
+     "SE": 0.00083
+    },
+    "top10_energy": {
+     "terms": [
+      "AexMr",
+      "MrxMr",
+      "MexMr",
+      "ArxMr",
+      "AexMe",
+      "AexAr",
+      "ArxMe",
+      "AexAe",
+      "ArxAr",
+      "MexMe"
+     ],
+     "dCE": 0.0022,
+     "SE": 0.00049
+    }
+   },
+   "floor_dCE": 0.0832,
+   "floor_SE": 0.00302,
+   "floor_prior_ref": 0.08319,
+   "floor_matches_prior": true,
+   "terms_to_95pct": 10,
+   "sufficient_terms": [
+    "AexMr",
+    "MrxMr",
+    "MexMr",
+    "ArxMr",
+    "AexMe",
+    "AexAr",
+    "ArxMe",
+    "AexAe",
+    "ArxAr",
+    "MexMe"
+   ],
+   "groups_absent": [],
+   "groups_candidate_dead_by_energy": [],
+   "groups_dead_causal": []
+  },
+  "7": {
+   "gate": {
+    "recon_rel_err_global": 1.594658179392561e-06,
+    "recon_rel_err_max_pos": 3.189048811691464e-06,
+    "group_sum_rel_err_max": 9.510763021580715e-08,
+    "mean_consistency": 2.9663610234820226e-07,
+    "pass": true
+   },
+   "group_msq_share_of_xpre": {
+    "E": 0.0031,
+    "Ae": 0.3376,
+    "Ar": 0.0407,
+    "Me": 0.0246,
+    "Mr": 0.0235
+   },
+   "energy_shares": {
+    "ExE": 0.0026,
+    "ExAe": 0.0121,
+    "ExAr": 0.0099,
+    "ExMe": 0.0144,
+    "ExMr": 0.0123,
+    "AexAe": 0.0231,
+    "AexAr": 0.0421,
+    "AexMe": 0.0466,
+    "AexMr": 0.0443,
+    "ArxAr": 0.0218,
+    "ArxMe": 0.0373,
+    "ArxMr": 0.0358,
+    "MexMe": 0.0263,
+    "MexMr": 0.0561,
+    "MrxMr": 0.0307
+   },
+   "energy_rank": [
+    "MexMr",
+    "AexMe",
+    "AexMr",
+    "AexAr",
+    "ArxMe",
+    "ArxMr",
+    "MrxMr",
+    "MexMe",
+    "AexAe",
+    "ArxAr",
+    "ExMe",
+    "ExMr",
+    "ExAe",
+    "ExAr",
+    "ExE"
+   ],
+   "configs": {
+    "mean_only": {
+     "terms": [],
+     "dCE": 0.0601,
+     "SE": 0.00256
+    },
+    "all_terms": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": -0.0,
+     "SE": 0.0
+    },
+    "only_MexMr": {
+     "terms": [
+      "MexMr"
+     ],
+     "dCE": 0.0495,
+     "SE": 0.00234
+    },
+    "only_AexMe": {
+     "terms": [
+      "AexMe"
+     ],
+     "dCE": 0.0432,
+     "SE": 0.00218
+    },
+    "only_AexMr": {
+     "terms": [
+      "AexMr"
+     ],
+     "dCE": 0.0467,
+     "SE": 0.00226
+    },
+    "only_AexAr": {
+     "terms": [
+      "AexAr"
+     ],
+     "dCE": 0.0485,
+     "SE": 0.00229
+    },
+    "only_ArxMe": {
+     "terms": [
+      "ArxMe"
+     ],
+     "dCE": 0.0466,
+     "SE": 0.00225
+    },
+    "only_ArxMr": {
+     "terms": [
+      "ArxMr"
+     ],
+     "dCE": 0.049,
+     "SE": 0.00232
+    },
+    "top2_energy": {
+     "terms": [
+      "MexMr",
+      "AexMe"
+     ],
+     "dCE": 0.0342,
+     "SE": 0.00195
+    },
+    "top3_energy": {
+     "terms": [
+      "MexMr",
+      "AexMe",
+      "AexMr"
+     ],
+     "dCE": 0.0259,
+     "SE": 0.00171
+    },
+    "top4_energy": {
+     "terms": [
+      "MexMr",
+      "AexMe",
+      "AexMr",
+      "AexAr"
+     ],
+     "dCE": 0.0182,
+     "SE": 0.0014
+    },
+    "top5_energy": {
+     "terms": [
+      "MexMr",
+      "AexMe",
+      "AexMr",
+      "AexAr",
+      "ArxMe"
+     ],
+     "dCE": 0.0128,
+     "SE": 0.00116
+    },
+    "top6_energy": {
+     "terms": [
+      "MexMr",
+      "AexMe",
+      "AexMr",
+      "AexAr",
+      "ArxMe",
+      "ArxMr"
+     ],
+     "dCE": 0.01,
+     "SE": 0.00103
+    },
+    "allbut_MexMr": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MrxMr"
+     ],
+     "dCE": 0.0021,
+     "SE": 0.00042
+    },
+    "allbut_AexMe": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": 0.0025,
+     "SE": 0.00048
+    },
+    "allbut_AexMr": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": 0.002,
+     "SE": 0.00043
+    },
+    "diagonal": {
+     "terms": [
+      "ExE",
+      "AexAe",
+      "ArxAr",
+      "MexMe",
+      "MrxMr"
+     ],
+     "dCE": 0.0354,
+     "SE": 0.00197
+    },
+    "cross": {
+     "terms": [
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxMe",
+      "ArxMr",
+      "MexMr"
+     ],
+     "dCE": 0.0053,
+     "SE": 0.00072
+    },
+    "top1_energy": {
+     "terms": [
+      "MexMr"
+     ],
+     "dCE": 0.0495,
+     "SE": 0.00234
+    },
+    "top8_energy": {
+     "terms": [
+      "MexMr",
+      "AexMe",
+      "AexMr",
+      "AexAr",
+      "ArxMe",
+      "ArxMr",
+      "MrxMr",
+      "MexMe"
+     ],
+     "dCE": 0.0062,
+     "SE": 0.00083
+    },
+    "top10_energy": {
+     "terms": [
+      "MexMr",
+      "AexMe",
+      "AexMr",
+      "AexAr",
+      "ArxMe",
+      "ArxMr",
+      "MrxMr",
+      "MexMe",
+      "AexAe",
+      "ArxAr"
+     ],
+     "dCE": 0.0033,
+     "SE": 0.00061
+    },
+    "top12_energy": {
+     "terms": [
+      "MexMr",
+      "AexMe",
+      "AexMr",
+      "AexAr",
+      "ArxMe",
+      "ArxMr",
+      "MrxMr",
+      "MexMe",
+      "AexAe",
+      "ArxAr",
+      "ExMe",
+      "ExMr"
+     ],
+     "dCE": 0.0012,
+     "SE": 0.00039
+    }
+   },
+   "floor_dCE": 0.0601,
+   "floor_SE": 0.00256,
+   "floor_prior_ref": 0.06008,
+   "floor_matches_prior": true,
+   "terms_to_95pct": 12,
+   "sufficient_terms": [
+    "MexMr",
+    "AexMe",
+    "AexMr",
+    "AexAr",
+    "ArxMe",
+    "ArxMr",
+    "MrxMr",
+    "MexMe",
+    "AexAe",
+    "ArxAr",
+    "ExMe",
+    "ExMr"
+   ],
+   "groups_absent": [],
+   "groups_candidate_dead_by_energy": [],
+   "groups_dead_causal": []
+  },
+  "8": {
+   "gate": {
+    "recon_rel_err_global": 1.443533218246695e-06,
+    "recon_rel_err_max_pos": 3.04603031509032e-06,
+    "group_sum_rel_err_max": 1.1856261039611127e-07,
+    "mean_consistency": 3.4418002314851037e-07,
+    "pass": true
+   },
+   "group_msq_share_of_xpre": {
+    "E": 0.0048,
+    "Ae": 0.4814,
+    "Ar": 0.0061,
+    "Me": 0.0654,
+    "Mr": 0.0163
+   },
+   "energy_shares": {
+    "ExE": 0.0026,
+    "ExAe": 0.015,
+    "ExAr": 0.0031,
+    "ExMe": 0.0168,
+    "ExMr": 0.0114,
+    "AexAe": 0.0401,
+    "AexAr": 0.0179,
+    "AexMe": 0.0769,
+    "AexMr": 0.0582,
+    "ArxAr": 0.0074,
+    "ArxMe": 0.015,
+    "ArxMr": 0.0115,
+    "MexMe": 0.0416,
+    "MexMr": 0.0688,
+    "MrxMr": 0.0277
+   },
+   "energy_rank": [
+    "AexMe",
+    "MexMr",
+    "AexMr",
+    "MexMe",
+    "AexAe",
+    "MrxMr",
+    "AexAr",
+    "ExMe",
+    "ArxMe",
+    "ExAe",
+    "ArxMr",
+    "ExMr",
+    "ArxAr",
+    "ExAr",
+    "ExE"
+   ],
+   "configs": {
+    "mean_only": {
+     "terms": [],
+     "dCE": 0.0511,
+     "SE": 0.00242
+    },
+    "all_terms": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": -0.0,
+     "SE": 0.0
+    },
+    "only_AexMe": {
+     "terms": [
+      "AexMe"
+     ],
+     "dCE": 0.0326,
+     "SE": 0.00195
+    },
+    "only_MexMr": {
+     "terms": [
+      "MexMr"
+     ],
+     "dCE": 0.0376,
+     "SE": 0.00205
+    },
+    "only_AexMr": {
+     "terms": [
+      "AexMr"
+     ],
+     "dCE": 0.0397,
+     "SE": 0.00211
+    },
+    "only_MexMe": {
+     "terms": [
+      "MexMe"
+     ],
+     "dCE": 0.041,
+     "SE": 0.00214
+    },
+    "only_AexAe": {
+     "terms": [
+      "AexAe"
+     ],
+     "dCE": 0.0429,
+     "SE": 0.0022
+    },
+    "only_MrxMr": {
+     "terms": [
+      "MrxMr"
+     ],
+     "dCE": 0.0445,
+     "SE": 0.00227
+    },
+    "top2_energy": {
+     "terms": [
+      "AexMe",
+      "MexMr"
+     ],
+     "dCE": 0.0224,
+     "SE": 0.00159
+    },
+    "top3_energy": {
+     "terms": [
+      "AexMe",
+      "MexMr",
+      "AexMr"
+     ],
+     "dCE": 0.0169,
+     "SE": 0.00135
+    },
+    "top4_energy": {
+     "terms": [
+      "AexMe",
+      "MexMr",
+      "AexMr",
+      "MexMe"
+     ],
+     "dCE": 0.0133,
+     "SE": 0.00116
+    },
+    "top5_energy": {
+     "terms": [
+      "AexMe",
+      "MexMr",
+      "AexMr",
+      "MexMe",
+      "AexAe"
+     ],
+     "dCE": 0.0103,
+     "SE": 0.00097
+    },
+    "top6_energy": {
+     "terms": [
+      "AexMe",
+      "MexMr",
+      "AexMr",
+      "MexMe",
+      "AexAe",
+      "MrxMr"
+     ],
+     "dCE": 0.0075,
+     "SE": 0.00086
+    },
+    "allbut_AexMe": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": 0.0035,
+     "SE": 0.00058
+    },
+    "allbut_MexMr": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MrxMr"
+     ],
+     "dCE": 0.0018,
+     "SE": 0.00048
+    },
+    "allbut_AexMr": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": 0.0017,
+     "SE": 0.00048
+    },
+    "diagonal": {
+     "terms": [
+      "ExE",
+      "AexAe",
+      "ArxAr",
+      "MexMe",
+      "MrxMr"
+     ],
+     "dCE": 0.026,
+     "SE": 0.00171
+    },
+    "cross": {
+     "terms": [
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxMe",
+      "ArxMr",
+      "MexMr"
+     ],
+     "dCE": 0.0058,
+     "SE": 0.00079
+    },
+    "top1_energy": {
+     "terms": [
+      "AexMe"
+     ],
+     "dCE": 0.0326,
+     "SE": 0.00195
+    },
+    "top8_energy": {
+     "terms": [
+      "AexMe",
+      "MexMr",
+      "AexMr",
+      "MexMe",
+      "AexAe",
+      "MrxMr",
+      "AexAr",
+      "ExMe"
+     ],
+     "dCE": 0.0041,
+     "SE": 0.00062
+    },
+    "top10_energy": {
+     "terms": [
+      "AexMe",
+      "MexMr",
+      "AexMr",
+      "MexMe",
+      "AexAe",
+      "MrxMr",
+      "AexAr",
+      "ExMe",
+      "ArxMe",
+      "ExAe"
+     ],
+     "dCE": 0.0021,
+     "SE": 0.0004
+    }
+   },
+   "floor_dCE": 0.0511,
+   "floor_SE": 0.00242,
+   "floor_prior_ref": 0.05114,
+   "floor_matches_prior": true,
+   "terms_to_95pct": 10,
+   "sufficient_terms": [
+    "AexMe",
+    "MexMr",
+    "AexMr",
+    "MexMe",
+    "AexAe",
+    "MrxMr",
+    "AexAr",
+    "ExMe",
+    "ArxMe",
+    "ExAe"
+   ],
+   "groups_absent": [],
+   "groups_candidate_dead_by_energy": [],
+   "groups_dead_causal": []
+  },
+  "9": {
+   "gate": {
+    "recon_rel_err_global": 1.1734752217969342e-06,
+    "recon_rel_err_max_pos": 2.4805640350678004e-06,
+    "group_sum_rel_err_max": 1.338324295829807e-07,
+    "mean_consistency": 1.993658571564083e-07,
+    "pass": true
+   },
+   "group_msq_share_of_xpre": {
+    "E": 0.0053,
+    "Ae": 0.3364,
+    "Ar": 0.0359,
+    "Me": 0.0732,
+    "Mr": 0.0136
+   },
+   "energy_shares": {
+    "ExE": 0.0022,
+    "ExAe": 0.0102,
+    "ExAr": 0.0064,
+    "ExMe": 0.018,
+    "ExMr": 0.0074,
+    "AexAe": 0.0216,
+    "AexAr": 0.0285,
+    "AexMe": 0.0594,
+    "AexMr": 0.0275,
+    "ArxAr": 0.0122,
+    "ArxMe": 0.039,
+    "ArxMr": 0.0178,
+    "MexMe": 0.0521,
+    "MexMr": 0.0542,
+    "MrxMr": 0.0135
+   },
+   "energy_rank": [
+    "AexMe",
+    "MexMr",
+    "MexMe",
+    "ArxMe",
+    "AexAr",
+    "AexMr",
+    "AexAe",
+    "ExMe",
+    "ArxMr",
+    "MrxMr",
+    "ArxAr",
+    "ExAe",
+    "ExMr",
+    "ExAr",
+    "ExE"
+   ],
+   "configs": {
+    "mean_only": {
+     "terms": [],
+     "dCE": 0.0563,
+     "SE": 0.00248
+    },
+    "all_terms": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": -0.0,
+     "SE": 0.0
+    },
+    "only_AexMe": {
+     "terms": [
+      "AexMe"
+     ],
+     "dCE": 0.0388,
+     "SE": 0.00205
+    },
+    "only_MexMr": {
+     "terms": [
+      "MexMr"
+     ],
+     "dCE": 0.0433,
+     "SE": 0.00216
+    },
+    "only_MexMe": {
+     "terms": [
+      "MexMe"
+     ],
+     "dCE": 0.0431,
+     "SE": 0.00214
+    },
+    "only_ArxMe": {
+     "terms": [
+      "ArxMe"
+     ],
+     "dCE": 0.0443,
+     "SE": 0.00219
+    },
+    "only_AexAr": {
+     "terms": [
+      "AexAr"
+     ],
+     "dCE": 0.0492,
+     "SE": 0.00232
+    },
+    "only_AexMr": {
+     "terms": [
+      "AexMr"
+     ],
+     "dCE": 0.047,
+     "SE": 0.00228
+    },
+    "top2_energy": {
+     "terms": [
+      "AexMe",
+      "MexMr"
+     ],
+     "dCE": 0.0283,
+     "SE": 0.00174
+    },
+    "top3_energy": {
+     "terms": [
+      "AexMe",
+      "MexMr",
+      "MexMe"
+     ],
+     "dCE": 0.0213,
+     "SE": 0.00149
+    },
+    "top4_energy": {
+     "terms": [
+      "AexMe",
+      "MexMr",
+      "MexMe",
+      "ArxMe"
+     ],
+     "dCE": 0.0154,
+     "SE": 0.00124
+    },
+    "top5_energy": {
+     "terms": [
+      "AexMe",
+      "MexMr",
+      "MexMe",
+      "ArxMe",
+      "AexAr"
+     ],
+     "dCE": 0.0113,
+     "SE": 0.00107
+    },
+    "top6_energy": {
+     "terms": [
+      "AexMe",
+      "MexMr",
+      "MexMe",
+      "ArxMe",
+      "AexAr",
+      "AexMr"
+     ],
+     "dCE": 0.0079,
+     "SE": 0.00091
+    },
+    "allbut_AexMe": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": 0.0024,
+     "SE": 0.0005
+    },
+    "allbut_MexMr": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MrxMr"
+     ],
+     "dCE": 0.0019,
+     "SE": 0.00043
+    },
+    "allbut_MexMe": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": 0.0016,
+     "SE": 0.00044
+    },
+    "diagonal": {
+     "terms": [
+      "ExE",
+      "AexAe",
+      "ArxAr",
+      "MexMe",
+      "MrxMr"
+     ],
+     "dCE": 0.0311,
+     "SE": 0.00179
+    },
+    "cross": {
+     "terms": [
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxMe",
+      "ArxMr",
+      "MexMr"
+     ],
+     "dCE": 0.0044,
+     "SE": 0.00072
+    },
+    "top1_energy": {
+     "terms": [
+      "AexMe"
+     ],
+     "dCE": 0.0388,
+     "SE": 0.00205
+    },
+    "top8_energy": {
+     "terms": [
+      "AexMe",
+      "MexMr",
+      "MexMe",
+      "ArxMe",
+      "AexAr",
+      "AexMr",
+      "AexAe",
+      "ExMe"
+     ],
+     "dCE": 0.0037,
+     "SE": 0.00064
+    },
+    "top10_energy": {
+     "terms": [
+      "AexMe",
+      "MexMr",
+      "MexMe",
+      "ArxMe",
+      "AexAr",
+      "AexMr",
+      "AexAe",
+      "ExMe",
+      "ArxMr",
+      "MrxMr"
+     ],
+     "dCE": 0.0021,
+     "SE": 0.00048
+    }
+   },
+   "floor_dCE": 0.0563,
+   "floor_SE": 0.00248,
+   "floor_prior_ref": 0.05627,
+   "floor_matches_prior": true,
+   "terms_to_95pct": 10,
+   "sufficient_terms": [
+    "AexMe",
+    "MexMr",
+    "MexMe",
+    "ArxMe",
+    "AexAr",
+    "AexMr",
+    "AexAe",
+    "ExMe",
+    "ArxMr",
+    "MrxMr"
+   ],
+   "groups_absent": [],
+   "groups_candidate_dead_by_energy": [],
+   "groups_dead_causal": []
+  },
+  "10": {
+   "gate": {
+    "recon_rel_err_global": 1.3281579751508517e-06,
+    "recon_rel_err_max_pos": 3.189207973264274e-06,
+    "group_sum_rel_err_max": 1.5110366291537503e-07,
+    "mean_consistency": 3.789743630022713e-07,
+    "pass": true
+   },
+   "group_msq_share_of_xpre": {
+    "E": 0.0057,
+    "Ae": 0.3728,
+    "Ar": 0.0143,
+    "Me": 0.0751,
+    "Mr": 0.0194
+   },
+   "energy_shares": {
+    "ExE": 0.0024,
+    "ExAe": 0.0138,
+    "ExAr": 0.0026,
+    "ExMe": 0.0211,
+    "ExMr": 0.0083,
+    "AexAe": 0.037,
+    "AexAr": 0.0157,
+    "AexMe": 0.0949,
+    "AexMr": 0.0396,
+    "ArxAr": 0.0018,
+    "ArxMe": 0.0171,
+    "ArxMr": 0.0074,
+    "MexMe": 0.0707,
+    "MexMr": 0.0675,
+    "MrxMr": 0.014
+   },
+   "energy_rank": [
+    "AexMe",
+    "MexMe",
+    "MexMr",
+    "AexMr",
+    "AexAe",
+    "ExMe",
+    "ArxMe",
+    "AexAr",
+    "MrxMr",
+    "ExAe",
+    "ExMr",
+    "ArxMr",
+    "ExAr",
+    "ExE",
+    "ArxAr"
+   ],
+   "configs": {
+    "mean_only": {
+     "terms": [],
+     "dCE": 0.0465,
+     "SE": 0.00228
+    },
+    "all_terms": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": -0.0,
+     "SE": 0.0
+    },
+    "only_AexMe": {
+     "terms": [
+      "AexMe"
+     ],
+     "dCE": 0.0316,
+     "SE": 0.00184
+    },
+    "only_MexMe": {
+     "terms": [
+      "MexMe"
+     ],
+     "dCE": 0.0335,
+     "SE": 0.00193
+    },
+    "only_MexMr": {
+     "terms": [
+      "MexMr"
+     ],
+     "dCE": 0.0331,
+     "SE": 0.00192
+    },
+    "only_AexMr": {
+     "terms": [
+      "AexMr"
+     ],
+     "dCE": 0.0374,
+     "SE": 0.00205
+    },
+    "only_AexAe": {
+     "terms": [
+      "AexAe"
+     ],
+     "dCE": 0.0409,
+     "SE": 0.00214
+    },
+    "only_ExMe": {
+     "terms": [
+      "ExMe"
+     ],
+     "dCE": 0.0396,
+     "SE": 0.00209
+    },
+    "top2_energy": {
+     "terms": [
+      "AexMe",
+      "MexMe"
+     ],
+     "dCE": 0.0215,
+     "SE": 0.0015
+    },
+    "top3_energy": {
+     "terms": [
+      "AexMe",
+      "MexMe",
+      "MexMr"
+     ],
+     "dCE": 0.0145,
+     "SE": 0.00122
+    },
+    "top4_energy": {
+     "terms": [
+      "AexMe",
+      "MexMe",
+      "MexMr",
+      "AexMr"
+     ],
+     "dCE": 0.0105,
+     "SE": 0.00105
+    },
+    "top5_energy": {
+     "terms": [
+      "AexMe",
+      "MexMe",
+      "MexMr",
+      "AexMr",
+      "AexAe"
+     ],
+     "dCE": 0.0078,
+     "SE": 0.0009
+    },
+    "top6_energy": {
+     "terms": [
+      "AexMe",
+      "MexMe",
+      "MexMr",
+      "AexMr",
+      "AexAe",
+      "ExMe"
+     ],
+     "dCE": 0.0053,
+     "SE": 0.00072
+    },
+    "allbut_AexMe": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": 0.0023,
+     "SE": 0.00059
+    },
+    "allbut_MexMe": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": 0.0024,
+     "SE": 0.00049
+    },
+    "allbut_MexMr": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MrxMr"
+     ],
+     "dCE": 0.0024,
+     "SE": 0.00048
+    },
+    "diagonal": {
+     "terms": [
+      "ExE",
+      "AexAe",
+      "ArxAr",
+      "MexMe",
+      "MrxMr"
+     ],
+     "dCE": 0.0244,
+     "SE": 0.00162
+    },
+    "cross": {
+     "terms": [
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxMe",
+      "ArxMr",
+      "MexMr"
+     ],
+     "dCE": 0.0051,
+     "SE": 0.00074
+    },
+    "top1_energy": {
+     "terms": [
+      "AexMe"
+     ],
+     "dCE": 0.0316,
+     "SE": 0.00184
+    },
+    "top8_energy": {
+     "terms": [
+      "AexMe",
+      "MexMe",
+      "MexMr",
+      "AexMr",
+      "AexAe",
+      "ExMe",
+      "ArxMe",
+      "AexAr"
+     ],
+     "dCE": 0.0028,
+     "SE": 0.00056
+    },
+    "top10_energy": {
+     "terms": [
+      "AexMe",
+      "MexMe",
+      "MexMr",
+      "AexMr",
+      "AexAe",
+      "ExMe",
+      "ArxMe",
+      "AexAr",
+      "MrxMr",
+      "ExAe"
+     ],
+     "dCE": 0.0012,
+     "SE": 0.00034
+    }
+   },
+   "floor_dCE": 0.0465,
+   "floor_SE": 0.00228,
+   "floor_prior_ref": 0.04652,
+   "floor_matches_prior": true,
+   "terms_to_95pct": 10,
+   "sufficient_terms": [
+    "AexMe",
+    "MexMe",
+    "MexMr",
+    "AexMr",
+    "AexAe",
+    "ExMe",
+    "ArxMe",
+    "AexAr",
+    "MrxMr",
+    "ExAe"
+   ],
+   "groups_absent": [],
+   "groups_candidate_dead_by_energy": [],
+   "groups_dead_causal": []
+  },
+  "11": {
+   "gate": {
+    "recon_rel_err_global": 9.394300070613986e-07,
+    "recon_rel_err_max_pos": 1.9822193735308247e-06,
+    "group_sum_rel_err_max": 1.7060112611488876e-07,
+    "mean_consistency": 1.4885227983540972e-07,
+    "pass": true
+   },
+   "group_msq_share_of_xpre": {
+    "E": 0.0061,
+    "Ae": 0.3935,
+    "Ar": 0.0142,
+    "Me": 0.1071,
+    "Mr": 0.0149
+   },
+   "energy_shares": {
+    "ExE": 0.0016,
+    "ExAe": 0.0102,
+    "ExAr": 0.0027,
+    "ExMe": 0.0173,
+    "ExMr": 0.0048,
+    "AexAe": 0.0297,
+    "AexAr": 0.0216,
+    "AexMe": 0.0915,
+    "AexMr": 0.0257,
+    "ArxAr": 0.0057,
+    "ArxMe": 0.0239,
+    "ArxMr": 0.0071,
+    "MexMe": 0.0753,
+    "MexMr": 0.0509,
+    "MrxMr": 0.0075
+   },
+   "energy_rank": [
+    "AexMe",
+    "MexMe",
+    "MexMr",
+    "AexAe",
+    "AexMr",
+    "ArxMe",
+    "AexAr",
+    "ExMe",
+    "ExAe",
+    "MrxMr",
+    "ArxMr",
+    "ArxAr",
+    "ExMr",
+    "ExAr",
+    "ExE"
+   ],
+   "configs": {
+    "mean_only": {
+     "terms": [],
+     "dCE": 0.0466,
+     "SE": 0.00237
+    },
+    "all_terms": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": 0.0,
+     "SE": 0.0
+    },
+    "only_AexMe": {
+     "terms": [
+      "AexMe"
+     ],
+     "dCE": 0.0297,
+     "SE": 0.00192
+    },
+    "only_MexMe": {
+     "terms": [
+      "MexMe"
+     ],
+     "dCE": 0.0339,
+     "SE": 0.002
+    },
+    "only_MexMr": {
+     "terms": [
+      "MexMr"
+     ],
+     "dCE": 0.035,
+     "SE": 0.00206
+    },
+    "only_AexAe": {
+     "terms": [
+      "AexAe"
+     ],
+     "dCE": 0.0407,
+     "SE": 0.00222
+    },
+    "only_AexMr": {
+     "terms": [
+      "AexMr"
+     ],
+     "dCE": 0.0389,
+     "SE": 0.00218
+    },
+    "only_ArxMe": {
+     "terms": [
+      "ArxMe"
+     ],
+     "dCE": 0.0393,
+     "SE": 0.00217
+    },
+    "top2_energy": {
+     "terms": [
+      "AexMe",
+      "MexMe"
+     ],
+     "dCE": 0.0202,
+     "SE": 0.00157
+    },
+    "top3_energy": {
+     "terms": [
+      "AexMe",
+      "MexMe",
+      "MexMr"
+     ],
+     "dCE": 0.0144,
+     "SE": 0.00133
+    },
+    "top4_energy": {
+     "terms": [
+      "AexMe",
+      "MexMe",
+      "MexMr",
+      "AexAe"
+     ],
+     "dCE": 0.0109,
+     "SE": 0.00117
+    },
+    "top5_energy": {
+     "terms": [
+      "AexMe",
+      "MexMe",
+      "MexMr",
+      "AexAe",
+      "AexMr"
+     ],
+     "dCE": 0.008,
+     "SE": 0.00102
+    },
+    "top6_energy": {
+     "terms": [
+      "AexMe",
+      "MexMe",
+      "MexMr",
+      "AexAe",
+      "AexMr",
+      "ArxMe"
+     ],
+     "dCE": 0.0058,
+     "SE": 0.00086
+    },
+    "allbut_AexMe": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": 0.003,
+     "SE": 0.00056
+    },
+    "allbut_MexMe": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": 0.0014,
+     "SE": 0.0005
+    },
+    "allbut_MexMr": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MrxMr"
+     ],
+     "dCE": 0.0013,
+     "SE": 0.00041
+    },
+    "diagonal": {
+     "terms": [
+      "ExE",
+      "AexAe",
+      "ArxAr",
+      "MexMe",
+      "MrxMr"
+     ],
+     "dCE": 0.0234,
+     "SE": 0.00168
+    },
+    "cross": {
+     "terms": [
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxMe",
+      "ArxMr",
+      "MexMr"
+     ],
+     "dCE": 0.0041,
+     "SE": 0.00073
+    },
+    "top1_energy": {
+     "terms": [
+      "AexMe"
+     ],
+     "dCE": 0.0297,
+     "SE": 0.00192
+    },
+    "top8_energy": {
+     "terms": [
+      "AexMe",
+      "MexMe",
+      "MexMr",
+      "AexAe",
+      "AexMr",
+      "ArxMe",
+      "AexAr",
+      "ExMe"
+     ],
+     "dCE": 0.0026,
+     "SE": 0.00054
+    },
+    "top10_energy": {
+     "terms": [
+      "AexMe",
+      "MexMe",
+      "MexMr",
+      "AexAe",
+      "AexMr",
+      "ArxMe",
+      "AexAr",
+      "ExMe",
+      "ExAe",
+      "MrxMr"
+     ],
+     "dCE": 0.0013,
+     "SE": 0.00038
+    }
+   },
+   "floor_dCE": 0.0466,
+   "floor_SE": 0.00237,
+   "floor_prior_ref": 0.04663,
+   "floor_matches_prior": true,
+   "terms_to_95pct": 10,
+   "sufficient_terms": [
+    "AexMe",
+    "MexMe",
+    "MexMr",
+    "AexAe",
+    "AexMr",
+    "ArxMe",
+    "AexAr",
+    "ExMe",
+    "ExAe",
+    "MrxMr"
+   ],
+   "groups_absent": [],
+   "groups_candidate_dead_by_energy": [],
+   "groups_dead_causal": []
+  },
+  "12": {
+   "gate": {
+    "recon_rel_err_global": 1.0274319096735772e-06,
+    "recon_rel_err_max_pos": 2.6266441182087874e-06,
+    "group_sum_rel_err_max": 1.8338175777898869e-07,
+    "mean_consistency": 1.868875472155196e-07,
+    "pass": true
+   },
+   "group_msq_share_of_xpre": {
+    "E": 0.0059,
+    "Ae": 0.369,
+    "Ar": 0.0034,
+    "Me": 0.1098,
+    "Mr": 0.0262
+   },
+   "energy_shares": {
+    "ExE": 0.0015,
+    "ExAe": 0.0108,
+    "ExAr": 0.0006,
+    "ExMe": 0.0192,
+    "ExMr": 0.0048,
+    "AexAe": 0.0422,
+    "AexAr": 0.0055,
+    "AexMe": 0.1228,
+    "AexMr": 0.0317,
+    "ArxAr": 0.0003,
+    "ArxMe": 0.0063,
+    "ArxMr": 0.0018,
+    "MexMe": 0.1021,
+    "MexMr": 0.0585,
+    "MrxMr": 0.0079
+   },
+   "energy_rank": [
+    "AexMe",
+    "MexMe",
+    "MexMr",
+    "AexAe",
+    "AexMr",
+    "ExMe",
+    "ExAe",
+    "MrxMr",
+    "ArxMe",
+    "AexAr",
+    "ExMr",
+    "ArxMr",
+    "ExE",
+    "ExAr",
+    "ArxAr"
+   ],
+   "configs": {
+    "mean_only": {
+     "terms": [],
+     "dCE": 0.0437,
+     "SE": 0.00223
+    },
+    "all_terms": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": 0.0,
+     "SE": 0.0
+    },
+    "only_AexMe": {
+     "terms": [
+      "AexMe"
+     ],
+     "dCE": 0.027,
+     "SE": 0.00175
+    },
+    "only_MexMe": {
+     "terms": [
+      "MexMe"
+     ],
+     "dCE": 0.0278,
+     "SE": 0.00179
+    },
+    "only_MexMr": {
+     "terms": [
+      "MexMr"
+     ],
+     "dCE": 0.0314,
+     "SE": 0.0019
+    },
+    "only_AexAe": {
+     "terms": [
+      "AexAe"
+     ],
+     "dCE": 0.037,
+     "SE": 0.00205
+    },
+    "only_AexMr": {
+     "terms": [
+      "AexMr"
+     ],
+     "dCE": 0.0361,
+     "SE": 0.00203
+    },
+    "only_ExMe": {
+     "terms": [
+      "ExMe"
+     ],
+     "dCE": 0.0378,
+     "SE": 0.00205
+    },
+    "top2_energy": {
+     "terms": [
+      "AexMe",
+      "MexMe"
+     ],
+     "dCE": 0.0149,
+     "SE": 0.00133
+    },
+    "top3_energy": {
+     "terms": [
+      "AexMe",
+      "MexMe",
+      "MexMr"
+     ],
+     "dCE": 0.0089,
+     "SE": 0.00106
+    },
+    "top4_energy": {
+     "terms": [
+      "AexMe",
+      "MexMe",
+      "MexMr",
+      "AexAe"
+     ],
+     "dCE": 0.0057,
+     "SE": 0.00087
+    },
+    "top5_energy": {
+     "terms": [
+      "AexMe",
+      "MexMe",
+      "MexMr",
+      "AexAe",
+      "AexMr"
+     ],
+     "dCE": 0.0035,
+     "SE": 0.00072
+    },
+    "top6_energy": {
+     "terms": [
+      "AexMe",
+      "MexMe",
+      "MexMr",
+      "AexAe",
+      "AexMr",
+      "ExMe"
+     ],
+     "dCE": 0.0017,
+     "SE": 0.00053
+    },
+    "allbut_AexMe": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": 0.0036,
+     "SE": 0.00063
+    },
+    "allbut_MexMe": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": 0.0041,
+     "SE": 0.00057
+    },
+    "allbut_MexMr": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MrxMr"
+     ],
+     "dCE": 0.0023,
+     "SE": 0.00042
+    },
+    "diagonal": {
+     "terms": [
+      "ExE",
+      "AexAe",
+      "ArxAr",
+      "MexMe",
+      "MrxMr"
+     ],
+     "dCE": 0.0195,
+     "SE": 0.00149
+    },
+    "cross": {
+     "terms": [
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxMe",
+      "ArxMr",
+      "MexMr"
+     ],
+     "dCE": 0.0067,
+     "SE": 0.00081
+    },
+    "top1_energy": {
+     "terms": [
+      "AexMe"
+     ],
+     "dCE": 0.027,
+     "SE": 0.00175
+    }
+   },
+   "floor_dCE": 0.0437,
+   "floor_SE": 0.00223,
+   "floor_prior_ref": 0.04367,
+   "floor_matches_prior": true,
+   "terms_to_95pct": 6,
+   "sufficient_terms": [
+    "AexMe",
+    "MexMe",
+    "MexMr",
+    "AexAe",
+    "AexMr",
+    "ExMe"
+   ],
+   "groups_absent": [],
+   "groups_candidate_dead_by_energy": [],
+   "groups_dead_causal": []
+  },
+  "13": {
+   "gate": {
+    "recon_rel_err_global": 1.0014189837446176e-06,
+    "recon_rel_err_max_pos": 2.4072962787613505e-06,
+    "group_sum_rel_err_max": 2.0091543717626337e-07,
+    "mean_consistency": 1.7687800379917462e-07,
+    "pass": true
+   },
+   "group_msq_share_of_xpre": {
+    "E": 0.0061,
+    "Ae": 0.3307,
+    "Ar": 0.0047,
+    "Me": 0.1591,
+    "Mr": 0.0191
+   },
+   "energy_shares": {
+    "ExE": 0.0017,
+    "ExAe": 0.0106,
+    "ExAr": 0.0008,
+    "ExMe": 0.021,
+    "ExMr": 0.0038,
+    "AexAe": 0.037,
+    "AexAr": 0.0069,
+    "AexMe": 0.1287,
+    "AexMr": 0.0238,
+    "ArxAr": 0.0009,
+    "ArxMe": 0.0099,
+    "ArxMr": 0.0019,
+    "MexMe": 0.1294,
+    "MexMr": 0.0568,
+    "MrxMr": 0.0056
+   },
+   "energy_rank": [
+    "MexMe",
+    "AexMe",
+    "MexMr",
+    "AexAe",
+    "AexMr",
+    "ExMe",
+    "ExAe",
+    "ArxMe",
+    "AexAr",
+    "MrxMr",
+    "ExMr",
+    "ArxMr",
+    "ExE",
+    "ArxAr",
+    "ExAr"
+   ],
+   "configs": {
+    "mean_only": {
+     "terms": [],
+     "dCE": 0.0396,
+     "SE": 0.00218
+    },
+    "all_terms": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": -0.0,
+     "SE": 0.0
+    },
+    "only_MexMe": {
+     "terms": [
+      "MexMe"
+     ],
+     "dCE": 0.0233,
+     "SE": 0.00169
+    },
+    "only_AexMe": {
+     "terms": [
+      "AexMe"
+     ],
+     "dCE": 0.025,
+     "SE": 0.00171
+    },
+    "only_MexMr": {
+     "terms": [
+      "MexMr"
+     ],
+     "dCE": 0.0288,
+     "SE": 0.00189
+    },
+    "only_AexAe": {
+     "terms": [
+      "AexAe"
+     ],
+     "dCE": 0.0344,
+     "SE": 0.002
+    },
+    "only_AexMr": {
+     "terms": [
+      "AexMr"
+     ],
+     "dCE": 0.0344,
+     "SE": 0.00202
+    },
+    "only_ExMe": {
+     "terms": [
+      "ExMe"
+     ],
+     "dCE": 0.0332,
+     "SE": 0.00199
+    },
+    "top2_energy": {
+     "terms": [
+      "MexMe",
+      "AexMe"
+     ],
+     "dCE": 0.0126,
+     "SE": 0.00123
+    },
+    "top3_energy": {
+     "terms": [
+      "MexMe",
+      "AexMe",
+      "MexMr"
+     ],
+     "dCE": 0.0074,
+     "SE": 0.001
+    },
+    "top4_energy": {
+     "terms": [
+      "MexMe",
+      "AexMe",
+      "MexMr",
+      "AexAe"
+     ],
+     "dCE": 0.0053,
+     "SE": 0.00083
+    },
+    "top5_energy": {
+     "terms": [
+      "MexMe",
+      "AexMe",
+      "MexMr",
+      "AexAe",
+      "AexMr"
+     ],
+     "dCE": 0.0043,
+     "SE": 0.00071
+    },
+    "top6_energy": {
+     "terms": [
+      "MexMe",
+      "AexMe",
+      "MexMr",
+      "AexAe",
+      "AexMr",
+      "ExMe"
+     ],
+     "dCE": 0.0022,
+     "SE": 0.00052
+    },
+    "allbut_MexMe": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": 0.0043,
+     "SE": 0.00064
+    },
+    "allbut_AexMe": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": 0.0029,
+     "SE": 0.00063
+    },
+    "allbut_MexMr": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MrxMr"
+     ],
+     "dCE": 0.0024,
+     "SE": 0.0004
+    },
+    "diagonal": {
+     "terms": [
+      "ExE",
+      "AexAe",
+      "ArxAr",
+      "MexMe",
+      "MrxMr"
+     ],
+     "dCE": 0.0163,
+     "SE": 0.0014
+    },
+    "cross": {
+     "terms": [
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxMe",
+      "ArxMr",
+      "MexMr"
+     ],
+     "dCE": 0.0063,
+     "SE": 0.00084
+    },
+    "top1_energy": {
+     "terms": [
+      "MexMe"
+     ],
+     "dCE": 0.0233,
+     "SE": 0.00169
+    },
+    "top8_energy": {
+     "terms": [
+      "MexMe",
+      "AexMe",
+      "MexMr",
+      "AexAe",
+      "AexMr",
+      "ExMe",
+      "ExAe",
+      "ArxMe"
+     ],
+     "dCE": 0.001,
+     "SE": 0.00035
+    }
+   },
+   "floor_dCE": 0.0396,
+   "floor_SE": 0.00218,
+   "floor_prior_ref": 0.03961,
+   "floor_matches_prior": true,
+   "terms_to_95pct": 8,
+   "sufficient_terms": [
+    "MexMe",
+    "AexMe",
+    "MexMr",
+    "AexAe",
+    "AexMr",
+    "ExMe",
+    "ExAe",
+    "ArxMe"
+   ],
+   "groups_absent": [],
+   "groups_candidate_dead_by_energy": [],
+   "groups_dead_causal": []
+  },
+  "14": {
+   "gate": {
+    "recon_rel_err_global": 1.0563163643945717e-06,
+    "recon_rel_err_max_pos": 1.9633273495855974e-06,
+    "group_sum_rel_err_max": 2.341959799423421e-07,
+    "mean_consistency": 2.1447722531320323e-07,
+    "pass": true
+   },
+   "group_msq_share_of_xpre": {
+    "E": 0.0062,
+    "Ae": 0.2978,
+    "Ar": 0.0049,
+    "Me": 0.1981,
+    "Mr": 0.0205
+   },
+   "energy_shares": {
+    "ExE": 0.0013,
+    "ExAe": 0.0099,
+    "ExAr": 0.0007,
+    "ExMe": 0.022,
+    "ExMr": 0.0038,
+    "AexAe": 0.0466,
+    "AexAr": 0.0081,
+    "AexMe": 0.1366,
+    "AexMr": 0.0254,
+    "ArxAr": 0.001,
+    "ArxMe": 0.0097,
+    "ArxMr": 0.0017,
+    "MexMe": 0.1655,
+    "MexMr": 0.0607,
+    "MrxMr": 0.0057
+   },
+   "energy_rank": [
+    "MexMe",
+    "AexMe",
+    "MexMr",
+    "AexAe",
+    "AexMr",
+    "ExMe",
+    "ExAe",
+    "ArxMe",
+    "AexAr",
+    "MrxMr",
+    "ExMr",
+    "ArxMr",
+    "ExE",
+    "ArxAr",
+    "ExAr"
+   ],
+   "configs": {
+    "mean_only": {
+     "terms": [],
+     "dCE": 0.03,
+     "SE": 0.00194
+    },
+    "all_terms": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": 0.0,
+     "SE": 0.0
+    },
+    "only_MexMe": {
+     "terms": [
+      "MexMe"
+     ],
+     "dCE": 0.0169,
+     "SE": 0.00145
+    },
+    "only_AexMe": {
+     "terms": [
+      "AexMe"
+     ],
+     "dCE": 0.0194,
+     "SE": 0.00152
+    },
+    "only_MexMr": {
+     "terms": [
+      "MexMr"
+     ],
+     "dCE": 0.0221,
+     "SE": 0.00168
+    },
+    "only_AexAe": {
+     "terms": [
+      "AexAe"
+     ],
+     "dCE": 0.0263,
+     "SE": 0.00181
+    },
+    "only_AexMr": {
+     "terms": [
+      "AexMr"
+     ],
+     "dCE": 0.0263,
+     "SE": 0.00182
+    },
+    "only_ExMe": {
+     "terms": [
+      "ExMe"
+     ],
+     "dCE": 0.025,
+     "SE": 0.00177
+    },
+    "top2_energy": {
+     "terms": [
+      "MexMe",
+      "AexMe"
+     ],
+     "dCE": 0.0099,
+     "SE": 0.00106
+    },
+    "top3_energy": {
+     "terms": [
+      "MexMe",
+      "AexMe",
+      "MexMr"
+     ],
+     "dCE": 0.0064,
+     "SE": 0.00086
+    },
+    "top4_energy": {
+     "terms": [
+      "MexMe",
+      "AexMe",
+      "MexMr",
+      "AexAe"
+     ],
+     "dCE": 0.0048,
+     "SE": 0.00071
+    },
+    "top5_energy": {
+     "terms": [
+      "MexMe",
+      "AexMe",
+      "MexMr",
+      "AexAe",
+      "AexMr"
+     ],
+     "dCE": 0.0038,
+     "SE": 0.00063
+    },
+    "top6_energy": {
+     "terms": [
+      "MexMe",
+      "AexMe",
+      "MexMr",
+      "AexAe",
+      "AexMr",
+      "ExMe"
+     ],
+     "dCE": 0.0022,
+     "SE": 0.00046
+    },
+    "allbut_MexMe": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": 0.0032,
+     "SE": 0.00064
+    },
+    "allbut_AexMe": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": 0.0018,
+     "SE": 0.00059
+    },
+    "allbut_MexMr": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MrxMr"
+     ],
+     "dCE": 0.0014,
+     "SE": 0.00038
+    },
+    "diagonal": {
+     "terms": [
+      "ExE",
+      "AexAe",
+      "ArxAr",
+      "MexMe",
+      "MrxMr"
+     ],
+     "dCE": 0.0122,
+     "SE": 0.00122
+    },
+    "cross": {
+     "terms": [
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxMe",
+      "ArxMr",
+      "MexMr"
+     ],
+     "dCE": 0.0048,
+     "SE": 0.00081
+    },
+    "top1_energy": {
+     "terms": [
+      "MexMe"
+     ],
+     "dCE": 0.0169,
+     "SE": 0.00145
+    },
+    "top8_energy": {
+     "terms": [
+      "MexMe",
+      "AexMe",
+      "MexMr",
+      "AexAe",
+      "AexMr",
+      "ExMe",
+      "ExAe",
+      "ArxMe"
+     ],
+     "dCE": 0.0013,
+     "SE": 0.00034
+    }
+   },
+   "floor_dCE": 0.03,
+   "floor_SE": 0.00194,
+   "floor_prior_ref": 0.02995,
+   "floor_matches_prior": true,
+   "terms_to_95pct": 8,
+   "sufficient_terms": [
+    "MexMe",
+    "AexMe",
+    "MexMr",
+    "AexAe",
+    "AexMr",
+    "ExMe",
+    "ExAe",
+    "ArxMe"
+   ],
+   "groups_absent": [],
+   "groups_candidate_dead_by_energy": [],
+   "groups_dead_causal": []
+  },
+  "15": {
+   "gate": {
+    "recon_rel_err_global": 5.765323327808104e-07,
+    "recon_rel_err_max_pos": 1.0978334330502548e-06,
+    "group_sum_rel_err_max": 2.532235896524071e-07,
+    "mean_consistency": 1.2548876782148e-07,
+    "pass": true
+   },
+   "group_msq_share_of_xpre": {
+    "E": 0.0071,
+    "Ae": 0.3012,
+    "Ar": 0.0021,
+    "Me": 0.2714,
+    "Mr": 0.0167
+   },
+   "energy_shares": {
+    "ExE": 0.0014,
+    "ExAe": 0.0104,
+    "ExAr": 0.0002,
+    "ExMe": 0.0275,
+    "ExMr": 0.0029,
+    "AexAe": 0.0523,
+    "AexAr": 0.0025,
+    "AexMe": 0.1361,
+    "AexMr": 0.0293,
+    "ArxAr": 0.0001,
+    "ArxMe": 0.0041,
+    "ArxMr": 0.0005,
+    "MexMe": 0.1994,
+    "MexMr": 0.0536,
+    "MrxMr": 0.0042
+   },
+   "energy_rank": [
+    "MexMe",
+    "AexMe",
+    "MexMr",
+    "AexAe",
+    "AexMr",
+    "ExMe",
+    "ExAe",
+    "MrxMr",
+    "ArxMe",
+    "ExMr",
+    "AexAr",
+    "ExE",
+    "ArxMr",
+    "ExAr",
+    "ArxAr"
+   ],
+   "configs": {
+    "mean_only": {
+     "terms": [],
+     "dCE": 0.0394,
+     "SE": 0.00213
+    },
+    "all_terms": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": 0.0,
+     "SE": 0.0
+    },
+    "only_MexMe": {
+     "terms": [
+      "MexMe"
+     ],
+     "dCE": 0.0199,
+     "SE": 0.00149
+    },
+    "only_AexMe": {
+     "terms": [
+      "AexMe"
+     ],
+     "dCE": 0.0253,
+     "SE": 0.00169
+    },
+    "only_MexMr": {
+     "terms": [
+      "MexMr"
+     ],
+     "dCE": 0.0303,
+     "SE": 0.00188
+    },
+    "only_AexAe": {
+     "terms": [
+      "AexAe"
+     ],
+     "dCE": 0.04,
+     "SE": 0.00215
+    },
+    "only_AexMr": {
+     "terms": [
+      "AexMr"
+     ],
+     "dCE": 0.0331,
+     "SE": 0.00195
+    },
+    "only_ExMe": {
+     "terms": [
+      "ExMe"
+     ],
+     "dCE": 0.0321,
+     "SE": 0.00192
+    },
+    "top2_energy": {
+     "terms": [
+      "MexMe",
+      "AexMe"
+     ],
+     "dCE": 0.0107,
+     "SE": 0.00109
+    },
+    "top3_energy": {
+     "terms": [
+      "MexMe",
+      "AexMe",
+      "MexMr"
+     ],
+     "dCE": 0.0064,
+     "SE": 0.00086
+    },
+    "top4_energy": {
+     "terms": [
+      "MexMe",
+      "AexMe",
+      "MexMr",
+      "AexAe"
+     ],
+     "dCE": 0.0059,
+     "SE": 0.00077
+    },
+    "top5_energy": {
+     "terms": [
+      "MexMe",
+      "AexMe",
+      "MexMr",
+      "AexAe",
+      "AexMr"
+     ],
+     "dCE": 0.0033,
+     "SE": 0.00059
+    },
+    "top6_energy": {
+     "terms": [
+      "MexMe",
+      "AexMe",
+      "MexMr",
+      "AexAe",
+      "AexMr",
+      "ExMe"
+     ],
+     "dCE": 0.0011,
+     "SE": 0.00037
+    },
+    "allbut_MexMe": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": 0.0057,
+     "SE": 0.0008
+    },
+    "allbut_AexMe": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": 0.0046,
+     "SE": 0.00069
+    },
+    "allbut_MexMr": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MrxMr"
+     ],
+     "dCE": 0.0021,
+     "SE": 0.00043
+    },
+    "diagonal": {
+     "terms": [
+      "ExE",
+      "AexAe",
+      "ArxAr",
+      "MexMe",
+      "MrxMr"
+     ],
+     "dCE": 0.0188,
+     "SE": 0.00141
+    },
+    "cross": {
+     "terms": [
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxMe",
+      "ArxMr",
+      "MexMr"
+     ],
+     "dCE": 0.007,
+     "SE": 0.00094
+    },
+    "top1_energy": {
+     "terms": [
+      "MexMe"
+     ],
+     "dCE": 0.0199,
+     "SE": 0.00149
+    },
+    "drop_Ar_involving": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexMe",
+      "AexMr",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": 0.0003,
+     "SE": 0.00019
+    }
+   },
+   "floor_dCE": 0.0394,
+   "floor_SE": 0.00213,
+   "floor_prior_ref": 0.03944,
+   "floor_matches_prior": true,
+   "terms_to_95pct": 6,
+   "sufficient_terms": [
+    "MexMe",
+    "AexMe",
+    "MexMr",
+    "AexAe",
+    "AexMr",
+    "ExMe"
+   ],
+   "groups_absent": [],
+   "groups_candidate_dead_by_energy": [
+    "Ar"
+   ],
+   "groups_dead_causal": [
+    "Ar"
+   ]
+  },
+  "16": {
+   "gate": {
+    "recon_rel_err_global": 4.79830045378238e-07,
+    "recon_rel_err_max_pos": 1.537972138976329e-06,
+    "group_sum_rel_err_max": 3.2407504590992176e-07,
+    "mean_consistency": 1.3852562119609502e-07,
+    "pass": true
+   },
+   "group_msq_share_of_xpre": {
+    "E": 0.008,
+    "Ae": 0.3099,
+    "Ar": 0.0025,
+    "Me": 0.3098,
+    "Mr": 0.0714
+   },
+   "energy_shares": {
+    "ExE": 0.0003,
+    "ExAe": 0.0062,
+    "ExAr": 0.0,
+    "ExMe": 0.0118,
+    "ExMr": 0.0025,
+    "AexAe": 0.0483,
+    "AexAr": 0.0007,
+    "AexMe": 0.1377,
+    "AexMr": 0.061,
+    "ArxAr": 0.0,
+    "ArxMe": 0.0007,
+    "ArxMr": 0.0003,
+    "MexMe": 0.1422,
+    "MexMr": 0.0602,
+    "MrxMr": 0.0147
+   },
+   "energy_rank": [
+    "MexMe",
+    "AexMe",
+    "AexMr",
+    "MexMr",
+    "AexAe",
+    "MrxMr",
+    "ExMe",
+    "ExAe",
+    "ExMr",
+    "ArxMe",
+    "AexAr",
+    "ArxMr",
+    "ExE",
+    "ExAr",
+    "ArxAr"
+   ],
+   "configs": {
+    "mean_only": {
+     "terms": [],
+     "dCE": 0.1478,
+     "SE": 0.00497
+    },
+    "all_terms": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": -0.0,
+     "SE": 0.0
+    },
+    "only_MexMe": {
+     "terms": [
+      "MexMe"
+     ],
+     "dCE": 0.0663,
+     "SE": 0.00305
+    },
+    "only_AexMe": {
+     "terms": [
+      "AexMe"
+     ],
+     "dCE": 0.0636,
+     "SE": 0.0029
+    },
+    "only_AexMr": {
+     "terms": [
+      "AexMr"
+     ],
+     "dCE": 0.0968,
+     "SE": 0.00365
+    },
+    "only_MexMr": {
+     "terms": [
+      "MexMr"
+     ],
+     "dCE": 0.1634,
+     "SE": 0.00554
+    },
+    "only_AexAe": {
+     "terms": [
+      "AexAe"
+     ],
+     "dCE": 0.1765,
+     "SE": 0.00594
+    },
+    "only_MrxMr": {
+     "terms": [
+      "MrxMr"
+     ],
+     "dCE": 0.2034,
+     "SE": 0.00654
+    },
+    "top2_energy": {
+     "terms": [
+      "MexMe",
+      "AexMe"
+     ],
+     "dCE": 0.0327,
+     "SE": 0.00197
+    },
+    "top3_energy": {
+     "terms": [
+      "MexMe",
+      "AexMe",
+      "AexMr"
+     ],
+     "dCE": 0.0365,
+     "SE": 0.00195
+    },
+    "top4_energy": {
+     "terms": [
+      "MexMe",
+      "AexMe",
+      "AexMr",
+      "MexMr"
+     ],
+     "dCE": 0.0204,
+     "SE": 0.00149
+    },
+    "top5_energy": {
+     "terms": [
+      "MexMe",
+      "AexMe",
+      "AexMr",
+      "MexMr",
+      "AexAe"
+     ],
+     "dCE": 0.0075,
+     "SE": 0.00084
+    },
+    "top6_energy": {
+     "terms": [
+      "MexMe",
+      "AexMe",
+      "AexMr",
+      "MexMr",
+      "AexAe",
+      "MrxMr"
+     ],
+     "dCE": 0.0045,
+     "SE": 0.00073
+    },
+    "allbut_MexMe": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": 0.0199,
+     "SE": 0.00161
+    },
+    "allbut_AexMe": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": 0.0301,
+     "SE": 0.00213
+    },
+    "allbut_AexMr": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": 0.0203,
+     "SE": 0.00183
+    },
+    "diagonal": {
+     "terms": [
+      "ExE",
+      "AexAe",
+      "ArxAr",
+      "MexMe",
+      "MrxMr"
+     ],
+     "dCE": 0.1232,
+     "SE": 0.00526
+    },
+    "cross": {
+     "terms": [
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxMe",
+      "ArxMr",
+      "MexMr"
+     ],
+     "dCE": 0.0246,
+     "SE": 0.00178
+    },
+    "top1_energy": {
+     "terms": [
+      "MexMe"
+     ],
+     "dCE": 0.0663,
+     "SE": 0.00305
+    },
+    "drop_Ar_involving": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexMe",
+      "AexMr",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": 0.0001,
+     "SE": 0.00019
+    }
+   },
+   "floor_dCE": 0.1478,
+   "floor_SE": 0.00497,
+   "floor_prior_ref": 0.14781,
+   "floor_matches_prior": true,
+   "terms_to_95pct": 6,
+   "sufficient_terms": [
+    "MexMe",
+    "AexMe",
+    "AexMr",
+    "MexMr",
+    "AexAe",
+    "MrxMr"
+   ],
+   "groups_absent": [],
+   "groups_candidate_dead_by_energy": [
+    "Ar"
+   ],
+   "groups_dead_causal": [
+    "Ar"
+   ]
+  },
+  "17": {
+   "gate": {
+    "recon_rel_err_global": 7.049056995624683e-07,
+    "recon_rel_err_max_pos": 4.183281362202251e-06,
+    "group_sum_rel_err_max": 3.3223520290448505e-07,
+    "mean_consistency": 2.3302968088501075e-07,
+    "pass": true
+   },
+   "group_msq_share_of_xpre": {
+    "E": 0.0068,
+    "Ae": 0.2413,
+    "Ar": 0.0131,
+    "Me": 0.3043,
+    "Mr": 0.3008
+   },
+   "energy_shares": {
+    "ExE": 0.0001,
+    "ExAe": 0.0098,
+    "ExAr": 0.0001,
+    "ExMe": 0.0094,
+    "ExMr": 0.0085,
+    "AexAe": 0.0945,
+    "AexAr": 0.0305,
+    "AexMe": 0.311,
+    "AexMr": 0.3489,
+    "ArxAr": 0.0002,
+    "ArxMe": 0.01,
+    "ArxMr": 0.0225,
+    "MexMe": 0.1868,
+    "MexMr": 0.2794,
+    "MrxMr": 0.2239
+   },
+   "energy_rank": [
+    "AexMr",
+    "AexMe",
+    "MexMr",
+    "MrxMr",
+    "MexMe",
+    "AexAe",
+    "AexAr",
+    "ArxMr",
+    "ArxMe",
+    "ExAe",
+    "ExMe",
+    "ExMr",
+    "ArxAr",
+    "ExAr",
+    "ExE"
+   ],
+   "configs": {
+    "mean_only": {
+     "terms": [],
+     "dCE": 0.4206,
+     "SE": 0.00869
+    },
+    "all_terms": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": -0.0,
+     "SE": 0.0
+    },
+    "only_AexMr": {
+     "terms": [
+      "AexMr"
+     ],
+     "dCE": 0.3546,
+     "SE": 0.00819
+    },
+    "only_AexMe": {
+     "terms": [
+      "AexMe"
+     ],
+     "dCE": 0.2099,
+     "SE": 0.00544
+    },
+    "only_MexMr": {
+     "terms": [
+      "MexMr"
+     ],
+     "dCE": 0.6456,
+     "SE": 0.01166
+    },
+    "only_MrxMr": {
+     "terms": [
+      "MrxMr"
+     ],
+     "dCE": 0.6201,
+     "SE": 0.0105
+    },
+    "only_MexMe": {
+     "terms": [
+      "MexMe"
+     ],
+     "dCE": 0.2327,
+     "SE": 0.00619
+    },
+    "only_AexAe": {
+     "terms": [
+      "AexAe"
+     ],
+     "dCE": 0.485,
+     "SE": 0.00946
+    },
+    "top2_energy": {
+     "terms": [
+      "AexMr",
+      "AexMe"
+     ],
+     "dCE": 0.2023,
+     "SE": 0.00561
+    },
+    "top3_energy": {
+     "terms": [
+      "AexMr",
+      "AexMe",
+      "MexMr"
+     ],
+     "dCE": 0.1641,
+     "SE": 0.00499
+    },
+    "top4_energy": {
+     "terms": [
+      "AexMr",
+      "AexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": 0.2493,
+     "SE": 0.00687
+    },
+    "top5_energy": {
+     "terms": [
+      "AexMr",
+      "AexMe",
+      "MexMr",
+      "MrxMr",
+      "MexMe"
+     ],
+     "dCE": 0.1152,
+     "SE": 0.0046
+    },
+    "top6_energy": {
+     "terms": [
+      "AexMr",
+      "AexMe",
+      "MexMr",
+      "MrxMr",
+      "MexMe",
+      "AexAe"
+     ],
+     "dCE": 0.03,
+     "SE": 0.00189
+    },
+    "allbut_AexMr": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": 0.1479,
+     "SE": 0.00483
+    },
+    "allbut_AexMe": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MexMr",
+      "MrxMr"
+     ],
+     "dCE": 0.1839,
+     "SE": 0.00527
+    },
+    "allbut_MexMr": {
+     "terms": [
+      "ExE",
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAe",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxAr",
+      "ArxMe",
+      "ArxMr",
+      "MexMe",
+      "MrxMr"
+     ],
+     "dCE": 0.0992,
+     "SE": 0.00337
+    },
+    "diagonal": {
+     "terms": [
+      "ExE",
+      "AexAe",
+      "ArxAr",
+      "MexMe",
+      "MrxMr"
+     ],
+     "dCE": 0.43,
+     "SE": 0.00874
+    },
+    "cross": {
+     "terms": [
+      "ExAe",
+      "ExAr",
+      "ExMe",
+      "ExMr",
+      "AexAr",
+      "AexMe",
+      "AexMr",
+      "ArxMe",
+      "ArxMr",
+      "MexMr"
+     ],
+     "dCE": 0.1243,
+     "SE": 0.00406
+    },
+    "top1_energy": {
+     "terms": [
+      "AexMr"
+     ],
+     "dCE": 0.3546,
+     "SE": 0.00819
+    },
+    "top8_energy": {
+     "terms": [
+      "AexMr",
+      "AexMe",
+      "MexMr",
+      "MrxMr",
+      "MexMe",
+      "AexAe",
+      "AexAr",
+      "ArxMr"
+     ],
+     "dCE": 0.0264,
+     "SE": 0.00177
+    },
+    "top10_energy": {
+     "terms": [
+      "AexMr",
+      "AexMe",
+      "MexMr",
+      "MrxMr",
+      "MexMe",
+      "AexAe",
+      "AexAr",
+      "ArxMr",
+      "ArxMe",
+      "ExAe"
+     ],
+     "dCE": 0.0133,
+     "SE": 0.00113
+    }
+   },
+   "floor_dCE": 0.4206,
+   "floor_SE": 0.00869,
+   "floor_prior_ref": 0.42062,
+   "floor_matches_prior": true,
+   "terms_to_95pct": 10,
+   "sufficient_terms": [
+    "AexMr",
+    "AexMe",
+    "MexMr",
+    "MrxMr",
+    "MexMe",
+    "AexAe",
+    "AexAr",
+    "ArxMr",
+    "ArxMe",
+    "ExAe"
+   ],
+   "groups_absent": [],
+   "groups_candidate_dead_by_energy": [],
+   "groups_dead_causal": []
+  }
+ },
+ "synthesis": {
+  "per_layer_table": [
+   {
+    "layer": 0,
+    "floor": 1.2341,
+    "floor_SE": 0.01267,
+    "prior": 1.23409,
+    "match": true,
+    "gate": 5.687879708002495e-07,
+    "n95": 2,
+    "sufficient": [
+     "ExE",
+     "ExAr"
+    ],
+    "diag_dCE": 0.0771,
+    "cross_dCE": 0.2825,
+    "absent": [
+     "Ae",
+     "Me",
+     "Mr"
+    ],
+    "dead_causal": [],
+    "top1": "ExE",
+    "top1_share": 0.657,
+    "group_msq": {
+     "E": 0.5855,
+     "Ae": 0.0,
+     "Ar": 0.5154,
+     "Me": 0.0,
+     "Mr": 0.0
+    }
+   },
+   {
+    "layer": 1,
+    "floor": 5.5744,
+    "floor_SE": 0.0323,
+    "prior": 5.57437,
+    "match": true,
+    "gate": 9.827156651701747e-07,
+    "n95": 3,
+    "sufficient": [
+     "ArxMr",
+     "ArxAr",
+     "MrxMr"
+    ],
+    "diag_dCE": 0.5254,
+    "cross_dCE": 0.0442,
+    "absent": [
+     "Ae",
+     "Me"
+    ],
+    "dead_causal": [],
+    "top1": "ArxMr",
+    "top1_share": 0.2212,
+    "group_msq": {
+     "E": 0.0156,
+     "Ae": 0.0,
+     "Ar": 0.5931,
+     "Me": 0.0,
+     "Mr": 0.0838
+    }
+   },
+   {
+    "layer": 2,
+    "floor": 0.739,
+    "floor_SE": 0.00934,
+    "prior": 0.73902,
+    "match": true,
+    "gate": 7.331584077740673e-07,
+    "n95": 2,
+    "sufficient": [
+     "MrxMr",
+     "ArxMr"
+    ],
+    "diag_dCE": 0.0602,
+    "cross_dCE": 0.0388,
+    "absent": [],
+    "dead_causal": [],
+    "top1": "MrxMr",
+    "top1_share": 0.2727,
+    "group_msq": {
+     "E": 0.0035,
+     "Ae": 0.0586,
+     "Ar": 0.1973,
+     "Me": 0.0083,
+     "Mr": 0.3628
+    }
+   },
+   {
+    "layer": 3,
+    "floor": 0.6163,
+    "floor_SE": 0.00842,
+    "prior": 0.61627,
+    "match": true,
+    "gate": 6.342147475931355e-07,
+    "n95": 4,
+    "sufficient": [
+     "MrxMr",
+     "ArxMr",
+     "MexMr",
+     "ArxAr"
+    ],
+    "diag_dCE": 0.1337,
+    "cross_dCE": 0.017,
+    "absent": [],
+    "dead_causal": [
+     "E"
+    ],
+    "top1": "MrxMr",
+    "top1_share": 0.0986,
+    "group_msq": {
+     "E": 0.0019,
+     "Ae": 0.0775,
+     "Ar": 0.1446,
+     "Me": 0.0911,
+     "Mr": 0.2705
+    }
+   },
+   {
+    "layer": 4,
+    "floor": 0.1481,
+    "floor_SE": 0.00414,
+    "prior": 0.14808,
+    "match": true,
+    "gate": 6.091231809301331e-07,
+    "n95": 5,
+    "sufficient": [
+     "ArxMr",
+     "MrxMr",
+     "ArxAr",
+     "MexMr",
+     "ArxMe"
+    ],
+    "diag_dCE": 0.0573,
+    "cross_dCE": 0.0113,
+    "absent": [],
+    "dead_causal": [
+     "E"
+    ],
+    "top1": "ArxMr",
+    "top1_share": 0.1107,
+    "group_msq": {
+     "E": 0.0009,
+     "Ae": 0.0441,
+     "Ar": 0.2232,
+     "Me": 0.0715,
+     "Mr": 0.2083
+    }
+   },
+   {
+    "layer": 5,
+    "floor": 0.0928,
+    "floor_SE": 0.00329,
+    "prior": 0.09278,
+    "match": true,
+    "gate": 1.0440844288272032e-06,
+    "n95": 8,
+    "sufficient": [
+     "ArxMr",
+     "ArxMe",
+     "ArxAr",
+     "MexMr",
+     "AexAr",
+     "MrxMr",
+     "MexMe",
+     "AexMr"
+    ],
+    "diag_dCE": 0.053,
+    "cross_dCE": 0.0101,
+    "absent": [],
+    "dead_causal": [],
+    "top1": "ArxMr",
+    "top1_share": 0.0911,
+    "group_msq": {
+     "E": 0.0006,
+     "Ae": 0.0083,
+     "Ar": 0.7259,
+     "Me": 0.009,
+     "Mr": 0.0219
+    }
+   },
+   {
+    "layer": 6,
+    "floor": 0.0832,
+    "floor_SE": 0.00302,
+    "prior": 0.08319,
+    "match": true,
+    "gate": 1.2346468568091781e-06,
+    "n95": 10,
+    "sufficient": [
+     "AexMr",
+     "MrxMr",
+     "MexMr",
+     "ArxMr",
+     "AexMe",
+     "AexAr",
+     "ArxMe",
+     "AexAe",
+     "ArxAr",
+     "MexMe"
+    ],
+    "diag_dCE": 0.0479,
+    "cross_dCE": 0.0089,
+    "absent": [],
+    "dead_causal": [],
+    "top1": "AexMr",
+    "top1_share": 0.0672,
+    "group_msq": {
+     "E": 0.0014,
+     "Ae": 0.2487,
+     "Ar": 0.1215,
+     "Me": 0.0129,
+     "Mr": 0.0255
+    }
+   },
+   {
+    "layer": 7,
+    "floor": 0.0601,
+    "floor_SE": 0.00256,
+    "prior": 0.06008,
+    "match": true,
+    "gate": 1.594658179392561e-06,
+    "n95": 12,
+    "sufficient": [
+     "MexMr",
+     "AexMe",
+     "AexMr",
+     "AexAr",
+     "ArxMe",
+     "ArxMr",
+     "MrxMr",
+     "MexMe",
+     "AexAe",
+     "ArxAr",
+     "ExMe",
+     "ExMr"
+    ],
+    "diag_dCE": 0.0354,
+    "cross_dCE": 0.0053,
+    "absent": [],
+    "dead_causal": [],
+    "top1": "MexMr",
+    "top1_share": 0.0561,
+    "group_msq": {
+     "E": 0.0031,
+     "Ae": 0.3376,
+     "Ar": 0.0407,
+     "Me": 0.0246,
+     "Mr": 0.0235
+    }
+   },
+   {
+    "layer": 8,
+    "floor": 0.0511,
+    "floor_SE": 0.00242,
+    "prior": 0.05114,
+    "match": true,
+    "gate": 1.443533218246695e-06,
+    "n95": 10,
+    "sufficient": [
+     "AexMe",
+     "MexMr",
+     "AexMr",
+     "MexMe",
+     "AexAe",
+     "MrxMr",
+     "AexAr",
+     "ExMe",
+     "ArxMe",
+     "ExAe"
+    ],
+    "diag_dCE": 0.026,
+    "cross_dCE": 0.0058,
+    "absent": [],
+    "dead_causal": [],
+    "top1": "AexMe",
+    "top1_share": 0.0769,
+    "group_msq": {
+     "E": 0.0048,
+     "Ae": 0.4814,
+     "Ar": 0.0061,
+     "Me": 0.0654,
+     "Mr": 0.0163
+    }
+   },
+   {
+    "layer": 9,
+    "floor": 0.0563,
+    "floor_SE": 0.00248,
+    "prior": 0.05627,
+    "match": true,
+    "gate": 1.1734752217969342e-06,
+    "n95": 10,
+    "sufficient": [
+     "AexMe",
+     "MexMr",
+     "MexMe",
+     "ArxMe",
+     "AexAr",
+     "AexMr",
+     "AexAe",
+     "ExMe",
+     "ArxMr",
+     "MrxMr"
+    ],
+    "diag_dCE": 0.0311,
+    "cross_dCE": 0.0044,
+    "absent": [],
+    "dead_causal": [],
+    "top1": "AexMe",
+    "top1_share": 0.0594,
+    "group_msq": {
+     "E": 0.0053,
+     "Ae": 0.3364,
+     "Ar": 0.0359,
+     "Me": 0.0732,
+     "Mr": 0.0136
+    }
+   },
+   {
+    "layer": 10,
+    "floor": 0.0465,
+    "floor_SE": 0.00228,
+    "prior": 0.04652,
+    "match": true,
+    "gate": 1.3281579751508517e-06,
+    "n95": 10,
+    "sufficient": [
+     "AexMe",
+     "MexMe",
+     "MexMr",
+     "AexMr",
+     "AexAe",
+     "ExMe",
+     "ArxMe",
+     "AexAr",
+     "MrxMr",
+     "ExAe"
+    ],
+    "diag_dCE": 0.0244,
+    "cross_dCE": 0.0051,
+    "absent": [],
+    "dead_causal": [],
+    "top1": "AexMe",
+    "top1_share": 0.0949,
+    "group_msq": {
+     "E": 0.0057,
+     "Ae": 0.3728,
+     "Ar": 0.0143,
+     "Me": 0.0751,
+     "Mr": 0.0194
+    }
+   },
+   {
+    "layer": 11,
+    "floor": 0.0466,
+    "floor_SE": 0.00237,
+    "prior": 0.04663,
+    "match": true,
+    "gate": 9.394300070613986e-07,
+    "n95": 10,
+    "sufficient": [
+     "AexMe",
+     "MexMe",
+     "MexMr",
+     "AexAe",
+     "AexMr",
+     "ArxMe",
+     "AexAr",
+     "ExMe",
+     "ExAe",
+     "MrxMr"
+    ],
+    "diag_dCE": 0.0234,
+    "cross_dCE": 0.0041,
+    "absent": [],
+    "dead_causal": [],
+    "top1": "AexMe",
+    "top1_share": 0.0915,
+    "group_msq": {
+     "E": 0.0061,
+     "Ae": 0.3935,
+     "Ar": 0.0142,
+     "Me": 0.1071,
+     "Mr": 0.0149
+    }
+   },
+   {
+    "layer": 12,
+    "floor": 0.0437,
+    "floor_SE": 0.00223,
+    "prior": 0.04367,
+    "match": true,
+    "gate": 1.0274319096735772e-06,
+    "n95": 6,
+    "sufficient": [
+     "AexMe",
+     "MexMe",
+     "MexMr",
+     "AexAe",
+     "AexMr",
+     "ExMe"
+    ],
+    "diag_dCE": 0.0195,
+    "cross_dCE": 0.0067,
+    "absent": [],
+    "dead_causal": [],
+    "top1": "AexMe",
+    "top1_share": 0.1228,
+    "group_msq": {
+     "E": 0.0059,
+     "Ae": 0.369,
+     "Ar": 0.0034,
+     "Me": 0.1098,
+     "Mr": 0.0262
+    }
+   },
+   {
+    "layer": 13,
+    "floor": 0.0396,
+    "floor_SE": 0.00218,
+    "prior": 0.03961,
+    "match": true,
+    "gate": 1.0014189837446176e-06,
+    "n95": 8,
+    "sufficient": [
+     "MexMe",
+     "AexMe",
+     "MexMr",
+     "AexAe",
+     "AexMr",
+     "ExMe",
+     "ExAe",
+     "ArxMe"
+    ],
+    "diag_dCE": 0.0163,
+    "cross_dCE": 0.0063,
+    "absent": [],
+    "dead_causal": [],
+    "top1": "MexMe",
+    "top1_share": 0.1294,
+    "group_msq": {
+     "E": 0.0061,
+     "Ae": 0.3307,
+     "Ar": 0.0047,
+     "Me": 0.1591,
+     "Mr": 0.0191
+    }
+   },
+   {
+    "layer": 14,
+    "floor": 0.03,
+    "floor_SE": 0.00194,
+    "prior": 0.02995,
+    "match": true,
+    "gate": 1.0563163643945717e-06,
+    "n95": 8,
+    "sufficient": [
+     "MexMe",
+     "AexMe",
+     "MexMr",
+     "AexAe",
+     "AexMr",
+     "ExMe",
+     "ExAe",
+     "ArxMe"
+    ],
+    "diag_dCE": 0.0122,
+    "cross_dCE": 0.0048,
+    "absent": [],
+    "dead_causal": [],
+    "top1": "MexMe",
+    "top1_share": 0.1655,
+    "group_msq": {
+     "E": 0.0062,
+     "Ae": 0.2978,
+     "Ar": 0.0049,
+     "Me": 0.1981,
+     "Mr": 0.0205
+    }
+   },
+   {
+    "layer": 15,
+    "floor": 0.0394,
+    "floor_SE": 0.00213,
+    "prior": 0.03944,
+    "match": true,
+    "gate": 5.765323327808104e-07,
+    "n95": 6,
+    "sufficient": [
+     "MexMe",
+     "AexMe",
+     "MexMr",
+     "AexAe",
+     "AexMr",
+     "ExMe"
+    ],
+    "diag_dCE": 0.0188,
+    "cross_dCE": 0.007,
+    "absent": [],
+    "dead_causal": [
+     "Ar"
+    ],
+    "top1": "MexMe",
+    "top1_share": 0.1994,
+    "group_msq": {
+     "E": 0.0071,
+     "Ae": 0.3012,
+     "Ar": 0.0021,
+     "Me": 0.2714,
+     "Mr": 0.0167
+    }
+   },
+   {
+    "layer": 16,
+    "floor": 0.1478,
+    "floor_SE": 0.00497,
+    "prior": 0.14781,
+    "match": true,
+    "gate": 4.79830045378238e-07,
+    "n95": 6,
+    "sufficient": [
+     "MexMe",
+     "AexMe",
+     "AexMr",
+     "MexMr",
+     "AexAe",
+     "MrxMr"
+    ],
+    "diag_dCE": 0.1232,
+    "cross_dCE": 0.0246,
+    "absent": [],
+    "dead_causal": [
+     "Ar"
+    ],
+    "top1": "MexMe",
+    "top1_share": 0.1422,
+    "group_msq": {
+     "E": 0.008,
+     "Ae": 0.3099,
+     "Ar": 0.0025,
+     "Me": 0.3098,
+     "Mr": 0.0714
+    }
+   },
+   {
+    "layer": 17,
+    "floor": 0.4206,
+    "floor_SE": 0.00869,
+    "prior": 0.42062,
+    "match": true,
+    "gate": 7.049056995624683e-07,
+    "n95": 10,
+    "sufficient": [
+     "AexMr",
+     "AexMe",
+     "MexMr",
+     "MrxMr",
+     "MexMe",
+     "AexAe",
+     "AexAr",
+     "ArxMr",
+     "ArxMe",
+     "ExAe"
+    ],
+    "diag_dCE": 0.43,
+    "cross_dCE": 0.1243,
+    "absent": [],
+    "dead_causal": [],
+    "top1": "AexMr",
+    "top1_share": 0.3489,
+    "group_msq": {
+     "E": 0.0068,
+     "Ae": 0.2413,
+     "Ar": 0.0131,
+     "Me": 0.3043,
+     "Mr": 0.3008
+    }
+   }
+  ],
+  "n95_profile": [
+   2,
+   3,
+   2,
+   4,
+   5,
+   8,
+   10,
+   12,
+   10,
+   10,
+   10,
+   10,
+   6,
+   8,
+   8,
+   6,
+   6,
+   10
+  ],
+  "flow_energy_share_by_layer": {
+   "ExE": [
+    0.657,
+    0.0217,
+    0.0,
+    0.0,
+    0.0,
+    0.0001,
+    0.0007,
+    0.0026,
+    0.0026,
+    0.0022,
+    0.0024,
+    0.0016,
+    0.0015,
+    0.0017,
+    0.0013,
+    0.0014,
+    0.0003,
+    0.0001
+   ],
+   "ExAe": [
+    0.0,
+    0.0,
+    0.0001,
+    0.0002,
+    0.0001,
+    0.0008,
+    0.0072,
+    0.0121,
+    0.015,
+    0.0102,
+    0.0138,
+    0.0102,
+    0.0108,
+    0.0106,
+    0.0099,
+    0.0104,
+    0.0062,
+    0.0098
+   ],
+   "ExAr": [
+    0.5442,
+    0.073,
+    0.0023,
+    0.0006,
+    0.0005,
+    0.0052,
+    0.0058,
+    0.0099,
+    0.0031,
+    0.0064,
+    0.0026,
+    0.0027,
+    0.0006,
+    0.0008,
+    0.0007,
+    0.0002,
+    0.0,
+    0.0001
+   ],
+   "ExMe": [
+    0.0,
+    0.0,
+    0.0001,
+    0.0005,
+    0.0002,
+    0.0023,
+    0.0071,
+    0.0144,
+    0.0168,
+    0.018,
+    0.0211,
+    0.0173,
+    0.0192,
+    0.021,
+    0.022,
+    0.0275,
+    0.0118,
+    0.0094
+   ],
+   "ExMr": [
+    0.0,
+    0.1026,
+    0.006,
+    0.0013,
+    0.0005,
+    0.0023,
+    0.0084,
+    0.0123,
+    0.0114,
+    0.0074,
+    0.0083,
+    0.0048,
+    0.0048,
+    0.0038,
+    0.0038,
+    0.0029,
+    0.0025,
+    0.0085
+   ],
+   "AexAe": [
+    0.0,
+    0.0,
+    0.0002,
+    0.0022,
+    0.0016,
+    0.0043,
+    0.0302,
+    0.0231,
+    0.0401,
+    0.0216,
+    0.037,
+    0.0297,
+    0.0422,
+    0.037,
+    0.0466,
+    0.0523,
+    0.0483,
+    0.0945
+   ],
+   "AexAr": [
+    0.0,
+    0.0,
+    0.0062,
+    0.0171,
+    0.0208,
+    0.0367,
+    0.0422,
+    0.0421,
+    0.0179,
+    0.0285,
+    0.0157,
+    0.0216,
+    0.0055,
+    0.0069,
+    0.0081,
+    0.0025,
+    0.0007,
+    0.0305
+   ],
+   "AexMe": [
+    0.0,
+    0.0,
+    0.0002,
+    0.0063,
+    0.0055,
+    0.013,
+    0.0469,
+    0.0466,
+    0.0769,
+    0.0594,
+    0.0949,
+    0.0915,
+    0.1228,
+    0.1287,
+    0.1366,
+    0.1361,
+    0.1377,
+    0.311
+   ],
+   "AexMr": [
+    0.0,
+    0.0,
+    0.0091,
+    0.0239,
+    0.0167,
+    0.0185,
+    0.0672,
+    0.0443,
+    0.0582,
+    0.0275,
+    0.0396,
+    0.0257,
+    0.0317,
+    0.0238,
+    0.0254,
+    0.0293,
+    0.061,
+    0.3489
+   ],
+   "ArxAr": [
+    0.2495,
+    0.1233,
+    0.0717,
+    0.0418,
+    0.0697,
+    0.0893,
+    0.0295,
+    0.0218,
+    0.0074,
+    0.0122,
+    0.0018,
+    0.0057,
+    0.0003,
+    0.0009,
+    0.001,
+    0.0001,
+    0.0,
+    0.0002
+   ],
+   "ArxMe": [
+    0.0,
+    0.0,
+    0.0029,
+    0.0259,
+    0.0356,
+    0.0906,
+    0.0339,
+    0.0373,
+    0.015,
+    0.039,
+    0.0171,
+    0.0239,
+    0.0063,
+    0.0099,
+    0.0097,
+    0.0041,
+    0.0007,
+    0.01
+   ],
+   "ArxMr": [
+    0.0,
+    0.2212,
+    0.2308,
+    0.0978,
+    0.1107,
+    0.0911,
+    0.0478,
+    0.0358,
+    0.0115,
+    0.0178,
+    0.0074,
+    0.0071,
+    0.0018,
+    0.0019,
+    0.0017,
+    0.0005,
+    0.0003,
+    0.0225
+   ],
+   "MexMe": [
+    0.0,
+    0.0,
+    0.0,
+    0.0083,
+    0.0085,
+    0.0189,
+    0.0232,
+    0.0263,
+    0.0416,
+    0.0521,
+    0.0707,
+    0.0753,
+    0.1021,
+    0.1294,
+    0.1655,
+    0.1994,
+    0.1422,
+    0.1868
+   ],
+   "MexMr": [
+    0.0,
+    0.0,
+    0.0068,
+    0.0688,
+    0.0552,
+    0.0482,
+    0.0627,
+    0.0561,
+    0.0688,
+    0.0542,
+    0.0675,
+    0.0509,
+    0.0585,
+    0.0568,
+    0.0607,
+    0.0536,
+    0.0602,
+    0.2794
+   ],
+   "MrxMr": [
+    0.0,
+    0.1091,
+    0.2727,
+    0.0986,
+    0.0758,
+    0.0307,
+    0.063,
+    0.0307,
+    0.0277,
+    0.0135,
+    0.014,
+    0.0075,
+    0.0079,
+    0.0056,
+    0.0057,
+    0.0042,
+    0.0147,
+    0.2239
+   ]
+  },
+  "notes": "diag/cross fractions in per_layer_table; group involvement derivable from energy_shares"
+ }
+}
