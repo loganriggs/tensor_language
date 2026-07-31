@@ -7390,3 +7390,17 @@ existing steering methods, not a new method class, so in-scope and launched rath
   downstream 9-10 with the control-criterion caveat). Copy committed to the repo.
 - RUNNING: arc #2 (mlp.L0 — token-lookup vs bigram-generator vs category-feeder). Queue: mlp.L3 → mid-stack →
   h.L7.0.
+
+## tick 2026-07-31 (§97 committed — mlp.L0 = exact token table + bigram correction; arc #3 dispatched)
+- §97 (arc #2): feed-forward block 0 is a CURRENT-TOKEN FEATURE-TABLE LOOKUP — exact (variance by current
+  token = 1.000000 analytically once the gauge is removed; 0.953 empirical, shuffled control 0.044) — plus a
+  (current × attended-previous) BIGRAM correction (pair 0.861 vs current-alone 0.706, frequent-pairs coverage
+  caveat). 100% mediated (direct path −0.0000); blocks 1-3 consume 98.3%; ablation erases 74-82% of the
+  category-code gain → THE CATEGORY ENGINE'S INPUT STAGE. Concrete: (" Blue",",")→dialogue verbs;
+  ("9",".")→list starters. Agent caught its own broadcasting bug pre-claims (impossible variance ratios) and
+  added a shuffled-label control. Combined §96+§97 early-stack story: block 0 manufactures token/bigram
+  features → blocks 1-3 iteratively square them into the category code. Committed (trailer typo amended).
+- ARC #3 dispatched (a39f28b225577a59f, qk_arc_mlp3.py): block 3 — the pipeline's presumptive TERMINAL stage.
+  Is its output the finished category code consumed model-wide (vs feeding another square)? Category-probe
+  contribution vs blocks 0-2; what the attention-mixer term adds; concrete examples. Queue after: mid-stack
+  band, h.L7.0.
