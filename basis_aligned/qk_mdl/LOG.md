@@ -7024,3 +7024,14 @@ existing steering methods, not a new method class, so in-scope and launched rath
   instances for every new phenomenon) to memory.
 - STATE: the SAE/completeness mega-thread (§71-§81) is fully closed and 2-model-general at every claim.
   Program at terminal capstone; remaining directions are scope decisions.
+
+## tick 2026-07-31 (final consolidation: §81 into the artifact — all surfaces synchronized)
+- Updated the artifact SAE card with §81: the decoupling is architecture-general (swiglu hub — reconstruction
+  0.85, 22/32 nameable incl six pure " the" features + an "and" feature at 34×, 0/32 load-bearing, ~10% vs ~2%
+  degree-difference) and the purest control form (reconstruction carries 98.7% of the layer's causal function
+  yet is unattributable — causally sufficient as a whole, unattributable in parts). Same URL, one redeploy.
+- ALL SURFACES NOW SYNCHRONIZED on §71-§81: RESULTS, TECHNIQUES, ROADMAP, paper (abstract + body), artifact.
+  The program is at its complete, defended capstone: four-ledger sweep, ten-detector toolbox, discovered-
+  circuit arcs + editing demo, coverage ceiling, and an architecture-general completeness boundary with the
+  SAE rejoinder run to ground. The handed-off open problem is attribution of JOINT/collective computation —
+  no current tool (directions, dictionaries at any fidelity) attributes the hubs' causal mechanism.
