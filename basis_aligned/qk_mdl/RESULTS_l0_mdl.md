@@ -4586,3 +4586,33 @@ single dictionary features (§78-81), and searched COALITIONS up to 512 features
 families (§82). The handed-off open problem is at its sharpest form: the hub's computation is HOLISTIC, not
 modular at any granularity current tools can express; attributing it requires an idea beyond grouping —
 something that captures the mean/whole-component structure where the causal mass actually lives.
+
+## §83 The hub's holistic computation is a REDUNDANT CODE — sufficiency without necessity, quantified (2026-07-31)
+(qk_hub_threshold.py, run directly; the §82 follow-up characterizing the SHAPE of the MLP1 hub's collective
+effect. Two sweeps on held-back FW[448:600], global delta cross-entropy vs the full model, paired standard
+errors; per-position mean, forward verbatim from the established lineage.)
+- **(A) AMPLITUDE sweep — extraordinary robustness to attenuation.** Scale the hub's deviation-from-mean by
+  alpha: keeping only HALF the amplitude (alpha 0.5) costs just **+0.069 ± 0.003 nats — 1.2% of the full
+  5.574-nat effect**; alpha 0.75 costs +0.007 (0.13%); even QUARTER amplitude (alpha 0.25) retains 63% of
+  function (+2.046 = 37% lost); only at full removal (alpha 0) does the whole 5.574 appear. The signal
+  survives strong scaling — the downstream layers renormalize it.
+- **(B) DIMENSION sweep — the signal is spread holographically.** Remove the deviation's projection onto a
+  RANDOM d-dimensional subspace: deleting **half of all 1152 dimensions costs only +0.095 ± 0.003 (1.7%)**;
+  deleting 75% costs +0.879 (16%); the model only breaks past ~90% deletion (+4.200 = 75%), reaching 5.574 at
+  100%. ANY random half of the dimensions carries essentially the full function.
+- **The mechanistic explanation of §74-§82, stated plainly:** the hub's output is a **redundant distributed
+  code** — amplitude-robust and dimension-redundant, like an error-correcting code. Any sparse part (a
+  feature, a coalition, half the amplitude, half the dimensions) is causally INVISIBLE to removal because the
+  remaining complement still carries essentially the whole signal. **Sufficiency without necessity:** every
+  large fragment is sufficient; no small fragment is necessary. This is WHY attribution-by-deletion — single
+  directions (§74), dictionary features (§78-81), searched coalitions (§82) — returns ~0-2% everywhere: the
+  method measures NECESSITY, and a redundant code has none below the ~75-90% deletion threshold.
+- **Reframing the open problem (sharper than "holistic"):** attribution-by-ablation is structurally blind to
+  redundant codes — its floor is set by the code's redundancy margin, not by the analyst's skill or the
+  dictionary's fidelity. Explaining the hub requires SUFFICIENCY-based tools (what does a fragment carry when
+  kept alone / how is the message encoded) rather than necessity-based deletion — the concrete methodological
+  handoff of the whole program.
+**KEY:** "irreducibly distributed / holistic" is now a MEASURED CODING PROPERTY: half the amplitude or any
+random half of the dimensions suffices (≤1.7% loss); breakdown only past ~75-90% removal. The hub does not
+hide its computation — it repeats it everywhere, which is precisely what makes every deletion-based tool
+report nothing.
