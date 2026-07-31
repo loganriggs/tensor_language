@@ -4637,3 +4637,29 @@ directions (train-gram basis), delete the complement; held-back FW[448:600], pai
 (40× better than random-144). What §74-§83 established is that the structure is invisible to NECESSITY-based
 tools; the SUFFICIENCY hierarchy Logan proposed recovers it immediately. Attribution should be sufficiency-
 first on this class of component.
+
+## §85 The COMPUTATION is hierarchically compressible — the hub's map restricted to (in-288 × out-144) keeps ~97% (2026-07-31)
+(qk_hub_maprestrict.py, run directly; completes Logan's question at the COMPUTATION level — §84 was the output
+representation only. Restrict the MLP1 MAP itself: input side to the top-K directions of the pre-norm residual
+it reads (train-gram basis), output side to the §84 top-144 subspace; mo' = mlp(rms(mean_x + P_inK(x−mean_x))),
+optionally out-projected. Held-back FW[448:600], paired standard errors, full-model baseline.)
+- **The map's INPUT side is compactly hierarchical too:** reading only the top-288 of 1152 input directions
+  (25%) costs +0.050 ± 0.003 nats — **0.9% of the hub's 5.574-nat function**; top-144 costs 3.0%; top-576
+  costs 0.17%. Random-288 input costs 11.2% (+0.622) — the input SVD hierarchy beats random ~12×.
+- **JOINT map restriction — the computation compresses ~128-fold with ~3% loss.** The hub's map confined to
+  (input top-288 × output top-144) — a 288→144 bilinear map instead of 1152→1152 — retains **96.7% of causal
+  function** (+0.182 ± 0.005); (in-576 × out-144) retains 98.0%. The implied core is ~144×288×288 ≈ 12M
+  coefficients versus the full ~1.5B — two orders of magnitude smaller — at 3% causal cost. (Mild interaction
+  between the two restrictions: joint 0.182 > in-alone 0.050 + out-alone 0.084, consistent with the redundant
+  code using the full retained bandwidth.)
+- **The completed three-level picture of the hub (answers Logan's hierarchy question at every level):**
+  (1) COMPUTATION: compactly hierarchical — mean + a (288-in × 144-out) restriction of the exact bilinear map
+  carries ~97% (this section). (2) REPRESENTATION: output compactly sufficient in 144 principal directions
+  (§84). (3) CODE within that compact map: redundant — sufficiency without necessity (§83), which is why
+  deletion-based attribution (§74-82) read ~0 everywhere. The hub is a COMPACT map carrying a REDUNDANT code:
+  compressible and substitutable as a whole, hierarchically structured, yet necessity-unattributable in parts.
+**KEY:** Logan's "mean + hierarchical decomposition of the computation" is vindicated in full: the hub's map
+compresses ~128× (in-288 × out-144) at 3% causal cost, with the SVD hierarchies beating random 12-40× on both
+sides. The prior "irreducibly distributed" claims stand ONLY for necessity-attribution of parts; the
+computation itself is orderly, compact, and hierarchical — the redundancy lives inside a small, structured
+subspace, not in an amorphous whole.
