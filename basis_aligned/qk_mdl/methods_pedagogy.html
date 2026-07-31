@@ -123,6 +123,7 @@ steering the model — method 9 rises to the top tier.)</p>
 <tr><td>9</td><td><a href="#m9">Editing: dials vs transplants</a></td><td rowspan="2">valuable, but downstream</td><td>converts understanding into control (the two-sided law); consumes the other methods' outputs — ranks far higher under the control criterion</td></tr>
 <tr><td>10</td><td><a href="#m10">The certified restricted-core proxy</a></td><td>fixes future candidate-ranking efficiency; no headline finding depends on it</td></tr>
 </table>
+<p style="font-size:13px;opacity:.85"><em>Added after the ranking:</em> method 11 (freeze-patch mediation) — mid-tier: it produced the flow map, and its own red-team control (generic-compensation) is the textbook case of why every method here ships with a breaking case.</p>
 <p><strong>The dependency spine in one line:</strong> method 1 verifies everything; fold → sufficiency → terms
 (ranks 2, 3, 4) is the critical path that produced the distinctive results; ranks 5, 6, and 8 are the
 correctives that kept the picture honest. The entries below are ordered pedagogically (simple to advanced),
@@ -669,3 +670,39 @@ with each tagged by its rank.</p>
 <p class="legend" style="margin-top:2.5rem">Sources: RESULTS_l0_mdl.md (§12q, §32–§33, §56–§95), TECHNIQUES_unsup_discovery.md, METHODS.md, PLAN_per_layer.md, qk_prior_examples.json, qk_hub_streampairs.json, qk_edit_terms.json, qk_arc_caps.json; text snippets decoded directly from the held-back FineWeb token slice (sequences 448–599). Draft for content review; visual polish deferred.</p>
 
 </div>
+
+<h2 id="m11">11. Freeze-patch mediation — who consumes a component's output? <span style="font-size:12px;opacity:.65;font-weight:400">(importance rank: mid-tier — enabled the flow map, but only with its control)</span></h2>
+<p><strong>(a) Intuition.</strong> To learn where a component's output <em>goes</em>, ablate it and then freeze a
+candidate downstream consumer to its clean (un-ablated) value. If the damage largely disappears, the ablated
+component's influence was routed through that consumer. Sweeping the frozen block over depth yields a flow
+map: which stages feed the next stage, and which write output directly.</p>
+<p><strong>(b) Toy model.</strong> Let block A compute a = x, block B compute b = a·a (it squares A's output),
+and the loss read only b. Ablate A (set a to its mean 0): the loss collapses. Now freeze B to its clean value
+b_clean: the loss is fully restored — 100 percent of A's damage is "rescued," correctly showing B is A's
+consumer. <em>The assumption breaks</em> when B is <em>compensatory</em> rather than a pure router: let
+b = a + r, where r is a redundant copy of the same signal. Ablating A costs little (r covers it) — but now
+inject a <em>random</em> perturbation into a and freeze B clean: the rescue is again large, even though B has
+no special relationship to the perturbation. A big freeze-rescue by itself does not prove routing; it can
+mean the downstream stage absorbs <em>any</em> deviation. The mandatory control: measure the same
+freeze-rescue for a matched-norm random perturbation, and quote the <em>excess</em> of the real rescue over
+the generic one.</p>
+<div style="border:1px solid #c9a54044;background:#c9a54011;border-radius:8px;padding:10px 14px;margin:10px 0;font-size:14px">
+<strong>Assumptions.</strong> (1) Freezing is first-order — the frozen block is inconsistent with the ablated
+stream, so fractions need not sum to one. (2) A large rescue is only evidence of routing <em>relative to the
+generic-compensation control</em>. (3) Upstream freezes must rescue exactly nothing (causal sanity gate).</div>
+<p><strong>(d) Real implementation.</strong> The depth-first flow map of bilin18 (results sections 96, 98, 99,
+101; scripts qk_arc_square_2.py, qk_cascade_end.py, qk_redteam_arcs.py). Freezing block 3 clean removes 84
+percent of block 2's ablation damage, and freezing block 4 removes 83 percent of block 3's — but the
+circularity control found matched random perturbations get 66-to-68-percent rescues, so the chain-specific
+excess is seventeen-to-twenty points early, shrinking to six by block 5. The corrected reading: preferential
+next-block consumption inside a broadly compensatory stack. Upstream-freeze controls were exactly zero.</p>
+<p><strong>(e) Real text example.</strong> Block 4's strongest deviation fires on <mark class="fire"> but</mark>
+after a concessive clause — held-back snippet: <em>"...Graphics ideas are still welcome,<mark class="fire"> but</mark>"</em> —
+and pushes word-class probability at that position; yet its direct write to the readout carries only 6.8
+percent of the push. Ninety-four percent of what this block does at that comma-but juncture reaches the loss
+only through later blocks' squares — the fingerprint of a cascade-region component, versus block 14's
+comma-inside-numbers deviation whose direct write is the whole story.</p>
+<p style="font-size:13px;opacity:.8"><em>Related upgrade to method 2:</em> the sufficiency family gained a new
+member in this series — the <strong>token-conditional-mean substitute</strong>: replace a whole block's output
+with "the average output for this current token." For block 0 this lookup-table surrogate recovers 85.5
+percent of the block's causal function, converting a variance identity into a causal sufficiency statement.</p>
