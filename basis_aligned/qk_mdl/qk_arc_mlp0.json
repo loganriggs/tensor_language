@@ -1,0 +1,659 @@
+{
+ "meta": {
+  "model": "bilin18",
+  "held": "FW[448:600,:128]",
+  "batch": 6,
+  "layer": 0,
+  "machinery": "term construction / polarization / per-position means / keep-drop harness VERBATIM qk_allterm_census.py (5 groups, 15 terms; Ae/Me/Mr identically zero at layer 0); class library VERBATIM qk_unsup_classpush.py (lex1/VOCAB_CLASS); variance method = section-86 within-group vs total (qk_hub_streampairs_2.py)",
+  "gate": "reconstruction gated at 1e-5 (measured below) before all causal numbers",
+  "currency": "delta cross-entropy per valid held position (nats), paired standard error; class-summed delta-logit (base - term-dropped)",
+  "base_ce": 3.4946
+ },
+ "gate": {
+  "recon_rel_err_global": 5.687879708002495e-07,
+  "mean_consistency": 1.4713312168623816e-07,
+  "pass": true
+ },
+ "H1_token_lookup": {
+  "exe_current_token_R2": 0.9533,
+  "n_tokens_ge5": 548,
+  "n_covered_positions": 12165,
+  "n_total_positions": 19456,
+  "shuffled_label_control_R2": 0.0441,
+  "numerator_gauge_removed_R2": 1.0,
+  "analytic_note": "at layer 0, E = (lambda0+lambda1)*x0 is EXACTLY a function of the current token; the ExE numerator is token-determined by construction, so all residual variance in the ExE term comes from the shared 1/rho^2 gauge scalar (context-dependent normalization), verified by the numerator R^2",
+  "contrast_arar_current_token_R2": 0.3815
+ },
+ "H2_bigram": {
+  "min_count_5": {
+   "pair_R2": 0.8612,
+   "pair_R2_shuffled_control": 0.0812,
+   "current_alone_R2_same_subset": 0.7057,
+   "previous_alone_R2_same_subset": 0.4643,
+   "pair_minus_current_incremental_R2": 0.1555,
+   "n_pairs": 185,
+   "n_covered_positions": 2148,
+   "n_eligible_positions": 18784,
+   "coverage_of_eligible": 0.1144
+  },
+  "min_count_3": {
+   "pair_R2": 0.883,
+   "pair_R2_shuffled_control": 0.1762,
+   "current_alone_R2_same_subset": 0.6872,
+   "previous_alone_R2_same_subset": 0.4728,
+   "pair_minus_current_incremental_R2": 0.1959,
+   "n_pairs": 616,
+   "n_covered_positions": 3555,
+   "n_eligible_positions": 18784,
+   "coverage_of_eligible": 0.1893
+  },
+  "current_alone_R2_own_subset_ge5": 0.581,
+  "previous_alone_R2_own_subset_ge5": 0.1852
+ },
+ "class_signatures": {
+  "ExE": {
+   "drop_one_dCE": 0.1115,
+   "drop_one_SE": 0.00374,
+   "census_allbut_dCE": 0.1115,
+   "census_match": true,
+   "fire": {
+    "pushed_class": "capital",
+    "pushed_val": 1166.9241,
+    "concentration": 0.4091,
+    "top8": {
+     "capital": 1166.9241,
+     "subword": 1166.4305,
+     "word": 318.9539,
+     "other": 89.5585,
+     "special": 47.9195,
+     "pronoun": -22.122,
+     "determiner": -19.8015,
+     "coordinator": -8.0903
+    },
+    "n": 200
+   },
+   "all_valid": {
+    "pushed_class": "word",
+    "pushed_val": -587.3267,
+    "concentration": 0.4074,
+    "top8": {
+     "word": -587.3267,
+     "capital": -497.8486,
+     "subword": 140.2249,
+     "digit": -88.5562,
+     "punct": -60.2753,
+     "pronoun": -18.9853,
+     "determiner": -15.7061,
+     "other": 13.3817
+    },
+    "n": 19304
+   }
+  },
+  "ExAr": {
+   "drop_one_dCE": 0.0771,
+   "drop_one_SE": 0.00319,
+   "census_allbut_dCE": 0.0771,
+   "census_match": true,
+   "fire": {
+    "pushed_class": "capital",
+    "pushed_val": 1046.0504,
+    "concentration": 0.3667,
+    "top8": {
+     "capital": 1046.0504,
+     "subword": 1037.5192,
+     "word": 497.8471,
+     "other": 87.7249,
+     "digit": 64.6261,
+     "special": 39.8102,
+     "punct": 36.4649,
+     "pronoun": -17.0099
+    },
+    "n": 200
+   },
+   "all_valid": {
+    "pushed_class": "word",
+    "pushed_val": -494.0733,
+    "concentration": 0.6746,
+    "top8": {
+     "word": -494.0733,
+     "subword": -87.8444,
+     "capital": -65.6625,
+     "digit": -29.8332,
+     "punct": -22.7769,
+     "pronoun": -9.0073,
+     "determiner": -6.4523,
+     "other": 5.881
+    },
+    "n": 19304
+   }
+  },
+  "ArxAr": {
+   "drop_one_dCE": 0.026,
+   "drop_one_SE": 0.00183,
+   "census_allbut_dCE": 0.026,
+   "census_match": true,
+   "fire": {
+    "pushed_class": "capital",
+    "pushed_val": 965.8898,
+    "concentration": 0.549,
+    "top8": {
+     "capital": 965.8898,
+     "subword": 364.9267,
+     "word": 205.134,
+     "digit": 102.0851,
+     "other": 46.4128,
+     "punct": 32.8078,
+     "special": 28.9909,
+     "determiner": -4.7673
+    },
+    "n": 200
+   },
+   "all_valid": {
+    "pushed_class": "word",
+    "pushed_val": -154.6911,
+    "concentration": 0.5154,
+    "top8": {
+     "word": -154.6911,
+     "capital": 72.5505,
+     "subword": -49.7454,
+     "punct": -9.7842,
+     "digit": -7.2245,
+     "pronoun": -2.1788,
+     "determiner": -1.0549,
+     "other": 0.9238
+    },
+    "n": 19304
+   }
+  }
+ },
+ "examples": {
+  "token_lookup_ExE": [
+   {
+    "token": ",",
+    "token_id": 11,
+    "n_positions": 628,
+    "top_boosted_tokens": [
+     [
+      "illusion",
+      0.782
+     ],
+     [
+      "prototype",
+      0.768
+     ],
+     [
+      "thumbnails",
+      0.744
+     ],
+     [
+      "fascist",
+      0.735
+     ],
+     [
+      "intent",
+      0.72
+     ],
+     [
+      "FontSize",
+      0.716
+     ],
+     [
+      "itialized",
+      0.715
+     ],
+     [
+      "token",
+      0.709
+     ]
+    ],
+    "top_suppressed_tokens": [
+     [
+      "you",
+      -0.985
+     ],
+     [
+      "that",
+      -0.917
+     ],
+     [
+      "was",
+      -0.886
+     ],
+     [
+      "I",
+      -0.877
+     ]
+    ],
+    "top_class_movement": {
+     "subword": 1098.143,
+     "word": 544.967,
+     "capital": -107.733,
+     "other": 72.212,
+     "digit": -57.862
+    }
+   },
+   {
+    "token": " F",
+    "token_id": 376,
+    "n_positions": 8,
+    "top_boosted_tokens": [
+     [
+      "orns",
+      1.031
+     ],
+     [
+      "enda",
+      1.024
+     ],
+     [
+      " Horizon",
+      0.965
+     ],
+     [
+      " needles",
+      0.937
+     ],
+     [
+      "itz",
+      0.914
+     ],
+     [
+      " needle",
+      0.911
+     ],
+     [
+      " counseling",
+      0.908
+     ],
+     [
+      "jen",
+      0.9
+     ]
+    ],
+    "top_suppressed_tokens": [
+     [
+      " DD",
+      -0.782
+     ],
+     [
+      " MO",
+      -0.761
+     ],
+     [
+      "afa",
+      -0.747
+     ],
+     [
+      " DA",
+      -0.735
+     ]
+    ],
+    "top_class_movement": {
+     "word": 3058.409,
+     "subword": 1122.766,
+     "capital": 1070.625,
+     "punct": 59.408,
+     "other": 54.216
+    }
+   },
+   {
+    "token": " D",
+    "token_id": 360,
+    "n_positions": 10,
+    "top_boosted_tokens": [
+     [
+      " JACK",
+      1.522
+     ],
+     [
+      " Jack",
+      1.402
+     ],
+     [
+      " Balanced",
+      1.399
+     ],
+     [
+      " CHRIST",
+      1.368
+     ],
+     [
+      " stereo",
+      1.324
+     ],
+     [
+      " Kend",
+      1.275
+     ],
+     [
+      " cancellation",
+      1.251
+     ],
+     [
+      " mono",
+      1.24
+     ]
+    ],
+    "top_suppressed_tokens": [
+     [
+      "ouses",
+      -1.635
+     ],
+     [
+      " u",
+      -1.611
+     ],
+     [
+      "ices",
+      -1.582
+     ],
+     [
+      "oes",
+      -1.531
+     ]
+    ],
+    "top_class_movement": {
+     "subword": -1832.886,
+     "capital": 1033.756,
+     "word": -613.44,
+     "punct": -109.277,
+     "digit": 84.543
+    }
+   }
+  ],
+  "bigram_ExAr": [
+   {
+    "seq": 106,
+    "pos": 98,
+    "previous_token": " Blue",
+    "current_token": ",",
+    "context_snippet": " of this damned war. His commanding officer, Blue,",
+    "actual_next_token": " had",
+    "exar_deviation_norm": 69714.82,
+    "top_boosted_tokens": [
+     [
+      " scoff",
+      1.35
+     ],
+     [
+      " sob",
+      1.245
+     ],
+     [
+      " glared",
+      1.242
+     ],
+     [
+      " sighed",
+      1.154
+     ],
+     [
+      " Malfoy",
+      1.154
+     ],
+     [
+      " nodded",
+      1.095
+     ],
+     [
+      " smir",
+      1.078
+     ],
+     [
+      "'s",
+      1.056
+     ]
+    ],
+    "top_suppressed_tokens": [
+     [
+      " Whilst",
+      -2.12
+     ],
+     [
+      " additionally",
+      -2.075
+     ],
+     [
+      " acquiring",
+      -2.074
+     ],
+     [
+      " thru",
+      -2.063
+     ]
+    ],
+    "top_class_movement": {
+     "word": -7026.139,
+     "capital": -5083.864,
+     "subword": -1590.295,
+     "digit": -490.916,
+     "punct": -72.927
+    }
+   },
+   {
+    "seq": 19,
+    "pos": 10,
+    "previous_token": " but",
+    "current_token": " that",
+    "context_snippet": " for me to make all these pizzas, but that",
+    "actual_next_token": "'s",
+    "exar_deviation_norm": 59273.61,
+    "top_boosted_tokens": [
+     [
+      " anytime",
+      1.671
+     ],
+     [
+      " whenever",
+      1.621
+     ],
+     [
+      " projects",
+      1.611
+     ],
+     [
+      " involved",
+      1.547
+     ],
+     [
+      " until",
+      1.527
+     ],
+     [
+      " currently",
+      1.523
+     ],
+     [
+      " financially",
+      1.52
+     ],
+     [
+      " after",
+      1.505
+     ]
+    ],
+    "top_suppressed_tokens": [
+     [
+      " mans",
+      -1.52
+     ],
+     [
+      " whence",
+      -1.358
+     ],
+     [
+      " salty",
+      -1.356
+     ],
+     [
+      " mediocre",
+      -1.334
+     ]
+    ],
+    "top_class_movement": {
+     "capital": 1109.568,
+     "subword": 310.414,
+     "word": 272.22,
+     "punct": -57.201,
+     "digit": -46.915
+    }
+   },
+   {
+    "seq": 93,
+    "pos": 100,
+    "previous_token": "9",
+    "current_token": ".",
+    "context_snippet": " Revenue | and Enhancing Product Line.\n9.",
+    "actual_next_token": " Make",
+    "exar_deviation_norm": 56803.45,
+    "top_boosted_tokens": [
+     [
+      " Laugh",
+      1.53
+     ],
+     [
+      " Dance",
+      1.393
+     ],
+     [
+      " Thou",
+      1.391
+     ],
+     [
+      " Die",
+      1.388
+     ],
+     [
+      " Practices",
+      1.366
+     ],
+     [
+      " underestimate",
+      1.354
+     ],
+     [
+      " Ride",
+      1.327
+     ],
+     [
+      " Pledge",
+      1.309
+     ]
+    ],
+    "top_suppressed_tokens": [
+     [
+      " additionally",
+      -1.851
+     ],
+     [
+      " likewise",
+      -1.781
+     ],
+     [
+      " furthermore",
+      -1.558
+     ],
+     [
+      " particular",
+      -1.529
+     ]
+    ],
+    "top_class_movement": {
+     "capital": 2348.33,
+     "subword": 802.369,
+     "word": -719.86,
+     "digit": -156.924,
+     "other": 104.775
+    }
+   }
+  ]
+ },
+ "H3_downstream": {
+  "method": "mean-ablate mlp.L0 to the per-position decomposition mean; restore the true deviation at the entry of block k with its exact linear propagation coefficient prod lambda0_(1..k-1); restore_1 == no ablation (exactness gate), readout_only == all mediated damage with direct path kept, remove_direct == direct-only damage, ablate == census floor",
+  "direct_path_coefficient_to_readout": 0.0003568002768520047,
+  "lambda0_per_block": [
+   6.0938,
+   0.0127,
+   1.9766,
+   0.5742,
+   0.4629,
+   0.0645,
+   0.4902,
+   0.8125,
+   1.4062,
+   0.9023,
+   0.8789,
+   1.2344,
+   1.0391,
+   0.957,
+   1.0547,
+   1.1875,
+   1.1875,
+   1.0234
+  ],
+  "flow": {
+   "ablate": {
+    "dCE": 1.2341,
+    "SE": 0.01267
+   },
+   "remove_direct": {
+    "dCE": -0.0,
+    "SE": 1e-05
+   },
+   "readout_only": {
+    "dCE": 1.2338,
+    "SE": 0.01267
+   },
+   "restore_at_block_1": {
+    "dCE": -0.0,
+    "SE": 0.0
+   },
+   "restore_at_block_2": {
+    "dCE": 0.4717,
+    "SE": 0.00781
+   },
+   "restore_at_block_3": {
+    "dCE": 1.0756,
+    "SE": 0.01186
+   },
+   "restore_at_block_4": {
+    "dCE": 1.2126,
+    "SE": 0.01258
+   },
+   "restore_at_block_5": {
+    "dCE": 1.2267,
+    "SE": 0.01263
+   },
+   "restore_at_block_6": {
+    "dCE": 1.2305,
+    "SE": 0.01265
+   },
+   "restore_at_block_9": {
+    "dCE": 1.2329,
+    "SE": 0.01266
+   },
+   "restore_at_block_12": {
+    "dCE": 1.2336,
+    "SE": 0.01267
+   },
+   "restore_at_block_15": {
+    "dCE": 1.2337,
+    "SE": 0.01267
+   }
+  },
+  "census_floor_ref": 1.2341,
+  "category_probe": {
+   "majority": 0.4373,
+   "embed_intact": 0.5274,
+   "blk3_intact": 0.6012,
+   "blk3_mlp0_ablated": 0.5464,
+   "blk4_intact": 0.6107,
+   "blk4_mlp0_ablated": 0.542,
+   "ref_category_engine": "qk_category_engine.json (probe machinery source; there blk4 intact 0.6107 vs mlp0-3 all ablated 0.5097, global-mean ablation)",
+   "labels": "6-way next-token category: subword/punct/capital/digit/funcword/other",
+   "train": "FW[0:240:4] x4 seqs",
+   "test": "FW[300:400:4] x4 seqs",
+   "note": "ablation here = mlp.L0 only, per-position mean MEANF (part-1 decomposition mean)"
+  }
+ }
+}

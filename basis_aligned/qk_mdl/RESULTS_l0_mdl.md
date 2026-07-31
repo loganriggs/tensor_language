@@ -5083,3 +5083,37 @@ the diag/cross split is basis-dependent; the top-64 directions carry only 56% of
 dominates causally, so no low-rank pair story can summarize this); necessity numbers are small because parts
 are mutually redundant — the keep-side sufficiency numbers carry the discrimination; the 84% mediation figure
 is the freeze-complement configuration.
+
+## §97 DEPTH-FIRST ARC #2 — feed-forward block 0 is a TOKEN FEATURE-TABLE + BIGRAM CORRECTION feeding the category engine (2026-07-31)
+(qk_arc_mlp0.py / _2.py; the dashboard's top understood-least target, 1.23 nats. Gates: reconstruction 5.7e-7;
+all drop-one numbers reproduce the census to four decimals; floor 1.2341 ± 0.0127 exact. One bug caught BEFORE
+claims — a broadcasting error producing impossible variance ratios (42,000 where ≤1 expected) — fixed, with a
+shuffled-label control added. Held-back FW[448:600], paired standard errors.)
+- **(a) The emb×emb term is a LITERAL LOOKUP TABLE — exactly.** Empirically, current-token identity explains
+  0.953 of its variance (shuffled control 0.044); with the shared normalization gauge removed the number is
+  **1.000000 exactly, analytically** — at layer 0 the embedding stream is a scalar times the current token's
+  normalized embedding, so the numerator is a table indexed by token identity; the residual 4.7% is entirely
+  the context-dependent gauge scalar. The emb×attention term is a **bigram-like correction**: the (previous,
+  current) PAIR explains 0.861 of its variance on covered pairs versus 0.706 for current-alone — a real
+  +0.16-0.20 pair interaction (coverage caveat: frequent pairs only, 11-19% of positions; shuffled control
+  0.081, so 0.86 is an optimistic point estimate).
+- **(b) What the derived features do (concrete, per the rule):** all live terms push CAPITAL + SUBWORD classes
+  at their firing sites while suppressing diffuse generic-word mass overall — token-conditional sharpening.
+  Bigram examples: after **(" Blue", ",")** — a capitalized name + comma in narrative — the product boosts
+  dialogue verbs (" scoff", " sob", " glared", " sighed") and suppresses discourse adverbs; after **("9",
+  ".")** — a numbered-list item — it boosts title-case list-entry starters (" Laugh", " Dance", " Practices");
+  after **(" but", " that")** clause continuations (" anytime", " whenever", " until"). Lookup examples: after
+  **","** the features SUPPRESS space-less "you"/"that"/"was" (illegal after a comma); after bare capitals
+  " F"/" D" they boost name/acronym completions ("orns", "itz"; " JACK", " CHRIST").
+- **(c) Downstream flow — 100% MEDIATED, and it IS the category engine's input stage.** The direct path to the
+  readout carries coefficient 3.6e-4 and removing it costs −0.0000 ± 0.00001; restore-at-block-k localizes the
+  consumers: block 1 alone 38% of the floor, blocks 1-2 87%, blocks 1-3 **98.3%**. The category probe: ablating
+  this one block drops six-way next-category accuracy at block 3 from 0.601 → 0.546 and at block 4 from 0.611 →
+  0.542 (embedding baseline 0.527) — **erasing 74-82% of the category-code gain**.
+**KEY (the algorithm statement):** feed-forward block 0 is a **current-token feature-table lookup — exact up
+to a shared gauge scalar — plus a (current × attended-previous) bigram correction**, whose derived
+capitalization/subword/boundary features are consumed entirely by blocks 1-3 with zero direct readout
+contribution: **the input stage of the category engine.** Combined with §96, the early stack now reads as:
+block 0 manufactures token/bigram features by table lookup → blocks 1-3 iteratively SQUARE them into
+higher-order products (the §96 polynomial feature-factory) → producing the category code the rest of the model
+consumes. Two of the dashboard's top understood-least components now have mechanism statements.
