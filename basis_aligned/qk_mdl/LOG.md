@@ -7305,3 +7305,18 @@ existing steering methods, not a new method class, so in-scope and launched rath
   positions). Force test, suppress test, three controls (random-position donor, mlp-earlier-group swap,
   norm-matched placebo), and a dose curve (graded transplants). Verdict either completes the editing story
   (amplitude cannot re-aim; inputs can) or refutes the pointer. Collect next tick.
+
+## tick 2026-07-31 (§94 lands — the surgical override achieved; the editing story CLOSES)
+- §94 (subagent a133cd03144c073d9): §93b's prediction CONFIRMED with the strongest possible form — the
+  zero-collateral gate passed EXACTLY (max logit change 0.0 over all 18,134 non-edited positions, every run).
+  FORCE +0.0280 ± 0.0032 (9 SE) at not-due positions via boundary-context transplant (2× the amplitude
+  route's gain at 20× less average damage, all confined); SUPPRESS −0.0703 (15 SE); DOSE monotone near-linear.
+  SURPRISE + refinement of §91/§93b: the forceable boundary context lives predominantly in the MLP-EARLIER
+  group (+0.2474, 9× attention-earlier, specificity 10.6×) — attention-earlier's accumulators are near-
+  parallel (cosine 0.879) so their distinguishing component is small. Committed §94.
+- THE EDITING STORY CLOSES AS A TWO-SIDED LAW: amplitude edits scale writes and cannot re-aim conditioning;
+  input edits re-aim it surgically (position-targeted, graded, zero side effects at the last layer). The lever
+  for targeted control is upstream STREAM CONTENT, and the census says which stream.
+- PROGRAM: fully complete including all recorded handoffs that were runnable in-scope. Remaining frontiers
+  (tn_gauge shared structure; sufficiency tools generally; earlier-layer transplants where collateral is not
+  free) are genuine scope decisions. Resting.
