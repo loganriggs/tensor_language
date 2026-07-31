@@ -7070,3 +7070,20 @@ existing steering methods, not a new method class, so in-scope and launched rath
   analysis needed. Committed §83 + paper close.
 - This is the program's explanatory capstone: "irreducibly distributed" is now a measured coding property
   with a mechanism, not a residual mystery label.
+
+## tick 2026-07-31 (Logan's hierarchy/fold questions — §84 run directly + stream-pair fold dispatched)
+- Logan asked: (1) can we replicate mean+epicycles hierarchically; (2) confusion — a pure " the" SAE feature
+  yet "can't replace the part that produces it"? fold in the encoder?; (3) why not fold the bilinear layer's
+  INPUT with what comes before to get a principled split?
+- §84 (ran qk_hub_hierarchy.py myself): the hierarchical view WORKS — keep mean + top-144 SVD directions
+  (12.5% of dims) restores 98.5% of the hub's function (+0.084 of 5.574); top-288 → 99.65%. SVD beats random
+  40× for SUFFICIENCY (random-144 loses 61%). Two-regime picture: compactly sufficient ~144-dim principal
+  hierarchy carrying a redundant code within it. Committed §84.
+- Clarified the " the" confusion: we CAN substitute (the SAE reconstruction carries 99.7% of function; the
+  feature is a working part of that substitute); what fails is NECESSITY attribution (deleting it alone costs
+  ~0 because the code is redundant). Naming + substitution coexist; only deletion-attribution fails. Encoder
+  folding is viable in principle (encoder∘cubic-polynomial = analytic input-side features).
+- Dispatched a871b9b94d9d7ca4e (qk_hub_streampairs.py): Logan's input-fold suggestion — the EXACT stream-pair
+  interaction decomposition of MLP1 (bilinear ⇒ T(x,x) splits exactly into ~10 provenance terms emb×emb,
+  emb×attn0, attn0×attn0, …). Sufficiency-by-provenance + class signatures per term. Is the redundant code
+  structured by INPUT PROVENANCE even though unstructured in learned-feature space? Collect next tick.
