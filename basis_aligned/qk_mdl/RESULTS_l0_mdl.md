@@ -4616,3 +4616,24 @@ errors; per-position mean, forward verbatim from the established lineage.)
 random half of the dimensions suffices (≤1.7% loss); breakdown only past ~75-90% removal. The hub does not
 hide its computation — it repeats it everywhere, which is precisely what makes every deletion-based tool
 report nothing.
+
+## §84 Logan's hierarchical view WORKS — the hub is compactly SUFFICIENT in its principal basis (2026-07-31)
+(qk_hub_hierarchy.py, run directly; answers Logan's "mean + epicycles / hierarchical view" question. KEEP-only
+sufficiency: replace MLP1's output with per-position mean + its deviation PROJECTED onto only the top-K SVD
+directions (train-gram basis), delete the complement; held-back FW[448:600], paired standard errors.)
+- **The SVD hierarchy is compactly sufficient — mean + 144 directions ≈ the full hub.** Keep top-4: +3.24
+  (58% of the 5.574 effect lost). Top-36: +0.730 (13%). **Top-144 (12.5% of the 1152 dims): +0.084 — only
+  1.5% lost.** Top-288: +0.019 (0.35%). Top-576: +0.004. The hierarchy converges fast and gracefully.
+- **SVD ordering MASSIVELY beats random for sufficiency:** keep-random-144 loses 61% (+3.43) where SVD-144
+  loses 1.5% — a 40× difference; keep-random-288 loses 15% vs SVD's 0.35%. (Consistency check: keep-random-576
+  = +0.101 here matches §83's remove-random-half +0.095.)
+- **The two-régime picture, completed:** the hub is (i) compactly SUFFICIENT in a ~144-dimensional principal
+  subspace — "mean + 144 epicycles" is a faithful hierarchical replacement, exactly Logan's suggestion — and
+  (ii) REDUNDANT within that subspace (any random half of the space still works, §83; no small part is
+  necessary, §74-82). So: hierarchical/sufficiency views SUCCEED where deletion/necessity views structurally
+  fail. The right description of the hub is a coarse-to-fine sufficient hierarchy carrying a redundant code —
+  substitutable and compressible (1152→144), yet necessity-unattributable at any granularity.
+**KEY:** the hub is NOT unstructured — mean + top-144 principal directions restores 98.5% of its function
+(40× better than random-144). What §74-§83 established is that the structure is invisible to NECESSITY-based
+tools; the SUFFICIENCY hierarchy Logan proposed recovers it immediately. Attribution should be sufficiency-
+first on this class of component.
