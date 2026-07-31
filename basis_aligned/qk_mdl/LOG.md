@@ -7045,3 +7045,16 @@ existing steering methods, not a new method class, so in-scope and launched rath
   ~28-direction subspace. VERDICT sought: does any ≤128-feature coalition carry ≥25-50% of the hub effect
   (→ attributable at coalition granularity, qualifies §81) or do even coalitions fail (→ the open problem
   hardens: effect only at near-full-set scale)? Bounded budget (~100-200 forwards). Collect next tick.
+
+## tick 2026-07-31 (§82 coalition red-team lands — unattributability hardened at the final granularity)
+- §82 (subagent a3f13eec67bd65b7d): even searched COALITIONS fail. 44 coalitions (sizes 8-512) from five
+  construction families jointly ablated on the high-fidelity dictionary: best 128-feature coalition carries
+  0.64% of the 5.57-nat hub effect (13× above random controls, but minuscule); 512 → 1.40%; all 1011 live
+  features → 2.01%; growth linear/diffuse, no concentration anywhere. Gradient attribution no better than
+  energy ranking (effect strongly nonlinear). Nuances: structured coalitions beat random 3-13× (real but
+  minuscule signal); the SVD-subspace-aligned coalition (0.52%) shows the SAE features do NOT factor the §73
+  causally-sufficient 28-dim subspace — the sufficiency lives in mean/whole-component structure that the
+  per-feature deviation currency does not touch. Committed §82 + paper sentence.
+- FINAL STATE of the capstone claim: "unattributable in parts" now verified at ALL granularities — single
+  directions (§74), single features (§78-81), searched coalitions (§82). The hub's computation is HOLISTIC.
+  The handed-off open problem is at its sharpest and best-characterized form. Program complete.
