@@ -7097,3 +7097,12 @@ existing steering methods, not a new method class, so in-scope and launched rath
   chain; stream-level causal facts like attn0→MLP1 entirely via MLP0, +0.00001 vs +0.568). The fair catch:
   the §74-83 attribution saga used learned/spectral OUTPUT bases only — the architecture-given pairwise-term
   basis never entered the necessity/sufficiency census until his suggestion. The streampairs run corrects it.
+
+## tick 2026-07-31 (§85 run directly — the COMPUTATION compresses; Logan's hierarchy vindicated at map level)
+- Ran qk_hub_maprestrict.py myself while the streampairs agent composes: the hub's MAP restricted to (input
+  top-288 × output top-144) retains 96.7% of its 5.574-nat causal function — a ~128× smaller bilinear core
+  (12M vs 1.5B coefficients) at 3% cost. Input SVD beats random 12× (in-288: 0.9% lost vs random-288: 11.2%).
+  Three-level picture complete: compact hierarchical COMPUTATION (§85) + compact output REPRESENTATION (§84)
+  + redundant CODE within (§83) → explains the §74-82 necessity-blindness. Committed §85.
+- Still in flight: the stream-pair provenance census (agent a871b9b94d9d7ca4e, still writing its script).
+  Collect next tick — it decides whether the compact map's terms are organized by input provenance.
