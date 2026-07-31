@@ -7618,3 +7618,16 @@ existing steering methods, not a new method class, so in-scope and launched rath
   two profiles (strengthened).
 - §102/§103/§104 all now fully red-teamed. Next: paper+artifact compression coda, then scope tn_gauge
   shared-core arc.
+
+## tick 2026-07-31i (two dispatches: paper compression coda + shared-core arc)
+- Docs agent: append "Does the term structure compress? An honest negative" to the paper's cross-layer
+  chapter (post-red-team numbers only: 1.65x/2.8x/1.25x margins, fair-search story, complementary
+  currencies, mechanism, tn_gauge implication); soften the synthesis if it over-promised compression;
+  source line -> §32-§104.
+- Shared-core arc (qk_sharedcore.py): the direction §104 specifies — LAYER-MODE sharing of the folded
+  cores. (1) sharing census: 18x18 Gram of the per-block folded tensors (chunked), layer-mode effective
+  rank at 90/95/99%, cosine structure, function-weighted variant; (2) shared-atom compression: layer-mode
+  rank-k (k shared core tensors + per-block mixing), whole-model substitution at k in {2..16} vs §92 rank
+  allocation at matched budgets, plus the composed scheme (sharing + within-atom rank) at the 16-fold
+  anchor; (3) fallback if atoms don't share globally: region-restricted sharing (early/distributed/readout).
+  Gates: k=18 must reproduce the exact model; §92 anchor; Gram trace checksum two ways.
