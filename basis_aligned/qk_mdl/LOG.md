@@ -7058,3 +7058,15 @@ existing steering methods, not a new method class, so in-scope and launched rath
 - FINAL STATE of the capstone claim: "unattributable in parts" now verified at ALL granularities — single
   directions (§74), single features (§78-81), searched coalitions (§82). The hub's computation is HOLISTIC.
   The handed-off open problem is at its sharpest and best-characterized form. Program complete.
+
+## tick 2026-07-31 (§83 run directly — the hub is a redundant code; the program's explanatory capstone)
+- Ran qk_hub_threshold.py myself (11 forwards, ~6 min): the SHAPE of the hub's collective effect. AMPLITUDE:
+  half the deviation amplitude costs 1.2% of the 5.57-nat effect; quarter amplitude still retains 63%. 
+  DIMENSIONS: deleting any random HALF of the 1152 dims costs 1.7%; 75% → 16%; breakdown only past ~90%.
+  → The hub's output is an amplitude-robust, dimension-redundant DISTRIBUTED CODE (error-correcting-like):
+  sufficiency without necessity. This mechanistically EXPLAINS the whole §74-§82 saga — deletion-based
+  attribution measures necessity, and a redundant code has none below its ~75-90% threshold; the universal
+  ~0-2% readings were a property of the CODE, not the tools. Open problem reframed: sufficiency-based
+  analysis needed. Committed §83 + paper close.
+- This is the program's explanatory capstone: "irreducibly distributed" is now a measured coding property
+  with a mechanism, not a residual mystery label.

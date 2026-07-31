@@ -61,8 +61,14 @@ still finds zero load-bearing (a dictionary explains about ten percent of that h
 percent on the bilinear one — a difference in degree, not kind). A final coalition search hardens the
 verdict: joint ablation of searched feature groups up to five hundred twelve members — by energy, gradient
 attribution, co-activation, decoder clustering, and alignment with the causally-sufficient subspace — never
-concentrates even one percent of the hub's effect into a modest subset; the computation is holistic, not
-modular at any granularity current tools can express. Second, the discovered circuits
+concentrates even one percent of the hub's effect into a modest subset. A final characterization explains
+why: the hub's output is a **redundant distributed code** — keeping half its amplitude costs one percent of
+its effect, and deleting any random *half* of its dimensions costs under two percent, with breakdown only
+past roughly ninety-percent removal. Every large fragment is sufficient; no small fragment is necessary. So
+deletion-based attribution — which measures necessity — is structurally blind here, and its universal ~zero-
+to-two-percent readings are a property of the code, not of the tools. The concrete methodological handoff:
+explaining such hubs requires sufficiency-based analysis of what fragments carry, not necessity-based
+ablation. Second, the discovered circuits
 are **useful**: they generalize (the distributed-class-mover phenomenon reproduces on a conventional
 softmax SwiGLU transformer), and a circuit found unsupervised and verified as a genuine algorithm — a
 final-block capitalization selector — is a **calibrated, placebo-controlled control knob**, though its
