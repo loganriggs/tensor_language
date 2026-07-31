@@ -4541,6 +4541,14 @@ via a file-watch script the moment the dictionary saved.)
   its delta cross-entropy 0.0188 < 0.02 — the two criteria never jointly satisfied, same failure mode as every
   previous run); cumulative never reaches 50%; positive control intact (removing the reconstruction residual
   costs 1.3% of the full effect — individually inert).
+- **The sharpest form of the control (new in this run):** replacing swiglu18's layer-2 output with its SAE
+  RECONSTRUCTION costs only 0.0101 nats — the reconstruction carries **98.7% of the layer's causal function**
+  — yet that function cannot be attributed to features individually (0/32) or even to the full feature set's
+  deviations from their means (9.55%). The dictionary is causally SUFFICIENT as a whole while causally
+  UNATTRIBUTABLE in parts — the purest statement of collective encoding yet.
+- **Concrete nameable features (per the give-instances rule):** six determiner features (several firing on
+  " the" alone at purity 1.00), a coordinator feature firing exclusively on "and" at 34× enrichment,
+  capital-letter features, subword-fragment features, a newline/punctuation feature.
 - **Honest quantitative difference:** all dictionary features together capture **9.55%** of swiglu18's full
   layer-2 effect (0.759 ± 0.010 nats total) versus bilin18's ~2% of its much larger 5.57-nat hub. The softmax
   hub is somewhat LESS extremely collective — a dictionary explains ~10% of it rather than ~2% — but >90% of
