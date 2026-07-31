@@ -1,0 +1,37 @@
+{
+ "meta": {
+  "base_ce": 3.4946,
+  "held_sequences": 152,
+  "held_scored_tokens": 19304,
+  "ks": [
+   0,
+   8,
+   32,
+   128,
+   512
+  ],
+  "model_class": "mlp_k(x) = W x + b + sum_{p in S_k} u_p (L_p.x)(R_p.x), u refit by least squares"
+ },
+ "cells": {
+  "k0": [
+   1.9422,
+   0.0315
+  ],
+  "k8": [
+   2.2924,
+   0.0327
+  ],
+  "k32": [
+   2.117,
+   0.0313
+  ],
+  "k128": [
+   1.8857,
+   0.0309
+  ],
+  "k512": [
+   1.6341,
+   0.0289
+  ]
+ }
+}
