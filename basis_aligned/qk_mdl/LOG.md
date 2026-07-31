@@ -7474,3 +7474,19 @@ existing steering methods, not a new method class, so in-scope and launched rath
 - Running script 2 myself (attacks 3: smoothness blocks 9/11/13; 4: h.L7.0 aggregation split) — background
   by122z20y. Then §101 (full verdict + corrections incl. the attack-1 chain-specificity softening), paper
   chapter edits, artifact publish.
+
+## tick 2026-07-31 (§101 verdicts applied everywhere; the flow map published — the depth-first series is COMPLETE)
+- §101 committed with all four attack verdicts: chain WEAKENED (preferential + compensatory, margins 17-20→6
+  points), block-0 table STRENGTHENED (causally 85.5% sufficient), flow map SURVIVES (crossing pinned blocks
+  8-9, smoothness holds on the full grid), h.L7.0 SURVIVES (genuinely diffuse — all deciles, 125/152
+  sequences, z 10 after dropping top-5). Inline pointers added to §96/§97/§99; all four paper-chapter edits
+  applied.
+- ARTIFACT gains the "How the model computes, start to finish (red-teamed)" section with the corrected
+  numbers + nav link; republished (same URL).
+- THE DEPTH-FIRST SERIES IS COMPLETE AND ENSHRINED: five arcs (§96-100) + red-team (§101), all surfaces
+  synchronized. The model now has a verified end-to-end mechanism narrative: token table (causally 85%
+  sufficient as a pure lookup) → hub → iterated squares (preferential consumption in a compensatory stack,
+  rising contextuality, diminishing refinement) → smooth dissolution → distributed semantic sharpeners →
+  direct output writing → differential-pair readout. Process note: the red-team agent stalled; both scripts
+  were fixed/run by hand this time.
+- Remaining queue: none urgent. Program at a new, deeper capstone. Awaiting Logan's steer.
