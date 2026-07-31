@@ -7329,3 +7329,13 @@ existing steering methods, not a new method class, so in-scope and launched rath
   artifact, and memory all carry the same finished story with every claim gated, red-teamed, and cross-
   validated. ~17 retractions/softenings enforced along the way, including two of my own interim syntheses.
   Open frontiers on record as scope decisions. Resting.
+
+## tick 2026-07-31 (bounding the §94 law's scope: mid-stack transplant propagation — dispatched)
+- The enshrined §94 claim ("input edits re-aim conditioning surgically") is demonstrated only at L17 where
+  zero collateral is free BY CONSTRUCTION — the obvious red-team question is its mid-stack scope. Dispatched
+  a1dd03b2e0875fe5a (qk_transplant_depth.py): repeat the §94 force test at L15/L12/L8 (mlp-earlier boundary
+  transplants at not-due positions), measuring (a) target gain by depth (washout? does §83's redundant code
+  ERASE transplanted signals downstream — connecting the two big mechanisms), (b) collateral split
+  before-edit (causal gate: exact zero) vs after-edit with distance profile, (c) the surgery score
+  (gain/after-collateral) vs L17's infinite. Yields the honest scope statement for the two-sided law.
+- This is verification of an enshrined claim's boundary, not new scope. Collect next tick.
