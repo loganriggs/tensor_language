@@ -511,7 +511,7 @@ zero to essentially all, crossing between blocks 8 and 9 (the interpolated block
 regions: a cascade (blocks 0–6) where each block's output is food for the next square; a distributed region
 (7–11), where the mid-stack heads are context-dependent semantic sharpeners with no crisp type (the largest
 uncharacterized head failed every type test and delivers 88 percent of its effect through downstream
-computation — real in aggregate at eleven standard errors, individually insignificant everywhere); and a
+computation — real in aggregate at eleven standard errors, individually insignificant everywhere, and verified genuinely diffuse: the damage spans all activation deciles and one hundred twenty-five of one hundred fifty-two sequences, surviving removal of the top contributors); and a
 readout region (12–17) writing directly to the logits — block 14's comma-inside-numbers deviation shapes the
 digit-continuation distribution with no meaningful mediated remainder — terminating in the differential-pair
 contrast stage. In one sentence: token table → essential hub → iterated squares of rising contextuality →
