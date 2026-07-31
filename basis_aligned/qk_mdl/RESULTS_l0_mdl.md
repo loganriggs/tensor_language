@@ -4946,3 +4946,36 @@ specificity, but the SAME fundamental control limit as §75 — and the fold's c
 now EXPLAINED (amplitude edits on terms scale writes, they cannot re-aim the conditioning that is encoded in
 the term's own activation pattern). Surgical unconditioned overrides would require editing the term's INPUTS
 (the upstream streams), not its amplitude — a concrete pointer for any future control work.
+
+## §93b CORRECTION + COMPLETION of §93 (from the run's full synthesis, which superseded my interim read) (2026-07-31)
+My §93 was derived from the raw JSON before the agent's synthesis landed; the full analysis — using §75's OWN
+specificity metric with its reference numbers embedded — corrects two things and adds the result my interim
+read missed entirely.
+- **CORRECTION 1 — specificity: the §75 DIRECTION dial wins, not the term dials.** Like-for-like (capital-gain-
+  at-due ÷ off-target cross-entropy, §75's metric): the §75 direction peaked at ~25 (alpha 0.5); the best term
+  dial reaches ~2.4 (prior arm at alpha 2); the gated arm never exceeds 0.16. My interim "~2× more specific"
+  used a different ratio against a mis-scaled §75 baseline — RETRACTED. The direction is sharper at EVERY
+  matched effect size (amplification, suppression, and conditioning preservation: direction ratio 0.047 at
+  alpha 2 vs the gated arm's 0.157). **And the fold explains why, which is the deep point: the top singular
+  direction IS the differential pair's post-cancellation output axis** — it concentrates the functional degree
+  of freedom that each raw term dilutes with its half of the cancelling mass.
+- **CORRECTION 2 — sign labels:** measured causally, the GATED arm (attention-earlier×mlp-recent) ADDS capital
+  mass and the PRIOR arm (mlp-recent²) SUBTRACTS broad generic mass (consistent with §91's signatures; my
+  prose sometimes read the roles the other way). Mechanism unchanged.
+- **THE MISSED RESULT — the CONTRAST KNOB is a genuinely NEW edit type, and it can IMPROVE the model.**
+  Scaling the pair coherently (= scaling its net functional write; provably identical, 1.1e-5) at alpha 2
+  (double contrast) costs only +0.053 globally yet IMPROVES prediction at bracket-open decisions by
+  **−0.255 ± 0.040 (six standard errors below natural)** and at coordinators by −0.033 ± 0.009 — §75's dial
+  improved nothing anywhere. COHERENCE IS THE INGREDIENT: at alpha 4 the prior arm alone blows up bracket-opens
+  (+1.296 ± 0.270) while the coherent pair stays at −0.171 ± 0.106 — direct causal proof that preserving the
+  cancellation structure is what keeps the edit clean. This knob is not expressible as any single direction.
+- **What survives from §93 unchanged:** the term dials' full-range MONOTONICITY (no saturation/reversal, vs the
+  §75 dial reversing above alpha 4); the surgical negative (no unconditioned override even through the
+  conditioned path — not-due gain overtakes boundary gain only past ~5 nats of damage; the conditioning lives
+  upstream even of the gated term's write); the placebo; and the amplitude-edits-cannot-re-aim mechanism.
+**KEY (the editing verdict, final):** fold-level editing is NOT a strict upgrade in raw surgical power — the
+§75 direction remains the sharper single-behavior instrument, and the fold EXPLAINS its sharpness (it is the
+post-cancellation axis). What the fold adds is different and real: a saturation-free monotone dial, the
+interventional confirmation of the arm roles, and the CONTRAST-STRENGTH knob — a new edit type that locally
+improves structural decisions and exists only at term level. Fold editing upgrades understanding-driven
+control, not brute force.
