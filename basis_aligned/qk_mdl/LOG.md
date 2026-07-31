@@ -7490,3 +7490,10 @@ existing steering methods, not a new method class, so in-scope and launched rath
   direct output writing → differential-pair readout. Process note: the red-team agent stalled; both scripts
   were fixed/run by hand this time.
 - Remaining queue: none urgent. Program at a new, deeper capstone. Awaiting Logan's steer.
+
+## tick 2026-07-31 (pedagogy v2: freeze-patch mediation entry added per the standing rule)
+- The explainer gains method 11 — freeze-patch mediation — with the §101 circularity finding as its textbook
+  breaking case (a compensatory downstream stage rescues ANY perturbation; the mandatory control is the
+  excess over a matched random perturbation), the block-4 " but" 94%-mediated example, and the method-2
+  addendum for the token-conditional-mean substitute. Republished (same URL); repo copy updated.
+- All surfaces current through §101. Program at the deep capstone; holding for Logan's steer.
