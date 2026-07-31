@@ -5247,3 +5247,49 @@ exactly null.)
 preferential-plus-compensatory rather than exclusive (margins quoted), the crossing is blocks 8-9 — and one
 upgrade: block 0's table is causally ~85% sufficient, not merely variance-perfect. Corrections applied to
 §96-§100 and the paper chapter; the artifact now carries the corrected flow story.
+
+## §102 The compressed model of the mid-stack code: message + redundant broadcast (qk_msg_bottleneck.py/_2)
+
+Logan's proposal: the redundant distributed region (blocks 5-11) should admit a MODEL of its function — the
+block-0 resolution (right conditioning variable) generalized — or a bespoke architecture where redundancy is
+a fundamental object. Three experiments; all gates passed (exact reassembly +0.00000; both script-2 gates
+reproduce script 1 to 5 decimals). Train FW[0:256] for fitting, held FW[448:600] with paired standard errors.
+
+**(a) Joint floor and message dimension.** Replacing all seven blocks' outputs with per-position means
+jointly costs +1.6528 ± 0.0156 — **3.8× the sum of the seven per-block floors (0.4366)**: the strongest
+quantitative statement yet that the blocks are mutually redundant carriers of a shared message (necessity
+blindness seen from the other side). Keep-top-k principal directions of the joint write (train gram) vs
+random-k control: 4 dims → 35.6% (random 0.3%), 16 → 49.4% (1.2%), 64 → 62.7% (6.8%), 144 → 72.2% (14.6%),
+288 → 82.3% (32.2%), 576 → 93.3% (66.9%), 864 → 98.1% (90.1%). Message dimension: 576/1152 for 90%, 864 for
+95%; 99% not reached at 864. **Head-plus-tail: a strongly privileged compact head (16 dims = half the
+function, 10× over random), but 90% needs half the residual width — the message is not a crisply small
+object.**
+
+**(b) Conditioning-variable hunt** (group R² on top-16 message dims, shuffled-label controls in parens):
+current-token identity **0.472** (0.046); excluding end-of-text 0.448; six-way next-token category 0.085
+(0.000); distance-since-newline 0.028; topic cluster (16 on layer-4 residual) 0.023. Surprise: **the
+mid-stack write is roughly half a (richer) token-conditioned table** — far below block 0's 0.953, but
+current token is still the best single variable; the leading genuinely contextual variable is next-token
+category. Named message dims (all current-token-led): dim 3 (R² 0.753) = sentence/document **boundary-reset
+state** — extremes on end-of-text and sentence-final closing quotes (e.g. after `...into this location."`),
+pushes " Although"/"This"/" While", suppresses determiners; dim 1 (R² 0.499) = **clause-continuation state**
+— extremes on content words deep in run-on sentences ("...substantial graphics changes"), pushes
+"."/","/" with"/";"; dim 8 (R² 0.487) = **discourse-turn expectation** — pushes " But"/"Others"/" However".
+All three are next-token syntactic-register variables.
+
+**(c) Bespoke surrogate** (message k=576 + explicit repetition code, r copies): decode is identity when
+nothing deleted (+0.1113 at all r = the PCA ceiling, 93.3% of floor). Random half-deletion of code
+coordinates: r=1 → +0.729 mean (unprotected, ~50% energy lost); **r=4/r=16 → exactly +0.1113 every seed —
+the §83 any-half-suffices signature transfers exactly.** The real region under the same half-keep: +0.535
+to +0.548 — **between r=1 (+0.73) and r=4 (+0.11): the real code's effective redundancy factor at
+seven-block joint scale is between 1 and 4**, not the near-perfect per-block redundancy of §83.
+
+**Verdict:** "low-dimensional message + redundant broadcast" holds as a head-plus-tail statement, not a
+clean factorization. True: privileged message basis (10× over random), nameable head variables, and the
+{message, redundancy-factor} surrogate reproduces both function and robustness phenomenology. False: the
+message is not compact (90% needs 576 dims), and the joint-scale redundancy factor is modest (1-4).
+
+**RED-TEAM PENDING** (dispatched): (1) surrogate half-deletion operates on abstract code coordinates (r·k
+may exceed 1152) while the real-region test keeps a per-block 576-dim residual subspace — are the two
+operations comparable? (2) is current-token R² inflated by frequent tokens; (3) is the "not compact" tail an
+artifact of fitting one PCA basis at region grain (per-block bases might compress better).

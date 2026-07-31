@@ -7524,3 +7524,15 @@ existing steering methods, not a new method class, so in-scope and launched rath
   substitution + concrete "after token X layer 1 does Y" examples; (3) gating-partner identification for
   h.L7.0 — which cross term carries the 88% mediated effect, with sign-flip examples.
 - Message-bottleneck agent still running in parallel (GPU guard on both).
+
+## tick 2026-07-31b (message-bottleneck LANDED -> §102; red-team dispatched)
+- qk_msg_bottleneck complete, all gates passed. Headlines: joint floor of blocks 5-11 = +1.6528 ± 0.0156,
+  3.8x the sum of per-block floors (mutual redundancy quantified); message is head-plus-tail (16 dims = half
+  the function at 10x over random, but 90% needs 576/1152); SURPRISE: current-token identity is the best
+  conditioning variable (R² 0.472 vs block 0's 0.953; category 0.085; topic 0.023) — the mid-stack write is
+  half a richer token-conditioned table; three named message dims (boundary-reset 0.753, clause-continuation
+  0.499, discourse-turn 0.487); bespoke surrogate r>=4 transfers the any-half-suffices signature EXACTLY,
+  real region sits between r=1 and r=4 (+0.54 vs +0.73/+0.11) — modest joint-scale redundancy.
+- §102 appended with RED-TEAM PENDING note; red-team agent dispatched (comparability of deletion operations,
+  token-frequency inflation, basis-grain attack on non-compactness, 3.8x sanity + pairwise interaction).
+- Cross-layer fold arc (xfold) still running.

@@ -1,0 +1,33 @@
+GPU guard: 15841 MiB free -- proceeding.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+bilin18 NL=18 D=1152 region blocks [5, 6, 7, 8, 9, 10, 11] train 256x128 held 152x128
+PASS 1 (TRAIN): joint-write gram + layer-4 features ...
+  gram pass done (2s)
+  train deviation variance captured by top-k: {4: 0.1269585250934105, 16: 0.2210183598200245, 64: 0.3766577801090459, 144: 0.5192328578808192, 288: 0.6770438305063446, 432: 0.779408361530547, 576: 0.8521298927507339, 864: 0.9469818157612726}
+PASS 2 (HELD): base CE + per-position means + joint write ...
+base CE 3.4946
+GATE: reassembly (mean + own deviation, all 7 blocks) ...
+  reassembly dCE +0.00000 +- 0.000000
+JOINT FLOOR: all 7 blocks -> per-position held means ...
+  joint floor dCE +1.6528 +- 0.01564  (sum of per-block census floors 0.4366)
+SUFFICIENCY: top-k principal directions of W (train gram) ...
+  svd k=   4: dCE +1.06502 +- 0.011424  recovered 0.3556
+  svd k=  16: dCE +0.83580 +- 0.010186  recovered 0.4943
+  svd k=  64: dCE +0.61712 +- 0.008850  recovered 0.6266
+  svd k= 144: dCE +0.46021 +- 0.007623  recovered 0.7216
+  svd k= 288: dCE +0.29224 +- 0.005995  recovered 0.8232
+  svd k= 432: dCE +0.18258 +- 0.004675  recovered 0.8895
+  svd k= 576: dCE +0.11132 +- 0.003595  recovered 0.9327
+  svd k= 864: dCE +0.03213 +- 0.001900  recovered 0.9806
+RANDOM-k control (prefix of one random orthogonal matrix, seed 2) ...
+  rand k=   4: dCE +1.64731 +- 0.015589  recovered 0.0033
+  rand k=  16: dCE +1.63342 +- 0.015524  recovered 0.0117
+  rand k=  64: dCE +1.54003 +- 0.015031  recovered 0.0682
+  rand k= 144: dCE +1.41205 +- 0.014214  recovered 0.1457
+  rand k= 288: dCE +1.12044 +- 0.012363  recovered 0.3221
+  rand k= 432: dCE +0.80489 +- 0.010135  recovered 0.5130
+  rand k= 576: dCE +0.54796 +- 0.008163  recovered 0.6685
+  rand k= 864: dCE +0.16372 +- 0.004261  recovered 0.9009
+message dimension (k for 90/95/99% of joint floor): {'90': 576, '95': 864, '99': None}
+Saved /workspace/tensor_language/basis_aligned/qk_mdl/qk_msg_bottleneck.json + /workspace/tensor_language/basis_aligned/qk_mdl/qk_msg_bottleneck_state.pt
+QK MSG BOTTLENECK (script 1) DONE

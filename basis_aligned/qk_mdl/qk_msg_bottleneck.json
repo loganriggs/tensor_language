@@ -1,0 +1,685 @@
+{
+ "exp1_joint_write_bottleneck": {
+  "method": "joint write W = sum over blocks 5-11 of (mlp output - per-position held mean); live-deviation keep-projection per block onto shared top-k basis of the TRAIN deviation gram (train FW[0:256,:128]); held FW[448:600,:128]; paired SE",
+  "base_CE": 3.4946,
+  "reassembly_gate": {
+   "dCE": 0.0,
+   "SE": 0.0,
+   "pass": true
+  },
+  "joint_floor": {
+   "dCE": 1.6528,
+   "SE": 0.01564
+  },
+  "sum_per_block_census_floors": 0.4366,
+  "train_variance_captured_topk": {
+   "4": 0.127,
+   "16": 0.221,
+   "64": 0.3767,
+   "144": 0.5192,
+   "288": 0.677,
+   "432": 0.7794,
+   "576": 0.8521,
+   "864": 0.947
+  },
+  "svd_keep": {
+   "4": {
+    "dCE": 1.06502,
+    "SE": 0.011424,
+    "recovered_fraction": 0.3556
+   },
+   "16": {
+    "dCE": 0.8358,
+    "SE": 0.010186,
+    "recovered_fraction": 0.4943
+   },
+   "64": {
+    "dCE": 0.61712,
+    "SE": 0.00885,
+    "recovered_fraction": 0.6266
+   },
+   "144": {
+    "dCE": 0.46021,
+    "SE": 0.007623,
+    "recovered_fraction": 0.7216
+   },
+   "288": {
+    "dCE": 0.29224,
+    "SE": 0.005995,
+    "recovered_fraction": 0.8232
+   },
+   "432": {
+    "dCE": 0.18258,
+    "SE": 0.004675,
+    "recovered_fraction": 0.8895
+   },
+   "576": {
+    "dCE": 0.11132,
+    "SE": 0.003595,
+    "recovered_fraction": 0.9327
+   },
+   "864": {
+    "dCE": 0.03213,
+    "SE": 0.0019,
+    "recovered_fraction": 0.9806
+   }
+  },
+  "rand_keep": {
+   "4": {
+    "dCE": 1.64731,
+    "SE": 0.015589,
+    "recovered_fraction": 0.0033
+   },
+   "16": {
+    "dCE": 1.63342,
+    "SE": 0.015524,
+    "recovered_fraction": 0.0117
+   },
+   "64": {
+    "dCE": 1.54003,
+    "SE": 0.015031,
+    "recovered_fraction": 0.0682
+   },
+   "144": {
+    "dCE": 1.41205,
+    "SE": 0.014214,
+    "recovered_fraction": 0.1457
+   },
+   "288": {
+    "dCE": 1.12044,
+    "SE": 0.012363,
+    "recovered_fraction": 0.3221
+   },
+   "432": {
+    "dCE": 0.80489,
+    "SE": 0.010135,
+    "recovered_fraction": 0.513
+   },
+   "576": {
+    "dCE": 0.54796,
+    "SE": 0.008163,
+    "recovered_fraction": 0.6685
+   },
+   "864": {
+    "dCE": 0.16372,
+    "SE": 0.004261,
+    "recovered_fraction": 0.9009
+   }
+  },
+  "k_for_recovery": {
+   "90": 576,
+   "95": 864,
+   "99": null
+  }
+ },
+ "exp2_conditioning_hunt": {
+  "aggregate_top16": {
+   "cur_token": {
+    "R2": 0.4721,
+    "n_groups": 548,
+    "covered_frac": 0.6253
+   },
+   "pos_bucket": {
+    "R2": 0.0,
+    "n_groups": 8,
+    "covered_frac": 1.0
+   },
+   "dist_newline": {
+    "R2": 0.0282,
+    "n_groups": 34,
+    "covered_frac": 1.0
+   },
+   "topic8": {
+    "R2": 0.0197,
+    "n_groups": 6,
+    "covered_frac": 1.0
+   },
+   "topic16": {
+    "R2": 0.0234,
+    "n_groups": 12,
+    "covered_frac": 1.0
+   },
+   "next_cat6": {
+    "R2": 0.085,
+    "n_groups": 6,
+    "covered_frac": 0.9922
+   }
+  },
+  "aggregate_top144": {
+   "cur_token": 0.3244,
+   "pos_bucket": 0.0,
+   "dist_newline": 0.0164,
+   "topic8": 0.0122,
+   "topic16": 0.0177,
+   "next_cat6": 0.0401
+  },
+  "per_dim_top16": {
+   "cur_token": [
+    0.486,
+    0.4986,
+    0.4803,
+    0.7528,
+    0.4815,
+    0.4571,
+    0.3957,
+    0.3732,
+    0.4871,
+    0.3152,
+    0.2881,
+    0.2333,
+    0.3146,
+    0.3988,
+    0.2366,
+    0.2662
+   ],
+   "pos_bucket": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "dist_newline": [
+    0.0519,
+    0.0156,
+    0.012,
+    0.0886,
+    0.0073,
+    0.0115,
+    0.0166,
+    0.0053,
+    0.022,
+    0.0039,
+    0.0057,
+    0.0138,
+    0.0122,
+    0.0207,
+    0.0033,
+    0.0026
+   ],
+   "topic8": [
+    0.0159,
+    0.0031,
+    0.0064,
+    0.034,
+    0.0022,
+    0.044,
+    0.0082,
+    0.0573,
+    0.0192,
+    0.0051,
+    0.0229,
+    0.0403,
+    0.062,
+    0.0467,
+    0.0535,
+    0.0253
+   ],
+   "topic16": [
+    0.0192,
+    0.0062,
+    0.0073,
+    0.0353,
+    0.0033,
+    0.0598,
+    0.0083,
+    0.0608,
+    0.0196,
+    0.0052,
+    0.0284,
+    0.0359,
+    0.0697,
+    0.0654,
+    0.0646,
+    0.0372
+   ],
+   "next_cat6": [
+    0.0971,
+    0.1702,
+    0.0753,
+    0.1628,
+    0.0705,
+    0.0433,
+    0.022,
+    0.0159,
+    0.0501,
+    0.0085,
+    0.0151,
+    0.0221,
+    0.0148,
+    0.0266,
+    0.0078,
+    0.0273
+   ]
+  },
+  "controls": {
+   "cur_token": 0.046,
+   "pos_bucket": 0.0004,
+   "dist_newline": 0.0018,
+   "topic8": 0.0016,
+   "topic16": 0.0046,
+   "next_cat6": 0.0002
+  },
+  "raw_pos_bucket_top16": 0.0304,
+  "eig_share_top16": [
+   0.0475,
+   0.03,
+   0.0272,
+   0.0223,
+   0.0142,
+   0.0115,
+   0.0097,
+   0.009,
+   0.0076,
+   0.0067,
+   0.0067,
+   0.0064,
+   0.0059,
+   0.0057,
+   0.0055,
+   0.0052
+  ],
+  "eot_fraction_of_positions": 0.0011,
+  "cur_token_no_eot": {
+   "R2": 0.4484,
+   "control": 0.0464,
+   "n_groups": 547,
+   "per_dim": [
+    0.4299,
+    0.4952,
+    0.4659,
+    0.7419,
+    0.4808,
+    0.4474,
+    0.3929,
+    0.3722,
+    0.3849,
+    0.3151,
+    0.2873,
+    0.233,
+    0.2598,
+    0.3528,
+    0.2272,
+    0.2659
+   ]
+  },
+  "examples": [
+   {
+    "dim": 3,
+    "best_candidate": "cur_token",
+    "best_R2": 0.7528,
+    "eig_share": 0.0223,
+    "readout_positive": [
+     "\u0120Although",
+     "This",
+     "\u0120While",
+     "\u0120This",
+     "\u0120There",
+     "\u0120Because",
+     "\u0120Though",
+     "The"
+    ],
+    "readout_negative": [
+     "\u0120the",
+     "\u0120a",
+     "\u0120an",
+     "\u0120all",
+     "\u0120their",
+     "\u0120your",
+     "\u0120two",
+     "\u0120one"
+    ],
+    "snippets": [
+     {
+      "seq": 23,
+      "pos": 77,
+      "m_value": 6557.81,
+      "cur_token": "<|endoftext|>",
+      "topic8": 1,
+      "dist_newline": 13,
+      "context_tail": " 2007 as the Tigers dispatched the Fishermen in Yamhill on Friday night.\nRead more about this game in Tuesday's News-Register.<|endoftext|>"
+     },
+     {
+      "seq": 61,
+      "pos": 114,
+      "m_value": 6469.9,
+      "cur_token": "<|endoftext|>",
+      "topic8": 6,
+      "dist_newline": 32,
+      "context_tail": " dOCUMENTA (13) is equipped with the perfect balancing venue for a break and sensual encounter in its Karlsaue.<|endoftext|>"
+     },
+     {
+      "seq": 42,
+      "pos": 45,
+      "m_value": 6389.03,
+      "cur_token": "<|endoftext|>",
+      "topic8": 6,
+      "dist_newline": 5,
+      "context_tail": "'s Oregonian 6A player of the year. Senior guard Jude Schimmel returns as Franklin's top player.\n-- Nick Daschel<|endoftext|>"
+     }
+    ],
+    "snippets_no_eot": [
+     {
+      "seq": 54,
+      "pos": 90,
+      "m_value": -4215.22,
+      "cur_token": "\u0120to",
+      "topic8": 2,
+      "dist_newline": 32,
+      "context_tail": "verely ill population of bipolar patients. Identification of this subgroup of patients will help determine the underlying causes of bipolar disorder and lead to"
+     },
+     {
+      "seq": 135,
+      "pos": 80,
+      "m_value": 4210.09,
+      "cur_token": ".\"",
+      "topic8": 6,
+      "dist_newline": 33,
+      "context_tail": " have a dollar section in this store. But they also like things to look upscale, so we tried to incorporate all of that into this location.\""
+     },
+     {
+      "seq": 55,
+      "pos": 99,
+      "m_value": 3983.62,
+      "cur_token": ".\"",
+      "topic8": 6,
+      "dist_newline": 33,
+      "context_tail": " this isn't gonna happen after all.' Once it was rescheduled, we got the set list and ran the first three songs every day.\""
+     }
+    ]
+   },
+   {
+    "dim": 1,
+    "best_candidate": "cur_token",
+    "best_R2": 0.4986,
+    "eig_share": 0.03,
+    "readout_positive": [
+     ")=",
+     "GAN",
+     "]+",
+     "\u00e5\u00a5\u00b3",
+     "\u0120Shooter",
+     "BIL",
+     "EVA",
+     "\u00e7\u0132"
+    ],
+    "readout_negative": [
+     ".",
+     ",",
+     "\u0120with",
+     ";",
+     "\u0120in",
+     "\u0120for",
+     "\u0120from",
+     "\u0120during"
+    ],
+    "snippets": [
+     {
+      "seq": 115,
+      "pos": 90,
+      "m_value": -6578.2,
+      "cur_token": "\u0120changes",
+      "topic8": 0,
+      "dist_newline": 32,
+      "context_tail": " gameplay won't be changing much. Graphics ideas are still welcome, but be aware that the mapmaker may choose to do difficult or substantial graphics changes"
+     },
+     {
+      "seq": 126,
+      "pos": 75,
+      "m_value": -6568.12,
+      "cur_token": "\u0120on",
+      "topic8": 6,
+      "dist_newline": 33,
+      "context_tail": " clan, and they are just a few games shy of being over .500. I suspect that this will be a clan to keep an eye on"
+     },
+     {
+      "seq": 134,
+      "pos": 27,
+      "m_value": -6341.85,
+      "cur_token": "\u0120accomplish",
+      "topic8": 6,
+      "dist_newline": 22,
+      "context_tail": " things mean a lot.\"\nGroup Red rode Nice N Easy\u2019s stores to get a feel for what the chain was trying to accomplish"
+     }
+    ],
+    "snippets_no_eot": [
+     {
+      "seq": 115,
+      "pos": 90,
+      "m_value": -6578.2,
+      "cur_token": "\u0120changes",
+      "topic8": 0,
+      "dist_newline": 32,
+      "context_tail": " gameplay won't be changing much. Graphics ideas are still welcome, but be aware that the mapmaker may choose to do difficult or substantial graphics changes"
+     },
+     {
+      "seq": 126,
+      "pos": 75,
+      "m_value": -6568.12,
+      "cur_token": "\u0120on",
+      "topic8": 6,
+      "dist_newline": 33,
+      "context_tail": " clan, and they are just a few games shy of being over .500. I suspect that this will be a clan to keep an eye on"
+     },
+     {
+      "seq": 134,
+      "pos": 27,
+      "m_value": -6341.85,
+      "cur_token": "\u0120accomplish",
+      "topic8": 6,
+      "dist_newline": 22,
+      "context_tail": " things mean a lot.\"\nGroup Red rode Nice N Easy\u2019s stores to get a feel for what the chain was trying to accomplish"
+     }
+    ]
+   },
+   {
+    "dim": 8,
+    "best_candidate": "cur_token",
+    "best_R2": 0.4871,
+    "eig_share": 0.0076,
+    "readout_positive": [
+     "\u0120But",
+     "Others",
+     "\u0120Other",
+     "\u0120Then",
+     "\u0120However",
+     "\u0120Others",
+     "\u0120Even",
+     "\u010a"
+    ],
+    "readout_negative": [
+     "\u0120around",
+     "\u0120the",
+     "\u0120about",
+     "\u0120a",
+     "\u0120another",
+     "\u0120atop",
+     "\u0120an",
+     "\u0120our"
+    ],
+    "snippets": [
+     {
+      "seq": 42,
+      "pos": 45,
+      "m_value": -8008.82,
+      "cur_token": "<|endoftext|>",
+      "topic8": 6,
+      "dist_newline": 5,
+      "context_tail": "'s Oregonian 6A player of the year. Senior guard Jude Schimmel returns as Franklin's top player.\n-- Nick Daschel<|endoftext|>"
+     },
+     {
+      "seq": 23,
+      "pos": 77,
+      "m_value": -7958.13,
+      "cur_token": "<|endoftext|>",
+      "topic8": 1,
+      "dist_newline": 13,
+      "context_tail": " 2007 as the Tigers dispatched the Fishermen in Yamhill on Friday night.\nRead more about this game in Tuesday's News-Register.<|endoftext|>"
+     },
+     {
+      "seq": 61,
+      "pos": 114,
+      "m_value": -7455.56,
+      "cur_token": "<|endoftext|>",
+      "topic8": 6,
+      "dist_newline": 32,
+      "context_tail": " dOCUMENTA (13) is equipped with the perfect balancing venue for a break and sensual encounter in its Karlsaue.<|endoftext|>"
+     }
+    ],
+    "snippets_no_eot": [
+     {
+      "seq": 61,
+      "pos": 118,
+      "m_value": -3421.24,
+      "cur_token": "\u010a",
+      "topic8": 6,
+      "dist_newline": 0,
+      "context_tail": "A (13) is equipped with the perfect balancing venue for a break and sensual encounter in its Karlsaue.<|endoftext|>Most Active Stories\n"
+     },
+     {
+      "seq": 16,
+      "pos": 41,
+      "m_value": -3323.15,
+      "cur_token": "\u0120attend",
+      "topic8": 1,
+      "dist_newline": 32,
+      "context_tail": " EVERY biotope of aquarium including some of the hardest known aquarium creatures such as Blue Ribbon Eel's.<|endoftext|>This is your invitation to attend"
+     },
+     {
+      "seq": 37,
+      "pos": 31,
+      "m_value": -2789.74,
+      "cur_token": "\u0120opened",
+      "topic8": 0,
+      "dist_newline": 33,
+      "context_tail": "yer. After finishing her studies, Geyer started buying stock from optician clearance sales and vintage furnishing from the 1950\u2019s and opened"
+     }
+    ]
+   }
+  ]
+ },
+ "exp3_bespoke_surrogate": {
+  "best_k": 576,
+  "joint_floor": {
+   "dCE": 1.6528,
+   "SE": 0.01564
+  },
+  "pca_decoder_no_deletion": {
+   "dCE": 0.11132,
+   "SE": 0.003595,
+   "recovered_fraction": 0.9327,
+   "note": "identical for every r when nothing is deleted: the repetition decode map is exactly the identity"
+  },
+  "half_deletion": {
+   "r1": {
+    "runs": [
+     {
+      "seed": 0,
+      "dCE": 0.73843,
+      "SE": 0.009816,
+      "decode_rank": 288,
+      "message_energy_retained": 0.4996
+     },
+     {
+      "seed": 1,
+      "dCE": 0.76184,
+      "SE": 0.010239,
+      "decode_rank": 288,
+      "message_energy_retained": 0.5015
+     },
+     {
+      "seed": 2,
+      "dCE": 0.68793,
+      "SE": 0.009286,
+      "decode_rank": 288,
+      "message_energy_retained": 0.5009
+     }
+    ],
+    "mean_dCE": 0.7294,
+    "mean_excess_over_no_deletion": 0.61808
+   },
+   "r4": {
+    "runs": [
+     {
+      "seed": 0,
+      "dCE": 0.11132,
+      "SE": 0.003595,
+      "decode_rank": 576,
+      "message_energy_retained": 1.0
+     },
+     {
+      "seed": 1,
+      "dCE": 0.11132,
+      "SE": 0.003595,
+      "decode_rank": 576,
+      "message_energy_retained": 1.0
+     },
+     {
+      "seed": 2,
+      "dCE": 0.11132,
+      "SE": 0.003595,
+      "decode_rank": 576,
+      "message_energy_retained": 1.0
+     }
+    ],
+    "mean_dCE": 0.11132,
+    "mean_excess_over_no_deletion": 0.0
+   },
+   "r16": {
+    "runs": [
+     {
+      "seed": 0,
+      "dCE": 0.11132,
+      "SE": 0.003595,
+      "decode_rank": 576,
+      "message_energy_retained": 1.0
+     },
+     {
+      "seed": 1,
+      "dCE": 0.11132,
+      "SE": 0.003595,
+      "decode_rank": 576,
+      "message_energy_retained": 1.0
+     },
+     {
+      "seed": 2,
+      "dCE": 0.11132,
+      "SE": 0.003595,
+      "decode_rank": 576,
+      "message_energy_retained": 1.0
+     }
+    ],
+    "mean_dCE": 0.11132,
+    "mean_excess_over_no_deletion": 0.0
+   }
+  },
+  "real_region_half_deletion": [
+   {
+    "seed": 0,
+    "dCE": 0.53976,
+    "SE": 0.008023
+   },
+   {
+    "seed": 1,
+    "dCE": 0.53532,
+    "SE": 0.00816
+   }
+  ],
+  "exp1_rand576_reference": {
+   "dCE": 0.54796,
+   "SE": 0.008163,
+   "recovered_fraction": 0.6685
+  }
+ }
+}

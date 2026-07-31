@@ -1,0 +1,44 @@
+GPU guard: 15841 MiB free -- proceeding.
+EXP 2: conditioning-variable hunt on the top-16 message dims ...
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+  topic K=8: held cluster sizes [37, 19, 20, 1, 22, 0, 53, 0]
+  topic K=16: held cluster sizes [16, 2, 0, 33, 47, 0, 0, 24, 2, 1, 5, 7, 6, 7, 0, 2]
+  position bucket on RAW write coords (mean structure): R^2 0.0304
+  cur_token    R2(top16) 0.4721 (ctl 0.0460, 548 groups, cov 0.625) R2(top144) 0.3244  per-dim [0.486, 0.4986, 0.4803, 0.7528, 0.4815, 0.4571, 0.3957, 0.3732, 0.4871, 0.3152, 0.2881, 0.2333, 0.3146, 0.3988, 0.2366, 0.2662]
+  pos_bucket   R2(top16) 0.0000 (ctl 0.0004, 8 groups, cov 1.000) R2(top144) 0.0000  per-dim [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+  dist_newline R2(top16) 0.0282 (ctl 0.0018, 34 groups, cov 1.000) R2(top144) 0.0164  per-dim [0.0519, 0.0156, 0.012, 0.0886, 0.0073, 0.0115, 0.0166, 0.0053, 0.022, 0.0039, 0.0057, 0.0138, 0.0122, 0.0207, 0.0033, 0.0026]
+  topic8       R2(top16) 0.0197 (ctl 0.0016, 6 groups, cov 1.000) R2(top144) 0.0122  per-dim [0.0159, 0.0031, 0.0064, 0.034, 0.0022, 0.044, 0.0082, 0.0573, 0.0192, 0.0051, 0.0229, 0.0403, 0.062, 0.0467, 0.0535, 0.0253]
+  topic16      R2(top16) 0.0234 (ctl 0.0046, 12 groups, cov 1.000) R2(top144) 0.0177  per-dim [0.0192, 0.0062, 0.0073, 0.0353, 0.0033, 0.0598, 0.0083, 0.0608, 0.0196, 0.0052, 0.0284, 0.0359, 0.0697, 0.0654, 0.0646, 0.0372]
+  next_cat6    R2(top16) 0.0850 (ctl 0.0002, 6 groups, cov 0.992) R2(top144) 0.0401  per-dim [0.0971, 0.1702, 0.0753, 0.1628, 0.0705, 0.0433, 0.022, 0.0159, 0.0501, 0.0085, 0.0151, 0.0221, 0.0148, 0.0266, 0.0078, 0.0273]
+  cur_token EXCLUDING <|endoftext|> (eot = 0.0011 of positions): R2(top16) 0.4484 (ctl 0.0464)  per-dim [0.4299, 0.4952, 0.4659, 0.7419, 0.4808, 0.4474, 0.3929, 0.3722, 0.3849, 0.3151, 0.2873, 0.233, 0.2598, 0.3528, 0.2272, 0.2659]
+EXP 2 examples ...
+  dim 3 (best cur_token R2 0.753) readout+ ['ĠAlthough', 'This', 'ĠWhile', 'ĠThis', 'ĠThere'] readout- ['Ġthe', 'Ġa', 'Ġan', 'Ġall', 'Ġtheir']
+    m=+6557.8 pos 77 cur '<|endoftext|>' topic 1 dnl 13 | ..."amhill on Friday night.\nRead more about this game in Tuesday's News-Register.<|endoftext|>"
+    m=+6469.9 pos 114 cur '<|endoftext|>' topic 6 dnl 32 | ...'he perfect balancing venue for a break and sensual encounter in its Karlsaue.<|endoftext|>'
+    m=+6389.0 pos 45 cur '<|endoftext|>' topic 6 dnl 5 | ..." Senior guard Jude Schimmel returns as Franklin's top player.\n-- Nick Daschel<|endoftext|>"
+  dim 1 (best cur_token R2 0.499) readout+ [')=', 'GAN', ']+', 'å¥³', 'ĠShooter'] readout- ['.', ',', 'Ġwith', ';', 'Ġin']
+    m=-6578.2 pos 90 cur 'Ġchanges' topic 0 dnl 32 | ...' but be aware that the mapmaker may choose to do difficult or substantial graphics changes'
+    m=-6568.1 pos 75 cur 'Ġon' topic 6 dnl 33 | ...'t a few games shy of being over .500. I suspect that this will be a clan to keep an eye on'
+    m=-6341.9 pos 27 cur 'Ġaccomplish' topic 6 dnl 22 | ...'up Red rode Nice N Easy’s stores to get a feel for what the chain was trying to accomplish'
+  dim 8 (best cur_token R2 0.487) readout+ ['ĠBut', 'Others', 'ĠOther', 'ĠThen', 'ĠHowever'] readout- ['Ġaround', 'Ġthe', 'Ġabout', 'Ġa', 'Ġanother']
+    m=-8008.8 pos 45 cur '<|endoftext|>' topic 6 dnl 5 | ..." Senior guard Jude Schimmel returns as Franklin's top player.\n-- Nick Daschel<|endoftext|>"
+    m=-7958.1 pos 77 cur '<|endoftext|>' topic 1 dnl 13 | ..."amhill on Friday night.\nRead more about this game in Tuesday's News-Register.<|endoftext|>"
+    m=-7455.6 pos 114 cur '<|endoftext|>' topic 6 dnl 32 | ...'he perfect balancing venue for a break and sensual encounter in its Karlsaue.<|endoftext|>'
+EXP 2 saved.
+EXP 3: bespoke surrogate at best k = 576 ...
+  floor gate: +1.6528 (script 1: +1.6528)
+  PCA-decoder gate (G=I): +0.11132 (script 1 svd_576: +0.11132)
+  r= 1 half-del seed 0: dCE +0.73843 +- 0.009816 (rank 288/576, energy retained 0.4996)
+  r= 1 half-del seed 1: dCE +0.76184 +- 0.010239 (rank 288/576, energy retained 0.5015)
+  r= 1 half-del seed 2: dCE +0.68793 +- 0.009286 (rank 288/576, energy retained 0.5009)
+  r= 4 half-del seed 0: dCE +0.11132 +- 0.003595 (rank 576/576, energy retained 1.0000)
+  r= 4 half-del seed 1: dCE +0.11132 +- 0.003595 (rank 576/576, energy retained 1.0000)
+  r= 4 half-del seed 2: dCE +0.11132 +- 0.003595 (rank 576/576, energy retained 1.0000)
+  r=16 half-del seed 0: dCE +0.11132 +- 0.003595 (rank 576/576, energy retained 1.0000)
+  r=16 half-del seed 1: dCE +0.11132 +- 0.003595 (rank 576/576, energy retained 1.0000)
+  r=16 half-del seed 2: dCE +0.11132 +- 0.003595 (rank 576/576, energy retained 1.0000)
+  real region: keep random 576-of-1152 subspace of every block's deviation ...
+  real half-keep seed 0: dCE +0.53976 +- 0.008023
+  real half-keep seed 1: dCE +0.53532 +- 0.008160
+Saved /workspace/tensor_language/basis_aligned/qk_mdl/qk_msg_bottleneck.json
+QK MSG BOTTLENECK (script 2) DONE
