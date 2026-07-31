@@ -7267,3 +7267,17 @@ existing steering methods, not a new method class, so in-scope and launched rath
   BOUNDED (§87/§92, structural not allocational); editing REFINED with the limit explained (§93). Every line
   of Logan's audit question now has a measured answer.
 - NEXT: final consolidation pass (paper + artifact) of §90-§93, then rest state.
+
+## tick 2026-07-31 (§93b — my own interim synthesis corrected by the agent's full analysis)
+- The editing agent's full report landed AFTER I documented §93 from raw JSON; it corrected me on two points
+  and added the result I missed: (1) RETRACTED my "~2× more specific" claim — with §75's own metric the
+  DIRECTION dial wins specificity at every matched effect size (peak ~25 vs best term ~2.4), and the fold
+  explains why: the top singular direction IS the pair's post-cancellation axis; (2) sign labels fixed (gated
+  arm ADDS capital, prior arm SUBTRACTS); (3) THE MISSED RESULT: the coherent CONTRAST knob at alpha 2 costs
+  +0.053 global yet IMPROVES bracket-open prediction by −0.255 ± 0.040 (6 standard errors) — §75 improved
+  nothing anywhere — with the coherence proof (prior arm alone +1.296 vs coherent pair −0.171 at bracket-opens).
+  A new edit type not expressible as any single direction. Committed §93b. Lesson: don't pre-empt an agent's
+  synthesis from raw data when the synthesis includes reference-metric comparisons I didn't recompute.
+- Fold-audit remains FULLY EXECUTED, now with the editing verdict in its corrected final form: understanding-
+  driven control upgraded (saturation-free dial, arm-role confirmation, the contrast knob), raw surgical power
+  not (the direction is the sharper instrument BECAUSE it is the post-cancellation axis).
