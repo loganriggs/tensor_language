@@ -1,0 +1,390 @@
+{
+ "meta": {
+  "model": "bilin18",
+  "rank": 16,
+  "heads": [
+   8,
+   5
+  ],
+  "fitter": "symmetric CP, power iteration + deflation",
+  "weighting": "unigram (corpus token frequency)",
+  "path_A": "triple rows -> 512-atom nonneg sparse code -> 512^3 core -> CP",
+  "path_B": "triple rows -> 384^3 core directly -> CP (nonneg and signed variants)"
+ },
+ "head_8": {
+  "pathA_with_sae": {
+   "rel_frobenius_residual": 0.1858,
+   "top8_first5": [
+    [
+     " the",
+     " The",
+     "the",
+     "The",
+     " THE",
+     "THE",
+     " tho",
+     "ethe"
+    ],
+    [
+     " a",
+     " A",
+     "A",
+     "a",
+     " an",
+     " An",
+     "An",
+     " sales"
+    ],
+    [
+     "<|endoftext|>",
+     "\n",
+     " threw",
+     " may",
+     "][",
+     " throw",
+     "throw",
+     "Throw"
+    ],
+    [
+     " of",
+     " Of",
+     "of",
+     "Of",
+     " OF",
+     "OF",
+     " thereof",
+     " example"
+    ],
+    [
+     " and",
+     "and",
+     " AND",
+     " And",
+     "And",
+     " &",
+     " must",
+     " amd"
+    ]
+   ],
+   "mean_form_group": 4.5,
+   "max_form_group": 6,
+   "n_factors_group_ge4": 11,
+   "mean_closed_class_share": 0.586
+  },
+  "pathB_raw_nonneg": {
+   "rel_frobenius_residual": 0.9666,
+   "top8_first5": [
+    [
+     " in",
+     " In",
+     "In",
+     "in",
+     " into",
+     " IN",
+     "IN",
+     "into"
+    ],
+    [
+     "The",
+     " The",
+     " the",
+     "the",
+     " THE",
+     "THE",
+     " tho",
+     "ethe"
+    ],
+    [
+     " a",
+     " A",
+     "A",
+     "a",
+     " closest",
+     " slightest",
+     " coff",
+     "Mobil"
+    ],
+    [
+     " have",
+     " has",
+     " Have",
+     "Have",
+     " had",
+     "have",
+     " Has",
+     "Has"
+    ],
+    [
+     " are",
+     " is",
+     " am",
+     " be",
+     " Are",
+     " Be",
+     "Are",
+     " was"
+    ]
+   ],
+   "mean_form_group": 4.78,
+   "max_form_group": 6,
+   "n_factors_group_ge4": 8,
+   "mean_closed_class_share": 0.556,
+   "overlap_with_A_mean_max": [
+    0.126,
+    0.641
+   ]
+  },
+  "pathB_raw_signed": {
+   "rel_frobenius_residual": 0.5196,
+   "top8_first5": [
+    [
+     " in",
+     " In",
+     "In",
+     "in",
+     " IN",
+     " into",
+     "into",
+     "IN"
+    ],
+    [
+     " the",
+     "The",
+     "the",
+     " The",
+     " THE",
+     "THE",
+     "ethe",
+     " tho"
+    ],
+    [
+     " have",
+     " has",
+     " Have",
+     "Have",
+     " had",
+     "have",
+     " having",
+     "Has"
+    ],
+    [
+     " to",
+     "To",
+     " To",
+     "to",
+     " TO",
+     " could",
+     " can",
+     "could"
+    ],
+    [
+     " on",
+     " On",
+     "On",
+     " ON",
+     " upon",
+     "on",
+     " onto",
+     "upon"
+    ]
+   ],
+   "mean_form_group": 4.81,
+   "max_form_group": 6,
+   "n_factors_group_ge4": 14,
+   "mean_closed_class_share": 0.445,
+   "overlap_with_A_mean_max": [
+    0.208,
+    0.73
+   ]
+  },
+  "gate_saved_key_present": true
+ },
+ "head_5": {
+  "pathA_with_sae": {
+   "rel_frobenius_residual": 0.0724,
+   "top8_first5": [
+    [
+     "\n",
+     "<|endoftext|>",
+     " FIG",
+     " Al",
+     " atroc",
+     " The",
+     "The",
+     " Eddie"
+    ],
+    [
+     ".",
+     ").",
+     "'.",
+     ",.",
+     ".\"",
+     "%.",
+     "].",
+     ".)."
+    ],
+    [
+     "-",
+     " St",
+     "St",
+     " -",
+     " \u2013",
+     " st",
+     " \u2014",
+     " --"
+    ],
+    [
+     ":",
+     "):",
+     ".:",
+     "?:",
+     "\":",
+     "':",
+     "!:",
+     ".):"
+    ],
+    [
+     ",",
+     "%,",
+     "),",
+     ".,",
+     "?,",
+     "!,",
+     "\",",
+     "],"
+    ]
+   ],
+   "mean_form_group": 2.44,
+   "max_form_group": 5,
+   "n_factors_group_ge4": 4,
+   "mean_closed_class_share": 0.258
+  },
+  "pathB_raw_nonneg": {
+   "rel_frobenius_residual": 0.9548,
+   "top8_first5": [
+    [
+     ".",
+     ",.",
+     ").",
+     ".).",
+     ".?",
+     "'.",
+     ".'",
+     "!."
+    ],
+    [
+     ",",
+     "!,",
+     "),",
+     "],",
+     "',",
+     "!),",
+     "?,",
+     "%,"
+    ],
+    [
+     " and",
+     " or",
+     "and",
+     " amd",
+     " And",
+     " AND",
+     " Or",
+     " Babel"
+    ],
+    [
+     "did",
+     " regarding",
+     " had",
+     " did",
+     " became",
+     " towards",
+     " overcame",
+     " were"
+    ],
+    [
+     "\n",
+     "<|endoftext|>",
+     " Caucas",
+     " Ced",
+     " saf",
+     "num",
+     " Criminal",
+     " Citizen"
+    ]
+   ],
+   "mean_form_group": 2.0,
+   "max_form_group": 4,
+   "n_factors_group_ge4": 2,
+   "mean_closed_class_share": 0.156,
+   "overlap_with_A_mean_max": [
+    0.139,
+    0.6
+   ]
+  },
+  "pathB_raw_signed": {
+   "rel_frobenius_residual": 0.5009,
+   "top8_first5": [
+    [
+     ".",
+     ".).",
+     ").",
+     ",.",
+     "'.",
+     ".?",
+     ".'",
+     ".\""
+    ],
+    [
+     ",",
+     "!,",
+     "%,",
+     "),",
+     "?,",
+     ".,",
+     "!),",
+     "\","
+    ],
+    [
+     " and",
+     " or",
+     " AND",
+     " &",
+     "and",
+     " And",
+     "And",
+     " amd"
+    ],
+    [
+     "\n",
+     "<|endoftext|>",
+     "hillary",
+     "\u0627\u0644",
+     " lim",
+     " Mis",
+     " tank",
+     " femin"
+    ],
+    [
+     " \u2014",
+     " \u2013",
+     " --",
+     " -",
+     "\u2014",
+     "--",
+     "\u2013",
+     ")\u2014"
+    ]
+   ],
+   "mean_form_group": 1.88,
+   "max_form_group": 5,
+   "n_factors_group_ge4": 1,
+   "mean_closed_class_share": 0.227,
+   "overlap_with_A_mean_max": [
+    0.242,
+    0.73
+   ]
+  },
+  "gate_saved_key_present": true
+ }
+}
