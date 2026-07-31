@@ -7197,3 +7197,14 @@ existing steering methods, not a new method class, so in-scope and launched rath
 - The fold-first arc (§84-89) is now red-teamed and enshrined. Remaining threads: L17 cancelling-mixer
   structure (now with measured anti-alignment as the starting point), non-uniform rank allocation,
   term-targeted editing, provenance-naming gates, cross-model term census.
+
+## tick 2026-07-31 (next threads dispatched: WHY L17 cancels + cross-model pipeline generality)
+- a666add33b4584db6 (qk_L17_mixer.py): WHY does the readout layer compute through cancellation? Three
+  hypotheses with discriminating tests: H1 push-pull sharpening (individual class signatures big and OPPOSITE,
+  sum small but decisive), H2 null-space waste (anti-alignment concentrated outside the unembedding row-space),
+  H3 gain control (norm-vs-direction damage decomposition). Ends with a functional description of L17 in the
+  fold vocabulary.
+- a00f273a7f93ca8d2 (qk_swiglu_pipeline.py): is the §89 recency-to-history pipeline architecture-general?
+  Group-level input-ablation version on swiglu18 (no bilinearity needed — exact as an intervention): per-layer
+  five-group causal contributions; does attention-recent die late, embedding die early, history take over, the
+  last layer stand out? Both agents GPU-guarded to coexist.
