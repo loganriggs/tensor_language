@@ -1,0 +1,1423 @@
+{
+ "meta": {
+  "model": "bilin18",
+  "held_slice": "FW[448:600,:128]",
+  "conventions": "forward verbatim from qk_hub_streampairs.py/qk_unsup_classpush.py; mean-ablation = per-position mean of layer-0 yh4 over the 152 held seqs; readout = first-order unembed W_U @ write (ignores final rms/tanh); pattern is bilinear unnormalised s1*s2 (no softmax), shares use |pat|.",
+  "h3_fire_threshold_top_decile_norm": 385.575
+ },
+ "1_hL0_3_prev_token": [
+  {
+   "seq": 521,
+   "pos": 88,
+   "snippet": " notified when Target offers are added. Read more to[ pick]>> up<<",
+   "attended_prev_token": " pick",
+   "prev_attention_share_abs": 0.531,
+   "write_norm": 658.683,
+   "top5_readout": [
+    [
+     "orns",
+     369.648
+    ],
+    [
+     "otten",
+     349.975
+    ],
+    [
+     "kson",
+     348.621
+    ],
+    [
+     "urer",
+     337.791
+    ],
+    [
+     "CU",
+     334.639
+    ]
+   ],
+   "readout_class_sums_top5": {
+    "capital": 1076787.25,
+    "word": 839845.5,
+    "subword": 549134.75,
+    "digit": 100503.22,
+    "punct": 52426.16
+   },
+   "actual_next_token": " valuable",
+   "local_ablation_dCE": 0.2352,
+   "next_logit_delta_intact_minus_ablated": 1.106,
+   "p_next_intact": 0.0003,
+   "p_next_ablated": 0.0002
+  },
+  {
+   "seq": 549,
+   "pos": 41,
+   "snippet": " started a thread in General Discussion to work on his[ pick]>> up<<",
+   "attended_prev_token": " pick",
+   "prev_attention_share_abs": 0.6,
+   "write_norm": 651.13,
+   "top5_readout": [
+    [
+     "orns",
+     367.728
+    ],
+    [
+     "kson",
+     347.838
+    ],
+    [
+     "CU",
+     329.895
+    ],
+    [
+     "aiman",
+     324.818
+    ],
+    [
+     "urer",
+     320.487
+    ]
+   ],
+   "readout_class_sums_top5": {
+    "capital": 1001062.62,
+    "word": 800370.75,
+    "subword": 488480.72,
+    "digit": 94730.12,
+    "punct": 47462.95
+   },
+   "actual_next_token": " lines",
+   "local_ablation_dCE": 2.6217,
+   "next_logit_delta_intact_minus_ablated": 3.697,
+   "p_next_intact": 0.0688,
+   "p_next_ablated": 0.005
+  }
+ ],
+ "2_hL0_3_capital_push": {
+  "capital_due": [
+   {
+    "seq": 523,
+    "pos": 108,
+    "snippet": " Off Outdoor Furniture & More\\nFree $20 Gift>> Card<<",
+    "write_norm": 612.857,
+    "capital_class_sum_firstorder_from_write": 345803.78,
+    "capital_class_sum_causal_ablation_deltalogit": -1253.86,
+    "top5_readout": [
+     [
+      " Gift",
+      325.963
+     ],
+     [
+      "ospons",
+      300.657
+     ],
+     [
+      " bidding",
+      299.189
+     ],
+     [
+      " https",
+      298.066
+     ],
+     [
+      "Rh",
+      295.184
+     ]
+    ],
+    "readout_class_sums_top5": {
+     "word": 389780.94,
+     "capital": 345803.66,
+     "subword": 292867.19,
+     "digit": 24727.82,
+     "other": 17101.83
+    },
+    "actual_next_token": " When",
+    "next_class": "capital",
+    "local_ablation_dCE": 1.3226,
+    "next_logit_delta_intact_minus_ablated": 1.623,
+    "p_next_intact": 0.0093,
+    "p_next_ablated": 0.0025
+   },
+   {
+    "seq": 595,
+    "pos": 123,
+    "snippet": " Tech in final round at Great Smokies\\nFresh>>man<<",
+    "write_norm": 607.112,
+    "capital_class_sum_firstorder_from_write": 452257.06,
+    "capital_class_sum_causal_ablation_deltalogit": 2083.95,
+    "top5_readout": [
+     [
+      "oard",
+      351.723
+     ],
+     [
+      " hitherto",
+      304.977
+     ],
+     [
+      "wikipedia",
+      299.294
+     ],
+     [
+      "onna",
+      290.884
+     ],
+     [
+      " previously",
+      283.814
+     ]
+    ],
+    "readout_class_sums_top5": {
+     "capital": 452257.25,
+     "word": 313119.69,
+     "subword": 259902.48,
+     "digit": 53217.3,
+     "punct": 20042.2
+    },
+    "actual_next_token": " Mad",
+    "next_class": "capital",
+    "local_ablation_dCE": 1.1862,
+    "next_logit_delta_intact_minus_ablated": 2.432,
+    "p_next_intact": 0.0099,
+    "p_next_ablated": 0.003
+   }
+  ],
+  "contrast_not_due": [
+   {
+    "seq": 567,
+    "pos": 52,
+    "snippet": ". A surface street stretch between San Bernardino and La Ver>>ne<<",
+    "write_norm": 640.362,
+    "capital_class_sum_firstorder_from_write": 6208.5,
+    "capital_class_sum_causal_ablation_deltalogit": 16353.98,
+    "top5_readout": [
+     [
+      " vein",
+      288.537
+     ],
+     [
+      "termin",
+      267.06
+     ],
+     [
+      "rossover",
+      259.293
+     ],
+     [
+      "rack",
+      249.891
+     ],
+     [
+      "Connell",
+      245.895
+     ]
+    ],
+    "readout_class_sums_top5": {
+     "subword": 40174.05,
+     "word": -18949.39,
+     "digit": -13306.42,
+     "punct": -10041.64,
+     "capital": 6208.48
+    },
+    "actual_next_token": " to",
+    "next_class": "word",
+    "local_ablation_dCE": -1.4764,
+    "next_logit_delta_intact_minus_ablated": 1.048,
+    "p_next_intact": 0.0009,
+    "p_next_ablated": 0.004
+   }
+  ]
+ },
+ "3_hL0_8_distributed_support": [
+  {
+   "seq": 541,
+   "pos": 113,
+   "snippet": " it easy to read.\\nYour resume should not only>> be<<",
+   "write_norm": 305.923,
+   "top5_readout": [
+    [
+     " nor",
+     189.848
+    ],
+    [
+     "unless",
+     149.122
+    ],
+    [
+     " anymore",
+     146.522
+    ],
+    [
+     "but",
+     142.631
+    ],
+    [
+     " exception",
+     141.014
+    ]
+   ],
+   "readout_class_sums_top5": {
+    "capital": 77678.7,
+    "word": -58449.14,
+    "subword": 51351.66,
+    "punct": 11033.58,
+    "digit": 7843.04
+   },
+   "causal_class_sums_top5": {
+    "word": 3037.85,
+    "subword": 2132.74,
+    "digit": -319.05,
+    "punct": 129.28,
+    "other": 44.67
+   },
+   "actual_next_token": " visually",
+   "local_ablation_dCE": 2.4175,
+   "next_logit_delta_intact_minus_ablated": 2.907,
+   "p_next_intact": 0.0182,
+   "p_next_ablated": 0.0016
+  },
+  {
+   "seq": 486,
+   "pos": 47,
+   "snippet": " sleek, but warm and open atmosphere. In front of>> walls<<",
+   "write_norm": 146.487,
+   "top5_readout": [
+    [
+     " Squad",
+     74.978
+    ],
+    [
+     " laid",
+     70.559
+    ],
+    [
+     " Blink",
+     68.668
+    ],
+    [
+     " sockets",
+     67.104
+    ],
+    [
+     "adows",
+     66.857
+    ]
+   ],
+   "readout_class_sums_top5": {
+    "word": 100001.61,
+    "capital": 87748.16,
+    "subword": 58146.43,
+    "digit": 13502.29,
+    "punct": 7284.82
+   },
+   "causal_class_sums_top5": {
+    "subword": 3997.51,
+    "capital": -3359.09,
+    "word": 3096.53,
+    "other": 100.6,
+    "special": 61.7
+   },
+   "actual_next_token": " painted",
+   "local_ablation_dCE": 2.3972,
+   "next_logit_delta_intact_minus_ablated": 2.881,
+   "p_next_intact": 0.0063,
+   "p_next_ablated": 0.0006
+  }
+ ],
+ "4_hL0_2_null": {
+  "examples": [
+   {
+    "seq": 499,
+    "pos": 64,
+    "snippet": "\\n- 8.50 mi\\n- Priority Power Ad>>\\n<<",
+    "write_norm": 774.171,
+    "actual_next_token": "Cl",
+    "local_ablation_dCE": 0.1498,
+    "next_logit_delta_intact_minus_ablated": -0.04,
+    "p_next_intact": 0.0002,
+    "p_next_ablated": 0.0002
+   },
+   {
+    "seq": 531,
+    "pos": 105,
+    "snippet": "<|endoftext|>By Times staff writers\\nPublished November 20, 2004>>\\n<<",
+    "write_norm": 644.489,
+    "actual_next_token": "5",
+    "local_ablation_dCE": 0.0023,
+    "next_logit_delta_intact_minus_ablated": -0.009,
+    "p_next_intact": 0.0004,
+    "p_next_ablated": 0.0004
+   }
+  ],
+  "mean_dCE_top200_firing": [
+   0.00395,
+   0.01543
+  ],
+  "mean_dCE_global": [
+   0.000307,
+   0.000335
+  ]
+ },
+ "5_archetypes": {
+  "h8_the": {
+   "head": 8,
+   "cp_slot": 0,
+   "gate_matches_saved_json": true,
+   "top8_tokens_weights": [
+    [
+     " the",
+     187.8437
+    ],
+    [
+     " The",
+     180.1724
+    ],
+    [
+     "the",
+     176.8784
+    ],
+    [
+     "The",
+     174.5921
+    ],
+    [
+     " THE",
+     145.3168
+    ],
+    [
+     "THE",
+     114.2234
+    ],
+    [
+     " tho",
+     67.1895
+    ],
+    [
+     "ethe",
+     66.6154
+    ]
+   ],
+   "examples": [
+    {
+     "seq": 578,
+     "dest_pos_i": 13,
+     "source_pos_j": 12,
+     "source_token": " the",
+     "S_ij_bilinear": 0.3974,
+     "snippet": " of the (probably incorrect) perception that it's[ the]>> most<<",
+     "full_head_write_top5_readout": [
+      [
+       "cients",
+       149.76
+      ],
+      [
+       "hips",
+       135.724
+      ],
+      [
+       " merc",
+       133.245
+      ],
+      [
+       "liest",
+       127.976
+      ],
+      [
+       " lacked",
+       127.079
+      ]
+     ],
+     "full_head_write_class_sums_top5": {
+      "word": 54890.41,
+      "capital": 54818.62,
+      "subword": 41197.68,
+      "other": 4859.85,
+      "punct": 1878.12
+     },
+     "source_contribution_top5_readout": [
+      [
+       "liest",
+       146.92
+      ],
+      [
+       "cients",
+       143.827
+      ],
+      [
+       "erest",
+       124.135
+      ],
+      [
+       " stride",
+       121.218
+      ],
+      [
+       " portion",
+       120.94
+      ]
+     ],
+     "source_contribution_class_sums_top5": {
+      "capital": 154469.69,
+      "word": 150305.19,
+      "subword": 121230.64,
+      "digit": 14868.8,
+      "other": 8246.0
+     },
+     "actual_next_token": " health",
+     "caveat": "direct-unembed effect of layer-0 value writes is ~0 (5e); these deposit class-occurrence signals consumed by later layers -- class sums are the meaningful readout"
+    },
+    {
+     "seq": 561,
+     "dest_pos_i": 55,
+     "source_pos_j": 54,
+     "source_token": " the",
+     "S_ij_bilinear": 0.3972,
+     "snippet": " due to its superb gameplay, is already one of[ the]>> most<<",
+     "full_head_write_top5_readout": [
+      [
+       "liest",
+       165.853
+      ],
+      [
+       "cients",
+       141.917
+      ],
+      [
+       "hest",
+       125.82
+      ],
+      [
+       " portion",
+       125.465
+      ],
+      [
+       " Triangle",
+       122.369
+      ]
+     ],
+     "full_head_write_class_sums_top5": {
+      "capital": 110891.91,
+      "subword": 95201.38,
+      "word": 66542.55,
+      "digit": 9957.79,
+      "other": 7454.18
+     },
+     "source_contribution_top5_readout": [
+      [
+       "liest",
+       146.847
+      ],
+      [
+       "cients",
+       143.755
+      ],
+      [
+       "erest",
+       124.073
+      ],
+      [
+       " stride",
+       121.158
+      ],
+      [
+       " portion",
+       120.88
+      ]
+     ],
+     "source_contribution_class_sums_top5": {
+      "capital": 154392.92,
+      "word": 150230.55,
+      "subword": 121170.47,
+      "digit": 14861.41,
+      "other": 8241.9
+     },
+     "actual_next_token": " popular",
+     "caveat": "direct-unembed effect of layer-0 value writes is ~0 (5e); these deposit class-occurrence signals consumed by later layers -- class sums are the meaningful readout"
+    }
+   ]
+  },
+  "h8_a_an": {
+   "head": 8,
+   "cp_slot": 1,
+   "gate_matches_saved_json": true,
+   "top8_tokens_weights": [
+    [
+     " a",
+     174.6768
+    ],
+    [
+     " A",
+     141.4347
+    ],
+    [
+     "A",
+     126.3631
+    ],
+    [
+     "a",
+     110.5567
+    ],
+    [
+     " an",
+     32.1729
+    ],
+    [
+     " An",
+     28.5962
+    ],
+    [
+     "An",
+     27.1168
+    ],
+    [
+     " sales",
+     26.797
+    ]
+   ],
+   "examples": [
+    {
+     "seq": 480,
+     "dest_pos_i": 77,
+     "source_pos_j": 76,
+     "source_token": "A",
+     "S_ij_bilinear": 0.4249,
+     "snippet": " through education \u2013 both formal and social education.\\n[A]>> number<<",
+     "full_head_write_top5_readout": [
+      [
+       " Proxy",
+       150.459
+      ],
+      [
+       " containing",
+       144.411
+      ],
+      [
+       "inner",
+       141.229
+      ],
+      [
+       " consisting",
+       140.776
+      ],
+      [
+       "wered",
+       137.826
+      ]
+     ],
+     "full_head_write_class_sums_top5": {
+      "subword": -45687.02,
+      "capital": -40752.54,
+      "word": -25841.89,
+      "punct": -6150.5,
+      "digit": -5944.46
+     },
+     "source_contribution_top5_readout": [
+      [
+       " Proxy",
+       144.758
+      ],
+      [
+       " consisting",
+       142.921
+      ],
+      [
+       " containing",
+       141.038
+      ],
+      [
+       "Item",
+       130.524
+      ],
+      [
+       "inner",
+       129.428
+      ]
+     ],
+     "source_contribution_class_sums_top5": {
+      "subword": -21392.54,
+      "word": 12825.71,
+      "capital": 4499.04,
+      "punct": -3407.93,
+      "digit": 1894.72
+     },
+     "actual_next_token": " of",
+     "caveat": "direct-unembed effect of layer-0 value writes is ~0 (5e); these deposit class-occurrence signals consumed by later layers -- class sums are the meaningful readout"
+    },
+    {
+     "seq": 561,
+     "dest_pos_i": 66,
+     "source_pos_j": 65,
+     "source_token": " a",
+     "S_ij_bilinear": 0.4101,
+     "snippet": " most popular maps on Conquer Club. WWII Poland After[ a]>> few<<",
+     "full_head_write_top5_readout": [
+      [
+       "wered",
+       189.106
+      ],
+      [
+       "inner",
+       173.212
+      ],
+      [
+       "coon",
+       166.458
+      ],
+      [
+       "racial",
+       159.965
+      ],
+      [
+       "asket",
+       158.524
+      ]
+     ],
+     "full_head_write_class_sums_top5": {
+      "capital": 271704.84,
+      "word": 209139.69,
+      "subword": 170057.03,
+      "digit": 35972.28,
+      "other": 15384.52
+     },
+     "source_contribution_top5_readout": [
+      [
+       "rang",
+       149.763
+      ],
+      [
+       " consisting",
+       141.849
+      ],
+      [
+       "inner",
+       137.05
+      ],
+      [
+       "Item",
+       131.427
+      ],
+      [
+       " containing",
+       130.793
+      ]
+     ],
+     "source_contribution_class_sums_top5": {
+      "capital": 120415.19,
+      "word": 65948.54,
+      "subword": 63187.25,
+      "digit": 10263.98,
+      "other": 5101.42
+     },
+     "actual_next_token": " small",
+     "caveat": "direct-unembed effect of layer-0 value writes is ~0 (5e); these deposit class-occurrence signals consumed by later layers -- class sums are the meaningful readout"
+    }
+   ]
+  },
+  "h8_of": {
+   "head": 8,
+   "cp_slot": 3,
+   "gate_matches_saved_json": true,
+   "top8_tokens_weights": [
+    [
+     " of",
+     153.7868
+    ],
+    [
+     " Of",
+     144.993
+    ],
+    [
+     "of",
+     142.8171
+    ],
+    [
+     "Of",
+     140.6811
+    ],
+    [
+     " OF",
+     130.6829
+    ],
+    [
+     "OF",
+     54.4288
+    ],
+    [
+     " thereof",
+     43.5524
+    ],
+    [
+     " example",
+     35.7906
+    ]
+   ],
+   "examples": [
+    {
+     "seq": 579,
+     "dest_pos_i": 123,
+     "source_pos_j": 122,
+     "source_token": " of",
+     "S_ij_bilinear": 0.3768,
+     "snippet": " Q. Do you think MaleAlphaThree's list[ of]>> question<<",
+     "full_head_write_top5_readout": [
+      [
+       "an",
+       86.065
+      ],
+      [
+       "pl",
+       84.799
+      ],
+      [
+       " subscribing",
+       83.433
+      ],
+      [
+       " hoard",
+       82.135
+      ],
+      [
+       " centres",
+       79.356
+      ]
+     ],
+     "full_head_write_class_sums_top5": {
+      "word": -137366.31,
+      "capital": -120697.34,
+      "subword": -90531.85,
+      "digit": -16438.02,
+      "other": -3440.44
+     },
+     "source_contribution_top5_readout": [
+      [
+       " hoard",
+       88.942
+      ],
+      [
+       " whatsoever",
+       87.848
+      ],
+      [
+       "ETH",
+       79.25
+      ],
+      [
+       "pl",
+       78.601
+      ],
+      [
+       " subscribing",
+       78.413
+      ]
+     ],
+     "source_contribution_class_sums_top5": {
+      "word": -21504.27,
+      "capital": 14862.41,
+      "punct": 4121.89,
+      "other": 2235.96,
+      "special": 1378.02
+     },
+     "actual_next_token": " is",
+     "caveat": "direct-unembed effect of layer-0 value writes is ~0 (5e); these deposit class-occurrence signals consumed by later layers -- class sums are the meaningful readout"
+    },
+    {
+     "seq": 550,
+     "dest_pos_i": 4,
+     "source_pos_j": 3,
+     "source_token": " of",
+     "S_ij_bilinear": 0.3521,
+     "snippet": " beautiful this time[ of]>> year<<",
+     "full_head_write_top5_readout": [
+      [
+       "IAL",
+       94.877
+      ],
+      [
+       " subscribing",
+       94.359
+      ],
+      [
+       "ame",
+       92.314
+      ],
+      [
+       "pl",
+       90.887
+      ],
+      [
+       "lex",
+       88.326
+      ]
+     ],
+     "full_head_write_class_sums_top5": {
+      "capital": -76395.06,
+      "word": -73816.33,
+      "subword": -46241.85,
+      "digit": -10612.86,
+      "other": -2204.51
+     },
+     "source_contribution_top5_readout": [
+      [
+       " hoard",
+       83.117
+      ],
+      [
+       " whatsoever",
+       82.094
+      ],
+      [
+       "ETH",
+       74.059
+      ],
+      [
+       "pl",
+       73.453
+      ],
+      [
+       " subscribing",
+       73.277
+      ]
+     ],
+     "source_contribution_class_sums_top5": {
+      "word": -20095.81,
+      "capital": 13888.96,
+      "punct": 3851.92,
+      "other": 2089.51,
+      "special": 1287.76
+     },
+     "actual_next_token": ".",
+     "caveat": "direct-unembed effect of layer-0 value writes is ~0 (5e); these deposit class-occurrence signals consumed by later layers -- class sums are the meaningful readout"
+    }
+   ]
+  },
+  "h8_and": {
+   "head": 8,
+   "cp_slot": 4,
+   "gate_matches_saved_json": true,
+   "top8_tokens_weights": [
+    [
+     " and",
+     150.1499
+    ],
+    [
+     "and",
+     112.6842
+    ],
+    [
+     " AND",
+     101.2782
+    ],
+    [
+     " And",
+     97.9286
+    ],
+    [
+     "And",
+     92.0735
+    ],
+    [
+     " &",
+     63.2966
+    ],
+    [
+     " must",
+     43.2851
+    ],
+    [
+     " amd",
+     35.4568
+    ]
+   ],
+   "examples": [
+    {
+     "seq": 476,
+     "dest_pos_i": 116,
+     "source_pos_j": 115,
+     "source_token": " must",
+     "S_ij_bilinear": 0.3435,
+     "snippet": " the list of perquisites. The future president[ must]>> be<<",
+     "full_head_write_top5_readout": [
+      [
+       "ande",
+       164.206
+      ],
+      [
+       "seless",
+       163.6
+      ],
+      [
+       " Apollo",
+       155.095
+      ],
+      [
+       " Forbidden",
+       151.901
+      ],
+      [
+       " SHOULD",
+       151.881
+      ]
+     ],
+     "full_head_write_class_sums_top5": {
+      "capital": 329810.5,
+      "word": 210701.47,
+      "subword": 206671.84,
+      "digit": 42424.83,
+      "punct": 30189.15
+     },
+     "source_contribution_top5_readout": [
+      [
+       "ande",
+       166.814
+      ],
+      [
+       "seless",
+       156.971
+      ],
+      [
+       " glasses",
+       147.932
+      ],
+      [
+       " SHOULD",
+       145.776
+      ],
+      [
+       " forbid",
+       145.0
+      ]
+     ],
+     "source_contribution_class_sums_top5": {
+      "capital": 341697.44,
+      "subword": 228327.42,
+      "word": 226701.08,
+      "digit": 47790.75,
+      "punct": 28313.34
+     },
+     "actual_next_token": " someone",
+     "caveat": "direct-unembed effect of layer-0 value writes is ~0 (5e); these deposit class-occurrence signals consumed by later layers -- class sums are the meaningful readout"
+    },
+    {
+     "seq": 526,
+     "dest_pos_i": 8,
+     "source_pos_j": 7,
+     "source_token": " and",
+     "S_ij_bilinear": 0.1156,
+     "snippet": "worth (senior, photography)[ and]>> Casey<<",
+     "full_head_write_top5_readout": [
+      [
+       "-",
+       41.119
+      ],
+      [
+       "el",
+       36.785
+      ],
+      [
+       "al",
+       36.181
+      ],
+      [
+       "ally",
+       33.421
+      ],
+      [
+       "om",
+       32.738
+      ]
+     ],
+     "full_head_write_class_sums_top5": {
+      "capital": -121905.9,
+      "word": -111916.22,
+      "subword": -86282.75,
+      "digit": -13613.3,
+      "other": -5706.14
+     },
+     "source_contribution_top5_readout": [
+      [
+       "-",
+       33.361
+      ],
+      [
+       "el",
+       31.97
+      ],
+      [
+       ".",
+       27.083
+      ],
+      [
+       "ally",
+       26.223
+      ],
+      [
+       "al",
+       26.092
+      ]
+     ],
+     "source_contribution_class_sums_top5": {
+      "capital": -87320.26,
+      "word": -83600.23,
+      "subword": -63695.9,
+      "digit": -9053.0,
+      "other": -4085.42
+     },
+     "actual_next_token": " Holden",
+     "caveat": "direct-unembed effect of layer-0 value writes is ~0 (5e); these deposit class-occurrence signals consumed by later layers -- class sums are the meaningful readout"
+    }
+   ]
+  },
+  "h5_comma": {
+   "head": 5,
+   "cp_slot": 3,
+   "gate_matches_saved_json": true,
+   "top8_tokens_weights": [
+    [
+     ",",
+     82.5379
+    ],
+    [
+     "%,",
+     46.0454
+    ],
+    [
+     "),",
+     42.2485
+    ],
+    [
+     ".,",
+     42.1127
+    ],
+    [
+     "?,",
+     41.2373
+    ],
+    [
+     "!,",
+     39.8594
+    ],
+    [
+     "\",",
+     38.945
+    ],
+    [
+     "],",
+     36.2815
+    ]
+   ],
+   "examples": [
+    {
+     "seq": 545,
+     "dest_pos_i": 115,
+     "source_pos_j": 112,
+     "source_token": ",",
+     "S_ij_bilinear": 0.5196,
+     "snippet": " into an adaptive system while respecting the dignity[,] physical health>>,<<",
+     "full_head_write_top5_readout": [
+      [
+       "ests",
+       109.119
+      ],
+      [
+       " Art",
+       104.676
+      ],
+      [
+       "acca",
+       102.768
+      ],
+      [
+       " Han",
+       99.634
+      ],
+      [
+       "VEL",
+       98.143
+      ]
+     ],
+     "full_head_write_class_sums_top5": {
+      "word": -97920.55,
+      "subword": -86833.16,
+      "capital": -68449.29,
+      "digit": -9711.25,
+      "punct": -3287.6
+     },
+     "source_contribution_top5_readout": [
+      [
+       "ests",
+       92.557
+      ],
+      [
+       " Han",
+       90.144
+      ],
+      [
+       " transfer",
+       82.7
+      ],
+      [
+       " Dresden",
+       81.547
+      ],
+      [
+       " SW",
+       80.916
+      ]
+     ],
+     "source_contribution_class_sums_top5": {
+      "word": -149181.44,
+      "capital": -134356.88,
+      "subword": -95750.68,
+      "digit": -16692.34,
+      "punct": -5225.86
+     },
+     "actual_next_token": " and",
+     "caveat": "direct-unembed effect of layer-0 value writes is ~0 (5e); these deposit class-occurrence signals consumed by later layers -- class sums are the meaningful readout"
+    },
+    {
+     "seq": 460,
+     "dest_pos_i": 54,
+     "source_pos_j": 51,
+     "source_token": ",",
+     "S_ij_bilinear": 0.5193,
+     "snippet": " Tyson sneaks off with his roughneck[,] but ill>>,<<",
+     "full_head_write_top5_readout": [
+      [
+       "avery",
+       136.821
+      ],
+      [
+       " spoil",
+       132.504
+      ],
+      [
+       " Slave",
+       129.029
+      ],
+      [
+       " archaeological",
+       128.864
+      ],
+      [
+       " assist",
+       128.842
+      ]
+     ],
+     "full_head_write_class_sums_top5": {
+      "capital": 148305.45,
+      "word": 80382.17,
+      "subword": 37394.11,
+      "punct": 9794.01,
+      "digit": 8342.4
+     },
+     "source_contribution_top5_readout": [
+      [
+       "ests",
+       92.501
+      ],
+      [
+       " Han",
+       90.09
+      ],
+      [
+       " transfer",
+       82.65
+      ],
+      [
+       " Dresden",
+       81.498
+      ],
+      [
+       " SW",
+       80.867
+      ]
+     ],
+     "source_contribution_class_sums_top5": {
+      "word": -149091.11,
+      "capital": -134275.47,
+      "subword": -95692.67,
+      "digit": -16682.22,
+      "punct": -5222.69
+     },
+     "actual_next_token": " grand",
+     "caveat": "direct-unembed effect of layer-0 value writes is ~0 (5e); these deposit class-occurrence signals consumed by later layers -- class sums are the meaningful readout"
+    }
+   ]
+  },
+  "h5_newline": {
+   "head": 5,
+   "cp_slot": 0,
+   "gate_matches_saved_json": true,
+   "top8_tokens_weights": [
+    [
+     "\\n",
+     224.9857
+    ],
+    [
+     "<|endoftext|>",
+     80.9566
+    ],
+    [
+     " FIG",
+     25.9341
+    ],
+    [
+     " Al",
+     20.8557
+    ],
+    [
+     " atroc",
+     20.005
+    ],
+    [
+     " The",
+     19.0829
+    ],
+    [
+     "The",
+     18.1916
+    ],
+    [
+     " Eddie",
+     18.1562
+    ]
+   ],
+   "examples": [
+    {
+     "seq": 467,
+     "dest_pos_i": 33,
+     "source_pos_j": 18,
+     "source_token": "\\n",
+     "S_ij_bilinear": 0.6456,
+     "snippet": "'ve had Walter's pizza, and it's awesome.>>\\n<<",
+     "full_head_write_top5_readout": [
+      [
+       " Meaning",
+       106.915
+      ],
+      [
+       "Tor",
+       102.865
+      ],
+      [
+       " Crimean",
+       101.157
+      ],
+      [
+       "tor",
+       99.736
+      ],
+      [
+       "powers",
+       98.752
+      ]
+     ],
+     "full_head_write_class_sums_top5": {
+      "capital": 284101.44,
+      "word": 167066.78,
+      "subword": 140919.59,
+      "digit": 24485.77,
+      "other": 10426.37
+     },
+     "source_contribution_top5_readout": [
+      [
+       "tor",
+       136.557
+      ],
+      [
+       " arms",
+       124.867
+      ],
+      [
+       " Early",
+       115.329
+      ],
+      [
+       "tv",
+       110.413
+      ],
+      [
+       "Tor",
+       107.111
+      ]
+     ],
+     "source_contribution_class_sums_top5": {
+      "capital": 151789.94,
+      "subword": 73208.66,
+      "word": 25698.93,
+      "digit": 8437.31,
+      "other": 5422.51
+     },
+     "actual_next_token": "To",
+     "caveat": "direct-unembed effect of layer-0 value writes is ~0 (5e); these deposit class-occurrence signals consumed by later layers -- class sums are the meaningful readout"
+    },
+    {
+     "seq": 598,
+     "dest_pos_i": 33,
+     "source_pos_j": 18,
+     "source_token": "\\n",
+     "S_ij_bilinear": 0.6456,
+     "snippet": ".\\n- Assignable digital audio and video inputs>>\\n<<",
+     "full_head_write_top5_readout": [
+      [
+       "tor",
+       226.365
+      ],
+      [
+       " arms",
+       224.33
+      ],
+      [
+       " Early",
+       216.575
+      ],
+      [
+       " Meaning",
+       191.911
+      ],
+      [
+       "frame",
+       184.307
+      ]
+     ],
+     "full_head_write_class_sums_top5": {
+      "capital": 328575.75,
+      "subword": 161548.86,
+      "word": 109197.91,
+      "digit": 21810.1,
+      "other": 11317.95
+     },
+     "source_contribution_top5_readout": [
+      [
+       "tor",
+       136.557
+      ],
+      [
+       " arms",
+       124.867
+      ],
+      [
+       " Early",
+       115.329
+      ],
+      [
+       "tv",
+       110.413
+      ],
+      [
+       "Tor",
+       107.111
+      ]
+     ],
+     "source_contribution_class_sums_top5": {
+      "capital": 151789.94,
+      "subword": 73208.66,
+      "word": 25698.93,
+      "digit": 8437.31,
+      "other": 5422.51
+     },
+     "actual_next_token": "Get",
+     "caveat": "direct-unembed effect of layer-0 value writes is ~0 (5e); these deposit class-occurrence signals consumed by later layers -- class sums are the meaningful readout"
+    }
+   ]
+  }
+ }
+}

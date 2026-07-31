@@ -7664,3 +7664,18 @@ existing steering methods, not a new method class, so in-scope and launched rath
   (scaffold components agree 0.9-1.0, content fringe ~0); causally near-negligible (0.0022/0.0014 nats);
   (4) added the §5j copy-head negative (copy-cosines -0.08..+0.03 — archetypes deposit class-occurrence
   signals, no direct token pushing). Published draft-3-cp-pipeline-code.
+
+## 2026-07-31m (cron PAUSED by Logan; §105 red-team verdict applied; a.L0 examples landed)
+- Cron deleted at Logan's request (usage concern; interactive dossier work is the live frontier).
+- §105 red-team (final): census SURVIVES STRENGTHENED — gauge lift is pure fitting capacity (far pairs and
+  random tensors lift equally, 0.07-0.14); consumption-metric norm-free rank 15/18; norm-equalized probe
+  makes things worse. Compression table SOFTENED (centred atoms + consumption metric: 12-atom cell sharing
+  marginally WINS z=-2.1, 16-atom tie z=0.7) and "every budget" retracted -> "every budget that would
+  constitute meaningful compression" (z=31-121 from 2.25-fold up). Causal refit at 1.125-fold buys a sixth
+  of the gap (z=-3.3) and still loses (z=4.2); k=12 refit killed for cost, on the record as unresolved but
+  superseded by the centred/consumption result at the same budget. Exact wordings applied to §105.
+- a.L0 examples extraction complete (qk_aL0_examples.py/json, all 10 archetype gates reproduce stage-2/3
+  exactly): pick-up-lines prev-token demo (0.069->0.005), capital-push pair + mid-name contrast (ablation
+  HELPS -1.48 where capital is wrong), h.L0.2 null at its own loudest writes (top-200 mean +0.004±0.015),
+  archetype examples incl. comma-attending-comma (S 0.520, negative word/capital signal) and
+  newline->newline (S 0.646, +152k capital — start-of-line capitalization feed). Dossier draft 5.

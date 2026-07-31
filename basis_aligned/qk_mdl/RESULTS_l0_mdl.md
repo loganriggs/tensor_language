@@ -5473,12 +5473,20 @@ The function-weighted census LOOKS shared (rank 2-3 at 90%) but that is norm con
 2.3e10 and block 0 at 5.2e9 vs ~2e7 mid-stack — not shared geometry; the large weighted cosines are again
 adjacent pairs (blocks 15-16 at 0.66, 5-6 at 0.52), plus a curious block-0-vs-readout ANTI-alignment
 (−0.28 with block 15). **The model stores its eighteen blocks as mutually near-orthogonal tensors — there
-is no cross-layer core redundancy in the folded coefficients' linear span.**
+is no cross-layer core redundancy in the folded coefficients' linear span.** Gauge red-team: fitting the
+best orthogonal input and output rotations per pair lifts the three most-aligned pairs from raw
+0.018-0.024 to 0.089-0.137, but two deliberately far pairs lift to 0.104-0.107 and two random-factor
+tensors to 0.073-0.076 under an identical fitting budget — the lift is fitting capacity, not hidden
+alignment, so the near-orthogonality is not a choice of coordinates. Output-slot weighting agrees: under
+the consumption metric (Fisher-style, the directions downstream actually reads) the norm-free rank is 15
+of 18 and mean absolute cosine 0.074.
 
 **(b) Compression table** (whole-model substitution; best atom variant vs best rank-allocation ratio at
-matched budget; paired differences): 2 atoms/9-fold: +3.2010 vs +0.5367 (z=145); 4 atoms/4.5-fold: +2.8694
-vs +0.3118 (z=138); 8 atoms/2.25-fold: +1.3310 vs +0.1217 (z=97); 12 atoms/1.5-fold: +0.0775 vs +0.0468
-(z=10); 16 atoms/1.125-fold: +0.0171 vs +0.0092 (z=5.1). MECHANISM: near-orthogonality degenerates rank-k
+matched budget; paired differences; RED-TEAM-CORRECTED — mean-centred atoms, norm-equalized atoms and a
+consumption-weighted output metric counted): 2 atoms/9-fold: +3.2010 vs +0.5367; 4 atoms/4.5-fold:
++2.1986 vs +0.3118 (z=121); 8 atoms/2.25-fold: +0.3662 vs +0.1217 (z=31); 12 atoms/1.5-fold: +0.0413 vs
++0.0468 (paired −0.0054 ± 0.0027, z=−2.1 — sharing marginally WINS); 16 atoms/1.125-fold: +0.0102 vs
++0.0092 (paired +0.0010 ± 0.0014, z=0.7 — tie). MECHANISM: near-orthogonality degenerates rank-k
 projection toward block SELECTION (at 8 atoms the mixing diagonal is 0.99-1.00 for blocks 0-3/15-17, 
 0.01-0.11 mid-stack) — small k mean-ablates the middle of the stack (§73/§92 catastrophic). The soft
 mixture beats hard selection by 0.93 nats but never approaches rank allocation, which keeps EVERY block at
@@ -5492,17 +5500,27 @@ not compose; it degrades.
 **(c) Region-restricted sharing: also NO** — 8 atoms allocated per §99 regions cost +1.7299 vs +1.3310 for
 global atoms at the same count (strictly worse); within-region raw rank is FULL (5/5, 7/7, 6/6 at 90%).
 
-**Verdict.** §104's closing sentence is refuted in its literal linear form: the optimal linear family of
-shared atoms — raw and function-weighted, global and per-region, plain and composed — buys strictly
-negative value at every budget. The compression story now closes from a THIRD side: not per-layer rank
+**Verdict (red-team-corrected).** §104's closing sentence is refuted in its literal linear form at every
+budget that would constitute meaningful compression: the shared-atom family buys strictly negative value
+from 2.25-fold up (z = 31 to 121), by the measured mechanism that near-orthogonality degenerates rank-k
+projection toward block selection. At the two near-trivial budgets it is a wash — with mean-centring and
+a consumption-weighted output metric the shared family ties rank allocation at 1.125-fold (z = 0.7) and
+marginally beats it at 1.5-fold (z = −2.1) — but a 1.5-fold saving costing 0.04 nats is not the faithful
+compression §92 was looking for. The compression story now closes from a THIRD side: not per-layer rank
 (§92), not term sparsity (§104), not linearly shared cores (§105). If faithful compression exists it needs
 nonlinearly or gauge-transformed shared structure (tn_gauge territory) or atoms learned outside the span
-of the existing blocks. Honest caveats from the arc itself: atoms were mixtures of the 18 block tensors
-(Frobenius-optimal by the Gram trick; causally-refit mixing and free jointly-trained atoms untried — at
-z≈100 a refit flip would be unprecedented here); the pooled metric weights input slots only; mean tables
-uncounted on both sides (§92/§104 precedent).
+of the existing blocks. Honest caveats: causally-refit mixing was tried at 1.125-fold and buys −0.0013 ± 0.0004 (z = −3.3) over
+the Frobenius-optimal mixing, roughly a sixth of the gap to rank allocation, which still wins at z = 4.2;
+the coefficients move barely one percent and the training objective is nearly flat in them. The refit at
+1.5-fold was not completed (stopped for cost) and remains open; free jointly-trained atoms remain untried.
+Mean tables uncounted on both sides (§92/§104 precedent).
 
-**RED-TEAM PENDING** (dispatched): causally-refit mixing coefficients at the mild budgets (12/16 atoms,
-where z is smallest); mean-centered atoms (share the deviation from the mean tensor, not the tensors);
-output-slot function weighting; whether gauge freedom (per-block invertible reparameterization before
-comparing) could hide alignment the raw cosine misses.
+**RED-TEAM COMPLETE (qk_redteam_sc.py + stage files):** census SURVIVES STRENGTHENED (gauge attack:
+lift is pure fitting capacity — far pairs and random tensors lift equally; norm-equalized atom probe:
+equalizing makes things worse, so the objective was not norm-dominated; consumption-metric norm-free rank
+15/18). Compression table SOFTENED as above (centred atoms + consumption metric close the two mildest
+cells to tie/marginal-win) and the verdict's "every budget" clause retracted in favor of "every budget
+that would constitute meaningful compression." Skipped, on the record: k=12 causal refit (killed mid-sweep
+for cost; partial trace showed a real, still-improving validation gain — that cell is superseded by the
+centred/consumption result at the same budget); gauge runs trimmed 160→40 iterations (matched budgets,
+decaying increments); region-restricted and composed schemes not re-run under the new metrics.
