@@ -7208,3 +7208,12 @@ existing steering methods, not a new method class, so in-scope and launched rath
   Group-level input-ablation version on swiglu18 (no bilinearity needed — exact as an intervention): per-layer
   five-group causal contributions; does attention-recent die late, embedding die early, history take over, the
   last layer stand out? Both agents GPU-guarded to coexist.
+
+## tick 2026-07-31 (§90 lands — the pipeline is architecture-general; L17-mixer still in flight)
+- §90 (subagent a00f273a7f93ca8d2): full replication of the recency-to-history pipeline on swiglu18 via the
+  exact input-group intervention. All four signatures: attention-recent top at L0-7 then causally dead by
+  L14-17; embedding dead by L4 (faint L17 revival); history 51-103% of late floors; last layer 10× floor jump
+  + entangled (single-group sum only 58%). All 18 floors matched priors to 5 decimals. Honest diffs recorded
+  (intervention-vs-energy; mlp-recent softer death; early joint-holding). Committed §90.
+- The cross-architecture fact-set now: completeness boundary (§77), SAE decoupling (§81), class-pushers (§70),
+  and the depth pipeline (§90). Still in flight: qk_L17_mixer (why the readout cancels).
