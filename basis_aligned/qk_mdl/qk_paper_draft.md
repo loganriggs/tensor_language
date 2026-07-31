@@ -1,7 +1,7 @@
 # A four-ledger per-layer decomposition of a no-softmax bilinear transformer
 
 *Consolidation draft — 2026-07-30. Numbers are the post-adversarial-review figures only.
-Sources: PLAN_per_layer.md, RESULTS_l0_mdl.md §32–§94, LOG.md. Left for parent review; not committed.*
+Sources: PLAN_per_layer.md, RESULTS_l0_mdl.md §32–§95, LOG.md. Left for parent review; not committed.*
 
 ## Abstract
 
@@ -454,6 +454,14 @@ transplant alone could see: the forceable boundary context is carried predominan
 *feed-forward* history group (nine times the attention-history gain, specificity ten-fold over random
 donors) — the attention accumulator's vectors are nearly parallel across positions, so their
 distinguishing component is small even though the attention-involving term dominates the pair's energy.
+Repeating the transplant mid-stack bounds the law's scope and unifies the program's two central
+mechanisms: at layers eight through fifteen the edit remains almost free of collateral (after-position
+costs statistically zero, with the perturbation demonstrably propagating) but the *gain* collapses to
+one-to-six percent of the readout's — the redundant code re-derives the conditioning from the many
+unedited sources and overwrites the injection, exactly as it compensated deletions. The boundary of the
+editing law is washout, not collateral: the same redundancy that blinded deletion-based attribution
+makes the model intrinsically robust to single-point mid-stack activation tampering, and makes the
+readout — where compensation has run out — the model's one true control surface.
 
 **Honest limits of the fold program.** The single-layer compression bargain does not globalize:
 restricting all eighteen blocks at once costs +1.46 nats at one-hundred-twenty-eight-fold compression

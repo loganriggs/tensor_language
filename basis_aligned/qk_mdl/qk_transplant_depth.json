@@ -1,0 +1,883 @@
+{
+ "meta": {
+  "model": "bilin18",
+  "layers": [
+   8,
+   12,
+   15,
+   17
+  ],
+  "held_slice": "FW[448:600,:128]",
+  "batch": 6,
+  "base_ce": 3.4946,
+  "edit": "x_mlp_in(p) = x_pre(p) + (Me_donor - Me_own(p)) at target positions only; blk.mlp at layer LI recomputes; the edited mlp output enters the residual and PROPAGATES through the remaining layers (unlike section 94's L17 where propagation is empty by construction)",
+  "targets": "mid-sentence capital-not-due (next token lowercase word/subword, distance-since-newline >= 8), n=300, donors = genuine boundary positions (sentence-end punct or newline), same sequence preferred; SAME target/donor POSITIONS at every depth; donor VECTORS collected per layer (the groups are defined per layer)",
+  "split": "BEFORE = non-edited positions with no edit strictly before them in the sequence (causal gate: logits must be bit-identical); AFTER = non-edited positions with an edit strictly before (propagation cost); distance = position minus nearest strictly-preceding edited position",
+  "P_capital": "softmax mass on VOCAB_CLASS==capital (arc_caps metric)",
+  "machinery": "VERBATIM qk_stream_transplant.py (transplant, metrics, splits, gates) + qk_allterm_census.py (five-group accumulators, LI parameterized)",
+  "gates": {
+   "base_ce": 3.49458,
+   "base_P_capital_sentend": 0.34902,
+   "base_P_capital_newline": 0.55269
+  }
+ },
+ "counts": {
+  "valid": 18634,
+  "boundary": 1209,
+  "target_notdue_pool": 8510,
+  "n_targets": 300,
+  "n_before": 8322,
+  "n_after": 10012,
+  "n_sequences_edited": 130,
+  "frac_same_sequence_donor": 1.0
+ },
+ "donor_geometry_by_layer": {
+  "8": {
+   "own_Me_norm": {
+    "mean": 3630.402514,
+    "SE": 41.363866,
+    "n": 300
+   },
+   "donor_Me_norm": {
+    "mean": 3042.64615,
+    "SE": 33.303718,
+    "n": 300
+   },
+   "cos_own_donor": {
+    "mean": 0.522476,
+    "SE": 0.00858,
+    "n": 300
+   },
+   "group_sum_identity_rel_global": 8.938218304651459e-08,
+   "group_sum_identity_rel_maxpos": 1.1856261039611127e-07
+  },
+  "12": {
+   "own_Me_norm": {
+    "mean": 9592.713926,
+    "SE": 99.20888,
+    "n": 300
+   },
+   "donor_Me_norm": {
+    "mean": 10206.523433,
+    "SE": 99.188977,
+    "n": 300
+   },
+   "cos_own_donor": {
+    "mean": 0.484808,
+    "SE": 0.005237,
+    "n": 300
+   },
+   "group_sum_identity_rel_global": 1.1339372442100618e-07,
+   "group_sum_identity_rel_maxpos": 1.8338175777898869e-07
+  },
+  "15": {
+   "own_Me_norm": {
+    "mean": 22008.901481,
+    "SE": 241.582577,
+    "n": 300
+   },
+   "donor_Me_norm": {
+    "mean": 26391.116559,
+    "SE": 247.290573,
+    "n": 300
+   },
+   "cos_own_donor": {
+    "mean": 0.620751,
+    "SE": 0.004578,
+    "n": 300
+   },
+   "group_sum_identity_rel_global": 1.4657674373013636e-07,
+   "group_sum_identity_rel_maxpos": 2.532235896524071e-07
+  },
+  "17": {
+   "own_Me_norm": {
+    "mean": 32240.538568,
+    "SE": 364.206089,
+    "n": 300
+   },
+   "donor_Me_norm": {
+    "mean": 38088.329753,
+    "SE": 326.876559,
+    "n": 300
+   },
+   "cos_own_donor": {
+    "mean": 0.525159,
+    "SE": 0.005811,
+    "n": 300
+   },
+   "group_sum_identity_rel_global": 1.555435202326766e-07,
+   "group_sum_identity_rel_maxpos": 3.3223520290448505e-07
+  }
+ },
+ "layers": {
+  "8": {
+   "force": {
+    "n_edited": 300,
+    "P_capital_before_edit": {
+     "mean": 0.042026,
+     "SE": 0.006428,
+     "n": 300
+    },
+    "P_capital_after_edit": {
+     "mean": 0.043675,
+     "SE": 0.006434,
+     "n": 300
+    },
+    "dP_capital_edited": {
+     "mean": 0.001649,
+     "SE": 0.000573,
+     "n": 300
+    },
+    "dCE_edited": {
+     "mean": 0.020071,
+     "SE": 0.012616,
+     "n": 300
+    },
+    "dCE_before_positions": {
+     "mean": 0.0,
+     "SE": 0.0,
+     "n": 8322
+    },
+    "dCE_after_positions": {
+     "mean": -0.0,
+     "SE": 0.000129,
+     "n": 10012
+    },
+    "dP_capital_after_positions": {
+     "mean": 2.4e-05,
+     "SE": 8e-06,
+     "n": 10012
+    },
+    "global_dCE_all_predict_positions": 0.000307,
+    "zero_collateral_gate": {
+     "max_abs_logit_diff_before": 0.0,
+     "frac_before_exactly_zero": 1.0,
+     "max_abs_logit_diff_after": 0.8178634643554688,
+     "frac_after_exactly_zero": 0.0,
+     "max_abs_logit_diff_edited": 4.917206287384033
+    },
+    "dCE_after_by_distance": {
+     "1-2": {
+      "mean": -0.00118,
+      "SE": 0.00165,
+      "n": 563
+     },
+     "3-4": {
+      "mean": -0.000249,
+      "SE": 0.000928,
+      "n": 522
+     },
+     "5-8": {
+      "mean": 8.5e-05,
+      "SE": 0.000457,
+      "n": 995
+     },
+     "9-16": {
+      "mean": 0.000161,
+      "SE": 0.000212,
+      "n": 1746
+     },
+     "17-32": {
+      "mean": 0.000164,
+      "SE": 0.000139,
+      "n": 2663
+     },
+     "33-64": {
+      "mean": -0.00011,
+      "SE": 8.8e-05,
+      "n": 2667
+     },
+     "65-127": {
+      "mean": 0.000331,
+      "SE": 0.000198,
+      "n": 856
+     }
+    },
+    "surgery_score_gain_over_after_collateral": null,
+    "collateral_per_unit_gain": -0.0
+   },
+   "placebo": {
+    "n_edited": 300,
+    "P_capital_before_edit": {
+     "mean": 0.042026,
+     "SE": 0.006428,
+     "n": 300
+    },
+    "P_capital_after_edit": {
+     "mean": 0.044377,
+     "SE": 0.006208,
+     "n": 300
+    },
+    "dP_capital_edited": {
+     "mean": 0.002351,
+     "SE": 0.001452,
+     "n": 300
+    },
+    "dCE_edited": {
+     "mean": 0.172117,
+     "SE": 0.039737,
+     "n": 300
+    },
+    "dCE_before_positions": {
+     "mean": 0.0,
+     "SE": 0.0,
+     "n": 8322
+    },
+    "dCE_after_positions": {
+     "mean": 0.000329,
+     "SE": 0.000228,
+     "n": 10012
+    },
+    "dP_capital_after_positions": {
+     "mean": 9e-06,
+     "SE": 1.6e-05,
+     "n": 10012
+    },
+    "global_dCE_all_predict_positions": 0.002827,
+    "zero_collateral_gate": {
+     "max_abs_logit_diff_before": 0.0,
+     "frac_before_exactly_zero": 1.0,
+     "max_abs_logit_diff_after": 1.4122390747070312,
+     "frac_after_exactly_zero": 0.0,
+     "max_abs_logit_diff_edited": 11.10578441619873
+    },
+    "dCE_after_by_distance": {
+     "1-2": {
+      "mean": 4.7e-05,
+      "SE": 0.003037,
+      "n": 563
+     },
+     "3-4": {
+      "mean": 7.3e-05,
+      "SE": 0.001436,
+      "n": 522
+     },
+     "5-8": {
+      "mean": 0.000633,
+      "SE": 0.000743,
+      "n": 995
+     },
+     "9-16": {
+      "mean": 0.000595,
+      "SE": 0.000358,
+      "n": 1746
+     },
+     "17-32": {
+      "mean": 0.000351,
+      "SE": 0.000243,
+      "n": 2663
+     },
+     "33-64": {
+      "mean": -8e-06,
+      "SE": 0.000174,
+      "n": 2667
+     },
+     "65-127": {
+      "mean": 0.000751,
+      "SE": 0.000501,
+      "n": 856
+     }
+    },
+    "surgery_score_gain_over_after_collateral": 7.1459,
+    "collateral_per_unit_gain": 0.13994
+   }
+  },
+  "12": {
+   "force": {
+    "n_edited": 300,
+    "P_capital_before_edit": {
+     "mean": 0.042026,
+     "SE": 0.006428,
+     "n": 300
+    },
+    "P_capital_after_edit": {
+     "mean": 0.049108,
+     "SE": 0.006684,
+     "n": 300
+    },
+    "dP_capital_edited": {
+     "mean": 0.007082,
+     "SE": 0.002028,
+     "n": 300
+    },
+    "dCE_edited": {
+     "mean": 0.065192,
+     "SE": 0.020064,
+     "n": 300
+    },
+    "dCE_before_positions": {
+     "mean": 0.0,
+     "SE": 0.0,
+     "n": 8322
+    },
+    "dCE_after_positions": {
+     "mean": -5e-05,
+     "SE": 7.6e-05,
+     "n": 10012
+    },
+    "dP_capital_after_positions": {
+     "mean": 2.2e-05,
+     "SE": 7e-06,
+     "n": 10012
+    },
+    "global_dCE_all_predict_positions": 0.000986,
+    "zero_collateral_gate": {
+     "max_abs_logit_diff_before": 0.0,
+     "frac_before_exactly_zero": 1.0,
+     "max_abs_logit_diff_after": 1.0844001770019531,
+     "frac_after_exactly_zero": 0.0,
+     "max_abs_logit_diff_edited": 10.521025657653809
+    },
+    "dCE_after_by_distance": {
+     "1-2": {
+      "mean": 4e-05,
+      "SE": 0.000707,
+      "n": 563
+     },
+     "3-4": {
+      "mean": -5.7e-05,
+      "SE": 0.000298,
+      "n": 522
+     },
+     "5-8": {
+      "mean": 0.000125,
+      "SE": 0.000227,
+      "n": 995
+     },
+     "9-16": {
+      "mean": -7e-05,
+      "SE": 0.000135,
+      "n": 1746
+     },
+     "17-32": {
+      "mean": -6.8e-05,
+      "SE": 0.000137,
+      "n": 2663
+     },
+     "33-64": {
+      "mean": -3.9e-05,
+      "SE": 0.000117,
+      "n": 2667
+     },
+     "65-127": {
+      "mean": -0.000242,
+      "SE": 0.000302,
+      "n": 856
+     }
+    },
+    "surgery_score_gain_over_after_collateral": -141.64,
+    "collateral_per_unit_gain": -0.00706
+   },
+   "placebo": {
+    "n_edited": 300,
+    "P_capital_before_edit": {
+     "mean": 0.042026,
+     "SE": 0.006428,
+     "n": 300
+    },
+    "P_capital_after_edit": {
+     "mean": 0.042112,
+     "SE": 0.006072,
+     "n": 300
+    },
+    "dP_capital_edited": {
+     "mean": 8.6e-05,
+     "SE": 0.001094,
+     "n": 300
+    },
+    "dCE_edited": {
+     "mean": 0.065388,
+     "SE": 0.02319,
+     "n": 300
+    },
+    "dCE_before_positions": {
+     "mean": 0.0,
+     "SE": 0.0,
+     "n": 8322
+    },
+    "dCE_after_positions": {
+     "mean": 8e-05,
+     "SE": 0.000122,
+     "n": 10012
+    },
+    "dP_capital_after_positions": {
+     "mean": 1e-05,
+     "SE": 9e-06,
+     "n": 10012
+    },
+    "global_dCE_all_predict_positions": 0.001054,
+    "zero_collateral_gate": {
+     "max_abs_logit_diff_before": 0.0,
+     "frac_before_exactly_zero": 1.0,
+     "max_abs_logit_diff_after": 1.80828857421875,
+     "frac_after_exactly_zero": 0.0,
+     "max_abs_logit_diff_edited": 9.037373542785645
+    },
+    "dCE_after_by_distance": {
+     "1-2": {
+      "mean": 0.000694,
+      "SE": 0.001058,
+      "n": 563
+     },
+     "3-4": {
+      "mean": -2.1e-05,
+      "SE": 0.000404,
+      "n": 522
+     },
+     "5-8": {
+      "mean": 0.000162,
+      "SE": 0.000288,
+      "n": 995
+     },
+     "9-16": {
+      "mean": 0.000113,
+      "SE": 0.000171,
+      "n": 1746
+     },
+     "17-32": {
+      "mean": -0.000131,
+      "SE": 0.000144,
+      "n": 2663
+     },
+     "33-64": {
+      "mean": -0.000136,
+      "SE": 0.000151,
+      "n": 2667
+     },
+     "65-127": {
+      "mean": 0.0009,
+      "SE": 0.000915,
+      "n": 856
+     }
+    },
+    "surgery_score_gain_over_after_collateral": 1.075,
+    "collateral_per_unit_gain": 0.930233
+   }
+  },
+  "15": {
+   "force": {
+    "n_edited": 300,
+    "P_capital_before_edit": {
+     "mean": 0.042026,
+     "SE": 0.006428,
+     "n": 300
+    },
+    "P_capital_after_edit": {
+     "mean": 0.054799,
+     "SE": 0.006836,
+     "n": 300
+    },
+    "dP_capital_edited": {
+     "mean": 0.012773,
+     "SE": 0.002699,
+     "n": 300
+    },
+    "dCE_edited": {
+     "mean": 0.106086,
+     "SE": 0.023516,
+     "n": 300
+    },
+    "dCE_before_positions": {
+     "mean": 0.0,
+     "SE": 0.0,
+     "n": 8322
+    },
+    "dCE_after_positions": {
+     "mean": -1.5e-05,
+     "SE": 3.6e-05,
+     "n": 10012
+    },
+    "dP_capital_after_positions": {
+     "mean": 3.7e-05,
+     "SE": 3e-06,
+     "n": 10012
+    },
+    "global_dCE_all_predict_positions": 0.001646,
+    "zero_collateral_gate": {
+     "max_abs_logit_diff_before": 0.0,
+     "frac_before_exactly_zero": 1.0,
+     "max_abs_logit_diff_after": 0.6190868020057678,
+     "frac_after_exactly_zero": 0.0,
+     "max_abs_logit_diff_edited": 7.995641231536865
+    },
+    "dCE_after_by_distance": {
+     "1-2": {
+      "mean": -0.000403,
+      "SE": 0.000305,
+      "n": 563
+     },
+     "3-4": {
+      "mean": -0.000152,
+      "SE": 0.000276,
+      "n": 522
+     },
+     "5-8": {
+      "mean": -0.0001,
+      "SE": 0.000127,
+      "n": 995
+     },
+     "9-16": {
+      "mean": -1.6e-05,
+      "SE": 6.9e-05,
+      "n": 1746
+     },
+     "17-32": {
+      "mean": 1e-06,
+      "SE": 5.7e-05,
+      "n": 2663
+     },
+     "33-64": {
+      "mean": 0.000104,
+      "SE": 5.8e-05,
+      "n": 2667
+     },
+     "65-127": {
+      "mean": 1.1e-05,
+      "SE": 7.2e-05,
+      "n": 856
+     }
+    },
+    "surgery_score_gain_over_after_collateral": -851.5333,
+    "collateral_per_unit_gain": -0.001174
+   },
+   "placebo": {
+    "n_edited": 300,
+    "P_capital_before_edit": {
+     "mean": 0.042026,
+     "SE": 0.006428,
+     "n": 300
+    },
+    "P_capital_after_edit": {
+     "mean": 0.050703,
+     "SE": 0.006295,
+     "n": 300
+    },
+    "dP_capital_edited": {
+     "mean": 0.008677,
+     "SE": 0.001798,
+     "n": 300
+    },
+    "dCE_edited": {
+     "mean": 0.193818,
+     "SE": 0.030694,
+     "n": 300
+    },
+    "dCE_before_positions": {
+     "mean": 0.0,
+     "SE": 0.0,
+     "n": 8322
+    },
+    "dCE_after_positions": {
+     "mean": -4.5e-05,
+     "SE": 8.5e-05,
+     "n": 10012
+    },
+    "dP_capital_after_positions": {
+     "mean": -6.5e-05,
+     "SE": 1e-05,
+     "n": 10012
+    },
+    "global_dCE_all_predict_positions": 0.002984,
+    "zero_collateral_gate": {
+     "max_abs_logit_diff_before": 0.0,
+     "frac_before_exactly_zero": 1.0,
+     "max_abs_logit_diff_after": 0.6882638931274414,
+     "frac_after_exactly_zero": 0.0,
+     "max_abs_logit_diff_edited": 10.472970962524414
+    },
+    "dCE_after_by_distance": {
+     "1-2": {
+      "mean": 0.000206,
+      "SE": 0.000482,
+      "n": 563
+     },
+     "3-4": {
+      "mean": -1e-06,
+      "SE": 0.000425,
+      "n": 522
+     },
+     "5-8": {
+      "mean": -0.000217,
+      "SE": 0.000253,
+      "n": 995
+     },
+     "9-16": {
+      "mean": -9.9e-05,
+      "SE": 0.000144,
+      "n": 1746
+     },
+     "17-32": {
+      "mean": -0.000263,
+      "SE": 0.00011,
+      "n": 2663
+     },
+     "33-64": {
+      "mean": 7e-05,
+      "SE": 0.000172,
+      "n": 2667
+     },
+     "65-127": {
+      "mean": 0.000392,
+      "SE": 0.000485,
+      "n": 856
+     }
+    },
+    "surgery_score_gain_over_after_collateral": -192.8222,
+    "collateral_per_unit_gain": -0.005186
+   }
+  },
+  "17": {
+   "force": {
+    "n_edited": 300,
+    "P_capital_before_edit": {
+     "mean": 0.042026,
+     "SE": 0.006428,
+     "n": 300
+    },
+    "P_capital_after_edit": {
+     "mean": 0.276335,
+     "SE": 0.016465,
+     "n": 300
+    },
+    "dP_capital_edited": {
+     "mean": 0.234309,
+     "SE": 0.015501,
+     "n": 300
+    },
+    "dCE_edited": {
+     "mean": 1.443981,
+     "SE": 0.132835,
+     "n": 300
+    },
+    "dCE_before_positions": {
+     "mean": 0.0,
+     "SE": 0.0,
+     "n": 8322
+    },
+    "dCE_after_positions": {
+     "mean": 0.0,
+     "SE": 0.0,
+     "n": 10012
+    },
+    "dP_capital_after_positions": {
+     "mean": 0.0,
+     "SE": 0.0,
+     "n": 10012
+    },
+    "global_dCE_all_predict_positions": 0.022441,
+    "zero_collateral_gate": {
+     "max_abs_logit_diff_before": 0.0,
+     "frac_before_exactly_zero": 1.0,
+     "max_abs_logit_diff_after": 0.0,
+     "frac_after_exactly_zero": 1.0,
+     "max_abs_logit_diff_edited": 20.23952293395996
+    },
+    "dCE_after_by_distance": {
+     "1-2": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 563
+     },
+     "3-4": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 522
+     },
+     "5-8": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 995
+     },
+     "9-16": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 1746
+     },
+     "17-32": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 2663
+     },
+     "33-64": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 2667
+     },
+     "65-127": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 856
+     }
+    },
+    "surgery_score_gain_over_after_collateral": null,
+    "collateral_per_unit_gain": 0.0
+   },
+   "placebo": {
+    "n_edited": 300,
+    "P_capital_before_edit": {
+     "mean": 0.042026,
+     "SE": 0.006428,
+     "n": 300
+    },
+    "P_capital_after_edit": {
+     "mean": 0.015775,
+     "SE": 0.003977,
+     "n": 300
+    },
+    "dP_capital_edited": {
+     "mean": -0.026251,
+     "SE": 0.004262,
+     "n": 300
+    },
+    "dCE_edited": {
+     "mean": 0.772096,
+     "SE": 0.08617,
+     "n": 300
+    },
+    "dCE_before_positions": {
+     "mean": 0.0,
+     "SE": 0.0,
+     "n": 8322
+    },
+    "dCE_after_positions": {
+     "mean": 0.0,
+     "SE": 0.0,
+     "n": 10012
+    },
+    "dP_capital_after_positions": {
+     "mean": 0.0,
+     "SE": 0.0,
+     "n": 10012
+    },
+    "global_dCE_all_predict_positions": 0.011999,
+    "zero_collateral_gate": {
+     "max_abs_logit_diff_before": 0.0,
+     "frac_before_exactly_zero": 1.0,
+     "max_abs_logit_diff_after": 0.0,
+     "frac_after_exactly_zero": 1.0,
+     "max_abs_logit_diff_edited": 18.46404266357422
+    },
+    "dCE_after_by_distance": {
+     "1-2": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 563
+     },
+     "3-4": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 522
+     },
+     "5-8": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 995
+     },
+     "9-16": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 1746
+     },
+     "17-32": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 2663
+     },
+     "33-64": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 2667
+     },
+     "65-127": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 856
+     }
+    },
+    "surgery_score_gain_over_after_collateral": null,
+    "collateral_per_unit_gain": -0.0
+   }
+  }
+ },
+ "section94_reference": {
+  "note": "section-94 layer-17 results at ITS 500 force targets (this script re-runs L17 at the same 300 targets used mid-stack, so the depth comparison is apples-to-apples; the numbers below are the enshrined references)",
+  "force_Ae_dP": 0.02798,
+  "mlp_earlier_donor_dP": 0.24744,
+  "suppress_Ae_dP": -0.07028
+ },
+ "analysis": {
+  "target_gain_by_depth": {
+   "8": 0.001649,
+   "12": 0.007082,
+   "15": 0.012773,
+   "17": 0.234309
+  },
+  "after_collateral_by_depth": {
+   "8": -0.0,
+   "12": -5e-05,
+   "15": -1.5e-05,
+   "17": 0.0
+  },
+  "placebo_gain_by_depth": {
+   "8": 0.002351,
+   "12": 8.6e-05,
+   "15": 0.008677,
+   "17": -0.026251
+  },
+  "washout_vs_L17": {
+   "8": {
+    "depth_distance_to_readout": 9,
+    "gain": 0.001649,
+    "retention_vs_L17": 0.007,
+    "per_layer_attenuation_factor": 0.5765
+   },
+   "12": {
+    "depth_distance_to_readout": 5,
+    "gain": 0.007082,
+    "retention_vs_L17": 0.0302,
+    "per_layer_attenuation_factor": 0.4967
+   },
+   "15": {
+    "depth_distance_to_readout": 2,
+    "gain": 0.012773,
+    "retention_vs_L17": 0.0545,
+    "per_layer_attenuation_factor": 0.2335
+   }
+  },
+  "surgery_score_table": {
+   "8": {
+    "target_gain_dP_capital": 0.001649,
+    "after_collateral_dCE": -0.0,
+    "surgery_score": null,
+    "collateral_per_unit_gain": -0.0,
+    "placebo_gain": 0.002351,
+    "placebo_after_collateral": 0.000329
+   },
+   "12": {
+    "target_gain_dP_capital": 0.007082,
+    "after_collateral_dCE": -5e-05,
+    "surgery_score": -141.64,
+    "collateral_per_unit_gain": -0.00706,
+    "placebo_gain": 8.6e-05,
+    "placebo_after_collateral": 8e-05
+   },
+   "15": {
+    "target_gain_dP_capital": 0.012773,
+    "after_collateral_dCE": -1.5e-05,
+    "surgery_score": -851.5333,
+    "collateral_per_unit_gain": -0.001174,
+    "placebo_gain": 0.008677,
+    "placebo_after_collateral": -4.5e-05
+   },
+   "17": {
+    "target_gain_dP_capital": 0.234309,
+    "after_collateral_dCE": 0.0,
+    "surgery_score": null,
+    "collateral_per_unit_gain": 0.0,
+    "placebo_gain": -0.026251,
+    "placebo_after_collateral": 0.0
+   }
+  },
+  "note": "surgery score = mean capital-probability gain at edited positions divided by mean delta cross-entropy at after-positions; L17 after-collateral is exactly zero by construction (score infinite); washout retention = mid-stack gain / same-target L17 gain; per-layer attenuation factor = retention^(1/depth-distance)"
+ }
+}

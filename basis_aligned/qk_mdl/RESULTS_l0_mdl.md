@@ -5016,3 +5016,36 @@ content-specific, with collateral exactly zero outside the edited positions. And
 is the accumulated MLP history, not the attention accumulator — the final refinement the transplant provides.
 For the control purpose: the lever for targeted overrides in this model is the upstream STREAM CONTENT at the
 component's input, and at the last layer that lever is exact and free of side effects.
+
+## §95 THE §94 LAW'S SCOPE — the boundary is WASHOUT, not collateral; the redundant code erases injections too (2026-07-31)
+(qk_transplant_depth.py / _2.py; the §94 force test repeated verbatim at layers 8/12/15/17 — mlp-earlier
+boundary transplants at 300 matched not-due positions, same-sequence donors, per-layer groups. Gates: group-sum
+1.6e-7 every depth; base numbers exact; L17 re-run on the same targets reproduces §94 (+0.2343 vs +0.2474 on
+its own 500). Held-back slice, paired standard errors.)
+- **(a) Target gain by depth — the force COLLAPSES away from the readout:** L8 +0.0016 ± 0.0006 (0.7% of the
+  L17 reference), L12 +0.0071 ± 0.0020 (3.0%), L15 +0.0128 ± 0.0027 (5.5%, and the placebo recovers +0.0087 of
+  it — the boundary-SPECIFIC part is ~+0.004), L17 +0.2343 ± 0.0155 (100%). Per-layer attenuation ~0.23 over
+  layers 16-17, ~0.5-0.6 per layer further back.
+- **(b) Collateral is NOT the cost — it stays ~zero at every depth.** Before-positions causal gate: exactly
+  0.0 at every depth (8,322 positions, bit-identical). After-positions (10,012): delta cross-entropy
+  statistically zero everywhere (e.g. L15 −0.000015 ± 0.000036), with NO distance structure — and NOT because
+  the perturbation fails to propagate (after-position logit differences reach 0.6-1.1; downstream attention
+  DOES read the edited position; the net effect on prediction quality just averages to zero).
+- **(c) The honest scope statement of the two-sided editing law:** "input edits re-aim conditioning surgically
+  AT THE READOUT; at depth the edit stays almost free of collateral but STOPS RE-AIMING — the boundary of the
+  law is washout, not collateral." Mid-stack surgery does not cost X nats per unit gain; the gain itself is
+  simply erased (0.7-5.5% retention).
+- **(d) WASHOUT VERDICT — the §83 redundant code is the mechanism, unifying the program's two central
+  findings.** The transplanted context is a large local perturbation (edited-position delta cross-entropy
+  +0.11 at L15) yet by the readout it is overwritten by conditioning RE-DERIVED from the many unedited
+  sources — exactly §83's sufficiency-without-necessity: no single layer's mlp-earlier contribution is
+  load-bearing for the conditioning except at the LAST layer, where nothing remains to compensate. **The same
+  redundancy that made deletion-based attribution blind (§74-§83) also makes mid-stack context INJECTION
+  ineffective.** Deletion and injection fail for one reason: the code repeats its message everywhere, so
+  neither removing nor replacing any one copy changes what the readout hears.
+**KEY (the program's closing unification):** the redundant distributed code is simultaneously (i) why the hub
+resisted every attribution tool, (ii) why the model is intrinsically ROBUST to single-point mid-stack
+activation tampering — a safety-relevant property measured, not asserted: corrupting any one layer's context
+contribution leaves prediction quality statistically untouched — and (iii) why the readout is the model's one
+true control surface (the only place the code's redundancy has run out). The two-sided editing law is final:
+amplitude edits cannot re-aim; input edits re-aim surgically, but only where compensation is impossible.
