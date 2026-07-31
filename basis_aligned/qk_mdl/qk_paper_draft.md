@@ -1,7 +1,7 @@
 # A four-ledger per-layer decomposition of a no-softmax bilinear transformer
 
 *Consolidation draft — 2026-07-30. Numbers are the post-adversarial-review figures only.
-Sources: PLAN_per_layer.md, RESULTS_l0_mdl.md §32–§95, LOG.md. Left for parent review; not committed.*
+Sources: PLAN_per_layer.md, RESULTS_l0_mdl.md §32–§100, LOG.md. Left for parent review; not committed.*
 
 ## Abstract
 
@@ -471,6 +471,48 @@ per-layer need ties uniform allocation within noise, because per-layer needs are
 concentration anti-correlates with functional rank, and no per-layer schedule addresses the interaction
 term. The compression failure is structural; faithful whole-model compression, if achievable, runs
 through shared cross-layer structure rather than better rank bookkeeping.
+
+## How the model computes, start to finish
+
+A depth-first series of algorithm arcs on the dashboard's matters-most/understood-least targets closes the
+mechanism story into one connected narrative for the entire feed-forward stack, with every arrow measured.
+
+**Block 0 is a token feature-table — exactly.** Its dominant term is a literal lookup table indexed by
+current-token identity: variance explained by the current token is 1.000000 analytically once the shared
+normalization scalar is removed (0.953 empirically against a shuffled control of 0.044). Its second term is a
+bigram correction — the (previous, current) token pair explains 0.861 of its variance versus 0.706 for the
+current token alone. The derived features are concrete: after a capitalized name plus comma the bigram
+features boost dialogue verbs (" scoff", " glared", " sighed"); after a numbered-list item, title-case entry
+starters; after a comma they suppress space-less continuations that would be illegal there. The block writes
+nothing to the readout directly (removing its direct path costs −0.0000); blocks one through three consume
+98.3 percent of its effect, and ablating it erases 74 to 82 percent of the category-code gain — it is the
+category engine's input stage.
+
+**Blocks 2 and 3 are an iterated-squaring cascade.** Layer 2 is almost literally "square the previous
+block's output," and the square is not confidence-sharpening — self-products are causally null — but a dense
+quadratic expansion, predominantly cross-products with no privileged pairs (the largest single pair holds 0.2
+percent of the variance; the high-rank tail beyond the top thirty-two directions recovers 88 percent alone).
+Its consumer is layer 3's own square (freezing layer 3 clean removes 84 percent of the damage), and layer 3's
+consumer is layer 4's (83 percent) — each stage building higher-order products of the block-0 table features,
+while a genuinely contextual mixer term (only 0.171 of its variance is current-token-determined) folds fresh
+attention context in as topic-conditioned word-completion decisions ("Divine → Feminine", "Cylinder →
+bearings/valve"). Category refinement diminishes down the cascade: the hub is essential, the table contributes
+82 percent, then 43, then 21.
+
+**The cascade dissolves; a three-region flow map with measured boundaries.** The next-square consumption
+fraction decays smoothly — 84 and 83 percent at blocks 2 and 3, a plateau near 51 percent at blocks 4 through
+6, then 39, 34, 29, 25, 24 — with no sharp stop, while the direct-to-readout fraction rises from essentially
+zero to essentially all, crossing between blocks 8 and 10. The model's feed-forward stack is therefore three
+regions: a cascade (blocks 0–6) where each block's output is food for the next square; a distributed region
+(7–11), where the mid-stack heads are context-dependent semantic sharpeners with no crisp type (the largest
+uncharacterized head failed every type test and delivers 88 percent of its effect through downstream
+computation — real in aggregate at eleven standard errors, individually insignificant everywhere); and a
+readout region (12–17) writing directly to the logits — block 14's comma-inside-numbers deviation shapes the
+digit-continuation distribution with no meaningful mediated remainder — terminating in the differential-pair
+contrast stage. In one sentence: token table → essential hub → iterated squares of rising contextuality →
+distributed semantic refinement → direct output writing → conditional contrast readout. Caveats stated with
+the measurements: freeze-patching is first-order (late-block direct fractions read "approximately all"), the
+region grid is coarse, and mean-ablation is one counterfactual among several.
 
 ## Honest limitations
 
