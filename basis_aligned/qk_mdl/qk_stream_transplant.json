@@ -1,0 +1,465 @@
+{
+ "meta": {
+  "model": "bilin18",
+  "layer": 17,
+  "held_slice": "FW[448:600,:128]",
+  "batch": 6,
+  "base_ce": 3.4946,
+  "edit": "x_mlp_in(p) = x_pre(p) + t*(Ae_donor - Ae_own(p)) at target positions only; blk.mlp recomputes; residual carrier untouched; layer 17 is last, so only the edited positions' logits can change (gated below)",
+  "targets": {
+   "force": "mid-sentence capital-not-due (next token lowercase word/subword, distance-since-newline >= 8), n=500, donors = genuine boundary positions (sentence-end punct or newline), same sequence preferred",
+   "suppress": "boundary capital-due (boundary and next token actually capital), n=500, donors = mid-sentence not-due positions"
+  },
+  "P_capital": "softmax mass on VOCAB_CLASS==capital (arc_caps metric)",
+  "machinery": "VERBATIM qk_allterm_census.py/qk_L17_mixer.py/qk_edit_terms.py forward (five-group accumulators at L17) + qk_arc_caps.py lexical/position splits",
+  "gates": {
+   "group_sum_identity_rel_global": 1.555435202326766e-07,
+   "group_sum_identity_rel_maxpos": 3.3223520290448505e-07,
+   "base_ce": 3.49458,
+   "base_P_capital_sentend": 0.34902,
+   "base_P_capital_newline": 0.55269
+  }
+ },
+ "counts": {
+  "valid": 18634,
+  "boundary": 1209,
+  "bnd_due": 558,
+  "target_notdue_pool": 8510
+ },
+ "donor_geometry": {
+  "own_Ae_norm": {
+   "mean": 29186.50086,
+   "SE": 265.05742,
+   "n": 500
+  },
+  "donor_Ae_norm": {
+   "mean": 33797.05233,
+   "SE": 287.22492,
+   "n": 500
+  },
+  "cos_own_donor": {
+   "mean": 0.87925,
+   "SE": 0.002,
+   "n": 500
+  },
+  "P_capital_at_force_donors_natural": {
+   "mean": 0.3879,
+   "SE": 0.00942,
+   "n": 500
+  },
+  "frac_same_sequence_donor_force": 1.0,
+  "frac_same_sequence_donor_suppress": 1.0
+ },
+ "force_test": {
+  "n_edited": 500,
+  "P_capital_before": {
+   "mean": 0.03867,
+   "SE": 0.00468,
+   "n": 500
+  },
+  "P_capital_after": {
+   "mean": 0.06665,
+   "SE": 0.00584,
+   "n": 500
+  },
+  "dP_capital_edited": {
+   "mean": 0.02798,
+   "SE": 0.00316,
+   "n": 500
+  },
+  "dCE_edited": {
+   "mean": 0.26678,
+   "SE": 0.03806,
+   "n": 500
+  },
+  "dCE_nonedited_valid": {
+   "mean": 0.0,
+   "SE": 0.0,
+   "n": 18134
+  },
+  "global_dCE_all_predict_positions": 0.00691,
+  "zero_collateral_gate": {
+   "max_abs_logit_diff_nonedited": 0.0,
+   "frac_nonedited_exactly_zero": 1.0,
+   "max_abs_logit_diff_edited": 15.521798133850098
+  }
+ },
+ "suppress_test": {
+  "n_edited": 500,
+  "P_capital_before": {
+   "mean": 0.54969,
+   "SE": 0.01052,
+   "n": 500
+  },
+  "P_capital_after": {
+   "mean": 0.47941,
+   "SE": 0.01263,
+   "n": 500
+  },
+  "dP_capital_edited": {
+   "mean": -0.07028,
+   "SE": 0.00474,
+   "n": 500
+  },
+  "dCE_edited": {
+   "mean": 0.44148,
+   "SE": 0.04097,
+   "n": 500
+  },
+  "dCE_nonedited_valid": {
+   "mean": 0.0,
+   "SE": 0.0,
+   "n": 18134
+  },
+  "global_dCE_all_predict_positions": 0.011435,
+  "zero_collateral_gate": {
+   "max_abs_logit_diff_nonedited": 0.0,
+   "frac_nonedited_exactly_zero": 1.0,
+   "max_abs_logit_diff_edited": 11.39119815826416
+  }
+ },
+ "section93_amplitude_reference": {
+  "note": "amplitude route (scale the gated arm AexMr): not-due capital gain vs GLOBAL delta cross-entropy over all valid positions -- the section-93 numbers the transplant must beat on locality",
+  "up_steer_gated": {
+   "2.0": {
+    "dP_mid_notdue": 0.01229,
+    "dCE_all_valid_global": 0.13501
+   },
+   "4.0": {
+    "dP_mid_notdue": 0.06651,
+    "dCE_all_valid_global": 0.96502
+   },
+   "8.0": {
+    "dP_mid_notdue": 0.15872,
+    "dCE_all_valid_global": 2.87012
+   },
+   "16.0": {
+    "dP_mid_notdue": 0.22922,
+    "dCE_all_valid_global": 5.1045
+   }
+  }
+ },
+ "controls": {
+  "random_position_donor_Ae": {
+   "n_edited": 500,
+   "P_capital_before": {
+    "mean": 0.03867,
+    "SE": 0.00468,
+    "n": 500
+   },
+   "P_capital_after": {
+    "mean": 0.0511,
+    "SE": 0.0055,
+    "n": 500
+   },
+   "dP_capital_edited": {
+    "mean": 0.01243,
+    "SE": 0.00262,
+    "n": 500
+   },
+   "dCE_edited": {
+    "mean": 0.1965,
+    "SE": 0.03326,
+    "n": 500
+   },
+   "dCE_nonedited_valid": {
+    "mean": 0.0,
+    "SE": 0.0,
+    "n": 18134
+   },
+   "global_dCE_all_predict_positions": 0.00509,
+   "zero_collateral_gate": {
+    "max_abs_logit_diff_nonedited": 0.0,
+    "frac_nonedited_exactly_zero": 1.0,
+    "max_abs_logit_diff_edited": 18.638744354248047
+   }
+  },
+  "mlp_earlier_group_boundary_donor": {
+   "n_edited": 500,
+   "P_capital_before": {
+    "mean": 0.03867,
+    "SE": 0.00468,
+    "n": 500
+   },
+   "P_capital_after": {
+    "mean": 0.28611,
+    "SE": 0.0126,
+    "n": 500
+   },
+   "dP_capital_edited": {
+    "mean": 0.24744,
+    "SE": 0.01199,
+    "n": 500
+   },
+   "dCE_edited": {
+    "mean": 1.49785,
+    "SE": 0.10223,
+    "n": 500
+   },
+   "dCE_nonedited_valid": {
+    "mean": 0.0,
+    "SE": 0.0,
+    "n": 18134
+   },
+   "global_dCE_all_predict_positions": 0.038796,
+   "zero_collateral_gate": {
+    "max_abs_logit_diff_nonedited": 0.0,
+    "frac_nonedited_exactly_zero": 1.0,
+    "max_abs_logit_diff_edited": 18.772111892700195
+   }
+  },
+  "mlp_earlier_group_random_donor": {
+   "n_edited": 500,
+   "P_capital_before": {
+    "mean": 0.03867,
+    "SE": 0.00468,
+    "n": 500
+   },
+   "P_capital_after": {
+    "mean": 0.06204,
+    "SE": 0.00611,
+    "n": 500
+   },
+   "dP_capital_edited": {
+    "mean": 0.02337,
+    "SE": 0.00465,
+    "n": 500
+   },
+   "dCE_edited": {
+    "mean": 0.47612,
+    "SE": 0.05025,
+    "n": 500
+   },
+   "dCE_nonedited_valid": {
+    "mean": 0.0,
+    "SE": 0.0,
+    "n": 18134
+   },
+   "global_dCE_all_predict_positions": 0.012332,
+   "zero_collateral_gate": {
+    "max_abs_logit_diff_nonedited": 0.0,
+    "frac_nonedited_exactly_zero": 1.0,
+    "max_abs_logit_diff_edited": 16.284374237060547
+   }
+  },
+  "norm_matched_random_placebo_Ae": {
+   "n_edited": 500,
+   "P_capital_before": {
+    "mean": 0.03867,
+    "SE": 0.00468,
+    "n": 500
+   },
+   "P_capital_after": {
+    "mean": 0.02873,
+    "SE": 0.00431,
+    "n": 500
+   },
+   "dP_capital_edited": {
+    "mean": -0.00994,
+    "SE": 0.00398,
+    "n": 500
+   },
+   "dCE_edited": {
+    "mean": 0.82896,
+    "SE": 0.07113,
+    "n": 500
+   },
+   "dCE_nonedited_valid": {
+    "mean": 0.0,
+    "SE": 0.0,
+    "n": 18134
+   },
+   "global_dCE_all_predict_positions": 0.021471,
+   "zero_collateral_gate": {
+    "max_abs_logit_diff_nonedited": 0.0,
+    "frac_nonedited_exactly_zero": 1.0,
+    "max_abs_logit_diff_edited": 15.915472030639648
+   }
+  },
+  "norm_matched_random_placebo_Me": {
+   "n_edited": 500,
+   "P_capital_before": {
+    "mean": 0.03867,
+    "SE": 0.00468,
+    "n": 500
+   },
+   "P_capital_after": {
+    "mean": 0.01538,
+    "SE": 0.00298,
+    "n": 500
+   },
+   "dP_capital_edited": {
+    "mean": -0.02329,
+    "SE": 0.0031,
+    "n": 500
+   },
+   "dCE_edited": {
+    "mean": 0.88983,
+    "SE": 0.07132,
+    "n": 500
+   },
+   "dCE_nonedited_valid": {
+    "mean": 0.0,
+    "SE": 0.0,
+    "n": 18134
+   },
+   "global_dCE_all_predict_positions": 0.023048,
+   "zero_collateral_gate": {
+    "max_abs_logit_diff_nonedited": 0.0,
+    "frac_nonedited_exactly_zero": 1.0,
+    "max_abs_logit_diff_edited": 20.07677459716797
+   }
+  },
+  "note": "all three at the SAME 500 force targets; random-position donors drawn from valid non-boundary positions (fresh seeded stream); mlp-earlier control uses the SAME donor positions as the force test but transplants the Me group; placebo replaces the attention-earlier vector with a random direction at the target's own norm"
+ },
+ "dose": {
+  "curve": {
+   "0.25": {
+    "n_edited": 500,
+    "P_capital_before": {
+     "mean": 0.03867,
+     "SE": 0.00468,
+     "n": 500
+    },
+    "P_capital_after": {
+     "mean": 0.04343,
+     "SE": 0.00493,
+     "n": 500
+    },
+    "dP_capital_edited": {
+     "mean": 0.00476,
+     "SE": 0.00073,
+     "n": 500
+    },
+    "dCE_edited": {
+     "mean": 0.02294,
+     "SE": 0.00732,
+     "n": 500
+    },
+    "dCE_nonedited_valid": {
+     "mean": 0.0,
+     "SE": 0.0,
+     "n": 18134
+    },
+    "global_dCE_all_predict_positions": 0.000594,
+    "zero_collateral_gate": {
+     "max_abs_logit_diff_nonedited": 0.0,
+     "frac_nonedited_exactly_zero": 1.0,
+     "max_abs_logit_diff_edited": 6.690046310424805
+    }
+   },
+   "0.5": {
+    "n_edited": 500,
+    "P_capital_before": {
+     "mean": 0.03867,
+     "SE": 0.00468,
+     "n": 500
+    },
+    "P_capital_after": {
+     "mean": 0.05003,
+     "SE": 0.00521,
+     "n": 500
+    },
+    "dP_capital_edited": {
+     "mean": 0.01136,
+     "SE": 0.00156,
+     "n": 500
+    },
+    "dCE_edited": {
+     "mean": 0.08006,
+     "SE": 0.01658,
+     "n": 500
+    },
+    "dCE_nonedited_valid": {
+     "mean": 0.0,
+     "SE": 0.0,
+     "n": 18134
+    },
+    "global_dCE_all_predict_positions": 0.002074,
+    "zero_collateral_gate": {
+     "max_abs_logit_diff_nonedited": 0.0,
+     "frac_nonedited_exactly_zero": 1.0,
+     "max_abs_logit_diff_edited": 11.633234024047852
+    }
+   },
+   "0.75": {
+    "n_edited": 500,
+    "P_capital_before": {
+     "mean": 0.03867,
+     "SE": 0.00468,
+     "n": 500
+    },
+    "P_capital_after": {
+     "mean": 0.05811,
+     "SE": 0.00552,
+     "n": 500
+    },
+    "dP_capital_edited": {
+     "mean": 0.01944,
+     "SE": 0.00238,
+     "n": 500
+    },
+    "dCE_edited": {
+     "mean": 0.16566,
+     "SE": 0.02748,
+     "n": 500
+    },
+    "dCE_nonedited_valid": {
+     "mean": 0.0,
+     "SE": 0.0,
+     "n": 18134
+    },
+    "global_dCE_all_predict_positions": 0.004291,
+    "zero_collateral_gate": {
+     "max_abs_logit_diff_nonedited": 0.0,
+     "frac_nonedited_exactly_zero": 1.0,
+     "max_abs_logit_diff_edited": 14.33220100402832
+    }
+   },
+   "1.0": {
+    "from_part1_force_test": true,
+    "P_capital_after": {
+     "mean": 0.06665,
+     "SE": 0.00584,
+     "n": 500
+    },
+    "dP_capital_edited": {
+     "mean": 0.02798,
+     "SE": 0.00316,
+     "n": 500
+    },
+    "dCE_edited": {
+     "mean": 0.26678,
+     "SE": 0.03806,
+     "n": 500
+    }
+   }
+  },
+  "summary": {
+   "t": [
+    0.25,
+    0.5,
+    0.75,
+    1.0
+   ],
+   "dP_capital_edited": [
+    0.00476,
+    0.01136,
+    0.01944,
+    0.02798
+   ],
+   "spearman_t_vs_gain": 1.0
+  }
+ },
+ "specificity_summary": {
+  "force_boundary_donor_dP": 0.02798,
+  "random_position_donor_dP": 0.01243,
+  "mlp_earlier_donor_dP": 0.24744,
+  "mlp_earlier_random_donor_dP": 0.02337,
+  "norm_matched_placebo_Ae_dP": -0.00994,
+  "norm_matched_placebo_Me_dP": -0.02329,
+  "boundary_over_random_ratio_Ae": 2.251,
+  "boundary_over_random_ratio_Me": 10.588,
+  "boundary_over_mlp_earlier_ratio": 0.113
+ }
+}

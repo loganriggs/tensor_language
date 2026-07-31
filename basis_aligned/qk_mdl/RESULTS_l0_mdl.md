@@ -4979,3 +4979,40 @@ post-cancellation axis). What the fold adds is different and real: a saturation-
 interventional confirmation of the arm roles, and the CONTRAST-STRENGTH knob — a new edit type that locally
 improves structural decisions and exists only at term level. Fold editing upgrades understanding-driven
 control, not brute force.
+
+## §94 INPUT-SIDE STREAM TRANSPLANTS — the surgical override achieved; the editing story closes (2026-07-31)
+(qk_stream_transplant.py / _2.py; tests §93b's prediction — amplitude edits cannot re-aim the readout's
+conditioning, input edits should. Context transplants at L17's feed-forward input, per-position; L17 being the
+last layer localizes collateral BY CONSTRUCTION. Gates: groups sum to the input at 1.6e-7; base cross-entropy
+3.4946 exact; arc-caps capital numbers reproduced to five decimals; and the ZERO-COLLATERAL gate passed
+EXACTLY in every configuration — max absolute logit change over all 18,134 non-edited positions = 0.0,
+bit-identical, every run.)
+- **(a) FORCE — the edit §93 showed amplitude could not do, done surgically.** At 500 mid-sentence
+  capital-not-due positions, transplanting the attention-earlier group from same-sequence boundary donors
+  raised capital probability 0.0387 → 0.0667 (**+0.0280 ± 0.0032, nine standard errors**), with the cost
+  confined to the edited positions (+0.267 ± 0.038 there — deliberate, lowercase is correct there; 0.0069
+  nats diluted over all positions; ZERO elsewhere). Versus §93's amplitude route (+0.0123 not-due gain for
+  0.135 nats of EVERYWHERE damage): the transplant buys 2× the gain for 20× less average damage, all of it
+  confined by construction.
+- **(b) SUPPRESS — the reverse works too:** at 500 boundary due positions, not-due-context transplants lower
+  capital probability 0.550 → 0.479 (**−0.0703 ± 0.0047, fifteen standard errors**), zero change elsewhere.
+- **(c) Controls + A GENUINE SURPRISE — the transplantable conditioning lives mostly in MLP-EARLIER.**
+  Random-position attention-earlier donors give less than half the gain (+0.0124; boundary-specificity 2.25×);
+  norm-matched placebo slightly negative (content, not perturbation). BUT transplanting the **mlp-earlier**
+  group from the same boundary donors gives **+0.2474 ± 0.0120 — nine times the attention-earlier gain**,
+  lifting capital probability to 0.286 (most of the way to the donors' natural 0.388), with specificity 10.6×
+  over random donors and a negative placebo. Geometric reason attention-earlier transplants weakly: its
+  accumulator vectors are enormous (norms ~29,000–34,000) and nearly parallel across positions (cosine 0.879
+  own-vs-donor), so the boundary-distinguishing component is a small fraction of the swap. [REFINEMENT of
+  §91/§93b: the differential pair's energy is dominated by attention-earlier×mlp-recent, but the FORCEABLE
+  boundary CONTEXT at the input is carried predominantly by the mlp-earlier history group — flowing through
+  the mlp-earlier-involving terms (§89: attention-earlier×mlp-earlier 0.31, mlp-earlier×mlp-recent 0.28) —
+  a distinction the term-level energy analysis could not see.]
+- **(d) DOSE — graded and controllable:** gains +0.0048/+0.0114/+0.0194/+0.0280 at transplant fractions
+  0.25/0.5/0.75/1.0 — monotone (Spearman 1.00), near-linear, cost growing smoothly.
+**KEY — the editing story closes as a two-sided law:** AMPLITUDE edits (directions or terms) scale writes and
+cannot re-aim conditioning (§75/§93); INPUT edits re-aim it surgically — position-targeted, graded,
+content-specific, with collateral exactly zero outside the edited positions. And the input that matters most
+is the accumulated MLP history, not the attention accumulator — the final refinement the transplant provides.
+For the control purpose: the lever for targeted overrides in this model is the upstream STREAM CONTENT at the
+component's input, and at the last layer that lever is exact and free of side effects.
