@@ -4633,6 +4633,9 @@ directions (train-gram basis), delete the complement; held-back FW[448:600], pai
   necessary, §74-82). So: hierarchical/sufficiency views SUCCEED where deletion/necessity views structurally
   fail. The right description of the hub is a coarse-to-fine sufficient hierarchy carrying a redundant code —
   substitutable and compressible (1152→144), yet necessity-unattributable at any granularity.
+**RED-TEAM CONFIRMED (attack 2):** the per-position mean's positional content is worth only 0.122 nats of
+the 5.574 floor (global-mean floor 5.6968 vs 5.5744), and keep-144 is unchanged under a GLOBAL mean
+(+0.0862 ± 0.0033 vs +0.0839 ± 0.0032) — the hierarchy does not rest on a positional crutch.
 **KEY:** the hub is NOT unstructured — mean + top-144 principal directions restores 98.5% of its function
 (40× better than random-144). What §74-§83 established is that the structure is invisible to NECESSITY-based
 tools; the SUFFICIENCY hierarchy Logan proposed recovers it immediately. Attribution should be sufficiency-
@@ -4692,6 +4695,12 @@ all 10 terms gives exactly 0.0000. Held-back FW[448:600], paired standard errors
   worst single deletion only +0.043) — but it is now redundancy among TEN NAMED, interpretable interaction
   terms instead of a thousand anonymous directions. Necessity-attribution still reads small numbers, but the
   sufficiency anatomy is complete and compact.
+**RED-TEAM CONFIRMED (attacks 1 & 3):** (i) GAUGE-SMUGGLING refuted — keep-top-5 with the gauge computed
+from the KEPT groups only is identical (+0.0019 ± 0.0006); freezing the gauge at the mean input costs 0.0072
+nats for keep-5 AND for all-ten alike: the shared gauge scalar modulates 29.2% of the output VARIANCE but
+carries only 0.13% of the FUNCTION (it modulates; it does not compute). (ii) The dead attention-0 row is dead
+BY CONTENT, not by coefficient: attention-0 and MLP-0 enter with the SAME lambda (0.0127), yet their raw
+content root-mean-square norms are 388 vs 50,443 — a ~17,000× energy gap before any coefficient.
 **KEY (the resolution of the attribution saga):** the interpretable decomposition of the hub existed all along
 in the architecture's own coordinates. Learned features (SAEs) and spectral directions could name variance but
 never causation; the EXACT stream-pair terms give: five named parts = full function, a causally dead input
@@ -4776,10 +4785,14 @@ Held-back FW[448:600], paired standard errors.)
   dominance is an EARLY-stack property; deep layers compute on ACCUMULATED HISTORY, not their own attention.
 - **(iii) Interaction-dominated everywhere except the two ends.** Cross terms alone leave only 1–18% of the
   floor at layers 1–16 while diagonal terms leave 9–83% — the hub's interaction structure is model-general.
-  Exceptions: layer 0 is diagonal-dominated, and **layer 17 is pathological** — diagonal-only is WORSE than
-  mean-ablating the whole layer (0.430 vs floor 0.421), several single terms alone are worse than the floor
-  (mlp-earlier×mlp-recent alone 0.646), the greedy curve non-monotone, and its energy shares sum well above
-  one: the readout layer's terms carry large MUTUALLY-CANCELLING components.
+  Exceptions: layer 0 is diagonal-dominated, and **layer 17 is a genuine CANCELLING MIXER** — [red-team
+  attack 4: verified at the covariance level, independent of keep-subset bookkeeping] its two dominant terms
+  (attention-earlier×mlp-recent, share 0.349, and mlp-recent², share 0.224) are ANTI-ALIGNED at cosine
+  **−0.842** (other heavy pairs −0.934, −0.579), its cancellation index is **1.54** versus 0.65 at healthy
+  layer 1, several single terms kept alone are worse than the floor (mlp-earlier×mlp-recent alone 0.646), and
+  the greedy curve is non-monotone under BOTH bookkeepings. (The earlier "diagonal-only worse than the floor"
+  formulation was within one standard error and bookkeeping-dependent — replaced by the direct anti-alignment
+  measurement above.)
 - **(iv) Concrete examples (per the give-instances rule):** LAYER 2 is almost purely "SQUARE THE PREVIOUS
   FEED-FORWARD'S OUTPUT" — mlp-recent² alone leaves 0.093 of its 0.739 floor, adding attention-recent×
   mlp-recent leaves 0.011 (two named terms = 98% of the layer). LAYER 16 is a PURE HISTORY-READER —

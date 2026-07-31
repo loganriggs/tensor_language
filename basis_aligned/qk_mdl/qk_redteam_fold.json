@@ -1,0 +1,412 @@
+{
+ "meta": {
+  "model": "bilin18",
+  "held": "FW[448:600,:128]",
+  "batch": 6,
+  "currency": "delta cross-entropy per valid held position (nats), paired standard error",
+  "lamE": 8.15472412109375,
+  "lam0": 0.0126953125
+ },
+ "gate": {
+  "recon_rel_err_global": 9.829157962357503e-07,
+  "recon_rel_err_max_pos": 1.5421554735439713e-06,
+  "group_sum_rel_err_max": 5.4103661994986396e-08
+ },
+ "attack3_dead_row": {
+  "rms_norm_raw_content": {
+   "E": 33.9411,
+   "A0": 388.097,
+   "M0": 50442.6271,
+   "A1": 1704.0795
+  },
+  "rms_norm_coefficiented": {
+   "E": 276.7805,
+   "A0": 4.927,
+   "M0": 640.3849,
+   "A1": 1704.0795
+  },
+  "share_of_xpre_energy_coefficiented": {
+   "E": 0.01565,
+   "A0": 0.0,
+   "M0": 0.08375,
+   "A1": 0.59305
+  },
+  "raw_ratio_A0_over_M0": 0.0077,
+  "note": "A0 and M0 share the same coefficient lam0; E raw content is the unit-rms embedding"
+ },
+ "attack1_gauge_variance": {
+  "frozen_gauge_residual_energy_frac_of_centered_mo1": 0.29169,
+  "note_frozen": "keep ALL terms, gauge frozen at per-position mean input; ||mo1_true - mo1_frozen||^2 / ||mo1 - per-position mean||^2",
+  "corr_invrho2_vs_devnorm_mean_over_positions": 0.7251,
+  "corr_invrho2_vs_devnorm_median": 0.7306,
+  "cv_rho2_mean_over_positions": 0.4386
+ },
+ "attack1_configs": {
+  "mean_only_repro": {
+   "dCE": 5.5744,
+   "SE": 0.0323
+  },
+  "keep5_full_gauge_repro": {
+   "dCE": 0.0019,
+   "SE": 0.00059
+  },
+  "keep5_gauge_keptsum": {
+   "dCE": 0.0019,
+   "SE": 0.00059
+  },
+  "keep5_gauge_meanx": {
+   "dCE": 0.0072,
+   "SE": 0.00108
+  },
+  "allterms_gauge_meanx": {
+   "dCE": 0.0072,
+   "SE": 0.00104
+  },
+  "top3_full_gauge_repro": {
+   "dCE": 0.093,
+   "SE": 0.00344
+  },
+  "top3_gauge_meanx": {
+   "dCE": 0.1113,
+   "SE": 0.00387
+  }
+ },
+ "attack2_configs": {
+  "mean_only_perpos": {
+   "dCE": 5.5744,
+   "SE": 0.0323
+  },
+  "mean_only_global": {
+   "dCE": 5.6968,
+   "SE": 0.03163
+  },
+  "keep144_perpos_mean_repro": {
+   "dCE": 0.0839,
+   "SE": 0.00321
+  },
+  "keep144_global_mean": {
+   "dCE": 0.0862,
+   "SE": 0.00325
+  },
+  "keep288_global_mean": {
+   "dCE": 0.0199,
+   "SE": 0.00161
+  },
+  "keep145_global_plus_meandir": {
+   "dCE": 0.0859,
+   "SE": 0.00324
+  }
+ },
+ "attack4": {
+  "L17": {
+   "gate_recon_rel_err_global": 7.044900470305697e-07,
+   "energy_shares": {
+    "ExE": 0.0001,
+    "ExAe": 0.0098,
+    "ExAr": 0.0001,
+    "ExMe": 0.0094,
+    "ExMr": 0.0085,
+    "AexAe": 0.0945,
+    "AexAr": 0.0305,
+    "AexMe": 0.311,
+    "AexMr": 0.3489,
+    "ArxAr": 0.0002,
+    "ArxMe": 0.01,
+    "ArxMr": 0.0225,
+    "MexMe": 0.1868,
+    "MexMr": 0.2794,
+    "MrxMr": 0.2239
+   },
+   "shares_sum": 1.5355,
+   "cancellation_index_sumE_over_normsq_of_sum": 1.5355,
+   "energy_rank": [
+    "AexMr",
+    "AexMe",
+    "MexMr",
+    "MrxMr",
+    "MexMe",
+    "AexAe",
+    "AexAr",
+    "ArxMr"
+   ],
+   "most_negative_cosine_pairs": [
+    [
+     "AexAr",
+     "ArxMr",
+     -0.934,
+     0.031,
+     0.022
+    ],
+    [
+     "ExAe",
+     "ExMr",
+     -0.86,
+     0.01,
+     0.008
+    ],
+    [
+     "AexMr",
+     "MrxMr",
+     -0.842,
+     0.349,
+     0.224
+    ],
+    [
+     "ArxMe",
+     "ArxMr",
+     -0.693,
+     0.01,
+     0.022
+    ],
+    [
+     "AexAr",
+     "MrxMr",
+     -0.579,
+     0.031,
+     0.224
+    ],
+    [
+     "AexMe",
+     "MexMr",
+     -0.574,
+     0.311,
+     0.279
+    ],
+    [
+     "ArxMe",
+     "MrxMr",
+     -0.572,
+     0.01,
+     0.224
+    ],
+    [
+     "AexMe",
+     "ArxMr",
+     -0.558,
+     0.311,
+     0.022
+    ]
+   ],
+   "most_positive_cosine_pairs": [
+    [
+     "ExMe",
+     "MexMe",
+     0.715,
+     0.009,
+     0.187
+    ],
+    [
+     "AexAr",
+     "ArxMe",
+     0.742,
+     0.031,
+     0.01
+    ],
+    [
+     "AexMe",
+     "MexMe",
+     0.78,
+     0.311,
+     0.187
+    ]
+   ],
+   "configs_postgauge": {
+    "mean_only": {
+     "dCE": 0.4206,
+     "SE": 0.00869
+    },
+    "all_terms": {
+     "dCE": -0.0,
+     "SE": 0.0
+    },
+    "diagonal": {
+     "dCE": 0.43,
+     "SE": 0.00874
+    },
+    "cross": {
+     "dCE": 0.1243,
+     "SE": 0.00406
+    },
+    "top1_energy": {
+     "dCE": 0.3546,
+     "SE": 0.00819
+    },
+    "top2_energy": {
+     "dCE": 0.2023,
+     "SE": 0.00561
+    },
+    "top3_energy": {
+     "dCE": 0.1641,
+     "SE": 0.00499
+    },
+    "top4_energy": {
+     "dCE": 0.2493,
+     "SE": 0.00687
+    },
+    "top5_energy": {
+     "dCE": 0.1152,
+     "SE": 0.0046
+    },
+    "top6_energy": {
+     "dCE": 0.03,
+     "SE": 0.00189
+    }
+   },
+   "configs_pregauge": {
+    "mean_only": {
+     "dCE": 1.0961,
+     "SE": 0.01749
+    },
+    "all_terms": {
+     "dCE": -0.0,
+     "SE": 0.0
+    },
+    "diagonal": {
+     "dCE": 0.7549,
+     "SE": 0.01426
+    },
+    "cross": {
+     "dCE": 1.0997,
+     "SE": 0.01903
+    },
+    "top1_energy": {
+     "dCE": 1.4944,
+     "SE": 0.02182
+    },
+    "top2_energy": {
+     "dCE": 0.6914,
+     "SE": 0.0149
+    },
+    "top3_energy": {
+     "dCE": 1.2222,
+     "SE": 0.01999
+    },
+    "top4_energy": {
+     "dCE": 1.0691,
+     "SE": 0.01797
+    },
+    "top5_energy": {
+     "dCE": 0.5947,
+     "SE": 0.01366
+    },
+    "top6_energy": {
+     "dCE": 0.0827,
+     "SE": 0.00359
+    }
+   }
+  },
+  "L1_contrast": {
+   "gate_recon_rel_err_global": 9.827534065546045e-07,
+   "energy_shares": {
+    "ExE": 0.0217,
+    "ExAe": 0.0,
+    "ExAr": 0.073,
+    "ExMe": 0.0,
+    "ExMr": 0.1026,
+    "AexAe": 0.0,
+    "AexAr": 0.0,
+    "AexMe": 0.0,
+    "AexMr": 0.0,
+    "ArxAr": 0.1233,
+    "ArxMe": 0.0,
+    "ArxMr": 0.2212,
+    "MexMe": 0.0,
+    "MexMr": 0.0,
+    "MrxMr": 0.1091
+   },
+   "shares_sum": 0.651,
+   "cancellation_index_sumE_over_normsq_of_sum": 0.651,
+   "energy_rank": [
+    "ArxMr",
+    "ArxAr",
+    "MrxMr",
+    "ExMr",
+    "ExAr",
+    "ExE",
+    "AexAr",
+    "AexMr"
+   ],
+   "most_negative_cosine_pairs": [
+    [
+     "ArxAr",
+     "ArxMr",
+     -0.129,
+     0.123,
+     0.221
+    ],
+    [
+     "ExAr",
+     "ArxAr",
+     -0.126,
+     0.073,
+     0.123
+    ],
+    [
+     "ArxMr",
+     "MrxMr",
+     -0.053,
+     0.221,
+     0.109
+    ],
+    [
+     "ExE",
+     "ArxAr",
+     0.039,
+     0.022,
+     0.123
+    ],
+    [
+     "ExMr",
+     "ArxMr",
+     0.046,
+     0.103,
+     0.221
+    ],
+    [
+     "ExMr",
+     "ArxAr",
+     0.056,
+     0.103,
+     0.123
+    ],
+    [
+     "ExE",
+     "ExAr",
+     0.085,
+     0.022,
+     0.073
+    ],
+    [
+     "ExAr",
+     "ExMr",
+     0.092,
+     0.073,
+     0.103
+    ]
+   ],
+   "most_positive_cosine_pairs": [
+    [
+     "ExAr",
+     "ArxMr",
+     0.443,
+     0.073,
+     0.221
+    ],
+    [
+     "ExMr",
+     "MrxMr",
+     0.565,
+     0.103,
+     0.109
+    ],
+    [
+     "ExE",
+     "ExMr",
+     0.623,
+     0.022,
+     0.103
+    ]
+   ]
+  }
+ }
+}
