@@ -7497,3 +7497,16 @@ existing steering methods, not a new method class, so in-scope and launched rath
   excess over a matched random perturbation), the block-4 " but" 94%-mediated example, and the method-2
   addendum for the token-conditional-mean substitute. Republished (same URL); repo copy updated.
 - All surfaces current through §101. Program at the deep capstone; holding for Logan's steer.
+
+## tick 2026-08-01 (Logan's message-model proposal — the block-0 move generalized to the mid-stack; dispatched)
+- Logan asked for a concrete example of the redundant code + proposed building a COMPRESSED MODEL of its
+  function (noting block 0's "distributed" code was cracked by the right conditioning variable) or a bespoke
+  redundancy-native surrogate. Answered with the h.L7.0 example (carriers-vs-message: naming failed because
+  the units were the carriers; the natural object is the message they redundantly broadcast) + what already
+  exists (SAE reconstruction = 98.7% of function at 64 active features; §84's 144-dim sufficiency).
+- Dispatched a18272b154bafa478 (qk_msg_bottleneck.py), three experiments: (1) JOINT-WRITE BOTTLENECK — the
+  message dimension of blocks 5-11's summed deviation (k for 90/95/99% of the joint floor, vs random-k);
+  (2) CONDITIONING-VARIABLE HUNT — current-token (expected low) vs positional state vs topic-cluster vs
+  category, variance-explained on the top message dims + concrete examples; (3) BESPOKE SURROGATE — replace
+  the region's write with message + explicit REPETITION code (r copies), verifying both the function AND the
+  §83 robustness phenomenology transfer — {message, redundancy-factor} as the fundamental objects.
