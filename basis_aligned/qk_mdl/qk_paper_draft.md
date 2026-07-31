@@ -1,7 +1,7 @@
 # A four-ledger per-layer decomposition of a no-softmax bilinear transformer
 
 *Consolidation draft — 2026-07-30. Numbers are the post-adversarial-review figures only.
-Sources: PLAN_per_layer.md, RESULTS_l0_mdl.md §32–§101, LOG.md. Left for parent review; not committed.*
+Sources: PLAN_per_layer.md, RESULTS_l0_mdl.md §32–§103, LOG.md. Left for parent review; not committed.*
 
 ## Abstract
 
@@ -81,7 +81,17 @@ keeps 96.7 percent of function), its exact stream-pair terms give a five-term na
 causally dead input row and a bigram-table term identified as such, and propagating perturbations
 through folded compact cores repairs the unreliable linear proxy (rank correlation 0.43 to 0.81–0.93,
 sign essentially perfect) — the failures of deletion-based attribution were a property of the hub's
-redundant code, and the fold supplies the sufficiency calculus that reads through it.
+redundant code, and the fold supplies the sufficiency calculus that reads through it. A closing
+composition arc extends the fold across layers: folding components into their consumers makes the gating
+partner of every conditional-looking component explicit — block 3 reduces to three of twenty-one exact
+cross-layer terms, with fresh attention multiplying block 2's square as its context-supplying mixer;
+block 1 becomes a readable token-indexed family of affine operators, 93.6 percent causal — and the
+mid-stack distributed region, previously stateable only as a redundant collective code, now admits a
+*partial* compressed model: a privileged message basis with three named message states, measured partial
+redundancy (matched deletions about twenty-five percent cheaper than an unprotected code), and its gates
+named in the fold algebra where they resolve at all. The super-additive whole-model compression bound's
+missing structure is thereby identified as cross-layer product coupling — consumption — invisible to
+per-layer rank allocation.
 
 ## Method
 
@@ -518,6 +528,136 @@ contrast stage. In one sentence: token table → essential hub → iterated squa
 distributed semantic refinement → direct output writing → conditional contrast readout. Caveats stated with
 the measurements: freeze-patching is first-order (late-block direct fractions read "approximately all"), the
 region grid is coarse, and mean-ablation is one counterfactual among several.
+
+## Cross-layer composition: folding components into their consumers
+
+A final arc turns the fold outward. The program's most persistent residual impression is that components
+look *conditional*: the same head helps at one position and hurts at the next, a block's write appears to
+mean different things after different tokens, and every per-component summary carries an unexplained
+"depending on context" clause. In a bilinear tensor network that clause need not stay informal. A
+consumer's feed-forward block is an exact bilinear form on the sum of its input streams, so substituting —
+*folding* — one component's exact output expression into its consumer expands the consumer, exactly, into a
+sum of pairwise product terms, each naming two upstream contributors. Whatever was gating a component's
+effect is then not a hidden context variable but an explicit multiplicative partner term. We ran three such
+folds, and every decomposition is exact where it must be: reconstruction errors between one part in a
+million and eight parts in ten million, and every fold's mean-ablation floor reproduces the earlier
+censuses to four decimal places (block 3's floor 0.6163 both ways, block 1's floor 5.5744 exactly, the
+mid-stack consumer's floor 0.0601).
+
+**Block 3 is twenty-one exact cross-layer terms, and three of them are the layer.** Splitting the earlier
+feed-forward stream into block 0's and block 1's separate writes, block 3's bilinear form expands into
+twenty-one product terms with cross-layer provenance. Three carry it: block 2's output times itself (the
+iterated square, energy share 0.099), fresh attention times block 2 (0.098), and block 1's hub output times
+block 2 (0.061). Keeping only those three restores the layer to within +0.033 nats of full function against
+a mean-ablation floor of 0.616; keeping the top eight restores it to within +0.0008 — and the named triple
+is the best of all one hundred sixty tested triples, by eight standard errors under a permutation control.
+In sufficiency the iterated square is the best single term (+0.248 nats kept alone, ahead of the mixer by a
+significant −0.0081 ± 0.0020 paired difference), but in necessity it is co-dominant with the
+fresh-attention-times-block-2 mixer: deleting the mixer costs +0.0077 ± 0.0010 against +0.0062 ± 0.0010 for
+the square, a paired difference of +0.0015 ± 0.0013 — a statistical tie, not a ranking. The mixer is what
+supplies the context: only 5.0 percent of its variance is determined by the current token (the iterated
+square 17.3 percent; block-1-times-block-2, the most table-like, 24.1 percent). Cross-stream terms carry
+97.4 percent of the layer (keeping only the cross-stream terms costs +0.0163 where keeping only the
+same-stream diagonal costs +0.1386): the layer is an interaction device across *layers*, and the
+conditionality is the cross-layer product itself. The same expansion settles routing: block 0's residual
+write is causally dead as a direct input to block 3 (dropping all six block-0-involving terms costs
+−0.0000 ± 0.0002, and a gauge-freed substitution of the direct input costs +0.0002 ± 0.0001) and equally
+dead as a direct input to block 2 (at most +0.0005 at either of its ports). Block 0 reaches the cascade
+through block 1 alone, which consumes it massively at both ports (+0.155 ± 0.005 at its feed-forward input,
++0.091 ± 0.003 at its attention input); blocks 2 and 3 then consume block 1's products.
+
+**The token-table fold: block 1 becomes a token-indexed family of affine operators.** Substituting block
+0's token-lookup write into block 1's bilinear form makes block 1, for each current token, an explicit
+affine operator on the contextual rest (the two attention streams). The fold is explicit where the
+token-blind view is not: the token-indexed linear family captures 41.7 percent of held-out output variance
+where the token-blind linearization of the same block captures 0.1 percent (adding a quadratic term in the
+rest reaches 69.2 percent). Causally, against a floor of +5.5744 nats, the token-blind linear substitute
+costs +0.5366 while the folded family costs +0.3587 — 93.6 percent of the block's causal function — and
+folded-plus-rest-quadratic reaches +0.1013 (98.2 percent, the whole remaining cost being the block-0 table
+approximation). One coverage caveat must ride with the headline: the table is built from the training slice
+and covers 80.5 percent of held positions, with unseen tokens falling back to the global mean of block 0's
+write. On covered positions the fold recovers 95.3 percent versus 90.6 for the blind map; on the uncovered
+19.5 percent of positions — which carry only 3.7 percent of the function — it is no better than the blind
+map (59.7 versus 66.0 percent). The 93.6 percent headline is driven by, and understates, the covered-token
+fold. The dissociation runs both directions — the blind linearization is 90 percent causal at 0.1 percent
+variance — so causal recovery and explicitness are genuinely different facts. And the operators genuinely
+differ by token: the median pairwise cosine between the two hundred most frequent tokens' effective maps is
+0.18 — after different tokens, layer 1 is a different operator — with linguistic similarity structure
+(' The' versus 'The' 0.938, ' is' versus ' was' 0.806, ' and' versus ' or' 0.711, '.' versus ' the' 0.177).
+Concretely: after ' the' the map is a content-word amplifier — +5.4 million summed word-class logit units
+and +3.9 million capital-class, while suppressing ' of' — and the substitution comparison favors it
+directionally. After ',' the map is a clause-continuation device boosting concessive continuations
+(' despite', ' although', ' even', ' though'), and this one passes its causal substitution gate cleanly: at
+the six hundred forty held comma positions the folded comma-specific map beats the token-blind map at
+paired z = 2.2. After the bare capital ' D' the map's first-order capital-class readout flips sign (−0.68
+million versus +3.9 million after ' the') and pushes name and acronym completions — but causally this is a
+small relative damping, not a behavioral flip: at the eleven held ' D' positions, substituting a
+token-blind map raises capital-class probability by about one point (0.787 versus the folded map's 0.772,
+base 0.777) and costs +0.065 ± 0.036 locally relative to the folded map — directionally consistent with the
+readout, but weak. (The unembedding readouts here are first-order summaries; block 1's output is largely
+consumed by the later squaring stages.)
+
+**The mid-stack head's partner is real but distributed.** The same question for h.L7.0 — the section-100
+head with no crisp type — is: who multiplies its write? Scanning downstream bilinear consumers, the largest
+is block 7's own feed-forward (+0.00463 ± 0.00072; blocks 8 and 9 about +0.001 each; feed-forward
+consumption accounts for roughly forty-five percent of the head's total +0.0170, the rest flowing through
+downstream attention plus a twelve percent direct readout). Folding the head's write into block 7's form,
+the leading cross term is nominally head-times-block-6-feed-forward (deleting it costs +0.00081 ± 0.00020)
+— but it is statistically tied with the head's self-square (+0.00072 ± 0.00023) and
+head-times-earlier-feed-forward (+0.00064 ± 0.00021; every pairwise z at or below 0.76). This is a
+three-way tie: no single partner term is resolvable, the six single-term deletions sum to only sixty
+percent of the joint effect, and the single best cross term is 4.8 percent of the head's total effect. The
+mechanism explains why. The head's write is dominated by one global direction carrying eighty-one percent
+of its mean write norm; the helping and hurting position centroids both sit at cosine 0.997 to that
+direction, so the striking raw figure — helping and hurting writes aligned at cosine 0.9975 — collapses
+once the shared component is removed: off that direction the two centroids align at only 0.50, and never
+oppose. The head's write does not encode the help-or-hurt distinction at all; the partner re-aims it
+position by position (cross-term within-set coherence 0.13 to 0.15), and no scalar gate exists. The sign
+flips are real and text-legible — the term helps after "…widening US 66 to" (next token " four", +0.317
+nats) and "…may not like your" (" purchase", +0.225), and hurts after "…Samford Intercollegiate. In"
+("juries", −0.297) and "…returning from" (" vacation", −0.252) — but the aiming is distributed. Folding
+names the gate decisively for the early stack; for the mid-stack it confirms the gating in kind (a bilinear
+partner exists) but resolves no single gate — the collective code again.
+
+**A compressed model of the mid-stack code: message plus partially redundant broadcast.** The complementary
+experiment treats blocks 5 through 11 as one object. Replacing all seven blocks' outputs with per-position
+means jointly costs +1.6528 ± 0.0156 nats — 3.79 times the sum of the seven per-block floors (0.4366), the
+strongest quantitative statement yet that the blocks are mutually redundant carriers of a shared message,
+and the super-additivity is already present at pair scale (blocks 7 and 9: joint +0.1921 against a sum of
++0.1164, ratio 1.65). The message has a strongly privileged compact head and a long tail: sixteen shared
+principal directions of the joint write restore half the function (49.4 percent, ten times over a random
+basis), but ninety percent of the function needs 576 of the 1,152 residual dimensions — a head-plus-tail
+shape that is robust to basis grain (the shared summed-deviation basis is the best of five allocation
+schemes at every size; per-block equal allocation recovers 54, 62, and 70 percent at 144, 288, and 576
+dimensions where the shared basis recovers 72, 82, and 93). Hunting for the variable that conditions the
+message, current-token identity is the best single conditioning variable at group R-squared 0.47
+(shuffled-label control 0.046) — and this is not a frequency artifact: excluding the twenty most frequent
+tokens, which cover twenty-nine percent of positions, *raises* it to 0.52 (control 0.083). The mid-stack
+write is roughly half of a richer token-conditioned table — far below block 0's 0.953, but led by the same
+variable. Three message dimensions earn names, all next-token syntactic-register variables: a
+**boundary-reset state** (R-squared 0.753), at its extremes on end-of-text markers and sentence-final
+closing quotes — after `…we tried to incorporate all of that into this location."` it pushes " Although",
+"This", and " While" and suppresses determiners; a **clause-continuation state** (0.499), at its extremes
+on content words deep in run-on sentences ("…may choose to do difficult or substantial graphics changes"),
+pushing period, comma, " with", and semicolon; and a **discourse-turn expectation** (0.487), pushing
+" But", "Others", and " However". On redundancy, the honest statement after correction: under *matched*
+half-subspace deletions the real code costs about twenty-five percent less than an unprotected code
+(deleting the same half-subspace from every block costs +0.540 to +0.580 where an unprotected surrogate
+costs +0.727 to +0.729), and deleting independent per-block halves costs less than deleting a shared one
+(+0.465 to +0.485 versus +0.54 to +0.58) — direct evidence that the surviving blocks partially cover for
+deleted subspaces — but the code is far from a fully protected repetition code, and the near-perfect
+any-half robustness measured earlier per block does not persist at seven-block joint scale. So
+"low-dimensional message plus redundant broadcast" holds as a head-plus-tail statement with named states
+and measured partial redundancy, not as a clean factorization.
+
+**What the composition arc says about compression.** The whole-model compression experiments had ended on a
+structural negative: restricting all blocks at once is super-additive — half the joint cost is cross-layer
+interaction — and no per-layer rank schedule addresses it. The folding results name the missing structure.
+It is cross-layer *product coupling* — consumption: a layer's function lives largely in products between
+another layer's output and its own streams (97.4 percent cross-stream at block 3), and such a term is
+invisible to per-layer rank allocation, which compresses each factor separately and cannot see what the
+product needs. The tensor-network route to faithful whole-model compression is therefore to compose folded
+cross-layer terms — keep the named products, not per-layer subspaces.
 
 ## Honest limitations
 

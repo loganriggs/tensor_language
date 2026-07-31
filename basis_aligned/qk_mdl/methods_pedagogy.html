@@ -123,7 +123,7 @@ steering the model — method 9 rises to the top tier.)</p>
 <tr><td>9</td><td><a href="#m9">Editing: dials vs transplants</a></td><td rowspan="2">valuable, but downstream</td><td>converts understanding into control (the two-sided law); consumes the other methods' outputs — ranks far higher under the control criterion</td></tr>
 <tr><td>10</td><td><a href="#m10">The certified restricted-core proxy</a></td><td>fixes future candidate-ranking efficiency; no headline finding depends on it</td></tr>
 </table>
-<p style="font-size:13px;opacity:.85"><em>Added after the ranking:</em> method 11 (freeze-patch mediation) — mid-tier: it produced the flow map, and its own red-team control (generic-compensation) is the textbook case of why every method here ships with a breaking case.</p>
+<p style="font-size:13px;opacity:.85"><em>Added after the ranking:</em> method 11 (freeze-patch mediation) — mid-tier: it produced the flow map, and its own red-team control (generic-compensation) is the textbook case of why every method here ships with a breaking case. Methods 12 (<a href="#m12">cross-layer term folding</a>) and 13 (<a href="#m13">message-bottleneck + conditioning-variable hunt</a>) — both mid-tier: powerful, but so far applied to specific sites.</p>
 <p><strong>The dependency spine in one line:</strong> method 1 verifies everything; fold → sufficiency → terms
 (ranks 2, 3, 4) is the critical path that produced the distinctive results; ranks 5, 6, and 8 are the
 correctives that kept the picture honest. The entries below are ordered pedagogically (simple to advanced),
@@ -706,3 +706,75 @@ comma-inside-numbers deviation whose direct write is the whole story.</p>
 member in this series — the <strong>token-conditional-mean substitute</strong>: replace a whole block's output
 with "the average output for this current token." For block 0 this lookup-table surrogate recovers 85.5
 percent of the block's causal function, converting a variance identity into a causal sufficiency statement.</p>
+
+<!-- ============================================================ 12 ============================================================ -->
+<h2 id="m12"><span class="mnum">12.</span> Cross-layer term folding — the consumer names the gate <span style="font-size:12px;opacity:.65;font-weight:400">(importance rank: mid-tier — powerful, but so far applied to specific sites)</span></h2>
+
+<div class="part"><span class="part-tag">(a) Intuition</span>
+<p>A component that "looks conditional" — it helps at one position and hurts at the next, or seems to mean different things after different tokens — is usually being <em>multiplied</em> by something downstream. In a bilinear network you can find out by what: substitute the component's exact output expression into the bilinear form of the block that consumes it. The consumer then expands, exactly, into a sum of product terms, each pairing two upstream sources — and the context that was gating your component stops being a hidden variable and appears as its explicit multiplicative partner term. Ranking those terms by deletion and by keep-alone does for <em>cross-layer</em> structure what the stream terms of method 4 did within a single layer.</p>
+</div>
+
+<div class="part"><span class="part-tag">(b) Toy model</span>
+<p>A two-layer bilinear toy. Layer 1 computes a from the input; layer 2 receives s = a + b, where b is fresh context arriving at layer 2, and outputs y = s² = (a + b)². Expanding is exact: y = a² + 2ab + b² — three terms with provenance: layer-1-squared, layer-1 × context (the cross-layer term), and context-squared. Take a = 2, b = 3, so y = 25 = 4 + 12 + 9. The term-deletion ranking:</p>
+<div class="tablewrap"><table>
+<tr><th>Intervention</th><th class="num">y</th><th class="num">Cost</th><th>Verdict</th></tr>
+<tr><td>Intact</td><td class="num">25</td><td class="num">0</td><td>—</td></tr>
+<tr><td>Drop a² (layer-1 squared)</td><td class="num">21</td><td class="num">4</td><td>smallest single term</td></tr>
+<tr><td>Drop 2ab (layer-1 × context)</td><td class="num">13</td><td class="num">12</td><td><strong>the cross-layer product dominates</strong></td></tr>
+<tr><td>Drop b² (context squared)</td><td class="num">16</td><td class="num">9</td><td>context alone is second</td></tr>
+</table></div>
+<p>The cross-layer product is also <em>why layer 1 looks conditional</em>: layer 1's total contribution a² + 2ab is 4 when b = 0 but 16 when b = 3 — a fourfold change with layer 1's own output unchanged. The fold names b as the gate. <strong>Where the assumption breaks:</strong> give layer 2 a nonlinear consumer, y = relu(a + b), with a = 2, b = −3. The true output is relu(−1) = 0, but no finite term expansion exists: the natural attempt relu(a) + relu(b) = 2 + 0 = 2 is wrong at the first step, and unlike the bilinear case no cross term repairs it exactly — only Taylor approximations, whose truncation error grows with activation scale. The same failure applies to a softmax consumer. Exact folding is a polynomial (here bilinear) privilege.</p>
+</div>
+
+<div class="asm"><h4>(c) Assumptions</h4>
+<ul>
+<li>The consumer must be polynomial in its input (exactly bilinear here); softmax or other nonlinear consumers admit only approximate expansions with uncontrolled truncation error.</li>
+<li>The input streams must be exact analytic expressions — the fold (method 3) and the stream algebra (method 4) are prerequisites, gated by reconstruction at one part in a million.</li>
+<li>Term deletion inherits every mean-ablation caveat (per-position means, paired standard errors), and the term count grows quadratically with the number of streams — so a "these terms are the layer" claim needs a multiple-comparisons control (here, a permutation sweep over all triples).</li>
+<li>A token-indexed fold is only defined for tokens seen in the fitting slice; on unseen tokens it degrades to the token-blind map, so coverage must be reported alongside the headline.</li>
+</ul>
+</div>
+
+<div class="part"><span class="part-tag">(d) Real implementation</span>
+<p>Two sites (scripts <code>qk_xfold_terms.py</code>, <code>qk_xfold_table.py</code>; red-team <code>qk_redteam_xfold.py</code>). <strong>Block 3 expanded into its twenty-one exact cross-layer term pairs:</strong> three terms are the layer — block-2-output × itself (the iterated square, energy 0.099), fresh-attention × block-2 (0.098), block-1-hub × block-2 (0.061). Keeping the three restores block 3 to within +0.033 nats of its 0.616 floor, and the named triple is the best of all 160 tested triples by eight standard errors. The mixer term is the context supplier (only 5.0 percent of its variance is current-token-determined) and is statistically tied with the iterated square in necessity. Block 0's write is causally dead as a direct input to blocks 2 <em>and</em> 3 (−0.0000 ± 0.0002); it reaches them only through block 1, which consumes it at both ports (+0.155 ± 0.005 feed-forward, +0.091 ± 0.003 attention). <strong>The token-table fold:</strong> substituting block 0's token lookup into block 1 turns block 1 into a token-indexed family of affine operators on the two attention streams — 41.7 percent of held output variance versus 0.1 percent for the token-blind linearization, and 93.6 percent causal (95.3 percent on the 80.5 percent of covered positions; no better than the blind map on train-unseen tokens). Median pairwise cosine between the 200 most frequent tokens' effective maps: 0.18 — after different tokens, layer 1 is a different operator.</p>
+</div>
+
+<div class="part"><span class="part-tag">(e) Held-back example</span>
+<div class="quote">
+"…gameplay won't be changing much. Graphics ideas are still welcome<mark class="fire">,</mark>" → "<mark class="tgt"> but</mark>"
+<span class="src">Held-back FineWeb, sequence 563 (held index 115), position 74. The current token is the comma; the actual next token is " but".</span>
+</div>
+<p>After ',' block 1's folded effective operator is a <strong>concessive-continuation device</strong>: its strongest boosted continuations are ' despite', ' although', ' even', ' though' — exactly the register of the " but" that actually follows here. This is the map that passes its causal substitution gate cleanly: at the 640 held comma positions, the comma-specific folded map beats the token-blind map at paired z = 2.2 (local cost difference 0.0219 ± 0.0090 nats). What was learned: "block 1 is context-dependent" sharpened into "after a comma, block 1 <em>is</em> this specific affine operator, and swapping in the average operator measurably hurts exactly there."</p>
+</div>
+
+<!-- ============================================================ 13 ============================================================ -->
+<h2 id="m13"><span class="mnum">13.</span> Message-bottleneck + conditioning-variable hunt <span style="font-size:12px;opacity:.65;font-weight:400">(importance rank: mid-tier — powerful, but so far applied to specific sites)</span></h2>
+
+<div class="part"><span class="part-tag">(a) Intuition</span>
+<p>When several blocks are mutually redundant (methods 6 and 8 territory), per-block analysis dead-ends: every block matters and none does. The move is to change the unit of analysis. Treat the whole region's summed write as a single <em>message</em>, ask how many dimensions it really has (keep-top-k principal directions against random-k controls — sufficiency logic, method 2, applied to the joint object), and then ask what the message is <em>about</em>: regress the top message coordinates on candidate observable variables — current token, position, topic, distance since newline, next-token category — each with a shuffled-label control, and read off the best conditioning variable. A coordinate that is well predicted by an observable and has a coherent unembedding readout earns a name.</p>
+</div>
+
+<div class="part"><span class="part-tag">(b) Toy model</span>
+<p>Three residual dimensions, two carriers, one message. An observable c = ±1 conditions the message scalar m = 2c. Carrier A writes (m, 0, m); carrier B writes (0, m, m); the joint write is (m, m, 2m). For c = +1 the joint write is (2, 2, 4); for c = −1 it is (−2, −2, −4): every joint write lies on the single line through (1, 1, 2), so the top principal direction captures 100 percent of the variance — the message dimension is 1 of 3, and PCA finds it. Redundancy: delete carrier A and the third coordinate still reads m from carrier B — half the amplitude, right sign. The conditioning hunt: regressing the message coordinate on c gives R² = 1.0 exactly (m = 2c); regressing it on an irrelevant coin-flip observable gives R² ≈ 0. The hunt names c — not the coin — as what the region is talking about. <strong>Where the assumption breaks: message dimension equal to carrier dimension.</strong> Let the two carriers instead write three <em>independent</em> scalars filling all three dimensions. Now the top principal direction captures about one-third of the variance — exactly what a random direction gets — there is no privileged compact head, and nothing compresses. "Message + broadcast" is only a useful model when the message is smaller than the carrier space, and the random-k control is what tells you whether it is.</p>
+</div>
+
+<div class="asm"><h4>(c) Assumptions</h4>
+<ul>
+<li>The message basis is fit on the training gram and judged <em>causally</em> on held data; a keep-k number without its random-k twin is meaningless.</li>
+<li>Group R² on a high-cardinality variable (token identity: hundreds of groups) overfits mechanically, so the shuffled-label control is mandatory (it reads 0.046 here), and frequency confounds must be checked by re-scoring with the most frequent tokens excluded.</li>
+<li>The hunt can only name variables you thought to include: the best found variable is a lower bound on what conditions the message, never proof that nothing better exists.</li>
+<li>Redundancy claims need <em>matched</em> deletion comparisons. This method's own red-team caught an unmatched one: a surrogate with independent random frames whose exact-zero robustness under half-deletion was a linear-algebra certainty of the construction, not a measurement — the honest scale is same-subspace deletion applied to both codes.</li>
+</ul>
+</div>
+
+<div class="part"><span class="part-tag">(d) Real implementation</span>
+<p>Blocks 5–11 of bilin18, jointly (scripts <code>qk_msg_bottleneck.py</code> and <code>_2</code>; red-team <code>qk_redteam_msg.py</code>). Replacing all seven blocks' outputs with per-position means jointly costs <strong>+1.6528 ± 0.0156 nats — 3.79× the sum of the seven per-block floors (0.4366)</strong>, with the super-additivity already present at pair scale (blocks 7 + 9: ratio 1.65). Sixteen shared principal directions restore half the function (49.4 percent versus 1.2 for random-k), but ninety percent needs 576 of the 1,152 dimensions — a privileged head with a long tail, robust across five basis-allocation schemes. Best conditioning variable: current-token identity, group R² 0.47 (control 0.046), <em>rising</em> to 0.52 when the twenty most frequent tokens (29 percent of positions) are excluded — versus block 0's 0.953. Three coordinates earned names: <strong>boundary-reset</strong> (R² 0.753), <strong>clause-continuation</strong> (0.499), <strong>discourse-turn expectation</strong> (0.487). Matched half-subspace deletions: the real code costs about 25 percent less than an unprotected code (+0.54–0.58 versus +0.73), and independent per-block deletions cost less than a shared one (+0.47–0.49) — partial cross-block covering, far from a full repetition code.</p>
+</div>
+
+<div class="part"><span class="part-tag">(e) Held-back example</span>
+<div class="quote">
+"…But they also like things to look upscale, so we tried to incorporate all of that into this location<mark class="fire">."</mark>" → "<mark class="tgt">\nThen</mark>"
+<span class="src">Held-back FineWeb, sequence 583 (held index 135), position 80. The current token is the sentence-final closing quote '."'; the actual continuation is a newline and the sentence opener "Then".</span>
+</div>
+<p>This is a peak firing of the <strong>boundary-reset state</strong> (message dimension with R² 0.753 against current-token identity) at a non-end-of-text position: a sentence-final closing quote. The state's unembedding readout pushes sentence openers — " Although", "This", " While", " There" — and suppresses determiners; the actual continuation, "Then", is exactly that register. What was learned: a seven-block region whose every per-block ablation reads near zero is, at its most compressed, broadcasting a nameable syntactic-register signal — "a sentence boundary just closed; expect an opener" — redundantly across blocks, and that signal is conditioned mostly on the current token even in the middle of the stack.</p>
+</div>
