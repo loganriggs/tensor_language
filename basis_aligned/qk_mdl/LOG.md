@@ -7404,3 +7404,15 @@ existing steering methods, not a new method class, so in-scope and launched rath
   Is its output the finished category code consumed model-wide (vs feeding another square)? Category-probe
   contribution vs blocks 0-2; what the attention-mixer term adds; concrete examples. Queue after: mid-stack
   band, h.L7.0.
+
+## tick 2026-07-31 (§98 committed — cascade continues past block 3; arc #4 = where it ends)
+- §98 (arc #3): block 3 = the SECOND squaring stage — block 4's square removes 83% of its damage (exact §96
+  analogue one stage later); consumption broadens (blocks 4-9 = 95.5%); zero direct readout; category-probe
+  ordering hub-essential > table 82% > square1 43% > square2 21% (diminishing refinement); the mixer term is
+  genuinely contextual (current-token variance 0.171) and decides topic-conditioned word completion
+  ("Divine|→Femin", "Cylinder|→bearings/valve"). REVISION: the blocks-0-3 category-engine boundary was too
+  tight — the cascade continues into block 4+. Committed §98.
+- ARC #4 dispatched (a6bbea3c361141530, qk_cascade_end.py): the next-square mediation fraction vs depth for
+  k=4..14 (+ direct-readout fraction) → the model's FEED-FORWARD FLOW MAP with measured boundaries: cascade
+  region → distributed region → readout region. Anchors k=2:84%, k=3:83%. Hypothesis: smooth dissolution into
+  the mid-stack; alternative: sharp end or whole-model chain.
