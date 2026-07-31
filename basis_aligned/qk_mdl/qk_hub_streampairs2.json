@@ -1,0 +1,228 @@
+{
+ "meta": {
+  "candidates": [
+   "M0xA1",
+   "A1xA1",
+   "M0xM0",
+   "ExM0",
+   "ExA1",
+   "ExE"
+  ],
+  "K_fire": 200,
+  "held": "FW[448:600,:128]",
+  "currency": "class-summed delta-logit (base - term-dropped), paragraph-68 style; firing = top-200 positions by that term deviation norm",
+  "exe_bigram_test_R2_current_token": 0.9004
+ },
+ "terms": {
+  "M0xA1": {
+   "drop_one_dCE": 0.044,
+   "drop_one_dCE_SE": 0.00234,
+   "firing": {
+    "pushed_class": "word",
+    "pushed_val": 1767.2067,
+    "concentration": 0.5509,
+    "top8": {
+     "word": 1767.2067,
+     "capital": 1160.3362,
+     "subword": -106.8926,
+     "digit": 48.1724,
+     "other": 45.5257,
+     "punct": 44.9555,
+     "special": 25.6739,
+     "pronoun": -2.3987
+    },
+    "n_positions": 200
+   },
+   "all_positions": {
+    "pushed_class": "word",
+    "pushed_val": -400.0755,
+    "concentration": 0.5234,
+    "top8": {
+     "word": -400.0755,
+     "capital": -220.1637,
+     "subword": -51.2984,
+     "digit": -40.037,
+     "punct": -28.9655,
+     "pronoun": -6.12,
+     "special": -5.8531,
+     "determiner": -5.6025
+    }
+   }
+  },
+  "A1xA1": {
+   "drop_one_dCE": 0.0132,
+   "drop_one_dCE_SE": 0.00145,
+   "firing": {
+    "pushed_class": "word",
+    "pushed_val": 766.7879,
+    "concentration": 0.5238,
+    "top8": {
+     "word": 766.7879,
+     "subword": 294.3884,
+     "capital": 282.318,
+     "punct": 39.9891,
+     "digit": 36.6326,
+     "other": 21.6807,
+     "special": 12.2632,
+     "determiner": 2.6247
+    },
+    "n_positions": 200
+   },
+   "all_positions": {
+    "pushed_class": "word",
+    "pushed_val": -81.2567,
+    "concentration": 0.541,
+    "top8": {
+     "word": -81.2567,
+     "capital": 43.0241,
+     "subword": 15.1684,
+     "digit": 3.1234,
+     "other": 2.1756,
+     "punct": -1.9544,
+     "special": 1.6584,
+     "pronoun": -0.9172
+    }
+   }
+  },
+  "M0xM0": {
+   "drop_one_dCE": 0.0128,
+   "drop_one_dCE_SE": 0.00134,
+   "firing": {
+    "pushed_class": "capital",
+    "pushed_val": 309.8747,
+    "concentration": 0.4428,
+    "top8": {
+     "capital": 309.8747,
+     "subword": 227.398,
+     "word": 114.4917,
+     "other": 17.3549,
+     "digit": 11.3518,
+     "special": 10.9272,
+     "punct": 2.8824,
+     "determiner": -2.4599
+    },
+    "n_positions": 200
+   },
+   "all_positions": {
+    "pushed_class": "word",
+    "pushed_val": -140.9226,
+    "concentration": 0.6095,
+    "top8": {
+     "word": -140.9226,
+     "capital": -37.3832,
+     "punct": -15.3693,
+     "digit": -14.1963,
+     "subword": 12.9453,
+     "pronoun": -2.9414,
+     "determiner": -2.5651,
+     "special": -2.0369
+    }
+   }
+  },
+  "ExM0": {
+   "drop_one_dCE": 0.0137,
+   "drop_one_dCE_SE": 0.0014,
+   "firing": {
+    "pushed_class": "word",
+    "pushed_val": 987.1373,
+    "concentration": 0.4475,
+    "top8": {
+     "word": 987.1373,
+     "capital": 960.7322,
+     "subword": 114.6706,
+     "digit": 61.8344,
+     "punct": 29.9601,
+     "other": 27.1453,
+     "special": 15.767,
+     "determiner": 2.3652
+    },
+    "n_positions": 200
+   },
+   "all_positions": {
+    "pushed_class": "word",
+    "pushed_val": -99.2052,
+    "concentration": 0.5972,
+    "top8": {
+     "word": -99.2052,
+     "capital": 24.6575,
+     "punct": -12.2826,
+     "subword": -11.0445,
+     "digit": -7.8788,
+     "special": -3.2055,
+     "pronoun": -2.6254,
+     "determiner": -1.839
+    }
+   }
+  },
+  "ExA1": {
+   "drop_one_dCE": 0.0112,
+   "drop_one_dCE_SE": 0.00117,
+   "firing": {
+    "pushed_class": "word",
+    "pushed_val": 623.8168,
+    "concentration": 0.4345,
+    "top8": {
+     "word": 623.8168,
+     "capital": 516.2573,
+     "subword": -229.8176,
+     "digit": 22.0439,
+     "punct": 19.7303,
+     "other": 13.5618,
+     "special": 6.175,
+     "determiner": -1.4366
+    },
+    "n_positions": 200
+   },
+   "all_positions": {
+    "pushed_class": "word",
+    "pushed_val": -113.0783,
+    "concentration": 0.4866,
+    "top8": {
+     "word": -113.0783,
+     "subword": -65.5092,
+     "capital": -17.5692,
+     "punct": -12.6676,
+     "digit": -11.6349,
+     "special": -3.7509,
+     "other": -2.9446,
+     "pronoun": -1.9108
+    }
+   }
+  },
+  "ExE": {
+   "drop_one_dCE": 0.002,
+   "drop_one_dCE_SE": 0.00061,
+   "firing": {
+    "pushed_class": "word",
+    "pushed_val": -189.5223,
+    "concentration": 0.5291,
+    "top8": {
+     "word": -189.5223,
+     "capital": -118.6371,
+     "subword": 23.6287,
+     "digit": -16.5486,
+     "punct": -5.5981,
+     "pronoun": -1.1097,
+     "determiner": -1.0236,
+     "special": -0.9641
+    },
+    "n_positions": 200
+   },
+   "all_positions": {
+    "pushed_class": "capital",
+    "pushed_val": -75.499,
+    "concentration": 0.5445,
+    "top8": {
+     "capital": -75.499,
+     "word": -37.947,
+     "subword": 8.0761,
+     "digit": -6.41,
+     "punct": -5.496,
+     "special": -1.5796,
+     "other": -1.0912,
+     "pronoun": -0.9182
+    }
+   }
+  }
+ }
+}

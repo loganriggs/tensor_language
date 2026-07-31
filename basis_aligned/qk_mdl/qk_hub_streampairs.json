@@ -1,0 +1,374 @@
+{
+ "gate": {
+  "recon_rel_err_global": 9.82916553846161e-07,
+  "recon_rel_err_max_pos": 1.5368583490271703e-06,
+  "mean_consistency": 2.7054804263570986e-07
+ },
+ "energy_shares": {
+  "ExE": 0.0217,
+  "ExA0": 0.0,
+  "ExM0": 0.1026,
+  "ExA1": 0.073,
+  "A0xA0": 0.0,
+  "A0xM0": 0.0,
+  "A0xA1": 0.0,
+  "M0xM0": 0.1091,
+  "M0xA1": 0.2212,
+  "A1xA1": 0.1233
+ },
+ "energy_rank": [
+  "M0xA1",
+  "A1xA1",
+  "M0xM0",
+  "ExM0",
+  "ExA1",
+  "ExE",
+  "A0xA1",
+  "A0xM0",
+  "ExA0",
+  "A0xA0"
+ ],
+ "configs": {
+  "mean_only": {
+   "terms": [],
+   "dCE": 5.5744,
+   "SE": 0.0323
+  },
+  "all_terms": {
+   "terms": [
+    "ExE",
+    "ExA0",
+    "ExM0",
+    "ExA1",
+    "A0xA0",
+    "A0xM0",
+    "A0xA1",
+    "M0xM0",
+    "M0xA1",
+    "A1xA1"
+   ],
+   "dCE": -0.0,
+   "SE": 0.0
+  },
+  "only_ExE": {
+   "terms": [
+    "ExE"
+   ],
+   "dCE": 4.9557,
+   "SE": 0.03101
+  },
+  "only_ExA0": {
+   "terms": [
+    "ExA0"
+   ],
+   "dCE": 5.5769,
+   "SE": 0.03232
+  },
+  "only_ExM0": {
+   "terms": [
+    "ExM0"
+   ],
+   "dCE": 1.7918,
+   "SE": 0.01695
+  },
+  "only_ExA1": {
+   "terms": [
+    "ExA1"
+   ],
+   "dCE": 3.2105,
+   "SE": 0.02384
+  },
+  "only_A0xA0": {
+   "terms": [
+    "A0xA0"
+   ],
+   "dCE": 5.5744,
+   "SE": 0.0323
+  },
+  "only_A0xM0": {
+   "terms": [
+    "A0xM0"
+   ],
+   "dCE": 5.5741,
+   "SE": 0.03231
+  },
+  "only_A0xA1": {
+   "terms": [
+    "A0xA1"
+   ],
+   "dCE": 5.5737,
+   "SE": 0.0323
+  },
+  "only_M0xM0": {
+   "terms": [
+    "M0xM0"
+   ],
+   "dCE": 2.3507,
+   "SE": 0.02026
+  },
+  "only_M0xA1": {
+   "terms": [
+    "M0xA1"
+   ],
+   "dCE": 0.8778,
+   "SE": 0.01062
+  },
+  "only_A1xA1": {
+   "terms": [
+    "A1xA1"
+   ],
+   "dCE": 4.1753,
+   "SE": 0.0273
+  },
+  "allbut_ExE": {
+   "terms": [
+    "ExA0",
+    "ExM0",
+    "ExA1",
+    "A0xA0",
+    "A0xM0",
+    "A0xA1",
+    "M0xM0",
+    "M0xA1",
+    "A1xA1"
+   ],
+   "dCE": 0.002,
+   "SE": 0.0006
+  },
+  "allbut_ExA0": {
+   "terms": [
+    "ExE",
+    "ExM0",
+    "ExA1",
+    "A0xA0",
+    "A0xM0",
+    "A0xA1",
+    "M0xM0",
+    "M0xA1",
+    "A1xA1"
+   ],
+   "dCE": -0.0,
+   "SE": 1e-05
+  },
+  "allbut_ExM0": {
+   "terms": [
+    "ExE",
+    "ExA0",
+    "ExA1",
+    "A0xA0",
+    "A0xM0",
+    "A0xA1",
+    "M0xM0",
+    "M0xA1",
+    "A1xA1"
+   ],
+   "dCE": 0.0134,
+   "SE": 0.00137
+  },
+  "allbut_ExA1": {
+   "terms": [
+    "ExE",
+    "ExA0",
+    "ExM0",
+    "A0xA0",
+    "A0xM0",
+    "A0xA1",
+    "M0xM0",
+    "M0xA1",
+    "A1xA1"
+   ],
+   "dCE": 0.0108,
+   "SE": 0.00115
+  },
+  "allbut_A0xA0": {
+   "terms": [
+    "ExE",
+    "ExA0",
+    "ExM0",
+    "ExA1",
+    "A0xM0",
+    "A0xA1",
+    "M0xM0",
+    "M0xA1",
+    "A1xA1"
+   ],
+   "dCE": 0.0,
+   "SE": 0.0
+  },
+  "allbut_A0xM0": {
+   "terms": [
+    "ExE",
+    "ExA0",
+    "ExM0",
+    "ExA1",
+    "A0xA0",
+    "A0xA1",
+    "M0xM0",
+    "M0xA1",
+    "A1xA1"
+   ],
+   "dCE": 0.0,
+   "SE": 1e-05
+  },
+  "allbut_A0xA1": {
+   "terms": [
+    "ExE",
+    "ExA0",
+    "ExM0",
+    "ExA1",
+    "A0xA0",
+    "A0xM0",
+    "M0xM0",
+    "M0xA1",
+    "A1xA1"
+   ],
+   "dCE": -0.0,
+   "SE": 2e-05
+  },
+  "allbut_M0xM0": {
+   "terms": [
+    "ExE",
+    "ExA0",
+    "ExM0",
+    "ExA1",
+    "A0xA0",
+    "A0xM0",
+    "A0xA1",
+    "M0xA1",
+    "A1xA1"
+   ],
+   "dCE": 0.0127,
+   "SE": 0.00132
+  },
+  "allbut_M0xA1": {
+   "terms": [
+    "ExE",
+    "ExA0",
+    "ExM0",
+    "ExA1",
+    "A0xA0",
+    "A0xM0",
+    "A0xA1",
+    "M0xM0",
+    "A1xA1"
+   ],
+   "dCE": 0.043,
+   "SE": 0.00229
+  },
+  "allbut_A1xA1": {
+   "terms": [
+    "ExE",
+    "ExA0",
+    "ExM0",
+    "ExA1",
+    "A0xA0",
+    "A0xM0",
+    "A0xA1",
+    "M0xM0",
+    "M0xA1"
+   ],
+   "dCE": 0.013,
+   "SE": 0.00141
+  },
+  "E_involving": {
+   "terms": [
+    "ExE",
+    "ExA0",
+    "ExM0",
+    "ExA1"
+   ],
+   "dCE": 0.1351,
+   "SE": 0.00414
+  },
+  "A0_involving": {
+   "terms": [
+    "ExA0",
+    "A0xA0",
+    "A0xM0",
+    "A0xA1"
+   ],
+   "dCE": 5.5759,
+   "SE": 0.03232
+  },
+  "M0_involving": {
+   "terms": [
+    "ExM0",
+    "A0xM0",
+    "M0xM0",
+    "M0xA1"
+   ],
+   "dCE": 0.0235,
+   "SE": 0.00185
+  },
+  "A1_involving": {
+   "terms": [
+    "ExA1",
+    "A0xA1",
+    "M0xA1",
+    "A1xA1"
+   ],
+   "dCE": 0.1482,
+   "SE": 0.0043
+  },
+  "diagonal": {
+   "terms": [
+    "ExE",
+    "A0xA0",
+    "M0xM0",
+    "A1xA1"
+   ],
+   "dCE": 0.5254,
+   "SE": 0.00806
+  },
+  "cross": {
+   "terms": [
+    "ExA0",
+    "ExM0",
+    "ExA1",
+    "A0xM0",
+    "A0xA1",
+    "M0xA1"
+   ],
+   "dCE": 0.0442,
+   "SE": 0.00245
+  },
+  "top2_energy": {
+   "terms": [
+    "M0xA1",
+    "A1xA1"
+   ],
+   "dCE": 0.5436,
+   "SE": 0.00815
+  },
+  "top3_energy": {
+   "terms": [
+    "M0xA1",
+    "A1xA1",
+    "M0xM0"
+   ],
+   "dCE": 0.093,
+   "SE": 0.00344
+  },
+  "top4_energy": {
+   "terms": [
+    "M0xA1",
+    "A1xA1",
+    "M0xM0",
+    "ExM0"
+   ],
+   "dCE": 0.0167,
+   "SE": 0.00149
+  },
+  "top5_energy": {
+   "terms": [
+    "M0xA1",
+    "A1xA1",
+    "M0xM0",
+    "ExM0",
+    "ExA1"
+   ],
+   "dCE": 0.0019,
+   "SE": 0.00059
+  }
+ }
+}

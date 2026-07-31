@@ -4663,3 +4663,37 @@ compresses ~128× (in-288 × out-144) at 3% causal cost, with the SVD hierarchie
 sides. The prior "irreducibly distributed" claims stand ONLY for necessity-attribution of parts; the
 computation itself is orderly, compact, and hierarchical — the redundancy lives inside a small, structured
 subspace, not in an amorphous whole.
+
+## §86 STREAM-PAIR PROVENANCE DECOMPOSITION — five named terms ARE the hub (Logan's fold suggestion pays off) (2026-07-31)
+(qk_hub_streampairs.py / _2.py; the architecture-given pairwise-term decomposition of MLP1 — exact because the
+MLP is bilinear: T(x,x) splits into 10 terms over the 4 input streams (embedding, attention-0, MLP-0,
+attention-1). Fold gate PASSED: reconstruction relative error 9.8e-7 global / 1.5e-6 worst-position; keeping
+all 10 terms gives exactly 0.0000. Held-back FW[448:600], paired standard errors; mean-only floor 5.5744 ±
+0.0323. Internal consistency: script-2 drop-one numbers reproduce script-1's all-but-one, e.g. +0.0440 vs
++0.0430.)
+- **FIVE named terms restore essentially the full function: +0.0019 ± 0.0006** (of 5.574) — the terms
+  MLP0×attn1, attn1×attn1, MLP0×MLP0, emb×MLP0, emb×attn1. Top-4 → +0.0167; top-3 → +0.093; top-2 → +0.544.
+  The learned/spectral bases never found ANY compact causal split (§84: top-144 SVD directions still cost
+  +0.084; random halves +0.095); the architecture's own terms give it in FIVE objects.
+- **The attention-0 row is causally DEAD through the hub:** every attention-0-involving term is
+  indistinguishable from mean-only when kept alone (+5.574...) and costs exactly nothing when deleted —
+  consistent with the old §33 stream fact (attention-0 reaches MLP1 entirely via MLP0) and now exhaustive.
+- **The hub is an INTERACTION device, not a sum of per-stream functions:** the four diagonal (same-stream)
+  terms alone cost +0.525 while the six cross-stream terms alone cost +0.044 — 10× — so the computation is
+  the MIXING of context (attention-1), the layer-0 MLP transform, and the current token.
+- **Class signatures (the §68 currency at each term's firing sites):** every context-carrying term is a
+  context-GATED content-word booster (fires → push words/capitals, elsewhere → damp them; e.g. MLP0×attn1
+  pushes words +1767 and capitals +1160 while suppressing subwords at its sites, with NEGATIVE average
+  word-movement −400 overall). The odd one out: **emb×emb is a token-conditional bigram-table-like
+  correction — the current token's identity alone explains 90% of its variance** (residual 10% = the shared
+  context-dependent gauge scalar); at its sites it SUPPRESSES words (−190) and capitals (−119), exactly the
+  conjectured bigram-correction role.
+- **Where the redundancy went:** it persists ACROSS terms (best single term kept alone still costs +0.878;
+  worst single deletion only +0.043) — but it is now redundancy among TEN NAMED, interpretable interaction
+  terms instead of a thousand anonymous directions. Necessity-attribution still reads small numbers, but the
+  sufficiency anatomy is complete and compact.
+**KEY (the resolution of the attribution saga):** the interpretable decomposition of the hub existed all along
+in the architecture's own coordinates. Learned features (SAEs) and spectral directions could name variance but
+never causation; the EXACT stream-pair terms give: five named parts = full function, a causally dead input
+row, an interaction (not additive) structure, and a bigram-table term identified as such. Logan's suggestion —
+fold the input with what comes before and split by provenance — is the tool that cracked the hub.
