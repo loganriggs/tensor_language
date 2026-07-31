@@ -5285,10 +5285,14 @@ coordinates: r=1 → +0.729 mean (unprotected, ~50% energy lost); r=4/r=16 → e
 measurement, and with SHARED frames + the same half deleted everywhere even r=16 costs ~+0.73 — so "real
 region between r=1 and r=4" was not a fair scale. The MATCHED comparison (half-SUBSPACE deletion for both):
 surrogate r=1 +0.727/+0.729; real region, same subspace shared across blocks, +0.540/+0.546/+0.580; real
-region with INDEPENDENT per-block halves +0.465-0.485. Honest statement: **the real code is partially
-redundant — matched deletions cost ~25% less than an unprotected code, and independent per-block deletions
-cost less than shared ones (+0.47 vs +0.55), direct evidence that surviving blocks partially cover for
-deleted subspaces — but it is far from a fully protected repetition code.** The §83 near-perfect any-half
+region with INDEPENDENT per-block halves +0.465-0.485 (71% of the joint floor recovered). Honest
+statement: **the real code is partially redundant — under the matched per-block-independent attack it sits
+strictly between the unprotected code (+0.73) and any true repetition code (+0.111; exact recovery at r≥2
+is a generic property of random frames, so no factor "between 1 and 4" is identifiable), and independent
+per-block deletions cost less than shared ones (+0.47 vs +0.55), direct evidence that surviving blocks
+partially cover for deleted subspaces — but it is far from a fully protected repetition code.** (The real
+region also beats the shared-half analytic failure point, +0.54 vs +0.73 — a mild additional sign of frame
+diversity across blocks.) The §83 near-perfect any-half
 robustness is a per-block-output property that does not persist at seven-block joint scale.
 
 **Verdict:** "low-dimensional message + redundant broadcast" holds as a head-plus-tail statement, not a
@@ -5303,7 +5307,9 @@ current-token R² to 0.5175 (control 0.083); equal per-token weighting 0.465 (pe
 equal-token-mass aggregate 0.519. The token-conditioning is not a frequency artifact. (3) Basis grain —
 SURVIVES: the shared summed-deviation basis is the BEST of five tested schemes at every total (per-block
 equal-allocation recovers 54/62/70% at 144/288/576 vs shared 72/82/93%; pooled-eigenvalue allocation worse
-still) — the long tail is not a basis artifact. (4) Super-additivity — SURVIVES: per-block floors reproduce
+still) — the long tail is not a basis artifact. Bonus: the blocks' individually-top directions do NOT
+contain the sum's top directions — the message basis is a property of the JOINT write, not of any block
+alone, independently supporting the shared-message reading. (4) Super-additivity — SURVIVES: per-block floors reproduce
 the census to four decimals (sum 0.4366), joint 1.6528, ratio 3.79; already present at pair scale (blocks
 7+9: joint +0.1921 vs sum +0.1164, ratio 1.65).
 

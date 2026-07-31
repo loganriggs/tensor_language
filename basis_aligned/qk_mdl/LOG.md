@@ -7578,3 +7578,13 @@ existing steering methods, not a new method class, so in-scope and launched rath
   tail is real); 3.79x super-additivity (per-block floors reproduce census to 4 decimals; pair 7+9 already
   1.65x).
 - Both §102 and §103 now fully red-teamed and corrected. Next: cross-layer chapter into paper + artifact.
+
+## tick 2026-07-31f (§102 formal red-team report landed — refinements applied; stale depth-first duplicate ack'd)
+- Formal §102 verdict matches the corrections applied in tick e; two refinements added: matched-attack
+  recovery = 71% of the joint floor (strictly between unprotected and any true repetition code — no factor
+  "between 1 and 4" identifiable, since r>=2 exact recovery is generic for random frames); basis-grain bonus
+  — the blocks' individually-top directions do NOT contain the sum's top directions, so the message basis
+  is a property of the JOINT write (independent support for the shared-message reading).
+- Late duplicate completion notification from the depth-first red-team agent: contents identical to §101
+  as enshrined (66-68% generic-rescue controls, 85.5% table sufficiency, block-11 readout boundary, h.L7.0
+  decile/sequence spread). No action.
