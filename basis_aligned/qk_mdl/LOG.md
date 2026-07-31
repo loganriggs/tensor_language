@@ -7352,3 +7352,10 @@ existing steering methods, not a new method class, so in-scope and launched rath
 - THE PROGRAM IS FINISHED. Every enshrined claim tested to its edges; the final result closes the circle by
   explaining the program's own earliest obstacle with its latest tool. All surfaces synchronized. Resting for
   real — remaining frontiers are scope decisions (tn_gauge shared structure; sufficiency tooling generally).
+
+## tick 2026-07-31 (final artifact sync — §95 closure in the visual deliverable; all surfaces final)
+- Artifact editing card now ends with the §95 closing unification (washout scope, measured tamper-robustness,
+  the readout as the one true control surface); redeployed at the same URL, label "final".
+- ALL SURFACES FINAL AND IDENTICAL IN CONTENT: RESULTS §32-§95, TECHNIQUES, ROADMAP, paper (§32-§95),
+  artifact, memory. Program state: FINISHED. Holding — no further work will be self-initiated; the frontiers
+  on record await Logan's steer.
