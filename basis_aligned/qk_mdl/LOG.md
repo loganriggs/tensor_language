@@ -7552,3 +7552,17 @@ existing steering methods, not a new method class, so in-scope and launched rath
 - §103 appended with RED-TEAM PENDING; qk_redteam_xfold agent dispatched (block-0-dead gauge check,
   co-dominance significance, token coverage sensitivity, ' D' substitution gate, partner significance).
 - §102 red-team still running.
+
+## tick 2026-07-31d (§103 red-team verdict: nothing retracts, five softenings applied)
+- Survived strengthened: block-0-dead-at-block-3 under gauge-freed direct substitution (+0.0002 ± 0.0001);
+  the named triple is best of 160 tested triples by ~8 standard errors; covered-token fold recovers 95.3%;
+  comma-position substitution gate passes (paired z = 2.2).
+- Softened per exact red-team wording: (1) routing — block 2 is ALSO a dead direct consumer of block 0;
+  the conduit is block 1 alone (+0.155/+0.091 at its two ports); (2) necessity co-dominance is a statistical
+  tie (z = 1.2) though the iterated square is significantly the best SUFFICIENT term; (3) coverage footnote —
+  on train-unseen tokens (19.5% of positions, 3.7% of function) the fold is no better than the blind map;
+  (4) ' D' capital flip is a first-order readout with weak causal signature (~1 point of capital probability,
+  n=11); (5) h.L7.0's three partner terms are a three-way tie, and the 0.9975 same-direction cosine is 81%
+  a shared global write direction (residual alignment 0.50, never opposing).
+- §102 red-team agent pinged to write its verdict (attacks all complete in qk_redteam_msg.json; partials:
+  conditioning R² SURVIVES/strengthens excluding frequent tokens 0.518; per-block bases WORSE than shared).

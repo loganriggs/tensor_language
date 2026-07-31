@@ -1,0 +1,371 @@
+{
+ "meta": {
+  "model": "bilin18",
+  "train": "FW[0:256,:128]",
+  "held": "FW[448:600,:128]",
+  "batch": 4,
+  "note": "red-team of section 103; machinery verbatim from qk_xfold_terms/table/gate; paired SEs"
+ },
+ "shared": {
+  "base_ce": 3.4946,
+  "recon_gate": 7.973778433376078e-07,
+  "group_gate": 8.397252315717196e-08,
+  "M0_stream_mean_norm_at_L": {
+   "1": 449.157,
+   "2": 887.786,
+   "3": 509.784
+  }
+ },
+ "attack1_block0_dead": {
+  "reproduce_drop_M0_involving_gauge_fixed": {
+   "dCE": -1e-05,
+   "SE": 0.00015
+  },
+  "L3_input_meanreplace_gauge_free": {
+   "dCE": 0.00019,
+   "SE": 0.00011
+  },
+  "L3_input_zero_gauge_free": {
+   "dCE": 0.00023,
+   "SE": 0.00013
+  },
+  "L2_input_meanreplace_gauge_free": {
+   "dCE": 0.00036,
+   "SE": 0.00025
+  },
+  "L2_input_zero_gauge_free": {
+   "dCE": 0.00039,
+   "SE": 0.00027
+  },
+  "L1_input_meanreplace_gauge_free": {
+   "dCE": 0.15487,
+   "SE": 0.00456
+  }
+ },
+ "attack2_codominance": {
+  "drop_ArxM2": {
+   "dCE": 0.00771,
+   "SE": 0.00102
+  },
+  "drop_M2xM2": {
+   "dCE": 0.0062,
+   "SE": 0.00098
+  },
+  "paired_difference_drop": {
+   "mean": 0.00151,
+   "SE": 0.00126,
+   "z": 1.2
+  },
+  "only_M2xM2": {
+   "dCE": 0.24832
+  },
+  "only_ArxM2": {
+   "dCE": 0.25641
+  },
+  "paired_difference_keep_alone": {
+   "mean": -0.00809,
+   "SE": 0.00201,
+   "z": -4.03
+  },
+  "triple_sweep": {
+   "n_triples": 160,
+   "named_triple": "ArxM2+M1xM2+M2xM2",
+   "named_dCE": 0.03303,
+   "named_rank": 1,
+   "best10": [
+    {
+     "terms": "ArxM2+M1xM2+M2xM2",
+     "dCE": 0.03303,
+     "SE": 0.00198
+    },
+    {
+     "terms": "AexM2+ArxM2+M2xM2",
+     "dCE": 0.0491,
+     "SE": 0.00243
+    },
+    {
+     "terms": "ArxM1+ArxM2+M2xM2",
+     "dCE": 0.05211,
+     "SE": 0.00251
+    },
+    {
+     "terms": "ArxAr+ArxM2+M2xM2",
+     "dCE": 0.05587,
+     "SE": 0.00263
+    },
+    {
+     "terms": "AexM2+ArxM2+M1xM2",
+     "dCE": 0.05615,
+     "SE": 0.00261
+    },
+    {
+     "terms": "AexAr+ArxM2+M2xM2",
+     "dCE": 0.06028,
+     "SE": 0.00268
+    },
+    {
+     "terms": "ArxM1+ArxM2+M1xM2",
+     "dCE": 0.06041,
+     "SE": 0.00272
+    },
+    {
+     "terms": "ArxM2+M1xM1+M2xM2",
+     "dCE": 0.06277,
+     "SE": 0.00274
+    },
+    {
+     "terms": "AexM1+ArxM2+M2xM2",
+     "dCE": 0.06426,
+     "SE": 0.00275
+    },
+    {
+     "terms": "ArxM1+M1xM2+M2xM2",
+     "dCE": 0.06568,
+     "SE": 0.00279
+    }
+   ]
+  }
+ },
+ "attack3_coverage": {
+  "held_coverage": 0.805,
+  "fallback": "unseen tokens fall back to the GLOBAL train mean of mo0 inside s(t); the embedding part lamE*rms(wte) is exact for every token",
+  "s_component_norms_on_held": {
+   "lamE_wte_mean_norm": 276.78,
+   "lam0_table_mean_norm": 561.15,
+   "lam0_table_mean_norm_covered": 588.75
+  },
+  "explicitness_R2_global_centering": {
+   "all": {
+    "folded": 0.4174,
+    "blind": 0.0012
+   },
+   "cov": {
+    "folded": 0.4884,
+    "blind": -0.0158
+   },
+   "unc": {
+    "folded": 0.1121,
+    "blind": 0.0741
+   }
+  },
+  "same_set_note": "the section-103 41.7%-vs-0.1% comparison: both R2 accumulated over the IDENTICAL full held position set in one pass (code-verified); same-set comparison confirmed",
+  "full_sub_floor": {
+   "dCE": 5.5744,
+   "SE": 0.0323
+  },
+  "full_sub_folded": {
+   "dCE": 0.3587,
+   "SE": 0.00682
+  },
+  "full_sub_blind": {
+   "dCE": 0.5366,
+   "SE": 0.00837
+  },
+  "sub_folded_covered_only": {
+   "dCE": 0.159,
+   "SE": 0.00465
+  },
+  "sub_folded_uncovered_only": {
+   "dCE": 0.082,
+   "SE": 0.00345
+  },
+  "sub_blind_covered_only": {
+   "dCE": 0.3212,
+   "SE": 0.00644
+  },
+  "sub_blind_uncovered_only": {
+   "dCE": 0.0693,
+   "SE": 0.00327
+  },
+  "sub_floor_covered_only": {
+   "dCE": 3.4041,
+   "SE": 0.0242
+  },
+  "sub_floor_uncovered_only": {
+   "dCE": 0.2037,
+   "SE": 0.00547
+  },
+  "per_position_split_of_full_sub": {
+   "note": "CE positions grouped by the CURRENT token coverage at that position; substitution was global, so upstream-position leakage applies (diagnostic only)",
+   "folded_covered_mean": 0.3384,
+   "folded_uncovered_mean": 0.4424,
+   "blind_covered_mean": 0.5377,
+   "blind_uncovered_mean": 0.5324,
+   "floor_covered_mean": 5.5194,
+   "floor_uncovered_mean": 5.8021,
+   "n_covered": 15548,
+   "n_uncovered": 3756
+  }
+ },
+ "attack4_token_gate": {
+  "' the'": {
+   "n_held_positions": 749,
+   "folded_at_token_dCE": {
+    "dCE": 0.0008,
+    "SE": 0.00036
+   },
+   "blind_at_token_dCE": {
+    "dCE": 0.00099,
+    "SE": 0.00047
+   },
+   "blind_minus_folded_paired": {
+    "mean": 0.00018,
+    "SE": 0.00043,
+    "z": 0.42
+   },
+   "local_dCE_at_token_positions": {
+    "folded": 0.0195,
+    "blind": 0.0252,
+    "blind_minus_folded_mean": 0.0057,
+    "blind_minus_folded_SE": 0.0072
+   }
+  },
+  "','": {
+   "n_held_positions": 640,
+   "folded_at_token_dCE": {
+    "dCE": 0.00057,
+    "SE": 0.00044
+   },
+   "blind_at_token_dCE": {
+    "dCE": 0.00158,
+    "SE": 0.00048
+   },
+   "blind_minus_folded_paired": {
+    "mean": 0.00101,
+    "SE": 0.00046,
+    "z": 2.2
+   },
+   "local_dCE_at_token_positions": {
+    "folded": 0.0172,
+    "blind": 0.039,
+    "blind_minus_folded_mean": 0.0219,
+    "blind_minus_folded_SE": 0.009
+   }
+  },
+  "' D'": {
+   "n_held_positions": 11,
+   "folded_at_token_dCE": {
+    "dCE": 8e-05,
+    "SE": 7e-05
+   },
+   "blind_at_token_dCE": {
+    "dCE": 0.00013,
+    "SE": 6e-05
+   },
+   "blind_minus_folded_paired": {
+    "mean": 5e-05,
+    "SE": 7e-05,
+    "z": 0.77
+   },
+   "local_dCE_at_token_positions": {
+    "folded": -0.0456,
+    "blind": 0.0198,
+    "blind_minus_folded_mean": 0.0654,
+    "blind_minus_folded_SE": 0.0359
+   }
+  },
+  "capital_probe_at_D": {
+   "n_positions": 11,
+   "mean_capital_prob": {
+    "base": 0.777,
+    "folded": 0.7721,
+    "blind": 0.7867
+   },
+   "per_position_capital_prob": {
+    "base": [
+     0.8543,
+     0.1091,
+     0.6337,
+     0.9973,
+     0.2147,
+     0.7968,
+     0.9804,
+     0.9735,
+     0.9953,
+     0.9956,
+     0.9963
+    ],
+    "folded": [
+     0.7864,
+     0.0893,
+     0.6399,
+     0.9971,
+     0.2362,
+     0.7963,
+     0.9886,
+     0.972,
+     0.9946,
+     0.9953,
+     0.9976
+    ],
+    "blind": [
+     0.838,
+     0.1061,
+     0.6069,
+     0.9975,
+     0.3615,
+     0.7939,
+     0.9876,
+     0.9758,
+     0.9941,
+     0.9956,
+     0.9961
+    ]
+   },
+   "actual_next_token_capital_fraction": 0.7273,
+   "note": "probability mass on the lex1 capital class for the NEXT token, measured AT the ' D' positions; substitutions applied only at ' D' positions"
+  }
+ },
+ "attack5_h70": {
+  "fold_gate": 1.8338990439073948e-06,
+  "drop_Mrxh": {
+   "dCE": 0.00081,
+   "SE": 0.0002
+  },
+  "drop_hxh": {
+   "dCE": 0.00072,
+   "SE": 0.00023
+  },
+  "drop_Mexh": {
+   "dCE": 0.00064,
+   "SE": 0.00021
+  },
+  "paired_diff_Mrxh_minus_hxh": {
+   "mean": 9e-05,
+   "SE": 0.0003,
+   "z": 0.31
+  },
+  "paired_diff_Mrxh_minus_Mexh": {
+   "mean": 0.00017,
+   "SE": 0.00022,
+   "z": 0.76
+  },
+  "paired_diff_hxh_minus_Mexh": {
+   "mean": 8e-05,
+   "SE": 0.00031,
+   "z": 0.25
+  },
+  "centroid_cosines": {
+   "raw_help_vs_hurt": 0.9975,
+   "after_subtracting_global_mean_write": 0.9852,
+   "after_projecting_out_global_mean_direction": 0.4964,
+   "help_centroid_cos_to_global_mean": 0.9975,
+   "hurt_centroid_cos_to_global_mean": 0.9976,
+   "global_mean_norm_over_mean_write_norm": 0.814
+  }
+ },
+ "attack1_attention_route": {
+  "L1_attention_input_meanreplace": {
+   "dCE": 0.09127,
+   "SE": 0.00348
+  },
+  "L2_attention_input_meanreplace": {
+   "dCE": 0.00049,
+   "SE": 0.00024
+  },
+  "L3_attention_input_meanreplace": {
+   "dCE": 2e-05,
+   "SE": 9e-05
+  }
+ }
+}
