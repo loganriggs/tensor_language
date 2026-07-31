@@ -1,0 +1,35 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+GATE base CE 3.4946
+fitting 18 sequential linear maps (each under the already-linearized upstream) ...
+  layer 0 fitted
+  layer 1 fitted
+  layer 2 fitted
+  layer 3 fitted
+  layer 4 fitted
+  layer 5 fitted
+  layer 6 fitted
+  layer 7 fitted
+  layer 8 fitted
+  layer 9 fitted
+  layer 10 fitted
+  layer 11 fitted
+  layer 12 fitted
+  layer 13 fitted
+  layer 14 fitted
+  layer 15 fitted
+  layer 16 fitted
+  layer 17 fitted
+=== MLP linearization (all 18 blocks, sequential fits) ===
+  all 18 MLPs LINEAR (k=0)                     dCE +1.9422 +- 0.0315
+  all 18 MLPs linear + top-8 nonlinear dirs    dCE +1.7865 +- 0.0301
+  all 18 MLPs linear + top-32 nonlinear dirs   dCE +1.5809 +- 0.0282
+  all 18 MLPs linear + top-128 nonlinear dirs  dCE +1.0875 +- 0.0223
+collecting static patterns (intact model) ...
+=== attention linearization ===
+  all attention STATIC (frozen mean pattern)   dCE +1.4004 +- 0.0266
+  all attention SINGLE-BRANCH (half degree)    dCE +1.1899 +- 0.0218
+=== combined ===
+  all MLPs linear + all attention static       dCE +2.5985 +- 0.0450
+  all MLPs linear + single-branch attention    dCE +2.6679 +- 0.0432
+  MLPs linear+top-32 nonlin + 1-branch attn    dCE +2.2415 +- 0.0390
+SAVED qk_linearize.json
