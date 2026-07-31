@@ -1,0 +1,6305 @@
+{
+ "meta": {
+  "model": "bilin18",
+  "layer": 17,
+  "held_slice": "FW[448:600,:128]",
+  "batch": 6,
+  "base_ce": 3.4946,
+  "dials": {
+   "gated_AexMr": [
+    "AexMr"
+   ],
+   "prior_MrxMr": [
+    "MrxMr"
+   ],
+   "pair_coherent": [
+    "AexMr",
+    "MrxMr"
+   ],
+   "placebo_ExAr": [
+    "ExAr"
+   ]
+  },
+  "steer_formula": "mo17 -> MEANF + sum_k c_k*(term_k - TMEAN_k); c=alpha on targeted terms, 1 elsewhere; alpha=1 reassembled model, alpha=0 drop-term",
+  "pair_note": "the layer output is linear in the 15 terms, so pair_coherent (alpha on both arms) adds exactly (alpha-1)*(devA+devB) = (alpha-1)*(pair net functional write); scaling the pair difference/contrast and scaling both arms coherently are THE SAME edit; the cancelling common mode has no output-level degree of freedom (editing it with the net fixed is a no-op)",
+  "placebo_energy_share": 0.0001,
+  "P_capital": "softmax mass on VOCAB_CLASS==capital (arc_caps metric)",
+  "dCE_vs_natural": "cross-entropy(alpha) - cross-entropy(natural), paired per position",
+  "census_dCE": "mean over ALL predict positions vs natural (gate currency, matches qk_allterm_census / qk_L17_mixer convention)",
+  "gates": {
+   "recon_rel_err_global": 7.049056995624683e-07,
+   "recon_max_pos": 4.183281362202251e-06,
+   "tmean_max_abs_diff_vs_saved": 0.0,
+   "reassembly_alpha1_census_dCE": -0.0,
+   "pair_coherent_equals_difference_knob_max_abs_logit_diff": 1.0967254638671875e-05,
+   "gated_alpha0_census_dCE": 0.1479,
+   "prior_alpha0_census_dCE": 0.0697,
+   "pair_alpha0_census_dCE": 0.0587,
+   "expected_at_zero": {
+    "gated_AexMr": 0.1479,
+    "prior_MrxMr": 0.0697,
+    "pair_coherent": 0.0587
+   }
+  },
+  "machinery": "VERBATIM qk_L17_mixer.py/qk_allterm_census.py (pair_terms, forward, reassembly harness) + qk_arc_caps.py/qk_edit_capselector.py (capital metric, position splits, sweep/reach/specificity/red-team template)",
+  "alphas": [
+   -4.0,
+   -2.0,
+   -1.0,
+   -0.5,
+   0.0,
+   0.5,
+   1.0,
+   2.0,
+   4.0,
+   8.0,
+   16.0
+  ]
+ },
+ "counts": {
+  "valid": 18634,
+  "boundary": 1209,
+  "midword": 8711,
+  "due": 2252,
+  "notdue": 16382,
+  "bnd_due": 558,
+  "mid_notdue": 8328,
+  "next_bracket_open": 107,
+  "next_newline": 367,
+  "next_subword": 1341,
+  "next_coordinator": 549
+ },
+ "dose_response": {
+  "alphas": [
+   -4.0,
+   -2.0,
+   -1.0,
+   -0.5,
+   0.0,
+   0.5,
+   1.0,
+   2.0,
+   4.0,
+   8.0,
+   16.0
+  ],
+  "gated_AexMr": {
+   "due": [
+    0.41352,
+    0.47197,
+    0.50373,
+    0.52185,
+    0.54126,
+    0.55669,
+    0.56127,
+    0.56529,
+    0.5706,
+    0.55793,
+    0.53107
+   ],
+   "notdue": [
+    0.12247,
+    0.10332,
+    0.08589,
+    0.07609,
+    0.06547,
+    0.05868,
+    0.05836,
+    0.07521,
+    0.13619,
+    0.22252,
+    0.28179
+   ],
+   "boundary": [
+    0.46495,
+    0.4349,
+    0.39512,
+    0.37978,
+    0.37655,
+    0.38689,
+    0.41068,
+    0.48906,
+    0.61601,
+    0.64578,
+    0.58896
+   ],
+   "midword": [
+    0.08626,
+    0.07344,
+    0.06175,
+    0.05533,
+    0.04898,
+    0.04569,
+    0.04676,
+    0.0597,
+    0.11395,
+    0.20386,
+    0.2719
+   ],
+   "valid": [
+    0.15764,
+    0.14787,
+    0.13639,
+    0.12996,
+    0.12297,
+    0.11887,
+    0.11913,
+    0.13444,
+    0.18869,
+    0.26306,
+    0.31192
+   ],
+   "spearman_due": 0.7545,
+   "spearman_boundary": 0.5818
+  },
+  "prior_MrxMr": {
+   "due": [
+    0.67175,
+    0.66317,
+    0.64787,
+    0.63468,
+    0.61635,
+    0.59121,
+    0.56127,
+    0.50478,
+    0.41114,
+    0.26668,
+    0.20101
+   ],
+   "notdue": [
+    0.17603,
+    0.13271,
+    0.10747,
+    0.09416,
+    0.08084,
+    0.06852,
+    0.05836,
+    0.04702,
+    0.06927,
+    0.10205,
+    0.17811
+   ],
+   "boundary": [
+    0.72871,
+    0.69982,
+    0.64555,
+    0.60042,
+    0.54215,
+    0.47559,
+    0.41068,
+    0.32433,
+    0.36207,
+    0.32354,
+    0.26178
+   ],
+   "midword": [
+    0.14087,
+    0.10081,
+    0.08033,
+    0.07053,
+    0.0614,
+    0.05338,
+    0.04676,
+    0.03858,
+    0.04718,
+    0.06865,
+    0.15481
+   ],
+   "valid": [
+    0.23594,
+    0.19682,
+    0.17278,
+    0.15948,
+    0.14556,
+    0.13169,
+    0.11913,
+    0.10235,
+    0.11059,
+    0.12195,
+    0.18088
+   ],
+   "spearman_due": -1.0,
+   "spearman_boundary": -0.9909
+  },
+  "pair_coherent": {
+   "due": [
+    0.64546,
+    0.64023,
+    0.62929,
+    0.62038,
+    0.60719,
+    0.5873,
+    0.56127,
+    0.50623,
+    0.41852,
+    0.2948,
+    0.19571
+   ],
+   "notdue": [
+    0.13152,
+    0.10872,
+    0.09275,
+    0.08368,
+    0.07433,
+    0.06544,
+    0.05836,
+    0.05185,
+    0.05869,
+    0.10176,
+    0.18393
+   ],
+   "boundary": [
+    0.67684,
+    0.59714,
+    0.54033,
+    0.50852,
+    0.47532,
+    0.44207,
+    0.41068,
+    0.36026,
+    0.30702,
+    0.24953,
+    0.17184
+   ],
+   "midword": [
+    0.09332,
+    0.07699,
+    0.06618,
+    0.06044,
+    0.05499,
+    0.05026,
+    0.04676,
+    0.04383,
+    0.05084,
+    0.09291,
+    0.1836
+   ],
+   "valid": [
+    0.19363,
+    0.17296,
+    0.15759,
+    0.14854,
+    0.13873,
+    0.12851,
+    0.11913,
+    0.10677,
+    0.10218,
+    0.12509,
+    0.18535
+   ],
+   "spearman_due": -1.0,
+   "spearman_boundary": -1.0
+  },
+  "placebo_ExAr": {
+   "due": [
+    0.55772,
+    0.55914,
+    0.55985,
+    0.56021,
+    0.56056,
+    0.56092,
+    0.56127,
+    0.56198,
+    0.56337,
+    0.56609,
+    0.57106
+   ],
+   "notdue": [
+    0.05647,
+    0.05718,
+    0.05756,
+    0.05775,
+    0.05795,
+    0.05815,
+    0.05836,
+    0.05878,
+    0.05966,
+    0.06161,
+    0.06619
+   ],
+   "boundary": [
+    0.40731,
+    0.40861,
+    0.40928,
+    0.40963,
+    0.40997,
+    0.41032,
+    0.41068,
+    0.4114,
+    0.41288,
+    0.41602,
+    0.42293
+   ],
+   "midword": [
+    0.04456,
+    0.0454,
+    0.04584,
+    0.04607,
+    0.04629,
+    0.04653,
+    0.04676,
+    0.04724,
+    0.04823,
+    0.05036,
+    0.05525
+   ],
+   "valid": [
+    0.11705,
+    0.11784,
+    0.11826,
+    0.11848,
+    0.11869,
+    0.11891,
+    0.11913,
+    0.11959,
+    0.12054,
+    0.12257,
+    0.12721
+   ],
+   "spearman_due": 1.0,
+   "spearman_boundary": 1.0
+  }
+ },
+ "reach": {
+  "gated_AexMr": {
+   "due_min": 0.41352,
+   "due_max": 0.5706,
+   "due_at_alpha_min": -4.0,
+   "due_at_alpha_max": 4.0,
+   "due_swing": 0.15708,
+   "notdue_min": 0.05836,
+   "notdue_max": 0.28179,
+   "notdue_swing": 0.22343,
+   "natural_due": 0.56127,
+   "natural_notdue": 0.05836
+  },
+  "prior_MrxMr": {
+   "due_min": 0.20101,
+   "due_max": 0.67175,
+   "due_at_alpha_min": 16.0,
+   "due_at_alpha_max": -4.0,
+   "due_swing": 0.47074,
+   "notdue_min": 0.04702,
+   "notdue_max": 0.17811,
+   "notdue_swing": 0.13109,
+   "natural_due": 0.56127,
+   "natural_notdue": 0.05836
+  },
+  "pair_coherent": {
+   "due_min": 0.19571,
+   "due_max": 0.64546,
+   "due_at_alpha_min": 16.0,
+   "due_at_alpha_max": -4.0,
+   "due_swing": 0.44975,
+   "notdue_min": 0.05185,
+   "notdue_max": 0.18393,
+   "notdue_swing": 0.13208,
+   "natural_due": 0.56127,
+   "natural_notdue": 0.05836
+  },
+  "placebo_ExAr": {
+   "due_min": 0.55772,
+   "due_max": 0.57106,
+   "due_at_alpha_min": -4.0,
+   "due_at_alpha_max": 16.0,
+   "due_swing": 0.01334,
+   "notdue_min": 0.05647,
+   "notdue_max": 0.06619,
+   "notdue_swing": 0.00972,
+   "natural_due": 0.56127,
+   "natural_notdue": 0.05836
+  }
+ },
+ "specificity": {
+  "gated_AexMr": {
+   "-4.0": {
+    "dP_capital_due": -0.14776,
+    "dCE_offtarget_notdue": 1.77095,
+    "dCE_all": 1.87411,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 0.083
+   },
+   "-2.0": {
+    "dP_capital_due": -0.0893,
+    "dCE_offtarget_notdue": 0.9496,
+    "dCE_all": 1.00739,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 0.094
+   },
+   "-1.0": {
+    "dP_capital_due": -0.05754,
+    "dCE_offtarget_notdue": 0.50909,
+    "dCE_all": 0.54453,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 0.113
+   },
+   "-0.5": {
+    "dP_capital_due": -0.03942,
+    "dCE_offtarget_notdue": 0.30474,
+    "dCE_all": 0.32998,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 0.129
+   },
+   "0.0": {
+    "dP_capital_due": -0.02001,
+    "dCE_offtarget_notdue": 0.13385,
+    "dCE_all": 0.14898,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 0.149
+   },
+   "0.5": {
+    "dP_capital_due": -0.00459,
+    "dCE_offtarget_notdue": 0.02889,
+    "dCE_all": 0.03474,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 0.159
+   },
+   "1.0": {
+    "dP_capital_due": 0.0,
+    "dCE_offtarget_notdue": 0.0,
+    "dCE_all": 0.0,
+    "specificity_ratio_capitalgain_per_offtarget_CE": null
+   },
+   "2.0": {
+    "dP_capital_due": 0.00401,
+    "dCE_offtarget_notdue": 0.14192,
+    "dCE_all": 0.13501,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 0.028
+   },
+   "4.0": {
+    "dP_capital_due": 0.00933,
+    "dCE_offtarget_notdue": 1.00216,
+    "dCE_all": 0.96502,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 0.009
+   },
+   "8.0": {
+    "dP_capital_due": -0.00334,
+    "dCE_offtarget_notdue": 3.00661,
+    "dCE_all": 2.87012,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 0.001
+   },
+   "16.0": {
+    "dP_capital_due": -0.0302,
+    "dCE_offtarget_notdue": 5.37231,
+    "dCE_all": 5.1045,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 0.006
+   }
+  },
+  "prior_MrxMr": {
+   "-4.0": {
+    "dP_capital_due": 0.11048,
+    "dCE_offtarget_notdue": 1.28669,
+    "dCE_all": 1.22688,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 0.086
+   },
+   "-2.0": {
+    "dP_capital_due": 0.1019,
+    "dCE_offtarget_notdue": 0.59992,
+    "dCE_all": 0.56151,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 0.17
+   },
+   "-1.0": {
+    "dP_capital_due": 0.08659,
+    "dCE_offtarget_notdue": 0.30524,
+    "dCE_all": 0.27433,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 0.284
+   },
+   "-0.5": {
+    "dP_capital_due": 0.07341,
+    "dCE_offtarget_notdue": 0.18416,
+    "dCE_all": 0.15733,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 0.399
+   },
+   "0.0": {
+    "dP_capital_due": 0.05508,
+    "dCE_offtarget_notdue": 0.08946,
+    "dCE_all": 0.06824,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 0.616
+   },
+   "0.5": {
+    "dP_capital_due": 0.02994,
+    "dCE_offtarget_notdue": 0.02799,
+    "dCE_all": 0.0153,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 1.07
+   },
+   "1.0": {
+    "dP_capital_due": 0.0,
+    "dCE_offtarget_notdue": 0.0,
+    "dCE_all": 0.0,
+    "specificity_ratio_capitalgain_per_offtarget_CE": null
+   },
+   "2.0": {
+    "dP_capital_due": -0.05649,
+    "dCE_offtarget_notdue": 0.02355,
+    "dCE_all": 0.0578,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 2.399
+   },
+   "4.0": {
+    "dP_capital_due": -0.15013,
+    "dCE_offtarget_notdue": 0.38611,
+    "dCE_all": 0.48834,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 0.389
+   },
+   "8.0": {
+    "dP_capital_due": -0.29459,
+    "dCE_offtarget_notdue": 1.46563,
+    "dCE_all": 1.68778,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 0.201
+   },
+   "16.0": {
+    "dP_capital_due": -0.36026,
+    "dCE_offtarget_notdue": 2.98527,
+    "dCE_all": 3.26611,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 0.121
+   }
+  },
+  "pair_coherent": {
+   "-4.0": {
+    "dP_capital_due": 0.08418,
+    "dCE_offtarget_notdue": 1.02739,
+    "dCE_all": 1.00489,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 0.082
+   },
+   "-2.0": {
+    "dP_capital_due": 0.07896,
+    "dCE_offtarget_notdue": 0.49597,
+    "dCE_all": 0.47624,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 0.159
+   },
+   "-1.0": {
+    "dP_capital_due": 0.06801,
+    "dCE_offtarget_notdue": 0.25421,
+    "dCE_all": 0.23604,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 0.268
+   },
+   "-0.5": {
+    "dP_capital_due": 0.0591,
+    "dCE_offtarget_notdue": 0.15267,
+    "dCE_all": 0.13593,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 0.387
+   },
+   "0.0": {
+    "dP_capital_due": 0.04592,
+    "dCE_offtarget_notdue": 0.07265,
+    "dCE_all": 0.05878,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 0.632
+   },
+   "0.5": {
+    "dP_capital_due": 0.02603,
+    "dCE_offtarget_notdue": 0.02112,
+    "dCE_all": 0.01239,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 1.232
+   },
+   "1.0": {
+    "dP_capital_due": 0.0,
+    "dCE_offtarget_notdue": 0.0,
+    "dCE_all": 0.0,
+    "specificity_ratio_capitalgain_per_offtarget_CE": null
+   },
+   "2.0": {
+    "dP_capital_due": -0.05504,
+    "dCE_offtarget_notdue": 0.02728,
+    "dCE_all": 0.0531,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 2.018
+   },
+   "4.0": {
+    "dP_capital_due": -0.14275,
+    "dCE_offtarget_notdue": 0.2987,
+    "dCE_all": 0.37644,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 0.478
+   },
+   "8.0": {
+    "dP_capital_due": -0.26647,
+    "dCE_offtarget_notdue": 1.35367,
+    "dCE_all": 1.47724,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 0.197
+   },
+   "16.0": {
+    "dP_capital_due": -0.36557,
+    "dCE_offtarget_notdue": 3.6153,
+    "dCE_all": 3.71203,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 0.101
+   }
+  },
+  "placebo_ExAr": {
+   "-4.0": {
+    "dP_capital_due": -0.00356,
+    "dCE_offtarget_notdue": -0.00029,
+    "dCE_all": 0.00226,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 12.276
+   },
+   "-2.0": {
+    "dP_capital_due": -0.00213,
+    "dCE_offtarget_notdue": -0.00077,
+    "dCE_all": 0.00075,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 2.766
+   },
+   "-1.0": {
+    "dP_capital_due": -0.00142,
+    "dCE_offtarget_notdue": -0.00071,
+    "dCE_all": 0.0003,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 2.0
+   },
+   "-0.5": {
+    "dP_capital_due": -0.00106,
+    "dCE_offtarget_notdue": -0.00061,
+    "dCE_all": 0.00015,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 1.738
+   },
+   "0.0": {
+    "dP_capital_due": -0.00071,
+    "dCE_offtarget_notdue": -0.00046,
+    "dCE_all": 5e-05,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 1.543
+   },
+   "0.5": {
+    "dP_capital_due": -0.00035,
+    "dCE_offtarget_notdue": -0.00025,
+    "dCE_all": -0.0,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 1.4
+   },
+   "1.0": {
+    "dP_capital_due": 0.0,
+    "dCE_offtarget_notdue": 0.0,
+    "dCE_all": 0.0,
+    "specificity_ratio_capitalgain_per_offtarget_CE": null
+   },
+   "2.0": {
+    "dP_capital_due": 0.0007,
+    "dCE_offtarget_notdue": 0.00066,
+    "dCE_all": 0.00016,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 1.061
+   },
+   "4.0": {
+    "dP_capital_due": 0.0021,
+    "dCE_offtarget_notdue": 0.0026,
+    "dCE_all": 0.0011,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 0.808
+   },
+   "8.0": {
+    "dP_capital_due": 0.00482,
+    "dCE_offtarget_notdue": 0.00896,
+    "dCE_all": 0.00552,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 0.538
+   },
+   "16.0": {
+    "dP_capital_due": 0.00979,
+    "dCE_offtarget_notdue": 0.0319,
+    "dCE_all": 0.02468,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 0.307
+   }
+  }
+ },
+ "surgical_test": {
+  "up_steer_gated": {
+   "2.0": {
+    "alpha": 2.0,
+    "dP_boundary(due)": {
+     "mean": 0.07839,
+     "SE": 0.00217,
+     "n": 1209
+    },
+    "dP_mid_notdue": {
+     "mean": 0.01229,
+     "SE": 0.00038,
+     "n": 8328
+    },
+    "dP_midword": {
+     "mean": 0.01294,
+     "SE": 0.00041,
+     "n": 8711
+    },
+    "notdue_over_due_dP_ratio": 0.157,
+    "dCE_all_valid": 0.13501
+   },
+   "4.0": {
+    "alpha": 4.0,
+    "dP_boundary(due)": {
+     "mean": 0.20533,
+     "SE": 0.00507,
+     "n": 1209
+    },
+    "dP_mid_notdue": {
+     "mean": 0.06651,
+     "SE": 0.00114,
+     "n": 8328
+    },
+    "dP_midword": {
+     "mean": 0.06719,
+     "SE": 0.00119,
+     "n": 8711
+    },
+    "notdue_over_due_dP_ratio": 0.324,
+    "dCE_all_valid": 0.96502
+   },
+   "8.0": {
+    "alpha": 8.0,
+    "dP_boundary(due)": {
+     "mean": 0.2351,
+     "SE": 0.00806,
+     "n": 1209
+    },
+    "dP_mid_notdue": {
+     "mean": 0.15872,
+     "SE": 0.00196,
+     "n": 8328
+    },
+    "dP_midword": {
+     "mean": 0.1571,
+     "SE": 0.00201,
+     "n": 8711
+    },
+    "notdue_over_due_dP_ratio": 0.675,
+    "dCE_all_valid": 2.87012
+   },
+   "16.0": {
+    "alpha": 16.0,
+    "dP_boundary(due)": {
+     "mean": 0.17828,
+     "SE": 0.00947,
+     "n": 1209
+    },
+    "dP_mid_notdue": {
+     "mean": 0.22922,
+     "SE": 0.00239,
+     "n": 8328
+    },
+    "dP_midword": {
+     "mean": 0.22514,
+     "SE": 0.00245,
+     "n": 8711
+    },
+    "notdue_over_due_dP_ratio": 1.286,
+    "dCE_all_valid": 5.1045
+   }
+  },
+  "up_steer_prior_down": {
+   "0.0": {
+    "alpha": 0.0,
+    "dP_boundary(due)": {
+     "mean": 0.13147,
+     "SE": 0.00237,
+     "n": 1209
+    },
+    "dP_mid_notdue": {
+     "mean": 0.0128,
+     "SE": 0.00037,
+     "n": 8328
+    },
+    "dP_midword": {
+     "mean": 0.01464,
+     "SE": 0.00041,
+     "n": 8711
+    },
+    "notdue_over_due_dP_ratio": 0.097,
+    "dCE_all_valid": 0.06824
+   },
+   "-1.0": {
+    "alpha": -1.0,
+    "dP_boundary(due)": {
+     "mean": 0.23487,
+     "SE": 0.00429,
+     "n": 1209
+    },
+    "dP_mid_notdue": {
+     "mean": 0.03054,
+     "SE": 0.00075,
+     "n": 8328
+    },
+    "dP_midword": {
+     "mean": 0.03357,
+     "SE": 0.0008,
+     "n": 8711
+    },
+    "notdue_over_due_dP_ratio": 0.13,
+    "dCE_all_valid": 0.27433
+   },
+   "-2.0": {
+    "alpha": -2.0,
+    "dP_boundary(due)": {
+     "mean": 0.28914,
+     "SE": 0.00568,
+     "n": 1209
+    },
+    "dP_mid_notdue": {
+     "mean": 0.05046,
+     "SE": 0.00107,
+     "n": 8328
+    },
+    "dP_midword": {
+     "mean": 0.05405,
+     "SE": 0.00112,
+     "n": 8711
+    },
+    "notdue_over_due_dP_ratio": 0.175,
+    "dCE_all_valid": 0.56151
+   },
+   "-4.0": {
+    "alpha": -4.0,
+    "dP_boundary(due)": {
+     "mean": 0.31804,
+     "SE": 0.00747,
+     "n": 1209
+    },
+    "dP_mid_notdue": {
+     "mean": 0.09043,
+     "SE": 0.00154,
+     "n": 8328
+    },
+    "dP_midword": {
+     "mean": 0.09411,
+     "SE": 0.00158,
+     "n": 8711
+    },
+    "notdue_over_due_dP_ratio": 0.284,
+    "dCE_all_valid": 1.22688
+   }
+  },
+  "down_steer_gated_suppression": {
+   "0.0": {
+    "dP_bnd_due": {
+     "mean": -0.04005,
+     "SE": 0.00396,
+     "n": 558
+    },
+    "dP_boundary": {
+     "mean": -0.03413,
+     "SE": 0.00265,
+     "n": 1209
+    },
+    "dP_notdue": {
+     "mean": 0.00711,
+     "SE": 0.00057,
+     "n": 16382
+    },
+    "dP_mid_notdue": {
+     "mean": 0.00311,
+     "SE": 0.00057,
+     "n": 8328
+    },
+    "boundary_drop_over_notdue_drop": -5.633,
+    "dCE_all_valid": 0.14898,
+    "dCE_offtarget_notdue": 0.13385
+   },
+   "-1.0": {
+    "dP_bnd_due": {
+     "mean": -0.03787,
+     "SE": 0.00711,
+     "n": 558
+    },
+    "dP_boundary": {
+     "mean": -0.01556,
+     "SE": 0.00502,
+     "n": 1209
+    },
+    "dP_notdue": {
+     "mean": 0.02754,
+     "SE": 0.00106,
+     "n": 16382
+    },
+    "dP_mid_notdue": {
+     "mean": 0.01802,
+     "SE": 0.00119,
+     "n": 8328
+    },
+    "boundary_drop_over_notdue_drop": -1.375,
+    "dCE_all_valid": 0.54453,
+    "dCE_offtarget_notdue": 0.50909
+   },
+   "-2.0": {
+    "dP_bnd_due": {
+     "mean": -0.01763,
+     "SE": 0.00892,
+     "n": 558
+    },
+    "dP_boundary": {
+     "mean": 0.02422,
+     "SE": 0.0066,
+     "n": 1209
+    },
+    "dP_notdue": {
+     "mean": 0.04496,
+     "SE": 0.00134,
+     "n": 16382
+    },
+    "dP_mid_notdue": {
+     "mean": 0.03206,
+     "SE": 0.00158,
+     "n": 8328
+    },
+    "boundary_drop_over_notdue_drop": -0.392,
+    "dCE_all_valid": 1.00739,
+    "dCE_offtarget_notdue": 0.9496
+   }
+  },
+  "note": "Up-steer gated arm: if the capital increase stays concentrated at boundaries (ratio << 1) the conditioning is preserved INSIDE the dial (the dial IS the conditioned path). Down-steer gated arm: surgical suppression = boundary capital drop >> not-due drop at small collateral delta cross-entropy."
+ },
+ "section75_reference": {
+  "dose_response_target_P_capital_due": [
+   0.20779,
+   0.36997,
+   0.43757,
+   0.46165,
+   0.48852,
+   0.52151,
+   0.56127,
+   0.64203,
+   0.68763,
+   0.64397,
+   0.6022
+  ],
+  "dose_response_alphas": [
+   -4.0,
+   -2.0,
+   -1.0,
+   -0.5,
+   0.0,
+   0.5,
+   1.0,
+   2.0,
+   4.0,
+   8.0,
+   16.0
+  ],
+  "reach_target": {
+   "due_min": 0.20779,
+   "due_max": 0.68763,
+   "due_at_alpha_min": -4.0,
+   "due_at_alpha_max": 4.0,
+   "due_swing": 0.47984,
+   "notdue_min": 0.04383,
+   "notdue_max": 0.20638,
+   "notdue_swing": 0.16255,
+   "natural_due": 0.56127,
+   "natural_notdue": 0.05836
+  },
+  "specificity": {
+   "-4.0": {
+    "dP_capital_due": -0.35348,
+    "dCE_offtarget_notdue": 0.81083,
+    "dCE_all": 0.93308,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 0.436
+   },
+   "-2.0": {
+    "dP_capital_due": -0.1913,
+    "dCE_offtarget_notdue": 0.27123,
+    "dCE_all": 0.32985,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 0.705
+   },
+   "-1.0": {
+    "dP_capital_due": -0.1237,
+    "dCE_offtarget_notdue": 0.12773,
+    "dCE_all": 0.17603,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 0.968
+   },
+   "-0.5": {
+    "dP_capital_due": -0.09962,
+    "dCE_offtarget_notdue": 0.07436,
+    "dCE_all": 0.12154,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 1.34
+   },
+   "0.0": {
+    "dP_capital_due": -0.07275,
+    "dCE_offtarget_notdue": 0.03016,
+    "dCE_all": 0.06822,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 2.412
+   },
+   "0.5": {
+    "dP_capital_due": -0.03976,
+    "dCE_offtarget_notdue": 0.00158,
+    "dCE_all": 0.02153,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 25.165
+   },
+   "1.0": {
+    "dP_capital_due": 0.0,
+    "dCE_offtarget_notdue": 0.0,
+    "dCE_all": 0.0,
+    "specificity_ratio_capitalgain_per_offtarget_CE": null
+   },
+   "2.0": {
+    "dP_capital_due": 0.08075,
+    "dCE_offtarget_notdue": 0.10351,
+    "dCE_all": 0.07951,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 0.78
+   },
+   "4.0": {
+    "dP_capital_due": 0.12635,
+    "dCE_offtarget_notdue": 0.6142,
+    "dCE_all": 0.59527,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 0.206
+   },
+   "8.0": {
+    "dP_capital_due": 0.0827,
+    "dCE_offtarget_notdue": 1.77016,
+    "dCE_all": 1.76848,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 0.047
+   },
+   "16.0": {
+    "dP_capital_due": 0.04093,
+    "dCE_offtarget_notdue": 3.32352,
+    "dCE_all": 3.295,
+    "specificity_ratio_capitalgain_per_offtarget_CE": 0.012
+   }
+  },
+  "context_conditioning_redteam": {
+   "up_alpha": 8.0,
+   "dP_capital_at_boundary(due)": {
+    "mean": 0.28658,
+    "SE": 0.00658,
+    "n": 1209
+   },
+   "dP_capital_at_mid_notdue": {
+    "mean": 0.06877,
+    "SE": 0.00168,
+    "n": 8328
+   },
+   "dP_capital_at_midword": {
+    "mean": 0.07101,
+    "SE": 0.00171,
+    "n": 8711
+   },
+   "notdue_over_due_dP_ratio": 0.24,
+   "note": "If notdue/due dP ratio << 1 the context-conditioning HOLDS under up-steering (only amplifies at genuine boundaries; selection logic upstream). If ~1 or growing, up-steering OVERRIDES the conditioning (controllable Title-Case override; selection logic IN the direction)."
+  }
+ },
+ "sweeps_full": {
+  "gated_AexMr": {
+   "-4.0": {
+    "P_capital": {
+     "all_valid": {
+      "mean": 0.15764,
+      "SE": 0.0018,
+      "n": 18634
+     },
+     "due": {
+      "mean": 0.41352,
+      "SE": 0.00606,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.12247,
+      "SE": 0.0017,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.46495,
+      "SE": 0.0079,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.08626,
+      "SE": 0.00198,
+      "n": 8711
+     },
+     "bnd_due": {
+      "mean": 0.53768,
+      "SE": 0.01098,
+      "n": 558
+     },
+     "mid_notdue": {
+      "mean": 0.07687,
+      "SE": 0.00191,
+      "n": 8328
+     }
+    },
+    "dCE_vs_natural": {
+     "all_valid": {
+      "mean": 1.87411,
+      "SE": 0.02123,
+      "n": 18634
+     },
+     "notdue": {
+      "mean": 1.77095,
+      "SE": 0.02251,
+      "n": 16382
+     },
+     "due": {
+      "mean": 2.6246,
+      "SE": 0.06143,
+      "n": 2252
+     },
+     "midword": {
+      "mean": 1.4723,
+      "SE": 0.02821,
+      "n": 8711
+     },
+     "boundary": {
+      "mean": 2.11193,
+      "SE": 0.06738,
+      "n": 1209
+     },
+     "next_bracket_open": {
+      "mean": 4.73551,
+      "SE": 0.48002,
+      "n": 107
+     },
+     "next_newline": {
+      "mean": 1.57846,
+      "SE": 0.14194,
+      "n": 367
+     },
+     "next_subword": {
+      "mean": 6.12176,
+      "SE": 0.10716,
+      "n": 1341
+     },
+     "next_coordinator": {
+      "mean": 1.14491,
+      "SE": 0.10032,
+      "n": 549
+     }
+    },
+    "dP_capital_vs_natural": {
+     "due": {
+      "mean": -0.14776,
+      "SE": 0.00645,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.06411,
+      "SE": 0.00161,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.05428,
+      "SE": 0.00764,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.0395,
+      "SE": 0.00199,
+      "n": 8711
+     },
+     "mid_notdue": {
+      "mean": 0.04881,
+      "SE": 0.00193,
+      "n": 8328
+     },
+     "bnd_due": {
+      "mean": -0.0022,
+      "SE": 0.01026,
+      "n": 558
+     }
+    },
+    "census_dCE": 1.8943
+   },
+   "-2.0": {
+    "P_capital": {
+     "all_valid": {
+      "mean": 0.14787,
+      "SE": 0.00179,
+      "n": 18634
+     },
+     "due": {
+      "mean": 0.47197,
+      "SE": 0.00625,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.10332,
+      "SE": 0.00155,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.4349,
+      "SE": 0.00781,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.07344,
+      "SE": 0.00186,
+      "n": 8711
+     },
+     "bnd_due": {
+      "mean": 0.52225,
+      "SE": 0.01077,
+      "n": 558
+     },
+     "mid_notdue": {
+      "mean": 0.06012,
+      "SE": 0.00166,
+      "n": 8328
+     }
+    },
+    "dCE_vs_natural": {
+     "all_valid": {
+      "mean": 1.00739,
+      "SE": 0.01539,
+      "n": 18634
+     },
+     "notdue": {
+      "mean": 0.9496,
+      "SE": 0.01623,
+      "n": 16382
+     },
+     "due": {
+      "mean": 1.42779,
+      "SE": 0.04683,
+      "n": 2252
+     },
+     "midword": {
+      "mean": 0.78022,
+      "SE": 0.01997,
+      "n": 8711
+     },
+     "boundary": {
+      "mean": 0.76633,
+      "SE": 0.04021,
+      "n": 1209
+     },
+     "next_bracket_open": {
+      "mean": 3.45546,
+      "SE": 0.40723,
+      "n": 107
+     },
+     "next_newline": {
+      "mean": 0.55799,
+      "SE": 0.09231,
+      "n": 367
+     },
+     "next_subword": {
+      "mean": 3.72435,
+      "SE": 0.09796,
+      "n": 1341
+     },
+     "next_coordinator": {
+      "mean": 0.51978,
+      "SE": 0.06753,
+      "n": 549
+     }
+    },
+    "dP_capital_vs_natural": {
+     "due": {
+      "mean": -0.0893,
+      "SE": 0.00519,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.04496,
+      "SE": 0.00134,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.02422,
+      "SE": 0.0066,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.02668,
+      "SE": 0.0016,
+      "n": 8711
+     },
+     "mid_notdue": {
+      "mean": 0.03206,
+      "SE": 0.00158,
+      "n": 8328
+     },
+     "bnd_due": {
+      "mean": -0.01763,
+      "SE": 0.00892,
+      "n": 558
+     }
+    },
+    "census_dCE": 1.01551
+   },
+   "-1.0": {
+    "P_capital": {
+     "all_valid": {
+      "mean": 0.13639,
+      "SE": 0.00175,
+      "n": 18634
+     },
+     "due": {
+      "mean": 0.50373,
+      "SE": 0.00641,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.08589,
+      "SE": 0.00137,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.39512,
+      "SE": 0.00764,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.06175,
+      "SE": 0.0017,
+      "n": 8711
+     },
+     "bnd_due": {
+      "mean": 0.50201,
+      "SE": 0.0109,
+      "n": 558
+     },
+     "mid_notdue": {
+      "mean": 0.04608,
+      "SE": 0.00137,
+      "n": 8328
+     }
+    },
+    "dCE_vs_natural": {
+     "all_valid": {
+      "mean": 0.54453,
+      "SE": 0.01077,
+      "n": 18634
+     },
+     "notdue": {
+      "mean": 0.50909,
+      "SE": 0.0113,
+      "n": 16382
+     },
+     "due": {
+      "mean": 0.80237,
+      "SE": 0.03405,
+      "n": 2252
+     },
+     "midword": {
+      "mean": 0.41189,
+      "SE": 0.01367,
+      "n": 8711
+     },
+     "boundary": {
+      "mean": 0.29447,
+      "SE": 0.02486,
+      "n": 1209
+     },
+     "next_bracket_open": {
+      "mean": 2.49226,
+      "SE": 0.33823,
+      "n": 107
+     },
+     "next_newline": {
+      "mean": 0.16122,
+      "SE": 0.06062,
+      "n": 367
+     },
+     "next_subword": {
+      "mean": 2.11793,
+      "SE": 0.07763,
+      "n": 1341
+     },
+     "next_coordinator": {
+      "mean": 0.25955,
+      "SE": 0.04617,
+      "n": 549
+     }
+    },
+    "dP_capital_vs_natural": {
+     "due": {
+      "mean": -0.05754,
+      "SE": 0.00414,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.02754,
+      "SE": 0.00106,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": -0.01556,
+      "SE": 0.00502,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.01499,
+      "SE": 0.0012,
+      "n": 8711
+     },
+     "mid_notdue": {
+      "mean": 0.01802,
+      "SE": 0.00119,
+      "n": 8328
+     },
+     "bnd_due": {
+      "mean": -0.03787,
+      "SE": 0.00711,
+      "n": 558
+     }
+    },
+    "census_dCE": 0.54659
+   },
+   "-0.5": {
+    "P_capital": {
+     "all_valid": {
+      "mean": 0.12996,
+      "SE": 0.00172,
+      "n": 18634
+     },
+     "due": {
+      "mean": 0.52185,
+      "SE": 0.00649,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.07609,
+      "SE": 0.00126,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.37978,
+      "SE": 0.0075,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.05533,
+      "SE": 0.0016,
+      "n": 8711
+     },
+     "bnd_due": {
+      "mean": 0.49673,
+      "SE": 0.0108,
+      "n": 558
+     },
+     "mid_notdue": {
+      "mean": 0.0385,
+      "SE": 0.00119,
+      "n": 8328
+     }
+    },
+    "dCE_vs_natural": {
+     "all_valid": {
+      "mean": 0.32998,
+      "SE": 0.00794,
+      "n": 18634
+     },
+     "notdue": {
+      "mean": 0.30474,
+      "SE": 0.00827,
+      "n": 16382
+     },
+     "due": {
+      "mean": 0.51355,
+      "SE": 0.02607,
+      "n": 2252
+     },
+     "midword": {
+      "mean": 0.24624,
+      "SE": 0.01,
+      "n": 8711
+     },
+     "boundary": {
+      "mean": 0.15517,
+      "SE": 0.01865,
+      "n": 1209
+     },
+     "next_bracket_open": {
+      "mean": 1.89103,
+      "SE": 0.28568,
+      "n": 107
+     },
+     "next_newline": {
+      "mean": 0.02315,
+      "SE": 0.04414,
+      "n": 367
+     },
+     "next_subword": {
+      "mean": 1.26955,
+      "SE": 0.05909,
+      "n": 1341
+     },
+     "next_coordinator": {
+      "mean": 0.1488,
+      "SE": 0.03326,
+      "n": 549
+     }
+    },
+    "dP_capital_vs_natural": {
+     "due": {
+      "mean": -0.03942,
+      "SE": 0.00341,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.01774,
+      "SE": 0.00086,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": -0.0309,
+      "SE": 0.00383,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.00857,
+      "SE": 0.00093,
+      "n": 8711
+     },
+     "mid_notdue": {
+      "mean": 0.01044,
+      "SE": 0.00092,
+      "n": 8328
+     },
+     "bnd_due": {
+      "mean": -0.04315,
+      "SE": 0.00563,
+      "n": 558
+     }
+    },
+    "census_dCE": 0.32981
+   },
+   "0.0": {
+    "P_capital": {
+     "all_valid": {
+      "mean": 0.12297,
+      "SE": 0.0017,
+      "n": 18634
+     },
+     "due": {
+      "mean": 0.54126,
+      "SE": 0.00656,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.06547,
+      "SE": 0.00113,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.37655,
+      "SE": 0.00737,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.04898,
+      "SE": 0.00151,
+      "n": 8711
+     },
+     "bnd_due": {
+      "mean": 0.49983,
+      "SE": 0.01057,
+      "n": 558
+     },
+     "mid_notdue": {
+      "mean": 0.03117,
+      "SE": 0.001,
+      "n": 8328
+     }
+    },
+    "dCE_vs_natural": {
+     "all_valid": {
+      "mean": 0.14898,
+      "SE": 0.00491,
+      "n": 18634
+     },
+     "notdue": {
+      "mean": 0.13385,
+      "SE": 0.00504,
+      "n": 16382
+     },
+     "due": {
+      "mean": 0.25907,
+      "SE": 0.01723,
+      "n": 2252
+     },
+     "midword": {
+      "mean": 0.11192,
+      "SE": 0.0062,
+      "n": 8711
+     },
+     "boundary": {
+      "mean": 0.06874,
+      "SE": 0.0128,
+      "n": 1209
+     },
+     "next_bracket_open": {
+      "mean": 1.21173,
+      "SE": 0.21386,
+      "n": 107
+     },
+     "next_newline": {
+      "mean": -0.0534,
+      "SE": 0.02795,
+      "n": 367
+     },
+     "next_subword": {
+      "mean": 0.51956,
+      "SE": 0.03553,
+      "n": 1341
+     },
+     "next_coordinator": {
+      "mean": 0.05946,
+      "SE": 0.01964,
+      "n": 549
+     }
+    },
+    "dP_capital_vs_natural": {
+     "due": {
+      "mean": -0.02001,
+      "SE": 0.00246,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.00711,
+      "SE": 0.00057,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": -0.03413,
+      "SE": 0.00265,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.00222,
+      "SE": 0.0006,
+      "n": 8711
+     },
+     "mid_notdue": {
+      "mean": 0.00311,
+      "SE": 0.00057,
+      "n": 8328
+     },
+     "bnd_due": {
+      "mean": -0.04005,
+      "SE": 0.00396,
+      "n": 558
+     }
+    },
+    "census_dCE": 0.14792
+   },
+   "0.5": {
+    "P_capital": {
+     "all_valid": {
+      "mean": 0.11887,
+      "SE": 0.0017,
+      "n": 18634
+     },
+     "due": {
+      "mean": 0.55669,
+      "SE": 0.00663,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.05868,
+      "SE": 0.00104,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.38689,
+      "SE": 0.00723,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.04569,
+      "SE": 0.00147,
+      "n": 8711
+     },
+     "bnd_due": {
+      "mean": 0.51405,
+      "SE": 0.01026,
+      "n": 558
+     },
+     "mid_notdue": {
+      "mean": 0.02731,
+      "SE": 0.00089,
+      "n": 8328
+     }
+    },
+    "dCE_vs_natural": {
+     "all_valid": {
+      "mean": 0.03474,
+      "SE": 0.00217,
+      "n": 18634
+     },
+     "notdue": {
+      "mean": 0.02889,
+      "SE": 0.00216,
+      "n": 16382
+     },
+     "due": {
+      "mean": 0.07735,
+      "SE": 0.0087,
+      "n": 2252
+     },
+     "midword": {
+      "mean": 0.02606,
+      "SE": 0.00267,
+      "n": 8711
+     },
+     "boundary": {
+      "mean": 0.0161,
+      "SE": 0.00657,
+      "n": 1209
+     },
+     "next_bracket_open": {
+      "mean": 0.50521,
+      "SE": 0.10908,
+      "n": 107
+     },
+     "next_newline": {
+      "mean": -0.06458,
+      "SE": 0.01203,
+      "n": 367
+     },
+     "next_subword": {
+      "mean": 0.0895,
+      "SE": 0.01254,
+      "n": 1341
+     },
+     "next_coordinator": {
+      "mean": 0.00832,
+      "SE": 0.00817,
+      "n": 549
+     }
+    },
+    "dP_capital_vs_natural": {
+     "due": {
+      "mean": -0.00459,
+      "SE": 0.00131,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.00032,
+      "SE": 0.00027,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": -0.02379,
+      "SE": 0.00134,
+      "n": 1209
+     },
+     "midword": {
+      "mean": -0.00107,
+      "SE": 0.00027,
+      "n": 8711
+     },
+     "mid_notdue": {
+      "mean": -0.00075,
+      "SE": 0.00025,
+      "n": 8328
+     },
+     "bnd_due": {
+      "mean": -0.02583,
+      "SE": 0.00203,
+      "n": 558
+     }
+    },
+    "census_dCE": 0.03418
+   },
+   "1.0": {
+    "P_capital": {
+     "all_valid": {
+      "mean": 0.11913,
+      "SE": 0.00169,
+      "n": 18634
+     },
+     "due": {
+      "mean": 0.56127,
+      "SE": 0.00656,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.05836,
+      "SE": 0.00102,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.41068,
+      "SE": 0.00716,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.04676,
+      "SE": 0.00147,
+      "n": 8711
+     },
+     "bnd_due": {
+      "mean": 0.53988,
+      "SE": 0.00994,
+      "n": 558
+     },
+     "mid_notdue": {
+      "mean": 0.02806,
+      "SE": 0.00088,
+      "n": 8328
+     }
+    },
+    "dCE_vs_natural": {
+     "all_valid": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 18634
+     },
+     "notdue": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 16382
+     },
+     "due": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 2252
+     },
+     "midword": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 8711
+     },
+     "boundary": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 1209
+     },
+     "next_bracket_open": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 107
+     },
+     "next_newline": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 367
+     },
+     "next_subword": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 1341
+     },
+     "next_coordinator": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 549
+     }
+    },
+    "dP_capital_vs_natural": {
+     "due": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 8711
+     },
+     "mid_notdue": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 8328
+     },
+     "bnd_due": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 558
+     }
+    },
+    "census_dCE": 0.0
+   },
+   "2.0": {
+    "P_capital": {
+     "all_valid": {
+      "mean": 0.13444,
+      "SE": 0.0017,
+      "n": 18634
+     },
+     "due": {
+      "mean": 0.56529,
+      "SE": 0.00616,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.07521,
+      "SE": 0.00112,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.48906,
+      "SE": 0.0069,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.0597,
+      "SE": 0.00156,
+      "n": 8711
+     },
+     "bnd_due": {
+      "mean": 0.61023,
+      "SE": 0.00902,
+      "n": 558
+     },
+     "mid_notdue": {
+      "mean": 0.04034,
+      "SE": 0.00103,
+      "n": 8328
+     }
+    },
+    "dCE_vs_natural": {
+     "all_valid": {
+      "mean": 0.13501,
+      "SE": 0.00397,
+      "n": 18634
+     },
+     "notdue": {
+      "mean": 0.14192,
+      "SE": 0.0039,
+      "n": 16382
+     },
+     "due": {
+      "mean": 0.08469,
+      "SE": 0.01646,
+      "n": 2252
+     },
+     "midword": {
+      "mean": 0.10736,
+      "SE": 0.00505,
+      "n": 8711
+     },
+     "boundary": {
+      "mean": 0.10564,
+      "SE": 0.01281,
+      "n": 1209
+     },
+     "next_bracket_open": {
+      "mean": -0.03916,
+      "SE": 0.06311,
+      "n": 107
+     },
+     "next_newline": {
+      "mean": 0.38113,
+      "SE": 0.02117,
+      "n": 367
+     },
+     "next_subword": {
+      "mean": 0.53917,
+      "SE": 0.02722,
+      "n": 1341
+     },
+     "next_coordinator": {
+      "mean": 0.11141,
+      "SE": 0.01323,
+      "n": 549
+     }
+    },
+    "dP_capital_vs_natural": {
+     "due": {
+      "mean": 0.00401,
+      "SE": 0.00263,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.01685,
+      "SE": 0.00037,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.07839,
+      "SE": 0.00217,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.01294,
+      "SE": 0.00041,
+      "n": 8711
+     },
+     "mid_notdue": {
+      "mean": 0.01229,
+      "SE": 0.00038,
+      "n": 8328
+     },
+     "bnd_due": {
+      "mean": 0.07035,
+      "SE": 0.00308,
+      "n": 558
+     }
+    },
+    "census_dCE": 0.13518
+   },
+   "4.0": {
+    "P_capital": {
+     "all_valid": {
+      "mean": 0.18869,
+      "SE": 0.00176,
+      "n": 18634
+     },
+     "due": {
+      "mean": 0.5706,
+      "SE": 0.00567,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.13619,
+      "SE": 0.00142,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.61601,
+      "SE": 0.00544,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.11395,
+      "SE": 0.0019,
+      "n": 8711
+     },
+     "bnd_due": {
+      "mean": 0.69251,
+      "SE": 0.00635,
+      "n": 558
+     },
+     "mid_notdue": {
+      "mean": 0.09457,
+      "SE": 0.00156,
+      "n": 8328
+     }
+    },
+    "dCE_vs_natural": {
+     "all_valid": {
+      "mean": 0.96502,
+      "SE": 0.01081,
+      "n": 18634
+     },
+     "notdue": {
+      "mean": 1.00216,
+      "SE": 0.01101,
+      "n": 16382
+     },
+     "due": {
+      "mean": 0.69486,
+      "SE": 0.03934,
+      "n": 2252
+     },
+     "midword": {
+      "mean": 0.8746,
+      "SE": 0.01441,
+      "n": 8711
+     },
+     "boundary": {
+      "mean": 0.80701,
+      "SE": 0.0359,
+      "n": 1209
+     },
+     "next_bracket_open": {
+      "mean": 0.793,
+      "SE": 0.16241,
+      "n": 107
+     },
+     "next_newline": {
+      "mean": 1.87068,
+      "SE": 0.06999,
+      "n": 367
+     },
+     "next_subword": {
+      "mean": 2.58671,
+      "SE": 0.0607,
+      "n": 1341
+     },
+     "next_coordinator": {
+      "mean": 0.7875,
+      "SE": 0.044,
+      "n": 549
+     }
+    },
+    "dP_capital_vs_natural": {
+     "due": {
+      "mean": 0.00933,
+      "SE": 0.00535,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.07783,
+      "SE": 0.00094,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.20533,
+      "SE": 0.00507,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.06719,
+      "SE": 0.00119,
+      "n": 8711
+     },
+     "mid_notdue": {
+      "mean": 0.06651,
+      "SE": 0.00114,
+      "n": 8328
+     },
+     "bnd_due": {
+      "mean": 0.15263,
+      "SE": 0.00747,
+      "n": 558
+     }
+    },
+    "census_dCE": 0.96371
+   },
+   "8.0": {
+    "P_capital": {
+     "all_valid": {
+      "mean": 0.26306,
+      "SE": 0.00184,
+      "n": 18634
+     },
+     "due": {
+      "mean": 0.55793,
+      "SE": 0.00541,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.22252,
+      "SE": 0.00173,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.64578,
+      "SE": 0.00542,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.20386,
+      "SE": 0.00239,
+      "n": 8711
+     },
+     "bnd_due": {
+      "mean": 0.67769,
+      "SE": 0.00664,
+      "n": 558
+     },
+     "mid_notdue": {
+      "mean": 0.18678,
+      "SE": 0.00223,
+      "n": 8328
+     }
+    },
+    "dCE_vs_natural": {
+     "all_valid": {
+      "mean": 2.87012,
+      "SE": 0.01816,
+      "n": 18634
+     },
+     "notdue": {
+      "mean": 3.00661,
+      "SE": 0.01882,
+      "n": 16382
+     },
+     "due": {
+      "mean": 1.87718,
+      "SE": 0.05789,
+      "n": 2252
+     },
+     "midword": {
+      "mean": 2.85774,
+      "SE": 0.02581,
+      "n": 8711
+     },
+     "boundary": {
+      "mean": 2.33047,
+      "SE": 0.06211,
+      "n": 1209
+     },
+     "next_bracket_open": {
+      "mean": 2.47454,
+      "SE": 0.23254,
+      "n": 107
+     },
+     "next_newline": {
+      "mean": 4.80071,
+      "SE": 0.12477,
+      "n": 367
+     },
+     "next_subword": {
+      "mean": 4.88187,
+      "SE": 0.07485,
+      "n": 1341
+     },
+     "next_coordinator": {
+      "mean": 2.62207,
+      "SE": 0.08394,
+      "n": 549
+     }
+    },
+    "dP_capital_vs_natural": {
+     "due": {
+      "mean": -0.00334,
+      "SE": 0.00715,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.16417,
+      "SE": 0.00147,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.2351,
+      "SE": 0.00806,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.1571,
+      "SE": 0.00201,
+      "n": 8711
+     },
+     "mid_notdue": {
+      "mean": 0.15872,
+      "SE": 0.00196,
+      "n": 8328
+     },
+     "bnd_due": {
+      "mean": 0.1378,
+      "SE": 0.01218,
+      "n": 558
+     }
+    },
+    "census_dCE": 2.88081
+   },
+   "16.0": {
+    "P_capital": {
+     "all_valid": {
+      "mean": 0.31192,
+      "SE": 0.00187,
+      "n": 18634
+     },
+     "due": {
+      "mean": 0.53107,
+      "SE": 0.00533,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.28179,
+      "SE": 0.00188,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.58896,
+      "SE": 0.00615,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.2719,
+      "SE": 0.00266,
+      "n": 8711
+     },
+     "bnd_due": {
+      "mean": 0.60183,
+      "SE": 0.00829,
+      "n": 558
+     },
+     "mid_notdue": {
+      "mean": 0.25728,
+      "SE": 0.00259,
+      "n": 8328
+     }
+    },
+    "dCE_vs_natural": {
+     "all_valid": {
+      "mean": 5.1045,
+      "SE": 0.02328,
+      "n": 18634
+     },
+     "notdue": {
+      "mean": 5.37231,
+      "SE": 0.02395,
+      "n": 16382
+     },
+     "due": {
+      "mean": 3.15637,
+      "SE": 0.0696,
+      "n": 2252
+     },
+     "midword": {
+      "mean": 5.33128,
+      "SE": 0.03342,
+      "n": 8711
+     },
+     "boundary": {
+      "mean": 3.88011,
+      "SE": 0.08001,
+      "n": 1209
+     },
+     "next_bracket_open": {
+      "mean": 4.24489,
+      "SE": 0.26241,
+      "n": 107
+     },
+     "next_newline": {
+      "mean": 7.68109,
+      "SE": 0.16507,
+      "n": 367
+     },
+     "next_subword": {
+      "mean": 6.45191,
+      "SE": 0.08188,
+      "n": 1341
+     },
+     "next_coordinator": {
+      "mean": 5.12819,
+      "SE": 0.10461,
+      "n": 549
+     }
+    },
+    "dP_capital_vs_natural": {
+     "due": {
+      "mean": -0.0302,
+      "SE": 0.00799,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.22344,
+      "SE": 0.00175,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.17828,
+      "SE": 0.00947,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.22514,
+      "SE": 0.00245,
+      "n": 8711
+     },
+     "mid_notdue": {
+      "mean": 0.22922,
+      "SE": 0.00239,
+      "n": 8328
+     },
+     "bnd_due": {
+      "mean": 0.06195,
+      "SE": 0.01443,
+      "n": 558
+     }
+    },
+    "census_dCE": 5.12778
+   }
+  },
+  "prior_MrxMr": {
+   "-4.0": {
+    "P_capital": {
+     "all_valid": {
+      "mean": 0.23594,
+      "SE": 0.00208,
+      "n": 18634
+     },
+     "due": {
+      "mean": 0.67175,
+      "SE": 0.00508,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.17603,
+      "SE": 0.00182,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.72871,
+      "SE": 0.00519,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.14087,
+      "SE": 0.00232,
+      "n": 8711
+     },
+     "bnd_due": {
+      "mean": 0.76866,
+      "SE": 0.00473,
+      "n": 558
+     },
+     "mid_notdue": {
+      "mean": 0.11848,
+      "SE": 0.00201,
+      "n": 8328
+     }
+    },
+    "dCE_vs_natural": {
+     "all_valid": {
+      "mean": 1.22688,
+      "SE": 0.01189,
+      "n": 18634
+     },
+     "notdue": {
+      "mean": 1.28669,
+      "SE": 0.01222,
+      "n": 16382
+     },
+     "due": {
+      "mean": 0.79184,
+      "SE": 0.0411,
+      "n": 2252
+     },
+     "midword": {
+      "mean": 1.07541,
+      "SE": 0.01558,
+      "n": 8711
+     },
+     "boundary": {
+      "mean": 1.83714,
+      "SE": 0.05455,
+      "n": 1209
+     },
+     "next_bracket_open": {
+      "mean": 1.52178,
+      "SE": 0.14402,
+      "n": 107
+     },
+     "next_newline": {
+      "mean": 2.86053,
+      "SE": 0.06327,
+      "n": 367
+     },
+     "next_subword": {
+      "mean": 3.43606,
+      "SE": 0.06351,
+      "n": 1341
+     },
+     "next_coordinator": {
+      "mean": 1.34183,
+      "SE": 0.051,
+      "n": 549
+     }
+    },
+    "dP_capital_vs_natural": {
+     "due": {
+      "mean": 0.11048,
+      "SE": 0.0056,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.11768,
+      "SE": 0.00128,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.31804,
+      "SE": 0.00747,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.09411,
+      "SE": 0.00158,
+      "n": 8711
+     },
+     "mid_notdue": {
+      "mean": 0.09043,
+      "SE": 0.00154,
+      "n": 8328
+     },
+     "bnd_due": {
+      "mean": 0.22878,
+      "SE": 0.0112,
+      "n": 558
+     }
+    },
+    "census_dCE": 1.22923
+   },
+   "-2.0": {
+    "P_capital": {
+     "all_valid": {
+      "mean": 0.19682,
+      "SE": 0.00201,
+      "n": 18634
+     },
+     "due": {
+      "mean": 0.66317,
+      "SE": 0.00532,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.13271,
+      "SE": 0.00162,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.69982,
+      "SE": 0.00511,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.10081,
+      "SE": 0.00204,
+      "n": 8711
+     },
+     "bnd_due": {
+      "mean": 0.76548,
+      "SE": 0.00411,
+      "n": 558
+     },
+     "mid_notdue": {
+      "mean": 0.07852,
+      "SE": 0.00163,
+      "n": 8328
+     }
+    },
+    "dCE_vs_natural": {
+     "all_valid": {
+      "mean": 0.56151,
+      "SE": 0.00806,
+      "n": 18634
+     },
+     "notdue": {
+      "mean": 0.59992,
+      "SE": 0.00815,
+      "n": 16382
+     },
+     "due": {
+      "mean": 0.28208,
+      "SE": 0.02976,
+      "n": 2252
+     },
+     "midword": {
+      "mean": 0.44973,
+      "SE": 0.01011,
+      "n": 8711
+     },
+     "boundary": {
+      "mean": 0.98786,
+      "SE": 0.04015,
+      "n": 1209
+     },
+     "next_bracket_open": {
+      "mean": 0.75162,
+      "SE": 0.10333,
+      "n": 107
+     },
+     "next_newline": {
+      "mean": 1.57394,
+      "SE": 0.04581,
+      "n": 367
+     },
+     "next_subword": {
+      "mean": 1.94098,
+      "SE": 0.04918,
+      "n": 1341
+     },
+     "next_coordinator": {
+      "mean": 0.64847,
+      "SE": 0.03259,
+      "n": 549
+     }
+    },
+    "dP_capital_vs_natural": {
+     "due": {
+      "mean": 0.1019,
+      "SE": 0.00439,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.07436,
+      "SE": 0.00098,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.28914,
+      "SE": 0.00568,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.05405,
+      "SE": 0.00112,
+      "n": 8711
+     },
+     "mid_notdue": {
+      "mean": 0.05046,
+      "SE": 0.00107,
+      "n": 8328
+     },
+     "bnd_due": {
+      "mean": 0.22559,
+      "SE": 0.00821,
+      "n": 558
+     }
+    },
+    "census_dCE": 0.56221
+   },
+   "-1.0": {
+    "P_capital": {
+     "all_valid": {
+      "mean": 0.17278,
+      "SE": 0.00194,
+      "n": 18634
+     },
+     "due": {
+      "mean": 0.64787,
+      "SE": 0.00559,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.10747,
+      "SE": 0.00146,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.64555,
+      "SE": 0.00567,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.08033,
+      "SE": 0.00185,
+      "n": 8711
+     },
+     "bnd_due": {
+      "mean": 0.73337,
+      "SE": 0.00554,
+      "n": 558
+     },
+     "mid_notdue": {
+      "mean": 0.0586,
+      "SE": 0.00138,
+      "n": 8328
+     }
+    },
+    "dCE_vs_natural": {
+     "all_valid": {
+      "mean": 0.27433,
+      "SE": 0.00549,
+      "n": 18634
+     },
+     "notdue": {
+      "mean": 0.30524,
+      "SE": 0.00546,
+      "n": 16382
+     },
+     "due": {
+      "mean": 0.04951,
+      "SE": 0.02159,
+      "n": 2252
+     },
+     "midword": {
+      "mean": 0.20709,
+      "SE": 0.00674,
+      "n": 8711
+     },
+     "boundary": {
+      "mean": 0.52061,
+      "SE": 0.02921,
+      "n": 1209
+     },
+     "next_bracket_open": {
+      "mean": 0.39544,
+      "SE": 0.07229,
+      "n": 107
+     },
+     "next_newline": {
+      "mean": 0.92222,
+      "SE": 0.03111,
+      "n": 367
+     },
+     "next_subword": {
+      "mean": 1.03861,
+      "SE": 0.03561,
+      "n": 1341
+     },
+     "next_coordinator": {
+      "mean": 0.36009,
+      "SE": 0.02136,
+      "n": 549
+     }
+    },
+    "dP_capital_vs_natural": {
+     "due": {
+      "mean": 0.08659,
+      "SE": 0.00339,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.04912,
+      "SE": 0.00073,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.23487,
+      "SE": 0.00429,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.03357,
+      "SE": 0.0008,
+      "n": 8711
+     },
+     "mid_notdue": {
+      "mean": 0.03054,
+      "SE": 0.00075,
+      "n": 8328
+     },
+     "bnd_due": {
+      "mean": 0.19348,
+      "SE": 0.00604,
+      "n": 558
+     }
+    },
+    "census_dCE": 0.27579
+   },
+   "-0.5": {
+    "P_capital": {
+     "all_valid": {
+      "mean": 0.15948,
+      "SE": 0.00189,
+      "n": 18634
+     },
+     "due": {
+      "mean": 0.63468,
+      "SE": 0.00578,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.09416,
+      "SE": 0.00136,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.60042,
+      "SE": 0.00614,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.07053,
+      "SE": 0.00175,
+      "n": 8711
+     },
+     "bnd_due": {
+      "mean": 0.70205,
+      "SE": 0.00668,
+      "n": 558
+     },
+     "mid_notdue": {
+      "mean": 0.04931,
+      "SE": 0.00125,
+      "n": 8328
+     }
+    },
+    "dCE_vs_natural": {
+     "all_valid": {
+      "mean": 0.15733,
+      "SE": 0.00408,
+      "n": 18634
+     },
+     "notdue": {
+      "mean": 0.18416,
+      "SE": 0.00399,
+      "n": 16382
+     },
+     "due": {
+      "mean": -0.03786,
+      "SE": 0.01678,
+      "n": 2252
+     },
+     "midword": {
+      "mean": 0.1153,
+      "SE": 0.00497,
+      "n": 8711
+     },
+     "boundary": {
+      "mean": 0.30677,
+      "SE": 0.02262,
+      "n": 1209
+     },
+     "next_bracket_open": {
+      "mean": 0.23921,
+      "SE": 0.05417,
+      "n": 107
+     },
+     "next_newline": {
+      "mean": 0.62635,
+      "SE": 0.02248,
+      "n": 367
+     },
+     "next_subword": {
+      "mean": 0.61311,
+      "SE": 0.02649,
+      "n": 1341
+     },
+     "next_coordinator": {
+      "mean": 0.23875,
+      "SE": 0.01561,
+      "n": 549
+     }
+    },
+    "dP_capital_vs_natural": {
+     "due": {
+      "mean": 0.07341,
+      "SE": 0.00271,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.0358,
+      "SE": 0.00057,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.18974,
+      "SE": 0.00342,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.02377,
+      "SE": 0.00061,
+      "n": 8711
+     },
+     "mid_notdue": {
+      "mean": 0.02125,
+      "SE": 0.00057,
+      "n": 8328
+     },
+     "bnd_due": {
+      "mean": 0.16217,
+      "SE": 0.0048,
+      "n": 558
+     }
+    },
+    "census_dCE": 0.15899
+   },
+   "0.0": {
+    "P_capital": {
+     "all_valid": {
+      "mean": 0.14556,
+      "SE": 0.00183,
+      "n": 18634
+     },
+     "due": {
+      "mean": 0.61635,
+      "SE": 0.00602,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.08084,
+      "SE": 0.00124,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.54215,
+      "SE": 0.00663,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.0614,
+      "SE": 0.00165,
+      "n": 8711
+     },
+     "bnd_due": {
+      "mean": 0.65789,
+      "SE": 0.00789,
+      "n": 558
+     },
+     "mid_notdue": {
+      "mean": 0.04085,
+      "SE": 0.00111,
+      "n": 8328
+     }
+    },
+    "dCE_vs_natural": {
+     "all_valid": {
+      "mean": 0.06824,
+      "SE": 0.00268,
+      "n": 18634
+     },
+     "notdue": {
+      "mean": 0.08946,
+      "SE": 0.00255,
+      "n": 16382
+     },
+     "due": {
+      "mean": -0.08619,
+      "SE": 0.01161,
+      "n": 2252
+     },
+     "midword": {
+      "mean": 0.04905,
+      "SE": 0.00325,
+      "n": 8711
+     },
+     "boundary": {
+      "mean": 0.13364,
+      "SE": 0.01546,
+      "n": 1209
+     },
+     "next_bracket_open": {
+      "mean": 0.10904,
+      "SE": 0.03564,
+      "n": 107
+     },
+     "next_newline": {
+      "mean": 0.36722,
+      "SE": 0.0139,
+      "n": 367
+     },
+     "next_subword": {
+      "mean": 0.26937,
+      "SE": 0.01668,
+      "n": 1341
+     },
+     "next_coordinator": {
+      "mean": 0.13673,
+      "SE": 0.01008,
+      "n": 549
+     }
+    },
+    "dP_capital_vs_natural": {
+     "due": {
+      "mean": 0.05508,
+      "SE": 0.00189,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.02248,
+      "SE": 0.00039,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.13147,
+      "SE": 0.00237,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.01464,
+      "SE": 0.00041,
+      "n": 8711
+     },
+     "mid_notdue": {
+      "mean": 0.0128,
+      "SE": 0.00037,
+      "n": 8328
+     },
+     "bnd_due": {
+      "mean": 0.118,
+      "SE": 0.00342,
+      "n": 558
+     }
+    },
+    "census_dCE": 0.06969
+   },
+   "0.5": {
+    "P_capital": {
+     "all_valid": {
+      "mean": 0.13169,
+      "SE": 0.00176,
+      "n": 18634
+     },
+     "due": {
+      "mean": 0.59121,
+      "SE": 0.00629,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.06852,
+      "SE": 0.00112,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.47559,
+      "SE": 0.00699,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.05338,
+      "SE": 0.00155,
+      "n": 8711
+     },
+     "bnd_due": {
+      "mean": 0.60155,
+      "SE": 0.009,
+      "n": 558
+     },
+     "mid_notdue": {
+      "mean": 0.0337,
+      "SE": 0.00098,
+      "n": 8328
+     }
+    },
+    "dCE_vs_natural": {
+     "all_valid": {
+      "mean": 0.0153,
+      "SE": 0.00133,
+      "n": 18634
+     },
+     "notdue": {
+      "mean": 0.02799,
+      "SE": 0.00123,
+      "n": 16382
+     },
+     "due": {
+      "mean": -0.07696,
+      "SE": 0.00609,
+      "n": 2252
+     },
+     "midword": {
+      "mean": 0.01126,
+      "SE": 0.00161,
+      "n": 8711
+     },
+     "boundary": {
+      "mean": 0.02665,
+      "SE": 0.00786,
+      "n": 1209
+     },
+     "next_bracket_open": {
+      "mean": 0.0222,
+      "SE": 0.01883,
+      "n": 107
+     },
+     "next_newline": {
+      "mean": 0.1569,
+      "SE": 0.00629,
+      "n": 367
+     },
+     "next_subword": {
+      "mean": 0.06519,
+      "SE": 0.00776,
+      "n": 1341
+     },
+     "next_coordinator": {
+      "mean": 0.05681,
+      "SE": 0.00497,
+      "n": 549
+     }
+    },
+    "dP_capital_vs_natural": {
+     "due": {
+      "mean": 0.02994,
+      "SE": 0.00097,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.01017,
+      "SE": 0.00019,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.06491,
+      "SE": 0.00119,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.00662,
+      "SE": 0.0002,
+      "n": 8711
+     },
+     "mid_notdue": {
+      "mean": 0.00564,
+      "SE": 0.00018,
+      "n": 8328
+     },
+     "bnd_due": {
+      "mean": 0.06167,
+      "SE": 0.0018,
+      "n": 558
+     }
+    },
+    "census_dCE": 0.01607
+   },
+   "1.0": {
+    "P_capital": {
+     "all_valid": {
+      "mean": 0.11913,
+      "SE": 0.00169,
+      "n": 18634
+     },
+     "due": {
+      "mean": 0.56127,
+      "SE": 0.00656,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.05836,
+      "SE": 0.00102,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.41068,
+      "SE": 0.00716,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.04676,
+      "SE": 0.00147,
+      "n": 8711
+     },
+     "bnd_due": {
+      "mean": 0.53988,
+      "SE": 0.00994,
+      "n": 558
+     },
+     "mid_notdue": {
+      "mean": 0.02806,
+      "SE": 0.00088,
+      "n": 8328
+     }
+    },
+    "dCE_vs_natural": {
+     "all_valid": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 18634
+     },
+     "notdue": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 16382
+     },
+     "due": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 2252
+     },
+     "midword": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 8711
+     },
+     "boundary": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 1209
+     },
+     "next_bracket_open": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 107
+     },
+     "next_newline": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 367
+     },
+     "next_subword": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 1341
+     },
+     "next_coordinator": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 549
+     }
+    },
+    "dP_capital_vs_natural": {
+     "due": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 8711
+     },
+     "mid_notdue": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 8328
+     },
+     "bnd_due": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 558
+     }
+    },
+    "census_dCE": 0.0
+   },
+   "2.0": {
+    "P_capital": {
+     "all_valid": {
+      "mean": 0.10235,
+      "SE": 0.00158,
+      "n": 18634
+     },
+     "due": {
+      "mean": 0.50478,
+      "SE": 0.00689,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.04702,
+      "SE": 0.0009,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.32433,
+      "SE": 0.00725,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.03858,
+      "SE": 0.00135,
+      "n": 8711
+     },
+     "bnd_due": {
+      "mean": 0.44808,
+      "SE": 0.01113,
+      "n": 558
+     },
+     "mid_notdue": {
+      "mean": 0.02196,
+      "SE": 0.00077,
+      "n": 8328
+     }
+    },
+    "dCE_vs_natural": {
+     "all_valid": {
+      "mean": 0.0578,
+      "SE": 0.00274,
+      "n": 18634
+     },
+     "notdue": {
+      "mean": 0.02355,
+      "SE": 0.00247,
+      "n": 16382
+     },
+     "due": {
+      "mean": 0.30693,
+      "SE": 0.01262,
+      "n": 2252
+     },
+     "midword": {
+      "mean": 0.04306,
+      "SE": 0.00347,
+      "n": 8711
+     },
+     "boundary": {
+      "mean": 0.10913,
+      "SE": 0.01413,
+      "n": 1209
+     },
+     "next_bracket_open": {
+      "mean": 0.23585,
+      "SE": 0.08966,
+      "n": 107
+     },
+     "next_newline": {
+      "mean": -0.1735,
+      "SE": 0.01148,
+      "n": 367
+     },
+     "next_subword": {
+      "mean": 0.13354,
+      "SE": 0.01463,
+      "n": 1341
+     },
+     "next_coordinator": {
+      "mean": -0.05679,
+      "SE": 0.0096,
+      "n": 549
+     }
+    },
+    "dP_capital_vs_natural": {
+     "due": {
+      "mean": -0.05649,
+      "SE": 0.00166,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": -0.01133,
+      "SE": 0.0003,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": -0.08635,
+      "SE": 0.00175,
+      "n": 1209
+     },
+     "midword": {
+      "mean": -0.00818,
+      "SE": 0.00038,
+      "n": 8711
+     },
+     "mid_notdue": {
+      "mean": -0.0061,
+      "SE": 0.00032,
+      "n": 8328
+     },
+     "bnd_due": {
+      "mean": -0.0918,
+      "SE": 0.00266,
+      "n": 558
+     }
+    },
+    "census_dCE": 0.05684
+   },
+   "4.0": {
+    "P_capital": {
+     "all_valid": {
+      "mean": 0.11059,
+      "SE": 0.00156,
+      "n": 18634
+     },
+     "due": {
+      "mean": 0.41114,
+      "SE": 0.00619,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.06927,
+      "SE": 0.00124,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.36207,
+      "SE": 0.00709,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.04718,
+      "SE": 0.00153,
+      "n": 8711
+     },
+     "bnd_due": {
+      "mean": 0.45137,
+      "SE": 0.01035,
+      "n": 558
+     },
+     "mid_notdue": {
+      "mean": 0.03556,
+      "SE": 0.0013,
+      "n": 8328
+     }
+    },
+    "dCE_vs_natural": {
+     "all_valid": {
+      "mean": 0.48834,
+      "SE": 0.00967,
+      "n": 18634
+     },
+     "notdue": {
+      "mean": 0.38611,
+      "SE": 0.00957,
+      "n": 16382
+     },
+     "due": {
+      "mean": 1.23198,
+      "SE": 0.03576,
+      "n": 2252
+     },
+     "midword": {
+      "mean": 0.35255,
+      "SE": 0.01244,
+      "n": 8711
+     },
+     "boundary": {
+      "mean": 0.70276,
+      "SE": 0.03431,
+      "n": 1209
+     },
+     "next_bracket_open": {
+      "mean": 1.29619,
+      "SE": 0.26986,
+      "n": 107
+     },
+     "next_newline": {
+      "mean": -0.02605,
+      "SE": 0.04798,
+      "n": 367
+     },
+     "next_subword": {
+      "mean": 1.82675,
+      "SE": 0.06434,
+      "n": 1341
+     },
+     "next_coordinator": {
+      "mean": -0.00608,
+      "SE": 0.02887,
+      "n": 549
+     }
+    },
+    "dP_capital_vs_natural": {
+     "due": {
+      "mean": -0.15013,
+      "SE": 0.00452,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.01092,
+      "SE": 0.00109,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": -0.0486,
+      "SE": 0.00518,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.00042,
+      "SE": 0.00134,
+      "n": 8711
+     },
+     "mid_notdue": {
+      "mean": 0.00751,
+      "SE": 0.00127,
+      "n": 8328
+     },
+     "bnd_due": {
+      "mean": -0.08851,
+      "SE": 0.00659,
+      "n": 558
+     }
+    },
+    "census_dCE": 0.48699
+   },
+   "8.0": {
+    "P_capital": {
+     "all_valid": {
+      "mean": 0.12195,
+      "SE": 0.00162,
+      "n": 18634
+     },
+     "due": {
+      "mean": 0.26668,
+      "SE": 0.00521,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.10205,
+      "SE": 0.00164,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.32354,
+      "SE": 0.00759,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.06865,
+      "SE": 0.00194,
+      "n": 8711
+     },
+     "bnd_due": {
+      "mean": 0.37428,
+      "SE": 0.01126,
+      "n": 558
+     },
+     "mid_notdue": {
+      "mean": 0.06401,
+      "SE": 0.00195,
+      "n": 8328
+     }
+    },
+    "dCE_vs_natural": {
+     "all_valid": {
+      "mean": 1.68778,
+      "SE": 0.01984,
+      "n": 18634
+     },
+     "notdue": {
+      "mean": 1.46563,
+      "SE": 0.02055,
+      "n": 16382
+     },
+     "due": {
+      "mean": 3.30381,
+      "SE": 0.05741,
+      "n": 2252
+     },
+     "midword": {
+      "mean": 1.13239,
+      "SE": 0.02511,
+      "n": 8711
+     },
+     "boundary": {
+      "mean": 3.69211,
+      "SE": 0.0749,
+      "n": 1209
+     },
+     "next_bracket_open": {
+      "mean": 3.02188,
+      "SE": 0.43469,
+      "n": 107
+     },
+     "next_newline": {
+      "mean": 2.73338,
+      "SE": 0.15132,
+      "n": 367
+     },
+     "next_subword": {
+      "mean": 5.76616,
+      "SE": 0.09404,
+      "n": 1341
+     },
+     "next_coordinator": {
+      "mean": 0.53172,
+      "SE": 0.07996,
+      "n": 549
+     }
+    },
+    "dP_capital_vs_natural": {
+     "due": {
+      "mean": -0.29459,
+      "SE": 0.00684,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.04369,
+      "SE": 0.0017,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": -0.08714,
+      "SE": 0.00801,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.02189,
+      "SE": 0.0022,
+      "n": 8711
+     },
+     "mid_notdue": {
+      "mean": 0.03596,
+      "SE": 0.00205,
+      "n": 8328
+     },
+     "bnd_due": {
+      "mean": -0.1656,
+      "SE": 0.01071,
+      "n": 558
+     }
+    },
+    "census_dCE": 1.70874
+   },
+   "16.0": {
+    "P_capital": {
+     "all_valid": {
+      "mean": 0.18088,
+      "SE": 0.00176,
+      "n": 18634
+     },
+     "due": {
+      "mean": 0.20101,
+      "SE": 0.00489,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.17811,
+      "SE": 0.00188,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.26178,
+      "SE": 0.00836,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.15481,
+      "SE": 0.00247,
+      "n": 8711
+     },
+     "bnd_due": {
+      "mean": 0.30204,
+      "SE": 0.01271,
+      "n": 558
+     },
+     "mid_notdue": {
+      "mean": 0.15622,
+      "SE": 0.00256,
+      "n": 8328
+     }
+    },
+    "dCE_vs_natural": {
+     "all_valid": {
+      "mean": 3.26611,
+      "SE": 0.02578,
+      "n": 18634
+     },
+     "notdue": {
+      "mean": 2.98527,
+      "SE": 0.02704,
+      "n": 16382
+     },
+     "due": {
+      "mean": 5.30903,
+      "SE": 0.06849,
+      "n": 2252
+     },
+     "midword": {
+      "mean": 2.41655,
+      "SE": 0.03312,
+      "n": 8711
+     },
+     "boundary": {
+      "mean": 6.74257,
+      "SE": 0.08407,
+      "n": 1209
+     },
+     "next_bracket_open": {
+      "mean": 4.71925,
+      "SE": 0.53081,
+      "n": 107
+     },
+     "next_newline": {
+      "mean": 6.65967,
+      "SE": 0.18821,
+      "n": 367
+     },
+     "next_subword": {
+      "mean": 8.5159,
+      "SE": 0.09522,
+      "n": 1341
+     },
+     "next_coordinator": {
+      "mean": 1.86547,
+      "SE": 0.12955,
+      "n": 549
+     }
+    },
+    "dP_capital_vs_natural": {
+     "due": {
+      "mean": -0.36026,
+      "SE": 0.00761,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.11976,
+      "SE": 0.00212,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": -0.1489,
+      "SE": 0.00902,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.10805,
+      "SE": 0.00293,
+      "n": 8711
+     },
+     "mid_notdue": {
+      "mean": 0.12816,
+      "SE": 0.00275,
+      "n": 8328
+     },
+     "bnd_due": {
+      "mean": -0.23785,
+      "SE": 0.01217,
+      "n": 558
+     }
+    },
+    "census_dCE": 3.32097
+   }
+  },
+  "pair_coherent": {
+   "-4.0": {
+    "P_capital": {
+     "all_valid": {
+      "mean": 0.19363,
+      "SE": 0.0021,
+      "n": 18634
+     },
+     "due": {
+      "mean": 0.64546,
+      "SE": 0.00589,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.13152,
+      "SE": 0.00175,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.67684,
+      "SE": 0.00653,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.09332,
+      "SE": 0.00202,
+      "n": 8711
+     },
+     "bnd_due": {
+      "mean": 0.7614,
+      "SE": 0.00614,
+      "n": 558
+     },
+     "mid_notdue": {
+      "mean": 0.07328,
+      "SE": 0.00168,
+      "n": 8328
+     }
+    },
+    "dCE_vs_natural": {
+     "all_valid": {
+      "mean": 1.00489,
+      "SE": 0.01494,
+      "n": 18634
+     },
+     "notdue": {
+      "mean": 1.02739,
+      "SE": 0.0159,
+      "n": 16382
+     },
+     "due": {
+      "mean": 0.8412,
+      "SE": 0.04339,
+      "n": 2252
+     },
+     "midword": {
+      "mean": 0.81953,
+      "SE": 0.01932,
+      "n": 8711
+     },
+     "boundary": {
+      "mean": 0.79404,
+      "SE": 0.03991,
+      "n": 1209
+     },
+     "next_bracket_open": {
+      "mean": 4.03898,
+      "SE": 0.39728,
+      "n": 107
+     },
+     "next_newline": {
+      "mean": 1.46743,
+      "SE": 0.09624,
+      "n": 367
+     },
+     "next_subword": {
+      "mean": 3.057,
+      "SE": 0.09891,
+      "n": 1341
+     },
+     "next_coordinator": {
+      "mean": 1.09585,
+      "SE": 0.08335,
+      "n": 549
+     }
+    },
+    "dP_capital_vs_natural": {
+     "due": {
+      "mean": 0.08418,
+      "SE": 0.00512,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.07317,
+      "SE": 0.00123,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.26617,
+      "SE": 0.00592,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.04656,
+      "SE": 0.0013,
+      "n": 8711
+     },
+     "mid_notdue": {
+      "mean": 0.04522,
+      "SE": 0.00128,
+      "n": 8328
+     },
+     "bnd_due": {
+      "mean": 0.22152,
+      "SE": 0.00869,
+      "n": 558
+     }
+    },
+    "census_dCE": 1.01255
+   },
+   "-2.0": {
+    "P_capital": {
+     "all_valid": {
+      "mean": 0.17296,
+      "SE": 0.00201,
+      "n": 18634
+     },
+     "due": {
+      "mean": 0.64023,
+      "SE": 0.00592,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.10872,
+      "SE": 0.00158,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.59714,
+      "SE": 0.00693,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.07699,
+      "SE": 0.00187,
+      "n": 8711
+     },
+     "bnd_due": {
+      "mean": 0.70525,
+      "SE": 0.00716,
+      "n": 558
+     },
+     "mid_notdue": {
+      "mean": 0.05644,
+      "SE": 0.00145,
+      "n": 8328
+     }
+    },
+    "dCE_vs_natural": {
+     "all_valid": {
+      "mean": 0.47624,
+      "SE": 0.00973,
+      "n": 18634
+     },
+     "notdue": {
+      "mean": 0.49597,
+      "SE": 0.01026,
+      "n": 16382
+     },
+     "due": {
+      "mean": 0.33272,
+      "SE": 0.03012,
+      "n": 2252
+     },
+     "midword": {
+      "mean": 0.36415,
+      "SE": 0.01212,
+      "n": 8711
+     },
+     "boundary": {
+      "mean": 0.30845,
+      "SE": 0.02554,
+      "n": 1209
+     },
+     "next_bracket_open": {
+      "mean": 2.71412,
+      "SE": 0.31761,
+      "n": 107
+     },
+     "next_newline": {
+      "mean": 0.72336,
+      "SE": 0.06352,
+      "n": 367
+     },
+     "next_subword": {
+      "mean": 1.52062,
+      "SE": 0.06987,
+      "n": 1341
+     },
+     "next_coordinator": {
+      "mean": 0.54473,
+      "SE": 0.05263,
+      "n": 549
+     }
+    },
+    "dP_capital_vs_natural": {
+     "due": {
+      "mean": 0.07896,
+      "SE": 0.00391,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.05037,
+      "SE": 0.00098,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.18646,
+      "SE": 0.00441,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.03023,
+      "SE": 0.00099,
+      "n": 8711
+     },
+     "mid_notdue": {
+      "mean": 0.02838,
+      "SE": 0.00097,
+      "n": 8328
+     },
+     "bnd_due": {
+      "mean": 0.16537,
+      "SE": 0.0064,
+      "n": 558
+     }
+    },
+    "census_dCE": 0.47861
+   },
+   "-1.0": {
+    "P_capital": {
+     "all_valid": {
+      "mean": 0.15759,
+      "SE": 0.00194,
+      "n": 18634
+     },
+     "due": {
+      "mean": 0.62929,
+      "SE": 0.00603,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.09275,
+      "SE": 0.00143,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.54033,
+      "SE": 0.00706,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.06618,
+      "SE": 0.00175,
+      "n": 8711
+     },
+     "bnd_due": {
+      "mean": 0.65907,
+      "SE": 0.00795,
+      "n": 558
+     },
+     "mid_notdue": {
+      "mean": 0.04567,
+      "SE": 0.00127,
+      "n": 8328
+     }
+    },
+    "dCE_vs_natural": {
+     "all_valid": {
+      "mean": 0.23604,
+      "SE": 0.0064,
+      "n": 18634
+     },
+     "notdue": {
+      "mean": 0.25421,
+      "SE": 0.00667,
+      "n": 16382
+     },
+     "due": {
+      "mean": 0.10381,
+      "SE": 0.02108,
+      "n": 2252
+     },
+     "midword": {
+      "mean": 0.17403,
+      "SE": 0.0078,
+      "n": 8711
+     },
+     "boundary": {
+      "mean": 0.12512,
+      "SE": 0.01743,
+      "n": 1209
+     },
+     "next_bracket_open": {
+      "mean": 1.84958,
+      "SE": 0.24725,
+      "n": 107
+     },
+     "next_newline": {
+      "mean": 0.38931,
+      "SE": 0.04363,
+      "n": 367
+     },
+     "next_subword": {
+      "mean": 0.72606,
+      "SE": 0.0459,
+      "n": 1341
+     },
+     "next_coordinator": {
+      "mean": 0.30357,
+      "SE": 0.03385,
+      "n": 549
+     }
+    },
+    "dP_capital_vs_natural": {
+     "due": {
+      "mean": 0.06801,
+      "SE": 0.00299,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.03439,
+      "SE": 0.00076,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.12966,
+      "SE": 0.00325,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.01942,
+      "SE": 0.00075,
+      "n": 8711
+     },
+     "mid_notdue": {
+      "mean": 0.01761,
+      "SE": 0.00072,
+      "n": 8328
+     },
+     "bnd_due": {
+      "mean": 0.11919,
+      "SE": 0.00466,
+      "n": 558
+     }
+    },
+    "census_dCE": 0.23604
+   },
+   "-0.5": {
+    "P_capital": {
+     "all_valid": {
+      "mean": 0.14854,
+      "SE": 0.00189,
+      "n": 18634
+     },
+     "due": {
+      "mean": 0.62038,
+      "SE": 0.00614,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.08368,
+      "SE": 0.00134,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.50852,
+      "SE": 0.00709,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.06044,
+      "SE": 0.00168,
+      "n": 8711
+     },
+     "bnd_due": {
+      "mean": 0.63143,
+      "SE": 0.00842,
+      "n": 558
+     },
+     "mid_notdue": {
+      "mean": 0.04011,
+      "SE": 0.00117,
+      "n": 8328
+     }
+    },
+    "dCE_vs_natural": {
+     "all_valid": {
+      "mean": 0.13593,
+      "SE": 0.00461,
+      "n": 18634
+     },
+     "notdue": {
+      "mean": 0.15267,
+      "SE": 0.00474,
+      "n": 16382
+     },
+     "due": {
+      "mean": 0.01417,
+      "SE": 0.01606,
+      "n": 2252
+     },
+     "midword": {
+      "mean": 0.09867,
+      "SE": 0.00554,
+      "n": 8711
+     },
+     "boundary": {
+      "mean": 0.05932,
+      "SE": 0.01323,
+      "n": 1209
+     },
+     "next_bracket_open": {
+      "mean": 1.3619,
+      "SE": 0.19923,
+      "n": 107
+     },
+     "next_newline": {
+      "mean": 0.24788,
+      "SE": 0.03271,
+      "n": 367
+     },
+     "next_subword": {
+      "mean": 0.39168,
+      "SE": 0.0316,
+      "n": 1341
+     },
+     "next_coordinator": {
+      "mean": 0.20002,
+      "SE": 0.02377,
+      "n": 549
+     }
+    },
+    "dP_capital_vs_natural": {
+     "due": {
+      "mean": 0.0591,
+      "SE": 0.00241,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.02532,
+      "SE": 0.00062,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.09785,
+      "SE": 0.00255,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.01368,
+      "SE": 0.0006,
+      "n": 8711
+     },
+     "mid_notdue": {
+      "mean": 0.01205,
+      "SE": 0.00056,
+      "n": 8328
+     },
+     "bnd_due": {
+      "mean": 0.09155,
+      "SE": 0.00365,
+      "n": 558
+     }
+    },
+    "census_dCE": 0.13559
+   },
+   "0.0": {
+    "P_capital": {
+     "all_valid": {
+      "mean": 0.13873,
+      "SE": 0.00184,
+      "n": 18634
+     },
+     "due": {
+      "mean": 0.60719,
+      "SE": 0.00628,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.07433,
+      "SE": 0.00123,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.47532,
+      "SE": 0.00711,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.05499,
+      "SE": 0.00161,
+      "n": 8711
+     },
+     "bnd_due": {
+      "mean": 0.60134,
+      "SE": 0.0089,
+      "n": 558
+     },
+     "mid_notdue": {
+      "mean": 0.03502,
+      "SE": 0.00106,
+      "n": 8328
+     }
+    },
+    "dCE_vs_natural": {
+     "all_valid": {
+      "mean": 0.05878,
+      "SE": 0.00288,
+      "n": 18634
+     },
+     "notdue": {
+      "mean": 0.07265,
+      "SE": 0.00289,
+      "n": 16382
+     },
+     "due": {
+      "mean": -0.04205,
+      "SE": 0.01096,
+      "n": 2252
+     },
+     "midword": {
+      "mean": 0.04196,
+      "SE": 0.00337,
+      "n": 8711
+     },
+     "boundary": {
+      "mean": 0.01511,
+      "SE": 0.00896,
+      "n": 1209
+     },
+     "next_bracket_open": {
+      "mean": 0.84872,
+      "SE": 0.13716,
+      "n": 107
+     },
+     "next_newline": {
+      "mean": 0.13061,
+      "SE": 0.02127,
+      "n": 367
+     },
+     "next_subword": {
+      "mean": 0.14453,
+      "SE": 0.01749,
+      "n": 1341
+     },
+     "next_coordinator": {
+      "mean": 0.11081,
+      "SE": 0.01375,
+      "n": 549
+     }
+    },
+    "dP_capital_vs_natural": {
+     "due": {
+      "mean": 0.04592,
+      "SE": 0.00177,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.01598,
+      "SE": 0.00044,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.06464,
+      "SE": 0.00176,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.00823,
+      "SE": 0.00041,
+      "n": 8711
+     },
+     "mid_notdue": {
+      "mean": 0.00696,
+      "SE": 0.00038,
+      "n": 8328
+     },
+     "bnd_due": {
+      "mean": 0.06146,
+      "SE": 0.00254,
+      "n": 558
+     }
+    },
+    "census_dCE": 0.05874
+   },
+   "0.5": {
+    "P_capital": {
+     "all_valid": {
+      "mean": 0.12851,
+      "SE": 0.00177,
+      "n": 18634
+     },
+     "due": {
+      "mean": 0.5873,
+      "SE": 0.00642,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.06544,
+      "SE": 0.00112,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.44207,
+      "SE": 0.00712,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.05026,
+      "SE": 0.00153,
+      "n": 8711
+     },
+     "bnd_due": {
+      "mean": 0.57016,
+      "SE": 0.00941,
+      "n": 558
+     },
+     "mid_notdue": {
+      "mean": 0.03084,
+      "SE": 0.00096,
+      "n": 8328
+     }
+    },
+    "dCE_vs_natural": {
+     "all_valid": {
+      "mean": 0.01239,
+      "SE": 0.00133,
+      "n": 18634
+     },
+     "notdue": {
+      "mean": 0.02112,
+      "SE": 0.00128,
+      "n": 16382
+     },
+     "due": {
+      "mean": -0.05112,
+      "SE": 0.00575,
+      "n": 2252
+     },
+     "midword": {
+      "mean": 0.00888,
+      "SE": 0.00158,
+      "n": 8711
+     },
+     "boundary": {
+      "mean": -0.00502,
+      "SE": 0.00459,
+      "n": 1209
+     },
+     "next_bracket_open": {
+      "mean": 0.34302,
+      "SE": 0.0611,
+      "n": 107
+     },
+     "next_newline": {
+      "mean": 0.0451,
+      "SE": 0.01003,
+      "n": 367
+     },
+     "next_subword": {
+      "mean": 0.01844,
+      "SE": 0.00653,
+      "n": 1341
+     },
+     "next_coordinator": {
+      "mean": 0.0428,
+      "SE": 0.00567,
+      "n": 549
+     }
+    },
+    "dP_capital_vs_natural": {
+     "due": {
+      "mean": 0.02603,
+      "SE": 0.00099,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.00709,
+      "SE": 0.00022,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.03139,
+      "SE": 0.00089,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.0035,
+      "SE": 0.0002,
+      "n": 8711
+     },
+     "mid_notdue": {
+      "mean": 0.00278,
+      "SE": 0.00018,
+      "n": 8328
+     },
+     "bnd_due": {
+      "mean": 0.03027,
+      "SE": 0.00129,
+      "n": 558
+     }
+    },
+    "census_dCE": 0.0125
+   },
+   "1.0": {
+    "P_capital": {
+     "all_valid": {
+      "mean": 0.11913,
+      "SE": 0.00169,
+      "n": 18634
+     },
+     "due": {
+      "mean": 0.56127,
+      "SE": 0.00656,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.05836,
+      "SE": 0.00102,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.41068,
+      "SE": 0.00716,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.04676,
+      "SE": 0.00147,
+      "n": 8711
+     },
+     "bnd_due": {
+      "mean": 0.53988,
+      "SE": 0.00994,
+      "n": 558
+     },
+     "mid_notdue": {
+      "mean": 0.02806,
+      "SE": 0.00088,
+      "n": 8328
+     }
+    },
+    "dCE_vs_natural": {
+     "all_valid": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 18634
+     },
+     "notdue": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 16382
+     },
+     "due": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 2252
+     },
+     "midword": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 8711
+     },
+     "boundary": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 1209
+     },
+     "next_bracket_open": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 107
+     },
+     "next_newline": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 367
+     },
+     "next_subword": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 1341
+     },
+     "next_coordinator": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 549
+     }
+    },
+    "dP_capital_vs_natural": {
+     "due": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 8711
+     },
+     "mid_notdue": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 8328
+     },
+     "bnd_due": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 558
+     }
+    },
+    "census_dCE": 0.0
+   },
+   "2.0": {
+    "P_capital": {
+     "all_valid": {
+      "mean": 0.10677,
+      "SE": 0.00157,
+      "n": 18634
+     },
+     "due": {
+      "mean": 0.50623,
+      "SE": 0.00671,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.05185,
+      "SE": 0.0009,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.36026,
+      "SE": 0.00729,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.04383,
+      "SE": 0.00138,
+      "n": 8711
+     },
+     "bnd_due": {
+      "mean": 0.48924,
+      "SE": 0.01087,
+      "n": 558
+     },
+     "mid_notdue": {
+      "mean": 0.0265,
+      "SE": 0.0008,
+      "n": 8328
+     }
+    },
+    "dCE_vs_natural": {
+     "all_valid": {
+      "mean": 0.0531,
+      "SE": 0.00263,
+      "n": 18634
+     },
+     "notdue": {
+      "mean": 0.02728,
+      "SE": 0.00237,
+      "n": 16382
+     },
+     "due": {
+      "mean": 0.24097,
+      "SE": 0.01262,
+      "n": 2252
+     },
+     "midword": {
+      "mean": 0.03681,
+      "SE": 0.00324,
+      "n": 8711
+     },
+     "boundary": {
+      "mean": 0.07386,
+      "SE": 0.00987,
+      "n": 1209
+     },
+     "next_bracket_open": {
+      "mean": -0.25513,
+      "SE": 0.04028,
+      "n": 107
+     },
+     "next_newline": {
+      "mean": 0.03576,
+      "SE": 0.02003,
+      "n": 367
+     },
+     "next_subword": {
+      "mean": 0.14231,
+      "SE": 0.01365,
+      "n": 1341
+     },
+     "next_coordinator": {
+      "mean": -0.03308,
+      "SE": 0.00907,
+      "n": 549
+     }
+    },
+    "dP_capital_vs_natural": {
+     "due": {
+      "mean": -0.05504,
+      "SE": 0.00193,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": -0.0065,
+      "SE": 0.00028,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": -0.05042,
+      "SE": 0.00147,
+      "n": 1209
+     },
+     "midword": {
+      "mean": -0.00293,
+      "SE": 0.00029,
+      "n": 8711
+     },
+     "mid_notdue": {
+      "mean": -0.00156,
+      "SE": 0.00025,
+      "n": 8328
+     },
+     "bnd_due": {
+      "mean": -0.05065,
+      "SE": 0.00206,
+      "n": 558
+     }
+    },
+    "census_dCE": 0.05253
+   },
+   "4.0": {
+    "P_capital": {
+     "all_valid": {
+      "mean": 0.10218,
+      "SE": 0.00139,
+      "n": 18634
+     },
+     "due": {
+      "mean": 0.41852,
+      "SE": 0.0066,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.05869,
+      "SE": 0.00086,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.30702,
+      "SE": 0.0073,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.05084,
+      "SE": 0.00132,
+      "n": 8711
+     },
+     "bnd_due": {
+      "mean": 0.42515,
+      "SE": 0.01151,
+      "n": 558
+     },
+     "mid_notdue": {
+      "mean": 0.0359,
+      "SE": 0.00084,
+      "n": 8328
+     }
+    },
+    "dCE_vs_natural": {
+     "all_valid": {
+      "mean": 0.37644,
+      "SE": 0.00764,
+      "n": 18634
+     },
+     "notdue": {
+      "mean": 0.2987,
+      "SE": 0.00707,
+      "n": 16382
+     },
+     "due": {
+      "mean": 0.94195,
+      "SE": 0.0345,
+      "n": 2252
+     },
+     "midword": {
+      "mean": 0.29201,
+      "SE": 0.00948,
+      "n": 8711
+     },
+     "boundary": {
+      "mean": 0.36641,
+      "SE": 0.02914,
+      "n": 1209
+     },
+     "next_bracket_open": {
+      "mean": -0.17081,
+      "SE": 0.10627,
+      "n": 107
+     },
+     "next_newline": {
+      "mean": 0.57055,
+      "SE": 0.07597,
+      "n": 367
+     },
+     "next_subword": {
+      "mean": 0.91782,
+      "SE": 0.04248,
+      "n": 1341
+     },
+     "next_coordinator": {
+      "mean": 0.08055,
+      "SE": 0.02535,
+      "n": 549
+     }
+    },
+    "dP_capital_vs_natural": {
+     "due": {
+      "mean": -0.14275,
+      "SE": 0.00435,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.00034,
+      "SE": 0.00061,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": -0.10366,
+      "SE": 0.00335,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.00408,
+      "SE": 0.00071,
+      "n": 8711
+     },
+     "mid_notdue": {
+      "mean": 0.00784,
+      "SE": 0.00059,
+      "n": 8328
+     },
+     "bnd_due": {
+      "mean": -0.11473,
+      "SE": 0.00501,
+      "n": 558
+     }
+    },
+    "census_dCE": 0.37368
+   },
+   "8.0": {
+    "P_capital": {
+     "all_valid": {
+      "mean": 0.12509,
+      "SE": 0.00116,
+      "n": 18634
+     },
+     "due": {
+      "mean": 0.2948,
+      "SE": 0.00524,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.10176,
+      "SE": 0.00098,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.24953,
+      "SE": 0.00567,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.09291,
+      "SE": 0.0014,
+      "n": 8711
+     },
+     "bnd_due": {
+      "mean": 0.31013,
+      "SE": 0.00921,
+      "n": 558
+     },
+     "mid_notdue": {
+      "mean": 0.08375,
+      "SE": 0.00123,
+      "n": 8328
+     }
+    },
+    "dCE_vs_natural": {
+     "all_valid": {
+      "mean": 1.47724,
+      "SE": 0.0153,
+      "n": 18634
+     },
+     "notdue": {
+      "mean": 1.35367,
+      "SE": 0.01524,
+      "n": 16382
+     },
+     "due": {
+      "mean": 2.37609,
+      "SE": 0.05769,
+      "n": 2252
+     },
+     "midword": {
+      "mean": 1.28804,
+      "SE": 0.02002,
+      "n": 8711
+     },
+     "boundary": {
+      "mean": 1.39866,
+      "SE": 0.05919,
+      "n": 1209
+     },
+     "next_bracket_open": {
+      "mean": 0.74077,
+      "SE": 0.19927,
+      "n": 107
+     },
+     "next_newline": {
+      "mean": 2.49096,
+      "SE": 0.1864,
+      "n": 367
+     },
+     "next_subword": {
+      "mean": 2.49509,
+      "SE": 0.07062,
+      "n": 1341
+     },
+     "next_coordinator": {
+      "mean": 0.81456,
+      "SE": 0.06135,
+      "n": 549
+     }
+    },
+    "dP_capital_vs_natural": {
+     "due": {
+      "mean": -0.26647,
+      "SE": 0.00621,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.04341,
+      "SE": 0.00105,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": -0.16114,
+      "SE": 0.00586,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.04615,
+      "SE": 0.00141,
+      "n": 8711
+     },
+     "mid_notdue": {
+      "mean": 0.05569,
+      "SE": 0.0012,
+      "n": 8328
+     },
+     "bnd_due": {
+      "mean": -0.22976,
+      "SE": 0.00845,
+      "n": 558
+     }
+    },
+    "census_dCE": 1.4739
+   },
+   "16.0": {
+    "P_capital": {
+     "all_valid": {
+      "mean": 0.18535,
+      "SE": 0.0012,
+      "n": 18634
+     },
+     "due": {
+      "mean": 0.19571,
+      "SE": 0.00381,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.18393,
+      "SE": 0.00126,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.17184,
+      "SE": 0.00396,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.1836,
+      "SE": 0.00181,
+      "n": 8711
+     },
+     "bnd_due": {
+      "mean": 0.1829,
+      "SE": 0.00612,
+      "n": 558
+     },
+     "mid_notdue": {
+      "mean": 0.18195,
+      "SE": 0.00182,
+      "n": 8328
+     }
+    },
+    "dCE_vs_natural": {
+     "all_valid": {
+      "mean": 3.71203,
+      "SE": 0.02308,
+      "n": 18634
+     },
+     "notdue": {
+      "mean": 3.6153,
+      "SE": 0.02419,
+      "n": 16382
+     },
+     "due": {
+      "mean": 4.41569,
+      "SE": 0.07245,
+      "n": 2252
+     },
+     "midword": {
+      "mean": 3.52213,
+      "SE": 0.03244,
+      "n": 8711
+     },
+     "boundary": {
+      "mean": 3.749,
+      "SE": 0.0821,
+      "n": 1209
+     },
+     "next_bracket_open": {
+      "mean": 2.37167,
+      "SE": 0.27942,
+      "n": 107
+     },
+     "next_newline": {
+      "mean": 6.36613,
+      "SE": 0.27305,
+      "n": 367
+     },
+     "next_subword": {
+      "mean": 4.59355,
+      "SE": 0.08285,
+      "n": 1341
+     },
+     "next_coordinator": {
+      "mean": 2.75097,
+      "SE": 0.10581,
+      "n": 549
+     }
+    },
+    "dP_capital_vs_natural": {
+     "due": {
+      "mean": -0.36557,
+      "SE": 0.00741,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.12557,
+      "SE": 0.00157,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": -0.23884,
+      "SE": 0.00738,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.13684,
+      "SE": 0.00223,
+      "n": 8711
+     },
+     "mid_notdue": {
+      "mean": 0.15389,
+      "SE": 0.00194,
+      "n": 8328
+     },
+     "bnd_due": {
+      "mean": -0.35699,
+      "SE": 0.01023,
+      "n": 558
+     }
+    },
+    "census_dCE": 3.7124
+   }
+  },
+  "placebo_ExAr": {
+   "-4.0": {
+    "P_capital": {
+     "all_valid": {
+      "mean": 0.11705,
+      "SE": 0.00169,
+      "n": 18634
+     },
+     "due": {
+      "mean": 0.55772,
+      "SE": 0.0066,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.05647,
+      "SE": 0.001,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.40731,
+      "SE": 0.00711,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.04456,
+      "SE": 0.00144,
+      "n": 8711
+     },
+     "bnd_due": {
+      "mean": 0.53599,
+      "SE": 0.00989,
+      "n": 558
+     },
+     "mid_notdue": {
+      "mean": 0.02616,
+      "SE": 0.00085,
+      "n": 8328
+     }
+    },
+    "dCE_vs_natural": {
+     "all_valid": {
+      "mean": 0.00226,
+      "SE": 0.00055,
+      "n": 18634
+     },
+     "notdue": {
+      "mean": -0.00029,
+      "SE": 0.00056,
+      "n": 16382
+     },
+     "due": {
+      "mean": 0.02083,
+      "SE": 0.00194,
+      "n": 2252
+     },
+     "midword": {
+      "mean": 0.00222,
+      "SE": 0.00077,
+      "n": 8711
+     },
+     "boundary": {
+      "mean": -0.00133,
+      "SE": 0.0019,
+      "n": 1209
+     },
+     "next_bracket_open": {
+      "mean": 0.01236,
+      "SE": 0.00533,
+      "n": 107
+     },
+     "next_newline": {
+      "mean": 0.00051,
+      "SE": 0.00277,
+      "n": 367
+     },
+     "next_subword": {
+      "mean": 0.02139,
+      "SE": 0.00386,
+      "n": 1341
+     },
+     "next_coordinator": {
+      "mean": -0.01223,
+      "SE": 0.00246,
+      "n": 549
+     }
+    },
+    "dP_capital_vs_natural": {
+     "due": {
+      "mean": -0.00356,
+      "SE": 0.00029,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": -0.00189,
+      "SE": 6e-05,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": -0.00337,
+      "SE": 0.00026,
+      "n": 1209
+     },
+     "midword": {
+      "mean": -0.0022,
+      "SE": 8e-05,
+      "n": 8711
+     },
+     "mid_notdue": {
+      "mean": -0.0019,
+      "SE": 7e-05,
+      "n": 8328
+     },
+     "bnd_due": {
+      "mean": -0.00389,
+      "SE": 0.00039,
+      "n": 558
+     }
+    },
+    "census_dCE": 0.00233
+   },
+   "-2.0": {
+    "P_capital": {
+     "all_valid": {
+      "mean": 0.11784,
+      "SE": 0.00169,
+      "n": 18634
+     },
+     "due": {
+      "mean": 0.55914,
+      "SE": 0.00658,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.05718,
+      "SE": 0.00101,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.40861,
+      "SE": 0.00713,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.0454,
+      "SE": 0.00145,
+      "n": 8711
+     },
+     "bnd_due": {
+      "mean": 0.53752,
+      "SE": 0.00991,
+      "n": 558
+     },
+     "mid_notdue": {
+      "mean": 0.02688,
+      "SE": 0.00086,
+      "n": 8328
+     }
+    },
+    "dCE_vs_natural": {
+     "all_valid": {
+      "mean": 0.00075,
+      "SE": 0.00033,
+      "n": 18634
+     },
+     "notdue": {
+      "mean": -0.00077,
+      "SE": 0.00033,
+      "n": 16382
+     },
+     "due": {
+      "mean": 0.01182,
+      "SE": 0.00115,
+      "n": 2252
+     },
+     "midword": {
+      "mean": 0.00081,
+      "SE": 0.00046,
+      "n": 8711
+     },
+     "boundary": {
+      "mean": -0.00123,
+      "SE": 0.00113,
+      "n": 1209
+     },
+     "next_bracket_open": {
+      "mean": 0.00669,
+      "SE": 0.00319,
+      "n": 107
+     },
+     "next_newline": {
+      "mean": -0.00011,
+      "SE": 0.00164,
+      "n": 367
+     },
+     "next_subword": {
+      "mean": 0.0108,
+      "SE": 0.00231,
+      "n": 1341
+     },
+     "next_coordinator": {
+      "mean": -0.00772,
+      "SE": 0.00147,
+      "n": 549
+     }
+    },
+    "dP_capital_vs_natural": {
+     "due": {
+      "mean": -0.00213,
+      "SE": 0.00018,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": -0.00118,
+      "SE": 3e-05,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": -0.00207,
+      "SE": 0.00016,
+      "n": 1209
+     },
+     "midword": {
+      "mean": -0.00136,
+      "SE": 5e-05,
+      "n": 8711
+     },
+     "mid_notdue": {
+      "mean": -0.00118,
+      "SE": 4e-05,
+      "n": 8328
+     },
+     "bnd_due": {
+      "mean": -0.00236,
+      "SE": 0.00023,
+      "n": 558
+     }
+    },
+    "census_dCE": 0.0008
+   },
+   "-1.0": {
+    "P_capital": {
+     "all_valid": {
+      "mean": 0.11826,
+      "SE": 0.00169,
+      "n": 18634
+     },
+     "due": {
+      "mean": 0.55985,
+      "SE": 0.00657,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.05756,
+      "SE": 0.00101,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.40928,
+      "SE": 0.00714,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.04584,
+      "SE": 0.00146,
+      "n": 8711
+     },
+     "bnd_due": {
+      "mean": 0.5383,
+      "SE": 0.00992,
+      "n": 558
+     },
+     "mid_notdue": {
+      "mean": 0.02726,
+      "SE": 0.00086,
+      "n": 8328
+     }
+    },
+    "dCE_vs_natural": {
+     "all_valid": {
+      "mean": 0.0003,
+      "SE": 0.00022,
+      "n": 18634
+     },
+     "notdue": {
+      "mean": -0.00071,
+      "SE": 0.00022,
+      "n": 16382
+     },
+     "due": {
+      "mean": 0.00765,
+      "SE": 0.00077,
+      "n": 2252
+     },
+     "midword": {
+      "mean": 0.00036,
+      "SE": 0.0003,
+      "n": 8711
+     },
+     "boundary": {
+      "mean": -0.00096,
+      "SE": 0.00075,
+      "n": 1209
+     },
+     "next_bracket_open": {
+      "mean": 0.00422,
+      "SE": 0.00213,
+      "n": 107
+     },
+     "next_newline": {
+      "mean": -0.00021,
+      "SE": 0.00109,
+      "n": 367
+     },
+     "next_subword": {
+      "mean": 0.00651,
+      "SE": 0.00153,
+      "n": 1341
+     },
+     "next_coordinator": {
+      "mean": -0.00527,
+      "SE": 0.00098,
+      "n": 549
+     }
+    },
+    "dP_capital_vs_natural": {
+     "due": {
+      "mean": -0.00142,
+      "SE": 0.00012,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": -0.0008,
+      "SE": 2e-05,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": -0.00139,
+      "SE": 0.0001,
+      "n": 1209
+     },
+     "midword": {
+      "mean": -0.00092,
+      "SE": 3e-05,
+      "n": 8711
+     },
+     "mid_notdue": {
+      "mean": -0.0008,
+      "SE": 3e-05,
+      "n": 8328
+     },
+     "bnd_due": {
+      "mean": -0.00159,
+      "SE": 0.00016,
+      "n": 558
+     }
+    },
+    "census_dCE": 0.00034
+   },
+   "-0.5": {
+    "P_capital": {
+     "all_valid": {
+      "mean": 0.11848,
+      "SE": 0.00169,
+      "n": 18634
+     },
+     "due": {
+      "mean": 0.56021,
+      "SE": 0.00657,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.05775,
+      "SE": 0.00101,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.40963,
+      "SE": 0.00715,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.04607,
+      "SE": 0.00146,
+      "n": 8711
+     },
+     "bnd_due": {
+      "mean": 0.53869,
+      "SE": 0.00992,
+      "n": 558
+     },
+     "mid_notdue": {
+      "mean": 0.02746,
+      "SE": 0.00087,
+      "n": 8328
+     }
+    },
+    "dCE_vs_natural": {
+     "all_valid": {
+      "mean": 0.00015,
+      "SE": 0.00016,
+      "n": 18634
+     },
+     "notdue": {
+      "mean": -0.00061,
+      "SE": 0.00017,
+      "n": 16382
+     },
+     "due": {
+      "mean": 0.00565,
+      "SE": 0.00057,
+      "n": 2252
+     },
+     "midword": {
+      "mean": 0.00021,
+      "SE": 0.00023,
+      "n": 8711
+     },
+     "boundary": {
+      "mean": -0.00078,
+      "SE": 0.00056,
+      "n": 1209
+     },
+     "next_bracket_open": {
+      "mean": 0.00308,
+      "SE": 0.00159,
+      "n": 107
+     },
+     "next_newline": {
+      "mean": -0.00021,
+      "SE": 0.00081,
+      "n": 367
+     },
+     "next_subword": {
+      "mean": 0.00462,
+      "SE": 0.00115,
+      "n": 1341
+     },
+     "next_coordinator": {
+      "mean": -0.004,
+      "SE": 0.00073,
+      "n": 549
+     }
+    },
+    "dP_capital_vs_natural": {
+     "due": {
+      "mean": -0.00106,
+      "SE": 9e-05,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": -0.0006,
+      "SE": 2e-05,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": -0.00105,
+      "SE": 8e-05,
+      "n": 1209
+     },
+     "midword": {
+      "mean": -0.00069,
+      "SE": 2e-05,
+      "n": 8711
+     },
+     "mid_notdue": {
+      "mean": -0.0006,
+      "SE": 2e-05,
+      "n": 8328
+     },
+     "bnd_due": {
+      "mean": -0.00119,
+      "SE": 0.00012,
+      "n": 558
+     }
+    },
+    "census_dCE": 0.00018
+   },
+   "0.0": {
+    "P_capital": {
+     "all_valid": {
+      "mean": 0.11869,
+      "SE": 0.00169,
+      "n": 18634
+     },
+     "due": {
+      "mean": 0.56056,
+      "SE": 0.00657,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.05795,
+      "SE": 0.00101,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.40997,
+      "SE": 0.00715,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.04629,
+      "SE": 0.00146,
+      "n": 8711
+     },
+     "bnd_due": {
+      "mean": 0.53909,
+      "SE": 0.00993,
+      "n": 558
+     },
+     "mid_notdue": {
+      "mean": 0.02765,
+      "SE": 0.00087,
+      "n": 8328
+     }
+    },
+    "dCE_vs_natural": {
+     "all_valid": {
+      "mean": 5e-05,
+      "SE": 0.00011,
+      "n": 18634
+     },
+     "notdue": {
+      "mean": -0.00046,
+      "SE": 0.00011,
+      "n": 16382
+     },
+     "due": {
+      "mean": 0.00371,
+      "SE": 0.00038,
+      "n": 2252
+     },
+     "midword": {
+      "mean": 9e-05,
+      "SE": 0.00015,
+      "n": 8711
+     },
+     "boundary": {
+      "mean": -0.00055,
+      "SE": 0.00038,
+      "n": 1209
+     },
+     "next_bracket_open": {
+      "mean": 0.00199,
+      "SE": 0.00106,
+      "n": 107
+     },
+     "next_newline": {
+      "mean": -0.00017,
+      "SE": 0.00054,
+      "n": 367
+     },
+     "next_subword": {
+      "mean": 0.0029,
+      "SE": 0.00077,
+      "n": 1341
+     },
+     "next_coordinator": {
+      "mean": -0.0027,
+      "SE": 0.00049,
+      "n": 549
+     }
+    },
+    "dP_capital_vs_natural": {
+     "due": {
+      "mean": -0.00071,
+      "SE": 6e-05,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": -0.00041,
+      "SE": 1e-05,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": -0.0007,
+      "SE": 5e-05,
+      "n": 1209
+     },
+     "midword": {
+      "mean": -0.00046,
+      "SE": 2e-05,
+      "n": 8711
+     },
+     "mid_notdue": {
+      "mean": -0.0004,
+      "SE": 1e-05,
+      "n": 8328
+     },
+     "bnd_due": {
+      "mean": -0.0008,
+      "SE": 8e-05,
+      "n": 558
+     }
+    },
+    "census_dCE": 7e-05
+   },
+   "0.5": {
+    "P_capital": {
+     "all_valid": {
+      "mean": 0.11891,
+      "SE": 0.00169,
+      "n": 18634
+     },
+     "due": {
+      "mean": 0.56092,
+      "SE": 0.00656,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.05815,
+      "SE": 0.00101,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.41032,
+      "SE": 0.00716,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.04653,
+      "SE": 0.00147,
+      "n": 8711
+     },
+     "bnd_due": {
+      "mean": 0.53948,
+      "SE": 0.00993,
+      "n": 558
+     },
+     "mid_notdue": {
+      "mean": 0.02785,
+      "SE": 0.00087,
+      "n": 8328
+     }
+    },
+    "dCE_vs_natural": {
+     "all_valid": {
+      "mean": -0.0,
+      "SE": 5e-05,
+      "n": 18634
+     },
+     "notdue": {
+      "mean": -0.00025,
+      "SE": 6e-05,
+      "n": 16382
+     },
+     "due": {
+      "mean": 0.00183,
+      "SE": 0.00019,
+      "n": 2252
+     },
+     "midword": {
+      "mean": 2e-05,
+      "SE": 8e-05,
+      "n": 8711
+     },
+     "boundary": {
+      "mean": -0.0003,
+      "SE": 0.00019,
+      "n": 1209
+     },
+     "next_bracket_open": {
+      "mean": 0.00097,
+      "SE": 0.00053,
+      "n": 107
+     },
+     "next_newline": {
+      "mean": -0.0001,
+      "SE": 0.00027,
+      "n": 367
+     },
+     "next_subword": {
+      "mean": 0.00136,
+      "SE": 0.00038,
+      "n": 1341
+     },
+     "next_coordinator": {
+      "mean": -0.00136,
+      "SE": 0.00024,
+      "n": 549
+     }
+    },
+    "dP_capital_vs_natural": {
+     "due": {
+      "mean": -0.00035,
+      "SE": 3e-05,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": -0.0002,
+      "SE": 1e-05,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": -0.00035,
+      "SE": 3e-05,
+      "n": 1209
+     },
+     "midword": {
+      "mean": -0.00023,
+      "SE": 1e-05,
+      "n": 8711
+     },
+     "mid_notdue": {
+      "mean": -0.0002,
+      "SE": 1e-05,
+      "n": 8328
+     },
+     "bnd_due": {
+      "mean": -0.0004,
+      "SE": 4e-05,
+      "n": 558
+     }
+    },
+    "census_dCE": 1e-05
+   },
+   "1.0": {
+    "P_capital": {
+     "all_valid": {
+      "mean": 0.11913,
+      "SE": 0.00169,
+      "n": 18634
+     },
+     "due": {
+      "mean": 0.56127,
+      "SE": 0.00656,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.05836,
+      "SE": 0.00102,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.41068,
+      "SE": 0.00716,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.04676,
+      "SE": 0.00147,
+      "n": 8711
+     },
+     "bnd_due": {
+      "mean": 0.53988,
+      "SE": 0.00994,
+      "n": 558
+     },
+     "mid_notdue": {
+      "mean": 0.02806,
+      "SE": 0.00088,
+      "n": 8328
+     }
+    },
+    "dCE_vs_natural": {
+     "all_valid": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 18634
+     },
+     "notdue": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 16382
+     },
+     "due": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 2252
+     },
+     "midword": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 8711
+     },
+     "boundary": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 1209
+     },
+     "next_bracket_open": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 107
+     },
+     "next_newline": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 367
+     },
+     "next_subword": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 1341
+     },
+     "next_coordinator": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 549
+     }
+    },
+    "dP_capital_vs_natural": {
+     "due": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 8711
+     },
+     "mid_notdue": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 8328
+     },
+     "bnd_due": {
+      "mean": 0.0,
+      "SE": 0.0,
+      "n": 558
+     }
+    },
+    "census_dCE": 0.0
+   },
+   "2.0": {
+    "P_capital": {
+     "all_valid": {
+      "mean": 0.11959,
+      "SE": 0.00169,
+      "n": 18634
+     },
+     "due": {
+      "mean": 0.56198,
+      "SE": 0.00655,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.05878,
+      "SE": 0.00102,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.4114,
+      "SE": 0.00717,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.04724,
+      "SE": 0.00147,
+      "n": 8711
+     },
+     "bnd_due": {
+      "mean": 0.54069,
+      "SE": 0.00995,
+      "n": 558
+     },
+     "mid_notdue": {
+      "mean": 0.02848,
+      "SE": 0.00089,
+      "n": 8328
+     }
+    },
+    "dCE_vs_natural": {
+     "all_valid": {
+      "mean": 0.00016,
+      "SE": 0.00011,
+      "n": 18634
+     },
+     "notdue": {
+      "mean": 0.00066,
+      "SE": 0.00011,
+      "n": 16382
+     },
+     "due": {
+      "mean": -0.00348,
+      "SE": 0.00038,
+      "n": 2252
+     },
+     "midword": {
+      "mean": 9e-05,
+      "SE": 0.00015,
+      "n": 8711
+     },
+     "boundary": {
+      "mean": 0.0007,
+      "SE": 0.00037,
+      "n": 1209
+     },
+     "next_bracket_open": {
+      "mean": -0.00176,
+      "SE": 0.00107,
+      "n": 107
+     },
+     "next_newline": {
+      "mean": 0.00031,
+      "SE": 0.00053,
+      "n": 367
+     },
+     "next_subword": {
+      "mean": -0.00219,
+      "SE": 0.00076,
+      "n": 1341
+     },
+     "next_coordinator": {
+      "mean": 0.00283,
+      "SE": 0.00049,
+      "n": 549
+     }
+    },
+    "dP_capital_vs_natural": {
+     "due": {
+      "mean": 0.0007,
+      "SE": 6e-05,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.00042,
+      "SE": 1e-05,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.00072,
+      "SE": 5e-05,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.00048,
+      "SE": 2e-05,
+      "n": 8711
+     },
+     "mid_notdue": {
+      "mean": 0.00042,
+      "SE": 1e-05,
+      "n": 8328
+     },
+     "bnd_due": {
+      "mean": 0.00081,
+      "SE": 8e-05,
+      "n": 558
+     }
+    },
+    "census_dCE": 0.00013
+   },
+   "4.0": {
+    "P_capital": {
+     "all_valid": {
+      "mean": 0.12054,
+      "SE": 0.0017,
+      "n": 18634
+     },
+     "due": {
+      "mean": 0.56337,
+      "SE": 0.00653,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.05966,
+      "SE": 0.00102,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.41288,
+      "SE": 0.00719,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.04823,
+      "SE": 0.00149,
+      "n": 8711
+     },
+     "bnd_due": {
+      "mean": 0.54232,
+      "SE": 0.00997,
+      "n": 558
+     },
+     "mid_notdue": {
+      "mean": 0.02935,
+      "SE": 0.0009,
+      "n": 8328
+     }
+    },
+    "dCE_vs_natural": {
+     "all_valid": {
+      "mean": 0.0011,
+      "SE": 0.00032,
+      "n": 18634
+     },
+     "notdue": {
+      "mean": 0.0026,
+      "SE": 0.00033,
+      "n": 16382
+     },
+     "due": {
+      "mean": -0.00975,
+      "SE": 0.00113,
+      "n": 2252
+     },
+     "midword": {
+      "mean": 0.0008,
+      "SE": 0.00045,
+      "n": 8711
+     },
+     "boundary": {
+      "mean": 0.00255,
+      "SE": 0.00112,
+      "n": 1209
+     },
+     "next_bracket_open": {
+      "mean": -0.00458,
+      "SE": 0.00322,
+      "n": 107
+     },
+     "next_newline": {
+      "mean": 0.00135,
+      "SE": 0.00159,
+      "n": 367
+     },
+     "next_subword": {
+      "mean": -0.00439,
+      "SE": 0.00228,
+      "n": 1341
+     },
+     "next_coordinator": {
+      "mean": 0.00886,
+      "SE": 0.00145,
+      "n": 549
+     }
+    },
+    "dP_capital_vs_natural": {
+     "due": {
+      "mean": 0.0021,
+      "SE": 0.00018,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.00131,
+      "SE": 4e-05,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.0022,
+      "SE": 0.00016,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.00147,
+      "SE": 5e-05,
+      "n": 8711
+     },
+     "mid_notdue": {
+      "mean": 0.00129,
+      "SE": 5e-05,
+      "n": 8328
+     },
+     "bnd_due": {
+      "mean": 0.00244,
+      "SE": 0.00024,
+      "n": 558
+     }
+    },
+    "census_dCE": 0.00102
+   },
+   "8.0": {
+    "P_capital": {
+     "all_valid": {
+      "mean": 0.12257,
+      "SE": 0.0017,
+      "n": 18634
+     },
+     "due": {
+      "mean": 0.56609,
+      "SE": 0.0065,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.06161,
+      "SE": 0.00104,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.41602,
+      "SE": 0.00723,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.05036,
+      "SE": 0.00151,
+      "n": 8711
+     },
+     "bnd_due": {
+      "mean": 0.54568,
+      "SE": 0.01,
+      "n": 558
+     },
+     "mid_notdue": {
+      "mean": 0.03125,
+      "SE": 0.00093,
+      "n": 8328
+     }
+    },
+    "dCE_vs_natural": {
+     "all_valid": {
+      "mean": 0.00552,
+      "SE": 0.00075,
+      "n": 18634
+     },
+     "notdue": {
+      "mean": 0.00896,
+      "SE": 0.00077,
+      "n": 16382
+     },
+     "due": {
+      "mean": -0.0195,
+      "SE": 0.0026,
+      "n": 2252
+     },
+     "midword": {
+      "mean": 0.00443,
+      "SE": 0.00105,
+      "n": 8711
+     },
+     "boundary": {
+      "mean": 0.00808,
+      "SE": 0.0026,
+      "n": 1209
+     },
+     "next_bracket_open": {
+      "mean": -0.0075,
+      "SE": 0.00766,
+      "n": 107
+     },
+     "next_newline": {
+      "mean": 0.00506,
+      "SE": 0.00365,
+      "n": 367
+     },
+     "next_subword": {
+      "mean": 0.00024,
+      "SE": 0.00529,
+      "n": 1341
+     },
+     "next_coordinator": {
+      "mean": 0.02248,
+      "SE": 0.00339,
+      "n": 549
+     }
+    },
+    "dP_capital_vs_natural": {
+     "due": {
+      "mean": 0.00482,
+      "SE": 0.00042,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.00325,
+      "SE": 9e-05,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.00534,
+      "SE": 0.00037,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.0036,
+      "SE": 0.00012,
+      "n": 8711
+     },
+     "mid_notdue": {
+      "mean": 0.00319,
+      "SE": 0.00011,
+      "n": 8328
+     },
+     "bnd_due": {
+      "mean": 0.00579,
+      "SE": 0.00055,
+      "n": 558
+     }
+    },
+    "census_dCE": 0.00526
+   },
+   "16.0": {
+    "P_capital": {
+     "all_valid": {
+      "mean": 0.12721,
+      "SE": 0.00172,
+      "n": 18634
+     },
+     "due": {
+      "mean": 0.57106,
+      "SE": 0.00644,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.06619,
+      "SE": 0.00107,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.42293,
+      "SE": 0.00729,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.05525,
+      "SE": 0.00157,
+      "n": 8711
+     },
+     "bnd_due": {
+      "mean": 0.55257,
+      "SE": 0.01006,
+      "n": 558
+     },
+     "mid_notdue": {
+      "mean": 0.0357,
+      "SE": 0.00101,
+      "n": 8328
+     }
+    },
+    "dCE_vs_natural": {
+     "all_valid": {
+      "mean": 0.02468,
+      "SE": 0.00161,
+      "n": 18634
+     },
+     "notdue": {
+      "mean": 0.0319,
+      "SE": 0.00166,
+      "n": 16382
+     },
+     "due": {
+      "mean": -0.02783,
+      "SE": 0.00551,
+      "n": 2252
+     },
+     "midword": {
+      "mean": 0.02079,
+      "SE": 0.00225,
+      "n": 8711
+     },
+     "boundary": {
+      "mean": 0.02692,
+      "SE": 0.00562,
+      "n": 1209
+     },
+     "next_bracket_open": {
+      "mean": -0.00287,
+      "SE": 0.01727,
+      "n": 107
+     },
+     "next_newline": {
+      "mean": 0.01903,
+      "SE": 0.0077,
+      "n": 367
+     },
+     "next_subword": {
+      "mean": 0.04787,
+      "SE": 0.01138,
+      "n": 1341
+     },
+     "next_coordinator": {
+      "mean": 0.05581,
+      "SE": 0.00733,
+      "n": 549
+     }
+    },
+    "dP_capital_vs_natural": {
+     "due": {
+      "mean": 0.00979,
+      "SE": 0.00091,
+      "n": 2252
+     },
+     "notdue": {
+      "mean": 0.00784,
+      "SE": 0.00019,
+      "n": 16382
+     },
+     "boundary": {
+      "mean": 0.01225,
+      "SE": 0.00079,
+      "n": 1209
+     },
+     "midword": {
+      "mean": 0.00849,
+      "SE": 0.00027,
+      "n": 8711
+     },
+     "mid_notdue": {
+      "mean": 0.00764,
+      "SE": 0.00026,
+      "n": 8328
+     },
+     "bnd_due": {
+      "mean": 0.01269,
+      "SE": 0.00119,
+      "n": 558
+     }
+    },
+    "census_dCE": 0.02386
+   }
+  }
+ }
+}

@@ -4911,3 +4911,38 @@ EXACTLY at all three budgets. Held-back FW[448:600], paired standard errors.)
 restrict (flat needs), variance-concentration is a misleading guide to functional rank, and half the
 whole-model cost is interaction between restrictions. §87's frontier stands as the honest frontier; the path
 to faithful compression, if any, runs through cross-layer shared structure — the tn_gauge program's territory.
+
+## §93 TERM-TARGETED EDITING — cleaner, interpretable knobs; the same override limit, now EXPLAINED (2026-07-31)
+(qk_edit_terms.py; the §75 rematch on the §91 differential pair. Gates: reconstruction 7.0e-7; alpha=1
+reassembly census delta cross-entropy −0.0; drop-gated-arm +0.1479 and pair-drop +0.0587 match §91 exactly;
+the pair-coherent dial and the difference knob verified IDENTICAL to 1.1e-5 max logit difference — the layer
+output is LINEAR in the terms, so the cancelling common mode has no output-level degree of freedom. Held-back
+FW[448:600], paired standard errors. Synthesis derived directly from the run's JSON after the agent stalled.)
+- **The PRIOR-STRENGTH knob (scale mlp-recent²) is the big, clean dial:** capital-probability-where-due swings
+  0.201–0.672 (swing 0.47, matching §75's direction-dial 0.48) with monotone dose-response (Spearman −1.00).
+  In the MILD regime it is ~2× more specific than §75's dial: at alpha 0.5 it moves capital-due by +0.030 at
+  only 0.016 nats collateral (specificity |Δdue|/collateral ≈ 1.9; the §75 dial's analogue ≈ 1.0); the
+  pair/difference knob is similar (2.1). At strong settings both converge to §75-like specificity (~1.0 at
+  matched swing, ~0.2-0.4 at extremes).
+- **The GATED ARM is the CONTRAST-CARRIER — and that explains the §75 limit.** Dialing the gated arm
+  (attention-earlier×mlp-recent) in EITHER direction destroys DISCRIMINATION rather than steering it:
+  down-steering (alpha −4) lowers capital-due to 0.414 while RAISING capital-not-due to 0.122 (the due/not-due
+  contrast falls 9.6× → 3.4×); up-steering (alpha 16) barely moves due (−0.030) while not-due climbs to 0.282
+  (contrast 1.9×). The gated arm does not carry "more capitals" — it carries the due-versus-not-due CONTRAST,
+  and scaling a term scales its writes without re-aiming them. §75's mystery ("conditioning lives upstream, no
+  surgical override") is now mechanically explained: the conditioning IS the term's activation pattern;
+  amplitude edits flatten or sharpen the discrimination but cannot redirect it.
+- **No surgical unconditioned override here either — the limit is real, not an artifact of direction-level
+  access:** forcing capitals where NOT due still costs disproportionately (not-due +0.164 at 2.88 nats
+  collateral via the gated arm — worse than §75's route). The honest positive: term-level access decomposes
+  §75's single opaque dial into TWO interpretable knobs — prior-strength (big clean monotone swing) and
+  contrast-strength (sharpen/flatten discrimination) — with ~2× better mild-regime specificity and exact
+  provenance semantics.
+- **Placebo clean:** the low-energy embedding×attention-recent term (energy share 0.0001) produces a
+  ~30×-smaller due-swing (0.013) with negligible collateral over the whole alpha range.
+**KEY (the fold-audit's editing verdict, honest):** term-targeted editing is a REFINEMENT, not a
+breakthrough: better-calibrated, semantically-labeled knobs (prior vs contrast) with ~2× mild-regime
+specificity, but the SAME fundamental control limit as §75 — and the fold's contribution is that the limit is
+now EXPLAINED (amplitude edits on terms scale writes, they cannot re-aim the conditioning that is encoded in
+the term's own activation pattern). Surgical unconditioned overrides would require editing the term's INPUTS
+(the upstream streams), not its amplitude — a concrete pointer for any future control work.
