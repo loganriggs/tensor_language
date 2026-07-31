@@ -7296,3 +7296,12 @@ existing steering methods, not a new method class, so in-scope and launched rath
   audit scoreboard fully answered. All surfaces synchronized (RESULTS, TECHNIQUES, ROADMAP, paper, artifact,
   memory). Resting; the open frontiers (cross-layer shared structure for compression = tn_gauge; input-side
   stream editing for surgical control; sufficiency-based tools generally) are recorded handoffs.
+
+## tick 2026-07-31 (the last runnable handoff: input-side stream transplants — dispatched)
+- a133cd03144c073d9 (qk_stream_transplant.py): tests §93b's concrete prediction — amplitude edits cannot
+  re-aim the differential pair's conditioning, but INPUT-side edits should. Context transplants at L17's MLP
+  input (the attention-earlier group swapped per-position from boundary donors into not-due targets and vice
+  versa). L17 being the LAST layer makes collateral localized BY CONSTRUCTION (zero-change gate at non-edited
+  positions). Force test, suppress test, three controls (random-position donor, mlp-earlier-group swap,
+  norm-matched placebo), and a dose curve (graded transplants). Verdict either completes the editing story
+  (amplitude cannot re-aim; inputs can) or refutes the pointer. Collect next tick.
