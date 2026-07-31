@@ -349,8 +349,12 @@ and a control confirms the collective signature — removing the reconstruction 
 each leave a fully-compensating complement. So a dictionary *names* and, given data, *reconstructs* the
 early hub, yet does not *explain* it: its causal mechanism is collective, and — the sharp point —
 reconstruction fidelity and causal explicability are decoupled, because the nameable variance axis and
-the causal axis are nearly orthogonal here. This is a concrete boundary on what dictionary-learning
-interpretability recovers, measured rather than asserted.
+the causal axis are nearly orthogonal here. The decoupling is architecture-general: the identical test on
+the softmax SwiGLU model's hub gives the same three verdicts (reconstruction 0.85, twenty-two of
+thirty-two features nameable versus zero for singular directions, zero of thirty-two load-bearing — with
+the one honest difference that a dictionary explains about ten percent of the softmax hub's causation
+rather than two percent, a difference in degree, not kind). This is a concrete boundary on what
+dictionary-learning interpretability recovers, measured rather than asserted.
 
 ## Honest limitations
 

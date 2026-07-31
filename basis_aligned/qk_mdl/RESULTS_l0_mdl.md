@@ -4525,3 +4525,28 @@ but STRENGTHENS the causal conclusion: even a dictionary that reconstructs the M
 variance structure captures only ~2% of its causal effect with no load-bearing feature. §74's "irreducibly
 distributed" is now airtight across reconstruction fidelities from 0.69 to 0.85 — causal collectivity is not an
 artifact of poor reconstruction. Dictionary methods NAME and RECONSTRUCT the hub but do NOT EXPLAIN it.
+
+## §81 GENERALITY of the SAE decoupling — names-and-reconstructs-but-doesn't-explain REPLICATES on swiglu18 (2026-07-31)
+(qk_sae_swiglu_hub.py / _2.py; ports the §80 name-vs-reconstruct-vs-explain test to the softmax SwiGLU model's
+irreducibly-distributed hub — layer 2, per §77.) Top-K SAE (best config 16384 features, k=64) trained on the
+10× corpus cooc[600:6000], validation-checkpointed, evaluated on the canonical held-back FW[448:600]; forward +
+causal harness verbatim from the §80 + swiglu-ported scripts. Paired standard errors. (Process note: the
+launching subagent idled out repeatedly; the training was monitored directly and the causal test auto-launched
+via a file-watch script the moment the dictionary saved.)
+- **RECONSTRUCTION replicates:** held-back fraction-of-variance-explained **0.849** (bilin18 §80: 0.846) at
+  L0=64, train/held gap small — a dictionary reconstructs the softmax hub exactly as well.
+- **NAMEABILITY replicates:** **22 of 32 top features monosemantic** (vs swiglu18's SVD 0/32 per §77; bilin18's
+  SAE 17–26/32 across §78–80).
+- **The CAUSAL negative replicates:** **0 of 32 features clear the §74 bar** (max single-feature z = 3.12 but
+  its delta cross-entropy 0.0188 < 0.02 — the two criteria never jointly satisfied, same failure mode as every
+  previous run); cumulative never reaches 50%; positive control intact (removing the reconstruction residual
+  costs 1.3% of the full effect — individually inert).
+- **Honest quantitative difference:** all dictionary features together capture **9.55%** of swiglu18's full
+  layer-2 effect (0.759 ± 0.010 nats total) versus bilin18's ~2% of its much larger 5.57-nat hub. The softmax
+  hub is somewhat LESS extremely collective — a dictionary explains ~10% of it rather than ~2% — but >90% of
+  its causation remains collective and no individual feature is load-bearing. A difference in degree, not kind.
+**KEY:** the §80 flagship result is ARCHITECTURE-GENERAL. On a conventional softmax SwiGLU transformer, exactly
+as on the bilinear model: a sparse dictionary NAMES the hub's variance structure (22/32 monosemantic vs SVD
+0/32) and RECONSTRUCTS it well (0.85), yet does NOT EXPLAIN it (0/32 load-bearing; 90-98% of causation
+collective). "Naming, reconstructing, and explaining are three different things" — and their decoupling — is a
+general property of these models' early hubs, not a bilinear artifact.
