@@ -7429,3 +7429,16 @@ existing steering methods, not a new method class, so in-scope and launched rath
   is a valid outcome in the distributed region.
 - QUEUE after #5: consolidation of the depth-first series (§96-99+) into paper/artifact as "how the model
   computes, start to finish"; then the mid-stack band members as needed.
+
+## tick 2026-07-31 (§100 — the depth-first priority list is fully characterized)
+- §100 (arc #5): h.L7.0 = the honest outcome — no crisp type (all tests failed with numbers), a context-
+  dependent semantic sharpener ~88% mediated through the distributed region, individually insignificant but
+  real in aggregate (z 11.4). Concrete: boosts topical clusters that change with context (museum→artist/art,
+  film→cast/movie, blog→posts) with varying ablation sign. VERDICT: mid-stack head unknowns bottom out into
+  the measured collective code, not hidden crisp circuits. Committed §100.
+- DEPTH-FIRST SEARCH STATUS: the dashboard's full priority list is now characterized — §96 (block 2 =
+  iterated-squaring link), §97 (block 0 = exact token table + bigram, category-engine input), §98 (block 3 =
+  second square + contextual mixer; cascade continues), §99 (the three-region flow map, boundaries measured),
+  §100 (the mid-stack head archetype). Five arcs, five algorithm/role statements, ~17 concrete text examples.
+- NEXT: consolidate §96-100 into the paper + artifact as the "how the model computes, start to finish"
+  chapter — the most legible product of the program.
