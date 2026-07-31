@@ -7087,3 +7087,13 @@ existing steering methods, not a new method class, so in-scope and launched rath
   interaction decomposition of MLP1 (bilinear ⇒ T(x,x) splits exactly into ~10 provenance terms emb×emb,
   emb×attn0, attn0×attn0, …). Sufficiency-by-provenance + class signatures per term. Is the redundant code
   structured by INPUT PROVENANCE even though unstructured in learned-feature space? Collect next tick.
+
+## tick 2026-07-31 (Logan's clarifications: representation-vs-computation hierarchy; fold was everywhere but never in the attribution fight)
+- Logan's Q1: §84 was honestly an OUTPUT-REPRESENTATION hierarchy, not yet the computation. Computation-level
+  versions: (a) stream-pair run in flight (decomposes the actual bilinear MAP into architecture-given terms);
+  (b) QUEUED NEXT: spectral hierarchy of the map itself — restrict the exact tensor to (input-top-K × output-
+  top-144) and measure faithfulness; caution: composed cores resisted naked CP-rank truncation, so open.
+- Logan's Q2 confirmed: the composed fold WAS done on every layer (repr ledger 1e-6 everywhere; substitution
+  chain; stream-level causal facts like attn0→MLP1 entirely via MLP0, +0.00001 vs +0.568). The fair catch:
+  the §74-83 attribution saga used learned/spectral OUTPUT bases only — the architecture-given pairwise-term
+  basis never entered the necessity/sufficiency census until his suggestion. The streampairs run corrects it.
