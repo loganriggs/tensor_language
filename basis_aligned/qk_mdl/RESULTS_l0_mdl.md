@@ -4711,7 +4711,7 @@ fold the input with what comes before and split by provenance — is the tool th
 (qk_allcore_restrict.py, run directly; fold-audit item 3 follow-up — does §85's cheap single-layer restriction
 stay cheap when applied to ALL 18 feed-forward blocks simultaneously? Per-layer train-gram bases, per-position
 held means, held-back FW[448:600], paired standard errors.)
-- **Compounding is real and roughly additive — the single-layer bargain does NOT scale for free.** Restricting
+- **Compounding is real — the single-layer bargain does NOT scale for free.** [§92 CORRECTION: the compounding is in fact SUPER-additive ~2× — sum of single-layer costs 0.76 vs joint 1.456 — half the joint cost is cross-layer interaction.] Restricting
   every MLP to (in-288 × out-144) — the §85 setting that cost only +0.182 at MLP1 alone — costs **+1.456 ±
   0.014 nats cumulatively** (18 layers averaging ~0.08 marginal each). The measured compression-fidelity
   frontier: **128× smaller cores → +1.46; 16× → +0.80 (or +1.02 input-only-288); 4× → +0.35.** For scale: the
@@ -4878,3 +4878,36 @@ computation; each alone is the prior or its negation, both wrong by an order of 
 ("lexical readout"), §69 (the genuine context-conditioned capital SELECTOR riding on static priors — the
 selector is the differential pair's gated arm), and §76 (the distributed class priors — whose conditional
 RETRACTION is implemented here). The one resistant spot in the model now has a mechanism.
+
+## §92 NON-UNIFORM RANK ALLOCATION — a clean negative with a measured mechanism (corrects §87's "additive") (2026-07-31)
+(qk_rank_alloc.py / _2.py; the §87 fix attempted: allocate per-layer core ranks by need instead of uniformly,
+at matched total budgets. Machinery verbatim from qk_allcore_restrict.py; §87's uniform baselines reproduced
+EXACTLY at all three budgets. Held-back FW[448:600], paired standard errors.)
+- **The frontier (delta cross-entropy at matched budget):** 128× — uniform +1.4561 ± 0.0145, spectral +2.679,
+  causal-floor-weighted +8.655 (catastrophic), greedy-measured-need +1.471. 16× — uniform +0.8032, spectral
+  +1.550, causal-weighted +7.896, greedy +0.818. 4× — uniform +0.3516, greedy **+0.321 ± 0.007** (the only
+  win: 0.031 nats, ~9% relative, ~4 standard errors). Intermediate greedy: 33× +1.044, 8× +0.508, 2× +0.097.
+- **Why smart allocation cannot win — three measured reasons:** (i) **gram-trace concentration ANTI-correlates
+  with functional rank need** — layer 1, the highest-functional-rank hub, has 90.8% of its input gram trace in
+  its top FOUR directions (layer 0 only 15.4%), so any trace-fraction rule starves the hub; (ii) the per-layer
+  cost curves are nearly FLAT across the stack at matched rank (single-layer costs 0.026–0.144 at the 288×144
+  core — no arbitrage exists); (iii) **restriction costs are SUPER-ADDITIVE by ~2×** — the sum of single-layer
+  costs at the uniform 128× setting is 0.76 nats but the joint cost is 1.456 (greedy's predicted 0.654 became
+  1.471 jointly). [§87 CORRECTION: its "compounding is roughly additive" reading understated the interaction —
+  roughly HALF the joint cost is cross-layer interaction no per-layer rank schedule can address.]
+- **The concrete 16× allocation (greedy):** early-high/late-low in DIRECTION but with a NARROW spread (input
+  432–576, output 216–576) — nothing like the rank-32-vs-576 contrast the §73 output-variance profile
+  suggested. Notably layers 16/17, low-rank by output VARIANCE (top-4 = 81–95%), still demand large cores
+  (single-layer restriction costs +0.042/+0.063 among the most expensive): **variance rank ≠ restriction-cost
+  rank.**
+- **Honest verdict:** smart allocation does NOT make whole-model compression respectable — uniform was already
+  within noise of the best achievable in this family. The failure is STRUCTURAL, not allocational: per-layer
+  needs are too flat to arbitrage and ~half the joint cost is cross-layer interaction. Faithful whole-model
+  compression (the +0.03 regime) would need SHARED or COMPOSED cross-layer structure, not better rank
+  bookkeeping. (Caveat: greedy cost curves measured on a 36-sequence subsample, final numbers full-held;
+  greedy-on-hulls heuristic — but with greedy tying uniform and a-priori rules losing, no refinement changes
+  the verdict.)
+**KEY:** the compression question closes with a mechanism: the model's layers are nearly UNIFORMLY hard to
+restrict (flat needs), variance-concentration is a misleading guide to functional rank, and half the
+whole-model cost is interaction between restrictions. §87's frontier stands as the honest frontier; the path
+to faithful compression, if any, runs through cross-layer shared structure — the tn_gauge program's territory.
