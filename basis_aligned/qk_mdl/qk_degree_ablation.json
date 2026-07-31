@@ -1,0 +1,68 @@
+{
+ "meta": {
+  "base_ce": 3.4946,
+  "held": "FW[448:600,:128]",
+  "train": "FW[0:256,:128]",
+  "linear_fit": "ridge least squares (lambda=1) on TRAIN, predicting the block output from its rms-normed input"
+ },
+ "block_cells": {
+  "L0_mean_floor": [
+   1.2341,
+   0.0302
+  ],
+  "L0_linear": [
+   0.0796,
+   0.0045
+  ],
+  "L0_table": [
+   0.1817,
+   0.0073
+  ],
+  "L1_mean_floor": [
+   5.5744,
+   0.0639
+  ],
+  "L1_linear": [
+   0.1146,
+   0.0049
+  ],
+  "L3_mean_floor": [
+   0.6163,
+   0.0148
+  ],
+  "L3_linear": [
+   0.0544,
+   0.003
+  ],
+  "L5_mean_floor": [
+   0.0928,
+   0.004
+  ],
+  "L5_linear": [
+   0.0395,
+   0.0025
+  ],
+  "L7_mean_floor": [
+   0.0601,
+   0.0028
+  ],
+  "L7_linear": [
+   0.0363,
+   0.0022
+  ]
+ },
+ "joint_linear_0_1_3": [
+  0.4323,
+  0.0122
+ ],
+ "joint_mean_0_1_3": [
+  2.2496,
+  0.0376
+ ],
+ "probe": {
+  "intact": 0.7485,
+  "blocks_0_1_3_linear": 0.7253,
+  "block0_table": 0.7268,
+  "blocks_0_1_3_mean": 0.6904
+ }
+}
