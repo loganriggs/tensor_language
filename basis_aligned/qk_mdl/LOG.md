@@ -7359,3 +7359,20 @@ existing steering methods, not a new method class, so in-scope and launched rath
 - ALL SURFACES FINAL AND IDENTICAL IN CONTENT: RESULTS §32-§95, TECHNIQUES, ROADMAP, paper (§32-§95),
   artifact, memory. Program state: FINISHED. Holding — no further work will be self-initiated; the frontiers
   on record await Logan's steer.
+
+## tick 2026-07-31 (Logan's three asks: metric answered + depth-first begun + pedagogy started)
+- Logan asked (1) is the structural ceiling the same problem as the L1 hub / solved by the hierarchy — answer:
+  YES, same phenomenon; the fold-first program bypassed it in sufficiency mode; the un-named remainder is
+  within-term content + attention heads; (2) what's holding up more algorithms + go depth-first on bilin18;
+  (3) bring back the pedagogy explainer (toy models with hand-computable numbers, explicit assumptions, real
+  sites, highlighted text examples) — preference saved to memory (pedagogy-explainer-format.md).
+- UNDERSTANDING_DASHBOARD.md committed — the per-component 5-level metric, causal-mass-weighted: represented
+  100%, substitutable 100%, anatomy 97.6% of mass, mechanism 69.6% (90.2% with partials), named 5.2% strict
+  (~11% of headroom honest). Priority list: mlp.L0 (1.23 nats) > mlp.L3 (0.62) > mid-stack band > h.L7.0.
+- DEPTH-FIRST ARC #1 dispatched (a807922e4b940cbe7, qk_arc_square.py): what algorithm is layer 2's "square the
+  previous block" — diagonal self-products (confidence sharpening) vs cross-products (feature-AND gates) vs
+  downstream basis expansion. Early rows: dropping diag-32 costs +0.0002 vs dropping cross-32 +0.0031 —
+  cross-products look more load-bearing at the margin; awaiting the full report.
+- PEDAGOGY EXPLAINER draft dispatched (a1db81c91e76a18df): 10 methods, each with toy model + assumptions +
+  bilin18 site + highlighted real-text example; draft to scratchpad methods_pedagogy.html; I review + publish
+  as a NEW artifact (separate from the results artifact).
