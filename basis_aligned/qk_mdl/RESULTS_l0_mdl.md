@@ -5072,6 +5072,7 @@ keep-alone 0.0925 match §89 to four decimals. Held-back FW[448:600], paired sta
   alone recovers it; but freezing ONLY layer 3's MLP clean removes **84%** of the damage (0.0288 → 0.0047).
   Layer 2's square is consumed almost entirely by layer 3's squaring stage, whose output needs further stages
   to reach the loss.
+**[§101 CORRECTION: the 84% freeze-next rescue is partly GENERIC compensation — random/shuffled perturbations get 66-68%; the chain-specific excess is ~17 points. Read as preferential next-block consumption within a broadly compensatory stack.]**
 **KEY (the algorithm statement):** layer 2 computes a dense, high-rank quadratic expansion — predominantly
 cross-products of layer-1's features, with no privileged pairs and no self-product gain structure — consumed
 almost entirely by layer 3's own squaring stage: one link in an **iterated-squaring pipeline that builds
@@ -5110,6 +5111,7 @@ shuffled-label control added. Held-back FW[448:600], paired standard errors.)
   consumers: block 1 alone 38% of the floor, blocks 1-2 87%, blocks 1-3 **98.3%**. The category probe: ablating
   this one block drops six-way next-category accuracy at block 3 from 0.601 → 0.546 and at block 4 from 0.611 →
   0.542 (embedding baseline 0.527) — **erasing 74-82% of the category-code gain**.
+**[§101 UPGRADE: causal sufficiency verified — replacing the whole block's output with its token-conditional mean recovers 85.5% of function (pair table 86.9%).]**
 **KEY (the algorithm statement):** feed-forward block 0 is a **current-token feature-table lookup — exact up
 to a shared gauge scalar — plus a (current × attended-previous) bigram correction**, whose derived
 capitalization/subword/boundary features are consumed entirely by blocks 1-3 with zero direct readout
@@ -5179,6 +5181,7 @@ paired standard errors.)
 - **(d) Caveats:** mean-ablation is one blunt counterfactual; freeze-patch is first-order so fractions need not
   sum to one (block 12's direct fraction 1.046 — read late-block figures as "approximately all"); blocks
   9/11/13 interpolated; the 4-6 plateau is three points, not a law.
+**[§101: blocks 9/11/13 measured — crossing pinned between blocks 8 and 9; smooth dissolution holds; chain-specificity softened per attack 1.]**
 **KEY (the connected feed-forward story, blocks 0→17):** token/bigram TABLE (block 0, exact) → the essential
 HUB (block 1) → an ITERATED-SQUARING CASCADE building progressively higher-order, progressively more
 contextual polynomial features (blocks 2-6, each ~half-consumed by the next square) → smooth DISSOLUTION into
@@ -5214,3 +5217,33 @@ depth-first search has now characterized every priority target: the early stack 
 hub, squares), the mid-stack is collectively-coded semantic refinement, and the late stack writes output — the
 per-component unknowns bottom out into the already-measured collective structure rather than hiding new
 machines.
+
+## §101 RED-TEAM OF THE DEPTH-FIRST SERIES — one weakened, one strengthened, two survive (2026-07-31)
+(qk_redteam_arcs.py / _2.py; four attacks on §96-§100 before the paper chapter stands. Process note: the
+red-team agent stalled on a one-line device bug; I fixed and ran both scripts directly. All gates pass —
+floors/census figures reproduce to four decimals throughout; upstream-freeze and restore-exactness controls
+exactly null.)
+- **ATTACK 1 (freeze-patch circularity) → §96/§98/§99 chain claims WEAKENED.** Freezing the next block rescues
+  much of ANY perturbation: matched-norm random 66%/65% and shuffled 68%/58% at blocks 2/3, versus the real
+  84%/83% — the chain-SPECIFIC excess is ~17-20 points early and shrinks to ~6 by block 5 (real 51% vs random
+  45%). Even skipping the next block (freeze-only-4) rescues 68% of block 2's damage. CORRECTED claim: the
+  cascade is **preferential next-block consumption within a broadly compensatory stack** — the compensation
+  being §83's redundancy — not exclusive chain routing. (Upstream-freeze exactly null: causal direction sound.)
+- **ATTACK 2 (variance-vs-causation on the block-0 table) → §97 STRENGTHENED with a quantifier.** Replacing
+  block 0's ENTIRE output with its token-conditional mean (the literal table readout; token coverage 84.8%)
+  recovers **85.5% of its causal function** (+0.1795 vs floor 1.2341); the pair table reaches 86.9%. The
+  lookup-table claim is causally grounded — ~85% sufficient, the remainder context-beyond-frequent-pairs +
+  gauge.
+- **ATTACK 3 (smoothness; blocks 9/11/13 measured) → §99 SURVIVES with a refinement.** k=9: next-square 0.330 /
+  direct 0.387; k=11: 0.294 / 0.856; k=13: 0.179 / ~1.0 (small wiggle at 13, no sharp structure). The
+  cascade-to-readout CROSSING is pinned between **blocks 8 and 9** (was "8-10"); the smooth-dissolution verdict
+  holds on the full grid.
+- **ATTACK 4 (h.L7.0 aggregation) → §100 SURVIVES.** The damage spans ALL activation deciles (deciles 3-10
+  each z ≥ 3.1, shares 8-17%), 125 of 152 sequences positive (sign z 7.95), and dropping the top-5
+  contributing sequences leaves z 10.0 — genuinely diffuse, not a hidden narrow circuit. Honest note:
+  per-position net effects are heavy-tailed (the top 1% of positive positions carry ~half the net share, with
+  negatives offsetting), standard for paired cross-entropy differences.
+**KEY:** the depth-first chapter stands with one real correction — the iterated-squaring "chain" is
+preferential-plus-compensatory rather than exclusive (margins quoted), the crossing is blocks 8-9 — and one
+upgrade: block 0's table is causally ~85% sufficient, not merely variance-perfect. Corrections applied to
+§96-§100 and the paper chapter; the artifact now carries the corrected flow story.

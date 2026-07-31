@@ -1,7 +1,7 @@
 # A four-ledger per-layer decomposition of a no-softmax bilinear transformer
 
 *Consolidation draft — 2026-07-30. Numbers are the post-adversarial-review figures only.
-Sources: PLAN_per_layer.md, RESULTS_l0_mdl.md §32–§100, LOG.md. Left for parent review; not committed.*
+Sources: PLAN_per_layer.md, RESULTS_l0_mdl.md §32–§101, LOG.md. Left for parent review; not committed.*
 
 ## Abstract
 
@@ -486,14 +486,19 @@ features boost dialogue verbs (" scoff", " glared", " sighed"); after a numbered
 starters; after a comma they suppress space-less continuations that would be illegal there. The block writes
 nothing to the readout directly (removing its direct path costs −0.0000); blocks one through three consume
 98.3 percent of its effect, and ablating it erases 74 to 82 percent of the category-code gain — it is the
-category engine's input stage.
+category engine's input stage. The causal counterpart of the variance claim: replacing the block's entire
+output with its token-conditional mean recovers 85.5 percent of its function (86.9 with the pair table).
 
 **Blocks 2 and 3 are an iterated-squaring cascade.** Layer 2 is almost literally "square the previous
 block's output," and the square is not confidence-sharpening — self-products are causally null — but a dense
 quadratic expansion, predominantly cross-products with no privileged pairs (the largest single pair holds 0.2
 percent of the variance; the high-rank tail beyond the top thirty-two directions recovers 88 percent alone).
-Its consumer is layer 3's own square (freezing layer 3 clean removes 84 percent of the damage), and layer 3's
-consumer is layer 4's (83 percent) — each stage building higher-order products of the block-0 table features,
+Its consumer is preferentially layer 3's own square (freezing layer 3 clean removes 84 percent of the
+damage — though a matched control shows freezing the next block rescues roughly two-thirds of *any*
+perturbation, so the chain-specific excess is seventeen to twenty points early, shrinking to six by block
+five: preferential next-block consumption within a broadly compensatory stack, the compensation being the
+redundant code again), and layer 3's consumer is layer 4's (83 percent) — each stage building higher-order
+products of the block-0 table features,
 while a genuinely contextual mixer term (only 0.171 of its variance is current-token-determined) folds fresh
 attention context in as topic-conditioned word-completion decisions ("Divine → Feminine", "Cylinder →
 bearings/valve"). Category refinement diminishes down the cascade: the hub is essential, the table contributes
@@ -502,7 +507,7 @@ bearings/valve"). Category refinement diminishes down the cascade: the hub is es
 **The cascade dissolves; a three-region flow map with measured boundaries.** The next-square consumption
 fraction decays smoothly — 84 and 83 percent at blocks 2 and 3, a plateau near 51 percent at blocks 4 through
 6, then 39, 34, 29, 25, 24 — with no sharp stop, while the direct-to-readout fraction rises from essentially
-zero to essentially all, crossing between blocks 8 and 10. The model's feed-forward stack is therefore three
+zero to essentially all, crossing between blocks 8 and 9 (the interpolated blocks were subsequently measured; the smooth decay holds). The model's feed-forward stack is therefore three
 regions: a cascade (blocks 0–6) where each block's output is food for the next square; a distributed region
 (7–11), where the mid-stack heads are context-dependent semantic sharpeners with no crisp type (the largest
 uncharacterized head failed every type test and delivers 88 percent of its effect through downstream
