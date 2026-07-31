@@ -7416,3 +7416,16 @@ existing steering methods, not a new method class, so in-scope and launched rath
   k=4..14 (+ direct-readout fraction) → the model's FEED-FORWARD FLOW MAP with measured boundaries: cascade
   region → distributed region → readout region. Anchors k=2:84%, k=3:83%. Hypothesis: smooth dissolution into
   the mid-stack; alternative: sharp end or whole-model chain.
+
+## tick 2026-07-31 (§99 committed — the three-region flow map; arc #5 = h.L7.0 dispatched)
+- §99 (arc #4): the cascade DISSOLVES smoothly (next-square 84/83 → 51% plateau blocks 4-6 → 24%, no sharp
+  drop); direct-readout rises ~0 → ~all, crossing blocks 8-10. THREE-REGION FLOW MAP measured: CASCADE 0-6 →
+  DISTRIBUTED 7-11 → READOUT 12-17 (block 14 both writes and feeds). Region examples: block 4's " but"
+  deviation 94% mediated vs block 14's comma-in-numbers direct write (ratio 1.44). The whole feed-forward
+  stack now has ONE connected mechanism narrative: table → hub → iterated squares → dissolution → differential-
+  pair readout. Committed §99.
+- ARC #5 dispatched (a76fe1644f57d9bc0, qk_arc_h70.py): h.L7.0, the largest fully-uncharacterized head — full
+  toolbox battery + focused type tests + mediated-vs-direct + concrete examples. Honest "diffuse contributor"
+  is a valid outcome in the distributed region.
+- QUEUE after #5: consolidation of the depth-first series (§96-99+) into paper/artifact as "how the model
+  computes, start to finish"; then the mid-stack band members as needed.
