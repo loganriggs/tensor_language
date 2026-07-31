@@ -7156,3 +7156,16 @@ existing steering methods, not a new method class, so in-scope and launched rath
   MLP-earlier → ≤15 group-pair terms per layer, exact; per-layer fold gates). Deliverables: terms-to-95%
   profile across depth, the model-wide provenance flow map, any qualitatively different layers, concrete
   examples. Collect next tick.
+
+## tick 2026-07-31 (§89 model-wide provenance census LANDS — the fold-first program's main sweep complete)
+- §89 (subagent a9f3b2369a538e142): all 18 blocks, every gate 5e-7..1.6e-6, every floor matching prior
+  censuses to 4 decimals. HEADLINES: terms-to-95% = 2,3,2,4,5 | 8-12 mid | 6-8 late | 10 at L17 — compact
+  anatomy is an EARLY-stack property; clean RECENCY-TO-HISTORY handoff (attention-recent 0.79→causally dead
+  by L15/16; earlier-groups rise to ~0.8; embedding dead by L3/4 with a weak late revival); interaction-
+  dominated everywhere except L0 (diagonal) and L17 (PATHOLOGICAL: mutually-cancelling terms, energy shares
+  sum >1, diagonal-only worse than the floor). Concrete: L2 = "square the previous block's output" (2 terms
+  = 98%); L16 = pure history-reader (own attention dead). Committed §89 + paper fold-first section completed.
+- The fold-first attribution program (§84-89) is now a complete arc: sufficiency hierarchy → provenance
+  anatomy at the hub → certified proxy → honest compression frontier → model-wide pipeline map. Remaining
+  named threads: non-uniform rank allocation; L17's cancelling-mixer structure (the one resistant spot);
+  term-targeted editing; provenance-naming gates; cross-model term census.
