@@ -4324,7 +4324,15 @@ diff 0.00000. Denominators reproduce §71 exactly (all-234 sum 1.1773; named-26 
   class +1,759 ± 134 (z 13.1, control ≈ 0) but ablation is +0.042 ± 0.031 (z 1.4). (3) h.L11.h3 — a SUBWORD-
   continuation prior: +1,252 ± 87 (z 14.4, control ≈ 50) but ablation +0.044 ± 0.030 (z 1.5). Pattern: class
   push overwhelming (z 8–74), individual causal cost unresolvable — the priors are redundantly/collectively
-  carried, each one's lean compensated when removed.
+  carried, each one's lean compensated when removed. DATASET EXAMPLES (qk_prior_examples.py, held-back):
+  mlp.L17.d0's extreme firings are commas inside NUMBERS/DATES ("Conservative Nigel Huddleston (12," → next
+  "396"; "Wed, May" → " 16") — an enumeration/date-context direction spraying capital-dominant class mass;
+  h.L14.h4 fires on sentence-final PERIODS/newlines ("…in the Samford Intercollegiate." → " The"/" In") — a
+  boundary-triggered "a word comes next" lean (even case-wrong there, capitals actually follow); h.L11.h3
+  fires on completed mid-sentence content words ("…their little cottage" → " gradually"; "skills, and
+  resources" → " were") pushing SUBWORD fragments — a "this word may not be finished" tokenization hedge.
+  Functional story: context-conditioned BASE RATES layered on top of the token-picking circuits, encoded
+  redundantly many times over — hence huge class pushes with invisible individual removals.
 - **Part B — the multi-path structure is essentially ONE super-additive block, not nameable teams.** Greedy
   joint-ablation grouping over the top 20 causally-important paths (union firing set, same-size random control):
   whole-top-20 joint delta cross-entropy 1.020 ± 0.032 vs sum-of-solos 0.607 → super-additivity **1.68**,
