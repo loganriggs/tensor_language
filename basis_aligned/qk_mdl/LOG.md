@@ -7217,3 +7217,15 @@ existing steering methods, not a new method class, so in-scope and launched rath
   (intervention-vs-energy; mlp-recent softer death; early joint-holding). Committed §90.
 - The cross-architecture fact-set now: completeness boundary (§77), SAE decoupling (§81), class-pushers (§70),
   and the depth pipeline (§90). Still in flight: qk_L17_mixer (why the readout cancels).
+
+## tick 2026-07-31 (§91 lands — the readout is a DIFFERENTIAL PAIR; last named mystery resolved)
+- §91 (subagent a666add33b4584db6): push-pull sharpening CONFIRMED (class-signature cosine −0.965 between the
+  dominant terms; pair-sum 3.7× smaller yet 21 SE decisive; removing BOTH cheaper than either alone — the
+  causal fingerprint), H2 null-space waste REJECTED (anti-alignment identical inside the unembedding row-space),
+  H3 gain control minor (15.6-32.6%). FUNCTION: a conditional contrast stage — subtract the generic
+  capital/word prior except where accumulated context says it is due; damage lands at structural decision
+  points (bracket-open +0.849, newlines, subword continuations). Unifies §44 lexical-readout + §69 capital-
+  selector-on-priors + §76 class priors (their conditional retraction is implemented HERE). Committed §91 +
+  artifact L17 card upgraded to the mechanism.
+- The fold-first program's named-thread list is nearly cleared: L17 mechanism DONE, cross-model pipeline DONE
+  (§90). Remaining: non-uniform rank allocation; term-targeted editing; provenance-naming gates.
