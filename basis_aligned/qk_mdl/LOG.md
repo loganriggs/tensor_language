@@ -7442,3 +7442,14 @@ existing steering methods, not a new method class, so in-scope and launched rath
   §100 (the mid-stack head archetype). Five arcs, five algorithm/role statements, ~17 concrete text examples.
 - NEXT: consolidate §96-100 into the paper + artifact as the "how the model computes, start to finish"
   chapter — the most legible product of the program.
+
+## tick 2026-07-31 (paper flow chapter committed; §96-100 red-team dispatched; artifact held for verdicts)
+- Paper gains "How the model computes, start to finish" (§96-100 consolidated: exact token table → hub →
+  iterated squares → three-region flow map → mid-stack archetype → differential-pair readout, caveats in-line).
+  Source → §32-§100.
+- Red-team dispatched (a75c7257da12f6827, qk_redteam_arcs.py) with the four sharpest confounds: (1) freeze-
+  patch CIRCULARITY (is "freeze next block rescues 84%" chain-specific or generically compensatory? — cross-
+  block + random-perturbation controls); (2) variance-vs-CAUSATION on the block-0 table (token-conditional-
+  mean substitution: is the lookup causally sufficient?); (3) SMOOTHNESS (measure the interpolated blocks
+  9/11/13); (4) AGGREGATION on h.L7.0 (is the diffuse effect genuinely broad or a hidden narrow circuit?).
+- Artifact refresh HELD until the verdicts (retraction-safe discipline, as before).
