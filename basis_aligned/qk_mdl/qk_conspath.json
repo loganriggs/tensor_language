@@ -1,0 +1,31 @@
+{
+ "meta": {
+  "base_ce": 3.4946,
+  "lambda_mean": 0.0004,
+  "held_scored_tokens": 19304
+ },
+ "floor_mean": [
+  1.2341,
+  0.0302
+ ],
+ "linear_normal": [
+  0.0796,
+  0.0045
+ ],
+ "linear_bypass": [
+  1.2339,
+  0.0302
+ ],
+ "full_bypass": [
+  1.2338,
+  0.0302
+ ],
+ "analysis": {
+  "floor_nats": 1.2341,
+  "linear_recovers_bothroutes": 1.1545,
+  "linear_recovers_directonly": 0.0002,
+  "linear_indirect_share": 1.0,
+  "full_recovers_directonly": 0.0003,
+  "full_indirect_share": 1.0
+ }
+}

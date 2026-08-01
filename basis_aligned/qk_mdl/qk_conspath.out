@@ -1,0 +1,13 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Lambda (skip-propagation factor) mean 0.0004 min 0.0004 max 0.0004
+fitting block-0 linear cap and per-position mean ...
+GATE base CE 3.4946 | held 152x127 = 19304 tokens
+  mean floor                       dCE +1.2341 +- 0.0302
+  linear cap (both routes)         dCE +0.0796 +- 0.0045
+  linear cap, DIRECT route only    dCE +1.2339 +- 0.0302
+  full block0, DIRECT route only   dCE +1.2338 +- 0.0302
+=== analysis ===
+  linear cap recovers 1.1545 nats via both routes, 0.0002 via direct-to-readout only
+  -> 100.0% of block 0's linear effect flows through DOWNSTREAM NONLINEARITIES
+  full block 0: 0.0003 of 1.2341 recovered by direct route -> 100.0% is intermediate-nonlinear
+SAVED qk_conspath.json
