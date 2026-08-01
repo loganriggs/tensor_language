@@ -1,0 +1,7 @@
+fitting ...
+GATE base 3.4946 | floor +1.2341 | lincap +0.0796
+block 0 recovery, REAL norms  +1.1545
+  linearize block1     norms: floor-gate +1.2341 | recovery +1.1545 | norm carries 0.0%
+  linearize blocks1-2  norms: floor-gate +1.2341 | recovery +1.1545 | norm carries 0.0%
+  linearize blocks1-3  norms: floor-gate +1.2341 | recovery +1.1545 | norm carries 0.0%
+SAVED
