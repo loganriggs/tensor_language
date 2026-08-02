@@ -7716,3 +7716,15 @@ existing steering methods, not a new method class, so in-scope and launched rath
   does D's layer 0 skip building the loud token table?). Predictions P1-P4 pre-registered in the prompt;
   probes: token-determined fraction per layer, table/linear causal fraction for layers 0-1, write norms,
   learned mixing values (no clip — if b grows unbounded that's a finding).
+
+## tick 2026-08-02d (token-line experiment LANDED -> §106: predictions refuted/inverted at depth 4)
+- P1 refuted (vanilla best: A 5.7271, B +0.0058, C +0.0299, D +0.0094 at the honest 6-epoch budget; agent
+  caught 15-epoch overfitting and retrained all four). P2 INVERTED (line makes writes MORE token-determined
+  — it floods every entry with the token direction; vanilla writes most contextual). P3 loudness backwards
+  (A's layer-0 write quietest) but table-ness half-right, with the new distinction: vanilla builds a
+  NONLINEAR token lookup (table 93.5% >> linear 70.8%) while line variants are near-linear operands
+  (B linear 90.6% > table 88.2%) — the bilin18 style. P4 weakly confirmed; D confounded (tied weight-decayed
+  embeddings make the raw line structurally quiet, norm ~1.33/row). C did not rediscover resets; settled at
+  the §105-worst uniform damping and lost.
+- Verdict: bilin18's 2.26-nat line value is plausibly a DEPTH phenomenon. Follow-up dispatched: depth
+  scaling A vs B at 2/4/8/12 layers.

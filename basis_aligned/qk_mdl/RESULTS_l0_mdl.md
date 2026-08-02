@@ -5561,3 +5561,45 @@ category code without being dragged by stale accumulation. The down-weighting of
 shadow of "re-inject the token at 8x every layer + reset twice," not a goal. Per-block re-injection is
 individually near-redundant (single lambda1→0 costs ≤+0.09, block 1 the largest) but collectively worth 2.26
 nats. The 18 lambda0 values, read directly, reproduce the entire cascade/distributed/readout flow map.
+
+## §106 Token-line counterfactual training: predictions inverted at depth 4 (qk_tokenline_train.py/_2, _probe.py)
+
+Logan's proposal after §105: if the lambdas mean "each layer wants the current token," models trained WITH a
+direct token line should beat vanilla, and the vanilla model's bilinear layers should be MORE
+token-determined (forced to re-carry the token). Four matched 4-layer/384-wide mini-bilin18s (29.9M params,
+same block conventions, no value-lerp, identical seed/init/data order, lr 0.001 frozen from an A-only
+sweep): A vanilla (no line), B clamped line (rms-normed embedding, b learned), C full mix (a and b learned),
+D unclamped line (raw embedding, magnitude preserved). Two budgets after catching overfitting (15-epoch runs
+overfit: A held CE 6.89 vs 5.73 at the 6-epoch optimum; all results reported at both).
+
+**P1 (line improves CE): REFUTED.** 6-epoch held CE: A 5.7271; B−A +0.0058 ± 0.0028; C−A +0.0299 ± 0.0027;
+D−A +0.0094 ± 0.0026 (sequence-clustered standard errors). Vanilla best everywhere; full mix clearly worst.
+
+**P2 (vanilla writes more token-determined): INVERTED.** Token-determined fraction of mlp writes, layers
+0-3 at 6 epochs: A 0.821/0.593/0.515/0.453; B 0.891/0.775/0.590/0.509; C 0.871/0.785/0.614/0.489; D tracks
+A. Same ordering at 15 epochs and for attention writes. Mechanism: the line floods every entry with the
+current-token direction (B: 24-26 norm units against entry streams of 44-63), dragging every write toward a
+token function. The vanilla model produces the MOST contextual writes.
+
+**P3 (vanilla layer 0 loudest, most table-like): loudness BACKWARDS, table-ness half-right.** A's layer-0
+write is the QUIETEST (norm 19.5 vs B 54.2, C 59.8); the loud tables live in the line variants. But
+causally A's layer 0 is the most table-like at the long budget (token-conditional-mean substitution
+recovers 93.5% of its 2.15-nat damage vs B 85.1/C 81.7/D 87.3) — and the refinement the prediction missed:
+**A's table is genuinely NONLINEAR (best linear map of the embedding recovers only 70.8% vs the table's
+93.5%), while the line variants' early writes are nearly LINEAR in the embedding** (B: linear 90.6% beats
+its own table 88.2%; C layer 1: linear 96.0% vs table 83.6%). The line variants reproduce bilin18's
+~91%-linear operand style; the vanilla model builds a real nonlinear lookup.
+
+**P4 (D's layer 0 least table-like): weakly confirmed** (6-epoch: D 0.831 lowest of four; budget-dependent
+at 15). CONFOUND flagged: with tied weight-decayed embeddings the raw rows have mean norm 1.33, so D's
+unclamped line contributes only ~3 norm units — magnitude is delivered but the channel is structurally
+quiet; a fair unclamped test needs untied/unregularized embeddings.
+
+**Unpredicted:** line coefficients fade with depth (B: 1.25, 1.33, 0.90, 0.68; last block −0.045 at 15
+epochs), never unbounded (max 2.93, no clip needed). C did NOT rediscover the reset schedule — it settled
+at the ~0.61-0.91 uniform damping that §105 showed is the WORST configuration, and C is worst on CE.
+Overfitting makes writes more contextual (A layer 1: 0.593 → 0.398).
+
+**Verdict:** at depth 4 the line buys nothing and mechanically token-anchors the stack; bilin18's 2.26-nat
+line value is most plausibly a DEPTH phenomenon (17 entry-crushes for the token to survive vs 3). The
+depth-scaling test (same A/B contrast at depths 2/4/8/12) is the discriminating follow-up.
