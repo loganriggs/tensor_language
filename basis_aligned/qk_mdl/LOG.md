@@ -7688,3 +7688,16 @@ existing steering methods, not a new method class, so in-scope and launched rath
   carry 0.064 implements the §99 cascade boundary. Operand answer: 91% linear-in-embedding (redundant in
   content) but carries the norm-clamp-erased per-token gain + is the trained factorization (I+L)^T Q (I+L).
 - Committed the stopped doc agent's landed work: paper cross-layer chapter + pedagogy methods 12-13.
+
+## tick 2026-08-02b (Logan: interrogate the learned lambdas directly — the leak is a shadow of a reset schedule)
+- Logan's challenge: "leak" is a redescription; lambda is learned, so what do the values buy for CE? Ran
+  qk_lambda_probe.py (direct weight intervention on the 36 scalars). Findings -> §105:
+  - lambda1 (re-inject) is CLIPPED at 8.0, pinned there on 14/18 blocks; model at max re-injection (raising
+    the other 4 to 8 costs +0.005). Removing all re-injection: +2.26 nats.
+  - lambda0 (carry) is a SCHEDULE: near-total resets at block 1 (0.0127) and block 5 (0.064), persistent
+    (~1) for blocks 7-17. VANILLA residual (l0=1,l1=0) costs +7.28 (CE 3.49->10.77). Uniform-0.63 "leak"
+    picture costs +5.03 -- WORSE than l0=1, refuting the uniform-decay framing.
+  - The two resets carry ~2.5 nats (block1 +1.33, block5 +1.22); block 1 = operand handoff (corroborates
+    §103 block-1-sole-conduit), block 5 = §99 cascade boundary. The 18 lambda0 values ARE the flow map.
+- Answer: SGD maximized per-layer raw-token access (lambda1 at cap) + two hard resets; the leak is the
+  arithmetic shadow, not the objective.

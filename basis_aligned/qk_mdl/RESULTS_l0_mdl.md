@@ -5524,3 +5524,40 @@ that would constitute meaningful compression." Skipped, on the record: k=12 caus
 for cost; partial trace showed a real, still-improving validation gain — that cell is superseded by the
 centred/consumption result at the same budget); gauge runs trimmed 160→40 iterations (matched budgets,
 decaying increments); region-restricted and composed schemes not re-run under the new metrics.
+
+## §105 The 36 stream-mixing scalars: the "leak" is the shadow of a reset schedule (qk_lambda_probe.py)
+
+Logan: the leaky stream is a redescription; lambda is LEARNED, so ask what the specific values buy for CE.
+The architecture mixes at every block entry: x <- lambda0*x + lambda1*ê0 + writes (ê0 = rms-normed
+embedding, re-injected every block). 36 scalars total. Direct weight intervention, held FW[448:600],
+paired standard errors, base CE 3.4946.
+
+**The values are a clip + a schedule.** lambda1 (re-injection) takes only {5.06, 5.88, 6.09, 8.0} — **8.0 is
+a cap, pinned on 14 of 18 blocks**; raising the other four to 8 costs +0.0051 (the model sits at maximum
+re-injection everywhere and wants more). lambda0 (carry) is structured: **0.0127 at block 1 and 0.064 at
+block 5 (near-total resets)**, ~0.46-0.59 at blocks 3-4-6, and ~0.8-1.4 (persistent) for blocks 7-17.
+
+**What the scheme is worth (global, dCE ± standard error):**
+- VANILLA residual (lambda0=1, lambda1=0) → **+7.2756 ± 0.042** (CE 3.49 → 10.77): the whole mixing scheme
+  carries 7.3 nats. Not a can kicked down the road — the model's core routing.
+- all lambda1 → 0 (no re-injection) → **+2.2554**: strong per-layer token re-injection is load-bearing.
+- all lambda0 → 1 (kill the reset schedule) → **+4.7054**.
+- freeze lambda0 at its geometric mean 0.63 (the uniform-"leak" picture) → **+5.0290 — WORSE than →1**: a
+  uniform decay actively destroys the model. The leak is not uniform; the SCHEDULE is the point.
+
+**The schedule is two deliberate resets, and it IS the flow map.** Per-block lambda0→1: block 1 (0.013→1)
++1.326, block 5 (0.064→1) +1.224 — these two resets carry ~2.5 nats; every other block <+0.14. Block 1's
+reset = the operand handoff (block 0 computes the token table, block 1 reads it once at coefficient 0.0127
+then restarts from the fresh embedding — corroborates §103's "block 1 is the sole conduit"). Block 5's reset
+= the §99 cascade boundary (cascade 0-6 → distributed 7-11). After block 6, lambda0 ≈ 1: the late stack
+(7-17) is a NORMAL accumulating residual stream where writes persist — the readout region. So block 0's
+write "leaks out" not by uniform decay but because of the two resets at blocks 1 and 5; the late stack does
+not leak at all.
+
+**Answer to "why did SGD do this":** SGD did not optimize a leak. It maximized per-layer access to the raw
+current token (lambda1 pinned at its cap — next-token prediction is token/bigram-dominated), and it inserted
+two hard resets (blocks 1, 5) that let the early stack build a fresh per-token operand and then a fresh
+category code without being dragged by stale accumulation. The down-weighting of old writes is the arithmetic
+shadow of "re-inject the token at 8x every layer + reset twice," not a goal. Per-block re-injection is
+individually near-redundant (single lambda1→0 costs ≤+0.09, block 1 the largest) but collectively worth 2.26
+nats. The 18 lambda0 values, read directly, reproduce the entire cascade/distributed/readout flow map.
