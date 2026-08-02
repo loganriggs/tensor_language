@@ -7679,3 +7679,12 @@ existing steering methods, not a new method class, so in-scope and launched rath
   HELPS -1.48 where capital is wrong), h.L0.2 null at its own loudest writes (top-200 mean +0.004±0.015),
   archetype examples incl. comma-attending-comma (S 0.520, negative word/capital signal) and
   newline->newline (S 0.646, +152k capital — start-of-line capitalization feed). Dossier draft 5.
+
+## tick 2026-08-02 (Logan Q&A: the leak, operand-vs-embedding, norms; docs committed)
+- Answered Logan's three questions with a fresh measurement (qk_norm_check.py): raw wte 565 -> rms-clamped
+  33.94 (x8 gain = 277 at every entry); block-0 write norm ~50,000; AS CONSUMED at block 1: embedding 277,
+  block-0 write 635 (2.3x larger), attention-0 4.8 (dead by loudness). Carry lambdas measured per block
+  (0.013, 1.98, 0.57, 0.46, 0.064, ...): product over 17 post-block-0 entries 3.6e-4 = the leak; block-5
+  carry 0.064 implements the §99 cascade boundary. Operand answer: 91% linear-in-embedding (redundant in
+  content) but carries the norm-clamp-erased per-token gain + is the trained factorization (I+L)^T Q (I+L).
+- Committed the stopped doc agent's landed work: paper cross-layer chapter + pedagogy methods 12-13.
