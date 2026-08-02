@@ -7701,3 +7701,18 @@ existing steering methods, not a new method class, so in-scope and launched rath
     §103 block-1-sole-conduit), block 5 = §99 cascade boundary. The 18 lambda0 values ARE the flow map.
 - Answer: SGD maximized per-layer raw-token access (lambda1 at cap) + two hard resets; the leak is the
   arithmetic shadow, not the objective.
+
+## tick 2026-08-02c (Logan: token-line hypothesis -> counterfactual training experiment dispatched)
+- Logan's assessment: the lambda story is mostly "each layer wants the current token"; proposes training
+  1-4 layer models with/without a direct token line; predicts line-models perform better AND their bilinear
+  layers are less linear (without the line, layers must re-carry the token themselves).
+- My refinement (from §105 numbers): token line (2.26 nats) and reset schedule (4.71) are COUPLED — hard
+  resets are only safe because the line re-supplies the token; the line's value includes the freedom to
+  discard stale state. Prior work: the lambda mix IS a modded-nanogpt speedrun trick (why bilin18 has it);
+  DenseFormer 2024, Hyper-Connections 2024/25, value-residual (ResFormer) 2024. The NOVEL part is Logan's
+  interp prediction (counterfactual layers more token-redundant) — not in the literature.
+- Dispatched training agent: 4 matched mini-bilin18s (4L/384d), A vanilla, B clamped line (bilin18-style),
+  C full learned mix, D UNCLAMPED line (raw-embedding magnitude preserved — tests the §norm operand story:
+  does D's layer 0 skip building the loud token table?). Predictions P1-P4 pre-registered in the prompt;
+  probes: token-determined fraction per layer, table/linear causal fraction for layers 0-1, write norms,
+  learned mixing values (no clip — if b grows unbounded that's a finding).
