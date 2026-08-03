@@ -4,6 +4,18 @@ Prepared 2026-08-03 for a ~12-hour run of the interpretable-architecture experim
 larger width / on more GPUs, from a fresh session that clones this repo. Read
 RESULTS_l0_mdl.md §108–§111 for scientific context; this file is the operational spec.
 
+> **Update 2026-08-03 late:** (1) The width-1152 gate CRASHED on the local 16 GB card
+> ("does not fit even at micro-batch 2") — it has never run; the rented session owns it
+> outright. (2) The local overnight chain now covers, at width 264 / batch 16 /
+> single-epoch fresh data: AdamW + Muon controls, readout replications (V10/V11/V11nl/
+> V13r1), and E1–E4 — results land in qk_e0/e0m/er/e1..e4.json; read them before
+> choosing scale arms. (3) `qk_e_common.py` is the reusable fresh-stream harness
+> (sharded corpus loading, curve-saving, Muon, paired evals) — build scale runners on
+> it rather than the older 6-epoch harness. (4) Early optimizer signal: Muon lr 0.02
+> (interior optimum) beat the best AdamW sweep arm at 400 steps, 6.201 vs 6.240; the
+> AdamW winner 0.004 sat at the sweep-grid EDGE (monotone improving) — widen the AdamW
+> grid at scale, and consider Muon the default candidate for the retrain.
+
 ## What to run (priority order)
 
 All arms are INDEPENDENT — with k GPUs run k arms concurrently, one per GPU
