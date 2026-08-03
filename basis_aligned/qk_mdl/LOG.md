@@ -7815,3 +7815,8 @@ existing steering methods, not a new method class, so in-scope and launched rath
   (ff1 table 1.09, ff2 0.93, ff9 1.02, ff10 0.79), attention named via activations (weak gates by
   construction), 3-term exact entries at 100% causal recovery. Residual: ff8 monolith, a8 mixed, ff11 half,
   3 dead blocks. GO recommendation, two-tier.
+
+## tick 2026-08-04c (V9/V9b/w768 queue LANDED -> §110; recipe settled)
+- V9 best paid option (0.90 wiring at +0.041); V9b dominated; width-768 free config WINS −0.052 with 0.82
+  wiring and zero dead blocks (regularizer-in-data-limited-regime confound noted). Level-5-lite names on V9
+  delivered. Final retrain recipe enshrined in §110.

@@ -1,0 +1,6497 @@
+{
+  "lrsweep": {
+    "results": {
+      "0.001": {
+        "held100_ce": 6.4296,
+        "diverged": false,
+        "spikes": 0
+      },
+      "0.002": {
+        "held100_ce": 6.334,
+        "diverged": false,
+        "spikes": 0
+      },
+      "0.003": {
+        "held100_ce": 6.3249,
+        "diverged": false,
+        "spikes": 0
+      }
+    },
+    "chosen": 0.003,
+    "note": "swept with the fixed 1e-4 group penalty active"
+  },
+  "full_run": {
+    "lr": 0.003,
+    "group_coeff": 0.0001,
+    "held_ce_bf16": 5.751916603088379,
+    "spikes": 0,
+    "final_penalty": 1626.44140625
+  },
+  "ce": {
+    "held_ce": 5.751916885375977,
+    "V1_held_ce": 5.710475444793701,
+    "minus_V1": 0.041440825909376144,
+    "minus_V1_se_token": 0.002365001942962408,
+    "minus_V1_se_seq": 0.0033624954521656036,
+    "lr": 0.003,
+    "group_coeff": 0.0001
+  },
+  "probe": {
+    "held_ce_bf16": 5.751916603088379,
+    "lr": 0.003,
+    "group_coeff": 0.0001,
+    "spikes": 0,
+    "base_ce_fp32_abl": 5.77571,
+    "consumption_top40": [
+      {
+        "consumer": "readout",
+        "source": "mlp6",
+        "dce": 1.33714
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp10",
+        "dce": 0.86075
+      },
+      {
+        "consumer": "block3",
+        "source": "emb",
+        "dce": 0.51713
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp8",
+        "dce": 0.43129
+      },
+      {
+        "consumer": "block11",
+        "source": "mlp6",
+        "dce": 0.39938
+      },
+      {
+        "consumer": "block11",
+        "source": "mlp10",
+        "dce": 0.33524
+      },
+      {
+        "consumer": "block4",
+        "source": "emb",
+        "dce": 0.32876
+      },
+      {
+        "consumer": "block2",
+        "source": "emb",
+        "dce": 0.20274
+      },
+      {
+        "consumer": "block5",
+        "source": "emb",
+        "dce": 0.17709
+      },
+      {
+        "consumer": "block10",
+        "source": "mlp6",
+        "dce": 0.15248
+      },
+      {
+        "consumer": "readout",
+        "source": "attn9",
+        "dce": 0.12103
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp9",
+        "dce": 0.11404
+      },
+      {
+        "consumer": "block0",
+        "source": "emb",
+        "dce": 0.10604
+      },
+      {
+        "consumer": "block9",
+        "source": "mlp6",
+        "dce": 0.10237
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp11",
+        "dce": 0.09991
+      },
+      {
+        "consumer": "block8",
+        "source": "mlp6",
+        "dce": 0.096
+      },
+      {
+        "consumer": "block11",
+        "source": "mlp8",
+        "dce": 0.08641
+      },
+      {
+        "consumer": "block6",
+        "source": "mlp5",
+        "dce": 0.0792
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp7",
+        "dce": 0.07789
+      },
+      {
+        "consumer": "block10",
+        "source": "mlp5",
+        "dce": 0.07267
+      },
+      {
+        "consumer": "block6",
+        "source": "mlp3",
+        "dce": 0.07257
+      },
+      {
+        "consumer": "block6",
+        "source": "mlp4",
+        "dce": 0.06883
+      },
+      {
+        "consumer": "block10",
+        "source": "mlp8",
+        "dce": 0.06574
+      },
+      {
+        "consumer": "readout",
+        "source": "attn10",
+        "dce": 0.06441
+      },
+      {
+        "consumer": "readout",
+        "source": "attn7",
+        "dce": 0.06129
+      },
+      {
+        "consumer": "block9",
+        "source": "mlp5",
+        "dce": 0.05411
+      },
+      {
+        "consumer": "readout",
+        "source": "attn8",
+        "dce": 0.05271
+      },
+      {
+        "consumer": "block10",
+        "source": "mlp4",
+        "dce": 0.04947
+      },
+      {
+        "consumer": "block9",
+        "source": "mlp4",
+        "dce": 0.04827
+      },
+      {
+        "consumer": "block8",
+        "source": "mlp5",
+        "dce": 0.04294
+      },
+      {
+        "consumer": "block7",
+        "source": "mlp4",
+        "dce": 0.03964
+      },
+      {
+        "consumer": "block8",
+        "source": "mlp4",
+        "dce": 0.03905
+      },
+      {
+        "consumer": "block7",
+        "source": "mlp5",
+        "dce": 0.03751
+      },
+      {
+        "consumer": "block7",
+        "source": "mlp6",
+        "dce": 0.03682
+      },
+      {
+        "consumer": "readout",
+        "source": "attn11",
+        "dce": 0.03636
+      },
+      {
+        "consumer": "block8",
+        "source": "mlp3",
+        "dce": 0.03301
+      },
+      {
+        "consumer": "block5",
+        "source": "mlp4",
+        "dce": 0.03197
+      },
+      {
+        "consumer": "block6",
+        "source": "mlp2",
+        "dce": 0.03196
+      },
+      {
+        "consumer": "block5",
+        "source": "mlp3",
+        "dce": 0.03108
+      },
+      {
+        "consumer": "block11",
+        "source": "mlp5",
+        "dce": 0.03071
+      }
+    ],
+    "consumption_matrix": {
+      "0": {
+        "0": 0.106035
+      },
+      "1": {
+        "0": 0.001741,
+        "1": -0.002532,
+        "2": 9.5e-05
+      },
+      "2": {
+        "0": 0.20274,
+        "1": 0.003522,
+        "2": 0.002567,
+        "3": -1e-06,
+        "4": -0.000136
+      },
+      "3": {
+        "0": 0.517131,
+        "1": 0.015167,
+        "2": 0.003024,
+        "3": 9e-06,
+        "4": -0.000217,
+        "5": 0.000866,
+        "6": 0.017215
+      },
+      "4": {
+        "0": 0.328759,
+        "1": 0.00581,
+        "2": 0.005814,
+        "3": 3e-06,
+        "4": -0.000416,
+        "5": 0.000237,
+        "6": 0.00835,
+        "7": 0.006769,
+        "8": 0.016065
+      },
+      "5": {
+        "0": 0.177087,
+        "1": 0.010373,
+        "2": 0.00358,
+        "3": 1e-06,
+        "4": -0.000193,
+        "5": 0.000107,
+        "6": 0.012142,
+        "7": 0.006022,
+        "8": 0.031079,
+        "9": 2e-06,
+        "10": 0.031972
+      },
+      "6": {
+        "1": 0.005187,
+        "2": 0.009331,
+        "3": 2e-06,
+        "4": -1e-06,
+        "5": -5.2e-05,
+        "6": 0.031963,
+        "7": 0.019883,
+        "8": 0.072574,
+        "9": -0.0,
+        "10": 0.068834,
+        "11": 3e-06,
+        "12": 0.079199
+      },
+      "7": {
+        "3": 4e-06,
+        "4": 2e-06,
+        "5": -6e-06,
+        "6": 0.017673,
+        "7": 0.000766,
+        "8": 0.028753,
+        "9": -0.0,
+        "10": 0.039644,
+        "11": 5e-06,
+        "12": 0.03751,
+        "13": 0.003025,
+        "14": 0.036817
+      },
+      "8": {
+        "5": -1.8e-05,
+        "6": 0.016745,
+        "7": 0.001305,
+        "8": 0.033011,
+        "9": 0.0,
+        "10": 0.039055,
+        "11": -4e-06,
+        "12": 0.042941,
+        "13": 0.002576,
+        "14": 0.096001,
+        "15": 0.016492,
+        "16": 0.013614
+      },
+      "9": {
+        "7": 0.000534,
+        "8": 0.026747,
+        "9": 2e-06,
+        "10": 0.048267,
+        "11": -2e-06,
+        "12": 0.054109,
+        "13": 0.001549,
+        "14": 0.102367,
+        "15": 0.015523,
+        "16": 0.01147,
+        "17": 0.013972,
+        "18": 0.023759
+      },
+      "10": {
+        "9": 0.0,
+        "10": 0.049469,
+        "11": 1e-06,
+        "12": 0.072675,
+        "13": 0.001575,
+        "14": 0.152482,
+        "15": 0.01438,
+        "16": 0.018236,
+        "17": 0.012754,
+        "18": 0.065742,
+        "19": 0.026371,
+        "20": 0.019699
+      },
+      "11": {
+        "11": -0.0,
+        "12": 0.030707,
+        "13": 0.000832,
+        "14": 0.399378,
+        "15": 0.009866,
+        "16": 0.011566,
+        "17": 0.00766,
+        "18": 0.086413,
+        "19": 0.02764,
+        "20": 0.020327,
+        "21": 0.007316,
+        "22": 0.335238
+      },
+      "12": {
+        "13": 0.016735,
+        "14": 1.337144,
+        "15": 0.061295,
+        "16": 0.077893,
+        "17": 0.05271,
+        "18": 0.431293,
+        "19": 0.121035,
+        "20": 0.11404,
+        "21": 0.064406,
+        "22": 0.860746,
+        "23": 0.03636,
+        "24": 0.099914
+      }
+    },
+    "per_block_total_consumption": {
+      "0": 0.06194,
+      "1": -0.00094,
+      "2": 0.10522,
+      "3": 0.24351,
+      "4": 0.27725,
+      "5": 0.31714,
+      "6": 2.15048,
+      "7": 0.25033,
+      "8": 0.6943,
+      "9": 0.32911,
+      "10": 1.26771,
+      "11": 0.13627
+    },
+    "min_block_total": -0.00094,
+    "dead_blocks_below_0.001": [
+      1
+    ],
+    "wiring_n_pairs": 114,
+    "wiring_spearman_all": 0.9024,
+    "wiring_n_effectual": 70,
+    "wiring_spearman_effectual": 0.7244,
+    "wiring_top10_precision": 0.6,
+    "wiring_top10_support_edges": [
+      {
+        "consumer": "readout",
+        "source": "mlp6",
+        "support": 534.557,
+        "dce": 1.33714
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp10",
+        "support": 334.48,
+        "dce": 0.86075
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp8",
+        "support": 263.273,
+        "dce": 0.43129
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp9",
+        "support": 164.035,
+        "dce": 0.11404
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp7",
+        "support": 161.74,
+        "dce": 0.07789
+      },
+      {
+        "consumer": "readout",
+        "source": "attn10",
+        "support": 126.818,
+        "dce": 0.06441
+      },
+      {
+        "consumer": "readout",
+        "source": "attn8",
+        "support": 118.206,
+        "dce": 0.05271
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp11",
+        "support": 113.512,
+        "dce": 0.09991
+      },
+      {
+        "consumer": "readout",
+        "source": "attn7",
+        "support": 110.471,
+        "dce": 0.06129
+      },
+      {
+        "consumer": "readout",
+        "source": "attn9",
+        "support": 109.502,
+        "dce": 0.12103
+      }
+    ],
+    "weight_support_matrix": {
+      "0": {},
+      "1": {
+        "1": 0.209,
+        "2": 0.158
+      },
+      "2": {
+        "1": 2.884,
+        "2": 2.118,
+        "3": 2.045,
+        "4": 1.819
+      },
+      "3": {
+        "1": 4.297,
+        "2": 3.584,
+        "3": 2.88,
+        "4": 3.017,
+        "5": 2.995,
+        "6": 4.606
+      },
+      "4": {
+        "1": 4.515,
+        "2": 3.212,
+        "3": 3.013,
+        "4": 3.131,
+        "5": 3.351,
+        "6": 3.423,
+        "7": 4.114,
+        "8": 3.447
+      },
+      "5": {
+        "1": 3.879,
+        "2": 3.411,
+        "3": 2.446,
+        "4": 2.899,
+        "5": 2.189,
+        "6": 3.866,
+        "7": 4.045,
+        "8": 3.881,
+        "9": 1.691,
+        "10": 3.936
+      },
+      "6": {
+        "1": 3.23,
+        "2": 3.808,
+        "3": 0.0,
+        "4": 0.007,
+        "5": 0.049,
+        "6": 7.219,
+        "7": 4.468,
+        "8": 8.249,
+        "9": 0.0,
+        "10": 8.933,
+        "11": 0.0,
+        "12": 8.628
+      },
+      "7": {
+        "3": 0.0,
+        "4": 0.002,
+        "5": 0.019,
+        "6": 8.241,
+        "7": 2.532,
+        "8": 8.97,
+        "9": 0.0,
+        "10": 9.597,
+        "11": 0.0,
+        "12": 9.523,
+        "13": 4.006,
+        "14": 8.745
+      },
+      "8": {
+        "5": 0.032,
+        "6": 8.7,
+        "7": 3.104,
+        "8": 9.571,
+        "9": 0.0,
+        "10": 10.4,
+        "11": 0.0,
+        "12": 10.246,
+        "13": 3.968,
+        "14": 10.198,
+        "15": 7.855,
+        "16": 7.722
+      },
+      "9": {
+        "7": 2.679,
+        "8": 9.778,
+        "9": 0.0,
+        "10": 11.29,
+        "11": 0.0,
+        "12": 11.024,
+        "13": 3.719,
+        "14": 10.128,
+        "15": 8.117,
+        "16": 7.877,
+        "17": 9.97,
+        "18": 8.602
+      },
+      "10": {
+        "9": 0.0,
+        "10": 11.211,
+        "11": 0.0,
+        "12": 10.721,
+        "13": 3.616,
+        "14": 10.639,
+        "15": 7.618,
+        "16": 8.343,
+        "17": 9.175,
+        "18": 9.065,
+        "19": 9.637,
+        "20": 8.647
+      },
+      "11": {
+        "11": 0.0,
+        "12": 7.733,
+        "13": 2.797,
+        "14": 8.414,
+        "15": 6.288,
+        "16": 6.001,
+        "17": 6.743,
+        "18": 6.865,
+        "19": 7.746,
+        "20": 6.477,
+        "21": 7.095,
+        "22": 7.274
+      },
+      "12": {
+        "13": 83.396,
+        "14": 534.557,
+        "15": 110.471,
+        "16": 161.74,
+        "17": 118.206,
+        "18": 263.273,
+        "19": 109.502,
+        "20": 164.035,
+        "21": 126.818,
+        "22": 334.48,
+        "23": 103.703,
+        "24": 113.512
+      }
+    },
+    "routing_sparsity": {
+      "0": {
+        "support": 1,
+        "mean_entropy_nats": 0.0,
+        "effective_inputs": 1.0
+      },
+      "1": {
+        "support": 3,
+        "mean_entropy_nats": 0.8008,
+        "effective_inputs": 2.227
+      },
+      "2": {
+        "support": 5,
+        "mean_entropy_nats": 0.8619,
+        "effective_inputs": 2.368
+      },
+      "3": {
+        "support": 7,
+        "mean_entropy_nats": 1.2283,
+        "effective_inputs": 3.415
+      },
+      "4": {
+        "support": 9,
+        "mean_entropy_nats": 1.6166,
+        "effective_inputs": 5.036
+      },
+      "5": {
+        "support": 11,
+        "mean_entropy_nats": 1.7785,
+        "effective_inputs": 5.921
+      },
+      "6": {
+        "support": 12,
+        "mean_entropy_nats": 1.758,
+        "effective_inputs": 5.801
+      },
+      "7": {
+        "support": 12,
+        "mean_entropy_nats": 1.8274,
+        "effective_inputs": 6.218
+      },
+      "8": {
+        "support": 12,
+        "mean_entropy_nats": 2.0749,
+        "effective_inputs": 7.964
+      },
+      "9": {
+        "support": 12,
+        "mean_entropy_nats": 2.179,
+        "effective_inputs": 8.838
+      },
+      "10": {
+        "support": 12,
+        "mean_entropy_nats": 2.2176,
+        "effective_inputs": 9.186
+      },
+      "11": {
+        "support": 12,
+        "mean_entropy_nats": 2.3167,
+        "effective_inputs": 10.143
+      },
+      "12": {
+        "support": 12,
+        "mean_entropy_nats": 2.4108,
+        "effective_inputs": 11.142
+      }
+    },
+    "mean_effective_inputs": 6.097,
+    "terms": {
+      "block4": {
+        "n_terms": 9,
+        "term_names": [
+          "emb",
+          "attn0",
+          "mlp0",
+          "attn1",
+          "mlp1",
+          "attn2",
+          "mlp2",
+          "attn3",
+          "mlp3"
+        ],
+        "reassembly_rel_err": 0.0,
+        "exact": true,
+        "k95_energy": 5,
+        "term_energy_ranked": [
+          [
+            "emb",
+            3145677.0
+          ],
+          [
+            "mlp3",
+            2022943.5
+          ],
+          [
+            "mlp2",
+            904973.88
+          ],
+          [
+            "attn0",
+            286527.28
+          ],
+          [
+            "attn3",
+            276505.72
+          ],
+          [
+            "mlp0",
+            205197.67
+          ],
+          [
+            "attn2",
+            7755.54
+          ],
+          [
+            "mlp1",
+            1712.83
+          ],
+          [
+            "attn1",
+            12.27
+          ]
+        ],
+        "dce_topk95": 0.00555,
+        "dce_entry_mean_floor": 1.1051,
+        "topk95_recovered": 0.995
+      },
+      "block6": {
+        "n_terms": 12,
+        "term_names": [
+          "attn0",
+          "mlp0",
+          "attn1",
+          "mlp1",
+          "attn2",
+          "mlp2",
+          "attn3",
+          "mlp3",
+          "attn4",
+          "mlp4",
+          "attn5",
+          "mlp5"
+        ],
+        "reassembly_rel_err": 0.0,
+        "exact": true,
+        "k95_energy": 5,
+        "term_energy_ranked": [
+          [
+            "mlp5",
+            4348838.0
+          ],
+          [
+            "mlp4",
+            2183982.0
+          ],
+          [
+            "mlp3",
+            2022943.5
+          ],
+          [
+            "mlp2",
+            904973.88
+          ],
+          [
+            "attn0",
+            286527.28
+          ],
+          [
+            "attn3",
+            276505.72
+          ],
+          [
+            "mlp0",
+            205197.67
+          ],
+          [
+            "attn2",
+            7755.54
+          ],
+          [
+            "mlp1",
+            1712.83
+          ],
+          [
+            "attn5",
+            98.09
+          ],
+          [
+            "attn1",
+            12.27
+          ],
+          [
+            "attn4",
+            4.86
+          ]
+        ],
+        "dce_topk95": 0.03043,
+        "dce_entry_mean_floor": 0.95687,
+        "topk95_recovered": 0.9682
+      },
+      "block9": {
+        "n_terms": 12,
+        "term_names": [
+          "attn3",
+          "mlp3",
+          "attn4",
+          "mlp4",
+          "attn5",
+          "mlp5",
+          "attn6",
+          "mlp6",
+          "attn7",
+          "mlp7",
+          "attn8",
+          "mlp8"
+        ],
+        "reassembly_rel_err": 0.0,
+        "exact": true,
+        "k95_energy": 8,
+        "term_energy_ranked": [
+          [
+            "mlp5",
+            4348838.0
+          ],
+          [
+            "mlp6",
+            3259829.5
+          ],
+          [
+            "mlp8",
+            2760465.5
+          ],
+          [
+            "mlp4",
+            2183982.0
+          ],
+          [
+            "mlp3",
+            2022943.5
+          ],
+          [
+            "attn7",
+            1562846.5
+          ],
+          [
+            "mlp7",
+            1484615.25
+          ],
+          [
+            "attn8",
+            1187513.5
+          ],
+          [
+            "attn6",
+            556783.62
+          ],
+          [
+            "attn3",
+            276505.72
+          ],
+          [
+            "attn5",
+            98.09
+          ],
+          [
+            "attn4",
+            4.86
+          ]
+        ],
+        "dce_topk95": 0.00208,
+        "dce_entry_mean_floor": 1.4065,
+        "topk95_recovered": 0.9985
+      }
+    },
+    "probes": {
+      "token_determined_mlp": [
+        {
+          "r2": 0.9771,
+          "shuffle_ctl": 0.0349
+        },
+        {
+          "r2": 0.8692,
+          "shuffle_ctl": 0.036
+        },
+        {
+          "r2": 0.9653,
+          "shuffle_ctl": 0.0352
+        },
+        {
+          "r2": 0.9218,
+          "shuffle_ctl": 0.0351
+        },
+        {
+          "r2": 0.9337,
+          "shuffle_ctl": 0.0358
+        },
+        {
+          "r2": 0.9481,
+          "shuffle_ctl": 0.0359
+        },
+        {
+          "r2": 0.8832,
+          "shuffle_ctl": 0.0358
+        },
+        {
+          "r2": 0.8797,
+          "shuffle_ctl": 0.0354
+        },
+        {
+          "r2": 0.7739,
+          "shuffle_ctl": 0.0355
+        },
+        {
+          "r2": 0.5718,
+          "shuffle_ctl": 0.0354
+        },
+        {
+          "r2": 0.5404,
+          "shuffle_ctl": 0.0351
+        },
+        {
+          "r2": 0.4239,
+          "shuffle_ctl": 0.0355
+        }
+      ],
+      "linear_held_variance_explained": [
+        0.7563,
+        0.5939,
+        0.6847,
+        0.7199,
+        0.7102,
+        0.7972,
+        0.6666,
+        0.5143,
+        0.5297,
+        0.3439,
+        0.3578,
+        0.2428
+      ],
+      "base_ce_fp32_fullheld": 5.75181,
+      "causal_per_layer": [
+        {
+          "dce_floor": 0.03305,
+          "dce_lin": 0.00553,
+          "lin_recovered": 0.8328
+        },
+        {
+          "dce_floor": -0.00098,
+          "dce_lin": -0.00095,
+          "lin_recovered": null
+        },
+        {
+          "dce_floor": 0.15989,
+          "dce_lin": 0.02821,
+          "lin_recovered": 0.8236
+        },
+        {
+          "dce_floor": 0.41534,
+          "dce_lin": 0.05065,
+          "lin_recovered": 0.8781
+        },
+        {
+          "dce_floor": 0.45704,
+          "dce_lin": 0.06442,
+          "lin_recovered": 0.859
+        },
+        {
+          "dce_floor": 0.57011,
+          "dce_lin": 0.03817,
+          "lin_recovered": 0.933
+        },
+        {
+          "dce_floor": 0.42272,
+          "dce_lin": 0.09911,
+          "lin_recovered": 0.7655
+        },
+        {
+          "dce_floor": 0.09262,
+          "dce_lin": 0.03031,
+          "lin_recovered": 0.6728
+        },
+        {
+          "dce_floor": 0.18054,
+          "dce_lin": 0.05811,
+          "lin_recovered": 0.6781
+        },
+        {
+          "dce_floor": 0.08179,
+          "dce_lin": 0.04467,
+          "lin_recovered": 0.4538
+        },
+        {
+          "dce_floor": 0.3804,
+          "dce_lin": 0.11186,
+          "lin_recovered": 0.7059
+        },
+        {
+          "dce_floor": 0.09778,
+          "dce_lin": 0.07157,
+          "lin_recovered": 0.2681
+        }
+      ]
+    }
+  },
+  "level5": {
+    "winner": "V9",
+    "base_ce": 5.77571,
+    "modules": {
+      "attn0": {
+        "dce_floor": 0.04376,
+        "dce_tokmean": 0.0238,
+        "dce_linear": 0.02352,
+        "tokmean_recovered": 0.4562,
+        "linear_recovered": 0.4624,
+        "consumers": [
+          {
+            "consumer": "block3",
+            "dce": 0.015167,
+            "support": 4.297
+          },
+          {
+            "consumer": "block5",
+            "dce": 0.010373,
+            "support": 3.879
+          },
+          {
+            "consumer": "block4",
+            "dce": 0.00581,
+            "support": 4.515
+          },
+          {
+            "consumer": "block6",
+            "dce": 0.005187,
+            "support": 3.23
+          },
+          {
+            "consumer": "block2",
+            "dce": 0.003522,
+            "support": 2.884
+          },
+          {
+            "consumer": "block1",
+            "dce": -0.002532,
+            "support": 0.209
+          }
+        ],
+        "reads": [
+          "emb"
+        ],
+        "meaning": {
+          "mean_write_norm": 5.3596,
+          "pc_logit_lens": [
+            {
+              "explained_frac": 0.4001,
+              "plus_tokens": [
+                "Join",
+                " sporting",
+                "oul",
+                " Contemporary",
+                " Moreover",
+                " vitamin",
+                "oration",
+                " Corporate"
+              ],
+              "minus_tokens": [
+                "But",
+                "||",
+                "And",
+                " proud",
+                " (",
+                ")|",
+                " poster",
+                "ware"
+              ]
+            },
+            {
+              "explained_frac": 0.2304,
+              "plus_tokens": [
+                " With",
+                " represent",
+                "Despite",
+                " adds",
+                " expecting",
+                " enable",
+                "by",
+                " them"
+              ],
+              "minus_tokens": [
+                " I",
+                " box",
+                " hours",
+                "you",
+                " log",
+                "We",
+                "59",
+                " Just"
+              ]
+            }
+          ],
+          "top_input_tokens_by_write_norm": [
+            [
+              " Mountain",
+              11.736
+            ],
+            [
+              " Estate",
+              11.456
+            ],
+            [
+              " Insurance",
+              11.26
+            ],
+            [
+              "roll",
+              10.024
+            ],
+            [
+              " Down",
+              9.982
+            ],
+            [
+              " Tour",
+              9.816
+            ],
+            [
+              " Kit",
+              9.659
+            ],
+            [
+              " Tournament",
+              9.625
+            ],
+            [
+              "ko",
+              9.572
+            ],
+            [
+              "aro",
+              9.501
+            ]
+          ],
+          "extreme_snippets": [
+            {
+              "norm": 18.061,
+              "context": " and moisture stress. Unlike ryegrass endophyte",
+              "last_token": "te",
+              "true_next": ",",
+              "write_top_logits": [
+                " (",
+                " whether",
+                "But",
+                ")|",
+                "And",
+                "\u2014"
+              ],
+              "write_bottom_logits": [
+                "Step",
+                " Corporate",
+                " amounts",
+                " Chamber",
+                "Chapter",
+                " Contemporary"
+              ]
+            },
+            {
+              "norm": 16.501,
+              "context": " slope of Mount Confundida in Costa Rica. But no,",
+              "last_token": ",",
+              "true_next": " he",
+              "write_top_logits": [
+                " decision",
+                " holiday",
+                " brick",
+                " lack",
+                " Moreover",
+                " chief"
+              ],
+              "write_bottom_logits": [
+                "!!!",
+                "||",
+                "But",
+                " proud",
+                " followed",
+                "oring"
+              ]
+            },
+            {
+              "norm": 16.143,
+              "context": " J. H., A. Hayes, and N. R.",
+              "last_token": ".",
+              "true_next": " Parm",
+              "write_top_logits": [
+                " decision",
+                " lack",
+                " interested",
+                " Moreover",
+                " ago",
+                " nursing"
+              ],
+              "write_bottom_logits": [
+                "!!!",
+                " followed",
+                "||",
+                " proud",
+                "But",
+                " ("
+              ]
+            },
+            {
+              "norm": 16.001,
+              "context": " information. So make sure to follow what they tell you to do",
+              "last_token": " do",
+              "true_next": ".",
+              "write_top_logits": [
+                "ac",
+                " represent",
+                " RE",
+                " North",
+                "w",
+                " reflecting"
+              ],
+              "write_bottom_logits": [
+                " lunch",
+                " managers",
+                " map",
+                " ended",
+                " onto",
+                " guests"
+              ]
+            }
+          ]
+        }
+      },
+      "mlp0": {
+        "dce_floor": 0.03351,
+        "dce_tokmean": 0.00697,
+        "dce_linear": 0.00415,
+        "tokmean_recovered": 0.792,
+        "linear_recovered": 0.876,
+        "consumers": [
+          {
+            "consumer": "block6",
+            "dce": 0.009331,
+            "support": 3.808
+          },
+          {
+            "consumer": "block4",
+            "dce": 0.005814,
+            "support": 3.212
+          },
+          {
+            "consumer": "block5",
+            "dce": 0.00358,
+            "support": 3.411
+          },
+          {
+            "consumer": "block3",
+            "dce": 0.003024,
+            "support": 3.584
+          },
+          {
+            "consumer": "block2",
+            "dce": 0.002567,
+            "support": 2.118
+          },
+          {
+            "consumer": "block1",
+            "dce": 9.5e-05,
+            "support": 0.158
+          }
+        ],
+        "reads": [
+          "emb"
+        ],
+        "meaning": {
+          "mean_write_norm": 4.2192,
+          "pc_logit_lens": [
+            {
+              "explained_frac": 0.4721,
+              "plus_tokens": [
+                " of",
+                " and",
+                "s",
+                " actually",
+                " referred",
+                " increasingly",
+                " do",
+                " or"
+              ],
+              "minus_tokens": [
+                " onto",
+                " market",
+                " water",
+                " products",
+                "acks",
+                " cause",
+                " legs",
+                " meat"
+              ]
+            },
+            {
+              "explained_frac": 0.1861,
+              "plus_tokens": [
+                " the",
+                "last",
+                " free",
+                "The",
+                " online",
+                " fast",
+                " guide",
+                " nice"
+              ],
+              "minus_tokens": [
+                " it",
+                "s",
+                "If",
+                " less",
+                "ack",
+                " 16",
+                " things",
+                " fault"
+              ]
+            }
+          ],
+          "top_input_tokens_by_write_norm": [
+            [
+              " di",
+              19.222
+            ],
+            [
+              " des",
+              18.764
+            ],
+            [
+              " Ab",
+              18.657
+            ],
+            [
+              "ishes",
+              18.47
+            ],
+            [
+              " Cor",
+              18.346
+            ],
+            [
+              " Mag",
+              17.713
+            ],
+            [
+              " lo",
+              17.551
+            ],
+            [
+              " Char",
+              17.398
+            ],
+            [
+              " ratings",
+              17.394
+            ],
+            [
+              " del",
+              17.115
+            ]
+          ],
+          "extreme_snippets": [
+            {
+              "norm": 18.095,
+              "context": " Anti-Aging power from Natural Ingredients\n- Bamboo Char",
+              "last_token": " Char",
+              "true_next": "coal",
+              "write_top_logits": [
+                " of",
+                " and",
+                " actually",
+                " increasingly",
+                " referred",
+                " Con"
+              ],
+              "write_bottom_logits": [
+                " water",
+                " products",
+                " module",
+                " onto",
+                "acks",
+                " meat"
+              ]
+            },
+            {
+              "norm": 17.666,
+              "context": " aqu\u00ed tu juego de \u201cJaque al Mag",
+              "last_token": " Mag",
+              "true_next": "o",
+              "write_top_logits": [
+                "s",
+                " of",
+                " /",
+                " referred",
+                " increasingly",
+                " actually"
+              ],
+              "write_bottom_logits": [
+                " water",
+                " online",
+                " book",
+                " module",
+                " pricing",
+                " qu"
+              ]
+            },
+            {
+              "norm": 17.616,
+              "context": " have heard about expense accounts, but they were one of the lo",
+              "last_token": " lo",
+              "true_next": "vel",
+              "write_top_logits": [
+                " of",
+                " do",
+                " Con",
+                "\ufffd",
+                " con",
+                " and"
+              ],
+              "write_bottom_logits": [
+                " products",
+                " show",
+                " But",
+                " shell",
+                " cost",
+                "ens"
+              ]
+            },
+            {
+              "norm": 17.49,
+              "context": " solo material can be an acquired taste. When Yorke is lo",
+              "last_token": " lo",
+              "true_next": "osed",
+              "write_top_logits": [
+                " of",
+                " do",
+                " Con",
+                "\ufffd",
+                " con",
+                "\ufffd"
+              ],
+              "write_bottom_logits": [
+                " products",
+                " show",
+                " But",
+                " shell",
+                " cost",
+                ","
+              ]
+            }
+          ]
+        }
+      },
+      "attn1": {
+        "dce_floor": 2e-05,
+        "dce_tokmean": 2e-05,
+        "dce_linear": 1e-05,
+        "tokmean_recovered": null,
+        "linear_recovered": null,
+        "consumers": [
+          {
+            "consumer": "block3",
+            "dce": 9e-06,
+            "support": 2.88
+          },
+          {
+            "consumer": "block7",
+            "dce": 4e-06,
+            "support": 0.0
+          },
+          {
+            "consumer": "block4",
+            "dce": 3e-06,
+            "support": 3.013
+          },
+          {
+            "consumer": "block6",
+            "dce": 2e-06,
+            "support": 0.0
+          },
+          {
+            "consumer": "block5",
+            "dce": 1e-06,
+            "support": 2.446
+          },
+          {
+            "consumer": "block2",
+            "dce": -1e-06,
+            "support": 2.045
+          }
+        ],
+        "reads": [
+          "emb",
+          "attn0",
+          "mlp0"
+        ],
+        "meaning": {
+          "mean_write_norm": 0.0343,
+          "pc_logit_lens": [
+            {
+              "explained_frac": 0.2583,
+              "plus_tokens": [
+                " Walker",
+                " France",
+                " holidays",
+                " toys",
+                " eyes",
+                " Trump",
+                " filled",
+                " Dallas"
+              ],
+              "minus_tokens": [
+                " decade",
+                " phase",
+                "ired",
+                "with",
+                " prize",
+                " requirement",
+                " brand",
+                " related"
+              ]
+            },
+            {
+              "explained_frac": 0.2104,
+              "plus_tokens": [
+                "ths",
+                " importantly",
+                " signs",
+                " sets",
+                " involvement",
+                " Rousse",
+                " light",
+                "Meanwhile"
+              ],
+              "minus_tokens": [
+                " .",
+                ".\"",
+                "row",
+                "email",
+                " destination",
+                "dog",
+                " \u2026",
+                "AR"
+              ]
+            }
+          ],
+          "top_input_tokens_by_write_norm": [
+            [
+              " Bu",
+              0.04
+            ],
+            [
+              " Oregon",
+              0.038
+            ],
+            [
+              " Potential",
+              0.034
+            ],
+            [
+              "93",
+              0.033
+            ],
+            [
+              " screw",
+              0.033
+            ],
+            [
+              "esta",
+              0.033
+            ],
+            [
+              "unn",
+              0.033
+            ],
+            [
+              " subscribe",
+              0.032
+            ],
+            [
+              "angered",
+              0.032
+            ],
+            [
+              "const",
+              0.031
+            ]
+          ],
+          "extreme_snippets": [
+            {
+              "norm": 0.174,
+              "context": "\u2019re always so feminine and pretty \u2013 even though she can",
+              "last_token": " can",
+              "true_next": " be",
+              "write_top_logits": [
+                " importantly",
+                "ths",
+                " sets",
+                " Hopefully",
+                " Luckily",
+                "if"
+              ],
+              "write_bottom_logits": [
+                " Open",
+                " .",
+                "email",
+                " allowing",
+                " illegal",
+                " willing"
+              ]
+            },
+            {
+              "norm": 0.172,
+              "context": " partners on board much more quickly.\nSubsequent changes are also",
+              "last_token": " also",
+              "true_next": " easier",
+              "write_top_logits": [
+                " children",
+                " nation",
+                " Walker",
+                " France",
+                " clothing",
+                "ians"
+              ],
+              "write_bottom_logits": [
+                " introduction",
+                " including",
+                " Published",
+                " signs",
+                " Int",
+                " His"
+              ]
+            },
+            {
+              "norm": 0.166,
+              "context": ", assets under management (AUM), industry or annual revenue can",
+              "last_token": " can",
+              "true_next": " certify",
+              "write_top_logits": [
+                " decade",
+                " change",
+                " Traditional",
+                " implementing",
+                "ber",
+                "from"
+              ],
+              "write_bottom_logits": [
+                " Obama",
+                " Walker",
+                "andel",
+                "ey",
+                "resses",
+                " Britain"
+              ]
+            },
+            {
+              "norm": 0.165,
+              "context": " as the reclusive musician is incredibly picky with where and when",
+              "last_token": " when",
+              "true_next": " he",
+              "write_top_logits": [
+                " decade",
+                "from",
+                "with",
+                " cheap",
+                "email",
+                "at"
+              ],
+              "write_bottom_logits": [
+                " hearts",
+                "Now",
+                " earth",
+                " Britain",
+                "05",
+                " album"
+              ]
+            }
+          ]
+        }
+      },
+      "mlp1": {
+        "dce_floor": -0.00079,
+        "dce_tokmean": -0.0005,
+        "dce_linear": -0.00078,
+        "tokmean_recovered": null,
+        "linear_recovered": null,
+        "consumers": [
+          {
+            "consumer": "block7",
+            "dce": 2e-06,
+            "support": 0.002
+          },
+          {
+            "consumer": "block6",
+            "dce": -1e-06,
+            "support": 0.007
+          },
+          {
+            "consumer": "block2",
+            "dce": -0.000136,
+            "support": 1.819
+          },
+          {
+            "consumer": "block5",
+            "dce": -0.000193,
+            "support": 2.899
+          },
+          {
+            "consumer": "block3",
+            "dce": -0.000217,
+            "support": 3.017
+          },
+          {
+            "consumer": "block4",
+            "dce": -0.000416,
+            "support": 3.131
+          }
+        ],
+        "reads": [
+          "emb",
+          "attn0",
+          "mlp0"
+        ],
+        "meaning": {
+          "mean_write_norm": 0.3568,
+          "pc_logit_lens": [
+            {
+              "explained_frac": 1.0,
+              "plus_tokens": [
+                "The",
+                " movie",
+                " THIS",
+                " ear",
+                "oe",
+                "Everyone",
+                " U",
+                " hell"
+              ],
+              "minus_tokens": [
+                " fantastic",
+                " escape",
+                " manage",
+                " direct",
+                " continued",
+                " returning",
+                " talk",
+                " charges"
+              ]
+            },
+            {
+              "explained_frac": 0.0,
+              "plus_tokens": [
+                "\ufffd",
+                " tomorrow",
+                " indeed",
+                " Now",
+                " month",
+                " actually",
+                " later",
+                "\ufffd"
+              ],
+              "minus_tokens": [
+                "\ufffd",
+                "\ufffd",
+                " Q",
+                " do",
+                "We",
+                "Whether",
+                " re",
+                "I"
+              ]
+            }
+          ],
+          "top_input_tokens_by_write_norm": [
+            [
+              "Everyone",
+              3.127
+            ],
+            [
+              " capsule",
+              3.118
+            ],
+            [
+              " conveniently",
+              3.0
+            ],
+            [
+              " remotely",
+              2.991
+            ],
+            [
+              "Image",
+              2.96
+            ],
+            [
+              " bin",
+              2.899
+            ],
+            [
+              " storm",
+              2.854
+            ],
+            [
+              " bout",
+              2.806
+            ],
+            [
+              " bench",
+              2.705
+            ],
+            [
+              " significance",
+              2.695
+            ]
+          ],
+          "extreme_snippets": [
+            {
+              "norm": 3.093,
+              "context": ".\nMost Dance-Friendly: Nelly!\nEveryone",
+              "last_token": "Everyone",
+              "true_next": " knew",
+              "write_top_logits": [
+                "The",
+                " movie",
+                " THIS",
+                " ear",
+                " U",
+                "oe"
+              ],
+              "write_bottom_logits": [
+                " fantastic",
+                " escape",
+                " manage",
+                " direct",
+                " continued",
+                " returning"
+              ]
+            },
+            {
+              "norm": 2.668,
+              "context": "estepped the problem with quite a bit of dexterity. The festival",
+              "last_token": " festival",
+              "true_next": " slated",
+              "write_top_logits": [
+                "The",
+                " movie",
+                " THIS",
+                " ear",
+                " U",
+                "oe"
+              ],
+              "write_bottom_logits": [
+                " fantastic",
+                " escape",
+                " manage",
+                " direct",
+                " continued",
+                " returning"
+              ]
+            },
+            {
+              "norm": 2.647,
+              "context": ".\nIn terms of their technological wherewithal, the festival",
+              "last_token": " festival",
+              "true_next": " also",
+              "write_top_logits": [
+                "The",
+                " movie",
+                " THIS",
+                " ear",
+                " U",
+                "oe"
+              ],
+              "write_bottom_logits": [
+                " fantastic",
+                " escape",
+                " manage",
+                " direct",
+                " continued",
+                " returning"
+              ]
+            },
+            {
+              "norm": 2.611,
+              "context": " of voice-over work, as well as a musician, song",
+              "last_token": " song",
+              "true_next": "writer",
+              "write_top_logits": [
+                "The",
+                " movie",
+                " THIS",
+                " ear",
+                " U",
+                "oe"
+              ],
+              "write_bottom_logits": [
+                " fantastic",
+                " escape",
+                " manage",
+                " direct",
+                " continued",
+                " returning"
+              ]
+            }
+          ]
+        }
+      },
+      "attn2": {
+        "dce_floor": 0.01168,
+        "dce_tokmean": 0.00217,
+        "dce_linear": 0.0021,
+        "tokmean_recovered": 0.814,
+        "linear_recovered": 0.82,
+        "consumers": [
+          {
+            "consumer": "block3",
+            "dce": 0.000866,
+            "support": 2.995
+          },
+          {
+            "consumer": "block4",
+            "dce": 0.000237,
+            "support": 3.351
+          },
+          {
+            "consumer": "block5",
+            "dce": 0.000107,
+            "support": 2.189
+          },
+          {
+            "consumer": "block7",
+            "dce": -6e-06,
+            "support": 0.019
+          },
+          {
+            "consumer": "block8",
+            "dce": -1.8e-05,
+            "support": 0.032
+          },
+          {
+            "consumer": "block6",
+            "dce": -5.2e-05,
+            "support": 0.049
+          }
+        ],
+        "reads": [
+          "emb",
+          "attn0",
+          "mlp0",
+          "attn1",
+          "mlp1"
+        ],
+        "meaning": {
+          "mean_write_norm": 0.4397,
+          "pc_logit_lens": [
+            {
+              "explained_frac": 0.9948,
+              "plus_tokens": [
+                "to",
+                "'m",
+                " fine",
+                " shall",
+                " cars",
+                "'ve",
+                "'s",
+                "AS"
+              ],
+              "minus_tokens": [
+                " s",
+                " lot",
+                "Most",
+                "ow",
+                " client",
+                " grow",
+                " w",
+                " perform"
+              ]
+            },
+            {
+              "explained_frac": 0.0022,
+              "plus_tokens": [
+                " duty",
+                " healthy",
+                "Please",
+                "H",
+                " allows",
+                "un",
+                " participants",
+                " called"
+              ],
+              "minus_tokens": [
+                "IS",
+                " stages",
+                " Act",
+                "We",
+                "other",
+                " entirely",
+                " 16",
+                "EC"
+              ]
+            }
+          ],
+          "top_input_tokens_by_write_norm": [
+            [
+              "t",
+              7.893
+            ],
+            [
+              "ll",
+              7.248
+            ],
+            [
+              "ve",
+              7.203
+            ],
+            [
+              "s",
+              6.291
+            ],
+            [
+              "re",
+              6.118
+            ],
+            [
+              "m",
+              3.798
+            ],
+            [
+              "d",
+              3.035
+            ],
+            [
+              "\ufffd",
+              2.395
+            ],
+            [
+              " going",
+              1.077
+            ],
+            [
+              " says",
+              1.049
+            ]
+          ],
+          "extreme_snippets": [
+            {
+              "norm": 12.199,
+              "context": "\ufffdMe? How do I decide? Mostly I\u2019m",
+              "last_token": "m",
+              "true_next": " not",
+              "write_top_logits": [
+                "'m",
+                "to",
+                " fine",
+                " shall",
+                " cars",
+                "'s"
+              ],
+              "write_bottom_logits": [
+                " s",
+                " lot",
+                "Most",
+                "ow",
+                " client",
+                " grow"
+              ]
+            },
+            {
+              "norm": 10.711,
+              "context": " screwdrivers and the one hammer? Maybe it doesn\u2019t",
+              "last_token": "t",
+              "true_next": " even",
+              "write_top_logits": [
+                "'m",
+                "to",
+                " shall",
+                " fine",
+                " cars",
+                "'s"
+              ],
+              "write_bottom_logits": [
+                " s",
+                " lot",
+                "Most",
+                "ow",
+                " client",
+                " grow"
+              ]
+            },
+            {
+              "norm": 10.604,
+              "context": " which was surprising for several reasons. First, I\u2019d",
+              "last_token": "d",
+              "true_next": " never",
+              "write_top_logits": [
+                "to",
+                "'m",
+                " fine",
+                " shall",
+                "'ve",
+                " cars"
+              ],
+              "write_bottom_logits": [
+                " s",
+                " lot",
+                "Most",
+                "ow",
+                " client",
+                " grow"
+              ]
+            },
+            {
+              "norm": 10.546,
+              "context": " do next.\n\u201cShit, you\u2019re",
+              "last_token": "re",
+              "true_next": " so",
+              "write_top_logits": [
+                "to",
+                "'m",
+                " fine",
+                " shall",
+                "'ve",
+                " cars"
+              ],
+              "write_bottom_logits": [
+                " s",
+                " lot",
+                "Most",
+                "ow",
+                " client",
+                " grow"
+              ]
+            }
+          ]
+        }
+      },
+      "mlp2": {
+        "dce_floor": 0.16409,
+        "dce_tokmean": 0.00584,
+        "dce_linear": 0.03141,
+        "tokmean_recovered": 0.9644,
+        "linear_recovered": 0.8086,
+        "consumers": [
+          {
+            "consumer": "block6",
+            "dce": 0.031963,
+            "support": 7.219
+          },
+          {
+            "consumer": "block7",
+            "dce": 0.017673,
+            "support": 8.241
+          },
+          {
+            "consumer": "block3",
+            "dce": 0.017215,
+            "support": 4.606
+          },
+          {
+            "consumer": "block8",
+            "dce": 0.016745,
+            "support": 8.7
+          },
+          {
+            "consumer": "block5",
+            "dce": 0.012142,
+            "support": 3.866
+          },
+          {
+            "consumer": "block4",
+            "dce": 0.00835,
+            "support": 3.423
+          }
+        ],
+        "reads": [
+          "emb",
+          "attn0",
+          "mlp0",
+          "attn1",
+          "mlp1"
+        ],
+        "meaning": {
+          "mean_write_norm": 9.3511,
+          "pc_logit_lens": [
+            {
+              "explained_frac": 0.1119,
+              "plus_tokens": [
+                "owed",
+                " updates",
+                "ited",
+                " governed",
+                " signed",
+                " directed",
+                " switch",
+                " administered"
+              ],
+              "minus_tokens": [
+                " below",
+                " more",
+                " bigger",
+                " norm",
+                " rapid",
+                " instance",
+                " double",
+                " relinqu"
+              ]
+            },
+            {
+              "explained_frac": 0.097,
+              "plus_tokens": [
+                "5",
+                "3",
+                "8",
+                "2",
+                " Sl",
+                "Z",
+                " up",
+                "inc"
+              ],
+              "minus_tokens": [
+                " throughout",
+                "co",
+                "ines",
+                " NPR",
+                " Street",
+                " necessarily",
+                " results",
+                "es"
+              ]
+            }
+          ],
+          "top_input_tokens_by_write_norm": [
+            [
+              " three",
+              42.552
+            ],
+            [
+              " two",
+              42.171
+            ],
+            [
+              " four",
+              40.417
+            ],
+            [
+              " all",
+              34.716
+            ],
+            [
+              " five",
+              32.783
+            ],
+            [
+              " Sh",
+              32.309
+            ],
+            [
+              "Before",
+              31.696
+            ],
+            [
+              "000",
+              31.335
+            ],
+            [
+              " Tr",
+              30.644
+            ],
+            [
+              " z",
+              29.25
+            ]
+          ],
+          "extreme_snippets": [
+            {
+              "norm": 45.607,
+              "context": " open kitchen. Another item they found was stuck between two",
+              "last_token": " two",
+              "true_next": " stud",
+              "write_top_logits": [
+                "Br",
+                " Sk",
+                "isc",
+                " review",
+                " site",
+                "oc"
+              ],
+              "write_bottom_logits": [
+                " sees",
+                " own",
+                " research",
+                " 2016",
+                " 2009",
+                "rich"
+              ]
+            },
+            {
+              "norm": 45.332,
+              "context": " in TAKE THAT should give him a nugget or two",
+              "last_token": " two",
+              "true_next": " of",
+              "write_top_logits": [
+                "Br",
+                " Sk",
+                " review",
+                "isc",
+                " site",
+                "oc"
+              ],
+              "write_bottom_logits": [
+                " sees",
+                " own",
+                " research",
+                " 2016",
+                " 2009",
+                "rich"
+              ]
+            },
+            {
+              "norm": 45.027,
+              "context": "eneri, the grapes for which are provided by more than three",
+              "last_token": " three",
+              "true_next": " hundred",
+              "write_top_logits": [
+                "Br",
+                " Sk",
+                " review",
+                "isc",
+                "Both",
+                " site"
+              ],
+              "write_bottom_logits": [
+                " own",
+                " 2016",
+                " research",
+                " sees",
+                " 2009",
+                "rich"
+              ]
+            },
+            {
+              "norm": 44.812,
+              "context": " the Center for Environmental Health (CEH) has determined that two",
+              "last_token": " two",
+              "true_next": " products",
+              "write_top_logits": [
+                "Br",
+                " Sk",
+                " review",
+                "isc",
+                " site",
+                "oc"
+              ],
+              "write_bottom_logits": [
+                " sees",
+                " research",
+                " own",
+                " 2016",
+                " 2009",
+                "rich"
+              ]
+            }
+          ]
+        }
+      },
+      "attn3": {
+        "dce_floor": 0.08628,
+        "dce_tokmean": 0.06729,
+        "dce_linear": 0.0634,
+        "tokmean_recovered": 0.22,
+        "linear_recovered": 0.2652,
+        "consumers": [
+          {
+            "consumer": "block6",
+            "dce": 0.019883,
+            "support": 4.468
+          },
+          {
+            "consumer": "block4",
+            "dce": 0.006769,
+            "support": 4.114
+          },
+          {
+            "consumer": "block5",
+            "dce": 0.006022,
+            "support": 4.045
+          },
+          {
+            "consumer": "block8",
+            "dce": 0.001305,
+            "support": 3.104
+          },
+          {
+            "consumer": "block7",
+            "dce": 0.000766,
+            "support": 2.532
+          },
+          {
+            "consumer": "block9",
+            "dce": 0.000534,
+            "support": 2.679
+          }
+        ],
+        "reads": [
+          "emb",
+          "attn0",
+          "mlp0",
+          "attn1",
+          "mlp1",
+          "attn2",
+          "mlp2"
+        ],
+        "meaning": {
+          "mean_write_norm": 5.1304,
+          "pc_logit_lens": [
+            {
+              "explained_frac": 0.318,
+              "plus_tokens": [
+                "Therefore",
+                " fantasy",
+                "you",
+                "At",
+                "However",
+                " temperature",
+                " parents",
+                "uous"
+              ],
+              "minus_tokens": [
+                " AND",
+                " THE",
+                " one",
+                " Er",
+                " Com",
+                "Ch",
+                " Ros",
+                " FOR"
+              ]
+            },
+            {
+              "explained_frac": 0.2669,
+              "plus_tokens": [
+                " self",
+                " semi",
+                " non",
+                " entered",
+                " behind",
+                " anti",
+                " blow",
+                " insight"
+              ],
+              "minus_tokens": [
+                "To",
+                " edge",
+                " communication",
+                " meeting",
+                " feedback",
+                " satisfied",
+                " renowned",
+                " shall"
+              ]
+            }
+          ],
+          "top_input_tokens_by_write_norm": [
+            [
+              "profit",
+              12.773
+            ],
+            [
+              "han",
+              12.767
+            ],
+            [
+              "ECT",
+              12.567
+            ],
+            [
+              "quality",
+              12.357
+            ],
+            [
+              "BLE",
+              11.996
+            ],
+            [
+              " Blake",
+              11.308
+            ],
+            [
+              "AND",
+              11.231
+            ],
+            [
+              "OW",
+              11.143
+            ],
+            [
+              "performance",
+              10.911
+            ],
+            [
+              " Publishing",
+              10.909
+            ]
+          ],
+          "extreme_snippets": [
+            {
+              "norm": 31.29,
+              "context": " March 2002. Accessed July 19, 2012. http://www.",
+              "last_token": ".",
+              "true_next": "psy",
+              "write_top_logits": [
+                " rather",
+                " aimed",
+                " m",
+                " look",
+                " occasionally",
+                " hiking"
+              ],
+              "write_bottom_logits": [
+                "Ch",
+                " McC",
+                " distance",
+                "Del",
+                " Qu",
+                " Gl"
+              ]
+            },
+            {
+              "norm": 20.452,
+              "context": " magic tonic to sell. His ingenuity lies in combining anti-",
+              "last_token": "-",
+              "true_next": "government",
+              "write_top_logits": [
+                " satisfied",
+                " successful",
+                " tour",
+                "ended",
+                " meeting",
+                "ry"
+              ],
+              "write_bottom_logits": [
+                " self",
+                " semi",
+                " insight",
+                " anti",
+                " helping",
+                " rather"
+              ]
+            },
+            {
+              "norm": 20.448,
+              "context": "\u201cPatriot Blend\u201d) for the decidedly non-",
+              "last_token": "-",
+              "true_next": "pop",
+              "write_top_logits": [
+                " satisfied",
+                "ended",
+                " successful",
+                " tour",
+                "ied",
+                " river"
+              ],
+              "write_bottom_logits": [
+                " self",
+                " semi",
+                " helping",
+                " anti",
+                " non",
+                " insight"
+              ]
+            },
+            {
+              "norm": 19.984,
+              "context": "oper) Bull, sister to Samuel F. Cooper and Dr.",
+              "last_token": ".",
+              "true_next": " Charles",
+              "write_top_logits": [
+                " Houston",
+                " Jones",
+                "burg",
+                "be",
+                "com",
+                " Hamilton"
+              ],
+              "write_bottom_logits": [
+                " feedback",
+                " ideas",
+                " fantastic",
+                " accessible",
+                " diverse",
+                "of"
+              ]
+            }
+          ]
+        }
+      },
+      "mlp3": {
+        "dce_floor": 0.40914,
+        "dce_tokmean": 0.02423,
+        "dce_linear": 0.04707,
+        "tokmean_recovered": 0.9408,
+        "linear_recovered": 0.885,
+        "consumers": [
+          {
+            "consumer": "block6",
+            "dce": 0.072574,
+            "support": 8.249
+          },
+          {
+            "consumer": "block8",
+            "dce": 0.033011,
+            "support": 9.571
+          },
+          {
+            "consumer": "block5",
+            "dce": 0.031079,
+            "support": 3.881
+          },
+          {
+            "consumer": "block7",
+            "dce": 0.028753,
+            "support": 8.97
+          },
+          {
+            "consumer": "block9",
+            "dce": 0.026747,
+            "support": 9.778
+          },
+          {
+            "consumer": "block4",
+            "dce": 0.016065,
+            "support": 3.447
+          }
+        ],
+        "reads": [
+          "emb",
+          "attn0",
+          "mlp0",
+          "attn1",
+          "mlp1",
+          "attn2",
+          "mlp2"
+        ],
+        "meaning": {
+          "mean_write_norm": 14.145,
+          "pc_logit_lens": [
+            {
+              "explained_frac": 0.2043,
+              "plus_tokens": [
+                " many",
+                " especially",
+                "Up",
+                "iz",
+                "ered",
+                "down",
+                "proof",
+                "ane"
+              ],
+              "minus_tokens": [
+                " bank",
+                " thereby",
+                " rule",
+                "Most",
+                " imp",
+                " comp",
+                " ease",
+                " found"
+              ]
+            },
+            {
+              "explained_frac": 0.1103,
+              "plus_tokens": [
+                "6",
+                "This",
+                "this",
+                "5",
+                "12",
+                "one",
+                " experts",
+                " pick"
+              ],
+              "minus_tokens": [
+                " plastic",
+                " study",
+                "ured",
+                " record",
+                "'.",
+                " studied",
+                " colored",
+                "ular"
+              ]
+            }
+          ],
+          "top_input_tokens_by_write_norm": [
+            [
+              " -",
+              42.002
+            ],
+            [
+              " State",
+              40.108
+            ],
+            [
+              " blood",
+              40.028
+            ],
+            [
+              " Harry",
+              36.226
+            ],
+            [
+              " technical",
+              35.439
+            ],
+            [
+              "\n",
+              34.729
+            ],
+            [
+              " young",
+              33.294
+            ],
+            [
+              "which",
+              33.263
+            ],
+            [
+              " come",
+              33.24
+            ],
+            [
+              " Microsoft",
+              32.921
+            ]
+          ],
+          "extreme_snippets": [
+            {
+              "norm": 51.67,
+              "context": " zoom, and replay the clip.\nLearn English Vocabulary -",
+              "last_token": " -",
+              "true_next": " GRE",
+              "write_top_logits": [
+                "Last",
+                "Spe",
+                " Washington",
+                "Sh",
+                " Pl",
+                " Sch"
+              ],
+              "write_bottom_logits": [
+                " points",
+                " roles",
+                "ities",
+                "ug",
+                "as",
+                " create"
+              ]
+            },
+            {
+              "norm": 48.539,
+              "context": "\nCAMRA's Great British Pubs -",
+              "last_token": " -",
+              "true_next": " listing",
+              "write_top_logits": [
+                "Last",
+                "Sh",
+                " Washington",
+                " coming",
+                " Pl",
+                "Spe"
+              ],
+              "write_bottom_logits": [
+                "as",
+                " roles",
+                " points",
+                "ities",
+                "ug",
+                " create"
+              ]
+            },
+            {
+              "norm": 44.598,
+              "context": " Connecticut\nJim Himes -\nJohn T. Shaban -",
+              "last_token": " -",
+              "true_next": "\n",
+              "write_top_logits": [
+                " contribute",
+                " coming",
+                " Sch",
+                "Sh",
+                "Last",
+                " Washington"
+              ],
+              "write_bottom_logits": [
+                "as",
+                "ug",
+                " roles",
+                "ities",
+                "/",
+                " create"
+              ]
+            },
+            {
+              "norm": 44.332,
+              "context": " and shipping.<|endoftext|>The new freight train on the route China -",
+              "last_token": " -",
+              "true_next": " Europe",
+              "write_top_logits": [
+                "Last",
+                " Washington",
+                " Pl",
+                " Chicago",
+                "Spe",
+                "Sh"
+              ],
+              "write_bottom_logits": [
+                " points",
+                " roles",
+                " create",
+                "ug",
+                "ities",
+                "/"
+              ]
+            }
+          ]
+        }
+      },
+      "attn4": {
+        "dce_floor": 1e-05,
+        "dce_tokmean": 1e-05,
+        "dce_linear": 0.0,
+        "tokmean_recovered": null,
+        "linear_recovered": null,
+        "consumers": [
+          {
+            "consumer": "block5",
+            "dce": 2e-06,
+            "support": 1.691
+          },
+          {
+            "consumer": "block9",
+            "dce": 2e-06,
+            "support": 0.0
+          },
+          {
+            "consumer": "block6",
+            "dce": -0.0,
+            "support": 0.0
+          },
+          {
+            "consumer": "block7",
+            "dce": -0.0,
+            "support": 0.0
+          },
+          {
+            "consumer": "block8",
+            "dce": 0.0,
+            "support": 0.0
+          },
+          {
+            "consumer": "block10",
+            "dce": 0.0,
+            "support": 0.0
+          }
+        ],
+        "reads": [
+          "emb",
+          "attn0",
+          "mlp0",
+          "attn1",
+          "mlp1",
+          "attn2",
+          "mlp2",
+          "attn3",
+          "mlp3"
+        ],
+        "meaning": {
+          "mean_write_norm": 0.0219,
+          "pc_logit_lens": [
+            {
+              "explained_frac": 0.4346,
+              "plus_tokens": [
+                "on",
+                "Come",
+                " assigned",
+                " kicked",
+                " response",
+                " weeks",
+                "To",
+                " addition"
+              ],
+              "minus_tokens": [
+                " $",
+                " schedule",
+                " business",
+                " offer",
+                "est",
+                " adults",
+                " includes",
+                " clients"
+              ]
+            },
+            {
+              "explained_frac": 0.2389,
+              "plus_tokens": [
+                " range",
+                "released",
+                " against",
+                " checked",
+                " followed",
+                "35",
+                " noticed",
+                " among"
+              ],
+              "minus_tokens": [
+                " visual",
+                " relied",
+                " broad",
+                " ample",
+                " excellent",
+                " dependent",
+                " factors",
+                " everything"
+              ]
+            }
+          ],
+          "top_input_tokens_by_write_norm": [
+            [
+              "\ufffd",
+              0.186
+            ],
+            [
+              "\ufffd",
+              0.179
+            ],
+            [
+              "\ufffd",
+              0.17
+            ],
+            [
+              "\u044b",
+              0.169
+            ],
+            [
+              "\ufffd",
+              0.165
+            ],
+            [
+              "\u7684",
+              0.164
+            ],
+            [
+              "\ufffd",
+              0.159
+            ],
+            [
+              "\u043b",
+              0.154
+            ],
+            [
+              "\ufffd",
+              0.152
+            ],
+            [
+              "\ufffd",
+              0.152
+            ]
+          ],
+          "extreme_snippets": [
+            {
+              "norm": 0.155,
+              "context": " Lysine, Tyrosine, Phenylalanine, Pro",
+              "last_token": " Pro",
+              "true_next": "line",
+              "write_top_logits": [
+                "Come",
+                "on",
+                " response",
+                " assigned",
+                " relied",
+                " kicked"
+              ],
+              "write_bottom_logits": [
+                " business",
+                " $",
+                " too",
+                " email",
+                " Twitter",
+                " schedule"
+              ]
+            },
+            {
+              "norm": 0.152,
+              "context": "ella asiatica extract, Betula alba bark/",
+              "last_token": "/",
+              "true_next": "leaf",
+              "write_top_logits": [
+                "on",
+                " roll",
+                "Then",
+                "32",
+                "25",
+                " running"
+              ],
+              "write_bottom_logits": [
+                " $",
+                "est",
+                " schedule",
+                " offer",
+                " ex",
+                " Have"
+              ]
+            },
+            {
+              "norm": 0.151,
+              "context": "is peel extract, Sodium hyaluronate, Aspartic",
+              "last_token": "ic",
+              "true_next": " acid",
+              "write_top_logits": [
+                "on",
+                " kicked",
+                " assigned",
+                "Come",
+                " addition",
+                " just"
+              ],
+              "write_bottom_logits": [
+                " $",
+                " ex",
+                "est",
+                " schedule",
+                " since",
+                " includes"
+              ]
+            },
+            {
+              "norm": 0.15,
+              "context": "\u201d European Journal of Engineering Education 35 (5): 413\u2013",
+              "last_token": "\u2013",
+              "true_next": "425",
+              "write_top_logits": [
+                "on",
+                " just",
+                " roll",
+                " assigned",
+                " required",
+                "the"
+              ],
+              "write_bottom_logits": [
+                " offer",
+                " schedule",
+                " $",
+                " since",
+                " attending",
+                " adults"
+              ]
+            }
+          ]
+        }
+      },
+      "mlp4": {
+        "dce_floor": 0.439,
+        "dce_tokmean": 0.03162,
+        "dce_linear": 0.06688,
+        "tokmean_recovered": 0.928,
+        "linear_recovered": 0.8477,
+        "consumers": [
+          {
+            "consumer": "block6",
+            "dce": 0.068834,
+            "support": 8.933
+          },
+          {
+            "consumer": "block10",
+            "dce": 0.049469,
+            "support": 11.211
+          },
+          {
+            "consumer": "block9",
+            "dce": 0.048267,
+            "support": 11.29
+          },
+          {
+            "consumer": "block7",
+            "dce": 0.039644,
+            "support": 9.597
+          },
+          {
+            "consumer": "block8",
+            "dce": 0.039055,
+            "support": 10.4
+          },
+          {
+            "consumer": "block5",
+            "dce": 0.031972,
+            "support": 3.936
+          }
+        ],
+        "reads": [
+          "emb",
+          "attn0",
+          "mlp0",
+          "attn1",
+          "mlp1",
+          "attn2",
+          "mlp2",
+          "attn3",
+          "mlp3"
+        ],
+        "meaning": {
+          "mean_write_norm": 14.9061,
+          "pc_logit_lens": [
+            {
+              "explained_frac": 0.1021,
+              "plus_tokens": [
+                " traditional",
+                "(",
+                "ine",
+                "Ad",
+                " both",
+                " En",
+                " Ad",
+                " This"
+              ],
+              "minus_tokens": [
+                " upside",
+                " breaks",
+                "lay",
+                " runner",
+                " log",
+                "000",
+                " spin",
+                " lie"
+              ]
+            },
+            {
+              "explained_frac": 0.076,
+              "plus_tokens": [
+                " figure",
+                " talking",
+                " memory",
+                "[",
+                "ivity",
+                " come",
+                "As",
+                " mission"
+              ],
+              "minus_tokens": [
+                "That",
+                "x",
+                "After",
+                "Th",
+                "r",
+                "ab",
+                " am",
+                "em"
+              ]
+            }
+          ],
+          "top_input_tokens_by_write_norm": [
+            [
+              " [",
+              58.049
+            ],
+            [
+              " $",
+              49.867
+            ],
+            [
+              " e",
+              49.734
+            ],
+            [
+              " (",
+              49.244
+            ],
+            [
+              "Our",
+              48.776
+            ],
+            [
+              " \u00a3",
+              47.627
+            ],
+            [
+              " Aug",
+              47.607
+            ],
+            [
+              " Feb",
+              47.226
+            ],
+            [
+              " February",
+              46.731
+            ],
+            [
+              "[",
+              46.665
+            ]
+          ],
+          "extreme_snippets": [
+            {
+              "norm": 58.675,
+              "context": ".5kg [3\u20133.lb] floury [",
+              "last_token": " [",
+              "true_next": "me",
+              "write_top_logits": [
+                " An",
+                " Their",
+                "ext",
+                "a",
+                " de",
+                " inspired"
+              ],
+              "write_bottom_logits": [
+                "F",
+                "G",
+                " walking",
+                " threat",
+                " inch",
+                "Due"
+              ]
+            },
+            {
+              "norm": 57.293,
+              "context": " ovenproof dish with high sides, about 35 x 20cm [",
+              "last_token": " [",
+              "true_next": "14",
+              "write_top_logits": [
+                " An",
+                "ext",
+                "a",
+                " Their",
+                " inspired",
+                " de"
+              ],
+              "write_bottom_logits": [
+                "F",
+                "G",
+                " walking",
+                " threat",
+                " inch",
+                "Due"
+              ]
+            },
+            {
+              "norm": 56.484,
+              "context": "\nBegin by thinly slicing the potatoes, about \u00bc cm [",
+              "last_token": " [",
+              "true_next": "1",
+              "write_top_logits": [
+                " An",
+                " Their",
+                "a",
+                "ext",
+                " inspired",
+                " de"
+              ],
+              "write_bottom_logits": [
+                "F",
+                "G",
+                " walking",
+                " inch",
+                " threat",
+                " result"
+              ]
+            },
+            {
+              "norm": 56.287,
+              "context": " mean that I forewent several performers who were obviously fan favorites (",
+              "last_token": " (",
+              "true_next": "sorry",
+              "write_top_logits": [
+                "Your",
+                " decide",
+                " incredible",
+                " happy",
+                " away",
+                " helping"
+              ],
+              "write_bottom_logits": [
+                " walking",
+                " flying",
+                " trade",
+                " venture",
+                "F",
+                "Related"
+              ]
+            }
+          ]
+        }
+      },
+      "attn5": {
+        "dce_floor": -0.0,
+        "dce_tokmean": 1e-05,
+        "dce_linear": 0.0,
+        "tokmean_recovered": null,
+        "linear_recovered": null,
+        "consumers": [
+          {
+            "consumer": "block7",
+            "dce": 5e-06,
+            "support": 0.0
+          },
+          {
+            "consumer": "block6",
+            "dce": 3e-06,
+            "support": 0.0
+          },
+          {
+            "consumer": "block10",
+            "dce": 1e-06,
+            "support": 0.0
+          },
+          {
+            "consumer": "block11",
+            "dce": -0.0,
+            "support": 0.0
+          },
+          {
+            "consumer": "block9",
+            "dce": -2e-06,
+            "support": 0.0
+          },
+          {
+            "consumer": "block8",
+            "dce": -4e-06,
+            "support": 0.0
+          }
+        ],
+        "reads": [
+          "emb",
+          "attn0",
+          "mlp0",
+          "attn1",
+          "mlp1",
+          "attn2",
+          "mlp2",
+          "attn3",
+          "mlp3",
+          "attn4",
+          "mlp4"
+        ],
+        "meaning": {
+          "mean_write_norm": 0.089,
+          "pc_logit_lens": [
+            {
+              "explained_frac": 0.6058,
+              "plus_tokens": [
+                " inside",
+                "ask",
+                "ill",
+                " Thanks",
+                " continue",
+                " continues",
+                " context",
+                " Plan"
+              ],
+              "minus_tokens": [
+                " mainstream",
+                " social",
+                " \ufffd",
+                " racial",
+                " inter",
+                " innovative",
+                " larger",
+                " imp"
+              ]
+            },
+            {
+              "explained_frac": 0.1984,
+              "plus_tokens": [
+                "321",
+                " letting",
+                " see",
+                " including",
+                " why",
+                " Some",
+                "o",
+                "who"
+              ],
+              "minus_tokens": [
+                "As",
+                " nursing",
+                " September",
+                " honestly",
+                " couch",
+                " insects",
+                "ly",
+                " busy"
+              ]
+            }
+          ],
+          "top_input_tokens_by_write_norm": [
+            [
+              "\ufffd",
+              0.824
+            ],
+            [
+              "\ufffd",
+              0.746
+            ],
+            [
+              "\ufffd",
+              0.737
+            ],
+            [
+              "\ufffd",
+              0.661
+            ],
+            [
+              "\ufffd",
+              0.634
+            ],
+            [
+              "\ufffd",
+              0.592
+            ],
+            [
+              "\ufffd",
+              0.589
+            ],
+            [
+              "\ufffd",
+              0.581
+            ],
+            [
+              "\ufffd",
+              0.576
+            ],
+            [
+              "\ufffd",
+              0.572
+            ]
+          ],
+          "extreme_snippets": [
+            {
+              "norm": 0.711,
+              "context": "ylalanine, Proline, Threonine, Valine",
+              "last_token": "ine",
+              "true_next": ",",
+              "write_top_logits": [
+                " [",
+                " picked",
+                " Jul",
+                " participate",
+                "'",
+                "o"
+              ],
+              "write_bottom_logits": [
+                " connects",
+                " wants",
+                "Is",
+                "ill",
+                " try",
+                "lay"
+              ]
+            },
+            {
+              "norm": 0.669,
+              "context": " webMethods Enterprise Service Bus, Bossini is able to take full",
+              "last_token": " full",
+              "true_next": " advantage",
+              "write_top_logits": [
+                " picking",
+                " \ufffd",
+                " [",
+                " picked",
+                "'",
+                " Ar"
+              ],
+              "write_bottom_logits": [
+                " inside",
+                "ill",
+                " connects",
+                "lay",
+                " continue",
+                " try"
+              ]
+            },
+            {
+              "norm": 0.624,
+              "context": "inseng root extract, Dipropylene glycol, Serine",
+              "last_token": "ine",
+              "true_next": ",",
+              "write_top_logits": [
+                " participate",
+                " [",
+                " picked",
+                "o",
+                "'",
+                " Jul"
+              ],
+              "write_bottom_logits": [
+                "Is",
+                " connects",
+                " wants",
+                "Are",
+                "lay",
+                " try"
+              ]
+            },
+            {
+              "norm": 0.601,
+              "context": " Aloe barbadensis leaf extract, Alanine, Lysine",
+              "last_token": "ine",
+              "true_next": ",",
+              "write_top_logits": [
+                " picked",
+                " participate",
+                "o",
+                " [",
+                "'",
+                " letting"
+              ],
+              "write_bottom_logits": [
+                " connects",
+                " wants",
+                "Is",
+                " try",
+                "Are",
+                "lay"
+              ]
+            }
+          ]
+        }
+      },
+      "mlp5": {
+        "dce_floor": 0.588,
+        "dce_tokmean": 0.0186,
+        "dce_linear": 0.03433,
+        "tokmean_recovered": 0.9684,
+        "linear_recovered": 0.9416,
+        "consumers": [
+          {
+            "consumer": "block6",
+            "dce": 0.079199,
+            "support": 8.628
+          },
+          {
+            "consumer": "block10",
+            "dce": 0.072675,
+            "support": 10.721
+          },
+          {
+            "consumer": "block9",
+            "dce": 0.054109,
+            "support": 11.024
+          },
+          {
+            "consumer": "block8",
+            "dce": 0.042941,
+            "support": 10.246
+          },
+          {
+            "consumer": "block7",
+            "dce": 0.03751,
+            "support": 9.523
+          },
+          {
+            "consumer": "block11",
+            "dce": 0.030707,
+            "support": 7.733
+          }
+        ],
+        "reads": [
+          "emb",
+          "attn0",
+          "mlp0",
+          "attn1",
+          "mlp1",
+          "attn2",
+          "mlp2",
+          "attn3",
+          "mlp3",
+          "attn4",
+          "mlp4"
+        ],
+        "meaning": {
+          "mean_write_norm": 21.6815,
+          "pc_logit_lens": [
+            {
+              "explained_frac": 0.1448,
+              "plus_tokens": [
+                " NOT",
+                "00",
+                " Come",
+                " weekly",
+                " arising",
+                " leads",
+                " reaching",
+                "forming"
+              ],
+              "minus_tokens": [
+                " semi",
+                " However",
+                " known",
+                " annually",
+                " responsible",
+                "ism",
+                " such",
+                " crime"
+              ]
+            },
+            {
+              "explained_frac": 0.101,
+              "plus_tokens": [
+                " hold",
+                " honor",
+                "ling",
+                " closed",
+                " www",
+                " manager",
+                " heads",
+                " speaking"
+              ],
+              "minus_tokens": [
+                " anyone",
+                " supermarket",
+                "4",
+                " bin",
+                "To",
+                "5",
+                " 250",
+                "re"
+              ]
+            }
+          ],
+          "top_input_tokens_by_write_norm": [
+            [
+              "\u043e",
+              50.516
+            ],
+            [
+              "Best",
+              49.799
+            ],
+            [
+              "ru",
+              46.741
+            ],
+            [
+              "High",
+              46.233
+            ],
+            [
+              "yn",
+              45.713
+            ],
+            [
+              "iet",
+              44.95
+            ],
+            [
+              "umb",
+              44.711
+            ],
+            [
+              "cent",
+              44.704
+            ],
+            [
+              "Public",
+              44.616
+            ],
+            [
+              "ken",
+              44.107
+            ]
+          ],
+          "extreme_snippets": [
+            {
+              "norm": 48.604,
+              "context": " all quotes\n|Birth:||1st February, 1954|",
+              "last_token": "|",
+              "true_next": "\n",
+              "write_top_logits": [
+                "j",
+                " Dr",
+                "--",
+                " Mr",
+                "Dr",
+                " best"
+              ],
+              "write_bottom_logits": [
+                " factors",
+                "app",
+                " ease",
+                " diagnosis",
+                " periods",
+                " self"
+              ]
+            },
+            {
+              "norm": 47.135,
+              "context": " 1,2-hexanediol, Betaine, Dimeth",
+              "last_token": "eth",
+              "true_next": "icone",
+              "write_top_logits": [
+                "www",
+                " www",
+                " stay",
+                " wide",
+                " living",
+                " along"
+              ],
+              "write_bottom_logits": [
+                " points",
+                "|",
+                " saves",
+                " updates",
+                " typical",
+                " News"
+              ]
+            },
+            {
+              "norm": 46.803,
+              "context": ", Dipotassium glycyrrhizate, Panthen",
+              "last_token": "hen",
+              "true_next": "ol",
+              "write_top_logits": [
+                " www",
+                "www",
+                " wide",
+                " counter",
+                "This",
+                " River"
+              ],
+              "write_bottom_logits": [
+                " focal",
+                "sl",
+                " sent",
+                " updates",
+                " propriet",
+                " savings"
+              ]
+            },
+            {
+              "norm": 46.332,
+              "context": " accesorios\n43882 \u2013 Segur de Calaf",
+              "last_token": "af",
+              "true_next": "ell",
+              "write_top_logits": [
+                "www",
+                " www",
+                " stay",
+                " living",
+                " wide",
+                " along"
+              ],
+              "write_bottom_logits": [
+                " updates",
+                " points",
+                " saves",
+                " sent",
+                " focal",
+                "9"
+              ]
+            }
+          ]
+        }
+      },
+      "attn6": {
+        "dce_floor": 0.02088,
+        "dce_tokmean": 0.01517,
+        "dce_linear": 0.01648,
+        "tokmean_recovered": 0.2733,
+        "linear_recovered": 0.2105,
+        "consumers": [
+          {
+            "consumer": "readout",
+            "dce": 0.016735,
+            "support": 83.396
+          },
+          {
+            "consumer": "block7",
+            "dce": 0.003025,
+            "support": 4.006
+          },
+          {
+            "consumer": "block8",
+            "dce": 0.002576,
+            "support": 3.968
+          },
+          {
+            "consumer": "block10",
+            "dce": 0.001575,
+            "support": 3.616
+          },
+          {
+            "consumer": "block9",
+            "dce": 0.001549,
+            "support": 3.719
+          },
+          {
+            "consumer": "block11",
+            "dce": 0.000832,
+            "support": 2.797
+          }
+        ],
+        "reads": [
+          "attn0",
+          "mlp0",
+          "attn1",
+          "mlp1",
+          "attn2",
+          "mlp2",
+          "attn3",
+          "mlp3",
+          "attn4",
+          "mlp4",
+          "attn5",
+          "mlp5"
+        ],
+        "meaning": {
+          "mean_write_norm": 7.5442,
+          "pc_logit_lens": [
+            {
+              "explained_frac": 0.1273,
+              "plus_tokens": [
+                "\ufffd",
+                " \ufffd",
+                " \"",
+                "%",
+                "\"",
+                "\ufffd",
+                "ancing",
+                " ["
+              ],
+              "minus_tokens": [
+                " -",
+                "Harry",
+                "Ari",
+                "Herm",
+                " Quran",
+                " embattled",
+                " present",
+                "planes"
+              ]
+            },
+            {
+              "explained_frac": 0.1128,
+              "plus_tokens": [
+                " baby",
+                " dry",
+                " eating",
+                " safe",
+                "ax",
+                " Apple",
+                " buy",
+                " Store"
+              ],
+              "minus_tokens": [
+                " whether",
+                " thinking",
+                " Education",
+                " sky",
+                "[",
+                " movements",
+                " consciousness",
+                " France"
+              ]
+            }
+          ],
+          "top_input_tokens_by_write_norm": [
+            [
+              "\u0441",
+              25.689
+            ],
+            [
+              "\u043b",
+              24.018
+            ],
+            [
+              "\u043d",
+              23.648
+            ],
+            [
+              "\u044b",
+              22.626
+            ],
+            [
+              "\u043c",
+              22.132
+            ],
+            [
+              " premiere",
+              21.647
+            ],
+            [
+              "\u043a",
+              21.461
+            ],
+            [
+              "\u0442",
+              21.422
+            ],
+            [
+              "\ufffd",
+              21.296
+            ],
+            [
+              "\ufffd",
+              21.074
+            ]
+          ],
+          "extreme_snippets": [
+            {
+              "norm": 68.326,
+              "context": " with barbecue\n- Table tennis facilities\n- Water polo\n",
+              "last_token": "\n",
+              "true_next": "-",
+              "write_top_logits": [
+                "-",
+                "/>",
+                "rection",
+                "tics",
+                "'re",
+                " Te"
+              ],
+              "write_bottom_logits": [
+                " =",
+                "uk",
+                "aml",
+                "\u9f8d",
+                "ocally",
+                " inmates"
+              ]
+            },
+            {
+              "norm": 51.221,
+              "context": "\n- A large playground\n- A Volleyball court\n",
+              "last_token": "\n",
+              "true_next": "-",
+              "write_top_logits": [
+                "-",
+                "/>",
+                "rection",
+                "tics",
+                " Te",
+                "'re"
+              ],
+              "write_bottom_logits": [
+                " =",
+                "uk",
+                "\u9f8d",
+                "ridor",
+                " inmates",
+                "ourke"
+              ]
+            },
+            {
+              "norm": 42.935,
+              "context": "The Lucy C. Bull House\nThis Place Matters #10\n",
+              "last_token": "\n",
+              "true_next": "By",
+              "write_top_logits": [
+                "-",
+                "/>",
+                "rection",
+                "tics",
+                "'re",
+                " Te"
+              ],
+              "write_bottom_logits": [
+                " =",
+                "aml",
+                " inmates",
+                "ocally",
+                " Coin",
+                "yip"
+              ]
+            },
+            {
+              "norm": 42.605,
+              "context": "\n- Answer 11 questions and write 11 of your own.\n",
+              "last_token": "\n",
+              "true_next": "-",
+              "write_top_logits": [
+                "-",
+                "/>",
+                "rection",
+                "aced",
+                " creative",
+                " No"
+              ],
+              "write_bottom_logits": [
+                " =",
+                "uk",
+                " \u2022",
+                " Two",
+                "Two",
+                " tone"
+              ]
+            }
+          ]
+        }
+      },
+      "mlp6": {
+        "dce_floor": 0.42004,
+        "dce_tokmean": 0.05522,
+        "dce_linear": 0.09446,
+        "tokmean_recovered": 0.8685,
+        "linear_recovered": 0.7751,
+        "consumers": [
+          {
+            "consumer": "readout",
+            "dce": 1.337144,
+            "support": 534.557
+          },
+          {
+            "consumer": "block11",
+            "dce": 0.399378,
+            "support": 8.414
+          },
+          {
+            "consumer": "block10",
+            "dce": 0.152482,
+            "support": 10.639
+          },
+          {
+            "consumer": "block9",
+            "dce": 0.102367,
+            "support": 10.128
+          },
+          {
+            "consumer": "block8",
+            "dce": 0.096001,
+            "support": 10.198
+          },
+          {
+            "consumer": "block7",
+            "dce": 0.036817,
+            "support": 8.745
+          }
+        ],
+        "reads": [
+          "attn0",
+          "mlp0",
+          "attn1",
+          "mlp1",
+          "attn2",
+          "mlp2",
+          "attn3",
+          "mlp3",
+          "attn4",
+          "mlp4",
+          "attn5",
+          "mlp5"
+        ],
+        "meaning": {
+          "mean_write_norm": 18.748,
+          "pc_logit_lens": [
+            {
+              "explained_frac": 0.2705,
+              "plus_tokens": [
+                "\ufffd",
+                "\n",
+                " (",
+                "A",
+                " A",
+                "'s",
+                " In",
+                " The"
+              ],
+              "minus_tokens": [
+                " multicultural",
+                " welf",
+                " Durant",
+                "utterstock",
+                " Reilly",
+                "\ufffd",
+                "447",
+                " abund"
+              ]
+            },
+            {
+              "explained_frac": 0.1214,
+              "plus_tokens": [
+                "\ufffd\ufffd",
+                " ({",
+                "gling",
+                "otin",
+                " Nept",
+                " juven",
+                " VIDE",
+                "EMOTE"
+              ],
+              "minus_tokens": [
+                " and",
+                " in",
+                "\n",
+                ",",
+                " of",
+                " (",
+                " the",
+                " at"
+              ]
+            }
+          ],
+          "top_input_tokens_by_write_norm": [
+            [
+              "AMA",
+              40.615
+            ],
+            [
+              " Zone",
+              38.69
+            ],
+            [
+              " \u203a",
+              37.838
+            ],
+            [
+              " Reader",
+              36.622
+            ],
+            [
+              " Release",
+              36.532
+            ],
+            [
+              " Growth",
+              36.512
+            ],
+            [
+              " Yard",
+              36.469
+            ],
+            [
+              " Teacher",
+              36.418
+            ],
+            [
+              " Theme",
+              35.978
+            ],
+            [
+              " Artist",
+              35.751
+            ]
+          ],
+          "extreme_snippets": [
+            {
+              "norm": 41.121,
+              "context": "iences in Education Innovation:\nDeveloping Tools in Support of Active",
+              "last_token": " Active",
+              "true_next": " Learning",
+              "write_top_logits": [
+                "\n",
+                " and",
+                " (",
+                ",",
+                " in",
+                " A"
+              ],
+              "write_bottom_logits": [
+                " multicultural",
+                " welf",
+                "utterstock",
+                " Reilly",
+                " Durant",
+                " abund"
+              ]
+            },
+            {
+              "norm": 39.947,
+              "context": " \u201cPeer Instruction Versus Class-Wide Discussion in Large Classes",
+              "last_token": " Classes",
+              "true_next": ":",
+              "write_top_logits": [
+                "\n",
+                " and",
+                " (",
+                ",",
+                " in",
+                "."
+              ],
+              "write_bottom_logits": [
+                " multicultural",
+                "utterstock",
+                " Durant",
+                "447",
+                " Reilly",
+                " welf"
+              ]
+            },
+            {
+              "norm": 39.564,
+              "context": " purchase.\nNext Step: After purchasing please contact Living Prints",
+              "last_token": "s",
+              "true_next": " to",
+              "write_top_logits": [
+                ",",
+                " and",
+                "\n",
+                " (",
+                ".",
+                "\ufffd"
+              ],
+              "write_bottom_logits": [
+                " multicultural",
+                "utterstock",
+                " SPI",
+                " welf",
+                " Durant",
+                " Reilly"
+              ]
+            },
+            {
+              "norm": 39.506,
+              "context": " Write 11 facts about yourself.<|endoftext|>THE STRATEGYHow to",
+              "last_token": " to",
+              "true_next": " fight",
+              "write_top_logits": [
+                " and",
+                ",",
+                "\n",
+                ".",
+                " (",
+                "-"
+              ],
+              "write_bottom_logits": [
+                " multicultural",
+                "utterstock",
+                " SPI",
+                " Reilly",
+                " welf",
+                "\ufffd"
+              ]
+            }
+          ]
+        }
+      },
+      "attn7": {
+        "dce_floor": 0.0812,
+        "dce_tokmean": 0.06032,
+        "dce_linear": 0.06285,
+        "tokmean_recovered": 0.2571,
+        "linear_recovered": 0.226,
+        "consumers": [
+          {
+            "consumer": "readout",
+            "dce": 0.061295,
+            "support": 110.471
+          },
+          {
+            "consumer": "block8",
+            "dce": 0.016492,
+            "support": 7.855
+          },
+          {
+            "consumer": "block9",
+            "dce": 0.015523,
+            "support": 8.117
+          },
+          {
+            "consumer": "block10",
+            "dce": 0.01438,
+            "support": 7.618
+          },
+          {
+            "consumer": "block11",
+            "dce": 0.009866,
+            "support": 6.288
+          }
+        ],
+        "reads": [
+          "attn1",
+          "mlp1",
+          "attn2",
+          "mlp2",
+          "attn3",
+          "mlp3",
+          "attn4",
+          "mlp4",
+          "attn5",
+          "mlp5",
+          "attn6",
+          "mlp6"
+        ],
+        "meaning": {
+          "mean_write_norm": 12.7139,
+          "pc_logit_lens": [
+            {
+              "explained_frac": 0.154,
+              "plus_tokens": [
+                " your",
+                " you",
+                " yourself",
+                "?",
+                " Your",
+                " or",
+                " insurance",
+                " doesn"
+              ],
+              "minus_tokens": [
+                " rab",
+                " south",
+                " maps",
+                " were",
+                " acres",
+                " derived",
+                "\u2013",
+                " highlight"
+              ]
+            },
+            {
+              "explained_frac": 0.117,
+              "plus_tokens": [
+                " Quran",
+                "Magazine",
+                " cp",
+                " Kers",
+                "\ufffd",
+                " Compass",
+                " 1902",
+                "Limit"
+              ],
+              "minus_tokens": [
+                "D",
+                " She",
+                " amazing",
+                "c",
+                "This",
+                "W",
+                " love",
+                "M"
+              ]
+            }
+          ],
+          "top_input_tokens_by_write_norm": [
+            [
+              "\u044c",
+              35.315
+            ],
+            [
+              "\u0438",
+              34.899
+            ],
+            [
+              "\u0435",
+              32.948
+            ],
+            [
+              "\u0430",
+              32.382
+            ],
+            [
+              "\u044b",
+              29.791
+            ],
+            [
+              "\u20ac",
+              29.407
+            ],
+            [
+              " intermediate",
+              28.474
+            ],
+            [
+              "\u0443",
+              28.314
+            ],
+            [
+              "\ufffd",
+              28.077
+            ],
+            [
+              " doubles",
+              28.026
+            ]
+          ],
+          "extreme_snippets": [
+            {
+              "norm": 41.677,
+              "context": " healthier tomorrow for all children \u2013 even those who may never enter our",
+              "last_token": " our",
+              "true_next": " doors",
+              "write_top_logits": [
+                "cheat",
+                " gul",
+                "andre",
+                " seiz",
+                " Jihad",
+                " entreprene"
+              ],
+              "write_bottom_logits": [
+                " album",
+                " bands",
+                " radio",
+                " guitar",
+                "ile",
+                " forth"
+              ]
+            },
+            {
+              "norm": 39.758,
+              "context": "-changing research, education and advocacy, Nemours fulfills the",
+              "last_token": " the",
+              "true_next": " promise",
+              "write_top_logits": [
+                "cheat",
+                "weapon",
+                "Bull",
+                " gul",
+                " entreprene",
+                " simulac"
+              ],
+              "write_bottom_logits": [
+                " album",
+                " bands",
+                " guitar",
+                "ile",
+                " deposit",
+                " radio"
+              ]
+            },
+            {
+              "norm": 37.902,
+              "context": " be a sacred trust.\nThrough family-centered care in our",
+              "last_token": " our",
+              "true_next": " children",
+              "write_top_logits": [
+                " gul",
+                "\ufffd",
+                "razen",
+                " Jihad",
+                "TPS",
+                "\u3059"
+              ],
+              "write_bottom_logits": [
+                " album",
+                " bands",
+                " guitar",
+                "as",
+                " riding",
+                " forth"
+              ]
+            },
+            {
+              "norm": 37.639,
+              "context": " improving the health of children. As a nonprofit children\u2019s",
+              "last_token": "s",
+              "true_next": " health",
+              "write_top_logits": [
+                " gul",
+                "UGC",
+                " detrim",
+                "ethical",
+                "andre",
+                " simulac"
+              ],
+              "write_bottom_logits": [
+                " album",
+                " guitar",
+                " bands",
+                "b",
+                " deposit",
+                "is"
+              ]
+            }
+          ]
+        }
+      },
+      "mlp7": {
+        "dce_floor": 0.09054,
+        "dce_tokmean": 0.0119,
+        "dce_linear": 0.03062,
+        "tokmean_recovered": 0.8686,
+        "linear_recovered": 0.6618,
+        "consumers": [
+          {
+            "consumer": "readout",
+            "dce": 0.077893,
+            "support": 161.74
+          },
+          {
+            "consumer": "block10",
+            "dce": 0.018236,
+            "support": 8.343
+          },
+          {
+            "consumer": "block8",
+            "dce": 0.013614,
+            "support": 7.722
+          },
+          {
+            "consumer": "block11",
+            "dce": 0.011566,
+            "support": 6.001
+          },
+          {
+            "consumer": "block9",
+            "dce": 0.01147,
+            "support": 7.877
+          }
+        ],
+        "reads": [
+          "attn1",
+          "mlp1",
+          "attn2",
+          "mlp2",
+          "attn3",
+          "mlp3",
+          "attn4",
+          "mlp4",
+          "attn5",
+          "mlp5",
+          "attn6",
+          "mlp6"
+        ],
+        "meaning": {
+          "mean_write_norm": 12.6815,
+          "pc_logit_lens": [
+            {
+              "explained_frac": 0.0967,
+              "plus_tokens": [
+                " not",
+                " then",
+                "ion",
+                " also",
+                " other",
+                " cream",
+                " probably",
+                " Angeles"
+              ],
+              "minus_tokens": [
+                "-",
+                "is",
+                "hooting",
+                "(",
+                "Power",
+                " sense",
+                " me",
+                "@"
+              ]
+            },
+            {
+              "explained_frac": 0.0795,
+              "plus_tokens": [
+                "ering",
+                " place",
+                "ground",
+                "head",
+                "ees",
+                "umat",
+                " suit",
+                "inion"
+              ],
+              "minus_tokens": [
+                "us",
+                " on",
+                "port",
+                ",",
+                " of",
+                "ist",
+                "irements",
+                "ured"
+              ]
+            }
+          ],
+          "top_input_tokens_by_write_norm": [
+            [
+              "Rec",
+              35.678
+            ],
+            [
+              " stewards",
+              34.327
+            ],
+            [
+              " picked",
+              33.951
+            ],
+            [
+              " resp",
+              32.455
+            ],
+            [
+              "What",
+              31.206
+            ],
+            [
+              " Aside",
+              30.93
+            ],
+            [
+              " depending",
+              30.878
+            ],
+            [
+              " disagree",
+              30.623
+            ],
+            [
+              "depending",
+              30.491
+            ],
+            [
+              " Cour",
+              30.368
+            ]
+          ],
+          "extreme_snippets": [
+            {
+              "norm": 39.456,
+              "context": " of things, some of which may not be things. I picked",
+              "last_token": " picked",
+              "true_next": " him",
+              "write_top_logits": [
+                "Grid",
+                "aito",
+                "},",
+                "plementation",
+                "ouched",
+                "\ufffd\ufffd"
+              ],
+              "write_bottom_logits": [
+                " on",
+                " not",
+                "d",
+                " is",
+                ",",
+                "ap"
+              ]
+            },
+            {
+              "norm": 37.531,
+              "context": " real estate publication, Dirt. While back then, Tati picked",
+              "last_token": " picked",
+              "true_next": " it",
+              "write_top_logits": [
+                "Grid",
+                "aito",
+                "\ufffd\ufffd",
+                "},",
+                "plementation",
+                "ouched"
+              ],
+              "write_bottom_logits": [
+                " on",
+                " not",
+                "d",
+                " and",
+                " is",
+                ","
+              ]
+            },
+            {
+              "norm": 34.945,
+              "context": " the annual repayment charge will be \u00a328,000.\nRec",
+              "last_token": "Rec",
+              "true_next": "ogn",
+              "write_top_logits": [
+                " and",
+                "y",
+                "ruit",
+                " free",
+                " is",
+                "t"
+              ],
+              "write_bottom_logits": [
+                " TTL",
+                "behavior",
+                "ouched",
+                " multicultural",
+                " \"$",
+                " Bourbon"
+              ]
+            },
+            {
+              "norm": 33.785,
+              "context": " the battle\nCheck the Wizard provides a more complete army. As",
+              "last_token": " As",
+              "true_next": " soon",
+              "write_top_logits": [
+                " part",
+                " well",
+                " with",
+                " soon",
+                "y",
+                " a"
+              ],
+              "write_bottom_logits": [
+                "Stats",
+                " disproportion",
+                " glim",
+                "\ufffd",
+                "acists",
+                " welf"
+              ]
+            }
+          ]
+        }
+      },
+      "attn8": {
+        "dce_floor": 0.10139,
+        "dce_tokmean": 0.08402,
+        "dce_linear": 0.08639,
+        "tokmean_recovered": 0.1714,
+        "linear_recovered": 0.148,
+        "consumers": [
+          {
+            "consumer": "readout",
+            "dce": 0.05271,
+            "support": 118.206
+          },
+          {
+            "consumer": "block9",
+            "dce": 0.013972,
+            "support": 9.97
+          },
+          {
+            "consumer": "block10",
+            "dce": 0.012754,
+            "support": 9.175
+          },
+          {
+            "consumer": "block11",
+            "dce": 0.00766,
+            "support": 6.743
+          }
+        ],
+        "reads": [
+          "attn2",
+          "mlp2",
+          "attn3",
+          "mlp3",
+          "attn4",
+          "mlp4",
+          "attn5",
+          "mlp5",
+          "attn6",
+          "mlp6",
+          "attn7",
+          "mlp7"
+        ],
+        "meaning": {
+          "mean_write_norm": 11.5438,
+          "pc_logit_lens": [
+            {
+              "explained_frac": 0.1231,
+              "plus_tokens": [
+                " her",
+                " she",
+                "d",
+                " She",
+                "She",
+                " Her",
+                ".",
+                " herself"
+              ],
+              "minus_tokens": [
+                "prototype",
+                "],[",
+                "RIP",
+                ">>>>",
+                "ixel",
+                "\u0011",
+                " \ufffd",
+                "iverpool"
+              ]
+            },
+            {
+              "explained_frac": 0.0743,
+              "plus_tokens": [
+                " be",
+                " leader",
+                "\ufffd",
+                " partner",
+                " k",
+                " inspiration",
+                " en",
+                " source"
+              ],
+              "minus_tokens": [
+                "hesda",
+                " Ethiop",
+                " Joined",
+                "ouched",
+                " reluct",
+                " mortg",
+                " Garg",
+                "\u95d8"
+              ]
+            }
+          ],
+          "top_input_tokens_by_write_norm": [
+            [
+              "\ufffd",
+              44.173
+            ],
+            [
+              "\ufffd",
+              43.875
+            ],
+            [
+              "\ufffd",
+              40.833
+            ],
+            [
+              "\ufffd",
+              38.505
+            ],
+            [
+              "\ufffd",
+              38.028
+            ],
+            [
+              "\ufffd",
+              37.751
+            ],
+            [
+              "\ufffd",
+              37.697
+            ],
+            [
+              "\ufffd",
+              36.885
+            ],
+            [
+              "\ufffd",
+              36.373
+            ],
+            [
+              "\ufffd",
+              35.464
+            ]
+          ],
+          "extreme_snippets": [
+            {
+              "norm": 35.827,
+              "context": "I\u2019m not gay, but $20 is $20",
+              "last_token": "20",
+              "true_next": ".",
+              "write_top_logits": [
+                "able",
+                ".",
+                " favorite",
+                " million",
+                " compared",
+                "3"
+              ],
+              "write_bottom_logits": [
+                " LIC",
+                " Hindi",
+                " reluct",
+                " Notting",
+                " Barclays",
+                " munitions"
+              ]
+            },
+            {
+              "norm": 35.386,
+              "context": "\u2022 Finance month-end closing slashed from 25 days to seven\n",
+              "last_token": "\n",
+              "true_next": "\u2022",
+              "write_top_logits": [
+                "\u2022",
+                " basis",
+                " contribution",
+                " kick",
+                " ground",
+                " changes"
+              ],
+              "write_bottom_logits": [
+                " ways",
+                " cases",
+                " areas",
+                " detail",
+                " manner",
+                " places"
+              ]
+            },
+            {
+              "norm": 31.985,
+              "context": " need set gooseflesh on her arms, and her legs shook",
+              "last_token": " shook",
+              "true_next": " with",
+              "write_top_logits": [
+                " her",
+                " she",
+                "d",
+                " She",
+                "She",
+                " herself"
+              ],
+              "write_bottom_logits": [
+                " Geral",
+                "cised",
+                "],[",
+                "aeda",
+                ";;",
+                "prototype"
+              ]
+            },
+            {
+              "norm": 31.903,
+              "context": " to be the woman Russell ached for. She wanted to give",
+              "last_token": " give",
+              "true_next": " him",
+              "write_top_logits": [
+                " her",
+                " she",
+                " She",
+                "d",
+                " herself",
+                "She"
+              ],
+              "write_bottom_logits": [
+                "rius",
+                "Buyable",
+                "535",
+                ">>>>",
+                "VERSION",
+                " myster"
+              ]
+            }
+          ]
+        }
+      },
+      "mlp8": {
+        "dce_floor": 0.18317,
+        "dce_tokmean": 0.03071,
+        "dce_linear": 0.05921,
+        "tokmean_recovered": 0.8323,
+        "linear_recovered": 0.6767,
+        "consumers": [
+          {
+            "consumer": "readout",
+            "dce": 0.431293,
+            "support": 263.273
+          },
+          {
+            "consumer": "block11",
+            "dce": 0.086413,
+            "support": 6.865
+          },
+          {
+            "consumer": "block10",
+            "dce": 0.065742,
+            "support": 9.065
+          },
+          {
+            "consumer": "block9",
+            "dce": 0.023759,
+            "support": 8.602
+          }
+        ],
+        "reads": [
+          "attn2",
+          "mlp2",
+          "attn3",
+          "mlp3",
+          "attn4",
+          "mlp4",
+          "attn5",
+          "mlp5",
+          "attn6",
+          "mlp6",
+          "attn7",
+          "mlp7"
+        ],
+        "meaning": {
+          "mean_write_norm": 17.2856,
+          "pc_logit_lens": [
+            {
+              "explained_frac": 0.2841,
+              "plus_tokens": [
+                " Reilly",
+                " Annex",
+                "\u05d0",
+                " multicultural",
+                " $$",
+                " intakes",
+                " LIC",
+                "447"
+              ],
+              "minus_tokens": [
+                " the",
+                " in",
+                " a",
+                ",",
+                " to",
+                " at",
+                " as",
+                " on"
+              ]
+            },
+            {
+              "explained_frac": 0.1606,
+              "plus_tokens": [
+                "-",
+                "s",
+                "\ufffd",
+                ".",
+                "th",
+                "m",
+                ",",
+                " afford"
+              ],
+              "minus_tokens": [
+                "utterstock",
+                " LIC",
+                " MFT",
+                " Reilly",
+                "447",
+                "\u3059",
+                "\u05d9\ufffd",
+                " disapp"
+              ]
+            }
+          ],
+          "top_input_tokens_by_write_norm": [
+            [
+              "who",
+              35.993
+            ],
+            [
+              " respondents",
+              35.147
+            ],
+            [
+              "still",
+              34.88
+            ],
+            [
+              " occasions",
+              34.624
+            ],
+            [
+              " attorneys",
+              34.357
+            ],
+            [
+              " h",
+              34.238
+            ],
+            [
+              " volumes",
+              34.2
+            ],
+            [
+              " departments",
+              34.084
+            ],
+            [
+              " turtles",
+              34.041
+            ],
+            [
+              "Th",
+              34.01
+            ]
+          ],
+          "extreme_snippets": [
+            {
+              "norm": 47.92,
+              "context": " incidents. The impact, and the sense of a government unable to",
+              "last_token": " to",
+              "true_next": " cope",
+              "write_top_logits": [
+                "-",
+                "\ufffd",
+                " to",
+                ",",
+                ".",
+                " do"
+              ],
+              "write_bottom_logits": [
+                " Reilly",
+                "utterstock",
+                " multicultural",
+                " disapp",
+                " LIC",
+                "447"
+              ]
+            },
+            {
+              "norm": 47.353,
+              "context": "ata and a glass of white wine was a routine treat. I",
+              "last_token": " I",
+              "true_next": " \u2014",
+              "write_top_logits": [
+                ",",
+                " a",
+                " the",
+                " in",
+                " to",
+                "."
+              ],
+              "write_bottom_logits": [
+                " LIC",
+                " Reilly",
+                "utterstock",
+                "447",
+                " Annex",
+                " $$"
+              ]
+            },
+            {
+              "norm": 47.176,
+              "context": " wanted to do a style collection inspired by Sookie simply because I",
+              "last_token": " I",
+              "true_next": " adore",
+              "write_top_logits": [
+                ",",
+                " a",
+                " the",
+                " to",
+                " in",
+                "."
+              ],
+              "write_bottom_logits": [
+                " Reilly",
+                " LIC",
+                "utterstock",
+                " multicultural",
+                "447",
+                " Annex"
+              ]
+            },
+            {
+              "norm": 47.079,
+              "context": " and the stock market. They\u2019ll have the ability to",
+              "last_token": " to",
+              "true_next": " earn",
+              "write_top_logits": [
+                "-",
+                "\ufffd",
+                " to",
+                ".",
+                ",",
+                "s"
+              ],
+              "write_bottom_logits": [
+                " Reilly",
+                "utterstock",
+                " multicultural",
+                " disapp",
+                " LIC",
+                "447"
+              ]
+            }
+          ]
+        }
+      },
+      "attn9": {
+        "dce_floor": 0.16445,
+        "dce_tokmean": 0.13538,
+        "dce_linear": 0.13919,
+        "tokmean_recovered": 0.1768,
+        "linear_recovered": 0.1536,
+        "consumers": [
+          {
+            "consumer": "readout",
+            "dce": 0.121035,
+            "support": 109.502
+          },
+          {
+            "consumer": "block11",
+            "dce": 0.02764,
+            "support": 7.746
+          },
+          {
+            "consumer": "block10",
+            "dce": 0.026371,
+            "support": 9.637
+          }
+        ],
+        "reads": [
+          "attn3",
+          "mlp3",
+          "attn4",
+          "mlp4",
+          "attn5",
+          "mlp5",
+          "attn6",
+          "mlp6",
+          "attn7",
+          "mlp7",
+          "attn8",
+          "mlp8"
+        ],
+        "meaning": {
+          "mean_write_norm": 14.6405,
+          "pc_logit_lens": [
+            {
+              "explained_frac": 0.2173,
+              "plus_tokens": [
+                "Solution",
+                " 428",
+                " coefficients",
+                " USL",
+                " Maver",
+                " FIX",
+                "agically",
+                " sts"
+              ],
+              "minus_tokens": [
+                " skin",
+                " ice",
+                " heat",
+                " water",
+                " baby",
+                " food",
+                ",",
+                " and"
+              ]
+            },
+            {
+              "explained_frac": 0.0957,
+              "plus_tokens": [
+                " violence",
+                " murder",
+                " his",
+                " Jewish",
+                " men",
+                " He",
+                " women",
+                " Jesus"
+              ],
+              "minus_tokens": [
+                " installation",
+                " service",
+                " services",
+                " software",
+                " device",
+                " integrated",
+                " customer",
+                " database"
+              ]
+            }
+          ],
+          "top_input_tokens_by_write_norm": [
+            [
+              "ANI",
+              31.724
+            ],
+            [
+              "...]",
+              29.278
+            ],
+            [
+              "NN",
+              28.755
+            ],
+            [
+              "407",
+              28.57
+            ],
+            [
+              " dried",
+              28.464
+            ],
+            [
+              " sparkling",
+              27.503
+            ],
+            [
+              " teaspoons",
+              27.348
+            ],
+            [
+              " USB",
+              27.042
+            ],
+            [
+              " teaspoon",
+              26.948
+            ],
+            [
+              " desktop",
+              26.828
+            ]
+          ],
+          "extreme_snippets": [
+            {
+              "norm": 49.478,
+              "context": " the potatoes start going too brown. Be sure to test that the",
+              "last_token": " the",
+              "true_next": " potato",
+              "write_top_logits": [
+                " water",
+                " skin",
+                " heat",
+                " body",
+                " food",
+                " ice"
+              ],
+              "write_bottom_logits": [
+                " ideologically",
+                "\":-",
+                " 388",
+                "elfare",
+                " FIX",
+                " hypocr"
+              ]
+            },
+            {
+              "norm": 47.67,
+              "context": " plant with protection from insects, and in return the plant provides the",
+              "last_token": " the",
+              "true_next": " end",
+              "write_top_logits": [
+                " water",
+                " body",
+                " heat",
+                " food",
+                " plant",
+                " plants"
+              ],
+              "write_bottom_logits": [
+                " Twitter",
+                "andre",
+                " Commando",
+                ",,,,",
+                " undermin",
+                "627"
+              ]
+            },
+            {
+              "norm": 45.976,
+              "context": " is an abomination but never mind. There are boxes on the",
+              "last_token": " the",
+              "true_next": " floor",
+              "write_top_logits": [
+                " heat",
+                " water",
+                " skin",
+                " and",
+                ",",
+                " or"
+              ],
+              "write_bottom_logits": [
+                " coefficients",
+                " WTC",
+                "iott",
+                " airst",
+                " glim",
+                " Xia"
+              ]
+            },
+            {
+              "norm": 45.039,
+              "context": " processes. This allows Bossini to speed up the deployment of new",
+              "last_token": " new",
+              "true_next": " applications",
+              "write_top_logits": [
+                " Towards",
+                "));",
+                " 428",
+                "prototype",
+                "Solution",
+                "\u3082"
+              ],
+              "write_bottom_logits": [
+                " Jesus",
+                " her",
+                "DW",
+                " he",
+                " love",
+                "JC"
+              ]
+            }
+          ]
+        }
+      },
+      "mlp9": {
+        "dce_floor": 0.08158,
+        "dce_tokmean": 0.03099,
+        "dce_linear": 0.04559,
+        "tokmean_recovered": 0.6201,
+        "linear_recovered": 0.4411,
+        "consumers": [
+          {
+            "consumer": "readout",
+            "dce": 0.11404,
+            "support": 164.035
+          },
+          {
+            "consumer": "block11",
+            "dce": 0.020327,
+            "support": 6.477
+          },
+          {
+            "consumer": "block10",
+            "dce": 0.019699,
+            "support": 8.647
+          }
+        ],
+        "reads": [
+          "attn3",
+          "mlp3",
+          "attn4",
+          "mlp4",
+          "attn5",
+          "mlp5",
+          "attn6",
+          "mlp6",
+          "attn7",
+          "mlp7",
+          "attn8",
+          "mlp8"
+        ],
+        "meaning": {
+          "mean_write_norm": 14.8463,
+          "pc_logit_lens": [
+            {
+              "explained_frac": 0.1255,
+              "plus_tokens": [
+                "447",
+                "leanor",
+                " Durant",
+                "\ufffd\ufffd",
+                " transmissions",
+                "]-",
+                "\u25fc",
+                "utterstock"
+              ],
+              "minus_tokens": [
+                " the",
+                " it",
+                " I",
+                " he",
+                " The",
+                " that",
+                "\n",
+                " a"
+              ]
+            },
+            {
+              "explained_frac": 0.0857,
+              "plus_tokens": [
+                "il",
+                "rouse",
+                "807",
+                "eryl",
+                " \"/",
+                "473",
+                " torment",
+                "cheat"
+              ],
+              "minus_tokens": [
+                "time",
+                "it",
+                "New",
+                "he",
+                "as",
+                " expert",
+                "uate",
+                " longer"
+              ]
+            }
+          ],
+          "top_input_tokens_by_write_norm": [
+            [
+              " convinced",
+              26.618
+            ],
+            [
+              "Now",
+              26.391
+            ],
+            [
+              " Thank",
+              26.323
+            ],
+            [
+              " gateway",
+              26.289
+            ],
+            [
+              "So",
+              26.257
+            ],
+            [
+              " grateful",
+              26.224
+            ],
+            [
+              " volumes",
+              25.741
+            ],
+            [
+              "But",
+              25.562
+            ],
+            [
+              "ruct",
+              25.481
+            ],
+            [
+              " foolish",
+              25.402
+            ]
+          ],
+          "extreme_snippets": [
+            {
+              "norm": 35.503,
+              "context": " though she can be kick-ass too!\nIn this first",
+              "last_token": " first",
+              "true_next": " set",
+              "write_top_logits": [
+                "-",
+                " century",
+                " pes",
+                "com",
+                "Limit",
+                " elic"
+              ],
+              "write_bottom_logits": [
+                " that",
+                " who",
+                " whether",
+                "S",
+                "\ufffd",
+                " needed"
+              ]
+            },
+            {
+              "norm": 34.814,
+              "context": " and closed her eyes. Then she did it. She took his",
+              "last_token": " his",
+              "true_next": " cock",
+              "write_top_logits": [
+                " face",
+                " heart",
+                " hands",
+                " initialized",
+                " multicultural",
+                "utterstock"
+              ],
+              "write_bottom_logits": [
+                "V",
+                "au",
+                " oil",
+                " if",
+                "D",
+                "is"
+              ]
+            },
+            {
+              "norm": 33.906,
+              "context": " as harmless as essential oils or arabica beans. In fact",
+              "last_token": " fact",
+              "true_next": ",",
+              "write_top_logits": [
+                ",",
+                " weeks",
+                "com",
+                " he",
+                " place",
+                "aring"
+              ],
+              "write_bottom_logits": [
+                "S",
+                " versa",
+                " below",
+                " owners",
+                " credits",
+                "tern"
+              ]
+            },
+            {
+              "norm": 33.352,
+              "context": " an election surprise\", 26 May 2017).\nThis latter column indicated",
+              "last_token": " indicated",
+              "true_next": " a",
+              "write_top_logits": [
+                " that",
+                "s",
+                "\ufffd",
+                "\ufffd",
+                " who",
+                " General"
+              ],
+              "write_bottom_logits": [
+                " drawn",
+                " limit",
+                " period",
+                "currently",
+                "Lee",
+                "recent"
+              ]
+            }
+          ]
+        }
+      },
+      "attn10": {
+        "dce_floor": 0.09614,
+        "dce_tokmean": 0.07695,
+        "dce_linear": 0.08095,
+        "tokmean_recovered": 0.1996,
+        "linear_recovered": 0.158,
+        "consumers": [
+          {
+            "consumer": "readout",
+            "dce": 0.064406,
+            "support": 126.818
+          },
+          {
+            "consumer": "block11",
+            "dce": 0.007316,
+            "support": 7.095
+          }
+        ],
+        "reads": [
+          "attn4",
+          "mlp4",
+          "attn5",
+          "mlp5",
+          "attn6",
+          "mlp6",
+          "attn7",
+          "mlp7",
+          "attn8",
+          "mlp8",
+          "attn9",
+          "mlp9"
+        ],
+        "meaning": {
+          "mean_write_norm": 11.6253,
+          "pc_logit_lens": [
+            {
+              "explained_frac": 0.133,
+              "plus_tokens": [
+                " member",
+                " engineering",
+                " experts",
+                " friends",
+                "based",
+                " president",
+                " director",
+                " manager"
+              ],
+              "minus_tokens": [
+                "000",
+                " rate",
+                " $",
+                " \u00a3",
+                " costs",
+                " price",
+                " cost",
+                " time"
+              ]
+            },
+            {
+              "explained_frac": 0.1128,
+              "plus_tokens": [
+                "S",
+                " 2016",
+                " period",
+                " comes",
+                " 31",
+                "century",
+                " globe",
+                " centuries"
+              ],
+              "minus_tokens": [
+                " to",
+                " much",
+                " any",
+                " attention",
+                " questions",
+                " ways",
+                " more",
+                "re"
+              ]
+            }
+          ],
+          "top_input_tokens_by_write_norm": [
+            [
+              "-$",
+              23.809
+            ],
+            [
+              "\">",
+              23.019
+            ],
+            [
+              "=",
+              21.864
+            ],
+            [
+              "=\"",
+              20.905
+            ],
+            [
+              "July",
+              20.786
+            ],
+            [
+              " \u00a3",
+              20.606
+            ],
+            [
+              " cancel",
+              20.226
+            ],
+            [
+              " noon",
+              20.182
+            ],
+            [
+              " totaling",
+              19.929
+            ],
+            [
+              "ellow",
+              19.78
+            ]
+          ],
+          "extreme_snippets": [
+            {
+              "norm": 37.764,
+              "context": " refinancing student loans. You can borrow up to $ 220,",
+              "last_token": ",",
+              "true_next": "000",
+              "write_top_logits": [
+                "000",
+                " rate",
+                " \u00a3",
+                " costs",
+                " $",
+                "500"
+              ],
+              "write_bottom_logits": [
+                "S",
+                "based",
+                "O",
+                " rock",
+                "known",
+                " engineering"
+              ]
+            },
+            {
+              "norm": 37.536,
+              "context": "\nSociology, Anthropology, Politics. Accessed July 19,",
+              "last_token": ",",
+              "true_next": " 2012",
+              "write_top_logits": [
+                " period",
+                "S",
+                " decade",
+                "century",
+                " 31",
+                " 25"
+              ],
+              "write_bottom_logits": [
+                " to",
+                " ways",
+                "t",
+                " like",
+                " much",
+                " sense"
+              ]
+            },
+            {
+              "norm": 36.218,
+              "context": ". This is why we made this article because it will give you",
+              "last_token": " you",
+              "true_next": " an",
+              "write_top_logits": [
+                " opportunity",
+                " to",
+                " much",
+                " chance",
+                " impression",
+                " difference"
+              ],
+              "write_bottom_logits": [
+                "example",
+                "Fi",
+                "S",
+                "last",
+                " analogous",
+                "DCS"
+              ]
+            },
+            {
+              "norm": 35.968,
+              "context": " Atletico is, I repeat, a great club that gives him",
+              "last_token": " him",
+              "true_next": " everything",
+              "write_top_logits": [
+                " opportunity",
+                "\ufffd",
+                " to",
+                " insight",
+                " much",
+                "effective"
+              ],
+              "write_bottom_logits": [
+                "example",
+                "Fi",
+                "S",
+                "last",
+                " analogous",
+                "isode"
+              ]
+            }
+          ]
+        }
+      },
+      "mlp10": {
+        "dce_floor": 0.38204,
+        "dce_tokmean": 0.1043,
+        "dce_linear": 0.11121,
+        "tokmean_recovered": 0.727,
+        "linear_recovered": 0.7089,
+        "consumers": [
+          {
+            "consumer": "readout",
+            "dce": 0.860746,
+            "support": 334.48
+          },
+          {
+            "consumer": "block11",
+            "dce": 0.335238,
+            "support": 7.274
+          }
+        ],
+        "reads": [
+          "attn4",
+          "mlp4",
+          "attn5",
+          "mlp5",
+          "attn6",
+          "mlp6",
+          "attn7",
+          "mlp7",
+          "attn8",
+          "mlp8",
+          "attn9",
+          "mlp9"
+        ],
+        "meaning": {
+          "mean_write_norm": 16.7138,
+          "pc_logit_lens": [
+            {
+              "explained_frac": 0.1982,
+              "plus_tokens": [
+                " multicultural",
+                "utterstock",
+                " SPI",
+                "447",
+                "debian",
+                "\ufffd",
+                " Reilly",
+                " welf"
+              ],
+              "minus_tokens": [
+                ",",
+                " and",
+                "-",
+                ".",
+                " to",
+                " is",
+                " of",
+                " ("
+              ]
+            },
+            {
+              "explained_frac": 0.1155,
+              "plus_tokens": [
+                "ed",
+                "res",
+                "a",
+                "or",
+                "de",
+                "ups",
+                "m",
+                "ch"
+              ],
+              "minus_tokens": [
+                " own",
+                " have",
+                " find",
+                " see",
+                " know",
+                " use",
+                " get",
+                " do"
+              ]
+            }
+          ],
+          "top_input_tokens_by_write_norm": [
+            [
+              "ij",
+              36.972
+            ],
+            [
+              " Mor",
+              34.094
+            ],
+            [
+              " Sel",
+              33.813
+            ],
+            [
+              " Os",
+              33.753
+            ],
+            [
+              " Lu",
+              33.38
+            ],
+            [
+              " cop",
+              33.312
+            ],
+            [
+              " Nap",
+              32.655
+            ],
+            [
+              " ser",
+              32.441
+            ],
+            [
+              " tunnel",
+              32.433
+            ],
+            [
+              " tra",
+              32.085
+            ]
+          ],
+          "extreme_snippets": [
+            {
+              "norm": 44.116,
+              "context": " followers on their blog) and don\u2019t forget letting them",
+              "last_token": " them",
+              "true_next": " known",
+              "write_top_logits": [
+                " think",
+                " know",
+                " feel",
+                " find",
+                " see",
+                " tell"
+              ],
+              "write_bottom_logits": [
+                " |",
+                "res",
+                " Mac",
+                " Blog",
+                "ed",
+                "ions"
+              ]
+            },
+            {
+              "norm": 43.421,
+              "context": ", and so forth. Where do they go? How do you",
+              "last_token": " you",
+              "true_next": " decide",
+              "write_top_logits": [
+                " feel",
+                " think",
+                " find",
+                " know",
+                " see",
+                " want"
+              ],
+              "write_bottom_logits": [
+                "ed",
+                "ch",
+                "a",
+                "v",
+                "res",
+                "k"
+              ]
+            },
+            {
+              "norm": 42.685,
+              "context": " and LOUIS TOMLINSON.\nAnd I can also",
+              "last_token": " also",
+              "true_next": " reveal",
+              "write_top_logits": [
+                " see",
+                " know",
+                " be",
+                " own",
+                " find",
+                " have"
+              ],
+              "write_bottom_logits": [
+                "ed",
+                "res",
+                "a",
+                "ers",
+                " Mac",
+                "de"
+              ]
+            },
+            {
+              "norm": 42.086,
+              "context": " battle\nCheck the Wizard provides a more complete army. As soon",
+              "last_token": " soon",
+              "true_next": " as",
+              "write_top_logits": [
+                " as",
+                " you",
+                ":",
+                " and",
+                " like",
+                " or"
+              ],
+              "write_bottom_logits": [
+                "447",
+                " multicultural",
+                " SPI",
+                "ribly",
+                " Mattis",
+                " Liang"
+              ]
+            }
+          ]
+        }
+      },
+      "attn11": {
+        "dce_floor": 0.02911,
+        "dce_tokmean": 0.02559,
+        "dce_linear": 0.02604,
+        "tokmean_recovered": 0.1208,
+        "linear_recovered": 0.1054,
+        "consumers": [
+          {
+            "consumer": "readout",
+            "dce": 0.03636,
+            "support": 103.703
+          }
+        ],
+        "reads": [
+          "attn5",
+          "mlp5",
+          "attn6",
+          "mlp6",
+          "attn7",
+          "mlp7",
+          "attn8",
+          "mlp8",
+          "attn9",
+          "mlp9",
+          "attn10",
+          "mlp10"
+        ],
+        "meaning": {
+          "mean_write_norm": 10.442,
+          "pc_logit_lens": [
+            {
+              "explained_frac": 0.1686,
+              "plus_tokens": [
+                ".",
+                "od",
+                " bl",
+                " dark",
+                "\u2014",
+                " and",
+                "c",
+                "is"
+              ],
+              "minus_tokens": [
+                " disapp",
+                " tuple",
+                " Armen",
+                " \"\"\"",
+                "aphael",
+                " 421",
+                "STEP",
+                " ({"
+              ]
+            },
+            {
+              "explained_frac": 0.1372,
+              "plus_tokens": [
+                ".",
+                ".,",
+                ").",
+                ".-",
+                "321",
+                ".\"",
+                " .",
+                "\"."
+              ],
+              "minus_tokens": [
+                " Farm",
+                " Services",
+                " ensemble",
+                " cups",
+                "Once",
+                "MC",
+                " third",
+                " blend"
+              ]
+            }
+          ],
+          "top_input_tokens_by_write_norm": [
+            [
+              "\ufffd",
+              36.598
+            ],
+            [
+              "\ufffd",
+              33.708
+            ],
+            [
+              "\ufffd",
+              32.964
+            ],
+            [
+              "\ufffd",
+              32.929
+            ],
+            [
+              "\ufffd",
+              32.704
+            ],
+            [
+              "\ufffd",
+              31.547
+            ],
+            [
+              "\ufffd",
+              31.159
+            ],
+            [
+              "\ufffd",
+              30.985
+            ],
+            [
+              "\ufffd",
+              30.793
+            ],
+            [
+              "\ufffd",
+              30.509
+            ]
+          ],
+          "extreme_snippets": [
+            {
+              "norm": 55.411,
+              "context": " J. S\u00e1nchez-Naranjo, and G",
+              "last_token": " G",
+              "true_next": ".",
+              "write_top_logits": [
+                ".",
+                ".,",
+                ").",
+                "321",
+                ".-",
+                ".)"
+              ],
+              "write_bottom_logits": [
+                " Farm",
+                "amp",
+                " exceptional",
+                " Services",
+                " renowned",
+                "MC"
+              ]
+            },
+            {
+              "norm": 48.441,
+              "context": "Reay, N. W., P. Li, and L",
+              "last_token": " L",
+              "true_next": ".",
+              "write_top_logits": [
+                ".",
+                ".,",
+                ").",
+                "321",
+                ".)",
+                ".-"
+              ],
+              "write_bottom_logits": [
+                " Farm",
+                "amp",
+                " exceptional",
+                "styles",
+                " colleagues",
+                " atmosp"
+              ]
+            },
+            {
+              "norm": 45.085,
+              "context": " 497\u2013507. Sydney: Sydney University Press.\nN",
+              "last_token": "N",
+              "true_next": "icol",
+              "write_top_logits": [
+                ".",
+                ".,",
+                "321",
+                ").",
+                ".-",
+                ".\""
+              ],
+              "write_bottom_logits": [
+                " Farm",
+                " secure",
+                " Services",
+                "MC",
+                " partially",
+                " exceptional"
+              ]
+            },
+            {
+              "norm": 44.381,
+              "context": "., S. P. Magleby, and A. R",
+              "last_token": " R",
+              "true_next": ".",
+              "write_top_logits": [
+                ".",
+                ".,",
+                ").",
+                "321",
+                ".-",
+                ".\""
+              ],
+              "write_bottom_logits": [
+                " Farm",
+                " secure",
+                " exceptional",
+                " renowned",
+                " Services",
+                "MC"
+              ]
+            }
+          ]
+        }
+      },
+      "mlp11": {
+        "dce_floor": 0.10005,
+        "dce_tokmean": 0.05935,
+        "dce_linear": 0.07298,
+        "tokmean_recovered": 0.4068,
+        "linear_recovered": 0.2706,
+        "consumers": [
+          {
+            "consumer": "readout",
+            "dce": 0.099914,
+            "support": 113.512
+          }
+        ],
+        "reads": [
+          "attn5",
+          "mlp5",
+          "attn6",
+          "mlp6",
+          "attn7",
+          "mlp7",
+          "attn8",
+          "mlp8",
+          "attn9",
+          "mlp9",
+          "attn10",
+          "mlp10"
+        ],
+        "meaning": {
+          "mean_write_norm": 16.0908,
+          "pc_logit_lens": [
+            {
+              "explained_frac": 0.1684,
+              "plus_tokens": [
+                " around",
+                " across",
+                " off",
+                " onto",
+                " together",
+                " than",
+                " anymore",
+                " upon"
+              ],
+              "minus_tokens": [
+                "more",
+                "ex",
+                "ibility",
+                "t",
+                " focuses",
+                " offer",
+                "\ufffd",
+                "ential"
+              ]
+            },
+            {
+              "explained_frac": 0.0976,
+              "plus_tokens": [
+                "t",
+                " and",
+                " then",
+                " needs",
+                " also",
+                " is",
+                " skills",
+                "s"
+              ],
+              "minus_tokens": [
+                " Immortal",
+                " WTC",
+                "aphael",
+                " somew",
+                "ileaks",
+                "orsi",
+                "gling",
+                "\u25fc"
+              ]
+            }
+          ],
+          "top_input_tokens_by_write_norm": [
+            [
+              "-$",
+              37.284
+            ],
+            [
+              " \u00a3",
+              32.542
+            ],
+            [
+              " $",
+              32.065
+            ],
+            [
+              " raped",
+              31.659
+            ],
+            [
+              " ($",
+              30.125
+            ],
+            [
+              "$",
+              29.643
+            ],
+            [
+              "Tr",
+              29.516
+            ],
+            [
+              " 01",
+              29.369
+            ],
+            [
+              " picked",
+              28.892
+            ],
+            [
+              " filmed",
+              28.831
+            ]
+          ],
+          "extreme_snippets": [
+            {
+              "norm": 47.606,
+              "context": " the dresses are from Modcloth. I noticed when I was putting",
+              "last_token": " putting",
+              "true_next": " this",
+              "write_top_logits": [
+                " up",
+                " it",
+                " around",
+                " off",
+                " myself",
+                "s"
+              ],
+              "write_bottom_logits": [
+                " urge",
+                " point",
+                " accuser",
+                "Sync",
+                "berman",
+                " insurg"
+              ]
+            },
+            {
+              "norm": 46.882,
+              "context": " just looked. A Meneghini La Cambusa will set",
+              "last_token": " set",
+              "true_next": " you",
+              "write_top_logits": [
+                " it",
+                " off",
+                " up",
+                "s",
+                " you",
+                " myself"
+              ],
+              "write_bottom_logits": [
+                "Draft",
+                " accuser",
+                "berman",
+                " Cohn",
+                " Xia",
+                " ~/"
+              ]
+            },
+            {
+              "norm": 46.47,
+              "context": " increase from \u00a374,959 in 2018/19 to \u00a3",
+              "last_token": " \u00a3",
+              "true_next": "93",
+              "write_top_logits": [
+                "04",
+                "70",
+                "07",
+                "05",
+                "10",
+                "13"
+              ],
+              "write_bottom_logits": [
+                " Annex",
+                " Divide",
+                " Nath",
+                "rius",
+                " insign",
+                "aito"
+              ]
+            },
+            {
+              "norm": 44.239,
+              "context": " Western Australia, Perth, 1\u20132 February 2006. Accessed July",
+              "last_token": " July",
+              "true_next": " 19",
+              "write_top_logits": [
+                " 2015",
+                "-",
+                " 2006",
+                " 2017",
+                " 2010",
+                " 2008"
+              ],
+              "write_bottom_logits": [
+                "\u000f",
+                " Durant",
+                "inguishable",
+                "usb",
+                " Mages",
+                "$."
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "level5_names": {
+    "convention": "name (evidence gate = best source-substitution recovered fraction of the mean-ablation floor); attention gates are weak by construction (context is their job) except attn2",
+    "mlp5": "mid-stack token-identity feature table, the deep operand store (floor +0.588, the largest; token-mean table recovers 0.97; broadcast to blocks 6-10 within the window)",
+    "mlp4": "bracket/currency/date token table for measurement-and-price contexts (top inputs \" [\", \" $\", \" (\", \" \u00a3\", month names; token table recovers 0.93)",
+    "mlp3": "list/heading continuation table (fires on \"-\", headers, proper-noun starts; pushes title-case sentence starts; token table 0.94)",
+    "mlp2": "small-count/quantifier token table (\" three\", \" two\", \" four\", \" all\", \" five\"; token table 0.96)",
+    "mlp0": "linear token feature table (linear-in-embedding substitution 0.88 beats the token-mean 0.79; small floor +0.034)",
+    "mlp6": "main next-token syntax engine at the readout (readout consumes 1.34 nats, the largest edge; pushes newline/connective/punctuation continuations; token table 0.87; monolith uninspected inside)",
+    "mlp10": "common-verb continuation smoother (pushes \" think/know/feel/find\" after auxiliary/complement contexts; readout 0.86 nats; token table 0.73)",
+    "mlp8": "function-word smoothing toward articles/prepositions (PC1 minus-side \" the/in/a/to\"; token table 0.83)",
+    "mlp7": "clause-continuation table around discourse verbs (\" picked\", \"What\", \" disagree\"; pushes \" not/then/also\"; token table 0.87)",
+    "mlp9": "narrative pronoun-context module at the readout (she/her scenes; token table 0.62, a third unaccounted)",
+    "mlp11": "readout-only particle promoter (\" up/around/off/onto\"; token table 0.41, HALF UNNAMED)",
+    "attn2": "apostrophe-contraction completer (inputs t/ll/ve/s/re/m/d after apostrophes, pushes \"'m/'ve/to\"; 81% TOKEN-SUBSTITUTABLE, the one crisply nameable attention module)",
+    "attn10": "price/number-magnitude continuation (after $/\u00a3 amounts pushes \"000/rate/costs\"; gate 0.20)",
+    "attn9": "physical-substance/recipe topic carrier (pushes \" water/skin/heat/food\" in cooking/biology contexts; gate 0.18)",
+    "attn8": "she/her pronoun-context + bullet-list carrier (two features one module, resists a single name; gate 0.17; the same she/her+mixed-script pairing seen in V8 a8)",
+    "attn7": "second-person address promoter + Cyrillic-script carrier (pushes \" you/your/yourself\"; gate 0.26)",
+    "attn0": "diffuse early contextual carrier, no crisp type (gate 0.46 linear)",
+    "attn3": "diffuse mid contextual carrier, no crisp type (gate 0.27)",
+    "attn6": "diffuse, tiny floor +0.021 (gate 0.27)",
+    "attn11": "diffuse late carrier, tiny floor +0.029 (gate 0.12)",
+    "dead_modules": "attn1, mlp1, attn4, attn5 (source-ablation floors <= 0.0000; block 1 causally dead as a whole)"
+  }
+}

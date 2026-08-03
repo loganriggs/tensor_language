@@ -5731,3 +5731,27 @@ residual: ff8 monolith uninspected inside; a8 two-features-one-module; ff11 half
 **GO for the retrain, two-tier:** slots + group-lasso reads = STRICTLY FREE and should be unconditional in
 any bilin18-class retrain (null → 0.78 wiring for nothing); the dilation mask is a paid option (+0.115 for
 the sharp-edge regime 0.77/0.8) — explore looser visibility {1,2,3,4,8} or annealed masks before paying.
+
+## §110 V9/V9b/width-768: the retrain recipe settles (qk_v9.json, qk_v9b.json, qk_w768.json)
+
+**V9 (slots + group-lasso + N=6 window):** +0.0414 ± 0.0034 vs vanilla 5.7105 — not free (the window costs
+what the persistent embedding used to give: block 3 consumes the embedding at 0.52 nats; blocks 6+ never
+see it) but the BEST PAID OPTION: wiring 0.90 overall (program record) / 0.72 effectual / top-10 0.6, ONE
+dead block, exact terms 5/5/8 to 95% recovering 99.5/96.8/99.9% of causal function.
+**V9b (looser mask {1,2,3,4,8}):** +0.0724, wiring 0.78/0.79/0.6, two dead blocks — DOMINATED by V9.
+**WIDTH-768 SCALE-UP (free config):** slots+group-lasso BEATS its swept vanilla control −0.0515 ± 0.0071
+(5.8090 vs 5.8605), wiring 0.82 overall (up from 0.78), top-10 0.6 (up from 0.4), ZERO dead blocks; density
+grows (11.5 effective inputs; terms 8/11/16) — free-ness and readable wiring scale, term-sparsity alone
+does not (the window exists for that). Context: vanilla 768 < vanilla 384 at this budget (data-limited),
+so part of the win is plausibly the penalty-as-regularizer; larger-data replication would separate them.
+**Level-5-lite on V9:** mlp5 = deep operand store (+0.588 floor, table 0.97, broadcast to blocks 6-10);
+mlp6 = syntax engine (readout's largest input, 1.34); attn2 = apostrophe-contraction completer (81%
+token-substitutable — the one crisply nameable attention); attn10 = price-magnitude continuation (after
+"$ 220," pushes "000"); attn8 = she/her+bullet two-feature module (echoes V8); 4 dead modules; mlp11 half
+unnamed. Positive controls passed everywhere; 1 spike total; confounds recorded (per-width lr sweeps,
+nonzero write init, penalty-during-sweep).
+
+**FINAL RECIPE for a bilin18-class retrain:** UNCONDITIONAL = partitioned write slots (width/24) +
+group-lasso reads (1e-4) + nonzero write init — free at 384, WINNING at 768, wiring 0.78-0.82 for nothing.
+OPTIONAL (+0.041) = N=6 lookback window for the 0.90-wiring sharp regime. Re-sweep lr per width. Sharp and
+loose dilation masks retired.
