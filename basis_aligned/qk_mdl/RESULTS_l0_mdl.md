@@ -5755,3 +5755,68 @@ nonzero write init, penalty-during-sweep).
 group-lasso reads (1e-4) + nonzero write init — free at 384, WINNING at 768, wiring 0.78-0.82 for nothing.
 OPTIONAL (+0.041) = N=6 lookback window for the 0.90-wiring sharp regime. Re-sweep lr per width. Sharp and
 loose dilation masks retired.
+
+## §111 Windowed lookback (W-N): a finite window is free at N=6, catastrophic at N=1 — and the model responds by relaying the TOKEN, not by becoming contextual (qk_window_train.py/_2, qk_window.json)
+
+Logan's hypothesis (follow-up to §106-§107): the standard architecture leans on the persistently-available
+input embedding and learns BAD PRIORS; forcing each block to see only the last N layers' writes removes the
+crutch and the model must actively re-encode/relay context. Architecture W-N (depth 12, width 384, §106
+block internals, no value-lerp): block l's entry = plain unit sum of writes of blocks max(0,l-N)..l-1
+(attention + mlp), plus rms-normed emb only if l < N; readout reads the last N blocks' writes. N in
+{1,2,4,6}. lr TUNED PER ARCHITECTURE ({0.0005,0.001,0.002,0.003}, 400 steps, held-100 pick), then the full
+6-epoch/4122-step budget; vanilla depth-12 control re-swept identically (chose 0.001 -> 5.7651).
+Positive control: W-13 with zero write-init reproduces variant A logits EXACTLY (max diff 0.0e0).
+
+**Necessary init deviation (documented + demonstrated):** zero-init c_proj/Down provably DEADLOCKS a
+windowed model — with no residual carry, every block's entry-Jacobian is zero at init, so gradient reaches
+only the last N blocks' Down_bias and (for N=1) can never propagate back. Empirical demo: W-1 with the
+vanilla convention trains ONLY wte + h.11.Down_bias (2 tensors moved after 80 steps, loss pinned ~8.1 =
+best-constant). Fix: c_proj/Down ~ Normal(0, 0.02) for windowed models (vanilla keeps its convention —
+noted as a confound).
+
+**Held CE (paired, sequence-clustered SE, vs re-swept vanilla 5.7651):** N1 7.6933 (+1.928 ± 0.016,
+catastrophic); N2 5.8640 (+0.099 ± 0.005); N4 5.7482 (−0.017 ± 0.004); N6 5.7247 (−0.040 ± 0.004). N4 and
+N6 BEAT the identically-protocolled control. Secondary control (§108's re-swept vanilla at lr 0.002 =
+5.7105, same protocol, paired): N6 +0.0142 ± 0.0030, N4 +0.0378 — against the best-known vanilla the wins
+shrink to a near-tie (the 400-step sweep is short-horizon-biased for every arch, so ordering vs true-best
+vanilla is genuinely ambiguous). Chosen lrs: vanilla 0.001, N1 0.0005, N2 0.001, N4/N6 0.002. Zero
+divergences, 0-1 spikes per run.
+
+**Hypothesis scoring — the CE half SUPPORTED (moderate N), the mechanism half INVERTED:**
+- Bad-priors pred 1 (windowed >= vanilla): CONFIRMED at N=4,6 vs the protocol control; near-tie vs §108's.
+  The persistent embedding is NOT load-bearing: a 6-block (even 4-block) window costs at most ~0.014 nats.
+  The alternative "monotone degradation as N shrinks" fails at the top (N6/N4 cross below vanilla) but the
+  curve is monotone in N and N=1-2 pay dearly — half the story each.
+- Bad-priors pred 2 (more-contextual mid-stack): SPECTACULARLY INVERTED. Token-determined fraction of
+  mid-stack (layers 3-8) mlp writes: vanilla 0.524; N2 0.995, N4 0.985, N6 0.982 (shuffle ctl 0.036).
+  Linear-in-embedding held variance mid-stack: vanilla 0.213; windowed 0.56-0.61. Wash-out curves: vanilla
+  entry-stream token variance decays 1.0 -> 0.50 by block 11 (§107 plateau); windowed models HOLD it at
+  0.93-0.99 through block 9 (N2: 0.9956/0.9943/.../0.9786 at block 10). Forced to re-encode, the model
+  builds a per-layer TOKEN RELAY — every mid-stack mlp write becomes a near-pure (and heavily
+  linear-in-embedding, causal linear recovery 0.6-0.9) function of the current token, far MORE
+  token-anchored than vanilla ever is. "Relay only where needed" is refuted: the relay is ubiquitous.
+- N1 pathology: the bucket brigade runs on ATTENTION writes alone — mean-ablating ANY single mlp write
+  changes CE by <= 0.003 nats (mlp channel causally dead), attention-write norms explode to ~10,000, and
+  entry token variance hits the shuffle floor (0.042) by block 5: the token is simply LOST, hence +1.93.
+  Windowed streams also inflate generally (N4 entries up to 1620 vs vanilla <= 142) — rms_norm consumers
+  absorb it, but the raw magnitudes drift without the residual anchor.
+- Causal concentration RISES under the window: layer-0 mlp mean-ablation floor 3.15 (N4) / 3.71 (N6) vs
+  vanilla 1.05 nats, with linear-in-embedding recovery 0.93-0.95 — the window makes block 0 an even more
+  dominant, more linear token operand than vanilla's.
+
+**Width-768 scale-up (rule fired: N4,N6 qualified; N6 chosen; batch 4 for <7GB, 8250 steps, lr re-swept at
+{winner/2, winner, winner*2}):** N6 5.9376 vs vanilla 6.0689 — windowed wins the paired protocol comparison
+by −0.1313 ± 0.0038. Caveats: both overfit this 5500-seq corpus (vanilla-768 held-100 rose 5.78 -> 6.09
+over the last 4000 steps; §110 also found vanilla-768 < vanilla-384 here), and §110's batch-8 vanilla-768
+(5.8605) beats BOTH — against best-known w768 vanilla the windowed advantage again becomes a deficit
+(+0.077). Robust cross-width statement: pure windowed-6 MATCHES vanilla within the noise of lr selection,
+never clearly beats best-known. The relay mechanism REPLICATES at 768: mid-stack token-determined 0.97-0.99
+(vanilla 0.31-0.73), washout held >= 0.91 through block 9 (vanilla decays to 0.52), entry norms to ~3200.
+
+**Verdict for Logan:** removing the persistent-embedding crutch costs nothing at window 6 — but not because
+the model stops being token-anchored. The opposite: it spends its writes maintaining the token everywhere
+(0.98-0.99 vs vanilla's 0.5 plateau), i.e., the per-layer token supply is what the computation wants
+(§105's lambda-cap story again); vanilla's "bad prior" is at most a cheap over-supply, and the windowed
+model rebuilds a more expensive private version of the same prior. Files: qk_window_train.py/_2,
+qk_window_{vanilla,N1,N2,N4,N6}.pt (+ _w768), qk_window_heldloss_*.npy, qk_window_lrsweep.json,
+qk_window_ce.json, qk_window.json.

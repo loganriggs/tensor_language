@@ -1,0 +1,34 @@
+{
+  "vanilla": {
+    "held_ce": 5.76508903503418,
+    "lr": 0.001
+  },
+  "N1": {
+    "held_ce": 7.693318843841553,
+    "lr": 0.0005,
+    "minus_vanilla": 1.928229808807373,
+    "minus_vanilla_se_token": 0.004630586598068476,
+    "minus_vanilla_se_seq": 0.015523812733590603
+  },
+  "N2": {
+    "held_ce": 5.864010810852051,
+    "lr": 0.001,
+    "minus_vanilla": 0.09892194718122482,
+    "minus_vanilla_se_token": 0.00281867035664618,
+    "minus_vanilla_se_seq": 0.005316081456840038
+  },
+  "N4": {
+    "held_ce": 5.748247146606445,
+    "lr": 0.002,
+    "minus_vanilla": -0.01684216968715191,
+    "minus_vanilla_se_token": 0.002552678342908621,
+    "minus_vanilla_se_seq": 0.0038674811366945505
+  },
+  "N6": {
+    "held_ce": 5.724688529968262,
+    "lr": 0.002,
+    "minus_vanilla": -0.04040045663714409,
+    "minus_vanilla_se_token": 0.002486082259565592,
+    "minus_vanilla_se_seq": 0.003564286744222045
+  }
+}

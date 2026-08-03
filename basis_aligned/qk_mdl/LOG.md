@@ -7820,3 +7820,10 @@ existing steering methods, not a new method class, so in-scope and launched rath
 - V9 best paid option (0.90 wiring at +0.041); V9b dominated; width-768 free config WINS −0.052 with 0.82
   wiring and zero dead blocks (regularizer-in-data-limited-regime confound noted). Level-5-lite names on V9
   delivered. Final retrain recipe enshrined in §110.
+
+## tick 2026-08-03 (windowed lookback LANDED -> §111)
+- W-N (N=1,2,4,6) trained + probed + w768 scale-up (N6). N6 −0.040 vs protocol control / +0.014 vs §108
+  best vanilla; N1 catastrophic (+1.93, mlp channel causally dead, token lost by block 5). Mechanism half
+  of the bad-priors hypothesis INVERTED: windowed mid-stacks are ~0.99 token-determined (vanilla 0.52) —
+  ubiquitous token relay, not contextualization. w768: N6 beats its protocol control −0.131 (both overfit;
+  §110's batch-8 vanilla-768 still best). Zero-init deadlock demonstrated; nonzero write init required.
