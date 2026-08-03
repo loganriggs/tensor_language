@@ -5700,3 +5700,34 @@ internal term magnitudes reach 1e21 (scale-unbounded cubic, tamed only by downst
 V6 static dilation + GROUP-SPARSITY pressure on read weights per slot (to convert 0.29 → 0.74-level wiring
 agreement without V7's collapse); nonzero write init mandatory; salvage V3's one-hot decomposability only
 if a +0.3-nat budget opens.
+
+## §109 V8 (slots + dilation + group-lasso reads) and the level-5 pass on a small model (qk_v8_train/probe/level5.py, qk_v8_nomask.py)
+
+**CE:** V8 = 5.8256, +0.1151 ± 0.0037 vs re-swept vanilla (misses the 0.05-0.08 budget); the cost is
+ENTIRELY the dilation mask (V8 beats mask-only V6 by 0.013; slots+penalty vs V5 add 0.069 via the mask).
+**Decisive control: NO-MASK V8 (slots + group-lasso only) is FREE** — −0.006 ± 0.004 vs vanilla, a
+statistical tie, with ZERO dead blocks and wiring Spearman 0.78 overall (vs V5's exact null without the
+penalty), 0.40 effectual. **The masked V8 exceeds the wiring target: 0.667 overall, 0.773 effectual,
+top-10 precision 0.8** (readout row alone 0.905); effective inputs 3.2/consumer; but 3/12 blocks causally
+dead (mask-induced). Exact-term decomposability: at blocks 4/6/9 THREE named terms carry 95% of entry
+energy and recover ~100% of causal function (reassembly exactly 0.0). Group penalty side effect: unused
+modules collapse to LITERAL CONSTANTS (deadness weight-visible). Zero spikes/divergences; positive controls
+passed (identity-config reproduces vanilla exactly; penalty vectorization checked to 8 digits).
+
+**LEVEL-5 TABLE (the milestone):** all 24 modules through the four ledgers. Live feed-forward modules are
+named WITH VERIFIED GATES: ff1 = token-identity feature table for distance-8 consumption at block 9 (token
+table recovers 1.09 — beats the real write); ff2 = determiner/possessive noun-phrase-onset table (0.93)
+broadcast to blocks 4/6/10; ff8 = the main next-token syntax engine (0.79; readout's largest input, 1.03
+nats); ff9 = subword-fragment completion table (1.02); ff10 = sentence-onset capitalization promoter
+(0.79; newline → "The"/"In"/"As"); ff6 = suffix-continuation table (0.81); ff11 = function-word smoothing
+(0.56, half unaccounted). Attention modules named via extreme-activation + direct-logit evidence with weak
+gates by construction (context is their job): a4 = bulleted-list detector; a10 = numbered-list/recipe
+digit continuation (after "1 tsp dried thyme\n1 tsp dried oregano\n" pushes digits "1"-"5"); a11 =
+citation-period predictor (on author initials, pushes "."/"., "; 7% token-substitutable — genuinely
+contextual yet nameable); a8 = mixed she/her + non-Latin-script carrier (resists a single name). Honest
+residual: ff8 monolith uninspected inside; a8 two-features-one-module; ff11 half-unnamed; attention gates
+25-33%; 3 dead blocks; budget missed by the mask.
+
+**GO for the retrain, two-tier:** slots + group-lasso reads = STRICTLY FREE and should be unconditional in
+any bilin18-class retrain (null → 0.78 wiring for nothing); the dilation mask is a paid option (+0.115 for
+the sharp-edge regime 0.77/0.8) — explore looser visibility {1,2,3,4,8} or annealed masks before paying.

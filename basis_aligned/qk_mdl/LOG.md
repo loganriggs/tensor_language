@@ -7807,3 +7807,11 @@ existing steering methods, not a new method class, so in-scope and launched rath
   0.74); V3 = single-term exact decomposability at +0.33; V4 signed = cancellation pathology; V7 = chain
   collapse with 7 dead blocks. Recommendation: V8 = V5+V6+group-lasso reads, then level-5 pass.
 - Windowed-lookback agent still pending (queued behind matrix on the GPU).
+
+## tick 2026-08-04b (V8 + level-5 pass LANDED -> §109)
+- V8 missed CE budget (+0.115, all from the mask) but beat the wiring target (0.773 effectual, 0.8 top-10);
+  NO-MASK control (slots+group-lasso) is FREE with zero dead blocks and 0.78 overall wiring — unconditional
+  for the retrain. Level-5 table delivered on the small model: live ff modules named with verified gates
+  (ff1 table 1.09, ff2 0.93, ff9 1.02, ff10 0.79), attention named via activations (weak gates by
+  construction), 3-term exact entries at 100% causal recovery. Residual: ff8 monolith, a8 mixed, ff11 half,
+  3 dead blocks. GO recommendation, two-tier.
