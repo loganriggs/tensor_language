@@ -7762,3 +7762,17 @@ existing steering methods, not a new method class, so in-scope and launched rath
 - §107(a) updated with the curve + confounds. Token-line arc now fully closed: line value in bilin18 is NOT
   depth-per-se; candidates remaining are scale/data (a regime where depth pays), reset-schedule/value-lerp
   interaction, or optimization dynamics over long training.
+
+## tick 2026-08-03d (charts artifact published; Logan's scale question on the mix weights answered)
+- Published tokenline_results.html artifact (8 charts: CE penalties, wash-out, linear-in-embedding two-panel,
+  token-determined, raw mix heatmap, NORM-CORRECTED effective-share heatmap, bilin18 lambda costs, line-
+  coefficient fade). https://claude.ai/code/artifact/39b448fb-013f-4acc-8327-55d1a832154d
+- Logan's scale point CONFIRMED and computed (qk_denseform_norms.py): streams are summed RAW (scalar x raw
+  write, no per-stream norm; consumer re-rms-norms the sum, so only relative scale matters). Effective
+  share w*||s||/rowsum: embedding = 62% of block 1's input fading to ~4% at readout; block-0 mlp write the
+  largest single module contribution nearly everywhere (10-23%); attention writes all small (2-7%). Raw
+  matrix = "what SGD changed"; effective matrix = "who feeds whom"; neither = causal weight (norm and
+  consumption dissociate, cf. bilin18 attention-0).
+- Also clarified the linear-in-embedding regression for Logan (method box in artifact): predictor is the
+  rms-normed embedding ROW of the current token (no context), one ridge matrix per layer; NOT input->output
+  (which would trivially reach ~100% since output is a bilinear function of input).
