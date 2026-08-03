@@ -7776,3 +7776,15 @@ existing steering methods, not a new method class, so in-scope and launched rath
 - Also clarified the linear-in-embedding regression for Logan (method box in artifact): predictor is the
   rms-normed embedding ROW of the current token (no context), one ridge matrix per layer; NOT input->output
   (which would trivially reach ~100% since output is a bilinear function of input).
+
+## tick 2026-08-03e (Logan: windowed-lookback experiment dispatched; the "why amplify" puzzle)
+- Dispatched W-N models (block sees only last N layers' writes; emb visible only within window of start),
+  N in {1,2,4,6}, depth 12, lr TUNED PER ARCH (Logan's instruction) incl. re-swept vanilla control;
+  scale-up to width 768 for any N that matches vanilla. Scoring Logan's bad-priors hypothesis (windowed >=
+  vanilla + more contextual mid-stack) vs the alternative (monotone degradation as N shrinks). N=1 is a
+  pure bucket brigade — zero carry.
+- Logan's puzzle: why amplify the embedding at entry if later layers can obtain it directly (in E)?
+  Answer given: the weight sets the TOKEN SHARE OF THE SQUARE (operating point of each bilinear form),
+  not delivery to the readout; rms-norm makes each row a ratio dial; gradient-dynamics shortcut (bigram
+  path learns fastest — SGD votes for it even when end-to-end negative, cf. §107); partial linearity =
+  context-modulated fixed token map (the §103 fold picture), not amplification.
