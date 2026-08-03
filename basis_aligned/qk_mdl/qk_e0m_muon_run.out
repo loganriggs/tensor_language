@@ -1,0 +1,15 @@
+GPU guard: 15571 MiB free -- proceeding.
+width patched: D 264, NH 6, HD 44, slot dim 11
+fresh single-epoch setup: 132000 shard rows loaded, 8250 steps x batch 16 (132000 seqs, single visit each, epoch_order(0) shared across arms); held fresh34k[33000:34500] (1500 seqs)
+control NS spectrum (1056, 264): singular values in [0.690, 1.140]
+control NS spectrum (264, 264): singular values in [0.121, 1.203]
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/qk_mdl/qk_e0m_muon_run.py", line 80, in <module>
+    controls()
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/qk_mdl/qk_e0m_muon_run.py", line 60, in controls
+    assert 0.5 < smin and smax < 1.5, "Newton-Schulz spectrum off"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Newton-Schulz spectrum off

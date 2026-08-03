@@ -1,0 +1,124 @@
+GPU guard: 15571 MiB free -- proceeding.
+width patched: D 264, NH 6, HD 44, slot dim 11
+fresh single-epoch setup: 132000 shard rows loaded, 8250 steps x batch 16 (132000 seqs, single visit each, epoch_order(0) shared across arms); held fresh34k[33000:34500] (1500 seqs)
+control VC==A264 at init: max |logit diff| 0.00e+00
+control penalty fast 4962.8906 vs naive 4962.8903 rel 5.63e-08
+V10 visibility table matches spec (blocks window-6, readout all 24 writes, no embedding)
+control V10(full vis, identity proj, zero writes)==A264: max |logit diff| 0.00e+00
+control V11(init)==V10(init): max |logit diff| 7.25e-04
+control V11lr(init)==V10(init): max |logit diff| 7.25e-04
+control V11(full vis, identity everything, zero writes)==A264: max |logit diff| 0.00e+00
+V13 edges: 114 (expect 114), rank-4 adapter params 240768
+control V13(init)==slots+window(init): max |logit diff| 0.00e+00; adapter penalty at init 7.44e-05 (U=0)
+==== training qk_er_v10 (lr 0.004, gc 0.0001, 8250 steps x batch 16, single epoch) ====
+GPU guard: 14955 MiB free -- proceeding.
+  V8[lr 0.004, gc 0.0001] step 0/8250 ce 10.8720 (ema 10.8720) 0s mem 10657MiB
+  V8[lr 0.004, gc 0.0001] step 200/8250 ce 6.5417 (ema 6.7934) 27s mem 10905MiB
+  V8[lr 0.004, gc 0.0001] step 400/8250 ce 6.1800 (ema 6.2282) 53s mem 10905MiB
+  V8[lr 0.004, gc 0.0001] step 600/8250 ce 6.0733 (ema 6.0402) 80s mem 10905MiB
+  V8[lr 0.004, gc 0.0001] step 800/8250 ce 6.0933 (ema 5.9146) 106s mem 10905MiB
+  V8[lr 0.004, gc 0.0001] step 1000/8250 ce 5.7447 (ema 5.8416) 133s mem 10905MiB
+  V8[lr 0.004, gc 0.0001] step 1200/8250 ce 5.4311 (ema 5.7909) 160s mem 10905MiB
+  V8[lr 0.004, gc 0.0001] step 1400/8250 ce 5.6925 (ema 5.7665) 186s mem 10905MiB
+  V8[lr 0.004, gc 0.0001] step 1600/8250 ce 5.5965 (ema 5.7223) 213s mem 10905MiB
+  V8[lr 0.004, gc 0.0001] step 1800/8250 ce 5.5451 (ema 5.7054) 239s mem 10905MiB
+  V8[lr 0.004, gc 0.0001] step 2000/8250 ce 5.6639 (ema 5.6443) 266s mem 10905MiB
+  V8 step 2000 held100 CE 5.8176
+  V8[lr 0.004, gc 0.0001] step 2200/8250 ce 5.4541 (ema 5.6242) 293s mem 10905MiB
+  V8[lr 0.004, gc 0.0001] step 2400/8250 ce 5.4867 (ema 5.6219) 319s mem 10905MiB
+  V8[lr 0.004, gc 0.0001] step 2600/8250 ce 5.6746 (ema 5.5750) 346s mem 10905MiB
+  V8[lr 0.004, gc 0.0001] step 2800/8250 ce 5.4157 (ema 5.5568) 372s mem 10905MiB
+  V8[lr 0.004, gc 0.0001] step 3000/8250 ce 5.3567 (ema 5.5564) 399s mem 10905MiB
+  V8[lr 0.004, gc 0.0001] step 3200/8250 ce 5.5237 (ema 5.5210) 426s mem 10905MiB
+  V8[lr 0.004, gc 0.0001] step 3400/8250 ce 5.3874 (ema 5.4746) 452s mem 10905MiB
+  V8[lr 0.004, gc 0.0001] step 3600/8250 ce 5.4572 (ema 5.4990) 479s mem 10905MiB
+  V8[lr 0.004, gc 0.0001] step 3800/8250 ce 5.3924 (ema 5.4780) 505s mem 10905MiB
+  V8[lr 0.004, gc 0.0001] step 4000/8250 ce 5.4943 (ema 5.4423) 532s mem 10905MiB
+  V8 step 4000 held100 CE 5.6395
+  V8[lr 0.004, gc 0.0001] step 4200/8250 ce 5.3965 (ema 5.4498) 559s mem 10905MiB
+  V8[lr 0.004, gc 0.0001] step 4400/8250 ce 5.5306 (ema 5.4182) 585s mem 10905MiB
+  V8[lr 0.004, gc 0.0001] step 4600/8250 ce 5.4579 (ema 5.3748) 612s mem 10905MiB
+  V8[lr 0.004, gc 0.0001] step 4800/8250 ce 5.4353 (ema 5.4067) 638s mem 10905MiB
+  V8[lr 0.004, gc 0.0001] step 5000/8250 ce 5.3422 (ema 5.3832) 665s mem 10905MiB
+  V8[lr 0.004, gc 0.0001] step 5200/8250 ce 5.2681 (ema 5.3681) 691s mem 10905MiB
+  V8[lr 0.004, gc 0.0001] step 5400/8250 ce 5.2566 (ema 5.3410) 718s mem 10905MiB
+  V8[lr 0.004, gc 0.0001] step 5600/8250 ce 5.3188 (ema 5.3023) 745s mem 10905MiB
+  V8[lr 0.004, gc 0.0001] step 5800/8250 ce 5.5223 (ema 5.2936) 771s mem 10905MiB
+  V8[lr 0.004, gc 0.0001] step 6000/8250 ce 5.1181 (ema 5.2647) 798s mem 10905MiB
+  V8 step 6000 held100 CE 5.4786
+  V8[lr 0.004, gc 0.0001] step 6200/8250 ce 5.4381 (ema 5.2876) 825s mem 10905MiB
+  V8[lr 0.004, gc 0.0001] step 6400/8250 ce 5.2710 (ema 5.2737) 851s mem 10905MiB
+  V8[lr 0.004, gc 0.0001] step 6600/8250 ce 5.1473 (ema 5.2596) 878s mem 10905MiB
+  V8[lr 0.004, gc 0.0001] step 6800/8250 ce 5.3400 (ema 5.2169) 904s mem 10905MiB
+  V8[lr 0.004, gc 0.0001] step 7000/8250 ce 5.2281 (ema 5.2304) 931s mem 10905MiB
+  V8[lr 0.004, gc 0.0001] step 7200/8250 ce 5.1042 (ema 5.2171) 957s mem 10905MiB
+  V8[lr 0.004, gc 0.0001] step 7400/8250 ce 5.1849 (ema 5.2215) 984s mem 10905MiB
+  V8[lr 0.004, gc 0.0001] step 7600/8250 ce 5.2541 (ema 5.1855) 1010s mem 10905MiB
+  V8[lr 0.004, gc 0.0001] step 7800/8250 ce 5.1128 (ema 5.2055) 1037s mem 10905MiB
+  V8[lr 0.004, gc 0.0001] step 8000/8250 ce 5.3465 (ema 5.1906) 1064s mem 10905MiB
+  V8 step 8000 held100 CE 5.3903
+  V8[lr 0.004, gc 0.0001] step 8200/8250 ce 5.1643 (ema 5.1718) 1090s mem 10905MiB
+/workspace/tensor_language/basis_aligned/qk_mdl/qk_v8_train.py:276: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:838.)
+  log['final_penalty'] = float(group_penalty(model))
+== V8 FINAL held CE 5.26014  (1102s, 0 spikes, penalty 1452.69)
+==== training qk_er_v11 (lr 0.004, gc 0.0001, 8250 steps x batch 16, single epoch) ====
+GPU guard: 14785 MiB free -- proceeding.
+  V8[lr 0.004, gc 0.0001] step 0/8250 ce 10.8720 (ema 10.8720) 0s mem 10905MiB
+  V8[lr 0.004, gc 0.0001] step 200/8250 ce 6.5031 (ema 6.7802) 27s mem 11033MiB
+  V8[lr 0.004, gc 0.0001] step 400/8250 ce 6.1630 (ema 6.2421) 55s mem 11033MiB
+  V8[lr 0.004, gc 0.0001] step 600/8250 ce 6.0784 (ema 6.0535) 82s mem 11033MiB
+  V8[lr 0.004, gc 0.0001] step 800/8250 ce 6.0991 (ema 5.9248) 109s mem 11033MiB
+  V8[lr 0.004, gc 0.0001] step 1000/8250 ce 5.7421 (ema 5.8513) 137s mem 11033MiB
+  V8[lr 0.004, gc 0.0001] step 1200/8250 ce 5.4391 (ema 5.8025) 164s mem 11033MiB
+  V8[lr 0.004, gc 0.0001] step 1400/8250 ce 5.6884 (ema 5.7712) 191s mem 11033MiB
+  V8[lr 0.004, gc 0.0001] step 1600/8250 ce 5.5778 (ema 5.7273) 219s mem 11033MiB
+  V8[lr 0.004, gc 0.0001] step 1800/8250 ce 5.5487 (ema 5.7058) 246s mem 11033MiB
+  V8[lr 0.004, gc 0.0001] step 2000/8250 ce 5.6636 (ema 5.6431) 273s mem 11033MiB
+  V8 step 2000 held100 CE 5.8117
+  V8[lr 0.004, gc 0.0001] step 2200/8250 ce 5.4671 (ema 5.6196) 301s mem 11033MiB
+  V8[lr 0.004, gc 0.0001] step 2400/8250 ce 5.4754 (ema 5.6139) 328s mem 11033MiB
+  V8[lr 0.004, gc 0.0001] step 2600/8250 ce 5.6589 (ema 5.5665) 356s mem 11033MiB
+  V8[lr 0.004, gc 0.0001] step 2800/8250 ce 5.4149 (ema 5.5502) 383s mem 11033MiB
+  V8[lr 0.004, gc 0.0001] step 3000/8250 ce 5.3340 (ema 5.5499) 410s mem 11033MiB
+  V8[lr 0.004, gc 0.0001] step 3200/8250 ce 5.5183 (ema 5.5168) 438s mem 11033MiB
+  V8[lr 0.004, gc 0.0001] step 3400/8250 ce 5.3545 (ema 5.4678) 465s mem 11033MiB
+  V8[lr 0.004, gc 0.0001] step 3600/8250 ce 5.4624 (ema 5.4954) 492s mem 11033MiB
+  V8[lr 0.004, gc 0.0001] step 3800/8250 ce 5.3994 (ema 5.4692) 519s mem 11033MiB
+  V8[lr 0.004, gc 0.0001] step 4000/8250 ce 5.4980 (ema 5.4337) 547s mem 11033MiB
+  V8 step 4000 held100 CE 5.6346
+  V8[lr 0.004, gc 0.0001] step 4200/8250 ce 5.3932 (ema 5.4388) 574s mem 11033MiB
+  V8[lr 0.004, gc 0.0001] step 4400/8250 ce 5.5069 (ema 5.4050) 602s mem 11033MiB
+  V8[lr 0.004, gc 0.0001] step 4600/8250 ce 5.4492 (ema 5.3611) 629s mem 11033MiB
+  V8[lr 0.004, gc 0.0001] step 4800/8250 ce 5.3935 (ema 5.3939) 656s mem 11033MiB
+  V8[lr 0.004, gc 0.0001] step 5000/8250 ce 5.3323 (ema 5.3689) 684s mem 11033MiB
+  V8[lr 0.004, gc 0.0001] step 5200/8250 ce 5.2394 (ema 5.3529) 711s mem 11033MiB
+  V8[lr 0.004, gc 0.0001] step 5400/8250 ce 5.2418 (ema 5.3234) 738s mem 11033MiB
+  V8[lr 0.004, gc 0.0001] step 5600/8250 ce 5.3096 (ema 5.2867) 766s mem 11033MiB
+  V8[lr 0.004, gc 0.0001] step 5800/8250 ce 5.4928 (ema 5.2748) 793s mem 11033MiB
+  V8[lr 0.004, gc 0.0001] step 6000/8250 ce 5.0907 (ema 5.2437) 820s mem 11033MiB
+  V8 step 6000 held100 CE 5.4547
+  V8[lr 0.004, gc 0.0001] step 6200/8250 ce 5.4289 (ema 5.2671) 848s mem 11033MiB
+  V8[lr 0.004, gc 0.0001] step 6400/8250 ce 5.2324 (ema 5.2546) 875s mem 11033MiB
+  V8[lr 0.004, gc 0.0001] step 6600/8250 ce 5.1295 (ema 5.2397) 902s mem 11033MiB
+  V8[lr 0.004, gc 0.0001] step 6800/8250 ce 5.3182 (ema 5.2005) 930s mem 11033MiB
+  V8[lr 0.004, gc 0.0001] step 7000/8250 ce 5.2093 (ema 5.2134) 957s mem 11033MiB
+  V8[lr 0.004, gc 0.0001] step 7200/8250 ce 5.1004 (ema 5.1997) 984s mem 11033MiB
+  V8[lr 0.004, gc 0.0001] step 7400/8250 ce 5.1645 (ema 5.2035) 1012s mem 11033MiB
+  V8[lr 0.004, gc 0.0001] step 7600/8250 ce 5.2397 (ema 5.1683) 1039s mem 11033MiB
+  V8[lr 0.004, gc 0.0001] step 7800/8250 ce 5.0874 (ema 5.1882) 1066s mem 11033MiB
+  V8[lr 0.004, gc 0.0001] step 8000/8250 ce 5.3320 (ema 5.1741) 1094s mem 11033MiB
+  V8 step 8000 held100 CE 5.3702
+  V8[lr 0.004, gc 0.0001] step 8200/8250 ce 5.1418 (ema 5.1566) 1121s mem 11033MiB
+== V8 FINAL held CE 5.24305  (1133s, 0 spikes, penalty 1310.40)
+==== training qk_er_v11nl (lr 0.004, gc 0.0001, 8250 steps x batch 16, single epoch) ====
+GPU guard: 14779 MiB free -- proceeding.
+  V8[lr 0.004, gc 0.0001] step 0/8250 ce 10.8720 (ema 10.8720) 0s mem 11033MiB
+  V8[lr 0.004, gc 0.0001] step 200/8250 ce 6.5264 (ema 6.7833) 27s mem 11033MiB
+  V8[lr 0.004, gc 0.0001] step 400/8250 ce 6.1832 (ema 6.2477) 54s mem 11033MiB
+  V8[lr 0.004, gc 0.0001] step 600/8250 ce 6.0913 (ema 6.0555) 82s mem 11033MiB
+  V8[lr 0.004, gc 0.0001] step 800/8250 ce 6.0854 (ema 5.9248) 109s mem 11033MiB
+  V8[lr 0.004, gc 0.0001] step 1000/8250 ce 5.7358 (ema 5.8472) 136s mem 11033MiB
+  V8[lr 0.004, gc 0.0001] step 1200/8250 ce 5.4268 (ema 5.7948) 163s mem 11033MiB
+  V8[lr 0.004, gc 0.0001] step 1400/8250 ce 5.6761 (ema 5.7663) 190s mem 11033MiB
+  V8[lr 0.004, gc 0.0001] step 1600/8250 ce 5.5810 (ema 5.7181) 217s mem 11033MiB
