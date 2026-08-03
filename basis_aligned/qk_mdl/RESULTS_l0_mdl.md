@@ -5603,3 +5603,55 @@ Overfitting makes writes more contextual (A layer 1: 0.593 → 0.398).
 **Verdict:** at depth 4 the line buys nothing and mechanically token-anchors the stack; bilin18's 2.26-nat
 line value is most plausibly a DEPTH phenomenon (17 entry-crushes for the token to survive vs 3). The
 depth-scaling test (same A/B contrast at depths 2/4/8/12) is the discriminating follow-up.
+
+## §107 Depth scaling and the DenseFormer variant: every departure from the plain stream loses at small scale, but the optimizer still votes for the token line (qk_tokenline_depth.py, qk_denseform.py/_2)
+
+**(a) Depth-scaling test of the §106 depth hypothesis: REFUTED at this scale.** Same A (vanilla) vs B
+(clamped token line) contrast at depths 2/4/8/12, frozen recipe: B−A = +0.024 / +0.006 / +0.050 / +0.038
+(standard errors ~0.003-0.004). No crossing into negative, no monotone trend — the line hurts slightly at
+every trainable depth. Caveat that limits the inference to bilin18: vanilla CE is FLAT in depth here
+(5.734/5.727/5.737/5.765) — this corpus never enters the regime where depth pays, so it cannot produce the
+regime where the line pays either. bilin18's 2.26-nat line value (§105) remains unexplained by depth alone;
+remaining candidates: scale/data volume, interaction with the reset schedule + value-lerp (removed here to
+isolate the line), or time-to-loss optimization benefits (the speedrun selection pressure). Wash-out probe
+report pending (agent re-pinged).
+
+**(b) DenseFormer-style variant E (Logan's proposal): a learned scalar on EVERY previous module at every
+block entry** (stream rebuilt per entry; all weights init 1.0 = exactly vanilla at init, verified
+bit-identical; final readout row included; no clips needed, range 0.15-1.76). Depths 4 and 12, same recipe.
+
+**CE: E loses, and loses more with depth.** E−A = +0.0274 ± 0.0025 (depth 4), +0.0986 ± 0.0032 (depth 12);
+E is also worse than B at both depths. Full routing freedom hurts under this budget — continuing the §106
+pattern: every departure from the plain accumulated residual stream costs held cross-entropy at this scale.
+
+**Linear-in-embedding percentage, all layers (Logan's headline ask): per-module weighting does NOT
+linearize the stack — only layer 0.** Depth 12 held variance explained by the best linear map of the
+current-token embedding, layers 0-11: A 0.51,0.28,0.26,0.24,0.24,0.23,0.18,0.22,0.17,0.13,0.21,0.31;
+B 0.83,0.76,0.73,0.63,0.60,0.60,0.48,0.33,0.29,0.32,0.35,0.37; E 0.79,0.40,0.29,0.25,0.23,0.18,0.12,...
+E matches B at layer 0 then collapses to vanilla (below vanilla at layers 5-6). B's stack-wide
+linearization is specifically the FLOODING of every entry by the token direction, not a general consequence
+of routing freedom. Token-determined fractions show the same shape (E middle stack LESS token-determined
+than vanilla: 0.44/0.31 vs 0.57/0.48 at layers 5-6). Unpredicted nuance: vanilla's middle layers have LOW
+linear variance (~0.23) but HIGH causal linear recovery (0.78-0.87) — the load-bearing component is more
+token-linear than the bulk write, though largest exactly where layers matter least (floors 0.02-0.03).
+
+**The learned weight matrix (depth 12, 45/169 weights moved >0.5) — three structural readouts:**
+1. **A token line EMERGES SPONTANEOUSLY:** every entry row amplifies the embedding column, rising with
+   depth 1.12 → 1.71-1.76 (blocks 3-7), relaxing to 1.10 late; readout holds 1.17. The optimizer votes for
+   the re-injected token line even though the explicit-line variants LOSE held cross-entropy — the local
+   gradient preference and the end-to-end value of the line disagree (a plausible mechanism for how the
+   speedrun lineage fixed the trick).
+2. **No resets — attenuation bands instead:** early mlp writes suppressed to 0.15-0.46 by middle consumers;
+   attention writes barely touched (0.6-1.1).
+3. **"Write, consume soon, fade":** each block keeps its immediate predecessor's mlp write high (0.72-1.04
+   at blocks 8-11) while writes 3-6 blocks old are cut to 0.15-0.5 — the §103 leaky-consumption story
+   (survival ~0.63/block) reappearing as TRAINED WEIGHTS. Readout selectively up-weights middle attention
+   (blocks 3-6 at 1.18-1.44).
+
+**Unpredicted: importance flattening.** Vanilla concentrates causal mass at layer 0 (floor 1.05 nats at
+depth 12); E redistributes (layer 0 only 0.26, rest 0.03-0.12) — the rebuilt stream lets consumers dial
+down any single write, so no layer becomes load-bearing — and the model is WORSE for it.
+
+**Confounds (agent's, honest):** lr tuned on vanilla only (E's deficit may be partly tuning); E's
+middle-stack suppression shrinks entry norms (part of the probe differences is norm rebalancing);
+bfloat16 eval convention matches stored baselines (float32 recheck agrees <0.001).

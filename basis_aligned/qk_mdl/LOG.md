@@ -7742,3 +7742,14 @@ existing steering methods, not a new method class, so in-scope and launched rath
   structure (token-line column? reset rows? §103-style module-to-module pairs?); paired CE table.
 - Depth-scaling wash-out probe still pending from the previous agent; will fold both into one RESULTS
   section when they land.
+
+## tick 2026-08-03b (depth-scaling verdict + DenseFormer variant E LANDED -> §107)
+- Depth hypothesis REFUTED at this scale (B−A +0.024/+0.006/+0.050/+0.038 at d2/4/8/12, no crossing);
+  caveat: vanilla CE flat in depth on this corpus, so the regime where the line pays never opens. Wash-out
+  probe still owed (agent re-pinged; qk_tokenline_depth.json missing).
+- Variant E (per-module scalars): loses CE at both depths (worse than B); linearizes ONLY layer 0 (B's
+  stack-wide linearization is the flooding, not routing freedom); learned weight matrix at depth 12
+  spontaneously rediscovers the token line (embedding column 1.12→1.76) despite the line losing CE —
+  local gradient preference vs end-to-end value disagree; no resets, instead "write, consume soon, fade"
+  attenuation bands = the §103 leaky-consumption story as trained weights; importance flattening
+  (layer-0 floor 1.05 → 0.26 nats) and the model is worse for it.
