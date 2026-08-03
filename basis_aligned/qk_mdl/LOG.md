@@ -7788,3 +7788,15 @@ existing steering methods, not a new method class, so in-scope and launched rath
   not delivery to the readout; rms-norm makes each row a ratio dial; gradient-dynamics shortcut (bigram
   path learns fastest — SGD votes for it even when end-to-end negative, cf. §107); partial linearity =
   context-modulated fixed token map (the §103 fold picture), not amplification.
+
+## tick 2026-08-03f (Logan: depth-routing architecture matrix dispatched — toward an interpretable bilin18 retrain)
+- Logan supplied a design note (squared depth-attention normalized/unnormalized, bilinear AND-gated routing,
+  subspace partitioning, dilation masks, low-CP routing) and asked to queue trainings + think interp
+  implications; goal = most interpretable while reasonably performant, then strongly level-5 interpret a
+  small version first.
+- Dispatched 7-variant matrix at depth 12/width 384, lr tuned per arch: V1 vanilla control, V2 normalized
+  squared depth-attn (rational bubble), V3 unnormalized squared (pure TN, 1/l scale), V4 signed bilinear
+  AND-gated routing (subtractive), V5 subspace partitioning (provable zeros, weight-readable wiring),
+  V6 static dilation mask {1,2,4,8}, V7 combo (V3+V5+V6). Scoring: held CE frontier vs weight-readable
+  wiring agreement (Gram-predicted vs causally measured), routing sparsity, exact-term decomposability
+  (reassembly < 1e-5 + terms-to-95%), standard probes. Windowed-lookback sweep still running in parallel.
