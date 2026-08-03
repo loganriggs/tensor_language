@@ -5667,3 +5667,36 @@ down any single write, so no layer becomes load-bearing — and the model is WOR
 **Confounds (agent's, honest):** lr tuned on vanilla only (E's deficit may be partly tuning); E's
 middle-stack suppression shrinks entry norms (part of the probe differences is norm rebalancing);
 bfloat16 eval convention matches stored baselines (float32 recheck agrees <0.001).
+
+## §108 Depth-routing architecture matrix for an interpretable retrain (qk_deeproute_train.py/_2)
+
+Seven depth-12/width-384 variants of the entry-assembly rule, lr tuned per architecture (re-swept vanilla
+control improved 5.7651 → 5.7105 at lr 0.002 — the sweep matters). Full numbers in qk_deeproute.json.
+
+**Hard constraint discovered: multiplicative depth-routing is incompatible with zero-initialized writes.**
+Quadratic routing coefficients have zero gradient at zero writes, so with the standard zero-init the
+zero-write manifold is a FIXED POINT: all four kernel variants trained 4122 steps with every write
+projection at exactly 0.0 (the combo sat at exactly log-vocab 10.8249 — the uniform predictor — which
+exposed it). Fixed with small nonzero write init; dead runs archived (_deadinit).
+
+**Frontier (held CE, paired vs V1 = 5.7105):** V5 subspace partitioning +0.0459 ± 0.0032 (ONLY variant in
+Logan's 0.05 budget; writes confined to 16/384-dim slots); V6 static dilation +0.1279; V2 normalized
+squared +0.2158; V3 unnormalized squared (pure TN) +0.3324; V7 combo +0.5119; V4 signed gate +0.8519.
+Zero divergences in 28 sweep runs.
+
+**Interpretability scores:** (1) WIRING: V5's weight-support prediction of the measured 169-pair causal
+consumption graph is null overall (-0.001) but 0.29 on effectual pairs (top-4 causal pairs at 97-99th pct
+of support) — readable IN PRINCIPLE, needs read-side localization pressure; V7's near-one-hot routing
+reaches 0.50 overall / 0.74 effectual — best observed; V6/V7 mask predictions exact by construction.
+(2) SPARSITY (effective inputs/consumer): V7 1.23 (but 7/12 blocks causally DEAD — chain collapse through
+blocks 0,4,8,10,11), V3 2.28, V2 2.66, V6 4.77, V1 9.17, V5 11.7. (3) EXACT TERMS at block 6 (reassembly
+0.0 for all polynomial variants): V3 = ONE term (block-0 mlp write) carries 95% energy and 99.9% of causal
+function — near-one-hot nameable routing at +0.33 nats; V2's normalizer is a real bubble (freezing the
+denominator: 50% reassembly error); V4's energy-sparse terms CANCEL (top-3 recovery −5% — the §91
+differential-pair pathology manufactured from scratch; signed routing anti-recommended); V3 caution:
+internal term magnitudes reach 1e21 (scale-unbounded cubic, tamed only by downstream norm).
+
+**Recommendation (agent's, endorsed):** advance V5 to the level-5 pass; retrain design = V5 write-slots +
+V6 static dilation + GROUP-SPARSITY pressure on read weights per slot (to convert 0.29 → 0.74-level wiring
+agreement without V7's collapse); nonzero write init mandatory; salvage V3's one-hot decomposability only
+if a +0.3-nat budget opens.

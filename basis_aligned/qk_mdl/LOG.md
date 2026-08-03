@@ -7800,3 +7800,10 @@ existing steering methods, not a new method class, so in-scope and launched rath
   V6 static dilation mask {1,2,4,8}, V7 combo (V3+V5+V6). Scoring: held CE frontier vs weight-readable
   wiring agreement (Gram-predicted vs causally measured), routing sparsity, exact-term decomposability
   (reassembly < 1e-5 + terms-to-95%), standard probes. Windowed-lookback sweep still running in parallel.
+
+## tick 2026-08-04 (deeproute matrix LANDED -> §108)
+- Dead-gradient fixed point found & fixed (multiplicative routing x zero-init writes); frontier: V5 alone
+  in budget (+0.046); wiring readable-in-principle but needs read-side sparsity (0.29 effectual vs V7's
+  0.74); V3 = single-term exact decomposability at +0.33; V4 signed = cancellation pathology; V7 = chain
+  collapse with 7 dead blocks. Recommendation: V8 = V5+V6+group-lasso reads, then level-5 pass.
+- Windowed-lookback agent still pending (queued behind matrix on the GPU).
