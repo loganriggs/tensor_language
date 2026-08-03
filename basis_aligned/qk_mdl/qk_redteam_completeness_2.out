@@ -1,0 +1,30 @@
+GPU guard: 11447 MiB free -- proceeding.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+bilin18 NL=18 NH=9 HD=128 D=1152 V=50304
+Recomputing MLP SVD dirs from TRAIN gram ...
+dirs ready.
+PASS A: per-position means ...
+PASS A done.
+PASS B: 9 configs over 19304 positions ...
+  batch 1/26 elapsed 1s
+  batch 7/26 elapsed 6s
+  batch 13/26 elapsed 11s
+  batch 19/26 elapsed 16s
+  batch 25/26 elapsed 21s
+PASS B done in 22s
+
+===== ATTACK 2 (denominator) =====
+H=5.3068  J=3.3765  NAMED_CORE=0.4446  NAMED_EXT=0.5797  single_sum=1.1773
+named_ext joint/sum = 1.120 (near-additive if ~1)
+NAMED_EXT fraction: of headroom 0.109 | of joint234 0.172 | of singlepath-sum 0.440
+
+===== ATTACK 3 (rank curve) =====
+MLP_FULL 4.5321
+  SVD_K8: frac_of_full 0.4971 (claim 0.497)
+  SVD_K32: frac_of_full 0.8346 (claim 0.835)
+  RAND_K8: frac_of_full 0.0025 (claim None)
+  RAND_K32: frac_of_full 0.0127 (claim None)
+  SVD/random K8 200.6535x  K32 65.5051x
+
+Saved qk_redteam_completeness_2.json
+QK REDTEAM COMPLETENESS (attacks 2+3) DONE

@@ -1,0 +1,41 @@
+FREQ SWEEP: {
+  "model_coll_CE": 3.3051,
+  "sweep": {
+    "rare": {
+      "token": 7604,
+      "base_rate": 0.000122,
+      "reach_P_chosen": 0.7866,
+      "reach_argmax_capture": 0.8958,
+      "collateral_dCE": 0.0
+    },
+    "low": {
+      "token": 21190,
+      "base_rate": 0.000122,
+      "reach_P_chosen": 0.7668,
+      "reach_argmax_capture": 0.875,
+      "collateral_dCE": 0.0
+    },
+    "mid": {
+      "token": 2588,
+      "base_rate": 0.000122,
+      "reach_P_chosen": 0.7668,
+      "reach_argmax_capture": 0.875,
+      "collateral_dCE": 0.0
+    },
+    "high": {
+      "token": 835,
+      "base_rate": 0.000488,
+      "reach_P_chosen": 0.7695,
+      "reach_argmax_capture": 0.8776,
+      "collateral_dCE": 0.0001
+    },
+    "common": {
+      "token": 13,
+      "base_rate": 0.039062,
+      "reach_P_chosen": 0.175,
+      "reach_argmax_capture": 0.259,
+      "collateral_dCE": 0.0304
+    }
+  }
+}
+QK REDIRECT FREQ SWEEP DONE

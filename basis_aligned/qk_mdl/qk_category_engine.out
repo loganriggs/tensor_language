@@ -1,0 +1,13 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+train 30480 test 12700 | class dist(test) [0.079, 0.123, 0.101, 0.031, 0.229, 0.437] | majority 0.437
+  probe embed: 0.5274
+  probe blk0: 0.5456
+  probe blk1: 0.5710
+  probe blk2: 0.5946
+  probe blk3: 0.6012
+  probe blk4: 0.6107
+  probe blk8: 0.6660
+  probe blk12: 0.6785
+
+causal: blk4 probe intact 0.6107 -> MLP0-3 ablated 0.5097
+QK CATEGORY ENGINE DONE

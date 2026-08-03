@@ -1,0 +1,8 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+(A) minimality: |circuit|=45; essential (removal breaks 90%): 40; slack: 5
+(A) locally-minimal size after iterative prune: 43 (adv +2.492, 90.0%)
+(B) building Pile eval...
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+(B) subword: Spearman(FineWeb importance -> Pile importance) = 0.907 over 40 comps
+(B) induction: Spearman(FineWeb importance -> Pile importance) = 0.850 over 40 comps
+QK UNDERSTANDING PROPS DONE

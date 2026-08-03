@@ -1,0 +1,32 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+=== layer-1 block structure ===
+  attn: CausalBilinearSelfAttention
+    c_q: CastedLinear torch.Size([1152, 1152])
+    c_k: CastedLinear torch.Size([1152, 1152])
+    c_q2: CastedLinear torch.Size([1152, 1152])
+    c_k2: CastedLinear torch.Size([1152, 1152])
+    c_v: CastedLinear torch.Size([1152, 1152])
+    c_proj: CastedLinear torch.Size([1152, 1152])
+    rotary: Rotary 
+  mlp: Bilinear
+    Left: CastedLinear torch.Size([4608, 1152])
+    Right: CastedLinear torch.Size([4608, 1152])
+    Down: CastedLinear torch.Size([1152, 4608])
+  n_layers total: 18
+baseline CE (full audit) 3.07630
+h0: whole-head dCE (full audit) +0.00262
+h1: whole-head dCE (full audit) +0.00055
+h2: whole-head dCE (full audit) +0.00050
+h3: whole-head dCE (full audit) +0.07795
+h4: whole-head dCE (full audit) +0.00164
+h5: whole-head dCE (full audit) +0.00139
+h6: whole-head dCE (full audit) +0.00405
+h7: whole-head dCE (full audit) +0.00901
+h8: whole-head dCE (full audit) +0.00507
+correlate k1_norm: spearman +0.500 | values 2.54e+03 2.54e+03 2.54e+03 2.54e+03 2.54e+03 2.54e+03 2.54e+03 2.54e+03 2.54e+03
+correlate k2_norm: spearman +0.500 | values 2.54e+03 2.54e+03 2.54e+03 2.54e+03 2.54e+03 2.54e+03 2.54e+03 2.54e+03 2.54e+03
+correlate ov_norm: spearman +0.867 | values 342 244 224 1.43e+03 499 291 364 384 545
+correlate core_scale: spearman +0.650 | values 455 359 574 1.92e+03 1e+03 676 596 795 989
+correlate pattern_sq: spearman +0.750 | values 0.000162 0.00033 0.000781 0.0325 0.000951 0.00318 0.00608 0.00432 0.0079
+correlate pattern_ov: spearman +0.800 | values 2.22 2.4 2.6 234 9.55 7.37 11.7 15.8 33.6
+HEAD IMPORTANCE DONE

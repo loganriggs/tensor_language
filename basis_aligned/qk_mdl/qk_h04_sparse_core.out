@@ -1,0 +1,39 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+=== planted test: sparse CP fitter at m=4096 ===
+planted: matched-cos 1.0000 rel-err@24 0.0395/0.0000 -> PASS
+=== head 0: Stage 1 (m=4096, k=8) ===
+/workspace/tensor_language/basis_aligned/qk_mdl/qk_h04_sparse_core.py:95: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:838.)
+  print(f'  step {step + 1} loss {float(loss):.5f} kk {kk}', flush=True)
+  step 2000 loss 2.51839 kk 13
+  step 4000 loss 2.61570 kk 11
+  step 6000 loss 2.95785 kk 8
+  step 8000 loss 2.96126 kk 8
+  step 10000 loss 2.90559 kk 8
+  step 12000 loss 2.66514 kk 8
+h0 m=4096 k=8: moment-rel-err 0.0279 PASS
+=== head 0: Stage 2 sparse core ===
+h0: core nnz 22175608 diag-mass 0.1426
+=== head 0: Stage 3 CP (3 seeds, prefix ranks 16/32/64) ===
+  seed 0: rel-err 16/32/64 = 0.4232/0.3887/0.3522
+  seed 1: rel-err 16/32/64 = 0.4232/0.3888/0.3515
+  seed 2: rel-err 16/32/64 = 0.4232/0.3888/0.3512
+=== head 0: permutation null (R=32) ===
+h0: null R32 rel-err 0.2063 (real 0.3887)
+=== head 4: Stage 1 (m=4096, k=8) ===
+  step 2000 loss 3.63744 kk 13
+  step 4000 loss 3.79151 kk 11
+  step 6000 loss 4.34416 kk 8
+  step 8000 loss 4.32774 kk 8
+  step 10000 loss 4.25355 kk 8
+  step 12000 loss 3.88478 kk 8
+h4 m=4096 k=8: moment-rel-err 0.0293 PASS
+=== head 4: Stage 2 sparse core ===
+h4: core nnz 22919476 diag-mass 0.1419
+=== head 4: Stage 3 CP (3 seeds, prefix ranks 16/32/64) ===
+  seed 0: rel-err 16/32/64 = 0.6129/0.5304/0.4540
+  seed 1: rel-err 16/32/64 = 0.6129/0.5304/0.4540
+  seed 2: rel-err 16/32/64 = 0.6129/0.5306/0.4556
+=== head 4: permutation null (R=32) ===
+h4: null R32 rel-err 0.1844 (real 0.5304)
+H04 SPARSE CORE DONE

@@ -1,0 +1,120 @@
+  step 0 recon R2=-0.418
+  step 4000 recon R2=0.845
+  step 8000 recon R2=0.851
+  step 12000 recon R2=0.852
+  step 16000 recon R2=0.854
+test read-space R2=0.851, tensor-action R2=0.796, L0=8.0, dead=19/256
+{
+ "test_readspace_R2": 0.851,
+ "tensor_action_R2": 0.796,
+ "L0": 8.0,
+ "dead_atoms": 19,
+ "mean_atoms_per_code_auc>=0.70": 6.0,
+ "tensor_mass_top1pct_atompairs": 0.037,
+ "tensor_mass_diagonal": 0.013
+}
+sample codes: {
+ "NDT": {
+  "top_atoms": [
+   85,
+   197,
+   13,
+   41,
+   166
+  ],
+  "top_atom_aucs": [
+   0.704,
+   0.648,
+   0.623,
+   0.608,
+   0.602
+  ],
+  "n_atoms_auc>=0.70": 1
+ },
+ "NST_": {
+  "top_atoms": [
+   85,
+   44,
+   122,
+   250,
+   2
+  ],
+  "top_atom_aucs": [
+   0.645,
+   0.624,
+   0.613,
+   0.602,
+   0.597
+  ],
+  "n_atoms_auc>=0.70": 0
+ },
+ "DIG": {
+  "top_atoms": [
+   85,
+   30,
+   122,
+   215,
+   2
+  ],
+  "top_atom_aucs": [
+   0.783,
+   0.709,
+   0.664,
+   0.663,
+   0.662
+  ],
+  "n_atoms_auc>=0.70": 2
+ },
+ "LNGQT": {
+  "top_atoms": [
+   207,
+   51,
+   56,
+   109,
+   49
+  ],
+  "top_atom_aucs": [
+   0.759,
+   0.715,
+   0.699,
+   0.697,
+   0.689
+  ],
+  "n_atoms_auc>=0.70": 2
+ },
+ "NORM": {
+  "top_atoms": [
+   211,
+   99,
+   243,
+   33,
+   253
+  ],
+  "top_atom_aucs": [
+   0.769,
+   0.762,
+   0.759,
+   0.734,
+   0.724
+  ],
+  "n_atoms_auc>=0.70": 5
+ },
+ "IMI": {
+  "top_atoms": [
+   191,
+   77,
+   54,
+   49,
+   236
+  ],
+  "top_atom_aucs": [
+   0.674,
+   0.671,
+   0.638,
+   0.631,
+   0.629
+  ],
+  "n_atoms_auc>=0.70": 0
+ }
+}
+ECG METRIC DICT DONE

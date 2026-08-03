@@ -1,0 +1,73 @@
+GPU guard: 15841 MiB free -- proceeding.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+PASS 1: means ...
+PASS 2: drop Mrxh per-position ...
+drop_Mrxh dCE +0.00081  (parent +0.00081)
+PASS 3: capture streams ...
+{
+ "selection": "top-quartile h-norm; top-200 helping vs top-200 hurting positions by per-position paired dCE of dropping the h x Mr term (parent-script convention)",
+ "centroid_cosines": {
+  "h_dev_help_vs_hurt": 0.9832,
+  "h_raw_help_vs_hurt": 0.9975,
+  "Mr_dev_help_vs_hurt": 0.7333,
+  "term_dev_help_vs_hurt": 0.7553
+ },
+ "within_set_coherence": {
+  "term_help_mean_cos_to_centroid": 0.133,
+  "term_hurt_mean_cos_to_centroid": 0.1517,
+  "h_help_mean_cos_to_centroid": 0.4824,
+  "h_hurt_mean_cos_to_centroid": 0.4932
+ },
+ "drop_Mrxh_dCE_check": 0.00081,
+ "per_example": [
+  {
+   "context_tail": " War II when Illinois began widening US 66 to",
+   "kind": "help",
+   "dCE_here": 0.3174,
+   "h_cos_to_help_centroid": 0.502,
+   "term_cos_to_help_centroid": 0.224,
+   "term_cos_to_hurt_centroid": 0.152
+  },
+  {
+   "context_tail": ". We do understand that you may not like your",
+   "kind": "help",
+   "dCE_here": 0.2251,
+   "h_cos_to_help_centroid": 0.428,
+   "term_cos_to_help_centroid": -0.017,
+   "term_cos_to_hurt_centroid": -0.003
+  },
+  {
+   "context_tail": "is not done in five minutes, you should allow",
+   "kind": "help",
+   "dCE_here": 0.1946,
+   "h_cos_to_help_centroid": 0.337,
+   "term_cos_to_help_centroid": 0.124,
+   "term_cos_to_hurt_centroid": 0.105
+  },
+  {
+   "context_tail": " this week in the Samford Intercollegiate. In",
+   "kind": "hurt",
+   "dCE_here": -0.2969,
+   "h_cos_to_help_centroid": 0.579,
+   "term_cos_to_help_centroid": 0.29,
+   "term_cos_to_hurt_centroid": 0.207
+  },
+  {
+   "context_tail": " put those skills to use while returning from",
+   "kind": "hurt",
+   "dCE_here": -0.2521,
+   "h_cos_to_help_centroid": 0.509,
+   "term_cos_to_help_centroid": 0.12,
+   "term_cos_to_hurt_centroid": 0.19
+  },
+  {
+   "context_tail": "Thursday by appointment. www.cityicearts.com\n",
+   "kind": "hurt",
+   "dCE_here": -0.2504,
+   "h_cos_to_help_centroid": 0.666,
+   "term_cos_to_help_centroid": 0.169,
+   "term_cos_to_hurt_centroid": 0.338
+  }
+ ]
+}
+QK XFOLD GATE 2 DONE

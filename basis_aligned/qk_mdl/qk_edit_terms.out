@@ -1,0 +1,79 @@
+GPU guard: 15841 MiB free -- proceeding.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+bilin18 NL=18 D=1152 NH=9 held 152x128
+PASS 1: term means + recon gate ...
+L17 GATE recon global 7.05e-07 maxpos 4.18e-06
+TMEAN consistency vs qk_L17_mixer_means.pt: max abs diff 0.00e+00
+counts: valid=18634 boundary=1209 midword=8711 due=2252 notdue=16382 bnd_due=558 mid_notdue=8328 next_bracket_open=107 next_newline=367 next_subword=1341 next_coordinator=549
+natural (exact full model) grids ...
+base CE mean 3.4946
+GATE reassembly alpha=1: census delta-CE -0.00000 (expect ~0)
+GATE pair identity: |coherent(alpha=2) - difference-knob(+1x net)| max 1.10e-05
+
+===== SWEEP [gated_AexMr] terms ['AexMr'] alpha in [-4.0, -2.0, -1.0, -0.5, 0.0, 0.5, 1.0, 2.0, 4.0, 8.0, 16.0] =====
+  alpha= -4.0: P(cap) valid 0.1576 due 0.4135 notdue 0.1225 boundary 0.4649 midword 0.0863 censusdCE +1.8943 (1.4s)
+  alpha= -2.0: P(cap) valid 0.1479 due 0.4720 notdue 0.1033 boundary 0.4349 midword 0.0734 censusdCE +1.0155 (1.4s)
+  alpha= -1.0: P(cap) valid 0.1364 due 0.5037 notdue 0.0859 boundary 0.3951 midword 0.0617 censusdCE +0.5466 (1.4s)
+  alpha= -0.5: P(cap) valid 0.1300 due 0.5219 notdue 0.0761 boundary 0.3798 midword 0.0553 censusdCE +0.3298 (1.4s)
+  alpha=  0.0: P(cap) valid 0.1230 due 0.5413 notdue 0.0655 boundary 0.3765 midword 0.0490 censusdCE +0.1479 (1.4s)
+  alpha=  0.5: P(cap) valid 0.1189 due 0.5567 notdue 0.0587 boundary 0.3869 midword 0.0457 censusdCE +0.0342 (1.5s)
+  alpha=  2.0: P(cap) valid 0.1344 due 0.5653 notdue 0.0752 boundary 0.4891 midword 0.0597 censusdCE +0.1352 (1.4s)
+  alpha=  4.0: P(cap) valid 0.1887 due 0.5706 notdue 0.1362 boundary 0.6160 midword 0.1139 censusdCE +0.9637 (1.4s)
+  alpha=  8.0: P(cap) valid 0.2631 due 0.5579 notdue 0.2225 boundary 0.6458 midword 0.2039 censusdCE +2.8808 (1.4s)
+  alpha= 16.0: P(cap) valid 0.3119 due 0.5311 notdue 0.2818 boundary 0.5890 midword 0.2719 censusdCE +5.1278 (1.4s)
+GATE gated_AexMr alpha=0 census delta-CE +0.1479 (expect +0.1479)
+
+===== SWEEP [prior_MrxMr] terms ['MrxMr'] alpha in [-4.0, -2.0, -1.0, -0.5, 0.0, 0.5, 1.0, 2.0, 4.0, 8.0, 16.0] =====
+  alpha= -4.0: P(cap) valid 0.2359 due 0.6717 notdue 0.1760 boundary 0.7287 midword 0.1409 censusdCE +1.2292 (1.4s)
+  alpha= -2.0: P(cap) valid 0.1968 due 0.6632 notdue 0.1327 boundary 0.6998 midword 0.1008 censusdCE +0.5622 (1.4s)
+  alpha= -1.0: P(cap) valid 0.1728 due 0.6479 notdue 0.1075 boundary 0.6455 midword 0.0803 censusdCE +0.2758 (1.4s)
+  alpha= -0.5: P(cap) valid 0.1595 due 0.6347 notdue 0.0942 boundary 0.6004 midword 0.0705 censusdCE +0.1590 (1.4s)
+  alpha=  0.0: P(cap) valid 0.1456 due 0.6163 notdue 0.0808 boundary 0.5422 midword 0.0614 censusdCE +0.0697 (1.4s)
+  alpha=  0.5: P(cap) valid 0.1317 due 0.5912 notdue 0.0685 boundary 0.4756 midword 0.0534 censusdCE +0.0161 (1.5s)
+  alpha=  2.0: P(cap) valid 0.1023 due 0.5048 notdue 0.0470 boundary 0.3243 midword 0.0386 censusdCE +0.0568 (1.4s)
+  alpha=  4.0: P(cap) valid 0.1106 due 0.4111 notdue 0.0693 boundary 0.3621 midword 0.0472 censusdCE +0.4870 (1.5s)
+  alpha=  8.0: P(cap) valid 0.1220 due 0.2667 notdue 0.1021 boundary 0.3235 midword 0.0687 censusdCE +1.7087 (1.5s)
+  alpha= 16.0: P(cap) valid 0.1809 due 0.2010 notdue 0.1781 boundary 0.2618 midword 0.1548 censusdCE +3.3210 (1.5s)
+GATE prior_MrxMr alpha=0 census delta-CE +0.0697 (expect +0.0697)
+
+===== SWEEP [pair_coherent] terms ['AexMr', 'MrxMr'] alpha in [-4.0, -2.0, -1.0, -0.5, 0.0, 0.5, 1.0, 2.0, 4.0, 8.0, 16.0] =====
+  alpha= -4.0: P(cap) valid 0.1936 due 0.6455 notdue 0.1315 boundary 0.6768 midword 0.0933 censusdCE +1.0126 (1.5s)
+  alpha= -2.0: P(cap) valid 0.1730 due 0.6402 notdue 0.1087 boundary 0.5971 midword 0.0770 censusdCE +0.4786 (1.5s)
+  alpha= -1.0: P(cap) valid 0.1576 due 0.6293 notdue 0.0927 boundary 0.5403 midword 0.0662 censusdCE +0.2360 (1.5s)
+  alpha= -0.5: P(cap) valid 0.1485 due 0.6204 notdue 0.0837 boundary 0.5085 midword 0.0604 censusdCE +0.1356 (1.5s)
+  alpha=  0.0: P(cap) valid 0.1387 due 0.6072 notdue 0.0743 boundary 0.4753 midword 0.0550 censusdCE +0.0587 (1.5s)
+  alpha=  0.5: P(cap) valid 0.1285 due 0.5873 notdue 0.0654 boundary 0.4421 midword 0.0503 censusdCE +0.0125 (1.5s)
+  alpha=  2.0: P(cap) valid 0.1068 due 0.5062 notdue 0.0519 boundary 0.3603 midword 0.0438 censusdCE +0.0525 (1.5s)
+  alpha=  4.0: P(cap) valid 0.1022 due 0.4185 notdue 0.0587 boundary 0.3070 midword 0.0508 censusdCE +0.3737 (1.5s)
+  alpha=  8.0: P(cap) valid 0.1251 due 0.2948 notdue 0.1018 boundary 0.2495 midword 0.0929 censusdCE +1.4739 (1.5s)
+  alpha= 16.0: P(cap) valid 0.1853 due 0.1957 notdue 0.1839 boundary 0.1718 midword 0.1836 censusdCE +3.7124 (1.5s)
+GATE pair_coherent alpha=0 census delta-CE +0.0587 (expect +0.0587)
+
+===== SWEEP [placebo_ExAr] terms ['ExAr'] alpha in [-4.0, -2.0, -1.0, -0.5, 0.0, 0.5, 1.0, 2.0, 4.0, 8.0, 16.0] =====
+  alpha= -4.0: P(cap) valid 0.1171 due 0.5577 notdue 0.0565 boundary 0.4073 midword 0.0446 censusdCE +0.0023 (1.5s)
+  alpha= -2.0: P(cap) valid 0.1178 due 0.5591 notdue 0.0572 boundary 0.4086 midword 0.0454 censusdCE +0.0008 (1.5s)
+  alpha= -1.0: P(cap) valid 0.1183 due 0.5598 notdue 0.0576 boundary 0.4093 midword 0.0458 censusdCE +0.0003 (1.5s)
+  alpha= -0.5: P(cap) valid 0.1185 due 0.5602 notdue 0.0578 boundary 0.4096 midword 0.0461 censusdCE +0.0002 (1.5s)
+  alpha=  0.0: P(cap) valid 0.1187 due 0.5606 notdue 0.0580 boundary 0.4100 midword 0.0463 censusdCE +0.0001 (1.5s)
+  alpha=  0.5: P(cap) valid 0.1189 due 0.5609 notdue 0.0582 boundary 0.4103 midword 0.0465 censusdCE +0.0000 (1.5s)
+  alpha=  2.0: P(cap) valid 0.1196 due 0.5620 notdue 0.0588 boundary 0.4114 midword 0.0472 censusdCE +0.0001 (1.5s)
+  alpha=  4.0: P(cap) valid 0.1205 due 0.5634 notdue 0.0597 boundary 0.4129 midword 0.0482 censusdCE +0.0010 (1.5s)
+  alpha=  8.0: P(cap) valid 0.1226 due 0.5661 notdue 0.0616 boundary 0.4160 midword 0.0504 censusdCE +0.0053 (1.5s)
+  alpha= 16.0: P(cap) valid 0.1272 due 0.5711 notdue 0.0662 boundary 0.4229 midword 0.0553 censusdCE +0.0239 (1.5s)
+
+===== DOSE-RESPONSE P(capital at due) vs alpha =====
+  alpha:         ['  -4.0', '  -2.0', '  -1.0', '  -0.5', '   0.0', '   0.5', '   1.0', '   2.0', '   4.0', '   8.0', '  16.0']
+  gated_AexMr    [' 0.414', ' 0.472', ' 0.504', ' 0.522', ' 0.541', ' 0.557', ' 0.561', ' 0.565', ' 0.571', ' 0.558', ' 0.531']
+  prior_MrxMr    [' 0.672', ' 0.663', ' 0.648', ' 0.635', ' 0.616', ' 0.591', ' 0.561', ' 0.505', ' 0.411', ' 0.267', ' 0.201']
+  pair_coherent  [' 0.645', ' 0.640', ' 0.629', ' 0.620', ' 0.607', ' 0.587', ' 0.561', ' 0.506', ' 0.419', ' 0.295', ' 0.196']
+  placebo_ExAr   [' 0.558', ' 0.559', ' 0.560', ' 0.560', ' 0.561', ' 0.561', ' 0.561', ' 0.562', ' 0.563', ' 0.566', ' 0.571']
+  section75 dir: [' 0.208', ' 0.370', ' 0.438', ' 0.462', ' 0.489', ' 0.522', ' 0.561', ' 0.642', ' 0.688', ' 0.644', ' 0.602']
+
+===== REACH =====
+  gated_AexMr: {'due_min': 0.41352, 'due_max': 0.5706, 'due_at_alpha_min': -4.0, 'due_at_alpha_max': 4.0, 'due_swing': 0.15708, 'notdue_min': 0.05836, 'notdue_max': 0.28179, 'notdue_swing': 0.22343, 'natural_due': 0.56127, 'natural_notdue': 0.05836}
+  prior_MrxMr: {'due_min': 0.20101, 'due_max': 0.67175, 'due_at_alpha_min': 16.0, 'due_at_alpha_max': -4.0, 'due_swing': 0.47074, 'notdue_min': 0.04702, 'notdue_max': 0.17811, 'notdue_swing': 0.13109, 'natural_due': 0.56127, 'natural_notdue': 0.05836}
+  pair_coherent: {'due_min': 0.19571, 'due_max': 0.64546, 'due_at_alpha_min': 16.0, 'due_at_alpha_max': -4.0, 'due_swing': 0.44975, 'notdue_min': 0.05185, 'notdue_max': 0.18393, 'notdue_swing': 0.13208, 'natural_due': 0.56127, 'natural_notdue': 0.05836}
+  placebo_ExAr: {'due_min': 0.55772, 'due_max': 0.57106, 'due_at_alpha_min': -4.0, 'due_at_alpha_max': 16.0, 'due_swing': 0.01334, 'notdue_min': 0.05647, 'notdue_max': 0.06619, 'notdue_swing': 0.00972, 'natural_due': 0.56127, 'natural_notdue': 0.05836}
+
+Saved qk_edit_terms.json
+QK EDIT TERMS DONE

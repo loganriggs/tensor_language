@@ -1,0 +1,59 @@
+GPU guard: 15841 MiB free -- proceeding.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+353 special token ids masked from trigger selection
+lexical classes (15): ['bracket_close', 'bracket_open', 'capital', 'coordinator', 'determiner', 'digit', 'newline', 'other', 'pronoun', 'punct', 'quote', 'quote_open', 'special', 'subword', 'word']
+Collecting MLP1 output activations on TRAIN ...
+TRAIN activation matrix (32768, 1152)
+activation normalisation: mean centred-norm 3777.558, scale 0.00898
+HELD activation matrix (19456, 1152)
+Config sweep (k x NFEAT) at 5000 steps ...
+  NFEAT=8192 k=32: held FVE 0.6798  L0 32.0
+  NFEAT=8192 k=64: held FVE 0.7001  L0 64.0
+  NFEAT=16384 k=32: held FVE 0.6622  L0 32.0
+  NFEAT=16384 k=64: held FVE 0.6850  L0 64.0
+Chosen config: NFEAT=8192 k=64 (sweep held FVE 0.7001)
+Full convergence training: NFEAT=8192 k=64 for 50000 steps ...
+/workspace/tensor_language/basis_aligned/qk_mdl/qk_sae_converged.py:234: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:838.)
+  print(f"    step {step:6d}  mse {float(mse):.4f}  aux {float(aux):.3f}  "
+    step      0  mse 959.8458  aux 0.000  L0 64.0  dead 0  lr 2.00e-06
+    step   5000  mse 83.7198  aux 0.000  L0 64.0  dead 0  lr 3.91e-04
+    step  10000  mse 78.0636  aux 0.000  L0 64.0  dead 0  lr 3.65e-04
+    step  15000  mse 75.0942  aux 0.000  L0 64.0  dead 0  lr 3.23e-04
+    step  20000  mse 73.9487  aux 0.000  L0 64.0  dead 0  lr 2.70e-04
+    step  25000  mse 73.0433  aux 0.000  L0 64.0  dead 0  lr 2.11e-04
+    step  30000  mse 72.4697  aux 0.000  L0 64.0  dead 0  lr 1.52e-04
+    step  35000  mse 71.6891  aux 0.000  L0 64.0  dead 0  lr 9.89e-05
+    step  40000  mse 71.2391  aux 0.000  L0 64.0  dead 0  lr 5.66e-05
+    step  45000  mse 71.0394  aux 0.000  L0 64.0  dead 0  lr 2.94e-05
+    step  49999  mse 70.9569  aux 0.000  L0 64.0  dead 0  lr 2.00e-05
+TRAIN: FVE 0.9449  L0 64.0  (1059s)
+HELD: FVE 0.6367  L0 64.0  (dead features: 0/8192)
+
+NAMEABILITY head-to-head (vs SVD 0/32, §78 L1-SAE 23/32):
+  32/32 top features have trigger class purity >= 0.5
+  25/32 top features monosemantic (purity>=0.5 AND >= 2.0x base rate)
+  feat  8157 freq 0.2266 purity 0.780 dom word(0.48, 1.0x) - top_tok [("' Blue'", 8), ("' ball'", 7), ("' Route'", 6)]
+  feat  7011 freq 0.0564 purity 0.870 dom word(0.74, 1.6x) - top_tok [("' posts'", 6), ("' games'", 5), ("'balls'", 4)]
+  feat  6945 freq 0.0574 purity 1.000 dom determiner(1.00, 11.7x) NAMEABLE top_tok [("' the'", 196), ("' The'", 3), ("'The'", 1)]
+  feat  3353 freq 0.0791 purity 0.766 dom word(0.62, 1.3x) - top_tok [("' of'", 3), ("'%'", 2), ("' are'", 2)]
+  feat  3465 freq 0.1691 purity 0.697 dom word(0.52, 1.1x) - top_tok [("' and'", 24), ("','", 15), ("' in'", 11)]
+  feat  5816 freq 0.0519 purity 1.000 dom determiner(1.00, 11.7x) NAMEABLE top_tok [("' the'", 196), ("'the'", 2), ("' The'", 1)]
+  feat  5873 freq 0.0835 purity 0.696 dom capital(0.35, 2.9x) NAMEABLE top_tok [("' a'", 3), ("' Education'", 3), ("'s'", 2)]
+  feat  5368 freq 0.1429 purity 0.736 dom punct(0.54, 4.8x) NAMEABLE top_tok [("'.'", 89), ("' the'", 13), ("' a'", 11)]
+  feat  3067 freq 0.0786 purity 0.879 dom capital(0.84, 6.9x) NAMEABLE top_tok [("'YA'", 9), ("'C'", 5), ("'A'", 5)]
+  feat   968 freq 0.0607 purity 0.933 dom capital(0.92, 7.6x) NAMEABLE top_tok [("' Blue'", 10), ("' Easy'", 8), ("' Target'", 5)]
+  feat  3117 freq 0.0507 purity 1.000 dom determiner(1.00, 11.7x) NAMEABLE top_tok [("' the'", 200)]
+  feat   638 freq 0.0434 purity 1.000 dom punct(1.00, 9.0x) NAMEABLE top_tok [("','", 198), ("'),'", 1), ("'],'", 1)]
+  feat  4964 freq 0.0509 purity 1.000 dom determiner(1.00, 11.7x) NAMEABLE top_tok [("' the'", 200)]
+  feat  7409 freq 0.0906 purity 0.973 dom punct(0.97, 8.7x) NAMEABLE top_tok [("'.'", 172), ("';'", 7), ("','", 4)]
+  feat  1143 freq 0.1177 purity 0.663 dom word(0.38, 0.8x) - top_tok [("','", 15), ("' ('", 14), ("' is'", 11)]
+  feat  4992 freq 0.0587 purity 0.994 dom punct(0.99, 8.9x) NAMEABLE top_tok [("'.'", 189), ("';'", 5), ("').'", 4)]
+  feat  2991 freq 0.0522 purity 1.000 dom punct(1.00, 9.0x) NAMEABLE top_tok [("'.'", 199), ("').'", 1)]
+  feat  5278 freq 0.0651 purity 1.000 dom punct(1.00, 9.0x) NAMEABLE top_tok [("','", 190), ("'),'", 6), ("'],'", 3)]
+  feat  6525 freq 0.0536 purity 1.000 dom punct(1.00, 9.0x) NAMEABLE top_tok [("'.'", 196), ("':'", 2), ("';'", 1)]
+  feat  7383 freq 0.0599 purity 0.942 dom capital(0.94, 7.7x) NAMEABLE top_tok [("' Inter'", 11), ("' N'", 8), ("' Easy'", 7)]
+Saved dictionary to qk_sae_converged.npz
+
+Saved qk_sae_converged.json
+QK SAE CONVERGED (script 1: train + nameability) DONE

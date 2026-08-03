@@ -1,0 +1,65 @@
+GPU guard: 15571 MiB free -- proceeding.
+V9 run: slots + group-lasso 0.0001 + window-6; lr sweep [0.001, 0.002, 0.003] x 400, full 4122 steps
+GPU guard: 15571 MiB free -- proceeding.
+window visibility table matches spec (rows 0,3,6,9,12 checked)
+control V9(full vis, identity proj, zero writes)==A: max |logit diff| 0.00e+00
+-- V9 lr sweep 0.001 (gc 0.0001)
+GPU guard: 15229 MiB free -- proceeding.
+  V8[lr 0.001, gc 0.0001] step 0/400 ce 10.8960 (ema 10.8960) 0s mem 5796MiB
+  V8[lr 0.001, gc 0.0001] step 100/400 ce 7.2808 (ema 8.9284) 8s mem 6219MiB
+  V8[lr 0.001, gc 0.0001] step 200/400 ce 7.2685 (ema 7.2594) 16s mem 6219MiB
+  V8[lr 0.001, gc 0.0001] step 300/400 ce 6.7925 (ema 6.7333) 24s mem 6219MiB
+/workspace/tensor_language/basis_aligned/qk_mdl/qk_v8_train.py:276: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:838.)
+  log['final_penalty'] = float(group_penalty(model))
+  sweep lr 0.001 gc 0.0001: held100 CE 6.4296 (0 spikes)
+-- V9 lr sweep 0.002 (gc 0.0001)
+GPU guard: 14139 MiB free -- proceeding.
+  V8[lr 0.002, gc 0.0001] step 0/400 ce 10.8960 (ema 10.8960) 0s mem 6219MiB
+  V8[lr 0.002, gc 0.0001] step 100/400 ce 6.9480 (ema 8.4099) 8s mem 6219MiB
+  V8[lr 0.002, gc 0.0001] step 200/400 ce 7.1582 (ema 7.0591) 16s mem 6219MiB
+  V8[lr 0.002, gc 0.0001] step 300/400 ce 6.7518 (ema 6.6439) 24s mem 6219MiB
+  sweep lr 0.002 gc 0.0001: held100 CE 6.3340 (0 spikes)
+-- V9 lr sweep 0.003 (gc 0.0001)
+GPU guard: 14101 MiB free -- proceeding.
+  V8[lr 0.003, gc 0.0001] step 0/400 ce 10.8960 (ema 10.8960) 0s mem 6219MiB
+  V8[lr 0.003, gc 0.0001] step 100/400 ce 6.8271 (ema 8.2027) 8s mem 6219MiB
+  V8[lr 0.003, gc 0.0001] step 200/400 ce 7.1405 (ema 6.9986) 16s mem 6219MiB
+  V8[lr 0.003, gc 0.0001] step 300/400 ce 6.7478 (ema 6.6375) 24s mem 6219MiB
+  sweep lr 0.003 gc 0.0001: held100 CE 6.3249 (0 spikes)
+V9 lr chosen: 0.003
+==== training V9 full run (lr 0.003, gc 0.0001) ====
+GPU guard: 14139 MiB free -- proceeding.
+  V8[lr 0.003, gc 0.0001] step 0/4122 ce 10.8960 (ema 10.8960) 0s mem 6219MiB
+  V8[lr 0.003, gc 0.0001] step 200/4122 ce 7.1405 (ema 6.9986) 16s mem 6219MiB
+  V8[lr 0.003, gc 0.0001] step 400/4122 ce 6.7290 (ema 6.5103) 32s mem 6219MiB
+  V8[lr 0.003, gc 0.0001] step 600/4122 ce 6.1264 (ema 6.3334) 47s mem 6219MiB
+  V8[lr 0.003, gc 0.0001] step 800/4122 ce 5.9387 (ema 6.0470) 63s mem 6219MiB
+  V8[lr 0.003, gc 0.0001] step 1000/4122 ce 6.1202 (ema 6.0252) 79s mem 6219MiB
+  V8[lr 0.003, gc 0.0001] step 1200/4122 ce 5.9621 (ema 5.9858) 95s mem 6219MiB
+  V8[lr 0.003, gc 0.0001] step 1400/4122 ce 5.6441 (ema 5.7906) 110s mem 6219MiB
+  V8[lr 0.003, gc 0.0001] step 1600/4122 ce 5.7509 (ema 5.6829) 126s mem 6219MiB
+  V8[lr 0.003, gc 0.0001] step 1800/4122 ce 5.7997 (ema 5.7006) 142s mem 6219MiB
+  V8[lr 0.003, gc 0.0001] step 2000/4122 ce 5.8776 (ema 5.6753) 157s mem 6219MiB
+  V8 step 2000 held100 CE 5.8890
+  V8[lr 0.003, gc 0.0001] step 2200/4122 ce 5.5336 (ema 5.4129) 174s mem 6219MiB
+  V8[lr 0.003, gc 0.0001] step 2400/4122 ce 5.5783 (ema 5.4058) 189s mem 6219MiB
+  V8[lr 0.003, gc 0.0001] step 2600/4122 ce 5.5623 (ema 5.4321) 205s mem 6219MiB
+  V8[lr 0.003, gc 0.0001] step 2800/4122 ce 5.0033 (ema 5.2049) 221s mem 6219MiB
+  V8[lr 0.003, gc 0.0001] step 3000/4122 ce 5.0652 (ema 5.1233) 236s mem 6219MiB
+  V8[lr 0.003, gc 0.0001] step 3200/4122 ce 5.4010 (ema 5.1977) 252s mem 6219MiB
+  V8[lr 0.003, gc 0.0001] step 3400/4122 ce 5.4198 (ema 5.1507) 268s mem 6219MiB
+  V8[lr 0.003, gc 0.0001] step 3600/4122 ce 4.9493 (ema 4.9477) 284s mem 6219MiB
+  V8[lr 0.003, gc 0.0001] step 3800/4122 ce 4.8172 (ema 4.9394) 299s mem 6219MiB
+  V8[lr 0.003, gc 0.0001] step 4000/4122 ce 4.7377 (ema 4.9381) 315s mem 6219MiB
+  V8 step 4000 held100 CE 5.7783
+== V8 FINAL held CE 5.75192  (327s, 0 spikes, penalty 1626.44)
+{
+  "held_ce": 5.751916885375977,
+  "V1_held_ce": 5.710475444793701,
+  "minus_V1": 0.041440825909376144,
+  "minus_V1_se_token": 0.002365001942962408,
+  "minus_V1_se_seq": 0.0033624954521656036,
+  "lr": 0.003,
+  "group_coeff": 0.0001
+}

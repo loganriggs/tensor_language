@@ -1,0 +1,11 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+tables...
+capture + refit generator...
+generator refit
+generated mean dCE +0.03206
+stage1 eval dCE +0.03206
+bigram table val R2 on h1 residual: prev1 0.0197; +prev2 0.0142
+stage1 + bigram (h1): eval dCE +0.03203 (stage1 +0.03206, h1-oracle +0.0203)
+stage1 + bigramx2 (h1): eval dCE +0.03207 (stage1 +0.03206, h1-oracle +0.0203)
+bits: {'full_fp16_Mbit': 51.5, 'support_cnt4_fp16_Mbit': 4.5, 'support_tokens': 4420}
+BIGRAM TABLE DONE

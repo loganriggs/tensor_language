@@ -1,0 +1,15 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+tables...
+capture + refit generator...
+generator refit
+generated model on eval docs: mean dCE +0.03199
+commonalities (worst vs baseline): {'sub_tgt': {'worst200': 0.17, 'baseline': 0.14}, 'sub_cur': {'worst200': 0.34, 'baseline': 0.137}, 'near_nl': {'worst200': 0.105, 'baseline': 0.131}}
+residual structure...
+residual: worst/median norm ratio 1.83; worst-PCA top16 0.667; top channels ['k1_h3', 'k1_h7', 'k2_h1', 'k1_h5', 'k2_h5']
+oracle repair of q1: mean dCE +0.03242 (generated +0.03199)
+oracle repair of k1: mean dCE +0.03366 (generated +0.03199)
+oracle repair of q2: mean dCE +0.02984 (generated +0.03199)
+oracle repair of k2: mean dCE +0.03129 (generated +0.03199)
+naming the interface...
+interface vs nameable features R2: {'k1_h1': 0.014, 'q1_h7': 0.02, 'k1_h3': 0.012}
+GEN ERROR ANALYSIS DONE

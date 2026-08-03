@@ -1,0 +1,50 @@
+sanity georgia NORM parsed 1752 vs precomputed 1752
+  CLBBB feat#50: DE 0.956 | GA-spec 0.892 | GA-CD 0.635 | CN-CD 0.713
+  CRBBB feat#52: DE 0.787 | GA-spec 0.823 | GA-CD 0.625 | CN-CD 0.716
+  IRBBB feat#3: DE 0.656 | GA-spec 0.55 | GA-CD 0.559 | CN-CD 0.569
+  LAFB feat#8: DE 0.778 | GA-spec 0.795 | GA-CD 0.646 | CN-CD 0.662
+  refbeat LBBB_US: 2628 beats, cosine to Germany CLBBB feat#50 = 0.968
+  refbeat RBBB_US: 340 beats, cosine to Germany CRBBB feat#52 = 0.817
+  refbeat CD_China: 7449 beats, cosine to Germany CLBBB feat#50 = 0.444
+{
+ "feature_transfer": {
+  "CLBBB": {
+   "feature": 50,
+   "germany_auc": 0.956,
+   "georgia_specific_auc": 0.892,
+   "georgia_n_pos": 231,
+   "georgia_CD_auc": 0.635,
+   "chapman_CD_auc": 0.713
+  },
+  "CRBBB": {
+   "feature": 52,
+   "germany_auc": 0.787,
+   "georgia_specific_auc": 0.823,
+   "georgia_n_pos": 28,
+   "georgia_CD_auc": 0.625,
+   "chapman_CD_auc": 0.716
+  },
+  "IRBBB": {
+   "feature": 3,
+   "germany_auc": 0.656,
+   "georgia_specific_auc": 0.55,
+   "georgia_n_pos": 407,
+   "georgia_CD_auc": 0.559,
+   "chapman_CD_auc": 0.569
+  },
+  "LAFB": {
+   "feature": 8,
+   "germany_auc": 0.778,
+   "georgia_specific_auc": 0.795,
+   "georgia_n_pos": 180,
+   "georgia_CD_auc": 0.646,
+   "chapman_CD_auc": 0.662
+  }
+ },
+ "refbeat_cosines": {
+  "LBBB_US": 0.968,
+  "RBBB_US": 0.817,
+  "CD_China": 0.444
+ }
+}
+ECG REFWAVE DONE

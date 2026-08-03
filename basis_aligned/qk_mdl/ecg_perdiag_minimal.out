@@ -1,0 +1,31 @@
+{
+ "min_features_median": 5,
+ "min_features_dist": {
+  "1": 5,
+  "2": 3,
+  "3": 2,
+  "5": 9,
+  "8": 3,
+  "12": 3,
+  "20": 1,
+  "32": 1
+ },
+ "codes_single_feature_suffices": [
+  "DIG",
+  "CRBBB",
+  "ISCAS",
+  "ISCLA",
+  "ANEUR"
+ ],
+ "min_leads_median": 5,
+ "mean_logit_R2_at_min": 0.618
+}
+  CLBBB: model 0.995, minFeat(rank) 5, 1-feat 0.93, logitR2 0.412, minLeads 2 ['V1', 'V6', 'V3']
+  CRBBB: model 0.996, minFeat(rank) 1, 1-feat 0.967, logitR2 0.451, minLeads 3 ['V1', 'V3', 'V5']
+  LAFB: model 0.975, minFeat(rank) 8, 1-feat 0.905, logitR2 0.621, minLeads 4 ['aVF', 'III', 'II']
+  INJAS: model 0.978, minFeat(rank) 5, 1-feat 0.925, logitR2 0.661, minLeads 6 ['V4', 'V3', 'V2']
+  AMI: model 0.885, minFeat(rank) 12, 1-feat 0.676, logitR2 0.686, minLeads None ['V2', 'V1', 'aVR']
+  LVH: model 0.932, minFeat(rank) 5, 1-feat 0.866, logitR2 0.686, minLeads 6 ['V5', 'V6', 'I']
+  IMI: model 0.895, minFeat(rank) 32, 1-feat 0.798, logitR2 0.798, minLeads 6 ['III', 'aVF', 'aVL']
+  ISCIN: model 0.898, minFeat(rank) 2, 1-feat 0.837, logitR2 0.581, minLeads None ['V2', 'V3', 'III']
+ECG PERDIAG MINIMAL DONE

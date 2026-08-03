@@ -1,0 +1,18 @@
+{
+  "data": {
+    "cooc_shape": [
+      6000,
+      513
+    ],
+    "fw_shape": [
+      600,
+      513
+    ],
+    "cooc_max_id": 50256,
+    "fw_max_id": 50256,
+    "n_train": 5948,
+    "n_held": 500,
+    "train_mix": "cooc[0:5500] + fw[0:448]",
+    "steps_one_epoch": 743
+  }
+}

@@ -1,0 +1,25 @@
+GPU guard: 15841 MiB free -- proceeding.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+BASE pass ...
+base CE 3.4946
+=== L17: PASS 1 collect ===
+L17 GATE recon global 7.04e-07 maxpos 4.18e-06
+=== L17: PASS 2 covariance ===
+L17: shares sum 1.5355 cancellation index 1.5355
+L17: most negative pairs [('AexAr', 'ArxMr', -0.934, np.float64(0.031), np.float64(0.022)), ('ExAe', 'ExMr', -0.86, np.float64(0.01), np.float64(0.008)), ('AexMr', 'MrxMr', -0.842, np.float64(0.349), np.float64(0.224)), ('ArxMe', 'ArxMr', -0.693, np.float64(0.01), np.float64(0.022)), ('AexAr', 'MrxMr', -0.579, np.float64(0.031), np.float64(0.224))]
+  L17 mean_only      post +0.4206 +- 0.00869 | pre +1.0961 +- 0.01749
+  L17 all_terms      post -0.0000 +- 0.00000 | pre -0.0000 +- 0.00000
+  L17 diagonal       post +0.4300 +- 0.00874 | pre +0.7549 +- 0.01426
+  L17 cross          post +0.1243 +- 0.00406 | pre +1.0997 +- 0.01903
+  L17 top1_energy    post +0.3546 +- 0.00819 | pre +1.4944 +- 0.02182
+  L17 top2_energy    post +0.2023 +- 0.00561 | pre +0.6914 +- 0.01490
+  L17 top3_energy    post +0.1641 +- 0.00499 | pre +1.2222 +- 0.01999
+  L17 top4_energy    post +0.2493 +- 0.00687 | pre +1.0691 +- 0.01797
+  L17 top5_energy    post +0.1152 +- 0.00460 | pre +0.5947 +- 0.01366
+  L17 top6_energy    post +0.0300 +- 0.00189 | pre +0.0827 +- 0.00359
+=== L1_contrast: PASS 1 collect ===
+L1_contrast GATE recon global 9.83e-07 maxpos 1.54e-06
+=== L1_contrast: PASS 2 covariance ===
+L1_contrast: shares sum 0.6510 cancellation index 0.6510
+L1_contrast: most negative pairs [('ArxAr', 'ArxMr', -0.129, np.float64(0.123), np.float64(0.221)), ('ExAr', 'ArxAr', -0.126, np.float64(0.073), np.float64(0.123)), ('ArxMr', 'MrxMr', -0.053, np.float64(0.221), np.float64(0.109)), ('ExE', 'ArxAr', 0.039, np.float64(0.022), np.float64(0.123)), ('ExMr', 'ArxMr', 0.046, np.float64(0.103), np.float64(0.221))]
+QK REDTEAM FOLD PART 2 DONE

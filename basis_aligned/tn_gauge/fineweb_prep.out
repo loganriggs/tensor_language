@@ -1,0 +1,10 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (1048 > 1024). Running this sequence through the model will result in indexing errors
+200 docs, 257 seqs
+400 docs, 589 seqs
+saved (600, 513) to /workspace/tensor_language/data_fineweb_tokens.npy (from 404 docs)
+Fatal Python error: PyGILState_Release: thread state 0x7af1200042e0 must be current when releasing
+Python runtime state: finalizing (tstate=0x0000583d964555d0)
+
+Thread 0x00007af2a2499740 (most recent call first):
+  <no Python frame>

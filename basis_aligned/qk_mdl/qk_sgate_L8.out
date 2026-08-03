@@ -1,0 +1,19 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+templates ready
+normal equations done
+PROGRAMMATIC heads (predicate gain >=5% held-out): 30/162
+by top predicate: [('KEY_newline', 9), ('MATCH_prev', 8), ('MATCH_same', 5), ('KEY_cap', 4), ('PREV1', 2), ('KEY_func', 2)]
+by layer: Counter({16: 4, 1: 3, 2: 3, 3: 3, 6: 2, 11: 2, 13: 2, 14: 2, 15: 2, 0: 1, 5: 1, 7: 1, 8: 1, 9: 1, 10: 1, 12: 1})
+--- LAYER 8 per-head census ---
+  L8H0: gain -0.065 top=PREV2 (0.0016) full -0.115 / tpl -0.049
+  L8H1: gain 0.039 top=PREV1 (0.0214) full 0.083 / tpl 0.044
+  L8H2: gain 0.022 top=PREV1 (-0.0068) full 0.025 / tpl 0.003
+  L8H3: gain 0.039 top=MATCH_prev (-0.0181) full 0.046 / tpl 0.007
+  L8H4: gain 0.044 top=MATCH_prev (0.021) full 0.044 / tpl 0.001
+  L8H5: gain 0.019 top=MATCH_prev (0.0039) full 0.027 / tpl 0.007
+  L8H6: gain 0.054 top=MATCH_prev (0.0261) full 0.072 / tpl 0.017 PROG
+  L8H7: gain 0.023 top=PREV1 (0.0097) full 0.057 / tpl 0.035
+  L8H8: gain 0.024 top=MATCH_same (0.008) full 0.073 / tpl 0.049
+GATE: 1 layer-8 programmatic heads coded simultaneously (heads [6]): dCE +0.00111 (SE 0.000298)
+SUMMARY L8 SELECTION: 1 programmatic heads at layer 8; per-head predicate gain range -0.065..0.054; gate +0.00111 nats/tok (SE 0.000298)
+QK L8 SELECTION GATE DONE

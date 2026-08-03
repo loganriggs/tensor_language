@@ -1,0 +1,52 @@
+GPU guard: 15841 MiB free -- proceeding.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+bilin18 held 152x128; LI=3; direct-path coefficient to readout = 2.476e-02
+BASE ...
+base CE 3.4946
+  ablate               dCE +0.6163 +- 0.00842
+  remove_direct        dCE +0.0002 +- 0.00019
+  readout_only         dCE +0.6084 +- 0.00839
+  restore_at_block_4   dCE -0.0000 +- 0.00000
+  restore_at_block_5   dCE +0.2641 +- 0.00556
+  restore_at_block_6   dCE +0.4556 +- 0.00727
+  restore_at_block_7   dCE +0.5242 +- 0.00777
+  restore_at_block_8   dCE +0.5596 +- 0.00803
+  restore_at_block_9   dCE +0.5748 +- 0.00814
+  restore_at_block_10  dCE +0.5884 +- 0.00823
+  restore_at_block_12  dCE +0.6008 +- 0.00832
+  restore_at_block_15  dCE +0.6065 +- 0.00836
+gates pass: restore_4 ~ 0, ablate ~ census floor
+Saved H1_mediation
+PRE-PASS: block-3 deviation firing magnitudes ...
+PART B: 19 routing configs ...
+PART B forwards done (23s)
+  sanity_freeze_all_no_ablate dCE +0.0000 +- 0.00000
+  total_damage               dCE +0.6163 +- 0.00842
+  direct_only                dCE +0.0002 +- 0.00019
+  direct_plus_all_attn       dCE +0.0087 +- 0.00096
+  freeze_only_mlp4           dCE +0.1050 +- 0.00352
+  direct_plus_mlp4           dCE +0.0005 +- 0.00034
+  direct_plus_mlp5           dCE +0.0011 +- 0.00045
+  direct_plus_mlp6           dCE +0.0005 +- 0.00033
+  direct_plus_mlp7           dCE +0.0005 +- 0.00028
+  direct_plus_mlp8           dCE +0.0004 +- 0.00025
+  direct_plus_mlp9           dCE +0.0003 +- 0.00025
+  direct_plus_mlp10          dCE +0.0003 +- 0.00023
+  direct_plus_mlp11          dCE +0.0002 +- 0.00023
+  direct_plus_mlp12          dCE +0.0003 +- 0.00022
+  direct_plus_mlp13          dCE +0.0002 +- 0.00021
+  direct_plus_mlp14          dCE +0.0001 +- 0.00020
+  direct_plus_mlp15          dCE +0.0001 +- 0.00020
+  direct_plus_mlp16          dCE +0.0001 +- 0.00018
+  direct_plus_mlp17          dCE +0.0001 +- 0.00016
+Saved H1_freeze_patch_routing
+CATEGORY PROBE: gathering residuals (intact + each of mlp.L0-L3 ablated) ...
+  probe embed: intact 0.5274
+  probe blk3: intact 0.6012
+  probe blk4: intact 0.6107
+  ablate mlp.L0: blk3 0.5464 blk4 0.542
+  ablate mlp.L1: blk3 0.5295 blk4 0.4996
+  ablate mlp.L2: blk3 0.5755 blk4 0.5746
+  ablate mlp.L3: blk3 0.5976 blk4 0.5928
+Saved H2_category_probe to qk_arc_mlp3.json
+QK ARC MLP3 PART2 DONE

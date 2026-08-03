@@ -1,0 +1,157 @@
+{
+ "cells": {
+  "ratio_rho0.75": {
+   "note": "uniform R=200, output ceil(0.75*R)",
+   "budget": 852810000,
+   "budget_frac_of_16x": 0.99,
+   "n_terms": 169,
+   "dCE": 1.8249,
+   "SE": 0.01645,
+   "vs_rank_alloc_16x": [
+    1.0217,
+    0.01079
+   ],
+   "vs_best_term_104": [
+    -0.076,
+    0.00172
+   ],
+   "secs": 5.6
+  },
+  "ratio_rho1.5": {
+   "note": "uniform R=159, output ceil(1.5*R)",
+   "budget": 858936762,
+   "budget_frac_of_16x": 0.9971,
+   "n_terms": 169,
+   "dCE": 1.7846,
+   "SE": 0.01615,
+   "vs_rank_alloc_16x": [
+    0.9815,
+    0.01051
+   ],
+   "vs_best_term_104": [
+    -0.1162,
+    0.00303
+   ],
+   "secs": 5.7
+  },
+  "profile_150pct_rho1": {
+   "note": "profile 150pct (193 terms), rho=1, R=175",
+   "budget": 861175000,
+   "budget_frac_of_16x": 0.9997,
+   "n_terms": 193,
+   "dCE": 1.6457,
+   "SE": 0.01553,
+   "vs_rank_alloc_16x": [
+    0.8425,
+    0.00935
+   ],
+   "vs_best_term_104": [
+    -0.2552,
+    0.00453
+   ],
+   "secs": 6.1
+  },
+  "profile_allterms_rho1": {
+   "note": "profile allterms (253 terms), rho=1, R=160",
+   "budget": 861260800,
+   "budget_frac_of_16x": 0.9998,
+   "n_terms": 253,
+   "dCE": 1.3878,
+   "SE": 0.01457,
+   "vs_rank_alloc_16x": [
+    0.5847,
+    0.00736
+   ],
+   "vs_best_term_104": [
+    -0.513,
+    0.00708
+   ],
+   "secs": 7.0
+  },
+  "combo_rho1_mu2.0": {
+   "note": "rho=1 with layers 0-4 at rank 294, rest 147",
+   "budget": 852150915,
+   "budget_frac_of_16x": 0.9892,
+   "n_terms": 169,
+   "dCE": 1.5049,
+   "SE": 0.01492,
+   "vs_rank_alloc_16x": [
+    0.7018,
+    0.00848
+   ],
+   "vs_best_term_104": [
+    -0.396,
+    0.00492
+   ],
+   "secs": 5.6
+  },
+  "combo_rho1_mu3.0": {
+   "note": "rho=1 with layers 0-4 at rank 336, rest 112",
+   "budget": 857746176,
+   "budget_frac_of_16x": 0.9957,
+   "n_terms": 169,
+   "dCE": 1.5041,
+   "SE": 0.01499,
+   "vs_rank_alloc_16x": [
+    0.7009,
+    0.00845
+   ],
+   "vs_best_term_104": [
+    -0.3968,
+    0.00535
+   ],
+   "secs": 5.5
+  },
+  "combo_rho1_mu4.0": {
+   "note": "rho=1 with layers 0-4 at rank 348, rest 87",
+   "budget": 840908331,
+   "budget_frac_of_16x": 0.9761,
+   "n_terms": 169,
+   "dCE": 1.5613,
+   "SE": 0.01537,
+   "vs_rank_alloc_16x": [
+    0.7582,
+    0.00896
+   ],
+   "vs_best_term_104": [
+    -0.3395,
+    0.0054
+   ],
+   "secs": 5.5
+  },
+  "importance_global_g1_UNCAPPED": {
+   "note": "importance rule with group bases uncapped to the full numerical rank; rank range 16-820",
+   "budget": 861406059,
+   "budget_frac_of_16x": 0.9999,
+   "n_terms": 169,
+   "dCE": 3.1688,
+   "SE": 0.02406,
+   "vs_rank_alloc_16x": [
+    2.3656,
+    0.0196
+   ],
+   "vs_best_term_104": [
+    1.2679,
+    0.01367
+   ],
+   "secs": 11.3,
+   "rank_range": [
+    16,
+    820
+   ],
+   "basis_gate": 0.0
+  },
+  "ratio_rho1_at_4x": {
+   "note": "rho=1 at the 4x budget, R=289",
+   "budget": 3425363252,
+   "dCE": 1.2859,
+   "SE": 0.01358,
+   "vs_rank_alloc_4x": [
+    0.9343,
+    0.01074
+   ],
+   "rank_alloc_4x": 0.3516
+  }
+ },
+ "peak_gpu_MiB": 4054.4
+}

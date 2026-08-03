@@ -1,0 +1,12 @@
+train torch.Size([89996, 3, 28, 28]) val torch.Size([10004, 3, 28, 28]) test torch.Size([7180, 3, 28, 28])
+params 0.348M
+step 1000: loss 0.349 val 0.8511 (best 0.8511)
+step 2000: loss 0.258 val 0.8921 (best 0.8921)
+step 3000: loss 0.154 val 0.9314 (best 0.9314)
+step 4000: loss 0.114 val 0.9412 (best 0.9412)
+step 5000: loss 0.042 val 0.9417 (best 0.9417)
+step 6000: loss 0.011 val 0.9517 (best 0.9517)
+step 7000: loss 0.001 val 0.9561 (best 0.9561)
+step 8000: loss 0.006 val 0.9566 (best 0.9566)
+{"params_M": 0.3484, "best_val": 0.9566, "test_acc": 0.8032}
+MED BVIT DONE

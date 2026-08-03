@@ -1,0 +1,12 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+MLP: 4608 neurons
+capturing activations...
+usage share of top-n: {'128': 0.0595, '256': 0.0989, '512': 0.1683, '1024': 0.2921, '2048': 0.5165}
+token-identity R2: median 0.342, >0.5 0.157, <0.1 0.003
+reader effective neurons: min 4361 median 4544 max 4568 (of 4608); k1 top-256 overlap (offdiag) 0.174
+keep top-2048 neurons: dCE +0.03034
+keep top-1024 neurons: dCE +0.11487
+keep top-512 neurons: dCE +0.33594
+keep top-256 neurons: dCE +0.78335
+keep top-128 neurons: dCE +1.19994
+MLP RECON DONE

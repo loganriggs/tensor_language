@@ -1,0 +1,19 @@
+GPU guard: 15841 MiB free -- proceeding.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+bilin18 NL=18 D=1152 NH=9 held 152x128
+counts: valid=18634 boundary=1209 bnd_due=558 target_notdue=8510 nonboundary=17425
+PASS 1: collect attention-earlier / mlp-earlier group grids at L17 ...
+GATE group-sum identity: global rel 1.56e-07 maxpos 3.32e-07
+natural (exact full model) grids ...
+base CE mean 3.4946 (expect 3.4946)
+GATE base P(capital): sentence-punct 0.34902 (expect 0.34902) newline 0.55269 (expect 0.55269)
+targets: force 500 (same-seq donors 1.00) suppress 500 (same-seq donors 1.00)
+geometry: own Ae norm 29186.50 donor 33797.05 cos(own,donor) 0.879 donor natural P(capital) 0.388
+
+===== FORCE: boundary attention-earlier into mid-sentence not-due targets =====
+[FORCE t=1] P(cap) 0.0387 -> 0.0667 (dP +0.0280 +- 0.0032); dCE@edited +0.2668 +- 0.0381; dCE@nonedited +0.000000; global dCE +0.006910; gate max|dlogit|nonedited 0.00e+00 (frac exactly zero 1.0000)
+
+===== SUPPRESS: mid-sentence attention-earlier into boundary due targets =====
+[SUPPRESS t=1] P(cap) 0.5497 -> 0.4794 (dP -0.0703 +- 0.0047); dCE@edited +0.4415 +- 0.0410; dCE@nonedited +0.000000; global dCE +0.011435; gate max|dlogit|nonedited 0.00e+00 (frac exactly zero 1.0000)
+
+Saved qk_stream_transplant.json (partial) + state. QK STREAM TRANSPLANT PART 1 DONE

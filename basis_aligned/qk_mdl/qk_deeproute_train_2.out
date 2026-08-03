@@ -1,0 +1,201 @@
+GPU guard: 15571 MiB free -- proceeding.
+GPU guard: 15571 MiB free -- proceeding.
+==== analyzing V1 ====
+  consumption row 0: emb +3.6067  (0s)
+  consumption row 1: mlp0 +0.3223, emb +0.0025, attn0 +0.0002  (2s)
+  consumption row 2: mlp0 +0.0360, mlp1 +0.0053, emb +0.0005, attn0 +0.0001  (4s)
+  consumption row 3: mlp0 +0.0124, mlp1 +0.0034, mlp2 +0.0009, attn1 +0.0001  (7s)
+  consumption row 4: mlp0 +0.0156, mlp1 +0.0043, mlp2 +0.0012, mlp3 +0.0002  (11s)
+  consumption row 5: mlp0 +0.0209, mlp1 +0.0044, mlp2 +0.0014, mlp3 +0.0006  (16s)
+  consumption row 6: mlp0 +0.0338, mlp1 +0.0067, mlp2 +0.0011, attn4 +0.0009  (22s)
+  consumption row 7: mlp0 +0.0628, mlp1 +0.0079, mlp6 +0.0015, mlp2 +0.0014  (29s)
+  consumption row 8: mlp0 +0.1304, mlp1 +0.0159, mlp7 +0.0083, mlp3 +0.0022  (37s)
+  consumption row 9: mlp0 +0.1292, attn8 +0.0237, mlp8 +0.0153, mlp1 +0.0123  (46s)
+  consumption row 10: mlp0 +0.2996, mlp9 +0.0452, attn8 +0.0222, attn9 +0.0187  (55s)
+  consumption row 11: mlp0 +0.1562, mlp10 +0.1221, mlp9 +0.0853, attn8 +0.0351  (66s)
+  consumption row 12: mlp0 +0.3821, mlp10 +0.1742, mlp9 +0.1201, mlp11 +0.0918  (77s)
+  terms block6: n 13 rel_err 0.00e+00 k95 7 recovered 0.9998
+  L0: tokdet 0.901 linVE 0.607 dCEfloor 4.0065 rec 0.9275
+  L1: tokdet 0.834 linVE 0.371 dCEfloor 0.1375 rec 0.6736
+  L2: tokdet 0.760 linVE 0.317 dCEfloor 0.0222 rec 0.6916
+  L3: tokdet 0.809 linVE 0.359 dCEfloor 0.0144 rec 0.7432
+  L4: tokdet 0.767 linVE 0.270 dCEfloor 0.0090 rec 0.6965
+  L5: tokdet 0.586 linVE 0.200 dCEfloor 0.0079 rec 0.6829
+  L6: tokdet 0.531 linVE 0.214 dCEfloor 0.0121 rec 0.7007
+  L7: tokdet 0.543 linVE 0.251 dCEfloor 0.0182 rec 0.6573
+  L8: tokdet 0.313 linVE 0.118 dCEfloor 0.0269 rec 0.2691
+  L9: tokdet 0.281 linVE 0.141 dCEfloor 0.0430 rec 0.266
+  L10: tokdet 0.357 linVE 0.217 dCEfloor 0.0917 rec 0.4045
+  L11: tokdet 0.462 linVE 0.230 dCEfloor 0.1000 rec 0.2975
+  V1 done in 151s
+==== analyzing V2 ====
+  consumption row 0: emb +0.1591  (1s)
+  consumption row 1: emb +0.0300, attn0 +0.0001, mlp0 +0.0001  (2s)
+  consumption row 2: emb +0.0036, attn0 +0.0002, mlp1 +0.0001, attn1 +0.0000  (4s)
+  consumption row 3: emb +0.0041, mlp1 +0.0004, mlp0 +0.0002, mlp2 +0.0001  (8s)
+  consumption row 4: emb +0.0036, attn0 +0.0002, mlp3 +0.0001, mlp1 +0.0001  (12s)
+  consumption row 5: emb +0.0294, mlp0 +0.0027, mlp2 +0.0004, mlp4 +0.0002  (18s)
+  consumption row 6: emb +0.2437, mlp0 +0.0133, mlp5 +0.0037, mlp1 +0.0014  (25s)
+  consumption row 7: emb +0.0067, mlp5 +0.0010, mlp0 +0.0007, mlp1 +0.0002  (32s)
+  consumption row 8: emb +0.0721, mlp0 +0.0093, mlp6 +0.0050, mlp7 +0.0014  (40s)
+  consumption row 9: emb +0.4463, mlp6 +0.0977, mlp8 +0.0201, mlp0 +0.0176  (50s)
+  consumption row 10: emb +0.0389, mlp9 +0.0051, mlp0 +0.0018, attn9 +0.0013  (61s)
+  consumption row 11: mlp9 +0.0292, attn9 +0.0092, emb +0.0083, mlp10 +0.0046  (72s)
+  consumption row 12: mlp9 +0.6250, mlp11 +0.1266, mlp8 +0.0743, mlp6 +0.0582  (84s)
+  terms block6: n 13 rel_err 0.00e+00 k95 4 recovered 0.9971
+  L0: tokdet 0.970 linVE 0.645 dCEfloor 0.1125 rec 0.6797
+  L1: tokdet 0.941 linVE 0.701 dCEfloor 0.0249 rec 0.9306
+  L2: tokdet 0.776 linVE 0.524 dCEfloor 0.0011 rec 0.3471
+  L3: tokdet 0.810 linVE 0.546 dCEfloor 0.0021 rec 0.5714
+  L4: tokdet 0.815 linVE 0.539 dCEfloor 0.0027 rec 0.5665
+  L5: tokdet 0.705 linVE 0.526 dCEfloor 0.0310 rec 0.3254
+  L6: tokdet 0.732 linVE 0.450 dCEfloor 0.2260 rec 0.5235
+  L7: tokdet 0.792 linVE 0.516 dCEfloor 0.0074 rec 0.5486
+  L8: tokdet 0.668 linVE 0.538 dCEfloor 0.0705 rec 0.2653
+  L9: tokdet 0.465 linVE 0.294 dCEfloor 0.7848 rec 0.4177
+  L10: tokdet 0.750 linVE 0.326 dCEfloor 0.0512 rec -0.1554
+  L11: tokdet 0.406 linVE 0.234 dCEfloor 0.1260 rec 0.2068
+  V2 done in 165s
+==== analyzing V3 ====
+  consumption row 0: emb +2.6519  (0s)
+  consumption row 1: mlp0 +0.6808, attn0 +0.0033, emb +0.0000  (2s)
+  consumption row 2: mlp0 +0.1190, attn1 +0.0093, mlp1 +0.0017, attn0 +0.0006  (4s)
+  consumption row 3: mlp0 +0.0003, attn0 +0.0001, mlp1 +0.0000, attn1 +0.0000  (8s)
+  consumption row 4: mlp0 +0.0025, attn1 +0.0007, attn0 +0.0003, mlp3 +0.0001  (12s)
+  consumption row 5: mlp0 +0.0170, attn0 +0.0034, attn1 +0.0017, mlp1 +0.0014  (18s)
+  consumption row 6: mlp0 +0.0003, attn1 +0.0001, attn0 +0.0000, mlp1 +0.0000  (24s)
+  consumption row 7: attn1 +0.0043, mlp0 +0.0024, mlp1 +0.0008, attn0 +0.0003  (32s)
+  consumption row 8: attn1 +0.0404, mlp0 +0.0297, attn0 +0.0010, mlp2 +0.0007  (40s)
+  consumption row 9: attn1 +0.0011, mlp0 +0.0002, mlp4 +0.0001, mlp7 +0.0000  (50s)
+  consumption row 10: mlp0 +0.4708, attn0 +0.1805, attn1 +0.0592, mlp8 +0.0332  (60s)
+  consumption row 11: emb -0.0000, attn0 -0.0000, mlp0 -0.0000, attn1 -0.0000  (72s)
+  consumption row 12: mlp10 +1.7719, mlp0 +0.2834, attn1 +0.0667, mlp8 +0.0256  (84s)
+  terms block6: n 13 rel_err 0.00e+00 k95 1 recovered 0.999
+  L0: tokdet 0.886 linVE 0.687 dCEfloor 3.7699 rec 0.903
+  L1: tokdet 0.916 linVE 0.578 dCEfloor 0.0362 rec 0.8829
+  L2: tokdet 0.717 linVE 0.368 dCEfloor 0.0070 rec 0.5642
+  L3: tokdet 0.811 linVE 0.427 dCEfloor 0.0001 rec 0.3285
+  L4: tokdet 0.732 linVE 0.407 dCEfloor 0.0031 rec 0.2738
+  L5: tokdet 0.780 linVE 0.406 dCEfloor 0.0215 rec 0.416
+  L6: tokdet 0.953 linVE 0.634 dCEfloor -0.0000 rec None
+  L7: tokdet 0.590 linVE 0.341 dCEfloor 0.0054 rec 0.2063
+  L8: tokdet 0.640 linVE 0.326 dCEfloor 0.0641 rec 0.375
+  L9: tokdet 0.483 linVE 0.255 dCEfloor 0.0009 rec 0.0928
+  L10: tokdet 0.800 linVE 0.537 dCEfloor 1.7408 rec 0.6941
+  L11: tokdet 0.620 linVE 0.311 dCEfloor 0.0000 rec None
+  V3 done in 165s
+==== analyzing V4 ====
+  consumption row 0: emb +1.7529  (1s)
+  consumption row 1: mlp0 +2.2216, attn0 +0.0001, emb -0.0000  (2s)
+  consumption row 2: mlp1 +2.4094, mlp0 +0.0172, attn0 +0.0001, attn1 +0.0000  (5s)
+  consumption row 3: attn0 -0.0000, mlp0 -0.0000, attn1 -0.0000, mlp1 -0.0000  (8s)
+  consumption row 4: mlp2 +0.1613, mlp1 +0.0587, mlp0 +0.0163, attn2 +0.0005  (13s)
+  consumption row 5: attn2 -0.0000, attn0 -0.0000, attn4 -0.0000, emb -0.0000  (19s)
+  consumption row 6: mlp0 +0.0002, attn0 +0.0001, mlp1 +0.0001, mlp2 +0.0001  (26s)
+  consumption row 7: mlp1 +0.1255, mlp2 +0.0875, mlp0 +0.0065, attn2 +0.0004  (33s)
+  consumption row 8: mlp2 +0.0000, attn1 -0.0000, attn2 -0.0000, emb -0.0000  (42s)
+  consumption row 9: mlp2 +0.0509, mlp1 +0.0431, mlp0 +0.0152, attn0 +0.0004  (52s)
+  consumption row 10: mlp2 +1.0404, mlp1 +0.4533, mlp0 +0.0269, attn4 +0.0010  (63s)
+  consumption row 11: mlp1 +0.7876, mlp10 +0.2396, mlp0 +0.1976, mlp2 +0.1135  (75s)
+  consumption row 12: mlp11 +0.6952, mlp10 +0.4534, mlp2 +0.2245, mlp0 +0.0730  (88s)
+  terms block6: n 13 rel_err 0.00e+00 k95 3 recovered -0.0497
+  L0: tokdet 0.987 linVE 0.676 dCEfloor 2.2556 rec 0.5593
+  L1: tokdet 0.995 linVE 0.703 dCEfloor 2.3789 rec 0.7044
+  L2: tokdet 0.994 linVE 0.754 dCEfloor 1.5112 rec 0.7214
+  L3: tokdet 0.977 linVE 0.650 dCEfloor -0.0000 rec None
+  L4: tokdet 0.975 linVE 0.712 dCEfloor 0.0000 rec None
+  L5: tokdet 0.983 linVE 0.511 dCEfloor -0.0000 rec None
+  L6: tokdet 0.943 linVE 0.676 dCEfloor -0.0000 rec None
+  L7: tokdet 0.959 linVE 0.614 dCEfloor -0.0000 rec None
+  L8: tokdet 0.969 linVE 0.672 dCEfloor -0.0000 rec None
+  L9: tokdet 0.985 linVE 0.679 dCEfloor -0.0000 rec None
+  L10: tokdet 0.989 linVE 0.691 dCEfloor 0.7854 rec 0.7537
+  L11: tokdet 0.975 linVE 0.686 dCEfloor 0.7009 rec 0.8143
+  V4 done in 173s
+==== analyzing V5 ====
+  consumption row 0: emb +0.9264  (0s)
+  consumption row 1: emb +0.2627, mlp0 +0.0853, attn0 +0.0266  (2s)
+  consumption row 2: emb +0.1911, mlp0 +0.0626, mlp1 +0.0262, attn0 +0.0185  (4s)
+  consumption row 3: emb +1.0562, mlp0 +0.0486, attn0 +0.0171, mlp2 +0.0135  (7s)
+  consumption row 4: emb +0.1279, mlp0 +0.0183, mlp2 +0.0097, mlp1 +0.0071  (11s)
+  consumption row 5: emb +0.1335, mlp0 +0.0206, mlp3 +0.0076, attn0 +0.0075  (16s)
+  consumption row 6: emb +0.1242, mlp0 +0.0364, attn0 +0.0150, mlp2 +0.0141  (22s)
+  consumption row 7: emb +0.0144, mlp0 +0.0136, mlp6 +0.0114, mlp2 +0.0061  (29s)
+  consumption row 8: emb +1.5830, mlp0 +0.1059, attn3 +0.0556, mlp6 +0.0353  (37s)
+  consumption row 9: emb +1.5995, mlp6 +0.0599, attn3 +0.0563, mlp0 +0.0544  (46s)
+  consumption row 10: emb +2.4453, mlp8 +0.3451, attn3 +0.2852, mlp0 +0.2409  (55s)
+  consumption row 11: emb +0.7299, attn3 +0.1252, mlp8 +0.0924, mlp6 +0.0658  (66s)
+  consumption row 12: emb +2.0639, attn3 +1.0547, mlp8 +0.4798, mlp6 +0.4781  (77s)
+  wiring Spearman(support, causal) = -0.0007
+  terms block6: n 13 rel_err 0.00e+00 k95 12 recovered 0.9992
+  L0: tokdet 0.848 linVE 0.642 dCEfloor 0.3631 rec 0.7584
+  L1: tokdet 0.832 linVE 0.549 dCEfloor 0.1582 rec 0.7116
+  L2: tokdet 0.774 linVE 0.542 dCEfloor 0.1288 rec 0.7265
+  L3: tokdet 0.705 linVE 0.443 dCEfloor 0.0818 rec 0.645
+  L4: tokdet 0.652 linVE 0.380 dCEfloor 0.0616 rec 0.5898
+  L5: tokdet 0.583 linVE 0.319 dCEfloor 0.0495 rec 0.5309
+  L6: tokdet 0.622 linVE 0.440 dCEfloor 0.1385 rec 0.5808
+  L7: tokdet 0.428 linVE 0.195 dCEfloor 0.0346 rec 0.3612
+  L8: tokdet 0.589 linVE 0.434 dCEfloor 0.2732 rec 0.7754
+  L9: tokdet 0.472 linVE 0.301 dCEfloor 0.0768 rec 0.5483
+  L10: tokdet 0.407 linVE 0.196 dCEfloor 0.0746 rec 0.3415
+  L11: tokdet 0.377 linVE 0.201 dCEfloor 0.0548 rec 0.3663
+  V5 done in 152s
+==== analyzing V6 ====
+  consumption row 0: emb +2.6959  (0s)
+  consumption row 1: mlp0 +0.0445, emb +0.0060, attn0 +0.0020  (2s)
+  consumption row 2: mlp0 +0.0142, emb +0.0060, mlp1 +0.0007, attn1 -0.0005  (4s)
+  consumption row 3: mlp1 +0.0043, mlp2 +0.0028, attn2 -0.0004, attn1 -0.0022  (6s)
+  consumption row 4: mlp0 +0.0144, emb +0.0063, attn0 +0.0006, mlp3 +0.0003  (9s)
+  consumption row 5: attn4 +0.0011, attn3 +0.0001, mlp4 -0.0003, mlp3 -0.0003  (12s)
+  consumption row 6: attn4 +0.0009, mlp5 +0.0005, attn2 +0.0001, attn5 +0.0001  (14s)
+  consumption row 7: mlp3 +0.0015, mlp6 +0.0002, attn6 +0.0001, attn3 +0.0000  (17s)
+  consumption row 8: mlp0 +0.6797, emb +0.0918, mlp4 +0.0179, attn0 +0.0028  (21s)
+  consumption row 9: mlp8 +0.0982, mlp1 +0.0100, attn8 +0.0033, attn7 -0.0001  (25s)
+  consumption row 10: mlp8 +0.3432, mlp9 +0.0371, mlp2 +0.0228, attn8 +0.0120  (28s)
+  consumption row 11: mlp10 +0.3073, mlp9 +0.0687, attn10 +0.0400, mlp3 +0.0001  (32s)
+  consumption row 12: mlp11 +0.2983, mlp8 +0.2979, mlp10 +0.1710, attn11 +0.1673  (35s)
+  terms block6: n 6 rel_err 0.00e+00 k95 5 recovered 0.9975
+  L0: tokdet 0.922 linVE 0.660 dCEfloor 1.6460 rec 0.9248
+  L1: tokdet 0.667 linVE 0.319 dCEfloor 0.0322 rec 0.841
+  L2: tokdet 0.729 linVE 0.390 dCEfloor 0.0208 rec 0.9091
+  L3: tokdet 0.473 linVE 0.217 dCEfloor -0.0002 rec None
+  L4: tokdet 0.829 linVE 0.381 dCEfloor 0.0241 rec 0.7708
+  L5: tokdet 0.327 linVE 0.133 dCEfloor -0.0021 rec None
+  L6: tokdet 0.486 linVE 0.290 dCEfloor -0.0063 rec None
+  L7: tokdet 0.258 linVE 0.116 dCEfloor -0.0083 rec None
+  L8: tokdet 0.849 linVE 0.467 dCEfloor 1.6952 rec 0.8716
+  L9: tokdet 0.800 linVE 0.546 dCEfloor 0.1154 rec 0.8134
+  L10: tokdet 0.771 linVE 0.468 dCEfloor 0.4882 rec 0.719
+  L11: tokdet 0.272 linVE 0.154 dCEfloor 0.3036 rec 0.2279
+  V6 done in 108s
+==== analyzing V7 ====
+  consumption row 0: emb +0.2227  (0s)
+  consumption row 1: mlp0 +0.0002, attn0 +0.0000, emb -0.0000  (2s)
+  consumption row 2: attn1 +0.0004, attn0 +0.0001, mlp1 +0.0000, emb +0.0000  (4s)
+  consumption row 3: mlp2 +0.0000, mlp1 +0.0000, attn2 -0.0000, attn1 -0.0000  (6s)
+  consumption row 4: emb +3.6692, mlp0 +0.1995, mlp2 +0.0004, attn2 +0.0000  (9s)
+  consumption row 5: mlp1 +0.0000, attn1 +0.0000, attn4 -0.0000, mlp3 -0.0000  (12s)
+  consumption row 6: mlp5 +0.0000, mlp4 +0.0000, mlp2 -0.0000, attn4 -0.0000  (15s)
+  consumption row 7: mlp5 -0.0000, attn3 -0.0000, mlp3 -0.0000, attn6 -0.0000  (18s)
+  consumption row 8: mlp4 +0.2493, emb +0.1675, attn4 +0.1666, mlp0 +0.0957  (22s)
+  consumption row 9: attn1 -0.0000, mlp1 -0.0000, attn5 -0.0000, mlp5 -0.0000  (26s)
+  consumption row 10: mlp8 +0.1977, attn8 +0.0173, attn6 -0.0000, attn9 -0.0000  (30s)
+  consumption row 11: mlp10 +0.1104, mlp3 +0.0000, attn10 +0.0000, attn3 -0.0000  (33s)
+  consumption row 12: mlp4 +4.4490, mlp8 +0.8991, mlp11 +0.7071, mlp10 +0.0476  (37s)
+  wiring Spearman(support, causal) = 0.5038, route = -0.0717
+  terms block6: n 6 rel_err 0.00e+00 k95 1 recovered 0.1034
+  L0: tokdet 0.881 linVE 0.582 dCEfloor 0.2017 rec 0.9654
+  L1: tokdet 0.536 linVE 0.275 dCEfloor 0.0000 rec -0.2865
+  L2: tokdet 0.043 linVE 0.008 dCEfloor 0.0004 rec 0.0064
+  L3: tokdet 0.077 linVE -0.578 dCEfloor 0.0000 rec -0.6547
+  L4: tokdet 0.776 linVE 0.711 dCEfloor 5.7314 rec 0.9017
+  L5: tokdet 0.061 linVE 0.003 dCEfloor -0.0000 rec None
+  L6: tokdet 0.040 linVE 0.008 dCEfloor -0.0000 rec None
+  L7: tokdet 0.021 linVE -0.001 dCEfloor 0.0000 rec None
+  L8: tokdet 0.728 linVE 0.615 dCEfloor 0.6571 rec 0.4449
+  L9: tokdet 0.050 linVE 0.010 dCEfloor 0.0000 rec None
+  L10: tokdet 0.764 linVE 0.581 dCEfloor 0.1351 rec 0.7322
+  L11: tokdet 0.781 linVE 0.630 dCEfloor 0.7082 rec 0.8906
+  V7 done in 113s
+saved qk_deeproute.json

@@ -1,0 +1,3264 @@
+{
+  "param_counts": {
+    "V13": {
+      "total": 28566120,
+      "embedding": 13267848,
+      "body": 15298272,
+      "added_vs_base": 0,
+      "adapter_params": 240768
+    },
+    "V13r1": {
+      "total": 28385544,
+      "embedding": 13267848,
+      "body": 15117696,
+      "added_vs_base": 0,
+      "adapter_params": 60192
+    }
+  },
+  "run_r4": {
+    "lr": 0.002,
+    "group_coeff": 0.0001,
+    "width": 264,
+    "batch": 4,
+    "steps": 8250,
+    "rank": 4,
+    "held_ce_bf16": 5.897999073028564,
+    "spikes": 1,
+    "diverged": false,
+    "final_penalty": 1282.808837890625
+  },
+  "run_r1": {
+    "lr": 0.002,
+    "group_coeff": 0.0001,
+    "width": 264,
+    "batch": 4,
+    "steps": 8250,
+    "rank": 1,
+    "held_ce_bf16": 5.9002658615112304,
+    "spikes": 2,
+    "diverged": false,
+    "final_penalty": 1268.93994140625
+  },
+  "ce_r4": {
+    "held_ce": 5.897998809814453,
+    "control264_held_ce": 5.800634860992432,
+    "minus_control264": 0.09736432135105133,
+    "minus_control264_se_token": 0.001986149465665221,
+    "minus_control264_se_seq": 0.004026833456009626
+  },
+  "ce_r1": {
+    "held_ce": 5.900265693664551,
+    "control264_held_ce": 5.800634860992432,
+    "minus_control264": 0.09963107109069824,
+    "minus_control264_se_token": 0.001979040214791894,
+    "minus_control264_se_seq": 0.003237743629142642
+  },
+  "ce_r4_minus_v10": {
+    "held_ce": 5.897998809814453,
+    "qk_v10_held_ce": 5.878382682800293,
+    "minus_qk_v10": 0.019616302102804184,
+    "minus_qk_v10_se_token": 0.0017001088708639145,
+    "minus_qk_v10_se_seq": 0.002158478135243058
+  },
+  "ce_r4_minus_r1": {
+    "held_ce": 5.897998809814453,
+    "qk_v13r1_held_ce": 5.900265693664551,
+    "minus_qk_v13r1": -0.002266751369461417,
+    "minus_qk_v13r1_se_token": 0.0015443329466506839,
+    "minus_qk_v13r1_se_seq": 0.0021454612724483013
+  },
+  "probe_r4": {
+    "held_ce_bf16": 5.897999073028564,
+    "lr": 0.002,
+    "group_coeff": 0.0001,
+    "spikes": 1,
+    "base_ce_fp32_abl": 5.9139,
+    "consumption_top40": [
+      {
+        "consumer": "block5",
+        "source": "emb",
+        "dce": 0.52922
+      },
+      {
+        "consumer": "block3",
+        "source": "emb",
+        "dce": 0.46756
+      },
+      {
+        "consumer": "block4",
+        "source": "emb",
+        "dce": 0.39499
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp6",
+        "dce": 0.29592
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp8",
+        "dce": 0.29404
+      },
+      {
+        "consumer": "block2",
+        "source": "emb",
+        "dce": 0.28139
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp11",
+        "dce": 0.22111
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp7",
+        "dce": 0.19789
+      },
+      {
+        "consumer": "block1",
+        "source": "emb",
+        "dce": 0.12177
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp9",
+        "dce": 0.07898
+      },
+      {
+        "consumer": "readout",
+        "source": "attn10",
+        "dce": 0.07651
+      },
+      {
+        "consumer": "readout",
+        "source": "attn11",
+        "dce": 0.07304
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp10",
+        "dce": 0.06777
+      },
+      {
+        "consumer": "block11",
+        "source": "mlp8",
+        "dce": 0.05737
+      },
+      {
+        "consumer": "block3",
+        "source": "mlp2",
+        "dce": 0.05299
+      },
+      {
+        "consumer": "block11",
+        "source": "mlp6",
+        "dce": 0.05082
+      },
+      {
+        "consumer": "block11",
+        "source": "mlp7",
+        "dce": 0.05026
+      },
+      {
+        "consumer": "block10",
+        "source": "mlp4",
+        "dce": 0.04814
+      },
+      {
+        "consumer": "readout",
+        "source": "attn9",
+        "dce": 0.0458
+      },
+      {
+        "consumer": "block6",
+        "source": "mlp5",
+        "dce": 0.04529
+      },
+      {
+        "consumer": "block6",
+        "source": "mlp4",
+        "dce": 0.04235
+      },
+      {
+        "consumer": "block8",
+        "source": "mlp7",
+        "dce": 0.0419
+      },
+      {
+        "consumer": "block8",
+        "source": "mlp4",
+        "dce": 0.04076
+      },
+      {
+        "consumer": "block8",
+        "source": "mlp5",
+        "dce": 0.04067
+      },
+      {
+        "consumer": "block6",
+        "source": "mlp3",
+        "dce": 0.03914
+      },
+      {
+        "consumer": "readout",
+        "source": "attn8",
+        "dce": 0.03734
+      },
+      {
+        "consumer": "block7",
+        "source": "mlp4",
+        "dce": 0.03664
+      },
+      {
+        "consumer": "block8",
+        "source": "mlp6",
+        "dce": 0.03438
+      },
+      {
+        "consumer": "block7",
+        "source": "mlp5",
+        "dce": 0.03316
+      },
+      {
+        "consumer": "block7",
+        "source": "mlp6",
+        "dce": 0.03313
+      },
+      {
+        "consumer": "block11",
+        "source": "mlp5",
+        "dce": 0.03282
+      },
+      {
+        "consumer": "block8",
+        "source": "mlp3",
+        "dce": 0.03235
+      },
+      {
+        "consumer": "block10",
+        "source": "mlp5",
+        "dce": 0.03217
+      },
+      {
+        "consumer": "block10",
+        "source": "mlp6",
+        "dce": 0.02753
+      },
+      {
+        "consumer": "block11",
+        "source": "attn5",
+        "dce": 0.0275
+      },
+      {
+        "consumer": "block10",
+        "source": "mlp8",
+        "dce": 0.02716
+      },
+      {
+        "consumer": "block9",
+        "source": "mlp4",
+        "dce": 0.02625
+      },
+      {
+        "consumer": "block5",
+        "source": "attn3",
+        "dce": 0.02556
+      },
+      {
+        "consumer": "block9",
+        "source": "mlp8",
+        "dce": 0.02409
+      },
+      {
+        "consumer": "block10",
+        "source": "mlp7",
+        "dce": 0.02402
+      }
+    ],
+    "consumption_matrix": {
+      "0": {
+        "0": -0.000136
+      },
+      "1": {
+        "0": 0.121773,
+        "1": 1.4e-05,
+        "2": 2.1e-05
+      },
+      "2": {
+        "0": 0.28139,
+        "1": -1e-06,
+        "2": 0.000124,
+        "3": 1.1e-05,
+        "4": 0.006949
+      },
+      "3": {
+        "0": 0.467564,
+        "1": 6e-06,
+        "2": -7.7e-05,
+        "3": 9e-06,
+        "4": 0.017933,
+        "5": 1.9e-05,
+        "6": 0.052986
+      },
+      "4": {
+        "0": 0.394993,
+        "1": 4e-06,
+        "2": -7.5e-05,
+        "3": -4e-06,
+        "4": 0.004564,
+        "5": 1e-05,
+        "6": 0.009888,
+        "7": 0.020442,
+        "8": 0.015059
+      },
+      "5": {
+        "0": 0.529219,
+        "1": 1e-06,
+        "2": 4.5e-05,
+        "3": 7e-06,
+        "4": 0.004228,
+        "5": 5e-06,
+        "6": 0.006275,
+        "7": 0.025557,
+        "8": 0.009562,
+        "9": 0.010829,
+        "10": 0.01248
+      },
+      "6": {
+        "1": 1.1e-05,
+        "2": -0.0,
+        "3": -3e-06,
+        "4": 0.011583,
+        "5": 5e-06,
+        "6": 0.017371,
+        "7": 0.011942,
+        "8": 0.039138,
+        "9": 0.011247,
+        "10": 0.042352,
+        "11": 0.007524,
+        "12": 0.045292
+      },
+      "7": {
+        "3": 3e-06,
+        "4": 0.003728,
+        "5": 5e-06,
+        "6": 0.011673,
+        "7": 0.016467,
+        "8": 0.020301,
+        "9": 0.003496,
+        "10": 0.036645,
+        "11": 0.003785,
+        "12": 0.033162,
+        "13": 0.00157,
+        "14": 0.033129
+      },
+      "8": {
+        "5": 3e-06,
+        "6": 0.009272,
+        "7": 0.011537,
+        "8": 0.032348,
+        "9": 0.003492,
+        "10": 0.040755,
+        "11": 0.001648,
+        "12": 0.040666,
+        "13": 0.000636,
+        "14": 0.034378,
+        "15": 0.001765,
+        "16": 0.041903
+      },
+      "9": {
+        "7": 0.008776,
+        "8": 0.021476,
+        "9": 0.003449,
+        "10": 0.026252,
+        "11": 0.002875,
+        "12": 0.021539,
+        "13": 0.000701,
+        "14": 0.019331,
+        "15": 0.000989,
+        "16": 0.023145,
+        "17": 0.016449,
+        "18": 0.02409
+      },
+      "10": {
+        "9": 0.003522,
+        "10": 0.048145,
+        "11": 0.003512,
+        "12": 0.032174,
+        "13": 0.000879,
+        "14": 0.027535,
+        "15": 0.001137,
+        "16": 0.024016,
+        "17": 0.010972,
+        "18": 0.027155,
+        "19": 0.006939,
+        "20": 0.01287
+      },
+      "11": {
+        "11": 0.027499,
+        "12": 0.032824,
+        "13": 0.00064,
+        "14": 0.050818,
+        "15": -0.00025,
+        "16": 0.050257,
+        "17": 0.004367,
+        "18": 0.057368,
+        "19": 0.003473,
+        "20": 0.01077,
+        "21": 0.012413,
+        "22": 0.007244
+      },
+      "12": {
+        "13": 0.014803,
+        "14": 0.295925,
+        "15": 0.007641,
+        "16": 0.197887,
+        "17": 0.037336,
+        "18": 0.294042,
+        "19": 0.0458,
+        "20": 0.078981,
+        "21": 0.076506,
+        "22": 0.067773,
+        "23": 0.073044,
+        "24": 0.221106
+      }
+    },
+    "per_block_total_consumption": {
+      "0": 7e-05,
+      "1": 0.04901,
+      "2": 0.10751,
+      "3": 0.23261,
+      "4": 0.24266,
+      "5": 0.2525,
+      "6": 0.48034,
+      "7": 0.34849,
+      "8": 0.47178,
+      "9": 0.15883,
+      "10": 0.16394,
+      "11": 0.29415
+    },
+    "min_block_total": 7e-05,
+    "dead_blocks_below_0.001": [
+      0
+    ],
+    "wiring_n_pairs": 114,
+    "wiring_spearman_all": 0.8939,
+    "wiring_n_effectual": 68,
+    "wiring_spearman_effectual": 0.7276,
+    "wiring_top10_precision": 0.7,
+    "wiring_top10_support_edges": [
+      {
+        "consumer": "readout",
+        "source": "mlp6",
+        "support": 622.116,
+        "dce": 0.29592
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp8",
+        "support": 433.503,
+        "dce": 0.29404
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp11",
+        "support": 351.72,
+        "dce": 0.22111
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp7",
+        "support": 242.868,
+        "dce": 0.19789
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp9",
+        "support": 203.862,
+        "dce": 0.07898
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp10",
+        "support": 140.889,
+        "dce": 0.06777
+      },
+      {
+        "consumer": "readout",
+        "source": "attn11",
+        "support": 93.643,
+        "dce": 0.07304
+      },
+      {
+        "consumer": "readout",
+        "source": "attn9",
+        "support": 91.303,
+        "dce": 0.0458
+      },
+      {
+        "consumer": "readout",
+        "source": "attn8",
+        "support": 87.127,
+        "dce": 0.03734
+      },
+      {
+        "consumer": "readout",
+        "source": "attn6",
+        "support": 72.36,
+        "dce": 0.0148
+      }
+    ],
+    "weight_support_matrix": {
+      "0": {},
+      "1": {
+        "1": 0.839,
+        "2": 0.847
+      },
+      "2": {
+        "1": 1.318,
+        "2": 1.088,
+        "3": 1.051,
+        "4": 1.52
+      },
+      "3": {
+        "1": 2.635,
+        "2": 2.575,
+        "3": 2.146,
+        "4": 3.565,
+        "5": 2.27,
+        "6": 4.021
+      },
+      "4": {
+        "1": 2.278,
+        "2": 2.264,
+        "3": 2.393,
+        "4": 2.662,
+        "5": 2.161,
+        "6": 3.159,
+        "7": 4.079,
+        "8": 3.006
+      },
+      "5": {
+        "1": 3.202,
+        "2": 3.039,
+        "3": 3.026,
+        "4": 3.138,
+        "5": 2.801,
+        "6": 3.293,
+        "7": 4.555,
+        "8": 3.226,
+        "9": 3.54,
+        "10": 3.126
+      },
+      "6": {
+        "1": 0.0,
+        "2": 0.006,
+        "3": 0.0,
+        "4": 3.469,
+        "5": 0.0,
+        "6": 4.36,
+        "7": 3.666,
+        "8": 5.365,
+        "9": 2.908,
+        "10": 5.551,
+        "11": 3.043,
+        "12": 5.766
+      },
+      "7": {
+        "3": 0.0,
+        "4": 2.93,
+        "5": 0.0,
+        "6": 3.934,
+        "7": 3.768,
+        "8": 4.954,
+        "9": 2.809,
+        "10": 5.447,
+        "11": 2.934,
+        "12": 5.752,
+        "13": 2.544,
+        "14": 5.2
+      },
+      "8": {
+        "5": 0.0,
+        "6": 4.376,
+        "7": 4.27,
+        "8": 6.592,
+        "9": 3.338,
+        "10": 6.624,
+        "11": 3.015,
+        "12": 6.4,
+        "13": 2.704,
+        "14": 6.025,
+        "15": 2.83,
+        "16": 6.605
+      },
+      "9": {
+        "7": 3.716,
+        "8": 5.798,
+        "9": 2.773,
+        "10": 6.066,
+        "11": 2.972,
+        "12": 6.19,
+        "13": 2.573,
+        "14": 5.729,
+        "15": 2.485,
+        "16": 5.622,
+        "17": 6.369,
+        "18": 5.153
+      },
+      "10": {
+        "9": 2.525,
+        "10": 6.208,
+        "11": 2.636,
+        "12": 6.06,
+        "13": 2.361,
+        "14": 5.383,
+        "15": 2.236,
+        "16": 5.379,
+        "17": 5.252,
+        "18": 4.98,
+        "19": 4.287,
+        "20": 4.512
+      },
+      "11": {
+        "11": 4.014,
+        "12": 5.971,
+        "13": 2.522,
+        "14": 5.708,
+        "15": 2.215,
+        "16": 5.515,
+        "17": 4.798,
+        "18": 5.018,
+        "19": 4.419,
+        "20": 4.573,
+        "21": 5.248,
+        "22": 4.301
+      },
+      "12": {
+        "13": 72.36,
+        "14": 622.116,
+        "15": 55.9,
+        "16": 242.868,
+        "17": 87.127,
+        "18": 433.503,
+        "19": 91.303,
+        "20": 203.862,
+        "21": 62.382,
+        "22": 140.889,
+        "23": 93.643,
+        "24": 351.72
+      }
+    },
+    "routing_sparsity": {
+      "0": {
+        "support": 1,
+        "mean_entropy_nats": 0.0,
+        "effective_inputs": 1.0
+      },
+      "1": {
+        "support": 3,
+        "mean_entropy_nats": 0.0809,
+        "effective_inputs": 1.084
+      },
+      "2": {
+        "support": 5,
+        "mean_entropy_nats": 0.4213,
+        "effective_inputs": 1.524
+      },
+      "3": {
+        "support": 7,
+        "mean_entropy_nats": 0.8425,
+        "effective_inputs": 2.322
+      },
+      "4": {
+        "support": 9,
+        "mean_entropy_nats": 1.3514,
+        "effective_inputs": 3.863
+      },
+      "5": {
+        "support": 11,
+        "mean_entropy_nats": 1.6973,
+        "effective_inputs": 5.459
+      },
+      "6": {
+        "support": 12,
+        "mean_entropy_nats": 1.9839,
+        "effective_inputs": 7.271
+      },
+      "7": {
+        "support": 12,
+        "mean_entropy_nats": 2.1697,
+        "effective_inputs": 8.756
+      },
+      "8": {
+        "support": 12,
+        "mean_entropy_nats": 2.2699,
+        "effective_inputs": 9.679
+      },
+      "9": {
+        "support": 12,
+        "mean_entropy_nats": 2.3623,
+        "effective_inputs": 10.615
+      },
+      "10": {
+        "support": 12,
+        "mean_entropy_nats": 2.3623,
+        "effective_inputs": 10.615
+      },
+      "11": {
+        "support": 12,
+        "mean_entropy_nats": 2.3759,
+        "effective_inputs": 10.76
+      },
+      "12": {
+        "support": 12,
+        "mean_entropy_nats": 2.3757,
+        "effective_inputs": 10.758
+      }
+    },
+    "mean_effective_inputs": 6.439,
+    "terms": {
+      "block4": {
+        "n_terms": 9,
+        "term_names": [
+          "emb",
+          "attn0",
+          "mlp0",
+          "attn1",
+          "mlp1",
+          "attn2",
+          "mlp2",
+          "attn3",
+          "mlp3"
+        ],
+        "reassembly_rel_err": 0.0,
+        "exact": true,
+        "k95_energy": 4,
+        "term_energy_ranked": [
+          [
+            "emb",
+            2162655.0
+          ],
+          [
+            "mlp3",
+            238010.73
+          ],
+          [
+            "mlp2",
+            166919.31
+          ],
+          [
+            "attn3",
+            160805.0
+          ],
+          [
+            "mlp1",
+            52992.81
+          ],
+          [
+            "mlp0",
+            504.99
+          ],
+          [
+            "attn2",
+            2.86
+          ],
+          [
+            "attn0",
+            1.38
+          ],
+          [
+            "attn1",
+            0.65
+          ]
+        ],
+        "dce_topk95": 0.00473,
+        "dce_entry_mean_floor": 0.65638,
+        "topk95_recovered": 0.9928
+      },
+      "block6": {
+        "n_terms": 12,
+        "term_names": [
+          "attn0",
+          "mlp0",
+          "attn1",
+          "mlp1",
+          "attn2",
+          "mlp2",
+          "attn3",
+          "mlp3",
+          "attn4",
+          "mlp4",
+          "attn5",
+          "mlp5"
+        ],
+        "reassembly_rel_err": 0.0,
+        "exact": true,
+        "k95_energy": 7,
+        "term_energy_ranked": [
+          [
+            "mlp5",
+            446097.72
+          ],
+          [
+            "mlp4",
+            316929.38
+          ],
+          [
+            "mlp3",
+            204105.27
+          ],
+          [
+            "attn3",
+            160787.52
+          ],
+          [
+            "mlp2",
+            159693.94
+          ],
+          [
+            "attn4",
+            88160.53
+          ],
+          [
+            "attn5",
+            83266.05
+          ],
+          [
+            "mlp1",
+            52992.84
+          ],
+          [
+            "mlp0",
+            504.99
+          ],
+          [
+            "attn2",
+            2.86
+          ],
+          [
+            "attn0",
+            1.38
+          ],
+          [
+            "attn1",
+            0.65
+          ]
+        ],
+        "dce_topk95": 0.01089,
+        "dce_entry_mean_floor": 0.66416,
+        "topk95_recovered": 0.9836
+      },
+      "block9": {
+        "n_terms": 12,
+        "term_names": [
+          "attn3",
+          "mlp3",
+          "attn4",
+          "mlp4",
+          "attn5",
+          "mlp5",
+          "attn6",
+          "mlp6",
+          "attn7",
+          "mlp7",
+          "attn8",
+          "mlp8"
+        ],
+        "reassembly_rel_err": 0.0,
+        "exact": true,
+        "k95_energy": 11,
+        "term_energy_ranked": [
+          [
+            "mlp5",
+            445951.38
+          ],
+          [
+            "mlp7",
+            371965.34
+          ],
+          [
+            "mlp8",
+            349415.97
+          ],
+          [
+            "mlp6",
+            334718.47
+          ],
+          [
+            "mlp4",
+            314683.5
+          ],
+          [
+            "mlp3",
+            204105.02
+          ],
+          [
+            "attn8",
+            164486.84
+          ],
+          [
+            "attn3",
+            160784.64
+          ],
+          [
+            "attn4",
+            88160.45
+          ],
+          [
+            "attn5",
+            83265.98
+          ],
+          [
+            "attn6",
+            81233.89
+          ],
+          [
+            "attn7",
+            63321.61
+          ]
+        ],
+        "dce_topk95": 0.00102,
+        "dce_entry_mean_floor": 1.17969,
+        "topk95_recovered": 0.9991
+      }
+    },
+    "probes": {
+      "token_determined_mlp": [
+        {
+          "r2": 1.0,
+          "shuffle_ctl": 0.036
+        },
+        {
+          "r2": 1.0,
+          "shuffle_ctl": 0.035
+        },
+        {
+          "r2": 1.0,
+          "shuffle_ctl": 0.0346
+        },
+        {
+          "r2": 0.9121,
+          "shuffle_ctl": 0.0351
+        },
+        {
+          "r2": 0.9161,
+          "shuffle_ctl": 0.0356
+        },
+        {
+          "r2": 0.9141,
+          "shuffle_ctl": 0.0354
+        },
+        {
+          "r2": 0.8382,
+          "shuffle_ctl": 0.0358
+        },
+        {
+          "r2": 0.8382,
+          "shuffle_ctl": 0.036
+        },
+        {
+          "r2": 0.7288,
+          "shuffle_ctl": 0.0355
+        },
+        {
+          "r2": 0.7088,
+          "shuffle_ctl": 0.0356
+        },
+        {
+          "r2": 0.5831,
+          "shuffle_ctl": 0.0353
+        },
+        {
+          "r2": 0.6654,
+          "shuffle_ctl": 0.0354
+        }
+      ],
+      "linear_held_variance_explained": [
+        0.8832,
+        0.7175,
+        0.7578,
+        0.6069,
+        0.7001,
+        0.6903,
+        0.5559,
+        0.5883,
+        0.4486,
+        0.401,
+        0.3065,
+        0.4682
+      ],
+      "base_ce_fp32_fullheld": 5.89786,
+      "causal_per_layer": [
+        {
+          "dce_floor": -2e-05,
+          "dce_lin": -5e-05,
+          "lin_recovered": null
+        },
+        {
+          "dce_floor": 0.07629,
+          "dce_lin": 0.01396,
+          "lin_recovered": 0.817
+        },
+        {
+          "dce_floor": 0.13382,
+          "dce_lin": 0.02599,
+          "lin_recovered": 0.8058
+        },
+        {
+          "dce_floor": 0.24412,
+          "dce_lin": 0.05847,
+          "lin_recovered": 0.7605
+        },
+        {
+          "dce_floor": 0.33954,
+          "dce_lin": 0.0565,
+          "lin_recovered": 0.8336
+        },
+        {
+          "dce_floor": 0.46662,
+          "dce_lin": 0.07565,
+          "lin_recovered": 0.8379
+        },
+        {
+          "dce_floor": 0.2225,
+          "dce_lin": 0.08635,
+          "lin_recovered": 0.6119
+        },
+        {
+          "dce_floor": 0.21782,
+          "dce_lin": 0.06484,
+          "lin_recovered": 0.7023
+        },
+        {
+          "dce_floor": 0.17268,
+          "dce_lin": 0.07434,
+          "lin_recovered": 0.5695
+        },
+        {
+          "dce_floor": 0.09474,
+          "dce_lin": 0.04583,
+          "lin_recovered": 0.5162
+        },
+        {
+          "dce_floor": 0.06488,
+          "dce_lin": 0.03992,
+          "lin_recovered": 0.3846
+        },
+        {
+          "dce_floor": 0.22634,
+          "dce_lin": 0.10983,
+          "lin_recovered": 0.5148
+        }
+      ]
+    }
+  },
+  "edge_census_probe_r4": [
+    {
+      "consumer": "readout",
+      "source": "mlp10",
+      "product_norm": 2.7112
+    },
+    {
+      "consumer": "readout",
+      "source": "attn10",
+      "product_norm": 2.5138
+    },
+    {
+      "consumer": "readout",
+      "source": "mlp9",
+      "product_norm": 2.4021
+    },
+    {
+      "consumer": "readout",
+      "source": "attn6",
+      "product_norm": 2.2267
+    },
+    {
+      "consumer": "readout",
+      "source": "attn9",
+      "product_norm": 2.1751
+    },
+    {
+      "consumer": "readout",
+      "source": "mlp11",
+      "product_norm": 2.1376
+    },
+    {
+      "consumer": "readout",
+      "source": "attn8",
+      "product_norm": 2.0723
+    },
+    {
+      "consumer": "readout",
+      "source": "attn11",
+      "product_norm": 1.7774
+    },
+    {
+      "consumer": "readout",
+      "source": "mlp6",
+      "product_norm": 1.6279
+    },
+    {
+      "consumer": "block3",
+      "source": "mlp2",
+      "product_norm": 1.6139
+    },
+    {
+      "consumer": "readout",
+      "source": "mlp8",
+      "product_norm": 1.5789
+    },
+    {
+      "consumer": "block4",
+      "source": "mlp3",
+      "product_norm": 1.3996
+    },
+    {
+      "consumer": "readout",
+      "source": "mlp7",
+      "product_norm": 1.3658
+    },
+    {
+      "consumer": "readout",
+      "source": "attn7",
+      "product_norm": 1.3198
+    },
+    {
+      "consumer": "block5",
+      "source": "mlp4",
+      "product_norm": 1.1796
+    },
+    {
+      "consumer": "block5",
+      "source": "mlp3",
+      "product_norm": 1.1168
+    },
+    {
+      "consumer": "block8",
+      "source": "mlp6",
+      "product_norm": 0.4951
+    },
+    {
+      "consumer": "block10",
+      "source": "mlp6",
+      "product_norm": 0.4679
+    },
+    {
+      "consumer": "block10",
+      "source": "mlp7",
+      "product_norm": 0.4082
+    },
+    {
+      "consumer": "block8",
+      "source": "mlp5",
+      "product_norm": 0.3475
+    },
+    {
+      "consumer": "block9",
+      "source": "mlp7",
+      "product_norm": 0.3108
+    },
+    {
+      "consumer": "block9",
+      "source": "mlp6",
+      "product_norm": 0.2516
+    },
+    {
+      "consumer": "block8",
+      "source": "mlp7",
+      "product_norm": 0.2061
+    },
+    {
+      "consumer": "block8",
+      "source": "mlp3",
+      "product_norm": 0.2007
+    },
+    {
+      "consumer": "block9",
+      "source": "mlp4",
+      "product_norm": 0.1663
+    },
+    {
+      "consumer": "block4",
+      "source": "mlp2",
+      "product_norm": 0.1557
+    },
+    {
+      "consumer": "block10",
+      "source": "mlp8",
+      "product_norm": 0.1403
+    },
+    {
+      "consumer": "block7",
+      "source": "mlp6",
+      "product_norm": 0.12
+    },
+    {
+      "consumer": "block9",
+      "source": "mlp8",
+      "product_norm": 0.0939
+    },
+    {
+      "consumer": "block9",
+      "source": "mlp5",
+      "product_norm": 0.08
+    }
+  ],
+  "adapter_wiring_probe_r4": {
+    "n_edges": 114,
+    "spearman_all": 0.7635,
+    "spearman_effectual": 0.4095,
+    "n_effectual": 68,
+    "top10_precision": 0.7
+  },
+  "edge_semantics_probe_r4": {
+    "mlp10 -> readout": {
+      "product_norm": 2.711,
+      "channels": [
+        {
+          "channel": 1,
+          "importance": 5.4973,
+          "pattern_contexts": [
+            {
+              "act": -7.678,
+              "context": " SPG promotions (20,000 Starpoints for $"
+            },
+            {
+              "act": -7.363,
+              "context": " date. For AA and UA, the penalty is $"
+            },
+            {
+              "act": -7.357,
+              "context": " to sell it for USD $4 million (AUD $"
+            }
+          ],
+          "effect_top_tokens": [
+            " builders",
+            " Ze",
+            " Hur",
+            " shoppers",
+            " perspectives",
+            " mes",
+            " Dol",
+            " val"
+          ],
+          "effect_bottom_tokens": [
+            " Folk",
+            " marrow",
+            " draconian",
+            "humans"
+          ]
+        },
+        {
+          "channel": 2,
+          "importance": 2.9258,
+          "pattern_contexts": [
+            {
+              "act": -4.136,
+              "context": "\ufffd Life Sciences Education\n6 (1): 9\u2013"
+            },
+            {
+              "act": -4.131,
+              "context": " Science Education\nand Technology 15 (1): 101\u2013"
+            },
+            {
+              "act": -4.014,
+              "context": "-2019\nDate Last Modified: 05-22-"
+            }
+          ],
+          "effect_top_tokens": [
+            " because",
+            " since",
+            ",\"",
+            "its",
+            " That",
+            "one",
+            " look",
+            " \u2022"
+          ],
+          "effect_bottom_tokens": [
+            " Bene",
+            "Cour",
+            "Requ",
+            " portraying"
+          ]
+        },
+        {
+          "channel": 0,
+          "importance": 1.6537,
+          "pattern_contexts": [
+            {
+              "act": 3.566,
+              "context": " at age six, and has worked on more than four"
+            },
+            {
+              "act": 3.43,
+              "context": " patio visit. Why? Because there are so many potential"
+            },
+            {
+              "act": 3.347,
+              "context": " grapes for which are provided by more than three hundred wine"
+            }
+          ],
+          "effect_top_tokens": [
+            " Make",
+            " acquire",
+            " describing",
+            " involving",
+            " strengthening",
+            " Create",
+            " wearing",
+            " Words"
+          ],
+          "effect_bottom_tokens": [
+            "Australia",
+            "Similarly",
+            "Tonight",
+            "pard"
+          ]
+        },
+        {
+          "channel": 3,
+          "importance": 1.466,
+          "pattern_contexts": [
+            {
+              "act": 3.692,
+              "context": "based interfaces to integrate with their existing systems and utilize service"
+            },
+            {
+              "act": 3.567,
+              "context": " building students' core quantitative, reading comprehension, and critical"
+            },
+            {
+              "act": 3.514,
+              "context": " on either side. Other people prefer a more subtle aesthetic"
+            }
+          ],
+          "effect_top_tokens": [
+            " stockp",
+            "izzle",
+            " indict",
+            " analysed",
+            " charact",
+            " perme",
+            " shedding",
+            "IED"
+          ],
+          "effect_bottom_tokens": [
+            " public",
+            " web",
+            " head",
+            " make"
+          ]
+        }
+      ]
+    },
+    "attn10 -> readout": {
+      "product_norm": 2.514,
+      "channels": [
+        {
+          "channel": 3,
+          "importance": 2.9608,
+          "pattern_contexts": [
+            {
+              "act": -5.459,
+              "context": " at the moment, it can result in a lower monthly"
+            },
+            {
+              "act": -5.116,
+              "context": "\nInterim Evaluation Report: March 2002. Accessed July"
+            },
+            {
+              "act": -5.069,
+              "context": " fell 3.9 percent.\nOn Monday, September"
+            }
+          ],
+          "effect_top_tokens": [
+            " terms",
+            " WITH",
+            " highly",
+            " un",
+            " Featuring",
+            " lack",
+            " symptoms",
+            " sorts"
+          ],
+          "effect_bottom_tokens": [
+            "Friday",
+            "RF",
+            " EA",
+            "Monday"
+          ]
+        },
+        {
+          "channel": 1,
+          "importance": 2.6956,
+          "pattern_contexts": [
+            {
+              "act": -5.232,
+              "context": " at the moment, it can result in a lower monthly"
+            },
+            {
+              "act": -4.76,
+              "context": " still be eligible for consolidation, even with fair or low"
+            },
+            {
+              "act": -4.739,
+              "context": " loans combined payments. However, you can reduce the monthly"
+            }
+          ],
+          "effect_top_tokens": [
+            " bureaucr",
+            " slee",
+            " Fou",
+            "oter",
+            " cris",
+            "impro",
+            "depend",
+            " unexpl"
+          ],
+          "effect_bottom_tokens": [
+            " great",
+            ".",
+            ".\"",
+            " have"
+          ]
+        },
+        {
+          "channel": 0,
+          "importance": 2.5907,
+          "pattern_contexts": [
+            {
+              "act": 6.008,
+              "context": " at the moment, it can result in a lower monthly"
+            },
+            {
+              "act": 5.761,
+              "context": " olive oil\n3 garlic cloves, very finely chopped\n"
+            },
+            {
+              "act": 5.599,
+              "context": "\n2 thyme sprigs, leaves picked\n"
+            }
+          ],
+          "effect_top_tokens": [
+            " shutting",
+            " SN",
+            " retaliation",
+            " slumped",
+            " easing",
+            "PRE",
+            " Brid",
+            " ker"
+          ],
+          "effect_bottom_tokens": [
+            " music",
+            ",",
+            " English",
+            "!"
+          ]
+        },
+        {
+          "channel": 2,
+          "importance": 2.2282,
+          "pattern_contexts": [
+            {
+              "act": -5.246,
+              "context": " fell 3.9 percent.\nOn Monday, September"
+            },
+            {
+              "act": -4.951,
+              "context": ": 05-22-2019\nDate Last Modified:"
+            },
+            {
+              "act": -4.846,
+              "context": "ession:||Actor, Musician, Writer|\n"
+            }
+          ],
+          "effect_top_tokens": [
+            " food",
+            " religious",
+            " dedicated",
+            "MENT",
+            " artificial",
+            " Featuring",
+            " avoid",
+            "Are"
+          ],
+          "effect_bottom_tokens": [
+            " 11",
+            "tics",
+            " 10",
+            " 27"
+          ]
+        }
+      ]
+    },
+    "mlp9 -> readout": {
+      "product_norm": 2.402,
+      "channels": [
+        {
+          "channel": 2,
+          "importance": 2.848,
+          "pattern_contexts": [
+            {
+              "act": -4.809,
+              "context": "ing into a business partnership in Little India can be very"
+            },
+            {
+              "act": -4.79,
+              "context": " single, yet the search for someone special is still very"
+            },
+            {
+              "act": -4.776,
+              "context": " school, both obvious and hidden cultural expectations may be very"
+            }
+          ],
+          "effect_top_tokens": [
+            " no",
+            " of",
+            " its",
+            " a",
+            ".",
+            " r",
+            " and",
+            " is"
+          ],
+          "effect_bottom_tokens": [
+            "last",
+            " dubious",
+            " ecological",
+            "?'"
+          ]
+        },
+        {
+          "channel": 1,
+          "importance": 2.0997,
+          "pattern_contexts": [
+            {
+              "act": -3.57,
+              "context": "iscay.<|endoftext|>Laura came to GMRI in January"
+            },
+            {
+              "act": -3.344,
+              "context": "owing all quotes\n|Birth:||1st February"
+            },
+            {
+              "act": -3.338,
+              "context": "s - listing the top 200 in the UK published October"
+            }
+          ],
+          "effect_top_tokens": [
+            "Saharan",
+            " hand",
+            " Lac",
+            " 8000",
+            "'/",
+            " AST",
+            "eln",
+            " crit"
+          ],
+          "effect_bottom_tokens": [
+            " kits",
+            " exquisite",
+            " Blair",
+            " Released"
+          ]
+        },
+        {
+          "channel": 3,
+          "importance": 1.9614,
+          "pattern_contexts": [
+            {
+              "act": 2.716,
+              "context": "\u2019s always a little legal hack you can do"
+            },
+            {
+              "act": 2.589,
+              "context": " is being trained to see the world differently than you do"
+            },
+            {
+              "act": -2.554,
+              "context": "ing of Feedback and Verbal Learning.\u201d Review"
+            }
+          ],
+          "effect_top_tokens": [
+            " sophistic",
+            " Robertson",
+            "FIL",
+            " stret",
+            "uncle",
+            "Dam",
+            " Esports",
+            " Madden"
+          ],
+          "effect_bottom_tokens": [
+            "-",
+            "am",
+            "/",
+            " From"
+          ]
+        },
+        {
+          "channel": 0,
+          "importance": 1.2774,
+          "pattern_contexts": [
+            {
+              "act": 3.402,
+              "context": ": 3000 E Calhoun Parkway, Minneapolis, MN 55"
+            },
+            {
+              "act": 3.384,
+              "context": " talented ladies in Cumbria.\nI'm very"
+            },
+            {
+              "act": 3.27,
+              "context": "1 Hennepin Ave., Minneapolis, MN 55"
+            }
+          ],
+          "effect_top_tokens": [
+            " Krug",
+            " PACs",
+            " Leilan",
+            " Wikileaks",
+            " PubMed",
+            "\u2592",
+            " tha",
+            "\u2014-"
+          ],
+          "effect_bottom_tokens": [
+            ",",
+            " and",
+            ".",
+            "-"
+          ]
+        }
+      ]
+    },
+    "attn6 -> readout": {
+      "product_norm": 2.227,
+      "channels": [
+        {
+          "channel": 1,
+          "importance": 1.831,
+          "pattern_contexts": [
+            {
+              "act": -3.421,
+              "context": "anas y acogedoras, con suelo de"
+            },
+            {
+              "act": -2.963,
+              "context": " the statue Homenaje al hombre de"
+            },
+            {
+              "act": -2.845,
+              "context": " for all children \u2013 even those who may never enter our"
+            }
+          ],
+          "effect_top_tokens": [
+            "iddler",
+            " Kerr",
+            " Tobias",
+            "Australia",
+            "Arsenal",
+            " selectively",
+            "picked",
+            "Talking"
+          ],
+          "effect_bottom_tokens": [
+            " k",
+            " o",
+            " n",
+            "j"
+          ]
+        },
+        {
+          "channel": 0,
+          "importance": 1.4693,
+          "pattern_contexts": [
+            {
+              "act": 2.667,
+              "context": "?\nThis should go without saying, but if your"
+            },
+            {
+              "act": 2.605,
+              "context": " remind your dinner companions and patio neighbors not to feed your"
+            },
+            {
+              "act": 2.401,
+              "context": "ash and let him relax under the table or by your"
+            }
+          ],
+          "effect_top_tokens": [
+            " bite",
+            " Profession",
+            " Rein",
+            " Vice",
+            " tank",
+            " They",
+            " Cont",
+            " bell"
+          ],
+          "effect_bottom_tokens": [
+            " students",
+            " testify",
+            "kid",
+            " books"
+          ]
+        },
+        {
+          "channel": 2,
+          "importance": 1.3034,
+          "pattern_contexts": [
+            {
+              "act": -3.902,
+              "context": "anas y acogedoras, con suelo de"
+            },
+            {
+              "act": -3.078,
+              "context": " the statue Homenaje al hombre de"
+            },
+            {
+              "act": -2.982,
+              "context": " Monumento Nacional con or\u00edgenes en"
+            }
+          ],
+          "effect_top_tokens": [
+            " Tobias",
+            "rates",
+            "Request",
+            " crosses",
+            " Whitman",
+            " Manila",
+            "iddler",
+            "native"
+          ],
+          "effect_bottom_tokens": [
+            "oc",
+            " o",
+            " k",
+            " n"
+          ]
+        },
+        {
+          "channel": 3,
+          "importance": 1.2281,
+          "pattern_contexts": [
+            {
+              "act": 3.549,
+              "context": " international flights STLFAK for international flights 50% 50"
+            },
+            {
+              "act": 2.707,
+              "context": " QV 75% 100% WG 75% 100"
+            },
+            {
+              "act": 2.627,
+              "context": " 100% UHQVWS 70% LTK 50"
+            }
+          ],
+          "effect_top_tokens": [
+            " Colin",
+            " pers",
+            " cav",
+            " inscribed",
+            " introdu",
+            " Hawth",
+            " Stub",
+            " smashing"
+          ],
+          "effect_bottom_tokens": [
+            ":",
+            " books",
+            " history",
+            " English"
+          ]
+        }
+      ]
+    },
+    "attn9 -> readout": {
+      "product_norm": 2.175,
+      "channels": [
+        {
+          "channel": 2,
+          "importance": 3.3043,
+          "pattern_contexts": [
+            {
+              "act": 6.046,
+              "context": "), Germany (.de) and the United States of America"
+            },
+            {
+              "act": 5.862,
+              "context": ") as well as the international or theme-related domains"
+            },
+            {
+              "act": -5.164,
+              "context": " with school, coaches, babysitters, etc.\n"
+            }
+          ],
+          "effect_top_tokens": [
+            "ers",
+            ",",
+            " and",
+            "au",
+            " men",
+            " (",
+            "-",
+            "ors"
+          ],
+          "effect_bottom_tokens": [
+            " cov",
+            " spir",
+            " Orig",
+            " Cul"
+          ]
+        },
+        {
+          "channel": 3,
+          "importance": 1.1066,
+          "pattern_contexts": [
+            {
+              "act": 3.055,
+              "context": " worked well and they both connected because both groups were conspiracy"
+            },
+            {
+              "act": 2.684,
+              "context": "-trip flight between Beijing and Singapore in business class costs"
+            },
+            {
+              "act": 2.642,
+              "context": " of this sudden and unprecedented shift reflects the Conservatives' campaign"
+            }
+          ],
+          "effect_top_tokens": [
+            " opting",
+            " alterations",
+            " lockdown",
+            " confession",
+            " Samoa",
+            " hopeful",
+            "abuse",
+            " accelerator"
+          ],
+          "effect_bottom_tokens": [
+            "\ufffd",
+            "\ufffd",
+            " slammed",
+            "\ufffd"
+          ]
+        },
+        {
+          "channel": 0,
+          "importance": 1.0099,
+          "pattern_contexts": [
+            {
+              "act": -3.187,
+              "context": "iere aqu\u00ed tu juego de \u201cJ"
+            },
+            {
+              "act": -3.093,
+              "context": " del Mar, villa declarada Monumento N"
+            },
+            {
+              "act": -2.924,
+              "context": " is 4:30. Download Tamil songs online from J"
+            }
+          ],
+          "effect_top_tokens": [
+            ".",
+            "-",
+            " and",
+            ",",
+            " only",
+            " several",
+            " line",
+            " or"
+          ],
+          "effect_bottom_tokens": [
+            "Crypt",
+            "amus",
+            "iq",
+            " cz"
+          ]
+        },
+        {
+          "channel": 1,
+          "importance": 0.9486,
+          "pattern_contexts": [
+            {
+              "act": 2.272,
+              "context": " Xinhua.\nAs noted in a statement by the"
+            },
+            {
+              "act": -2.269,
+              "context": "us), the European central domain (.eu) as well"
+            },
+            {
+              "act": 2.259,
+              "context": " page at least once a day.\n- Ask your"
+            }
+          ],
+          "effect_top_tokens": [
+            " code",
+            " set",
+            " and",
+            " team",
+            " panel",
+            "-",
+            " company",
+            " shown"
+          ],
+          "effect_bottom_tokens": [
+            " 999",
+            " Surv",
+            " \ufffd",
+            " Cosby"
+          ]
+        }
+      ]
+    }
+  },
+  "probe_r1": {
+    "held_ce_bf16": 5.9002658615112304,
+    "lr": 0.002,
+    "group_coeff": 0.0001,
+    "spikes": 2,
+    "base_ce_fp32_abl": 5.91295,
+    "consumption_top40": [
+      {
+        "consumer": "readout",
+        "source": "mlp7",
+        "dce": 0.87501
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp8",
+        "dce": 0.636
+      },
+      {
+        "consumer": "block3",
+        "source": "emb",
+        "dce": 0.41628
+      },
+      {
+        "consumer": "block2",
+        "source": "emb",
+        "dce": 0.39352
+      },
+      {
+        "consumer": "block4",
+        "source": "emb",
+        "dce": 0.36378
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp11",
+        "dce": 0.34358
+      },
+      {
+        "consumer": "block1",
+        "source": "emb",
+        "dce": 0.33568
+      },
+      {
+        "consumer": "block5",
+        "source": "emb",
+        "dce": 0.31448
+      },
+      {
+        "consumer": "block11",
+        "source": "mlp7",
+        "dce": 0.29515
+      },
+      {
+        "consumer": "block11",
+        "source": "mlp8",
+        "dce": 0.27704
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp6",
+        "dce": 0.22753
+      },
+      {
+        "consumer": "block11",
+        "source": "mlp6",
+        "dce": 0.08931
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp9",
+        "dce": 0.08894
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp10",
+        "dce": 0.08078
+      },
+      {
+        "consumer": "readout",
+        "source": "attn11",
+        "dce": 0.07927
+      },
+      {
+        "consumer": "block2",
+        "source": "mlp1",
+        "dce": 0.06436
+      },
+      {
+        "consumer": "readout",
+        "source": "attn10",
+        "dce": 0.06347
+      },
+      {
+        "consumer": "block11",
+        "source": "mlp5",
+        "dce": 0.06249
+      },
+      {
+        "consumer": "block8",
+        "source": "mlp7",
+        "dce": 0.06011
+      },
+      {
+        "consumer": "readout",
+        "source": "attn9",
+        "dce": 0.05531
+      },
+      {
+        "consumer": "readout",
+        "source": "attn8",
+        "dce": 0.05461
+      },
+      {
+        "consumer": "block8",
+        "source": "mlp6",
+        "dce": 0.04852
+      },
+      {
+        "consumer": "block7",
+        "source": "mlp4",
+        "dce": 0.04572
+      },
+      {
+        "consumer": "block7",
+        "source": "mlp5",
+        "dce": 0.04563
+      },
+      {
+        "consumer": "block6",
+        "source": "mlp4",
+        "dce": 0.04143
+      },
+      {
+        "consumer": "block6",
+        "source": "mlp5",
+        "dce": 0.04023
+      },
+      {
+        "consumer": "block8",
+        "source": "mlp5",
+        "dce": 0.03752
+      },
+      {
+        "consumer": "block8",
+        "source": "mlp4",
+        "dce": 0.03608
+      },
+      {
+        "consumer": "block10",
+        "source": "mlp5",
+        "dce": 0.03562
+      },
+      {
+        "consumer": "block10",
+        "source": "mlp4",
+        "dce": 0.03532
+      },
+      {
+        "consumer": "block9",
+        "source": "mlp5",
+        "dce": 0.03129
+      },
+      {
+        "consumer": "block7",
+        "source": "mlp6",
+        "dce": 0.03111
+      },
+      {
+        "consumer": "block9",
+        "source": "mlp7",
+        "dce": 0.03069
+      },
+      {
+        "consumer": "block3",
+        "source": "attn2",
+        "dce": 0.03007
+      },
+      {
+        "consumer": "block8",
+        "source": "mlp3",
+        "dce": 0.02938
+      },
+      {
+        "consumer": "block5",
+        "source": "attn2",
+        "dce": 0.02749
+      },
+      {
+        "consumer": "readout",
+        "source": "attn7",
+        "dce": 0.02683
+      },
+      {
+        "consumer": "block10",
+        "source": "mlp7",
+        "dce": 0.0263
+      },
+      {
+        "consumer": "block9",
+        "source": "mlp4",
+        "dce": 0.02477
+      },
+      {
+        "consumer": "block6",
+        "source": "mlp3",
+        "dce": 0.02438
+      }
+    ],
+    "consumption_matrix": {
+      "0": {
+        "0": 0.008033
+      },
+      "1": {
+        "0": 0.335678,
+        "1": -1e-05,
+        "2": -0.000663
+      },
+      "2": {
+        "0": 0.393519,
+        "1": -6e-06,
+        "2": -0.000708,
+        "3": -1e-06,
+        "4": 0.064361
+      },
+      "3": {
+        "0": 0.41628,
+        "1": -4e-06,
+        "2": 0.000813,
+        "3": -8e-06,
+        "4": 0.0068,
+        "5": 0.030068,
+        "6": 0.003728
+      },
+      "4": {
+        "0": 0.36378,
+        "1": -1e-05,
+        "2": -0.000866,
+        "3": -1e-06,
+        "4": 0.007973,
+        "5": 0.015291,
+        "6": 0.005744,
+        "7": 0.000623,
+        "8": 0.005913
+      },
+      "5": {
+        "0": 0.314483,
+        "1": -4e-06,
+        "2": -0.000555,
+        "3": -2e-06,
+        "4": 0.007618,
+        "5": 0.027487,
+        "6": 0.003826,
+        "7": 0.003792,
+        "8": 0.019267,
+        "9": 1e-05,
+        "10": 0.021545
+      },
+      "6": {
+        "1": -2e-06,
+        "2": 0.000366,
+        "3": -3e-06,
+        "4": 0.016011,
+        "5": 0.018286,
+        "6": 0.013835,
+        "7": 0.003666,
+        "8": 0.024383,
+        "9": 1e-06,
+        "10": 0.041426,
+        "11": 0.002305,
+        "12": 0.040228
+      },
+      "7": {
+        "3": -4e-06,
+        "4": 0.012026,
+        "5": 0.021731,
+        "6": 0.0104,
+        "7": 0.003574,
+        "8": 0.023447,
+        "9": -1e-06,
+        "10": 0.045722,
+        "11": 0.006419,
+        "12": 0.045631,
+        "13": 0.003125,
+        "14": 0.031113
+      },
+      "8": {
+        "5": 0.019775,
+        "6": 0.015855,
+        "7": 0.004784,
+        "8": 0.029379,
+        "9": 0.0,
+        "10": 0.036077,
+        "11": 0.00141,
+        "12": 0.037522,
+        "13": 0.00214,
+        "14": 0.048524,
+        "15": 0.003458,
+        "16": 0.060114
+      },
+      "9": {
+        "7": 0.001532,
+        "8": 0.020793,
+        "9": 2e-06,
+        "10": 0.024765,
+        "11": 0.002286,
+        "12": 0.031294,
+        "13": 9.1e-05,
+        "14": 0.010228,
+        "15": 0.001448,
+        "16": 0.030686,
+        "17": 0.007072,
+        "18": 0.019338
+      },
+      "10": {
+        "9": 2e-06,
+        "10": 0.035319,
+        "11": 0.002655,
+        "12": 0.035619,
+        "13": 0.001382,
+        "14": 0.019227,
+        "15": 0.005479,
+        "16": 0.026302,
+        "17": 0.00777,
+        "18": 0.018836,
+        "19": 0.0064,
+        "20": 0.008205
+      },
+      "11": {
+        "11": 0.023757,
+        "12": 0.06249,
+        "13": -0.000411,
+        "14": 0.089312,
+        "15": 0.002029,
+        "16": 0.295154,
+        "17": 0.009584,
+        "18": 0.277043,
+        "19": 0.013478,
+        "20": 0.015869,
+        "21": 0.013781,
+        "22": 0.019075
+      },
+      "12": {
+        "13": 0.015321,
+        "14": 0.227527,
+        "15": 0.026835,
+        "16": 0.875014,
+        "17": 0.054614,
+        "18": 0.635996,
+        "19": 0.05531,
+        "20": 0.088936,
+        "21": 0.063466,
+        "22": 0.080777,
+        "23": 0.079272,
+        "24": 0.343584
+      }
+    },
+    "per_block_total_consumption": {
+      "0": -0.00165,
+      "1": 0.11477,
+      "2": 0.18603,
+      "3": 0.14115,
+      "4": 0.20487,
+      "5": 0.29161,
+      "6": 0.44758,
+      "7": 1.32652,
+      "8": 1.03025,
+      "9": 0.1882,
+      "10": 0.1771,
+      "11": 0.42286
+    },
+    "min_block_total": -0.00165,
+    "dead_blocks_below_0.001": [
+      0
+    ],
+    "wiring_n_pairs": 114,
+    "wiring_spearman_all": 0.8863,
+    "wiring_n_effectual": 70,
+    "wiring_spearman_effectual": 0.7477,
+    "wiring_top10_precision": 0.7,
+    "wiring_top10_support_edges": [
+      {
+        "consumer": "readout",
+        "source": "mlp7",
+        "support": 498.883,
+        "dce": 0.87501
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp8",
+        "support": 428.439,
+        "dce": 0.636
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp6",
+        "support": 371.576,
+        "dce": 0.22753
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp11",
+        "support": 359.747,
+        "dce": 0.34358
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp10",
+        "support": 157.063,
+        "dce": 0.08078
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp9",
+        "support": 139.751,
+        "dce": 0.08894
+      },
+      {
+        "consumer": "readout",
+        "source": "attn9",
+        "support": 135.585,
+        "dce": 0.05531
+      },
+      {
+        "consumer": "readout",
+        "source": "attn8",
+        "support": 131.619,
+        "dce": 0.05461
+      },
+      {
+        "consumer": "readout",
+        "source": "attn11",
+        "support": 120.787,
+        "dce": 0.07927
+      },
+      {
+        "consumer": "readout",
+        "source": "attn10",
+        "support": 97.761,
+        "dce": 0.06347
+      }
+    ],
+    "weight_support_matrix": {
+      "0": {},
+      "1": {
+        "1": 1.117,
+        "2": 1.124
+      },
+      "2": {
+        "1": 1.842,
+        "2": 2.282,
+        "3": 1.874,
+        "4": 3.547
+      },
+      "3": {
+        "1": 2.166,
+        "2": 2.218,
+        "3": 2.002,
+        "4": 2.88,
+        "5": 3.969,
+        "6": 2.444
+      },
+      "4": {
+        "1": 2.45,
+        "2": 2.372,
+        "3": 2.44,
+        "4": 2.44,
+        "5": 3.675,
+        "6": 2.455,
+        "7": 2.246,
+        "8": 2.563
+      },
+      "5": {
+        "1": 3.092,
+        "2": 2.855,
+        "3": 2.498,
+        "4": 3.14,
+        "5": 4.327,
+        "6": 2.93,
+        "7": 3.018,
+        "8": 3.31,
+        "9": 1.846,
+        "10": 3.321
+      },
+      "6": {
+        "1": 0.0,
+        "2": 0.265,
+        "3": 0.0,
+        "4": 4.258,
+        "5": 4.36,
+        "6": 4.638,
+        "7": 2.534,
+        "8": 5.585,
+        "9": 0.0,
+        "10": 5.964,
+        "11": 2.598,
+        "12": 5.874
+      },
+      "7": {
+        "3": 0.0,
+        "4": 3.902,
+        "5": 4.237,
+        "6": 4.421,
+        "7": 2.473,
+        "8": 5.439,
+        "9": 0.0,
+        "10": 5.794,
+        "11": 2.862,
+        "12": 6.131,
+        "13": 3.522,
+        "14": 5.41
+      },
+      "8": {
+        "5": 4.896,
+        "6": 5.172,
+        "7": 2.487,
+        "8": 6.126,
+        "9": 0.0,
+        "10": 6.343,
+        "11": 2.507,
+        "12": 6.334,
+        "13": 3.796,
+        "14": 5.953,
+        "15": 3.878,
+        "16": 6.03
+      },
+      "9": {
+        "7": 1.83,
+        "8": 5.781,
+        "9": 0.0,
+        "10": 5.918,
+        "11": 2.036,
+        "12": 6.092,
+        "13": 3.028,
+        "14": 5.569,
+        "15": 3.321,
+        "16": 5.649,
+        "17": 5.238,
+        "18": 4.992
+      },
+      "10": {
+        "9": 0.0,
+        "10": 6.106,
+        "11": 2.126,
+        "12": 6.125,
+        "13": 2.669,
+        "14": 5.479,
+        "15": 3.598,
+        "16": 5.298,
+        "17": 5.008,
+        "18": 4.959,
+        "19": 4.633,
+        "20": 4.128
+      },
+      "11": {
+        "11": 3.131,
+        "12": 6.129,
+        "13": 3.04,
+        "14": 5.717,
+        "15": 3.583,
+        "16": 5.842,
+        "17": 4.864,
+        "18": 5.205,
+        "19": 4.644,
+        "20": 4.387,
+        "21": 5.175,
+        "22": 4.31
+      },
+      "12": {
+        "13": 96.318,
+        "14": 371.576,
+        "15": 64.464,
+        "16": 498.883,
+        "17": 131.619,
+        "18": 428.439,
+        "19": 135.585,
+        "20": 139.751,
+        "21": 97.761,
+        "22": 157.063,
+        "23": 120.787,
+        "24": 359.747
+      }
+    },
+    "routing_sparsity": {
+      "0": {
+        "support": 1,
+        "mean_entropy_nats": 0.0,
+        "effective_inputs": 1.0
+      },
+      "1": {
+        "support": 3,
+        "mean_entropy_nats": 0.1467,
+        "effective_inputs": 1.158
+      },
+      "2": {
+        "support": 5,
+        "mean_entropy_nats": 0.6377,
+        "effective_inputs": 1.892
+      },
+      "3": {
+        "support": 7,
+        "mean_entropy_nats": 1.1877,
+        "effective_inputs": 3.279
+      },
+      "4": {
+        "support": 9,
+        "mean_entropy_nats": 1.5547,
+        "effective_inputs": 4.734
+      },
+      "5": {
+        "support": 11,
+        "mean_entropy_nats": 1.7342,
+        "effective_inputs": 5.664
+      },
+      "6": {
+        "support": 12,
+        "mean_entropy_nats": 1.9887,
+        "effective_inputs": 7.306
+      },
+      "7": {
+        "support": 12,
+        "mean_entropy_nats": 2.1673,
+        "effective_inputs": 8.734
+      },
+      "8": {
+        "support": 12,
+        "mean_entropy_nats": 2.2572,
+        "effective_inputs": 9.557
+      },
+      "9": {
+        "support": 12,
+        "mean_entropy_nats": 2.2661,
+        "effective_inputs": 9.642
+      },
+      "10": {
+        "support": 12,
+        "mean_entropy_nats": 2.2862,
+        "effective_inputs": 9.838
+      },
+      "11": {
+        "support": 12,
+        "mean_entropy_nats": 2.38,
+        "effective_inputs": 10.805
+      },
+      "12": {
+        "support": 12,
+        "mean_entropy_nats": 2.3952,
+        "effective_inputs": 10.97
+      }
+    },
+    "mean_effective_inputs": 6.506,
+    "terms": {
+      "block4": {
+        "n_terms": 9,
+        "term_names": [
+          "emb",
+          "attn0",
+          "mlp0",
+          "attn1",
+          "mlp1",
+          "attn2",
+          "mlp2",
+          "attn3",
+          "mlp3"
+        ],
+        "reassembly_rel_err": 0.0,
+        "exact": true,
+        "k95_energy": 5,
+        "term_energy_ranked": [
+          [
+            "emb",
+            2162656.0
+          ],
+          [
+            "mlp3",
+            248341.06
+          ],
+          [
+            "attn2",
+            224440.27
+          ],
+          [
+            "mlp1",
+            136584.16
+          ],
+          [
+            "mlp2",
+            118333.4
+          ],
+          [
+            "attn3",
+            68352.98
+          ],
+          [
+            "mlp0",
+            3967.22
+          ],
+          [
+            "attn1",
+            0.9
+          ],
+          [
+            "attn0",
+            0.48
+          ]
+        ],
+        "dce_topk95": 7e-05,
+        "dce_entry_mean_floor": 0.51441,
+        "topk95_recovered": 0.9999
+      },
+      "block6": {
+        "n_terms": 12,
+        "term_names": [
+          "attn0",
+          "mlp0",
+          "attn1",
+          "mlp1",
+          "attn2",
+          "mlp2",
+          "attn3",
+          "mlp3",
+          "attn4",
+          "mlp4",
+          "attn5",
+          "mlp5"
+        ],
+        "reassembly_rel_err": 0.0,
+        "exact": true,
+        "k95_energy": 7,
+        "term_energy_ranked": [
+          [
+            "mlp5",
+            572873.62
+          ],
+          [
+            "mlp4",
+            338385.81
+          ],
+          [
+            "mlp3",
+            247869.45
+          ],
+          [
+            "attn2",
+            224391.66
+          ],
+          [
+            "mlp1",
+            136502.02
+          ],
+          [
+            "mlp2",
+            118332.86
+          ],
+          [
+            "attn3",
+            68352.22
+          ],
+          [
+            "attn5",
+            66307.56
+          ],
+          [
+            "mlp0",
+            3967.23
+          ],
+          [
+            "attn4",
+            5.9
+          ],
+          [
+            "attn1",
+            0.9
+          ],
+          [
+            "attn0",
+            0.48
+          ]
+        ],
+        "dce_topk95": 0.00261,
+        "dce_entry_mean_floor": 0.89076,
+        "topk95_recovered": 0.9971
+      },
+      "block9": {
+        "n_terms": 12,
+        "term_names": [
+          "attn3",
+          "mlp3",
+          "attn4",
+          "mlp4",
+          "attn5",
+          "mlp5",
+          "attn6",
+          "mlp6",
+          "attn7",
+          "mlp7",
+          "attn8",
+          "mlp8"
+        ],
+        "reassembly_rel_err": 0.0,
+        "exact": true,
+        "k95_energy": 10,
+        "term_energy_ranked": [
+          [
+            "mlp5",
+            575453.5
+          ],
+          [
+            "mlp7",
+            432749.34
+          ],
+          [
+            "mlp4",
+            338383.19
+          ],
+          [
+            "mlp8",
+            337852.62
+          ],
+          [
+            "mlp3",
+            247868.7
+          ],
+          [
+            "mlp6",
+            235009.5
+          ],
+          [
+            "attn8",
+            132915.25
+          ],
+          [
+            "attn7",
+            121827.19
+          ],
+          [
+            "attn6",
+            73981.31
+          ],
+          [
+            "attn3",
+            68352.23
+          ],
+          [
+            "attn5",
+            66308.02
+          ],
+          [
+            "attn4",
+            5.9
+          ]
+        ],
+        "dce_topk95": 0.00227,
+        "dce_entry_mean_floor": 0.38463,
+        "topk95_recovered": 0.9941
+      }
+    },
+    "probes": {
+      "token_determined_mlp": [
+        {
+          "r2": 1.0,
+          "shuffle_ctl": 0.0363
+        },
+        {
+          "r2": 1.0,
+          "shuffle_ctl": 0.0349
+        },
+        {
+          "r2": 0.8716,
+          "shuffle_ctl": 0.0358
+        },
+        {
+          "r2": 0.8808,
+          "shuffle_ctl": 0.0356
+        },
+        {
+          "r2": 0.9191,
+          "shuffle_ctl": 0.035
+        },
+        {
+          "r2": 0.9106,
+          "shuffle_ctl": 0.0353
+        },
+        {
+          "r2": 0.8358,
+          "shuffle_ctl": 0.0357
+        },
+        {
+          "r2": 0.8197,
+          "shuffle_ctl": 0.0358
+        },
+        {
+          "r2": 0.741,
+          "shuffle_ctl": 0.0356
+        },
+        {
+          "r2": 0.7239,
+          "shuffle_ctl": 0.0352
+        },
+        {
+          "r2": 0.5751,
+          "shuffle_ctl": 0.0351
+        },
+        {
+          "r2": 0.6388,
+          "shuffle_ctl": 0.0355
+        }
+      ],
+      "linear_held_variance_explained": [
+        0.7534,
+        0.7439,
+        0.579,
+        0.6243,
+        0.7115,
+        0.7037,
+        0.5546,
+        0.5815,
+        0.4912,
+        0.4396,
+        0.3117,
+        0.4669
+      ],
+      "base_ce_fp32_fullheld": 5.90005,
+      "causal_per_layer": [
+        {
+          "dce_floor": 0.00266,
+          "dce_lin": -0.00012,
+          "lin_recovered": 1.044
+        },
+        {
+          "dce_floor": 0.15141,
+          "dce_lin": 0.03336,
+          "lin_recovered": 0.7797
+        },
+        {
+          "dce_floor": 0.07089,
+          "dce_lin": 0.02352,
+          "lin_recovered": 0.6682
+        },
+        {
+          "dce_floor": 0.2181,
+          "dce_lin": 0.05527,
+          "lin_recovered": 0.7466
+        },
+        {
+          "dce_floor": 0.348,
+          "dce_lin": 0.05989,
+          "lin_recovered": 0.8279
+        },
+        {
+          "dce_floor": 0.41626,
+          "dce_lin": 0.06796,
+          "lin_recovered": 0.8367
+        },
+        {
+          "dce_floor": 0.17257,
+          "dce_lin": 0.06296,
+          "lin_recovered": 0.6352
+        },
+        {
+          "dce_floor": 0.29056,
+          "dce_lin": 0.09077,
+          "lin_recovered": 0.6876
+        },
+        {
+          "dce_floor": 0.19781,
+          "dce_lin": 0.08153,
+          "lin_recovered": 0.5878
+        },
+        {
+          "dce_floor": 0.07803,
+          "dce_lin": 0.03587,
+          "lin_recovered": 0.5404
+        },
+        {
+          "dce_floor": 0.06429,
+          "dce_lin": 0.03894,
+          "lin_recovered": 0.3943
+        },
+        {
+          "dce_floor": 0.33409,
+          "dce_lin": 0.14883,
+          "lin_recovered": 0.5545
+        }
+      ]
+    }
+  },
+  "edge_census_probe_r1": [
+    {
+      "consumer": "block2",
+      "source": "mlp1",
+      "product_norm": 1.4905
+    },
+    {
+      "consumer": "readout",
+      "source": "attn6",
+      "product_norm": 1.2578
+    },
+    {
+      "consumer": "readout",
+      "source": "attn9",
+      "product_norm": 1.028
+    },
+    {
+      "consumer": "readout",
+      "source": "attn7",
+      "product_norm": 0.9875
+    },
+    {
+      "consumer": "readout",
+      "source": "mlp9",
+      "product_norm": 0.9618
+    },
+    {
+      "consumer": "readout",
+      "source": "mlp10",
+      "product_norm": 0.9416
+    },
+    {
+      "consumer": "block5",
+      "source": "mlp4",
+      "product_norm": 0.9122
+    },
+    {
+      "consumer": "readout",
+      "source": "attn10",
+      "product_norm": 0.7799
+    },
+    {
+      "consumer": "readout",
+      "source": "mlp11",
+      "product_norm": 0.7075
+    },
+    {
+      "consumer": "readout",
+      "source": "attn8",
+      "product_norm": 0.6716
+    },
+    {
+      "consumer": "readout",
+      "source": "mlp6",
+      "product_norm": 0.5067
+    },
+    {
+      "consumer": "readout",
+      "source": "mlp8",
+      "product_norm": 0.4917
+    },
+    {
+      "consumer": "readout",
+      "source": "mlp7",
+      "product_norm": 0.4326
+    },
+    {
+      "consumer": "readout",
+      "source": "attn11",
+      "product_norm": 0.3983
+    },
+    {
+      "consumer": "block4",
+      "source": "mlp3",
+      "product_norm": 0.3382
+    },
+    {
+      "consumer": "block8",
+      "source": "mlp5",
+      "product_norm": 0.2585
+    },
+    {
+      "consumer": "block3",
+      "source": "attn2",
+      "product_norm": 0.2515
+    },
+    {
+      "consumer": "block10",
+      "source": "mlp7",
+      "product_norm": 0.1948
+    },
+    {
+      "consumer": "block8",
+      "source": "mlp6",
+      "product_norm": 0.1824
+    },
+    {
+      "consumer": "block9",
+      "source": "mlp7",
+      "product_norm": 0.1538
+    },
+    {
+      "consumer": "block8",
+      "source": "mlp7",
+      "product_norm": 0.1519
+    },
+    {
+      "consumer": "block10",
+      "source": "mlp6",
+      "product_norm": 0.12
+    },
+    {
+      "consumer": "block10",
+      "source": "mlp8",
+      "product_norm": 0.1101
+    },
+    {
+      "consumer": "block5",
+      "source": "mlp3",
+      "product_norm": 0.0901
+    },
+    {
+      "consumer": "block9",
+      "source": "mlp6",
+      "product_norm": 0.0774
+    },
+    {
+      "consumer": "block10",
+      "source": "mlp4",
+      "product_norm": 0.0749
+    },
+    {
+      "consumer": "block9",
+      "source": "mlp5",
+      "product_norm": 0.0661
+    },
+    {
+      "consumer": "block10",
+      "source": "mlp9",
+      "product_norm": 0.0155
+    },
+    {
+      "consumer": "block6",
+      "source": "mlp1",
+      "product_norm": 0.0023
+    },
+    {
+      "consumer": "block10",
+      "source": "mlp5",
+      "product_norm": 0.0016
+    }
+  ],
+  "adapter_wiring_probe_r1": {
+    "n_edges": 114,
+    "spearman_all": 0.7241,
+    "spearman_effectual": 0.3933,
+    "n_effectual": 70,
+    "top10_precision": 0.3
+  },
+  "edge_semantics_probe_r1": {
+    "mlp1 -> block2": {
+      "product_norm": 1.49,
+      "channels": [
+        {
+          "channel": 0,
+          "importance": 5.0336,
+          "pattern_contexts": [
+            {
+              "act": 4.8,
+              "context": " this page.\nDocument management portal powered by Laserf"
+            },
+            {
+              "act": 4.799,
+              "context": " our group spoke up and said hewas'catf"
+            },
+            {
+              "act": 4.799,
+              "context": " their dogs in this summer pastime. But bef"
+            }
+          ],
+          "consumer_fold_shares": {
+            "c_q": 0.193,
+            "c_k": 0.195,
+            "c_q2": 0.235,
+            "c_k2": 0.25,
+            "c_v": 0.045,
+            "Left": 0.04,
+            "Right": 0.042
+          },
+          "weak_token_lens": [
+            " the",
+            " a",
+            " to",
+            " that",
+            " in"
+          ]
+        }
+      ]
+    },
+    "attn6 -> readout": {
+      "product_norm": 1.258,
+      "channels": [
+        {
+          "channel": 0,
+          "importance": 1.5123,
+          "pattern_contexts": [
+            {
+              "act": -3.592,
+              "context": "aciones confortables y estancias di"
+            },
+            {
+              "act": -3.461,
+              "context": ", con suelo de madera y cuid"
+            },
+            {
+              "act": 3.247,
+              "context": " partner for nine consecutive years.\u00abRapid growth has"
+            }
+          ],
+          "effect_top_tokens": [
+            " Sections",
+            " disclosed",
+            " postponed",
+            " bestowed",
+            "iolet",
+            " Blades",
+            " IDs",
+            " Mondays"
+          ],
+          "effect_bottom_tokens": [
+            " jew",
+            " se",
+            " z",
+            "ob"
+          ]
+        }
+      ]
+    },
+    "attn9 -> readout": {
+      "product_norm": 1.028,
+      "channels": [
+        {
+          "channel": 0,
+          "importance": 2.5546,
+          "pattern_contexts": [
+            {
+              "act": -6.49,
+              "context": " using just enough ingredients to be interesting. Many of these"
+            },
+            {
+              "act": -6.241,
+              "context": " worked with Wiley on various projects and recommends many of its"
+            },
+            {
+              "act": -6.097,
+              "context": "\nCompanies you'll meet\nIGD attracts many prominent"
+            }
+          ],
+          "effect_top_tokens": [
+            " loan",
+            " project",
+            " turn",
+            " show",
+            " head",
+            " job",
+            " mail",
+            " block"
+          ],
+          "effect_bottom_tokens": [
+            " distractions",
+            "files",
+            " qualifies",
+            " objected"
+          ]
+        }
+      ]
+    },
+    "attn7 -> readout": {
+      "product_norm": 0.987,
+      "channels": [
+        {
+          "channel": 0,
+          "importance": 2.5013,
+          "pattern_contexts": [
+            {
+              "act": 3.545,
+              "context": " parent and child. Each judges the other according to their"
+            },
+            {
+              "act": 3.539,
+              "context": " enrol their child in a local school, in the local"
+            },
+            {
+              "act": -3.502,
+              "context": " Jambos, who make it three wins from five"
+            }
+          ],
+          "effect_top_tokens": [
+            " insurance",
+            " former",
+            " everyday",
+            " indoor",
+            " Chinese",
+            " professional",
+            " local",
+            " estate"
+          ],
+          "effect_bottom_tokens": [
+            "Charg",
+            " Kes",
+            " Psal",
+            " Heal"
+          ]
+        }
+      ]
+    },
+    "mlp9 -> readout": {
+      "product_norm": 0.962,
+      "channels": [
+        {
+          "channel": 0,
+          "importance": 2.1663,
+          "pattern_contexts": [
+            {
+              "act": 4.302,
+              "context": " feet, I am while I enjoy hanging out District americ"
+            },
+            {
+              "act": 3.083,
+              "context": " in the heart of White City and the Westfield development"
+            },
+            {
+              "act": -3.069,
+              "context": " edge nutraceutical science.\u201d It contains bee"
+            }
+          ],
+          "effect_top_tokens": [
+            "re",
+            " who",
+            " avoid",
+            "leg",
+            " tank",
+            "ch",
+            "ok",
+            "pl"
+          ],
+          "effect_bottom_tokens": [
+            "987",
+            "396",
+            " Cavs",
+            " deems"
+          ]
+        }
+      ]
+    }
+  }
+}

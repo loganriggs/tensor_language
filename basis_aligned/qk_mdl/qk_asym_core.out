@@ -1,0 +1,20 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+=== planted test: asymmetric sparse CP at m=2048 ===
+planted: matched-cos 1.0000 rel-err@24 0.0000 -> PASS
+h0 per-mode m=1024 k=4: asym moment residual 0.0567
+h0 per-mode m=2048 k=4: asym moment residual 0.0261 PASS
+  h0 seed 0: rel-err 16/32/64 = 0.3416/0.2810/0.2275
+  h0 seed 1: rel-err 16/32/64 = 0.3428/0.2810/0.2274
+  h0 seed 2: rel-err 16/32/64 = 0.3416/0.2810/0.2273
+h0: null R32 0.2318 (real 0.281) | mean cos(A,B) 0.046
+h4 per-mode m=1024 k=4: asym moment residual 0.0247 PASS
+  h4 seed 0: rel-err 16/32/64 = 0.3785/0.2923/0.2432
+  h4 seed 1: rel-err 16/32/64 = 0.3785/0.3050/0.2429
+  h4 seed 2: rel-err 16/32/64 = 0.3785/0.2894/0.2435
+h4: null R32 0.2162 (real 0.2894) | mean cos(A,B) 0.091
+h5 per-mode m=128 k=2: asym moment residual 0.0416 PASS
+  h5 seed 0: rel-err 16/32/64 = 0.2007/0.1324/0.0816
+  h5 seed 1: rel-err 16/32/64 = 0.1998/0.1324/0.0818
+  h5 seed 2: rel-err 16/32/64 = 0.2007/0.1344/0.0813
+h5: null R32 0.1357 (real 0.1324) | mean cos(A,B) 0.064
+ASYM CORE DONE

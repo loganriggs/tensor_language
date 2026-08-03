@@ -1,0 +1,131 @@
+{
+  "explanation": "run 1 with the bilin18 zero-init write convention: the quadratic routing coefficient has zero gradient at write=0, so all writes stayed exactly zero for 4122 steps; V2/V3/V4 are bigram readouts of the embedding, V7 is the uniform predictor log(50257)=10.8249. Checkpoints archived as qk_deeproute_V*_deadinit.pt.",
+  "held_ce": {
+    "V2": 7.7505,
+    "V3": 7.8181,
+    "V4": 8.2448,
+    "V7": 10.8249
+  },
+  "lrsweeps": {
+    "V2": {
+      "results": {
+        "0.0005": {
+          "held100_ce": 8.4274,
+          "diverged": false,
+          "spikes": 0,
+          "last_ema": 8.7527
+        },
+        "0.001": {
+          "held100_ce": 8.085,
+          "diverged": false,
+          "spikes": 0,
+          "last_ema": 8.3871
+        },
+        "0.002": {
+          "held100_ce": 7.8271,
+          "diverged": false,
+          "spikes": 0,
+          "last_ema": 8.1077
+        },
+        "0.003": {
+          "held100_ce": 7.7345,
+          "diverged": false,
+          "spikes": 0,
+          "last_ema": 8.0227
+        }
+      },
+      "unit_norm_fallback": false,
+      "chosen": 0.003
+    },
+    "V3": {
+      "results": {
+        "0.0005": {
+          "held100_ce": 8.5326,
+          "diverged": false,
+          "spikes": 0,
+          "last_ema": 8.9126
+        },
+        "0.001": {
+          "held100_ce": 8.1857,
+          "diverged": false,
+          "spikes": 0,
+          "last_ema": 8.5158
+        },
+        "0.002": {
+          "held100_ce": 7.9921,
+          "diverged": false,
+          "spikes": 0,
+          "last_ema": 8.273
+        },
+        "0.003": {
+          "held100_ce": 7.9148,
+          "diverged": false,
+          "spikes": 0,
+          "last_ema": 8.2404
+        }
+      },
+      "unit_norm_fallback": false,
+      "chosen": 0.003
+    },
+    "V4": {
+      "results": {
+        "0.0005": {
+          "held100_ce": 8.8331,
+          "diverged": false,
+          "spikes": 0,
+          "last_ema": 9.3061
+        },
+        "0.001": {
+          "held100_ce": 8.5944,
+          "diverged": false,
+          "spikes": 0,
+          "last_ema": 8.9912
+        },
+        "0.002": {
+          "held100_ce": 7.9858,
+          "diverged": false,
+          "spikes": 0,
+          "last_ema": 8.763
+        },
+        "0.003": {
+          "held100_ce": 7.5881,
+          "diverged": false,
+          "spikes": 0,
+          "last_ema": 8.9065
+        }
+      },
+      "unit_norm_fallback": false,
+      "chosen": 0.003
+    },
+    "V7": {
+      "results": {
+        "0.0005": {
+          "held100_ce": 10.8249,
+          "diverged": false,
+          "spikes": 0,
+          "last_ema": 10.8249
+        },
+        "0.001": {
+          "held100_ce": 10.8249,
+          "diverged": false,
+          "spikes": 0,
+          "last_ema": 10.8249
+        },
+        "0.002": {
+          "held100_ce": 10.8249,
+          "diverged": false,
+          "spikes": 0,
+          "last_ema": 10.8249
+        },
+        "0.003": {
+          "held100_ce": 10.8249,
+          "diverged": false,
+          "spikes": 0,
+          "last_ema": 10.8249
+        }
+      },
+      "unit_norm_fallback": false,
+      "chosen": 0.0005
+    }
+  }
+}

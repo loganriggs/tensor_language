@@ -1,0 +1,33 @@
+GPU guard: 15841 MiB free -- proceeding.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+bilin18 NL=18 NH=9 HD=128 D=1152 V=50304; KMAX/block=64
+Recomputing MLP SVD directions from TRAIN gram ...
+MLP SVD + random-orthonormal directions ready.
+PASS A: per-position means over held-out ...
+PASS A done.
+51 configs; K sweep [1, 2, 4, 8, 16, 32, 64]
+PASS B: base + 51 configs over held-out (19304 positions) ...
+  batch 1/26  elapsed 2s
+  batch 5/26  elapsed 12s
+  batch 9/26  elapsed 21s
+  batch 13/26  elapsed 30s
+  batch 17/26  elapsed 39s
+  batch 21/26  elapsed 49s
+  batch 25/26  elapsed 58s
+PASS B done in 59s
+
+===== MLP SUPERPOSITION vs RANK-CUTOFF (delta cross-entropy, nats, attention intact) =====
+MLP_FULL 4.5321   top-72(=SVD_K4) 1.2238   below-top72 3.3084 (73% of full)
+K/block | total | SVD captured (frac) | RAND captured (frac)
+    1   |   18 | 0.2687 (0.059)   | 0.0028 (0.001)
+    2   |   36 | 0.5569 (0.123)   | 0.0037 (0.001)
+    4   |   72 | 1.2238 (0.270)   | 0.0070 (0.002)
+    8   |  144 | 2.2529 (0.497)   | 0.0113 (0.003)
+   16   |  288 | 3.1322 (0.691)   | 0.0235 (0.005)
+   32   |  576 | 3.7826 (0.835)   | 0.0471 (0.010)
+   64   | 1152 | 4.0609 (0.896)   | 0.1144 (0.025)
+Effective rank per block for 50/80/90% of full MLP effect: {'50pct': 8.12, '80pct': 28.14, '90pct': None}
+Top tail-carrying layers: [(1, 5.555, 0.6159), (0, 1.208, 0.1339), (2, 0.731, 0.0811), (3, 0.609, 0.0675), (17, 0.176, 0.0195)]
+
+Saved qk_mlp_superposition.json
+QK MLP SUPERPOSITION DONE

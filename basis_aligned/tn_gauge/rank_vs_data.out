@@ -1,0 +1,32 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+FineWeb torch.Size([600, 513]); running...
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+Pile torch.Size([600, 513]); running...
+
+layer-1 eff-rank & rank@90% vs tokens:
+  fineweb:
+      10240 tok: eff-rank  47.0  rank@90%  302  rank@99%  908
+      10240 tok: eff-rank  47.0  rank@90%  302  rank@99%  908
+      10240 tok: eff-rank  47.0  rank@90%  302  rank@99%  908
+      10240 tok: eff-rank  47.0  rank@90%  302  rank@99%  908
+      10240 tok: eff-rank  47.0  rank@90%  302  rank@99%  908
+      20480 tok: eff-rank  46.0  rank@90%  302  rank@99%  928
+      40960 tok: eff-rank  46.6  rank@90%  316  rank@99%  949
+      71680 tok: eff-rank  47.5  rank@90%  325  rank@99%  958
+     133120 tok: eff-rank  47.8  rank@90%  333  rank@99%  966
+     266240 tok: eff-rank  47.3  rank@90%  334  rank@99%  968
+     307200 tok: eff-rank  47.4  rank@90%  334  rank@99%  969
+  pile:
+      10240 tok: eff-rank  39.7  rank@90%  240  rank@99%  849
+      10240 tok: eff-rank  39.7  rank@90%  240  rank@99%  849
+      10240 tok: eff-rank  39.7  rank@90%  240  rank@99%  849
+      10240 tok: eff-rank  39.7  rank@90%  240  rank@99%  849
+      10240 tok: eff-rank  39.7  rank@90%  240  rank@99%  849
+      20480 tok: eff-rank  44.9  rank@90%  288  rank@99%  914
+      40960 tok: eff-rank  45.1  rank@90%  300  rank@99%  935
+      71680 tok: eff-rank  42.5  rank@90%  300  rank@99%  940
+     133120 tok: eff-rank  42.9  rank@90%  311  rank@99%  952
+     266240 tok: eff-rank  44.6  rank@90%  318  rank@99%  961
+     307200 tok: eff-rank  44.6  rank@90%  315  rank@99%  960
+
+saved fig_rank_vs_data.png

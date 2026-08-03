@@ -1,0 +1,123 @@
+{
+ "cells": {
+  "allterms_rho1.5_16x": {
+   "profile": "allterms",
+   "budget_tag": "16x",
+   "R_in": 139,
+   "kw": {
+    "rho": "1.5"
+   },
+   "n_terms": 253,
+   "budget": 849247883,
+   "budget_frac": 0.9858,
+   "dCE": 1.3842,
+   "SE": 0.01453,
+   "rank_alloc_same_budget": 0.8032,
+   "paired_vs_rank_alloc": [
+    0.581,
+    0.00738
+   ],
+   "paired_z": 78.8
+  },
+  "allterms_rho2.0_16x": {
+   "profile": "allterms",
+   "budget_tag": "16x",
+   "R_in": 127,
+   "kw": {
+    "rho": "2.0"
+   },
+   "n_terms": 253,
+   "budget": 861417632,
+   "budget_frac": 1.0,
+   "dCE": 1.4098,
+   "SE": 0.01462,
+   "rank_alloc_same_budget": 0.8032,
+   "paired_vs_rank_alloc": [
+    0.6066,
+    0.00762
+   ],
+   "paired_z": 79.6
+  },
+  "allterms_rho1_mu2_16x": {
+   "profile": "allterms",
+   "budget_tag": "16x",
+   "R_in": 116,
+   "kw": {
+    "rho": "1.0",
+    "mu_early": "2.0"
+   },
+   "n_terms": 253,
+   "budget": 847788552,
+   "budget_frac": 0.9841,
+   "dCE": 1.3271,
+   "SE": 0.0143,
+   "rank_alloc_same_budget": 0.8032,
+   "paired_vs_rank_alloc": [
+    0.5239,
+    0.00667
+   ],
+   "paired_z": 78.5
+  },
+  "allterms_rho1_mu3_16x": {
+   "profile": "allterms",
+   "budget_tag": "16x",
+   "R_in": 84,
+   "kw": {
+    "rho": "1.0",
+    "mu_early": "3.0"
+   },
+   "n_terms": 253,
+   "budget": 857353392,
+   "budget_frac": 0.9952,
+   "dCE": 1.3958,
+   "SE": 0.01471,
+   "rank_alloc_same_budget": 0.8032,
+   "paired_vs_rank_alloc": [
+    0.5926,
+    0.00728
+   ],
+   "paired_z": 81.4
+  },
+  "allterms_best_4x": {
+   "profile": "allterms",
+   "budget_tag": "4x",
+   "R_in": 185,
+   "kw": {
+    "rho": "1.0",
+    "mu_early": "2.0"
+   },
+   "n_terms": 253,
+   "budget": 3437456325,
+   "budget_frac": 0.9976,
+   "dCE": 0.9976,
+   "SE": 0.0124,
+   "rank_alloc_same_budget": 0.3516,
+   "paired_vs_rank_alloc": [
+    0.6461,
+    0.00873
+   ],
+   "paired_z": 74.0
+  },
+  "allterms_best_128x": {
+   "profile": "allterms",
+   "budget_tag": "128x",
+   "R_in": 58,
+   "kw": {
+    "rho": "1.0",
+    "mu_early": "2.0"
+   },
+   "n_terms": 253,
+   "budget": 106098878,
+   "budget_frac": 0.9836,
+   "dCE": 1.817,
+   "SE": 0.01704,
+   "rank_alloc_same_budget": 1.4561,
+   "paired_vs_rank_alloc": [
+    0.3609,
+    0.00703
+   ],
+   "paired_z": 51.3
+  }
+ },
+ "peak_gpu_MiB": 4054.4
+}

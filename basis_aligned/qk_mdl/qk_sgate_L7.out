@@ -1,0 +1,19 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+templates ready
+normal equations done
+PROGRAMMATIC heads (predicate gain >=5% held-out): 30/162
+by top predicate: [('KEY_newline', 9), ('MATCH_prev', 8), ('MATCH_same', 5), ('KEY_cap', 4), ('PREV1', 2), ('KEY_func', 2)]
+by layer: Counter({16: 4, 1: 3, 2: 3, 3: 3, 6: 2, 11: 2, 13: 2, 14: 2, 15: 2, 0: 1, 5: 1, 7: 1, 8: 1, 9: 1, 10: 1, 12: 1})
+--- LAYER 7 per-head census ---
+  L7H0: gain 0.04 top=KEY_func (0.0258) full 0.133 / tpl 0.093
+  L7H1: gain 0.028 top=KEY_newline (0.0286) full 0.06 / tpl 0.033
+  L7H2: gain 0.034 top=KEY_punct (-0.0285) full 0.453 / tpl 0.419
+  L7H3: gain 0.107 top=MATCH_prev (-0.0425) full 0.099 / tpl -0.008 PROG
+  L7H4: gain 0.011 top=MATCH_prev (-0.0281) full 0.02 / tpl 0.009
+  L7H5: gain 0.01 top=MATCH_same (-0.0294) full 0.014 / tpl 0.004
+  L7H6: gain 0.02 top=KEY_newline (-0.0142) full 0.117 / tpl 0.097
+  L7H7: gain 0.022 top=KEY_newline (-0.0384) full 0.225 / tpl 0.203
+  L7H8: gain 0.009 top=PREV1 (0.0266) full 0.544 / tpl 0.535
+GATE: 1 layer-7 programmatic heads coded simultaneously (heads [3]): dCE +0.00043 (SE 0.000347)
+SUMMARY L7 SELECTION: 1 programmatic heads at layer 7; per-head predicate gain range 0.009..0.107; gate +0.00043 nats/tok (SE 0.000347)
+QK L7 SELECTION GATE DONE

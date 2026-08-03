@@ -1,0 +1,17 @@
+  block0(64)+attn2(0): macro 0.827 retention 0.894
+  block0(64)+attn2(2): macro 0.847 retention 0.916
+  block0(64)+attn2(4): macro 0.863 retention 0.933
+  block0(64)+attn2(8): macro 0.893 retention 0.965
+  block0(64)+attn2(16): macro 0.890 retention 0.962
+  block0(64)+attn2(32): macro 0.908 retention 0.981
+  block0(64)+attn2(64): macro 0.901 retention 0.974
+  block0(64)+attn2(96): macro 0.903 retention 0.976
+{
+ "block0_only_K64": 0.827,
+ "attn2_alone_K32": 0.91,
+ "best_full_macro": 0.908,
+ "best_full_retention": 0.982,
+ "full_block0_64_plus_random16attn2": 0.895,
+ "full_block0_64_plus_ranked16attn2": 0.89
+}
+ECG FULLCIRCUIT METRICS DONE

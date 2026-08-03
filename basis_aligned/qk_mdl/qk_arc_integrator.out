@@ -1,0 +1,48 @@
+GPU guard: 11791 MiB free -- proceeding.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+bilin18 NL=18 NH=9 HD=128 D=1152 V=50304
+353 special token ids masked
+class sizes: capital=16684 word=19672
+Recomputing MLP SVD directions from TRAIN gram ...
+MLP directions ready.
+PASS A: per-position means + activations ...
+PASS A done.
+Computing grids for ['base', 'mlp.L17.d1', 'mlp.L17.d2', 'mlp.L17.d3', 'mlp.L16.d2', 'L17.d1+d3', 'L17.trio']
+  grid base done in 2s
+  grid mlp.L17.d1 done in 2s
+  grid mlp.L17.d2 done in 2s
+  grid mlp.L17.d3 done in 2s
+  grid mlp.L16.d2 done in 2s
+  grid L17.d1+d3 done in 2s
+  grid L17.trio done in 2s
+
+===== STEP 1: VERIFY (reproduce §68) =====
+  mlp.L17.d1   push=capital firing class-sum dlogit 20003.9 +-421.2321  firing dCE 0.2552 +-0.0572 (z 4.46)
+  mlp.L17.d3   push=capital firing class-sum dlogit 7355.3 +-754.3144  firing dCE 0.1672 +-0.0426 (z 3.92)
+  mlp.L17.d2   push=word    firing class-sum dlogit 28657.7 +-1374.1426  firing dCE 0.3671 +-0.0702 (z 5.23)
+  mlp.L16.d2   push=word    firing class-sum dlogit 13014.0 +-277.2148  firing dCE 0.1783 +-0.0423 (z 4.22)
+  L17 trio: joint dCE 0.9107 vs sum-solo 0.4810 ratio 1.893
+
+===== STEP 2: DECISIVE (context-conditioned vs static prior) =====
+  mlp.L17.d1   push=capital ALL-VALID: IS-class 11852.0 (n2252) vs NOT 3654.5 (n16382) ratio 3.243
+  mlp.L17.d3   push=capital ALL-VALID: IS-class 389.1 (n2252) vs NOT 1035.9 (n16382) ratio 0.376
+  mlp.L17.d2   push=word    ALL-VALID: IS-class 2393.3 (n8885) vs NOT 3549.6 (n9749) ratio 0.674
+  mlp.L16.d2   push=word    ALL-VALID: IS-class 547.1 (n8885) vs NOT 2996.8 (n9749) ratio 0.183
+
+===== STEP 3: SIGN-correctness (dCE split by true next class) =====
+  mlp.L17.d1   push=capital ALL-VALID dCE: IS-class +0.3450 (n2252)  NOT +0.0302 (n16382)
+  mlp.L17.d3   push=capital ALL-VALID dCE: IS-class +0.1038 (n2252)  NOT +0.0100 (n16382)
+  mlp.L17.d2   push=word    ALL-VALID dCE: IS-class +0.0056 (n8885)  NOT +0.0947 (n9749)
+  mlp.L16.d2   push=word    ALL-VALID dCE: IS-class +0.0006 (n8885)  NOT +0.0761 (n9749)
+
+===== STEP 4: MINIMAL circuit + joint structure =====
+  cap pair d1+d3: push joint 19048.2 vs sum-solo 17740.5 (ratio 1.074); dCE joint 0.3006 vs sum-solo 0.2529 (ratio 1.189)
+
+===== STEP 5: content vs position of trigger =====
+  mlp.L17.d1   top-activating current classes: newline=54615.891, quote=48897.642, punct=41222.603, pronoun=28756.400
+  mlp.L17.d2   top-activating current classes: newline=57677.888, quote=37869.688, punct=22392.526, digit=16329.166
+  mlp.L17.d3   top-activating current classes: newline=28772.204, quote=20211.443, digit=15131.236, punct=12675.469
+  mlp.L16.d2   top-activating current classes: newline=19450.484, quote=12754.996, punct=9388.722, pronoun=6888.961
+
+Saved qk_arc_integrator.json
+QK ARC INTEGRATOR DONE

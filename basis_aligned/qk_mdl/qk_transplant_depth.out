@@ -1,0 +1,39 @@
+GPU guard: 15841 MiB free -- proceeding.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+bilin18 NL=18 D=1152 NH=9 held 152x128 layers [8, 12, 15, 17]
+counts: valid=18634 boundary=1209 target_notdue=8510
+targets: force 300 (same-seq donors 1.00)
+split: before=8322 after=10012 edited=300 (sequences touched 130/152)
+natural (exact full model) grids ...
+base CE mean 3.4946 (expect 3.4946)
+GATE base P(capital): sentence-punct 0.34902 (expect 0.34902) newline 0.55269 (expect 0.55269)
+
+===== LAYER 8: collect mlp-earlier group grid =====
+GATE group-sum identity (L8): global rel 8.94e-08 maxpos 1.19e-07
+geometry L8: own Me norm 3630.40 donor 3042.65 cos(own,donor) 0.522
+===== LAYER 8: FORCE (boundary mlp-earlier -> not-due targets, dose 1) =====
+[FORCE L8] P(cap) 0.0420 -> 0.0437 (dP +0.0016 +- 0.0006); dCE@edited +0.0201; dCE@before +0.000000 (gate max|dlogit| 0.00e+00, frac zero 1.0000); dCE@after -0.000000 +- 0.000129 (max|dlogit|after 0.818); global dCE +0.000307
+   distance profile dCE@after: 1-2:-0.00118(n=563)  3-4:-0.00025(n=522)  5-8:+0.00009(n=995)  9-16:+0.00016(n=1746)  17-32:+0.00016(n=2663)  33-64:-0.00011(n=2667)  65-127:+0.00033(n=856)
+
+===== LAYER 12: collect mlp-earlier group grid =====
+GATE group-sum identity (L12): global rel 1.13e-07 maxpos 1.83e-07
+geometry L12: own Me norm 9592.71 donor 10206.52 cos(own,donor) 0.485
+===== LAYER 12: FORCE (boundary mlp-earlier -> not-due targets, dose 1) =====
+[FORCE L12] P(cap) 0.0420 -> 0.0491 (dP +0.0071 +- 0.0020); dCE@edited +0.0652; dCE@before +0.000000 (gate max|dlogit| 0.00e+00, frac zero 1.0000); dCE@after -0.000050 +- 0.000076 (max|dlogit|after 1.084); global dCE +0.000986
+   distance profile dCE@after: 1-2:+0.00004(n=563)  3-4:-0.00006(n=522)  5-8:+0.00013(n=995)  9-16:-0.00007(n=1746)  17-32:-0.00007(n=2663)  33-64:-0.00004(n=2667)  65-127:-0.00024(n=856)
+
+===== LAYER 15: collect mlp-earlier group grid =====
+GATE group-sum identity (L15): global rel 1.47e-07 maxpos 2.53e-07
+geometry L15: own Me norm 22008.90 donor 26391.12 cos(own,donor) 0.621
+===== LAYER 15: FORCE (boundary mlp-earlier -> not-due targets, dose 1) =====
+[FORCE L15] P(cap) 0.0420 -> 0.0548 (dP +0.0128 +- 0.0027); dCE@edited +0.1061; dCE@before +0.000000 (gate max|dlogit| 0.00e+00, frac zero 1.0000); dCE@after -0.000015 +- 0.000036 (max|dlogit|after 0.619); global dCE +0.001646
+   distance profile dCE@after: 1-2:-0.00040(n=563)  3-4:-0.00015(n=522)  5-8:-0.00010(n=995)  9-16:-0.00002(n=1746)  17-32:+0.00000(n=2663)  33-64:+0.00010(n=2667)  65-127:+0.00001(n=856)
+
+===== LAYER 17: collect mlp-earlier group grid =====
+GATE group-sum identity (L17): global rel 1.56e-07 maxpos 3.32e-07
+geometry L17: own Me norm 32240.54 donor 38088.33 cos(own,donor) 0.525
+===== LAYER 17: FORCE (boundary mlp-earlier -> not-due targets, dose 1) =====
+[FORCE L17] P(cap) 0.0420 -> 0.2763 (dP +0.2343 +- 0.0155); dCE@edited +1.4440; dCE@before +0.000000 (gate max|dlogit| 0.00e+00, frac zero 1.0000); dCE@after +0.000000 +- 0.000000 (max|dlogit|after 0.000); global dCE +0.022441
+   distance profile dCE@after: 1-2:+0.00000(n=563)  3-4:+0.00000(n=522)  5-8:+0.00000(n=995)  9-16:+0.00000(n=1746)  17-32:+0.00000(n=2663)  33-64:+0.00000(n=2667)  65-127:+0.00000(n=856)
+
+Saved qk_transplant_depth.json (partial) + state. QK TRANSPLANT DEPTH PART 1 DONE

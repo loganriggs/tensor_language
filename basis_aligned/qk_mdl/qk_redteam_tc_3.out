@@ -1,0 +1,21 @@
+GPU guard: 15841 MiB free -- proceeding.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+bilin18 NL=18 D=1152 held 152x128 16x budget 861456384
+BASE re-run + gate vs the §104 cache ...
+base CE 3.4946 (cache 3.4946, maxabs 0.00e+00)
+profile 100pct: [2, 3, 2, 4, 5, 8, 10, 12, 10, 10, 10, 10, 6, 8, 8, 6, 6, 10] (sum 130)
+profile 125pct: [3, 4, 3, 5, 7, 10, 13, 15, 13, 13, 13, 13, 8, 10, 10, 8, 8, 13] (sum 169)
+profile early150_rest100: [3, 5, 3, 6, 8, 8, 10, 12, 10, 10, 10, 10, 6, 8, 8, 6, 6, 10] (sum 139)
+extra term output grams needed: 42
+extra grams done (6s)
+
+=== ATTACK 1c: all-terms family ===
+extra term output grams needed: 81
+[allterms_rho1.5_16x] R=139 budget 849M dCE +1.3842 +- 0.01453 | vs rank-alloc +0.5810 +- 0.00738 (z 78.8)
+[allterms_rho2.0_16x] R=127 budget 861M dCE +1.4098 +- 0.01462 | vs rank-alloc +0.6066 +- 0.00762 (z 79.6)
+[allterms_rho1_mu2_16x] R=116 budget 848M dCE +1.3271 +- 0.01430 | vs rank-alloc +0.5239 +- 0.00667 (z 78.5)
+[allterms_rho1_mu3_16x] R=84 budget 857M dCE +1.3958 +- 0.01471 | vs rank-alloc +0.5926 +- 0.00728 (z 81.4)
+best 16x in the all-terms family: allterms_rho1_mu2_16x 1.3271
+[allterms_best_4x] R=185 budget 3437M dCE +0.9976 +- 0.01240 | vs rank-alloc +0.6461 +- 0.00873 (z 74.0)
+[allterms_best_128x] R=58 budget 106M dCE +1.8170 +- 0.01704 | vs rank-alloc +0.3609 +- 0.00703 (z 51.3)
+QK REDTEAM TERMCOMPRESS PART 3 DONE

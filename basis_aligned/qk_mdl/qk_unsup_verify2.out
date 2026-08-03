@@ -1,0 +1,628 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+computing MLP directions from TRAIN gram...
+
+=== verifying mlp.L1.d3 ===
+{
+ "comp": "mlp.L1.d3",
+ "kind": "mlp",
+ "discovered_boost": "whole/entire/aforementioned/usual/particular",
+ "discovered_trigger": "' the'/' an' (determiner)",
+ "heldout_top50_cur": [
+  [
+   "' the'",
+   48
+  ],
+  [
+   "' ('",
+   1
+  ],
+  [
+   "'side'",
+   1
+  ]
+ ],
+ "heldout_cur_purity": 0.95,
+ "n_token_matched": 1159,
+ "firing_rate_matched": 0.997,
+ "selectivity_trig/median": 4.31,
+ "boost_ids_tested": [
+  "' whole'",
+  "' entire'",
+  "' entirety'",
+  "' aforementioned'",
+  "' usual'",
+  "' particular'",
+  "' current'",
+  "' sort'"
+ ],
+ "most_dropped_tokens": [
+  [
+   "'itten'",
+   -0.082
+  ],
+  [
+   "'framework'",
+   -0.079
+  ],
+  [
+   "'AppData'",
+   -0.076
+  ],
+  [
+   "'ouls'",
+   -0.076
+  ],
+  [
+   "'ocious'",
+   -0.073
+  ],
+  [
+   "'DEBUG'",
+   -0.072
+  ],
+  [
+   "'irmation'",
+   -0.072
+  ],
+  [
+   "'landish'",
+   -0.072
+  ],
+  [
+   "'aimon'",
+   -0.07
+  ],
+  [
+   "'retty'",
+   -0.07
+  ],
+  [
+   "'DoS'",
+   -0.07
+  ],
+  [
+   "'Recomm'",
+   -0.069
+  ]
+ ],
+ "boost_in_top12_dropped": 0,
+ "dLogit_boost_mean": -0.0105,
+ "dLogit_boost_se": 0.0024,
+ "dLogit_control_mean": -0.0154,
+ "dLogit_control_se": 0.001,
+ "dLogit_allvocab_mean": -0.0146,
+ "n_causal": 1159,
+ "boost_minus_control_mean": 0.0049,
+ "boost_minus_control_se": 0.002,
+ "boost_minus_control_z": 2.46,
+ "n_causal_next_in_boost": 4,
+ "CE_increase_on_actual_boost_next": 0.0287,
+ "CE_increase_se": 0.0442
+}
+
+=== verifying mlp.L0.d1 ===
+{
+ "comp": "mlp.L0.d1",
+ "kind": "mlp",
+ "discovered_boost": "various/different/several/recent/latest",
+ "discovered_trigger": "' the'/' a' (determiner)",
+ "heldout_top50_cur": [
+  [
+   "' the'",
+   49
+  ],
+  [
+   "' a'",
+   1
+  ]
+ ],
+ "heldout_cur_purity": 0.975,
+ "n_token_matched": 1159,
+ "firing_rate_matched": 1.0,
+ "selectivity_trig/median": 2.86,
+ "boost_ids_tested": [
+  "' various'",
+  "' different'",
+  "' several'",
+  "' recent'",
+  "' latest'",
+  "' newer'",
+  "' other'",
+  "' multiple'"
+ ],
+ "most_dropped_tokens": [
+  [
+   "' the'",
+   -0.034
+  ],
+  [
+   "'commit'",
+   -0.026
+  ],
+  [
+   "'noticed'",
+   -0.025
+  ],
+  [
+   "'termination'",
+   -0.023
+  ],
+  [
+   "'snap'",
+   -0.023
+  ],
+  [
+   "'illegal'",
+   -0.023
+  ],
+  [
+   "'respective'",
+   -0.023
+  ],
+  [
+   "'split'",
+   -0.023
+  ],
+  [
+   "'usage'",
+   -0.023
+  ],
+  [
+   "'\ufffd\ufffd'",
+   -0.022
+  ],
+  [
+   "' Nichols'",
+   -0.022
+  ],
+  [
+   "' Nish'",
+   -0.022
+  ]
+ ],
+ "boost_in_top12_dropped": 0,
+ "dLogit_boost_mean": 0.0049,
+ "dLogit_boost_se": 0.0019,
+ "dLogit_control_mean": 0.0047,
+ "dLogit_control_se": 0.0009,
+ "dLogit_allvocab_mean": 0.0043,
+ "n_causal": 1159,
+ "boost_minus_control_mean": 0.0002,
+ "boost_minus_control_se": 0.0015,
+ "boost_minus_control_z": 0.13,
+ "n_causal_next_in_boost": 10,
+ "CE_increase_on_actual_boost_next": -0.0322,
+ "CE_increase_se": 0.0226
+}
+
+=== verifying h.L3.3 ===
+{
+ "comp": "h.L3.3",
+ "kind": "head",
+ "discovered_boost": "alike/respectively/etc",
+ "discovered_trigger": "digits/',' attending conjunction ' and'/' or'/','",
+ "heldout_top50_cur": [
+  [
+   "','",
+   4
+  ],
+  [
+   "'.'",
+   1
+  ],
+  [
+   "'8'",
+   1
+  ],
+  [
+   "'9'",
+   1
+  ],
+  [
+   "'?'",
+   1
+  ],
+  [
+   "'T'",
+   1
+  ]
+ ],
+ "heldout_cur_purity": 0.028,
+ "heldout_top50_src": [
+  [
+   "' and'",
+   15
+  ],
+  [
+   "' or'",
+   7
+  ],
+  [
+   "','",
+   6
+  ],
+  [
+   "' to'",
+   6
+  ],
+  [
+   "'-'",
+   4
+  ],
+  [
+   "'/'",
+   3
+  ]
+ ],
+ "heldout_src_purity": 0.432,
+ "n_token_matched": 2908,
+ "firing_rate_matched": 0.699,
+ "selectivity_trig/median": 1.9,
+ "boost_ids_tested": [
+  "' alike'",
+  "' respectively'",
+  "' etc'",
+  "' vice'",
+  "' whatever'"
+ ],
+ "most_dropped_tokens": [
+  [
+   "'\u2015'",
+   -0.06
+  ],
+  [
+   "' ...'",
+   -0.057
+  ],
+  [
+   "' \u2026'",
+   -0.054
+  ],
+  [
+   "'\u2026'",
+   -0.05
+  ],
+  [
+   "',...'",
+   -0.049
+  ],
+  [
+   "' \u2014'",
+   -0.048
+  ],
+  [
+   "'\u2014'",
+   -0.048
+  ],
+  [
+   "' [\u2026]'",
+   -0.047
+  ],
+  [
+   "' [...]'",
+   -0.047
+  ],
+  [
+   "'...'",
+   -0.045
+  ],
+  [
+   "'virt'",
+   -0.045
+  ],
+  [
+   "' and'",
+   -0.043
+  ]
+ ],
+ "boost_in_top12_dropped": 0,
+ "dLogit_boost_mean": -0.0093,
+ "dLogit_boost_se": 0.0028,
+ "dLogit_control_mean": -0.0048,
+ "dLogit_control_se": 0.0011,
+ "dLogit_allvocab_mean": -0.0035,
+ "n_causal": 2908,
+ "boost_minus_control_mean": -0.0045,
+ "boost_minus_control_se": 0.0026,
+ "boost_minus_control_z": -1.7,
+ "n_causal_next_in_boost": 2,
+ "CE_increase_on_actual_boost_next": null
+}
+
+=== verifying h.L6.0 ===
+{
+ "comp": "h.L6.0",
+ "kind": "head",
+ "discovered_boost": "therefore/also/but/or/so (lowercase connectives)",
+ "discovered_trigger": "sentence-end . \\n ; ? !",
+ "heldout_top50_cur": [
+  [
+   "'.'",
+   40
+  ],
+  [
+   "'\\n'",
+   4
+  ],
+  [
+   "').'",
+   2
+  ],
+  [
+   "'\"'",
+   1
+  ],
+  [
+   "' \"'",
+   1
+  ],
+  [
+   "');'",
+   1
+  ]
+ ],
+ "heldout_cur_purity": 0.79,
+ "heldout_top50_src": [
+  [
+   "'.'",
+   35
+  ],
+  [
+   "' but'",
+   2
+  ],
+  [
+   "').'",
+   2
+  ],
+  [
+   "'!'",
+   1
+  ],
+  [
+   "'\\n'",
+   1
+  ],
+  [
+   "' the'",
+   1
+  ]
+ ],
+ "heldout_src_purity": 0.65,
+ "n_token_matched": 1249,
+ "firing_rate_matched": 0.9,
+ "selectivity_trig/median": 3.26,
+ "boost_ids_tested": [
+  "' therefore'",
+  "' also'",
+  "' but'",
+  "' or'",
+  "' so'",
+  "' and'",
+  "' however'",
+  "' thus'"
+ ],
+ "alt_boost_name": "capitalized sentence-openers (Lastly/Finally/Similarly/Additionally...)",
+ "alt_boost_ids_tested": [
+  "'Lastly'",
+  "'Finally'",
+  "'Similarly'",
+  "'Additionally'",
+  "'Another'",
+  "'However'",
+  "'Therefore'",
+  "'Moreover'",
+  "'Furthermore'",
+  "'Also'",
+  "'Thus'",
+  "'Meanwhile'",
+  "'Instead'"
+ ],
+ "most_dropped_tokens": [
+  [
+   "'Lastly'",
+   -0.073
+  ],
+  [
+   "' Lastly'",
+   -0.069
+  ],
+  [
+   "'Other'",
+   -0.065
+  ],
+  [
+   "'Finally'",
+   -0.065
+  ],
+  [
+   "'Also'",
+   -0.06
+  ],
+  [
+   "'Similarly'",
+   -0.059
+  ],
+  [
+   "' Finally'",
+   -0.056
+  ],
+  [
+   "'Beyond'",
+   -0.056
+  ],
+  [
+   "' Miscellaneous'",
+   -0.055
+  ],
+  [
+   "'Additionally'",
+   -0.055
+  ],
+  [
+   "'Another'",
+   -0.055
+  ],
+  [
+   "' likewise'",
+   -0.055
+  ]
+ ],
+ "boost_in_top12_dropped": 0,
+ "dLogit_boost_mean": -0.004,
+ "dLogit_boost_se": 0.0027,
+ "dLogit_control_mean": -0.0064,
+ "dLogit_control_se": 0.0009,
+ "dLogit_allvocab_mean": -0.0058,
+ "n_causal": 1249,
+ "boost_minus_control_mean": 0.0024,
+ "boost_minus_control_se": 0.0027,
+ "boost_minus_control_z": 0.86,
+ "alt_dLogit_mean": -0.0389,
+ "alt_minus_control_mean": -0.0325,
+ "alt_minus_control_z": -12.25,
+ "n_causal_next_in_boost": 5,
+ "CE_increase_on_actual_boost_next": 0.0948,
+ "CE_increase_se": 0.0431
+}
+
+=== verifying h.L8.3 ===
+{
+ "comp": "h.L8.3",
+ "kind": "head",
+ "discovered_boost": "18/15/13/17 (nearby day-numbers)",
+ "discovered_trigger": "attending a day-number source ' 1'..' 31'",
+ "heldout_top50_cur": [
+  [
+   "'\\n'",
+   18
+  ],
+  [
+   "'-'",
+   4
+  ],
+  [
+   "' ('",
+   4
+  ],
+  [
+   "' and'",
+   2
+  ],
+  [
+   "' Bart'",
+   2
+  ],
+  [
+   "')'",
+   1
+  ]
+ ],
+ "heldout_cur_purity": 0.337,
+ "heldout_top50_src": [
+  [
+   "'Fl'",
+   2
+  ],
+  [
+   "'Published'",
+   2
+  ],
+  [
+   "'Jump'",
+   2
+  ],
+  [
+   "'olini'",
+   2
+  ],
+  [
+   "'D'",
+   1
+  ],
+  [
+   "'M'",
+   1
+  ]
+ ],
+ "heldout_src_purity": 0.028,
+ "n_token_matched": 281,
+ "firing_rate_matched": 0.683,
+ "selectivity_trig/median": 3.37,
+ "boost_ids_tested": [
+  "' 17'",
+  "' 18'",
+  "' 15'",
+  "' 13'",
+  "' 14'",
+  "' 16'",
+  "' 12'",
+  "' 19'"
+ ],
+ "most_dropped_tokens": [
+  [
+   "'PLE'",
+   -0.12
+  ],
+  [
+   "' excuse'",
+   -0.109
+  ],
+  [
+   "' [*'",
+   -0.103
+  ],
+  [
+   "'MORE'",
+   -0.099
+  ],
+  [
+   "' APPLIC'",
+   -0.096
+  ],
+  [
+   "'NOTE'",
+   -0.093
+  ],
+  [
+   "'ADVERTISEMENT'",
+   -0.092
+  ],
+  [
+   "'LET'",
+   -0.091
+  ],
+  [
+   "'pdf'",
+   -0.091
+  ],
+  [
+   "' pleading'",
+   -0.091
+  ],
+  [
+   "'ription'",
+   -0.09
+  ],
+  [
+   "' ONLY'",
+   -0.09
+  ]
+ ],
+ "boost_in_top12_dropped": 0,
+ "dLogit_boost_mean": 0.0037,
+ "dLogit_boost_se": 0.0109,
+ "dLogit_control_mean": -0.0187,
+ "dLogit_control_se": 0.0058,
+ "dLogit_allvocab_mean": -0.0195,
+ "n_causal": 281,
+ "boost_minus_control_mean": 0.0224,
+ "boost_minus_control_se": 0.0134,
+ "boost_minus_control_z": 1.67,
+ "n_causal_next_in_boost": 5,
+ "CE_increase_on_actual_boost_next": 0.106,
+ "CE_increase_se": 0.0755
+}
+
+SAVED qk_unsup_verify2.json
+QK UNSUP VERIFY2 DONE

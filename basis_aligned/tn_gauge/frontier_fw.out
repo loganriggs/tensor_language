@@ -1,0 +1,16 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+fitting FineWeb covariance (500 seqs)...
+  fit on 256000 FineWeb tokens
+baseline CE (FineWeb held-out) 3.1579; used-subspace (fit 256000 FineWeb tok) vs generic low-rank:
+
+layer 1:  r | USED (held-out) | generic low-rank
+          64 |   +0.0178      |   +0.1003
+          128 |   +0.0034      |   +0.0549
+          256 |   +0.0010      |   +0.0200
+
+layer 9:  r | USED (held-out) | generic low-rank
+          64 |   +0.0101      |   +0.0135
+          128 |   +0.0058      |   +0.0096
+          256 |   +0.0027      |   +0.0055
+
+bilin18 used frontier fineweb done

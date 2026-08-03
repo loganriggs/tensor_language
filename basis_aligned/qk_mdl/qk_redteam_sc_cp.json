@@ -1,0 +1,272 @@
+{
+ "meta": {
+  "model": "bilin18",
+  "held": "FW[448:600,:128]",
+  "train": "FW[0:256,:128]",
+  "target": "RESULTS section 105",
+  "source_json": "qk_sharedcore.json"
+ },
+ "gates": {},
+ "gauge": {},
+ "centpair": {
+  "centered_k15plusmean_vs_rank_16": {
+   "centered_atoms": 15,
+   "total_atoms_counted": 16,
+   "compression_x": 1.125,
+   "centered_dCE": 0.0104,
+   "centered_SE": 0.00102,
+   "rank_alloc_config": [
+    1152,
+    1024
+   ],
+   "rank_alloc_dCE": 0.0092,
+   "rank_alloc_SE": 0.00107,
+   "paired_centered_minus_rank": 0.0012,
+   "paired_SE": 0.00138,
+   "z": 0.9
+  },
+  "centered_k11plusmean_vs_rank_12": {
+   "centered_atoms": 11,
+   "total_atoms_counted": 12,
+   "compression_x": 1.5,
+   "centered_dCE": 0.0612,
+   "centered_SE": 0.00277,
+   "rank_alloc_config": [
+    1006,
+    1006
+   ],
+   "rank_alloc_dCE": 0.0468,
+   "rank_alloc_SE": 0.00226,
+   "paired_centered_minus_rank": 0.0144,
+   "paired_SE": 0.00296,
+   "z": 4.9
+  },
+  "centered_k7plusmean_vs_rank_8": {
+   "centered_atoms": 7,
+   "total_atoms_counted": 8,
+   "compression_x": 2.25,
+   "centered_dCE": 0.3935,
+   "centered_SE": 0.00683,
+   "rank_alloc_config": [
+    879,
+    879
+   ],
+   "rank_alloc_dCE": 0.1217,
+   "rank_alloc_SE": 0.00385,
+   "paired_centered_minus_rank": 0.2718,
+   "paired_SE": 0.00595,
+   "z": 45.7
+  },
+  "centered_k3plusmean_vs_rank_4": {
+   "centered_atoms": 3,
+   "total_atoms_counted": 4,
+   "compression_x": 4.5,
+   "centered_dCE": 2.1986,
+   "centered_SE": 0.01702,
+   "rank_alloc_config": [
+    696,
+    696
+   ],
+   "rank_alloc_dCE": 0.3118,
+   "rank_alloc_SE": 0.00659,
+   "paired_centered_minus_rank": 1.8868,
+   "paired_SE": 0.01555,
+   "z": 121.3
+  },
+  "in_pooled_out_grad_k16_vs_rank": {
+   "atoms": "in_pooled_out_grad",
+   "k": 16,
+   "compression_x": 1.125,
+   "shared_dCE": 0.013,
+   "shared_SE": 0.00114,
+   "rank_alloc_config": [
+    1152,
+    1024
+   ],
+   "rank_alloc_dCE": 0.0092,
+   "rank_alloc_SE": 0.00107,
+   "paired_shared_minus_rank": 0.0037,
+   "paired_SE": 0.00143,
+   "z": 2.6
+  },
+  "in_pooled_out_grad_k12_vs_rank": {
+   "atoms": "in_pooled_out_grad",
+   "k": 12,
+   "compression_x": 1.5,
+   "shared_dCE": 0.0452,
+   "shared_SE": 0.00226,
+   "rank_alloc_config": [
+    1006,
+    1006
+   ],
+   "rank_alloc_dCE": 0.0468,
+   "rank_alloc_SE": 0.00226,
+   "paired_shared_minus_rank": -0.0016,
+   "paired_SE": 0.00264,
+   "z": -0.6
+  },
+  "in_pooled_out_grad_k8_vs_rank": {
+   "atoms": "in_pooled_out_grad",
+   "k": 8,
+   "compression_x": 2.25,
+   "shared_dCE": 1.0158,
+   "shared_SE": 0.01198,
+   "rank_alloc_config": [
+    879,
+    879
+   ],
+   "rank_alloc_dCE": 0.1217,
+   "rank_alloc_SE": 0.00385,
+   "paired_shared_minus_rank": 0.8941,
+   "paired_SE": 0.01043,
+   "z": 85.8
+  },
+  "in_pooled_out_act_k16_vs_rank": {
+   "atoms": "in_pooled_out_act",
+   "k": 16,
+   "compression_x": 1.125,
+   "shared_dCE": 0.0285,
+   "shared_SE": 0.00176,
+   "rank_alloc_config": [
+    1152,
+    1024
+   ],
+   "rank_alloc_dCE": 0.0092,
+   "rank_alloc_SE": 0.00107,
+   "paired_shared_minus_rank": 0.0193,
+   "paired_SE": 0.00184,
+   "z": 10.5
+  },
+  "in_pooled_out_act_k12_vs_rank": {
+   "atoms": "in_pooled_out_act",
+   "k": 12,
+   "compression_x": 1.5,
+   "shared_dCE": 0.1876,
+   "shared_SE": 0.00465,
+   "rank_alloc_config": [
+    1006,
+    1006
+   ],
+   "rank_alloc_dCE": 0.0468,
+   "rank_alloc_SE": 0.00226,
+   "paired_shared_minus_rank": 0.1408,
+   "paired_SE": 0.00423,
+   "z": 33.3
+  },
+  "in_pooled_out_act_k8_vs_rank": {
+   "atoms": "in_pooled_out_act",
+   "k": 8,
+   "compression_x": 2.25,
+   "shared_dCE": 1.1845,
+   "shared_SE": 0.01198,
+   "rank_alloc_config": [
+    879,
+    879
+   ],
+   "rank_alloc_dCE": 0.1217,
+   "rank_alloc_SE": 0.00385,
+   "paired_shared_minus_rank": 1.0628,
+   "paired_SE": 0.01066,
+   "z": 99.7
+  },
+  "centered_gradmetric_k15plusmean_vs_rank_16": {
+   "centered_atoms": 15,
+   "total_atoms_counted": 16,
+   "metric": "in_pooled_out_grad",
+   "compression_x": 1.125,
+   "shared_dCE": 0.0102,
+   "shared_SE": 0.00099,
+   "rank_alloc_config": [
+    1152,
+    1024
+   ],
+   "rank_alloc_dCE": 0.0092,
+   "rank_alloc_SE": 0.00107,
+   "paired_shared_minus_rank": 0.001,
+   "paired_SE": 0.00136,
+   "z": 0.7
+  },
+  "centered_gradmetric_k11plusmean_vs_rank_12": {
+   "centered_atoms": 11,
+   "total_atoms_counted": 12,
+   "metric": "in_pooled_out_grad",
+   "compression_x": 1.5,
+   "shared_dCE": 0.0413,
+   "shared_SE": 0.00217,
+   "rank_alloc_config": [
+    1006,
+    1006
+   ],
+   "rank_alloc_dCE": 0.0468,
+   "rank_alloc_SE": 0.00226,
+   "paired_shared_minus_rank": -0.0054,
+   "paired_SE": 0.00265,
+   "z": -2.1
+  },
+  "centered_gradmetric_k7plusmean_vs_rank_8": {
+   "centered_atoms": 7,
+   "total_atoms_counted": 8,
+   "metric": "in_pooled_out_grad",
+   "compression_x": 2.25,
+   "shared_dCE": 0.3858,
+   "shared_SE": 0.00675,
+   "rank_alloc_config": [
+    879,
+    879
+   ],
+   "rank_alloc_dCE": 0.1217,
+   "rank_alloc_SE": 0.00385,
+   "paired_shared_minus_rank": 0.2641,
+   "paired_SE": 0.00588,
+   "z": 44.9
+  },
+  "normeq_raw_k8_vs_rank": {
+   "atoms": "norm_equalized_raw_frobenius",
+   "k": 8,
+   "compression_x": 2.25,
+   "shared_dCE": 0.3662,
+   "shared_SE": 0.00789,
+   "rank_alloc_config": [
+    879,
+    879
+   ],
+   "rank_alloc_dCE": 0.1217,
+   "rank_alloc_SE": 0.00385,
+   "paired_shared_minus_rank": 0.2445,
+   "paired_SE": 0.00779,
+   "z": 31.4
+  },
+  "normeq_raw_k12_vs_rank": {
+   "atoms": "norm_equalized_raw_frobenius",
+   "k": 12,
+   "compression_x": 1.5,
+   "shared_dCE": 0.1777,
+   "shared_SE": 0.00498,
+   "rank_alloc_config": [
+    1006,
+    1006
+   ],
+   "rank_alloc_dCE": 0.0468,
+   "rank_alloc_SE": 0.00226,
+   "paired_shared_minus_rank": 0.1309,
+   "paired_SE": 0.00514,
+   "z": 25.5
+  },
+  "normeq_raw_k16_vs_rank": {
+   "atoms": "norm_equalized_raw_frobenius",
+   "k": 16,
+   "compression_x": 1.125,
+   "shared_dCE": 0.0197,
+   "shared_SE": 0.00159,
+   "rank_alloc_config": [
+    1152,
+    1024
+   ],
+   "rank_alloc_dCE": 0.0092,
+   "rank_alloc_SE": 0.00107,
+   "paired_shared_minus_rank": 0.0104,
+   "paired_SE": 0.00182,
+   "z": 5.7
+  }
+ }
+}

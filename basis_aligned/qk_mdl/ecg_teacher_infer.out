@@ -1,0 +1,41 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785232611.204968   65005 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785232611.205384   65005 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785232611.768857   65005 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785232611.769039   65005 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+teacher loaded; params 6425638 out (None, 6)
+scale sweep (teacher AUC vs PTB-XL labels):
+  scale 1.0: {'1dAVb': 0.962, 'RBBB': 0.997, 'LBBB': 0.998} mean 0.986
+  scale 5.0: {'1dAVb': 0.955, 'RBBB': 0.993, 'LBBB': 0.997} mean 0.982
+  scale 10.0: {'1dAVb': 0.926, 'RBBB': 0.982, 'LBBB': 0.987} mean 0.965
+  scale 20.0: {'1dAVb': 0.771, 'RBBB': 0.898, 'LBBB': 0.628} mean 0.766
+chosen scale 1.0 (mean teacher-vs-PTBXL AUC 0.986)
+train: soft labels (17418, 6), class means [0.031 0.024 0.028 0.017 0.067 0.031]
+val: soft labels (2183, 6), class means [0.029 0.023 0.026 0.02  0.064 0.033]
+test: soft labels (2198, 6), class means [0.027 0.024 0.026 0.015 0.066 0.034]
+{
+ "scale": 1.0,
+ "teacher_classes": [
+  "1dAVb",
+  "RBBB",
+  "LBBB",
+  "SB",
+  "AF",
+  "ST"
+ ],
+ "teacher_test_auc_vs_ptbxl": {
+  "1dAVb": 0.962,
+  "RBBB": 0.997,
+  "LBBB": 0.998
+ },
+ "class_prevalence_soft>0.5": {
+  "1dAVb": 44,
+  "RBBB": 64,
+  "LBBB": 62,
+  "SB": 35,
+  "AF": 148,
+  "ST": 87
+ }
+}
+ECG TEACHER INFER DONE

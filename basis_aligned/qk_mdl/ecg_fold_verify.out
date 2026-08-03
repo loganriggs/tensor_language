@@ -1,0 +1,25 @@
+per-layer fold relative error (should be ~1e-6): ['2.66e-07', '2.94e-07', '2.35e-07']
+neuron-permutation leaves folded tensor identical: ||dT||/||T|| = 3.13e-07 (so per-neuron ablation indexes a gauge, not a feature)
+block-0 tensor antisymmetric fraction (gauge, discard): 0.649
+G0 rank=96/96, cond=40.3
+{
+ "per_layer_fold_relerr": [
+  2.658961193446885e-07,
+  2.937537715297367e-07,
+  2.3467018195333367e-07
+ ],
+ "fold_is_exact": true,
+ "neuron_permutation_tensor_relerr": 3.1250417009687226e-07,
+ "block0_antisym_fraction": 0.6488,
+ "G0_rank": 96,
+ "G0_cond": 40.3,
+ "readspace_train_shape": [
+  348360,
+  96
+ ],
+ "readspace_test_shape": [
+  43960,
+  96
+ ]
+}
+ECG FOLD VERIFY DONE

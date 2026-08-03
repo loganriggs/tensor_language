@@ -1,0 +1,20 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+VERIFY head0 (error-static/signal-static): exact 0.3377 | sampled M=1024:1.0838 M=4096:0.5646 M=16384:0.4119
+=== em1024
+  head 0 trained
+  head 1 trained
+  head 2 trained
+  head 3 trained
+  head 4 trained
+  head 5 trained
+  head 6 trained
+  head 7 trained
+  head 8 trained
+  em1024: dCE +0.0027 @ 455.4 Mbit
+=== em1024_b256
+  em1024_b256: dCE +0.0023 @ 493.1 Mbit
+=== em4096k16
+  em4096k16 FAILED — continuing
+=== em4096k16_b1024
+  em4096k16_b1024 FAILED — continuing
+exact-moment arc complete

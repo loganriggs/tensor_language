@@ -1,0 +1,14 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/workspace/tensor_language/basis_aligned/qk_mdl/qk_minimal_heads.py:261: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:838.)
+  ema = 0.99 * ema + 0.01 * float(mm3)
+h1 (m=512,k=2): stage mres 0.0490 cp 0.3602 | polish mres 0.0481 cp 0.3284 null 0.9817 | copy_cos top-arch -0.001
+h2 (m=32,k=1): stage mres 0.0021 cp 0.0419 | polish mres 0.0026 cp 0.0422 null 0.9976 | copy_cos top-arch -0.004
+h3 (m=512,k=2): stage mres 0.0494 cp 0.3519 | polish mres 0.0454 cp 0.3539 null 0.9958 | copy_cos top-arch 0.028
+h5 (m=256,k=2): stage mres 0.0380 cp 0.1193 | polish mres 0.0409 cp 0.1197 null 0.9983 | copy_cos top-arch -0.001
+h6 (m=256,k=1): stage mres 0.0325 cp 0.2491 | polish mres 0.0389 cp 0.2461 null 0.9807 | copy_cos top-arch 0.007
+h7 (m=512,k=4): stage mres 0.0473 cp 0.0289 | polish mres 0.0443 cp 0.0312 null 0.9999 | copy_cos top-arch -0.084
+h8 (m=128,k=1): stage mres 0.0406 cp 0.2888 | polish mres 0.0458 cp 0.2738 null 0.9406 | copy_cos top-arch 0.017
+h0: branch-agree mean 0.428 copy_cos mean 0.016
+h4: branch-agree mean 0.595 copy_cos mean -0.058
+MINIMAL HEADS DONE

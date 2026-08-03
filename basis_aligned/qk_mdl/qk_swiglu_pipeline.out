@@ -1,0 +1,151 @@
+GPU guard: 15841 MiB free -- proceeding.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+swiglu18 NL=18 D=1152 NH=9 held 152x128
+BASE: full-model cross-entropy on held slice ...
+base CE mean 3.4108 (sanity: 3.41)
+PASS 1: per-position group means + MLP-output means + group-sum gate (all layers) ...
+L 0 GATE group-sum rel err max 0.00e+00 | group msq shares {'E': 0.028, 'Ae': 0.0, 'Ar': 0.9052, 'Me': 0.0, 'Mr': 0.0}
+L 1 GATE group-sum rel err max 5.48e-08 | group msq shares {'E': 0.0095, 'Ae': 0.0225, 'Ar': 0.5946, 'Me': 0.0, 'Mr': 0.0192}
+L 2 GATE group-sum rel err max 7.30e-08 | group msq shares {'E': 0.0106, 'Ae': 0.1816, 'Ar': 0.2321, 'Me': 0.0043, 'Mr': 0.025}
+L 3 GATE group-sum rel err max 7.84e-08 | group msq shares {'E': 0.007, 'Ae': 0.1937, 'Ar': 0.2075, 'Me': 0.0096, 'Mr': 0.0441}
+L 4 GATE group-sum rel err max 7.78e-08 | group msq shares {'E': 0.0033, 'Ae': 0.1304, 'Ar': 0.1792, 'Me': 0.0126, 'Mr': 0.2159}
+L 5 GATE group-sum rel err max 8.35e-08 | group msq shares {'E': 0.0023, 'Ae': 0.1293, 'Ar': 0.2525, 'Me': 0.0611, 'Mr': 0.0344}
+L 6 GATE group-sum rel err max 8.03e-08 | group msq shares {'E': 0.001, 'Ae': 0.1208, 'Ar': 0.3128, 'Me': 0.0251, 'Mr': 0.0295}
+L 7 GATE group-sum rel err max 8.27e-08 | group msq shares {'E': 0.0003, 'Ae': 0.0942, 'Ar': 0.4333, 'Me': 0.0105, 'Mr': 0.0073}
+L 8 GATE group-sum rel err max 1.02e-07 | group msq shares {'E': 0.0006, 'Ae': 0.3135, 'Ar': 0.1475, 'Me': 0.0086, 'Mr': 0.0088}
+L 9 GATE group-sum rel err max 1.16e-07 | group msq shares {'E': 0.001, 'Ae': 0.5793, 'Ar': 0.0244, 'Me': 0.0159, 'Mr': 0.0092}
+L10 GATE group-sum rel err max 1.40e-07 | group msq shares {'E': 0.001, 'Ae': 0.3831, 'Ar': 0.0919, 'Me': 0.0175, 'Mr': 0.0069}
+L11 GATE group-sum rel err max 1.45e-07 | group msq shares {'E': 0.001, 'Ae': 0.3166, 'Ar': 0.1366, 'Me': 0.0135, 'Mr': 0.0046}
+L12 GATE group-sum rel err max 1.91e-07 | group msq shares {'E': 0.0017, 'Ae': 0.6159, 'Ar': 0.0118, 'Me': 0.0189, 'Mr': 0.0077}
+L13 GATE group-sum rel err max 2.38e-07 | group msq shares {'E': 0.0025, 'Ae': 0.6611, 'Ar': 0.0048, 'Me': 0.0333, 'Mr': 0.0055}
+L14 GATE group-sum rel err max 2.79e-07 | group msq shares {'E': 0.003, 'Ae': 0.6578, 'Ar': 0.003, 'Me': 0.0466, 'Mr': 0.0047}
+L15 GATE group-sum rel err max 2.80e-07 | group msq shares {'E': 0.0033, 'Ae': 0.6544, 'Ar': 0.0031, 'Me': 0.0589, 'Mr': 0.0049}
+L16 GATE group-sum rel err max 3.36e-07 | group msq shares {'E': 0.0027, 'Ae': 0.6282, 'Ar': 0.0121, 'Me': 0.0703, 'Mr': 0.1355}
+L17 GATE group-sum rel err max 4.42e-07 | group msq shares {'E': 0.002, 'Ae': 0.5137, 'Ar': 0.0075, 'Me': 0.1655, 'Mr': 0.0338}
+L 0 floor +0.4056 +- 0.00724 (prior 0.40558) match=True
+  L0 ablate E   dCE +0.0518 +- 0.00271  frac_of_floor +0.128  z 19.1
+  L0 ablate Ae  ABSENT (zero stream)
+  L0 ablate Ar  dCE +0.0706 +- 0.00335  frac_of_floor +0.174  z 21.1
+  L0 ablate Me  ABSENT (zero stream)
+  L0 ablate Mr  ABSENT (zero stream)
+L0 DONE (3s) dead=[] absent=['Ae', 'Me', 'Mr']
+L 1 floor +0.4815 +- 0.00792 (prior 0.48146) match=True
+  L1 ablate E   dCE +0.0415 +- 0.00232  frac_of_floor +0.086  z 17.9
+  L1 ablate Ae  dCE +0.0002 +- 0.00045  frac_of_floor +0.000  z 0.5  DEAD
+  L1 ablate Ar  dCE +0.0654 +- 0.00334  frac_of_floor +0.136  z 19.6
+  L1 ablate Me  ABSENT (zero stream)
+  L1 ablate Mr  dCE +0.0301 +- 0.00209  frac_of_floor +0.062  z 14.4
+L1 DONE (5s) dead=['Ae'] absent=['Me']
+L 2 floor +0.7592 +- 0.00962 (prior 0.75924) match=True
+  L2 ablate E   dCE +0.0242 +- 0.00169  frac_of_floor +0.032  z 14.4
+  L2 ablate Ae  dCE +0.0031 +- 0.00083  frac_of_floor +0.004  z 3.7  DEAD
+  L2 ablate Ar  dCE +0.0511 +- 0.00271  frac_of_floor +0.067  z 18.9
+  L2 ablate Me  dCE +0.0030 +- 0.00059  frac_of_floor +0.004  z 5.1  DEAD
+  L2 ablate Mr  dCE +0.0321 +- 0.00216  frac_of_floor +0.042  z 14.9
+L2 DONE (6s) dead=['Ae', 'Me'] absent=[]
+L 3 floor +0.6467 +- 0.00873 (prior 0.64671) match=True
+  L3 ablate E   dCE +0.0101 +- 0.00105  frac_of_floor +0.016  z 9.6
+  L3 ablate Ae  dCE +0.0069 +- 0.00094  frac_of_floor +0.011  z 7.3  DEAD
+  L3 ablate Ar  dCE +0.0440 +- 0.00237  frac_of_floor +0.068  z 18.5
+  L3 ablate Me  dCE +0.0045 +- 0.00081  frac_of_floor +0.007  z 5.6  DEAD
+  L3 ablate Mr  dCE +0.0450 +- 0.00244  frac_of_floor +0.070  z 18.4
+L3 DONE (6s) dead=['Ae', 'Me'] absent=[]
+L 4 floor +0.4559 +- 0.00731 (prior 0.45593) match=True
+  L4 ablate E   dCE +0.0052 +- 0.00071  frac_of_floor +0.011  z 7.3  DEAD
+  L4 ablate Ae  dCE +0.0084 +- 0.00100  frac_of_floor +0.018  z 8.4  DEAD
+  L4 ablate Ar  dCE +0.0390 +- 0.00217  frac_of_floor +0.086  z 18.0
+  L4 ablate Me  dCE +0.0125 +- 0.00121  frac_of_floor +0.027  z 10.3
+  L4 ablate Mr  dCE +0.0372 +- 0.00220  frac_of_floor +0.082  z 16.9
+L4 DONE (6s) dead=['E', 'Ae'] absent=[]
+L 5 floor +0.3415 +- 0.00626 (prior 0.34151) match=True
+  L5 ablate E   dCE +0.0026 +- 0.00064  frac_of_floor +0.008  z 4.1  DEAD
+  L5 ablate Ae  dCE +0.0072 +- 0.00111  frac_of_floor +0.021  z 6.5  DEAD
+  L5 ablate Ar  dCE +0.0730 +- 0.00308  frac_of_floor +0.214  z 23.7
+  L5 ablate Me  dCE +0.0159 +- 0.00142  frac_of_floor +0.046  z 11.2
+  L5 ablate Mr  dCE +0.0286 +- 0.00196  frac_of_floor +0.084  z 14.6
+L5 DONE (6s) dead=['E', 'Ae'] absent=[]
+L 6 floor +0.1635 +- 0.00441 (prior 0.16355) match=True
+  L6 ablate E   dCE +0.0021 +- 0.00042  frac_of_floor +0.013  z 5.0  DEAD
+  L6 ablate Ae  dCE +0.0104 +- 0.00109  frac_of_floor +0.064  z 9.6
+  L6 ablate Ar  dCE +0.0464 +- 0.00243  frac_of_floor +0.284  z 19.1
+  L6 ablate Me  dCE +0.0112 +- 0.00112  frac_of_floor +0.068  z 9.9
+  L6 ablate Mr  dCE +0.0298 +- 0.00190  frac_of_floor +0.182  z 15.7
+L6 DONE (6s) dead=['E'] absent=[]
+L 7 floor +0.1191 +- 0.00373 (prior 0.1191) match=True
+  L7 ablate E   dCE +0.0006 +- 0.00031  frac_of_floor +0.005  z 2.0  DEAD
+  L7 ablate Ae  dCE +0.0094 +- 0.00109  frac_of_floor +0.079  z 8.6  DEAD
+  L7 ablate Ar  dCE +0.0335 +- 0.00195  frac_of_floor +0.281  z 17.2
+  L7 ablate Me  dCE +0.0120 +- 0.00124  frac_of_floor +0.101  z 9.7
+  L7 ablate Mr  dCE +0.0148 +- 0.00136  frac_of_floor +0.125  z 10.9
+L7 DONE (6s) dead=['E', 'Ae'] absent=[]
+L 8 floor +0.0988 +- 0.00338 (prior 0.09883) match=True
+  L8 ablate E   dCE +0.0013 +- 0.00039  frac_of_floor +0.014  z 3.4  DEAD
+  L8 ablate Ae  dCE +0.0187 +- 0.00152  frac_of_floor +0.189  z 12.3
+  L8 ablate Ar  dCE +0.0142 +- 0.00123  frac_of_floor +0.144  z 11.5
+  L8 ablate Me  dCE +0.0137 +- 0.00128  frac_of_floor +0.138  z 10.7
+  L8 ablate Mr  dCE +0.0156 +- 0.00129  frac_of_floor +0.158  z 12.2
+L8 DONE (6s) dead=['E'] absent=[]
+L 9 floor +0.0832 +- 0.00305 (prior 0.08324) match=True
+  L9 ablate E   dCE +0.0020 +- 0.00040  frac_of_floor +0.024  z 5.0  DEAD
+  L9 ablate Ae  dCE +0.0212 +- 0.00149  frac_of_floor +0.255  z 14.2
+  L9 ablate Ar  dCE +0.0070 +- 0.00085  frac_of_floor +0.084  z 8.3  DEAD
+  L9 ablate Me  dCE +0.0172 +- 0.00140  frac_of_floor +0.207  z 12.3
+  L9 ablate Mr  dCE +0.0138 +- 0.00119  frac_of_floor +0.165  z 11.6
+L9 DONE (6s) dead=['E', 'Ar'] absent=[]
+L10 floor +0.0739 +- 0.00293 (prior 0.07392) match=True
+  L10 ablate E   dCE +0.0014 +- 0.00042  frac_of_floor +0.019  z 3.4  DEAD
+  L10 ablate Ae  dCE +0.0152 +- 0.00129  frac_of_floor +0.205  z 11.8
+  L10 ablate Ar  dCE +0.0115 +- 0.00106  frac_of_floor +0.155  z 10.8
+  L10 ablate Me  dCE +0.0189 +- 0.00150  frac_of_floor +0.255  z 12.6
+  L10 ablate Mr  dCE +0.0090 +- 0.00103  frac_of_floor +0.122  z 8.7  DEAD
+L10 DONE (6s) dead=['E', 'Mr'] absent=[]
+L11 floor +0.0771 +- 0.00307 (prior 0.07708) match=True
+  L11 ablate E   dCE +0.0023 +- 0.00052  frac_of_floor +0.030  z 4.4  DEAD
+  L11 ablate Ae  dCE +0.0160 +- 0.00138  frac_of_floor +0.207  z 11.6
+  L11 ablate Ar  dCE +0.0106 +- 0.00115  frac_of_floor +0.138  z 9.3
+  L11 ablate Me  dCE +0.0190 +- 0.00151  frac_of_floor +0.246  z 12.6
+  L11 ablate Mr  dCE +0.0066 +- 0.00092  frac_of_floor +0.085  z 7.2  DEAD
+L11 DONE (6s) dead=['E', 'Mr'] absent=[]
+L12 floor +0.0557 +- 0.00260 (prior 0.05574) match=True
+  L12 ablate E   dCE +0.0021 +- 0.00053  frac_of_floor +0.037  z 3.9  DEAD
+  L12 ablate Ae  dCE +0.0185 +- 0.00150  frac_of_floor +0.332  z 12.3
+  L12 ablate Ar  dCE +0.0020 +- 0.00058  frac_of_floor +0.036  z 3.5  DEAD
+  L12 ablate Me  dCE +0.0172 +- 0.00146  frac_of_floor +0.309  z 11.8
+  L12 ablate Mr  dCE +0.0077 +- 0.00092  frac_of_floor +0.139  z 8.4  DEAD
+L12 DONE (6s) dead=['E', 'Ar', 'Mr'] absent=[]
+L13 floor +0.0437 +- 0.00230 (prior 0.04371) match=True
+  L13 ablate E   dCE +0.0029 +- 0.00054  frac_of_floor +0.066  z 5.3  DEAD
+  L13 ablate Ae  dCE +0.0170 +- 0.00139  frac_of_floor +0.389  z 12.2
+  L13 ablate Ar  dCE +0.0022 +- 0.00058  frac_of_floor +0.050  z 3.7  DEAD
+  L13 ablate Me  dCE +0.0195 +- 0.00148  frac_of_floor +0.447  z 13.2
+  L13 ablate Mr  dCE +0.0048 +- 0.00076  frac_of_floor +0.109  z 6.3  DEAD
+L13 DONE (6s) dead=['E', 'Ar', 'Mr'] absent=[]
+L14 floor +0.0403 +- 0.00225 (prior 0.04032) match=True
+  L14 ablate E   dCE +0.0024 +- 0.00055  frac_of_floor +0.060  z 4.4  DEAD
+  L14 ablate Ae  dCE +0.0175 +- 0.00146  frac_of_floor +0.433  z 12.0
+  L14 ablate Ar  dCE +0.0003 +- 0.00030  frac_of_floor +0.007  z 1.0  DEAD
+  L14 ablate Me  dCE +0.0241 +- 0.00168  frac_of_floor +0.597  z 14.3
+  L14 ablate Mr  dCE +0.0035 +- 0.00068  frac_of_floor +0.087  z 5.2  DEAD
+L14 DONE (6s) dead=['E', 'Ar', 'Mr'] absent=[]
+L15 floor +0.0485 +- 0.00245 (prior 0.04855) match=True
+  L15 ablate E   dCE +0.0030 +- 0.00056  frac_of_floor +0.062  z 5.3  DEAD
+  L15 ablate Ae  dCE +0.0170 +- 0.00147  frac_of_floor +0.350  z 11.6
+  L15 ablate Ar  dCE +0.0010 +- 0.00037  frac_of_floor +0.021  z 2.7  DEAD
+  L15 ablate Me  dCE +0.0319 +- 0.00196  frac_of_floor +0.656  z 16.3
+  L15 ablate Mr  dCE +0.0041 +- 0.00067  frac_of_floor +0.085  z 6.1  DEAD
+L15 DONE (6s) dead=['E', 'Ar', 'Mr'] absent=[]
+L16 floor +0.0971 +- 0.00376 (prior 0.09712) match=True
+  L16 ablate E   dCE +0.0032 +- 0.00061  frac_of_floor +0.032  z 5.2  DEAD
+  L16 ablate Ae  dCE +0.0226 +- 0.00167  frac_of_floor +0.232  z 13.5
+  L16 ablate Ar  dCE +0.0014 +- 0.00042  frac_of_floor +0.014  z 3.2  DEAD
+  L16 ablate Me  dCE +0.0500 +- 0.00248  frac_of_floor +0.515  z 20.2
+  L16 ablate Mr  dCE +0.0095 +- 0.00101  frac_of_floor +0.098  z 9.4  DEAD
+L16 DONE (6s) dead=['E', 'Ar', 'Mr'] absent=[]
+L17 floor +0.4319 +- 0.00951 (prior 0.43186) match=True
+  L17 ablate E   dCE +0.0107 +- 0.00104  frac_of_floor +0.025  z 10.4
+  L17 ablate Ae  dCE +0.0759 +- 0.00290  frac_of_floor +0.176  z 26.1
+  L17 ablate Ar  dCE +0.0025 +- 0.00046  frac_of_floor +0.006  z 5.4  DEAD
+  L17 ablate Me  dCE +0.1294 +- 0.00395  frac_of_floor +0.300  z 32.8
+  L17 ablate Mr  dCE +0.0328 +- 0.00210  frac_of_floor +0.076  z 15.6
+L17 DONE (13s) dead=['Ar'] absent=[]
+QK SWIGLU PIPELINE DONE

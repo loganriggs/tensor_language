@@ -1,0 +1,38 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+swiglu18: NH9 HD128 D1152 NL18 V50304
+swiglu18 base CE(128) 3.200 | induction adv 2.890 {'subword': 2.23, 'punct': 1.42, 'capital': 4.79, 'digit': 3.02, 'newline': 1.07, 'funcword': 2.15}
+importance matrix computed
+
+UNIVERSAL: ["('m', 3)", "('m', 4)", "('m', 5)", "('m', 2)", "('m', 0)", "('m', 1)", "('h', 5, 2)", "('m', 7)"]
+task correlations:
+  capital~subword: 0.97
+  funcword~punct: 0.969
+  newline~punct: 0.872
+  capital~digit: 0.841
+  funcword~newline: 0.823
+  capital~funcword: 0.815
+  digit~subword: 0.809
+  capital~punct: 0.779
+  funcword~subword: 0.766
+  punct~subword: 0.713
+  digit~funcword: 0.708
+  digit~punct: 0.687
+  capital~newline: 0.493
+  digit~newline: 0.454
+  newline~subword: 0.414
+  digit~induction: -0.317
+  induction~newline: -0.376
+  funcword~induction: -0.58
+  induction~punct: -0.582
+  capital~induction: -0.61
+  induction~subword: -0.614
+head/MLP mass:
+  subword: heads 0.17/MLP 0.83  top5 ["('m', 17)", "('m', 3)", "('m', 2)", "('m', 1)", "('m', 0)"]
+  punct: heads 0.21/MLP 0.79  top5 ["('m', 3)", "('m', 2)", "('m', 0)", "('m', 1)", "('m', 5)"]
+  capital: heads 0.17/MLP 0.83  top5 ["('m', 17)", "('m', 3)", "('m', 2)", "('m', 1)", "('m', 0)"]
+  digit: heads 0.39/MLP 0.61  top5 ["('m', 17)", "('h', 4, 4)", "('m', 0)", "('m', 3)", "('m', 2)"]
+  newline: heads 0.30/MLP 0.70  top5 ["('m', 3)", "('m', 5)", "('m', 4)", "('m', 2)", "('m', 0)"]
+  funcword: heads 0.19/MLP 0.81  top5 ["('m', 3)", "('m', 2)", "('m', 1)", "('m', 4)", "('m', 0)"]
+  induction: heads 1.00/MLP 0.00  top5 ["('h', 5, 2)", "('h', 4, 4)", "('h', 3, 7)", "('h', 4, 8)", "('h', 6, 3)"]
+
+QK ATLAS BILINSM12 DONE

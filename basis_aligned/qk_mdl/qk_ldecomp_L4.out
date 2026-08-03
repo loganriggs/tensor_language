@@ -1,0 +1,18 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[L4] (a) GATE rms-gauge MLP4 composed fold: relerr 9.26e-07
+[L4] bases ready
+[L4] (b) base CE 3.1957 | sub(pca) dCE +0.00274 (SEtok 0.000267, SErow 0.000325) | recon ctrl 5.82e-08
+[L4]     null s1/s2: +0.00906/+0.01001 | MLP floor +0.27666 | uniform-headroom kept 99.964%
+[L4] (c) templates ready
+[L4] (c) normal equations done
+[L4]   H0: r2_full 0.469 r2_tpl 0.459 gain 0.01 top=PREV1 (-0.0118) [positional]
+[L4]   H1: r2_full 0.304 r2_tpl 0.276 gain 0.027 top=PREV1 (-0.0356) [positional]
+[L4]   H2: r2_full 0.145 r2_tpl 0.138 gain 0.008 top=MATCH_prev (0.0211) [unexplained]
+[L4]   H3: r2_full 0.436 r2_tpl 0.431 gain 0.005 top=PREV1 (-0.0239) [positional]
+[L4]   H4: r2_full 0.198 r2_tpl 0.173 gain 0.025 top=MATCH_same (0.0208) [unexplained]
+[L4]   H5: r2_full 0.133 r2_tpl 0.113 gain 0.02 top=PREV1 (0.057) [unexplained]
+[L4]   H6: r2_full 0.106 r2_tpl 0.103 gain 0.003 top=MATCH_same (-0.0121) [unexplained]
+[L4]   H7: r2_full 0.57 r2_tpl 0.548 gain 0.022 top=PREV1 (0.0574) [positional]
+[L4]   H8: r2_full 0.396 r2_tpl 0.374 gain 0.022 top=KEY_punct (0.0152) [positional]
+{"layer": 4, "gauge": "9.3e-07", "sub_dCE": 0.00274, "null_dCE": 0.00906, "floor_dCE": 0.27666, "n_programmatic": 0}
+QK LAYER DECOMP L4 DONE

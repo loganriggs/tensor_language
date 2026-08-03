@@ -1,0 +1,36 @@
+GPU guard: 15841 MiB free -- proceeding.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+bilin18 NL=18 D=1152 NH=9 held 152x128
+PASS 1: term means + reconstruction gate + raw live terms ...
+GATE recon global 5.69e-07 maxpos 9.39e-07 groupsum 0.00e+00 meancons 1.47e-07
+raw term storage finite; max |term| = 10128.0
+BASE: full-model cross-entropy ...
+base CE mean 3.4946
+classes (15); 353 special ids
+H1 ExE: current-token R^2 = 0.9533 (548 tokens >=5 occ, 12165/19456 positions; shuffled control 0.0441)
+H1 control: ExE NUMERATOR (gauge removed) current-token R^2 = 1.000000 (should be ~1: E = cE*x0 is exactly token-determined at layer 0)
+H2 ExAr (pairs >=5 occ): pair R^2 0.8612 (shuf 0.0812) | current-alone 0.7057 | previous-alone 0.4643 | coverage 0.114
+H2 ExAr (pairs >=3 occ): pair R^2 0.8830 (shuf 0.1762) | current-alone 0.6872 | previous-alone 0.4728 | coverage 0.189
+H2 singles on own >=5 subsets: current 0.5810 previous 0.1852
+contrast: ArxAr current-token R^2 = 0.3815 (pure-context expectation: low)
+H1 example tokens: [("','", 640), ("' F'", 8), ("' D'", 11)]
+H2 example pairs: [("' Blue'", "','"), ("' but'", "' that'"), ("'9'", "'.'")]
+PASS B: 3 drop-one configurations x 26 batches ...
+  batch 1/26  0s
+  batch 6/26  1s
+  batch 11/26  2s
+  batch 16/26  3s
+  batch 21/26  4s
+  batch 26/26  5s
+PASS B done in 5s
+ExE: drop-one dCE +0.1115+-0.00374 (census 0.1115) | fire push capital conc 0.4091 | all push word conc 0.4074
+ExAr: drop-one dCE +0.0771+-0.00319 (census 0.0771) | fire push capital conc 0.3667 | all push word conc 0.6746
+ArxAr: drop-one dCE +0.0260+-0.00183 (census 0.026) | fire push capital conc 0.549 | all push word conc 0.5154
+H1 example ',' (n=628): boosts ['illusion', 'prototype', 'thumbnails', 'fascist', 'intent']
+H1 example ' F' (n=8): boosts ['orns', 'enda', ' Horizon', ' needles', 'itz']
+H1 example ' D' (n=10): boosts [' JACK', ' Jack', ' Balanced', ' CHRIST', ' stereo']
+H2 example (' Blue',',') ctx ...'amned war. His commanding officer, Blue,': boosts [' scoff', ' sob', ' glared', ' sighed', ' Malfoy']
+H2 example (' but',' that') ctx ...'or me to make all these pizzas, but that': boosts [' anytime', ' whenever', ' projects', ' involved', ' until']
+H2 example ('9','.') ctx ...'Revenue | and Enhancing Product Line.\n9.': boosts [' Laugh', ' Dance', ' Thou', ' Die', ' Practices']
+Saved qk_arc_mlp0.json
+QK ARC MLP0 PART1 DONE

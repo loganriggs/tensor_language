@@ -1,0 +1,138 @@
+GPU guard: 15841 MiB free -- proceeding.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+bilin18 NL=18 D=1152 held 152x128 train 448x128
+PASS 0: per-position mlp-output means (blocks 0,3,5) + held rho2 at layer 0 ...
+BASE ...
+base CE 3.4946
+ATTACK 1: 25 configs x 26 batches ...
+  batch 1/26 (1s)
+  batch 6/26 (7s)
+  batch 11/26 (13s)
+  batch 16/26 (19s)
+  batch 21/26 (24s)
+  batch 26/26 (30s)
+ATTACK 1 forwards done (30s)
+  sanity_freeze_all_no_ablate dCE +0.00000 +- 0.000000
+  k2_real_total              dCE +0.02885 +- 0.001925
+  k2_real_freeze_next3       dCE +0.00469 +- 0.000770
+  k2_real_freeze_only4       dCE +0.00918 +- 0.001038
+  k2_rand_total              dCE +0.00793 +- 0.000970
+  k2_rand_freeze_next3       dCE +0.00266 +- 0.000467
+  k2_rand_freeze_only4       dCE +0.00296 +- 0.000598
+  k2_shuf_total              dCE +0.01602 +- 0.001377
+  k2_shuf_freeze_next3       dCE +0.00510 +- 0.000672
+  k2_real_freeze_only5       dCE +0.01506 +- 0.001259
+  k3_real_total              dCE +0.61627 +- 0.008417
+  k3_real_freeze_next4       dCE +0.10500 +- 0.003519
+  k3_real_freeze_only5       dCE +0.30098 +- 0.005723
+  k3_rand_total              dCE +0.04397 +- 0.002168
+  k3_rand_freeze_next4       dCE +0.01529 +- 0.001277
+  k3_rand_freeze_only5       dCE +0.02218 +- 0.001512
+  k3_shuf_total              dCE +0.07871 +- 0.002930
+  k3_shuf_freeze_next4       dCE +0.03296 +- 0.001814
+  k3_real_freeze_only6       dCE +0.27613 +- 0.005530
+  k5_real_total              dCE +0.09278 +- 0.003285
+  k5_real_freeze_next6       dCE +0.04526 +- 0.002272
+  k5_rand_total              dCE +0.03219 +- 0.001915
+  k5_rand_freeze_next6       dCE +0.01776 +- 0.001371
+  k5_real_freeze_only7       dCE +0.04558 +- 0.002322
+  k5_real_freeze_upstream3   dCE +0.09278 +- 0.003285
+{
+ "k2_real": {
+  "total_dCE": 0.02885,
+  "total_SE": 0.001925,
+  "freeze_next_dCE": 0.00469,
+  "freeze_next_rescue_fraction": 0.8374,
+  "freeze_only4_rescue_fraction": 0.6818,
+  "freeze_only5_rescue_fraction": 0.478,
+  "replication_gate": {
+   "anchor_total": 0.0288,
+   "got_total": 0.02885,
+   "anchor_freeze_next": 0.0047,
+   "got_freeze_next": 0.00469,
+   "pass": true
+  }
+ },
+ "k2_rand": {
+  "total_dCE": 0.00793,
+  "total_SE": 0.00097,
+  "freeze_next_dCE": 0.00266,
+  "freeze_next_rescue_fraction": 0.6646,
+  "freeze_only4_rescue_fraction": 0.6267
+ },
+ "k2_shuf": {
+  "total_dCE": 0.01602,
+  "total_SE": 0.001377,
+  "freeze_next_dCE": 0.0051,
+  "freeze_next_rescue_fraction": 0.6816
+ },
+ "k3_real": {
+  "total_dCE": 0.61627,
+  "total_SE": 0.008417,
+  "freeze_next_dCE": 0.105,
+  "freeze_next_rescue_fraction": 0.8296,
+  "freeze_only5_rescue_fraction": 0.5116,
+  "freeze_only6_rescue_fraction": 0.5519,
+  "replication_gate": {
+   "anchor_total": 0.6163,
+   "got_total": 0.61627,
+   "anchor_freeze_next": 0.105,
+   "got_freeze_next": 0.105,
+   "pass": true
+  }
+ },
+ "k3_rand": {
+  "total_dCE": 0.04397,
+  "total_SE": 0.002168,
+  "freeze_next_dCE": 0.01529,
+  "freeze_next_rescue_fraction": 0.6523,
+  "freeze_only5_rescue_fraction": 0.4956
+ },
+ "k3_shuf": {
+  "total_dCE": 0.07871,
+  "total_SE": 0.00293,
+  "freeze_next_dCE": 0.03296,
+  "freeze_next_rescue_fraction": 0.5812
+ },
+ "k5_real": {
+  "total_dCE": 0.09278,
+  "total_SE": 0.003285,
+  "freeze_next_dCE": 0.04526,
+  "freeze_next_rescue_fraction": 0.5122,
+  "freeze_only7_rescue_fraction": 0.5087,
+  "freeze_upstream3_rescue_fraction": 0.0,
+  "replication_gate": {
+   "anchor_total": 0.0928,
+   "got_total": 0.09278,
+   "anchor_freeze_next": 0.0453,
+   "got_freeze_next": 0.04526,
+   "pass": true
+  }
+ },
+ "k5_rand": {
+  "total_dCE": 0.03219,
+  "total_SE": 0.001915,
+  "freeze_next_dCE": 0.01776,
+  "freeze_next_rescue_fraction": 0.4483
+ }
+}
+ATTACK 2 PASS T: collect block-0 mlp outputs on TRAIN (truncated forward) ...
+token table: 11294 tokens seen in train
+building pair tables ...
+pair table: 2372 pairs with count >= 3 (of 39690 unique train pairs)
+held coverage: token-seen 0.8480, pair-covered 0.1886
+ATTACK 2 eval: 5 surrogate substitutions ...
+  floor        dCE +1.2341 +- 0.01267
+  tok          dCE +0.1795 +- 0.00502
+  pair         dCE +0.1615 +- 0.00481
+  tok_gauge    dCE +0.1845 +- 0.00508
+  pair_gauge   dCE +0.1674 +- 0.00488
+{
+ "tok": 0.8545,
+ "pair": 0.8691,
+ "tok_gauge": 0.8505,
+ "pair_gauge": 0.8644
+}
+Saved /workspace/tensor_language/basis_aligned/qk_mdl/qk_redteam_arcs.json
+QK REDTEAM ARCS (script 1) DONE
+EXIT=0

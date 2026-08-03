@@ -1,0 +1,151 @@
+GPU guard: 15571 MiB free -- proceeding.
+width patched: D 264, NH 6, HD 44, slot dim 11
+GPU guard: 15571 MiB free -- proceeding.
+==== probing qk_v10 ====
+  consumption row 0: emb +2.9386  (0s)
+  consumption row 1: emb +0.6885, mlp0 +0.0264, attn0 +0.0240  (2s)
+  consumption row 2: emb +1.1444, mlp1 +0.1363, mlp0 +0.0257, attn0 +0.0257  (4s)
+  consumption row 3: emb +0.1496, mlp2 +0.0165, mlp1 +0.0143, mlp0 +0.0110  (6s)
+  consumption row 4: emb +0.1764, mlp2 +0.0258, mlp1 +0.0145, attn1 +0.0101  (10s)
+  consumption row 5: emb +0.0618, mlp2 +0.0162, mlp1 +0.0118, attn1 +0.0070  (14s)
+  consumption row 6: mlp2 +0.5163, mlp1 +0.4822, mlp0 +0.0605, attn0 +0.0244  (19s)
+  consumption row 7: mlp2 +0.0869, mlp1 +0.0492, mlp6 +0.0260, mlp3 +0.0175  (23s)
+  consumption row 8: mlp2 +0.0786, mlp6 +0.0360, mlp7 +0.0298, attn4 +0.0087  (28s)
+  consumption row 9: mlp7 +0.0075, mlp8 +0.0069, mlp6 +0.0068, attn4 +0.0038  (33s)
+  consumption row 10: mlp7 +0.0090, mlp8 +0.0070, mlp6 +0.0059, attn4 +0.0031  (37s)
+  consumption row 11: mlp7 +0.0112, mlp8 +0.0079, mlp6 +0.0066, mlp5 +0.0024  (42s)
+  consumption row 12: mlp2 +1.0980, mlp1 +0.8312, mlp7 +0.5118, mlp6 +0.3630  (52s)
+per-block totals: {0: 0.37283, 1: 1.65703, 2: 1.84517, 3: 0.11535, 4: 0.14942, 5: 0.08035, 6: 0.45779, 7: 0.59383, 8: 0.17102, 9: 0.03182, 10: 0.02387, 11: 0.0272}
+wiring: n 126, Spearman all 0.8601, effectual (78 pairs) 0.5356, top-10 precision 0.6
+terms block4: n 9 rel_err 0.00e+00 k95 7 recovered 0.9944
+terms block6: n 12 rel_err 0.00e+00 k95 10 recovered 0.9992
+terms block9: n 12 rel_err 0.00e+00 k95 11 recovered 0.998
+  L0: tokdet 0.9222 linVE 0.6422 dCEfloor 0.1650 rec 0.6917
+  L1: tokdet 0.9185 linVE 0.7049 dCEfloor 0.3138 rec 0.7749
+  L2: tokdet 0.8906 linVE 0.6758 dCEfloor 0.8896 rec 0.799
+  L3: tokdet 0.8207 linVE 0.5543 dCEfloor 0.0902 rec 0.6419
+  L4: tokdet 0.7149 linVE 0.4352 dCEfloor 0.0774 rec 0.5103
+  L5: tokdet 0.7159 linVE 0.4351 dCEfloor 0.0739 rec 0.5468
+  L6: tokdet 0.6579 linVE 0.4397 dCEfloor 0.3484 rec 0.7167
+  L7: tokdet 0.6602 linVE 0.5104 dCEfloor 0.4331 rec 0.7666
+  L8: tokdet 0.5879 linVE 0.3812 dCEfloor 0.1228 rec 0.4803
+  L9: tokdet 0.4601 linVE 0.2412 dCEfloor 0.0278 rec 0.2849
+  L10: tokdet 0.382 linVE 0.1878 dCEfloor 0.0191 rec 0.2001
+  L11: tokdet 0.43 linVE 0.2205 dCEfloor 0.0223 rec 0.2145
+probe done in 117s
+==== probing qk_v11 ====
+  consumption row 0: emb +0.8723  (0s)
+  consumption row 1: emb +0.4104, attn0 +0.0284, mlp0 +0.0205  (2s)
+  consumption row 2: emb +0.1893, attn0 +0.0174, attn1 +0.0097, mlp0 +0.0090  (4s)
+  consumption row 3: emb +0.2245, mlp0 +0.0142, mlp2 +0.0106, attn0 +0.0105  (6s)
+  consumption row 4: emb +0.2675, mlp3 +0.0324, mlp2 +0.0201, attn0 +0.0161  (10s)
+  consumption row 5: emb +0.0899, attn4 +0.0084, mlp3 +0.0063, mlp0 +0.0062  (14s)
+  consumption row 6: mlp3 +0.0147, attn4 +0.0139, mlp4 +0.0121, attn1 +0.0119  (19s)
+  consumption row 7: mlp6 +0.0115, mlp3 +0.0113, mlp2 +0.0093, mlp4 +0.0080  (24s)
+  consumption row 8: mlp2 +0.0102, mlp6 +0.0085, mlp4 +0.0081, mlp7 +0.0070  (29s)
+  consumption row 9: mlp3 +0.0199, mlp8 +0.0131, mlp6 +0.0127, mlp7 +0.0102  (34s)
+  consumption row 10: mlp8 +0.0051, mlp5 +0.0046, mlp6 +0.0022, attn4 +0.0021  (38s)
+  consumption row 11: attn10 +0.0151, mlp7 +0.0109, mlp6 +0.0096, mlp8 +0.0080  (43s)
+  consumption row 12: attn1 +0.0973, mlp6 +0.0736, mlp3 +0.0606, mlp7 +0.0537  (53s)
+per-block totals: {0: 0.23292, 1: 0.23341, 2: 0.10695, 3: 0.15149, 4: 0.17325, 5: 0.0866, 6: 0.11812, 7: 0.08356, 8: 0.0781, 9: 0.09681, 10: 0.03072, 11: 0.04492}
+wiring: n 126, Spearman all 0.7997, effectual (75 pairs) 0.397, top-10 precision 0.1
+terms block4: n 9 rel_err 0.00e+00 k95 7 recovered 1.0004
+terms block6: n 12 rel_err 0.00e+00 k95 9 recovered 1.0001
+terms block9: n 12 rel_err 0.00e+00 k95 7 recovered 0.999
+  L0: tokdet 0.9118 linVE 0.6139 dCEfloor 0.1443 rec 0.6838
+  L1: tokdet 0.8463 linVE 0.5205 dCEfloor 0.0999 rec 0.623
+  L2: tokdet 0.8496 linVE 0.5415 dCEfloor 0.1356 rec 0.6166
+  L3: tokdet 0.8858 linVE 0.6728 dCEfloor 0.2103 rec 0.7789
+  L4: tokdet 0.7074 linVE 0.4457 dCEfloor 0.1194 rec 0.559
+  L5: tokdet 0.7179 linVE 0.4683 dCEfloor 0.1109 rec 0.6037
+  L6: tokdet 0.5805 linVE 0.374 dCEfloor 0.1092 rec 0.414
+  L7: tokdet 0.6257 linVE 0.4096 dCEfloor 0.0836 rec 0.4653
+  L8: tokdet 0.6788 linVE 0.4715 dCEfloor 0.0695 rec 0.5472
+  L9: tokdet 0.6695 linVE 0.4716 dCEfloor 0.0421 rec 0.4919
+  L10: tokdet 0.4635 linVE 0.2358 dCEfloor 0.0049 rec 0.3704
+  L11: tokdet 0.6815 linVE 0.489 dCEfloor 0.0310 rec 0.5647
+probe done in 120s
+  decoder attn1: slot_frob 4.898, hit@10 raw 0.13 -> decoded 0.39
+  decoder attn0: slot_frob 3.981, hit@10 raw 0.045 -> decoded 0.255
+  decoder mlp0: slot_frob 3.894, hit@10 raw 0.47 -> decoded 0.545
+  decoder mlp1: slot_frob 3.826, hit@10 raw 0.045 -> decoded 0.055
+  decoder mlp4: slot_frob 3.604, hit@10 raw 0.35 -> decoded 0.435
+==== probing qk_v11nl ====
+  consumption row 0: emb +0.7368  (0s)
+  consumption row 1: emb +0.3379, attn0 +0.0299, mlp0 +0.0178  (2s)
+  consumption row 2: emb +0.2323, attn0 +0.0189, mlp0 +0.0175, mlp1 +0.0083  (4s)
+  consumption row 3: emb +0.1600, attn0 +0.0150, mlp2 +0.0137, mlp1 +0.0089  (6s)
+  consumption row 4: emb +0.2937, mlp2 +0.0245, attn0 +0.0195, mlp1 +0.0170  (10s)
+  consumption row 5: emb +0.1106, mlp2 +0.0096, attn4 +0.0094, attn0 +0.0077  (14s)
+  consumption row 6: attn0 +0.0152, mlp4 +0.0123, attn4 +0.0113, mlp2 +0.0103  (19s)
+  consumption row 7: mlp5 +0.0156, mlp6 +0.0111, mlp2 +0.0097, mlp3 +0.0083  (24s)
+  consumption row 8: mlp2 +0.0105, mlp6 +0.0076, mlp3 +0.0071, attn4 +0.0071  (29s)
+  consumption row 9: mlp3 +0.0199, mlp6 +0.0141, mlp7 +0.0112, mlp8 +0.0101  (34s)
+  consumption row 10: mlp5 +0.0090, attn4 +0.0066, mlp6 +0.0061, mlp8 +0.0050  (38s)
+  consumption row 11: attn10 +0.0171, mlp7 +0.0113, mlp6 +0.0080, mlp5 +0.0075  (43s)
+  consumption row 12: attn4 +0.0664, attn1 +0.0580, mlp6 +0.0555, mlp7 +0.0551  (53s)
+per-block totals: {0: 0.2444, 1: 0.18247, 2: 0.12686, 3: 0.10902, 4: 0.20538, 5: 0.10497, 6: 0.10233, 7: 0.08756, 8: 0.0649, 9: 0.09468, 10: 0.05531, 11: 0.05082}
+wiring: n 126, Spearman all 0.8331, effectual (81 pairs) 0.5243, top-10 precision 0.1
+terms block4: n 9 rel_err 0.00e+00 k95 7 recovered 0.9995
+terms block6: n 12 rel_err 0.00e+00 k95 9 recovered 1.0001
+terms block9: n 12 rel_err 0.00e+00 k95 7 recovered 1.0001
+  L0: tokdet 0.912 linVE 0.6064 dCEfloor 0.1286 rec 0.6667
+  L1: tokdet 0.8611 linVE 0.5627 dCEfloor 0.1106 rec 0.6344
+  L2: tokdet 0.8457 linVE 0.5797 dCEfloor 0.1707 rec 0.6697
+  L3: tokdet 0.8417 linVE 0.584 dCEfloor 0.1351 rec 0.6713
+  L4: tokdet 0.7225 linVE 0.4663 dCEfloor 0.1209 rec 0.567
+  L5: tokdet 0.7435 linVE 0.5033 dCEfloor 0.1274 rec 0.6244
+  L6: tokdet 0.6041 linVE 0.3882 dCEfloor 0.1210 rec 0.4479
+  L7: tokdet 0.6626 linVE 0.4603 dCEfloor 0.0899 rec 0.5304
+  L8: tokdet 0.6757 linVE 0.4154 dCEfloor 0.0545 rec 0.5165
+  L9: tokdet 0.658 linVE 0.4296 dCEfloor 0.0539 rec 0.4289
+  L10: tokdet 0.4885 linVE 0.2851 dCEfloor 0.0099 rec 0.3533
+  L11: tokdet 0.7397 linVE 0.4873 dCEfloor 0.0377 rec 0.5549
+probe done in 120s
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+  decoder attn1: slot_frob 5.12, hit@10 raw 0.13 -> decoded 0.29
+  decoder mlp0: slot_frob 4.352, hit@10 raw 0.645 -> decoded 0.66
+  decoder attn4: slot_frob 4.241, hit@10 raw 0.015 -> decoded 0.105
+  decoder mlp1: slot_frob 4.141, hit@10 raw 0.14 -> decoded 0.105
+  decoder mlp10: slot_frob 4.061, hit@10 raw 0.0 -> decoded 0.055
+==== probing qk_v11lr ====
+  consumption row 0: emb +0.7572  (0s)
+  consumption row 1: emb +0.5193, attn0 +0.0305, mlp0 +0.0288  (2s)
+  consumption row 2: emb +0.2743, mlp0 +0.0141, mlp1 +0.0138, attn1 +0.0112  (4s)
+  consumption row 3: emb +0.2939, mlp2 +0.0285, mlp1 +0.0166, attn1 +0.0144  (6s)
+  consumption row 4: emb +0.1468, attn1 +0.0152, mlp3 +0.0113, mlp2 +0.0103  (10s)
+  consumption row 5: emb +0.0910, mlp4 +0.0075, mlp2 +0.0072, mlp3 +0.0063  (14s)
+  consumption row 6: mlp3 +0.0168, mlp2 +0.0135, attn1 +0.0132, attn0 +0.0114  (19s)
+  consumption row 7: mlp6 +0.0140, mlp3 +0.0137, mlp5 +0.0114, mlp4 +0.0107  (24s)
+  consumption row 8: mlp7 +0.0087, mlp5 +0.0084, mlp6 +0.0079, mlp4 +0.0060  (29s)
+  consumption row 9: mlp7 +0.0115, mlp3 +0.0073, mlp6 +0.0068, mlp5 +0.0065  (33s)
+  consumption row 10: mlp5 +0.0099, mlp7 +0.0017, mlp6 +0.0015, mlp4 +0.0006  (38s)
+  consumption row 11: mlp7 +0.0184, attn10 +0.0157, mlp6 +0.0101, mlp5 +0.0096  (43s)
+  consumption row 12: attn1 +0.1026, mlp6 +0.0861, mlp7 +0.0564, mlp3 +0.0555  (52s)
+per-block totals: {0: 0.21822, 1: 0.25578, 2: 0.12227, 3: 0.15856, 4: 0.1086, 5: 0.0984, 6: 0.12643, 7: 0.09675, 8: 0.06126, 9: 0.06354, 10: 0.02597, 11: 0.0521}
+wiring: n 126, Spearman all 0.6347, effectual (72 pairs) -0.2238, top-10 precision 0.0
+terms block4: n 9 rel_err 0.00e+00 k95 7 recovered 0.9602
+terms block6: n 12 rel_err 0.00e+00 k95 10 recovered 1.0001
+terms block9: n 12 rel_err 0.00e+00 k95 8 recovered 1.0001
+  L0: tokdet 0.9078 linVE 0.638 dCEfloor 0.1570 rec 0.6573
+  L1: tokdet 0.782 linVE 0.5016 dCEfloor 0.1085 rec 0.5735
+  L2: tokdet 0.8336 linVE 0.5645 dCEfloor 0.1647 rec 0.6238
+  L3: tokdet 0.7561 linVE 0.4962 dCEfloor 0.1451 rec 0.5784
+  L4: tokdet 0.6983 linVE 0.437 dCEfloor 0.1202 rec 0.5667
+  L5: tokdet 0.751 linVE 0.4965 dCEfloor 0.1181 rec 0.6406
+  L6: tokdet 0.5854 linVE 0.3611 dCEfloor 0.1153 rec 0.4237
+  L7: tokdet 0.6617 linVE 0.4515 dCEfloor 0.0957 rec 0.5108
+  L8: tokdet 0.7209 linVE 0.4829 dCEfloor 0.0610 rec 0.5468
+  L9: tokdet 0.6616 linVE 0.445 dCEfloor 0.0337 rec 0.5098
+  L10: tokdet None linVE None dCEfloor 0.0000 rec None
+  L11: tokdet 0.7107 linVE 0.5094 dCEfloor 0.0338 rec 0.5674
+probe done in 119s
+  decoder attn1: slot_frob 3.157, hit@10 raw 0.065 -> decoded 0.435
+  decoder attn0: slot_frob 2.683, hit@10 raw 0.025 -> decoded 0.17
+  decoder mlp0: slot_frob 2.554, hit@10 raw 0.225 -> decoded 0.29
+  decoder mlp2: slot_frob 2.325, hit@10 raw 0.15 -> decoded 0.24
+  decoder mlp1: slot_frob 2.265, hit@10 raw 0.115 -> decoded 0.19
+  lowrank attn1: top channels [1, 9, 7, 6]
+  lowrank attn0: top channels [4, 8, 6, 9]
+  lowrank mlp0: top channels [8, 3, 9, 1]
+probe script done

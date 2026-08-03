@@ -1,0 +1,145 @@
+GPU guard: 15571 MiB free -- proceeding.
+GPU guard: 15571 MiB free -- proceeding.
+control V14a(lamb=0)==N6(init): max |logit diff| 0.00e+00
+control V14b(as_n6)==N6(init): max |logit diff| 0.00e+00
+V14: width 384, batch 8, 4122 steps, lr grid [0.0005, 0.001, 0.002, 0.003] x 400 (window-experiment protocol)
+-- V14a sweep lr 0.0005
+GPU guard: 15475 MiB free -- proceeding.
+  V8[lr 0.0005, gc 0.0] step 0/400 ce 10.8978 (ema 10.8978) 0s mem 5745MiB
+  V8[lr 0.0005, gc 0.0] step 100/400 ce 7.7374 (ema 9.3153) 8s mem 6167MiB
+  V8[lr 0.0005, gc 0.0] step 200/400 ce 7.3112 (ema 7.3800) 15s mem 6167MiB
+  V8[lr 0.0005, gc 0.0] step 300/400 ce 6.8576 (ema 6.7961) 23s mem 6167MiB
+/workspace/tensor_language/basis_aligned/qk_mdl/qk_v8_train.py:276: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:838.)
+  log['final_penalty'] = float(group_penalty(model))
+  sweep lr 0.0005 gc 0.0: held100 CE 6.5251 (0 spikes)
+-- V14a sweep lr 0.001
+GPU guard: 14255 MiB free -- proceeding.
+  V8[lr 0.001, gc 0.0] step 0/400 ce 10.8978 (ema 10.8978) 0s mem 6167MiB
+  V8[lr 0.001, gc 0.0] step 100/400 ce 7.0314 (ema 8.6453) 7s mem 6167MiB
+  V8[lr 0.001, gc 0.0] step 200/400 ce 7.1812 (ema 7.1157) 15s mem 6167MiB
+  V8[lr 0.001, gc 0.0] step 300/400 ce 6.7819 (ema 6.6751) 22s mem 6167MiB
+  sweep lr 0.001 gc 0.0: held100 CE 6.3871 (0 spikes)
+-- V14a sweep lr 0.002
+GPU guard: 14175 MiB free -- proceeding.
+  V8[lr 0.002, gc 0.0] step 0/400 ce 10.8978 (ema 10.8978) 0s mem 6167MiB
+  V8[lr 0.002, gc 0.0] step 100/400 ce 6.7943 (ema 8.2004) 7s mem 6167MiB
+  V8[lr 0.002, gc 0.0] step 200/400 ce 7.1598 (ema 6.9835) 15s mem 6167MiB
+  V8[lr 0.002, gc 0.0] step 300/400 ce 6.7963 (ema 6.6861) 22s mem 6167MiB
+  sweep lr 0.002 gc 0.0: held100 CE 6.3347 (0 spikes)
+-- V14a sweep lr 0.003
+GPU guard: 14095 MiB free -- proceeding.
+  V8[lr 0.003, gc 0.0] step 0/400 ce 10.8978 (ema 10.8978) 0s mem 6167MiB
+  V8[lr 0.003, gc 0.0] step 100/400 ce 6.7111 (ema 8.0271) 7s mem 6167MiB
+  V8[lr 0.003, gc 0.0] step 200/400 ce 7.2907 (ema 7.0212) 15s mem 6167MiB
+  V8[lr 0.003, gc 0.0] step 300/400 ce 6.8686 (ema 6.7297) 22s mem 6167MiB
+  sweep lr 0.003 gc 0.0: held100 CE 6.3506 (0 spikes)
+V14a lr chosen: 0.002
+==== training qk_v14a (lr 0.002) ====
+GPU guard: 14155 MiB free -- proceeding.
+  V8[lr 0.002, gc 0.0] step 0/4122 ce 10.8978 (ema 10.8978) 0s mem 6167MiB
+  V8[lr 0.002, gc 0.0] step 200/4122 ce 7.1598 (ema 6.9835) 15s mem 6167MiB
+  V8[lr 0.002, gc 0.0] step 400/4122 ce 6.7433 (ema 6.5470) 30s mem 6167MiB
+  V8[lr 0.002, gc 0.0] step 600/4122 ce 6.1017 (ema 6.3172) 45s mem 6167MiB
+  V8[lr 0.002, gc 0.0] step 800/4122 ce 5.9376 (ema 6.0060) 60s mem 6167MiB
+  V8[lr 0.002, gc 0.0] step 1000/4122 ce 6.0383 (ema 5.9518) 74s mem 6167MiB
+  V8[lr 0.002, gc 0.0] step 1200/4122 ce 5.8888 (ema 5.8798) 89s mem 6167MiB
+  V8[lr 0.002, gc 0.0] step 1400/4122 ce 5.5141 (ema 5.6613) 104s mem 6167MiB
+  V8[lr 0.002, gc 0.0] step 1600/4122 ce 5.5467 (ema 5.5219) 119s mem 6167MiB
+  V8[lr 0.002, gc 0.0] step 1800/4122 ce 5.6615 (ema 5.5331) 134s mem 6167MiB
+  V8[lr 0.002, gc 0.0] step 2000/4122 ce 5.7523 (ema 5.4929) 149s mem 6167MiB
+  V8 step 2000 held100 CE 5.7149
+  V8[lr 0.002, gc 0.0] step 2200/4122 ce 5.3254 (ema 5.1891) 164s mem 6167MiB
+  V8[lr 0.002, gc 0.0] step 2400/4122 ce 5.3043 (ema 5.1683) 179s mem 6167MiB
+  V8[lr 0.002, gc 0.0] step 2600/4122 ce 5.3691 (ema 5.1894) 194s mem 6167MiB
+  V8[lr 0.002, gc 0.0] step 2800/4122 ce 4.7064 (ema 4.9196) 209s mem 6167MiB
+  V8[lr 0.002, gc 0.0] step 3000/4122 ce 4.7897 (ema 4.7984) 223s mem 6167MiB
+  V8[lr 0.002, gc 0.0] step 3200/4122 ce 5.1111 (ema 4.8609) 238s mem 6167MiB
+  V8[lr 0.002, gc 0.0] step 3400/4122 ce 5.0535 (ema 4.8124) 253s mem 6167MiB
+  V8[lr 0.002, gc 0.0] step 3600/4122 ce 4.5292 (ema 4.5259) 268s mem 6167MiB
+  V8[lr 0.002, gc 0.0] step 3800/4122 ce 4.3996 (ema 4.5026) 283s mem 6167MiB
+  V8[lr 0.002, gc 0.0] step 4000/4122 ce 4.2588 (ema 4.5053) 298s mem 6167MiB
+  V8 step 4000 held100 CE 5.6811
+== V8 FINAL held CE 5.66584  (309s, 0 spikes, penalty 11803.86)
+-- V14b sweep lr 0.0005
+GPU guard: 14135 MiB free -- proceeding.
+  V8[lr 0.0005, gc 0.0] step 0/400 ce 10.9014 (ema 10.9014) 0s mem 6167MiB
+  V8[lr 0.0005, gc 0.0] step 100/400 ce 8.1284 (ema 9.6719) 7s mem 6167MiB
+  V8[lr 0.0005, gc 0.0] step 200/400 ce 7.5592 (ema 7.6833) 15s mem 6167MiB
+  V8[lr 0.0005, gc 0.0] step 300/400 ce 7.1312 (ema 7.0848) 22s mem 6167MiB
+  sweep lr 0.0005 gc 0.0: held100 CE 6.7801 (0 spikes)
+-- V14b sweep lr 0.001
+GPU guard: 14175 MiB free -- proceeding.
+  V8[lr 0.001, gc 0.0] step 0/400 ce 10.9014 (ema 10.9014) 0s mem 6167MiB
+  V8[lr 0.001, gc 0.0] step 100/400 ce 7.3501 (ema 8.9500) 7s mem 6167MiB
+  V8[lr 0.001, gc 0.0] step 200/400 ce 7.4063 (ema 7.4152) 15s mem 6167MiB
+  V8[lr 0.001, gc 0.0] step 300/400 ce 7.0016 (ema 6.9419) 22s mem 6167MiB
+  sweep lr 0.001 gc 0.0: held100 CE 6.6273 (0 spikes)
+-- V14b sweep lr 0.002
+GPU guard: 14175 MiB free -- proceeding.
+  V8[lr 0.002, gc 0.0] step 0/400 ce 10.9014 (ema 10.9014) 0s mem 6167MiB
+  V8[lr 0.002, gc 0.0] step 100/400 ce 7.1605 (ema 8.4960) 7s mem 6167MiB
+  V8[lr 0.002, gc 0.0] step 200/400 ce 7.4878 (ema 7.3292) 15s mem 6167MiB
+  V8[lr 0.002, gc 0.0] step 300/400 ce 7.1234 (ema 7.0672) 22s mem 6167MiB
+  sweep lr 0.002 gc 0.0: held100 CE 6.6712 (0 spikes)
+-- V14b sweep lr 0.003
+GPU guard: 14195 MiB free -- proceeding.
+  V8[lr 0.003, gc 0.0] step 0/400 ce 10.9014 (ema 10.9014) 0s mem 6167MiB
+  V8[lr 0.003, gc 0.0] step 100/400 ce 7.1947 (ema 8.3387) 7s mem 6167MiB
+  V8[lr 0.003, gc 0.0] step 200/400 ce 7.5489 (ema 7.3626) 15s mem 6167MiB
+  V8[lr 0.003, gc 0.0] step 300/400 ce 7.1249 (ema 7.0155) 22s mem 6167MiB
+  sweep lr 0.003 gc 0.0: held100 CE 6.6249 (0 spikes)
+V14b lr chosen: 0.003
+==== training qk_v14b (lr 0.003) ====
+GPU guard: 14175 MiB free -- proceeding.
+  V8[lr 0.003, gc 0.0] step 0/4122 ce 10.9014 (ema 10.9014) 0s mem 6167MiB
+  V8[lr 0.003, gc 0.0] step 200/4122 ce 7.5489 (ema 7.3626) 15s mem 6167MiB
+  V8[lr 0.003, gc 0.0] step 400/4122 ce 7.0202 (ema 6.8374) 29s mem 6167MiB
+  V8[lr 0.003, gc 0.0] step 600/4122 ce 6.3938 (ema 6.5917) 44s mem 6167MiB
+  V8[lr 0.003, gc 0.0] step 800/4122 ce 6.2460 (ema 6.3271) 59s mem 6167MiB
+  V8[lr 0.003, gc 0.0] step 1000/4122 ce 6.3491 (ema 6.2801) 74s mem 6167MiB
+  V8[lr 0.003, gc 0.0] step 1200/4122 ce 6.2173 (ema 6.2146) 88s mem 6167MiB
+  V8[lr 0.003, gc 0.0] step 1400/4122 ce 5.8980 (ema 6.0157) 103s mem 6167MiB
+  V8[lr 0.003, gc 0.0] step 1600/4122 ce 6.0144 (ema 5.9144) 118s mem 6167MiB
+  V8[lr 0.003, gc 0.0] step 1800/4122 ce 6.0141 (ema 5.9036) 132s mem 6167MiB
+  V8[lr 0.003, gc 0.0] step 2000/4122 ce 6.0452 (ema 5.8630) 147s mem 6167MiB
+  V8 step 2000 held100 CE 6.0152
+  V8[lr 0.003, gc 0.0] step 2200/4122 ce 5.7275 (ema 5.6192) 162s mem 6167MiB
+  V8[lr 0.003, gc 0.0] step 2400/4122 ce 5.7496 (ema 5.5916) 177s mem 6167MiB
+  V8[lr 0.003, gc 0.0] step 2600/4122 ce 5.7198 (ema 5.5988) 191s mem 6167MiB
+  V8[lr 0.003, gc 0.0] step 2800/4122 ce 5.1333 (ema 5.3644) 206s mem 6167MiB
+  V8[lr 0.003, gc 0.0] step 3000/4122 ce 5.2116 (ema 5.2793) 221s mem 6167MiB
+  V8[lr 0.003, gc 0.0] step 3200/4122 ce 5.5668 (ema 5.3459) 236s mem 6167MiB
+  V8[lr 0.003, gc 0.0] step 3400/4122 ce 5.5647 (ema 5.2895) 250s mem 6167MiB
+  V8[lr 0.003, gc 0.0] step 3600/4122 ce 5.1042 (ema 5.0873) 265s mem 6167MiB
+  V8[lr 0.003, gc 0.0] step 3800/4122 ce 4.9332 (ema 5.0719) 280s mem 6167MiB
+  V8[lr 0.003, gc 0.0] step 4000/4122 ce 4.8497 (ema 5.0745) 294s mem 6167MiB
+  V8 step 4000 held100 CE 5.8333
+== V8 FINAL held CE 5.80608  (305s, 0 spikes, penalty 13790.49)
+==== probing V14a ====
+  L0: tokdet 0.897 linVE 0.576 dCEfloor 2.6580 rec 0.921
+  L1: tokdet 0.939 linVE 0.617 dCEfloor 0.0259 rec 0.3594
+  L2: tokdet 0.968 linVE 0.710 dCEfloor 0.0035 rec 0.0196
+  L3: tokdet 0.968 linVE 0.685 dCEfloor 0.0343 rec 0.8183
+  L4: tokdet 0.933 linVE 0.542 dCEfloor 0.0542 rec 0.8151
+  L5: tokdet 0.941 linVE 0.457 dCEfloor 0.0142 rec 1.0719
+  L6: tokdet 0.950 linVE 0.416 dCEfloor 0.5446 rec 0.7287
+  L7: tokdet 0.945 linVE 0.371 dCEfloor 0.0331 rec 0.7465
+  L8: tokdet 0.963 linVE 0.601 dCEfloor 0.0472 rec 0.8541
+  L9: tokdet 0.689 linVE 0.408 dCEfloor 0.0558 rec 0.7052
+  L10: tokdet 0.331 linVE 0.168 dCEfloor 0.1242 rec 0.3538
+  L11: tokdet 0.298 linVE 0.138 dCEfloor 0.4290 rec 0.2158
+==== probing V14b ====
+  L0: tokdet 0.974 linVE 0.587 dCEfloor 0.1365 rec 0.8536
+  L1: tokdet 0.908 linVE 0.599 dCEfloor 0.0219 rec 0.4894
+  L2: tokdet 0.940 linVE 0.557 dCEfloor 0.0227 rec 0.7107
+  L3: tokdet 0.966 linVE 0.642 dCEfloor 0.0374 rec 0.8674
+  L4: tokdet 0.948 linVE 0.583 dCEfloor 0.0390 rec 0.9048
+  L5: tokdet 0.959 linVE 0.561 dCEfloor 0.0283 rec 0.9328
+  L6: tokdet 0.955 linVE 0.418 dCEfloor 0.6847 rec 0.755
+  L7: tokdet 0.923 linVE 0.302 dCEfloor 0.0382 rec 0.6662
+  L8: tokdet 0.880 linVE 0.400 dCEfloor 0.0321 rec 0.7414
+  L9: tokdet 0.518 linVE 0.250 dCEfloor 0.0410 rec 0.4768
+  L10: tokdet 0.432 linVE 0.228 dCEfloor 0.1252 rec 0.3443
+  L11: tokdet 0.404 linVE 0.195 dCEfloor 0.2942 rec 0.3252
+v14 run done

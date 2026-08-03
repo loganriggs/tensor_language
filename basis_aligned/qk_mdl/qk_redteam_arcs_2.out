@@ -1,0 +1,53 @@
+GPU guard: 15841 MiB free -- proceeding.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+bilin18 NL=18 D=1152 held 152x128; ATTACK 3 blocks [9, 11, 13]
+PASS 0: per-position mlp-output means for target blocks ...
+BASE ...
+base CE 3.4946
+ATTACK 3: 16 configs x 26 batches ...
+  batch 1/26 (1s)
+  batch 6/26 (4s)
+  batch 11/26 (8s)
+  batch 16/26 (12s)
+  batch 21/26 (16s)
+  batch 26/26 (19s)
+ATTACK 3 forwards done (19s)
+  sanity_freeze_all_no_ablate  dCE +0.0000 +- 0.00000
+  k9_total_damage              dCE +0.0563 +- 0.00248
+  k9_restore_at_10             dCE -0.0000 +- 0.00000
+  k9_freeze_next_mlp10         dCE +0.0377 +- 0.00204
+  k9_direct_only               dCE +0.0218 +- 0.00156
+  k9_restore_at_12             dCE +0.0197 +- 0.00145
+  k11_total_damage             dCE +0.0466 +- 0.00237
+  k11_restore_at_12            dCE -0.0000 +- 0.00000
+  k11_freeze_next_mlp12        dCE +0.0329 +- 0.00202
+  k11_direct_only              dCE +0.0399 +- 0.00220
+  k11_restore_at_14            dCE +0.0126 +- 0.00109
+  k13_total_damage             dCE +0.0396 +- 0.00218
+  k13_restore_at_14            dCE +0.0000 +- 0.00000
+  k13_freeze_next_mlp14        dCE +0.0325 +- 0.00196
+  k13_direct_only              dCE +0.0462 +- 0.00229
+  k13_restore_at_16            dCE +0.0102 +- 0.00099
+k= 9 floor +0.0563 (census +0.0563 PASS) | next-square 0.330 (interp 0.314) | direct 0.387 (interp 0.368) | exact -0.0000
+k=11 floor +0.0466 (census +0.0466 PASS) | next-square 0.294 (interp 0.271) | direct 0.856 (interp 0.762) | exact -0.0000
+k=13 floor +0.0396 (census +0.0396 PASS) | next-square 0.179 (interp 0.246) | direct 1.167 (interp 0.979) | exact +0.0000
+ATTACK 4: h.L7.0 aggregation analysis ...
+PASS A: target-head norm + per-position yh mean (truncated collect) ...
+PASS A done.
+PASS B: base + ablated forwards, per-position delta cross-entropy ...
+PASS B done (2s)
+GATE: global dCE 0.017004 +- 0.001493 z 11.39 (census 0.017004, z 11.4) n=19304
+  activation decile 1: dCE +0.003822 +- 0.002507 z +1.52 share +0.022
+  activation decile 2: dCE +0.008572 +- 0.003363 z +2.55 share +0.050
+  activation decile 3: dCE +0.014190 +- 0.003845 z +3.69 share +0.083
+  activation decile 4: dCE +0.015284 +- 0.004295 z +3.56 share +0.090
+  activation decile 5: dCE +0.020394 +- 0.004718 z +4.32 share +0.120
+  activation decile 6: dCE +0.016500 +- 0.004829 z +3.42 share +0.097
+  activation decile 7: dCE +0.023811 +- 0.005321 z +4.47 share +0.140
+  activation decile 8: dCE +0.019588 +- 0.005141 z +3.81 share +0.115
+  activation decile 9: dCE +0.029817 +- 0.006170 z +4.83 share +0.175
+  activation decile 10: dCE +0.018068 +- 0.005786 z +3.12 share +0.106
+sequences: 125/152 positive-mean (sign z 7.95); top-5 |contribution| share 0.107, net share 0.143; z after dropping top-5 10.01, top-15 8.05
+position concentration: {'top1pct_positive_positions_net_share': 0.536, 'top5pct_positive_positions_net_share': 1.611, 'bottom1pct_negative_positions_net_share': -0.467, 'positive_position_fraction': 0.571}
+Saved /workspace/tensor_language/basis_aligned/qk_mdl/qk_redteam_arcs.json
+QK REDTEAM ARCS (script 2) DONE

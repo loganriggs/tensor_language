@@ -1,0 +1,17 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+model 3.09057 | polished program dCE +0.08458
+(B) residual dCE by target category (program - model):
+   capital: +0.1217
+   other: +0.1014
+   subword: +0.0737
+   funcword: +0.0631
+   digit: +0.0621
+   punct: +0.0532
+   newline: +0.0217
+step 0 loss 3.3893
+step 150 loss 3.8147
+step 300 loss 3.2896
+step 450 loss 3.6387
+(A) +32 CE-trained sparse features: dCE +0.08214 (was +0.08458) | live features 31/32
+post-functail residual by category: {'capital': 0.1165, 'other': 0.0981, 'subword': 0.0771, 'digit': 0.0646}
+QK MLP1 FUNCTAIL DONE

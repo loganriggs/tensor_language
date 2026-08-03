@@ -1,0 +1,82 @@
+GPU guard: 15841 MiB free -- proceeding.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+bilin18 NL=18 NH=9 HD=128 D=1152 V=50304; 162 head-paths + 72 mlp-paths
+353 special token ids masked from trigger selection
+lexical classes (15): ['bracket_close', 'bracket_open', 'capital', 'coordinator', 'determiner', 'digit', 'newline', 'other', 'pronoun', 'punct', 'quote', 'quote_open', 'special', 'subword', 'word']
+Recomputing MLP SVD directions from TRAIN gram ...
+MLP directions ready.
+PASS A: collect activation magnitudes + per-position means ...
+PASS A done.
+PASS B: 234 single-path mean-ablations (dCE + class-summed dlogit) ...
+  batch 1/26  elapsed 11s
+  batch 5/26  elapsed 53s
+  batch 9/26  elapsed 96s
+  batch 13/26  elapsed 138s
+  batch 17/26  elapsed 181s
+  batch 21/26  elapsed 224s
+  batch 25/26  elapsed 267s
+PASS B done in 271s
+
+===== TOP 20 by CLASS-PUSH SCORE (causal importance x class concentration) =====
+  h.L0.3       score=0.1915 tdCE=0.389+-0.082 z=4.7 conc=0.49 push=+capital clean=0.0216
+  mlp.L17.d2   score=0.1701 tdCE=0.367+-0.070 z=5.2 conc=0.46 push=+word clean=0.0352
+  h.L11.2      score=0.1204 tdCE=0.239+-0.042 z=5.7 conc=0.50 push=-word clean=0.0054
+  mlp.L17.d1   score=0.1189 tdCE=0.255+-0.057 z=4.5 conc=0.47 push=+capital clean=0.0436
+  h.L8.7       score=0.1059 tdCE=0.243+-0.052 z=4.7 conc=0.44 push=-capital clean=0.0227
+  mlp.L16.d0   score=0.0840 tdCE=0.215+-0.059 z=3.7 conc=0.39 push=-word clean=0.0781
+  mlp.L16.d2   score=0.0826 tdCE=0.178+-0.042 z=4.2 conc=0.46 push=+word clean=0.0633
+  mlp.L17.d3   score=0.0710 tdCE=0.167+-0.043 z=3.9 conc=0.42 push=+capital clean=0.047
+  h.L2.5       score=0.0676 tdCE=0.110+-0.039 z=2.8 conc=0.61 push=+word clean=0.0241
+  h.L8.3       score=0.0630 tdCE=0.182+-0.039 z=4.7 conc=0.35 push=+word clean=0.0404
+  mlp.L17.d0   score=0.0594 tdCE=0.155+-0.056 z=2.8 conc=0.38 push=+capital clean=0.0111
+  h.L5.5       score=0.0590 tdCE=0.118+-0.042 z=2.8 conc=0.50 push=+word clean=0.0158
+  h.L9.6       score=0.0529 tdCE=0.077+-0.023 z=3.3 conc=0.69 push=+word clean=0.0556
+  h.L13.8      score=0.0485 tdCE=0.133+-0.044 z=3.0 conc=0.37 push=+word clean=0.025
+  h.L6.7       score=0.0417 tdCE=0.115+-0.040 z=2.9 conc=0.36 push=+subword clean=0.0707
+  h.L0.8       score=0.0394 tdCE=0.106+-0.029 z=3.6 conc=0.37 push=+capital clean=0.0157
+  h.L2.0       score=0.0394 tdCE=0.077+-0.037 z=2.1 conc=0.51 push=+subword clean=0.0448
+  h.L3.3       score=0.0386 tdCE=0.086+-0.026 z=3.3 conc=0.45 push=+word clean=0.0838
+  h.L8.1       score=0.0373 tdCE=0.069+-0.028 z=2.5 conc=0.54 push=-word clean=0.0289
+  h.L7.8       score=0.0358 tdCE=0.067+-0.021 z=3.2 conc=0.53 push=+subword clean=0.0242
+
+===== §61 FAMILY-JOINT REDUNDANCY PRE-PASS =====
+  late_ff_mlpL17: joint 0.911 Σsolo 0.481 ratio 1.89 solos={'mlp.L17.d1': 0.1636, 'mlp.L17.d2': 0.2406, 'mlp.L17.d3': 0.0768}
+  positional_heads_L0.8_L4.1: joint 0.088 Σsolo 0.087 ratio 1.02 solos={'h.L0.8': 0.0492, 'h.L4.1': 0.0374}
+
+===== CAUSAL VERIFICATION of top 8 class-push candidates =====
+  h.L0.3       push=capital   firing 3354.220+-502.683 (z6.67) ctrl 207.918+-192.415  spec 3146.302+-538.251 (z5.85) -> SPECIFIC-CLASS-PUSH
+  mlp.L17.d2   push=word      firing 28657.705+-1374.142 (z20.85) ctrl -1606.896+-110.924  spec 30264.601+-1378.611 (z21.95) -> SPECIFIC-CLASS-PUSH
+  h.L11.2      push=word      firing -1150.486+-251.682 (z-4.57) ctrl -377.260+-24.999  spec -773.226+-252.921 (z-3.06) -> FAILS-CLASS-PUSH
+  mlp.L17.d1   push=capital   firing 20003.955+-421.232 (z47.49) ctrl -607.131+-51.889  spec 20611.087+-424.416 (z48.56) -> SPECIFIC-CLASS-PUSH
+  h.L8.7       push=capital   firing -605.464+-178.587 (z-3.39) ctrl -6.862+-4.416  spec -598.602+-178.642 (z-3.35) -> FAILS-CLASS-PUSH
+  mlp.L16.d0   push=word      firing -16042.496+-318.245 (z-50.41) ctrl -28675.824+-1482.004  spec 12633.328+-1515.789 (z8.33) -> FAILS-CLASS-PUSH
+  mlp.L16.d2   push=word      firing 13013.957+-277.215 (z46.95) ctrl -571.805+-70.374  spec 13585.762+-286.008 (z47.5) -> SPECIFIC-CLASS-PUSH
+  mlp.L17.d3   push=capital   firing 7355.321+-754.315 (z9.75) ctrl 413.937+-51.648  spec 6941.383+-756.081 (z9.18) -> SPECIFIC-CLASS-PUSH
+
+===== CORRELATION CONTRAST (does the detector fix the blind spot?) =====
+  pearson_classpush_vs_trigger_dCE: 0.9863
+  spearman_classpush_vs_trigger_dCE: 0.9851
+  pearson_concentration_alone_vs_trigger_dCE: -0.0502
+  pearson_cleanliness_vs_trigger_dCE_ourrun: 0.0063
+  census_pearson_cleanliness_vs_trigger_dCE: 0.0063
+  census_spearman_cleanliness_vs_trigger_dCE: -0.0038
+  recompute_vs_census_trigger_dCE_maxabsdiff: 0.0
+  recompute_vs_census_trigger_dCE_meanabsdiff: 0.0
+
+===== CENSUS MISSED-HARD RECOVERY (class-push rank / 234) =====
+  h.L0.3       rank   1/234 score=0.1915 push=capital conc=0.49
+  h.L11.2      rank   3/234 score=0.1204 push=word conc=0.50
+  mlp.L17.d1   rank   4/234 score=0.1189 push=capital conc=0.47
+  mlp.L17.d2   rank   2/234 score=0.1701 push=word conc=0.46
+  mlp.L17.d3   rank   8/234 score=0.0710 push=capital conc=0.42
+  h.L8.7       rank   5/234 score=0.1059 push=capital conc=0.44
+  h.L8.3       rank  10/234 score=0.0630 push=word conc=0.35
+  h.L13.8      rank  14/234 score=0.0485 push=word conc=0.37
+  h.L0.8       rank  16/234 score=0.0394 push=capital conc=0.37
+  h.L4.1       rank  28/234 score=0.0292 push=capital conc=0.40
+
+===== NEW high class-push paths not in census top-10 =====
+  h.L7.8       rank 20 score=0.0358 tdCE=0.067 push=subword clean=0.0242
+
+Saved qk_unsup_classpush.json
+QK UNSUP CLASSPUSH DONE

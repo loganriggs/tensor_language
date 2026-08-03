@@ -1,0 +1,272 @@
+deeproute run: depth 12, 4122 steps (6 epochs), sweep lrs [0.0005, 0.001, 0.002, 0.003] x 400 steps, batch 8
+GPU guard: 15571 MiB free -- proceeding.
+control V1==A: max |logit diff| 0.00e+00
+control V5(identity proj)==A: max |logit diff| 0.00e+00
+control V6(full mask)==A: max |logit diff| 0.00e+00
+V1 already trained -- skip
+-- V2 sweep lr 0.0005
+GPU guard: 15255 MiB free -- proceeding.
+  V2 step 0/400 loss 10.9234 (ema 10.9234) 0s mem 6104MiB
+  V2 step 100/400 loss 8.6940 (ema 10.0449) 9s mem 6526MiB
+  V2 step 200/400 loss 7.5406 (ema 7.7806) 17s mem 6526MiB
+  V2 step 300/400 loss 7.0856 (ema 7.0408) 26s mem 6526MiB
+  sweep V2 lr 0.0005: held100 CE 6.7309 (0 spikes)
+-- V2 sweep lr 0.001
+GPU guard: 14187 MiB free -- proceeding.
+  V2 step 0/400 loss 10.9234 (ema 10.9234) 0s mem 6526MiB
+  V2 step 100/400 loss 7.6275 (ema 9.3113) 9s mem 6526MiB
+  V2 step 200/400 loss 7.4776 (ema 7.4968) 17s mem 6526MiB
+  V2 step 300/400 loss 7.2060 (ema 7.0811) 26s mem 6526MiB
+  sweep V2 lr 0.001: held100 CE 6.8359 (0 spikes)
+-- V2 sweep lr 0.002
+GPU guard: 14185 MiB free -- proceeding.
+  V2 step 0/400 loss 10.9234 (ema 10.9234) 0s mem 6526MiB
+  V2 step 100/400 loss 7.6523 (ema 8.9079) 9s mem 6526MiB
+  V2 step 200/400 loss 8.2041 (ema 8.0326) 17s mem 6526MiB
+  V2 step 300/400 loss 7.9946 (ema 7.8884) 26s mem 6526MiB
+  sweep V2 lr 0.002: held100 CE 7.7868 (1 spikes)
+-- V2 sweep lr 0.003
+GPU guard: 14167 MiB free -- proceeding.
+  V2 step 0/400 loss 10.9234 (ema 10.9234) 0s mem 6526MiB
+  V2 step 100/400 loss 7.8118 (ema 8.8752) 9s mem 6526MiB
+  V2 step 200/400 loss 8.2199 (ema 8.0555) 17s mem 6526MiB
+  V2 step 300/400 loss 8.0161 (ema 7.9157) 26s mem 6526MiB
+  sweep V2 lr 0.003: held100 CE 7.7995 (0 spikes)
+==== training V2 full run (lr 0.0005) ====
+GPU guard: 14219 MiB free -- proceeding.
+  V2 step 0/4122 loss 10.9234 (ema 10.9234) 0s mem 6526MiB
+  V2 step 200/4122 loss 7.5406 (ema 7.7806) 17s mem 6526MiB
+  V2 step 400/4122 loss 6.9791 (ema 6.8098) 35s mem 6526MiB
+  V2 step 600/4122 loss 6.4252 (ema 6.5938) 52s mem 6526MiB
+  V2 step 800/4122 loss 6.1844 (ema 6.3178) 69s mem 6526MiB
+  V2 step 1000/4122 loss 6.2743 (ema 6.2745) 86s mem 6526MiB
+  V2 step 1200/4122 loss 6.1668 (ema 6.2006) 103s mem 6526MiB
+  V2 step 1400/4122 loss 5.9313 (ema 6.0231) 121s mem 6526MiB
+  V2 step 1600/4122 loss 5.9494 (ema 5.9002) 138s mem 6526MiB
+  V2 step 1800/4122 loss 5.9753 (ema 5.8879) 155s mem 6526MiB
+  V2 step 2000/4122 loss 5.9909 (ema 5.8546) 172s mem 6526MiB
+  V2 step 2000 held100 CE 6.0223
+  V2 step 2200/4122 loss 5.7459 (ema 5.6522) 190s mem 6526MiB
+  V2 step 2400/4122 loss 5.7825 (ema 5.5968) 207s mem 6526MiB
+  V2 step 2600/4122 loss 5.7655 (ema 5.6102) 225s mem 6526MiB
+  V2 step 2800/4122 loss 5.2475 (ema 5.4625) 242s mem 6526MiB
+  V2 step 3000/4122 loss 5.2668 (ema 5.3746) 259s mem 6526MiB
+  V2 step 3200/4122 loss 5.6021 (ema 5.4333) 276s mem 6526MiB
+  V2 step 3400/4122 loss 5.6451 (ema 5.3774) 293s mem 6526MiB
+  V2 step 3600/4122 loss 5.2670 (ema 5.2722) 311s mem 6526MiB
+  V2 step 3800/4122 loss 5.2008 (ema 5.2518) 328s mem 6526MiB
+  V2 step 4000/4122 loss 5.0481 (ema 5.2508) 345s mem 6526MiB
+  V2 step 4000 held100 CE 5.9428
+== V2 FINAL held CE 5.92624  (358s, 2 spikes)
+-- V3 sweep lr 0.0005
+GPU guard: 14207 MiB free -- proceeding.
+  V3 step 0/400 loss 10.9162 (ema 10.9162) 0s mem 6526MiB
+  V3 step 100/400 loss 8.1783 (ema 9.6034) 9s mem 6526MiB
+  V3 step 200/400 loss 7.7859 (ema 7.7933) 17s mem 6526MiB
+  V3 step 300/400 loss 7.5500 (ema 7.4323) 26s mem 6526MiB
+  sweep V3 lr 0.0005: held100 CE 7.1947 (0 spikes)
+-- V3 sweep lr 0.001
+GPU guard: 14151 MiB free -- proceeding.
+  V3 step 0/400 loss 10.9162 (ema 10.9162) 0s mem 6526MiB
+  V3 step 100/400 loss 7.4258 (ema 8.9420) 9s mem 6526MiB
+  V3 step 200/400 loss 7.8684 (ema 7.7453) 17s mem 6526MiB
+  V3 step 300/400 loss 7.6864 (ema 7.6112) 26s mem 6526MiB
+  sweep V3 lr 0.001: held100 CE 7.3468 (0 spikes)
+-- V3 sweep lr 0.002
+GPU guard: 14201 MiB free -- proceeding.
+  V3 step 0/400 loss 10.9162 (ema 10.9162) 0s mem 6526MiB
+  V3 step 100/400 loss 7.5379 (ema 8.6159) 9s mem 6526MiB
+  V3 step 200/400 loss 8.0934 (ema 7.8526) 17s mem 6526MiB
+  V3 step 300/400 loss 7.5943 (ema 7.5671) 26s mem 6526MiB
+  sweep V3 lr 0.002: held100 CE 7.2129 (0 spikes)
+-- V3 sweep lr 0.003
+GPU guard: 14185 MiB free -- proceeding.
+  V3 step 0/400 loss 10.9162 (ema 10.9162) 0s mem 6526MiB
+  V3 step 100/400 loss 7.6258 (ema 8.5735) 9s mem 6526MiB
+  V3 step 200/400 loss 8.1893 (ema 7.8408) 17s mem 6526MiB
+  V3 step 300/400 loss 7.5624 (ema 7.5236) 26s mem 6526MiB
+  sweep V3 lr 0.003: held100 CE 7.0611 (0 spikes)
+==== training V3 full run (lr 0.003) ====
+GPU guard: 14289 MiB free -- proceeding.
+  V3 step 0/4122 loss 10.9162 (ema 10.9162) 0s mem 6526MiB
+  V3 step 200/4122 loss 8.1893 (ema 7.8408) 17s mem 6526MiB
+  V3 step 400/4122 loss 7.4026 (ema 7.2998) 34s mem 6526MiB
+  V3 step 600/4122 loss 6.7816 (ema 6.9639) 52s mem 6526MiB
+  V3 step 800/4122 loss 6.6198 (ema 6.7020) 69s mem 6526MiB
+  V3 step 1000/4122 loss 6.6365 (ema 6.6341) 86s mem 6526MiB
+  V3 step 1200/4122 loss 6.5238 (ema 6.5665) 103s mem 6526MiB
+  V3 step 1400/4122 loss 6.3801 (ema 6.3947) 120s mem 6526MiB
+  V3 step 1600/4122 loss 6.3768 (ema 6.3242) 138s mem 6526MiB
+  V3 step 1800/4122 loss 6.3591 (ema 6.3009) 155s mem 6526MiB
+  V3 step 2000/4122 loss 6.3738 (ema 6.2407) 172s mem 6526MiB
+  V3 step 2000 held100 CE 6.2988
+  V3 step 2200/4122 loss 6.1853 (ema 6.0886) 190s mem 6526MiB
+  V3 step 2400/4122 loss 6.2595 (ema 6.0416) 207s mem 6526MiB
+  V3 step 2600/4122 loss 6.1094 (ema 6.0362) 224s mem 6526MiB
+  V3 step 2800/4122 loss 5.6210 (ema 5.8608) 241s mem 6526MiB
+  V3 step 3000/4122 loss 5.6999 (ema 5.7984) 258s mem 6526MiB
+  V3 step 3200/4122 loss 6.0170 (ema 5.8611) 276s mem 6526MiB
+  V3 step 3400/4122 loss 6.0718 (ema 5.7859) 293s mem 6526MiB
+  V3 step 3600/4122 loss 5.7315 (ema 5.6678) 310s mem 6526MiB
+  V3 step 3800/4122 loss 5.5517 (ema 5.6533) 327s mem 6526MiB
+  V3 step 4000/4122 loss 5.5273 (ema 5.6566) 344s mem 6526MiB
+  V3 step 4000 held100 CE 6.0624
+== V3 FINAL held CE 6.04289  (357s, 0 spikes)
+-- V4 sweep lr 0.0005
+GPU guard: 14099 MiB free -- proceeding.
+  V4 step 0/400 loss 10.8968 (ema 10.8968) 0s mem 6526MiB
+  V4 step 100/400 loss 8.8389 (ema 9.9044) 9s mem 6799MiB
+  V4 step 200/400 loss 8.4046 (ema 8.4948) 19s mem 6799MiB
+  V4 step 300/400 loss 8.0637 (ema 8.1330) 28s mem 6799MiB
+  sweep V4 lr 0.0005: held100 CE 7.8919 (0 spikes)
+-- V4 sweep lr 0.001
+GPU guard: 14087 MiB free -- proceeding.
+  V4 step 0/400 loss 10.8968 (ema 10.8968) 0s mem 6799MiB
+  V4 step 100/400 loss 8.3191 (ema 9.4582) 9s mem 6799MiB
+  V4 step 200/400 loss 8.4122 (ema 8.4014) 19s mem 6799MiB
+  V4 step 300/400 loss 7.9736 (ema 7.9473) 28s mem 6799MiB
+  sweep V4 lr 0.001: held100 CE 7.7624 (0 spikes)
+-- V4 sweep lr 0.002
+GPU guard: 14285 MiB free -- proceeding.
+  V4 step 0/400 loss 10.8968 (ema 10.8968) 0s mem 6799MiB
+  V4 step 100/400 loss 8.4491 (ema 9.2476) 9s mem 6799MiB
+  V4 step 200/400 loss 8.1486 (ema 8.3629) 19s mem 6799MiB
+  V4 step 300/400 loss 8.1107 (ema 7.9677) 28s mem 6799MiB
+  sweep V4 lr 0.002: held100 CE 7.7969 (0 spikes)
+-- V4 sweep lr 0.003
+GPU guard: 14265 MiB free -- proceeding.
+  V4 step 0/400 loss 10.8968 (ema 10.8968) 0s mem 6799MiB
+  V4 step 100/400 loss 9.0484 (ema 9.2716) 9s mem 6799MiB
+  V4 step 200/400 loss 8.2987 (ema 8.2141) 19s mem 6799MiB
+  V4 step 300/400 loss 8.0859 (ema 7.9945) 28s mem 6799MiB
+  sweep V4 lr 0.003: held100 CE 7.8021 (0 spikes)
+==== training V4 full run (lr 0.001) ====
+GPU guard: 14227 MiB free -- proceeding.
+  V4 step 0/4122 loss 10.8968 (ema 10.8968) 0s mem 6799MiB
+  V4 step 200/4122 loss 8.4122 (ema 8.4014) 19s mem 6799MiB
+  V4 step 400/4122 loss 7.9144 (ema 7.8450) 37s mem 6799MiB
+  V4 step 600/4122 loss 7.6998 (ema 7.8098) 56s mem 6799MiB
+  V4 step 800/4122 loss 7.7136 (ema 7.7505) 74s mem 6799MiB
+  V4 step 1000/4122 loss 7.5924 (ema 7.6065) 93s mem 6799MiB
+  V4 step 1200/4122 loss 7.2722 (ema 7.3679) 111s mem 6799MiB
+  V4 step 1400/4122 loss 7.1509 (ema 7.1516) 130s mem 6799MiB
+  V4 step 1600/4122 loss 7.0222 (ema 7.0375) 148s mem 6799MiB
+  V4 step 1800/4122 loss 7.0045 (ema 6.9665) 167s mem 6799MiB
+  V4 step 2000/4122 loss 6.8863 (ema 6.8583) 186s mem 6799MiB
+  V4 step 2000 held100 CE 6.8529
+  V4 step 2200/4122 loss 6.7859 (ema 6.7608) 204s mem 6799MiB
+  V4 step 2400/4122 loss 6.9066 (ema 6.6932) 223s mem 6799MiB
+  V4 step 2600/4122 loss 6.7077 (ema 6.6730) 242s mem 6799MiB
+  V4 step 2800/4122 loss 6.3515 (ema 6.5770) 260s mem 6799MiB
+  V4 step 3000/4122 loss 6.5026 (ema 6.5197) 279s mem 6799MiB
+  V4 step 3200/4122 loss 6.6552 (ema 6.5769) 297s mem 6799MiB
+  V4 step 3400/4122 loss 6.7692 (ema 6.5153) 316s mem 6799MiB
+  V4 step 3600/4122 loss 6.5683 (ema 6.4845) 334s mem 6799MiB
+  V4 step 3800/4122 loss 6.3574 (ema 6.4630) 353s mem 6799MiB
+  V4 step 4000/4122 loss 6.4302 (ema 6.4683) 371s mem 6799MiB
+  V4 step 4000 held100 CE 6.5657
+== V4 FINAL held CE 6.56241  (385s, 0 spikes)
+V5 already trained -- skip
+V6 already trained -- skip
+-- V7 sweep lr 0.0005
+GPU guard: 14159 MiB free -- proceeding.
+  V7 step 0/400 loss 10.8249 (ema 10.8249) 0s mem 6799MiB
+  V7 step 100/400 loss 9.7298 (ema 10.4159) 8s mem 6799MiB
+  V7 step 200/400 loss 8.2357 (ema 8.7156) 16s mem 6799MiB
+  V7 step 300/400 loss 7.6874 (ema 7.7605) 24s mem 6799MiB
+  sweep V7 lr 0.0005: held100 CE 7.4849 (0 spikes)
+-- V7 sweep lr 0.001
+GPU guard: 14225 MiB free -- proceeding.
+  V7 step 0/400 loss 10.8249 (ema 10.8249) 0s mem 6799MiB
+  V7 step 100/400 loss 9.1304 (ema 10.0433) 8s mem 6799MiB
+  V7 step 200/400 loss 7.9754 (ema 8.1999) 16s mem 6799MiB
+  V7 step 300/400 loss 7.6853 (ema 7.6500) 24s mem 6799MiB
+  sweep V7 lr 0.001: held100 CE 7.4015 (0 spikes)
+-- V7 sweep lr 0.002
+GPU guard: 14249 MiB free -- proceeding.
+  V7 step 0/400 loss 10.8249 (ema 10.8249) 0s mem 6799MiB
+  V7 step 100/400 loss 8.8946 (ema 9.7510) 8s mem 6799MiB
+  V7 step 200/400 loss 8.1051 (ema 8.3935) 16s mem 6799MiB
+  V7 step 300/400 loss 7.8639 (ema 7.8680) 24s mem 6799MiB
+  sweep V7 lr 0.002: held100 CE 7.6047 (0 spikes)
+-- V7 sweep lr 0.003
+GPU guard: 14145 MiB free -- proceeding.
+  V7 step 0/400 loss 10.8249 (ema 10.8249) 0s mem 6799MiB
+  V7 step 100/400 loss 8.7231 (ema 9.5131) 8s mem 6799MiB
+  V7 step 200/400 loss 7.9397 (ema 7.9924) 16s mem 6799MiB
+  V7 step 300/400 loss 7.5869 (ema 7.5941) 24s mem 6799MiB
+  sweep V7 lr 0.003: held100 CE 7.1606 (0 spikes)
+==== training V7 full run (lr 0.003) ====
+GPU guard: 14189 MiB free -- proceeding.
+  V7 step 0/4122 loss 10.8249 (ema 10.8249) 0s mem 6799MiB
+  V7 step 200/4122 loss 7.9397 (ema 7.9924) 16s mem 6799MiB
+  V7 step 400/4122 loss 7.3612 (ema 7.3764) 31s mem 6799MiB
+  V7 step 600/4122 loss 6.7554 (ema 6.9877) 47s mem 6799MiB
+  V7 step 800/4122 loss 6.6239 (ema 6.7062) 63s mem 6799MiB
+  V7 step 1000/4122 loss 6.6100 (ema 6.6331) 79s mem 6799MiB
+  V7 step 1200/4122 loss 6.5991 (ema 6.6245) 94s mem 6799MiB
+  V7 step 1400/4122 loss 6.3437 (ema 6.4517) 110s mem 6799MiB
+  V7 step 1600/4122 loss 6.4051 (ema 6.3642) 126s mem 6799MiB
+  V7 step 1800/4122 loss 6.3986 (ema 6.3391) 141s mem 6799MiB
+  V7 step 2000/4122 loss 6.4085 (ema 6.2917) 157s mem 6799MiB
+  V7 step 2000 held100 CE 6.3462
+  V7 step 2200/4122 loss 6.1999 (ema 6.1460) 173s mem 6799MiB
+  V7 step 2400/4122 loss 6.3193 (ema 6.1008) 189s mem 6799MiB
+  V7 step 2600/4122 loss 6.2059 (ema 6.1189) 204s mem 6799MiB
+  V7 step 2800/4122 loss 5.7571 (ema 5.9917) 220s mem 6799MiB
+  V7 step 3000/4122 loss 5.8619 (ema 5.9345) 236s mem 6799MiB
+  V7 step 3200/4122 loss 6.1114 (ema 6.0025) 251s mem 6799MiB
+  V7 step 3400/4122 loss 6.1895 (ema 5.9416) 267s mem 6799MiB
+  V7 step 3600/4122 loss 5.9056 (ema 5.8683) 283s mem 6799MiB
+  V7 step 3800/4122 loss 5.7556 (ema 5.8571) 298s mem 6799MiB
+  V7 step 4000/4122 loss 5.7260 (ema 5.8555) 314s mem 6799MiB
+  V7 step 4000 held100 CE 6.2321
+== V7 FINAL held CE 6.22235  (326s, 0 spikes)
+{
+  "V1": {
+    "held_ce": 5.710475444793701,
+    "lr": 0.002
+  },
+  "V2": {
+    "held_ce": 5.926241874694824,
+    "lr": 0.0005,
+    "minus_V1": 0.2157660573720932,
+    "minus_V1_se_token": 0.00256752735003829,
+    "minus_V1_se_seq": 0.004715708550065756
+  },
+  "V3": {
+    "held_ce": 6.042886734008789,
+    "lr": 0.003,
+    "minus_V1": 0.3324112594127655,
+    "minus_V1_se_token": 0.0029258711729198694,
+    "minus_V1_se_seq": 0.005976802669465542
+  },
+  "V4": {
+    "held_ce": 6.56240701675415,
+    "lr": 0.001,
+    "minus_V1": 0.8519317507743835,
+    "minus_V1_se_token": 0.0037253228947520256,
+    "minus_V1_se_seq": 0.009603677317500114
+  },
+  "V5": {
+    "held_ce": 5.75642204284668,
+    "lr": 0.003,
+    "minus_V1": 0.04594632610678673,
+    "minus_V1_se_token": 0.0024542980827391148,
+    "minus_V1_se_seq": 0.00318915001116693
+  },
+  "V6": {
+    "held_ce": 5.83842134475708,
+    "lr": 0.001,
+    "minus_V1": 0.12794554233551025,
+    "minus_V1_se_token": 0.00244255643337965,
+    "minus_V1_se_seq": 0.0032389129046350718
+  },
+  "V7": {
+    "held_ce": 6.222354412078857,
+    "lr": 0.003,
+    "minus_V1": 0.5118788480758667,
+    "minus_V1_se_token": 0.0031702974811196327,
+    "minus_V1_se_seq": 0.007552452851086855
+  }
+}

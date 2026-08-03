@@ -1,0 +1,7 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+h0 stagewise: mres 0.0261 cpR64 0.2275
+/workspace/tensor_language/basis_aligned/qk_mdl/qk_h0_polish_g025.py:267: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:838.)
+  ema_m3 = 0.99 * ema_m3 + 0.01 * float(mm3)
+h0 polish: mres 0.0425 cpR64 0.1788 (stage 0.2275) | drift 0.967 stage-transfer 0.2060 trained-transfer 0.2061
+H04 POLISH DONE

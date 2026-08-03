@@ -1,0 +1,62 @@
+GPU guard: 15841 MiB free -- proceeding.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+bilin18 NL=18 NH=9 HD=128 D=1152 V=50304; characterizing MLP L1 top-32 SVD dirs
+353 special token ids masked from trigger selection
+lexical classes (15): ['bracket_close', 'bracket_open', 'capital', 'coordinator', 'determiner', 'digit', 'newline', 'other', 'pronoun', 'punct', 'quote', 'quote_open', 'special', 'subword', 'word']
+Recomputing MLP SVD directions from TRAIN gram ...
+MLP directions ready.
+PASS A: collect projection magnitudes + per-position means ...
+PASS A done.
+PASS B: 32 single-direction mean-ablations ...
+  batch 1/26  elapsed 1s
+  batch 5/26  elapsed 7s
+  batch 9/26  elapsed 13s
+  batch 13/26  elapsed 19s
+  batch 17/26  elapsed 25s
+  batch 21/26  elapsed 31s
+  batch 25/26  elapsed 37s
+PASS B done in 38s
+PASS B2: full-MLP-L1 (all top-32 dirs) mean-ablation reference ...
+full-MLP-L1(top32) global dCE 0.1607 +- 0.0045
+
+===== MLP L1 TOP-32 SVD DIRECTION CHARACTERIZATION =====
+full-layer(top32) global dCE 0.1607   sum-per-dir global dCE 0.0387
+bucket counts: {'null_subthreshold': 32}
+interpretable dirs: 0/32; they hold 0.0 of summed-per-dir global dCE, 0.0 of summed trigger dCE
+
+rank | bucket              | trigCE(z)      | conc  push        | top10tok | trigclass
+   0 | null_subthreshold   | 0.006(z1.0) | 0.39 +word        | 0.00    | determiner(109)
+   1 | null_subthreshold   | 0.000(z0.0) | 0.50 +word        | 0.00    | subword(65)
+   2 | null_subthreshold   | 0.002(z0.6) | 0.62 +subword     | 0.00    | capital(75)
+   3 | null_subthreshold   | -0.006(z-0.6) | 0.36 +word        | 0.00    | determiner(194)
+   4 | null_subthreshold   | 0.003(z0.3) | 0.72 +word        | 0.00    | word(87)
+   5 | null_subthreshold   | -0.003(z-0.4) | 0.45 -subword     | 0.00    | capital(65)
+   6 | null_subthreshold   | -0.003(z-0.5) | 0.59 +word        | 0.00    | pronoun(66)
+   7 | null_subthreshold   | 0.006(z1.1) | 0.37 +capital     | 0.00    | word(119)
+   8 | null_subthreshold   | 0.009(z1.4) | 0.50 -capital     | 0.00    | word(78)
+   9 | null_subthreshold   | 0.006(z0.8) | 0.74 -word        | 0.00    | word(86)
+  10 | null_subthreshold   | -0.007(z-1.6) | 0.43 +word        | 0.00    | word(119)
+  11 | null_subthreshold   | -0.001(z-0.1) | 0.34 -word        | 0.00    | word(86)
+  12 | null_subthreshold   | 0.001(z0.2) | 0.57 -word        | 0.00    | digit(115)
+  13 | null_subthreshold   | 0.009(z1.6) | 0.69 +capital     | 0.00    | word(130)
+  14 | null_subthreshold   | 0.001(z0.2) | 0.54 +word        | 0.00    | word(83)
+  15 | null_subthreshold   | -0.005(z-0.9) | 0.64 +capital     | 0.00    | word(117)
+  16 | null_subthreshold   | 0.000(z0.1) | 0.40 +capital     | 0.00    | word(82)
+  17 | null_subthreshold   | 0.002(z0.3) | 0.43 +word        | 0.00    | word(97)
+  18 | null_subthreshold   | 0.002(z0.4) | 0.57 -word        | 0.00    | word(100)
+  19 | null_subthreshold   | -0.001(z-0.2) | 0.47 +word        | 0.00    | determiner(73)
+  20 | null_subthreshold   | 0.003(z0.6) | 0.40 -word        | 0.00    | word(118)
+  21 | null_subthreshold   | -0.004(z-0.9) | 0.56 +word        | 0.00    | word(87)
+  22 | null_subthreshold   | 0.006(z1.4) | 0.59 +word        | 0.00    | determiner(103)
+  23 | null_subthreshold   | 0.004(z1.0) | 0.73 +word        | 0.00    | word(84)
+  24 | null_subthreshold   | -0.003(z-0.6) | 0.55 +capital     | 0.00    | word(68)
+  25 | null_subthreshold   | -0.001(z-0.4) | 0.48 -capital     | 0.00    | word(75)
+  26 | null_subthreshold   | 0.006(z1.6) | 0.54 +capital     | 0.00    | word(118)
+  27 | null_subthreshold   | 0.004(z1.0) | 0.42 +word        | 0.00    | word(62)
+  28 | null_subthreshold   | -0.001(z-0.1) | 0.52 +word        | 0.00    | word(142)
+  29 | null_subthreshold   | 0.002(z0.5) | 0.48 +word        | 0.00    | determiner(122)
+  30 | null_subthreshold   | -0.002(z-0.6) | 0.68 +capital     | 0.00    | word(114)
+  31 | null_subthreshold   | 0.004(z0.8) | 0.53 -capital     | 0.00    | word(86)
+
+Saved qk_mlp1_tail.json
+QK MLP1 TAIL DONE

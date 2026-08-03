@@ -1,0 +1,12 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+building pile eval...
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+fineweb_128 (in-dist): base 3.281 | substitution dCE +0.09107
+fineweb_513 (long): base 2.916 | substitution dCE +0.08825
+pile_128 (ood corpus): base 3.329 | substitution dCE +0.04516
+shuffled_128 (no ngrams): base 8.190 | substitution dCE +0.00553
+raretoken_128 (adversarial vocab): base 12.844 | substitution dCE +-0.02827
+divergence: median 0.403 p99.5 0.701
+worst-position tokens: ['op', 'nant', 'ry', 'ster', 'ster', 'ster', 'ster', 'ster', 'ond', 'ering', 'ster', 'ster', 'ash', 'ICH', 'iter', 'iter', 'iter', 'ill', 'ear', 'or', 'ented', 'ented', 'ending', 'ill', 'ite', 'ors', 'ump', '</', 'rog', 'com']
+worst-position PREV tokens: ['ĠSco', 'reg', 'Ġw', 'Ġdump', 'Ġdump', 'Ġdump', 'Ġdump', 'Ġdump', 'W', 'ond', 'Ġdump', 'ump', 'Tr', 'ĠWH', 'Wa', 'Wa', 'Wa', 'Ġinst', 'f', 'Ġfl', 'ĠPres', 'ĠPres', 'sp', 'Ġdist', 'n', 'ĠW', 'Ġth', 'Ġmg', 'ĠInter', 'Ġgly']
+QK MLP0 ADVERSARIAL DONE

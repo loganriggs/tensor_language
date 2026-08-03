@@ -1,0 +1,141 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+bilin18 NL=18 NH=9 HD=128 D=1152 V=50304; train=(256, 128) held=(152, 128)
+n_special=353 n_newline_tok=3 n_present=10764
+PASS 1: offset + content templates + argmax structural (TRAIN) ...
+PASS 2: residual R2 (content-beyond-offset, offset-beyond-content) ...
+collecting HELD per-position yh means ...
+CAUSAL: testing 9 heads on HELD ...
+  causal h.L5.7 (ABS-POS-0 SINK) ...
+  causal h.L2.6 (FIXED-OFFSET (back-1)) ...
+  causal h.L1.1 (FIXED-OFFSET (back-0)) ...
+  causal h.L3.8 (FIXED-OFFSET (back-0)) ...
+  causal h.L0.3 (FIXED-OFFSET (back-1)) ...
+  causal h.L1.4 (FIXED-OFFSET (back-0)) ...
+  causal h.L1.2 (MIXED / DIFFUSE) ...
+  causal h.L2.1 (MIXED / DIFFUSE) ...
+  causal h.L2.4 (LINE-STRUCTURE (attend-last-newline / segment-start)) ...
+[saved] /workspace/tensor_language/basis_aligned/qk_mdl/qk_unsup_positional.json
+
+==== LABEL COUNTS (of 162 heads) ====
+  MIXED / DIFFUSE                            108
+  FIXED-OFFSET                               44
+  POSITIONAL                                 7
+  ABS-POS-0 SINK                             2
+  LINE-STRUCTURE                             1
+
+==== TOP POSITIONAL / STRUCTURAL HEADS (by positional_purity) ====
+comp     label                                               pp  R2off  R2crsd  offpur  prev1   bos lastnl modoff
+h.L5.7   ABS-POS-0 SINK                                   0.959  0.118   0.007     0.0  0.008 0.994  0.015      4
+h.L2.6   FIXED-OFFSET (back-1)                            0.786  0.782   0.006   0.686   0.81 0.009  0.015      1
+h.L1.1   FIXED-OFFSET (back-0)                             0.75  0.896   0.008   0.696  0.215 0.002  0.005      0
+h.L3.8   FIXED-OFFSET (back-0)                            0.742  0.328   0.001   0.641  0.002 0.003  0.008      0
+h.L0.3   FIXED-OFFSET (back-1)                            0.689  0.767   0.002   0.767  0.696 0.006  0.032      1
+h.L1.4   FIXED-OFFSET (back-0)                            0.676  0.356   0.004   0.635  0.012 0.006  0.009      0
+h.L2.5   FIXED-OFFSET (back-0)                            0.675  0.388   0.003   0.583  0.002 0.005   0.01      0
+h.L4.7   FIXED-OFFSET (back-1)                            0.671  0.594   0.016   0.737  0.729 0.012  0.014      1
+h.L5.2   ABS-POS-0 SINK                                   0.669  0.019   0.014   0.027  0.036 0.719  0.016      0
+h.L3.5   FIXED-OFFSET (back-0)                            0.667  0.321     0.0    0.59   0.02 0.004  0.011      0
+h.L3.7   FIXED-OFFSET (back-1)                            0.641  0.424   0.009   0.723  0.671 0.009   0.03      1
+h.L3.6   FIXED-OFFSET (back-1)                            0.636  0.446   0.004   0.695  0.649 0.011  0.039      1
+h.L9.7   FIXED-OFFSET (back-1)                            0.568  0.507   0.005   0.616  0.583  0.01  0.042      1
+h.L16.8  FIXED-OFFSET (back-0)                            0.562   0.59   0.006    0.67  0.209 0.005  0.012      0
+h.L17.4  FIXED-OFFSET (back-0)                            0.523  0.014   0.001    0.62   0.18 0.006   0.02      0
+h.L14.3  FIXED-OFFSET (back-0)                            0.505  0.019   0.003   0.637  0.224 0.006  0.005      0
+h.L1.3   FIXED-OFFSET (back-1)                             0.48  0.266   0.003   0.684  0.488 0.008  0.005      1
+h.L13.6  FIXED-OFFSET (back-0)                            0.469  0.279   0.011   0.608  0.189 0.006  0.049      0
+h.L4.3   FIXED-OFFSET (back-1)                            0.468  0.464   0.003   0.742  0.476 0.009  0.016      1
+h.L2.2   FIXED-OFFSET (back-1)                            0.445   0.44   0.006   0.623  0.459 0.012  0.028      1
+
+==== CAUSAL (HELD, mean-ablation, paired dCE) ====
+
+h.L5.7  [ABS-POS-0 SINK]  overall dCE=0.0114±0.0012 (n=18634)  corr(dCE,dist-since-nl)=0.0
+   by distance-since-newline:
+      dsn 1-1     dCE=   0.005±0.006   n=509
+      dsn 2-3     dCE=  0.0065±0.0049  n=994
+      dsn 4-7     dCE=   0.012±0.0038  n=1840
+      dsn 8-15    dCE=  0.0133±0.0031  n=2931
+      dsn 16-31   dCE=  0.0114±0.0024  n=3999
+      dsn 32-127  dCE=  0.0116±0.0018  n=8361
+   spread across distance bins=0.0031  across content classes=0.0079
+
+h.L2.6  [FIXED-OFFSET (back-1)]  overall dCE=0.0101±0.0012 (n=18634)  corr(dCE,dist-since-nl)=-0.004
+   by distance-since-newline:
+      dsn 1-1     dCE=  0.0021±0.0047  n=509
+      dsn 2-3     dCE=  0.0087±0.0057  n=994
+      dsn 4-7     dCE=  0.0122±0.0037  n=1840
+      dsn 8-15    dCE=  0.0109±0.0031  n=2931
+      dsn 16-31   dCE=   0.009±0.0024  n=3999
+      dsn 32-127  dCE=  0.0105±0.0017  n=8361
+   spread across distance bins=0.0033  across content classes=0.0109
+
+h.L1.1  [FIXED-OFFSET (back-0)]  overall dCE=0.0299±0.0022 (n=18634)  corr(dCE,dist-since-nl)=-0.022
+   by distance-since-newline:
+      dsn 1-1     dCE=  0.0246±0.0155  n=509
+      dsn 2-3     dCE=  0.0532±0.0139  n=994
+      dsn 4-7     dCE=  0.0359±0.0079  n=1840
+      dsn 8-15    dCE=  0.0353±0.0057  n=2931
+      dsn 16-31   dCE=  0.0319±0.0044  n=3999
+      dsn 32-127  dCE=  0.0233±0.003   n=8361
+   spread across distance bins=0.0098  across content classes=0.0278
+
+h.L3.8  [FIXED-OFFSET (back-0)]  overall dCE=0.0049±0.0009 (n=18634)  corr(dCE,dist-since-nl)=0.0
+   by distance-since-newline:
+      dsn 1-1     dCE=  0.0037±0.0048  n=509
+      dsn 2-3     dCE=  0.0074±0.004   n=994
+      dsn 4-7     dCE=  0.0038±0.0025  n=1840
+      dsn 8-15    dCE=  0.0039±0.0025  n=2931
+      dsn 16-31   dCE=  0.0046±0.0016  n=3999
+      dsn 32-127  dCE=  0.0055±0.0015  n=8361
+   spread across distance bins=0.0013  across content classes=0.0131
+
+h.L0.3  [FIXED-OFFSET (back-1)]  overall dCE=0.0744±0.0034 (n=18634)  corr(dCE,dist-since-nl)=-0.01
+   by distance-since-newline:
+      dsn 1-1     dCE=  0.0253±0.0133  n=509
+      dsn 2-3     dCE=  0.1469±0.0201  n=994
+      dsn 4-7     dCE=  0.0937±0.0129  n=1840
+      dsn 8-15    dCE=  0.0576±0.0082  n=2931
+      dsn 16-31   dCE=  0.0713±0.0073  n=3999
+      dsn 32-127  dCE=  0.0718±0.0048  n=8361
+   spread across distance bins=0.0371  across content classes=0.039
+
+h.L1.4  [FIXED-OFFSET (back-0)]  overall dCE=0.0112±0.0013 (n=18634)  corr(dCE,dist-since-nl)=-0.003
+   by distance-since-newline:
+      dsn 1-1     dCE=  0.0105±0.0067  n=509
+      dsn 2-3     dCE=  0.0086±0.0047  n=994
+      dsn 4-7     dCE=  0.0153±0.0041  n=1840
+      dsn 8-15    dCE=  0.0128±0.0033  n=2931
+      dsn 16-31   dCE=  0.0084±0.0026  n=3999
+      dsn 32-127  dCE=  0.0115±0.0019  n=8361
+   spread across distance bins=0.0024  across content classes=0.0106
+
+h.L1.2  [MIXED / DIFFUSE]  overall dCE=0.0011±0.0004 (n=18634)  corr(dCE,dist-since-nl)=-0.004
+   by distance-since-newline:
+      dsn 1-1     dCE=   0.009±0.0042  n=509
+      dsn 2-3     dCE=  0.0034±0.0018  n=994
+      dsn 4-7     dCE=   0.001±0.0011  n=1840
+      dsn 8-15    dCE=  0.0018±0.0009  n=2931
+      dsn 16-31   dCE= -0.0002±0.0008  n=3999
+      dsn 32-127  dCE=  0.0008±0.0006  n=8361
+   spread across distance bins=0.0031  across content classes=0.0033
+
+h.L2.1  [MIXED / DIFFUSE]  overall dCE=0.0015±0.0003 (n=18634)  corr(dCE,dist-since-nl)=0.015
+   by distance-since-newline:
+      dsn 1-1     dCE=  0.0046±0.0026  n=509
+      dsn 2-3     dCE=  0.0007±0.0019  n=994
+      dsn 4-7     dCE=  0.0011±0.001   n=1840
+      dsn 8-15    dCE= -0.0006±0.0008  n=2931
+      dsn 16-31   dCE=  0.0005±0.0006  n=3999
+      dsn 32-127  dCE=  0.0026±0.0005  n=8361
+   spread across distance bins=0.0017  across content classes=0.0097
+
+h.L2.4  [LINE-STRUCTURE (attend-last-newline / segment-start)]  overall dCE=-0.0003±0.0003 (n=18634)  corr(dCE,dist-since-nl)=0.003
+   by distance-since-newline:
+      dsn 1-1     dCE= -0.0001±0.0019  n=509
+      dsn 2-3     dCE= -0.0002±0.0013  n=994
+      dsn 4-7     dCE= -0.0015±0.0009  n=1840
+      dsn 8-15    dCE=  0.0008±0.0007  n=2931
+      dsn 16-31   dCE=  0.0001±0.0006  n=3999
+      dsn 32-127  dCE= -0.0006±0.0005  n=8361
+   spread across distance bins=0.0007  across content classes=0.0034
+
+QK UNSUP POSITIONAL DONE

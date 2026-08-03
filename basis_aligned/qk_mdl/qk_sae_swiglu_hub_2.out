@@ -1,0 +1,42 @@
+GPU guard: 11849 MiB free -- proceeding.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+loaded swiglu18 layer-2 dictionary NFEAT=16384 k=64; testing top-32 features causally
+PASS A: per-position feature means + tested-feature activations ...
+PASS A done.
+PASS B: 32 single-feature ablations + 12 cumulative ...
+  batch 1/26  elapsed 4s
+  batch 5/26  elapsed 22s
+  batch 9/26  elapsed 39s
+  batch 13/26  elapsed 54s
+  batch 17/26  elapsed 70s
+  batch 21/26  elapsed 86s
+  batch 25/26  elapsed 94s
+PASS B done in 95s
+PASS B2: full-layer-2 mean-ablation reference + positive controls ...
+full-layer-2 mean-ablation global dCE 0.7592 +- 0.0096
+REMOVE-SAE-RESIDUAL (keep reconstruction) global dCE 0.0101 +- 0.0011 = 1.3% of full  [positive control]
+
+===== CAUSAL HEAD-TO-HEAD on swiglu18 layer-2 (delta cross-entropy, nats) =====
+full-layer-2 mean-ablation 0.7592
+single features clearing §74 bar (z>=3 & trigger dCE>=0.02): 0/32  (swiglu18 SVD 0/32 §77, bilin18 SAE 0/32 §80)
+max single-feature trigger z 3.12, max trigger dCE 0.0188
+top features by trigger z:
+  feat  5849  trigger dCE 0.0170 (z 3.1)  global dCE 0.00015  -
+  feat 15394  trigger dCE 0.0077 (z 1.9)  global dCE 0.00016  -
+  feat  5044  trigger dCE 0.0047 (z 1.7)  global dCE 0.00005  -
+  feat 13821  trigger dCE 0.0109 (z 1.7)  global dCE 0.00034  -
+  feat 10657  trigger dCE 0.0188 (z 1.7)  global dCE 0.00106  -
+  feat 16362  trigger dCE 0.0085 (z 1.2)  global dCE 0.00085  -
+  feat 11405  trigger dCE 0.0179 (z 1.2)  global dCE 0.00089  -
+  feat  2827  trigger dCE 0.0079 (z 1.0)  global dCE 0.00013  -
+  feat 13139  trigger dCE 0.0016 (z 0.8)  global dCE 0.00012  -
+  feat 10874  trigger dCE 0.0065 (z 0.8)  global dCE 0.00019  -
+  feat   314  trigger dCE 0.0015 (z 0.7)  global dCE 0.00005  -
+  feat  2108  trigger dCE 0.0043 (z 0.6)  global dCE 0.00036  -
+
+remove-SAE-residual 0.0101 = 1.3% of full; all dictionary features = 9.55% of full
+cumulative features for 50%/80% of full-layer-2 effect: None/None
+
+Merged causal results into qk_sae_swiglu_hub.json
+QK SAE SWIGLU HUB (script 2: causal) DONE
+CAUSAL DONE exit=0

@@ -1,0 +1,29 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+tables...
+capturing...
+131072 positions (117964 train)
+self-distilling memory from the model...
+2202632 clean keys; 253450 audit keys; 2401563 union to query
+  0/2401563 queried; kept 402
+  163840/2401563 queried; kept 34129
+  327680/2401563 queried; kept 68219
+  491520/2401563 queried; kept 102148
+  655360/2401563 queried; kept 135761
+  819200/2401563 queried; kept 169797
+  983040/2401563 queried; kept 203782
+  1146880/2401563 queried; kept 237574
+  1310720/2401563 queried; kept 271441
+  1474560/2401563 queried; kept 305131
+  1638400/2401563 queried; kept 338788
+  1802240/2401563 queried; kept 372649
+  1966080/2401563 queried; kept 406648
+  2129920/2401563 queried; kept 440347
+  2293760/2401563 queried; kept 473944
+self-mined: clean 454729 keys, diagnostic 495776
+retrieval for training positions...
+train hit rate 0.205; feature dim 338
+features ready
+named_mem_swiglu: 371120 params, val R2 0.5082, top-1% weight mass 0.104
+named_mem_swiglu: full-audit dCE +0.03062
+named_mem_swiglu DIAGNOSTIC (audit-keyed, upper bound): dCE +0.03131
+SELF MINED DONE

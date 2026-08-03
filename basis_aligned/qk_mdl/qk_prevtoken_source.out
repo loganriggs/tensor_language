@@ -1,0 +1,14 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[bilin18] prev-token R2 by block: b0=0.273 b1=0.306 b2=0.339 b3=0.317 b4=0.398 b5=0.321 b6=0.352
+[bilin18] biggest-jump block 0: R2 intact 0.273 | ablate MLP0 0.508 | ablate ATTN0 0.039
+  -> bilin18: previous-token signal built by ATTN (MLP drop -0.2353, ATTN drop 0.234)
+
+[swiglu18] prev-token R2 by block: b0=0.277 b1=0.466 b2=0.491 b3=0.529 b4=0.456 b5=0.354 b6=0.361
+[swiglu18] biggest-jump block 0: R2 intact 0.277 | ablate MLP0 0.370 | ablate ATTN0 0.049
+  -> swiglu18: previous-token signal built by ATTN (MLP drop -0.0927, ATTN drop 0.2277)
+
+[bilinsm12] prev-token R2 by block: b0=0.227 b1=0.347 b2=0.341 b3=0.268 b4=0.420 b5=0.348 b6=0.284
+[bilinsm12] biggest-jump block 0: R2 intact 0.227 | ablate MLP0 0.406 | ablate ATTN0 0.061
+  -> bilinsm12: previous-token signal built by ATTN (MLP drop -0.1792, ATTN drop 0.1663)
+
+QK PREVTOKEN SOURCE DONE

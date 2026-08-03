@@ -1,0 +1,26 @@
+GPU guard: 15841 MiB free -- proceeding.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+bilin18 NL=18 D=1152 hidden=4608  lamE=8.1547 lam0=0.0127
+PASS A1: means + gates + stream norms + full-gauge term means ...
+GATE recon global 9.83e-07 maxpos 1.54e-06 groupsum 5.41e-08
+ATTACK 3 raw rms norms: {'E': 33.941, 'A0': 388.097, 'M0': 50442.627, 'A1': 1704.08} | coefficiented: {'E': 276.781, 'A0': 4.927, 'M0': 640.385, 'A1': 1704.08} | A0/M0 raw ratio: 0.0077
+PASS A2: kept-sum and mean-x gauge term means + gauge stats ...
+gauge-frozen residual energy fraction 0.2917 | corr(1/rho2, devnorm) mean +0.725 median +0.731 | CV(rho2) 0.439
+BASE pass ...
+base CE 3.4946
+ATTACK 1: keep-top-5 under full / kept-sum / mean-x gauges ...
+  mean_only_repro            dCE +5.5744 +- 0.03230
+  keep5_full_gauge_repro     dCE +0.0019 +- 0.00059
+  keep5_gauge_keptsum        dCE +0.0019 +- 0.00059
+  keep5_gauge_meanx          dCE +0.0072 +- 0.00108
+  allterms_gauge_meanx       dCE +0.0072 +- 0.00104
+  top3_full_gauge_repro      dCE +0.0930 +- 0.00344
+  top3_gauge_meanx           dCE +0.1113 +- 0.00387
+ATTACK 2: train gram pass ...
+  mean_only_perpos             dCE +5.5744 +- 0.03230
+  mean_only_global             dCE +5.6968 +- 0.03163
+  keep144_perpos_mean_repro    dCE +0.0839 +- 0.00321
+  keep144_global_mean          dCE +0.0862 +- 0.00325
+  keep288_global_mean          dCE +0.0199 +- 0.00161
+  keep145_global_plus_meandir  dCE +0.0859 +- 0.00324
+QK REDTEAM FOLD PART 1 DONE

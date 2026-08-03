@@ -1,0 +1,19 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+templates ready
+normal equations done
+PROGRAMMATIC heads (predicate gain >=5% held-out): 30/162
+by top predicate: [('KEY_newline', 9), ('MATCH_prev', 8), ('MATCH_same', 5), ('KEY_cap', 4), ('PREV1', 2), ('KEY_func', 2)]
+by layer: Counter({16: 4, 1: 3, 2: 3, 3: 3, 6: 2, 11: 2, 13: 2, 14: 2, 15: 2, 0: 1, 5: 1, 7: 1, 8: 1, 9: 1, 10: 1, 12: 1})
+--- LAYER 12 per-head census ---
+  L12H0: gain 0.049 top=PREV1 (-0.0243) full 0.076 / tpl 0.027
+  L12H1: gain -0.006 top=PREV1 (-0.0208) full -0.032 / tpl -0.026
+  L12H2: gain -0.002 top=MATCH_prev2 (-0.0174) full 0.102 / tpl 0.103
+  L12H3: gain 0.031 top=KEY_cap (-0.0297) full -0.008 / tpl -0.039
+  L12H4: gain 0.006 top=MATCH_prev (0.02) full 0.11 / tpl 0.104
+  L12H5: gain 0.011 top=KEY_func (-0.0113) full 0.048 / tpl 0.037
+  L12H6: gain 0.118 top=MATCH_prev (0.0517) full 0.134 / tpl 0.016 PROG
+  L12H7: gain 0.038 top=KEY_digit (0.0413) full 0.04 / tpl 0.002
+  L12H8: gain 0.046 top=PREV1 (0.0372) full 0.055 / tpl 0.009
+GATE: 1 layer-12 programmatic heads coded simultaneously (heads [6]): dCE +0.00086 (SE 0.000275)
+SUMMARY L12 SELECTION: 1 programmatic heads at layer 12; per-head predicate gain range -0.006..0.118; gate +0.00086 nats/tok (SE 0.000275)
+QK L12 SELECTION GATE DONE

@@ -1,0 +1,88 @@
+GPU guard: 11493 MiB free -- proceeding.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+  [refit k=16 lr=0.001] step    0 val CE 3.24729 fit-probe CE 3.27570 (global best 3.24729 @ lr 0.001 step 0) 16s
+/workspace/tensor_language/basis_aligned/qk_mdl/qk_redteam_sc.py:476: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:838.)
+  fl = float(loss)
+  [refit k=16 lr=0.001] step   25 val CE 3.24835 fit-probe CE 3.27116 (global best 3.24729 @ lr 0.001 step 0) 76s
+  [refit k=16 lr=0.001] step   50 val CE 3.24739 fit-probe CE 3.26809 (global best 3.24729 @ lr 0.001 step 0) 135s
+  [refit k=16 lr=0.001] step   75 val CE 3.24760 fit-probe CE 3.26792 (global best 3.24729 @ lr 0.001 step 0) 211s
+  [refit k=16 lr=0.001] step  100 val CE 3.24877 fit-probe CE 3.26739 (global best 3.24729 @ lr 0.001 step 0) 301s
+  [refit k=16 lr=0.001] step  125 val CE 3.24972 fit-probe CE 3.26675 (global best 3.24729 @ lr 0.001 step 0) 384s
+  [refit k=16 lr=0.001] step  150 val CE 3.24920 fit-probe CE 3.26691 (global best 3.24729 @ lr 0.001 step 0) 469s
+  [refit k=16 lr=0.001] step  175 val CE 3.24865 fit-probe CE 3.26736 (global best 3.24729 @ lr 0.001 step 0) 560s
+  [refit k=16 lr=0.001] step  200 val CE 3.24985 fit-probe CE 3.26692 (global best 3.24729 @ lr 0.001 step 0) 628s
+  [refit k=16 lr=0.001] step  225 val CE 3.24991 fit-probe CE 3.26802 (global best 3.24729 @ lr 0.001 step 0) 689s
+  [refit k=16 lr=0.001] step  250 val CE 3.25281 fit-probe CE 3.26682 (global best 3.24729 @ lr 0.001 step 0) 750s
+  [refit k=16 lr=0.001] step  275 val CE 3.25099 fit-probe CE 3.26556 (global best 3.24729 @ lr 0.001 step 0) 810s
+  [refit k=16 lr=0.001] step  300 val CE 3.25000 fit-probe CE 3.26605 (global best 3.24729 @ lr 0.001 step 0) 871s
+  [refit k=16 lr=0.0003] step    0 val CE 3.24729 fit-probe CE 3.27570 (global best 3.24729 @ lr 0.001 step 0) 15s
+  [refit k=16 lr=0.0003] step   25 val CE 3.24646 fit-probe CE 3.27237 (global best 3.24646 @ lr 0.0003 step 25) 95s
+  [refit k=16 lr=0.0003] step   50 val CE 3.24622 fit-probe CE 3.27174 (global best 3.24622 @ lr 0.0003 step 50) 182s
+  [refit k=16 lr=0.0003] step   75 val CE 3.24640 fit-probe CE 3.27146 (global best 3.24622 @ lr 0.0003 step 50) 269s
+  [refit k=16 lr=0.0003] step  100 val CE 3.24724 fit-probe CE 3.26972 (global best 3.24622 @ lr 0.0003 step 50) 347s
+  [refit k=16 lr=0.0003] step  125 val CE 3.24684 fit-probe CE 3.26878 (global best 3.24622 @ lr 0.0003 step 50) 434s
+  [refit k=16 lr=0.0003] step  150 val CE 3.24723 fit-probe CE 3.26912 (global best 3.24622 @ lr 0.0003 step 50) 508s
+  [refit k=16 lr=0.0003] step  175 val CE 3.24740 fit-probe CE 3.26895 (global best 3.24622 @ lr 0.0003 step 50) 556s
+  [refit k=16 lr=0.0003] step  200 val CE 3.24722 fit-probe CE 3.26835 (global best 3.24622 @ lr 0.0003 step 50) 613s
+  [refit k=16 lr=0.0003] step  225 val CE 3.24738 fit-probe CE 3.26798 (global best 3.24622 @ lr 0.0003 step 50) 671s
+  [refit k=16 lr=0.0003] step  250 val CE 3.24743 fit-probe CE 3.26757 (global best 3.24622 @ lr 0.0003 step 50) 728s
+  [refit k=16 lr=0.0003] step  275 val CE 3.24819 fit-probe CE 3.26759 (global best 3.24622 @ lr 0.0003 step 50) 786s
+  [refit k=16 lr=0.0003] step  300 val CE 3.24791 fit-probe CE 3.26690 (global best 3.24622 @ lr 0.0003 step 50) 844s
+  [refit k=16 lr=0.0001] step    0 val CE 3.24729 fit-probe CE 3.27570 (global best 3.24622 @ lr 0.0003 step 50) 15s
+  [refit k=16 lr=0.0001] step   25 val CE 3.24685 fit-probe CE 3.27431 (global best 3.24622 @ lr 0.0003 step 50) 73s
+  [refit k=16 lr=0.0001] step   50 val CE 3.24649 fit-probe CE 3.27325 (global best 3.24622 @ lr 0.0003 step 50) 130s
+  [refit k=16 lr=0.0001] step   75 val CE 3.24644 fit-probe CE 3.27264 (global best 3.24622 @ lr 0.0003 step 50) 188s
+  [refit k=16 lr=0.0001] step  100 val CE 3.24636 fit-probe CE 3.27208 (global best 3.24622 @ lr 0.0003 step 50) 246s
+  [refit k=16 lr=0.0001] step  125 val CE 3.24635 fit-probe CE 3.27172 (global best 3.24622 @ lr 0.0003 step 50) 304s
+  [refit k=16 lr=0.0001] step  150 val CE 3.24634 fit-probe CE 3.27135 (global best 3.24622 @ lr 0.0003 step 50) 361s
+  [refit k=16 lr=0.0001] step  175 val CE 3.24643 fit-probe CE 3.27128 (global best 3.24622 @ lr 0.0003 step 50) 419s
+  [refit k=16 lr=0.0001] step  200 val CE 3.24644 fit-probe CE 3.27084 (global best 3.24622 @ lr 0.0003 step 50) 477s
+  [refit k=16 lr=0.0001] step  225 val CE 3.24647 fit-probe CE 3.27070 (global best 3.24622 @ lr 0.0003 step 50) 535s
+  [refit k=16 lr=0.0001] step  250 val CE 3.24667 fit-probe CE 3.27023 (global best 3.24622 @ lr 0.0003 step 50) 592s
+  [refit k=16 lr=0.0001] step  275 val CE 3.24663 fit-probe CE 3.26995 (global best 3.24622 @ lr 0.0003 step 50) 650s
+  [refit k=16 lr=0.0001] step  300 val CE 3.24676 fit-probe CE 3.26994 (global best 3.24622 @ lr 0.0003 step 50) 708s
+  [refit k=16] dCE +0.0158 +- 0.00128 (23s)
+  [pca   k=16] dCE +0.0171 +- 0.00133 (23s)
+  [k=16] refit +0.0158 vs pca +0.0171 vs rank +0.0092; refit-rank paired {'diff': 0.0066, 'SE': 0.00156, 'z': 4.2}
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/qk_mdl/qk_redteam_sc.py", line 844, in <module>
+    #  against section 92 rank allocation at the same budget, per-position paired standard errors.
+                          ^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/qk_mdl/qk_redteam_sc.py", line 511, in refit_stage
+    del A, opt; torch.cuda.empty_cache()
+        ^
+UnboundLocalError: cannot access local variable 'A' where it is not associated with a value
+GPU guard: 10805 MiB free -- proceeding.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+  [refit k=12 lr=0.001] step    0 val CE 3.32026 fit-probe CE 3.34851 (global best 3.32026 @ lr 0.001 step 0) 10s
+/workspace/tensor_language/basis_aligned/qk_mdl/qk_redteam_sc.py:476: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:838.)
+  fl = float(loss)
+  [refit k=12 lr=0.001] step   25 val CE 3.30895 fit-probe CE 3.33020 (global best 3.30895 @ lr 0.001 step 25) 49s
+  [refit k=12 lr=0.001] step   50 val CE 3.30611 fit-probe CE 3.32534 (global best 3.30611 @ lr 0.001 step 50) 87s
+  [refit k=12 lr=0.001] step   75 val CE 3.30408 fit-probe CE 3.32429 (global best 3.30408 @ lr 0.001 step 75) 126s
+  [refit k=12 lr=0.001] step  100 val CE 3.30523 fit-probe CE 3.32378 (global best 3.30408 @ lr 0.001 step 75) 165s
+  [refit k=12 lr=0.001] step  125 val CE 3.30374 fit-probe CE 3.32267 (global best 3.30374 @ lr 0.001 step 125) 202s
+  [refit k=12 lr=0.001] step  150 val CE 3.30422 fit-probe CE 3.32236 (global best 3.30374 @ lr 0.001 step 125) 231s
+  [refit k=12 lr=0.001] step  175 val CE 3.30347 fit-probe CE 3.32278 (global best 3.30347 @ lr 0.001 step 175) 259s
+  [refit k=12 lr=0.001] step  200 val CE 3.30386 fit-probe CE 3.32330 (global best 3.30347 @ lr 0.001 step 175) 293s
+  [refit k=12 lr=0.001] step  225 val CE 3.30296 fit-probe CE 3.32278 (global best 3.30296 @ lr 0.001 step 225) 331s
+  [refit k=12 lr=0.001] step  250 val CE 3.30646 fit-probe CE 3.32199 (global best 3.30296 @ lr 0.001 step 225) 370s
+  [refit k=12 lr=0.001] step  275 val CE 3.30296 fit-probe CE 3.32154 (global best 3.30296 @ lr 0.001 step 225) 408s
+  [refit k=12 lr=0.001] step  300 val CE 3.30284 fit-probe CE 3.32126 (global best 3.30284 @ lr 0.001 step 300) 447s
+  [refit k=12 lr=0.0003] step    0 val CE 3.32026 fit-probe CE 3.34851 (global best 3.30284 @ lr 0.001 step 300) 10s
+  [refit k=12 lr=0.0003] step   25 val CE 3.31148 fit-probe CE 3.33722 (global best 3.30284 @ lr 0.001 step 300) 49s
+  [refit k=12 lr=0.0003] step   50 val CE 3.30987 fit-probe CE 3.33382 (global best 3.30284 @ lr 0.001 step 300) 87s
+GPU guard: 15841 MiB free -- proceeding.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+  [refit k=12 lr=0.001] step    0 val CE 3.32026 fit-probe CE 3.34851 (global best 3.32026 @ lr 0.001 step 0) 7s
+/workspace/tensor_language/basis_aligned/qk_mdl/qk_redteam_sc.py:476: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:838.)
+  fl = float(loss)
+  [refit k=12 lr=0.001] step   25 val CE 3.30895 fit-probe CE 3.33020 (global best 3.30895 @ lr 0.001 step 25) 36s
+  [refit k=12 lr=0.001] step   50 val CE 3.30611 fit-probe CE 3.32534 (global best 3.30611 @ lr 0.001 step 50) 65s
+  [refit k=12 lr=0.001] step   75 val CE 3.30408 fit-probe CE 3.32429 (global best 3.30408 @ lr 0.001 step 75) 93s
+  [refit k=12 lr=0.001] step  100 val CE 3.30523 fit-probe CE 3.32378 (global best 3.30408 @ lr 0.001 step 75) 122s
+  [refit k=12 lr=0.001] step  125 val CE 3.30374 fit-probe CE 3.32267 (global best 3.30374 @ lr 0.001 step 125) 151s
+  [refit k=12 lr=0.001] step  150 val CE 3.30422 fit-probe CE 3.32236 (global best 3.30374 @ lr 0.001 step 125) 179s

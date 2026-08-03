@@ -1,0 +1,19 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+templates ready
+normal equations done
+PROGRAMMATIC heads (predicate gain >=5% held-out): 30/162
+by top predicate: [('KEY_newline', 9), ('MATCH_prev', 8), ('MATCH_same', 5), ('KEY_cap', 4), ('PREV1', 2), ('KEY_func', 2)]
+by layer: Counter({16: 4, 1: 3, 2: 3, 3: 3, 6: 2, 11: 2, 13: 2, 14: 2, 15: 2, 0: 1, 5: 1, 7: 1, 8: 1, 9: 1, 10: 1, 12: 1})
+--- LAYER 5 per-head census ---
+  L5H0: gain 0.012 top=KEY_newline (-0.0139) full 0.131 / tpl 0.119
+  L5H1: gain 0.021 top=KEY_newline (-0.0163) full 0.065 / tpl 0.044
+  L5H2: gain 0.037 top=FIRST (-0.0545) full 0.397 / tpl 0.361
+  L5H3: gain 0.028 top=PREV1 (0.0237) full 0.157 / tpl 0.129
+  L5H4: gain 0.029 top=FIRST (-0.0153) full 0.087 / tpl 0.057
+  L5H5: gain 0.138 top=MATCH_prev (0.0668) full 0.225 / tpl 0.088 PROG
+  L5H6: gain 0.006 top=KEY_newline (0.01) full 0.376 / tpl 0.37
+  L5H7: gain 0.008 top=FIRST (0.0795) full 0.782 / tpl 0.774
+  L5H8: gain 0.015 top=PREV1 (0.0123) full 0.085 / tpl 0.07
+GATE: 1 layer-5 programmatic heads coded simultaneously (heads [5]): dCE +0.00398 (SE 0.000801)
+SUMMARY L5 SELECTION: 1 programmatic heads at layer 5; per-head predicate gain range 0.006..0.138; gate +0.00398 nats/tok (SE 0.000801)
+QK L5 SELECTION GATE DONE

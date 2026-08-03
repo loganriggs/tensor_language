@@ -1,0 +1,37 @@
+bilinsm12: NH6 HD128 D768 NL12 V50304
+bilinsm12 base CE(128) 3.409 | induction adv 3.045 {'subword': 2.55, 'punct': 1.52, 'capital': 5.14, 'digit': 3.2, 'newline': 1.21, 'funcword': 2.25}
+importance matrix computed
+
+UNIVERSAL: ["('m', 0)", "('m', 3)", "('m', 1)", "('m', 2)", "('m', 4)", "('m', 5)", "('h', 6, 5)", "('h', 4, 3)"]
+task correlations:
+  funcword~punct: 0.993
+  capital~subword: 0.976
+  capital~digit: 0.94
+  newline~punct: 0.94
+  digit~subword: 0.936
+  funcword~newline: 0.928
+  capital~punct: 0.927
+  capital~funcword: 0.924
+  funcword~subword: 0.891
+  digit~punct: 0.889
+  digit~funcword: 0.889
+  punct~subword: 0.886
+  capital~newline: 0.834
+  digit~newline: 0.807
+  newline~subword: 0.765
+  digit~induction: -0.302
+  induction~newline: -0.391
+  induction~punct: -0.527
+  capital~induction: -0.53
+  funcword~induction: -0.532
+  induction~subword: -0.532
+head/MLP mass:
+  subword: heads 0.16/MLP 0.84  top5 ["('m', 0)", "('m', 1)", "('m', 3)", "('m', 11)", "('m', 10)"]
+  punct: heads 0.17/MLP 0.83  top5 ["('m', 0)", "('m', 1)", "('m', 3)", "('m', 2)", "('m', 4)"]
+  capital: heads 0.18/MLP 0.82  top5 ["('m', 0)", "('m', 1)", "('m', 3)", "('m', 11)", "('m', 2)"]
+  digit: heads 0.27/MLP 0.73  top5 ["('m', 0)", "('m', 3)", "('m', 1)", "('m', 11)", "('h', 0, 2)"]
+  newline: heads 0.30/MLP 0.70  top5 ["('m', 0)", "('m', 3)", "('m', 1)", "('m', 2)", "('h', 6, 5)"]
+  funcword: heads 0.16/MLP 0.84  top5 ["('m', 0)", "('m', 1)", "('m', 3)", "('m', 2)", "('m', 4)"]
+  induction: heads 0.87/MLP 0.13  top5 ["('h', 4, 3)", "('h', 5, 4)", "('h', 0, 2)", "('m', 3)", "('h', 6, 3)"]
+
+QK ATLAS BILINSM12 DONE

@@ -1,0 +1,266 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+bilin18: NL=18 NH=9 HD=128 D=1152 V=50304  -> 162 head-paths
+353 special token ids masked (eos=50256)
+lexical classes: ['bracket_close', 'bracket_open', 'capital', 'coordinator', 'determiner', 'digit', 'newline', 'other', 'pronoun', 'punct', 'quote', 'quote_open', 'special', 'subword', 'word']
+PASS A: head norms + attn-source + resid + MLP gram ...
+  seq 0/256
+  seq 64/256
+  seq 128/256
+  seq 192/256
+MLP directions computed.
+PASS B: MLP projections + head effect directions ...
+  seq 0/256
+  seq 64/256
+  seq 128/256
+  seq 192/256
+
+67 clean-remap candidates (mag-gated, A!=B, both purity>=0.4)
+
+===== TOP DECOUPLED CANDIDATES =====
+mlp.L0.d3    fires on determiner -> boosts word decoup=1.000 trigP=1.00 outP=0.92 score=0.916 mag=0.340
+mlp.L16.d1   fires on newline -> boosts capital decoup=1.000 trigP=0.84 outP=1.00 score=0.840 mag=0.593
+h.L5.0       fires on punct -> boosts word      decoup=0.948 trigP=0.92 outP=0.85 score=0.741 mag=0.096
+mlp.L1.d3    fires on determiner -> boosts word decoup=1.000 trigP=1.00 outP=0.65 score=0.654 mag=0.345
+mlp.L15.d1   fires on newline -> boosts capital decoup=1.000 trigP=0.66 outP=0.94 score=0.621 mag=0.169
+mlp.L15.d2   fires on punct -> boosts capital   decoup=0.941 trigP=0.86 outP=0.72 score=0.586 mag=0.112
+mlp.L12.d1   fires on newline -> boosts capital decoup=1.000 trigP=0.78 outP=0.68 score=0.532 mag=0.081
+mlp.L2.d3    fires on digit -> boosts word      decoup=0.967 trigP=0.94 outP=0.56 score=0.508 mag=0.352
+mlp.L11.d1   fires on punct -> boosts capital   decoup=1.000 trigP=0.98 outP=0.51 score=0.501 mag=0.061
+mlp.L17.d1   fires on punct -> boosts capital   decoup=0.949 trigP=0.56 outP=0.89 score=0.470 mag=0.550
+h.L12.2      fires on punct -> boosts word      decoup=0.910 trigP=0.58 outP=0.88 score=0.465 mag=0.088
+h.L1.0       fires on newline -> boosts word    decoup=0.990 trigP=0.90 outP=0.52 score=0.460 mag=0.184
+h.L14.4      fires on punct -> boosts capital   decoup=0.960 trigP=0.78 outP=0.61 score=0.455 mag=0.158
+mlp.L17.d0   fires on word -> boosts capital    decoup=0.888 trigP=0.52 outP=0.97 score=0.446 mag=0.623
+h.L6.4       fires on subword -> boosts word    decoup=0.830 trigP=0.66 outP=0.81 score=0.443 mag=0.062
+
+CAUSAL mlp.L0.d3  (fires on determiner -> boosts word) ...
+{
+  "kind": "mlp",
+  "name": "fires on determiner -> boosts word",
+  "trigger_class": "determiner",
+  "output_class": "word",
+  "decoupling": 1.0,
+  "trigger_purity": 1.0,
+  "output_purity": 0.9159,
+  "score": 0.9159,
+  "held_trigger_purity_cur": 0.6607,
+  "held_trigger_top_class": "determiner",
+  "held_trigger_hist": {
+    "determiner": 0.96,
+    "word": 0.03,
+    "capital": 0.01
+  },
+  "n_classA_trigger_pos": 192,
+  "dP_classB_at_classA_mean": 0.00144,
+  "dP_classB_at_classA_SE": 0.00094,
+  "n_A": 192,
+  "dP_classB_control_mean": 0.00112,
+  "dP_classB_control_SE": 0.00054,
+  "n_ctrl": 95,
+  "dP_classB_all_trigger_mean": 0.00132,
+  "dP_classB_all_trigger_SE": 0.0009,
+  "dCE_all_trigger_mean": -0.0036,
+  "dCE_all_trigger_SE": 0.0064,
+  "n_all": 200,
+  "dCE_at_classA_mean": -0.0045,
+  "dCE_at_classA_SE": 0.0065,
+  "z_dP_classB_at_classA": 1.54,
+  "verdict": "PROXY-ARTIFACT (ablation does not specifically suppress class-B at class-A positions)"
+}
+
+CAUSAL mlp.L16.d1  (fires on newline -> boosts capital) ...
+{
+  "kind": "mlp",
+  "name": "fires on newline -> boosts capital",
+  "trigger_class": "newline",
+  "output_class": "capital",
+  "decoupling": 1.0,
+  "trigger_purity": 0.84,
+  "output_purity": 1.0,
+  "score": 0.84,
+  "held_trigger_purity_cur": 0.9167,
+  "held_trigger_top_class": "newline",
+  "held_trigger_hist": {
+    "newline": 0.9,
+    "quote": 0.075,
+    "bracket_open": 0.02,
+    "punct": 0.005
+  },
+  "n_classA_trigger_pos": 180,
+  "dP_classB_at_classA_mean": 0.02835,
+  "dP_classB_at_classA_SE": 0.00325,
+  "n_A": 180,
+  "dP_classB_control_mean": null,
+  "dP_classB_control_SE": null,
+  "n_ctrl": 0,
+  "dP_classB_all_trigger_mean": 0.02768,
+  "dP_classB_all_trigger_SE": 0.00298,
+  "dCE_all_trigger_mean": 0.0345,
+  "dCE_all_trigger_SE": 0.0235,
+  "n_all": 200,
+  "dCE_at_classA_mean": 0.0372,
+  "dCE_at_classA_SE": 0.0255,
+  "z_dP_classB_at_classA": 8.71,
+  "verdict": "GENUINE-REMAP (ablation suppresses class-B at class-A positions)"
+}
+
+CAUSAL h.L5.0  (fires on punct -> boosts word) ...
+{
+  "kind": "head",
+  "name": "fires on punct -> boosts word",
+  "trigger_class": "punct",
+  "output_class": "word",
+  "decoupling": 0.9479,
+  "trigger_purity": 0.92,
+  "output_purity": 0.8494,
+  "score": 0.7407,
+  "held_trigger_purity_cur": 0.6596,
+  "held_trigger_top_class": "punct",
+  "held_trigger_hist": {
+    "punct": 0.775,
+    "word": 0.055,
+    "pronoun": 0.05,
+    "coordinator": 0.035,
+    "capital": 0.03,
+    "determiner": 0.015
+  },
+  "n_classA_trigger_pos": 155,
+  "dP_classB_at_classA_mean": 4e-05,
+  "dP_classB_at_classA_SE": 0.00133,
+  "n_A": 155,
+  "dP_classB_control_mean": 0.00062,
+  "dP_classB_control_SE": 0.00025,
+  "n_ctrl": 155,
+  "dP_classB_all_trigger_mean": -0.00073,
+  "dP_classB_all_trigger_SE": 0.00202,
+  "dCE_all_trigger_mean": 0.0058,
+  "dCE_all_trigger_SE": 0.0128,
+  "n_all": 200,
+  "dCE_at_classA_mean": -0.0099,
+  "dCE_at_classA_SE": 0.0126,
+  "z_dP_classB_at_classA": 0.03,
+  "verdict": "PROXY-ARTIFACT (ablation does not specifically suppress class-B at class-A positions)"
+}
+
+CAUSAL mlp.L1.d3  (fires on determiner -> boosts word) ...
+{
+  "kind": "mlp",
+  "name": "fires on determiner -> boosts word",
+  "trigger_class": "determiner",
+  "output_class": "word",
+  "decoupling": 1.0,
+  "trigger_purity": 1.0,
+  "output_purity": 0.6543,
+  "score": 0.6543,
+  "held_trigger_purity_cur": 0.9526,
+  "held_trigger_top_class": "determiner",
+  "held_trigger_hist": {
+    "determiner": 0.97,
+    "punct": 0.01,
+    "subword": 0.005,
+    "bracket_open": 0.005,
+    "newline": 0.005,
+    "word": 0.005
+  },
+  "n_classA_trigger_pos": 194,
+  "dP_classB_at_classA_mean": 0.00288,
+  "dP_classB_at_classA_SE": 0.00079,
+  "n_A": 194,
+  "dP_classB_control_mean": 0.00136,
+  "dP_classB_control_SE": 0.00071,
+  "n_ctrl": 157,
+  "dP_classB_all_trigger_mean": 0.00274,
+  "dP_classB_all_trigger_SE": 0.00077,
+  "dCE_all_trigger_mean": -0.006,
+  "dCE_all_trigger_SE": 0.0093,
+  "n_all": 200,
+  "dCE_at_classA_mean": -0.0059,
+  "dCE_at_classA_SE": 0.0092,
+  "z_dP_classB_at_classA": 3.65,
+  "verdict": "GENUINE-REMAP (ablation suppresses class-B at class-A positions)"
+}
+
+CAUSAL mlp.L15.d1  (fires on newline -> boosts capital) ...
+{
+  "kind": "mlp",
+  "name": "fires on newline -> boosts capital",
+  "trigger_class": "newline",
+  "output_class": "capital",
+  "decoupling": 0.9996,
+  "trigger_purity": 0.66,
+  "output_purity": 0.9411,
+  "score": 0.6209,
+  "held_trigger_purity_cur": 0.9033,
+  "held_trigger_top_class": "newline",
+  "held_trigger_hist": {
+    "newline": 0.885,
+    "quote": 0.075,
+    "bracket_open": 0.035,
+    "punct": 0.005
+  },
+  "n_classA_trigger_pos": 177,
+  "dP_classB_at_classA_mean": -0.02027,
+  "dP_classB_at_classA_SE": 0.00115,
+  "n_A": 177,
+  "dP_classB_control_mean": null,
+  "dP_classB_control_SE": null,
+  "n_ctrl": 0,
+  "dP_classB_all_trigger_mean": -0.01614,
+  "dP_classB_all_trigger_SE": 0.00148,
+  "dCE_all_trigger_mean": -0.0123,
+  "dCE_all_trigger_SE": 0.0129,
+  "n_all": 200,
+  "dCE_at_classA_mean": -0.0033,
+  "dCE_at_classA_SE": 0.0132,
+  "z_dP_classB_at_classA": -17.59,
+  "verdict": "PROXY-ARTIFACT (ablation does not specifically suppress class-B at class-A positions)"
+}
+
+CAUSAL mlp.L15.d2  (fires on punct -> boosts capital) ...
+{
+  "kind": "mlp",
+  "name": "fires on punct -> boosts capital",
+  "trigger_class": "punct",
+  "output_class": "capital",
+  "decoupling": 0.9407,
+  "trigger_purity": 0.86,
+  "output_purity": 0.724,
+  "score": 0.5857,
+  "held_trigger_purity_cur": 0.6549,
+  "held_trigger_top_class": "punct",
+  "held_trigger_hist": {
+    "punct": 0.775,
+    "word": 0.115,
+    "newline": 0.05,
+    "other": 0.015,
+    "coordinator": 0.01,
+    "capital": 0.01
+  },
+  "n_classA_trigger_pos": 155,
+  "dP_classB_at_classA_mean": 0.00678,
+  "dP_classB_at_classA_SE": 0.00089,
+  "n_A": 155,
+  "dP_classB_control_mean": 0.00033,
+  "dP_classB_control_SE": 0.00024,
+  "n_ctrl": 155,
+  "dP_classB_all_trigger_mean": 0.00743,
+  "dP_classB_all_trigger_SE": 0.00101,
+  "dCE_all_trigger_mean": 0.0236,
+  "dCE_all_trigger_SE": 0.0083,
+  "n_all": 200,
+  "dCE_at_classA_mean": 0.0273,
+  "dCE_at_classA_SE": 0.0095,
+  "z_dP_classB_at_classA": 7.66,
+  "verdict": "GENUINE-REMAP (ablation suppresses class-B at class-A positions)"
+}
+
+===== CAUSAL SUMMARY =====
+mlp.L0.d3    fires on determiner -> boosts word | dP(B)@A=+0.0014+/-0.0009 (ctrl=0.00112) dCE=-0.0036+/-0.0064 -> PROXY-ARTIFACT
+mlp.L16.d1   fires on newline -> boosts capital | dP(B)@A=+0.0284+/-0.0032 (ctrl=None) dCE=+0.0345+/-0.0235 -> GENUINE-REMAP
+h.L5.0       fires on punct -> boosts word      | dP(B)@A=+0.0000+/-0.0013 (ctrl=0.00062) dCE=+0.0058+/-0.0128 -> PROXY-ARTIFACT
+mlp.L1.d3    fires on determiner -> boosts word | dP(B)@A=+0.0029+/-0.0008 (ctrl=0.00136) dCE=-0.0060+/-0.0093 -> GENUINE-REMAP
+mlp.L15.d1   fires on newline -> boosts capital | dP(B)@A=-0.0203+/-0.0011 (ctrl=None) dCE=-0.0123+/-0.0129 -> PROXY-ARTIFACT
+mlp.L15.d2   fires on punct -> boosts capital   | dP(B)@A=+0.0068+/-0.0009 (ctrl=0.00033) dCE=+0.0236+/-0.0083 -> GENUINE-REMAP
+
+Saved qk_unsup_decouple.json
+QK UNSUP DECOUPLE DONE

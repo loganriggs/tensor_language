@@ -1,0 +1,38 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+bilin12: NH6 HD128 D768 NL12 V50304
+bilin12 base CE(128) 3.466 | induction adv 2.848 {'subword': 2.62, 'punct': 1.54, 'capital': 5.24, 'digit': 3.27, 'newline': 1.17, 'funcword': 2.28}
+importance matrix computed
+
+UNIVERSAL: ["('m', 0)", "('m', 3)", "('m', 2)", "('m', 1)", "('m', 4)", "('m', 5)", "('h', 2, 1)", "('h', 5, 2)"]
+task correlations:
+  funcword~punct: 0.99
+  capital~subword: 0.971
+  digit~punct: 0.957
+  capital~punct: 0.944
+  capital~funcword: 0.938
+  capital~digit: 0.936
+  digit~funcword: 0.936
+  funcword~newline: 0.923
+  digit~subword: 0.921
+  funcword~subword: 0.915
+  punct~subword: 0.912
+  newline~punct: 0.911
+  digit~newline: 0.878
+  capital~newline: 0.865
+  newline~subword: 0.816
+  digit~induction: -0.171
+  induction~punct: -0.284
+  induction~newline: -0.289
+  funcword~induction: -0.334
+  capital~induction: -0.359
+  induction~subword: -0.363
+head/MLP mass:
+  subword: heads 0.10/MLP 0.90  top5 ["('m', 0)", "('m', 1)", "('m', 2)", "('m', 3)", "('m', 10)"]
+  punct: heads 0.15/MLP 0.85  top5 ["('m', 0)", "('m', 1)", "('m', 2)", "('m', 3)", "('m', 4)"]
+  capital: heads 0.15/MLP 0.84  top5 ["('m', 0)", "('m', 1)", "('m', 3)", "('m', 2)", "('m', 11)"]
+  digit: heads 0.17/MLP 0.83  top5 ["('m', 0)", "('m', 1)", "('m', 3)", "('m', 2)", "('m', 11)"]
+  newline: heads 0.24/MLP 0.76  top5 ["('m', 0)", "('m', 3)", "('m', 4)", "('m', 2)", "('m', 1)"]
+  funcword: heads 0.15/MLP 0.85  top5 ["('m', 0)", "('m', 1)", "('m', 2)", "('m', 3)", "('m', 4)"]
+  induction: heads 0.96/MLP 0.04  top5 ["('h', 2, 1)", "('h', 2, 3)", "('h', 4, 1)", "('h', 0, 0)", "('h', 5, 1)"]
+
+QK ATLAS BILIN12 DONE

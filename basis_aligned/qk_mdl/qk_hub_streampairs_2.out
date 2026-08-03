@@ -1,0 +1,20 @@
+GPU guard: 15841 MiB free -- proceeding.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+candidates (top-5 energy + ExE): ['M0xA1', 'A1xA1', 'M0xM0', 'ExM0', 'ExA1', 'ExE']
+classes: 15; special tokens masked: 353
+PASS A: term deviation norms + raw ExE ...
+ExE bigram test: current-token identity explains R^2=0.9004 of raw ExE variance (548 tokens with >=5 occurrences, 12165 positions)
+PASS B: 6 drop-one candidates x 26 batches ...
+  batch 1/26  0s
+  batch 6/26  2s
+  batch 11/26  4s
+  batch 16/26  6s
+  batch 21/26  8s
+  batch 26/26  9s
+  M0xA1   drop-one dCE +0.0440±0.00234 | firing push word +1767.207 (conc 0.55) top8 {'word': 1767.2067, 'capital': 1160.3362, 'subword': -106.8926, 'digit': 48.1724, 'other': 45.5257, 'punct': 44.9555, 'special': 25.6739, 'pronoun': -2.3987} | all-pos push word -400.075
+  A1xA1   drop-one dCE +0.0132±0.00145 | firing push word +766.788 (conc 0.52) top8 {'word': 766.7879, 'subword': 294.3884, 'capital': 282.318, 'punct': 39.9891, 'digit': 36.6326, 'other': 21.6807, 'special': 12.2632, 'determiner': 2.6247} | all-pos push word -81.257
+  M0xM0   drop-one dCE +0.0128±0.00134 | firing push capital +309.875 (conc 0.44) top8 {'capital': 309.8747, 'subword': 227.398, 'word': 114.4917, 'other': 17.3549, 'digit': 11.3518, 'special': 10.9272, 'punct': 2.8824, 'determiner': -2.4599} | all-pos push word -140.923
+  ExM0    drop-one dCE +0.0137±0.00140 | firing push word +987.137 (conc 0.45) top8 {'word': 987.1373, 'capital': 960.7322, 'subword': 114.6706, 'digit': 61.8344, 'punct': 29.9601, 'other': 27.1453, 'special': 15.767, 'determiner': 2.3652} | all-pos push word -99.205
+  ExA1    drop-one dCE +0.0112±0.00117 | firing push word +623.817 (conc 0.43) top8 {'word': 623.8168, 'capital': 516.2573, 'subword': -229.8176, 'digit': 22.0439, 'punct': 19.7303, 'other': 13.5618, 'special': 6.175, 'determiner': -1.4366} | all-pos push word -113.078
+  ExE     drop-one dCE +0.0020±0.00061 | firing push word -189.522 (conc 0.53) top8 {'word': -189.5223, 'capital': -118.6371, 'subword': 23.6287, 'digit': -16.5486, 'punct': -5.5981, 'pronoun': -1.1097, 'determiner': -1.0236, 'special': -0.9641} | all-pos push capital -75.499
+QK HUB STREAMPAIRS 2 DONE

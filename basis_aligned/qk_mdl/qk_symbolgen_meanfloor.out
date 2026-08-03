@@ -1,0 +1,21 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+bases ready
+generators fit; R2 {2: 0.411, 3: 0.429, 4: 0.447, 5: 0.455, 6: 0.525, 7: 0.525, 8: 0.513, 9: 0.481, 10: 0.501, 11: 0.508, 12: 0.527, 13: 0.539, 14: 0.534, 15: 0.513, 16: 0.51, 17: 0.6}
+base per-token CE 3.19573 over 77824 tokens (scalar reference BASE=3.0763); eval FINEWEB[448:600]
+L 2: sym +0.01769±0.00077 | table +0.03826±0.00123 | random +0.02087±0.00084 | pos-mean +0.02541±0.00096  || sym-mean -0.00772±0.00096  SYM BEATS MEAN-FLOOR  (R2 0.4115)
+L 3: sym +0.01893±0.00082 | table +0.04123±0.00120 | random +0.02420±0.00091 | pos-mean +0.02233±0.00089  || sym-mean -0.00340±0.00092  SYM BEATS MEAN-FLOOR  (R2 0.4293)
+L 4: sym +0.01819±0.00080 | table +0.05495±0.00136 | random +0.02283±0.00091 | pos-mean +0.02558±0.00089  || sym-mean -0.00738±0.00106  SYM BEATS MEAN-FLOOR  (R2 0.4472)
+L 5: sym +0.03142±0.00101 | table +0.33822±0.00386 | random +0.04803±0.00129 | pos-mean +0.03691±0.00107  || sym-mean -0.00549±0.00125  SYM BEATS MEAN-FLOOR  (R2 0.4551)
+L 6: sym +0.01300±0.00062 | table +0.04786±0.00125 | random +0.01661±0.00072 | pos-mean +0.02137±0.00079  || sym-mean -0.00838±0.00080  SYM BEATS MEAN-FLOOR  (R2 0.525)
+L 7: sym +0.00971±0.00055 | table +0.02816±0.00093 | random +0.01161±0.00062 | pos-mean +0.01618±0.00068  || sym-mean -0.00647±0.00077  SYM BEATS MEAN-FLOOR  (R2 0.5253)
+L 8: sym +0.01527±0.00075 | table +0.04104±0.00123 | random +0.02011±0.00085 | pos-mean +0.02216±0.00086  || sym-mean -0.00689±0.00057  SYM BEATS MEAN-FLOOR  (R2 0.5132)
+L 9: sym +0.00896±0.00050 | table +0.02510±0.00085 | random +0.01120±0.00057 | pos-mean +0.01127±0.00060  || sym-mean -0.00230±0.00075  SYM BEATS MEAN-FLOOR  (R2 0.4807)
+L10: sym +0.00569±0.00039 | table +0.01937±0.00072 | random +0.00713±0.00042 | pos-mean +0.00899±0.00049  || sym-mean -0.00330±0.00055  SYM BEATS MEAN-FLOOR  (R2 0.5006)
+L11: sym +0.01191±0.00057 | table +0.03260±0.00098 | random +0.01442±0.00064 | pos-mean +0.01591±0.00069  || sym-mean -0.00400±0.00078  SYM BEATS MEAN-FLOOR  (R2 0.5076)
+L12: sym +0.00297±0.00028 | table +0.00897±0.00049 | random +0.00381±0.00031 | pos-mean +0.00444±0.00036  || sym-mean -0.00146±0.00044  SYM BEATS MEAN-FLOOR  (R2 0.5274)
+L13: sym +0.00401±0.00038 | table +0.01375±0.00067 | random +0.00527±0.00043 | pos-mean +0.00886±0.00052  || sym-mean -0.00485±0.00045  SYM BEATS MEAN-FLOOR  (R2 0.5391)
+L14: sym +0.00722±0.00051 | table +0.03049±0.00107 | random +0.00981±0.00059 | pos-mean +0.01547±0.00071  || sym-mean -0.00825±0.00062  SYM BEATS MEAN-FLOOR  (R2 0.5339)
+L15: sym +0.00227±0.00024 | table +0.00963±0.00050 | random +0.00311±0.00028 | pos-mean +0.00334±0.00029  || sym-mean -0.00108±0.00035  SYM BEATS MEAN-FLOOR  (R2 0.5126)
+L16: sym +0.00392±0.00035 | table +0.01827±0.00078 | random +0.00524±0.00041 | pos-mean +0.00726±0.00045  || sym-mean -0.00335±0.00059  SYM BEATS MEAN-FLOOR  (R2 0.5103)
+L17: sym +0.00831±0.00049 | table +0.02557±0.00083 | random +0.00924±0.00051 | pos-mean +0.00648±0.00043  || sym-mean +0.00183±0.00059  FLOOR BEATS SYM  (R2 0.5998)
+QK SYMBOLGEN MEANFLOOR DONE

@@ -1,0 +1,24 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+templates ready
+normal equations done
+PROGRAMMATIC heads (predicate gain >=5% held-out): 40/162
+by top predicate: [('KEY_punct', 36), ('MATCH_same', 3), ('KEY_func', 1)]
+by layer: Counter({7: 6, 8: 6, 10: 6, 11: 6, 0: 4, 2: 3, 9: 3, 5: 2, 6: 2, 1: 1, 4: 1})
+  L0H0: gain 0.175 top=KEY_punct (0.0417)
+  L10H4: gain 0.148 top=KEY_punct (0.0656)
+  L7H4: gain 0.108 top=KEY_punct (0.0524)
+  L7H3: gain 0.105 top=KEY_punct (0.0638)
+  L7H5: gain 0.102 top=KEY_punct (0.0578)
+  L2H0: gain 0.101 top=KEY_punct (0.0361)
+  L7H0: gain 0.099 top=KEY_punct (0.063)
+  L8H5: gain 0.098 top=KEY_punct (0.0631)
+  L8H0: gain 0.096 top=KEY_punct (0.0535)
+  L0H2: gain 0.094 top=KEY_punct (0.0288)
+  L0H5: gain 0.093 top=KEY_punct (0.0307)
+  L5H5: gain 0.089 top=KEY_punct (0.0665)
+  L10H5: gain 0.089 top=KEY_punct (0.0522)
+  L10H2: gain 0.088 top=KEY_punct (0.0546)
+  L10H0: gain 0.086 top=KEY_punct (0.0489)
+bilin12 programmatic: 40/72; KEY_cap heads: []
+MATCH_same heads: [(0, 3), (2, 1), (2, 3)]
+QK CENSUS BILIN12 DONE

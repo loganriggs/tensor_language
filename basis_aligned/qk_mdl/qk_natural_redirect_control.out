@@ -1,0 +1,78 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+NATURAL SCALE-SWEEP CONTROL: {
+  "triggers": {
+    "lowest_freq_powered": {
+      "token": 91,
+      "base_rate": 0.001507,
+      "n": 40,
+      "match_coeff_ratio_nat_over_planted": 1.618,
+      "sweep": {
+        "scale=10": {
+          "P_payload": 0.0247,
+          "P_payload_SE": 0.0142,
+          "argmax_capture": 0.075
+        },
+        "scale=20": {
+          "P_payload": 0.0502,
+          "P_payload_SE": 0.0171,
+          "argmax_capture": 0.175
+        },
+        "scale=40": {
+          "P_payload": 0.1088,
+          "P_payload_SE": 0.0354,
+          "argmax_capture": 0.275
+        },
+        "scale=80": {
+          "P_payload": 0.1826,
+          "P_payload_SE": 0.0465,
+          "argmax_capture": 0.275
+        },
+        "scale=160": {
+          "P_payload": 0.2689,
+          "P_payload_SE": 0.0608,
+          "argmax_capture": 0.325
+        }
+      },
+      "model_P_payload": 0.0001
+    },
+    "mid_freq": {
+      "token": 447,
+      "base_rate": 0.006244,
+      "n": 123,
+      "match_coeff_ratio_nat_over_planted": 0.91,
+      "sweep": {
+        "scale=10": {
+          "P_payload": 0.0462,
+          "P_payload_SE": 0.0116,
+          "argmax_capture": 0.065
+        },
+        "scale=20": {
+          "P_payload": 0.3056,
+          "P_payload_SE": 0.0307,
+          "argmax_capture": 0.4309
+        },
+        "scale=40": {
+          "P_payload": 0.4868,
+          "P_payload_SE": 0.034,
+          "argmax_capture": 0.6341
+        },
+        "scale=80": {
+          "P_payload": 0.6176,
+          "P_payload_SE": 0.0346,
+          "argmax_capture": 0.7073
+        },
+        "scale=160": {
+          "P_payload": 0.6821,
+          "P_payload_SE": 0.0349,
+          "argmax_capture": 0.7317
+        }
+      },
+      "model_P_payload": 0.0
+    }
+  },
+  "planted_ref": {
+    "P_payload": 0.833,
+    "capture": 0.958
+  }
+}
+QK NATURAL REDIRECT CONTROL DONE

@@ -1,0 +1,40 @@
+{
+  "note": "V9-N3 and V9-N3r trainings SKIPPED per Logan update 2026-08-03; this file holds the surviving eval-time readout-visibility test on the existing V9 (N=6) model. No retraining: the readout visibility list is widened at eval only.",
+  "v9_base": {
+    "held_ce": 5.751916603088379,
+    "readout_vis": "writes of blocks 6..11 (12 streams)",
+    "vs_V1": {
+      "delta": 0.041440825909376144,
+      "se_token": 0.002365001942962408,
+      "se_seq": 0.0033624954521656036
+    }
+  },
+  "widen_all_writes": {
+    "held_ce": 6.181327445983887,
+    "readout_vis": "all 24 module writes (blocks 0..11), no embedding",
+    "vs_v9": {
+      "delta": 0.429410845041275,
+      "se_token": 0.0019065762171521783,
+      "se_seq": 0.0028984523378312588
+    },
+    "vs_V1": {
+      "delta": 0.47085168957710266,
+      "se_token": 0.002936000470072031,
+      "se_seq": 0.004805350210517645
+    }
+  },
+  "widen_all_writes_plus_embedding": {
+    "held_ce": 12.785211074829101,
+    "readout_vis": "embedding + all 24 module writes",
+    "vs_v9": {
+      "delta": 7.033295154571533,
+      "se_token": 0.014126991853117943,
+      "se_seq": 0.03491869568824768
+    },
+    "vs_V1": {
+      "delta": 7.074735164642334,
+      "se_token": 0.014218193478882313,
+      "se_seq": 0.035350654274225235
+    }
+  }
+}

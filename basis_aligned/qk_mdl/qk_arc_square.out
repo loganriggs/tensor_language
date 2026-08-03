@@ -1,0 +1,46 @@
+GPU guard: 15841 MiB free -- proceeding.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+bilin18 NL=18 D=1152 NH=9 held 152x128  LI=2 KMAX=64
+PASS 0: TRAIN gram of layer-1 MLP output -> SVD directions ...
+gram spectrum capture (TRAIN): {8: 0.33214542269706726, 16: 0.40282192826271057, 32: 0.4803909659385681, 64: 0.5691332817077637}
+cached B_ij pair vectors: (64, 64, 1152)
+PASS 1: term/part means + gates ...
+GATE recon: global 7.33e-07 maxpos 1.04e-06 meancons 2.30e-07 | proj machinery gate 1.00e-06 projmean consist 3.61e-07 | Mr span capture (held, K=64) 0.5638
+PASS 2: base + energies ...
+base CE 3.4946
+K= 8 energy shares of mo2 variance: diag 0.0138 cross 0.0159 remainder 0.2379
+K=16 energy shares of mo2 variance: diag 0.0152 cross 0.0291 remainder 0.2163
+K=32 energy shares of mo2 variance: diag 0.0161 cross 0.0457 remainder 0.1918
+K=64 energy shares of mo2 variance: diag 0.0168 cross 0.0688 remainder 0.1602
+MrxMr total share (census cross-check): 0.2727
+top-10 cross pairs by centered energy share: [('(0,3)', 0.0021), ('(1,2)', 0.0021), ('(0,1)', 0.0014), ('(0,7)', 0.0011), ('(0,6)', 0.001), ('(0,5)', 0.0009), ('(0,4)', 0.0009), ('(1,4)', 0.0007), ('(0,8)', 0.0007), ('(0,9)', 0.0006)]
+top-10 diagonal self-products by energy share: [(2, 0.0074), (0, 0.0028), (1, 0.001), (3, 0.0006), (4, 0.0004), (5, 0.0003), (14, 0.0002), (12, 0.0002), (6, 0.0001), (8, 0.0001)]
+PASS 3: 27 subset configurations ...
+  all15_via_parts                  dCE -0.0000 +- 0.00000   (1s)
+  drop_MrxMr                       dCE +0.0288 +- 0.00192   (3s)
+  only_MrxMr_full                  dCE +0.0925 +- 0.00333   (4s)
+  keep_diag32_dropcross_droprem    dCE +0.0268 +- 0.00185   (6s)
+  keep_cross32_dropdiag_droprem    dCE +0.0191 +- 0.00155   (7s)
+  keep_proj32_droprem              dCE +0.0177 +- 0.00149   (9s)
+  keep_rem32_only                  dCE +0.0034 +- 0.00068   (10s)
+  drop_diag32_keep_rest            dCE +0.0002 +- 0.00022   (11s)
+  drop_cross32_keep_rest           dCE +0.0031 +- 0.00063   (13s)
+  keep_diag16_dropcross_droprem    dCE +0.0266 +- 0.00185   (14s)
+  keep_cross16_dropdiag_droprem    dCE +0.0216 +- 0.00165   (16s)
+  minimal_diag32                   dCE +0.7163 +- 0.00919   (17s)
+  minimal_cross32                  dCE +0.6129 +- 0.00859   (19s)
+  minimal_proj32                   dCE +0.5778 +- 0.00833   (20s)
+  keep_diag32_top1pairs            dCE +0.0267 +- 0.00185   (21s)
+  keep_diag32_top2pairs            dCE +0.0262 +- 0.00182   (23s)
+  keep_diag32_top4pairs            dCE +0.0254 +- 0.00179   (24s)
+  keep_diag32_top8pairs            dCE +0.0244 +- 0.00175   (26s)
+  keep_diag32_top16pairs           dCE +0.0227 +- 0.00169   (27s)
+  keep_diag32_top32pairs           dCE +0.0220 +- 0.00166   (29s)
+  keep_diag32_top64pairs           dCE +0.0217 +- 0.00165   (30s)
+  keep_diag32_top128pairs          dCE +0.0213 +- 0.00162   (31s)
+  drop_pair_0_3                    dCE +0.0001 +- 0.00008   (33s)
+  drop_pair_1_2                    dCE -0.0000 +- 0.00005   (34s)
+  drop_pair_0_1                    dCE +0.0000 +- 0.00009   (36s)
+  drop_pair_0_7                    dCE +0.0001 +- 0.00007   (37s)
+  drop_pair_0_6                    dCE -0.0001 +- 0.00006   (39s)
+QK ARC SQUARE (script 1) DONE

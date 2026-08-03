@@ -1,0 +1,65 @@
+NATURAL-TRIGGER REACH: {
+  "triggers": {
+    "distinctive": {
+      "token": 470,
+      "base_rate": 0.001415,
+      "n_natural_queries": 10,
+      "n_distinct_positions": 10,
+      "model": {
+        "P_payload": 0.0001,
+        "P_payload_SE": 0.0001,
+        "P_true_next": 0.1516,
+        "argmax_is_payload": 0.0,
+        "argmax_capture_SE": 0.0
+      },
+      "cond": {
+        "P_payload": 0.0115,
+        "P_payload_SE": 0.0103,
+        "P_true_next": 0.1204,
+        "argmax_is_payload": 0.0,
+        "argmax_capture_SE": 0.0
+      }
+    },
+    "moderate": {
+      "token": 82,
+      "base_rate": 0.003199,
+      "n_natural_queries": 18,
+      "n_distinct_positions": 18,
+      "model": {
+        "P_payload": 0.0021,
+        "P_payload_SE": 0.001,
+        "P_true_next": 0.1341,
+        "argmax_is_payload": 0.0,
+        "argmax_capture_SE": 0.0
+      },
+      "cond": {
+        "P_payload": 0.1647,
+        "P_payload_SE": 0.0585,
+        "P_true_next": 0.1122,
+        "argmax_is_payload": 0.2222,
+        "argmax_capture_SE": 0.1008
+      }
+    },
+    "frequent": {
+      "token": 13,
+      "base_rate": 0.038324,
+      "n_natural_queries": 498,
+      "n_distinct_positions": 114,
+      "model": {
+        "P_payload": 0.0075,
+        "P_payload_SE": 0.0021,
+        "P_true_next": 0.2433,
+        "argmax_is_payload": 0.0181,
+        "argmax_capture_SE": 0.006
+      },
+      "cond": {
+        "P_payload": 0.0398,
+        "P_payload_SE": 0.0055,
+        "P_true_next": 0.1911,
+        "argmax_is_payload": 0.0743,
+        "argmax_capture_SE": 0.0118
+      }
+    }
+  }
+}
+QK NATURAL TRIGGER REDIRECT DONE

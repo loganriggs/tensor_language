@@ -1,0 +1,13 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+rank vs context length (layer-1 QK input, ~100k tokens each, Pile):
+  ctx_len | tokens | eff-rank | rank@90% | rank@99%
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+    256   | 100352 |    44.6  |   312   |   948
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+    512   | 100864 |    44.7  |   316   |   951
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+   1024   | 101376 |    49.2  |   380   |   988
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (3180 > 1024). Running this sequence through the model will result in indexing errors
+   2048   | 102400 |    46.4  |   391   |   993
+
+bilin18 rank vs seqlen done
