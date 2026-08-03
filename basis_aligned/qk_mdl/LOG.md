@@ -7728,3 +7728,17 @@ existing steering methods, not a new method class, so in-scope and launched rath
   the §105-worst uniform damping and lost.
 - Verdict: bilin18's 2.26-nat line value is plausibly a DEPTH phenomenon. Follow-up dispatched: depth
   scaling A vs B at 2/4/8/12 layers.
+
+## tick 2026-08-03 (Logan: DenseFormer-style variant E dispatched; clarified the token-line scalar)
+- Clarified for Logan: variants B/D did have a learned scalar — ONE per block gating the embedding line
+  (x <- 1*x + b_l*e0hat, b_l init 1); bilin18's lambda1 is the same object (pinned at its 8.0 cap). His new
+  proposal generalizes: a learned scalar for EVERY previous module at every block entry (DenseFormer
+  depth-weighted averaging, per-module grain).
+- Dispatched variant E (qk_denseform.py): stream REBUILT at each entry as a learned weighted sum of the
+  embedding + every previous attention/mlp write, all weights init 1.0 (= vanilla at init), final readout
+  row included, no clips. Depths 4 and 12, same frozen budget/hyperparameters as §106. Probes: all-layer
+  linear-in-embedding percentage (variance AND causal) for A vs B vs E — Logan's headline ask; per-layer
+  token-determined fractions; the learned w_{l,j} matrix read as architecture-discovered consumption
+  structure (token-line column? reset rows? §103-style module-to-module pairs?); paired CE table.
+- Depth-scaling wash-out probe still pending from the previous agent; will fold both into one RESULTS
+  section when they land.
