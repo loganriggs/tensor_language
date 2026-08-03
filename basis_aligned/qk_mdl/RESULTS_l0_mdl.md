@@ -5613,8 +5613,20 @@ every trainable depth. Caveat that limits the inference to bilin18: vanilla CE i
 (5.734/5.727/5.737/5.765) — this corpus never enters the regime where depth pays, so it cannot produce the
 regime where the line pays either. bilin18's 2.26-nat line value (§105) remains unexplained by depth alone;
 remaining candidates: scale/data volume, interaction with the reset schedule + value-lerp (removed here to
-isolate the line), or time-to-loss optimization benefits (the speedrun selection pressure). Wash-out probe
-report pending (agent re-pinged).
+isolate the line), or time-to-loss optimization benefits (the speedrun selection pressure).
+
+**Wash-out probe (landed): the mechanistic premise fails too — the token does NOT wash out of a deep
+vanilla stream.** Variance of the vanilla entry stream explained by current-token identity (shuffle control
+0.036) falls 1.0 → 0.86 → 0.72 then drifts only to 0.50 by block 11 at depth 12 — a plateau, not a decay to
+zero; block 8 of the depth-12 model (0.627) is HIGHER than the depth-4 model's final block (0.600), and the
+deepest entry anywhere still carries half its variance as a token function (14× control). The line variant
+keeps it higher still (0.79 at block 7 vs vanilla 0.64) — and pays +0.038 nats for it. Learned line
+coefficients fade with block index at every depth (depth 12 late blocks 0.70/0.57/0.50/0.50) while the
+vanilla stream norm grows 19.6 → 141.7 — the network lets the line's relative weight collapse exactly where
+the depth story needed it strongest. The §106 inversion persists at depth 12 (line variant more
+token-anchored over the first seven blocks: 0.894 vs 0.583 at block 1). Cross-depth caveat: tied embeddings
+are 19.3M of every model, so body fraction varies 22%→62% with depth; and depth-12 vanilla is 0.038 WORSE
+than depth-4 vanilla at this budget — depth itself never pays on this corpus.
 
 **(b) DenseFormer-style variant E (Logan's proposal): a learned scalar on EVERY previous module at every
 block entry** (stream rebuilt per entry; all weights init 1.0 = exactly vanilla at init, verified

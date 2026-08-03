@@ -7753,3 +7753,12 @@ existing steering methods, not a new method class, so in-scope and launched rath
   local gradient preference vs end-to-end value disagree; no resets, instead "write, consume soon, fade"
   attenuation bands = the §103 leaky-consumption story as trained weights; importance flattening
   (layer-0 floor 1.05 → 0.26 nats) and the model is worse for it.
+
+## tick 2026-08-03c (wash-out probe landed — mechanistic premise of the depth story fails; §107a finalized)
+- Token does NOT wash out of a deep vanilla stream: entry-stream token variance plateaus at ~0.50 by block
+  11 (depth 12), 14x shuffle control; depth-12 block 8 (0.627) HIGHER than depth-4's final block (0.600).
+  Line variant keeps it higher (0.79 vs 0.64 at block 7) and pays +0.038 nats. Line coefficients fade with
+  depth while vanilla stream norm grows 19.6 -> 141.7. §106 inversion persists at depth 12.
+- §107(a) updated with the curve + confounds. Token-line arc now fully closed: line value in bilin18 is NOT
+  depth-per-se; candidates remaining are scale/data (a regime where depth pays), reset-schedule/value-lerp
+  interaction, or optimization dynamics over long training.
