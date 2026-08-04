@@ -1,0 +1,19 @@
+GPU guard: 15841 MiB free -- proceeding.
+SMOKE setup: width 24, 2 heads, head 12, slot 1, T 64, batch 2, 3 steps, CPU only
+control E5slots(init)==E0b(init): max |logit diff| 0.00e+00
+==== training qk_e5_slots264 (lr 0.002, gc 0.0, 3 steps x batch 2, single epoch) ====
+  V8[lr 0.002, gc 0.0] step 0/3 ce 10.8095 (ema 10.8095) 0s mem 0MiB
+/workspace/tensor_language/basis_aligned/qk_mdl/qk_v8_train.py:276: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:838.)
+  log['final_penalty'] = float(group_penalty(model))
+  sweep lr 0.002 gc 0.0: held100 CE 10.8259 (0 spikes)
+==== training qk_e5_gc3e5_264 (lr 0.002, gc 3e-05, 3 steps x batch 2, single epoch) ====
+  V8[lr 0.002, gc 3e-05] step 0/3 ce 10.8095 (ema 10.8095) 0s mem 0MiB
+  sweep lr 0.002 gc 3e-05: held100 CE 10.8259 (0 spikes)
+==== training qk_e5_gc1e5_264 (lr 0.002, gc 1e-05, 3 steps x batch 2, single epoch) ====
+  V8[lr 0.002, gc 1e-05] step 0/3 ce 10.8095 (ema 10.8095) 0s mem 0MiB
+  sweep lr 0.002 gc 1e-05: held100 CE 10.8259 (0 spikes)
+==== training qk_e5_van008_264 (lr 0.008, gc 0.0, 3 steps x batch 2, single epoch) ====
+  V8[lr 0.008, gc 0.0] step 0/3 ce 10.8095 (ema 10.8095) 0s mem 0MiB
+  sweep lr 0.008 gc 0.0: held100 CE 10.7772 (0 spikes)
+e5 costdecomp run done

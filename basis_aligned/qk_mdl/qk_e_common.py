@@ -87,6 +87,11 @@ if SMOKE:
 
 import numpy as np                              # noqa: E402
 import qk_tokenline_train as Q                  # noqa: E402
+if SMOKE:
+    # Neutralize the import-time GPU guard chain (qk_tokenline_probe calls
+    # Q.gpu_guard() at module import via the R2 import below): smoke mode must
+    # run with zero GPU dependency even while another job holds the card.
+    Q.gpu_guard = lambda *a, **k: None
 import qk_deeproute_train as R                  # noqa: E402
 import qk_v8_train as V8T                       # noqa: E402
 import qk_deeproute_train_2 as R2               # noqa: E402
@@ -393,8 +398,26 @@ def muon_params_split(model):
     return mu, adamw_decay, adamw_nodecay
 
 
+@torch.no_grad()
+def prox_group_lasso(model, tau):
+    """Decoupled proximal group soft-threshold on the read-matrix slot column
+    groups: every group g <- g * max(0, 1 - tau/||g||_F), the EXACT proximal
+    operator of tau * sum_groups ||g||_F after a Euclidean step. Applied to the
+    same groups the loss lasso covered (12 blocks x 7 read matrices x 24 slot
+    groups; readout excluded -- tied embedding). tau = 0 is an exact no-op."""
+    for blk in model.h:
+        for nm in READ_NAMES:
+            Mw = getattr(blk, nm).weight
+            S = Mw.shape[1] // NGROUP
+            norms = Mw.detach().float().pow(2) \
+                      .view(Mw.shape[0], NGROUP, S).sum((0, 2)).sqrt()
+            scale = (1.0 - tau / norms.clamp_min(1e-12)).clamp_min(0.0)
+            Mw.mul_(scale.repeat_interleave(S).to(Mw.dtype)[None, :])
+
+
 def train_muon(lr_muon, coeff, total_steps, log_every=200, save=True,
-               factory=None, save_stem='qk_e0m', lr_adamw=None):
+               factory=None, save_stem='qk_e0m', lr_adamw=None,
+               prox_coeff=None, return_model=False):
     """train_v8's loop with the Muon/AdamW split (same schedule, data order,
     logging, spike/divergence guards, checkpoint + heldloss conventions).
     NOTE (flagged in the JSONs): the group-lasso penalty stays IN THE LOSS
@@ -453,6 +476,10 @@ def train_muon(lr_muon, coeff, total_steps, log_every=200, save=True,
             torch.nn.utils.clip_grad_norm_(model.parameters(), Q.GRAD_CLIP)
             opt_m.step()
             opt_a.step()
+            if prox_coeff is not None:
+                # tau follows the SCHEDULED muon lr (warmup+cosine factor f);
+                # the per-matrix aspect-ratio scale is NOT folded into tau.
+                prox_group_lasso(model, lr_muon * f * prox_coeff)
             run = l if run is None else 0.98 * run + 0.02 * l
             if l > run + 1.0:
                 log['spikes'] += 1
@@ -472,6 +499,8 @@ def train_muon(lr_muon, coeff, total_steps, log_every=200, save=True,
             break
     if log['diverged']:
         log['final_held_ce'] = float('inf')
+        if return_model:
+            return log, model
         del model, opt_m, opt_a
         torch.cuda.empty_cache()
         return log
@@ -496,6 +525,8 @@ def train_muon(lr_muon, coeff, total_steps, log_every=200, save=True,
         log['final_held_ce'] = ce100
         print(f"  muon sweep lr {lr_muon}: held100 CE {ce100:.4f} "
               f"({log['spikes']} spikes)", flush=True)
+    if return_model:
+        return log, model
     del model, opt_m, opt_a
     torch.cuda.empty_cache()
     return log
@@ -668,3 +699,285 @@ def probe_arm(stem, factory, jp, light_key, tok_key=None, slot_of=None):
         merge(jp, tok_key, tok_probe(m))
     del m
     torch.cuda.empty_cache()
+
+
+# ---------------- E6 training-diagnostics hook layer (OFF by default) ----------------
+# Nothing here runs unless train_diag() is called explicitly (qk_e6_diag_run);
+# the standard train_arm/train_v8/train_muon paths are untouched.
+DIAG_EVERY = 100
+
+
+def diag_param_groups(model):
+    """Named parameter groups for per-group gradient statistics. NOTE: in this
+    architecture the read-coefficient matrices ARE columns of the attention
+    input matrices and Left/Right (there is no separate read parameter), so
+    the read-matrix diagnostics (item 3) reuse READ_NAMES over the attn/mlp
+    groups; the group split here is by parameter identity."""
+    groups = {'embedding': [], 'attn': [], 'mlp': [], 'dec_adapters': [],
+              'bias_other': []}
+    attn_toks = ('.c_q.', '.c_k.', '.c_q2.', '.c_k2.', '.c_v.', '.c_proj.')
+    mlp_toks = ('.Left.', '.Right.', '.Down.')
+    for nm, p in model.named_parameters():
+        if nm.startswith('wte'):
+            groups['embedding'].append(p)
+        elif p.dim() < 2:
+            groups['bias_other'].append(p)
+        elif nm.startswith('dec') or nm.startswith('ad_'):
+            groups['dec_adapters'].append(p)
+        elif any(t in f'.{nm}' or t in nm for t in attn_toks):
+            groups['attn'].append(p)
+        elif any(t in f'.{nm}' or t in nm for t in mlp_toks):
+            groups['mlp'].append(p)
+        else:
+            groups['dec_adapters'].append(p)     # routing extras, if any
+    return {k: v for k, v in groups.items() if v}
+
+
+def read_params(model):
+    return [getattr(blk, nm).weight for blk in model.h for nm in READ_NAMES]
+
+
+def read_group_norms(model):
+    """(84, 24) Frobenius norms of every read column group (12 blocks x 7
+    matrices x 24 slot groups)."""
+    S = Q.D // NGROUP
+    rows = []
+    for blk in model.h:
+        for nm in READ_NAMES:
+            M = getattr(blk, nm).weight.detach().float()
+            rows.append(M.pow(2).view(M.shape[0], NGROUP, S).sum((0, 2)).sqrt())
+    return torch.stack(rows)
+
+
+def _gnorm(params, grads=None):
+    tot = 0.0
+    for i, p in enumerate(params):
+        g = grads[i] if grads is not None else p.grad
+        if g is not None:
+            tot += float(g.detach().float().pow(2).sum())
+    return math.sqrt(tot)
+
+
+def _wnorm(params):
+    return math.sqrt(sum(float(p.detach().float().pow(2).sum())
+                         for p in params))
+
+
+def _flat(params, grads=None):
+    out = []
+    for i, p in enumerate(params):
+        g = grads[i] if grads is not None else p.grad
+        if g is not None:
+            out.append(g.detach().float().reshape(-1))
+    return torch.cat(out)
+
+
+def _cos(a, b):
+    d = float(a.norm()) * float(b.norm())
+    return round(float(a @ b) / d, 4) if d > 0 else 0.0
+
+
+def train_diag(lr, coeff, total_steps, factory, schedule_total=None,
+               diag_every=None, held_every=500, log_every=100):
+    """Instrumented fresh-protocol training run (E6). Every diag_every steps:
+    per-group grad norms + update ratios, clip-hit rate, CE-vs-penalty values
+    and read-matrix gradient decomposition, half-batch gradient cosine,
+    successive-step gradient cosine, logit tanh-cap saturation, per-layer entry
+    norms, per-slot write norms + collapsed slots, read-group sparsity
+    fraction, decoder/adapter norm trajectories. The lr SCHEDULE is computed
+    for the full 8250-step horizon so the truncated run's early dynamics match
+    the real runs. Known-answer check at step 0: the read-matrix CE-gradient
+    obtained by subtracting the penalty-only gradient from the combined
+    gradient must match a directly computed CE-only gradient (rel < 1e-3)."""
+    Q.gpu_guard(min_free=4500)
+    diag_every = diag_every or (2 if SMOKE else DIAG_EVERY)
+    schedule_total = schedule_total or (total_steps if SMOKE else STEPS)
+    model = factory()
+    groups = diag_param_groups(model)
+    rp = read_params(model)
+    allp = [p for p in model.parameters() if p.requires_grad]
+    decay, nodecay = [], []
+    for nm, p in model.named_parameters():
+        (decay if p.dim() >= 2 else nodecay).append(p)
+    opt = torch.optim.AdamW([{'params': decay, 'weight_decay': Q.WD},
+                             {'params': nodecay, 'weight_decay': 0.0}],
+                            lr=lr, betas=(0.9, 0.95))
+
+    def lr_at(step):
+        if step < Q.WARMUP:
+            return lr * (step + 1) / Q.WARMUP
+        p = (step - Q.WARMUP) / max(1, schedule_total - Q.WARMUP)
+        return lr * 0.5 * (1 + math.cos(math.pi * p))
+
+    log = {'lr': lr, 'group_coeff': coeff, 'steps': total_steps,
+           'schedule_total': schedule_total, 'batch': Q.BATCH,
+           'train_loss': [], 'held_ce': [], 'spikes': 0, 'diverged': False,
+           'clip_hits_total': 0}
+    series = []
+    prev_flat = None
+    clip_win, steps_win = 0, 0
+    step, run, t0 = 0, None, time.time()
+    model.train()
+    done = False
+    for epoch in range(10 ** 6):
+        order = Q.epoch_order(epoch)
+        for i in range(Q.STEPS_PER_EPOCH):
+            if step >= total_steps:
+                done = True
+                break
+            lr_now = lr_at(step)
+            for gpg in opt.param_groups:
+                gpg['lr'] = lr_now
+            seqs = Q.TRAIN[order[i * Q.BATCH:(i + 1) * Q.BATCH]]
+            is_diag = (step % diag_every == 0)
+            # penalty-only gradients w.r.t. the read matrices (weights only)
+            pen_g, pen_val = None, 0.0
+            if is_diag and coeff > 0:
+                pen = coeff * V8T.group_penalty(model)
+                pen_val = float(pen.detach())
+                pen_g = torch.autograd.grad(pen, rp, allow_unused=True)
+            col = ({'entry_norm': [], 'attn_write': [], 'mlp_write': []}
+                   if is_diag else None)
+            with torch.autocast('cuda', dtype=torch.bfloat16):
+                logits = model(seqs[:, :Q.T], collect=col)
+            ce = F.cross_entropy(logits.float().reshape(-1, Q.V),
+                                 seqs[:, 1:Q.T + 1].reshape(-1))
+            loss = ce + coeff * V8T.group_penalty(model) if coeff > 0 else ce
+            l = ce.item()
+            if not math.isfinite(l) or l > 30:
+                log['diverged'] = True
+                log['diverged_at'] = step
+                done = True
+                break
+            opt.zero_grad(set_to_none=True)
+            loss.backward()
+            # -------- pre-clip measurements --------
+            d = None
+            if is_diag:
+                d = {'step': step, 'lr': round(lr_now, 6), 'ce': round(l, 4)}
+                d['grad_norm_preclip'] = round(_gnorm(allp), 4)
+                for gname, plist in groups.items():
+                    gn = _gnorm(plist)
+                    wn = _wnorm(plist)
+                    d[f'grad_{gname}'] = round(gn, 4)
+                    d[f'upd_ratio_{gname}'] = round(lr_now * gn / (wn + 1e-12), 6)
+                # read-matrix CE vs penalty gradient decomposition
+                if pen_g is not None:
+                    pen_norm = _gnorm(rp, grads=list(pen_g))
+                    ce_read = [rp[k].grad.detach().float()
+                               - (pen_g[k].detach().float()
+                                  if pen_g[k] is not None else 0.0)
+                               for k in range(len(rp))]
+                    ce_norm = math.sqrt(sum(float(g.pow(2).sum())
+                                            for g in ce_read))
+                    d['read_pen_grad_norm'] = round(pen_norm, 4)
+                    d['read_ce_grad_norm'] = round(ce_norm, 4)
+                    d['read_pen_over_ce'] = round(pen_norm / (ce_norm + 1e-12), 4)
+                    if step == 0:
+                        # known-answer check: direct CE-only grad (same bf16
+                        # autocast as the training pass) must match
+                        with torch.autocast('cuda', dtype=torch.bfloat16):
+                            lg2 = model(seqs[:, :Q.T])
+                        ce2 = F.cross_entropy(
+                            lg2.float().reshape(-1, Q.V),
+                            seqs[:, 1:Q.T + 1].reshape(-1))
+                        gd = torch.autograd.grad(ce2, rp, allow_unused=True)
+                        num = math.sqrt(sum(float(
+                            (ce_read[k] - gd[k].float()).pow(2).sum())
+                            for k in range(len(rp)) if gd[k] is not None))
+                        rel = num / (ce_norm + 1e-12)
+                        d['ce_grad_decomp_check_rel'] = round(rel, 6)
+                        assert rel < 1e-3, "CE/penalty grad decomposition off"
+                    del ce_read
+                d['penalty_value'] = round(pen_val, 4)
+                d['penalty_share_of_loss'] = round(pen_val / (l + pen_val), 5) \
+                    if pen_val > 0 else 0.0
+                # half-batch gradient cosine (CE-only, current weights)
+                B = seqs.shape[0]
+                if B >= 2:
+                    hcos = []
+                    hgrads = []
+                    for half in (seqs[:B // 2], seqs[B // 2:]):
+                        with torch.autocast('cuda', dtype=torch.bfloat16):
+                            lg = model(half[:, :Q.T])
+                        hce = F.cross_entropy(
+                            lg.float().reshape(-1, Q.V),
+                            half[:, 1:Q.T + 1].reshape(-1))
+                        hg = torch.autograd.grad(hce, allp, allow_unused=True)
+                        hgrads.append(_flat(allp, grads=list(hg)))
+                    d['halfbatch_grad_cos'] = _cos(hgrads[0], hgrads[1])
+                    del hgrads
+                # successive-step gradient cosine (combined training grads)
+                fl = _flat(allp)
+                if prev_flat is not None:
+                    d['succ_grad_cos'] = _cos(prev_flat, fl)
+                del fl
+                # saturation + scale
+                d['logit_sat_frac_gt25'] = round(float(
+                    (logits.detach().abs() > 25).float().mean()), 6)
+                d['entry_norms'] = [round(x, 3) for x in col['entry_norm']]
+                writes = []
+                for li in range(len(model.h)):
+                    writes.append(col['attn_write'][li])
+                    writes.append(col['mlp_write'][li])
+                sn = []
+                for k, w in enumerate(writes):
+                    if getattr(model, 'proj', False):
+                        dims = model.wmask[k].bool()
+                        wn = w[..., dims].float().norm(dim=-1).mean()
+                    else:
+                        wn = w.float().norm(dim=-1).mean()
+                    sn.append(round(float(wn), 4))
+                d['write_slot_norms'] = sn
+                d['collapsed_slots_below_1e-3'] = sum(1 for x in sn if x < 1e-3)
+                del writes
+                # sparsity dynamics over the 2016 read groups
+                gnr = read_group_norms(model)
+                d['read_groups_frac_below_1e-3'] = round(float(
+                    (gnr < 1e-3).float().mean()), 5)
+                d['read_group_norm_median'] = round(float(gnr.median()), 5)
+                # decoder / adapter trajectories
+                if hasattr(model, 'dec'):
+                    dn = [round(float(lin.weight.detach().float().norm()), 3)
+                          for lin in model.dec]
+                    d['decoder_fro_norms'] = dn
+                if hasattr(model, 'ad_U'):
+                    an = [round(model.edge_product_norm(li, si), 4)
+                          for (li, si) in model.edges]
+                    d['adapter_product_norms'] = an
+            gn_total = float(torch.nn.utils.clip_grad_norm_(
+                model.parameters(), Q.GRAD_CLIP))
+            steps_win += 1
+            if gn_total > Q.GRAD_CLIP:
+                clip_win += 1
+                log['clip_hits_total'] += 1
+            if d is not None:
+                d['clip_rate_window'] = round(clip_win / steps_win, 4)
+                clip_win, steps_win = 0, 0
+                series.append(d)
+            # stash the step-(s-1) gradient for the successive cosine at s
+            if (step + 1) % diag_every == 0:
+                prev_flat = _flat(allp)
+            opt.step()
+            run = l if run is None else 0.98 * run + 0.02 * l
+            if l > run + 1.0:
+                log['spikes'] += 1
+            if step % log_every == 0:
+                log['train_loss'].append([step, round(l, 4), round(run, 4)])
+                print(f"  DIAG step {step}/{total_steps} ce {l:.4f} "
+                      f"(ema {run:.4f}) gnorm {gn_total:.2f} "
+                      f"{time.time() - t0:.0f}s", flush=True)
+            if step > 0 and step % held_every == 0 and not SMOKE:
+                hce, _ = Q.eval_held(model, n_seq=100)
+                log['held_ce'].append([step, round(hce, 4)])
+                print(f"  DIAG step {step} held100 fresh CE {hce:.4f}",
+                      flush=True)
+            step += 1
+        if done:
+            break
+    if not log['diverged']:
+        hce, _ = Q.eval_held(model, n_seq=100)
+        log['final_held100_ce'] = round(hce, 4)
+    del model, opt
+    torch.cuda.empty_cache()
+    return {'log': log, 'series': series}

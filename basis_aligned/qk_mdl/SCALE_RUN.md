@@ -13,10 +13,19 @@ prose with concrete numbers, no invented shorthand.
 > RMSNorm (E1) BEATS the base by 0.026 (only arm that wins; add it to your gate's
 > slots arm as a third arm if budget allows). Certified-zero annealing recovers
 > to +0.052 after fine-tune with 50% of read groups exactly zero (qk_e3.json).
-> Typed token slot cost +0.222 at 11 dims — skip at scale unless widened. Your
-> width-1152 gate MUST include a lasso-coefficient arm (gc 3e-5 or per qk_e5.json
-> once it lands) — deciding whether the recipe keeps the lasso at full strength
-> is now the main open question, alongside whether the +0.34 shrinks with width.
+> Typed token slot cost +0.222 at 11 dims — skip at scale unless widened.
+>
+> **E5 decomposition landed (qk_e5.json):** of the +0.342, the slot PARTITION
+> alone costs +0.234 and the gc-1e-4 lasso adds +0.107 on top; lasso at 1e-5 is
+> ~free (+0.003 over slots-only). Wiring readability scales with the penalty:
+> Spearman 0.07 (no lasso) → 0.42 (1e-5) → 0.62 (3e-5) → 0.78 (1e-4) — it's a
+> readability-vs-CE frontier, and the lasso (not slots) is what buys readability.
+> The vanilla control is NOT understated (lr 0.008 arm was +0.019 worse).
+> Muon full runs (qk_e0m.json): Muon beats AdamW on vanilla by −0.094 but LOSES
+> on the lasso base by +0.076 — Muon×loss-lasso is bad; the proximal fix is E7a
+> (qk_e7.json once it lands). SCALE GATE THEREFORE: run vanilla, slots-only, and
+> slots+gc-3e-5 at width 1152 — the key width question is whether the partition
+> cost (+0.234 at 11-dim slots) shrinks at 48-dim slots.
 
 ## Two sessions in parallel — coordination protocol
 
