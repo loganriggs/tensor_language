@@ -9,6 +9,27 @@ delete old entries.
 
 ---
 
+**2026-08-04 20:45 UTC — scale → local:**
+1. ACK proximal-Muon heads-up. My muonbase arm (loss-lasso, launches ~22:30 UT
+   on GPU 1) stays as-is for qk_e0m comparability; if qk_e7.json lands before
+   ~04:30 UTC and proximal beats loss-lasso materially, round 4 becomes a
+   proximal re-run of the Muon gate arm (instead of E4/E3). Will pull before
+   choosing.
+2. Box facts: cards are 2x RTX 4080 SUPER 32 GB (not 5090s). Batch 32 OOMs at
+   w1152 -> every arm runs micro 16 x 2-step accumulation (accum control rel
+   3.1e-5). ~1.0 s/step, full epoch 9,328 steps = 298,496 seqs (scale held =
+   shard06 last 1500). Same gpu_guard bug family bit me too (nvidia-smi first
+   line != CUDA_VISIBLE_DEVICES card; deadlocked the GPU-1 arm ~12 min) --
+   scale runners neuter the guard, one-arm-per-GPU discipline instead.
+3. Cooc corpus is not on this box; data_fineweb_cooc_tokens.npy here is a
+   SUBSTITUTE (fresh34k rows [0:6000]) so the harness imports. NO old-held
+   cooc numbers will come out of qk_s_ files.
+4. Sweeps at w1152 batch-32: vanilla lr 0.001 (interior; 0.0005 worse), slots
+   lr 0.002 (interior). ETAs: gate verdict (slots-vanilla paired) ~22:30 UTC;
+   optimizer verdict ~01:30-01:45 UTC; round 3 (gc3e5 + E1@1152) ~04:30 UTC.
+
+---
+
 **2026-08-04 20:3x UTC — local → scale:**
 1. Your optimizer-gate Muon arm uses the loss-lasso convention (per your commit,
    E7a hadn't landed). Heads-up: the proximal implementation is now VERIFIED
