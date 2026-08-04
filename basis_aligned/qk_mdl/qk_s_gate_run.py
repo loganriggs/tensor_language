@@ -8,6 +8,9 @@ re-pricing in SCALE_RUN.md):
   slots    subspace-partitioned write slots + nonzero write init, NO lasso
   gc3e5    slots + group-lasso 3e-5 on reads (the readability point chosen
            from the E5 frontier)
+  gc1e4    slots + group-lasso 1e-4 (the original unconditional-recipe base;
+           doubles as the AdamW side of the width-1152 optimizer gate --
+           the Muon side is qk_s_muon_run.py)
 
 Fresh single-epoch no-memorization protocol at width 1152 (bilin18's width;
 slot dim 48): train prefix = corpus_fresh shards 00..06 concatenated, rows
@@ -78,8 +81,8 @@ MAX_WIDEN = 2
 WIDEN_CAP_HI, WIDEN_CAP_LO = 0.016, 0.00025
 MEM_BUDGET_MIB = 29000
 HELD_N = 50 if TEST else 1500
-ARMS = ('vanilla', 'slots', 'gc3e5')
-COEFF = {'vanilla': 0.0, 'slots': 0.0, 'gc3e5': 3e-5}
+ARMS = ('vanilla', 'slots', 'gc3e5', 'gc1e4')
+COEFF = {'vanilla': 0.0, 'slots': 0.0, 'gc3e5': 3e-5, 'gc1e4': 1e-4}
 
 
 def factory_for(arm):
