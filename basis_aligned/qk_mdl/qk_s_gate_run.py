@@ -66,6 +66,14 @@ import qk_v9_common as C
 import qk_w1152_train as W2
 from qk_deeproute_train import DEPTH
 
+# One-arm-per-GPU discipline: each process owns its CUDA_VISIBLE_DEVICES card
+# outright. Q.gpu_guard parses nvidia-smi's FIRST line = physical GPU 0
+# regardless of CUDA_VISIBLE_DEVICES, so on the second card it deadlocks
+# against the first card's job (observed live) and then raises. Neuter it;
+# this also covers the import-time guard in the probe chain and every runner
+# that imports this module (muon, e1).
+Q.gpu_guard = lambda *a, **k: None
+
 TEST = os.environ.get('QK_S_TEST') == '1'
 QK = C.QK
 OUT_DIR = QK
