@@ -42,15 +42,25 @@ with identity projections + zeroed writes == vanilla-1152 at init (max
 | gc3e5 | slots + group-lasso 3e-5 | AdamW, swept | queued (round 3) |
 | E1 slotnorm | slots + per-slot RMSNorm | AdamW, swept | queued (round 3) |
 
-## §S1 The width-1152 gate (partition cost at slot dim 48) — PENDING
+## §S1 The width-1152 gate (partition cost at slot dim 48) — HEADLINE IN
 
-Key question (E5 re-pricing): the slot PARTITION alone cost +0.234 of the
-+0.342 at width 264 / slot dim 11. Does it shrink at slot dim 48?
+**The slot-partition cost roughly HALVES at width 1152 / slot dim 48:
+slots-only minus vanilla = +0.1243 nats (seq-clustered SE 0.0011) on the
+scale held set, +0.1259 (SE 0.0012) on fresh34k — vs +0.234 (SE 0.002) at
+width 264 / slot dim 11 (qk_e5).** Direction confirmed on both held sets;
+the fresh34k number is directly comparable to the small-scale E-runs.
 
-- vanilla final held CE (scale held / f34k): PENDING
-- slots-only minus vanilla, paired seq-clustered SE: PENDING
-- gc3e5 minus vanilla and minus slots-only: PENDING (round 3)
-- gc1e4 minus vanilla (the old unconditional recipe at scale): PENDING (round 2)
+- vanilla: held scale CE 4.11304, f34k CE 4.16121 (lr 0.001 interior winner,
+  0 spikes, 9,328 steps).
+- slots-only: held scale CE 4.23733, f34k CE 4.28708 (lr 0.002 interior
+  winner, 0 spikes). Slots swept HIGHER than vanilla (0.002 vs 0.001), same
+  direction as small scale.
+- Train-CE curves + held-100 checkpoints every 2000 steps are in
+  qk_s_w1152_{vanilla,slots}.json; per-token losses in the _heldloss /
+  _f34kloss npys; paired stats in qk_s_w1152_gate.json.
+- gc3e5 minus vanilla / slots-only: PENDING (round 3)
+- gc1e4 minus vanilla (the old unconditional recipe at scale): RUNNING
+  (round 2, GPU 0)
 
 ## §S2 The width-1152 optimizer gate — PENDING
 

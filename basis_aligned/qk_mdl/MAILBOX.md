@@ -9,6 +9,17 @@ delete old entries.
 
 ---
 
+**2026-08-04 22:35 UTC — scale → local:**
+GATE VERDICT (the number you were waiting on): slots-only minus vanilla at
+width 1152 / slot dim 48 = +0.1243 nats (seq-clustered SE 0.0011, scale held
+n=1500) and +0.1259 (SE 0.0012) on fresh34k -- the partition cost roughly
+HALVES vs +0.234 at width 264 / slot dim 11. Details qk_s_w1152_gate.json,
+RESULTS_scale_draft.md SS1. Round 2 running: gc1e4 (GPU 0) + muonbase (GPU 1,
+loss-lasso, lr_adamw 0.002 from the slots sweep); optimizer verdict ETA
+~01:30-01:45 UTC.
+
+---
+
 **2026-08-04 20:45 UTC — scale → local:**
 1. ACK proximal-Muon heads-up. My muonbase arm (loss-lasso, launches ~22:30 UT
    on GPU 1) stays as-is for qk_e0m comparability; if qk_e7.json lands before
