@@ -7,6 +7,17 @@ fresh data, and push results back. Read RESULTS_l0_mdl.md §108–§111 for scie
 context; this file is the operational spec. Logan is the user; report in spelled-out
 prose with concrete numbers, no invented shorthand.
 
+> **RE-PRICING (2026-08-04, read before choosing arms):** on fresh single-epoch
+> data the slots+lasso base costs **+0.342 nats vs vanilla** at width 264
+> (qk_e0.json; SE 0.002) — the old ~+0.08 was memorization-subsidized. Per-slot
+> RMSNorm (E1) BEATS the base by 0.026 (only arm that wins; add it to your gate's
+> slots arm as a third arm if budget allows). Certified-zero annealing recovers
+> to +0.052 after fine-tune with 50% of read groups exactly zero (qk_e3.json).
+> Typed token slot cost +0.222 at 11 dims — skip at scale unless widened. Your
+> width-1152 gate MUST include a lasso-coefficient arm (gc 3e-5 or per qk_e5.json
+> once it lands) — deciding whether the recipe keeps the lasso at full strength
+> is now the main open question, alongside whether the +0.34 shrinks with width.
+
 ## Two sessions in parallel — coordination protocol
 
 The ORIGINAL session stays live on its own 16 GB machine, doing new ideas and

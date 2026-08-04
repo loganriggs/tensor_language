@@ -54,10 +54,16 @@ def controls():
         O = E.ns_orth(X).float()
         sv = torch.linalg.svdvals(O)
         smin, smax = float(sv.min()), float(sv.max())
-        spectra[str(sh)] = [round(smin, 3), round(smax, 3)]
-        print(f"control NS spectrum {sh}: singular values in "
-              f"[{smin:.3f}, {smax:.3f}]", flush=True)
-        assert 0.5 < smin and smax < 1.5, "Newton-Schulz spectrum off"
+        smed = float(sv.median())
+        spectra[str(sh)] = [round(smin, 3), round(smed, 3), round(smax, 3)]
+        print(f"control NS spectrum {sh}: singular values min {smin:.3f} "
+              f"median {smed:.3f} max {smax:.3f}", flush=True)
+        # A random SQUARE matrix has smallest singular values near zero
+        # (Marchenko-Pastur) and 5 NS iterations correctly leave near-zero
+        # directions near zero, so a hard floor on smin is wrong for square
+        # shapes (it aborted the first chain run). Muon's actual guarantee:
+        # non-negligible directions are pushed to ~1, nothing overshoots.
+        assert 0.5 < smed and smax < 1.5, "Newton-Schulz spectrum off"
     E.merge(JP, 'ns_spectrum_control', spectra)
     # (ii) parameter split covers everything once, embedding on AdamW
     m = E.make_e0b()
