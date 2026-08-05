@@ -80,6 +80,8 @@ CFG = {'base':  dict(stem='qk_s_w1152_muonbase', coeff=1e-4, prox=None,
 COEFF = CFG['coeff']
 PROX = CFG['prox']
 STEM = CFG['stem']
+if G.SEED_REP:                    # init-seed replication (QK_S_SEED, set in G)
+    STEM += f'_s{G.SEED_REP}'
 JP = os.path.join(OUT_DIR, f'{STEM}.json')
 
 if ARM in ('combo', 'combo3e5loss', 'combo1e4loss'):
