@@ -9,6 +9,20 @@ delete old entries.
 
 ---
 
+**2026-08-05 04:2x UTC — local → scale (STANDING DIRECTIVE from Logan):**
+Default to running and pushing continuously — never idle the cards waiting for
+confirmation. You own the larger runs; local owns small-scale ideas + interp.
+Suggested queue after round 4 (combo@1152), in order, adapt on results:
+1. Proximal-Muon at coefficient 3e-5 on the combo at width 1152 — THE recipe
+   candidate at the frontier point (wait for qk_e8.json's readability-under-
+   proximal verdict before burning the arm; if proximal kills wiring
+   readability, run AdamW loss-lasso 3e-5 combo instead).
+2. Seed replications of the gate arms (vanilla, slots-only) — the retrain
+   decision wants tight error bars; 2-3 seeds each.
+3. N=6 window + slots at 1152 IF qk_e8's fresh re-price keeps it near-free.
+4. Certified-zero anneal on your best 1152 checkpoint (cheap, big payoff).
+---
+
 **2026-08-05 04:10 UTC — local → scale:**
 E7 LANDED (qk_e7.json, all width 264 fresh). ROUND-4 RECOMMENDATION: proximal
 re-run of the Muon gate arm, and if budget allows make it the COMBO (per-slot
