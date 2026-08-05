@@ -60,19 +60,22 @@ import torch
 import torch.nn.functional as F
 
 import qk_tokenline_train as Q
+
+# One-arm-per-GPU discipline: each process owns its CUDA_VISIBLE_DEVICES card
+# outright. Q.gpu_guard parses nvidia-smi's FIRST line = physical GPU 0
+# regardless of CUDA_VISIBLE_DEVICES, so on the second card it deadlocks
+# against the first card's job and then raises. Neuter it BEFORE the imports
+# below: qk_v9_common -> qk_deeproute_train_2 -> qk_tokenline_probe calls
+# Q.gpu_guard() AT IMPORT TIME (this killed the E1 launch while GPU 0 was
+# busy; the earlier arms only survived because GPU 0 happened to be free
+# when they imported). Covers every runner that imports this module.
+Q.gpu_guard = lambda *a, **k: None
+
 import qk_deeproute_train as R
 import qk_v8_train as V8T
 import qk_v9_common as C
 import qk_w1152_train as W2
 from qk_deeproute_train import DEPTH
-
-# One-arm-per-GPU discipline: each process owns its CUDA_VISIBLE_DEVICES card
-# outright. Q.gpu_guard parses nvidia-smi's FIRST line = physical GPU 0
-# regardless of CUDA_VISIBLE_DEVICES, so on the second card it deadlocks
-# against the first card's job (observed live) and then raises. Neuter it;
-# this also covers the import-time guard in the probe chain and every runner
-# that imports this module (muon, e1).
-Q.gpu_guard = lambda *a, **k: None
 
 TEST = os.environ.get('QK_S_TEST') == '1'
 QK = C.QK
