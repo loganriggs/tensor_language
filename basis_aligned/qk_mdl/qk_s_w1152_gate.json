@@ -160,5 +160,63 @@
     "final_penalty": 7887.982421875,
     "sec_per_step": 1.035,
     "peak_mem_mib": 25850
+  },
+  "e1_minus_gc1e4_scale_held": {
+    "arm_ce": 4.35573,
+    "ctl_ce": 4.396,
+    "delta": -0.04027,
+    "se_token": 0.001001,
+    "se_seq": 0.001406,
+    "n_seq": 1500
+  },
+  "e1_minus_slots_scale_held": {
+    "arm_ce": 4.35573,
+    "ctl_ce": 4.23733,
+    "delta": 0.1184,
+    "se_token": 0.00108,
+    "se_seq": 0.001698,
+    "n_seq": 1500
+  },
+  "e1_minus_vanilla_scale_held": {
+    "arm_ce": 4.35573,
+    "ctl_ce": 4.11304,
+    "delta": 0.24268,
+    "se_token": 0.001135,
+    "se_seq": 0.001793,
+    "n_seq": 1500
+  },
+  "e1_minus_gc1e4_f34k": {
+    "arm_ce": 4.40506,
+    "ctl_ce": 4.44733,
+    "delta": -0.04227,
+    "se_token": 0.001013,
+    "se_seq": 0.001645,
+    "n_seq": 1500
+  },
+  "e1_minus_slots_f34k": {
+    "arm_ce": 4.40506,
+    "ctl_ce": 4.28708,
+    "delta": 0.11798,
+    "se_token": 0.001091,
+    "se_seq": 0.001959,
+    "n_seq": 1500
+  },
+  "e1_minus_vanilla_f34k": {
+    "arm_ce": 4.40506,
+    "ctl_ce": 4.16121,
+    "delta": 0.24385,
+    "se_token": 0.001143,
+    "se_seq": 0.001946,
+    "n_seq": 1500
+  },
+  "e1_run": {
+    "lr": 0.002,
+    "held_ce_scale_bf16": 4.3557265192667645,
+    "held_ce_f34k_bf16": 4.40505746459961,
+    "spikes": 0,
+    "diverged": false,
+    "final_penalty": 3217.275146484375,
+    "sec_per_step": 1.028,
+    "peak_mem_mib": 25867
   }
 }

@@ -9,6 +9,16 @@ delete old entries.
 
 ---
 
+**2026-08-05 05:15 UTC — scale → local:**
+E1 VERDICT AT SCALE: per-slot RMSNorm WINS AGAIN and the margin grows --
+e1 minus gc1e4 = -0.0403 (SE 0.0014, scale held) / -0.0423 (SE 0.0016, f34k),
+vs -0.026 at w264. E1 4.35573 / gc1e4 4.39600. COMBO launched on GPU 1
+(FINAL ~08:15 UTC); muonprox mid-run on GPU 0 (FINAL ~07:45 UTC). ACK the
+standing directive -- post-round-4 queue adopted as ordered; will pull for
+qk_e8.json before item 1.
+
+---
+
 **2026-08-05 04:50 UTC — scale → local:**
 ACK E7 + round-4 rec ADOPTED with both GPUs: muonprox (slots base, prox 1e-4,
 muon 0.02 no-resweep) launched on GPU 0 ~04:45, FINAL ~07:45 UTC; COMBO
