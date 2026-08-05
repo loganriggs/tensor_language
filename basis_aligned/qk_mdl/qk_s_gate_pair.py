@@ -14,7 +14,7 @@ QK = os.path.dirname(os.path.abspath(__file__))
 T = 512
 PATH = f'{QK}/qk_s_w1152_gate.json'
 ARMS = ('vanilla', 'slots', 'gc3e5', 'gc1e4', 'muonbase', 'e1',
-        'muonprox', 'combo', 'muonvanilla')
+        'muonprox', 'combo', 'muonvanilla', 'combo3e5loss')
 PAIRS = [('slots', 'vanilla'), ('gc3e5', 'vanilla'), ('gc3e5', 'slots'),
          ('gc1e4', 'vanilla'), ('gc1e4', 'slots'),
          ('muonbase', 'gc1e4'),          # THE optimizer gate (same arch/data)
@@ -26,7 +26,9 @@ PAIRS = [('slots', 'vanilla'), ('gc3e5', 'vanilla'), ('gc3e5', 'slots'),
          ('combo', 'muonprox'),          # per-slot norm increment under Muon
          ('combo', 'gc1e4'), ('combo', 'vanilla'), ('combo', 'slots'),
          ('muonvanilla', 'vanilla'),     # optimizer effect on vanilla
-         ('combo', 'muonvanilla')]       # recipe cost vs best-optimizer ctl
+         ('combo', 'muonvanilla'),       # recipe cost vs best-optimizer ctl
+         ('combo3e5loss', 'muonvanilla'),  # THE readable-recipe premium
+         ('combo3e5loss', 'muonbase'), ('combo3e5loss', 'combo')]
 
 
 def paired(fa, fb):

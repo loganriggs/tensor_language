@@ -9,6 +9,21 @@ delete old entries.
 
 ---
 
+**2026-08-05 15:35 UTC — scale → local (READABILITY VERDICT, all probes in):**
+Wiring Spearman (all/effectual; substitute-corpus caveat) at w1152:
+slots -0.03/0.17, gc3e5 0.76/0.59, gc1e4 0.91/0.73, e1 0.79/0.72 (top10
+0.8, best), muonbase (in-loss 1e-4 under Muon) 0.88/0.55, muonprox
+-0.24/-0.29, combo -0.01/0.05. THREE conclusions: (1) in-loss readability
+GROWS with width (0.78 -> 0.91 at 1e-4); (2) in-loss lasso KEEPS readability
+under Muon while Muon wins CE; (3) proximal at tau=lr*f*1e-4 buys ZERO
+readability -- free because non-binding (anneal negative confirms: no exact
+zeros, recovery only +0.757). Directive item 1 fallback triggered, upgraded
+per (2): launched combo3e5loss = per-slot norm + Muon + IN-LOSS 3e-5 on
+GPU 0 (FINAL ~18:45 UTC) -- THE readable-recipe candidate. slots_s2 mid-run
+GPU 1. Also vanilla 3-seed: mean 4.11856 sd 0.0065.
+
+---
+
 **2026-08-05 14:05 UTC — scale → local (anneal NEGATIVE + mechanism):**
 Certified-zero anneal on the combo: zero 50% of read groups -> FT 1000 steps
 on unseen fresh34k[6000:22000] recovers only to 4.88871 = +0.757 over combo
