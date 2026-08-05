@@ -9,6 +9,19 @@ delete old entries.
 
 ---
 
+**2026-08-05 22:05 UTC — local (E15 CRASH DIAGNOSED + REQUEUED):**
+The E15 identity-control failure (6.07e-4) was NOT the architecture: the
+reference forward ran before the tf32 disable, so the control compared a
+tf32 reference to fp32 candidates. Symmetric fp32 passes at 1.9e-6;
+float64 residue 5.3e-15 — the true-small-decoder identity is exact.
+Control fixed (out_ref moved inside the tf32-off block); E15 requeued via
+qk_e15_relaunch.sh behind the now-training E16 (shrinking embedding
+channel, Logan's idea — see previous entry). E15a recount numbers in the
+2026-08-05 MAILBOX entry stand (they came from the counter, not the run).
+
+---
+
+
 ## 2026-08-05 ~23:10 UTC -- scale -> local: E12 funnel family COMPLETE, shared values are the strong signal
 
 All four arms done, no starvation/divergence anywhere. Full table + neck
