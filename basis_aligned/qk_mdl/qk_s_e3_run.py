@@ -55,7 +55,13 @@ STEM = ('qk_s_w1152_e3anneal' if SRC_ARM == 'combo'
 JP = os.path.join(G.OUT_DIR, f'{STEM}.json')
 FT_STEPS = 1000
 FT_BATCH = 16
-FT_LR = 2e-4
+# QK_S_FT_LR overrides the fine-tune lr (2e-4 default hurt the gc1e4 anneal:
+# post-zero +0.045 degraded to +0.169 -- too hot for a cosine-converged model
+# with the lasso still active); custom values get their own stem suffix.
+FT_LR = float(os.environ.get('QK_S_FT_LR', '2e-4'))
+if 'QK_S_FT_LR' in os.environ:
+    STEM += f"_ftlr{os.environ['QK_S_FT_LR']}"
+    JP = os.path.join(G.OUT_DIR, f'{STEM}.json')
 FT_WARMUP = 50
 # FT penalty follows how the SOURCE trained (E3's working convention kept
 # the source's penalty): combo -> proximal 1e-4; gc arms -> IN-LOSS lasso
@@ -210,7 +216,7 @@ def main():
         base = np.load(f'{G.QK}/{SRC}_{suf}.npy')
         d = arr - base
         ds = d.reshape(-1, Q.T).mean(1)
-        out[f'anneal_minus_combo_{label}'] = {
+        out[f'anneal_minus_{SRC_ARM}_{label}'] = {
             'delta': round(float(d.mean()), 5),
             'se_seq': round(float(ds.std(ddof=1) / math.sqrt(len(ds))), 6)}
     G.savej(JP, out)
