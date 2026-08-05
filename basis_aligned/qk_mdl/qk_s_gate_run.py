@@ -95,6 +95,14 @@ HELD_N = 50 if TEST else 1500
 ARMS = ('vanilla', 'slots', 'gc3e5', 'gc1e4')
 COEFF = {'vanilla': 0.0, 'slots': 0.0, 'gc3e5': 3e-5, 'gc1e4': 1e-4}
 
+# Seed replications (standing directive item 2): QK_S_SEED=n varies the INIT
+# seed only -- the data order (Q.epoch_order, DATA_SEED) stays identical, so
+# per-token deltas pair across seeds. Seed arms reuse the seed-0 lr winner
+# (no re-sweep) and write to _s<n>-suffixed stems.
+SEED_REP = int(os.environ.get('QK_S_SEED', '0'))
+if SEED_REP:
+    Q.SEED = SEED_REP
+
 
 def factory_for(arm):
     if arm == 'vanilla':
@@ -102,8 +110,12 @@ def factory_for(arm):
     return lambda: C.make_variant('W1152', None)
 
 
+def stem_of(arm):
+    return f'qk_s_w1152_{arm}' + (f'_s{SEED_REP}' if SEED_REP else '')
+
+
 def jp_of(arm):
-    return os.path.join(OUT_DIR, f'qk_s_w1152_{arm}.json')
+    return os.path.join(OUT_DIR, f'{stem_of(arm)}.json')
 
 
 def loadj(p):
@@ -394,7 +406,7 @@ def run_controls(arm, out):
 def main():
     arm = sys.argv[1]
     assert arm in ARMS, f"arm must be one of {ARMS}"
-    stem = f'qk_s_w1152_{arm}'
+    stem = stem_of(arm)
     jp = jp_of(arm)
     out = loadj(jp)
     W2.patch_width(WIDTH)
@@ -404,9 +416,18 @@ def main():
                   'cooc_substitute': True}
     out['data'] = spec
     out['arm'] = {'name': arm, 'group_coeff': COEFF[arm],
+                  'init_seed': Q.SEED,
                   'write_init_std': (None if arm == 'vanilla'
                                      else R.WRITE_INIT_STD)}
     savej(jp, out)
+    if SEED_REP and 'lrsweep' not in out:
+        s0 = loadj(os.path.join(OUT_DIR, f'qk_s_w1152_{arm}.json'))
+        assert 'lrsweep' in s0, f"seed-0 sweep missing for {arm}"
+        out['lrsweep'] = {'chosen': s0['lrsweep']['chosen'],
+                          'ranking': s0['lrsweep']['ranking'],
+                          'note': f'copied from seed-0 winner; '
+                                  f'no re-sweep for seed {SEED_REP}'}
+        savej(jp, out)
     run_controls(arm, out)
     micro = preflight_micro(arm, out)
     print(f"{arm}: micro {micro} (accum {EFF_BATCH // micro})", flush=True)
