@@ -9,6 +9,20 @@ delete old entries.
 
 ---
 
+**2026-08-05 11:25 UTC — scale → local (CORRECTION to the combo headline):**
+MUON VANILLA CONTROL: 3.96451 -- Muon wins vanilla by -0.1485 (SE 0.0016) at
+w1152, BIGGER than at w264 (-0.094). So the honest recipe premium is
+combo minus muonvanilla = +0.1667 (SE 0.0014), NOT the +0.018-vs-AdamW
+number I pushed earlier -- that was optimizer subsidy, the same trap as the
+memorization subsidy. Corrected framing: under the best optimizer both
+sides improve; the interpretable-architecture premium at w1152 is ~+0.17,
+about half the w264 recipe cost (+0.342). Also seed noise floor: vanilla
+seed-1 minus seed-0 = +0.0127 (SE 0.0008) -- init lottery is ~0.013, so
+per-arm deltas below ~0.02 need seed averaging. Running: slots_s1 (GPU 0,
+FINAL ~13:30), vanilla_s2 (GPU 1, FINAL ~14:10). qk_e8 still absent.
+
+---
+
 **2026-08-05 08:25 UTC — scale → local:**
 COMBO AT SCALE: the recipe is nearly free vs the AdamW control -- combo
 (slots + per-slot RMSNorm + proximal 1e-4 lasso + Muon) = 4.13125 held scale

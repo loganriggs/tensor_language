@@ -346,5 +346,47 @@
     "ctl_ce": 4.16121,
     "delta": 0.01406,
     "se_seq": 0.000845
+  },
+  "muonvanilla_minus_vanilla_scale_held": {
+    "arm_ce": 3.96451,
+    "ctl_ce": 4.11304,
+    "delta": -0.14854,
+    "se_token": 0.000893,
+    "se_seq": 0.001603,
+    "n_seq": 1500
+  },
+  "combo_minus_muonvanilla_scale_held": {
+    "arm_ce": 4.13125,
+    "ctl_ce": 3.96451,
+    "delta": 0.16674,
+    "se_token": 0.000984,
+    "se_seq": 0.001416,
+    "n_seq": 1500
+  },
+  "muonvanilla_minus_vanilla_f34k": {
+    "arm_ce": 4.01164,
+    "ctl_ce": 4.16121,
+    "delta": -0.14957,
+    "se_token": 0.000902,
+    "se_seq": 0.001507,
+    "n_seq": 1500
+  },
+  "combo_minus_muonvanilla_f34k": {
+    "arm_ce": 4.17937,
+    "ctl_ce": 4.01164,
+    "delta": 0.16774,
+    "se_token": 0.000992,
+    "se_seq": 0.00128,
+    "n_seq": 1500
+  },
+  "muonvanilla_run": {
+    "lr": null,
+    "held_ce_scale_bf16": 3.9645055770874023,
+    "held_ce_f34k_bf16": 4.011635060628255,
+    "spikes": 0,
+    "diverged": false,
+    "final_penalty": 90739.5625,
+    "sec_per_step": 1.043,
+    "peak_mem_mib": 24756
   }
 }
