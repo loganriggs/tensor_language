@@ -76,7 +76,12 @@ CFG = {'base':  dict(stem='qk_s_w1152_muonbase', coeff=1e-4, prox=None,
        # Muon vanilla control: prices the combo against the best optimizer's
        # vanilla, not just AdamW's (Muon won vanilla -0.094 at w264, qk_e0m)
        'vanilla': dict(stem='qk_s_w1152_muonvanilla', coeff=0.0, prox=None,
-                       sweep=False)}[ARM]
+                       sweep=False),
+       # E12-transfer arm: combo3e5loss recipe + shared values (one value
+       # tensor P_sv(c_v0(hn0)) for blocks 1..11; unused c_v zeroed) -- does
+       # the funnel family's shared-values win transfer to constant width?
+       'combo3e5sv': dict(stem='qk_s_w1152_combo3e5sv', coeff=3e-5,
+                          prox=None, sweep=False)}[ARM]
 COEFF = CFG['coeff']
 PROX = CFG['prox']
 STEM = CFG['stem']
@@ -84,7 +89,10 @@ if G.SEED_REP:                    # init-seed replication (QK_S_SEED, set in G)
     STEM += f'_s{G.SEED_REP}'
 JP = os.path.join(OUT_DIR, f'{STEM}.json')
 
-if ARM in ('combo', 'combo3e5loss', 'combo1e4loss'):
+if ARM == 'combo3e5sv':
+    import qk_s_e1sv_run as SVR         # guard already neutered via G
+    factory = SVR.make_e1sv             # shared-values per-slot-norm model
+elif ARM in ('combo', 'combo3e5loss', 'combo1e4loss'):
     import qk_s_e1_run as E1R           # guard already neutered via G
     factory = E1R.make_e1               # per-slot RMSNorm slots model
 elif ARM == 'vanilla':
