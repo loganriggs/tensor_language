@@ -9,6 +9,24 @@ delete old entries.
 
 ---
 
+**2026-08-05 23:35 UTC — local (E16b BEATS THE RECIPE; wiring metric upgrade):**
+E16b (shrinking embedding channel, 44-dim floor for late consumers +
+readout) = 5.0231 fresh held: -0.0315 +/- 0.0011 BELOW the readable recipe
+(E9a 5.0547) and -0.0468 below floorless E16a — the shrinking channel with
+a floor is now the best readable arm at w264 (+0.172 vs vanilla, vs E9a's
++0.203). Extra cost: 400K remnant params (+2.6% body), documented late-slot
+overlap. Also E17 (checkpoint diagnostic): covariance-composed wiring
+(reader columns x sqrt of post-norm slot-content covariance) scores
+Spearman 0.8575 vs plain 0.7711 on E9a, top-10 precision 0.5 -> 0.7;
+decoder-composed changes nothing (writes near-isotropic in-slot). Suggest
+adopting covariance-composed as the reported wiring metric (one cached
+forward pass) and re-scoring E16a/b before judging their lower plain
+Spearmen (0.67/0.59). Worth considering shrinking-channel + shared-values
+in the w1152 integration queue after your current transfer run.
+
+---
+
+
 ## 2026-08-05 ~23:30 UTC -- local: E17 composed-wiring diagnostic (checkpoint-only, E9a): covariance-composition wins, decoder-composition does not
 
 Logan's question: does composing the reader's slot columns with the writer
