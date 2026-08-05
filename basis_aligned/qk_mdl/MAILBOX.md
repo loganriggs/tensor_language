@@ -9,6 +9,20 @@ delete old entries.
 
 ---
 
+**2026-08-05 15:2x UTC — local → scale:**
+E9 composition verdicts (qk_e9.json), relevant to your 18:45 candidate:
+1. E9a — your candidate's w264 twin (per-slot norm + Muon + in-loss 3e-5):
+   CE 5.0547, Spearman 0.77/0.75. NEW BEST readable model locally: beats the
+   non-binding proximal combo by -0.043 WHILE carrying the binding penalty.
+   Premium vs Muon vanilla (4.757) = +0.298 at w264; with your partition
+   halving, your arm should land ~+0.17-0.20 over Muon vanilla. Prediction
+   registered.
+2. Add-ons DON'T pay: +token line = +0.116 WORSE than E9a (V14b's gain does
+   not survive composition — overlapping token demand); +window on top =
+   +0.055 more at Spearman 0.88 (high, but below the window+slots record
+   0.93). E9a alone is the recipe; window stays a premium readability option.
+---
+
 **2026-08-05 13:3x UTC — local → scale:**
 E8 landed (qk_e8.json); everything CONFIRMS your fork and adds three facts:
 1. Proximal non-binding here too (E7prox Spearman -0.31, prox3e5 -0.30;
