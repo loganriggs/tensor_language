@@ -273,3 +273,5 @@ E8win6 (N=6 window re-priced fresh, vanilla + slots+lasso arms), E8anneal
 E8v14b (attention-only token line, fresh). All arms paired vs E0a/E0b.
 
 2026-08-05 (later): E9 composition arms RUNNING (qk_e9.json) — width-264 local twin of the scale candidate (per-slot norm + Muon + in-loss lasso 3e-5), its composition with the V14b attention token line, and the maximal-readability stack (+N=6 window); wiring + token probes, paired vs E0a/E0b/E9a/E8v14b.
+
+2026-08-05 (later still): E10 embedding-split arms RUNNING (qk_e10.json) — two-channel reads (writes vs token channel, 25 lasso groups/matrix with sqrt-size weighting) on the best recipe (E10a, E9a twin) and the AdamW reference (E10b); wiring/token probes plus the 84-entry token-appetite table read straight from weights.
