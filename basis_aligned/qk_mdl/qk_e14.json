@@ -1,0 +1,1014 @@
+{
+  "census_e9a": {
+    "modules": [
+      {
+        "module": "attn0",
+        "proj_slot_singular_values": [
+          10.787,
+          9.9556,
+          9.6235,
+          9.56,
+          9.2108,
+          8.7118,
+          8.3165,
+          7.8265,
+          7.5728,
+          6.5716,
+          5.3989
+        ],
+        "write_cov_effective_rank": 6.315,
+        "utilization": 0.574,
+        "flag": "moderate",
+        "mean_write_norm": 90.1987
+      },
+      {
+        "module": "mlp0",
+        "proj_slot_singular_values": [
+          6.5534,
+          6.1989,
+          6.1505,
+          6.033,
+          5.9123,
+          5.663,
+          5.5143,
+          5.5084,
+          5.4076,
+          5.2216,
+          4.9671
+        ],
+        "write_cov_effective_rank": 8.316,
+        "utilization": 0.756,
+        "flag": "moderate",
+        "mean_write_norm": 122.6933
+      },
+      {
+        "module": "attn1",
+        "proj_slot_singular_values": [
+          6.69,
+          6.2583,
+          6.1585,
+          6.0116,
+          5.8093,
+          5.7392,
+          5.5706,
+          5.5321,
+          5.3097,
+          5.2183,
+          3.3089
+        ],
+        "write_cov_effective_rank": 4.962,
+        "utilization": 0.451,
+        "flag": "moderate",
+        "mean_write_norm": 30.322
+      },
+      {
+        "module": "mlp1",
+        "proj_slot_singular_values": [
+          9.0177,
+          7.3179,
+          7.199,
+          6.9791,
+          6.7455,
+          6.6949,
+          6.5828,
+          6.49,
+          6.3834,
+          6.1988,
+          4.5965
+        ],
+        "write_cov_effective_rank": 2.816,
+        "utilization": 0.256,
+        "flag": "slack",
+        "mean_write_norm": 202.0033
+      },
+      {
+        "module": "attn2",
+        "proj_slot_singular_values": [
+          7.8073,
+          7.7742,
+          7.6367,
+          7.2984,
+          7.1053,
+          6.7949,
+          6.6992,
+          6.5408,
+          6.2604,
+          5.4999,
+          4.7809
+        ],
+        "write_cov_effective_rank": 1.899,
+        "utilization": 0.173,
+        "flag": "slack",
+        "mean_write_norm": 72.722
+      },
+      {
+        "module": "mlp2",
+        "proj_slot_singular_values": [
+          6.9895,
+          6.8688,
+          6.7623,
+          6.6268,
+          6.479,
+          6.3068,
+          6.1511,
+          6.061,
+          5.5706,
+          5.5029,
+          5.4187
+        ],
+        "write_cov_effective_rank": 4.767,
+        "utilization": 0.433,
+        "flag": "moderate",
+        "mean_write_norm": 126.05
+      },
+      {
+        "module": "attn3",
+        "proj_slot_singular_values": [
+          14.9614,
+          14.6942,
+          14.4605,
+          14.0792,
+          13.9018,
+          13.8159,
+          13.2928,
+          13.1393,
+          12.1965,
+          11.6891,
+          7.5532
+        ],
+        "write_cov_effective_rank": 9.699,
+        "utilization": 0.882,
+        "flag": "saturated",
+        "mean_write_norm": 119.5022
+      },
+      {
+        "module": "mlp3",
+        "proj_slot_singular_values": [
+          7.6635,
+          7.3059,
+          7.1316,
+          7.0113,
+          6.9261,
+          6.762,
+          6.6677,
+          6.5557,
+          6.277,
+          6.1652,
+          4.8031
+        ],
+        "write_cov_effective_rank": 7.273,
+        "utilization": 0.661,
+        "flag": "moderate",
+        "mean_write_norm": 146.5919
+      },
+      {
+        "module": "attn4",
+        "proj_slot_singular_values": [
+          16.1661,
+          15.7286,
+          15.2118,
+          15.1492,
+          14.8416,
+          14.7134,
+          13.8036,
+          13.6032,
+          13.111,
+          11.4474,
+          11.0709
+        ],
+        "write_cov_effective_rank": 9.257,
+        "utilization": 0.842,
+        "flag": "saturated",
+        "mean_write_norm": 146.5558
+      },
+      {
+        "module": "mlp4",
+        "proj_slot_singular_values": [
+          8.2153,
+          7.475,
+          7.3435,
+          7.0058,
+          6.9571,
+          6.8429,
+          6.7007,
+          6.5418,
+          6.3891,
+          6.1804,
+          5.8478
+        ],
+        "write_cov_effective_rank": 7.719,
+        "utilization": 0.702,
+        "flag": "moderate",
+        "mean_write_norm": 150.2059
+      },
+      {
+        "module": "attn5",
+        "proj_slot_singular_values": [
+          15.0457,
+          15.0091,
+          14.7365,
+          14.3797,
+          14.1148,
+          13.4418,
+          13.188,
+          12.953,
+          12.688,
+          11.8897,
+          9.6632
+        ],
+        "write_cov_effective_rank": 7.352,
+        "utilization": 0.668,
+        "flag": "moderate",
+        "mean_write_norm": 118.396
+      },
+      {
+        "module": "mlp5",
+        "proj_slot_singular_values": [
+          7.2741,
+          7.0005,
+          6.9361,
+          6.7664,
+          6.6385,
+          6.508,
+          6.4669,
+          6.3516,
+          6.1234,
+          6.095,
+          5.3084
+        ],
+        "write_cov_effective_rank": 10.363,
+        "utilization": 0.942,
+        "flag": "saturated",
+        "mean_write_norm": 120.57
+      },
+      {
+        "module": "attn6",
+        "proj_slot_singular_values": [
+          12.5999,
+          11.7513,
+          11.2656,
+          10.8009,
+          10.6857,
+          10.5197,
+          10.1745,
+          9.8435,
+          9.4917,
+          9.0393,
+          8.0658
+        ],
+        "write_cov_effective_rank": 9.384,
+        "utilization": 0.853,
+        "flag": "saturated",
+        "mean_write_norm": 75.2931
+      },
+      {
+        "module": "mlp6",
+        "proj_slot_singular_values": [
+          7.2111,
+          7.1225,
+          6.9312,
+          6.842,
+          6.7591,
+          6.6509,
+          6.58,
+          6.4179,
+          6.3502,
+          6.1784,
+          5.6778
+        ],
+        "write_cov_effective_rank": 10.324,
+        "utilization": 0.939,
+        "flag": "saturated",
+        "mean_write_norm": 125.1317
+      },
+      {
+        "module": "attn7",
+        "proj_slot_singular_values": [
+          18.561,
+          17.5285,
+          17.2812,
+          17.0207,
+          16.8123,
+          16.5067,
+          16.2905,
+          15.8973,
+          15.5735,
+          14.9198,
+          13.1007
+        ],
+        "write_cov_effective_rank": 9.577,
+        "utilization": 0.871,
+        "flag": "saturated",
+        "mean_write_norm": 163.3337
+      },
+      {
+        "module": "mlp7",
+        "proj_slot_singular_values": [
+          8.1315,
+          7.7307,
+          7.5904,
+          7.4927,
+          7.2165,
+          7.0647,
+          7.0143,
+          6.8328,
+          6.7653,
+          6.5449,
+          6.453
+        ],
+        "write_cov_effective_rank": 10.05,
+        "utilization": 0.914,
+        "flag": "saturated",
+        "mean_write_norm": 134.2964
+      },
+      {
+        "module": "attn8",
+        "proj_slot_singular_values": [
+          10.068,
+          9.6314,
+          9.0312,
+          8.7909,
+          8.5846,
+          8.2169,
+          7.5059,
+          7.2934,
+          7.1458,
+          6.8906,
+          5.8037
+        ],
+        "write_cov_effective_rank": 8.46,
+        "utilization": 0.769,
+        "flag": "moderate",
+        "mean_write_norm": 72.0324
+      },
+      {
+        "module": "mlp8",
+        "proj_slot_singular_values": [
+          7.658,
+          7.4184,
+          7.334,
+          7.1552,
+          6.9086,
+          6.7788,
+          6.6006,
+          6.563,
+          6.3178,
+          6.0924,
+          4.5168
+        ],
+        "write_cov_effective_rank": 5.558,
+        "utilization": 0.505,
+        "flag": "moderate",
+        "mean_write_norm": 205.3312
+      },
+      {
+        "module": "attn9",
+        "proj_slot_singular_values": [
+          16.4343,
+          15.8651,
+          15.4245,
+          14.8309,
+          14.7265,
+          14.2289,
+          13.8158,
+          13.4862,
+          13.0271,
+          9.7477,
+          8.2062
+        ],
+        "write_cov_effective_rank": 6.033,
+        "utilization": 0.548,
+        "flag": "moderate",
+        "mean_write_norm": 152.4681
+      },
+      {
+        "module": "mlp9",
+        "proj_slot_singular_values": [
+          8.0807,
+          7.7104,
+          7.5718,
+          7.3032,
+          7.1834,
+          7.0859,
+          6.8667,
+          6.6334,
+          6.5804,
+          6.2973,
+          5.3325
+        ],
+        "write_cov_effective_rank": 7.655,
+        "utilization": 0.696,
+        "flag": "moderate",
+        "mean_write_norm": 164.8616
+      },
+      {
+        "module": "attn10",
+        "proj_slot_singular_values": [
+          15.642,
+          15.467,
+          15.3357,
+          14.9687,
+          14.8783,
+          14.0264,
+          13.7891,
+          13.5589,
+          12.1772,
+          10.5517,
+          7.6514
+        ],
+        "write_cov_effective_rank": 4.325,
+        "utilization": 0.393,
+        "flag": "slack",
+        "mean_write_norm": 177.7708
+      },
+      {
+        "module": "mlp10",
+        "proj_slot_singular_values": [
+          8.4257,
+          8.2501,
+          7.7628,
+          7.6035,
+          7.5381,
+          7.3983,
+          7.2944,
+          7.224,
+          6.8082,
+          6.6873,
+          6.1781
+        ],
+        "write_cov_effective_rank": 9.53,
+        "utilization": 0.866,
+        "flag": "saturated",
+        "mean_write_norm": 144.703
+      },
+      {
+        "module": "attn11",
+        "proj_slot_singular_values": [
+          14.9844,
+          14.6881,
+          14.2,
+          14.0041,
+          13.8242,
+          13.3609,
+          12.912,
+          12.689,
+          12.3117,
+          11.8061,
+          8.4948
+        ],
+        "write_cov_effective_rank": 9.724,
+        "utilization": 0.884,
+        "flag": "saturated",
+        "mean_write_norm": 116.1223
+      },
+      {
+        "module": "mlp11",
+        "proj_slot_singular_values": [
+          9.1633,
+          8.6591,
+          8.4283,
+          8.0728,
+          7.9145,
+          7.7195,
+          7.442,
+          7.3774,
+          7.181,
+          6.6993,
+          6.2232
+        ],
+        "write_cov_effective_rank": 9.202,
+        "utilization": 0.837,
+        "flag": "saturated",
+        "mean_write_norm": 159.2003
+      }
+    ],
+    "n_saturated": 10,
+    "n_moderate": 11,
+    "n_slack": 3,
+    "verdict": "SATURATION (many modules at capacity)",
+    "slot_dim": 11,
+    "n_held_seqs": 64
+  },
+  "census_e5slots": {
+    "modules": [
+      {
+        "module": "attn0",
+        "proj_slot_singular_values": [
+          1.4102,
+          1.2077,
+          1.1572,
+          1.1105,
+          1.087,
+          0.9857,
+          0.9592,
+          0.9473,
+          0.8878,
+          0.8406,
+          0.7499
+        ],
+        "write_cov_effective_rank": 6.43,
+        "utilization": 0.585,
+        "flag": "moderate",
+        "mean_write_norm": 5.1767
+      },
+      {
+        "module": "mlp0",
+        "proj_slot_singular_values": [
+          0.9783,
+          0.9516,
+          0.9221,
+          0.8968,
+          0.8513,
+          0.8423,
+          0.8336,
+          0.7982,
+          0.7849,
+          0.7417,
+          0.7185
+        ],
+        "write_cov_effective_rank": 6.083,
+        "utilization": 0.553,
+        "flag": "moderate",
+        "mean_write_norm": 13.7686
+      },
+      {
+        "module": "attn1",
+        "proj_slot_singular_values": [
+          1.939,
+          1.8535,
+          1.74,
+          1.7298,
+          1.6865,
+          1.6431,
+          1.5943,
+          1.5257,
+          1.4991,
+          1.3779,
+          1.3548
+        ],
+        "write_cov_effective_rank": 9.97,
+        "utilization": 0.906,
+        "flag": "saturated",
+        "mean_write_norm": 6.6977
+      },
+      {
+        "module": "mlp1",
+        "proj_slot_singular_values": [
+          1.4252,
+          1.2272,
+          1.0679,
+          1.0223,
+          0.9998,
+          0.967,
+          0.9513,
+          0.933,
+          0.914,
+          0.8904,
+          0.8538
+        ],
+        "write_cov_effective_rank": 3.301,
+        "utilization": 0.3,
+        "flag": "slack",
+        "mean_write_norm": 16.9806
+      },
+      {
+        "module": "attn2",
+        "proj_slot_singular_values": [
+          1.9948,
+          1.8898,
+          1.8092,
+          1.7758,
+          1.743,
+          1.7287,
+          1.7068,
+          1.605,
+          1.5537,
+          1.5148,
+          1.5113
+        ],
+        "write_cov_effective_rank": 10.155,
+        "utilization": 0.923,
+        "flag": "saturated",
+        "mean_write_norm": 8.0084
+      },
+      {
+        "module": "mlp2",
+        "proj_slot_singular_values": [
+          1.2783,
+          1.2228,
+          1.1719,
+          1.1419,
+          1.0982,
+          1.0776,
+          1.0684,
+          1.0461,
+          1.0324,
+          1.001,
+          0.974
+        ],
+        "write_cov_effective_rank": 8.291,
+        "utilization": 0.754,
+        "flag": "moderate",
+        "mean_write_norm": 10.9425
+      },
+      {
+        "module": "attn3",
+        "proj_slot_singular_values": [
+          1.57,
+          1.4392,
+          1.4117,
+          1.3648,
+          1.3361,
+          1.301,
+          1.2359,
+          1.2038,
+          1.086,
+          1.0452,
+          0.9523
+        ],
+        "write_cov_effective_rank": 4.487,
+        "utilization": 0.408,
+        "flag": "moderate",
+        "mean_write_norm": 11.5011
+      },
+      {
+        "module": "mlp3",
+        "proj_slot_singular_values": [
+          1.1761,
+          1.1725,
+          1.1636,
+          1.15,
+          1.1302,
+          1.1191,
+          1.0841,
+          1.0811,
+          1.0732,
+          1.0366,
+          1.0227
+        ],
+        "write_cov_effective_rank": 10.234,
+        "utilization": 0.93,
+        "flag": "saturated",
+        "mean_write_norm": 9.9397
+      },
+      {
+        "module": "attn4",
+        "proj_slot_singular_values": [
+          2.3171,
+          2.2228,
+          2.2089,
+          2.1377,
+          2.0942,
+          2.0444,
+          2.0311,
+          1.9731,
+          1.9204,
+          1.776,
+          1.627
+        ],
+        "write_cov_effective_rank": 9.916,
+        "utilization": 0.901,
+        "flag": "saturated",
+        "mean_write_norm": 8.8415
+      },
+      {
+        "module": "mlp4",
+        "proj_slot_singular_values": [
+          1.6276,
+          1.2108,
+          1.1904,
+          1.1843,
+          1.1711,
+          1.1595,
+          1.1339,
+          1.1025,
+          1.0928,
+          1.0751,
+          1.061
+        ],
+        "write_cov_effective_rank": 2.547,
+        "utilization": 0.232,
+        "flag": "slack",
+        "mean_write_norm": 18.0992
+      },
+      {
+        "module": "attn5",
+        "proj_slot_singular_values": [
+          1.6989,
+          1.6262,
+          1.5659,
+          1.5497,
+          1.4828,
+          1.4481,
+          1.4212,
+          1.3317,
+          1.3016,
+          1.1659,
+          1.1092
+        ],
+        "write_cov_effective_rank": 3.879,
+        "utilization": 0.353,
+        "flag": "slack",
+        "mean_write_norm": 13.0398
+      },
+      {
+        "module": "mlp5",
+        "proj_slot_singular_values": [
+          1.396,
+          1.3015,
+          1.23,
+          1.2171,
+          1.2098,
+          1.1914,
+          1.1863,
+          1.1726,
+          1.1589,
+          1.1365,
+          1.0834
+        ],
+        "write_cov_effective_rank": 10.092,
+        "utilization": 0.917,
+        "flag": "saturated",
+        "mean_write_norm": 11.7947
+      },
+      {
+        "module": "attn6",
+        "proj_slot_singular_values": [
+          1.7893,
+          1.7149,
+          1.704,
+          1.6489,
+          1.5775,
+          1.539,
+          1.4481,
+          1.4333,
+          1.3712,
+          1.3258,
+          1.2329
+        ],
+        "write_cov_effective_rank": 7.744,
+        "utilization": 0.704,
+        "flag": "moderate",
+        "mean_write_norm": 11.5982
+      },
+      {
+        "module": "mlp6",
+        "proj_slot_singular_values": [
+          1.6106,
+          1.3917,
+          1.3003,
+          1.2913,
+          1.2673,
+          1.2259,
+          1.219,
+          1.2113,
+          1.1758,
+          1.1709,
+          1.0951
+        ],
+        "write_cov_effective_rank": 5.535,
+        "utilization": 0.503,
+        "flag": "moderate",
+        "mean_write_norm": 16.43
+      },
+      {
+        "module": "attn7",
+        "proj_slot_singular_values": [
+          1.63,
+          1.607,
+          1.5861,
+          1.5264,
+          1.4834,
+          1.4186,
+          1.3898,
+          1.3551,
+          1.2845,
+          1.2494,
+          1.1929
+        ],
+        "write_cov_effective_rank": 10.293,
+        "utilization": 0.936,
+        "flag": "saturated",
+        "mean_write_norm": 9.3967
+      },
+      {
+        "module": "mlp7",
+        "proj_slot_singular_values": [
+          1.5188,
+          1.3849,
+          1.3653,
+          1.3292,
+          1.3044,
+          1.2923,
+          1.2439,
+          1.2256,
+          1.2192,
+          1.1884,
+          1.1851
+        ],
+        "write_cov_effective_rank": 6.022,
+        "utilization": 0.547,
+        "flag": "moderate",
+        "mean_write_norm": 17.2222
+      },
+      {
+        "module": "attn8",
+        "proj_slot_singular_values": [
+          1.818,
+          1.7367,
+          1.6871,
+          1.5871,
+          1.5717,
+          1.5491,
+          1.5077,
+          1.456,
+          1.2999,
+          1.1999,
+          1.1372
+        ],
+        "write_cov_effective_rank": 10.049,
+        "utilization": 0.914,
+        "flag": "saturated",
+        "mean_write_norm": 10.3307
+      },
+      {
+        "module": "mlp8",
+        "proj_slot_singular_values": [
+          1.435,
+          1.4226,
+          1.4095,
+          1.3872,
+          1.3536,
+          1.3275,
+          1.2907,
+          1.2733,
+          1.2318,
+          1.2259,
+          1.2045
+        ],
+        "write_cov_effective_rank": 9.263,
+        "utilization": 0.842,
+        "flag": "saturated",
+        "mean_write_norm": 17.0737
+      },
+      {
+        "module": "attn9",
+        "proj_slot_singular_values": [
+          2.0919,
+          2.061,
+          1.9578,
+          1.9207,
+          1.8247,
+          1.7612,
+          1.6989,
+          1.651,
+          1.5138,
+          1.4421,
+          1.4129
+        ],
+        "write_cov_effective_rank": 8.196,
+        "utilization": 0.745,
+        "flag": "moderate",
+        "mean_write_norm": 16.7459
+      },
+      {
+        "module": "mlp9",
+        "proj_slot_singular_values": [
+          1.5608,
+          1.3943,
+          1.3873,
+          1.3476,
+          1.3407,
+          1.3278,
+          1.2913,
+          1.2867,
+          1.2704,
+          1.2425,
+          1.22
+        ],
+        "write_cov_effective_rank": 8.463,
+        "utilization": 0.769,
+        "flag": "moderate",
+        "mean_write_norm": 16.6085
+      },
+      {
+        "module": "attn10",
+        "proj_slot_singular_values": [
+          2.0211,
+          1.9742,
+          1.8692,
+          1.8597,
+          1.8239,
+          1.77,
+          1.7318,
+          1.6398,
+          1.5522,
+          1.4965,
+          1.2674
+        ],
+        "write_cov_effective_rank": 9.198,
+        "utilization": 0.836,
+        "flag": "saturated",
+        "mean_write_norm": 14.2176
+      },
+      {
+        "module": "mlp10",
+        "proj_slot_singular_values": [
+          1.7158,
+          1.6243,
+          1.4953,
+          1.4175,
+          1.3951,
+          1.3901,
+          1.366,
+          1.3301,
+          1.3216,
+          1.2824,
+          1.1749
+        ],
+        "write_cov_effective_rank": 4.24,
+        "utilization": 0.385,
+        "flag": "slack",
+        "mean_write_norm": 24.2301
+      },
+      {
+        "module": "attn11",
+        "proj_slot_singular_values": [
+          1.7541,
+          1.7189,
+          1.6446,
+          1.6306,
+          1.5657,
+          1.4985,
+          1.4822,
+          1.4542,
+          1.394,
+          1.3465,
+          1.2217
+        ],
+        "write_cov_effective_rank": 8.397,
+        "utilization": 0.763,
+        "flag": "moderate",
+        "mean_write_norm": 17.8237
+      },
+      {
+        "module": "mlp11",
+        "proj_slot_singular_values": [
+          1.6504,
+          1.6114,
+          1.5765,
+          1.541,
+          1.523,
+          1.4755,
+          1.4464,
+          1.3976,
+          1.3714,
+          1.3355,
+          1.2159
+        ],
+        "write_cov_effective_rank": 5.759,
+        "utilization": 0.524,
+        "flag": "moderate",
+        "mean_write_norm": 22.9915
+      }
+    ],
+    "n_saturated": 9,
+    "n_moderate": 11,
+    "n_slack": 4,
+    "verdict": "SATURATION (many modules at capacity)",
+    "slot_dim": 11,
+    "n_held_seqs": 64
+  },
+  "E14b_allocation": {
+    "sizes": [
+      9,
+      12,
+      7,
+      4,
+      4,
+      7,
+      14,
+      11,
+      14,
+      11,
+      11,
+      15,
+      14,
+      15,
+      14,
+      15,
+      12,
+      8,
+      9,
+      11,
+      6,
+      14,
+      14,
+      13
+    ],
+    "min_slot": 4,
+    "total": 264,
+    "rule": "proportional to write-covariance effective rank on the readable recipe, rounded, min 4, adjusted to sum 264",
+    "prediction": "if rigidity is real, variable allocation claws back CE vs E9a at zero parameter cost"
+  }
+}
