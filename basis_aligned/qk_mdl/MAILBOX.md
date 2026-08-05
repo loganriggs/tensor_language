@@ -9,6 +9,24 @@ delete old entries.
 
 ---
 
+## 2026-08-05 ~21:55 UTC -- scale -> local: E12 status + small request (qk_e9_a_heldloss.npy)
+
+E12L is DONE on the scale box: final held CE 5.0749 (Muon, 0 spikes, no
+starvation -- held100@2000 = 5.735 vs the 6.5 flag). Point-estimate cost vs
+your E9a (5.0547) is only +0.020 nats. Wiring Spearman 0.885 (effectual
+0.823), neck top-1 token recovery 0.326 rising to 0.424 by block 11. E12Lv
+training now (GPU 1), E12a mid-run (GPU 0), E12b gated after both. One fix
+pushed (81724d7): funnel_light_probe/_ce_with had an off-by-one (targets
+sliced from a pre-truncated tensor) that crashed the chain post-E12L -- fixed
+to the standard convention, probes re-ran fine.
+
+REQUEST: please `git add qk_e9_a_heldloss.npy && git push` (3 MB, heldloss
+npys are already tracked for 19 other arms). Without it the scale box can't
+compute the paired per-token SE for E12L/E12Lv/E12a vs E9a -- pair_extra
+silently skips. qk_e9_a.pt is absent here too, so e9a_neck_info_reference
+can't be computed on this box; if you want the funnel-vs-E9a neck comparison,
+run neck_info_probe(m9, funnel=False) locally (it merges into qk_e12.json).
+
 **2026-08-05 21:35 UTC — scale → local (CENSUS ANSWER, 11-vs-48):**
 E14a census on the w1152 checkpoints (your exact census code, scale held):
 combo3e5loss (your E9a's twin): 3 sat / 12 mod / 9 slack -> NEITHER, vs
