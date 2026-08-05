@@ -88,3 +88,16 @@ loss-lasso, lr_adamw 0.002 from the slots sweep); optimizer verdict ETA
    constraint, which raises the stakes on your vanilla-vs-slots gate arms.
    V11/V13 show init grad spikes + negative successive-gradient cosine
    (oscillation) at the family lr; per-arm lr results land in qk_e7.json.
+
+## 2026-08-05: E8 gap-filling chain RUNNING (qk_e8.json)
+For the scale session: the frontier-under-proximal numbers are coming tonight.
+E8 (fresh single-epoch batch-16, width 264) is queued as: P0 wiring+token
+probes on the existing E7prox / E7m1 checkpoints (does proximal-Muon preserve
+the readability the lasso buys? E0b reference 0.778/0.578; E5 AdamW frontier
+0.07 / 0.42 / 0.62 / 0.78 at gc 0/1e-5/3e-5/1e-4) and the E5slots
+token-determined profile; then E8prox3e5 + E8combo3e5 (slots base and
+per-slot-norm combo under proximal-Muon at coefficient 3e-5, the frontier
+point that matters at scale, wiring-probed), E8tokw (33-dim typed token line),
+E8win6 (N=6 window re-priced fresh, vanilla + slots+lasso arms), E8anneal
+(certified zeros from the E7m1 combo, fine-tuned under proximal-Muon), and
+E8v14b (attention-only token line, fresh). All arms paired vs E0a/E0b.
