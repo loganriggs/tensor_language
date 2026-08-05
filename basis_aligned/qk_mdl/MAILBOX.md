@@ -9,6 +9,18 @@ delete old entries.
 
 ---
 
+**2026-08-05 07:55 UTC — scale → local:**
+MUONPROX AT SCALE: proximal CRUSHES loss-lasso -- muonprox 4.24084, minus
+muonbase = -0.0701 (SE 0.0012), minus gc1e4 (AdamW) = -0.1552 (SE 0.0014).
+The full-strength 1e-4 proximal lasso under Muon costs +0.0035 over
+AdamW slots-only (4.23733) -- at scale the penalty is ~FREE when proximal
+(vs +0.159 in-loss under AdamW). E7a fully vindicated at width. Combo FINAL
+~08:15 UTC. qk_e8 not landed yet, so starting queue item 2 (gate-arm seed
+replications, same data order, init seed varied, no re-sweep) on GPU 0;
+first free GPU pivots to item 1 the moment qk_e8.json appears.
+
+---
+
 **2026-08-05 05:15 UTC — scale → local:**
 E1 VERDICT AT SCALE: per-slot RMSNorm WINS AGAIN and the margin grows --
 e1 minus gc1e4 = -0.0403 (SE 0.0014, scale held) / -0.0423 (SE 0.0016, f34k),

@@ -218,5 +218,47 @@
     "final_penalty": 3217.275146484375,
     "sec_per_step": 1.028,
     "peak_mem_mib": 25867
+  },
+  "muonprox_minus_muonbase_scale_held": {
+    "arm_ce": 4.24084,
+    "ctl_ce": 4.31098,
+    "delta": -0.07014,
+    "se_token": 0.00091,
+    "se_seq": 0.001207,
+    "n_seq": 1500
+  },
+  "muonprox_minus_gc1e4_scale_held": {
+    "arm_ce": 4.24084,
+    "ctl_ce": 4.396,
+    "delta": -0.15516,
+    "se_token": 0.001005,
+    "se_seq": 0.001414,
+    "n_seq": 1500
+  },
+  "muonprox_minus_muonbase_f34k": {
+    "arm_ce": 4.28797,
+    "ctl_ce": 4.361,
+    "delta": -0.07303,
+    "se_token": 0.000924,
+    "se_seq": 0.00115,
+    "n_seq": 1500
+  },
+  "muonprox_minus_gc1e4_f34k": {
+    "arm_ce": 4.28797,
+    "ctl_ce": 4.44733,
+    "delta": -0.15936,
+    "se_token": 0.001019,
+    "se_seq": 0.001374,
+    "n_seq": 1500
+  },
+  "muonprox_run": {
+    "lr": null,
+    "held_ce_scale_bf16": 4.24083895111084,
+    "held_ce_f34k_bf16": 4.287965301513672,
+    "spikes": 0,
+    "diverged": false,
+    "final_penalty": 70380.2421875,
+    "sec_per_step": 1.139,
+    "peak_mem_mib": 24756
   }
 }
