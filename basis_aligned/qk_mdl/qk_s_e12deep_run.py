@@ -43,7 +43,16 @@ E.oldheld_record = oldheld_flagged
 M = importlib.import_module('qk_e12_funnel_run')
 
 ARM = sys.argv[1] if __name__ == '__main__' and len(sys.argv) > 1 else '156'
-if ARM == 'w384':
+if ARM == 'w384n156':
+    # grid completion: does the wider wide block also rescue the deeper
+    # 156 narrowing? (w384n208 recovered -0.0345 of E12b's cost)
+    DW, NHW, HDW = 384, 6, 64
+    DN, NHN = 156, 3
+    NAME, STEM = 'E12bw384n156', 'qk_e12_bw384n156'
+    DESIGN = ('wide-width x narrowing grid: wide 384 (6x64) -> narrow 156 = '
+              '26 x 6 (heads 3x52), shared values -- vs E12b156 (264-wide) '
+              'and E12bw384 (208-narrow)')
+elif ARM == 'w384':
     # wide-width axis: E12L's 384-wide detokenization + the 208 narrow with
     # shared values -- does a wider wide block absorb the narrowing cost?
     DW, NHW, HDW = 384, 6, 64
