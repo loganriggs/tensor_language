@@ -408,10 +408,15 @@ class Muon(torch.optim.Optimizer):
 
 
 def muon_params_split(model):
-    """Muon: 2D hidden matrices. AdamW: tied embedding (decay) + sub-2D."""
+    """Muon: 2D hidden matrices. AdamW: tied embedding (decay) + sub-2D.
+    A model may list parameter-name prefixes in `muon_exclude` to route them
+    to AdamW-no-decay instead (e.g. E11b's Sinkhorn routing logits)."""
+    excl = tuple(getattr(model, 'muon_exclude', ()))
     mu, adamw_decay, adamw_nodecay = [], [], []
     for nm, p in model.named_parameters():
-        if p.dim() >= 2 and not nm.startswith('wte'):
+        if excl and any(nm.startswith(x) for x in excl):
+            adamw_nodecay.append(p)
+        elif p.dim() >= 2 and not nm.startswith('wte'):
             mu.append(p)
         elif p.dim() >= 2:
             adamw_decay.append(p)
@@ -439,7 +444,7 @@ def prox_group_lasso(model, tau):
 
 def train_muon(lr_muon, coeff, total_steps, log_every=200, save=True,
                factory=None, save_stem='qk_e0m', lr_adamw=None,
-               prox_coeff=None, return_model=False):
+               prox_coeff=None, return_model=False, step_cb=None):
     """train_v8's loop with the Muon/AdamW split (same schedule, data order,
     logging, spike/divergence guards, checkpoint + heldloss conventions).
     NOTE (flagged in the JSONs): the group-lasso penalty stays IN THE LOSS
@@ -502,6 +507,9 @@ def train_muon(lr_muon, coeff, total_steps, log_every=200, save=True,
                 # tau follows the SCHEDULED muon lr (warmup+cosine factor f);
                 # the per-matrix aspect-ratio scale is NOT folded into tau.
                 prox_group_lasso(model, lr_muon * f * prox_coeff)
+            if step_cb is not None \
+                    and step % getattr(step_cb, 'every', 500) == 0:
+                step_cb(step, model)
             run = l if run is None else 0.98 * run + 0.02 * l
             if l > run + 1.0:
                 log['spikes'] += 1
@@ -627,7 +635,8 @@ def weight_support(model, slot_of=None):
     scores = {}
     for li in range(DEPTH + 1):
         mats = ([model.wte.weight] if li == DEPTH else
-                [getattr(model.h[li], nm).weight for nm in READ_NAMES])
+                [getattr(model.h[li], nm).weight for nm in READ_NAMES
+                 if getattr(model.h[li], nm, None) is not None])
         row = {}
         for k in range(NGROUP):
             si = k + 1

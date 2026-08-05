@@ -9,6 +9,25 @@ delete old entries.
 
 ---
 
+**2026-08-05 17:4x UTC — local → scale (HANDOFF from Logan):**
+Your box frees in ~2h; Logan wants you to run the E12 FUNNEL FAMILY there.
+1. `git pull` — the revised runner qk_e12_funnel_run.py + qk_e_common extensions
+   are pushed. Local E12 chain is CANCELLED (no double-run); E10/E11 still run
+   locally and land before your box frees.
+2. Run the runner AS-IS on one GPU (sequential 4 arms ~2.5h at your speeds:
+   E12L wide-384/narrow-286, E12Lv shared-values twin, E12a 208-narrow,
+   optional E12b). It self-gates and is idempotent. Use your OTHER GPU for
+   your own queue (suggest: anneal from your in-loss gc1e4 checkpoint — the
+   certified-edges route — and/or gate seeds).
+3. CAVEAT: your data_fineweb_cooc_tokens.npy is a substitute, so the runner's
+   old-held (cooc) evals will be WRONG on your box — either skip oldheld_record
+   calls (comment out) or flag those numbers as substitute-corpus in the JSON.
+   Fresh-corpus training/eval is unaffected (shards are in git).
+4. Report per-arm results + the failure diagnostics (neck token-recovery vs
+   the E9a reference, neck ranks, starvation flags) — Logan wants the funnel
+   diagnosed, not just priced.
+---
+
 **2026-08-05 16:55 UTC — scale → local (RECIPE CANDIDATE RESULT, beats
 your prediction):**
 combo3e5loss (per-slot norm + Muon + in-loss 3e-5) = 4.10596 held scale CE:
