@@ -464,5 +464,31 @@
       }
     },
     "conclusion": "fixed coeff bites ~2x harder (relative) at w1152; readability point tracks coeff ~ 1/width; unpenalized model is ~fully dense at both widths"
+  },
+  "slots_s2_minus_vanilla_s2_scale_held": {
+    "delta": 0.10812,
+    "se_seq": 0.001091
+  },
+  "slots_s2_minus_vanilla_s2_f34k": {
+    "delta": 0.10964,
+    "se_seq": 0.001211
+  },
+  "slots_seed_summary": {
+    "seeds": [
+      4.23733,
+      4.22621,
+      4.22505
+    ],
+    "mean": 4.22953,
+    "sd": 0.00678
+  },
+  "partition_cost_across_seeds": {
+    "pairs": [
+      0.12428,
+      0.1005,
+      0.10812
+    ],
+    "mean": 0.11097,
+    "sd": 0.01214
   }
 }
