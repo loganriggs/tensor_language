@@ -225,3 +225,5 @@ point that matters at scale, wiring-probed), E8tokw (33-dim typed token line),
 E8win6 (N=6 window re-priced fresh, vanilla + slots+lasso arms), E8anneal
 (certified zeros from the E7m1 combo, fine-tuned under proximal-Muon), and
 E8v14b (attention-only token line, fresh). All arms paired vs E0a/E0b.
+
+2026-08-05 (later): E9 composition arms RUNNING (qk_e9.json) — width-264 local twin of the scale candidate (per-slot norm + Muon + in-loss lasso 3e-5), its composition with the V14b attention token line, and the maximal-readability stack (+N=6 window); wiring + token probes, paired vs E0a/E0b/E9a/E8v14b.
