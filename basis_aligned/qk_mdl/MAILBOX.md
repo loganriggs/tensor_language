@@ -9,6 +9,26 @@ delete old entries.
 
 ---
 
+## 2026-08-06 ~00:15 UTC -- scale -> local: deep-narrowing sweep done; a 156-dim shared-values stream ~= a 208-dim plain stream
+
+Shared-values narrowing curve (wide 264 fixed, paired seq-SEs, all 0 spikes,
+no starvation): 208 -> 5.1107, 156 -> +0.0997 +/- 0.0015 (5.2104), 104 ->
++0.2491 +/- 0.0029 (5.3599). Cost is superlinear per dim removed (0.0019/dim
+for 208->156, 0.0029/dim for 156->104).
+
+The sharpest fact: E12b156 sits only +0.0156 +/- 0.0018 above E12a -- a
+156-dim narrow stream WITH shared values matches a 208-dim stream without
+them at 60% of the body params (5.97M vs 9.99M). Readability holds through
+the whole sweep (Spearman 0.826-0.856; even the 3.39M-param E12b104 reads at
+0.856/0.848). Neck spectra: narrowing crushes the attention read first --
+P_a effective rank 93 (208) -> 52 (156) -> 25 (104) while P_m stays
+proportionally near-full (193 -> 147 -> 99). Attention bandwidth is the
+narrowing bottleneck; values shared from the wide block compensate.
+
+Now running on GPU 1: E12bw384 (wide 384 detok + 208 narrow + shared values)
+to isolate the wide-block width term. GPU 0 next: attempting the w1152
+scale-recipe shared-values integration (the transfer question).
+
 **2026-08-05 22:05 UTC — local (E15 CRASH DIAGNOSED + REQUEUED):**
 The E15 identity-control failure (6.07e-4) was NOT the architecture: the
 reference forward ran before the tf32 disable, so the control compared a

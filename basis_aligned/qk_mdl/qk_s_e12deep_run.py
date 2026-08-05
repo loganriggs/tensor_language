@@ -42,28 +42,40 @@ E.oldheld_record = oldheld_flagged
 
 M = importlib.import_module('qk_e12_funnel_run')
 
-DN = int(sys.argv[1]) if __name__ == '__main__' and len(sys.argv) > 1 else 156
-NHN = {156: 3, 104: 2}[DN]
+ARM = sys.argv[1] if __name__ == '__main__' and len(sys.argv) > 1 else '156'
+if ARM == 'w384':
+    # wide-width axis: E12L's 384-wide detokenization + the 208 narrow with
+    # shared values -- does a wider wide block absorb the narrowing cost?
+    DW, NHW, HDW = 384, 6, 64
+    DN, NHN = 208, 4
+    NAME, STEM = 'E12bw384', 'qk_e12_bw384'
+    DESIGN = ('wide-width axis: wide 384 (6x64, E12L detok) -> narrow 208 = '
+              '26 x 8 (heads 4x52), shared values -- vs E12b (264-wide) '
+              'isolates the wide-block width term in the narrowing cost')
+else:
+    DW, NHW, HDW = 264, 6, 44
+    DN = int(ARM)
+    NHN = {156: 3, 104: 2}[DN]
+    NAME, STEM = f'E12b{DN}', f'qk_e12_b{DN}'
+    DESIGN = (f'deeper shared-values narrowing: wide 264, narrow {DN} = '
+              f'26 x {DN // 26} (heads {NHN}x52) -- where does the '
+              f'recovered narrowing cost come back?')
 SUB = DN // 26
 
 
 def cfg_deep():
-    return dict(Dw=264, NHw=6, HDw=44, Gw=24, Dn=DN, NHn=NHN, HDn=52,
+    return dict(Dw=DW, NHw=NHW, HDw=HDW, Gw=24, Dn=DN, NHn=NHN, HDn=52,
                 Gn=26, sub_n=SUB, control=False)
 
 
 def make_deep():
     torch.manual_seed(Q.SEED)
-    return M.FunnelRoute(f'E12b{DN}', cfg_deep(),
-                         shared_values=True).to(E.DEV)
+    return M.FunnelRoute(NAME, cfg_deep(), shared_values=True).to(E.DEV)
 
 
 if __name__ == '__main__':
-    M.JP = E.jpath(f'qk_e12_deep{DN}.json')
+    M.JP = E.jpath(f'qk_e12_deep{ARM}.json')
     E.setup()
-    M.run_arm(f'qk_e12_b{DN}', f'E12b{DN}', make_deep,
-              f'deeper shared-values narrowing: wide 264, narrow {DN} = '
-              f'26 x {SUB} (heads {NHN}x52) -- where does the recovered '
-              f'narrowing cost come back?',
+    M.run_arm(STEM, NAME, make_deep, DESIGN,
               extra_pairs=(('qk_e12_b', 'e12b'), ('qk_e12_a', 'e12a')))
-    print(f'e12 deep{DN} done', flush=True)
+    print(f'e12 deep{ARM} done', flush=True)
