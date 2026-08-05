@@ -43,12 +43,52 @@ from qk_deeproute_train import DEPTH
 
 TEST = G.TEST
 OUT_DIR = G.OUT_DIR
-COEFF = 1e-4
-STEM = 'qk_s_w1152_muonbase'
-JP = os.path.join(OUT_DIR, f'{STEM}.json')
 MUON_LRS = [0.01, 0.02, 0.04] if not TEST else [0.02]
 WIDEN_CAP_HI, WIDEN_CAP_LO = 0.08, 0.0025
-factory = lambda: C.make_variant('W1152', None)
+
+# ---- round-4 variants (E7 landed: proximal lasso verified; combo = E1
+# per-slot norm + proximal Muon is the recipe candidate). 'base' keeps the
+# original loss-lasso optimizer-gate arm. prox arms put NO lasso in the loss;
+# the penalty is applied as the exact decoupled proximal soft-threshold after
+# each step with tau = lr_muon * schedule_factor * prox_coeff (E7a rule).
+# prox/combo skip the lr sweep: 0.02 was the interior winner both at w264
+# (qk_e0m, and E7 used it) and at w1152 (muonbase sweep) -- recorded in JSON.
+ARM = (sys.argv[1] if len(sys.argv) > 1 else 'base')
+CFG = {'base':  dict(stem='qk_s_w1152_muonbase', coeff=1e-4, prox=None,
+                     sweep=True),
+       'prox':  dict(stem='qk_s_w1152_muonprox', coeff=0.0, prox=1e-4,
+                     sweep=False),
+       'combo': dict(stem='qk_s_w1152_combo', coeff=0.0, prox=1e-4,
+                     sweep=False)}[ARM]
+COEFF = CFG['coeff']
+PROX = CFG['prox']
+STEM = CFG['stem']
+JP = os.path.join(OUT_DIR, f'{STEM}.json')
+
+if ARM == 'combo':
+    import qk_s_e1_run as E1R           # guard already neutered via G
+    factory = E1R.make_e1               # per-slot RMSNorm slots model
+else:
+    factory = lambda: C.make_variant('W1152', None)
+
+READ_NAMES = ('c_q', 'c_k', 'c_q2', 'c_k2', 'c_v', 'Left', 'Right')
+NGROUP = 2 * DEPTH
+
+
+@torch.no_grad()
+def prox_group_lasso(model, tau):
+    """Exact proximal operator of tau * sum_groups ||g||_F on the read-matrix
+    slot column groups (verbatim from qk_e_common; E7's permanent known-answer
+    control verified this implementation tracks lasso-free Muon within 1e-4
+    nats at tau->0 and produces no spurious zeros)."""
+    for blk in model.h:
+        for nm in READ_NAMES:
+            Mw = getattr(blk, nm).weight
+            S = Mw.shape[1] // NGROUP
+            norms = Mw.detach().float().pow(2) \
+                      .view(Mw.shape[0], NGROUP, S).sum((0, 2)).sqrt()
+            scale = (1.0 - tau / norms.clamp_min(1e-12)).clamp_min(0.0)
+            Mw.mul_(scale.repeat_interleave(S).to(Mw.dtype)[None, :])
 
 
 # ---- from-scratch Muon, verbatim from qk_e_common (kept import-light) ----
@@ -133,10 +173,10 @@ def train_muon_run(lr_muon, lr_adamw, total_steps, micro, save_stem=None,
         p = (step - Q.WARMUP) / max(1, total_steps - Q.WARMUP)
         return 0.5 * (1 + math.cos(math.pi * p))
 
-    log = {'arm': 'muonbase', 'lr': lr_muon, 'lr_adamw': lr_adamw,
-           'group_coeff': COEFF, 'steps': total_steps, 'micro_batch': micro,
-           'eff_batch': G.EFF_BATCH, 'train_loss': [], 'held_ce': [],
-           'spikes': 0, 'diverged': False}
+    log = {'arm': f'muon_{ARM}', 'lr': lr_muon, 'lr_adamw': lr_adamw,
+           'group_coeff': COEFF, 'prox_coeff': PROX, 'steps': total_steps,
+           'micro_batch': micro, 'eff_batch': G.EFF_BATCH, 'train_loss': [],
+           'held_ce': [], 'spikes': 0, 'diverged': False}
     order = Q.epoch_order(0)                # identical to every gate arm
     t0, run = time.time(), None
     step_times = []
@@ -160,7 +200,7 @@ def train_muon_run(lr_muon, lr_adamw, total_steps, micro, save_stem=None,
             ce = F.cross_entropy(logits.float().reshape(-1, Q.V),
                                  chunk[:, 1:Q.T + 1].reshape(-1))
             loss = ce * frac
-            if j == 0:
+            if j == 0 and COEFF > 0:
                 loss = loss + COEFF * V8T.group_penalty(model)
             loss.backward()
             ce_step += ce.item() * frac
@@ -172,6 +212,8 @@ def train_muon_run(lr_muon, lr_adamw, total_steps, micro, save_stem=None,
         torch.nn.utils.clip_grad_norm_(model.parameters(), Q.GRAD_CLIP)
         opt_m.step()
         opt_a.step()
+        if PROX is not None:
+            prox_group_lasso(model, lr_muon * f * PROX)
         if 20 <= step < 100:
             torch.cuda.synchronize()
             step_times.append(time.time() - ts)
@@ -280,10 +322,13 @@ def main():
     out['env'] = {'gpu': torch.cuda.get_device_name(0),
                   'torch': torch.__version__, 'cooc_substitute': True}
     out['data'] = spec
-    out['arm'] = {'name': 'muonbase', 'group_coeff': COEFF,
+    out['arm'] = {'name': f'muon_{ARM}', 'group_coeff': COEFF,
+                  'prox_coeff': PROX,
+                  'architecture': ('E1 per-slot RMSNorm slots'
+                                   if ARM == 'combo' else 'slots (W1152)'),
                   'optimizer': 'muon(2D hidden) + adamw(wte, sub-2D)',
                   'lr_adamw': lr_adamw, 'lr_adamw_source': lr_src,
-                  'penalty_in_loss': True,
+                  'penalty_in_loss': COEFF > 0,
                   'write_init_std': R.WRITE_INIT_STD}
     G.savej(JP, out)
     micro = preflight(out, lr_adamw)
@@ -291,6 +336,12 @@ def main():
           f"lr_adamw {lr_adamw} from {lr_src}", flush=True)
 
     key = 'lrsweep_muon'
+    if not CFG['sweep'] and key not in out:
+        out[key] = {'chosen': 0.02, 'ranking': [0.02, 0.01],
+                    'note': 'no re-sweep: 0.02 interior winner at w264 '
+                            '(qk_e0m, E7) and at w1152 (muonbase sweep); '
+                            '0.01 as divergence fallback', 'lr_adamw': lr_adamw}
+        G.savej(JP, out)
     if key not in out:
         grid = sorted(MUON_LRS)
         res, widened = {}, 0

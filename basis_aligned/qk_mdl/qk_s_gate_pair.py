@@ -13,13 +13,18 @@ import numpy as np
 QK = os.path.dirname(os.path.abspath(__file__))
 T = 512
 PATH = f'{QK}/qk_s_w1152_gate.json'
-ARMS = ('vanilla', 'slots', 'gc3e5', 'gc1e4', 'muonbase', 'e1')
+ARMS = ('vanilla', 'slots', 'gc3e5', 'gc1e4', 'muonbase', 'e1',
+        'muonprox', 'combo')
 PAIRS = [('slots', 'vanilla'), ('gc3e5', 'vanilla'), ('gc3e5', 'slots'),
          ('gc1e4', 'vanilla'), ('gc1e4', 'slots'),
          ('muonbase', 'gc1e4'),          # THE optimizer gate (same arch/data)
          ('muonbase', 'vanilla'),
          ('e1', 'gc1e4'),                # E1 vs its like-for-like base
-         ('e1', 'slots'), ('e1', 'vanilla')]
+         ('e1', 'slots'), ('e1', 'vanilla'),
+         ('muonprox', 'muonbase'),       # E7a at scale: proximal vs loss-lasso
+         ('muonprox', 'gc1e4'),
+         ('combo', 'muonprox'),          # per-slot norm increment under Muon
+         ('combo', 'gc1e4'), ('combo', 'vanilla'), ('combo', 'slots')]
 
 
 def paired(fa, fb):

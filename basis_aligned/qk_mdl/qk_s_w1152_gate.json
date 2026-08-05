@@ -118,5 +118,47 @@
     "final_penalty": 3794.20947265625,
     "sec_per_step": 1.125,
     "peak_mem_mib": 24756
+  },
+  "gc3e5_minus_vanilla_scale_held": {
+    "arm_ce": 4.27903,
+    "ctl_ce": 4.11304,
+    "delta": 0.16599,
+    "se_token": 0.000929,
+    "se_seq": 0.001225,
+    "n_seq": 1500
+  },
+  "gc3e5_minus_slots_scale_held": {
+    "arm_ce": 4.27903,
+    "ctl_ce": 4.23733,
+    "delta": 0.04171,
+    "se_token": 0.000879,
+    "se_seq": 0.001013,
+    "n_seq": 1500
+  },
+  "gc3e5_minus_vanilla_f34k": {
+    "arm_ce": 4.32746,
+    "ctl_ce": 4.16121,
+    "delta": 0.16625,
+    "se_token": 0.000941,
+    "se_seq": 0.001269,
+    "n_seq": 1500
+  },
+  "gc3e5_minus_slots_f34k": {
+    "arm_ce": 4.32746,
+    "ctl_ce": 4.28708,
+    "delta": 0.04038,
+    "se_token": 0.000898,
+    "se_seq": 0.001108,
+    "n_seq": 1500
+  },
+  "gc3e5_run": {
+    "lr": 0.002,
+    "held_ce_scale_bf16": 4.27903084564209,
+    "held_ce_f34k_bf16": 4.327462287902832,
+    "spikes": 0,
+    "diverged": false,
+    "final_penalty": 7887.982421875,
+    "sec_per_step": 1.035,
+    "peak_mem_mib": 25850
   }
 }
