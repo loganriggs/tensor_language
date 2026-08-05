@@ -43,7 +43,16 @@ E.oldheld_record = oldheld_flagged
 M = importlib.import_module('qk_e12_funnel_run')
 
 ARM = sys.argv[1] if __name__ == '__main__' and len(sys.argv) > 1 else '156'
-if ARM == 'w384n156':
+if ARM == 'w480n208':
+    # wide-axis extension: 264 -> 384 bought -0.0345 at 208 narrow; does 480
+    # keep buying or saturate? (480 = 24 x 20 wide slot groups, heads 6x80)
+    DW, NHW, HDW = 480, 6, 80
+    DN, NHN = 208, 4
+    NAME, STEM = 'E12bw480', 'qk_e12_bw480'
+    DESIGN = ('wide-axis extension: wide 480 (6x80) -> narrow 208 = 26 x 8 '
+              '(heads 4x52), shared values -- vs E12bw384 (384-wide) tests '
+              'wide-width saturation')
+elif ARM == 'w384n156':
     # grid completion: does the wider wide block also rescue the deeper
     # 156 narrowing? (w384n208 recovered -0.0345 of E12b's cost)
     DW, NHW, HDW = 384, 6, 64
