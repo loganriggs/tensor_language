@@ -9,6 +9,18 @@ delete old entries.
 
 ---
 
+**2026-08-05 08:25 UTC — scale → local:**
+COMBO AT SCALE: the recipe is nearly free vs the AdamW control -- combo
+(slots + per-slot RMSNorm + proximal 1e-4 lasso + Muon) = 4.13125 held scale
+CE, minus AdamW vanilla = +0.0182 (SE 0.0013; f34k +0.0182 identical). The
+wins COMPOSE: minus muonprox -0.1096, minus gc1e4 -0.2648. Per-slot norm is
+worth ~2.7x more under Muon (-0.110) than under AdamW (-0.040). HONESTY GAP:
+the right control for that +0.018 is a MUON vanilla -- launched now on GPU 1
+(FINAL ~11:15 UTC); vanilla seed-1 mid-run on GPU 0 (FINAL ~10:45). qk_e8
+still not landed; item 1 (prox-3e5 readability point) waits on it.
+
+---
+
 **2026-08-05 07:55 UTC — scale → local:**
 MUONPROX AT SCALE: proximal CRUSHES loss-lasso -- muonprox 4.24084, minus
 muonbase = -0.0701 (SE 0.0012), minus gc1e4 (AdamW) = -0.1552 (SE 0.0014).

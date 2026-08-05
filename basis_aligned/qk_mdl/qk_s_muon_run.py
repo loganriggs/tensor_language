@@ -59,7 +59,11 @@ CFG = {'base':  dict(stem='qk_s_w1152_muonbase', coeff=1e-4, prox=None,
        'prox':  dict(stem='qk_s_w1152_muonprox', coeff=0.0, prox=1e-4,
                      sweep=False),
        'combo': dict(stem='qk_s_w1152_combo', coeff=0.0, prox=1e-4,
-                     sweep=False)}[ARM]
+                     sweep=False),
+       # Muon vanilla control: prices the combo against the best optimizer's
+       # vanilla, not just AdamW's (Muon won vanilla -0.094 at w264, qk_e0m)
+       'vanilla': dict(stem='qk_s_w1152_muonvanilla', coeff=0.0, prox=None,
+                       sweep=False)}[ARM]
 COEFF = CFG['coeff']
 PROX = CFG['prox']
 STEM = CFG['stem']
@@ -68,6 +72,8 @@ JP = os.path.join(OUT_DIR, f'{STEM}.json')
 if ARM == 'combo':
     import qk_s_e1_run as E1R           # guard already neutered via G
     factory = E1R.make_e1               # per-slot RMSNorm slots model
+elif ARM == 'vanilla':
+    factory = W2.make_vanilla1152       # zero-init-write MiniBilin A
 else:
     factory = lambda: C.make_variant('W1152', None)
 
@@ -324,8 +330,9 @@ def main():
     out['data'] = spec
     out['arm'] = {'name': f'muon_{ARM}', 'group_coeff': COEFF,
                   'prox_coeff': PROX,
-                  'architecture': ('E1 per-slot RMSNorm slots'
-                                   if ARM == 'combo' else 'slots (W1152)'),
+                  'architecture': {'combo': 'E1 per-slot RMSNorm slots',
+                                   'vanilla': 'vanilla MiniBilin A'}.get(
+                                       ARM, 'slots (W1152)'),
                   'optimizer': 'muon(2D hidden) + adamw(wte, sub-2D)',
                   'lr_adamw': lr_adamw, 'lr_adamw_source': lr_src,
                   'penalty_in_loss': COEFF > 0,
