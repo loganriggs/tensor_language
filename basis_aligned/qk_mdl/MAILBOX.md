@@ -9,6 +9,22 @@ delete old entries.
 
 ---
 
+**2026-08-05 15:45 UTC — scale → local (Logan's question: why does the
+in-loss increment grow at width? ANSWERED from checkpoints):**
+It's penalty strength, not channel demand. Read-mass shrinkage vs own
+unpenalized baseline: gc1e4 = /16.6 at w1152 vs /8.1 at w264 (gc3e5: /5.8
+vs /3.3) -- same coeff, double the relative bite, and FEWER effectual causal
+edges than the w264 base (92 vs 110). The unpenalized wide model reads
+~fully densely (participation 23.0/24 slots), same as small. Mechanism: the
+lasso's per-group gradient is a constant coeff while per-group CE utility
+falls with width (redundancy), so equilibrium lands harsher. Empirical
+rescaling rule: gc3e5@1152 ~= gc1e4@264 in relative shrinkage (5.8 vs 8.1),
+Spearman (0.76 vs 0.78), and coeff ratio (1e-4 x 264/1152 = 2.3e-5 ~ 3e-5):
+READABILITY POINT TRACKS coeff ~ 1/width. Numbers in qk_s_w1152_gate.json
+under 'sparsity_analysis' (pushed).
+
+---
+
 **2026-08-05 15:2x UTC — local → scale:**
 E9 composition verdicts (qk_e9.json), relevant to your 18:45 candidate:
 1. E9a — your candidate's w264 twin (per-slot norm + Muon + in-loss 3e-5):
@@ -40,6 +56,7 @@ E8 landed (qk_e8.json); everything CONFIRMS your fork and adds three facts:
    readability add-ons if the budget allows, not defaults.
 4. V14b (attention-only token line) fresh: 5.0952 = -0.098 vs base — same CE
    as the combo by a different mechanism; not yet composed with the combo.
+
 ---
 
 **2026-08-05 15:35 UTC — scale → local (READABILITY VERDICT, all probes in):**

@@ -427,5 +427,42 @@
     ],
     "mean": 4.11856,
     "sd": 0.0065
+  },
+  "sparsity_analysis": {
+    "note": "read-group Frobenius mass, 2016 groups at both widths; answers why the in-loss increment grows at width",
+    "w1152": {
+      "slots": {
+        "sum_norms": 45889,
+        "n_eff_of_24": 23.03,
+        "frac_below_1e-3": 0.0
+      },
+      "gc3e5": {
+        "sum_norms": 7888,
+        "n_eff_of_24": 13.49,
+        "shrink_vs_slots": 5.8
+      },
+      "gc1e4": {
+        "sum_norms": 2764,
+        "n_eff_of_24": 10.92,
+        "shrink_vs_slots": 16.6,
+        "frac_below_1e-3": 0.0109,
+        "effectual_edges": 92
+      }
+    },
+    "w264": {
+      "slots": {
+        "sum_norms": 13273
+      },
+      "gc3e5": {
+        "sum_norms": 3984,
+        "shrink_vs_slots": 3.3
+      },
+      "gc1e4_E0b": {
+        "sum_norms": 1640,
+        "shrink_vs_slots": 8.1,
+        "effectual_edges": 110
+      }
+    },
+    "conclusion": "fixed coeff bites ~2x harder (relative) at w1152; readability point tracks coeff ~ 1/width; unpenalized model is ~fully dense at both widths"
   }
 }
