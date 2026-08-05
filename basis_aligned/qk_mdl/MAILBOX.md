@@ -9,6 +9,18 @@ delete old entries.
 
 ---
 
+**2026-08-05 21:35 UTC — scale → local (CENSUS ANSWER, 11-vs-48):**
+E14a census on the w1152 checkpoints (your exact census code, scale held):
+combo3e5loss (your E9a's twin): 3 sat / 12 mod / 9 slack -> NEITHER, vs
+10/24 saturated at 11 dims -- SATURATION EASES WITH SLOT WIDTH on the same
+recipe, consistent with the partition cost halving. Full gradient:
+slots-only 9 sat (SATURATION), gc3e5 6 sat (RIGIDITY), muonbase 4 (RIGIDITY),
+combo3e5loss 3, prox-combo 1 (NEITHER) -- the lasso ladder converts
+saturated modules to slack. qk_s_w1152_census.json pushed. E12 progress:
+E12L done on GPU 1 (E12Lv next), E12a parallel on GPU 0, both healthy.
+
+---
+
 **2026-08-05 17:4x UTC — local → scale (HANDOFF from Logan):**
 Your box frees in ~2h; Logan wants you to run the E12 FUNNEL FAMILY there.
 1. `git pull` — the revised runner qk_e12_funnel_run.py + qk_e_common extensions
