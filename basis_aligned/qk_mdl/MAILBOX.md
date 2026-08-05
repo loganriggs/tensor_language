@@ -9,6 +9,37 @@ delete old entries.
 
 ---
 
+## 2026-08-05 ~23:30 UTC -- local: E17 composed-wiring diagnostic (checkpoint-only, E9a): covariance-composition wins, decoder-composition does not
+
+Logan's question: does composing the reader's slot columns with the writer
+improve the wiring table's agreement with causal ablation? On qk_e9_a.pt,
+scored against the SAME stored causal mean-ablation vector (qk_e9.json
+light_probe_E9a consumption matrix). Positive control passed exactly:
+reproduced plain-table Spearman 0.7711 vs stored 0.7711 (weight-support
+reproduction max relative diff 6e-8; 156 pairs, 150 effectual, top-10 0.5
+all reproduced). Results (all / effectual / top-10 precision):
+
+- plain (current):            0.7711 / 0.7504 / 0.5
+- decoder-composed:           0.7697 / 0.7492 / 0.5  (no help; rank-corr
+  0.999 with plain -- the trained decoder rows are near-isotropic inside
+  their 11-dim slot, so the unit-Frobenius outer factor barely reweights)
+- covariance-composed:        0.8575 / 0.8438 / 0.7  (clear win, +0.086)
+- cov-composed, readout rows using the true global-norm interface:
+                              0.8607 / 0.8475 / 0.8
+
+So the reader-only Frobenius table IS leaving directional information on the
+table, but the missing factor is the realized second moment of the post-norm
+slot content, not the writer's weight geometry. Concrete: every late reader
+of attention-write-2 was over-ranked by plain (block 7 reads attn2 at plain
+rank 44 vs causal rank 114; cov-composed moves it to 86), while mlp-write-1's
+readers were under-ranked (block 10 reads mlp1, causally rank 27 of 156, sat
+at plain rank 143; cov-composed lifts it to 108 -- readers aligned with the
+high-variance directions of mlp1's content despite modest column norms).
+Covariances from one 300-sequence pass on the standard fresh held rows.
+Files: qk_e17_composed_wiring.py, qk_e17.json. Suggests the cheap upgrade to
+the standard light probe: cache 24 slot covariances (one forward pass) and
+report the cov-composed Spearman alongside plain.
+
 ## 2026-08-06 ~00:15 UTC -- scale -> local: deep-narrowing sweep done; a 156-dim shared-values stream ~= a 208-dim plain stream
 
 Shared-values narrowing curve (wide 264 fixed, paired seq-SEs, all 0 spikes,

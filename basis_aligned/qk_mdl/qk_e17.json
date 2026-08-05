@@ -1,0 +1,144 @@
+{
+  "control": {
+    "n_pairs": 156,
+    "stored_n_pairs": 156,
+    "n_effectual": 150,
+    "stored_n_effectual": 150,
+    "plain_vs_weight_support_max_rel_diff": 6.311e-08,
+    "plain_spearman_all": 0.7711,
+    "stored_wiring_spearman_all": 0.7711,
+    "abs_diff": 0.0,
+    "plain_spearman_effectual": 0.7504,
+    "stored_wiring_spearman_effectual": 0.7504,
+    "plain_top10_precision": 0.5,
+    "stored_wiring_top10_precision": 0.5,
+    "causal_vector": "qk_e9.json light_probe_E9a consumption_matrix (mean-ablation, old cooc held [:96], the exact stored probe output)",
+    "pass": true
+  },
+  "checkpoint": "qk_e9_a.pt",
+  "width": 264,
+  "slot_dim": 11,
+  "n_pairs": 156,
+  "n_effectual": 150,
+  "effectual_threshold": 0.005,
+  "cov_pass": {
+    "device": "cuda",
+    "n_seq": 300,
+    "n_samples": 153600,
+    "rows": "fresh34k[33000:33300] (standard fresh held prefix)",
+    "centered": true
+  },
+  "decoder_normalization": "unit Frobenius per writer (per-slot RMSNorm interface is writer-scale invariant)",
+  "tables": {
+    "plain": {
+      "spearman_all": 0.7711,
+      "spearman_effectual": 0.7504,
+      "top10_precision": 0.5
+    },
+    "decoder_composed": {
+      "spearman_all": 0.7697,
+      "spearman_effectual": 0.7492,
+      "top10_precision": 0.5
+    },
+    "cov_composed": {
+      "spearman_all": 0.8575,
+      "spearman_effectual": 0.8438,
+      "top10_precision": 0.7
+    },
+    "cov_composed_readout_globalnorm": {
+      "spearman_all": 0.8607,
+      "spearman_effectual": 0.8475,
+      "top10_precision": 0.8
+    }
+  },
+  "pairwise_spearman": {
+    "plain__vs__decoder_composed": 0.999,
+    "plain__vs__cov_composed": 0.9661,
+    "plain__vs__cov_composed_readout_globalnorm": 0.9655,
+    "decoder_composed__vs__cov_composed": 0.9673,
+    "decoder_composed__vs__cov_composed_readout_globalnorm": 0.9666,
+    "cov_composed__vs__cov_composed_readout_globalnorm": 0.9996
+  },
+  "largest_rank_moves_plain_to_cov": [
+    {
+      "consumer": "block10",
+      "source": "attn2",
+      "dce": 0.00796,
+      "rank_causal": 123,
+      "rank_plain": 75,
+      "rank_cov_composed": 118,
+      "plain": 13.244,
+      "cov_composed": 10.6317
+    },
+    {
+      "consumer": "block9",
+      "source": "attn2",
+      "dce": 0.0087,
+      "rank_causal": 117,
+      "rank_plain": 52,
+      "rank_cov_composed": 95,
+      "plain": 15.098,
+      "cov_composed": 12.1647
+    },
+    {
+      "consumer": "block7",
+      "source": "attn2",
+      "dce": 0.00891,
+      "rank_causal": 114,
+      "rank_plain": 44,
+      "rank_cov_composed": 86,
+      "plain": 15.954,
+      "cov_composed": 12.569
+    },
+    {
+      "consumer": "block8",
+      "source": "attn2",
+      "dce": 0.0085,
+      "rank_causal": 118,
+      "rank_plain": 48,
+      "rank_cov_composed": 88,
+      "plain": 15.336,
+      "cov_composed": 12.3978
+    },
+    {
+      "consumer": "block11",
+      "source": "attn2",
+      "dce": 0.00505,
+      "rank_causal": 149,
+      "rank_plain": 95,
+      "rank_cov_composed": 132,
+      "plain": 11.911,
+      "cov_composed": 9.7335
+    },
+    {
+      "consumer": "block10",
+      "source": "mlp1",
+      "dce": 0.0399,
+      "rank_causal": 27,
+      "rank_plain": 143,
+      "rank_cov_composed": 108,
+      "plain": 8.858,
+      "cov_composed": 11.115
+    },
+    {
+      "consumer": "block6",
+      "source": "mlp1",
+      "dce": 0.02051,
+      "rank_causal": 53,
+      "rank_plain": 100,
+      "rank_cov_composed": 65,
+      "plain": 11.72,
+      "cov_composed": 13.9184
+    },
+    {
+      "consumer": "block9",
+      "source": "mlp1",
+      "dce": 0.0342,
+      "rank_causal": 34,
+      "rank_plain": 106,
+      "rank_cov_composed": 71,
+      "plain": 11.287,
+      "cov_composed": 13.7502
+    }
+  ]
+}
