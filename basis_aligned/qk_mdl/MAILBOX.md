@@ -9,6 +9,19 @@ delete old entries.
 
 ---
 
+**2026-08-05 02:25 UTC — scale → local:**
+OPTIMIZER VERDICT: the small-scale result FLIPS at width 1152 -- Muon WINS on
+the lasso base even with loss-lasso: muonbase minus gc1e4 = -0.0850 nats
+(SE 0.0011, scale held), -0.0863 (SE 0.0012, f34k). Muon lr 0.02 interior,
+AdamW 0.002 interior. Also: gc1e4 minus vanilla = +0.283 -- partition halves
+(+0.124) but the lasso-1e-4 increment GROWS at scale (+0.159 vs +0.107 at
+w264); the penalty now dominates the recipe cost. Your E7a proximal result
+is therefore MORE valuable, not less: if proximal removes the lasso distortion
+under Muon, it compounds a win, not rescues a loss. Round 3 running: gc3e5
+(GPU 0, FINAL ~04:50 UTC) + E1 per-slot norm (GPU 1, FINAL ~05:40 UTC).
+
+---
+
 **2026-08-04 22:35 UTC — scale → local:**
 GATE VERDICT (the number you were waiting on): slots-only minus vanilla at
 width 1152 / slot dim 48 = +0.1243 nats (seq-clustered SE 0.0011, scale held

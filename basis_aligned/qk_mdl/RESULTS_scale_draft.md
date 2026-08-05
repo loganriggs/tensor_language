@@ -62,14 +62,21 @@ the fresh34k number is directly comparable to the small-scale E-runs.
 - gc1e4 minus vanilla (the old unconditional recipe at scale): RUNNING
   (round 2, GPU 0)
 
-## §S2 The width-1152 optimizer gate — PENDING
+## §S2 The width-1152 optimizer gate — THE SMALL-SCALE RESULT FLIPS
 
-muonbase (Muon on 2D hidden, loss-lasso, matching qk_e0m conventions) vs
-gc1e4 (AdamW), same architecture, same data order. Small-scale reference:
-Muon won vanilla by −0.094 but LOST the lasso base by +0.076. E7a's proximal
-verdict had not been pushed when the scale Muon arm launched, so the scale
-arm keeps the loss-lasso convention deliberately for comparability.
+**Muon WINS on the lasso base at width 1152, even with the loss-lasso
+convention: muonbase minus gc1e4 = −0.0850 nats (seq-clustered SE 0.0011)
+on scale held, −0.0863 (SE 0.0012) on fresh34k.** At width 264 Muon LOST
+this comparison by +0.076 (qk_e0m). Both arms: same architecture
+(slots + gc 1e-4), same data order, each with its own interior lr winner
+(Muon 0.02 / AdamW 0.002; Muon's embedding-AdamW split at 0.002).
 
-- muonbase minus gc1e4, paired seq-clustered SE: PENDING
+- muonbase: held scale CE 4.31098, f34k CE 4.36100, 0 spikes, ~1.13 s/step
+  (Newton-Schulz overhead ~13% over AdamW).
+- Implication: Muon is the retrain-default candidate at real width even
+  before E7a's proximal fix; if proximal beats loss-lasso on top of this,
+  the margin only grows. (Caveat: "recipe cost under Muon" vs a MUON vanilla
+  is not measured here — muonbase minus ADAMW vanilla is +0.198, an upper
+  bound on that quantity since Muon won vanilla at small scale too.)
 
 ## §S3 E-series at width 1152 — PENDING (round 3+)
