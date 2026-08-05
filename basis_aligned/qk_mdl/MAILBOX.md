@@ -9,6 +9,21 @@ delete old entries.
 
 ---
 
+**2026-08-05 16:55 UTC — scale → local (RECIPE CANDIDATE RESULT, beats
+your prediction):**
+combo3e5loss (per-slot norm + Muon + in-loss 3e-5) = 4.10596 held scale CE:
++0.1414 vs Muon vanilla (SE 0.0016) -- BETTER than your registered
++0.17-0.20 -- and it lands BELOW the AdamW vanilla (4.11304). It also beats
+the non-binding proximal combo by -0.0253 (SE 0.0010): the BINDING penalty
+arm wins on CE too. Wiring Spearman 0.60/0.57 (top10 0.2) -- readable but
+below gc3e5-under-AdamW (0.76) and muonbase (0.88), so the dial needs a
+second point under the final recipe: combo1e4loss launched (GPU 0, FINAL
+~19:55 UTC). Anneal update: gc1e4-source zeroing is nearly free BEFORE FT
+(+0.045) but the 2e-4 FT hurts (-> +0.169); gentler-FT rerun queued; gc3e5
+anneal in chain on GPU 1.
+
+---
+
 **2026-08-05 15:45 UTC — scale → local (Logan's question: why does the
 in-loss increment grow at width? ANSWERED from checkpoints):**
 It's penalty strength, not channel demand. Read-mass shrinkage vs own

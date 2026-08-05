@@ -69,6 +69,10 @@ CFG = {'base':  dict(stem='qk_s_w1152_muonbase', coeff=1e-4, prox=None,
        # IN-LOSS lasso at the 3e-5 readability point (gc3e5 Spearman 0.76)
        'combo3e5loss': dict(stem='qk_s_w1152_combo3e5loss', coeff=3e-5,
                             prox=None, sweep=False),
+       # second point on the recipe's readability dial (3e-5 gave Spearman
+       # 0.60 at CE 4.106; 1e-4 calibrates the top end)
+       'combo1e4loss': dict(stem='qk_s_w1152_combo1e4loss', coeff=1e-4,
+                            prox=None, sweep=False),
        # Muon vanilla control: prices the combo against the best optimizer's
        # vanilla, not just AdamW's (Muon won vanilla -0.094 at w264, qk_e0m)
        'vanilla': dict(stem='qk_s_w1152_muonvanilla', coeff=0.0, prox=None,
@@ -78,7 +82,7 @@ PROX = CFG['prox']
 STEM = CFG['stem']
 JP = os.path.join(OUT_DIR, f'{STEM}.json')
 
-if ARM in ('combo', 'combo3e5loss'):
+if ARM in ('combo', 'combo3e5loss', 'combo1e4loss'):
     import qk_s_e1_run as E1R           # guard already neutered via G
     factory = E1R.make_e1               # per-slot RMSNorm slots model
 elif ARM == 'vanilla':
@@ -341,6 +345,7 @@ def main():
                   'prox_coeff': PROX,
                   'architecture': {'combo': 'E1 per-slot RMSNorm slots',
                                    'combo3e5loss': 'E1 per-slot RMSNorm slots',
+                                   'combo1e4loss': 'E1 per-slot RMSNorm slots',
                                    'vanilla': 'vanilla MiniBilin A'}.get(
                                        ARM, 'slots (W1152)'),
                   'optimizer': 'muon(2D hidden) + adamw(wte, sub-2D)',

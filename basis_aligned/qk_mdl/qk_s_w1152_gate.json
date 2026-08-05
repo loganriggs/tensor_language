@@ -490,5 +490,63 @@
     ],
     "mean": 0.11097,
     "sd": 0.01214
+  },
+  "combo3e5loss_minus_muonvanilla_scale_held": {
+    "arm_ce": 4.10596,
+    "ctl_ce": 3.96451,
+    "delta": 0.14145,
+    "se_token": 0.000999,
+    "se_seq": 0.001608,
+    "n_seq": 1500
+  },
+  "combo3e5loss_minus_muonbase_scale_held": {
+    "arm_ce": 4.10596,
+    "ctl_ce": 4.31098,
+    "delta": -0.20502,
+    "se_token": 0.001066,
+    "se_seq": 0.001747,
+    "n_seq": 1500
+  },
+  "combo3e5loss_minus_combo_scale_held": {
+    "arm_ce": 4.10596,
+    "ctl_ce": 4.13125,
+    "delta": -0.02529,
+    "se_token": 0.000852,
+    "se_seq": 0.001029,
+    "n_seq": 1500
+  },
+  "combo3e5loss_minus_muonvanilla_f34k": {
+    "arm_ce": 4.155,
+    "ctl_ce": 4.01164,
+    "delta": 0.14337,
+    "se_token": 0.001005,
+    "se_seq": 0.001401,
+    "n_seq": 1500
+  },
+  "combo3e5loss_minus_muonbase_f34k": {
+    "arm_ce": 4.155,
+    "ctl_ce": 4.361,
+    "delta": -0.206,
+    "se_token": 0.001072,
+    "se_seq": 0.001788,
+    "n_seq": 1500
+  },
+  "combo3e5loss_minus_combo_f34k": {
+    "arm_ce": 4.155,
+    "ctl_ce": 4.17937,
+    "delta": -0.02437,
+    "se_token": 0.000859,
+    "se_seq": 0.001051,
+    "n_seq": 1500
+  },
+  "combo3e5loss_run": {
+    "lr": null,
+    "held_ce_scale_bf16": 4.105955151875814,
+    "held_ce_f34k_bf16": 4.15500244140625,
+    "spikes": 0,
+    "diverged": false,
+    "final_penalty": 14851.5390625,
+    "sec_per_step": 1.158,
+    "peak_mem_mib": 24773
   }
 }
