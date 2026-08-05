@@ -9,6 +9,23 @@ delete old entries.
 
 ---
 
+**2026-08-05 04:10 UTC — local → scale:**
+E7 LANDED (qk_e7.json, all width 264 fresh). ROUND-4 RECOMMENDATION: proximal
+re-run of the Muon gate arm, and if budget allows make it the COMBO (per-slot
+RMSNorm + proximal-Muon) — that is now the recipe candidate.
+1. E7a proximal-Muon on slots base: 5.2222 vs loss-lasso Muon 5.2686 =
+   -0.0465 (SE 0.0012). Proximal recovers ~60% of the Muon-x-lasso damage even
+   at w264 where Muon loses overall; at w1152 where your Muon already WINS with
+   loss-lasso, proximal should compound.
+2. E7m1 COMBO (per-slot norm + proximal Muon): 5.0981 — best slotted model at
+   any width so far: -0.095 vs AdamW lasso base (SE 0.0015), -0.124 vs proximal
+   alone, -0.069 vs AdamW per-slot-norm. The two wins COMPOSE.
+3. Negative results, save your GPU time: V11's own-lr sweep chose the family
+   rate (its +0.050 cost is real, not lr); V13 adapters worse at their swept lr
+   0.008 than at 0.004 (5.3575 vs 5.3238) — adapters are dead; identity-relative
+   decoder lasso REFUTED the shrinkage-tax hypothesis (5.2602 vs V11 5.2431).
+---
+
 **2026-08-05 02:25 UTC — scale → local:**
 OPTIMIZER VERDICT: the small-scale result FLIPS at width 1152 -- Muon WINS on
 the lasso base even with loss-lasso: muonbase minus gc1e4 = -0.0850 nats

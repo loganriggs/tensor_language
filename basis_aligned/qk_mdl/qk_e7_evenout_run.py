@@ -104,8 +104,46 @@ def _statedict_maxdiff(m0, m1):
                in zip(m0.state_dict().items(), m1.state_dict().items()))
 
 
+def prox_sanity_50(mlr):
+    """Known-answer test for the NONZERO-threshold proximal path (2026-08-04
+    request). Measured on 2026-08-04 while debugging the deadlocked run: at 50
+    steps prox-Muon and PLAIN Muon differ by 0.0001 nats (9.1487 vs 9.1486)
+    while AdamW+loss-lasso sits at 7.7880 -- so the AdamW trajectory is the
+    WRONG 50-step yardstick (pure Muon warmup dynamics, which invert by step
+    400: the sweeps gave Muon 6.20 vs AdamW 6.24). The control therefore
+    asserts against the matched-optimizer reference: prox-Muon must track
+    PLAIN lasso-free Muon within 0.05 nats at 50 steps (tau ~ 2e-6 is a tiny
+    shrink), must zero essentially no read groups, and the AdamW gap is
+    reported informationally."""
+    steps = 50
+    logp, mp = E.train_muon(mlr, 0.0, steps, log_every=10, save=False,
+                            factory=E.make_e0b, lr_adamw=E.get_lr(),
+                            prox_coeff=PROX_COEFF, return_model=True)
+    gn = E.read_group_norms(mp)
+    frac0 = float((gn < 1e-8).float().mean())
+    gmin = float(gn.min())
+    del mp
+    torch.cuda.empty_cache()
+    logm = E.train_muon(mlr, 0.0, steps, log_every=10, save=False,
+                        factory=E.make_e0b, lr_adamw=E.get_lr(),
+                        prox_coeff=None)
+    loga = V8T.train_v8(E.get_lr(), E.GC, steps, log_every=10, save=False,
+                        factory=E.make_e0b)
+    cep, cem, cea = (logp['final_held_ce'], logm['final_held_ce'],
+                     loga['final_held_ce'])
+    print(f"control prox 50-step: prox-muon {cep:.4f} vs plain muon "
+          f"{cem:.4f} (|diff| {abs(cep - cem):.4f}; must be < 0.05) vs "
+          f"adamw+loss-lasso {cea:.4f} (info only: muon warmup gap "
+          f"{cep - cea:+.4f}); read groups zeroed {frac0:.4f}, min group "
+          f"norm {gmin:.4f}", flush=True)
+    assert abs(cep - cem) < 0.05, "prox path diverges from plain Muon"
+    assert frac0 < 0.01, "prox is zeroing read groups wholesale"
+
+
 def controls():
     mlr = muon_lr()
+    if not E.SMOKE:
+        prox_sanity_50(mlr)
     # (a) prox with threshold 0 == plain lasso-free Muon run (3 steps)
     log0, m_prox = E.train_muon(mlr, 0.0, 3, log_every=1, save=False,
                                 factory=E.make_e0b, lr_adamw=E.get_lr(),

@@ -207,6 +207,28 @@ def setup():
               "3 steps, CPU only", flush=True)
     else:
         W.patch_width()                          # 264 / 6 heads / 44 / slot 11
+        # GUARD FIX (2026-08-04 deadlock): the E runners own the GPU
+        # exclusively (the chain gates on it), but the blocking Q.gpu_guard
+        # DEADLOCKED on the process's OWN allocator cache -- after an arm (or
+        # a control) runs, ~11-13.5 GiB stay cached in this process, nvidia-smi
+        # reports them as used, and the next arm's guard sleeps forever waiting
+        # for memory only it is holding. Replace every in-process guard with a
+        # NON-BLOCKING empty-cache-first check: release the cache back to the
+        # driver, report, and proceed.
+        import subprocess as _sp
+
+        def _chain_guard(min_free=4500, tries=45, sleep=20):
+            torch.cuda.empty_cache()
+            try:
+                free = int(_sp.check_output(
+                    ['nvidia-smi', '--query-gpu=memory.free',
+                     '--format=csv,noheader,nounits']
+                ).decode().split('\n')[0].strip())
+                print(f"guard(non-blocking): {free} MiB free after "
+                      f"empty_cache -- proceeding", flush=True)
+            except Exception:
+                pass
+        Q.gpu_guard = _chain_guard
         need = STEPS * 16                        # 132,000 rows (batch-16 budget)
         Q.TRAIN = _load_train_prefix(need)
         held = np.load(HELD_PATH)[33000:34500].astype(np.int64)
