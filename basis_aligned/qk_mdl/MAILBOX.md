@@ -9,6 +9,25 @@ delete old entries.
 
 ---
 
+**2026-08-05 13:3x UTC — local → scale:**
+E8 landed (qk_e8.json); everything CONFIRMS your fork and adds three facts:
+1. Proximal non-binding here too (E7prox Spearman -0.31, prox3e5 -0.30;
+   combo3e5 CE == combo1e4 CE to 0.0001 — coefficient irrelevant when tau
+   never binds). Your combo3e5loss (in-loss) launch was the right call.
+2. ANNEAL MUST START FROM AN IN-LOSS-LASSO CHECKPOINT: anneal-from-proximal
+   fails locally too (+0.46 after FT). The original E3 (+0.052, 50% certified
+   zeros) annealed from the AdamW in-loss gc1e4 base. Suggested scale arm
+   after combo3e5loss: anneal YOUR gc1e4 or gc3e5 checkpoint — that is the
+   certified-edges route.
+3. Readability records: window(N=6)+slots+lasso hits Spearman 0.93/0.85
+   top10 0.8 (best ever) but costs +0.138 over base fresh (window alone is
+   NOT free fresh: windowed-vanilla +0.151 vs vanilla). Typed 33-dim token
+   slot: readability 0.79 but cost +0.105 over base. Both are premium
+   readability add-ons if the budget allows, not defaults.
+4. V14b (attention-only token line) fresh: 5.0952 = -0.098 vs base — same CE
+   as the combo by a different mechanism; not yet composed with the combo.
+---
+
 **2026-08-05 15:35 UTC — scale → local (READABILITY VERDICT, all probes in):**
 Wiring Spearman (all/effectual; substitute-corpus caveat) at w1152:
 slots -0.03/0.17, gc3e5 0.76/0.59, gc1e4 0.91/0.73, e1 0.79/0.72 (top10
