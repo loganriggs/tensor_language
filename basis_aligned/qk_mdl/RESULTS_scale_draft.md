@@ -125,3 +125,47 @@ eval data on this box is the substitute corpus — runnable, flagged); E4
 typed token slot; E2 CP-rank caps; E3 certified-zero anneal; N=6 window;
 prox-3e-5 readability point (waits on qk_e8's readability-under-proximal
 verdict per the standing directive).
+
+## §S5 E12 funnel family (handed off from local, run at w264 on the scale box)
+
+All four arms, fresh single-epoch protocol, Muon lr 0.02 / AdamW 0.004,
+gc 3e-5, 8250 steps x batch 16, 0 spikes and no token starvation anywhere
+(held100@2000: E12L 5.735, E12Lv 5.645, E12a 5.789, E12b 5.705 — all far
+under the 6.5 flag). Local E9a reference: final held CE 5.0547, body 15.06M
+params, 64.75 Mflops/token.
+
+| arm | design | body params | Mflops/tok | held CE | paired delta (seq-SE) | Spearman all/eff | neck→blk11 top-1 |
+|---|---|---|---|---|---|---|---|
+| E12L | funnel, narrow 286 = 26x11 | 19.18M | 86.0 | 5.0749 | +0.020 vs E9a (pt est) | 0.885 / 0.823 | 0.326 → 0.424 |
+| E12Lv | + shared values (P_sv) | 18.39M | 84.4 | 4.9886 | −0.0863 ± 0.0023 vs E12L | 0.887 / 0.804 | 0.301 → 0.430 |
+| E12a | true narrowing, 208 = 26x8 | 9.99M | 53.0 | 5.1948 | +0.1199 ± 0.0016 vs E12L | 0.827 / 0.708 | 0.283 → 0.410 |
+| E12b | narrowing + shared values | 9.57M | 52.2 | 5.1107 | −0.0841 ± 0.0024 vs E12a | 0.897 / 0.846 | 0.268 → 0.441 |
+
+Findings:
+1. **The funnel itself is nearly free**: E12L costs +0.020 vs E9a on point
+   estimates (paired SE pending qk_e9_a_heldloss.npy from local).
+2. **Shared values are the strong signal** (Logan's exploration ask): they
+   win twice, independently — −0.086 at matched bandwidth (E12Lv, which
+   beats E9a outright, 4.989 vs 5.055, with +22% body params so capacity-
+   confounded) and −0.084 at narrow width (E12b), while *improving*
+   readability (E12b posts the family-best Spearman 0.897/0.846 and
+   deep-stream token recovery 0.441).
+3. **True narrowing is where the cost lives**: +0.12 for 264→208, but it
+   buys 2x step time (0.117 vs 0.235 s/step) and half the body params.
+   E12b at 2/3 of E9a's body params and 81% of its flops is only +0.056
+   over E9a (pt est) — the best CE-per-flop of the family.
+4. **Neck diagnostics**: attention's neck read P_a uses about half the
+   available dimensions (eff. rank 132–135/286, 92–93/208); the MLP read
+   P_m is near full rank (261–266/286, 193–198/208); W_up and P_sv sit
+   between. The attention path is the compressed one — narrowing squeezes
+   attention, not the MLPs, consistent with E12b (which shares attention
+   values from the wide block) recovering most of the narrowing cost.
+5. Token-determined R² declines monotonically with depth (mlp0_wide 0.85
+   → ~0.55 by mlp9-11 in E12L) — downstream computation is progressively
+   less token-determined; the e9a comparison probe needs a local run
+   (qk_e9_a.pt absent here).
+
+Ops notes: funnel_light_probe/_ce_with off-by-one fixed (81724d7); E12a's
+stale-code crash recovered by idempotent relaunch, no training lost;
+qk_e12_a_gpu0.json / qk_e12_b_gpu0.json merged into qk_e12.json after both
+processes exited (no key conflicts).

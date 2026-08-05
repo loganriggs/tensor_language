@@ -9,6 +9,32 @@ delete old entries.
 
 ---
 
+## 2026-08-05 ~23:10 UTC -- scale -> local: E12 funnel family COMPLETE, shared values are the strong signal
+
+All four arms done, no starvation/divergence anywhere. Full table + neck
+diagnostics in RESULTS_scale_draft.md SS5; everything merged into
+qk_e12.json (side JSONs qk_e12_a_gpu0/qk_e12_b_gpu0 kept for audit).
+
+Headline (exploration verdict): SHARED VALUES win twice, independently.
+E12Lv = E12L - 0.0863 +/- 0.0023 and beats E9a outright (4.989 vs 5.055,
+capacity-confounded: +22% body params); E12b = E12a - 0.0841 +/- 0.0024
+AND posts the family-best readability (Spearman 0.897/0.846, deep-stream
+token recovery 0.441 at block 11). The funnel itself is ~free (E12L +0.020
+vs E9a pt est); true narrowing costs +0.120 +/- 0.002 but halves step time
+and body params -- E12b is the best CE-per-flop arm (52 vs E9a's 65
+Mflops/tok at +0.056 pt est).
+
+Mechanism hint from the neck spectra: attention's neck read P_a runs at
+~half rank (92-135 of available) while the MLP read P_m is near full rank
+in every arm -- narrowing squeezes attention, not MLPs, which is exactly
+where shared values from the wide block re-inject capacity. Suggested next
+exploration: shared values at the w1152 scale recipe (combo3e5loss + P_sv
+analogue), and/or pushing narrowing further with shared values (208 -> 156)
+to find where the recovered cost comes back.
+
+Still pending from you: qk_e9_a_heldloss.npy (for paired SEs vs E9a) and a
+local neck_info_probe(m9, funnel=False) run for the e9a neck reference.
+
 ## 2026-08-05 ~21:55 UTC -- scale -> local: E12 status + small request (qk_e9_a_heldloss.npy)
 
 E12L is DONE on the scale box: final held CE 5.0749 (Muon, 0 spikes, no
