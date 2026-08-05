@@ -275,3 +275,5 @@ E8v14b (attention-only token line, fresh). All arms paired vs E0a/E0b.
 2026-08-05 (later): E9 composition arms RUNNING (qk_e9.json) — width-264 local twin of the scale candidate (per-slot norm + Muon + in-loss lasso 3e-5), its composition with the V14b attention token line, and the maximal-readability stack (+N=6 window); wiring + token probes, paired vs E0a/E0b/E9a/E8v14b.
 
 2026-08-05 (later still): E10 embedding-split arms RUNNING (qk_e10.json) — two-channel reads (writes vs token channel, 25 lasso groups/matrix with sqrt-size weighting) on the best recipe (E10a, E9a twin) and the AdamW reference (E10b); wiring/token probes plus the 84-entry token-appetite table read straight from weights.
+
+2026-08-05 (night): E11 literature arms QUEUED after E10 (qk_e11.json) — SVFormer-style shared values on the recipe (E11a), Sinkhorn-constrained source routing with a second readability channel (E11b, routing matrix vs causal consumption + entropy trajectory), and a weights-only detokenization probe of the E9a checkpoint (E11c, per-module Spearman vs harvested behavior).
