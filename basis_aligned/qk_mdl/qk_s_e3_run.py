@@ -44,14 +44,25 @@ import qk_w1152_train as W2
 from qk_deeproute_train import DEPTH
 from qk_s_muon_run import prox_group_lasso, READ_NAMES, NGROUP
 
-STEM = 'qk_s_w1152_e3anneal'
+# argv[1] selects the source checkpoint (default combo, the original run).
+# E8 verdict: anneal must start from an IN-LOSS-lasso checkpoint -- gc1e4 /
+# gc3e5 are the certified-edges routes; anneal-from-proximal fails.
+import sys
+SRC_ARM = sys.argv[1] if len(sys.argv) > 1 else 'combo'
+SRC = f'qk_s_w1152_{SRC_ARM}'
+STEM = ('qk_s_w1152_e3anneal' if SRC_ARM == 'combo'
+        else f'qk_s_w1152_e3anneal_{SRC_ARM}')
 JP = os.path.join(G.OUT_DIR, f'{STEM}.json')
-SRC = 'qk_s_w1152_combo'
 FT_STEPS = 1000
 FT_BATCH = 16
 FT_LR = 2e-4
 FT_WARMUP = 50
-PROX = 1e-4
+# FT penalty follows how the SOURCE trained (E3's working convention kept
+# the source's penalty): combo -> proximal 1e-4; gc arms -> IN-LOSS lasso
+# at the source coefficient.
+PROX = 1e-4 if SRC_ARM in ('combo',) else None
+LOSS_GC = {'gc1e4': 1e-4, 'gc3e5': 3e-5,
+           'combo3e5loss': 3e-5}.get(SRC_ARM, 0.0)
 SUB = 48
 
 
@@ -96,7 +107,11 @@ def main():
 
     ck = torch.load(os.path.join(G.OUT_DIR, f'{SRC}.pt'),
                     map_location='cuda', weights_only=False)
-    model = E1R.make_e1()
+    if SRC_ARM in ('combo', 'combo3e5loss'):
+        model = E1R.make_e1()
+    else:
+        import qk_v9_common as C
+        model = C.make_variant('W1152', None)
     model.load_state_dict(ck['state_dict'])
     model.float()
 
@@ -160,12 +175,14 @@ def main():
                              seqs[:, 1:Q.T + 1].reshape(-1))
         l = ce.item()
         assert math.isfinite(l) and l < 30, f"FT diverged at {step}: {l}"
+        loss = ce + LOSS_GC * V8T.group_penalty(model) if LOSS_GC > 0 else ce
         opt.zero_grad(set_to_none=True)
-        ce.backward()
+        loss.backward()
         mask_grads(model, zmask)
         torch.nn.utils.clip_grad_norm_(model.parameters(), Q.GRAD_CLIP)
         opt.step()
-        prox_group_lasso(model, FT_LR * f * PROX)
+        if PROX is not None:
+            prox_group_lasso(model, FT_LR * f * PROX)
         apply_masks(model, zmask)            # re-certify zeros every step
         run = l if run is None else 0.98 * run + 0.02 * l
         if step % 100 == 0:
@@ -181,7 +198,7 @@ def main():
     hce, pt = G.eval_data(model, Q.HELD, per_token=True)
     fce, fpt = G.eval_data(model, f34k_held, per_token=True)
     out['ft'] = {'steps': FT_STEPS, 'batch': FT_BATCH, 'lr': FT_LR,
-                 'prox_coeff': PROX,
+                 'prox_coeff': PROX, 'loss_gc': LOSS_GC,
                  'data': f'fresh34k[6000:{6000 + FT_STEPS * FT_BATCH}] '
                          '(unseen, single visit)',
                  'train_curve': log['train_loss']}
