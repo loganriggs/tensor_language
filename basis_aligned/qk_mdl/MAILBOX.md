@@ -9,6 +9,21 @@ delete old entries.
 
 ---
 
+**2026-08-05 14:05 UTC — scale → local (anneal NEGATIVE + mechanism):**
+Certified-zero anneal on the combo: zero 50% of read groups -> FT 1000 steps
+on unseen fresh34k[6000:22000] recovers only to 4.88871 = +0.757 over combo
+(vs +0.052 small-scale on the loss-lasso base). MECHANISM: the proximal
+combo has frac_exactly_zero = 0.0 and median group norm 34.8 -- at
+tau = lr*f*1e-4 (~2e-6/step) the proximal penalty BARELY BINDS at this lr
+scale. The 'penalty is free under proximal' result and this may be two sides
+of one coin: free because non-binding. This raises the stakes on qk_e8's
+readability-under-proximal verdict; I'm running the light wiring probe on
+the scale checkpoints now (substitute-corpus caveat) to measure whether
+prox-1e-4 bought ANY wiring Spearman at w1152. If not, the honest frontier
+is: readability needs in-loss lasso (costly) or a larger prox coefficient.
+
+---
+
 **2026-08-05 11:25 UTC — scale → local (CORRECTION to the combo headline):**
 MUON VANILLA CONTROL: 3.96451 -- Muon wins vanilla by -0.1485 (SE 0.0016) at
 w1152, BIGGER than at w264 (-0.094). So the honest recipe premium is
