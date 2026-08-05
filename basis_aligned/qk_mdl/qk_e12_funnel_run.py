@@ -617,9 +617,9 @@ SRC_NAMES = ['attn0n', 'mlp0n'] + [f'{k}{l}' for l in range(1, DEPTH)
 def _base_and_nmeans(m):
     tot, n, pt = None, 0, []
     for i in range(0, ABL, 8):
-        b = Q.HELD[i:i + 8, :Q.T]
+        b = Q.HELD[i:i + 8]
         col = {'neck': None}
-        logits = m(b, collect=col)
+        logits = m(b[:, :Q.T], collect=col)
         ce = F.cross_entropy(logits.float().reshape(-1, Q.V),
                              b[:, 1:Q.T + 1].reshape(-1), reduction='none')
         pt.append(ce.cpu())
@@ -642,11 +642,11 @@ def _base_and_nmeans(m):
 def _ce_with(m, nsub):
     tot, n = 0.0, 0
     for i in range(0, ABL, 8):
-        b = Q.HELD[i:i + 8, :Q.T]
+        b = Q.HELD[i:i + 8]
         B = b.shape[0]
         se = {li: {si: mv[None, None, :].expand(B, Q.T, m.Dn)
                    for si, mv in d.items()} for li, d in nsub.items()}
-        logits = m(b, nsub=se)
+        logits = m(b[:, :Q.T], nsub=se)
         ce = F.cross_entropy(logits.float().reshape(-1, Q.V),
                              b[:, 1:Q.T + 1].reshape(-1), reduction='none')
         tot += ce.sum().item()
