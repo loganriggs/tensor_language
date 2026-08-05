@@ -53,7 +53,10 @@ WIDEN_CAP_HI, WIDEN_CAP_LO = 0.08, 0.0025
 # each step with tau = lr_muon * schedule_factor * prox_coeff (E7a rule).
 # prox/combo skip the lr sweep: 0.02 was the interior winner both at w264
 # (qk_e0m, and E7 used it) and at w1152 (muonbase sweep) -- recorded in JSON.
-ARM = (sys.argv[1] if len(sys.argv) > 1 else 'base')
+# honor argv only when run as a script -- importers (qk_s_e3_run) carry
+# their own argv, which must not select an arm here
+ARM = (sys.argv[1] if __name__ == '__main__' and len(sys.argv) > 1
+       else 'base')
 CFG = {'base':  dict(stem='qk_s_w1152_muonbase', coeff=1e-4, prox=None,
                      sweep=True),
        'prox':  dict(stem='qk_s_w1152_muonprox', coeff=0.0, prox=1e-4,
