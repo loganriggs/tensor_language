@@ -408,5 +408,24 @@
   "slots_s1_minus_vanilla_s1_f34k": {
     "delta": 0.10298,
     "se_seq": 0.001155
+  },
+  "vanilla_s2_minus_s0_scale_held": {
+    "arm_ce": 4.11693,
+    "delta": 0.00389,
+    "se_seq": 0.000781
+  },
+  "vanilla_s2_minus_s0_f34k": {
+    "arm_ce": 4.16724,
+    "delta": 0.00603,
+    "se_seq": 0.000809
+  },
+  "vanilla_seed_summary": {
+    "seeds": [
+      4.11304,
+      4.12572,
+      4.11693
+    ],
+    "mean": 4.11856,
+    "sd": 0.0065
   }
 }
