@@ -388,5 +388,25 @@
     "final_penalty": 90739.5625,
     "sec_per_step": 1.043,
     "peak_mem_mib": 24756
+  },
+  "slots_s1_minus_s0_scale_held": {
+    "arm_ce": 4.22621,
+    "ctl_ce": 4.23733,
+    "delta": -0.01111,
+    "se_seq": 0.000973
+  },
+  "slots_s1_minus_vanilla_s1_scale_held": {
+    "delta": 0.1005,
+    "se_seq": 0.001038
+  },
+  "slots_s1_minus_s0_f34k": {
+    "arm_ce": 4.27825,
+    "ctl_ce": 4.28708,
+    "delta": -0.00882,
+    "se_seq": 0.000962
+  },
+  "slots_s1_minus_vanilla_s1_f34k": {
+    "delta": 0.10298,
+    "se_seq": 0.001155
   }
 }
