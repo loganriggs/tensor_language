@@ -58,9 +58,26 @@ the fresh34k number is directly comparable to the small-scale E-runs.
 - Train-CE curves + held-100 checkpoints every 2000 steps are in
   qk_s_w1152_{vanilla,slots}.json; per-token losses in the _heldloss /
   _f34kloss npys; paired stats in qk_s_w1152_gate.json.
-- gc3e5 minus vanilla / slots-only: PENDING (round 3)
-- gc1e4 minus vanilla (the old unconditional recipe at scale): RUNNING
-  (round 2, GPU 0)
+**The full E5-style frontier at width 1152** (deltas on scale held,
+seq-clustered SE 0.0010–0.0016; f34k agrees within 0.004 everywhere):
+
+| arm (AdamW unless noted) | held CE | vs vanilla | increment |
+|---|---|---|---|
+| vanilla | 4.11304 | — | — |
+| slots-only | 4.23733 | +0.124 | partition |
+| gc3e5 | 4.27903 | +0.166 | lasso 3e-5: +0.042 over slots |
+| gc1e4 | 4.39600 | +0.283 | lasso 1e-4: +0.159 over slots |
+
+vs width 264: partition +0.234 → +0.124 (halves), but the IN-LOSS lasso
+increment grows (1e-4: +0.107 → +0.159). Under AdamW the penalty, not the
+partition, dominates the recipe cost at scale — which is exactly what the
+proximal-Muon result in §S2 then removes.
+
+**Seed noise floor:** vanilla seed-1 (init seed only; identical data order)
+minus seed-0 = +0.0127 (paired se_seq 0.0008; f34k +0.0141). Init lottery at
+this width/budget is ~0.013 nats, so single-seed deltas below ~0.02 are not
+decision-grade; seed replications of the gate arms are running (slots_s1,
+vanilla_s2 done or in flight).
 
 ## §S2 The width-1152 optimizer gate — THE SMALL-SCALE RESULT FLIPS
 
@@ -73,10 +90,38 @@ this comparison by +0.076 (qk_e0m). Both arms: same architecture
 
 - muonbase: held scale CE 4.31098, f34k CE 4.36100, 0 spikes, ~1.13 s/step
   (Newton-Schulz overhead ~13% over AdamW).
-- Implication: Muon is the retrain-default candidate at real width even
-  before E7a's proximal fix; if proximal beats loss-lasso on top of this,
-  the margin only grows. (Caveat: "recipe cost under Muon" vs a MUON vanilla
-  is not measured here — muonbase minus ADAMW vanilla is +0.198, an upper
-  bound on that quantity since Muon won vanilla at small scale too.)
+- **Muon vanilla control 3.96451: Muon's vanilla win GROWS with width
+  (−0.1485 at w1152 vs −0.094 at w264, SE 0.0016).** Muon is the retrain
+  default, full stop.
+- **Proximal lasso (E7a rule) at scale: muonprox 4.24084 — beats loss-lasso
+  Muon by −0.0701 (SE 0.0012) and the AdamW recipe by −0.1552 (SE 0.0014).
+  The full-strength 1e-4 penalty applied proximally under Muon costs +0.0035
+  over AdamW slots-only: at width 1152 the penalty is ~free when proximal.**
 
-## §S3 E-series at width 1152 — PENDING (round 3+)
+## §S3 E-series + combo at width 1152
+
+**E1 per-slot RMSNorm replicates and grows: e1 minus gc1e4 = −0.0403
+(SE 0.0014; f34k −0.0423), vs −0.026 at w264** — the only small-scale winner
+wins again at scale (e1 4.35573, AdamW, gc 1e-4 in loss, lr 0.002 interior).
+
+**Combo (slots + per-slot RMSNorm + proximal 1e-4 + Muon): 4.13125.** The
+wins compose — combo minus muonprox = −0.1096 (per-slot norm is worth ~2.7×
+more under Muon than under AdamW), combo minus the old AdamW recipe (gc1e4)
+= −0.2648.
+
+**Honest recipe premium (CORRECTION to the first combo push):** combo minus
+MUON vanilla = **+0.1667 (SE 0.0014; f34k +0.1677)**. The combo-vs-AdamW-
+vanilla gap of +0.018 was optimizer subsidy — same trap family as the
+memorization subsidy the fresh-data protocol removed. Both referents
+improved under Muon; the interpretable-architecture premium at width 1152
+is ~+0.17 nats, roughly HALF the width-264 recipe cost (+0.342), with the
+1e-4-strength readability penalty now free (proximal) and the remaining
+cost dominated by the partition itself (+0.124 of the +0.167).
+
+## §S4 Not yet run at scale
+
+Wiring-Spearman / token-determined probes on the scale checkpoints (probe
+eval data on this box is the substitute corpus — runnable, flagged); E4
+typed token slot; E2 CP-rank caps; E3 certified-zero anneal; N=6 window;
+prox-3e-5 readability point (waits on qk_e8's readability-under-proximal
+verdict per the standing directive).
