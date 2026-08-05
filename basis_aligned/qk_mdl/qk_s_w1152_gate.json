@@ -548,5 +548,63 @@
     "final_penalty": 14851.5390625,
     "sec_per_step": 1.158,
     "peak_mem_mib": 24773
+  },
+  "combo1e4loss_minus_muonvanilla_scale_held": {
+    "arm_ce": 4.2236,
+    "ctl_ce": 3.96451,
+    "delta": 0.2591,
+    "se_token": 0.001142,
+    "se_seq": 0.002096,
+    "n_seq": 1500
+  },
+  "combo1e4loss_minus_combo3e5loss_scale_held": {
+    "arm_ce": 4.2236,
+    "ctl_ce": 4.10596,
+    "delta": 0.11765,
+    "se_token": 0.000897,
+    "se_seq": 0.001085,
+    "n_seq": 1500
+  },
+  "combo1e4loss_minus_muonbase_scale_held": {
+    "arm_ce": 4.2236,
+    "ctl_ce": 4.31098,
+    "delta": -0.08737,
+    "se_token": 0.001053,
+    "se_seq": 0.001643,
+    "n_seq": 1500
+  },
+  "combo1e4loss_minus_muonvanilla_f34k": {
+    "arm_ce": 4.27241,
+    "ctl_ce": 4.01164,
+    "delta": 0.26077,
+    "se_token": 0.001146,
+    "se_seq": 0.001853,
+    "n_seq": 1500
+  },
+  "combo1e4loss_minus_combo3e5loss_f34k": {
+    "arm_ce": 4.27241,
+    "ctl_ce": 4.155,
+    "delta": 0.11741,
+    "se_token": 0.000902,
+    "se_seq": 0.001104,
+    "n_seq": 1500
+  },
+  "combo1e4loss_minus_muonbase_f34k": {
+    "arm_ce": 4.27241,
+    "ctl_ce": 4.361,
+    "delta": -0.08859,
+    "se_token": 0.001062,
+    "se_seq": 0.001734,
+    "n_seq": 1500
+  },
+  "combo1e4loss_run": {
+    "lr": null,
+    "held_ce_scale_bf16": 4.2236033706665035,
+    "held_ce_f34k_bf16": 4.272409248352051,
+    "spikes": 0,
+    "diverged": false,
+    "final_penalty": 4092.3798828125,
+    "sec_per_step": 1.156,
+    "peak_mem_mib": 24773
   }
 }

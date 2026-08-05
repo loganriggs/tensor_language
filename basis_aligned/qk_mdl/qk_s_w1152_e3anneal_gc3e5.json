@@ -1,0 +1,94 @@
+{
+  "env": {
+    "gpu": "NVIDIA GeForce RTX 4080 SUPER",
+    "torch": "2.11.0+cu128",
+    "source": "qk_s_w1152_gc3e5"
+  },
+  "controls_ok": true,
+  "ce_before": {
+    "scale_held": 4.27903
+  },
+  "zeroing": {
+    "median_norm": 2.937215,
+    "frac_zeroed": 0.4995,
+    "frac_exactly_zero_pre": 0.0,
+    "n_groups": 2016
+  },
+  "ce_after_zeroing": {
+    "scale_held": 4.43617,
+    "f34k": 4.48931
+  },
+  "ft": {
+    "steps": 1000,
+    "batch": 16,
+    "lr": 0.0002,
+    "prox_coeff": null,
+    "loss_gc": 3e-05,
+    "data": "fresh34k[6000:22000] (unseen, single visit)",
+    "train_curve": [
+      [
+        0,
+        4.3822,
+        4.3822
+      ],
+      [
+        100,
+        4.4992,
+        4.3827
+      ],
+      [
+        200,
+        4.2704,
+        4.3933
+      ],
+      [
+        300,
+        4.8087,
+        4.4025
+      ],
+      [
+        400,
+        4.7354,
+        4.4469
+      ],
+      [
+        500,
+        4.2718,
+        4.4071
+      ],
+      [
+        600,
+        4.5291,
+        4.4175
+      ],
+      [
+        700,
+        4.7283,
+        4.4928
+      ],
+      [
+        800,
+        4.3881,
+        4.4807
+      ],
+      [
+        900,
+        4.2773,
+        4.4315
+      ]
+    ]
+  },
+  "ce_after_ft": {
+    "scale_held": 4.43873,
+    "f34k": 4.49688,
+    "max_zeroed_group_norm": 0.0
+  },
+  "anneal_minus_combo_scale_held": {
+    "delta": 0.1597,
+    "se_seq": 0.001516
+  },
+  "anneal_minus_combo_f34k": {
+    "delta": 0.16942,
+    "se_seq": 0.001668
+  }
+}
