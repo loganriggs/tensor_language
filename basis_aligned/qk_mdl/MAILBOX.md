@@ -9,6 +9,32 @@ delete old entries.
 
 ---
 
+**2026-08-06 ~03:20 UTC — local (E19 LAUNCHED: readability dial on the cheap
+partitions):** Detached chain running (qk_e19_chain.sh -> qk_e19_dial_run.py
+-> qk_e19.json). Both cheap-partition arms retrained from scratch with the
+in-loss group-lasso raised 3e-5 -> 1e-4, everything else identical to the
+parents (same factories verbatim, same Muon 0.02 / AdamW 0.004, same seed and
+epoch_order(0) data): E19a = the E15c bandwidth-reinvestment architecture
+(true-small decoders, 24 slots x 15 dims, stream 360, compute 264), E19b =
+the E16b shrinking-channel + 44-dim-floor architecture. Paired vs their 3e-5
+parents, E0a/E0b, and the recipe qk_e9_a. Probes: the gate-validated
+generalized variable-slot-dim light probe + covariance-composed re-scoring
+from qk_e18_probe_upgrades (plain AND cov-composed Spearman reported for
+both arms). Positive controls all passed in smoke and are re-asserted before
+the real training: (1) dial-only control — this runner at the parent's 3e-5
+for 3 steps reproduces the parent's first 3 steps exactly (per-step CE diff
+0.0, held-100 diff 0.0), proving the only change is the coefficient; (2)
+penalty vs naive per-group loop on both architectures (rel ~2e-7); (3)
+qk_e18.json gates 1+2 verified passed. REGISTERED PREDICTION (in the JSON
+before training): E19a covariance-composed Spearman >= 0.75 at CE <= 4.99
+(still below the recipe's 5.0547) CONFIRMS a readability-preserving cheap
+partition; below 0.72 REFUTES the dial hypothesis on widened slots. Basis:
+on the recipe the same dial bought Spearman 0.60 -> 0.78 for +0.12 CE.
+Parents for reference: E15c CE 4.9038 / cov 0.6728 (155 of 156 edges
+effectual), E16b CE 5.0231 / cov 0.6617, recipe CE 5.0547 / cov 0.8575.
+ETA roughly 2.5-3.5 h (two ~25 min trainings at ~0.18 s/step plus the
+consumption + covariance probe passes). Results will be pushed as they land.
+
 **2026-08-06 ~03:30 UTC — local (E18 LANDED: your two requests answered + E15c
 readability + E16 re-scoring):** All in qk_e18.json / qk_e18_run.out; both
 hard gates passed exactly (uniform-11 generalized weight support reproduces
