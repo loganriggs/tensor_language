@@ -1,342 +1,476 @@
 {
- "env": {
-  "gpu": "NVIDIA GeForce RTX 4080 SUPER",
-  "torch": "2.11.0+cu128",
-  "cooc_substitute": true
- },
- "data": {
-  "train": "corpus_fresh shards 00..06 concat rows [0:298496], single pass, epoch_order(0)",
-  "n_train": 298496,
-  "steps": 9328,
-  "eff_batch": 32,
-  "held_scale": "shard06 last 1500 rows, first 1500 used",
-  "held_f34k": "fresh34k rows [33000:34500]"
- },
- "arm": {
-  "name": "muon_commons3e5",
-  "group_coeff": 3e-05,
-  "prox_coeff": null,
-  "architecture": "slots (W1152)",
-  "optimizer": "muon(2D hidden) + adamw(wte, sub-2D)",
-  "lr_adamw": 0.002,
-  "lr_adamw_source": "qk_s_w1152_gc1e4.json",
-  "penalty_in_loss": true,
-  "write_init_std": 0.0023570226039551587
- },
- "preflight": {
-  "micro": 16,
-  "peak_mib": 24774
- },
- "lrsweep_muon": {
-  "chosen": 0.02,
-  "ranking": [
-   0.02,
-   0.01
-  ],
-  "note": "no re-sweep: 0.02 interior winner at w264 (qk_e0m, E7) and at w1152 (muonbase sweep); 0.01 as divergence fallback",
-  "lr_adamw": 0.002
- },
- "run": {
-  "lr_muon": 0.02,
-  "lr_adamw": 0.002,
-  "lr_fallback": false,
-  "held_ce_scale_bf16": 4.055877019246419,
-  "held_ce_f34k_bf16": 4.103642331441243,
-  "spikes": 0,
-  "diverged": false,
-  "final_penalty": 13946.0185546875,
-  "peak_mem_mib": 24774,
-  "sec_per_step": 1.511,
-  "train_curve_every200": [
-   [
-    0,
-    19.2982,
-    19.2982
-   ],
-   [
-    200,
-    5.9908,
-    6.8788
-   ],
-   [
-    400,
-    5.4771,
-    5.6621
-   ],
-   [
-    600,
-    5.3334,
-    5.347
-   ],
-   [
-    800,
-    5.1375,
-    5.1885
-   ],
-   [
-    1000,
-    5.0742,
-    5.0454
-   ],
-   [
-    1200,
-    4.9047,
-    4.9602
-   ],
-   [
-    1400,
-    4.778,
-    4.8632
-   ],
-   [
-    1600,
-    4.6993,
-    4.7943
-   ],
-   [
-    1800,
-    4.7973,
-    4.7447
-   ],
-   [
-    2000,
-    4.6464,
-    4.6941
-   ],
-   [
-    2200,
-    4.7315,
-    4.654
-   ],
-   [
-    2400,
-    4.6175,
-    4.6156
-   ],
-   [
-    2600,
-    4.49,
-    4.5885
-   ],
-   [
-    2800,
-    4.6594,
-    4.5698
-   ],
-   [
-    3000,
-    4.4908,
-    4.534
-   ],
-   [
-    3200,
-    4.4206,
-    4.5077
-   ],
-   [
-    3400,
-    4.412,
-    4.4858
-   ],
-   [
-    3600,
-    4.4654,
-    4.4845
-   ],
-   [
-    3800,
-    4.571,
-    4.4486
-   ],
-   [
-    4000,
-    4.434,
-    4.412
-   ],
-   [
-    4200,
-    4.4584,
-    4.3938
-   ],
-   [
-    4400,
-    4.2376,
-    4.3763
-   ],
-   [
-    4600,
-    4.3359,
-    4.3606
-   ],
-   [
-    4800,
-    4.3629,
-    4.3354
-   ],
-   [
-    5000,
-    4.2989,
-    4.3106
-   ],
-   [
-    5200,
-    4.2115,
-    4.2802
-   ],
-   [
-    5400,
-    4.1877,
-    4.263
-   ],
-   [
-    5600,
-    4.3429,
-    4.2442
-   ],
-   [
-    5800,
-    4.1579,
-    4.2307
-   ],
-   [
-    6000,
-    4.1088,
-    4.2101
-   ],
-   [
-    6200,
-    4.1494,
-    4.1809
-   ],
-   [
-    6400,
-    4.0336,
-    4.1772
-   ],
-   [
-    6600,
-    4.1273,
-    4.1652
-   ],
-   [
-    6800,
-    4.2763,
-    4.1426
-   ],
-   [
-    7000,
-    4.136,
-    4.1149
-   ],
-   [
-    7200,
-    3.9606,
-    4.107
-   ],
-   [
-    7400,
-    4.1287,
-    4.0933
-   ],
-   [
-    7600,
-    4.129,
-    4.0774
-   ],
-   [
-    7800,
-    4.053,
-    4.0545
-   ],
-   [
-    8000,
-    4.0195,
-    4.0587
-   ],
-   [
-    8200,
-    4.0583,
-    4.0543
-   ],
-   [
-    8400,
-    3.9975,
-    4.0356
-   ],
-   [
-    8600,
-    4.1149,
-    4.0416
-   ],
-   [
-    8800,
-    3.9283,
-    4.034
-   ],
-   [
-    9000,
-    4.0822,
-    4.0189
-   ],
-   [
-    9200,
-    3.9733,
-    4.0247
-   ]
-  ],
-  "held100_scale_curve": [
-   [
-    2000,
-    4.7799
-   ],
-   [
-    4000,
-    4.5384
-   ],
-   [
-    6000,
-    4.33
-   ],
-   [
-    8000,
-    4.1817
-   ]
-  ]
- },
- "pair_vs_combo3e5loss_scale_held": {
-  "arm_ce": 4.0559,
-  "ctl_ce": 4.106,
-  "delta": -0.0501,
-  "se_seq": 0.001
- },
- "pair_vs_combo3e5loss_f34k": {
-  "arm_ce": 4.1036,
-  "ctl_ce": 4.155,
-  "delta": -0.0514,
-  "se_seq": 0.001
- },
- "pair_vs_muonvanilla_scale_held": {
-  "arm_ce": 4.0559,
-  "ctl_ce": 3.9645,
-  "delta": 0.0914,
-  "se_seq": 0.0013
- },
- "pair_vs_muonvanilla_f34k": {
-  "arm_ce": 4.1036,
-  "ctl_ce": 4.0116,
-  "delta": 0.092,
-  "se_seq": 0.0012
- },
- "pair_vs_muonbase_scale_held": {
-  "arm_ce": 4.0559,
-  "ctl_ce": 4.311,
-  "delta": -0.2551,
-  "se_seq": 0.0018
- },
- "pair_vs_muonbase_f34k": {
-  "arm_ce": 4.1036,
-  "ctl_ce": 4.361,
-  "delta": -0.2574,
-  "se_seq": 0.0018
- }
+  "env": {
+    "gpu": "NVIDIA GeForce RTX 4080 SUPER",
+    "torch": "2.11.0+cu128",
+    "cooc_substitute": true
+  },
+  "data": {
+    "train": "corpus_fresh shards 00..06 concat rows [0:298496], single pass, epoch_order(0)",
+    "n_train": 298496,
+    "steps": 9328,
+    "eff_batch": 32,
+    "held_scale": "shard06 last 1500 rows, first 1500 used",
+    "held_f34k": "fresh34k rows [33000:34500]"
+  },
+  "arm": {
+    "name": "muon_commons3e5",
+    "group_coeff": 3e-05,
+    "prox_coeff": null,
+    "architecture": "slots (W1152)",
+    "optimizer": "muon(2D hidden) + adamw(wte, sub-2D)",
+    "lr_adamw": 0.002,
+    "lr_adamw_source": "qk_s_w1152_gc1e4.json",
+    "penalty_in_loss": true,
+    "write_init_std": 0.0023570226039551587
+  },
+  "preflight": {
+    "micro": 16,
+    "peak_mib": 24774
+  },
+  "lrsweep_muon": {
+    "chosen": 0.02,
+    "ranking": [
+      0.02,
+      0.01
+    ],
+    "note": "no re-sweep: 0.02 interior winner at w264 (qk_e0m, E7) and at w1152 (muonbase sweep); 0.01 as divergence fallback",
+    "lr_adamw": 0.002
+  },
+  "run": {
+    "lr_muon": 0.02,
+    "lr_adamw": 0.002,
+    "lr_fallback": false,
+    "held_ce_scale_bf16": 4.055877019246419,
+    "held_ce_f34k_bf16": 4.103642331441243,
+    "spikes": 0,
+    "diverged": false,
+    "final_penalty": 13946.0185546875,
+    "peak_mem_mib": 24774,
+    "sec_per_step": 1.511,
+    "train_curve_every200": [
+      [
+        0,
+        19.2982,
+        19.2982
+      ],
+      [
+        200,
+        5.9908,
+        6.8788
+      ],
+      [
+        400,
+        5.4771,
+        5.6621
+      ],
+      [
+        600,
+        5.3334,
+        5.347
+      ],
+      [
+        800,
+        5.1375,
+        5.1885
+      ],
+      [
+        1000,
+        5.0742,
+        5.0454
+      ],
+      [
+        1200,
+        4.9047,
+        4.9602
+      ],
+      [
+        1400,
+        4.778,
+        4.8632
+      ],
+      [
+        1600,
+        4.6993,
+        4.7943
+      ],
+      [
+        1800,
+        4.7973,
+        4.7447
+      ],
+      [
+        2000,
+        4.6464,
+        4.6941
+      ],
+      [
+        2200,
+        4.7315,
+        4.654
+      ],
+      [
+        2400,
+        4.6175,
+        4.6156
+      ],
+      [
+        2600,
+        4.49,
+        4.5885
+      ],
+      [
+        2800,
+        4.6594,
+        4.5698
+      ],
+      [
+        3000,
+        4.4908,
+        4.534
+      ],
+      [
+        3200,
+        4.4206,
+        4.5077
+      ],
+      [
+        3400,
+        4.412,
+        4.4858
+      ],
+      [
+        3600,
+        4.4654,
+        4.4845
+      ],
+      [
+        3800,
+        4.571,
+        4.4486
+      ],
+      [
+        4000,
+        4.434,
+        4.412
+      ],
+      [
+        4200,
+        4.4584,
+        4.3938
+      ],
+      [
+        4400,
+        4.2376,
+        4.3763
+      ],
+      [
+        4600,
+        4.3359,
+        4.3606
+      ],
+      [
+        4800,
+        4.3629,
+        4.3354
+      ],
+      [
+        5000,
+        4.2989,
+        4.3106
+      ],
+      [
+        5200,
+        4.2115,
+        4.2802
+      ],
+      [
+        5400,
+        4.1877,
+        4.263
+      ],
+      [
+        5600,
+        4.3429,
+        4.2442
+      ],
+      [
+        5800,
+        4.1579,
+        4.2307
+      ],
+      [
+        6000,
+        4.1088,
+        4.2101
+      ],
+      [
+        6200,
+        4.1494,
+        4.1809
+      ],
+      [
+        6400,
+        4.0336,
+        4.1772
+      ],
+      [
+        6600,
+        4.1273,
+        4.1652
+      ],
+      [
+        6800,
+        4.2763,
+        4.1426
+      ],
+      [
+        7000,
+        4.136,
+        4.1149
+      ],
+      [
+        7200,
+        3.9606,
+        4.107
+      ],
+      [
+        7400,
+        4.1287,
+        4.0933
+      ],
+      [
+        7600,
+        4.129,
+        4.0774
+      ],
+      [
+        7800,
+        4.053,
+        4.0545
+      ],
+      [
+        8000,
+        4.0195,
+        4.0587
+      ],
+      [
+        8200,
+        4.0583,
+        4.0543
+      ],
+      [
+        8400,
+        3.9975,
+        4.0356
+      ],
+      [
+        8600,
+        4.1149,
+        4.0416
+      ],
+      [
+        8800,
+        3.9283,
+        4.034
+      ],
+      [
+        9000,
+        4.0822,
+        4.0189
+      ],
+      [
+        9200,
+        3.9733,
+        4.0247
+      ]
+    ],
+    "held100_scale_curve": [
+      [
+        2000,
+        4.7799
+      ],
+      [
+        4000,
+        4.5384
+      ],
+      [
+        6000,
+        4.33
+      ],
+      [
+        8000,
+        4.1817
+      ]
+    ]
+  },
+  "pair_vs_combo3e5loss_scale_held": {
+    "arm_ce": 4.0559,
+    "ctl_ce": 4.106,
+    "delta": -0.0501,
+    "se_seq": 0.001
+  },
+  "pair_vs_combo3e5loss_f34k": {
+    "arm_ce": 4.1036,
+    "ctl_ce": 4.155,
+    "delta": -0.0514,
+    "se_seq": 0.001
+  },
+  "pair_vs_muonvanilla_scale_held": {
+    "arm_ce": 4.0559,
+    "ctl_ce": 3.9645,
+    "delta": 0.0914,
+    "se_seq": 0.0013
+  },
+  "pair_vs_muonvanilla_f34k": {
+    "arm_ce": 4.1036,
+    "ctl_ce": 4.0116,
+    "delta": 0.092,
+    "se_seq": 0.0012
+  },
+  "pair_vs_muonbase_scale_held": {
+    "arm_ce": 4.0559,
+    "ctl_ce": 4.311,
+    "delta": -0.2551,
+    "se_seq": 0.0018
+  },
+  "pair_vs_muonbase_f34k": {
+    "arm_ce": 4.1036,
+    "ctl_ce": 4.361,
+    "delta": -0.2574,
+    "se_seq": 0.0018
+  },
+  "commons_ledger": {
+    "commons_dims": 192,
+    "per_module_commons_write_norm": {
+      "attn0": 146.3494,
+      "mlp0": 1431.9184,
+      "attn1": 930.669,
+      "mlp1": 1035.8247,
+      "attn2": 382.1109,
+      "mlp2": 708.9244,
+      "attn3": 123.7288,
+      "mlp3": 1007.3615,
+      "attn4": 139.456,
+      "mlp4": 1035.7772,
+      "attn5": 255.4984,
+      "mlp5": 1091.964,
+      "attn6": 214.0598,
+      "mlp6": 1206.6804,
+      "attn7": 366.1458,
+      "mlp7": 1458.6733,
+      "attn8": 312.8834,
+      "mlp8": 1560.5299,
+      "attn9": 425.1654,
+      "mlp9": 1873.7304,
+      "attn10": 884.6952,
+      "mlp10": 2292.7517,
+      "attn11": 784.4304,
+      "mlp11": 3812.0701
+    },
+    "per_consumer_commons_read_norm": {
+      "block0": 156.234,
+      "block1": 118.756,
+      "block2": 94.543,
+      "block3": 105.666,
+      "block4": 108.302,
+      "block5": 113.896,
+      "block6": 112.891,
+      "block7": 119.46,
+      "block8": 119.945,
+      "block9": 128.719,
+      "block10": 134.568,
+      "block11": 141.673,
+      "readout": 279.311
+    },
+    "note": "commons content is per-consumer readable in strength but unattributable to a single writer"
+  },
+  "commons_stats": {
+    "layer0": {
+      "eff_rank": 5.4,
+      "token_R2": 0.8024,
+      "best_single_slot": "mlp11",
+      "best_single_slot_R2": 0.5308,
+      "all_slots_R2": 0.86
+    },
+    "layer1": {
+      "eff_rank": 59.4,
+      "token_R2": 0.4583,
+      "best_single_slot": "attn5",
+      "best_single_slot_R2": 0.1463,
+      "all_slots_R2": 0.5961
+    },
+    "layer2": {
+      "eff_rank": 58.3,
+      "token_R2": 0.4221,
+      "best_single_slot": "attn1",
+      "best_single_slot_R2": 0.2529,
+      "all_slots_R2": 0.6592
+    },
+    "layer3": {
+      "eff_rank": 56.2,
+      "token_R2": 0.409,
+      "best_single_slot": "attn1",
+      "best_single_slot_R2": 0.2417,
+      "all_slots_R2": 0.6845
+    },
+    "layer4": {
+      "eff_rank": 65.2,
+      "token_R2": 0.3848,
+      "best_single_slot": "attn1",
+      "best_single_slot_R2": 0.2057,
+      "all_slots_R2": 0.6667
+    },
+    "layer5": {
+      "eff_rank": 68.8,
+      "token_R2": 0.3646,
+      "best_single_slot": "attn1",
+      "best_single_slot_R2": 0.1916,
+      "all_slots_R2": 0.6461
+    },
+    "layer6": {
+      "eff_rank": 72.6,
+      "token_R2": 0.3478,
+      "best_single_slot": "attn1",
+      "best_single_slot_R2": 0.1818,
+      "all_slots_R2": 0.6306
+    },
+    "layer7": {
+      "eff_rank": 80.7,
+      "token_R2": 0.3332,
+      "best_single_slot": "attn1",
+      "best_single_slot_R2": 0.1683,
+      "all_slots_R2": 0.6164
+    },
+    "layer8": {
+      "eff_rank": 91.4,
+      "token_R2": 0.3198,
+      "best_single_slot": "attn1",
+      "best_single_slot_R2": 0.1615,
+      "all_slots_R2": 0.6004
+    },
+    "layer9": {
+      "eff_rank": 88.5,
+      "token_R2": 0.32,
+      "best_single_slot": "attn1",
+      "best_single_slot_R2": 0.1693,
+      "all_slots_R2": 0.5978
+    },
+    "layer10": {
+      "eff_rank": 73.0,
+      "token_R2": 0.3179,
+      "best_single_slot": "attn1",
+      "best_single_slot_R2": 0.187,
+      "all_slots_R2": 0.6173
+    },
+    "layer11": {
+      "eff_rank": 50.2,
+      "token_R2": 0.3044,
+      "best_single_slot": "attn1",
+      "best_single_slot_R2": 0.2178,
+      "all_slots_R2": 0.6468
+    },
+    "calls_per_layer": 2,
+    "commons_dims": 192,
+    "rows": "fresh34k[33000:33400] (never trained)"
+  }
 }
