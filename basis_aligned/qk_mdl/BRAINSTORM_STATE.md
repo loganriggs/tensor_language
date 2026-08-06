@@ -68,3 +68,28 @@ imposed); typed commons + w1344 eff-param recipe in flight on scale box.
   https://claude.ai/code/artifact/b5c81155-b26b-4a93-8368-b94adaf8ee01
 - Fresh builder agents primed with AGENT_BRIEF.md; never resume long agents.
 - Scale box coordination via MAILBOX.md (append-only newest-first) + git.
+
+## Reviewer-2 findings (2026-08-06, pre-registration for successors)
+R1 Spearman n=156 -> SE ~0.08: readability gaps <0.1 are TIES until
+bootstrap CIs (from per-edge tables). R2 metric-Goodhart: validate wiring
+Spearman once against real circuit-finding/edit success. R3 causal vector
+is single-ablation on old cooc rows (off-distribution; ablations known
+non-compositional) — recompute on fresh, spot-check pairwise. R4 single
+seed/data-order: 2-3 seeds for retrain-recommendation arms. R5 token-cone
+"span of embeddings" is VACUOUS (50k vecs span R^264) — only k-sparse or
+convex-cone versions are real. R6 identifiable-wiring lambda degeneracy:
+pattern path identifies only lambda_q*lambda_k — use one lambda per
+(head,writer) on the product. R7 codebook: add distillation control
+(expressivity vs trainability) + code dictionaries (else enumerable-not-
+interpretable) + per-pursuit-step residuals. R8 census needs shuffled-
+pattern nulls + z-scores + random-head causal controls. R9 churn confounded
+by lr decay — normalize by update norms / constant-lr control.
+
+## Standing logging requirements (the wish-we-had-logged list)
+Per arm, always: per-edge consumption+weight tables; per-seq heldloss.npy;
+wiring+slot-covariance snapshots every 200 steps + per-group update norms;
+fixed audit slice (same ~200 seqs forever): patterns, slot contents, code
+assignments; null rows (untrained-model Spearman, shuffled-pattern
+predicate scores); codebook event logs (dead-code events, codebook
+snapshots, pursuit residuals); step time + peak memory; seed + data-order
+ids in JSON. One second-data-order replicate of the current best arm.
