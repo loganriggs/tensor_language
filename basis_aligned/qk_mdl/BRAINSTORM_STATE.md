@@ -93,3 +93,48 @@ assignments; null rows (untrained-model Spearman, shuffled-pattern
 predicate scores); codebook event logs (dead-code events, codebook
 snapshots, pursuit residuals); step time + peak memory; seed + data-order
 ids in JSON. One second-data-order replicate of the current best arm.
+
+## Decision tree (interpretations conditional on results)
+E20 codebook (cost vs parent E19a 4.9742):
+- <=+0.15 & dead<30%: discrete content VIABLE -> proceed to unified-bits
+  (#6) + inspect code dictionaries; sweep n/k only if dictionaries are
+  semantically meaningful (else it's discrete-spectral, pause line).
+- +0.15..0.30: run distillation control. Distilled << scratch = TRAINABILITY
+  -> anneal-in quantization (soft->hard), retry. Distilled ~= scratch =
+  GRANULARITY -> one retry at n=1024 or k=4. Still bad -> quantize only
+  designated carriage slots (merges with k-sparse token-cone idea).
+- >+0.30 with control confirming expressivity: discreteness at slot level
+  REFUTED -> promote predicate/identifiable-wiring line to #1.
+- Dead codes >30% but CE fine: shrink n; NOT a refutation.
+- PMI pairs reused as stable units -> analysis unit = code PAIRS (Logan's
+  superposition point confirmed; enumerate pairs). PMI ~independent ->
+  codes compose freely (cleaner story).
+E21 census (with shuffled nulls):
+- Match/prev heads exist (z>3 + causal check passes): predicate-basis (#3)
+  proceeds, library = the measured predicates, consider hardcoding them.
+- NO nameable heads: check w1152 checkpoints (ask scale) before concluding;
+  if absent there too, test whether recipe models do induction AT ALL
+  (repeated-text advantage). Behavior present but no nameable head =
+  distributed implementation -> predicate-basis MORE valuable (forces
+  localization) but expect higher CE price; run it as a probe not a recipe.
+- Only positional/key-class predicates: library starts there; match family
+  may need architectural provision (idea 7).
+Scale in-flight:
+- Typed commons w1152: readability >= recipe & CE better -> typed commons
+  enters retrain recipe. Readability drops like untyped -> typing does not
+  transfer; commons line CLOSES; bandwidth+lasso is the only recipe core.
+- w1344 eff-param-matched recipe: closes gap to Muon vanilla -> scale
+  partition cost is mostly param deficit -> retrain = recipe + width bump.
+  Doesn't close -> bandwidth reinvestment must be tested at scale.
+- Bandwidth+1e-4 at w1152 (requested spot-check): HOLDS -> THE retrain
+  core. FLIPS like the four structural wins -> w264 loses standing for
+  structural claims entirely; pivot program weight to post-training
+  (crystallization/distillation), which does not depend on width transfer.
+Retrain recommendation rule: an architecture enters the recommendation only
+with (a) CE better than recipe at readability-tie-or-better, (b) at BOTH
+widths, (c) 2-3 seeds (R4). If nothing qualifies: recommend the confirmed
+recipe as-is + post-training additions (anneal-to-certified-zeros,
+cov-composed metric, census, naming pass) — those are width-independent.
+Churn validation: churn tracks named parts -> crystallization proceeds with
+churn triggers. Doesn't -> try subspace-angle drift. Neither -> naming
+triggers stay manual (scheduled harvests), crystallization still viable.
