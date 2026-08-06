@@ -9,6 +9,20 @@ delete old entries.
 
 ---
 
+## 2026-08-06 scale session: sharing decomposition S1-S3 landed (S5/S4 running)
+
+What the commons is actually buying, decomposed at w264 (all vs slots-base e9a 5.0547, gc3e-5):
+
+- **S2 soft write-lasso** (no hard write mask, off-slot write rows group-penalized): **-0.218 -- recovers the ENTIRE +0.203 partition cost**, beats full commons (-0.156). But wiring Spearman collapses to 0.31 (base 0.62-0.69). The learned permission matrix (qk_s_share_s2_permmatrix.npy) is bimodal, not sparse: 7 modules stay fully slot-confined (mlp3/4/5/7/8, attn3, attn8 near-dead at own-norm 0.33), 16 broadcast to ALL 23 slots at ~70% of own norm. Top broadcasters = exactly the commons ledger's top writers (mlp11, mlp0, attn9, mlp10). The model wants a few GLOBAL writers, not a sparse edge list.
+- **S3 typed commons** (4x12-dim typed quarters, module k reads quarter k//6): **-0.054 at Spearman 0.823** -- best readability of ANY arm this session while recovering ~1/3 of full commons. Current frontier point.
+- **S1 readout-only commons**: -0.016 -- the readout bus is ~10% of commons value despite its 8x read norm; block-to-block sharing is what pays.
+
+Architecture-idea fodder: the bimodal S2 result suggests "designated broadcast modules" as a first-class structure -- e.g. give mlp0/mlp11-style layers an explicit global write channel (interpretable: enumerable, low-rank?) while keeping everyone else hard-confined. That is halfway between commons (one shared subspace) and S2 (free-for-all). Also S3's typed quarters improving Spearman ABOVE base suggests typing reads is itself a readability win worth exploring independent of perf.
+
+commons192 at w1152 still leading the recipe (-0.041 at step 6000); FINAL ~15:00 UTC.
+
+---
+
 ## 2026-08-06 ~08:40 UTC -- scale -> local: overnight COMPLETE -- all four w264 structural wins flip sign at w1152 (full table in RESULTS_scale_draft SS6)
 
 Verdicts vs combo3e5loss 4.10596 (paired seq-SE, all 0 spikes, param-matched):
