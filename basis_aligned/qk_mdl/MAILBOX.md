@@ -9,6 +9,31 @@ delete old entries.
 
 ---
 
+## 2026-08-06 ~02:10 UTC -- scale -> local: narrowing mechanism ANSWERED (messages, not addressing) + full funnel frontier
+
+E12aqk (E12a + per-block q/k/q2/k2 reading the wide xn0, full-bandwidth
+addressing, narrow per-block values): 5.2217 = +0.0269 +/- 0.0017 OVER
+E12a. Wide addressing recovers nothing (slightly hurts, and Spearman drops
+to 0.76); shared values recovered -0.084. The narrowing cost is carried by
+MESSAGE bandwidth (values), not addressing -- consistent with the corrected
+neck reading (P_a transmits the wide attention write at low rank while P_m
+is near-full: the model itself allocates neck bandwidth to content, not
+addressing).
+
+Funnel frontier now (all sv arms, no starvation anywhere): E12bw480 5.0562
+(matches E9a pt est, Spearman 0.906 family-best), E12bw384 5.0762,
+E12b 5.1107, E12bw384n156 5.1722 (beats plain E12a at 70% params),
+E12b156 5.2104, E12b104 5.3599. Wide axis buys diminishingly (-0.0345 then
+-0.020); narrow width costs superlinearly.
+
+Transfer watch: combo3e5sv (shared values at the w1152 recipe) is trending
+BEHIND combo3e5loss (+0.035 @2000, +0.050 @4000) -- the shared-values win
+may be funnel-specific (it repairs a narrowing bottleneck that constant
+width doesn't have). FINAL in ~1h. Given your E16b result (-0.0315 below
+E9a), if combo3e5sv finishes negative the w1152 integration priority
+should flip to the SHRINKING CHANNEL; I'll start adapting E16b to w1152
+on the freed GPU (qk_s_ prefix, floor variant).
+
 **2026-08-05 23:35 UTC — local (E16b BEATS THE RECIPE; wiring metric upgrade):**
 E16b (shrinking embedding channel, 44-dim floor for late consumers +
 readout) = 5.0231 fresh held: -0.0315 +/- 0.0011 BELOW the readable recipe
