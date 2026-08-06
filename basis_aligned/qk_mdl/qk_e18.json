@@ -1,0 +1,769 @@
+{
+  "gate1_uniform11_weight_support": {
+    "n_pairs": 156,
+    "stored_n_pairs": 156,
+    "gen_vs_weight_support_max_rel_diff": 5.229e-08,
+    "gen_spearman_all": 0.7711,
+    "stored_wiring_spearman_all": 0.7711,
+    "abs_diff": 0.0,
+    "gen_spearman_effectual": 0.7504,
+    "stored_spearman_effectual": 0.7504,
+    "gen_top10_precision": 0.5,
+    "stored_top10_precision": 0.5,
+    "pass": true
+  },
+  "gate2_cov_composed_E9a": {
+    "cov_composed_spearman_all": 0.8575,
+    "stored_e17_cov_composed_spearman_all": 0.8575,
+    "abs_diff": 0.0,
+    "cov_composed_readout_globalnorm_spearman_all": 0.8607,
+    "stored_e17_readout_globalnorm": 0.8607,
+    "tables": {
+      "plain": {
+        "spearman_all": 0.7711,
+        "spearman_effectual": 0.7504,
+        "top10_precision": 0.5
+      },
+      "cov_composed": {
+        "spearman_all": 0.8575,
+        "spearman_effectual": 0.8438,
+        "top10_precision": 0.7
+      },
+      "cov_composed_readout_globalnorm": {
+        "spearman_all": 0.8607,
+        "spearman_effectual": 0.8475,
+        "top10_precision": 0.8
+      }
+    },
+    "meta": {
+      "n_pairs": 156,
+      "n_effectual": 150,
+      "overlap_pairs_per_consumer_cov": [],
+      "cov_pass": {
+        "device": "cuda",
+        "n_seq": 300,
+        "n_samples": 153600,
+        "rows": "fresh34k[33000:33300]",
+        "centered": true
+      }
+    },
+    "pass": true
+  },
+  "heldloss_export_E9a": {
+    "file": "qk_e9_a_heldloss.npy",
+    "shape": [
+      768000
+    ],
+    "dtype": "float32",
+    "mean_ce_bf16": 5.05466,
+    "rows": "fresh34k[33000:34500] (1500 seqs x 512 tokens, flat, seq-major)",
+    "convention": "Q.eval_held(per_token=True), bf16 autocast, batch 16 (train_muon save path)",
+    "max_abs_diff_vs_preexisting_file": 0.0
+  },
+  "neck_info_reference_E9a": {
+    "neck_block0_outputs": 0.1909,
+    "stream_block3": 0.9755,
+    "stream_block7": 0.8982,
+    "stream_block11": 0.568,
+    "note": "ridge from representation to the normed embedding, argmax over vocab; fit 48 held seqs, eval 16",
+    "checkpoint": "qk_e9_a.pt",
+    "sites": "neck_block0_outputs = attn0+mlp0 write (the E9a quantity the funnel necks compress); stream_blockN = full entry at block N",
+    "rows": "fresh34k[33000:33064] (fit 48 / eval 16, E12 probe convention)"
+  },
+  "light_probe_E15c_var_dims": {
+    "checkpoint": "qk_e15_c.pt",
+    "stream_width": 360,
+    "slot_dims": [
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15
+    ],
+    "compute_width": 264,
+    "base_ce_fp32_abl_oldheld": 4.79418,
+    "wiring_n_pairs": 156,
+    "wiring_spearman_all": 0.6298,
+    "wiring_n_effectual": 155,
+    "wiring_spearman_effectual": 0.6611,
+    "wiring_top10_precision": 0.5,
+    "per_block_total_consumption": {
+      "0": 1.07184,
+      "1": 0.56054,
+      "2": 0.89235,
+      "3": 0.36818,
+      "4": 0.26466,
+      "5": 0.24175,
+      "6": 0.28916,
+      "7": 0.19182,
+      "8": 0.25379,
+      "9": 0.33461,
+      "10": 0.26618,
+      "11": 0.49505
+    },
+    "dead_blocks_below_0.001": [],
+    "consumption_top20": [
+      {
+        "consumer": "block0",
+        "source": "emb",
+        "dce": 1.36091
+      },
+      {
+        "consumer": "block2",
+        "source": "emb",
+        "dce": 0.85056
+      },
+      {
+        "consumer": "block1",
+        "source": "emb",
+        "dce": 0.7499
+      },
+      {
+        "consumer": "readout",
+        "source": "attn2",
+        "dce": 0.57202
+      },
+      {
+        "consumer": "block3",
+        "source": "emb",
+        "dce": 0.51621
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp11",
+        "dce": 0.45674
+      },
+      {
+        "consumer": "block9",
+        "source": "emb",
+        "dce": 0.28776
+      },
+      {
+        "consumer": "block4",
+        "source": "emb",
+        "dce": 0.26122
+      },
+      {
+        "consumer": "block5",
+        "source": "emb",
+        "dce": 0.23651
+      },
+      {
+        "consumer": "block6",
+        "source": "emb",
+        "dce": 0.23113
+      },
+      {
+        "consumer": "block2",
+        "source": "attn0",
+        "dce": 0.20889
+      },
+      {
+        "consumer": "block1",
+        "source": "mlp0",
+        "dce": 0.19966
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp9",
+        "dce": 0.19867
+      },
+      {
+        "consumer": "block7",
+        "source": "emb",
+        "dce": 0.17922
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp10",
+        "dce": 0.16044
+      },
+      {
+        "consumer": "block8",
+        "source": "emb",
+        "dce": 0.12264
+      },
+      {
+        "consumer": "readout",
+        "source": "attn8",
+        "dce": 0.10897
+      },
+      {
+        "consumer": "block3",
+        "source": "attn1",
+        "dce": 0.10504
+      },
+      {
+        "consumer": "block11",
+        "source": "mlp0",
+        "dce": 0.0988
+      },
+      {
+        "consumer": "block10",
+        "source": "emb",
+        "dce": 0.0959
+      }
+    ],
+    "consumption_matrix": {
+      "0": {
+        "0": 1.360906
+      },
+      "1": {
+        "0": 0.749903,
+        "1": 0.057493,
+        "2": 0.199663
+      },
+      "2": {
+        "0": 0.850564,
+        "1": 0.208888,
+        "2": 0.05494,
+        "3": 0.051214,
+        "4": 0.038734
+      },
+      "3": {
+        "0": 0.516208,
+        "1": 0.047904,
+        "2": 0.036027,
+        "3": 0.105036,
+        "4": 0.023891,
+        "5": 0.020918,
+        "6": 0.036825
+      },
+      "4": {
+        "0": 0.261218,
+        "1": 0.016273,
+        "2": 0.022368,
+        "3": 0.013101,
+        "4": 0.028139,
+        "5": 0.016062,
+        "6": 0.034888,
+        "7": 0.015222,
+        "8": 0.051077
+      },
+      "5": {
+        "0": 0.236512,
+        "1": 0.013906,
+        "2": 0.027736,
+        "3": 0.015592,
+        "4": 0.021111,
+        "5": 0.012985,
+        "6": 0.038231,
+        "7": 0.008786,
+        "8": 0.069249,
+        "9": 0.015535,
+        "10": 0.037071
+      },
+      "6": {
+        "0": 0.231128,
+        "1": 0.023405,
+        "2": 0.016364,
+        "3": 0.024213,
+        "4": 0.017644,
+        "5": 0.010535,
+        "6": 0.020359,
+        "7": 0.00925,
+        "8": 0.016623,
+        "9": 0.018472,
+        "10": 0.01725,
+        "11": 0.02553,
+        "12": 0.030603
+      },
+      "7": {
+        "0": 0.179221,
+        "1": 0.009173,
+        "2": 0.012665,
+        "3": 0.009755,
+        "4": 0.020904,
+        "5": 0.009024,
+        "6": 0.011574,
+        "7": 0.006763,
+        "8": 0.016869,
+        "9": 0.009335,
+        "10": 0.009413,
+        "11": 0.024806,
+        "12": 0.032851,
+        "13": 0.011177,
+        "14": 0.033141
+      },
+      "8": {
+        "0": 0.122638,
+        "1": 0.012815,
+        "2": 0.018325,
+        "3": 0.025615,
+        "4": 0.008064,
+        "5": 0.012765,
+        "6": 0.009933,
+        "7": 0.011577,
+        "8": 0.008587,
+        "9": 0.023168,
+        "10": 0.007712,
+        "11": 0.013527,
+        "12": 0.012665,
+        "13": 0.013932,
+        "14": 0.013047,
+        "15": 0.014025,
+        "16": 0.016157
+      },
+      "9": {
+        "0": 0.28776,
+        "1": 0.011676,
+        "2": 0.01531,
+        "3": 0.021132,
+        "4": 0.007131,
+        "5": 0.013392,
+        "6": 0.006791,
+        "7": 0.009036,
+        "8": 0.010745,
+        "9": 0.010639,
+        "10": 0.00667,
+        "11": 0.008101,
+        "12": 0.00878,
+        "13": 0.014085,
+        "14": 0.010522,
+        "15": 0.012789,
+        "16": 0.012754,
+        "17": 0.012038,
+        "18": 0.013704
+      },
+      "10": {
+        "0": 0.0959,
+        "1": 0.013332,
+        "2": 0.016088,
+        "3": 0.022278,
+        "4": 0.007826,
+        "5": 0.01058,
+        "6": 0.005439,
+        "7": 0.011015,
+        "8": 0.006129,
+        "9": 0.011917,
+        "10": 0.005498,
+        "11": 0.007751,
+        "12": 0.008156,
+        "13": 0.011623,
+        "14": 0.009908,
+        "15": 0.010745,
+        "16": 0.00938,
+        "17": 0.006866,
+        "18": 0.011888,
+        "19": 0.005564,
+        "20": 0.016254
+      },
+      "11": {
+        "0": 0.08039,
+        "1": 0.018868,
+        "2": 0.098801,
+        "3": 0.022037,
+        "4": 0.016104,
+        "5": 0.021688,
+        "6": 0.00777,
+        "7": 0.011492,
+        "8": 0.01836,
+        "9": 0.016219,
+        "10": 0.007418,
+        "11": 0.012444,
+        "12": 0.01267,
+        "13": 0.018116,
+        "14": 0.015073,
+        "15": 0.025616,
+        "16": 0.013779,
+        "17": 0.0169,
+        "18": 0.014588,
+        "19": 0.006925,
+        "20": 0.04816,
+        "21": 0.017377,
+        "22": 0.038832
+      },
+      "12": {
+        "0": 0.002622,
+        "1": 0.031477,
+        "2": 0.088346,
+        "3": 0.003214,
+        "4": 0.057806,
+        "5": 0.572016,
+        "6": 0.020578,
+        "7": 0.049746,
+        "8": 0.037651,
+        "9": 0.023912,
+        "10": 0.044432,
+        "11": 0.007462,
+        "12": 0.036408,
+        "13": 0.064111,
+        "14": 0.074429,
+        "15": 0.017926,
+        "16": 0.058647,
+        "17": 0.108971,
+        "18": 0.068834,
+        "19": 0.059035,
+        "20": 0.198674,
+        "21": 0.049528,
+        "22": 0.160439,
+        "23": 0.038306,
+        "24": 0.456743
+      }
+    },
+    "weight_support_matrix": {
+      "0": {},
+      "1": {
+        "1": 28.089,
+        "2": 21.027
+      },
+      "2": {
+        "1": 25.792,
+        "2": 16.23,
+        "3": 27.839,
+        "4": 17.787
+      },
+      "3": {
+        "1": 28.478,
+        "2": 16.489,
+        "3": 32.125,
+        "4": 16.07,
+        "5": 21.357,
+        "6": 18.802
+      },
+      "4": {
+        "1": 20.7,
+        "2": 14.393,
+        "3": 21.767,
+        "4": 15.522,
+        "5": 18.693,
+        "6": 17.477,
+        "7": 17.292,
+        "8": 19.757
+      },
+      "5": {
+        "1": 21.713,
+        "2": 14.559,
+        "3": 23.438,
+        "4": 15.796,
+        "5": 25.144,
+        "6": 17.301,
+        "7": 15.631,
+        "8": 19.352,
+        "9": 19.818,
+        "10": 18.54
+      },
+      "6": {
+        "1": 19.193,
+        "2": 14.015,
+        "3": 20.97,
+        "4": 13.955,
+        "5": 16.325,
+        "6": 15.449,
+        "7": 16.046,
+        "8": 16.317,
+        "9": 19.104,
+        "10": 15.973,
+        "11": 26.668,
+        "12": 21.409
+      },
+      "7": {
+        "1": 18.135,
+        "2": 13.566,
+        "3": 18.167,
+        "4": 13.958,
+        "5": 18.931,
+        "6": 15.275,
+        "7": 15.493,
+        "8": 16.448,
+        "9": 17.469,
+        "10": 15.781,
+        "11": 26.674,
+        "12": 21.026,
+        "13": 17.545,
+        "14": 21.717
+      },
+      "8": {
+        "1": 16.772,
+        "2": 13.975,
+        "3": 19.767,
+        "4": 12.521,
+        "5": 15.037,
+        "6": 13.193,
+        "7": 15.503,
+        "8": 13.903,
+        "9": 16.899,
+        "10": 13.822,
+        "11": 21.252,
+        "12": 17.115,
+        "13": 14.875,
+        "14": 17.497,
+        "15": 20.402,
+        "16": 20.245
+      },
+      "9": {
+        "1": 15.338,
+        "2": 13.581,
+        "3": 17.931,
+        "4": 12.161,
+        "5": 13.361,
+        "6": 12.373,
+        "7": 14.217,
+        "8": 12.845,
+        "9": 14.465,
+        "10": 13.243,
+        "11": 18.218,
+        "12": 15.553,
+        "13": 13.608,
+        "14": 15.864,
+        "15": 17.593,
+        "16": 18.462,
+        "17": 12.378,
+        "18": 18.276
+      },
+      "10": {
+        "1": 14.625,
+        "2": 13.195,
+        "3": 16.814,
+        "4": 11.264,
+        "5": 14.085,
+        "6": 10.777,
+        "7": 14.416,
+        "8": 11.468,
+        "9": 13.851,
+        "10": 12.052,
+        "11": 15.525,
+        "12": 13.568,
+        "13": 12.577,
+        "14": 13.819,
+        "15": 16.78,
+        "16": 15.766,
+        "17": 12.222,
+        "18": 15.525,
+        "19": 10.856,
+        "20": 15.927
+      },
+      "11": {
+        "1": 15.526,
+        "2": 15.121,
+        "3": 17.558,
+        "4": 12.524,
+        "5": 16.538,
+        "6": 11.316,
+        "7": 13.264,
+        "8": 12.391,
+        "9": 13.816,
+        "10": 12.496,
+        "11": 15.547,
+        "12": 14.153,
+        "13": 12.78,
+        "14": 13.929,
+        "15": 18.594,
+        "16": 15.655,
+        "17": 12.086,
+        "18": 16.273,
+        "19": 11.191,
+        "20": 16.873,
+        "21": 10.775,
+        "22": 16.61
+      },
+      "12": {
+        "1": 262.041,
+        "2": 205.154,
+        "3": 262.168,
+        "4": 135.693,
+        "5": 709.242,
+        "6": 66.542,
+        "7": 126.914,
+        "8": 116.173,
+        "9": 121.08,
+        "10": 68.347,
+        "11": 118.121,
+        "12": 89.35,
+        "13": 95.759,
+        "14": 103.878,
+        "15": 100.925,
+        "16": 98.008,
+        "17": 130.126,
+        "18": 87.307,
+        "19": 108.636,
+        "20": 139.451,
+        "21": 79.97,
+        "22": 91.743,
+        "23": 64.657,
+        "24": 188.682
+      }
+    },
+    "note": "generalized variable-slot-dim probe (gate 1 passed on the uniform-11 recipe); causal = mean-ablation on old cooc held [:96], fp32, light-probe conventions"
+  },
+  "composed_wiring_E16a": {
+    "checkpoint": "qk_e16_a.pt",
+    "slot_dims_uniform": 11,
+    "causal_vector": "stream 0 = per-consumer token remnant; its ablation mean is the per-consumer remnant mean on the cooc ABL rows",
+    "stored_plain_spearman_all": 0.6663,
+    "plain_reproduction_abs_diff": 0.0,
+    "tables": {
+      "plain": {
+        "spearman_all": 0.6663,
+        "spearman_effectual": 0.7064,
+        "top10_precision": 0.6
+      },
+      "cov_composed": {
+        "spearman_all": 0.6959,
+        "spearman_effectual": 0.7452,
+        "top10_precision": 0.6
+      },
+      "cov_composed_readout_globalnorm": {
+        "spearman_all": 0.7302,
+        "spearman_effectual": 0.7543,
+        "top10_precision": 0.9
+      }
+    },
+    "n_pairs": 156,
+    "n_effectual": 136,
+    "overlap_pairs_per_consumer_cov": [],
+    "cov_pass": {
+      "device": "cuda",
+      "n_seq": 300,
+      "n_samples": 153600,
+      "rows": "fresh34k[33000:33300]",
+      "centered": true
+    }
+  },
+  "composed_wiring_E16b": {
+    "checkpoint": "qk_e16_b.pt",
+    "slot_dims_uniform": 11,
+    "causal_vector": "stream 0 = per-consumer token remnant; its ablation mean is the per-consumer remnant mean on the cooc ABL rows",
+    "stored_plain_spearman_all": 0.5946,
+    "plain_reproduction_abs_diff": 0.0,
+    "tables": {
+      "plain": {
+        "spearman_all": 0.5946,
+        "spearman_effectual": 0.6602,
+        "top10_precision": 0.5
+      },
+      "cov_composed": {
+        "spearman_all": 0.6617,
+        "spearman_effectual": 0.7251,
+        "top10_precision": 0.5
+      },
+      "cov_composed_readout_globalnorm": {
+        "spearman_all": 0.6902,
+        "spearman_effectual": 0.7351,
+        "top10_precision": 0.9
+      }
+    },
+    "n_pairs": 156,
+    "n_effectual": 144,
+    "overlap_pairs_per_consumer_cov": [
+      [
+        11,
+        "attn10"
+      ],
+      [
+        11,
+        "mlp10"
+      ],
+      [
+        12,
+        "attn10"
+      ],
+      [
+        12,
+        "mlp10"
+      ],
+      [
+        12,
+        "attn11"
+      ],
+      [
+        12,
+        "mlp11"
+      ]
+    ],
+    "cov_pass": {
+      "device": "cuda",
+      "n_seq": 300,
+      "n_samples": 153600,
+      "rows": "fresh34k[33000:33300]",
+      "centered": true
+    }
+  },
+  "composed_wiring_E15c": {
+    "checkpoint": "qk_e15_c.pt",
+    "slot_dims_uniform": 15,
+    "causal_vector": "generalized variable-slot-dim probe (gate 1 passed on the uniform-11 recipe); causal = mean-ablation on old cooc held [:96], fp32, light-probe conventions",
+    "stored_plain_spearman_all": 0.6298,
+    "plain_reproduction_abs_diff": 0.0004,
+    "tables": {
+      "plain": {
+        "spearman_all": 0.6294,
+        "spearman_effectual": 0.6609,
+        "top10_precision": 0.5
+      },
+      "cov_composed": {
+        "spearman_all": 0.6728,
+        "spearman_effectual": 0.7047,
+        "top10_precision": 0.6
+      },
+      "cov_composed_readout_globalnorm": {
+        "spearman_all": 0.6869,
+        "spearman_effectual": 0.7111,
+        "top10_precision": 0.6
+      }
+    },
+    "n_pairs": 156,
+    "n_effectual": 155,
+    "overlap_pairs_per_consumer_cov": [],
+    "cov_pass": {
+      "device": "cuda",
+      "n_seq": 300,
+      "n_samples": 153600,
+      "rows": "fresh34k[33000:33300]",
+      "centered": true
+    }
+  },
+  "summary_plain_vs_cov": {
+    "E16a": {
+      "plain": 0.6663,
+      "cov_composed": 0.6959,
+      "plain_effectual": 0.7064,
+      "cov_effectual": 0.7452,
+      "plain_top10": 0.6,
+      "cov_top10": 0.6
+    },
+    "E16b": {
+      "plain": 0.5946,
+      "cov_composed": 0.6617,
+      "plain_effectual": 0.6602,
+      "cov_effectual": 0.7251,
+      "plain_top10": 0.5,
+      "cov_top10": 0.5
+    },
+    "E15c": {
+      "plain": 0.6294,
+      "cov_composed": 0.6728,
+      "plain_effectual": 0.6609,
+      "cov_effectual": 0.7047,
+      "plain_top10": 0.5,
+      "cov_top10": 0.6
+    },
+    "E9a_reference": {
+      "plain": 0.7711,
+      "cov_composed": 0.8575,
+      "plain_effectual": 0.7504,
+      "cov_effectual": 0.8438,
+      "plain_top10": 0.5,
+      "cov_top10": 0.7
+    }
+  }
+}

@@ -9,6 +9,50 @@ delete old entries.
 
 ---
 
+**2026-08-06 ~03:30 UTC — local (E18 LANDED: your two requests answered + E15c
+readability + E16 re-scoring):** All in qk_e18.json / qk_e18_run.out; both
+hard gates passed exactly (uniform-11 generalized weight support reproduces
+E9a's stored wiring Spearman 0.7711 with zero difference, weight-support
+rel diff 5e-8; generalized covariance-composed pipeline reproduces
+qk_e17.json's 0.8575 with zero difference).
+
+1. YOUR REQUEST — qk_e9_a_heldloss.npy is now COMMITTED (it existed locally
+   but was never pushed): flat (768000,) float32, fresh34k rows
+   [33000:34500] seq-major, Q.eval_held per-token bf16 batch-16 convention
+   (same as every other *_heldloss.npy). Recomputed from the checkpoint and
+   verified bit-identical to the train-time file (max abs diff 0.0);
+   mean 5.05466.
+2. YOUR REQUEST — neck_info reference on the recipe (qk_e18.json
+   'neck_info_reference_E9a', E12 probe conventions, fresh held fit 48 /
+   eval 16): block-0 outputs alone 0.1909 top-1 token recovery;
+   full stream entry at block 3 = 0.9755, block 7 = 0.8982,
+   block 11 = 0.5680. Read: the recipe's stream carries near-perfect token
+   identity at early blocks (persistent embedding re-injection) and decays
+   with depth, while its block-0 write alone carries LESS than your funnel
+   necks (0.19 vs 0.24-0.33) — the funnels' necks are doing forced token
+   compression the recipe never asks of block 0. Funnel stream entries
+   (0.30-0.44 at blocks 3/7/11) sit far below the recipe's 0.98/0.90 —
+   the funnel stream is genuinely token-poor, not just reorganized.
+3. E15c READABILITY VERDICT (variable-slot-dim probe, gate-passed): wiring
+   Spearman all 0.6298, effectual (155 of 156 edges!) 0.6611, top-10 0.5 —
+   the bandwidth win (+0.0525 partition cost) COSTS readability: well below
+   the recipe's 0.7711, about level with E16a. Its causal graph is much
+   denser (155/156 edges effectual vs E9a's 150; embedding is the top
+   consumed source at nearly every block, e.g. block0 1.361, block2 0.851,
+   block1 0.750 nats).
+4. E16 RE-SCORING VERDICT (covariance-composed, e17 method; E16b's
+   overlap edges got per-consumer covariances): the shrinking channel is
+   GENUINELY less readable — not a blunt-metric artifact. Plain -> cov:
+   E9a 0.7711 -> 0.8575 (+0.086), E16a 0.6663 -> 0.6959 (+0.030),
+   E16b 0.5946 -> 0.6617 (+0.067), E15c 0.6294 -> 0.6728 (+0.043).
+   Covariance composition helps every arm but the ordering and the gap to
+   the recipe survive. One bright spot: the readout-globalnorm variant
+   lifts top-10 precision to 0.9 on BOTH E16 arms (from 0.6/0.5) — the
+   heavy readout edges are very well predicted once the readout interface
+   is scored at the global norm.
+
+---
+
 **2026-08-06 03:20 UTC — local (IDEAS SLATE + your two requests in progress):**
 IDEAS_arch_slate.md pushed answering Logan's two framings: 5 structural
 ideas (closed-form bigram path from the remnant; position remnant; slot
