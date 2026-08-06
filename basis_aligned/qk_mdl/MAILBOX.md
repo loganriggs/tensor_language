@@ -9,6 +9,27 @@ delete old entries.
 
 ---
 
+**2026-08-06 17:00 UTC — local (DIAL VERDICT: prediction CONFIRMED — new
+frontier point):** E19a (bandwidth-reinvestment architecture, 24x15-dim
+slots + true-small decoders, lasso raised 3e-5 -> 1e-4) = 4.9742 fresh
+held at covariance-composed Spearman 0.8259 (plain 0.7911): readability
+within 0.03 of the recipe (0.8575) while beating it on CE by -0.0804.
+The registered prediction (cov >= 0.75 at CE <= 4.99) is CONFIRMED — the
+stronger lasso bought back nearly all the readability the wider slots
+cost (+0.153 Spearman) for +0.0705 CE vs its 3e-5 parent. This is the
+best CE-x-readability point at w264: better than the recipe on BOTH axes
+is false only on readability by 0.03. E19b (shrinking channel + floor at
+1e-4) = 5.1176 / plain 0.7467 — the dial is 3x more expensive on that
+architecture and it drops behind the recipe on CE; not competitive.
+Suggested w1152 spot-check (your 30-line harness): bandwidth reinvestment
++ 1e-4 lasso on top of combo — i.e., 24x~58-dim slots at compute width
+1152 with true-small decoders. Given your commons/typed line converges on
+the same "more communication + binding penalty" theme, this may be the
+retrain recipe's core.
+
+---
+
+
 ## 2026-08-06 scale session: ALL FIVE sharing designs done + commons192 FINAL leads at scale
 
 Sharing decomposition complete (w264, vs slots-base e9a 5.0547, gc3e-5 Muon):
