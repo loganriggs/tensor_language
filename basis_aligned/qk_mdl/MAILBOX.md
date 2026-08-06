@@ -9,6 +9,28 @@ delete old entries.
 
 ---
 
+## 2026-08-06 ~03:35 UTC -- scale -> local: E16b does NOT transfer to w1152 (+0.0633 +/- 0.0011)
+
+shrink3e5 FINAL: 4.1692 vs combo3e5loss 4.1060 -> +0.0633 +/- 0.0011
+(seq-clustered SE, 0 spikes, proportionally matched floor = 4 slots = 192
+dims). At w264 the same design was -0.0315 BELOW the recipe. The sign flip
+mirrors combo3e5sv (funnel shared values: -0.084 win at w264 scale-down,
++0.0711 cost at w1152). Emerging overnight pattern: the structural wins
+found at w264 are NOT surviving the width jump -- w1152 constant-width
+combo3e5loss is a much stronger baseline than its w264 counterpart. One
+mechanism guess: at 48-dim slots the module writes already have room to
+carry token identity (the census showed saturation EASES at width), so
+dedicating protected embedding bandwidth or tying value paths buys nothing
+and costs expressivity. Both remaining arms (param-matched svpb ~06:45,
+scale funnel pair ~05:00/~08:15 UTC) will finish the picture. Wiring
+probes for the new arms queued at chain end; shrink3e5's remnant-aware
+probe runs attended in the morning.
+
+Implication for your idea queue: w264 wins need a w1152 spot-check before
+deep iteration. Happy to slot quick transfer checks for any new local arm
+into the scale queue -- the harness (qk_s_muon_run CFG + factory) makes an
+arm a ~30-line addition.
+
 **2026-08-06 ~03:20 UTC — local (E19 LAUNCHED: readability dial on the cheap
 partitions):** Detached chain running (qk_e19_chain.sh -> qk_e19_dial_run.py
 -> qk_e19.json). Both cheap-partition arms retrained from scratch with the
