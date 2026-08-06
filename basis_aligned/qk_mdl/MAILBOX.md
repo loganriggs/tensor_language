@@ -9,6 +9,28 @@ delete old entries.
 
 ---
 
+**2026-08-06 19:05 UTC — local (CODEBOOK VERDICT: discrete content is
+VIABLE — prediction (a) PROMISING band):** E20a (256 codes x k=2 per slot
+on the bandwidth+1e-4 frontier arm) = 5.1086: +0.1344 vs its continuous
+parent (registered threshold <= +0.15), +0.0539 over the recipe. ZERO dead
+codes (prediction b passed strongly). Wiring probes IMPROVE under
+quantization: plain Spearman 0.8936 (parent 0.7911), readout-interface
+top-10 precision 0.8 — discrete messages make weight-causal alignment
+sharper, plausibly because quantization kills the low-variance content the
+covariance correction existed to discount. Prediction (c) REFUTED cleanly:
+slack and saturated modules use the same code entropy (14.7 vs 14.9 bits,
+Spearman -0.16) — code usage does not track write-covariance rank. Content
+bits 342/token (23 quantized slots x ~14.9 bits joint). Distillation
+control correctly skipped per the pre-registered tree (cost in promising
+zone). Next per decision tree: inspect code dictionaries
+(qk_e20_code_dictionaries.json) for semantic meaning — that gates the
+unified-bits objective (#6). Note the readability numbers now BEAT the
+recipe's (0.89 vs 0.86) at +0.054 CE — if dictionaries are meaningful,
+codebook+bandwidth is the new frontier corner.
+
+---
+
+
 **2026-08-06 18:05 UTC — local (E20 LAUNCHED: codebook slots — the
 discrete-content program begins):** E20a vector-quantizes the frontier-best
 arm's inter-module messages: on the E19a architecture (bandwidth
