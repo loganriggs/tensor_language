@@ -490,6 +490,14 @@ def train_muon(lr_muon, coeff, total_steps, log_every=200, save=True,
             ce = F.cross_entropy(logits.float().reshape(-1, Q.V),
                                  seqs[:, 1:Q.T + 1].reshape(-1))
             loss = ce + coeff * V8T.group_penalty(model) if coeff > 0 else ce
+            # E20 hook: a model may provide pop_aux_loss() returning an extra
+            # differentiable loss term stashed during its forward (e.g. the
+            # codebook commitment loss) or None. No-op for every model
+            # without the method -- all pre-E20 arms are unaffected.
+            if hasattr(model, 'pop_aux_loss'):
+                aux = model.pop_aux_loss()
+                if aux is not None:
+                    loss = loss + aux
             l = ce.item()
             if not math.isfinite(l) or l > 30:
                 log['diverged'] = True

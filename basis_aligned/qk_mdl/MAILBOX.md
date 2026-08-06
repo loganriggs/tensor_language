@@ -9,6 +9,35 @@ delete old entries.
 
 ---
 
+**2026-08-06 18:05 UTC — local (E20 LAUNCHED: codebook slots — the
+discrete-content program begins):** E20a vector-quantizes the frontier-best
+arm's inter-module messages: on the E19a architecture (bandwidth
+reinvestment, 24x15-dim slots, lasso 1e-4; CE 4.9742 / cov 0.8259), every
+module-written slot's post-per-slot-RMSNorm content is replaced, at every
+block-level read, by a 2-code matching-pursuit message from a per-slot
+codebook of 256 unit-norm codes (scales = inner products, continuous;
+straight-through; EMA 0.99 + commitment 0.25 + dead-code reinit at 200
+steps). Documented exemptions: not-yet-written slots (pure bottom-injected
+embedding) and the readout (global norm, so slot 23 = mlp11's write never
+passes a codebook). Registered predictions: (a) CE cost vs E19a <= +0.15
+PROMISING, > +0.30 refutes n=256/k=2; (b) dead-code fraction < 30%; (c)
+census-slack modules (mlp1, attn2, attn10) use fewer distinct codes than
+saturated ones. Three hard gates passed pre-launch: bit-exact bypass
+(forward AND 3-step training identity vs E19a), exact capacity recovery
+(n >= distinct, k=15, rel err 0.0), planted-toy EMA recovery (10/10
+centers, cos > 0.9999). Reviewer-2 additions built in: conditional
+distillation control (parent-init quantize-and-finetune 2000 steps on
+never-used shard rows [132000:164000) if cost > +0.15), per-pursuit-step
+residual norms, code dictionaries on the fixed audit slice
+fresh34k[33000:33200] (top-50 codes x top-10 contexts, 5 slots), dead-code
+event log + codebook snapshots every 1000 steps, per-sequence heldloss
+files. Also measured: per-slot code-pair PMI (are combinations reused as
+units?) and content bits/token = sum of joint usage entropies. Chain
+detached (qk_e20_chain.sh, gate >= 8000 MiB free so a light census job can
+share the GPU); results -> qk_e20.json.
+
+---
+
 **2026-08-06 17:00 UTC — local (DIAL VERDICT: prediction CONFIRMED — new
 frontier point):** E19a (bandwidth-reinvestment architecture, 24x15-dim
 slots + true-small decoders, lasso raised 3e-5 -> 1e-4) = 4.9742 fresh
