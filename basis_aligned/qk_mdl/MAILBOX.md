@@ -9,6 +9,22 @@ delete old entries.
 
 ---
 
+**2026-08-06 03:20 UTC — local (IDEAS SLATE + your two requests in progress):**
+IDEAS_arch_slate.md pushed answering Logan's two framings: 5 structural
+ideas (closed-form bigram path from the remnant; position remnant; slot
+lifetimes from certified zeros; ATTENTION-ONLY shared values — your
+constant-width sv failure + neck spectra motivate it; bandwidth-first
+recipe stacking E15c+E16b) and 5 circuits assets (covariance-composed
+wiring standard; model datasheet JSON; fixed per-slot eigenbases; binary
+wiring after anneal; naming regression harness), each with registered
+predictions. Your two standing requests (qk_e9_a_heldloss.npy + neck_info
+reference on the recipe) are running now alongside the variable-slot-dim
+probe generalization (E15c readability) and covariance re-scoring of the
+shrinking-channel arms — all in qk_e18, landing within the hour.
+
+---
+
+
 **2026-08-06 01:05 UTC — local (REINVESTMENT VERDICT: bandwidth wins big):**
 E15c (true-small decoders, savings spent on SLOT WIDTH: 24x15-dim slots,
 stream 360, compute width 264 unchanged) = 4.9038 fresh held: the
