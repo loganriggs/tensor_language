@@ -1,0 +1,98 @@
+{
+  "controls": {
+    "write_init_redraw_max_diff": 0.0,
+    "write_init_std_class": 0.004082482904638631,
+    "write_init_std_scale": 0.0023570226039551587,
+    "identity_reduction_s48_max_logit_diff": 3.814697265625e-06,
+    "identity_reduction_threshold": 0.0001,
+    "penalty_fast": 10367.798828125,
+    "penalty_naive": 10367.797458963323,
+    "penalty_rel_diff": 1.3205906869492509e-07,
+    "penalty_dispatch_matches": true,
+    "slot": 65,
+    "stream_width": 1560,
+    "compute_width": 1152,
+    "hidden": 4608,
+    "body_params": 284844300,
+    "body_params_effective": 284844300,
+    "body_vs_vanilla_frac": 0.9936372871491108,
+    "vanilla_body": 286668288,
+    "embedding_params": 78400920,
+    "bandwidth_gain_vs_recipe": 1.3541666666666667,
+    "note": "true-small decoders: nominal body == effective body by construction (no masked-away rows)",
+    "all_passed": true
+  },
+  "registered_predictions": {
+    "registered": "before training, this file written first",
+    "w264_basis": {
+      "E19a_bandwidth_1e4": 4.9742,
+      "E19a_cov_spearman": 0.8259,
+      "E15c_bandwidth_3e5": 4.9038,
+      "E15c_cov_spearman": 0.6728,
+      "recipe_E9a": 5.0547,
+      "recipe_cov_spearman": 0.8575,
+      "E19a_minus_recipe": -0.0804
+    },
+    "w1152_controls": {
+      "combo3e5loss_scale": 4.105955,
+      "combo3e5loss_f34k": 4.155002,
+      "combo1e4loss_scale": 4.223603,
+      "combo1e4loss_f34k": 4.272409,
+      "muonvanilla_scale": 3.964506,
+      "muonvanilla_f34k": 4.011635
+    },
+    "primary": "HOLDS if this arm beats its OWN-COEFFICIENT recipe control on scale held CE (bw1e4 < 4.1060 for combo3e5loss is the strong form; bw1e4 < 4.2236 vs combo1e4loss is the coefficient-matched form). FLIPS if it lands above its matched control by more than 0.02, which is beyond the measured w1152 seed noise floor (0.0127) plus the paired seq-clustered SE (~0.0012).",
+    "point_estimate_if_w264_transfers": "full transfer of E19a-minus-recipe (-0.0804) would put bw1e4 at about 4.026 scale held; partial transfer anywhere in (4.026, 4.106) still HOLDS the strong form",
+    "readability": "covariance-composed wiring Spearman >= the recipe control on the SAME probe is the readability-tie condition; the retrain rule (BRAINSTORM_STATE) requires CE better at readability-tie-or-better, at both widths, over 2-3 seeds",
+    "dial_rescaling_caveat": "the measured rule is that the readability point tracks coefficient ~ 1/width (gc3e5@1152 == gc1e4@264 in relative read-mass shrinkage 5.8 vs 8.1 and Spearman 0.76 vs 0.78), so the literal 1e-4 port bites about twice as hard at w1152 as E19a did at w264 -- bw3e5 is the readability-equivalent transfer and a FLIP seen ONLY at 1e-4 must not be read as an architecture verdict",
+    "prior": "all four w264 structural wins flipped sign at w1152 (shared values +0.0711, param-matched sv +0.0550, shrinking channel +0.0633, funnel-sv +0.0715, funnel +0.1097), so the prior favours a FLIP; the mechanism that would make this one differ is that it adds message bandwidth rather than constraining it, and the census showed saturation EASES at 48-dim slots"
+  },
+  "arm_description": {
+    "name": "bandwidth_reinvestment_bw1e4",
+    "architecture": "E15c/E19a bandwidth reinvestment at w1152: true-small decoders + per-slot RMSNorm + Muon, 1560-dim stream of 24 x 65-dim slots, compute width 1152, hidden 4608",
+    "group_coeff": 0.0001,
+    "matched_control": "combo1e4loss",
+    "write_init_std": 0.0023570226039551587,
+    "write_init_note": "scale convention (width-rescaled), NOT the w264 parent hardcoded 0.02/sqrt(24); control (c) shows the re-draw is otherwise bit-exact",
+    "seed": 0,
+    "data_seed": 1234,
+    "data_order": "epoch_order(0)"
+  },
+  "env": {
+    "gpu": "NVIDIA GeForce RTX 5090",
+    "torch": "2.11.0+cu128",
+    "cooc_substitute": true
+  },
+  "data": {
+    "train": "corpus_fresh shards 00..06 concat rows [0:298496], single pass, epoch_order(0)",
+    "n_train": 298496,
+    "steps": 9328,
+    "eff_batch": 32,
+    "held_scale": "shard06 last 1500 rows, first 1500 used",
+    "held_f34k": "fresh34k rows [33000:34500]"
+  },
+  "arm": {
+    "name": "muon_bw1e4",
+    "group_coeff": 0.0001,
+    "prox_coeff": null,
+    "architecture": "slots (W1152)",
+    "optimizer": "muon(2D hidden) + adamw(wte, sub-2D)",
+    "lr_adamw": 0.002,
+    "lr_adamw_source": "qk_s_w1152_gc1e4.json",
+    "penalty_in_loss": true,
+    "write_init_std": 0.0023570226039551587
+  },
+  "lrsweep_muon": {
+    "chosen": 0.02,
+    "ranking": [
+      0.02,
+      0.01
+    ],
+    "note": "no re-sweep: 0.02 interior winner at w264 (qk_e0m, E7) and at w1152 (muonbase sweep); 0.01 as divergence fallback",
+    "lr_adamw": 0.002
+  },
+  "preflight": {
+    "micro": 8,
+    "peak_mib": 17559
+  }
+}

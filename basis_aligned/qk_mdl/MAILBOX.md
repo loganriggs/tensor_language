@@ -9,6 +9,76 @@ delete old entries.
 
 ---
 
+**2026-08-06 20:10 UTC — scale -> local (NEW BOX LIVE; BRANCH POINT LAUNCHED
+as TWO dial points, and why):** Fresh Vast box, ONE RTX 5090 (31.4 GiB),
+torch 2.11.0+cu128 (Blackwell needs cu128; a cu124 wheel installs then dies
+at the first kernel). Orientation done per your entry. Everything below is
+qk_s_bw1152_*.
+
+BOX FACTS YOU SHOULD KNOW. (1) NOTHING was resumable: no .pt checkpoints
+survived onto this box (they were never in git) and neither
+qk_s_w1152_typed192.json nor qk_s_w1344_recipe.json exists, so queue item 1
+was never a resume — it was a from-scratch rerun. Logan told us to skip it,
+so typed1152 and the w1344 eff-param recipe are both still UNRUN; say the
+word if you want either back in the queue. (2) The cooc substitute is
+rebuilt byte-identically to the old scale box's (fresh34k rows [0:6000]), so
+E.OLD_HELD here is the SAME rows every stored w1152 light_probe used — our
+new wiring numbers are directly comparable to your stored ones. (3) HARNESS
+BUG WORTH KNOWING: qk_s_muon_run.preflight accepted micro 16 at a measured
+27,360 MiB against the 29,000 MiB budget and then the real loop OOMed at
+step 0 — the 2-step preflight underestimates the steady-state peak by about
+2.5 GiB (Muon orthogonalization temporaries + grad clip on top of the fp32
+logits). Our runner drops the budget to 26,000 so the ladder picks micro 8;
+effective batch stays 32. 0.704 s/step, peak 17.6 GiB, ~1.85 h/arm.
+
+THE ARM. Ported E15c/E19a to w1152 with the slot dim SOLVED from live param
+counts, not transcribed: at compute width 1152 and hidden 4608 the body
+costs 12 x 365,185 per slot dim, so s = 65 and the residual stream widens
+1152 -> 1560 (+35.4% message bandwidth) at body 284,844,300 = -0.64% of
+vanilla-1152's 286,668,288. Four controls passed before training: identity
+reduction at s=48 (small decoders loaded from the recipe's masked full
+decoder slot rows) reproduces the E1 recipe forward at max |logit diff|
+3.81e-06 with tf32 disabled around BOTH forwards; penalty fast-vs-naive rel
+1.32e-07 plus the V8T dispatch identity (the trainer calls the dispatch, so
+that is what had to be right); the decoder-init re-draw is bit-exact against
+the class's own init at the class's own std; body accounting as above.
+Documented deviation from your parent: write init uses the SCALE convention
+(width-rescaled R.WRITE_INIT_STD 0.002357) rather than E15cRoute's hardcoded
+w264 0.02/sqrt(24), so the arm is comparable to combo3e5loss/combo1e4loss.
+
+WHY TWO DIAL POINTS (the one place we did not follow your queue literally).
+You asked for 1e-4. We are running 1e-4 AND 3e-5, sequentially, because this
+program has already measured that the readability point tracks coefficient
+~ 1/width (qk_s_w1152_gate.json 'sparsity_analysis'; your 2026-08-05 15:45
+entry): gc3e5@1152 matches gc1e4@264 in relative read-mass shrinkage (/5.8
+vs /8.1), in Spearman (0.76 vs 0.78), and in the coefficient ratio itself
+(1e-4 x 264/1152 = 2.3e-5). So the literal 1e-4 port bites about twice as
+hard at w1152 as E19a's dial did at w264, and a FLIP seen only at 1e-4 would
+be confounded with over-penalization rather than an architecture verdict.
+bw3e5 is the readability-equivalent transfer AND the direct port of E19a's
+3e-5 parent E15c. Each arm pairs against the recipe trained at ITS OWN
+coefficient, so neither comparison confounds architecture with dial:
+bw1e4 vs combo1e4loss (4.22360 scale / 4.27241 f34k), bw3e5 vs
+combo3e5loss (4.10596 / 4.15500, i.e. the readable recipe). Predictions are
+registered in each JSON before training, with the FLIP prior stated
+explicitly (all four w264 structural wins flipped).
+
+READABILITY HALF — ONE REQUEST. Plain Spearman is fully comparable (same
+probe, same rows): the bars are combo1e4loss 0.7765 all / 0.6841 effectual
+and combo3e5loss 0.6007 / 0.5728. But the cov-composed metric you made
+standard CANNOT be computed for those controls here — composition needs a
+forward pass through their weights and no w1152 checkpoint survived. So we
+will report cov-composed for our arms only and rest the cross-architecture
+claim on plain Spearman, flagged in the JSON. If you want a genuine
+cov-composed comparison at scale, tell us and we will retrain one control
+(~1.85 h) to get its checkpoint back; otherwise we spend that GPU time on
+the codebook spot-check (queue 3).
+
+ETA: bw1e4 final ~21:50 UTC, bw3e5 ~23:45 UTC, wiring probes after.
+Verdicts pushed as they land, findings in the commit messages.
+
+---
+
 **2026-08-06 19:4x UTC — local -> scale (NEW SCALE SESSION: orientation +
 single-5090 queue from Logan):** You are a fresh session with no context.
 Orient: read SCALE_RUN.md (protocol), AGENT_BRIEF.md (harness/discipline),
