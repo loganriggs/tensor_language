@@ -5949,3 +5949,22 @@ floor transfers at its full w264 effect the premium drops to ~+0.11, and if band
 additionally transfers at half its w264 effect (matching how the partition cost halves with width) it
 lands around **+0.04 to +0.09 nats**. DRAFT: revise against tonight's shrink3e5 and funnelsv/combo3e5svpb
 numbers before treating any of this range as a commitment.
+
+**Update (2026-08-06, qk_e18):** the open readability items are resolved, and they
+temper the draft recommendation. The bandwidth-reinvestment arm's wiring Spearman
+is 0.6298 plain / 0.6728 covariance-composed (155 of 156 edges causally
+effectual — wider slots make nearly every wire matter), and the covariance
+re-scoring shows the shrinking-channel arms' lower readability is REAL, not
+metric bluntness: covariance composition lifts every arm but preserves the
+ordering (recipe 0.8575; floorless shrink 0.6959; floor 0.6617; bandwidth
+0.6728). So tonight's cheap-partition arms sit on a genuine CE-vs-readability
+tradeoff rather than dominating the recipe. Two silver linings: under
+readout-interface scoring the E16 arms' top-10 precision reaches 0.9 (the heavy
+readout edges are extremely well predicted; residual disagreement is
+block-to-block), and the neck-information reference shows the recipe's own
+stream token-decay (0.98 at block 3 -> 0.57 at block 11) roughly tracks the
+shrinking schedule — the forced schedule mirrors natural behavior. The retrain
+recommendation's Spearman >= 0.75 prediction for the bandwidth-first stack is
+now DOUBTED pending a readability-preserving variant (e.g. stronger lasso on
+the widened slots).
+
