@@ -97,7 +97,13 @@ CFG = {'base':  dict(stem='qk_s_w1152_muonbase', coeff=1e-4, prox=None,
        'funnelsv': dict(stem='qk_s_w1152_funnelsv', coeff=3e-5,
                         prox=None, sweep=False),
        'funnel': dict(stem='qk_s_w1152_funnel', coeff=3e-5,
-                      prox=None, sweep=False)}[ARM]
+                      prox=None, sweep=False),
+       # E14c commons at scale (Logan approved): slots shrink to make room
+       # for a shared region all modules write -- exactly param-matched
+       'commons3e5': dict(stem='qk_s_w1152_commons192', coeff=3e-5,
+                          prox=None, sweep=False),
+       'commons96': dict(stem='qk_s_w1152_commons96', coeff=3e-5,
+                         prox=None, sweep=False)}[ARM]
 COEFF = CFG['coeff']
 PROX = CFG['prox']
 STEM = CFG['stem']
@@ -105,7 +111,13 @@ if G.SEED_REP:                    # init-seed replication (QK_S_SEED, set in G)
     STEM += f'_s{G.SEED_REP}'
 JP = os.path.join(OUT_DIR, f'{STEM}.json')
 
-if ARM == 'shrink3e5':
+if ARM == 'commons3e5':
+    import qk_s_e14c_run as C14
+    factory = C14.make_commons192       # 24x40 slots + 192-dim commons
+elif ARM == 'commons96':
+    import qk_s_e14c_run as C14
+    factory = C14.make_commons96        # 24x44 slots + 96-dim commons
+elif ARM == 'shrink3e5':
     import qk_s_e16_run as S16          # guard already neutered via G
     factory = S16.make_shrink1152       # shrinking-channel floor model
 elif ARM == 'combo3e5sv':
