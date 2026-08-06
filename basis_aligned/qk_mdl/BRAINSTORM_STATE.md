@@ -176,3 +176,14 @@ question = does an explicit named match term concentrate the distributed
 component? Not a recipe candidate yet. Full tables qk_e21_census.json.
 This is the successor's first build (E20 codebook verdict may land first —
 read qk_e20.json and apply the decision tree above).
+
+## E20 dictionary gate (2026-08-06): PASSED at token-class grade
+Codes are coherent token/orthography detectors, same grade as the layer-0
+QK atoms: mlp0 codes 180/123/172/248 = comma/'the'/period/'to' (thousands
+of firings each); mlp7 code 120 = digits, 252 = subword continuation
+(Random==>ised). Two distinct period codes in one slot (69 vs 193) = the
+enumerable-superposition case — PMI follow-up. Meaning is token-class-
+grade, not concept-grade (matches the program's content-is-token-shaped
+record). => unified-bits objective (#6) UNGATED. w1152 branch point +
+codebook spot-check running on the new scale box (s=65 solved, +35.4%
+bandwidth, controls incl. tf32-symmetric identity passed).
