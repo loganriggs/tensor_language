@@ -5869,8 +5869,9 @@ partitioned write slots + per-slot RMSNorm + Muon 0.02 + in-loss group-lasso 3e-
    vs 10/24 saturated at 11 dims — consistent with the partition cost halving at width 1152 (+0.234 →
    +0.124).
 5. **Effective-parameter recount** (E15a, qk_e15.json): the masked write projections mean every
-   standard-slotted width-264 arm has effective body 11,046,948 vs nominal 15,057,504 — 4,007,520 body
-   parameters masked away (each c_proj is really 264→11, each Down 1056→11). At the width-sweep exchange
+   standard-slotted width-264 arm has effective body 11,046,948 vs nominal 15,057,504 — about 4.01 million
+   body parameters masked away (the JSON's headline says 4,007,520; its per-arm ledger books 4,010,556 —
+   each c_proj is really 264→11, each Down 1056→11). At the width-sweep exchange
    rate (0.74 nats per 19× params) that is a param deficit of ~0.078 nats, so of E9a's +0.2034 measured
    partition cost only ~0.126 survives accounting adjustment.
 6. **Bandwidth beats hidden capacity at matched effective params** (E15c vs E15b): both arms spend exactly
