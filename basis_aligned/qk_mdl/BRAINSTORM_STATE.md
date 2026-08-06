@@ -164,3 +164,15 @@ triggers stay manual (scheduled harvests), crystallization still viable.
   per-slot scales, predicate weights -> AdamW group. Identifiable wiring's
   unit-Frobenius read groups need re-projection after each Muon step
   (silent-drift bug otherwise).
+
+## E21 census RESOLVED (2026-08-06): branch taken
+Slotted heads are ~all POSITIONAL (recipe 8/72 >0.5, all positional-decay;
+zero token-selective >0.5). Match family EXISTS but weak+distributed:
+3-5 MATCH_prev heads/model at ~9% pattern mass, z~4400, causally confirmed
+(joint beats profile-only >2 SE at 6/8 heads). No KEY-class heads (bilin18
+had 30/162 programmatic). => Predicate-basis arm (#3) proceeds as a
+LOCALIZATION PROBE, library = {signed positional profiles, MATCH_prev};
+question = does an explicit named match term concentrate the distributed
+component? Not a recipe candidate yet. Full tables qk_e21_census.json.
+This is the successor's first build (E20 codebook verdict may land first —
+read qk_e20.json and apply the decision tree above).
