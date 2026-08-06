@@ -5820,3 +5820,131 @@ the model stops being token-anchored. The opposite: it spends its writes maintai
 model rebuilds a more expensive private version of the same prior. Files: qk_window_train.py/_2,
 qk_window_{vanilla,N1,N2,N4,N6}.pt (+ _w768), qk_window_heldloss_*.npy, qk_window_lrsweep.json,
 qk_window_ce.json, qk_window.json.
+
+## §112 Consolidated: the interpretable-architecture batch (2026-08-05/06) (qk_e14.json, qk_e15.json, qk_e16.json, qk_e17.json, qk_e12.json, qk_e9.json, MAILBOX.md)
+
+Everything below is the fresh single-epoch batch-16 protocol at width 264 (8,250 steps, one pass over
+132,000 never-repeated sequences, identical order across arms, held = fresh34k rows [33000:34500], bf16),
+except the funnel family and the width-1152 numbers, which ran on the scale box (same fresh protocol for
+the funnels; scale held for w1152). All deltas are paired with sequence-clustered SEs.
+
+**The width-264 frontier after the batch.** Vanilla (E0a, AdamW) 4.8513. The readable recipe (E9a:
+partitioned write slots + per-slot RMSNorm + Muon 0.02 + in-loss group-lasso 3e-5) 5.0547 = +0.2034 ±
+0.0015 over vanilla. The new arms, all carrying the full readable recipe:
+- **E16a shrinking embedding channel, floorless** (no bottom injection; each block receives a per-block
+  linear token remnant 264 → 264−22i living in exactly the not-yet-written slots, replaced at every block
+  boundary; readout sees pure module outputs): 5.0700 = +0.0153 ± 0.0012 over E9a (+0.2187 ± 0.0015 over
+  vanilla). Extra remnant parameters 383,328.
+- **E16b shrinking channel with a 44-dim floor** (remnant never below 44 dims for consumers 10/11 and the
+  readout; documented overlap with the last four modules' slots): **5.0231 = −0.0315 ± 0.0011 BELOW the
+  readable recipe** (−0.0468 ± 0.0011 below floorless E16a; +0.1719 ± 0.0015 over vanilla) — **the best
+  readable arm at width 264**. Extra remnant parameters 400,752 (~2.7% of body). The floor is what pays:
+  top-1 token recovery from the remnant is 1.0 at block 0, 0.92 at block 7 (110 dims), and holds at ~0.51
+  on the 44-dim floor for blocks 10/11/readout, where the floorless schedule shrinks to nothing.
+- **E15b hidden reinvestment** (true-small decoders — each write projection physically 264→11 instead of
+  masked — with the savings spent on MLP hidden width 1056 → 1676, body param-matched to vanilla at
+  15,057,108 effective): 5.0393 = −0.0154 ± 0.0011 vs E9a (+0.1880 ± 0.0016 over vanilla).
+- **E15c bandwidth reinvestment** (same savings spent on slot width instead: 24 slots × 15 dims, stream
+  360, compute width 264 unchanged): **4.9038 = +0.0525 ± 0.0019 over vanilla** (−0.1509 ± 0.0016 below
+  E9a, −0.1355 ± 0.0015 below E15b) — the partition cost collapses from +0.203 to +0.052 when the message
+  channels widen.
+- E14b variable slot allocation 5.0563 and E14c commons 4.8989 complete the picture (next paragraph).
+
+**The mechanism story — where the partition cost actually lives.** Seven results, one narrative:
+1. **Saturation census** (qk_e14.json): write-covariance effective rank divided by the 11-dim slot, per
+   module, on the E9a checkpoint: 10 of 24 modules saturated (utilization ≥ 0.8), 11 moderate, 3 slack —
+   verdict SATURATION. Concretely: mlp5 0.942, mlp6 0.939, attn3 0.882 are pinned at capacity, while the
+   slack modules are exactly the named rank-2 signals (attn2 0.173, mlp1 0.256, attn10 0.393). The
+   slots-only checkpoint reads the same (9/11/4).
+2. **Allocation is NOT the cost** (E14b): reassigning the same 264 dims as variable slots (sizes 4–15,
+   proportional to measured utilization, min 4) is exactly CE-neutral: 5.0563 = +0.0017 ± 0.0010 vs E9a.
+   A registered null — if uniform-slot rigidity were the cost, this arm had to claw CE back at zero
+   parameter cost, and it clawed back nothing. (Its wiring Spearman actually rose to 0.8279.)
+3. **A superposed commons buys CE at a readability price** (E14c): 24×9 slots plus a shared 48-dim
+   superposed subspace (the 25th lasso group) lands at 4.8989, recovering 0.156 of the 0.203 partition
+   cost (to +0.0477 ± 0.0017 over vanilla) — but wiring Spearman drops to 0.6875 (recipe 0.7711) and
+   commons content is per-consumer readable in strength while unattributable to a single writer.
+4. **Saturation eases with slot width at scale** (MAILBOX 2026-08-05 21:35 UTC): the same census code on
+   the width-1152 recipe twin (48-dim slots) reads 3 saturated / 12 moderate / 9 slack — verdict NEITHER,
+   vs 10/24 saturated at 11 dims — consistent with the partition cost halving at width 1152 (+0.234 →
+   +0.124).
+5. **Effective-parameter recount** (E15a, qk_e15.json): the masked write projections mean every
+   standard-slotted width-264 arm has effective body 11,046,948 vs nominal 15,057,504 — 4,007,520 body
+   parameters masked away (each c_proj is really 264→11, each Down 1056→11). At the width-sweep exchange
+   rate (0.74 nats per 19× params) that is a param deficit of ~0.078 nats, so of E9a's +0.2034 measured
+   partition cost only ~0.126 survives accounting adjustment.
+6. **Bandwidth beats hidden capacity at matched effective params** (E15c vs E15b): both arms spend exactly
+   the recovered parameters; hidden width buys −0.0154, slot width buys −0.1509 (difference −0.1355 ±
+   0.0015). Communication bandwidth, not compute capacity, is what the partition starves. (Side
+   prediction refuted: true-small decoders are SLOWER, 0.1725–0.1759 s/step vs the 0.1317 full-decoder
+   reference — worse GEMM shapes, not fewer flops.)
+7. **Scale's convergent null — addressing recovers nothing** (E12aqk): giving the narrow blocks
+   full-bandwidth q/k reads of the wide stream costs +0.0269 ± 0.0017 over plain narrowing (and Spearman
+   drops to 0.764), while sharing VALUES from the wide block recovers −0.0841. The narrowing cost is
+   message bandwidth, not addressing.
+
+Coherent statement: **the partition cost is mostly (a) an effective-parameter deficit (~0.078 of the
++0.203) and (b) communication bandwidth (what remains collapses when the message channels widen: E15c
++0.0525 at width 264, gate +0.124 at width 1152); it is NOT allocation rigidity (E14b null) and NOT
+addressing (E12aqk null).**
+
+**Wiring-metric upgrade — covariance composition wins, decoder composition does not** (E17, qk_e17.json;
+checkpoint-only diagnostic on qk_e9_a.pt against the stored causal mean-ablation vector; positive control
+reproduced the stored plain table exactly, max relative diff 6.3e-8). Spearman all-pairs / effectual /
+top-10 precision: plain 0.7711 / 0.7504 / 0.5; decoder-composed 0.7697 / 0.7492 / 0.5 (no help — rank
+correlation 0.999 with plain; the trained decoder rows are near-isotropic inside their 11-dim slot);
+**covariance-composed (reader columns × square root of the post-norm slot-content covariance) 0.8575 /
+0.8438 / 0.7**; with the readout rows on the true global-norm interface 0.8607 / 0.8475 / 0.8. Two example
+edges: every late reader of attention-write 2 was over-ranked by plain (block 7 reads attn2 at plain rank
+44 vs causal rank 114; covariance-composed moves it to 86), while mlp-write 1's readers were under-ranked
+(block 10 reads mlp1, causally rank 27 of 156, sat at plain rank 143; covariance-composed lifts it to
+108). One cached 300-sequence forward pass per model; adopt as the reported wiring metric.
+
+**The funnel / shared-values family at scale** (qk_e12.json; run on the scale box at width-264-class
+widths under the same fresh protocol; RESULTS_scale_draft.md §S5). The funnel itself is nearly free: E12L
+(wide-384 detokenization, narrow 286 = 26×11 matching E9a's message bandwidth) 5.0749 = +0.020 vs E9a on
+point estimates. **Shared values win twice, independently**: E12Lv 4.9886 = −0.0863 ± 0.0023 vs E12L
+(beats E9a outright, capacity-confounded at +22% body), and E12b 5.1107 = −0.0841 ± 0.0024 vs the plain
+narrowing arm E12a 5.1948, with the family-best readability (Spearman 0.8965). The sharpest fact:
+**E12b156 (156-dim shared-values stream) 5.2104 sits only +0.0156 ± 0.0018 above E12a's 208-dim plain
+stream at 60% of the body params (5.97M vs 9.99M)**. Narrowing cost is superlinear (156: +0.0997 ± 0.0015;
+104: +0.2491 ± 0.0029, CE 5.3599), and the neck spectra name the bottleneck: **the attention read P_a
+collapses first (effective rank 93 → 52 → 25 across 208 → 156 → 104) while the MLP read P_m stays
+proportionally near-full (193 → 147 → 99)** — attention message bandwidth is what narrowing starves, which
+is exactly what values shared from the wide block re-inject. Wide axis buys diminishingly: E12bw384
+5.0762, E12bw480 5.0562 — matching E9a's point estimate on a 208-dim stream at Spearman 0.9063.
+
+**Open items.** (1) The E15c wiring probe never ran — the probe machinery assumes 11-dim slots and needs
+the variable-slot-dim generalization; the best-CE readable-family arm has unmeasured readability. (2)
+E16a/E16b should be re-scored with the covariance-composed metric before judging their lower plain
+Spearmen (0.6663 / 0.5946). (3) On the scale box tonight: shrink3e5 (E16b at width 1152, 192-dim floor)
+and funnelsv/funnel (wide 1536 → narrow 1118/1092, body within 1.3% of the recipe); the constant-width
+shared-values transfer (combo3e5sv) trended ~+0.06 behind the recipe, so the per-block P_sv variant
+(combo3e5svpb, active params exactly matched) is queued. (4) Standing request: qk_e9_a_heldloss.npy and a
+local neck_info reference run.
+
+### Retrain recommendation (DRAFT — pending tonight's scale runs)
+
+**Recipe: shrinking embedding channel with floor + partitioned write slots with per-slot RMSNorm + Muon
+(embedding on AdamW) + in-loss group-lasso 3e-5 + shared values (pending w1152 confirmation) + slot-width
+bandwidth reinvestment (pending readability check).**
+
+Confirmed at BOTH widths: the partition itself (cost halves at scale: +0.234 at w264 → +0.124 at w1152);
+per-slot RMSNorm (−0.026 → −0.040, the margin grows); Muon (vanilla win −0.094 → −0.1485, and it flips the
+w264 lasso-base loss into a win at w1152); in-loss group-lasso for readability, with the
+coefficient-scales-as-1/width rule (gc3e5 at 1152 ≈ gc1e4 at 264 in relative shrinkage and Spearman). The
+composed recipe at width 1152 (combo3e5loss) = 4.10596 scale held = **+0.1414 ± 0.0016 over Muon vanilla**
+at Spearman 0.60.
+
+Width-264-only so far: the shrinking channel with floor (−0.0315 vs the recipe; the w1152 transfer
+shrink3e5 is running now); bandwidth reinvestment (−0.1509 vs the recipe, biggest single lever, but its
+readability is unmeasured pending the probe generalization); shared values (won twice in the funnel family
+at w264-class widths, but the w1152 constant-width transfer trended +0.06 behind — possibly
+funnel-specific, awaiting combo3e5svpb). Also unmeasured: the floor and the bandwidth reinvestment have
+not been composed even at width 264.
+
+Predicted total premium over Muon vanilla at width 1152: recipe alone is +0.1414; if the shrinking-channel
+floor transfers at its full w264 effect the premium drops to ~+0.11, and if bandwidth reinvestment
+additionally transfers at half its w264 effect (matching how the partition cost halves with width) it
+lands around **+0.04 to +0.09 nats**. DRAFT: revise against tonight's shrink3e5 and funnelsv/combo3e5svpb
+numbers before treating any of this range as a commitment.
