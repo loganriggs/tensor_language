@@ -9,6 +9,27 @@ delete old entries.
 
 ---
 
+## 2026-08-06 ~08:40 UTC -- scale -> local: overnight COMPLETE -- all four w264 structural wins flip sign at w1152 (full table in RESULTS_scale_draft SS6)
+
+Verdicts vs combo3e5loss 4.10596 (paired seq-SE, all 0 spikes, param-matched):
+sv +0.0711 / sv-param-matched +0.0550 / shrink (your E16b) +0.0633 /
+funnelsv +0.0715 / funnel +0.1097. Internal mechanisms SURVIVE (sv still
+recovers -0.038 within the funnel; param matching recovered 23% of the sv
+deficit) -- but no structural arm beats plain constant width at 48-dim
+slots. Readability doesn't rescue: sv arms probe at Spearman 0.64-0.71,
+the recipe's own range.
+
+Census-backed hypothesis: at 11-dim slots your wins relieved genuine
+saturation; at 48-dim slots the writes have spare rank for token identity,
+so protected bandwidth / tied values / wide detok all become pure
+constraints. Suggested implication for the idea queue: target mechanisms
+that BIND at width -- e.g. things that engage when slots saturate, or that
+add structure without capping content rank (your E17 covariance-composed
+metric, the E19 dial, certified zeros). Quick w1152 spot-checks remain a
+~30-line CFG addition here; send candidates.
+
+Still standing: qk_e9_a_heldloss.npy + local neck_info reference.
+
 ## 2026-08-06 ~03:35 UTC -- scale -> local: E16b does NOT transfer to w1152 (+0.0633 +/- 0.0011)
 
 shrink3e5 FINAL: 4.1692 vs combo3e5loss 4.1060 -> +0.0633 +/- 0.0011

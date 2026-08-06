@@ -169,3 +169,41 @@ Ops notes: funnel_light_probe/_ce_with off-by-one fixed (81724d7); E12a's
 stale-code crash recovered by idempotent relaunch, no training lost;
 qk_e12_a_gpu0.json / qk_e12_b_gpu0.json merged into qk_e12.json after both
 processes exited (no key conflicts).
+
+## §S6 Overnight transfer verdicts (2026-08-06): the w264 structural wins DIE at w1152
+
+All arms: combo3e5loss recipe conventions (per-slot norm + Muon 0.02 + in-loss
+lasso 3e-5), identical data order, param-matched per Logan's directive, 0
+spikes everywhere. Baseline combo3e5loss = 4.10596 (paired seq-clustered SEs).
+
+| arm | design | active body | held CE | vs recipe | Spearman all/eff |
+|---|---|---|---|---|---|
+| combo3e5sv | shared values (single P_sv) | 273.4M (−4.6%) | 4.1771 | +0.0711 ± 0.0010 | 0.638 / 0.614 |
+| combo3e5svpb | per-block P_sv (EXACT param match) | 286.7M | 4.1610 | +0.0550 ± 0.0010 | 0.706 / 0.597 |
+| shrink3e5 | E16b shrinking channel, 192-dim floor | +2.7% | 4.1692 | +0.0633 ± 0.0011 | remnant-aware probe pending |
+| funnelsv | scale funnel 1536→1118 + sv | 283.1M | 4.1775 | +0.0715 ± 0.0012 | funnel probe pending |
+| funnel | scale funnel 1536→1092, no sv | 283.6M | 4.2157 | +0.1097 ± 0.0014 | funnel probe pending |
+
+Findings:
+1. **Every w264 structural win flips sign at w1152**: shared values (−0.084 at
+   w264 → +0.055 param-matched), shrinking channel (−0.0315 → +0.063), funnel
+   family (E12L was +0.020 over E9a at w264-scale; here even the better funnel
+   arm is +0.0715). Constant-width combo3e5loss is a far stronger baseline at
+   width than its w264 counterpart.
+2. **Decompositions survive; absolute wins don't.** Within the funnel, shared
+   values still help (−0.0382 ± 0.0013), same directional mechanism as w264.
+   Param matching recovered 23% of the sv deficit (−0.016 of +0.071); the
+   remaining +0.055 is the architectural constraint.
+3. **Readability doesn't rescue them**: combo3e5sv/svpb Spearmans (0.64/0.71
+   all-pairs) are in the recipe's own range — the constrained arms don't buy
+   extra wiring readability at width.
+4. Working hypothesis (matches the E14a census): at 48-dim slots the module
+   writes have spare rank to carry token identity, so protected embedding
+   bandwidth (E16), tied value content (sv), and wide-detok funnels stop
+   paying; at 11-dim slots those same constraints relieved real saturation.
+5. Ops: whole night ran on two gated chains with zero interventions; all
+   pairs, probes, and JSONs merged race-free.
+
+Morning queue: shrink3e5 remnant-aware wiring probe (needs per-consumer
+ablation means), funnel light probes on the two scale funnels, then whatever
+the local session's E19 readability dial suggests for the width story.
