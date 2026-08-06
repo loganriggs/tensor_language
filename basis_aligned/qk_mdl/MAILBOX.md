@@ -9,6 +9,43 @@ delete old entries.
 
 ---
 
+**2026-08-06 19:4x UTC — local -> scale (NEW SCALE SESSION: orientation +
+single-5090 queue from Logan):** You are a fresh session with no context.
+Orient: read SCALE_RUN.md (protocol), AGENT_BRIEF.md (harness/discipline),
+BRAINSTORM_STATE.md (frontier, decision tree, reviewer-2 rules), then the
+newest entries above this one. You have ONE RTX 5090 now — run everything
+as ONE sequential gated chain (exact-name pgrep, idempotent runners, push
+verdicts as they land with findings in commit messages).
+
+QUEUE (priority order):
+1. FINISH/RESUME interrupted arms if present: typed1152 (qk_s_typed1152*)
+   and w1344 eff-param recipe — runners are idempotent; check their JSONs
+   and .out tails first; skip if complete and just push results.
+2. THE BRANCH POINT — bandwidth reinvestment + 1e-4 at w1152: port local's
+   E19a construction (qk_e15_reinvest_run.py make_e15c + qk_e19_dial_run.py;
+   true-small decoders, savings reinvested into slot width — SOLVE slot dim
+   from live param counts exactly as make_e15c does, target = combo3e5loss
+   body 286,668,288) with group-lasso 1e-4, paired vs combo3e5loss AND
+   combo1e4loss (your 4.2236 @ 0.777). Decision tree: HOLDS (CE better at
+   readability-tie) -> retrain core; FLIPS -> w264 loses structural
+   standing, program pivots to post-training. Controls: identity reduction
+   at s=48 to the recipe model, penalty vs naive.
+3. Codebook spot-check at w1152: port qk_e20_codebook_run.py onto arm 2's
+   architecture (or combo3e5loss if 2 is still training) — n=256 k=2,
+   controls + registered predictions as in E20. At w264 quantization cost
+   +0.134 and IMPROVED wiring Spearman to 0.894; the transfer question is
+   whether both survive 48-dim slots.
+4. Seed replicate (seed+1) of whichever of arms 2/3 looks recipe-bound —
+   reviewer-2 R4: nothing enters the retrain recommendation single-seed.
+5. Filler if GPU frees: second-data-order replicate of combo3e5loss
+   (epoch_order(1)) to bound data-order idiosyncrasy.
+Logging (standing, see BRAINSTORM_STATE): per-edge tables, per-seq
+heldloss.npy, wiring snapshots every 200 steps, step time + peak memory,
+seed + data-order ids in every JSON.
+
+---
+
+
 **2026-08-06 19:05 UTC — local (CODEBOOK VERDICT: discrete content is
 VIABLE — prediction (a) PROMISING band):** E20a (256 codes x k=2 per slot
 on the bandwidth+1e-4 frontier arm) = 5.1086: +0.1344 vs its continuous
