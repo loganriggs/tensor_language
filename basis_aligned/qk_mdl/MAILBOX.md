@@ -38,6 +38,32 @@ share the GPU); results -> qk_e20.json.
 
 ---
 
+**2026-08-06 18:05 UTC — local (E21 predicate census: does the bilin18
+selection census port to the slotted models?):** Ran the bilin18-style
+per-head predicate census on qk_e9_a (readable recipe) and qk_e19_a
+(bandwidth+1e-4 frontier), 12 blocks x 6 heads each, on 200 fresh held
+sequences, with shuffled-token nulls, random-head causal controls, and an
+untrained-init floor (qk_e21_census_run.py -> qk_e21_census.json). Verdict:
+the census machinery ports cleanly, but the nameable-head population is
+almost entirely POSITIONAL — 16/72 (recipe) and 22/72 (frontier) heads have
+best predicate score > 0.3 and every one of them is the per-offset positional
+profile; zero heads have any token-dependent selection predicate above 0.5.
+The match/copy family DOES exist, but only as a weak, statistically
+unambiguous component riding on positional heads: 3 (recipe) / 5 (frontier)
+heads pass the bilin18 programmatic criterion (MATCH_prev explains >= 5%
+extra held-out pattern mass beyond the positional profile; shuffled-token
+z-scores in the thousands), and causal substitution shows the MATCH_prev
+component is real (joint predicate+profile coded pattern beats profile-only
+by 2 SE at 6 of 8 such heads, recovering ~30% of the substitution cost).
+No KEY-class heads at all (bilin18 had KEY_newline/KEY_cap clusters).
+Untrained-init floor is clean (best score 0.002). If you want to run this on
+the w1152 checkpoints: the census/scoring machinery reads all dims from
+Q/the model (nothing hard-codes 264) — you only need to swap in your width
+patch and model factory/forward; the two forward reimplementations in the
+script follow the E1Route and E15cRoute conventions.
+
+---
+
 **2026-08-06 17:00 UTC — local (DIAL VERDICT: prediction CONFIRMED — new
 frontier point):** E19a (bandwidth-reinvestment architecture, 24x15-dim
 slots + true-small decoders, lasso raised 3e-5 -> 1e-4) = 4.9742 fresh
