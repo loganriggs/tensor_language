@@ -81,7 +81,12 @@ CFG = {'base':  dict(stem='qk_s_w1152_muonbase', coeff=1e-4, prox=None,
        # tensor P_sv(c_v0(hn0)) for blocks 1..11; unused c_v zeroed) -- does
        # the funnel family's shared-values win transfer to constant width?
        'combo3e5sv': dict(stem='qk_s_w1152_combo3e5sv', coeff=3e-5,
-                          prox=None, sweep=False)}[ARM]
+                          prox=None, sweep=False),
+       # E16 transfer: the local session's best readable arm (E16b beat E9a
+       # -0.0315 at w264) at scale -- shrinking embedding channel with the
+       # 4-slot (192-dim) floor on the combo3e5loss recipe
+       'shrink3e5': dict(stem='qk_s_w1152_shrink3e5', coeff=3e-5,
+                         prox=None, sweep=False)}[ARM]
 COEFF = CFG['coeff']
 PROX = CFG['prox']
 STEM = CFG['stem']
@@ -89,7 +94,10 @@ if G.SEED_REP:                    # init-seed replication (QK_S_SEED, set in G)
     STEM += f'_s{G.SEED_REP}'
 JP = os.path.join(OUT_DIR, f'{STEM}.json')
 
-if ARM == 'combo3e5sv':
+if ARM == 'shrink3e5':
+    import qk_s_e16_run as S16          # guard already neutered via G
+    factory = S16.make_shrink1152       # shrinking-channel floor model
+elif ARM == 'combo3e5sv':
     import qk_s_e1sv_run as SVR         # guard already neutered via G
     factory = SVR.make_e1sv             # shared-values per-slot-norm model
 elif ARM in ('combo', 'combo3e5loss', 'combo1e4loss'):
