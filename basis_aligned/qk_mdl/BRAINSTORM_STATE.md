@@ -138,3 +138,29 @@ cov-composed metric, census, naming pass) — those are width-independent.
 Churn validation: churn tracks named parts -> crystallization proceeds with
 churn triggers. Doesn't -> try subspace-angle drift. Neither -> naming
 triggers stay manual (scheduled harvests), crystallization still viable.
+
+## Component-specific customizations (per queued mechanism)
+- Attention: pattern is a PRODUCT of reads -> quantization noise enters
+  patterns quadratically, values linearly; report pattern-vs-value path
+  degradation separately; fallback = quantize value-carried content only.
+  Patterns can be NEGATIVE (no softmax) -> predicate library must be
+  signed; fit positional predicates post-RoPE.
+- Bilinear MLP: the natural FREE channel in token-cone typing (attention
+  values = the token-cone candidates; MLPs compute). Left/Right reads are
+  degree-2 in content (per-position only).
+- Embedding: EXEMPT from VQ — it already IS a codebook (n=vocab, k=1);
+  VQ = extending that discreteness to module channels. Token-cone
+  (k-sparse form) = embedding as frozen codebook; tied embedding makes
+  that channel exact-logit-readable at every layer.
+- Per-slot RMSNorm CATCH: write-side gain dials are GAUGED AWAY (one
+  writer/slot + reader-side renorm) -> dials are read-side only; idea 13
+  merges into identifiable wiring. Codebook codes unit-norm + learned
+  per-slot scale, else commitment loss fights the norm gauge.
+- Readout: different interface (global pre-readout norm) — score/constrain
+  there at global norm (E17/E18 showed top-10 0.9 at that interface); add
+  per-block CE attribution in E20 (quantization cost may concentrate at
+  the final block feeding the readout).
+- Muon: matrices only. Codebooks (EMA, outside optimizer), edge lambdas,
+  per-slot scales, predicate weights -> AdamW group. Identifiable wiring's
+  unit-Frobenius read groups need re-projection after each Muon step
+  (silent-drift bug otherwise).
