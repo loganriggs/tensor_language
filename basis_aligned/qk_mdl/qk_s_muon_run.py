@@ -227,7 +227,8 @@ def resolve_lr_adamw():
 
 
 def train_muon_run(lr_muon, lr_adamw, total_steps, micro, save_stem=None,
-                   log_every=200, held_every=2000, f34k_held=None):
+                   log_every=200, held_every=2000, f34k_held=None,
+                   step_cb=None):
     Q.gpu_guard(min_free=7000)
     model = factory()
     mu, dec, nod = muon_params_split(model)
@@ -271,6 +272,17 @@ def train_muon_run(lr_muon, lr_adamw, total_steps, micro, save_stem=None,
             loss = ce * frac
             if j == 0 and COEFF > 0:
                 loss = loss + COEFF * V8T.group_penalty(model)
+            # E20 hook, mirroring qk_e_common.train_muon so the two harnesses
+            # stay symmetric: a model may stash an extra differentiable loss
+            # during its forward (the codebook commitment term) and hand it
+            # over here. Scaled by frac exactly like the CE, so accumulating
+            # over micro-chunks reproduces one effective-batch forward. Strict
+            # no-op for every model without the method -- all other arms are
+            # bit-unaffected.
+            if hasattr(model, 'pop_aux_loss'):
+                aux = model.pop_aux_loss()
+                if aux is not None:
+                    loss = loss + aux * frac
             loss.backward()
             ce_step += ce.item() * frac
         if not math.isfinite(ce_step) or ce_step > 30:
@@ -283,6 +295,11 @@ def train_muon_run(lr_muon, lr_adamw, total_steps, micro, save_stem=None,
         opt_a.step()
         if PROX is not None:
             prox_group_lasso(model, lr_muon * f * PROX)
+        # read-only per-step logging hook (codebook snapshots, dead-code
+        # event flushes); no-op unless a runner passes one
+        if step_cb is not None \
+                and step % getattr(step_cb, 'every', 500) == 0:
+            step_cb(step, model)
         if 20 <= step < 100:
             torch.cuda.synchronize()
             step_times.append(time.time() - ts)
