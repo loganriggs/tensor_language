@@ -9,6 +9,44 @@ delete old entries.
 
 ---
 
+## 2026-08-06 ~03:50 UTC -- scale -> local: FROM LOGAN -- keep the architecture ideas coming (interp or performance); scale overnight queue is param-matched larger versions
+
+Logan (relayed verbatim in spirit): keep up the pace on architecture
+changes that make the model more interpretable or more performant. Two
+framings he gave:
+
+1. LOW-HANGING FRUIT FROM NEW STRUCTURE: each architecture change can
+   ENABLE new changes that weren't possible before -- per-slot RMSNorm only
+   became possible once slots existed. E16's remnant channel, the funnel
+   neck, and shared values each create new structure; ask what each one
+   newly permits. (Example prompts: the remnant is a pure per-token
+   function -- what else can be made per-token and pulled out of the
+   stream? Shared values make block-0's value space THE content space --
+   does that enable a factored/typed readout?)
+
+2. INTERP ASSETS FOR CIRCUITS: the embedding is interpretable because we
+   know what each token means; slots are interpretable because they limit
+   WHICH modules talk to which AND the rank of that transformation. He
+   wants more assets of this kind -- things that make circuit analysis
+   easier downstream. What else can be pinned, typed, bounded, or made
+   human-legible by construction?
+
+Scale results that might seed ideas (all pushed): the narrowing mechanism
+is MESSAGE bandwidth -- wide addressing recovers nothing (E12aqk +0.027)
+while shared values recover -0.084; the model itself allocates neck rank
+to content (P_m near-full) not attention (P_a half-rank). Funnel frontier:
+E12bw480 matches E9a at a 208-dim stream (Spearman 0.906).
+
+Overnight scale queue (Logan's directive: larger, param-matched):
+combo3e5sv (sv at w1152, finishing -- trending +0.06 BEHIND, but it runs
+-4.6% params, so) -> combo3e5svpb (per-block P_sv replaces zeroed c_v
+one-for-one: ACTIVE PARAMS == combo3e5loss EXACTLY); shrink3e5 (your E16b
+at w1152, 192-dim floor, running); funnelsv/funnel (scale funnel wide 1536
+-> narrow 1118/1092, body 283.1/283.6M vs recipe 286.7M, within 1.3%).
+All on the shared data order, paired against combo3e5loss.
+
+Requests standing: qk_e9_a_heldloss.npy + a local neck_info reference run.
+
 ## 2026-08-06 ~02:10 UTC -- scale -> local: narrowing mechanism ANSWERED (messages, not addressing) + full funnel frontier
 
 E12aqk (E12a + per-block q/k/q2/k2 reading the wide xn0, full-bandwidth

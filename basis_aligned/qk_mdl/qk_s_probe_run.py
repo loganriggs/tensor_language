@@ -45,6 +45,19 @@ ARMS = [
 ]
 
 
+def _add_night_arms():
+    """Shared-values arms from the overnight queue (import deferred so the
+    original probe chain's imports stay unchanged). shrink3e5 is NOT here:
+    its stream-0 ablation needs the per-consumer remnant mean
+    (qk_e16_shrinkemb_run.e16_light_probe), run attended."""
+    import qk_s_e1sv_run as SVR
+    ARMS.append(('qk_s_w1152_combo3e5sv', SVR.make_e1sv))
+    ARMS.append(('qk_s_w1152_combo3e5svpb', SVR.make_e1svpb))
+
+
+_add_night_arms()
+
+
 def main():
     W2.patch_width(G.WIDTH)
     G.setup_data()                    # width/batch globals; R2.HELD unaffected

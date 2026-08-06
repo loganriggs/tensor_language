@@ -86,7 +86,18 @@ CFG = {'base':  dict(stem='qk_s_w1152_muonbase', coeff=1e-4, prox=None,
        # -0.0315 at w264) at scale -- shrinking embedding channel with the
        # 4-slot (192-dim) floor on the combo3e5loss recipe
        'shrink3e5': dict(stem='qk_s_w1152_shrink3e5', coeff=3e-5,
-                         prox=None, sweep=False)}[ARM]
+                         prox=None, sweep=False),
+       # PARAM-MATCHED shared-source values: 11 per-block P_sv projections
+       # replace the 11 zeroed c_v one-for-one (active body == combo3e5loss
+       # exactly) -- removes combo3e5sv's -4.6% capacity confound
+       'combo3e5svpb': dict(stem='qk_s_w1152_combo3e5svpb', coeff=3e-5,
+                            prox=None, sweep=False),
+       # scale funnel, param-matched: wide 1536 (24x64) -> narrow 1092
+       # (26x42, heads 21x52), body 285.4M vs recipe 286.7M
+       'funnelsv': dict(stem='qk_s_w1152_funnelsv', coeff=3e-5,
+                        prox=None, sweep=False),
+       'funnel': dict(stem='qk_s_w1152_funnel', coeff=3e-5,
+                      prox=None, sweep=False)}[ARM]
 COEFF = CFG['coeff']
 PROX = CFG['prox']
 STEM = CFG['stem']
@@ -100,6 +111,15 @@ if ARM == 'shrink3e5':
 elif ARM == 'combo3e5sv':
     import qk_s_e1sv_run as SVR         # guard already neutered via G
     factory = SVR.make_e1sv             # shared-values per-slot-norm model
+elif ARM == 'combo3e5svpb':
+    import qk_s_e1sv_run as SVR
+    factory = SVR.make_e1svpb           # param-matched per-block projections
+elif ARM == 'funnelsv':
+    import qk_s_funnel1152_run as FS
+    factory = FS.make_funnel_sv         # param-matched scale funnel + sv
+elif ARM == 'funnel':
+    import qk_s_funnel1152_run as FS
+    factory = FS.make_funnel_plain      # scale funnel decomposition control
 elif ARM in ('combo', 'combo3e5loss', 'combo1e4loss'):
     import qk_s_e1_run as E1R           # guard already neutered via G
     factory = E1R.make_e1               # per-slot RMSNorm slots model

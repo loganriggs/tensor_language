@@ -42,6 +42,17 @@ class E1SVRoute(E1R.E1Route):
                 for blk in list(self.h)[1:]:
                     blk.c_v.weight.zero_()
 
+    def _values(self, l, blk, hn):
+        """Value tensor for block l (hook: the per-block-projection variant
+        overrides this). Sequential-forward state via self._v0/_vsh."""
+        if not self.shared_values:
+            return blk.c_v(hn)
+        if l == 0:
+            self._v0 = blk.c_v(hn)
+            self._vsh = self.P_sv(self._v0)
+            return self._v0
+        return self._vsh
+
     def forward(self, idx, collect=None, sub_entry=None, entry_override=None,
                 mlp_sub=None, coef_out=None, attn_sub=None):
         B, Tq = idx.shape
@@ -75,13 +86,7 @@ class E1SVRoute(E1R.E1Route):
 
             q, k = qk(blk.c_q), qk(blk.c_k)
             q2, k2 = qk(blk.c_q2), qk(blk.c_k2)
-            if not self.shared_values or l == 0:
-                v_flat = blk.c_v(hn)
-                if self.shared_values:
-                    v_shared = self.P_sv(v_flat)
-            else:
-                v_flat = v_shared
-            v = v_flat.view(B, Tq, NHm, HDm)
+            v = self._values(l, blk, hn).view(B, Tq, NHm, HDm)
             s1 = torch.einsum('bqhd,bkhd->bhqk', q, k) / HDm
             s2 = torch.einsum('bqhd,bkhd->bhqk', q2, k2) / HDm
             pat = (s1 * s2).masked_fill(~mask, 0.0)
@@ -117,6 +122,40 @@ def make_e1sv():
     C.register('E1SV')
     torch.manual_seed(Q.SEED)
     m = E1SVRoute('E1SV', DEPTH).to(E.DEV)
+    m.norm_groups = E.NGROUP
+    return m
+
+
+class E1SVPBRoute(E1SVRoute):
+    """PARAMETER-MATCHED shared-source values (Logan's apples-to-apples
+    directive): block l >= 1 uses its own projection P_sv_pb[l-1] of block
+    0's value tensor v0. The 11 projections replace the 11 zeroed c_v
+    matrices one-for-one (both Dm x Dm), so ACTIVE body params equal
+    combo3e5loss exactly -- isolating the shared-SOURCE effect from the
+    combo3e5sv arm's -4.6%% capacity confound."""
+
+    def __init__(self, variant, depth):
+        super().__init__(variant, depth)
+        Dm = self.wte.weight.shape[1]
+        del self.P_sv                    # single projection unused here
+        self.P_sv_pb = nn.ModuleList(
+            [nn.Linear(Dm, Dm, bias=False) for _ in range(depth - 1)])
+        with torch.no_grad():
+            for lin in self.P_sv_pb:
+                nn.init.orthogonal_(lin.weight)
+
+    def _values(self, l, blk, hn):
+        if l == 0:
+            self._v0 = blk.c_v(hn)
+            return self._v0
+        return self.P_sv_pb[l - 1](self._v0)
+
+
+def make_e1svpb():
+    from qk_e_common import C, DEPTH
+    C.register('E1SVPB')
+    torch.manual_seed(Q.SEED)
+    m = E1SVPBRoute('E1SVPB', DEPTH).to(E.DEV)
     m.norm_groups = E.NGROUP
     return m
 
