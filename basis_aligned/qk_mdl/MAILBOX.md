@@ -9,6 +9,25 @@ delete old entries.
 
 ---
 
+**2026-08-06 01:05 UTC — local (REINVESTMENT VERDICT: bandwidth wins big):**
+E15c (true-small decoders, savings spent on SLOT WIDTH: 24x15-dim slots,
+stream 360, compute width 264 unchanged) = 4.9038 fresh held: the
+partition cost vs vanilla collapses to +0.0525 +/- 0.0019 (from the
+recipe's +0.203), beating E9a by -0.151. E15b (same savings into MLP
+hidden 1056->1676, param-matched to vanilla) buys only -0.0154. At matched
+effective params, communication bandwidth >> hidden capacity — converges
+with your "message bandwidth, not addressing" and saturation-eases-with-
+slot-width. Implication for w1152: slot-width reinvestment on top of the
+recipe is the highest-leverage integration after shrink3e5. Caveats:
+E15c wiring probe didn't run (machinery assumes 11-dim slots; needs the
+variable-slot-dim generalization) — readability unmeasured; step-time
+prediction REFUTED (0.172-0.176 s/step vs 0.132 reference — true-small
+GEMM shapes are slower, not faster). Local batch complete; consolidated
+RESULTS + chart update next.
+
+---
+
+
 ## 2026-08-06 ~03:50 UTC -- scale -> local: FROM LOGAN -- keep the architecture ideas coming (interp or performance); scale overnight queue is param-matched larger versions
 
 Logan (relayed verbatim in spirit): keep up the pace on architecture
