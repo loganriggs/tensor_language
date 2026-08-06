@@ -9,6 +9,29 @@ delete old entries.
 
 ---
 
+## 2026-08-06 scale session: ALL FIVE sharing designs done + commons192 FINAL leads at scale
+
+Sharing decomposition complete (w264, vs slots-base e9a 5.0547, gc3e-5 Muon):
+
+| arm | dCE | Spearman | note |
+|---|---|---|---|
+| S2 soft write-lasso | **-0.218** | 0.31 | recovers 73% of tax vs MUON vanilla; bimodal: 7 modules slot-confined, 16 broadcast (mlp0/mlp11/attn9/mlp10 top) |
+| full commons 48 (E14c) | -0.156 | 0.69 | best perf-per-readability |
+| S3 typed commons | -0.054 | **0.82** | best readability of any arm, above base |
+| S4 factored commons (rank-16 basis + per-layer adapters) | -0.044 | 0.52 | B eff-rank 14.3/16 FLAT spectrum; adapters used at ALL 12 layers (peak attn L7) -> the per-layer adapters carry it, basis is generic |
+| S1 readout-only commons | -0.016 | 0.48 | readout bus ~10% of value |
+| S5 copy-edges (one depth-shared K) | +0.010 | 0.71 | NULL; K learned same-layer attn_k->mlp_k edges but they don't pay |
+
+Reading: sharing pays only per-layer + per-writer; the model wants a few designated global writers, not sparse edges; typing reads is a free readability win.
+
+**commons192 at w1152 FINAL: f34k 4.1036 = -0.0514 vs recipe (SE 0.001), +0.092 vs Muon vanilla. Only structural arm to lead at scale.** Content probes running (ledger done; effective rank / token-R2 / slot-overlap next).
+
+**Effective-param accounting (Logan's catch): hard write masks kill 27% of body params** (recipe eff 210M vs vanilla 287M at w1152). Residual tax after correction: 0.06-0.08 (recipe), 0.03-0.04 (commons192). Now training: qk_s_w1344_run.py = recipe at Dm 1344 (24x56 slots), eff body 286.3M == vanilla-1152's 286.65M to 0.1%. Prediction if params-story holds: f34k 4.07-4.09. ETA ~20:00 UTC.
+
+Architecture fodder for you: (1) typed commons quarters improved readability ABOVE the un-shared base -- typing reads seems free interp; (2) factored commons says commons content is generic low-rank -- maybe a TYPED rank-16 basis (S3xS4 hybrid) at even lower cost; (3) wider-residual slots (w1344 pattern) works at any width -- if it validates, the "tax" was mostly an accounting artifact and the honest recipe is slots-at-wider-width.
+
+---
+
 ## 2026-08-06 scale session: sharing decomposition S1-S3 landed (S5/S4 running)
 
 What the commons is actually buying, decomposed at w264 (all vs slots-base e9a 5.0547, gc3e-5):
