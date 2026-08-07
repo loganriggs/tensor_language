@@ -1,0 +1,605 @@
+{
+  "period_codes_followup": {
+    "question": "slot 15 (mlp7) period codes 69 vs 193: contextual splitting of one token class (enumerable superposition) or noise duplication?",
+    "audit_slice": "fresh34k[33000:33200] (the fixed audit slice; assignments recomputed from qk_e20_a.pt)",
+    "verdict_rule": "pre-fixed: SPLITTING if any context distribution (preceding token / firing token / position) has TV > 0.10 at permutation z > 4; DUPLICATION if all TV < 0.10 (or z < 2) and codebook cos > 0.9; MIXED otherwise",
+    "codebook_cos_69_193": 0.903,
+    "pair_cooccurrence_69_193_same_token": 0,
+    "separation_tests_label_permutation": {
+      "preceding_token": {
+        "tv": 0.7671,
+        "z": 7.6,
+        "null_mean": 0.6935,
+        "null_sd": 0.00961
+      },
+      "firing_token": {
+        "tv": 0.4126,
+        "z": 21.9
+      },
+      "position_octile": {
+        "tv": 0.0566,
+        "z": 0.6
+      },
+      "sequence_identity": {
+        "tv": 0.3668,
+        "z": 10.1,
+        "per_seq_count_corr": 0.509
+      }
+    },
+    "per_code": {
+      "69": {
+        "n_firings_step1": 1048,
+        "mean_scale1": 3.736,
+        "firing_token_top": [
+          {
+            "tok": "'.'",
+            "count": 773,
+            "frac": 0.738
+          },
+          {
+            "tok": "'\\n'",
+            "count": 37,
+            "frac": 0.035
+          },
+          {
+            "tok": "'!'",
+            "count": 33,
+            "frac": 0.031
+          },
+          {
+            "tok": "'?'",
+            "count": 30,
+            "frac": 0.029
+          },
+          {
+            "tok": "','",
+            "count": 18,
+            "frac": 0.017
+          },
+          {
+            "tok": "').'",
+            "count": 13,
+            "frac": 0.012
+          },
+          {
+            "tok": "'-'",
+            "count": 10,
+            "frac": 0.01
+          },
+          {
+            "tok": "' that'",
+            "count": 8,
+            "frac": 0.008
+          }
+        ],
+        "preceding_token_top": [
+          {
+            "tok": "','",
+            "count": 20,
+            "frac": 0.019
+          },
+          {
+            "tok": "'.'",
+            "count": 15,
+            "frac": 0.014
+          },
+          {
+            "tok": "' it'",
+            "count": 8,
+            "frac": 0.008
+          },
+          {
+            "tok": "'\\n'",
+            "count": 8,
+            "frac": 0.008
+          },
+          {
+            "tok": "' you'",
+            "count": 7,
+            "frac": 0.007
+          },
+          {
+            "tok": "' and'",
+            "count": 6,
+            "frac": 0.006
+          },
+          {
+            "tok": "' experience'",
+            "count": 5,
+            "frac": 0.005
+          },
+          {
+            "tok": "' time'",
+            "count": 5,
+            "frac": 0.005
+          },
+          {
+            "tok": "' home'",
+            "count": 5,
+            "frac": 0.005
+          },
+          {
+            "tok": "' pain'",
+            "count": 5,
+            "frac": 0.005
+          },
+          {
+            "tok": "' them'",
+            "count": 5,
+            "frac": 0.005
+          },
+          {
+            "tok": "':'",
+            "count": 5,
+            "frac": 0.005
+          },
+          {
+            "tok": "' day'",
+            "count": 5,
+            "frac": 0.005
+          },
+          {
+            "tok": "' business'",
+            "count": 4,
+            "frac": 0.004
+          },
+          {
+            "tok": "' more'",
+            "count": 4,
+            "frac": 0.004
+          }
+        ],
+        "position_octile_fracs": [
+          0.104,
+          0.126,
+          0.13,
+          0.122,
+          0.144,
+          0.137,
+          0.109,
+          0.128
+        ],
+        "mean_position": 259.9,
+        "n_distinct_seqs": 171,
+        "top5_seqs_by_count": [
+          [
+            33079,
+            24
+          ],
+          [
+            33198,
+            20
+          ],
+          [
+            33080,
+            19
+          ],
+          [
+            33113,
+            18
+          ],
+          [
+            33083,
+            18
+          ]
+        ],
+        "step2_code_top": [
+          {
+            "code2": 123,
+            "count": 56
+          },
+          {
+            "code2": 104,
+            "count": 47
+          },
+          {
+            "code2": 136,
+            "count": 38
+          },
+          {
+            "code2": 54,
+            "count": 38
+          },
+          {
+            "code2": 128,
+            "count": 26
+          },
+          {
+            "code2": 83,
+            "count": 25
+          },
+          {
+            "code2": 91,
+            "count": 25
+          },
+          {
+            "code2": 101,
+            "count": 24
+          }
+        ],
+        "pmi_slot15_step2": [
+          {
+            "partner": 54,
+            "count": 38,
+            "pmi_bits": 3.273
+          },
+          {
+            "partner": 104,
+            "count": 47,
+            "pmi_bits": 2.834
+          },
+          {
+            "partner": 24,
+            "count": 19,
+            "pmi_bits": 2.639
+          },
+          {
+            "partner": 128,
+            "count": 26,
+            "pmi_bits": 2.52
+          },
+          {
+            "partner": 119,
+            "count": 17,
+            "pmi_bits": 2.441
+          },
+          {
+            "partner": 91,
+            "count": 25,
+            "pmi_bits": 2.372
+          },
+          {
+            "partner": 123,
+            "count": 56,
+            "pmi_bits": 2.341
+          },
+          {
+            "partner": 83,
+            "count": 25,
+            "pmi_bits": 2.107
+          },
+          {
+            "partner": 136,
+            "count": 38,
+            "pmi_bits": 2.098
+          },
+          {
+            "partner": 200,
+            "count": 16,
+            "pmi_bits": 2.037
+          }
+        ],
+        "pmi_mlp0_step1": [
+          {
+            "partner": 172,
+            "count": 757,
+            "pmi_bits": 4.617
+          },
+          {
+            "partner": 133,
+            "count": 77,
+            "pmi_bits": 3.992
+          },
+          {
+            "partner": 139,
+            "count": 22,
+            "pmi_bits": 0.812
+          },
+          {
+            "partner": 134,
+            "count": 18,
+            "pmi_bits": -0.044
+          },
+          {
+            "partner": 191,
+            "count": 15,
+            "pmi_bits": -0.049
+          },
+          {
+            "partner": 180,
+            "count": 18,
+            "pmi_bits": -1.202
+          }
+        ]
+      },
+      "193": {
+        "n_firings_step1": 899,
+        "mean_scale1": 3.693,
+        "firing_token_top": [
+          {
+            "tok": "'.'",
+            "count": 374,
+            "frac": 0.416
+          },
+          {
+            "tok": "'\\n'",
+            "count": 39,
+            "frac": 0.043
+          },
+          {
+            "tok": "'!'",
+            "count": 36,
+            "frac": 0.04
+          },
+          {
+            "tok": "'-'",
+            "count": 24,
+            "frac": 0.027
+          },
+          {
+            "tok": "'?'",
+            "count": 20,
+            "frac": 0.022
+          },
+          {
+            "tok": "' as'",
+            "count": 19,
+            "frac": 0.021
+          },
+          {
+            "tok": "').'",
+            "count": 14,
+            "frac": 0.016
+          },
+          {
+            "tok": "':'",
+            "count": 12,
+            "frac": 0.013
+          }
+        ],
+        "preceding_token_top": [
+          {
+            "tok": "'\\n'",
+            "count": 28,
+            "frac": 0.031
+          },
+          {
+            "tok": "'.'",
+            "count": 25,
+            "frac": 0.028
+          },
+          {
+            "tok": "','",
+            "count": 20,
+            "frac": 0.022
+          },
+          {
+            "tok": "' and'",
+            "count": 12,
+            "frac": 0.013
+          },
+          {
+            "tok": "' to'",
+            "count": 11,
+            "frac": 0.012
+          },
+          {
+            "tok": "'-'",
+            "count": 9,
+            "frac": 0.01
+          },
+          {
+            "tok": "' the'",
+            "count": 9,
+            "frac": 0.01
+          },
+          {
+            "tok": "' for'",
+            "count": 9,
+            "frac": 0.01
+          },
+          {
+            "tok": "' is'",
+            "count": 8,
+            "frac": 0.009
+          },
+          {
+            "tok": "' or'",
+            "count": 8,
+            "frac": 0.009
+          },
+          {
+            "tok": "' of'",
+            "count": 6,
+            "frac": 0.007
+          },
+          {
+            "tok": "'<BOS>'",
+            "count": 6,
+            "frac": 0.007
+          },
+          {
+            "tok": "'\ufffd'",
+            "count": 6,
+            "frac": 0.007
+          },
+          {
+            "tok": "' Website'",
+            "count": 6,
+            "frac": 0.007
+          },
+          {
+            "tok": "'s'",
+            "count": 5,
+            "frac": 0.006
+          }
+        ],
+        "position_octile_fracs": [
+          0.123,
+          0.12,
+          0.128,
+          0.151,
+          0.122,
+          0.126,
+          0.117,
+          0.112
+        ],
+        "mean_position": 249.9,
+        "n_distinct_seqs": 167,
+        "top5_seqs_by_count": [
+          [
+            33080,
+            38
+          ],
+          [
+            33079,
+            38
+          ],
+          [
+            33081,
+            27
+          ],
+          [
+            33187,
+            24
+          ],
+          [
+            33186,
+            24
+          ]
+        ],
+        "step2_code_top": [
+          {
+            "code2": 123,
+            "count": 39
+          },
+          {
+            "code2": 136,
+            "count": 34
+          },
+          {
+            "code2": 231,
+            "count": 29
+          },
+          {
+            "code2": 133,
+            "count": 24
+          },
+          {
+            "code2": 146,
+            "count": 22
+          },
+          {
+            "code2": 200,
+            "count": 22
+          },
+          {
+            "code2": 173,
+            "count": 21
+          },
+          {
+            "code2": 129,
+            "count": 20
+          }
+        ],
+        "pmi_slot15_step2": [
+          {
+            "partner": 200,
+            "count": 22,
+            "pmi_bits": 2.717
+          },
+          {
+            "partner": 173,
+            "count": 21,
+            "pmi_bits": 2.443
+          },
+          {
+            "partner": 231,
+            "count": 29,
+            "pmi_bits": 2.377
+          },
+          {
+            "partner": 136,
+            "count": 34,
+            "pmi_bits": 2.159
+          },
+          {
+            "partner": 123,
+            "count": 39,
+            "pmi_bits": 2.04
+          },
+          {
+            "partner": 91,
+            "count": 15,
+            "pmi_bits": 1.856
+          },
+          {
+            "partner": 116,
+            "count": 15,
+            "pmi_bits": 1.847
+          },
+          {
+            "partner": 4,
+            "count": 19,
+            "pmi_bits": 1.742
+          },
+          {
+            "partner": 146,
+            "count": 22,
+            "pmi_bits": 1.717
+          },
+          {
+            "partner": 159,
+            "count": 16,
+            "pmi_bits": 1.572
+          }
+        ],
+        "pmi_mlp0_step1": [
+          {
+            "partner": 133,
+            "count": 68,
+            "pmi_bits": 4.033
+          },
+          {
+            "partner": 172,
+            "count": 336,
+            "pmi_bits": 3.666
+          },
+          {
+            "partner": 174,
+            "count": 25,
+            "pmi_bits": 2.697
+          },
+          {
+            "partner": 79,
+            "count": 19,
+            "pmi_bits": 2.397
+          },
+          {
+            "partner": 116,
+            "count": 23,
+            "pmi_bits": 2.387
+          },
+          {
+            "partner": 124,
+            "count": 15,
+            "pmi_bits": 1.859
+          },
+          {
+            "partner": 25,
+            "count": 23,
+            "pmi_bits": 0.835
+          },
+          {
+            "partner": 191,
+            "count": 23,
+            "pmi_bits": 0.789
+          },
+          {
+            "partner": 139,
+            "count": 16,
+            "pmi_bits": 0.574
+          },
+          {
+            "partner": 134,
+            "count": 22,
+            "pmi_bits": 0.467
+          }
+        ]
+      }
+    },
+    "device": "cuda",
+    "runtime_s": 3.9,
+    "verdict": "CONTEXTUAL SPLITTING (enumerable superposition): the two period codes occupy systematically different contexts -- separating distributions: preceding_token (TV 0.7671, z 7.6), firing_token (TV 0.4126, z 21.9); codebook cos 0.903"
+  }
+}

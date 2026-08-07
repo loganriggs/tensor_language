@@ -442,9 +442,122 @@ def prox_group_lasso(model, tau):
             Mw.mul_(scale.repeat_interleave(S).to(Mw.dtype)[None, :])
 
 
+# ---------------- wiring-trajectory logging (standing harness upgrade,
+# 2026-08-07; BRAINSTORM_STATE "standing logging requirements") ----------------
+# Every TRAJ_EVERY steps of a saving train_muon run, snapshot into
+# {save_stem}_traj.npz:
+#   (a) the read-group-norm vector over ALL groups (84 read matrices x 24 slot
+#       groups; generic over column width -- E15c-family 360-wide reads work;
+#       a model may provide traj_group_norms() to report EFFECTIVE norms, e.g.
+#       E23's lambda-scaled reads),
+#   (b) per-slot content covariance diagonal + top-2 eigenvalues from the
+#       CURRENT batch (one extra no-grad forward with collect; slot content =
+#       the module write's own slot columns),
+#   (c) per-group optimizer update norms (norm of the realized per-group
+#       parameter delta across opt+prox+post_step -- cheapest exact form).
+# A model may add arrays via traj_extra() -> {name: np.ndarray} (e.g. E23's
+# lambda tables). Read-only w.r.t. training: the extra forward is no-grad, no
+# module has dropout/batchnorm, and nothing touches params or the RNG stream;
+# failures are caught and warned, never fatal. Active only when the run saves
+# (or in SMOKE, to exercise the code path); 3-step identity controls run with
+# save=False and are therefore untouched.
+TRAJ_EVERY = 200
+
+
+def _traj_read_mats(model):
+    """The 84 read-matrix weights in (block, READ_NAMES) order, or None if
+    the model does not follow the family layout."""
+    mats = []
+    for blk in getattr(model, 'h', []):
+        for nm in READ_NAMES:
+            lin = getattr(blk, nm, None)
+            if lin is None or lin.weight.dim() != 2 \
+                    or lin.weight.shape[1] % NGROUP != 0:
+                return None
+            mats.append(lin.weight)
+    return mats if mats else None
+
+
+def _traj_group_norm_rows(mats):
+    rows = []
+    for W in mats:
+        Wf = W.detach().float()
+        S = Wf.shape[1] // NGROUP
+        rows.append(Wf.pow(2).view(Wf.shape[0], NGROUP, S)
+                    .sum((0, 2)).sqrt())
+    return torch.stack(rows)
+
+
+def traj_group_norm_matrix(model):
+    """(84, 24) read-group Frobenius norms; model override wins."""
+    if hasattr(model, 'traj_group_norms'):
+        return model.traj_group_norms()
+    mats = _traj_read_mats(model)
+    return None if mats is None else _traj_group_norm_rows(mats)
+
+
+@torch.no_grad()
+def _traj_slot_cov(model, seqs):
+    """Per-slot content covariance diagonal + top-2 eigenvalues from one
+    batch (slot content = the write's own slot columns)."""
+    col = {'entry_norm': [], 'attn_write': [], 'mlp_write': []}
+    with torch.autocast('cuda', dtype=torch.bfloat16):
+        model(seqs[:, :Q.T], collect=col)
+    writes = []
+    for j in range(len(model.h)):
+        writes.append(col['attn_write'][j])
+        writes.append(col['mlp_write'][j])
+    S = writes[0].shape[-1] // NGROUP
+    diags, tops = [], []
+    for k, w in enumerate(writes):
+        x = w[..., S * k:S * (k + 1)].float().reshape(-1, S)
+        x = x - x.mean(0, keepdim=True)
+        Cv = x.t() @ x / x.shape[0]
+        ev = torch.linalg.eigvalsh(Cv.double())
+        diags.append(torch.diagonal(Cv).cpu())
+        tops.append(ev[-2:].flip(0).float().cpu())
+    return torch.stack(diags), torch.stack(tops)
+
+
+def _traj_record(traj, step, model, seqs, pre, path):
+    traj['step'].append(step)
+    gn = traj_group_norm_matrix(model)
+    traj['read_group_norms'].append(
+        gn.cpu().numpy() if gn is not None else np.zeros((0, NGROUP)))
+    if pre is not None:
+        mats = _traj_read_mats(model)
+        deltas = [m_.detach() - p_ for m_, p_ in zip(mats, pre)]
+        traj['update_group_norms'].append(
+            _traj_group_norm_rows(deltas).cpu().numpy())
+    else:
+        traj['update_group_norms'].append(np.zeros((0, NGROUP)))
+    was_training = model.training
+    model.eval()
+    try:
+        d, t2 = _traj_slot_cov(model, seqs)
+        traj['cov_diag'].append(d.numpy())
+        traj['cov_top2'].append(t2.numpy())
+    finally:
+        if was_training:
+            model.train()
+    if hasattr(model, 'traj_extra'):
+        for nm, arr in model.traj_extra().items():
+            traj.setdefault(f'extra_{nm}', []).append(np.asarray(arr))
+    out = {'step': np.asarray(traj['step'])}
+    for k in traj:
+        if k == 'step':
+            continue
+        try:
+            out[k] = np.stack(traj[k])
+        except ValueError:
+            pass                                  # ragged (arch changed keys)
+    np.savez(path, **out)
+
+
 def train_muon(lr_muon, coeff, total_steps, log_every=200, save=True,
                factory=None, save_stem='qk_e0m', lr_adamw=None,
-               prox_coeff=None, return_model=False, step_cb=None):
+               prox_coeff=None, return_model=False, step_cb=None,
+               post_step=None):
     """train_v8's loop with the Muon/AdamW split (same schedule, data order,
     logging, spike/divergence guards, checkpoint + heldloss conventions).
     NOTE (flagged in the JSONs): the group-lasso penalty stays IN THE LOSS
@@ -470,6 +583,11 @@ def train_muon(lr_muon, coeff, total_steps, log_every=200, save=True,
     log = {'variant': model.variant, 'lr': lr_muon, 'lr_adamw': lr_a,
            'group_coeff': coeff, 'steps': total_steps, 'train_loss': [],
            'held_ce': [], 'spikes': 0, 'diverged': False}
+    do_traj = (save or SMOKE) and save_stem is not None
+    traj = {'step': [], 'read_group_norms': [], 'cov_diag': [],
+            'cov_top2': [], 'update_group_norms': []}
+    traj_path = os.path.join(SMOKE_DIR if SMOKE else QK,
+                             f'{save_stem}_traj.npz')
     step, t0, run = 0, time.time(), None
     model.train()
     done = False
@@ -509,15 +627,35 @@ def train_muon(lr_muon, coeff, total_steps, log_every=200, save=True,
             opt_a.zero_grad(set_to_none=True)
             loss.backward()
             torch.nn.utils.clip_grad_norm_(model.parameters(), Q.GRAD_CLIP)
+            is_traj = do_traj and step % TRAJ_EVERY == 0
+            pre = None
+            if is_traj:
+                try:
+                    mats = _traj_read_mats(model)
+                    pre = [m_.detach().clone() for m_ in mats] \
+                        if mats is not None else None
+                except Exception:
+                    pre = None
             opt_m.step()
             opt_a.step()
             if prox_coeff is not None:
                 # tau follows the SCHEDULED muon lr (warmup+cosine factor f);
                 # the per-matrix aspect-ratio scale is NOT folded into tau.
                 prox_group_lasso(model, lr_muon * f * prox_coeff)
+            if post_step is not None:
+                # e.g. E23's unit-Frobenius re-projection: part of the
+                # optimizer step, runs after opt+prox EVERY step.
+                post_step(step, model)
             if step_cb is not None \
                     and step % getattr(step_cb, 'every', 500) == 0:
                 step_cb(step, model)
+            if is_traj:
+                try:
+                    _traj_record(traj, step, model, seqs, pre, traj_path)
+                except Exception as ex:
+                    print(f"  traj logging failed at step {step}: {ex}",
+                          flush=True)
+                del pre
             run = l if run is None else 0.98 * run + 0.02 * l
             if l > run + 1.0:
                 log['spikes'] += 1

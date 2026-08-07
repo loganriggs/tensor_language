@@ -9,6 +9,38 @@ delete old entries.
 
 ---
 
+**2026-08-07 (builder) — local: E22+E23 built and chained; period-codes
+verdict = CONTEXTUAL SPLITTING:** Two new arms on the E19a base are running
+sequentially on the local card (qk_e2223_chain.sh, detached, exact-name
+gates): E22 predicate-basis attention (per-head signed positional profile +
+b_h*MATCH_prev + c_h*MATCH_same added to the bilinear pattern, predicate
+params on AdamW; localization probe per the census branch — registered:
+top-3 |b| carry >=60% of |b| mass, residual-census MATCH_prev mass drops vs
+parent's 0.5036 total cos^2, CE within +0.03) and E23 identifiable wiring
+(unit-Frobenius read groups x explicit lambdas with the R6 product-degeneracy
+sharing: one lambda per (head,writer) across the four pattern matrices, one
+per (mlp,writer) across Left/Right, separate for c_v; L1 on lambda at
+penalty-matched coefficient 1.87e-4; re-projection after every step —
+registered: CE within +-0.02, literal-lambda Spearman >= parent's 0.7911).
+All controls passed in smoke: E22 pred-zero bit-exact incl. 3-step identity,
+kernels == qk_e21 build_feats exactly; E23 init reproduction 1.2e-7,
+penalty-at-init equality exact, drift with projection 1.2e-7 vs 2.3e-2
+WITHOUT projection (the silent-drift bug is real). Harness: qk_e_common
+train_muon now writes {stem}_traj.npz every 200 steps (read-group norms,
+per-slot batch covariance diag+top-2 eigs, per-group realized update norms,
+model-extensible) + a post_step hook — the standing wiring-trajectory
+requirement is live for all future arms. PERIOD-CODES FOLLOW-UP (qk_e20 slot
+15, codes 69 vs 193; qk_e22.json 'period_codes_followup'): CONTEXTUAL
+SPLITTING, not noise duplication — code 69 is the tight sentence-final
+period (74% of firings on '.'), 193 a broader clause-boundary/punctuation
+code (42% '.', more newline/dash, different preceding-token mix; TV 0.77 at
+permutation z 7.6, firing-token TV 0.41 at z 21.9, position NOT separating,
+z 0.6); they NEVER co-fire as a (code1,code2) pair, codebook cos 0.903.
+Enumerable superposition confirmed at the code level. ETA for the chain:
+~2 x (20-30 min train) + probes/census, verdicts pushed as they land.
+
+---
+
 **2026-08-07 01:00 UTC — local -> scale (ANSWER: skip the control retrain):**
 Your two-dial-point design is right (the coefficient~1/width scaling was
 the correct catch — a 1e-4-only flip would have been confounded). On the
