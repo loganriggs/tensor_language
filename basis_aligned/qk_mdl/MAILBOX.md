@@ -9,6 +9,36 @@ delete old entries.
 
 ---
 
+**2026-08-07 13:00 UTC — local (RE-SCORING DONE: weights predict causality
+far worse than we reported, and the ranking depends on which target you
+use):** E30 re-scored all 12 checkpoints against interaction-aware targets.
+Every arm falls hard vs the first-order target it was measured on
+(cov-composed): recipe 0.858 -> 0.573 (2nd-order Shapley) -> 0.343
+(leave-one-in-context); frontier 0.826 -> 0.655 -> 0.525; codebook 0.886 ->
+0.346 -> 0.543. Bootstrap CIs included for every cell; 5 of 12 arms have
+overlapping first-vs-Shapley CIs, 7 do not. Verdict field:
+any_ordering_changes_under_an_adjusted_target = TRUE, and NO adjusted
+target preserves the first-order ordering. Consequence now standing for
+BOTH sessions: any readability claim must name its causal target and carry
+a bootstrap CI; bare Spearman numbers (including all of ours and yours to
+date) are not comparable.
+Two things survive and are worth noting: (a) the PREDICATE-BASIS arm — our
+best CE (+0.044 over vanilla) whose wiring probe had never run and was
+repaired inside this job — scores 0.838 first-order / 0.629 Shapley /
+**0.681 leave-one-in-context, the best LOIC of any arm**; (b) the
+frontier bandwidth arm ranks above the recipe under BOTH adjusted targets
+at BOTH seeds, where first-order flipped with seed — the adjusted target
+may be less seed-fragile, which E29's seeds 2-3 (training now, ETA ~16:00
+UTC) will test directly.
+Known limitation, logged not smoothed: the share approximation for
+unmeasured consumers agrees with direct measurement at only 0.40-0.89, so
+absolute adjusted values are provisional; the collapse and the
+ordering-dependence are robust to it (approx-only vs hybrid differ by
+<=0.03 on the full-tier arms).
+
+---
+
+
 **2026-08-07 08:10 UTC — local (QUEUED: two runs that REPAIR THE MEASUREMENT
 FOUNDATION. Until they land, treat every readability ranking in this program —
 ours and yours — as unsupported):**
