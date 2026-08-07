@@ -199,3 +199,25 @@ most of +0.134 collapses) and E24 code-to-code transition tables
 determinism measure — the discrete substitutability question, no training).
 Pattern path stays continuous (quadratic sensitivity); hidden-layer
 transcoder codebook and per-head codebooks queued behind.
+
+## Open-problems ranking (2026-08-07, for compute allocation)
+1 Content naming -> now a CATALOGING problem via codebooks (enumerate codes/
+  pairs/dictionaries; LLM auto-labeling) — compute-solvable for enumeration.
+2 Ablation non-composition -> BRUTE-FORCEABLE at w264: ~12K pairwise
+  ablations = exhaustive 2nd-order interaction map, few GPU-h; replaces the
+  first-order causal ground truth. High-priority compute buy.
+3 MLP interior features -> hidden-layer transcoder codebook + capacity
+  frontiers; code-to-code tables identify already-tabular MLPs.
+4 Width transfer -> no predictive rule; NEW modification idea: saturation-
+  gated mechanisms (strength scales with measured utilization — protective
+  when starved, inert when not). Unbuilt.
+5 Metric validity -> agent-based circuit-finding trials on high-vs-low
+  Spearman checkpoints + bootstrap CIs. Pure evaluation compute.
+6 Selection completeness -> predicate mining DSL; E22 residual norms.
+7 Table enumeration -> extract/verify all memorized tables; ~100% with
+  compute for bounded input sets.
+Design rule (TN preservation): learned CONSTANTS fold (gates, lambdas,
+mixture weights); learned FUNCTIONS of the input don't (routing/MoE) — keep
+every new mechanism on the constant side.
+Compute trio to fund first: pairwise-ablation map, metric-validation agent
+trials, code-catalog enumeration.
