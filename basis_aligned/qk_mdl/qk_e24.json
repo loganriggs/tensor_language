@@ -1,0 +1,782 @@
+{
+  "control_planted_and_independent": {
+    "planted": {
+      "n_est_tokens": 18000,
+      "n_audit_tokens": 2000,
+      "n_tuples_est": 30,
+      "n_tuples_qualifying": 30,
+      "H_marginal_bits": 4.7716,
+      "H_conditional_bits": 0.0,
+      "determinism_gain_bits": 4.7716,
+      "relative_gain": 1.0,
+      "frac_qual_tuples_dominant_ge0.9": 1.0,
+      "frac_qual_tokens_dominant_ge0.9": 1.0,
+      "covered_est_mass": 1.0,
+      "audit_coverage_frac": 1.0,
+      "audit_top1_acc_covered": 1.0
+    },
+    "independent": {
+      "n_est_tokens": 18000,
+      "n_audit_tokens": 2000,
+      "n_tuples_est": 30,
+      "n_tuples_qualifying": 30,
+      "H_marginal_bits": 7.989,
+      "H_conditional_bits": 7.6601,
+      "determinism_gain_bits": 0.329,
+      "relative_gain": 0.0412,
+      "frac_qual_tuples_dominant_ge0.9": 0.0,
+      "frac_qual_tokens_dominant_ge0.9": 0.0,
+      "covered_est_mass": 1.0,
+      "audit_coverage_frac": 1.0,
+      "audit_top1_acc_covered": 0.004
+    },
+    "shuffled_planted": {
+      "n_est_tokens": 18000,
+      "n_audit_tokens": 2000,
+      "n_tuples_est": 30,
+      "n_tuples_qualifying": 30,
+      "H_marginal_bits": 4.7716,
+      "H_conditional_bits": 4.7397,
+      "determinism_gain_bits": 0.032,
+      "relative_gain": 0.0067,
+      "frac_qual_tuples_dominant_ge0.9": 0.0,
+      "frac_qual_tokens_dominant_ge0.9": 0.0,
+      "covered_est_mass": 1.0,
+      "audit_coverage_frac": 1.0,
+      "audit_top1_acc_covered": 0.0935
+    },
+    "pass": true
+  },
+  "wiring_table_note": {
+    "definition": "per-module read-group Frobenius norms from the checkpoint weights (attention: c_q/c_k/c_q2/c_k2/c_v slot columns; MLP: Left/Right slot columns) -- the literal wiring table the group-lasso prices",
+    "excluded_modules": {
+      "attn0": "no quantized input slots at its interface",
+      "mlp11": "writes slot 23, never quantized (readout-only exemption)"
+    }
+  },
+  "modules_E24": {
+    "checkpoint": "qk_e20_a.pt",
+    "estimation_rows": "fresh34k[33200:34500] (held, audit-disjoint, never trained on)",
+    "audit_rows": "fresh34k[33000:33200] (the fixed audit slice)",
+    "min_count": 20,
+    "top_input_slots": 4,
+    "input_definition": "concatenated (code1, code2) pairs of the top-4 read-norm slots, same token position; attention modules mix values across positions so this is an incomplete predictor for them by construction (documented caveat)",
+    "per_module": {
+      "attn0": {
+        "excluded": "no quantized input slots at its read interface"
+      },
+      "mlp0": {
+        "n_est_tokens": 665600,
+        "n_audit_tokens": 102400,
+        "n_tuples_est": 56436,
+        "n_tuples_qualifying": 9949,
+        "H_marginal_bits": 13.3266,
+        "H_conditional_bits": 3.911,
+        "determinism_gain_bits": 9.4155,
+        "relative_gain": 0.7065,
+        "frac_qual_tuples_dominant_ge0.9": 0.0039,
+        "frac_qual_tokens_dominant_ge0.9": 0.0049,
+        "covered_est_mass": 0.4294,
+        "audit_coverage_frac": 0.3744,
+        "audit_top1_acc_covered": 0.1544,
+        "out_slot": 1,
+        "in_slots": [
+          0
+        ],
+        "in_slot_read_norms": {
+          "0": 3.993
+        },
+        "null_shuffled_gain_bits": 8.4235,
+        "null_shuffled_relative_gain": 0.6321,
+        "gain_minus_null_bits": 0.992
+      },
+      "attn1": {
+        "n_est_tokens": 665600,
+        "n_audit_tokens": 102400,
+        "n_tuples_est": 523453,
+        "n_tuples_qualifying": 500,
+        "H_marginal_bits": 15.3368,
+        "H_conditional_bits": 4.4937,
+        "determinism_gain_bits": 10.8431,
+        "relative_gain": 0.707,
+        "frac_qual_tuples_dominant_ge0.9": 0.01,
+        "frac_qual_tokens_dominant_ge0.9": 0.0094,
+        "covered_est_mass": 0.0218,
+        "audit_coverage_frac": 0.014,
+        "audit_top1_acc_covered": 0.0531,
+        "out_slot": 2,
+        "in_slots": [
+          0,
+          1
+        ],
+        "in_slot_read_norms": {
+          "0": 5.139,
+          "1": 4.53
+        },
+        "null_shuffled_gain_bits": 10.3751,
+        "null_shuffled_relative_gain": 0.6765,
+        "gain_minus_null_bits": 0.468
+      },
+      "mlp1": {
+        "n_est_tokens": 665600,
+        "n_audit_tokens": 102400,
+        "n_tuples_est": 658669,
+        "n_tuples_qualifying": 7,
+        "H_marginal_bits": 14.7191,
+        "H_conditional_bits": 0.0,
+        "determinism_gain_bits": 14.7191,
+        "relative_gain": 1.0,
+        "frac_qual_tuples_dominant_ge0.9": 1.0,
+        "frac_qual_tokens_dominant_ge0.9": 1.0,
+        "covered_est_mass": 0.0004,
+        "audit_coverage_frac": 0.0004,
+        "audit_top1_acc_covered": 1.0,
+        "out_slot": 3,
+        "in_slots": [
+          0,
+          1,
+          2
+        ],
+        "in_slot_read_norms": {
+          "0": 6.992,
+          "1": 3.288,
+          "2": 6.447
+        },
+        "null_shuffled_gain_bits": 9.4125,
+        "null_shuffled_relative_gain": 0.6395,
+        "gain_minus_null_bits": 5.3066
+      },
+      "attn2": {
+        "n_est_tokens": 665600,
+        "n_audit_tokens": 102400,
+        "n_tuples_est": 659780,
+        "n_tuples_qualifying": 7,
+        "H_marginal_bits": 14.2064,
+        "H_conditional_bits": 0.0,
+        "determinism_gain_bits": 14.2064,
+        "relative_gain": 1.0,
+        "frac_qual_tuples_dominant_ge0.9": 1.0,
+        "frac_qual_tokens_dominant_ge0.9": 1.0,
+        "covered_est_mass": 0.0004,
+        "audit_coverage_frac": 0.0004,
+        "audit_top1_acc_covered": 1.0,
+        "out_slot": 4,
+        "in_slots": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "in_slot_read_norms": {
+          "0": 5.398,
+          "1": 4.041,
+          "2": 4.904,
+          "3": 6.392
+        },
+        "null_shuffled_gain_bits": 8.8998,
+        "null_shuffled_relative_gain": 0.6265,
+        "gain_minus_null_bits": 5.3066
+      },
+      "mlp2": {
+        "n_est_tokens": 665600,
+        "n_audit_tokens": 102400,
+        "n_tuples_est": 664190,
+        "n_tuples_qualifying": 7,
+        "H_marginal_bits": 14.7798,
+        "H_conditional_bits": 0.0,
+        "determinism_gain_bits": 14.7798,
+        "relative_gain": 1.0,
+        "frac_qual_tuples_dominant_ge0.9": 1.0,
+        "frac_qual_tokens_dominant_ge0.9": 1.0,
+        "covered_est_mass": 0.0004,
+        "audit_coverage_frac": 0.0004,
+        "audit_top1_acc_covered": 1.0,
+        "out_slot": 5,
+        "in_slots": [
+          0,
+          2,
+          3,
+          4
+        ],
+        "in_slot_read_norms": {
+          "0": 3.068,
+          "2": 3.257,
+          "3": 2.588,
+          "4": 3.56
+        },
+        "null_shuffled_gain_bits": 9.4811,
+        "null_shuffled_relative_gain": 0.6415,
+        "gain_minus_null_bits": 5.2987
+      },
+      "attn3": {
+        "n_est_tokens": 665600,
+        "n_audit_tokens": 102400,
+        "n_tuples_est": 664190,
+        "n_tuples_qualifying": 7,
+        "H_marginal_bits": 14.8839,
+        "H_conditional_bits": 0.0,
+        "determinism_gain_bits": 14.8839,
+        "relative_gain": 1.0,
+        "frac_qual_tuples_dominant_ge0.9": 1.0,
+        "frac_qual_tokens_dominant_ge0.9": 1.0,
+        "covered_est_mass": 0.0004,
+        "audit_coverage_frac": 0.0004,
+        "audit_top1_acc_covered": 1.0,
+        "out_slot": 6,
+        "in_slots": [
+          0,
+          2,
+          3,
+          4
+        ],
+        "in_slot_read_norms": {
+          "0": 4.104,
+          "2": 3.789,
+          "3": 1.976,
+          "4": 5.328
+        },
+        "null_shuffled_gain_bits": 9.5773,
+        "null_shuffled_relative_gain": 0.6435,
+        "gain_minus_null_bits": 5.3066
+      },
+      "mlp3": {
+        "n_est_tokens": 665600,
+        "n_audit_tokens": 102400,
+        "n_tuples_est": 664190,
+        "n_tuples_qualifying": 7,
+        "H_marginal_bits": 14.886,
+        "H_conditional_bits": 0.0,
+        "determinism_gain_bits": 14.886,
+        "relative_gain": 1.0,
+        "frac_qual_tuples_dominant_ge0.9": 1.0,
+        "frac_qual_tokens_dominant_ge0.9": 1.0,
+        "covered_est_mass": 0.0004,
+        "audit_coverage_frac": 0.0004,
+        "audit_top1_acc_covered": 1.0,
+        "out_slot": 7,
+        "in_slots": [
+          0,
+          2,
+          3,
+          4
+        ],
+        "in_slot_read_norms": {
+          "0": 3.848,
+          "2": 4.04,
+          "3": 2.936,
+          "4": 3.992
+        },
+        "null_shuffled_gain_bits": 9.5794,
+        "null_shuffled_relative_gain": 0.6435,
+        "gain_minus_null_bits": 5.3066
+      },
+      "attn4": {
+        "n_est_tokens": 665600,
+        "n_audit_tokens": 102400,
+        "n_tuples_est": 664190,
+        "n_tuples_qualifying": 7,
+        "H_marginal_bits": 15.3579,
+        "H_conditional_bits": 0.0,
+        "determinism_gain_bits": 15.3579,
+        "relative_gain": 1.0,
+        "frac_qual_tuples_dominant_ge0.9": 1.0,
+        "frac_qual_tokens_dominant_ge0.9": 1.0,
+        "covered_est_mass": 0.0004,
+        "audit_coverage_frac": 0.0004,
+        "audit_top1_acc_covered": 1.0,
+        "out_slot": 8,
+        "in_slots": [
+          0,
+          2,
+          3,
+          4
+        ],
+        "in_slot_read_norms": {
+          "0": 6.3,
+          "2": 5.61,
+          "3": 3.565,
+          "4": 6.444
+        },
+        "null_shuffled_gain_bits": 10.0593,
+        "null_shuffled_relative_gain": 0.655,
+        "gain_minus_null_bits": 5.2986
+      },
+      "mlp4": {
+        "n_est_tokens": 665600,
+        "n_audit_tokens": 102400,
+        "n_tuples_est": 664785,
+        "n_tuples_qualifying": 7,
+        "H_marginal_bits": 14.6564,
+        "H_conditional_bits": 0.0,
+        "determinism_gain_bits": 14.6564,
+        "relative_gain": 1.0,
+        "frac_qual_tuples_dominant_ge0.9": 1.0,
+        "frac_qual_tokens_dominant_ge0.9": 1.0,
+        "covered_est_mass": 0.0004,
+        "audit_coverage_frac": 0.0004,
+        "audit_top1_acc_covered": 1.0,
+        "out_slot": 9,
+        "in_slots": [
+          0,
+          2,
+          4,
+          8
+        ],
+        "in_slot_read_norms": {
+          "0": 2.232,
+          "2": 2.234,
+          "4": 2.167,
+          "8": 3.189
+        },
+        "null_shuffled_gain_bits": 9.3497,
+        "null_shuffled_relative_gain": 0.6379,
+        "gain_minus_null_bits": 5.3067
+      },
+      "attn5": {
+        "n_est_tokens": 665600,
+        "n_audit_tokens": 102400,
+        "n_tuples_est": 664340,
+        "n_tuples_qualifying": 7,
+        "H_marginal_bits": 15.2264,
+        "H_conditional_bits": 0.0,
+        "determinism_gain_bits": 15.2264,
+        "relative_gain": 1.0,
+        "frac_qual_tuples_dominant_ge0.9": 1.0,
+        "frac_qual_tokens_dominant_ge0.9": 1.0,
+        "covered_est_mass": 0.0004,
+        "audit_coverage_frac": 0.0004,
+        "audit_top1_acc_covered": 1.0,
+        "out_slot": 10,
+        "in_slots": [
+          0,
+          3,
+          4,
+          8
+        ],
+        "in_slot_read_norms": {
+          "0": 3.605,
+          "3": 3.324,
+          "4": 4.747,
+          "8": 3.044
+        },
+        "null_shuffled_gain_bits": 9.9198,
+        "null_shuffled_relative_gain": 0.6515,
+        "gain_minus_null_bits": 5.3066
+      },
+      "mlp5": {
+        "n_est_tokens": 665600,
+        "n_audit_tokens": 102400,
+        "n_tuples_est": 664744,
+        "n_tuples_qualifying": 7,
+        "H_marginal_bits": 14.6992,
+        "H_conditional_bits": 0.0,
+        "determinism_gain_bits": 14.6992,
+        "relative_gain": 1.0,
+        "frac_qual_tuples_dominant_ge0.9": 1.0,
+        "frac_qual_tokens_dominant_ge0.9": 1.0,
+        "covered_est_mass": 0.0004,
+        "audit_coverage_frac": 0.0004,
+        "audit_top1_acc_covered": 1.0,
+        "out_slot": 11,
+        "in_slots": [
+          0,
+          4,
+          8,
+          10
+        ],
+        "in_slot_read_norms": {
+          "0": 4.938,
+          "4": 6.149,
+          "8": 6.596,
+          "10": 5.902
+        },
+        "null_shuffled_gain_bits": 9.3926,
+        "null_shuffled_relative_gain": 0.639,
+        "gain_minus_null_bits": 5.3066
+      },
+      "attn6": {
+        "n_est_tokens": 665600,
+        "n_audit_tokens": 102400,
+        "n_tuples_est": 664792,
+        "n_tuples_qualifying": 7,
+        "H_marginal_bits": 14.582,
+        "H_conditional_bits": 0.0,
+        "determinism_gain_bits": 14.582,
+        "relative_gain": 1.0,
+        "frac_qual_tuples_dominant_ge0.9": 1.0,
+        "frac_qual_tokens_dominant_ge0.9": 1.0,
+        "covered_est_mass": 0.0004,
+        "audit_coverage_frac": 0.0004,
+        "audit_top1_acc_covered": 1.0,
+        "out_slot": 12,
+        "in_slots": [
+          0,
+          2,
+          4,
+          10
+        ],
+        "in_slot_read_norms": {
+          "0": 4.141,
+          "2": 3.861,
+          "4": 4.726,
+          "10": 2.241
+        },
+        "null_shuffled_gain_bits": 9.2833,
+        "null_shuffled_relative_gain": 0.6366,
+        "gain_minus_null_bits": 5.2987
+      },
+      "mlp6": {
+        "n_est_tokens": 665600,
+        "n_audit_tokens": 102400,
+        "n_tuples_est": 664597,
+        "n_tuples_qualifying": 7,
+        "H_marginal_bits": 14.6277,
+        "H_conditional_bits": 0.0,
+        "determinism_gain_bits": 14.6277,
+        "relative_gain": 1.0,
+        "frac_qual_tuples_dominant_ge0.9": 1.0,
+        "frac_qual_tokens_dominant_ge0.9": 1.0,
+        "covered_est_mass": 0.0004,
+        "audit_coverage_frac": 0.0004,
+        "audit_top1_acc_covered": 1.0,
+        "out_slot": 13,
+        "in_slots": [
+          3,
+          4,
+          8,
+          10
+        ],
+        "in_slot_read_norms": {
+          "3": 2.337,
+          "4": 2.37,
+          "8": 3.09,
+          "10": 3.365
+        },
+        "null_shuffled_gain_bits": 9.3211,
+        "null_shuffled_relative_gain": 0.6372,
+        "gain_minus_null_bits": 5.3066
+      },
+      "attn7": {
+        "n_est_tokens": 665600,
+        "n_audit_tokens": 102400,
+        "n_tuples_est": 664792,
+        "n_tuples_qualifying": 7,
+        "H_marginal_bits": 15.0084,
+        "H_conditional_bits": 0.0,
+        "determinism_gain_bits": 15.0084,
+        "relative_gain": 1.0,
+        "frac_qual_tuples_dominant_ge0.9": 1.0,
+        "frac_qual_tokens_dominant_ge0.9": 1.0,
+        "covered_est_mass": 0.0004,
+        "audit_coverage_frac": 0.0004,
+        "audit_top1_acc_covered": 1.0,
+        "out_slot": 14,
+        "in_slots": [
+          0,
+          2,
+          4,
+          10
+        ],
+        "in_slot_read_norms": {
+          "0": 4.054,
+          "2": 3.875,
+          "4": 5.175,
+          "10": 1.806
+        },
+        "null_shuffled_gain_bits": 9.7018,
+        "null_shuffled_relative_gain": 0.6464,
+        "gain_minus_null_bits": 5.3066
+      },
+      "mlp7": {
+        "n_est_tokens": 665600,
+        "n_audit_tokens": 102400,
+        "n_tuples_est": 664494,
+        "n_tuples_qualifying": 7,
+        "H_marginal_bits": 14.818,
+        "H_conditional_bits": 0.0,
+        "determinism_gain_bits": 14.818,
+        "relative_gain": 1.0,
+        "frac_qual_tuples_dominant_ge0.9": 1.0,
+        "frac_qual_tokens_dominant_ge0.9": 1.0,
+        "covered_est_mass": 0.0004,
+        "audit_coverage_frac": 0.0004,
+        "audit_top1_acc_covered": 1.0,
+        "out_slot": 15,
+        "in_slots": [
+          8,
+          10,
+          11,
+          14
+        ],
+        "in_slot_read_norms": {
+          "8": 1.047,
+          "10": 0.916,
+          "11": 0.863,
+          "14": 0.869
+        },
+        "null_shuffled_gain_bits": 9.5193,
+        "null_shuffled_relative_gain": 0.6424,
+        "gain_minus_null_bits": 5.2987
+      },
+      "attn8": {
+        "n_est_tokens": 665600,
+        "n_audit_tokens": 102400,
+        "n_tuples_est": 664123,
+        "n_tuples_qualifying": 7,
+        "H_marginal_bits": 15.1267,
+        "H_conditional_bits": 0.0,
+        "determinism_gain_bits": 15.1267,
+        "relative_gain": 1.0,
+        "frac_qual_tuples_dominant_ge0.9": 1.0,
+        "frac_qual_tokens_dominant_ge0.9": 1.0,
+        "covered_est_mass": 0.0004,
+        "audit_coverage_frac": 0.0004,
+        "audit_top1_acc_covered": 1.0,
+        "out_slot": 16,
+        "in_slots": [
+          0,
+          1,
+          2,
+          4
+        ],
+        "in_slot_read_norms": {
+          "0": 4.395,
+          "1": 1.96,
+          "2": 4.273,
+          "4": 5.122
+        },
+        "null_shuffled_gain_bits": 9.82,
+        "null_shuffled_relative_gain": 0.6492,
+        "gain_minus_null_bits": 5.3067
+      },
+      "mlp8": {
+        "n_est_tokens": 665600,
+        "n_audit_tokens": 102400,
+        "n_tuples_est": 664494,
+        "n_tuples_qualifying": 7,
+        "H_marginal_bits": 14.8601,
+        "H_conditional_bits": 0.0,
+        "determinism_gain_bits": 14.8601,
+        "relative_gain": 1.0,
+        "frac_qual_tuples_dominant_ge0.9": 1.0,
+        "frac_qual_tokens_dominant_ge0.9": 1.0,
+        "covered_est_mass": 0.0004,
+        "audit_coverage_frac": 0.0004,
+        "audit_top1_acc_covered": 1.0,
+        "out_slot": 17,
+        "in_slots": [
+          8,
+          10,
+          11,
+          14
+        ],
+        "in_slot_read_norms": {
+          "8": 1.019,
+          "10": 1.079,
+          "11": 0.891,
+          "14": 0.92
+        },
+        "null_shuffled_gain_bits": 9.5535,
+        "null_shuffled_relative_gain": 0.6429,
+        "gain_minus_null_bits": 5.3066
+      },
+      "attn9": {
+        "n_est_tokens": 665600,
+        "n_audit_tokens": 102400,
+        "n_tuples_est": 664792,
+        "n_tuples_qualifying": 7,
+        "H_marginal_bits": 15.1542,
+        "H_conditional_bits": 0.0,
+        "determinism_gain_bits": 15.1542,
+        "relative_gain": 1.0,
+        "frac_qual_tuples_dominant_ge0.9": 1.0,
+        "frac_qual_tokens_dominant_ge0.9": 1.0,
+        "covered_est_mass": 0.0004,
+        "audit_coverage_frac": 0.0004,
+        "audit_top1_acc_covered": 1.0,
+        "out_slot": 18,
+        "in_slots": [
+          0,
+          2,
+          4,
+          10
+        ],
+        "in_slot_read_norms": {
+          "0": 4.961,
+          "2": 4.667,
+          "4": 5.268,
+          "10": 4.238
+        },
+        "null_shuffled_gain_bits": 9.8475,
+        "null_shuffled_relative_gain": 0.6498,
+        "gain_minus_null_bits": 5.3067
+      },
+      "mlp9": {
+        "n_est_tokens": 665600,
+        "n_audit_tokens": 102400,
+        "n_tuples_est": 664560,
+        "n_tuples_qualifying": 7,
+        "H_marginal_bits": 14.9004,
+        "H_conditional_bits": 0.0,
+        "determinism_gain_bits": 14.9004,
+        "relative_gain": 1.0,
+        "frac_qual_tuples_dominant_ge0.9": 1.0,
+        "frac_qual_tokens_dominant_ge0.9": 1.0,
+        "covered_est_mass": 0.0004,
+        "audit_coverage_frac": 0.0004,
+        "audit_top1_acc_covered": 1.0,
+        "out_slot": 19,
+        "in_slots": [
+          8,
+          10,
+          11,
+          18
+        ],
+        "in_slot_read_norms": {
+          "8": 1.777,
+          "10": 1.577,
+          "11": 1.437,
+          "18": 1.706
+        },
+        "null_shuffled_gain_bits": 9.5937,
+        "null_shuffled_relative_gain": 0.6439,
+        "gain_minus_null_bits": 5.3067
+      },
+      "attn10": {
+        "n_est_tokens": 665600,
+        "n_audit_tokens": 102400,
+        "n_tuples_est": 664792,
+        "n_tuples_qualifying": 7,
+        "H_marginal_bits": 15.2336,
+        "H_conditional_bits": 0.0,
+        "determinism_gain_bits": 15.2336,
+        "relative_gain": 1.0,
+        "frac_qual_tuples_dominant_ge0.9": 1.0,
+        "frac_qual_tokens_dominant_ge0.9": 1.0,
+        "covered_est_mass": 0.0004,
+        "audit_coverage_frac": 0.0004,
+        "audit_top1_acc_covered": 1.0,
+        "out_slot": 20,
+        "in_slots": [
+          0,
+          2,
+          4,
+          10
+        ],
+        "in_slot_read_norms": {
+          "0": 4.147,
+          "2": 3.916,
+          "4": 4.541,
+          "10": 2.256
+        },
+        "null_shuffled_gain_bits": 9.927,
+        "null_shuffled_relative_gain": 0.6516,
+        "gain_minus_null_bits": 5.3066
+      },
+      "mlp10": {
+        "n_est_tokens": 665600,
+        "n_audit_tokens": 102400,
+        "n_tuples_est": 664183,
+        "n_tuples_qualifying": 8,
+        "H_marginal_bits": 14.9231,
+        "H_conditional_bits": 0.1954,
+        "determinism_gain_bits": 14.7277,
+        "relative_gain": 0.9869,
+        "frac_qual_tuples_dominant_ge0.9": 0.875,
+        "frac_qual_tokens_dominant_ge0.9": 0.9265,
+        "covered_est_mass": 0.0004,
+        "audit_coverage_frac": 0.0004,
+        "audit_top1_acc_covered": 1.0,
+        "out_slot": 21,
+        "in_slots": [
+          8,
+          11,
+          14,
+          18
+        ],
+        "in_slot_read_norms": {
+          "8": 1.136,
+          "11": 1.133,
+          "14": 1.092,
+          "18": 1.21
+        },
+        "null_shuffled_gain_bits": 9.6889,
+        "null_shuffled_relative_gain": 0.6493,
+        "gain_minus_null_bits": 5.0388
+      },
+      "attn11": {
+        "n_est_tokens": 665600,
+        "n_audit_tokens": 102400,
+        "n_tuples_est": 664310,
+        "n_tuples_qualifying": 7,
+        "H_marginal_bits": 14.832,
+        "H_conditional_bits": 0.0,
+        "determinism_gain_bits": 14.832,
+        "relative_gain": 1.0,
+        "frac_qual_tuples_dominant_ge0.9": 1.0,
+        "frac_qual_tokens_dominant_ge0.9": 1.0,
+        "covered_est_mass": 0.0004,
+        "audit_coverage_frac": 0.0004,
+        "audit_top1_acc_covered": 1.0,
+        "out_slot": 22,
+        "in_slots": [
+          4,
+          6,
+          8,
+          18
+        ],
+        "in_slot_read_norms": {
+          "4": 1.468,
+          "6": 1.098,
+          "8": 1.067,
+          "18": 1.433
+        },
+        "null_shuffled_gain_bits": 9.5333,
+        "null_shuffled_relative_gain": 0.6428,
+        "gain_minus_null_bits": 5.2987
+      },
+      "mlp11": {
+        "excluded": "output slot 23 is never quantized (readout-only, documented E20 exemption)"
+      }
+    }
+  },
+  "top_deterministic_modules": {
+    "ranking": "relative determinism gain minus its shuffled null, preferring modules with covered estimation mass >= 0.2",
+    "code_names_source": "qk_e20_code_dictionaries.json (majority firing token; only slots 0/1/3/15/22 have dictionaries)",
+    "top3": [
+      {
+        "module": "attn2",
+        "relative_gain_minus_null": 0.3735,
+        "audit_top1_acc_covered": 1.0,
+        "audit_coverage_frac": 0.0004,
+        "example_rows": [
+          "reads attn0[0] codes (4 (' and'-detector), 24) + mlp0[1] codes (180 (','-detector), 19) + attn1[2] codes (220, 117) + mlp1[3] codes (198 (','-detector), 246) -> writes (191, 226) [100% of 64 estimation occurrences]",
+          "reads attn0[0] codes (168, 25) + mlp0[1] codes (123 (' the'-detector), 207) + attn1[2] codes (24, 208) + mlp1[3] codes (64 (' the'-detector), 26) -> writes (132, 149) [100% of 55 estimation occurrences]",
+          "reads attn0[0] codes (173, 199) + mlp0[1] codes (174, 100) + attn1[2] codes (135, 40) + mlp1[3] codes (201, 88) -> writes (71, 43) [100% of 40 estimation occurrences]"
+        ]
+      },
+      {
+        "module": "attn6",
+        "relative_gain_minus_null": 0.3634,
+        "audit_top1_acc_covered": 1.0,
+        "audit_coverage_frac": 0.0004,
+        "example_rows": [
+          "reads attn0[0] codes (4 (' and'-detector), 24) + attn1[2] codes (220, 117) + attn2[4] codes (191, 226) + attn5[10] codes (78, 115) -> writes (99, 38) [100% of 64 estimation occurrences]",
+          "reads attn0[0] codes (168, 25) + attn1[2] codes (24, 208) + attn2[4] codes (132, 149) + attn5[10] codes (90, 214) -> writes (99, 25) [100% of 55 estimation occurrences]",
+          "reads attn0[0] codes (173, 199) + attn1[2] codes (135, 40) + attn2[4] codes (71, 43) + attn5[10] codes (111, 71) -> writes (11, 151) [100% of 40 estimation occurrences]"
+        ]
+      },
+      {
+        "module": "mlp6",
+        "relative_gain_minus_null": 0.3628,
+        "audit_top1_acc_covered": 1.0,
+        "audit_coverage_frac": 0.0004,
+        "example_rows": [
+          "reads mlp1[3] codes (198 (','-detector), 246) + attn2[4] codes (191, 226) + attn4[8] codes (250, 204) + attn5[10] codes (78, 115) -> writes (11, 169) [100% of 64 estimation occurrences]",
+          "reads mlp1[3] codes (64 (' the'-detector), 26) + attn2[4] codes (132, 149) + attn4[8] codes (187, 212) + attn5[10] codes (90, 214) -> writes (195, 97) [100% of 55 estimation occurrences]",
+          "reads mlp1[3] codes (201, 88) + attn2[4] codes (71, 43) + attn4[8] codes (149, 119) + attn5[10] codes (111, 71) -> writes (216, 171) [100% of 40 estimation occurrences]"
+        ]
+      }
+    ]
+  }
+}

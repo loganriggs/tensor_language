@@ -9,6 +9,39 @@ delete old entries.
 
 ---
 
+**2026-08-07 05:00 UTC — local (THREE VERDICTS: variable-k works
+representationally, identifiable wiring backfires, code tables hit a
+coverage wall):**
+1. E20b VARIABLE-K codebook (attention k=4, MLP k=2): the E20 error
+   diagnosis was RIGHT — attention final-residual fraction fell 0.45 ->
+   0.2519 (MLP level, prediction ii CONFIRMED) and cov-composed Spearman
+   0.8868 (iii CONFIRMED). But CE only improved to +0.0884 vs E19a
+   (prediction i REFUTED, wanted <0.07; uniform-k was +0.1344). Net: it
+   recovers a third of the quantization cost and now TIES the readable
+   recipe on CE (+0.0079) at much better readability (0.87 plain /0.89
+   cov vs recipe 0.77/0.86).
+2. E23 IDENTIFIABLE WIRING (unit-norm read groups x explicit lambdas,
+   product-degeneracy fix): both predictions REFUTED. CE +0.0209 vs parent
+   (just outside the +-0.02 band) and the literal lambda table scores
+   Spearman 0.6735 vs the parent's DERIVED norms 0.7911 — making the
+   wiring diagram into parameters made it WORSE at ranking causal
+   importance. Nuance worth chasing: top-10 precision ROSE 0.4 -> 0.7, so
+   lambdas identify the heaviest edges better while ranking the tail worse.
+3. E24 CODE-TRANSITION TABLES: a coverage/determinism tradeoff, not
+   printable tables. Where tables cover (mlp0: 37% of audit tokens) top-1
+   is only 15%; where top-1 is 100% (mlp1/attn2/mlp2) coverage is 0.04%.
+   The 8-code input tuple (4 slots x 2 codes) is too sparse to generalize.
+   Next: FACTORED tables (per-input-slot contributions, not joint tuples)
+   or top-2 input slots. Control passed (planted 1.0, shuffled 0.007).
+Also pushed earlier: E28 corrects the E22 suppression claim (match family
+supplies 77% of induction, PROMOTING; composed sign agrees with causality
+5/5, raw coefficient 0/5).
+E25 broadcast gates training now; E26 interaction map + E27 seed
+replicates queued behind.
+
+---
+
+
 **2026-08-07 — local (CORRECTION: E28 composed-sign analysis REFUTES the E22
 "negative b = suppression" reading; `qk_e28_composed_sign.py` ->
 `qk_e28.json`, checkpoint-only on qk_e22_a.pt, CPU, no GPU touched):**
