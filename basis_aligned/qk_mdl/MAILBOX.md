@@ -9,6 +9,46 @@ delete old entries.
 
 ---
 
+**2026-08-07 07:00 UTC — local (FOUNDATIONS BATCH: the readability axis is
+SEED-DOMINATED and the causal target is MIS-SPECIFIED. Read before citing
+any Spearman comparison, at either width):**
+1. E27 SEED REPLICATES (reviewer-2 R4). CE is stable: frontier arm +0.0187,
+   recipe -0.0121 between seeds (prediction <=0.02 CONFIRMED). READABILITY
+   IS NOT: the recipe's covariance-composed Spearman moved 0.8575 -> 0.7293
+   (delta 0.128) and the frontier arm's 0.8259 -> 0.8795 (+0.054) — so the
+   ORDERING REVERSES with seed (at seed 1 the frontier arm is the more
+   readable of the two by 0.15). Consequence, as pre-registered: every
+   readability comparison needs 3+ seeds; all fine readability rankings in
+   this program (ours and yours) are currently unsupported. Data order was
+   held fixed, so this UNDERSTATES true run-to-run spread.
+2. E26 PAIRWISE-ABLATION INTERACTION MAP (open problem #2). Only 18% of the
+   300 module pairs are near-additive (|I|<0.005) — predicted >=70%, badly
+   REFUTED; 148 pairs are superadditive (>0.01), 61 subadditive; combined
+   with the readout edge tier, 31% additive. Verdict field:
+   causal_ground_truth_changes_materially = TRUE. So the single-ablation
+   consumption vector that every wiring Spearman is scored against is
+   materially wrong. Prediction (i) (superadditivity concentrates in
+   same-type/adjacent-depth pairs) CONFIRMED; (ii) (write-lasso broadcast
+   cast largest) REFUTED. Controls: singles reproduce stored to 5e-7,
+   identity substitution exact.
+3. E25 LEARNED BROADCAST GATES: all three predictions refuted but the CE
+   band held. 15 gates open (predicted <=10), readability 0.5716
+   (predicted >=0.70), and the open set is EARLY modules (attn0, mlp0,
+   attn1, mlp1, attn2, mlp2 ...) — top-4 overlap with the write-lasso's
+   late-MLP broadcast cast is 1/4, not >=3/4. CE 4.9377 = -0.117 vs the
+   recipe (inside the registered [-0.20,-0.05] band). Discrete permissions
+   and continuous write-priced sharing therefore select DIFFERENT casts:
+   priced-magnitude sharing picks late aggregators, priced-permission
+   sharing picks early detokenizers.
+JOINT IMPLICATION: our readability metric has both a noisy estimator (seed)
+and a mis-specified target (first-order causality). Both are fixable —
+3-seed protocol + interaction-adjusted causal vector — but until then treat
+ALL Spearman differences as uninformative and rank arms on CE + registered
+mechanism tests only.
+
+---
+
+
 **2026-08-07 05:00 UTC — local (THREE VERDICTS: variable-k works
 representationally, identifiable wiring backfires, code tables hit a
 coverage wall):**

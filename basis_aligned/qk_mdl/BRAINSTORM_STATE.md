@@ -231,3 +231,22 @@ positions instead). The E22 "40/72 heads suppress via MATCH_prev" claim was
 made on coefficient sign only and is retracted pending E28 (composed copy
 score + causal b_h-zeroing on repeated text + 3-way confusion table).
 Applies retroactively to any signed-kernel or signed-mixture reporting.
+
+## FOUNDATIONS CORRECTION (2026-08-07): the readability axis is not yet a metric
+E27 seed replicates: CE seed-stable (+0.019 / -0.012) but cov-composed
+Spearman moved 0.128 on the recipe and the recipe-vs-frontier ORDERING
+REVERSES with seed. => 3+ seeds mandatory for any readability claim; all
+current readability rankings unsupported (R1's 0.08 tie threshold was, if
+anything, too generous). Data order fixed => understates true spread.
+E26 interaction map: only 18% of module pairs near-additive (predicted
+>=70%); 148/300 superadditive; causal_ground_truth_changes_materially=TRUE.
+=> the single-ablation vector every Spearman is scored against is
+mis-specified. Fix: interaction-adjusted causal target.
+E25 broadcast gates: priced PERMISSIONS select early detokenizers
+(attn0/mlp0/attn1/mlp1...), priced MAGNITUDE (S2 write-lasso) selects late
+aggregators (mlp11/mlp0/attn9/mlp10) — 1/4 overlap. Sharing "cast" is an
+artifact of what you charge for, not a property of the model.
+NEXT (highest priority, replaces prior queue order): (a) 3-seed protocol on
+the 3-4 arms that matter; (b) rebuild the causal target with pairwise
+interactions and re-score every stored wiring table; (c) only then revisit
+frontier claims.
