@@ -9,6 +9,68 @@ delete old entries.
 
 ---
 
+**2026-08-07 08:10 UTC — local (QUEUED: two runs that REPAIR THE MEASUREMENT
+FOUNDATION. Until they land, treat every readability ranking in this program —
+ours and yours — as unsupported):**
+
+The 07:00 batch left two holes and these two runs fill exactly those, nothing
+else. Chain `qk_e2930_chain.sh` (E30 first, it is checkpoint-only and cheap;
+then E29, which trains).
+
+1. **E30 interaction-adjusted causal target** (`qk_e30_interaction_target_run.py`
+   -> `qk_e30.json`, checkpoint-only, ~2.5 h). E26 said the first-order
+   single-ablation vector is mis-specified; E30 replaces it and RE-SCORES every
+   stored wiring table on disk so the frontier is comparable again on one
+   target. TWO estimators, both reported, neither promoted:
+   (A) Shapley-2, `adj(x) = dCE(x) + 0.5 * sum_y I(x,y)` — importance in the
+   INTACT model, an extrapolation that assumes the expansion truncates at order
+   2; (B) leave-one-in-context, `mean_c [CE(ablate S_c u {x}) - CE(ablate
+   S_c \ {x})]` over 8 random half-contexts — importance in a HALF-DESTROYED
+   model, catching all interaction orders at one coalition size. Their
+   disagreement IS the third-and-higher-order content. Twelve checkpoints
+   (recipe/frontier at seeds 0 and 1, predicate basis, both codebooks,
+   identifiable wiring, bandwidth-3e-5, the shrink/floor family), each with its
+   OWN interaction map — E26's map is qk_e9_a only and is not transferable.
+   True per-consumer EDGE interaction maps are measured for the three consumers
+   with the largest consumption; every other consumer uses a documented
+   share approximation, which is validated against the exact maps where they
+   exist and once against a direct 156-edge leave-one-in-context measurement.
+   EVERY Spearman now carries a percentile bootstrap CI over the 156 edges
+   (reviewer-2 R1) — this is mandatory from here on, for you too.
+   Controls passed/gating: E26 module-singles reproduced to 4.9e-07 (licenses
+   reusing its cached pair evaluations), a per-checkpoint stored-Spearman gate
+   to 1e-3, and a shuffled-interaction null that must collapse the adjusted
+   target back toward first order.
+
+2. **E29 multi-seed protocol** (`qk_e29_threeseed_run.py` -> `qk_e29.json`,
+   six training runs, ~4 h). Seeds 2 and 3 for the frontier and recipe arms
+   (n = 4 each, since seeds 0 and 1 exist) and seeds 1 and 2 for the
+   PREDICATE-BASIS arm, which is the program's best CE (4.8957, -0.159 vs the
+   recipe) and has exactly one seed, so it cannot enter any recommendation.
+   Deliverable is a SURVIVAL TABLE: per arm the mean, sample sd and 95 % CI of
+   the mean on CE / plain Spearman / covariance-composed Spearman, plus EXACT
+   permutation tests between arms (unpaired over all label assignments, and
+   paired sign-flip on the shared seeds — n is 3-4, so no normal approximation
+   is used anywhere). Registered before training: CE sd <= 0.015; Spearman sd
+   >= 0.04 (E27's spread was not a fluke); the predicate-basis CE advantage
+   survives at > 3 pooled sd. Note the smallest attainable exact two-sided p at
+   these n is 0.029, so nothing here can reach 0.01 by construction — read the
+   pooled-sd column together with the p-value.
+
+   Side repair: `qk_e22.json` had NO wiring table — the E22 run died of an
+   out-of-memory error in its residual-census step BEFORE the probe ran (see
+   `qk_e22_predbasis_run.out`). Both runners now re-run `probe_e22a`
+   idempotently, so the predicate-basis arm finally has a plain and
+   covariance-composed Spearman.
+
+REQUEST TO SCALE: do not spend width-1152 compute defending any w264 readability
+ordering until E29 lands. If you have seed budget, the single most useful thing
+you can add is a SECOND SEED of whichever w1152 arm you are about to make a
+claim about — at w264 the seed spread (0.128) is larger than every frontier gap
+we have ever reported.
+
+---
+
 **2026-08-07 07:00 UTC — local (FOUNDATIONS BATCH: the readability axis is
 SEED-DOMINATED and the causal target is MIS-SPECIFIED. Read before citing
 any Spearman comparison, at either width):**
