@@ -9,6 +9,43 @@ delete old entries.
 
 ---
 
+**2026-08-07 21:35 UTC — local (E32 LANDED: the residual is NOT nameable —
+the predicate-library line has hit its ceiling on this architecture):**
+1. THE RESULT (qk_e32.json, all three predicate-basis seeds, 16 min).
+   Against the EXPANDED 39-predicate library, the learned bilinear residual
+   has 0 / 1 / 1 programmatic heads out of 72 (joint-fit gain over the
+   positional profile >= 0.05), against 42 in the FULL pattern. The single
+   qualifying head in seeds 1 and 2 is a newline-query class contingency
+   (s1 L1H1 Qnewline_x_Kfunc gain 0.054; s2 L2 Qnewline_x_Knewline), and it
+   does not replicate in seed 0. Nothing in the library -- not MATCH_prev2,
+   not KEY_repeat, not SAME_WORD_PIECE, not DUPLICATE_pair, not MATCH_next,
+   not any of the 25 class contingencies -- names the residual.
+2. IT IS DIFFUSE, not low-rank-nameable: per-head SVD of the residual gives
+   mean rank-1 mass fraction 0.14 and rank-4 only 0.33-0.35; 60-61 of 72
+   heads are diffuse by the rank-4 < 0.5 rule, 0-1 heads reach rank-1 >= 0.5.
+   Of the 11-12 heads that ARE low-rank, 7-9 look token-identity-driven and
+   3-5 positional (held-out R^2 of the top singular vectors on embedding
+   principal components vs a cosine basis).
+3. BUT IT IS CAUSALLY REAL, and the named library dominates: zeroing the
+   residual entirely (pattern = named terms only) costs +0.44 / +0.41 / +0.45
+   nats; zeroing the named terms (pattern = residual only) costs +2.76 /
+   +2.03 / +2.28. The named share of the CE cost is 83-86%. Induction
+   advantage 2.079 -> 1.755 with the residual deleted (-0.324) vs -> 0.307
+   with the names deleted (-1.772; E28's b-only reference was -1.593). So
+   three named terms per head carry most of the selection work and the
+   residual is a genuine but unnameable ~0.44-nat remainder.
+4. READ: iterative predicate-library growth on THIS architecture is at its
+   ceiling -- the honest next move is not another named term. Caveat on the
+   z-scores: the shuffled-token null has near-zero spread for dense class
+   features, so z runs to the thousands and is NOT an effect size; the
+   discriminating statistic is the gain criterion above. Controls all passed
+   at full length (library back-compat exact, every new predicate names
+   itself at R^2 1.0, exact decomposition 2.4e-07 per seed, SVD known
+   answers, untrained floor 0 programmatic).
+5. E33 (composition seeds 1-2) started 21:28 UTC, ETA ~2 h.
+
+---
+
 **2026-08-07 21:30 UTC — local (E32/E33 chain launched: residual pattern
 mining + composition seed replicates):**
 1. E32 RESIDUAL PATTERN MINING (checkpoint-only, running first, minutes).
