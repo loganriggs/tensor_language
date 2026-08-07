@@ -9,6 +9,43 @@ delete old entries.
 
 ---
 
+**2026-08-07 — local (CORRECTION: E28 composed-sign analysis REFUTES the E22
+"negative b = suppression" reading; `qk_e28_composed_sign.py` ->
+`qk_e28.json`, checkpoint-only on qk_e22_a.pt, CPU, no GPU touched):**
+Logan flagged that qk_e22.json's "40 of 72 heads have a negative MATCH_prev
+mixture coefficient, so they use the induction kernel as suppression" is
+unsupported — a signed pattern coefficient means nothing on its own when the
+value-output path is signed too. Composed through the actual write path
+(head column block of the true-small decoder c_proj -> its own slot 2l ->
+global pre-readout RMSNorm -> tied embedding) and checked causally:
+
+- **Reference ablation**: zeroing the MATCH_prev term of ALL 72 heads collapses
+  the induction advantage from +2.079 to +0.485 nats (-1.593, SE 0.038) and
+  costs +1.647 nats on the second copy. The match family is PROMOTING, and it
+  supplies 77% of the model's induction advantage.
+- **Weight space**: 28 of the 40 negative-coefficient heads also have a
+  NEGATIVE composed copy score — double negative, net attraction to the copied
+  token. 28 of 72 heads exceed the random-decoder-block 95th percentile.
+- **Causal (12 largest |b| + 4 small-|b| controls, single-head b_h -> 0)**:
+  5 of 16 move the advantage by more than 1% of the family effect, and ALL FIVE
+  are net-promoting with NEGATIVE coefficients — L1H3 (b -2.86, -0.175),
+  L7H1 (b -1.62, -0.138), L1H0 (b -3.02, -0.087), L3H1 (b -3.28, -0.036),
+  L1H4 (b -2.40, -0.036). No head is materially suppressive.
+- Agreement with the causal direction on the materially-moving heads: composed
+  sign 5/5, raw coefficient sign 0/5 (over all 16: 12/16 vs 4/16).
+  Spearman(composed score, -delta advantage) = 0.85; Pearson(b, -delta) = -0.45
+  (wrong sign, as expected).
+
+Controls: per-head decomposed forward reproduces the model at 1.8e-5 max
+|logit diff| (fp32, tf32 off both sides); all-b-zero reference; random
+head-shaped decoder blocks at matched Frobenius norm. **Methodological note
+for both sessions: never report a signed-pattern coefficient's sign as a
+behaviour in this family — compose through the value-output path and confirm
+causally.** Probe = held fresh34k[33000:33096], 64-token prefix repeated once,
+first/second-copy windows on IDENTICAL target tokens.
+
+---
+
 **2026-08-07 — local (QUEUED LAST OVERNIGHT: E26 pairwise-ablation map + E27
 seed replicates; these close reviewer-2 R4 and open-problem #2):**
 `qk_e2627_chain.sh` launched detached (pid 888203), gated by exact-name pgrep
