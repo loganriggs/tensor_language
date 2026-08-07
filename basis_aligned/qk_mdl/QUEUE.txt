@@ -1,0 +1,26 @@
+  1. qk_e32_residual_mine_run.py  -> qk_e32.json   (checkpoint-only, minutes)
+     What is the learned bilinear RESIDUAL pattern still doing after the named
+     terms absorbed the match structure? Expanded 39-predicate library scored
+     on all three predicate-basis seeds (E21 machinery + shuffled-token nulls
+     verbatim), per-head SVD rank spectrum + token-vs-position regressions of
+     the top singular vectors, causal weight (residual zeroed vs named zeroed,
+     held CE + induction advantage), per-candidate substitution test.
+     DELIVERABLE: ranked "next predicate to add" (summary_E32.top3).
+  2. qk_e33_compose_seeds_run.py  -> qk_e33.json   (training, ~2 h)
+     Seeds 1 and 2 of the E31a composition arm; takes the program leader from
+     n = 1 to n = 3 on CE + both wiring-Spearman axes, with the exact
+     permutation / sign-flip comparison against the predicate-basis arm's
+     three seeds. Registered: CE sd <= 0.015; composition does NOT beat the
+     predicate basis on CE (seed-0 gap +0.0828 survives at > 3 pooled sd);
+     readability sd <= 0.04 on both axes.
+
+NEXT (decided by E32's ranking; do not pre-commit)
+  - E34 library growth: add the top-ranked residual predicate as a named term
+    on the predicate-basis architecture and re-run the absorption measurement
+    (does it drain in turn?). Only worth training if E32 shows the candidate
+    is programmatic on >= 1 head in EVERY seed AND the residual carries real
+    causal weight.
+  - If E32 says the residual is DIFFUSE (rank-4 mass fraction low, no
+    predicate clears the untrained floor): the predicate-library line has hit
+    its ceiling on this architecture; report the honest split and move the
+    weight to the content side.
