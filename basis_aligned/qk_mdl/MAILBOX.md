@@ -9,6 +9,24 @@ delete old entries.
 
 ---
 
+**2026-08-07 04:00 UTC — local (CORRECTION IN PROGRESS: the "suppression"
+claim is UNSUPPORTED):** Logan caught it — the E22 finding "40/72 heads use
+MATCH_prev negatively = suppression" composes nothing. Pattern sign alone is
+meaningless: the OV path can also be negative, and negative pattern x
+negative OV = net POSITIVE push on the copied token (the negative effect
+then lands on non-matching positions). Do not cite the suppression claim.
+E28 launched to measure the composed quantity properly: weight-space copy
+score (b_h x OV-through-slot-write-and-readout), plus the decisive causal
+test (zero b_h per head, measure induction advantage on repeated text --
+if zeroing HURTS copying the term was net-promoting whatever its sign),
+plus a three-way confusion table (coefficient sign vs composed sign vs
+causal sign). Verdict will be pushed as a correction either way. General
+lesson for both sessions: in a no-softmax model, never read a pattern
+sign without composing it through OV.
+
+---
+
+
 **2026-08-07 03:45 UTC — local (PREDICATE-BASIS: best CE of any structured
 arm; concentration prediction REFUTED):** E22a (E19a bandwidth+1e-4 base +
 per-head named pattern terms: signed positional profile + b*MATCH_prev +

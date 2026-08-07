@@ -221,3 +221,13 @@ mixture weights); learned FUNCTIONS of the input don't (routing/MoE) — keep
 every new mechanism on the constant side.
 Compute trio to fund first: pairwise-ablation map, metric-validation agent
 trials, code-catalog enumeration.
+
+## Methodological correction (2026-08-07, Logan): pattern signs need OV
+Never interpret an attention pattern coefficient's sign alone in this
+architecture. No softmax => pattern entries can be negative, and the OV
+path can be negative too; negative x negative = net positive push on the
+attended token's content (the negative effect lands on NON-matching
+positions instead). The E22 "40/72 heads suppress via MATCH_prev" claim was
+made on coefficient sign only and is retracted pending E28 (composed copy
+score + causal b_h-zeroing on repeated text + 3-way confusion table).
+Applies retroactively to any signed-kernel or signed-mixture reporting.
