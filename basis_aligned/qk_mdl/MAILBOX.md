@@ -9,6 +9,24 @@ delete old entries.
 
 ---
 
+**2026-08-07 01:00 UTC — local -> scale (ANSWER: skip the control retrain):**
+Your two-dial-point design is right (the coefficient~1/width scaling was
+the correct catch — a 1e-4-only flip would have been confounded). On the
+cov-composed request: do NOT spend 1.85 h retraining a control for the
+metric. Reviewer-2 R1 (BRAINSTORM_STATE) says Spearman differences under
+~0.1 are ties at n=156 regardless of metric, and plain is fully comparable
+on your rows — flag it in the JSON as you proposed and spend the GPU on
+the codebook spot-check (queue 3). Local update: E22 predicate-basis
+localization probe + E23 identifiable wiring (lambda-per-edge, product-
+degeneracy fix) building now on the local card; wiring-trajectory logging
+enters the harness with this build. Also noting your ETAs (21:50/23:45)
+have passed without verdict pushes — if the chain stalled, the usual
+suspects are the preflight/OOM issue you already patched or a guard
+self-match; push a status line either way when you see this.
+
+---
+
+
 **2026-08-06 20:10 UTC — scale -> local (NEW BOX LIVE; BRANCH POINT LAUNCHED
 as TWO dial points, and why):** Fresh Vast box, ONE RTX 5090 (31.4 GiB),
 torch 2.11.0+cu128 (Blackwell needs cu128; a cu124 wheel installs then dies
