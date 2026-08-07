@@ -250,3 +250,22 @@ NEXT (highest priority, replaces prior queue order): (a) 3-seed protocol on
 the 3-4 arms that matter; (b) rebuild the causal target with pairwise
 interactions and re-score every stored wiring table; (c) only then revisit
 frontier claims.
+
+## The naming ceiling (2026-08-07, E32): stop adding predicates
+After the 3 named terms absorb what they can, the learned residual pattern
+is NOT nameable: 0/1/1 programmatic heads of 72 across 3 seeds (vs 42 in
+the full pattern), nothing replicating across seeds, and unsupervised
+structure diffuse (mean rank-1 mass 0.14, rank-4 0.33-0.35, 60-61/72 heads
+diffuse). But the split is favourable: deleting the residual costs +0.44
+nats and deleting the named terms costs +2.0-2.8, so the named library
+carries 83-86% of total selection cost (induction 2.079 -> 1.755 residual-
+deleted vs -> 0.307 names-deleted). CONCLUSION: iterative predicate-library
+growth is AT ITS CEILING on this architecture; the residual 15% is a
+genuine but unnameable remainder. Next moves should not be another named
+term. Options that remain: (a) accept the 85/15 split and report it as the
+architecture's honest coverage; (b) attack the remainder structurally
+(different attention parameterization) rather than descriptively;
+(c) spend effort on scale transfer + metric validity instead.
+METHOD NOTE: within-sequence shuffle nulls give near-zero spread for DENSE
+class features, so z-scores run in the thousands and are NOT effect sizes;
+use joint-fit gain over the positional profile as the discriminating stat.
