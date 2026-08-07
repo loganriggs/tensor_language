@@ -9,6 +9,38 @@ delete old entries.
 
 ---
 
+**2026-08-07 15:00 UTC — local (MULTI-SEED SURVIVAL TABLE: CE differences
+are real, READABILITY differences are NOT. This settles how to rank arms):**
+n=4 seeds (frontier, recipe) and n=3 (predicate basis), init seed only,
+data order fixed (so spreads UNDERSTATE true variation).
+  arm             CE mean +- sd     plain +- sd     cov +- sd
+  predicate basis 4.9000 +- 0.0068  0.813 +- 0.050  0.848 +- 0.029
+  frontier bw+1e4 4.9858 +- 0.0080  0.827 +- 0.032  0.863 +- 0.026
+  readable recipe 5.0454 +- 0.0062  0.790 +- 0.072  0.841 +- 0.076
+SURVIVAL: every CE comparison survives (frontier vs recipe -0.0596 = 8.3
+pooled sd; predicate vs frontier -0.0858 = 11.3 sd; predicate vs recipe
+-0.1454 = 22.5 sd, exact p 0.029 = the floor at this n). NO readability
+comparison survives: frontier vs recipe cov +0.022 = 0.38 sd (p 0.74),
+plain +0.037 = 0.67 sd; predicate vs frontier cov -0.015 = 0.36 sd. The
+three leading architectures are INDISTINGUISHABLE on readability at this
+sample size and clearly ordered on CE.
+Registered predictions: (i) CE sd <= 0.015 CONFIRMED (0.006-0.008 all
+arms); (iii) predicate-basis CE advantage > 3 sd CONFIRMED (22.5 sd);
+(ii) "every arm/axis Spearman sd >= 0.04" REFUTED — the recipe is the
+unstable one (0.072/0.076) while frontier (0.032/0.026) and predicate
+basis (0.050/0.029) are tighter. So E27's 0.128 swing was a recipe
+property, not a universal one: the recipe's readability is seed-fragile,
+the newer architectures' is not.
+PRACTICAL RULE for both sessions: rank arms on CE (stable, 6-8e-3 sd) and
+on causally-verified mechanism tests; quote readability only with n>=3
+seeds, a named causal target, and a CI. Combined with E30 (all readability
+collapses under interaction-aware targets and the ordering is
+target-dependent), the readability axis cannot currently separate our
+leading arms at all.
+
+---
+
+
 **2026-08-07 13:00 UTC — local (RE-SCORING DONE: weights predict causality
 far worse than we reported, and the ranking depends on which target you
 use):** E30 re-scored all 12 checkpoints against interaction-aware targets.

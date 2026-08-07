@@ -1,0 +1,6212 @@
+{
+  "E29_prediction": {
+    "registered_before_training": true,
+    "finding": "E27: CE is seed-stable but the covariance-composed wiring Spearman moved 0.128 on the recipe arm and the recipe-vs-frontier ORDERING reversed between seeds",
+    "i": "CE sample sd <= 0.015 nats per arm",
+    "ii": "wiring-Spearman sample sd >= 0.04 on every arm/axis (E27's spread was not a fluke)",
+    "iii": "the predicate-basis arm's CE advantage over the recipe (-0.159 at seed 0) survives at more than 3 pooled sd",
+    "design": "init seed only; data order FIXED via the unchanged Q.DATA_SEED = 1234",
+    "arms": {
+      "frontier": {
+        "new_seeds": [
+          2,
+          3
+        ],
+        "existing_seeds": [
+          0,
+          1
+        ]
+      },
+      "recipe": {
+        "new_seeds": [
+          2,
+          3
+        ],
+        "existing_seeds": [
+          0,
+          1
+        ]
+      },
+      "predicate_basis": {
+        "new_seeds": [
+          1,
+          2
+        ],
+        "existing_seeds": [
+          0
+        ]
+      }
+    }
+  },
+  "E29_config": {
+    "muon_lr": 0.02,
+    "adamw_lr": 0.004,
+    "data_seed": 1234,
+    "slot_frontier": 15,
+    "slot_recipe": 11,
+    "group_coeffs": {
+      "frontier": 0.0001,
+      "recipe": 3e-05,
+      "predicate_basis": 0.0001
+    },
+    "stems": {
+      "frontier": [
+        "qk_e29_frontier_s2",
+        "qk_e29_frontier_s3"
+      ],
+      "recipe": [
+        "qk_e29_recipe_s2",
+        "qk_e29_recipe_s3"
+      ],
+      "predicate_basis": [
+        "qk_e29_predbasis_s1",
+        "qk_e29_predbasis_s2"
+      ]
+    },
+    "trainers": {
+      "frontier": "qk_e19_dial_run.trainer verbatim",
+      "recipe": "qk_e9_compose_run.muon_lasso_trainer verbatim",
+      "predicate_basis": "qk_e22_predbasis_run.trainer verbatim"
+    }
+  },
+  "control_config_equality_frontier": {
+    "parent": "E19a",
+    "parent_json": "qk_e19.json",
+    "fields_checked": [
+      "lr",
+      "group_coeff",
+      "width",
+      "batch",
+      "steps",
+      "epochs",
+      "corpus",
+      "held_fresh"
+    ],
+    "stored_parent_config": {
+      "lr": 0.02,
+      "group_coeff": 0.0001,
+      "width": 264,
+      "batch": 16,
+      "steps": 8250,
+      "epochs": 1,
+      "corpus": "corpus_fresh shards prefix [132000], single pass",
+      "held_fresh": "corpus_fresh/fresh34k.npy rows [33000:34500] (pure eval corpus)"
+    },
+    "this_run_config": {
+      "lr": 0.02,
+      "group_coeff": 0.0001,
+      "width": 264,
+      "batch": 16,
+      "steps": 8250,
+      "epochs": 1,
+      "corpus": "corpus_fresh shards prefix [132000], single pass",
+      "held_fresh": "corpus_fresh/fresh34k.npy rows [33000:34500] (pure eval corpus)"
+    },
+    "mismatches": {},
+    "new_seeds": [
+      2,
+      3
+    ],
+    "data_seed_all": 1234,
+    "note": "the ONLY intended difference is the init seed; the data order comes from Q.DATA_SEED which is unchanged",
+    "pass": true
+  },
+  "control_seed_gate_frontier": {
+    "stored_parent_step0_ce": 10.921,
+    "rerun_seed0_per_step_ce": [
+      10.921,
+      10.9218,
+      10.9059
+    ],
+    "rerun_seed0_held100": 10.914395866394043,
+    "seed0_step0_abs_diff_vs_stored": 0.0,
+    "new_seeds": {
+      "2": {
+        "per_step_ce": [
+          10.9299,
+          10.9095,
+          10.9062
+        ],
+        "held100": 10.912063446044922,
+        "step0_abs_diff_vs_seed0": 0.008900000000000574
+      },
+      "3": {
+        "per_step_ce": [
+          10.9182,
+          10.9108,
+          10.9024
+        ],
+        "held100": 10.91079719543457,
+        "step0_abs_diff_vs_seed0": 0.0027999999999988034
+      }
+    },
+    "repro_tol": 0.0001,
+    "note": "control 2: the parent logs step-0 CE at 4 dp, so seed-0 reproduction is asserted at that resolution (step-0 CE depends only on the init and the first batch); plus the guard that each new seed actually moves the init",
+    "pass": true
+  },
+  "control_config_equality_recipe": {
+    "parent": "E9a",
+    "parent_json": "qk_e9.json",
+    "fields_checked": [
+      "lr",
+      "group_coeff",
+      "width",
+      "batch",
+      "steps",
+      "epochs",
+      "corpus",
+      "held_fresh"
+    ],
+    "stored_parent_config": {
+      "lr": 0.02,
+      "group_coeff": 3e-05,
+      "width": 264,
+      "batch": 16,
+      "steps": 8250,
+      "epochs": 1,
+      "corpus": "corpus_fresh shards prefix [132000], single pass",
+      "held_fresh": "corpus_fresh/fresh34k.npy rows [33000:34500] (pure eval corpus)"
+    },
+    "this_run_config": {
+      "lr": 0.02,
+      "group_coeff": 3e-05,
+      "width": 264,
+      "batch": 16,
+      "steps": 8250,
+      "epochs": 1,
+      "corpus": "corpus_fresh shards prefix [132000], single pass",
+      "held_fresh": "corpus_fresh/fresh34k.npy rows [33000:34500] (pure eval corpus)"
+    },
+    "mismatches": {},
+    "new_seeds": [
+      2,
+      3
+    ],
+    "data_seed_all": 1234,
+    "note": "the ONLY intended difference is the init seed; the data order comes from Q.DATA_SEED which is unchanged",
+    "pass": true
+  },
+  "control_seed_gate_recipe": {
+    "stored_parent_step0_ce": 10.8693,
+    "rerun_seed0_per_step_ce": [
+      10.8693,
+      10.8717,
+      10.8614
+    ],
+    "rerun_seed0_held100": 10.868159255981446,
+    "seed0_step0_abs_diff_vs_stored": 0.0,
+    "new_seeds": {
+      "2": {
+        "per_step_ce": [
+          10.8843,
+          10.8772,
+          10.8693
+        ],
+        "held100": 10.879169692993164,
+        "step0_abs_diff_vs_seed0": 0.014999999999998792
+      },
+      "3": {
+        "per_step_ce": [
+          10.8793,
+          10.8847,
+          10.8693
+        ],
+        "held100": 10.87587688446045,
+        "step0_abs_diff_vs_seed0": 0.009999999999999787
+      }
+    },
+    "repro_tol": 0.0001,
+    "note": "control 2: the parent logs step-0 CE at 4 dp, so seed-0 reproduction is asserted at that resolution (step-0 CE depends only on the init and the first batch); plus the guard that each new seed actually moves the init",
+    "pass": true
+  },
+  "control_config_equality_predicate_basis": {
+    "parent": "E22a",
+    "parent_json": "qk_e22.json",
+    "fields_checked": [
+      "lr",
+      "group_coeff",
+      "width",
+      "batch",
+      "steps",
+      "epochs",
+      "corpus",
+      "held_fresh"
+    ],
+    "stored_parent_config": {
+      "lr": 0.02,
+      "group_coeff": 0.0001,
+      "width": 264,
+      "batch": 16,
+      "steps": 8250,
+      "epochs": 1,
+      "corpus": "corpus_fresh shards prefix [132000], single pass",
+      "held_fresh": "corpus_fresh/fresh34k.npy rows [33000:34500] (pure eval corpus)"
+    },
+    "this_run_config": {
+      "lr": 0.02,
+      "group_coeff": 0.0001,
+      "width": 264,
+      "batch": 16,
+      "steps": 8250,
+      "epochs": 1,
+      "corpus": "corpus_fresh shards prefix [132000], single pass",
+      "held_fresh": "corpus_fresh/fresh34k.npy rows [33000:34500] (pure eval corpus)"
+    },
+    "mismatches": {},
+    "new_seeds": [
+      1,
+      2
+    ],
+    "data_seed_all": 1234,
+    "note": "the ONLY intended difference is the init seed; the data order comes from Q.DATA_SEED which is unchanged",
+    "pass": true
+  },
+  "control_seed_gate_predicate_basis": {
+    "stored_parent_step0_ce": 10.921,
+    "rerun_seed0_per_step_ce": [
+      10.921,
+      10.9218,
+      10.9059
+    ],
+    "rerun_seed0_held100": 10.914393272399902,
+    "seed0_step0_abs_diff_vs_stored": 0.0,
+    "new_seeds": {
+      "1": {
+        "per_step_ce": [
+          10.9082,
+          10.9088,
+          10.8942
+        ],
+        "held100": 10.905624542236328,
+        "step0_abs_diff_vs_seed0": 0.01279999999999859
+      },
+      "2": {
+        "per_step_ce": [
+          10.9299,
+          10.9095,
+          10.9062
+        ],
+        "held100": 10.9120556640625,
+        "step0_abs_diff_vs_seed0": 0.008900000000000574
+      }
+    },
+    "repro_tol": 0.0001,
+    "note": "control 2: the parent logs step-0 CE at 4 dp, so seed-0 reproduction is asserted at that resolution (step-0 CE depends only on the init and the first batch); plus the guard that each new seed actually moves the init",
+    "pass": true
+  },
+  "frontier_s2": {
+    "lr": 0.02,
+    "group_coeff": 0.0001,
+    "width": 264,
+    "batch": 16,
+    "steps": 8250,
+    "epochs": 1,
+    "corpus": "corpus_fresh shards prefix [132000], single pass",
+    "held_fresh": "corpus_fresh/fresh34k.npy rows [33000:34500] (pure eval corpus)",
+    "final_held_ce_fresh_bf16": 4.988375709533692,
+    "spikes": 0,
+    "diverged": false,
+    "final_penalty": 2730.323486328125,
+    "train_curve_every200": [
+      [
+        0,
+        10.9299,
+        10.9299
+      ],
+      [
+        200,
+        6.4483,
+        6.8148
+      ],
+      [
+        400,
+        6.093,
+        6.1562
+      ],
+      [
+        600,
+        5.9768,
+        5.9501
+      ],
+      [
+        800,
+        5.978,
+        5.8125
+      ],
+      [
+        1000,
+        5.6206,
+        5.7357
+      ],
+      [
+        1200,
+        5.3257,
+        5.6766
+      ],
+      [
+        1400,
+        5.5746,
+        5.6368
+      ],
+      [
+        1600,
+        5.4861,
+        5.5876
+      ],
+      [
+        1800,
+        5.4106,
+        5.5556
+      ],
+      [
+        2000,
+        5.5072,
+        5.486
+      ],
+      [
+        2200,
+        5.2812,
+        5.4593
+      ],
+      [
+        2400,
+        5.3495,
+        5.45
+      ],
+      [
+        2600,
+        5.4618,
+        5.3945
+      ],
+      [
+        2800,
+        5.2452,
+        5.3711
+      ],
+      [
+        3000,
+        5.1614,
+        5.3612
+      ],
+      [
+        3200,
+        5.3309,
+        5.3269
+      ],
+      [
+        3400,
+        5.2064,
+        5.2813
+      ],
+      [
+        3600,
+        5.2855,
+        5.2991
+      ],
+      [
+        3800,
+        5.2399,
+        5.2723
+      ],
+      [
+        4000,
+        5.3078,
+        5.2362
+      ],
+      [
+        4200,
+        5.212,
+        5.2344
+      ],
+      [
+        4400,
+        5.2942,
+        5.2037
+      ],
+      [
+        4600,
+        5.2267,
+        5.1652
+      ],
+      [
+        4800,
+        5.2276,
+        5.18
+      ],
+      [
+        5000,
+        5.1137,
+        5.1529
+      ],
+      [
+        5200,
+        5.0602,
+        5.1385
+      ],
+      [
+        5400,
+        5.0601,
+        5.1043
+      ],
+      [
+        5600,
+        5.0723,
+        5.0709
+      ],
+      [
+        5800,
+        5.2308,
+        5.0543
+      ],
+      [
+        6000,
+        4.8673,
+        5.0179
+      ],
+      [
+        6200,
+        5.1995,
+        5.0392
+      ],
+      [
+        6400,
+        5.0091,
+        5.0156
+      ],
+      [
+        6600,
+        4.8434,
+        5.0006
+      ],
+      [
+        6800,
+        5.0974,
+        4.9552
+      ],
+      [
+        7000,
+        4.9673,
+        4.9678
+      ],
+      [
+        7200,
+        4.7985,
+        4.9484
+      ],
+      [
+        7400,
+        4.9276,
+        4.9492
+      ],
+      [
+        7600,
+        5.0227,
+        4.916
+      ],
+      [
+        7800,
+        4.8701,
+        4.9298
+      ],
+      [
+        8000,
+        5.0065,
+        4.9125
+      ],
+      [
+        8200,
+        4.9128,
+        4.8954
+      ]
+    ],
+    "held100_fresh_curve": [
+      [
+        2000,
+        5.6831
+      ],
+      [
+        4000,
+        5.4581
+      ],
+      [
+        6000,
+        5.2557
+      ],
+      [
+        8000,
+        5.1404
+      ]
+    ],
+    "optimizer": "muon",
+    "seed": 2,
+    "data_seed": 1234,
+    "slot": 15,
+    "arm": "frontier",
+    "parent": "E19a (qk_e19_a, seed 0)",
+    "design": "E15c bandwidth-reinvestment architecture at the readability dial (in-loss group-lasso 1e-4), verbatim qk_e19_dial_run arm E19a",
+    "varies_from_parent": "init seed ONLY; data order identical by construction"
+  },
+  "control_ckpt_config_frontier_s2": {
+    "parent_checkpoint": "qk_e19_a.pt",
+    "replicate_checkpoint": "qk_e29_frontier_s2.pt",
+    "differing_keys": [
+      "SEED"
+    ],
+    "differences": {
+      "SEED": [
+        0,
+        2
+      ]
+    },
+    "pass": true
+  },
+  "frontier_s2_oldheld": {
+    "old_held_ce_bf16": 4.84659,
+    "note": "cooc rows [5500:6000]; model trained on fresh corpus only"
+  },
+  "frontier_s2_minus_e0a_fresh": {
+    "held_ce": 4.988375663757324,
+    "e0a_held_ce": 4.851274013519287,
+    "minus_e0a": 0.13710127770900726,
+    "minus_e0a_se_token": 0.0010459603508934379,
+    "minus_e0a_se_seq": 0.001895989989861846
+  },
+  "frontier_s2_minus_e0b_fresh": {
+    "held_ce": 4.988375663757324,
+    "e0b_held_ce": 5.1929426193237305,
+    "minus_e0b": -0.20456694066524506,
+    "minus_e0b_se_token": 0.001033985405229032,
+    "minus_e0b_se_seq": 0.0027318778447806835
+  },
+  "frontier_s2_minus_seed0": {
+    "held_ce": 4.988375663757324,
+    "seed0_held_ce": 4.97421407699585,
+    "minus_seed0": 0.01416174415498972,
+    "minus_seed0_se_token": 0.0008784560486674309,
+    "minus_seed0_se_seq": 0.0010938226478174329,
+    "parent": "qk_e19_a",
+    "note": "paired per-token fresh held CE, sequence-clustered SE; this seed minus the seed-0 twin"
+  },
+  "frontier_s2_traj": {
+    "path": "qk_e29_frontier_s2_traj.npz",
+    "n_snapshots": 42,
+    "every": 200,
+    "keys": [
+      "cov_diag",
+      "cov_top2",
+      "read_group_norms",
+      "step",
+      "update_group_norms"
+    ]
+  },
+  "light_probe_frontier_s2": {
+    "checkpoint": "qk_e29_frontier_s2.pt",
+    "seed": 2,
+    "slot_dims": [
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15
+    ],
+    "stream_width": 360,
+    "compute_width": 264,
+    "base_ce_fp32_abl_oldheld": 4.86696,
+    "wiring_n_pairs": 156,
+    "wiring_spearman_all": 0.8097,
+    "wiring_n_effectual": 120,
+    "wiring_spearman_effectual": 0.6692,
+    "wiring_top10_precision": 0.7,
+    "per_block_total_consumption": {
+      "0": 0.95762,
+      "1": 1.3032,
+      "2": 0.484,
+      "3": 0.78751,
+      "4": 0.41098,
+      "5": 0.64583,
+      "6": 0.10824,
+      "7": 0.17011,
+      "8": 0.12166,
+      "9": 0.17138,
+      "10": 0.97979,
+      "11": 0.07261
+    },
+    "dead_blocks_below_0.001": [],
+    "consumption_top20": [
+      {
+        "consumer": "block1",
+        "source": "emb",
+        "dce": 1.25719
+      },
+      {
+        "consumer": "block3",
+        "source": "emb",
+        "dce": 1.17919
+      },
+      {
+        "consumer": "block0",
+        "source": "emb",
+        "dce": 1.09494
+      },
+      {
+        "consumer": "readout",
+        "source": "attn10",
+        "dce": 0.89738
+      },
+      {
+        "consumer": "block5",
+        "source": "emb",
+        "dce": 0.82415
+      },
+      {
+        "consumer": "readout",
+        "source": "attn1",
+        "dce": 0.69684
+      },
+      {
+        "consumer": "block2",
+        "source": "emb",
+        "dce": 0.49342
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp5",
+        "dce": 0.47538
+      },
+      {
+        "consumer": "block10",
+        "source": "emb",
+        "dce": 0.30784
+      },
+      {
+        "consumer": "block4",
+        "source": "emb",
+        "dce": 0.26259
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp3",
+        "dce": 0.2002
+      },
+      {
+        "consumer": "block10",
+        "source": "attn3",
+        "dce": 0.19174
+      },
+      {
+        "consumer": "block3",
+        "source": "mlp1",
+        "dce": 0.18348
+      },
+      {
+        "consumer": "readout",
+        "source": "attn4",
+        "dce": 0.17246
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp2",
+        "dce": 0.16923
+      },
+      {
+        "consumer": "block7",
+        "source": "emb",
+        "dce": 0.16523
+      },
+      {
+        "consumer": "block2",
+        "source": "mlp1",
+        "dce": 0.15768
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp0",
+        "dce": 0.14512
+      },
+      {
+        "consumer": "block9",
+        "source": "emb",
+        "dce": 0.11008
+      },
+      {
+        "consumer": "block3",
+        "source": "mlp0",
+        "dce": 0.10821
+      }
+    ],
+    "consumption_matrix": {
+      "0": {
+        "0": 1.094939
+      },
+      "1": {
+        "0": 1.257192,
+        "1": 0.0798,
+        "2": 0.097791
+      },
+      "2": {
+        "0": 0.493418,
+        "1": 0.079551,
+        "2": 0.097206,
+        "3": 0.018255,
+        "4": 0.157678
+      },
+      "3": {
+        "0": 1.179194,
+        "1": 0.054256,
+        "2": 0.108206,
+        "3": 0.024062,
+        "4": 0.18348,
+        "5": 0.029078,
+        "6": 0.053313
+      },
+      "4": {
+        "0": 0.262589,
+        "1": 0.043412,
+        "2": 0.009551,
+        "3": 0.014264,
+        "4": 0.015536,
+        "5": 0.011917,
+        "6": 0.006908,
+        "7": 0.030098,
+        "8": 0.042606
+      },
+      "5": {
+        "0": 0.824153,
+        "1": 0.035593,
+        "2": 0.010505,
+        "3": 0.015279,
+        "4": 0.013328,
+        "5": 0.026274,
+        "6": 0.011336,
+        "7": 0.042909,
+        "8": 0.050518,
+        "9": 0.025632,
+        "10": 0.019747
+      },
+      "6": {
+        "0": 0.108098,
+        "1": 0.007328,
+        "2": 0.004373,
+        "3": 0.0021,
+        "4": 0.004699,
+        "5": 0.006333,
+        "6": 0.003827,
+        "7": 0.013652,
+        "8": 0.015541,
+        "9": 0.003363,
+        "10": 0.012042,
+        "11": 0.002389,
+        "12": 0.004427
+      },
+      "7": {
+        "0": 0.165232,
+        "1": 0.008054,
+        "2": 0.006836,
+        "3": 0.007515,
+        "4": 0.012056,
+        "5": 0.0054,
+        "6": 0.005307,
+        "7": 0.013121,
+        "8": 0.025208,
+        "9": 0.004652,
+        "10": 0.023559,
+        "11": 0.002495,
+        "12": 0.007392,
+        "13": 0.009248,
+        "14": 0.027242
+      },
+      "8": {
+        "0": 0.055298,
+        "1": 0.009024,
+        "2": 0.006511,
+        "3": 0.003155,
+        "4": 0.008399,
+        "5": 0.006518,
+        "6": 0.004458,
+        "7": 0.012567,
+        "8": 0.014068,
+        "9": 0.004412,
+        "10": 0.010519,
+        "11": 0.002166,
+        "12": 0.004009,
+        "13": 0.003995,
+        "14": 0.009157,
+        "15": 0.017439,
+        "16": 0.010195
+      },
+      "9": {
+        "0": 0.110081,
+        "1": 0.028507,
+        "2": 0.006181,
+        "3": 0.007244,
+        "4": 0.008778,
+        "5": 0.007198,
+        "6": 0.002889,
+        "7": 0.012565,
+        "8": 0.009621,
+        "9": 0.004125,
+        "10": 0.006025,
+        "11": 0.003377,
+        "12": 0.004105,
+        "13": 0.00603,
+        "14": 0.003466,
+        "15": 0.017045,
+        "16": 0.007136,
+        "17": 0.00466,
+        "18": 0.013924
+      },
+      "10": {
+        "0": 0.307838,
+        "1": 0.04523,
+        "2": 0.01851,
+        "3": 0.041932,
+        "4": 0.024256,
+        "5": 0.021556,
+        "6": 0.066287,
+        "7": 0.191745,
+        "8": 0.066129,
+        "9": 0.085701,
+        "10": 0.005722,
+        "11": 0.030647,
+        "12": 0.034042,
+        "13": 0.006613,
+        "14": 0.004843,
+        "15": 0.021051,
+        "16": 0.010896,
+        "17": 0.009029,
+        "18": 0.019387,
+        "19": 0.02908,
+        "20": 0.01657
+      },
+      "11": {
+        "0": 0.107176,
+        "1": 0.024891,
+        "2": 0.005541,
+        "3": 0.00998,
+        "4": 0.007426,
+        "5": 0.006881,
+        "6": 0.002644,
+        "7": 0.007467,
+        "8": 0.00717,
+        "9": 0.003071,
+        "10": 0.00223,
+        "11": 0.00341,
+        "12": 0.003585,
+        "13": 0.002311,
+        "14": 0.001321,
+        "15": 0.007917,
+        "16": 0.002932,
+        "17": 0.002932,
+        "18": 0.004671,
+        "19": 0.000896,
+        "20": 0.004993,
+        "21": 0.002396,
+        "22": 0.003782
+      },
+      "12": {
+        "0": 0.020484,
+        "1": 0.02565,
+        "2": 0.145116,
+        "3": 0.696838,
+        "4": 0.026942,
+        "5": 0.036652,
+        "6": 0.16923,
+        "7": 0.032331,
+        "8": 0.200199,
+        "9": 0.17246,
+        "10": 0.027721,
+        "11": 0.068406,
+        "12": 0.475382,
+        "13": 0.015545,
+        "14": 0.018473,
+        "15": 0.023448,
+        "16": 0.052056,
+        "17": 0.021424,
+        "18": 0.045634,
+        "19": 0.062533,
+        "20": 0.05731,
+        "21": 0.897377,
+        "22": 0.076239,
+        "23": 0.033967,
+        "24": 0.038642
+      }
+    },
+    "weight_support_matrix": {
+      "0": {},
+      "1": {
+        "1": 11.328,
+        "2": 7.549
+      },
+      "2": {
+        "1": 9.373,
+        "2": 4.494,
+        "3": 8.988,
+        "4": 7.208
+      },
+      "3": {
+        "1": 11.923,
+        "2": 6.398,
+        "3": 12.832,
+        "4": 9.664,
+        "5": 9.612,
+        "6": 5.477
+      },
+      "4": {
+        "1": 7.539,
+        "2": 2.937,
+        "3": 7.594,
+        "4": 3.818,
+        "5": 4.841,
+        "6": 2.154,
+        "7": 8.457,
+        "8": 6.054
+      },
+      "5": {
+        "1": 6.82,
+        "2": 3.026,
+        "3": 7.025,
+        "4": 3.344,
+        "5": 5.068,
+        "6": 2.377,
+        "7": 6.389,
+        "8": 5.408,
+        "9": 4.065,
+        "10": 3.354
+      },
+      "6": {
+        "1": 3.523,
+        "2": 2.149,
+        "3": 3.908,
+        "4": 2.733,
+        "5": 3.456,
+        "6": 1.748,
+        "7": 4.947,
+        "8": 4.456,
+        "9": 1.957,
+        "10": 3.461,
+        "11": 1.765,
+        "12": 1.926
+      },
+      "7": {
+        "1": 4.479,
+        "2": 3.222,
+        "3": 8.409,
+        "4": 3.984,
+        "5": 4.31,
+        "6": 2.781,
+        "7": 5.953,
+        "8": 6.234,
+        "9": 2.82,
+        "10": 4.649,
+        "11": 2.612,
+        "12": 2.853,
+        "13": 4.623,
+        "14": 5.086
+      },
+      "8": {
+        "1": 5.092,
+        "2": 3.229,
+        "3": 4.101,
+        "4": 3.598,
+        "5": 4.37,
+        "6": 2.778,
+        "7": 6.158,
+        "8": 4.936,
+        "9": 2.862,
+        "10": 4.049,
+        "11": 2.621,
+        "12": 2.729,
+        "13": 3.649,
+        "14": 3.738,
+        "15": 6.812,
+        "16": 3.965
+      },
+      "9": {
+        "1": 6.868,
+        "2": 3.511,
+        "3": 7.162,
+        "4": 3.906,
+        "5": 5.141,
+        "6": 2.844,
+        "7": 5.965,
+        "8": 4.163,
+        "9": 2.921,
+        "10": 3.442,
+        "11": 2.695,
+        "12": 2.665,
+        "13": 4.152,
+        "14": 3.385,
+        "15": 6.888,
+        "16": 3.858,
+        "17": 3.255,
+        "18": 5.609
+      },
+      "10": {
+        "1": 7.184,
+        "2": 4.206,
+        "3": 9.078,
+        "4": 4.414,
+        "5": 5.754,
+        "6": 3.195,
+        "7": 6.166,
+        "8": 4.62,
+        "9": 3.857,
+        "10": 3.322,
+        "11": 3.319,
+        "12": 3.371,
+        "13": 4.155,
+        "14": 3.357,
+        "15": 6.702,
+        "16": 3.865,
+        "17": 3.108,
+        "18": 5.427,
+        "19": 3.084,
+        "20": 5.482
+      },
+      "11": {
+        "1": 5.411,
+        "2": 2.699,
+        "3": 7.169,
+        "4": 2.742,
+        "5": 3.893,
+        "6": 1.916,
+        "7": 4.371,
+        "8": 2.514,
+        "9": 2.326,
+        "10": 2.016,
+        "11": 2.15,
+        "12": 2.092,
+        "13": 2.377,
+        "14": 1.898,
+        "15": 3.958,
+        "16": 2.217,
+        "17": 2.1,
+        "18": 3.125,
+        "19": 1.634,
+        "20": 3.363,
+        "21": 1.509,
+        "22": 3.124
+      },
+      "12": {
+        "1": 242.014,
+        "2": 221.213,
+        "3": 633.482,
+        "4": 121.071,
+        "5": 187.708,
+        "6": 193.637,
+        "7": 110.264,
+        "8": 220.676,
+        "9": 227.276,
+        "10": 93.409,
+        "11": 164.448,
+        "12": 206.957,
+        "13": 108.319,
+        "14": 86.667,
+        "15": 105.034,
+        "16": 76.333,
+        "17": 86.653,
+        "18": 88.122,
+        "19": 123.611,
+        "20": 74.69,
+        "21": 190.249,
+        "22": 122.179,
+        "23": 84.29,
+        "24": 43.241
+      }
+    },
+    "probe_equivalence_vs_weight_support_max_rel": null,
+    "note": "generalized variable-slot-dim probe (qk_e18 gate 1); causal = mean-ablation on old cooc held [:96], fp32"
+  },
+  "composed_wiring_frontier_s2": {
+    "checkpoint": "qk_e29_frontier_s2.pt",
+    "seed": 2,
+    "slot_dims_uniform": 15,
+    "plain_reproduction_abs_diff": 0.0,
+    "tables": {
+      "plain": {
+        "spearman_all": 0.8097,
+        "spearman_effectual": 0.6692,
+        "top10_precision": 0.7
+      },
+      "cov_composed": {
+        "spearman_all": 0.8619,
+        "spearman_effectual": 0.7487,
+        "top10_precision": 0.7
+      },
+      "cov_composed_readout_globalnorm": {
+        "spearman_all": 0.8643,
+        "spearman_effectual": 0.7541,
+        "top10_precision": 0.7
+      }
+    },
+    "n_pairs": 156,
+    "n_effectual": 120,
+    "overlap_pairs_per_consumer_cov": [],
+    "cov_pass": {
+      "device": "cuda",
+      "n_seq": 300,
+      "n_samples": 153600,
+      "rows": "fresh34k[33000:33300]",
+      "centered": true
+    }
+  },
+  "frontier_s3": {
+    "lr": 0.02,
+    "group_coeff": 0.0001,
+    "width": 264,
+    "batch": 16,
+    "steps": 8250,
+    "epochs": 1,
+    "corpus": "corpus_fresh shards prefix [132000], single pass",
+    "held_fresh": "corpus_fresh/fresh34k.npy rows [33000:34500] (pure eval corpus)",
+    "final_held_ce_fresh_bf16": 4.987515329996745,
+    "spikes": 0,
+    "diverged": false,
+    "final_penalty": 2759.6240234375,
+    "train_curve_every200": [
+      [
+        0,
+        10.9182,
+        10.9182
+      ],
+      [
+        200,
+        6.4516,
+        6.8113
+      ],
+      [
+        400,
+        6.0886,
+        6.1527
+      ],
+      [
+        600,
+        5.963,
+        5.9375
+      ],
+      [
+        800,
+        5.9669,
+        5.7991
+      ],
+      [
+        1000,
+        5.6094,
+        5.7199
+      ],
+      [
+        1200,
+        5.3181,
+        5.6638
+      ],
+      [
+        1400,
+        5.5623,
+        5.6208
+      ],
+      [
+        1600,
+        5.4748,
+        5.5709
+      ],
+      [
+        1800,
+        5.4056,
+        5.5472
+      ],
+      [
+        2000,
+        5.5199,
+        5.4778
+      ],
+      [
+        2200,
+        5.2873,
+        5.4488
+      ],
+      [
+        2400,
+        5.3483,
+        5.444
+      ],
+      [
+        2600,
+        5.4529,
+        5.3874
+      ],
+      [
+        2800,
+        5.2314,
+        5.3686
+      ],
+      [
+        3000,
+        5.1393,
+        5.3573
+      ],
+      [
+        3200,
+        5.3068,
+        5.3231
+      ],
+      [
+        3400,
+        5.1827,
+        5.2786
+      ],
+      [
+        3600,
+        5.2816,
+        5.2988
+      ],
+      [
+        3800,
+        5.2585,
+        5.2726
+      ],
+      [
+        4000,
+        5.3034,
+        5.2372
+      ],
+      [
+        4200,
+        5.2279,
+        5.236
+      ],
+      [
+        4400,
+        5.3017,
+        5.2061
+      ],
+      [
+        4600,
+        5.2052,
+        5.168
+      ],
+      [
+        4800,
+        5.2549,
+        5.184
+      ],
+      [
+        5000,
+        5.1298,
+        5.162
+      ],
+      [
+        5200,
+        5.0776,
+        5.1452
+      ],
+      [
+        5400,
+        5.069,
+        5.113
+      ],
+      [
+        5600,
+        5.0853,
+        5.0791
+      ],
+      [
+        5800,
+        5.2513,
+        5.0638
+      ],
+      [
+        6000,
+        4.8669,
+        5.025
+      ],
+      [
+        6200,
+        5.21,
+        5.0472
+      ],
+      [
+        6400,
+        5.001,
+        5.0199
+      ],
+      [
+        6600,
+        4.8269,
+        5.0029
+      ],
+      [
+        6800,
+        5.0952,
+        4.9574
+      ],
+      [
+        7000,
+        4.9834,
+        4.9711
+      ],
+      [
+        7200,
+        4.8012,
+        4.9502
+      ],
+      [
+        7400,
+        4.9283,
+        4.9523
+      ],
+      [
+        7600,
+        5.0318,
+        4.9173
+      ],
+      [
+        7800,
+        4.8756,
+        4.9306
+      ],
+      [
+        8000,
+        5.003,
+        4.915
+      ],
+      [
+        8200,
+        4.9137,
+        4.8964
+      ]
+    ],
+    "held100_fresh_curve": [
+      [
+        2000,
+        5.6752
+      ],
+      [
+        4000,
+        5.4606
+      ],
+      [
+        6000,
+        5.2576
+      ],
+      [
+        8000,
+        5.1362
+      ]
+    ],
+    "optimizer": "muon",
+    "seed": 3,
+    "data_seed": 1234,
+    "slot": 15,
+    "arm": "frontier",
+    "parent": "E19a (qk_e19_a, seed 0)",
+    "design": "E15c bandwidth-reinvestment architecture at the readability dial (in-loss group-lasso 1e-4), verbatim qk_e19_dial_run arm E19a",
+    "varies_from_parent": "init seed ONLY; data order identical by construction"
+  },
+  "control_ckpt_config_frontier_s3": {
+    "parent_checkpoint": "qk_e19_a.pt",
+    "replicate_checkpoint": "qk_e29_frontier_s3.pt",
+    "differing_keys": [
+      "SEED"
+    ],
+    "differences": {
+      "SEED": [
+        0,
+        3
+      ]
+    },
+    "pass": true
+  },
+  "frontier_s3_oldheld": {
+    "old_held_ce_bf16": 4.84821,
+    "note": "cooc rows [5500:6000]; model trained on fresh corpus only"
+  },
+  "frontier_s3_minus_e0a_fresh": {
+    "held_ce": 4.987515449523926,
+    "e0a_held_ce": 4.851274013519287,
+    "minus_e0a": 0.1362408846616745,
+    "minus_e0a_se_token": 0.0010993452742695808,
+    "minus_e0a_se_seq": 0.002316415309906006
+  },
+  "frontier_s3_minus_e0b_fresh": {
+    "held_ce": 4.987515449523926,
+    "e0b_held_ce": 5.1929426193237305,
+    "minus_e0b": -0.20542733371257782,
+    "minus_e0b_se_token": 0.0010931354481726885,
+    "minus_e0b_se_seq": 0.0031561022624373436
+  },
+  "frontier_s3_minus_seed0": {
+    "held_ce": 4.987515449523926,
+    "seed0_held_ce": 4.97421407699585,
+    "minus_seed0": 0.013301354832947254,
+    "minus_seed0_se_token": 0.0009070634841918945,
+    "minus_seed0_se_seq": 0.0010608548764139414,
+    "parent": "qk_e19_a",
+    "note": "paired per-token fresh held CE, sequence-clustered SE; this seed minus the seed-0 twin"
+  },
+  "frontier_s3_traj": {
+    "path": "qk_e29_frontier_s3_traj.npz",
+    "n_snapshots": 42,
+    "every": 200,
+    "keys": [
+      "cov_diag",
+      "cov_top2",
+      "read_group_norms",
+      "step",
+      "update_group_norms"
+    ]
+  },
+  "light_probe_frontier_s3": {
+    "checkpoint": "qk_e29_frontier_s3.pt",
+    "seed": 3,
+    "slot_dims": [
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15
+    ],
+    "stream_width": 360,
+    "compute_width": 264,
+    "base_ce_fp32_abl_oldheld": 4.86825,
+    "wiring_n_pairs": 156,
+    "wiring_spearman_all": 0.8545,
+    "wiring_n_effectual": 119,
+    "wiring_spearman_effectual": 0.7807,
+    "wiring_top10_precision": 0.5,
+    "per_block_total_consumption": {
+      "0": 1.12643,
+      "1": 0.61079,
+      "2": 0.94916,
+      "3": 1.04448,
+      "4": 0.48102,
+      "5": 0.17834,
+      "6": 0.16761,
+      "7": 0.51535,
+      "8": 0.0982,
+      "9": 0.12605,
+      "10": 0.11751,
+      "11": 0.10248
+    },
+    "dead_blocks_below_0.001": [],
+    "consumption_top20": [
+      {
+        "consumer": "block3",
+        "source": "emb",
+        "dce": 2.13326
+      },
+      {
+        "consumer": "block4",
+        "source": "emb",
+        "dce": 1.53324
+      },
+      {
+        "consumer": "block0",
+        "source": "emb",
+        "dce": 1.19911
+      },
+      {
+        "consumer": "block1",
+        "source": "emb",
+        "dce": 0.81321
+      },
+      {
+        "consumer": "block2",
+        "source": "emb",
+        "dce": 0.77207
+      },
+      {
+        "consumer": "readout",
+        "source": "attn3",
+        "dce": 0.75818
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp7",
+        "dce": 0.42401
+      },
+      {
+        "consumer": "readout",
+        "source": "attn2",
+        "dce": 0.40295
+      },
+      {
+        "consumer": "block6",
+        "source": "emb",
+        "dce": 0.3328
+      },
+      {
+        "consumer": "block7",
+        "source": "emb",
+        "dce": 0.29077
+      },
+      {
+        "consumer": "block1",
+        "source": "mlp0",
+        "dce": 0.28456
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp4",
+        "dce": 0.28124
+      },
+      {
+        "consumer": "readout",
+        "source": "attn1",
+        "dce": 0.17639
+      },
+      {
+        "consumer": "block3",
+        "source": "attn2",
+        "dce": 0.15293
+      },
+      {
+        "consumer": "block5",
+        "source": "emb",
+        "dce": 0.13879
+      },
+      {
+        "consumer": "block2",
+        "source": "mlp1",
+        "dce": 0.12798
+      },
+      {
+        "consumer": "block8",
+        "source": "emb",
+        "dce": 0.1213
+      },
+      {
+        "consumer": "block10",
+        "source": "emb",
+        "dce": 0.11833
+      },
+      {
+        "consumer": "block2",
+        "source": "mlp0",
+        "dce": 0.11626
+      },
+      {
+        "consumer": "block1",
+        "source": "attn0",
+        "dce": 0.10895
+      }
+    ],
+    "consumption_matrix": {
+      "0": {
+        "0": 1.199107
+      },
+      "1": {
+        "0": 0.813213,
+        "1": 0.108954,
+        "2": 0.28456
+      },
+      "2": {
+        "0": 0.772071,
+        "1": 0.103145,
+        "2": 0.116264,
+        "3": 0.035156,
+        "4": 0.127975
+      },
+      "3": {
+        "0": 2.133264,
+        "1": 0.057469,
+        "2": 0.030716,
+        "3": 0.020294,
+        "4": 0.021299,
+        "5": 0.152926,
+        "6": 0.094501
+      },
+      "4": {
+        "0": 1.533235,
+        "1": 0.051355,
+        "2": 0.040125,
+        "3": 0.021933,
+        "4": 0.03824,
+        "5": 0.034546,
+        "6": 0.055177,
+        "7": 0.017955,
+        "8": 0.093904
+      },
+      "5": {
+        "0": 0.138794,
+        "1": 0.022066,
+        "2": 0.013052,
+        "3": 0.011932,
+        "4": 0.003104,
+        "5": 0.010151,
+        "6": 0.009492,
+        "7": 0.007396,
+        "8": 0.009153,
+        "9": 0.01322,
+        "10": 0.004381
+      },
+      "6": {
+        "0": 0.3328,
+        "1": 0.047602,
+        "2": 0.019967,
+        "3": 0.019777,
+        "4": 0.008066,
+        "5": 0.01068,
+        "6": 0.008699,
+        "7": 0.010107,
+        "8": 0.014072,
+        "9": 0.022799,
+        "10": 0.007583,
+        "11": 0.003527,
+        "12": 0.007253
+      },
+      "7": {
+        "0": 0.290773,
+        "1": 0.044898,
+        "2": 0.028627,
+        "3": 0.017975,
+        "4": 0.015049,
+        "5": 0.041327,
+        "6": 0.025623,
+        "7": 0.026813,
+        "8": 0.010859,
+        "9": 0.027855,
+        "10": 0.019493,
+        "11": 0.015869,
+        "12": 0.005638,
+        "13": 0.010615,
+        "14": 0.012084
+      },
+      "8": {
+        "0": 0.121296,
+        "1": 0.012316,
+        "2": 0.009136,
+        "3": 0.010118,
+        "4": 0.002882,
+        "5": 0.008577,
+        "6": 0.00499,
+        "7": 0.007896,
+        "8": 0.004002,
+        "9": 0.011566,
+        "10": 0.003722,
+        "11": 0.003742,
+        "12": 0.002228,
+        "13": 0.007026,
+        "14": 0.004096,
+        "15": 0.002904,
+        "16": 0.003252
+      },
+      "9": {
+        "0": 0.061974,
+        "1": 0.016611,
+        "2": 0.014719,
+        "3": 0.011506,
+        "4": 0.005747,
+        "5": 0.00832,
+        "6": 0.004746,
+        "7": 0.009622,
+        "8": 0.004772,
+        "9": 0.01185,
+        "10": 0.00615,
+        "11": 0.00254,
+        "12": 0.003448,
+        "13": 0.005576,
+        "14": 0.004503,
+        "15": 0.001569,
+        "16": 0.007292,
+        "17": 0.005833,
+        "18": 0.003636
+      },
+      "10": {
+        "0": 0.118326,
+        "1": 0.014263,
+        "2": 0.007359,
+        "3": 0.004883,
+        "4": 0.008596,
+        "5": 0.007942,
+        "6": 0.009434,
+        "7": 0.00448,
+        "8": 0.025789,
+        "9": 0.013193,
+        "10": 0.006137,
+        "11": 0.002112,
+        "12": 0.00634,
+        "13": 0.005623,
+        "14": 0.010041,
+        "15": 0.00209,
+        "16": 0.007119,
+        "17": 0.002946,
+        "18": 0.004072,
+        "19": 0.004061,
+        "20": 0.00557
+      },
+      "11": {
+        "0": 0.049061,
+        "1": 0.01002,
+        "2": 0.012123,
+        "3": 0.008471,
+        "4": 0.003631,
+        "5": 0.010625,
+        "6": 0.006701,
+        "7": 0.011633,
+        "8": 0.004036,
+        "9": 0.013605,
+        "10": 0.007644,
+        "11": 0.004176,
+        "12": 0.004367,
+        "13": 0.003737,
+        "14": 0.003815,
+        "15": 0.001952,
+        "16": 0.007989,
+        "17": 0.003836,
+        "18": 0.003381,
+        "19": 0.003006,
+        "20": 0.002586,
+        "21": 0.006705,
+        "22": 0.01061
+      },
+      "12": {
+        "0": 0.015818,
+        "1": 0.01279,
+        "2": 0.048295,
+        "3": 0.176386,
+        "4": 0.037771,
+        "5": 0.402954,
+        "6": 0.041751,
+        "7": 0.758176,
+        "8": 0.023813,
+        "9": 0.030577,
+        "10": 0.281243,
+        "11": 0.052032,
+        "12": 0.065067,
+        "13": 0.078308,
+        "14": 0.022187,
+        "15": 0.057165,
+        "16": 0.424014,
+        "17": 0.046773,
+        "18": 0.027727,
+        "19": 0.023797,
+        "20": 0.087028,
+        "21": 0.042201,
+        "22": 0.057994,
+        "23": 0.020473,
+        "24": 0.082008
+      }
+    },
+    "weight_support_matrix": {
+      "0": {},
+      "1": {
+        "1": 11.342,
+        "2": 10.066
+      },
+      "2": {
+        "1": 12.147,
+        "2": 7.109,
+        "3": 11.415,
+        "4": 8.098
+      },
+      "3": {
+        "1": 8.305,
+        "2": 4.437,
+        "3": 8.461,
+        "4": 5.054,
+        "5": 8.223,
+        "6": 6.769
+      },
+      "4": {
+        "1": 9.932,
+        "2": 5.353,
+        "3": 10.101,
+        "4": 5.225,
+        "5": 6.458,
+        "6": 6.336,
+        "7": 5.304,
+        "8": 7.223
+      },
+      "5": {
+        "1": 6.448,
+        "2": 3.417,
+        "3": 7.931,
+        "4": 2.585,
+        "5": 3.41,
+        "6": 3.652,
+        "7": 2.363,
+        "8": 3.802,
+        "9": 5.202,
+        "10": 2.222
+      },
+      "6": {
+        "1": 10.075,
+        "2": 4.656,
+        "3": 11.382,
+        "4": 3.556,
+        "5": 4.266,
+        "6": 4.255,
+        "7": 4.328,
+        "8": 4.798,
+        "9": 7.807,
+        "10": 2.845,
+        "11": 2.397,
+        "12": 3.553
+      },
+      "7": {
+        "1": 7.273,
+        "2": 3.988,
+        "3": 8.557,
+        "4": 3.06,
+        "5": 4.345,
+        "6": 3.886,
+        "7": 3.428,
+        "8": 3.96,
+        "9": 6.38,
+        "10": 2.783,
+        "11": 2.174,
+        "12": 2.912,
+        "13": 3.03,
+        "14": 3.745
+      },
+      "8": {
+        "1": 5.395,
+        "2": 3.017,
+        "3": 7.308,
+        "4": 1.865,
+        "5": 2.605,
+        "6": 2.466,
+        "7": 2.765,
+        "8": 2.609,
+        "9": 5.017,
+        "10": 2.124,
+        "11": 2.157,
+        "12": 2.117,
+        "13": 2.754,
+        "14": 2.695,
+        "15": 2.11,
+        "16": 2.508
+      },
+      "9": {
+        "1": 5.958,
+        "2": 3.81,
+        "3": 7.399,
+        "4": 2.994,
+        "5": 3.313,
+        "6": 3.124,
+        "7": 3.004,
+        "8": 3.216,
+        "9": 5.791,
+        "10": 3.095,
+        "11": 2.057,
+        "12": 2.905,
+        "13": 2.984,
+        "14": 3.318,
+        "15": 2.183,
+        "16": 3.241,
+        "17": 2.835,
+        "18": 2.869
+      },
+      "10": {
+        "1": 5.673,
+        "2": 3.681,
+        "3": 5.707,
+        "4": 3.516,
+        "5": 3.711,
+        "6": 4.466,
+        "7": 3.664,
+        "8": 5.159,
+        "9": 6.311,
+        "10": 3.34,
+        "11": 2.446,
+        "12": 3.738,
+        "13": 4.364,
+        "14": 4.464,
+        "15": 2.649,
+        "16": 3.963,
+        "17": 2.82,
+        "18": 3.459,
+        "19": 2.327,
+        "20": 3.9
+      },
+      "11": {
+        "1": 4.662,
+        "2": 3.549,
+        "3": 6.121,
+        "4": 2.555,
+        "5": 3.351,
+        "6": 3.308,
+        "7": 2.651,
+        "8": 3.06,
+        "9": 5.139,
+        "10": 3.393,
+        "11": 2.293,
+        "12": 2.927,
+        "13": 3.445,
+        "14": 3.158,
+        "15": 2.165,
+        "16": 3.127,
+        "17": 2.563,
+        "18": 2.699,
+        "19": 1.711,
+        "20": 3.018,
+        "21": 3.965,
+        "22": 4.48
+      },
+      "12": {
+        "1": 242.867,
+        "2": 167.696,
+        "3": 225.596,
+        "4": 107.578,
+        "5": 191.154,
+        "6": 111.84,
+        "7": 625.89,
+        "8": 83.459,
+        "9": 90.142,
+        "10": 236.187,
+        "11": 79.559,
+        "12": 150.15,
+        "13": 84.185,
+        "14": 74.89,
+        "15": 118.536,
+        "16": 249.93,
+        "17": 89.824,
+        "18": 61.57,
+        "19": 60.924,
+        "20": 116.349,
+        "21": 60.897,
+        "22": 65.728,
+        "23": 55.991,
+        "24": 107.524
+      }
+    },
+    "probe_equivalence_vs_weight_support_max_rel": null,
+    "note": "generalized variable-slot-dim probe (qk_e18 gate 1); causal = mean-ablation on old cooc held [:96], fp32"
+  },
+  "composed_wiring_frontier_s3": {
+    "checkpoint": "qk_e29_frontier_s3.pt",
+    "seed": 3,
+    "slot_dims_uniform": 15,
+    "plain_reproduction_abs_diff": 0.0,
+    "tables": {
+      "plain": {
+        "spearman_all": 0.8545,
+        "spearman_effectual": 0.7807,
+        "top10_precision": 0.5
+      },
+      "cov_composed": {
+        "spearman_all": 0.8831,
+        "spearman_effectual": 0.8092,
+        "top10_precision": 0.5
+      },
+      "cov_composed_readout_globalnorm": {
+        "spearman_all": 0.8851,
+        "spearman_effectual": 0.8138,
+        "top10_precision": 0.5
+      }
+    },
+    "n_pairs": 156,
+    "n_effectual": 119,
+    "overlap_pairs_per_consumer_cov": [],
+    "cov_pass": {
+      "device": "cuda",
+      "n_seq": 300,
+      "n_samples": 153600,
+      "rows": "fresh34k[33000:33300]",
+      "centered": true
+    }
+  },
+  "recipe_s2": {
+    "lr": 0.02,
+    "group_coeff": 3e-05,
+    "width": 264,
+    "batch": 16,
+    "steps": 8250,
+    "epochs": 1,
+    "corpus": "corpus_fresh shards prefix [132000], single pass",
+    "held_fresh": "corpus_fresh/fresh34k.npy rows [33000:34500] (pure eval corpus)",
+    "final_held_ce_fresh_bf16": 5.042285298665365,
+    "spikes": 0,
+    "diverged": false,
+    "final_penalty": 7848.90087890625,
+    "train_curve_every200": [
+      [
+        0,
+        10.8843,
+        10.8843
+      ],
+      [
+        200,
+        6.5442,
+        6.9566
+      ],
+      [
+        400,
+        6.1334,
+        6.2075
+      ],
+      [
+        600,
+        6.007,
+        5.9726
+      ],
+      [
+        800,
+        5.9744,
+        5.8151
+      ],
+      [
+        1000,
+        5.6103,
+        5.7227
+      ],
+      [
+        1200,
+        5.3117,
+        5.6575
+      ],
+      [
+        1400,
+        5.5563,
+        5.6136
+      ],
+      [
+        1600,
+        5.4478,
+        5.562
+      ],
+      [
+        1800,
+        5.3985,
+        5.5335
+      ],
+      [
+        2000,
+        5.4816,
+        5.4644
+      ],
+      [
+        2200,
+        5.2919,
+        5.4427
+      ],
+      [
+        2400,
+        5.329,
+        5.4318
+      ],
+      [
+        2600,
+        5.4679,
+        5.3758
+      ],
+      [
+        2800,
+        5.2114,
+        5.3511
+      ],
+      [
+        3000,
+        5.1438,
+        5.345
+      ],
+      [
+        3200,
+        5.3141,
+        5.3094
+      ],
+      [
+        3400,
+        5.1656,
+        5.2623
+      ],
+      [
+        3600,
+        5.2796,
+        5.2817
+      ],
+      [
+        3800,
+        5.2308,
+        5.2557
+      ],
+      [
+        4000,
+        5.2924,
+        5.2197
+      ],
+      [
+        4200,
+        5.2152,
+        5.2215
+      ],
+      [
+        4400,
+        5.3061,
+        5.1919
+      ],
+      [
+        4600,
+        5.2061,
+        5.152
+      ],
+      [
+        4800,
+        5.2307,
+        5.1738
+      ],
+      [
+        5000,
+        5.1198,
+        5.149
+      ],
+      [
+        5200,
+        5.0567,
+        5.1355
+      ],
+      [
+        5400,
+        5.0511,
+        5.1053
+      ],
+      [
+        5600,
+        5.0773,
+        5.0738
+      ],
+      [
+        5800,
+        5.2547,
+        5.0612
+      ],
+      [
+        6000,
+        4.8578,
+        5.0308
+      ],
+      [
+        6200,
+        5.2287,
+        5.0574
+      ],
+      [
+        6400,
+        5.0309,
+        5.0399
+      ],
+      [
+        6600,
+        4.8807,
+        5.0287
+      ],
+      [
+        6800,
+        5.133,
+        4.9904
+      ],
+      [
+        7000,
+        5.005,
+        5.0087
+      ],
+      [
+        7200,
+        4.8557,
+        4.9942
+      ],
+      [
+        7400,
+        4.9995,
+        5.0003
+      ],
+      [
+        7600,
+        5.0677,
+        4.9688
+      ],
+      [
+        7800,
+        4.9171,
+        4.9855
+      ],
+      [
+        8000,
+        5.0833,
+        4.9715
+      ],
+      [
+        8200,
+        4.9638,
+        4.9514
+      ]
+    ],
+    "held100_fresh_curve": [
+      [
+        2000,
+        5.6654
+      ],
+      [
+        4000,
+        5.4331
+      ],
+      [
+        6000,
+        5.2648
+      ],
+      [
+        8000,
+        5.1875
+      ]
+    ],
+    "optimizer": "muon",
+    "seed": 2,
+    "data_seed": 1234,
+    "slot": 11,
+    "arm": "recipe",
+    "parent": "E9a (qk_e9_a, seed 0)",
+    "design": "readable recipe: partitioned write slots + per-slot RMSNorm + Muon 0.02 (embedding AdamW) + in-loss group-lasso 3e-5, verbatim qk_e9_compose_run arm E9a",
+    "varies_from_parent": "init seed ONLY; data order identical by construction"
+  },
+  "control_ckpt_config_recipe_s2": {
+    "parent_checkpoint": "qk_e9_a.pt",
+    "replicate_checkpoint": "qk_e29_recipe_s2.pt",
+    "differing_keys": [
+      "SEED"
+    ],
+    "differences": {
+      "SEED": [
+        0,
+        2
+      ]
+    },
+    "pass": true
+  },
+  "recipe_s2_oldheld": {
+    "old_held_ce_bf16": 4.90609,
+    "note": "cooc rows [5500:6000]; model trained on fresh corpus only"
+  },
+  "recipe_s2_minus_e0a_fresh": {
+    "held_ce": 5.042284965515137,
+    "e0a_held_ce": 4.851274013519287,
+    "minus_e0a": 0.19101087749004364,
+    "minus_e0a_se_token": 0.0010067425901070237,
+    "minus_e0a_se_seq": 0.0016874030698090792
+  },
+  "recipe_s2_minus_e0b_fresh": {
+    "held_ce": 5.042284965515137,
+    "e0b_held_ce": 5.1929426193237305,
+    "minus_e0b": -0.1506573110818863,
+    "minus_e0b_se_token": 0.0009775786893442273,
+    "minus_e0b_se_seq": 0.002230050740763545
+  },
+  "recipe_s2_minus_seed0": {
+    "held_ce": 5.042284965515137,
+    "seed0_held_ce": 5.054659366607666,
+    "minus_seed0": -0.01237356849014759,
+    "minus_seed0_se_token": 0.0008855676278471947,
+    "minus_seed0_se_seq": 0.0011337994365021586,
+    "parent": "qk_e9_a",
+    "note": "paired per-token fresh held CE, sequence-clustered SE; this seed minus the seed-0 twin"
+  },
+  "recipe_s2_traj": {
+    "path": "qk_e29_recipe_s2_traj.npz",
+    "n_snapshots": 42,
+    "every": 200,
+    "keys": [
+      "cov_diag",
+      "cov_top2",
+      "read_group_norms",
+      "step",
+      "update_group_norms"
+    ]
+  },
+  "light_probe_recipe_s2": {
+    "checkpoint": "qk_e29_recipe_s2.pt",
+    "seed": 2,
+    "slot_dims": [
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11
+    ],
+    "stream_width": 264,
+    "compute_width": 264,
+    "base_ce_fp32_abl_oldheld": 4.92202,
+    "wiring_n_pairs": 156,
+    "wiring_spearman_all": 0.8455,
+    "wiring_n_effectual": 139,
+    "wiring_spearman_effectual": 0.7891,
+    "wiring_top10_precision": 0.5,
+    "per_block_total_consumption": {
+      "0": 1.01147,
+      "1": 1.11914,
+      "2": 0.38936,
+      "3": 0.77506,
+      "4": 0.18974,
+      "5": 0.37553,
+      "6": 0.24858,
+      "7": 0.20226,
+      "8": 0.14924,
+      "9": 0.23984,
+      "10": 0.10911,
+      "11": 0.06928
+    },
+    "dead_blocks_below_0.001": [],
+    "consumption_top20": [
+      {
+        "consumer": "block0",
+        "source": "emb",
+        "dce": 1.8423
+      },
+      {
+        "consumer": "block3",
+        "source": "emb",
+        "dce": 0.76879
+      },
+      {
+        "consumer": "block1",
+        "source": "emb",
+        "dce": 0.7309
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp3",
+        "dce": 0.48242
+      },
+      {
+        "consumer": "block6",
+        "source": "emb",
+        "dce": 0.47634
+      },
+      {
+        "consumer": "block2",
+        "source": "emb",
+        "dce": 0.45865
+      },
+      {
+        "consumer": "readout",
+        "source": "attn1",
+        "dce": 0.37731
+      },
+      {
+        "consumer": "block5",
+        "source": "emb",
+        "dce": 0.32621
+      },
+      {
+        "consumer": "block7",
+        "source": "emb",
+        "dce": 0.26703
+      },
+      {
+        "consumer": "block3",
+        "source": "mlp0",
+        "dce": 0.22539
+      },
+      {
+        "consumer": "block4",
+        "source": "emb",
+        "dce": 0.21475
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp1",
+        "dce": 0.19995
+      },
+      {
+        "consumer": "block1",
+        "source": "mlp0",
+        "dce": 0.19232
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp5",
+        "dce": 0.19122
+      },
+      {
+        "consumer": "block8",
+        "source": "emb",
+        "dce": 0.17326
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp9",
+        "dce": 0.15615
+      },
+      {
+        "consumer": "block2",
+        "source": "mlp1",
+        "dce": 0.1319
+      },
+      {
+        "consumer": "block2",
+        "source": "mlp0",
+        "dce": 0.10903
+      },
+      {
+        "consumer": "readout",
+        "source": "attn7",
+        "dce": 0.08824
+      },
+      {
+        "consumer": "block3",
+        "source": "mlp1",
+        "dce": 0.08356
+      }
+    ],
+    "consumption_matrix": {
+      "0": {
+        "0": 1.8423
+      },
+      "1": {
+        "0": 0.730899,
+        "1": 0.076776,
+        "2": 0.192321
+      },
+      "2": {
+        "0": 0.458653,
+        "1": 0.046554,
+        "2": 0.109032,
+        "3": 0.0425,
+        "4": 0.131896
+      },
+      "3": {
+        "0": 0.768793,
+        "1": 0.033093,
+        "2": 0.225394,
+        "3": 0.034869,
+        "4": 0.083564,
+        "5": 0.029586,
+        "6": 0.056056
+      },
+      "4": {
+        "0": 0.214747,
+        "1": 0.026043,
+        "2": 0.017006,
+        "3": 0.012286,
+        "4": 0.013551,
+        "5": 0.026802,
+        "6": 0.014897,
+        "7": 0.01458,
+        "8": 0.014627
+      },
+      "5": {
+        "0": 0.32621,
+        "1": 0.019707,
+        "2": 0.03053,
+        "3": 0.027292,
+        "4": 0.02475,
+        "5": 0.019457,
+        "6": 0.02987,
+        "7": 0.027287,
+        "8": 0.039055,
+        "9": 0.008172,
+        "10": 0.055801
+      },
+      "6": {
+        "0": 0.476336,
+        "1": 0.015019,
+        "2": 0.016342,
+        "3": 0.015623,
+        "4": 0.014222,
+        "5": 0.01608,
+        "6": 0.010805,
+        "7": 0.012722,
+        "8": 0.017092,
+        "9": 0.003641,
+        "10": 0.011007,
+        "11": 0.029812,
+        "12": 0.01485
+      },
+      "7": {
+        "0": 0.267033,
+        "1": 0.013913,
+        "2": 0.014374,
+        "3": 0.021839,
+        "4": 0.019766,
+        "5": 0.012234,
+        "6": 0.011132,
+        "7": 0.016277,
+        "8": 0.015201,
+        "9": 0.003017,
+        "10": 0.00983,
+        "11": 0.019471,
+        "12": 0.016671,
+        "13": 0.006639,
+        "14": 0.015376
+      },
+      "8": {
+        "0": 0.173256,
+        "1": 0.021317,
+        "2": 0.014446,
+        "3": 0.01159,
+        "4": 0.011521,
+        "5": 0.016263,
+        "6": 0.010933,
+        "7": 0.008861,
+        "8": 0.013175,
+        "9": 0.003962,
+        "10": 0.016455,
+        "11": 0.015777,
+        "12": 0.011594,
+        "13": 0.006232,
+        "14": 0.021024,
+        "15": 0.007023,
+        "16": 0.011742
+      },
+      "9": {
+        "0": 0.080478,
+        "1": 0.011688,
+        "2": 0.009438,
+        "3": 0.014758,
+        "4": 0.011085,
+        "5": 0.009707,
+        "6": 0.006927,
+        "7": 0.009685,
+        "8": 0.010693,
+        "9": 0.008033,
+        "10": 0.005053,
+        "11": 0.015188,
+        "12": 0.008754,
+        "13": 0.010762,
+        "14": 0.01497,
+        "15": 0.013182,
+        "16": 0.007254,
+        "17": 0.007474,
+        "18": 0.009127
+      },
+      "10": {
+        "0": 0.078204,
+        "1": 0.013346,
+        "2": 0.010172,
+        "3": 0.013342,
+        "4": 0.011247,
+        "5": 0.00986,
+        "6": 0.005905,
+        "7": 0.008431,
+        "8": 0.006475,
+        "9": 0.002055,
+        "10": 0.004712,
+        "11": 0.020392,
+        "12": 0.00555,
+        "13": 0.00671,
+        "14": 0.007883,
+        "15": 0.006344,
+        "16": 0.006489,
+        "17": 0.008235,
+        "18": 0.006451,
+        "19": 0.002549,
+        "20": 0.006268
+      },
+      "11": {
+        "0": 0.068161,
+        "1": 0.01001,
+        "2": 0.009363,
+        "3": 0.009761,
+        "4": 0.01642,
+        "5": 0.007409,
+        "6": 0.004228,
+        "7": 0.008175,
+        "8": 0.011389,
+        "9": 0.00202,
+        "10": 0.002674,
+        "11": 0.007354,
+        "12": 0.003858,
+        "13": 0.004373,
+        "14": 0.008084,
+        "15": 0.00466,
+        "16": 0.003593,
+        "17": 0.004008,
+        "18": 0.003519,
+        "19": 0.003073,
+        "20": 0.006278,
+        "21": 0.003213,
+        "22": 0.007064
+      },
+      "12": {
+        "0": 0.034077,
+        "1": 0.013212,
+        "2": 0.062375,
+        "3": 0.377309,
+        "4": 0.199953,
+        "5": 0.015405,
+        "6": 0.075807,
+        "7": 0.058913,
+        "8": 0.482423,
+        "9": 0.03074,
+        "10": 0.022564,
+        "11": 0.01504,
+        "12": 0.191216,
+        "13": 0.063804,
+        "14": 0.082723,
+        "15": 0.08824,
+        "16": 0.05374,
+        "17": 0.061838,
+        "18": 0.048586,
+        "19": 0.06552,
+        "20": 0.156149,
+        "21": 0.047867,
+        "22": 0.050963,
+        "23": 0.031024,
+        "24": 0.038253
+      }
+    },
+    "weight_support_matrix": {
+      "0": {},
+      "1": {
+        "1": 25.811,
+        "2": 20.495
+      },
+      "2": {
+        "1": 27.537,
+        "2": 18.74,
+        "3": 22.867,
+        "4": 17.445
+      },
+      "3": {
+        "1": 20.996,
+        "2": 17.104,
+        "3": 18.988,
+        "4": 14.785,
+        "5": 23.234,
+        "6": 18.526
+      },
+      "4": {
+        "1": 18.427,
+        "2": 11.221,
+        "3": 13.097,
+        "4": 10.883,
+        "5": 20.155,
+        "6": 13.084,
+        "7": 20.718,
+        "8": 14.394
+      },
+      "5": {
+        "1": 17.654,
+        "2": 12.826,
+        "3": 16.922,
+        "4": 13.044,
+        "5": 18.821,
+        "6": 15.071,
+        "7": 19.764,
+        "8": 15.988,
+        "9": 11.016,
+        "10": 15.629
+      },
+      "6": {
+        "1": 17.179,
+        "2": 11.652,
+        "3": 13.476,
+        "4": 11.68,
+        "5": 18.491,
+        "6": 12.892,
+        "7": 19.38,
+        "8": 13.81,
+        "9": 9.24,
+        "10": 13.05,
+        "11": 19.407,
+        "12": 14.385
+      },
+      "7": {
+        "1": 15.051,
+        "2": 10.723,
+        "3": 12.305,
+        "4": 11.499,
+        "5": 15.947,
+        "6": 11.512,
+        "7": 16.671,
+        "8": 12.761,
+        "9": 8.653,
+        "10": 11.587,
+        "11": 15.701,
+        "12": 12.959,
+        "13": 11.839,
+        "14": 13.897
+      },
+      "8": {
+        "1": 17.38,
+        "2": 10.725,
+        "3": 14.729,
+        "4": 11.901,
+        "5": 17.506,
+        "6": 12.218,
+        "7": 17.123,
+        "8": 12.604,
+        "9": 9.018,
+        "10": 12.696,
+        "11": 18.612,
+        "12": 13.09,
+        "13": 12.05,
+        "14": 14.519,
+        "15": 11.325,
+        "16": 14.444
+      },
+      "9": {
+        "1": 12.721,
+        "2": 9.59,
+        "3": 10.554,
+        "4": 10.019,
+        "5": 13.24,
+        "6": 10.132,
+        "7": 13.659,
+        "8": 10.599,
+        "9": 8.663,
+        "10": 9.965,
+        "11": 13.426,
+        "12": 11.189,
+        "13": 11.572,
+        "14": 12.071,
+        "15": 10.854,
+        "16": 11.613,
+        "17": 10.272,
+        "18": 11.776
+      },
+      "10": {
+        "1": 13.447,
+        "2": 9.884,
+        "3": 11.624,
+        "4": 10.336,
+        "5": 13.561,
+        "6": 10.093,
+        "7": 13.206,
+        "8": 9.896,
+        "9": 7.781,
+        "10": 9.715,
+        "11": 14.372,
+        "12": 10.491,
+        "13": 11.383,
+        "14": 11.274,
+        "15": 10.233,
+        "16": 11.414,
+        "17": 10.944,
+        "18": 11.807,
+        "19": 8.393,
+        "20": 11.052
+      },
+      "11": {
+        "1": 11.027,
+        "2": 8.639,
+        "3": 10.805,
+        "4": 9.279,
+        "5": 11.328,
+        "6": 8.193,
+        "7": 11.218,
+        "8": 8.513,
+        "9": 6.85,
+        "10": 7.69,
+        "11": 11.128,
+        "12": 8.837,
+        "13": 9.891,
+        "14": 9.044,
+        "15": 9.097,
+        "16": 8.911,
+        "17": 8.363,
+        "18": 9.501,
+        "19": 7.557,
+        "20": 9.175,
+        "21": 8.181,
+        "22": 9.804
+      },
+      "12": {
+        "1": 358.621,
+        "2": 151.373,
+        "3": 377.075,
+        "4": 316.482,
+        "5": 394.648,
+        "6": 226.364,
+        "7": 77.258,
+        "8": 265.192,
+        "9": 124.045,
+        "10": 78.268,
+        "11": 158.153,
+        "12": 218.901,
+        "13": 127.686,
+        "14": 150.438,
+        "15": 198.047,
+        "16": 76.507,
+        "17": 100.488,
+        "18": 72.579,
+        "19": 125.816,
+        "20": 143.765,
+        "21": 77.562,
+        "22": 66.73,
+        "23": 106.439,
+        "24": 49.087
+      }
+    },
+    "probe_equivalence_vs_weight_support_max_rel": 4.2401055892045983e-08,
+    "note": "generalized variable-slot-dim probe (qk_e18 gate 1); causal = mean-ablation on old cooc held [:96], fp32"
+  },
+  "composed_wiring_recipe_s2": {
+    "checkpoint": "qk_e29_recipe_s2.pt",
+    "seed": 2,
+    "slot_dims_uniform": 11,
+    "plain_reproduction_abs_diff": 0.0,
+    "tables": {
+      "plain": {
+        "spearman_all": 0.8455,
+        "spearman_effectual": 0.7891,
+        "top10_precision": 0.5
+      },
+      "cov_composed": {
+        "spearman_all": 0.8763,
+        "spearman_effectual": 0.8297,
+        "top10_precision": 0.5
+      },
+      "cov_composed_readout_globalnorm": {
+        "spearman_all": 0.8813,
+        "spearman_effectual": 0.8368,
+        "top10_precision": 0.6
+      }
+    },
+    "n_pairs": 156,
+    "n_effectual": 139,
+    "overlap_pairs_per_consumer_cov": [],
+    "cov_pass": {
+      "device": "cuda",
+      "n_seq": 300,
+      "n_samples": 153600,
+      "rows": "fresh34k[33000:33300]",
+      "centered": true
+    }
+  },
+  "recipe_s3": {
+    "lr": 0.02,
+    "group_coeff": 3e-05,
+    "width": 264,
+    "batch": 16,
+    "steps": 8250,
+    "epochs": 1,
+    "corpus": "corpus_fresh shards prefix [132000], single pass",
+    "held_fresh": "corpus_fresh/fresh34k.npy rows [33000:34500] (pure eval corpus)",
+    "final_held_ce_fresh_bf16": 5.042064997355143,
+    "spikes": 0,
+    "diverged": false,
+    "final_penalty": 7855.05517578125,
+    "train_curve_every200": [
+      [
+        0,
+        10.8793,
+        10.8793
+      ],
+      [
+        200,
+        6.5356,
+        6.9544
+      ],
+      [
+        400,
+        6.1322,
+        6.2031
+      ],
+      [
+        600,
+        6.0098,
+        5.9756
+      ],
+      [
+        800,
+        5.989,
+        5.8246
+      ],
+      [
+        1000,
+        5.6202,
+        5.7343
+      ],
+      [
+        1200,
+        5.3118,
+        5.6653
+      ],
+      [
+        1400,
+        5.5728,
+        5.615
+      ],
+      [
+        1600,
+        5.4607,
+        5.5617
+      ],
+      [
+        1800,
+        5.393,
+        5.5323
+      ],
+      [
+        2000,
+        5.4761,
+        5.4608
+      ],
+      [
+        2200,
+        5.2854,
+        5.4353
+      ],
+      [
+        2400,
+        5.335,
+        5.4218
+      ],
+      [
+        2600,
+        5.4407,
+        5.3648
+      ],
+      [
+        2800,
+        5.2008,
+        5.341
+      ],
+      [
+        3000,
+        5.132,
+        5.3355
+      ],
+      [
+        3200,
+        5.2874,
+        5.2995
+      ],
+      [
+        3400,
+        5.1658,
+        5.2562
+      ],
+      [
+        3600,
+        5.2768,
+        5.2768
+      ],
+      [
+        3800,
+        5.218,
+        5.2509
+      ],
+      [
+        4000,
+        5.2716,
+        5.2133
+      ],
+      [
+        4200,
+        5.1923,
+        5.2152
+      ],
+      [
+        4400,
+        5.281,
+        5.187
+      ],
+      [
+        4600,
+        5.1937,
+        5.1488
+      ],
+      [
+        4800,
+        5.2209,
+        5.1692
+      ],
+      [
+        5000,
+        5.1079,
+        5.1446
+      ],
+      [
+        5200,
+        5.0539,
+        5.1311
+      ],
+      [
+        5400,
+        5.0522,
+        5.1018
+      ],
+      [
+        5600,
+        5.0526,
+        5.0723
+      ],
+      [
+        5800,
+        5.2538,
+        5.06
+      ],
+      [
+        6000,
+        4.871,
+        5.0296
+      ],
+      [
+        6200,
+        5.2185,
+        5.0552
+      ],
+      [
+        6400,
+        5.0384,
+        5.0384
+      ],
+      [
+        6600,
+        4.877,
+        5.027
+      ],
+      [
+        6800,
+        5.1205,
+        4.9874
+      ],
+      [
+        7000,
+        5.0163,
+        5.0068
+      ],
+      [
+        7200,
+        4.8463,
+        4.9917
+      ],
+      [
+        7400,
+        4.9808,
+        4.997
+      ],
+      [
+        7600,
+        5.0507,
+        4.9662
+      ],
+      [
+        7800,
+        4.9237,
+        4.9842
+      ],
+      [
+        8000,
+        5.065,
+        4.9698
+      ],
+      [
+        8200,
+        4.9659,
+        4.9523
+      ]
+    ],
+    "held100_fresh_curve": [
+      [
+        2000,
+        5.6601
+      ],
+      [
+        4000,
+        5.4405
+      ],
+      [
+        6000,
+        5.2599
+      ],
+      [
+        8000,
+        5.1875
+      ]
+    ],
+    "optimizer": "muon",
+    "seed": 3,
+    "data_seed": 1234,
+    "slot": 11,
+    "arm": "recipe",
+    "parent": "E9a (qk_e9_a, seed 0)",
+    "design": "readable recipe: partitioned write slots + per-slot RMSNorm + Muon 0.02 (embedding AdamW) + in-loss group-lasso 3e-5, verbatim qk_e9_compose_run arm E9a",
+    "varies_from_parent": "init seed ONLY; data order identical by construction"
+  },
+  "control_ckpt_config_recipe_s3": {
+    "parent_checkpoint": "qk_e9_a.pt",
+    "replicate_checkpoint": "qk_e29_recipe_s3.pt",
+    "differing_keys": [
+      "SEED"
+    ],
+    "differences": {
+      "SEED": [
+        0,
+        3
+      ]
+    },
+    "pass": true
+  },
+  "recipe_s3_oldheld": {
+    "old_held_ce_bf16": 4.90487,
+    "note": "cooc rows [5500:6000]; model trained on fresh corpus only"
+  },
+  "recipe_s3_minus_e0a_fresh": {
+    "held_ce": 5.042065143585205,
+    "e0a_held_ce": 4.851274013519287,
+    "minus_e0a": 0.19079053401947021,
+    "minus_e0a_se_token": 0.001021200092509389,
+    "minus_e0a_se_seq": 0.0016855383291840553
+  },
+  "recipe_s3_minus_e0b_fresh": {
+    "held_ce": 5.042065143585205,
+    "e0b_held_ce": 5.1929426193237305,
+    "minus_e0b": -0.1508776694536209,
+    "minus_e0b_se_token": 0.0009704026742838323,
+    "minus_e0b_se_seq": 0.0022468818351626396
+  },
+  "recipe_s3_minus_seed0": {
+    "held_ce": 5.042065143585205,
+    "seed0_held_ce": 5.054659366607666,
+    "minus_seed0": -0.01259391289204359,
+    "minus_seed0_se_token": 0.0008750018896535039,
+    "minus_seed0_se_seq": 0.0010728287743404508,
+    "parent": "qk_e9_a",
+    "note": "paired per-token fresh held CE, sequence-clustered SE; this seed minus the seed-0 twin"
+  },
+  "recipe_s3_traj": {
+    "path": "qk_e29_recipe_s3_traj.npz",
+    "n_snapshots": 42,
+    "every": 200,
+    "keys": [
+      "cov_diag",
+      "cov_top2",
+      "read_group_norms",
+      "step",
+      "update_group_norms"
+    ]
+  },
+  "light_probe_recipe_s3": {
+    "checkpoint": "qk_e29_recipe_s3.pt",
+    "seed": 3,
+    "slot_dims": [
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11
+    ],
+    "stream_width": 264,
+    "compute_width": 264,
+    "base_ce_fp32_abl_oldheld": 4.92194,
+    "wiring_n_pairs": 156,
+    "wiring_spearman_all": 0.8481,
+    "wiring_n_effectual": 141,
+    "wiring_spearman_effectual": 0.8241,
+    "wiring_top10_precision": 0.6,
+    "per_block_total_consumption": {
+      "0": 1.31863,
+      "1": 0.65086,
+      "2": 0.9553,
+      "3": 0.51387,
+      "4": 1.53464,
+      "5": 0.20366,
+      "6": 0.15084,
+      "7": 0.10919,
+      "8": 0.13548,
+      "9": 0.26233,
+      "10": 0.10669,
+      "11": 0.1085
+    },
+    "dead_blocks_below_0.001": [],
+    "consumption_top20": [
+      {
+        "consumer": "block3",
+        "source": "emb",
+        "dce": 5.29864
+      },
+      {
+        "consumer": "block0",
+        "source": "emb",
+        "dce": 2.04695
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp4",
+        "dce": 1.32279
+      },
+      {
+        "consumer": "block1",
+        "source": "emb",
+        "dce": 0.71995
+      },
+      {
+        "consumer": "block2",
+        "source": "emb",
+        "dce": 0.61796
+      },
+      {
+        "consumer": "block4",
+        "source": "emb",
+        "dce": 0.58942
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp2",
+        "dce": 0.45042
+      },
+      {
+        "consumer": "block6",
+        "source": "emb",
+        "dce": 0.43184
+      },
+      {
+        "consumer": "readout",
+        "source": "attn3",
+        "dce": 0.29233
+      },
+      {
+        "consumer": "block5",
+        "source": "emb",
+        "dce": 0.28893
+      },
+      {
+        "consumer": "block1",
+        "source": "mlp0",
+        "dce": 0.24967
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp9",
+        "dce": 0.20042
+      },
+      {
+        "consumer": "block7",
+        "source": "emb",
+        "dce": 0.19557
+      },
+      {
+        "consumer": "readout",
+        "source": "attn0",
+        "dce": 0.18445
+      },
+      {
+        "consumer": "block4",
+        "source": "mlp2",
+        "dce": 0.14946
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp0",
+        "dce": 0.14716
+      },
+      {
+        "consumer": "block4",
+        "source": "mlp0",
+        "dce": 0.14169
+      },
+      {
+        "consumer": "block4",
+        "source": "attn1",
+        "dce": 0.12977
+      },
+      {
+        "consumer": "block9",
+        "source": "emb",
+        "dce": 0.11884
+      },
+      {
+        "consumer": "block8",
+        "source": "emb",
+        "dce": 0.11298
+      }
+    ],
+    "consumption_matrix": {
+      "0": {
+        "0": 2.046951
+      },
+      "1": {
+        "0": 0.719951,
+        "1": 0.072868,
+        "2": 0.249672
+      },
+      "2": {
+        "0": 0.617965,
+        "1": 0.057312,
+        "2": 0.079471,
+        "3": 0.04903,
+        "4": 0.060857
+      },
+      "3": {
+        "0": 5.298637,
+        "1": 0.057342,
+        "2": 0.035387,
+        "3": 0.036613,
+        "4": 0.060056,
+        "5": 0.024262,
+        "6": 0.062644
+      },
+      "4": {
+        "0": 0.58942,
+        "1": 0.063372,
+        "2": 0.141691,
+        "3": 0.12977,
+        "4": 0.052081,
+        "5": 0.042267,
+        "6": 0.149463,
+        "7": 0.028035,
+        "8": 0.039294
+      },
+      "5": {
+        "0": 0.288934,
+        "1": 0.024393,
+        "2": 0.01849,
+        "3": 0.013887,
+        "4": 0.023755,
+        "5": 0.007635,
+        "6": 0.019154,
+        "7": 0.009474,
+        "8": 0.042003,
+        "9": 0.011752,
+        "10": 0.036304
+      },
+      "6": {
+        "0": 0.431836,
+        "1": 0.024731,
+        "2": 0.012703,
+        "3": 0.016737,
+        "4": 0.008558,
+        "5": 0.008046,
+        "6": 0.008878,
+        "7": 0.005528,
+        "8": 0.007874,
+        "9": 0.008724,
+        "10": 0.010076,
+        "11": 0.011479,
+        "12": 0.013337
+      },
+      "7": {
+        "0": 0.195568,
+        "1": 0.01273,
+        "2": 0.011593,
+        "3": 0.01187,
+        "4": 0.007151,
+        "5": 0.007732,
+        "6": 0.008892,
+        "7": 0.004749,
+        "8": 0.008283,
+        "9": 0.005974,
+        "10": 0.009261,
+        "11": 0.006393,
+        "12": 0.011213,
+        "13": 0.002696,
+        "14": 0.009669
+      },
+      "8": {
+        "0": 0.112984,
+        "1": 0.022947,
+        "2": 0.011582,
+        "3": 0.015199,
+        "4": 0.009155,
+        "5": 0.011053,
+        "6": 0.006504,
+        "7": 0.005012,
+        "8": 0.006521,
+        "9": 0.005959,
+        "10": 0.008854,
+        "11": 0.014222,
+        "12": 0.006745,
+        "13": 0.003322,
+        "14": 0.00598,
+        "15": 0.00287,
+        "16": 0.009375
+      },
+      "9": {
+        "0": 0.118836,
+        "1": 0.019497,
+        "2": 0.012364,
+        "3": 0.024903,
+        "4": 0.015938,
+        "5": 0.012822,
+        "6": 0.012793,
+        "7": 0.005825,
+        "8": 0.009087,
+        "9": 0.018201,
+        "10": 0.019842,
+        "11": 0.008142,
+        "12": 0.013289,
+        "13": 0.005455,
+        "14": 0.007813,
+        "15": 0.005504,
+        "16": 0.006971,
+        "17": 0.004819,
+        "18": 0.011627
+      },
+      "10": {
+        "0": 0.093338,
+        "1": 0.018697,
+        "2": 0.010495,
+        "3": 0.0175,
+        "4": 0.007433,
+        "5": 0.006754,
+        "6": 0.009267,
+        "7": 0.00487,
+        "8": 0.004958,
+        "9": 0.006459,
+        "10": 0.009652,
+        "11": 0.0094,
+        "12": 0.00983,
+        "13": 0.003252,
+        "14": 0.006262,
+        "15": 0.003396,
+        "16": 0.004699,
+        "17": 0.002609,
+        "18": 0.005349,
+        "19": 0.001956,
+        "20": 0.006221
+      },
+      "11": {
+        "0": 0.03529,
+        "1": 0.018617,
+        "2": 0.011068,
+        "3": 0.016428,
+        "4": 0.008884,
+        "5": 0.011289,
+        "6": 0.010375,
+        "7": 0.004507,
+        "8": 0.005799,
+        "9": 0.008808,
+        "10": 0.011285,
+        "11": 0.012142,
+        "12": 0.007582,
+        "13": 0.004623,
+        "14": 0.007788,
+        "15": 0.002265,
+        "16": 0.005155,
+        "17": 0.005698,
+        "18": 0.006471,
+        "19": 0.008678,
+        "20": 0.010654,
+        "21": 0.008974,
+        "22": 0.006237
+      },
+      "12": {
+        "0": 0.039491,
+        "1": 0.184449,
+        "2": 0.147161,
+        "3": 0.029679,
+        "4": 0.035373,
+        "5": 0.08505,
+        "6": 0.450425,
+        "7": 0.292327,
+        "8": 0.029723,
+        "9": 0.040697,
+        "10": 1.322791,
+        "11": 0.029299,
+        "12": 0.050589,
+        "13": 0.042377,
+        "14": 0.051602,
+        "15": 0.033318,
+        "16": 0.035642,
+        "17": 0.053589,
+        "18": 0.045313,
+        "19": 0.034397,
+        "20": 0.200421,
+        "21": 0.052328,
+        "22": 0.039148,
+        "23": 0.028901,
+        "24": 0.079603
+      }
+    },
+    "weight_support_matrix": {
+      "0": {},
+      "1": {
+        "1": 31.044,
+        "2": 24.675
+      },
+      "2": {
+        "1": 24.187,
+        "2": 16.67,
+        "3": 25.35,
+        "4": 18.238
+      },
+      "3": {
+        "1": 22.413,
+        "2": 15.266,
+        "3": 21.357,
+        "4": 17.627,
+        "5": 13.684,
+        "6": 16.055
+      },
+      "4": {
+        "1": 22.317,
+        "2": 14.448,
+        "3": 22.871,
+        "4": 15.127,
+        "5": 14.704,
+        "6": 14.305,
+        "7": 18.533,
+        "8": 14.561
+      },
+      "5": {
+        "1": 22.088,
+        "2": 13.741,
+        "3": 19.767,
+        "4": 14.954,
+        "5": 12.491,
+        "6": 13.693,
+        "7": 19.371,
+        "8": 15.373,
+        "9": 13.549,
+        "10": 15.162
+      },
+      "6": {
+        "1": 18.504,
+        "2": 12.243,
+        "3": 18.919,
+        "4": 11.775,
+        "5": 12.324,
+        "6": 10.761,
+        "7": 13.921,
+        "8": 12.04,
+        "9": 12.104,
+        "10": 11.99,
+        "11": 15.752,
+        "12": 13.72
+      },
+      "7": {
+        "1": 15.131,
+        "2": 10.748,
+        "3": 14.965,
+        "4": 10.923,
+        "5": 11.226,
+        "6": 9.869,
+        "7": 12.453,
+        "8": 11.107,
+        "9": 11.439,
+        "10": 11.35,
+        "11": 14.021,
+        "12": 12.434,
+        "13": 8.011,
+        "14": 12.435
+      },
+      "8": {
+        "1": 16.531,
+        "2": 11.115,
+        "3": 17.034,
+        "4": 10.556,
+        "5": 11.794,
+        "6": 9.933,
+        "7": 11.747,
+        "8": 10.684,
+        "9": 10.874,
+        "10": 10.973,
+        "11": 15.033,
+        "12": 12.183,
+        "13": 8.255,
+        "14": 11.809,
+        "15": 8.489,
+        "16": 12.02
+      },
+      "9": {
+        "1": 14.942,
+        "2": 11.629,
+        "3": 15.825,
+        "4": 11.259,
+        "5": 13.032,
+        "6": 11.774,
+        "7": 11.656,
+        "8": 10.949,
+        "9": 11.541,
+        "10": 11.82,
+        "11": 12.584,
+        "12": 11.795,
+        "13": 8.432,
+        "14": 11.307,
+        "15": 8.515,
+        "16": 11.251,
+        "17": 8.896,
+        "18": 11.81
+      },
+      "10": {
+        "1": 16.4,
+        "2": 10.577,
+        "3": 17.106,
+        "4": 9.804,
+        "5": 10.986,
+        "6": 9.149,
+        "7": 11.162,
+        "8": 9.674,
+        "9": 10.684,
+        "10": 9.656,
+        "11": 13.593,
+        "12": 10.592,
+        "13": 8.658,
+        "14": 10.396,
+        "15": 8.775,
+        "16": 10.588,
+        "17": 8.07,
+        "18": 10.816,
+        "19": 6.394,
+        "20": 10.499
+      },
+      "11": {
+        "1": 14.298,
+        "2": 10.727,
+        "3": 15.403,
+        "4": 10.047,
+        "5": 10.269,
+        "6": 10.607,
+        "7": 10.909,
+        "8": 9.697,
+        "9": 9.764,
+        "10": 10.623,
+        "11": 12.562,
+        "12": 10.687,
+        "13": 7.545,
+        "14": 10.654,
+        "15": 7.775,
+        "16": 10.247,
+        "17": 7.618,
+        "18": 11.143,
+        "19": 6.452,
+        "20": 11.632,
+        "21": 8.149,
+        "22": 10.199
+      },
+      "12": {
+        "1": 439.877,
+        "2": 209.65,
+        "3": 499.817,
+        "4": 116.278,
+        "5": 241.781,
+        "6": 271.729,
+        "7": 228.763,
+        "8": 96.972,
+        "9": 158.689,
+        "10": 312.658,
+        "11": 98.168,
+        "12": 83.886,
+        "13": 113.537,
+        "14": 82.644,
+        "15": 155.996,
+        "16": 64.181,
+        "17": 127.426,
+        "18": 78.766,
+        "19": 101.441,
+        "20": 143.207,
+        "21": 93.72,
+        "22": 50.793,
+        "23": 87.094,
+        "24": 111.26
+      }
+    },
+    "probe_equivalence_vs_weight_support_max_rel": 5.4730870159263264e-08,
+    "note": "generalized variable-slot-dim probe (qk_e18 gate 1); causal = mean-ablation on old cooc held [:96], fp32"
+  },
+  "composed_wiring_recipe_s3": {
+    "checkpoint": "qk_e29_recipe_s3.pt",
+    "seed": 3,
+    "slot_dims_uniform": 11,
+    "plain_reproduction_abs_diff": 0.0,
+    "tables": {
+      "plain": {
+        "spearman_all": 0.8481,
+        "spearman_effectual": 0.8241,
+        "top10_precision": 0.6
+      },
+      "cov_composed": {
+        "spearman_all": 0.9002,
+        "spearman_effectual": 0.8746,
+        "top10_precision": 0.6
+      },
+      "cov_composed_readout_globalnorm": {
+        "spearman_all": 0.9019,
+        "spearman_effectual": 0.8768,
+        "top10_precision": 0.6
+      }
+    },
+    "n_pairs": 156,
+    "n_effectual": 141,
+    "overlap_pairs_per_consumer_cov": [],
+    "cov_pass": {
+      "device": "cuda",
+      "n_seq": 300,
+      "n_samples": 153600,
+      "rows": "fresh34k[33000:33300]",
+      "centered": true
+    }
+  },
+  "predicate_basis_s1": {
+    "lr": 0.02,
+    "group_coeff": 0.0001,
+    "width": 264,
+    "batch": 16,
+    "steps": 8250,
+    "epochs": 1,
+    "corpus": "corpus_fresh shards prefix [132000], single pass",
+    "held_fresh": "corpus_fresh/fresh34k.npy rows [33000:34500] (pure eval corpus)",
+    "final_held_ce_fresh_bf16": 4.896391451517741,
+    "spikes": 0,
+    "diverged": false,
+    "final_penalty": 2493.99072265625,
+    "train_curve_every200": [
+      [
+        0,
+        10.9082,
+        10.9082
+      ],
+      [
+        200,
+        6.348,
+        6.7585
+      ],
+      [
+        400,
+        5.8214,
+        5.9388
+      ],
+      [
+        600,
+        5.7166,
+        5.6777
+      ],
+      [
+        800,
+        5.5502,
+        5.5392
+      ],
+      [
+        1000,
+        5.2666,
+        5.4641
+      ],
+      [
+        1200,
+        5.1017,
+        5.4129
+      ],
+      [
+        1400,
+        5.3765,
+        5.3785
+      ],
+      [
+        1600,
+        5.3117,
+        5.3513
+      ],
+      [
+        1800,
+        5.1957,
+        5.3329
+      ],
+      [
+        2000,
+        5.3071,
+        5.2775
+      ],
+      [
+        2200,
+        5.176,
+        5.2606
+      ],
+      [
+        2400,
+        5.1743,
+        5.2679
+      ],
+      [
+        2600,
+        5.2005,
+        5.2145
+      ],
+      [
+        2800,
+        5.1041,
+        5.2098
+      ],
+      [
+        3000,
+        5.0213,
+        5.1998
+      ],
+      [
+        3200,
+        5.1786,
+        5.1782
+      ],
+      [
+        3400,
+        5.0423,
+        5.14
+      ],
+      [
+        3600,
+        5.1629,
+        5.158
+      ],
+      [
+        3800,
+        5.1484,
+        5.1362
+      ],
+      [
+        4000,
+        5.1991,
+        5.105
+      ],
+      [
+        4200,
+        5.0957,
+        5.1067
+      ],
+      [
+        4400,
+        5.1868,
+        5.0849
+      ],
+      [
+        4600,
+        5.0895,
+        5.0489
+      ],
+      [
+        4800,
+        5.1435,
+        5.0637
+      ],
+      [
+        5000,
+        5.0156,
+        5.0398
+      ],
+      [
+        5200,
+        4.9937,
+        5.0303
+      ],
+      [
+        5400,
+        4.9876,
+        4.995
+      ],
+      [
+        5600,
+        4.9765,
+        4.9688
+      ],
+      [
+        5800,
+        5.1641,
+        4.9565
+      ],
+      [
+        6000,
+        4.763,
+        4.921
+      ],
+      [
+        6200,
+        5.1167,
+        4.9433
+      ],
+      [
+        6400,
+        4.9114,
+        4.9197
+      ],
+      [
+        6600,
+        4.7173,
+        4.9051
+      ],
+      [
+        6800,
+        4.9973,
+        4.8637
+      ],
+      [
+        7000,
+        4.9008,
+        4.8802
+      ],
+      [
+        7200,
+        4.7354,
+        4.8611
+      ],
+      [
+        7400,
+        4.8744,
+        4.8606
+      ],
+      [
+        7600,
+        4.936,
+        4.8311
+      ],
+      [
+        7800,
+        4.8207,
+        4.8423
+      ],
+      [
+        8000,
+        4.9074,
+        4.826
+      ],
+      [
+        8200,
+        4.8336,
+        4.8099
+      ]
+    ],
+    "held100_fresh_curve": [
+      [
+        2000,
+        5.504
+      ],
+      [
+        4000,
+        5.335
+      ],
+      [
+        6000,
+        5.1621
+      ],
+      [
+        8000,
+        5.0558
+      ]
+    ],
+    "optimizer": "muon",
+    "seed": 1,
+    "data_seed": 1234,
+    "slot": 15,
+    "arm": "predicate_basis",
+    "parent": "E22a (qk_e22_a, seed 0)",
+    "design": "predicate-basis attention on the frontier architecture: per-head signed positional profile + b_h MATCH_prev + c_h MATCH_same (init 0, AdamW) + bilinear residual, verbatim qk_e22_predbasis_run arm E22a",
+    "varies_from_parent": "init seed ONLY; data order identical by construction"
+  },
+  "control_ckpt_config_predicate_basis_s1": {
+    "parent_checkpoint": "qk_e22_a.pt",
+    "replicate_checkpoint": "qk_e29_predbasis_s1.pt",
+    "differing_keys": [
+      "SEED"
+    ],
+    "differences": {
+      "SEED": [
+        0,
+        1
+      ]
+    },
+    "pass": true
+  },
+  "predicate_basis_s1_oldheld": {
+    "old_held_ce_bf16": 4.76095,
+    "note": "cooc rows [5500:6000]; model trained on fresh corpus only"
+  },
+  "predicate_basis_s1_minus_e0a_fresh": {
+    "held_ce": 4.89639139175415,
+    "e0a_held_ce": 4.851274013519287,
+    "minus_e0a": 0.04511702433228493,
+    "minus_e0a_se_token": 0.001184977125376463,
+    "minus_e0a_se_seq": 0.003374285064637661
+  },
+  "predicate_basis_s1_minus_e0b_fresh": {
+    "held_ce": 4.89639139175415,
+    "e0b_held_ce": 5.1929426193237305,
+    "minus_e0b": -0.2965511679649353,
+    "minus_e0b_se_token": 0.0012740102829411626,
+    "minus_e0b_se_seq": 0.004434718284755945
+  },
+  "predicate_basis_s1_minus_seed0": {
+    "held_ce": 4.89639139175415,
+    "seed0_held_ce": 4.8956780433654785,
+    "minus_seed0": 0.0007132908212952316,
+    "minus_seed0_se_token": 0.0008092588395811617,
+    "minus_seed0_se_seq": 0.0008927863673307002,
+    "parent": "qk_e22_a",
+    "note": "paired per-token fresh held CE, sequence-clustered SE; this seed minus the seed-0 twin"
+  },
+  "predicate_basis_s1_traj": {
+    "path": "qk_e29_predbasis_s1_traj.npz",
+    "n_snapshots": 42,
+    "every": 200,
+    "keys": [
+      "cov_diag",
+      "cov_top2",
+      "read_group_norms",
+      "step",
+      "update_group_norms"
+    ]
+  },
+  "light_probe_predicate_basis_s1": {
+    "checkpoint": "qk_e29_predbasis_s1.pt",
+    "seed": 1,
+    "slot_dims": [
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15
+    ],
+    "stream_width": 360,
+    "compute_width": 264,
+    "base_ce_fp32_abl_oldheld": 4.77997,
+    "wiring_n_pairs": 156,
+    "wiring_spearman_all": 0.858,
+    "wiring_n_effectual": 135,
+    "wiring_spearman_effectual": 0.7967,
+    "wiring_top10_precision": 0.6,
+    "per_block_total_consumption": {
+      "0": 0.59673,
+      "1": 0.69539,
+      "2": 0.39349,
+      "3": 0.62959,
+      "4": 0.26217,
+      "5": 0.48686,
+      "6": 0.24495,
+      "7": 0.17422,
+      "8": 0.17964,
+      "9": 0.6644,
+      "10": 0.09866,
+      "11": 0.57883
+    },
+    "dead_blocks_below_0.001": [],
+    "consumption_top20": [
+      {
+        "consumer": "block3",
+        "source": "emb",
+        "dce": 1.14319
+      },
+      {
+        "consumer": "block0",
+        "source": "emb",
+        "dce": 0.70891
+      },
+      {
+        "consumer": "block1",
+        "source": "emb",
+        "dce": 0.63214
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp9",
+        "dce": 0.60018
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp11",
+        "dce": 0.55752
+      },
+      {
+        "consumer": "block2",
+        "source": "emb",
+        "dce": 0.43289
+      },
+      {
+        "consumer": "block5",
+        "source": "emb",
+        "dce": 0.30197
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp3",
+        "dce": 0.29569
+      },
+      {
+        "consumer": "block9",
+        "source": "emb",
+        "dce": 0.29482
+      },
+      {
+        "consumer": "readout",
+        "source": "attn5",
+        "dce": 0.2525
+      },
+      {
+        "consumer": "block2",
+        "source": "mlp1",
+        "dce": 0.20663
+      },
+      {
+        "consumer": "block6",
+        "source": "emb",
+        "dce": 0.1902
+      },
+      {
+        "consumer": "block11",
+        "source": "emb",
+        "dce": 0.17952
+      },
+      {
+        "consumer": "block7",
+        "source": "emb",
+        "dce": 0.17809
+      },
+      {
+        "consumer": "block4",
+        "source": "emb",
+        "dce": 0.17346
+      },
+      {
+        "consumer": "readout",
+        "source": "attn1",
+        "dce": 0.14435
+      },
+      {
+        "consumer": "block1",
+        "source": "mlp0",
+        "dce": 0.13064
+      },
+      {
+        "consumer": "readout",
+        "source": "attn6",
+        "dce": 0.12582
+      },
+      {
+        "consumer": "block3",
+        "source": "mlp2",
+        "dce": 0.12108
+      },
+      {
+        "consumer": "block8",
+        "source": "emb",
+        "dce": 0.10209
+      }
+    ],
+    "consumption_matrix": {
+      "0": {
+        "0": 0.708911
+      },
+      "1": {
+        "0": 0.63214,
+        "1": 0.016132,
+        "2": 0.13064
+      },
+      "2": {
+        "0": 0.432886,
+        "1": 0.016689,
+        "2": 0.059368,
+        "3": 0.039331,
+        "4": 0.206633
+      },
+      "3": {
+        "0": 1.143187,
+        "1": 0.01973,
+        "2": 0.048395,
+        "3": 0.02668,
+        "4": 0.038629,
+        "5": 0.03881,
+        "6": 0.121084
+      },
+      "4": {
+        "0": 0.173461,
+        "1": 0.013228,
+        "2": 0.018449,
+        "3": 0.013677,
+        "4": 0.03163,
+        "5": 0.021243,
+        "6": 0.054124,
+        "7": 0.030156,
+        "8": 0.057293
+      },
+      "5": {
+        "0": 0.301975,
+        "1": 0.013793,
+        "2": 0.057656,
+        "3": 0.006476,
+        "4": 0.011806,
+        "5": 0.011907,
+        "6": 0.018678,
+        "7": 0.01858,
+        "8": 0.036784,
+        "9": 0.022343,
+        "10": 0.030446
+      },
+      "6": {
+        "0": 0.190201,
+        "1": 0.006252,
+        "2": 0.008441,
+        "3": 0.005163,
+        "4": 0.00624,
+        "5": 0.007599,
+        "6": 0.009358,
+        "7": 0.010109,
+        "8": 0.013375,
+        "9": 0.013134,
+        "10": 0.018529,
+        "11": 0.009975,
+        "12": 0.01356
+      },
+      "7": {
+        "0": 0.178089,
+        "1": 0.00578,
+        "2": 0.008732,
+        "3": 0.003855,
+        "4": 0.006393,
+        "5": 0.005476,
+        "6": 0.009464,
+        "7": 0.009094,
+        "8": 0.008281,
+        "9": 0.008862,
+        "10": 0.015739,
+        "11": 0.011293,
+        "12": 0.010204,
+        "13": 0.004111,
+        "14": 0.013386
+      },
+      "8": {
+        "0": 0.102087,
+        "1": 0.004393,
+        "2": 0.004854,
+        "3": 0.003889,
+        "4": 0.007,
+        "5": 0.004612,
+        "6": 0.005662,
+        "7": 0.004761,
+        "8": 0.008149,
+        "9": 0.007596,
+        "10": 0.010484,
+        "11": 0.013806,
+        "12": 0.008359,
+        "13": 0.003642,
+        "14": 0.006513,
+        "15": 0.003334,
+        "16": 0.005083
+      },
+      "9": {
+        "0": 0.294822,
+        "1": 0.005706,
+        "2": 0.016024,
+        "3": 0.005781,
+        "4": 0.014026,
+        "5": 0.007811,
+        "6": 0.012468,
+        "7": 0.00981,
+        "8": 0.042984,
+        "9": 0.011293,
+        "10": 0.018642,
+        "11": 0.039827,
+        "12": 0.018664,
+        "13": 0.010038,
+        "14": 0.011154,
+        "15": 0.009906,
+        "16": 0.007819,
+        "17": 0.005673,
+        "18": 0.009742
+      },
+      "10": {
+        "0": 0.093688,
+        "1": 0.003116,
+        "2": 0.004741,
+        "3": 0.002323,
+        "4": 0.007414,
+        "5": 0.005395,
+        "6": 0.005366,
+        "7": 0.005038,
+        "8": 0.007602,
+        "9": 0.009492,
+        "10": 0.011035,
+        "11": 0.004363,
+        "12": 0.016433,
+        "13": 0.001967,
+        "14": 0.005375,
+        "15": 0.002384,
+        "16": 0.003781,
+        "17": 0.00135,
+        "18": 0.002693,
+        "19": 0.000534,
+        "20": 0.003718
+      },
+      "11": {
+        "0": 0.17952,
+        "1": 0.006612,
+        "2": 0.011076,
+        "3": 0.008873,
+        "4": 0.02508,
+        "5": 0.008323,
+        "6": 0.008096,
+        "7": 0.015345,
+        "8": 0.036488,
+        "9": 0.008316,
+        "10": 0.022649,
+        "11": 0.032508,
+        "12": 0.014839,
+        "13": 0.00834,
+        "14": 0.01291,
+        "15": 0.009929,
+        "16": 0.007868,
+        "17": 0.005382,
+        "18": 0.010672,
+        "19": 0.00108,
+        "20": 0.0321,
+        "21": 0.007398,
+        "22": 0.005303
+      },
+      "12": {
+        "0": 0.003356,
+        "1": 0.024499,
+        "2": 0.09242,
+        "3": 0.144348,
+        "4": 0.080144,
+        "5": 0.022606,
+        "6": 0.015408,
+        "7": 0.020051,
+        "8": 0.295685,
+        "9": 0.021641,
+        "10": 0.031966,
+        "11": 0.252501,
+        "12": 0.040522,
+        "13": 0.12582,
+        "14": 0.041692,
+        "15": 0.073339,
+        "16": 0.050773,
+        "17": 0.049203,
+        "18": 0.094925,
+        "19": 0.026783,
+        "20": 0.600181,
+        "21": 0.058147,
+        "22": 0.027816,
+        "23": 0.021307,
+        "24": 0.557518
+      }
+    },
+    "weight_support_matrix": {
+      "0": {},
+      "1": {
+        "1": 7.311,
+        "2": 7.021
+      },
+      "2": {
+        "1": 7.834,
+        "2": 6.252,
+        "3": 10.952,
+        "4": 9.219
+      },
+      "3": {
+        "1": 7.258,
+        "2": 6.27,
+        "3": 8.969,
+        "4": 7.24,
+        "5": 12.696,
+        "6": 11.986
+      },
+      "4": {
+        "1": 6.469,
+        "2": 4.763,
+        "3": 6.865,
+        "4": 5.883,
+        "5": 9.197,
+        "6": 8.533,
+        "7": 8.532,
+        "8": 10.468
+      },
+      "5": {
+        "1": 4.401,
+        "2": 3.954,
+        "3": 4.518,
+        "4": 4.165,
+        "5": 6.175,
+        "6": 5.725,
+        "7": 5.591,
+        "8": 6.236,
+        "9": 6.989,
+        "10": 7.139
+      },
+      "6": {
+        "1": 4.075,
+        "2": 3.309,
+        "3": 3.807,
+        "4": 3.644,
+        "5": 5.128,
+        "6": 4.857,
+        "7": 5.227,
+        "8": 4.971,
+        "9": 6.233,
+        "10": 6.418,
+        "11": 3.262,
+        "12": 5.658
+      },
+      "7": {
+        "1": 3.473,
+        "2": 3.103,
+        "3": 3.106,
+        "4": 3.176,
+        "5": 3.941,
+        "6": 3.888,
+        "7": 4.048,
+        "8": 4.517,
+        "9": 4.587,
+        "10": 5.287,
+        "11": 3.418,
+        "12": 4.504,
+        "13": 2.728,
+        "14": 4.862
+      },
+      "8": {
+        "1": 3.12,
+        "2": 2.843,
+        "3": 2.644,
+        "4": 2.782,
+        "5": 3.434,
+        "6": 3.074,
+        "7": 3.227,
+        "8": 4.228,
+        "9": 3.91,
+        "10": 4.327,
+        "11": 2.922,
+        "12": 4.177,
+        "13": 2.48,
+        "14": 3.967,
+        "15": 2.78,
+        "16": 3.089
+      },
+      "9": {
+        "1": 3.235,
+        "2": 3.908,
+        "3": 3.101,
+        "4": 3.478,
+        "5": 3.611,
+        "6": 3.762,
+        "7": 3.982,
+        "8": 5.501,
+        "9": 4.022,
+        "10": 4.671,
+        "11": 4.312,
+        "12": 4.684,
+        "13": 3.053,
+        "14": 4.456,
+        "15": 3.231,
+        "16": 3.494,
+        "17": 2.523,
+        "18": 3.323
+      },
+      "10": {
+        "1": 2.752,
+        "2": 2.386,
+        "3": 2.869,
+        "4": 2.516,
+        "5": 4.455,
+        "6": 2.993,
+        "7": 3.37,
+        "8": 3.358,
+        "9": 4.589,
+        "10": 3.737,
+        "11": 2.789,
+        "12": 3.399,
+        "13": 2.044,
+        "14": 3.324,
+        "15": 2.349,
+        "16": 2.33,
+        "17": 1.755,
+        "18": 2.099,
+        "19": 1.272,
+        "20": 2.561
+      },
+      "11": {
+        "1": 2.969,
+        "2": 3.518,
+        "3": 3.089,
+        "4": 3.491,
+        "5": 4.538,
+        "6": 3.329,
+        "7": 3.631,
+        "8": 4.877,
+        "9": 4.222,
+        "10": 4.38,
+        "11": 3.892,
+        "12": 4.408,
+        "13": 2.793,
+        "14": 4.295,
+        "15": 3.424,
+        "16": 3.48,
+        "17": 2.471,
+        "18": 3.282,
+        "19": 1.486,
+        "20": 4.693,
+        "21": 3.075,
+        "22": 2.922
+      },
+      "12": {
+        "1": 129.789,
+        "2": 236.411,
+        "3": 214.894,
+        "4": 226.381,
+        "5": 150.405,
+        "6": 113.036,
+        "7": 130.184,
+        "8": 280.592,
+        "9": 149.876,
+        "10": 102.448,
+        "11": 192.912,
+        "12": 96.584,
+        "13": 151.174,
+        "14": 107.936,
+        "15": 141.12,
+        "16": 69.699,
+        "17": 117.465,
+        "18": 121.004,
+        "19": 96.51,
+        "20": 294.275,
+        "21": 64.1,
+        "22": 62.464,
+        "23": 46.872,
+        "24": 210.823
+      }
+    },
+    "probe_equivalence_vs_weight_support_max_rel": null,
+    "note": "generalized variable-slot-dim probe (qk_e18 gate 1); causal = mean-ablation on old cooc held [:96], fp32"
+  },
+  "composed_wiring_predicate_basis_s1": {
+    "checkpoint": "qk_e29_predbasis_s1.pt",
+    "seed": 1,
+    "slot_dims_uniform": 15,
+    "plain_reproduction_abs_diff": 0.0001,
+    "tables": {
+      "plain": {
+        "spearman_all": 0.8579,
+        "spearman_effectual": 0.7966,
+        "top10_precision": 0.6
+      },
+      "cov_composed": {
+        "spearman_all": 0.8806,
+        "spearman_effectual": 0.8292,
+        "top10_precision": 0.7
+      },
+      "cov_composed_readout_globalnorm": {
+        "spearman_all": 0.8824,
+        "spearman_effectual": 0.8319,
+        "top10_precision": 0.7
+      }
+    },
+    "n_pairs": 156,
+    "n_effectual": 135,
+    "overlap_pairs_per_consumer_cov": [],
+    "cov_pass": {
+      "device": "cuda",
+      "n_seq": 300,
+      "n_samples": 153600,
+      "rows": "fresh34k[33000:33300]",
+      "centered": true
+    }
+  },
+  "predicate_basis_s2": {
+    "lr": 0.02,
+    "group_coeff": 0.0001,
+    "width": 264,
+    "batch": 16,
+    "steps": 8250,
+    "epochs": 1,
+    "corpus": "corpus_fresh shards prefix [132000], single pass",
+    "held_fresh": "corpus_fresh/fresh34k.npy rows [33000:34500] (pure eval corpus)",
+    "final_held_ce_fresh_bf16": 4.9078720194498695,
+    "spikes": 0,
+    "diverged": false,
+    "final_penalty": 2461.17724609375,
+    "train_curve_every200": [
+      [
+        0,
+        10.9299,
+        10.9299
+      ],
+      [
+        200,
+        6.3398,
+        6.7628
+      ],
+      [
+        400,
+        5.8147,
+        5.9346
+      ],
+      [
+        600,
+        5.7163,
+        5.6706
+      ],
+      [
+        800,
+        5.5535,
+        5.5384
+      ],
+      [
+        1000,
+        5.2704,
+        5.4654
+      ],
+      [
+        1200,
+        5.1159,
+        5.4177
+      ],
+      [
+        1400,
+        5.3823,
+        5.383
+      ],
+      [
+        1600,
+        5.3219,
+        5.3556
+      ],
+      [
+        1800,
+        5.201,
+        5.3346
+      ],
+      [
+        2000,
+        5.3125,
+        5.28
+      ],
+      [
+        2200,
+        5.1676,
+        5.2625
+      ],
+      [
+        2400,
+        5.1825,
+        5.2719
+      ],
+      [
+        2600,
+        5.1839,
+        5.2163
+      ],
+      [
+        2800,
+        5.12,
+        5.212
+      ],
+      [
+        3000,
+        5.0166,
+        5.205
+      ],
+      [
+        3200,
+        5.171,
+        5.181
+      ],
+      [
+        3400,
+        5.03,
+        5.1462
+      ],
+      [
+        3600,
+        5.1952,
+        5.1663
+      ],
+      [
+        3800,
+        5.1534,
+        5.1417
+      ],
+      [
+        4000,
+        5.2047,
+        5.1123
+      ],
+      [
+        4200,
+        5.1099,
+        5.1144
+      ],
+      [
+        4400,
+        5.1889,
+        5.0922
+      ],
+      [
+        4600,
+        5.095,
+        5.0561
+      ],
+      [
+        4800,
+        5.1525,
+        5.0716
+      ],
+      [
+        5000,
+        5.0122,
+        5.0485
+      ],
+      [
+        5200,
+        4.9961,
+        5.0394
+      ],
+      [
+        5400,
+        4.9864,
+        5.0036
+      ],
+      [
+        5600,
+        4.9754,
+        4.9763
+      ],
+      [
+        5800,
+        5.1788,
+        4.965
+      ],
+      [
+        6000,
+        4.7729,
+        4.9312
+      ],
+      [
+        6200,
+        5.1266,
+        4.9525
+      ],
+      [
+        6400,
+        4.9171,
+        4.9274
+      ],
+      [
+        6600,
+        4.7205,
+        4.9151
+      ],
+      [
+        6800,
+        5.0129,
+        4.8741
+      ],
+      [
+        7000,
+        4.9075,
+        4.8889
+      ],
+      [
+        7200,
+        4.7333,
+        4.8711
+      ],
+      [
+        7400,
+        4.8773,
+        4.8705
+      ],
+      [
+        7600,
+        4.9448,
+        4.842
+      ],
+      [
+        7800,
+        4.8179,
+        4.8525
+      ],
+      [
+        8000,
+        4.91,
+        4.8376
+      ],
+      [
+        8200,
+        4.8612,
+        4.8204
+      ]
+    ],
+    "held100_fresh_curve": [
+      [
+        2000,
+        5.5026
+      ],
+      [
+        4000,
+        5.3391
+      ],
+      [
+        6000,
+        5.1725
+      ],
+      [
+        8000,
+        5.0704
+      ]
+    ],
+    "optimizer": "muon",
+    "seed": 2,
+    "data_seed": 1234,
+    "slot": 15,
+    "arm": "predicate_basis",
+    "parent": "E22a (qk_e22_a, seed 0)",
+    "design": "predicate-basis attention on the frontier architecture: per-head signed positional profile + b_h MATCH_prev + c_h MATCH_same (init 0, AdamW) + bilinear residual, verbatim qk_e22_predbasis_run arm E22a",
+    "varies_from_parent": "init seed ONLY; data order identical by construction"
+  },
+  "control_ckpt_config_predicate_basis_s2": {
+    "parent_checkpoint": "qk_e22_a.pt",
+    "replicate_checkpoint": "qk_e29_predbasis_s2.pt",
+    "differing_keys": [
+      "SEED"
+    ],
+    "differences": {
+      "SEED": [
+        0,
+        2
+      ]
+    },
+    "pass": true
+  },
+  "predicate_basis_s2_oldheld": {
+    "old_held_ce_bf16": 4.77036,
+    "note": "cooc rows [5500:6000]; model trained on fresh corpus only"
+  },
+  "predicate_basis_s2_minus_e0a_fresh": {
+    "held_ce": 4.907872200012207,
+    "e0a_held_ce": 4.851274013519287,
+    "minus_e0a": 0.05659760534763336,
+    "minus_e0a_se_token": 0.0012003296287730336,
+    "minus_e0a_se_seq": 0.0034338845871388912
+  },
+  "predicate_basis_s2_minus_e0b_fresh": {
+    "held_ce": 4.907872200012207,
+    "e0b_held_ce": 5.1929426193237305,
+    "minus_e0b": -0.28507059812545776,
+    "minus_e0b_se_token": 0.0012797939125448465,
+    "minus_e0b_se_seq": 0.004483507480472326
+  },
+  "predicate_basis_s2_minus_seed0": {
+    "held_ce": 4.907872200012207,
+    "seed0_held_ce": 4.8956780433654785,
+    "minus_seed0": 0.01219386886805296,
+    "minus_seed0_se_token": 0.0008053810452111065,
+    "minus_seed0_se_seq": 0.0009106138022616506,
+    "parent": "qk_e22_a",
+    "note": "paired per-token fresh held CE, sequence-clustered SE; this seed minus the seed-0 twin"
+  },
+  "predicate_basis_s2_traj": {
+    "path": "qk_e29_predbasis_s2_traj.npz",
+    "n_snapshots": 42,
+    "every": 200,
+    "keys": [
+      "cov_diag",
+      "cov_top2",
+      "read_group_norms",
+      "step",
+      "update_group_norms"
+    ]
+  },
+  "light_probe_predicate_basis_s2": {
+    "checkpoint": "qk_e29_predbasis_s2.pt",
+    "seed": 2,
+    "slot_dims": [
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15
+    ],
+    "stream_width": 360,
+    "compute_width": 264,
+    "base_ce_fp32_abl_oldheld": 4.78093,
+    "wiring_n_pairs": 156,
+    "wiring_spearman_all": 0.7588,
+    "wiring_n_effectual": 137,
+    "wiring_spearman_effectual": 0.713,
+    "wiring_top10_precision": 0.6,
+    "per_block_total_consumption": {
+      "0": 0.69163,
+      "1": 1.09433,
+      "2": 0.55932,
+      "3": 0.33611,
+      "4": 0.47229,
+      "5": 0.22763,
+      "6": 0.18364,
+      "7": 0.88719,
+      "8": 0.08701,
+      "9": 0.34776,
+      "10": 0.13265,
+      "11": 0.33041
+    },
+    "dead_blocks_below_0.001": [],
+    "consumption_top20": [
+      {
+        "consumer": "block0",
+        "source": "emb",
+        "dce": 0.97912
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp7",
+        "dce": 0.73661
+      },
+      {
+        "consumer": "block1",
+        "source": "emb",
+        "dce": 0.69623
+      },
+      {
+        "consumer": "block2",
+        "source": "emb",
+        "dce": 0.45665
+      },
+      {
+        "consumer": "block3",
+        "source": "emb",
+        "dce": 0.38315
+      },
+      {
+        "consumer": "block7",
+        "source": "emb",
+        "dce": 0.3686
+      },
+      {
+        "consumer": "block4",
+        "source": "emb",
+        "dce": 0.33865
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp11",
+        "dce": 0.30819
+      },
+      {
+        "consumer": "block6",
+        "source": "emb",
+        "dce": 0.30282
+      },
+      {
+        "consumer": "readout",
+        "source": "attn1",
+        "dce": 0.20388
+      },
+      {
+        "consumer": "readout",
+        "source": "mlp1",
+        "dce": 0.20324
+      },
+      {
+        "consumer": "readout",
+        "source": "attn9",
+        "dce": 0.20154
+      },
+      {
+        "consumer": "readout",
+        "source": "attn4",
+        "dce": 0.1844
+      },
+      {
+        "consumer": "block5",
+        "source": "emb",
+        "dce": 0.16704
+      },
+      {
+        "consumer": "block3",
+        "source": "mlp2",
+        "dce": 0.16589
+      },
+      {
+        "consumer": "block9",
+        "source": "emb",
+        "dce": 0.16294
+      },
+      {
+        "consumer": "block8",
+        "source": "emb",
+        "dce": 0.1615
+      },
+      {
+        "consumer": "block2",
+        "source": "mlp1",
+        "dce": 0.13235
+      },
+      {
+        "consumer": "block3",
+        "source": "attn1",
+        "dce": 0.13189
+      },
+      {
+        "consumer": "block1",
+        "source": "mlp0",
+        "dce": 0.09964
+      }
+    ],
+    "consumption_matrix": {
+      "0": {
+        "0": 0.979124
+      },
+      "1": {
+        "0": 0.696234,
+        "1": 0.05323,
+        "2": 0.099638
+      },
+      "2": {
+        "0": 0.456648,
+        "1": 0.070441,
+        "2": 0.09273,
+        "3": 0.038475,
+        "4": 0.132351
+      },
+      "3": {
+        "0": 0.38315,
+        "1": 0.044636,
+        "2": 0.035786,
+        "3": 0.131886,
+        "4": 0.040195,
+        "5": 0.053227,
+        "6": 0.165892
+      },
+      "4": {
+        "0": 0.338654,
+        "1": 0.019683,
+        "2": 0.012055,
+        "3": 0.014994,
+        "4": 0.060566,
+        "5": 0.017238,
+        "6": 0.023068,
+        "7": 0.013707,
+        "8": 0.022913
+      },
+      "5": {
+        "0": 0.167041,
+        "1": 0.013163,
+        "2": 0.006486,
+        "3": 0.007653,
+        "4": 0.007533,
+        "5": 0.011595,
+        "6": 0.012844,
+        "7": 0.012398,
+        "8": 0.01855,
+        "9": 0.018897,
+        "10": 0.015939
+      },
+      "6": {
+        "0": 0.302817,
+        "1": 0.008783,
+        "2": 0.006634,
+        "3": 0.004691,
+        "4": 0.006829,
+        "5": 0.012806,
+        "6": 0.016684,
+        "7": 0.010083,
+        "8": 0.019269,
+        "9": 0.006269,
+        "10": 0.008813,
+        "11": 0.004418,
+        "12": 0.009185
+      },
+      "7": {
+        "0": 0.368597,
+        "1": 0.061791,
+        "2": 0.042775,
+        "3": 0.051666,
+        "4": 0.098526,
+        "5": 0.022216,
+        "6": 0.033565,
+        "7": 0.024091,
+        "8": 0.035216,
+        "9": 0.074616,
+        "10": 0.028123,
+        "11": 0.005411,
+        "12": 0.027111,
+        "13": 0.007237,
+        "14": 0.054368
+      },
+      "8": {
+        "0": 0.1615,
+        "1": 0.00471,
+        "2": 0.003233,
+        "3": 0.004109,
+        "4": 0.003242,
+        "5": 0.006468,
+        "6": 0.004916,
+        "7": 0.006824,
+        "8": 0.005706,
+        "9": 0.005861,
+        "10": 0.003015,
+        "11": 0.002505,
+        "12": 0.002785,
+        "13": 0.002876,
+        "14": 0.004056,
+        "15": 0.006871,
+        "16": 0.006831
+      },
+      "9": {
+        "0": 0.162944,
+        "1": 0.006078,
+        "2": 0.025506,
+        "3": 0.013487,
+        "4": 0.010135,
+        "5": 0.013916,
+        "6": 0.007733,
+        "7": 0.009971,
+        "8": 0.011502,
+        "9": 0.026523,
+        "10": 0.006626,
+        "11": 0.005685,
+        "12": 0.007764,
+        "13": 0.005094,
+        "14": 0.006968,
+        "15": 0.01115,
+        "16": 0.010132,
+        "17": 0.001152,
+        "18": 0.006617
+      },
+      "10": {
+        "0": 0.067609,
+        "1": 0.005857,
+        "2": 0.004482,
+        "3": 0.018961,
+        "4": 0.013199,
+        "5": 0.006671,
+        "6": 0.006986,
+        "7": 0.011472,
+        "8": 0.013544,
+        "9": 0.013523,
+        "10": 0.012332,
+        "11": 0.00904,
+        "12": 0.013462,
+        "13": 0.003916,
+        "14": 0.005709,
+        "15": 0.010235,
+        "16": 0.017383,
+        "17": 0.000823,
+        "18": 0.005778,
+        "19": 0.045782,
+        "20": 0.00668
+      },
+      "11": {
+        "0": 0.088651,
+        "1": 0.013516,
+        "2": 0.011849,
+        "3": 0.018979,
+        "4": 0.009727,
+        "5": 0.005924,
+        "6": 0.034615,
+        "7": 0.016405,
+        "8": 0.010785,
+        "9": 0.016933,
+        "10": 0.008314,
+        "11": 0.006029,
+        "12": 0.007537,
+        "13": 0.002662,
+        "14": 0.005531,
+        "15": 0.007613,
+        "16": 0.012587,
+        "17": 0.000499,
+        "18": 0.007856,
+        "19": 0.038139,
+        "20": 0.00605,
+        "21": 0.002702,
+        "22": 0.006148
+      },
+      "12": {
+        "0": 0.003023,
+        "1": 0.011534,
+        "2": 0.037032,
+        "3": 0.203881,
+        "4": 0.203245,
+        "5": 0.084575,
+        "6": 0.018385,
+        "7": 0.060893,
+        "8": 0.032778,
+        "9": 0.184396,
+        "10": 0.042112,
+        "11": 0.042108,
+        "12": 0.084588,
+        "13": 0.059219,
+        "14": 0.026,
+        "15": 0.067771,
+        "16": 0.736614,
+        "17": 0.033861,
+        "18": 0.030428,
+        "19": 0.201543,
+        "20": 0.049569,
+        "21": 0.063809,
+        "22": 0.059985,
+        "23": 0.022223,
+        "24": 0.308191
+      }
+    },
+    "weight_support_matrix": {
+      "0": {},
+      "1": {
+        "1": 9.566,
+        "2": 7.686
+      },
+      "2": {
+        "1": 14.192,
+        "2": 8.722,
+        "3": 6.425,
+        "4": 8.171
+      },
+      "3": {
+        "1": 9.927,
+        "2": 6.533,
+        "3": 6.593,
+        "4": 5.959,
+        "5": 10.868,
+        "6": 11.03
+      },
+      "4": {
+        "1": 5.039,
+        "2": 3.74,
+        "3": 2.853,
+        "4": 3.793,
+        "5": 4.938,
+        "6": 5.566,
+        "7": 5.953,
+        "8": 6.263
+      },
+      "5": {
+        "1": 5.651,
+        "2": 3.657,
+        "3": 3.023,
+        "4": 3.363,
+        "5": 5.4,
+        "6": 5.853,
+        "7": 6.088,
+        "8": 6.602,
+        "9": 3.182,
+        "10": 4.462
+      },
+      "6": {
+        "1": 5.248,
+        "2": 3.402,
+        "3": 2.726,
+        "4": 3.303,
+        "5": 5.925,
+        "6": 5.66,
+        "7": 6.46,
+        "8": 6.302,
+        "9": 2.845,
+        "10": 3.799,
+        "11": 3.11,
+        "12": 4.341
+      },
+      "7": {
+        "1": 6.549,
+        "2": 4.735,
+        "3": 4.326,
+        "4": 4.894,
+        "5": 7.577,
+        "6": 6.285,
+        "7": 7.266,
+        "8": 7.371,
+        "9": 3.852,
+        "10": 5.26,
+        "11": 3.64,
+        "12": 5.938,
+        "13": 4.053,
+        "14": 6.376
+      },
+      "8": {
+        "1": 3.602,
+        "2": 2.596,
+        "3": 2.299,
+        "4": 2.573,
+        "5": 3.624,
+        "6": 3.738,
+        "7": 4.641,
+        "8": 3.969,
+        "9": 2.568,
+        "10": 3.106,
+        "11": 2.534,
+        "12": 3.125,
+        "13": 3.373,
+        "14": 3.644,
+        "15": 4.332,
+        "16": 3.909
+      },
+      "9": {
+        "1": 3.378,
+        "2": 2.954,
+        "3": 2.675,
+        "4": 3.016,
+        "5": 4.131,
+        "6": 3.914,
+        "7": 4.852,
+        "8": 4.174,
+        "9": 3.069,
+        "10": 3.227,
+        "11": 2.588,
+        "12": 3.502,
+        "13": 3.643,
+        "14": 3.611,
+        "15": 4.494,
+        "16": 3.836,
+        "17": 1.554,
+        "18": 4.253
+      },
+      "10": {
+        "1": 2.859,
+        "2": 2.773,
+        "3": 3.034,
+        "4": 3.231,
+        "5": 3.333,
+        "6": 3.453,
+        "7": 4.362,
+        "8": 3.908,
+        "9": 3.049,
+        "10": 3.472,
+        "11": 2.418,
+        "12": 3.445,
+        "13": 3.143,
+        "14": 3.378,
+        "15": 4.068,
+        "16": 3.746,
+        "17": 1.481,
+        "18": 3.777,
+        "19": 4.701,
+        "20": 3.585
+      },
+      "11": {
+        "1": 2.504,
+        "2": 2.491,
+        "3": 3.062,
+        "4": 2.843,
+        "5": 2.596,
+        "6": 3.456,
+        "7": 3.816,
+        "8": 3.454,
+        "9": 2.554,
+        "10": 2.772,
+        "11": 1.875,
+        "12": 2.836,
+        "13": 2.451,
+        "14": 2.817,
+        "15": 2.8,
+        "16": 3.352,
+        "17": 1.1,
+        "18": 3.104,
+        "19": 3.936,
+        "20": 3.128,
+        "21": 1.92,
+        "22": 2.815
+      },
+      "12": {
+        "1": 201.016,
+        "2": 156.614,
+        "3": 290.285,
+        "4": 264.706,
+        "5": 188.674,
+        "6": 141.833,
+        "7": 154.675,
+        "8": 119.028,
+        "9": 152.409,
+        "10": 117.726,
+        "11": 109.924,
+        "12": 105.334,
+        "13": 115.062,
+        "14": 59.612,
+        "15": 96.186,
+        "16": 208.029,
+        "17": 79.823,
+        "18": 63.792,
+        "19": 193.106,
+        "20": 79.234,
+        "21": 142.066,
+        "22": 102.952,
+        "23": 84.598,
+        "24": 164.859
+      }
+    },
+    "probe_equivalence_vs_weight_support_max_rel": null,
+    "note": "generalized variable-slot-dim probe (qk_e18 gate 1); causal = mean-ablation on old cooc held [:96], fp32"
+  },
+  "composed_wiring_predicate_basis_s2": {
+    "checkpoint": "qk_e29_predbasis_s2.pt",
+    "seed": 2,
+    "slot_dims_uniform": 15,
+    "plain_reproduction_abs_diff": 0.0,
+    "tables": {
+      "plain": {
+        "spearman_all": 0.7588,
+        "spearman_effectual": 0.713,
+        "top10_precision": 0.6
+      },
+      "cov_composed": {
+        "spearman_all": 0.8252,
+        "spearman_effectual": 0.7842,
+        "top10_precision": 0.6
+      },
+      "cov_composed_readout_globalnorm": {
+        "spearman_all": 0.8283,
+        "spearman_effectual": 0.7888,
+        "top10_precision": 0.6
+      }
+    },
+    "n_pairs": 156,
+    "n_effectual": 137,
+    "overlap_pairs_per_consumer_cov": [],
+    "cov_pass": {
+      "device": "cuda",
+      "n_seq": 300,
+      "n_samples": 153600,
+      "rows": "fresh34k[33000:33300]",
+      "centered": true
+    }
+  },
+  "summary_E29": {
+    "per_arm": {
+      "frontier": {
+        "design": "E15c bandwidth-reinvestment architecture at the readability dial (in-loss group-lasso 1e-4), verbatim qk_e19_dial_run arm E19a",
+        "per_seed": {
+          "0": {
+            "seed": 0,
+            "checkpoint": "qk_e19_a.pt",
+            "source": "qk_e19.json",
+            "ce": 4.9742139638264975,
+            "plain": 0.7911,
+            "cov": 0.8259
+          },
+          "1": {
+            "seed": 1,
+            "checkpoint": "qk_e27_frontier_s1.pt",
+            "source": "qk_e27.json",
+            "ce": 4.992909545898438,
+            "plain": 0.8545,
+            "cov": 0.8795
+          },
+          "2": {
+            "seed": 2,
+            "checkpoint": "qk_e29_frontier_s2.pt",
+            "source": "qk_e29.json",
+            "ce": 4.988375709533692,
+            "plain": 0.8097,
+            "cov": 0.8619
+          },
+          "3": {
+            "seed": 3,
+            "checkpoint": "qk_e29_frontier_s3.pt",
+            "source": "qk_e29.json",
+            "ce": 4.987515329996745,
+            "plain": 0.8545,
+            "cov": 0.8831
+          }
+        },
+        "stats": {
+          "ce": {
+            "n": 4,
+            "mean": 4.98575,
+            "sd": 0.00805,
+            "ci95_mean": [
+              4.97295,
+              4.99856
+            ],
+            "t_multiplier": 3.182,
+            "values": [
+              4.97421,
+              4.99291,
+              4.98838,
+              4.98752
+            ]
+          },
+          "ce_seeds": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "plain": {
+            "n": 4,
+            "mean": 0.82745,
+            "sd": 0.03214,
+            "ci95_mean": [
+              0.77631,
+              0.87859
+            ],
+            "t_multiplier": 3.182,
+            "values": [
+              0.7911,
+              0.8545,
+              0.8097,
+              0.8545
+            ]
+          },
+          "plain_seeds": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "cov": {
+            "n": 4,
+            "mean": 0.8626,
+            "sd": 0.02616,
+            "ci95_mean": [
+              0.82098,
+              0.90422
+            ],
+            "t_multiplier": 3.182,
+            "values": [
+              0.8259,
+              0.8795,
+              0.8619,
+              0.8831
+            ]
+          },
+          "cov_seeds": [
+            0,
+            1,
+            2,
+            3
+          ]
+        }
+      },
+      "recipe": {
+        "design": "readable recipe: partitioned write slots + per-slot RMSNorm + Muon 0.02 (embedding AdamW) + in-loss group-lasso 3e-5, verbatim qk_e9_compose_run arm E9a",
+        "per_seed": {
+          "0": {
+            "seed": 0,
+            "checkpoint": "qk_e9_a.pt",
+            "source": "qk_e9.json",
+            "ce": 5.054658851623535,
+            "plain": 0.7711,
+            "cov": 0.8575
+          },
+          "1": {
+            "seed": 1,
+            "checkpoint": "qk_e27_recipe_s1.pt",
+            "source": "qk_e27.json",
+            "ce": 5.04251974995931,
+            "plain": 0.6972,
+            "cov": 0.7293
+          },
+          "2": {
+            "seed": 2,
+            "checkpoint": "qk_e29_recipe_s2.pt",
+            "source": "qk_e29.json",
+            "ce": 5.042285298665365,
+            "plain": 0.8455,
+            "cov": 0.8763
+          },
+          "3": {
+            "seed": 3,
+            "checkpoint": "qk_e29_recipe_s3.pt",
+            "source": "qk_e29.json",
+            "ce": 5.042064997355143,
+            "plain": 0.8481,
+            "cov": 0.9002
+          }
+        },
+        "stats": {
+          "ce": {
+            "n": 4,
+            "mean": 5.04538,
+            "sd": 0.00619,
+            "ci95_mean": [
+              5.03554,
+              5.05523
+            ],
+            "t_multiplier": 3.182,
+            "values": [
+              5.05466,
+              5.04252,
+              5.04229,
+              5.04206
+            ]
+          },
+          "ce_seeds": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "plain": {
+            "n": 4,
+            "mean": 0.79048,
+            "sd": 0.0717,
+            "ci95_mean": [
+              0.6764,
+              0.90455
+            ],
+            "t_multiplier": 3.182,
+            "values": [
+              0.7711,
+              0.6972,
+              0.8455,
+              0.8481
+            ]
+          },
+          "plain_seeds": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "cov": {
+            "n": 4,
+            "mean": 0.84082,
+            "sd": 0.07638,
+            "ci95_mean": [
+              0.71931,
+              0.96234
+            ],
+            "t_multiplier": 3.182,
+            "values": [
+              0.8575,
+              0.7293,
+              0.8763,
+              0.9002
+            ]
+          },
+          "cov_seeds": [
+            0,
+            1,
+            2,
+            3
+          ]
+        }
+      },
+      "predicate_basis": {
+        "design": "predicate-basis attention on the frontier architecture: per-head signed positional profile + b_h MATCH_prev + c_h MATCH_same (init 0, AdamW) + bilinear residual, verbatim qk_e22_predbasis_run arm E22a",
+        "per_seed": {
+          "0": {
+            "seed": 0,
+            "checkpoint": "qk_e22_a.pt",
+            "source": "qk_e22.json",
+            "ce": 4.895678128560384,
+            "plain": 0.8218,
+            "cov": 0.8379
+          },
+          "1": {
+            "seed": 1,
+            "checkpoint": "qk_e29_predbasis_s1.pt",
+            "source": "qk_e29.json",
+            "ce": 4.896391451517741,
+            "plain": 0.858,
+            "cov": 0.8806
+          },
+          "2": {
+            "seed": 2,
+            "checkpoint": "qk_e29_predbasis_s2.pt",
+            "source": "qk_e29.json",
+            "ce": 4.9078720194498695,
+            "plain": 0.7588,
+            "cov": 0.8252
+          }
+        },
+        "stats": {
+          "ce": {
+            "n": 3,
+            "mean": 4.89998,
+            "sd": 0.00684,
+            "ci95_mean": [
+              4.88298,
+              4.91698
+            ],
+            "t_multiplier": 4.303,
+            "values": [
+              4.89568,
+              4.89639,
+              4.90787
+            ]
+          },
+          "ce_seeds": [
+            0,
+            1,
+            2
+          ],
+          "plain": {
+            "n": 3,
+            "mean": 0.81287,
+            "sd": 0.0502,
+            "ci95_mean": [
+              0.68815,
+              0.93758
+            ],
+            "t_multiplier": 4.303,
+            "values": [
+              0.8218,
+              0.858,
+              0.7588
+            ]
+          },
+          "plain_seeds": [
+            0,
+            1,
+            2
+          ],
+          "cov": {
+            "n": 3,
+            "mean": 0.8479,
+            "sd": 0.02902,
+            "ci95_mean": [
+              0.7758,
+              0.92
+            ],
+            "t_multiplier": 4.303,
+            "values": [
+              0.8379,
+              0.8806,
+              0.8252
+            ]
+          },
+          "cov_seeds": [
+            0,
+            1,
+            2
+          ]
+        }
+      }
+    },
+    "pairwise": {
+      "frontier_vs_recipe": {
+        "ce": {
+          "unpaired_exact": {
+            "diff_of_means": -0.05963,
+            "p_two_sided_exact": 0.0286,
+            "n_permutations": 70,
+            "na": 4,
+            "nb": 4
+          },
+          "paired_exact_on_shared_seeds": {
+            "mean_paired_diff": -0.05963,
+            "p_two_sided_exact": 0.125,
+            "n_pairs": 4,
+            "paired_diffs": [
+              -0.08044,
+              -0.04961,
+              -0.05391,
+              -0.05455
+            ],
+            "shared_seeds": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          "pooled_sd": 0.00718,
+          "diff_in_pooled_sds": -8.306,
+          "survives_seed_variation_gt_2_pooled_sd": true
+        },
+        "plain": {
+          "unpaired_exact": {
+            "diff_of_means": 0.03697,
+            "p_two_sided_exact": 0.4,
+            "n_permutations": 70,
+            "na": 4,
+            "nb": 4
+          },
+          "paired_exact_on_shared_seeds": {
+            "mean_paired_diff": 0.03698,
+            "p_two_sided_exact": 0.625,
+            "n_pairs": 4,
+            "paired_diffs": [
+              0.02,
+              0.1573,
+              -0.0358,
+              0.0064
+            ],
+            "shared_seeds": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          "pooled_sd": 0.05556,
+          "diff_in_pooled_sds": 0.665,
+          "survives_seed_variation_gt_2_pooled_sd": false
+        },
+        "cov": {
+          "unpaired_exact": {
+            "diff_of_means": 0.02178,
+            "p_two_sided_exact": 0.7429,
+            "n_permutations": 70,
+            "na": 4,
+            "nb": 4
+          },
+          "paired_exact_on_shared_seeds": {
+            "mean_paired_diff": 0.02177,
+            "p_two_sided_exact": 1.0,
+            "n_pairs": 4,
+            "paired_diffs": [
+              -0.0316,
+              0.1502,
+              -0.0144,
+              -0.0171
+            ],
+            "shared_seeds": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          "pooled_sd": 0.05709,
+          "diff_in_pooled_sds": 0.381,
+          "survives_seed_variation_gt_2_pooled_sd": false
+        }
+      },
+      "frontier_vs_predicate_basis": {
+        "ce": {
+          "unpaired_exact": {
+            "diff_of_means": 0.08577,
+            "p_two_sided_exact": 0.0286,
+            "n_permutations": 35,
+            "na": 4,
+            "nb": 3
+          },
+          "paired_exact_on_shared_seeds": {
+            "mean_paired_diff": 0.08519,
+            "p_two_sided_exact": 0.25,
+            "n_pairs": 3,
+            "paired_diffs": [
+              0.07854,
+              0.09652,
+              0.0805
+            ],
+            "shared_seeds": [
+              0,
+              1,
+              2
+            ]
+          },
+          "pooled_sd": 0.00759,
+          "diff_in_pooled_sds": 11.301,
+          "survives_seed_variation_gt_2_pooled_sd": true
+        },
+        "plain": {
+          "unpaired_exact": {
+            "diff_of_means": 0.01458,
+            "p_two_sided_exact": 0.6857,
+            "n_permutations": 35,
+            "na": 4,
+            "nb": 3
+          },
+          "paired_exact_on_shared_seeds": {
+            "mean_paired_diff": 0.00557,
+            "p_two_sided_exact": 1.0,
+            "n_pairs": 3,
+            "paired_diffs": [
+              -0.0307,
+              -0.0035,
+              0.0509
+            ],
+            "shared_seeds": [
+              0,
+              1,
+              2
+            ]
+          },
+          "pooled_sd": 0.04035,
+          "diff_in_pooled_sds": 0.361,
+          "survives_seed_variation_gt_2_pooled_sd": false
+        },
+        "cov": {
+          "unpaired_exact": {
+            "diff_of_means": 0.0147,
+            "p_two_sided_exact": 0.4857,
+            "n_permutations": 35,
+            "na": 4,
+            "nb": 3
+          },
+          "paired_exact_on_shared_seeds": {
+            "mean_paired_diff": 0.00787,
+            "p_two_sided_exact": 1.0,
+            "n_pairs": 3,
+            "paired_diffs": [
+              -0.012,
+              -0.0011,
+              0.0367
+            ],
+            "shared_seeds": [
+              0,
+              1,
+              2
+            ]
+          },
+          "pooled_sd": 0.02734,
+          "diff_in_pooled_sds": 0.538,
+          "survives_seed_variation_gt_2_pooled_sd": false
+        }
+      },
+      "recipe_vs_predicate_basis": {
+        "ce": {
+          "unpaired_exact": {
+            "diff_of_means": 0.1454,
+            "p_two_sided_exact": 0.0286,
+            "n_permutations": 35,
+            "na": 4,
+            "nb": 3
+          },
+          "paired_exact_on_shared_seeds": {
+            "mean_paired_diff": 0.14651,
+            "p_two_sided_exact": 0.25,
+            "n_pairs": 3,
+            "paired_diffs": [
+              0.15898,
+              0.14613,
+              0.13441
+            ],
+            "shared_seeds": [
+              0,
+              1,
+              2
+            ]
+          },
+          "pooled_sd": 0.00646,
+          "diff_in_pooled_sds": 22.516,
+          "survives_seed_variation_gt_2_pooled_sd": true
+        },
+        "plain": {
+          "unpaired_exact": {
+            "diff_of_means": -0.02239,
+            "p_two_sided_exact": 0.6571,
+            "n_permutations": 35,
+            "na": 4,
+            "nb": 3
+          },
+          "paired_exact_on_shared_seeds": {
+            "mean_paired_diff": -0.0416,
+            "p_two_sided_exact": 0.75,
+            "n_pairs": 3,
+            "paired_diffs": [
+              -0.0507,
+              -0.1608,
+              0.0867
+            ],
+            "shared_seeds": [
+              0,
+              1,
+              2
+            ]
+          },
+          "pooled_sd": 0.06398,
+          "diff_in_pooled_sds": -0.35,
+          "survives_seed_variation_gt_2_pooled_sd": false
+        },
+        "cov": {
+          "unpaired_exact": {
+            "diff_of_means": -0.00708,
+            "p_two_sided_exact": 0.9429,
+            "n_permutations": 35,
+            "na": 4,
+            "nb": 3
+          },
+          "paired_exact_on_shared_seeds": {
+            "mean_paired_diff": -0.02687,
+            "p_two_sided_exact": 1.0,
+            "n_pairs": 3,
+            "paired_diffs": [
+              0.0196,
+              -0.1513,
+              0.0511
+            ],
+            "shared_seeds": [
+              0,
+              1,
+              2
+            ]
+          },
+          "pooled_sd": 0.06194,
+          "diff_in_pooled_sds": -0.114,
+          "survives_seed_variation_gt_2_pooled_sd": false
+        }
+      }
+    },
+    "registered_prediction_verdicts": {
+      "i_ce_sd_le_0.015": {
+        "per_arm_ce_sd": {
+          "frontier": 0.00805,
+          "recipe": 0.00619,
+          "predicate_basis": 0.00684
+        },
+        "verdict": true
+      },
+      "ii_spearman_sd_ge_0.04": {
+        "per_arm_axis_sd": {
+          "frontier_plain": 0.03214,
+          "frontier_cov": 0.02616,
+          "recipe_plain": 0.0717,
+          "recipe_cov": 0.07638,
+          "predicate_basis_plain": 0.0502,
+          "predicate_basis_cov": 0.02902
+        },
+        "verdict": false,
+        "note": "registered as \"E27's spread was not a fluke\": the prediction is that EVERY arm/axis sd clears 0.04"
+      },
+      "iii_predbasis_ce_advantage_gt_3sd": {
+        "sign_convention": "diff = mean CE(recipe) - mean CE(predicate basis); POSITIVE means the predicate-basis arm is better (lower CE)",
+        "diff_of_means_nats": 0.1454,
+        "diff_in_pooled_sds": 22.516,
+        "pooled_sd": 0.00646,
+        "p_exact_unpaired": 0.0286,
+        "seed0_reference_delta": -0.159,
+        "verdict": true
+      }
+    },
+    "survival_table": {
+      "frontier_vs_recipe::ce": {
+        "diff_of_means": -0.05963,
+        "p_exact_unpaired": 0.0286,
+        "p_exact_paired": 0.125,
+        "diff_in_pooled_sds": -8.306,
+        "SURVIVES": true
+      },
+      "frontier_vs_recipe::plain": {
+        "diff_of_means": 0.03697,
+        "p_exact_unpaired": 0.4,
+        "p_exact_paired": 0.625,
+        "diff_in_pooled_sds": 0.665,
+        "SURVIVES": false
+      },
+      "frontier_vs_recipe::cov": {
+        "diff_of_means": 0.02178,
+        "p_exact_unpaired": 0.7429,
+        "p_exact_paired": 1.0,
+        "diff_in_pooled_sds": 0.381,
+        "SURVIVES": false
+      },
+      "frontier_vs_predicate_basis::ce": {
+        "diff_of_means": 0.08577,
+        "p_exact_unpaired": 0.0286,
+        "p_exact_paired": 0.25,
+        "diff_in_pooled_sds": 11.301,
+        "SURVIVES": true
+      },
+      "frontier_vs_predicate_basis::plain": {
+        "diff_of_means": 0.01458,
+        "p_exact_unpaired": 0.6857,
+        "p_exact_paired": 1.0,
+        "diff_in_pooled_sds": 0.361,
+        "SURVIVES": false
+      },
+      "frontier_vs_predicate_basis::cov": {
+        "diff_of_means": 0.0147,
+        "p_exact_unpaired": 0.4857,
+        "p_exact_paired": 1.0,
+        "diff_in_pooled_sds": 0.538,
+        "SURVIVES": false
+      },
+      "recipe_vs_predicate_basis::ce": {
+        "diff_of_means": 0.1454,
+        "p_exact_unpaired": 0.0286,
+        "p_exact_paired": 0.25,
+        "diff_in_pooled_sds": 22.516,
+        "SURVIVES": true
+      },
+      "recipe_vs_predicate_basis::plain": {
+        "diff_of_means": -0.02239,
+        "p_exact_unpaired": 0.6571,
+        "p_exact_paired": 0.75,
+        "diff_in_pooled_sds": -0.35,
+        "SURVIVES": false
+      },
+      "recipe_vs_predicate_basis::cov": {
+        "diff_of_means": -0.00708,
+        "p_exact_unpaired": 0.9429,
+        "p_exact_paired": 1.0,
+        "diff_in_pooled_sds": -0.114,
+        "SURVIVES": false
+      }
+    },
+    "what_varied": "init seed only (Q.SEED); data order held FIXED via the unchanged Q.DATA_SEED = 1234, so these spreads isolate INIT sensitivity and UNDERSTATE full run-to-run spread",
+    "seed_counts": {
+      "frontier": 4,
+      "recipe": 4,
+      "predicate_basis": 3
+    },
+    "note": "SURVIVES = |difference of arm means| exceeds 2 pooled standard deviations AND should be read with the exact permutation p-value in the same row; with n = 3-4 the smallest attainable two-sided exact p is 1/35 = 0.029 (4 vs 3) or 2/70 = 0.029 (4 vs 4), so nothing here can be significant at 0.01 by construction"
+  }
+}
