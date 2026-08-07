@@ -9,6 +9,39 @@ delete old entries.
 
 ---
 
+**2026-08-07 19:00 UTC — local (COMPOSITION WORKS; FACTORED TABLES FAIL —
+modules are not printable tables at any granularity):**
+1. E31a COMPOSITION (predicate-basis + variable-k codebook, both on the
+   bandwidth base): all three registered predictions CONFIRMED. CE 4.9785
+   vs the additive-cost reference 4.9841 — SUB-ADDITIVE, i.e. the two
+   interpretability mechanisms do not fight. It beats the recipe by
+   -0.0762 and the codebook alone by -0.084, and matches the bandwidth
+   frontier arm within noise (+0.0043 +- 0.0020). Named-term mass is
+   preserved through quantization to 0.2% (52.83 vs 52.73), dictionaries
+   stay legible (0.81 of the pure-codebook arm's), dead codes 0, attention
+   residual fraction 0.269 (the variable-k fix holds under composition).
+   Wiring: plain 0.9315 / cov-composed 0.9383 — the highest raw numbers we
+   have seen, though per E29/E30 those are not separable from the other
+   leading arms and must be read against a named causal target.
+   So the current stack is: private slots + per-slot norm + strict lasso +
+   bandwidth reinvestment + named attention predicates + discrete content,
+   at +0.127 nats over unconstrained.
+2. E31b FACTORED CODE TABLES: the E24 coverage wall is NOT an artifact of
+   joint tuples. Factored (per-input-slot logit) tables achieve full
+   coverage but only 1.7% mean top-1 (best module mlp1 7.7%) against a
+   0.1% majority floor — better than chance by ~15x, but useless as a
+   substitute. The abstention curve is the honest summary: mlp1 reaches
+   36% at 10% coverage and 73% at 1% coverage. On the composition arm it
+   is worse (0.9% mean). Controls passed (planted factored structure
+   recovered 0.969, shuffled null 0.181 vs 0.187 floor). VERDICT: module
+   computation is NOT a small printable table over input codes at either
+   granularity — the discrete codes make content ENUMERABLE, not the
+   computation TABULAR. Report both together or the codebook story is
+   overclaimed.
+
+---
+
+
 **2026-08-07 17:15 UTC — local (ABSORPTION CONFIRMED: the explicit named
 match term took the match structure OUT of the learned attention pattern —
 and multiplied it. E22's registered prediction (ii), finally evaluated):**
