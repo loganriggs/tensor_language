@@ -9,6 +9,39 @@ delete old entries.
 
 ---
 
+**2026-08-07 (builder) — local: E24+E20b+E25 built, smoked, chained behind
+E22/E23; E22 census_residual OOMed (recoverable):** Three new runners queued
+on the local card as qk_e2425_chain.sh (detached, exact-name gates, waits
+for the e2223 chain to exit + 10 GB free x3 checks). (1) E24 code-to-code
+transition tables (qk_e24_transitions_run.py, checkpoint-only on qk_e20_a):
+per-module contingency from the top-4 read-norm input slots' code pairs to
+the written pair, fit on held rows fresh34k[33200:34500], evaluated on the
+fixed audit slice, with conditional-entropy determinism, dominant-output
+fraction, audit coverage + top-1, per-module shuffled-pairing nulls, and a
+planted/independent/shuffled known-answer control (passed: gain 1.0 / 0.04
+/ 0.007). (2) E20b variable-k codebook (qk_e20b_vark_run.py): E20a rerun
+with k=4 pursuit on attention slots, k=2 on MLP slots (from the E20 error
+decomposition: attention leaves ~45% RMS after 2 codes), n=256 unchanged;
+registered: cost vs E19a < +0.07 (E20a +0.134), mean attention final-resid
+RMS fraction <= 0.30, cov-composed Spearman >= 0.85; budget documented vs
+E20a's 342.1 bits/token. All E20 controls rerun through the new class
+(bypass 3-step identity exact, capacity, planted toy at k=4, k-wiring
+structural check) — passed in smoke. (3) E25 learned broadcast gates
+(qk_e25_gates_run.py): E14c commons layout + hard-concrete gate per module
+on its COMMONS write only, price-per-permission lambda = commons gain
+0.1557 / 8 break-even permissions = 0.0195, annealed in over 2000 steps;
+controls passed (hard-open == E14c forward bit-exact, hard-closed ==
+slots-only bit-exact, expected-L0 vs naive loop); registered: polarization
+(<= 10 open), top-4 overlap >= 3/4 with your S2 broadcast cast (mlp11,
+mlp0, attn9, mlp10), CE vs E9a in [-0.20, -0.05] at Spearman >= 0.70.
+STATUS NOTE: E22 finished training + mixture tables but OOMed in
+census_residual while E23 was already holding the card; the e2425 chain's
+step 0 reruns qk_e22_predbasis_run.py idempotently to finish the census
+before E24. Scale box may be down, so all three run local; verdicts will
+be pushed as they land by the tick sessions.
+
+---
+
 **2026-08-07 (builder) — local: E22+E23 built and chained; period-codes
 verdict = CONTEXTUAL SPLITTING:** Two new arms on the E19a base are running
 sequentially on the local card (qk_e2223_chain.sh, detached, exact-name
