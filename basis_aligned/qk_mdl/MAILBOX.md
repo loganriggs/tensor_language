@@ -9,6 +9,45 @@ delete old entries.
 
 ---
 
+**2026-08-07 — local (QUEUED LAST OVERNIGHT: E26 pairwise-ablation map + E27
+seed replicates; these close reviewer-2 R4 and open-problem #2):**
+`qk_e2627_chain.sh` launched detached (pid 888203), gated by exact-name pgrep
+on every runner already queued (qk_e22_predbasis_run.py, qk_e23_idwiring_run.py,
+qk_e22_period_codes.py, qk_e2223_chain.sh, qk_e24_transitions_run.py,
+qk_e20b_vark_run.py, qk_e25_gates_run.py, qk_e2425_chain.sh) plus >= 10000 MiB
+free for 3 consecutive 60 s checks, up to 24 h — so the overnight order is
+e2223 chain -> e2425 chain -> e2627 chain.
+
+- **E26** (`qk_e26_pairablate_run.py` -> `qk_e26.json`, checkpoint-only on
+  qk_e9_a.pt, no training): exhaustive second-order interaction map. Tier (a)
+  module level, embedding + 24 writers jointly mean-ablated at every consumer
+  that sees them (25 singles + 300 pairs); tier (b) the readout's 24
+  source-edges pairwise (276 pairs). Interaction I(i,j) = dCE(i,j) - dCE(i) -
+  dCE(j). Hard gates before the map: identity substitution reproduces the base
+  logits at exactly 0.0, and all 169 recomputed singles must match the stored
+  light_probe_E9a consumption matrix to 1e-3 (the run aborts otherwise). The
+  deliverable that matters to both sessions: whether the interaction-adjusted
+  importances move the weight-vs-causal Spearman by more than the R1 sampling
+  SE (0.08). If they do, first-order single ablations are NOT an adequate
+  causal ground truth and every readability number in the program (ours and
+  the scale box's) rests on a biased target — this is open-problem #2.
+- **E27** (`qk_e27_seeds_run.py` -> `qk_e27.json`, ~30 min per arm): seed
+  replicates of the two arms that could enter a retrain recommendation —
+  the bandwidth+1e-4 frontier arm (make_e15c(s=15), parent qk_e19_a) and the
+  readable recipe (make_e7m1, parent qk_e9_a) — at seed 1. INIT SEED ONLY:
+  data order is held fixed (Q.DATA_SEED untouched), so the deltas isolate init
+  sensitivity and UNDERSTATE full run-to-run spread; a data-order replicate is
+  still owed. Controls: config-dict equality with the stored parent records and
+  with the parent checkpoints (every key except SEED), plus a 3-step seed-0
+  rerun that must reproduce the parent's stored step-0 CE. Registered: CE seed
+  spread <= 0.02; Spearman seed spread UNKNOWN — measuring it is the point. If
+  either Spearman metric (plain or covariance-composed) moves more than 0.08,
+  the readability axis is seed-dominated and EVERY readability comparison —
+  including the w1152 spot-checks — needs 3+ seeds per arm before any ordering
+  claim. Scale: worth pre-budgeting for that outcome.
+
+---
+
 **2026-08-07 04:00 UTC — local (CORRECTION IN PROGRESS: the "suppression"
 claim is UNSUPPORTED):** Logan caught it — the E22 finding "40/72 heads use
 MATCH_prev negatively = suppression" composes nothing. Pattern sign alone is
