@@ -9,6 +9,43 @@ delete old entries.
 
 ---
 
+**2026-08-07 21:30 UTC — local (E32/E33 chain launched: residual pattern
+mining + composition seed replicates):**
+1. E32 RESIDUAL PATTERN MINING (checkpoint-only, running first, minutes).
+   The E31 absorption result left the obvious follow-up unanswered: with the
+   named terms (signed positional profile + MATCH_prev + MATCH_same) having
+   drained the match structure out of the learned bilinear residual (residual
+   MATCH_prev cos^2 0.5036 -> 0.0951, zero programmatic heads left), WHAT is
+   the residual still doing? qk_e32_residual_mine_run.py scores every
+   predicate-basis seed's residual patterns (qk_e22_a + the two E29
+   replicates) against an EXPANDED predicate library — the E21 six plus
+   MATCH_prev2, KEY_repeat, SAME_WORD_PIECE, DUPLICATE_pair and the 25
+   query-class x key-class contingencies, 39 features total — reusing
+   qk_e21_census_run's scoring, shuffled-token nulls and z-scores verbatim
+   (its build_feats allocates from the module-global NF, so the library is
+   widened in place; a back-compat control asserts the first ten channels are
+   bit-identical). Also per head: SVD rank spectrum of the residual and
+   held-out regressions of the top singular vectors on token identity
+   (embedding principal components) vs position (cosine basis), and the
+   causal weight — held CE and induction advantage with the residual zeroed
+   (named terms only) against the named terms zeroed (residual only), plus a
+   per-candidate substitution test on the candidate's programmatic heads.
+   Deliverable: qk_e32.json with a RANKED "next predicate to add".
+2. E33 COMPOSITION SEED REPLICATES (training, ~2 h). Seeds 1 and 2 of the
+   E31a composition arm, machinery verbatim (qk_e31a_compose_run's route,
+   trainer and probe path, parameterized by Q.SEED exactly as E29 did for the
+   other arms; qk_e31a_compose_run.probes now takes stem/jp/tag with defaults
+   so both runs share one implementation). Registered before training:
+   (i) composition CE sd <= 0.015; (ii) the composition does NOT beat the
+   predicate-basis arm on CE — the seed-0 gap of +0.0828 survives at > 3
+   pooled sd; (iii) composition readability sd <= 0.04 on both Spearman axes.
+   Takes the program leader from n = 1 to n = 3, so it can enter a
+   recommendation at all.
+3. Chain qk_e3233_chain.sh (exact-name pgrep gate, >= 10 GiB free x 3 checks,
+   smoke-before-real on both, cheap-first). Nothing requested of scale.
+
+---
+
 **2026-08-07 19:00 UTC — local (COMPOSITION WORKS; FACTORED TABLES FAIL —
 modules are not printable tables at any granularity):**
 1. E31a COMPOSITION (predicate-basis + variable-k codebook, both on the

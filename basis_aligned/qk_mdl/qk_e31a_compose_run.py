@@ -702,13 +702,18 @@ def code_dictionaries(s_c):
 
 
 # ---------------- probes ----------------
-def probes(s_c):
+def probes(s_c, stem=None, jp=None, tag='E31a'):
+    """The generalized variable-slot-dim light probe + the covariance-composed
+    re-scoring on the QUANTIZED + predicate forward. stem/jp/tag default to
+    this arm's; qk_e33_compose_seeds_run passes its per-seed checkpoints so the
+    seed replicates go through this exact path."""
+    STEM, JP = (stem or globals()['STEM']), (jp or globals()['JP'])
     if E.SMOKE or not os.path.exists(E.ckpath(STEM)):
         return
     dims = [s_c] * NG
     j = E.loadj(JP)
-    if 'light_probe_E31a_var_dims' not in j:
-        print('E31a light probe (quantized + predicate forward) ...',
+    if f'light_probe_{tag}_var_dims' not in j:
+        print(f'{tag} light probe (quantized + predicate forward) ...',
               flush=True)
         m, _ = E.load_arm(STEM, lambda: make_e31(s=s_c))
         Ws = m.wte.weight.shape[1]
@@ -747,15 +752,15 @@ def probes(s_c):
                        'weight support covers the bilinear read matrices '
                        'only -- the predicate terms read tokens, not the '
                        'stream'}
-        E.merge(JP, 'light_probe_E31a_var_dims', rec)
-        print(f"E31a wiring Spearman all {agr['spearman_all']} "
+        E.merge(JP, f'light_probe_{tag}_var_dims', rec)
+        print(f"{tag} wiring Spearman all {agr['spearman_all']} "
               f"effectual({len(eff)}) {agr['spearman_effectual']}", flush=True)
         del m
         torch.cuda.empty_cache()
     j = E.loadj(JP)
-    if 'composed_wiring_E31a' not in j:
-        lp = j['light_probe_E31a_var_dims']
-        print('E31a covariance-composed re-scoring (quantized content) ...',
+    if f'composed_wiring_{tag}' not in j:
+        lp = j[f'light_probe_{tag}_var_dims']
+        print(f'{tag} covariance-composed re-scoring (quantized content) ...',
               flush=True)
         m, _ = E.load_arm(STEM, lambda: make_e31(s=s_c))
         wp = E18U.wpairs(m, dims)
@@ -775,12 +780,12 @@ def probes(s_c):
                       E17.agreement(cov_ro, cau, eff)}
         chk = abs(tables['plain']['spearman_all'] - lp['wiring_spearman_all'])
         assert chk <= GATE_TOL, \
-            f'E31a plain does not reproduce the light probe ({chk})'
-        E.merge(JP, 'composed_wiring_E31a', {
+            f'{tag} plain does not reproduce the light probe ({chk})'
+        E.merge(JP, f'composed_wiring_{tag}', {
             'checkpoint': f'{STEM}.pt', 'slot_dims_uniform': s_c,
             'plain_reproduction_abs_diff': round(chk, 6),
             'n_samples': n_samp, 'tables': tables})
-        print(f"E31a plain {tables['plain']['spearman_all']} -> cov "
+        print(f"{tag} plain {tables['plain']['spearman_all']} -> cov "
               f"{tables['cov_composed']['spearman_all']}", flush=True)
         del m
         torch.cuda.empty_cache()
