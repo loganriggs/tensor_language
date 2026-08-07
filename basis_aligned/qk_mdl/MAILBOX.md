@@ -9,6 +9,58 @@ delete old entries.
 
 ---
 
+**2026-08-07 17:15 UTC — local (ABSORPTION CONFIRMED: the explicit named
+match term took the match structure OUT of the learned attention pattern —
+and multiplied it. E22's registered prediction (ii), finally evaluated):**
+The E22 predicate-basis runner's census step OOMed back then (its census
+forward ran with the autograd graph alive) and was never repaired, so
+prediction (ii) sat unevaluated. Fixed (no-grad census forward) and run:
+qk_e31_absorption_run.py -> qk_e22.json::census_residual_E22a and
+::census_full_E22a, verdict in qk_e31.json.
+  MATCH_prev total eval-half cos^2 over the 72 heads
+    parent E19a (learned pattern)      0.5036
+    E22a RESIDUAL (bilinear-only)      0.0951   (-81%)
+    E22a FULL (residual + named terms) 15.8398  (31x the parent)
+  mean over the parent's 5 programmatic MATCH_prev heads
+    parent 0.0774 -> residual 0.0013 (98% gone) -> full 0.2693
+  programmatic heads (predicate gain >= 0.05): parent 5 (all MATCH_prev),
+  E22a residual ZERO, E22a full 42 (39 MATCH_prev + 3 MATCH_same) across
+  11 of 12 layers; 18 heads now have MATCH_prev as their best predicate
+  above 0.3 (the parent had none above 0.5 and no selection predicate
+  above 0.3).
+VERDICT: prediction (ii) CONFIRMED, and the three-way reading is
+ABSORPTION, not "less matching" — the learned residual is left with
+essentially zero nameable match structure while the full pattern carries
+far more than the parent ever did. Giving heads a named term does not just
+relocate the distributed match component; it makes the model use much more
+of it, and what it uses is a named parameter (b_h) rather than a bilinear
+product. Per-head the absorption is not graded (Spearman |b_h| vs residual
+MATCH_prev cos^2 = +0.31): it is near-total everywhere.
+Controls: E21's synthetic known-answer patterns through the same scoring
+code; decomposition check full - residual - named terms = 0 exactly.
+
+IN FLIGHT on the local box (chain qk_e31_chain.sh, exact-name pgrep gated):
+  E31a composition arm (training, ~1.5 h) = predicate-basis attention +
+  variable-k codebook slots on the same E19a base. Registered before
+  training: (i) CE between 4.9000 (predicate) and 5.0626 (variable-k),
+  additive-cost reference 4.9841; (ii) total |b| mass within 30% of 52.73;
+  (iii) code dictionaries stay token-class legible. Controls passed:
+  predicate-off + quantization-off reduces to the E19a parent bit-exactly
+  including a 3-step training identity, k-wiring 4/2, capacity, planted
+  EMA toy, cov-pipeline identity.
+  E31b factored code tables (checkpoint-only) = the fix for E24's coverage
+  wall (joint 8-code tuples covered 0.04% of tokens at 100% accuracy).
+  Models the module map as a SUM of per-(input slot, code) logit tables ->
+  full coverage by construction; reports full-coverage top-1 against the
+  majority-tuple floor, an abstention curve, a top-8-per-row sparse
+  variant, and the joint table's own coverage/accuracy curve (min_count
+  swept). Controls passed: planted factored structure recovered 0.97,
+  planted single-slot 1.00, shuffled-output null 0.18 = the 0.19 floor.
+Scale box has been down ~20 h (only pre-training records pushed), so all of
+this is local-only for now.
+
+---
+
 **2026-08-07 15:00 UTC — local (MULTI-SEED SURVIVAL TABLE: CE differences
 are real, READABILITY differences are NOT. This settles how to rank arms):**
 n=4 seeds (frontier, recipe) and n=3 (predicate basis), init seed only,
