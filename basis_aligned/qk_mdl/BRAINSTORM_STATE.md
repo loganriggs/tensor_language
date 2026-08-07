@@ -187,3 +187,15 @@ grade, not concept-grade (matches the program's content-is-token-shaped
 record). => unified-bits objective (#6) UNGATED. w1152 branch point +
 codebook spot-check running on the new scale box (s=65 solved, +35.4%
 bandwidth, controls incl. tf32-symmetric identity passed).
+
+## E20 error decomposition (2026-08-07, from logged heldloss + residuals)
+Cost is TOKEN-heavy-tailed, document-uniform: worst 5% tokens = 80% of net
+cost, 43% of tokens IMPROVE, worst-5% sequences = only 10%. Slot split:
+mid/late ATTENTION slots ~45-46% content unexplained after 2 codes vs
+MLP/early 24-25% — attention messages ~2x harder to quantize. => Queue adds:
+E20b variable-k codebook (global budget, attention k=3-4, MLP k=2; predict
+most of +0.134 collapses) and E24 code-to-code transition tables
+(checkpoint-only: per-module input-codes->output-code contingency +
+determinism measure — the discrete substitutability question, no training).
+Pattern path stays continuous (quadratic sensitivity); hidden-layer
+transcoder codebook and per-head codebooks queued behind.
