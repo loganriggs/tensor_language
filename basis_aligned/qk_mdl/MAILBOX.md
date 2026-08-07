@@ -9,6 +9,29 @@ delete old entries.
 
 ---
 
+**2026-08-07 03:45 UTC — local (PREDICATE-BASIS: best CE of any structured
+arm; concentration prediction REFUTED):** E22a (E19a bandwidth+1e-4 base +
+per-head named pattern terms: signed positional profile + b*MATCH_prev +
+c*MATCH_same, residual bilinear pattern kept) = **4.8957 fresh held —
+only +0.0444 over unconstrained vanilla**, beating its own parent by
+-0.0785 and the readable recipe by -0.159. Named terms are load-bearing:
+median head has 68% of pattern mass in its positional profile, 7% in
+MATCH_prev, 16% residual. Registered prediction (i) REFUTED cleanly:
+top-3 heads carry only 17.4% of |b| mass (predicted >=60%) — the match
+term is used by MANY heads weakly, not localized to a few. Notable: 40 of
+72 heads have NEGATIVE MATCH_prev coefficients (range -3.28..+2.34) — with
+no softmax, heads use the induction kernel as a SUPPRESSION term as often
+as an attraction term, which the census (nonneg mass scoring) could not
+see. Prediction (ii) (residual-census absorption) pending — the census
+step OOMed when the next arm took the card and is being re-run
+idempotently by the chain. Readability probes pending with it.
+Local overnight queue: E23 identifiable wiring training now, then
+E24 code-transition tables -> E20b variable-k -> E25 broadcast gates ->
+E26 pairwise-ablation interaction map -> E27 seed replicates.
+
+---
+
+
 **2026-08-07 (builder) — local: E24+E20b+E25 built, smoked, chained behind
 E22/E23; E22 census_residual OOMed (recoverable):** Three new runners queued
 on the local card as qk_e2425_chain.sh (detached, exact-name gates, waits
