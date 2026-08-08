@@ -665,6 +665,153 @@ def composition_budget_v(D, n_seq=32, T=256, batch=8):
     return out
 
 
+@torch.no_grad()
+def read_ablation_causal(D, n_seq=32, T=256, batch=8):
+    """THE NORMALISATION-INVARIANT COMPOSITION BUDGET.
+
+    Norm share is NOT a normalisation-invariant statistic and is not what the
+    attention-to-attention verdict may rest on.  Here each upstream write is
+    removed from layer l's READ ONLY -- the residual stream is untouched and
+    every downstream module is recomputed -- in BOTH the zeroing and the
+    resampling flavour, and the effect is reported as a KL and a CE against the
+    true model plus the relative change it induces in layer l's pattern and
+    values.  All five quantities are ratios or model outputs, so none of them
+    can be moved by a change of normalisation convention alone.
+
+    RESAMPLE is the harsher and more honest of the two: the substituted write is
+    one the SAME module produced on a different sequence, so it is
+    on-distribution by construction and the intervention cannot be dismissed as
+    'you pushed the read somewhere no read ever goes'.  Zeroing is reported
+    beside it as the lower bound (the parent finding: resample beat zero at 13
+    of 14 layer-cells)."""
+    kl, ce, ntok, geo, ng = {}, {}, 0, {}, 0
+    for x, y in I1.held_batches(D, n_seq, T, batch):
+        if x.shape[0] < 2:
+            continue
+        P = D.run(x)
+        lp = F.log_softmax(D.readout(P['r']).float(), -1)
+        p = lp.exp()
+        for li in range(1, D.L):
+            srcs = {'e': P['rem'][li]}
+            for j in range(li):
+                srcs[f'A{j}'] = P['A'][j]
+                srcs[f'M{j}'] = P['M'][j]
+            full = sum(srcs.values())
+            hn = D._pre(2 * li, full)
+            pat = D._pat_from(li, hn, idx=x)
+            val = hn @ D.Wv[li].t()
+            for nm, v in srcs.items():
+                for how, rep in (('zero', torch.zeros_like(v)),
+                                 ('resample', v.roll(1, 0))):
+                    alt = full - v + rep
+                    hn2 = D._pre(2 * li, alt)
+                    k = f'l{li}_read_{how}_{nm}'
+                    # a read substitution is a CLOSURE over the counterfactual
+                    # stream, so the residual is untouched by construction
+                    r = D.run(x, reads={li: (lambda P_, a=alt, li_=li:
+                                             D._pre(2 * li_, a, {}))})['r']
+                    q = F.log_softmax(D.readout(r).float(), -1)
+                    kl[k] = kl.get(k, 0.0) + float((p * (lp - q)).sum())
+                    cc, n = I1.ce_of(D.readout(r), y)
+                    ce[k] = ce.get(k, 0.0) + float(cc)
+                    geo[k + '_pattern_rel'] = geo.get(k + '_pattern_rel', 0.0) \
+                        + float((D._pat_from(li, hn2, idx=x) - pat).norm()
+                                / pat.norm())
+                    geo[k + '_value_rel'] = geo.get(k + '_value_rel', 0.0) \
+                        + float(((hn2 @ D.Wv[li].t()) - val).norm() / val.norm())
+                    geo[k + '_read_rel'] = geo.get(k + '_read_rel', 0.0) \
+                        + float((hn2 - hn).norm() / hn.norm())
+            ng += 1
+        ntok += y.numel()
+    out = {'kl_from_model': {k: v / ntok for k, v in kl.items()},
+           'ce': {k: v / ntok for k, v in ce.items()},
+           'relative_change': {k: v / max(ng, 1) for k, v in geo.items()}}
+    out['note'] = (
+        'the attention-to-attention verdict is quoted from '
+        'kl_from_model[l1_read_resample_A0] with l1_read_zero_A0 beside it as '
+        'the lower bound.  KL, CE and the relative pattern/value changes are '
+        'all invariant to the normalisation convention, unlike a norm share.')
+    return out
+
+
+@torch.no_grad()
+def norm_confound_control(D, G=4, n_seq=32, T=256, batch=8):
+    """THE REVIEWER'S SANITY CHECK, made explicit.
+
+    Objection: the slot variants apply per-SLOT RMSNorm, which equalises what
+    each module contributes to a read, so a balanced norm share could be
+    mechanical and say nothing about the computation.
+
+    Test: impose a G-way slot norm on THIS model at analysis time -- no
+    retraining, same weights -- and recompute every composition-budget statistic
+    under it.  Whatever moves is a property of the normalisation convention and
+    not of the model.
+
+    Two things are expected and both are reported honestly:
+      * `pre_norm_share` CANNOT move, because it is measured on the residual
+        stream before any norm is applied.  So the norm-share number is not
+        literally an artifact of the metric -- but it is a statistic about the
+        stream's magnitudes, which is exactly what the training pressure the
+        slot norm removes was shaping, so it is still not comparable across the
+        partition boundary.
+      * `post_norm_share` -- the share of the NORMALISED read carried by each
+        slot -- is forced to 1/G by construction and is therefore worthless as
+        evidence.  It is reported so nobody quotes it later.
+    The pattern and value sensitivities are the interesting rows: if imposing
+    the slot norm on the plain model reproduces the slot variant's
+    sensitivities, the sensitivity metric is confounded too and only the causal
+    KL survives."""
+    Ws = D.Ws
+    S = Ws // G
+
+    def gnorm(x):
+        sh = x.shape
+        return F.rms_norm(x.view(*sh[:-1], G, S), (S,)).view(sh)
+
+    acc, n = {}, 0
+    for x, y in I1.held_batches(D, n_seq, T, batch):
+        P = D.run(x)
+        for li in range(1, D.L):
+            srcs = {'e': P['rem'][li]}
+            for j in range(li):
+                srcs[f'A{j}'] = P['A'][j]
+                srcs[f'M{j}'] = P['M'][j]
+            pre = sum(srcs.values())
+            for tag, nf in (('true_norm', lambda z: D._pre(2 * li, z)),
+                            ('imposed_slot_norm', gnorm)):
+                hn = nf(pre)
+                pat = D._pat_from(li, hn, idx=x)
+                val = hn @ D.Wv[li].t()
+                for nm, v in srcs.items():
+                    hn2 = nf(pre - v)
+                    for k, z in (
+                            (f'{tag}_l{li}_pattern_rel_change_without_{nm}',
+                             float((D._pat_from(li, hn2, idx=x) - pat).norm()
+                                   / pat.norm())),
+                            (f'{tag}_l{li}_value_rel_change_without_{nm}',
+                             float(((hn2 @ D.Wv[li].t()) - val).norm()
+                                   / val.norm()))):
+                        acc[k] = acc.get(k, 0.0) + z
+                # the two share statistics
+                for nm, v in srcs.items():
+                    acc[f'{tag}_l{li}_pre_norm_share_{nm}'] = \
+                        acc.get(f'{tag}_l{li}_pre_norm_share_{nm}', 0.0) + float(
+                            (v.norm(dim=-1) / pre.norm(dim=-1)).mean())
+                    hv = nf(v)
+                    acc[f'{tag}_l{li}_post_norm_share_{nm}'] = \
+                        acc.get(f'{tag}_l{li}_post_norm_share_{nm}', 0.0) + float(
+                            (hv.norm(dim=-1) / hn.norm(dim=-1)).mean())
+        n += 1
+    out = {k: v / n for k, v in acc.items()}
+    out['G_imposed'] = G
+    out['note'] = ('true_norm rows use whatever norm this model was TRAINED '
+                   'with; imposed_slot_norm rows apply a G-way slot norm to the '
+                   'same weights at analysis time.  A statistic that moves '
+                   'between the two blocks is a property of the normalisation, '
+                   'not of the computation, and may not be used as evidence.')
+    return out
+
+
 # ----------------------------------------------------------- stream geometry
 @torch.no_grad()
 def stream_geometry_v(D, n_seq=32, T=256, batch=8):
@@ -711,6 +858,9 @@ def rung2_v(D):
     out = {'layer0': I1.rung2(D)}
     for li in range(D.L):
         T = D.Tl[li]
+        d = out.get(f'layer{li}', {})       # layer 0 already has the factor and
+        #                                     branch-table spectra; MERGE, do not
+        #                                     overwrite them
         O, Ws = T.shape[0], D.Ws
         unf0 = torch.linalg.svdvals(T.reshape(O, -1).double()).cpu().numpy()
         ev = torch.linalg.eigvalsh(T.double()).cpu().numpy()
@@ -722,13 +872,13 @@ def rung2_v(D):
         Mn = torch.einsum('of,fi,fj->oij', Dn, Lr, Rr)
         Tn = 0.5 * (Mn + Mn.transpose(1, 2))
         svn = torch.linalg.svdvals(Tn.reshape(O, -1).double()).cpu().numpy()
-        d = {'mlp': {'shape': list(T.shape),
-                     'mode0_unfolding': {**tf_fold.eff_rank(unf0),
-                                         'rank_bound': min(O, Ws * Ws)},
-                     'random_factored_null_mode0': tf_fold.eff_rank(svn),
-                     'slice_eigen_mean_entropy_rank':
-                         float(np.mean([s['entropy_rank'] for s in sl])),
-                     'mean_negative_eig_share': float((ev < 0).sum() / ev.size)}}
+        d['mlp'] = {'shape': list(T.shape),
+                    'mode0_unfolding': {**tf_fold.eff_rank(unf0),
+                                        'rank_bound': min(O, Ws * Ws)},
+                    'random_factored_null_mode0': tf_fold.eff_rank(svn),
+                    'slice_eigen_mean_entropy_rank':
+                        float(np.mean([s['entropy_rank'] for s in sl])),
+                    'mean_negative_eig_share': float((ev < 0).sum() / ev.size)}
         d['mlp']['content_over_null'] = (
             d['mlp']['mode0_unfolding']['entropy_rank']
             / max(d['mlp']['random_factored_null_mode0']['entropy_rank'], 1e-9))
@@ -917,6 +1067,8 @@ def analyse(stem, quick=False, skip_baselines=True):
     print(f'  induction {time.time()-t0:.0f}s', flush=True)
     rep['resample_ablation'] = I2.resample_ablation(D)
     rep['composition_budget'] = composition_budget_v(D, min(n_seq, 32), T)
+    rep['read_ablation_causal'] = read_ablation_causal(D, min(n_seq, 32), T)
+    rep['norm_confound_control'] = norm_confound_control(D, 4, min(n_seq, 32), T)
     rep['fit_score_disjointness'] = fit_score_disjointness_v(D, min(n_seq, 64), T)
     print(f'  ablations {time.time()-t0:.0f}s', flush=True)
     rep['rung4'] = I1.rung4(D)
