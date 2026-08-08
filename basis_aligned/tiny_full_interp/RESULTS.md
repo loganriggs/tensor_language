@@ -279,7 +279,8 @@ thing this program said it wanted.
 **O2 — "you searched a finite family of schemes."** True, and the two
 strongest candidates we could think of were added *because of this objection*
 (section K, orthography; section L, corpus co-occurrence), both with their
-conditioning given away free, and both lose. Still untried and worth a future
+conditioning given away free. Orthography loses; corpus co-occurrence is the
+one structural scheme that does *not*, and it is reported as a positive. Still untried and worth a future
 tick: tensor-train / hierarchical Tucker of the MLP tensor; learned rotations
 per PQ subspace; weight sharing under a learned permutation; magnitude pruning
 plus sparse coding; and coding the embedding conditional on a *trained* small
@@ -287,7 +288,8 @@ model's embedding rather than on raw statistics.
 
 **O3 — "16 384 held tokens is not many."** Sequence-clustered standard errors
 are attached to every distilled point (64 sequences as the independent unit);
-they are 1–3% of the KL at the knee, far below the effect sizes quoted. The
+they are 0.8–1.0% of the KL at every distilled point, far below the effect
+sizes quoted. The
 frontier's ordering is not within noise anywhere it is used.
 
 **O4 — "a distilled description is a different model, not a description of
