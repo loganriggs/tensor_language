@@ -269,3 +269,13 @@ architecture's honest coverage; (b) attack the remainder structurally
 METHOD NOTE: within-sequence shuffle nulls give near-zero spread for DENSE
 class features, so z-scores run in the thousands and are NOT effect sizes;
 use joint-fit gain over the positional profile as the discriminating stat.
+
+## BASELINE CORRECTION (2026-08-08): quote taxes vs MUON vanilla 4.7570
+w264 taxes were being quoted against ADAMW vanilla (4.8513) while every
+structured arm is Muon-trained. Muon vanilla is 4.7570 (qk_e0m.json), so
+every tax was understated by 0.094. Corrected table (vs 4.7570):
+predicate-basis +0.143 | composition +0.218 | bandwidth+dial +0.229 |
+bandwidth gentle +0.147 | recipe +0.288 | codebook +0.352. Scale reporting
+already used Muon vanilla, so this also removes a w264-vs-w1152
+inconsistency (scale recipe premium +0.141 vs Muon vanilla is directly
+comparable to w264 predicate-basis +0.143).

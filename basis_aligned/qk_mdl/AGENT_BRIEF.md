@@ -35,3 +35,12 @@ ask for context.
 - Key facts: proximal lasso never binds (free but zero readability — in-loss only);
   saturation verdict in qk_e14.json census; effective-params accounting in
   qk_e15.json; naming table in qk_e13.json.
+
+## Two hard rules added 2026-08-08
+- NEVER `git stash` (especially `-u`) while a run is in flight: untracked
+  checkpoints vanish and the running job dies. Fix a rejected push with
+  fetch+rebase, staging only the intended paths.
+- Quote CE taxes against the MATCHED-OPTIMIZER baseline: at w264 Muon
+  vanilla is 4.7570 (qk_e0m.json), AdamW vanilla 4.8513 (E0a). Every
+  structured arm is Muon-trained, so 4.757 is the fair reference; using
+  4.851 understates every tax by ~0.094 nats.
