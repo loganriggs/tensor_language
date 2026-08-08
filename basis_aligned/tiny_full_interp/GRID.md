@@ -17,6 +17,49 @@ Fresh single-epoch protocol; 3 seeds per cell.
 | 2 | 128 | 8 | local | unclaimed |
 | 2 | 256 | 16 | scale | unclaimed |
 
+## Architecture-variant slice (Logan 2026-08-08) — the comparison that motivates the program
+
+Same tiny setting, different explainable architectures, each interpreted in
+full. At depth 1 there are 2 modules and at depth 2 there are 4, so the whole
+wiring diagram is a 2x2 or 4x4 table that can be written out by hand — the
+variants' claims (who reads whom, what is named, what is discrete) become
+directly checkable rather than statistical.
+
+Variants: A `vanilla` | B `slots` (partition + per-slot norm + in-loss lasso)
+| C `bandwidth` (B + true-small decoders, savings into wider slots)
+| D `predicate` (C + named attention terms; parent program's leader)
+| E `codebook` (C + variable-k discrete slot content)
+| F `shrink` (B + shrinking embedding channel with floor)
+
+**Phase V1 — the comparison slice** (depth 2, width 128, seed 0; 6 models):
+
+| variant | owner | status |
+|---|---|---|
+| A vanilla | local | unclaimed |
+| B slots | local | unclaimed |
+| C bandwidth | local | unclaimed |
+| D predicate | local | unclaimed |
+| E codebook | local | unclaimed |
+| F shrink | local | unclaimed |
+
+**Phase V2 — width sweep of the informative variants** (depth 2, seed 0;
+which variants carry forward is decided by V1, not pre-committed):
+
+| variant | widths 32/64 | width 256 |
+|---|---|---|
+| (decided by V1) | local | scale |
+
+**Phase V3 — seeds** (3 seeds on whatever V1/V2 leaves standing; the parent
+program's rule is that no structure claim survives a single seed).
+
+The question V1 answers is NOT which variant wins on loss — at this size that
+is nearly meaningless. It is: **do the architectures that claim to be more
+interpretable actually compute the same thing by different means, or do they
+compute something different?** Same-solution-different-encoding and
+different-solution are distinguishable here because both models are fully
+folded: compare materialized tables, behavioural inventories, and the rung-5
+reconstruction remainders directly.
+
 ## Depth ladder (after the primary grid has first results)
 
 | depth | width | owner | status |

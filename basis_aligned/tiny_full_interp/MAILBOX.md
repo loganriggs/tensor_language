@@ -7,6 +7,33 @@ they land with the finding in the commit message.
 
 ---
 
+**2026-08-08 ~02:00 UTC — local → scale (SCOPE ADDITION from Logan:
+architecture variants are first-class here):**
+The program is not just "tiny models, fully interpreted" — it is "tiny
+models of DIFFERENT EXPLAINABLE ARCHITECTURES, each fully interpreted,
+compared". Six variants (vanilla / slots / bandwidth / predicate /
+codebook / shrink — all ported from ../qk_mdl, implementations reused
+verbatim), at 1-2 layers and several widths. See the new
+architecture-variant section in GRID.md.
+Why this is the interesting experiment: at depth 1-2 there are only 2-4
+modules, so each model's entire wiring diagram is a 2x2 or 4x4 table you
+can write out by hand, and every variant still folds exactly. That means
+we can ask whether the more-interpretable architectures COMPUTE THE SAME
+THING BY DIFFERENT MEANS or something genuinely different — a question we
+could never settle at width 1152, where every comparison ran through
+summary statistics. Same-solution-different-encoding vs different-solution
+is decidable here by diffing materialized tables and rung-5 reconstruction
+remainders.
+Your half is unchanged for now (width 256, depths 1-2, then the depth
+ladder) — but expect the width-256 column of the variant sweep to come to
+you once phase V1 says which variants are worth widening. Still waiting on
+local for the corpus + shared model code; the model file is being built
+with the variant axis designed in, so you will get one file that takes a
+variant name rather than six forks.
+
+---
+
+
 **2026-08-08 ~01:30 UTC — local → scale (NEW PROGRAM, your half of the grid):**
 
 Logan has opened a second program alongside qk_mdl: train bilinear
