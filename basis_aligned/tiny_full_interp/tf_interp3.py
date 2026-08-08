@@ -812,6 +812,67 @@ def norm_confound_control(D, G=4, n_seq=32, T=256, batch=8):
     return out
 
 
+@torch.no_grad()
+def predicate_induction_split(D, seeds=5):
+    """WHICH NAMED TERM CARRIES THE PREDICATE VARIANT'S INDUCTION?
+
+    `MATCH_prev[i, j] = 1[tok_{j-1} == tok_i]` attends from the current token to
+    the position AFTER an earlier copy of it -- a complete induction head in ONE
+    layer, handed to the model as a single scalar per head.  So the registered
+    question is whether zeroing that one scalar per head removes the score.
+    Every arm zeroes a named parameter IN PLACE and restores it, so the model is
+    unchanged afterwards; the battery is the identical one every other cell
+    uses.  Non-predicate variants return None rather than a fabricated row."""
+    if not D.model.pred_on:
+        return None
+    P = {'b': D.model.pred_b, 'c': D.model.pred_c, 'prof': D.model.pred_prof}
+    saved = {k: v.detach().clone() for k, v in P.items()}
+
+    def battery(tag):
+        r = [I1.induction_battery(D, seed=s, model=D.model) for s in range(seeds)]
+        return {'induction_score_mean': float(np.mean([q['induction_score']
+                                                       for q in r])),
+                'induction_score_sd': float(np.std([q['induction_score']
+                                                    for q in r], ddof=1)),
+                'bag_score_mean': float(np.mean([q['bag_score'] for q in r]))}
+    out = {'all_named_terms_on': battery('full')}
+    try:
+        for arms, tag in ((('b',), 'zero_prev_token_match_b'),
+                          (('c',), 'zero_same_token_match_c'),
+                          (('prof',), 'zero_positional_profile'),
+                          (('b', 'c', 'prof'), 'zero_all_named_terms')):
+            for k in arms:
+                P[k].zero_()
+            out[tag] = battery(tag)
+            for k in arms:
+                P[k].copy_(saved[k])
+        # per-layer, for the one that matters
+        for li in range(D.L):
+            P['b'][li].zero_()
+            out[f'zero_prev_token_match_b_layer{li}'] = battery('bl')
+            P['b'].copy_(saved['b'])
+        # and per HEAD in layer 0, to see whether it is one head or many
+        per = {}
+        for h in range(D.H):
+            P['b'][0, h] = 0.0
+            per[f'l0_head{h}'] = battery('h')['induction_score_mean']
+            P['b'].copy_(saved['b'])
+        out['zero_prev_match_one_head_at_a_time_layer0'] = per
+    finally:
+        for k, v in saved.items():
+            P[k].copy_(v)
+    base = out['all_named_terms_on']['induction_score_mean']
+    out['fraction_removed'] = {
+        k: (base - v['induction_score_mean']) / base
+        for k, v in out.items()
+        if isinstance(v, dict) and 'induction_score_mean' in v}
+    out['note'] = ('the previous-token match is one scalar per head; if zeroing '
+                   'it removes the score, this variant inducts by a NAMED TERM '
+                   'in a single layer and not by the two-layer composition '
+                   'circuit the plain model needs width 256 to build')
+    return out
+
+
 # ----------------------------------------------------------- stream geometry
 @torch.no_grad()
 def stream_geometry_v(D, n_seq=32, T=256, batch=8):
@@ -1063,6 +1124,9 @@ def analyse(stem, quick=False, skip_baselines=True):
         'bag_score_sd': float(np.std([i['bag_score'] for i in ind], ddof=1))}
     rep['induction_power'] = I2.induction_power(D)
     rep['induction_by_head'] = I2.induction_by_head(D)
+    ps = predicate_induction_split(D)
+    if ps is not None:
+        rep['predicate_induction_split'] = ps
     rep['natural_induction'] = I2.natural_induction(D, n_seq=1024)
     print(f'  induction {time.time()-t0:.0f}s', flush=True)
     rep['resample_ablation'] = I2.resample_ablation(D)
