@@ -1,0 +1,4809 @@
+{
+ "reviewer": "independent round 3, FINDING 12 (compression frontier)",
+ "O1_fair_denominator": {
+  "n_params": 1343616,
+  "fp32_bits": 42995712,
+  "lossless_fp32": {
+   "fp32_raw": 42995712,
+   "fp32_zlib9": 39926416,
+   "fp32_lzma": 39650112,
+   "fp32_shuffle_lzma": 36018080,
+   "fp32_ieee_planes_order0": 36091308
+  },
+  "lossless_best": 36018080,
+  "standard_encodings": {
+   "bf16": {
+    "bits": 21497856,
+    "kl": 5.7241170452471124e-05,
+    "ce": 4.711249649524689
+   },
+   "fp16": {
+    "bits": 21497856,
+    "kl": 2.4055603660144698e-06,
+    "ce": 4.711400926113129
+   },
+   "ptq_int8_perrow": {
+    "bits": 11075584,
+    "kl": 0.0006439469652832486
+   },
+   "ptq_int6_perrow": {
+    "bits": 8388608,
+    "kl": 0.011183719616383314
+   },
+   "ptq_int5_perrow": {
+    "bits": 7045120,
+    "kl": 0.058076123241335154
+   },
+   "ptq_int4_perrow": {
+    "bits": 5701632,
+    "kl": 0.28790105134248734
+   },
+   "ptq_int8_perrow_entropy": {
+    "bits": 10601639,
+    "kl": 0.0006439469652832486
+   },
+   "ptq_int6_perrow_entropy": {
+    "bits": 7898713,
+    "kl": 0.011183719616383314
+   },
+   "ptq_int5_perrow_entropy": {
+    "bits": 6537136,
+    "kl": 0.058076123241335154
+   },
+   "ptq_int4_perrow_entropy": {
+    "bits": 5149471,
+    "kl": 0.28790105134248734
+   }
+  },
+  "frontier_vs_honest_baselines": [
+   {
+    "scheme": "distilled_emb1_body4",
+    "bits": 2431255.0,
+    "kl": 0.8290731906890869,
+    "x_vs_fp32": 17.684575250230846,
+    "x_vs_bf16": 8.842287625115423,
+    "x_vs_lossless_best": 14.814603980248883,
+    "uniform_bits_at_same_kl": 4832798.639003652,
+    "x_vs_uniform_ptq": 1.9877794139255867,
+    "entropy_ptq_bits_at_same_kl": null,
+    "x_vs_entropy_ptq": null
+   },
+   {
+    "scheme": "distilled_emb2_body3",
+    "bits": 2680297.0,
+    "kl": 0.408969521522522,
+    "x_vs_fp32": 16.04139839726717,
+    "x_vs_bf16": 8.020699198633585,
+    "x_vs_lossless_best": 13.438092868066487,
+    "uniform_bits_at_same_kl": 5397221.42764158,
+    "x_vs_uniform_ptq": 2.0136654361966526,
+    "entropy_ptq_bits_at_same_kl": null,
+    "x_vs_entropy_ptq": null
+   },
+   {
+    "scheme": "distilled_emb2_body6",
+    "bits": 3613193.0,
+    "kl": 0.38760846853256226,
+    "x_vs_fp32": 11.899644441910521,
+    "x_vs_bf16": 5.9498222209552605,
+    "x_vs_lossless_best": 9.968490473661385,
+    "uniform_bits_at_same_kl": 5442668.385012457,
+    "x_vs_uniform_ptq": 1.5063320406666505,
+    "entropy_ptq_bits_at_same_kl": null,
+    "x_vs_entropy_ptq": null
+   },
+   {
+    "scheme": "distilled_emb3_body3",
+    "bits": 3765718.0,
+    "kl": 0.1323038637638092,
+    "x_vs_fp32": 11.417666431740242,
+    "x_vs_bf16": 5.708833215870121,
+    "x_vs_lossless_best": 9.564731081828219,
+    "uniform_bits_at_same_kl": 6318710.252443536,
+    "x_vs_uniform_ptq": 1.6779563027405493,
+    "entropy_ptq_bits_at_same_kl": 5782181.633549546,
+    "x_vs_entropy_ptq": 1.535479192427459
+   },
+   {
+    "scheme": "distilled_emb3_body4",
+    "bits": 4088748.0,
+    "kl": 0.10486949980258942,
+    "x_vs_fp32": 10.515617983793572,
+    "x_vs_bf16": 5.257808991896786,
+    "x_vs_lossless_best": 8.809073095235998,
+    "uniform_bits_at_same_kl": 6515792.927186079,
+    "x_vs_uniform_ptq": 1.5935912233246166,
+    "entropy_ptq_bits_at_same_kl": 5985964.552127522,
+    "x_vs_entropy_ptq": 1.4640091666513864
+   },
+   {
+    "scheme": "distilled_emb3_body6",
+    "bits": 4701816.0,
+    "kl": 0.09298348426818848,
+    "x_vs_fp32": 9.14449055428796,
+    "x_vs_bf16": 4.57224527714398,
+    "x_vs_lossless_best": 7.660461404699801,
+    "uniform_bits_at_same_kl": 6620216.251640567,
+    "x_vs_uniform_ptq": 1.4080126171761222,
+    "entropy_ptq_bits_at_same_kl": 6094258.994911662,
+    "x_vs_entropy_ptq": 1.2961500396680055
+   },
+   {
+    "scheme": "embT512+body6",
+    "bits": 4770512.0,
+    "kl": 0.07519357744604349,
+    "x_vs_fp32": 9.012808688040193,
+    "x_vs_bf16": 4.506404344020097,
+    "x_vs_lossless_best": 7.550149753317883,
+    "uniform_bits_at_same_kl": 6808655.759884557,
+    "x_vs_uniform_ptq": 1.4272379484391942,
+    "entropy_ptq_bits_at_same_kl": 6290234.844737508,
+    "x_vs_entropy_ptq": 1.3185659830092678
+   },
+   {
+    "scheme": "corpusstat_res_q3+body6",
+    "bits": 5053583.0,
+    "kl": 0.06072908919304609,
+    "x_vs_fp32": 8.507965932290022,
+    "x_vs_bf16": 4.253982966145011,
+    "x_vs_lossless_best": 7.1272362598971855,
+    "uniform_bits_at_same_kl": 7003650.224223993,
+    "x_vs_uniform_ptq": 1.3858781431360665,
+    "entropy_ptq_bits_at_same_kl": 6493758.265170848,
+    "x_vs_entropy_ptq": 1.284981025377608
+   },
+   {
+    "scheme": "distilled_emb4_body4",
+    "bits": 5167472.0,
+    "kl": 0.03454548120498657,
+    "x_vs_fp32": 8.320453792492732,
+    "x_vs_bf16": 4.160226896246366,
+    "x_vs_lossless_best": 6.970154845541495,
+    "uniform_bits_at_same_kl": 7443763.188061289,
+    "x_vs_uniform_ptq": 1.44050382625417,
+    "entropy_ptq_bits_at_same_kl": 6939043.607984558,
+    "x_vs_entropy_ptq": 1.342831389891335
+   },
+   {
+    "scheme": "distilled_emb4_body6",
+    "bits": 5784535.0,
+    "kl": 0.023870937526226044,
+    "x_vs_fp32": 7.432872650956386,
+    "x_vs_bf16": 3.716436325478193,
+    "x_vs_lossless_best": 6.2266163140165975,
+    "uniform_bits_at_same_kl": 7741063.9279789915,
+    "x_vs_uniform_ptq": 1.3382344350892494,
+    "entropy_ptq_bits_at_same_kl": 7239963.877436808,
+    "x_vs_entropy_ptq": 1.2516068927643809
+   },
+   {
+    "scheme": "corpusstat_res_q4+body6",
+    "bits": 6170564.0,
+    "kl": 0.020944999996572733,
+    "x_vs_fp32": 6.9678739253008315,
+    "x_vs_bf16": 3.4839369626504157,
+    "x_vs_lossless_best": 5.83708069473066,
+    "uniform_bits_at_same_kl": 7849061.861515508,
+    "x_vs_uniform_ptq": 1.2720169277096078,
+    "entropy_ptq_bits_at_same_kl": 7349519.255837931,
+    "x_vs_entropy_ptq": 1.1910611827116502
+   },
+   {
+    "scheme": "embS6_4_2048+body6",
+    "bits": 6426375.0,
+    "kl": 0.019127100007608533,
+    "x_vs_fp32": 6.6905077901616385,
+    "x_vs_bf16": 3.3452538950808193,
+    "x_vs_lossless_best": 5.604727392970376,
+    "uniform_bits_at_same_kl": 7924934.726423181,
+    "x_vs_uniform_ptq": 1.2331889636728608,
+    "entropy_ptq_bits_at_same_kl": 7426562.154828393,
+    "x_vs_entropy_ptq": 1.1556378447924986
+   },
+   {
+    "scheme": "embT640+body8",
+    "bits": 6467056.0,
+    "kl": 0.01556215831078589,
+    "x_vs_fp32": 6.648421167220448,
+    "x_vs_bf16": 3.324210583610224,
+    "x_vs_lossless_best": 5.569470868970363,
+    "uniform_bits_at_same_kl": 8100038.45246986,
+    "x_vs_uniform_ptq": 1.2525078571253845,
+    "entropy_ptq_bits_at_same_kl": 7604601.8535531815,
+    "x_vs_entropy_ptq": 1.1758985624298262
+   },
+   {
+    "scheme": "corpusstat_res_q4+body8",
+    "bits": 6760388.0,
+    "kl": 0.01170886040199548,
+    "x_vs_fp32": 6.359947387635148,
+    "x_vs_bf16": 3.179973693817574,
+    "x_vs_lossless_best": 5.327812545670455,
+    "uniform_bits_at_same_kl": 8347922.114070005,
+    "x_vs_uniform_ptq": 1.2348288462245074,
+    "entropy_ptq_bits_at_same_kl": 7857193.62672965,
+    "x_vs_entropy_ptq": 1.1622400410641593
+   },
+   {
+    "scheme": "embS6_4_2048+body8",
+    "bits": 7016199.0,
+    "kl": 0.009871055488474667,
+    "x_vs_fp32": 6.128063357381967,
+    "x_vs_bf16": 3.0640316786909834,
+    "x_vs_lossless_best": 5.133560208312222,
+    "uniform_bits_at_same_kl": 8491178.514424765,
+    "x_vs_uniform_ptq": 1.2102248688249528,
+    "entropy_ptq_bits_at_same_kl": 8001044.515923787,
+    "x_vs_entropy_ptq": 1.1403673863759831
+   },
+   {
+    "scheme": "distilled_emb5_body8",
+    "bits": 7464129.0,
+    "kl": 0.005674506537616253,
+    "x_vs_fp32": 5.760312020330838,
+    "x_vs_bf16": 2.880156010165419,
+    "x_vs_lossless_best": 4.82549002033593,
+    "uniform_bits_at_same_kl": 8961322.779023137,
+    "x_vs_uniform_ptq": 1.2005851960788911,
+    "entropy_ptq_bits_at_same_kl": 8471017.179199424,
+    "x_vs_entropy_ptq": 1.134896942322329
+   },
+   {
+    "scheme": "embT768+body8",
+    "bits": 7594449.0,
+    "kl": 0.004210276470985264,
+    "x_vs_fp32": 5.661465631015496,
+    "x_vs_bf16": 2.830732815507748,
+    "x_vs_lossless_best": 4.742685084856057,
+    "uniform_bits_at_same_kl": 9225484.253264382,
+    "x_vs_uniform_ptq": 1.214766766261039,
+    "entropy_ptq_bits_at_same_kl": 8735728.189518292,
+    "x_vs_entropy_ptq": 1.1502780767266054
+   },
+   {
+    "scheme": "embS8_5_512+body8",
+    "bits": 7741818.0,
+    "kl": 0.004003209643997252,
+    "x_vs_fp32": 5.553697077353148,
+    "x_vs_bf16": 2.776848538676574,
+    "x_vs_lossless_best": 4.652405933593376,
+    "uniform_bits_at_same_kl": 9270884.154656602,
+    "x_vs_uniform_ptq": 1.197507375484234,
+    "entropy_ptq_bits_at_same_kl": 8781268.076408572,
+    "x_vs_entropy_ptq": 1.1342643389974516
+   },
+   {
+    "scheme": "corpusstat_res_q5+body8",
+    "bits": 7841523.0,
+    "kl": 0.0030464436567854136,
+    "x_vs_fp32": 5.483081794187175,
+    "x_vs_bf16": 2.7415408970935875,
+    "x_vs_lossless_best": 4.5932505713494685,
+    "uniform_bits_at_same_kl": 9520663.911741996,
+    "x_vs_uniform_ptq": 1.214134538882561,
+    "entropy_ptq_bits_at_same_kl": 9032052.419481138,
+    "x_vs_entropy_ptq": 1.1518237489682983
+   },
+   {
+    "scheme": "distilled_emb6_body8",
+    "bits": 8516333.0,
+    "kl": 0.0015166513621807098,
+    "x_vs_fp32": 5.048617990865317,
+    "x_vs_bf16": 2.5243089954326585,
+    "x_vs_lossless_best": 4.229294462769364,
+    "uniform_bits_at_same_kl": 10189489.808904357,
+    "x_vs_uniform_ptq": 1.1964644652697771,
+    "entropy_ptq_bits_at_same_kl": 9705461.0678119,
+    "x_vs_entropy_ptq": 1.139629118285053
+   },
+   {
+    "scheme": "uniform_8bit",
+    "bits": 11075584.0,
+    "kl": 0.0006439469652832486,
+    "x_vs_fp32": 3.8820266272189348,
+    "x_vs_bf16": 1.9410133136094674,
+    "x_vs_lossless_best": 3.252025355954142,
+    "uniform_bits_at_same_kl": 11075584.000000006,
+    "x_vs_uniform_ptq": 1.0000000000000004,
+    "entropy_ptq_bits_at_same_kl": null,
+    "x_vs_entropy_ptq": null
+   },
+   {
+    "scheme": "corpusstat_residual_q6",
+    "bits": 15917003.0,
+    "kl": 0.0006189020932652056,
+    "x_vs_fp32": 2.701244197792763,
+    "x_vs_bf16": 1.3506220988963815,
+    "x_vs_lossless_best": 2.262868204523176,
+    "uniform_bits_at_same_kl": 11110518.842252275,
+    "x_vs_uniform_ptq": 0.6980283186635244,
+    "entropy_ptq_bits_at_same_kl": null,
+    "x_vs_entropy_ptq": null
+   },
+   {
+    "scheme": "uniform_12bit",
+    "bits": 16449536.0,
+    "kl": 4.415230250742752e-06,
+    "x_vs_fp32": 2.6137948207171315,
+    "x_vs_bf16": 1.3068974103585658,
+    "x_vs_lossless_best": 2.189610697833665,
+    "uniform_bits_at_same_kl": 16449535.999999987,
+    "x_vs_uniform_ptq": 0.9999999999999992,
+    "entropy_ptq_bits_at_same_kl": null,
+    "x_vs_entropy_ptq": null
+   },
+   {
+    "scheme": "uniform_16bit",
+    "bits": 21823488.0,
+    "kl": 1.5006995113253652e-06,
+    "x_vs_fp32": 1.9701576576576576,
+    "x_vs_bf16": 0.9850788288288288,
+    "x_vs_lossless_best": 1.6504272827515014,
+    "uniform_bits_at_same_kl": 21823488.000000034,
+    "x_vs_uniform_ptq": 1.0000000000000016,
+    "entropy_ptq_bits_at_same_kl": null,
+    "x_vs_entropy_ptq": null
+   },
+   {
+    "scheme": "uniform_32bit",
+    "bits": 42995712.0,
+    "kl": 1.4653066671144188e-06,
+    "x_vs_fp32": 1.0,
+    "x_vs_bf16": 0.5,
+    "x_vs_lossless_best": 0.8377133049919024,
+    "uniform_bits_at_same_kl": null,
+    "x_vs_uniform_ptq": null,
+    "entropy_ptq_bits_at_same_kl": null,
+    "x_vs_entropy_ptq": null
+   }
+  ]
+ },
+ "O2_bit_accounting": {
+  "points": [
+   {
+    "scheme": "embT768+body8",
+    "reviewer_bits": 7594449,
+    "reviewer_kl": 0.004210276470985264,
+    "analyst_bits": 7594449,
+    "analyst_kl": 0.004210276470985264,
+    "embedding_bill": {
+     "column_means_fp32": 4096,
+     "rotation": 0,
+     "entropy_coded_symbols": 5029841,
+     "symbol_histograms_fp16": 131072,
+     "per_column_lo_hi_fp16": 4096,
+     "bit_allocation_map_4bit_per_column": 512,
+     "TOTAL": 5169617
+    },
+    "body_bill": {
+     "Wq_values": 131072,
+     "Wq_rowscales": 4096,
+     "Wk_values": 131072,
+     "Wk_rowscales": 4096,
+     "Wq2_values": 131072,
+     "Wq2_rowscales": 4096,
+     "Wk2_values": 131072,
+     "Wk2_rowscales": 4096,
+     "Wv_values": 131072,
+     "Wv_rowscales": 4096,
+     "Wproj_values": 131072,
+     "Wproj_rowscales": 4096,
+     "Left_values": 524288,
+     "Left_rowscales": 16384,
+     "Right_values": 524288,
+     "Right_rowscales": 16384,
+     "Down_values": 524288,
+     "Down_rowscales": 4096,
+     "Down_bias_fp32": 4096
+    },
+    "body_total": 2424832,
+    "n_columns_with_zero_bits": 0,
+    "max_column_bits": 6
+   },
+   {
+    "scheme": "embT640+body8",
+    "reviewer_bits": 6467056,
+    "reviewer_kl": 0.01556215831078589,
+    "analyst_bits": 6467056,
+    "analyst_kl": 0.01556215831078589,
+    "embedding_bill": {
+     "column_means_fp32": 4096,
+     "rotation": 0,
+     "entropy_coded_symbols": 3967984,
+     "symbol_histograms_fp16": 65536,
+     "per_column_lo_hi_fp16": 4096,
+     "bit_allocation_map_4bit_per_column": 512,
+     "TOTAL": 4042224
+    },
+    "body_bill": {
+     "Wq_values": 131072,
+     "Wq_rowscales": 4096,
+     "Wk_values": 131072,
+     "Wk_rowscales": 4096,
+     "Wq2_values": 131072,
+     "Wq2_rowscales": 4096,
+     "Wk2_values": 131072,
+     "Wk2_rowscales": 4096,
+     "Wv_values": 131072,
+     "Wv_rowscales": 4096,
+     "Wproj_values": 131072,
+     "Wproj_rowscales": 4096,
+     "Left_values": 524288,
+     "Left_rowscales": 16384,
+     "Right_values": 524288,
+     "Right_rowscales": 16384,
+     "Down_values": 524288,
+     "Down_rowscales": 4096,
+     "Down_bias_fp32": 4096
+    },
+    "body_total": 2424832,
+    "n_columns_with_zero_bits": 0,
+    "max_column_bits": 5
+   },
+   {
+    "scheme": "embT512+body6",
+    "reviewer_bits": 4770512,
+    "reviewer_kl": 0.07519357744604349,
+    "analyst_bits": 4770512,
+    "analyst_kl": 0.07519357744604349,
+    "embedding_bill": {
+     "column_means_fp32": 4096,
+     "rotation": 0,
+     "entropy_coded_symbols": 2894032,
+     "symbol_histograms_fp16": 32768,
+     "per_column_lo_hi_fp16": 4096,
+     "bit_allocation_map_4bit_per_column": 512,
+     "TOTAL": 2935504
+    },
+    "body_bill": {
+     "Wq_values": 98304,
+     "Wq_rowscales": 4096,
+     "Wk_values": 98304,
+     "Wk_rowscales": 4096,
+     "Wq2_values": 98304,
+     "Wq2_rowscales": 4096,
+     "Wk2_values": 98304,
+     "Wk2_rowscales": 4096,
+     "Wv_values": 98304,
+     "Wv_rowscales": 4096,
+     "Wproj_values": 98304,
+     "Wproj_rowscales": 4096,
+     "Left_values": 393216,
+     "Left_rowscales": 16384,
+     "Right_values": 393216,
+     "Right_rowscales": 16384,
+     "Down_values": 393216,
+     "Down_rowscales": 4096,
+     "Down_bias_fp32": 4096
+    },
+    "body_total": 1835008,
+    "n_columns_with_zero_bits": 0,
+    "max_column_bits": 4
+   }
+  ],
+  "audit": [
+   {
+    "item": "decoder source code (architecture, rotary tables, logit soft-cap, RMSNorm)",
+    "charged": false,
+    "verdict": "declared convention; identical for every point including the model itself, so it cancels"
+   },
+   {
+    "item": "tensor shapes / vocabulary size / scheme identity",
+    "charged": false,
+    "bits_if_charged": "~100",
+    "verdict": "negligible"
+   },
+   {
+    "item": "which of the ~150 measured schemes is the winner",
+    "charged": false,
+    "bits_if_charged": 8,
+    "verdict": "negligible (8 bits) as a code, but it is a SELECTION on held KL -- see O3"
+   },
+   {
+    "item": "est-split token frequency order (stratified/anchor families) and PPMI basis (corpus-statistic family)",
+    "charged": false,
+    "verdict": "declared free; O3 re-runs the frontier with the corpus-derived families deleted"
+   },
+   {
+    "item": "arithmetic-coder histograms",
+    "charged": true,
+    "verdict": "charged at 2^b x 16 bits per stream, which is GENEROUS: a 12-bit column charges 65536 bits of histogram for 8192 symbols"
+   },
+   {
+    "item": "per-column bit-allocation map",
+    "charged": true,
+    "bits": 512,
+    "verdict": "4 bits/column covers 0..12, correct"
+   },
+   {
+    "item": "per-row / per-column lo,hi scales",
+    "charged": true,
+    "verdict": "fp16 lo and hi, and the quantiser itself rounds lo/hi through fp16 before use, so the decoder reconstruction is exact"
+   },
+   {
+    "item": "tied embedding counted once",
+    "charged": true,
+    "verdict": "correct -- the model ties read and write, and every description that splits the roles pays for both tables"
+   },
+   {
+    "item": "entropy-coded stream length / EOF",
+    "charged": false,
+    "bits_if_charged": 32,
+    "verdict": "negligible"
+   }
+  ],
+  "distilled_note": {
+   "scheme": "distilled_emb4_body6",
+   "analyst_bits": 5784535,
+   "analyst_kl": 0.023870937526226044,
+   "bill": {
+    "wte_out": 4054253,
+    "Wq": 98353,
+    "Wk": 97497,
+    "Wq2": 98137,
+    "Wk2": 97931,
+    "Wv": 98055,
+    "Wproj": 96148,
+    "Left": 388584,
+    "Right": 388858,
+    "Down": 362623,
+    "Down_bias": 4096,
+    "TOTAL": 5784535
+   },
+   "reviewer_recount": 5784535
+  }
+ },
+ "O3_split": {
+  "split_row_ranges": {
+   "train": [
+    0,
+    240000
+   ],
+   "held": [
+    240000,
+    246000
+   ],
+   "est": [
+    246000,
+    276000
+   ],
+   "spare": [
+    276000,
+    300000
+   ]
+  },
+  "split_semantics": "source ROW ranges define disjoint TEXT regions; each region is re-tokenized independently and truncated to its target row count",
+  "disjoint": true,
+  "held_scored": {
+   "n_seq": 64,
+   "T": 256,
+   "ntok": 16384,
+   "source": "held00.npy rows 0:64"
+  },
+  "what_touches_est": [
+   "token frequency + orthographic class (sections B,D,G,J,K)",
+   "PPMI co-occurrence basis (sections L,M)",
+   "distillation (section I): 8000 est sequences, iterate selected on a disjoint 256-sequence est slice"
+  ],
+  "what_touches_held": [
+   "every KL/CE number",
+   "THE PARETO SELECTION ITSELF -- the frontier is the lower envelope of ~150 schemes evaluated on the same 16384 held tokens"
+  ],
+  "held_vs_disjoint_rows": [
+   {
+    "scheme": "embT256+body4",
+    "bits": 2306550,
+    "kl_held": 2.1533507108688354,
+    "kl_spare_disjoint": 2.1665487065911293
+   },
+   {
+    "scheme": "embT256+body6",
+    "bits": 2896374,
+    "kl_held": 1.6781289726495743,
+    "kl_spare_disjoint": 1.7054928243160248
+   },
+   {
+    "scheme": "embT256+body8",
+    "bits": 3486198,
+    "kl_held": 1.6507406383752823,
+    "kl_spare_disjoint": 1.6767372488975525
+   },
+   {
+    "scheme": "embT384+body4",
+    "bits": 3101143,
+    "kl_held": 0.6463009566068649,
+    "kl_spare_disjoint": 0.649205232039094
+   },
+   {
+    "scheme": "embT384+body6",
+    "bits": 3690967,
+    "kl_held": 0.3276527151465416,
+    "kl_spare_disjoint": 0.32888606749475
+   },
+   {
+    "scheme": "embT384+body8",
+    "bits": 4280791,
+    "kl_held": 0.31411921605467796,
+    "kl_spare_disjoint": 0.3162662386894226
+   },
+   {
+    "scheme": "embT512+body4",
+    "bits": 4180688,
+    "kl_held": 0.3332141302525997,
+    "kl_spare_disjoint": 0.32646234054118395
+   },
+   {
+    "scheme": "embT512+body6",
+    "bits": 4770512,
+    "kl_held": 0.07519357744604349,
+    "kl_spare_disjoint": 0.07619101507589221
+   },
+   {
+    "scheme": "embT512+body8",
+    "bits": 5360336,
+    "kl_held": 0.0654798075556755,
+    "kl_spare_disjoint": 0.06658103363588452
+   },
+   {
+    "scheme": "embT640+body4",
+    "bits": 5287408,
+    "kl_held": 0.27030617371201515,
+    "kl_spare_disjoint": 0.2642223653383553
+   },
+   {
+    "scheme": "embT640+body6",
+    "bits": 5877232,
+    "kl_held": 0.024866659892722964,
+    "kl_spare_disjoint": 0.024895478039979935
+   },
+   {
+    "scheme": "embT640+body8",
+    "bits": 6467056,
+    "kl_held": 0.01556215831078589,
+    "kl_spare_disjoint": 0.015703422744991258
+   },
+   {
+    "scheme": "embT768+body4",
+    "bits": 6414801,
+    "kl_held": 0.2566938977688551,
+    "kl_spare_disjoint": 0.2512809643521905
+   },
+   {
+    "scheme": "embT768+body6",
+    "bits": 7004625,
+    "kl_held": 0.013257421320304275,
+    "kl_spare_disjoint": 0.01339917944278568
+   },
+   {
+    "scheme": "embT768+body8",
+    "bits": 7594449,
+    "kl_held": 0.004210276470985264,
+    "kl_spare_disjoint": 0.004272021935321391
+   },
+   {
+    "scheme": "embQ2e+body4",
+    "bits": 3030796,
+    "kl_held": 1.1566203832626343,
+    "kl_spare_disjoint": 1.1520192176103592
+   },
+   {
+    "scheme": "embQ2e+body6",
+    "bits": 3620620,
+    "kl_held": 0.7680570855736732,
+    "kl_spare_disjoint": 0.7676627244800329
+   },
+   {
+    "scheme": "embQ2e+body8",
+    "bits": 4210444,
+    "kl_held": 0.7508958429098129,
+    "kl_spare_disjoint": 0.7497727815061808
+   },
+   {
+    "scheme": "embQ3e+body4",
+    "bits": 4158477,
+    "kl_held": 0.4208632744848728,
+    "kl_spare_disjoint": 0.4177085030823946
+   },
+   {
+    "scheme": "embQ3e+body6",
+    "bits": 4748301,
+    "kl_held": 0.1416047252714634,
+    "kl_spare_disjoint": 0.1435690806247294
+   },
+   {
+    "scheme": "embQ3e+body8",
+    "bits": 5338125,
+    "kl_held": 0.1297973422333598,
+    "kl_spare_disjoint": 0.132427214179188
+   },
+   {
+    "scheme": "embQ4e+body4",
+    "bits": 5274411,
+    "kl_held": 0.28790105134248734,
+    "kl_spare_disjoint": 0.28178744576871395
+   },
+   {
+    "scheme": "embQ4e+body6",
+    "bits": 5864235,
+    "kl_held": 0.03783992910757661,
+    "kl_spare_disjoint": 0.03822757466696203
+   },
+   {
+    "scheme": "embQ4e+body8",
+    "bits": 6454059,
+    "kl_held": 0.02828228333964944,
+    "kl_spare_disjoint": 0.028701801027636975
+   },
+   {
+    "scheme": "embQ5e+body4",
+    "bits": 6355431,
+    "kl_held": 0.2611012663692236,
+    "kl_spare_disjoint": 0.25489768013358116
+   },
+   {
+    "scheme": "embQ5e+body6",
+    "bits": 6945255,
+    "kl_held": 0.01603544258978218,
+    "kl_spare_disjoint": 0.01613124372670427
+   },
+   {
+    "scheme": "embQ5e+body8",
+    "bits": 7535079,
+    "kl_held": 0.00696633366169408,
+    "kl_spare_disjoint": 0.007052688088151626
+   },
+   {
+    "scheme": "embQ6e+body4",
+    "bits": 7414237,
+    "kl_held": 0.2535805944353342,
+    "kl_spare_disjoint": 0.24776530591771007
+   },
+   {
+    "scheme": "embQ6e+body6",
+    "bits": 8004061,
+    "kl_held": 0.011183719616383314,
+    "kl_spare_disjoint": 0.011234433157369494
+   },
+   {
+    "scheme": "embQ6e+body8",
+    "bits": 8593885,
+    "kl_held": 0.0021293110330589116,
+    "kl_spare_disjoint": 0.0021246182004688308
+   },
+   {
+    "scheme": "embQ8e+body4",
+    "bits": 9502849,
+    "kl_held": 0.2521651964634657,
+    "kl_spare_disjoint": 0.24634348740801215
+   },
+   {
+    "scheme": "embQ8e+body6",
+    "bits": 10092673,
+    "kl_held": 0.009696878027170897,
+    "kl_spare_disjoint": 0.00980010925559327
+   },
+   {
+    "scheme": "embQ8e+body8",
+    "bits": 10682497,
+    "kl_held": 0.0006439469652832486,
+    "kl_spare_disjoint": 0.0006412869115592912
+   },
+   {
+    "scheme": "embS6_4_2048+body4",
+    "bits": 5836551,
+    "kl_held": 0.26350611075758934,
+    "kl_spare_disjoint": 0.2593194814398885
+   },
+   {
+    "scheme": "embS6_4_2048+body6",
+    "bits": 6426375,
+    "kl_held": 0.019127100007608533,
+    "kl_spare_disjoint": 0.019530463905539364
+   },
+   {
+    "scheme": "embS6_4_2048+body8",
+    "bits": 7016199,
+    "kl_held": 0.009871055488474667,
+    "kl_spare_disjoint": 0.010118109494214877
+   },
+   {
+    "scheme": "embS8_5_512+body4",
+    "bits": 6562170,
+    "kl_held": 0.2564897872507572,
+    "kl_spare_disjoint": 0.25067997816950083
+   },
+   {
+    "scheme": "embS8_5_512+body6",
+    "bits": 7151994,
+    "kl_held": 0.013136791530996561,
+    "kl_spare_disjoint": 0.013218715437687933
+   },
+   {
+    "scheme": "embS8_5_512+body8",
+    "bits": 7741818,
+    "kl_held": 0.004003209643997252,
+    "kl_spare_disjoint": 0.003997166830231436
+   },
+   {
+    "scheme": "embS6_3_1024+body4",
+    "bits": 4579583,
+    "kl_held": 0.3231714814901352,
+    "kl_spare_disjoint": 0.3207786763086915
+   },
+   {
+    "scheme": "embS6_3_1024+body6",
+    "bits": 5169407,
+    "kl_held": 0.06665104674175382,
+    "kl_spare_disjoint": 0.06780865706969053
+   },
+   {
+    "scheme": "embS6_3_1024+body8",
+    "bits": 5759231,
+    "kl_held": 0.05618487950414419,
+    "kl_spare_disjoint": 0.057507517165504396
+   }
+  ],
+  "pareto_on_held": [
+   "embT256+body4",
+   "embT256+body6",
+   "embQ2e+body4",
+   "embT384+body4",
+   "embT384+body6",
+   "embT384+body8",
+   "embQ3e+body6",
+   "embT512+body6",
+   "embS6_3_1024+body6",
+   "embT512+body8",
+   "embS6_3_1024+body8",
+   "embQ4e+body6",
+   "embT640+body6",
+   "embS6_4_2048+body6",
+   "embT640+body8",
+   "embT768+body6",
+   "embS6_4_2048+body8",
+   "embQ5e+body8",
+   "embT768+body8",
+   "embS8_5_512+body8",
+   "embQ6e+body8",
+   "embQ8e+body8"
+  ],
+  "pareto_on_disjoint": [
+   "embT256+body4",
+   "embT256+body6",
+   "embQ2e+body4",
+   "embT384+body4",
+   "embT384+body6",
+   "embT512+body4",
+   "embT384+body8",
+   "embQ3e+body6",
+   "embT512+body6",
+   "embS6_3_1024+body6",
+   "embT512+body8",
+   "embS6_3_1024+body8",
+   "embQ4e+body6",
+   "embT640+body6",
+   "embS6_4_2048+body6",
+   "embT640+body8",
+   "embT768+body6",
+   "embS6_4_2048+body8",
+   "embQ5e+body8",
+   "embT768+body8",
+   "embS8_5_512+body8",
+   "embQ6e+body8",
+   "embQ8e+body8"
+  ],
+  "pareto_identical": false,
+  "kl_ratio_disjoint_over_held": {
+   "median": 1.005254461582759,
+   "min": 0.9762406888258063,
+   "max": 1.0250281245028627
+  }
+ },
+ "O7_recoding_vs_structure_and_CE": {
+  "model_held_ce": 4.711396515369415,
+  "fp32_bits": 42995712,
+  "n_points": 208,
+  "classes": {
+   "a_recoding_of_the_weights": {
+    "n": 107,
+    "pareto": [
+     {
+      "scheme": "distilled_emb1_body4",
+      "bits": 2431255.0,
+      "kl": 0.8290731906890869,
+      "ce": 5.654417634010315
+     },
+     {
+      "scheme": "distilled_emb2_body3",
+      "bits": 2680297.0,
+      "kl": 0.408969521522522,
+      "ce": 5.209656119346619
+     },
+     {
+      "scheme": "distilled_emb2_body6",
+      "bits": 3613193.0,
+      "kl": 0.38760846853256226,
+      "ce": 5.142597138881683
+     },
+     {
+      "scheme": "distilled_emb3_body3",
+      "bits": 3765718.0,
+      "kl": 0.1323038637638092,
+      "ce": 4.88013881444931
+     },
+     {
+      "scheme": "distilled_emb3_body4",
+      "bits": 4088748.0,
+      "kl": 0.10486949980258942,
+      "ce": 4.8356963992118835
+     },
+     {
+      "scheme": "distilled_emb3_body6",
+      "bits": 4701816.0,
+      "kl": 0.09298348426818848,
+      "ce": 4.8102113008499146
+     },
+     {
+      "scheme": "embT512+body6",
+      "bits": 4770512.0,
+      "kl": 0.07519357744604349,
+      "ce": 4.7982617020606995
+     },
+     {
+      "scheme": "distilled_emb4_body4",
+      "bits": 5167472.0,
+      "kl": 0.03454548120498657,
+      "ce": 4.758756220340729
+     },
+     {
+      "scheme": "distilled_emb4_body6",
+      "bits": 5784535.0,
+      "kl": 0.023870937526226044,
+      "ce": 4.735715687274933
+     },
+     {
+      "scheme": "distilled_emb4_body8",
+      "bits": 6401464.0,
+      "kl": 0.022936875000596046,
+      "ce": 4.737402975559235
+     },
+     {
+      "scheme": "embS6_4_2048+body6",
+      "bits": 6426375.0,
+      "kl": 0.019127100007608533,
+      "ce": 4.733220100402832
+     },
+     {
+      "scheme": "embT640+body8",
+      "bits": 6467056.0,
+      "kl": 0.01556215831078589,
+      "ce": 4.732564032077789
+     },
+     {
+      "scheme": "embT768+body6",
+      "bits": 7004625.0,
+      "kl": 0.013257421320304275,
+      "ce": 4.728242516517639
+     },
+     {
+      "scheme": "embS6_4_2048+body8",
+      "bits": 7016199.0,
+      "kl": 0.009871055488474667,
+      "ce": 4.722124874591827
+     },
+     {
+      "scheme": "distilled_emb5_body8",
+      "bits": 7464129.0,
+      "kl": 0.005674506537616253,
+      "ce": 4.717086315155029
+     },
+     {
+      "scheme": "embT768+body8",
+      "bits": 7594449.0,
+      "kl": 0.004210276470985264,
+      "ce": 4.717164218425751
+     },
+     {
+      "scheme": "embS8_5_512+body8",
+      "bits": 7741818.0,
+      "kl": 0.004003209643997252,
+      "ce": 4.715507805347443
+     },
+     {
+      "scheme": "distilled_emb6_body8",
+      "bits": 8516333.0,
+      "kl": 0.0015166513621807098,
+      "ce": 4.712981641292572
+     },
+     {
+      "scheme": "uniform_8bit",
+      "bits": 11075584.0,
+      "kl": 0.0006439469652832486,
+      "ce": 4.712270498275757
+     },
+     {
+      "scheme": "uniform_12bit",
+      "bits": 16449536.0,
+      "kl": 4.415230250742752e-06,
+      "ce": 4.711399078369141
+     },
+     {
+      "scheme": "uniform_16bit",
+      "bits": 21823488.0,
+      "kl": 1.5006995113253652e-06,
+      "ce": 4.711400747299194
+     },
+     {
+      "scheme": "uniform_32bit",
+      "bits": 42995712.0,
+      "kl": 1.4653066671144188e-06,
+      "ce": 4.711396515369415
+     }
+    ]
+   },
+   "b_pure_structure": {
+    "n": 73,
+    "pareto": [
+     {
+      "scheme": "pq_m16_b4",
+      "bits": 10031104.0,
+      "kl": 2.560782879590988,
+      "ce": 7.647149682044983
+     },
+     {
+      "scheme": "pq_m16_b6",
+      "bits": 10489856.0,
+      "kl": 1.761361300945282,
+      "ce": 6.764416038990021
+     },
+     {
+      "scheme": "pq_m8_b8",
+      "bits": 11014144.0,
+      "kl": 1.6846025735139847,
+      "ce": 6.69362086057663
+     },
+     {
+      "scheme": "anchor64_freq_tail_pq_m8_b8",
+      "bits": 11273024.0,
+      "kl": 1.1993818283081055,
+      "ce": 6.119606018066406
+     },
+     {
+      "scheme": "pq_m32_b6",
+      "bits": 11276288.0,
+      "kl": 0.9053059741854668,
+      "ce": 5.7684366106987
+     },
+     {
+      "scheme": "transform_pca_384bpr",
+      "bits": 11276605.0,
+      "kl": 0.33906013146042824,
+      "ce": 5.0934136509895325
+     },
+     {
+      "scheme": "transform_pca_512bpr",
+      "bits": 12326776.0,
+      "kl": 0.08010492008179426,
+      "ce": 4.808071613311768
+     },
+     {
+      "scheme": "transform_pca_640bpr",
+      "bits": 13417332.0,
+      "kl": 0.01682584430091083,
+      "ce": 4.7294411063194275
+     },
+     {
+      "scheme": "transform_pca_768bpr",
+      "bits": 14545340.0,
+      "kl": 0.004211262974422425,
+      "ce": 4.716098129749298
+     },
+     {
+      "scheme": "pq_m128_b8",
+      "bits": 18878464.0,
+      "kl": 0.00012518045059550786,
+      "ce": 4.711509644985199
+     }
+    ]
+   },
+   "b_hybrid_structure_plus_coded_residual": {
+    "n": 28,
+    "pareto": [
+     {
+      "scheme": "corpusstat_res_q3+body5",
+      "bits": 4758671.0,
+      "kl": 0.10600264370441437,
+      "ce": 4.838408887386322
+     },
+     {
+      "scheme": "corpusstat_res_q3+body6",
+      "bits": 5053583.0,
+      "kl": 0.06072908919304609,
+      "ce": 4.782195508480072
+     },
+     {
+      "scheme": "corpusstat_res_q3+body8",
+      "bits": 5643407.0,
+      "kl": 0.050294481217861176,
+      "ce": 4.7698033452034
+     },
+     {
+      "scheme": "corpusstat_res_q4+body6",
+      "bits": 6170564.0,
+      "kl": 0.020944999996572733,
+      "ce": 4.739025771617889
+     },
+     {
+      "scheme": "corpusstat_res_q4+body8",
+      "bits": 6760388.0,
+      "kl": 0.01170886040199548,
+      "ce": 4.7278852462768555
+     },
+     {
+      "scheme": "corpusstat_res_q5+body8",
+      "bits": 7841523.0,
+      "kl": 0.0030464436567854136,
+      "ce": 4.714962124824524
+     },
+     {
+      "scheme": "corpusstat_residual_q5",
+      "bits": 14857971.0,
+      "kl": 0.002485206176061183,
+      "ce": 4.714126408100128
+     },
+     {
+      "scheme": "corpusstat_residual_q6",
+      "bits": 15917003.0,
+      "kl": 0.0006189020932652056,
+      "ce": 4.711840391159058
+     }
+    ]
+   },
+   "unclassified": {
+    "n": 0,
+    "pareto": []
+   }
+  },
+  "structure_vs_recoding_at_matched_kl": [
+   {
+    "class": "b_pure_structure",
+    "scheme": "pq_m16_b4",
+    "bits": 10031104.0,
+    "kl": 2.560782879590988,
+    "ce": 7.647149682044983,
+    "recoding_bits_at_same_kl": null,
+    "structure_over_recoding_x": null
+   },
+   {
+    "class": "b_pure_structure",
+    "scheme": "pq_m16_b6",
+    "bits": 10489856.0,
+    "kl": 1.761361300945282,
+    "ce": 6.764416038990021,
+    "recoding_bits_at_same_kl": null,
+    "structure_over_recoding_x": null
+   },
+   {
+    "class": "b_pure_structure",
+    "scheme": "pq_m8_b8",
+    "bits": 11014144.0,
+    "kl": 1.6846025735139847,
+    "ce": 6.69362086057663,
+    "recoding_bits_at_same_kl": null,
+    "structure_over_recoding_x": null
+   },
+   {
+    "class": "b_pure_structure",
+    "scheme": "anchor64_freq_tail_pq_m8_b8",
+    "bits": 11273024.0,
+    "kl": 1.1993818283081055,
+    "ce": 6.119606018066406,
+    "recoding_bits_at_same_kl": null,
+    "structure_over_recoding_x": null
+   },
+   {
+    "class": "b_pure_structure",
+    "scheme": "pq_m32_b6",
+    "bits": 11276288.0,
+    "kl": 0.9053059741854668,
+    "ce": 5.7684366106987,
+    "recoding_bits_at_same_kl": null,
+    "structure_over_recoding_x": null
+   },
+   {
+    "class": "b_pure_structure",
+    "scheme": "transform_pca_384bpr",
+    "bits": 11276605.0,
+    "kl": 0.33906013146042824,
+    "ce": 5.0934136509895325,
+    "recoding_bits_at_same_kl": 3631839.595958927,
+    "structure_over_recoding_x": 3.104929251982176
+   },
+   {
+    "class": "b_pure_structure",
+    "scheme": "transform_pca_512bpr",
+    "bits": 12326776.0,
+    "kl": 0.08010492008179426,
+    "ce": 4.808071613311768,
+    "recoding_bits_at_same_kl": 4749939.722933367,
+    "structure_over_recoding_x": 2.5951436689784964
+   },
+   {
+    "class": "b_pure_structure",
+    "scheme": "transform_pca_640bpr",
+    "bits": 13417332.0,
+    "kl": 0.01682584430091083,
+    "ce": 4.7294411063194275,
+    "recoding_bits_at_same_kl": 6451627.46156435,
+    "structure_over_recoding_x": 2.0796817671097596
+   },
+   {
+    "class": "b_pure_structure",
+    "scheme": "transform_pca_768bpr",
+    "bits": 14545340.0,
+    "kl": 0.004211262974422425,
+    "ce": 4.716098129749298,
+    "recoding_bits_at_same_kl": 7594345.814398972,
+    "structure_over_recoding_x": 1.9152854446556618
+   },
+   {
+    "class": "b_pure_structure",
+    "scheme": "pq_m128_b8",
+    "bits": 18878464.0,
+    "kl": 0.00012518045059550786,
+    "ce": 4.711509644985199,
+    "recoding_bits_at_same_kl": 12613518.868319813,
+    "structure_over_recoding_x": 1.4966849613564426
+   },
+   {
+    "class": "b_hybrid_structure_plus_coded_residual",
+    "scheme": "corpusstat_res_q3+body5",
+    "bits": 4758671.0,
+    "kl": 0.10600264370441437,
+    "ce": 4.838408887386322,
+    "recoding_bits_at_same_kl": 4073214.90176415,
+    "structure_over_recoding_x": 1.1682838040141148
+   },
+   {
+    "class": "b_hybrid_structure_plus_coded_residual",
+    "scheme": "corpusstat_res_q3+body6",
+    "bits": 5053583.0,
+    "kl": 0.06072908919304609,
+    "ce": 4.782195508480072,
+    "recoding_bits_at_same_kl": 4876407.534682573,
+    "structure_over_recoding_x": 1.0363331948893317
+   },
+   {
+    "class": "b_hybrid_structure_plus_coded_residual",
+    "scheme": "corpusstat_res_q3+body8",
+    "bits": 5643407.0,
+    "kl": 0.050294481217861176,
+    "ce": 4.7698033452034,
+    "recoding_bits_at_same_kl": 4971804.857055323,
+    "structure_over_recoding_x": 1.1350821607552897
+   },
+   {
+    "class": "b_hybrid_structure_plus_coded_residual",
+    "scheme": "corpusstat_res_q4+body6",
+    "bits": 6170564.0,
+    "kl": 0.020944999996572733,
+    "ce": 4.739025771617889,
+    "recoding_bits_at_same_kl": 6413910.981875575,
+    "structure_over_recoding_x": 0.9620595012055476
+   },
+   {
+    "class": "b_hybrid_structure_plus_coded_residual",
+    "scheme": "corpusstat_res_q4+body8",
+    "bits": 6760388.0,
+    "kl": 0.01170886040199548,
+    "ce": 4.7278852462768555,
+    "recoding_bits_at_same_kl": 7009496.792290436,
+    "structure_over_recoding_x": 0.9644612445554688
+   },
+   {
+    "class": "b_hybrid_structure_plus_coded_residual",
+    "scheme": "corpusstat_res_q5+body8",
+    "bits": 7841523.0,
+    "kl": 0.0030464436567854136,
+    "ce": 4.714962124824524,
+    "recoding_bits_at_same_kl": 7952350.54742776,
+    "structure_over_recoding_x": 0.9860635485361484
+   },
+   {
+    "class": "b_hybrid_structure_plus_coded_residual",
+    "scheme": "corpusstat_residual_q5",
+    "bits": 14857971.0,
+    "kl": 0.002485206176061183,
+    "ce": 4.714126408100128,
+    "recoding_bits_at_same_kl": 8113024.799419672,
+    "structure_over_recoding_x": 1.8313725604613948
+   },
+   {
+    "class": "b_hybrid_structure_plus_coded_residual",
+    "scheme": "corpusstat_residual_q6",
+    "bits": 15917003.0,
+    "kl": 0.0006189020932652056,
+    "ce": 4.711840391159058,
+    "recoding_bits_at_same_kl": 11110518.842252275,
+    "structure_over_recoding_x": 1.4326066339466623
+   }
+  ],
+  "apples_to_apples_subfamilies": {
+   "embedding_only_fp32_body": {
+    "fronts": {
+     "b_pure_structure": [
+      {
+       "scheme": "pq_m16_b4",
+       "bits": 589824.0,
+       "kl": 2.560782879590988
+      },
+      {
+       "scheme": "pq_m16_b6",
+       "bits": 1048576.0,
+       "kl": 1.761361300945282
+      },
+      {
+       "scheme": "pq_m8_b8",
+       "bits": 1572864.0,
+       "kl": 1.6846025735139847
+      },
+      {
+       "scheme": "anchor64_freq_tail_pq_m8_b8",
+       "bits": 1831744.0,
+       "kl": 1.1993818283081055
+      },
+      {
+       "scheme": "pq_m32_b6",
+       "bits": 1835008.0,
+       "kl": 0.9053059741854668
+      },
+      {
+       "scheme": "transform_pca_384bpr",
+       "bits": 1835325.0,
+       "kl": 0.33906013146042824
+      },
+      {
+       "scheme": "transform_pca_512bpr",
+       "bits": 2885496.0,
+       "kl": 0.08010492008179426
+      },
+      {
+       "scheme": "transform_pca_640bpr",
+       "bits": 3976052.0,
+       "kl": 0.01682584430091083
+      },
+      {
+       "scheme": "transform_pca_768bpr",
+       "bits": 5104060.0,
+       "kl": 0.004211262974422425
+      },
+      {
+       "scheme": "pq_m128_b8",
+       "bits": 9437184.0,
+       "kl": 0.00012518045059550786
+      }
+     ],
+     "a_recoding_of_the_weights": [
+      {
+       "scheme": "transform_hadamard_256bpr",
+       "bits": 1039360.0,
+       "kl": 1.859463557600975
+      },
+      {
+       "scheme": "transform_none_256bpr",
+       "bits": 1061366.0,
+       "kl": 1.6497384309768677
+      },
+      {
+       "scheme": "transform_hadamard_384bpr",
+       "bits": 1809773.0,
+       "kl": 0.3313590995967388
+      },
+      {
+       "scheme": "transform_none_384bpr",
+       "bits": 1855959.0,
+       "kl": 0.3134424276649952
+      },
+      {
+       "scheme": "transform_hadamard_512bpr",
+       "bits": 2884355.0,
+       "kl": 0.06895557045936584
+      },
+      {
+       "scheme": "transform_none_512bpr",
+       "bits": 2935504.0,
+       "kl": 0.06484446488320827
+      },
+      {
+       "scheme": "strat_hi6_lo3_n1024",
+       "bits": 3334399.0,
+       "kl": 0.05548646952956915
+      },
+      {
+       "scheme": "strat_hi8_lo3_n1024",
+       "bits": 3597957.0,
+       "kl": 0.05466086883097887
+      },
+      {
+       "scheme": "transform_hadamard_640bpr",
+       "bits": 3989698.0,
+       "kl": 0.015378250041976571
+      },
+      {
+       "scheme": "transform_none_640bpr",
+       "bits": 4042224.0,
+       "kl": 0.014961710199713707
+      },
+      {
+       "scheme": "strat_hi8_lo4_n512",
+       "bits": 4303614.0,
+       "kl": 0.014668651390820742
+      },
+      {
+       "scheme": "strat_hi6_lo4_n1024",
+       "bits": 4310633.0,
+       "kl": 0.012575410306453705
+      },
+      {
+       "scheme": "strat_hi8_lo4_n1024",
+       "bits": 4574191.0,
+       "kl": 0.01174969575367868
+      },
+      {
+       "scheme": "strat_hi6_lo4_n2048",
+       "bits": 4591367.0,
+       "kl": 0.009297955664806068
+      },
+      {
+       "scheme": "scalar_q5_entropy",
+       "bits": 5110247.0,
+       "kl": 0.006457611685618758
+      },
+      {
+       "scheme": "transform_hadamard_768bpr",
+       "bits": 5117740.0,
+       "kl": 0.0038576607475988567
+      },
+      {
+       "scheme": "transform_none_768bpr",
+       "bits": 5169617.0,
+       "kl": 0.0036589705559890717
+      },
+      {
+       "scheme": "strat_hi6_lo5_n1024",
+       "bits": 5256438.0,
+       "kl": 0.0036435765505302697
+      },
+      {
+       "scheme": "strat_hi8_lo5_n512",
+       "bits": 5316986.0,
+       "kl": 0.003461771208094433
+      },
+      {
+       "scheme": "scalar_q6_entropy",
+       "bits": 6169053.0,
+       "kl": 0.0015789003518875688
+      },
+      {
+       "scheme": "scalar_q8_entropy",
+       "bits": 8257665.0,
+       "kl": 9.540212249703472e-05
+      }
+     ],
+     "b_hybrid_structure_plus_coded_residual": [
+      {
+       "scheme": "corpusstat_residual_q2",
+       "bits": 2079566.0,
+       "kl": 0.27925660088658333
+      },
+      {
+       "scheme": "corpusstat_residual_q3",
+       "bits": 3218575.0,
+       "kl": 0.04976436169818044
+      },
+      {
+       "scheme": "corpusstat_residual_q4",
+       "bits": 4335556.0,
+       "kl": 0.011091300286352634
+      },
+      {
+       "scheme": "corpusstat_residual_q5",
+       "bits": 5416691.0,
+       "kl": 0.002485206176061183
+      },
+      {
+       "scheme": "corpusstat_residual_q6",
+       "bits": 6475723.0,
+       "kl": 0.0006189020932652056
+      }
+     ]
+    },
+    "structure_vs_recoding": [
+     {
+      "class": "b_pure_structure",
+      "scheme": "pq_m16_b4",
+      "bits": 589824.0,
+      "kl": 2.560782879590988,
+      "recoding_bits_at_same_kl": null,
+      "structure_over_recoding_x": null
+     },
+     {
+      "class": "b_pure_structure",
+      "scheme": "pq_m16_b6",
+      "bits": 1048576.0,
+      "kl": 1.761361300945282,
+      "recoding_bits_at_same_kl": 1049269.77065482,
+      "structure_over_recoding_x": 0.999338806211498
+     },
+     {
+      "class": "b_pure_structure",
+      "scheme": "pq_m8_b8",
+      "bits": 1572864.0,
+      "kl": 1.6846025735139847,
+      "recoding_bits_at_same_kl": 1057487.0625646831,
+      "structure_over_recoding_x": 1.4873600403066802
+     },
+     {
+      "class": "b_pure_structure",
+      "scheme": "anchor64_freq_tail_pq_m8_b8",
+      "bits": 1831744.0,
+      "kl": 1.1993818283081055,
+      "recoding_bits_at_same_kl": 1180037.8478404533,
+      "structure_over_recoding_x": 1.5522756353554352
+     },
+     {
+      "class": "b_pure_structure",
+      "scheme": "pq_m32_b6",
+      "bits": 1835008.0,
+      "kl": 0.9053059741854668,
+      "recoding_bits_at_same_kl": 1295714.1012178306,
+      "structure_over_recoding_x": 1.4162136525914875
+     },
+     {
+      "class": "b_pure_structure",
+      "scheme": "transform_pca_384bpr",
+      "bits": 1835325.0,
+      "kl": 0.33906013146042824,
+      "recoding_bits_at_same_kl": 1796002.5083248133,
+      "structure_over_recoding_x": 1.0218944525371871
+     },
+     {
+      "class": "b_pure_structure",
+      "scheme": "transform_pca_512bpr",
+      "bits": 2885496.0,
+      "kl": 0.08010492008179426,
+      "recoding_bits_at_same_kl": 2761184.858740295,
+      "structure_over_recoding_x": 1.0450209412333291
+     },
+     {
+      "class": "b_pure_structure",
+      "scheme": "transform_pca_640bpr",
+      "bits": 3976052.0,
+      "kl": 0.01682584430091083,
+      "recoding_bits_at_same_kl": 3960555.3088539615,
+      "structure_over_recoding_x": 1.0039127571609454
+     },
+     {
+      "class": "b_pure_structure",
+      "scheme": "transform_pca_768bpr",
+      "bits": 5104060.0,
+      "kl": 0.004211262974422425,
+      "recoding_bits_at_same_kl": 5116463.700285779,
+      "structure_over_recoding_x": 0.9975757278830911
+     },
+     {
+      "class": "b_pure_structure",
+      "scheme": "pq_m128_b8",
+      "bits": 9437184.0,
+      "kl": 0.00012518045059550786,
+      "recoding_bits_at_same_kl": 8027840.534564354,
+      "structure_over_recoding_x": 1.1755569831472898
+     },
+     {
+      "class": "b_hybrid_structure_plus_coded_residual",
+      "scheme": "corpusstat_residual_q2",
+      "bits": 2079566.0,
+      "kl": 0.27925660088658333,
+      "recoding_bits_at_same_kl": 1919431.4307131264,
+      "structure_over_recoding_x": 1.0834281270612407
+     },
+     {
+      "class": "b_hybrid_structure_plus_coded_residual",
+      "scheme": "corpusstat_residual_q3",
+      "bits": 3218575.0,
+      "kl": 0.04976436169818044,
+      "recoding_bits_at_same_kl": 3625579.9102115785,
+      "structure_over_recoding_x": 0.8877407420906006
+     },
+     {
+      "class": "b_hybrid_structure_plus_coded_residual",
+      "scheme": "corpusstat_residual_q4",
+      "bits": 4335556.0,
+      "kl": 0.011091300286352634,
+      "recoding_bits_at_same_kl": 4578417.23726656,
+      "structure_over_recoding_x": 0.9469551976849635
+     },
+     {
+      "class": "b_hybrid_structure_plus_coded_residual",
+      "scheme": "corpusstat_residual_q5",
+      "bits": 5416691.0,
+      "kl": 0.002485206176061183,
+      "recoding_bits_at_same_kl": 5661321.321944591,
+      "structure_over_recoding_x": 0.9567891825895225
+     },
+     {
+      "class": "b_hybrid_structure_plus_coded_residual",
+      "scheme": "corpusstat_residual_q6",
+      "bits": 6475723.0,
+      "kl": 0.0006189020932652056,
+      "recoding_bits_at_same_kl": 6799546.782890793,
+      "structure_over_recoding_x": 0.952375681316642
+     }
+    ]
+   },
+   "body_only_fp32_embedding": {
+    "fronts": {
+     "b_pure_structure": [
+      {
+       "scheme": "body_cp256_q3",
+       "bits": 638976.0,
+       "kl": 2.1349768936634064
+      },
+      {
+       "scheme": "body_cp256_q4",
+       "bits": 835584.0,
+       "kl": 1.0077268332242966
+      },
+      {
+       "scheme": "body_cp256_q6",
+       "bits": 1228800.0,
+       "kl": 0.7574363052845001
+      },
+      {
+       "scheme": "mlp_cp256_q6",
+       "bits": 3760128.0,
+       "kl": 0.7461354956030846
+      },
+      {
+       "scheme": "mlp_cp384_q4",
+       "bits": 3768320.0,
+       "kl": 0.32008087635040283
+      },
+      {
+       "scheme": "mlp_cp384_q6",
+       "bits": 4063232.0,
+       "kl": 0.2694544717669487
+      }
+     ],
+     "a_recoding_of_the_weights": [
+      {
+       "scheme": "emb32_body2bit",
+       "bits": 655360.0,
+       "kl": 3.4869270622730255
+      },
+      {
+       "scheme": "emb32_body3bit",
+       "bits": 950272.0,
+       "kl": 1.3480686247348785
+      },
+      {
+       "scheme": "emb32_body4bit",
+       "bits": 1245184.0,
+       "kl": 0.2520020604133606
+      },
+      {
+       "scheme": "emb32_body6bit",
+       "bits": 1835008.0,
+       "kl": 0.009601438185200095
+      },
+      {
+       "scheme": "emb32_body8bit",
+       "bits": 2424832.0,
+       "kl": 0.0005475639809446875
+      },
+      {
+       "scheme": "mlp_q8",
+       "bits": 4759552.0,
+       "kl": 8.816957324597752e-05
+      }
+     ]
+    },
+    "structure_vs_recoding": [
+     {
+      "class": "b_pure_structure",
+      "scheme": "body_cp256_q3",
+      "bits": 638976.0,
+      "kl": 2.1349768936634064,
+      "recoding_bits_at_same_kl": 793921.0491165484,
+      "structure_over_recoding_x": 0.8048356958302508
+     },
+     {
+      "class": "b_pure_structure",
+      "scheme": "body_cp256_q4",
+      "bits": 835584.0,
+      "kl": 1.0077268332242966,
+      "recoding_bits_at_same_kl": 995899.6604138819,
+      "structure_over_recoding_x": 0.8390242844873981
+     },
+     {
+      "class": "b_pure_structure",
+      "scheme": "body_cp256_q6",
+      "bits": 1228800.0,
+      "kl": 0.7574363052845001,
+      "recoding_bits_at_same_kl": 1042799.5870486294,
+      "structure_over_recoding_x": 1.1783664044956097
+     },
+     {
+      "class": "b_pure_structure",
+      "scheme": "mlp_cp256_q6",
+      "bits": 3760128.0,
+      "kl": 0.7461354956030846,
+      "recoding_bits_at_same_kl": 1045329.178725889,
+      "structure_over_recoding_x": 3.59707552082596
+     },
+     {
+      "class": "b_pure_structure",
+      "scheme": "mlp_cp384_q4",
+      "bits": 3768320.0,
+      "kl": 0.32008087635040283,
+      "recoding_bits_at_same_kl": 1198103.9996897457,
+      "structure_over_recoding_x": 3.145236140581972
+     },
+     {
+      "class": "b_pure_structure",
+      "scheme": "mlp_cp384_q6",
+      "bits": 4063232.0,
+      "kl": 0.2694544717669487,
+      "recoding_bits_at_same_kl": 1231817.3864445041,
+      "structure_over_recoding_x": 3.2985668531015304
+     }
+    ]
+   }
+  },
+  "n_descriptions_with_ce_below_the_model": 0,
+  "descriptions_below_model_ce": [],
+  "twenty_lowest_ce": [
+   {
+    "section": "A_self_quantisation",
+    "scheme": "uniform_32bit",
+    "bits": 42995712.0,
+    "kl": 1.4653066671144188e-06,
+    "ce": 4.711396515369415,
+    "delta_ce_vs_model": 0.0,
+    "class": "a_recoding_of_the_weights"
+   },
+   {
+    "section": "A_self_quantisation",
+    "scheme": "uniform_12bit",
+    "bits": 16449536.0,
+    "kl": 4.415230250742752e-06,
+    "ce": 4.711399078369141,
+    "delta_ce_vs_model": 2.562999725341797e-06,
+    "class": "a_recoding_of_the_weights"
+   },
+   {
+    "section": "A_self_quantisation",
+    "scheme": "uniform_16bit",
+    "bits": 21823488.0,
+    "kl": 1.5006995113253652e-06,
+    "ce": 4.711400747299194,
+    "delta_ce_vs_model": 4.231929779052734e-06,
+    "class": "a_recoding_of_the_weights"
+   },
+   {
+    "section": "G_codes",
+    "scheme": "scalar_q8_entropy",
+    "bits": 17698945.0,
+    "kl": 9.540212249703472e-05,
+    "ce": 4.711430549621582,
+    "delta_ce_vs_model": 3.403425216674805e-05,
+    "class": "a_recoding_of_the_weights"
+   },
+   {
+    "section": "A_self_quantisation",
+    "scheme": "emb8bit_body32",
+    "bits": 18092032.0,
+    "kl": 9.540212249703472e-05,
+    "ce": 4.711430549621582,
+    "delta_ce_vs_model": 3.403425216674805e-05,
+    "class": "a_recoding_of_the_weights"
+   },
+   {
+    "section": "C_embedding",
+    "scheme": "scalar_q8",
+    "bits": 18092032.0,
+    "kl": 9.540212249703472e-05,
+    "ce": 4.711430549621582,
+    "delta_ce_vs_model": 3.403425216674805e-05,
+    "class": "a_recoding_of_the_weights"
+   },
+   {
+    "section": "C_embedding",
+    "scheme": "pq_m128_b8",
+    "bits": 18878464.0,
+    "kl": 0.00012518045059550786,
+    "ce": 4.711509644985199,
+    "delta_ce_vs_model": 0.0001131296157836914,
+    "class": "b_pure_structure"
+   },
+   {
+    "section": "K_features",
+    "scheme": "feature_residual_q6",
+    "bits": 15935034.0,
+    "kl": 0.0009548712114337832,
+    "ce": 4.711520612239838,
+    "delta_ce_vs_model": 0.00012409687042236328,
+    "class": "b_hybrid_structure_plus_coded_residual"
+   },
+   {
+    "section": "L_corpus_stats",
+    "scheme": "corpusstat_residual_q6",
+    "bits": 15917003.0,
+    "kl": 0.0006189020932652056,
+    "ce": 4.711840391159058,
+    "delta_ce_vs_model": 0.000443875789642334,
+    "class": "b_hybrid_structure_plus_coded_residual"
+   },
+   {
+    "section": "A_self_quantisation",
+    "scheme": "emb32_body8bit",
+    "bits": 35979264.0,
+    "kl": 0.0005475639809446875,
+    "ce": 4.712230205535889,
+    "delta_ce_vs_model": 0.0008336901664733887,
+    "class": "a_recoding_of_the_weights"
+   },
+   {
+    "section": "A_self_quantisation",
+    "scheme": "uniform_8bit",
+    "bits": 11075584.0,
+    "kl": 0.0006439469652832486,
+    "ce": 4.712270498275757,
+    "delta_ce_vs_model": 0.0008739829063415527,
+    "class": "a_recoding_of_the_weights"
+   },
+   {
+    "section": "I_distilled",
+    "scheme": "distilled_emb6_body8",
+    "bits": 8516333.0,
+    "kl": 0.0015166513621807098,
+    "ce": 4.712981641292572,
+    "delta_ce_vs_model": 0.0015851259231567383,
+    "class": "a_recoding_of_the_weights"
+   },
+   {
+    "section": "G_codes",
+    "scheme": "scalar_q6_entropy",
+    "bits": 15610333.0,
+    "kl": 0.0015789003518875688,
+    "ce": 4.713046729564667,
+    "delta_ce_vs_model": 0.0016502141952514648,
+    "class": "a_recoding_of_the_weights"
+   },
+   {
+    "section": "A_self_quantisation",
+    "scheme": "emb6bit_body32",
+    "bits": 15994880.0,
+    "kl": 0.0015789003518875688,
+    "ce": 4.713046729564667,
+    "delta_ce_vs_model": 0.0016502141952514648,
+    "class": "a_recoding_of_the_weights"
+   },
+   {
+    "section": "C_embedding",
+    "scheme": "scalar_q6",
+    "bits": 15994880.0,
+    "kl": 0.0015789003518875688,
+    "ce": 4.713046729564667,
+    "delta_ce_vs_model": 0.0016502141952514648,
+    "class": "a_recoding_of_the_weights"
+   },
+   {
+    "section": "L_corpus_stats",
+    "scheme": "corpusstat_residual_q5",
+    "bits": 14857971.0,
+    "kl": 0.002485206176061183,
+    "ce": 4.714126408100128,
+    "delta_ce_vs_model": 0.0027298927307128906,
+    "class": "b_hybrid_structure_plus_coded_residual"
+   },
+   {
+    "section": "G_codes",
+    "scheme": "strat_hi6_lo5_n1024",
+    "bits": 14697718.0,
+    "kl": 0.0036435765505302697,
+    "ce": 4.714513957500458,
+    "delta_ce_vs_model": 0.0031174421310424805,
+    "class": "a_recoding_of_the_weights"
+   },
+   {
+    "section": "G_codes",
+    "scheme": "strat_hi8_lo5_n512",
+    "bits": 14758266.0,
+    "kl": 0.003461771208094433,
+    "ce": 4.71466338634491,
+    "delta_ce_vs_model": 0.0032668709754943848,
+    "class": "a_recoding_of_the_weights"
+   },
+   {
+    "section": "F_combined",
+    "scheme": "embS8_5_512+body32",
+    "bits": 14758266.0,
+    "kl": 0.003461771208094433,
+    "ce": 4.71466338634491,
+    "delta_ce_vs_model": 0.0032668709754943848,
+    "class": "a_recoding_of_the_weights"
+   },
+   {
+    "section": "M_conditional_combined",
+    "scheme": "corpusstat_res_q5+body8",
+    "bits": 7841523.0,
+    "kl": 0.0030464436567854136,
+    "ce": 4.714962124824524,
+    "delta_ce_vs_model": 0.0035656094551086426,
+    "class": "b_hybrid_structure_plus_coded_residual"
+   }
+  ],
+  "delta_ce_per_nat_of_kl_slope": 1.1344382729419762,
+  "joint_frontier_with_ce": [
+   {
+    "scheme": "distilled_emb1_body4",
+    "bits": 2431255.0,
+    "x_vs_fp32": 17.684575250230846,
+    "kl": 0.8290731906890869,
+    "ce": 5.654417634010315,
+    "delta_ce_vs_model": 0.9430211186408997,
+    "class": "a_recoding_of_the_weights"
+   },
+   {
+    "scheme": "distilled_emb2_body3",
+    "bits": 2680297.0,
+    "x_vs_fp32": 16.04139839726717,
+    "kl": 0.408969521522522,
+    "ce": 5.209656119346619,
+    "delta_ce_vs_model": 0.49825960397720337,
+    "class": "a_recoding_of_the_weights"
+   },
+   {
+    "scheme": "distilled_emb2_body6",
+    "bits": 3613193.0,
+    "x_vs_fp32": 11.899644441910521,
+    "kl": 0.38760846853256226,
+    "ce": 5.142597138881683,
+    "delta_ce_vs_model": 0.43120062351226807,
+    "class": "a_recoding_of_the_weights"
+   },
+   {
+    "scheme": "distilled_emb3_body3",
+    "bits": 3765718.0,
+    "x_vs_fp32": 11.417666431740242,
+    "kl": 0.1323038637638092,
+    "ce": 4.88013881444931,
+    "delta_ce_vs_model": 0.16874229907989502,
+    "class": "a_recoding_of_the_weights"
+   },
+   {
+    "scheme": "distilled_emb3_body4",
+    "bits": 4088748.0,
+    "x_vs_fp32": 10.515617983793572,
+    "kl": 0.10486949980258942,
+    "ce": 4.8356963992118835,
+    "delta_ce_vs_model": 0.12429988384246826,
+    "class": "a_recoding_of_the_weights"
+   },
+   {
+    "scheme": "distilled_emb3_body6",
+    "bits": 4701816.0,
+    "x_vs_fp32": 9.14449055428796,
+    "kl": 0.09298348426818848,
+    "ce": 4.8102113008499146,
+    "delta_ce_vs_model": 0.09881478548049927,
+    "class": "a_recoding_of_the_weights"
+   },
+   {
+    "scheme": "embT512+body6",
+    "bits": 4770512.0,
+    "x_vs_fp32": 9.012808688040193,
+    "kl": 0.07519357744604349,
+    "ce": 4.7982617020606995,
+    "delta_ce_vs_model": 0.08686518669128418,
+    "class": "a_recoding_of_the_weights"
+   },
+   {
+    "scheme": "corpusstat_res_q3+body6",
+    "bits": 5053583.0,
+    "x_vs_fp32": 8.507965932290022,
+    "kl": 0.06072908919304609,
+    "ce": 4.782195508480072,
+    "delta_ce_vs_model": 0.07079899311065674,
+    "class": "b_hybrid_structure_plus_coded_residual"
+   },
+   {
+    "scheme": "distilled_emb4_body4",
+    "bits": 5167472.0,
+    "x_vs_fp32": 8.320453792492732,
+    "kl": 0.03454548120498657,
+    "ce": 4.758756220340729,
+    "delta_ce_vs_model": 0.04735970497131348,
+    "class": "a_recoding_of_the_weights"
+   },
+   {
+    "scheme": "distilled_emb4_body6",
+    "bits": 5784535.0,
+    "x_vs_fp32": 7.432872650956386,
+    "kl": 0.023870937526226044,
+    "ce": 4.735715687274933,
+    "delta_ce_vs_model": 0.024319171905517578,
+    "class": "a_recoding_of_the_weights"
+   },
+   {
+    "scheme": "corpusstat_res_q4+body6",
+    "bits": 6170564.0,
+    "x_vs_fp32": 6.9678739253008315,
+    "kl": 0.020944999996572733,
+    "ce": 4.739025771617889,
+    "delta_ce_vs_model": 0.02762925624847412,
+    "class": "b_hybrid_structure_plus_coded_residual"
+   },
+   {
+    "scheme": "embS6_4_2048+body6",
+    "bits": 6426375.0,
+    "x_vs_fp32": 6.6905077901616385,
+    "kl": 0.019127100007608533,
+    "ce": 4.733220100402832,
+    "delta_ce_vs_model": 0.021823585033416748,
+    "class": "a_recoding_of_the_weights"
+   },
+   {
+    "scheme": "embT640+body8",
+    "bits": 6467056.0,
+    "x_vs_fp32": 6.648421167220448,
+    "kl": 0.01556215831078589,
+    "ce": 4.732564032077789,
+    "delta_ce_vs_model": 0.021167516708374023,
+    "class": "a_recoding_of_the_weights"
+   },
+   {
+    "scheme": "corpusstat_res_q4+body8",
+    "bits": 6760388.0,
+    "x_vs_fp32": 6.359947387635148,
+    "kl": 0.01170886040199548,
+    "ce": 4.7278852462768555,
+    "delta_ce_vs_model": 0.016488730907440186,
+    "class": "b_hybrid_structure_plus_coded_residual"
+   },
+   {
+    "scheme": "embS6_4_2048+body8",
+    "bits": 7016199.0,
+    "x_vs_fp32": 6.128063357381967,
+    "kl": 0.009871055488474667,
+    "ce": 4.722124874591827,
+    "delta_ce_vs_model": 0.01072835922241211,
+    "class": "a_recoding_of_the_weights"
+   },
+   {
+    "scheme": "distilled_emb5_body8",
+    "bits": 7464129.0,
+    "x_vs_fp32": 5.760312020330838,
+    "kl": 0.005674506537616253,
+    "ce": 4.717086315155029,
+    "delta_ce_vs_model": 0.005689799785614014,
+    "class": "a_recoding_of_the_weights"
+   },
+   {
+    "scheme": "embT768+body8",
+    "bits": 7594449.0,
+    "x_vs_fp32": 5.661465631015496,
+    "kl": 0.004210276470985264,
+    "ce": 4.717164218425751,
+    "delta_ce_vs_model": 0.005767703056335449,
+    "class": "a_recoding_of_the_weights"
+   },
+   {
+    "scheme": "embS8_5_512+body8",
+    "bits": 7741818.0,
+    "x_vs_fp32": 5.553697077353148,
+    "kl": 0.004003209643997252,
+    "ce": 4.715507805347443,
+    "delta_ce_vs_model": 0.004111289978027344,
+    "class": "a_recoding_of_the_weights"
+   },
+   {
+    "scheme": "corpusstat_res_q5+body8",
+    "bits": 7841523.0,
+    "x_vs_fp32": 5.483081794187175,
+    "kl": 0.0030464436567854136,
+    "ce": 4.714962124824524,
+    "delta_ce_vs_model": 0.0035656094551086426,
+    "class": "b_hybrid_structure_plus_coded_residual"
+   },
+   {
+    "scheme": "distilled_emb6_body8",
+    "bits": 8516333.0,
+    "x_vs_fp32": 5.048617990865317,
+    "kl": 0.0015166513621807098,
+    "ce": 4.712981641292572,
+    "delta_ce_vs_model": 0.0015851259231567383,
+    "class": "a_recoding_of_the_weights"
+   },
+   {
+    "scheme": "uniform_8bit",
+    "bits": 11075584.0,
+    "x_vs_fp32": 3.8820266272189348,
+    "kl": 0.0006439469652832486,
+    "ce": 4.712270498275757,
+    "delta_ce_vs_model": 0.0008739829063415527,
+    "class": "a_recoding_of_the_weights"
+   },
+   {
+    "scheme": "corpusstat_residual_q6",
+    "bits": 15917003.0,
+    "x_vs_fp32": 2.701244197792763,
+    "kl": 0.0006189020932652056,
+    "ce": 4.711840391159058,
+    "delta_ce_vs_model": 0.000443875789642334,
+    "class": "b_hybrid_structure_plus_coded_residual"
+   },
+   {
+    "scheme": "uniform_12bit",
+    "bits": 16449536.0,
+    "x_vs_fp32": 2.6137948207171315,
+    "kl": 4.415230250742752e-06,
+    "ce": 4.711399078369141,
+    "delta_ce_vs_model": 2.562999725341797e-06,
+    "class": "a_recoding_of_the_weights"
+   },
+   {
+    "scheme": "uniform_16bit",
+    "bits": 21823488.0,
+    "x_vs_fp32": 1.9701576576576576,
+    "kl": 1.5006995113253652e-06,
+    "ce": 4.711400747299194,
+    "delta_ce_vs_model": 4.231929779052734e-06,
+    "class": "a_recoding_of_the_weights"
+   },
+   {
+    "scheme": "uniform_32bit",
+    "bits": 42995712.0,
+    "x_vs_fp32": 1.0,
+    "kl": 1.4653066671144188e-06,
+    "ce": 4.711396515369415,
+    "delta_ce_vs_model": 0.0,
+    "class": "a_recoding_of_the_weights"
+   }
+  ]
+ },
+ "O4_clustering": {
+  "rows": [
+   {
+    "scheme": "writecluster_k512_cent4",
+    "role": "wte_out",
+    "k": 512,
+    "centroid_bits": 4,
+    "bits": 326409,
+    "bill": {
+     "index": 73728,
+     "cent_values": 236297,
+     "cent_scales": 16384,
+     "TOTAL": 326409
+    },
+    "kl": 0.8769545331597328,
+    "ce": 5.787609100341797,
+    "ntok": 16384
+   },
+   {
+    "scheme": "writecluster_k512_cent6",
+    "role": "wte_out",
+    "k": 512,
+    "centroid_bits": 6,
+    "bits": 460862,
+    "bill": {
+     "index": 73728,
+     "cent_values": 370750,
+     "cent_scales": 16384,
+     "TOTAL": 460862
+    },
+    "kl": 0.8681912273168564,
+    "ce": 5.780711233615875,
+    "ntok": 16384
+   },
+   {
+    "scheme": "writecluster_k512_cent8",
+    "role": "wte_out",
+    "k": 512,
+    "centroid_bits": 8,
+    "bits": 594139,
+    "bill": {
+     "index": 73728,
+     "cent_values": 504027,
+     "cent_scales": 16384,
+     "TOTAL": 594139
+    },
+    "kl": 0.8681847751140594,
+    "ce": 5.780370831489563,
+    "ntok": 16384
+   },
+   {
+    "scheme": "writecluster_k512_cent32",
+    "role": "wte_out",
+    "k": 512,
+    "centroid_bits": 32,
+    "bits": 2170880,
+    "bill": {
+     "index": 73728,
+     "cent_centroids": 2097152,
+     "TOTAL": 2170880
+    },
+    "kl": 0.8684414476156235,
+    "ce": 5.7806203961372375,
+    "ntok": 16384
+   },
+   {
+    "scheme": "writecluster_k1024_cent4",
+    "role": "wte_out",
+    "k": 1024,
+    "centroid_bits": 4,
+    "bits": 587217,
+    "bill": {
+     "index": 81920,
+     "cent_values": 472529,
+     "cent_scales": 32768,
+     "TOTAL": 587217
+    },
+    "kl": 0.920468270778656,
+    "ce": 5.812629342079163,
+    "ntok": 16384
+   },
+   {
+    "scheme": "writecluster_k1024_cent6",
+    "role": "wte_out",
+    "k": 1024,
+    "centroid_bits": 6,
+    "bits": 854460,
+    "bill": {
+     "index": 81920,
+     "cent_values": 739772,
+     "cent_scales": 32768,
+     "TOTAL": 854460
+    },
+    "kl": 0.9096682667732239,
+    "ce": 5.80304342508316,
+    "ntok": 16384
+   },
+   {
+    "scheme": "writecluster_k1024_cent8",
+    "role": "wte_out",
+    "k": 1024,
+    "centroid_bits": 8,
+    "bits": 1117157,
+    "bill": {
+     "index": 81920,
+     "cent_values": 1002469,
+     "cent_scales": 32768,
+     "TOTAL": 1117157
+    },
+    "kl": 0.9100221991539001,
+    "ce": 5.803088486194611,
+    "ntok": 16384
+   },
+   {
+    "scheme": "writecluster_k1024_cent32",
+    "role": "wte_out",
+    "k": 1024,
+    "centroid_bits": 32,
+    "bits": 4276224,
+    "bill": {
+     "index": 81920,
+     "cent_centroids": 4194304,
+     "TOTAL": 4276224
+    },
+    "kl": 0.9098251983523369,
+    "ce": 5.802893340587616,
+    "ntok": 16384
+   },
+   {
+    "scheme": "writecluster_k2048_cent4",
+    "role": "wte_out",
+    "k": 2048,
+    "centroid_bits": 4,
+    "bits": 1102742,
+    "bill": {
+     "index": 90112,
+     "cent_values": 947094,
+     "cent_scales": 65536,
+     "TOTAL": 1102742
+    },
+    "kl": 0.5442285686731339,
+    "ce": 5.385684490203857,
+    "ntok": 16384
+   },
+   {
+    "scheme": "writecluster_k2048_cent6",
+    "role": "wte_out",
+    "k": 2048,
+    "centroid_bits": 6,
+    "bits": 1635587,
+    "bill": {
+     "index": 90112,
+     "cent_values": 1479939,
+     "cent_scales": 65536,
+     "TOTAL": 1635587
+    },
+    "kl": 0.5340746194124222,
+    "ce": 5.376419186592102,
+    "ntok": 16384
+   },
+   {
+    "scheme": "writecluster_k2048_cent8",
+    "role": "wte_out",
+    "k": 2048,
+    "centroid_bits": 8,
+    "bits": 2157023,
+    "bill": {
+     "index": 90112,
+     "cent_values": 2001375,
+     "cent_scales": 65536,
+     "TOTAL": 2157023
+    },
+    "kl": 0.533368818461895,
+    "ce": 5.374880433082581,
+    "ntok": 16384
+   },
+   {
+    "scheme": "writecluster_k2048_cent32",
+    "role": "wte_out",
+    "k": 2048,
+    "centroid_bits": 32,
+    "bits": 8478720,
+    "bill": {
+     "index": 90112,
+     "cent_centroids": 8388608,
+     "TOTAL": 8478720
+    },
+    "kl": 0.5333539545536041,
+    "ce": 5.374916076660156,
+    "ntok": 16384
+   },
+   {
+    "scheme": "writecluster_k4096_cent4",
+    "role": "wte_out",
+    "k": 4096,
+    "centroid_bits": 4,
+    "bits": 2123486,
+    "bill": {
+     "index": 98304,
+     "cent_values": 1894110,
+     "cent_scales": 131072,
+     "TOTAL": 2123486
+    },
+    "kl": 0.39423157647252083,
+    "ce": 5.177163541316986,
+    "ntok": 16384
+   },
+   {
+    "scheme": "writecluster_k4096_cent6",
+    "role": "wte_out",
+    "k": 4096,
+    "centroid_bits": 6,
+    "bits": 3187363,
+    "bill": {
+     "index": 98304,
+     "cent_values": 2957987,
+     "cent_scales": 131072,
+     "TOTAL": 3187363
+    },
+    "kl": 0.3855482079088688,
+    "ce": 5.167501330375671,
+    "ntok": 16384
+   },
+   {
+    "scheme": "writecluster_k4096_cent8",
+    "role": "wte_out",
+    "k": 4096,
+    "centroid_bits": 8,
+    "bits": 4226292,
+    "bill": {
+     "index": 98304,
+     "cent_values": 3996916,
+     "cent_scales": 131072,
+     "TOTAL": 4226292
+    },
+    "kl": 0.3841463252902031,
+    "ce": 5.1668994426727295,
+    "ntok": 16384
+   },
+   {
+    "scheme": "writecluster_k4096_cent32",
+    "role": "wte_out",
+    "k": 4096,
+    "centroid_bits": 32,
+    "bits": 16875520,
+    "bill": {
+     "index": 98304,
+     "cent_centroids": 16777216,
+     "TOTAL": 16875520
+    },
+    "kl": 0.38431981205940247,
+    "ce": 5.16699606180191,
+    "ntok": 16384
+   },
+   {
+    "scheme": "writecluster_whitened_k512_cent6",
+    "role": "wte_out",
+    "k": 512,
+    "centroid_bits": 6,
+    "bits": 458711,
+    "bill": {
+     "index": 73728,
+     "cent_values": 368599,
+     "cent_scales": 16384,
+     "TOTAL": 458711
+    },
+    "kl": 0.7927093505859375,
+    "ce": 5.705448925495148,
+    "ntok": 16384
+   },
+   {
+    "scheme": "writecluster_whitened_k512_cent32",
+    "role": "wte_out",
+    "k": 512,
+    "centroid_bits": 32,
+    "bits": 2170880,
+    "bill": {
+     "index": 73728,
+     "cent_centroids": 2097152,
+     "TOTAL": 2170880
+    },
+    "kl": 0.792375274002552,
+    "ce": 5.705332458019257,
+    "ntok": 16384
+   },
+   {
+    "scheme": "writecluster_whitened_k1024_cent6",
+    "role": "wte_out",
+    "k": 1024,
+    "centroid_bits": 6,
+    "bits": 851484,
+    "bill": {
+     "index": 81920,
+     "cent_values": 736796,
+     "cent_scales": 32768,
+     "TOTAL": 851484
+    },
+    "kl": 0.8175827115774155,
+    "ce": 5.7042054533958435,
+    "ntok": 16384
+   },
+   {
+    "scheme": "writecluster_whitened_k1024_cent32",
+    "role": "wte_out",
+    "k": 1024,
+    "centroid_bits": 32,
+    "bits": 4276224,
+    "bill": {
+     "index": 81920,
+     "cent_centroids": 4194304,
+     "TOTAL": 4276224
+    },
+    "kl": 0.8173373192548752,
+    "ce": 5.703639209270477,
+    "ntok": 16384
+   },
+   {
+    "scheme": "writecluster_whitened_k2048_cent6",
+    "role": "wte_out",
+    "k": 2048,
+    "centroid_bits": 6,
+    "bits": 1630635,
+    "bill": {
+     "index": 90112,
+     "cent_values": 1474987,
+     "cent_scales": 65536,
+     "TOTAL": 1630635
+    },
+    "kl": 0.6794465780258179,
+    "ce": 5.536671757698059,
+    "ntok": 16384
+   },
+   {
+    "scheme": "writecluster_whitened_k2048_cent32",
+    "role": "wte_out",
+    "k": 2048,
+    "centroid_bits": 32,
+    "bits": 8478720,
+    "bill": {
+     "index": 90112,
+     "cent_centroids": 8388608,
+     "TOTAL": 8478720
+    },
+    "kl": 0.6789819970726967,
+    "ce": 5.535786330699921,
+    "ntok": 16384
+   },
+   {
+    "scheme": "writecluster_whitened_k4096_cent6",
+    "role": "wte_out",
+    "k": 4096,
+    "centroid_bits": 6,
+    "bits": 3182598,
+    "bill": {
+     "index": 98304,
+     "cent_values": 2953222,
+     "cent_scales": 131072,
+     "TOTAL": 3182598
+    },
+    "kl": 0.3551097512245178,
+    "ce": 5.140877962112427,
+    "ntok": 16384
+   },
+   {
+    "scheme": "writecluster_whitened_k4096_cent32",
+    "role": "wte_out",
+    "k": 4096,
+    "centroid_bits": 32,
+    "bits": 16875520,
+    "bill": {
+     "index": 98304,
+     "cent_centroids": 16777216,
+     "TOTAL": 16875520
+    },
+    "kl": 0.3545864187180996,
+    "ce": 5.141082525253296,
+    "ntok": 16384
+   },
+   {
+    "scheme": "readcluster_fisher_k512_cent6",
+    "role": "wte_read",
+    "k": 512,
+    "centroid_bits": 6,
+    "bits": 459868,
+    "bill": {
+     "index": 73728,
+     "cent_values": 369756,
+     "cent_scales": 16384,
+     "TOTAL": 459868
+    },
+    "kl": 1.2735891342163086,
+    "ce": 6.1516817808151245,
+    "ntok": 16384
+   },
+   {
+    "scheme": "readcluster_fisher_k512_cent32",
+    "role": "wte_read",
+    "k": 512,
+    "centroid_bits": 32,
+    "bits": 2170880,
+    "bill": {
+     "index": 73728,
+     "cent_centroids": 2097152,
+     "TOTAL": 2170880
+    },
+    "kl": 1.268994688987732,
+    "ce": 6.146730124950409,
+    "ntok": 16384
+   },
+   {
+    "scheme": "readcluster_fisher_k1024_cent6",
+    "role": "wte_read",
+    "k": 1024,
+    "centroid_bits": 6,
+    "bits": 853123,
+    "bill": {
+     "index": 81920,
+     "cent_values": 738435,
+     "cent_scales": 32768,
+     "TOTAL": 853123
+    },
+    "kl": 1.2196669280529022,
+    "ce": 6.078483045101166,
+    "ntok": 16384
+   },
+   {
+    "scheme": "readcluster_fisher_k1024_cent32",
+    "role": "wte_read",
+    "k": 1024,
+    "centroid_bits": 32,
+    "bits": 4276224,
+    "bill": {
+     "index": 81920,
+     "cent_centroids": 4194304,
+     "TOTAL": 4276224
+    },
+    "kl": 1.2194152772426605,
+    "ce": 6.076824843883514,
+    "ntok": 16384
+   },
+   {
+    "scheme": "readcluster_fisher_k2048_cent6",
+    "role": "wte_read",
+    "k": 2048,
+    "centroid_bits": 6,
+    "bits": 1626239,
+    "bill": {
+     "index": 90112,
+     "cent_values": 1470591,
+     "cent_scales": 65536,
+     "TOTAL": 1626239
+    },
+    "kl": 0.9879705160856247,
+    "ce": 5.834082305431366,
+    "ntok": 16384
+   },
+   {
+    "scheme": "readcluster_fisher_k2048_cent32",
+    "role": "wte_read",
+    "k": 2048,
+    "centroid_bits": 32,
+    "bits": 8478720,
+    "bill": {
+     "index": 90112,
+     "cent_centroids": 8388608,
+     "TOTAL": 8478720
+    },
+    "kl": 0.9892806485295296,
+    "ce": 5.834845006465912,
+    "ntok": 16384
+   },
+   {
+    "scheme": "readcluster_fisher_k4096_cent6",
+    "role": "wte_read",
+    "k": 4096,
+    "centroid_bits": 6,
+    "bits": 3119479,
+    "bill": {
+     "index": 98304,
+     "cent_values": 2890103,
+     "cent_scales": 131072,
+     "TOTAL": 3119479
+    },
+    "kl": 0.674453616142273,
+    "ce": 5.467182636260986,
+    "ntok": 16384
+   },
+   {
+    "scheme": "readcluster_fisher_k4096_cent32",
+    "role": "wte_read",
+    "k": 4096,
+    "centroid_bits": 32,
+    "bits": 16875520,
+    "bill": {
+     "index": 98304,
+     "cent_centroids": 16777216,
+     "TOTAL": 16875520
+    },
+    "kl": 0.6749095395207405,
+    "ce": 5.467680811882019,
+    "ntok": 16384
+   },
+   {
+    "scheme": "vq_k512_resid_q2",
+    "role": "both",
+    "k": 512,
+    "bits": 2416094,
+    "bill": {
+     "index": 73728,
+     "cent_values": 504027,
+     "cent_scales": 16384,
+     "resid_values": 1559811,
+     "resid_scales": 262144,
+     "TOTAL": 2416094
+    },
+    "kl": 0.25387403927743435,
+    "ce": 4.996479034423828,
+    "ntok": 16384
+   },
+   {
+    "scheme": "vq_k512_resid_q3",
+    "role": "both",
+    "k": 512,
+    "bits": 3555114,
+    "bill": {
+     "index": 73728,
+     "cent_values": 504027,
+     "cent_scales": 16384,
+     "resid_values": 2698831,
+     "resid_scales": 262144,
+     "TOTAL": 3555114
+    },
+    "kl": 0.04442147212103009,
+    "ce": 4.763577342033386,
+    "ntok": 16384
+   },
+   {
+    "scheme": "vq_k512_resid_q4",
+    "role": "both",
+    "k": 512,
+    "bits": 4672236,
+    "bill": {
+     "index": 73728,
+     "cent_values": 504027,
+     "cent_scales": 16384,
+     "resid_values": 3815953,
+     "resid_scales": 262144,
+     "TOTAL": 4672236
+    },
+    "kl": 0.009721735725179315,
+    "ce": 4.723592400550842,
+    "ntok": 16384
+   },
+   {
+    "scheme": "vq_k2048_resid_q2",
+    "role": "both",
+    "k": 2048,
+    "bits": 4039100,
+    "bill": {
+     "index": 90112,
+     "cent_values": 2001375,
+     "cent_scales": 65536,
+     "resid_values": 1619933,
+     "resid_scales": 262144,
+     "TOTAL": 4039100
+    },
+    "kl": 0.17281288839876652,
+    "ce": 4.907254636287689,
+    "ntok": 16384
+   },
+   {
+    "scheme": "vq_k2048_resid_q3",
+    "role": "both",
+    "k": 2048,
+    "bits": 5178245,
+    "bill": {
+     "index": 90112,
+     "cent_values": 2001375,
+     "cent_scales": 65536,
+     "resid_values": 2759078,
+     "resid_scales": 262144,
+     "TOTAL": 5178245
+    },
+    "kl": 0.030468289041891694,
+    "ce": 4.747833013534546,
+    "ntok": 16384
+   },
+   {
+    "scheme": "vq_k2048_resid_q4",
+    "role": "both",
+    "k": 2048,
+    "bits": 6293651,
+    "bill": {
+     "index": 90112,
+     "cent_values": 2001375,
+     "cent_scales": 65536,
+     "resid_values": 3874484,
+     "resid_scales": 262144,
+     "TOTAL": 6293651
+    },
+    "kl": 0.006484001933131367,
+    "ce": 4.719141781330109,
+    "ntok": 16384
+   },
+   {
+    "scheme": "readcluster_freq_k512_cent4",
+    "role": "wte_read",
+    "k": 512,
+    "centroid_bits": 4,
+    "bits": 324797,
+    "bill": {
+     "index": 73728,
+     "cent_values": 234685,
+     "cent_scales": 16384,
+     "TOTAL": 324797
+    },
+    "kl": 1.1972165405750275,
+    "ce": 6.073268175125122,
+    "ntok": 16384
+   },
+   {
+    "scheme": "readcluster_freq_k512_cent6",
+    "role": "wte_read",
+    "k": 512,
+    "centroid_bits": 6,
+    "bits": 459306,
+    "bill": {
+     "index": 73728,
+     "cent_values": 369194,
+     "cent_scales": 16384,
+     "TOTAL": 459306
+    },
+    "kl": 1.183973029255867,
+    "ce": 6.059274435043335,
+    "ntok": 16384
+   },
+   {
+    "scheme": "readcluster_freq_k1024_cent4",
+    "role": "wte_read",
+    "k": 1024,
+    "centroid_bits": 4,
+    "bits": 584922,
+    "bill": {
+     "index": 81920,
+     "cent_values": 470234,
+     "cent_scales": 32768,
+     "TOTAL": 584922
+    },
+    "kl": 1.1557546257972717,
+    "ce": 6.01540470123291,
+    "ntok": 16384
+   },
+   {
+    "scheme": "readcluster_freq_k1024_cent6",
+    "role": "wte_read",
+    "k": 1024,
+    "centroid_bits": 6,
+    "bits": 853097,
+    "bill": {
+     "index": 81920,
+     "cent_values": 738409,
+     "cent_scales": 32768,
+     "TOTAL": 853097
+    },
+    "kl": 1.146843820810318,
+    "ce": 6.000581800937653,
+    "ntok": 16384
+   },
+   {
+    "scheme": "readcluster_freq_k2048_cent4",
+    "role": "wte_read",
+    "k": 2048,
+    "centroid_bits": 4,
+    "bits": 1096073,
+    "bill": {
+     "index": 90112,
+     "cent_values": 940425,
+     "cent_scales": 65536,
+     "TOTAL": 1096073
+    },
+    "kl": 0.799917034804821,
+    "ce": 5.623458504676819,
+    "ntok": 16384
+   },
+   {
+    "scheme": "readcluster_freq_k2048_cent6",
+    "role": "wte_read",
+    "k": 2048,
+    "centroid_bits": 6,
+    "bits": 1631595,
+    "bill": {
+     "index": 90112,
+     "cent_values": 1475947,
+     "cent_scales": 65536,
+     "TOTAL": 1631595
+    },
+    "kl": 0.7903725132346153,
+    "ce": 5.609999299049377,
+    "ntok": 16384
+   },
+   {
+    "scheme": "readcluster_freq_k4096_cent4",
+    "role": "wte_read",
+    "k": 4096,
+    "centroid_bits": 4,
+    "bits": 2111979,
+    "bill": {
+     "index": 98304,
+     "cent_values": 1882603,
+     "cent_scales": 131072,
+     "TOTAL": 2111979
+    },
+    "kl": 0.44844960048794746,
+    "ce": 5.2125853300094604,
+    "ntok": 16384
+   },
+   {
+    "scheme": "readcluster_freq_k4096_cent6",
+    "role": "wte_read",
+    "k": 4096,
+    "centroid_bits": 6,
+    "bits": 3181498,
+    "bill": {
+     "index": 98304,
+     "cent_values": 2952122,
+     "cent_scales": 131072,
+     "TOTAL": 3181498
+    },
+    "kl": 0.43577252328395844,
+    "ce": 5.197569489479065,
+    "ntok": 16384
+   }
+  ],
+  "baselines": [
+   {
+    "scheme": "write_scalar_q2e",
+    "role": "wte_out",
+    "bits": 1785612,
+    "kl": 0.29603420943021774,
+    "ce": 5.005524754524231,
+    "ntok": 16384
+   },
+   {
+    "scheme": "read_scalar_q2e",
+    "role": "wte_read",
+    "bits": 1785616,
+    "kl": 0.442551352083683,
+    "ce": 5.228248298168182,
+    "ntok": 16384
+   },
+   {
+    "scheme": "both_scalar_q2e",
+    "role": "both",
+    "bits": 1785612,
+    "kl": 0.7498944848775864,
+    "ce": 5.535673022270203,
+    "ntok": 16384
+   },
+   {
+    "scheme": "write_scalar_q3e",
+    "role": "wte_out",
+    "bits": 2913293,
+    "kl": 0.05442153802141547,
+    "ce": 4.763532221317291,
+    "ntok": 16384
+   },
+   {
+    "scheme": "read_scalar_q3e",
+    "role": "wte_read",
+    "bits": 2913310,
+    "kl": 0.07361936941742897,
+    "ce": 4.8017414808273315,
+    "ntok": 16384
+   },
+   {
+    "scheme": "both_scalar_q3e",
+    "role": "both",
+    "bits": 2913293,
+    "kl": 0.1292356913909316,
+    "ce": 4.854556024074554,
+    "ntok": 16384
+   },
+   {
+    "scheme": "write_scalar_q4e",
+    "role": "wte_out",
+    "bits": 4029227,
+    "kl": 0.011870318441651762,
+    "ce": 4.723189532756805,
+    "ntok": 16384
+   },
+   {
+    "scheme": "read_scalar_q4e",
+    "role": "wte_read",
+    "bits": 4029242,
+    "kl": 0.015725741512142122,
+    "ce": 4.727517187595367,
+    "ntok": 16384
+   },
+   {
+    "scheme": "both_scalar_q4e",
+    "role": "both",
+    "bits": 4029227,
+    "kl": 0.02774941991083324,
+    "ce": 4.73962539434433,
+    "ntok": 16384
+   },
+   {
+    "scheme": "write_scalar_q5e",
+    "role": "wte_out",
+    "bits": 5110247,
+    "kl": 0.002826826908858493,
+    "ce": 4.712507009506226,
+    "ntok": 16384
+   },
+   {
+    "scheme": "read_scalar_q5e",
+    "role": "wte_read",
+    "bits": 5110256,
+    "kl": 0.003644167329184711,
+    "ce": 4.7167428731918335,
+    "ntok": 16384
+   },
+   {
+    "scheme": "both_scalar_q5e",
+    "role": "both",
+    "bits": 5110247,
+    "kl": 0.006457611685618758,
+    "ce": 4.717800319194794,
+    "ntok": 16384
+   },
+   {
+    "scheme": "write_scalar_q6e",
+    "role": "wte_out",
+    "bits": 6169053,
+    "kl": 0.0006883889072923921,
+    "ce": 4.711942732334137,
+    "ntok": 16384
+   },
+   {
+    "scheme": "read_scalar_q6e",
+    "role": "wte_read",
+    "bits": 6169021,
+    "kl": 0.0008918005696614273,
+    "ce": 4.7125603556633,
+    "ntok": 16384
+   },
+   {
+    "scheme": "both_scalar_q6e",
+    "role": "both",
+    "bits": 6169053,
+    "kl": 0.0015789003518875688,
+    "ce": 4.713046729564667,
+    "ntok": 16384
+   },
+   {
+    "scheme": "both_transform_256",
+    "role": "both",
+    "bits": 1061366,
+    "kl": 1.6497384309768677,
+    "ce": 6.445910811424255,
+    "ntok": 16384
+   },
+   {
+    "scheme": "write_transform_256",
+    "role": "wte_out",
+    "bits": 1061366,
+    "kl": 0.7012343183159828,
+    "ce": 5.3559287786483765,
+    "ntok": 16384
+   },
+   {
+    "scheme": "read_transform_256",
+    "role": "wte_read",
+    "bits": 991061,
+    "kl": 0.5288785211741924,
+    "ce": 5.3291778564453125,
+    "ntok": 16384
+   },
+   {
+    "scheme": "both_transform_384",
+    "role": "both",
+    "bits": 1855959,
+    "kl": 0.3134424276649952,
+    "ce": 5.054113805294037,
+    "ntok": 16384
+   },
+   {
+    "scheme": "write_transform_384",
+    "role": "wte_out",
+    "bits": 1855959,
+    "kl": 0.11705432459712029,
+    "ce": 4.816820919513702,
+    "ntok": 16384
+   },
+   {
+    "scheme": "read_transform_384",
+    "role": "wte_read",
+    "bits": 1956016,
+    "kl": 0.0939595801755786,
+    "ce": 4.8285645842552185,
+    "ntok": 16384
+   },
+   {
+    "scheme": "both_transform_512",
+    "role": "both",
+    "bits": 2935504,
+    "kl": 0.06484446488320827,
+    "ce": 4.785496354103088,
+    "ntok": 16384
+   },
+   {
+    "scheme": "write_transform_512",
+    "role": "wte_out",
+    "bits": 2935504,
+    "kl": 0.025598069187253714,
+    "ce": 4.736278712749481,
+    "ntok": 16384
+   },
+   {
+    "scheme": "read_transform_512",
+    "role": "wte_read",
+    "bits": 3052154,
+    "kl": 0.020069295074790716,
+    "ce": 4.736969888210297,
+    "ntok": 16384
+   },
+   {
+    "scheme": "both_transform_640",
+    "role": "both",
+    "bits": 4042224,
+    "kl": 0.014961710199713707,
+    "ce": 4.731676399707794,
+    "ntok": 16384
+   },
+   {
+    "scheme": "write_transform_640",
+    "role": "wte_out",
+    "bits": 4042224,
+    "kl": 0.005870018794666976,
+    "ce": 4.717294692993164,
+    "ntok": 16384
+   },
+   {
+    "scheme": "read_transform_640",
+    "role": "wte_read",
+    "bits": 4164341,
+    "kl": 0.004462843353394419,
+    "ce": 4.716316282749176,
+    "ntok": 16384
+   },
+   {
+    "scheme": "both_transform_768",
+    "role": "both",
+    "bits": 5169617,
+    "kl": 0.0036589705559890717,
+    "ce": 4.716299295425415,
+    "ntok": 16384
+   },
+   {
+    "scheme": "write_transform_768",
+    "role": "wte_out",
+    "bits": 5169617,
+    "kl": 0.0014427928836084902,
+    "ce": 4.712335288524628,
+    "ntok": 16384
+   },
+   {
+    "scheme": "read_transform_768",
+    "role": "wte_read",
+    "bits": 5294909,
+    "kl": 0.0010800517775351182,
+    "ce": 4.713090479373932,
+    "ntok": 16384
+   }
+  ],
+  "matched_bits_verdict": [
+   {
+    "scheme": "writecluster_k512_cent4",
+    "role": "wte_out",
+    "bits": 326409,
+    "kl": 0.8769545331597328,
+    "best_recoding_kl_at_same_bits": null,
+    "kl_penalty_x": null
+   },
+   {
+    "scheme": "writecluster_k512_cent6",
+    "role": "wte_out",
+    "bits": 460862,
+    "kl": 0.8681912273168564,
+    "best_recoding_kl_at_same_bits": null,
+    "kl_penalty_x": null
+   },
+   {
+    "scheme": "writecluster_k512_cent8",
+    "role": "wte_out",
+    "bits": 594139,
+    "kl": 0.8681847751140594,
+    "best_recoding_kl_at_same_bits": null,
+    "kl_penalty_x": null
+   },
+   {
+    "scheme": "writecluster_k512_cent32",
+    "role": "wte_out",
+    "bits": 2170880,
+    "kl": 0.8684414476156235,
+    "best_recoding_kl_at_same_bits": 0.089694690474895,
+    "kl_penalty_x": 9.682194598337958
+   },
+   {
+    "scheme": "writecluster_k1024_cent4",
+    "role": "wte_out",
+    "bits": 587217,
+    "kl": 0.920468270778656,
+    "best_recoding_kl_at_same_bits": null,
+    "kl_penalty_x": null
+   },
+   {
+    "scheme": "writecluster_k1024_cent6",
+    "role": "wte_out",
+    "bits": 854460,
+    "kl": 0.9096682667732239,
+    "best_recoding_kl_at_same_bits": null,
+    "kl_penalty_x": null
+   },
+   {
+    "scheme": "writecluster_k1024_cent8",
+    "role": "wte_out",
+    "bits": 1117157,
+    "kl": 0.9100221991539001,
+    "best_recoding_kl_at_same_bits": 0.6441394469769887,
+    "kl_penalty_x": 1.4127720378323763
+   },
+   {
+    "scheme": "writecluster_k1024_cent32",
+    "role": "wte_out",
+    "bits": 4276224,
+    "kl": 0.9098251983523369,
+    "best_recoding_kl_at_same_bits": 0.004925709180432365,
+    "kl_penalty_x": 184.7094834519798
+   },
+   {
+    "scheme": "writecluster_k2048_cent4",
+    "role": "wte_out",
+    "bits": 1102742,
+    "kl": 0.5442285686731339,
+    "best_recoding_kl_at_same_bits": 0.6581578648958629,
+    "kl_penalty_x": 0.8268967032084992
+   },
+   {
+    "scheme": "writecluster_k2048_cent6",
+    "role": "wte_out",
+    "bits": 1635587,
+    "kl": 0.5340746194124222,
+    "best_recoding_kl_at_same_bits": 0.3423925678009918,
+    "kl_penalty_x": 1.5598312277702282
+   },
+   {
+    "scheme": "writecluster_k2048_cent8",
+    "role": "wte_out",
+    "bits": 2157023,
+    "kl": 0.533368818461895,
+    "best_recoding_kl_at_same_bits": 0.09067564823278686,
+    "kl_penalty_x": 5.8821616261579415
+   },
+   {
+    "scheme": "writecluster_k2048_cent32",
+    "role": "wte_out",
+    "bits": 8478720,
+    "kl": 0.5333539545536041,
+    "best_recoding_kl_at_same_bits": null,
+    "kl_penalty_x": null
+   },
+   {
+    "scheme": "writecluster_k4096_cent4",
+    "role": "wte_out",
+    "bits": 2123486,
+    "kl": 0.39423157647252083,
+    "best_recoding_kl_at_same_bits": 0.09312159682704729,
+    "kl_penalty_x": 4.233513920564727
+   },
+   {
+    "scheme": "writecluster_k4096_cent6",
+    "role": "wte_out",
+    "bits": 3187363,
+    "kl": 0.3855482079088688,
+    "best_recoding_kl_at_same_bits": 0.020963364344002894,
+    "kl_penalty_x": 18.391523496998452
+   },
+   {
+    "scheme": "writecluster_k4096_cent8",
+    "role": "wte_out",
+    "bits": 4226292,
+    "kl": 0.3841463252902031,
+    "best_recoding_kl_at_same_bits": 0.005109360491358414,
+    "kl_penalty_x": 75.18481538735016
+   },
+   {
+    "scheme": "writecluster_k4096_cent32",
+    "role": "wte_out",
+    "bits": 16875520,
+    "kl": 0.38431981205940247,
+    "best_recoding_kl_at_same_bits": null,
+    "kl_penalty_x": null
+   },
+   {
+    "scheme": "writecluster_whitened_k512_cent6",
+    "role": "wte_out",
+    "bits": 458711,
+    "kl": 0.7927093505859375,
+    "best_recoding_kl_at_same_bits": null,
+    "kl_penalty_x": null
+   },
+   {
+    "scheme": "writecluster_whitened_k512_cent32",
+    "role": "wte_out",
+    "bits": 2170880,
+    "kl": 0.792375274002552,
+    "best_recoding_kl_at_same_bits": 0.089694690474895,
+    "kl_penalty_x": 8.834138005351978
+   },
+   {
+    "scheme": "writecluster_whitened_k1024_cent6",
+    "role": "wte_out",
+    "bits": 851484,
+    "kl": 0.8175827115774155,
+    "best_recoding_kl_at_same_bits": null,
+    "kl_penalty_x": null
+   },
+   {
+    "scheme": "writecluster_whitened_k1024_cent32",
+    "role": "wte_out",
+    "bits": 4276224,
+    "kl": 0.8173373192548752,
+    "best_recoding_kl_at_same_bits": 0.004925709180432365,
+    "kl_penalty_x": 165.93292241080536
+   },
+   {
+    "scheme": "writecluster_whitened_k2048_cent6",
+    "role": "wte_out",
+    "bits": 1630635,
+    "kl": 0.6794465780258179,
+    "best_recoding_kl_at_same_bits": 0.3441180070965736,
+    "kl_penalty_x": 1.9744580754680976
+   },
+   {
+    "scheme": "writecluster_whitened_k2048_cent32",
+    "role": "wte_out",
+    "bits": 8478720,
+    "kl": 0.6789819970726967,
+    "best_recoding_kl_at_same_bits": null,
+    "kl_penalty_x": null
+   },
+   {
+    "scheme": "writecluster_whitened_k4096_cent6",
+    "role": "wte_out",
+    "bits": 3182598,
+    "kl": 0.3551097512245178,
+    "best_recoding_kl_at_same_bits": 0.021039606339082615,
+    "kl_penalty_x": 16.878155679409048
+   },
+   {
+    "scheme": "writecluster_whitened_k4096_cent32",
+    "role": "wte_out",
+    "bits": 16875520,
+    "kl": 0.3545864187180996,
+    "best_recoding_kl_at_same_bits": null,
+    "kl_penalty_x": null
+   },
+   {
+    "scheme": "readcluster_fisher_k512_cent6",
+    "role": "wte_read",
+    "bits": 459868,
+    "kl": 1.2735891342163086,
+    "best_recoding_kl_at_same_bits": null,
+    "kl_penalty_x": null
+   },
+   {
+    "scheme": "readcluster_fisher_k512_cent32",
+    "role": "wte_read",
+    "bits": 2170880,
+    "kl": 1.268994688987732,
+    "best_recoding_kl_at_same_bits": 0.08815014998514158,
+    "kl_penalty_x": 14.39583130830329
+   },
+   {
+    "scheme": "readcluster_fisher_k1024_cent6",
+    "role": "wte_read",
+    "bits": 853123,
+    "kl": 1.2196669280529022,
+    "best_recoding_kl_at_same_bits": null,
+    "kl_penalty_x": null
+   },
+   {
+    "scheme": "readcluster_fisher_k1024_cent32",
+    "role": "wte_read",
+    "bits": 4276224,
+    "kl": 1.2194152772426605,
+    "best_recoding_kl_at_same_bits": 0.004347222368090234,
+    "kl_penalty_x": 280.5044633082247
+   },
+   {
+    "scheme": "readcluster_fisher_k2048_cent6",
+    "role": "wte_read",
+    "bits": 1626239,
+    "kl": 0.9879705160856247,
+    "best_recoding_kl_at_same_bits": 0.4552539384944507,
+    "kl_penalty_x": 2.1701525951711615
+   },
+   {
+    "scheme": "readcluster_fisher_k2048_cent32",
+    "role": "wte_read",
+    "bits": 8478720,
+    "kl": 0.9892806485295296,
+    "best_recoding_kl_at_same_bits": null,
+    "kl_penalty_x": null
+   },
+   {
+    "scheme": "readcluster_fisher_k4096_cent6",
+    "role": "wte_read",
+    "bits": 3119479,
+    "kl": 0.674453616142273,
+    "best_recoding_kl_at_same_bits": 0.019688426174175815,
+    "kl_penalty_x": 34.25634990707969
+   },
+   {
+    "scheme": "readcluster_fisher_k4096_cent32",
+    "role": "wte_read",
+    "bits": 16875520,
+    "kl": 0.6749095395207405,
+    "best_recoding_kl_at_same_bits": null,
+    "kl_penalty_x": null
+   },
+   {
+    "scheme": "readcluster_freq_k512_cent4",
+    "role": "wte_read",
+    "bits": 324797,
+    "kl": 1.1972165405750275,
+    "best_recoding_kl_at_same_bits": null,
+    "kl_penalty_x": null
+   },
+   {
+    "scheme": "readcluster_freq_k512_cent6",
+    "role": "wte_read",
+    "bits": 459306,
+    "kl": 1.183973029255867,
+    "best_recoding_kl_at_same_bits": null,
+    "kl_penalty_x": null
+   },
+   {
+    "scheme": "readcluster_freq_k1024_cent4",
+    "role": "wte_read",
+    "bits": 584922,
+    "kl": 1.1557546257972717,
+    "best_recoding_kl_at_same_bits": null,
+    "kl_penalty_x": null
+   },
+   {
+    "scheme": "readcluster_freq_k1024_cent6",
+    "role": "wte_read",
+    "bits": 853097,
+    "kl": 1.146843820810318,
+    "best_recoding_kl_at_same_bits": null,
+    "kl_penalty_x": null
+   },
+   {
+    "scheme": "readcluster_freq_k2048_cent4",
+    "role": "wte_read",
+    "bits": 1096073,
+    "kl": 0.799917034804821,
+    "best_recoding_kl_at_same_bits": 0.5129994027607331,
+    "kl_penalty_x": 1.5592942808510608
+   },
+   {
+    "scheme": "readcluster_freq_k2048_cent6",
+    "role": "wte_read",
+    "bits": 1631595,
+    "kl": 0.7903725132346153,
+    "best_recoding_kl_at_same_bits": 0.45480107498376127,
+    "kl_penalty_x": 1.7378422275339513
+   },
+   {
+    "scheme": "readcluster_freq_k4096_cent4",
+    "role": "wte_read",
+    "bits": 2111979,
+    "kl": 0.44844960048794746,
+    "best_recoding_kl_at_same_bits": 0.08964758156051926,
+    "kl_penalty_x": 5.002361387576398
+   },
+   {
+    "scheme": "readcluster_freq_k4096_cent6",
+    "role": "wte_read",
+    "bits": 3181498,
+    "kl": 0.43577252328395844,
+    "best_recoding_kl_at_same_bits": 0.01935098571212218,
+    "kl_penalty_x": 22.519396673988254
+   },
+   {
+    "scheme": "vq_k512_resid_q2",
+    "role": "both",
+    "bits": 2416094,
+    "kl": 0.25387403927743435,
+    "best_recoding_kl_at_same_bits": 0.18667130380588728,
+    "kl_penalty_x": 1.3600057111157735
+   },
+   {
+    "scheme": "vq_k512_resid_q3",
+    "role": "both",
+    "bits": 3555114,
+    "kl": 0.04442147212103009,
+    "best_recoding_kl_at_same_bits": 0.03881202991030313,
+    "kl_penalty_x": 1.1445284419209898
+   },
+   {
+    "scheme": "vq_k512_resid_q4",
+    "role": "both",
+    "bits": 4672236,
+    "kl": 0.009721735725179315,
+    "best_recoding_kl_at_same_bits": 0.00890314864580286,
+    "kl_penalty_x": 1.091943548506556
+   },
+   {
+    "scheme": "vq_k2048_resid_q2",
+    "role": "both",
+    "bits": 4039100,
+    "kl": 0.17281288839876652,
+    "best_recoding_kl_at_same_bits": 0.017353427826347585,
+    "kl_penalty_x": 9.958429546489135
+   },
+   {
+    "scheme": "vq_k2048_resid_q3",
+    "role": "both",
+    "bits": 5178245,
+    "kl": 0.030468289041891694,
+    "best_recoding_kl_at_same_bits": 0.0036300710844053025,
+    "kl_penalty_x": 8.393303693909115
+   },
+   {
+    "scheme": "vq_k2048_resid_q4",
+    "role": "both",
+    "bits": 6293651,
+    "kl": 0.006484001933131367,
+    "best_recoding_kl_at_same_bits": null,
+    "kl_penalty_x": null
+   }
+  ],
+  "sigma_trace": 128.0
+ },
+ "O5_structure_to_bits": {
+  "families": {
+   "spelling": {
+    "n_features": 272,
+    "r2_in_sample": 0.2585379481315613,
+    "r2_cross_validated_over_tokens": 0.20822358938210694,
+    "r2_after_8bit_coefficients": 0.25847822427749634,
+    "residual_variance_ratio": 0.7415217757225037,
+    "mean_row_range_original": 0.8484452962875366,
+    "mean_row_range_residual": 0.5097302198410034,
+    "predicted_saving_bits_per_weight_from_variance": 0.21571951751264123,
+    "predicted_saving_bits_per_weight_from_row_range": 0.7350877573335018,
+    "regression_coefficient_bits": 287232,
+    "rows": [
+     {
+      "b": 2,
+      "cond_bits": 2096565,
+      "cond_kl": 0.4459712654352188,
+      "cond_ce": 5.204204499721527,
+      "plain_ce": 5.535673022270203,
+      "plain_bits": 1785612,
+      "plain_kl": 0.7498944848775864,
+      "measured_saving_bits_per_weight": -0.29654788970947266,
+      "kl_ratio_cond_over_plain": 0.5947120220627035
+     },
+     {
+      "b": 3,
+      "cond_bits": 3235940,
+      "cond_kl": 0.07842104975134134,
+      "cond_ce": 4.80035001039505,
+      "plain_ce": 4.854556024074554,
+      "plain_bits": 2913293,
+      "plain_kl": 0.1292356913909316,
+      "measured_saving_bits_per_weight": -0.30770015716552734,
+      "kl_ratio_cond_over_plain": 0.6068064395161669
+     },
+     {
+      "b": 4,
+      "cond_bits": 4352349,
+      "cond_kl": 0.01712043397128582,
+      "cond_ce": 4.731604754924774,
+      "plain_ce": 4.73962539434433,
+      "plain_bits": 4029227,
+      "plain_kl": 0.02774941991083324,
+      "measured_saving_bits_per_weight": -0.3081531524658203,
+      "kl_ratio_cond_over_plain": 0.6169654726584783
+     },
+     {
+      "b": 5,
+      "cond_bits": 5433444,
+      "cond_kl": 0.003965491720009595,
+      "cond_ce": 4.715663731098175,
+      "plain_ce": 4.717800319194794,
+      "plain_bits": 5110247,
+      "plain_kl": 0.006457611685618758,
+      "measured_saving_bits_per_weight": -0.3082246780395508,
+      "kl_ratio_cond_over_plain": 0.6140802378750695
+     },
+     {
+      "b": 6,
+      "cond_bits": 6492628,
+      "cond_kl": 0.0009780854525160976,
+      "cond_ce": 4.71275132894516,
+      "plain_ce": 4.713046729564667,
+      "plain_bits": 6169053,
+      "plain_kl": 0.0015789003518875688,
+      "measured_saving_bits_per_weight": -0.30858516693115234,
+      "kl_ratio_cond_over_plain": 0.6194725660468695
+     }
+    ],
+    "transform_coded_residual": [
+     {
+      "bits_per_row": 384,
+      "cond_bits": 2099433,
+      "cond_kl": 0.2464324403554201,
+      "cond_ce": 4.983790278434753,
+      "plain_bits": 1855959,
+      "plain_kl": 0.3134424276649952,
+      "plain_ce": 5.054113805294037
+     },
+     {
+      "bits_per_row": 512,
+      "cond_bits": 3177793,
+      "cond_kl": 0.05144947301596403,
+      "cond_ce": 4.769619405269623,
+      "plain_bits": 2935504,
+      "plain_kl": 0.06484446488320827,
+      "plain_ce": 4.785496354103088
+     },
+     {
+      "bits_per_row": 640,
+      "cond_bits": 4286316,
+      "cond_kl": 0.011805405258201063,
+      "cond_ce": 4.72522234916687,
+      "plain_bits": 4042224,
+      "plain_kl": 0.014961710199713707,
+      "plain_ce": 4.731676399707794
+     },
+     {
+      "bits_per_row": 768,
+      "cond_bits": 5416221,
+      "cond_kl": 0.0027775994094554335,
+      "cond_ce": 4.714084148406982,
+      "plain_bits": 5169617,
+      "plain_kl": 0.0036589705559890717,
+      "plain_ce": 4.716299295425415
+     }
+    ],
+    "matched_kl_scalar_coder": [
+     {
+      "cond_bits": 2096565,
+      "cond_kl": 0.4459712654352188,
+      "plain_bits_at_same_kl": 2063582.5695660033,
+      "net_bits_saved_frac": -0.01598309218173583,
+      "gross_bits_saved_per_weight": 0.24247128445244148,
+      "regression_cost_per_weight": 0.27392578125,
+      "variance_law_bound_per_weight": 0.21571951751264123,
+      "row_range_bound_per_weight": 0.7350877573335018,
+      "gross_within_bounds": true
+     },
+     {
+      "cond_bits": 3235940,
+      "cond_kl": 0.07842104975134134,
+      "plain_bits_at_same_kl": 3236800.338626085,
+      "net_bits_saved_frac": 0.00026579910284180045,
+      "gross_bits_saved_per_weight": 0.27474626410110936,
+      "regression_cost_per_weight": 0.27392578125,
+      "variance_law_bound_per_weight": 0.21571951751264123,
+      "row_range_bound_per_weight": 0.7350877573335018,
+      "gross_within_bounds": true
+     },
+     {
+      "cond_bits": 4352349,
+      "cond_kl": 0.01712043397128582,
+      "plain_bits_at_same_kl": 4359262.5084983725,
+      "net_bits_saved_frac": 0.0015859353468378288,
+      "gross_bits_saved_per_weight": 0.2805190167411542,
+      "regression_cost_per_weight": 0.27392578125,
+      "variance_law_bound_per_weight": 0.21571951751264123,
+      "row_range_bound_per_weight": 0.7350877573335018,
+      "gross_within_bounds": true
+     },
+     {
+      "cond_bits": 5433444,
+      "cond_kl": 0.003965491720009595,
+      "plain_bits_at_same_kl": 5454472.266453559,
+      "net_bits_saved_frac": 0.0038552339119749418,
+      "gross_bits_saved_per_weight": 0.29397989888530596,
+      "regression_cost_per_weight": 0.27392578125,
+      "variance_law_bound_per_weight": 0.21571951751264123,
+      "row_range_bound_per_weight": 0.7350877573335018,
+      "gross_within_bounds": true
+     }
+    ],
+    "matched_kl_transform_coder": [
+     {
+      "cond_bits": 2099433,
+      "cond_kl": 0.2464324403554201,
+      "plain_bits_at_same_kl": 1990509.6477287763,
+      "net_bits_saved_frac": -0.054721338525290784,
+      "gross_bits_saved_per_weight": 0.1700483777320636,
+      "regression_cost_per_weight": 0.27392578125,
+      "variance_law_bound_per_weight": 0.21571951751264123,
+      "row_range_bound_per_weight": 0.7350877573335018,
+      "gross_within_bounds": false
+     },
+     {
+      "cond_bits": 3177793,
+      "cond_kl": 0.05144947301596403,
+      "plain_bits_at_same_kl": 3087485.789895408,
+      "net_bits_saved_frac": -0.029249433438737028,
+      "gross_bits_saved_per_weight": 0.1878021143869475,
+      "regression_cost_per_weight": 0.27392578125,
+      "variance_law_bound_per_weight": 0.21571951751264123,
+      "row_range_bound_per_weight": 0.7350877573335018,
+      "gross_within_bounds": true
+     },
+     {
+      "cond_bits": 4286316,
+      "cond_kl": 0.011805405258201063,
+      "plain_bits_at_same_kl": 4213034.102718061,
+      "net_bits_saved_frac": -0.017394090694556916,
+      "gross_bits_saved_per_weight": 0.20403871795469364,
+      "regression_cost_per_weight": 0.27392578125,
+      "variance_law_bound_per_weight": 0.21571951751264123,
+      "row_range_bound_per_weight": 0.7350877573335018,
+      "gross_within_bounds": true
+     }
+    ]
+   },
+   "corpusstat": {
+    "n_features": 257,
+    "r2_in_sample": 0.40494388341903687,
+    "r2_cross_validated_over_tokens": 0.35927312897309727,
+    "r2_after_8bit_coefficients": 0.4048103094100952,
+    "residual_variance_ratio": 0.5951896905899048,
+    "mean_row_range_original": 0.8484452962875366,
+    "mean_row_range_residual": 0.4478602409362793,
+    "predicted_saving_bits_per_weight_from_variance": 0.374289278729807,
+    "predicted_saving_bits_per_weight_from_row_range": 0.9217730489066701,
+    "regression_coefficient_bits": 271392,
+    "rows": [
+     {
+      "b": 2,
+      "cond_bits": 2079566,
+      "cond_kl": 0.27925660088658333,
+      "cond_ce": 5.038344621658325,
+      "plain_ce": 5.535673022270203,
+      "plain_bits": 1785612,
+      "plain_kl": 0.7498944848775864,
+      "measured_saving_bits_per_weight": -0.2803363800048828,
+      "kl_ratio_cond_over_plain": 0.3723945255207064
+     },
+     {
+      "b": 3,
+      "cond_bits": 3218575,
+      "cond_kl": 0.04976436169818044,
+      "cond_ce": 4.7690709233284,
+      "plain_ce": 4.854556024074554,
+      "plain_bits": 2913293,
+      "plain_kl": 0.1292356913909316,
+      "measured_saving_bits_per_weight": -0.2911396026611328,
+      "kl_ratio_cond_over_plain": 0.38506670380743113
+     },
+     {
+      "b": 4,
+      "cond_bits": 4335556,
+      "cond_kl": 0.011091300286352634,
+      "cond_ce": 4.726974070072174,
+      "plain_ce": 4.73962539434433,
+      "plain_bits": 4029227,
+      "plain_kl": 0.02774941991083324,
+      "measured_saving_bits_per_weight": -0.29213809967041016,
+      "kl_ratio_cond_over_plain": 0.3996948520723002
+     },
+     {
+      "b": 5,
+      "cond_bits": 5416691,
+      "cond_kl": 0.002485206176061183,
+      "cond_ce": 4.714126408100128,
+      "plain_ce": 4.717800319194794,
+      "plain_bits": 5110247,
+      "plain_kl": 0.006457611685618758,
+      "measured_saving_bits_per_weight": -0.2922477722167969,
+      "kl_ratio_cond_over_plain": 0.3848491202398855
+     },
+     {
+      "b": 6,
+      "cond_bits": 6475723,
+      "cond_kl": 0.0006189020932652056,
+      "cond_ce": 4.711840391159058,
+      "plain_ce": 4.713046729564667,
+      "plain_bits": 6169053,
+      "plain_kl": 0.0015789003518875688,
+      "measured_saving_bits_per_weight": -0.2924633026123047,
+      "kl_ratio_cond_over_plain": 0.3919829978664016
+     }
+    ],
+    "transform_coded_residual": [
+     {
+      "bits_per_row": 384,
+      "cond_bits": 2051050,
+      "cond_kl": 0.2020936757326126,
+      "cond_ce": 4.943135380744934,
+      "plain_bits": 1855959,
+      "plain_kl": 0.3134424276649952,
+      "plain_ce": 5.054113805294037
+     },
+     {
+      "bits_per_row": 512,
+      "cond_bits": 3120170,
+      "cond_kl": 0.04167647520080209,
+      "cond_ce": 4.757299363613129,
+      "plain_bits": 2935504,
+      "plain_kl": 0.06484446488320827,
+      "plain_ce": 4.785496354103088
+     },
+     {
+      "bits_per_row": 640,
+      "cond_bits": 4225267,
+      "cond_kl": 0.009590572444722056,
+      "cond_ce": 4.721635043621063,
+      "plain_bits": 4042224,
+      "plain_kl": 0.014961710199713707,
+      "plain_ce": 4.731676399707794
+     },
+     {
+      "bits_per_row": 768,
+      "cond_bits": 5352461,
+      "cond_kl": 0.002398972981609404,
+      "cond_ce": 4.712936162948608,
+      "plain_bits": 5169617,
+      "plain_kl": 0.0036589705559890717,
+      "plain_ce": 4.716299295425415
+     }
+    ],
+    "matched_kl_scalar_coder": [
+     {
+      "cond_bits": 2079566,
+      "cond_kl": 0.27925660088658333,
+      "plain_bits_at_same_kl": 2350840.141436431,
+      "net_bits_saved_frac": 0.11539455050766437,
+      "gross_bits_saved_per_weight": 0.5175267614712058,
+      "regression_cost_per_weight": 0.258819580078125,
+      "variance_law_bound_per_weight": 0.374289278729807,
+      "row_range_bound_per_weight": 0.9217730489066701,
+      "gross_within_bounds": true
+     },
+     {
+      "cond_bits": 3218575,
+      "cond_kl": 0.04976436169818044,
+      "plain_bits_at_same_kl": 3562466.1389411646,
+      "net_bits_saved_frac": 0.09653176353933735,
+      "gross_bits_saved_per_weight": 0.5867797269260069,
+      "regression_cost_per_weight": 0.258819580078125,
+      "variance_law_bound_per_weight": 0.374289278729807,
+      "row_range_bound_per_weight": 0.9217730489066701,
+      "gross_within_bounds": true
+     },
+     {
+      "cond_bits": 4335556,
+      "cond_kl": 0.011091300286352634,
+      "plain_bits_at_same_kl": 4678937.136961044,
+      "net_bits_saved_frac": 0.07338870493653797,
+      "gross_bits_saved_per_weight": 0.5862933511362494,
+      "regression_cost_per_weight": 0.258819580078125,
+      "variance_law_bound_per_weight": 0.374289278729807,
+      "row_range_bound_per_weight": 0.9217730489066701,
+      "gross_within_bounds": true
+     },
+     {
+      "cond_bits": 5416691,
+      "cond_kl": 0.002485206176061183,
+      "plain_bits_at_same_kl": 5806063.561534565,
+      "net_bits_saved_frac": 0.06706308971782118,
+      "gross_bits_saved_per_weight": 0.6301541915269517,
+      "regression_cost_per_weight": 0.258819580078125,
+      "variance_law_bound_per_weight": 0.374289278729807,
+      "row_range_bound_per_weight": 0.9217730489066701,
+      "gross_within_bounds": true
+     }
+    ],
+    "matched_kl_transform_coder": [
+     {
+      "cond_bits": 2051050,
+      "cond_kl": 0.2020936757326126,
+      "plain_bits_at_same_kl": 2108778.3820292335,
+      "net_bits_saved_frac": 0.02737527211071022,
+      "gross_bits_saved_per_weight": 0.3138736553470931,
+      "regression_cost_per_weight": 0.258819580078125,
+      "variance_law_bound_per_weight": 0.374289278729807,
+      "row_range_bound_per_weight": 0.9217730489066701,
+      "gross_within_bounds": true
+     },
+     {
+      "cond_bits": 3120170,
+      "cond_kl": 0.04167647520080209,
+      "plain_bits_at_same_kl": 3232685.599018192,
+      "net_bits_saved_frac": 0.03480561148673547,
+      "gross_bits_saved_per_weight": 0.3661228170568389,
+      "regression_cost_per_weight": 0.258819580078125,
+      "variance_law_bound_per_weight": 0.374289278729807,
+      "row_range_bound_per_weight": 0.9217730489066701,
+      "gross_within_bounds": true
+     },
+     {
+      "cond_bits": 4225267,
+      "cond_kl": 0.009590572444722056,
+      "plain_bits_at_same_kl": 4368752.4326014,
+      "net_bits_saved_frac": 0.032843571434868525,
+      "gross_bits_saved_per_weight": 0.39565795192851994,
+      "regression_cost_per_weight": 0.258819580078125,
+      "variance_law_bound_per_weight": 0.374289278729807,
+      "row_range_bound_per_weight": 0.9217730489066701,
+      "gross_within_bounds": true
+     }
+    ]
+   }
+  },
+  "conversion_law": "For an entropy-coded uniform quantiser at a fixed step, rate = h(X) - log2(step), so replacing a source by a residual with variance ratio v saves exactly -0.5*log2(v) bits per weight at the SAME distortion, independent of the bit depth.  R^2 = 1 - v, so R^2 = 0.405 buys 0.374 bits/weight and R^2 = 0.256 buys 0.213 bits/weight.  To halve a 4-bit code you would need R^2 = 1 - 2^-4 = 0.9375."
+ },
+ "O2b_where_the_transform_codes_gain_comes_from": {
+  "allocation_vectors": {
+   "256": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   "384": [
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3
+   ],
+   "512": [
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+   ],
+   "640": [
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5
+   ],
+   "768": [
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6
+   ]
+  },
+  "allocation_is_uniform_at_every_budget": {
+   "256": true,
+   "384": true,
+   "512": true,
+   "640": true,
+   "768": true
+  },
+  "ablation_rows": [
+   {
+    "bits": 4029227,
+    "bill": {
+     "codes": 3767083,
+     "scales": 262144,
+     "TOTAL": 4029227
+    },
+    "kl": 0.02774941991083324,
+    "ce": 4.73962539434433,
+    "ntok": 16384,
+    "b": 4,
+    "scales": "row",
+    "entropy": "global",
+    "scheme": "q4_rowscale_globalentropy"
+   },
+   {
+    "bits": 3527014,
+    "bill": {
+     "codes": 3264870,
+     "scales": 262144,
+     "TOTAL": 3527014
+    },
+    "kl": 0.02774941991083324,
+    "ce": 4.73962539434433,
+    "ntok": 16384,
+    "b": 4,
+    "scales": "row",
+    "entropy": "col",
+    "scheme": "q4_rowscale_colentropy"
+   },
+   {
+    "bits": 3045925,
+    "bill": {
+     "codes": 3037733,
+     "scales": 4096,
+     "mean": 4096,
+     "TOTAL": 3045925
+    },
+    "kl": 0.06484446488320827,
+    "ce": 4.785496354103088,
+    "ntok": 16384,
+    "b": 4,
+    "scales": "col",
+    "entropy": "global",
+    "scheme": "q4_colscale_globalentropy"
+   },
+   {
+    "bits": 2934992,
+    "bill": {
+     "codes": 2926800,
+     "scales": 4096,
+     "mean": 4096,
+     "TOTAL": 2934992
+    },
+    "kl": 0.06484446488320827,
+    "ce": 4.785496354103088,
+    "ntok": 16384,
+    "b": 4,
+    "scales": "col",
+    "entropy": "col",
+    "scheme": "q4_colscale_colentropy"
+   },
+   {
+    "bits": 5110247,
+    "bill": {
+     "codes": 4848103,
+     "scales": 262144,
+     "TOTAL": 5110247
+    },
+    "kl": 0.006457611685618758,
+    "ce": 4.717800319194794,
+    "ntok": 16384,
+    "b": 5,
+    "scales": "row",
+    "entropy": "global",
+    "scheme": "q5_rowscale_globalentropy"
+   },
+   {
+    "bits": 4632558,
+    "bill": {
+     "codes": 4370414,
+     "scales": 262144,
+     "TOTAL": 4632558
+    },
+    "kl": 0.006457611685618758,
+    "ce": 4.717800319194794,
+    "ntok": 16384,
+    "b": 5,
+    "scales": "row",
+    "entropy": "col",
+    "scheme": "q5_rowscale_colentropy"
+   },
+   {
+    "bits": 4127792,
+    "bill": {
+     "codes": 4119600,
+     "scales": 4096,
+     "mean": 4096,
+     "TOTAL": 4127792
+    },
+    "kl": 0.014961710199713707,
+    "ce": 4.731676399707794,
+    "ntok": 16384,
+    "b": 5,
+    "scales": "col",
+    "entropy": "global",
+    "scheme": "q5_colscale_globalentropy"
+   },
+   {
+    "bits": 4041712,
+    "bill": {
+     "codes": 4033520,
+     "scales": 4096,
+     "mean": 4096,
+     "TOTAL": 4041712
+    },
+    "kl": 0.014961710199713707,
+    "ce": 4.731676399707794,
+    "ntok": 16384,
+    "b": 5,
+    "scales": "col",
+    "entropy": "col",
+    "scheme": "q5_colscale_colentropy"
+   },
+   {
+    "bits": 6169053,
+    "bill": {
+     "codes": 5906909,
+     "scales": 262144,
+     "TOTAL": 6169053
+    },
+    "kl": 0.0015789003518875688,
+    "ce": 4.713046729564667,
+    "ntok": 16384,
+    "b": 6,
+    "scales": "row",
+    "entropy": "global",
+    "scheme": "q6_rowscale_globalentropy"
+   },
+   {
+    "bits": 5751499,
+    "bill": {
+     "codes": 5489355,
+     "scales": 262144,
+     "TOTAL": 5751499
+    },
+    "kl": 0.0015789003518875688,
+    "ce": 4.713046729564667,
+    "ntok": 16384,
+    "b": 6,
+    "scales": "row",
+    "entropy": "col",
+    "scheme": "q6_rowscale_colentropy"
+   },
+   {
+    "bits": 5196066,
+    "bill": {
+     "codes": 5187874,
+     "scales": 4096,
+     "mean": 4096,
+     "TOTAL": 5196066
+    },
+    "kl": 0.0036589705559890717,
+    "ce": 4.716299295425415,
+    "ntok": 16384,
+    "b": 6,
+    "scales": "col",
+    "entropy": "global",
+    "scheme": "q6_colscale_globalentropy"
+   },
+   {
+    "bits": 5169105,
+    "bill": {
+     "codes": 5160913,
+     "scales": 4096,
+     "mean": 4096,
+     "TOTAL": 5169105
+    },
+    "kl": 0.0036589705559890717,
+    "ce": 4.716299295425415,
+    "ntok": 16384,
+    "b": 6,
+    "scales": "col",
+    "entropy": "col",
+    "scheme": "q6_colscale_colentropy"
+   }
+  ],
+  "finding": "The reverse-water-filling allocation gives EVERY one of the 128 embedding columns exactly the same number of bits at every budget tested (384->3, 512->4, 640->5, 768->6), so it contributes nothing: the column variances are too homogeneous for water-filling to bite. The transform code beats per-row scalar quantisation for two other reasons, isolated in the ablation: per-COLUMN min/max scales (128 fp16 pairs instead of 8192, saving 0.258 Mbit) and a per-COLUMN entropy model instead of one global histogram. RESULTS.md section 2 and 3 attribute the gain to the allocation; that attribution is wrong.",
+  "matched_kl_vs_per_row_global": [
+   {
+    "scheme": "q4_rowscale_colentropy",
+    "bits": 3527014,
+    "kl": 0.02774941991083324,
+    "per_row_global_bits_at_same_kl": 4029226.999999999,
+    "x_better": 1.142390418637408
+   },
+   {
+    "scheme": "q5_rowscale_colentropy",
+    "bits": 4632558,
+    "kl": 0.006457611685618758,
+    "per_row_global_bits_at_same_kl": 5110246.999999996,
+    "x_better": 1.103115600495449
+   },
+   {
+    "scheme": "q5_colscale_globalentropy",
+    "bits": 4127792,
+    "kl": 0.014961710199713707,
+    "per_row_global_bits_at_same_kl": 4456101.25193623,
+    "x_better": 1.0795362876657133
+   },
+   {
+    "scheme": "q5_colscale_colentropy",
+    "bits": 4041712,
+    "kl": 0.014961710199713707,
+    "per_row_global_bits_at_same_kl": 4456101.25193623,
+    "x_better": 1.1025281494416797
+   },
+   {
+    "scheme": "q6_rowscale_colentropy",
+    "bits": 5751499,
+    "kl": 0.0015789003518875688,
+    "per_row_global_bits_at_same_kl": 6169053.000000003,
+    "x_better": 1.072599160670984
+   },
+   {
+    "scheme": "q6_colscale_globalentropy",
+    "bits": 5196066,
+    "kl": 0.0036589705559890717,
+    "per_row_global_bits_at_same_kl": 5513449.438431781,
+    "x_better": 1.0610814871157874
+   },
+   {
+    "scheme": "q6_colscale_colentropy",
+    "bits": 5169105,
+    "kl": 0.0036589705559890717,
+    "per_row_global_bits_at_same_kl": 5513449.438431781,
+    "x_better": 1.0666158722703023
+   }
+  ],
+  "measured_gain_range_x": [
+   1.0610814871157874,
+   1.142390418637408
+  ]
+ }
+}
