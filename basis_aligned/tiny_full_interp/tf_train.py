@@ -435,12 +435,24 @@ def lr_sweep(cfg, corpus, jp):
 
 
 def run_cell(variant='vanilla', depth=1, width=32, seed=0, vocab=8192,
-             tok='bpe', do_sweep=True):
+             tok='bpe', do_sweep=True, slot=0, suffix='', n_slots=0,
+             group_coeff=None):
+    """`slot` and `suffix` exist for MATCHED-PARAMETER CONTROLS only.
+
+    solve_slot reinvests a small decoder's savings into a WIDER STREAM, and the
+    embedding is V x stream_width, so `bandwidth`/`predicate`/`codebook` carry
+    more embedding parameters than `vanilla`/`slots`/`shrink` at the same
+    compute width.  Forcing `slot` to width/n_slots pins the stream (and hence
+    the embedding) to the vanilla value, which separates the small-decoder
+    mechanism from the extra parameters it buys.  Such a cell needs its own
+    checkpoint name, hence `suffix`; the checkpoint stores the full cfg, so
+    nothing downstream has to parse it back out of the stem."""
+    kw = {} if group_coeff is None else {'group_coeff': group_coeff}
     cfg = M.TFConfig(depth=depth, width=width, vocab=vocab, tok=tok, seed=seed,
-                     variant=variant, T=T)
+                     variant=variant, T=T, slot=slot, n_slots=n_slots, **kw)
     if cfg.small_dec and not cfg.slot:
         cfg.slot = M.solve_slot(cfg)[0]
-    stem = cfg.stem()
+    stem = cfg.stem() + suffix
     jp = f'{HERE}/{stem}.json'
     out = json.load(open(jp)) if os.path.exists(jp) else {}
     if out.get('run', {}).get('final_held_ce') is not None \
@@ -512,9 +524,18 @@ if __name__ == '__main__':
                     help="'bpe' = trained byte-level BPE (primary, zero UNK); "
                          "'trunc' = top-K GPT-2 truncation (comparison arm)")
     ap.add_argument('--no-sweep', action='store_true')
+    ap.add_argument('--slot', type=int, default=0,
+                    help='force the slot width (matched-parameter controls only)')
+    ap.add_argument('--suffix', default='',
+                    help='checkpoint-name suffix for a matched-parameter control')
+    ap.add_argument('--n-slots', type=int, default=0,
+                    help='override the slot count (mechanism-decomposition arms)')
+    ap.add_argument('--group-coeff', type=float, default=None,
+                    help='override the in-loss group lasso coefficient')
     a = ap.parse_args()
     if a.cmd == 'baselines':
         baselines(a.vocab, a.tok)
     else:
         run_cell(a.variant, a.depth, a.width, a.seed, a.vocab, a.tok,
-                 do_sweep=not a.no_sweep)
+                 do_sweep=not a.no_sweep, slot=a.slot, suffix=a.suffix,
+                 n_slots=a.n_slots, group_coeff=a.group_coeff)
