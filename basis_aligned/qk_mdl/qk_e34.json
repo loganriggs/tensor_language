@@ -1,0 +1,296 @@
+{
+  "E34_prediction": {
+    "registered_before_training": true,
+    "arms": {
+      "E34a": {
+        "terms_enabled": [
+          "profile",
+          "match_prev",
+          "match_same"
+        ],
+        "design": "VANILLA width-264 architecture (sum kernel, full visibility, no write slots, no per-slot RMSNorm, no lasso) + the identical per-head named pattern terms (signed positional profile + b_h MATCH_prev + c_h MATCH_same, init 0, AdamW via muon_exclude), Muon 0.02"
+      },
+      "E34b": {
+        "terms_enabled": [
+          "profile"
+        ],
+        "design": "predicate-basis attention with the POSITIONAL PROFILE ONLY (no MATCH_prev, no MATCH_same); everything else verbatim qk_e22_predbasis_run"
+      },
+      "E34c": {
+        "terms_enabled": [
+          "profile",
+          "match_prev"
+        ],
+        "design": "predicate-basis attention with the positional profile + MATCH_prev (no MATCH_same); everything else verbatim qk_e22_predbasis_run"
+      },
+      "E34d": {
+        "terms_enabled": [
+          "match_prev",
+          "match_same"
+        ],
+        "design": "predicate-basis attention with MATCH_prev + MATCH_same and NO positional profile; everything else verbatim qk_e22_predbasis_run"
+      }
+    },
+    "i_arm1_vanilla": "the named terms help the VANILLA model LESS than the constrained one: paired gain vs E0a-muon in (-0.05, 0.00], point prediction -0.02 nats, against the constrained arm's -0.086. A gain of -0.05 or better makes this a general modelling result; a gain at or beyond -0.086 refutes the interpretability-tax-reducer reading",
+    "ii_profile_dominant": "dropping the positional profile costs more CE than dropping MATCH_prev and more than dropping MATCH_same (E22a mass shares: median 68% profile vs 7% MATCH_prev vs 0.5% MATCH_same)",
+    "iii_match_same_cheap": "dropping MATCH_same costs < 0.01 nats (total |c| mass 10.4 vs |b| 52.7)",
+    "iv_match_prev_is_induction": "the profile-only arm E34b falls below 0.8 nats of induction advantage (full arm 2.0786, E28 all-b-zeroed 0.4853) while its CE stays within +0.05 of the full arm -- CE alone cannot price MATCH_prev",
+    "resolution": "predicate-basis CE sample sd over 3 seeds is 0.0068; single-seed differences below ~0.014 nats are not resolved",
+    "design": "one seed (Q.SEED = 0) per arm, data order fixed via the unchanged Q.DATA_SEED = 1234"
+  },
+  "E34_config": {
+    "muon_lr": 0.02,
+    "adamw_lr": 0.004,
+    "slot": 15,
+    "group_coeffs": {
+      "E34a": 0.0,
+      "E34b": 0.0001,
+      "E34c": 0.0001,
+      "E34d": 0.0001
+    },
+    "stems": {
+      "E34a": "qk_e34_a_vanilla_named",
+      "E34b": "qk_e34_b_profile_only",
+      "E34c": "qk_e34_c_profile_prev",
+      "E34d": "qk_e34_d_prev_same"
+    },
+    "data_seed": 1234,
+    "seed": 0,
+    "trainer": "qk_e_common.train_muon with lr_adamw = the family AdamW lr -- the E19a/E22a trainer expression verbatim",
+    "predicate_params": "pred_prof (depth x NH x T signed per-offset profile), pred_b / pred_c (depth x NH signed mixture weights); all init 0, all on AdamW no-decay via muon_exclude; a DISABLED term is removed from the forward so its parameter never receives a gradient",
+    "kernels": "MATCH_prev / MATCH_same are the imported qk_e22_predbasis_run.match_kernels function object (control 2 checks it against qk_e21_census_run)"
+  },
+  "control0_inherited_gates": {
+    "qk_e18_gate1_weight_support": true,
+    "qk_e18_gate2_cov_composed": true,
+    "note": "this runner calls the SAME probe function objects (qk_e18_probe_upgrades), so the stored gate results apply verbatim",
+    "pass": true
+  },
+  "control2_kernels_vs_e21": {
+    "batch": 4,
+    "T": 512,
+    "match_prev_max_abs_diff": 0.0,
+    "match_same_max_abs_diff": 0.0,
+    "note": "the kernels used here are the IMPORTED function object qk_e22_predbasis_run.match_kernels, checked against qk_e21_census_run.build_feats features 1 (MATCH_prev) and 0 (MATCH_same)",
+    "pass": true
+  },
+  "control1_pred_zero_E34a": {
+    "arm": "E34a",
+    "base": "vanilla (E.make_e0a)",
+    "terms_enabled": [
+      "profile",
+      "match_prev",
+      "match_same"
+    ],
+    "n_shared_parameters": 121,
+    "shared_param_identity_max_abs_diff": 0.0,
+    "forward_pred_off_max_logit_diff": 0.0,
+    "forward_pred_on_at_init_max_logit_diff": 0.0,
+    "train3_base_per_step_ce": [
+      10.8694,
+      10.8715,
+      10.8606
+    ],
+    "train3_predzero_per_step_ce": [
+      10.8694,
+      10.8715,
+      10.8606
+    ],
+    "train3_max_per_step_abs_diff": 0.0,
+    "train3_held100_abs_diff": 0.0,
+    "stored_parent_step0_ce": 10.8694,
+    "stored_parent_step0_abs_diff": 0.0,
+    "note": "same seed (the factory reseeds; predicate parameters are zeros and consume no RNG), same epoch_order(0) data; proves the ONLY difference from the base is the named terms.  The stored-step-0 check (control 3) ties this runner's training call to the parent record on disk.",
+    "pass": true
+  },
+  "control1_pred_zero_E34b": {
+    "arm": "E34b",
+    "base": "E19a frontier base (make_e15c s=15)",
+    "terms_enabled": [
+      "profile"
+    ],
+    "n_shared_parameters": 121,
+    "shared_param_identity_max_abs_diff": 0.0,
+    "forward_pred_off_max_logit_diff": 0.0,
+    "forward_pred_on_at_init_max_logit_diff": 0.0,
+    "train3_base_per_step_ce": [
+      10.921,
+      10.9218,
+      10.9059
+    ],
+    "train3_predzero_per_step_ce": [
+      10.921,
+      10.9218,
+      10.9059
+    ],
+    "train3_max_per_step_abs_diff": 0.0,
+    "train3_held100_abs_diff": 0.0,
+    "stored_parent_step0_ce": 10.921,
+    "stored_parent_step0_abs_diff": 0.0,
+    "note": "same seed (the factory reseeds; predicate parameters are zeros and consume no RNG), same epoch_order(0) data; proves the ONLY difference from the base is the named terms.  The stored-step-0 check (control 3) ties this runner's training call to the parent record on disk.",
+    "pass": true
+  },
+  "control1_pred_zero_E34c": {
+    "arm": "E34c",
+    "base": "E19a frontier base (make_e15c s=15)",
+    "terms_enabled": [
+      "profile",
+      "match_prev"
+    ],
+    "n_shared_parameters": 121,
+    "shared_param_identity_max_abs_diff": 0.0,
+    "forward_pred_off_max_logit_diff": 0.0,
+    "forward_pred_on_at_init_max_logit_diff": 0.0,
+    "train3_base_per_step_ce": [
+      10.921,
+      10.9218,
+      10.9059
+    ],
+    "train3_predzero_per_step_ce": [
+      10.921,
+      10.9218,
+      10.9059
+    ],
+    "train3_max_per_step_abs_diff": 0.0,
+    "train3_held100_abs_diff": 0.0,
+    "stored_parent_step0_ce": 10.921,
+    "stored_parent_step0_abs_diff": 0.0,
+    "note": "same seed (the factory reseeds; predicate parameters are zeros and consume no RNG), same epoch_order(0) data; proves the ONLY difference from the base is the named terms.  The stored-step-0 check (control 3) ties this runner's training call to the parent record on disk.",
+    "pass": true
+  },
+  "control1_pred_zero_E34d": {
+    "arm": "E34d",
+    "base": "E19a frontier base (make_e15c s=15)",
+    "terms_enabled": [
+      "match_prev",
+      "match_same"
+    ],
+    "n_shared_parameters": 121,
+    "shared_param_identity_max_abs_diff": 0.0,
+    "forward_pred_off_max_logit_diff": 0.0,
+    "forward_pred_on_at_init_max_logit_diff": 0.0,
+    "train3_base_per_step_ce": [
+      10.921,
+      10.9218,
+      10.9059
+    ],
+    "train3_predzero_per_step_ce": [
+      10.921,
+      10.9218,
+      10.9059
+    ],
+    "train3_max_per_step_abs_diff": 0.0,
+    "train3_held100_abs_diff": 0.0,
+    "stored_parent_step0_ce": 10.921,
+    "stored_parent_step0_abs_diff": 0.0,
+    "note": "same seed (the factory reseeds; predicate parameters are zeros and consume no RNG), same epoch_order(0) data; proves the ONLY difference from the base is the named terms.  The stored-step-0 check (control 3) ties this runner's training call to the parent record on disk.",
+    "pass": true
+  },
+  "induction_E22a_full": {
+    "checkpoint": "qk_e22_a.pt",
+    "probe": "96 held prefixes of 64 tokens from fresh34k[33000:33096], each repeated once; advantage = CE(first copy) - CE(second copy) on IDENTICAL targets (qk_e28_composed_sign construction)",
+    "audit_slice": "fresh34k[33000:33200], T=512",
+    "induction": {
+      "full": {
+        "ce_first": 5.2147,
+        "ce_second": 3.136,
+        "induction_advantage": 2.0786,
+        "se_seq": 0.0469
+      },
+      "named_only": {
+        "ce_first": 5.5398,
+        "ce_second": 3.7851,
+        "induction_advantage": 1.7546,
+        "se_seq": 0.0394
+      },
+      "residual_only": {
+        "ce_first": 7.7367,
+        "ce_second": 7.4302,
+        "induction_advantage": 0.3065,
+        "se_seq": 0.0142
+      }
+    },
+    "audit_held_ce": {
+      "full": 4.8886,
+      "named_only": 5.3263,
+      "residual_only": 7.6465
+    },
+    "runtime_s": 4.7,
+    "delta_ce_residual_zeroed": 0.43768,
+    "delta_ce_residual_zeroed_se": 0.00855,
+    "delta_ce_named_zeroed": 2.7579,
+    "delta_ce_named_zeroed_se": 0.04184,
+    "delta_induction_residual_zeroed": -0.32401,
+    "delta_induction_residual_zeroed_se": 0.01649,
+    "delta_induction_named_zeroed": -1.77214,
+    "delta_induction_named_zeroed_se": 0.04896,
+    "named_share_of_ce_cost": 0.863,
+    "note": "residual zeroed = every head's pattern is exactly its ENABLED named terms; named zeroed = every head's pattern is exactly the learned bilinear residual",
+    "reference_stored_full_advantage": 2.0786,
+    "abs_diff_vs_stored": 0.0
+  },
+  "control5_probe_reproduces_e28": {
+    "e22a_full_advantage_here": 2.0786,
+    "stored_e28_clean_adv_matched": 2.0786,
+    "abs_diff_vs_e28": 0.0,
+    "stored_e32_causal_weight_s0_induction": {
+      "full": {
+        "ce_first": 5.2147,
+        "ce_second": 3.136,
+        "induction_advantage": 2.0786,
+        "se_seq": 0.0469
+      },
+      "named_only": {
+        "ce_first": 5.5398,
+        "ce_second": 3.7851,
+        "induction_advantage": 1.7546,
+        "se_seq": 0.0394
+      },
+      "residual_only": {
+        "ce_first": 7.7367,
+        "ce_second": 7.4302,
+        "induction_advantage": 0.3065,
+        "se_seq": 0.0142
+      }
+    },
+    "stored_e32_delta_ce_named_zeroed": 2.7579,
+    "this_run_delta_ce_named_zeroed": 2.7579,
+    "tolerance": 0.02,
+    "note": "E28 ran the probe on CPU fp32 through a per-head decomposed forward; this runs the model forward on GPU. Agreement to 0.02 nats validates the probe construction and the named-term hooks reused for every arm.",
+    "pass": true
+  },
+  "induction_E19a_base": {
+    "checkpoint": "qk_e19_a.pt",
+    "probe": "96 held prefixes of 64 tokens from fresh34k[33000:33096], each repeated once; advantage = CE(first copy) - CE(second copy) on IDENTICAL targets (qk_e28_composed_sign construction)",
+    "audit_slice": "fresh34k[33000:33200], T=512",
+    "induction": {
+      "full": {
+        "ce_first": 5.2724,
+        "ce_second": 4.1435,
+        "induction_advantage": 1.1288,
+        "se_seq": 0.0369
+      }
+    },
+    "audit_held_ce": {
+      "full": 4.9755
+    },
+    "runtime_s": 1.3
+  },
+  "induction_E0a_muon": {
+    "checkpoint": "qk_e0a_muon264.pt",
+    "probe": "96 held prefixes of 64 tokens from fresh34k[33000:33096], each repeated once; advantage = CE(first copy) - CE(second copy) on IDENTICAL targets (qk_e28_composed_sign construction)",
+    "audit_slice": "fresh34k[33000:33200], T=512",
+    "induction": {
+      "full": {
+        "ce_first": 5.0528,
+        "ce_second": 4.1285,
+        "induction_advantage": 0.9244,
+        "se_seq": 0.0361
+      }
+    },
+    "audit_held_ce": {
+      "full": 4.756
+    },
+    "runtime_s": 0.8
+  }
+}
