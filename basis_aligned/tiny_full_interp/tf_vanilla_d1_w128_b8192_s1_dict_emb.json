@@ -1,0 +1,101 @@
+{
+ "stem": "tf_vanilla_d1_w128_b8192_s1",
+ "registered_predictions": {
+  "written_before_any_measurement": true,
+  "S1_fold_metric_beats_plain_MSE": "A dictionary on the embedding learned under the fold-derived context metric will beat the same dictionary learned under plain embedding MSE at matched bits, by >=0.02 nats of held CE somewhere in the 1-7 Mbit range.",
+  "S2_write_role_dominates": "Because the table is tied, the write-role term will matter MORE than the read-role term: the est-selected write weight will be non-zero, and a read-only metric will lose to the blend by more than a write-only metric does.",
+  "S3_dictionary_loses_to_quantisation": "Stated as the adversarial null: sparse dictionary coding of the embedding will NOT beat plain scalar quantisation at matched bits, because 1024 atoms of 128 numbers already cost an eighth of the table before a single code is written. If it does win it will only be below ~2 Mbit.",
+  "S4_anchors_port_here_if_anywhere": "Exact anchor rows for the top-B tokens by fold-metric attribution plus a dictionary tail will beat the pure dictionary at matched bits; this is the retest of the FINDING-12 negative with the context objective in place.",
+  "S5_nothing_beats_the_model_CE_without_refitting": "No code-only description reaches held CE 4.7114. The only arm with a chance is the one whose coefficients are refit against estimation-split cross-entropy (bits unchanged), and even that is predicted to land within 0.01 nats above the model rather than below it."
+ },
+ "config": {
+  "stem": "tf_vanilla_d1_w128_b8192_s1",
+  "iters": 5,
+  "held_seq": 256,
+  "est_seq": 128,
+  "quick": true
+ },
+ "controls": {
+  "fold_rel_logit_diff": 4.9649588618194684e-06,
+  "fold_identity": {
+   "ce": 4.758082389831543,
+   "ce_se": 0.019325630739331245,
+   "dce_vs_model": 6.332993507385254e-08,
+   "dce_se": 2.8272003405049873e-08,
+   "ce_model": 4.758082389831543,
+   "kl": 1.02726693818056e-09,
+   "kl_se": 4.308083612070135e-10,
+   "n_seq": 256,
+   "ntok": 65536
+  },
+  "weights_identity": {
+   "ce": 4.758082389831543,
+   "ce_se": 0.019325628876686096,
+   "dce_vs_model": 5.587935447692871e-08,
+   "dce_se": 3.058014286239086e-08,
+   "ce_model": 4.758082389831543,
+   "kl": 2.3765989176638413e-10,
+   "kl_se": 4.2223541329988734e-10,
+   "n_seq": 256,
+   "ntok": 65536
+  },
+  "model_bits": 42995712,
+  "embedding_bits": 33554432,
+  "body_bits": 9441280,
+  "identity_dictionary": {
+   "max_abs_err": 0.0,
+   "ce": 4.758082389831543,
+   "ce_se": 0.019325628876686096,
+   "dce_vs_model": 5.587935447692871e-08,
+   "dce_se": 3.058014286239086e-08,
+   "ce_model": 4.758082389831543,
+   "kl": 2.3765989176638413e-10,
+   "kl_se": 4.2223541329988734e-10,
+   "n_seq": 256,
+   "ntok": 65536,
+   "ce_est": 4.862398147583008
+  },
+  "write_metric": {
+   "z_var_share": 0.5777368701568928,
+   "r": 24
+  }
+ },
+ "metric_grid": [
+  {
+   "metric": "mse",
+   "beta": 1.0,
+   "alpha": 0.0,
+   "n": 256,
+   "k": 2,
+   "bits_emb": 1703936,
+   "ce": 6.843232154846191,
+   "ce_se": 0.014077989384531975,
+   "dce_vs_model": 2.0851497650146484,
+   "dce_se": 0.01633492298424244,
+   "ce_model": 4.758082389831543,
+   "kl": 1.827430248260498,
+   "kl_se": 0.008464104495942593,
+   "n_seq": 256,
+   "ntok": 65536,
+   "ce_est": 6.875864028930664
+  },
+  {
+   "metric": "mse",
+   "beta": 1.0,
+   "alpha": 0.0,
+   "n": 1024,
+   "k": 8,
+   "bits_emb": 6946816,
+   "ce": 5.622910976409912,
+   "ce_se": 0.017398269847035408,
+   "dce_vs_model": 0.8648285865783691,
+   "dce_se": 0.008541842922568321,
+   "ce_model": 4.758082389831543,
+   "kl": 0.7351217865943909,
+   "kl_se": 0.004819205962121487,
+   "n_seq": 256,
+   "ntok": 65536,
+   "ce_est": 5.709645748138428
+  }
+ ]
+}

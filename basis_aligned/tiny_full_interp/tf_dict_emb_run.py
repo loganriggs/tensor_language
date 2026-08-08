@@ -172,7 +172,7 @@ def emb_bits(n, k, V, d=128, b_atom=32, b_coef=32):
                 coefs=bits_dense(V * k, b_coef))
 
 
-def refit_codes(D, Dic, idx, coef, steps=400, lr=3e-3, n_seq=64, T=256,
+def refit_codes(D, Dic, idx, coef, steps=800, lr=2e-3, n_seq=512, T=256,
                 batch=8, tune_atoms=True):
     """Fit the SAME description (same atoms, same supports, same bit count)
     against ESTIMATION-split cross-entropy instead of a weight-space proxy.
@@ -255,41 +255,66 @@ def main():
     out['controls']['write_metric'] = wmeta
     I128 = torch.eye(Ws, device=W0.device)[None].expand(V, Ws, Ws)
 
-    def metric(kind, beta=1.0):
-        """kind selects the READ-side term (none / fold-space MSE / the ported
-        context-expected OV metric); `beta` is the weight of the write-role
-        Fisher term.  Both terms are trace-normalised, so beta is a pure
-        trade-off knob and is selected on the estimation split."""
+    def metric(kind, beta=1.0, alpha=0.0):
+        """M = alpha * I  +  read-side term  +  beta * write-side term.
+
+        `kind` selects the read-side term (fold-space MSE, or the ported
+        context-expected OV metric); `beta` weights the write-role Fisher term
+        that the tied table forces on us; `alpha` is an ISOTROPIC FLOOR and it
+        is not cosmetic -- the two derived terms between them cover the
+        query/key read path and the unembedding, but NOT the value path
+        (Wv), NOT the direct residual contribution of e, and NOT the MLP, so
+        without a floor the code is free to put its error exactly where the
+        metric is blind.  All three terms are trace-normalised; alpha and beta
+        are selected on the estimation split."""
         if kind == 'mse':
             return None
-        if kind == 'write':
-            M = beta * M_write
-        else:
-            M = {'ctx': M_read, 'foldmse': M_foldmse}[kind] + beta * M_write
+        M = alpha * I128 + beta * M_write
+        if kind != 'write':
+            M = M + {'ctx': M_read, 'foldmse': M_foldmse}[kind]
         return (M + 1e-6 * I128)[:, None].contiguous()
 
     # --------------------------------------------- metric choice (on est)
     log('metric selection grid (est)')
     grid = []
-    for kind in ('mse', 'foldmse', 'ctx', 'write'):
-        for beta in ((0.0, 0.3, 1.0, 3.0) if kind in ('ctx', 'foldmse')
-                     else (1.0,)):
-            Mm = metric(kind, beta)
-            for n, k in ((256, 2), (1024, 8)):
-                Dic, idx, coef = L.dict_learn(W0[:, None], Mm, n, k,
-                                              iters=a.iters)
-                s = score(L.sparse_recon(Dic, idx, coef)[:, 0])
-                grid.append({'metric': kind, 'beta': beta, 'n': n, 'k': k,
-                             'bits_emb': emb_bits(n, k, V).total, **s})
-                log(f'  {kind} beta={beta} n={n} k={k} '
-                    f'ce_est {s["ce_est"]:.4f} ce {s["ce"]:.4f}')
-                save({**out, 'metric_grid': grid}, path)
+    combos = [('mse', 1.0, 0.0), ('write', 1.0, 0.0), ('write', 1.0, 1.0),
+              ('foldmse', 0.0, 1.0), ('foldmse', 1.0, 1.0),
+              ('ctx', 0.0, 0.0), ('ctx', 1.0, 0.0)] + \
+             [('ctx', b_, al) for b_ in (0.0, 1.0)
+              for al in (0.5, 1.0, 2.0, 4.0, 8.0)]
+    git = max(2, a.iters // 2)
+    for kind, beta, alpha in combos:
+        Mm = metric(kind, beta, alpha)
+        for n, k in ((256, 2), (1024, 8)):
+            Dic, idx, coef = L.dict_learn(W0[:, None], Mm, n, k, iters=git)
+            s = score(L.sparse_recon(Dic, idx, coef)[:, 0])
+            grid.append({'metric': kind, 'beta': beta, 'alpha': alpha,
+                         'n': n, 'k': k,
+                         'bits_emb': emb_bits(n, k, V).total, **s})
+            log(f'  {kind} beta={beta} alpha={alpha} n={n} k={k} '
+                f'ce_est {s["ce_est"]:.4f} ce {s["ce"]:.4f}')
+            save({**out, 'metric_grid': grid}, path)
     out['metric_grid'] = grid
-    sel = min([g for g in grid if g['n'] == 256],
-              key=lambda g: g['ce_est'])
-    out['metric_selected'] = {'metric': sel['metric'], 'beta': sel['beta']}
+    # the structural arm must be a DERIVED metric, so 'mse' is excluded from
+    # the selection and reported separately as the baseline it is.
+    picks = {}
+    for nb in (256, 1024):
+        cand = [g for g in grid if g['n'] == nb and g['metric'] != 'mse']
+        sel = min(cand, key=lambda g: g['ce_est'])
+        mse_ref = min([g for g in grid if g['n'] == nb
+                       and g['metric'] == 'mse'], key=lambda g: g['ce_est'])
+        picks[nb] = {'metric': sel['metric'], 'beta': sel['beta'],
+                     'alpha': sel['alpha'], 'ce_est': sel['ce_est'],
+                     'mse_ce_est': mse_ref['ce_est'],
+                     'derived_beats_mse_on_est':
+                     bool(sel['ce_est'] < mse_ref['ce_est'])}
+    out['metric_selected'] = {str(k_): v for k_, v in picks.items()}
     log('selected metric', out['metric_selected'])
-    Msel = metric(sel['metric'], sel['beta'])
+
+    def pick_metric(n):
+        p = picks[256 if n < 1024 else 1024]
+        return metric(p['metric'], p['beta'], p['alpha'])
+    Msel = pick_metric(256)
 
     # ------------------------------------------------------- the main sweep
     log('main sweep')
@@ -299,7 +324,7 @@ def main():
         budgets = [(256, 2), (1024, 8)]
     rows = []
     for n, k in budgets:
-        for obj, Mm in (('mse', None), ('ctx', Msel)):
+        for obj, Mm in (('mse', None), ('ctx', pick_metric(n))):
             t0 = time.time()
             Dic, idx, coef = L.dict_learn(W0[:, None], Mm, n, k, iters=a.iters)
             R = L.sparse_recon(Dic, idx, coef)[:, 0]

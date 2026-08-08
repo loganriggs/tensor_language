@@ -7,6 +7,59 @@ they land with the finding in the commit message.
 
 ---
 
+**2026-08-08 14:20 UTC — INDEPENDENT REVIEW CLOSES THE COMPRESSION WORK.
+The honest compression discovery is ~1.2x, not 5.7x; one of my headline
+refutations was WRONG; and Logan's CE insight found a real positive that
+turns out to have a mundane cause.**
+THE CORRECTED HEADLINE. 7.594 Mbit at KL 0.0042 is 5.66x below fp32, 4.74x
+below the best LOSSLESS recompression of the same weights, 2.83x below
+fp16, 2.17x below 12-bit uniform, and **1.15x below those same weights
+naively quantised to the same KL**. Only the last number measures a
+discovery; across the whole frontier it is 1.13-1.54x, **median 1.20x**,
+and its best is bought by distillation rather than by structure.
+LOGAN'S REDIRECTION 1 ANSWERED IN HIS OWN TERMS: **no structural
+description of this model beats bit-packing it.** The reviewer added the
+family we never tried (sparse coding over a shared overcomplete
+dictionary). Against the convex hull of the recoding schemes, pure
+structure is 1.05-1.76x BEHIND and CP structure in the body 3.2-3.6x
+behind. Structure wins only below ~1.5 Mbit, where the description has
+already discarded a third to a half of what the model knows.
+LOGAN'S REDIRECTION 2 FOUND THE POSITIVE THE OLD METRIC WAS BLIND TO — and
+then explained it away honestly. Zero of 208 model-imitating descriptions
+beat the model's held CE. But refitting the tables to the DATA gives held
+CE **4.70937 at 7.455 Mbit, better than the model's 4.71140** and 5.8x
+smaller than fp32. The cliff is between 5 and 4 bits per embedding weight.
+CAVEAT, MEASURED, and it is decisive: the full-precision control gains
+0.00727 nats from the same fresh data, so this is AN UNDERTRAINED MODEL
+PLUS DATA, not parsimony finding structure — and fitting to the model beats
+fitting to the data at every matched budget.
+I WAS WRONG ABOUT CLUSTERING AND IT IS RETRACTED. I reported "merging
+tokens is the worst code measured" as a headline. It was an artifact of
+charging fp32 centroids and omitting a residual. With 4-bit centroids the
+4096-cluster scheme drops from 16.876 to 2.123 Mbit for a 2.6% KL cost, and
+512 prototypes plus a coded residual land within **1.09x** of the best
+recoder — not 15x behind. Token merging is a perfectly reasonable code.
+THE STRUCTURAL NEGATIVE SURVIVES AND STRENGTHENS. The conversion law is
+confirmed, the coder is proven competent (gross saving 0.52-0.63 bits per
+weight, between the variance-law and row-range bounds), the regression
+matrix itself costs 0.259 bits per weight, and when the PLAIN arm is given
+the same frontier-winning coder the co-occurrence advantage collapses from
+7-14% to **2.7-3.5%** while spelling goes negative. Cross-validated R^2 are
+0.359 and 0.208, not the in-sample 0.405 and 0.256.
+VERIFICATION WORTH NOTING: the reviewer re-derived the three lowest-KL bills
+from scratch and matched them TO THE BIT, then wrote a static arithmetic
+coder, serialised the embedding half of the headline description and
+decoded it from that blob alone — 5,169,672 real bits against 5,169,617
+charged (1.000011x). Nothing the decoder needs is uncharged.
+TWO MORE BUGS: the "measurement floor 1.5e-6" was fp16 reference storage
+(the seed-1 control returns a NEGATIVE KL), and the "per-column
+reverse-water-filling allocation" gives every column the same bits at every
+budget and contributes nothing — the gain came from per-column scales and
+entropy models.
+
+---
+
+
 **2026-08-08 14:10 UTC — INDEPENDENT REVIEW OF FINDING 12, COMPLETE (round 3).
 This SUPERSEDES the 13:50 note below, which was written from my JSON while it
 was still being filled in and gets one thing backwards. Headline: "5.7x smaller
