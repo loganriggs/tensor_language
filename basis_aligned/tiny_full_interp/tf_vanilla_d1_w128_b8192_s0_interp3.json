@@ -2469,6 +2469,22 @@
         },
         "slice_eigen_mean_entropy_rank": 86.76747487427235,
         "mean_negative_eig_share": 0.49859619140625,
+        "content_over_null_ALL_ROWS_DO_NOT_QUOTE": 0.9888365974472595,
+        "live_output_rows": 128,
+        "live_row_norm_ratio_inside_over_outside": 1.0,
+        "mode0_unfolding_live": {
+          "numerical_rank": 128,
+          "participation_ratio": 116.20023403652247,
+          "entropy_rank": 121.84563295048848,
+          "top1_share": 0.01910312011766827,
+          "rank_bound": 128
+        },
+        "random_factored_null_mode0_live": {
+          "numerical_rank": 128,
+          "participation_ratio": 119.0415685619084,
+          "entropy_rank": 123.22120081825473,
+          "top1_share": 0.0121254518363407
+        },
         "content_over_null": 0.9888365974472595
       },
       "read_matrices": {
@@ -7649,5 +7665,5 @@
     "note": "rank 0 would mean attending to u boosts u more than any other token; rank V/2 means attending to u says nothing about u.  This is the causal version of the claim; the composed-table version is in rung4."
   },
   "bits_per_byte_ladder": 1.8140526115894438,
-  "seconds": 51.2
+  "seconds": 47.2
 }

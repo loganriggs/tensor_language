@@ -2475,6 +2475,22 @@
         },
         "slice_eigen_mean_entropy_rank": 94.05720297193943,
         "mean_negative_eig_share": 0.49798583984375,
+        "content_over_null_ALL_ROWS_DO_NOT_QUOTE": 0.9795913836373149,
+        "live_output_rows": 128,
+        "live_row_norm_ratio_inside_over_outside": 1.0,
+        "mode0_unfolding_live": {
+          "numerical_rank": 128,
+          "participation_ratio": 115.15741613738281,
+          "entropy_rank": 120.7064266030056,
+          "top1_share": 0.013591367302277974,
+          "rank_bound": 128
+        },
+        "random_factored_null_mode0_live": {
+          "numerical_rank": 128,
+          "participation_ratio": 119.0415685619084,
+          "entropy_rank": 123.22120081825473,
+          "top1_share": 0.0121254518363407
+        },
         "content_over_null": 0.9795913836373149
       },
       "read_matrices": {
@@ -2562,6 +2578,22 @@
         },
         "slice_eigen_mean_entropy_rank": 92.13934272199114,
         "mean_negative_eig_share": 0.498291015625,
+        "content_over_null_ALL_ROWS_DO_NOT_QUOTE": 0.9903310199069422,
+        "live_output_rows": 128,
+        "live_row_norm_ratio_inside_over_outside": 1.0,
+        "mode0_unfolding_live": {
+          "numerical_rank": 128,
+          "participation_ratio": 116.26492722886869,
+          "entropy_rank": 122.02977748050034,
+          "top1_share": 0.018183357939647163,
+          "rank_bound": 128
+        },
+        "random_factored_null_mode0_live": {
+          "numerical_rank": 128,
+          "participation_ratio": 119.0415685619084,
+          "entropy_rank": 123.22120081825473,
+          "top1_share": 0.0121254518363407
+        },
         "content_over_null": 0.9903310199069422
       },
       "read_matrices": {
@@ -8245,5 +8277,39 @@
     "note": "rank 0 would mean attending to u boosts u more than any other token; rank V/2 means attending to u says nothing about u.  This is the causal version of the claim; the composed-table version is in rung4."
   },
   "bits_per_byte_ladder": 1.7455831390494783,
-  "seconds": 75.6
+  "seconds": 73.9,
+  "induction_route_split": {
+    "baseline": {
+      "induction_score_mean": 0.005925030178493174,
+      "induction_score_sd": 0.009440326062248244,
+      "bag_score_mean": 0.0930385165744358
+    },
+    "A0_out_of_layer1_read_only": {
+      "induction_score_mean": 0.00586725870768241,
+      "induction_score_sd": 0.009459123683800344,
+      "bag_score_mean": 0.09313477410210495
+    },
+    "A0_out_of_mlp0_input_only": {
+      "induction_score_mean": -0.0379660924275715,
+      "induction_score_sd": 0.009584993101791353,
+      "bag_score_mean": 0.14815898471408423
+    },
+    "A0_out_of_both": {
+      "induction_score_mean": -0.03802664015028227,
+      "induction_score_sd": 0.009599670598677194,
+      "bag_score_mean": 0.14821915096706775
+    },
+    "A0_write_deleted_entirely": {
+      "induction_score_mean": -0.038029819064669824,
+      "induction_score_sd": 0.009588612127617588,
+      "bag_score_mean": 0.1482234319051102
+    },
+    "fraction_of_induction_removed": {
+      "A0_out_of_layer1_read_only": 0.00975040954567014,
+      "A0_out_of_mlp0_input_only": 7.407746675347207,
+      "A0_out_of_both": 7.41796564822781,
+      "A0_write_deleted_entirely": 7.418502171130105
+    },
+    "note": "read_only large => the attention-to-attention path is not merely open, the algorithm USES it.  mlp_only large with read_only near zero is the plain model pattern: the signal goes through the feed-forward block."
+  }
 }
