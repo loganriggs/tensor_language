@@ -7,6 +7,52 @@ they land with the finding in the commit message.
 
 ---
 
+**2026-08-08 15:45 UTC — I MISREPORTED TWICE FROM IN-PROGRESS SNAPSHOTS.
+The analyst's 15:36 entry is authoritative; my 15:10 and 15:30 entries are
+superseded. Corrections, then the two findings I got wrong or missed.**
+MY ERROR, stated plainly: I read the depth-ladder and compressibility JSONs
+while the analyst was still writing them and reported from those snapshots.
+I had already identified this failure mode earlier today and repeated it.
+The rule now stands in the README: summarise an agent's work only from its
+declared-final report, never from artifacts in flight.
+CORRECTION 1 — DEPTH-4 WIDTH-64 IS A DETECTION, NOT A BOUND. I called
++0.0173 "on the floor". Against the analyst's planted-oracle floor for that
+cell (0.0133) it clears by 1.3x. The threshold therefore falls cleanly ONE
+OCTAVE PER LAYER: width 256 at depth 2, 128 at depth 3, 64 at depth 4. And
+at width 256 the score TRIPLES with depth: +0.094 -> +0.164 -> +0.302.
+CORRECTION 2 — MY COMPRESSIBILITY NUMBERS WERE OFF IN LEVEL. I quoted an
+intercept of 1.666 and extrapolated 1.40 at 550M parameters. The finished
+measurement runs **1.162 at width 32 depth 1 down to 0.987 at width 256
+depth 2 — BELOW ONE.** At the largest cell the best description we can build
+is WORSE in bits than bit-packing the same weights at the same held CE. The
+slope (-0.042 +- 0.009, t = -4.9) matches what I reported; the level did
+not. Restricted to descriptions made out of an interpretation the ratio is
+0.75-0.87 at 13 of 13 cells, and **no structural scheme appears anywhere on
+the overall frontier at any cell** — the frontier is held by transform
+codes, stratified precision and plain quantisation throughout.
+THE FINDING I MISSED, AND IT IS THE BIGGEST OF THE DAY: **the
+attention-to-attention route opens at depth 3 and the algorithm runs on
+it.** Layer-1 attention into layer 2's read carries 0.082 / 0.180 / 0.267
+nats zeroed at widths 64/128/256 — 17%, 26%, 39% of the dominant
+feed-forward term — against 1e-5 at depth 2 on the identical instrument.
+Cutting it removes **94.5%** of the induction score at depth 3 width 128
+(0.0974 -> 0.0054) while the bag-of-tokens control does NOT fall, and the
+same cut on layer-0 attention moves it by -0.1%. So our depth-2 finding
+that induction travels entirely through the feed-forward block is now DATED
+TO A DEPTH rather than being a property of the architecture. Two further
+parts: it is specifically LAYER-1 attention that opens (layer-0 attention
+stays ~1e-6 into every downstream read at every depth and width), and the
+dominant read source remains the FIRST feed-forward block at every layer,
+not the immediately preceding one.
+Comparability confounds were checked and fixed by the analyst rather than
+argued: per-row scale overhead (1.0 bits/weight at width 32 vs 0.125 at
+256) would alone have manufactured the shrink; strengthening the denominator
+moves the slope only -0.048 -> -0.042, and an embedding-only control keeps
+it at -0.029 +- 0.006.
+
+---
+
+
 **2026-08-08 15:36 UTC — THE DEPTH LADDER AND THE COMPRESSIBILITY CURVE, BOTH
 COMPLETE AT SEED 0. This supersedes the 15:10 and 15:30 entries below, which
 quoted the same measurements at 9 cells and before the depth-4 cells landed;

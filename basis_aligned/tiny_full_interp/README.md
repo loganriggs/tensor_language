@@ -436,3 +436,8 @@ everything else by 1.8-2.9x at matched bits (RESULTS_l0_mdl.md 3b/3c).
 
 A well-measured negative counts here: "this part is incompressible in every
 basis tried, and here are the bits" is a real deliverable.
+- **Reporting from an agent's in-flight artifacts.** Summarising a running
+  agent's JSONs before it declares its work final produced two wrong reports
+  on 2026-08-08 (a bound reported as a detection, and a compressibility level
+  off by 0.5). Read only the agent's declared-final report; its intermediate
+  files are scratch.
