@@ -1,0 +1,70 @@
+{
+  "stem": "tf_vanilla_d4_w64_b8192_s0",
+  "depth": 4,
+  "width": 64,
+  "arms": {
+    "baseline": {
+      "induction_score_mean": 0.017339134216308595,
+      "induction_score_sd": 0.010368478142770416,
+      "bag_score_mean": 0.0655602349175343
+    },
+    "A0_out_of_layer1_read": {
+      "induction_score_mean": 0.017327520582410473,
+      "induction_score_sd": 0.010376512973935123,
+      "bag_score_mean": 0.06554578145345076
+    },
+    "M0_out_of_layer1_read": {
+      "induction_score_mean": 0.021370802985297744,
+      "induction_score_sd": 0.008388065307011746,
+      "bag_score_mean": 0.04936697218153192
+    },
+    "A0_out_of_layer2_read": {
+      "induction_score_mean": 0.01736219194200288,
+      "induction_score_sd": 0.010365331958568815,
+      "bag_score_mean": 0.0655625873141819
+    },
+    "A1_out_of_layer2_read": {
+      "induction_score_mean": 0.024070803324381985,
+      "induction_score_sd": 0.014785469397137872,
+      "bag_score_mean": 0.053036965264213976
+    },
+    "M1_out_of_layer2_read": {
+      "induction_score_mean": 0.01366276211208799,
+      "induction_score_sd": 0.013263536696950167,
+      "bag_score_mean": 0.0581415176391598
+    },
+    "A0_out_of_layer3_read": {
+      "induction_score_mean": 0.017351447211371607,
+      "induction_score_sd": 0.010363738164885759,
+      "bag_score_mean": 0.06554904513888857
+    },
+    "A1_out_of_layer3_read": {
+      "induction_score_mean": 0.008467759026421362,
+      "induction_score_sd": 0.010593266471028692,
+      "bag_score_mean": 0.0768919626871746
+    },
+    "A2_out_of_layer3_read": {
+      "induction_score_mean": 0.002506298489040759,
+      "induction_score_sd": 0.010040134435772148,
+      "bag_score_mean": 0.07612342834472621
+    },
+    "M2_out_of_layer3_read": {
+      "induction_score_mean": 0.0018591139051647332,
+      "induction_score_sd": 0.011369819285027501,
+      "bag_score_mean": 0.05537192026774065
+    }
+  },
+  "baseline_induction": 0.017339134216308595,
+  "fraction_of_induction_removed": {
+    "A0_out_of_layer1_read": 0.0006697931830528599,
+    "M0_out_of_layer1_read": -0.2325184590356939,
+    "A0_out_of_layer2_read": -0.0013298083633609887,
+    "A1_out_of_layer2_read": -0.38823559608540387,
+    "M1_out_of_layer2_read": 0.21202743218647765,
+    "A0_out_of_layer3_read": -0.0007101274440467972,
+    "A1_out_of_layer3_read": 0.5116388788053282,
+    "A2_out_of_layer3_read": 0.8554542310028709,
+    "M2_out_of_layer3_read": 0.8927793117019582
+  },
+  "note": "An attention-to-attention route that carries a large causal KL but removes no induction is OPEN BUT NOT USED BY THIS ALGORITHM; a route whose deletion removes a large fraction of the induction score is one the algorithm runs on.  Both are reported because the distinction is exactly the one FINDING 11 sec 2 had to make."
+}
