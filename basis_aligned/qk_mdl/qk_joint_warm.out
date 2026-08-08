@@ -1,8 +1,0 @@
-Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-/workspace/tensor_language/basis_aligned/qk_mdl/qk_joint_warm.py:203: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
-Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:838.)
-  ema_m3 = 0.99 * ema_m3 + 0.01 * float(mm3)
-h2: stage r2 0.7258 mres 0.0004 cp 0.0313 | warm-joint r2 0.7257 mres 0.0071 cp 0.0301 (t177: 0.4517) | drift-cos 0.974 U0-transfer 0.0583 B-transfer 0.0582
-h8: stage r2 0.7817 mres 0.0094 cp 0.1210 | warm-joint r2 0.7823 mres 0.0120 cp 0.1010 (t177: 0.5397) | drift-cos 0.998 U0-transfer 0.1254 B-transfer 0.1254
-h1: stage r2 0.6380 mres 0.0395 cp 0.1884 | warm-joint r2 0.6384 mres 0.0389 cp 0.1461 (t177: 0.6477) | drift-cos 0.996 U0-transfer 0.1827 B-transfer 0.1820
-JOINT WARM DONE

@@ -50,3 +50,9 @@ basis_aligned/tiny_full_interp/*.out
 basis_aligned/tiny_full_interp/*.log
 basis_aligned/tiny_full_interp/*.stdout
 basis_aligned/tiny_full_interp/tf_corpus_*/*.npy
+
+# live run logs: committing these swaps the inode under a running
+# process and detaches its stdout (hit twice on 2026-08-08)
+basis_aligned/qk_mdl/*.out
+basis_aligned/qk_mdl/*.rescued
+basis_aligned/tiny_full_interp/*.out

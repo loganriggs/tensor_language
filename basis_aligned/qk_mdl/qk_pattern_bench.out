@@ -1,8 +1,0 @@
-Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
---- 1. materialization: full P is V^2 = 2,530,492,416 floats = 10.1 GB fp32 per head (91 GB all heads); S1+S2+P resident would be 30 GB -> streaming mandatory on 16 GB
---- 2. full-table forward (1 head, chunk 4096): 0.2 s (x9 heads = 2 s); ||P||_F^2 = 2.749e+05
---- 3. ONE naive full-table training step (fwd+bwd, chunk 2048, 25 chunks): 1.0 s -> 1500 steps x 9 heads = 3.8 h
---- 4. Khatri-Rao Gram (d^2 = 16384, 1.1 GB each): one Gram 0.9 s; exact full-table weighted Frobenius = 6 Grams + traces ~ 6 s/eval; a 50-step Gram-exact polish x 9 heads ~ 2.1 h (x3 for backward)
-    sanity: tr(Ga Gb) computed in 0.02 s extra
---- 5. current sampled step (M=1024, fwd+bwd): 2 ms -> 1500 x 9 = 0.3 min. Coverage per step: 0.041% of pairs (importance-sampled by frequency in the real loss)
-BENCH DONE

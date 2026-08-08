@@ -1,4 +1,0 @@
-  File "/workspace/tensor_language/basis_aligned/qk_mdl/qk_lin_plus_bilin2.py", line 61
-    logits = 30 * torch.tanh(m.lm_head(F.rms_norm(x, (D,))) / 30)
-                                                                 ^
-IndentationError: unindent does not match any outer indentation level

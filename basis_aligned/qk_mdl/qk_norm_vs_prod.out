@@ -1,9 +1,0 @@
-Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-fitting block-0 linear cap + mean ...
-GATE floor CE 4.7287  lincap CE 3.5741  (block-0 effect = 1.1545 nats)
-=== TEST 1: freeze denominator (norm) ===
-  recovery with real norms      +1.1545
-  recovery with FROZEN norms    +nan  -> norm channel carries nan%
-=== TEST 2: first-order response ===
-  recovery first-order (linear) -11.6989  -> nonlinear channel carries 1113.3%
-SAVED
