@@ -34,6 +34,24 @@ VARIANTS = ['vanilla', 'slots', 'bandwidth', 'predicate', 'codebook', 'shrink']
 T_CRIT_2DF = 3.182
 
 
+REQUIRED = ('rung3_induction', 'induction_power', 'train', 'params',
+            'read_ablation_causal', 'stream_geometry', 'natural_induction')
+
+
+def complete(d):
+    """Guard against the programme's own standing failure mode: an interp3 JSON
+    that is being written while this script reads it looks like a cell."""
+    return isinstance(d, dict) and all(k in d for k in REQUIRED)
+
+
+def load_complete(path):
+    try:
+        d = json.load(open(path))
+    except Exception:
+        return None
+    return d if complete(d) else None
+
+
 def cells(depth=3, width=128, suffix=''):
     out = {}
     for var in VARIANTS:
@@ -42,8 +60,9 @@ def cells(depth=3, width=128, suffix=''):
                 f'{HERE}/tf_{var}_d{depth}_w{width}_b8192_s*{suffix}'
                 f'_interp3.json')):
             m = re.search(r'_s(\d+)' + re.escape(suffix) + r'_interp3\.json$', f)
-            if m:
-                by[int(m.group(1))] = json.load(open(f))
+            d = load_complete(f) if m else None
+            if d is not None:
+                by[int(m.group(1))] = d
         if by:
             out[var] = by
     return out
@@ -54,6 +73,14 @@ def ms(v):
     return {'mean': float(np.mean(v)),
             'sd': float(np.std(v, ddof=1)) if len(v) > 1 else 0.0,
             'per_seed': v, 'n': len(v)}
+
+
+def _welch(a, b):
+    a, b = np.asarray(a, float), np.asarray(b, float)
+    if len(a) < 2 or len(b) < 2:
+        return None
+    va, vb = a.var(ddof=1) / len(a), b.var(ddof=1) / len(b)
+    return float((a.mean() - b.mean()) / math.sqrt(va + vb)) if va + vb else None
 
 
 def ind(by):
@@ -186,8 +213,9 @@ def o2_parameters(C):
         for f in sorted(glob.glob(
                 f'{HERE}/tf_vanilla_d3_w{w}_b8192_s*_interp3.json')):
             m = re.search(r'_s(\d+)_interp3\.json$', f)
-            if m:
-                by[int(m.group(1))] = json.load(open(f))
+            d = load_complete(f) if m else None
+            if d is not None:
+                by[int(m.group(1))] = d
         if by:
             d0 = by[sorted(by)[0]]
             matched[f'vanilla_d3_w{w}'] = {
@@ -209,7 +237,17 @@ def o2_parameters(C):
                 'induction_ratio_to_matched_plain':
                     rows[v]['induction']['mean'] / mc['induction']['mean'],
                 'induction_ratio_to_w128_plain':
-                    rows[v]['induction']['mean'] / rows['vanilla']['induction']['mean']}
+                    rows[v]['induction']['mean'] / rows['vanilla']['induction']['mean'],
+                'induction_welch_t_vs_matched_plain': _welch(
+                    rows[v]['induction']['per_seed'],
+                    mc['induction']['per_seed']),
+                'held_ce_welch_t_vs_matched_plain': _welch(
+                    rows[v]['held_ce']['per_seed'], mc['held_ce']['per_seed']),
+                'separated_at_95_over_model_seeds': bool(
+                    (_welch(rows[v]['induction']['per_seed'],
+                            mc['induction']['per_seed']) or 0)
+                    and abs(_welch(rows[v]['induction']['per_seed'],
+                                   mc['induction']['per_seed'])) > 4.303)}
     return out
 
 
@@ -403,6 +441,45 @@ def o4_fragile_claims(C):
     return {'per_variant': rows, 'fragility_flags': flags}
 
 
+# ==================================================================== O4b
+def o4b_second_probe(C):
+    """Does the verdict rest on ONE probe?
+
+    The slice decides everything on the synthetic induction battery.  Each cell
+    also carries a completely different measurement of the same capability on
+    NATURAL text: `natural_induction.ORDER_ONLY_patch_swap`, which permutes the
+    prefix so the token multiset is preserved exactly and only the adjacency
+    induction reads is destroyed.  The registered rule is re-run on it."""
+    nat = {v: ms([C[v][s]['natural_induction']['ORDER_ONLY_patch_swap']['mean']
+                  for s in sorted(C[v])]) for v in VARIANTS}
+    syn = {v: ms(ind(C[v])) for v in VARIANTS}
+    base = nat['vanilla']['mean']
+    ratios = {v: nat[v]['mean'] / base for v in VARIANTS if v != 'vanilla'}
+
+    def call(rs, hi):
+        na = sum(r > hi for r in rs.values())
+        nb = sum(r < 1.0 / hi for r in rs.values())
+        return ('PERSISTS' if na >= 3 else
+                ('INVERTS' if nb >= 3 else 'ACCELERANT')), na, nb
+    out = {'natural_text_order_only_swap': nat,
+           'synthetic_battery': {v: {'mean': syn[v]['mean'], 'sd': syn[v]['sd']}
+                                 for v in VARIANTS},
+           'natural_ratio_to_plain': ratios,
+           'verdict_on_the_natural_probe': {
+               f'{hi}x': call(ratios, hi)[0] for hi in (1.5, 2.0, 3.0)},
+           'rank_agreement': {
+               'synthetic_order': [v for v in sorted(
+                   VARIANTS, key=lambda k: -syn[k]['mean'])],
+               'natural_order': [v for v in sorted(
+                   VARIANTS, key=lambda k: -nat[k]['mean'])]}}
+    a = np.array([syn[v]['mean'] for v in VARIANTS])
+    b = np.array([nat[v]['mean'] for v in VARIANTS])
+    out['pearson_r_across_the_six_arms'] = float(np.corrcoef(a, b)[0, 1])
+    out['spearman_across_the_six_arms'] = float(np.corrcoef(
+        np.argsort(np.argsort(a)), np.argsort(np.argsort(b)))[0, 1])
+    return out
+
+
 # ===================================================================== O5
 def o5_headline_reproducibility(C):
     """The mailbox / commit headline quotes a held-CE column. Does it match the
@@ -580,6 +657,7 @@ def main():
            'O3_named_attention_installed_or_learned': o3_named_terms(
                C, do_ce=not a.no_gpu),
            'O4_fragile_claims': o4_fragile_claims(C),
+           'O4b_second_probe': o4b_second_probe(C),
            'O5_headline_reproducibility': o5_headline_reproducibility(C),
            'O6_ablation_method_dependence': o6_ablation_method(C),
            'O7_norm_share_regression_on_variants':

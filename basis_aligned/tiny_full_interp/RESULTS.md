@@ -129,6 +129,216 @@ conventional model's favour is a **lower bound on the foldability tax**.
 
 ---
 
+## 2026-08-08 — FINDING 17 (THE DEPTH-3 VARIANT SLICE: ITS SLOT-GEOMETRY CONTROLS AND ITS INDEPENDENT REVIEW): the pre-registered **ACCELERANT** verdict SURVIVES every attack — bar, seeds, probe, slot geometry and parameter matching — but three of the sentences it was published in do not; the forced 8-slot geometry is worth a third to four fifths of the induction score at identical parameters, so "private write channels is now BELOW the plain model" is **RETRACTED**; and named attention terms, the one exception, is shown to **INSTALL** its capability — 24 scalars carry 98% of its induction and *all* of its loss advantage
+
+Files: geometry controls `tf_geom_control_chain.sh` / `tf_geom_control_report.py`
+→ `tf_geom_controls.json` / `tf_geom_controls.md`; independent review
+`tf_reviewer_r5.py` → `tf_reviewer_r5_measurements.json` and
+`tf_reviewer_round_5_build.py` → **`tf_reviewer_round_5.json`** (objection /
+measurement / verdict / fix); parameter-matched control `tf_r5_param_chain.sh`;
+the slice itself is `tf_d3_variant_slice.json` / `tf_d3_variant_table.md` against
+`tf_d3_variant_predictions.json`. Twenty-one new cells, all three seeds.
+
+> **Read this before citing the 2026-08-08 20:50 mailbox entry or its commit.**
+> Three numbers in it are corrected below and one sub-claim is withdrawn.
+
+### 1. The slot-geometry confound is REAL, and it is large
+
+The depth-3 slice had to run the two masked-decoder arms (`slots`, `shrink`) at
+**8 slots of 16** rather than depth 2's **4 of 32**, because a masked decoder
+needs one slot per module — `n_slots = 2·depth = 6` at depth 3 — and 128 is not
+divisible by 6. Those are also the two arms that looked worst at depth 3. Two
+controls were trained for exactly this and had never been read out. Both are now
+at three model seeds, through the same instruments as the slice.
+
+**Control A — the same geometry change at the already-published depth-2 cell.**
+Same depth, same width, same parameter count, identical optimizer, data order and
+group-lasso coefficient; only `n_slots` and `slot` move.
+
+| arm | geometry | held CE | induction (3 seeds) | ratio to 4×32 |
+|---|---|---|---|---|
+| `slots` d2 w128 | 4×32 | 4.7414 ± 0.0056 | +0.0972 ± 0.0275 | — |
+| `slots` d2 w128 | **8×16** | **4.8904 ± 0.0075** | **+0.0200 ± 0.0191** | **0.206** |
+| `shrink` d2 w128 | 4×32 | 4.7243 ± 0.0100 | +0.0860 ± 0.0303 | — |
+| `shrink` d2 w128 | **8×16** | **4.8354 ± 0.0060** | **+0.0291 ± 0.0025** | **0.338** |
+
+The geometry alone costs **0.149 nats** of held CE and **79%** of the induction
+score for private write channels, **0.111 nats** and **66%** for shrinking
+channel. At 8×16 the private-channels arm no longer passes its own model-seed
+test (t = 1.81 against 3.18 needed), i.e. the geometry change is enough to turn
+a detection into a null. *Limitation:* the induction deltas are Welch
+t = −3.99 and −3.25 against the 4.303 needed at 2 df — they do not separate at
+95% with three seeds, though both CE deltas do, and control B2 below does.
+
+**Control B — depth 3 at width 192, where 6 × 32 is exact.**
+
+| arm | geometry | held CE | induction | ratio to plain at the same width |
+|---|---|---|---|---|
+| plain d3 w192 | 1×192 | 4.3286 ± 0.0033 | +0.1911 ± 0.0175 | 1.00 |
+| `slots` d3 w192 | 6×32 | 4.4311 ± 0.0086 | +0.3206 ± 0.0424 | **1.68** |
+| `shrink` d3 w192 | 6×32 | 4.4098 ± 0.0169 | +0.3557 ± 0.0966 | **1.86** |
+| `slots` d3 w192 | 8×24 | 4.4927 ± 0.0037 | +0.2050 ± 0.0149 | 1.07 |
+
+**Control B2 is the clean isolation** and it was not in the original plan: at
+*fixed* width 192, *fixed* depth and *identical* parameter counts, 8 slots of 24
+against 6 slots of 32 costs **36% of the induction score** (0.2050 ± 0.0149 vs
+0.3206 ± 0.0424, Welch t = −4.45, which *does* clear 4.303) and **0.062 nats** of
+held CE (t = 11.35). Slot geometry is load-bearing in its own right, at matched
+size.
+
+**What this does and does not change.** The verdict WORD survives: re-running the
+registered rule with the two masked arms read at the geometry they were designed
+for (width 192, three seeds, against the plain model at the same width) still
+returns **ACCELERANT** — predicate 25.42×, bandwidth 2.41×, shrink 1.86×, slots
+1.68×, codebook 1.37×; two above the 2× bar, none below 0.5×. *(That
+recomputation mixes two widths and is indicative only; it is not the registered
+rule.)* What is **RETRACTED** is the sub-claim published with it: *"private write
+channels — the arm that opened the route at depth 2 — is now BELOW the plain
+model on induction (0.76×)"*. At its own geometry it is **1.68× the plain model,
+above it, not below**; shrinking channel goes from 1.06× to 1.86×; and roughly
+half of the 0.216-nat CE gap (0.103 nats at width 192) is geometry too. The two
+masked-decoder arms' depth-3 width-128 rows are not a measurement of those
+architectures and are relabelled "8×16 forced geometry" everywhere.
+
+### 2. Independent review, round 5 — eight objections, all closed
+
+`tf_reviewer_round_5.json`. The reviewer did not produce the slice; every
+objection is answered with a number computed from the checkpoints.
+
+**O1, the decision rule.** The 2.0×/0.5× bar was registered in advance, which is
+right, but a registered arbitrary number is still arbitrary. Swept: ACCELERANT at
+**1.5×, 2.0×, 2.5×, 3.0× and 5.0×**, under **all three** leave-one-model-seed-out
+subsets, and in **100% of the complete 729-combination enumeration** of one seed
+per arm at 2.0× and 3.0×. It flips to PERSISTS only at a bar of 1.25×. The word
+is safe. The **count is not**: bandwidth-limited writes sit at 2.413 ± 0.230
+(delta method), only 1.80 standard errors above the bar, 95% interval
+[1.96, 2.86].
+
+**O2, parameters and compute.** Three of six arms carry 17–18% more parameters
+(2.269–2.281M against 1.934M) and *both* arms that clear the bar are in that
+group. The excess is entirely **embedding** — the small-decoder arms widen the
+stream to 168 — while bodies stay within 2%. Compute is also unmatched: the named
+attention arm trains 951 s against the plain model's 409 s. Depth 2 had the
+embedding-pinned `_slot32` control; depth 3 shipped with none. **Closed by a new
+control**: plain, depth 3, **width 144, 2,299,824 parameters — more than any
+variant** — three seeds, CE 4.4703 ± 0.0056, induction +0.1448 ± 0.0462. Against
+it, named attention terms still win outright (19.05×, t = 42.7; CE −0.156), but
+**bandwidth-limited writes fall off the bar to 1.81× (t = 3.73, not separated)
+and are 0.060 nats WORSE on CE**, and codebook is 1.03× (t = 0.16) and 0.179
+worse. At matched parameters **exactly one of five beats the plain model at all**.
+
+**O3, is the 25.4× handed over?** Yes, and more completely than at depth 2 — see
+§3.
+
+**O4, fragility.** Three of the five variants are **not separated** from the
+plain model on induction over model seeds (Welch t = −2.03, 3.66, 0.44 against
+4.303 needed): the published phrase *"three of five are within 40%"* becomes
+*"three of five are indistinguishable from it"*, which strengthens the verdict.
+Seven route-USE fractions have a between-seed sd at or above their mean and are
+struck from the write-up.
+
+**O4b, one probe.** The slice decided everything on the synthetic induction
+battery. Re-run on the completely different natural-text order-only prefix swap:
+same verdict at every bar, the two probes agree across the six arms at Pearson
+**r = 0.9996** (Spearman 0.943), same top three in the same order — but the
+ratios compress (predicate 25.4× → **8.02×**, bandwidth 2.41× → **1.47×**), so
+only one arm clears 2×. With O1 and O2 this is three independent reasons the
+sentence "two of five clear the bar" must not be used.
+
+**O5, the headline CE column.** The mailbox/commit column is
+`rung5_ladder._model_ce` — held split, **24,576 tokens at context 256** — while
+the slice table is `final_held_ce`, the **full held evaluation at context 512**.
+Both are real; they were mixed without labels (the offsets are not constant,
+−0.0101 to −0.0945, so it is not a rescaling). **Correction: on the primary
+instrument the named-attention arm beats the plain model by 0.2130 nats, not
+0.1435.** Direction survives, margin is larger, the published number is wrong.
+
+**O6, zeroing versus resampling.** At depth 3, zeroing is the harsher ablation at
+11 of the 12 (write, read) pairs checked — the *opposite* of the depth-ladder
+record — and the gap is largest exactly for the private-slot arms: bandwidth's
+layer-0 route is 0.801 nats zeroed and 0.087 resampled, a factor of **9.2**,
+against the plain model's own 1.99 (the quadratic expectation). Zeroing a private
+slot hands the per-slot RMSNorm a zero vector. PD3 survives on the resample
+number (4 of 5 at or above 0.05 nats, same call) with magnitudes 1.0–9.2× smaller.
+
+**O7, the round-4 rule was exported without its control — and the control
+changes it.** Round 4 established on 243 plain-model pairs that a read-ablation
+KL is quadratic in the write's norm share (slope 1.992, r = 0.9944) and said in
+writing that the regression **must be re-derived on variant checkpoints** before
+being applied to them; the depth-3 handoff called that the first analysis to run.
+It was never run. Run now:
+
+| arm | own slope | own r | residual sd |
+|---|---|---|---|
+| plain (positive control) | **2.004** | **0.9971** | 0.202 dex |
+| private write channels | −0.363 | −0.66 | 0.256 |
+| bandwidth-limited writes | −0.158 | −0.48 | 0.253 |
+| named attention terms | −0.181 | −0.68 | 0.198 |
+| codebook | −0.401 | −0.88 | 0.186 |
+| shrinking channel | +0.614 | +0.27 | 0.446 |
+
+The positive control reproduces round 4 to 0.01 in slope. The law then **fails on
+every variant** — four of five slopes are negative. **The quadratic magnitude law
+is a property of a SHARED residual stream, not of these models in general, and
+quoting it over variant route numbers was unlicensed.** What survives for PD3 is
+narrower and still enough: each variant's layer-0 attention pairs sit within
+0.01–0.39 dex of the *plain model's* line, against that line's own 0.264 dex
+scatter — so the *size* of their layer-0 route is exactly what the plain law
+predicts from the size of their layer-0 write, and PD3 remains a magnitude
+statement. *Limitation:* the norm-share denominator for a partitioned stream is
+not the same object (each slot is normed separately), so the failed within-variant
+fit is evidence the plain law does not transfer, not evidence of gating.
+
+### 3. Named attention terms INSTALL the capability — a different kind of claim
+
+This arm is the whole exception to the accelerant verdict (25.4× the plain
+model's induction and the only arm beating it on loss). At depth 2 the analysis
+concluded the capability was handed over rather than learned. Re-run at depth 3,
+three seeds, zeroing named parameters in place and restoring them (restore gate
+passes at all three seeds):
+
+| arm | induction | held CE |
+|---|---|---|
+| all named terms on | +2.7578 ± 0.0954 | 4.3147 |
+| zero the previous-token match (1 scalar/head/layer, 24 total) | **+0.0570 ± 0.0058** | **4.5530** |
+| zero every named term | **−0.0028 ± 0.0115** | 6.3529 |
+| *plain model at the same cell* | *+0.1085 ± 0.0133* | *4.5276* |
+
+`MATCH_prev[i,j] = 1[tok_{j-1} == tok_i]` **is an induction head written down**,
+handed over as one scalar per head. Zeroing it removes **98.0%** of the score at
+all three seeds. Zeroing every named term leaves the score **below zero at two of
+three seeds**, below its own probe floor, and **0.111 nats below the plain model
+at the same cell** — the network these terms are installed in learned *less*
+induction than the plain model did. No single layer-0 head carries it (each
+removes 0.4–4%); the term is consumed at layers 1 and 2 (48% / 47%). And the loss
+win is the *same object*: held CE goes from 4.3147 to **4.5530** when that one
+scalar is zeroed, i.e. **past the plain model's 4.5276**. The 0.21-nat CE win and
+the 25× induction win are not two wins.
+
+So this arm does not *accelerate* a capability, it **INSTALLS** one, and every
+statement about it must say so. It is a demonstration that a hand-written term
+can be installed and will be used — not evidence that a training bias discovers
+anything. *Limitation:* this is an inference-time knockout of a trained model; it
+bounds how much of *this* model's behaviour the named terms carry, not what the
+architecture would reach if retrained without them.
+
+### 4. What stands
+
+The pre-registered verdict word **ACCELERANT** stands, and is now known to be
+stable against the bar (1.5×–5.0×), the seeds (every leave-one-out subset and
+100% of 729 single-seed combinations at 2.0×), the probe (natural-text swap,
+r = 0.9996), the slot geometry (masked arms at 6×32 still do not reach 2×), and
+parameter matching — which *removes* one of the two arms that appeared to clear
+the bar. Stated as it should have been the first time:
+
+> At depth 2 these architectures gained a capability the plain model lacked
+> entirely. At depth 3 the plain model has it, three of the five are
+> statistically indistinguishable from it, and **at matched parameters exactly
+> one of five beats it — the one that is handed the algorithm as 24 numbers**.
+> What the architectures bought was earlier arrival, not a different ceiling.
+
+---
+
 ## 2026-08-08 — FINDING 16 (THE DEPTH LADDER AT THREE SEEDS, AND ITS FIRST INDEPENDENT REVIEW): the route half of FINDING 14 is **RETRACTED as a routing claim and restated as a magnitude one** — across all 243 write/read pairs in the ladder the read-ablation KL is a quadratic function of how big the write is (slope 1.99, r = 0.994, residual 0.26 dex), so nothing in this model gates a direction; and the induction "width threshold" turns out to be **a property of the detection criterion, not of the model** (three defensible criteria give 256/128/64, 256/64/64 and 256/128/128)
 
 Files: `tf_route_seeds.py` → `tf_route_seeds.json` / `tf_route_seeds_table.md`

@@ -1,0 +1,51 @@
+=== C2 parameter identity ===
+  C2 pass=True
+=== C3 naive-reference forward (fp64) ===
+/workspace/tensor_language/basis_aligned/tiny_full_interp/tf_baseline_std.py:502: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:838.)
+  rel = float((a - b).abs().max() / a.abs().max())
+  C3 rel=4.290e-16 pass=True
+=== C5 causality ===
+  C5 diff=0.0 pass=True
+=== C6 data identity ===
+  C6 sha=f0fbfff1d59b1cd3...
+=== C1 training-loop equivalence (60 steps, foldable cfg) ===
+  C1_reference step 0/60 ce 9.0193 (ema 9.0193) 0s
+  held100 CE 9.0156 at step 7
+  held100 CE 9.0097 at step 14
+  held100 CE 8.9996 at step 21
+  held100 CE 8.9836 at step 28
+  held100 CE 8.9588 at step 35
+  held100 CE 8.9199 at step 42
+  held100 CE 8.8588 at step 49
+  held100 CE 8.7675 at step 56
+== C1_reference FINAL held CE 8.73606 (1s, 0 spikes, 2108 MiB)
+  C1_reference_repeat step 0/60 ce 9.0193 (ema 9.0193) 0s
+  held100 CE 9.0156 at step 7
+  held100 CE 9.0097 at step 14
+  held100 CE 8.9996 at step 21
+  held100 CE 8.9836 at step 28
+  held100 CE 8.9588 at step 35
+  held100 CE 8.9199 at step 42
+  held100 CE 8.8588 at step 49
+  held100 CE 8.7675 at step 56
+== C1_reference_repeat FINAL held CE 8.73606 (1s, 0 spikes, 2110 MiB)
+  C1_transcription step 0/60 ce 9.0193 (ema 9.0193) 0s
+  held100 CE 9.0156 at step 7
+  held100 CE 9.0097 at step 14
+  held100 CE 8.9996 at step 21
+  held100 CE 8.9836 at step 28
+  held100 CE 8.9588 at step 35
+  held100 CE 8.9199 at step 42
+  held100 CE 8.8588 at step 49
+  held100 CE 8.7675 at step 56
+== C1_transcription FINAL held CE 8.73606 (1s, 0 spikes, 2110 MiB)
+  C1 diff=0.000e+00 self-noise=0.000e+00 pass=True
+=== C7 family reproduction (is the stored family CE stale?) ===
+  C7_repro step 0/15000 ce 9.0223 (ema 9.0223) 0s
+  held100 CE 5.2901 at step 1875
+  held100 CE 5.2101 at step 3750
+  held100 CE 5.1484 at step 5625
+  held100 CE 5.1217 at step 7500
+  held100 CE 5.0964 at step 9375
+  held100 CE 5.0693 at step 11250

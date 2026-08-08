@@ -85,6 +85,83 @@ tf_baseline_std.json.
 
 ---
 
+**2026-08-08 23:20 UTC — THE GEOMETRY CONTROLS ARE READ OUT AND THE DEPTH-3
+SLICE HAS BEEN THROUGH INDEPENDENT REVIEW (round 5, eight objections). THE
+ACCELERANT VERDICT SURVIVES EVERY ATTACK. Three sentences it was published in
+do not — corrections below, and the 20:50 entry should be read only with them.**
+
+**TASK 1 — the slot-geometry confound is real and large, and it changes one
+sub-claim.** Both controls are now at THREE model seeds (the earlier width-192
+pair was one seed), plus a control B2 that was not in the original plan.
+* CONTROL A, the same n_slots change at the published depth-2 cell — identical
+  depth, width, parameters, optimizer, data order: private write channels go
+  from +0.0972 ± 0.0275 induction at 4×32 to **+0.0200 ± 0.0191 at 8×16** and
+  pay **0.149 nats** of held CE; shrinking channel +0.0860 → **+0.0291**, cost
+  **0.111 nats**. At 8×16 the private-channels arm no longer passes its own
+  model-seed test at all.
+* CONTROL B, depth 3 at width 192 where 6×32 is exact: plain +0.1911 ± 0.0175,
+  slots **+0.3206 ± 0.0424 (1.68× plain)**, shrink **+0.3557 ± 0.0966 (1.86×)**.
+* CONTROL B2, the clean isolation — 8×24 against 6×32 at FIXED width 192,
+  identical parameters: **0.2050 ± 0.0149 vs 0.3206 ± 0.0424, Welch t −4.45,
+  and 0.062 nats of CE (t 11.35)**. Slot geometry is load-bearing at matched
+  size.
+**VERDICT WORD UNCHANGED** — re-running the registered rule with the masked arms
+at their own 6×32 geometry still returns ACCELERANT (predicate 25.42×, bandwidth
+2.41×, shrink 1.86×, slots 1.68×, codebook 1.37×; that recomputation mixes two
+widths and is indicative only). **RETRACTED**: "private write channels is now
+BELOW the plain model (0.76×)" — at its own geometry it is **1.68×, above it**,
+and about half its CE gap is geometry too.
+
+**TASK 2 — independent review, `tf_reviewer_round_5.json`.**
+* THE RULE IS NOT THE PROBLEM. ACCELERANT at bars 1.5/2.0/2.5/3.0/5.0×, under
+  all three leave-one-model-seed-out subsets, and in **100% of the complete
+  729-combination enumeration** of one seed per arm at 2.0× and 3.0×. It flips
+  only at 1.25×.
+* **THE COUNT IS.** "Two of five clear the 2× bar" is withdrawn three times
+  over: bandwidth sits at 2.413 ± 0.230 with a 95% interval [1.96, 2.86] that
+  straddles the bar; on a second, completely different probe (natural-text
+  order-only swap) it falls to **1.47×**; and against a parameter-matched plain
+  model it falls to **1.81× and is 0.060 nats WORSE on CE**.
+* **PARAMETERS WERE NOT MATCHED and it mattered.** Three arms carried 17-18%
+  more parameters, all of it embedding, and both arms clearing the bar were in
+  that group. New control: plain, depth 3, **width 144, 2,299,824 parameters —
+  more than any variant**, three seeds, CE 4.4703 ± 0.0056, induction +0.1448 ±
+  0.0462. **At matched parameters exactly ONE of five beats the plain model.**
+* **NAMED ATTENTION TERMS INSTALL THE CAPABILITY.** Zeroing the previous-token
+  match (one scalar per head per layer, 24 numbers) removes **98.0%** of the
+  induction at all three seeds; zeroing every named term leaves **−0.0028 ±
+  0.0115**, below zero at two of three seeds and **0.111 nats BELOW the plain
+  model at the same cell**. And the loss win is the same object: held CE goes
+  **4.3147 → 4.5530**, past the plain model's 4.5276. It is a different KIND of
+  claim from the other four.
+* **THE HEADLINE CE COLUMN WAS THE WRONG FIELD.** The 20:50 numbers are
+  `rung5_ladder._model_ce` (context 256, 24,576 tokens); the slice table is
+  `final_held_ce` (context 512, full held split). **The named-attention CE win
+  is −0.2130 nats, not −0.1435** — direction survives, margin is larger, the
+  published number is wrong.
+* **THE ROUND-4 MAGNITUDE LAW DOES NOT TRANSFER,** and its control had never
+  been run despite round 4 saying in writing that it must be. Refit on the plain
+  depth-3 cells it reproduces exactly (slope 2.004, r 0.9971 vs 1.992/0.9944);
+  fitted on each variant's own pairs the slope is **negative for four of five**.
+  The quadratic law is a property of a SHARED stream. What survives for PD3: the
+  variants' layer-0 pairs sit within 0.01-0.39 dex of the PLAIN line (own
+  scatter 0.264), so it stays a magnitude statement.
+* Also: three of five variants are NOT separated from the plain model over model
+  seeds (t −2.03 / 3.66 / 0.44 against 4.30) — "within 40%" becomes
+  "indistinguishable"; seven route-USE fractions have sd ≥ mean and are struck;
+  and zeroing is harsher than resampling at 11 of 12 pairs here (up to 9.2× for
+  bandwidth), the opposite of the ladder record.
+
+**HOW IT SHOULD HAVE BEEN SAID:** at depth 2 these architectures gained a
+capability the plain model lacked entirely; at depth 3 the plain model has it,
+three of five are statistically indistinguishable from it, and at matched
+parameters exactly one of five beats it — the one that is handed the algorithm
+as 24 numbers. Earlier arrival, not a different ceiling.
+
+21 new cells, all three seeds. RESULTS FINDING 17; GRID Phase V4 closed.
+
+---
+
 **2026-08-08 20:50 UTC — DEPTH-3 VARIANT SLICE COMPLETE (6 architectures x
 3 seeds + geometry controls). Pre-registered verdict: (a) THE
 ARCHITECTURES ARE AN ACCELERANT, not an addition — with one exception that

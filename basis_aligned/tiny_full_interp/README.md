@@ -449,6 +449,27 @@ basis tried, and here are the bits" is a real deliverable.
   retracted for a methodological reason, the retraction travels with the
   METHOD, not with the cell it was measured in — re-running the same analysis
   elsewhere requires re-running the control that killed it.
+- **Two evaluations of "the same" quantity, quoted without labels (added
+  2026-08-08, round 5).** The depth-3 slice's headline CE column was
+  `rung5_ladder._model_ce` (held split, 24,576 tokens at context 256) while its
+  own table was `final_held_ce` (full held split at context 512). Both are real
+  and they differ by 0.01-0.09 nats *unequally across arms*, so the published
+  margin was wrong by 33%. Every CE number must carry its split, its context
+  length and its token count.
+- **A pre-registered bar is not a measurement (added 2026-08-08, round 5).**
+  Registering "ratio > 2.0" in advance is right and does not make which side of
+  2.0 a point estimate falls on into a fact. Quote the ratio's confidence
+  interval beside the bar: an arm at 2.41 ± 0.23 "clears the bar" and also
+  straddles it, and it fell to 1.47x on a second probe and 1.81x against a
+  parameter-matched control.
+- **A rule whose scope control was deferred and then never run (added
+  2026-08-08, round 5).** Round 4 established the read-ablation-KL magnitude
+  law on plain models and said in writing that it must be re-derived on variant
+  checkpoints before being applied to them; the handoff called that the first
+  analysis to run; the next slice quoted the rule over variant numbers without
+  it. When it was finally run the law reproduced exactly on plain cells
+  (slope 2.004 vs 1.992) and FAILED on every variant (four of five slopes
+  negative). A deferred control is an open retraction, not a footnote.
 - **A floor defined over probe seeds is not a detection threshold.** It
   shrinks as 1/sqrt(n), so any nonzero score clears it if the probe is run
   longer. Thresholds must be defined over MODEL seeds. Three defensible

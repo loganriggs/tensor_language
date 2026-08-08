@@ -1,0 +1,372 @@
+{
+  "registered_predictions": {
+    "task": "SAME-SIZE CONVENTIONAL BASELINE (softmax attention + GELU feed-forward) against the no-softmax bilinear family, at depths 1/2/3 and widths 64/128/256, three model seeds where time allows and never fewer than two.",
+    "written_before_training": true,
+    "written_at_utc": "2026-08-08T23:05Z",
+    "why": "Every number this programme has produced is relative to another FOLDABLE model. GRID.md has listed a same-size softmax+GELU baseline as unclaimed since the programme started, and STANDALONE_RESULTS.md section 8 lists it as open question 1. The reviewer's first question -- how much prediction quality did the exact fold cost? -- has never been answered.",
+    "what_is_held_fixed": [
+      "tokenizer and corpus: trained byte-level BPE V=8192, tf_corpus_b8192/, zero UNK",
+      "fresh single-epoch protocol: 15000 steps x batch 16 x T=512 = the entire 240,000-row train split, each sequence visited exactly once, data order epoch_order(0) @ DATA_SEED 1234 -- BIT-IDENTICAL token stream to every foldable cell",
+      "held evaluation: held split rows [0:1500] at T=512, the same eval_held() function",
+      "optimiser family: Muon (nesterov 0.95, 5-step Newton-Schulz, sqrt(max/min) scaling) on the 2D hidden matrices, AdamW lr 4e-3 wd 0.1 on the tied embedding; warmup 250, cosine decay, grad clip 1.0",
+      "Muon learning rate 0.02 -- the SAME value every foldable cell used",
+      "head dimension 16 (so heads = width/16), rotary position embedding from the same rope tables, per-head RMSNorm on queries and keys, tied embedding, global RMSNorm at the stream start and at the readout, logit soft cap 30*tanh(./30), embedding init std 0.02",
+      "induction probe: tf_interp.induction_battery / tf_interp.induction_sensitivity / tf_interp2.natural_induction called VERBATIM through a shim, with a positive control that the shim reproduces a published foldable-cell number"
+    ],
+    "the_only_intended_differences": [
+      "attention pattern: softmax(q.k/sqrt(head_dim)) over the causal mask, ONE query/key branch -- versus the family's (q1.k1/hd)*(q2.k2/hd) with no softmax and TWO branches",
+      "feed-forward: Down(GELU(Up(x))) -- versus the family's bilinear Down(Left(x) * Right(x))"
+    ],
+    "unavoidable_differences_documented_not_hidden": {
+      "parameter_count": "per block the family costs 18*W^2 + W (five W x W attention reads q,k,q2,k2,v + one W x W output projection + three W x 4W feed-forward matrices + a W bias) while a conventional block at the conventional 4x expansion costs 12*W^2 + W (four W x W attention matrices + two W x 4W feed-forward matrices + a W bias). The conventional model is therefore the SMALLER one at nominal expansion. Setting the conventional expansion to 7x makes the body EXACTLY 18*W^2 + W, so the MATCHED arm has bit-identical total parameter counts at every cell (the embedding V x W is shared). BOTH arms are run and reported.",
+      "gelu_not_swiglu": "GELU is chosen over SwiGLU deliberately. SwiGLU is a GATED bilinear form -- Down(SiLU(Ax) * Bx) -- i.e. the family's bilinear feed-forward with one branch passed through a nonlinearity. Using it would make the feed-forward difference nearly vacuous and would leave softmax as the only real contrast, which is not what GRID.md asks for. GELU is also what a reviewer means by 'a conventional transformer'.",
+      "qk_norm_kept": "Per-head RMSNorm on queries and keys is retained in the conventional model, because it is shared with the family and removing it would add a third difference. It is also standard in current models (Gemma-2, Chameleon, ViT-22B). It is PRICED by a no-QK-norm control arm at depth 2 width 128, three seeds.",
+      "score_scale": "the conventional model divides q.k by sqrt(head_dim) (the conventional temperature) while the family divides by head_dim. With softmax the divisor is a temperature and the conventional choice is the right one; without softmax it is an overall gain absorbed by the output projection.",
+      "learning_rate": "0.02 is the value every foldable cell used and the value the foldable family's own sweeps chose. It was NOT tuned for the conventional model. This is the single largest fairness risk and it is priced: full-length lr 0.01 / 0.02 / 0.04 arms are run for the conventional model at width 128, depths 1-3 (the family already has exactly this arm at depth 2 width 128: 4.65183 / 4.65117 / 4.67175). Every headline gap is additionally quoted against the conventional model's BEST-OF-THREE learning rate, which turns it into a bound."
+    },
+    "logans_registered_predictions": {
+      "L1": "the conventional model wins on held cross-entropy at EVERY cell, by 0.05 to 0.20 nats",
+      "L2": "the gap GROWS with depth, because softmax attention composes more readily and the depth-2 foldable models showed attention acting only through the feed-forward path",
+      "L3": "at matched parameter count the gap SHRINKS by at least a third"
+    },
+    "analysts_registered_predictions": {
+      "A1_partly_disagrees_with_L1": "the conventional model does NOT win at every cell. At depth 1 the model is a bigram machine (RESULTS FINDING 3) and attention contributes through the feed-forward input only, so the softmax buys little while the family carries 50% more body parameters at nominal expansion. Predicted nominal gap (family CE minus conventional CE, positive = conventional wins): depth 1 in [-0.05, +0.05] with the SIGN GENUINELY UNCERTAIN; depth 2 in [+0.02, +0.12]; depth 3 in [+0.05, +0.20]. Only the depth-3 band coincides with Logan's.",
+      "A2_agrees_with_L2": "the gap grows monotonically with depth at every width. Falsifier: the depth-3 mean gap is not larger than the depth-1 mean gap.",
+      "A3_disagrees_with_L3_on_the_SIGN": "L3 presupposes that the conventional model is the larger one and would have to shrink. It is the smaller one: 12*W^2 versus 18*W^2 of body per block. Matching parameters therefore makes the CONVENTIONAL model bigger (expansion 4x -> 7x), so the gap should GROW, not shrink. Predicted: matched-arm gap exceeds nominal-arm gap by +0.01 to +0.06 nats at every cell, and L3 is refuted with the wrong sign rather than the wrong magnitude. NOTE for scoring: if Logan meant 'matched by shrinking the bilinear model', that arm is not run (the family's 101 checkpoints are not being retrained) and the relevant comparison is the NOMINAL arm, where the conventional model already carries ~12% fewer total parameters than the family cell it is compared with.",
+      "A4_induction_the_interesting_half": "the conventional model INDUCTS at depth 2 width 128, where every foldable architecture we built except the ones with the capability hand-installed is null. Predicted synthetic induction score at depth 2 width 128 in [+0.05, +0.60] nats, separated from zero over MODEL seeds at t > 4. If this lands, the programme's depth-versus-width emergence surface is a statement about THIS architecture family and not about transformers, and RESULTS FINDING 16 must be relabelled.",
+      "A5": "both families are null on induction at depth 1 at every width (structural: one attention block cannot read the token before an earlier match).",
+      "A6": "the conventional model also inducts at depth 2 width 64, where the family is null -- lower confidence than A4; predicted score in [0.0, +0.15], possibly below its own model-seed threshold.",
+      "A7_bag_score": "the order-free bag score is NOT much changed between families at depth 1; the family difference is specific to the order-sensitive induction score.",
+      "A8_qk_norm_control": "removing per-head query/key RMSNorm from the conventional model moves held CE by less than 0.03 nats at depth 2 width 128, so it is not carrying the comparison.",
+      "A9_learning_rate_bound": "0.02 is within 0.01 nats of the conventional model's best of {0.01, 0.02, 0.04} at width 128, the same flatness the family shows (0.00066 nats between 0.01 and 0.02 at depth 2 width 128). Falsifier: some other learning rate beats 0.02 by more than 0.02 nats for the conventional model, in which case every conventional number quoted at 0.02 is an UNDERSTATEMENT of the conventional model and the whole comparison is reported as a lower bound on the conventional advantage."
+    },
+    "positive_controls_required_before_any_claim": {
+      "C1_training_loop_equivalence": "this file's training loop is a transcription of tf_train.train_cell (tf_train.py is NOT edited while another chain is in flight). Control: run BOTH loops on the same foldable config with the same seed for 60 steps and require identical final held cross-entropy to 1e-9. A drifted loop would make every gap an artifact of the harness.",
+      "C2_parameter_identity": "the matched (7x) conventional body parameter count must equal tf_model.vanilla_body_params EXACTLY, at every one of the nine cells. Asserted, not eyeballed.",
+      "C3_forward_reference": "the conventional forward is checked against an independently written naive reference (explicit per-head loops, explicit softmax) at fp64, required below 1e-12 relative.",
+      "C4_probe_shim": "the induction battery run through this file's shim on an already-published foldable checkpoint must reproduce that cell's published induction score, so a family difference cannot be a difference of probe code.",
+      "C5_causality": "changing tokens strictly after position i must leave position i's logits bit-identical.",
+      "C6_data_identity": "the sha256 of the first training batch must match the foldable path's first training batch, so the two families see the same tokens in the same order."
+    },
+    "how_the_verdict_is_decided": {
+      "ce_gap": "family held CE minus conventional held CE at the same depth/width, both at T=512 on held rows [0:1500], averaged over model seeds, with a Welch t over model seeds. Positive = the conventional model wins = the foldability tax.",
+      "induction": "decided over MODEL seeds, never against a probe-seed floor (the programme's own standing failure mode). A cell inducts when the model-seed mean exceeds zero at t > 4.30 (the bar RESULTS FINDING 16 used) AND the majority of its seeds clear their own planted-oracle floor.",
+      "bits_per_byte": "quoted alongside every CE, though both families share the tokenizer so nats/token are already comparable here."
+    }
+  },
+  "note": "positive gap = the conventional model wins = the fold costs prediction quality. All CE at T=512 on held rows [0:1500], the training-protocol number.",
+  "controls": {},
+  "cells": {
+    "d1_w64": {
+      "depth": 1,
+      "width": 64,
+      "family": {
+        "n_seeds": 3,
+        "held_ce": 5.14788,
+        "held_ce_sd": 0.005537445259323177,
+        "per_seed": {
+          "0": 5.14244,
+          "1": 5.14769,
+          "2": 5.15351
+        },
+        "n_params": 598080,
+        "body_params": 73792,
+        "induction": -0.011525902924714634,
+        "induction_sd": 0.002453135734094677,
+        "induction_per_seed": [
+          -0.014031791687012074,
+          -0.011416753133138613,
+          -0.009129163953993213
+        ],
+        "induction_model_seed_t": -8.137931053407415,
+        "bag": 0.03125483901412428,
+        "natural_swap": 0.04068102362058804
+      },
+      "arms": {},
+      "induction_verdict": {}
+    },
+    "d1_w128": {
+      "depth": 1,
+      "width": 128,
+      "family": {
+        "n_seeds": 3,
+        "held_ce": 4.822553333333333,
+        "held_ce_sd": 0.002947835364014312,
+        "per_seed": {
+          "0": 4.8194,
+          "1": 4.82524,
+          "2": 4.82302
+        },
+        "n_params": 1343616,
+        "body_params": 295040,
+        "induction": -0.026406563652886322,
+        "induction_sd": 0.0018782010459539764,
+        "induction_per_seed": [
+          -0.027565214369032275,
+          -0.02741493648952904,
+          -0.024239540100097656
+        ],
+        "induction_model_seed_t": -24.351764683886493,
+        "bag": 0.05985666204381867,
+        "natural_swap": 0.06711447115700746
+      },
+      "arms": {},
+      "induction_verdict": {}
+    },
+    "d1_w256": {
+      "depth": 1,
+      "width": 256,
+      "family": {
+        "n_seeds": 3,
+        "held_ce": 4.559136666666666,
+        "held_ce_sd": 0.00272061267609602,
+        "per_seed": {
+          "0": 4.55825,
+          "1": 4.56219,
+          "2": 4.55697
+        },
+        "n_params": 3277056,
+        "body_params": 1179904,
+        "induction": -0.035448406360767494,
+        "induction_sd": 0.0015259663271785726,
+        "induction_per_seed": [
+          -0.034210883246527504,
+          -0.03498090108235665,
+          -0.03715343475341833
+        ],
+        "induction_model_seed_t": -40.23577700939141,
+        "bag": 0.08700969837330015,
+        "natural_swap": 0.08532990795659619
+      },
+      "arms": {},
+      "induction_verdict": {}
+    },
+    "d2_w64": {
+      "depth": 2,
+      "width": 64,
+      "family": {
+        "n_seeds": 3,
+        "held_ce": 5.01812,
+        "held_ce_sd": 0.0047451343500475775,
+        "per_seed": {
+          "0": 5.02058,
+          "1": 5.02113,
+          "2": 5.01265
+        },
+        "n_params": 671872,
+        "body_params": 147584,
+        "induction": -0.013983790079752485,
+        "induction_sd": 0.0022475434551840054,
+        "induction_per_seed": [
+          -0.016279708014593552,
+          -0.011787965562608704,
+          -0.0138836966620552
+        ],
+        "induction_model_seed_t": -10.776492371991097,
+        "bag": 0.04529951590078849,
+        "natural_swap": 0.05519079051434043
+      },
+      "arms": {},
+      "induction_verdict": {}
+    },
+    "d2_w128": {
+      "depth": 2,
+      "width": 128,
+      "family": {
+        "n_seeds": 3,
+        "held_ce": 4.6463,
+        "held_ce_sd": 0.007486113811584918,
+        "per_seed": {
+          "0": 4.65117,
+          "1": 4.65005,
+          "2": 4.63768
+        },
+        "n_params": 1638656,
+        "body_params": 590080,
+        "induction": -0.003363983719437276,
+        "induction_sd": 0.009899299340858087,
+        "induction_per_seed": [
+          -0.013777648078070826,
+          -0.0022391637166343514,
+          0.005924860636393347
+        ],
+        "induction_model_seed_t": -0.5885861733518234,
+        "bag": 0.08577982584635392,
+        "natural_swap": 0.10315386048773689
+      },
+      "arms": {},
+      "induction_verdict": {}
+    },
+    "d2_w256": {
+      "depth": 2,
+      "width": 256,
+      "family": {
+        "n_seeds": 3,
+        "held_ce": 4.325376666666666,
+        "held_ce_sd": 0.0012770408502990522,
+        "per_seed": {
+          "0": 4.32661,
+          "1": 4.32406,
+          "2": 4.32546
+        },
+        "n_params": 4456960,
+        "body_params": 2359808,
+        "induction": 0.09376651622630933,
+        "induction_sd": 0.008641490325232207,
+        "induction_per_seed": [
+          0.08408372667100679,
+          0.09652031792534714,
+          0.10069550408257406
+        ],
+        "induction_model_seed_t": 18.794023257595345,
+        "bag": 0.13970220353868268,
+        "natural_swap": 0.24072722934526306
+      },
+      "arms": {},
+      "induction_verdict": {}
+    },
+    "d3_w64": {
+      "depth": 3,
+      "width": 64,
+      "family": {
+        "n_seeds": 3,
+        "held_ce": 4.941653333333334,
+        "held_ce_sd": 0.0009928410413218326,
+        "per_seed": {
+          "0": 4.94174,
+          "1": 4.9426,
+          "2": 4.94062
+        },
+        "n_params": 745664,
+        "body_params": 221376,
+        "induction": 0.0035019344753690024,
+        "induction_sd": 0.004115023813099474,
+        "induction_per_seed": [
+          0.007733747694227589,
+          0.0032574547661674558,
+          -0.00048539903428803657
+        ],
+        "induction_model_seed_t": 1.4739959503533375,
+        "bag": 0.05564875426115801,
+        "natural_swap": 0.05336761443898771
+      },
+      "arms": {},
+      "induction_verdict": {}
+    },
+    "d3_w128": {
+      "depth": 3,
+      "width": 128,
+      "family": {
+        "n_seeds": 3,
+        "held_ce": 4.527606666666667,
+        "held_ce_sd": 0.0007393465583428476,
+        "per_seed": {
+          "0": 4.52845,
+          "1": 4.52707,
+          "2": 4.5273
+        },
+        "n_params": 1933696,
+        "body_params": 885120,
+        "induction": 0.10849020922625528,
+        "induction_sd": 0.013345512068083595,
+        "induction_per_seed": [
+          0.09735919104682118,
+          0.12328491210937571,
+          0.10482652452256894
+        ],
+        "induction_model_seed_t": 14.080430450701748,
+        "bag": 0.09895186954074427,
+        "natural_swap": 0.18618826575751277
+      },
+      "arms": {},
+      "induction_verdict": {}
+    },
+    "d3_w256": {
+      "depth": 3,
+      "width": 256,
+      "family": {
+        "n_seeds": 3,
+        "held_ce": 4.211023333333333,
+        "held_ce_sd": 0.006492128567221266,
+        "per_seed": {
+          "0": 4.21817,
+          "1": 4.20549,
+          "2": 4.20941
+        },
+        "n_params": 5636864,
+        "body_params": 3539712,
+        "induction": 0.22074474758572035,
+        "induction_sd": 0.060542975549922266,
+        "induction_per_seed": [
+          0.16416687435573962,
+          0.28459574381510394,
+          0.21347162458631744
+        ],
+        "induction_model_seed_t": 6.315201967686006,
+        "bag": 0.14200337727864606,
+        "natural_swap": 0.3041948916581229
+      },
+      "arms": {},
+      "induction_verdict": {}
+    }
+  },
+  "lr_arms": {},
+  "qk_norm_arm": {},
+  "verdicts": {
+    "L1_conventional_wins_every_cell_by_0.05_to_0.20": {
+      "registered": "the conventional model wins on held cross-entropy at EVERY cell, by 0.05 to 0.20 nats",
+      "nominal_gaps": {},
+      "cells_won_by_conventional": 0,
+      "cells_measured": 0,
+      "cells_in_the_0.05_to_0.20_band": 0,
+      "verdict": null
+    },
+    "L2_A2_gap_grows_with_depth": {
+      "registered": "the gap GROWS with depth, because softmax attention composes more readily and the depth-2 foldable models showed attention acting only through the feed-forward path",
+      "mean_nominal_gap_by_depth": {},
+      "monotone_increasing": null,
+      "deepest_minus_shallowest": null,
+      "verdict": null
+    },
+    "L3_A3_matched_parameters": {
+      "registered_L3": "at matched parameter count the gap SHRINKS by at least a third",
+      "registered_A3": "L3 presupposes that the conventional model is the larger one and would have to shrink. It is the smaller one: 12*W^2 versus 18*W^2 of body per block. Matching parameters therefore makes the CONVENTIONAL model bigger (expansion 4x -> 7x), so the gap should GROW, not shrink. Predicted: matched-arm gap exceeds nominal-arm gap by +0.01 to +0.06 nats at every cell, and L3 is refuted with the wrong sign rather than the wrong magnitude. NOTE for scoring: if Logan meant 'matched by shrinking the bilinear model', that arm is not run (the family's 101 checkpoints are not being retrained) and the relevant comparison is the NOMINAL arm, where the conventional model already carries ~12% fewer total parameters than the family cell it is compared with.",
+      "nominal_gap": {},
+      "matched_gap": {},
+      "matched_minus_nominal": {},
+      "mean_matched_minus_nominal": null,
+      "direction_note": "the family is the LARGER model at nominal expansion, so matching parameters makes the CONVENTIONAL model bigger and should widen the gap.",
+      "L3_verdict": null,
+      "A3_verdict": null
+    },
+    "A4_conventional_inducts_at_depth2_width128": {
+      "registered": "the conventional model INDUCTS at depth 2 width 128, where every foldable architecture we built except the ones with the capability hand-installed is null. Predicted synthetic induction score at depth 2 width 128 in [+0.05, +0.60] nats, separated from zero over MODEL seeds at t > 4. If this lands, the programme's depth-versus-width emergence surface is a statement about THIS architecture family and not about transformers, and RESULTS FINDING 16 must be relabelled.",
+      "cell": {},
+      "verdict": null,
+      "all_cells_where_conventional_inducts_and_family_does_not": [],
+      "reframing": "if any depth-2 cell flips, RESULTS FINDING 16 becomes a statement about the no-softmax bilinear family and not about transformers at this scale."
+    },
+    "A5_depth1_null_in_both_families": {
+      "per_cell": {
+        "d1_w64": {
+          "family": null,
+          "conventional": null
+        },
+        "d1_w128": {
+          "family": null,
+          "conventional": null
+        },
+        "d1_w256": {
+          "family": null,
+          "conventional": null
+        }
+      },
+      "verdict": "CONFIRMED"
+    },
+    "A9_learning_rate_fairness_bound": {
+      "arms": {},
+      "worst_gain_over_0.02": null,
+      "verdict_note": "if any conventional cell gains more than 0.02 nats from a different learning rate, every gap quoted at 0.02 UNDERSTATES the conventional model and the whole comparison is a LOWER BOUND on the conventional advantage."
+    }
+  }
+}

@@ -157,9 +157,18 @@ step in `tf_d3_variant_predictions.json`; chain `tf_d3_variant_chain.sh` (log
 | cell | owner | status |
 |---|---|---|
 | vanilla d3 w128 s0/1/2 | LOCAL | **done** (from the depth ladder, not retrained) — CE 4.5276 ± 0.0007, induction +0.1085 ± 0.0133 |
-| slots / bandwidth / predicate / codebook / shrink, d3 w128, s0/1/2 | LOCAL | local:running (15 cells, ~8 min each including analysis) |
-| `slots` d2 w128 `_g8`, s0/1/2 — slot-geometry control | LOCAL | local:running |
-| vanilla and slots d3 **w192** s0 — the exact 6×32 geometry | LOCAL | local:running |
+| slots / bandwidth / predicate / codebook / shrink, d3 w128, s0/1/2 | LOCAL | **done** — verdict (a) ACCELERANT, `tf_d3_variant_table.md` |
+| `slots` d2 w128 `_g8`, s0/1/2 — slot-geometry control A | LOCAL | **done** — CE 4.8904 ± 0.0075, induction +0.0200 ± 0.0191 (0.21× the 4×32 answer) |
+| `shrink` d2 w128 `_g8`, s0/1/2 — control A, second masked arm | LOCAL | **done** — CE 4.8354 ± 0.0060, induction +0.0291 ± 0.0025 (0.34×) |
+| vanilla / slots / shrink d3 **w192** s0/1/2 — the exact 6×32 geometry (control B) | LOCAL | **done** — plain +0.1911 ± 0.0175, slots +0.3206 ± 0.0424 (1.68×), shrink +0.3557 ± 0.0966 (1.86×) |
+| `slots` d3 w192 `_g8` s0/1/2 — 8×24 vs 6×32 at FIXED width (control B2) | LOCAL | **done** — +0.2050 ± 0.0149 vs +0.3206, Welch t −4.45, CE +0.062 nats: **slot geometry is load-bearing at matched size** |
+| vanilla d3 **w144** s0/1/2 — parameter-matched plain control (2,299,824 params, more than any variant) | LOCAL | **done** — CE 4.4703 ± 0.0056, induction +0.1448 ± 0.0462. At matched parameters only `predicate` still beats the plain model |
+
+**PHASE V4 IS CLOSED (2026-08-08 23:20).** Verdict (a) ACCELERANT, and it
+survives the round-5 independent review (`tf_reviewer_round_5.json`, eight
+objections) — stable against the bar (1.5×–5.0×), the seeds, a second probe,
+the slot geometry and parameter matching. Three published sentences were
+corrected and one sub-claim withdrawn; see RESULTS FINDING 17.
 
 **SLOT-GEOMETRY DEVIATION, forced by arithmetic and documented rather than
 hidden.** The masked-decoder variants (`slots`, `shrink`) need one slot per

@@ -117,18 +117,33 @@ def main():
     if dse:
         p = dse.get('predicate', {})
         b = dse.get('bandwidth', {})
-        verdict += (' CLOSED by a new control trained for this review: the '
-                    'PLAIN model at width 144, '
-                    f'{mc.get("vanilla_d3_w144", {}).get("params")} parameters '
-                    '- MORE than any variant - still loses. Named attention '
-                    f'terms beat it on held CE by '
-                    f'{r(-p.get("held_ce_variant_minus_matched_plain", 0), 4)} '
-                    f'nats and on induction by '
-                    f'{r(p.get("induction_ratio_to_matched_plain"), 2)}x; '
-                    f'bandwidth-limited writes by '
-                    f'{r(-b.get("held_ce_variant_minus_matched_plain", 0), 4)} '
-                    f'nats and {r(b.get("induction_ratio_to_matched_plain"), 2)}x. '
-                    'Neither arm\'s result is bought with size.')
+        cb = dse.get('codebook', {})
+        m144 = mc.get('vanilla_d3_w144', {})
+        verdict += (
+            ' CLOSED, AND IT CHANGES THE COUNT. A parameter-matched plain '
+            f'control was trained for this review: plain, depth 3, width 144, '
+            f'{m144.get("params")} parameters - MORE than any variant - three '
+            f'seeds, held CE {r(m144.get("held_ce", {}).get("mean"), 4)} +- '
+            f'{r(m144.get("held_ce", {}).get("sd"), 4)}, induction '
+            f'{r(m144.get("induction", {}).get("mean"), 4)} +- '
+            f'{r(m144.get("induction", {}).get("sd"), 4)}. Against it: named '
+            f'attention terms still win outright - '
+            f'{r(p.get("induction_ratio_to_matched_plain"), 2)}x induction '
+            f'(Welch t = {r(p.get("induction_welch_t_vs_matched_plain"), 1)}) '
+            f'and {r(-p.get("held_ce_variant_minus_matched_plain", 0), 4)} nats '
+            'of CE. But bandwidth-limited writes FALL OFF THE BAR: '
+            f'{r(b.get("induction_ratio_to_matched_plain"), 2)}x (from 2.41x '
+            'against the width-128 plain model), Welch t = '
+            f'{r(b.get("induction_welch_t_vs_matched_plain"), 2)} which is not '
+            'separation at three seeds, and it is '
+            f'{r(b.get("held_ce_variant_minus_matched_plain"), 4)} nats WORSE '
+            'on CE. Codebook is '
+            f'{r(cb.get("induction_ratio_to_matched_plain"), 2)}x (t = '
+            f'{r(cb.get("induction_welch_t_vs_matched_plain"), 2)}) and '
+            f'{r(cb.get("held_ce_variant_minus_matched_plain"), 4)} nats worse. '
+            'So at matched parameters exactly ONE of the five architectures '
+            'beats the plain model on either instrument, and it is the arm '
+            'that installs the capability rather than learning it.')
     else:
         verdict += ' NOT YET CLOSED - the matched control had not landed.'
     obj.append({'id': 'R5-O2',
@@ -247,6 +262,35 @@ def main():
         'fix': 'the slice table gains a model-seed Welch t against the plain '
                'model for every variant, and every route-USE fraction whose '
                'sd >= 0.9x its mean is struck from the write-up.'})
+
+    # ----------------------------------------------------------------- O4b
+    P = M['O4b_second_probe']
+    obj.append({
+        'id': 'R5-O4b',
+        'objection': 'Every number the verdict turns on comes from ONE probe, '
+                     'the synthetic induction battery. The programme also '
+                     'measures the same capability a completely different way '
+                     'on natural text (order-only prefix swap: the prefix '
+                     'multiset is preserved exactly and only the adjacency '
+                     'induction reads is destroyed) and the slice never used '
+                     'it.',
+        'measurement': P,
+        'verdict': (
+            'PARTLY SUSTAINED. The VERDICT is probe-independent: re-running the '
+            'registered rule on the natural-text swap returns ACCELERANT at '
+            '1.5x, 2.0x and 3.0x, the two probes agree across the six arms at '
+            f'Pearson r = {r(P["pearson_r_across_the_six_arms"], 4)} and '
+            f'Spearman {r(P["spearman_across_the_six_arms"], 3)}, and the top '
+            'three arms are in the same order. The COUNT is not: on natural '
+            'text the ratios compress - named attention terms fall from 25.4x '
+            f'to {r(P["natural_ratio_to_plain"]["predicate"], 2)}x and '
+            'bandwidth-limited writes from 2.41x to '
+            f'{r(P["natural_ratio_to_plain"]["bandwidth"], 2)}x, so only ONE '
+            'arm clears the 2x bar instead of two. Together with R5-O1 this '
+            'means the sentence "two of five clear the bar" should not be in '
+            'the write-up at all.'),
+        'fix': 'the slice table gains the natural-text column, and the '
+               'headline quotes ONE arm above the bar on both probes.'})
 
     # ------------------------------------------------------------------ O5
     obj.append({
@@ -371,6 +415,7 @@ def main():
     gas = gv.get('geometry_costs_induction_at_depth2_shrink', {})
     gb = gv.get('depth3_exact_geometry_slots_vs_plain', {})
     gbs = gv.get('depth3_exact_geometry_shrink_vs_plain', {})
+    out_ind = G.get('indicative_rule_with_masked_arms_at_their_own_geometry')
     b2 = {k: v for k, v in gc.get('b2_width192_geometry_only', {}).items()
           if k not in ('A0_into_layer1_a', 'A0_into_layer1_b')}
     geo_bits = []
@@ -433,12 +478,29 @@ def main():
                                           'A0_into_layer1_b')},
                         'full_table': 'tf_geom_controls.md'},
         'verdict': ('SUSTAINED. ' + ' '.join(geo_bits) + ' CONCLUSION: the '
-                    'forced 8-slot geometry is expensive in its own right, so '
-                    'the ACCELERANT verdict is UNCHANGED as a verdict about '
-                    'the slice as run, but the two masked-decoder arms\' '
-                    'depth-3 numbers are NOT a measurement of those '
-                    'architectures at their intended geometry and must not be '
-                    'quoted as one.')
+                    'forced 8-slot geometry is expensive in its own right - it '
+                    'costs a third to four fifths of the induction score and '
+                    '0.06-0.15 nats of held CE at identical parameters - so '
+                    'the two masked-decoder arms\' depth-3 width-128 numbers '
+                    'are NOT a measurement of those architectures at their '
+                    'intended geometry and must not be quoted as one. THE '
+                    'VERDICT WORD SURVIVES: re-running the registered rule '
+                    'with the two masked arms read at their exact 6x32 '
+                    'geometry (width 192, three seeds, against the plain model '
+                    'at the same width) still returns '
+                    + (out_ind.get('verdict', '?') if out_ind else '?')
+                    + ' - '
+                    + ', '.join(f'{k} {r(x, 2)}x' for k, x in
+                                (out_ind.get('ratios') or {}).items())
+                    + ' - because the masked arms move from below the plain '
+                      'model to modestly above it without reaching the 2x bar. '
+                      'What is RETRACTED is the sub-claim: "private write '
+                      'channels is now BELOW the plain model (0.76x)" is a '
+                      'geometry artifact; at its own geometry it is '
+                    + f'{r((out_ind.get("ratios") or {}).get("slots"), 2)}x, '
+                      'above the plain model, and shrinking channel goes from '
+                      f'1.06x to '
+                    + f'{r((out_ind.get("ratios") or {}).get("shrink"), 2)}x.')
         if geo_bits else 'PENDING - the controls had not landed',
         'fix': 'the depth-3 rows for private write channels and shrinking '
                'channel are relabelled "8x16 forced geometry" everywhere, the '
@@ -464,7 +526,79 @@ def main():
                                    'tf_{vanilla,slots,shrink}_d3_w192_*, '
                                    'tf_slots_d3_w192_*_g8, '
                                    'tf_vanilla_d3_w144_*'],
-        'objections': obj}
+        'objections': obj,
+        'fix_round': {
+            'rule': 'every objection above is closed with a MEASUREMENT, a '
+                    'RETRACTION or a DOCUMENTED LIMITATION; nothing is left in '
+                    'the "we will check later" state.',
+            'closed_by_new_measurement': [
+                'R5-O1 - bar swept 1.25x to 5.0x, three leave-one-model-seed-'
+                'out subsets, and the complete 729-combination enumeration',
+                'R5-O2 - a parameter-matched plain control (depth 3, width '
+                '144, 2,299,824 params, three seeds) trained for this review',
+                'R5-O3 - the named-term knockout re-run at three seeds on '
+                'induction AND on held CE, with a restore gate',
+                'R5-O4b - the registered rule re-run on the natural-text '
+                'order-only swap probe',
+                'R5-O7 - the round-4 norm-share regression re-derived on '
+                'variant checkpoints, with the plain model as a positive '
+                'control that reproduces round 4 to 0.01 in slope',
+                'R5-O8 - both slot-geometry controls finished at three model '
+                'seeds, plus a geometry-only contrast at fixed width 192 that '
+                'the original plan did not include'],
+            'retractions_issued': [
+                'the held-CE column quoted in the 2026-08-08 20:50 mailbox '
+                'entry and its commit message is `rung5_ladder._model_ce` '
+                '(context 256, 24,576 tokens), not the slice table\'s '
+                '`final_held_ce` (context 512, full held split). The '
+                'named-attention arm\'s CE win is -0.2130 nats on the primary '
+                'instrument, not -0.1435.',
+                '"private write channels is now BELOW the plain model on '
+                'induction (0.76x)" is WITHDRAWN as a statement about the '
+                'architecture: at the 6x32 geometry it was designed for it is '
+                '1.68x the plain model. Same for shrinking channel, 1.06x -> '
+                '1.86x.',
+                '"two of five clear the 2x bar" is WITHDRAWN. One arm clears '
+                'it unambiguously; bandwidth-limited writes sit ON the bar '
+                '(CI 1.96-2.86), fall to 1.47x on the second probe, and to '
+                '1.81x (not separated, and 0.06 nats worse on CE) against a '
+                'parameter-matched plain model.',
+                '"three of five are within 40% of the plain model" is '
+                'restated: three of five are NOT SEPARATED from it over model '
+                'seeds (Welch t -2.03, 3.66, 0.44 against 4.30 needed).',
+                'the round-4 magnitude law may NOT be quoted over variant '
+                'route numbers - it is a property of a shared residual '
+                'stream and fails on every partitioned variant.'],
+            'documented_limitations': [
+                'R5-O3 is an inference-time knockout of a trained model; it '
+                'bounds how much of THIS model\'s behaviour the named terms '
+                'carry, not what the architecture would reach if retrained '
+                'without them.',
+                'the width-192 controls answer the geometry question at a '
+                'DIFFERENT width from the rest of the slice; the recomputed '
+                'rule that uses them mixes two widths and is indicative only.',
+                'control A\'s induction deltas (Welch t -3.99 and -3.25) do '
+                'not reach the 4.303 needed at 2 df, though its CE deltas do '
+                'and control B2\'s induction delta does (t -4.45).',
+                'the norm-share denominator for a partitioned stream is not '
+                'the same object as for a shared one, so R5-O7\'s failed '
+                'within-variant fit is evidence the plain law does not '
+                'transfer, not evidence of direction-specific gating.',
+                'compute is still not matched: the named-attention arm trains '
+                '2.3x longer per cell than the plain model.'],
+            'what_stands_after_the_round': (
+                'The pre-registered verdict word ACCELERANT stands, and is now '
+                'known to be stable against the bar (1.5x-5.0x), against the '
+                'seeds (all leave-one-out subsets and 100% of 729 single-seed '
+                'combinations at 2.0x), against the probe (natural-text swap '
+                'agrees at r = 0.9996), against the slot geometry (the masked '
+                'arms read at 6x32 still do not reach 2x), and against '
+                'parameter matching (which REMOVES one of the two arms that '
+                'appeared to clear the bar). The exception - named attention '
+                'terms - also stands, but as a different KIND of claim: it '
+                'INSTALLS the capability. Zeroing 24 scalars removes 98% of '
+                'its induction, drops it below the plain model, and erases its '
+                'entire CE advantage.')}}
     json.dump(out, open(f'{HERE}/tf_reviewer_round_5.json', 'w'), indent=2,
               default=str)
     print(json.dumps([{'id': o['id'], 'verdict': o['verdict'][:400]}

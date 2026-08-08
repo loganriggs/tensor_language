@@ -518,7 +518,77 @@
         "effective_vs_plain": 1.0127
       }
     },
-    "parameter_matched_plain_control": {}
+    "parameter_matched_plain_control": {
+      "vanilla_d3_w144": {
+        "n_seeds": 3,
+        "params": 2299824,
+        "held_ce": {
+          "mean": 4.4703100000000004,
+          "sd": 0.0055678451846289684,
+          "per_seed": [
+            4.46391,
+            4.47404,
+            4.47298
+          ],
+          "n": 3
+        },
+        "induction": {
+          "mean": 0.1447860081990561,
+          "sd": 0.046157969917152965,
+          "per_seed": [
+            0.19455903371175118,
+            0.1033906300862629,
+            0.13640836079915425
+          ],
+          "n": 3
+        },
+        "wall_seconds": {
+          "mean": 765.2666666666668,
+          "sd": 9.392727683337462,
+          "per_seed": [
+            776.1,
+            759.4,
+            760.3
+          ],
+          "n": 3
+        }
+      }
+    },
+    "does_size_explain_it": {
+      "predicate": {
+        "variant_params": 2281092,
+        "matched_plain_params": 2299824,
+        "plain_has_more_parameters": true,
+        "held_ce_variant_minus_matched_plain": -0.15566000000000102,
+        "induction_ratio_to_matched_plain": 19.047505357617773,
+        "induction_ratio_to_w128_plain": 25.419918410593354,
+        "induction_welch_t_vs_matched_plain": 42.71312719954647,
+        "held_ce_welch_t_vs_matched_plain": -47.9217819479381,
+        "separated_at_95_over_model_seeds": true
+      },
+      "bandwidth": {
+        "variant_params": 2268756,
+        "matched_plain_params": 2299824,
+        "plain_has_more_parameters": true,
+        "held_ce_variant_minus_matched_plain": 0.060419999999999696,
+        "induction_ratio_to_matched_plain": 1.8078301066137032,
+        "induction_ratio_to_w128_plain": 2.412646325465168,
+        "induction_welch_t_vs_matched_plain": 3.7254046346836085,
+        "held_ce_welch_t_vs_matched_plain": 7.206050355460697,
+        "separated_at_95_over_model_seeds": false
+      },
+      "codebook": {
+        "variant_params": 2268756,
+        "matched_plain_params": 2299824,
+        "plain_has_more_parameters": true,
+        "held_ce_variant_minus_matched_plain": 0.17933666666666603,
+        "induction_ratio_to_matched_plain": 1.030040326249807,
+        "induction_ratio_to_w128_plain": 1.3746441101495388,
+        "induction_welch_t_vs_matched_plain": 0.15632726741425979,
+        "held_ce_welch_t_vs_matched_plain": 15.844606478141396,
+        "separated_at_95_over_model_seeds": false
+      }
+    }
   },
   "O3_named_attention_installed_or_learned": {
     "source": "predicate_induction_split in each seed's _interp3.json (zeroes pred_b / pred_c / pred_prof in place, restores them, and re-runs the identical induction battery)",
@@ -772,6 +842,59 @@
       "welch_t": -10.949546782376334,
       "named_off_clears_own_probe_floor": false,
       "reading": "if the named-off score is at or below zero while the plain model at the same cell is clearly positive, the arm does not merely INSTALL the capability on top of a learned one - the rest of its network learned LESS induction than the plain model did"
+    },
+    "held_ce_with_named_terms_zeroed": {
+      "seed0": {
+        "all_named_terms_on": 4.3140212860107425,
+        "zero_prev_token_match_b": 4.546789016723633,
+        "zero_all_named_terms": 6.405194048563639,
+        "gate_restored_matches_original": true
+      },
+      "seed1": {
+        "all_named_terms_on": 4.314366467793783,
+        "zero_prev_token_match_b": 4.552298296610514,
+        "zero_all_named_terms": 6.263591501871745,
+        "gate_restored_matches_original": true
+      },
+      "seed2": {
+        "all_named_terms_on": 4.315562444051107,
+        "zero_prev_token_match_b": 4.560051694234212,
+        "zero_all_named_terms": 6.389951316833496,
+        "gate_restored_matches_original": true
+      },
+      "aggregate": {
+        "all_named_terms_on": {
+          "mean": 4.314650065951877,
+          "sd": 0.0008087725037369136,
+          "per_seed": [
+            4.3140212860107425,
+            4.314366467793783,
+            4.315562444051107
+          ],
+          "n": 3
+        },
+        "zero_prev_token_match_b": {
+          "mean": 4.55304633585612,
+          "sd": 0.006662906702193183,
+          "per_seed": [
+            4.546789016723633,
+            4.552298296610514,
+            4.560051694234212
+          ],
+          "n": 3
+        },
+        "zero_all_named_terms": {
+          "mean": 6.352912289089627,
+          "sd": 0.07772861435511293,
+          "per_seed": [
+            6.405194048563639,
+            6.263591501871745,
+            6.389951316833496
+          ],
+          "n": 3
+        }
+      },
+      "note": "this is an INFERENCE-TIME knockout of a trained model, not a retraining: it says how much of the trained model's behaviour the named terms carry, not what the same architecture would reach without them."
     }
   },
   "O4_fragile_claims": {
@@ -1569,6 +1692,128 @@
       "shrink: induction vs plain is NOT separated at 95% over model seeds (Welch t = 0.44, needs 4.30 at 2 df) - the ratio quoted for it is a point estimate only",
       "shrink: route-USE M0_out_of_layer1_read between-seed sd is the size of the effect (0.075 +- 0.117) - not a quotable fraction at three seeds"
     ]
+  },
+  "O4b_second_probe": {
+    "natural_text_order_only_swap": {
+      "vanilla": {
+        "mean": 0.18618826575751277,
+        "sd": 0.012714275899948155,
+        "per_seed": [
+          0.17465746787138414,
+          0.18408389108617484,
+          0.19982343831497928
+        ],
+        "n": 3
+      },
+      "slots": {
+        "mean": 0.17113845677477002,
+        "sd": 0.017539989353588373,
+        "per_seed": [
+          0.15555635564123804,
+          0.1901344089351369,
+          0.16772460574793513
+        ],
+        "n": 3
+      },
+      "bandwidth": {
+        "mean": 0.27319115620002776,
+        "sd": 0.026299543578051802,
+        "per_seed": [
+          0.29803447995436727,
+          0.2758947361735409,
+          0.24564425247217514
+        ],
+        "n": 3
+      },
+      "predicate": {
+        "mean": 1.4925108538086533,
+        "sd": 0.03467221344103742,
+        "per_seed": [
+          1.5127257036308492,
+          1.452475477582766,
+          1.5123313802123448
+        ],
+        "n": 3
+      },
+      "codebook": {
+        "mean": 0.2339046783166244,
+        "sd": 0.020893238498042463,
+        "per_seed": [
+          0.2579308501444757,
+          0.219998257934094,
+          0.22378492687130347
+        ],
+        "n": 3
+      },
+      "shrink": {
+        "mean": 0.17250068877107574,
+        "sd": 0.011606505722348077,
+        "per_seed": [
+          0.16372686586873897,
+          0.18566119691013228,
+          0.16811400353435602
+        ],
+        "n": 3
+      }
+    },
+    "synthetic_battery": {
+      "vanilla": {
+        "mean": 0.10849020922625528,
+        "sd": 0.013345512068083595
+      },
+      "slots": {
+        "mean": 0.08217800281665942,
+        "sd": 0.018110121275048862
+      },
+      "bandwidth": {
+        "mean": 0.2617485046386721,
+        "sd": 0.02874982980481024
+      },
+      "predicate": {
+        "mean": 2.7578122668796117,
+        "sd": 0.09537829625173125
+      },
+      "codebook": {
+        "mean": 0.14913542712176298,
+        "sd": 0.013846302616565987
+      },
+      "shrink": {
+        "mean": 0.11497810505054627,
+        "sd": 0.021526452731252886
+      }
+    },
+    "natural_ratio_to_plain": {
+      "slots": 0.919168864259452,
+      "bandwidth": 1.4672844987762308,
+      "predicate": 8.016138115559142,
+      "codebook": 1.256280450139948,
+      "shrink": 0.9264852866492489
+    },
+    "verdict_on_the_natural_probe": {
+      "1.5x": "ACCELERANT",
+      "2.0x": "ACCELERANT",
+      "3.0x": "ACCELERANT"
+    },
+    "rank_agreement": {
+      "synthetic_order": [
+        "predicate",
+        "bandwidth",
+        "codebook",
+        "shrink",
+        "vanilla",
+        "slots"
+      ],
+      "natural_order": [
+        "predicate",
+        "bandwidth",
+        "codebook",
+        "vanilla",
+        "shrink",
+        "slots"
+      ]
+    },
+    "pearson_r_across_the_six_arms": 0.9995987352362072,
+    "spearman_across_the_six_arms": 0.942857142857143
   },
   "O5_headline_reproducibility": {
     "per_variant": {

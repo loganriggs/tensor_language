@@ -158,9 +158,79 @@
           "codebook": 435.7,
           "shrink": 388.0
         },
-        "parameter_matched_plain_control": {}
+        "parameter_matched_plain_control": {
+          "vanilla_d3_w144": {
+            "n_seeds": 3,
+            "params": 2299824,
+            "held_ce": {
+              "mean": 4.4703100000000004,
+              "sd": 0.0055678451846289684,
+              "per_seed": [
+                4.46391,
+                4.47404,
+                4.47298
+              ],
+              "n": 3
+            },
+            "induction": {
+              "mean": 0.1447860081990561,
+              "sd": 0.046157969917152965,
+              "per_seed": [
+                0.19455903371175118,
+                0.1033906300862629,
+                0.13640836079915425
+              ],
+              "n": 3
+            },
+            "wall_seconds": {
+              "mean": 765.2666666666668,
+              "sd": 9.392727683337462,
+              "per_seed": [
+                776.1,
+                759.4,
+                760.3
+              ],
+              "n": 3
+            }
+          }
+        },
+        "against_the_matched_plain_control": {
+          "predicate": {
+            "variant_params": 2281092,
+            "matched_plain_params": 2299824,
+            "plain_has_more_parameters": true,
+            "held_ce_variant_minus_matched_plain": -0.15566000000000102,
+            "induction_ratio_to_matched_plain": 19.047505357617773,
+            "induction_ratio_to_w128_plain": 25.419918410593354,
+            "induction_welch_t_vs_matched_plain": 42.71312719954647,
+            "held_ce_welch_t_vs_matched_plain": -47.9217819479381,
+            "separated_at_95_over_model_seeds": true
+          },
+          "bandwidth": {
+            "variant_params": 2268756,
+            "matched_plain_params": 2299824,
+            "plain_has_more_parameters": true,
+            "held_ce_variant_minus_matched_plain": 0.060419999999999696,
+            "induction_ratio_to_matched_plain": 1.8078301066137032,
+            "induction_ratio_to_w128_plain": 2.412646325465168,
+            "induction_welch_t_vs_matched_plain": 3.7254046346836085,
+            "held_ce_welch_t_vs_matched_plain": 7.206050355460697,
+            "separated_at_95_over_model_seeds": false
+          },
+          "codebook": {
+            "variant_params": 2268756,
+            "matched_plain_params": 2299824,
+            "plain_has_more_parameters": true,
+            "held_ce_variant_minus_matched_plain": 0.17933666666666603,
+            "induction_ratio_to_matched_plain": 1.030040326249807,
+            "induction_ratio_to_w128_plain": 1.3746441101495388,
+            "induction_welch_t_vs_matched_plain": 0.15632726741425979,
+            "held_ce_welch_t_vs_matched_plain": 15.844606478141396,
+            "separated_at_95_over_model_seeds": false
+          }
+        }
       },
-      "verdict": "SUSTAINED AS A GAP IN THE SLICE AS PUBLISHED. Three of the six arms carry 17-18% more parameters than the plain model (2,268,756-2,281,092 against 1,933,696) and BOTH arms that clear the 2x induction bar are in that group. The extra parameters are entirely EMBEDDING - the small-decoder variants widen the stream to 168, so the embedding grows from 1,048,576 to 1,376,256 while the bodies stay within 2% of the plain model's. Compute is also not matched: the named-attention arm trains for 951s against the plain 409s, 2.3x. The depth-2 slice controlled this with the embedding-pinned `_slot32` arms; depth 3 shipped with no such control. NOT YET CLOSED - the matched control had not landed.",
+      "verdict": "SUSTAINED AS A GAP IN THE SLICE AS PUBLISHED. Three of the six arms carry 17-18% more parameters than the plain model (2,268,756-2,281,092 against 1,933,696) and BOTH arms that clear the 2x induction bar are in that group. The extra parameters are entirely EMBEDDING - the small-decoder variants widen the stream to 168, so the embedding grows from 1,048,576 to 1,376,256 while the bodies stay within 2% of the plain model's. Compute is also not matched: the named-attention arm trains for 951s against the plain 409s, 2.3x. The depth-2 slice controlled this with the embedding-pinned `_slot32` arms; depth 3 shipped with no such control. CLOSED, AND IT CHANGES THE COUNT. A parameter-matched plain control was trained for this review: plain, depth 3, width 144, 2299824 parameters - MORE than any variant - three seeds, held CE 4.4703 +- 0.0056, induction 0.1448 +- 0.0462. Against it: named attention terms still win outright - 19.05x induction (Welch t = 42.7) and 0.1557 nats of CE. But bandwidth-limited writes FALL OFF THE BAR: 1.81x (from 2.41x against the width-128 plain model), Welch t = 3.73 which is not separation at three seeds, and it is 0.0604 nats WORSE on CE. Codebook is 1.03x (t = 0.16) and 0.1793 nats worse. So at matched parameters exactly ONE of the five architectures beats the plain model on either instrument, and it is the arm that installs the capability rather than learning it.",
       "fix": "the parameter table is now printed in the slice table and the matched-parameter plain control is quoted beside every claim that a variant beats the plain model."
     },
     {
@@ -1020,6 +1090,134 @@
       "fix": "the slice table gains a model-seed Welch t against the plain model for every variant, and every route-USE fraction whose sd >= 0.9x its mean is struck from the write-up."
     },
     {
+      "id": "R5-O4b",
+      "objection": "Every number the verdict turns on comes from ONE probe, the synthetic induction battery. The programme also measures the same capability a completely different way on natural text (order-only prefix swap: the prefix multiset is preserved exactly and only the adjacency induction reads is destroyed) and the slice never used it.",
+      "measurement": {
+        "natural_text_order_only_swap": {
+          "vanilla": {
+            "mean": 0.18618826575751277,
+            "sd": 0.012714275899948155,
+            "per_seed": [
+              0.17465746787138414,
+              0.18408389108617484,
+              0.19982343831497928
+            ],
+            "n": 3
+          },
+          "slots": {
+            "mean": 0.17113845677477002,
+            "sd": 0.017539989353588373,
+            "per_seed": [
+              0.15555635564123804,
+              0.1901344089351369,
+              0.16772460574793513
+            ],
+            "n": 3
+          },
+          "bandwidth": {
+            "mean": 0.27319115620002776,
+            "sd": 0.026299543578051802,
+            "per_seed": [
+              0.29803447995436727,
+              0.2758947361735409,
+              0.24564425247217514
+            ],
+            "n": 3
+          },
+          "predicate": {
+            "mean": 1.4925108538086533,
+            "sd": 0.03467221344103742,
+            "per_seed": [
+              1.5127257036308492,
+              1.452475477582766,
+              1.5123313802123448
+            ],
+            "n": 3
+          },
+          "codebook": {
+            "mean": 0.2339046783166244,
+            "sd": 0.020893238498042463,
+            "per_seed": [
+              0.2579308501444757,
+              0.219998257934094,
+              0.22378492687130347
+            ],
+            "n": 3
+          },
+          "shrink": {
+            "mean": 0.17250068877107574,
+            "sd": 0.011606505722348077,
+            "per_seed": [
+              0.16372686586873897,
+              0.18566119691013228,
+              0.16811400353435602
+            ],
+            "n": 3
+          }
+        },
+        "synthetic_battery": {
+          "vanilla": {
+            "mean": 0.10849020922625528,
+            "sd": 0.013345512068083595
+          },
+          "slots": {
+            "mean": 0.08217800281665942,
+            "sd": 0.018110121275048862
+          },
+          "bandwidth": {
+            "mean": 0.2617485046386721,
+            "sd": 0.02874982980481024
+          },
+          "predicate": {
+            "mean": 2.7578122668796117,
+            "sd": 0.09537829625173125
+          },
+          "codebook": {
+            "mean": 0.14913542712176298,
+            "sd": 0.013846302616565987
+          },
+          "shrink": {
+            "mean": 0.11497810505054627,
+            "sd": 0.021526452731252886
+          }
+        },
+        "natural_ratio_to_plain": {
+          "slots": 0.919168864259452,
+          "bandwidth": 1.4672844987762308,
+          "predicate": 8.016138115559142,
+          "codebook": 1.256280450139948,
+          "shrink": 0.9264852866492489
+        },
+        "verdict_on_the_natural_probe": {
+          "1.5x": "ACCELERANT",
+          "2.0x": "ACCELERANT",
+          "3.0x": "ACCELERANT"
+        },
+        "rank_agreement": {
+          "synthetic_order": [
+            "predicate",
+            "bandwidth",
+            "codebook",
+            "shrink",
+            "vanilla",
+            "slots"
+          ],
+          "natural_order": [
+            "predicate",
+            "bandwidth",
+            "codebook",
+            "vanilla",
+            "shrink",
+            "slots"
+          ]
+        },
+        "pearson_r_across_the_six_arms": 0.9995987352362072,
+        "spearman_across_the_six_arms": 0.942857142857143
+      },
+      "verdict": "PARTLY SUSTAINED. The VERDICT is probe-independent: re-running the registered rule on the natural-text swap returns ACCELERANT at 1.5x, 2.0x and 3.0x, the two probes agree across the six arms at Pearson r = 0.9996 and Spearman 0.943, and the top three arms are in the same order. The COUNT is not: on natural text the ratios compress - named attention terms fall from 25.4x to 8.02x and bandwidth-limited writes from 2.41x to 1.47x, so only ONE arm clears the 2x bar instead of two. Together with R5-O1 this means the sentence \"two of five clear the bar\" should not be in the write-up at all.",
+      "fix": "the slice table gains the natural-text column, and the headline quotes ONE arm above the bar on both probes."
+    },
+    {
       "id": "R5-O5",
       "objection": "The headline CE column in the mailbox entry and the commit message does not match the CE column the report generator produces, and the advertised \"-0.1435\" is therefore unverifiable.",
       "measurement": {
@@ -1167,7 +1365,7 @@
           "note": "PD3 was registered on the zeroing number; it survives on the resample number too, but the magnitudes are 1.0-9.2x smaller"
         }
       },
-      "verdict": "SUSTAINED as a caveat, not as a retraction. At depth 3 zeroing is the harsher ablation at 11 of the 12 write/read pairs measured - the OPPOSITE of the depth-ladder record - and the gap is largest exactly for the private-slot variants (bandwidth-limited writes: zeroing gives 0.801 nats where resampling gives 0.087, a factor of 9.2; the plain model's own ratio is 1.99, the quadratic expectation). Zeroing a private slot hands the per-slot RMSNorm a zero vector, which is a bigger perturbation than substituting another sequence's write. PD3 survives on the resample number (4 of 5 variants at or above 0.05 nats, same call) but its magnitudes shrink by 1.0-9.2x.",
+      "verdict": "SUSTAINED as a caveat, not as a retraction. At depth 3 zeroing is the harsher ablation at 11 of the 12 (write, read) pairs checked here - layer-0 attention into layer 1 and layer-1 attention into layer 2, for each of the six architectures - the OPPOSITE of the depth-ladder record - and the gap is largest exactly for the private-slot variants (bandwidth-limited writes: zeroing gives 0.801 nats where resampling gives 0.087, a factor of 9.2; the plain model's own ratio is 1.99, the quadratic expectation). Zeroing a private slot hands the per-slot RMSNorm a zero vector, which is a bigger perturbation than substituting another sequence's write. PD3 survives on the resample number (4 of 5 variants at or above 0.05 nats, same call) but its magnitudes shrink by 1.0-9.2x.",
       "fix": "route magnitudes for the masked/small-decoder variants are quoted resample-first, with the zeroing number beside them and the ratio stated."
     },
     {
@@ -1290,24 +1488,129 @@
           "welch_t": -3.9939058714382063,
           "held_ce_cost_of_8x16": 0.14894666666666723
         },
-        "control_a_shrink": {},
+        "control_a_shrink": {
+          "published_4x32": {
+            "mean": 0.08600764097990776,
+            "sd": 0.03027607588887017,
+            "per_seed": [
+              0.05104906294080891,
+              0.10323367648654483,
+              0.10374018351236955
+            ],
+            "n": 3
+          },
+          "same_cell_8x16": {
+            "mean": 0.029091241624620425,
+            "sd": 0.002496694536939255,
+            "per_seed": [
+              0.027106412251790245,
+              0.03189440833197743,
+              0.028272904290093593
+            ],
+            "n": 3
+          },
+          "ratio_8x16_over_4x32": 0.33824019927969456,
+          "welch_t": -3.2450902526151437,
+          "held_ce_cost_of_8x16": 0.11112999999999928
+        },
         "control_b_depth3_width192_exact_6x32_slots": {
-          "induction_ratio": 1.8398413305834422,
-          "held_ce_delta": 0.08950999999999976,
+          "induction_ratio": 1.6774098300107232,
+          "held_ce_delta": 0.10250333333333383,
           "clears_2x_bar": false,
           "below_0.5x_bar": false
         },
-        "control_b_shrink": {},
+        "control_b_shrink": {
+          "induction_ratio": 1.860963213421123,
+          "held_ce_delta": 0.08116333333333259,
+          "clears_2x_bar": false,
+          "below_0.5x_bar": false
+        },
         "control_b2_geometry_only_at_fixed_width_192": {
           "label": "CONTROL B2 - the geometry contrast at FIXED width 192: 8x24 (two dead slots) against 6x32. Isolates slot geometry from width.",
-          "status": "MISSING",
-          "have_a": false,
-          "have_b": true
+          "a": "slots d3 w192_g8",
+          "b": "slots d3 w192",
+          "a_geometry": "8x24",
+          "b_geometry": "6x32",
+          "a_params": 3564096,
+          "b_params": 3564096,
+          "induction_a": {
+            "mean": 0.20502077032018584,
+            "sd": 0.014889560312386108,
+            "per_seed": [
+              0.19141449398464658,
+              0.22092615763346296,
+              0.20272165934244804
+            ],
+            "n": 3
+          },
+          "induction_b": {
+            "mean": 0.32057136253074353,
+            "sd": 0.042404738942398656,
+            "per_seed": [
+              0.3442906697591141,
+              0.2716144349839954,
+              0.3458089828491211
+            ],
+            "n": 3
+          },
+          "induction_delta": -0.11555059221055769,
+          "induction_ratio": 0.6395479892578486,
+          "induction_welch_t": -4.453198691677109,
+          "induction_welch_df": 2.4857837093490804,
+          "induction_separated_at_95": true,
+          "held_ce_a": {
+            "mean": 4.492703333333334,
+            "sd": 0.0036908309814094086,
+            "per_seed": [
+              4.48852,
+              4.4955,
+              4.49409
+            ],
+            "n": 3
+          },
+          "held_ce_b": {
+            "mean": 4.431100000000001,
+            "sd": 0.008643633495238195,
+            "per_seed": [
+              4.42188,
+              4.43902,
+              4.4324
+            ],
+            "n": 3
+          },
+          "held_ce_delta": 0.06160333333333323,
+          "held_ce_welch_t": 11.35270451574639
         },
         "full_table": "tf_geom_controls.md"
       },
-      "verdict": "SUSTAINED. CONTROL A (the same n_slots change at the published depth-2 cell, three seeds, identical parameters and identical everything else - only n_slots and slot differ): private write channels go from 0.0972 +- 0.0275 induction at 4x32 to 0.02 +- 0.0191 at 8x16 - a ratio of 0.206 - and pay 0.1489 nats of held CE for the change. CONTROL B (depth 3 at width 192, where 6 slots of 32 divides exactly and the slot size matches depth 2): private write channels reach 1.84x the plain model at the same width, against 0.757x at width 128 with the forced 8x16 geometry. CONCLUSION: the forced 8-slot geometry is expensive in its own right, so the ACCELERANT verdict is UNCHANGED as a verdict about the slice as run, but the two masked-decoder arms' depth-3 numbers are NOT a measurement of those architectures at their intended geometry and must not be quoted as one.",
+      "verdict": "SUSTAINED. CONTROL A (the same n_slots change at the published depth-2 cell, three seeds, identical parameters and identical everything else - only n_slots and slot differ): private write channels go from 0.0972 +- 0.0275 induction at 4x32 to 0.02 +- 0.0191 at 8x16 - a ratio of 0.206 - and pay 0.1489 nats of held CE for the change. The same control on the shrinking-channel arm: 0.086 -> 0.0291 induction (ratio 0.338), CE cost 0.1111 nats. CONTROL B (depth 3 at width 192, where 6 slots of 32 divides exactly and the slot size matches depth 2): private write channels reach 1.677x the plain model at the same width, against 0.757x at width 128 with the forced 8x16 geometry. Shrinking channel at width 192: 1.861x the plain model, against 1.06x at width 128. CONTROL B2 (geometry only, at FIXED width 192 - 8 slots of 24 against 6 slots of 32, so width, depth and parameters are all held): 0.205 against 0.3206, ratio 0.64, CE delta 0.0616 nats. This is the clean isolation of slot geometry from width. CONCLUSION: the forced 8-slot geometry is expensive in its own right - it costs a third to four fifths of the induction score and 0.06-0.15 nats of held CE at identical parameters - so the two masked-decoder arms' depth-3 width-128 numbers are NOT a measurement of those architectures at their intended geometry and must not be quoted as one. THE VERDICT WORD SURVIVES: re-running the registered rule with the two masked arms read at their exact 6x32 geometry (width 192, three seeds, against the plain model at the same width) still returns ACCELERANT - bandwidth 2.41x, predicate 25.42x, codebook 1.37x, slots 1.68x, shrink 1.86x - because the masked arms move from below the plain model to modestly above it without reaching the 2x bar. What is RETRACTED is the sub-claim: \"private write channels is now BELOW the plain model (0.76x)\" is a geometry artifact; at its own geometry it is 1.68x, above the plain model, and shrinking channel goes from 1.06x to 1.86x.",
       "fix": "the depth-3 rows for private write channels and shrinking channel are relabelled \"8x16 forced geometry\" everywhere, the width-192 rows are quoted beside them, and no claim of the form \"the masked-decoder architectures lose at depth 3\" is made from the width-128 cells alone."
     }
-  ]
+  ],
+  "fix_round": {
+    "rule": "every objection above is closed with a MEASUREMENT, a RETRACTION or a DOCUMENTED LIMITATION; nothing is left in the \"we will check later\" state.",
+    "closed_by_new_measurement": [
+      "R5-O1 - bar swept 1.25x to 5.0x, three leave-one-model-seed-out subsets, and the complete 729-combination enumeration",
+      "R5-O2 - a parameter-matched plain control (depth 3, width 144, 2,299,824 params, three seeds) trained for this review",
+      "R5-O3 - the named-term knockout re-run at three seeds on induction AND on held CE, with a restore gate",
+      "R5-O4b - the registered rule re-run on the natural-text order-only swap probe",
+      "R5-O7 - the round-4 norm-share regression re-derived on variant checkpoints, with the plain model as a positive control that reproduces round 4 to 0.01 in slope",
+      "R5-O8 - both slot-geometry controls finished at three model seeds, plus a geometry-only contrast at fixed width 192 that the original plan did not include"
+    ],
+    "retractions_issued": [
+      "the held-CE column quoted in the 2026-08-08 20:50 mailbox entry and its commit message is `rung5_ladder._model_ce` (context 256, 24,576 tokens), not the slice table's `final_held_ce` (context 512, full held split). The named-attention arm's CE win is -0.2130 nats on the primary instrument, not -0.1435.",
+      "\"private write channels is now BELOW the plain model on induction (0.76x)\" is WITHDRAWN as a statement about the architecture: at the 6x32 geometry it was designed for it is 1.68x the plain model. Same for shrinking channel, 1.06x -> 1.86x.",
+      "\"two of five clear the 2x bar\" is WITHDRAWN. One arm clears it unambiguously; bandwidth-limited writes sit ON the bar (CI 1.96-2.86), fall to 1.47x on the second probe, and to 1.81x (not separated, and 0.06 nats worse on CE) against a parameter-matched plain model.",
+      "\"three of five are within 40% of the plain model\" is restated: three of five are NOT SEPARATED from it over model seeds (Welch t -2.03, 3.66, 0.44 against 4.30 needed).",
+      "the round-4 magnitude law may NOT be quoted over variant route numbers - it is a property of a shared residual stream and fails on every partitioned variant."
+    ],
+    "documented_limitations": [
+      "R5-O3 is an inference-time knockout of a trained model; it bounds how much of THIS model's behaviour the named terms carry, not what the architecture would reach if retrained without them.",
+      "the width-192 controls answer the geometry question at a DIFFERENT width from the rest of the slice; the recomputed rule that uses them mixes two widths and is indicative only.",
+      "control A's induction deltas (Welch t -3.99 and -3.25) do not reach the 4.303 needed at 2 df, though its CE deltas do and control B2's induction delta does (t -4.45).",
+      "the norm-share denominator for a partitioned stream is not the same object as for a shared one, so R5-O7's failed within-variant fit is evidence the plain law does not transfer, not evidence of direction-specific gating.",
+      "compute is still not matched: the named-attention arm trains 2.3x longer per cell than the plain model."
+    ],
+    "what_stands_after_the_round": "The pre-registered verdict word ACCELERANT stands, and is now known to be stable against the bar (1.5x-5.0x), against the seeds (all leave-one-out subsets and 100% of 729 single-seed combinations at 2.0x), against the probe (natural-text swap agrees at r = 0.9996), against the slot geometry (the masked arms read at 6x32 still do not reach 2x), and against parameter matching (which REMOVES one of the two arms that appeared to clear the bar). The exception - named attention terms - also stands, but as a different KIND of claim: it INSTALLS the capability. Zeroing 24 scalars removes 98% of its induction, drops it below the plain model, and erases its entire CE advantage."
+  }
 }
