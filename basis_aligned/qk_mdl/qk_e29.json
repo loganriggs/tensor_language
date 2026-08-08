@@ -6208,5 +6208,108 @@
       "predicate_basis": 3
     },
     "note": "SURVIVES = |difference of arm means| exceeds 2 pooled standard deviations AND should be read with the exact permutation p-value in the same row; with n = 3-4 the smallest attainable two-sided exact p is 1/35 = 0.029 (4 vs 3) or 2/70 = 0.029 (4 vs 4), so nothing here can be significant at 0.01 by construction"
+  },
+  "control_config_equality_composition": {
+    "parent": "E31a",
+    "parent_json": "qk_e31a.json",
+    "fields_checked": [
+      "lr",
+      "group_coeff",
+      "width",
+      "batch",
+      "steps",
+      "epochs",
+      "corpus",
+      "held_fresh"
+    ],
+    "stored_parent_config": {
+      "lr": 0.02,
+      "group_coeff": 0.0001,
+      "width": 264,
+      "batch": 16,
+      "steps": 8250,
+      "epochs": 1,
+      "corpus": "corpus_fresh shards prefix [132000], single pass",
+      "held_fresh": "corpus_fresh/fresh34k.npy rows [33000:34500] (pure eval corpus)"
+    },
+    "this_run_config": {
+      "lr": 0.02,
+      "group_coeff": 0.0001,
+      "width": 264,
+      "batch": 16,
+      "steps": 8250,
+      "epochs": 1,
+      "corpus": "corpus_fresh shards prefix [132000], single pass",
+      "held_fresh": "corpus_fresh/fresh34k.npy rows [33000:34500] (pure eval corpus)"
+    },
+    "mismatches": {},
+    "new_seeds": [
+      1,
+      2
+    ],
+    "data_seed_all": 1234,
+    "note": "the ONLY intended difference is the init seed; the data order comes from Q.DATA_SEED which is unchanged",
+    "pass": true
+  },
+  "control_seed_gate_composition": {
+    "stored_parent_step0_ce": 10.9211,
+    "rerun_seed0_per_step_ce": [
+      10.9211,
+      10.9219,
+      10.906
+    ],
+    "rerun_seed0_held100": 10.914472274780273,
+    "seed0_step0_abs_diff_vs_stored": 0.0,
+    "new_seeds": {
+      "1": {
+        "per_step_ce": [
+          10.9081,
+          10.9088,
+          10.8943
+        ],
+        "held100": 10.90567325592041,
+        "step0_abs_diff_vs_seed0": 0.0129999999999999
+      },
+      "2": {
+        "per_step_ce": [
+          10.93,
+          10.9096,
+          10.9064
+        ],
+        "held100": 10.912162322998046,
+        "step0_abs_diff_vs_seed0": 0.008900000000000574
+      }
+    },
+    "repro_tol": 0.0001,
+    "note": "control 2: the parent logs step-0 CE at 4 dp, so seed-0 reproduction is asserted at that resolution (step-0 CE depends only on the init and the first batch); plus the guard that each new seed actually moves the init",
+    "pass": true
+  },
+  "control_ckpt_config_composition_s1": {
+    "parent_checkpoint": "qk_e31a_a.pt",
+    "replicate_checkpoint": "qk_e33_compose_s1.pt",
+    "differing_keys": [
+      "SEED"
+    ],
+    "differences": {
+      "SEED": [
+        0,
+        1
+      ]
+    },
+    "pass": true
+  },
+  "control_ckpt_config_composition_s2": {
+    "parent_checkpoint": "qk_e31a_a.pt",
+    "replicate_checkpoint": "qk_e33_compose_s2.pt",
+    "differing_keys": [
+      "SEED"
+    ],
+    "differences": {
+      "SEED": [
+        0,
+        2
+      ]
+    },
+    "pass": true
   }
 }

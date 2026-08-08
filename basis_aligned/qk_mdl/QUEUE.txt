@@ -1,20 +1,28 @@
-     held CE + induction advantage), per-candidate substitution test.
-     DELIVERABLE: ranked "next predicate to add" (summary_E32.top3).
-  2. qk_e33_compose_seeds_run.py  -> qk_e33.json   (training, ~2 h)
-     Seeds 1 and 2 of the E31a composition arm; takes the program leader from
-     n = 1 to n = 3 on CE + both wiring-Spearman axes, with the exact
-     permutation / sign-flip comparison against the predicate-basis arm's
-     three seeds. Registered: CE sd <= 0.015; composition does NOT beat the
-     predicate basis on CE (seed-0 gap +0.0828 survives at > 3 pooled sd);
-     readability sd <= 0.04 on both axes.
+IN FLIGHT (2026-08-08, chain qk_e34_chain.sh, results -> qk_e34.json)
+  qk_e34_ablate_run.py -- what the named predicate terms are actually worth.
+  Four trainings, one seed each, ~5 h; all controls pass before training.
+    E34a  the identical named terms on the VANILLA w264 model (no slots, no
+          per-slot norm, no lasso, Muon). Registered: the gain is SMALLER
+          than the constrained arm's -0.086 (interval (-0.05, 0.00], point
+          -0.02) => the named terms are an interpretability-TAX REDUCER, not
+          a general modelling win. -0.05 or better flips that.
+    E34b  profile only            (drops MATCH_prev and MATCH_same)
+    E34c  profile + MATCH_prev    (drops MATCH_same)
+    E34d  MATCH_prev + MATCH_same (drops the positional profile)
+  With E22a and E19a on disk this reads off all four marginal costs.
+  Registered: the profile carries most of the CE gain; MATCH_same costs
+  < 0.01 nats; dropping MATCH_prev costs INDUCTION massively even if CE
+  barely moves -- so induction advantage (qk_e28 repeated-prefix probe) is
+  measured for EVERY arm, not just CE.
 
-NEXT (decided by E32's ranking; do not pre-commit)
-  - E34 library growth: add the top-ranked residual predicate as a named term
-    on the predicate-basis architecture and re-run the absorption measurement
-    (does it drain in turn?). Only worth training if E32 shows the candidate
-    is programmatic on >= 1 head in EVERY seed AND the residual carries real
-    causal weight.
-  - If E32 says the residual is DIFFUSE (rank-4 mass fraction low, no
-    predicate clears the untrained floor): the predicate-library line has hit
-    its ceiling on this architecture; report the honest split and move the
-    weight to the content side.
+NEXT (do not pre-commit; decided by E34's arm-1 verdict)
+  - If arm 1 shows the named terms help the UNCONSTRAINED model too, the
+    scale box should add them to the w1152 vanilla baseline, not only to the
+    recipe arms -- that is a general-architecture claim and needs the width
+    check before it is believed (every structural claim does).
+  - If arm 1 shows the tax-reducer pattern, the honest headline is that the
+    predicate library buys back interpretability tax, and the remaining work
+    is on the CONTENT side (codebooks/catalogs), not more named terms: the
+    library is at its naming ceiling (BRAINSTORM_STATE, E32).
+  - Standing: predicate-library growth is CLOSED as a line. Do not queue
+    another named term without a new argument.
