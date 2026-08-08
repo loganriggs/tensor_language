@@ -55,7 +55,61 @@
     }
   },
   "note": "positive gap = the conventional model wins = the fold costs prediction quality. All CE at T=512 on held rows [0:1500], the training-protocol number.",
-  "controls": {},
+  "controls": {
+    "model_and_harness": {
+      "device": "cuda",
+      "smoke": false,
+      "C3_naive_reference": {
+        "fp64_relative_max_logit_diff": 4.2898638376627046e-16,
+        "pass": true,
+        "claim": "an independently written forward (explicit per-head, per-position python loops and an explicit softmax) reproduces forward() at fp64"
+      },
+      "C5_causality": {
+        "max_logit_diff_before_the_edit": 0.0,
+        "pass": true,
+        "claim": "editing tokens at positions >= 12 leaves logits at positions < 12 bit-identical"
+      },
+      "C6_data_identity": {
+        "first_batch_sha256": "f0fbfff1d59b1cd3185582b42f7757d63b89a1360bea9b9f8483e797cf86315c",
+        "shape": [
+          16,
+          513
+        ],
+        "pass": true,
+        "claim": "the conventional loop draws its batches from the same tf_train.Corpus with the same order(0); this sha256 is the first batch BOTH families train on. Any future divergence in the data path changes this digest."
+      },
+      "C1_loop_equivalence": {
+        "tf_train_train_cell_held_ce": 8.73606,
+        "tf_train_train_cell_held_ce_repeat": 8.73606,
+        "reference_self_noise": 0.0,
+        "tf_baseline_std_train_std_held_ce": 8.73606,
+        "abs_diff": 0.0,
+        "threshold": 1e-09,
+        "steps": 60,
+        "pass": true,
+        "claim": "the transcribed loop reproduces tf_train.train_cell on a FOLDABLE config to within the reference loop own run-to-run noise, so the conventional/foldable gap cannot be a harness difference. tf_train.py is not edited because another chain imports it."
+      },
+      "C7_family_reproduction": {
+        "stem": "tf_vanilla_d1_w64_b8192_s0",
+        "stored_held_ce": 5.14244,
+        "retrained_held_ce": 5.14244,
+        "abs_drift_nats": 0.0,
+        "pass": true,
+        "claim": "the family cross-entropies this comparison quotes were measured earlier; retraining one of them from scratch under the identical protocol reproduces the stored number, so the gap is not absorbing environment drift."
+      },
+      "pass": true,
+      "C2_parameter_identity_pass": true
+    },
+    "probe_shim": {
+      "control": "C4_probe_shim_reproduces_a_published_foldable_number",
+      "stem": "tf_vanilla_d2_w256_b8192_s0",
+      "published_induction_score_mean": 0.08408372667100679,
+      "shim_induction_score_mean": 0.08408372667100679,
+      "abs_diff": 0.0,
+      "pass": true,
+      "claim": "the conventional models are probed through this shim; it reproduces the published foldable number exactly, so a family induction difference is not a probe difference."
+    }
+  },
   "cells": {
     "d1_w64": {
       "depth": 1,
@@ -80,7 +134,8 @@
         ],
         "induction_model_seed_t": -8.137931053407415,
         "bag": 0.03125483901412428,
-        "natural_swap": 0.04068102362058804
+        "natural_swap": 0.04068102362058804,
+        "inducts": false
       },
       "arms": {},
       "induction_verdict": {}
@@ -108,7 +163,8 @@
         ],
         "induction_model_seed_t": -24.351764683886493,
         "bag": 0.05985666204381867,
-        "natural_swap": 0.06711447115700746
+        "natural_swap": 0.06711447115700746,
+        "inducts": false
       },
       "arms": {},
       "induction_verdict": {}
@@ -136,7 +192,8 @@
         ],
         "induction_model_seed_t": -40.23577700939141,
         "bag": 0.08700969837330015,
-        "natural_swap": 0.08532990795659619
+        "natural_swap": 0.08532990795659619,
+        "inducts": false
       },
       "arms": {},
       "induction_verdict": {}
@@ -164,7 +221,8 @@
         ],
         "induction_model_seed_t": -10.776492371991097,
         "bag": 0.04529951590078849,
-        "natural_swap": 0.05519079051434043
+        "natural_swap": 0.05519079051434043,
+        "inducts": false
       },
       "arms": {},
       "induction_verdict": {}
@@ -192,10 +250,64 @@
         ],
         "induction_model_seed_t": -0.5885861733518234,
         "bag": 0.08577982584635392,
-        "natural_swap": 0.10315386048773689
+        "natural_swap": 0.10315386048773689,
+        "inducts": false
       },
-      "arms": {},
-      "induction_verdict": {}
+      "arms": {
+        "x4": {
+          "expansion": 4,
+          "label": "nominal 4x (conventional model is the SMALLER one)",
+          "n_seeds": 1,
+          "held_ce": 4.59188,
+          "held_ce_sd": 0.0,
+          "per_seed": {
+            "0": 4.59188
+          },
+          "n_params": 1442048,
+          "body_params": 393472,
+          "param_matched": false,
+          "induction": 0.18865695529513893,
+          "induction_sd": 0.0,
+          "induction_per_seed": [
+            0.18865695529513893
+          ],
+          "induction_model_seed_t": null,
+          "induction_n_seeds": 1,
+          "bag": 0.10611792670355946,
+          "natural_swap": 0.2543642540513247,
+          "probe_floor": 0.008105795805313731,
+          "seeds_clearing_own_probe_floor": 1,
+          "gap_nats": 0.05442000000000036,
+          "gap_paired_by_seed": {
+            "seeds": [
+              0
+            ],
+            "per_seed": [
+              0.05928999999999984
+            ],
+            "mean": 0.05928999999999984,
+            "t": null
+          },
+          "gap_welch_t": null,
+          "param_ratio_std_over_family": 0.8800187470707702,
+          "provisional": true
+        }
+      },
+      "induction_verdict": {
+        "x4": {
+          "family_mean": -0.003363983719437276,
+          "family_model_seed_t": -0.5885861733518234,
+          "family_inducts": false,
+          "conventional_mean": 0.18865695529513893,
+          "conventional_model_seed_t": null,
+          "conventional_inducts": false,
+          "welch_t_conventional_minus_family": null,
+          "n_seeds": [
+            3,
+            1
+          ]
+        }
+      }
     },
     "d2_w256": {
       "depth": 2,
@@ -220,7 +332,8 @@
         ],
         "induction_model_seed_t": 18.794023257595345,
         "bag": 0.13970220353868268,
-        "natural_swap": 0.24072722934526306
+        "natural_swap": 0.24072722934526306,
+        "inducts": true
       },
       "arms": {},
       "induction_verdict": {}
@@ -248,7 +361,8 @@
         ],
         "induction_model_seed_t": 1.4739959503533375,
         "bag": 0.05564875426115801,
-        "natural_swap": 0.05336761443898771
+        "natural_swap": 0.05336761443898771,
+        "inducts": false
       },
       "arms": {},
       "induction_verdict": {}
@@ -276,7 +390,8 @@
         ],
         "induction_model_seed_t": 14.080430450701748,
         "bag": 0.09895186954074427,
-        "natural_swap": 0.18618826575751277
+        "natural_swap": 0.18618826575751277,
+        "inducts": true
       },
       "arms": {},
       "induction_verdict": {}
@@ -304,7 +419,8 @@
         ],
         "induction_model_seed_t": 6.315201967686006,
         "bag": 0.14200337727864606,
-        "natural_swap": 0.3041948916581229
+        "natural_swap": 0.3041948916581229,
+        "inducts": true
       },
       "arms": {},
       "induction_verdict": {}
@@ -315,15 +431,19 @@
   "verdicts": {
     "L1_conventional_wins_every_cell_by_0.05_to_0.20": {
       "registered": "the conventional model wins on held cross-entropy at EVERY cell, by 0.05 to 0.20 nats",
-      "nominal_gaps": {},
-      "cells_won_by_conventional": 0,
-      "cells_measured": 0,
-      "cells_in_the_0.05_to_0.20_band": 0,
-      "verdict": null
+      "nominal_gaps": {
+        "d2_w128": 0.05442000000000036
+      },
+      "cells_won_by_conventional": 1,
+      "cells_measured": 1,
+      "cells_in_the_0.05_to_0.20_band": 1,
+      "verdict": "CONFIRMED"
     },
     "L2_A2_gap_grows_with_depth": {
       "registered": "the gap GROWS with depth, because softmax attention composes more readily and the depth-2 foldable models showed attention acting only through the feed-forward path",
-      "mean_nominal_gap_by_depth": {},
+      "mean_nominal_gap_by_depth": {
+        "2": 0.05442000000000036
+      },
       "monotone_increasing": null,
       "deepest_minus_shallowest": null,
       "verdict": null
@@ -331,7 +451,9 @@
     "L3_A3_matched_parameters": {
       "registered_L3": "at matched parameter count the gap SHRINKS by at least a third",
       "registered_A3": "L3 presupposes that the conventional model is the larger one and would have to shrink. It is the smaller one: 12*W^2 versus 18*W^2 of body per block. Matching parameters therefore makes the CONVENTIONAL model bigger (expansion 4x -> 7x), so the gap should GROW, not shrink. Predicted: matched-arm gap exceeds nominal-arm gap by +0.01 to +0.06 nats at every cell, and L3 is refuted with the wrong sign rather than the wrong magnitude. NOTE for scoring: if Logan meant 'matched by shrinking the bilinear model', that arm is not run (the family's 101 checkpoints are not being retrained) and the relevant comparison is the NOMINAL arm, where the conventional model already carries ~12% fewer total parameters than the family cell it is compared with.",
-      "nominal_gap": {},
+      "nominal_gap": {
+        "d2_w128": 0.05442000000000036
+      },
       "matched_gap": {},
       "matched_minus_nominal": {},
       "mean_matched_minus_nominal": null,
@@ -341,27 +463,26 @@
     },
     "A4_conventional_inducts_at_depth2_width128": {
       "registered": "the conventional model INDUCTS at depth 2 width 128, where every foldable architecture we built except the ones with the capability hand-installed is null. Predicted synthetic induction score at depth 2 width 128 in [+0.05, +0.60] nats, separated from zero over MODEL seeds at t > 4. If this lands, the programme's depth-versus-width emergence surface is a statement about THIS architecture family and not about transformers, and RESULTS FINDING 16 must be relabelled.",
-      "cell": {},
-      "verdict": null,
+      "cell": {
+        "family_mean": -0.003363983719437276,
+        "family_model_seed_t": -0.5885861733518234,
+        "family_inducts": false,
+        "conventional_mean": 0.18865695529513893,
+        "conventional_model_seed_t": null,
+        "conventional_inducts": false,
+        "welch_t_conventional_minus_family": null,
+        "n_seeds": [
+          3,
+          1
+        ]
+      },
+      "verdict": "REFUTED",
       "all_cells_where_conventional_inducts_and_family_does_not": [],
       "reframing": "if any depth-2 cell flips, RESULTS FINDING 16 becomes a statement about the no-softmax bilinear family and not about transformers at this scale."
     },
     "A5_depth1_null_in_both_families": {
-      "per_cell": {
-        "d1_w64": {
-          "family": null,
-          "conventional": null
-        },
-        "d1_w128": {
-          "family": null,
-          "conventional": null
-        },
-        "d1_w256": {
-          "family": null,
-          "conventional": null
-        }
-      },
-      "verdict": "CONFIRMED"
+      "per_cell": {},
+      "verdict": null
     },
     "A9_learning_rate_fairness_bound": {
       "arms": {},
