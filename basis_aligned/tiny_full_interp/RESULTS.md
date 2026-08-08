@@ -7,6 +7,223 @@ were **refuted** are marked as such rather than quietly dropped.
 
 ---
 
+## 2026-08-08 — FINDING 11 (PHASE V1, the six-architecture slice): the interpretable architectures compute something GENUINELY DIFFERENT — they open a route the plain model leaves shut, and they get induction at half the width
+
+**The question this slice was built to answer** is not which variant wins on
+loss — at 1.6M parameters that is nearly meaningless — but whether architectures
+that claim to be more interpretable *compute the same thing by different means,
+or something different*. With four modules and an exact fold, that is decidable.
+
+**Verdict: DIFFERENT, and by a margin far outside the seed spread.** All five
+non-vanilla variants use a residual route the plain model leaves numerically
+shut, and all five acquire an algorithm (induction) that the plain model needs
+twice the width to build. One of them (`predicate`) also *beats* the plain model
+on loss while being the most legible of the six.
+
+Cell: depth 2, width 128, vocab 8192 trained byte-level BPE, seed 0, Muon 0.02
+matched across every arm, 15,000 steps × batch 16, single epoch, identical data
+order. Files: `tf_*_d2_w128_b8192_s0_interp3.json`, comparison in
+`tf_variant_compare.json` / `.txt`, registered predictions in
+`tf_variant_predictions.json` (written before the first training step).
+
+### The headline table (seed 0; all six through the SAME analysis code)
+
+| | vanilla | slots | bandwidth | predicate | codebook | shrink |
+|---|---|---|---|---|---|---|
+| params total | 1,638,656 | **1,638,656** | 1,894,480 | 1,902,704 | 1,894,480 | 1,650,944 |
+| params body | 590,080 | **590,080** | 583,760 | 591,984 | 583,760 | 602,368 |
+| stream width | 128 | 128 | 160 | 160 | 160 | 128 |
+| held CE (T=512, 1500 seq) | 4.65117 | 4.74182 | 4.62626 | **4.38428** | 4.74797 | 4.73574 |
+| CE vs vanilla | — | +0.091 | −0.025 | **−0.267** | +0.097 | +0.085 |
+| exact fold gate | PASS | PASS | PASS | PASS | PASS | PASS |
+| **induction score** | **−0.0138** | **+0.1129** | **+0.0965** | **+2.5934** | **+0.0540** | **+0.0510** |
+| probe power floor (3 SE) | 0.0075 | 0.0128 | 0.0098 | 0.0304 | 0.0086 | 0.0146 |
+| × the floor | −1.8 | **8.8** | **9.8** | **85** | **6.3** | **3.5** |
+| natural-text swap probe | +0.100 | +0.169 | — | +1.503 | — | — |
+| **layer-0 attention deleted from layer-1's read, KL [zero, resample]** | **[2.4e−5, 5.5e−6]** | **[0.574, 0.123]** | **[0.600, 0.150]** | [0.352, 0.071] | [0.113, 0.108] | [0.301, 0.148] |
+| layer-0 attention's logit share | 0.0002 | 0.326 | 0.218 | 0.285 | 0.229 | 0.075 |
+| content / random-factored null | 0.98 | ~1.0 | 1.00 | 1.00 | 0.99 | ~1.0 |
+| selection / random-table null | 0.36 | 0.29 | 0.27 | 0.27 | 0.27 | 0.19 |
+
+### 1. The attention-to-attention path: the plain model shuts it, every variant opens it
+
+FINDING 8 measured that layer 1's read is 99.9% the first MLP's write, and
+concluded the attention→attention path induction needs is numerically closed.
+**That conclusion survives, but the metric it was quoted from does not.** Norm
+share is not invariant to a change of normalisation convention, and the slot
+variants change exactly that. So the verdict is re-derived from an intervention:
+delete each upstream write from layer 1's Q/K/V **read only**, leave the
+residual stream untouched, recompute everything downstream, and score the KL
+from the true model. Both flavours are reported — zeroing (the lower bound) and
+**resampling** (substitute the write the same module produced on a *different*
+sequence, so the substituted vector is on-distribution by construction and the
+slot is just as full as before).
+
+| deleting layer-0 attention from layer-1's read | zero | resample |
+|---|---|---|
+| vanilla seed 0 / 1 / 2 | 2.4e−5 / 9.8e−6 / 4.7e−6 | 5.5e−6 / 4.0e−6 / 3.5e−6 |
+| slots | 0.574 | 0.123 |
+| bandwidth | 0.600 | 0.150 |
+| predicate | 0.352 | 0.071 |
+| codebook | 0.113 | 0.108 |
+| shrink | 0.301 | 0.148 |
+
+Even the *harshest* vanilla number is 2×10⁴ times smaller than the *gentlest*
+variant number. For scale, deleting the first MLP's write from the same read
+costs vanilla 1.796 nats — so in the plain model layer 1 reads one upstream
+module and, to five decimal places, not the other.
+
+**The normalisation confound, tested rather than argued** (`norm_confound_control`,
+demanded in review). Impose a 4-way slot norm on the *plain* model at analysis
+time — same weights, no retraining — and recompute every composition statistic.
+Its pattern sensitivity to layer-0 attention moves from 0.00424 to 0.00434, a 2%
+change, **not** to the slot variant's 1.27. So the sensitivity is not a
+normalisation artifact. Two statistics are withdrawn as evidence and kept only
+as context: the *post*-norm share is forced to 1/G by construction, and the
+*pre*-norm share cannot move under the control at all (it is a statistic about
+stream magnitudes, which is precisely the thing the training pressure the slot
+norm removes was shaping).
+
+### 2. It is not merely open — the algorithm RUNS on it
+
+An open route that carries nothing would be a weak result. The route
+decomposition that overturned this program's first induction-circuit claim is
+applied unchanged: remove layer-0 attention from layer-1's read only, from
+MLP-0's input only, from both, and outright, then re-run the induction battery.
+Fractions of the induction score removed:
+
+| | via layer-1's read | via MLP-0's input | write deleted |
+|---|---|---|---|
+| **vanilla, width 256** (has induction, +0.084) | **0.00** | ~1.0 | ~1.0 |
+| slots | **1.17** | 0.24 | 0.96 |
+| bandwidth | **1.11** | 0.37 | 1.00 |
+| shrink | **1.53** | 0.17 | 1.46 |
+| codebook | 1.24 | 1.23 | 0.95 |
+| predicate | 0.15 | 0.20 | 0.58 |
+
+(Fractions above 1 mean the intervention drives the score below zero, not that
+more than all of it was removed.) The plain model and the slot variants are
+**mirror images**: the plain model's induction signal reaches layer-1 attention
+entirely through the feed-forward block and not at all through the read; in
+slots, bandwidth and shrink it is the opposite. Codebook's two routes are not
+separable and that is recorded as a limitation, not resolved. Predicate does not
+use either route because it does not need them (see 3).
+
+**The decisive control:** the plain model at width 256 *does* have induction
+(+0.0841) and its attention-to-attention path is *still* shut (2.3e−5 nats). So
+"the route is open" and "the model inducts" are independent properties, and the
+variants change both.
+
+### 3. Predicate: induction from SIXTEEN NAMED SCALARS, and the positional work moves off the rotary
+
+`predicate` scores +2.593 ± 0.027 on the synthetic probe — 85× its power floor,
+31× the largest induction this program has ever measured (vanilla width 256,
++0.084) — and +1.503 (t = 34) on the natural-text bag-preserving swap. It is
+also the *cheapest* model in the slice, 0.267 nats below vanilla.
+
+All of it is one named term. `MATCH_prev[i,j] = 1[tok_{j-1} == tok_i]` attends
+from the current token to the position *after* an earlier copy of it: a complete
+induction head in one layer, handed over as one scalar per head. Zeroing those
+16 scalars (`pred_b`, 2 layers × 8 heads) in place:
+
+| named terms zeroed | induction |
+|---|---|
+| none | +2.5934 |
+| previous-token match `b` | **+0.0330** (98.7% removed) |
+| same-token match `c` | +2.4977 (3.7%) |
+| positional profile | +3.1224 (*negative* removal) |
+| all three | **−0.0028** — exactly vanilla's null |
+
+The learned bilinear branches contribute **no** induction on their own. No
+single head carries it either — every one-head knockout leaves 2.26–2.61, so it
+is strongly sub-additive, as registered. A second legible consequence: removing
+the rotary costs vanilla 3.429 nats of KL and predicate only 0.532, because the
+named positional profile has absorbed the positional work the rotary branches
+were doing.
+
+### 4. WHICH mechanism? The write partition and per-slot norm — not the lasso, and not the write init
+
+`slots` changes four things at once versus vanilla, and one of them is a
+confound with nothing to do with interpretability: vanilla **zero-inits** its
+decoders while every variant inits them nonzero. The reduction gate proves
+`slots(n_slots=1, lasso 0, zero writes)` is *bit-exact* vanilla, so an arm with
+n_slots 1 and no lasso differs from vanilla by the init alone.
+
+| arm | nonzero write init | partition + per-slot norm | group lasso | CE | induction | A0 out of l1 read [z, r] | A0 logit share |
+|---|---|---|---|---|---|---|---|
+| vanilla | — | — | — | 4.65117 | −0.0138 | [2.4e−5, 5.5e−6] | 0.0002 |
+| write-init only | ✓ | — | — | 4.65758 | −0.0095 | [3.5e−6, 3.1e−6] | 0.00008 |
+| slots, no lasso | ✓ | ✓ | — | 4.76072 | **+0.0836** | [0.483, 0.112] | 0.325 |
+| slots | ✓ | ✓ | ✓ | 4.74182 | **+0.1129** | [0.574, 0.123] | 0.326 |
+
+**The nonzero write init explains none of it** (CE inside the 0.0074 seed
+spread, induction still null, path still shut to 3.5e−6). **The write partition
+plus per-slot RMSNorm is the whole mechanism.** The in-loss group lasso adds
++0.029 of induction and 0.019 nats of CE on top, i.e. it helps but is not
+necessary.
+
+The natural reading is not that the partition *enables* a route, but that it
+**removes the plain model's option to collapse one**. In vanilla the first
+attention block writes with norm 9.4 into a stream whose last write has norm
+6931 — a factor of 740 — so its contribution is renormalised into
+invisibility both at layer 1's read and at the readout (logit share 0.0002).
+Give each module a private slot that is separately renormalised and that
+collapse is no longer available; the model that results uses the channel and
+gets an algorithm out of it. The plain model at width 256 shows it is not a
+capacity limit: with the shared stream it still routes around the channel even
+when it *has* induction to route.
+
+### 5. Same-or-different, question by question
+
+1. **Rung-5 ladder.** The gross shape is preserved in all six (bare embedding
+   worst, then self-attention-only, then the model's own bigram table) but the
+   levels move a lot and **there is one genuine reordering**: in `predicate`,
+   deleting all attention costs 2.608 nats against 2.174 for deleting all MLPs —
+   attention is worth more than the feed-forward, which is true in no other cell
+   in this program. Registered prediction P1 said no variant would reorder the
+   ladder: **REFUTED by predicate.** The MLP-over-attention ratio falls from 4.6
+   (vanilla) to 1.26–2.1 (slots/bandwidth/codebook/shrink) and inverts to 0.83
+   (predicate).
+2. **Composition budget.** Answered above: the path is shut in vanilla to five
+   decimals and open in all five variants, causally and normalisation-invariantly.
+3. **Induction.** Present in all five variants at width 128, absent in vanilla
+   at that width across three seeds. Registered prediction P3 said absent in
+   A/B/C/E/F and present only in D: **the D half was right and for the right
+   mechanism; the A/B/C/E/F half was wrong on B, C, E and F.**
+4. **Selection vs content.** Selection stays low rank everywhere (0.19–0.36 of
+   its random-table null; predicate and shrink lowest, as registered). **No
+   variant moves content off its null** — 0.98 to 1.00 of the same-shape
+   random-factored null in all six. P4 held. *A first draft of this number said
+   slots and shrink sat at 0.42 and 0.40; that was the masking, not the content
+   — see the correction below.*
+5. **Ablation ranges.** Every knockout is quoted as [zero, resample]. P5 said
+   resample would be harsher everywhere: **REFUTED.** For the layer-0 attention
+   *write* in `slots` the order inverts (zero 1.72, resample 0.75) because a
+   zeroed slot under per-slot RMSNorm is far more off-distribution than a zeroed
+   contribution to a shared stream. The distribution-shift share of the layer-0
+   knockout is 0.12 in vanilla and 0.56 in slots.
+
+### Arithmetic dressed as a finding, caught before it was reported
+
+The MLP content spectrum for the **masked-decoder** variants (`slots`, `shrink`)
+was initially measured over all 128 output rows of the folded tensor. But
+`write_out` discards every row outside the module's own slot, so 96 of 128 rows
+never receive a gradient and sit at their init — measured row norms are 100.5
+inside slot 1 and 4.7 outside. The all-rows spectrum duly reported "entropy rank
+51 against a null of 123", which is 32/128 and nothing else. Restricted to the
+live rows with a shape-matched null, every variant lands at 0.98–1.00 of its
+null. Small decoders are physically slot-sized, so nothing changed for them.
+
+### What this cost, stated in the same breath
+
+Four of the five variants are *worse* on loss: +0.085 to +0.097 nats, i.e. 11–13
+vanilla seed standard deviations. `bandwidth` is 0.025 better and `predicate`
+0.267 better. So the honest sentence is: **the slot architectures buy a
+different computation for about a tenth of a nat, and the predicate architecture
+buys a different computation and a quarter-nat of loss at the same time.**
+
+---
+
 ## 2026-08-08 — FINDING 7 (DEPTH 2): "attention is inert" was a property of the LADDER, not of the model
 
 **Verdict: the depth-1 headline does not survive its own adversarial test, at
