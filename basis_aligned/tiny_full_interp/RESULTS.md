@@ -154,11 +154,15 @@ would stay within ±0.05 nats and under 3 standard errors at depths 2, widths
 
 | cell | induction score | bag score | detectable-effect floor (3 SE) |
 |---|---|---|---|
-| depth 1, w32 / w64 / w128 / w256 | −0.006 / −0.012 / −0.026 / −0.034 | +0.015 / +0.031 / +0.060 / +0.081 | — |
+| depth 1, w32 / w64 / w128 / w256 (3 seeds each) | −0.006 / −0.012 / −0.026 / −0.035 | +0.015 / +0.031 / +0.060 / +0.081 | — |
 | depth 2, w32 (3 seeds) | −0.008 ± 0.002 | +0.020 | 0.008 |
 | depth 2, w64 (3 seeds) | −0.014 ± 0.002 | +0.045 | 0.011 |
 | depth 2, w128 (3 seeds) | −0.003 ± 0.010 | +0.086 | 0.010 |
-| **depth 2, w256 (1 seed so far)** | **+0.0841 ± 0.0065** | +0.133 | 0.017 |
+| **depth 2, w256 (3 seeds)** | **+0.0938 ± 0.0086** | +0.133 | 0.006–0.017 |
+
+(depth-2 width-256 per seed: +0.0841, +0.0965, +0.1007, each 5–17× its own
+floor; the depth-1 width-256 matched cells are −0.0354 ± 0.0015 over 3 seeds,
+so the flip is between depths at fixed width, not a width effect on its own.)
 
 The width-256 score is **five times the battery's own detectable-effect floor**
 and the first positive value anywhere in the program. It is corroborated by an
@@ -175,7 +179,10 @@ the depth-1 cell at the same width is used as the **matched null**:
 | 32 | +0.023 | +0.026 | +0.003 | 0.2 |
 | 64 | +0.041 | +0.055 | +0.015 | 0.9 |
 | 128 | +0.067 | +0.103 | +0.036 | 1.7 |
-| **256** | +0.080 | **+0.244** | **+0.164** | **6.0** |
+| **256** | +0.085 | **+0.241** | **+0.155** | **5.5** |
+
+(width 256 is 3 depth-1 seeds against 3 depth-2 seeds; the other widths are
+3 against 3 as well.)
 
 ### The circuit, and why it is not the textbook one
 
@@ -203,10 +210,28 @@ previous-token signal reaches layer-1 attention **through the MLP**, which is
 exactly what FINDING 8's composition budget predicts, since layer 1's read is
 99.9% MLP-0's write and 0.4% layer-0 attention.
 
-**Status: ONE SEED.** This program's own rule is that a structure claim needs
-three, so `tf_w256_seeds_chain.sh` is training depth-2 width-256 seeds 1 and 2
-(plus depth-1 width-256 seeds 1 and 2 for the matched null) and this finding is
-provisional until they land.
+### Replicated on three seeds, including the route decomposition
+
+`tf_w256_seeds_chain.sh` trained depth-2 width-256 seeds 1 and 2 (and depth-1
+width-256 seeds 1 and 2 for the matched null). Everything holds:
+
+| seed | induction | natural-text swap | the head that carries it | its distance-1 share (rank in layer 0) |
+|---|---|---|---|---|
+| 0 | +0.0841 | +0.244 | layer-0 head 1 | 0.110 (2nd of 16) |
+| 1 | +0.0965 | +0.236 | layer-0 head 6 | 0.114 (1st of 16) |
+| 2 | +0.1007 | +0.242 | layer-0 head 5 | 0.119 (2nd of 16) |
+
+and the route decomposition is the same in all three — deleting the head's
+write from layer 1's read leaves the score at 0.0841 / 0.0965 / 0.1007
+(unchanged to 4 decimals), deleting it from MLP-0's input gives 0.0083 /
+0.0131 / −0.0318 (the whole effect, and at seed 2 an overshoot past zero).
+The head index is arbitrary across seeds; what replicates is that it is one of
+the two heads with the most distance-1 attention mass, and that its route is
+the MLP.
+
+**Selection-effect control:** the heads were chosen on probe seeds 0–4, so the
+entire decomposition was re-scored on **disjoint probe seeds 100–104** and
+reproduces to within 0.001 at every cell.
 
 ---
 

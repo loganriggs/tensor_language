@@ -22,11 +22,11 @@ only** (README.md protocol); nats/token are within-tokenizer.
 | 1 | 32 | 2 | local | **done** seeds 0,1,2 — CE 5.4130 ± 0.0041, interpreted (RESULTS FINDINGS 1-6) |
 | 1 | 64 | 4 | local | **done** seeds 0,1,2 — CE 5.0442, interpreted |
 | 1 | 128 | 8 | local | **done** seeds 0,1,2 — CE 4.7234, interpreted |
-| 1 | 256 | 16 | local | **done** seed 0 — CE 4.5583, interpreted (retrained locally on bpe; scale's .pt never arrived) |
-| 2 | 32 | 2 | local | s0 **done** (CE 5.3628); **local:claimed 2026-08-08 05:30 — s1,s2 training** |
-| 2 | 64 | 4 | local | s0,s1 **done** (CE 5.0211 s1); **local:claimed 2026-08-08 05:30 — s2 training** |
-| 2 | 128 | 8 | local | **local:claimed 2026-08-08 05:30 — s0,s1,s2 training** |
-| 2 | 256 | 16 | local | **local:claimed 2026-08-08 05:30 — s0 training** (scale box offline; bpe rerun) |
+| 1 | 256 | 16 | local | **done** seeds 0,1,2 — CE 4.4592 ± 0.0026, interpreted |
+| 2 | 32 | 2 | local | **done** seeds 0,1,2 — CE 5.3166 ± 0.0090, interpreted (tf_interp2) |
+| 2 | 64 | 4 | local | **done** seeds 0,1,2 — CE 4.9124 ± 0.0054, interpreted |
+| 2 | 128 | 8 | local | **done** seeds 0,1,2 — CE 4.5503 ± 0.0065, interpreted |
+| 2 | 256 | 16 | local | **done** seeds 0,1,2 — CE 4.2453 ± 0.0032, interpreted. **INDUCTION APPEARS HERE** (+0.0938 ± 0.0086) |
 
 **Depth-2 interpretation is claimed by local (2026-08-08 05:30)**: `tf_interp2.py`
 extends the depth-1 ladder to two layers (per-LAYER attention split, the

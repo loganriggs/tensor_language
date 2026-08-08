@@ -1,0 +1,4564 @@
+{
+  "registered_predictions": {
+    "written_before_training": true,
+    "ladder_rungs_1_2": "the exact fold and the materialized tables pass their identity gates at EVERY width and depth in the grid; if a rung fails it fails at the LARGEST width first",
+    "width_effect": "held CE improves monotonically with width at fixed depth, with diminishing returns by width 128",
+    "depth_effect": "depth 2 beats depth 1 at every width, and the depth-2 gain GROWS with width (composition needs capacity to be worth having)",
+    "baseline_gap": "every trained cell beats the closed-form bigram table; the width-32 depth-1 cell beats it by less than 0.5 nats",
+    "attn_table_rank": "each layer-0 V x V score table has numerical rank equal to its algebraic bound (head_dim = 16) at delta = 0, so no head wastes its key subspace",
+    "seed_convergence": "held CE across seeds at a fixed cell spreads by less than 0.02 nats, but the materialized tables do NOT match across seeds beyond a permutation"
+  },
+  "config": {
+    "depth": 1,
+    "width": 256,
+    "vocab": 8192,
+    "tok": "bpe",
+    "seed": 2,
+    "variant": "vanilla",
+    "head_dim": 16,
+    "exp": 4,
+    "T": 512,
+    "n_slots": 1,
+    "group_coeff": 0.0,
+    "write_init": false,
+    "small_dec": false,
+    "slot": 256,
+    "predicate": false,
+    "codebook": false,
+    "cb_n": 256,
+    "cb_k_attn": 4,
+    "cb_k_mlp": 2,
+    "shrink_mode": "",
+    "shrink_floor_slots": 1,
+    "stream_width": 256,
+    "n_heads": 16,
+    "hidden": 1024
+  },
+  "corpus": {
+    "vocab": 8192,
+    "tokenizer": "bpe",
+    "seq_len": 513,
+    "unk": {
+      "tokenizer": "bpe",
+      "train_per_token": 0.0,
+      "held_per_token": 0.0,
+      "held_per_seq_mean": 0.0,
+      "held_eval_target_unk_frac": 0.0,
+      "note": "byte-level BPE: UNK impossible by construction; id 0 is <|endoftext|>",
+      "held_eos_frac": 0.001238281256519258
+    },
+    "train_split_rows": 240000,
+    "data_order_id": "epoch_order(0)@seed1234",
+    "single_epoch_arithmetic": "15000 steps x batch 16 = 240000 sequences = the entire train split, each visited exactly once",
+    "held": "held split rows [0:1500] (pure eval, never trained)"
+  },
+  "run": {
+    "lr_muon": 0.02,
+    "lr_adamw": 0.004,
+    "steps": 15000,
+    "batch": 16,
+    "train_curve_every200": [
+      [
+        0,
+        9.0961,
+        9.0961
+      ],
+      [
+        200,
+        5.7878,
+        6.2667
+      ],
+      [
+        400,
+        5.5734,
+        5.613
+      ],
+      [
+        600,
+        5.3283,
+        5.4307
+      ],
+      [
+        800,
+        5.326,
+        5.2975
+      ],
+      [
+        1000,
+        5.3493,
+        5.238
+      ],
+      [
+        1200,
+        5.1326,
+        5.1735
+      ],
+      [
+        1400,
+        5.2077,
+        5.1291
+      ],
+      [
+        1600,
+        4.9886,
+        5.1012
+      ],
+      [
+        1800,
+        5.0543,
+        5.0572
+      ],
+      [
+        2000,
+        5.0009,
+        5.0201
+      ],
+      [
+        2200,
+        4.9834,
+        5.0085
+      ],
+      [
+        2400,
+        4.9452,
+        4.9754
+      ],
+      [
+        2600,
+        4.9854,
+        4.9602
+      ],
+      [
+        2800,
+        4.96,
+        4.9481
+      ],
+      [
+        3000,
+        5.0305,
+        4.9437
+      ],
+      [
+        3200,
+        5.0126,
+        4.9229
+      ],
+      [
+        3400,
+        4.8179,
+        4.9065
+      ],
+      [
+        3600,
+        4.8383,
+        4.9009
+      ],
+      [
+        3800,
+        4.8939,
+        4.8715
+      ],
+      [
+        4000,
+        4.8002,
+        4.8713
+      ],
+      [
+        4200,
+        4.8388,
+        4.8508
+      ],
+      [
+        4400,
+        4.796,
+        4.8434
+      ],
+      [
+        4600,
+        4.737,
+        4.8345
+      ],
+      [
+        4800,
+        4.8108,
+        4.8217
+      ],
+      [
+        5000,
+        4.8403,
+        4.8239
+      ],
+      [
+        5200,
+        4.911,
+        4.8122
+      ],
+      [
+        5400,
+        4.7673,
+        4.8025
+      ],
+      [
+        5600,
+        4.712,
+        4.7844
+      ],
+      [
+        5800,
+        4.7578,
+        4.7811
+      ],
+      [
+        6000,
+        4.6733,
+        4.7752
+      ],
+      [
+        6200,
+        4.6789,
+        4.7682
+      ],
+      [
+        6400,
+        4.7355,
+        4.7534
+      ],
+      [
+        6600,
+        4.7894,
+        4.7424
+      ],
+      [
+        6800,
+        4.7269,
+        4.7385
+      ],
+      [
+        7000,
+        4.6249,
+        4.7286
+      ],
+      [
+        7200,
+        4.697,
+        4.7136
+      ],
+      [
+        7400,
+        4.8695,
+        4.7082
+      ],
+      [
+        7600,
+        4.6364,
+        4.7054
+      ],
+      [
+        7800,
+        4.7842,
+        4.696
+      ],
+      [
+        8000,
+        4.8218,
+        4.6845
+      ],
+      [
+        8200,
+        4.9196,
+        4.6856
+      ],
+      [
+        8400,
+        4.6857,
+        4.6681
+      ],
+      [
+        8600,
+        4.5871,
+        4.658
+      ],
+      [
+        8800,
+        4.6208,
+        4.6638
+      ],
+      [
+        9000,
+        4.6826,
+        4.6482
+      ],
+      [
+        9200,
+        4.5583,
+        4.6517
+      ],
+      [
+        9400,
+        4.6702,
+        4.6394
+      ],
+      [
+        9600,
+        4.6233,
+        4.6242
+      ],
+      [
+        9800,
+        4.7104,
+        4.6305
+      ],
+      [
+        10000,
+        4.6948,
+        4.6315
+      ],
+      [
+        10200,
+        4.5696,
+        4.6238
+      ],
+      [
+        10400,
+        4.7641,
+        4.6187
+      ],
+      [
+        10600,
+        4.4894,
+        4.5936
+      ],
+      [
+        10800,
+        4.7388,
+        4.6023
+      ],
+      [
+        11000,
+        4.7336,
+        4.6018
+      ],
+      [
+        11200,
+        4.6378,
+        4.5954
+      ],
+      [
+        11400,
+        4.6566,
+        4.5778
+      ],
+      [
+        11600,
+        4.4937,
+        4.5808
+      ],
+      [
+        11800,
+        4.7202,
+        4.5799
+      ],
+      [
+        12000,
+        4.5621,
+        4.5756
+      ],
+      [
+        12200,
+        4.5657,
+        4.5848
+      ],
+      [
+        12400,
+        4.5276,
+        4.563
+      ],
+      [
+        12600,
+        4.6213,
+        4.5619
+      ],
+      [
+        12800,
+        4.5125,
+        4.558
+      ],
+      [
+        13000,
+        4.4641,
+        4.5504
+      ],
+      [
+        13200,
+        4.5443,
+        4.5576
+      ],
+      [
+        13400,
+        4.6679,
+        4.5524
+      ],
+      [
+        13600,
+        4.5436,
+        4.5499
+      ],
+      [
+        13800,
+        4.4645,
+        4.5436
+      ],
+      [
+        14000,
+        4.5752,
+        4.5577
+      ],
+      [
+        14200,
+        4.5162,
+        4.5424
+      ],
+      [
+        14400,
+        4.5712,
+        4.5527
+      ],
+      [
+        14600,
+        4.5417,
+        4.5449
+      ],
+      [
+        14800,
+        4.5644,
+        4.5553
+      ]
+    ],
+    "held100_curve": [
+      [
+        1875,
+        4.939
+      ],
+      [
+        3750,
+        4.7993
+      ],
+      [
+        5625,
+        4.6943
+      ],
+      [
+        7500,
+        4.6304
+      ],
+      [
+        9375,
+        4.5647
+      ],
+      [
+        11250,
+        4.5115
+      ],
+      [
+        13125,
+        4.4781
+      ]
+    ],
+    "spikes": 0,
+    "diverged": false,
+    "wall_seconds": 273.2,
+    "sec_per_step": 0.01822,
+    "peak_mib": 2627,
+    "final_held_ce": 4.55697,
+    "n_params": 3277056,
+    "body_params": 1179904
+  },
+  "vs_baselines": {
+    "unigram_floor": 7.30343,
+    "bigram": 5.2842,
+    "model_minus_bigram": -0.72723,
+    "model_minus_unigram": -2.74646,
+    "model_bits_per_byte": 1.751,
+    "bigram_bits_per_byte": 2.03044,
+    "unigram_floor_bits_per_byte": 2.80632,
+    "bits_per_byte_rule": "the ONLY quantity comparable across tokenizers; nats/token above are within-tokenizer only"
+  },
+  "fold": {
+    "stem": "tf_vanilla_d1_w256_b8192_s2",
+    "variant": "vanilla",
+    "depth": 1,
+    "width": 256,
+    "stream_width": 256,
+    "n_heads": 16,
+    "head_dim": 16,
+    "vocab": 8192,
+    "tokenizer": "bpe",
+    "deltas": [
+      0,
+      1,
+      2
+    ],
+    "identity_gate": {
+      "mlp_tensor_identity_l0_relmax": 9.428564453628496e-07,
+      "mlp_rmsnorm_gauge_l0_relmax": 5.0929406825162e-07,
+      "decoder_absmax_l0": 4.14048957824707,
+      "attn_layer0_table_identity_relmax": 9.721318292577052e-07,
+      "attn_table_identity_heads_materialized": [
+        0,
+        8,
+        15
+      ],
+      "attn_layer0_factor_identity_allheads_relmax": 1.3155607803128078e-06,
+      "fold_forward_max_logit_diff": 6.866455078125e-05,
+      "logit_absmax": 17.206886291503906,
+      "fold_forward_rel_logit_diff": 3.9905273747960955e-06,
+      "fp64_mlp_tensor_identity_l0_relmax": 1.1478581418309965e-15,
+      "fp64_mlp_rmsnorm_gauge_l0_relmax": 8.456514692884497e-16,
+      "fp64_decoder_absmax_l0": 4.14048957824707,
+      "fp64_attn_layer0_table_identity_relmax": 1.3037009910018686e-15,
+      "fp64_attn_table_identity_heads_materialized": [
+        0,
+        8,
+        15
+      ],
+      "fp64_attn_layer0_factor_identity_allheads_relmax": 6.975660094509018e-16,
+      "fp64_fold_forward_max_logit_diff": 5.684341886080802e-14,
+      "fp64_logit_absmax": 17.2068851014615,
+      "fp64_fold_forward_rel_logit_diff": 3.3035275429357004e-15,
+      "fp32_forward_vs_fp64_forward_rel": 4.024067377063182e-06,
+      "fold_vs_forward_over_fp32_selfnoise": 0.9916651489340708,
+      "fp32_sanity_pass": true,
+      "fp64_exactness_pass": true,
+      "pass": true,
+      "criterion": {
+        "fp32_sanity": {
+          "mlp_rel": 1e-05,
+          "attn_rel": 1e-05,
+          "logit_rel": 1e-05
+        },
+        "fp64_exactness": {
+          "algebraic_rel": 1e-12,
+          "logit_abs": 1e-09,
+          "noise_multiple": 10.0
+        },
+        "note": "TWO-TIER.  fp32 tier is a scale-free sanity band sized by sqrt(N)*eps_fp32 ~ 1e-5; fp64 tier is the real exactness gate (algebraic identities to 1e-12 relative, end-to-end to 1e-9 absolute) plus a calibration requiring the fold-vs-forward gap to stay within 10x the forward pass own fp32-vs-fp64 self-noise.  SUPERSEDED: the old absolute-1e-5-fp32 logit criterion and the 1e-6 fp32 algebraic criteria, which together failed 5/6 cells on rounding alone while every fp64 residual sat at 1e-14 to 1e-16."
+      }
+    },
+    "planted_known_answer": {
+      "planted_delta0_maxdiff": 1.2823075934420558e-14,
+      "planted_delta0_scale": 0.48431475409306896,
+      "planted_delta3_maxdiff": 1.587618925213974e-14,
+      "planted_delta3_scale": 0.4802893055867663,
+      "pass": true
+    },
+    "gate_negative_control": {
+      "clean_pass": true,
+      "mlp_scale_1p1e-7_pass": false,
+      "mlp_scale_1p1e-7_fp64_logit_abs": 9.894860805714778e-09,
+      "mlp_scale_1p1e-7_fp32_logit_abs": 1.1920928955078125e-07,
+      "mlp_scale_1p1e-7_caught_by_old_absolute_1e-5_gate": false,
+      "vv_head_roll_pass": false,
+      "vv_head_roll_fp64_logit_abs": 0.033177727890211825,
+      "vv_head_roll_fp32_logit_abs": 0.033184878528118134,
+      "vv_head_roll_caught_by_old_absolute_1e-5_gate": true,
+      "pass": true
+    },
+    "spectra": {
+      "s1_d0": {
+        "per_head": [
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 6.953142842665697,
+            "entropy_rank": 10.549198428310634,
+            "top1_share": 0.3107410656026698
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 4.3834349159936155,
+            "entropy_rank": 7.503391333598229,
+            "top1_share": 0.4338189551603594
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.406420779646427,
+            "entropy_rank": 2.1720628466800758,
+            "top1_share": 0.8407078768523006
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 5.46604369956729,
+            "entropy_rank": 8.454594188868477,
+            "top1_share": 0.3534857900764564
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.161958653781948,
+            "entropy_rank": 1.5072633103613333,
+            "top1_share": 0.9271609959274536
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.207578417235565,
+            "entropy_rank": 1.638242158683159,
+            "top1_share": 0.9092707054285659
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 4.553923042687264,
+            "entropy_rank": 8.425975459455326,
+            "top1_share": 0.4392851923337357
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 3.502042725278104,
+            "entropy_rank": 6.343379278084926,
+            "top1_share": 0.5051633189563395
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 8.127036475903818,
+            "entropy_rank": 11.599445398217158,
+            "top1_share": 0.26939191108921745
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.7032319423489672,
+            "entropy_rank": 2.5404627628098293,
+            "top1_share": 0.7519635490968487
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 5.573960190633508,
+            "entropy_rank": 8.431837199251202,
+            "top1_share": 0.29337697757181647
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.7372108549149574,
+            "entropy_rank": 2.980677449933698,
+            "top1_share": 0.7523878960050323
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 3.1905210923504543,
+            "entropy_rank": 5.6478926255829425,
+            "top1_share": 0.5238343470478783
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 5.1801218643459235,
+            "entropy_rank": 8.440912398750594,
+            "top1_share": 0.3833000112766751
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 3.6671584370004626,
+            "entropy_rank": 6.327471429102881,
+            "top1_share": 0.47373498069807124
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 3.0397109880827653,
+            "entropy_rank": 5.653437958357799,
+            "top1_share": 0.5502008308397921
+          }
+        ],
+        "rank_bound": 16,
+        "mean_numerical_rank": 16.0,
+        "mean_entropy_rank": 6.138515264128016
+      },
+      "s2_d0": {
+        "per_head": [
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 7.733157463443279,
+            "entropy_rank": 11.145203965543262,
+            "top1_share": 0.2830518912428615
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 3.6451620960016706,
+            "entropy_rank": 6.249190963100527,
+            "top1_share": 0.4829390840037881
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.3729516284034518,
+            "entropy_rank": 2.0894821794133196,
+            "top1_share": 0.8513072059229959
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 3.0360631646160865,
+            "entropy_rank": 5.575786135858455,
+            "top1_share": 0.550514773425004
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.1961367051357308,
+            "entropy_rank": 1.627447681418582,
+            "top1_share": 0.9137925877244765
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.1550196148322356,
+            "entropy_rank": 1.447253260329453,
+            "top1_share": 0.9297110973708329
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 4.66283558734561,
+            "entropy_rank": 8.462614568882152,
+            "top1_share": 0.4294523401191372
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 2.0288765300902774,
+            "entropy_rank": 3.876205748243744,
+            "top1_share": 0.6951375687206536
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 7.314960122231188,
+            "entropy_rank": 11.243427189044862,
+            "top1_share": 0.3159382346724606
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.3884392568510016,
+            "entropy_rank": 2.060260843811961,
+            "top1_share": 0.8458175260359414
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 5.246435057574432,
+            "entropy_rank": 8.187096125767113,
+            "top1_share": 0.3470124192234422
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.6426608709320445,
+            "entropy_rank": 2.8280725115711176,
+            "top1_share": 0.7756573592846567
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 3.475344326962695,
+            "entropy_rank": 5.983084032998089,
+            "top1_share": 0.4930921340706036
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 5.358526890212279,
+            "entropy_rank": 8.609110583636816,
+            "top1_share": 0.3646141362878881
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 4.842639458736345,
+            "entropy_rank": 8.247666911132214,
+            "top1_share": 0.4032950242558549
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 4.700495018436099,
+            "entropy_rank": 6.947595474608366,
+            "top1_share": 0.3540957272964227
+          }
+        ],
+        "rank_bound": 16,
+        "mean_numerical_rank": 16.0,
+        "mean_entropy_rank": 5.911218635960003
+      },
+      "s1_d1": {
+        "per_head": [
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 7.009603607348775,
+            "entropy_rank": 10.600807179114748,
+            "top1_share": 0.3081811269577767
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 4.196756440793982,
+            "entropy_rank": 7.268503546391924,
+            "top1_share": 0.44715476698897033
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.4178569255849316,
+            "entropy_rank": 2.190481171594828,
+            "top1_share": 0.8370341884902474
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 5.368704755114539,
+            "entropy_rank": 8.344775404577002,
+            "top1_share": 0.358368023776718
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.1666857581309027,
+            "entropy_rank": 1.5166978130557092,
+            "top1_share": 0.9252174210477635
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.2177386643840984,
+            "entropy_rank": 1.667858634359032,
+            "top1_share": 0.905417717091361
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 4.662886817899811,
+            "entropy_rank": 8.526350138439646,
+            "top1_share": 0.4318252368489412
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 3.3058832564772325,
+            "entropy_rank": 6.062211825030214,
+            "top1_share": 0.524011462381881
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 8.077252597473654,
+            "entropy_rank": 11.565799384764855,
+            "top1_share": 0.27200380290389653
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.723163374885847,
+            "entropy_rank": 2.562985273195654,
+            "top1_share": 0.7465303620106194
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 5.523076295768508,
+            "entropy_rank": 8.378561249808786,
+            "top1_share": 0.29888765164198794
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.744093543680383,
+            "entropy_rank": 2.9972681433260195,
+            "top1_share": 0.7508103254494883
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 3.1672722704573553,
+            "entropy_rank": 5.621566112207318,
+            "top1_share": 0.5265119280784473
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 5.221991373363776,
+            "entropy_rank": 8.464760917493045,
+            "top1_share": 0.3798278434977467
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 3.7093343501747804,
+            "entropy_rank": 6.407052311798641,
+            "top1_share": 0.4709450903523551
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 2.9640351638967695,
+            "entropy_rank": 5.519562330241086,
+            "top1_share": 0.5587030947903534
+          }
+        ],
+        "rank_bound": 16,
+        "mean_numerical_rank": 16.0,
+        "mean_entropy_rank": 6.105952589712407
+      },
+      "s2_d1": {
+        "per_head": [
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 7.67651909125781,
+            "entropy_rank": 11.110651997017623,
+            "top1_share": 0.2852515674993475
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 3.664525880968722,
+            "entropy_rank": 6.282876055055703,
+            "top1_share": 0.4816478867320241
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.3555148006764715,
+            "entropy_rank": 2.0478958864637966,
+            "top1_share": 0.8570007431478955
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 3.143945868620773,
+            "entropy_rank": 5.724722972079486,
+            "top1_share": 0.5384985766358495
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.2037407598268972,
+            "entropy_rank": 1.6456301283481913,
+            "top1_share": 0.9108226137711252
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.1559971283901203,
+            "entropy_rank": 1.4501913719114874,
+            "top1_share": 0.929309090047194
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 4.760163818011685,
+            "entropy_rank": 8.537946190338758,
+            "top1_share": 0.42270025253087146
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 2.106116592033809,
+            "entropy_rank": 4.032648210603899,
+            "top1_share": 0.6810012078690448
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 7.342506842161332,
+            "entropy_rank": 11.262044690986334,
+            "top1_share": 0.3147541811655836
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.406267860410463,
+            "entropy_rank": 2.103259594641098,
+            "top1_share": 0.8402310002451296
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 5.270483890838879,
+            "entropy_rank": 8.19473728212377,
+            "top1_share": 0.3449514590709289
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.6389853686883473,
+            "entropy_rank": 2.8184369266579767,
+            "top1_share": 0.7765503665564192
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 3.4812370820132963,
+            "entropy_rank": 5.982623206657671,
+            "top1_share": 0.49260194435065646
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 5.362272456153393,
+            "entropy_rank": 8.56925860474347,
+            "top1_share": 0.36329072379469923
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 4.384088958548871,
+            "entropy_rank": 7.73607861107025,
+            "top1_share": 0.4339543543697073
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 4.732779129986977,
+            "entropy_rank": 6.928724898062518,
+            "top1_share": 0.3466307562719411
+          }
+        ],
+        "rank_bound": 16,
+        "mean_numerical_rank": 16.0,
+        "mean_entropy_rank": 5.9017329141726265
+      },
+      "s1_d2": {
+        "per_head": [
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 7.018038920055405,
+            "entropy_rank": 10.68712957442032,
+            "top1_share": 0.3108433285482084
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 4.609720073102456,
+            "entropy_rank": 7.736148701621516,
+            "top1_share": 0.41805511440679555
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.4263308525511007,
+            "entropy_rank": 2.2143507269453075,
+            "top1_share": 0.8344604742453369
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 5.741847831866435,
+            "entropy_rank": 8.67075134354037,
+            "top1_share": 0.3337507848677759
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.1710064350860647,
+            "entropy_rank": 1.5297199648742228,
+            "top1_share": 0.9234883970580587
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.268027896009936,
+            "entropy_rank": 1.7966242297414465,
+            "top1_share": 0.8868404599071409
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 4.608498034969577,
+            "entropy_rank": 8.461298074427484,
+            "top1_share": 0.435063956987538
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 3.3081399938786697,
+            "entropy_rank": 6.090431503524662,
+            "top1_share": 0.5243603258895367
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 8.025546694892684,
+            "entropy_rank": 11.537893042053025,
+            "top1_share": 0.27409745301103106
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.773539589241381,
+            "entropy_rank": 2.6380839585844535,
+            "top1_share": 0.7336878417888375
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 5.500688806954117,
+            "entropy_rank": 8.353240796074859,
+            "top1_share": 0.30162397967223253
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.7471920287035054,
+            "entropy_rank": 3.0050328799466905,
+            "top1_share": 0.7500514742126353
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 3.1433165434265122,
+            "entropy_rank": 5.585037062868737,
+            "top1_share": 0.5288737780777936
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 5.279192019876743,
+            "entropy_rank": 8.50355005475141,
+            "top1_share": 0.37562473034455135
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 3.7358805852420955,
+            "entropy_rank": 6.5352378855387165,
+            "top1_share": 0.47296794364031824
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 2.9533643775670235,
+            "entropy_rank": 5.527851662703526,
+            "top1_share": 0.5601698319367876
+          }
+        ],
+        "rank_bound": 16,
+        "mean_numerical_rank": 16.0,
+        "mean_entropy_rank": 6.179523841351047
+      },
+      "s2_d2": {
+        "per_head": [
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 7.997524436944542,
+            "entropy_rank": 11.33043983795188,
+            "top1_share": 0.27301736014341466
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 3.7162310862282504,
+            "entropy_rank": 6.3512518093192,
+            "top1_share": 0.47707969606196565
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.3428271218831,
+            "entropy_rank": 2.02004917153829,
+            "top1_share": 0.8611937311222646
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 3.231957422588037,
+            "entropy_rank": 5.8632948996318826,
+            "top1_share": 0.5295064308105091
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.2155602347555932,
+            "entropy_rank": 1.6829546802856739,
+            "top1_share": 0.9063544063684287
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.1550436137996927,
+            "entropy_rank": 1.4487039325891036,
+            "top1_share": 0.9296944895819137
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 4.940174247801838,
+            "entropy_rank": 8.705878373318527,
+            "top1_share": 0.4115251586307015
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 2.215620569161899,
+            "entropy_rank": 4.252392777883052,
+            "top1_share": 0.6621149558994232
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 7.352391704417214,
+            "entropy_rank": 11.291959279433012,
+            "top1_share": 0.31523859729618103
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.5234059347462061,
+            "entropy_rank": 2.3742089235766413,
+            "top1_share": 0.805576960680185
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 5.259768322075994,
+            "entropy_rank": 8.208435295163026,
+            "top1_share": 0.34575124082749786
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.6448026442372572,
+            "entropy_rank": 2.832951333616354,
+            "top1_share": 0.7751002751221849
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 3.476428802622205,
+            "entropy_rank": 5.967361250173053,
+            "top1_share": 0.49276889692988596
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 5.397484240489028,
+            "entropy_rank": 8.659369893165998,
+            "top1_share": 0.3648079640966618
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 4.435545532273202,
+            "entropy_rank": 7.795599732199548,
+            "top1_share": 0.4296477181954818
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 4.805610644094145,
+            "entropy_rank": 7.059351263768042,
+            "top1_share": 0.3532682158739605
+          }
+        ],
+        "rank_bound": 16,
+        "mean_numerical_rank": 16.0,
+        "mean_entropy_rank": 5.990262653350831
+      }
+    },
+    "control_spectrum_qr_vs_eig_rel": 1.2385467879365062e-11,
+    "control_spectrum_factor_vs_dense_svd_rel": 3.8384902234978224e-15,
+    "control_dense_svd_tail_over_rank_bound": 4.725493862076894e-13,
+    "mlp": [
+      {
+        "shape": [
+          256,
+          256,
+          256
+        ],
+        "fro": 12031.33203125,
+        "unfolding_spectrum": {
+          "numerical_rank": 256,
+          "participation_ratio": 224.49383698635097,
+          "entropy_rank": 239.38706850806156,
+          "top1_share": 0.01281962690389212
+        },
+        "sv_top8": [
+          2312.743633393667,
+          1499.2560554364024,
+          1454.364317402135,
+          1364.3024948572288,
+          1307.1032053923664,
+          1236.399181409832,
+          1205.9514123148233,
+          1186.6985271471858
+        ]
+      }
+    ],
+    "top_pairs_delta0": [
+      {
+        "head": 0,
+        "max": [
+          [
+            "356:' as'",
+            "760:' well'",
+            0.3857201635837555
+          ],
+          [
+            "1426:' says'",
+            "349:' he'",
+            0.22798629105091095
+          ],
+          [
+            "674:' said'",
+            "349:' he'",
+            0.21756507456302643
+          ],
+          [
+            "1426:' says'",
+            "703:' she'",
+            0.20603160560131073
+          ],
+          [
+            "674:' said'",
+            "703:' she'",
+            0.19730859994888306
+          ],
+          [
+            "1181:'be'",
+            "760:' well'",
+            0.18761838972568512
+          ],
+          [
+            "2300:' added'",
+            "349:' he'",
+            0.18664920330047607
+          ],
+          [
+            "2300:' added'",
+            "703:' she'",
+            0.14889250695705414
+          ],
+          [
+            "5866:' explained'",
+            "349:' he'",
+            0.14788690209388733
+          ],
+          [
+            "3584:' wrote'",
+            "349:' he'",
+            0.13862119615077972
+          ],
+          [
+            "6730:' adds'",
+            "349:' he'",
+            0.13329988718032837
+          ],
+          [
+            "7258:' explains'",
+            "349:' he'",
+            0.1313639134168625
+          ],
+          [
+            "5173:' stated'",
+            "349:' he'",
+            0.13051828742027283
+          ],
+          [
+            "436:' by'",
+            "760:' well'",
+            0.12910914421081543
+          ],
+          [
+            "5866:' explained'",
+            "703:' she'",
+            0.12242820858955383
+          ],
+          [
+            "312:' I'",
+            "518:' my'",
+            0.11618402600288391
+          ],
+          [
+            "3584:' wrote'",
+            "703:' she'",
+            0.11591160297393799
+          ],
+          [
+            "7258:' explains'",
+            "703:' she'",
+            0.11339423805475235
+          ],
+          [
+            "6730:' adds'",
+            "703:' she'",
+            0.11058206111192703
+          ],
+          [
+            "5173:' stated'",
+            "703:' she'",
+            0.10760278254747391
+          ]
+        ],
+        "min": [
+          [
+            "356:' as'",
+            "4569:' described'",
+            -0.5056250691413879
+          ],
+          [
+            "356:' as'",
+            "6922:' serves'",
+            -0.4561910927295685
+          ],
+          [
+            "356:' as'",
+            "7038:' referred'",
+            -0.4408964514732361
+          ],
+          [
+            "356:' as'",
+            "4034:' served'",
+            -0.4385904371738434
+          ],
+          [
+            "356:' as'",
+            "1982:' known'",
+            -0.43606171011924744
+          ],
+          [
+            "356:' as'",
+            "7212:' acts'",
+            -0.4310775399208069
+          ],
+          [
+            "356:' as'",
+            "2803:' worked'",
+            -0.42796996235847473
+          ],
+          [
+            "356:' as'",
+            "6450:' defined'",
+            -0.41189661622047424
+          ],
+          [
+            "356:' as'",
+            "1095:' same'",
+            -0.411270409822464
+          ],
+          [
+            "356:' as'",
+            "895:' such'",
+            -0.40620851516723633
+          ],
+          [
+            "356:' as'",
+            "904:' long'",
+            -0.40577805042266846
+          ],
+          [
+            "356:' as'",
+            "2025:' seen'",
+            -0.40419837832450867
+          ],
+          [
+            "356:' as'",
+            "3765:' serve'",
+            -0.4036749303340912
+          ],
+          [
+            "356:' as'",
+            "5813:' identified'",
+            -0.3905849754810333
+          ],
+          [
+            "356:' as'",
+            "4366:' refer'",
+            -0.3669731020927429
+          ],
+          [
+            "356:' as'",
+            "798:'uch'",
+            -0.365252822637558
+          ],
+          [
+            "356:' as'",
+            "6446:' recognized'",
+            -0.3586949408054352
+          ],
+          [
+            "356:' as'",
+            "2384:' soon'",
+            -0.3544955253601074
+          ],
+          [
+            "356:' as'",
+            "885:' much'",
+            -0.35266727209091187
+          ],
+          [
+            "1426:' says'",
+            "1032:',\u201d'",
+            -0.3504628539085388
+          ]
+        ],
+        "abs_mean": 0.0009200569475069642,
+        "std": 0.0019163372926414013
+      },
+      {
+        "head": 1,
+        "max": [
+          [
+            "14:'.'",
+            "1795:' million'",
+            0.14444617927074432
+          ],
+          [
+            "1828:'\u2013'",
+            "5:'%'",
+            0.14381860196590424
+          ],
+          [
+            "1828:'\u2013'",
+            "1822:' percent'",
+            0.14338552951812744
+          ],
+          [
+            "1828:'\u2013'",
+            "3636:' billion'",
+            0.13502362370491028
+          ],
+          [
+            "1828:'\u2013'",
+            "1795:' million'",
+            0.133402481675148
+          ],
+          [
+            "14:'.'",
+            "3636:' billion'",
+            0.12598364055156708
+          ],
+          [
+            "199:'\\n'",
+            "3549:'):'",
+            0.11996443569660187
+          ],
+          [
+            "15:'/'",
+            "1795:' million'",
+            0.11585766077041626
+          ],
+          [
+            "24:'8'",
+            "1795:' million'",
+            0.10880716145038605
+          ],
+          [
+            "25:'9'",
+            "1795:' million'",
+            0.10753506422042847
+          ],
+          [
+            "24:'8'",
+            "3636:' billion'",
+            0.10702180862426758
+          ],
+          [
+            "15:'/'",
+            "3636:' billion'",
+            0.10641875118017197
+          ],
+          [
+            "22:'6'",
+            "1795:' million'",
+            0.10560041666030884
+          ],
+          [
+            "23:'7'",
+            "1795:' million'",
+            0.10524545609951019
+          ],
+          [
+            "14:'.'",
+            "1822:' percent'",
+            0.10494529455900192
+          ],
+          [
+            "12:','",
+            "1795:' million'",
+            0.10464637726545334
+          ],
+          [
+            "23:'7'",
+            "3636:' billion'",
+            0.10445524007081985
+          ],
+          [
+            "22:'6'",
+            "3636:' billion'",
+            0.10422717779874802
+          ],
+          [
+            "12:','",
+            "3636:' billion'",
+            0.10395019501447678
+          ],
+          [
+            "21:'5'",
+            "1795:' million'",
+            0.10385141521692276
+          ]
+        ],
+        "min": [
+          [
+            "14:'.'",
+            "6520:' firstname'",
+            -0.34134042263031006
+          ],
+          [
+            "14:'.'",
+            "4867:' vs'",
+            -0.3395880460739136
+          ],
+          [
+            "1828:'\u2013'",
+            "6551:'OVID'",
+            -0.3301100432872772
+          ],
+          [
+            "14:'.'",
+            "8023:' Jr'",
+            -0.32902488112449646
+          ],
+          [
+            "14:'.'",
+            "8114:' Mrs'",
+            -0.32901930809020996
+          ],
+          [
+            "14:'.'",
+            "4738:' approx'",
+            -0.32595735788345337
+          ],
+          [
+            "14:'.'",
+            "6831:' Lt'",
+            -0.31581273674964905
+          ],
+          [
+            "14:'.'",
+            "1941:' et'",
+            -0.31428948044776917
+          ],
+          [
+            "1828:'\u2013'",
+            "7215:' COVID'",
+            -0.31335845589637756
+          ],
+          [
+            "2335:'.)'",
+            "4867:' vs'",
+            -0.3087199628353119
+          ],
+          [
+            "2335:'.)'",
+            "2655:' etc'",
+            -0.30832406878471375
+          ],
+          [
+            "14:'.'",
+            "2655:' etc'",
+            -0.30586686730384827
+          ],
+          [
+            "14:'.'",
+            "6126:'Dr'",
+            -0.3022698760032654
+          ],
+          [
+            "24:'8'",
+            "3549:'):'",
+            -0.2988450527191162
+          ],
+          [
+            "14:'.'",
+            "3767:'example'",
+            -0.29865869879722595
+          ],
+          [
+            "2335:'.)'",
+            "8023:' Jr'",
+            -0.2983291447162628
+          ],
+          [
+            "25:'9'",
+            "3549:'):'",
+            -0.2965192496776581
+          ],
+          [
+            "2100:' 13'",
+            "7115:'igure'",
+            -0.29587438702583313
+          ],
+          [
+            "2335:'.)'",
+            "6520:' firstname'",
+            -0.29527485370635986
+          ],
+          [
+            "23:'7'",
+            "3549:'):'",
+            -0.2940807640552521
+          ]
+        ],
+        "abs_mean": 0.001063965610228479,
+        "std": 0.0040756878443062305
+      },
+      {
+        "head": 2,
+        "max": [
+          [
+            "948:' &'",
+            "2249:'://'",
+            0.07298766076564789
+          ],
+          [
+            "371:' or'",
+            "2249:'://'",
+            0.05365471914410591
+          ],
+          [
+            "287:' and'",
+            "2249:'://'",
+            0.0499998964369297
+          ],
+          [
+            "2007:' /'",
+            "2249:'://'",
+            0.049499642103910446
+          ],
+          [
+            "2444:' yourself'",
+            "2249:'://'",
+            0.03797433525323868
+          ],
+          [
+            "130:'\ufffd'",
+            "7560:' pp'",
+            0.03726997599005699
+          ],
+          [
+            "121:'\ufffd'",
+            "2249:'://'",
+            0.03368038311600685
+          ],
+          [
+            "1582:'sh'",
+            "2249:'://'",
+            0.03311062976717949
+          ],
+          [
+            "6051:' Mur'",
+            "7560:' pp'",
+            0.03194642439484596
+          ],
+          [
+            "6520:' firstname'",
+            "5688:' favour'",
+            0.03081355430185795
+          ],
+          [
+            "6302:'bur'",
+            "7560:' pp'",
+            0.03046541102230549
+          ],
+          [
+            "632:'ition'",
+            "2249:'://'",
+            0.030176207423210144
+          ],
+          [
+            "117:'\ufffd'",
+            "2249:'://'",
+            0.029890256002545357
+          ],
+          [
+            "129:'\ufffd'",
+            "7560:' pp'",
+            0.02925376407802105
+          ],
+          [
+            "1223:'ering'",
+            "2249:'://'",
+            0.02924196980893612
+          ],
+          [
+            "112:'\ufffd'",
+            "2249:'://'",
+            0.028899721801280975
+          ],
+          [
+            "281:'ed'",
+            "2249:'://'",
+            0.028724640607833862
+          ],
+          [
+            "880:'ative'",
+            "2249:'://'",
+            0.028566574677824974
+          ],
+          [
+            "1803:'rop'",
+            "2249:'://'",
+            0.028355248272418976
+          ],
+          [
+            "5160:' Lu'",
+            "7560:' pp'",
+            0.027719100937247276
+          ]
+        ],
+        "min": [
+          [
+            "632:'ition'",
+            "5313:' phil'",
+            -0.25689613819122314
+          ],
+          [
+            "632:'ition'",
+            "4941:'ucle'",
+            -0.20730851590633392
+          ],
+          [
+            "632:'ition'",
+            "3873:' hus'",
+            -0.2071780264377594
+          ],
+          [
+            "632:'ition'",
+            "8165:' jur'",
+            -0.20628729462623596
+          ],
+          [
+            "632:'ition'",
+            "5017:' mur'",
+            -0.20544421672821045
+          ],
+          [
+            "117:'\ufffd'",
+            "5313:' phil'",
+            -0.2021131068468094
+          ],
+          [
+            "948:' &'",
+            "5313:' phil'",
+            -0.2006576955318451
+          ],
+          [
+            "632:'ition'",
+            "4271:' citiz'",
+            -0.20023399591445923
+          ],
+          [
+            "2007:' /'",
+            "7533:' soph'",
+            -0.20021753013134003
+          ],
+          [
+            "4376:'ota'",
+            "5313:' phil'",
+            -0.19963112473487854
+          ],
+          [
+            "632:'ition'",
+            "3849:' categ'",
+            -0.1995314061641693
+          ],
+          [
+            "413:'op'",
+            "5313:' phil'",
+            -0.19938424229621887
+          ],
+          [
+            "632:'ition'",
+            "1534:' pract'",
+            -0.1990600973367691
+          ],
+          [
+            "632:'ition'",
+            "6305:' atmosp'",
+            -0.19756858050823212
+          ],
+          [
+            "632:'ition'",
+            "1064:' somet'",
+            -0.19715149700641632
+          ],
+          [
+            "117:'\ufffd'",
+            "7533:' soph'",
+            -0.19655846059322357
+          ],
+          [
+            "241:'\ufffd'",
+            "5313:' phil'",
+            -0.19609974324703217
+          ],
+          [
+            "632:'ition'",
+            "2609:' inde'",
+            -0.19589367508888245
+          ],
+          [
+            "3296:'ica'",
+            "5313:' phil'",
+            -0.1943465918302536
+          ],
+          [
+            "112:'\ufffd'",
+            "5313:' phil'",
+            -0.19414600729942322
+          ]
+        ],
+        "abs_mean": 0.028385519981384277,
+        "std": 0.014375240541994572
+      },
+      {
+        "head": 3,
+        "max": [
+          [
+            "284:' to'",
+            "7038:' referred'",
+            0.31590428948402405
+          ],
+          [
+            "284:' to'",
+            "2984:' attention'",
+            0.3005782663822174
+          ],
+          [
+            "83:'s'",
+            "1167:'the'",
+            0.2848317623138428
+          ],
+          [
+            "284:' to'",
+            "2421:' subject'",
+            0.27926817536354065
+          ],
+          [
+            "284:' to'",
+            "5613:'According'",
+            0.270795077085495
+          ],
+          [
+            "284:' to'",
+            "5152:' leads'",
+            0.2637953758239746
+          ],
+          [
+            "284:' to'",
+            "7836:' exposed'",
+            0.2626841068267822
+          ],
+          [
+            "284:' to'",
+            "2399:' according'",
+            0.2586175501346588
+          ],
+          [
+            "284:' to'",
+            "3317:' limited'",
+            0.25778546929359436
+          ],
+          [
+            "284:' to'",
+            "6913:' talked'",
+            0.2534765899181366
+          ],
+          [
+            "284:' to'",
+            "4114:' Pri'",
+            0.25086599588394165
+          ],
+          [
+            "284:' to'",
+            "3210:' led'",
+            0.25075650215148926
+          ],
+          [
+            "284:' to'",
+            "5162:' married'",
+            0.25008729100227356
+          ],
+          [
+            "284:' to'",
+            "5523:' According'",
+            0.2493717074394226
+          ],
+          [
+            "284:' to'",
+            "8131:' entitled'",
+            0.24670633673667908
+          ],
+          [
+            "284:' to'",
+            "6989:' linked'",
+            0.24414803087711334
+          ],
+          [
+            "284:' to'",
+            "2120:' due'",
+            0.2438717633485794
+          ],
+          [
+            "284:' to'",
+            "6903:' listening'",
+            0.24230049550533295
+          ],
+          [
+            "284:' to'",
+            "1794:' comes'",
+            0.238486647605896
+          ],
+          [
+            "284:' to'",
+            "3897:'urning'",
+            0.23787787556648254
+          ]
+        ],
+        "min": [
+          [
+            "284:' to'",
+            "6334:'Click'",
+            -0.28705859184265137
+          ],
+          [
+            "284:' to'",
+            "3826:' happened'",
+            -0.2775050401687622
+          ],
+          [
+            "284:' to'",
+            "5263:' appeared'",
+            -0.2717329263687134
+          ],
+          [
+            "284:' to'",
+            "6378:' scheduled'",
+            -0.27037039399147034
+          ],
+          [
+            "284:' to'",
+            "4606:' appears'",
+            -0.26705145835876465
+          ],
+          [
+            "284:' to'",
+            "7436:' occurred'",
+            -0.26333901286125183
+          ],
+          [
+            "284:' to'",
+            "7521:' oven'",
+            -0.26198676228523254
+          ],
+          [
+            "284:' to'",
+            "4199:' tend'",
+            -0.26033639907836914
+          ],
+          [
+            "284:' to'",
+            "4539:' waiting'",
+            -0.26031869649887085
+          ],
+          [
+            "284:' to'",
+            "4461:' happens'",
+            -0.2602870464324951
+          ],
+          [
+            "284:' to'",
+            "6383:' impossible'",
+            -0.260041207075119
+          ],
+          [
+            "284:' to'",
+            "2005:'How'",
+            -0.25734958052635193
+          ],
+          [
+            "284:' to'",
+            "2318:' difficult'",
+            -0.25584033131599426
+          ],
+          [
+            "284:' to'",
+            "5502:' forced'",
+            -0.2547553777694702
+          ],
+          [
+            "284:' to'",
+            "1319:' important'",
+            -0.25454986095428467
+          ],
+          [
+            "284:' to'",
+            "4609:' seemed'",
+            -0.253489226102829
+          ],
+          [
+            "284:' to'",
+            "6320:' believed'",
+            -0.2525007426738739
+          ],
+          [
+            "284:' to'",
+            "1966:' appear'",
+            -0.2510302662849426
+          ],
+          [
+            "284:' to'",
+            "2559:' seems'",
+            -0.24975387752056122
+          ],
+          [
+            "284:' to'",
+            "5992:' oblig'",
+            -0.2496304214000702
+          ]
+        ],
+        "abs_mean": 0.0007510745199397206,
+        "std": 0.0021035918034613132
+      },
+      {
+        "head": 4,
+        "max": [
+          [
+            "767:').'",
+            "792:' rel'",
+            0.011129173450171947
+          ],
+          [
+            "4494:');'",
+            "792:' rel'",
+            0.009302325546741486
+          ],
+          [
+            "4494:');'",
+            "445:'out'",
+            0.008704897947609425
+          ],
+          [
+            "850:'.\u201d'",
+            "792:' rel'",
+            0.007485970854759216
+          ],
+          [
+            "1320:' \u2018'",
+            "5010:'\u2018'",
+            0.0070372396148741245
+          ],
+          [
+            "3664:' thous'",
+            "7431:' neither'",
+            0.006740708835422993
+          ],
+          [
+            "297:' th'",
+            "1320:' \u2018'",
+            0.0067130327224731445
+          ],
+          [
+            "887:'),'",
+            "445:'out'",
+            0.0067118071019649506
+          ],
+          [
+            "1080:' sl'",
+            "5010:'\u2018'",
+            0.005806984379887581
+          ],
+          [
+            "2869:'ences'",
+            "316:'ut'",
+            0.005413595587015152
+          ],
+          [
+            "6151:':||'",
+            "737:' back'",
+            0.005375379230827093
+          ],
+          [
+            "887:'),'",
+            "358:'ers'",
+            0.005372439045459032
+          ],
+          [
+            "887:'),'",
+            "737:' back'",
+            0.0053346408531069756
+          ],
+          [
+            "4494:');'",
+            "358:'ers'",
+            0.005332255270332098
+          ],
+          [
+            "6022:' Corpor'",
+            "7431:' neither'",
+            0.0049184588715434074
+          ],
+          [
+            "297:' th'",
+            "5010:'\u2018'",
+            0.00477496488019824
+          ],
+          [
+            "3480:'nds'",
+            "1444:'ann'",
+            0.004669164307415485
+          ],
+          [
+            "2076:'pecially'",
+            "5010:'\u2018'",
+            0.004660261329263449
+          ],
+          [
+            "3259:' Coun'",
+            "7431:' neither'",
+            0.004635698162019253
+          ],
+          [
+            "4494:');'",
+            "591:' time'",
+            0.0046276613138616085
+          ]
+        ],
+        "min": [
+          [
+            "3480:'nds'",
+            "7431:' neither'",
+            -0.17191356420516968
+          ],
+          [
+            "340:'ation'",
+            "7431:' neither'",
+            -0.17034779489040375
+          ],
+          [
+            "615:'ings'",
+            "7431:' neither'",
+            -0.1696658432483673
+          ],
+          [
+            "569:'ations'",
+            "7431:' neither'",
+            -0.16700591146945953
+          ],
+          [
+            "433:'ies'",
+            "7431:' neither'",
+            -0.16637375950813293
+          ],
+          [
+            "4735:'alls'",
+            "7431:' neither'",
+            -0.16509726643562317
+          ],
+          [
+            "968:' information'",
+            "7431:' neither'",
+            -0.16421279311180115
+          ],
+          [
+            "893:'hip'",
+            "7431:' neither'",
+            -0.1634293496608734
+          ],
+          [
+            "769:'ities'",
+            "7431:' neither'",
+            -0.16328303515911102
+          ],
+          [
+            "2577:' options'",
+            "7431:' neither'",
+            -0.16142843663692474
+          ],
+          [
+            "405:'ity'",
+            "7431:' neither'",
+            -0.16095831990242004
+          ],
+          [
+            "543:'ions'",
+            "7431:' neither'",
+            -0.16088493168354034
+          ],
+          [
+            "615:'ings'",
+            "3963:' www'",
+            -0.16029243171215057
+          ],
+          [
+            "1093:'ages'",
+            "7431:' neither'",
+            -0.15900029242038727
+          ],
+          [
+            "726:'ating'",
+            "7431:' neither'",
+            -0.15846937894821167
+          ],
+          [
+            "6792:' patterns'",
+            "7431:' neither'",
+            -0.15737344324588776
+          ],
+          [
+            "1603:'utes'",
+            "7431:' neither'",
+            -0.1572655588388443
+          ],
+          [
+            "3429:'ography'",
+            "7431:' neither'",
+            -0.15698273479938507
+          ],
+          [
+            "5033:'atures'",
+            "7431:' neither'",
+            -0.15671035647392273
+          ],
+          [
+            "1474:' services'",
+            "7431:' neither'",
+            -0.1565188318490982
+          ]
+        ],
+        "abs_mean": 0.01793099194765091,
+        "std": 0.012873811647295952
+      },
+      {
+        "head": 5,
+        "max": [
+          [
+            "1160:'ody'",
+            "1064:' somet'",
+            0.07946121692657471
+          ],
+          [
+            "634:'ough'",
+            "1064:' somet'",
+            0.07788606733083725
+          ],
+          [
+            "6851:'she'",
+            "1064:' somet'",
+            0.07555504888296127
+          ],
+          [
+            "1980:'ster'",
+            "1064:' somet'",
+            0.07449160516262054
+          ],
+          [
+            "1072:' still'",
+            "1064:' somet'",
+            0.07142115384340286
+          ],
+          [
+            "852:' Un'",
+            "1064:' somet'",
+            0.07088630646467209
+          ],
+          [
+            "1529:' students'",
+            "1064:' somet'",
+            0.07052432745695114
+          ],
+          [
+            "722:' add'",
+            "1064:' somet'",
+            0.07016661763191223
+          ],
+          [
+            "880:'ative'",
+            "1064:' somet'",
+            0.07013048231601715
+          ],
+          [
+            "6258:' missed'",
+            "1064:' somet'",
+            0.0697287768125534
+          ],
+          [
+            "1223:'ering'",
+            "1064:' somet'",
+            0.06957326829433441
+          ],
+          [
+            "4354:'entially'",
+            "1064:' somet'",
+            0.06886877864599228
+          ],
+          [
+            "3059:' clients'",
+            "1064:' somet'",
+            0.06785502284765244
+          ],
+          [
+            "1006:'ince'",
+            "1064:' somet'",
+            0.06781825423240662
+          ],
+          [
+            "1875:' later'",
+            "1064:' somet'",
+            0.06753328442573547
+          ],
+          [
+            "3501:' finally'",
+            "1064:' somet'",
+            0.06670384854078293
+          ],
+          [
+            "741:'ily'",
+            "1064:' somet'",
+            0.06664592772722244
+          ],
+          [
+            "5339:' possibly'",
+            "1064:' somet'",
+            0.06653513759374619
+          ],
+          [
+            "1416:' order'",
+            "1064:' somet'",
+            0.06643567234277725
+          ],
+          [
+            "3504:'antly'",
+            "1064:' somet'",
+            0.06605805456638336
+          ]
+        ],
+        "min": [
+          [
+            "6174:\".'\"",
+            "1064:' somet'",
+            -0.009519035927951336
+          ],
+          [
+            "5097:' weap'",
+            "1064:' somet'",
+            -0.0081019327044487
+          ],
+          [
+            "8098:' Such'",
+            "1064:' somet'",
+            -0.008078468963503838
+          ],
+          [
+            "3963:' www'",
+            "4296:' Press'",
+            -0.007103136740624905
+          ],
+          [
+            "3963:' www'",
+            "3276:'imately'",
+            -0.006954435724765062
+          ],
+          [
+            "3963:' www'",
+            "8188:'Whe'",
+            -0.006835003849118948
+          ],
+          [
+            "3963:' www'",
+            "7863:'Because'",
+            -0.006723335012793541
+          ],
+          [
+            "3963:' www'",
+            "6592:'Oh'",
+            -0.006700454745441675
+          ],
+          [
+            "3963:' www'",
+            "5917:'First'",
+            -0.006622627377510071
+          ],
+          [
+            "3963:' www'",
+            "6432:'GE'",
+            -0.00662210863083601
+          ],
+          [
+            "3963:' www'",
+            "6784:' Another'",
+            -0.006599644664674997
+          ],
+          [
+            "3963:' www'",
+            "4792:'Why'",
+            -0.006556299980729818
+          ],
+          [
+            "3963:' www'",
+            "1058:'ality'",
+            -0.006526700221002102
+          ],
+          [
+            "3963:' www'",
+            "6127:'Another'",
+            -0.006478800438344479
+          ],
+          [
+            "3963:' www'",
+            "6939:' confident'",
+            -0.006407225038856268
+          ],
+          [
+            "3963:' www'",
+            "2371:' :'",
+            -0.006317542400211096
+          ],
+          [
+            "3963:' www'",
+            "5085:' Their'",
+            -0.006302808411419392
+          ],
+          [
+            "3963:' www'",
+            "6787:' ages'",
+            -0.0062851617112755775
+          ],
+          [
+            "3963:' www'",
+            "3425:' First'",
+            -0.006282729562371969
+          ],
+          [
+            "3963:' www'",
+            "6957:' featuring'",
+            -0.00623214989900589
+          ]
+        ],
+        "abs_mean": 0.01319290790706873,
+        "std": 0.006657258607447147
+      },
+      {
+        "head": 6,
+        "max": [
+          [
+            "1320:' \u2018'",
+            "610:' \"'",
+            0.09067873656749725
+          ],
+          [
+            "541:' \u201c'",
+            "610:' \"'",
+            0.07992692291736603
+          ],
+          [
+            "26:':'",
+            "610:' \"'",
+            0.07956044375896454
+          ],
+          [
+            "1371:' cost'",
+            "3743:'Here'",
+            0.07314302027225494
+          ],
+          [
+            "1371:' cost'",
+            "5613:'According'",
+            0.07103978097438812
+          ],
+          [
+            "12:','",
+            "610:' \"'",
+            0.07103850692510605
+          ],
+          [
+            "26:':'",
+            "541:' \u201c'",
+            0.07056285440921783
+          ],
+          [
+            "931:'\u201c'",
+            "610:' \"'",
+            0.07037855684757233
+          ],
+          [
+            "610:' \"'",
+            "610:' \"'",
+            0.06804834306240082
+          ],
+          [
+            "1371:' cost'",
+            "5523:' According'",
+            0.06451523303985596
+          ],
+          [
+            "1371:' cost'",
+            "3672:'atever'",
+            0.061969008296728134
+          ],
+          [
+            "1417:\" '\"",
+            "610:' \"'",
+            0.06183026358485222
+          ],
+          [
+            "1320:' \u2018'",
+            "541:' \u201c'",
+            0.06117897480726242
+          ],
+          [
+            "1371:' cost'",
+            "2399:' according'",
+            0.06081646308302879
+          ],
+          [
+            "1371:' cost'",
+            "3000:' Here'",
+            0.060263123363256454
+          ],
+          [
+            "1371:' cost'",
+            "1981:' question'",
+            0.06014494597911835
+          ],
+          [
+            "12:','",
+            "541:' \u201c'",
+            0.05993475019931793
+          ],
+          [
+            "1371:' cost'",
+            "2546:' tit'",
+            0.05952529236674309
+          ],
+          [
+            "931:'\u201c'",
+            "1417:\" '\"",
+            0.05908382683992386
+          ],
+          [
+            "1371:' cost'",
+            "2892:' While'",
+            0.05860869958996773
+          ]
+        ],
+        "min": [
+          [
+            "26:':'",
+            "3743:'Here'",
+            -0.41051381826400757
+          ],
+          [
+            "1320:' \u2018'",
+            "3743:'Here'",
+            -0.41012147068977356
+          ],
+          [
+            "1320:' \u2018'",
+            "5613:'According'",
+            -0.36682355403900146
+          ],
+          [
+            "26:':'",
+            "5613:'According'",
+            -0.3617209792137146
+          ],
+          [
+            "1320:' \u2018'",
+            "3584:' wrote'",
+            -0.35569536685943604
+          ],
+          [
+            "1320:' \u2018'",
+            "3077:' saying'",
+            -0.34989285469055176
+          ],
+          [
+            "1320:' \u2018'",
+            "7258:' explains'",
+            -0.34878215193748474
+          ],
+          [
+            "26:':'",
+            "7894:'Note'",
+            -0.3480250835418701
+          ],
+          [
+            "1320:' \u2018'",
+            "5523:' According'",
+            -0.34231680631637573
+          ],
+          [
+            "26:':'",
+            "5523:' According'",
+            -0.3414734899997711
+          ],
+          [
+            "1320:' \u2018'",
+            "7894:'Note'",
+            -0.3400079607963562
+          ],
+          [
+            "541:' \u201c'",
+            "3743:'Here'",
+            -0.3387211263179779
+          ],
+          [
+            "26:':'",
+            "5341:'However'",
+            -0.3319796919822693
+          ],
+          [
+            "26:':'",
+            "3584:' wrote'",
+            -0.33068329095840454
+          ],
+          [
+            "1320:' \u2018'",
+            "3000:' Here'",
+            -0.3285912573337555
+          ],
+          [
+            "1320:' \u2018'",
+            "5341:'However'",
+            -0.32311511039733887
+          ],
+          [
+            "1320:' \u2018'",
+            "6730:' adds'",
+            -0.3221113979816437
+          ],
+          [
+            "1320:' \u2018'",
+            "1573:' writ'",
+            -0.3214985728263855
+          ],
+          [
+            "26:':'",
+            "3000:' Here'",
+            -0.3202192783355713
+          ],
+          [
+            "1320:' \u2018'",
+            "3707:' although'",
+            -0.3196333944797516
+          ]
+        ],
+        "abs_mean": 0.0018313830951228738,
+        "std": 0.004013441037386656
+      },
+      {
+        "head": 7,
+        "max": [
+          [
+            "467:\"'s\"",
+            "498:' U'",
+            0.11521049588918686
+          ],
+          [
+            "346:'\u2019'",
+            "498:' U'",
+            0.0779770165681839
+          ],
+          [
+            "363:' are'",
+            "498:' U'",
+            0.0746779590845108
+          ],
+          [
+            "319:' is'",
+            "498:' U'",
+            0.07141882181167603
+          ],
+          [
+            "346:'\u2019'",
+            "467:\"'s\"",
+            0.0714004784822464
+          ],
+          [
+            "618:' were'",
+            "498:' U'",
+            0.07112821191549301
+          ],
+          [
+            "395:' was'",
+            "498:' U'",
+            0.06960069388151169
+          ],
+          [
+            "467:\"'s\"",
+            "467:\"'s\"",
+            0.06824874877929688
+          ],
+          [
+            "1578:\"'re\"",
+            "498:' U'",
+            0.06761913001537323
+          ],
+          [
+            "463:' all'",
+            "498:' U'",
+            0.060851290822029114
+          ],
+          [
+            "721:\"'t\"",
+            "467:\"'s\"",
+            0.05732708424329758
+          ],
+          [
+            "2052:\"'ll\"",
+            "498:' U'",
+            0.057276271283626556
+          ],
+          [
+            "447:' will'",
+            "498:' U'",
+            0.056926265358924866
+          ],
+          [
+            "2052:\"'ll\"",
+            "467:\"'s\"",
+            0.05469147115945816
+          ],
+          [
+            "594:' also'",
+            "467:\"'s\"",
+            0.05417676642537117
+          ],
+          [
+            "363:' are'",
+            "467:\"'s\"",
+            0.0541631355881691
+          ],
+          [
+            "704:' may'",
+            "498:' U'",
+            0.05293513089418411
+          ],
+          [
+            "2277:' likely'",
+            "467:\"'s\"",
+            0.05214141681790352
+          ],
+          [
+            "1072:' still'",
+            "467:\"'s\"",
+            0.0518546923995018
+          ],
+          [
+            "428:' not'",
+            "467:\"'s\"",
+            0.051548585295677185
+          ]
+        ],
+        "min": [
+          [
+            "363:' are'",
+            "3882:' Let'",
+            -0.24995486438274384
+          ],
+          [
+            "363:' are'",
+            "7729:'Have'",
+            -0.24876533448696136
+          ],
+          [
+            "319:' is'",
+            "6920:'Where'",
+            -0.24483206868171692
+          ],
+          [
+            "363:' are'",
+            "6920:'Where'",
+            -0.2444143444299698
+          ],
+          [
+            "363:' are'",
+            "5277:' Who'",
+            -0.2436182200908661
+          ],
+          [
+            "319:' is'",
+            "3882:' Let'",
+            -0.24306146800518036
+          ],
+          [
+            "319:' is'",
+            "4620:' nor'",
+            -0.2407473921775818
+          ],
+          [
+            "319:' is'",
+            "7213:'Who'",
+            -0.24004998803138733
+          ],
+          [
+            "319:' is'",
+            "5277:' Who'",
+            -0.23929472267627716
+          ],
+          [
+            "319:' is'",
+            "6519:'Then'",
+            -0.23847077786922455
+          ],
+          [
+            "363:' are'",
+            "4620:' nor'",
+            -0.23843130469322205
+          ],
+          [
+            "363:' are'",
+            "7213:'Who'",
+            -0.2383793294429779
+          ],
+          [
+            "467:\"'s\"",
+            "3882:' Let'",
+            -0.2366533875465393
+          ],
+          [
+            "363:' are'",
+            "6962:' Does'",
+            -0.23595666885375977
+          ],
+          [
+            "363:' are'",
+            "7265:'Thank'",
+            -0.23405976593494415
+          ],
+          [
+            "363:' are'",
+            "7750:' Did'",
+            -0.23320217430591583
+          ],
+          [
+            "319:' is'",
+            "8155:' Which'",
+            -0.23311693966388702
+          ],
+          [
+            "363:' are'",
+            "5653:'Let'",
+            -0.232477605342865
+          ],
+          [
+            "319:' is'",
+            "3743:'Here'",
+            -0.23247642815113068
+          ],
+          [
+            "467:\"'s\"",
+            "5653:'Let'",
+            -0.23231489956378937
+          ]
+        ],
+        "abs_mean": 0.0022642211988568306,
+        "std": 0.005347129423171282
+      },
+      {
+        "head": 8,
+        "max": [
+          [
+            "61:']'",
+            "128:'\ufffd'",
+            0.07021376490592957
+          ],
+          [
+            "1861:' went'",
+            "1522:'of'",
+            0.06781471520662308
+          ],
+          [
+            "1368:' give'",
+            "1522:'of'",
+            0.06437786668539047
+          ],
+          [
+            "1341:' \u2014'",
+            "836:'||'",
+            0.06259166449308395
+          ],
+          [
+            "693:' people'",
+            "1522:'of'",
+            0.05677378550171852
+          ],
+          [
+            "1341:' \u2014'",
+            "1417:\" '\"",
+            0.055430810898542404
+          ],
+          [
+            "1700:' already'",
+            "1522:'of'",
+            0.05330941453576088
+          ],
+          [
+            "879:' think'",
+            "1522:'of'",
+            0.05326259508728981
+          ],
+          [
+            "658:'ish'",
+            "1341:' \u2014'",
+            0.04908403381705284
+          ],
+          [
+            "1201:' ref'",
+            "1522:'of'",
+            0.04894604906439781
+          ],
+          [
+            "658:'ish'",
+            "367:' con'",
+            0.04403098672628403
+          ],
+          [
+            "1072:' still'",
+            "1417:\" '\"",
+            0.043024901300668716
+          ],
+          [
+            "61:']'",
+            "1426:' says'",
+            0.042512524873018265
+          ],
+          [
+            "1341:' \u2014'",
+            "1664:' become'",
+            0.04249146580696106
+          ],
+          [
+            "658:'ish'",
+            "1842:' --'",
+            0.04159341752529144
+          ],
+          [
+            "2181:' either'",
+            "1522:'of'",
+            0.0415068157017231
+          ],
+          [
+            "545:' go'",
+            "1522:'of'",
+            0.04139275476336479
+          ],
+          [
+            "658:'ish'",
+            "710:' \u2013'",
+            0.04046517238020897
+          ],
+          [
+            "1072:' still'",
+            "1522:'of'",
+            0.03997436538338661
+          ],
+          [
+            "1072:' still'",
+            "128:'\ufffd'",
+            0.039768680930137634
+          ]
+        ],
+        "min": [
+          [
+            "479:'fe'",
+            "1522:'of'",
+            -0.23149383068084717
+          ],
+          [
+            "658:'ish'",
+            "82:'r'",
+            -0.07539325207471848
+          ],
+          [
+            "506:'so'",
+            "1522:'of'",
+            -0.07292887568473816
+          ],
+          [
+            "269:'nd'",
+            "1522:'of'",
+            -0.07185928523540497
+          ],
+          [
+            "479:'fe'",
+            "1938:'use'",
+            -0.06772498041391373
+          ],
+          [
+            "324:'ay'",
+            "1629:' sw'",
+            -0.06487254798412323
+          ],
+          [
+            "1775:' hold'",
+            "358:'ers'",
+            -0.06371752172708511
+          ],
+          [
+            "3023:' sell'",
+            "264:'er'",
+            -0.0633065328001976
+          ],
+          [
+            "658:'ish'",
+            "1582:'sh'",
+            -0.0621340349316597
+          ],
+          [
+            "4072:' stick'",
+            "264:'er'",
+            -0.06190643832087517
+          ],
+          [
+            "785:'oll'",
+            "279:'ing'",
+            -0.06078887730836868
+          ],
+          [
+            "3023:' sell'",
+            "358:'ers'",
+            -0.06038292869925499
+          ],
+          [
+            "1286:' build'",
+            "358:'ers'",
+            -0.060234855860471725
+          ],
+          [
+            "3986:' Play'",
+            "358:'ers'",
+            -0.06009777635335922
+          ],
+          [
+            "502:'ook'",
+            "279:'ing'",
+            -0.05997269228100777
+          ],
+          [
+            "1775:' hold'",
+            "264:'er'",
+            -0.05986591801047325
+          ],
+          [
+            "1403:'ok'",
+            "264:'er'",
+            -0.05979972332715988
+          ],
+          [
+            "3102:' feed'",
+            "358:'ers'",
+            -0.059127360582351685
+          ],
+          [
+            "324:'ay'",
+            "792:' rel'",
+            -0.058995235711336136
+          ],
+          [
+            "1403:'ok'",
+            "358:'ers'",
+            -0.05853211507201195
+          ]
+        ],
+        "abs_mean": 0.0010041692294180393,
+        "std": 0.0017364666564390063
+      },
+      {
+        "head": 9,
+        "max": [
+          [
+            "632:'ition'",
+            "5088:' Mass'",
+            0.012763092294335365
+          ],
+          [
+            "2924:' wasn'",
+            "1077:' comple'",
+            0.01233287900686264
+          ],
+          [
+            "3870:' couldn'",
+            "1321:' incre'",
+            0.011509467847645283
+          ],
+          [
+            "3870:' couldn'",
+            "1077:' comple'",
+            0.011406110599637032
+          ],
+          [
+            "4096:'term'",
+            "7404:'ele'",
+            0.01043609157204628
+          ],
+          [
+            "2924:' wasn'",
+            "1321:' incre'",
+            0.010176066309213638
+          ],
+          [
+            "6720:'lights'",
+            "7404:'ele'",
+            0.009061855264008045
+          ],
+          [
+            "2553:' longer'",
+            "1551:' intern'",
+            0.008303412236273289
+          ],
+          [
+            "2399:' according'",
+            "1968:' priv'",
+            0.008282051421701908
+          ],
+          [
+            "279:'ing'",
+            "767:').'",
+            0.008222443051636219
+          ],
+          [
+            "3618:' wish'",
+            "1321:' incre'",
+            0.00800201017409563
+          ],
+          [
+            "281:'ed'",
+            "767:').'",
+            0.00781985092908144
+          ],
+          [
+            "2457:' date'",
+            "1321:' incre'",
+            0.007813158445060253
+          ],
+          [
+            "1617:' didn'",
+            "1077:' comple'",
+            0.007671114057302475
+          ],
+          [
+            "632:'ition'",
+            "1968:' priv'",
+            0.007656413596123457
+          ],
+          [
+            "3968:'ses'",
+            "7404:'ele'",
+            0.007592057343572378
+          ],
+          [
+            "404:'ant'",
+            "887:'),'",
+            0.00758484099060297
+          ],
+          [
+            "3707:' although'",
+            "1321:' incre'",
+            0.007547236979007721
+          ],
+          [
+            "591:' time'",
+            "1551:' intern'",
+            0.007449233904480934
+          ],
+          [
+            "2831:' myself'",
+            "1321:' incre'",
+            0.00734348502010107
+          ]
+        ],
+        "min": [
+          [
+            "273:'es'",
+            "6300:' ille'",
+            -0.09267695248126984
+          ],
+          [
+            "262:'on'",
+            "6300:' ille'",
+            -0.09070378541946411
+          ],
+          [
+            "273:'es'",
+            "2109:' sci'",
+            -0.0905998945236206
+          ],
+          [
+            "273:'es'",
+            "4597:' sym'",
+            -0.09002207964658737
+          ],
+          [
+            "291:'ic'",
+            "5273:'resp'",
+            -0.08784636110067368
+          ],
+          [
+            "262:'on'",
+            "2109:' sci'",
+            -0.08668795228004456
+          ],
+          [
+            "65:'a'",
+            "2109:' sci'",
+            -0.08581573516130447
+          ],
+          [
+            "283:'al'",
+            "6300:' ille'",
+            -0.08578310906887054
+          ],
+          [
+            "69:'e'",
+            "2109:' sci'",
+            -0.0851980596780777
+          ],
+          [
+            "286:'ar'",
+            "2109:' sci'",
+            -0.08481205999851227
+          ],
+          [
+            "259:'in'",
+            "6300:' ille'",
+            -0.0841275155544281
+          ],
+          [
+            "89:'y'",
+            "2109:' sci'",
+            -0.08411891758441925
+          ],
+          [
+            "79:'o'",
+            "2109:' sci'",
+            -0.0840964987874031
+          ],
+          [
+            "283:'al'",
+            "2109:' sci'",
+            -0.08405926078557968
+          ],
+          [
+            "275:'en'",
+            "2109:' sci'",
+            -0.08379238843917847
+          ],
+          [
+            "76:'l'",
+            "2109:' sci'",
+            -0.08331654220819473
+          ],
+          [
+            "389:'us'",
+            "2109:' sci'",
+            -0.08300168812274933
+          ],
+          [
+            "510:'ry'",
+            "2109:' sci'",
+            -0.08286598324775696
+          ],
+          [
+            "262:'on'",
+            "5273:'resp'",
+            -0.08266491442918777
+          ],
+          [
+            "274:'is'",
+            "2109:' sci'",
+            -0.08259796351194382
+          ]
+        ],
+        "abs_mean": 0.0038023684173822403,
+        "std": 0.00740596279501915
+      },
+      {
+        "head": 10,
+        "max": [
+          [
+            "199:'\\n'",
+            "2912:'\u2022'",
+            0.3844503164291382
+          ],
+          [
+            "199:'\\n'",
+            "7961:'\u00b7'",
+            0.35949763655662537
+          ],
+          [
+            "199:'\\n'",
+            "7981:'Google'",
+            0.33852359652519226
+          ],
+          [
+            "199:'\\n'",
+            "159:'\ufffd'",
+            0.32076796889305115
+          ],
+          [
+            "199:'\\n'",
+            "7084:'Posted'",
+            0.31246450543403625
+          ],
+          [
+            "199:'\\n'",
+            "8143:'Step'",
+            0.3117887079715729
+          ],
+          [
+            "16:'0'",
+            "3994:' IS'",
+            0.286160945892334
+          ],
+          [
+            "1614:'30'",
+            "3994:' IS'",
+            0.28039267659187317
+          ],
+          [
+            "4554:'44'",
+            "3994:' IS'",
+            0.2793770432472229
+          ],
+          [
+            "199:'\\n'",
+            "6380:'.|'",
+            0.27800700068473816
+          ],
+          [
+            "3621:'45'",
+            "3994:' IS'",
+            0.2720481753349304
+          ],
+          [
+            "5418:'46'",
+            "3994:' IS'",
+            0.27029046416282654
+          ],
+          [
+            "5120:'39'",
+            "3994:' IS'",
+            0.2668651044368744
+          ],
+          [
+            "5054:'48'",
+            "3994:' IS'",
+            0.2661915719509125
+          ],
+          [
+            "2753:'40'",
+            "3994:' IS'",
+            0.2654706835746765
+          ],
+          [
+            "4554:'44'",
+            "7560:' pp'",
+            0.26424291729927063
+          ],
+          [
+            "1614:'30'",
+            "5923:' Call'",
+            0.2636542022228241
+          ],
+          [
+            "3161:'24'",
+            "3994:' IS'",
+            0.2636493742465973
+          ],
+          [
+            "3314:'23'",
+            "3994:' IS'",
+            0.2632986605167389
+          ],
+          [
+            "199:'\\n'",
+            "3:'#'",
+            0.26238036155700684
+          ]
+        ],
+        "min": [
+          [
+            "1828:'\u2013'",
+            "199:'\\n'",
+            -0.0789385586977005
+          ],
+          [
+            "1828:'\u2013'",
+            "5284:'Last'",
+            -0.07488925009965897
+          ],
+          [
+            "1828:'\u2013'",
+            "2346:'year'",
+            -0.06725514680147171
+          ],
+          [
+            "13:'-'",
+            "2346:'year'",
+            -0.061375804245471954
+          ],
+          [
+            "13:'-'",
+            "199:'\\n'",
+            -0.059209585189819336
+          ],
+          [
+            "1828:'\u2013'",
+            "1442:'He'",
+            -0.05692783743143082
+          ],
+          [
+            "13:'-'",
+            "5284:'Last'",
+            -0.052144989371299744
+          ],
+          [
+            "1828:'\u2013'",
+            "2826:'My'",
+            -0.05033846199512482
+          ],
+          [
+            "1828:'\u2013'",
+            "1114:'This'",
+            -0.04783490300178528
+          ],
+          [
+            "1828:'\u2013'",
+            "3743:'Here'",
+            -0.04673837870359421
+          ],
+          [
+            "1828:'\u2013'",
+            "1142:'It'",
+            -0.046577829867601395
+          ],
+          [
+            "1828:'\u2013'",
+            "0:'<|endoftext|>'",
+            -0.046087782829999924
+          ],
+          [
+            "199:'\\n'",
+            "3999:' largest'",
+            -0.04602152481675148
+          ],
+          [
+            "13:'-'",
+            "1442:'He'",
+            -0.04463189095258713
+          ],
+          [
+            "13:'-'",
+            "1167:'the'",
+            -0.042461514472961426
+          ],
+          [
+            "13:'-'",
+            "2826:'My'",
+            -0.041453033685684204
+          ],
+          [
+            "1828:'\u2013'",
+            "1565:' Mar'",
+            -0.04129871726036072
+          ],
+          [
+            "1828:'\u2013'",
+            "1829:'There'",
+            -0.04111785069108009
+          ],
+          [
+            "13:'-'",
+            "1142:'It'",
+            -0.041079241782426834
+          ],
+          [
+            "13:'-'",
+            "3743:'Here'",
+            -0.04075520858168602
+          ]
+        ],
+        "abs_mean": 0.0012136067962273955,
+        "std": 0.004036625847220421
+      },
+      {
+        "head": 11,
+        "max": [
+          [
+            "8065:'bits'",
+            "116:'\ufffd'",
+            0.022898945957422256
+          ],
+          [
+            "128:'\ufffd'",
+            "4811:' 2004'",
+            0.021850062534213066
+          ],
+          [
+            "128:'\ufffd'",
+            "3607:' 2007'",
+            0.021672246977686882
+          ],
+          [
+            "128:'\ufffd'",
+            "5010:'\u2018'",
+            0.02091527357697487
+          ],
+          [
+            "2655:' etc'",
+            "116:'\ufffd'",
+            0.01945558376610279
+          ],
+          [
+            "836:'||'",
+            "506:'so'",
+            0.019293608143925667
+          ],
+          [
+            "3172:' October'",
+            "6833:'inton'",
+            0.019283700734376907
+          ],
+          [
+            "128:'\ufffd'",
+            "561:'ire'",
+            0.01889880932867527
+          ],
+          [
+            "3744:' February'",
+            "2580:'cil'",
+            0.018506580963730812
+          ],
+          [
+            "7084:'Posted'",
+            "561:'ire'",
+            0.018278080970048904
+          ],
+          [
+            "3744:' February'",
+            "6833:'inton'",
+            0.018071968108415604
+          ],
+          [
+            "2235:' Your'",
+            "590:'ub'",
+            0.017795277759432793
+          ],
+          [
+            "128:'\ufffd'",
+            "10:'*'",
+            0.01734640821814537
+          ],
+          [
+            "128:'\ufffd'",
+            "4424:' 2005'",
+            0.017215391620993614
+          ],
+          [
+            "3441:' December'",
+            "6833:'inton'",
+            0.01713498868048191
+          ],
+          [
+            "3172:' October'",
+            "2580:'cil'",
+            0.015972603112459183
+          ],
+          [
+            "7925:'itis'",
+            "116:'\ufffd'",
+            0.014948788098990917
+          ],
+          [
+            "3441:' December'",
+            "2580:'cil'",
+            0.014837205410003662
+          ],
+          [
+            "3744:' February'",
+            "5987:'oga'",
+            0.014693462289869785
+          ],
+          [
+            "6983:'isms'",
+            "116:'\ufffd'",
+            0.014259019866585732
+          ]
+        ],
+        "min": [
+          [
+            "948:' &'",
+            "6120:' iPhone'",
+            -0.17009639739990234
+          ],
+          [
+            "948:' &'",
+            "1706:' men'",
+            -0.15538612008094788
+          ],
+          [
+            "948:' &'",
+            "6369:' boys'",
+            -0.13945160806179047
+          ],
+          [
+            "948:' &'",
+            "1890:' friends'",
+            -0.1388864815235138
+          ],
+          [
+            "554:' K'",
+            "7592:'ouston'",
+            -0.13811489939689636
+          ],
+          [
+            "948:' &'",
+            "6159:'apes'",
+            -0.1372079700231552
+          ],
+          [
+            "948:' &'",
+            "3507:' Facebook'",
+            -0.136164590716362
+          ],
+          [
+            "473:'The'",
+            "0:'<|endoftext|>'",
+            -0.13615107536315918
+          ],
+          [
+            "374:' H'",
+            "7592:'ouston'",
+            -0.1332785189151764
+          ],
+          [
+            "948:' &'",
+            "6178:' Android'",
+            -0.13235628604888916
+          ],
+          [
+            "948:' &'",
+            "7419:' professor'",
+            -0.13229887187480927
+          ],
+          [
+            "948:' &'",
+            "4317:' Windows'",
+            -0.12828846275806427
+          ],
+          [
+            "377:' D'",
+            "7592:'ouston'",
+            -0.12639838457107544
+          ],
+          [
+            "948:' &'",
+            "7795:' doctors'",
+            -0.12420959770679474
+          ],
+          [
+            "347:' M'",
+            "7592:'ouston'",
+            -0.12370950728654861
+          ],
+          [
+            "287:' and'",
+            "6120:' iPhone'",
+            -0.12370887398719788
+          ],
+          [
+            "948:' &'",
+            "6943:' iP'",
+            -0.12052314728498459
+          ],
+          [
+            "355:' B'",
+            "7592:'ouston'",
+            -0.11971724778413773
+          ],
+          [
+            "1246:' including'",
+            "7906:' arrested'",
+            -0.11949709057807922
+          ],
+          [
+            "383:' The'",
+            "0:'<|endoftext|>'",
+            -0.11944185197353363
+          ]
+        ],
+        "abs_mean": 0.015273980796337128,
+        "std": 0.007778705097734928
+      },
+      {
+        "head": 12,
+        "max": [
+          [
+            "637:'ents'",
+            "6839:' Whether'",
+            0.19745410978794098
+          ],
+          [
+            "6561:' settings'",
+            "6839:' Whether'",
+            0.19673146307468414
+          ],
+          [
+            "8076:' structures'",
+            "7213:'Who'",
+            0.19390572607517242
+          ],
+          [
+            "6561:' settings'",
+            "7729:'Have'",
+            0.1919333040714264
+          ],
+          [
+            "6561:' settings'",
+            "6463:'Are'",
+            0.19176800549030304
+          ],
+          [
+            "4399:'encies'",
+            "7729:'Have'",
+            0.19099973142147064
+          ],
+          [
+            "1474:' services'",
+            "6839:' Whether'",
+            0.19019515812397003
+          ],
+          [
+            "5838:' components'",
+            "6839:' Whether'",
+            0.1898479163646698
+          ],
+          [
+            "4399:'encies'",
+            "6839:' Whether'",
+            0.18971587717533112
+          ],
+          [
+            "637:'ents'",
+            "7213:'Who'",
+            0.18971244990825653
+          ],
+          [
+            "5838:' components'",
+            "7729:'Have'",
+            0.18708820641040802
+          ],
+          [
+            "7462:' capabilities'",
+            "6839:' Whether'",
+            0.18624156713485718
+          ],
+          [
+            "433:'ies'",
+            "7213:'Who'",
+            0.18612250685691833
+          ],
+          [
+            "4377:' communities'",
+            "7213:'Who'",
+            0.1859990805387497
+          ],
+          [
+            "4399:'encies'",
+            "6463:'Are'",
+            0.18576116859912872
+          ],
+          [
+            "637:'ents'",
+            "4443:' Since'",
+            0.18575958907604218
+          ],
+          [
+            "7462:' capabilities'",
+            "7729:'Have'",
+            0.185739666223526
+          ],
+          [
+            "2430:' problems'",
+            "7213:'Who'",
+            0.1852826625108719
+          ],
+          [
+            "4608:' animals'",
+            "7213:'Who'",
+            0.1841086745262146
+          ],
+          [
+            "637:'ents'",
+            "6463:'Are'",
+            0.18358689546585083
+          ]
+        ],
+        "min": [
+          [
+            "5838:' components'",
+            "4529:'\u201d,'",
+            -0.03602287918329239
+          ],
+          [
+            "6561:' settings'",
+            "4529:'\u201d,'",
+            -0.033571213483810425
+          ],
+          [
+            "1559:'ization'",
+            "4529:'\u201d,'",
+            -0.030989237129688263
+          ],
+          [
+            "4429:' cells'",
+            "4529:'\u201d,'",
+            -0.030689824372529984
+          ],
+          [
+            "4582:' values'",
+            "4529:'\u201d,'",
+            -0.029700791463255882
+          ],
+          [
+            "4377:' communities'",
+            "4529:'\u201d,'",
+            -0.029317960143089294
+          ],
+          [
+            "1931:'utions'",
+            "4529:'\u201d,'",
+            -0.028210949152708054
+          ],
+          [
+            "4264:' cards'",
+            "4529:'\u201d,'",
+            -0.028137454763054848
+          ],
+          [
+            "7553:' versions'",
+            "4529:'\u201d,'",
+            -0.027608240023255348
+          ],
+          [
+            "7302:' regions'",
+            "4529:'\u201d,'",
+            -0.02667936310172081
+          ],
+          [
+            "7462:' capabilities'",
+            "4529:'\u201d,'",
+            -0.026676427572965622
+          ],
+          [
+            "3248:'itation'",
+            "4529:'\u201d,'",
+            -0.02665133960545063
+          ],
+          [
+            "8121:'nders'",
+            "4529:'\u201d,'",
+            -0.02653210423886776
+          ],
+          [
+            "433:'ies'",
+            "4529:'\u201d,'",
+            -0.026407916098833084
+          ],
+          [
+            "4587:' laws'",
+            "4529:'\u201d,'",
+            -0.026310719549655914
+          ],
+          [
+            "2248:' features'",
+            "4529:'\u201d,'",
+            -0.026286957785487175
+          ],
+          [
+            "2521:' systems'",
+            "4529:'\u201d,'",
+            -0.026178374886512756
+          ],
+          [
+            "8036:'riers'",
+            "4529:'\u201d,'",
+            -0.026055384427309036
+          ],
+          [
+            "8058:' powers'",
+            "4529:'\u201d,'",
+            -0.0258451197296381
+          ],
+          [
+            "1170:'ology'",
+            "4529:'\u201d,'",
+            -0.02581813372671604
+          ]
+        ],
+        "abs_mean": 0.005138932727277279,
+        "std": 0.008479554206132889
+      },
+      {
+        "head": 13,
+        "max": [
+          [
+            "46:'N'",
+            "5835:' YOU'",
+            0.3711080849170685
+          ],
+          [
+            "46:'N'",
+            "3994:' IS'",
+            0.368517130613327
+          ],
+          [
+            "46:'N'",
+            "6:'&'",
+            0.346885621547699
+          ],
+          [
+            "46:'N'",
+            "2867:'OU'",
+            0.33159807324409485
+          ],
+          [
+            "50:'R'",
+            "5835:' YOU'",
+            0.3303554952144623
+          ],
+          [
+            "43:'K'",
+            "3994:' IS'",
+            0.3275061547756195
+          ],
+          [
+            "46:'N'",
+            "4295:'TH'",
+            0.3249313533306122
+          ],
+          [
+            "36:'D'",
+            "3994:' IS'",
+            0.32303839921951294
+          ],
+          [
+            "35:'C'",
+            "3994:' IS'",
+            0.32246434688568115
+          ],
+          [
+            "46:'N'",
+            "5811:' AL'",
+            0.3222442865371704
+          ],
+          [
+            "35:'C'",
+            "6:'&'",
+            0.3180733323097229
+          ],
+          [
+            "48:'P'",
+            "3994:' IS'",
+            0.3177909553050995
+          ],
+          [
+            "43:'K'",
+            "6:'&'",
+            0.31565988063812256
+          ],
+          [
+            "46:'N'",
+            "8151:' WH'",
+            0.31555426120758057
+          ],
+          [
+            "43:'K'",
+            "5835:' YOU'",
+            0.31525084376335144
+          ],
+          [
+            "35:'C'",
+            "5835:' YOU'",
+            0.31484848260879517
+          ],
+          [
+            "48:'P'",
+            "5835:' YOU'",
+            0.31422898173332214
+          ],
+          [
+            "50:'R'",
+            "3994:' IS'",
+            0.31162017583847046
+          ],
+          [
+            "36:'D'",
+            "6:'&'",
+            0.31138795614242554
+          ],
+          [
+            "46:'N'",
+            "6036:' NOT'",
+            0.31138667464256287
+          ]
+        ],
+        "min": [
+          [
+            "46:'N'",
+            "2187:' Mc'",
+            -0.21559207141399384
+          ],
+          [
+            "767:').'",
+            "0:'<|endoftext|>'",
+            -0.19796796143054962
+          ],
+          [
+            "43:'K'",
+            "2187:' Mc'",
+            -0.19261516630649567
+          ],
+          [
+            "48:'P'",
+            "2187:' Mc'",
+            -0.19149784743785858
+          ],
+          [
+            "850:'.\u201d'",
+            "0:'<|endoftext|>'",
+            -0.1894293576478958
+          ],
+          [
+            "1:'!'",
+            "0:'<|endoftext|>'",
+            -0.18906739354133606
+          ],
+          [
+            "50:'R'",
+            "2187:' Mc'",
+            -0.18705670535564423
+          ],
+          [
+            "35:'C'",
+            "2187:' Mc'",
+            -0.18674826622009277
+          ],
+          [
+            "44:'L'",
+            "2187:' Mc'",
+            -0.1814740151166916
+          ],
+          [
+            "9:')'",
+            "0:'<|endoftext|>'",
+            -0.18068401515483856
+          ],
+          [
+            "2382:' isn'",
+            "0:'<|endoftext|>'",
+            -0.18044878542423248
+          ],
+          [
+            "36:'D'",
+            "2187:' Mc'",
+            -0.1710176318883896
+          ],
+          [
+            "34:'B'",
+            "2187:' Mc'",
+            -0.17075417935848236
+          ],
+          [
+            "3622:'By'",
+            "0:'<|endoftext|>'",
+            -0.16892293095588684
+          ],
+          [
+            "39:'G'",
+            "2187:' Mc'",
+            -0.16703353822231293
+          ],
+          [
+            "45:'M'",
+            "2187:' Mc'",
+            -0.16662317514419556
+          ],
+          [
+            "40:'H'",
+            "2187:' Mc'",
+            -0.16582593321800232
+          ],
+          [
+            "52:'T'",
+            "2187:' Mc'",
+            -0.16404268145561218
+          ],
+          [
+            "38:'F'",
+            "2187:' Mc'",
+            -0.16242949664592743
+          ],
+          [
+            "26:':'",
+            "0:'<|endoftext|>'",
+            -0.1623843014240265
+          ]
+        ],
+        "abs_mean": 0.0008403284009546041,
+        "std": 0.0028821469750255346
+      },
+      {
+        "head": 14,
+        "max": [
+          [
+            "885:' much'",
+            "2391:' pretty'",
+            0.34308043122291565
+          ],
+          [
+            "904:' long'",
+            "2391:' pretty'",
+            0.34025391936302185
+          ],
+          [
+            "904:' long'",
+            "891:' too'",
+            0.33775702118873596
+          ],
+          [
+            "2384:' soon'",
+            "2391:' pretty'",
+            0.32843685150146484
+          ],
+          [
+            "904:' long'",
+            "2005:'How'",
+            0.3258228003978729
+          ],
+          [
+            "2801:' quickly'",
+            "2391:' pretty'",
+            0.3254551291465759
+          ],
+          [
+            "2384:' soon'",
+            "891:' too'",
+            0.32293370366096497
+          ],
+          [
+            "2801:' quickly'",
+            "891:' too'",
+            0.31792157888412476
+          ],
+          [
+            "1662:' far'",
+            "2391:' pretty'",
+            0.313092440366745
+          ],
+          [
+            "2384:' soon'",
+            "1532:'As'",
+            0.31203004717826843
+          ],
+          [
+            "904:' long'",
+            "677:' how'",
+            0.3116806149482727
+          ],
+          [
+            "904:' long'",
+            "1280:' How'",
+            0.30543404817581177
+          ],
+          [
+            "904:' long'",
+            "1532:'As'",
+            0.3009358048439026
+          ],
+          [
+            "2384:' soon'",
+            "881:' As'",
+            0.3009083867073059
+          ],
+          [
+            "904:' long'",
+            "2252:' quite'",
+            0.3006034195423126
+          ],
+          [
+            "885:' much'",
+            "891:' too'",
+            0.29530763626098633
+          ],
+          [
+            "2801:' quickly'",
+            "677:' how'",
+            0.2920825183391571
+          ],
+          [
+            "2801:' quickly'",
+            "2005:'How'",
+            0.2911210060119629
+          ],
+          [
+            "2801:' quickly'",
+            "1532:'As'",
+            0.2907237708568573
+          ],
+          [
+            "1871:' early'",
+            "891:' too'",
+            0.2906561493873596
+          ]
+        ],
+        "min": [
+          [
+            "284:' to'",
+            "4502:'From'",
+            -0.2997945547103882
+          ],
+          [
+            "284:' to'",
+            "3245:' From'",
+            -0.288490355014801
+          ],
+          [
+            "284:' to'",
+            "6730:' adds'",
+            -0.27500107884407043
+          ],
+          [
+            "284:' to'",
+            "3466:' appl'",
+            -0.2298833280801773
+          ],
+          [
+            "284:' to'",
+            "2564:' contrib'",
+            -0.22956693172454834
+          ],
+          [
+            "284:' to'",
+            "5008:' brings'",
+            -0.2262129932641983
+          ],
+          [
+            "284:' to'",
+            "2300:' added'",
+            -0.22267429530620575
+          ],
+          [
+            "284:' to'",
+            "722:' add'",
+            -0.22171564400196075
+          ],
+          [
+            "284:' to'",
+            "3308:' brought'",
+            -0.22126278281211853
+          ],
+          [
+            "284:' to'",
+            "4644:' adding'",
+            -0.21381036937236786
+          ],
+          [
+            "895:' such'",
+            "677:' how'",
+            -0.2128908932209015
+          ],
+          [
+            "284:' to'",
+            "792:' rel'",
+            -0.21254613995552063
+          ],
+          [
+            "284:' to'",
+            "5581:' delivered'",
+            -0.20868155360221863
+          ],
+          [
+            "895:' such'",
+            "891:' too'",
+            -0.20726588368415833
+          ],
+          [
+            "284:' to'",
+            "7045:' transition'",
+            -0.20718395709991455
+          ],
+          [
+            "284:' to'",
+            "1887:' bring'",
+            -0.20611567795276642
+          ],
+          [
+            "284:' to'",
+            "7023:' attrib'",
+            -0.20308701694011688
+          ],
+          [
+            "895:' such'",
+            "881:' As'",
+            -0.2019711434841156
+          ],
+          [
+            "284:' to'",
+            "493:' ad'",
+            -0.20095795392990112
+          ],
+          [
+            "284:' to'",
+            "5636:' bringing'",
+            -0.2004813849925995
+          ]
+        ],
+        "abs_mean": 0.0020846938714385033,
+        "std": 0.00485164625570178
+      },
+      {
+        "head": 15,
+        "max": [
+          [
+            "288:' of'",
+            "5349:' freedom'",
+            0.366572767496109
+          ],
+          [
+            "288:' of'",
+            "7420:'amber'",
+            0.35376298427581787
+          ],
+          [
+            "288:' of'",
+            "7247:' Secretary'",
+            0.3528938591480255
+          ],
+          [
+            "288:' of'",
+            "3949:' peace'",
+            0.345807820558548
+          ],
+          [
+            "288:' of'",
+            "7419:' professor'",
+            0.34560826420783997
+          ],
+          [
+            "288:' of'",
+            "2644:' Act'",
+            0.3438563048839569
+          ],
+          [
+            "288:' of'",
+            "4081:' Board'",
+            0.3430645763874054
+          ],
+          [
+            "288:' of'",
+            "4006:' Hall'",
+            0.33821555972099304
+          ],
+          [
+            "288:' of'",
+            "2675:' House'",
+            0.32804012298583984
+          ],
+          [
+            "288:' of'",
+            "2776:' board'",
+            0.3258165419101715
+          ],
+          [
+            "288:' of'",
+            "7137:' likes'",
+            0.32140275835990906
+          ],
+          [
+            "288:' of'",
+            "7209:' ease'",
+            0.3183887004852295
+          ],
+          [
+            "288:' of'",
+            "1900:' hours'",
+            0.31836947798728943
+          ],
+          [
+            "288:' of'",
+            "5110:' Journal'",
+            0.31625398993492126
+          ],
+          [
+            "288:' of'",
+            "1675:' University'",
+            0.3151097893714905
+          ],
+          [
+            "288:' of'",
+            "3385:' Court'",
+            0.31297561526298523
+          ],
+          [
+            "288:' of'",
+            "3378:' cup'",
+            0.3118734061717987
+          ],
+          [
+            "288:' of'",
+            "6692:' capable'",
+            0.3103039264678955
+          ],
+          [
+            "288:' of'",
+            "2966:' Department'",
+            0.31011319160461426
+          ],
+          [
+            "288:' of'",
+            "6787:' ages'",
+            0.3059273064136505
+          ]
+        ],
+        "min": [
+          [
+            "288:' of'",
+            "7874:' regardless'",
+            -0.3228512406349182
+          ],
+          [
+            "288:' of'",
+            "6355:'Many'",
+            -0.312860906124115
+          ],
+          [
+            "288:' of'",
+            "3911:' ahead'",
+            -0.30137500166893005
+          ],
+          [
+            "288:' of'",
+            "5590:' decades'",
+            -0.2955785095691681
+          ],
+          [
+            "288:' of'",
+            "4711:' proud'",
+            -0.29476478695869446
+          ],
+          [
+            "288:' of'",
+            "6164:' none'",
+            -0.2819169759750366
+          ],
+          [
+            "288:' of'",
+            "2913:'All'",
+            -0.28182944655418396
+          ],
+          [
+            "288:' of'",
+            "3615:' Most'",
+            -0.27717119455337524
+          ],
+          [
+            "288:' of'",
+            "6074:'Most'",
+            -0.27534112334251404
+          ],
+          [
+            "288:' of'",
+            "3103:'One'",
+            -0.2658187448978424
+          ],
+          [
+            "288:' of'",
+            "4421:' Because'",
+            -0.26466163992881775
+          ],
+          [
+            "288:' of'",
+            "7863:'Because'",
+            -0.2597890794277191
+          ],
+          [
+            "288:' of'",
+            "2201:' front'",
+            -0.2596462666988373
+          ],
+          [
+            "288:' of'",
+            "4923:' chair'",
+            -0.25814494490623474
+          ],
+          [
+            "288:' of'",
+            "2567:' member'",
+            -0.25807011127471924
+          ],
+          [
+            "288:' of'",
+            "4058:' Many'",
+            -0.25766611099243164
+          ],
+          [
+            "288:' of'",
+            "5893:' Both'",
+            -0.25481319427490234
+          ],
+          [
+            "288:' of'",
+            "5917:'First'",
+            -0.2543265223503113
+          ],
+          [
+            "288:' of'",
+            "7431:' neither'",
+            -0.25398263335227966
+          ],
+          [
+            "288:' of'",
+            "4549:' majority'",
+            -0.251221626996994
+          ]
+        ],
+        "abs_mean": 0.0009588886750862002,
+        "std": 0.002404889790341258
+      }
+    ],
+    "artifact": "tf_vanilla_d1_w256_b8192_s2_fold.npz",
+    "artifact_mib": 94.8
+  }
+}

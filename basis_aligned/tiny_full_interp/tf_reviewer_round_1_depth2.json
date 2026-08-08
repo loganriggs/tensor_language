@@ -12,7 +12,6 @@
     "tf_vanilla_d2_*_interp2.json",
     "tf_vanilla_d*_order.json"
   ],
-
   "C0_the_new_code_is_correct": {
     "claim": "tf_interp2.DeepFold is a new implementation of the folded pipeline; every depth-2 number depends on it.",
     "objection_to_technique": "A new implementation can reproduce a bug consistently and look self-consistent. Nothing about the depth-2 numbers is checkable by inspection.",
@@ -25,7 +24,6 @@
     ],
     "status": "CLOSED"
   },
-
   "C1_attention_is_not_inert_the_ladder_was": {
     "claim": "The depth-1 headline 'removing attention entirely costs only ~0.04 nats beyond a bigram-only reconstruction' is an artifact of ladder order. Attention's marginal value is 0.29-1.23 nats added last and 2.0-15.6 nats added first, at both depths.",
     "objection_to_claim": "Maybe the reversed order is the unfair one: attention-with-no-MLP is a model that was never trained, so its KL says nothing about the trained model's decomposition.",
@@ -35,7 +33,6 @@
     "residual_objection": "The depth-1 mailbox increment was never wrong as arithmetic; it was wrong as an interpretation. The retraction is of the interpretation.",
     "status": "CLOSED"
   },
-
   "C2_layer_split": {
     "claim": "Deleting layer-1 attention costs more than deleting layer-0 attention at widths 32-64; the ordering flips at 128-256.",
     "objection_to_claim": "Single-knockout costs are not a partition; the layers could be compensating so that each looks cheap.",
@@ -46,7 +43,6 @@
     "consequence_against_our_own_claim": "the layer-0/layer-1 ordering flip at width 128 does NOT survive: under the on-distribution ablation layer 1 costs more at EVERY width. FINDING 8 was rewritten.",
     "status": "CLOSED (and it changed the answer)"
   },
-
   "C3_per_head_drops": {
     "claim": "Per-head drop costs are informative and the heads are not merely compensating for each other.",
     "objection_to_claim": "A per-head drop is confounded exactly by compensation: if the other heads absorb the loss, a load-bearing head looks free.",
@@ -54,7 +50,6 @@
     "trend": "the ratio falls with width (0.92 at w32 layer 0 to 0.55 at w256), so head complementarity increases with width",
     "status": "CLOSED"
   },
-
   "C4_fitting_and_scoring_on_the_same_tokens": {
     "claim": "No stage is fitted on the text it is scored on.",
     "objection_to_technique": "The ladder contains fitted objects (the token-independent distance profile, the mean past-attention ablation value, the MLP hidden-unit importance ordering). If any were fitted on held text every KL below them would be optimistic.",
@@ -62,13 +57,12 @@
     "fix_empirical": "fit_score_disjointness re-scores the whole ladder on the estimation split. Every fitted stage's held-minus-est is POSITIVE (est is slightly easier, which is the direction fitting predicts) and at most +0.037 nats -- an order of magnitude below the effects being claimed. The only large disagreement is embed_only at -0.119, a stage with NO fitted object at all, which shows the sign is a property of the two texts and not of leakage.",
     "status": "CLOSED"
   },
-
   "C5_induction_probe_power": {
     "claim": "Induction is absent at depth 2 widths 32-128 and present at width 256.",
     "objection_to_claim_absent": "A null is not a finding unless the instrument could have seen the effect.",
     "fix": "The oracle-mixture sensitivity curve is extended down to mixture weight 1e-6, and the detectable-effect floor is quoted as 3 standard errors of the score across probe seeds: 0.008 / 0.011 / 0.010 / 0.017 nats at widths 32/64/128/256. A mixture weight of 1e-6 (one part in a million of a perfect induction oracle) already produces +0.05 nats, about 5x the floor. The null therefore excludes induction above ~0.01 nats, which is the claim actually made.",
     "objection_to_claim_present": "The width-256 positive is ONE SEED, and this program's own rule is that structure claims need three.",
-    "status": "OPEN -- seeds 1 and 2 training (tf_w256_seeds_chain.sh), finding marked provisional in RESULTS.md",
+    "status": "CLOSED. Depth-2 width-256 seeds 1 and 2 trained: induction +0.0841 / +0.0965 / +0.1007 (mean +0.0938 +- 0.0086), each 5-17x its own floor; depth-1 width-256 matched cells -0.0354 +- 0.0015 over 3 seeds. The natural-text matched-null excess is +0.155 with t=5.5 on 3-vs-3 seeds.",
     "objection_to_technique": "The synthetic battery uses unigram-sampled random tokens; a model could induct on natural text and fail on random text.",
     "fix2": "A natural-text probe was added: destroy the induction evidence on real held text and measure the specific loss on the induction target.",
     "objection_to_that_fix": "The obvious version of that probe (overwrite the token with a random one) also REMOVES the target from the prefix, and these models have a positive bag effect, so it measures bag+order.",
@@ -77,7 +71,6 @@
     "fix4": "The depth-1 cell at the same width is used as the MATCHED NULL and only the excess is quoted: +0.003 (w32), +0.015 (w64), +0.036 (w128), +0.164 (w256, t=6.0). Only width 256 clears it.",
     "status_natural": "CLOSED as a design; the width-256 value inherits the single-seed caveat above"
   },
-
   "C6_induction_circuit": {
     "claim": "At depth 2 width 256 the induction runs layer-0 head 1 -> MLP-0 -> layer-1 attention, NOT through the residual-stream attention-composition path.",
     "objection_to_claim": "'Dropping head 1 kills the induction' is also what you would see if head 1 were simply load-bearing for the model in general.",
@@ -86,9 +79,8 @@
     "answer": "That IS the finding, quantified independently: layer-1's read is 99.91% MLP-0's write and 0.42% layer-0 attention, and the layer-1 pattern moves by 0.60% when layer-0 attention is removed from it. The intervention is small because the path is small. A control deleting a DIFFERENT layer-0 head from the same read also gives 0.0841, so the null is not an artifact of the intervention being ineffective in general -- the MLP-0-input version of the same intervention moves the score by 90%.",
     "objection_remaining": "Head identification used the per-head sweep from the same battery it is being explained by, so the head is selected on the statistic it is then scored on.",
     "fix2": "The whole route decomposition was re-scored on DISJOINT probe seeds (100-104 instead of 0-4). It reproduces to within 0.001: baseline 0.0836, drop layer-0 head 1 0.0095, layer-1 read minus that head 0.0836, MLP-0 input minus that head 0.0095.",
-    "status": "CLOSED for the selection effect; OPEN for model-seed replication (depth-2 width-256 seeds 1 and 2 training)"
+    "status": "CLOSED. Route decomposition replicates on all three depth-2 width-256 seeds (layer-1-read deletion leaves the score unchanged to 4 decimals; MLP-0-input deletion reproduces the whole effect) and on disjoint probe seeds 100-104. The carrying head differs by index across seeds but is one of the two heads with the most distance-1 attention mass in every seed."
   },
-
   "C7_signs_composed_and_causally_confirmed": {
     "claim": "Every sign-bearing statement is composed to the logits AND causally confirmed.",
     "objection_to_technique": "FINDING 6 composed to the logits but never causally confirmed, and the standing rule requires both.",
@@ -98,19 +90,15 @@
     "consequence": "FINDING 6's headline number is RETRACTED. Its causal re-derivation (build the two-token context [u,t], drop the head, rank the attended token) puts the attended token at median rank 286-4880 of 8192, not 5600, and several heads put it in the top 4-6%. The weaker claim -- no head is a copy head in the strict sense, the effect is diffuse -- survives.",
     "status": "CLOSED (with a retraction)"
   },
-
   "C8_seeds": {
     "claim": "The depth-2 picture is a property of the size, not of the run.",
-    "coverage": "3 seeds at widths 32, 64, 128; 1 seed at width 256 (2 more training). Seed spread on the headline knockouts is 0.001-0.032 nats, i.e. 1-5% of the effects.",
-    "exception": "the width-256 induction result, which is the one place a single seed carries a qualitative claim",
-    "status": "OPEN at width 256 only"
+    "coverage": "3 seeds at every width 32-256 at both depths (20 trained cells). Seed spread on the headline knockouts is 0.001-0.032 nats, i.e. 1-5% of the effects; on the width-256 induction score 0.0086 on a mean of 0.0938.",
+    "status": "CLOSED"
   },
-
   "C9_arithmetic_dressed_as_a_finding": {
     "checked": "rank <= head_dim and rank <= hidden are stated as architectural guarantees in every rung-2 output and never reported as results; only the gap below the bound, against an iid-Gaussian null of the same shape, is reported. For depth 2 an ADDITIONAL structural statement is made explicitly rather than hidden: layer >= 1 has no token factor table at all, because its read is context dependent.",
     "status": "CLOSED"
   },
-
   "C10_beating_nothing": {
     "checked": "the depth-2 cells carry the same data baselines as depth 1 (unigram, positional-only, low-rank bigram, sparse bigram with unigram backoff, dense closed-form bigram) fitted on train/est and scored on held, plus the position-by-position profile that is the only fair head-to-head against a bigram.",
     "status": "CLOSED"
