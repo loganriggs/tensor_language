@@ -217,18 +217,30 @@ def main():
         b, se = t['slope_per_efold'], t['se']
         grows = b - 2 * se > 0.05
         shrinks = b + 2 * se < -0.05
+        sig_neg = b + 2 * se < 0
+        small = abs(b) < 0.05
+        out['verdict_call'] = (
+            'GROWS -- the negative IS a small-model artifact; scale up'
+            if grows else
+            'SHRINKS OUTRIGHT -- the family gets LESS compressible with size'
+            if shrinks else
+            'NOT GROWING, AND SIGNIFICANTLY NEGATIVE -- P5\'s falsifier '
+            '(growth) is rejected with a wide margin; P5\'s letter '
+            '("indistinguishable from zero") is NOT met, because the slope is '
+            f'significantly below zero (t = {b/se:.2f}) though small in '
+            'magnitude; P5\'s scientific claim -- the negative is a property '
+            'of the family, not of the smallest model -- is confirmed in the '
+            'STRONGER direction'
+            if (sig_neg and small) else
+            'FLAT -- P5 CONFIRMED as stated')
         out['verdict'] = {
             'primary_scalar': 'held-CE frontier ratio, best description of any '
                               'kind against the STRONGER naive quantiser, '
                               'median over that cell\'s frontier points',
             'slope_per_efold_of_parameters': b, 'se': se,
             'registered_P5': 'FLAT: |slope| < 0.05 per e-fold',
-            'call': ('GROWS -- the negative is a small-model artifact, scale up'
-                     if grows else
-                     ('SHRINKS -- the family gets LESS compressible with size'
-                      if shrinks else
-                      'FLAT -- P5 CONFIRMED: a property of the family, '
-                      'not of the smallest model')),
+            'call': out['verdict_call'],
+            't': b / se,
             'range_over_cells': [min(r['R'] for r in s0 if r['R']),
                                  max(r['R'] for r in s0 if r['R'])]}
     below1 = [r for r in s0 if r['R_struct'] and r['R_struct'] < 1.0]

@@ -1,0 +1,1584 @@
+{
+  "registered_predictions": {
+    "cells": "vanilla, depths 3 and 4, widths 64/128/256, seeds 0/1/2, vocab 8192 trained byte-level BPE, Muon 0.02 + AdamW 0.004 on the embedding, 15000 steps x batch 16, single epoch, --no-sweep, identical data order to depths 1-2",
+    "analysis": "tf_interp3.py verbatim, the same code path that produced the depth-1/2 and six-architecture numbers; the depth-1/2 vanilla cells that had no interp3 JSON are backfilled through the same path so the ladder is one code path end to end",
+    "P1_induction_width_threshold": {
+      "the_fact_being_extrapolated": "at depth 2 the plain model's synthetic induction score is +0.0938 +- 0.0086 at width 256 (3/3 seeds above the planted-oracle power floor) and is BELOW its own floor at widths 32/64/128 at every seed; four of five interpretable variants induct at width 128 at depth 2",
+      "prediction": "depth LOWERS the width threshold by one octave. Concretely: at depth 3, width 128 shows induction above the planted-oracle 3-SE floor at >= 2 of 3 seeds, with a mean score in [+0.015, +0.070]; at depth 4, width 128 does so at 3 of 3 seeds. Width 64 stays below floor at BOTH depths 3 and 4 at >= 2 of 3 seeds.",
+      "quantitative_side_prediction": "the width-256 score GROWS with depth: d3 w256 in [+0.12, +0.35] and d4 w256 >= d3 w256, both above the d2 w256 value of +0.094",
+      "falsifier": "if d3/d4 width 128 stays below floor at 2 or 3 seeds, the threshold is a WIDTH threshold that depth does not move, and P1 is refuted",
+      "confidence": 0.55
+    },
+    "P2_attention_to_attention_route": {
+      "the_fact_being_extrapolated": "at depth 2 the causal read-deletion KL for layer-0 attention out of layer 1's Q/K/V read is 2.4e-5 / 9.8e-6 / 4.7e-6 (zero) and 5.5e-6 / 4.0e-6 / 3.5e-6 (resample) across three seeds, while deleting the first MLP's write from the same read costs 1.796 nats -- a ratio of ~1e-5",
+      "prediction": "the FEED-FORWARD path keeps dominating all the way up. For every layer l in 1..L-1 and every upstream attention module A_j (j<l), the causal read-deletion KL of A_j stays below 1% of the largest MLP read-deletion KL at the same layer, at every width and every seed. The single largest contributor to each layer's read is the IMMEDIATELY PRECEDING MLP, M_{l-1}.",
+      "the_one_place_it_might_break": "if any attention-to-attention route becomes non-negligible (>1% of the dominant MLP term) it will be at the DEEPEST layer of the depth-4 models and at width 256 -- the only cells with both a spare layer and enough width to have built induction. Registered as the pre-specified exception so that finding it there is not treated as a refutation of the main clause and finding it anywhere else is.",
+      "falsifier": "any attention-to-attention read-deletion KL above 1% of its layer's dominant MLP term, at 2+ seeds, outside the named exception",
+      "confidence": 0.7
+    },
+    "P3_held_CE": {
+      "prediction_training_protocol_held_CE_T512": {
+        "d3_w64": [
+          4.93,
+          5.0
+        ],
+        "d3_w128": [
+          4.53,
+          4.61
+        ],
+        "d3_w256": [
+          4.15,
+          4.25
+        ],
+        "d4_w64": [
+          4.88,
+          4.98
+        ],
+        "d4_w128": [
+          4.47,
+          4.58
+        ],
+        "d4_w256": [
+          4.08,
+          4.2
+        ]
+      },
+      "shape": "diminishing returns per added layer, and the per-layer gain GROWS with width (d1->d2 gains were -0.095/-0.130/-0.176/-0.234 at w32/64/128/256, so depth pays more where there is width to spend it)",
+      "confidence": 0.5
+    },
+    "P4_ladder_order_dependence": {
+      "the_fact_being_extrapolated": "at depth 2 attention is worth 8.17 nats added first and 0.61 added last, an 11-13x order dependence with a 3.8-7.6 nat interaction term",
+      "prediction": "the attention/MLP order dependence GROWS with depth: the ratio attention_marginal_first / attention_marginal_last exceeds its depth-2 value at the same width, at >= 2 of 3 seeds, at every width, and the interaction term (first minus last) grows monotonically in depth at width 256",
+      "confidence": 0.6
+    }
+  },
+  "cells": {
+    "d1_w32": {
+      "depth": 1,
+      "width": 32,
+      "n_seeds": 3,
+      "params": 280608,
+      "all_gates_pass": true,
+      "per_seed": [
+        {
+          "seed": 0,
+          "stem": "tf_vanilla_d1_w32_b8192_s0",
+          "params": 280608,
+          "held_ce": 5.50079,
+          "bits_per_byte": 2.113663893349918,
+          "ladder_ce": 5.411303957303365,
+          "fold_gate": true,
+          "pipeline": true,
+          "induction": -0.003826607598199061,
+          "induction_sd": 0.007100758511946167,
+          "induction_floor": 0.009507912279428116,
+          "natural_swap": 0.023188969116745284,
+          "natural_swap_floor": 0.02305441025244871,
+          "attn_first": 2.0051884055137634,
+          "attn_last": 0.30513614416122437,
+          "attn_order_ratio": 6.571454886230341,
+          "interaction": 1.700052261352539,
+          "read_kl": {}
+        },
+        {
+          "seed": 1,
+          "stem": "tf_vanilla_d1_w32_b8192_s1",
+          "params": 280608,
+          "held_ce": 5.51591,
+          "bits_per_byte": 2.1194737130426256,
+          "ladder_ce": 5.417706410090129,
+          "fold_gate": true,
+          "pipeline": true,
+          "induction": -0.007443428039550781,
+          "induction_sd": 0.006988531098757608,
+          "induction_floor": 0.010282403863380942,
+          "natural_swap": 0.02114985427033389,
+          "natural_swap_floor": 0.027058011560228176,
+          "attn_first": 2.0126258730888367,
+          "attn_last": 0.26118072122335434,
+          "attn_order_ratio": 7.7058745517732765,
+          "interaction": 1.7514451518654823,
+          "read_kl": {}
+        },
+        {
+          "seed": 2,
+          "stem": "tf_vanilla_d1_w32_b8192_s2",
+          "params": 280608,
+          "held_ce": 5.50578,
+          "bits_per_byte": 2.115581287547445,
+          "ladder_ce": 5.410000363985698,
+          "fold_gate": true,
+          "pipeline": true,
+          "induction": -0.006034787495931226,
+          "induction_sd": 0.006575323978729199,
+          "induction_floor": 0.007518049684165787,
+          "natural_swap": 0.02481671765417559,
+          "natural_swap_floor": 0.016405017131632692,
+          "attn_first": 2.0616901516914368,
+          "attn_last": 0.2953572887927294,
+          "attn_order_ratio": 6.980325964253597,
+          "interaction": 1.7663328628987074,
+          "read_kl": {}
+        }
+      ],
+      "held_ce": 5.507493333333334,
+      "held_ce_sd": 0.007704234766239334,
+      "bits_per_byte": 2.1162396313133294,
+      "bits_per_byte_sd": 0.002960331670776533,
+      "ladder_ce": 5.413003577126397,
+      "ladder_ce_sd": 0.004124599046942384,
+      "induction": -0.00576827437789369,
+      "induction_sd": 0.0018230796630453318,
+      "induction_floor": 0.009102788608991615,
+      "induction_floor_sd": 0.0014260110091780605,
+      "natural_swap": 0.023051847013751587,
+      "natural_swap_sd": 0.0018372734206662906,
+      "attn_first": 2.026501476764679,
+      "attn_first_sd": 0.030700343863030947,
+      "attn_last": 0.2872247180591027,
+      "attn_last_sd": 0.02307864448932906,
+      "attn_order_ratio": 7.085885134085738,
+      "attn_order_ratio_sd": 0.5745294145162411,
+      "interaction": 1.7392767587055762,
+      "interaction_sd": 0.03477544937741307,
+      "seeds_above_induction_floor": 0,
+      "routes": [
+        {},
+        {},
+        {}
+      ]
+    },
+    "d1_w64": {
+      "depth": 1,
+      "width": 64,
+      "n_seeds": 3,
+      "params": 598080,
+      "all_gates_pass": true,
+      "per_seed": [
+        {
+          "seed": 0,
+          "stem": "tf_vanilla_d1_w64_b8192_s0",
+          "params": 598080,
+          "held_ce": 5.14244,
+          "bits_per_byte": 1.9759688611487352,
+          "ladder_ce": 5.039208690325419,
+          "fold_gate": true,
+          "pipeline": true,
+          "induction": -0.014031791687012074,
+          "induction_sd": 0.008294023961087527,
+          "induction_floor": 0.0089605810205578,
+          "natural_swap": 0.04226254524473916,
+          "natural_swap_floor": 0.03025675282736942,
+          "attn_first": 3.2313854694366455,
+          "attn_last": 0.4738931469619274,
+          "attn_order_ratio": 6.8188060750670765,
+          "interaction": 2.757492322474718,
+          "read_kl": {}
+        },
+        {
+          "seed": 1,
+          "stem": "tf_vanilla_d1_w64_b8192_s1",
+          "params": 598080,
+          "held_ce": 5.14769,
+          "bits_per_byte": 1.9779861596531476,
+          "ladder_ce": 5.049094915390015,
+          "fold_gate": true,
+          "pipeline": true,
+          "induction": -0.011416753133138613,
+          "induction_sd": 0.009105918673464355,
+          "induction_floor": 0.010794503663124419,
+          "natural_swap": 0.045760677125144866,
+          "natural_swap_floor": 0.03131428277958806,
+          "attn_first": 3.633564591407776,
+          "attn_last": 0.4858744293451309,
+          "attn_order_ratio": 7.478402591190383,
+          "interaction": 3.147690162062645,
+          "read_kl": {}
+        },
+        {
+          "seed": 2,
+          "stem": "tf_vanilla_d1_w64_b8192_s2",
+          "params": 598080,
+          "held_ce": 5.15351,
+          "bits_per_byte": 1.9802224791380392,
+          "ladder_ce": 5.054749131202698,
+          "fold_gate": true,
+          "pipeline": true,
+          "induction": -0.009129163953993213,
+          "induction_sd": 0.009208397995151477,
+          "induction_floor": 0.00912800721218221,
+          "natural_swap": 0.03401984849188011,
+          "natural_swap_floor": 0.0381215709063607,
+          "attn_first": 3.549284338951111,
+          "attn_last": 0.4560581110417843,
+          "attn_order_ratio": 7.782526509271805,
+          "interaction": 3.0932262279093266,
+          "read_kl": {}
+        }
+      ],
+      "held_ce": 5.14788,
+      "held_ce_sd": 0.005537445259323177,
+      "bits_per_byte": 1.9780591666466405,
+      "bits_per_byte_sd": 0.0021277485790282768,
+      "ladder_ce": 5.047684245639378,
+      "ladder_ce_sd": 0.007865673367491716,
+      "induction": -0.011525902924714634,
+      "induction_sd": 0.002453135734094677,
+      "induction_floor": 0.009627697298621478,
+      "induction_floor_sd": 0.0010139456107671127,
+      "natural_swap": 0.04068102362058804,
+      "natural_swap_sd": 0.006028073675285128,
+      "attn_first": 3.4714114665985107,
+      "attn_first_sd": 0.21209702903082023,
+      "attn_last": 0.47194189578294754,
+      "attn_last_sd": 0.015003624400931384,
+      "attn_order_ratio": 7.3599117251764214,
+      "attn_order_ratio_sd": 0.4926655384969518,
+      "interaction": 2.999469570815563,
+      "interaction_sd": 0.2113204239225814,
+      "seeds_above_induction_floor": 0,
+      "routes": [
+        {},
+        {},
+        {}
+      ]
+    },
+    "d1_w128": {
+      "depth": 1,
+      "width": 128,
+      "n_seeds": 3,
+      "params": 1343616,
+      "all_gates_pass": true,
+      "per_seed": [
+        {
+          "seed": 0,
+          "stem": "tf_vanilla_d1_w128_b8192_s0",
+          "params": 1343616,
+          "held_ce": 4.8194,
+          "bits_per_byte": 1.8518416023172297,
+          "ladder_ce": 4.721054514249166,
+          "fold_gate": true,
+          "pipeline": true,
+          "induction": -0.027565214369032275,
+          "induction_sd": 0.006503071894295045,
+          "induction_floor": 0.009063836164927511,
+          "natural_swap": 0.0669598954536923,
+          "natural_swap_floor": 0.04475211490481108,
+          "attn_first": 4.62512481212616,
+          "attn_last": 0.6980082094669342,
+          "attn_order_ratio": 6.626175379310148,
+          "interaction": 3.9271166026592255,
+          "read_kl": {}
+        },
+        {
+          "seed": 1,
+          "stem": "tf_vanilla_d1_w128_b8192_s1",
+          "params": 1343616,
+          "held_ce": 4.82524,
+          "bits_per_byte": 1.8540856067488047,
+          "ladder_ce": 4.7259615659713745,
+          "fold_gate": true,
+          "pipeline": true,
+          "induction": -0.02741493648952904,
+          "induction_sd": 0.0047964696131096414,
+          "induction_floor": 0.010151118909456327,
+          "natural_swap": 0.06937785506306682,
+          "natural_swap_floor": 0.04007481868673767,
+          "attn_first": 4.7851035594940186,
+          "attn_last": 0.7129356935620308,
+          "attn_order_ratio": 6.7118305377393455,
+          "interaction": 4.072167865931988,
+          "read_kl": {}
+        },
+        {
+          "seed": 2,
+          "stem": "tf_vanilla_d1_w128_b8192_s2",
+          "params": 1343616,
+          "held_ce": 4.82302,
+          "bits_per_byte": 1.8532325776669387,
+          "ladder_ce": 4.723323504130046,
+          "fold_gate": true,
+          "pipeline": true,
+          "induction": -0.024239540100097656,
+          "induction_sd": 0.009304196811726043,
+          "induction_floor": 0.008604778734557878,
+          "natural_swap": 0.06500566295426324,
+          "natural_swap_floor": 0.036244920793414376,
+          "attn_first": 4.491887927055359,
+          "attn_last": 0.696529284119606,
+          "attn_order_ratio": 6.448957753058412,
+          "interaction": 3.795358642935753,
+          "read_kl": {}
+        }
+      ],
+      "held_ce": 4.822553333333333,
+      "held_ce_sd": 0.002947835364014312,
+      "bits_per_byte": 1.8530532622443243,
+      "bits_per_byte_sd": 0.0011326978802057492,
+      "ladder_ce": 4.723446528116862,
+      "ladder_ce_sd": 0.0024558380091340647,
+      "induction": -0.026406563652886322,
+      "induction_sd": 0.0018782010459539764,
+      "induction_floor": 0.009273244602980573,
+      "induction_floor_sd": 0.0007941542070480443,
+      "natural_swap": 0.06711447115700746,
+      "natural_swap_sd": 0.0021901909038055545,
+      "attn_first": 4.634038766225179,
+      "attn_first_sd": 0.14681091822429407,
+      "attn_last": 0.702491062382857,
+      "attn_last_sd": 0.009075491468646169,
+      "attn_order_ratio": 6.595654556702635,
+      "attn_order_ratio_sd": 0.13406776529410983,
+      "interaction": 3.931547703842322,
+      "interaction_sd": 0.13845780034803368,
+      "seeds_above_induction_floor": 0,
+      "routes": [
+        {},
+        {},
+        {}
+      ]
+    },
+    "d1_w256": {
+      "depth": 1,
+      "width": 256,
+      "n_seeds": 3,
+      "params": 3277056,
+      "all_gates_pass": true,
+      "per_seed": [
+        {
+          "seed": 0,
+          "stem": "tf_vanilla_d1_w256_b8192_s0",
+          "params": 3277056,
+          "held_ce": 4.55825,
+          "bits_per_byte": 1.751495410997741,
+          "ladder_ce": 4.46133538087209,
+          "fold_gate": true,
+          "pipeline": true,
+          "induction": -0.034210883246527504,
+          "induction_sd": 0.009271816789097347,
+          "induction_floor": 0.009643697076893833,
+          "natural_swap": 0.0799014252413599,
+          "natural_swap_floor": 0.047871122933210886,
+          "attn_first": 4.0744428634643555,
+          "attn_last": 0.9388320222496986,
+          "attn_order_ratio": 4.339906146043969,
+          "interaction": 3.135610841214657,
+          "read_kl": {}
+        },
+        {
+          "seed": 1,
+          "stem": "tf_vanilla_d1_w256_b8192_s1",
+          "params": 3277056,
+          "held_ce": 4.56219,
+          "bits_per_byte": 1.7530093454943858,
+          "ladder_ce": 4.46002201239268,
+          "fold_gate": true,
+          "pipeline": true,
+          "induction": -0.03498090108235665,
+          "induction_sd": 0.00427907386917429,
+          "induction_floor": 0.00837949587344685,
+          "natural_swap": 0.08678641681331101,
+          "natural_swap_floor": 0.049040015666501416,
+          "attn_first": 4.442467570304871,
+          "attn_last": 0.9491214603185654,
+          "attn_order_ratio": 4.6806101811392935,
+          "interaction": 3.4933461099863052,
+          "read_kl": {}
+        },
+        {
+          "seed": 2,
+          "stem": "tf_vanilla_d1_w256_b8192_s2",
+          "params": 3277056,
+          "held_ce": 4.55697,
+          "bits_per_byte": 1.7510035744099983,
+          "ladder_ce": 4.456361095110576,
+          "fold_gate": true,
+          "pipeline": true,
+          "induction": -0.03715343475341833,
+          "induction_sd": 0.009101164151931324,
+          "induction_floor": 0.009616240392081803,
+          "natural_swap": 0.08930188181511767,
+          "natural_swap_floor": 0.04833235805242055,
+          "attn_first": 4.255236387252808,
+          "attn_last": 0.9325102120637894,
+          "attn_order_ratio": 4.563206206434256,
+          "interaction": 3.3227261751890182,
+          "read_kl": {}
+        }
+      ],
+      "held_ce": 4.559136666666666,
+      "held_ce_sd": 0.00272061267609602,
+      "bits_per_byte": 1.7518361103007083,
+      "bits_per_byte_sd": 0.0010453881681093814,
+      "ladder_ce": 4.459239496125115,
+      "ladder_ce_sd": 0.0025778146735276762,
+      "induction": -0.035448406360767494,
+      "induction_sd": 0.0015259663271785726,
+      "induction_floor": 0.009213144447474161,
+      "induction_floor_sd": 0.0007220913557982428,
+      "natural_swap": 0.08532990795659619,
+      "natural_swap_sd": 0.0048665397857248546,
+      "attn_first": 4.257382273674011,
+      "attn_first_sd": 0.1840217373917041,
+      "attn_last": 0.9401545648773512,
+      "attn_last_sd": 0.008384225151850238,
+      "attn_order_ratio": 4.527907511205839,
+      "attn_order_ratio_sd": 0.1730731299080839,
+      "interaction": 3.31722770879666,
+      "interaction_sd": 0.17893100759868816,
+      "seeds_above_induction_floor": 0,
+      "routes": [
+        {},
+        {},
+        {}
+      ]
+    },
+    "d2_w32": {
+      "depth": 2,
+      "width": 32,
+      "n_seeds": 3,
+      "params": 299072,
+      "all_gates_pass": true,
+      "per_seed": [
+        {
+          "seed": 0,
+          "stem": "tf_vanilla_d2_w32_b8192_s0",
+          "params": 299072,
+          "held_ce": 5.40143,
+          "bits_per_byte": 2.075485078226409,
+          "ladder_ce": 5.307647426923116,
+          "fold_gate": true,
+          "pipeline": true,
+          "induction": -0.007382986280653725,
+          "induction_sd": 0.00828185026591846,
+          "induction_floor": 0.0070550431352722105,
+          "natural_swap": 0.03251898370945128,
+          "natural_swap_floor": 0.032298196976016554,
+          "attn_first": 4.19091060757637,
+          "attn_last": 0.37266453728079796,
+          "attn_order_ratio": 11.245799340489897,
+          "interaction": 3.8182460702955723,
+          "read_kl": {
+            "l1_read_zero_e": 1.3689525985682849e-05,
+            "l1_read_resample_e": 1.6597037756582722e-05,
+            "l1_read_zero_A0": 6.086632424739946e-07,
+            "l1_read_resample_A0": 1.0935258671906922e-06,
+            "l1_read_zero_M0": 1.0158812999725342,
+            "l1_read_resample_M0": 0.49293769150972366
+          }
+        },
+        {
+          "seed": 1,
+          "stem": "tf_vanilla_d2_w32_b8192_s1",
+          "params": 299072,
+          "held_ce": 5.41769,
+          "bits_per_byte": 2.081732939880075,
+          "ladder_ce": 5.3165866533915205,
+          "fold_gate": true,
+          "pipeline": true,
+          "induction": -0.006360774570041627,
+          "induction_sd": 0.0046349361038716605,
+          "induction_floor": 0.010425373618413981,
+          "natural_swap": 0.02431088755474775,
+          "natural_swap_floor": 0.03090822391788326,
+          "attn_first": 4.282150864601135,
+          "attn_last": 0.3586055524647236,
+          "attn_order_ratio": 11.94111701609075,
+          "interaction": 3.9235453121364117,
+          "read_kl": {
+            "l1_read_zero_e": 1.2769520253641531e-05,
+            "l1_read_resample_e": 1.734719216983649e-05,
+            "l1_read_zero_A0": 4.345205866229662e-07,
+            "l1_read_resample_A0": 7.875220262576477e-07,
+            "l1_read_zero_M0": 0.6245419532060623,
+            "l1_read_resample_M0": 0.4966115355491638
+          }
+        },
+        {
+          "seed": 2,
+          "stem": "tf_vanilla_d2_w32_b8192_s2",
+          "params": 299072,
+          "held_ce": 5.4191,
+          "bits_per_byte": 2.0822747286212597,
+          "ladder_ce": 5.325602889060974,
+          "fold_gate": true,
+          "pipeline": true,
+          "induction": -0.009393840365939354,
+          "induction_sd": 0.0031677708474055124,
+          "induction_floor": 0.006071302127322443,
+          "natural_swap": 0.02054658608540194,
+          "natural_swap_floor": 0.031033099332496726,
+          "attn_first": 4.200101912021637,
+          "attn_last": 0.38196277618408203,
+          "attn_order_ratio": 10.996102693518628,
+          "interaction": 3.818139135837555,
+          "read_kl": {
+            "l1_read_zero_e": 9.811371455725748e-06,
+            "l1_read_resample_e": 1.3608345398097299e-05,
+            "l1_read_zero_A0": 2.0194123067085457e-06,
+            "l1_read_resample_A0": 1.3607094615508686e-06,
+            "l1_read_zero_M0": 0.9201436787843704,
+            "l1_read_resample_M0": 0.47332796454429626
+          }
+        }
+      ],
+      "held_ce": 5.41274,
+      "held_ce_sd": 0.009820086557663265,
+      "bits_per_byte": 2.0798309155759145,
+      "bits_per_byte_sd": 0.003773342081137991,
+      "ladder_ce": 5.316612323125203,
+      "ladder_ce_sd": 0.008977758592624157,
+      "induction": -0.007712533738878234,
+      "induction_sd": 0.0015431536462639922,
+      "induction_floor": 0.007850572960336212,
+      "induction_floor_sd": 0.0022834481413662087,
+      "natural_swap": 0.02579215244986699,
+      "natural_swap_sd": 0.006122106294750199,
+      "attn_first": 4.2243877947330475,
+      "attn_first_sd": 0.05023494002973017,
+      "attn_last": 0.37107762197653454,
+      "attn_last_sd": 0.011759196405631606,
+      "attn_order_ratio": 11.394339683366425,
+      "attn_order_ratio_sd": 0.4897052098589713,
+      "interaction": 3.853310172756513,
+      "interaction_sd": 0.06082543844091818,
+      "seeds_above_induction_floor": 0,
+      "routes": [
+        {
+          "1": {
+            "dominant_source": "M0",
+            "dominant_kl": 1.0158812999725342,
+            "dominant_is_immediately_preceding_mlp": true,
+            "dominant_mlp": "M0",
+            "dominant_mlp_kl": 1.0158812999725342,
+            "largest_attention_source": "A0",
+            "largest_attention_kl": 1.0935258671906922e-06,
+            "attention_over_dominant_mlp": 1.0764307475885789e-06,
+            "zero": {
+              "e": 1.3689525985682849e-05,
+              "A0": 6.086632424739946e-07,
+              "M0": 1.0158812999725342
+            },
+            "resample": {
+              "e": 1.6597037756582722e-05,
+              "A0": 1.0935258671906922e-06,
+              "M0": 0.49293769150972366
+            }
+          }
+        },
+        {
+          "1": {
+            "dominant_source": "M0",
+            "dominant_kl": 0.6245419532060623,
+            "dominant_is_immediately_preceding_mlp": true,
+            "dominant_mlp": "M0",
+            "dominant_mlp_kl": 0.6245419532060623,
+            "largest_attention_source": "A0",
+            "largest_attention_kl": 7.875220262576477e-07,
+            "attention_over_dominant_mlp": 1.2609593674451065e-06,
+            "zero": {
+              "e": 1.2769520253641531e-05,
+              "A0": 4.345205866229662e-07,
+              "M0": 0.6245419532060623
+            },
+            "resample": {
+              "e": 1.734719216983649e-05,
+              "A0": 7.875220262576477e-07,
+              "M0": 0.4966115355491638
+            }
+          }
+        },
+        {
+          "1": {
+            "dominant_source": "M0",
+            "dominant_kl": 0.9201436787843704,
+            "dominant_is_immediately_preceding_mlp": true,
+            "dominant_mlp": "M0",
+            "dominant_mlp_kl": 0.9201436787843704,
+            "largest_attention_source": "A0",
+            "largest_attention_kl": 2.0194123067085457e-06,
+            "attention_over_dominant_mlp": 2.194670629456969e-06,
+            "zero": {
+              "e": 9.811371455725748e-06,
+              "A0": 2.0194123067085457e-06,
+              "M0": 0.9201436787843704
+            },
+            "resample": {
+              "e": 1.3608345398097299e-05,
+              "A0": 1.3607094615508686e-06,
+              "M0": 0.47332796454429626
+            }
+          }
+        }
+      ],
+      "max_attention_over_dominant_mlp_per_seed": [
+        1.0764307475885789e-06,
+        1.2609593674451065e-06,
+        2.194670629456969e-06
+      ],
+      "max_attention_over_dominant_mlp": 2.194670629456969e-06,
+      "dominant_is_preceding_mlp_all_layers_all_seeds": true
+    },
+    "d2_w64": {
+      "depth": 2,
+      "width": 64,
+      "n_seeds": 2,
+      "params": 671872,
+      "all_gates_pass": true,
+      "per_seed": [
+        {
+          "seed": 0,
+          "stem": "tf_vanilla_d2_w64_b8192_s0",
+          "params": 671872,
+          "held_ce": 5.02058,
+          "bits_per_byte": 1.9291444810063154,
+          "ladder_ce": 4.916396180788676,
+          "fold_gate": true,
+          "pipeline": true,
+          "induction": -0.016279708014593552,
+          "induction_sd": 0.012003073868657173,
+          "induction_floor": 0.00901081836458012,
+          "natural_swap": 0.05424589861468121,
+          "natural_swap_floor": 0.035933345691155236,
+          "attn_first": 8.174036383628845,
+          "attn_last": 0.6118020415306091,
+          "attn_order_ratio": 13.360590237945274,
+          "interaction": 7.562234342098236,
+          "read_kl": {
+            "l1_read_zero_e": 1.0801109056046698e-05,
+            "l1_read_resample_e": 1.1651363593045971e-05,
+            "l1_read_zero_A0": 2.7309529286867473e-06,
+            "l1_read_resample_A0": 2.5806626808844157e-06,
+            "l1_read_zero_M0": 0.8819519281387329,
+            "l1_read_resample_M0": 0.6250971108675003
+          }
+        },
+        {
+          "seed": 1,
+          "stem": "tf_vanilla_d2_w64_b8192_s1",
+          "params": 671872,
+          "held_ce": 5.02113,
+          "bits_per_byte": 1.9293558170401113,
+          "ladder_ce": 4.914455691973369,
+          "fold_gate": true,
+          "pipeline": true,
+          "induction": -0.011787965562608704,
+          "induction_sd": 0.007641616319840476,
+          "induction_floor": 0.012160700103647048,
+          "natural_swap": 0.056025822840638284,
+          "natural_swap_floor": 0.0386157986611782,
+          "attn_first": 7.1310834884643555,
+          "attn_last": 0.6152473837137222,
+          "attn_order_ratio": 11.590595388508772,
+          "interaction": 6.515836104750633,
+          "read_kl": {
+            "l1_read_zero_e": 1.0236275556962937e-05,
+            "l1_read_resample_e": 1.0935792033706093e-05,
+            "l1_read_zero_A0": 1.640408072489663e-06,
+            "l1_read_resample_A0": 1.7642940406403795e-06,
+            "l1_read_zero_M0": 1.1894042491912842,
+            "l1_read_resample_M0": 0.6196371763944626
+          }
+        }
+      ],
+      "held_ce": 5.020855,
+      "held_ce_sd": 0.00038890872965295084,
+      "bits_per_byte": 1.9292501490232135,
+      "bits_per_byte_sd": 0.00014943714260612297,
+      "ladder_ce": 4.915425936381022,
+      "ladder_ce_sd": 0.0013721328001206662,
+      "induction": -0.014033836788601128,
+      "induction_sd": 0.0031761415471419766,
+      "induction_floor": 0.010585759234113583,
+      "induction_floor_sd": 0.0022273027376299,
+      "natural_swap": 0.05513586072765975,
+      "natural_swap_sd": 0.001258596490172464,
+      "attn_first": 7.6525599360466,
+      "attn_first_sd": 0.7374790646289531,
+      "attn_last": 0.6135247126221657,
+      "attn_last_sd": 0.0024362248211873354,
+      "attn_order_ratio": 12.475592813227024,
+      "attn_order_ratio_sd": 1.251575360701813,
+      "interaction": 7.039035223424435,
+      "interaction_sd": 0.7399152894501404,
+      "seeds_above_induction_floor": 0,
+      "routes": [
+        {
+          "1": {
+            "dominant_source": "M0",
+            "dominant_kl": 0.8819519281387329,
+            "dominant_is_immediately_preceding_mlp": true,
+            "dominant_mlp": "M0",
+            "dominant_mlp_kl": 0.8819519281387329,
+            "largest_attention_source": "A0",
+            "largest_attention_kl": 2.7309529286867473e-06,
+            "attention_over_dominant_mlp": 3.0964872818523534e-06,
+            "zero": {
+              "e": 1.0801109056046698e-05,
+              "A0": 2.7309529286867473e-06,
+              "M0": 0.8819519281387329
+            },
+            "resample": {
+              "e": 1.1651363593045971e-05,
+              "A0": 2.5806626808844157e-06,
+              "M0": 0.6250971108675003
+            }
+          }
+        },
+        {
+          "1": {
+            "dominant_source": "M0",
+            "dominant_kl": 1.1894042491912842,
+            "dominant_is_immediately_preceding_mlp": true,
+            "dominant_mlp": "M0",
+            "dominant_mlp_kl": 1.1894042491912842,
+            "largest_attention_source": "A0",
+            "largest_attention_kl": 1.7642940406403795e-06,
+            "attention_over_dominant_mlp": 1.483342641360145e-06,
+            "zero": {
+              "e": 1.0236275556962937e-05,
+              "A0": 1.640408072489663e-06,
+              "M0": 1.1894042491912842
+            },
+            "resample": {
+              "e": 1.0935792033706093e-05,
+              "A0": 1.7642940406403795e-06,
+              "M0": 0.6196371763944626
+            }
+          }
+        }
+      ],
+      "max_attention_over_dominant_mlp_per_seed": [
+        3.0964872818523534e-06,
+        1.483342641360145e-06
+      ],
+      "max_attention_over_dominant_mlp": 3.0964872818523534e-06,
+      "dominant_is_preceding_mlp_all_layers_all_seeds": true
+    },
+    "d2_w128": {
+      "depth": 2,
+      "width": 128,
+      "n_seeds": 3,
+      "params": 1638656,
+      "all_gates_pass": true,
+      "per_seed": [
+        {
+          "seed": 0,
+          "stem": "tf_vanilla_d2_w128_b8192_s0",
+          "params": 1638656,
+          "held_ce": 4.65117,
+          "bits_per_byte": 1.7871996732891706,
+          "ladder_ce": 4.554524540901184,
+          "fold_gate": true,
+          "pipeline": true,
+          "induction": -0.013777648078070826,
+          "induction_sd": 0.0060350217900715705,
+          "induction_floor": 0.0074899586647308135,
+          "natural_swap": 0.09997031873126616,
+          "natural_swap_floor": 0.05138281778298333,
+          "attn_first": 12.174785375595093,
+          "attn_last": 0.943782739341259,
+          "attn_order_ratio": 12.899987325571184,
+          "interaction": 11.231002636253834,
+          "read_kl": {
+            "l1_read_zero_e": 1.1843845641124062e-05,
+            "l1_read_resample_e": 1.4205283378032618e-05,
+            "l1_read_zero_A0": 2.4156051495083375e-05,
+            "l1_read_resample_A0": 5.4831617717354675e-06,
+            "l1_read_zero_M0": 1.7962105870246887,
+            "l1_read_resample_M0": 0.9196897149085999
+          }
+        },
+        {
+          "seed": 1,
+          "stem": "tf_vanilla_d2_w128_b8192_s1",
+          "params": 1638656,
+          "held_ce": 4.65005,
+          "bits_per_byte": 1.786769316274896,
+          "ladder_ce": 4.553542733192444,
+          "fold_gate": true,
+          "pipeline": true,
+          "induction": -0.0022391637166343514,
+          "induction_sd": 0.01098548994706499,
+          "induction_floor": 0.009241624665709144,
+          "natural_swap": 0.09246922273200653,
+          "natural_swap_floor": 0.047506059961214694,
+          "attn_first": 11.30375987291336,
+          "attn_last": 0.9457573741674423,
+          "attn_order_ratio": 11.952071621819655,
+          "interaction": 10.358002498745918,
+          "read_kl": {
+            "l1_read_zero_e": 6.99935276315955e-06,
+            "l1_read_resample_e": 9.17606530492776e-06,
+            "l1_read_zero_A0": 9.799251756703597e-06,
+            "l1_read_resample_A0": 4.018343645384448e-06,
+            "l1_read_zero_M0": 1.641018658876419,
+            "l1_read_resample_M0": 0.8483862429857254
+          }
+        },
+        {
+          "seed": 2,
+          "stem": "tf_vanilla_d2_w128_b8192_s2",
+          "params": 1638656,
+          "held_ce": 4.63768,
+          "bits_per_byte": 1.782016176751166,
+          "ladder_ce": 4.542863368988037,
+          "fold_gate": true,
+          "pipeline": true,
+          "induction": 0.005924860636393347,
+          "induction_sd": 0.009440348218495402,
+          "induction_floor": 0.014166145723951723,
+          "natural_swap": 0.11702203999993799,
+          "natural_swap_floor": 0.05162823834364744,
+          "attn_first": 11.420596718788147,
+          "attn_last": 0.9327591136097908,
+          "attn_order_ratio": 12.243886499902722,
+          "interaction": 10.487837605178356,
+          "read_kl": {
+            "l1_read_zero_e": 5.780580067948904e-06,
+            "l1_read_resample_e": 7.0961445999273565e-06,
+            "l1_read_zero_A0": 4.6561877979911515e-06,
+            "l1_read_resample_A0": 3.4714674939095858e-06,
+            "l1_read_zero_M0": 1.5673148036003113,
+            "l1_read_resample_M0": 0.8218151777982712
+          }
+        }
+      ],
+      "held_ce": 4.6463,
+      "held_ce_sd": 0.007486113811584918,
+      "bits_per_byte": 1.7853283887717444,
+      "bits_per_byte_sd": 0.0028765192754231918,
+      "ladder_ce": 4.550310214360555,
+      "ladder_ce_sd": 0.006467813857547148,
+      "induction": -0.003363983719437276,
+      "induction_sd": 0.009899299340858087,
+      "induction_floor": 0.010299243018130561,
+      "induction_floor_sd": 0.003461471630240688,
+      "natural_swap": 0.10315386048773689,
+      "natural_swap_sd": 0.012582186317747122,
+      "attn_first": 11.6330473224322,
+      "attn_first_sd": 0.4727819802213627,
+      "attn_last": 0.9407664090394974,
+      "attn_last_sd": 0.007004454350493252,
+      "attn_order_ratio": 12.365315149097853,
+      "attn_order_ratio_sd": 0.48548401929281315,
+      "interaction": 10.692280913392702,
+      "interaction_sd": 0.4710415159276617,
+      "seeds_above_induction_floor": 0,
+      "routes": [
+        {
+          "1": {
+            "dominant_source": "M0",
+            "dominant_kl": 1.7962105870246887,
+            "dominant_is_immediately_preceding_mlp": true,
+            "dominant_mlp": "M0",
+            "dominant_mlp_kl": 1.7962105870246887,
+            "largest_attention_source": "A0",
+            "largest_attention_kl": 2.4156051495083375e-05,
+            "attention_over_dominant_mlp": 1.3448340450490483e-05,
+            "zero": {
+              "e": 1.1843845641124062e-05,
+              "A0": 2.4156051495083375e-05,
+              "M0": 1.7962105870246887
+            },
+            "resample": {
+              "e": 1.4205283378032618e-05,
+              "A0": 5.4831617717354675e-06,
+              "M0": 0.9196897149085999
+            }
+          }
+        },
+        {
+          "1": {
+            "dominant_source": "M0",
+            "dominant_kl": 1.641018658876419,
+            "dominant_is_immediately_preceding_mlp": true,
+            "dominant_mlp": "M0",
+            "dominant_mlp_kl": 1.641018658876419,
+            "largest_attention_source": "A0",
+            "largest_attention_kl": 9.799251756703597e-06,
+            "attention_over_dominant_mlp": 5.971444446227686e-06,
+            "zero": {
+              "e": 6.99935276315955e-06,
+              "A0": 9.799251756703597e-06,
+              "M0": 1.641018658876419
+            },
+            "resample": {
+              "e": 9.17606530492776e-06,
+              "A0": 4.018343645384448e-06,
+              "M0": 0.8483862429857254
+            }
+          }
+        },
+        {
+          "1": {
+            "dominant_source": "M0",
+            "dominant_kl": 1.5673148036003113,
+            "dominant_is_immediately_preceding_mlp": true,
+            "dominant_mlp": "M0",
+            "dominant_mlp_kl": 1.5673148036003113,
+            "largest_attention_source": "A0",
+            "largest_attention_kl": 4.6561877979911515e-06,
+            "attention_over_dominant_mlp": 2.9708057291970486e-06,
+            "zero": {
+              "e": 5.780580067948904e-06,
+              "A0": 4.6561877979911515e-06,
+              "M0": 1.5673148036003113
+            },
+            "resample": {
+              "e": 7.0961445999273565e-06,
+              "A0": 3.4714674939095858e-06,
+              "M0": 0.8218151777982712
+            }
+          }
+        }
+      ],
+      "max_attention_over_dominant_mlp_per_seed": [
+        1.3448340450490483e-05,
+        5.971444446227686e-06,
+        2.9708057291970486e-06
+      ],
+      "max_attention_over_dominant_mlp": 1.3448340450490483e-05,
+      "dominant_is_preceding_mlp_all_layers_all_seeds": true
+    },
+    "d2_w256": {
+      "depth": 2,
+      "width": 256,
+      "n_seeds": 3,
+      "params": 4456960,
+      "all_gates_pass": true,
+      "per_seed": [
+        {
+          "seed": 0,
+          "stem": "tf_vanilla_d2_w256_b8192_s0",
+          "params": 4456960,
+          "held_ce": 4.32661,
+          "bits_per_byte": 1.6624883585097208,
+          "ladder_ce": 4.244634826978047,
+          "fold_gate": true,
+          "pipeline": true,
+          "induction": 0.08408372667100679,
+          "induction_sd": 0.006542091782003257,
+          "induction_floor": 0.017233112302403028,
+          "natural_swap": 0.2444004531760129,
+          "natural_swap_floor": 0.0661107742327065,
+          "attn_first": 15.56149697303772,
+          "attn_last": 1.2289823442697525,
+          "attn_order_ratio": 12.66209970028836,
+          "interaction": 14.332514628767967,
+          "read_kl": {
+            "l1_read_zero_e": 7.80311893322505e-06,
+            "l1_read_resample_e": 1.0826848210854223e-05,
+            "l1_read_zero_A0": 2.294454043294536e-05,
+            "l1_read_resample_A0": 5.416497515398078e-06,
+            "l1_read_zero_M0": 1.622538983821869,
+            "l1_read_resample_M0": 1.080637663602829
+          }
+        },
+        {
+          "seed": 1,
+          "stem": "tf_vanilla_d2_w256_b8192_s1",
+          "params": 4456960,
+          "held_ce": 4.32406,
+          "bits_per_byte": 1.6615085278075779,
+          "ladder_ce": 4.248865683873494,
+          "fold_gate": true,
+          "pipeline": true,
+          "induction": 0.09652031792534714,
+          "induction_sd": 0.012989945742683386,
+          "induction_floor": 0.005849153392696823,
+          "natural_swap": 0.23616770709577395,
+          "natural_swap_floor": 0.07122951936681497,
+          "attn_first": 14.796509563922882,
+          "attn_last": 1.222147673368454,
+          "attn_order_ratio": 12.106973556756115,
+          "interaction": 13.574361890554428,
+          "read_kl": {
+            "l1_read_zero_e": 8.722168786334805e-06,
+            "l1_read_resample_e": 1.0975825034620357e-05,
+            "l1_read_zero_A0": 3.545357321854681e-05,
+            "l1_read_resample_A0": 6.36319646218908e-06,
+            "l1_read_zero_M0": 1.9232633411884308,
+            "l1_read_resample_M0": 1.1136782765388489
+          }
+        },
+        {
+          "seed": 2,
+          "stem": "tf_vanilla_d2_w256_b8192_s2",
+          "params": 4456960,
+          "held_ce": 4.32546,
+          "bits_per_byte": 1.662046474075421,
+          "ladder_ce": 4.24252716700236,
+          "fold_gate": true,
+          "pipeline": true,
+          "induction": 0.10069550408257406,
+          "induction_sd": 0.007688660921324538,
+          "induction_floor": 0.00727618170544609,
+          "natural_swap": 0.24161352776400236,
+          "natural_swap_floor": 0.0714686398852689,
+          "attn_first": 14.242680728435516,
+          "attn_last": 1.2253132462501526,
+          "attn_order_ratio": 11.623705833608376,
+          "interaction": 13.017367482185364,
+          "read_kl": {
+            "l1_read_zero_e": 1.234999126609182e-05,
+            "l1_read_resample_e": 1.7546154822412063e-05,
+            "l1_read_zero_A0": 4.679526318795979e-05,
+            "l1_read_resample_A0": 7.368040769506479e-06,
+            "l1_read_zero_M0": 2.428465247154236,
+            "l1_read_resample_M0": 1.1355375051498413
+          }
+        }
+      ],
+      "held_ce": 4.325376666666666,
+      "held_ce_sd": 0.0012770408502990522,
+      "bits_per_byte": 1.6620144534642398,
+      "bits_per_byte_sd": 0.0004906995423584381,
+      "ladder_ce": 4.245342559284634,
+      "ladder_ce_sd": 0.003227981225898296,
+      "induction": 0.09376651622630933,
+      "induction_sd": 0.008641490325232207,
+      "induction_floor": 0.010119482466848647,
+      "induction_floor_sd": 0.006201765839606821,
+      "natural_swap": 0.24072722934526306,
+      "natural_swap_sd": 0.004187322613641948,
+      "attn_first": 14.86689575513204,
+      "attn_first_sd": 0.6622195509733639,
+      "attn_last": 1.2254810879627864,
+      "attn_last_sd": 0.0034204253701314797,
+      "attn_order_ratio": 12.13092636355095,
+      "attn_order_ratio_sd": 0.5196111606813936,
+      "interaction": 13.641414667169252,
+      "interaction_sd": 0.6601326082158866,
+      "seeds_above_induction_floor": 3,
+      "routes": [
+        {
+          "1": {
+            "dominant_source": "M0",
+            "dominant_kl": 1.622538983821869,
+            "dominant_is_immediately_preceding_mlp": true,
+            "dominant_mlp": "M0",
+            "dominant_mlp_kl": 1.622538983821869,
+            "largest_attention_source": "A0",
+            "largest_attention_kl": 2.294454043294536e-05,
+            "attention_over_dominant_mlp": 1.4141133533136936e-05,
+            "zero": {
+              "e": 7.80311893322505e-06,
+              "A0": 2.294454043294536e-05,
+              "M0": 1.622538983821869
+            },
+            "resample": {
+              "e": 1.0826848210854223e-05,
+              "A0": 5.416497515398078e-06,
+              "M0": 1.080637663602829
+            }
+          }
+        },
+        {
+          "1": {
+            "dominant_source": "M0",
+            "dominant_kl": 1.9232633411884308,
+            "dominant_is_immediately_preceding_mlp": true,
+            "dominant_mlp": "M0",
+            "dominant_mlp_kl": 1.9232633411884308,
+            "largest_attention_source": "A0",
+            "largest_attention_kl": 3.545357321854681e-05,
+            "attention_over_dominant_mlp": 1.8434071122386802e-05,
+            "zero": {
+              "e": 8.722168786334805e-06,
+              "A0": 3.545357321854681e-05,
+              "M0": 1.9232633411884308
+            },
+            "resample": {
+              "e": 1.0975825034620357e-05,
+              "A0": 6.36319646218908e-06,
+              "M0": 1.1136782765388489
+            }
+          }
+        },
+        {
+          "1": {
+            "dominant_source": "M0",
+            "dominant_kl": 2.428465247154236,
+            "dominant_is_immediately_preceding_mlp": true,
+            "dominant_mlp": "M0",
+            "dominant_mlp_kl": 2.428465247154236,
+            "largest_attention_source": "A0",
+            "largest_attention_kl": 4.679526318795979e-05,
+            "attention_over_dominant_mlp": 1.9269480278870034e-05,
+            "zero": {
+              "e": 1.234999126609182e-05,
+              "A0": 4.679526318795979e-05,
+              "M0": 2.428465247154236
+            },
+            "resample": {
+              "e": 1.7546154822412063e-05,
+              "A0": 7.368040769506479e-06,
+              "M0": 1.1355375051498413
+            }
+          }
+        }
+      ],
+      "max_attention_over_dominant_mlp_per_seed": [
+        1.4141133533136936e-05,
+        1.8434071122386802e-05,
+        1.9269480278870034e-05
+      ],
+      "max_attention_over_dominant_mlp": 1.9269480278870034e-05,
+      "dominant_is_preceding_mlp_all_layers_all_seeds": true
+    },
+    "d3_w64": {
+      "depth": 3,
+      "width": 64,
+      "n_seeds": 1,
+      "params": 745664,
+      "all_gates_pass": true,
+      "per_seed": [
+        {
+          "seed": 0,
+          "stem": "tf_vanilla_d3_w64_b8192_s0",
+          "params": 745664,
+          "held_ce": 4.94174,
+          "bits_per_byte": 1.898850421180053,
+          "ladder_ce": 4.842494527498881,
+          "fold_gate": true,
+          "pipeline": true,
+          "induction": 0.007733747694227589,
+          "induction_sd": 0.008552398480234041,
+          "induction_floor": 0.010931017665869836,
+          "natural_swap": 0.0545859699545872,
+          "natural_swap_floor": 0.05266764692871145,
+          "attn_first": 6.30346554517746,
+          "attn_last": 0.7416665107011795,
+          "attn_order_ratio": 8.499056454926212,
+          "interaction": 5.56179903447628,
+          "read_kl": {
+            "l1_read_zero_e": 4.944492275171797e-06,
+            "l1_read_resample_e": 8.140454838212463e-06,
+            "l1_read_zero_A0": 9.016239346237853e-07,
+            "l1_read_resample_A0": 6.424938874260988e-07,
+            "l1_read_zero_M0": 0.7934064120054245,
+            "l1_read_resample_M0": 0.43417030572891235,
+            "l2_read_zero_e": 3.950907739636023e-06,
+            "l2_read_resample_e": 4.795711333827057e-06,
+            "l2_read_zero_A0": 4.334578989073634e-07,
+            "l2_read_resample_A0": 3.217727453375119e-07,
+            "l2_read_zero_M0": 0.48292313516139984,
+            "l2_read_resample_M0": 0.27798959985375404,
+            "l2_read_zero_A1": 0.08164343796670437,
+            "l2_read_resample_A1": 0.06080211233347654,
+            "l2_read_zero_M1": 0.1380872130393982,
+            "l2_read_resample_M1": 0.16870148107409477
+          }
+        }
+      ],
+      "held_ce": 4.94174,
+      "held_ce_sd": 0.0,
+      "bits_per_byte": 1.898850421180053,
+      "bits_per_byte_sd": 0.0,
+      "ladder_ce": 4.842494527498881,
+      "ladder_ce_sd": 0.0,
+      "induction": 0.007733747694227589,
+      "induction_sd": 0.0,
+      "induction_floor": 0.010931017665869836,
+      "induction_floor_sd": 0.0,
+      "natural_swap": 0.0545859699545872,
+      "natural_swap_sd": 0.0,
+      "attn_first": 6.30346554517746,
+      "attn_first_sd": 0.0,
+      "attn_last": 0.7416665107011795,
+      "attn_last_sd": 0.0,
+      "attn_order_ratio": 8.499056454926212,
+      "attn_order_ratio_sd": 0.0,
+      "interaction": 5.56179903447628,
+      "interaction_sd": 0.0,
+      "seeds_above_induction_floor": 0,
+      "routes": [
+        {
+          "1": {
+            "dominant_source": "M0",
+            "dominant_kl": 0.7934064120054245,
+            "dominant_is_immediately_preceding_mlp": true,
+            "dominant_mlp": "M0",
+            "dominant_mlp_kl": 0.7934064120054245,
+            "largest_attention_source": "A0",
+            "largest_attention_kl": 9.016239346237853e-07,
+            "attention_over_dominant_mlp": 1.1363960776984758e-06,
+            "zero": {
+              "e": 4.944492275171797e-06,
+              "A0": 9.016239346237853e-07,
+              "M0": 0.7934064120054245
+            },
+            "resample": {
+              "e": 8.140454838212463e-06,
+              "A0": 6.424938874260988e-07,
+              "M0": 0.43417030572891235
+            }
+          },
+          "2": {
+            "dominant_source": "M0",
+            "dominant_kl": 0.48292313516139984,
+            "dominant_is_immediately_preceding_mlp": false,
+            "dominant_mlp": "M0",
+            "dominant_mlp_kl": 0.48292313516139984,
+            "largest_attention_source": "A1",
+            "largest_attention_kl": 0.08164343796670437,
+            "attention_over_dominant_mlp": 0.16906093749146633,
+            "zero": {
+              "e": 3.950907739636023e-06,
+              "A0": 4.334578989073634e-07,
+              "M0": 0.48292313516139984,
+              "A1": 0.08164343796670437,
+              "M1": 0.1380872130393982
+            },
+            "resample": {
+              "e": 4.795711333827057e-06,
+              "A0": 3.217727453375119e-07,
+              "M0": 0.27798959985375404,
+              "A1": 0.06080211233347654,
+              "M1": 0.16870148107409477
+            }
+          }
+        }
+      ],
+      "max_attention_over_dominant_mlp_per_seed": [
+        0.16906093749146633
+      ],
+      "max_attention_over_dominant_mlp": 0.16906093749146633,
+      "dominant_is_preceding_mlp_all_layers_all_seeds": false
+    },
+    "d3_w128": {
+      "depth": 3,
+      "width": 128,
+      "n_seeds": 1,
+      "params": 1933696,
+      "all_gates_pass": true,
+      "per_seed": [
+        {
+          "seed": 0,
+          "stem": "tf_vanilla_d3_w128_b8192_s0",
+          "params": 1933696,
+          "held_ce": 4.52845,
+          "bits_per_byte": 1.7400448404393616,
+          "ladder_ce": 4.450027187665303,
+          "fold_gate": true,
+          "pipeline": true,
+          "induction": 0.09735919104682118,
+          "induction_sd": 0.01896491327867923,
+          "induction_floor": 0.0078110863410942345,
+          "natural_swap": 0.17465746787138414,
+          "natural_swap_floor": 0.06553489664230122,
+          "attn_first": 8.52610158920288,
+          "attn_last": 1.0937486961483955,
+          "attn_order_ratio": 7.79530217428126,
+          "interaction": 7.432352893054485,
+          "read_kl": {
+            "l1_read_zero_e": 9.228606018041319e-06,
+            "l1_read_resample_e": 1.0525721108933794e-05,
+            "l1_read_zero_A0": 2.439504669382586e-06,
+            "l1_read_resample_A0": 2.256969310110435e-06,
+            "l1_read_zero_M0": 1.6823973953723907,
+            "l1_read_resample_M0": 0.8283895403146744,
+            "l2_read_zero_e": 6.195784408191685e-06,
+            "l2_read_resample_e": 6.940913863218157e-06,
+            "l2_read_zero_A0": 1.087815803657577e-06,
+            "l2_read_resample_A0": 1.1212380286451662e-06,
+            "l2_read_zero_M0": 0.7023480385541916,
+            "l2_read_resample_M0": 0.4097683057188988,
+            "l2_read_zero_A1": 0.1797713339328766,
+            "l2_read_resample_A1": 0.1149988267570734,
+            "l2_read_zero_M1": 0.11413652077317238,
+            "l2_read_resample_M1": 0.1938285455107689
+          }
+        }
+      ],
+      "held_ce": 4.52845,
+      "held_ce_sd": 0.0,
+      "bits_per_byte": 1.7400448404393616,
+      "bits_per_byte_sd": 0.0,
+      "ladder_ce": 4.450027187665303,
+      "ladder_ce_sd": 0.0,
+      "induction": 0.09735919104682118,
+      "induction_sd": 0.0,
+      "induction_floor": 0.0078110863410942345,
+      "induction_floor_sd": 0.0,
+      "natural_swap": 0.17465746787138414,
+      "natural_swap_sd": 0.0,
+      "attn_first": 8.52610158920288,
+      "attn_first_sd": 0.0,
+      "attn_last": 1.0937486961483955,
+      "attn_last_sd": 0.0,
+      "attn_order_ratio": 7.79530217428126,
+      "attn_order_ratio_sd": 0.0,
+      "interaction": 7.432352893054485,
+      "interaction_sd": 0.0,
+      "seeds_above_induction_floor": 1,
+      "routes": [
+        {
+          "1": {
+            "dominant_source": "M0",
+            "dominant_kl": 1.6823973953723907,
+            "dominant_is_immediately_preceding_mlp": true,
+            "dominant_mlp": "M0",
+            "dominant_mlp_kl": 1.6823973953723907,
+            "largest_attention_source": "A0",
+            "largest_attention_kl": 2.439504669382586e-06,
+            "attention_over_dominant_mlp": 1.4500169080698163e-06,
+            "zero": {
+              "e": 9.228606018041319e-06,
+              "A0": 2.439504669382586e-06,
+              "M0": 1.6823973953723907
+            },
+            "resample": {
+              "e": 1.0525721108933794e-05,
+              "A0": 2.256969310110435e-06,
+              "M0": 0.8283895403146744
+            }
+          },
+          "2": {
+            "dominant_source": "M0",
+            "dominant_kl": 0.7023480385541916,
+            "dominant_is_immediately_preceding_mlp": false,
+            "dominant_mlp": "M0",
+            "dominant_mlp_kl": 0.7023480385541916,
+            "largest_attention_source": "A1",
+            "largest_attention_kl": 0.1797713339328766,
+            "attention_over_dominant_mlp": 0.2559576222394559,
+            "zero": {
+              "e": 6.195784408191685e-06,
+              "A0": 1.087815803657577e-06,
+              "M0": 0.7023480385541916,
+              "A1": 0.1797713339328766,
+              "M1": 0.11413652077317238
+            },
+            "resample": {
+              "e": 6.940913863218157e-06,
+              "A0": 1.1212380286451662e-06,
+              "M0": 0.4097683057188988,
+              "A1": 0.1149988267570734,
+              "M1": 0.1938285455107689
+            }
+          }
+        }
+      ],
+      "max_attention_over_dominant_mlp_per_seed": [
+        0.2559576222394559
+      ],
+      "max_attention_over_dominant_mlp": 0.2559576222394559,
+      "dominant_is_preceding_mlp_all_layers_all_seeds": false
+    }
+  },
+  "P1_verdict": {
+    "registered": "depth LOWERS the width threshold by one octave. Concretely: at depth 3, width 128 shows induction above the planted-oracle 3-SE floor at >= 2 of 3 seeds, with a mean score in [+0.015, +0.070]; at depth 4, width 128 does so at 3 of 3 seeds. Width 64 stays below floor at BOTH depths 3 and 4 at >= 2 of 3 seeds.",
+    "per_cell": {
+      "d1_w32": {
+        "induction": -0.00576827437789369,
+        "sd": 0.0018230796630453318,
+        "floor": 0.009102788608991615,
+        "seeds_above_floor": 0,
+        "n_seeds": 3
+      },
+      "d1_w64": {
+        "induction": -0.011525902924714634,
+        "sd": 0.002453135734094677,
+        "floor": 0.009627697298621478,
+        "seeds_above_floor": 0,
+        "n_seeds": 3
+      },
+      "d1_w128": {
+        "induction": -0.026406563652886322,
+        "sd": 0.0018782010459539764,
+        "floor": 0.009273244602980573,
+        "seeds_above_floor": 0,
+        "n_seeds": 3
+      },
+      "d1_w256": {
+        "induction": -0.035448406360767494,
+        "sd": 0.0015259663271785726,
+        "floor": 0.009213144447474161,
+        "seeds_above_floor": 0,
+        "n_seeds": 3
+      },
+      "d2_w32": {
+        "induction": -0.007712533738878234,
+        "sd": 0.0015431536462639922,
+        "floor": 0.007850572960336212,
+        "seeds_above_floor": 0,
+        "n_seeds": 3
+      },
+      "d2_w64": {
+        "induction": -0.014033836788601128,
+        "sd": 0.0031761415471419766,
+        "floor": 0.010585759234113583,
+        "seeds_above_floor": 0,
+        "n_seeds": 2
+      },
+      "d2_w128": {
+        "induction": -0.003363983719437276,
+        "sd": 0.009899299340858087,
+        "floor": 0.010299243018130561,
+        "seeds_above_floor": 0,
+        "n_seeds": 3
+      },
+      "d2_w256": {
+        "induction": 0.09376651622630933,
+        "sd": 0.008641490325232207,
+        "floor": 0.010119482466848647,
+        "seeds_above_floor": 3,
+        "n_seeds": 3
+      },
+      "d3_w64": {
+        "induction": 0.007733747694227589,
+        "sd": 0.0,
+        "floor": 0.010931017665869836,
+        "seeds_above_floor": 0,
+        "n_seeds": 1
+      },
+      "d3_w128": {
+        "induction": 0.09735919104682118,
+        "sd": 0.0,
+        "floor": 0.0078110863410942345,
+        "seeds_above_floor": 1,
+        "n_seeds": 1
+      }
+    },
+    "induction_width_threshold_by_depth": {
+      "1": null,
+      "2": 256,
+      "3": null,
+      "4": null
+    },
+    "call": "PARTIAL -- thresholds by depth {1: None, 2: 256, 3: None, 4: None}"
+  },
+  "P2_verdict": {
+    "registered": "the FEED-FORWARD path keeps dominating all the way up. For every layer l in 1..L-1 and every upstream attention module A_j (j<l), the causal read-deletion KL of A_j stays below 1% of the largest MLP read-deletion KL at the same layer, at every width and every seed. The single largest contributor to each layer's read is the IMMEDIATELY PRECEDING MLP, M_{l-1}.",
+    "max_attention_over_dominant_mlp_by_cell": {
+      "d2_w32": 2.194670629456969e-06,
+      "d2_w64": 3.0964872818523534e-06,
+      "d2_w128": 1.3448340450490483e-05,
+      "d2_w256": 1.9269480278870034e-05,
+      "d3_w64": 0.16906093749146633,
+      "d3_w128": 0.2559576222394559
+    },
+    "cells_above_1pc": {
+      "d3_w64": 0.16906093749146633,
+      "d3_w128": 0.2559576222394559
+    },
+    "named_exception_only": false,
+    "call": "REFUTED at ['d3_w128', 'd3_w64']"
+  },
+  "P3_held_ce": {
+    "d1_w32": {
+      "held_ce": 5.507493333333334,
+      "sd": 0.007704234766239334,
+      "bits_per_byte": 2.1162396313133294
+    },
+    "d1_w64": {
+      "held_ce": 5.14788,
+      "sd": 0.005537445259323177,
+      "bits_per_byte": 1.9780591666466405
+    },
+    "d1_w128": {
+      "held_ce": 4.822553333333333,
+      "sd": 0.002947835364014312,
+      "bits_per_byte": 1.8530532622443243
+    },
+    "d1_w256": {
+      "held_ce": 4.559136666666666,
+      "sd": 0.00272061267609602,
+      "bits_per_byte": 1.7518361103007083
+    },
+    "d2_w32": {
+      "held_ce": 5.41274,
+      "sd": 0.009820086557663265,
+      "bits_per_byte": 2.0798309155759145
+    },
+    "d2_w64": {
+      "held_ce": 5.020855,
+      "sd": 0.00038890872965295084,
+      "bits_per_byte": 1.9292501490232135
+    },
+    "d2_w128": {
+      "held_ce": 4.6463,
+      "sd": 0.007486113811584918,
+      "bits_per_byte": 1.7853283887717444
+    },
+    "d2_w256": {
+      "held_ce": 4.325376666666666,
+      "sd": 0.0012770408502990522,
+      "bits_per_byte": 1.6620144534642398
+    },
+    "d3_w64": {
+      "held_ce": 4.94174,
+      "sd": 0.0,
+      "bits_per_byte": 1.898850421180053
+    },
+    "d3_w128": {
+      "held_ce": 4.52845,
+      "sd": 0.0,
+      "bits_per_byte": 1.7400448404393616
+    }
+  },
+  "P4_ladder_order": {
+    "d1_w32": {
+      "attention_first": 2.026501476764679,
+      "attention_last": 0.2872247180591027,
+      "order_ratio": 7.085885134085738,
+      "interaction_nats": 1.7392767587055762
+    },
+    "d1_w64": {
+      "attention_first": 3.4714114665985107,
+      "attention_last": 0.47194189578294754,
+      "order_ratio": 7.3599117251764214,
+      "interaction_nats": 2.999469570815563
+    },
+    "d1_w128": {
+      "attention_first": 4.634038766225179,
+      "attention_last": 0.702491062382857,
+      "order_ratio": 6.595654556702635,
+      "interaction_nats": 3.931547703842322
+    },
+    "d1_w256": {
+      "attention_first": 4.257382273674011,
+      "attention_last": 0.9401545648773512,
+      "order_ratio": 4.527907511205839,
+      "interaction_nats": 3.31722770879666
+    },
+    "d2_w32": {
+      "attention_first": 4.2243877947330475,
+      "attention_last": 0.37107762197653454,
+      "order_ratio": 11.394339683366425,
+      "interaction_nats": 3.853310172756513
+    },
+    "d2_w64": {
+      "attention_first": 7.6525599360466,
+      "attention_last": 0.6135247126221657,
+      "order_ratio": 12.475592813227024,
+      "interaction_nats": 7.039035223424435
+    },
+    "d2_w128": {
+      "attention_first": 11.6330473224322,
+      "attention_last": 0.9407664090394974,
+      "order_ratio": 12.365315149097853,
+      "interaction_nats": 10.692280913392702
+    },
+    "d2_w256": {
+      "attention_first": 14.86689575513204,
+      "attention_last": 1.2254810879627864,
+      "order_ratio": 12.13092636355095,
+      "interaction_nats": 13.641414667169252
+    },
+    "d3_w64": {
+      "attention_first": 6.30346554517746,
+      "attention_last": 0.7416665107011795,
+      "order_ratio": 8.499056454926212,
+      "interaction_nats": 5.56179903447628
+    },
+    "d3_w128": {
+      "attention_first": 8.52610158920288,
+      "attention_last": 1.0937486961483955,
+      "order_ratio": 7.79530217428126,
+      "interaction_nats": 7.432352893054485
+    }
+  }
+}
