@@ -807,6 +807,55 @@ def composed_vs_causal(D, n_seq=32, T=256, batch=8):
 
 
 @torch.no_grad()
+def composition_budget(D, n_seq=32, T=256, batch=8):
+    """WHAT DOES LAYER l READ, IN THE STREAM'S OWN UNITS?
+
+    Layer l's read is rms(e + A_0 + M_0 + ... ).  Induction needs the
+    attention->attention path: layer 1's KEYS must depend on what layer 0's
+    ATTENTION wrote.  So the quantity that decides whether that path is even
+    open is how much of layer 1's read is layer-0 attention.  Reported three
+    ways, none of which is a sign: (a) the norm share of each write in the read
+    vector, (b) the relative change in the layer-l attention PATTERN when each
+    upstream write is deleted from the read only (the residual is untouched, so
+    this isolates the read), (c) the same for the layer-l value."""
+    out = {}
+    accum = {}
+    n = 0
+    for x, y in I1.held_batches(D, n_seq, T, batch):
+        P = D.run(x)
+        for li in range(1, D.L):
+            pre = P['e']
+            parts = {'e': P['e']}
+            for j in range(li):
+                parts[f'A{j}'] = P['A'][j]
+                parts[f'M{j}'] = P['M'][j]
+                pre = pre + P['A'][j] + P['M'][j]
+            hn = _rms(pre, D.Ws)
+            pat = D._pat_from(li, hn)
+            pn = pat.norm()
+            for nm, v in parts.items():
+                k = f'l{li}_read_norm_share_{nm}'
+                accum[k] = accum.get(k, 0.0) + float(
+                    (v.norm(dim=-1) / pre.norm(dim=-1)).mean())
+                hn2 = _rms(pre - v, D.Ws)
+                dp = (D._pat_from(li, hn2) - pat).norm() / pn
+                k2 = f'l{li}_pattern_rel_change_without_{nm}'
+                accum[k2] = accum.get(k2, 0.0) + float(dp)
+                v1 = (hn @ D.Wv[li].t())
+                v2 = (hn2 @ D.Wv[li].t())
+                k3 = f'l{li}_value_rel_change_without_{nm}'
+                accum[k3] = accum.get(k3, 0.0) + float(
+                    (v2 - v1).norm() / v1.norm())
+        n += 1
+    out = {k: v / n for k, v in accum.items()}
+    out['note'] = ('a layer-1 pattern that barely moves when A0 is removed '
+                   'from its read means the attention->attention composition '
+                   'path -- the one induction needs -- is numerically closed, '
+                   'whatever the architecture permits')
+    return out
+
+
+@torch.no_grad()
 def natural_induction(D, n_seq=512, T=256, seed=0):
     """INDUCTION ON REAL TEXT, as a causal intervention.
 
@@ -818,10 +867,16 @@ def natural_induction(D, n_seq=512, T=256, seed=0):
     occurrence (x[j+1], the induction target), then re-run with x[j+1] replaced
     by a random token and measure how much that probability falls.
 
-    A model that inducts must lose probability mass on the target when the
-    evidence for it is destroyed.  A model that does not will not move.  The
-    control is the same patch scored on a token that is NOT the induction
-    target, which absorbs the generic 'the prefix changed' effect."""
+    THE CONFOUND, AND THE FIX.  Overwriting x[j+1] with a random token also
+    REMOVES the target token from the prefix, and these models have a positive
+    BAG effect, so that patch measures bag + order and would report 'induction'
+    for a purely order-free model.  The order-specific patch is therefore a
+    SWAP: exchange x[j+1] with another prefix token.  The bag is then exactly
+    preserved (it is a permutation) and only the adjacency that induction reads
+    is destroyed.  Both patches are reported; only the swap licenses an
+    induction claim.  Each is additionally differenced against the same patch
+    scored on a control token, which absorbs the generic 'the prefix changed'
+    effect."""
     g = torch.Generator(device='cpu').manual_seed(seed)
     arr = tf_corpus.load_split(D.V, 'held', n_seq, tok=D.cfg.tok)
     x = torch.from_numpy(arr[:, :T]).to(D.dev)
@@ -845,36 +900,51 @@ def natural_induction(D, n_seq=512, T=256, seed=0):
     xs = x[idxs]
     jj = src[idxs].gather(1, pos[:, None])[:, 0]
     tt = tgt[idxs].gather(1, pos[:, None])[:, 0]
-    rnd = torch.randint(0, D.V, (xs.shape[0],), generator=g).to(D.dev)
-    xp = xs.clone()
-    xp.scatter_(1, jj[:, None], rnd[:, None])
-    ctrl = torch.randint(0, D.V, (xs.shape[0],), generator=g).to(D.dev)
-    d_t, d_c, n = [], [], 0
-    for a in range(0, xs.shape[0], 16):
+    nn = xs.shape[0]
+    rnd = torch.randint(0, D.V, (nn,), generator=g).to(D.dev)
+    x_rand = xs.clone()
+    x_rand.scatter_(1, jj[:, None], rnd[:, None])
+    # ORDER-ONLY patch: swap x[j+1] with another prefix token (bag preserved)
+    u = torch.rand(nn, T, generator=g).to(D.dev)
+    ar = torch.arange(T, device=D.dev)[None]
+    ok = (ar < pos[:, None]) & (ar != jj[:, None]) & (ar != (jj - 1)[:, None])
+    mm = (u * ok.float()).argmax(1)
+    x_swap = xs.clone()
+    a_ = x_swap.gather(1, jj[:, None])
+    b_ = x_swap.gather(1, mm[:, None])
+    x_swap.scatter_(1, jj[:, None], b_)
+    x_swap.scatter_(1, mm[:, None], a_)
+    ctrl = torch.randint(0, D.V, (nn,), generator=g).to(D.dev)
+    acc = {k: [] for k in ('rand_t', 'rand_c', 'swap_t', 'swap_c')}
+    for a in range(0, nn, 16):
         s = slice(a, a + 16)
         lp0 = F.log_softmax(D.model(xs[s]).float(), -1)
-        lp1 = F.log_softmax(D.model(xp[s]).float(), -1)
+        lpr = F.log_softmax(D.model(x_rand[s]).float(), -1)
+        lps = F.log_softmax(D.model(x_swap[s]).float(), -1)
         p = pos[s]
         r = torch.arange(p.shape[0], device=D.dev)
-        d_t.append((lp0[r, p, tt[s]] - lp1[r, p, tt[s]]).cpu())
-        d_c.append((lp0[r, p, ctrl[s]] - lp1[r, p, ctrl[s]]).cpu())
-        n += p.shape[0]
-    d_t = torch.cat(d_t).double().numpy()
-    d_c = torch.cat(d_c).double().numpy()
-    diff = d_t - d_c
+        acc['rand_t'].append((lp0[r, p, tt[s]] - lpr[r, p, tt[s]]).cpu())
+        acc['rand_c'].append((lp0[r, p, ctrl[s]] - lpr[r, p, ctrl[s]]).cpu())
+        acc['swap_t'].append((lp0[r, p, tt[s]] - lps[r, p, tt[s]]).cpu())
+        acc['swap_c'].append((lp0[r, p, ctrl[s]] - lps[r, p, ctrl[s]]).cpu())
+    v = {k: torch.cat(x_).double().numpy() for k, x_ in acc.items()}
+
+    def stat(d):
+        se = d.std(ddof=1) / math.sqrt(d.size)
+        return {'mean': float(d.mean()), 'se': float(se),
+                't': float(d.mean() / se),
+                'detectable_effect_floor_nats_3se': float(3 * se)}
     return {
-        'n_positions': int(n),
-        'logprob_drop_on_induction_target': float(d_t.mean()),
-        'logprob_drop_on_control_token': float(d_c.mean()),
-        'induction_specific_drop': float(diff.mean()),
-        'se': float(diff.std(ddof=1) / math.sqrt(diff.size)),
-        't': float(diff.mean() / (diff.std(ddof=1) / math.sqrt(diff.size))),
-        'detectable_effect_floor_nats_3se': float(
-            3 * diff.std(ddof=1) / math.sqrt(diff.size)),
-        'note': 'positive means destroying the induction evidence costs the '
-                'model probability on the induction target SPECIFICALLY, i.e. '
-                'induction on natural text; the control subtracts the generic '
-                'effect of perturbing one prefix token'}
+        'n_positions': int(nn),
+        'bag_plus_order_patch_random_token': stat(v['rand_t'] - v['rand_c']),
+        'ORDER_ONLY_patch_swap': stat(v['swap_t'] - v['swap_c']),
+        'raw': {k: float(x_.mean()) for k, x_ in v.items()},
+        'note': 'the SWAP row is the induction number: it preserves the prefix '
+                'token multiset exactly and destroys only the adjacency that '
+                'induction reads.  The RANDOM row also removes the target from '
+                'the prefix and therefore contains the order-free BAG effect, '
+                'which these models do have; it must not be quoted as '
+                'induction.'}
 
 
 @torch.no_grad()
@@ -1042,7 +1112,8 @@ def main(stem, quick=False, skip_baselines=False):
                   'multisets, scored on the second copy only'}
     rep['induction_power'] = induction_power(D)
     rep['induction_by_head'] = induction_by_head(D)
-    rep['natural_induction'] = natural_induction(D)
+    rep['composition_budget'] = composition_budget(D)
+    rep['natural_induction'] = natural_induction(D, n_seq=1024)
     rep['fit_score_disjointness'] = fit_score_disjointness(D, min(n_seq, 64), T)
     print(f'  induction {time.time()-t0:.0f}s', flush=True)
     rep['rung4'] = I1.rung4(D)
