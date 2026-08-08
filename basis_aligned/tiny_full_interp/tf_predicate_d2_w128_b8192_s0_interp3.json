@@ -8455,7 +8455,7 @@
     "note": "rank 0 would mean attending to u boosts u more than any other token; rank V/2 means attending to u says nothing about u.  This is the causal version of the claim; the composed-table version is in rung4."
   },
   "bits_per_byte_ladder": 1.6794393212129715,
-  "seconds": 46.0,
+  "seconds": 80.8,
   "predicate_induction_split": {
     "all_named_terms_on": {
       "induction_score_mean": 2.593364673190647,
@@ -8512,5 +8512,39 @@
       "zero_prev_token_match_b_layer1": 0.6614318778565041
     },
     "note": "the previous-token match is one scalar per head; if zeroing it removes the score, this variant inducts by a NAMED TERM in a single layer and not by the two-layer composition circuit the plain model needs width 256 to build"
+  },
+  "induction_route_split": {
+    "baseline": {
+      "induction_score_mean": 2.593364757961697,
+      "induction_score_sd": 0.026633490526200808,
+      "bag_score_mean": 0.22888921101887974
+    },
+    "A0_out_of_layer1_read_only": {
+      "induction_score_mean": 2.200620121426052,
+      "induction_score_sd": 0.016757008330425243,
+      "bag_score_mean": 0.16678165859646335
+    },
+    "A0_out_of_mlp0_input_only": {
+      "induction_score_mean": 2.0853442933824327,
+      "induction_score_sd": 0.031066921810583556,
+      "bag_score_mean": 0.12147460513644788
+    },
+    "A0_out_of_both": {
+      "induction_score_mean": 2.0081109788682716,
+      "induction_score_sd": 0.021109938770867476,
+      "bag_score_mean": 0.06470008426242409
+    },
+    "A0_write_deleted_entirely": {
+      "induction_score_mean": 1.1007540596856011,
+      "induction_score_sd": 0.00968086670177855,
+      "bag_score_mean": 0.0572790145874027
+    },
+    "fraction_of_induction_removed": {
+      "A0_out_of_layer1_read_only": 0.1514421121556113,
+      "A0_out_of_mlp0_input_only": 0.19589240696652044,
+      "A0_out_of_both": 0.2256735298405985,
+      "A0_write_deleted_entirely": 0.5755498503223437
+    },
+    "note": "read_only large => the attention-to-attention path is not merely open, the algorithm USES it.  mlp_only large with read_only near zero is the plain model pattern: the signal goes through the feed-forward block."
   }
 }

@@ -70,8 +70,11 @@ def summarise(cells):
         crd = cb['causal_read_deletion_kl']
         ra = r['resample_ablation']
         ru = r['rung2']
-        m0 = ru['layer0']['mlp']['mode0_unfolding']['entropy_rank']
-        n0 = ru['layer0']['mlp']['random_factored_null_mode0']['entropy_rank']
+        # LIVE ROWS ONLY -- see rung2_v: an all-rows spectrum on a masked
+        # decoder measures the mask (32 of 128 rows), not the content
+        m0 = ru['layer0']['mlp']['mode0_unfolding_live']['entropy_rank']
+        n0 = ru['layer0']['mlp']['random_factored_null_mode0_live'][
+            'entropy_rank']
         sel = np.mean([ru['layer0']['branch_tables'][f'{b}_d{d}']
                        ['mean_entropy_rank']
                        for b in ('s1', 's2') for d in (0, 1, 8)])

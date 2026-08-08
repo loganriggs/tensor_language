@@ -999,9 +999,46 @@ def rung2_v(D):
                     'slice_eigen_mean_entropy_rank':
                         float(np.mean([s['entropy_rank'] for s in sl])),
                     'mean_negative_eig_share': float((ev < 0).sum() / ev.size)}
-        d['mlp']['content_over_null'] = (
+        d['mlp']['content_over_null_ALL_ROWS_DO_NOT_QUOTE'] = (
             d['mlp']['mode0_unfolding']['entropy_rank']
             / max(d['mlp']['random_factored_null_mode0']['entropy_rank'], 1e-9))
+        # ---- LIVE ROWS ONLY, and this is the number that may be quoted ----
+        # ARITHMETIC DRESSED AS A FINDING, caught before it was reported: for a
+        # MASKED decoder (variants slots and shrink) the folded tensor is the
+        # full (Ws, Ws, Ws), but write_out discards every output row outside the
+        # module's own slot, so 96 of 128 rows never receive a gradient and stay
+        # at their small init.  Measured: row norms are 100.5 inside slot 1 and
+        # 4.7 everywhere else.  A spectrum over all 128 rows therefore reports
+        # `entropy rank 51 against a null of 123` -- which is just 32/128, the
+        # masking, and nothing about content.  Restricting to the live rows and
+        # matching the null's shape to them makes the six variants comparable:
+        # small decoders are physically slot-sized so nothing changes for them.
+        k = 2 * li + 1
+        if D.cfg.n_slots > 1 and not D.cfg.small_dec:
+            live = list(range(D.s * k, D.s * (k + 1)))
+        else:
+            live = list(range(O))
+        Tl_ = T[live]
+        OL = len(live)
+        unfl = torch.linalg.svdvals(Tl_.reshape(OL, -1).double()).cpu().numpy()
+        gl = torch.Generator(device='cpu').manual_seed(5)
+        Dnl = torch.randn(OL, D.cfg.hidden, generator=gl).to(D.dev)
+        Lrl = torch.randn(D.cfg.hidden, Ws, generator=gl).to(D.dev)
+        Rrl = torch.randn(D.cfg.hidden, Ws, generator=gl).to(D.dev)
+        Mnl = torch.einsum('of,fi,fj->oij', Dnl, Lrl, Rrl)
+        Tnl = 0.5 * (Mnl + Mnl.transpose(1, 2))
+        svnl = torch.linalg.svdvals(Tnl.reshape(OL, -1).double()).cpu().numpy()
+        d['mlp']['live_output_rows'] = OL
+        d['mlp']['live_row_norm_ratio_inside_over_outside'] = float(
+            T[live].reshape(OL, -1).norm(dim=1).mean()
+            / max(float(T.reshape(O, -1).norm(dim=1).mean()), 1e-30))
+        d['mlp']['mode0_unfolding_live'] = {**tf_fold.eff_rank(unfl),
+                                            'rank_bound': min(OL, Ws * Ws)}
+        d['mlp']['random_factored_null_mode0_live'] = tf_fold.eff_rank(svnl)
+        d['mlp']['content_over_null'] = (
+            d['mlp']['mode0_unfolding_live']['entropy_rank']
+            / max(d['mlp']['random_factored_null_mode0_live']['entropy_rank'],
+                  1e-9))
         rd = {}
         for nm, W in (('c_q', D.Wq[li]), ('c_k', D.Wk[li]), ('c_q2', D.Wq2[li]),
                       ('c_k2', D.Wk2[li]), ('c_v', D.Wv[li]),

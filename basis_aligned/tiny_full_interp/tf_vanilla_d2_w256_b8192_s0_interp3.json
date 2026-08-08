@@ -15229,5 +15229,39 @@
     "note": "rank 0 would mean attending to u boosts u more than any other token; rank V/2 means attending to u says nothing about u.  This is the causal version of the claim; the composed-table version is in rung4."
   },
   "bits_per_byte_ladder": 1.6309896168075995,
-  "seconds": 121.2
+  "seconds": 119.6,
+  "induction_route_split": {
+    "baseline": {
+      "induction_score_mean": 0.08408374786376953,
+      "induction_score_sd": 0.006542073514658775,
+      "bag_score_mean": 0.13339826795789947
+    },
+    "A0_out_of_layer1_read_only": {
+      "induction_score_mean": 0.08451898362901496,
+      "induction_score_sd": 0.006514157653458876,
+      "bag_score_mean": 0.13398969438340913
+    },
+    "A0_out_of_mlp0_input_only": {
+      "induction_score_mean": -0.0366009818183052,
+      "induction_score_sd": 0.009766324133317843,
+      "bag_score_mean": 0.22142509884304468
+    },
+    "A0_out_of_both": {
+      "induction_score_mean": -0.03659547170003243,
+      "induction_score_sd": 0.009778696643608845,
+      "bag_score_mean": 0.22172571818033865
+    },
+    "A0_write_deleted_entirely": {
+      "induction_score_mean": -0.03658943176269567,
+      "induction_score_sd": 0.009770246506908283,
+      "bag_score_mean": 0.22162706587049713
+    },
+    "fraction_of_induction_removed": {
+      "A0_out_of_layer1_read_only": -0.005176217477253597,
+      "A0_out_of_mlp0_input_only": 1.4352919886207407,
+      "A0_out_of_both": 1.4352264573092475,
+      "A0_write_deleted_entirely": 1.4351546249101192
+    },
+    "note": "read_only large => the attention-to-attention path is not merely open, the algorithm USES it.  mlp_only large with read_only near zero is the plain model pattern: the signal goes through the feed-forward block."
+  }
 }

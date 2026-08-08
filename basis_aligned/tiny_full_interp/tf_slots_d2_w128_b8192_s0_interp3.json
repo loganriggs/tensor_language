@@ -8262,7 +8262,7 @@
     "note": "rank 0 would mean attending to u boosts u more than any other token; rank V/2 means attending to u says nothing about u.  This is the causal version of the claim; the composed-table version is in rung4."
   },
   "bits_per_byte_ladder": 1.791338192078563,
-  "seconds": 76.2,
+  "seconds": 69.8,
   "read_ablation_causal": {
     "kl_from_model": {
       "l1_read_zero_e": 0.6531078815460205,
@@ -8329,5 +8329,39 @@
     "imposed_slot_norm_l1_post_norm_share_M0": 0.5,
     "G_imposed": 4,
     "note": "true_norm rows use whatever norm this model was TRAINED with; imposed_slot_norm rows apply a G-way slot norm to the same weights at analysis time.  A statistic that moves between the two blocks is a property of the normalisation, not of the computation, and may not be used as evidence."
+  },
+  "induction_route_split": {
+    "baseline": {
+      "induction_score_mean": 0.11294631958007847,
+      "induction_score_sd": 0.0053681471503563595,
+      "bag_score_mean": 0.08684308793809699
+    },
+    "A0_out_of_layer1_read_only": {
+      "induction_score_mean": -0.018828158908420177,
+      "induction_score_sd": 0.00817455848713216,
+      "bag_score_mean": 0.07404657999674491
+    },
+    "A0_out_of_mlp0_input_only": {
+      "induction_score_mean": 0.08622504340277785,
+      "induction_score_sd": 0.004283628910857206,
+      "bag_score_mean": 0.06932565901014591
+    },
+    "A0_out_of_both": {
+      "induction_score_mean": -0.004406611124674243,
+      "induction_score_sd": 0.00413199624748895,
+      "bag_score_mean": 0.04731835259331589
+    },
+    "A0_write_deleted_entirely": {
+      "induction_score_mean": 0.004095077514648082,
+      "induction_score_sd": 0.007749824486103002,
+      "bag_score_mean": 0.02649222479926223
+    },
+    "fraction_of_induction_removed": {
+      "A0_out_of_layer1_read_only": 1.166700065822606,
+      "A0_out_of_mlp0_input_only": 0.23658385927622322,
+      "A0_out_of_both": 1.0390150926657684,
+      "A0_write_deleted_entirely": 0.9637431522348572
+    },
+    "note": "read_only large => the attention-to-attention path is not merely open, the algorithm USES it.  mlp_only large with read_only near zero is the plain model pattern: the signal goes through the feed-forward block."
   }
 }
