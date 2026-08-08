@@ -71,21 +71,31 @@ Variants: A `vanilla` | B `slots` (partition + per-slot norm + in-loss lasso)
 | E `codebook` (C + variable-k discrete slot content)
 | F `shrink` (B + shrinking embedding channel with floor)
 
-**Phase V1 — the comparison slice** (depth 2, width 128, seed 0; 6 models):
+**Phase V1 — the comparison slice** — **COMPLETE, three seeds each, plus 19
+control and robustness arms, all through one analysis revision.** Consolidated
+table: `tf_consolidated_table.md` and RESULTS.md FINDING 11. Mean ± sd over
+seeds 0/1/2:
 
 | variant | owner | status |
 |---|---|---|
-| A vanilla | local | **done** seed 0 (reused checkpoint, re-measured through the same code path as B-F) — held CE 4.65117 / ladder CE 4.5545, induction −0.0138 |
-| B slots | local | **done** seed 0 — CE 4.74182, **induction +0.1129**, attention-to-attention KL [0.574, 0.123] |
-| C bandwidth | local | **done** seed 0 — CE 4.62626, **induction +0.0965**, [0.600, 0.150] |
-| D predicate | local | **done** seed 0 — CE **4.38428** (best of the six), **induction +2.5934** from 16 named scalars, [0.352, 0.071] |
-| E codebook | local | **done** seed 0 — CE 4.74797, **induction +0.0540**, [0.113, 0.108] |
-| F shrink | local | **done** seed 0 — CE 4.73574, **induction +0.0510**, [0.301, 0.148] |
+| A vanilla | local | **done** s0/1/2 — CE 4.6463 ± 0.0075, induction −0.0034 ± 0.0099 (below its own floor at every seed, and at Muon 0.01/0.02/0.04), routing [1.3e−5, 4.3e−6] |
+| B slots | local | **done** s0/1/2 — CE 4.7414 ± 0.0056, **induction +0.0972 ± 0.0275** (3/3 above floor), routing [0.551, 0.124] |
+| C bandwidth | local | **done** s0/1/2 — CE 4.6279 ± 0.0037, **induction +0.1190 ± 0.0524** (3/3), routing [0.538, 0.144] |
+| D predicate | local | **done** s0/1/2 — CE **4.3861 ± 0.0020** (best of the six), **induction +2.6402 ± 0.0481** (3/3) but HANDED OVER by 16 named scalars, not learned, routing [0.353, 0.070] |
+| E codebook | local | **done** s0/1/2 — CE 4.7542 ± 0.0054, induction +0.0375 ± 0.0157 (**2/3** above floor; seed 2 is +0.0228 against a 0.0249 floor), routing [0.119, 0.096] |
+| F shrink | local | **done** s0/1/2 — CE 4.7243 ± 0.0100, **induction +0.0860 ± 0.0303** (3/3), routing [0.229, 0.143] |
 
-**Verdict (RESULTS.md FINDING 11): DIFFERENT, not a relabelling.** All five
-non-vanilla variants open the attention-to-attention path the plain model shuts
-(vanilla 2.4e−5 nats, variants 0.113–0.600) and all five induct at width 128
-where vanilla needs 256. Every knockout is quoted as [zero, resample].
+**Verdict (RESULTS.md FINDING 11, as corrected by the independent round-2
+review in `tf_reviewer_round_2.json`): DIFFERENT, not a relabelling** — but the
+routing half is a MAGNITUDE result, not a channel-opening one. All five variants
+*use* a residual route that carries ~nothing in the plain model (vanilla 1.3e−5
+nats, variants 0.119–0.551), and four of five induct at width 128 where vanilla
+needs 256 at all three seeds (codebook at two of three). What is **retracted** is
+the inference that the plain model's weights close that route: under a
+matched-displacement probe the plain model is the *most* sensitive of the six to
+layer-0 attention's direction, and its ~zero transmission is entirely explained
+by its own write being renormalised down to 0.3% of layer 1's read. Every
+knockout is quoted as [zero, resample].
 
 **Mechanism-decomposition and control arms** (added after the seed-0 result, all
 at depth 2 width 128 seed 0 unless stated):
