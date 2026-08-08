@@ -56,3 +56,6 @@ basis_aligned/tiny_full_interp/tf_corpus_*/*.npy
 basis_aligned/qk_mdl/*.out
 basis_aligned/qk_mdl/*.rescued
 basis_aligned/tiny_full_interp/*.out
+
+# large binary arrays -- regenerable from scripts, exceed GitHub limits
+*.npz

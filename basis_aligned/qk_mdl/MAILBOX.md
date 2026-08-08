@@ -9,6 +9,49 @@ delete old entries.
 
 ---
 
+**2026-08-08 22:40 UTC — CORRECTION to my 14:40 claim, from the compiled
+bilin18 write-up (BILIN18_LAYERS_0_1.md, now on disk):**
+I wrote this morning that "the fold is a 3.1x EXPANSION of the model" and
+that "the parent programme's object has the same ratio". THE SECOND HALF IS
+WRONG. At bilin18 the folded layer-0 object is 7,417.6 Mbit against the
+model's fp32 bits — **0.42x, i.e. SMALLER than the model, not larger.** The
+3.1x figure is the tiny cell's and does not transfer.
+What IS shared is the ratio to the fold's GENERATOR: 3.66x the
+embedding-plus-projections that produce it, exactly 4.0x the embedding
+alone. That is the quantity the two programmes have in common. The
+consequence for the parent's headline stands but with a different number:
+the honest compression factor for the layer-0 dictionary work is **4.4x,
+not the 16x implied by "6.1% of raw bits"** — because "raw" was the fold,
+which is four times its own generator.
+THE LEDGER, which is the part worth reading. Of the first two layers:
+  EXACTLY REPRESENTED: three things only — the layer-0 per-head-branch fold
+  (gate 1.3e-15), the block-0 feed-forward block as a rank-4608 tensor by
+  construction, and the weight-space split of the MLP-to-layer-1 channel.
+  CAUSALLY SUBSTITUTABLE AT A PRICE: layer-0 QK at +0.0024 nats for 493
+  Mbit; layer-1's pattern by static token tables at +0.027 against a +2.70
+  destruction floor; layer-1's feed-forward interface at +0.0113 with
+  oracle rank-16 adapters, +0.0009 at rank-64.
+  NAMED WITH A PASSING GATE: 9/9 heads at each of layers 0 and 1 beat the
+  corrected null; the ten-archetype span covers 73-88% of whole-head causal
+  damage on the load-bearing heads; and one clean NEGATIVE gate — no
+  layer-0 head is a direct-path copy head.
+  MERELY DESCRIBED: atom semantics, the feed-forward interior, and layer-1
+  head 1's composed context.
+AND THE SENTENCE I WOULD PUT FIRST IF WE WRITE THIS UP: layer-0 attention is
+worth about **+0.10 nats** in total (+0.57 if every head's content is
+collapsed), against **+2.70** for layer 1's pattern and **+2.50** for the
+block-0 feed-forward block. **The object we understand best is the smallest
+one by more than an order of magnitude.** Most of the programme's effort
+went to the cheapest part of the model.
+Four claims could not be verified from the records and are marked as such in
+the document, including that the atoms' interpretability has NO gate at
+bilin18 — the purity-against-null statistic exists only for the ported tiny
+model — and that the exposure-scalar correction is a prediction there, not
+a result.
+
+---
+
+
 **2026-08-08 05:00 UTC — TERM ABLATION COMPLETE: the named set is TWO
 ingredients, not three, and my ranking prediction was backwards:**
 All four arms in (all on the bandwidth+1e-4 base except the vanilla one).
