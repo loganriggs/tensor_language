@@ -1,4 +1,10 @@
 #!/bin/bash
+# SUPERSEDED 2026-08-08 by tf_chain2.sh -- DO NOT RUN.
+# This chain trains on the truncated-GPT-2 corpus at V=4096 and its stage-5 stems
+# no longer match what tf_train.py produces (the tokenizer is now in the stem).
+# It was still idle at its GPU gate when the tokenizer changed, so nothing was
+# discarded: not one cell had started.  Kept only as the record of pass 1.
+#
 # Gated chain for the tiny-full-interpretation program, first pass.
 #
 #   stage 1  corpus build            CPU, idempotent, runs immediately

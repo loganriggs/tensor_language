@@ -1,0 +1,32 @@
+{
+  "vocab": 8192,
+  "tokenizer": "bpe",
+  "bits_per_byte_rule": "these are nats PER TOKEN and are comparable only within this tokenizer; see tf_tokenizer_compare.json for the cross-tokenizer bits/byte table",
+  "unigram_floor_held_ce": 7.30343,
+  "unigram_floor_est_ce": 7.3001,
+  "bigram_held_ce": 5.2842,
+  "bigram_alpha_sweep_on_est": {
+    "0.1": 5.50419,
+    "0.5": 5.45931,
+    "1.0": 5.43999,
+    "3.0": 5.40943,
+    "10.0": 5.37613,
+    "30.0": 5.34631,
+    "100.0": 5.31561,
+    "300.0": 5.29314,
+    "1000.0": 5.28624,
+    "3000.0": 5.31811,
+    "10000.0": 5.42676
+  },
+  "bigram_alpha_chosen": 1000.0,
+  "bigram_alpha_at_grid_edge": false,
+  "bigram_beats_unigram_nats": 2.01923,
+  "bigram_nonzero_cells": 6116149,
+  "bigram_row_coverage": 0.993408203125,
+  "fit": "counts on the train split; alpha tuned on the estimation split; scored on held.  Both are closed form -- no optimizer, so they are matched baselines by construction.",
+  "seconds": 9.1,
+  "bytes_per_token": 3.7546,
+  "unigram_floor_bits_per_byte": 2.80632,
+  "bigram_bits_per_byte": 2.03044,
+  "control_bigram_beats_unigram": true
+}

@@ -1,0 +1,134 @@
+{
+  "vocab_size": 8192,
+  "unk_id": 0,
+  "seq_len": 513,
+  "source": "basis_aligned/qk_mdl/corpus_fresh/shard00..06.npy (FineWeb sample-10BT, docs 45367..267574, gpt2 tokenizer)",
+  "n_source_seqs": 300000,
+  "shard_seqs": 45000,
+  "splits": {
+    "train": [
+      0,
+      240000
+    ],
+    "held": [
+      240000,
+      246000
+    ],
+    "est": [
+      246000,
+      276000
+    ],
+    "spare": [
+      276000,
+      300000
+    ]
+  },
+  "vocab_selected_on": "train split only (rows 0:240000)",
+  "tie_break": "descending count, ascending gpt2 id",
+  "train_coverage_by_kept_ids": 0.8704988547758284,
+  "single_epoch": {
+    "steps": 15000,
+    "batch": 16,
+    "seqs": 240000,
+    "predicted_tokens": 122880000
+  },
+  "splits_stats": {
+    "train": {
+      "n_seqs": 240000,
+      "n_tokens": 123120000,
+      "unk_rate_per_token": 0.129501,
+      "unk_rate_per_seq_mean": 0.129501,
+      "unk_rate_per_seq_p50": 0.126706,
+      "unk_rate_per_seq_p95": 0.202729,
+      "unk_rate_per_seq_max": 0.867446,
+      "frac_seqs_with_any_unk": 1.0
+    },
+    "held": {
+      "n_seqs": 6000,
+      "n_tokens": 3078000,
+      "unk_rate_per_token": 0.131714,
+      "unk_rate_per_seq_mean": 0.131714,
+      "unk_rate_per_seq_p50": 0.126706,
+      "unk_rate_per_seq_p95": 0.206725,
+      "unk_rate_per_seq_max": 0.407407,
+      "frac_seqs_with_any_unk": 0.999833
+    },
+    "est": {
+      "n_seqs": 30000,
+      "n_tokens": 15390000,
+      "unk_rate_per_token": 0.129478,
+      "unk_rate_per_seq_mean": 0.129478,
+      "unk_rate_per_seq_p50": 0.126706,
+      "unk_rate_per_seq_p95": 0.20078,
+      "unk_rate_per_seq_max": 0.594542,
+      "frac_seqs_with_any_unk": 1.0
+    },
+    "spare": {
+      "n_seqs": 24000,
+      "n_tokens": 12312000,
+      "unk_rate_per_token": 0.129459,
+      "unk_rate_per_seq_mean": 0.129459,
+      "unk_rate_per_seq_p50": 0.126706,
+      "unk_rate_per_seq_p95": 0.20078,
+      "unk_rate_per_seq_max": 0.734893,
+      "frac_seqs_with_any_unk": 1.0
+    }
+  },
+  "files": {
+    "train": [
+      {
+        "file": "train00.npy",
+        "rows": 45000,
+        "sha256": "3a74ca311a8cc55d83dc6354dbeb5776150f43177c7d49aadb12e73a9ea3b81c"
+      },
+      {
+        "file": "train01.npy",
+        "rows": 45000,
+        "sha256": "75b9a940d0c11e33fa49da990570b8ced26f791319d6f5a5b82ffc502f348189"
+      },
+      {
+        "file": "train02.npy",
+        "rows": 45000,
+        "sha256": "b26ee97274c6a70b72d5cfb9e1db56e7925c81ced7054e0e26d8be56348d1257"
+      },
+      {
+        "file": "train03.npy",
+        "rows": 45000,
+        "sha256": "424afc1de3d84fe9b5d4ec80093cafa9d96b1cdec871dbb6e74d46922541ff97"
+      },
+      {
+        "file": "train04.npy",
+        "rows": 45000,
+        "sha256": "b5538593059295b8028c867dcc7a6b72a48397471b2d5d25a1e98fa480e33539"
+      },
+      {
+        "file": "train05.npy",
+        "rows": 15000,
+        "sha256": "4626ad8956c7a4490c1acccdf1f10570258975b5d0cfdc1cfc175a6c14e3729c"
+      }
+    ],
+    "held": [
+      {
+        "file": "held00.npy",
+        "rows": 6000,
+        "sha256": "0352b07bfce9205ca0ed14b652e9743d143f83b1478156dfb94a768b89ce55cf"
+      }
+    ],
+    "est": [
+      {
+        "file": "est00.npy",
+        "rows": 30000,
+        "sha256": "ec72b413734ebcf2d95c2db035edab80d463b7065ca3f5fb86297de56f65a828"
+      }
+    ],
+    "spare": [
+      {
+        "file": "spare00.npy",
+        "rows": 24000,
+        "sha256": "3bc479ae1441c4a796ecd1395bd2cabab4f0b2ed5fe60b3e887560425d5dece9"
+      }
+    ]
+  },
+  "vocab_file": "tf_vocab_8192.json",
+  "lut_file": "lut_gpt2_to_new.npy"
+}

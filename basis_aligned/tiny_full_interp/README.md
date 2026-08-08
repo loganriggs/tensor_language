@@ -24,7 +24,9 @@ Three properties compose:
 3. **Small vocabulary.** With V ≈ 4096–8192 the exact V×V tables are
    68–268 MB in fp32 — materializable, printable, diffable. This is the
    enabler that makes "exhaustive" affordable; at V = 50257 the same object
-   is 10 GB per head-branch and only samplable.
+   is 10 GB per head-branch and only samplable. The vocabulary is a
+   **byte-level BPE trained on this corpus** (zero UNK by construction), not
+   a truncation of GPT-2's — see the vocabulary section below.
 
 Consequence: a 1-layer model is a closed-form polynomial in one-hot inputs,
 and a 2-layer model is that polynomial composed once. There is no part of
@@ -52,7 +54,8 @@ with a fully-known object at every point on the curve.
 | depth | **1, 2** (focus), then 3, 4 | 1 = closed form; 2 = composition appears; 3–4 = where the parent program's "grounding" begins |
 | width | **32, 64, 128, 256** (heads scale with width, head dim 16 fixed) | log spacing; 8× range brackets the transition |
 | seeds | 3 per cell | the parent program learned the hard way that single-seed structure claims do not survive (see `../qk_mdl/BRAINSTORM_STATE.md`, FOUNDATIONS CORRECTION) |
-| vocab | 4096 (primary), 8192 (check) | exact-table tractability; UNK rate reported per corpus |
+| vocab | **8192 (primary), 4096 (companion)**, both trained byte-level BPE | exact-table tractability; zero UNK by construction |
+| tokenizer | **bpe (primary)**, trunc (labelled comparison arm) | measures how much the tokenizer distorts the interpretability picture |
 
 Primary cells = {1,2} × {32,64,128,256} × 3 seeds = 24 models. All are minutes
 to ~1 hour each; the whole primary grid is a day of one GPU, not a week.
@@ -61,8 +64,23 @@ to ~1 hour each; the whole primary grid is a day of one GPU, not a week.
 
 - **Fresh single-epoch data**, never a second pass over any sequence — the
   parent program found multi-epoch training silently subsidizes structure
-  claims by memorization. Reduced-vocab corpus built from the same FineWeb
-  shards, rare tokens mapped to UNK, UNK rate logged.
+  claims by memorization. Small-vocabulary corpus built from the same FineWeb
+  text with a byte-level BPE trained on that text (UNK impossible).
+- **BITS PER BYTE for every cross-tokenizer number.** Per-token
+  cross-entropy is NOT comparable across tokenizers: a tokenizer with fewer
+  bytes/token makes each prediction easier *and* makes more predictions, so
+  nats/token can move either way for reasons that have nothing to do with
+  modelling quality. Any claim that spans two tokenizers (or two vocabulary
+  sizes, which is the same thing) must be stated as
+  `bits/byte = CE_nats_per_token / (ln 2 × bytes_per_token)`
+  on the same held text. This is applied mechanically:
+  `tf_corpus.bits_per_byte()` is called inside `tf_train.baselines` and
+  `run_cell`, so every baselines JSON and every cell JSON carries
+  `*_bits_per_byte` next to its nats. Nats/token remain the right unit
+  *within* one tokenizer (paired per-token deltas between cells).
+  A lossy vocabulary (the truncated arm) additionally owes
+  `unk_repair_bits_per_byte` before its bits/byte is a code length at all
+  — see below.
 - **Positive controls before every claim.** Identity reductions must pass at
   exactly zero; every headline in the parent program that turned out wrong
   was caught by a known-answer control and never by inspection.
@@ -103,8 +121,9 @@ append-only mailbox, verdicts pushed as they land.
 **Local box (RTX 5070 Ti, 16 GB)** — the small end and the analysis:
 - trains widths **32, 64, 128** at depths 1–2, all 3 seeds (18 models, each
   minutes; the whole set is a few hours)
-- owns the **corpus build** (reduced-vocab FineWeb) and pushes it so both
-  boxes train on byte-identical data
+- owns the **tokenizer and corpus build** (byte-level BPE over the same
+  FineWeb text) and pushes the tokenizer JSON + manifest so both boxes
+  regenerate byte-identical data
 - owns **all rung 1–6 analysis machinery** (folds, tables, behavioral
   battery, reconstruction), because the analysis is small and the code must
   be shared
@@ -127,21 +146,94 @@ than inventing work.
 - `README.md` — this file
 - `GRID.md` — the cell table with claim/status per cell
 - `MAILBOX.md` — cross-box channel (newest first, append-only)
-- `tf_corpus.py` — reduced-vocab corpus build
+- `tf_tokenizer.py` — trains the byte-level BPE, builds the PRIMARY corpus,
+  owns the cross-tokenizer bits/byte comparison and its controls
+- `tf_corpus.py` — the truncated-GPT-2 comparison corpus, plus the shared
+  loaders for both corpora (`load_split(..., tok=)`) and `bits_per_byte()`
 - `tf_model.py` — the tiny bilinear transformer (shared by both boxes)
 - `tf_train.py` — training with the fresh protocol
 - `tf_fold.py` — rung 1–2: exact folds and materialized tables
 - `tf_behavior.py` — rung 3: behavioral inventory with causal ablations
 - `RESULTS.md` — local results
 
-## Vocabulary decision (2026-08-08) — and why the constraint is NOT table size
+## Vocabulary decision (2026-08-08, REVISED same day) — trained BPE, not truncation
 
-The first build measured **20.0% UNK at V=4096** (13.0% at V=8192). That is
-too distorted to build a program on: UNK becomes the most frequent symbol,
-it dominates every table's rows and columns, and absolute cross-entropy
-stops being comparable to anything.
+**Superseded approach.** The first build reduced the vocabulary by *truncating*
+GPT-2's 50,257 ids to the top-K and mapping the rest to `<UNK>`: 20.0% UNK at
+V=4096, 13.2% at V=8192. That is a crude hack and Logan caught it. Truncation
+is strictly the worst of both worlds — it throws away a fifth of the tokens
+*and buys no compression at all*, because the segmentation is still GPT-2's,
+so a 512-token sequence covers exactly the same text; you simply cannot read
+13–20% of it. UNK becomes the most frequent symbol, dominating every table's
+rows and columns, and the cross-entropy stops being a code length for the text.
 
-The obvious fix is a bigger vocabulary, and a structural finding from the
+**What we do instead.** `tf_tokenizer.py` trains a **byte-level BPE on our own
+FineWeb text** (recovered by decoding the parent program's GPT-2 shards, which
+is exact — the round-trip control C1 shows ids → text → ids is bit-identical).
+Two properties follow:
+
+- **Zero UNK by construction.** The initial alphabet is all 256 byte symbols
+  (`initial_alphabet=ByteLevel.alphabet()`), so every possible input has a
+  segmentation. This is a structural guarantee, not a measured rate.
+- **Better compression at the same V**, because every merge is chosen for this
+  data. At V=8192 the trained BPE reaches 3.755 bytes/token — 84% of GPT-2's
+  4.447 with 1/6 the vocabulary.
+
+Small vocabularies are also not a compromise at our scale. *Scaling Laws with
+Vocabulary: Larger Models Deserve Larger Vocabularies* (arXiv 2407.13623,
+NeurIPS 2024) finds the compute-optimal vocabulary grows with the
+**non-vocabulary** parameter count, and our bodies are 25k–1.6M parameters —
+so a few thousand types is near-optimal here rather than a concession.
+
+**The measurement** (`tf_tokenizer_compare.json`; all bits/byte on the same
+13.69 MB of held text; n-grams fitted on the same 40,000-row train text sample):
+
+| tokenizer | bytes/token | UNK | tokens for the held text | bytes a 512-token sequence sees | unigram bits/byte | bigram bits/byte |
+|---|---|---|---|---|---|---|
+| GPT-2 50257 | 4.447 | 0% | 3,078,001 | 2277 | 2.493 | **2.001** |
+| truncGPT2-4096 | 4.447 | 20.3% | 3,078,001 | 2277 | 1.817 *(2.493)* | 1.462 *(2.138)* |
+| truncGPT2-8192 | 4.447 | 13.2% | 3,078,001 | 2277 | 2.051 *(2.493)* | 1.645 *(2.086)* |
+| newBPE-2048 | 2.899 | **0%** | 4,721,412 | 1484 | 3.275 | 2.309 |
+| newBPE-4096 | 3.334 | **0%** | 4,105,378 | 1707 | 3.019 | 2.172 |
+| **newBPE-8192** | **3.755** | **0%** | 3,645,823 | 1922 | 2.805 | **2.082** |
+
+Numbers in *(parentheses)* are the **honest** cost. A truncated vocabulary is a
+**lossy code**: UNK is unrecoverable, so its raw bits/byte is not a code length
+for the text and its apparent advantage is entirely fake. The honest figure adds
+`unk_repair_bits_per_byte` — the cost of naming which discarded GPT-2 id each
+UNK was, under the train-split unigram restricted to the discarded set (0.676
+bits/byte at V=4096, 0.442 at V=8192). **Known-answer control:** by the chain
+rule the two-part unigram code must reproduce the full-vocabulary unigram code
+exactly, and it does — both truncated rows land on 2.4926 bits/byte, GPT-2's
+value, to 1e-5.
+
+Fitted on the *full* train split instead of the 40k sample (the numbers the
+program actually quotes, `tf_baselines_*.json`), the bigram ordering is:
+
+| corpus | bigram bits/byte |
+|---|---|
+| **BPE-8192** | **2.030** |
+| truncGPT2-8192 (honest) | 2.050 |
+| truncGPT2-4096 (honest) | 2.115 |
+| BPE-4096 | 2.137 |
+
+So at V=8192 the trained BPE wins outright *and* is lossless. At V=4096 the
+truncated code's honest number is marginally lower, but only because the repair
+term is priced with an oracle unigram over the discarded set that no trained
+model has — the truncated model still cannot emit those tokens at all.
+
+**Decision: V=8192 trained byte-level BPE is the primary corpus**
+(`tf_corpus_b8192/`), with **V=4096 BPE** as the companion vocabulary-size point
+(`tf_corpus_b4096/`), and the **truncated GPT-2 V=8192** corpus retained as a
+labelled *tokenizer-distortion comparison arm* (`tf_corpus_v8192/`), never as a
+default. The tokenizer is in the checkpoint stem (`_b8192_` vs `_v8192_`) so the
+two arms can never be silently mixed. V=2048 was measured as a low-end probe and
+is not built as a corpus: at 2.899 bytes/token a 512-token sequence sees only
+1484 bytes, which starts to change what the task *is*.
+
+### Why the constraint is NOT table size
+
+A structural finding from the
 same build says table size does not stop us. The layer-0 attention table is
 **exactly rank <= head_dim (16) per branch**: the score for (query token i,
 key token j) is `(q1(e_i)·k1(e_j))·(q2(e_i)·k2(e_j))`, so each branch factor
@@ -163,13 +255,13 @@ these widths the embedding dwarfs the body:
 
 A model that is 94% embedding is not a model whose *computation* we are
 interpreting — it is a lookup table with a small transformer attached, and
-the interesting structure would be swamped.
-
-**Decision: V=8192 is the primary vocabulary** (13% UNK, embedding share
-57-73% at the widths that matter), with V=4096 retained only as an
-already-run companion and V=16384 as a check at width 256 where the balance
-is best. Every result reports its UNK rate; no cross-vocabulary CE
-comparison is made without one. The corpus builder already emits both.
+the interesting structure would be swamped. The parameter-balance argument is **unchanged by the tokenizer
+switch** — it depends only on V, not on how the V types were chosen — and it is
+what fixes V=8192 as primary (embedding share 57–73% at the widths that matter)
+with V=4096 as the companion and V=16384 as a check at width 256, where the
+balance is best. What the switch changes is that those V types are now *earned*
+merges over this text rather than the head of GPT-2's frequency list, so the
+V=8192 model can represent every input instead of 87% of one.
 
 This also reframes rung 2 of the ladder: the deliverable is the **factor
 matrices with their spectra**, and V x V grids are rendered on demand for

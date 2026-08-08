@@ -25,7 +25,7 @@ Artifacts written per checkpoint (stem = the cell stem):
 and a 'fold' block merged into {stem}.json.
 
 Usage
-    python tf_fold.py --stem tf_vanilla_d1_w32_v4096_s0 [--materialize]
+    python tf_fold.py --stem tf_vanilla_d1_w32_b8192_s0 [--materialize]
                       [--deltas 0,1,2] [--topk 20]
 """
 import argparse
@@ -46,6 +46,9 @@ def load_checkpoint(stem, device=DEV):
     ck = torch.load(f'{HERE}/{stem}.pt', map_location=device, weights_only=False)
     cfg = M.TFConfig(**{k: v for k, v in ck['cfg'].items()
                         if k in M.TFConfig.__dataclass_fields__})
+    # checkpoints written before the tokenizer split have no 'tok'
+    if 'tok' not in ck['cfg']:
+        cfg.tok = 'trunc'
     model = M.make_model(cfg, device)
     model.load_state_dict(ck['state_dict'])
     model.eval().float()
@@ -97,14 +100,16 @@ def fold_report(stem, deltas=(0, 1, 2), materialize=False, topk=20,
                 gate_batch=4, device=DEV, direct_svd=False):
     model, cfg, ck = load_checkpoint(stem, device)
     V, H, hd = cfg.vocab, cfg.n_heads, cfg.head_dim
-    vocab = tf_corpus.load_vocab(cfg.vocab)
+    vocab = tf_corpus.load_vocab(cfg.vocab, cfg.tok)
     rep = {'stem': stem, 'variant': cfg.variant, 'depth': cfg.depth,
            'width': cfg.width, 'stream_width': cfg.stream_width,
-           'n_heads': H, 'head_dim': hd, 'vocab': V, 'deltas': list(deltas)}
+           'n_heads': H, 'head_dim': hd, 'vocab': V, 'tokenizer': cfg.tok,
+           'deltas': list(deltas)}
 
     # ---------------- HARD GATES ----------------
     held = torch.from_numpy(
-        tf_corpus.load_split(cfg.vocab, 'held', gate_batch)).to(device)
+        tf_corpus.load_split(cfg.vocab, 'held', gate_batch,
+                             tok=cfg.tok)).to(device)
     gate = M.check_fold_identities(model, held[:, :min(cfg.T, 128)],
                                    verbose=True)
     rep['identity_gate'] = gate

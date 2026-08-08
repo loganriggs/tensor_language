@@ -38,13 +38,15 @@ basis_aligned/qk_mdl/ecg_readspace_*.npy
 data_fineweb*.npy
 data_*.npy
 
-# tiny_full_interp: regenerable corpus shards (rebuild with tf_corpus.py; the
-# per-shard sha256 in MANIFEST.json is the byte-identity gate) and run outputs
-basis_aligned/tiny_full_interp/tf_corpus_v*/
+# tiny_full_interp: regenerable corpus shards (rebuild with tf_tokenizer.py for
+# tf_corpus_b*, tf_corpus.py for tf_corpus_v*; the per-shard sha256 in
+# MANIFEST.json is the byte-identity gate, so the MANIFESTS ARE COMMITTED and
+# only the shards are ignored) and run outputs
 basis_aligned/tiny_full_interp/*.pt
 basis_aligned/tiny_full_interp/*_fold.npz
 basis_aligned/tiny_full_interp/*_tables_*.npy
 basis_aligned/tiny_full_interp/*_heldloss.npy
 basis_aligned/tiny_full_interp/*.out
 basis_aligned/tiny_full_interp/*.log
-basis_aligned/tiny_full_interp/tf_chain.stdout
+basis_aligned/tiny_full_interp/*.stdout
+basis_aligned/tiny_full_interp/tf_corpus_*/*.npy

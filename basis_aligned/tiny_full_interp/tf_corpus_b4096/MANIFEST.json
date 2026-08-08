@@ -1,0 +1,164 @@
+{
+  "vocab_size": 4096,
+  "unk_id": -1,
+  "eos_id": 0,
+  "seq_len": 513,
+  "tokenizer": "tf_bpe_4096.json (byte-level BPE trained on the train split text, rows 0:240000)",
+  "tokenizer_sha256": "62aa766122bbfa41ccd379fd1c8c8df2e1c262c0457c979eeb75a41fe5be4605",
+  "source": "text decoded from basis_aligned/qk_mdl/corpus_fresh/shard00..06.npy (FineWeb sample-10BT, docs 45367..267574); GPT-2 decode is a lossless bijection, round-trip controlled",
+  "shard_seqs": 45000,
+  "splits": {
+    "train": [
+      0,
+      240000
+    ],
+    "held": [
+      240000,
+      246000
+    ],
+    "est": [
+      246000,
+      276000
+    ],
+    "spare": [
+      276000,
+      300000
+    ]
+  },
+  "split_semantics": "source ROW ranges define disjoint TEXT regions; each region is re-tokenized independently and truncated to its target row count",
+  "target_rows": {
+    "train": 240000,
+    "held": 6000,
+    "est": 30000,
+    "spare": 24000
+  },
+  "vocab_selected_on": "train split text only (rows 0:240000)",
+  "single_epoch": {
+    "steps": 15000,
+    "batch": 16,
+    "seqs": 240000,
+    "predicted_tokens": 122880000
+  },
+  "splits_stats": {
+    "train": {
+      "n_seqs": 240000,
+      "n_tokens": 123120000,
+      "unk_rate_per_token": 0.0,
+      "unk_rate_per_seq_mean": 0.0,
+      "unk_rate_per_seq_p50": 0.0,
+      "unk_rate_per_seq_p95": 0.0,
+      "unk_rate_per_seq_max": 0.0,
+      "frac_seqs_with_any_unk": 0.0,
+      "region_bytes": 548403387,
+      "region_tokens": 163790416,
+      "region_rows_available": 319279,
+      "region_bytes_per_token": 3.3482,
+      "frac_of_region_text_used": 0.7517,
+      "eos_rate_per_token": 0.001083
+    },
+    "held": {
+      "n_seqs": 6000,
+      "n_tokens": 3078000,
+      "unk_rate_per_token": 0.0,
+      "unk_rate_per_seq_mean": 0.0,
+      "unk_rate_per_seq_p50": 0.0,
+      "unk_rate_per_seq_p95": 0.0,
+      "unk_rate_per_seq_max": 0.0,
+      "frac_seqs_with_any_unk": 0.0,
+      "region_bytes": 13688500,
+      "region_tokens": 4105378,
+      "region_rows_available": 8002,
+      "region_bytes_per_token": 3.3343,
+      "frac_of_region_text_used": 0.7497,
+      "eos_rate_per_token": 0.001108
+    },
+    "est": {
+      "n_seqs": 30000,
+      "n_tokens": 15390000,
+      "unk_rate_per_token": 0.0,
+      "unk_rate_per_seq_mean": 0.0,
+      "unk_rate_per_seq_p50": 0.0,
+      "unk_rate_per_seq_p95": 0.0,
+      "unk_rate_per_seq_max": 0.0,
+      "frac_seqs_with_any_unk": 0.0,
+      "region_bytes": 68628223,
+      "region_tokens": 20457673,
+      "region_rows_available": 39878,
+      "region_bytes_per_token": 3.3546,
+      "frac_of_region_text_used": 0.7523,
+      "eos_rate_per_token": 0.001111
+    },
+    "spare": {
+      "n_seqs": 24000,
+      "n_tokens": 12312000,
+      "unk_rate_per_token": 0.0,
+      "unk_rate_per_seq_mean": 0.0,
+      "unk_rate_per_seq_p50": 0.0,
+      "unk_rate_per_seq_p95": 0.0,
+      "unk_rate_per_seq_max": 0.0,
+      "frac_seqs_with_any_unk": 0.0,
+      "region_bytes": 54882820,
+      "region_tokens": 16377678,
+      "region_rows_available": 31925,
+      "region_bytes_per_token": 3.3511,
+      "frac_of_region_text_used": 0.7518,
+      "eos_rate_per_token": 0.001075
+    }
+  },
+  "files": {
+    "train": [
+      {
+        "file": "train00.npy",
+        "rows": 45000,
+        "sha256": "9273cabdfd12e9dd3dc23db611de6814a99d1581e5af287bb29a58b700e6208b"
+      },
+      {
+        "file": "train01.npy",
+        "rows": 45000,
+        "sha256": "45b151f768198059c916c4dfb3561d622a5e0720339dd970325b896ac6c5332b"
+      },
+      {
+        "file": "train02.npy",
+        "rows": 45000,
+        "sha256": "3caf8f0e2d3b471c2d506ed9dfb58587d673b40a8fef944fa8c549a891687712"
+      },
+      {
+        "file": "train03.npy",
+        "rows": 45000,
+        "sha256": "97c5dcdc7ca5ff664352719b246feb67dbdd09b07e593d9183a8cfe829706942"
+      },
+      {
+        "file": "train04.npy",
+        "rows": 45000,
+        "sha256": "ee9c4bb6e631f81b19af7fe3d94b6fdaf77e764d18412d0f8763be69a0236e15"
+      },
+      {
+        "file": "train05.npy",
+        "rows": 15000,
+        "sha256": "6e7dfa9bbb96bb038412b3b505e2f61cc8958322c2790bbed2e4546ab1b47fdf"
+      }
+    ],
+    "held": [
+      {
+        "file": "held00.npy",
+        "rows": 6000,
+        "sha256": "766883bab665ac99e5d6184155ee625e1852a203d002ece4fc0a71fd6db1e596"
+      }
+    ],
+    "est": [
+      {
+        "file": "est00.npy",
+        "rows": 30000,
+        "sha256": "03ca21e7d49fd7e89dfb39e477a613288a8317ea923bebe34f0f56ba46223f67"
+      }
+    ],
+    "spare": [
+      {
+        "file": "spare00.npy",
+        "rows": 24000,
+        "sha256": "e12d11b6b50e3300d308d8b94d1c86c65763994de5808e9228cd2a414236bf60"
+      }
+    ]
+  },
+  "vocab_file": "tf_vocab_b4096.json"
+}

@@ -1,21 +1,49 @@
 # Training grid — claim a cell by editing this file and pushing BEFORE starting
 
 Status: `unclaimed` / `local:running` / `scale:running` / `done` (+ CE)
-Head dim fixed at 16, so heads = width/16. Vocab 4096 primary.
-Fresh single-epoch protocol; 3 seeds per cell.
+Head dim fixed at 16, so heads = width/16.
+**Primary corpus = trained byte-level BPE at V=8192** (`tf_corpus_b8192/`,
+stems `..._b8192_...`, zero UNK). The truncated-GPT-2 corpus is now a labelled
+comparison arm, stems `..._v8192_...`. Fresh single-epoch protocol; 3 seeds/cell.
+**Cross-tokenizer and cross-vocabulary numbers are quoted in BITS PER BYTE
+only** (README.md protocol); nats/token are within-tokenizer.
 
-## Primary grid (depths 1-2)
+## Primary grid (depths 1-2) — tok=bpe, V=8192
 
 | depth | width | heads | owner | status |
 |---|---|---|---|---|
-| 1 | 32 | 2 | local | local:claimed (pass 1, vanilla, seed 0 only) |
-| 1 | 64 | 4 | local | local:claimed (pass 1, vanilla, seed 0 only) |
-| 1 | 128 | 8 | local | local:claimed (pass 1, vanilla, seed 0 only) |
-| 1 | 256 | 16 | scale | scale:running (V=8192, seeds 0-2) |
+| 1 | 32 | 2 | local | local:running (tf_chain2 stage 5, vanilla, seed 0) |
+| 1 | 64 | 4 | local | local:running (tf_chain2 stage 5, vanilla, seed 0) |
+| 1 | 128 | 8 | local | local:running (tf_chain2 stage 5, vanilla, seed 0) |
+| 1 | 256 | 16 | scale | **RETOKENIZE** — scale's in-flight runs are tok=trunc; rerun as bpe (MAILBOX 2026-08-08) |
 | 2 | 32 | 2 | local | unclaimed |
 | 2 | 64 | 4 | local | unclaimed |
 | 2 | 128 | 8 | local | unclaimed |
-| 2 | 256 | 16 | scale | scale:running (V=8192, seeds 0-2) |
+| 2 | 256 | 16 | scale | **RETOKENIZE** — scale's in-flight runs are tok=trunc; rerun as bpe (MAILBOX 2026-08-08) |
+
+## Tokenizer-distortion arm (added 2026-08-08) — KEPT, not discarded
+
+Same architecture, same V, same underlying text, DIFFERENT tokenizer: trained
+byte-level BPE (0% UNK) vs the original top-K GPT-2 truncation (13.2% UNK at
+V=8192). Local's cells were re-pointed from the originally queued V=4096 to
+**V=8192 so the only difference from the primary is the tokenizer, not the
+vocabulary size**; the scale box's already-running width-256 cells are truncated
+V=8192 and therefore land in this arm exactly as-is, which is why they are kept.
+
+The question this answers is not "which trains better" but **how much of the
+interpretability picture is an artifact of the tokenizer**: do the UNK-dominated
+tables have different top token pairs, a different behavioural inventory, a
+different rung-5 remainder? A 13.2%-UNK corpus puts one symbol in ~1 of every 8
+positions; if that does not change the fold, that is a real robustness result,
+and if it does, every truncated-vocabulary interpretability paper is on notice.
+
+| depth | width | tok | owner | status |
+|---|---|---|---|---|
+| 1 | 32 | trunc V=8192 | local | local:running (tf_chain2 stage 6) |
+| 1 | 64 | trunc V=8192 | local | local:running (tf_chain2 stage 6) |
+| 1 | 128 | trunc V=8192 | local | local:running (tf_chain2 stage 6) |
+| 1 | 256 | trunc V=8192 | scale | scale:running (KEEP — relabelled into this arm) |
+| 2 | 256 | trunc V=8192 | scale | scale:running (KEEP — relabelled into this arm) |
 
 ## Architecture-variant slice (Logan 2026-08-08) — the comparison that motivates the program
 
@@ -75,8 +103,8 @@ reconstruction remainders directly.
 
 | kind | widths | owner | status |
 |---|---|---|---|
-| bigram table (closed form, no training) | n/a | local | local:claimed |
-| unigram floor | n/a | local | local:claimed |
+| bigram table (closed form, no training) | n/a | local | **done** b8192 2.030 bits/byte, b4096 2.137, v8192 2.050 honest, v4096 2.115 honest |
+| unigram floor | n/a | local | **done** b8192 2.806 bits/byte, b4096 3.020, v8192/v4096 2.493 honest |
 | same-size softmax+GELU transformer | 32-256 | local | unclaimed |
 
 The softmax/GELU baseline answers the first question a reviewer will ask:
@@ -88,19 +116,25 @@ bought with capability and that must be reported alongside every result.
 
 | vocab | owner | status |
 |---|---|---|
-| 16384 at width 256 depth 2 | scale | unclaimed |
-| 4096 vs 8192 same cell (distortion check) | local | unclaimed |
+| bpe 16384 at width 256 depth 2 | scale | unclaimed (corpus not built; one `tf_tokenizer.py` call) |
+| bpe 4096 vs bpe 8192 same cell (vocab-size check) | local | unclaimed |
+| bpe 2048 low-end probe | local | measured as a tokenizer only (2.899 bytes/token — a 512-token sequence would see 1484 bytes, which changes the task); no corpus built |
 
-Answers whether conclusions are vocab-size artifacts.
-The V=8192 corpus is ALREADY BUILT (`tf_corpus_v8192/`, same splits) so this
-cell costs only its training run.
+Answers whether conclusions are vocabulary-size artifacts, SEPARATELY from the
+tokenizer-distortion arm above (which holds V fixed).  Both BPE corpora
+(`tf_corpus_b8192/`, `tf_corpus_b4096/`) are ALREADY BUILT, so these cells cost
+only their training runs.  Every comparison here crosses vocabularies, so it is
+quoted in bits/byte.
 
-## Corpus (built 2026-08-08, local) — read before quoting any CE
+## Corpus (rebuilt 2026-08-08 with a trained BPE) — read before quoting any CE
 
-Deterministic remap of the parent program's committed GPT-2 shards
-(`../qk_mdl/corpus_fresh/shard00..06.npy`), so both boxes get byte-identical
-data by running `tf_corpus.py` — no shards are committed, the per-shard sha256
-in `tf_corpus_v{V}/MANIFEST.json` is the identity gate.
+Both boxes regenerate byte-identical data with
+`python tf_tokenizer.py corpus 8192 4096`; no shards are committed. The identity
+gates are the per-shard sha256 in `tf_corpus_b{V}/MANIFEST.json` plus
+`tokenizer_sha256` for the committed `tf_bpe_{V}.json`. The text is recovered by
+decoding the parent program's GPT-2 shards
+(`../qk_mdl/corpus_fresh/shard00..06.npy`), which is exact — control C1 shows
+ids → text → ids is bit-identical.
 
 | split | rows | purpose |
 |---|---|---|
@@ -109,11 +143,20 @@ in `tf_corpus_v{V}/MANIFEST.json` is the identity gate.
 | est | 30,000 | table fitting / smoothing-parameter tuning |
 | spare | 24,000 | lr sweeps only, so no model touches train before its epoch |
 
-**UNK rate is high and must be quoted with every CE**: at V=4096 the kept 4,095
-ids cover 79.96% of train tokens, so **20.0% of tokens are UNK** (held 20.3%,
-p95 per sequence 30.0%). At V=8192 coverage is 87.05%, **13.0% UNK**. UNK is by
-far the most frequent symbol, so absolute CE numbers are not comparable to any
-full-vocabulary result — only within this program.
+Same row counts and the same disjoint source-row (hence text) regions as the
+truncated build. The BPE stream is ~18% longer than GPT-2's on the same text, so
+every region yields MORE than its target rows (train: 283,648 available at
+V=8192, 319,279 at V=4096) and we take the target-row prefix — the single-epoch
+arithmetic is untouched and every split now carries slack.
+
+**UNK is 0.000 by construction** (256-byte initial alphabet). What must be
+quoted with every CE instead is the tokenizer and its bytes/token: V=8192 BPE is
+3.755 bytes/token, so a 512-token sequence sees 1,922 bytes of text, against
+2,277 bytes for the truncated arm — whose extra reach is illusory because 13.2%
+of its tokens are unreadable. **No CE is compared across tokenizers except in
+bits/byte**; `tf_baselines_*.json` carries both units, and the truncated arm
+additionally carries `unk_repair_bits_per_byte` (0.442 at V=8192) without which
+its bits/byte is not a code length for the text at all.
 
 ## Architecture variants (code ready, runs not queued by local)
 

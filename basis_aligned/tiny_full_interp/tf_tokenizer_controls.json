@@ -1,0 +1,69 @@
+{
+  "C1_gpt2_decode_roundtrip_exact": true,
+  "C2_bpe_roundtrip_exact": {
+    "2048": {
+      "pass": true,
+      "n_docs": 4000,
+      "first_mismatches": []
+    },
+    "4096": {
+      "pass": true,
+      "n_docs": 4000,
+      "first_mismatches": []
+    },
+    "8192": {
+      "pass": true,
+      "n_docs": 4000,
+      "first_mismatches": []
+    }
+  },
+  "C3_zero_unk": {
+    "2048": {
+      "pass": true,
+      "all_256_byte_symbols_in_vocab": true,
+      "unk_token": null,
+      "unk_rate": 0.0
+    },
+    "4096": {
+      "pass": true,
+      "all_256_byte_symbols_in_vocab": true,
+      "unk_token": null,
+      "unk_rate": 0.0
+    },
+    "8192": {
+      "pass": true,
+      "all_256_byte_symbols_in_vocab": true,
+      "unk_token": null,
+      "unk_rate": 0.0
+    }
+  },
+  "C4_merge_list_deterministic": {
+    "pass": true,
+    "sha256": "742f8aaf8bfffcbb91ff0f49fb2cf677a746568a008270b6438d7b88d360ba5d"
+  },
+  "C5_bytes_per_token_monotone": {
+    "pass": true,
+    "bytes_per_token": {
+      "gpt2-50257": 4.4472,
+      "truncGPT2-4096": 4.4472,
+      "truncGPT2-8192": 4.4472,
+      "newBPE-2048": 2.8992,
+      "newBPE-4096": 3.3343,
+      "newBPE-8192": 3.7546
+    }
+  },
+  "C6_bigram_beats_unigram": {
+    "4096": {
+      "pass": true,
+      "unigram": 6.98014,
+      "bigram": 4.93922
+    },
+    "8192": {
+      "pass": true,
+      "unigram": 7.30343,
+      "bigram": 5.2842
+    }
+  },
+  "seconds": 6.2,
+  "ALL_PASS": true
+}

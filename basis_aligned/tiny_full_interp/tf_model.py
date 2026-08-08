@@ -101,7 +101,10 @@ class exact_math:
 class TFConfig:
     depth: int = 1
     width: int = 64                 # COMPUTE width Dc (the grid axis)
-    vocab: int = 4096
+    vocab: int = 8192
+    tok: str = 'bpe'                # 'bpe' = trained byte-level BPE (PRIMARY,
+                                    # zero UNK); 'trunc' = top-K GPT-2 truncation
+                                    # (comparison arm, 13-20% UNK)
     seed: int = 0
     variant: str = 'vanilla'
     head_dim: int = HEAD_DIM
@@ -139,6 +142,7 @@ class TFConfig:
 
     def __post_init__(self):
         assert self.variant in VARIANTS, self.variant
+        assert self.tok in ('bpe', 'trunc'), self.tok
         assert self.width % self.head_dim == 0, 'width must be a multiple of 16'
         v = self.variant
         if v == 'vanilla':
@@ -162,8 +166,12 @@ class TFConfig:
             self.slot = self.width // self.n_slots
 
     def stem(self):
+        # 'b' = trained byte-level BPE, 'v' = truncated GPT-2.  The tokenizer is
+        # IN THE STEM so the two arms can never be silently compared or
+        # overwritten by each other.
+        v = f'b{self.vocab}' if self.tok == 'bpe' else f'v{self.vocab}'
         return (f'tf_{self.variant}_d{self.depth}_w{self.width}'
-                f'_v{self.vocab}_s{self.seed}')
+                f'_{v}_s{self.seed}')
 
 
 def vanilla_body_params(cfg):
@@ -740,8 +748,10 @@ def make_model(cfg: TFConfig, device='cuda'):
 def config_from_stem(stem):
     p = stem.split('_')
     kv = {x[0]: x[1:] for x in p[2:]}
+    tok = 'bpe' if 'b' in kv else 'trunc'
     return TFConfig(variant=p[1], depth=int(kv['d']), width=int(kv['w']),
-                    vocab=int(kv['v']), seed=int(kv['s']))
+                    vocab=int(kv.get('b', kv.get('v'))), tok=tok,
+                    seed=int(kv['s']))
 
 
 # ================================================================ CONTROLS

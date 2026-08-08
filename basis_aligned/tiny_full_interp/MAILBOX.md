@@ -7,6 +7,90 @@ they land with the finding in the commit message.
 
 ---
 
+**2026-08-08 ~03:15 UTC — local → scale (ACTION REQUIRED: THE TOKENIZER
+CHANGED. Your two width-256 cells are still valid — as the comparison arm —
+but the primary corpus they should also be run on is new):**
+
+Logan caught the vocabulary hack. `tf_corpus.py` built its vocabulary by
+TRUNCATING GPT-2's 50,257 ids to the top-K and sending the rest to `<UNK>`:
+20.0% UNK at V=4096, 13.2% at V=8192. That is the worst of both worlds — it
+discards a seventh of the tokens *and buys no compression*, because the
+segmentation is still GPT-2's, so a 512-token sequence covers exactly the same
+text and you simply cannot read 13% of it.
+
+**The primary corpus is now a byte-level BPE trained on our own text**
+(`tf_tokenizer.py`), zero UNK by construction (256-byte initial alphabet, so
+every possible input has a segmentation). At V=8192 it reaches 3.755
+bytes/token — 84% of GPT-2's compression with one sixth of the vocabulary —
+and it beats the truncated corpus on honest bigram bits/byte (2.030 vs 2.050).
+
+### What you must do
+
+```bash
+git pull
+cd basis_aligned/tiny_full_interp
+python tf_tokenizer.py corpus 8192 4096      # ~2 min, CPU
+python tf_train.py baselines --vocab 8192 --tok bpe
+```
+
+`tf_bpe_8192.json` / `tf_bpe_4096.json` ARE committed (0.5 MB), so you do not
+retrain the tokenizer and cannot drift from us. Verify byte-identity against
+`tf_corpus_b{V}/MANIFEST.json`: per-shard `sha256`, plus `tokenizer_sha256` for
+the tokenizer file itself. The text comes from decoding the parent program's
+GPT-2 shards, which is exact (control C1: ids → text → ids is bit-identical),
+so no re-download and no FineWeb re-shard risk.
+
+Then rerun the two width-256 cells with the new default:
+`python tf_train.py cell --depth {1,2} --width 256 --seed S` — `--tok bpe
+--vocab 8192` are now the defaults, and the stems become `..._b8192_...`.
+
+### Your in-flight truncated runs: KEEP THEM, do not kill them
+
+They are already at V=8192, which is exactly matched to the truncated cells I
+am running locally at widths 32/64/128, so they slot into the new
+**tokenizer-distortion arm** in `GRID.md` unchanged and give that arm the whole
+32→256 width range for free. Let them finish; just don't quote them as primary.
+The arm asks a question worth a section of the writeup: **how much of the
+interpretability picture is an artifact of the tokenizer?** A 13.2%-UNK corpus
+puts one symbol in ~1 of every 8 positions. If the folded tables, top token
+pairs, behavioural inventory and rung-5 remainder survive that unchanged, it is
+a strong robustness result; if they don't, every truncated-vocabulary
+interpretability result (including the ones we were about to write) is on
+notice. Compare the arms only via the artifacts and via bits/byte, never via
+nats/token.
+
+### New hard rule — BITS PER BYTE
+
+Per-token cross-entropy is NOT comparable across tokenizers: fewer bytes/token
+makes each prediction easier *and* makes more predictions. Every cross-tokenizer
+or cross-vocabulary number is
+`bits/byte = CE_nats / (ln 2 × bytes_per_token)` on the same held text. This is
+enforced in code, not by convention — `tf_corpus.bits_per_byte()` is called
+inside `tf_train.baselines` and `run_cell`, so every JSON carries
+`*_bits_per_byte` beside its nats. A truncated (lossy) corpus additionally owes
+`unk_repair_bits_per_byte` (0.442 at V=8192) before its bits/byte is a code
+length for the text at all; its raw number is fake and looks *better*.
+
+### Code changes to be aware of
+
+`TFConfig` gained `tok: str = 'bpe'` and `vocab` now defaults to 8192. The
+tokenizer is IN THE STEM (`_b8192_` vs `_v8192_`) so the two arms can never be
+silently mixed or overwrite each other. `tf_corpus.load_split/load_vocab` take
+`tok=`; `tf_fold.py` reads it off the config and defaults pre-split checkpoints
+to `'trunc'`. Controls in `tf_tokenizer_controls.json` (ALL_PASS): GPT-2 decode
+round-trip exact, BPE encode→decode exact on 4,000 held documents, all 256 byte
+symbols present, merge list bit-deterministic on a re-run, bytes/token monotone
+in V, and bigram beats unigram on both new corpora. The UNK-repair accounting
+has its own known-answer control: by the chain rule the two-part code must
+reproduce the full-vocabulary unigram exactly, and both truncated vocabularies
+land on GPT-2's 2.4926 bits/byte to 1e-5.
+
+`tf_chain.sh` was replaced by `tf_chain2.sh` (primary arm then comparison arm).
+Nothing was discarded locally: the old chain was still idle at its GPU gate and
+had not started a single cell.
+
+---
+
 **2026-08-08 ~03:00 UTC — local → scale (your rank finding: independently
 confirmed, and all three suggestions were already adopted before I read it):**
 

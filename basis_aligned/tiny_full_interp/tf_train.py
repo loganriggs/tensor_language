@@ -152,15 +152,16 @@ def muon_params_split(model):
 
 # ---------------------------------------------------------------- data
 class Corpus:
-    def __init__(self, vocab):
-        self.V = vocab
-        self.man = json.load(open(f'{HERE}/tf_corpus_v{vocab}/MANIFEST.json'))
+    def __init__(self, vocab, tok='bpe'):
+        self.V, self.tok = vocab, tok
+        self.man = json.load(
+            open(f'{tf_corpus.corpus_root(vocab, tok)}/MANIFEST.json'))
         need = STEPS * BATCH
         self.train = torch.from_numpy(
-            tf_corpus.load_split(vocab, 'train', None if SMOKE else need)
-        ).to(DEV)
+            tf_corpus.load_split(vocab, 'train', None if SMOKE else need,
+                                 tok=tok)).to(DEV)
         self.held = torch.from_numpy(
-            tf_corpus.load_split(vocab, 'held', HELD_EVAL_N)).to(DEV)
+            tf_corpus.load_split(vocab, 'held', HELD_EVAL_N, tok=tok)).to(DEV)
         self.ntr = len(self.train)
 
     def order(self, epoch=0):
@@ -169,11 +170,22 @@ class Corpus:
 
     def unk_rates(self):
         s = self.man['splits_stats']
+        unk_id = self.man.get('unk_id', 0)
         held_t = self.held[:, 1:T + 1]
-        return {'train_per_token': s['train']['unk_rate_per_token'],
-                'held_per_token': s['held']['unk_rate_per_token'],
-                'held_per_seq_mean': s['held']['unk_rate_per_seq_mean'],
-                'held_eval_target_unk_frac': float((held_t == 0).float().mean())}
+        out = {'tokenizer': self.tok,
+               'train_per_token': s['train']['unk_rate_per_token'],
+               'held_per_token': s['held']['unk_rate_per_token'],
+               'held_per_seq_mean': s['held']['unk_rate_per_seq_mean']}
+        # tok='bpe' has no UNK symbol at all (unk_id -1); id 0 there is EOS, so
+        # counting id-0 targets would silently report the EOS rate as an UNK rate.
+        out['held_eval_target_unk_frac'] = (
+            0.0 if unk_id is None or unk_id < 0
+            else float((held_t == unk_id).float().mean()))
+        if unk_id is not None and unk_id < 0:
+            out['note'] = ('byte-level BPE: UNK impossible by construction; '
+                           'id 0 is <|endoftext|>')
+            out['held_eos_frac'] = float((held_t == 0).float().mean())
+        return out
 
 
 @torch.no_grad()
@@ -196,18 +208,19 @@ def eval_held(model, corpus, n_seq=None, per_token=False, batch=8):
 
 
 # ---------------------------------------------------------------- baselines
-def baselines(vocab=4096, force=False):
+def baselines(vocab=8192, tok='bpe', force=False):
     """Closed-form unigram floor and bigram table.  No training, no optimizer,
     so they are matched by construction.  CONTROL: bigram must beat unigram."""
-    jp = f'{HERE}/tf_baselines_v{vocab}.json'
+    tag = f'b{vocab}' if tok == 'bpe' else f'v{vocab}'
+    jp = f'{HERE}/tf_baselines_{tag}.json'
     if os.path.exists(jp) and not force:
         print('baselines already computed -- skip', flush=True)
         return json.load(open(jp))
     V = vocab
     t0 = time.time()
-    tr = tf_corpus.load_split(V, 'train', 20000 if SMOKE else None)
-    est = tf_corpus.load_split(V, 'est', 2000 if SMOKE else None)
-    hl = tf_corpus.load_split(V, 'held', 1000 if SMOKE else None)
+    tr = tf_corpus.load_split(V, 'train', 20000 if SMOKE else None, tok=tok)
+    est = tf_corpus.load_split(V, 'est', 2000 if SMOKE else None, tok=tok)
+    hl = tf_corpus.load_split(V, 'held', 1000 if SMOKE else None, tok=tok)
     print(f'baselines: train {tr.shape} est {est.shape} held {hl.shape}',
           flush=True)
 
@@ -250,7 +263,11 @@ def baselines(vocab=4096, force=False):
               flush=True)
     ce_bi_held = bigram_ce(hl, best_alpha)
 
-    res = {'vocab': V,
+    res = {'vocab': V, 'tokenizer': tok,
+           'bits_per_byte_rule': 'these are nats PER TOKEN and are comparable '
+                                 'only within this tokenizer; see '
+                                 'tf_tokenizer_compare.json for the '
+                                 'cross-tokenizer bits/byte table',
            'unigram_floor_held_ce': round(ce_uni_held, 5),
            'unigram_floor_est_ce': round(ce_uni_est, 5),
            'bigram_held_ce': round(ce_bi_held, 5),
@@ -264,6 +281,19 @@ def baselines(vocab=4096, force=False):
                   'split; scored on held.  Both are closed form -- no optimizer,'
                   ' so they are matched baselines by construction.',
            'seconds': round(time.time() - t0, 1)}
+    # THE BITS/BYTE RULE, applied mechanically so no cross-tokenizer comparison
+    # can be made from this file without it (README.md).
+    res['bytes_per_token'] = round(tf_corpus.bytes_per_token(V, tok), 4)
+    res['unigram_floor_bits_per_byte'] = round(
+        tf_corpus.bits_per_byte(ce_uni_held, V, tok), 5)
+    res['bigram_bits_per_byte'] = round(
+        tf_corpus.bits_per_byte(ce_bi_held, V, tok), 5)
+    rep = tf_corpus.unk_repair_bpb(V, tok)
+    if rep:
+        res['unk_repair_bits_per_byte'] = rep
+        res['bigram_bits_per_byte_honest'] = round(
+            res['bigram_bits_per_byte'] + rep, 5)
+        res['lossy'] = True
     res['control_bigram_beats_unigram'] = bool(ce_bi_held < ce_uni_held)
     assert res['control_bigram_beats_unigram'], \
         f'CONTROL FAILED: bigram {ce_bi_held} did not beat unigram {ce_uni_held}'
@@ -368,11 +398,12 @@ def lr_sweep(cfg, corpus, jp):
         return out['lrsweep']['chosen']
     spare = torch.from_numpy(
         tf_corpus.load_split(cfg.vocab, 'spare',
-                             SWEEP_STEPS * BATCH * len(MUON_LRS))).to(DEV)
+                             SWEEP_STEPS * BATCH * len(MUON_LRS),
+                             tok=cfg.tok)).to(DEV)
 
     class SweepCorpus(Corpus):
         def __init__(s):
-            s.V, s.man = corpus.V, corpus.man
+            s.V, s.man, s.tok = corpus.V, corpus.man, corpus.tok
             s.train, s.held = spare, corpus.held[:100]
             s.ntr = len(spare)
 
@@ -403,9 +434,9 @@ def lr_sweep(cfg, corpus, jp):
     return chosen
 
 
-def run_cell(variant='vanilla', depth=1, width=32, seed=0, vocab=4096,
-             do_sweep=True):
-    cfg = M.TFConfig(depth=depth, width=width, vocab=vocab, seed=seed,
+def run_cell(variant='vanilla', depth=1, width=32, seed=0, vocab=8192,
+             tok='bpe', do_sweep=True):
+    cfg = M.TFConfig(depth=depth, width=width, vocab=vocab, tok=tok, seed=seed,
                      variant=variant, T=T)
     if cfg.small_dec and not cfg.slot:
         cfg.slot = M.solve_slot(cfg)[0]
@@ -416,7 +447,7 @@ def run_cell(variant='vanilla', depth=1, width=32, seed=0, vocab=4096,
             and os.path.exists(f'{HERE}/{stem}.pt'):
         print(f'{stem}: already trained -- skip', flush=True)
         return out
-    corpus = Corpus(vocab)
+    corpus = Corpus(vocab, tok)
     # registered predictions FIRST, before any training or analysis
     out.setdefault('registered_predictions', REGISTERED)
     out['config'] = dict(vars(cfg))
@@ -424,7 +455,7 @@ def run_cell(variant='vanilla', depth=1, width=32, seed=0, vocab=4096,
     out['config']['n_heads'] = cfg.n_heads
     out['config']['hidden'] = cfg.hidden
     out['corpus'] = {
-        'vocab': vocab, 'seq_len': T + 1, 'unk': corpus.unk_rates(),
+        'vocab': vocab, 'tokenizer': tok, 'seq_len': T + 1, 'unk': corpus.unk_rates(),
         'train_split_rows': corpus.ntr, 'data_order_id': f'epoch_order(0)'
                                                          f'@seed{DATA_SEED}',
         'single_epoch_arithmetic': f'{STEPS} steps x batch {BATCH} = '
@@ -438,7 +469,8 @@ def run_cell(variant='vanilla', depth=1, width=32, seed=0, vocab=4096,
     out['run'] = log
     json.dump(out, open(jp, 'w'), indent=2)
     # baseline gap, if the baselines exist
-    bp = f'{HERE}/tf_baselines_v{vocab}.json'
+    bp = f'{HERE}/tf_baselines_' + \
+         (f'b{vocab}' if tok == 'bpe' else f'v{vocab}') + '.json'
     if os.path.exists(bp) and not log['diverged']:
         b = json.load(open(bp))
         out['vs_baselines'] = {
@@ -447,7 +479,20 @@ def run_cell(variant='vanilla', depth=1, width=32, seed=0, vocab=4096,
             'model_minus_bigram': round(log['final_held_ce']
                                         - b['bigram_held_ce'], 5),
             'model_minus_unigram': round(log['final_held_ce']
-                                         - b['unigram_floor_held_ce'], 5)}
+                                         - b['unigram_floor_held_ce'], 5),
+            'model_bits_per_byte': round(
+                tf_corpus.bits_per_byte(log['final_held_ce'], vocab, tok), 5),
+            'bigram_bits_per_byte': b.get('bigram_bits_per_byte'),
+            'unigram_floor_bits_per_byte':
+                b.get('unigram_floor_bits_per_byte'),
+            'bits_per_byte_rule': 'the ONLY quantity comparable across '
+                                  'tokenizers; nats/token above are '
+                                  'within-tokenizer only'}
+        rep = tf_corpus.unk_repair_bpb(vocab, tok)
+        if rep:
+            out['vs_baselines']['unk_repair_bits_per_byte'] = rep
+            out['vs_baselines']['model_bits_per_byte_honest'] = round(
+                out['vs_baselines']['model_bits_per_byte'] + rep, 5)
         json.dump(out, open(jp, 'w'), indent=2)
     del model
     if DEV == 'cuda':
@@ -462,11 +507,14 @@ if __name__ == '__main__':
     ap.add_argument('--depth', type=int, default=1)
     ap.add_argument('--width', type=int, default=32)
     ap.add_argument('--seed', type=int, default=0)
-    ap.add_argument('--vocab', type=int, default=4096)
+    ap.add_argument('--vocab', type=int, default=8192)
+    ap.add_argument('--tok', default='bpe', choices=['bpe', 'trunc'],
+                    help="'bpe' = trained byte-level BPE (primary, zero UNK); "
+                         "'trunc' = top-K GPT-2 truncation (comparison arm)")
     ap.add_argument('--no-sweep', action='store_true')
     a = ap.parse_args()
     if a.cmd == 'baselines':
-        baselines(a.vocab)
+        baselines(a.vocab, a.tok)
     else:
-        run_cell(a.variant, a.depth, a.width, a.seed, a.vocab,
+        run_cell(a.variant, a.depth, a.width, a.seed, a.vocab, a.tok,
                  do_sweep=not a.no_sweep)

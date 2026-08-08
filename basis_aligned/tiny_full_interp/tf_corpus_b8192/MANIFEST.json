@@ -1,0 +1,164 @@
+{
+  "vocab_size": 8192,
+  "unk_id": -1,
+  "eos_id": 0,
+  "seq_len": 513,
+  "tokenizer": "tf_bpe_8192.json (byte-level BPE trained on the train split text, rows 0:240000)",
+  "tokenizer_sha256": "912f4c11dadb9f40d8755bbd58df8aeeee9c56394a9e6650b6867b8dac49f7e8",
+  "source": "text decoded from basis_aligned/qk_mdl/corpus_fresh/shard00..06.npy (FineWeb sample-10BT, docs 45367..267574); GPT-2 decode is a lossless bijection, round-trip controlled",
+  "shard_seqs": 45000,
+  "splits": {
+    "train": [
+      0,
+      240000
+    ],
+    "held": [
+      240000,
+      246000
+    ],
+    "est": [
+      246000,
+      276000
+    ],
+    "spare": [
+      276000,
+      300000
+    ]
+  },
+  "split_semantics": "source ROW ranges define disjoint TEXT regions; each region is re-tokenized independently and truncated to its target row count",
+  "target_rows": {
+    "train": 240000,
+    "held": 6000,
+    "est": 30000,
+    "spare": 24000
+  },
+  "vocab_selected_on": "train split text only (rows 0:240000)",
+  "single_epoch": {
+    "steps": 15000,
+    "batch": 16,
+    "seqs": 240000,
+    "predicted_tokens": 122880000
+  },
+  "splits_stats": {
+    "train": {
+      "n_seqs": 240000,
+      "n_tokens": 123120000,
+      "unk_rate_per_token": 0.0,
+      "unk_rate_per_seq_mean": 0.0,
+      "unk_rate_per_seq_p50": 0.0,
+      "unk_rate_per_seq_p95": 0.0,
+      "unk_rate_per_seq_max": 0.0,
+      "frac_seqs_with_any_unk": 0.0,
+      "region_bytes": 548403387,
+      "region_tokens": 145511551,
+      "region_rows_available": 283648,
+      "region_bytes_per_token": 3.7688,
+      "frac_of_region_text_used": 0.8461,
+      "eos_rate_per_token": 0.001219
+    },
+    "held": {
+      "n_seqs": 6000,
+      "n_tokens": 3078000,
+      "unk_rate_per_token": 0.0,
+      "unk_rate_per_seq_mean": 0.0,
+      "unk_rate_per_seq_p50": 0.0,
+      "unk_rate_per_seq_p95": 0.0,
+      "unk_rate_per_seq_max": 0.0,
+      "frac_seqs_with_any_unk": 0.0,
+      "region_bytes": 13688500,
+      "region_tokens": 3645823,
+      "region_rows_available": 7106,
+      "region_bytes_per_token": 3.7546,
+      "frac_of_region_text_used": 0.8443,
+      "eos_rate_per_token": 0.001251
+    },
+    "est": {
+      "n_seqs": 30000,
+      "n_tokens": 15390000,
+      "unk_rate_per_token": 0.0,
+      "unk_rate_per_seq_mean": 0.0,
+      "unk_rate_per_seq_p50": 0.0,
+      "unk_rate_per_seq_p95": 0.0,
+      "unk_rate_per_seq_max": 0.0,
+      "frac_seqs_with_any_unk": 0.0,
+      "region_bytes": 68628223,
+      "region_tokens": 18176979,
+      "region_rows_available": 35432,
+      "region_bytes_per_token": 3.7756,
+      "frac_of_region_text_used": 0.8467,
+      "eos_rate_per_token": 0.001244
+    },
+    "spare": {
+      "n_seqs": 24000,
+      "n_tokens": 12312000,
+      "unk_rate_per_token": 0.0,
+      "unk_rate_per_seq_mean": 0.0,
+      "unk_rate_per_seq_p50": 0.0,
+      "unk_rate_per_seq_p95": 0.0,
+      "unk_rate_per_seq_max": 0.0,
+      "frac_seqs_with_any_unk": 0.0,
+      "region_bytes": 54882820,
+      "region_tokens": 14548351,
+      "region_rows_available": 28359,
+      "region_bytes_per_token": 3.7724,
+      "frac_of_region_text_used": 0.8463,
+      "eos_rate_per_token": 0.001219
+    }
+  },
+  "files": {
+    "train": [
+      {
+        "file": "train00.npy",
+        "rows": 45000,
+        "sha256": "00886a41d899ddbd35afd9831ddc0b3852e4933ca230627e479f5359042c2dbb"
+      },
+      {
+        "file": "train01.npy",
+        "rows": 45000,
+        "sha256": "f456bd1a657c9a6e5918a34d9f5fe5d2e7b0c66a9686af99e3ebc05f7a62d7e0"
+      },
+      {
+        "file": "train02.npy",
+        "rows": 45000,
+        "sha256": "24af4e7744dbd426810613e3df862b4955e7eeef6c90fc481afcfb1c04ef8f87"
+      },
+      {
+        "file": "train03.npy",
+        "rows": 45000,
+        "sha256": "35d4f557eba2a0149fbd2b6b2eadbe3f089861353df2eb4f918880f8bcaeae35"
+      },
+      {
+        "file": "train04.npy",
+        "rows": 45000,
+        "sha256": "8cba8581139d9d92b60f151786a2638e973396c31a7ff2897fd38d31ab3fad04"
+      },
+      {
+        "file": "train05.npy",
+        "rows": 15000,
+        "sha256": "f234b57fb64b7cc7f1713dc115dcce8bf779e80e5e4511bccdd207026d9e33af"
+      }
+    ],
+    "held": [
+      {
+        "file": "held00.npy",
+        "rows": 6000,
+        "sha256": "4786a818cc8d1f7551828be20581e8abb1ebfc90a26e8ed556cc52b3b80a9651"
+      }
+    ],
+    "est": [
+      {
+        "file": "est00.npy",
+        "rows": 30000,
+        "sha256": "e3912806f78eba905991822351fc8a7bced5e215f3865add9c5248a667514e77"
+      }
+    ],
+    "spare": [
+      {
+        "file": "spare00.npy",
+        "rows": 24000,
+        "sha256": "67b1de658e91d4a38d04a1aff8e434f69d9a21e5eb1ea91f51d808d9559c511f"
+      }
+    ]
+  },
+  "vocab_file": "tf_vocab_b8192.json"
+}

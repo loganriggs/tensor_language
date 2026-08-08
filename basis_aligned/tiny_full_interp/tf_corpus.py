@@ -1,4 +1,17 @@
-"""Reduced-vocabulary corpus for the tiny-full-interpretation program.
+"""Truncated-GPT-2 corpus -- SUPERSEDED as primary on 2026-08-08, RETAINED as the
+tokenizer-distortion comparison arm.
+
+    The primary corpus is now built by tf_tokenizer.py with a byte-level BPE
+    trained on THIS text (zero UNK by construction, better compression at the
+    same V).  This builder's top-K truncation loses 20.0% of tokens at V=4096 and
+    13.2% at V=8192 to <UNK> while buying NO compression (the segmentation is
+    still GPT-2's).  It stays in the repo because "truncated vocabulary vs
+    trained BPE at identical architecture" is itself a measurement of how much
+    the tokenizer distorts the interpretability picture.
+    This module also owns the SHARED LOADERS for both corpora (load_split /
+    load_vocab / label take tok='bpe' | 'trunc').
+
+Reduced-vocabulary corpus for the tiny-full-interpretation program.
 
 SOURCE: the SAME FineWeb sample-10BT stream the parent program (../qk_mdl) uses.
 We do NOT re-download and we do NOT re-tokenize: the parent already committed
@@ -190,9 +203,29 @@ def build(V, arr, counts):
 
 
 # ---------------- loaders used by tf_train / tf_fold ----------------
-def load_split(V, name, n=None, root=None):
+# TWO TOKENIZERS LIVE SIDE BY SIDE (2026-08-08).
+#   tok='bpe'   PRIMARY.  Byte-level BPE trained on this corpus by tf_tokenizer.py.
+#               Zero UNK by construction.  Dirs tf_corpus_b{V}, vocab tf_vocab_b{V}.
+#   tok='trunc' the original top-K truncation of GPT-2 (20.0% UNK at V=4096,
+#               13.2% at V=8192).  RETAINED as a labelled tokenizer-distortion
+#               comparison arm, NOT as the primary corpus.
+# Cross-tokenizer numbers are ONLY ever compared in bits/byte (see README.md).
+TOKS = ('bpe', 'trunc')
+
+
+def corpus_root(V, tok='bpe'):
+    assert tok in TOKS, tok
+    return f'{HERE}/tf_corpus_' + (f'b{V}' if tok == 'bpe' else f'v{V}')
+
+
+def vocab_path(V, tok='bpe'):
+    assert tok in TOKS, tok
+    return f'{HERE}/tf_vocab_' + (f'b{V}.json' if tok == 'bpe' else f'{V}.json')
+
+
+def load_split(V, name, n=None, root=None, tok='bpe'):
     """Concatenated int64 rows of one split, in shard order (prefix of n rows)."""
-    root = root or f'{HERE}/tf_corpus_v{V}'
+    root = root or corpus_root(V, tok)
     man = json.load(open(f'{root}/MANIFEST.json'))
     rows, got = [], 0
     for f in man['files'][name]:
@@ -208,8 +241,45 @@ def load_split(V, name, n=None, root=None):
     return np.concatenate(rows).astype(np.int64)
 
 
-def load_vocab(V):
-    return json.load(open(f'{HERE}/tf_vocab_{V}.json'))
+def load_vocab(V, tok='bpe'):
+    return json.load(open(vocab_path(V, tok)))
+
+
+def bytes_per_token(V, tok='bpe'):
+    """UTF-8 bytes of held text per token under this corpus's tokenizer."""
+    man = json.load(open(f'{corpus_root(V, tok)}/MANIFEST.json'))
+    b = man['splits_stats']['held'].get('region_bytes_per_token')
+    if b:
+        return float(b)
+    # the truncated corpora keep GPT-2's segmentation exactly (truncation only
+    # renames ids), so their bytes/token IS GPT-2's, measured in the comparison
+    cmp_ = json.load(open(f'{HERE}/tf_tokenizer_compare.json'))
+    return float(cmp_['rows']['gpt2-50257']['bytes_per_token'])
+
+
+def bits_per_byte(ce_nats_per_token, V, tok='bpe'):
+    """THE CROSS-TOKENIZER RULE (README.md).  Per-token cross-entropy is not
+    comparable across tokenizers -- a tokenizer with fewer bytes/token makes each
+    prediction easier AND makes more of them.  Every cross-tokenizer number in
+    this program is bits per byte:  CE_nats / (ln2 * bytes_per_token).
+
+    For tok='trunc' this is still NOT a code length for the text, because UNK is
+    unrecoverable; add the repair term
+    tf_tokenizer_compare.json -> rows['truncGPT2-{V}']['unk_repair_bits_per_byte']
+    for the honest two-part cost."""
+    import math
+    return ce_nats_per_token / (math.log(2) * bytes_per_token(V, tok))
+
+
+def unk_repair_bpb(V, tok='bpe'):
+    """Bits/byte a lossy (truncated) vocabulary must add to reproduce the text."""
+    if tok != 'trunc':
+        return 0.0
+    p = f'{HERE}/tf_tokenizer_compare.json'
+    if not os.path.exists(p):
+        return None
+    r = json.load(open(p))['rows'].get(f'truncGPT2-{V}')
+    return None if r is None else r.get('unk_repair_bits_per_byte')
 
 
 def label(vocab, new_id):
