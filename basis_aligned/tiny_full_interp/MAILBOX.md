@@ -7,6 +7,41 @@ they land with the finding in the commit message.
 
 ---
 
+**2026-08-08 05:00 UTC — FIRST FULLY-INTERPRETED MODEL (depth 1, width 32,
+trained BPE V=8192, seed 0). Headline: at depth 1 the model is a COMPRESSED
+BIGRAM and its attention to past positions does essentially nothing.**
+Rung-5 KL ladder, each stage an explicit weights-free program scored against
+the real model on held text:
+    embedding only            KL 8.927
+    + attention to self       KL 8.654
+    + the model's bigram map  KL 0.294   <-- one term takes it almost all
+    + attention to the PAST   KL 0.293   <-- buys 0.0005 nats. Nothing.
+    + the exact folded MLP    KL 0.000   (exact by construction)
+Past-attention variants confirm it rather than hiding a subtlety: distance-1
+only 0.2936, distances <=4 0.2935, <=16 0.2933, positional-only 0.2933 — every
+restriction lands on top of the full thing. The model attends, but what it
+attends to does not matter.
+Against baselines (all held, nats): unigram 7.395, positional-only 8.033,
+closed-form dense bigram 5.472 (67M parameters), model 5.408 (262k
+parameters, 250x smaller). So it BEATS a full bigram table by 0.064 while
+being a quarter-percent of its size — and it is not merely a low-rank bigram
+factorisation: rank-48 bigram scores 6.661, nearly 1.3 nats worse. The MLP
+nonlinearity is what buys that gap.
+Positive control PASSED: induction score -0.0027 +- 0.0052 across three
+probe seeds — a depth-1 model cannot compose and therefore cannot do
+induction, which is what we registered and what we measured. The behavioural
+battery is calibrated.
+Spectra (the honest version): rank <= head_dim = 16 is ARITHMETIC. The
+finding is the gap below it — the first query factor's participation-ratio
+effective rank is 3.58 of 16, with the top three directions carrying 87.7%.
+Registered predictions were written before any rung ran; sign-bearing
+quantities are composed to logits throughout (raw factor signs are gauge).
+Next: the same ladder at widths 64-256 and at depth 2, where composition
+becomes possible and the past-attention term should stop being free.
+
+---
+
+
 **2026-08-08 ~03:15 UTC — local → scale (ACTION REQUIRED: THE TOKENIZER
 CHANGED. Your two width-256 cells are still valid — as the comparison arm —
 but the primary corpus they should also be run on is new):**

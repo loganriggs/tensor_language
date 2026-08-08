@@ -1,0 +1,1122 @@
+{
+  "registered_predictions": {
+    "written_before_training": true,
+    "ladder_rungs_1_2": "the exact fold and the materialized tables pass their identity gates at EVERY width and depth in the grid; if a rung fails it fails at the LARGEST width first",
+    "width_effect": "held CE improves monotonically with width at fixed depth, with diminishing returns by width 128",
+    "depth_effect": "depth 2 beats depth 1 at every width, and the depth-2 gain GROWS with width (composition needs capacity to be worth having)",
+    "baseline_gap": "every trained cell beats the closed-form bigram table; the width-32 depth-1 cell beats it by less than 0.5 nats",
+    "attn_table_rank": "each layer-0 V x V score table has numerical rank equal to its algebraic bound (head_dim = 16) at delta = 0, so no head wastes its key subspace",
+    "seed_convergence": "held CE across seeds at a fixed cell spreads by less than 0.02 nats, but the materialized tables do NOT match across seeds beyond a permutation"
+  },
+  "config": {
+    "depth": 1,
+    "width": 32,
+    "vocab": 8192,
+    "tok": "bpe",
+    "seed": 1,
+    "variant": "vanilla",
+    "head_dim": 16,
+    "exp": 4,
+    "T": 512,
+    "n_slots": 1,
+    "group_coeff": 0.0,
+    "write_init": false,
+    "small_dec": false,
+    "slot": 32,
+    "predicate": false,
+    "codebook": false,
+    "cb_n": 256,
+    "cb_k_attn": 4,
+    "cb_k_mlp": 2,
+    "shrink_mode": "",
+    "shrink_floor_slots": 1,
+    "stream_width": 32,
+    "n_heads": 2,
+    "hidden": 128
+  },
+  "corpus": {
+    "vocab": 8192,
+    "tokenizer": "bpe",
+    "seq_len": 513,
+    "unk": {
+      "tokenizer": "bpe",
+      "train_per_token": 0.0,
+      "held_per_token": 0.0,
+      "held_per_seq_mean": 0.0,
+      "held_eval_target_unk_frac": 0.0,
+      "note": "byte-level BPE: UNK impossible by construction; id 0 is <|endoftext|>",
+      "held_eos_frac": 0.001238281256519258
+    },
+    "train_split_rows": 240000,
+    "data_order_id": "epoch_order(0)@seed1234",
+    "single_epoch_arithmetic": "15000 steps x batch 16 = 240000 sequences = the entire train split, each visited exactly once",
+    "held": "held split rows [0:1500] (pure eval, never trained)"
+  },
+  "run": {
+    "lr_muon": 0.02,
+    "lr_adamw": 0.004,
+    "steps": 15000,
+    "batch": 16,
+    "train_curve_every200": [
+      [
+        0,
+        9.0196,
+        9.0196
+      ],
+      [
+        200,
+        6.8121,
+        7.2594
+      ],
+      [
+        400,
+        6.2691,
+        6.3337
+      ],
+      [
+        600,
+        5.9408,
+        6.0652
+      ],
+      [
+        800,
+        5.9312,
+        5.9245
+      ],
+      [
+        1000,
+        5.9449,
+        5.8601
+      ],
+      [
+        1200,
+        5.7719,
+        5.7969
+      ],
+      [
+        1400,
+        5.836,
+        5.7673
+      ],
+      [
+        1600,
+        5.6498,
+        5.7418
+      ],
+      [
+        1800,
+        5.724,
+        5.7115
+      ],
+      [
+        2000,
+        5.6629,
+        5.6818
+      ],
+      [
+        2200,
+        5.6904,
+        5.6805
+      ],
+      [
+        2400,
+        5.72,
+        5.6563
+      ],
+      [
+        2600,
+        5.686,
+        5.6513
+      ],
+      [
+        2800,
+        5.6709,
+        5.6449
+      ],
+      [
+        3000,
+        5.7487,
+        5.6494
+      ],
+      [
+        3200,
+        5.7195,
+        5.6295
+      ],
+      [
+        3400,
+        5.5864,
+        5.6255
+      ],
+      [
+        3600,
+        5.5693,
+        5.625
+      ],
+      [
+        3800,
+        5.6402,
+        5.5999
+      ],
+      [
+        4000,
+        5.5474,
+        5.6057
+      ],
+      [
+        4200,
+        5.6066,
+        5.5951
+      ],
+      [
+        4400,
+        5.5791,
+        5.5956
+      ],
+      [
+        4600,
+        5.4958,
+        5.5927
+      ],
+      [
+        4800,
+        5.538,
+        5.586
+      ],
+      [
+        5000,
+        5.5659,
+        5.5878
+      ],
+      [
+        5200,
+        5.6727,
+        5.5761
+      ],
+      [
+        5400,
+        5.5136,
+        5.5838
+      ],
+      [
+        5600,
+        5.4646,
+        5.5722
+      ],
+      [
+        5800,
+        5.4933,
+        5.569
+      ],
+      [
+        6000,
+        5.4649,
+        5.5717
+      ],
+      [
+        6200,
+        5.4763,
+        5.5742
+      ],
+      [
+        6400,
+        5.5452,
+        5.5608
+      ],
+      [
+        6600,
+        5.5535,
+        5.5559
+      ],
+      [
+        6800,
+        5.543,
+        5.5583
+      ],
+      [
+        7000,
+        5.4412,
+        5.5541
+      ],
+      [
+        7200,
+        5.5691,
+        5.545
+      ],
+      [
+        7400,
+        5.6474,
+        5.5427
+      ],
+      [
+        7600,
+        5.4962,
+        5.5547
+      ],
+      [
+        7800,
+        5.6156,
+        5.5442
+      ],
+      [
+        8000,
+        5.5673,
+        5.5398
+      ],
+      [
+        8200,
+        5.7289,
+        5.5477
+      ],
+      [
+        8400,
+        5.5423,
+        5.5344
+      ],
+      [
+        8600,
+        5.4792,
+        5.525
+      ],
+      [
+        8800,
+        5.5419,
+        5.5404
+      ],
+      [
+        9000,
+        5.5234,
+        5.5252
+      ],
+      [
+        9200,
+        5.4923,
+        5.5422
+      ],
+      [
+        9400,
+        5.5338,
+        5.5305
+      ],
+      [
+        9600,
+        5.5718,
+        5.5228
+      ],
+      [
+        9800,
+        5.602,
+        5.5285
+      ],
+      [
+        10000,
+        5.5792,
+        5.5364
+      ],
+      [
+        10200,
+        5.5263,
+        5.5405
+      ],
+      [
+        10400,
+        5.6081,
+        5.5313
+      ],
+      [
+        10600,
+        5.5159,
+        5.5272
+      ],
+      [
+        10800,
+        5.6229,
+        5.5227
+      ],
+      [
+        11000,
+        5.645,
+        5.5263
+      ],
+      [
+        11200,
+        5.5432,
+        5.5228
+      ],
+      [
+        11400,
+        5.5542,
+        5.5164
+      ],
+      [
+        11600,
+        5.463,
+        5.5207
+      ],
+      [
+        11800,
+        5.6447,
+        5.5195
+      ],
+      [
+        12000,
+        5.4678,
+        5.5157
+      ],
+      [
+        12200,
+        5.5517,
+        5.5207
+      ],
+      [
+        12400,
+        5.494,
+        5.5105
+      ],
+      [
+        12600,
+        5.579,
+        5.5107
+      ],
+      [
+        12800,
+        5.4631,
+        5.5106
+      ],
+      [
+        13000,
+        5.3872,
+        5.5055
+      ],
+      [
+        13200,
+        5.5161,
+        5.5212
+      ],
+      [
+        13400,
+        5.6364,
+        5.5056
+      ],
+      [
+        13600,
+        5.5037,
+        5.5076
+      ],
+      [
+        13800,
+        5.4299,
+        5.5024
+      ],
+      [
+        14000,
+        5.6402,
+        5.5212
+      ],
+      [
+        14200,
+        5.4769,
+        5.503
+      ],
+      [
+        14400,
+        5.4902,
+        5.5059
+      ],
+      [
+        14600,
+        5.4744,
+        5.508
+      ],
+      [
+        14800,
+        5.5807,
+        5.5155
+      ]
+    ],
+    "held100_curve": [
+      [
+        1875,
+        5.6196
+      ],
+      [
+        3750,
+        5.5356
+      ],
+      [
+        5625,
+        5.4957
+      ],
+      [
+        7500,
+        5.472
+      ],
+      [
+        9375,
+        5.4538
+      ],
+      [
+        11250,
+        5.4396
+      ],
+      [
+        13125,
+        5.4303
+      ]
+    ],
+    "spikes": 0,
+    "diverged": false,
+    "wall_seconds": 126.4,
+    "sec_per_step": 0.00842,
+    "peak_mib": 2107,
+    "final_held_ce": 5.51591,
+    "n_params": 280608,
+    "body_params": 18464
+  },
+  "vs_baselines": {
+    "unigram_floor": 7.30343,
+    "bigram": 5.2842,
+    "model_minus_bigram": 0.23171,
+    "model_minus_unigram": -1.78752,
+    "model_bits_per_byte": 2.11947,
+    "bigram_bits_per_byte": 2.03044,
+    "unigram_floor_bits_per_byte": 2.80632,
+    "bits_per_byte_rule": "the ONLY quantity comparable across tokenizers; nats/token above are within-tokenizer only"
+  },
+  "fold": {
+    "stem": "tf_vanilla_d1_w32_b8192_s1",
+    "variant": "vanilla",
+    "depth": 1,
+    "width": 32,
+    "stream_width": 32,
+    "n_heads": 2,
+    "head_dim": 16,
+    "vocab": 8192,
+    "tokenizer": "bpe",
+    "deltas": [
+      0,
+      1,
+      2
+    ],
+    "identity_gate": {
+      "mlp_tensor_identity_l0_relmax": 1.8888249542214908e-07,
+      "mlp_rmsnorm_gauge_l0_relmax": 3.711942326845019e-07,
+      "decoder_absmax_l0": 4.693321228027344,
+      "attn_layer0_table_identity_relmax": 3.808081885381398e-07,
+      "fold_forward_max_logit_diff": 1.71661376953125e-05,
+      "logit_absmax": 14.087735176086426,
+      "fold_forward_rel_logit_diff": 1.2185164954301232e-06,
+      "fp64_mlp_tensor_identity_l0_relmax": 6.935545352521148e-16,
+      "fp64_mlp_rmsnorm_gauge_l0_relmax": 7.470933655874227e-16,
+      "fp64_decoder_absmax_l0": 4.693321228027344,
+      "fp64_attn_layer0_table_identity_relmax": 6.561144976907328e-16,
+      "fp64_fold_forward_max_logit_diff": 3.597122599785507e-14,
+      "fp64_logit_absmax": 14.087735007596164,
+      "fp64_fold_forward_rel_logit_diff": 2.5533718499431767e-15,
+      "fp32_forward_vs_fp64_forward_rel": 1.5425956005020874e-06,
+      "fold_vs_forward_over_fp32_selfnoise": 0.7899131146448997,
+      "fp32_sanity_pass": true,
+      "fp64_exactness_pass": true,
+      "pass": true,
+      "criterion": {
+        "fp32_sanity": {
+          "mlp_rel": 1e-05,
+          "attn_rel": 1e-05,
+          "logit_rel": 1e-05
+        },
+        "fp64_exactness": {
+          "algebraic_rel": 1e-12,
+          "logit_abs": 1e-09,
+          "noise_multiple": 10.0
+        },
+        "note": "TWO-TIER.  fp32 tier is a scale-free sanity band sized by sqrt(N)*eps_fp32 ~ 1e-5; fp64 tier is the real exactness gate (algebraic identities to 1e-12 relative, end-to-end to 1e-9 absolute) plus a calibration requiring the fold-vs-forward gap to stay within 10x the forward pass own fp32-vs-fp64 self-noise.  SUPERSEDED: the old absolute-1e-5-fp32 logit criterion and the 1e-6 fp32 algebraic criteria, which together failed 5/6 cells on rounding alone while every fp64 residual sat at 1e-14 to 1e-16."
+      }
+    },
+    "planted_known_answer": {
+      "planted_delta0_maxdiff": 1.2823075934420558e-14,
+      "planted_delta0_scale": 0.48431475409306896,
+      "planted_delta3_maxdiff": 1.587618925213974e-14,
+      "planted_delta3_scale": 0.4802893055867663,
+      "pass": true
+    },
+    "gate_negative_control": {
+      "clean_pass": true,
+      "mlp_scale_1p1e-7_pass": false,
+      "mlp_scale_1p1e-7_fp64_logit_abs": 9.894860805714778e-09,
+      "mlp_scale_1p1e-7_fp32_logit_abs": 1.1920928955078125e-07,
+      "mlp_scale_1p1e-7_caught_by_old_absolute_1e-5_gate": false,
+      "vv_head_roll_pass": false,
+      "vv_head_roll_fp64_logit_abs": 0.033177727890211825,
+      "vv_head_roll_fp32_logit_abs": 0.033184878528118134,
+      "vv_head_roll_caught_by_old_absolute_1e-5_gate": true,
+      "pass": true
+    },
+    "spectra": {
+      "s1_d0": {
+        "per_head": [
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.5314443165495613,
+            "entropy_rank": 2.3641787213382943,
+            "top1_share": 0.8030981319917458
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.1834568447667897,
+            "entropy_rank": 1.5547332658398842,
+            "top1_share": 0.9185430903524865
+          }
+        ],
+        "rank_bound": 16,
+        "mean_numerical_rank": 16.0,
+        "mean_entropy_rank": 1.9594559935890894
+      },
+      "s2_d0": {
+        "per_head": [
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.237105121247817,
+            "entropy_rank": 1.6856253483473616,
+            "top1_share": 0.8978912694424529
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.2754041825648061,
+            "entropy_rank": 1.812054839337455,
+            "top1_share": 0.8841990672749818
+          }
+        ],
+        "rank_bound": 16,
+        "mean_numerical_rank": 16.0,
+        "mean_entropy_rank": 1.7488400938424082
+      },
+      "s1_d1": {
+        "per_head": [
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.527369103945082,
+            "entropy_rank": 2.3555765089712315,
+            "top1_share": 0.804229977688353
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.184861326877402,
+            "entropy_rank": 1.5597806187949896,
+            "top1_share": 0.9179954013859345
+          }
+        ],
+        "rank_bound": 16,
+        "mean_numerical_rank": 16.0,
+        "mean_entropy_rank": 1.9576785638831105
+      },
+      "s2_d1": {
+        "per_head": [
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.230415414139965,
+            "entropy_rank": 1.6688457248073008,
+            "top1_share": 0.9003901261844275
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.2651837228387968,
+            "entropy_rank": 1.7847343290514939,
+            "top1_share": 0.8878426172711185
+          }
+        ],
+        "rank_bound": 16,
+        "mean_numerical_rank": 16.0,
+        "mean_entropy_rank": 1.7267900269293972
+      },
+      "s1_d2": {
+        "per_head": [
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.605339315682732,
+            "entropy_rank": 2.526587411784024,
+            "top1_share": 0.7831291836572877
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.1836896085926867,
+            "entropy_rank": 1.559060352480768,
+            "top1_share": 0.9184715112567859
+          }
+        ],
+        "rank_bound": 16,
+        "mean_numerical_rank": 16.0,
+        "mean_entropy_rank": 2.042823882132396
+      },
+      "s2_d2": {
+        "per_head": [
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.235502237327291,
+            "entropy_rank": 1.681751450154425,
+            "top1_share": 0.898480129729916
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.2777625238916253,
+            "entropy_rank": 1.8187630934391736,
+            "top1_share": 0.8833654150937675
+          }
+        ],
+        "rank_bound": 16,
+        "mean_numerical_rank": 16.0,
+        "mean_entropy_rank": 1.7502572717967992
+      }
+    },
+    "control_spectrum_qr_vs_eig_rel": 1.6558216549923216e-11,
+    "control_spectrum_factor_vs_dense_svd_rel": 7.92619790742395e-15,
+    "control_dense_svd_tail_over_rank_bound": 1.2135947723447684e-12,
+    "mlp": [
+      {
+        "shape": [
+          32,
+          32,
+          32
+        ],
+        "fro": 4014.163818359375,
+        "unfolding_spectrum": {
+          "numerical_rank": 32,
+          "participation_ratio": 28.47825255188671,
+          "entropy_rank": 30.178130624186387,
+          "top1_share": 0.060922841265421135
+        },
+        "sv_top8": [
+          1305.0644506312458,
+          1248.1837123828045,
+          1002.9642185461222,
+          945.7111269717077,
+          925.8819563404662,
+          876.6936100869456,
+          839.3622336634035,
+          803.6519283769723
+        ]
+      }
+    ],
+    "top_pairs_delta0": [
+      {
+        "head": 0,
+        "max": [
+          [
+            "83:'s'",
+            "2628:' mach'",
+            0.18007473647594452
+          ],
+          [
+            "443:'ard'",
+            "2628:' mach'",
+            0.1795521378517151
+          ],
+          [
+            "7908:'cular'",
+            "2628:' mach'",
+            0.1765565574169159
+          ],
+          [
+            "547:'ance'",
+            "2628:' mach'",
+            0.1730273813009262
+          ],
+          [
+            "340:'ation'",
+            "2628:' mach'",
+            0.1714760810136795
+          ],
+          [
+            "569:'ations'",
+            "2628:' mach'",
+            0.17049363255500793
+          ],
+          [
+            "259:'in'",
+            "2628:' mach'",
+            0.16589251160621643
+          ],
+          [
+            "84:'t'",
+            "2628:' mach'",
+            0.16499553620815277
+          ],
+          [
+            "286:'ar'",
+            "2628:' mach'",
+            0.1633492410182953
+          ],
+          [
+            "1008:'ins'",
+            "2628:' mach'",
+            0.1624990850687027
+          ],
+          [
+            "410:'res'",
+            "2628:' mach'",
+            0.16194364428520203
+          ],
+          [
+            "678:'fter'",
+            "2628:' mach'",
+            0.16192495822906494
+          ],
+          [
+            "313:'et'",
+            "2628:' mach'",
+            0.16059008240699768
+          ],
+          [
+            "2136:'imate'",
+            "2628:' mach'",
+            0.15991494059562683
+          ],
+          [
+            "79:'o'",
+            "2628:' mach'",
+            0.1598580777645111
+          ],
+          [
+            "7225:'otton'",
+            "2628:' mach'",
+            0.15877139568328857
+          ],
+          [
+            "7020:'pel'",
+            "2628:' mach'",
+            0.15865132212638855
+          ],
+          [
+            "474:'ine'",
+            "2628:' mach'",
+            0.15740206837654114
+          ],
+          [
+            "443:'ard'",
+            "5794:' Cath'",
+            0.15720774233341217
+          ],
+          [
+            "421:'art'",
+            "2628:' mach'",
+            0.1571732759475708
+          ]
+        ],
+        "min": [
+          [
+            "443:'ard'",
+            "6342:' Penn'",
+            -0.1534366011619568
+          ],
+          [
+            "83:'s'",
+            "6342:' Penn'",
+            -0.15203894674777985
+          ],
+          [
+            "443:'ard'",
+            "7215:' COVID'",
+            -0.15003859996795654
+          ],
+          [
+            "83:'s'",
+            "7215:' COVID'",
+            -0.14682891964912415
+          ],
+          [
+            "7908:'cular'",
+            "6342:' Penn'",
+            -0.1460391730070114
+          ],
+          [
+            "547:'ance'",
+            "6342:' Penn'",
+            -0.145607590675354
+          ],
+          [
+            "547:'ance'",
+            "7215:' COVID'",
+            -0.14511260390281677
+          ],
+          [
+            "569:'ations'",
+            "7215:' COVID'",
+            -0.1433669924736023
+          ],
+          [
+            "569:'ations'",
+            "6342:' Penn'",
+            -0.14233313500881195
+          ],
+          [
+            "7908:'cular'",
+            "7215:' COVID'",
+            -0.14215876162052155
+          ],
+          [
+            "340:'ation'",
+            "6342:' Penn'",
+            -0.14123710989952087
+          ],
+          [
+            "340:'ation'",
+            "7215:' COVID'",
+            -0.1402202993631363
+          ],
+          [
+            "1008:'ins'",
+            "6342:' Penn'",
+            -0.1396162360906601
+          ],
+          [
+            "259:'in'",
+            "6342:' Penn'",
+            -0.13793839514255524
+          ],
+          [
+            "286:'ar'",
+            "6342:' Penn'",
+            -0.13762147724628448
+          ],
+          [
+            "2136:'imate'",
+            "7215:' COVID'",
+            -0.13751614093780518
+          ],
+          [
+            "410:'res'",
+            "6342:' Penn'",
+            -0.13699370622634888
+          ],
+          [
+            "286:'ar'",
+            "7215:' COVID'",
+            -0.1366066336631775
+          ],
+          [
+            "84:'t'",
+            "6342:' Penn'",
+            -0.13574223220348358
+          ],
+          [
+            "313:'et'",
+            "7215:' COVID'",
+            -0.13515500724315643
+          ]
+        ],
+        "abs_mean": 0.0030595967546105385,
+        "std": 0.005856153555214405
+      },
+      {
+        "head": 1,
+        "max": [
+          [
+            "615:'ings'",
+            "3549:'):'",
+            0.16649691760540009
+          ],
+          [
+            "1364:'ted'",
+            "3549:'):'",
+            0.1595955342054367
+          ],
+          [
+            "615:'ings'",
+            "1273:',\"'",
+            0.1592685580253601
+          ],
+          [
+            "1560:'ories'",
+            "3549:'):'",
+            0.1578676700592041
+          ],
+          [
+            "2688:'ashing'",
+            "3549:'):'",
+            0.15743215382099152
+          ],
+          [
+            "6390:'uting'",
+            "3549:'):'",
+            0.15726277232170105
+          ],
+          [
+            "1560:'ories'",
+            "400:' ('",
+            0.15723252296447754
+          ],
+          [
+            "7283:'asant'",
+            "3549:'):'",
+            0.15721996128559113
+          ],
+          [
+            "615:'ings'",
+            "1032:',\u201d'",
+            0.15612803399562836
+          ],
+          [
+            "1160:'ody'",
+            "3549:'):'",
+            0.15539078414440155
+          ],
+          [
+            "1160:'ody'",
+            "400:' ('",
+            0.15505719184875488
+          ],
+          [
+            "1492:'ium'",
+            "400:' ('",
+            0.15409880876541138
+          ],
+          [
+            "405:'ity'",
+            "3549:'):'",
+            0.1540781855583191
+          ],
+          [
+            "615:'ings'",
+            "400:' ('",
+            0.15406295657157898
+          ],
+          [
+            "8080:'ulum'",
+            "3549:'):'",
+            0.1538967788219452
+          ],
+          [
+            "769:'ities'",
+            "400:' ('",
+            0.15377342700958252
+          ],
+          [
+            "1374:'ards'",
+            "3549:'):'",
+            0.15365898609161377
+          ],
+          [
+            "6390:'uting'",
+            "400:' ('",
+            0.1535494476556778
+          ],
+          [
+            "769:'ities'",
+            "3549:'):'",
+            0.15349861979484558
+          ],
+          [
+            "1468:'pping'",
+            "3549:'):'",
+            0.1534275859594345
+          ]
+        ],
+        "min": [
+          [
+            "615:'ings'",
+            "59:'['",
+            -0.21472613513469696
+          ],
+          [
+            "5631:'ums'",
+            "59:'['",
+            -0.21343252062797546
+          ],
+          [
+            "2688:'ashing'",
+            "59:'['",
+            -0.21200081706047058
+          ],
+          [
+            "1560:'ories'",
+            "59:'['",
+            -0.21186333894729614
+          ],
+          [
+            "1374:'ards'",
+            "59:'['",
+            -0.21151702105998993
+          ],
+          [
+            "2315:'ises'",
+            "59:'['",
+            -0.21117658913135529
+          ],
+          [
+            "1468:'pping'",
+            "59:'['",
+            -0.21113444864749908
+          ],
+          [
+            "1364:'ted'",
+            "59:'['",
+            -0.21102282404899597
+          ],
+          [
+            "411:'ive'",
+            "59:'['",
+            -0.2102666050195694
+          ],
+          [
+            "7283:'asant'",
+            "59:'['",
+            -0.20955494046211243
+          ],
+          [
+            "1182:'ves'",
+            "59:'['",
+            -0.20811976492404938
+          ],
+          [
+            "749:'ise'",
+            "59:'['",
+            -0.20778657495975494
+          ],
+          [
+            "1160:'ody'",
+            "59:'['",
+            -0.20732583105564117
+          ],
+          [
+            "1302:'ision'",
+            "59:'['",
+            -0.20692574977874756
+          ],
+          [
+            "3895:'iny'",
+            "59:'['",
+            -0.2063874453306198
+          ],
+          [
+            "769:'ities'",
+            "59:'['",
+            -0.20621304214000702
+          ],
+          [
+            "1560:'ories'",
+            "8:'('",
+            -0.2059503048658371
+          ],
+          [
+            "615:'ings'",
+            "8:'('",
+            -0.20472009479999542
+          ],
+          [
+            "1182:'ves'",
+            "8:'('",
+            -0.20469783246517181
+          ],
+          [
+            "1265:'ared'",
+            "59:'['",
+            -0.2042747288942337
+          ]
+        ],
+        "abs_mean": 0.00888827070593834,
+        "std": 0.012023167684674263
+      }
+    ],
+    "artifact": "tf_vanilla_d1_w32_b8192_s1_fold.npz",
+    "artifact_mib": 4.78
+  }
+}

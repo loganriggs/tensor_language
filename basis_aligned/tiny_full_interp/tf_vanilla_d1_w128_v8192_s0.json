@@ -1,0 +1,2619 @@
+{
+  "registered_predictions": {
+    "written_before_training": true,
+    "ladder_rungs_1_2": "the exact fold and the materialized tables pass their identity gates at EVERY width and depth in the grid; if a rung fails it fails at the LARGEST width first",
+    "width_effect": "held CE improves monotonically with width at fixed depth, with diminishing returns by width 128",
+    "depth_effect": "depth 2 beats depth 1 at every width, and the depth-2 gain GROWS with width (composition needs capacity to be worth having)",
+    "baseline_gap": "every trained cell beats the closed-form bigram table; the width-32 depth-1 cell beats it by less than 0.5 nats",
+    "attn_table_rank": "each layer-0 V x V score table has numerical rank equal to its algebraic bound (head_dim = 16) at delta = 0, so no head wastes its key subspace",
+    "seed_convergence": "held CE across seeds at a fixed cell spreads by less than 0.02 nats, but the materialized tables do NOT match across seeds beyond a permutation"
+  },
+  "config": {
+    "depth": 1,
+    "width": 128,
+    "vocab": 8192,
+    "tok": "trunc",
+    "seed": 0,
+    "variant": "vanilla",
+    "head_dim": 16,
+    "exp": 4,
+    "T": 512,
+    "n_slots": 1,
+    "group_coeff": 0.0,
+    "write_init": false,
+    "small_dec": false,
+    "slot": 128,
+    "predicate": false,
+    "codebook": false,
+    "cb_n": 256,
+    "cb_k_attn": 4,
+    "cb_k_mlp": 2,
+    "shrink_mode": "",
+    "shrink_floor_slots": 1,
+    "stream_width": 128,
+    "n_heads": 8,
+    "hidden": 512
+  },
+  "corpus": {
+    "vocab": 8192,
+    "tokenizer": "trunc",
+    "seq_len": 513,
+    "unk": {
+      "tokenizer": "trunc",
+      "train_per_token": 0.129501,
+      "held_per_token": 0.131714,
+      "held_per_seq_mean": 0.131714,
+      "held_eval_target_unk_frac": 0.13141275942325592
+    },
+    "train_split_rows": 240000,
+    "data_order_id": "epoch_order(0)@seed1234",
+    "single_epoch_arithmetic": "15000 steps x batch 16 = 240000 sequences = the entire train split, each visited exactly once",
+    "held": "held split rows [0:1500] (pure eval, never trained)"
+  },
+  "lrsweep": {
+    "results": {
+      "0.01": {
+        "held100_ce": 5.1314,
+        "diverged": false,
+        "spikes": 0
+      },
+      "0.02": {
+        "held100_ce": 5.11753,
+        "diverged": false,
+        "spikes": 0
+      },
+      "0.04": {
+        "held100_ce": 5.13568,
+        "diverged": false,
+        "spikes": 0
+      }
+    },
+    "chosen": 0.02,
+    "grid": [
+      0.01,
+      0.02,
+      0.04
+    ],
+    "winner_at_grid_edge": false,
+    "split": "spare (disjoint from train/held/est)"
+  },
+  "run": {
+    "lr_muon": 0.02,
+    "lr_adamw": 0.004,
+    "steps": 15000,
+    "batch": 16,
+    "train_curve_every200": [
+      [
+        0,
+        8.9973,
+        8.9973
+      ],
+      [
+        200,
+        5.3979,
+        5.8461
+      ],
+      [
+        400,
+        5.136,
+        5.1772
+      ],
+      [
+        600,
+        4.9249,
+        4.9942
+      ],
+      [
+        800,
+        4.7828,
+        4.9017
+      ],
+      [
+        1000,
+        4.8614,
+        4.8549
+      ],
+      [
+        1200,
+        4.8836,
+        4.8139
+      ],
+      [
+        1400,
+        4.7521,
+        4.789
+      ],
+      [
+        1600,
+        4.6593,
+        4.7568
+      ],
+      [
+        1800,
+        4.657,
+        4.7469
+      ],
+      [
+        2000,
+        4.8029,
+        4.7135
+      ],
+      [
+        2200,
+        4.774,
+        4.7078
+      ],
+      [
+        2400,
+        4.6924,
+        4.7038
+      ],
+      [
+        2600,
+        4.6509,
+        4.6778
+      ],
+      [
+        2800,
+        4.7085,
+        4.663
+      ],
+      [
+        3000,
+        4.7622,
+        4.6742
+      ],
+      [
+        3200,
+        4.742,
+        4.6628
+      ],
+      [
+        3400,
+        4.6487,
+        4.6446
+      ],
+      [
+        3600,
+        4.633,
+        4.6485
+      ],
+      [
+        3800,
+        4.6349,
+        4.6327
+      ],
+      [
+        4000,
+        4.8792,
+        4.6505
+      ],
+      [
+        4200,
+        4.6275,
+        4.634
+      ],
+      [
+        4400,
+        4.6094,
+        4.6144
+      ],
+      [
+        4600,
+        4.7018,
+        4.6179
+      ],
+      [
+        4800,
+        4.5722,
+        4.6096
+      ],
+      [
+        5000,
+        4.6397,
+        4.5932
+      ],
+      [
+        5200,
+        4.6239,
+        4.6004
+      ],
+      [
+        5400,
+        4.5232,
+        4.593
+      ],
+      [
+        5600,
+        4.6474,
+        4.5905
+      ],
+      [
+        5800,
+        4.604,
+        4.5733
+      ],
+      [
+        6000,
+        4.6093,
+        4.5874
+      ],
+      [
+        6200,
+        4.718,
+        4.5827
+      ],
+      [
+        6400,
+        4.6249,
+        4.5638
+      ],
+      [
+        6600,
+        4.5353,
+        4.5638
+      ],
+      [
+        6800,
+        4.6613,
+        4.5579
+      ],
+      [
+        7000,
+        4.5046,
+        4.5491
+      ],
+      [
+        7200,
+        4.5681,
+        4.5609
+      ],
+      [
+        7400,
+        4.4544,
+        4.5454
+      ],
+      [
+        7600,
+        4.5792,
+        4.5386
+      ],
+      [
+        7800,
+        4.4606,
+        4.5298
+      ],
+      [
+        8000,
+        4.5092,
+        4.5416
+      ],
+      [
+        8200,
+        4.528,
+        4.5314
+      ],
+      [
+        8400,
+        4.4511,
+        4.5377
+      ],
+      [
+        8600,
+        4.5862,
+        4.5315
+      ],
+      [
+        8800,
+        4.4639,
+        4.5249
+      ],
+      [
+        9000,
+        4.4198,
+        4.5211
+      ],
+      [
+        9200,
+        4.4491,
+        4.5067
+      ],
+      [
+        9400,
+        4.502,
+        4.5178
+      ],
+      [
+        9600,
+        4.4722,
+        4.5011
+      ],
+      [
+        9800,
+        4.5318,
+        4.5071
+      ],
+      [
+        10000,
+        4.5443,
+        4.4892
+      ],
+      [
+        10200,
+        4.5543,
+        4.5033
+      ],
+      [
+        10400,
+        4.5741,
+        4.4989
+      ],
+      [
+        10600,
+        4.543,
+        4.5002
+      ],
+      [
+        10800,
+        4.4371,
+        4.5003
+      ],
+      [
+        11000,
+        4.4992,
+        4.4804
+      ],
+      [
+        11200,
+        4.5011,
+        4.4887
+      ],
+      [
+        11400,
+        4.5229,
+        4.4874
+      ],
+      [
+        11600,
+        4.5574,
+        4.4673
+      ],
+      [
+        11800,
+        4.6223,
+        4.4869
+      ],
+      [
+        12000,
+        4.503,
+        4.4715
+      ],
+      [
+        12200,
+        4.4601,
+        4.4739
+      ],
+      [
+        12400,
+        4.4949,
+        4.4636
+      ],
+      [
+        12600,
+        4.482,
+        4.4722
+      ],
+      [
+        12800,
+        4.6408,
+        4.4739
+      ],
+      [
+        13000,
+        4.4822,
+        4.4701
+      ],
+      [
+        13200,
+        4.4587,
+        4.4608
+      ],
+      [
+        13400,
+        4.4713,
+        4.4654
+      ],
+      [
+        13600,
+        4.5513,
+        4.4666
+      ],
+      [
+        13800,
+        4.4503,
+        4.4669
+      ],
+      [
+        14000,
+        4.4618,
+        4.4577
+      ],
+      [
+        14200,
+        4.4558,
+        4.4706
+      ],
+      [
+        14400,
+        4.3973,
+        4.463
+      ],
+      [
+        14600,
+        4.5921,
+        4.4635
+      ],
+      [
+        14800,
+        4.4341,
+        4.4593
+      ]
+    ],
+    "held100_curve": [
+      [
+        1875,
+        4.7171
+      ],
+      [
+        3750,
+        4.6194
+      ],
+      [
+        5625,
+        4.5705
+      ],
+      [
+        7500,
+        4.5268
+      ],
+      [
+        9375,
+        4.5009
+      ],
+      [
+        11250,
+        4.4678
+      ],
+      [
+        13125,
+        4.4535
+      ]
+    ],
+    "spikes": 0,
+    "diverged": false,
+    "wall_seconds": 182.9,
+    "sec_per_step": 0.01219,
+    "peak_mib": 2403,
+    "final_held_ce": 4.46414,
+    "n_params": 1343616,
+    "body_params": 295040
+  },
+  "vs_baselines": {
+    "unigram_floor": 6.32114,
+    "bigram": 4.95618,
+    "model_minus_bigram": -0.49204,
+    "model_minus_unigram": -1.857,
+    "model_bits_per_byte": 1.44819,
+    "bigram_bits_per_byte": 1.60781,
+    "unigram_floor_bits_per_byte": 2.05061,
+    "bits_per_byte_rule": "the ONLY quantity comparable across tokenizers; nats/token above are within-tokenizer only",
+    "unk_repair_bits_per_byte": 0.44174,
+    "model_bits_per_byte_honest": 1.88993
+  },
+  "fold": {
+    "stem": "tf_vanilla_d1_w128_v8192_s0",
+    "variant": "vanilla",
+    "depth": 1,
+    "width": 128,
+    "stream_width": 128,
+    "n_heads": 8,
+    "head_dim": 16,
+    "vocab": 8192,
+    "tokenizer": "trunc",
+    "deltas": [
+      0,
+      1,
+      2
+    ],
+    "identity_gate": {
+      "mlp_tensor_identity_l0_relmax": 2.896119326578628e-07,
+      "mlp_rmsnorm_gauge_l0_relmax": 4.6315702206811693e-07,
+      "decoder_absmax_l0": 5.18729829788208,
+      "attn_layer0_table_identity_relmax": 1.051756498782197e-06,
+      "fold_forward_max_logit_diff": 2.4452805519104004e-05,
+      "logit_absmax": 14.130292892456055,
+      "fold_forward_rel_logit_diff": 1.7305236137149697e-06,
+      "fp64_mlp_tensor_identity_l0_relmax": 1.4657049714511558e-15,
+      "fp64_mlp_rmsnorm_gauge_l0_relmax": 1.5691547480043898e-15,
+      "fp64_decoder_absmax_l0": 5.18729829788208,
+      "fp64_attn_layer0_table_identity_relmax": 7.654908630732974e-16,
+      "fp64_fold_forward_max_logit_diff": 2.930988785010413e-14,
+      "fp64_logit_absmax": 14.13029213576074,
+      "fp64_fold_forward_rel_logit_diff": 2.0742591567464545e-15,
+      "fp32_forward_vs_fp64_forward_rel": 1.7397423048071097e-06,
+      "fold_vs_forward_over_fp32_selfnoise": 0.9947011169029645,
+      "fp32_sanity_pass": true,
+      "fp64_exactness_pass": true,
+      "pass": true,
+      "criterion": {
+        "fp32_sanity": {
+          "mlp_rel": 1e-05,
+          "attn_rel": 1e-05,
+          "logit_rel": 1e-05
+        },
+        "fp64_exactness": {
+          "algebraic_rel": 1e-12,
+          "logit_abs": 1e-09,
+          "noise_multiple": 10.0
+        },
+        "note": "TWO-TIER.  fp32 tier is a scale-free sanity band sized by sqrt(N)*eps_fp32 ~ 1e-5; fp64 tier is the real exactness gate (algebraic identities to 1e-12 relative, end-to-end to 1e-9 absolute) plus a calibration requiring the fold-vs-forward gap to stay within 10x the forward pass own fp32-vs-fp64 self-noise.  SUPERSEDED: the old absolute-1e-5-fp32 logit criterion and the 1e-6 fp32 algebraic criteria, which together failed 5/6 cells on rounding alone while every fp64 residual sat at 1e-14 to 1e-16."
+      }
+    },
+    "planted_known_answer": {
+      "planted_delta0_maxdiff": 1.2823075934420558e-14,
+      "planted_delta0_scale": 0.48431475409306896,
+      "planted_delta3_maxdiff": 1.587618925213974e-14,
+      "planted_delta3_scale": 0.4802893055867663,
+      "pass": true
+    },
+    "gate_negative_control": {
+      "clean_pass": true,
+      "mlp_scale_1p1e-7_pass": false,
+      "mlp_scale_1p1e-7_fp64_logit_abs": 9.894860805714778e-09,
+      "mlp_scale_1p1e-7_fp32_logit_abs": 1.1920928955078125e-07,
+      "mlp_scale_1p1e-7_caught_by_old_absolute_1e-5_gate": false,
+      "vv_head_roll_pass": false,
+      "vv_head_roll_fp64_logit_abs": 0.033177727890211825,
+      "vv_head_roll_fp32_logit_abs": 0.033184878528118134,
+      "vv_head_roll_caught_by_old_absolute_1e-5_gate": true,
+      "pass": true
+    },
+    "spectra": {
+      "s1_d0": {
+        "per_head": [
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 2.198149512779833,
+            "entropy_rank": 3.968991515627693,
+            "top1_share": 0.6616745954273425
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.3457579184112414,
+            "entropy_rank": 1.9981920559782704,
+            "top1_share": 0.8600676909401754
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.3351180980285122,
+            "entropy_rank": 1.9953781896990523,
+            "top1_share": 0.8638152745829137
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.5407137133720281,
+            "entropy_rank": 2.4800652991297323,
+            "top1_share": 0.8010886655428376
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.1361500121549732,
+            "entropy_rank": 1.4426430430412192,
+            "top1_share": 0.9378726004687867
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.6817417671765116,
+            "entropy_rank": 2.9103593537164545,
+            "top1_share": 0.7661011709024187
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 2.872950516874744,
+            "entropy_rank": 5.107605558002044,
+            "top1_share": 0.5652887844909084
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 3.201076433396737,
+            "entropy_rank": 5.624661695982315,
+            "top1_share": 0.5256302551195486
+          }
+        ],
+        "rank_bound": 16,
+        "mean_numerical_rank": 16.0,
+        "mean_entropy_rank": 3.1909870888970975
+      },
+      "s2_d0": {
+        "per_head": [
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 2.2099991715450846,
+            "entropy_rank": 3.9055208626662785,
+            "top1_share": 0.6580158188985727
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.3159494500346345,
+            "entropy_rank": 1.8895029659149425,
+            "top1_share": 0.869614472194171
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.303029118387201,
+            "entropy_rank": 1.934518345595788,
+            "top1_share": 0.8748386223204498
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.3910776231360362,
+            "entropy_rank": 2.143846041600217,
+            "top1_share": 0.8457085328928212
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.0626570309878598,
+            "entropy_rank": 1.2056882600336312,
+            "top1_share": 0.9699573716224116
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.8486373672636645,
+            "entropy_rank": 3.114099621456817,
+            "top1_share": 0.7234779781822168
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 5.383113118569075,
+            "entropy_rank": 8.019769205778026,
+            "top1_share": 0.3184838482645251
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 3.098470105155208,
+            "entropy_rank": 5.548675844260886,
+            "top1_share": 0.5396801570253771
+          }
+        ],
+        "rank_bound": 16,
+        "mean_numerical_rank": 16.0,
+        "mean_entropy_rank": 3.470202643413323
+      },
+      "s1_d1": {
+        "per_head": [
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 2.0765382443023785,
+            "entropy_rank": 3.720790032499124,
+            "top1_share": 0.6825157331150211
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.3567913963562828,
+            "entropy_rank": 2.0259421347267885,
+            "top1_share": 0.8564755944678415
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.3295968445922217,
+            "entropy_rank": 1.9848702038873318,
+            "top1_share": 0.8657098175670439
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.5467627464394873,
+            "entropy_rank": 2.489472263863372,
+            "top1_share": 0.7993442811968638
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.1458343105218245,
+            "entropy_rank": 1.468313905283226,
+            "top1_share": 0.9338472189627303
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.6713064348507594,
+            "entropy_rank": 2.885370090746315,
+            "top1_share": 0.7686096943736442
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 2.841058570902519,
+            "entropy_rank": 5.017264413777622,
+            "top1_share": 0.5685008502325167
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 3.1137507843011263,
+            "entropy_rank": 5.493825926916507,
+            "top1_share": 0.534903445207196
+          }
+        ],
+        "rank_bound": 16,
+        "mean_numerical_rank": 16.0,
+        "mean_entropy_rank": 3.135731121462536
+      },
+      "s2_d1": {
+        "per_head": [
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 2.1861967493788192,
+            "entropy_rank": 3.8568378984342457,
+            "top1_share": 0.6619876657194728
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.3078975898570757,
+            "entropy_rank": 1.8700306787702299,
+            "top1_share": 0.872383919281362
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.3041795401110239,
+            "entropy_rank": 1.9434989974349384,
+            "top1_share": 0.8744995242814798
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.3846769224640871,
+            "entropy_rank": 2.125551002589198,
+            "top1_share": 0.8477202267836741
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.0639622495066139,
+            "entropy_rank": 1.2089902046114944,
+            "top1_share": 0.9693553239888887
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.8528249344402505,
+            "entropy_rank": 3.120206402130853,
+            "top1_share": 0.7225369067799048
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 5.268480555747192,
+            "entropy_rank": 7.837522133952537,
+            "top1_share": 0.3133998895959835
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 3.146893734413667,
+            "entropy_rank": 5.597968161310094,
+            "top1_share": 0.5340573426115192
+          }
+        ],
+        "rank_bound": 16,
+        "mean_numerical_rank": 16.0,
+        "mean_entropy_rank": 3.445075684904199
+      },
+      "s1_d2": {
+        "per_head": [
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 2.233310231890731,
+            "entropy_rank": 4.046937294079258,
+            "top1_share": 0.6557779389642181
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.3965461600198485,
+            "entropy_rank": 2.1317198677285645,
+            "top1_share": 0.8438788612734595
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.3349814857779327,
+            "entropy_rank": 1.997300200628806,
+            "top1_share": 0.8638946735249068
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.5505532206591603,
+            "entropy_rank": 2.493002039909218,
+            "top1_share": 0.7981992134828338
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.1699794314292915,
+            "entropy_rank": 1.5355488570265352,
+            "top1_share": 0.9240274439227695
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.6729817549034312,
+            "entropy_rank": 2.892905863315022,
+            "top1_share": 0.7681616465003221
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 2.892096320118009,
+            "entropy_rank": 5.112777357953983,
+            "top1_share": 0.5627696305311547
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 3.036132042666182,
+            "entropy_rank": 5.374171456420698,
+            "top1_share": 0.5433808113207526
+          }
+        ],
+        "rank_bound": 16,
+        "mean_numerical_rank": 16.0,
+        "mean_entropy_rank": 3.19804536713276
+      },
+      "s2_d2": {
+        "per_head": [
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 2.2304825386583684,
+            "entropy_rank": 3.932748198044191,
+            "top1_share": 0.6544109312607584
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.3024777545978043,
+            "entropy_rank": 1.8607795509065583,
+            "top1_share": 0.8742735193413201
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.3196433495529603,
+            "entropy_rank": 1.9908652709201637,
+            "top1_share": 0.8693002147300963
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.3798096503234125,
+            "entropy_rank": 2.112557692120383,
+            "top1_share": 0.8492430986639443
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.0648421571547404,
+            "entropy_rank": 1.2114114728336183,
+            "top1_share": 0.9689491719797607
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.8579853084702336,
+            "entropy_rank": 3.126620011899628,
+            "top1_share": 0.7213274874935467
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 5.216559607467704,
+            "entropy_rank": 7.836972074181085,
+            "top1_share": 0.32590457672720957
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 3.145165652248967,
+            "entropy_rank": 5.598403363837484,
+            "top1_share": 0.5340784495316058
+          }
+        ],
+        "rank_bound": 16,
+        "mean_numerical_rank": 16.0,
+        "mean_entropy_rank": 3.458794704342889
+      }
+    },
+    "control_spectrum_qr_vs_eig_rel": 2.388176549340922e-12,
+    "control_spectrum_factor_vs_dense_svd_rel": 6.054329884709113e-16,
+    "control_dense_svd_tail_over_rank_bound": 1.138884479887098e-12,
+    "mlp": [
+      {
+        "shape": [
+          128,
+          128,
+          128
+        ],
+        "fro": 9824.5986328125,
+        "unfolding_spectrum": {
+          "numerical_rank": 128,
+          "participation_ratio": 111.46503638408683,
+          "entropy_rank": 119.22834174072027,
+          "top1_share": 0.01916698561857548
+        },
+        "sv_top8": [
+          1988.1707001849159,
+          1705.0352143067967,
+          1581.6178368136407,
+          1531.166520907601,
+          1419.1786938961554,
+          1404.8945640865047,
+          1382.3866892580977,
+          1345.7572217107293
+        ]
+      }
+    ],
+    "top_pairs_delta0": [
+      {
+        "head": 0,
+        "max": [
+          [
+            "260:'d'",
+            "1306:'www'",
+            0.2821893095970154
+          ],
+          [
+            "1:'.'",
+            "1306:'www'",
+            0.24999672174453735
+          ],
+          [
+            "640:'x'",
+            "1306:'www'",
+            0.24725493788719177
+          ],
+          [
+            "7:' of'",
+            "1306:'www'",
+            0.23498712480068207
+          ],
+          [
+            "493:'am'",
+            "1306:'www'",
+            0.21397611498832703
+          ],
+          [
+            "551:'p'",
+            "1306:'www'",
+            0.20250780880451202
+          ],
+          [
+            "63:'/'",
+            "1306:'www'",
+            0.2016218602657318
+          ],
+          [
+            "1202:'&'",
+            "1306:'www'",
+            0.20060189068317413
+          ],
+          [
+            "253:'ve'",
+            "1306:'www'",
+            0.19545544683933258
+          ],
+          [
+            "324:'ll'",
+            "1306:'www'",
+            0.19506612420082092
+          ],
+          [
+            "171:'re'",
+            "1306:'www'",
+            0.1925857663154602
+          ],
+          [
+            "141:'m'",
+            "1306:'www'",
+            0.1920013278722763
+          ],
+          [
+            "537:'E'",
+            "1306:'www'",
+            0.1915077120065689
+          ],
+          [
+            "230:'th'",
+            "1306:'www'",
+            0.19017797708511353
+          ],
+          [
+            "437:'g'",
+            "1306:'www'",
+            0.18855856359004974
+          ],
+          [
+            "260:'d'",
+            "705:'://'",
+            0.1825275421142578
+          ],
+          [
+            "444:'h'",
+            "1306:'www'",
+            0.18244095146656036
+          ],
+          [
+            "412:'l'",
+            "1306:'www'",
+            0.18228983879089355
+          ],
+          [
+            "801:'id'",
+            "1306:'www'",
+            0.1775895357131958
+          ],
+          [
+            "571:'le'",
+            "1306:'www'",
+            0.1759272664785385
+          ]
+        ],
+        "min": [
+          [
+            "260:'d'",
+            "7153:' Corp'",
+            -0.34552380442619324
+          ],
+          [
+            "640:'x'",
+            "7153:' Corp'",
+            -0.31326547265052795
+          ],
+          [
+            "4:'\\n'",
+            "4597:'\u00b7'",
+            -0.3129365146160126
+          ],
+          [
+            "213:' S'",
+            "6600:'THE'",
+            -0.29870399832725525
+          ],
+          [
+            "551:'p'",
+            "4860:' \ufffd'",
+            -0.29813969135284424
+          ],
+          [
+            "7:' of'",
+            "7153:' Corp'",
+            -0.2956656515598297
+          ],
+          [
+            "242:' T'",
+            "6600:'THE'",
+            -0.2938928008079529
+          ],
+          [
+            "1:'.'",
+            "7153:' Corp'",
+            -0.29224541783332825
+          ],
+          [
+            "208:' D'",
+            "6600:'THE'",
+            -0.2917400300502777
+          ],
+          [
+            "4:'\\n'",
+            "1089:'\u2022'",
+            -0.28886571526527405
+          ],
+          [
+            "213:' S'",
+            "7598:' \u00a7'",
+            -0.28589069843292236
+          ],
+          [
+            "7:' of'",
+            "4009:' Secretary'",
+            -0.2857126295566559
+          ],
+          [
+            "1:'.'",
+            "4860:' \ufffd'",
+            -0.28449347615242004
+          ],
+          [
+            "640:'x'",
+            "4860:' \ufffd'",
+            -0.28417229652404785
+          ],
+          [
+            "213:' S'",
+            "5281:'\\\\'",
+            -0.2825126349925995
+          ],
+          [
+            "551:'p'",
+            "7153:' Corp'",
+            -0.27853578329086304
+          ],
+          [
+            "242:' T'",
+            "7873:' vitamin'",
+            -0.2776937186717987
+          ],
+          [
+            "213:' S'",
+            "4860:' \ufffd'",
+            -0.2772323489189148
+          ],
+          [
+            "260:'d'",
+            "4860:' \ufffd'",
+            -0.27659597992897034
+          ],
+          [
+            "1:'.'",
+            "2922:' Ph'",
+            -0.27504056692123413
+          ]
+        ],
+        "abs_mean": 0.006525536999106407,
+        "std": 0.010921911336481571
+      },
+      {
+        "head": 1,
+        "max": [
+          [
+            "87:' them'",
+            "7512:' remind'",
+            0.17423991858959198
+          ],
+          [
+            "87:' them'",
+            "3631:'Are'",
+            0.16957098245620728
+          ],
+          [
+            "87:' them'",
+            "5037:' accused'",
+            0.1687161773443222
+          ],
+          [
+            "70:' also'",
+            "3631:'Are'",
+            0.16708050668239594
+          ],
+          [
+            "61:' out'",
+            "2466:' Check'",
+            0.16458426415920258
+          ],
+          [
+            "139:' now'",
+            "3631:'Are'",
+            0.1634456068277359
+          ],
+          [
+            "61:' out'",
+            "3845:' referred'",
+            0.16297583281993866
+          ],
+          [
+            "61:' out'",
+            "4222:'Check'",
+            0.16220025718212128
+          ],
+          [
+            "87:' them'",
+            "5277:' inform'",
+            0.16208304464817047
+          ],
+          [
+            "70:' also'",
+            "2899:'Let'",
+            0.16094961762428284
+          ],
+          [
+            "87:' them'",
+            "3845:' referred'",
+            0.16091668605804443
+          ],
+          [
+            "207:' still'",
+            "3631:'Are'",
+            0.16036546230316162
+          ],
+          [
+            "20:' it'",
+            "3631:'Are'",
+            0.1602887362241745
+          ],
+          [
+            "87:' them'",
+            "2067:' keeping'",
+            0.1597433239221573
+          ],
+          [
+            "87:' them'",
+            "2404:'Is'",
+            0.15894432365894318
+          ],
+          [
+            "123:' us'",
+            "7512:' remind'",
+            0.15878286957740784
+          ],
+          [
+            "87:' them'",
+            "2466:' Check'",
+            0.15866339206695557
+          ],
+          [
+            "38:' not'",
+            "3631:'Are'",
+            0.15741342306137085
+          ],
+          [
+            "61:' out'",
+            "3631:'Are'",
+            0.15722328424453735
+          ],
+          [
+            "61:' out'",
+            "7512:' remind'",
+            0.1570725291967392
+          ]
+        ],
+        "min": [
+          [
+            "15:'\ufffd'",
+            "1549:'Here'",
+            -0.09733641147613525
+          ],
+          [
+            "15:'\ufffd'",
+            "2899:'Let'",
+            -0.09295406937599182
+          ],
+          [
+            "15:'\ufffd'",
+            "3631:'Are'",
+            -0.09185682237148285
+          ],
+          [
+            "15:'\ufffd'",
+            "6406:'Whether'",
+            -0.08993393182754517
+          ],
+          [
+            "15:'\ufffd'",
+            "6788:'there'",
+            -0.08903409540653229
+          ],
+          [
+            "15:'\ufffd'",
+            "3708:' Whether'",
+            -0.08714666217565536
+          ],
+          [
+            "15:'\ufffd'",
+            "7366:'Does'",
+            -0.08682821691036224
+          ],
+          [
+            "15:'\ufffd'",
+            "5037:' accused'",
+            -0.08627386391162872
+          ],
+          [
+            "15:'\ufffd'",
+            "1871:' Let'",
+            -0.08626502007246017
+          ],
+          [
+            "15:'\ufffd'",
+            "2404:'Is'",
+            -0.08618452399969101
+          ],
+          [
+            "15:'\ufffd'",
+            "4257:'Thank'",
+            -0.08613849431276321
+          ],
+          [
+            "15:'\ufffd'",
+            "4370:'Have'",
+            -0.08579444885253906
+          ],
+          [
+            "15:'\ufffd'",
+            "3994:' Keep'",
+            -0.08427795022726059
+          ],
+          [
+            "15:'\ufffd'",
+            "1118:' Here'",
+            -0.0832911878824234
+          ],
+          [
+            "15:'\ufffd'",
+            "3379:'Click'",
+            -0.08223796635866165
+          ],
+          [
+            "15:'\ufffd'",
+            "2237:'Why'",
+            -0.08222004771232605
+          ],
+          [
+            "15:'\ufffd'",
+            "5795:' Has'",
+            -0.08185597509145737
+          ],
+          [
+            "15:'\ufffd'",
+            "5912:'what'",
+            -0.08182188123464584
+          ],
+          [
+            "15:'\ufffd'",
+            "4022:'Who'",
+            -0.08173256367444992
+          ],
+          [
+            "15:'\ufffd'",
+            "3926:'Where'",
+            -0.08169479668140411
+          ]
+        ],
+        "abs_mean": 0.010518510825932026,
+        "std": 0.01194403599947691
+      },
+      {
+        "head": 2,
+        "max": [
+          [
+            "866:' systems'",
+            "4188:'].'",
+            0.19239604473114014
+          ],
+          [
+            "982:' practice'",
+            "4188:'].'",
+            0.1922341138124466
+          ],
+          [
+            "866:' systems'",
+            "6455:'],'",
+            0.18999814987182617
+          ],
+          [
+            "1291:'ite'",
+            "4188:'].'",
+            0.18985824286937714
+          ],
+          [
+            "360:' services'",
+            "4188:'].'",
+            0.1849440038204193
+          ],
+          [
+            "1291:'ite'",
+            "6455:'],'",
+            0.18399645388126373
+          ],
+          [
+            "220:'ers'",
+            "4188:'].'",
+            0.1833849400281906
+          ],
+          [
+            "2266:' practices'",
+            "4188:'].'",
+            0.18205057084560394
+          ],
+          [
+            "982:' practice'",
+            "6455:'],'",
+            0.18111126124858856
+          ],
+          [
+            "1053:' skills'",
+            "4188:'].'",
+            0.17852327227592468
+          ],
+          [
+            "1233:'les'",
+            "4188:'].'",
+            0.1782686710357666
+          ],
+          [
+            "360:' services'",
+            "6455:'],'",
+            0.17817392945289612
+          ],
+          [
+            "1069:' conditions'",
+            "4188:'].'",
+            0.17808111011981964
+          ],
+          [
+            "1887:' cards'",
+            "4188:'].'",
+            0.17704904079437256
+          ],
+          [
+            "220:'ers'",
+            "6455:'],'",
+            0.176150843501091
+          ],
+          [
+            "1724:' strategy'",
+            "4188:'].'",
+            0.17552560567855835
+          ],
+          [
+            "1251:' sites'",
+            "4188:'].'",
+            0.17525282502174377
+          ],
+          [
+            "2517:' techniques'",
+            "4188:'].'",
+            0.1748560070991516
+          ],
+          [
+            "989:' material'",
+            "4188:'].'",
+            0.17460790276527405
+          ],
+          [
+            "395:' site'",
+            "4188:'].'",
+            0.17435012757778168
+          ]
+        ],
+        "min": [
+          [
+            "2266:' practices'",
+            "4133:' neither'",
+            -0.3188987970352173
+          ],
+          [
+            "982:' practice'",
+            "4133:' neither'",
+            -0.3188254237174988
+          ],
+          [
+            "2024:' experiences'",
+            "4133:' neither'",
+            -0.30462923645973206
+          ],
+          [
+            "360:' services'",
+            "4133:' neither'",
+            -0.30260029435157776
+          ],
+          [
+            "1069:' conditions'",
+            "4133:' neither'",
+            -0.2957445979118347
+          ],
+          [
+            "632:' series'",
+            "4133:' neither'",
+            -0.2937660813331604
+          ],
+          [
+            "1053:' skills'",
+            "4133:' neither'",
+            -0.29267144203186035
+          ],
+          [
+            "2915:' officer'",
+            "4133:' neither'",
+            -0.28988534212112427
+          ],
+          [
+            "1291:'ite'",
+            "4133:' neither'",
+            -0.2892686128616333
+          ],
+          [
+            "3483:'iness'",
+            "4133:' neither'",
+            -0.2886130213737488
+          ],
+          [
+            "1724:' strategy'",
+            "4133:' neither'",
+            -0.28739336133003235
+          ],
+          [
+            "1233:'les'",
+            "4133:' neither'",
+            -0.28536808490753174
+          ],
+          [
+            "625:'ings'",
+            "4133:' neither'",
+            -0.28284934163093567
+          ],
+          [
+            "982:' practice'",
+            "4861:' Retrieved'",
+            -0.28213927149772644
+          ],
+          [
+            "220:'ers'",
+            "4133:' neither'",
+            -0.2813480496406555
+          ],
+          [
+            "1689:' jobs'",
+            "4133:' neither'",
+            -0.2813328802585602
+          ],
+          [
+            "1340:'ions'",
+            "4133:' neither'",
+            -0.279073566198349
+          ],
+          [
+            "866:' systems'",
+            "4133:' neither'",
+            -0.27882570028305054
+          ],
+          [
+            "2970:' aid'",
+            "4133:' neither'",
+            -0.27832740545272827
+          ],
+          [
+            "993:'ations'",
+            "4133:' neither'",
+            -0.27664151787757874
+          ]
+        ],
+        "abs_mean": 0.014873539097607136,
+        "std": 0.016094688326120377
+      },
+      {
+        "head": 3,
+        "max": [
+          [
+            "11:'\ufffd'",
+            "6109:'Join'",
+            0.13588887453079224
+          ],
+          [
+            "11:'\ufffd'",
+            "7302:'Hi'",
+            0.11276820302009583
+          ],
+          [
+            "11:'\ufffd'",
+            "5817:'Welcome'",
+            0.11095234751701355
+          ],
+          [
+            "11:'\ufffd'",
+            "7544:'Hey'",
+            0.1085842028260231
+          ],
+          [
+            "11:'\ufffd'",
+            "5427:'\u00a9'",
+            0.10850916802883148
+          ],
+          [
+            "11:'\ufffd'",
+            "5611:'Contact'",
+            0.10730524361133575
+          ],
+          [
+            "11:'\ufffd'",
+            "6477:' Follow'",
+            0.10690983384847641
+          ],
+          [
+            "11:'\ufffd'",
+            "6862:'Watch'",
+            0.10291922092437744
+          ],
+          [
+            "11:'\ufffd'",
+            "3881:'Posted'",
+            0.10214400291442871
+          ],
+          [
+            "11:'\ufffd'",
+            "7396:'Source'",
+            0.10121024399995804
+          ],
+          [
+            "11:'\ufffd'",
+            "6199:'Use'",
+            0.0995323583483696
+          ],
+          [
+            "11:'\ufffd'",
+            "7554:'Call'",
+            0.0971359834074974
+          ],
+          [
+            "11:'\ufffd'",
+            "6981:'Sign'",
+            0.09696806967258453
+          ],
+          [
+            "11:'\ufffd'",
+            "7234:'Looking'",
+            0.08848535269498825
+          ],
+          [
+            "11:'\ufffd'",
+            "5152:' \u00a9'",
+            0.08647548407316208
+          ],
+          [
+            "11:'\ufffd'",
+            "4222:'Check'",
+            0.08562275022268295
+          ],
+          [
+            "11:'\ufffd'",
+            "4860:' \ufffd'",
+            0.08485499024391174
+          ],
+          [
+            "11:'\ufffd'",
+            "7630:'Photo'",
+            0.0846511647105217
+          ],
+          [
+            "11:'\ufffd'",
+            "7081:' graduated'",
+            0.08453148603439331
+          ],
+          [
+            "11:'\ufffd'",
+            "3379:'Click'",
+            0.08234498649835587
+          ]
+        ],
+        "min": [
+          [
+            "173:' &'",
+            "5915:' garlic'",
+            -0.2976168692111969
+          ],
+          [
+            "130:' through'",
+            "6109:'Join'",
+            -0.27773424983024597
+          ],
+          [
+            "31:' from'",
+            "6109:'Join'",
+            -0.27742359042167664
+          ],
+          [
+            "300:'es'",
+            "6109:'Join'",
+            -0.27724286913871765
+          ],
+          [
+            "173:' &'",
+            "6966:' fruits'",
+            -0.27537158131599426
+          ],
+          [
+            "206:'y'",
+            "6109:'Join'",
+            -0.26921677589416504
+          ],
+          [
+            "130:' through'",
+            "6981:'Sign'",
+            -0.26864108443260193
+          ],
+          [
+            "51:' their'",
+            "6109:'Join'",
+            -0.26702943444252014
+          ],
+          [
+            "1104:'out'",
+            "6109:'Join'",
+            -0.2658718228340149
+          ],
+          [
+            "173:' &'",
+            "7598:' \u00a7'",
+            -0.2651579678058624
+          ],
+          [
+            "1325:'ary'",
+            "6109:'Join'",
+            -0.2639087438583374
+          ],
+          [
+            "51:' their'",
+            "6981:'Sign'",
+            -0.26305654644966125
+          ],
+          [
+            "56:' his'",
+            "6109:'Join'",
+            -0.26230621337890625
+          ],
+          [
+            "31:' from'",
+            "6981:'Sign'",
+            -0.2617938816547394
+          ],
+          [
+            "173:' &'",
+            "3189:' iPhone'",
+            -0.2603656053543091
+          ],
+          [
+            "1315:'ment'",
+            "6109:'Join'",
+            -0.25971484184265137
+          ],
+          [
+            "58:' my'",
+            "6109:'Join'",
+            -0.2591800391674042
+          ],
+          [
+            "197:' around'",
+            "6109:'Join'",
+            -0.25716403126716614
+          ],
+          [
+            "61:' out'",
+            "6109:'Join'",
+            -0.25577253103256226
+          ],
+          [
+            "31:' from'",
+            "8001:' diagnosed'",
+            -0.25418221950531006
+          ]
+        ],
+        "abs_mean": 0.03242761641740799,
+        "std": 0.0193942878395319
+      },
+      {
+        "head": 4,
+        "max": [
+          [
+            "206:'y'",
+            "705:'://'",
+            0.0760185569524765
+          ],
+          [
+            "944:'ley'",
+            "705:'://'",
+            0.07552485167980194
+          ],
+          [
+            "1601:'ner'",
+            "705:'://'",
+            0.07348133623600006
+          ],
+          [
+            "279:'on'",
+            "705:'://'",
+            0.07207333296537399
+          ],
+          [
+            "1616:'ets'",
+            "705:'://'",
+            0.0709790363907814
+          ],
+          [
+            "347:'an'",
+            "705:'://'",
+            0.07059289515018463
+          ],
+          [
+            "411:'able'",
+            "705:'://'",
+            0.07055994123220444
+          ],
+          [
+            "1360:'ry'",
+            "705:'://'",
+            0.06870430707931519
+          ],
+          [
+            "216:'o'",
+            "705:'://'",
+            0.06827914714813232
+          ],
+          [
+            "1291:'ite'",
+            "705:'://'",
+            0.06820932775735855
+          ],
+          [
+            "932:' rate'",
+            "705:'://'",
+            0.06798797100782394
+          ],
+          [
+            "519:' line'",
+            "705:'://'",
+            0.0677478089928627
+          ],
+          [
+            "145:'a'",
+            "705:'://'",
+            0.06763527542352676
+          ],
+          [
+            "1641:'line'",
+            "705:'://'",
+            0.06745506078004837
+          ],
+          [
+            "435:'ie'",
+            "705:'://'",
+            0.06710665673017502
+          ],
+          [
+            "1613:'ler'",
+            "705:'://'",
+            0.06695979833602905
+          ],
+          [
+            "245:'or'",
+            "705:'://'",
+            0.06678622215986252
+          ],
+          [
+            "7416:'hire'",
+            "705:'://'",
+            0.06674585491418839
+          ],
+          [
+            "1277:'less'",
+            "705:'://'",
+            0.06661801040172577
+          ],
+          [
+            "180:'in'",
+            "705:'://'",
+            0.06655088067054749
+          ]
+        ],
+        "min": [
+          [
+            "245:'or'",
+            "2122:'\",'",
+            -0.0841343104839325
+          ],
+          [
+            "245:'or'",
+            "2117:'?\"'",
+            -0.08390510082244873
+          ],
+          [
+            "206:'y'",
+            "3881:'Posted'",
+            -0.08372791856527328
+          ],
+          [
+            "1601:'ner'",
+            "6256:' ranging'",
+            -0.08154091984033585
+          ],
+          [
+            "944:'ley'",
+            "6256:' ranging'",
+            -0.08124153316020966
+          ],
+          [
+            "347:'an'",
+            "6256:' ranging'",
+            -0.08109724521636963
+          ],
+          [
+            "944:'ley'",
+            "3881:'Posted'",
+            -0.08096364140510559
+          ],
+          [
+            "245:'or'",
+            "6256:' ranging'",
+            -0.08075901120901108
+          ],
+          [
+            "206:'y'",
+            "6256:' ranging'",
+            -0.08055008947849274
+          ],
+          [
+            "145:'a'",
+            "6256:' ranging'",
+            -0.07985357195138931
+          ],
+          [
+            "206:'y'",
+            "2117:'?\"'",
+            -0.07974553108215332
+          ],
+          [
+            "245:'or'",
+            "3077:'!\"'",
+            -0.07974080741405487
+          ],
+          [
+            "347:'an'",
+            "2117:'?\"'",
+            -0.07969599217176437
+          ],
+          [
+            "944:'ley'",
+            "2117:'?\"'",
+            -0.07958165556192398
+          ],
+          [
+            "347:'an'",
+            "3881:'Posted'",
+            -0.07954836636781693
+          ],
+          [
+            "279:'on'",
+            "2122:'\",'",
+            -0.0791851356625557
+          ],
+          [
+            "279:'on'",
+            "2117:'?\"'",
+            -0.0790148600935936
+          ],
+          [
+            "145:'a'",
+            "3881:'Posted'",
+            -0.07867256551980972
+          ],
+          [
+            "1601:'ner'",
+            "3881:'Posted'",
+            -0.07850442826747894
+          ],
+          [
+            "245:'or'",
+            "3881:'Posted'",
+            -0.07812415808439255
+          ]
+        ],
+        "abs_mean": 0.016199158504605293,
+        "std": 0.007402721326798201
+      },
+      {
+        "head": 5,
+        "max": [
+          [
+            "29:' or'",
+            "7302:'Hi'",
+            0.26613715291023254
+          ],
+          [
+            "5:' and'",
+            "7302:'Hi'",
+            0.263115257024765
+          ],
+          [
+            "173:' &'",
+            "7302:'Hi'",
+            0.2604057490825653
+          ],
+          [
+            "1914:'ting'",
+            "5817:'Welcome'",
+            0.23926322162151337
+          ],
+          [
+            "94:' than'",
+            "7302:'Hi'",
+            0.23861002922058105
+          ],
+          [
+            "29:' or'",
+            "6774:' shapes'",
+            0.23239882290363312
+          ],
+          [
+            "3896:'uring'",
+            "5427:'\u00a9'",
+            0.23172688484191895
+          ],
+          [
+            "3896:'uring'",
+            "5817:'Welcome'",
+            0.22714729607105255
+          ],
+          [
+            "94:' than'",
+            "983:' terms'",
+            0.226937398314476
+          ],
+          [
+            "1914:'ting'",
+            "7302:'Hi'",
+            0.2268146425485611
+          ],
+          [
+            "205:' C'",
+            "8028:'ye'",
+            0.22484654188156128
+          ],
+          [
+            "173:' &'",
+            "983:' terms'",
+            0.2247980684041977
+          ],
+          [
+            "5933:'owing'",
+            "5817:'Welcome'",
+            0.22372232377529144
+          ],
+          [
+            "173:' &'",
+            "5915:' garlic'",
+            0.2235012799501419
+          ],
+          [
+            "173:' &'",
+            "2923:' Food'",
+            0.2227487415075302
+          ],
+          [
+            "173:' &'",
+            "6774:' shapes'",
+            0.22273066639900208
+          ],
+          [
+            "5:' and'",
+            "6774:' shapes'",
+            0.22036713361740112
+          ],
+          [
+            "29:' or'",
+            "5915:' garlic'",
+            0.22009284794330597
+          ],
+          [
+            "5:' and'",
+            "5817:'Welcome'",
+            0.21865753829479218
+          ],
+          [
+            "1263:'16'",
+            "5817:'Welcome'",
+            0.2166804075241089
+          ]
+        ],
+        "min": [
+          [
+            "3896:'uring'",
+            "43:'\ufffd'",
+            -0.11495108902454376
+          ],
+          [
+            "1385:'ling'",
+            "43:'\ufffd'",
+            -0.10903028398752213
+          ],
+          [
+            "1432:'ize'",
+            "43:'\ufffd'",
+            -0.10845360904932022
+          ],
+          [
+            "2676:'ures'",
+            "43:'\ufffd'",
+            -0.1059831753373146
+          ],
+          [
+            "3386:'oring'",
+            "43:'\ufffd'",
+            -0.10375969856977463
+          ],
+          [
+            "148:' where'",
+            "43:'\ufffd'",
+            -0.10347628593444824
+          ],
+          [
+            "3213:'ured'",
+            "43:'\ufffd'",
+            -0.10300065577030182
+          ],
+          [
+            "31:' from'",
+            "43:'\ufffd'",
+            -0.10166441649198532
+          ],
+          [
+            "80:' if'",
+            "43:'\ufffd'",
+            -0.10113577544689178
+          ],
+          [
+            "5933:'owing'",
+            "43:'\ufffd'",
+            -0.10036420077085495
+          ],
+          [
+            "3031:'ives'",
+            "43:'\ufffd'",
+            -0.10035382956266403
+          ],
+          [
+            "1340:'ions'",
+            "43:'\ufffd'",
+            -0.09972203522920609
+          ],
+          [
+            "5284:'ted'",
+            "43:'\ufffd'",
+            -0.09916646033525467
+          ],
+          [
+            "5115:'ours'",
+            "43:'\ufffd'",
+            -0.09904967248439789
+          ],
+          [
+            "2886:'ify'",
+            "43:'\ufffd'",
+            -0.09872576594352722
+          ],
+          [
+            "1295:'ive'",
+            "43:'\ufffd'",
+            -0.0985504686832428
+          ],
+          [
+            "4415:'ades'",
+            "43:'\ufffd'",
+            -0.09854084253311157
+          ],
+          [
+            "2684:'ides'",
+            "43:'\ufffd'",
+            -0.09852363914251328
+          ],
+          [
+            "75:' when'",
+            "43:'\ufffd'",
+            -0.09834916144609451
+          ],
+          [
+            "1076:'time'",
+            "43:'\ufffd'",
+            -0.09787927567958832
+          ]
+        ],
+        "abs_mean": 0.02488664910197258,
+        "std": 0.017375942319631577
+      },
+      {
+        "head": 6,
+        "max": [
+          [
+            "11:'\ufffd'",
+            "5616:' hip'",
+            0.3341255187988281
+          ],
+          [
+            "11:'\ufffd'",
+            "8061:' Cov'",
+            0.3334712088108063
+          ],
+          [
+            "11:'\ufffd'",
+            "7279:' Wi'",
+            0.33141690492630005
+          ],
+          [
+            "15:'\ufffd'",
+            "8061:' Cov'",
+            0.2918660044670105
+          ],
+          [
+            "11:'\ufffd'",
+            "2409:' award'",
+            0.2811153531074524
+          ],
+          [
+            "11:'\ufffd'",
+            "3590:'VID'",
+            0.28102266788482666
+          ],
+          [
+            "498:'W'",
+            "7279:' Wi'",
+            0.2777805030345917
+          ],
+          [
+            "498:'W'",
+            "8061:' Cov'",
+            0.276638925075531
+          ],
+          [
+            "11:'\ufffd'",
+            "1202:'&'",
+            0.2717169523239136
+          ],
+          [
+            "340:'F'",
+            "8061:' Cov'",
+            0.2599627673625946
+          ],
+          [
+            "498:'W'",
+            "5616:' hip'",
+            0.25972917675971985
+          ],
+          [
+            "11:'\ufffd'",
+            "1092:' built'",
+            0.2596077024936676
+          ],
+          [
+            "391:'G'",
+            "8061:' Cov'",
+            0.2590215504169464
+          ],
+          [
+            "340:'F'",
+            "7279:' Wi'",
+            0.25478872656822205
+          ],
+          [
+            "391:'G'",
+            "7279:' Wi'",
+            0.2538675367832184
+          ],
+          [
+            "11:'\ufffd'",
+            "4836:' 1980'",
+            0.25370484590530396
+          ],
+          [
+            "11:'\ufffd'",
+            "2660:' African'",
+            0.25228187441825867
+          ],
+          [
+            "209:\"'\"",
+            "8061:' Cov'",
+            0.2511638104915619
+          ],
+          [
+            "15:'\ufffd'",
+            "5871:' vol'",
+            0.25097212195396423
+          ],
+          [
+            "11:'\ufffd'",
+            "7492:' 1950'",
+            0.2495451122522354
+          ]
+        ],
+        "min": [
+          [
+            "10:'-'",
+            "8061:' Cov'",
+            -0.47984594106674194
+          ],
+          [
+            "10:'-'",
+            "5616:' hip'",
+            -0.47561609745025635
+          ],
+          [
+            "10:'-'",
+            "7279:' Wi'",
+            -0.45522111654281616
+          ],
+          [
+            "10:'-'",
+            "3590:'VID'",
+            -0.40149518847465515
+          ],
+          [
+            "10:'-'",
+            "2409:' award'",
+            -0.3798419237136841
+          ],
+          [
+            "536:'\u2013'",
+            "8061:' Cov'",
+            -0.3664614260196686
+          ],
+          [
+            "10:'-'",
+            "2660:' African'",
+            -0.3606114387512207
+          ],
+          [
+            "10:'-'",
+            "1092:' built'",
+            -0.36020055413246155
+          ],
+          [
+            "10:'-'",
+            "790:'year'",
+            -0.3444812297821045
+          ],
+          [
+            "10:'-'",
+            "1202:'&'",
+            -0.3344479501247406
+          ],
+          [
+            "1186:'@'",
+            "5616:' hip'",
+            -0.3270470201969147
+          ],
+          [
+            "536:'\u2013'",
+            "7279:' Wi'",
+            -0.3216538727283478
+          ],
+          [
+            "536:'\u2013'",
+            "5616:' hip'",
+            -0.31171146035194397
+          ],
+          [
+            "10:'-'",
+            "5474:'month'",
+            -0.31166544556617737
+          ],
+          [
+            "10:'-'",
+            "2854:'you'",
+            -0.3081197440624237
+          ],
+          [
+            "10:'-'",
+            "5887:'they'",
+            -0.306822270154953
+          ],
+          [
+            "10:'-'",
+            "6253:' 1960'",
+            -0.30657196044921875
+          ],
+          [
+            "536:'\u2013'",
+            "1202:'&'",
+            -0.3060767948627472
+          ],
+          [
+            "10:'-'",
+            "4836:' 1980'",
+            -0.3055993616580963
+          ],
+          [
+            "536:'\u2013'",
+            "3590:'VID'",
+            -0.305225133895874
+          ]
+        ],
+        "abs_mean": 0.003140054875984788,
+        "std": 0.006233358755707741
+      },
+      {
+        "head": 7,
+        "max": [
+          [
+            "108:\"'t\"",
+            "1882:' wouldn'",
+            0.33472031354904175
+          ],
+          [
+            "108:\"'t\"",
+            "3891:' hasn'",
+            0.32732290029525757
+          ],
+          [
+            "108:\"'t\"",
+            "4219:' shouldn'",
+            0.32009199261665344
+          ],
+          [
+            "108:\"'t\"",
+            "511:' doesn'",
+            0.31627270579338074
+          ],
+          [
+            "108:\"'t\"",
+            "1918:' haven'",
+            0.3119092583656311
+          ],
+          [
+            "108:\"'t\"",
+            "5414:' hadn'",
+            0.3104255199432373
+          ],
+          [
+            "47:' \ufffd'",
+            "43:'\ufffd'",
+            0.30827978253364563
+          ],
+          [
+            "108:\"'t\"",
+            "415:' didn'",
+            0.28859180212020874
+          ],
+          [
+            "108:\"'t\"",
+            "548:' won'",
+            0.2821609377861023
+          ],
+          [
+            "108:\"'t\"",
+            "1081:' wasn'",
+            0.27589911222457886
+          ],
+          [
+            "108:\"'t\"",
+            "1632:' couldn'",
+            0.27588269114494324
+          ],
+          [
+            "65:'t'",
+            "1882:' wouldn'",
+            0.27277329564094543
+          ],
+          [
+            "65:'t'",
+            "511:' doesn'",
+            0.26699525117874146
+          ],
+          [
+            "108:\"'t\"",
+            "778:' isn'",
+            0.26546511054039
+          ],
+          [
+            "65:'t'",
+            "4219:' shouldn'",
+            0.26038703322410583
+          ],
+          [
+            "108:\"'t\"",
+            "4057:' weren'",
+            0.2486027628183365
+          ],
+          [
+            "108:\"'t\"",
+            "164:' don'",
+            0.24850048124790192
+          ],
+          [
+            "11:'\ufffd'",
+            "43:'\ufffd'",
+            0.24700333178043365
+          ],
+          [
+            "53:'?'",
+            "43:'\ufffd'",
+            0.2455974817276001
+          ],
+          [
+            "108:\"'t\"",
+            "1705:' aren'",
+            0.244229257106781
+          ]
+        ],
+        "min": [
+          [
+            "47:' \ufffd'",
+            "44:'\ufffd'",
+            -0.3123541474342346
+          ],
+          [
+            "66:'!'",
+            "44:'\ufffd'",
+            -0.2329517900943756
+          ],
+          [
+            "53:'?'",
+            "44:'\ufffd'",
+            -0.2316359430551529
+          ],
+          [
+            "11:'\ufffd'",
+            "44:'\ufffd'",
+            -0.23147888481616974
+          ],
+          [
+            "65:'t'",
+            "15:'\ufffd'",
+            -0.206231027841568
+          ],
+          [
+            "21:'s'",
+            "15:'\ufffd'",
+            -0.1881284862756729
+          ],
+          [
+            "47:' \ufffd'",
+            "62:'<|endoftext|>'",
+            -0.1838838756084442
+          ],
+          [
+            "1:'.'",
+            "44:'\ufffd'",
+            -0.1808902770280838
+          ],
+          [
+            "65:'t'",
+            "5407:'`'",
+            -0.17864196002483368
+          ],
+          [
+            "21:'s'",
+            "5407:'`'",
+            -0.1745932251214981
+          ],
+          [
+            "66:'!'",
+            "62:'<|endoftext|>'",
+            -0.1706845760345459
+          ],
+          [
+            "53:'?'",
+            "62:'<|endoftext|>'",
+            -0.15718680620193481
+          ],
+          [
+            "42:')'",
+            "62:'<|endoftext|>'",
+            -0.14817476272583008
+          ],
+          [
+            "171:'re'",
+            "15:'\ufffd'",
+            -0.1397235095500946
+          ],
+          [
+            "324:'ll'",
+            "15:'\ufffd'",
+            -0.1393178105354309
+          ],
+          [
+            "2114:'ane'",
+            "62:'<|endoftext|>'",
+            -0.13837364315986633
+          ],
+          [
+            "768:'.)'",
+            "62:'<|endoftext|>'",
+            -0.13734446465969086
+          ],
+          [
+            "1601:'ner'",
+            "62:'<|endoftext|>'",
+            -0.13640311360359192
+          ],
+          [
+            "944:'ley'",
+            "62:'<|endoftext|>'",
+            -0.13421443104743958
+          ],
+          [
+            "65:'t'",
+            "21:'s'",
+            -0.133900448679924
+          ]
+        ],
+        "abs_mean": 0.005953691434115171,
+        "std": 0.006435370072722435
+      }
+    ],
+    "artifact": "tf_vanilla_d1_w128_v8192_s0_fold.npz",
+    "artifact_mib": 25.15
+  }
+}

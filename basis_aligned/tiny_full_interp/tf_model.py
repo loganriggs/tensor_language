@@ -55,6 +55,7 @@ must reduce to its parent (variant_reduction_test):
   codebook(qz_on False)                    == bandwidth   (bit-exact, 0.0)
   shrink(mode 'control')                   == slots
 """
+import copy
 import math
 import os
 from dataclasses import dataclass
@@ -200,10 +201,11 @@ def solve_slot(cfg):
 
 
 # ---------------------------------------------------------------- rotary
-def rope_tables_exact(T, hd, device='cpu'):
-    """Verbatim from ../qk_mdl/qk_tokenline_train.py."""
-    inv = 1.0 / (10000 ** (torch.arange(0, hd, 2, dtype=torch.float32) / hd))
-    t = torch.arange(T, dtype=torch.float32)
+def rope_tables_exact(T, hd, device='cpu', dtype=torch.float32):
+    """Verbatim from ../qk_mdl/qk_tokenline_train.py (dtype added so the whole
+    model, buffers included, can be rebuilt in fp64 for exactness checks)."""
+    inv = 1.0 / (10000 ** (torch.arange(0, hd, 2, dtype=dtype) / hd))
+    t = torch.arange(T, dtype=dtype)
     fr = torch.outer(t, inv)
     return fr.cos().to(device), fr.sin().to(device)
 
@@ -214,15 +216,20 @@ def apply_rot(x, c, s):
     return torch.cat([x1 * c + x2 * s, -x1 * s + x2 * c], -1)
 
 
-def rot_matrix(delta, hd, device='cpu'):
+def rot_matrix(delta, hd, device='cpu', dtype=torch.float32):
     """(hd, hd) matrix R with  q^T R(delta) k == <apply_rot(q, c_i, s_i),
     apply_rot(k, c_j, s_j)>  for delta = i - j.  Built by pushing the identity
-    through the SAME apply_rot code the forward uses, so it cannot drift."""
-    inv = 1.0 / (10000 ** (torch.arange(0, hd, 2, dtype=torch.float64) / hd))
+    through the SAME apply_rot code the forward uses, so it cannot drift.
+
+    `inv` is built at the SAME dtype rope_tables_exact uses, so the folded
+    rotation and the forward's rotation round identically; building it in fp64
+    and rounding to fp32 (what this did before) put a 1-ulp wedge between the
+    two paths that showed up in the attention-table identity."""
+    inv = 1.0 / (10000 ** (torch.arange(0, hd, 2, dtype=dtype) / hd))
     th = float(delta) * inv
-    c = th.cos().to(torch.float32).to(device)
-    s = th.sin().to(torch.float32).to(device)
-    return apply_rot(torch.eye(hd, device=device), c, s)
+    c = th.cos().to(device)
+    s = th.sin().to(device)
+    return apply_rot(torch.eye(hd, device=device, dtype=dtype), c, s)
 
 
 def match_kernels(idx, maskf):
@@ -629,7 +636,7 @@ class TinyBilin(nn.Module):
         if materialize:
             tabs = {}
             for d in deltas:
-                R = rot_matrix(d, hd, dev).to(dtype)
+                R = rot_matrix(d, hd, dev, dtype)
                 s1 = torch.empty(len(hs), V, V, dtype=dtype)
                 s2 = torch.empty(len(hs), V, V, dtype=dtype)
                 for a, h in enumerate(hs):
@@ -640,7 +647,7 @@ class TinyBilin(nn.Module):
         return out
 
     @torch.no_grad()
-    def fold_mlp(self, li=0, device=None, chunk=None):
+    def fold_mlp(self, li=0, device=None, chunk=None, dtype=None):
         """RUNG 1, MLP.  The exact symmetric third-order tensor
             T[o,i,j] = 1/2 sum_f Down[o,f] (Left[f,i] Right[f,j]
                                             + Left[f,j] Right[f,i])
@@ -649,12 +656,13 @@ class TinyBilin(nn.Module):
         Shape (out, Ws, Ws) -- `out` is s for small decoders, Ws otherwise."""
         blk = self.h[li]
         dev = device or self.wte.weight.device
-        Dn = blk.Down.weight.detach().float().to(dev)
-        L = blk.Left.weight.detach().float().to(dev)
-        R = blk.Right.weight.detach().float().to(dev)
+        dt = dtype or torch.float32
+        Dn = blk.Down.weight.detach().to(dt).to(dev)
+        L = blk.Left.weight.detach().to(dt).to(dev)
+        R = blk.Right.weight.detach().to(dt).to(dev)
         O, Ws = Dn.shape[0], L.shape[1]
         chunk = chunk or max(1, min(O, 1 + (1 << 24) // max(1, Ws * Ws)))
-        T = torch.empty(O, Ws, Ws)
+        T = torch.empty(O, Ws, Ws, dtype=dt)
         for a in range(0, O, chunk):
             b = min(a + chunk, O)
             M = torch.einsum('of,fi,fj->oij', Dn[a:b], L, R)
@@ -670,22 +678,30 @@ class TinyBilin(nn.Module):
         -- that is exactly the honest statement of what folds.  Variant
         mechanisms (predicate terms, quantization, remnants) are reused rather
         than re-derived: the gate certifies the FOLD objects, not those helpers.
-        Deliberately a separate implementation from forward()."""
+        Deliberately a separate implementation from forward().
+
+        DTYPE: every object is built at the module's own parameter dtype (`dt`),
+        so `model.double()` gives a genuine fp64 comparison instead of silently
+        mixing an fp32 fold into an fp64 forward.  Nothing here is hard-cast to
+        float32 any more."""
         cfg = self.cfg
         Ws, Dc, H, hd = self.Ws, self.Dc, cfg.n_heads, cfg.head_dim
         B, Tq = idx.shape
         dev = idx.device
-        fold = fold or self.fold_layer0_qk(materialize=False, device=dev)
-        mlp_tensors = mlp_tensors or [self.fold_mlp(li, device=dev).to(dev)
-                                      for li in range(cfg.depth)]
-        cos = self.cos[None, :Tq, None, :]
-        sin = self.sin[None, :Tq, None, :]
+        dt = self.wte.weight.dtype
+        fold = fold or self.fold_layer0_qk(materialize=False, device=dev,
+                                           dtype=dt)
+        mlp_tensors = mlp_tensors or [
+            self.fold_mlp(li, device=dev, dtype=dt).to(dev)
+            for li in range(cfg.depth)]
+        cos = self.cos[None, :Tq, None, :].to(dt)
+        sin = self.sin[None, :Tq, None, :].to(dt)
         mask = self.mask[:Tq, :Tq]
-        maskf = mask.float()
+        maskf = mask.to(dt)
         if self.pred_on:
             Kprev, Ksame = match_kernels(idx, maskf)
         cache = {} if self.qz_on else None
-        e = F.rms_norm(self.wte(idx).float(), (Ws,))
+        e = F.rms_norm(self.wte(idx).to(dt), (Ws,))
         rem = self.remnants(e)
         streams = [None]
 
@@ -707,29 +723,29 @@ class TinyBilin(nn.Module):
                 v = fold['Vv'].permute(1, 0, 2)[idx]
             else:
                 def qkf(lin):
-                    z = (hn @ lin.weight.detach().float().t()).view(B, Tq, H, hd)
+                    z = (hn @ lin.weight.detach().to(dt).t()).view(B, Tq, H, hd)
                     return apply_rot(F.rms_norm(z, (hd,)), cos, sin)
 
                 q, k = qkf(blk.c_q), qkf(blk.c_k)
                 q2, k2 = qkf(blk.c_q2), qkf(blk.c_k2)
-                v = (hn @ blk.c_v.weight.detach().float().t()).view(B, Tq, H, hd)
+                v = (hn @ blk.c_v.weight.detach().to(dt).t()).view(B, Tq, H, hd)
             s1 = torch.einsum('bqhd,bkhd->bhqk', q, k) / hd
             s2 = torch.einsum('bqhd,bkhd->bhqk', q2, k2) / hd
             pat = (s1 * s2).masked_fill(~mask, 0.0)
             if self.pred_on:
                 pat = pat + self.pred_terms(l, Kprev, Ksame, maskf, Tq)
             y = torch.einsum('bhqk,bkhd->bqhd', pat, v).reshape(B, Tq, Dc)
-            aw = self.write_out(y @ blk.c_proj.weight.detach().float().t(),
+            aw = self.write_out(y @ blk.c_proj.weight.detach().to(dt).t(),
                                 2 * l, B, Tq)
             x = x + aw
             xn = self._qz_full(self.slot_norm(x), 2 * l + 1, cache, None)
             mw = self.write_out(
                 torch.einsum('oij,bti,btj->bto', mlp_tensors[l], xn, xn)
-                + blk.Down_bias.detach().float(), 2 * l + 1, B, Tq)
+                + blk.Down_bias.detach().to(dt), 2 * l + 1, B, Tq)
             streams.append(aw)
             streams.append(mw)
         x = F.rms_norm(entry(cfg.depth), (Ws,))
-        return 30 * torch.tanh((x @ self.wte.weight.detach().float().t()) / 30)
+        return 30 * torch.tanh((x @ self.wte.weight.detach().to(dt).t()) / 30)
 
     def n_params(self):
         return sum(p.numel() for p in self.parameters())
@@ -759,80 +775,238 @@ def _maxdiff(a, b):
     return float((a - b).abs().max())
 
 
+def cast_model(model, dtype=torch.float64):
+    """DEEP COPY of `model` with parameters AND floating buffers at `dtype`,
+    with the rotary tables REBUILT at that dtype.
+
+    Rebuilding matters: `.double()` alone merely upcasts the fp32 cos/sin, so an
+    'fp64' check would still carry fp32 rounding in the rotary and the rotary,
+    not the fold, would set the error floor.  The bool causal mask and the
+    integer codebook counters are left alone by .to(dtype)."""
+    m = copy.deepcopy(model).to(dtype)
+    dev = m.wte.weight.device
+    cos, sin = rope_tables_exact(m.cfg.T, m.cfg.head_dim, 'cpu', dtype)
+    m.cos, m.sin = cos.to(dev), sin.to(dev)
+    return m.eval()
+
+
 @torch.no_grad()
-def check_fold_identities(model, idx, tol_attn=1e-6, tol_mlp=1e-6,
-                          tol_logit=1e-5, verbose=True):
+def _fold_identity_body(model, idx, verbose=False):
+    """The three algebraic identities plus the end-to-end one, all evaluated at
+    whatever dtype `model` already carries.  Returns (numbers, reference
+    logits) -- no verdict, and the logits so the caller can calibrate the fp32
+    noise floor of the reference itself against fp64."""
+    res = {}
+    cfg = model.cfg
+    dev = idx.device
+    Ws = model.Ws
+    dt = model.wte.weight.dtype
+    g = torch.Generator(device='cpu').manual_seed(20260808)
+    for li in range(cfg.depth):
+        T = model.fold_mlp(li, device=dev, dtype=dt).to(dev)
+        blk = model.h[li]
+        z = torch.randn(64, Ws, generator=g, dtype=dt).to(dev)
+        direct = blk.Down(blk.Left(z) * blk.Right(z))
+        folded = torch.einsum('oij,bi,bj->bo', T, z, z)
+        # denominator floored: a ZERO-init decoder makes both sides exactly
+        # 0 and 0/0 would read as NaN.  Such a check is vacuous, not
+        # passing -- __main__ perturbs zero decoders before gating.
+        res[f'mlp_tensor_identity_l{li}_relmax'] = float(
+            (direct - folded).abs().max() / direct.abs().max().clamp_min(1e-30))
+        x = torch.randn(64, Ws, generator=g, dtype=dt).to(dev) * 7.0
+        zz = F.rms_norm(x, (Ws,))
+        d2 = blk.Down(blk.Left(zz) * blk.Right(zz))
+        gauge = torch.einsum('oij,bi,bj->bo', T, x, x) \
+            * (Ws / x.pow(2).sum(-1, keepdim=True))
+        res[f'mlp_rmsnorm_gauge_l{li}_relmax'] = float(
+            (d2 - gauge).abs().max() / d2.abs().max().clamp_min(1e-30))
+        res[f'decoder_absmax_l{li}'] = float(blk.Down.weight.abs().max())
+        del T
+    # ---- (c) layer-0 attention tables ----
+    pats = []
+    _ = model(idx, pat_out=pats)
+    pat0 = pats[0].to(dt)
+    B, H, Tq, _ = pat0.shape
+    ds = tuple(d for d in (0, 1, 2, 5) if d < Tq)
+    fold = model.fold_layer0_qk(deltas=ds, materialize=True, device=dev,
+                                dtype=dt)
+    worst = 0.0
+    maskf = model.mask[:Tq, :Tq].to(dt)
+    pt = model.pred_terms(0, *match_kernels(idx, maskf), maskf, Tq) \
+        if model.pred_on else None
+    for d in ds:
+        i = torch.arange(d, Tq, device=dev)
+        j = i - d
+        s1 = fold['tables'][d]['s1'].to(dev)
+        s2 = fold['tables'][d]['s2'].to(dev)
+        qt, kt = idx[:, i], idx[:, j]
+        rebuilt = torch.stack(
+            [s1[h][qt, kt] * s2[h][qt, kt] for h in range(H)], 1)
+        if pt is not None:
+            rebuilt = rebuilt + pt[:, :, i, j]
+        ref = pat0[:, :, i, j]
+        worst = max(worst, float((rebuilt - ref).abs().max()
+                                 / ref.abs().max().clamp_min(1e-12)))
+        del s1, s2
+    res['attn_layer0_table_identity_relmax'] = worst
+    del fold
+    # ---- (d) whole model ----
+    ref = model(idx)
+    rec = model.fold_forward(idx)
+    res['fold_forward_max_logit_diff'] = _maxdiff(rec, ref)
+    res['logit_absmax'] = float(ref.abs().max())
+    res['fold_forward_rel_logit_diff'] = float(
+        res['fold_forward_max_logit_diff']
+        / max(res['logit_absmax'], 1e-30))
+    if verbose:
+        for k, v in res.items():
+            print(f'    [{dt}] {k}: {v}', flush=True)
+    return res, ref
+
+
+@torch.no_grad()
+def check_fold_identities(model, idx, tol_attn=1e-5, tol_mlp=1e-5,
+                          tol_logit_rel=1e-5, tol_logit_fp64=1e-9,
+                          tol_algebraic_fp64=1e-12,
+                          tol_noise_multiple=10.0, fp64=True, verbose=True):
     """HARD GATE.  Both sides inside exact_math() (tf32 off SYMMETRICALLY).
       (a) MLP tensor identity   T(z,z) == Down(Left(z)*Right(z))
       (b) RMSNorm gauge         MLP(rms(x)) == T(x,x)*Ws/||x||^2
       (c) layer-0 attention table identity at several relative distances
-      (d) whole-model identity  fold_forward == forward   (max logit diff)
+      (d) whole-model identity  fold_forward == forward
+
+    Criterion for (d), corrected 2026-08-08.  The old gate compared an ABSOLUTE
+    max logit difference against 1e-5 while every other check was relative.
+    That is not a scale-free criterion: these logits live on 30*tanh(.../30) so
+    they reach ~10-20, and one fp32 ulp at 16 is already 1e-6 -- an absolute
+    1e-5 budget is ~8 ulps for a forward pass that accumulates thousands of
+    fp32 roundings.  Four of six trained cells failed it while EVERY algebraic
+    identity passed at 2e-7, which is the signature of a precision floor, not a
+    wrong fold.  The corrected gate has three parts and is strictly STRONGER:
+
+      * fp64 ABSOLUTE  max|diff| < tol_logit_fp64 (1e-9).  THIS is the real
+        exactness gate.  If the fold were algebraically wrong the fp64 residual
+        would sit at the size of the error; observed values are ~3e-14, i.e.
+        ~10 fp64 ulps at logit magnitude 15.
+      * fp32 RELATIVE  max|diff| / max|logit| < tol_logit_rel (1e-5).  A
+        scale-free version of the old check.  Justification: fp32 eps = 1.19e-7
+        and the folded and unfolded paths perform the same O(1e3-1e4)
+        multiply-accumulates in a DIFFERENT ORDER, so a random-walk rounding
+        bound is ~sqrt(N)*eps ~ 1e-5 relative.
+      * CALIBRATED against the reference's own fp32 noise.  The gate also
+        measures max|forward_fp32 - forward_fp64| / max|logit| -- how far the
+        UNFOLDED forward is from its own exact value -- and requires the
+        fold-vs-forward disagreement to be no more than tol_noise_multiple
+        (10x) that floor.  This is the part that would catch a genuine but
+        small bug hiding under a fixed 1e-5: a correct fold cannot disagree
+        with the forward by much more than the forward disagrees with itself.
     """
     res = {}
     with exact_math():
-        model = model.float().eval()
-        cfg = model.cfg
-        dev = idx.device
-        Ws = model.Ws
-        for li in range(cfg.depth):
-            T = model.fold_mlp(li, device=dev).to(dev)
-            blk = model.h[li]
-            z = torch.randn(64, Ws, device=dev)
-            direct = blk.Down(blk.Left(z) * blk.Right(z))
-            folded = torch.einsum('oij,bi,bj->bo', T, z, z)
-            # denominator floored: a ZERO-init decoder makes both sides exactly
-            # 0 and 0/0 would read as NaN.  Such a check is vacuous, not
-            # passing -- __main__ perturbs zero decoders before gating.
-            res[f'mlp_tensor_identity_l{li}_relmax'] = float(
-                (direct - folded).abs().max() / direct.abs().max().clamp_min(1e-30))
-            x = torch.randn(64, Ws, device=dev) * 7.0
-            zz = F.rms_norm(x, (Ws,))
-            d2 = blk.Down(blk.Left(zz) * blk.Right(zz))
-            gauge = torch.einsum('oij,bi,bj->bo', T, x, x) \
-                * (Ws / x.pow(2).sum(-1, keepdim=True))
-            res[f'mlp_rmsnorm_gauge_l{li}_relmax'] = float(
-                (d2 - gauge).abs().max() / d2.abs().max().clamp_min(1e-30))
-            res[f'decoder_absmax_l{li}'] = float(blk.Down.weight.abs().max())
-            del T
-        # ---- (c) layer-0 attention tables ----
-        pats = []
-        _ = model(idx, pat_out=pats)
-        pat0 = pats[0].float()
-        B, H, Tq, _ = pat0.shape
-        ds = tuple(d for d in (0, 1, 2, 5) if d < Tq)
-        fold = model.fold_layer0_qk(deltas=ds, materialize=True, device=dev)
-        worst = 0.0
-        pt = model.pred_terms(0, *match_kernels(idx, model.mask[:Tq, :Tq].float()),
-                              model.mask[:Tq, :Tq].float(), Tq) \
-            if model.pred_on else None
-        for d in ds:
-            i = torch.arange(d, Tq, device=dev)
-            j = i - d
-            s1 = fold['tables'][d]['s1'].to(dev)
-            s2 = fold['tables'][d]['s2'].to(dev)
-            qt, kt = idx[:, i], idx[:, j]
-            rebuilt = torch.stack(
-                [s1[h][qt, kt] * s2[h][qt, kt] for h in range(H)], 1)
-            if pt is not None:
-                rebuilt = rebuilt + pt[:, :, i, j]
-            ref = pat0[:, :, i, j]
-            worst = max(worst, float((rebuilt - ref).abs().max()
-                                     / ref.abs().max().clamp_min(1e-12)))
-            del s1, s2
-        res['attn_layer0_table_identity_relmax'] = worst
-        del fold
-        # ---- (d) whole model ----
-        ref = model(idx).float()
-        rec = model.fold_forward(idx).float()
-        res['fold_forward_max_logit_diff'] = _maxdiff(rec, ref)
-    res['pass'] = bool(
+        r32, ref32 = _fold_identity_body(model.float().eval(), idx,
+                                         verbose=False)
+        res.update(r32)
+        if fp64:
+            m64 = cast_model(model, torch.float64)
+            r64, ref64 = _fold_identity_body(m64, idx, verbose=False)
+            for k, v in r64.items():
+                res[f'fp64_{k}'] = v
+            sc = max(float(ref64.abs().max()), 1e-30)
+            res['fp32_forward_vs_fp64_forward_rel'] = float(
+                (ref32.double() - ref64).abs().max()) / sc
+            res['fold_vs_forward_over_fp32_selfnoise'] = float(
+                res['fold_forward_rel_logit_diff']
+                / max(res['fp32_forward_vs_fp64_forward_rel'], 1e-30))
+            del m64
+    fp32_ok = bool(
         all(v < tol_mlp for k, v in res.items() if k.startswith('mlp_'))
         and res['attn_layer0_table_identity_relmax'] < tol_attn
-        and res['fold_forward_max_logit_diff'] < tol_logit)
+        and res['fold_forward_rel_logit_diff'] < tol_logit_rel)
+    fp64_ok = (not fp64) or bool(
+        all(v < tol_algebraic_fp64
+            for k, v in res.items() if k.startswith('fp64_mlp_'))
+        and res['fp64_attn_layer0_table_identity_relmax'] < tol_algebraic_fp64
+        and res['fp64_fold_forward_max_logit_diff'] < tol_logit_fp64
+        and res['fold_vs_forward_over_fp32_selfnoise'] < tol_noise_multiple)
+    res['fp32_sanity_pass'] = fp32_ok
+    res['fp64_exactness_pass'] = fp64_ok
+    res['pass'] = bool(fp32_ok and fp64_ok)
+    res['criterion'] = {
+        'fp32_sanity': {'mlp_rel': tol_mlp, 'attn_rel': tol_attn,
+                        'logit_rel': tol_logit_rel},
+        'fp64_exactness': {'algebraic_rel': tol_algebraic_fp64,
+                           'logit_abs': tol_logit_fp64,
+                           'noise_multiple': tol_noise_multiple},
+        'note': 'TWO-TIER.  fp32 tier is a scale-free sanity band sized by '
+                'sqrt(N)*eps_fp32 ~ 1e-5; fp64 tier is the real exactness '
+                'gate (algebraic identities to 1e-12 relative, end-to-end to '
+                '1e-9 absolute) plus a calibration requiring the fold-vs-'
+                'forward gap to stay within 10x the forward pass own fp32-vs-'
+                'fp64 self-noise.  SUPERSEDED: the old absolute-1e-5-fp32 '
+                'logit criterion and the 1e-6 fp32 algebraic criteria, which '
+                'together failed 5/6 cells on rounding alone while every fp64 '
+                'residual sat at 1e-14 to 1e-16.'}
     if verbose:
         for k, v in res.items():
             print(f'  fold gate {k}: {v}', flush=True)
     return res
+
+
+@torch.no_grad()
+def gate_negative_control(device='cuda', width=32, vocab=128, depth=1):
+    """NEGATIVE CONTROL FOR THE GATE ITSELF.  A gate that has just been LOOSENED
+    is worthless unless it still fails on a wrong fold, so this corrupts the
+    fold in two ways and requires pass=False for both:
+
+      (i)  MLP tensor scaled by 1 + 1e-7.  A relative perturbation ~100x SMALLER
+           than the old absolute 1e-5 logit budget: the superseded gate would
+           have waved it through, the fp64 tier must not.
+      (ii) the value factors Vv rolled by one head -- a gross rewiring.
+
+    Recorded non-corruption (a real gauge freedom, not a bug): dropping the
+    0.5*(M + M^T) symmetrization in fold_mlp changes T but NOT the quadratic
+    form T(z,z), so it is undetectable by construction and is not used here."""
+    cfg = TFConfig(depth=depth, width=width, vocab=vocab, variant='vanilla')
+    m = make_model(cfg, device)
+    with torch.no_grad():
+        gp = torch.Generator().manual_seed(11)
+        for blk in m.h:
+            for p in (blk.c_proj.weight, blk.Down.weight):
+                p.copy_(torch.randn(p.shape, generator=gp) * 0.05)
+            blk.Down_bias.copy_(
+                torch.randn(blk.Down_bias.shape, generator=gp) * 0.01)
+    idx = torch.randint(0, vocab, (2, 32), device=device)
+    out = {'clean_pass': bool(check_fold_identities(m, idx,
+                                                    verbose=False)['pass'])}
+
+    def corrupt(tag, mlp_scale=1.0, roll_v=0):
+        orig_mlp, orig_qk = m.fold_mlp, m.fold_layer0_qk
+
+        def fm(*a, **kw):
+            return orig_mlp(*a, **kw) * mlp_scale
+
+        def fq(*a, **kw):
+            f = orig_qk(*a, **kw)
+            if roll_v:
+                f['Vv'] = torch.roll(f['Vv'], roll_v, 0)
+            return f
+        m.fold_mlp, m.fold_layer0_qk = fm, fq
+        try:
+            r = check_fold_identities(m, idx, verbose=False)
+        finally:
+            m.fold_mlp, m.fold_layer0_qk = orig_mlp, orig_qk
+        out[f'{tag}_pass'] = bool(r['pass'])
+        out[f'{tag}_fp64_logit_abs'] = r['fp64_fold_forward_max_logit_diff']
+        out[f'{tag}_fp32_logit_abs'] = r['fold_forward_max_logit_diff']
+        out[f'{tag}_caught_by_old_absolute_1e-5_gate'] = bool(
+            r['fold_forward_max_logit_diff'] >= 1e-5)
+
+    corrupt('mlp_scale_1p1e-7', mlp_scale=1.0 + 1e-7)
+    corrupt('vv_head_roll', roll_v=1)
+    out['pass'] = bool(out['clean_pass']
+                       and not out['mlp_scale_1p1e-7_pass']
+                       and not out['vv_head_roll_pass'])
+    return out
 
 
 @torch.no_grad()
@@ -871,7 +1045,10 @@ def planted_qk_test(vocab=64, width=32, device='cuda', tol=1e-10):
         uh = u * math.sqrt(hd) / u.norm()
         wh = w * math.sqrt(hd) / w.norm()
         for d in (0, 3):
-            R = rot_matrix(d, hd, device).double()
+            # fp64 on BOTH sides: rot_matrix now honours dtype, so asking for
+            # the default fp32 R here and upcasting would put an fp32-rounded
+            # rotation against the fold's fp64 one and floor the test at 6e-9.
+            R = rot_matrix(d, hd, device, torch.float64)
             scalar = float(uh @ R @ wh) / hd
             analytic = torch.outer(sgn_q, sgn_k) * scalar
             fl = m.fold_layer0_qk(deltas=(d,), materialize=True, heads=[0],
@@ -964,6 +1141,8 @@ if __name__ == '__main__':
     print('planted known-answer table test:', planted_qk_test(device=dev),
           flush=True)
     print('variant reduction battery:', variant_reduction_test(device=dev),
+          flush=True)
+    print('fold-gate negative control:', gate_negative_control(device=dev),
           flush=True)
     print('fold identity gate per variant (zero-init decoders PERTURBED so the '
           'gate is not vacuous):', flush=True)

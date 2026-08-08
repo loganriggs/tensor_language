@@ -2,12 +2,15 @@
 
 RUNG 1 (exact fold).  Every layer is written as its tensor and machine-checked
 against the model's own forward inside exact_math() (tf32 off SYMMETRICALLY on
-both sides).  Gates, all HARD:
-    MLP tensor identity                   rel < 1e-6
-    RMSNorm gauge  MLP(rms x) = T(x,x)D/|x|^2   rel < 1e-6
-    layer-0 attention table identity      rel < 1e-6
-    fold_forward vs forward               max logit diff < 1e-5
+both sides).  Gates, all HARD (two-tier since 2026-08-08, see
+tf_model.check_fold_identities for the criterion and why the old one was wrong):
+    fp32 sanity band       every identity rel < 1e-5 (sqrt(N)*eps_fp32)
+    fp64 exactness         algebraic identities rel < 1e-12,
+                           fold_forward vs forward abs < 1e-9,
+                           and <= 10x the forward's own fp32-vs-fp64 self-noise
     planted known-answer table test       < 1e-10 (fp64)
+    gate negative control  a 1+1e-7 corruption of the MLP tensor and a
+                           one-head roll of Vv must both FAIL the gate
 
 RUNG 2 (materialized tables + spectra).  The layer-0 score table at relative
 distance delta is
@@ -115,8 +118,12 @@ def fold_report(stem, deltas=(0, 1, 2), materialize=False, topk=20,
     rep['identity_gate'] = gate
     planted = M.planted_qk_test(device=device)
     rep['planted_known_answer'] = planted
+    neg = M.gate_negative_control(device=device)
+    rep['gate_negative_control'] = neg
     assert gate['pass'], f'FOLD IDENTITY GATE FAILED for {stem}: {gate}'
     assert planted['pass'], f'PLANTED TABLE TEST FAILED: {planted}'
+    assert neg['pass'], f'GATE NEGATIVE CONTROL FAILED (the gate does not '\
+                        f'catch a wrong fold): {neg}'
 
     # ---------------- factors + spectra ----------------
     fold = model.fold_layer0_qk(deltas=deltas, materialize=False, device=device)
