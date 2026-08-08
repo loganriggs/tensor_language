@@ -1,5 +1,15 @@
 # Handoff — the depth ladder and compressibility across the grid
 
+> **2026-08-08 18:10 — THE DEPTH-LADDER HALF OF THIS HANDOFF IS COMPLETE AND
+> SUPERSEDED.** All three seeds of all six depth-3/4 cells trained,
+> interpreted and route-use-tested; the route magnitudes were read out at
+> three seeds (`tf_route_seeds.py`) and the ladder went through its first
+> INDEPENDENT review (`tf_reviewer_round_4.json`). Both headline claims moved:
+> the threshold moves ONCE, not once per layer, and even that is
+> criterion-dependent; the routing language is retracted and restated as a
+> magnitude result. Read RESULTS.md **FINDING 16** before anything below.
+> What is still open from this file is only FINDING 15's seed replication.
+
 Written 2026-08-08 15:40 UTC for a reader with no memory of the work. Both
 tasks are DONE at seed 0 and written up (RESULTS.md FINDING 14 and FINDING 15,
 GRID.md, MAILBOX.md). What remains is seed replication, which two detached
