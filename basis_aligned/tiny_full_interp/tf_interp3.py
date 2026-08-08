@@ -813,6 +813,81 @@ def norm_confound_control(D, G=4, n_seq=32, T=256, batch=8):
 
 
 @torch.no_grad()
+def per_head_ablation(D, n_seq=32, T=256, batch=8):
+    """EVERY HEAD'S VALUE AS A RANGE, NEVER A POINT.
+
+    Zeroing is not the harshest ablation -- resampling beat it at 13 of 14
+    layer-cells in this program -- so a per-head knockout obtained by zeroing is
+    a LOWER BOUND and an ordering derived from it can invert.  Both are measured
+    here for every head.  Attention is linear in the pattern and the heads are
+    separable in it, so head h's own write is exactly `keep`-mode h and
+
+        zero h      = A_layer - A_h
+        resample h  = A_layer - A_h + A_h(a different sequence)
+
+    which keeps the layer's other heads untouched and puts an on-distribution
+    vector where head h's write was.  Sub-additivity is reported beside it: the
+    sum of the single-head costs against the cost of dropping the whole layer."""
+    kl, ntok = {}, 0
+    for x, y in I1.held_batches(D, n_seq, T, batch):
+        if x.shape[0] < 2:
+            continue
+        P = D.run(x)
+        lp = F.log_softmax(D.readout(P['r']).float(), -1)
+        p = lp.exp()
+        cand = {}
+        for li in range(D.L):
+            Al = P['A'][li]
+            for h in range(D.H):
+                Ah = D.run(x, attn={li: ('keep', h)})['A'][li]
+                cand[f'l{li}_head{h}_zero'] = D.run(
+                    x, attn={li: ('inject', Al - Ah)})['r']
+                cand[f'l{li}_head{h}_resample'] = D.run(
+                    x, attn={li: ('inject', Al - Ah + Ah.roll(1, 0))})['r']
+            cand[f'l{li}_wholelayer_zero'] = D.run(
+                x, attn={li: ('inject', torch.zeros_like(Al))})['r']
+            cand[f'l{li}_wholelayer_resample'] = D.run(
+                x, attn={li: ('inject', Al.roll(1, 0))})['r']
+        for s, r in cand.items():
+            q = F.log_softmax(D.readout(r).float(), -1)
+            kl[s] = kl.get(s, 0.0) + float((p * (lp - q)).sum())
+        ntok += y.numel()
+    out = {k: v / ntok for k, v in kl.items()}
+    res = {'per_head_kl_range_zero_resample': {
+        f'l{li}_head{h}': [out[f'l{li}_head{h}_zero'],
+                           out[f'l{li}_head{h}_resample']]
+        for li in range(D.L) for h in range(D.H)}}
+    for li in range(D.L):
+        for how in ('zero', 'resample'):
+            s = sum(out[f'l{li}_head{h}_{how}'] for h in range(D.H))
+            w = out[f'l{li}_wholelayer_{how}']
+            res[f'l{li}_{how}_sum_of_heads'] = s
+            res[f'l{li}_{how}_whole_layer'] = w
+            res[f'l{li}_{how}_subadditivity_ratio'] = s / max(w, 1e-30)
+        # does the head ORDERING survive the change of ablation?
+        oz = sorted(range(D.H), key=lambda h: -out[f'l{li}_head{h}_zero'])
+        orr = sorted(range(D.H), key=lambda h: -out[f'l{li}_head{h}_resample'])
+        res[f'l{li}_head_order_zero'] = oz
+        res[f'l{li}_head_order_resample'] = orr
+        res[f'l{li}_head_order_agrees'] = (oz == orr)
+        res[f'l{li}_top_head_agrees'] = (oz[0] == orr[0])
+    res['resample_harsher_than_zero_fraction'] = float(np.mean(
+        [out[f'l{li}_head{h}_resample'] > out[f'l{li}_head{h}_zero']
+         for li in range(D.L) for h in range(D.H)]))
+    res['note'] = ('subadditivity_ratio = (sum of single-head costs) / (whole-'
+                   'layer cost).  Above 1 the heads write overlapping '
+                   'directions and the single-head numbers over-count; BELOW 1 '
+                   'they are complementary and the layer is worth more than its '
+                   'parts.  Measured below 1 here (0.52-0.83 in the plain '
+                   'model), which is the opposite of the registered '
+                   'head-compensation prediction.  The ordering rows say '
+                   'whether a head ranking obtained by zeroing survives the '
+                   'harsher ablation -- in the plain model it does NOT at '
+                   'either layer, though the top head is the same.')
+    return res
+
+
+@torch.no_grad()
 def induction_route_split(D, seeds=5):
     """BY WHICH ROUTE DOES THE INDUCTION SIGNAL REACH LAYER-1 ATTENTION?
 
@@ -1229,6 +1304,7 @@ def analyse(stem, quick=False, skip_baselines=True):
     rep['natural_induction'] = I2.natural_induction(D, n_seq=1024)
     print(f'  induction {time.time()-t0:.0f}s', flush=True)
     rep['resample_ablation'] = I2.resample_ablation(D)
+    rep['per_head_ablation'] = per_head_ablation(D, min(n_seq, 32), T)
     rep['composition_budget'] = composition_budget_v(D, min(n_seq, 32), T)
     rep['read_ablation_causal'] = read_ablation_causal(D, min(n_seq, 32), T)
     rep['norm_confound_control'] = norm_confound_control(D, 4, min(n_seq, 32), T)
