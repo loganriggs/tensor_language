@@ -1,0 +1,50 @@
+                          
+--------------------------
+params total              
+params body               
+stream width              
+held CE (T512)            
+bits/byte                 
+fold gate                 
+--- INDUCTION             
+synthetic score           
+  power floor 3se         
+  x floor                 
+natural swap              
+  over d1 null            
+  carried by              
+--- A->A PATH (causal)    
+A0 out of l1 read [z,r]   
+M0 out of l1 read [z,r]   
+  l1 pattern move w/o A0  
+  l1 value move w/o A0    
+  norm-confound true/imp  
+A0 logit share            
+M0 logit share            
+(norm share A0: NOT ev.)  
+--- RANK                  
+content / null            
+selection / null          
+--- ABLATION RANGE        
+attn all [zero,resamp]    
+attn l0 [zero,resamp]     
+attn l1 [zero,resamp]     
+attn first / last         
+--- LADDER KL             
+  embed_only              
+  plus_self_attn          
+  model_bigram            
+  no_attention_at_all     
+  past_attn_mean_ablated  
+  no_mlp                  
+  no_attn_layer0          
+  no_attn_layer1          
+  no_mlp_layer0           
+  no_mlp_layer1           
+  l1_reads_embedding      
+  l1_reads_e_plus_attn0   
+  l1_reads_e_plus_mlp0    
+  trunc_delta1_only       
+  trunc_delta_le4         
+  positional_only_pattern 
+  no_rotary_pattern       

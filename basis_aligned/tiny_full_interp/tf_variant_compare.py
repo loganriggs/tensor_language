@@ -67,8 +67,18 @@ def summarise(cells):
                    'exact cell (CE 0.0074 nats, induction 0.0086) is called a '
                    'difference'}
     rows = {}
+    stale = []
     for stem, r in cells.items():
         if r.get('depth') != 2 or r.get('width') != 128:
+            continue
+        # A row produced by an older revision of tf_interp3 is DROPPED, not
+        # patched: the whole point of this file is that every row came out of
+        # the same code, and a half-upgraded table is worse than a short one.
+        need = ('read_ablation_causal', 'norm_confound_control',
+                'induction_route_split', 'per_head_ablation')
+        if (any(k not in r for k in need)
+                or 'mode0_unfolding_live' not in r['rung2']['layer0']['mlp']):
+            stale.append(stem)
             continue
         k = key_of(stem, r)
         L = r['rung5_ladder']
@@ -191,6 +201,7 @@ def summarise(cells):
                 for w in ('branches', 'named', 'no_prev', 'no_same', 'no_prof')
                 if f'pred_{w}_all_layers' in pl}
     out['cells'] = rows
+    out['dropped_because_produced_by_an_older_analysis_revision'] = stale
     # ---- depth-1 matched nulls for the natural swap probe ----
     d1 = {}
     for stem, r in cells.items():

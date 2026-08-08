@@ -1,0 +1,31 @@
+{
+  "seed_spread_yardstick": {
+    "ce_d2_w128": 0.0074,
+    "induction_d2_w256": 0.0086
+  },
+  "note": "no difference smaller than the vanilla seed spread at this exact cell (CE 0.0074 nats, induction 0.0086) is called a difference",
+  "cells": {},
+  "dropped_because_produced_by_an_older_analysis_revision": [
+    "tf_bandwidth_d2_w128_b8192_s0",
+    "tf_codebook_d2_w128_b8192_s0",
+    "tf_predicate_d2_w128_b8192_s0",
+    "tf_shrink_d2_w128_b8192_s0",
+    "tf_slots_d2_w128_b8192_s0",
+    "tf_slots_d2_w128_b8192_s0_nolasso",
+    "tf_slots_d2_w128_b8192_s0_writeinit_only",
+    "tf_vanilla_d2_w128_b8192_s0",
+    "tf_vanilla_d2_w128_b8192_s1",
+    "tf_vanilla_d2_w128_b8192_s2"
+  ],
+  "depth1_matched_nulls": {
+    "vanilla": {
+      "natural_swap_mean": 0.0669598954536923,
+      "natural_swap_se": 0.014917371634937027,
+      "synthetic_induction_mean": -0.027565214369032275,
+      "stem": "tf_vanilla_d1_w128_b8192_s0"
+    }
+  },
+  "arms_present": [],
+  "across_seeds": {},
+  "vs_vanilla": {}
+}
