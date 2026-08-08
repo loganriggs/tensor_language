@@ -288,3 +288,44 @@ table directly would discard that guarantee.
 
 So: foldable by construction, folded for analysis, exactness verified by a
 gate rather than assumed.
+
+## Adversarial review is a required stage, not an optional pass (Logan 2026-08-08)
+
+Every interpretation of every cell goes through explicit reviewer rounds
+before it is believed, and the rounds critique BOTH the claim and the
+technique that produced it. The parent program's record is the argument:
+every wrong headline there was caught by a control or a reviewer, never by
+inspection, and several survived weeks because nobody attacked them.
+
+Procedure per cell:
+1. **Interpret** — work the ladder, register predictions first.
+2. **Self-red-team** — the analyst lists, for each claim, the strongest
+   objection to the claim AND to the method, then fixes what it can and
+   marks what it cannot. Written into the results JSON as
+   `reviewer_round_1`.
+3. **Independent review** — a reviewer who did NOT produce the
+   interpretation attacks it with the checkpoint and code in hand, and is
+   explicitly instructed to look for the standing failure modes below.
+   Written as `reviewer_round_2`.
+4. **Fix round** — the analyst answers each surviving objection with a
+   measurement, a retraction, or a documented limitation. Nothing is
+   allowed to stay in the "we will check later" state.
+
+Standing failure modes to attack every time (from the parent program's
+actual mistakes):
+- **Arithmetic dressed as a finding.** The layer-0 table is rank <=
+  head_dim BY CONSTRUCTION. Only rank far below that bound is a result.
+- **Fitting and evaluating on the same tokens.** Any table, dictionary or
+  reconstruction must be fit on an estimation split and scored on a
+  held-out one.
+- **Beating nothing.** A reconstruction must beat a same-parameter-count
+  alternative, not just beat chance.
+- **Precision mistaken for correctness** (and its converse). Compare in
+  float64 before calling a gate failure a bug; compare symmetrically
+  (the parent program lost a day to a one-sided tf32 setting).
+- **Sign without composition.** A pattern coefficient's sign means nothing
+  until composed through the value/output path.
+- **Single seed.** Structure claims need three; the parent program had a
+  readability ordering reverse between two seeds.
+- **Uncalibrated nulls.** Shuffle nulls with near-zero spread produce
+  z-scores in the thousands that are not effect sizes.
