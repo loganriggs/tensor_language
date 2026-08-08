@@ -22,18 +22,17 @@ dimension 128, vocabulary 50,304 (`TIER2_RESULTS.md`). Three properties make blo
 
 So layer 0's query/key input is exactly the RMS-normed embedding, and the circuit folds in closed
 form: per head and branch, unit-RMS factor tables `q̂(t), k̂(t)` of shape (50304, 128). The
-vocabulary-by-vocabulary score map per head-branch **is** the product of these tables through the
-rotary expansion, so the map is rank ≤ 128 by construction — "rank-128 SVD" is the exact object
-(7,417.6 Mbit), not a baseline (§1). The coding row is `cat([q̂[:,h], k̂[:,h]])`, (V, 256) per
-head-branch, 18 head-branches.
+vocabulary-by-vocabulary score map per head-branch **is** their product through the rotary
+expansion, so the map is rank ≤ 128 by construction — "rank-128 SVD" is the exact object
+(7,417.6 Mbit), not a baseline. The coding row is `cat([q̂[:,h], k̂[:,h]])`, (V, 256) per
+head-branch, 18 head-branches (§1).
 
 **Identity gates.** Folded versus reference forward: max error 1.3e-15; the uncompressed-factors
 arm audits at ΔCE +0.0000 everywhere (§1). Baseline CE 3.0763 on the standard 307k-prediction
-FineWeb audit. The architecture forces one constraint: unnormalised score-product attention
-degrades past T≈512 (CE 3.23 at 512, 5.50 at 1024), so all audits are frozen at T=512
-(`TIER2_RESULTS.md`). A red-team note travels with these gates: they are **architecture
-tautologies**, holding for any weights of this shape — method licences, not findings
-(`redteam_findings_2026-07-30.md` item 6).
+FineWeb audit. One architectural constraint: unnormalised score-product attention degrades past
+T≈512 (CE 3.23 at 512, 5.50 at 1024), so all audits are frozen at T=512 (`TIER2_RESULTS.md`). A
+red-team note travels with these gates: they are **architecture tautologies**, holding for any
+weights of this shape — method licences, not findings (`redteam_findings_2026-07-30.md` item 6).
 
 ## 2. Layer 0 — what worked
 
@@ -43,12 +42,12 @@ Coarsening layer-0 QK genuinely helps off-distribution. All headlines are FineWe
 distribution; this confound caused two false starts (§2).
 
 **The dictionary result.** 1024 atoms per head-branch, 8 active per token, 455 Mbit (6.1% of raw):
-**+0.006 nats** with OMP/least-squares, +0.005 trained against the context-expected objective (§3).
+**+0.006 nats** with OMP/least-squares, +0.005 trained against the context-expected objective.
 Matched-bits low rank (SVD rank 16, 466 Mbit) costs +0.035 — **six times worse** — and the
-dictionary equals SVD rank 64 at a quarter of its bits. At 12.4% of raw: +0.003 versus SVD rank
-32's +0.017. Vocabulary merging is real but modest (+0.042 at 0.6% of bits); per-head-branch
-partitions beat one global partition at matched bits (+0.020 versus +0.035), so "tokens that attend
-alike" is a per-head-branch notion.
+dictionary equals SVD rank 64 at a quarter of its bits; at 12.4% of raw it gives +0.003 against SVD
+rank 32's +0.017. Vocabulary merging is real but modest (+0.042 at 0.6% of bits), and
+per-head-branch partitions beat one global partition at matched bits (+0.020 versus +0.035), so
+"tokens that attend alike" is a per-head-branch notion (§3).
 
 **Objective progression**, each step buying something specific:
 
@@ -79,9 +78,9 @@ form washes out 98.8% of the systematic signal and loses) this redrew the fronti
 
 **Why batch-top-k failed.** Pre-registered to lose, and it did: +0.014 versus OMP's +0.006 at
 identical bits (2.3×). It selects atoms by raw magnitude under a uniform view of the vocabulary and
-never refits, so it allocates capacity to rare high-norm rows and degrades when atoms correlate
-(§3). This is the anchor result seen from the other side: the metric bills by **exposure**, and any
-criterion allocating by magnitude allocates against it.
+never refits, so it spends capacity on rare high-norm rows and degrades when atoms correlate (§3).
+This is the anchor result from the other side: the metric bills by **exposure**, and any criterion
+allocating by magnitude allocates against it.
 
 **Two negatives that shaped the arc.** Cross-entropy polish through the frozen model buys exactly
 zero — held-out damage degrades from the first evaluation while train CE falls, overfitting 12M
@@ -93,10 +92,10 @@ was retracted (§3).
 
 **Atom semantics.** The dictionary axes are recognisable token categories: topical classes (music,
 film, food, television, religion, persuasion, disaster/place clusters) alongside morphology (plural
-and past-tense suffixes, "-ical" adjectives, truncated stems, first and last names, 3-digit
-numbers, hedging adverbs) — `qk_dict_features.md`, §4. Topic-level semantics at layer 0 was the
-surprise; the expectation was morphology only. **This is a qualitative dump, not a gated
-measurement** — no purity-versus-null statistic exists for bilin18's atoms.
+and past-tense suffixes, "-ical" adjectives, truncated stems, names, 3-digit numbers, hedging
+adverbs) — `qk_dict_features.md`, §4. Topic-level semantics at layer 0 was the surprise; the
+expectation was morphology only. **This is a qualitative dump, not a gated measurement** — no
+purity-versus-null statistic exists for bilin18's atoms.
 
 **The mechanism ledger.** A separate object: per head, the unigram-weighted third moment of the
 source-side triple rows `[k₁ | k₂ | v]`, sparse-coded, then symmetric nonnegative CP. Components
@@ -108,41 +107,39 @@ families, newline and document-boundary units (§5e).
 Solver discipline makes this a result rather than numerology. Of five CP fitters tried, only
 **tensor power iteration with deflation** passes the planted known-answer test (matched cosine
 0.9998); every ALS and gradient variant fails on spiky-sparse cores. The sparse coder needed
-nonnegativity plus k-annealing to reach planted recovery 1.0 (base 0.88). Known-answer controls
-caught solver bugs twice in this arc (§5e).
+nonnegativity plus k-annealing to reach planted recovery 1.0 (base 0.88). These controls caught
+solver bugs twice (§5e).
 
 **Capacity spans 128-fold across heads.** Minimum atoms to pass the moment gate: head 2 needs 32
 (at one feature per token), heads 6/8 need 128–256, heads 1/3/5/7 need 256–1024, heads 0/4 need
-4096. Two features per token is the sweet spot; retraining at the right size beats pruning a large
-dictionary by roughly an order of magnitude (head 8: 0.042 retrained versus 0.344 pruned). Per-head
-optima cost 53.5 Mbit against 131 Mbit uniform (§5f).
+4096. Two features per token is the sweet spot, and retraining at the right size beats pruning a
+large dictionary by roughly an order of magnitude (head 8: 0.042 retrained versus 0.344 pruned);
+per-head optima cost 53.5 Mbit against 131 Mbit uniform (§5f).
 
 **Causal importance dissociates from weight mass.** Whole-head ablations, full audit: h3 +0.0780,
-h7 +0.0090, h8 +0.0051, h6 +0.0041, h0 +0.0026, h4 +0.0016, h5 +0.0014, h1 +0.0006, h2 +0.0005
-(§5m). Head 3 is ~8× the runner-up and ~60% of the layer's causal load — while heads 0 and 4, which
-carry the largest mechanism mass and need 4096 atoms each, are nearly free. The ten-archetype span
-carries 73–88% of whole-head load on heads 3/6/7/8, and channel ablations are sub-additive (singles
-sum +0.251 versus +0.070 for the span on head 3): the channels overlap on a shared direction (§5l).
-A cheap weight-space correlate exists: expected output magnitude Σₜ pₜ‖W_o v_t‖ ranks heads at
-Spearman +0.87 (§5m).
+h7 +0.0090, h8 +0.0051, h6 +0.0041, h0 +0.0026, h4 +0.0016, h5 +0.0014, h1 +0.0006, h2 +0.0005.
+Head 3 is ~8× the runner-up and ~60% of the layer's causal load, while heads 0 and 4 — largest
+mechanism mass, 4096 atoms each — are nearly free. The ten-archetype span carries 73–88% of
+whole-head load on heads 3/6/7/8, and channel ablations are sub-additive (singles sum +0.251 versus
++0.070 for the span on head 3), so the channels overlap on a shared direction (§5l). A cheap
+weight-space correlate exists: expected output magnitude Σₜ pₜ‖W_o v_t‖ ranks heads at Spearman
++0.87 (§5m).
 
 **The corrected permutation null.** Heads 0 and 4 were reported to *fail* the permutation null. A
 head-5 control exposed the statistic as invalid: a mode-permuted core approaches a product of
-independent marginals, which is intrinsically near-low-rank, so comparing fit quality across two
+independent marginals, which is intrinsically near-low-rank, so comparing fits across two
 *different* target tensors can favour the permuted one. The corrected statistic scores everything
-on the same real core — transplant the null's factors onto the real core, refit only the
-nonnegative weights. Under it null factors explain essentially nothing (relative error 0.91–1.00 ≈
-predicting zero) while real fits explain 71–87% of core mass, and **all nine heads validate**; the
-earlier verdict was an artifact (§5g). Cores are corpus-general: mean effective 9.7–10.4 of 12
-document components per archetype (§5h).
+on the same real core — transplant the null's factors onto it, refit only the nonnegative weights.
+Under it null factors explain essentially nothing (relative error 0.91–1.00 ≈ predicting zero)
+while real fits explain 71–87% of core mass, and **all nine heads validate**; the earlier verdict
+was an artifact (§5g). Cores are corpus-general: mean effective 9.7–10.4 of 12 document components
+per archetype (§5h).
 
 ## 4. Layer 1 — what worked
 
 Layer 1 reads the post-block-0 residual, so the exact fold no longer applies. The **port test**
 asks whether the layer-0 machinery transfers with token-conditional mean-residual tables in place
-of embeddings.
-
-**It does, and this is the landmark: layer 1's pattern is ~99% token identity.** Replacing the
+of embeddings. **It does, and this is the landmark: layer 1's pattern is ~99% token identity.** Replacing the
 entire layer-1 pattern with static token tables costs **+0.027 nats** against **+2.70** for zeroing
 it — a 100× ratio (§6a). Two facts sit beside it: layer 1's pattern is ~27× more causally important
 than all of layer-0 attention (+2.70 versus ~+0.10 summed), and layer-1 heads are massively
@@ -155,9 +152,9 @@ poorly-estimated rare-token means, cubed by the third moment. A shrinkage estima
 embedding prior) fixed it outright: gate 0.0000 at 1024 atoms (LOG tick 195).
 
 **Per-head validation.** All nine heads pass the moment gate (seven at 512 features, heads 1 and 3
-at 1024); every head beats the corrected null (real fits 0.10–0.52 versus null-factors-on-real
-0.54–1.00); restart stability 0.96–1.00 (§6b). Per-head port costs are uniformly small (h8 +0.0045,
-h4 +0.0036, h1 +0.0032, rest 0.0005–0.0013; sum 0.016 versus joint 0.027). Layer 1's static
+at 1024), beat the corrected null (real fits 0.10–0.52 versus null-factors-on-real 0.54–1.00), and
+are restart-stable at 0.96–1.00 (§6b). Per-head port costs are uniformly small (h8 +0.0045, h4
++0.0036, h1 +0.0032, rest 0.0005–0.0013; sum 0.016 versus joint 0.027), and layer 1's static
 component is *cheaper* than layer 0's: six of nine heads sit at a 32-atom floor, h0/h6 at 128, h3
 at 1024 (LOG ticks 195, 198).
 
@@ -171,27 +168,27 @@ and its context-dependence (§6b).
 **The equal-ablation negative.** Do archetype directions have causal privilege? Six arms on head 3,
 scored by pattern energy removed. Damage per unit energy: archetype-10 **2.14**, PCA-10 2.41,
 energy-matched uniform shrink 2.44 — the archetype directions do no *more* damage per unit than
-generic or uniform removals, slightly less; concentration is identical across arms. Head 3's
+generic or uniform removals, slightly less, and concentration is identical across arms. Head 3's
 downstream consumption is approximately isotropic in pattern space: the big directions are the used
 directions. **The archetypes are descriptive, compressive and predictive, not causally
-privileged** (§5n). This also retroactively explains an earlier null random-subspace control: the
-random-10 arm removed 77× less energy than the archetype span.
+privileged** (§5n). This also explains an earlier null random-subspace control: the random-10 arm
+removed 77× less energy than the archetype span.
 
 ## 5. The block-0 feed-forward block
 
 Layer 1 cannot be understood without it: the block-0 bilinear MLP **authors most of layer 1's
-context sensitivity** — ridge regression gives the MLP output 45–64% of layer-1's per-position
-factor deviations against 21–35% for layer-0 attention outputs (§6d). Zeroing it costs +2.50 nats,
-as large an object as layer 1's whole pattern (§7b).
+context sensitivity** — ridge regression gives its output 45–64% of layer-1's per-position factor
+deviations against 21–35% for layer-0 attention (§6d) — and zeroing it costs +2.50 nats, as large
+an object as layer 1's whole pattern (§7b).
 
-**Exact tensor, neuron basis as gauge.** The block is a rank-4608 CP tensor written in the weights.
-The neuron basis indexes that factorisation, not features — neuron permutation leaves the folded
-tensor identical — and it is empirically useless: the usage spectrum is flat (top 128 neurons carry
-6% of write-weighted usage), keeping the top half costs +0.030, and layer-1's read maps touch
-essentially all neurons (effective count 4361–4568 of 4608) (§7a). Weight-space rank is not sparse
-either (effective rank 12–101, median 68 across the 36 read channels), and composed-tensor CP in
-pure weight space is dense with the corrected null **tying** the real fit, 0.483 versus 0.485
-(§7b, §7g, §7h).
+**Exact tensor, neuron basis as gauge.** The block is a rank-4608 CP tensor written in the weights;
+the neuron basis indexes that factorisation, not features (neuron permutation leaves the folded
+tensor identical), and it is empirically useless — flat usage spectrum (top 128 neurons carry 6% of
+write-weighted usage), keeping the top half costs +0.030, and layer-1's read maps touch essentially
+all neurons (effective count 4361–4568 of 4608) (§7a). Weight-space rank is not sparse either
+(effective rank 12–101, median 68 across the 36 read channels), and composed-tensor CP in pure
+weight space is dense with the corrected null **tying** the real fit, 0.483 versus 0.485 (§7b,
+§7g, §7h).
 
 **The realised interface collapses.** On held-out text each MLP→layer-1-reader channel has
 **median effective rank 10** (min 1, max 62) against 68 in weight space — stable across 16× more
@@ -209,15 +206,15 @@ cost ~2.4 Mbit.
 — one shared 64-dimensional principal subspace of the MLP output plus a ridge map per channel,
 nothing reading the true factors — audits at **+0.0365**, i.e. **29% of the context gap** (§7e).
 Architecture is not the bottleneck: bilinear-gate, SwiGLU, single-encoder-MLP and hierarchical
-generators all land at +0.0334–0.0336; adding attention codes reaches +0.0319, ~49% of the gap
+generators all land at +0.0334–0.0336, and adding attention codes reaches +0.0319, ~49% of the gap
 (§7i, §7j). What is missing is *information*, and it has a name: failures are 2.5× enriched at
 mid-word positions and localise to layer-1 head 1, which alone carries 56% of remaining damage
 (§7k, §7l). It is not a function of recent token identities — a previous-token correction table
 explains 2% of the residual and gains nothing end-to-end; window codes give R² 0.02–0.04 (§7l,
-§7m). What *does* reproduce it: running **block 0 itself on the last sixteen tokens** (3% of the
-context) audits at **+0.0099**, beating even the 16-dimensional oracle interface. W=8 gives +0.028,
-W=4 +0.070, W=1 +0.363 (worse than no context at all); dropping the MLP from a W=4 window gives
-+0.667 (§7n).
+§7m). What *does* reproduce it: **block 0 itself, run on the last sixteen tokens** (3% of the
+context), audits at **+0.0099**, beating even the 16-dimensional oracle interface. W=8 gives
++0.028, W=4 +0.070, W=1 +0.363 (worse than no context at all); dropping the MLP from a W=4 window
+gives +0.667 (§7n).
 
 ## 6. How much was understood — an honest ledger
 
@@ -295,32 +292,28 @@ factor into human categories — for content, the exact weight-derived spectrum 
 
 ## 8. What we would do differently
 
-1. **Charge description length against the generator, not the object, from the first table.** The
-   expansion arithmetic was available before any run and would have framed the frontier as
-   fidelity-versus-compression, not MDL. The same omission recurs later, where composed forms
-   referencing full weight tensors were compared against data programs 27× smaller
+1. **Charge description length against the generator, not the object.** The expansion arithmetic
+   was available before any run. The same omission recurs later, where composed forms referencing
+   full weight tensors were compared against data programs 27× smaller
    (`redteam_findings_2026-07-30.md` item 4).
-2. **Match controls on energy, not dimension.** The matched-dimension random subspace looked like a
-   passing control for two ticks; it removed 77× less pattern energy than the arm it controlled.
-   The energy-matched shrink is what converted a "directions matter" claim into a clean negative
-   (§5l, §5n).
+2. **Match controls on energy, not dimension.** The matched-dimension random subspace passed as a
+   control for two ticks while removing 77× less pattern energy than the arm it controlled; the
+   energy-matched shrink turned a "directions matter" claim into a clean negative (§5l, §5n).
 3. **Never compare fits across two different target tensors.** The permutation null cost a wrong
-   verdict on two of nine heads. Transplant-the-null's-factors-onto-the-real-core should be the
-   default for any structural null (§5g).
+   verdict on two of nine heads; transplant-onto-the-real-core should be the default structural
+   null (§5g).
 4. **Size the audit before headlining.** The two-stage retraction (−0.0004 on 8k predictions,
-   +0.028 on 307k) and the whole negative-ΔCE saga were small-audit and off-distribution artifacts
-   (§2, §3). Relatedly, 0.005-nat contrasts were reported for most of the arc without paired
-   standard errors (`redteam_findings_2026-07-30.md` item 8).
-5. **Treat gauge identities as licences, not milestones.** Exact-fold gates hold for any weights of
-   this architecture; presenting them as verification inflated the sense of what was established
-   (`redteam_findings_2026-07-30.md` item 6).
-6. **Restrict mechanistic nouns to what was calibrated, and label shared priors.** The semantics
-   red-team found a "token pointer law" that was really a per-calibrated-element table (held-out
-   elements follow at 0.00–0.25), an agreement figure inflated by a shared fallback (0.94 → follow
-   rate 0.65–0.71), and three "independent confirmations" of the selection/content dichotomy that
-   were one coordinated probe with shared priors (`redteam_semantics_2026-07-30.md`).
-7. **Prefer smooth bit allocation to exact rows.** The replication's own control shows a
-   stratified-sparsity code matching the exact-anchor hybrid at matched bits (4.8231 at 5.14 Mbit
-   versus 4.8244 at 5.37) — exactness buys nothing that a longer code for the same tokens does not
-   (FINDING 13 §4a). Worth retesting here; if it holds, the anchor machinery simplifies to a
-   per-token bit budget.
+   +0.028 on 307k) and the negative-ΔCE saga were small-audit and off-distribution artifacts (§2,
+   §3), and 0.005-nat contrasts ran most of the arc without paired standard errors
+   (`redteam_findings_2026-07-30.md` item 8).
+5. **Treat gauge identities as licences, not milestones** — exact-fold gates hold for any weights
+   of this architecture (`redteam_findings_2026-07-30.md` item 6).
+6. **Restrict mechanistic nouns to the calibrated set, and label shared priors.** The semantics
+   red-team found a "token pointer law" that was a per-calibrated-element table (held-out elements
+   follow at 0.00–0.25), an agreement figure inflated by a shared fallback (0.94 → follow rate
+   0.65–0.71), and three "independent confirmations" of the selection/content dichotomy that were
+   one coordinated probe with shared priors (`redteam_semantics_2026-07-30.md`).
+7. **Prefer smooth bit allocation to exact rows.** The replication's stratified-sparsity code
+   matches the exact-anchor hybrid at matched bits (4.8231 at 5.14 Mbit versus 4.8244 at 5.37), so
+   exactness buys nothing a longer code for the same tokens does not (FINDING 13 §4a). If that
+   retests here, the anchor machinery simplifies to a per-token bit budget.
