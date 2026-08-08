@@ -439,9 +439,18 @@ class TinyBilin(nn.Module):
     def _qz_slot(self, k, v, cache, collect):
         ks = self.qz_ksteps[k]
         upd = self.training and torch.is_grad_enabled() and cache is not None
+        # DTYPE: quantize at the CODEBOOK's own dtype, not a hard-cast float32.
+        # The buffer is registered float32, so under training/autocast this is
+        # bit-identical to the old `.float()` (v may be bf16; the codebook is
+        # fp32 either way).  What it fixes is `cast_model(model, float64)`,
+        # which upcasts the buffers: the old hard cast then multiplied an fp32
+        # activation by an fp64 codebook and raised, so the CODEBOOK VARIANT
+        # HAD NEVER BEEN THROUGH THE fp64 TIER OF THE FOLD GATE at all -- the
+        # gate crashed instead of failing, which is worse than failing.
+        qdt = self.qz_codebook.dtype
         with torch.autocast('cpu' if v.device.type == 'cpu' else 'cuda',
                             enabled=False):
-            x32 = v.detach().float().reshape(-1, self.s)
+            x32 = v.detach().to(qdt).reshape(-1, self.s)
             recon, idxs, alphas, resids = mp_quantize(x32, self.qz_codebook[k], ks)
             if upd:
                 ema_update(self.qz_codebook[k], self.qz_ema[k],

@@ -1,0 +1,115 @@
+{
+  "reduction_at_cell_shape": {
+    "slots_off_vs_vanilla": 0.0,
+    "bandwidth_slotrows_vs_slots": 2.384185791015625e-07,
+    "predicate_zeroed_vs_bandwidth": 0.0,
+    "predicate_off_vs_bandwidth": 0.0,
+    "codebook_off_vs_bandwidth": 0.0,
+    "shrink_control_vs_slots": 0.0,
+    "pass": true
+  },
+  "shapes": {
+    "vanilla": {
+      "slot": 128,
+      "n_slots": 1,
+      "stream_width": 128,
+      "compute_width": 128,
+      "hidden": 512,
+      "n_params": 1638656,
+      "body": 590080,
+      "emb": 1048576,
+      "buffers": 270848,
+      "codebook_entries": 0,
+      "rem_dims": [
+        128,
+        128,
+        128
+      ]
+    },
+    "slots": {
+      "slot": 32,
+      "n_slots": 4,
+      "stream_width": 128,
+      "compute_width": 128,
+      "hidden": 512,
+      "n_params": 1638656,
+      "body": 590080,
+      "emb": 1048576,
+      "buffers": 270848,
+      "codebook_entries": 0,
+      "rem_dims": [
+        128,
+        128,
+        128
+      ]
+    },
+    "bandwidth": {
+      "slot": 40,
+      "n_slots": 4,
+      "stream_width": 160,
+      "compute_width": 128,
+      "hidden": 512,
+      "n_params": 1894480,
+      "body": 583760,
+      "emb": 1310720,
+      "buffers": 270976,
+      "codebook_entries": 0,
+      "rem_dims": [
+        160,
+        160,
+        160
+      ]
+    },
+    "predicate": {
+      "slot": 40,
+      "n_slots": 4,
+      "stream_width": 160,
+      "compute_width": 128,
+      "hidden": 512,
+      "n_params": 1902704,
+      "body": 591984,
+      "emb": 1310720,
+      "buffers": 533120,
+      "codebook_entries": 0,
+      "rem_dims": [
+        160,
+        160,
+        160
+      ]
+    },
+    "codebook": {
+      "slot": 40,
+      "n_slots": 4,
+      "stream_width": 160,
+      "compute_width": 128,
+      "hidden": 512,
+      "n_params": 1894480,
+      "body": 583760,
+      "emb": 1310720,
+      "buffers": 354945,
+      "codebook_entries": 40960,
+      "rem_dims": [
+        160,
+        160,
+        160
+      ]
+    },
+    "shrink": {
+      "slot": 32,
+      "n_slots": 4,
+      "stream_width": 128,
+      "compute_width": 128,
+      "hidden": 512,
+      "n_params": 1650944,
+      "body": 602368,
+      "emb": 1048576,
+      "buffers": 270848,
+      "codebook_entries": 0,
+      "rem_dims": [
+        128,
+        64,
+        32
+      ]
+    }
+  }
+}

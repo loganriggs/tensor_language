@@ -1,0 +1,21 @@
+== tf_model self-test on cuda ==
+  solve_slot d1 w32: s=19 stream=38 (vanilla body 18464, per_s 993)
+  solve_slot d1 w64: s=37 stream=74 (vanilla body 73792, per_s 1985)
+  solve_slot d2 w32: s=10 stream=40 (vanilla body 36928, per_s 1825)
+  solve_slot d2 w64: s=20 stream=80 (vanilla body 147584, per_s 3649)
+planted known-answer table test: {'planted_delta0_maxdiff': 1.2823075934420558e-14, 'planted_delta0_scale': 0.48431475409306896, 'planted_delta3_maxdiff': 1.587618925213974e-14, 'planted_delta3_scale': 0.4802893055867663, 'pass': True}
+variant reduction battery: {'slots_off_vs_vanilla': 0.0, 'bandwidth_slotrows_vs_slots': 0.0, 'predicate_zeroed_vs_bandwidth': 0.0, 'predicate_off_vs_bandwidth': 0.0, 'codebook_off_vs_bandwidth': 0.0, 'shrink_control_vs_slots': 0.0, 'pass': True}
+fold-gate negative control: {'clean_pass': True, 'mlp_scale_1p1e-7_pass': False, 'mlp_scale_1p1e-7_fp64_logit_abs': 9.894860805714778e-09, 'mlp_scale_1p1e-7_fp32_logit_abs': 1.1920928955078125e-07, 'mlp_scale_1p1e-7_caught_by_old_absolute_1e-5_gate': False, 'vv_head_roll_pass': False, 'vv_head_roll_fp64_logit_abs': 0.033177727890211825, 'vv_head_roll_fp32_logit_abs': 0.033184878528118134, 'vv_head_roll_caught_by_old_absolute_1e-5_gate': True, 'pass': True}
+fold identity gate per variant (zero-init decoders PERTURBED so the gate is not vacuous):
+  vanilla    d1: pass=True  attn 2.68e-07  mlp 2.94e-07  gauge 4.94e-07  logit 1.19e-07
+  vanilla    d2: pass=True  attn 2.68e-07  mlp 2.94e-07  gauge 4.94e-07  logit 2.38e-07
+  slots      d1: pass=True  attn 3.92e-07  mlp 2.94e-07  gauge 4.94e-07  logit 1.19e-07
+  slots      d2: pass=True  attn 3.57e-07  mlp 2.94e-07  gauge 4.94e-07  logit 1.19e-07
+  bandwidth  d1: pass=True  attn 2.28e-07  mlp 2.60e-07  gauge 2.82e-07  logit 1.19e-07
+  bandwidth  d2: pass=True  attn 2.61e-07  mlp 2.13e-07  gauge 2.34e-07  logit 1.19e-07
+  predicate  d1: pass=True  attn 2.28e-07  mlp 2.60e-07  gauge 2.82e-07  logit 1.19e-07
+  predicate  d2: pass=True  attn 2.61e-07  mlp 2.13e-07  gauge 2.34e-07  logit 1.19e-07
+  codebook   d1: pass=True  attn 2.28e-07  mlp 2.60e-07  gauge 2.82e-07  logit 1.19e-07
+  codebook   d2: pass=True  attn 2.61e-07  mlp 2.13e-07  gauge 2.34e-07  logit 2.38e-07
+  shrink     d1: pass=True  attn 3.92e-07  mlp 2.94e-07  gauge 4.94e-07  logit 1.19e-07
+  shrink     d2: pass=True  attn 3.57e-07  mlp 2.94e-07  gauge 4.94e-07  logit 8.94e-08
