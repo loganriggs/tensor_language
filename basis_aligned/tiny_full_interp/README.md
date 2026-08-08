@@ -133,3 +133,44 @@ than inventing work.
 - `tf_fold.py` — rung 1–2: exact folds and materialized tables
 - `tf_behavior.py` — rung 3: behavioral inventory with causal ablations
 - `RESULTS.md` — local results
+
+## Vocabulary decision (2026-08-08) — and why the constraint is NOT table size
+
+The first build measured **20.0% UNK at V=4096** (13.0% at V=8192). That is
+too distorted to build a program on: UNK becomes the most frequent symbol,
+it dominates every table's rows and columns, and absolute cross-entropy
+stops being comparable to anything.
+
+The obvious fix is a bigger vocabulary, and a structural finding from the
+same build says table size does not stop us. The layer-0 attention table is
+**exactly rank <= head_dim (16) per branch**: the score for (query token i,
+key token j) is `(q1(e_i)·k1(e_j))·(q2(e_i)·k2(e_j))`, so each branch factor
+is a V x 16 matrix product, and the realized pattern is their Hadamard
+product (rank <= 16^2 = 256). **The exact artifact is therefore four V x 16
+factor matrices per head, not a V x V grid** — 3 MB per head even at the
+full 50k vocabulary. V x V materialization is a convenience for printing and
+diffing, not a requirement of exactness, and it can be done in chunks for
+whatever token subset an analysis cares about.
+
+So the binding constraint is not memory, it is **parameter balance**. At
+these widths the embedding dwarfs the body:
+
+| | width 32 | width 128 | width 256 |
+|---|---|---|---|
+| V=4096 | 84% embedding | 57% | 40% |
+| V=8192 | 91% | 73% | 57% |
+| V=50257 | 98.5% | 94% | 89% |
+
+A model that is 94% embedding is not a model whose *computation* we are
+interpreting — it is a lookup table with a small transformer attached, and
+the interesting structure would be swamped.
+
+**Decision: V=8192 is the primary vocabulary** (13% UNK, embedding share
+57-73% at the widths that matter), with V=4096 retained only as an
+already-run companion and V=16384 as a check at width 256 where the balance
+is best. Every result reports its UNK rate; no cross-vocabulary CE
+comparison is made without one. The corpus builder already emits both.
+
+This also reframes rung 2 of the ladder: the deliverable is the **factor
+matrices with their spectra**, and V x V grids are rendered on demand for
+the token subsets an analysis names.

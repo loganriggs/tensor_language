@@ -88,7 +88,8 @@ bought with capability and that must be reported alongside every result.
 
 | vocab | owner | status |
 |---|---|---|
-| 8192 at width 128 depth 2 | local | unclaimed |
+| 16384 at width 256 depth 2 | scale | unclaimed |
+| 4096 vs 8192 same cell (distortion check) | local | unclaimed |
 
 Answers whether conclusions are vocab-size artifacts.
 The V=8192 corpus is ALREADY BUILT (`tf_corpus_v8192/`, same splits) so this
