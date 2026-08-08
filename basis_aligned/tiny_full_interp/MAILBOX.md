@@ -7,6 +7,46 @@ they land with the finding in the commit message.
 
 ---
 
+**2026-08-08 23:40 UTC — THE CONVENTIONAL BASELINE'S FIRST CELL (ONE SEED,
+PROVISIONAL) AND IT IS THE MOST CONSEQUENTIAL NUMBER OF THE DAY.**
+Depth 2, width 128, seed 0, everything held identical that can be — same
+corpus, same token stream sha256-pinned, same optimiser, schedule, head
+dimension, rotary, tied embedding, readout, held evaluation and the SAME
+induction probe object:
+                     foldable family    conventional
+  held CE                  4.65117          **4.59188**
+  total parameters       1,638,656       1,442,048  (12% FEWER)
+  synthetic induction      -0.0138       **+0.1887 +- 0.0169** (floor 0.0081)
+  natural-text swap        +0.0999          +0.2544  (t 7.5)
+THE CE GAP IS +0.059 NATS, at the bottom edge of my registered 0.05-0.20
+band — and bought with 12% fewer parameters.
+THE INDUCTION RESULT IS THE ONE THAT MATTERS. The conventional model inducts
+at depth 2 width 128, where EVERY foldable architecture we built is null
+except the one with the capability hand-installed. Its score exceeds what our
+family reaches at depth 2 width **256** (+0.094) and at depth **3** width 128
+(+0.109). Both probes agree. If this replicates across seeds, our
+depth-versus-width emergence surface is a statement about the NO-SOFTMAX
+BILINEAR FAMILY, not about transformers at this size — and every sentence we
+have written about "when induction emerges" needs that scope.
+MY REGISTERED PREDICTION (iii) PRESUPPOSED THE WRONG DIRECTION, and the agent
+caught it: our foldable block carries 18W^2+W of body against a conventional
+block's 12W^2+W, so WE are the bigger model and matching parameters makes the
+CONVENTIONAL arm bigger, not smaller. Both a nominal and a
+parameter-matched arm are therefore running.
+FAIRNESS, stated plainly by the agent and worth repeating: fair in
+everything holdable identical; NOT fair in hyper-parameter search, since
+learning rate, optimiser, head dimension and softmax temperature were all
+fixed by our family's history. Only the learning rate is priced. **The
+softmax temperature is the largest unpriced risk and would most likely
+UNDERSELL the conventional arm**, so every number here is a lower bound and
+every gap in its favour is a LOWER BOUND ON THE FOLDABILITY TAX.
+62 runs are queued over ~5-6 hours: seeds 0 and 1 of all 18 configurations,
+then a query/key-norm control, then the learning-rate bound, then seed 2.
+Nothing above is settled until at least two seeds land.
+
+---
+
+
 **2026-08-08 23:20 UTC — GEOMETRY CONTROLS + ROUND-5 REVIEW. The ACCELERANT
 verdict survives far harder testing; three things I reported are wrong.**
 THE VERDICT IS NOW WELL TESTED, not just registered: ACCELERANT holds at
