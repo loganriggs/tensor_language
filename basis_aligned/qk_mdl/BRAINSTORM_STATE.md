@@ -279,3 +279,24 @@ bandwidth gentle +0.147 | recipe +0.288 | codebook +0.352. Scale reporting
 already used Muon vanilla, so this also removes a w264-vs-w1152
 inconsistency (scale recipe premium +0.141 vs Muon vanilla is directly
 comparable to w264 predicate-basis +0.143).
+
+## Rented box offline 2026-08-08 — what is blocked and what is not
+BLOCKED (needs >16 GB, cannot run on the local card): the width-1152
+predicate-basis confirmation (qk_s_w1152_pred3e5), the bandwidth+dial
+branch point, and the w1152 codebook spot-check. All three had launched
+with gates passed but only pre-training records were ever pushed, so
+nothing is resumable — they are UNRUN, not partial.
+CONSEQUENCE for the retrain recommendation: it stays exploration-tier
+only. The strongest w264 result (named attention predicates BEAT
+unconstrained Muon vanilla, 4.6912 vs 4.7570) has no scale confirmation,
+and this program's own record is that four of four structural wins flipped
+sign at w1152 — so do NOT promote it to a recommendation on w264 evidence.
+NOT BLOCKED: the entire tiny_full_interp grid (every cell is minutes on
+16 GB, including width 256 and depths 3-4) and all w264 work here.
+IF A BIG BOX RETURNS: run the predicate-basis w1152 arm first; it is the
+highest-value experiment in either program.
+POSSIBLE LOCAL PARTIAL: an intermediate-width transfer point (w384 or
+w512, depth 12) would give a width TREND rather than a single-point
+confirmation. Untested whether w512 depth 12 fits in 16 GB; w264 used
+~13 GB, so w384 is the realistic ceiling. Worth doing only if the tiny
+program is idle, which per Logan it should not be.
