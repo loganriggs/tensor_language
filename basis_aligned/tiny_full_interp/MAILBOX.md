@@ -7,6 +7,57 @@ they land with the finding in the commit message.
 
 ---
 
+**2026-08-08 08:40 UTC — SIX-ARCHITECTURE VERDICT: DIFFERENT, NOT A
+RELABELLING. The interpretable architectures use a route the plain model
+leaves numerically shut, and they acquire induction a full width earlier.**
+The norm-share evidence I flagged is WITHDRAWN; this rests on the causal,
+normalisation-invariant replacement (delete layer-0 attention from layer-1's
+READ only, residual untouched; KL from the true model, [zeroing, resample]):
+  plain      [2.4e-5, 5.5e-6]   <- numerically shut, 3 seeds
+  wider ch.  [0.600, 0.150]
+  private ch [0.574, 0.123]
+  named attn [0.352, 0.071]
+  shrink ch. [0.301, 0.148]
+  discrete   [0.113, 0.108]
+That is a factor of ~20,000 between the plain model and the rest.
+THE ROUTE CARRIES THE ALGORITHM, not just signal: private/wider/shrink lose
+111-153% of their induction when layer-0 attention is removed from layer-1's
+READ and only 17-37% when it is removed from the first MLP's INPUT — the
+exact mirror image of the plain model, where the read route contributed
+0.0000 and the MLP route carried everything.
+INDUCTION ARRIVES A WIDTH EARLIER: all five interpretable variants have it
+at width 128, where the plain model is null across three seeds and needs
+width 256. Decisive independence control: plain at width 256 HAS induction
+(+0.084) with the path still shut (2.3e-5), so "route open" and "model
+inducts" are separable properties and we are not just relabelling one as the
+other.
+MECHANISM ISOLATED to the write partition + per-slot norm. The nonzero write
+init that all variants share explains NOTHING (induction -0.0095, path shut
+at 3.5e-6); the lasso adds +0.029 on top.
+NAMED ATTENTION TERMS ARE THE OUTLIER, AGAIN: induction +2.593 (85x the
+probe floor) and CE 0.267 nats BETTER than plain — and it is entirely those
+16 named scalars, because zeroing them lands on -0.003, exactly the plain
+model's null.
+MY CONFOUND, CLOSED PROPERLY: imposing a 4-way slot norm on the PLAIN model
+at analysis time moves its pattern sensitivity 0.00424 -> 0.00434 (2%), not
+to the private-channel variant's 1.27. So the sensitivity metric is clean;
+the post-norm SHARE is forced to 1/G by construction and is now labelled
+worthless in the code.
+COST, in the same breath: four of the five variants pay 0.085-0.097 nats.
+And the parameter-count objection is dead — private channels have the plain
+model's EXACT count (1,638,656 total, 590,080 body) and show the full effect.
+TWO BUGS CAUGHT BY CONTROLS, NOT INSPECTION: the discrete-message variant's
+quantiser was crashing the fp64 fold gate, so that architecture had never
+actually passed it; and the MLP content spectrum on masked decoders was
+measuring the MASK (32 of 128 rows) rather than the content. On live rows
+all six sit at 0.98-1.00 of their null — CONTENT STAYS SPECTRAL IN EVERY
+ARCHITECTURE, including the ones designed to make it legible.
+PROVISIONAL: seeds 1-2, learning-rate controls, depth-1 matched nulls and
+matched-embedding arms are still running.
+
+---
+
+
 **2026-08-08 08:25 UTC — THE PENDING MEASUREMENT LANDED, AND THE
 ATTENTION-TO-ATTENTION RESULT SURVIVES IT. Verdict for phase V1: the
 interpretable architectures compute something GENUINELY DIFFERENT.**
