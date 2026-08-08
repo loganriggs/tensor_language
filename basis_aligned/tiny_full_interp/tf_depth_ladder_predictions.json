@@ -1,0 +1,75 @@
+{
+  "written_utc": "2026-08-08",
+  "written_before": "any depth-3 or depth-4 checkpoint existed on disk, and before any compressibility-across-the-grid number was computed",
+  "author": "local box (tiny_full_interp)",
+  "why_registered": "README.md: 'Registered predictions written into the results JSON BEFORE training or analysis runs.' The two predictions that matter are named in the task; the rest are registered so that a post-hoc reading of the ladder cannot be dressed up as a confirmation.",
+
+  "task_1_the_depth_ladder": {
+    "cells": "vanilla, depths 3 and 4, widths 64/128/256, seeds 0/1/2, vocab 8192 trained byte-level BPE, Muon 0.02 + AdamW 0.004 on the embedding, 15000 steps x batch 16, single epoch, --no-sweep, identical data order to depths 1-2",
+    "analysis": "tf_interp3.py verbatim, the same code path that produced the depth-1/2 and six-architecture numbers; the depth-1/2 vanilla cells that had no interp3 JSON are backfilled through the same path so the ladder is one code path end to end",
+
+    "P1_induction_width_threshold": {
+      "the_fact_being_extrapolated": "at depth 2 the plain model's synthetic induction score is +0.0938 +- 0.0086 at width 256 (3/3 seeds above the planted-oracle power floor) and is BELOW its own floor at widths 32/64/128 at every seed; four of five interpretable variants induct at width 128 at depth 2",
+      "prediction": "depth LOWERS the width threshold by one octave. Concretely: at depth 3, width 128 shows induction above the planted-oracle 3-SE floor at >= 2 of 3 seeds, with a mean score in [+0.015, +0.070]; at depth 4, width 128 does so at 3 of 3 seeds. Width 64 stays below floor at BOTH depths 3 and 4 at >= 2 of 3 seeds.",
+      "quantitative_side_prediction": "the width-256 score GROWS with depth: d3 w256 in [+0.12, +0.35] and d4 w256 >= d3 w256, both above the d2 w256 value of +0.094",
+      "falsifier": "if d3/d4 width 128 stays below floor at 2 or 3 seeds, the threshold is a WIDTH threshold that depth does not move, and P1 is refuted",
+      "confidence": 0.55
+    },
+
+    "P2_attention_to_attention_route": {
+      "the_fact_being_extrapolated": "at depth 2 the causal read-deletion KL for layer-0 attention out of layer 1's Q/K/V read is 2.4e-5 / 9.8e-6 / 4.7e-6 (zero) and 5.5e-6 / 4.0e-6 / 3.5e-6 (resample) across three seeds, while deleting the first MLP's write from the same read costs 1.796 nats -- a ratio of ~1e-5",
+      "prediction": "the FEED-FORWARD path keeps dominating all the way up. For every layer l in 1..L-1 and every upstream attention module A_j (j<l), the causal read-deletion KL of A_j stays below 1% of the largest MLP read-deletion KL at the same layer, at every width and every seed. The single largest contributor to each layer's read is the IMMEDIATELY PRECEDING MLP, M_{l-1}.",
+      "the_one_place_it_might_break": "if any attention-to-attention route becomes non-negligible (>1% of the dominant MLP term) it will be at the DEEPEST layer of the depth-4 models and at width 256 -- the only cells with both a spare layer and enough width to have built induction. Registered as the pre-specified exception so that finding it there is not treated as a refutation of the main clause and finding it anywhere else is.",
+      "falsifier": "any attention-to-attention read-deletion KL above 1% of its layer's dominant MLP term, at 2+ seeds, outside the named exception",
+      "confidence": 0.7
+    },
+
+    "P3_held_CE": {
+      "prediction_training_protocol_held_CE_T512": {
+        "d3_w64": [4.93, 5.00], "d3_w128": [4.53, 4.61], "d3_w256": [4.15, 4.25],
+        "d4_w64": [4.88, 4.98], "d4_w128": [4.47, 4.58], "d4_w256": [4.08, 4.20]
+      },
+      "shape": "diminishing returns per added layer, and the per-layer gain GROWS with width (d1->d2 gains were -0.095/-0.130/-0.176/-0.234 at w32/64/128/256, so depth pays more where there is width to spend it)",
+      "confidence": 0.5
+    },
+
+    "P4_ladder_order_dependence": {
+      "the_fact_being_extrapolated": "at depth 2 attention is worth 8.17 nats added first and 0.61 added last, an 11-13x order dependence with a 3.8-7.6 nat interaction term",
+      "prediction": "the attention/MLP order dependence GROWS with depth: the ratio attention_marginal_first / attention_marginal_last exceeds its depth-2 value at the same width, at >= 2 of 3 seeds, at every width, and the interaction term (first minus last) grows monotonically in depth at width 256",
+      "confidence": 0.6
+    }
+  },
+
+  "task_2_compressibility_across_the_grid": {
+    "the_scalar": "ratio = bits(best description at a matched score) / bits(the SAME weights under naive per-row uniform quantisation + entropy coding at the same score). This is the one honest number FINDING 12 sec 7b R1 established: at depth 1 width 128 it is 1.13-1.54 across 25 frontier points, median 1.20.",
+    "matched_on": "held CE primarily (Logan's standing correction), KL from the model secondarily. Because KL and CE scales differ across cells, the matching level is ALSO expressed as a fraction of each model's own headroom over the unigram floor, so a fixed absolute KL cannot masquerade as a fixed difficulty.",
+
+    "P5_the_trend": {
+      "prediction": "FLAT. The ratio does not grow with model size: the fitted slope of log(ratio) against log(parameters) is indistinguishable from zero (|slope| < 0.05 per e-fold, and the ratio stays inside 1.05-1.6 at every cell). Therefore 'structure does not compress' is a property of the ARCHITECTURE FAMILY as measured here, not an artifact of the smallest cell.",
+      "mechanism_behind_the_prediction": "the conversion law of FINDING 13 sec 6 -- a description whose structure attains R^2 on a table is worth -0.5*log2(1-R^2) bits per weight, and the sparse/low-rank/clustered families spend several times that -- is a per-weight statement with no size in it. Nothing in the family's arithmetic changes with width.",
+      "the_direction_of_any_residual_trend": "if the ratio moves at all, it SHRINKS with width, because the naive baseline's fixed per-row overheads (row scales, histograms) amortise over more columns as width grows, making the denominator stronger; and because the embedding's share of the budget falls from 91% at width 32 to 57% at width 256, moving bits into the body where the structural families do worst",
+      "falsifier": "a monotone increase of the ratio with parameter count, slope > +0.05 per e-fold and > 1.6 at the largest cell -- which would say the negative is a small-model artifact and the programme should scale up",
+      "confidence": 0.6
+    },
+
+    "P6_depth_does_nothing_to_compressibility": {
+      "prediction": "at fixed width, depth changes the ratio by less than the seed spread, because depth adds body parameters and the body is the part where every structural family already loses; the depth effect on the ratio is smaller than the width effect",
+      "confidence": 0.6
+    },
+
+    "P7_the_structural_only_ratio_is_worse_than_the_best_of_everything_ratio": {
+      "prediction": "when the numerator is restricted to descriptions that are made out of an INTERPRETATION (dictionaries, anchors, prototypes/clusters, low rank, feature-conditioned codes) rather than recodings (transform codes, per-column entropy models, stratified precision), the ratio drops below 1.0 at every cell -- i.e. structure LOSES to naive quantisation everywhere, and the >1 headline is carried entirely by recoding",
+      "why_it_matters": "this is the version of the number that actually answers 'does interpretable structure compress'; the best-of-everything ratio answers 'is fp32 a bad file format'",
+      "confidence": 0.8
+    }
+  },
+
+  "standing_failure_modes_this_run_must_not_commit": [
+    "quoting a component's value without its ladder position (P4 exists because of this)",
+    "ablating a term without composing it through what consumes it -- every read deletion recomputes everything downstream",
+    "zeroing quoted as the harshest ablation -- resample is reported beside every zeroing number",
+    "a null result with an uncalibrated detector -- every induction null is quoted against the planted-oracle power floor",
+    "single seed -- three per cell",
+    "a ratio that is silently size-dependent for a trivial reason -- the adversarial-review item for TASK 2, addressed by (a) matching on a size-normalised score level as well as an absolute one, (b) reporting the overhead share of the naive baseline per cell, (c) reporting bits-per-weight rather than only total bits"
+  ]
+}

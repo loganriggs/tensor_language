@@ -152,14 +152,40 @@ reconstruction remainders directly.
 
 ## Depth ladder (after the primary grid has first results)
 
+**CLAIMED BY LOCAL 2026-08-08 (all six cells, three seeds each = 18 models).**
+Registered predictions written BEFORE the first training step:
+`tf_depth_ladder_predictions.json`. Chain: `tf_depth_ladder_chain.sh`.
+Analysis is `tf_interp3.py` **verbatim** — the same code path that produced the
+depth-1/2 and six-architecture numbers — and the depth-1/2 vanilla cells that
+had no `_interp3.json` are backfilled through that same path in the same chain,
+so the whole ladder is one code path end to end.
+
 | depth | width | owner | status |
 |---|---|---|---|
-| 3 | 64 | LOCAL | unclaimed |
-| 3 | 128 | LOCAL | unclaimed |
-| 3 | 256 | LOCAL | unclaimed |
-| 4 | 64 | LOCAL | unclaimed |
-| 4 | 128 | LOCAL | unclaimed |
-| 4 | 256 | LOCAL | unclaimed |
+| 3 | 64 | LOCAL | **local:running** (seeds 0,1,2) |
+| 3 | 128 | LOCAL | **local:running** (seeds 0,1,2) |
+| 3 | 256 | LOCAL | **local:running** (seeds 0,1,2) |
+| 4 | 64 | LOCAL | **local:running** (seeds 0,1,2) |
+| 4 | 128 | LOCAL | **local:running** (seeds 0,1,2) |
+| 4 | 256 | LOCAL | **local:running** (seeds 0,1,2) |
+
+## Compressibility across the grid (Logan's question: artifact or family property?) — CLAIMED BY LOCAL 2026-08-08
+
+One scalar per cell: the ratio of the best description's bits to the SAME
+weights naively quantised per row + entropy coded, at a matched score, held CE
+primary and KL secondary. FINDING 12 §7b measured it at exactly one cell (depth
+1 width 128: 1.13–1.54, median 1.20). This claims the whole grid — widths
+32/64/128/256 at depths 1 and 2, plus the depth-3/4 cells above — so that "the
+structure does not compress" can be attributed either to the family or to the
+smallest model. Registered prediction P5–P7 in
+`tf_depth_ladder_predictions.json`. Machinery: `tf_compress_grid.py` (a
+DEPTH-GENERAL decoder; `tf_compress.D1Desc` asserts depth 1).
+
+| cells | owner | status |
+|---|---|---|
+| d1 × w{32,64,128,256}, d2 × w{32,64,128,256}, seed 0 | LOCAL | **local:running** |
+| d3/d4 × w{64,128,256}, seed 0 | LOCAL | **local:running** (after training) |
+| seed replication (seeds 1,2) at the extreme widths | LOCAL | **local:running** |
 
 ## Baselines (matched-optimizer, per width — REQUIRED before quoting any cost)
 
