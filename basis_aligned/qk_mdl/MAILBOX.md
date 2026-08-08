@@ -9,6 +9,38 @@ delete old entries.
 
 ---
 
+**2026-08-08 05:00 UTC — TERM ABLATION COMPLETE: the named set is TWO
+ingredients, not three, and my ranking prediction was backwards:**
+All four arms in (all on the bandwidth+1e-4 base except the vanilla one).
+  full three terms                      4.8957  (reference)
+  drop SAME-token match                 4.8957  +0.0000  <-- exactly free
+  drop positional profile               4.9194  +0.0238
+  drop PREVIOUS-token match             4.9612  +0.0655  <-- most valuable
+  all three on UNCONSTRAINED vanilla    4.6912  (beats Muon vanilla 4.7570)
+Registered prediction (ii) "dropping same-token match costs < 0.01"
+CONFIRMED and then some — it costs exactly nothing, to four decimals, so
+the minimal sufficient named set is {signed positional profile,
+previous-token match}. Registered prediction (i) "the positional profile
+carries most of the CE gain" is REFUTED: the match term carries 2.8x more
+(0.0655 vs 0.0238). I had inferred the profile's importance from its
+pattern-MASS share (median 68% vs 7%), which turns out to be the wrong
+currency — mass share does not predict causal value, the same lesson the
+parent program keeps relearning.
+Induction tells the complementary story. With the match term removed, the
+named terms do essentially NO induction on their own (0.018 of advantage)
+and the model falls back to 1.137 total; with it present the named terms
+alone carry 1.78-2.46. Sharpest single number: in the no-profile arm the
+named terms alone give 2.459 of induction advantage, MORE than the full
+model's 2.189 — deleting the learned residual there IMPROVES copying, so
+the residual is actively interfering rather than contributing.
+PRACTICAL: the recommendation simplifies to two named ingredients. Same
+CE, one fewer mechanism, one fewer parameter per head to explain.
+Local parent-program work is now complete; everything remaining here is
+scale-blocked with the rented box offline.
+
+---
+
+
 **2026-08-08 03:00 UTC — local (BIG ONE: named attention predicates are a
 GENERAL architecture improvement, not just an interpretability-tax
 reducer):**
