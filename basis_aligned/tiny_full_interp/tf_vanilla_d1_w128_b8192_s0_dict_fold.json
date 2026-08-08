@@ -1,0 +1,61 @@
+{
+ "stem": "tf_vanilla_d1_w128_b8192_s0",
+ "registered_predictions": {
+  "written_before_any_measurement": true,
+  "R1_fold_is_an_expansion": "ARITHMETIC, stated first because it frames everything: the folded object is 4 x (V x hd) x H = 4.19M numbers, 3.1x the whole 1.34M-parameter model and 4x the embedding it is derived from, because the fold trades 4 x 128 x 128 = 65k weights for a V-row table. So a description that STORES the fold cannot beat the model unless the fold is coded below 2.10 Mbit (the four projection matrices it replaces). Prediction: no dictionary point below 2.10 Mbit is within 0.10 nats of the model, so Description A LOSES as a description while still being the right object for the method test.",
+  "R2_objective_ports": "The context-expected OV objective will beat plain MSE at matched bits at the LOW end of the budget range (the parent's crossover was ~12% of raw bits), by >=15% of the CE gap to the model.",
+  "R3_grouping_flips_with_vocabulary": "The parent's per-head-branch grouping (rows of dim 2*hd) will be DOMINATED here by a joint dictionary over the token's whole folded signature, because the index+coefficient cost per row is amortised over 2*hd=32 numbers instead of 256 at V=50304; per-head-branch structure was a quality finding at their scale and is a bits finding at ours.",
+  "R4_anchors_port": "Exact anchor rows for the top-B tokens by attribution plus a dictionary tail will beat the pure dictionary at matched bits somewhere on the curve, by >=1.3x in bits at matched CE. This is a RETEST: the earlier negative in FINDING 12 was measured against the embedding table with no context objective.",
+  "R5_nothing_beats_the_model_CE": "No point of Description A reaches the model's own held CE (4.7114). If any does it will be at the high-bit end and will be a regularisation effect, not compression.",
+  "R6_quantisation_still_wins_the_bits": "As a FULL description, every Description-A point is dominated by the existing quantisation frontier (7.59 Mbit at KL 0.004), because the fold is an expansion."
+ },
+ "config": {
+  "stem": "tf_vanilla_d1_w128_b8192_s0",
+  "iters": 6,
+  "held_seq": 256,
+  "est_seq": 128,
+  "quick": false
+ },
+ "controls": {
+  "fold_rel_logit_diff": 5.3168619160715025e-06,
+  "fold_identity": {
+   "ce": 4.755636215209961,
+   "ce_se": 0.01950238086283207,
+   "dce_vs_model": 8.195638656616211e-08,
+   "dce_se": 2.464903658960793e-08,
+   "ce_model": 4.755636215209961,
+   "kl": -1.2567336060698153e-11,
+   "kl_se": 4.3512232705822385e-10,
+   "n_seq": 256,
+   "ntok": 65536
+  },
+  "weights_identity": {
+   "ce": 4.755636215209961,
+   "ce_se": 0.01950238086283207,
+   "dce_vs_model": 6.332993507385254e-08,
+   "dce_se": 2.7649152301023605e-08,
+   "ce_model": 4.755636215209961,
+   "kl": 2.2305784996845546e-10,
+   "kl_se": 4.4438316915140774e-10,
+   "n_seq": 256,
+   "ntok": 65536
+  },
+  "raw_fold_numbers": 4194304,
+  "raw_fold_bits": 134217728,
+  "model_bits": 42995712,
+  "identity_dictionary": {
+   "max_abs_err": 0.0,
+   "ce": 4.755636215209961,
+   "ce_se": 0.01950238086283207,
+   "dce_vs_model": 8.195638656616211e-08,
+   "dce_se": 2.464903658960793e-08,
+   "ce_model": 4.755636215209961,
+   "kl": -1.2567336060698153e-11,
+   "kl_se": 4.3512232705822385e-10,
+   "n_seq": 256,
+   "ntok": 65536,
+   "ce_est": 4.851404190063477,
+   "bits": 134586368
+  }
+ }
+}

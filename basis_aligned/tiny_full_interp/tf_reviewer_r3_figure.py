@@ -32,12 +32,41 @@ def main():
     O7 = rev['O7_recoding_vs_structure_and_CE']
     O1 = rev['O1_fair_denominator']
     fp32 = O7['fp32_bits']
-    cls = O7['classes']
-    names = [('a_recoding_of_the_weights',
-              'recodes the model’s own weights'),
-             ('b_hybrid_structure_plus_coded_residual',
-              'structure + coded residual'),
-             ('b_pure_structure', 'pure structure (dictionary, factor, rule)')]
+    d0 = json.load(open(f'{HERE}/tf_vanilla_d1_w128_b8192_s0_compress.json'))
+
+    # LEFT PANEL, apples to apples: the EMBEDDING table only, body held exact
+    # at fp32 for every point, so the three classes are directly comparable.
+    def cl(s):
+        if s.startswith(('feature_residual_', 'corpusstat_residual_')):
+            return 1
+        if s.startswith(('cluster_', 'lowrank_', 'pq_', 'anchor',
+                         'transform_pca', 'sparsedict_', 'writecluster_',
+                         'readcluster_', 'vq_')):
+            return 2
+        return 0
+    emb = {0: [], 1: [], 2: []}
+    for sec in ('C_embedding', 'D_anchor', 'G_codes', 'K_features',
+                'L_corpus_stats'):
+        for r in d0.get(sec, {}).get('rows', []):
+            if r.get('bits_embedding') is None:
+                continue
+            emb[cl(r['scheme'])].append((r['bits_embedding'], r['kl']))
+    for r in rev.get('R7b_sparse_dictionary_the_untried_structural_family',
+                     {}).get('rows', []):
+        emb[2].append((r['bits'], r['kl']))
+    for r in rev.get('O4_clustering', {}).get('rows', []):
+        if r['role'] == 'both':                    # comparable: both roles set
+            emb[2].append((r['bits'], r['kl']))
+    names = [(0, 'recodes the model’s own weights'),
+             (1, 'structure + coded residual'),
+             (2, 'pure structure (dictionary, prototypes, factors)')]
+
+    def front(ps):
+        o = []
+        for b, k in sorted(ps):
+            if not o or k < o[-1][1] - 1e-12:
+                o.append((b, k))
+        return o
 
     import matplotlib
     matplotlib.use('Agg')
@@ -55,35 +84,28 @@ def main():
     # ------------------------------------------------------------- LEFT
     FLOOR = 1.5e-5      # the honest floor: fp16 reference storage, see O2
     for i, (key, lab) in enumerate(names):
-        fr = cls[key]['pareto']
-        xs = [p['bits'] / 1e6 for p in fr]
-        ys = [max(p['kl'], FLOOR) for p in fr]
-        ax.plot(xs, ys, color=PAL[i], lw=2.0, alpha=0.9, zorder=3)
-        ax.scatter(xs, ys, s=52, marker=MARK[i], facecolor=PAL[i],
-                   edgecolor='white', linewidth=1.2, zorder=4, label=lab)
-    # the honest denominators
-    dens = [('fp32, the number the finding quoted', fp32),
-            ('best lossless recompression', O1['lossless_best']),
-            ('fp16 (KL at the floor)', 16 * O1['n_params']),
-            ('12-bit uniform (KL below the floor)', 16449536)]
-    for lab, b in dens:
-        ax.axvline(b / 1e6, color=MUTED, ls=':', lw=1.1, zorder=1)
-        ax.text(b / 1e6, 6.5, lab, rotation=90, ha='right', va='top',
-                fontsize=7.6, color=INK2)
-    # the matched-KL naive baseline curve
-    ent = sorted((v['bits'], v['kl']) for k, v in O1['standard_encodings'].items()
-                 if k.endswith('_perrow_entropy'))
-    ax.plot([b / 1e6 for b, k in ent], [k for b, k in ent], color=INK,
-            lw=1.6, ls='--', zorder=2,
-            label='naive per-row quantisation + entropy coding')
+        g = emb[key]
+        ax.scatter([b / 1e6 for b, k in g], [max(k, FLOOR) for b, k in g],
+                   s=26, marker=MARK[i], facecolor=PAL[i], alpha=0.35,
+                   edgecolor='none', zorder=2)
+        fr = front(g)
+        ax.plot([b / 1e6 for b, k in fr], [max(k, FLOOR) for b, k in fr],
+                color=PAL[i], lw=2.2, zorder=3)
+        ax.scatter([b / 1e6 for b, k in fr], [max(k, FLOOR) for b, k in fr],
+                   s=54, marker=MARK[i], facecolor=PAL[i], edgecolor='white',
+                   linewidth=1.2, zorder=4, label=lab)
+    ax.annotate('structure only wins where a third\nof the model is already gone',
+                xy=(1.1, 1.0), xytext=(0.62, 0.13), fontsize=8.2, color=INK2,
+                arrowprops=dict(arrowstyle='->', color=MUTED, lw=1.0))
     ax.set_xscale('log')
     ax.set_yscale('log')
-    ax.set_ylim(FLOOR * 0.6, 9)
-    ax.set_xlim(0.4, 60)
-    ax.set_xlabel('description length (megabits — everything charged)')
+    ax.set_ylim(4e-5, 9)
+    ax.set_xlim(0.45, 30)
+    ax.set_xlabel('bits for the embedding table (body held exact at fp32)')
     ax.set_ylabel('KL from the model on held text (nats/token)')
-    ax.set_title('Every structural class is at or behind plain recoding',
-                 fontsize=11.5, color=INK)
+    ax.set_title('Apples to apples on the embedding: every structural class\n'
+                 'is at or behind plain recoding wherever fidelity matters',
+                 fontsize=11, color=INK)
     ax.grid(True, which='major', color=GRID, lw=0.8, zorder=0)
     ax.legend(fontsize=8.4, loc='lower left', frameon=False)
 

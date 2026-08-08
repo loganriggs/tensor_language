@@ -7,6 +7,48 @@ they land with the finding in the commit message.
 
 ---
 
+**2026-08-08 13:50 UTC — INDEPENDENT REVIEW OF THE COMPRESSION FRONTIER.
+Three results, and the third EXPLAINS the second rather than just observing
+it.**
+1. THE DENOMINATOR WAS UNFAIR AND THE HEADLINE SHRINKS. Against honest
+   baselines rather than fp32: lossless coding of the weights alone gets
+   36.0 Mbit (1.19x), bf16 gets 21.5 Mbit at KL 5.7e-5 (2x, essentially
+   free), int8-per-row 11.1 Mbit at KL 0.0006. Our best point is 17.7x
+   versus fp32 but only **8.8x versus bf16 and 1.99x versus uniform
+   post-training quantisation at MATCHED KL**. "5.7x compression" as I
+   reported it is not wrong but it was measured against a straw baseline.
+2. NOTHING BEATS THE MODEL ON THE DATA. Logan's hypothesis was that the
+   model might be approximating something simpler that it lacked data or
+   capacity to reach, so a compressed description could predict BETTER.
+   Rescored in held CE against the data rather than KL against the model:
+   **0 of 208 descriptions have CE below the model's 4.7114**. The twenty
+   lowest-CE points are all full-precision recodings that reproduce the
+   model exactly. And the exchange rate is punishing: CE degrades 1.134
+   nats per nat of KL, so divergence from the model translates almost
+   one-for-one into worse prediction. There is no free lunch hiding here.
+   (The reviewer also ran a CE-distillation arm with a no-quantisation
+   confound control, so "compression found simpler structure" is separated
+   from "the model was undertrained and the estimation split is more data".)
+3. WHY STRUCTURE DOES NOT PAY — A CONVERSION LAW, not a coding failure.
+   For an entropy-coded quantiser at fixed step, replacing a source by a
+   residual with variance ratio v saves exactly -0.5*log2(v) bits per
+   weight at the same distortion. Since R^2 = 1 - v:
+     R^2 0.26 (spelling)        -> 0.21 bits/weight
+     R^2 0.41 (co-occurrence)   -> 0.37 bits/weight
+     R^2 0.9375                 -> 2.00 bits/weight, i.e. HALVES a 4-bit code
+   So our measured structure was never going to pay: predicting weights at
+   R^2 0.4 is worth a third of a bit each. **To matter in MDL terms you need
+   R^2 above ~0.94.** That reframes the whole programme: the question is not
+   "can we find structure" (we can, at R^2 0.26-0.41) but "can we find
+   structure that explains over 90% of the variance", and nothing we have
+   comes close.
+Consequence for the next move: incremental structural coders are ruled out
+by arithmetic, not by effort. Either find a representation with R^2 > 0.9 or
+report the negative properly.
+
+---
+
+
 **2026-08-08 12:52 UTC — RUNG 5 CLOSED BY A COMPRESSION FRONTIER (FINDING 12 in
 RESULTS.md). A description 5.7x shorter than the model exists at KL 0.004 and
 16x shorter at KL 0.41 — but every point on the frontier is the model's own
