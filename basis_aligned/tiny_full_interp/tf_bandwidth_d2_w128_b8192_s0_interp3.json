@@ -2475,6 +2475,22 @@
         },
         "slice_eigen_mean_entropy_rank": 113.21564819880064,
         "mean_negative_eig_share": 0.501875,
+        "content_over_null_ALL_ROWS_DO_NOT_QUOTE": 0.9991072942435951,
+        "live_output_rows": 40,
+        "live_row_norm_ratio_inside_over_outside": 1.0,
+        "mode0_unfolding_live": {
+          "numerical_rank": 40,
+          "participation_ratio": 39.083205573623175,
+          "entropy_rank": 39.54321531905789,
+          "top1_share": 0.03897743355662815,
+          "rank_bound": 40
+        },
+        "random_factored_null_mode0_live": {
+          "numerical_rank": 40,
+          "participation_ratio": 39.170356336227826,
+          "entropy_rank": 39.5785473160771,
+          "top1_share": 0.032923886392686
+        },
         "content_over_null": 0.9991072942435951
       },
       "read_matrices": {
@@ -2562,6 +2578,22 @@
         },
         "slice_eigen_mean_entropy_rank": 105.96501851915261,
         "mean_negative_eig_share": 0.50109375,
+        "content_over_null_ALL_ROWS_DO_NOT_QUOTE": 0.992514392037632,
+        "live_output_rows": 40,
+        "live_row_norm_ratio_inside_over_outside": 1.0,
+        "mode0_unfolding_live": {
+          "numerical_rank": 40,
+          "participation_ratio": 38.566493836995264,
+          "entropy_rank": 39.28227782714892,
+          "top1_share": 0.03827720659635604,
+          "rank_bound": 40
+        },
+        "random_factored_null_mode0_live": {
+          "numerical_rank": 40,
+          "participation_ratio": 39.170356336227826,
+          "entropy_rank": 39.5785473160771,
+          "top1_share": 0.032923886392686
+        },
         "content_over_null": 0.992514392037632
       },
       "read_matrices": {
@@ -8262,7 +8294,7 @@
     "note": "rank 0 would mean attending to u boosts u more than any other token; rank V/2 means attending to u says nothing about u.  This is the causal version of the claim; the composed-table version is in rung4."
   },
   "bits_per_byte_ladder": 1.7455951554512459,
-  "seconds": 39.3,
+  "seconds": 28.7,
   "read_ablation_causal": {
     "kl_from_model": {
       "l1_read_zero_e": 0.6145578473806381,
@@ -8363,5 +8395,131 @@
       "A0_write_deleted_entirely": 0.9977930889659452
     },
     "note": "read_only large => the attention-to-attention path is not merely open, the algorithm USES it.  mlp_only large with read_only near zero is the plain model pattern: the signal goes through the feed-forward block."
+  },
+  "per_head_ablation": {
+    "per_head_kl_range_zero_resample": {
+      "l0_head0": [
+        0.03671778878197074,
+        0.037636169232428074
+      ],
+      "l0_head1": [
+        0.01280202972702682,
+        0.014788448577746749
+      ],
+      "l0_head2": [
+        0.21734030172228813,
+        0.22066428884863853
+      ],
+      "l0_head3": [
+        0.03368909750133753,
+        0.02539482992142439
+      ],
+      "l0_head4": [
+        0.011969435727223754,
+        0.022514719981700182
+      ],
+      "l0_head5": [
+        0.05069209821522236,
+        0.07472787238657475
+      ],
+      "l0_head6": [
+        0.026747158728539944,
+        0.04863318242132664
+      ],
+      "l0_head7": [
+        0.09425010997802019,
+        0.13098571822047234
+      ],
+      "l1_head0": [
+        0.009409625548869371,
+        0.01879018754698336
+      ],
+      "l1_head1": [
+        0.05037667416036129,
+        0.06633956544101238
+      ],
+      "l1_head2": [
+        0.011234762845560908,
+        0.01804190082475543
+      ],
+      "l1_head3": [
+        0.03886568220332265,
+        0.06412082724273205
+      ],
+      "l1_head4": [
+        0.03171957936137915,
+        0.04305963218212128
+      ],
+      "l1_head5": [
+        0.05502085015177727,
+        0.10853904858231544
+      ],
+      "l1_head6": [
+        0.010316261439584196,
+        0.013132793363183737
+      ],
+      "l1_head7": [
+        0.023596500977873802,
+        0.04759255237877369
+      ]
+    },
+    "l0_zero_sum_of_heads": 0.48420802038162947,
+    "l0_zero_whole_layer": 1.7703065872192383,
+    "l0_zero_subadditivity_ratio": 0.2735164766811457,
+    "l0_resample_sum_of_heads": 0.5753452295903116,
+    "l0_resample_whole_layer": 0.8657494932413101,
+    "l0_resample_subadditivity_ratio": 0.6645631722361816,
+    "l0_head_order_zero": [
+      2,
+      7,
+      5,
+      0,
+      3,
+      6,
+      1,
+      4
+    ],
+    "l0_head_order_resample": [
+      2,
+      7,
+      5,
+      6,
+      0,
+      3,
+      4,
+      1
+    ],
+    "l0_head_order_agrees": false,
+    "l0_top_head_agrees": true,
+    "l1_zero_sum_of_heads": 0.23053993668872863,
+    "l1_zero_whole_layer": 0.6979042291641235,
+    "l1_zero_subadditivity_ratio": 0.33033176624369387,
+    "l1_resample_sum_of_heads": 0.37961650756187737,
+    "l1_resample_whole_layer": 0.59707111120224,
+    "l1_resample_subadditivity_ratio": 0.6357978144303378,
+    "l1_head_order_zero": [
+      5,
+      1,
+      3,
+      4,
+      7,
+      2,
+      6,
+      0
+    ],
+    "l1_head_order_resample": [
+      5,
+      1,
+      3,
+      7,
+      4,
+      0,
+      2,
+      6
+    ],
+    "l1_head_order_agrees": false,
+    "l1_top_head_agrees": true,
+    "resample_harsher_than_zero_fraction": 0.9375,
+    "note": "subadditivity_ratio = (sum of single-head costs) / (whole-layer cost).  Above 1 the heads write overlapping directions and the single-head numbers over-count; BELOW 1 they are complementary and the layer is worth more than its parts.  Measured below 1 here (0.52-0.83 in the plain model), which is the opposite of the registered head-compensation prediction.  The ordering rows say whether a head ranking obtained by zeroing survives the harsher ablation -- in the plain model it does NOT at either layer, though the top head is the same."
   }
 }

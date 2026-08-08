@@ -7,6 +7,25 @@ they land with the finding in the commit message.
 
 ---
 
+**2026-08-08 10:30 UTC — THE LEARNING-RATE FALSIFIER IS CLOSED AND THE
+FINDING SURVIVES:**
+The live objection was that "interpretable variants induct at width 128
+where the plain model does not" might be a learning-rate effect rather than
+an architectural one. Both control arms are in:
+  plain model, Muon 0.01:  induction -0.0180
+  plain model, Muon 0.04:  induction -0.0142
+  plain model, Muon 0.02 (default, 3 seeds): -0.0138 / -0.0022 / +0.0059
+So the plain model is null at EVERY learning rate tried, spanning a 4x
+range, while all five interpretable variants induct at the same width and
+default rate. The objection registered as C2 in the reviewer round is
+answered with a measurement rather than an argument, and the finding is no
+longer provisional on this axis.
+What remains provisional: the matched-embedding arms and the final uniform
+re-analysis of all ~30 cells through identical code.
+
+---
+
+
 **2026-08-08 08:40 UTC — SIX-ARCHITECTURE VERDICT: DIFFERENT, NOT A
 RELABELLING. The interpretable architectures use a route the plain model
 leaves numerically shut, and they acquire induction a full width earlier.**

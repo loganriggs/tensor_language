@@ -2475,6 +2475,22 @@
         },
         "slice_eigen_mean_entropy_rank": 110.17352561131065,
         "mean_negative_eig_share": 0.501875,
+        "content_over_null_ALL_ROWS_DO_NOT_QUOTE": 0.9954346395561199,
+        "live_output_rows": 40,
+        "live_row_norm_ratio_inside_over_outside": 1.0,
+        "mode0_unfolding_live": {
+          "numerical_rank": 40,
+          "participation_ratio": 38.83053313163392,
+          "entropy_rank": 39.397856981734044,
+          "top1_share": 0.0409095722849799,
+          "rank_bound": 40
+        },
+        "random_factored_null_mode0_live": {
+          "numerical_rank": 40,
+          "participation_ratio": 39.170356336227826,
+          "entropy_rank": 39.5785473160771,
+          "top1_share": 0.032923886392686
+        },
         "content_over_null": 0.9954346395561199
       },
       "read_matrices": {
@@ -2562,6 +2578,22 @@
         },
         "slice_eigen_mean_entropy_rank": 108.01176922715328,
         "mean_negative_eig_share": 0.49828125,
+        "content_over_null_ALL_ROWS_DO_NOT_QUOTE": 0.9952391029068135,
+        "live_output_rows": 40,
+        "live_row_norm_ratio_inside_over_outside": 1.0,
+        "mode0_unfolding_live": {
+          "numerical_rank": 40,
+          "participation_ratio": 38.8001802032561,
+          "entropy_rank": 39.39011792520744,
+          "top1_share": 0.035435816177073275,
+          "rank_bound": 40
+        },
+        "random_factored_null_mode0_live": {
+          "numerical_rank": 40,
+          "participation_ratio": 39.170356336227826,
+          "entropy_rank": 39.5785473160771,
+          "top1_share": 0.032923886392686
+        },
         "content_over_null": 0.9952391029068135
       },
       "read_matrices": {
@@ -8396,5 +8428,131 @@
     "note": "rank 0 would mean attending to u boosts u more than any other token; rank V/2 means attending to u says nothing about u.  This is the causal version of the claim; the composed-table version is in rung4."
   },
   "bits_per_byte_ladder": 1.7912203488907084,
-  "seconds": 71.6
+  "seconds": 29.9,
+  "per_head_ablation": {
+    "per_head_kl_range_zero_resample": {
+      "l0_head0": [
+        0.08190441410988569,
+        0.10977656580507755
+      ],
+      "l0_head1": [
+        0.026311317458748817,
+        0.03147426666691899
+      ],
+      "l0_head2": [
+        0.1201474592089653,
+        0.1750992313027382
+      ],
+      "l0_head3": [
+        0.0394655279815197,
+        0.050260226242244244
+      ],
+      "l0_head4": [
+        0.0364682013168931,
+        0.05320459697395563
+      ],
+      "l0_head5": [
+        0.05313442461192608,
+        0.0735339866951108
+      ],
+      "l0_head6": [
+        0.03474527318030596,
+        0.05141949187964201
+      ],
+      "l0_head7": [
+        0.04021496418863535,
+        0.05468932818621397
+      ],
+      "l1_head0": [
+        0.026686161290854216,
+        0.04169611353427172
+      ],
+      "l1_head1": [
+        0.03633141191676259,
+        0.05592227727174759
+      ],
+      "l1_head2": [
+        0.037144566886126995,
+        0.06656010169535875
+      ],
+      "l1_head3": [
+        0.018627884332090616,
+        0.028087199199944735
+      ],
+      "l1_head4": [
+        0.018599598901346326,
+        0.030055660754442215
+      ],
+      "l1_head5": [
+        0.05072751548141241,
+        0.08579090423882008
+      ],
+      "l1_head6": [
+        0.027969616930931807,
+        0.04382513556629419
+      ],
+      "l1_head7": [
+        0.021834338549524546,
+        0.033128634095191956
+      ]
+    },
+    "l0_zero_sum_of_heads": 0.43239158205688,
+    "l0_zero_whole_layer": 0.5924732387065887,
+    "l0_zero_subadditivity_ratio": 0.729807785075359,
+    "l0_resample_sum_of_heads": 0.5994576937519014,
+    "l0_resample_whole_layer": 0.6331619322299957,
+    "l0_resample_subadditivity_ratio": 0.946768375098945,
+    "l0_head_order_zero": [
+      2,
+      0,
+      5,
+      7,
+      3,
+      4,
+      6,
+      1
+    ],
+    "l0_head_order_resample": [
+      2,
+      0,
+      5,
+      7,
+      4,
+      6,
+      3,
+      1
+    ],
+    "l0_head_order_agrees": false,
+    "l0_top_head_agrees": true,
+    "l1_zero_sum_of_heads": 0.2379210942890495,
+    "l1_zero_whole_layer": 0.41088075935840607,
+    "l1_zero_subadditivity_ratio": 0.5790514373575569,
+    "l1_resample_sum_of_heads": 0.38506602635607123,
+    "l1_resample_whole_layer": 0.5884884595870972,
+    "l1_resample_subadditivity_ratio": 0.6543306331380673,
+    "l1_head_order_zero": [
+      5,
+      2,
+      1,
+      6,
+      0,
+      7,
+      3,
+      4
+    ],
+    "l1_head_order_resample": [
+      5,
+      2,
+      1,
+      6,
+      0,
+      7,
+      4,
+      3
+    ],
+    "l1_head_order_agrees": false,
+    "l1_top_head_agrees": true,
+    "resample_harsher_than_zero_fraction": 1.0,
+    "note": "subadditivity_ratio = (sum of single-head costs) / (whole-layer cost).  Above 1 the heads write overlapping directions and the single-head numbers over-count; BELOW 1 they are complementary and the layer is worth more than its parts.  Measured below 1 here (0.52-0.83 in the plain model), which is the opposite of the registered head-compensation prediction.  The ordering rows say whether a head ranking obtained by zeroing survives the harsher ablation -- in the plain model it does NOT at either layer, though the top head is the same."
+  }
 }

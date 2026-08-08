@@ -8277,7 +8277,7 @@
     "note": "rank 0 would mean attending to u boosts u more than any other token; rank V/2 means attending to u says nothing about u.  This is the causal version of the claim; the composed-table version is in rung4."
   },
   "bits_per_byte_ladder": 1.7496866562756925,
-  "seconds": 74.2,
+  "seconds": 28.2,
   "induction_route_split": {
     "baseline": {
       "induction_score_mean": -0.002239078945584083,
@@ -8311,5 +8311,131 @@
       "A0_write_deleted_entirely": -13.802788373257687
     },
     "note": "read_only large => the attention-to-attention path is not merely open, the algorithm USES it.  mlp_only large with read_only near zero is the plain model pattern: the signal goes through the feed-forward block."
+  },
+  "per_head_ablation": {
+    "per_head_kl_range_zero_resample": {
+      "l0_head0": [
+        0.04723204206675291,
+        0.06528664939105511
+      ],
+      "l0_head1": [
+        0.008114139083772898,
+        0.012529766070656478
+      ],
+      "l0_head2": [
+        0.023372467141598463,
+        0.0345134730450809
+      ],
+      "l0_head3": [
+        0.005557227355893701,
+        0.00722261326154694
+      ],
+      "l0_head4": [
+        0.05529111251235008,
+        0.03359253192320466
+      ],
+      "l0_head5": [
+        0.15988226607441902,
+        0.22642085701227188
+      ],
+      "l0_head6": [
+        0.02601160923950374,
+        0.03854308556765318
+      ],
+      "l0_head7": [
+        0.03410331532359123,
+        0.004616579855792224
+      ],
+      "l1_head0": [
+        0.006700395722873509,
+        0.010088602313771844
+      ],
+      "l1_head1": [
+        0.06157625466585159,
+        0.12291255407035351
+      ],
+      "l1_head2": [
+        0.09286268800497055,
+        0.11966374702751637
+      ],
+      "l1_head3": [
+        0.0141272924374789,
+        0.022221653256565332
+      ],
+      "l1_head4": [
+        0.006593177327886224,
+        0.0083618916105479
+      ],
+      "l1_head5": [
+        0.04002006538212299,
+        0.07376163266599178
+      ],
+      "l1_head6": [
+        0.05186845920979977,
+        0.08049167692661285
+      ],
+      "l1_head7": [
+        0.027165254577994347,
+        0.04645352531224489
+      ]
+    },
+    "l0_zero_sum_of_heads": 0.35956417879788205,
+    "l0_zero_whole_layer": 0.5966119766235352,
+    "l0_zero_subadditivity_ratio": 0.6026767696364377,
+    "l0_resample_sum_of_heads": 0.42272555612726137,
+    "l0_resample_whole_layer": 0.5428617745637894,
+    "l0_resample_subadditivity_ratio": 0.7786983278882325,
+    "l0_head_order_zero": [
+      5,
+      4,
+      0,
+      7,
+      6,
+      2,
+      1,
+      3
+    ],
+    "l0_head_order_resample": [
+      5,
+      0,
+      6,
+      2,
+      4,
+      1,
+      3,
+      7
+    ],
+    "l0_head_order_agrees": false,
+    "l0_top_head_agrees": true,
+    "l1_zero_sum_of_heads": 0.3009135873289779,
+    "l1_zero_whole_layer": 0.5513006001710892,
+    "l1_zero_subadditivity_ratio": 0.5458248861611853,
+    "l1_resample_sum_of_heads": 0.4839552831836045,
+    "l1_resample_whole_layer": 0.8491920232772827,
+    "l1_resample_subadditivity_ratio": 0.5699008821536949,
+    "l1_head_order_zero": [
+      2,
+      1,
+      6,
+      5,
+      7,
+      3,
+      0,
+      4
+    ],
+    "l1_head_order_resample": [
+      1,
+      2,
+      6,
+      5,
+      7,
+      3,
+      0,
+      4
+    ],
+    "l1_head_order_agrees": false,
+    "l1_top_head_agrees": false,
+    "resample_harsher_than_zero_fraction": 0.875,
+    "note": "subadditivity_ratio = (sum of single-head costs) / (whole-layer cost).  Above 1 the heads write overlapping directions and the single-head numbers over-count; BELOW 1 they are complementary and the layer is worth more than its parts.  Measured below 1 here (0.52-0.83 in the plain model), which is the opposite of the registered head-compensation prediction.  The ordering rows say whether a head ranking obtained by zeroing survives the harsher ablation -- in the plain model it does NOT at either layer, though the top head is the same."
   }
 }

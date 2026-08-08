@@ -7665,5 +7665,71 @@
     "note": "rank 0 would mean attending to u boosts u more than any other token; rank V/2 means attending to u says nothing about u.  This is the causal version of the claim; the composed-table version is in rung4."
   },
   "bits_per_byte_ladder": 1.8140526115894438,
-  "seconds": 47.2
+  "seconds": 23.3,
+  "per_head_ablation": {
+    "per_head_kl_range_zero_resample": {
+      "l0_head0": [
+        0.12146937474608421,
+        0.1729824896901846
+      ],
+      "l0_head1": [
+        0.02329605631530285,
+        0.04120292328298092
+      ],
+      "l0_head2": [
+        0.014369843294844031,
+        0.03237953828647733
+      ],
+      "l0_head3": [
+        0.041298544965684414,
+        0.07949978299438953
+      ],
+      "l0_head4": [
+        0.0936561468988657,
+        0.17664453759789467
+      ],
+      "l0_head5": [
+        0.03784927213564515,
+        0.06149647943675518
+      ],
+      "l0_head6": [
+        0.07885395642369986,
+        0.1144747007638216
+      ],
+      "l0_head7": [
+        0.060951574705541134,
+        0.10435551404953003
+      ]
+    },
+    "l0_zero_sum_of_heads": 0.47174476948566735,
+    "l0_zero_whole_layer": 0.7511259615421295,
+    "l0_zero_subadditivity_ratio": 0.6280501455669735,
+    "l0_resample_sum_of_heads": 0.7830359661020339,
+    "l0_resample_whole_layer": 1.1648330688476562,
+    "l0_resample_subadditivity_ratio": 0.6722301993681156,
+    "l0_head_order_zero": [
+      0,
+      4,
+      6,
+      7,
+      3,
+      5,
+      1,
+      2
+    ],
+    "l0_head_order_resample": [
+      4,
+      0,
+      6,
+      7,
+      3,
+      5,
+      1,
+      2
+    ],
+    "l0_head_order_agrees": false,
+    "l0_top_head_agrees": false,
+    "resample_harsher_than_zero_fraction": 1.0,
+    "note": "subadditivity_ratio = (sum of single-head costs) / (whole-layer cost).  Above 1 the heads write overlapping directions and the single-head numbers over-count; BELOW 1 they are complementary and the layer is worth more than its parts.  Measured below 1 here (0.52-0.83 in the plain model), which is the opposite of the registered head-compensation prediction.  The ordering rows say whether a head ranking obtained by zeroing survives the harsher ablation -- in the plain model it does NOT at either layer, though the top head is the same."
+  }
 }

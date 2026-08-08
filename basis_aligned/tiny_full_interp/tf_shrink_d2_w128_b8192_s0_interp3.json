@@ -2475,7 +2475,23 @@
         },
         "slice_eigen_mean_entropy_rank": 92.06654978993149,
         "mean_negative_eig_share": 0.49993896484375,
-        "content_over_null": 0.40145693243144953
+        "content_over_null_ALL_ROWS_DO_NOT_QUOTE": 0.40145693243144953,
+        "live_output_rows": 32,
+        "live_row_norm_ratio_inside_over_outside": 3.560032606124878,
+        "mode0_unfolding_live": {
+          "numerical_rank": 32,
+          "participation_ratio": 31.308333044184742,
+          "entropy_rank": 31.642059013532286,
+          "top1_share": 0.04397503320243227,
+          "rank_bound": 32
+        },
+        "random_factored_null_mode0_live": {
+          "numerical_rank": 32,
+          "participation_ratio": 31.429422686617755,
+          "entropy_rank": 31.711026798257844,
+          "top1_share": 0.04030975408140443
+        },
+        "content_over_null": 0.9978251166332669
       },
       "read_matrices": {
         "c_q": {
@@ -2562,7 +2578,23 @@
         },
         "slice_eigen_mean_entropy_rank": 88.3129154988999,
         "mean_negative_eig_share": 0.4991455078125,
-        "content_over_null": 0.4091312893612241
+        "content_over_null_ALL_ROWS_DO_NOT_QUOTE": 0.4091312893612241,
+        "live_output_rows": 32,
+        "live_row_norm_ratio_inside_over_outside": 3.5288472175598145,
+        "mode0_unfolding_live": {
+          "numerical_rank": 32,
+          "participation_ratio": 30.886893350344128,
+          "entropy_rank": 31.461486078991413,
+          "top1_share": 0.04929112181189581,
+          "rank_bound": 32
+        },
+        "random_factored_null_mode0_live": {
+          "numerical_rank": 32,
+          "participation_ratio": 31.429422686617755,
+          "entropy_rank": 31.711026798257844,
+          "top1_share": 0.04030975408140443
+        },
+        "content_over_null": 0.9921307903129728
       },
       "read_matrices": {
         "c_q": {
@@ -8393,5 +8425,131 @@
     "note": "rank 0 would mean attending to u boosts u more than any other token; rank V/2 means attending to u says nothing about u.  This is the causal version of the claim; the composed-table version is in rung4."
   },
   "bits_per_byte_ladder": 1.7831272641287381,
-  "seconds": 70.3
+  "seconds": 28.4,
+  "per_head_ablation": {
+    "per_head_kl_range_zero_resample": {
+      "l0_head0": [
+        0.023965092841535807,
+        0.050094542093575
+      ],
+      "l0_head1": [
+        0.009965900797396898,
+        0.0100049355532974
+      ],
+      "l0_head2": [
+        0.010800037998706102,
+        0.01850222237408161
+      ],
+      "l0_head3": [
+        0.012880987720564008,
+        0.020431175362318754
+      ],
+      "l0_head4": [
+        0.1009250096976757,
+        0.1470918282866478
+      ],
+      "l0_head5": [
+        0.08644889481365681,
+        0.04087367095053196
+      ],
+      "l0_head6": [
+        0.020417178748175502,
+        0.04079892439767718
+      ],
+      "l0_head7": [
+        0.05579233728349209,
+        0.07402162440121174
+      ],
+      "l1_head0": [
+        0.008251543040387332,
+        0.015700905118137598
+      ],
+      "l1_head1": [
+        0.0563237676396966,
+        0.08527486119419336
+      ],
+      "l1_head2": [
+        0.03091585636138916,
+        0.0441279374063015
+      ],
+      "l1_head3": [
+        0.04723628982901573,
+        0.06305379886180162
+      ],
+      "l1_head4": [
+        0.008303332724608481,
+        0.017976049333810806
+      ],
+      "l1_head5": [
+        0.008860373171046376,
+        0.014780627563595772
+      ],
+      "l1_head6": [
+        0.029910292476415634,
+        0.05306556075811386
+      ],
+      "l1_head7": [
+        0.06936501152813435,
+        0.14561450853943825
+      ]
+    },
+    "l0_zero_sum_of_heads": 0.3211954399012029,
+    "l0_zero_whole_layer": 0.8678969144821167,
+    "l0_zero_subadditivity_ratio": 0.37008478143151785,
+    "l0_resample_sum_of_heads": 0.40181892341934144,
+    "l0_resample_whole_layer": 0.5403239130973816,
+    "l0_resample_subadditivity_ratio": 0.7436630392979153,
+    "l0_head_order_zero": [
+      4,
+      5,
+      7,
+      0,
+      6,
+      3,
+      2,
+      1
+    ],
+    "l0_head_order_resample": [
+      4,
+      7,
+      0,
+      5,
+      6,
+      3,
+      2,
+      1
+    ],
+    "l0_head_order_agrees": false,
+    "l0_top_head_agrees": true,
+    "l1_zero_sum_of_heads": 0.25916646677069366,
+    "l1_zero_whole_layer": 0.7512266337871552,
+    "l1_zero_subadditivity_ratio": 0.344991052119863,
+    "l1_resample_sum_of_heads": 0.43959424877539277,
+    "l1_resample_whole_layer": 0.7332765460014343,
+    "l1_resample_subadditivity_ratio": 0.5994931259870583,
+    "l1_head_order_zero": [
+      7,
+      1,
+      3,
+      2,
+      6,
+      5,
+      4,
+      0
+    ],
+    "l1_head_order_resample": [
+      7,
+      1,
+      3,
+      6,
+      2,
+      4,
+      0,
+      5
+    ],
+    "l1_head_order_agrees": false,
+    "l1_top_head_agrees": true,
+    "resample_harsher_than_zero_fraction": 0.9375,
+    "note": "subadditivity_ratio = (sum of single-head costs) / (whole-layer cost).  Above 1 the heads write overlapping directions and the single-head numbers over-count; BELOW 1 they are complementary and the layer is worth more than its parts.  Measured below 1 here (0.52-0.83 in the plain model), which is the opposite of the registered head-compensation prediction.  The ordering rows say whether a head ranking obtained by zeroing survives the harsher ablation -- in the plain model it does NOT at either layer, though the top head is the same."
+  }
 }
