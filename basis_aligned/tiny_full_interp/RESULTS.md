@@ -203,6 +203,59 @@ when it *has* induction to route.
    contribution to a shared stream. The distribution-shift share of the layer-0
    knockout is 0.12 in vanilla and 0.56 in slots.
 
+### 6. What the mechanisms actually delivered — including where they did not
+
+The variants are supposed to buy legibility, not only a different computation.
+Measured (`mechanism` block of each cell JSON), three of the four promises are
+only half kept:
+
+* **The in-loss group lasso does not prune.** Its whole objective is to empty
+  slots out of each read matrix, and at coefficient 3e−5 it empties none: every
+  one of the 28 read matrices in every slot variant keeps all four slot groups
+  above 1% of its mass, and the shares sit near 0.25. `mean_live_slots_per_read`
+  is 4.00 of 4 in all five. The promised sparse wiring diagram is **not**
+  delivered at this size.
+* **But the wiring table is still informative, by its tilt rather than its
+  zeros — and the tilt agrees with the causal answer.** Layer 1's *queries and
+  keys* put their largest share on slot 0, the slot layer-0 attention writes
+  into (0.40–0.47 in slots/bandwidth/shrink against ~0.20 on the MLP's slot),
+  while layer 1's *values* put only 0.11–0.14 there. That is a
+  read-it-off-the-weights version of the causal result in §1–2, and vanilla has
+  no such table at all because it has no partition. Caveat that must travel with
+  it: the token remnant is full width, so a slot contains *an embedding chunk
+  plus one module's write*, and shares on slots not yet written are reading the
+  embedding.
+* **The codebook's discreteness buys no legibility here.** All 256 atoms are
+  used in all four quantised modules, usage entropy is 5.32–5.43 nats against a
+  maximum of 5.545, and it takes 182–204 atoms to cover 90% of assignments. The
+  dictionary is as flat as a random one. Registered prediction P4's sub-clause
+  ("fewer than half the atoms carry 90%") is **REFUTED.** The quantisation is
+  also not gentle: the relative error it injects at the MLP inputs is 22% at
+  block 0 and 39% at block 1 — a large perturbation the model trains around,
+  for 0.097 nats.
+* **The shrinking channel does not find a low-dimensional token summary.** Its
+  remnant projections are near full rank for the width they are given (entropy
+  rank 62.2 of 64 at block 1, 30.9 of 32 at the readout), so the floor is doing
+  the compressing, not the model.
+* **The predicate profiles are genuinely readable.** Each layer-0 head's named
+  positional term peaks at a specific relative distance — heads 1–4 at distance
+  0, heads 5–7 at distance 1, head 0 at distance 2 — which is a per-head distance
+  kernel you can print, and it is why removing the rotary costs this variant
+  0.532 nats against vanilla's 3.429. (Only the peak *location* is quoted: the
+  profile is one factor in a product, so its sign is gauge and is not
+  interpreted. 40–52% of the absolute mass sits beyond distance 16, so the
+  kernel is peaked but not local.)
+
+### 7. Per-head values are ranges, and the ranking does not survive the harsher ablation
+
+Every head is ablated both ways. In the plain model resampling is harsher at 14
+of 16 heads, and — the part that matters for anyone reading a head ranking off a
+zeroing experiment — **the head ordering obtained by zeroing does not survive
+the switch at either layer** (the top head does). The single-head costs also sum
+to *less* than the whole-layer cost (0.52 at layer 1, 0.69 at layer 0), so the
+heads are complementary rather than redundant — the opposite of the registered
+head-compensation prediction, which expected the sum to over-count.
+
 ### Arithmetic dressed as a finding, caught before it was reported
 
 The MLP content spectrum for the **masked-decoder** variants (`slots`, `shrink`)
