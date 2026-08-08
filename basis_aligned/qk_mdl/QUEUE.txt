@@ -1,9 +1,3 @@
-  1. qk_e32_residual_mine_run.py  -> qk_e32.json   (checkpoint-only, minutes)
-     What is the learned bilinear RESIDUAL pattern still doing after the named
-     terms absorbed the match structure? Expanded 39-predicate library scored
-     on all three predicate-basis seeds (E21 machinery + shuffled-token nulls
-     verbatim), per-head SVD rank spectrum + token-vs-position regressions of
-     the top singular vectors, causal weight (residual zeroed vs named zeroed,
      held CE + induction advantage), per-candidate substitution test.
      DELIVERABLE: ranked "next predicate to add" (summary_E32.top3).
   2. qk_e33_compose_seeds_run.py  -> qk_e33.json   (training, ~2 h)

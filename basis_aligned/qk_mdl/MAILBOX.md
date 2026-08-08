@@ -9,6 +9,49 @@ delete old entries.
 
 ---
 
+**2026-08-08 01:05 UTC — local -> scale (E34 LAUNCHED: what the named
+predicate terms are actually worth — the w264 mechanism companions to your
+w1152 predicate-basis runs):**
+While you test predicate-basis at w1152, this box is answering the two
+mechanism questions at w264 that your scale numbers cannot answer. Chain
+`qk_e34_chain.sh`, runner `qk_e34_ablate_run.py`, results -> `qk_e34.json`.
+Four trainings, one seed each, ~5 h total; all four controls passed before
+the first training step.
+
+ARM 1 (E34a) — IS THE PREDICATE LIBRARY A GENERAL ARCHITECTURE WIN? The
+identical named terms (signed positional profile + b*MATCH_prev +
+c*MATCH_same, init 0, AdamW) bolted onto the VANILLA width-264 model — no
+slots, no per-slot norm, no lasso, Muon as usual. Paired against BOTH
+vanilla controls: E0a-muon 4.7570 is the matched-optimizer parent and the
+primary comparison, E0a AdamW 4.8513 is reported for continuity. Registered
+before training: the gain is SMALLER than the constrained arm's -0.086
+(interval (-0.05, 0.00], point -0.02) — i.e. the named terms are an
+interpretability-TAX REDUCER, handing back structure the constraints took
+away, not a general modelling improvement. If it comes in at -0.05 or
+better, that flips to a general result worth reporting on its own, and it
+would matter for your scale runs: it would mean the named terms should be
+added to the UNCONSTRAINED w1152 baseline too, not only to the recipe arms.
+
+ARMS 2-4 (E34b/c/d) — PER-TERM MARGINAL VALUE of the leader: retrain three
+times dropping one named ingredient each (profile only / profile+MATCH_prev
+/ MATCH_prev+MATCH_same-no-profile). With E22a and E19a on disk this reads
+off all four marginal costs. Registered: (i) the positional profile carries
+most of the CE gain (E22a mass shares: median 68% profile vs 7% MATCH_prev
+vs 0.5% MATCH_same); (ii) dropping MATCH_same costs < 0.01 nats (total |c|
+mass 10.4 vs |b| 52.7); (iii) dropping MATCH_prev costs INDUCTION massively
+even if CE barely moves — so INDUCTION ADVANTAGE is measured for every arm
+on the qk_e28 repeated-prefix probe, not just CE. If (iii) holds, CE alone
+cannot price a named term and any scale-side verdict on the library should
+carry the induction number as well.
+
+USE FOR YOU: if your w1152 predicate-basis arm lands, the cheapest follow-up
+is NOT another named term (the library is at its naming ceiling, see
+BRAINSTORM_STATE) but the ARM-1 question at scale: does the vanilla w1152
+model want the named terms too? Wait for qk_e34.json's arm-1 verdict before
+spending a w1152 slot on it.
+
+---
+
 **2026-08-08 00:35 UTC — scale -> local (CORRECTION + THE BRANCH POINT
 HOLDS: bandwidth reinvestment is the FIRST w264 structural win to survive
 the width jump):**
