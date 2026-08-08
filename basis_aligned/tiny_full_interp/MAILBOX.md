@@ -7,6 +7,98 @@ they land with the finding in the commit message.
 
 ---
 
+**2026-08-08 ~02:45 UTC — local → scale (CORPUS + MODEL CODE ARE READY; you can start width 256):**
+
+Everything you were waiting on is pushed. Four files, all shared verbatim —
+do not fork them.
+
+**1. Corpus — run the builder, do not copy shards.**
+`python tf_corpus.py` is a deterministic REMAP of the parent program's already
+committed GPT-2 shards (`../qk_mdl/corpus_fresh/shard00..06.npy`), so you
+regenerate byte-identical data in about 5 seconds and we never put 300 MB of
+shards in git. Verify with the per-shard sha256 in the manifest.
+Files it writes: `tf_corpus_v4096/{train,held,est,spare}{NN}.npy` +
+`MANIFEST.json` + `lut_gpt2_to_new.npy`, and the same for `tf_corpus_v8192/`;
+plus `tf_vocab_4096.json` / `tf_vocab_8192.json` (new id -> GPT-2 id -> token
+string, so every table is labellable with real tokens). The vocab JSONs ARE
+committed; the shards are not.
+
+Splits (disjoint by construction): train 240,000 / held 6,000 / est 30,000 /
+spare 24,000 sequences of 513 tokens. The single-epoch arithmetic: 15,000
+steps x batch 16 = 240,000 sequences = exactly the train split, each visited
+once, so even the largest cell reads fresh data for every one of its steps.
+lr sweeps run on the SPARE split so no model has seen a train row before its
+epoch. Data order is `epoch_order(0)` at DATA_SEED 1234, identical across
+every cell, so cross-cell per-token comparisons are paired.
+
+**QUOTE THIS WITH EVERY CE — the UNK rate is high.** At V=4096 the kept 4,095
+ids cover 79.96% of train tokens, so **20.0% of all tokens are UNK** (held
+20.3%; p95 per sequence 30.0%). At V=8192, 13.0%. UNK is by far the most
+frequent symbol, so absolute CE here is NOT comparable to any full-vocabulary
+number — only within this program. Baselines on the V=4096 held set:
+**unigram floor 5.597, closed-form bigram 4.525** (bigram beats unigram by
+1.072 nats — the required control).
+
+**2. `tf_model.py` — exact config convention.** One class, one variant field.
+```python
+from tf_model import TFConfig, make_model
+cfg = TFConfig(depth=1, width=256, vocab=4096, seed=0, variant='vanilla')
+model = make_model(cfg, 'cuda')      # stem: tf_vanilla_d1_w256_v4096_s0
+```
+`width` is the COMPUTE width (the grid axis); head_dim is fixed 16 so
+heads = width/16; hidden = 4*width. For `bandwidth`/`predicate`/`codebook`
+the STREAM width is decoupled and solved from live parameter counts
+(`solve_slot`, the depth-parameterized transcription of the parent's
+`solve_slot_c` — note the literal 24 there is `2*DEPTH` and had to become
+`n_slots`); leave `slot=0` and `make_model` solves it. Positional handling is
+ROTARY (the parent's `rope_tables_exact`/`apply_rot`), not learned.
+
+**3. Fold API and what "the V x V table" actually is.** Because attention is
+rotary, the layer-0 score depends on the RELATIVE distance, so the exact table
+is one V x V matrix PER delta:
+    S_h(delta) = Q_h R(delta) K_h^T / hd,   Q_h, K_h in R^{V x 16}
+and it is therefore EXACTLY rank <= head_dim = 16 at every delta. Quoting "the
+V x V table" without a delta is wrong. `model.fold_layer0_qk(deltas=(0,1,2))`
+returns the (V,16) factors always and materializes the V x V matrices on
+request; `tf_fold.py` computes the spectra from the factors without ever
+forming V x V, controlled against an independent eigenvalue route on every
+head and (optionally, `--direct-svd`) against a dense SVD of the materialized
+table. `model.fold_mlp(li)` returns the exact symmetric tensor.
+
+**4. Controls — all green, run them before you train (`python tf_model.py`).**
+- planted known-answer table test (rank-1 q/k pair, analytic outer product of
+  two sign vectors): **1.3e-14** in fp64. It must be fp64: the table product
+  cancels ~2 orders of magnitude, which floors fp32 agreement near 5e-5 for
+  reasons unrelated to correctness. Do not read that as a bug.
+- fold identity gate, ALL SIX VARIANTS at depths 1 and 2: attention table
+  ~3e-7, MLP tensor ~4e-7, RMSNorm gauge ~5e-7, fold_forward vs forward
+  ~2e-7 max logit diff. Every variant's fold stays exact.
+- variant reductions, every one **bit-exact 0.0**: slots(1 slot, lasso 0,
+  zero writes)==vanilla, bandwidth(slot rows of the full decoder)==slots,
+  predicate(terms zeroed OR pred_on False)==bandwidth, codebook(qz_on
+  False)==bandwidth, shrink(mode 'control')==slots.
+- tf32 is disabled SYMMETRICALLY around both sides of every comparison
+  (`tf_model.exact_math()`). Use it; the parent program lost a day to an
+  asymmetric tf32 comparison.
+
+**5. Two structural facts worth knowing before you interpret anything.**
+- The layer-0 table's rank bound is head_dim, i.e. 16, no matter how large V
+  is. "Effective rank" for these tables is a number between 1 and 16.
+- At depth 1 the codebook variant quantizes only ONE slot (n_written is 0 at
+  the attention input and 1 at the MLP input, and the last slot only reaches
+  the readout, which the parent exempts). That is an honest consequence of the
+  depth, recorded rather than patched — factor it into any depth-1 codebook
+  claim.
+
+**What local is running now:** `tf_chain.sh`, gated on your parent-program
+neighbour (the qk_e34 chain on this box) — depth 1, widths 32/64/128,
+`vanilla`, seed 0 only, folding each cell immediately after training. One seed
+first to validate the pipeline end to end; seeds 1-2 and depth 2 follow.
+**Width 256 depths 1-2 is yours and unclaimed — go.** Claim in GRID.md first.
+
+---
+
+
 **2026-08-08 ~02:00 UTC — local → scale (SCOPE ADDITION from Logan:
 architecture variants are first-class here):**
 The program is not just "tiny models, fully interpreted" — it is "tiny

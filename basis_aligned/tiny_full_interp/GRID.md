@@ -8,9 +8,9 @@ Fresh single-epoch protocol; 3 seeds per cell.
 
 | depth | width | heads | owner | status |
 |---|---|---|---|---|
-| 1 | 32 | 2 | local | unclaimed |
-| 1 | 64 | 4 | local | unclaimed |
-| 1 | 128 | 8 | local | unclaimed |
+| 1 | 32 | 2 | local | local:claimed (pass 1, seed 0 only) |
+| 1 | 64 | 4 | local | local:claimed (pass 1, seed 0 only) |
+| 1 | 128 | 8 | local | local:claimed (pass 1, seed 0 only) |
 | 1 | 256 | 16 | scale | unclaimed |
 | 2 | 32 | 2 | local | unclaimed |
 | 2 | 64 | 4 | local | unclaimed |
@@ -75,8 +75,8 @@ reconstruction remainders directly.
 
 | kind | widths | owner | status |
 |---|---|---|---|
-| bigram table (closed form, no training) | n/a | local | unclaimed |
-| unigram floor | n/a | local | unclaimed |
+| bigram table (closed form, no training) | n/a | local | local:claimed |
+| unigram floor | n/a | local | local:claimed |
 | same-size softmax+GELU transformer | 32-256 | local | unclaimed |
 
 The softmax/GELU baseline answers the first question a reviewer will ask:
@@ -91,3 +91,32 @@ bought with capability and that must be reported alongside every result.
 | 8192 at width 128 depth 2 | local | unclaimed |
 
 Answers whether conclusions are vocab-size artifacts.
+The V=8192 corpus is ALREADY BUILT (`tf_corpus_v8192/`, same splits) so this
+cell costs only its training run.
+
+## Corpus (built 2026-08-08, local) — read before quoting any CE
+
+Deterministic remap of the parent program's committed GPT-2 shards
+(`../qk_mdl/corpus_fresh/shard00..06.npy`), so both boxes get byte-identical
+data by running `tf_corpus.py` — no shards are committed, the per-shard sha256
+in `tf_corpus_v{V}/MANIFEST.json` is the identity gate.
+
+| split | rows | purpose |
+|---|---|---|
+| train | 240,000 | single epoch = 15,000 steps x batch 16, each row visited once |
+| held | 6,000 | pure eval, never trained (first 1,500 used for the paired eval) |
+| est | 30,000 | table fitting / smoothing-parameter tuning |
+| spare | 24,000 | lr sweeps only, so no model touches train before its epoch |
+
+**UNK rate is high and must be quoted with every CE**: at V=4096 the kept 4,095
+ids cover 79.96% of train tokens, so **20.0% of tokens are UNK** (held 20.3%,
+p95 per sequence 30.0%). At V=8192 coverage is 87.05%, **13.0% UNK**. UNK is by
+far the most frequent symbol, so absolute CE numbers are not comparable to any
+full-vocabulary result — only within this program.
+
+## Architecture variants (code ready, runs not queued by local)
+
+`tf_model.py` takes `variant` as a single config field: `vanilla`, `slots`,
+`bandwidth`, `predicate`, `codebook`, `shrink`, each transcribed from the parent
+program. All six pass the fold identity gate and all five reductions to their
+parent variant are **bit-exact (0.0)**. See MAILBOX.md for the config convention.
