@@ -205,9 +205,22 @@ class Muon(torch.optim.Optimizer):
 
 
 def muon_params_split(model):
+    """Muon: 2D hidden matrices. AdamW: tied embedding (decay) + sub-2D.
+
+    Mirrors qk_e_common.muon_params_split exactly, including its
+    `muon_exclude` prefix list: a model may route named parameters to
+    AdamW-no-decay instead of Muon. That matters for anything Muon's
+    orthogonalization has no business touching -- Sinkhorn routing logits,
+    codebooks, edge lambdas, and the predicate-basis pattern parameters,
+    whose pred_prof is 3D and would otherwise be swept into Muon by the
+    dim>=2 rule. No-op for every model without the attribute.
+    """
+    excl = tuple(getattr(model, 'muon_exclude', ()))
     mu, adamw_decay, adamw_nodecay = [], [], []
     for nm, p in model.named_parameters():
-        if p.dim() >= 2 and not nm.startswith('wte'):
+        if excl and any(nm.startswith(x) for x in excl):
+            adamw_nodecay.append(p)
+        elif p.dim() >= 2 and not nm.startswith('wte'):
             mu.append(p)
         elif p.dim() >= 2:
             adamw_decay.append(p)
