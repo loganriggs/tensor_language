@@ -1,0 +1,17 @@
+{
+  "kl": {
+    "neither": 9.04996371269226,
+    "mlp_only": 0.386385727673769,
+    "attn_only": 6.275137364864349,
+    "both": 0.0
+  },
+  "attention_marginal_first": 2.7748263478279114,
+  "attention_marginal_last": 0.386385727673769,
+  "attention_marginal_shapley": 1.5806060377508402,
+  "mlp_marginal_first": 8.663577985018492,
+  "mlp_marginal_last": 6.275137364864349,
+  "mlp_marginal_shapley": 7.4693576749414206,
+  "order_dependence_ratio_attention": 7.181492868625668,
+  "interaction_nats": 2.3884406201541424,
+  "note": "KL from the true model, nats/token, held split.  A large ratio means the single number \"what attention is worth\" is not well defined and must always be quoted with its position in the ladder.  Note that neither marginal is the depth-1 headline increment: THAT one compared no-attention-at-all against the BIGRAM stage, which itself contains the self-attention term, so it is not a knockout of attention at all -- it is the gap between two different reduced models."
+}

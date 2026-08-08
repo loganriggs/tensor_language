@@ -1,0 +1,381 @@
+{
+  "note": "depth-1 cells scored by BOTH implementations on the same held text; the depth-2 code is only trusted where it reproduces the reviewed depth-1 code",
+  "tf_vanilla_d1_w32_b8192_s0": {
+    "stages": {
+      "embed_only": {
+        "depth1_code": 8.846697171529135,
+        "depth2_code": 8.846697330474854,
+        "abs_diff": 1.5894571880892272e-07
+      },
+      "plus_self_attn": {
+        "depth1_code": 8.632405281066895,
+        "depth2_code": 8.632405122121176,
+        "abs_diff": 1.5894571880892272e-07
+      },
+      "model_bigram": {
+        "depth1_code": 0.2808311606446902,
+        "depth2_code": 0.2808311730623245,
+        "abs_diff": 1.2417634309702663e-08
+      },
+      "full_exact": {
+        "depth1_code": 0.0,
+        "depth2_code": 0.0,
+        "abs_diff": 0.0
+      },
+      "no_mlp": {
+        "depth1_code": 6.831163247426351,
+        "depth2_code": 6.831162929534912,
+        "abs_diff": 3.1789143850602386e-07
+      },
+      "mlp_write_only": {
+        "depth1_code": 3.462999787492057e-05,
+        "depth2_code": 3.46308346100462e-05,
+        "abs_diff": 8.36735125631094e-10
+      },
+      "no_attention_at_all": {
+        "depth1_code": 0.3140412817398707,
+        "depth2_code": 0.31404130160808563,
+        "abs_diff": 1.986821490662649e-08
+      },
+      "past_attn_mean_ablated": {
+        "depth1_code": 0.299041452507178,
+        "depth2_code": 0.2990414649248123,
+        "abs_diff": 1.2417634309702663e-08
+      },
+      "past_attn_direct_route_only": {
+        "depth1_code": 0.2803781082232793,
+        "depth2_code": 0.2803781107068062,
+        "abs_diff": 2.483526884144993e-09
+      },
+      "past_attn_mlp_route_only": {
+        "depth1_code": 4.85999165296865e-06,
+        "depth2_code": 4.860235094383825e-06,
+        "abs_diff": 2.4344141517483614e-10
+      },
+      "trunc_delta1_only": {
+        "depth1_code": 0.1820132037003835,
+        "depth2_code": 0.18201319624980292,
+        "abs_diff": 7.450580596923828e-09
+      },
+      "trunc_delta_le4": {
+        "depth1_code": 0.09688493733604749,
+        "depth2_code": 0.09688493857781093,
+        "abs_diff": 1.2417634420724966e-09
+      },
+      "trunc_delta_le16": {
+        "depth1_code": 0.030065327261885006,
+        "depth2_code": 0.030065323847035568,
+        "abs_diff": 3.41484943794379e-09
+      },
+      "trunc_delta_le64": {
+        "depth1_code": 0.004676633436853687,
+        "depth2_code": 0.004676634833837549,
+        "abs_diff": 1.3969838619232178e-09
+      },
+      "positional_only_pattern": {
+        "depth1_code": 0.28584244350592297,
+        "depth2_code": 0.28584247330824536,
+        "abs_diff": 2.9802322387695312e-08
+      },
+      "no_rotary_pattern": {
+        "depth1_code": 0.9776995778083801,
+        "depth2_code": 0.9776995778083801,
+        "abs_diff": 0.0
+      },
+      "drop_l0_head0": {
+        "depth1_code": 0.19420372198025385,
+        "depth2_code": 0.19420372446378073,
+        "abs_diff": 2.483526884144993e-09
+      },
+      "drop_l0_head1": {
+        "depth1_code": 0.06394696794450283,
+        "depth2_code": 0.06394696484009425,
+        "abs_diff": 3.1044085774256658e-09
+      }
+    },
+    "ladder_order": {
+      "kl": {
+        "neither": 8.846697330474854,
+        "mlp_only": 0.31404130160808563,
+        "attn_only": 6.831162929534912,
+        "both": 0.0
+      },
+      "attention_marginal_first": 2.0155344009399414,
+      "attention_marginal_last": 0.31404130160808563,
+      "attention_marginal_shapley": 1.1647878512740135,
+      "mlp_marginal_first": 8.532656028866768,
+      "mlp_marginal_last": 6.831162929534912,
+      "mlp_marginal_shapley": 7.68190947920084,
+      "order_dependence_ratio_attention": 6.418055174969531,
+      "interaction_nats": 1.7014930993318558,
+      "note": "KL from the true model, nats/token, held split.  A large ratio means the single number \"what attention is worth\" is not well defined and must always be quoted with its position in the ladder.  Note that neither marginal is the depth-1 headline increment: THAT one compared no-attention-at-all against the BIGRAM stage, which itself contains the self-attention term, so it is not a knockout of attention at all -- it is the gap between two different reduced models."
+    },
+    "max_abs_diff": 3.1789143850602386e-07
+  },
+  "tf_vanilla_d1_w64_b8192_s0": {
+    "stages": {
+      "embed_only": {
+        "depth1_code": 12.67126989364624,
+        "depth2_code": 12.67126989364624,
+        "abs_diff": 0.0
+      },
+      "plus_self_attn": {
+        "depth1_code": 12.245759963989258,
+        "depth2_code": 12.245759646097818,
+        "abs_diff": 3.178914393942023e-07
+      },
+      "model_bigram": {
+        "depth1_code": 0.450137863556544,
+        "depth2_code": 0.4501378834247589,
+        "abs_diff": 1.986821490662649e-08
+      },
+      "full_exact": {
+        "depth1_code": 0.0,
+        "depth2_code": 0.0,
+        "abs_diff": 0.0
+      },
+      "no_mlp": {
+        "depth1_code": 9.473739941914877,
+        "depth2_code": 9.47373898824056,
+        "abs_diff": 9.5367431640625e-07
+      },
+      "mlp_write_only": {
+        "depth1_code": 2.6240867252151172e-05,
+        "depth2_code": 2.6241376569184165e-05,
+        "abs_diff": 5.093170329928398e-10
+      },
+      "no_attention_at_all": {
+        "depth1_code": 0.4843791077534358,
+        "depth2_code": 0.4843791375557582,
+        "abs_diff": 2.9802322387695312e-08
+      },
+      "past_attn_mean_ablated": {
+        "depth1_code": 0.47117509444554645,
+        "depth2_code": 0.471175084511439,
+        "abs_diff": 9.93410742555767e-09
+      },
+      "past_attn_direct_route_only": {
+        "depth1_code": 0.44968409836292267,
+        "depth2_code": 0.44968413313229877,
+        "abs_diff": 3.476937610047415e-08
+      },
+      "past_attn_mlp_route_only": {
+        "depth1_code": 3.82575187056015e-06,
+        "depth2_code": 3.823396885612358e-06,
+        "abs_diff": 2.354984947791267e-09
+      },
+      "trunc_delta1_only": {
+        "depth1_code": 0.2805667072534561,
+        "depth2_code": 0.2805666923522949,
+        "abs_diff": 1.4901161193847656e-08
+      },
+      "trunc_delta_le4": {
+        "depth1_code": 0.1557541017731031,
+        "depth2_code": 0.1557540992895762,
+        "abs_diff": 2.483526884144993e-09
+      },
+      "trunc_delta_le16": {
+        "depth1_code": 0.052539767076571785,
+        "depth2_code": 0.052539766455690064,
+        "abs_diff": 6.208817210362483e-10
+      },
+      "trunc_delta_le64": {
+        "depth1_code": 0.007060542314623793,
+        "depth2_code": 0.007060542314623793,
+        "abs_diff": 0.0
+      },
+      "positional_only_pattern": {
+        "depth1_code": 0.27061451723178226,
+        "depth2_code": 0.270614522198836,
+        "abs_diff": 4.967053768289986e-09
+      },
+      "no_rotary_pattern": {
+        "depth1_code": 1.3129393061002095,
+        "depth2_code": 1.3129393259684246,
+        "abs_diff": 1.9868215073159945e-08
+      },
+      "drop_l0_head0": {
+        "depth1_code": 0.13119250411788622,
+        "depth2_code": 0.13119249790906906,
+        "abs_diff": 6.2088171548513316e-09
+      },
+      "drop_l0_head1": {
+        "depth1_code": 0.08304828405380249,
+        "depth2_code": 0.08304828032851219,
+        "abs_diff": 3.725290298461914e-09
+      },
+      "drop_l0_head2": {
+        "depth1_code": 0.11825304354230563,
+        "depth2_code": 0.11825305471817653,
+        "abs_diff": 1.1175870895385742e-08
+      },
+      "drop_l0_head3": {
+        "depth1_code": 0.03337170587231716,
+        "depth2_code": 0.03337170463055372,
+        "abs_diff": 1.2417634351336027e-09
+      }
+    },
+    "ladder_order": {
+      "kl": {
+        "neither": 12.67126989364624,
+        "mlp_only": 0.4843791375557582,
+        "attn_only": 9.47373898824056,
+        "both": 0.0
+      },
+      "attention_marginal_first": 3.1975309054056797,
+      "attention_marginal_last": 0.4843791375557582,
+      "attention_marginal_shapley": 1.8409550214807189,
+      "mlp_marginal_first": 12.186890756090483,
+      "mlp_marginal_last": 9.47373898824056,
+      "mlp_marginal_shapley": 10.830314872165522,
+      "order_dependence_ratio_attention": 6.601297738669852,
+      "interaction_nats": 2.7131517678499217,
+      "note": "KL from the true model, nats/token, held split.  A large ratio means the single number \"what attention is worth\" is not well defined and must always be quoted with its position in the ladder.  Note that neither marginal is the depth-1 headline increment: THAT one compared no-attention-at-all against the BIGRAM stage, which itself contains the self-attention term, so it is not a knockout of attention at all -- it is the gap between two different reduced models."
+    },
+    "max_abs_diff": 9.5367431640625e-07
+  },
+  "tf_vanilla_d1_w128_b8192_s0": {
+    "stages": {
+      "embed_only": {
+        "depth1_code": 16.080052375793457,
+        "depth2_code": 16.080053011576336,
+        "abs_diff": 6.357828787884046e-07
+      },
+      "plus_self_attn": {
+        "depth1_code": 15.441960016886393,
+        "depth2_code": 15.441960652669271,
+        "abs_diff": 6.357828787884046e-07
+      },
+      "model_bigram": {
+        "depth1_code": 0.6699060400327047,
+        "depth2_code": 0.6699060300985972,
+        "abs_diff": 9.934107536579972e-09
+      },
+      "full_exact": {
+        "depth1_code": 0.0,
+        "depth2_code": 0.0,
+        "abs_diff": 0.0
+      },
+      "no_mlp": {
+        "depth1_code": 11.37921937306722,
+        "depth2_code": 11.37921953201294,
+        "abs_diff": 1.5894571880892272e-07
+      },
+      "mlp_write_only": {
+        "depth1_code": 1.5284385881386697e-05,
+        "depth2_code": 1.528618789355581e-05,
+        "abs_diff": 1.8020121691116324e-09
+      },
+      "no_attention_at_all": {
+        "depth1_code": 0.7126890222231547,
+        "depth2_code": 0.7126890321572622,
+        "abs_diff": 9.934107536579972e-09
+      },
+      "past_attn_mean_ablated": {
+        "depth1_code": 0.7050465941429138,
+        "depth2_code": 0.7050465742746989,
+        "abs_diff": 1.9868214962137642e-08
+      },
+      "past_attn_direct_route_only": {
+        "depth1_code": 0.6694488028685252,
+        "depth2_code": 0.6694487830003103,
+        "abs_diff": 1.986821485111534e-08
+      },
+      "past_attn_mlp_route_only": {
+        "depth1_code": 1.6189305824809708e-06,
+        "depth2_code": 1.6172726873264764e-06,
+        "abs_diff": 1.6578951544943266e-09
+      },
+      "trunc_delta1_only": {
+        "depth1_code": 0.39694541196028393,
+        "depth2_code": 0.39694542189439136,
+        "abs_diff": 9.93410742555767e-09
+      },
+      "trunc_delta_le4": {
+        "depth1_code": 0.22679710884888968,
+        "depth2_code": 0.22679711133241653,
+        "abs_diff": 2.4835268563894175e-09
+      },
+      "trunc_delta_le16": {
+        "depth1_code": 0.08206113427877426,
+        "depth2_code": 0.08206113055348396,
+        "abs_diff": 3.725290298461914e-09
+      },
+      "trunc_delta_le64": {
+        "depth1_code": 0.011124131580193838,
+        "depth2_code": 0.011124130804091692,
+        "abs_diff": 7.761021460911399e-10
+      },
+      "positional_only_pattern": {
+        "depth1_code": 0.2939593146244685,
+        "depth2_code": 0.2939593146244685,
+        "abs_diff": 0.0
+      },
+      "no_rotary_pattern": {
+        "depth1_code": 1.6216301918029785,
+        "depth2_code": 1.6216302911440532,
+        "abs_diff": 9.934107469966591e-08
+      },
+      "drop_l0_head0": {
+        "depth1_code": 0.11626993119716644,
+        "depth2_code": 0.11626993492245674,
+        "abs_diff": 3.725290298461914e-09
+      },
+      "drop_l0_head1": {
+        "depth1_code": 0.022127254400402308,
+        "depth2_code": 0.022127255331724882,
+        "abs_diff": 9.313225746154785e-10
+      },
+      "drop_l0_head2": {
+        "depth1_code": 0.013512029312551022,
+        "depth2_code": 0.013512029312551022,
+        "abs_diff": 0.0
+      },
+      "drop_l0_head3": {
+        "depth1_code": 0.04228756080071131,
+        "depth2_code": 0.0422875601798296,
+        "abs_diff": 6.208817140973544e-10
+      },
+      "drop_l0_head4": {
+        "depth1_code": 0.09479427337646484,
+        "depth2_code": 0.09479428206880887,
+        "abs_diff": 8.692344025118537e-09
+      },
+      "drop_l0_head5": {
+        "depth1_code": 0.03511866834014654,
+        "depth2_code": 0.035118664925297104,
+        "abs_diff": 3.41484943794379e-09
+      },
+      "drop_l0_head6": {
+        "depth1_code": 0.08074071382482846,
+        "depth2_code": 0.08074070885777473,
+        "abs_diff": 4.967053726656623e-09
+      },
+      "drop_l0_head7": {
+        "depth1_code": 0.054215265437960625,
+        "depth2_code": 0.054215265437960625,
+        "abs_diff": 0.0
+      }
+    },
+    "ladder_order": {
+      "kl": {
+        "neither": 16.080053011576336,
+        "mlp_only": 0.7126890321572622,
+        "attn_only": 11.37921953201294,
+        "both": 0.0
+      },
+      "attention_marginal_first": 4.700833479563396,
+      "attention_marginal_last": 0.7126890321572622,
+      "attention_marginal_shapley": 2.706761255860329,
+      "mlp_marginal_first": 15.367363979419073,
+      "mlp_marginal_last": 11.37921953201294,
+      "mlp_marginal_shapley": 13.373291755716007,
+      "order_dependence_ratio_attention": 6.595911074054678,
+      "interaction_nats": 3.988144447406134,
+      "note": "KL from the true model, nats/token, held split.  A large ratio means the single number \"what attention is worth\" is not well defined and must always be quoted with its position in the ladder.  Note that neither marginal is the depth-1 headline increment: THAT one compared no-attention-at-all against the BIGRAM stage, which itself contains the self-attention term, so it is not a knockout of attention at all -- it is the gap between two different reduced models."
+    },
+    "max_abs_diff": 6.357828787884046e-07
+  },
+  "worst_abs_diff": 9.5367431640625e-07,
+  "pass": true
+}

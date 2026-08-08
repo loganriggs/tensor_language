@@ -1,0 +1,959 @@
+{
+  "tf_vanilla_d1_w32_b8192_s0": {
+    "composed_vs_causal": {
+      "l0_head0": {
+        "pearson": 0.29659115421558446,
+        "spearman": 0.3719423477118013,
+        "sign_agreement": 0.6459192967521541,
+        "n": 453439
+      },
+      "l0_head1": {
+        "pearson": 0.244576588536103,
+        "spearman": 0.3288386683309373,
+        "sign_agreement": 0.632885570054627,
+        "n": 453439
+      },
+      "note": "a composed prediction that tracks the causal effect is the licence to name a sign; raw factor signs remain gauge"
+    },
+    "mlp_composed_causal": {
+      "l0_head0": {
+        "through_mlp_pearson": 0.6740106977048839,
+        "through_mlp_sign_agreement": 0.8362183226409726,
+        "direct_route_pearson": 0.29659115421558446,
+        "direct_route_sign_agreement": 0.6459192967521541
+      },
+      "l0_head1": {
+        "through_mlp_pearson": 0.6320901814731448,
+        "through_mlp_sign_agreement": 0.8151019210963327,
+        "direct_route_pearson": 0.244576588536103,
+        "direct_route_sign_agreement": 0.632885570054627
+      },
+      "note": "through_mlp is the residual difference composed to the logit through the SAME gauge; it differs from the causal delta only by the tanh and the gauge change, so a high correlation is the expected PASS and a low one would indicate the readout nonlinearity dominates.  The contrast with direct_route is the point: only the through-MLP composition licences a naming statement."
+    },
+    "causal_copy_test": {
+      "l0_head0": {
+        "median_rank_of_attended_token": 1902.0,
+        "mean_rank_of_attended_token": 2965.845703125,
+        "frac_attended_token_in_top100": 0.10546875,
+        "mean_own_logit_push": 0.13066500425338745,
+        "z_of_own_push_vs_random_token": 0.49867063760757446,
+        "vocab": 8192
+      },
+      "l0_head1": {
+        "median_rank_of_attended_token": 1003.0,
+        "mean_rank_of_attended_token": 2373.791015625,
+        "frac_attended_token_in_top100": 0.19140625,
+        "mean_own_logit_push": 0.06745557487010956,
+        "z_of_own_push_vs_random_token": 0.7539663910865784,
+        "vocab": 8192
+      },
+      "note": "rank 0 would mean attending to u boosts u more than any other token; rank V/2 means attending to u says nothing about u.  This is the causal version of the claim; the composed-table version is in rung4."
+    }
+  },
+  "tf_vanilla_d1_w32_b8192_s1": {
+    "composed_vs_causal": {
+      "l0_head0": {
+        "pearson": 0.17305807520800337,
+        "spearman": 0.22279469916566988,
+        "sign_agreement": 0.587878413634469,
+        "n": 453439
+      },
+      "l0_head1": {
+        "pearson": 0.38760850850428263,
+        "spearman": 0.4266947581031118,
+        "sign_agreement": 0.6612664548042846,
+        "n": 453439
+      },
+      "note": "a composed prediction that tracks the causal effect is the licence to name a sign; raw factor signs remain gauge"
+    },
+    "mlp_composed_causal": {
+      "l0_head0": {
+        "through_mlp_pearson": 0.8318810761340085,
+        "through_mlp_sign_agreement": 0.8643433846669563,
+        "direct_route_pearson": 0.17305807520800337,
+        "direct_route_sign_agreement": 0.587878413634469
+      },
+      "l0_head1": {
+        "through_mlp_pearson": 0.6525602730862989,
+        "through_mlp_sign_agreement": 0.836599851358176,
+        "direct_route_pearson": 0.38760850850428263,
+        "direct_route_sign_agreement": 0.6612664548042846
+      },
+      "note": "through_mlp is the residual difference composed to the logit through the SAME gauge; it differs from the causal delta only by the tanh and the gauge change, so a high correlation is the expected PASS and a low one would indicate the readout nonlinearity dominates.  The contrast with direct_route is the point: only the through-MLP composition licences a naming statement."
+    },
+    "causal_copy_test": {
+      "l0_head0": {
+        "median_rank_of_attended_token": 2478.0,
+        "mean_rank_of_attended_token": 3265.306640625,
+        "frac_attended_token_in_top100": 0.08984375,
+        "mean_own_logit_push": 0.052768003195524216,
+        "z_of_own_push_vs_random_token": 0.29822662472724915,
+        "vocab": 8192
+      },
+      "l0_head1": {
+        "median_rank_of_attended_token": 1453.0,
+        "mean_rank_of_attended_token": 2839.943359375,
+        "frac_attended_token_in_top100": 0.13671875,
+        "mean_own_logit_push": 0.08947847783565521,
+        "z_of_own_push_vs_random_token": 0.5063986778259277,
+        "vocab": 8192
+      },
+      "note": "rank 0 would mean attending to u boosts u more than any other token; rank V/2 means attending to u says nothing about u.  This is the causal version of the claim; the composed-table version is in rung4."
+    }
+  },
+  "tf_vanilla_d1_w64_b8192_s0": {
+    "composed_vs_causal": {
+      "l0_head0": {
+        "pearson": 0.21386525253913413,
+        "spearman": 0.23050880978941285,
+        "sign_agreement": 0.5892258936703724,
+        "n": 453439
+      },
+      "l0_head1": {
+        "pearson": 0.09874392821409603,
+        "spearman": 0.14945165850943318,
+        "sign_agreement": 0.5677301687768366,
+        "n": 453439
+      },
+      "l0_head2": {
+        "pearson": 0.40957027614627567,
+        "spearman": 0.4342267066611181,
+        "sign_agreement": 0.6619060116134695,
+        "n": 453439
+      },
+      "l0_head3": {
+        "pearson": 0.026251624524424477,
+        "spearman": 0.09078224176195616,
+        "sign_agreement": 0.5438460300062412,
+        "n": 453439
+      },
+      "note": "a composed prediction that tracks the causal effect is the licence to name a sign; raw factor signs remain gauge"
+    },
+    "mlp_composed_causal": {
+      "l0_head0": {
+        "through_mlp_pearson": 0.8702096939741465,
+        "through_mlp_sign_agreement": 0.8867785964595017,
+        "direct_route_pearson": 0.21386525253913413,
+        "direct_route_sign_agreement": 0.5892258936703724
+      },
+      "l0_head1": {
+        "through_mlp_pearson": 0.9106955588856667,
+        "through_mlp_sign_agreement": 0.8835300889425038,
+        "direct_route_pearson": 0.09874392821409603,
+        "direct_route_sign_agreement": 0.5677301687768366
+      },
+      "l0_head2": {
+        "through_mlp_pearson": 0.6884366857574913,
+        "through_mlp_sign_agreement": 0.8373474712144302,
+        "direct_route_pearson": 0.40957027614627567,
+        "direct_route_sign_agreement": 0.6619060116134695
+      },
+      "l0_head3": {
+        "through_mlp_pearson": 0.8866559532899996,
+        "through_mlp_sign_agreement": 0.8551624364026914,
+        "direct_route_pearson": 0.026251624524424477,
+        "direct_route_sign_agreement": 0.5438460300062412
+      },
+      "note": "through_mlp is the residual difference composed to the logit through the SAME gauge; it differs from the causal delta only by the tanh and the gauge change, so a high correlation is the expected PASS and a low one would indicate the readout nonlinearity dominates.  The contrast with direct_route is the point: only the through-MLP composition licences a naming statement."
+    },
+    "causal_copy_test": {
+      "l0_head0": {
+        "median_rank_of_attended_token": 2867.0,
+        "mean_rank_of_attended_token": 3543.966796875,
+        "frac_attended_token_in_top100": 0.0703125,
+        "mean_own_logit_push": 0.022001545876264572,
+        "z_of_own_push_vs_random_token": 0.0763193741440773,
+        "vocab": 8192
+      },
+      "l0_head1": {
+        "median_rank_of_attended_token": 2834.0,
+        "mean_rank_of_attended_token": 3373.767578125,
+        "frac_attended_token_in_top100": 0.099609375,
+        "mean_own_logit_push": 0.045792266726493835,
+        "z_of_own_push_vs_random_token": 0.2578408718109131,
+        "vocab": 8192
+      },
+      "l0_head2": {
+        "median_rank_of_attended_token": 286.0,
+        "mean_rank_of_attended_token": 1245.4453125,
+        "frac_attended_token_in_top100": 0.359375,
+        "mean_own_logit_push": 0.180175319314003,
+        "z_of_own_push_vs_random_token": 1.7238092422485352,
+        "vocab": 8192
+      },
+      "l0_head3": {
+        "median_rank_of_attended_token": 3310.0,
+        "mean_rank_of_attended_token": 3646.072265625,
+        "frac_attended_token_in_top100": 0.07421875,
+        "mean_own_logit_push": -0.005155576393008232,
+        "z_of_own_push_vs_random_token": -0.06119009852409363,
+        "vocab": 8192
+      },
+      "note": "rank 0 would mean attending to u boosts u more than any other token; rank V/2 means attending to u says nothing about u.  This is the causal version of the claim; the composed-table version is in rung4."
+    }
+  },
+  "tf_vanilla_d1_w64_b8192_s1": {
+    "composed_vs_causal": {
+      "l0_head0": {
+        "pearson": 0.16569872609306632,
+        "spearman": 0.21405387542083412,
+        "sign_agreement": 0.5877813774289375,
+        "n": 453439
+      },
+      "l0_head1": {
+        "pearson": 0.2728385127533648,
+        "spearman": 0.30321611351183714,
+        "sign_agreement": 0.6176089837883376,
+        "n": 453439
+      },
+      "l0_head2": {
+        "pearson": 0.4170872223128551,
+        "spearman": 0.4407077499390706,
+        "sign_agreement": 0.6676201208982906,
+        "n": 453439
+      },
+      "l0_head3": {
+        "pearson": 0.02797741504524243,
+        "spearman": 0.060151125975658325,
+        "sign_agreement": 0.5302389075487551,
+        "n": 453439
+      },
+      "note": "a composed prediction that tracks the causal effect is the licence to name a sign; raw factor signs remain gauge"
+    },
+    "mlp_composed_causal": {
+      "l0_head0": {
+        "through_mlp_pearson": 0.8475871983962093,
+        "through_mlp_sign_agreement": 0.8474458526946292,
+        "direct_route_pearson": 0.16569872609306632,
+        "direct_route_sign_agreement": 0.5877813774289375
+      },
+      "l0_head1": {
+        "through_mlp_pearson": 0.7749267937578324,
+        "through_mlp_sign_agreement": 0.8574582248108346,
+        "direct_route_pearson": 0.2728385127533648,
+        "direct_route_sign_agreement": 0.6176089837883376
+      },
+      "l0_head2": {
+        "through_mlp_pearson": 0.7055269692887488,
+        "through_mlp_sign_agreement": 0.8382913688500548,
+        "direct_route_pearson": 0.4170872223128551,
+        "direct_route_sign_agreement": 0.6676201208982906
+      },
+      "l0_head3": {
+        "through_mlp_pearson": 0.8915624017325385,
+        "through_mlp_sign_agreement": 0.8997615996859556,
+        "direct_route_pearson": 0.02797741504524243,
+        "direct_route_sign_agreement": 0.5302389075487551
+      },
+      "note": "through_mlp is the residual difference composed to the logit through the SAME gauge; it differs from the causal delta only by the tanh and the gauge change, so a high correlation is the expected PASS and a low one would indicate the readout nonlinearity dominates.  The contrast with direct_route is the point: only the through-MLP composition licences a naming statement."
+    },
+    "causal_copy_test": {
+      "l0_head0": {
+        "median_rank_of_attended_token": 1826.0,
+        "mean_rank_of_attended_token": 2826.55859375,
+        "frac_attended_token_in_top100": 0.119140625,
+        "mean_own_logit_push": 0.07166416943073273,
+        "z_of_own_push_vs_random_token": 0.36698150634765625,
+        "vocab": 8192
+      },
+      "l0_head1": {
+        "median_rank_of_attended_token": 2064.0,
+        "mean_rank_of_attended_token": 3192.60546875,
+        "frac_attended_token_in_top100": 0.087890625,
+        "mean_own_logit_push": 0.06578198075294495,
+        "z_of_own_push_vs_random_token": 0.22122330963611603,
+        "vocab": 8192
+      },
+      "l0_head2": {
+        "median_rank_of_attended_token": 369.0,
+        "mean_rank_of_attended_token": 1663.08984375,
+        "frac_attended_token_in_top100": 0.3046875,
+        "mean_own_logit_push": 0.0689486414194107,
+        "z_of_own_push_vs_random_token": 0.9430191516876221,
+        "vocab": 8192
+      },
+      "l0_head3": {
+        "median_rank_of_attended_token": 3662.0,
+        "mean_rank_of_attended_token": 3971.26171875,
+        "frac_attended_token_in_top100": 0.046875,
+        "mean_own_logit_push": 0.008523622527718544,
+        "z_of_own_push_vs_random_token": 0.06506747752428055,
+        "vocab": 8192
+      },
+      "note": "rank 0 would mean attending to u boosts u more than any other token; rank V/2 means attending to u says nothing about u.  This is the causal version of the claim; the composed-table version is in rung4."
+    }
+  },
+  "tf_vanilla_d1_w128_b8192_s0": {
+    "composed_vs_causal": {
+      "l0_head0": {
+        "pearson": 0.4294312510900365,
+        "spearman": 0.443568013084667,
+        "sign_agreement": 0.6642392912828406,
+        "n": 453439
+      },
+      "l0_head1": {
+        "pearson": 0.08404394645907773,
+        "spearman": 0.12802194595206073,
+        "sign_agreement": 0.5486250631286678,
+        "n": 453439
+      },
+      "l0_head2": {
+        "pearson": 0.019503112953648795,
+        "spearman": 0.044448149037887304,
+        "sign_agreement": 0.5189650647606403,
+        "n": 453439
+      },
+      "l0_head3": {
+        "pearson": 0.14200634054166586,
+        "spearman": 0.164573632860578,
+        "sign_agreement": 0.5642280439044722,
+        "n": 453439
+      },
+      "l0_head4": {
+        "pearson": 0.08042430002893204,
+        "spearman": 0.09960862821833719,
+        "sign_agreement": 0.5389765767832057,
+        "n": 453439
+      },
+      "l0_head5": {
+        "pearson": 0.17672943495016283,
+        "spearman": 0.21211281190761824,
+        "sign_agreement": 0.5833022743963355,
+        "n": 453439
+      },
+      "l0_head6": {
+        "pearson": 0.04577944292629826,
+        "spearman": 0.06741703626736742,
+        "sign_agreement": 0.5299941116666189,
+        "n": 453439
+      },
+      "l0_head7": {
+        "pearson": 0.09249519634097353,
+        "spearman": 0.09426973270825648,
+        "sign_agreement": 0.5360941604052585,
+        "n": 453439
+      },
+      "note": "a composed prediction that tracks the causal effect is the licence to name a sign; raw factor signs remain gauge"
+    },
+    "mlp_composed_causal": {
+      "l0_head0": {
+        "through_mlp_pearson": 0.7908878363454415,
+        "through_mlp_sign_agreement": 0.8558108146851064,
+        "direct_route_pearson": 0.4294312510900365,
+        "direct_route_sign_agreement": 0.6642392912828406
+      },
+      "l0_head1": {
+        "through_mlp_pearson": 0.8893899257122473,
+        "through_mlp_sign_agreement": 0.9011840622443151,
+        "direct_route_pearson": 0.08404394645907773,
+        "direct_route_sign_agreement": 0.5486250631286678
+      },
+      "l0_head2": {
+        "through_mlp_pearson": 0.8007022496183168,
+        "through_mlp_sign_agreement": 0.8723643092014582,
+        "direct_route_pearson": 0.019503112953648795,
+        "direct_route_sign_agreement": 0.5189650647606403
+      },
+      "l0_head3": {
+        "through_mlp_pearson": 0.9462941836960488,
+        "through_mlp_sign_agreement": 0.9186726329230613,
+        "direct_route_pearson": 0.14200634054166586,
+        "direct_route_sign_agreement": 0.5642280439044722
+      },
+      "l0_head4": {
+        "through_mlp_pearson": 0.9188683286580777,
+        "through_mlp_sign_agreement": 0.9052573775083308,
+        "direct_route_pearson": 0.08042430002893204,
+        "direct_route_sign_agreement": 0.5389765767832057
+      },
+      "l0_head5": {
+        "through_mlp_pearson": 0.7737143665663789,
+        "through_mlp_sign_agreement": 0.8720930488996315,
+        "direct_route_pearson": 0.17672943495016283,
+        "direct_route_sign_agreement": 0.5833022743963355
+      },
+      "l0_head6": {
+        "through_mlp_pearson": 0.9459096616230012,
+        "through_mlp_sign_agreement": 0.9110001565811499,
+        "direct_route_pearson": 0.04577944292629826,
+        "direct_route_sign_agreement": 0.5299941116666189
+      },
+      "l0_head7": {
+        "through_mlp_pearson": 0.9509384676835815,
+        "through_mlp_sign_agreement": 0.9227834394483051,
+        "direct_route_pearson": 0.09249519634097353,
+        "direct_route_sign_agreement": 0.5360941604052585
+      },
+      "note": "through_mlp is the residual difference composed to the logit through the SAME gauge; it differs from the causal delta only by the tanh and the gauge change, so a high correlation is the expected PASS and a low one would indicate the readout nonlinearity dominates.  The contrast with direct_route is the point: only the through-MLP composition licences a naming statement."
+    },
+    "causal_copy_test": {
+      "l0_head0": {
+        "median_rank_of_attended_token": 296.0,
+        "mean_rank_of_attended_token": 1238.9453125,
+        "frac_attended_token_in_top100": 0.341796875,
+        "mean_own_logit_push": 0.1975729763507843,
+        "z_of_own_push_vs_random_token": 1.7460432052612305,
+        "vocab": 8192
+      },
+      "l0_head1": {
+        "median_rank_of_attended_token": 2316.0,
+        "mean_rank_of_attended_token": 3151.107421875,
+        "frac_attended_token_in_top100": 0.126953125,
+        "mean_own_logit_push": 0.02682999148964882,
+        "z_of_own_push_vs_random_token": 0.4758087396621704,
+        "vocab": 8192
+      },
+      "l0_head2": {
+        "median_rank_of_attended_token": 2190.0,
+        "mean_rank_of_attended_token": 3130.5625,
+        "frac_attended_token_in_top100": 0.123046875,
+        "mean_own_logit_push": 0.02408026158809662,
+        "z_of_own_push_vs_random_token": 0.5441450476646423,
+        "vocab": 8192
+      },
+      "l0_head3": {
+        "median_rank_of_attended_token": 2563.0,
+        "mean_rank_of_attended_token": 3416.21484375,
+        "frac_attended_token_in_top100": 0.072265625,
+        "mean_own_logit_push": 0.026927776634693146,
+        "z_of_own_push_vs_random_token": 0.16576498746871948,
+        "vocab": 8192
+      },
+      "l0_head4": {
+        "median_rank_of_attended_token": 3689.0,
+        "mean_rank_of_attended_token": 4079.705078125,
+        "frac_attended_token_in_top100": 0.0390625,
+        "mean_own_logit_push": -0.11065659672021866,
+        "z_of_own_push_vs_random_token": -0.40293577313423157,
+        "vocab": 8192
+      },
+      "l0_head5": {
+        "median_rank_of_attended_token": 694.0,
+        "mean_rank_of_attended_token": 2026.4140625,
+        "frac_attended_token_in_top100": 0.244140625,
+        "mean_own_logit_push": 0.055846601724624634,
+        "z_of_own_push_vs_random_token": 1.116941213607788,
+        "vocab": 8192
+      },
+      "l0_head6": {
+        "median_rank_of_attended_token": 3752.0,
+        "mean_rank_of_attended_token": 3885.8203125,
+        "frac_attended_token_in_top100": 0.06640625,
+        "mean_own_logit_push": 0.027523910626769066,
+        "z_of_own_push_vs_random_token": 0.13856609165668488,
+        "vocab": 8192
+      },
+      "l0_head7": {
+        "median_rank_of_attended_token": 3144.0,
+        "mean_rank_of_attended_token": 3632.005859375,
+        "frac_attended_token_in_top100": 0.06640625,
+        "mean_own_logit_push": 0.02842058800160885,
+        "z_of_own_push_vs_random_token": 0.1429721564054489,
+        "vocab": 8192
+      },
+      "note": "rank 0 would mean attending to u boosts u more than any other token; rank V/2 means attending to u says nothing about u.  This is the causal version of the claim; the composed-table version is in rung4."
+    }
+  },
+  "tf_vanilla_d1_w128_b8192_s1": {
+    "composed_vs_causal": {
+      "l0_head0": {
+        "pearson": 0.3284404244756347,
+        "spearman": 0.3404278632324714,
+        "sign_agreement": 0.624727912685058,
+        "n": 453439
+      },
+      "l0_head1": {
+        "pearson": 0.3302241274879271,
+        "spearman": 0.3429246335963307,
+        "sign_agreement": 0.6307110769033982,
+        "n": 453439
+      },
+      "l0_head2": {
+        "pearson": 0.08904821565986581,
+        "spearman": 0.11548638004052778,
+        "sign_agreement": 0.5464351323992863,
+        "n": 453439
+      },
+      "l0_head3": {
+        "pearson": 0.0025217192590665134,
+        "spearman": 0.05293663469618733,
+        "sign_agreement": 0.5238455448252135,
+        "n": 453439
+      },
+      "l0_head4": {
+        "pearson": 0.11009483100109103,
+        "spearman": 0.08304988140403195,
+        "sign_agreement": 0.535348745917312,
+        "n": 453439
+      },
+      "l0_head5": {
+        "pearson": 0.04613550657286243,
+        "spearman": 0.10988021860601993,
+        "sign_agreement": 0.5464108733479035,
+        "n": 453439
+      },
+      "l0_head6": {
+        "pearson": 0.03696469927246842,
+        "spearman": 0.06906983312050517,
+        "sign_agreement": 0.524681379413769,
+        "n": 453439
+      },
+      "l0_head7": {
+        "pearson": 0.21443834912137316,
+        "spearman": 0.22512965408055197,
+        "sign_agreement": 0.5814806401743123,
+        "n": 453439
+      },
+      "note": "a composed prediction that tracks the causal effect is the licence to name a sign; raw factor signs remain gauge"
+    },
+    "mlp_composed_causal": {
+      "l0_head0": {
+        "through_mlp_pearson": 0.8331906263935356,
+        "through_mlp_sign_agreement": 0.8584528459175325,
+        "direct_route_pearson": 0.3284404244756347,
+        "direct_route_sign_agreement": 0.624727912685058
+      },
+      "l0_head1": {
+        "through_mlp_pearson": 0.8288425146644429,
+        "through_mlp_sign_agreement": 0.8796067387234004,
+        "direct_route_pearson": 0.3302241274879271,
+        "direct_route_sign_agreement": 0.6307110769033982
+      },
+      "l0_head2": {
+        "through_mlp_pearson": 0.8961080296330025,
+        "through_mlp_sign_agreement": 0.8969431389889269,
+        "direct_route_pearson": 0.08904821565986581,
+        "direct_route_sign_agreement": 0.5464351323992863
+      },
+      "l0_head3": {
+        "through_mlp_pearson": 0.9457425996495745,
+        "through_mlp_sign_agreement": 0.9117698301204793,
+        "direct_route_pearson": 0.0025217192590665134,
+        "direct_route_sign_agreement": 0.5238455448252135
+      },
+      "l0_head4": {
+        "through_mlp_pearson": 0.9234225132794706,
+        "through_mlp_sign_agreement": 0.8904373024817009,
+        "direct_route_pearson": 0.11009483100109103,
+        "direct_route_sign_agreement": 0.535348745917312
+      },
+      "l0_head5": {
+        "through_mlp_pearson": 0.9318049369474523,
+        "through_mlp_sign_agreement": 0.9134172402462073,
+        "direct_route_pearson": 0.04613550657286243,
+        "direct_route_sign_agreement": 0.5464108733479035
+      },
+      "l0_head6": {
+        "through_mlp_pearson": 0.9154662341603131,
+        "through_mlp_sign_agreement": 0.8998762788379473,
+        "direct_route_pearson": 0.03696469927246842,
+        "direct_route_sign_agreement": 0.524681379413769
+      },
+      "l0_head7": {
+        "through_mlp_pearson": 0.8877801612630866,
+        "through_mlp_sign_agreement": 0.8905144903724647,
+        "direct_route_pearson": 0.21443834912137316,
+        "direct_route_sign_agreement": 0.5814806401743123
+      },
+      "note": "through_mlp is the residual difference composed to the logit through the SAME gauge; it differs from the causal delta only by the tanh and the gauge change, so a high correlation is the expected PASS and a low one would indicate the readout nonlinearity dominates.  The contrast with direct_route is the point: only the through-MLP composition licences a naming statement."
+    },
+    "causal_copy_test": {
+      "l0_head0": {
+        "median_rank_of_attended_token": 512.0,
+        "mean_rank_of_attended_token": 1446.78515625,
+        "frac_attended_token_in_top100": 0.29296875,
+        "mean_own_logit_push": 0.07582370936870575,
+        "z_of_own_push_vs_random_token": 1.6806827783584595,
+        "vocab": 8192
+      },
+      "l0_head1": {
+        "median_rank_of_attended_token": 484.0,
+        "mean_rank_of_attended_token": 1656.328125,
+        "frac_attended_token_in_top100": 0.310546875,
+        "mean_own_logit_push": 0.12972676753997803,
+        "z_of_own_push_vs_random_token": 1.5725394487380981,
+        "vocab": 8192
+      },
+      "l0_head2": {
+        "median_rank_of_attended_token": 4015.0,
+        "mean_rank_of_attended_token": 4134.205078125,
+        "frac_attended_token_in_top100": 0.0546875,
+        "mean_own_logit_push": -0.08028183877468109,
+        "z_of_own_push_vs_random_token": -0.21479256451129913,
+        "vocab": 8192
+      },
+      "l0_head3": {
+        "median_rank_of_attended_token": 3222.0,
+        "mean_rank_of_attended_token": 3641.177734375,
+        "frac_attended_token_in_top100": 0.0546875,
+        "mean_own_logit_push": 0.003485950641334057,
+        "z_of_own_push_vs_random_token": 0.038345348089933395,
+        "vocab": 8192
+      },
+      "l0_head4": {
+        "median_rank_of_attended_token": 3610.0,
+        "mean_rank_of_attended_token": 3782.42578125,
+        "frac_attended_token_in_top100": 0.0703125,
+        "mean_own_logit_push": 0.023391664028167725,
+        "z_of_own_push_vs_random_token": 0.2025233507156372,
+        "vocab": 8192
+      },
+      "l0_head5": {
+        "median_rank_of_attended_token": 3309.0,
+        "mean_rank_of_attended_token": 3660.248046875,
+        "frac_attended_token_in_top100": 0.064453125,
+        "mean_own_logit_push": 0.017424870282411575,
+        "z_of_own_push_vs_random_token": 0.07692545652389526,
+        "vocab": 8192
+      },
+      "l0_head6": {
+        "median_rank_of_attended_token": 1336.0,
+        "mean_rank_of_attended_token": 2327.87890625,
+        "frac_attended_token_in_top100": 0.17578125,
+        "mean_own_logit_push": 0.07881113141775131,
+        "z_of_own_push_vs_random_token": 0.7985858917236328,
+        "vocab": 8192
+      },
+      "l0_head7": {
+        "median_rank_of_attended_token": 941.0,
+        "mean_rank_of_attended_token": 2229.958984375,
+        "frac_attended_token_in_top100": 0.193359375,
+        "mean_own_logit_push": 0.02885730192065239,
+        "z_of_own_push_vs_random_token": 0.6868394613265991,
+        "vocab": 8192
+      },
+      "note": "rank 0 would mean attending to u boosts u more than any other token; rank V/2 means attending to u says nothing about u.  This is the causal version of the claim; the composed-table version is in rung4."
+    }
+  },
+  "tf_vanilla_d1_w256_b8192_s0": {
+    "composed_vs_causal": {
+      "l0_head0": {
+        "pearson": 0.18209943913564883,
+        "spearman": 0.22078138843916556,
+        "sign_agreement": 0.581235844292176,
+        "n": 453439
+      },
+      "l0_head1": {
+        "pearson": 0.028415465357506896,
+        "spearman": 0.03230538837703094,
+        "sign_agreement": 0.5124018886774185,
+        "n": 453439
+      },
+      "l0_head2": {
+        "pearson": 0.04216170985244803,
+        "spearman": 0.05248933909446339,
+        "sign_agreement": 0.5224804218428498,
+        "n": 453439
+      },
+      "l0_head3": {
+        "pearson": 0.05715785714739449,
+        "spearman": 0.042750929941412094,
+        "sign_agreement": 0.5163517033162123,
+        "n": 453439
+      },
+      "l0_head4": {
+        "pearson": 0.055663134687185166,
+        "spearman": 0.06652165827374644,
+        "sign_agreement": 0.5247740048826854,
+        "n": 453439
+      },
+      "l0_head5": {
+        "pearson": 0.0051355315740954826,
+        "spearman": 0.021004214384156464,
+        "sign_agreement": 0.5089416658028975,
+        "n": 453439
+      },
+      "l0_head6": {
+        "pearson": 0.03812520505651745,
+        "spearman": 0.039455890482109506,
+        "sign_agreement": 0.5150505360147671,
+        "n": 453439
+      },
+      "l0_head7": {
+        "pearson": 0.06603967185964861,
+        "spearman": 0.06434982297510267,
+        "sign_agreement": 0.5234794536861629,
+        "n": 453439
+      },
+      "l0_head8": {
+        "pearson": 0.06377231620918644,
+        "spearman": 0.06561149302366234,
+        "sign_agreement": 0.523843339456906,
+        "n": 453439
+      },
+      "l0_head9": {
+        "pearson": -0.008915459997143105,
+        "spearman": 0.004270329726375717,
+        "sign_agreement": 0.5037325858605016,
+        "n": 453439
+      },
+      "l0_head10": {
+        "pearson": 0.015972231919783777,
+        "spearman": 0.03474872025586601,
+        "sign_agreement": 0.5141639779551384,
+        "n": 453439
+      },
+      "l0_head11": {
+        "pearson": 0.07022802094355278,
+        "spearman": 0.057481704193337764,
+        "sign_agreement": 0.5210292894964924,
+        "n": 453439
+      },
+      "l0_head12": {
+        "pearson": -0.007159142798809131,
+        "spearman": 0.009887436943294716,
+        "sign_agreement": 0.5059864722708016,
+        "n": 453439
+      },
+      "l0_head13": {
+        "pearson": 0.19025994226259857,
+        "spearman": 0.19949834307274122,
+        "sign_agreement": 0.5701626900200468,
+        "n": 453439
+      },
+      "l0_head14": {
+        "pearson": 0.17994438043029767,
+        "spearman": 0.17508961855499164,
+        "sign_agreement": 0.5645786974653701,
+        "n": 453439
+      },
+      "l0_head15": {
+        "pearson": 0.07494522379262633,
+        "spearman": 0.0943532498700993,
+        "sign_agreement": 0.5362375093452482,
+        "n": 453439
+      },
+      "note": "a composed prediction that tracks the causal effect is the licence to name a sign; raw factor signs remain gauge"
+    },
+    "mlp_composed_causal": {
+      "l0_head0": {
+        "through_mlp_pearson": 0.9537514069736907,
+        "through_mlp_sign_agreement": 0.9287930680863358,
+        "direct_route_pearson": 0.18209943913564883,
+        "direct_route_sign_agreement": 0.581235844292176
+      },
+      "l0_head1": {
+        "through_mlp_pearson": 0.9630656319001093,
+        "through_mlp_sign_agreement": 0.9299861723407118,
+        "direct_route_pearson": 0.028415465357506896,
+        "direct_route_sign_agreement": 0.5124018886774185
+      },
+      "l0_head2": {
+        "through_mlp_pearson": 0.899740467603967,
+        "through_mlp_sign_agreement": 0.9332192422795569,
+        "direct_route_pearson": 0.04216170985244803,
+        "direct_route_sign_agreement": 0.5224804218428498
+      },
+      "l0_head3": {
+        "through_mlp_pearson": 0.87098428924739,
+        "through_mlp_sign_agreement": 0.9077825242204575,
+        "direct_route_pearson": 0.05715785714739449,
+        "direct_route_sign_agreement": 0.5163517033162123
+      },
+      "l0_head4": {
+        "through_mlp_pearson": 0.9500874327599036,
+        "through_mlp_sign_agreement": 0.9252380143745906,
+        "direct_route_pearson": 0.055663134687185166,
+        "direct_route_sign_agreement": 0.5247740048826854
+      },
+      "l0_head5": {
+        "through_mlp_pearson": 0.9078222731633598,
+        "through_mlp_sign_agreement": 0.8920935340806592,
+        "direct_route_pearson": 0.0051355315740954826,
+        "direct_route_sign_agreement": 0.5089416658028975
+      },
+      "l0_head6": {
+        "through_mlp_pearson": 0.9827572748456004,
+        "through_mlp_sign_agreement": 0.9348754738785151,
+        "direct_route_pearson": 0.03812520505651745,
+        "direct_route_sign_agreement": 0.5150505360147671
+      },
+      "l0_head7": {
+        "through_mlp_pearson": 0.9355829631816924,
+        "through_mlp_sign_agreement": 0.918361675991699,
+        "direct_route_pearson": 0.06603967185964861,
+        "direct_route_sign_agreement": 0.5234794536861629
+      },
+      "l0_head8": {
+        "through_mlp_pearson": 0.956276714795498,
+        "through_mlp_sign_agreement": 0.9392773890203533,
+        "direct_route_pearson": 0.06377231620918644,
+        "direct_route_sign_agreement": 0.523843339456906
+      },
+      "l0_head9": {
+        "through_mlp_pearson": 0.9468511421223278,
+        "through_mlp_sign_agreement": 0.9005114249105172,
+        "direct_route_pearson": -0.008915459997143105,
+        "direct_route_sign_agreement": 0.5037325858605016
+      },
+      "l0_head10": {
+        "through_mlp_pearson": 0.9252193604947034,
+        "through_mlp_sign_agreement": 0.9449518016756389,
+        "direct_route_pearson": 0.015972231919783777,
+        "direct_route_sign_agreement": 0.5141639779551384
+      },
+      "l0_head11": {
+        "through_mlp_pearson": 0.9076289105968387,
+        "through_mlp_sign_agreement": 0.9241154819060557,
+        "direct_route_pearson": 0.07022802094355278,
+        "direct_route_sign_agreement": 0.5210292894964924
+      },
+      "l0_head12": {
+        "through_mlp_pearson": 0.8969075965572101,
+        "through_mlp_sign_agreement": 0.9238684806556119,
+        "direct_route_pearson": -0.007159142798809131,
+        "direct_route_sign_agreement": 0.5059864722708016
+      },
+      "l0_head13": {
+        "through_mlp_pearson": 0.9611695007106673,
+        "through_mlp_sign_agreement": 0.9384569920099506,
+        "direct_route_pearson": 0.19025994226259857,
+        "direct_route_sign_agreement": 0.5701626900200468
+      },
+      "l0_head14": {
+        "through_mlp_pearson": 0.8895392253686982,
+        "through_mlp_sign_agreement": 0.9001254854566987,
+        "direct_route_pearson": 0.17994438043029767,
+        "direct_route_sign_agreement": 0.5645786974653701
+      },
+      "l0_head15": {
+        "through_mlp_pearson": 0.9336493873806258,
+        "through_mlp_sign_agreement": 0.9157042071811203,
+        "direct_route_pearson": 0.07494522379262633,
+        "direct_route_sign_agreement": 0.5362375093452482
+      },
+      "note": "through_mlp is the residual difference composed to the logit through the SAME gauge; it differs from the causal delta only by the tanh and the gauge change, so a high correlation is the expected PASS and a low one would indicate the readout nonlinearity dominates.  The contrast with direct_route is the point: only the through-MLP composition licences a naming statement."
+    },
+    "causal_copy_test": {
+      "l0_head0": {
+        "median_rank_of_attended_token": 508.0,
+        "mean_rank_of_attended_token": 1362.86328125,
+        "frac_attended_token_in_top100": 0.28515625,
+        "mean_own_logit_push": 0.23270153999328613,
+        "z_of_own_push_vs_random_token": 1.7436494827270508,
+        "vocab": 8192
+      },
+      "l0_head1": {
+        "median_rank_of_attended_token": 3144.0,
+        "mean_rank_of_attended_token": 3484.8515625,
+        "frac_attended_token_in_top100": 0.06640625,
+        "mean_own_logit_push": 0.03266046196222305,
+        "z_of_own_push_vs_random_token": 0.12377433478832245,
+        "vocab": 8192
+      },
+      "l0_head2": {
+        "median_rank_of_attended_token": 3103.0,
+        "mean_rank_of_attended_token": 3558.7265625,
+        "frac_attended_token_in_top100": 0.05859375,
+        "mean_own_logit_push": 0.011385695077478886,
+        "z_of_own_push_vs_random_token": 0.2778790295124054,
+        "vocab": 8192
+      },
+      "l0_head3": {
+        "median_rank_of_attended_token": 3249.0,
+        "mean_rank_of_attended_token": 3658.060546875,
+        "frac_attended_token_in_top100": 0.072265625,
+        "mean_own_logit_push": 0.016456736251711845,
+        "z_of_own_push_vs_random_token": 0.35605692863464355,
+        "vocab": 8192
+      },
+      "l0_head4": {
+        "median_rank_of_attended_token": 4880.0,
+        "mean_rank_of_attended_token": 4466.611328125,
+        "frac_attended_token_in_top100": 0.048828125,
+        "mean_own_logit_push": -0.14152613282203674,
+        "z_of_own_push_vs_random_token": -0.40507715940475464,
+        "vocab": 8192
+      },
+      "l0_head5": {
+        "median_rank_of_attended_token": 3886.0,
+        "mean_rank_of_attended_token": 4045.49609375,
+        "frac_attended_token_in_top100": 0.03515625,
+        "mean_own_logit_push": 0.0005485543515533209,
+        "z_of_own_push_vs_random_token": 0.27509403228759766,
+        "vocab": 8192
+      },
+      "l0_head6": {
+        "median_rank_of_attended_token": 3829.0,
+        "mean_rank_of_attended_token": 3928.591796875,
+        "frac_attended_token_in_top100": 0.025390625,
+        "mean_own_logit_push": 5.4573145462200046e-05,
+        "z_of_own_push_vs_random_token": 0.05110964551568031,
+        "vocab": 8192
+      },
+      "l0_head7": {
+        "median_rank_of_attended_token": 2234.0,
+        "mean_rank_of_attended_token": 3012.099609375,
+        "frac_attended_token_in_top100": 0.150390625,
+        "mean_own_logit_push": 0.016216425225138664,
+        "z_of_own_push_vs_random_token": 0.2333703339099884,
+        "vocab": 8192
+      },
+      "l0_head8": {
+        "median_rank_of_attended_token": 4154.0,
+        "mean_rank_of_attended_token": 4223.4453125,
+        "frac_attended_token_in_top100": 0.0234375,
+        "mean_own_logit_push": -0.03150379657745361,
+        "z_of_own_push_vs_random_token": -0.17881163954734802,
+        "vocab": 8192
+      },
+      "l0_head9": {
+        "median_rank_of_attended_token": 3621.0,
+        "mean_rank_of_attended_token": 3857.2578125,
+        "frac_attended_token_in_top100": 0.083984375,
+        "mean_own_logit_push": 0.00280741392634809,
+        "z_of_own_push_vs_random_token": 0.06110118702054024,
+        "vocab": 8192
+      },
+      "l0_head10": {
+        "median_rank_of_attended_token": 3125.0,
+        "mean_rank_of_attended_token": 3587.080078125,
+        "frac_attended_token_in_top100": 0.083984375,
+        "mean_own_logit_push": 0.002973375143483281,
+        "z_of_own_push_vs_random_token": 0.273471862077713,
+        "vocab": 8192
+      },
+      "l0_head11": {
+        "median_rank_of_attended_token": 4163.0,
+        "mean_rank_of_attended_token": 4030.552734375,
+        "frac_attended_token_in_top100": 0.0625,
+        "mean_own_logit_push": -0.0023454250767827034,
+        "z_of_own_push_vs_random_token": -0.04497135430574417,
+        "vocab": 8192
+      },
+      "l0_head12": {
+        "median_rank_of_attended_token": 3793.0,
+        "mean_rank_of_attended_token": 3935.0078125,
+        "frac_attended_token_in_top100": 0.05078125,
+        "mean_own_logit_push": -0.0017333525465801358,
+        "z_of_own_push_vs_random_token": -0.05360963195562363,
+        "vocab": 8192
+      },
+      "l0_head13": {
+        "median_rank_of_attended_token": 795.0,
+        "mean_rank_of_attended_token": 1967.86328125,
+        "frac_attended_token_in_top100": 0.25,
+        "mean_own_logit_push": 0.05306188762187958,
+        "z_of_own_push_vs_random_token": 1.4500908851623535,
+        "vocab": 8192
+      },
+      "l0_head14": {
+        "median_rank_of_attended_token": 425.0,
+        "mean_rank_of_attended_token": 1596.484375,
+        "frac_attended_token_in_top100": 0.3203125,
+        "mean_own_logit_push": 0.10811740159988403,
+        "z_of_own_push_vs_random_token": 1.3225363492965698,
+        "vocab": 8192
+      },
+      "l0_head15": {
+        "median_rank_of_attended_token": 3747.0,
+        "mean_rank_of_attended_token": 3999.818359375,
+        "frac_attended_token_in_top100": 0.052734375,
+        "mean_own_logit_push": 0.002533169463276863,
+        "z_of_own_push_vs_random_token": 0.047536369413137436,
+        "vocab": 8192
+      },
+      "note": "rank 0 would mean attending to u boosts u more than any other token; rank V/2 means attending to u says nothing about u.  This is the causal version of the claim; the composed-table version is in rung4."
+    }
+  }
+}
