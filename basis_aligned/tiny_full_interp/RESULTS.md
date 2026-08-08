@@ -16,8 +16,11 @@ The old criterion mixed units: three relative algebraic checks at 1e-6 and one
 **absolute** end-to-end logit check at 1e-5. Logits here live on
 `30·tanh(·/30)` and reach 15–20, where one fp32 ulp is already ~1e-6, so the
 absolute budget was about eight ulps for a forward pass that accumulates
-thousands of roundings. Five of six trained cells failed it while every
-algebraic identity passed at 2–5e-7.
+thousands of roundings. **Four of the six trained cells failed on that clause
+alone**, while every algebraic identity passed at 2–5e-7. (Naively making the
+logit clause relative at 1e-6 does not help: it fails five of six, because the
+fp32 algebraic tolerance of 1e-6 is itself at the rounding floor — the width-128
+truncated-tokenizer cell sits at 1.05e-6 in fp32 and 7.7e-16 in fp64.)
 
 Three pieces of evidence, not one:
 
