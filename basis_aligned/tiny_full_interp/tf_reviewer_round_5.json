@@ -1,0 +1,1313 @@
+{
+  "round": 5,
+  "what": "independent adversarial review of the depth-3 six-architecture slice, by a reviewer who did not produce it",
+  "artifacts_read": [
+    "tf_d3_variant_slice.json",
+    "tf_d3_variant_table.md",
+    "tf_d3_variant_predictions.json",
+    "tf_*_d3_w128_b8192_s*_interp3.json",
+    "tf_*_d3_w128_b8192_s*_routeuse.json",
+    "the checkpoints themselves"
+  ],
+  "measurements_generated": [
+    "tf_reviewer_r5.py -> tf_reviewer_r5_measurements.json",
+    "tf_geom_control_report.py -> tf_geom_controls.json / .md",
+    "tf_r5_named_off_ce.json",
+    "new cells: tf_shrink_d2_w128_*_g8, tf_{vanilla,slots,shrink}_d3_w192_*, tf_slots_d3_w192_*_g8, tf_vanilla_d3_w144_*"
+  ],
+  "objections": [
+    {
+      "id": "R5-O1",
+      "objection": "The ACCELERANT verdict is an artifact of where the decision rule put its bar. 2.0x/0.5x was registered in advance, which is the right thing to have done, but a pre-registered arbitrary number is still an arbitrary number: show what the verdict becomes at 1.5x and 3.0x, and whether the answer survives the seed spread actually measured.",
+      "measurement": {
+        "ratios_3seed_mean": {
+          "slots": 0.757,
+          "bandwidth": 2.413,
+          "predicate": 25.42,
+          "codebook": 1.375,
+          "shrink": 1.06
+        },
+        "verdict_at_each_bar": {
+          "1.25x": "PERSISTS",
+          "1.5x": "ACCELERANT",
+          "2.0x": "ACCELERANT",
+          "2.5x": "ACCELERANT",
+          "3.0x": "ACCELERANT",
+          "5.0x": "ACCELERANT"
+        },
+        "n_variants_above_the_bar": {
+          "1.25x": 3,
+          "1.5x": 2,
+          "2.0x": 2,
+          "2.5x": 1,
+          "3.0x": 1,
+          "5.0x": 1
+        },
+        "leave_one_model_seed_out_verdicts": {
+          "1.5x": {
+            "drop_seed_0": "ACCELERANT",
+            "drop_seed_1": "ACCELERANT",
+            "drop_seed_2": "ACCELERANT"
+          },
+          "2.0x": {
+            "drop_seed_0": "ACCELERANT",
+            "drop_seed_1": "ACCELERANT",
+            "drop_seed_2": "ACCELERANT"
+          },
+          "3.0x": {
+            "drop_seed_0": "ACCELERANT",
+            "drop_seed_1": "ACCELERANT",
+            "drop_seed_2": "ACCELERANT"
+          }
+        },
+        "complete_enumeration_of_all_729_single_seed_combinations": {
+          "1.5x": {
+            "PERSISTS": 0.3333,
+            "ACCELERANT": 0.6667
+          },
+          "2.0x": {
+            "ACCELERANT": 1.0
+          },
+          "3.0x": {
+            "ACCELERANT": 1.0
+          }
+        },
+        "delta_method_95pct_CI_on_each_ratio": {
+          "slots": [
+            0.541,
+            0.974
+          ],
+          "bandwidth": [
+            1.962,
+            2.863
+          ],
+          "predicate": [
+            21.744,
+            29.096
+          ],
+          "codebook": [
+            1.135,
+            1.614
+          ],
+          "shrink": [
+            0.791,
+            1.328
+          ]
+        }
+      },
+      "verdict": "NOT SUSTAINED as a challenge to the verdict WORD, SUSTAINED as a challenge to the count. ACCELERANT is returned at 1.5x, 2.0x, 2.5x, 3.0x and 5.0x, under all three leave-one-model-seed-out subsets, and in 100% of the 729 single-seed combinations at 2.0x and 3.0x. It flips to PERSISTS only if the bar is lowered to 1.25x, which no one would register. BUT the headline sentence \"two of five clear the 2x bar\" is not a two-of-five fact: bandwidth sits at 2.413 +- 0.23, only 1.8 standard errors above the bar, with a 95% interval of [1.96, 2.86] that straddles 2.0, and it clears the bar in 89% of seed combinations. Quote it as ONE arm clearly above the bar and ONE arm at it.",
+      "fix": "the write-up must say \"one of five clears the bar unambiguously (named attention terms), one sits on it (bandwidth-limited writes, CI 1.96-2.86)\" rather than \"two of five\", and must state that the verdict word is stable for any bar in [1.5, 5.0]."
+    },
+    {
+      "id": "R5-O2",
+      "objection": "The six arms are not matched on parameters or on compute, and the two arms that clear the induction bar are exactly the ones with the extra parameters.",
+      "measurement": {
+        "nominal_params": {
+          "vanilla": 1933696,
+          "slots": 1933696,
+          "bandwidth": 2268756,
+          "predicate": 2281092,
+          "codebook": 2268756,
+          "shrink": 1958272
+        },
+        "effective_params": {
+          "vanilla": 1933696,
+          "slots": 1933696,
+          "bandwidth": 2268756,
+          "predicate": 2281092,
+          "codebook": 2311764,
+          "shrink": 1958272
+        },
+        "body_params": {
+          "vanilla": 885120,
+          "slots": 885120,
+          "bandwidth": 892500,
+          "predicate": 904836,
+          "codebook": 892500,
+          "shrink": 909696
+        },
+        "embedding_params": {
+          "vanilla": 1048576,
+          "slots": 1048576,
+          "bandwidth": 1376256,
+          "predicate": 1376256,
+          "codebook": 1376256,
+          "shrink": 1048576
+        },
+        "stream_width": {
+          "vanilla": 128,
+          "slots": 128,
+          "bandwidth": 168,
+          "predicate": 168,
+          "codebook": 168,
+          "shrink": 128
+        },
+        "nominal_vs_plain": {
+          "vanilla": 1.0,
+          "slots": 1.0,
+          "bandwidth": 1.1733,
+          "predicate": 1.1797,
+          "codebook": 1.1733,
+          "shrink": 1.0127
+        },
+        "train_wall_seconds": {
+          "vanilla": 409.2,
+          "slots": 394.3,
+          "bandwidth": 389.9,
+          "predicate": 951.4,
+          "codebook": 435.7,
+          "shrink": 388.0
+        },
+        "parameter_matched_plain_control": {}
+      },
+      "verdict": "SUSTAINED AS A GAP IN THE SLICE AS PUBLISHED. Three of the six arms carry 17-18% more parameters than the plain model (2,268,756-2,281,092 against 1,933,696) and BOTH arms that clear the 2x induction bar are in that group. The extra parameters are entirely EMBEDDING - the small-decoder variants widen the stream to 168, so the embedding grows from 1,048,576 to 1,376,256 while the bodies stay within 2% of the plain model's. Compute is also not matched: the named-attention arm trains for 951s against the plain 409s, 2.3x. The depth-2 slice controlled this with the embedding-pinned `_slot32` arms; depth 3 shipped with no such control. NOT YET CLOSED - the matched control had not landed.",
+      "fix": "the parameter table is now printed in the slice table and the matched-parameter plain control is quoted beside every claim that a variant beats the plain model."
+    },
+    {
+      "id": "R5-O3",
+      "objection": "The named-attention arm's 25.4x is the whole exception to the accelerant verdict. At depth 2 the analysis concluded the capability was handed over rather than learned. Re-run that test at depth 3: zero the named terms and check whether the arm returns to the plain model's null.",
+      "measurement": {
+        "induction_with_all_named_terms_on": {
+          "mean": 2.7578,
+          "sd": 0.0954
+        },
+        "induction_with_the_previous_token_match_scalar_zeroed": {
+          "mean": 0.0549,
+          "sd": 0.0058
+        },
+        "induction_with_every_named_term_zeroed": {
+          "mean": -0.0028,
+          "sd": 0.0115,
+          "per_seed": [
+            0.01,
+            -0.0123,
+            -0.0062
+          ]
+        },
+        "fraction_of_the_score_removed_by_the_one_scalar": 0.9801,
+        "fraction_removed_by_all_named_terms": 1.0009,
+        "plain_model_at_the_same_cell": {
+          "mean": 0.1085,
+          "sd": 0.0133
+        },
+        "named_off_minus_plain": -0.1113,
+        "named_off_clears_its_own_probe_floor": false,
+        "per_layer_residual_score": {
+          "layer0": 2.6623,
+          "layer1": 1.202,
+          "layer2": 1.574
+        },
+        "no_single_head_carries_it_layer0": {
+          "l0_head0": 2.7456,
+          "l0_head1": 2.7548,
+          "l0_head2": 2.7195,
+          "l0_head3": 2.7444,
+          "l0_head4": 2.7564,
+          "l0_head5": 2.7425,
+          "l0_head6": 2.7543,
+          "l0_head7": 2.7474
+        },
+        "held_CE_with_named_terms_on": 4.3147,
+        "held_CE_with_the_previous_token_match_scalar_zeroed": 4.553,
+        "held_CE_with_every_named_term_zeroed": 6.3529,
+        "plain_model_held_CE": 4.5276,
+        "restore_gate_passes": true
+      },
+      "verdict": "SUSTAINED, AND STRONGER THAN AT DEPTH 2. Zeroing one scalar per head per layer - the previous-token match 1[tok_{j-1} == tok_i], which IS an induction head written down - removes 98.0% of the score at all three seeds. Zeroing every named term leaves -0.0028 +- 0.0115, which is BELOW ZERO at two of three seeds, below its own probe floor, and 0.1113 nats below the PLAIN model at the same cell (0.1085 +- 0.0133). No single layer-0 head carries it (zeroing any one removes 0.4-4%); the term is used at layers 1 and 2. This arm therefore does not accelerate a capability, it INSTALLS one, and the network it is installed in learned LESS induction than the plain model did. The CE win is installed on the same terms: held CE goes from 4.3147 to 4.553 when that one scalar is zeroed, i.e. PAST the plain model's 4.5276. The 0.21-nat loss win and the 25x induction win are the same object, not two independent wins.",
+      "fix": "every statement about this arm now carries the word INSTALLS and the knockout numbers, and it is excluded from any sentence of the form \"the architectures learn X\". It is a different KIND of claim from the other four: a demonstration that a hand-written term can be installed and will be used, not evidence that a training bias discovers anything.",
+      "limitation": "this is an inference-time knockout of a trained model. It bounds how much of THIS model's behaviour the named terms carry; it does not say what the same architecture would reach if retrained without them."
+    },
+    {
+      "id": "R5-O4",
+      "objection": "Anything resting on one seed, one probe or one ablation method, and anything where the between-seed spread is the size of the effect - the programme's own record says that is where claims die.",
+      "measurement": {
+        "fragility_flags": [
+          "vanilla: A0_into_l1_zero between-seed sd is >= half the mean (4.388e-06 +- 3.614e-06)",
+          "slots: induction vs plain is NOT separated at 95% over model seeds (Welch t = -2.03, needs 4.30 at 2 df) - the ratio quoted for it is a point estimate only",
+          "slots: route-USE M0_out_of_layer1_read between-seed sd is the size of the effect (0.036 +- 0.124) - not a quotable fraction at three seeds",
+          "bandwidth: route-USE A0_out_of_layer2_read between-seed sd is the size of the effect (0.299 +- 0.299) - not a quotable fraction at three seeds",
+          "bandwidth: route-USE M0_out_of_layer1_read between-seed sd is the size of the effect (0.163 +- 0.186) - not a quotable fraction at three seeds",
+          "predicate: route-USE A0_out_of_layer1_read between-seed sd is the size of the effect (0.015 +- 0.054) - not a quotable fraction at three seeds",
+          "predicate: route-USE A1_out_of_layer2_read between-seed sd is the size of the effect (0.015 +- 0.040) - not a quotable fraction at three seeds",
+          "codebook: induction vs plain is NOT separated at 95% over model seeds (Welch t = 3.66, needs 4.30 at 2 df) - the ratio quoted for it is a point estimate only",
+          "codebook: route-USE A0_out_of_layer2_read between-seed sd is the size of the effect (0.236 +- 0.290) - not a quotable fraction at three seeds",
+          "codebook: route-USE M0_out_of_layer1_read between-seed sd is the size of the effect (0.001 +- 0.088) - not a quotable fraction at three seeds",
+          "shrink: induction vs plain is NOT separated at 95% over model seeds (Welch t = 0.44, needs 4.30 at 2 df) - the ratio quoted for it is a point estimate only",
+          "shrink: route-USE M0_out_of_layer1_read between-seed sd is the size of the effect (0.075 +- 0.117) - not a quotable fraction at three seeds"
+        ],
+        "per_variant": {
+          "vanilla": {
+            "induction": {
+              "mean": 0.10849020922625528,
+              "sd": 0.013345512068083595,
+              "per_seed": [
+                0.09735919104682118,
+                0.12328491210937571,
+                0.10482652452256894
+              ],
+              "n": 3
+            },
+            "held_ce": {
+              "mean": 4.527606666666667,
+              "sd": 0.0007393465583428476,
+              "per_seed": [
+                4.52845,
+                4.52707,
+                4.5273
+              ],
+              "n": 3
+            },
+            "induction_sd_over_mean": 0.12301121145643344,
+            "induction_model_seed_t": 14.080430450701748,
+            "A0_into_l1_zero": {
+              "mean": 4.387783747006324e-06,
+              "sd": 3.61373070006294e-06,
+              "per_seed": [
+                2.439504669382586e-06,
+                8.557577530154958e-06,
+                2.166269041481428e-06
+              ],
+              "n": 3
+            },
+            "A0_into_l1_resample": {
+              "mean": 2.2009141294650667e-06,
+              "sd": 7.35549431023735e-07,
+              "per_seed": [
+                2.256969310110435e-06,
+                2.906832264670811e-06,
+                1.4389408136139537e-06
+              ],
+              "n": 3
+            },
+            "A0_into_l1_zero_over_resample": 1.9936187824250904,
+            "A1_into_l2_zero": {
+              "mean": 0.16167903132736683,
+              "sd": 0.038817178008643316,
+              "per_seed": [
+                0.1797713339328766,
+                0.11711844988167286,
+                0.18814731016755104
+              ],
+              "n": 3
+            },
+            "A1_into_l2_resample": {
+              "mean": 0.10198967531323433,
+              "sd": 0.011534590823907197,
+              "per_seed": [
+                0.1149988267570734,
+                0.09301158599555492,
+                0.09795861318707466
+              ],
+              "n": 3
+            },
+            "A1_into_l2_zero_over_resample": 1.585249005164615,
+            "route_use": {
+              "A0_out_of_layer1_read": {
+                "mean": 0.00017149081180437527,
+                "sd": 0.0004938224471133603,
+                "per_seed": [
+                  0.0004934712469721399,
+                  0.00041806293153824636,
+                  -0.00039706174309726047
+                ],
+                "n": 3
+              },
+              "A0_out_of_layer2_read": {
+                "mean": -0.0013024800167664638,
+                "sd": 0.0006594386277015169,
+                "per_seed": [
+                  -0.000838269859767188,
+                  -0.0020573096893965965,
+                  -0.0010118605011356066
+                ],
+                "n": 3
+              },
+              "A1_out_of_layer2_read": {
+                "mean": 0.857227960538934,
+                "sd": 0.10271196588451331,
+                "per_seed": [
+                  0.9449658749504238,
+                  0.7442482826242933,
+                  0.8824697240420847
+                ],
+                "n": 3
+              },
+              "M0_out_of_layer1_read": {
+                "mean": 0.9900568080599618,
+                "sd": 0.01893025035522241,
+                "per_seed": [
+                  0.9857951243212354,
+                  1.0107546345335818,
+                  0.9736206653250685
+                ],
+                "n": 3
+              },
+              "M1_out_of_layer2_read": {
+                "mean": 0.5320430862274802,
+                "sd": 0.0569657440021028,
+                "per_seed": [
+                  0.48513273658212946,
+                  0.5954314591668394,
+                  0.5155650629334718
+                ],
+                "n": 3
+              }
+            },
+            "route_use_baseline_induction": {
+              "mean": 0.10849017390498404,
+              "sd": 0.013345420889610882,
+              "per_seed": [
+                0.09735925462510835,
+                0.1232847849527996,
+                0.10482648213704415
+              ],
+              "n": 3
+            }
+          },
+          "slots": {
+            "induction": {
+              "mean": 0.08217800281665942,
+              "sd": 0.018110121275048862,
+              "per_seed": [
+                0.062017907036675625,
+                0.09706995222303619,
+                0.08744614919026646
+              ],
+              "n": 3
+            },
+            "held_ce": {
+              "mean": 4.7432799999999995,
+              "sd": 0.008422155306096033,
+              "per_seed": [
+                4.75181,
+                4.73497,
+                4.74306
+              ],
+              "n": 3
+            },
+            "induction_sd_over_mean": 0.22037675112953115,
+            "induction_model_seed_t": 7.8594987842017305,
+            "vs_plain_welch_t": -2.025856397208549,
+            "seed_ranges_overlap_plain": false,
+            "A0_into_l1_zero": {
+              "mean": 0.32658656189839047,
+              "sd": 0.08926704712723756,
+              "per_seed": [
+                0.40195219218730927,
+                0.349802203476429,
+                0.2280052900314331
+              ],
+              "n": 3
+            },
+            "A0_into_l1_resample": {
+              "mean": 0.08489912499984105,
+              "sd": 0.009743215876442843,
+              "per_seed": [
+                0.08851274475455284,
+                0.09231926314532757,
+                0.07386536709964275
+              ],
+              "n": 3
+            },
+            "A0_into_l1_zero_over_resample": 3.8467600449239248,
+            "A1_into_l2_zero": {
+              "mean": 0.0652138910566767,
+              "sd": 0.012471263520923101,
+              "per_seed": [
+                0.07379744574427605,
+                0.0509084053337574,
+                0.07093582209199667
+              ],
+              "n": 3
+            },
+            "A1_into_l2_resample": {
+              "mean": 0.036550038028508425,
+              "sd": 0.007873154897435427,
+              "per_seed": [
+                0.04086946230381727,
+                0.027462591882795095,
+                0.04131805989891291
+              ],
+              "n": 3
+            },
+            "A1_into_l2_zero_over_resample": 1.7842359289971448,
+            "route_use": {
+              "A0_out_of_layer1_read": {
+                "mean": 0.7119724724180796,
+                "sd": 0.09224529546842924,
+                "per_seed": [
+                  0.8170287929802467,
+                  0.6442268330911027,
+                  0.6746617911828893
+                ],
+                "n": 3
+              },
+              "A0_out_of_layer2_read": {
+                "mean": 0.7687286857690522,
+                "sd": 0.030422781818196905,
+                "per_seed": [
+                  0.7434804107337042,
+                  0.8025055798296021,
+                  0.7602000667438504
+                ],
+                "n": 3
+              },
+              "A1_out_of_layer2_read": {
+                "mean": 0.5990262050655262,
+                "sd": 0.2033713143720689,
+                "per_seed": [
+                  0.8130562987015004,
+                  0.40832585025948803,
+                  0.5756964662355902
+                ],
+                "n": 3
+              },
+              "M0_out_of_layer1_read": {
+                "mean": 0.03605705567496028,
+                "sd": 0.12375183740488803,
+                "per_seed": [
+                  -0.0425759122299093,
+                  0.1787038813956272,
+                  -0.02795680214083706
+                ],
+                "n": 3
+              },
+              "M1_out_of_layer2_read": {
+                "mean": 0.09470610040176462,
+                "sd": 0.03595622737756242,
+                "per_seed": [
+                  0.13159156402823663,
+                  0.05975739339703729,
+                  0.09276934378001993
+                ],
+                "n": 3
+              }
+            },
+            "route_use_baseline_induction": {
+              "mean": 0.08217799575240566,
+              "sd": 0.018110114576398884,
+              "per_seed": [
+                0.06201792822943837,
+                0.09706999460856167,
+                0.0874460644192169
+              ],
+              "n": 3
+            }
+          },
+          "bandwidth": {
+            "induction": {
+              "mean": 0.2617485046386721,
+              "sd": 0.02874982980481024,
+              "per_seed": [
+                0.29337486690945125,
+                0.2546750386555992,
+                0.23719560835096587
+              ],
+              "n": 3
+            },
+            "held_ce": {
+              "mean": 4.53073,
+              "sd": 0.013412855773473552,
+              "per_seed": [
+                4.51706,
+                4.53126,
+                4.54387
+              ],
+              "n": 3
+            },
+            "induction_sd_over_mean": 0.10983760860256922,
+            "induction_model_seed_t": 15.769196267155099,
+            "vs_plain_welch_t": 8.374831067729025,
+            "seed_ranges_overlap_plain": false,
+            "A0_into_l1_zero": {
+              "mean": 0.8008530040582021,
+              "sd": 0.08714702014608837,
+              "per_seed": [
+                0.7792671620845795,
+                0.726527526974678,
+                0.8967643231153488
+              ],
+              "n": 3
+            },
+            "A0_into_l1_resample": {
+              "mean": 0.08703096490353346,
+              "sd": 0.019678310517714827,
+              "per_seed": [
+                0.06474146526306868,
+                0.09435216151177883,
+                0.10199926793575287
+              ],
+              "n": 3
+            },
+            "A0_into_l1_zero_over_resample": 9.201931806063287,
+            "A1_into_l2_zero": {
+              "mean": 0.21470081557830176,
+              "sd": 0.01575766700599686,
+              "per_seed": [
+                0.20263483375310898,
+                0.20893918350338936,
+                0.2325284294784069
+              ],
+              "n": 3
+            },
+            "A1_into_l2_resample": {
+              "mean": 0.09158564234773318,
+              "sd": 0.01091328749097339,
+              "per_seed": [
+                0.10347433015704155,
+                0.08202271163463593,
+                0.08925988525152206
+              ],
+              "n": 3
+            },
+            "A1_into_l2_zero_over_resample": 2.3442628131942755,
+            "route_use": {
+              "A0_out_of_layer1_read": {
+                "mean": 0.8012496451182555,
+                "sd": 0.048408779604051294,
+                "per_seed": [
+                  0.8571022594905141,
+                  0.7752660277147297,
+                  0.7713806481495223
+                ],
+                "n": 3
+              },
+              "A0_out_of_layer2_read": {
+                "mean": 0.29881053256619067,
+                "sd": 0.2989819737296098,
+                "per_seed": [
+                  0.09732658680294505,
+                  0.6423350940224644,
+                  0.1567699168731627
+                ],
+                "n": 3
+              },
+              "A1_out_of_layer2_read": {
+                "mean": 0.918197229159644,
+                "sd": 0.17831204401263348,
+                "per_seed": [
+                  1.031145984317893,
+                  0.7126352294547549,
+                  1.0108104737062842
+                ],
+                "n": 3
+              },
+              "M0_out_of_layer1_read": {
+                "mean": 0.162618926605002,
+                "sd": 0.18617511575505769,
+                "per_seed": [
+                  -0.009223613241624375,
+                  0.136675189261947,
+                  0.3604052037946833
+                ],
+                "n": 3
+              },
+              "M1_out_of_layer2_read": {
+                "mean": 0.2830132011746938,
+                "sd": 0.10920939625878441,
+                "per_seed": [
+                  0.4074031480517651,
+                  0.2387639254976755,
+                  0.20287252997464075
+                ],
+                "n": 3
+              }
+            },
+            "route_use_baseline_induction": {
+              "mean": 0.26174851876718025,
+              "sd": 0.028749846675576705,
+              "per_seed": [
+                0.2933749092949764,
+                0.2546750174628361,
+                0.23719562954372825
+              ],
+              "n": 3
+            }
+          },
+          "predicate": {
+            "induction": {
+              "mean": 2.7578122668796117,
+              "sd": 0.09537829625173125,
+              "per_seed": [
+                2.667591836717393,
+                2.8576237148708774,
+                2.7482212490505646
+              ],
+              "n": 3
+            },
+            "held_ce": {
+              "mean": 4.314649999999999,
+              "sd": 0.0008072793816266223,
+              "per_seed": [
+                4.31402,
+                4.31437,
+                4.31556
+              ],
+              "n": 3
+            },
+            "induction_sd_over_mean": 0.03458476757000184,
+            "induction_model_seed_t": 50.08131987769161,
+            "vs_plain_welch_t": 47.64700042747944,
+            "seed_ranges_overlap_plain": false,
+            "A0_into_l1_zero": {
+              "mean": 0.0961130540817976,
+              "sd": 0.014043399521321066,
+              "per_seed": [
+                0.09796595387160778,
+                0.10913802497088909,
+                0.08123518340289593
+              ],
+              "n": 3
+            },
+            "A0_into_l1_resample": {
+              "mean": 0.039224127462754645,
+              "sd": 0.007693916896504868,
+              "per_seed": [
+                0.04783831164240837,
+                0.03679938241839409,
+                0.03303468832746148
+              ],
+              "n": 3
+            },
+            "A0_into_l1_zero_over_resample": 2.450355439341817,
+            "A1_into_l2_zero": {
+              "mean": 0.08713420946151018,
+              "sd": 0.031972832803718085,
+              "per_seed": [
+                0.06877938378602266,
+                0.12405305914580822,
+                0.06857018545269966
+              ],
+              "n": 3
+            },
+            "A1_into_l2_resample": {
+              "mean": 0.025176092982292175,
+              "sd": 0.006242791787141665,
+              "per_seed": [
+                0.022033720277249813,
+                0.032365692779421806,
+                0.021128865890204906
+              ],
+              "n": 3
+            },
+            "A1_into_l2_zero_over_resample": 3.460990135474825,
+            "route_use": {
+              "A0_out_of_layer1_read": {
+                "mean": 0.015021843514048462,
+                "sd": 0.053883177879946224,
+                "per_seed": [
+                  0.007491628312395459,
+                  -0.0347001384741513,
+                  0.07227404070390123
+                ],
+                "n": 3
+              },
+              "A0_out_of_layer2_read": {
+                "mean": -0.018310579049593455,
+                "sd": 0.015518305746249848,
+                "per_seed": [
+                  -0.01906467156530103,
+                  -0.033438090882585286,
+                  -0.0024289747008940433
+                ],
+                "n": 3
+              },
+              "A1_out_of_layer2_read": {
+                "mean": 0.014860359762864359,
+                "sd": 0.04023594924105233,
+                "per_seed": [
+                  0.017921676133143643,
+                  0.05347821173550435,
+                  -0.02681880858005492
+                ],
+                "n": 3
+              },
+              "M0_out_of_layer1_read": {
+                "mean": 0.007850730081346907,
+                "sd": 0.0017054750541155303,
+                "per_seed": [
+                  0.006851672580588131,
+                  0.006880545171572182,
+                  0.009819972491880404
+                ],
+                "n": 3
+              },
+              "M1_out_of_layer2_read": {
+                "mean": -0.03585268714047742,
+                "sd": 0.014243438464015516,
+                "per_seed": [
+                  -0.035237319677936065,
+                  -0.05039383606623713,
+                  -0.021926905677259065
+                ],
+                "n": 3
+              }
+            },
+            "route_use_baseline_induction": {
+              "mean": 2.7578122456868495,
+              "sd": 0.09537837750409056,
+              "per_seed": [
+                2.6675917095608184,
+                2.857623757256402,
+                2.748221270243327
+              ],
+              "n": 3
+            }
+          },
+          "codebook": {
+            "induction": {
+              "mean": 0.14913542712176298,
+              "sd": 0.013846302616565987,
+              "per_seed": [
+                0.1581481297810871,
+                0.1560657925075958,
+                0.13319235907660598
+              ],
+              "n": 3
+            },
+            "held_ce": {
+              "mean": 4.6496466666666665,
+              "sd": 0.018796867646853337,
+              "per_seed": [
+                4.63025,
+                4.65091,
+                4.66778
+              ],
+              "n": 3
+            },
+            "induction_sd_over_mean": 0.0928438190964582,
+            "induction_model_seed_t": 18.65553167055093,
+            "vs_plain_welch_t": 3.660776787793288,
+            "seed_ranges_overlap_plain": false,
+            "A0_into_l1_zero": {
+              "mean": 0.1534243058413267,
+              "sd": 0.046830804571475225,
+              "per_seed": [
+                0.13334674015641212,
+                0.20694633573293686,
+                0.11997984163463116
+              ],
+              "n": 3
+            },
+            "A0_into_l1_resample": {
+              "mean": 0.08122171182185411,
+              "sd": 0.019817122727716536,
+              "per_seed": [
+                0.05860511306673288,
+                0.08951580338180065,
+                0.09554421901702881
+              ],
+              "n": 3
+            },
+            "A0_into_l1_zero_over_resample": 1.888956812161711,
+            "A1_into_l2_zero": {
+              "mean": 0.11833190607527892,
+              "sd": 0.023516303033857395,
+              "per_seed": [
+                0.13478000462055206,
+                0.12881912477314472,
+                0.09139658883213997
+              ],
+              "n": 3
+            },
+            "A1_into_l2_resample": {
+              "mean": 0.08442988929649194,
+              "sd": 0.028630657246438963,
+              "per_seed": [
+                0.10693436115980148,
+                0.09415087662637234,
+                0.052204430103302
+              ],
+              "n": 3
+            },
+            "A1_into_l2_zero_over_resample": 1.4015404622850265,
+            "route_use": {
+              "A0_out_of_layer1_read": {
+                "mean": 0.5668727375297505,
+                "sd": 0.1634736565822878,
+                "per_seed": [
+                  0.3914815733995289,
+                  0.7150008526806754,
+                  0.5941357865090472
+                ],
+                "n": 3
+              },
+              "A0_out_of_layer2_read": {
+                "mean": 0.2356200429905089,
+                "sd": 0.29027043016686704,
+                "per_seed": [
+                  0.0002697536598292323,
+                  0.1466200715600012,
+                  0.5599703037516963
+                ],
+                "n": 3
+              },
+              "A1_out_of_layer2_read": {
+                "mean": 0.9096448679566252,
+                "sd": 0.2781425514463091,
+                "per_seed": [
+                  1.1017145505097359,
+                  1.036534244090434,
+                  0.590685809269706
+                ],
+                "n": 3
+              },
+              "M0_out_of_layer1_read": {
+                "mean": 0.0013886851735200045,
+                "sd": 0.08838878178484313,
+                "per_seed": [
+                  0.09745088821719503,
+                  -0.01678246649562295,
+                  -0.07650236620101206
+                ],
+                "n": 3
+              },
+              "M1_out_of_layer2_read": {
+                "mean": 0.08661263259395656,
+                "sd": 0.021584842446150065,
+                "per_seed": [
+                  0.10995965889629576,
+                  0.08249509029725244,
+                  0.06738314858832144
+                ],
+                "n": 3
+              }
+            },
+            "route_use_baseline_induction": {
+              "mean": 0.14914294348822707,
+              "sd": 0.013849059348237077,
+              "per_seed": [
+                0.15814810858832473,
+                0.15608486599392357,
+                0.13319585588243293
+              ],
+              "n": 3
+            }
+          },
+          "shrink": {
+            "induction": {
+              "mean": 0.11497810505054627,
+              "sd": 0.021526452731252886,
+              "per_seed": [
+                0.09148985544840507,
+                0.13376600477430572,
+                0.119678454928928
+              ],
+              "n": 3
+            },
+            "held_ce": {
+              "mean": 4.702356666666667,
+              "sd": 0.005707541794269812,
+              "per_seed": [
+                4.70816,
+                4.69675,
+                4.70216
+              ],
+              "n": 3
+            },
+            "induction_sd_over_mean": 0.1872221908839905,
+            "induction_model_seed_t": 9.25131149993922,
+            "vs_plain_welch_t": 0.4436793938268036,
+            "seed_ranges_overlap_plain": true,
+            "A0_into_l1_zero": {
+              "mean": 0.07065437982479732,
+              "sd": 0.005149143498688088,
+              "per_seed": [
+                0.06471103429794312,
+                0.07348058186471462,
+                0.0737715233117342
+              ],
+              "n": 3
+            },
+            "A0_into_l1_resample": {
+              "mean": 0.06795759312808514,
+              "sd": 0.003774082510981415,
+              "per_seed": [
+                0.06430924125015736,
+                0.06771758757531643,
+                0.07184595055878162
+              ],
+              "n": 3
+            },
+            "A0_into_l1_zero_over_resample": 1.0396833756550108,
+            "A1_into_l2_zero": {
+              "mean": 0.055454570800065994,
+              "sd": 0.0027591439059451448,
+              "per_seed": [
+                0.058017090894281864,
+                0.05581282079219818,
+                0.05253380071371794
+              ],
+              "n": 3
+            },
+            "A1_into_l2_resample": {
+              "mean": 0.06572317456205685,
+              "sd": 0.005573028582405039,
+              "per_seed": [
+                0.0720143299549818,
+                0.061405133455991745,
+                0.06375006027519703
+              ],
+              "n": 3
+            },
+            "A1_into_l2_zero_over_resample": 0.8437597722505767,
+            "route_use": {
+              "A0_out_of_layer1_read": {
+                "mean": 0.2275064949933593,
+                "sd": 0.06332956374105829,
+                "per_seed": [
+                  0.15636181019063033,
+                  0.2484344182572835,
+                  0.277723256532164
+                ],
+                "n": 3
+              },
+              "A0_out_of_layer2_read": {
+                "mean": 0.20664342276003023,
+                "sd": 0.09724458290847574,
+                "per_seed": [
+                  0.10408786048543646,
+                  0.21831973435452043,
+                  0.29752267344013383
+                ],
+                "n": 3
+              },
+              "A1_out_of_layer2_read": {
+                "mean": 0.9675571366273815,
+                "sd": 0.15718839224430023,
+                "per_seed": [
+                  1.1490621089611235,
+                  0.8764181017007442,
+                  0.8771911992202771
+                ],
+                "n": 3
+              },
+              "M0_out_of_layer1_read": {
+                "mean": 0.07528152809120947,
+                "sd": 0.11731604800736933,
+                "per_seed": [
+                  0.20444653333105198,
+                  0.04605940140411704,
+                  -0.024661350461540613
+                ],
+                "n": 3
+              },
+              "M1_out_of_layer2_read": {
+                "mean": 0.0904214820969738,
+                "sd": 0.045010555676397786,
+                "per_seed": [
+                  0.13139462213106498,
+                  0.09762699522851367,
+                  0.042242828931342756
+                ],
+                "n": 3
+              }
+            },
+            "route_use_baseline_induction": {
+              "mean": 0.11497803440800436,
+              "sd": 0.021526519789958867,
+              "per_seed": [
+                0.09148970709906692,
+                0.13376598358154296,
+                0.11967841254340321
+              ],
+              "n": 3
+            }
+          }
+        }
+      },
+      "verdict": "SUSTAINED in three places. (1) THREE of the five variants are NOT separated from the plain model on induction over model seeds: private write channels (Welch t = -2.03), codebook (3.66) and shrinking channel (0.44), against 4.30 needed at 2 df. Their ratios 0.76x / 1.37x / 1.06x are point estimates, and the sentence \"three of five are within 40% of the plain model\" is better stated as \"three of five are indistinguishable from it\". That strengthens the accelerant verdict rather than weakening it. (2) SEVEN route-USE fractions have a between-seed sd at or above their mean and must not be quoted as fractions. (3) The width-192 geometry control was one seed when the verdict was written; it is three seeds now.",
+      "fix": "the slice table gains a model-seed Welch t against the plain model for every variant, and every route-USE fraction whose sd >= 0.9x its mean is struck from the write-up."
+    },
+    {
+      "id": "R5-O5",
+      "objection": "The headline CE column in the mailbox entry and the commit message does not match the CE column the report generator produces, and the advertised \"-0.1435\" is therefore unverifiable.",
+      "measurement": {
+        "per_variant": {
+          "vanilla": {
+            "quoted_in_mailbox_and_commit": 4.4481,
+            "final_held_ce_in_artifacts": 4.52761,
+            "delta": -0.07951
+          },
+          "slots": {
+            "quoted_in_mailbox_and_commit": 4.6488,
+            "final_held_ce_in_artifacts": 4.74328,
+            "delta": -0.09448
+          },
+          "bandwidth": {
+            "quoted_in_mailbox_and_commit": 4.4654,
+            "final_held_ce_in_artifacts": 4.53073,
+            "delta": -0.06533
+          },
+          "predicate": {
+            "quoted_in_mailbox_and_commit": 4.3046,
+            "final_held_ce_in_artifacts": 4.31465,
+            "delta": -0.01005
+          },
+          "codebook": {
+            "quoted_in_mailbox_and_commit": 4.5762,
+            "final_held_ce_in_artifacts": 4.64965,
+            "delta": -0.07345
+          },
+          "shrink": {
+            "quoted_in_mailbox_and_commit": 4.6204,
+            "final_held_ce_in_artifacts": 4.70236,
+            "delta": -0.08196
+          }
+        },
+        "quoted_predicate_minus_vanilla": -0.1435,
+        "artifact_predicate_minus_vanilla": -0.213,
+        "all_deltas_equal": false,
+        "reading": "a constant offset would mean a different but valid evaluation; unequal offsets mean the column cannot be reconstructed from any single artifact field"
+      },
+      "verdict": "SUSTAINED as a labelling failure, NOT as an error of fact. The quoted column is `rung5_ladder._model_ce` - a held-split CE over 24,576 tokens at context 256 - while the slice table quotes `final_held_ce`, the full held evaluation at context 512. Both are real; they are different measurements and were mixed without labels. On the programme's primary instrument the named-attention arm beats the plain model by 0.213 nats, not 0.1435. The direction survives and the margin is LARGER; the number as published is wrong.",
+      "fix": "the -0.1435 figure is retracted and replaced by -0.2130 (held CE at T=512, three seeds); any short-context number must be labelled `rung5 ladder CE, T=256, 24,576 tokens`."
+    },
+    {
+      "id": "R5-O6",
+      "objection": "Every route magnitude in the slice is quoted as [zero, resample] but the headline reads the zeroing number, and the programme's own README says the two orderings can invert.",
+      "measurement": {
+        "per_variant": {
+          "vanilla": {
+            "A0_into_l1": {
+              "zero": 4.387783747006324e-06,
+              "resample": 2.2009141294650667e-06,
+              "zero_over_resample": 1.9936187824250904,
+              "resample_is_harsher": false
+            },
+            "A1_into_l2": {
+              "zero": 0.16167903132736683,
+              "resample": 0.10198967531323433,
+              "zero_over_resample": 1.585249005164615,
+              "resample_is_harsher": false
+            }
+          },
+          "slots": {
+            "A0_into_l1": {
+              "zero": 0.32658656189839047,
+              "resample": 0.08489912499984105,
+              "zero_over_resample": 3.8467600449239248,
+              "resample_is_harsher": false
+            },
+            "A1_into_l2": {
+              "zero": 0.0652138910566767,
+              "resample": 0.036550038028508425,
+              "zero_over_resample": 1.7842359289971448,
+              "resample_is_harsher": false
+            }
+          },
+          "bandwidth": {
+            "A0_into_l1": {
+              "zero": 0.8008530040582021,
+              "resample": 0.08703096490353346,
+              "zero_over_resample": 9.201931806063287,
+              "resample_is_harsher": false
+            },
+            "A1_into_l2": {
+              "zero": 0.21470081557830176,
+              "resample": 0.09158564234773318,
+              "zero_over_resample": 2.3442628131942755,
+              "resample_is_harsher": false
+            }
+          },
+          "predicate": {
+            "A0_into_l1": {
+              "zero": 0.0961130540817976,
+              "resample": 0.039224127462754645,
+              "zero_over_resample": 2.450355439341817,
+              "resample_is_harsher": false
+            },
+            "A1_into_l2": {
+              "zero": 0.08713420946151018,
+              "resample": 0.025176092982292175,
+              "zero_over_resample": 3.460990135474825,
+              "resample_is_harsher": false
+            }
+          },
+          "codebook": {
+            "A0_into_l1": {
+              "zero": 0.1534243058413267,
+              "resample": 0.08122171182185411,
+              "zero_over_resample": 1.888956812161711,
+              "resample_is_harsher": false
+            },
+            "A1_into_l2": {
+              "zero": 0.11833190607527892,
+              "resample": 0.08442988929649194,
+              "zero_over_resample": 1.4015404622850265,
+              "resample_is_harsher": false
+            }
+          },
+          "shrink": {
+            "A0_into_l1": {
+              "zero": 0.07065437982479732,
+              "resample": 0.06795759312808514,
+              "zero_over_resample": 1.0396833756550108,
+              "resample_is_harsher": false
+            },
+            "A1_into_l2": {
+              "zero": 0.055454570800065994,
+              "resample": 0.06572317456205685,
+              "zero_over_resample": 0.8437597722505767,
+              "resample_is_harsher": true
+            }
+          }
+        },
+        "PD3_recomputed_on_resample": {
+          "A0_into_layer1_resample_kl": {
+            "vanilla": 2.2009141294650667e-06,
+            "slots": 0.08489912499984105,
+            "bandwidth": 0.08703096490353346,
+            "predicate": 0.039224127462754645,
+            "codebook": 0.08122171182185411,
+            "shrink": 0.06795759312808514
+          },
+          "n_variants_at_or_above_0.05_nats": 4,
+          "call": "CONFIRMED",
+          "note": "PD3 was registered on the zeroing number; it survives on the resample number too, but the magnitudes are 1.0-9.2x smaller"
+        }
+      },
+      "verdict": "SUSTAINED as a caveat, not as a retraction. At depth 3 zeroing is the harsher ablation at 11 of the 12 write/read pairs measured - the OPPOSITE of the depth-ladder record - and the gap is largest exactly for the private-slot variants (bandwidth-limited writes: zeroing gives 0.801 nats where resampling gives 0.087, a factor of 9.2; the plain model's own ratio is 1.99, the quadratic expectation). Zeroing a private slot hands the per-slot RMSNorm a zero vector, which is a bigger perturbation than substituting another sequence's write. PD3 survives on the resample number (4 of 5 variants at or above 0.05 nats, same call) but its magnitudes shrink by 1.0-9.2x.",
+      "fix": "route magnitudes for the masked/small-decoder variants are quoted resample-first, with the zeroing number beside them and the ratio stated."
+    },
+    {
+      "id": "R5-O7",
+      "objection": "The round-4 review made a rule -- a read-ablation KL is a quadratic function of the write's norm share, so it is a MAGNITUDE not a route -- and said in writing that the regression must be RE-DERIVED on variant checkpoints before being applied to them. The depth-3 handoff called that the first analysis to run once the cells landed. It was never run; the slice printed the norm share beside each KL and quoted the rule anyway. That is the round-4 process failure repeating: a rule exported to a place its control was never run.",
+      "measurement": {
+        "plain_model_refit_at_depth3_width128": {
+          "slope": 2.004,
+          "pearson_r": 0.9971,
+          "residual_sd_dex": 0.202,
+          "n_pairs": 24
+        },
+        "round4_reference_on_243_plain_pairs": {
+          "slope": 1.992,
+          "pearson_r": 0.9944,
+          "residual_sd_dex": 0.264,
+          "source": "tf_reviewer_round_4.json O2b, 243 pairs, plain model, depths 2-4, widths 64-256"
+        },
+        "per_variant_own_fit": {
+          "vanilla": {
+            "slope": 2.004,
+            "pearson_r": 0.997,
+            "residual_sd_dex": 0.202,
+            "log10_dynamic_range_dex": 3.07,
+            "n": 24
+          },
+          "slots": {
+            "slope": -0.363,
+            "pearson_r": -0.659,
+            "residual_sd_dex": 0.256,
+            "log10_dynamic_range_dex": 1.66,
+            "n": 24
+          },
+          "bandwidth": {
+            "slope": -0.158,
+            "pearson_r": -0.485,
+            "residual_sd_dex": 0.253,
+            "log10_dynamic_range_dex": 2.31,
+            "n": 24
+          },
+          "predicate": {
+            "slope": -0.181,
+            "pearson_r": -0.68,
+            "residual_sd_dex": 0.198,
+            "log10_dynamic_range_dex": 2.59,
+            "n": 24
+          },
+          "codebook": {
+            "slope": -0.401,
+            "pearson_r": -0.879,
+            "residual_sd_dex": 0.186,
+            "log10_dynamic_range_dex": 2.21,
+            "n": 24
+          },
+          "shrink": {
+            "slope": 0.614,
+            "pearson_r": 0.268,
+            "residual_sd_dex": 0.446,
+            "log10_dynamic_range_dex": 0.79,
+            "n": 24
+          }
+        },
+        "layer0_attention_offset_from_the_PLAIN_line_dex": {
+          "bandwidth": {
+            "mean": 0.253,
+            "sd": 0.36
+          },
+          "codebook": {
+            "mean": -0.322,
+            "sd": 0.331
+          },
+          "predicate": {
+            "mean": -0.178,
+            "sd": 0.199
+          },
+          "shrink": {
+            "mean": -0.393,
+            "sd": 0.251
+          },
+          "slots": {
+            "mean": -0.013,
+            "sd": 0.142
+          },
+          "vanilla": {
+            "mean": 0.091,
+            "sd": 0.076
+          }
+        }
+      },
+      "verdict": "SUSTAINED, AND THE MISSING CONTROL CHANGES WHAT THE RULE MEANS. Run here for the first time. POSITIVE CONTROL PASSES: refitting the plain model alone on the depth-3 width-128 cells reproduces round 4 exactly - slope 2.004 against 1.992, r 0.9971 against 0.9944. THE RULE THEN FAILS ON EVERY VARIANT: fitted on its own pairs each variant has a slope of slots -0.36, bandwidth -0.16, predicate -0.18, codebook -0.4, shrink 0.61 - four of the five NEGATIVE - so in a partitioned stream the read-ablation KL is not a function of how big the write is at all. The quadratic magnitude law is a property of the SHARED residual stream, not of these models in general, and quoting it over variant numbers was unlicensed. What survives for PD3 is the narrower statistic: each variant's layer-0 attention pairs sit within 0.01-0.39 dex of the PLAIN model's own line, against that line's own 0.264 dex scatter - so the SIZE of the variants' layer-0 route is still exactly what the plain model's law predicts from the size of their layer-0 write, and PD3 stays a magnitude statement.",
+      "fix": "the round-4 quoting rule is amended: the magnitude law may be quoted only for shared-stream (plain) cells; for the partitioned variants the licensed statement is the offset of their pairs from the PLAIN line, which is what is now printed.",
+      "limitation": "the norm-share denominator for a partitioned stream is not the same object as for a shared one (each slot is normed separately), so the failure of the within-variant fit is not by itself evidence of direction-specific gating - it is evidence that the plain-model law does not transfer."
+    },
+    {
+      "id": "R5-O8",
+      "objection": "The two masked-decoder arms ran a DIFFERENT geometry at depth 3 (8 slots of 16, because 128 is not divisible by 2*depth = 6) than the depth-2 cell they are compared against (4 slots of 32). They are also the two arms that look worst at depth 3. Their deficit may be the geometry, not the architecture.",
+      "measurement": {
+        "control_a_depth2_same_geometry_change": {
+          "published_4x32": {
+            "mean": 0.09721570897985406,
+            "sd": 0.02753146277211961,
+            "per_seed": [
+              0.11294615003797795,
+              0.1132752948337135,
+              0.06542568206787074
+            ],
+            "n": 3
+          },
+          "same_cell_8x16": {
+            "mean": 0.019984605577256787,
+            "sd": 0.019073665963222186,
+            "per_seed": [
+              -0.0004955079820426533,
+              0.03724096086290167,
+              0.02320836385091134
+            ],
+            "n": 3
+          },
+          "ratio_8x16_over_4x32": 0.20556971488422907,
+          "welch_t": -3.9939058714382063,
+          "held_ce_cost_of_8x16": 0.14894666666666723
+        },
+        "control_a_shrink": {},
+        "control_b_depth3_width192_exact_6x32_slots": {
+          "induction_ratio": 1.8398413305834422,
+          "held_ce_delta": 0.08950999999999976,
+          "clears_2x_bar": false,
+          "below_0.5x_bar": false
+        },
+        "control_b_shrink": {},
+        "control_b2_geometry_only_at_fixed_width_192": {
+          "label": "CONTROL B2 - the geometry contrast at FIXED width 192: 8x24 (two dead slots) against 6x32. Isolates slot geometry from width.",
+          "status": "MISSING",
+          "have_a": false,
+          "have_b": true
+        },
+        "full_table": "tf_geom_controls.md"
+      },
+      "verdict": "SUSTAINED. CONTROL A (the same n_slots change at the published depth-2 cell, three seeds, identical parameters and identical everything else - only n_slots and slot differ): private write channels go from 0.0972 +- 0.0275 induction at 4x32 to 0.02 +- 0.0191 at 8x16 - a ratio of 0.206 - and pay 0.1489 nats of held CE for the change. CONTROL B (depth 3 at width 192, where 6 slots of 32 divides exactly and the slot size matches depth 2): private write channels reach 1.84x the plain model at the same width, against 0.757x at width 128 with the forced 8x16 geometry. CONCLUSION: the forced 8-slot geometry is expensive in its own right, so the ACCELERANT verdict is UNCHANGED as a verdict about the slice as run, but the two masked-decoder arms' depth-3 numbers are NOT a measurement of those architectures at their intended geometry and must not be quoted as one.",
+      "fix": "the depth-3 rows for private write channels and shrinking channel are relabelled \"8x16 forced geometry\" everywhere, the width-192 rows are quoted beside them, and no claim of the form \"the masked-decoder architectures lose at depth 3\" is made from the width-128 cells alone."
+    }
+  ]
+}

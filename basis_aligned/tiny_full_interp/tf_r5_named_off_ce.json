@@ -1,0 +1,53 @@
+{
+  "seed0": {
+    "all_named_terms_on": 4.3140212860107425,
+    "zero_prev_token_match_b": 4.546789016723633,
+    "zero_all_named_terms": 6.405194048563639,
+    "gate_restored_matches_original": true
+  },
+  "seed1": {
+    "all_named_terms_on": 4.314366467793783,
+    "zero_prev_token_match_b": 4.552298296610514,
+    "zero_all_named_terms": 6.263591501871745,
+    "gate_restored_matches_original": true
+  },
+  "seed2": {
+    "all_named_terms_on": 4.315562444051107,
+    "zero_prev_token_match_b": 4.560051694234212,
+    "zero_all_named_terms": 6.389951316833496,
+    "gate_restored_matches_original": true
+  },
+  "aggregate": {
+    "all_named_terms_on": {
+      "mean": 4.314650065951877,
+      "sd": 0.0008087725037369136,
+      "per_seed": [
+        4.3140212860107425,
+        4.314366467793783,
+        4.315562444051107
+      ],
+      "n": 3
+    },
+    "zero_prev_token_match_b": {
+      "mean": 4.55304633585612,
+      "sd": 0.006662906702193183,
+      "per_seed": [
+        4.546789016723633,
+        4.552298296610514,
+        4.560051694234212
+      ],
+      "n": 3
+    },
+    "zero_all_named_terms": {
+      "mean": 6.352912289089627,
+      "sd": 0.07772861435511293,
+      "per_seed": [
+        6.405194048563639,
+        6.263591501871745,
+        6.389951316833496
+      ],
+      "n": 3
+    }
+  },
+  "note": "this is an INFERENCE-TIME knockout of a trained model, not a retraining: it says how much of the trained model's behaviour the named terms carry, not what the same architecture would reach without them."
+}

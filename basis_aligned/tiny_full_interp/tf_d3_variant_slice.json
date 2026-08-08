@@ -1,0 +1,2066 @@
+{
+  "registered_predictions": {
+    "registered_utc": "2026-08-08T17:35Z",
+    "written_before": "the first depth-3 variant training step (no depth-3 non-vanilla checkpoint exists on disk at registration time)",
+    "question": "At depth 2 the five interpretable architectures opened an attention-to-attention residual route the plain model left empty, and they acquired induction at width 128 where the plain model needed 256. At depth 3 the PLAIN model opens that route by itself and inducts at width 128. Do the architectures merely ACCELERATE what depth provides, or do they still add something at depth 3?",
+    "cells": "six variants (vanilla / slots / bandwidth / predicate / codebook / shrink) x depth 3 x width 128 x seeds 0,1,2; vanilla already trained by the depth-ladder chain, the other five trained here with the identical command (Muon 0.02, AdamW 0.004 on the embedding, 15000 steps x batch 16, single epoch, --no-sweep, V=8192 trained BPE, identical data order)",
+    "instruments": "tf_interp3.py verbatim (the same code path that produced every depth-1/2, depth-3/4 and six-architecture number) plus tf_depth_addendum.py for the route-USE test; every route number quoted as [zero, resample]; induction quoted against its OWN per-cell planted-oracle power floor",
+    "three_outcomes_to_distinguish": {
+      "a_accelerant": "the variants' advantage VANISHES at depth 3 -- depth supplies what the architecture supplied at depth 2",
+      "b_additive": "the advantage PERSISTS at the same size -- the architectures add something depth does not",
+      "c_interference": "it INVERTS -- depth and the architectures interfere"
+    },
+    "anchors_at_depth_2_width_128": {
+      "induction_mean_sd_over_3_seeds": {
+        "vanilla": [
+          -0.0034,
+          0.0099
+        ],
+        "slots": [
+          0.0972,
+          0.0275
+        ],
+        "bandwidth": [
+          0.119,
+          0.0524
+        ],
+        "predicate": [
+          2.6402,
+          0.0481
+        ],
+        "codebook": [
+          0.0375,
+          0.0157
+        ],
+        "shrink": [
+          0.086,
+          0.0303
+        ]
+      },
+      "A0_into_layer1_read_kl_zero_resample": {
+        "vanilla": [
+          1.3e-05,
+          4.3e-06
+        ],
+        "slots": [
+          0.551,
+          0.124
+        ],
+        "bandwidth": [
+          0.538,
+          0.144
+        ],
+        "predicate": [
+          0.353,
+          0.07
+        ],
+        "codebook": [
+          0.119,
+          0.096
+        ],
+        "shrink": [
+          0.229,
+          0.143
+        ]
+      },
+      "held_ce_T512": {
+        "vanilla": 4.6463,
+        "slots": 4.7414,
+        "bandwidth": 4.6279,
+        "predicate": 4.3861,
+        "codebook": 4.7542,
+        "shrink": 4.7243
+      }
+    },
+    "anchors_at_depth_3_width_128_vanilla_seed0": {
+      "induction": 0.0974,
+      "floor": 0.0078,
+      "A1_into_layer2_read_kl_zero_resample": [
+        0.1798,
+        0.115
+      ],
+      "A1_fraction_of_dominant_MLP": 0.256,
+      "A0_into_any_downstream_read": "~1e-6",
+      "route_use_A1_out_of_layer2_read": "-94.5% of induction",
+      "route_use_A0_out_of_any_read": "0.0%"
+    },
+    "predictions": [
+      {
+        "id": "PD1",
+        "claim": "The QUALITATIVE advantage vanishes. Plain vanilla at depth 3 width 128 clears its own power floor at 3 of 3 seeds, so 'the variants induct where the plain model cannot' is no longer true at this cell.",
+        "falsifier": "vanilla below its per-cell floor at 2 or 3 of 3 seeds",
+        "confidence": 0.85
+      },
+      {
+        "id": "PD2",
+        "claim": "The MAGNITUDE advantage largely goes with it. Excluding predicate (whose induction is handed over by 16 named scalars, not learned), the ratio variant/vanilla of the 3-seed mean induction score lands in [0.5, 2.0] for at least 3 of the 4 remaining variants.",
+        "decision_rule": "ratio > 2.0 for >=3 of the 5 variants => outcome (b) PERSISTS; ratio < 0.5 for >=3 of 5 => outcome (c) INVERTS; otherwise outcome (a) ACCELERANT",
+        "confidence": 0.6
+      },
+      {
+        "id": "PD3",
+        "claim": "The variants' OWN channel stays open and is depth-independent: layer-0 attention into layer 1's read carries >= 0.05 nats (zeroing) in at least 4 of the 5 non-vanilla variants at depth 3, while vanilla stays below 1e-4 there at all three seeds. This is the one thing that should NOT be supplied by depth, because FINDING 14 showed layer-0 attention stays mute at every depth in the plain model.",
+        "falsifier": "variant A0->layer-1 route below 0.01 nats in 3 or more of the 5 variants",
+        "confidence": 0.8
+      },
+      {
+        "id": "PD4",
+        "claim": "The newly depth-opened route (layer-1 attention into layer 2's read) is open in ALL SIX architectures at depth 3, with a fraction-of-dominant-MLP in [0.10, 0.70] everywhere, and the variants' fraction is >= vanilla's.",
+        "falsifier": "any variant below 0.05, or the variant mean fraction below vanilla's",
+        "confidence": 0.55
+      },
+      {
+        "id": "PD5",
+        "claim": "The variants' induction is carried on MORE THAN ONE route. Cutting layer-1 attention out of layer 2's read removes 40-90% of the induction score in the variants (against 94.5% in vanilla at seed 0), and cutting layer-0 attention out of a downstream read removes more than 10% in at least 3 of the 5 variants (against 0.0% in vanilla).",
+        "falsifier": "A0 removal below 10% in 3 or more variants, i.e. the variants also run the algorithm purely on the depth-supplied route",
+        "confidence": 0.5
+      },
+      {
+        "id": "PD6",
+        "claim": "The held-CE ordering from depth 2 survives depth 3: predicate best of the six, bandwidth within 0.03 nats of vanilla, and slots/codebook/shrink between 0.05 and 0.15 nats worse than vanilla.",
+        "falsifier": "any of the three clauses failing at the 3-seed means",
+        "confidence": 0.7
+      },
+      {
+        "id": "PD7",
+        "claim": "Depth is worth more than architecture on loss: every variant's depth-3 held CE is below its own depth-2 held CE by 0.06-0.14 nats, a gain comparable to vanilla's own 2->3 gain of 0.118 at width 128.",
+        "falsifier": "any variant failing to improve, or a gain outside [0.03, 0.20]",
+        "confidence": 0.75
+      }
+    ],
+    "verdict_rule": "The headline is decided by PD2's decision rule on induction magnitude AND PD1 on the qualitative threshold, with PD3/PD4/PD5 deciding whether the ROUTE story is the same object as the CAPABILITY story. It is possible and interesting for the capability advantage to vanish (a) while the routing difference persists -- that would say the variants' distinctive route is real but no longer buys the capability once depth supplies its own."
+  },
+  "depth": 3,
+  "width": 128,
+  "variants": {
+    "vanilla": {
+      "n_seeds": 3,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "variant": "vanilla",
+      "n_slots": 1,
+      "slot": 128,
+      "stream_width": 128,
+      "params": 1933696,
+      "all_gates_pass": true,
+      "held_ce": {
+        "mean": 4.527606666666667,
+        "sd": 0.0007393465583428476,
+        "per_seed": [
+          4.52845,
+          4.52707,
+          4.5273
+        ],
+        "n": 3
+      },
+      "bits_per_byte": {
+        "mean": 1.7397207918542084,
+        "sd": 0.00028409194407372207,
+        "per_seed": [
+          1.7400448404393616,
+          1.7395145791182018,
+          1.7396029560050619
+        ],
+        "n": 3
+      },
+      "induction": {
+        "mean": 0.10849020922625528,
+        "sd": 0.013345512068083595,
+        "per_seed": [
+          0.09735919104682118,
+          0.12328491210937571,
+          0.10482652452256894
+        ],
+        "n": 3
+      },
+      "induction_floor": {
+        "mean": 0.009457276887794288,
+        "sd": 0.002760698484796121,
+        "per_seed": [
+          0.0078110863410942345,
+          0.01264447846943972,
+          0.007916265852848908
+        ],
+        "n": 3
+      },
+      "natural_swap": {
+        "mean": 0.18618826575751277,
+        "sd": 0.012714275899948155,
+        "per_seed": [
+          0.17465746787138414,
+          0.18408389108617484,
+          0.19982343831497928
+        ],
+        "n": 3
+      },
+      "model_seed_t": 14.080430450701748,
+      "model_seed_test_positive": true,
+      "seeds_above_own_probe_floor": 3,
+      "routes": {
+        "A0_into_layer1_read": {
+          "zero": {
+            "mean": 4.387783747006324e-06,
+            "sd": 3.61373070006294e-06,
+            "per_seed": [
+              2.439504669382586e-06,
+              8.557577530154958e-06,
+              2.166269041481428e-06
+            ],
+            "n": 3
+          },
+          "resample": {
+            "mean": 2.2009141294650667e-06,
+            "sd": 7.35549431023735e-07,
+            "per_seed": [
+              2.256969310110435e-06,
+              2.906832264670811e-06,
+              1.4389408136139537e-06
+            ],
+            "n": 3
+          },
+          "share_of_dominant_mlp": {
+            "mean": 2.239303146287575e-06,
+            "sd": 1.469131549436167e-06,
+            "per_seed": [
+              1.4500169080698163e-06,
+              3.934376169377733e-06,
+              1.333516361415176e-06
+            ],
+            "n": 3
+          },
+          "share_of_total_read_mass": {
+            "mean": 2.2392829686099674e-06,
+            "sd": 1.4691127136076736e-06,
+            "per_seed": [
+              1.4500057337469306e-06,
+              3.934334309056345e-06,
+              1.333508863026626e-06
+            ],
+            "n": 3
+          },
+          "write_norm_share_of_read": {
+            "mean": 0.0014598530048474925,
+            "sd": 0.0006349102545891905,
+            "per_seed": [
+              0.0011415599546001018,
+              0.0021909507359369326,
+              0.0010470483240054432
+            ],
+            "n": 3
+          }
+        },
+        "A0_into_layer2_read": {
+          "zero": {
+            "mean": 2.077777139675163e-06,
+            "sd": 1.7127998048947015e-06,
+            "per_seed": [
+              1.087815803657577e-06,
+              4.055547606185428e-06,
+              1.0899680091824848e-06
+            ],
+            "n": 3
+          },
+          "resample": {
+            "mean": 8.984929896390289e-07,
+            "sd": 2.3505462946513225e-07,
+            "per_seed": [
+              1.1212380286451662e-06,
+              9.214304270699358e-07,
+              6.528105132019846e-07
+            ],
+            "n": 3
+          },
+          "share_of_dominant_mlp": {
+            "mean": 3.067651360011385e-06,
+            "sd": 2.5931485391990856e-06,
+            "per_seed": [
+              1.5964136967667406e-06,
+              6.061812675192114e-06,
+              1.5447277080752988e-06
+            ],
+            "n": 3
+          },
+          "share_of_total_read_mass": {
+            "mean": 2.060527674169498e-06,
+            "sd": 1.7777913951575439e-06,
+            "per_seed": [
+              1.0420854099339045e-06,
+              4.113323799771646e-06,
+              1.0261738128029437e-06
+            ],
+            "n": 3
+          },
+          "write_norm_share_of_read": {
+            "mean": 0.001189042747817739,
+            "sd": 0.0005061569541626663,
+            "per_seed": [
+              0.0009388951697536668,
+              0.0017715709106825505,
+              0.0008566621630169996
+            ],
+            "n": 3
+          }
+        },
+        "A1_into_layer2_read": {
+          "zero": {
+            "mean": 0.16167903132736683,
+            "sd": 0.038817178008643316,
+            "per_seed": [
+              0.1797713339328766,
+              0.11711844988167286,
+              0.18814731016755104
+            ],
+            "n": 3
+          },
+          "resample": {
+            "mean": 0.10198967531323433,
+            "sd": 0.011534590823907197,
+            "per_seed": [
+              0.1149988267570734,
+              0.09301158599555492,
+              0.09795861318707466
+            ],
+            "n": 3
+          },
+          "share_of_dominant_mlp": {
+            "mean": 0.23255361554841583,
+            "sd": 0.050079935220853584,
+            "per_seed": [
+              0.2559576222394559,
+              0.17505653315689781,
+              0.26664669124889384
+            ],
+            "n": 3
+          },
+          "share_of_total_read_mass": {
+            "mean": 0.15433427989788265,
+            "sd": 0.031192697452396785,
+            "per_seed": [
+              0.16708056579402047,
+              0.11878694422324117,
+              0.1771353296763863
+            ],
+            "n": 3
+          },
+          "write_norm_share_of_read": {
+            "mean": 0.23995735191088974,
+            "sd": 0.001950018398200403,
+            "per_seed": [
+              0.2387051666797901,
+              0.23896276693247404,
+              0.24220412212040515
+            ],
+            "n": 3
+          }
+        }
+      },
+      "route_use": {
+        "n_seeds": 3,
+        "baseline_induction": {
+          "mean": 0.10849017390498404,
+          "sd": 0.013345420889610882,
+          "per_seed": [
+            0.09735925462510835,
+            0.1232847849527996,
+            0.10482648213704415
+          ],
+          "n": 3
+        },
+        "fraction_removed": {
+          "A0_out_of_layer1_read": {
+            "mean": 0.00017149081180437527,
+            "sd": 0.0004938224471133603,
+            "per_seed": [
+              0.0004934712469721399,
+              0.00041806293153824636,
+              -0.00039706174309726047
+            ],
+            "n": 3
+          },
+          "A0_out_of_layer2_read": {
+            "mean": -0.0013024800167664638,
+            "sd": 0.0006594386277015169,
+            "per_seed": [
+              -0.000838269859767188,
+              -0.0020573096893965965,
+              -0.0010118605011356066
+            ],
+            "n": 3
+          },
+          "A1_out_of_layer2_read": {
+            "mean": 0.857227960538934,
+            "sd": 0.10271196588451331,
+            "per_seed": [
+              0.9449658749504238,
+              0.7442482826242933,
+              0.8824697240420847
+            ],
+            "n": 3
+          },
+          "M0_out_of_layer1_read": {
+            "mean": 0.9900568080599618,
+            "sd": 0.01893025035522241,
+            "per_seed": [
+              0.9857951243212354,
+              1.0107546345335818,
+              0.9736206653250685
+            ],
+            "n": 3
+          },
+          "M1_out_of_layer2_read": {
+            "mean": 0.5320430862274802,
+            "sd": 0.0569657440021028,
+            "per_seed": [
+              0.48513273658212946,
+              0.5954314591668394,
+              0.5155650629334718
+            ],
+            "n": 3
+          }
+        }
+      }
+    },
+    "slots": {
+      "n_seeds": 3,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "variant": "slots",
+      "n_slots": 8,
+      "slot": 16,
+      "stream_width": 128,
+      "params": 1933696,
+      "all_gates_pass": true,
+      "held_ce": {
+        "mean": 4.7432799999999995,
+        "sd": 0.008422155306096033,
+        "per_seed": [
+          4.75181,
+          4.73497,
+          4.74306
+        ],
+        "n": 3
+      },
+      "bits_per_byte": {
+        "mean": 1.8225926952399198,
+        "sd": 0.0032361907243651515,
+        "per_seed": [
+          1.8258703250004222,
+          1.8193995998929353,
+          1.8225081608264015
+        ],
+        "n": 3
+      },
+      "induction": {
+        "mean": 0.08217800281665942,
+        "sd": 0.018110121275048862,
+        "per_seed": [
+          0.062017907036675625,
+          0.09706995222303619,
+          0.08744614919026646
+        ],
+        "n": 3
+      },
+      "induction_floor": {
+        "mean": 0.009955215752792004,
+        "sd": 0.006824613356641181,
+        "per_seed": [
+          0.0028047196473310614,
+          0.016398939280750757,
+          0.010661988330294192
+        ],
+        "n": 3
+      },
+      "natural_swap": {
+        "mean": 0.17113845677477002,
+        "sd": 0.017539989353588373,
+        "per_seed": [
+          0.15555635564123804,
+          0.1901344089351369,
+          0.16772460574793513
+        ],
+        "n": 3
+      },
+      "model_seed_t": 7.8594987842017305,
+      "model_seed_test_positive": true,
+      "seeds_above_own_probe_floor": 3,
+      "routes": {
+        "A0_into_layer1_read": {
+          "zero": {
+            "mean": 0.32658656189839047,
+            "sd": 0.08926704712723756,
+            "per_seed": [
+              0.40195219218730927,
+              0.349802203476429,
+              0.2280052900314331
+            ],
+            "n": 3
+          },
+          "resample": {
+            "mean": 0.08489912499984105,
+            "sd": 0.009743215876442843,
+            "per_seed": [
+              0.08851274475455284,
+              0.09231926314532757,
+              0.07386536709964275
+            ],
+            "n": 3
+          },
+          "share_of_dominant_mlp": {
+            "mean": 2.1958321346729286,
+            "sd": 0.6279844969548571,
+            "per_seed": [
+              2.089795966115927,
+              1.6276161433937872,
+              2.8700842945090717
+            ],
+            "n": 3
+          },
+          "share_of_total_read_mass": {
+            "mean": 0.30305795653286494,
+            "sd": 0.04139121406346951,
+            "per_seed": [
+              0.342768695547622,
+              0.3062357263430945,
+              0.2601694477078783
+            ],
+            "n": 3
+          },
+          "write_norm_share_of_read": {
+            "mean": 0.5033288482679424,
+            "sd": 0.07517099294086896,
+            "per_seed": [
+              0.5630489234327655,
+              0.41891780110324106,
+              0.528019820267821
+            ],
+            "n": 3
+          }
+        },
+        "A0_into_layer2_read": {
+          "zero": {
+            "mean": 0.15780351186792055,
+            "sd": 0.003065973186793455,
+            "per_seed": [
+              0.15470266714692116,
+              0.1578744873404503,
+              0.16083338111639023
+            ],
+            "n": 3
+          },
+          "resample": {
+            "mean": 0.044219802444179855,
+            "sd": 0.004781970386139775,
+            "per_seed": [
+              0.038852852769196033,
+              0.04802761226892471,
+              0.04577894229441881
+            ],
+            "n": 3
+          },
+          "share_of_dominant_mlp": {
+            "mean": 1.3544786312184545,
+            "sd": 0.26459164136279695,
+            "per_seed": [
+              1.6592654553445676,
+              1.2204558630852456,
+              1.18371457522555
+            ],
+            "n": 3
+          },
+          "share_of_total_read_mass": {
+            "mean": 0.21844352527852492,
+            "sd": 0.01655904897774211,
+            "per_seed": [
+              0.22174053006736555,
+              0.23310604439147908,
+              0.2004840013767301
+            ],
+            "n": 3
+          },
+          "write_norm_share_of_read": {
+            "mean": 0.3539265997840028,
+            "sd": 0.05825486922541404,
+            "per_seed": [
+              0.39443679659751024,
+              0.28716534313913766,
+              0.3801776596153606
+            ],
+            "n": 3
+          }
+        },
+        "A1_into_layer2_read": {
+          "zero": {
+            "mean": 0.0652138910566767,
+            "sd": 0.012471263520923101,
+            "per_seed": [
+              0.07379744574427605,
+              0.0509084053337574,
+              0.07093582209199667
+            ],
+            "n": 3
+          },
+          "resample": {
+            "mean": 0.036550038028508425,
+            "sd": 0.007873154897435427,
+            "per_seed": [
+              0.04086946230381727,
+              0.027462591882795095,
+              0.04131805989891291
+            ],
+            "n": 3
+          },
+          "share_of_dominant_mlp": {
+            "mean": 0.5690481364738195,
+            "sd": 0.20309785680241807,
+            "per_seed": [
+              0.7915154578417956,
+              0.3935497293867393,
+              0.5220792221929234
+            ],
+            "n": 3
+          },
+          "share_of_total_read_mass": {
+            "mean": 0.08978927265120185,
+            "sd": 0.015349963762225204,
+            "per_seed": [
+              0.10577635821503087,
+              0.07516766764245707,
+              0.08842379209611763
+            ],
+            "n": 3
+          },
+          "write_norm_share_of_read": {
+            "mean": 0.38856042772182936,
+            "sd": 0.028646741632407175,
+            "per_seed": [
+              0.4039089053834971,
+              0.40626243725941785,
+              0.35550994052257323
+            ],
+            "n": 3
+          }
+        }
+      },
+      "route_use": {
+        "n_seeds": 3,
+        "baseline_induction": {
+          "mean": 0.08217799575240566,
+          "sd": 0.018110114576398884,
+          "per_seed": [
+            0.06201792822943837,
+            0.09706999460856167,
+            0.0874460644192169
+          ],
+          "n": 3
+        },
+        "fraction_removed": {
+          "A0_out_of_layer1_read": {
+            "mean": 0.7119724724180796,
+            "sd": 0.09224529546842924,
+            "per_seed": [
+              0.8170287929802467,
+              0.6442268330911027,
+              0.6746617911828893
+            ],
+            "n": 3
+          },
+          "A0_out_of_layer2_read": {
+            "mean": 0.7687286857690522,
+            "sd": 0.030422781818196905,
+            "per_seed": [
+              0.7434804107337042,
+              0.8025055798296021,
+              0.7602000667438504
+            ],
+            "n": 3
+          },
+          "A1_out_of_layer2_read": {
+            "mean": 0.5990262050655262,
+            "sd": 0.2033713143720689,
+            "per_seed": [
+              0.8130562987015004,
+              0.40832585025948803,
+              0.5756964662355902
+            ],
+            "n": 3
+          },
+          "M0_out_of_layer1_read": {
+            "mean": 0.03605705567496028,
+            "sd": 0.12375183740488803,
+            "per_seed": [
+              -0.0425759122299093,
+              0.1787038813956272,
+              -0.02795680214083706
+            ],
+            "n": 3
+          },
+          "M1_out_of_layer2_read": {
+            "mean": 0.09470610040176462,
+            "sd": 0.03595622737756242,
+            "per_seed": [
+              0.13159156402823663,
+              0.05975739339703729,
+              0.09276934378001993
+            ],
+            "n": 3
+          }
+        }
+      }
+    },
+    "bandwidth": {
+      "n_seeds": 3,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "variant": "bandwidth",
+      "n_slots": 6,
+      "slot": 28,
+      "stream_width": 168,
+      "params": 2268756,
+      "all_gates_pass": true,
+      "held_ce": {
+        "mean": 4.53073,
+        "sd": 0.013412855773473552,
+        "per_seed": [
+          4.51706,
+          4.53126,
+          4.54387
+        ],
+        "n": 3
+      },
+      "bits_per_byte": {
+        "mean": 1.7409209243612775,
+        "sd": 0.005153854074614868,
+        "per_seed": [
+          1.735668263303122,
+          1.7411245754483897,
+          1.7459699343323216
+        ],
+        "n": 3
+      },
+      "induction": {
+        "mean": 0.2617485046386721,
+        "sd": 0.02874982980481024,
+        "per_seed": [
+          0.29337486690945125,
+          0.2546750386555992,
+          0.23719560835096587
+        ],
+        "n": 3
+      },
+      "induction_floor": {
+        "mean": 0.009777325051739352,
+        "sd": 0.004018003286939352,
+        "per_seed": [
+          0.010849625314741028,
+          0.013150392172237992,
+          0.005331957668239039
+        ],
+        "n": 3
+      },
+      "natural_swap": {
+        "mean": 0.27319115620002776,
+        "sd": 0.026299543578051802,
+        "per_seed": [
+          0.29803447995436727,
+          0.2758947361735409,
+          0.24564425247217514
+        ],
+        "n": 3
+      },
+      "model_seed_t": 15.769196267155099,
+      "model_seed_test_positive": true,
+      "seeds_above_own_probe_floor": 3,
+      "routes": {
+        "A0_into_layer1_read": {
+          "zero": {
+            "mean": 0.8008530040582021,
+            "sd": 0.08714702014608837,
+            "per_seed": [
+              0.7792671620845795,
+              0.726527526974678,
+              0.8967643231153488
+            ],
+            "n": 3
+          },
+          "resample": {
+            "mean": 0.08703096490353346,
+            "sd": 0.019678310517714827,
+            "per_seed": [
+              0.06474146526306868,
+              0.09435216151177883,
+              0.10199926793575287
+            ],
+            "n": 3
+          },
+          "share_of_dominant_mlp": {
+            "mean": 3.3463179072395035,
+            "sd": 1.3903741087713826,
+            "per_seed": [
+              2.9199825456787014,
+              2.2190308957777782,
+              4.8999402802620295
+            ],
+            "n": 3
+          },
+          "share_of_total_read_mass": {
+            "mean": 0.4627282676000826,
+            "sd": 0.049302874987947595,
+            "per_seed": [
+              0.46267519866863244,
+              0.41345194849886324,
+              0.5120576556327523
+            ],
+            "n": 3
+          },
+          "write_norm_share_of_read": {
+            "mean": 0.49668930663426786,
+            "sd": 0.17101288751226412,
+            "per_seed": [
+              0.6603187376507479,
+              0.3191433805716869,
+              0.5106058016803686
+            ],
+            "n": 3
+          }
+        },
+        "A0_into_layer2_read": {
+          "zero": {
+            "mean": 0.211344413459301,
+            "sd": 0.053513596644385056,
+            "per_seed": [
+              0.14955396577715874,
+              0.24183906614780426,
+              0.24264020845294
+            ],
+            "n": 3
+          },
+          "resample": {
+            "mean": 0.04482911201193929,
+            "sd": 0.016316465387329903,
+            "per_seed": [
+              0.02695149788632989,
+              0.04861813969910145,
+              0.058917698450386524
+            ],
+            "n": 3
+          },
+          "share_of_dominant_mlp": {
+            "mean": 1.3006410109689102,
+            "sd": 0.3854537869724065,
+            "per_seed": [
+              0.9260119539948211,
+              1.2798343628678968,
+              1.6960767160440133
+            ],
+            "n": 3
+          },
+          "share_of_total_read_mass": {
+            "mean": 0.18625861231979676,
+            "sd": 0.038423406753948466,
+            "per_seed": [
+              0.14402216527728745,
+              0.19561162897936155,
+              0.21914204270274124
+            ],
+            "n": 3
+          },
+          "write_norm_share_of_read": {
+            "mean": 0.38096286189722955,
+            "sd": 0.14417165761527845,
+            "per_seed": [
+              0.5212867285526716,
+              0.23322917988039896,
+              0.38837267725861824
+            ],
+            "n": 3
+          }
+        },
+        "A1_into_layer2_read": {
+          "zero": {
+            "mean": 0.21470081557830176,
+            "sd": 0.01575766700599686,
+            "per_seed": [
+              0.20263483375310898,
+              0.20893918350338936,
+              0.2325284294784069
+            ],
+            "n": 3
+          },
+          "resample": {
+            "mean": 0.09158564234773318,
+            "sd": 0.01091328749097339,
+            "per_seed": [
+              0.10347433015704155,
+              0.08202271163463593,
+              0.08925988525152206
+            ],
+            "n": 3
+          },
+          "share_of_dominant_mlp": {
+            "mean": 1.3285996848981394,
+            "sd": 0.2676045600975208,
+            "per_seed": [
+              1.2546793886477507,
+              1.1057251876492442,
+              1.6253944783974228
+            ],
+            "n": 3
+          },
+          "share_of_total_read_mass": {
+            "mean": 0.19138323794730652,
+            "sd": 0.020760950087491344,
+            "per_seed": [
+              0.19513964317877797,
+              0.1690005452540771,
+              0.21000952540906448
+            ],
+            "n": 3
+          },
+          "write_norm_share_of_read": {
+            "mean": 0.13609354888301742,
+            "sd": 0.10351969392480603,
+            "per_seed": [
+              0.016639840238869386,
+              0.19961983061652633,
+              0.1920209757936566
+            ],
+            "n": 3
+          }
+        }
+      },
+      "route_use": {
+        "n_seeds": 3,
+        "baseline_induction": {
+          "mean": 0.26174851876718025,
+          "sd": 0.028749846675576705,
+          "per_seed": [
+            0.2933749092949764,
+            0.2546750174628361,
+            0.23719562954372825
+          ],
+          "n": 3
+        },
+        "fraction_removed": {
+          "A0_out_of_layer1_read": {
+            "mean": 0.8012496451182555,
+            "sd": 0.048408779604051294,
+            "per_seed": [
+              0.8571022594905141,
+              0.7752660277147297,
+              0.7713806481495223
+            ],
+            "n": 3
+          },
+          "A0_out_of_layer2_read": {
+            "mean": 0.29881053256619067,
+            "sd": 0.2989819737296098,
+            "per_seed": [
+              0.09732658680294505,
+              0.6423350940224644,
+              0.1567699168731627
+            ],
+            "n": 3
+          },
+          "A1_out_of_layer2_read": {
+            "mean": 0.918197229159644,
+            "sd": 0.17831204401263348,
+            "per_seed": [
+              1.031145984317893,
+              0.7126352294547549,
+              1.0108104737062842
+            ],
+            "n": 3
+          },
+          "M0_out_of_layer1_read": {
+            "mean": 0.162618926605002,
+            "sd": 0.18617511575505769,
+            "per_seed": [
+              -0.009223613241624375,
+              0.136675189261947,
+              0.3604052037946833
+            ],
+            "n": 3
+          },
+          "M1_out_of_layer2_read": {
+            "mean": 0.2830132011746938,
+            "sd": 0.10920939625878441,
+            "per_seed": [
+              0.4074031480517651,
+              0.2387639254976755,
+              0.20287252997464075
+            ],
+            "n": 3
+          }
+        }
+      }
+    },
+    "predicate": {
+      "n_seeds": 3,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "variant": "predicate",
+      "n_slots": 6,
+      "slot": 28,
+      "stream_width": 168,
+      "params": 2281092,
+      "all_gates_pass": true,
+      "held_ce": {
+        "mean": 4.314649999999999,
+        "sd": 0.0008072793816266223,
+        "per_seed": [
+          4.31402,
+          4.31437,
+          4.31556
+        ],
+        "n": 3
+      },
+      "bits_per_byte": {
+        "mean": 1.6578927603930023,
+        "sd": 0.0003101949503234757,
+        "per_seed": [
+          1.6576506845724728,
+          1.6577851711394338,
+          1.6582424254671002
+        ],
+        "n": 3
+      },
+      "induction": {
+        "mean": 2.7578122668796117,
+        "sd": 0.09537829625173125,
+        "per_seed": [
+          2.667591836717393,
+          2.8576237148708774,
+          2.7482212490505646
+        ],
+        "n": 3
+      },
+      "induction_floor": {
+        "mean": 0.025152144998007053,
+        "sd": 0.007088819186753082,
+        "per_seed": [
+          0.022499530956534626,
+          0.019772179840944624,
+          0.033184724196541907
+        ],
+        "n": 3
+      },
+      "natural_swap": {
+        "mean": 1.4925108538086533,
+        "sd": 0.03467221344103742,
+        "per_seed": [
+          1.5127257036308492,
+          1.452475477582766,
+          1.5123313802123448
+        ],
+        "n": 3
+      },
+      "model_seed_t": 50.08131987769161,
+      "model_seed_test_positive": true,
+      "seeds_above_own_probe_floor": 3,
+      "routes": {
+        "A0_into_layer1_read": {
+          "zero": {
+            "mean": 0.0961130540817976,
+            "sd": 0.014043399521321066,
+            "per_seed": [
+              0.09796595387160778,
+              0.10913802497088909,
+              0.08123518340289593
+            ],
+            "n": 3
+          },
+          "resample": {
+            "mean": 0.039224127462754645,
+            "sd": 0.007693916896504868,
+            "per_seed": [
+              0.04783831164240837,
+              0.03679938241839409,
+              0.03303468832746148
+            ],
+            "n": 3
+          },
+          "share_of_dominant_mlp": {
+            "mean": 0.3777159134103094,
+            "sd": 0.0757528088237315,
+            "per_seed": [
+              0.37478194162165784,
+              0.3034727156973928,
+              0.4548930829118777
+            ],
+            "n": 3
+          },
+          "share_of_total_read_mass": {
+            "mean": 0.14526139602915542,
+            "sd": 0.001818345700897799,
+            "per_seed": [
+              0.14665559675634898,
+              0.14592390382131276,
+              0.14320468750980447
+            ],
+            "n": 3
+          },
+          "write_norm_share_of_read": {
+            "mean": 0.41616623581355555,
+            "sd": 0.046510552861220016,
+            "per_seed": [
+              0.4109450290178953,
+              0.465067073355901,
+              0.37248660506687026
+            ],
+            "n": 3
+          }
+        },
+        "A0_into_layer2_read": {
+          "zero": {
+            "mean": 0.09454293983678023,
+            "sd": 0.00958620791131748,
+            "per_seed": [
+              0.08574145287275314,
+              0.10475709475576878,
+              0.09313027188181877
+            ],
+            "n": 3
+          },
+          "resample": {
+            "mean": 0.0330344025666515,
+            "sd": 0.00701678479914236,
+            "per_seed": [
+              0.02919154055416584,
+              0.02877848967909813,
+              0.04113317746669054
+            ],
+            "n": 3
+          },
+          "share_of_dominant_mlp": {
+            "mean": 0.7481931911602007,
+            "sd": 0.23153451167070113,
+            "per_seed": [
+              1.015320339852836,
+              0.6241451261590003,
+              0.6051141074687656
+            ],
+            "n": 3
+          },
+          "share_of_total_read_mass": {
+            "mean": 0.12590327775354063,
+            "sd": 0.020177695714423842,
+            "per_seed": [
+              0.14526515627654837,
+              0.10499836195120699,
+              0.12744631503286646
+            ],
+            "n": 3
+          },
+          "write_norm_share_of_read": {
+            "mean": 0.26249122432996896,
+            "sd": 0.020383902753123778,
+            "per_seed": [
+              0.25110261179652543,
+              0.2860244801137202,
+              0.25034658107966123
+            ],
+            "n": 3
+          }
+        },
+        "A1_into_layer2_read": {
+          "zero": {
+            "mean": 0.08713420946151018,
+            "sd": 0.031972832803718085,
+            "per_seed": [
+              0.06877938378602266,
+              0.12405305914580822,
+              0.06857018545269966
+            ],
+            "n": 3
+          },
+          "resample": {
+            "mean": 0.025176092982292175,
+            "sd": 0.006242791787141665,
+            "per_seed": [
+              0.022033720277249813,
+              0.032365692779421806,
+              0.021128865890204906
+            ],
+            "n": 3
+          },
+          "share_of_dominant_mlp": {
+            "mean": 0.6663690865781563,
+            "sd": 0.19492364709618076,
+            "per_seed": [
+              0.8144614417034761,
+              0.7391109158905595,
+              0.44553490214043345
+            ],
+            "n": 3
+          },
+          "share_of_total_read_mass": {
+            "mean": 0.11156762630106921,
+            "sd": 0.015844509566849112,
+            "per_seed": [
+              0.11652762578106828,
+              0.1243387670850692,
+              0.09383648603707019
+            ],
+            "n": 3
+          },
+          "write_norm_share_of_read": {
+            "mean": 0.5088192636551003,
+            "sd": 0.023984201549385985,
+            "per_seed": [
+              0.5348690311534477,
+              0.48765195189438726,
+              0.503936807917466
+            ],
+            "n": 3
+          }
+        }
+      },
+      "route_use": {
+        "n_seeds": 3,
+        "baseline_induction": {
+          "mean": 2.7578122456868495,
+          "sd": 0.09537837750409056,
+          "per_seed": [
+            2.6675917095608184,
+            2.857623757256402,
+            2.748221270243327
+          ],
+          "n": 3
+        },
+        "fraction_removed": {
+          "A0_out_of_layer1_read": {
+            "mean": 0.015021843514048462,
+            "sd": 0.053883177879946224,
+            "per_seed": [
+              0.007491628312395459,
+              -0.0347001384741513,
+              0.07227404070390123
+            ],
+            "n": 3
+          },
+          "A0_out_of_layer2_read": {
+            "mean": -0.018310579049593455,
+            "sd": 0.015518305746249848,
+            "per_seed": [
+              -0.01906467156530103,
+              -0.033438090882585286,
+              -0.0024289747008940433
+            ],
+            "n": 3
+          },
+          "A1_out_of_layer2_read": {
+            "mean": 0.014860359762864359,
+            "sd": 0.04023594924105233,
+            "per_seed": [
+              0.017921676133143643,
+              0.05347821173550435,
+              -0.02681880858005492
+            ],
+            "n": 3
+          },
+          "M0_out_of_layer1_read": {
+            "mean": 0.007850730081346907,
+            "sd": 0.0017054750541155303,
+            "per_seed": [
+              0.006851672580588131,
+              0.006880545171572182,
+              0.009819972491880404
+            ],
+            "n": 3
+          },
+          "M1_out_of_layer2_read": {
+            "mean": -0.03585268714047742,
+            "sd": 0.014243438464015516,
+            "per_seed": [
+              -0.035237319677936065,
+              -0.05039383606623713,
+              -0.021926905677259065
+            ],
+            "n": 3
+          }
+        }
+      }
+    },
+    "codebook": {
+      "n_seeds": 3,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "variant": "codebook",
+      "n_slots": 6,
+      "slot": 28,
+      "stream_width": 168,
+      "params": 2268756,
+      "all_gates_pass": true,
+      "held_ce": {
+        "mean": 4.6496466666666665,
+        "sd": 0.018796867646853337,
+        "per_seed": [
+          4.63025,
+          4.65091,
+          4.66778
+        ],
+        "n": 3
+      },
+      "bits_per_byte": {
+        "mean": 1.7866143365167793,
+        "sd": 0.007222646284121224,
+        "per_seed": [
+          1.7791612190582549,
+          1.7870997689822854,
+          1.7935820215097975
+        ],
+        "n": 3
+      },
+      "induction": {
+        "mean": 0.14913542712176298,
+        "sd": 0.013846302616565987,
+        "per_seed": [
+          0.1581481297810871,
+          0.1560657925075958,
+          0.13319235907660598
+        ],
+        "n": 3
+      },
+      "induction_floor": {
+        "mean": 0.016633077187136944,
+        "sd": 0.007785225213102595,
+        "per_seed": [
+          0.013515697474920945,
+          0.025493902992138696,
+          0.0108896310943512
+        ],
+        "n": 3
+      },
+      "natural_swap": {
+        "mean": 0.2339046783166244,
+        "sd": 0.020893238498042463,
+        "per_seed": [
+          0.2579308501444757,
+          0.219998257934094,
+          0.22378492687130347
+        ],
+        "n": 3
+      },
+      "model_seed_t": 18.65553167055093,
+      "model_seed_test_positive": true,
+      "seeds_above_own_probe_floor": 3,
+      "routes": {
+        "A0_into_layer1_read": {
+          "zero": {
+            "mean": 0.1534243058413267,
+            "sd": 0.046830804571475225,
+            "per_seed": [
+              0.13334674015641212,
+              0.20694633573293686,
+              0.11997984163463116
+            ],
+            "n": 3
+          },
+          "resample": {
+            "mean": 0.08122171182185411,
+            "sd": 0.019817122727716536,
+            "per_seed": [
+              0.05860511306673288,
+              0.08951580338180065,
+              0.09554421901702881
+            ],
+            "n": 3
+          },
+          "share_of_dominant_mlp": {
+            "mean": 1.6904887250304412,
+            "sd": 0.2733172703638115,
+            "per_seed": [
+              1.3844395921257222,
+              1.91024241904586,
+              1.7767841639197417
+            ],
+            "n": 3
+          },
+          "share_of_total_read_mass": {
+            "mean": 0.19534961253793157,
+            "sd": 0.051989993184864615,
+            "per_seed": [
+              0.18285423683413096,
+              0.2524486384339573,
+              0.1507459623457064
+            ],
+            "n": 3
+          },
+          "write_norm_share_of_read": {
+            "mean": 0.4722537225748842,
+            "sd": 0.1663647955336791,
+            "per_seed": [
+              0.6465227452473431,
+              0.45511903977810436,
+              0.31511938269920503
+            ],
+            "n": 3
+          }
+        },
+        "A0_into_layer2_read": {
+          "zero": {
+            "mean": 0.058087016455829144,
+            "sd": 0.015684749794276014,
+            "per_seed": [
+              0.05352242197841406,
+              0.04519088380038738,
+              0.07554774358868599
+            ],
+            "n": 3
+          },
+          "resample": {
+            "mean": 0.0401717076698939,
+            "sd": 0.01933991918793258,
+            "per_seed": [
+              0.02378673991188407,
+              0.03522333549335599,
+              0.06150504760444164
+            ],
+            "n": 3
+          },
+          "share_of_dominant_mlp": {
+            "mean": 0.8036229896915774,
+            "sd": 0.32957222591906266,
+            "per_seed": [
+              0.6143302760594292,
+              0.6123601764525819,
+              1.1841785165627214
+            ],
+            "n": 3
+          },
+          "share_of_total_read_mass": {
+            "mean": 0.08031958990971717,
+            "sd": 0.03097467366185783,
+            "per_seed": [
+              0.06994378478866307,
+              0.055864830485766195,
+              0.11515015445472228
+            ],
+            "n": 3
+          },
+          "write_norm_share_of_read": {
+            "mean": 0.3445214150464058,
+            "sd": 0.14556264544551778,
+            "per_seed": [
+              0.49709378177071667,
+              0.3293068161831344,
+              0.20716364718536645
+            ],
+            "n": 3
+          }
+        },
+        "A1_into_layer2_read": {
+          "zero": {
+            "mean": 0.11833190607527892,
+            "sd": 0.023516303033857395,
+            "per_seed": [
+              0.13478000462055206,
+              0.12881912477314472,
+              0.09139658883213997
+            ],
+            "n": 3
+          },
+          "resample": {
+            "mean": 0.08442988929649194,
+            "sd": 0.028630657246438963,
+            "per_seed": [
+              0.10693436115980148,
+              0.09415087662637234,
+              0.052204430103302
+            ],
+            "n": 3
+          },
+          "share_of_dominant_mlp": {
+            "mean": 1.5750579202574393,
+            "sd": 0.15835689226746952,
+            "per_seed": [
+              1.5470046829948847,
+              1.7455667015716532,
+              1.4326023762057798
+            ],
+            "n": 3
+          },
+          "share_of_total_read_mass": {
+            "mean": 0.15822835283561218,
+            "sd": 0.018433675397138076,
+            "per_seed": [
+              0.1761322318484931,
+              0.15924580277216896,
+              0.13930702388617447
+            ],
+            "n": 3
+          },
+          "write_norm_share_of_read": {
+            "mean": 0.19306951136242292,
+            "sd": 0.2480501763833313,
+            "per_seed": [
+              0.0322302259130255,
+              0.06824068711136758,
+              0.4787376210628757
+            ],
+            "n": 3
+          }
+        }
+      },
+      "route_use": {
+        "n_seeds": 3,
+        "baseline_induction": {
+          "mean": 0.14914294348822707,
+          "sd": 0.013849059348237077,
+          "per_seed": [
+            0.15814810858832473,
+            0.15608486599392357,
+            0.13319585588243293
+          ],
+          "n": 3
+        },
+        "fraction_removed": {
+          "A0_out_of_layer1_read": {
+            "mean": 0.5668727375297505,
+            "sd": 0.1634736565822878,
+            "per_seed": [
+              0.3914815733995289,
+              0.7150008526806754,
+              0.5941357865090472
+            ],
+            "n": 3
+          },
+          "A0_out_of_layer2_read": {
+            "mean": 0.2356200429905089,
+            "sd": 0.29027043016686704,
+            "per_seed": [
+              0.0002697536598292323,
+              0.1466200715600012,
+              0.5599703037516963
+            ],
+            "n": 3
+          },
+          "A1_out_of_layer2_read": {
+            "mean": 0.9096448679566252,
+            "sd": 0.2781425514463091,
+            "per_seed": [
+              1.1017145505097359,
+              1.036534244090434,
+              0.590685809269706
+            ],
+            "n": 3
+          },
+          "M0_out_of_layer1_read": {
+            "mean": 0.0013886851735200045,
+            "sd": 0.08838878178484313,
+            "per_seed": [
+              0.09745088821719503,
+              -0.01678246649562295,
+              -0.07650236620101206
+            ],
+            "n": 3
+          },
+          "M1_out_of_layer2_read": {
+            "mean": 0.08661263259395656,
+            "sd": 0.021584842446150065,
+            "per_seed": [
+              0.10995965889629576,
+              0.08249509029725244,
+              0.06738314858832144
+            ],
+            "n": 3
+          }
+        }
+      }
+    },
+    "shrink": {
+      "n_seeds": 3,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "variant": "shrink",
+      "n_slots": 8,
+      "slot": 16,
+      "stream_width": 128,
+      "params": 1958272,
+      "all_gates_pass": true,
+      "held_ce": {
+        "mean": 4.702356666666667,
+        "sd": 0.005707541794269812,
+        "per_seed": [
+          4.70816,
+          4.69675,
+          4.70216
+        ],
+        "n": 3
+      },
+      "bits_per_byte": {
+        "mean": 1.8068680135010806,
+        "sd": 0.002193107719133735,
+        "per_seed": [
+          1.8090979288637359,
+          1.8047136667808126,
+          1.806792444858693
+        ],
+        "n": 3
+      },
+      "induction": {
+        "mean": 0.11497810505054627,
+        "sd": 0.021526452731252886,
+        "per_seed": [
+          0.09148985544840507,
+          0.13376600477430572,
+          0.119678454928928
+        ],
+        "n": 3
+      },
+      "induction_floor": {
+        "mean": 0.009774516937518208,
+        "sd": 0.004586271294847527,
+        "per_seed": [
+          0.010311433494454356,
+          0.004943419636717961,
+          0.014068697681382306
+        ],
+        "n": 3
+      },
+      "natural_swap": {
+        "mean": 0.17250068877107574,
+        "sd": 0.011606505722348077,
+        "per_seed": [
+          0.16372686586873897,
+          0.18566119691013228,
+          0.16811400353435602
+        ],
+        "n": 3
+      },
+      "model_seed_t": 9.25131149993922,
+      "model_seed_test_positive": true,
+      "seeds_above_own_probe_floor": 3,
+      "routes": {
+        "A0_into_layer1_read": {
+          "zero": {
+            "mean": 0.07065437982479732,
+            "sd": 0.005149143498688088,
+            "per_seed": [
+              0.06471103429794312,
+              0.07348058186471462,
+              0.0737715233117342
+            ],
+            "n": 3
+          },
+          "resample": {
+            "mean": 0.06795759312808514,
+            "sd": 0.003774082510981415,
+            "per_seed": [
+              0.06430924125015736,
+              0.06771758757531643,
+              0.07184595055878162
+            ],
+            "n": 3
+          },
+          "share_of_dominant_mlp": {
+            "mean": 0.9429270379751147,
+            "sd": 0.14602783616627416,
+            "per_seed": [
+              1.0419275286433205,
+              0.7752180532390748,
+              1.011635532042949
+            ],
+            "n": 3
+          },
+          "share_of_total_read_mass": {
+            "mean": 0.08239695678976601,
+            "sd": 0.0039961155971946945,
+            "per_seed": [
+              0.08388716173195832,
+              0.07786986981462414,
+              0.08543383882271557
+            ],
+            "n": 3
+          },
+          "write_norm_share_of_read": {
+            "mean": 0.37658537446009815,
+            "sd": 0.10575590466094334,
+            "per_seed": [
+              0.46797060652579703,
+              0.4010416421737367,
+              0.26074387468076055
+            ],
+            "n": 3
+          }
+        },
+        "A0_into_layer2_read": {
+          "zero": {
+            "mean": 0.03717145835980773,
+            "sd": 0.006020832793379591,
+            "per_seed": [
+              0.03630382288247347,
+              0.031631513964384794,
+              0.043579038232564926
+            ],
+            "n": 3
+          },
+          "resample": {
+            "mean": 0.03983296795437733,
+            "sd": 0.0024204602352471695,
+            "per_seed": [
+              0.037546741776168346,
+              0.0395837789401412,
+              0.04236838314682245
+            ],
+            "n": 3
+          },
+          "share_of_dominant_mlp": {
+            "mean": 0.5858966908160141,
+            "sd": 0.11274653595064102,
+            "per_seed": [
+              0.4580500612710233,
+              0.6711087550670158,
+              0.6285312561100032
+            ],
+            "n": 3
+          },
+          "share_of_total_read_mass": {
+            "mean": 0.07657044025825177,
+            "sd": 0.0022850321487603207,
+            "per_seed": [
+              0.07746904631456504,
+              0.07397270703864463,
+              0.07826956742154563
+            ],
+            "n": 3
+          },
+          "write_norm_share_of_read": {
+            "mean": 0.28357528654554875,
+            "sd": 0.08676017163166842,
+            "per_seed": [
+              0.35379659842899625,
+              0.3103439720643017,
+              0.18658528914334843
+            ],
+            "n": 3
+          }
+        },
+        "A1_into_layer2_read": {
+          "zero": {
+            "mean": 0.055454570800065994,
+            "sd": 0.0027591439059451448,
+            "per_seed": [
+              0.058017090894281864,
+              0.05581282079219818,
+              0.05253380071371794
+            ],
+            "n": 3
+          },
+          "resample": {
+            "mean": 0.06572317456205685,
+            "sd": 0.005573028582405039,
+            "per_seed": [
+              0.0720143299549818,
+              0.061405133455991745,
+              0.06375006027519703
+            ],
+            "n": 3
+          },
+          "share_of_dominant_mlp": {
+            "mean": 0.946353568478593,
+            "sd": 0.08454051793988178,
+            "per_seed": [
+              0.8785361042754467,
+              1.0410709581490905,
+              0.9194536430112417
+            ],
+            "n": 3
+          },
+          "share_of_total_read_mass": {
+            "mean": 0.12594469648001574,
+            "sd": 0.01960746302841793,
+            "per_seed": [
+              0.14858496899285892,
+              0.11475165003012595,
+              0.11449747041706235
+            ],
+            "n": 3
+          },
+          "write_norm_share_of_read": {
+            "mean": 0.22815480945958969,
+            "sd": 0.10560017916768584,
+            "per_seed": [
+              0.24241350722871774,
+              0.11614974845017836,
+              0.325901172699873
+            ],
+            "n": 3
+          }
+        }
+      },
+      "route_use": {
+        "n_seeds": 3,
+        "baseline_induction": {
+          "mean": 0.11497803440800436,
+          "sd": 0.021526519789958867,
+          "per_seed": [
+            0.09148970709906692,
+            0.13376598358154296,
+            0.11967841254340321
+          ],
+          "n": 3
+        },
+        "fraction_removed": {
+          "A0_out_of_layer1_read": {
+            "mean": 0.2275064949933593,
+            "sd": 0.06332956374105829,
+            "per_seed": [
+              0.15636181019063033,
+              0.2484344182572835,
+              0.277723256532164
+            ],
+            "n": 3
+          },
+          "A0_out_of_layer2_read": {
+            "mean": 0.20664342276003023,
+            "sd": 0.09724458290847574,
+            "per_seed": [
+              0.10408786048543646,
+              0.21831973435452043,
+              0.29752267344013383
+            ],
+            "n": 3
+          },
+          "A1_out_of_layer2_read": {
+            "mean": 0.9675571366273815,
+            "sd": 0.15718839224430023,
+            "per_seed": [
+              1.1490621089611235,
+              0.8764181017007442,
+              0.8771911992202771
+            ],
+            "n": 3
+          },
+          "M0_out_of_layer1_read": {
+            "mean": 0.07528152809120947,
+            "sd": 0.11731604800736933,
+            "per_seed": [
+              0.20444653333105198,
+              0.04605940140411704,
+              -0.024661350461540613
+            ],
+            "n": 3
+          },
+          "M1_out_of_layer2_read": {
+            "mean": 0.0904214820969738,
+            "sd": 0.045010555676397786,
+            "per_seed": [
+              0.13139462213106498,
+              0.09762699522851367,
+              0.042242828931342756
+            ],
+            "n": 3
+          }
+        }
+      }
+    }
+  },
+  "verdicts": {
+    "PD1_qualitative_advantage": {
+      "vanilla_induction": {
+        "mean": 0.10849020922625528,
+        "sd": 0.013345512068083595,
+        "per_seed": [
+          0.09735919104682118,
+          0.12328491210937571,
+          0.10482652452256894
+        ],
+        "n": 3
+      },
+      "vanilla_seeds_above_own_probe_floor": 3,
+      "vanilla_model_seed_test_positive": true,
+      "call": "CONFIRMED - the plain model inducts at this cell, so \"the variants induct where the plain model cannot\" is no longer true at depth 3 width 128"
+    },
+    "PD2_magnitude_advantage": {
+      "induction_ratio_to_vanilla": {
+        "slots": 0.7574692997897902,
+        "bandwidth": 2.412646325465168,
+        "predicate": 25.419918410593354,
+        "codebook": 1.3746441101495388,
+        "shrink": 1.059801671234319
+      },
+      "excluding_predicate": {
+        "slots": 0.7574692997897902,
+        "bandwidth": 2.412646325465168,
+        "codebook": 1.3746441101495388,
+        "shrink": 1.059801671234319
+      },
+      "n_variants_above_2x": 2,
+      "n_variants_below_0.5x": 0,
+      "call": "(a) ACCELERANT - the advantage the architectures had at depth 2 is what depth supplies by itself at depth 3"
+    },
+    "PD3_variant_layer0_channel": {
+      "A0_into_layer1_read_zero_kl": {
+        "vanilla": 4.387783747006324e-06,
+        "slots": 0.32658656189839047,
+        "bandwidth": 0.8008530040582021,
+        "predicate": 0.0961130540817976,
+        "codebook": 0.1534243058413267,
+        "shrink": 0.07065437982479732
+      },
+      "A0_write_norm_share_of_that_read": {
+        "vanilla": 0.0014598530048474925,
+        "slots": 0.5033288482679424,
+        "bandwidth": 0.49668930663426786,
+        "predicate": 0.41616623581355555,
+        "codebook": 0.4722537225748842,
+        "shrink": 0.37658537446009815
+      },
+      "n_variants_at_or_above_0.05_nats": 5,
+      "call": "CONFIRMED",
+      "review_caveat": "per tf_reviewer_round_4.json O2b this is a MAGNITUDE statement about how much the first attention block writes, not a claim that a channel is open or closed; the write norm share is printed beside it for exactly that reason"
+    },
+    "PD4_depth_supplied_route": {
+      "A1_into_layer2_share_of_dominant_mlp": {
+        "vanilla": 0.23255361554841583,
+        "slots": 0.5690481364738195,
+        "bandwidth": 1.3285996848981394,
+        "predicate": 0.6663690865781563,
+        "codebook": 1.5750579202574393,
+        "shrink": 0.946353568478593
+      },
+      "all_six_between_0.10_and_0.70": false,
+      "variant_mean_at_or_above_vanilla": "True"
+    },
+    "PD5_route_use": {
+      "A1_out_of_layer2_read": {
+        "vanilla": 0.857227960538934,
+        "slots": 0.5990262050655262,
+        "bandwidth": 0.918197229159644,
+        "predicate": 0.014860359762864359,
+        "codebook": 0.9096448679566252,
+        "shrink": 0.9675571366273815
+      },
+      "A0_out_of_layer1_read": {
+        "vanilla": 0.00017149081180437527,
+        "slots": 0.7119724724180796,
+        "bandwidth": 0.8012496451182555,
+        "predicate": 0.015021843514048462,
+        "codebook": 0.5668727375297505,
+        "shrink": 0.2275064949933593
+      },
+      "A0_out_of_layer2_read": {
+        "vanilla": -0.0013024800167664638,
+        "slots": 0.7687286857690522,
+        "bandwidth": 0.29881053256619067,
+        "predicate": -0.018310579049593455,
+        "codebook": 0.2356200429905089,
+        "shrink": 0.20664342276003023
+      },
+      "note": "fractions whose baseline induction is at or below its own floor are meaningless ratios and must not be read"
+    },
+    "PD6_held_ce": {
+      "vanilla": {
+        "mean": 4.527606666666667,
+        "sd": 0.0007393465583428476,
+        "per_seed": [
+          4.52845,
+          4.52707,
+          4.5273
+        ],
+        "n": 3
+      },
+      "slots": {
+        "mean": 4.7432799999999995,
+        "sd": 0.008422155306096033,
+        "per_seed": [
+          4.75181,
+          4.73497,
+          4.74306
+        ],
+        "n": 3
+      },
+      "bandwidth": {
+        "mean": 4.53073,
+        "sd": 0.013412855773473552,
+        "per_seed": [
+          4.51706,
+          4.53126,
+          4.54387
+        ],
+        "n": 3
+      },
+      "predicate": {
+        "mean": 4.314649999999999,
+        "sd": 0.0008072793816266223,
+        "per_seed": [
+          4.31402,
+          4.31437,
+          4.31556
+        ],
+        "n": 3
+      },
+      "codebook": {
+        "mean": 4.6496466666666665,
+        "sd": 0.018796867646853337,
+        "per_seed": [
+          4.63025,
+          4.65091,
+          4.66778
+        ],
+        "n": 3
+      },
+      "shrink": {
+        "mean": 4.702356666666667,
+        "sd": 0.005707541794269812,
+        "per_seed": [
+          4.70816,
+          4.69675,
+          4.70216
+        ],
+        "n": 3
+      }
+    },
+    "PD7_depth_gain": {
+      "vanilla": {
+        "held_ce_depth2": 4.6463,
+        "held_ce_depth3": 4.527606666666667,
+        "gain": 0.11869333333333287
+      },
+      "slots": {
+        "held_ce_depth2": 4.741406666666666,
+        "held_ce_depth3": 4.7432799999999995,
+        "gain": -0.0018733333333331714
+      },
+      "bandwidth": {
+        "held_ce_depth2": 4.627883333333333,
+        "held_ce_depth3": 4.53073,
+        "gain": 0.09715333333333298
+      },
+      "predicate": {
+        "held_ce_depth2": 4.38614,
+        "held_ce_depth3": 4.314649999999999,
+        "gain": 0.07149000000000072
+      },
+      "codebook": {
+        "held_ce_depth2": 4.754213333333333,
+        "held_ce_depth3": 4.6496466666666665,
+        "gain": 0.10456666666666692
+      },
+      "shrink": {
+        "held_ce_depth2": 4.724306666666667,
+        "held_ce_depth3": 4.702356666666667,
+        "gain": 0.021950000000000358
+      }
+    }
+  }
+}
