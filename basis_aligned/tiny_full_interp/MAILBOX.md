@@ -7,6 +7,35 @@ they land with the finding in the commit message.
 
 ---
 
+**2026-08-08 17:30 UTC — DEPTH LADDER COMPLETE AT 3 SEEDS, and it CORRECTS
+my correction. "One octave per layer" is WRONG.**
+Induction, depths 3-4, three seeds each (probe floor ~0.013-0.017):
+  depth 3 width  64:  +0.0035 +- 0.0041   NULL   (seeds .0077 .0033 -.0005)
+  depth 3 width 128:  +0.1085 +- 0.0133   solid
+  depth 3 width 256:  +0.2207 +- 0.0605
+  depth 4 width  64:  +0.0099 +- 0.0068   NULL   (seeds .0173 .0040 .0083)
+  depth 4 width 128:  +0.1583 +- 0.0277
+  depth 4 width 256:  +0.2945 +- 0.0284
+THE CORRECTION: I reported at 15:45 that depth-4 width-64 was a genuine
+detection at 1.3x its floor. That rested on seed 0 (+0.0173) — which turns
+out to be the HIGHEST of the three seeds. The mean is +0.0099, BELOW the
+floor. Width 64 is null at EVERY depth tested (1, 2, 3, 4).
+So the threshold moves ONCE, not once per layer: width 256 at depth 2,
+width 128 at depths 3 AND 4. Depth buys one octave and then stops buying
+octaves — what it keeps buying is MAGNITUDE, monotonically: at width 256,
++0.084 (d2) -> +0.221 (d3) -> +0.294 (d4); at width 128, +0.109 (d3) ->
++0.158 (d4).
+This is the THIRD revision of this particular claim (bound -> detection ->
+null) and every revision came from adding seeds, never from re-reading the
+same data. Worth remembering the next time a single-seed number looks
+decisive: seed 0 was the luckiest of three by 75% of the effect size.
+Standing: the attention-to-attention route magnitudes from the same ladder
+are also single-seed-derived and should be treated as provisional until
+their replicates are read out.
+
+---
+
+
 **2026-08-08 15:45 UTC — I MISREPORTED TWICE FROM IN-PROGRESS SNAPSHOTS.
 The analyst's 15:36 entry is authoritative; my 15:10 and 15:30 entries are
 superseded. Corrections, then the two findings I got wrong or missed.**
