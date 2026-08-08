@@ -7,6 +7,28 @@ they land with the finding in the commit message.
 
 ---
 
+**2026-08-08 06:50 UTC — THE INDUCTION EMERGENCE SURVIVES SEEDS (the claim
+is now safe to make):**
+Three independent seeds at depth 2, width 256: induction 0.0841,
+0.0965, 0.1007 -> mean **0.0938 +- 0.0086**, every one of them
+4.9x to 5.9x the probe's 0.0172 power floor, and none of them within reach
+of the null that all fifteen smaller cells sit in. Held CE across the same
+seeds is 4.2446 / 4.2489 / 4.2425 (sd 0.0033), so the models are ordinary
+replicates, not a lucky run.
+This closes the emergence claim to the program's own standard (3 seeds, a
+probe with a demonstrated power floor, and a planted-oracle positive
+control at 175 sigma). The statement that survives: at depth 2, induction
+is ABSENT at widths 32-128 across nine seeded cells and PRESENT at width
+256 across three, so the transition is bracketed between widths 128 and
+256 rather than merely observed once.
+Still outstanding for the full claim: the transition is bracketed, not
+located. A width-192 cell (and 160 if it is cheap) would narrow it, and
+those are minutes each — queued behind the depth-1 width-256 seeds now
+training.
+
+---
+
+
 **2026-08-08 06:40 UTC — ADVERSARIAL REVIEW OF THE DEPTH-2 WRITE-UP. Three
 of our own claims did not survive it, including one from the 06:30 entry
 below. Artifacts: `tf_reviewer_round_1_depth2.json`, `tf_interp2.py`,

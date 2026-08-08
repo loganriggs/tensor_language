@@ -51,5 +51,4544 @@
     "data_order_id": "epoch_order(0)@seed1234",
     "single_epoch_arithmetic": "15000 steps x batch 16 = 240000 sequences = the entire train split, each visited exactly once",
     "held": "held split rows [0:1500] (pure eval, never trained)"
+  },
+  "run": {
+    "lr_muon": 0.02,
+    "lr_adamw": 0.004,
+    "steps": 15000,
+    "batch": 16,
+    "train_curve_every200": [
+      [
+        0,
+        9.0727,
+        9.0727
+      ],
+      [
+        200,
+        5.7293,
+        6.1994
+      ],
+      [
+        400,
+        5.5312,
+        5.5626
+      ],
+      [
+        600,
+        5.2614,
+        5.3746
+      ],
+      [
+        800,
+        5.2911,
+        5.2366
+      ],
+      [
+        1000,
+        5.2753,
+        5.1681
+      ],
+      [
+        1200,
+        5.0623,
+        5.0993
+      ],
+      [
+        1400,
+        5.1231,
+        5.0486
+      ],
+      [
+        1600,
+        4.9024,
+        5.0124
+      ],
+      [
+        1800,
+        4.968,
+        4.9641
+      ],
+      [
+        2000,
+        4.9217,
+        4.9211
+      ],
+      [
+        2200,
+        4.8922,
+        4.9023
+      ],
+      [
+        2400,
+        4.8374,
+        4.8645
+      ],
+      [
+        2600,
+        4.8423,
+        4.8418
+      ],
+      [
+        2800,
+        4.8556,
+        4.8253
+      ],
+      [
+        3000,
+        4.8906,
+        4.8183
+      ],
+      [
+        3200,
+        4.8912,
+        4.7942
+      ],
+      [
+        3400,
+        4.6744,
+        4.7727
+      ],
+      [
+        3600,
+        4.6872,
+        4.7631
+      ],
+      [
+        3800,
+        4.7408,
+        4.727
+      ],
+      [
+        4000,
+        4.654,
+        4.7244
+      ],
+      [
+        4200,
+        4.712,
+        4.7014
+      ],
+      [
+        4400,
+        4.6345,
+        4.6868
+      ],
+      [
+        4600,
+        4.5978,
+        4.6747
+      ],
+      [
+        4800,
+        4.6608,
+        4.6613
+      ],
+      [
+        5000,
+        4.6517,
+        4.6587
+      ],
+      [
+        5200,
+        4.7162,
+        4.6427
+      ],
+      [
+        5400,
+        4.6188,
+        4.6307
+      ],
+      [
+        5600,
+        4.528,
+        4.6115
+      ],
+      [
+        5800,
+        4.6,
+        4.6067
+      ],
+      [
+        6000,
+        4.5111,
+        4.5962
+      ],
+      [
+        6200,
+        4.5134,
+        4.5857
+      ],
+      [
+        6400,
+        4.5527,
+        4.5671
+      ],
+      [
+        6600,
+        4.6056,
+        4.5559
+      ],
+      [
+        6800,
+        4.5382,
+        4.5489
+      ],
+      [
+        7000,
+        4.4694,
+        4.5383
+      ],
+      [
+        7200,
+        4.5115,
+        4.5229
+      ],
+      [
+        7400,
+        4.6594,
+        4.5121
+      ],
+      [
+        7600,
+        4.4194,
+        4.5076
+      ],
+      [
+        7800,
+        4.5959,
+        4.4964
+      ],
+      [
+        8000,
+        4.6099,
+        4.4829
+      ],
+      [
+        8200,
+        4.6946,
+        4.4821
+      ],
+      [
+        8400,
+        4.4987,
+        4.4668
+      ],
+      [
+        8600,
+        4.3962,
+        4.4541
+      ],
+      [
+        8800,
+        4.3953,
+        4.4603
+      ],
+      [
+        9000,
+        4.4748,
+        4.4438
+      ],
+      [
+        9200,
+        4.353,
+        4.4424
+      ],
+      [
+        9400,
+        4.4818,
+        4.4301
+      ],
+      [
+        9600,
+        4.4203,
+        4.413
+      ],
+      [
+        9800,
+        4.4955,
+        4.4214
+      ],
+      [
+        10000,
+        4.4544,
+        4.4173
+      ],
+      [
+        10200,
+        4.3715,
+        4.4095
+      ],
+      [
+        10400,
+        4.537,
+        4.4014
+      ],
+      [
+        10600,
+        4.2849,
+        4.3787
+      ],
+      [
+        10800,
+        4.4947,
+        4.3851
+      ],
+      [
+        11000,
+        4.4366,
+        4.381
+      ],
+      [
+        11200,
+        4.4375,
+        4.3775
+      ],
+      [
+        11400,
+        4.468,
+        4.3602
+      ],
+      [
+        11600,
+        4.22,
+        4.3602
+      ],
+      [
+        11800,
+        4.5048,
+        4.3564
+      ],
+      [
+        12000,
+        4.3642,
+        4.3538
+      ],
+      [
+        12200,
+        4.3403,
+        4.3656
+      ],
+      [
+        12400,
+        4.3146,
+        4.3417
+      ],
+      [
+        12600,
+        4.3793,
+        4.3363
+      ],
+      [
+        12800,
+        4.2966,
+        4.3321
+      ],
+      [
+        13000,
+        4.2491,
+        4.3239
+      ],
+      [
+        13200,
+        4.3171,
+        4.3314
+      ],
+      [
+        13400,
+        4.4166,
+        4.3278
+      ],
+      [
+        13600,
+        4.3251,
+        4.3253
+      ],
+      [
+        13800,
+        4.2286,
+        4.3195
+      ],
+      [
+        14000,
+        4.33,
+        4.3312
+      ],
+      [
+        14200,
+        4.3192,
+        4.3188
+      ],
+      [
+        14400,
+        4.3568,
+        4.3309
+      ],
+      [
+        14600,
+        4.3419,
+        4.3182
+      ],
+      [
+        14800,
+        4.3206,
+        4.3311
+      ]
+    ],
+    "held100_curve": [
+      [
+        1875,
+        4.8396
+      ],
+      [
+        3750,
+        4.6535
+      ],
+      [
+        5625,
+        4.5257
+      ],
+      [
+        7500,
+        4.4355
+      ],
+      [
+        9375,
+        4.3606
+      ],
+      [
+        11250,
+        4.2968
+      ],
+      [
+        13125,
+        4.2575
+      ]
+    ],
+    "spikes": 0,
+    "diverged": false,
+    "wall_seconds": 447.4,
+    "sec_per_step": 0.02983,
+    "peak_mib": 3173,
+    "final_held_ce": 4.32406,
+    "n_params": 4456960,
+    "body_params": 2359808
+  },
+  "vs_baselines": {
+    "unigram_floor": 7.30343,
+    "bigram": 5.2842,
+    "model_minus_bigram": -0.96014,
+    "model_minus_unigram": -2.97937,
+    "model_bits_per_byte": 1.66151,
+    "bigram_bits_per_byte": 2.03044,
+    "unigram_floor_bits_per_byte": 2.80632,
+    "bits_per_byte_rule": "the ONLY quantity comparable across tokenizers; nats/token above are within-tokenizer only"
+  },
+  "fold": {
+    "stem": "tf_vanilla_d2_w256_b8192_s1",
+    "variant": "vanilla",
+    "depth": 2,
+    "width": 256,
+    "stream_width": 256,
+    "n_heads": 16,
+    "head_dim": 16,
+    "vocab": 8192,
+    "tokenizer": "bpe",
+    "deltas": [
+      0,
+      1,
+      2
+    ],
+    "identity_gate": {
+      "mlp_tensor_identity_l0_relmax": 7.279536475834902e-07,
+      "mlp_rmsnorm_gauge_l0_relmax": 7.264011969709827e-07,
+      "decoder_absmax_l0": 2.4287989139556885,
+      "mlp_tensor_identity_l1_relmax": 7.706681230956747e-07,
+      "mlp_rmsnorm_gauge_l1_relmax": 6.921297881490318e-07,
+      "decoder_absmax_l1": 4.116054058074951,
+      "attn_layer0_table_identity_relmax": 8.144220373651478e-06,
+      "attn_table_identity_heads_materialized": [
+        0,
+        8,
+        15
+      ],
+      "attn_layer0_factor_identity_allheads_relmax": 2.1356418073992245e-06,
+      "fold_forward_max_logit_diff": 4.9591064453125e-05,
+      "logit_absmax": 15.60417652130127,
+      "fold_forward_rel_logit_diff": 3.1780635386576285e-06,
+      "fp64_mlp_tensor_identity_l0_relmax": 1.2386211763824773e-15,
+      "fp64_mlp_rmsnorm_gauge_l0_relmax": 1.3068177724542664e-15,
+      "fp64_decoder_absmax_l0": 2.4287989139556885,
+      "fp64_mlp_tensor_identity_l1_relmax": 1.1183016606154886e-15,
+      "fp64_mlp_rmsnorm_gauge_l1_relmax": 1.42702258319157e-15,
+      "fp64_decoder_absmax_l1": 4.116054058074951,
+      "fp64_attn_layer0_table_identity_relmax": 4.6687474427557835e-15,
+      "fp64_attn_table_identity_heads_materialized": [
+        0,
+        8,
+        15
+      ],
+      "fp64_attn_layer0_factor_identity_allheads_relmax": 1.1374391472107296e-15,
+      "fp64_fold_forward_max_logit_diff": 6.217248937900877e-14,
+      "fp64_logit_absmax": 15.604188775185007,
+      "fp64_fold_forward_rel_logit_diff": 3.984346144150748e-15,
+      "fp32_forward_vs_fp64_forward_rel": 5.133797303908118e-06,
+      "fold_vs_forward_over_fp32_selfnoise": 0.6190473348525697,
+      "fp32_sanity_pass": true,
+      "fp64_exactness_pass": true,
+      "pass": true,
+      "criterion": {
+        "fp32_sanity": {
+          "mlp_rel": 1e-05,
+          "attn_rel": 1e-05,
+          "logit_rel": 1e-05
+        },
+        "fp64_exactness": {
+          "algebraic_rel": 1e-12,
+          "logit_abs": 1e-09,
+          "noise_multiple": 10.0
+        },
+        "note": "TWO-TIER.  fp32 tier is a scale-free sanity band sized by sqrt(N)*eps_fp32 ~ 1e-5; fp64 tier is the real exactness gate (algebraic identities to 1e-12 relative, end-to-end to 1e-9 absolute) plus a calibration requiring the fold-vs-forward gap to stay within 10x the forward pass own fp32-vs-fp64 self-noise.  SUPERSEDED: the old absolute-1e-5-fp32 logit criterion and the 1e-6 fp32 algebraic criteria, which together failed 5/6 cells on rounding alone while every fp64 residual sat at 1e-14 to 1e-16."
+      }
+    },
+    "planted_known_answer": {
+      "planted_delta0_maxdiff": 1.2823075934420558e-14,
+      "planted_delta0_scale": 0.48431475409306896,
+      "planted_delta3_maxdiff": 1.587618925213974e-14,
+      "planted_delta3_scale": 0.4802893055867663,
+      "pass": true
+    },
+    "gate_negative_control": {
+      "clean_pass": true,
+      "mlp_scale_1p1e-7_pass": false,
+      "mlp_scale_1p1e-7_fp64_logit_abs": 9.894860805714778e-09,
+      "mlp_scale_1p1e-7_fp32_logit_abs": 1.1920928955078125e-07,
+      "mlp_scale_1p1e-7_caught_by_old_absolute_1e-5_gate": false,
+      "vv_head_roll_pass": false,
+      "vv_head_roll_fp64_logit_abs": 0.033177727890211825,
+      "vv_head_roll_fp32_logit_abs": 0.033184878528118134,
+      "vv_head_roll_caught_by_old_absolute_1e-5_gate": true,
+      "pass": true
+    },
+    "spectra": {
+      "s1_d0": {
+        "per_head": [
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.105160499760779,
+            "entropy_rank": 1.351261382032503,
+            "top1_share": 0.9510526825455873
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 6.685946343712707,
+            "entropy_rank": 9.663749443158746,
+            "top1_share": 0.2861105454399224
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 6.376555778300621,
+            "entropy_rank": 10.122602980357415,
+            "top1_share": 0.3381898275737696
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 2.6497970609420016,
+            "entropy_rank": 5.283442839026155,
+            "top1_share": 0.6017606966902127
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 8.974447350777435,
+            "entropy_rank": 12.136666977478502,
+            "top1_share": 0.22372429302898966
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 8.722088852990794,
+            "entropy_rank": 11.713121684913945,
+            "top1_share": 0.2395473974471258
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.2233094745998003,
+            "entropy_rank": 1.595995080385769,
+            "top1_share": 0.9024312395676771
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 9.61079558900799,
+            "entropy_rank": 12.440971020957038,
+            "top1_share": 0.22824666443922073
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 10.023774937409032,
+            "entropy_rank": 12.812819648599174,
+            "top1_share": 0.20485100647546153
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.606993569945838,
+            "entropy_rank": 2.8571554912145323,
+            "top1_share": 0.7857083638939424
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 10.209327178670396,
+            "entropy_rank": 12.856765627588809,
+            "top1_share": 0.19465125319004836
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 3.2720585358073024,
+            "entropy_rank": 6.437491674981816,
+            "top1_share": 0.5320947643062909
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 6.507759421433741,
+            "entropy_rank": 10.407993121846543,
+            "top1_share": 0.3388102652997192
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 6.579141284393044,
+            "entropy_rank": 9.904239711167884,
+            "top1_share": 0.31398140098450084
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 2.4949028203640298,
+            "entropy_rank": 4.987186652685391,
+            "top1_share": 0.6223675504716588
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 9.935310724683472,
+            "entropy_rank": 12.824439287212913,
+            "top1_share": 0.1967907990258389
+          }
+        ],
+        "rank_bound": 16,
+        "mean_numerical_rank": 16.0,
+        "mean_entropy_rank": 8.587243913975446
+      },
+      "s2_d0": {
+        "per_head": [
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.064882299403022,
+            "entropy_rank": 1.2140805100201024,
+            "top1_share": 0.968933171238285
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 4.618685429083529,
+            "entropy_rank": 7.280036136089273,
+            "top1_share": 0.37101252428874754
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 4.6013596815146105,
+            "entropy_rank": 8.308317972197953,
+            "top1_share": 0.4309402028164925
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 2.8651802648957263,
+            "entropy_rank": 5.62810482543309,
+            "top1_share": 0.5742272913451265
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 8.277878493374587,
+            "entropy_rank": 11.583742724095565,
+            "top1_share": 0.25774719956039993
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 8.864895231249802,
+            "entropy_rank": 11.663476257444035,
+            "top1_share": 0.21480037634515387
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.4028833868718227,
+            "entropy_rank": 1.9396365039580001,
+            "top1_share": 0.8374221412337824
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 6.796392417927286,
+            "entropy_rank": 10.258562979690119,
+            "top1_share": 0.3097954390259597
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 8.170924922533983,
+            "entropy_rank": 11.754170591243662,
+            "top1_share": 0.2768822408326488
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.7156832097083121,
+            "entropy_rank": 3.1137829787640112,
+            "top1_share": 0.7589477631660755
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 8.452970361677762,
+            "entropy_rank": 11.596616663982191,
+            "top1_share": 0.2255125155086883
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 3.699805823562297,
+            "entropy_rank": 6.958690076021587,
+            "top1_share": 0.4923151819646537
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 5.657926759764555,
+            "entropy_rank": 9.383270053853048,
+            "top1_share": 0.36248141983435594
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 6.3529824149799365,
+            "entropy_rank": 10.104723166718209,
+            "top1_share": 0.33767768892568
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 3.6241156226101974,
+            "entropy_rank": 6.993563235511406,
+            "top1_share": 0.5029348371398207
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 7.154278618924739,
+            "entropy_rank": 10.964096757136014,
+            "top1_share": 0.3153109382654551
+          }
+        ],
+        "rank_bound": 16,
+        "mean_numerical_rank": 16.0,
+        "mean_entropy_rank": 8.046554464509892
+      },
+      "s1_d1": {
+        "per_head": [
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.1132540874385195,
+            "entropy_rank": 1.3750634814431075,
+            "top1_share": 0.9475618345872723
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 6.18001240742941,
+            "entropy_rank": 9.252378762772663,
+            "top1_share": 0.315544398231069
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 6.192581293239192,
+            "entropy_rank": 9.97345097730677,
+            "top1_share": 0.3481196151346554
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 2.725313823571886,
+            "entropy_rank": 5.422220576858069,
+            "top1_share": 0.5922903568551601
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 9.083719963475716,
+            "entropy_rank": 12.194999185492572,
+            "top1_share": 0.22337463952746917
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 8.744248004451151,
+            "entropy_rank": 11.676914707940519,
+            "top1_share": 0.2336593145710688
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.2397077501318121,
+            "entropy_rank": 1.6250971123687372,
+            "top1_share": 0.8960568748883462
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 9.447154641464685,
+            "entropy_rank": 12.327250703980361,
+            "top1_share": 0.23242344729347272
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 9.970561505260939,
+            "entropy_rank": 12.790563152749751,
+            "top1_share": 0.20705823842789348
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.6185978790197,
+            "entropy_rank": 2.889894501132966,
+            "top1_share": 0.7828035721795027
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 10.46307612708049,
+            "entropy_rank": 13.002349377312516,
+            "top1_share": 0.1853330079051055
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 3.4103762365382893,
+            "entropy_rank": 6.646001842205624,
+            "top1_share": 0.5189550429005236
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 6.747381198234552,
+            "entropy_rank": 10.630646247539323,
+            "top1_share": 0.32890498481389663
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 6.5266389767858435,
+            "entropy_rank": 9.804921133809591,
+            "top1_share": 0.3119502131785186
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 2.511754016768688,
+            "entropy_rank": 5.022252870222839,
+            "top1_share": 0.6200937319463398
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 10.021019162045665,
+            "entropy_rank": 12.881741412220014,
+            "top1_share": 0.19865008410938373
+          }
+        ],
+        "rank_bound": 16,
+        "mean_numerical_rank": 16.0,
+        "mean_entropy_rank": 8.594734127834714
+      },
+      "s2_d1": {
+        "per_head": [
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.065609894720249,
+            "entropy_rank": 1.215883466091663,
+            "top1_share": 0.9685972991983718
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 4.667933586263048,
+            "entropy_rank": 7.335563162071124,
+            "top1_share": 0.36734843973692566
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 4.523944260314295,
+            "entropy_rank": 8.214889510190925,
+            "top1_share": 0.4356152803266496
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 2.8405201262661763,
+            "entropy_rank": 5.587550680384514,
+            "top1_share": 0.577184266932388
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 8.17966592900857,
+            "entropy_rank": 11.553378794070756,
+            "top1_share": 0.2664354571832339
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 8.54479692668952,
+            "entropy_rank": 11.45668514104016,
+            "top1_share": 0.23160319616082484
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.4384662947109235,
+            "entropy_rank": 2.005022164150614,
+            "top1_share": 0.8257428563922834
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 6.728682930670184,
+            "entropy_rank": 10.200968290156707,
+            "top1_share": 0.3128972592404152
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 8.168008994715692,
+            "entropy_rank": 11.74684912101889,
+            "top1_share": 0.27683556563339057
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.7173580984329306,
+            "entropy_rank": 3.1228667385133795,
+            "top1_share": 0.7586378170528387
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 8.37449844276602,
+            "entropy_rank": 11.548415240273393,
+            "top1_share": 0.23321720656596667
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 3.678286955098247,
+            "entropy_rank": 6.8910384514377565,
+            "top1_share": 0.4929544745510981
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 5.568500734193949,
+            "entropy_rank": 9.291471071952698,
+            "top1_share": 0.3668105777323253
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 6.594139340882714,
+            "entropy_rank": 10.269409450644442,
+            "top1_share": 0.3246504851479847
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 3.4816481659693275,
+            "entropy_rank": 6.748532919927739,
+            "top1_share": 0.5145544138394665
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 7.147573473156682,
+            "entropy_rank": 10.962278034078716,
+            "top1_share": 0.3156848722055397
+          }
+        ],
+        "rank_bound": 16,
+        "mean_numerical_rank": 16.0,
+        "mean_entropy_rank": 8.009425139750217
+      },
+      "s1_d2": {
+        "per_head": [
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.1361861954530348,
+            "entropy_rank": 1.441117949872019,
+            "top1_share": 0.9378548579863889
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 6.378864905351292,
+            "entropy_rank": 9.468013017853652,
+            "top1_share": 0.307581408499227
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 6.11483282768194,
+            "entropy_rank": 9.970666643507915,
+            "top1_share": 0.3541589564333345
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 2.803630479678539,
+            "entropy_rank": 5.568463494683848,
+            "top1_share": 0.5828926697101443
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 9.094418593531017,
+            "entropy_rank": 12.240509613882889,
+            "top1_share": 0.22990984994457198
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 8.8155998581961,
+            "entropy_rank": 11.762577286139067,
+            "top1_share": 0.2340886979458848
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.2548527609371025,
+            "entropy_rank": 1.6568775206325788,
+            "top1_share": 0.8903341480707541
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 9.281300469840915,
+            "entropy_rank": 12.222178969563293,
+            "top1_share": 0.23665437273648343
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 9.787131276815888,
+            "entropy_rank": 12.681918721641779,
+            "top1_share": 0.21373888130328456
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.6140103983694245,
+            "entropy_rank": 2.8813038485794036,
+            "top1_share": 0.7840253487974114
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 10.488281810759178,
+            "entropy_rank": 13.044378027097283,
+            "top1_share": 0.19569245335471822
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 3.7605127263091136,
+            "entropy_rank": 7.21289126957717,
+            "top1_share": 0.4899129827092761
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 6.854147200068377,
+            "entropy_rank": 10.662604637517102,
+            "top1_share": 0.3225644890682652
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 6.499264417995592,
+            "entropy_rank": 9.87152957095169,
+            "top1_share": 0.32043676539380367
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 2.5539825378831824,
+            "entropy_rank": 5.106376689277959,
+            "top1_share": 0.6143883858290349
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 9.954001260520146,
+            "entropy_rank": 12.852749391790658,
+            "top1_share": 0.2084803901039315
+          }
+        ],
+        "rank_bound": 16,
+        "mean_numerical_rank": 16.0,
+        "mean_entropy_rank": 8.66525979078552
+      },
+      "s2_d2": {
+        "per_head": [
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.0662974671924295,
+            "entropy_rank": 1.2186451878166837,
+            "top1_share": 0.9682854507360201
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 4.706454455097259,
+            "entropy_rank": 7.390448352280916,
+            "top1_share": 0.36535219851482675
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 4.545562416976277,
+            "entropy_rank": 8.235389259410109,
+            "top1_share": 0.43387907827301336
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 2.8288254769567427,
+            "entropy_rank": 5.579912815176018,
+            "top1_share": 0.5787722625829587
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 7.792768363080558,
+            "entropy_rank": 11.340827371074623,
+            "top1_share": 0.28596675343413797
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 8.334552743356818,
+            "entropy_rank": 11.372701541186112,
+            "top1_share": 0.2476152672146971
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.5534012130539703,
+            "entropy_rank": 2.216457514498568,
+            "top1_share": 0.7903168605379909
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 6.6464537652910245,
+            "entropy_rank": 10.135884776061715,
+            "top1_share": 0.31676142197955304
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 8.162052079753929,
+            "entropy_rank": 11.737405228267034,
+            "top1_share": 0.27686005060999946
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.6852718206231534,
+            "entropy_rank": 3.041985112293863,
+            "top1_share": 0.7662276581884044
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 8.398097547547183,
+            "entropy_rank": 11.567406581916769,
+            "top1_share": 0.2333894539599652
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 3.7267865271803156,
+            "entropy_rank": 6.9537206468623864,
+            "top1_share": 0.48827494519619435
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 5.54770391977404,
+            "entropy_rank": 9.284622277413456,
+            "top1_share": 0.36835754378413044
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 7.06166654199974,
+            "entropy_rank": 10.657236115271221,
+            "top1_share": 0.3066349506689098
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 3.7154786239458146,
+            "entropy_rank": 7.1190020380191505,
+            "top1_share": 0.4954154039954528
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 7.137469887905908,
+            "entropy_rank": 10.96064901697329,
+            "top1_share": 0.3163670610388178
+          }
+        ],
+        "rank_bound": 16,
+        "mean_numerical_rank": 16.0,
+        "mean_entropy_rank": 8.050768364657621
+      }
+    },
+    "control_spectrum_qr_vs_eig_rel": 2.227820113372413e-10,
+    "control_spectrum_factor_vs_dense_svd_rel": 2.802452189579715e-15,
+    "control_dense_svd_tail_over_rank_bound": 3.1215321886794222e-12,
+    "mlp": [
+      {
+        "shape": [
+          256,
+          256,
+          256
+        ],
+        "fro": 5510.8916015625,
+        "unfolding_spectrum": {
+          "numerical_rank": 256,
+          "participation_ratio": 233.597705355776,
+          "entropy_rank": 243.3520128065728,
+          "top1_share": 0.007513178138565373
+        },
+        "sv_top8": [
+          633.2755986298209,
+          592.3805067740545,
+          554.0391518127666,
+          528.6250639798051,
+          520.4980690431858,
+          504.30124246068937,
+          499.35298266486785,
+          497.06535693006
+        ]
+      },
+      {
+        "shape": [
+          256,
+          256,
+          256
+        ],
+        "fro": 7483.1171875,
+        "unfolding_spectrum": {
+          "numerical_rank": 256,
+          "participation_ratio": 228.10139352532417,
+          "entropy_rank": 241.87436002696091,
+          "top1_share": 0.01200789631452546
+        },
+        "sv_top8": [
+          1358.1437897632668,
+          1097.957320432899,
+          1045.770010790462,
+          855.9401424344835,
+          836.9701926215453,
+          800.2235355133339,
+          775.2554422873326,
+          753.4622984755295
+        ]
+      }
+    ],
+    "top_pairs_delta0": [
+      {
+        "head": 0,
+        "max": [
+          [
+            "288:' of'",
+            "7874:' regardless'",
+            0.06776417046785355
+          ],
+          [
+            "356:' as'",
+            "7084:'Posted'",
+            0.0619252547621727
+          ],
+          [
+            "703:' she'",
+            "7084:'Posted'",
+            0.061023127287626266
+          ],
+          [
+            "1159:'ants'",
+            "7084:'Posted'",
+            0.060560356825590134
+          ],
+          [
+            "1185:' report'",
+            "7084:'Posted'",
+            0.06021962687373161
+          ],
+          [
+            "4713:'36'",
+            "7084:'Posted'",
+            0.0598221980035305
+          ],
+          [
+            "349:' he'",
+            "7084:'Posted'",
+            0.05971229448914528
+          ],
+          [
+            "555:' 20'",
+            "7084:'Posted'",
+            0.059349220246076584
+          ],
+          [
+            "1362:' days'",
+            "7084:'Posted'",
+            0.05914131551980972
+          ],
+          [
+            "356:' as'",
+            "895:' such'",
+            0.05910329148173332
+          ],
+          [
+            "363:' are'",
+            "7084:'Posted'",
+            0.05905677750706673
+          ],
+          [
+            "3334:' feature'",
+            "7084:'Posted'",
+            0.058607153594493866
+          ],
+          [
+            "914:' day'",
+            "7084:'Posted'",
+            0.058234572410583496
+          ],
+          [
+            "503:' they'",
+            "7084:'Posted'",
+            0.057841502130031586
+          ],
+          [
+            "993:' 10'",
+            "7084:'Posted'",
+            0.05770832300186157
+          ],
+          [
+            "1186:' month'",
+            "7084:'Posted'",
+            0.0576493963599205
+          ],
+          [
+            "2329:' 50'",
+            "7084:'Posted'",
+            0.057642582803964615
+          ],
+          [
+            "414:' have'",
+            "7084:'Posted'",
+            0.057621199637651443
+          ],
+          [
+            "939:' does'",
+            "7084:'Posted'",
+            0.05757409706711769
+          ],
+          [
+            "1614:'30'",
+            "7084:'Posted'",
+            0.05750848725438118
+          ]
+        ],
+        "min": [
+          [
+            "0:'<|endoftext|>'",
+            "895:' such'",
+            -0.0036075834650546312
+          ],
+          [
+            "1255:' another'",
+            "403:'un'",
+            -0.003473202232271433
+          ],
+          [
+            "1449:'aut'",
+            "895:' such'",
+            -0.0022819654550403357
+          ],
+          [
+            "1255:' another'",
+            "331:'ce'",
+            -0.0021740139927715063
+          ],
+          [
+            "577:' other'",
+            "415:'em'",
+            -0.00215013325214386
+          ],
+          [
+            "1255:' another'",
+            "415:'em'",
+            -0.0018786964938044548
+          ],
+          [
+            "356:' as'",
+            "415:'em'",
+            -0.0018741883104667068
+          ],
+          [
+            "3041:'aught'",
+            "895:' such'",
+            -0.0017265465576201677
+          ],
+          [
+            "3379:' helps'",
+            "415:'em'",
+            -0.0016353498212993145
+          ],
+          [
+            "4819:'ctors'",
+            "404:'ant'",
+            -0.0015785045688971877
+          ],
+          [
+            "370:'oo'",
+            "415:'em'",
+            -0.0015571959083899856
+          ],
+          [
+            "1730:'ien'",
+            "415:'em'",
+            -0.0015032605733722448
+          ],
+          [
+            "694:'ang'",
+            "415:'em'",
+            -0.0014189118519425392
+          ],
+          [
+            "780:'ific'",
+            "415:'em'",
+            -0.0013598935911431909
+          ],
+          [
+            "6267:'85'",
+            "415:'em'",
+            -0.001331629347987473
+          ],
+          [
+            "7731:'%.'",
+            "415:'em'",
+            -0.0013193669728934765
+          ],
+          [
+            "102:'\ufffd'",
+            "415:'em'",
+            -0.0013088404666632414
+          ],
+          [
+            "510:'ry'",
+            "415:'em'",
+            -0.0012548312079161406
+          ],
+          [
+            "225:'\ufffd'",
+            "415:'em'",
+            -0.0012488828506320715
+          ],
+          [
+            "513:'ong'",
+            "415:'em'",
+            -0.0012427662732079625
+          ]
+        ],
+        "abs_mean": 0.015482167713344097,
+        "std": 0.005080957431346178
+      },
+      {
+        "head": 1,
+        "max": [
+          [
+            "14:'.'",
+            "6520:' firstname'",
+            0.28303343057632446
+          ],
+          [
+            "14:'.'",
+            "8023:' Jr'",
+            0.2637319564819336
+          ],
+          [
+            "14:'.'",
+            "4738:' approx'",
+            0.2572591304779053
+          ],
+          [
+            "44:'L'",
+            "2867:'OU'",
+            0.2555028796195984
+          ],
+          [
+            "36:'D'",
+            "2867:'OU'",
+            0.25411513447761536
+          ],
+          [
+            "50:'R'",
+            "2867:'OU'",
+            0.25117918848991394
+          ],
+          [
+            "14:'.'",
+            "3963:' www'",
+            0.24853837490081787
+          ],
+          [
+            "51:'S'",
+            "2867:'OU'",
+            0.24531452357769012
+          ],
+          [
+            "35:'C'",
+            "2867:'OU'",
+            0.24497346580028534
+          ],
+          [
+            "50:'R'",
+            "5835:' YOU'",
+            0.2445642650127411
+          ],
+          [
+            "14:'.'",
+            "4867:' vs'",
+            0.24364545941352844
+          ],
+          [
+            "44:'L'",
+            "5835:' YOU'",
+            0.23782584071159363
+          ],
+          [
+            "44:'L'",
+            "5811:' AL'",
+            0.23752664029598236
+          ],
+          [
+            "52:'T'",
+            "2867:'OU'",
+            0.23698420822620392
+          ],
+          [
+            "48:'P'",
+            "2867:'OU'",
+            0.23593422770500183
+          ],
+          [
+            "36:'D'",
+            "5835:' YOU'",
+            0.23498955368995667
+          ],
+          [
+            "35:'C'",
+            "5835:' YOU'",
+            0.2348230928182602
+          ],
+          [
+            "51:'S'",
+            "5835:' YOU'",
+            0.23370888829231262
+          ],
+          [
+            "14:'.'",
+            "2530:' Oct'",
+            0.2329682558774948
+          ],
+          [
+            "14:'.'",
+            "5524:' Nov'",
+            0.23234060406684875
+          ]
+        ],
+        "min": [
+          [
+            "199:'\\n'",
+            "776:' after'",
+            -0.02835283800959587
+          ],
+          [
+            "3326:'?\u201d'",
+            "3304:'www'",
+            -0.025707542896270752
+          ],
+          [
+            "199:'\\n'",
+            "1192:' during'",
+            -0.02464953623712063
+          ],
+          [
+            "199:'\\n'",
+            "335:' that'",
+            -0.02004385180771351
+          ],
+          [
+            "3326:'?\u201d'",
+            "1192:' during'",
+            -0.019042272120714188
+          ],
+          [
+            "3326:'?\u201d'",
+            "3963:' www'",
+            -0.01888841763138771
+          ],
+          [
+            "2414:' matter'",
+            "3168:'\".'",
+            -0.018642781302332878
+          ],
+          [
+            "357:'ill'",
+            "2867:'OU'",
+            -0.01855604164302349
+          ],
+          [
+            "46:'N'",
+            "1124:' 9'",
+            -0.017706643790006638
+          ],
+          [
+            "3326:'?\u201d'",
+            "7560:' pp'",
+            -0.017633099108934402
+          ],
+          [
+            "357:'ill'",
+            "2187:' Mc'",
+            -0.017266716808080673
+          ],
+          [
+            "357:'ill'",
+            "4897:' AP'",
+            -0.01724976859986782
+          ],
+          [
+            "33:'A'",
+            "1124:' 9'",
+            -0.017226366326212883
+          ],
+          [
+            "35:'C'",
+            "1124:' 9'",
+            -0.01715225540101528
+          ],
+          [
+            "3326:'?\u201d'",
+            "776:' after'",
+            -0.017107341438531876
+          ],
+          [
+            "50:'R'",
+            "1124:' 9'",
+            -0.016987519338726997
+          ],
+          [
+            "357:'ill'",
+            "7819:'UP'",
+            -0.016958121210336685
+          ],
+          [
+            "357:'ill'",
+            "6126:'Dr'",
+            -0.01679338328540325
+          ],
+          [
+            "199:'\\n'",
+            "1232:' without'",
+            -0.016657903790473938
+          ],
+          [
+            "1017:'...'",
+            "854:' because'",
+            -0.016602395102381706
+          ]
+        ],
+        "abs_mean": 0.0003519044257700443,
+        "std": 0.001512640155851841
+      },
+      {
+        "head": 2,
+        "max": [
+          [
+            "2364:'25'",
+            "3795:' \u00a3'",
+            0.34941962361335754
+          ],
+          [
+            "2364:'25'",
+            "899:' $'",
+            0.33762988448143005
+          ],
+          [
+            "1249:'10'",
+            "3795:' \u00a3'",
+            0.3280854821205139
+          ],
+          [
+            "1989:'15'",
+            "3795:' \u00a3'",
+            0.32398340106010437
+          ],
+          [
+            "3132:'80'",
+            "3795:' \u00a3'",
+            0.32249876856803894
+          ],
+          [
+            "1249:'10'",
+            "899:' $'",
+            0.31904271245002747
+          ],
+          [
+            "3065:'70'",
+            "3795:' \u00a3'",
+            0.3176233172416687
+          ],
+          [
+            "2753:'40'",
+            "3795:' \u00a3'",
+            0.3142545521259308
+          ],
+          [
+            "1614:'30'",
+            "3795:' \u00a3'",
+            0.3137136697769165
+          ],
+          [
+            "3742:'75'",
+            "3795:' \u00a3'",
+            0.3121294677257538
+          ],
+          [
+            "1451:'50'",
+            "3795:' \u00a3'",
+            0.31079795956611633
+          ],
+          [
+            "3132:'80'",
+            "899:' $'",
+            0.31051018834114075
+          ],
+          [
+            "1989:'15'",
+            "899:' $'",
+            0.3072836995124817
+          ],
+          [
+            "1451:'50'",
+            "899:' $'",
+            0.3062918782234192
+          ],
+          [
+            "1628:'12'",
+            "3795:' \u00a3'",
+            0.30607345700263977
+          ],
+          [
+            "3621:'45'",
+            "3795:' \u00a3'",
+            0.3054373860359192
+          ],
+          [
+            "3065:'70'",
+            "899:' $'",
+            0.3041023015975952
+          ],
+          [
+            "2624:'60'",
+            "3795:' \u00a3'",
+            0.30306947231292725
+          ],
+          [
+            "1614:'30'",
+            "899:' $'",
+            0.3026937246322632
+          ],
+          [
+            "985:'20'",
+            "3795:' \u00a3'",
+            0.30181199312210083
+          ]
+        ],
+        "min": [
+          [
+            "1366:'\u2014'",
+            "4544:' \ufffd'",
+            -0.05014675483107567
+          ],
+          [
+            "1643:' ['",
+            "2249:'://'",
+            -0.043648939579725266
+          ],
+          [
+            "5637:'78'",
+            "128:'\ufffd'",
+            -0.04299013316631317
+          ],
+          [
+            "3132:'80'",
+            "128:'\ufffd'",
+            -0.04258202016353607
+          ],
+          [
+            "1139:'000'",
+            "128:'\ufffd'",
+            -0.041646383702754974
+          ],
+          [
+            "5227:'88'",
+            "128:'\ufffd'",
+            -0.041585370898246765
+          ],
+          [
+            "1366:'\u2014'",
+            "159:'\ufffd'",
+            -0.04060499370098114
+          ],
+          [
+            "458:'00'",
+            "128:'\ufffd'",
+            -0.0396428108215332
+          ],
+          [
+            "4554:'44'",
+            "128:'\ufffd'",
+            -0.03951195627450943
+          ],
+          [
+            "1366:'\u2014'",
+            "1873:' \ufffd'",
+            -0.03941507637500763
+          ],
+          [
+            "4520:'95'",
+            "128:'\ufffd'",
+            -0.03909461945295334
+          ],
+          [
+            "4089:'33'",
+            "128:'\ufffd'",
+            -0.03771500661969185
+          ],
+          [
+            "3304:'www'",
+            "2249:'://'",
+            -0.036908458918333054
+          ],
+          [
+            "1366:'\u2014'",
+            "127:'\ufffd'",
+            -0.03678540140390396
+          ],
+          [
+            "5859:'77'",
+            "128:'\ufffd'",
+            -0.03583679720759392
+          ],
+          [
+            "3836:'35'",
+            "128:'\ufffd'",
+            -0.035280972719192505
+          ],
+          [
+            "5990:'66'",
+            "128:'\ufffd'",
+            -0.034563254565000534
+          ],
+          [
+            "3065:'70'",
+            "128:'\ufffd'",
+            -0.03447738662362099
+          ],
+          [
+            "3152:'99'",
+            "128:'\ufffd'",
+            -0.03440820053219795
+          ],
+          [
+            "24:'8'",
+            "128:'\ufffd'",
+            -0.03429962694644928
+          ]
+        ],
+        "abs_mean": 0.0007914204034022987,
+        "std": 0.0023098106030374765
+      },
+      {
+        "head": 3,
+        "max": [
+          [
+            "12:','",
+            "5613:'According'",
+            0.2107175588607788
+          ],
+          [
+            "12:','",
+            "2272:' however'",
+            0.19123248755931854
+          ],
+          [
+            "12:','",
+            "6298:'Once'",
+            0.18904419243335724
+          ],
+          [
+            "12:','",
+            "5523:' According'",
+            0.18864785134792328
+          ],
+          [
+            "12:','",
+            "5229:'fortunately'",
+            0.18742142617702484
+          ],
+          [
+            "12:','",
+            "4224:' therefore'",
+            0.17369034886360168
+          ],
+          [
+            "12:','",
+            "4708:' Although'",
+            0.17335708439350128
+          ],
+          [
+            "12:','",
+            "6600:'Although'",
+            0.1721469908952713
+          ],
+          [
+            "9:')'",
+            "8:'('",
+            0.16930726170539856
+          ],
+          [
+            "12:','",
+            "4475:' Once'",
+            0.1688380241394043
+          ],
+          [
+            "12:','",
+            "5117:' Yes'",
+            0.16855448484420776
+          ],
+          [
+            "12:','",
+            "3194:'pite'",
+            0.16800296306610107
+          ],
+          [
+            "12:','",
+            "8166:'Like'",
+            0.1655256748199463
+          ],
+          [
+            "12:','",
+            "3286:'After'",
+            0.1632162183523178
+          ],
+          [
+            "12:','",
+            "5341:'However'",
+            0.16306759417057037
+          ],
+          [
+            "12:','",
+            "6839:' Whether'",
+            0.16214336454868317
+          ],
+          [
+            "12:','",
+            "4443:' Since'",
+            0.16195763647556305
+          ],
+          [
+            "12:','",
+            "6935:'During'",
+            0.161309614777565
+          ],
+          [
+            "12:','",
+            "7863:'Because'",
+            0.16094054281711578
+          ],
+          [
+            "12:','",
+            "6261:'Since'",
+            0.15812943875789642
+          ]
+        ],
+        "min": [
+          [
+            "0:'<|endoftext|>'",
+            "7521:' oven'",
+            -0.06552306562662125
+          ],
+          [
+            "0:'<|endoftext|>'",
+            "6187:' musical'",
+            -0.04871347174048424
+          ],
+          [
+            "0:'<|endoftext|>'",
+            "5584:' recipe'",
+            -0.0480383038520813
+          ],
+          [
+            "0:'<|endoftext|>'",
+            "3942:' album'",
+            -0.04779352247714996
+          ],
+          [
+            "0:'<|endoftext|>'",
+            "4090:' Lord'",
+            -0.04709130525588989
+          ],
+          [
+            "0:'<|endoftext|>'",
+            "8066:' pepper'",
+            -0.04703258350491524
+          ],
+          [
+            "0:'<|endoftext|>'",
+            "1234:' game'",
+            -0.04663914442062378
+          ],
+          [
+            "0:'<|endoftext|>'",
+            "1611:' season'",
+            -0.04627877101302147
+          ],
+          [
+            "0:'<|endoftext|>'",
+            "3485:' disease'",
+            -0.04554954916238785
+          ],
+          [
+            "0:'<|endoftext|>'",
+            "4434:' diet'",
+            -0.0455237552523613
+          ],
+          [
+            "0:'<|endoftext|>'",
+            "5468:' symptoms'",
+            -0.045063409954309464
+          ],
+          [
+            "0:'<|endoftext|>'",
+            "5168:' climate'",
+            -0.044737279415130615
+          ],
+          [
+            "0:'<|endoftext|>'",
+            "4859:' wedding'",
+            -0.044706687331199646
+          ],
+          [
+            "0:'<|endoftext|>'",
+            "5978:' Minister'",
+            -0.043829455971717834
+          ],
+          [
+            "0:'<|endoftext|>'",
+            "5299:' ingredients'",
+            -0.04291734844446182
+          ],
+          [
+            "0:'<|endoftext|>'",
+            "4130:' characters'",
+            -0.042527999728918076
+          ],
+          [
+            "0:'<|endoftext|>'",
+            "6462:' Bible'",
+            -0.0424807146191597
+          ],
+          [
+            "0:'<|endoftext|>'",
+            "3828:' Jesus'",
+            -0.042298294603824615
+          ],
+          [
+            "0:'<|endoftext|>'",
+            "4002:' surround'",
+            -0.042190760374069214
+          ],
+          [
+            "0:'<|endoftext|>'",
+            "4820:' taste'",
+            -0.041789326816797256
+          ]
+        ],
+        "abs_mean": 0.001446353504434228,
+        "std": 0.0021115299314260483
+      },
+      {
+        "head": 4,
+        "max": [
+          [
+            "9:')'",
+            "8:'('",
+            0.15772442519664764
+          ],
+          [
+            "887:'),'",
+            "8:'('",
+            0.10255706310272217
+          ],
+          [
+            "931:'\u201c'",
+            "400:' ('",
+            0.09037840366363525
+          ],
+          [
+            "931:'\u201c'",
+            "8:'('",
+            0.0901312381029129
+          ],
+          [
+            "767:').'",
+            "8:'('",
+            0.0792899802327156
+          ],
+          [
+            "3549:'):'",
+            "8:'('",
+            0.07475396245718002
+          ],
+          [
+            "484:'\u201d'",
+            "8:'('",
+            0.06662296503782272
+          ],
+          [
+            "1320:' \u2018'",
+            "8:'('",
+            0.06622243672609329
+          ],
+          [
+            "9:')'",
+            "366:' W'",
+            0.06483998894691467
+          ],
+          [
+            "5854:'!)'",
+            "8:'('",
+            0.060891084372997284
+          ],
+          [
+            "931:'\u201c'",
+            "1735:'St'",
+            0.056654952466487885
+          ],
+          [
+            "931:'\u201c'",
+            "1882:' example'",
+            0.05641454830765724
+          ],
+          [
+            "9:')'",
+            "1076:' Sh'",
+            0.055309876799583435
+          ],
+          [
+            "1320:' \u2018'",
+            "400:' ('",
+            0.05529488995671272
+          ],
+          [
+            "9:')'",
+            "624:' 3'",
+            0.055047743022441864
+          ],
+          [
+            "9:')'",
+            "1985:' below'",
+            0.05462237074971199
+          ],
+          [
+            "9:')'",
+            "349:' he'",
+            0.05416591838002205
+          ],
+          [
+            "2:'\"'",
+            "8:'('",
+            0.05378789082169533
+          ],
+          [
+            "7632:' )'",
+            "8:'('",
+            0.05341678112745285
+          ],
+          [
+            "931:'\u201c'",
+            "2137:' anything'",
+            0.05256231129169464
+          ]
+        ],
+        "min": [
+          [
+            "931:'\u201c'",
+            "3326:'?\u201d'",
+            -0.37780120968818665
+          ],
+          [
+            "931:'\u201c'",
+            "4614:'?\"'",
+            -0.37299656867980957
+          ],
+          [
+            "931:'\u201c'",
+            "1273:',\"'",
+            -0.3087144196033478
+          ],
+          [
+            "931:'\u201c'",
+            "1032:',\u201d'",
+            -0.30527377128601074
+          ],
+          [
+            "931:'\u201c'",
+            "1054:'.\"'",
+            -0.28954532742500305
+          ],
+          [
+            "931:'\u201c'",
+            "5019:'!\u201d'",
+            -0.2890986502170563
+          ],
+          [
+            "931:'\u201c'",
+            "5911:'!\"'",
+            -0.28386515378952026
+          ],
+          [
+            "931:'\u201c'",
+            "850:'.\u201d'",
+            -0.2621932625770569
+          ],
+          [
+            "610:' \"'",
+            "4614:'?\"'",
+            -0.2606752812862396
+          ],
+          [
+            "610:' \"'",
+            "4496:'\",'",
+            -0.2524869441986084
+          ],
+          [
+            "931:'\u201c'",
+            "4496:'\",'",
+            -0.24954617023468018
+          ],
+          [
+            "610:' \"'",
+            "3326:'?\u201d'",
+            -0.24787655472755432
+          ],
+          [
+            "931:'\u201c'",
+            "4529:'\u201d,'",
+            -0.24438609182834625
+          ],
+          [
+            "541:' \u201c'",
+            "3326:'?\u201d'",
+            -0.2437632530927658
+          ],
+          [
+            "931:'\u201c'",
+            "3168:'\".'",
+            -0.23782344162464142
+          ],
+          [
+            "541:' \u201c'",
+            "4614:'?\"'",
+            -0.23716793954372406
+          ],
+          [
+            "931:'\u201c'",
+            "484:'\u201d'",
+            -0.2297230213880539
+          ],
+          [
+            "610:' \"'",
+            "3168:'\".'",
+            -0.22835281491279602
+          ],
+          [
+            "610:' \"'",
+            "1273:',\"'",
+            -0.22620096802711487
+          ],
+          [
+            "2:'\"'",
+            "4614:'?\"'",
+            -0.2177310734987259
+          ]
+        ],
+        "abs_mean": 0.00034869875526055694,
+        "std": 0.0007202124688774347
+      },
+      {
+        "head": 5,
+        "max": [
+          [
+            "428:' not'",
+            "4400:'Do'",
+            0.36956435441970825
+          ],
+          [
+            "428:' not'",
+            "2064:' Do'",
+            0.36515358090400696
+          ],
+          [
+            "428:' not'",
+            "5678:'Can'",
+            0.3477674424648285
+          ],
+          [
+            "480:' so'",
+            "2064:' Do'",
+            0.3423319160938263
+          ],
+          [
+            "428:' not'",
+            "448:'ould'",
+            0.3407747447490692
+          ],
+          [
+            "480:' so'",
+            "4400:'Do'",
+            0.34056374430656433
+          ],
+          [
+            "428:' not'",
+            "5674:'do'",
+            0.3310546576976776
+          ],
+          [
+            "428:' not'",
+            "939:' does'",
+            0.3297974765300751
+          ],
+          [
+            "480:' so'",
+            "5678:'Can'",
+            0.3268708884716034
+          ],
+          [
+            "480:' so'",
+            "448:'ould'",
+            0.31592002511024475
+          ],
+          [
+            "480:' so'",
+            "1742:' doing'",
+            0.31463614106178284
+          ],
+          [
+            "480:' so'",
+            "5674:'do'",
+            0.3125711977481842
+          ],
+          [
+            "428:' not'",
+            "6962:' Does'",
+            0.30849480628967285
+          ],
+          [
+            "84:'t'",
+            "4257:' wouldn'",
+            0.3068043291568756
+          ],
+          [
+            "321:' you'",
+            "4400:'Do'",
+            0.3055838942527771
+          ],
+          [
+            "428:' not'",
+            "1742:' doing'",
+            0.3039073050022125
+          ],
+          [
+            "321:' you'",
+            "2064:' Do'",
+            0.29859769344329834
+          ],
+          [
+            "428:' not'",
+            "849:' did'",
+            0.29837682843208313
+          ],
+          [
+            "428:' not'",
+            "1657:' Can'",
+            0.2941458225250244
+          ],
+          [
+            "321:' you'",
+            "5678:'Can'",
+            0.2853310704231262
+          ]
+        ],
+        "min": [
+          [
+            "439:' can'",
+            "4400:'Do'",
+            -0.053557876497507095
+          ],
+          [
+            "439:' can'",
+            "448:'ould'",
+            -0.051606956869363785
+          ],
+          [
+            "439:' can'",
+            "5678:'Can'",
+            -0.04883863404393196
+          ],
+          [
+            "439:' can'",
+            "2064:' Do'",
+            -0.04834353178739548
+          ],
+          [
+            "439:' can'",
+            "1657:' Can'",
+            -0.04574792459607124
+          ],
+          [
+            "677:' how'",
+            "1617:' didn'",
+            -0.04542252793908119
+          ],
+          [
+            "677:' how'",
+            "4257:' wouldn'",
+            -0.04293488338589668
+          ],
+          [
+            "439:' can'",
+            "5674:'do'",
+            -0.04239662364125252
+          ],
+          [
+            "439:' can'",
+            "7750:' Did'",
+            -0.04192441329360008
+          ],
+          [
+            "4249:'iled'",
+            "4400:'Do'",
+            -0.04178507626056671
+          ],
+          [
+            "4249:'iled'",
+            "448:'ould'",
+            -0.0401792898774147
+          ],
+          [
+            "439:' can'",
+            "6463:'Are'",
+            -0.040023323148489
+          ],
+          [
+            "4249:'iled'",
+            "2064:' Do'",
+            -0.039105772972106934
+          ],
+          [
+            "439:' can'",
+            "1336:' Is'",
+            -0.0384141206741333
+          ],
+          [
+            "439:' can'",
+            "6962:' Does'",
+            -0.03813770413398743
+          ],
+          [
+            "677:' how'",
+            "2924:' wasn'",
+            -0.03773988038301468
+          ],
+          [
+            "677:' how'",
+            "860:' don'",
+            -0.03747323900461197
+          ],
+          [
+            "4249:'iled'",
+            "5678:'Can'",
+            -0.03695189580321312
+          ],
+          [
+            "677:' how'",
+            "384:'ore'",
+            -0.036425985395908356
+          ],
+          [
+            "677:' how'",
+            "1806:' doesn'",
+            -0.03618810325860977
+          ]
+        ],
+        "abs_mean": 0.0003584193764254451,
+        "std": 0.0010827562073245645
+      },
+      {
+        "head": 6,
+        "max": [
+          [
+            "367:' con'",
+            "8189:'iti'",
+            0.008937071077525616
+          ],
+          [
+            "367:' con'",
+            "6760:' Link'",
+            0.007003693375736475
+          ],
+          [
+            "367:' con'",
+            "5551:' Look'",
+            0.006755702663213015
+          ],
+          [
+            "367:' con'",
+            "5753:' carried'",
+            0.006297722924500704
+          ],
+          [
+            "367:' con'",
+            "7535:' divid'",
+            0.005828540772199631
+          ],
+          [
+            "367:' con'",
+            "1512:'tend'",
+            0.005761263892054558
+          ],
+          [
+            "1617:' didn'",
+            "4795:' ended'",
+            0.005711864214390516
+          ],
+          [
+            "367:' con'",
+            "5018:' Check'",
+            0.00534442625939846
+          ],
+          [
+            "1589:' expect'",
+            "8009:'roduction'",
+            0.005147865507751703
+          ],
+          [
+            "367:' con'",
+            "3638:'isl'",
+            0.0051250699907541275
+          ],
+          [
+            "367:' con'",
+            "7912:' interact'",
+            0.005034325178712606
+          ],
+          [
+            "271:'it'",
+            "1070:'ween'",
+            0.004998399410396814
+          ],
+          [
+            "2403:'apt'",
+            "3230:' purchase'",
+            0.004974422510713339
+          ],
+          [
+            "271:'it'",
+            "7985:' treatments'",
+            0.0049574668519198895
+          ],
+          [
+            "367:' con'",
+            "1551:' intern'",
+            0.004934223834425211
+          ],
+          [
+            "2924:' wasn'",
+            "4795:' ended'",
+            0.004921074025332928
+          ],
+          [
+            "367:' con'",
+            "3432:' interested'",
+            0.004873787518590689
+          ],
+          [
+            "579:'ick'",
+            "3230:' purchase'",
+            0.004857503343373537
+          ],
+          [
+            "367:' con'",
+            "5766:' Thank'",
+            0.004834627266973257
+          ],
+          [
+            "1589:' expect'",
+            "6072:' cutting'",
+            0.0048086270689964294
+          ]
+        ],
+        "min": [
+          [
+            "726:'ating'",
+            "7905:' accord'",
+            -0.08491808921098709
+          ],
+          [
+            "1472:'ator'",
+            "7905:' accord'",
+            -0.08361455053091049
+          ],
+          [
+            "515:'ated'",
+            "7905:' accord'",
+            -0.08350622653961182
+          ],
+          [
+            "708:'ates'",
+            "7905:' accord'",
+            -0.08112016320228577
+          ],
+          [
+            "641:'ors'",
+            "7905:' accord'",
+            -0.07826874405145645
+          ],
+          [
+            "294:'as'",
+            "2109:' sci'",
+            -0.07669973373413086
+          ],
+          [
+            "340:'ation'",
+            "7905:' accord'",
+            -0.07631808519363403
+          ],
+          [
+            "1118:'ars'",
+            "7905:' accord'",
+            -0.07619170844554901
+          ],
+          [
+            "294:'as'",
+            "1836:' ey'",
+            -0.0746012032032013
+          ],
+          [
+            "294:'as'",
+            "5313:' phil'",
+            -0.07344240695238113
+          ],
+          [
+            "386:'est'",
+            "2109:' sci'",
+            -0.07335230708122253
+          ],
+          [
+            "282:'an'",
+            "2109:' sci'",
+            -0.07318581640720367
+          ],
+          [
+            "373:'ate'",
+            "7905:' accord'",
+            -0.07305293530225754
+          ],
+          [
+            "811:'als'",
+            "7905:' accord'",
+            -0.07298151403665543
+          ],
+          [
+            "294:'as'",
+            "5865:' ec'",
+            -0.07294560223817825
+          ],
+          [
+            "689:'vers'",
+            "7905:' accord'",
+            -0.0728391706943512
+          ],
+          [
+            "294:'as'",
+            "5948:' lux'",
+            -0.07272200286388397
+          ],
+          [
+            "431:'el'",
+            "2109:' sci'",
+            -0.07269609719514847
+          ],
+          [
+            "569:'ations'",
+            "7905:' accord'",
+            -0.07258061319589615
+          ],
+          [
+            "313:'et'",
+            "2109:' sci'",
+            -0.07254228740930557
+          ]
+        ],
+        "abs_mean": 0.009016548283398151,
+        "std": 0.008316725492477417
+      },
+      {
+        "head": 7,
+        "max": [
+          [
+            "298:'ll'",
+            "41:'I'",
+            0.14325766265392303
+          ],
+          [
+            "298:'ll'",
+            "2831:' myself'",
+            0.13115252554416656
+          ],
+          [
+            "298:'ll'",
+            "2826:'My'",
+            0.12631864845752716
+          ],
+          [
+            "298:'ll'",
+            "483:' me'",
+            0.11622659116983414
+          ],
+          [
+            "298:'ll'",
+            "518:' my'",
+            0.10304491966962814
+          ],
+          [
+            "298:'ll'",
+            "1793:' My'",
+            0.10151349753141403
+          ],
+          [
+            "629:' her'",
+            "1278:' She'",
+            0.09562795609235764
+          ],
+          [
+            "298:'ll'",
+            "5722:' mine'",
+            0.09191975742578506
+          ],
+          [
+            "298:'ll'",
+            "312:' I'",
+            0.09030884504318237
+          ],
+          [
+            "703:' she'",
+            "1278:' She'",
+            0.09022287279367447
+          ],
+          [
+            "629:' her'",
+            "2833:' woman'",
+            0.08791355043649673
+          ],
+          [
+            "703:' she'",
+            "2833:' woman'",
+            0.0845894142985344
+          ],
+          [
+            "629:' her'",
+            "703:' she'",
+            0.08047826588153839
+          ],
+          [
+            "298:'ll'",
+            "705:'we'",
+            0.07930048555135727
+          ],
+          [
+            "629:' her'",
+            "3779:'She'",
+            0.07352682948112488
+          ],
+          [
+            "298:'ll'",
+            "7239:'Thanks'",
+            0.07300025224685669
+          ],
+          [
+            "629:' her'",
+            "629:' her'",
+            0.07176126539707184
+          ],
+          [
+            "298:'ll'",
+            "849:' did'",
+            0.0717359185218811
+          ],
+          [
+            "703:' she'",
+            "629:' her'",
+            0.07162687182426453
+          ],
+          [
+            "703:' she'",
+            "703:' she'",
+            0.0706719160079956
+          ]
+        ],
+        "min": [
+          [
+            "686:' am'",
+            "41:'I'",
+            -0.1922590732574463
+          ],
+          [
+            "686:' am'",
+            "312:' I'",
+            -0.14126062393188477
+          ],
+          [
+            "686:' am'",
+            "2826:'My'",
+            -0.14106230437755585
+          ],
+          [
+            "686:' am'",
+            "518:' my'",
+            -0.11968552321195602
+          ],
+          [
+            "312:' I'",
+            "2826:'My'",
+            -0.11951954662799835
+          ],
+          [
+            "686:' am'",
+            "1352:' i'",
+            -0.11802072077989578
+          ],
+          [
+            "447:' will'",
+            "1503:'You'",
+            -0.11776863783597946
+          ],
+          [
+            "1273:',\"'",
+            "1426:' says'",
+            -0.11718014627695084
+          ],
+          [
+            "447:' will'",
+            "824:' You'",
+            -0.11412566900253296
+          ],
+          [
+            "1273:',\"'",
+            "674:' said'",
+            -0.11032789200544357
+          ],
+          [
+            "2052:\"'ll\"",
+            "824:' You'",
+            -0.10466604679822922
+          ],
+          [
+            "2052:\"'ll\"",
+            "1503:'You'",
+            -0.10375745594501495
+          ],
+          [
+            "538:' our'",
+            "992:'We'",
+            -0.10245555639266968
+          ],
+          [
+            "298:'ll'",
+            "824:' You'",
+            -0.1017138734459877
+          ],
+          [
+            "350:' we'",
+            "992:'We'",
+            -0.0982411801815033
+          ],
+          [
+            "686:' am'",
+            "483:' me'",
+            -0.09801971912384033
+          ],
+          [
+            "538:' our'",
+            "668:' We'",
+            -0.0968606099486351
+          ],
+          [
+            "1032:',\u201d'",
+            "1426:' says'",
+            -0.09662218391895294
+          ],
+          [
+            "1032:',\u201d'",
+            "674:' said'",
+            -0.09633635729551315
+          ],
+          [
+            "350:' we'",
+            "2832:'Our'",
+            -0.09592416137456894
+          ]
+        ],
+        "abs_mean": 0.00044536235509440303,
+        "std": 0.0012201621429994702
+      },
+      {
+        "head": 8,
+        "max": [
+          [
+            "528:' his'",
+            "629:' her'",
+            0.044933661818504333
+          ],
+          [
+            "812:'ful'",
+            "1554:' God'",
+            0.028028937056660652
+          ],
+          [
+            "349:' he'",
+            "561:'ire'",
+            0.026478024199604988
+          ],
+          [
+            "1255:' another'",
+            "1985:' below'",
+            0.025786273181438446
+          ],
+          [
+            "528:' his'",
+            "561:'ire'",
+            0.02552526444196701
+          ],
+          [
+            "675:' He'",
+            "561:'ire'",
+            0.024178320541977882
+          ],
+          [
+            "1255:' another'",
+            "539:' In'",
+            0.023143354803323746
+          ],
+          [
+            "830:' him'",
+            "629:' her'",
+            0.02264741249382496
+          ],
+          [
+            "812:'ful'",
+            "1561:' Christ'",
+            0.021945593878626823
+          ],
+          [
+            "812:'ful'",
+            "3828:' Jesus'",
+            0.02188516966998577
+          ],
+          [
+            "1352:' i'",
+            "1352:' i'",
+            0.021213732659816742
+          ],
+          [
+            "511:' en'",
+            "511:' en'",
+            0.021001556888222694
+          ],
+          [
+            "1352:' i'",
+            "3828:' Jesus'",
+            0.020925521850585938
+          ],
+          [
+            "433:'ies'",
+            "869:' down'",
+            0.020835695788264275
+          ],
+          [
+            "836:'||'",
+            "1352:' i'",
+            0.020617548376321793
+          ],
+          [
+            "307:' n'",
+            "1747:' others'",
+            0.02014569379389286
+          ],
+          [
+            "1352:' i'",
+            "1554:' God'",
+            0.01971025951206684
+          ],
+          [
+            "7808:'His'",
+            "629:' her'",
+            0.01932726800441742
+          ],
+          [
+            "307:' n'",
+            "1796:' John'",
+            0.019248394295573235
+          ],
+          [
+            "690:' co'",
+            "434:' al'",
+            0.019085805863142014
+          ]
+        ],
+        "min": [
+          [
+            "528:' his'",
+            "675:' He'",
+            -0.12721145153045654
+          ],
+          [
+            "528:' his'",
+            "2385:' Mr'",
+            -0.11628153920173645
+          ],
+          [
+            "528:' his'",
+            "1442:'He'",
+            -0.10922009497880936
+          ],
+          [
+            "528:' his'",
+            "3950:' guy'",
+            -0.10556283593177795
+          ],
+          [
+            "528:' his'",
+            "1271:' friend'",
+            -0.10490638762712479
+          ],
+          [
+            "528:' his'",
+            "3647:' David'",
+            -0.10484141111373901
+          ],
+          [
+            "528:' his'",
+            "1796:' John'",
+            -0.10443085432052612
+          ],
+          [
+            "528:' his'",
+            "4813:' George'",
+            -0.0992300882935524
+          ],
+          [
+            "528:' his'",
+            "546:' man'",
+            -0.09769964963197708
+          ],
+          [
+            "675:' He'",
+            "830:' him'",
+            -0.09611556679010391
+          ],
+          [
+            "528:' his'",
+            "3991:' James'",
+            -0.09542020410299301
+          ],
+          [
+            "528:' his'",
+            "349:' he'",
+            -0.0933772549033165
+          ],
+          [
+            "528:' his'",
+            "4117:' Michael'",
+            -0.09306667745113373
+          ],
+          [
+            "528:' his'",
+            "830:' him'",
+            -0.0930464044213295
+          ],
+          [
+            "830:' him'",
+            "675:' He'",
+            -0.09281785041093826
+          ],
+          [
+            "349:' he'",
+            "830:' him'",
+            -0.09268321096897125
+          ],
+          [
+            "528:' his'",
+            "2383:' Dr'",
+            -0.09200698882341385
+          ],
+          [
+            "830:' him'",
+            "1271:' friend'",
+            -0.08877013623714447
+          ],
+          [
+            "349:' he'",
+            "675:' He'",
+            -0.08816739916801453
+          ],
+          [
+            "528:' his'",
+            "2311:' His'",
+            -0.08810445666313171
+          ]
+        ],
+        "abs_mean": 0.0003980926121585071,
+        "std": 0.0007549019064754248
+      },
+      {
+        "head": 9,
+        "max": [
+          [
+            "484:'\u201d'",
+            "1417:\" '\"",
+            0.16538795828819275
+          ],
+          [
+            "484:'\u201d'",
+            "610:' \"'",
+            0.15942570567131042
+          ],
+          [
+            "2:'\"'",
+            "1417:\" '\"",
+            0.1570100635290146
+          ],
+          [
+            "484:'\u201d'",
+            "541:' \u201c'",
+            0.14965130388736725
+          ],
+          [
+            "2:'\"'",
+            "610:' \"'",
+            0.1474924236536026
+          ],
+          [
+            "2:'\"'",
+            "541:' \u201c'",
+            0.1241888552904129
+          ],
+          [
+            "484:'\u201d'",
+            "1320:' \u2018'",
+            0.12305676937103271
+          ],
+          [
+            "1276:' company'",
+            "0:'<|endoftext|>'",
+            0.11534163355827332
+          ],
+          [
+            "1234:' game'",
+            "0:'<|endoftext|>'",
+            0.1152210459113121
+          ],
+          [
+            "1074:' team'",
+            "0:'<|endoftext|>'",
+            0.11470964550971985
+          ],
+          [
+            "2264:' film'",
+            "0:'<|endoftext|>'",
+            0.11442751437425613
+          ],
+          [
+            "1335:' project'",
+            "0:'<|endoftext|>'",
+            0.11378784477710724
+          ],
+          [
+            "986:' system'",
+            "0:'<|endoftext|>'",
+            0.11364728957414627
+          ],
+          [
+            "2033:' games'",
+            "0:'<|endoftext|>'",
+            0.11303938180208206
+          ],
+          [
+            "976:' business'",
+            "0:'<|endoftext|>'",
+            0.11168847233057022
+          ],
+          [
+            "2481:' party'",
+            "0:'<|endoftext|>'",
+            0.10902601480484009
+          ],
+          [
+            "1656:' community'",
+            "0:'<|endoftext|>'",
+            0.10885130614042282
+          ],
+          [
+            "903:'ics'",
+            "0:'<|endoftext|>'",
+            0.10863874107599258
+          ],
+          [
+            "21:'5'",
+            "0:'<|endoftext|>'",
+            0.10795299708843231
+          ],
+          [
+            "1360:' service'",
+            "0:'<|endoftext|>'",
+            0.10733158886432648
+          ]
+        ],
+        "min": [
+          [
+            "2:'\"'",
+            "484:'\u201d'",
+            -0.040324583649635315
+          ],
+          [
+            "484:'\u201d'",
+            "484:'\u201d'",
+            -0.0385902114212513
+          ],
+          [
+            "46:'N'",
+            "830:' him'",
+            -0.032548531889915466
+          ],
+          [
+            "2:'\"'",
+            "422:' your'",
+            -0.030826285481452942
+          ],
+          [
+            "8:'('",
+            "830:' him'",
+            -0.028306009247899055
+          ],
+          [
+            "1276:' company'",
+            "528:' his'",
+            -0.027404526248574257
+          ],
+          [
+            "1074:' team'",
+            "528:' his'",
+            -0.027007970958948135
+          ],
+          [
+            "48:'P'",
+            "830:' him'",
+            -0.026976533234119415
+          ],
+          [
+            "476:' k'",
+            "593:' any'",
+            -0.026949193328619003
+          ],
+          [
+            "36:'D'",
+            "830:' him'",
+            -0.02692488394677639
+          ],
+          [
+            "1335:' project'",
+            "528:' his'",
+            -0.02680985815823078
+          ],
+          [
+            "514:'able'",
+            "830:' him'",
+            -0.026630733162164688
+          ],
+          [
+            "986:' system'",
+            "422:' your'",
+            -0.02649444155395031
+          ],
+          [
+            "37:'E'",
+            "830:' him'",
+            -0.026375005021691322
+          ],
+          [
+            "1276:' company'",
+            "422:' your'",
+            -0.026314368471503258
+          ],
+          [
+            "1335:' project'",
+            "422:' your'",
+            -0.02624867670238018
+          ],
+          [
+            "986:' system'",
+            "538:' our'",
+            -0.026241127401590347
+          ],
+          [
+            "986:' system'",
+            "528:' his'",
+            -0.026079127565026283
+          ],
+          [
+            "35:'C'",
+            "830:' him'",
+            -0.025943173095583916
+          ],
+          [
+            "567:'ail'",
+            "528:' his'",
+            -0.025934454053640366
+          ]
+        ],
+        "abs_mean": 0.0030110017396509647,
+        "std": 0.002604009350761771
+      },
+      {
+        "head": 10,
+        "max": [
+          [
+            "346:'\u2019'",
+            "5010:'\u2018'",
+            0.28804072737693787
+          ],
+          [
+            "484:'\u201d'",
+            "931:'\u201c'",
+            0.28320279717445374
+          ],
+          [
+            "7:\"'\"",
+            "1320:' \u2018'",
+            0.2802630364894867
+          ],
+          [
+            "850:'.\u201d'",
+            "931:'\u201c'",
+            0.26519638299942017
+          ],
+          [
+            "7:\"'\"",
+            "5010:'\u2018'",
+            0.26093125343322754
+          ],
+          [
+            "346:'\u2019'",
+            "1320:' \u2018'",
+            0.24998769164085388
+          ],
+          [
+            "7:\"'\"",
+            "1417:\" '\"",
+            0.23736532032489777
+          ],
+          [
+            "3326:'?\u201d'",
+            "931:'\u201c'",
+            0.2227729707956314
+          ],
+          [
+            "5019:'!\u201d'",
+            "931:'\u201c'",
+            0.22262175381183624
+          ],
+          [
+            "1032:',\u201d'",
+            "931:'\u201c'",
+            0.22111962735652924
+          ],
+          [
+            "1054:'.\"'",
+            "610:' \"'",
+            0.21723158657550812
+          ],
+          [
+            "6174:\".'\"",
+            "1417:\" '\"",
+            0.21667248010635376
+          ],
+          [
+            "4529:'\u201d,'",
+            "931:'\u201c'",
+            0.18128974735736847
+          ],
+          [
+            "3534:'\u201d.'",
+            "931:'\u201c'",
+            0.17808319628238678
+          ],
+          [
+            "484:'\u201d'",
+            "541:' \u201c'",
+            0.17556433379650116
+          ],
+          [
+            "674:' said'",
+            "5010:'\u2018'",
+            0.17522023618221283
+          ],
+          [
+            "5232:'.\u2019'",
+            "5010:'\u2018'",
+            0.17206990718841553
+          ],
+          [
+            "3168:'\".'",
+            "610:' \"'",
+            0.17167729139328003
+          ],
+          [
+            "6652:'\u2019.'",
+            "5010:'\u2018'",
+            0.1678917109966278
+          ],
+          [
+            "1273:',\"'",
+            "610:' \"'",
+            0.16548936069011688
+          ]
+        ],
+        "min": [
+          [
+            "484:'\u201d'",
+            "0:'<|endoftext|>'",
+            -0.20507490634918213
+          ],
+          [
+            "674:' said'",
+            "0:'<|endoftext|>'",
+            -0.16658547520637512
+          ],
+          [
+            "346:'\u2019'",
+            "0:'<|endoftext|>'",
+            -0.16575762629508972
+          ],
+          [
+            "3326:'?\u201d'",
+            "0:'<|endoftext|>'",
+            -0.1638900339603424
+          ],
+          [
+            "850:'.\u201d'",
+            "0:'<|endoftext|>'",
+            -0.1434594839811325
+          ],
+          [
+            "1032:',\u201d'",
+            "0:'<|endoftext|>'",
+            -0.13380998373031616
+          ],
+          [
+            "1341:' \u2014'",
+            "0:'<|endoftext|>'",
+            -0.13256116211414337
+          ],
+          [
+            "5019:'!\u201d'",
+            "0:'<|endoftext|>'",
+            -0.12826374173164368
+          ],
+          [
+            "31:'?'",
+            "5010:'\u2018'",
+            -0.11867453902959824
+          ],
+          [
+            "1426:' says'",
+            "0:'<|endoftext|>'",
+            -0.1118006631731987
+          ],
+          [
+            "4529:'\u201d,'",
+            "0:'<|endoftext|>'",
+            -0.10810931771993637
+          ],
+          [
+            "1366:'\u2014'",
+            "0:'<|endoftext|>'",
+            -0.10381710529327393
+          ],
+          [
+            "3534:'\u201d.'",
+            "0:'<|endoftext|>'",
+            -0.10320158302783966
+          ],
+          [
+            "7:\"'\"",
+            "0:'<|endoftext|>'",
+            -0.1004527360200882
+          ],
+          [
+            "931:'\u201c'",
+            "0:'<|endoftext|>'",
+            -0.0980914756655693
+          ],
+          [
+            "1:'!'",
+            "5010:'\u2018'",
+            -0.09194091707468033
+          ],
+          [
+            "7007:'\u2019,'",
+            "0:'<|endoftext|>'",
+            -0.09096377342939377
+          ],
+          [
+            "31:'?'",
+            "1320:' \u2018'",
+            -0.09029877930879593
+          ],
+          [
+            "1:'!'",
+            "1320:' \u2018'",
+            -0.08660639077425003
+          ],
+          [
+            "4614:'?\"'",
+            "0:'<|endoftext|>'",
+            -0.08557125926017761
+          ]
+        ],
+        "abs_mean": 0.000335774093400687,
+        "std": 0.0006816055392846465
+      },
+      {
+        "head": 11,
+        "max": [
+          [
+            "264:'er'",
+            "7272:'ML'",
+            0.026150159537792206
+          ],
+          [
+            "262:'on'",
+            "426:' E'",
+            0.02395964413881302
+          ],
+          [
+            "264:'er'",
+            "6014:'About'",
+            0.023949263617396355
+          ],
+          [
+            "264:'er'",
+            "931:'\u201c'",
+            0.023507513105869293
+          ],
+          [
+            "262:'on'",
+            "446:' O'",
+            0.022976800799369812
+          ],
+          [
+            "264:'er'",
+            "3722:'PS'",
+            0.02285093255341053
+          ],
+          [
+            "264:'er'",
+            "426:' E'",
+            0.022690292447805405
+          ],
+          [
+            "264:'er'",
+            "913:'In'",
+            0.02237040549516678
+          ],
+          [
+            "264:'er'",
+            "2005:'How'",
+            0.02236722968518734
+          ],
+          [
+            "264:'er'",
+            "2832:'Our'",
+            0.02234599180519581
+          ],
+          [
+            "262:'on'",
+            "464:' J'",
+            0.022191273048520088
+          ],
+          [
+            "264:'er'",
+            "6986:'PC'",
+            0.021915903314948082
+          ],
+          [
+            "264:'er'",
+            "7259:'CD'",
+            0.02175701968371868
+          ],
+          [
+            "264:'er'",
+            "3622:'By'",
+            0.021725686267018318
+          ],
+          [
+            "264:'er'",
+            "1369:'If'",
+            0.021666549146175385
+          ],
+          [
+            "264:'er'",
+            "5613:'According'",
+            0.021645285189151764
+          ],
+          [
+            "264:'er'",
+            "3913:'While'",
+            0.0215751975774765
+          ],
+          [
+            "262:'on'",
+            "7272:'ML'",
+            0.021544910967350006
+          ],
+          [
+            "264:'er'",
+            "280:' p'",
+            0.021537331864237785
+          ],
+          [
+            "433:'ies'",
+            "574:' per'",
+            0.021445484831929207
+          ]
+        ],
+        "min": [
+          [
+            "33:'A'",
+            "7272:'ML'",
+            -0.20130570232868195
+          ],
+          [
+            "92:'|'",
+            "1643:' ['",
+            -0.196120023727417
+          ],
+          [
+            "38:'F'",
+            "1643:' ['",
+            -0.19270163774490356
+          ],
+          [
+            "33:'A'",
+            "1643:' ['",
+            -0.19138379395008087
+          ],
+          [
+            "44:'L'",
+            "7272:'ML'",
+            -0.18920688331127167
+          ],
+          [
+            "38:'F'",
+            "0:'<|endoftext|>'",
+            -0.18589454889297485
+          ],
+          [
+            "33:'A'",
+            "0:'<|endoftext|>'",
+            -0.1858014166355133
+          ],
+          [
+            "44:'L'",
+            "446:' O'",
+            -0.18563613295555115
+          ],
+          [
+            "44:'L'",
+            "0:'<|endoftext|>'",
+            -0.18427182734012604
+          ],
+          [
+            "33:'A'",
+            "2832:'Our'",
+            -0.18413107097148895
+          ],
+          [
+            "33:'A'",
+            "6935:'During'",
+            -0.1840084046125412
+          ],
+          [
+            "38:'F'",
+            "1417:\" '\"",
+            -0.1836228370666504
+          ],
+          [
+            "33:'A'",
+            "6986:'PC'",
+            -0.1814788281917572
+          ],
+          [
+            "44:'L'",
+            "1643:' ['",
+            -0.18053875863552094
+          ],
+          [
+            "33:'A'",
+            "1320:' \u2018'",
+            -0.17955686151981354
+          ],
+          [
+            "38:'F'",
+            "7272:'ML'",
+            -0.1790178269147873
+          ],
+          [
+            "33:'A'",
+            "446:' O'",
+            -0.17859752476215363
+          ],
+          [
+            "41:'I'",
+            "7272:'ML'",
+            -0.17842282354831696
+          ],
+          [
+            "44:'L'",
+            "1417:\" '\"",
+            -0.17764772474765778
+          ],
+          [
+            "44:'L'",
+            "6935:'During'",
+            -0.17621667683124542
+          ]
+        ],
+        "abs_mean": 0.0015688387211412191,
+        "std": 0.004584727343171835
+      },
+      {
+        "head": 12,
+        "max": [
+          [
+            "395:' was'",
+            "3226:' knew'",
+            0.14927063882350922
+          ],
+          [
+            "635:' would'",
+            "3226:' knew'",
+            0.14026214182376862
+          ],
+          [
+            "395:' was'",
+            "2924:' wasn'",
+            0.1399649977684021
+          ],
+          [
+            "618:' were'",
+            "3226:' knew'",
+            0.13597777485847473
+          ],
+          [
+            "635:' would'",
+            "2924:' wasn'",
+            0.1346375048160553
+          ],
+          [
+            "616:' had'",
+            "3226:' knew'",
+            0.1325051486492157
+          ],
+          [
+            "635:' would'",
+            "1617:' didn'",
+            0.12954449653625488
+          ],
+          [
+            "618:' were'",
+            "2924:' wasn'",
+            0.1284995973110199
+          ],
+          [
+            "395:' was'",
+            "1617:' didn'",
+            0.1283930093050003
+          ],
+          [
+            "395:' was'",
+            "6935:'During'",
+            0.1277446448802948
+          ],
+          [
+            "395:' was'",
+            "2686:' saw'",
+            0.12662243843078613
+          ],
+          [
+            "616:' had'",
+            "2924:' wasn'",
+            0.12458743155002594
+          ],
+          [
+            "635:' would'",
+            "6935:'During'",
+            0.12169143557548523
+          ],
+          [
+            "395:' was'",
+            "3286:'After'",
+            0.12111774832010269
+          ],
+          [
+            "395:' was'",
+            "1790:' thought'",
+            0.12070593982934952
+          ],
+          [
+            "618:' were'",
+            "1617:' didn'",
+            0.12064358592033386
+          ],
+          [
+            "395:' was'",
+            "3870:' couldn'",
+            0.12056195735931396
+          ],
+          [
+            "849:' did'",
+            "3226:' knew'",
+            0.11941774934530258
+          ],
+          [
+            "635:' would'",
+            "1790:' thought'",
+            0.11850037425756454
+          ],
+          [
+            "849:' did'",
+            "2924:' wasn'",
+            0.1176740974187851
+          ]
+        ],
+        "min": [
+          [
+            "395:' was'",
+            "1227:' must'",
+            -0.10869564116001129
+          ],
+          [
+            "1861:' went'",
+            "2735:' shall'",
+            -0.10277234762907028
+          ],
+          [
+            "395:' was'",
+            "2735:' shall'",
+            -0.10128576308488846
+          ],
+          [
+            "616:' had'",
+            "1227:' must'",
+            -0.10044461488723755
+          ],
+          [
+            "2802:' included'",
+            "1227:' must'",
+            -0.09944591671228409
+          ],
+          [
+            "1861:' went'",
+            "1227:' must'",
+            -0.09833110868930817
+          ],
+          [
+            "618:' were'",
+            "1227:' must'",
+            -0.09720000624656677
+          ],
+          [
+            "2802:' included'",
+            "2735:' shall'",
+            -0.09161730855703354
+          ],
+          [
+            "2295:' needed'",
+            "2735:' shall'",
+            -0.0871116891503334
+          ],
+          [
+            "2295:' needed'",
+            "1227:' must'",
+            -0.0850871279835701
+          ],
+          [
+            "618:' were'",
+            "2735:' shall'",
+            -0.08290369063615799
+          ],
+          [
+            "616:' had'",
+            "2735:' shall'",
+            -0.08263327926397324
+          ],
+          [
+            "1755:' came'",
+            "2735:' shall'",
+            -0.08056115359067917
+          ],
+          [
+            "3064:' gave'",
+            "2735:' shall'",
+            -0.08041802793741226
+          ],
+          [
+            "395:' was'",
+            "2535:' cannot'",
+            -0.08015726506710052
+          ],
+          [
+            "1139:'000'",
+            "993:' 10'",
+            -0.07945011556148529
+          ],
+          [
+            "3742:'75'",
+            "995:' 7'",
+            -0.07915686070919037
+          ],
+          [
+            "2593:' March'",
+            "993:' 10'",
+            -0.0789501816034317
+          ],
+          [
+            "3742:'75'",
+            "753:' 5'",
+            -0.07864753901958466
+          ],
+          [
+            "3930:' pages'",
+            "995:' 7'",
+            -0.07835681736469269
+          ]
+        ],
+        "abs_mean": 0.0008849592413753271,
+        "std": 0.0020731643307954073
+      },
+      {
+        "head": 13,
+        "max": [
+          [
+            "84:'t'",
+            "4348:'Ar'",
+            0.3937487304210663
+          ],
+          [
+            "83:'s'",
+            "4348:'Ar'",
+            0.36504513025283813
+          ],
+          [
+            "261:'re'",
+            "4348:'Ar'",
+            0.3328387141227722
+          ],
+          [
+            "298:'ll'",
+            "4348:'Ar'",
+            0.3247213661670685
+          ],
+          [
+            "77:'m'",
+            "4348:'Ar'",
+            0.317547470331192
+          ],
+          [
+            "261:'re'",
+            "574:' per'",
+            0.31251055002212524
+          ],
+          [
+            "77:'m'",
+            "574:' per'",
+            0.29692408442497253
+          ],
+          [
+            "302:'ve'",
+            "4348:'Ar'",
+            0.2951349914073944
+          ],
+          [
+            "298:'ll'",
+            "574:' per'",
+            0.294279009103775
+          ],
+          [
+            "68:'d'",
+            "4348:'Ar'",
+            0.2895469665527344
+          ],
+          [
+            "84:'t'",
+            "6076:'\u2122'",
+            0.2889443039894104
+          ],
+          [
+            "83:'s'",
+            "6076:'\u2122'",
+            0.2836259603500366
+          ],
+          [
+            "84:'t'",
+            "574:' per'",
+            0.28343844413757324
+          ],
+          [
+            "261:'re'",
+            "113:'\ufffd'",
+            0.2820567786693573
+          ],
+          [
+            "84:'t'",
+            "113:'\ufffd'",
+            0.2792941927909851
+          ],
+          [
+            "298:'ll'",
+            "7069:'\u00ed'",
+            0.27831101417541504
+          ],
+          [
+            "298:'ll'",
+            "113:'\ufffd'",
+            0.2773495018482208
+          ],
+          [
+            "77:'m'",
+            "113:'\ufffd'",
+            0.2746414244174957
+          ],
+          [
+            "83:'s'",
+            "113:'\ufffd'",
+            0.27407974004745483
+          ],
+          [
+            "77:'m'",
+            "1532:'As'",
+            0.26988449692726135
+          ]
+        ],
+        "min": [
+          [
+            "261:'re'",
+            "1167:'the'",
+            -0.39659664034843445
+          ],
+          [
+            "261:'re'",
+            "479:'fe'",
+            -0.3747546970844269
+          ],
+          [
+            "298:'ll'",
+            "479:'fe'",
+            -0.35782307386398315
+          ],
+          [
+            "261:'re'",
+            "705:'we'",
+            -0.33975887298583984
+          ],
+          [
+            "298:'ll'",
+            "1167:'the'",
+            -0.3274631202220917
+          ],
+          [
+            "89:'y'",
+            "1167:'the'",
+            -0.32317259907722473
+          ],
+          [
+            "77:'m'",
+            "479:'fe'",
+            -0.3196202218532562
+          ],
+          [
+            "77:'m'",
+            "1167:'the'",
+            -0.306460440158844
+          ],
+          [
+            "329:'se'",
+            "1167:'the'",
+            -0.3023279905319214
+          ],
+          [
+            "261:'re'",
+            "1067:' cur'",
+            -0.3013626039028168
+          ],
+          [
+            "77:'m'",
+            "1067:' cur'",
+            -0.29712915420532227
+          ],
+          [
+            "298:'ll'",
+            "1067:' cur'",
+            -0.29641684889793396
+          ],
+          [
+            "298:'ll'",
+            "705:'we'",
+            -0.29388511180877686
+          ],
+          [
+            "84:'t'",
+            "1067:' cur'",
+            -0.2836702764034271
+          ],
+          [
+            "83:'s'",
+            "1067:' cur'",
+            -0.28161555528640747
+          ],
+          [
+            "84:'t'",
+            "479:'fe'",
+            -0.2798973321914673
+          ],
+          [
+            "83:'s'",
+            "479:'fe'",
+            -0.2785610854625702
+          ],
+          [
+            "261:'re'",
+            "978:' che'",
+            -0.2724809944629669
+          ],
+          [
+            "261:'re'",
+            "1015:' inter'",
+            -0.2691279351711273
+          ],
+          [
+            "298:'ll'",
+            "978:' che'",
+            -0.2688661813735962
+          ]
+        ],
+        "abs_mean": 0.00044778146548196673,
+        "std": 0.0012952054385095835
+      },
+      {
+        "head": 14,
+        "max": [
+          [
+            "24:'8'",
+            "4848:' 196'",
+            0.2599656879901886
+          ],
+          [
+            "24:'8'",
+            "6340:' 195'",
+            0.256965309381485
+          ],
+          [
+            "25:'9'",
+            "4848:' 196'",
+            0.2536497712135315
+          ],
+          [
+            "25:'9'",
+            "6340:' 195'",
+            0.25220510363578796
+          ],
+          [
+            "22:'6'",
+            "4848:' 196'",
+            0.2499147653579712
+          ],
+          [
+            "22:'6'",
+            "6340:' 195'",
+            0.24715568125247955
+          ],
+          [
+            "24:'8'",
+            "4050:' 197'",
+            0.24714580178260803
+          ],
+          [
+            "23:'7'",
+            "6340:' 195'",
+            0.24591466784477234
+          ],
+          [
+            "23:'7'",
+            "4848:' 196'",
+            0.24582886695861816
+          ],
+          [
+            "21:'5'",
+            "4848:' 196'",
+            0.2415788173675537
+          ],
+          [
+            "21:'5'",
+            "6340:' 195'",
+            0.24134421348571777
+          ],
+          [
+            "24:'8'",
+            "6609:'199'",
+            0.24069754779338837
+          ],
+          [
+            "25:'9'",
+            "4050:' 197'",
+            0.23838165402412415
+          ],
+          [
+            "22:'6'",
+            "4050:' 197'",
+            0.23756197094917297
+          ],
+          [
+            "20:'4'",
+            "6340:' 195'",
+            0.23658190667629242
+          ],
+          [
+            "23:'7'",
+            "4050:' 197'",
+            0.23559407889842987
+          ],
+          [
+            "25:'9'",
+            "6609:'199'",
+            0.23472709953784943
+          ],
+          [
+            "20:'4'",
+            "4848:' 196'",
+            0.23424750566482544
+          ],
+          [
+            "24:'8'",
+            "2522:' 198'",
+            0.23161698877811432
+          ],
+          [
+            "21:'5'",
+            "4050:' 197'",
+            0.2312193661928177
+          ]
+        ],
+        "min": [
+          [
+            "25:'9'",
+            "1795:' million'",
+            -0.20828640460968018
+          ],
+          [
+            "24:'8'",
+            "1795:' million'",
+            -0.20716559886932373
+          ],
+          [
+            "22:'6'",
+            "1795:' million'",
+            -0.20288097858428955
+          ],
+          [
+            "23:'7'",
+            "1795:' million'",
+            -0.19975781440734863
+          ],
+          [
+            "21:'5'",
+            "1795:' million'",
+            -0.19964458048343658
+          ],
+          [
+            "15:'/'",
+            "3636:' billion'",
+            -0.19913674890995026
+          ],
+          [
+            "27:';'",
+            "1795:' million'",
+            -0.19474118947982788
+          ],
+          [
+            "15:'/'",
+            "1795:' million'",
+            -0.1941111981868744
+          ],
+          [
+            "19:'3'",
+            "1795:' million'",
+            -0.19192779064178467
+          ],
+          [
+            "20:'4'",
+            "1795:' million'",
+            -0.18854038417339325
+          ],
+          [
+            "25:'9'",
+            "3636:' billion'",
+            -0.17682889103889465
+          ],
+          [
+            "17:'1'",
+            "1795:' million'",
+            -0.17630888521671295
+          ],
+          [
+            "27:';'",
+            "3636:' billion'",
+            -0.17607815563678741
+          ],
+          [
+            "2593:' March'",
+            "1795:' million'",
+            -0.1751810759305954
+          ],
+          [
+            "3172:' October'",
+            "1795:' million'",
+            -0.1740509420633316
+          ],
+          [
+            "24:'8'",
+            "3636:' billion'",
+            -0.17248500883579254
+          ],
+          [
+            "18:'2'",
+            "1795:' million'",
+            -0.17230643332004547
+          ],
+          [
+            "3441:' December'",
+            "1795:' million'",
+            -0.1720249056816101
+          ],
+          [
+            "21:'5'",
+            "3636:' billion'",
+            -0.1712673008441925
+          ],
+          [
+            "26:':'",
+            "1795:' million'",
+            -0.17073138058185577
+          ]
+        ],
+        "abs_mean": 0.0021016965620219707,
+        "std": 0.003968584351241589
+      },
+      {
+        "head": 15,
+        "max": [
+          [
+            "1366:'\u2014'",
+            "2272:' however'",
+            0.02868206426501274
+          ],
+          [
+            "1366:'\u2014'",
+            "128:'\ufffd'",
+            0.028366802260279655
+          ],
+          [
+            "993:' 10'",
+            "368:'ld'",
+            0.028234777972102165
+          ],
+          [
+            "617:' part'",
+            "2439:' impact'",
+            0.025178181007504463
+          ],
+          [
+            "72:'h'",
+            "128:'\ufffd'",
+            0.024708770215511322
+          ],
+          [
+            "1525:' until'",
+            "451:'red'",
+            0.02273409813642502
+          ],
+          [
+            "474:'ine'",
+            "1034:'ness'",
+            0.022097239270806313
+          ],
+          [
+            "77:'m'",
+            "2235:' Your'",
+            0.021578647196292877
+          ],
+          [
+            "511:' en'",
+            "1447:' .'",
+            0.021454639732837677
+          ],
+          [
+            "854:' because'",
+            "2272:' however'",
+            0.020645789802074432
+          ],
+          [
+            "92:'|'",
+            "836:'||'",
+            0.02006002515554428
+          ],
+          [
+            "690:' co'",
+            "708:'ates'",
+            0.020029345527291298
+          ],
+          [
+            "591:' time'",
+            "1184:' little'",
+            0.01994592510163784
+          ],
+          [
+            "539:' In'",
+            "2695:' lives'",
+            0.019412338733673096
+          ],
+          [
+            "887:'),'",
+            "1498:'ified'",
+            0.019211629405617714
+          ],
+          [
+            "690:' co'",
+            "1096:'man'",
+            0.019099140539765358
+          ],
+          [
+            "690:' co'",
+            "515:'ated'",
+            0.01903681643307209
+          ],
+          [
+            "1366:'\u2014'",
+            "1735:'St'",
+            0.01891220360994339
+          ],
+          [
+            "669:' need'",
+            "993:' 10'",
+            0.018851133063435555
+          ],
+          [
+            "539:' In'",
+            "1227:' must'",
+            0.018518904224038124
+          ]
+        ],
+        "min": [
+          [
+            "92:'|'",
+            "47:'O'",
+            -0.05026804655790329
+          ],
+          [
+            "92:'|'",
+            "489:'age'",
+            -0.041485659778118134
+          ],
+          [
+            "92:'|'",
+            "615:'ings'",
+            -0.03764556348323822
+          ],
+          [
+            "92:'|'",
+            "53:'U'",
+            -0.035398930311203
+          ],
+          [
+            "92:'|'",
+            "614:' It'",
+            -0.033471688628196716
+          ],
+          [
+            "92:'|'",
+            "471:'ear'",
+            -0.03211819753050804
+          ],
+          [
+            "92:'|'",
+            "24:'8'",
+            -0.03179053217172623
+          ],
+          [
+            "92:'|'",
+            "55:'W'",
+            -0.0299201849848032
+          ],
+          [
+            "92:'|'",
+            "23:'7'",
+            -0.029250813648104668
+          ],
+          [
+            "1113:' both'",
+            "1041:' each'",
+            -0.029063887894153595
+          ],
+          [
+            "92:'|'",
+            "560:'ia'",
+            -0.02872336469590664
+          ],
+          [
+            "92:'|'",
+            "599:'ile'",
+            -0.028112715110182762
+          ],
+          [
+            "92:'|'",
+            "553:'ne'",
+            -0.028107836842536926
+          ],
+          [
+            "1747:' others'",
+            "614:' It'",
+            -0.02794157899916172
+          ],
+          [
+            "92:'|'",
+            "19:'3'",
+            -0.027680348604917526
+          ],
+          [
+            "617:' part'",
+            "340:'ation'",
+            -0.027568506076931953
+          ],
+          [
+            "92:'|'",
+            "450:'our'",
+            -0.026929887011647224
+          ],
+          [
+            "92:'|'",
+            "705:'we'",
+            -0.025889042764902115
+          ],
+          [
+            "92:'|'",
+            "128:'\ufffd'",
+            -0.02588828280568123
+          ],
+          [
+            "92:'|'",
+            "397:'ist'",
+            -0.02580275386571884
+          ]
+        ],
+        "abs_mean": 0.0004682686412706971,
+        "std": 0.0007881977362558246
+      }
+    ],
+    "artifact": "tf_vanilla_d2_w256_b8192_s1_fold.npz",
+    "artifact_mib": 152.39
   }
 }
