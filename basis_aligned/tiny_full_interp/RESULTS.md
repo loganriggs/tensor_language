@@ -7,7 +7,7 @@ were **refuted** are marked as such rather than quietly dropped.
 
 ---
 
-## 2026-08-08 — FINDING 11 (PHASE V1, the six-architecture slice): the interpretable architectures compute something GENUINELY DIFFERENT — they open a route the plain model leaves shut, and they get induction at half the width
+## 2026-08-08 — FINDING 11 (PHASE V1, the six-architecture slice): the interpretable architectures compute something GENUINELY DIFFERENT — they USE a residual route the plain model leaves empty, and they get induction at half the width
 
 **The question this slice was built to answer** is not which variant wins on
 loss — at 1.6M parameters that is nearly meaningless — but whether architectures
@@ -15,16 +15,27 @@ that claim to be more interpretable *compute the same thing by different means,
 or something different*. With four modules and an exact fold, that is decidable.
 
 **Verdict: DIFFERENT, and by a margin far outside the seed spread.** All five
-non-vanilla variants use a residual route the plain model leaves numerically
-shut, and all five acquire an algorithm (induction) that the plain model needs
-twice the width to build. One of them (`predicate`) also *beats* the plain model
-on loss while being the most legible of the six.
+non-vanilla variants *use* a residual route that carries essentially nothing in
+the plain model, and four of the five acquire an algorithm (induction) that the
+plain model needs twice the width to build, at all three seeds — the fifth
+(`codebook`) at two of three. One of them (`predicate`) also *beats* the plain
+model on loss while being the most legible of the six, though its induction is
+handed to it by the architecture rather than learned.
 
-Cell: depth 2, width 128, vocab 8192 trained byte-level BPE, seed 0, Muon 0.02
-matched across every arm, 15,000 steps × batch 16, single epoch, identical data
-order. Files: `tf_*_d2_w128_b8192_s0_interp3.json`, comparison in
-`tf_variant_compare.json` / `.txt`, registered predictions in
-`tf_variant_predictions.json` (written before the first training step).
+**Corrected by the independent round-2 review (§8):** the route difference is a
+**magnitude** difference, not a weight-space one. The plain model's layer 1 is,
+per unit of read displacement, the *most* sensitive of the six to layer-0
+attention's direction; it transmits nothing only because it renormalises its own
+first attention write down to 0.3% of that read. The earlier phrasing — that the
+variants *open* a route the plain model leaves *shut* — is withdrawn.
+
+Cell: depth 2, width 128, vocab 8192 trained byte-level BPE, three seeds, Muon
+0.02 matched across every arm, 15,000 steps × batch 16, single epoch, identical
+data order. Files: `tf_*_d2_w128_b8192_s{0,1,2}_interp3.json`, comparison in
+`tf_variant_compare.json` / `.txt` and `tf_consolidated_table.md`, registered
+predictions in `tf_variant_predictions.json` (written before the first training
+step), independent review in `tf_reviewer_round_2.json` with its raw numbers in
+`tf_round2_measurements.json`.
 
 > **STATUS: COMPLETE.** All 37 arms (six architectures x three seeds, plus
 > nineteen control and robustness arms) were force-reanalysed through ONE
@@ -195,22 +206,31 @@ as context: the *post*-norm share is forced to 1/G by construction, and the
 stream magnitudes, which is precisely the thing the training pressure the slot
 norm removes was shaping).
 
-### 2. It is not merely open — the algorithm RUNS on it
+### 2. It is not merely used — the algorithm RUNS on it
 
-An open route that carries nothing would be a weak result. The route
-decomposition that overturned this program's first induction-circuit claim is
-applied unchanged: remove layer-0 attention from layer-1's read only, from
+A used route that carries nothing in particular would be a weak result. The
+route decomposition that overturned this program's first induction-circuit claim
+is applied unchanged: remove layer-0 attention from layer-1's read only, from
 MLP-0's input only, from both, and outright, then re-run the induction battery.
-Fractions of the induction score removed:
+Fractions of the induction score removed, **all three seeds**:
 
 | | via layer-1's read | via MLP-0's input | write deleted |
 |---|---|---|---|
-| **vanilla, width 256** (has induction, +0.084) | **0.00** | ~1.0 | ~1.0 |
-| slots | **1.17** | 0.24 | 0.96 |
-| bandwidth | **1.11** | 0.37 | 1.00 |
-| shrink | **1.53** | 0.17 | 1.46 |
-| codebook | 1.24 | 1.23 | 0.95 |
-| predicate | 0.15 | 0.20 | 0.58 |
+| **vanilla, width 256** (has induction, +0.084 / +0.097 / +0.101) | **−0.005 / −0.001 / −0.002** | 1.44 / 1.34 / 1.44 | 1.44 / 1.34 / 1.44 |
+| slots | **1.17 / 0.90 / 1.27** | 0.24 / 0.28 / 0.17 | 0.96 / 0.81 / 0.87 |
+| bandwidth | **1.11 / 1.08 / 1.27** | 0.37 / 0.30 / 0.28 | 1.00 / 1.04 / 1.14 |
+| shrink | **1.53 / 1.31 / 1.32** | 0.17 / 0.23 / 0.24 | 1.46 / 1.27 / 1.34 |
+| codebook | 1.24 / 1.53 / 1.87 | 1.23 / 1.53 / 1.87 | 0.95 / 1.14 / 0.91 |
+| predicate | 0.15 / 0.12 / 0.05 | 0.20 / 0.18 / 0.20 | 0.58 / 0.57 / 0.59 |
+
+(The plain model's own width-128 fractions are **undefined** — its induction
+score, the denominator, is null — which is why the control row is width 256.)
+
+**Specificity control, demanded by the round-2 review** (§8 R1): a 60% read
+perturbation could kill everything indiscriminately. It does not. The same
+intervention removes 117% of the *induction* score in `slots` but only **15%** of
+the order-free **bag** score; `shrink` 153% vs 5%; `codebook` 124% vs 40%;
+`bandwidth` 111% vs 54%.
 
 (Fractions above 1 mean the intervention drives the score below zero, not that
 more than all of it was removed.) The plain model and the slot variants are
@@ -220,10 +240,13 @@ slots, bandwidth and shrink it is the opposite. Codebook's two routes are not
 separable and that is recorded as a limitation, not resolved. Predicate does not
 use either route because it does not need them (see 3).
 
-**The decisive control:** the plain model at width 256 *does* have induction
-(+0.0841) and its attention-to-attention path is *still* shut (2.3e−5 nats). So
-"the route is open" and "the model inducts" are independent properties, and the
-variants change both.
+**The decisive control, now at three seeds:** the plain model at width 256 *does*
+have induction (+0.0841 / +0.0965 / +0.1007, 4.9–16.6× its own power floor) and
+its attention-to-attention path still carries nothing (2.3e−5 / 3.6e−5 / 4.7e−5
+zeroed, 5.4e−6 / 6.4e−6 / 7.4e−6 resampled), with the signal travelling through
+MLP-0 (route fraction 1.34–1.44) and not through the read (−0.005 to −0.001). So
+"the route carries something" and "the model inducts" are independent
+properties, and the variants change both.
 
 ### 3. Predicate: induction from SIXTEEN NAMED SCALARS, and the positional work moves off the rotary
 
@@ -260,18 +283,22 @@ decoders while every variant inits them nonzero. The reduction gate proves
 `slots(n_slots=1, lasso 0, zero writes)` is *bit-exact* vanilla, so an arm with
 n_slots 1 and no lasso differs from vanilla by the init alone.
 
-| arm | nonzero write init | partition + per-slot norm | group lasso | CE | induction | A0 out of l1 read [z, r] | A0 logit share |
-|---|---|---|---|---|---|---|---|
-| vanilla | — | — | — | 4.65117 | −0.0138 | [2.4e−5, 5.5e−6] | 0.0002 |
-| write-init only | ✓ | — | — | 4.65758 | −0.0095 | [3.5e−6, 3.1e−6] | 0.00008 |
-| slots, no lasso | ✓ | ✓ | — | 4.76072 | **+0.0836** | [0.483, 0.112] | 0.325 |
-| slots | ✓ | ✓ | ✓ | 4.74182 | **+0.1129** | [0.574, 0.123] | 0.326 |
+**All four arms now at three seeds** (the round-2 review retrained the two
+mechanism arms at seeds 1 and 2; they were seed 0 only before):
 
-**The nonzero write init explains none of it** (CE inside the 0.0074 seed
-spread, induction still null, path still shut to 3.5e−6). **The write partition
-plus per-slot RMSNorm is the whole mechanism.** The in-loss group lasso adds
-+0.029 of induction and 0.019 nats of CE on top, i.e. it helps but is not
-necessary.
+| arm | nonzero write init | partition + per-slot norm | group lasso | CE (s0/s1/s2) | induction (s0/s1/s2) | A0 out of l1 read [z, r], s0 |
+|---|---|---|---|---|---|---|
+| vanilla | — | — | — | 4.6512 / 4.6501 / 4.6377 | −0.0138 / −0.0022 / +0.0059 *(all below floor)* | [2.4e−5, 5.5e−6] |
+| write-init only | ✓ | — | — | 4.6576 / 4.6453 / 4.6571 | −0.0095 / −0.0117 / −0.0025 *(all below floor)* | [3.5e−6, 3.1e−6] |
+| slots, no lasso | ✓ | ✓ | — | 4.7607 / 4.7520 / 4.7696 | **+0.0836 / +0.0999 / +0.0442** *(all above floor)* | [0.483, 0.112] |
+| slots | ✓ | ✓ | ✓ | 4.7418 / 4.7356 / 4.7468 | **+0.1129 / +0.1133 / +0.0654** *(all above floor)* | [0.574, 0.123] |
+
+**The nonzero write init explains none of it, at three seeds** (CE inside the
+0.0074 seed spread, induction below its own power floor at every seed, route
+still carrying 3.4–5.6e−6). **The write partition plus per-slot RMSNorm is the
+whole mechanism**, also at three seeds. The in-loss group lasso adds +0.02 to
++0.03 of induction on top and is not necessary; §9 shows it is also not doing
+what it was added to do.
 
 The natural reading is not that the partition *enables* a route, but that it
 **removes the plain model's option to collapse one**. In vanilla the first
@@ -297,8 +324,12 @@ when it *has* induction to route.
    (predicate).
 2. **Composition budget.** Answered above: the path is shut in vanilla to five
    decimals and open in all five variants, causally and normalisation-invariantly.
-3. **Induction.** Present in all five variants at width 128, absent in vanilla
-   at that width across three seeds. Registered prediction P3 said absent in
+3. **Induction.** Present at width 128 in `slots`, `bandwidth`, `predicate` and
+   `shrink` at **all three seeds** (each above its own probe power floor) and in
+   `codebook` at **two of three** (seed 2 reads +0.0228 against a floor of
+   0.0249 — found by the round-2 review, §8 R4; `codebook`'s natural-text swap
+   excess is positive at all three seeds). Absent in vanilla at that width
+   across three seeds and three learning rates. Registered prediction P3 said absent in
    A/B/C/E/F and present only in D: **the D half was right and for the right
    mechanism; the A/B/C/E/F half was wrong on B, C, E and F.**
 4. **Selection vs content.** Selection stays low rank everywhere (0.19–0.36 of
@@ -535,6 +566,53 @@ but the measured object is **14** per model (7 per block × 2 blocks) carrying 5
 slot groups; and **3e−5 was not the best coefficient** — 3e−4 is better on both CE
 and induction, so the primary `slots` arm is quoted at a slightly suboptimal
 setting and its 0.091-nat cost against vanilla is an overestimate (0.076 at 3e−4).
+
+### 10. DOCUMENTED LIMITATIONS after the fix round — what is still not settled, and why
+
+Nothing below is a to-do; each is a limitation with its reason. The README
+forbids leaving anything in a "we will check later" state, so this is the
+complete residue after the round-2 review and its fix round.
+
+* **`codebook`'s route attribution is not separable.** Its induction dies at
+  1.24–1.87 through layer-1's read *and* 1.23–1.87 through MLP-0's input, at all
+  three seeds. No route claim is made for that arm. Its transmission numbers
+  stand on their own.
+* **`codebook`'s synthetic induction is 2 of 3 seeds above its own power floor**
+  (seed 2: +0.0228 against 0.0249). The natural-text swap excess is positive at
+  all three (+0.054 to +0.082 over its depth-1 null), so the arm is not null —
+  but the synthetic headline is quoted as 2 of 3 and not averaged into "all
+  five".
+* **The content-spectrum null result has a detection threshold.** The statistic
+  cannot see structure above a planted input rank of about 16 of 128 (§5.4).
+  Anything the models do with content in a 16-to-128-dimensional subspace is
+  invisible to it. Closing that needs a different detector, not more seeds.
+* **The matched-embedding (`_slot32`) arms and the learning-rate arms are at two
+  seeds, not three** (0 and 1). Both are one-directional controls — they exist
+  to show an effect is *not* explained by embedding size or learning rate, and
+  both agree at both seeds — so a third seed would strengthen, not decide.
+* **The gain-normalisation in §8 R1 is conservative toward the variants, not
+  toward vanilla.** A 60% read displacement is past the quadratic regime, so
+  extrapolating the variants' local gain over-predicts their deletion KL by
+  1.2–3× while vanilla's is accurate to 8–13%. The conclusion (vanilla's
+  sensitivity is at least as large) is therefore a lower bound on the size of
+  the correction, not an upper one.
+* **`bandwidth` is the weakest case for the content-specificity of the route.**
+  Its read deletion removes 111% of the induction score but also 54% of the bag
+  score, against 15% (slots) and 5% (shrink). Quoted with that figure attached.
+* **The partition dose-response was not obtained.** The `--n-slots 2` arm is
+  invalid (§8 R8: it silently muted the entire second block) and has been
+  discarded to `discarded_arms/`. A real dose-response needs a mechanism that
+  varies the partition without changing which modules can write — that is a new
+  design, not a rerun, and it is not claimed here.
+* **The trained codebook is under-trained, so the codebook arm does not test
+  discreteness at its best.** k-means at the same size halves its error (§6). Any
+  statement about what discrete codes buy at this scale is a statement about
+  *this* EMA codebook, not about discreteness.
+* **`slots` is quoted at a suboptimal lasso coefficient** (3e−5; 3e−4 is better on
+  both CE and induction), so its CE cost against vanilla is an overestimate. The
+  primary arms were deliberately not per-arm-tuned — matched optimisers are the
+  protocol — and re-tuning every arm would break the matching, so this is
+  recorded rather than fixed.
 
 ### Arithmetic dressed as a finding, caught before it was reported
 

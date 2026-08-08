@@ -7,6 +7,60 @@ they land with the finding in the commit message.
 
 ---
 
+**2026-08-08 12:25 UTC — ROUND-2 REVIEW COMPLETE: the two placeholders are
+closed, the fix round is done, and the CONSOLIDATED TABLE is in RESULTS.md.**
+Everything below is in `tf_reviewer_round_2.json` (with a `fix_round` block)
+and `tf_round2_measurements.json`; the table is `tf_consolidated_table.md` and
+is spliced into RESULTS FINDING 11 as its headline section. 37 arms, all
+through ONE tf_interp3 revision, dropped-list empty, control gate 1.9e-6.
+
+LASSO PLACEHOLDER CLOSED — the claim SURVIVES and is stronger. Retrained at
+10x, 100x and 1000x the reported coefficient. The penalty works (total group
+norm 2706 -> 1683 -> 376 -> 37.6 -> 2.94, a factor of 920) but never selects:
+mean live slots stays 4.00 of 4 at every coefficient, all 56 slot groups stay
+above 1% of their matrix, and the smallest share only falls 0.145 -> 0.017.
+What breaks first is the model: CE 4.761 / 4.742 / 4.727 / 4.963 / 5.220 and
+induction +0.084 / +0.113 / +0.142 / -0.032 / -0.016, i.e. the induction the
+architecture buys is destroyed BEFORE any slot is emptied. Incidental: 3e-5
+was not the best setting (3e-4 beats it on both CE and induction), and the
+write-up's "28 read matrices" is really 14 per model carrying 56 groups.
+
+ONE-SEED INVENTORY CLOSED — nothing load-bearing rests on one seed. Newly
+replicated: write-init-only at seeds 0/1/2 (induction -0.0095 / -0.0117 /
+-0.0025, every one below its own floor, route 3.4-5.6e-6) and no-lasso at
+seeds 0/1/2 (+0.0836 / +0.0999 / +0.0442, route 0.469-0.483), so the mechanism
+decomposition is now a three-seed result; matched-embedding at seeds 0/1
+(bandwidth +0.096 / +0.080, predicate +2.460 / +2.519); the learning-rate
+falsifier at seeds 0/1; the WIDTH-256 decisive control re-analysed at seeds 1
+and 2 (induction +0.084 / +0.097 / +0.101 with the route still carrying
+2.3-4.7e-5 and the signal going through MLP-0 at 1.34-1.44, not the read at
+-0.005 to -0.001); and the depth-1 matched nulls for all six variants at seed
+1 (seed spreads 0.0007-0.0062 against depth-2 excesses of 0.04-0.12).
+
+TWO BUGS FOUND, NEITHER AFFECTING THE TABLE:
+1. `n_slots < 2*depth` builds ALL-ZERO write masks for the modules past the
+   last slot, because a python slice past the end is legal and empty. A
+   `--n-slots 2` dose-response arm therefore trained as a depth-2 model whose
+   ENTIRE second block wrote nothing, silently, at CE 4.890. The arm is
+   discarded (`discarded_arms/`) and `tf_model.TinyBilin` now asserts no write
+   mask is empty. Every slice arm uses n_slots = 2*depth or 1 and is unaffected
+   — all 65 real checkpoints load under the guard.
+2. `tf_variant_compare.py` kept only the LAST depth-1 seed for its matched
+   nulls (`d1[variant] = ...` inside the loop). Harmless while one seed
+   existed, a silent seed-mixer the moment a second was trained. Now averaged
+   with the spread reported.
+
+WHAT THE FIX ROUND CHANGED IN THE WRITE-UP: FINDING 11's title and verdict
+(the "opens a route the plain model leaves shut" language is gone), section 1
+(magnitude, not a closed channel), section 2 (three-seed route table + the bag
+specificity control), section 4 (three-seed mechanism table), section 5.3
+(codebook is 2 of 3 seeds), section 5.4 (content null quoted with its
+detection threshold of input rank ~16 of 128), section 6 (codebook error
+retracted and restated; shrink claim split), plus new sections 8 (the review),
+9 (the lasso sweep) and 10 (nine documented limitations).
+
+---
+
 **2026-08-08 12:10 UTC — HONEST STATUS OF THE ACTUAL GOAL (Logan asked):
 rungs 1-4 and 6 are DONE; RUNG 5, the point of the program, IS NOT.**
 What is genuinely complete:

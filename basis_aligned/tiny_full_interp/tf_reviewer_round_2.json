@@ -62,7 +62,7 @@
       "the flat bag score across arms (0.069-0.103 in five of six variants, 0.229-0.267 in predicate) at all three seeds, so the induction difference is not a bag-effect difference"
     ],
     "found_by_this_review_and_NOT_previously_reported": "CODEBOOK FAILS ITS OWN POWER FLOOR AT SEED 2: induction +0.0228 against a 3-SE floor of 0.0249 (0.9x). Seeds 0 and 1 are +0.0540 (6.3x) and +0.0358 (4.2x). The claim 'all five variants acquire induction at width 128' is therefore 3/3 for slots, bandwidth, predicate and shrink and 2/3 for codebook. The natural-text swap does replicate for codebook at all three seeds (+0.168 / +0.142 / +0.140, t = 8.3-8.7, against vanilla's +0.100 / +0.092 / +0.117, t = 5.8-6.8), so the arm is not null -- but the synthetic headline must be quoted as 2 of 3 and is.",
-    "still_one_seed_after_this_review": "PLACEHOLDER_STILL_ONE_SEED",
+    "still_one_seed_after_this_review": "NOTHING load-bearing. What remains at two seeds rather than three: the matched-embedding slot32 arms and the learning-rate arms (both one-directional controls that agree at both seeds), and the per-variant DEPTH-1 matched nulls for the natural-text swap probe, which were seed 0 only and are now seeds 0 and 1 for all six variants (tf_round2_trainb.log; vanilla 0.0670/0.0694, slots 0.0842/0.0872, bandwidth 0.1022/0.0934, predicate 1.5306/1.5406, codebook 0.0866/0.0856, shrink 0.0815/0.0850 -- seed spreads of 0.0007-0.0062, far below the depth-2 excesses of 0.04-0.12). A latent seed-mixing bug in the aggregation was fixed while doing this: tf_variant_compare.py assigned `d1[variant] = ...` inside its loop and would have silently kept only the LAST depth-1 seed found; it now averages over all of them and reports the spread. Everything else in the table is at three seeds. The remaining limitations are listed in RESULTS.md section 10 and are limitations, not to-dos.",
     "one_ablation_method": "Every knockout in the table is already quoted as a [zero, resample] RANGE, and the review adds a third, independent intervention family for the routing claim (the matched-displacement directional probe in R1), which is what overturned the mechanism. The per-head ranking is explicitly reported as not surviving the switch from zeroing to resampling, which is the correct treatment.",
     "one_probe": "Induction is measured by two probes that disagree in construction (a planted synthetic oracle with its own power floor, and a bag-preserving swap on natural text with a depth-1 matched null) and they agree on every arm's sign. The content-spectrum claim rests on ONE statistic and is handled in R5.",
     "verdict": "SURVIVES for slots, bandwidth, predicate and shrink; WEAKENED for codebook (2 of 3 seeds on the synthetic probe, 3 of 3 on the natural-text probe), and the write-up now says so.",
@@ -99,5 +99,31 @@
     "blast_radius": "ZERO for the slice. Every arm in the comparison uses n_slots = 2*depth (4) or n_slots = 1 (the writeinit_only reduction, where the mask is all ones by a separate branch). All 65 real checkpoints load under the new guard; only the two invalid dose-response arms fail.",
     "fix": "an assertion in tf_model.TinyBilin that no write mask is empty, naming the offending modules. The two n_slots=2 arms are DISCARDED and the dose-response is not reported.",
     "verdict": "no claim changes; a silent-failure mode is closed and the discarded arm is recorded rather than quietly dropped."
+  },
+  "fix_round": {
+    "note": "Every surviving objection was answered with a measurement, a retraction, or a documented limitation. Nothing is left in a 'we will check later' state, as the README requires.",
+    "fixed_with_a_measurement": [
+      "R1: replaced the routing mechanism claim with the matched-displacement probe result and its quadratic consistency check; added the bag-score specificity control for the route split",
+      "R2: four alternative explanations measured per parameter block and all ruled out",
+      "R3a: the lasso claim re-based on a three-decade coefficient sweep (three retrained arms)",
+      "R3b: the codebook error figure recomputed per quantised slot and benchmarked against k-means, a random dictionary and a same-budget PCA",
+      "R3c: the shrink rank claim replaced by a causal top-r truncation curve with a random-subspace control, three seeds",
+      "R4: the two mechanism arms retrained at seeds 1-2, the matched-embedding and learning-rate arms at seed 1, the width-256 decisive control re-analysed at seeds 1-2, and the depth-1 matched nulls trained at seed 1 for all six variants",
+      "R5: the content-spectrum detector calibrated with planted low-input-rank tensors"
+    ],
+    "retracted": [
+      "'the plain model shuts the attention-to-attention path and every variant opens it' as a weight-space claim (R1)",
+      "'the codebook injects 22-39% error' (R3b) -- it is 0.77-0.85 on the slots actually quantised",
+      "'the shrink remnant projections are near full rank' AT THE READOUT (R3c) -- that one is causally rank one",
+      "'all five variants acquire induction at width 128' without qualification (R4) -- codebook is 2 of 3 seeds"
+    ],
+    "documented_limitations": "RESULTS.md section 10 lists all nine, each with the reason it cannot be closed by more of the same measurement.",
+    "code_changes": [
+      "tf_model.TinyBilin: an assertion that no module gets an empty write mask (R8); all 65 real checkpoints load under it, only the two invalid dose-response arms fail",
+      "tf_variant_compare.py: the depth-1 matched nulls are averaged over seeds instead of silently keeping the last one",
+      "tf_consolidated_table.py: new, renders the consolidated table from tf_variant_compare.json",
+      "tf_round2_review.py: new, the seven review measurements",
+      "NO change to tf_interp3.py -- the whole table depends on its revision, and the two arms that hit a cusolver failure inside it were run on CPU by the same revision rather than patching it"
+    ]
   }
 }
