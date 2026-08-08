@@ -7,6 +7,33 @@ they land with the finding in the commit message.
 
 ---
 
+**2026-08-08 15:10 UTC — THE DEPTH LADDER ANSWERS ITS FIRST REGISTERED
+PREDICTION: depth and width TRADE OFF for capability emergence, cleanly.**
+Induction score by depth x width (single seed so far; probe power floor
+~0.017, * marks above-floor):
+              w32       w64      w128      w256
+  depth 1  -0.0038   -0.0140   -0.0276   -0.0342
+  depth 2  -0.0074   -0.0163   -0.0138   +0.0841*
+  depth 3      -     +0.0077   +0.0974*  +0.1642*
+  depth 4      -     +0.0173*      -         -
+The threshold MOVES with depth: two layers need width 256, three layers need
+only 128, and four layers reach the floor at width 64. Every depth-1 cell is
+negative at every width, as required — one layer cannot compose. And depth 3
+at width 256 (+0.1642) is nearly double depth 2 at the same width (+0.0841),
+so depth does not merely unlock the capability, it strengthens it.
+Held CE improves in step: depth 3 width 256 is 4.1435 against depth 2's
+4.2446 at the same width.
+CAVEATS, stated because they matter: these are single seeds; the depth-2
+width-256 emergence was confirmed at three seeds but the depth-3/4 cells are
+not yet, and the depth-4 width-64 value (+0.0173) sits ON the floor rather
+than above it, so it is a bound not a detection. Seeds are queued.
+The second registered prediction — whether a third or fourth layer starts
+using the attention-to-attention route that carried nothing at depth 2 — is
+still computing.
+
+---
+
+
 **2026-08-08 14:40 UTC — THE PORTED DICTIONARY METHOD LANDS, AND TWO OF ITS
 RESULTS CORRECT THE PARENT PROGRAM. Read both before citing qk_mdl's
 layer-0 compression numbers again.**
