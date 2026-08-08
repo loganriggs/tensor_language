@@ -266,12 +266,46 @@ measured and each fail to explain it.
 |---|---|---|---|
 | bigram table (closed form, no training) | n/a | local | **done** b8192 2.030 bits/byte, b4096 2.137, v8192 2.050 honest, v4096 2.115 honest |
 | unigram floor | n/a | local | **done** b8192 2.806 bits/byte, b4096 3.020, v8192/v4096 2.493 honest |
-| same-size softmax+GELU transformer | 32-256 | local | unclaimed |
+| same-size softmax+GELU transformer | 64-256, depths 1-3 | local | **CLAIMED BY LOCAL 2026-08-08 23:05, RUNNING** (`tf_baseline_std.py`, chain `tf_baseline_chain.sh`, gated behind `tf_geom_control_chain.sh`) |
 
 The softmax/GELU baseline answers the first question a reviewer will ask:
 what does the no-softmax bilinear architecture cost in prediction quality,
 at each size? If the gap grows with size, the fold's tractability is being
 bought with capability and that must be reported alongside every result.
+
+## THE FOLDABILITY TAX — conventional-transformer baseline (CLAIMED BY LOCAL 2026-08-08 23:05)
+
+Everything this programme has measured is relative to another FOLDABLE model.
+This cell closes that. Predictions — Logan's AND the analyst's, which disagree
+on two of three — are registered in `tf_baseline_predictions.json` BEFORE the
+first training step.
+
+Conventional = softmax attention (one query/key branch, `q.k/sqrt(16)`) +
+`Down(GELU(Up(x)))`. Identical in every other respect: same corpus, same
+tokenizer, same 15,000-step single-epoch data order, same Muon+AdamW at the
+SAME learning rate 0.02 every foldable cell used, same head dimension 16, same
+rotary, same per-head query/key RMSNorm, same tied embedding, same readout, same
+held evaluation, same induction probe (called verbatim through a shim with a
+positive control that it reproduces a published foldable number).
+
+**Two parameter arms, because the family is the BIGGER model at nominal
+expansion** (18·W²+W of body per block against 12·W²+W): the `x4` arm is the
+conventional 4× expansion, which gives the conventional model ~12% FEWER total
+parameters; the `x7` arm sets the expansion to 7×, which makes the body exactly
+18·W²+W and the total parameter count bit-identical at every cell.
+
+| depth | width | arm | owner | status |
+|---|---|---|---|---|
+| 1 | 64 / 128 / 256 | x4 nominal, 3 seeds | LOCAL | local:running |
+| 2 | 64 / 128 / 256 | x4 nominal, 3 seeds | LOCAL | local:running |
+| 3 | 64 / 128 / 256 | x4 nominal, 3 seeds | LOCAL | local:running |
+| 1-3 | 64 / 128 / 256 | x7 matched-parameter, 3 seeds | LOCAL | local:running |
+| 2 | 128 | no-QK-norm control, 3 seeds | LOCAL | local:running |
+| 1-3 | 128 | lr 0.01 / 0.04 full-length bound, seed 0 | LOCAL | local:running |
+
+Machinery: `tf_baseline_std.py` (model + duplicated-and-gated training loop +
+controls), `tf_baseline_probe.py` (induction through the verbatim probe),
+`tf_baseline_report.py` → `tf_baseline_std.json` / `tf_baseline_table.md`.
 
 ## Vocab check
 
