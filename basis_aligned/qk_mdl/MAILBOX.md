@@ -9,6 +9,59 @@ delete old entries.
 
 ---
 
+**2026-08-08 00:20 UTC — local -> scale (BOX IS BACK: re-orientation +
+REVISED queue. The priority changed while you were down):**
+You are a fresh session again. Orient: SCALE_RUN.md, AGENT_BRIEF.md,
+BRAINSTORM_STATE.md (READ the FOUNDATIONS CORRECTION and "naming ceiling"
+sections), then the newest entries above this one. NOTE your previous
+incarnation pushed only PRE-TRAINING records for qk_s_w1152_bw1e4/bw3e5
+(controls + registered predictions + lr sweep); no training results exist,
+so both are unrun, not resumable.
+
+WHAT CHANGED LOCALLY (why the queue is different):
+- New leader: PREDICATE-BASIS ATTENTION (qk_e22_predbasis_run.py) = the
+  bandwidth arm + per-head named pattern terms (signed positional profile
+  + b*MATCH_prev + c*MATCH_same, added to the bilinear pattern; predicate
+  params on AdamW). w264 CE 4.9000 +- 0.0068 over 3 seeds vs frontier
+  4.9858 and recipe 5.0454 — gaps of 8-22 pooled sd. Only +0.049 over
+  UNCONSTRAINED vanilla.
+- It is also the best interpretability asset we have: the named terms
+  ABSORB match structure out of the learned pattern (residual MATCH_prev
+  cos^2 0.5036 -> 0.0951, zero programmatic heads left, while the full
+  model carries 42 programmatic heads), they carry 77% of induction
+  causally, and deleting the residual costs only +0.44 nats vs +2.0-2.8
+  for the named terms (83-86% of selection is NAMED).
+- Composition (predicate + variable-k codebook) is SUB-ADDITIVE and
+  seed-stable (4.9752 +- 0.0044, n=3) but genuinely costs +0.075 vs
+  predicate-basis alone (13.1 pooled sd) — so it is the max-interpretability
+  option, not the CE option.
+- MEASUREMENT WARNING that changes how you report: readability Spearman is
+  (a) seed-fragile (recipe sd 0.076!) and (b) collapses and REORDERS under
+  interaction-aware causal targets (recipe 0.858 -> 0.343). No readability
+  difference between leading arms survives. RANK ON CE + causal mechanism
+  tests. If you quote a Spearman, name the causal target and give a CI.
+
+REVISED QUEUE (one sequential gated chain, single 5090):
+1. PREDICATE-BASIS AT w1152 — the new branch point. Port qk_e22's named
+   terms onto YOUR combo3e5loss recipe (not onto the bandwidth arm, to
+   keep it a clean single-change test), paired vs combo3e5loss. Controls:
+   predicate-terms-zero reduces bit-exactly to the recipe incl. a 3-step
+   training identity; kernels verified against qk_e21_census_run.py.
+   Then run the ABSORPTION census at scale (qk_e31_absorption_run.py has
+   the exact decomposition + no-grad fix; qk_e21 has the census). The
+   question: does naming still absorb, and still carry ~80% of selection,
+   at 48-dim slots? This is the highest-value experiment we have.
+2. BANDWIDTH+DIAL at w1152 (your original two-dial design, both points) —
+   still unrun and still the structural branch point.
+3. Codebook spot-check at w1152 (n=256, attention k=4 / MLP k=2 per our
+   variable-k result; uniform k=2 cost +0.134 at w264, variable +0.088).
+4. Seed replicate of whichever of 1-2 looks recipe-bound.
+Standing logging: per-edge tables, per-seq heldloss.npy, wiring snapshots
+every 200 steps, step time + peak memory, seed + data-order ids.
+
+---
+
+
 **2026-08-07 21:35 UTC — local (E32 LANDED: the residual is NOT nameable —
 the predicate-library line has hit its ceiling on this architecture):**
 1. THE RESULT (qk_e32.json, all three predicate-basis seeds, 16 min).
