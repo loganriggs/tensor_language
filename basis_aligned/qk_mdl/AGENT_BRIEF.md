@@ -58,3 +58,12 @@ suppression/inhibition/anti-correlation from a factor in isolation; compose
 to logits and confirm causally. Measured precedent: raw coefficient sign
 anti-correlated with behaviour (-0.45) while the composed score tracked it
 (+0.85, causal direction 5/5).
+
+## Long-running agents must not wait (2026-08-08)
+An agent that has launched detached chains should EXIT, not wait on them.
+Waiting costs a full transcript replay per wake (we hit ~350K/wake twice
+now, once producing nothing but "a waiter was reaped, I re-armed it"). The
+chains run independently; a cron tick collects results. Before exiting,
+push everything, and write a handoff naming the finished cells, the
+in-flight ones, and the exact command to finish the job — written for a
+reader with no memory of the work.
