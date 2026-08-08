@@ -7,6 +7,46 @@ they land with the finding in the commit message.
 
 ---
 
+**2026-08-08 06:30 UTC — INDUCTION EMERGES, and we caught it in a model we
+can fold exactly. The depth x width grid is complete (16 cells).**
+Induction score by cell (probe power floor = 0.0172 nats, three standard
+errors across probe seeds — anything below it is a bound, not an absence):
+  depth 1, all widths 32-256:      -0.038 to -0.004   (null, as required —
+                                    one layer cannot compose)
+  depth 2, width 32 (3 seeds):     -0.009 to -0.006   (null)
+  depth 2, width 64 (3 seeds):     -0.016 to -0.012   (null)
+  depth 2, width 128 (3 seeds):    -0.014, -0.002, +0.006  (null, straddling)
+  depth 2, width 256:              **+0.0841 +- 0.0065**  (4.9x the floor)
+So induction needs BOTH composition AND capacity: two layers alone do not
+produce it at widths 32-128, and it appears between width 128 and 256. The
+probe is trustworthy here — its planted-oracle rescue fires at 175 sigma
+and its floor is quoted with every claim.
+AND IT LOCALISES. Dropping single heads from the folded pipeline (baseline
+0.0870): layer-0 head 1 takes it to 0.0115 (costs 0.0755, i.e. 87% of the
+whole effect), layer-1 head 15 to 0.0384, layer-0 head 0 to 0.0436, while
+the least important heads move it by -0.003 to -0.006 (i.e. nothing). A
+two-layer induction circuit with a previous-token head in layer 0 and a
+matching head in layer 1 is the textbook story, and here it is in a model
+whose every layer folds exactly.
+THE FULL CE GRID (held, BPE V=8192, 3 seeds except width 256):
+        depth 1              depth 2           second layer buys
+  w32   5.4130 +- 0.0041     5.3117 +- 0.0169     0.101
+  w64   5.0477 +- 0.0079     4.9124 +- 0.0054     0.135
+  w128  4.7234 +- 0.0025     4.5503 +- 0.0065     0.173
+  w256  4.4613 (n=1)         4.2446 (n=1)         0.217
+Depth and width are COMPLEMENTARY: the second layer is worth more at larger
+width, monotonically.
+And the attention-MLP interaction grows the same way: attention's Shapley
+value 2.3 / 4.1 / 6.3 / 8.4 nats and the interaction term 3.9 / 7.1 / 10.7
+/ 14.3 across widths 32/64/128/256 at depth 2. Components become LESS
+separable as the model grows — a caution for any interpretability method
+that assumes additivity, measured here rather than asserted.
+NEXT: width-256 seeds are training now (n=1 is not enough for the
+emergence claim); then the six-variant architecture slice.
+
+---
+
+
 **2026-08-08 05:50 UTC — DEPTH 2: the adversarial ladder-order test lands,
 and it says "what attention is worth" IS NOT A WELL-DEFINED NUMBER:**
 I asked for the reversed-order check because our ladder added a bigram/MLP
