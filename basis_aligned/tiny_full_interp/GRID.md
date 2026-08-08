@@ -75,12 +75,29 @@ Variants: A `vanilla` | B `slots` (partition + per-slot norm + in-loss lasso)
 
 | variant | owner | status |
 |---|---|---|
-| A vanilla | local | **local:claimed 2026-08-08 07:2x** (reuse `tf_vanilla_d2_w128_b8192_s0`, re-measured with the SAME variant-agnostic code path as B-F) |
-| B slots | local | **local:claimed 2026-08-08 07:2x** |
-| C bandwidth | local | **local:claimed 2026-08-08 07:2x** |
-| D predicate | local | **local:claimed 2026-08-08 07:2x** |
-| E codebook | local | **local:claimed 2026-08-08 07:2x** |
-| F shrink | local | **local:claimed 2026-08-08 07:2x** |
+| A vanilla | local | **done** seed 0 (reused checkpoint, re-measured through the same code path as B-F) — held CE 4.65117 / ladder CE 4.5545, induction −0.0138 |
+| B slots | local | **done** seed 0 — CE 4.74182, **induction +0.1129**, attention-to-attention KL [0.574, 0.123] |
+| C bandwidth | local | **done** seed 0 — CE 4.62626, **induction +0.0965**, [0.600, 0.150] |
+| D predicate | local | **done** seed 0 — CE **4.38428** (best of the six), **induction +2.5934** from 16 named scalars, [0.352, 0.071] |
+| E codebook | local | **done** seed 0 — CE 4.74797, **induction +0.0540**, [0.113, 0.108] |
+| F shrink | local | **done** seed 0 — CE 4.73574, **induction +0.0510**, [0.301, 0.148] |
+
+**Verdict (RESULTS.md FINDING 11): DIFFERENT, not a relabelling.** All five
+non-vanilla variants open the attention-to-attention path the plain model shuts
+(vanilla 2.4e−5 nats, variants 0.113–0.600) and all five induct at width 128
+where vanilla needs 256. Every knockout is quoted as [zero, resample].
+
+**Mechanism-decomposition and control arms** (added after the seed-0 result, all
+at depth 2 width 128 seed 0 unless stated):
+
+| arm | purpose | status |
+|---|---|---|
+| `slots_writeinit_only` (n_slots 1, lasso 0) | isolates the nonzero decoder init, the one confound shared by all five variants | **done** — CE 4.65758, induction −0.0095, path shut at 3.5e−6: the init explains nothing |
+| `slots_nolasso` (n_slots 4, lasso 0) | isolates the in-loss group lasso from the partition | **done** — CE 4.76072, induction +0.0836: the partition does it, the lasso adds +0.029 |
+| `bandwidth_slot32`, `predicate_slot32` | matched embedding (stream 128, not 160) | local:running |
+| `vanilla_lr0.01/0.04`, `slots_lr0.01/0.04` | kills "it is the learning rate" | local:running |
+| depth-1 cells of all five variants | matched null for the natural-text swap probe | local:running |
+| seeds 1 and 2 of all five variants | the 3-seed rule | local:running |
 
 Analysis code for this slice: `tf_interp3.py` (`VariantFold` + a variant-agnostic
 ladder).  Every stage is run through ONE code path for all six variants,
@@ -99,9 +116,18 @@ measurements and must not be mixed. This slice quotes both.
 **Phase V2 — width sweep of the informative variants** (depth 2, seed 0;
 which variants carry forward is decided by V1, not pre-committed):
 
-| variant | widths 32/64 | width 256 |
-|---|---|---|
-| (decided by V1) | local | local |
+V1 says every variant is informative on the routing question, so the V2 cell that
+matters most is the one that dates the transition: **the plain model's induction
+appears between width 128 and 256, and the slot variants already have it at 128
+— so the question V2 should answer is how far DOWN the slot variants carry it.**
+Priority order, unclaimed:
+
+| cell | question |
+|---|---|
+| `slots` d2 w64 and w32 | how far below 128 does the partition carry induction? |
+| `predicate` d2 w32 | the named term is one scalar per head; does it work at any width? |
+| `slots` d2 w256 | does the advantage survive where the plain model also inducts? |
+| `vanilla` d2 w192 | still the right cell for locating the plain model's own transition |
 
 **Phase V3 — seeds** (3 seeds on whatever V1/V2 leaves standing; the parent
 program's rule is that no structure claim survives a single seed).
