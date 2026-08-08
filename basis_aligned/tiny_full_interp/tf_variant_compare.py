@@ -46,13 +46,19 @@ def load():
 
 
 def key_of(stem, r):
-    """A short label: variant [+ arm suffix] @ depth/seed."""
-    v = r.get('variant', '?')
-    suf = ''
-    for s in ('_writeinit_only', '_nolasso', '_slot32'):
-        if stem.endswith(s):
-            suf = s
-    return f"{v}{suf}_d{r.get('depth')}_s{r['config'].get('seed')}"
+    """A short label: variant [+ arm suffix] @ depth/seed.
+
+    The suffix is derived by STRIPPING the canonical stem rather than matched
+    against a hand-written list: a list silently collided
+    `tf_vanilla_d2_w128_b8192_s0_lr0.01` onto plain `vanilla_d2_s0` and would
+    have overwritten the reference cell with a robustness arm."""
+    c = r['config']
+    v = c.get('variant', r.get('variant', '?'))
+    tag = 'b' if c.get('tok', 'bpe') == 'bpe' else 'v'
+    canon = (f"tf_{v}_d{c['depth']}_w{c['width']}_{tag}{c['vocab']}"
+             f"_s{c['seed']}")
+    suf = stem[len(canon):] if stem.startswith(canon) else '_' + stem
+    return f"{v}{suf}_d{c['depth']}_s{c['seed']}"
 
 
 def summarise(cells):
@@ -205,11 +211,12 @@ def summarise(cells):
                 v['natural_swap_mean'] - base['natural_swap_mean'])
             v['synthetic_induction_excess_over_depth1_null'] = (
                 v['induction_mean'] - base['synthetic_induction_mean'])
-    # ---- seed aggregation ----
+    # ---- seed aggregation (group the SAME arm across seeds) ----
     agg = {}
     for k, v in rows.items():
         base = k.rsplit('_s', 1)[0]
         agg.setdefault(base, []).append(v)
+    out['arms_present'] = sorted(rows)
     seeds = {}
     for base, vs in agg.items():
         if len(vs) < 2:
