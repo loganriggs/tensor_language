@@ -1,0 +1,193 @@
+{
+  "device": "cuda",
+  "smoke": false,
+  "C2_parameter_identity": {
+    "per_cell": {
+      "d1_w64_x4": {
+        "std_body_live": 49216,
+        "std_body_closed_form": 49216,
+        "family_body_live": 73792,
+        "family_body_closed_form": 73792,
+        "closed_form_matches_live": true,
+        "matches_family": false
+      },
+      "d1_w64_x7": {
+        "std_body_live": 73792,
+        "std_body_closed_form": 73792,
+        "family_body_live": 73792,
+        "family_body_closed_form": 73792,
+        "closed_form_matches_live": true,
+        "matches_family": true
+      },
+      "d1_w128_x4": {
+        "std_body_live": 196736,
+        "std_body_closed_form": 196736,
+        "family_body_live": 295040,
+        "family_body_closed_form": 295040,
+        "closed_form_matches_live": true,
+        "matches_family": false
+      },
+      "d1_w128_x7": {
+        "std_body_live": 295040,
+        "std_body_closed_form": 295040,
+        "family_body_live": 295040,
+        "family_body_closed_form": 295040,
+        "closed_form_matches_live": true,
+        "matches_family": true
+      },
+      "d1_w256_x4": {
+        "std_body_live": 786688,
+        "std_body_closed_form": 786688,
+        "family_body_live": 1179904,
+        "family_body_closed_form": 1179904,
+        "closed_form_matches_live": true,
+        "matches_family": false
+      },
+      "d1_w256_x7": {
+        "std_body_live": 1179904,
+        "std_body_closed_form": 1179904,
+        "family_body_live": 1179904,
+        "family_body_closed_form": 1179904,
+        "closed_form_matches_live": true,
+        "matches_family": true
+      },
+      "d2_w64_x4": {
+        "std_body_live": 98432,
+        "std_body_closed_form": 98432,
+        "family_body_live": 147584,
+        "family_body_closed_form": 147584,
+        "closed_form_matches_live": true,
+        "matches_family": false
+      },
+      "d2_w64_x7": {
+        "std_body_live": 147584,
+        "std_body_closed_form": 147584,
+        "family_body_live": 147584,
+        "family_body_closed_form": 147584,
+        "closed_form_matches_live": true,
+        "matches_family": true
+      },
+      "d2_w128_x4": {
+        "std_body_live": 393472,
+        "std_body_closed_form": 393472,
+        "family_body_live": 590080,
+        "family_body_closed_form": 590080,
+        "closed_form_matches_live": true,
+        "matches_family": false
+      },
+      "d2_w128_x7": {
+        "std_body_live": 590080,
+        "std_body_closed_form": 590080,
+        "family_body_live": 590080,
+        "family_body_closed_form": 590080,
+        "closed_form_matches_live": true,
+        "matches_family": true
+      },
+      "d2_w256_x4": {
+        "std_body_live": 1573376,
+        "std_body_closed_form": 1573376,
+        "family_body_live": 2359808,
+        "family_body_closed_form": 2359808,
+        "closed_form_matches_live": true,
+        "matches_family": false
+      },
+      "d2_w256_x7": {
+        "std_body_live": 2359808,
+        "std_body_closed_form": 2359808,
+        "family_body_live": 2359808,
+        "family_body_closed_form": 2359808,
+        "closed_form_matches_live": true,
+        "matches_family": true
+      },
+      "d3_w64_x4": {
+        "std_body_live": 147648,
+        "std_body_closed_form": 147648,
+        "family_body_live": 221376,
+        "family_body_closed_form": 221376,
+        "closed_form_matches_live": true,
+        "matches_family": false
+      },
+      "d3_w64_x7": {
+        "std_body_live": 221376,
+        "std_body_closed_form": 221376,
+        "family_body_live": 221376,
+        "family_body_closed_form": 221376,
+        "closed_form_matches_live": true,
+        "matches_family": true
+      },
+      "d3_w128_x4": {
+        "std_body_live": 590208,
+        "std_body_closed_form": 590208,
+        "family_body_live": 885120,
+        "family_body_closed_form": 885120,
+        "closed_form_matches_live": true,
+        "matches_family": false
+      },
+      "d3_w128_x7": {
+        "std_body_live": 885120,
+        "std_body_closed_form": 885120,
+        "family_body_live": 885120,
+        "family_body_closed_form": 885120,
+        "closed_form_matches_live": true,
+        "matches_family": true
+      },
+      "d3_w256_x4": {
+        "std_body_live": 2360064,
+        "std_body_closed_form": 2360064,
+        "family_body_live": 3539712,
+        "family_body_closed_form": 3539712,
+        "closed_form_matches_live": true,
+        "matches_family": false
+      },
+      "d3_w256_x7": {
+        "std_body_live": 3539712,
+        "std_body_closed_form": 3539712,
+        "family_body_live": 3539712,
+        "family_body_closed_form": 3539712,
+        "closed_form_matches_live": true,
+        "matches_family": true
+      }
+    },
+    "pass": true,
+    "claim": "expansion 7 gives a body EXACTLY equal to the family body at every cell; expansion 4 is strictly smaller. Both are checked against a live nn.Module count, not a formula."
+  },
+  "C3_naive_reference": {
+    "fp64_relative_max_logit_diff": 4.2898638376627046e-16,
+    "pass": true,
+    "claim": "an independently written forward (explicit per-head, per-position python loops and an explicit softmax) reproduces forward() at fp64"
+  },
+  "C5_causality": {
+    "max_logit_diff_before_the_edit": 0.0,
+    "pass": true,
+    "claim": "editing tokens at positions >= 12 leaves logits at positions < 12 bit-identical"
+  },
+  "C6_data_identity": {
+    "first_batch_sha256": "f0fbfff1d59b1cd3185582b42f7757d63b89a1360bea9b9f8483e797cf86315c",
+    "shape": [
+      16,
+      513
+    ],
+    "pass": true,
+    "claim": "the conventional loop draws its batches from the same tf_train.Corpus with the same order(0); this sha256 is the first batch BOTH families train on. Any future divergence in the data path changes this digest."
+  },
+  "C1_loop_equivalence": {
+    "tf_train_train_cell_held_ce": 8.73606,
+    "tf_train_train_cell_held_ce_repeat": 8.73606,
+    "reference_self_noise": 0.0,
+    "tf_baseline_std_train_std_held_ce": 8.73606,
+    "abs_diff": 0.0,
+    "threshold": 1e-09,
+    "steps": 60,
+    "pass": true,
+    "claim": "the transcribed loop reproduces tf_train.train_cell on a FOLDABLE config to within the reference loop own run-to-run noise, so the conventional/foldable gap cannot be a harness difference. tf_train.py is not edited because another chain imports it."
+  },
+  "C7_family_reproduction": {
+    "stem": "tf_vanilla_d1_w64_b8192_s0",
+    "stored_held_ce": 5.14244,
+    "retrained_held_ce": 5.14244,
+    "abs_drift_nats": 0.0,
+    "pass": true,
+    "claim": "the family cross-entropies this comparison quotes were measured earlier; retraining one of them from scratch under the identical protocol reproduces the stored number, so the gap is not absorbing environment drift."
+  },
+  "pass": true
+}
