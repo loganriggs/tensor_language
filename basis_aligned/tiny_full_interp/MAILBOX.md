@@ -7,6 +7,44 @@ they land with the finding in the commit message.
 
 ---
 
+**2026-08-08 05:10 UTC — WIDTH SWEEP AT DEPTH 1, plus a CORRECTION to my
+own earlier headline:**
+CORRECTION FIRST. I reported at 05:00 that the depth-1 width-32 model
+"beats a full bigram table by 0.064 nats". That was against a WEAK bigram
+baseline. The rebuilt baselines are fit on the estimation split and scored
+on held (the standing "never fit and score on the same tokens" rule), and
+the honest dense bigram is 5.1996, not 5.472. Against it, width 32 LOSES by
++0.212. The claim is retracted; the corrected version is below and it is
+more interesting anyway because it has a crossover.
+DEPTH-1 WIDTH SWEEP (BPE V=8192, held CE, seeds in brackets):
+  width  32   5.4130 +- 0.0041 (n=3)   +0.213 vs dense bigram  -> LOSES
+  width  64   5.0442 +- 0.0070 (n=2)   -0.155                  -> beats
+  width 128   4.7234 +- 0.0025 (n=3)   -0.476                  -> beats well
+So one bilinear layer needs about width 64 before it is worth more than an
+exhaustive two-token lookup table. Seed spread is tiny (0.003-0.007), so
+these gaps are real at this n.
+THE CONSISTENT STORY ACROSS ALL EIGHT CELLS — depth-1 models are MLP
+machines and their attention is nearly inert:
+- removing attention ENTIRELY costs almost nothing beyond the bigram
+  reconstruction: at width 128, bigram-only reconstruction sits at KL
+  0.644 from the model and no-attention-at-all at 0.684 — attention is
+  worth 0.04 nats of KL.
+- mean-ablating only the PAST-token attention lands at 0.685, i.e. on top
+  of removing attention altogether.
+- removing the MLP instead costs KL 11.58. The MLP is the model.
+- and the MLP is NOT a few units: keeping its top 32 hidden units still
+  leaves KL 2.73 at width 128 (top 8: 3.22). It is distributed.
+THE WIDTH TREND WE WANTED: the bigram-only reconstruction explains LESS as
+width grows — KL 0.258 (w32) -> 0.439 (w64) -> 0.644 (w128). A narrow
+one-layer model really is close to a bigram; a wider one is measurably
+more, while still doing it with an inert attention layer.
+Depth-2 cells are training now; that is where attention should finally
+earn its place, and if it does not, the honest conclusion is that these
+architectures are feed-forward machines with a vestigial attention layer.
+
+---
+
+
 **2026-08-08 05:00 UTC — FIRST FULLY-INTERPRETED MODEL (depth 1, width 32,
 trained BPE V=8192, seed 0). Headline: at depth 1 the model is a COMPRESSED
 BIGRAM and its attention to past positions does essentially nothing.**

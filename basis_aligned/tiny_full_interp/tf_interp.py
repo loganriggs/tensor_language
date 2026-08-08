@@ -78,9 +78,9 @@ REGISTERED = {
                        'induction.  On repeated random text the induction '
                        'score (CE with an order-preserving repeat minus CE '
                        'with a SHUFFLED repeat) is ~0 within noise, while the '
-                       'copy score (shuffled repeat vs no repeat) is clearly '
-                       'positive, because a skip-trigram [B]...[A] -> [B] is '
-                       'reachable at depth 1 and order-independent.  A depth-2 '
+                       'BAG score (shuffled repeat vs no repeat) is clearly '
+                       'positive, because an order-free bag effect is '
+                       'reachable at depth 1.  A depth-2 '
                        'cell run through the identical battery must show a '
                        'nonzero induction score, otherwise the METRIC is '
                        'broken rather than the model being shallow.',
@@ -151,7 +151,7 @@ class Depth1Fold:
         s2 = (self.Q2 * self.K2).sum(-1) / self.hd
         return s1 * s2
 
-    def pattern(self, idx):
+    def _pattern(self, idx):
         """(B, H, T, T) causal pattern, from the FOLDED factors only."""
         B, Tq = idx.shape
         cos = self.cos[None, :Tq, None, :]
@@ -163,6 +163,61 @@ class Depth1Fold:
         s2 = torch.einsum('bqhd,bkhd->bhqk', g(self.Q2), g(self.K2)) / self.hd
         mask = self.model.mask[:Tq, :Tq]
         return (s1 * s2).masked_fill(~mask, 0.0)
+
+    def freq_energy(self):
+        """Energy per ROTARY FREQUENCY pair.  apply_rot pairs coordinate f with
+        f + hd/2, and R(delta) rotates only within such a pair, so the rotary
+        frequencies are the only delta-equivariant way to cut the head's
+        subspace down -- an arbitrary hd-subspace truncation would not commute
+        with the rotation and would not be a statement about the head."""
+        d = self.hd // 2
+        e = torch.zeros(self.H, d, device=self.dev)
+        for qn, kn in (('Q1', 'K1'), ('Q2', 'K2')):
+            Q, K = getattr(self, qn), getattr(self, kn)
+            eq = (Q[:, :, :d] ** 2 + Q[:, :, d:] ** 2).mean(1)
+            ek = (K[:, :, :d] ** 2 + K[:, :, d:] ** 2).mean(1)
+            e = e + (eq * ek).sqrt()
+        return e
+
+    def freq_mask(self, k):
+        """(H, hd) 0/1 mask keeping the top-k rotary frequency pairs per head."""
+        d = self.hd // 2
+        e = self.freq_energy()
+        keep = torch.zeros(self.H, d, device=self.dev)
+        keep.scatter_(1, e.topk(k, dim=1).indices, 1.0)
+        return torch.cat([keep, keep], 1)
+
+    def pattern(self, idx, freq_keep=None):
+        if freq_keep is None:
+            return self._pattern(idx)
+        m = freq_keep[:, None, :]
+        old = (self.Q1, self.K1, self.Q2, self.K2)
+        self.Q1, self.K1, self.Q2, self.K2 = (f * m for f in old)
+        try:
+            return self._pattern(idx)
+        finally:
+            self.Q1, self.K1, self.Q2, self.K2 = old
+
+    def mlp_topk(self, k):
+        """The MLP restricted to its k most-used hidden units.  The bilinear
+        MLP is EXACTLY a CP decomposition with `hidden` rank-1 symmetric terms,
+        M(x) = sum_f Down[:,f] (l_f.x)(r_f.x), so dropping units is a genuine
+        term-count truncation, not a projection of the tensor."""
+        blk = self.model.h[0]
+        Dn = blk.Down.weight.detach().float()
+        L = blk.Left.weight.detach().float()
+        R = blk.Right.weight.detach().float()
+        xn = _rms(self.selfterm, self.Ws)
+        use = (Dn.norm(dim=0) * ((xn @ L.t()) * (xn @ R.t())).abs().mean(0))
+        keep = use.topk(k).indices
+        return Dn[:, keep], L[keep], R[keep]
+
+    def mlp_apply(self, r, parts=None):
+        xn = _rms(r, self.Ws)
+        if parts is None:
+            return torch.einsum('oij,bti,btj->bto', self.T, xn, xn) + self.bias
+        Dn, L, R = parts
+        return ((xn @ L.t()) * (xn @ R.t())) @ Dn.t() + self.bias
 
     def terms(self, idx, pat=None):
         """The exact additive residual pieces for a batch of contexts."""
@@ -255,6 +310,29 @@ def rung2(D):
                                  'mean_entropy_rank': float(np.mean(
                                      [p['entropy_rank'] for p in per]))}
     out['branch_tables'] = tab
+    # ---- NULLS.  'entropy rank 3 of 16' means nothing until we know what a
+    # random factor pair of the same shape gives; a random V x 16 Gaussian has
+    # an almost flat 16-value spectrum, but the PRODUCT of two of them does
+    # not, so the table null is the one that matters.
+    g = torch.Generator(device='cpu').manual_seed(3)
+    nfac, ntab = [], []
+    R0 = M.rot_matrix(0, D.hd, D.dev)
+    for _ in range(8):
+        a = torch.randn(D.V, D.hd, generator=g).to(D.dev)
+        b = torch.randn(D.V, D.hd, generator=g).to(D.dev)
+        nfac.append(tf_fold.eff_rank(
+            torch.linalg.svdvals(a.double()).cpu().numpy())['entropy_rank'])
+        ntab.append(tf_fold.eff_rank(
+            tf_fold.table_spectrum(a, b, R0, D.hd).cpu().numpy()
+        )['entropy_rank'])
+    out['nulls'] = {
+        'random_factor_entropy_rank_mean': float(np.mean(nfac)),
+        'random_factor_entropy_rank_sd': float(np.std(nfac, ddof=1)),
+        'random_branch_table_entropy_rank_mean': float(np.mean(ntab)),
+        'random_branch_table_entropy_rank_sd': float(np.std(ntab, ddof=1)),
+        'note': 'iid Gaussian V x head_dim factors, same shapes; the '
+                'architectural rank bound is identical, so any gap between '
+                'the trained numbers and these is structure and not the bound'}
     # ---- MLP symmetric tensor ----
     T = D.T
     Ws = D.Ws
@@ -316,7 +394,8 @@ def ce_of(logits, tgt):
 
 # ---------------------------------------------------------------- rung 3+5
 @torch.no_grad()
-def ladder(D, n_seq=64, T=256, batch=8, extra=True, split='held'):
+def ladder(D, n_seq=64, T=256, batch=8, extra=True, split='held',
+           mlp_ks=(1, 2, 4, 8, 16, 32, 64, 128, 256)):
     """RUNG 5 (and the ablations rung 3 needs): a KL ladder of weights-free
     programs against the true model, on held text.
 
@@ -350,6 +429,7 @@ def ladder(D, n_seq=64, T=256, batch=8, extra=True, split='held'):
             'past_attn_mlp_route_only': e + A0 + Mx,
             # --- component knockouts ---
             'no_mlp': e + A,
+            'mlp_write_only': Mx,
             'no_attention_at_all': e + mlp(e),
             'past_attn_mean_ablated': e + A0 + mean_past
             + mlp(e + A0 + mean_past),
@@ -373,6 +453,19 @@ def ladder(D, n_seq=64, T=256, batch=8, extra=True, split='held'):
                 keep[h] = 0.0
                 Ah = torch.einsum('bhqk,h,bkho->bqo', t['pat'], keep, ov)
                 cand[f'drop_head{h}'] = e + Ah + mlp(e + Ah)
+            # --- COMPRESSION AXES (rung 5: how small can the program get) ---
+            for k in (1, 2, 4):
+                if k >= D.hd // 2:
+                    continue
+                Ak = torch.einsum('bhqk,bkho->bqo',
+                                  D.pattern(x, D.freq_mask(k)), ov)
+                cand[f'attn_top{k}_rotary_freqs'] = e + Ak + mlp(e + Ak)
+            for k in mlp_ks:
+                if k >= D.cfg.hidden:
+                    continue
+                parts = D.mlp_topk(k)
+                cand[f'mlp_top{k}_hidden_units'] = e + A + D.mlp_apply(e + A,
+                                                                       parts)
         for s, r in cand.items():
             lg = D.readout(r)
             lp = F.log_softmax(lg.float(), -1)
@@ -441,9 +534,79 @@ def _flat_pattern(D, idx):
     return (s1 * s2).masked_fill(~mask, 0.0)
 
 
+@torch.no_grad()
+def stream_geometry(D, n_seq=32, T=256, batch=8):
+    """EXACT additive attribution of the pre-tanh logit.
+
+    Because RMSNorm is a scalar gauge, the pre-tanh logit is exactly
+        z = (sqrt(Ws)/||r||) * (e + A + M) W_U
+    so the three folded terms contribute ADDITIVELY to z and their shares can
+    be read off without any approximation.  Signs of individual terms are
+    meaningful here only because each term is composed all the way to the logit
+    (term -> W_U), which is a complete path."""
+    tot = {}
+    n = 0
+    for x, y in held_batches(D, n_seq, T, batch):
+        t = D.terms(x)
+        r = t['e'] + t['A'] + t['M']
+        g = math.sqrt(D.Ws) / r.norm(dim=-1, keepdim=True)
+        zs = {k: (t[k] * g) @ D.WU.t() for k in ('e', 'A0', 'Apast', 'M')}
+        z = (r * g) @ D.WU.t()
+        zc = z - z.mean(-1, keepdim=True)
+        for k, v in zs.items():
+            vc = v - v.mean(-1, keepdim=True)
+            tot.setdefault(f'{k}_norm', 0.0)
+            tot[f'{k}_norm'] += float(t[k].norm(dim=-1).sum())
+            tot.setdefault(f'{k}_logit_var_share', 0.0)
+            # projection share: <zc, vc>/<zc,zc> sums to 1 over terms exactly
+            tot[f'{k}_logit_var_share'] += float(
+                ((zc * vc).sum(-1) / (zc * zc).sum(-1).clamp_min(1e-30)).sum())
+        tot['r_norm'] = tot.get('r_norm', 0.0) + float(r.norm(dim=-1).sum())
+        tot['tanh_saturation'] = tot.get('tanh_saturation', 0.0) + float(
+            (z.abs() > 30).float().mean(-1).sum())
+        n += x.numel()
+    out = {k: v / n for k, v in tot.items()}
+    out['_shares_sum_to_one'] = sum(
+        out[f'{k}_logit_var_share'] for k in ('e', 'A0', 'Apast', 'M'))
+    out['_note'] = ('logit_var_share is the exact projection share of each '
+                    'folded term on the centred logit vector; the four shares '
+                    'sum to 1 by construction (the check above)')
+    return out
+
+
+@torch.no_grad()
+def position_profile(D, logPn, uni_log, n_seq=64, T=64, batch=8):
+    """FAIRNESS CONTROL for the bigram comparison.  A bigram table sees exactly
+    one token of context; the model sees the whole prefix and the position.  So
+    the honest head-to-head is POSITION BY POSITION: at position 0 the model
+    also has one token, and it is only from position 1 on that it has more."""
+    modc = np.zeros(T)
+    bigc = np.zeros(T)
+    unic = np.zeros(T)
+    cnt = np.zeros(T)
+    for x, y in held_batches(D, n_seq, T, batch):
+        t = D.terms(x)
+        lg = D.readout(t['e'] + t['A'] + t['M']).float().log_softmax(-1)
+        m = -lg.gather(-1, y[..., None])[..., 0]
+        b = -logPn[x, y]
+        u = -uni_log[y]
+        k = y.shape[1]
+        modc[:k] += m.sum(0).cpu().numpy()
+        bigc[:k] += b.sum(0).cpu().numpy()
+        unic[:k] += u.sum(0).cpu().numpy()
+        cnt[:k] += y.shape[0]
+    return {'positions': list(range(T)),
+            'model_ce': [float(v) for v in modc / cnt],
+            'bigram_ce': [float(v) for v in bigc / cnt],
+            'unigram_ce': [float(v) for v in unic / cnt],
+            'note': 'position 0 is the only place the model and the bigram '
+                    'table see the same amount of context'}
+
+
 # ---------------------------------------------------------------- baselines
 @torch.no_grad()
-def data_baselines(D, n_seq=64, T=256, batch=8, lowrank=(8, 32, 48)):
+def data_baselines(D, n_seq=64, T=256, batch=8, lowrank=(8, 32, 64),
+                   sparse=(262144, 1048576)):
     """Unigram, closed-form bigram, a POSITIONAL-ONLY predictor, and
     rank-matched low-rank bigrams -- the 'same parameter count' comparators the
     rung-5 program has to beat.  All fitted on train/est, scored on held."""
@@ -474,39 +637,80 @@ def data_baselines(D, n_seq=64, T=256, batch=8, lowrank=(8, 32, 48)):
     for i in range(T):
         pos[i].scatter_add_(0, et[:, i], torch.ones(et.shape[0], device=D.dev))
     pos = ((pos + 1.0) / (pos.sum(1, keepdim=True) + V)).log()
+    logPn = logP.log_softmax(-1)
     # low-rank bigram: truncated SVD of the smoothed log-bigram, 2*V*r params
     lr = {}
-    U, S, Vh = torch.svd_lowrank(logP - logP.mean(), q=max(lowrank) + 8,
-                                 niter=4)
     mu = logP.mean()
+    U, S, Vh = torch.svd_lowrank(logP - mu, q=max(lowrank) + 8, niter=4)
     for r in lowrank:
-        Lr = (U[:, :r] * S[:r]) @ Vh[:, :r].t() + mu
-        lr[r] = Lr.log_softmax(-1)
+        lr[f'lowrank_bigram_r{r}'] = (
+            (U[:, :r] * S[:r]) @ Vh[:, :r].t() + mu).log_softmax(-1)
+    del U, S, Vh
+    # SPARSE bigram: keep the m largest counts exactly, back off to unigram.
+    # 2m numbers (an index and a count), and a much stronger same-budget
+    # comparator than a truncated SVD of a log-probability matrix.
+    for m in sparse:
+        v, i = torch.topk(big.view(-1), m)
+        sp = torch.zeros_like(big)
+        sp.view(-1)[i] = v
+        lr[f'sparse_bigram_m{m}'] = (
+            (sp + alpha * uni[None, :])
+            / (sp.sum(1, keepdim=True) + alpha)).clamp_min(1e-30).log()
+        del sp, v, i
     accs = {k: [0.0, 0] for k in ['unigram', 'bigram', 'positional_only']
-            + [f'lowrank_bigram_r{r}' for r in lowrank]}
+            + list(lr)}
     lu = uni.log()
     for x, y in held_batches(D, n_seq, T, batch):
         n = y.numel()
         accs['unigram'][0] += float(-lu[y].sum())
         accs['unigram'][1] += n
-        accs['bigram'][0] += float(-logP.log_softmax(-1)[x, y].sum())
+        accs['bigram'][0] += float(-logPn[x, y].sum())
         accs['bigram'][1] += n
         accs['positional_only'][0] += float(
             -pos[torch.arange(y.shape[1], device=D.dev)[None, :]
                  .expand_as(y), y].sum())
         accs['positional_only'][1] += n
-        for r in lowrank:
-            accs[f'lowrank_bigram_r{r}'][0] += float(-lr[r][x, y].sum())
-            accs[f'lowrank_bigram_r{r}'][1] += n
+        for k, tab in lr.items():
+            accs[k][0] += float(-tab[x, y].sum())
+            accs[k][1] += n
     out = {k: v[0] / v[1] for k, v in accs.items()}
-    out['_params'] = {'unigram': V, 'bigram_dense': V * V,
-                      **{f'lowrank_bigram_r{r}': 2 * V * r for r in lowrank}}
-    del big, P, logP, lr
+    out['position_profile'] = position_profile(D, logPn, lu, n_seq, 64, batch)
+    out['_params'] = {
+        'unigram': V, 'bigram_dense': V * V,
+        **{f'lowrank_bigram_r{r}': 2 * V * r for r in lowrank},
+        **{f'sparse_bigram_m{m}': 2 * m for m in sparse},
+        'model_bigram_program_tables': 2 * V * D.Ws,
+        'note': 'the stage-3 program (model bigram) is fully specified by two '
+                'V x Ws tables, r0 and W_U, plus the fixed readout code; the '
+                'matched comparators are the ones with the same count'}
+    del big, P, logP, logPn, lr
     torch.cuda.empty_cache()
     return out
 
 
 # ---------------------------------------------------------------- induction
+@torch.no_grad()
+def induction_for_stem(stem, seeds=5, device=DEV):
+    """The identical battery for ANY depth, so a depth-2 cell can serve as the
+    POSITIVE CONTROL for the depth-1 null result."""
+    model, cfg, _ = tf_fold.load_checkpoint(stem, device)
+
+    class _Shim:
+        pass
+    s = _Shim()
+    s.V, s.cfg, s.dev, s.model = cfg.vocab, cfg, device, model
+    runs = [induction_battery(s, seed=i) for i in range(seeds)]
+    return {'stem': stem, 'depth': cfg.depth, 'width': cfg.width,
+            'per_seed': runs,
+            'induction_score_mean': float(np.mean([r['induction_score']
+                                                   for r in runs])),
+            'induction_score_sd': float(np.std([r['induction_score']
+                                                for r in runs], ddof=1)),
+            'bag_score_mean': float(np.mean([r['bag_score'] for r in runs])),
+            'bag_score_sd': float(np.std([r['bag_score'] for r in runs],
+                                         ddof=1))}
+
+
 @torch.no_grad()
 def induction_battery(D, n_seq=48, L=96, seed=0, model=None, use_model=True):
     """RUNG 3, the structural prediction.
@@ -517,7 +721,14 @@ def induction_battery(D, n_seq=48, L=96, seed=0, model=None, use_model=True):
       control  : [R'] [R]             -- a different random prefix
 
     induction score = CE(shuffled) - CE(repeat)   (needs ORDER: 2 layers)
-    copy score      = CE(control)  - CE(shuffled) (needs only a bag: 1 layer)
+    bag score       = CE(control)  - CE(shuffled) (needs only a BAG: 1 layer)
+
+    NAMING DISCIPLINE: the second number is deliberately NOT called a 'copy
+    score'.  It measures only that an order-free repetition of the token bag in
+    the prefix lowers CE; it says nothing about the mechanism, and the rung-4
+    composed measurement in this same file shows these heads push the attended
+    token's own logit DOWN relative to a random pair.  Calling it 'copying'
+    would be naming a mechanism from a behavioural delta.
 
     Reported per-condition on the SECOND half only.  Tokens are drawn from the
     train unigram so the conditions are not out-of-distribution in frequency."""
@@ -552,7 +763,7 @@ def induction_battery(D, n_seq=48, L=96, seed=0, model=None, use_model=True):
             n += m
         out[nm] = tot / n
     out['induction_score'] = out['shuffled'] - out['repeat']
-    out['copy_score'] = out['control'] - out['shuffled']
+    out['bag_score'] = out['control'] - out['shuffled']
     # a paired bootstrap over sequences would be better; a cheap SE comes from
     # re-running the whole battery at 4 more seeds
     return out
@@ -560,7 +771,7 @@ def induction_battery(D, n_seq=48, L=96, seed=0, model=None, use_model=True):
 
 # ---------------------------------------------------------------- rung 4
 @torch.no_grad()
-def rung4(D, topk=25, nsample=2048, seed=0):
+def rung4(D, topk=25, nsample=1024, seed=0):
     """Composed, sign-invariant token-space analysis.
 
     The object decoded is the COPY SCORE
@@ -602,6 +813,18 @@ def rung4(D, topk=25, nsample=2048, seed=0):
                     (comp.sum() - comp.diagonal().sum())
                     / (comp.numel() - comp.shape[0])),
             }
+            # is the composed pair table genuinely PAIR-specific, or just an
+            # outer product query_score x key_score?  sigma1 share of the SVD
+            # answers it without any naming.  (delta=1 only: the fp64 SVD of a
+            # 1024^2 matrix is the expensive part of this file.)
+            if d == 1:
+                sv = torch.linalg.svdvals(comp.double())
+                hd_out[f'delta{d}']['composed_rank1_share'] = float(
+                    sv[0] / sv.sum())
+                hd_out[f'delta{d}']['composed_entropy_rank'] = \
+                    tf_fold.eff_rank(sv.cpu().numpy())['entropy_rank']
+                hd_out[f'delta{d}']['composed_rank_bound'] = min(
+                    D.hd * D.hd, comp.shape[0])
             if d == 1:
                 flat = comp.reshape(-1)
                 hi = torch.topk(flat, topk)
@@ -634,6 +857,28 @@ def rung4(D, topk=25, nsample=2048, seed=0):
             del s1, s2, pat, comp
         heads.append(hd_out)
     out['heads'] = heads
+    # ---- what does attending to a token DO?  composed to logits. ----
+    what = []
+    for h in range(H):
+        nrm = (D.OV[h] @ D.WU.t()).norm(dim=-1)
+        top = nrm.topk(8).indices
+        ent = []
+        for u in top.tolist():
+            z = D.OV[h][u] @ D.WU.t()
+            hi = z.topk(5)
+            ent.append({'key_token': tf_corpus.label(vocab, u),
+                        'boosts': [[tf_corpus.label(vocab, int(i)), float(v)]
+                                   for i, v in zip(hi.indices.cpu(),
+                                                   hi.values.cpu())],
+                        'boosts_itself_rank': int(
+                            (z > z[u]).sum()) + 1})
+        what.append({'head': h, 'strongest_keys': ent})
+    out['what_attending_does'] = {
+        'note': 'OV_h[u] W_U^T -- the complete path value->output->unembedding, '
+                'so these signs are invariant.  boosts_itself_rank = where the '
+                'attended token ranks among the tokens it boosts (1 = a pure '
+                'copy head).',
+        'per_head': what}
     # ---- token-class null for the value-write direction ----
     out['token_classes'] = _class_enrichment(D, ovu, vocab, seed)
     return out
@@ -656,7 +901,7 @@ def _tok_class(s):
 
 
 @torch.no_grad()
-def _class_enrichment(D, ovu, vocab, seed=0, topn=200, ndraw=2000):
+def _class_enrichment(D, ovu, vocab, seed=0, topn=200, ndraw=400):
     """For each head, take the tokens whose COMPOSED self-write is largest and
     ask whether their orthographic classes are enriched relative to a
     FREQUENCY-MATCHED null (tokens drawn with the same train-frequency
@@ -714,6 +959,8 @@ def main(stem, quick=False, out_json=None):
     print(f'  rung2 done {time.time()-t0:.0f}s', flush=True)
     rep['rung3_baselines'] = data_baselines(D, n_seq, T)
     print(f'  baselines done {time.time()-t0:.0f}s', flush=True)
+    rep['stream_geometry'] = stream_geometry(D, min(n_seq, 32), T)
+    print(f'  geometry done {time.time()-t0:.0f}s', flush=True)
     rep['rung5_ladder'] = ladder(D, n_seq, T)
     print(f'  ladder done {time.time()-t0:.0f}s', flush=True)
     ind = [induction_battery(D, seed=s) for s in range(3 if quick else 5)]
@@ -723,8 +970,8 @@ def main(stem, quick=False, out_json=None):
                                                for i in ind])),
         'induction_score_sd': float(np.std([i['induction_score']
                                             for i in ind], ddof=1)),
-        'copy_score_mean': float(np.mean([i['copy_score'] for i in ind])),
-        'copy_score_sd': float(np.std([i['copy_score'] for i in ind], ddof=1)),
+        'bag_score_mean': float(np.mean([i['bag_score'] for i in ind])),
+        'bag_score_sd': float(np.std([i['bag_score'] for i in ind], ddof=1)),
         'design': 'repeat vs shuffled-prefix vs fresh-prefix, matched token '
                   'multisets, scored on the second copy only'}
     print(f'  induction done {time.time()-t0:.0f}s', flush=True)
@@ -739,7 +986,17 @@ if __name__ == '__main__':
     ap = argparse.ArgumentParser()
     ap.add_argument('--stem', required=True)
     ap.add_argument('--quick', action='store_true')
+    ap.add_argument('--induction-only', action='store_true',
+                    help='any depth: the induction battery alone (used to get '
+                         'the depth-2 positive control for the depth-1 null)')
     a = ap.parse_args()
+    if a.induction_only:
+        r = induction_for_stem(a.stem)
+        jp = f'{HERE}/{a.stem}_induction.json'
+        json.dump(r, open(jp, 'w'), indent=2)
+        print(json.dumps({k: v for k, v in r.items()
+                          if k != 'per_seed'}, indent=2))
+        raise SystemExit(0)
     r = main(a.stem, a.quick)
     print(json.dumps({'ladder': r['rung5_ladder'],
                       'induction': {k: v for k, v in r['rung3_induction'].items()

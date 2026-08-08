@@ -526,18 +526,56 @@
       2
     ],
     "identity_gate": {
-      "mlp_tensor_identity_l0_relmax": 1.3835031609232828e-07,
-      "mlp_rmsnorm_gauge_l0_relmax": 2.7662161983244005e-07,
+      "mlp_tensor_identity_l0_relmax": 2.327669506030361e-07,
+      "mlp_rmsnorm_gauge_l0_relmax": 2.463063424329448e-07,
       "decoder_absmax_l0": 9.916821479797363,
       "attn_layer0_table_identity_relmax": 3.326725561692001e-07,
       "fold_forward_max_logit_diff": 6.67572021484375e-06,
-      "pass": true
+      "logit_absmax": 13.742443084716797,
+      "fold_forward_rel_logit_diff": 4.857739030600703e-07,
+      "fp64_mlp_tensor_identity_l0_relmax": 8.101636588532286e-16,
+      "fp64_mlp_rmsnorm_gauge_l0_relmax": 8.794831667953578e-16,
+      "fp64_decoder_absmax_l0": 9.916821479797363,
+      "fp64_attn_layer0_table_identity_relmax": 8.520198704502736e-16,
+      "fp64_fold_forward_max_logit_diff": 1.3322676295501878e-14,
+      "fp64_logit_absmax": 13.742439929746181,
+      "fp64_fold_forward_rel_logit_diff": 9.694549413066232e-16,
+      "fp32_forward_vs_fp64_forward_rel": 5.833343252750993e-07,
+      "fold_vs_forward_over_fp32_selfnoise": 0.8327538463144274,
+      "fp32_sanity_pass": true,
+      "fp64_exactness_pass": true,
+      "pass": true,
+      "criterion": {
+        "fp32_sanity": {
+          "mlp_rel": 1e-05,
+          "attn_rel": 1e-05,
+          "logit_rel": 1e-05
+        },
+        "fp64_exactness": {
+          "algebraic_rel": 1e-12,
+          "logit_abs": 1e-09,
+          "noise_multiple": 10.0
+        },
+        "note": "TWO-TIER.  fp32 tier is a scale-free sanity band sized by sqrt(N)*eps_fp32 ~ 1e-5; fp64 tier is the real exactness gate (algebraic identities to 1e-12 relative, end-to-end to 1e-9 absolute) plus a calibration requiring the fold-vs-forward gap to stay within 10x the forward pass own fp32-vs-fp64 self-noise.  SUPERSEDED: the old absolute-1e-5-fp32 logit criterion and the 1e-6 fp32 algebraic criteria, which together failed 5/6 cells on rounding alone while every fp64 residual sat at 1e-14 to 1e-16."
+      }
     },
     "planted_known_answer": {
       "planted_delta0_maxdiff": 1.2823075934420558e-14,
       "planted_delta0_scale": 0.48431475409306896,
-      "planted_delta3_maxdiff": 1.5765166949677223e-14,
-      "planted_delta3_scale": 0.480289306284806,
+      "planted_delta3_maxdiff": 1.587618925213974e-14,
+      "planted_delta3_scale": 0.4802893055867663,
+      "pass": true
+    },
+    "gate_negative_control": {
+      "clean_pass": true,
+      "mlp_scale_1p1e-7_pass": false,
+      "mlp_scale_1p1e-7_fp64_logit_abs": 9.894860805714778e-09,
+      "mlp_scale_1p1e-7_fp32_logit_abs": 1.1920928955078125e-07,
+      "mlp_scale_1p1e-7_caught_by_old_absolute_1e-5_gate": false,
+      "vv_head_roll_pass": false,
+      "vv_head_roll_fp64_logit_abs": 0.033177727890211825,
+      "vv_head_roll_fp32_logit_abs": 0.033184878528118134,
+      "vv_head_roll_caught_by_old_absolute_1e-5_gate": true,
       "pass": true
     },
     "spectra": {
@@ -607,125 +645,125 @@
         "per_head": [
           {
             "numerical_rank": 16,
-            "participation_ratio": 2.733492068349959,
-            "entropy_rank": 4.679142263574089,
-            "top1_share": 0.5807786049411644
+            "participation_ratio": 2.7334920569165715,
+            "entropy_rank": 4.6791422514354295,
+            "top1_share": 0.5807786064915543
           },
           {
             "numerical_rank": 16,
-            "participation_ratio": 1.1456418595409326,
-            "entropy_rank": 1.459463573387182,
-            "top1_share": 0.9338897957183999
+            "participation_ratio": 1.145641860956724,
+            "entropy_rank": 1.4594635774851017,
+            "top1_share": 0.9338897951344804
           },
           {
             "numerical_rank": 16,
-            "participation_ratio": 1.6573168468938078,
-            "entropy_rank": 2.7401073066084094,
-            "top1_share": 0.771105270993934
+            "participation_ratio": 1.657316845544862,
+            "entropy_rank": 2.740107306263784,
+            "top1_share": 0.7711052713599647
           },
           {
             "numerical_rank": 16,
-            "participation_ratio": 2.4906989393666366,
-            "entropy_rank": 4.161665203556375,
-            "top1_share": 0.6053783252320699
+            "participation_ratio": 2.4906989525467944,
+            "entropy_rank": 4.1616652300627175,
+            "top1_share": 0.6053783234249008
           }
         ],
         "rank_bound": 16,
         "mean_numerical_rank": 16.0,
-        "mean_entropy_rank": 3.2600945867815136
+        "mean_entropy_rank": 3.2600945913117583
       },
       "s2_d1": {
         "per_head": [
           {
             "numerical_rank": 16,
-            "participation_ratio": 2.115599143233614,
-            "entropy_rank": 2.920402270953403,
-            "top1_share": 0.6274207546901001
+            "participation_ratio": 2.1155991447605667,
+            "entropy_rank": 2.92040227746792,
+            "top1_share": 0.6274207546959597
           },
           {
             "numerical_rank": 16,
-            "participation_ratio": 1.589433745002241,
-            "entropy_rank": 2.4758071607295236,
-            "top1_share": 0.7874570539441835
+            "participation_ratio": 1.5894337426070433,
+            "entropy_rank": 2.475807156952834,
+            "top1_share": 0.7874570545923701
           },
           {
             "numerical_rank": 16,
-            "participation_ratio": 1.378645225475463,
-            "entropy_rank": 2.0379829485887395,
-            "top1_share": 0.8485379766234438
+            "participation_ratio": 1.3786452294236853,
+            "entropy_rank": 2.0379829576446036,
+            "top1_share": 0.8485379753421821
           },
           {
             "numerical_rank": 16,
-            "participation_ratio": 1.9186603527250814,
-            "entropy_rank": 3.1733768071260484,
-            "top1_share": 0.7087986075829691
+            "participation_ratio": 1.91866036347422,
+            "entropy_rank": 3.173376825983994,
+            "top1_share": 0.7087986052462246
           }
         ],
         "rank_bound": 16,
         "mean_numerical_rank": 16.0,
-        "mean_entropy_rank": 2.6518922968494287
+        "mean_entropy_rank": 2.6518923045123377
       },
       "s1_d2": {
         "per_head": [
           {
             "numerical_rank": 16,
-            "participation_ratio": 2.8870558293741997,
-            "entropy_rank": 4.9222093270413705,
-            "top1_share": 0.5618703994596016
+            "participation_ratio": 2.8870558366653483,
+            "entropy_rank": 4.922209325501698,
+            "top1_share": 0.561870398439456
           },
           {
             "numerical_rank": 16,
-            "participation_ratio": 1.1432732556941174,
-            "entropy_rank": 1.455069600807801,
-            "top1_share": 0.9348806903251433
+            "participation_ratio": 1.1432732506021297,
+            "entropy_rank": 1.4550695857146752,
+            "top1_share": 0.9348806924279557
           },
           {
             "numerical_rank": 16,
-            "participation_ratio": 1.7081843654005773,
-            "entropy_rank": 2.8540636575271856,
-            "top1_share": 0.7587047041075545
+            "participation_ratio": 1.7081843740774818,
+            "entropy_rank": 2.854063673847865,
+            "top1_share": 0.7587047020477239
           },
           {
             "numerical_rank": 16,
-            "participation_ratio": 2.470468602806354,
-            "entropy_rank": 4.14653118099976,
-            "top1_share": 0.6087599472798221
+            "participation_ratio": 2.470468599005334,
+            "entropy_rank": 4.146531160738129,
+            "top1_share": 0.6087599475332526
           }
         ],
         "rank_bound": 16,
         "mean_numerical_rank": 16.0,
-        "mean_entropy_rank": 3.344468441594029
+        "mean_entropy_rank": 3.344468436450592
       },
       "s2_d2": {
         "per_head": [
           {
             "numerical_rank": 16,
-            "participation_ratio": 2.1335055075483753,
-            "entropy_rank": 2.9497601220827923,
-            "top1_share": 0.6230346791300808
+            "participation_ratio": 2.133505515228375,
+            "entropy_rank": 2.9497600963564397,
+            "top1_share": 0.6230346734510491
           },
           {
             "numerical_rank": 16,
-            "participation_ratio": 1.6399361105710115,
-            "entropy_rank": 2.585014460732848,
-            "top1_share": 0.77439115010578
+            "participation_ratio": 1.6399361053692258,
+            "entropy_rank": 2.585014448123648,
+            "top1_share": 0.7743911513937136
           },
           {
             "numerical_rank": 16,
-            "participation_ratio": 1.37863915081915,
-            "entropy_rank": 2.049753738989756,
-            "top1_share": 0.8486609403688536
+            "participation_ratio": 1.3786391180986093,
+            "entropy_rank": 2.049753662540668,
+            "top1_share": 0.8486609509647
           },
           {
             "numerical_rank": 16,
-            "participation_ratio": 1.9101028492494723,
-            "entropy_rank": 3.171927915408573,
-            "top1_share": 0.710911479700227
+            "participation_ratio": 1.9101028041777743,
+            "entropy_rank": 3.171927817540917,
+            "top1_share": 0.7109114891728354
           }
         ],
         "rank_bound": 16,
         "mean_numerical_rank": 16.0,
-        "mean_entropy_rank": 2.689114059303492
+        "mean_entropy_rank": 2.6891140061404184
       }
     },
     "control_spectrum_qr_vs_eig_rel": 2.786491058308082e-12,

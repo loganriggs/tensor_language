@@ -1,0 +1,14 @@
+{
+  "registered_predictions": {
+    "written_before_any_rung_ran": true,
+    "rung2_low_rank": "the four V x head_dim query/key factors are FULL rank (16) -- rank <= 16 is arithmetic, not a finding -- but their SPECTRA are steep, so the entropy-effective rank of the realized delta=0 score table is well below 16 (predict < 8 for a majority of head-branches).  The MLP tensor mode-0 unfolding is predicted to have entropy rank well below its architectural bound min(Ws, hidden).",
+    "rung3_unigram": "the model beats the unigram floor by > 1.5 nats at every width",
+    "rung3_bigram": "the model's OWN bigram table (its exact output on a length-1 context, weights only) carries most of its held CE: freezing the context away costs less than 0.5 nats at width 32 and more at larger widths",
+    "rung3_skipgram": "attention from delta >= 2 is worth less than attention from delta = 1 (the adjacent-token term dominates)",
+    "rung3_positional": "a positional-only predictor is worse than unigram+eps; replacing the token-dependent pattern by its distance-only average destroys most of the attention gain, i.e. the pattern is token-driven not positional",
+    "rung3_induction": "PREDICTION, STRUCTURAL: a depth-1 model CANNOT do induction.  On repeated random text the induction score (CE with an order-preserving repeat minus CE with a SHUFFLED repeat) is ~0 within noise, while the BAG score (shuffled repeat vs no repeat) is clearly positive, because an order-free bag effect is reachable at depth 1.  A depth-2 cell run through the identical battery must show a nonzero induction score, otherwise the METRIC is broken rather than the model being shallow.",
+    "rung4_tokens": "the composed copy score is dominated by a small number of token pairs (effective pair count << V^2) and the top pairs are enriched for identical or orthographically related tokens relative to a frequency-matched null",
+    "rung5_kl": "the weights-only model-bigram stage gets KL to the true model below 0.5 nats; adding the folded past attention at least halves what remains; the exact MLP closes it to ~0 (the fold is exact, so the last stage is a control, not a result)"
+  },
+  "stem": "tf_vanilla_d1_w64_v8192_s0"
+}
