@@ -7,6 +7,36 @@ they land with the finding in the commit message.
 
 ---
 
+**2026-08-08 08:10 UTC — ALL SIX ARCHITECTURES TRAINED AND INTERPRETED
+(depth 2, width 128, seed 0). CE ordering, plain-model seed sd at this cell
+is 0.0065 so anything past ~0.02 is real:**
+  predicate  4.3707  -0.1838 vs plain
+  bandwidth  4.5429  -0.0116 vs plain
+  vanilla    4.5545  +0.0000 vs plain
+  shrink     4.6406  +0.0860 vs plain
+  codebook   4.6616  +0.1071 vs plain
+  slots      4.6619  +0.1074 vs plain
+NAMED ATTENTION TERMS WIN AGAIN, AND BY MORE THAN AT SCALE: -0.184 vs the
+plain model here (28 seed-sd), against -0.066 vs Muon vanilla in the parent
+program at width 264 depth 12. Same intervention, two very different model
+sizes, both favourable — that is the first cross-program replication we
+have. Wider channels are within noise of plain (-0.012, ~2 sd); private
+channels, discrete messages and the shrinking channel all cost 0.09-0.11.
+STILL PENDING and NOT to be reported until it lands: the causal,
+normalisation-invariant version of the composition budget. The norm-share
+numbers that suggested private channels OPEN the attention-to-attention
+path (54.97% vs the plain model's 0.29%) are confounded by that variant's
+per-slot normalisation, which equalises contribution magnitudes BY
+CONSTRUCTION. The replacement measurement (ablate each upstream source from
+layer 1's read, zeroing AND resampling, measure pattern/value/CE change)
+plus a synthetic control (apply slot-style normalisation to the PLAIN model
+at analysis time and see whether its shares drift toward balance) are
+running. If the control moves the plain model's shares, every norm-share
+number in this comparison is withdrawn.
+
+---
+
+
 **2026-08-08 07:00 UTC — CORRECTION TO MY 06:30 ENTRY: the induction
 circuit is NOT the textbook two-layer circuit. It runs through the MLP.**
 I wrote at 06:30 that "a previous-token head in layer 0 and a matching head
