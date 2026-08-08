@@ -162,12 +162,25 @@ so the whole ladder is one code path end to end.
 
 | depth | width | owner | status |
 |---|---|---|---|
-| 3 | 64 | LOCAL | **local:running** (seeds 0,1,2) |
-| 3 | 128 | LOCAL | **local:running** (seeds 0,1,2) |
-| 3 | 256 | LOCAL | **local:running** (seeds 0,1,2) |
-| 4 | 64 | LOCAL | **local:running** (seeds 0,1,2) |
-| 4 | 128 | LOCAL | **local:running** (seeds 0,1,2) |
-| 4 | 256 | LOCAL | **local:running** (seeds 0,1,2) |
+| 3 | 64 | LOCAL | **seed 0 done + interpreted** — CE 4.9417, induction +0.0077 (BELOW its 0.0109 floor); seeds 1,2 running |
+| 3 | 128 | LOCAL | **seed 0 done + interpreted** — CE 4.5285, **induction +0.0974** vs floor 0.0078; seeds 1,2 running |
+| 3 | 256 | LOCAL | **seed 0 done + interpreted** — CE 4.2182, **induction +0.1642** vs floor 0.0156; seeds 1,2 running |
+| 4 | 64 | LOCAL | **seed 0 done + interpreted** — CE 4.8817, **induction +0.0173** vs floor 0.0133 (1.3× the floor, the one marginal cell); seeds 1,2 running |
+| 4 | 128 | LOCAL | **seed 0 done + interpreted** — CE 4.4601, **induction +0.1264** vs floor 0.0112; seeds 1,2 running |
+| 4 | 256 | LOCAL | **seed 0 done + interpreted** — CE 4.1436, **induction +0.3019** vs floor 0.0137; seeds 1,2 running |
+
+**Seed-0 verdicts (RESULTS.md FINDING 14; PROVISIONAL until seeds 1 and 2 land,
+which the same chain is producing).** The induction width threshold falls **one
+octave per layer** — 256 at depth 2, 128 at depth 3, 64 at depth 4 — and at
+depth 3 the **attention-to-attention route opens** (layer-1 attention into layer
+2's read is 17–39% of the dominant MLP term, against 1e−5 at depth 2) **and the
+induction circuit moves onto it** (cutting it removes 94.5% of the induction
+score at depth 3 width 128 while the bag control does not fall). Layer-0
+attention stays at ~1e−6 into every downstream read at every depth and width, so
+the shut channel is the FIRST attention block specifically, not
+attention→attention in general. Registered P2 is refuted; registered P1 is
+confirmed in its main clause and refuted in its last; P4 (order dependence grows
+with depth) is refuted — it peaks at depth 2.
 
 ## Compressibility across the grid (Logan's question: artifact or family property?) — CLAIMED BY LOCAL 2026-08-08
 
@@ -183,9 +196,24 @@ DEPTH-GENERAL decoder; `tf_compress.D1Desc` asserts depth 1).
 
 | cells | owner | status |
 |---|---|---|
-| d1 × w{32,64,128,256}, d2 × w{32,64,128,256}, seed 0 | LOCAL | **local:running** |
-| d3/d4 × w{64,128,256}, seed 0 | LOCAL | **local:running** (after training) |
-| seed replication (seeds 1,2) at the extreme widths | LOCAL | **local:running** |
+| d1 × w{32,64,128,256}, d2 × w{32,64,128,256}, seed 0 | LOCAL | **done** |
+| d3/d4 × w{64,128,256}, seed 0 | LOCAL | **done** except d4 w256 (chain picks it up on its next pass) |
+| seed replication (seeds 1,2) at the extreme widths | LOCAL | local:running |
+
+**Verdict (RESULTS.md FINDING 15): the ratio SHRINKS with model size.** Slope
+−0.042 ± 0.009 per e-fold of parameters (t = −4.9, 13 cells); R falls from 1.162
+at width 32 depth 1 to 0.987 at width 256 depth 2, i.e. at the largest cell the
+best description we can build is **worse in bits than bit-packing the same
+weights** at the same held CE. Registered P5's falsifier (growth) is rejected
+with a wide margin, so **"structure does not compress" is a property of this
+architecture family, not an artifact of the smallest model, and it gets stronger
+with size.** P7 confirmed 13/13: restricted to descriptions made out of an
+interpretation the ratio is 0.75–0.87 everywhere, and **no structural scheme
+appears anywhere on the overall frontier at any cell.** The three ways this
+could have been a size artifact — the naive denominator's per-row scale overhead
+(1.0 bits/weight at width 32, 0.125 at width 256), the falling embedding share,
+and a fixed absolute KL being a different difficulty at each width — are each
+measured and each fail to explain it.
 
 ## Baselines (matched-optimizer, per width — REQUIRED before quoting any cost)
 

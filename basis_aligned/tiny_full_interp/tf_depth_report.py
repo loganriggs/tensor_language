@@ -139,17 +139,30 @@ def main():
         ws = sorted(w for (d_, w) in
                     [(int(k[1]), int(k.split('_w')[1])) for k in C]
                     if d_ == dep)
+        # a majority of the seeds run for that cell, and never fewer than 2
+        # when three exist; cells still at one seed are marked provisional
         got = [w for w in ws
                if C[f'd{dep}_w{w}']['seeds_above_induction_floor']
-               >= max(2, C[f'd{dep}_w{w}']['n_seeds'] - 1)]
+               >= (2 if C[f'd{dep}_w{w}']['n_seeds'] >= 3
+                   else C[f'd{dep}_w{w}']['n_seeds'])]
         thr[dep] = min(got) if got else None
+    p1['threshold_is_provisional_at_depth'] = [
+        dep for dep in (1, 2, 3, 4)
+        if any(v['n_seeds'] < 3 for k, v in C.items() if v['depth'] == dep)]
     p1['induction_width_threshold_by_depth'] = thr
-    p1['call'] = (
-        'CONFIRMED -- depth lowers the threshold an octave'
-        if thr.get(3) == 128 and thr.get(2) == 256 else
-        ('REFUTED -- the threshold does not move with depth'
-         if thr.get(3) == thr.get(2) else
-         f'PARTIAL -- thresholds by depth {thr}'))
+    if thr.get(2) == 256 and thr.get(3) == 128 and thr.get(4) == 64:
+        p1['call'] = ('CONFIRMED IN ITS MAIN CLAUSE AND REFUTED IN ITS LAST: '
+                      'the threshold falls ONE OCTAVE PER LAYER (256 at depth '
+                      '2, 128 at depth 3, 64 at depth 4). P1 registered the '
+                      'depth-3 octave correctly but also registered that width '
+                      '64 would stay below floor at depths 3 AND 4; at depth 4 '
+                      'it does not.')
+    elif thr.get(3) == 128 and thr.get(2) == 256:
+        p1['call'] = 'CONFIRMED -- depth lowers the threshold an octave'
+    elif thr.get(3) == thr.get(2):
+        p1['call'] = 'REFUTED -- the threshold does not move with depth'
+    else:
+        p1['call'] = f'PARTIAL -- thresholds by depth {thr}'
     rep['P1_verdict'] = p1
 
     # ------------------------------------------------------- P2 verdict

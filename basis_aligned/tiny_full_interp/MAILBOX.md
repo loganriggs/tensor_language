@@ -7,6 +7,104 @@ they land with the finding in the commit message.
 
 ---
 
+**2026-08-08 15:36 UTC — THE DEPTH LADDER AND THE COMPRESSIBILITY CURVE, BOTH
+COMPLETE AT SEED 0. This supersedes the 15:10 and 15:30 entries below, which
+quoted the same measurements at 9 cells and before the depth-4 cells landed;
+the numbers here are 13 cells and the full seed-0 ladder. Write-ups: RESULTS.md
+FINDING 14 (depth) and FINDING 15 (compressibility).**
+
+1. **THE ATTENTION-TO-ATTENTION ROUTE OPENS AT DEPTH 3, AND THE INDUCTION
+   CIRCUIT MOVES ONTO IT.** At depth 2 the plain model's layer 1 reads layer-0
+   attention at 2e-5 nats against the first MLP's 1.8 (FINDING 8, FINDING 11).
+   At depth 3, layer 2 reads LAYER-1 attention at 0.08 / 0.18 / 0.27 nats
+   zeroed and 0.06 / 0.12 / 0.11 resampled (widths 64 / 128 / 256) — 17% / 26%
+   / 39% of the dominant MLP term. Cutting that one read removes **94.5% of the
+   induction score** at depth 3 width 128 (0.0974 to 0.0054) while the
+   bag-of-tokens control does NOT fall (0.100 to 0.151), so it is not that the
+   model has been broken; the same cut applied to layer-0 attention moves it by
+   -0.1%. **It is layer-1 attention that opens, not attention-to-attention in
+   general: layer-0 attention still transmits ~1e-6 into every downstream read
+   at every depth and every width.** The shut channel is the FIRST attention
+   block specifically, which fits the FINDING 11 round-2 correction that its
+   write is renormalised down to a fraction of a percent of the stream. This
+   dates FINDING 9 ("induction does not use the residual composition path") to
+   a DEPTH rather than to the architecture. Registered prediction P2 is
+   REFUTED at all six depth-3/4 cells, and its pre-registered exception
+   (depth 4 width 256 only) does not save it.
+
+2. **THE INDUCTION WIDTH THRESHOLD FALLS ONE OCTAVE PER LAYER**: width 256 at
+   depth 2, 128 at depth 3 (+0.0974 against a 0.0078 planted-oracle floor), 64
+   at depth 4 (+0.0173 against 0.0133 — only 1.3x its floor, the one cell that
+   really needs its other two seeds). At width 256 the score triples with
+   depth: +0.094 / +0.164 / +0.302 at depths 2 / 3 / 4, and the natural-text
+   order-only swap probe rises with it (+0.241 / +0.280 / +0.318). P1 got the
+   depth-3 octave right and its last clause (width 64 stays null at depth 4)
+   wrong. P4 (order dependence grows with depth) is REFUTED — the attention
+   first/last ratio PEAKS at depth 2 (12.1x at width 256) and falls to 8.8x by
+   depth 4, so the depth-2 model is the most order-dependent object on the
+   ladder. The standing rule survives untouched: 4.5x to 12.4x at every cell,
+   so no single "what attention is worth" number exists at any depth.
+
+3. **COMPRESSIBILITY ACROSS THE GRID: THE RATIO SHRINKS WITH SIZE.** One scalar
+   per cell, FINDING 12 section 7b's own construction (bits of the best
+   description over bits of the same weights naively quantised, at matched
+   HELD CE — Logan's standing correction; KL secondary), thirteen cells, an
+   identical scheme family at every one. Slope **-0.042 +- 0.009 per e-fold of
+   parameters, t = -4.9**; the ratio runs 1.162 at width 32 depth 1 down to
+   **0.987 at width 256 depth 2 — below one, i.e. the best description we can
+   build is WORSE in bits than bit-packing the same weights at the same held
+   CE.** The registered falsifier for P5 (growth) is rejected with a wide
+   margin. So the negative is a property of this architecture family, it is
+   not an artifact of the smallest model, and scaling up will make it worse.
+
+4. **THE PART THAT MATTERS FOR INTERPRETABILITY IS EMPHATIC.** Restricted to
+   descriptions made out of an interpretation — low rank, row prototypes,
+   subspace codebooks, exact anchor rows, and each of those plus an honestly
+   coded remainder — the ratio is **0.75 to 0.87 at 13 of 13 cells** (P7
+   confirmed), and, not registered and stronger, **no structural scheme
+   appears anywhere on the overall frontier at any cell**: the frontier is held
+   by per-column transform codes, frequency-stratified precision and plain
+   uniform quantisation at width 32, 64, 128 and 256 alike.
+
+5. **THREE WAYS THE SIZE TREND COULD HAVE BEEN AN ARTIFACT, ALL MEASURED
+   RATHER THAN ARGUED** (the adversarial-review item). A per-row fp16 scale
+   pair costs 32 bits per row whatever the width — 1.0 bits/weight of pure
+   overhead at width 32 and 0.125 at width 256 — which alone would manufacture
+   the observed shrink, so the denominator was strengthened to the better of
+   per-row and per-tensor scale grouping (the slope moves only from -0.048 to
+   -0.042). The embedding falls from 93% to 37% of the parameters across the
+   grid and every structural scheme attacks the embedding, so an
+   embedding-only control holds the body at a near-lossless 12-bit code; the
+   trend survives at -0.029 +- 0.006, t = -5.0. And a fixed absolute KL is a
+   different difficulty at every cell, so every frontier is cut at 15% of that
+   cell own headroom over the unigram floor. Two further checks: the naive
+   family Pareto staircase has 15-19 points at every cell (no interpolation
+   starvation), and width 32 has 252 structural schemes against 264 elsewhere,
+   which biases AGAINST the observed shrink because width 32 is the
+   highest-ratio cell.
+
+**STATUS AND WHAT IS LEFT — nothing here needs a human.** Depths 1-2 are three
+seeds a cell, and the depth-1/2 cells that predated `tf_interp3.py` were re-run
+through it, so the whole ladder is one code path end to end. **Depths 3 and 4
+are SEED 0 ONLY**; `tf_depth_ladder_chain.sh` is training seeds 1 and 2 now and
+`tf_cgrid_chain.sh` is finishing depth-4 width-256 plus the seed replicates.
+When they finish, `python tf_depth_report.py` and `python tf_cgrid_report.py`
+regenerate every table, figure and verdict in FINDING 14 and FINDING 15 from
+the JSONs — no re-derivation by hand. Until then every depth-3/4 number is
+marked provisional on one seed, which in this programme is not yet a structure
+claim.
+
+New machinery: `tf_compress_grid.py` (a DEPTH-GENERAL description decoder —
+`tf_compress.D1Desc` asserts depth 1; this one writes described tables back
+into the model and calls the model own forward, so the identity description
+returns KL **exactly 0.0** instead of a 1e-6 floor, and the reference
+log-probabilities are cached in fp32, which removes the fp16 floor the round-3
+reviewer found), `tf_cgrid_report.py`, `tf_depth_report.py`,
+`tf_depth_addendum.py` (the route-USE test), figures
+`fig_tf_compressibility_vs_size.png` and `fig_tf_depth_ladder.png`.
+
+---
+
 **2026-08-08 15:30 UTC — COMPRESSIBILITY VERSUS SIZE: the negative is NOT a
 small-model artifact, and it gets slightly WORSE with scale.**
 The question was whether "structure does not compress" is an artifact of

@@ -7,6 +7,332 @@ were **refuted** are marked as such rather than quietly dropped.
 
 ---
 
+## 2026-08-08 — FINDING 15 (COMPRESSIBILITY ACROSS THE WHOLE GRID): "structure does not compress" is a **property of this architecture family, not an artifact of the smallest model** — the ratio SHRINKS with size (slope −0.042 ± 0.009 per e-fold of parameters, t = −4.9), at the largest cell the best description we can build is **worse** than bit-packing, and no description made out of an interpretation appears anywhere on the frontier at any cell
+
+Files: `tf_compress_grid.py` (a DEPTH-GENERAL decoder and the identical scheme
+family at every cell), `tf_cgrid_report.py` (all ratio flavours, trends,
+figure), `tf_cgrid_chain.sh`. Data:
+`tf_vanilla_d{1,2,3,4}_w{32..256}_b8192_s0_cgrid.json`, aggregated in
+`tf_cgrid_table.md` / `tf_cgrid_summary.json`. Registered predictions P5–P7 in
+`tf_depth_ladder_predictions.json`, written before any cell ran.
+
+**Why this exists.** FINDING 12's review reduced the whole compression program
+to one honest scalar — bits of the best description over bits of the same
+weights naively quantised, at a matched score — and measured it at exactly one
+cell (depth 1, width 128). One cell cannot tell "the family does not compress"
+from "the smallest model does not compress". Logan's question: **artifact or
+family property?** If the ratio grows with size the negative is a small-model
+artifact and the programme should scale up; if it is flat or shrinks the
+negative should be written up as a property of the family.
+
+![compressibility versus size](fig_tf_compressibility_vs_size.png)
+
+### The number, and how it is defined
+
+For every point on the description frontier of a cell, how many bits the SAME
+weights need under naive uniform quantisation with entropy coding to reach the
+**same held cross-entropy** (Logan's standing correction; KL is reported
+beside it). `R` is the median of that ratio over the cell's frontier points —
+FINDING 12 §7b's own construction, not a new one. Interpolation is always done
+*inside one family*, so a set-inclusion artifact cannot move it.
+
+`R (structure)` restricts the numerator to descriptions made out of an
+**interpretation** — low rank, row prototypes, subspace codebooks, exact anchor
+rows for the important tokens, and each of those plus an honestly coded
+remainder — and excludes recodings (transform codes, per-column entropy models,
+stratified precision). That is the number that answers the interpretability
+question; `R` answers "is fp32 a bad file format".
+
+| depth | width | params | embedding share | held CE | **R** | R (per-row denominator) | R (KL not CE) | R (embedding only) | **R (structure)** |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 | 32 | 280,608 | 93% | 5.4249 | **1.162** | 1.211 | 1.151 | 1.139 | **0.826** |
+| 1 | 64 | 598,080 | 88% | 5.0384 | **1.132** | 1.148 | 1.093 | 1.093 | **0.834** |
+| 1 | 128 | 1,343,616 | 78% | 4.7114 | **1.051** | 1.051 | 1.067 | 1.055 | **0.750** |
+| 1 | 256 | 3,277,056 | 64% | 4.4320 | **1.049** | 1.050 | 1.048 | 1.036 | **0.763** |
+| 2 | 32 | 299,072 | 88% | 5.3168 | **1.085** | 1.141 | 1.082 | 1.086 | **0.847** |
+| 2 | 64 | 671,872 | 78% | 4.9135 | **1.035** | 1.109 | 1.076 | 1.041 | **0.837** |
+| 2 | 128 | 1,638,656 | 64% | 4.5386 | **1.040** | 1.054 | 1.053 | 1.040 | **0.775** |
+| 2 | 256 | 4,456,960 | 47% | 4.2090 | **0.987** | 1.039 | 0.977 | 1.022 | **0.768** |
+| 3 | 64 | 745,664 | 70% | 4.8320 | **1.083** | 1.119 | 1.070 | 1.050 | **0.842** |
+| 3 | 128 | 1,933,696 | 54% | 4.4262 | **1.030** | 1.066 | 1.047 | 1.044 | **0.781** |
+| 3 | 256 | 5,636,864 | 37% | 4.1102 | **1.008** | 1.039 | 0.989 | 1.017 | **0.827** |
+| 4 | 64 | 819,456 | 64% | 4.7742 | **1.067** | 1.090 | 1.071 | 1.046 | **0.869** |
+| 4 | 128 | 2,228,736 | 47% | 4.3550 | **1.024** | 1.083 | 1.035 | 1.035 | **0.838** |
+
+### The verdicts
+
+**P5 (registered: FLAT, |slope| < 0.05 per e-fold; falsifier: slope > +0.05 and
+R > 1.6 at the largest cell) — the falsifier is rejected by a wide margin, and
+P5's letter is not met because the slope is significantly NEGATIVE.** The fitted
+slope of R on log parameters is **−0.042 ± 0.009 per e-fold (t = −4.9, n = 13
+cells)**, i.e. −0.10 per doubling; over the 24× parameter range measured R falls
+from 1.162 to 0.99–1.01. **P5's scientific claim is confirmed in the stronger
+direction: this is a family property and it gets worse with size, not better.**
+The programme should NOT scale up expecting the compression story to improve.
+
+**P7 (registered: restricted to descriptions made out of an interpretation the
+ratio falls below 1.0 at every cell) — CONFIRMED, 13 of 13 cells**, values
+0.750–0.869, with no trend worth quoting (slope −0.021 ± 0.010). A stronger
+version fell out that was not registered: **no structural scheme appears
+anywhere on the overall frontier at any cell.** Listing what holds the frontier
+between the model's CE and CE + 15% of its headroom, the families are
+per-column transform codes, frequency-stratified precision, and plain uniform
+quantisation — at width 32, 64, 128 and 256 alike. Structure is not merely
+behind; it is absent.
+
+**P6 (depth changes the ratio by less than the width effect) — CONFIRMED.** At
+fixed width the depth spread is 0.096 (width 64), 0.027 (width 128) and 0.062
+(width 256), against a width spread of 0.113–0.175 within a depth.
+
+### Self-red-team: is the ratio comparable across cells?
+
+This was the review item, because different widths have different weight counts
+and different KL scales. Five ways it could have been a size artifact, each
+measured rather than argued:
+
+1. **The naive denominator's fixed overhead.** A per-row fp16 scale pair is 32
+   bits per row whatever the width — **1.0 bits per weight of pure overhead at
+   width 32 and 0.125 at width 256** (20% of a 4-bit embedding code at width 32,
+   4% at width 256). A per-row-only denominator is therefore systematically
+   weaker at small width, which would manufacture exactly the observed shrink.
+   Fixed by strengthening the denominator to the better of per-row and
+   per-tensor scale groupings. It costs some of the trend but not its sign:
+   slope −0.048 ± 0.007 per-row against **−0.042 ± 0.009** strengthened.
+2. **Composition.** The embedding is 93% of the parameters at width 32 and 37%
+   at depth 3 width 256, and every structural scheme attacks the embedding.
+   Control: hold the body at its near-lossless 12-bit code so only the embedding
+   coder varies. The trend survives at the same size — **slope −0.029 ± 0.006,
+   t = −5.0** (1.139 → 1.017 across the grid).
+3. **Score comparability.** A fixed absolute KL is a different difficulty at
+   every cell, so every frontier is cut at **15% of that cell's own headroom
+   over the unigram floor**, and the primary score is held CE, not KL. The KL
+   version agrees (slope −0.041 ± 0.010).
+4. **Interpolation starvation.** A denominator built from too few points would
+   interpolate badly at some widths. Measured: the naive family's Pareto
+   staircase has 15–19 points at every cell.
+5. **Family composition.** Width 32 has 252 structural schemes against 264
+   elsewhere (one product-quantisation subspace count is unavailable when
+   `d/m < 2`). Width 32 is the cell with the HIGHEST ratio, so a slightly
+   smaller family there biases *against* the observed shrink; the trend is
+   conservative.
+
+**What is NOT claimed.** The absolute level here (1.05 at depth 1 width 128) is
+below FINDING 12's 1.20 median at the same cell, because that scheme set was
+larger — it included distillation, which supplied FINDING 12's maximum of 1.54,
+and a corpus-co-occurrence conditional code. This measurement holds the family
+**identical at every cell** so that the trend is a fact about the models; it is
+not a claim that the frontier cannot be pushed with more schemes. The trend is
+what is being measured, and it is negative under every denominator, score and
+control tried.
+
+**Positive control.** The identity description — the model's own tables — returns
+KL **exactly 0.0**, not a 1e-6 floor, because the decoder is the model's own
+forward with tables written back into its parameters. The reference
+log-probabilities are cached in fp32, which removes the fp16 measurement floor
+the round-3 reviewer found in `tf_compress.D1Desc` (it had produced a negative
+control KL of −5.1e-7).
+
+---
+
+## 2026-08-08 — FINDING 14 (THE DEPTH LADDER, depths 3 and 4): the induction width threshold falls **one octave per layer** (256 → 128 → 64), and at depth 3 the **attention-to-attention route opens for the first time and the induction circuit moves onto it** — but it is LAYER-1 attention that opens; layer-0 attention transmits ~1e-6 into every downstream read at every depth and width
+
+Files: `tf_depth_ladder_chain.sh` (training + `tf_interp3.py` verbatim),
+`tf_backfill_interp3_chain.sh` (depth-1/2 cells re-run through the same code
+path so the ladder is one path end to end), `tf_depth_report.py`,
+`tf_depth_addendum.py` (the route-USE test). Data:
+`tf_vanilla_d{1,2,3,4}_w*_b8192_s*_interp3.json`, `*_routeuse.json`, aggregated
+in `tf_depth_ladder.json` / `tf_depth_ladder_table.md`. Registered predictions
+P1–P4 in `tf_depth_ladder_predictions.json`, written before the first depth-3
+training step.
+
+> **SEED STATUS.** Depths 1 and 2 are three seeds a cell. Depths 3 and 4 are
+> **seed 0 only** at the time of writing; seeds 1 and 2 are training in the same
+> chain and `tf_depth_report.py` regenerates every number and both verdicts from
+> the JSONs when they land. Every depth-3/4 claim below is therefore marked
+> PROVISIONAL ON ONE SEED, which in this programme is not yet a structure claim.
+
+![the depth ladder](fig_tf_depth_ladder.png)
+
+### The ladder
+
+Same protocol as the primary grid: vanilla, V=8192 trained byte-level BPE, Muon
+0.02 with AdamW 0.004 on the embedding, 15,000 steps × batch 16, single epoch,
+`--no-sweep`, identical data order. All 14 cells pass the fold identity gate and
+the pipeline decomposition control.
+
+| depth | width | params | held CE (T512) | bits/byte | ladder CE | induction ± sd (floor) | above floor | natural-text swap | attention first / last | order ratio | interaction |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | 32 | 280,608 | 5.5075 ± 0.0077 | 2.1162 | 5.4130 | −0.0058 ± 0.0018 (0.0091) | 0/3 | +0.0231 | 2.03 / 0.29 | 7.1× | 1.74 |
+| 1 | 64 | 598,080 | 5.1479 ± 0.0055 | 1.9781 | 5.0477 | −0.0115 ± 0.0025 (0.0096) | 0/3 | +0.0407 | 3.47 / 0.47 | 7.4× | 3.00 |
+| 1 | 128 | 1,343,616 | 4.8226 ± 0.0029 | 1.8531 | 4.7234 | −0.0264 ± 0.0019 (0.0093) | 0/3 | +0.0671 | 4.63 / 0.70 | 6.6× | 3.93 |
+| 1 | 256 | 3,277,056 | 4.5591 ± 0.0027 | 1.7518 | 4.4592 | −0.0354 ± 0.0015 (0.0092) | 0/3 | +0.0853 | 4.26 / 0.94 | 4.5× | 3.32 |
+| 2 | 32 | 299,072 | 5.4127 ± 0.0098 | 2.0798 | 5.3166 | −0.0077 ± 0.0015 (0.0079) | 0/3 | +0.0258 | 4.22 / 0.37 | 11.4× | 3.85 |
+| 2 | 64 | 671,872 | 5.0181 ± 0.0047 | 1.9282 | 4.9124 | −0.0140 ± 0.0022 (0.0111) | 0/3 | +0.0552 | 7.67 / 0.62 | 12.4× | 7.05 |
+| 2 | 128 | 1,638,656 | 4.6463 ± 0.0075 | 1.7853 | 4.5503 | −0.0034 ± 0.0099 (0.0103) | 0/3 | +0.1032 | 11.63 / 0.94 | 12.4× | 10.69 |
+| 2 | 256 | 4,456,960 | 4.3254 ± 0.0013 | 1.6620 | 4.2453 | **+0.0938 ± 0.0086** (0.0101) | **3/3** | +0.2407 | 14.87 / 1.23 | 12.1× | 13.64 |
+| 3 | 64 | 745,664 | 4.9417 | 1.8989 | 4.8425 | +0.0077 (0.0109) | 0/1 | +0.0546 | 6.30 / 0.74 | 8.5× | 5.56 |
+| 3 | 128 | 1,933,696 | 4.5285 | 1.7400 | 4.4500 | **+0.0974** (0.0078) | **1/1** | +0.1747 | 8.53 / 1.09 | 7.8× | 7.43 |
+| 3 | 256 | 5,636,864 | 4.2182 | 1.6208 | 4.1435 | **+0.1642** (0.0156) | **1/1** | +0.2799 | 13.54 / 1.41 | 9.6× | 12.13 |
+| 4 | 64 | 819,456 | 4.8817 | 1.8758 | 4.7843 | **+0.0173** (0.0133) | **1/1** | +0.0553 | 6.54 / 0.83 | 7.9× | 5.71 |
+| 4 | 128 | 2,228,736 | 4.4601 | 1.7138 | 4.3866 | **+0.1264** (0.0112) | **1/1** | +0.1899 | 9.18 / 1.27 | 7.2× | 7.92 |
+| 4 | 256 | 6,816,768 | 4.1436 | 1.5921 | 4.0835 | **+0.3019** (0.0137) | **1/1** | +0.3179 | 13.33 / 1.51 | 8.8× | 11.82 |
+
+The floor in parentheses is the **planted-oracle power floor** (3 standard
+errors of the score across probe seeds): a null is a null only down to it.
+
+### 1. P1 — the induction width threshold: CONFIRMED in its main clause, REFUTED in its last
+
+Registered: *depth lowers the width threshold by one octave — at depth 3, width
+128 inducts; width 64 stays below floor at depths 3 AND 4.* Measured, the
+threshold is
+
+| depth | smallest width with induction above its power floor |
+|---|---|
+| 1 | none (below floor at every width, all three seeds) |
+| 2 | **256** |
+| 3 | **128** (+0.0974 against a 0.0078 floor; width 64 is +0.0077 against 0.0109, below) |
+| 4 | **64** (+0.0173 against a 0.0133 floor) |
+
+**One octave per layer, and it does not stop at depth 3** — the last clause of P1
+(width 64 stays null at depth 4) is refuted. The registered magnitude range for
+depth-3 width 128, [+0.015, +0.070], is also wrong: the measured +0.097 is
+larger than predicted, and about the same as the depth-2 width-256 value. The
+side prediction that the width-256 score grows with depth is confirmed
+emphatically: +0.094 → +0.164 → +0.302 at depths 2, 3, 4, a 3.2× rise, and the
+natural-text order-only swap probe rises with it (+0.241 → +0.280 → +0.318).
+
+Depth-4 width 64 sits only 1.3× its floor, so it is the one threshold cell that
+genuinely needs the other two seeds before it is quoted as more than provisional.
+
+### 2. P2 — the composition budget: REFUTED, and the refutation is the finding
+
+Registered: *the feed-forward path keeps dominating; every attention-to-attention
+read stays below 1% of its layer's dominant MLP term, with the deepest layer of
+depth-4 width-256 pre-registered as the one place it might break.* It breaks at
+**every depth-3 and depth-4 cell**, so the exception clause does not save it.
+
+Measured causally — each upstream write deleted from layer *l*'s Q/K/V read only,
+residual untouched, everything downstream recomputed, in both the zeroing and
+the resampling flavour (the norm-share version is withdrawn and not reported):
+
+| cell | layer | largest attention→attention source | KL [zero, resample] | as a fraction of the dominant MLP |
+|---|---|---|---|---|
+| d2 w32/64/128/256 | 1 | A0 | ~1e−6 … 2e−5 | **1.1e−6 … 1.9e−5** |
+| d3 w64 | 2 | **A1** | [0.0816, 0.0608] | **0.169** |
+| d3 w128 | 2 | **A1** | [0.1798, 0.1150] | **0.256** |
+| d3 w256 | 2 | **A1** | [0.2668, 0.1066] | **0.386** |
+| d4 w64 | 3 | **A2** | [0.0525, 0.0367] | **0.317** |
+| d4 w128 | 2 | **A1** | [0.2140, 0.1530] | **0.220** |
+| d4 w256 | 2 | **A1** | [0.3481, 0.1207] | **0.344** |
+| d3/d4, every width | 1 | A0 | ~1e−6 | **1.2e−6 … 1.6e−5** |
+
+Three separate statements, and they should not be run together:
+
+**(a) The attention-to-attention route opens at depth 3, and grows with width.**
+0.169 → 0.256 → 0.386 of the dominant MLP term at widths 64/128/256. This is a
+five-orders-of-magnitude change from depth 2 and it is not a threshold artifact:
+FINDING 8's and FINDING 11's depth-2 number (2e−5) reproduces here on the same
+instrument at all four widths.
+
+**(b) It is LAYER-1 attention that opens; layer-0 attention stays mute at every
+depth and every width.** Deleting A0 from any downstream read — layer 1, 2 or 3,
+depth 2, 3 or 4 — costs 1e−6 to 3e−5 nats. This is a sharper version of FINDING
+8: the shut channel is not "attention→attention", it is specifically the FIRST
+attention block, whose write is renormalised down to a fraction of a percent of
+the stream before anything reads it (FINDING 11 §8, R1). Once a layer's write
+survives into a stream that is no longer dominated by MLP-0's output, the
+downstream layers read it.
+
+**(c) The dominant read source is STILL the FIRST MLP, at every layer of every
+cell** — M0, not the immediately preceding M_{l−1}. That half of P2 is also
+refuted (P2 asserted the immediately preceding MLP), and in a way that says
+something: at depth 4 width 256, layer 3's read is dominated by MLP-0 (0.267)
+over MLP-2, and layer 2's by MLP-0 (1.010) over MLP-1.
+
+### 3. The route is not merely open — the algorithm RUNS on it
+
+An open route carrying no algorithm is a weaker result than one the algorithm
+uses; FINDING 11 §2 had to make this distinction and so does this. Same
+instrument (`tf_depth_addendum.py`): delete the write from that read only,
+recompute everything downstream, and re-measure the induction score with the
+same battery.
+
+| cell | baseline induction | A0 out of ANY downstream read | A1 out of layer 2's read | A1/A2 out of layer 3's read |
+|---|---|---|---|---|
+| d3 w128 | +0.0974 | **0.0%** | **−94.5%** | — |
+| d3 w256 | +0.1642 | +0.1% | **−65.3%** | — |
+| d4 w128 | +0.1264 | +0.1% | −10.9% | **−59.4% (A1) / −35.4% (A2)** |
+| d4 w256 | +0.3019 | −0.0% | −15.8% | **−28.2% (A1) / −28.2% (A2)** |
+
+At depth 3 width 128, cutting layer-1 attention out of layer 2's read collapses
+the induction score from 0.0974 to 0.0054 while the bag-of-tokens control score
+does **not** fall (0.100 → 0.151, so the model is not merely broken) and the
+same cut applied to layer-0 attention moves it by −0.1%. **At depth 3 the
+induction circuit is, for the first time in this programme, an
+attention→attention circuit.** At depth 2 width 256 the same test had found the
+induction signal travelling entirely through the feed-forward block (FINDING 9);
+that is now dated to a depth, not to the architecture.
+
+The two cells whose induction score sits near its floor (depth 3 width 64,
+depth 4 width 64) have uninterpretable fractions — a ratio to a number that is
+0.7× its own power floor is noise, and is reported as such rather than as a
+route verdict.
+
+### 4. P3 — held CE: confirmed at 5 of 6 cells
+
+Predicted ranges, all in training-protocol held CE at T=512: d3 w64 [4.93, 5.00]
+→ **4.9417** ✓; d3 w128 [4.53, 4.61] → **4.5285**, 0.0015 below the bottom of
+the range ✗ (marginally too good); d3 w256 [4.15, 4.25] → **4.2182** ✓; d4 w64
+[4.88, 4.98] → **4.8817** ✓; d4 w128 [4.47, 4.58] → **4.4601** ✗ (again just
+below); d4 w256 [4.08, 4.20] → **4.1436** ✓. The shape prediction holds: the
+per-layer gain grows with width and shrinks with depth. The 1→2 gains were
+−0.095/−0.130/−0.176/−0.234 at widths 32/64/128/256; the 2→3 gains are
+−0.076/−0.118/−0.107 at 64/128/256 and the 3→4 gains −0.060/−0.068/−0.075.
+
+### 5. P4 — the ladder-order dependence: REFUTED
+
+Registered: *the attention/MLP order dependence grows with depth.* It does not —
+it **peaks at depth 2 and falls back**. The ratio of attention added first to
+attention added last, at width 256: 4.5× (depth 1), 12.1× (depth 2), 9.6×
+(depth 3), 8.8× (depth 4); at width 128: 6.6, 12.4, 7.8, 7.2. The interaction
+term follows the same arc (3.3 → 13.6 → 12.1 → 11.8 nats at width 256). The
+depth-2 model is the most order-dependent object on the ladder. The
+programme-standing rule is unaffected: at every cell the two marginals differ by
+4.5× to 12.4×, so **no single "what attention is worth" number exists at any
+depth**, and every such figure still has to carry its ladder position.
+
+### 6. Self-red-team
+
+- **One seed at depths 3 and 4.** The single biggest weakness, and it is being
+  fixed by the same chain rather than argued away. The two headline claims are
+  helped by having a width axis: the route fraction is 0.17/0.26/0.39 across
+  three independent depth-3 runs at different widths, and the induction
+  threshold shows the same octave step at two depths. But three seeds is the
+  programme's rule and until they land these are provisional.
+- **Is the opened route an artifact of the intervention?** No: the identical
+  intervention applied to the identical model class at depth 2 returns 1e−6 at
+  all four widths and all three seeds, and applied to A0 at depths 3–4 returns
+  1e−6 as well. The instrument is calibrated by its own nulls inside the same
+  cells that show the effect.
+- **Zeroing versus resampling.** Every route number is quoted as a pair. Here
+  zeroing is the LARGER of the two at every attention→attention cell (0.267 vs
+  0.107 at depth 3 width 256), the opposite of the parent program's 13-of-14
+  pattern — worth flagging: it means the substituted on-distribution write
+  carries some of the same information, which is what one expects of a route
+  whose content is positional/structural rather than token-specific.
+- **The induction battery's floor moves between cells** (0.0078 to 0.0156), so
+  "above floor" is a per-cell judgement, as it must be. The depth-4 width-64
+  cell clears its floor by only 1.3× and is the one cell where the octave claim
+  could reverse on another seed.
+- **The dominant-source claim (c) is a KL comparison between interventions of
+  different sizes** and should not be read as "layer 3 mostly computes with
+  MLP-0's output": deleting M0 from a read also removes everything downstream
+  layers built on top of it, so the number is an upper bound on M0's specific
+  contribution. What it does establish is that no LATER MLP dominates a read,
+  which is the part P2 got wrong.
+
+---
+
 ## 2026-08-08 — FINDING 13 (PORTING THE PARENT PROGRAM'S LAYER-0 MDL METHOD): the method transfers — objective, anchors, atoms and even the 50%-of-the-mass-on-50-tokens statistic — but what transfers is **exposure-proportional bit allocation**, not the OV geometry and not exact anchor rows; and because the fold is a 3.1× EXPANSION of the model at this scale, the technique that produced the parent's frontier cannot produce a short description here
 
 Files: `tf_dict_lib.py` (the folded object, eq.(†) in closed form as a per-token

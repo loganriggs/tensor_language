@@ -16,6 +16,8 @@ Every number through ONE code path: `tf_interp3.py`, the same revision that prod
 | 3 | 128 | 1,933,696 | 4.5285 ± 0.0000 | 1.7400 | 4.4500 | +0.0974 ± 0.0000 (0.0078) | **1/1** | +0.1747 | 8.53 / 1.09 | 7.8x | 7.43 |
 | 3 | 256 | 5,636,864 | 4.2182 ± 0.0000 | 1.6208 | 4.1435 | +0.1642 ± 0.0000 (0.0156) | **1/1** | +0.2799 | 13.54 / 1.41 | 9.6x | 12.13 |
 | 4 | 64 | 819,456 | 4.8817 ± 0.0000 | 1.8758 | 4.7843 | +0.0173 ± 0.0000 (0.0133) | **1/1** | +0.0553 | 6.54 / 0.83 | 7.9x | 5.71 |
+| 4 | 128 | 2,228,736 | 4.4601 ± 0.0000 | 1.7138 | 4.3866 | +0.1264 ± 0.0000 (0.0112) | **1/1** | +0.1899 | 9.18 / 1.27 | 7.2x | 7.92 |
+| 4 | 256 | 6,816,768 | 4.1436 ± 0.0000 | 1.5921 | 4.0835 | +0.3019 ± 0.0000 (0.0137) | **1/1** | +0.3179 | 13.33 / 1.51 | 8.8x | 11.82 |
 
 ## The composition budget, measured causally
 
@@ -36,6 +38,12 @@ Each upstream write deleted from layer l's Q/K/V read ONLY (residual untouched, 
 | d4 w64 | 1 | M0 | 0.8399 | A0 | 9.813e-07 | 1.17e-06 |
 | d4 w64 | 2 | M0 | 1.048 | A1 | 0.09372 | 8.94e-02 |
 | d4 w64 | 3 | M0 | 0.1658 | A2 | 0.05247 | 3.17e-01 |
+| d4 w128 | 1 | M0 | 0.9229 | A0 | 1.315e-06 | 1.42e-06 |
+| d4 w128 | 2 | M0 | 2.503 | A1 | 0.214 | 8.55e-02 |
+| d4 w128 | 3 | M0 | 0.3301 | A1 | 0.07256 | 2.20e-01 |
+| d4 w256 | 1 | M0 | 1.966 | A0 | 1.194e-05 | 6.07e-06 |
+| d4 w256 | 2 | M0 | 1.01 | A1 | 0.3481 | 3.44e-01 |
+| d4 w256 | 3 | M0 | 0.2669 | A1 | 0.07457 | 2.79e-01 |
 
 ## Verdicts against the registered predictions
 
@@ -43,13 +51,17 @@ Each upstream write deleted from layer l's Q/K/V read ONLY (residual untouched, 
 {
   "P1": {
     "registered": "depth LOWERS the width threshold by one octave. Concretely: at depth 3, width 128 shows induction above the planted-oracle 3-SE floor at >= 2 of 3 seeds, with a mean score in [+0.015, +0.070]; at depth 4, width 128 does so at 3 of 3 seeds. Width 64 stays below floor at BOTH depths 3 and 4 at >= 2 of 3 seeds.",
+    "threshold_is_provisional_at_depth": [
+      3,
+      4
+    ],
     "induction_width_threshold_by_depth": {
       "1": null,
       "2": 256,
-      "3": null,
-      "4": null
+      "3": 128,
+      "4": 64
     },
-    "call": "PARTIAL -- thresholds by depth {1: None, 2: 256, 3: None, 4: None}"
+    "call": "CONFIRMED IN ITS MAIN CLAUSE AND REFUTED IN ITS LAST: the threshold falls ONE OCTAVE PER LAYER (256 at depth 2, 128 at depth 3, 64 at depth 4). P1 registered the depth-3 octave correctly but also registered that width 64 would stay below floor at depths 3 AND 4; at depth 4 it does not."
   },
   "P2": {
     "max_attention_over_dominant_mlp_by_cell": {
@@ -60,16 +72,20 @@ Each upstream write deleted from layer l's Q/K/V read ONLY (residual untouched, 
       "d3_w64": 0.16906093749146633,
       "d3_w128": 0.2559576222394559,
       "d3_w256": 0.38559191643193175,
-      "d4_w64": 0.3165145800670584
+      "d4_w64": 0.3165145800670584,
+      "d4_w128": 0.21980894324833708,
+      "d4_w256": 0.3444943141659726
     },
     "cells_above_1pc": {
       "d3_w64": 0.16906093749146633,
       "d3_w128": 0.2559576222394559,
       "d3_w256": 0.38559191643193175,
-      "d4_w64": 0.3165145800670584
+      "d4_w64": 0.3165145800670584,
+      "d4_w128": 0.21980894324833708,
+      "d4_w256": 0.3444943141659726
     },
     "named_exception_only": false,
-    "call": "REFUTED at ['d3_w128', 'd3_w256', 'd3_w64', 'd4_w64']"
+    "call": "REFUTED at ['d3_w128', 'd3_w256', 'd3_w64', 'd4_w128', 'd4_w256', 'd4_w64']"
   }
 }
 ```

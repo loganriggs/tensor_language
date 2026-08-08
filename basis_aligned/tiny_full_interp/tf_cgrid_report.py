@@ -321,10 +321,10 @@ def main():
         ax.grid(True, which='major', color='#e6e5e1', lw=0.8, zorder=0)
         ax.set_axisbelow(True)
         ax.axhline(1.0, color=MUTED, lw=1.5, ls=(0, (4, 3)), zorder=1)
-        ax.annotate('no gain over naive quantisation', (1.0, 1.0),
+        ax.annotate('no gain over naive quantisation', (0.0, 1.0),
                     xycoords=('axes fraction', 'data'),
-                    xytext=(-4, 4), textcoords='offset points',
-                    ha='right', va='bottom', fontsize=8, color=MUTED)
+                    xytext=(4, 4), textcoords='offset points',
+                    ha='left', va='bottom', fontsize=8, color=MUTED)
         for dep in (1, 2, 3, 4):
             pts = sorted([(r['n_params'], r[key]) for r in rows
                           if r['depth'] == dep and r['seed'] == 0 and r[key]])
@@ -333,11 +333,12 @@ def main():
             x = [p[0] for p in pts]
             y = [p[1] for p in pts]
             c = DEPTH_COLOR[dep]
-            ax.plot(x, y, '-', color=c, lw=2, zorder=3)
+            ax.plot(x, y, '-', color=c, lw=2, zorder=3, label=f'depth {dep}')
             ax.plot(x, y, 'o', color=c, ms=8, zorder=4,
                     markeredgecolor=SURFACE, markeredgewidth=2)
             ax.annotate(f'depth {dep}', (x[-1], y[-1]),
-                        xytext=(7, 0), textcoords='offset points',
+                        xytext=(8, {1: 9, 2: -11, 3: 9, 4: -11}[dep]),
+                        textcoords='offset points',
                         va='center', fontsize=9, color=INK2)
             # seed replicates as small open marks
             rep = [(r['n_params'], r[key]) for r in rows
@@ -353,11 +354,16 @@ def main():
         ax.annotate(sub, (0, 1.015), xycoords='axes fraction', fontsize=8.5,
                     color=MUTED, va='bottom')
         ax.tick_params(colors=INK2, labelsize=8.5)
-        ax.set_xlim(right=max(r['n_params'] for r in rows) * 2.2)
+        ax.set_xlim(right=max(r['n_params'] for r in rows) * 3.4)
+        ax.margins(y=0.16)
     fig.suptitle('Does interpretable structure compress better as the model '
                  'grows?', fontsize=12.5, color=INK, x=0.008, ha='left',
                  y=0.995)
-    fig.tight_layout(rect=(0, 0, 1, 0.94))
+    h, l = axes[0].get_legend_handles_labels()
+    fig.legend(h, l, frameon=False, fontsize=9, ncol=4, labelcolor=INK2,
+               handlelength=1.6, loc='upper right',
+               bbox_to_anchor=(0.995, 1.005))
+    fig.tight_layout(rect=(0, 0, 1, 0.92))
     fig.savefig(f'{HERE}/fig_tf_compressibility_vs_size.png', dpi=150,
                 facecolor=SURFACE)
     print('\n'.join(L))

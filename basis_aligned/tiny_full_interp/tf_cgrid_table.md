@@ -29,19 +29,23 @@ plus an honestly coded remainder -- with recodings excluded.
 | 2 | 128 | 0 | 1,638,656 | 64% | 4.5386 | **1.040** | 0.760–1.101 | 1.054 | 1.053 | 1.040 | **0.775** | 0.809 | 0.898 | 7% |
 | 2 | 256 | 0 | 4,456,960 | 47% | 4.2090 | **0.987** | 0.741–1.057 | 1.039 | 0.977 | 1.022 | **0.768** | 0.829 | 0.922 | 4% |
 | 3 | 64 | 0 | 745,664 | 70% | 4.8320 | **1.083** | 0.691–1.159 | 1.119 | 1.070 | 1.050 | **0.842** | 0.869 | 0.929 | 12% |
+| 3 | 128 | 0 | 1,933,696 | 54% | 4.4262 | **1.030** | 0.721–1.104 | 1.066 | 1.047 | 1.044 | **0.781** | 0.802 | 0.919 | 7% |
+| 3 | 256 | 0 | 5,636,864 | 37% | 4.1102 | **1.008** | 0.728–1.053 | 1.039 | 0.989 | 1.017 | **0.827** | 0.882 | 0.944 | 4% |
+| 4 | 64 | 0 | 819,456 | 64% | 4.7742 | **1.067** | 0.630–1.104 | 1.090 | 1.071 | 1.046 | **0.869** | 0.870 | 0.939 | 12% |
+| 4 | 128 | 0 | 2,228,736 | 47% | 4.3550 | **1.024** | 0.664–1.096 | 1.083 | 1.035 | 1.035 | **0.838** | 0.870 | 0.940 | 7% |
 
 ## Trend
 
 ```
 {
-  "n_cells": 9,
-  "n_cells_seed0": 9,
+  "n_cells": 13,
+  "n_cells_seed0": 13,
   "trend_R_vs_params": {
-    "slope_per_efold": -0.043257586253255924,
-    "se": 0.012585251571093893,
-    "intercept": 1.6659148941283084,
-    "n": 9,
-    "t": -3.4371650029317635
+    "slope_per_efold": -0.041825527077835496,
+    "se": 0.008511224334686533,
+    "intercept": 1.6446659815425322,
+    "n": 13,
+    "t": -4.914161045829832
   },
   "trend_R_vs_params_depth12": {
     "slope_per_efold": -0.0431599283678765,
@@ -51,11 +55,11 @@ plus an honestly coded remainder -- with recodings excluded.
     "t": -3.158972177134761
   },
   "trend_R_perrow_vs_params": {
-    "slope_per_efold": -0.05451053218182355,
-    "se": 0.009739657938141705,
-    "intercept": 1.8542079143688965,
-    "n": 9,
-    "t": -5.596760433274927
+    "slope_per_efold": -0.04796060389192985,
+    "se": 0.007352441357120929,
+    "intercept": 1.7651105814183954,
+    "n": 13,
+    "t": -6.523085538857025
   },
   "trend_R_perrow_vs_params_depth12": {
     "slope_per_efold": -0.05443089493188165,
@@ -65,11 +69,11 @@ plus an honestly coded remainder -- with recodings excluded.
     "t": -5.148106867001353
   },
   "trend_R_kl_vs_params": {
-    "slope_per_efold": -0.04047101500567413,
-    "se": 0.009001378988052726,
-    "intercept": 1.6266262270844705,
-    "n": 9,
-    "t": -4.496090550057958
+    "slope_per_efold": -0.041257160752910464,
+    "se": 0.006018495121578987,
+    "intercept": 1.63705567756438,
+    "n": 13,
+    "t": -6.855062589481075
   },
   "trend_R_kl_vs_params_depth12": {
     "slope_per_efold": -0.040832798019440404,
@@ -79,11 +83,11 @@ plus an honestly coded remainder -- with recodings excluded.
     "t": -4.221550914894225
   },
   "trend_R_struct_vs_params": {
-    "slope_per_efold": -0.033407894844052696,
-    "se": 0.00881326053885103,
-    "intercept": 1.2654221164948656,
-    "n": 9,
-    "t": -3.790639649966371
+    "slope_per_efold": -0.021284581623514938,
+    "se": 0.010352175620682236,
+    "intercept": 1.1106797785954483,
+    "n": 13,
+    "t": -2.0560491246874952
   },
   "trend_R_struct_vs_params_depth12": {
     "slope_per_efold": -0.03226400338113422,
@@ -93,11 +97,11 @@ plus an honestly coded remainder -- with recodings excluded.
     "t": -3.815029742068612
   },
   "trend_R_struct_perrow_vs_params": {
-    "slope_per_efold": -0.03006112410731153,
-    "se": 0.012896129214189924,
-    "intercept": 1.2459589824722934,
-    "n": 9,
-    "t": -2.3310191459802176
+    "slope_per_efold": -0.014082870250313764,
+    "se": 0.012513827646099594,
+    "intercept": 1.0364952277393389,
+    "n": 13,
+    "t": -1.1253847063095217
   },
   "trend_R_struct_perrow_vs_params_depth12": {
     "slope_per_efold": -0.028872032294056757,
@@ -107,11 +111,11 @@ plus an honestly coded remainder -- with recodings excluded.
     "t": -2.1859763785580015
   },
   "trend_R_embonly_vs_params": {
-    "slope_per_efold": -0.03091723993354646,
-    "se": 0.008209636561371941,
-    "intercept": 1.488893837339586,
-    "n": 9,
-    "t": -3.7659693827396143
+    "slope_per_efold": -0.028975001816781445,
+    "se": 0.005780322659147683,
+    "intercept": 1.4606300850093268,
+    "n": 13,
+    "t": -5.012696267210428
   },
   "trend_R_embonly_vs_params_depth12": {
     "slope_per_efold": -0.03175456696335119,
@@ -121,11 +125,11 @@ plus an honestly coded remainder -- with recodings excluded.
     "t": -3.8303410349756346
   },
   "trend_R_embonly_struct_vs_params": {
-    "slope_per_efold": -0.005955117431462603,
-    "se": 0.009628150455898406,
-    "intercept": 0.9809352042565305,
-    "n": 9,
-    "t": -0.618511048278683
+    "slope_per_efold": 0.0036356423337322954,
+    "se": 0.008642343412756626,
+    "intercept": 0.8590291413757881,
+    "n": 13,
+    "t": 0.4206778370280757
   },
   "trend_R_embonly_struct_vs_params_depth12": {
     "slope_per_efold": -0.004811738068907487,
@@ -135,11 +139,11 @@ plus an honestly coded remainder -- with recodings excluded.
     "t": -0.509285908163652
   },
   "trend_ratio_vs_params": {
-    "slope_per_efold": -0.04174188619694191,
-    "se": 0.010293951107292124,
-    "intercept": 1.660189342412895,
-    "n": 9,
-    "t": -4.05499168996173
+    "slope_per_efold": -0.03592295081757731,
+    "se": 0.008049228961356177,
+    "intercept": 1.5797842630233654,
+    "n": 13,
+    "t": -4.462905824898391
   },
   "trend_ratio_vs_params_depth12": {
     "slope_per_efold": -0.04098856313884757,
@@ -149,11 +153,11 @@ plus an honestly coded remainder -- with recodings excluded.
     "t": -3.8012835762137267
   },
   "trend_ratio_strong_vs_params": {
-    "slope_per_efold": -0.030495556494090446,
-    "se": 0.00929902659591998,
-    "intercept": 1.4725908335109086,
-    "n": 9,
-    "t": -3.2794353451436096
+    "slope_per_efold": -0.030101512676761623,
+    "se": 0.006169687009854808,
+    "intercept": 1.466997541686904,
+    "n": 13,
+    "t": -4.878936748117147
   },
   "trend_ratio_strong_vs_params_depth12": {
     "slope_per_efold": -0.030626234097703462,
@@ -163,11 +167,11 @@ plus an honestly coded remainder -- with recodings excluded.
     "t": -3.0364895469243423
   },
   "trend_ratio_struct_vs_params": {
-    "slope_per_efold": -0.01628735542694445,
-    "se": 0.008603008895162353,
-    "intercept": 1.075497921716433,
-    "n": 9,
-    "t": -1.8932161555828637
+    "slope_per_efold": -0.005774324595816307,
+    "se": 0.008723223658706905,
+    "intercept": 0.9405742076043452,
+    "n": 13,
+    "t": -0.6619484747536862
   },
   "trend_ratio_struct_vs_params_depth12": {
     "slope_per_efold": -0.014947295469122915,
@@ -190,22 +194,22 @@ plus an honestly coded remainder -- with recodings excluded.
       "n_cells_with_seeds": 0
     }
   },
-  "verdict_call": "NOT GROWING, AND SIGNIFICANTLY NEGATIVE -- P5's falsifier (growth) is rejected with a wide margin; P5's letter (\"indistinguishable from zero\") is NOT met, because the slope is significantly below zero (t = -3.44) though small in magnitude; P5's scientific claim -- the negative is a property of the family, not of the smallest model -- is confirmed in the STRONGER direction",
+  "verdict_call": "NOT GROWING, AND SIGNIFICANTLY NEGATIVE -- P5's falsifier (growth) is rejected with a wide margin; P5's letter (\"indistinguishable from zero\") is NOT met, because the slope is significantly below zero (t = -4.91) though small in magnitude; P5's scientific claim -- the negative is a property of the family, not of the smallest model -- is confirmed in the STRONGER direction",
   "verdict": {
     "primary_scalar": "held-CE frontier ratio, best description of any kind against the STRONGER naive quantiser, median over that cell's frontier points",
-    "slope_per_efold_of_parameters": -0.043257586253255924,
-    "se": 0.012585251571093893,
+    "slope_per_efold_of_parameters": -0.041825527077835496,
+    "se": 0.008511224334686533,
     "registered_P5": "FLAT: |slope| < 0.05 per e-fold",
-    "call": "NOT GROWING, AND SIGNIFICANTLY NEGATIVE -- P5's falsifier (growth) is rejected with a wide margin; P5's letter (\"indistinguishable from zero\") is NOT met, because the slope is significantly below zero (t = -3.44) though small in magnitude; P5's scientific claim -- the negative is a property of the family, not of the smallest model -- is confirmed in the STRONGER direction",
-    "t": -3.4371650029317635,
+    "call": "NOT GROWING, AND SIGNIFICANTLY NEGATIVE -- P5's falsifier (growth) is rejected with a wide margin; P5's letter (\"indistinguishable from zero\") is NOT met, because the slope is significantly below zero (t = -4.91) though small in magnitude; P5's scientific claim -- the negative is a property of the family, not of the smallest model -- is confirmed in the STRONGER direction",
+    "t": -4.914161045829832,
     "range_over_cells": [
       0.9868283826750522,
       1.1621252455753504
     ]
   },
   "P7_structure_only_below_1": {
-    "cells_below_1": 9,
-    "cells_measured": 9,
+    "cells_below_1": 13,
+    "cells_measured": 13,
     "values": {
       "d1_w128": 0.749910557979726,
       "d1_w256": 0.7629291438612966,
@@ -215,7 +219,11 @@ plus an honestly coded remainder -- with recodings excluded.
       "d2_w256": 0.7679378348168968,
       "d2_w32": 0.8472448893988911,
       "d2_w64": 0.8371978411176237,
-      "d3_w64": 0.8418118760236459
+      "d3_w128": 0.7813388039287679,
+      "d3_w256": 0.8269128612454297,
+      "d3_w64": 0.8418118760236459,
+      "d4_w128": 0.8381600409282594,
+      "d4_w64": 0.8685657196180343
     },
     "call": "CONFIRMED"
   }

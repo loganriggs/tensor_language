@@ -1698,6 +1698,330 @@
       ],
       "max_attention_over_dominant_mlp": 0.3165145800670584,
       "dominant_is_preceding_mlp_all_layers_all_seeds": false
+    },
+    "d4_w128": {
+      "depth": 4,
+      "width": 128,
+      "n_seeds": 1,
+      "params": 2228736,
+      "all_gates_pass": true,
+      "per_seed": [
+        {
+          "seed": 0,
+          "stem": "tf_vanilla_d4_w128_b8192_s0",
+          "params": 2228736,
+          "held_ce": 4.46015,
+          "bits_per_byte": 1.7138007475152905,
+          "ladder_ce": 4.386566678682963,
+          "fold_gate": true,
+          "pipeline": true,
+          "induction": 0.12643534342447893,
+          "induction_sd": 0.009368993000341224,
+          "induction_floor": 0.01124812602724174,
+          "natural_swap": 0.18990763084002538,
+          "natural_swap_floor": 0.06828897310578393,
+          "attn_first": 9.184723258018494,
+          "attn_last": 1.268447071313858,
+          "attn_order_ratio": 7.240919598249341,
+          "interaction": 7.916276186704636,
+          "read_kl": {
+            "l1_read_zero_e": 3.109488261543447e-06,
+            "l1_read_resample_e": 4.885339080828999e-06,
+            "l1_read_zero_A0": 1.3145685215931735e-06,
+            "l1_read_resample_A0": 6.949074986550841e-07,
+            "l1_read_zero_M0": 0.9228993505239487,
+            "l1_read_resample_M0": 0.5941793620586395,
+            "l2_read_zero_e": 4.0137074392987415e-06,
+            "l2_read_resample_e": 4.942860755363654e-06,
+            "l2_read_zero_A0": 9.709648907119117e-07,
+            "l2_read_resample_A0": 5.200033967867057e-07,
+            "l2_read_zero_M0": 2.502560317516327,
+            "l2_read_resample_M0": 0.5603986233472824,
+            "l2_read_zero_A1": 0.21397965028882027,
+            "l2_read_resample_A1": 0.15296344831585884,
+            "l2_read_zero_M1": 0.054098776541650295,
+            "l2_read_resample_M1": 0.08554107137024403,
+            "l3_read_zero_e": 2.5768986233742908e-06,
+            "l3_read_resample_e": 2.727734567997686e-06,
+            "l3_read_zero_A0": 5.56663053430384e-07,
+            "l3_read_resample_A0": 3.164948054745764e-07,
+            "l3_read_zero_M0": 0.33011262118816376,
+            "l3_read_resample_M0": 0.18447193875908852,
+            "l3_read_zero_A1": 0.07256170641630888,
+            "l3_read_resample_A1": 0.049498711712658405,
+            "l3_read_zero_M1": 0.015189534053206444,
+            "l3_read_resample_M1": 0.028245003428310156,
+            "l3_read_zero_A2": 0.02691802615299821,
+            "l3_read_resample_A2": 0.03615757776424289,
+            "l3_read_zero_M2": 0.08709916472434998,
+            "l3_read_resample_M2": 0.13501878082752228
+          }
+        }
+      ],
+      "held_ce": 4.46015,
+      "held_ce_sd": 0.0,
+      "bits_per_byte": 1.7138007475152905,
+      "bits_per_byte_sd": 0.0,
+      "ladder_ce": 4.386566678682963,
+      "ladder_ce_sd": 0.0,
+      "induction": 0.12643534342447893,
+      "induction_sd": 0.0,
+      "induction_floor": 0.01124812602724174,
+      "induction_floor_sd": 0.0,
+      "natural_swap": 0.18990763084002538,
+      "natural_swap_sd": 0.0,
+      "attn_first": 9.184723258018494,
+      "attn_first_sd": 0.0,
+      "attn_last": 1.268447071313858,
+      "attn_last_sd": 0.0,
+      "attn_order_ratio": 7.240919598249341,
+      "attn_order_ratio_sd": 0.0,
+      "interaction": 7.916276186704636,
+      "interaction_sd": 0.0,
+      "seeds_above_induction_floor": 1,
+      "routes": [
+        {
+          "1": {
+            "dominant_source": "M0",
+            "dominant_kl": 0.9228993505239487,
+            "dominant_is_immediately_preceding_mlp": true,
+            "dominant_mlp": "M0",
+            "dominant_mlp_kl": 0.9228993505239487,
+            "largest_attention_source": "A0",
+            "largest_attention_kl": 1.3145685215931735e-06,
+            "attention_over_dominant_mlp": 1.4243899086578252e-06,
+            "zero": {
+              "e": 3.109488261543447e-06,
+              "A0": 1.3145685215931735e-06,
+              "M0": 0.9228993505239487
+            },
+            "resample": {
+              "e": 4.885339080828999e-06,
+              "A0": 6.949074986550841e-07,
+              "M0": 0.5941793620586395
+            }
+          },
+          "2": {
+            "dominant_source": "M0",
+            "dominant_kl": 2.502560317516327,
+            "dominant_is_immediately_preceding_mlp": false,
+            "dominant_mlp": "M0",
+            "dominant_mlp_kl": 2.502560317516327,
+            "largest_attention_source": "A1",
+            "largest_attention_kl": 0.21397965028882027,
+            "attention_over_dominant_mlp": 0.08550429286003583,
+            "zero": {
+              "e": 4.0137074392987415e-06,
+              "A0": 9.709648907119117e-07,
+              "M0": 2.502560317516327,
+              "A1": 0.21397965028882027,
+              "M1": 0.054098776541650295
+            },
+            "resample": {
+              "e": 4.942860755363654e-06,
+              "A0": 5.200033967867057e-07,
+              "M0": 0.5603986233472824,
+              "A1": 0.15296344831585884,
+              "M1": 0.08554107137024403
+            }
+          },
+          "3": {
+            "dominant_source": "M0",
+            "dominant_kl": 0.33011262118816376,
+            "dominant_is_immediately_preceding_mlp": false,
+            "dominant_mlp": "M0",
+            "dominant_mlp_kl": 0.33011262118816376,
+            "largest_attention_source": "A1",
+            "largest_attention_kl": 0.07256170641630888,
+            "attention_over_dominant_mlp": 0.21980894324833708,
+            "zero": {
+              "e": 2.5768986233742908e-06,
+              "A0": 5.56663053430384e-07,
+              "M0": 0.33011262118816376,
+              "A1": 0.07256170641630888,
+              "M1": 0.015189534053206444,
+              "A2": 0.02691802615299821,
+              "M2": 0.08709916472434998
+            },
+            "resample": {
+              "e": 2.727734567997686e-06,
+              "A0": 3.164948054745764e-07,
+              "M0": 0.18447193875908852,
+              "A1": 0.049498711712658405,
+              "M1": 0.028245003428310156,
+              "A2": 0.03615757776424289,
+              "M2": 0.13501878082752228
+            }
+          }
+        }
+      ],
+      "max_attention_over_dominant_mlp_per_seed": [
+        0.21980894324833708
+      ],
+      "max_attention_over_dominant_mlp": 0.21980894324833708,
+      "dominant_is_preceding_mlp_all_layers_all_seeds": false
+    },
+    "d4_w256": {
+      "depth": 4,
+      "width": 256,
+      "n_seeds": 1,
+      "params": 6816768,
+      "all_gates_pass": true,
+      "per_seed": [
+        {
+          "seed": 0,
+          "stem": "tf_vanilla_d4_w256_b8192_s0",
+          "params": 6816768,
+          "held_ce": 4.14355,
+          "bits_per_byte": 1.5921480415158646,
+          "ladder_ce": 4.083528737227122,
+          "fold_gate": true,
+          "pipeline": true,
+          "induction": 0.3019083023071289,
+          "induction_sd": 0.017168788034766097,
+          "induction_floor": 0.013669194300868178,
+          "natural_swap": 0.31785073618675597,
+          "natural_swap_floor": 0.08169605682547683,
+          "attn_first": 13.327199578285217,
+          "attn_last": 1.5117822587490082,
+          "attn_order_ratio": 8.815554952545483,
+          "interaction": 11.815417319536209,
+          "read_kl": {
+            "l1_read_zero_e": 3.077809708429413e-06,
+            "l1_read_resample_e": 4.289752155273163e-06,
+            "l1_read_zero_A0": 1.1939808246097527e-05,
+            "l1_read_resample_A0": 3.957035687562893e-06,
+            "l1_read_zero_M0": 1.9662717878818512,
+            "l1_read_resample_M0": 0.44363444298505783,
+            "l2_read_zero_e": 3.417819470996619e-06,
+            "l2_read_resample_e": 4.793010816683818e-06,
+            "l2_read_zero_A0": 9.808293270907598e-06,
+            "l2_read_resample_A0": 3.2449772788822884e-06,
+            "l2_read_zero_M0": 1.01039819419384,
+            "l2_read_resample_M0": 0.5607237070798874,
+            "l2_read_zero_A1": 0.3480764329433441,
+            "l2_read_resample_A1": 0.12070808745920658,
+            "l2_read_zero_M1": 0.09614526480436325,
+            "l2_read_resample_M1": 0.1382724530994892,
+            "l3_read_zero_e": 1.6676652307978657e-06,
+            "l3_read_resample_e": 2.232119697964663e-06,
+            "l3_read_zero_A0": 3.3440433071518783e-06,
+            "l3_read_resample_A0": 2.0110380773985526e-06,
+            "l3_read_zero_M0": 0.26689405739307404,
+            "l3_read_resample_M0": 0.1778525784611702,
+            "l3_read_zero_A1": 0.0745676513761282,
+            "l3_read_resample_A1": 0.036162462551146746,
+            "l3_read_zero_M1": 0.018998971208930016,
+            "l3_read_resample_M1": 0.028716107364743948,
+            "l3_read_zero_A2": 0.03931037150323391,
+            "l3_read_resample_A2": 0.03350028535351157,
+            "l3_read_zero_M2": 0.13713425025343895,
+            "l3_read_resample_M2": 0.15799980983138084
+          }
+        }
+      ],
+      "held_ce": 4.14355,
+      "held_ce_sd": 0.0,
+      "bits_per_byte": 1.5921480415158646,
+      "bits_per_byte_sd": 0.0,
+      "ladder_ce": 4.083528737227122,
+      "ladder_ce_sd": 0.0,
+      "induction": 0.3019083023071289,
+      "induction_sd": 0.0,
+      "induction_floor": 0.013669194300868178,
+      "induction_floor_sd": 0.0,
+      "natural_swap": 0.31785073618675597,
+      "natural_swap_sd": 0.0,
+      "attn_first": 13.327199578285217,
+      "attn_first_sd": 0.0,
+      "attn_last": 1.5117822587490082,
+      "attn_last_sd": 0.0,
+      "attn_order_ratio": 8.815554952545483,
+      "attn_order_ratio_sd": 0.0,
+      "interaction": 11.815417319536209,
+      "interaction_sd": 0.0,
+      "seeds_above_induction_floor": 1,
+      "routes": [
+        {
+          "1": {
+            "dominant_source": "M0",
+            "dominant_kl": 1.9662717878818512,
+            "dominant_is_immediately_preceding_mlp": true,
+            "dominant_mlp": "M0",
+            "dominant_mlp_kl": 1.9662717878818512,
+            "largest_attention_source": "A0",
+            "largest_attention_kl": 1.1939808246097527e-05,
+            "attention_over_dominant_mlp": 6.07230817208621e-06,
+            "zero": {
+              "e": 3.077809708429413e-06,
+              "A0": 1.1939808246097527e-05,
+              "M0": 1.9662717878818512
+            },
+            "resample": {
+              "e": 4.289752155273163e-06,
+              "A0": 3.957035687562893e-06,
+              "M0": 0.44363444298505783
+            }
+          },
+          "2": {
+            "dominant_source": "M0",
+            "dominant_kl": 1.01039819419384,
+            "dominant_is_immediately_preceding_mlp": false,
+            "dominant_mlp": "M0",
+            "dominant_mlp_kl": 1.01039819419384,
+            "largest_attention_source": "A1",
+            "largest_attention_kl": 0.3480764329433441,
+            "attention_over_dominant_mlp": 0.3444943141659726,
+            "zero": {
+              "e": 3.417819470996619e-06,
+              "A0": 9.808293270907598e-06,
+              "M0": 1.01039819419384,
+              "A1": 0.3480764329433441,
+              "M1": 0.09614526480436325
+            },
+            "resample": {
+              "e": 4.793010816683818e-06,
+              "A0": 3.2449772788822884e-06,
+              "M0": 0.5607237070798874,
+              "A1": 0.12070808745920658,
+              "M1": 0.1382724530994892
+            }
+          },
+          "3": {
+            "dominant_source": "M0",
+            "dominant_kl": 0.26689405739307404,
+            "dominant_is_immediately_preceding_mlp": false,
+            "dominant_mlp": "M0",
+            "dominant_mlp_kl": 0.26689405739307404,
+            "largest_attention_source": "A1",
+            "largest_attention_kl": 0.0745676513761282,
+            "attention_over_dominant_mlp": 0.2793904521684687,
+            "zero": {
+              "e": 1.6676652307978657e-06,
+              "A0": 3.3440433071518783e-06,
+              "M0": 0.26689405739307404,
+              "A1": 0.0745676513761282,
+              "M1": 0.018998971208930016,
+              "A2": 0.03931037150323391,
+              "M2": 0.13713425025343895
+            },
+            "resample": {
+              "e": 2.232119697964663e-06,
+              "A0": 2.0110380773985526e-06,
+              "M0": 0.1778525784611702,
+              "A1": 0.036162462551146746,
+              "M1": 0.028716107364743948,
+              "A2": 0.03350028535351157,
+              "M2": 0.15799980983138084
+            }
+          }
+        }
+      ],
+      "max_attention_over_dominant_mlp_per_seed": [
+        0.3444943141659726
+      ],
+      "max_attention_over_dominant_mlp": 0.3444943141659726,
+      "dominant_is_preceding_mlp_all_layers_all_seeds": false
     }
   },
   "P1_verdict": {
@@ -1786,15 +2110,33 @@
         "floor": 0.01334386222454642,
         "seeds_above_floor": 1,
         "n_seeds": 1
+      },
+      "d4_w128": {
+        "induction": 0.12643534342447893,
+        "sd": 0.0,
+        "floor": 0.01124812602724174,
+        "seeds_above_floor": 1,
+        "n_seeds": 1
+      },
+      "d4_w256": {
+        "induction": 0.3019083023071289,
+        "sd": 0.0,
+        "floor": 0.013669194300868178,
+        "seeds_above_floor": 1,
+        "n_seeds": 1
       }
     },
+    "threshold_is_provisional_at_depth": [
+      3,
+      4
+    ],
     "induction_width_threshold_by_depth": {
       "1": null,
       "2": 256,
-      "3": null,
-      "4": null
+      "3": 128,
+      "4": 64
     },
-    "call": "PARTIAL -- thresholds by depth {1: None, 2: 256, 3: None, 4: None}"
+    "call": "CONFIRMED IN ITS MAIN CLAUSE AND REFUTED IN ITS LAST: the threshold falls ONE OCTAVE PER LAYER (256 at depth 2, 128 at depth 3, 64 at depth 4). P1 registered the depth-3 octave correctly but also registered that width 64 would stay below floor at depths 3 AND 4; at depth 4 it does not."
   },
   "P2_verdict": {
     "registered": "the FEED-FORWARD path keeps dominating all the way up. For every layer l in 1..L-1 and every upstream attention module A_j (j<l), the causal read-deletion KL of A_j stays below 1% of the largest MLP read-deletion KL at the same layer, at every width and every seed. The single largest contributor to each layer's read is the IMMEDIATELY PRECEDING MLP, M_{l-1}.",
@@ -1806,16 +2148,20 @@
       "d3_w64": 0.16906093749146633,
       "d3_w128": 0.2559576222394559,
       "d3_w256": 0.38559191643193175,
-      "d4_w64": 0.3165145800670584
+      "d4_w64": 0.3165145800670584,
+      "d4_w128": 0.21980894324833708,
+      "d4_w256": 0.3444943141659726
     },
     "cells_above_1pc": {
       "d3_w64": 0.16906093749146633,
       "d3_w128": 0.2559576222394559,
       "d3_w256": 0.38559191643193175,
-      "d4_w64": 0.3165145800670584
+      "d4_w64": 0.3165145800670584,
+      "d4_w128": 0.21980894324833708,
+      "d4_w256": 0.3444943141659726
     },
     "named_exception_only": false,
-    "call": "REFUTED at ['d3_w128', 'd3_w256', 'd3_w64', 'd4_w64']"
+    "call": "REFUTED at ['d3_w128', 'd3_w256', 'd3_w64', 'd4_w128', 'd4_w256', 'd4_w64']"
   },
   "P3_held_ce": {
     "d1_w32": {
@@ -1877,6 +2223,16 @@
       "held_ce": 4.88174,
       "sd": 0.0,
       "bits_per_byte": 1.8757955811296245
+    },
+    "d4_w128": {
+      "held_ce": 4.46015,
+      "sd": 0.0,
+      "bits_per_byte": 1.7138007475152905
+    },
+    "d4_w256": {
+      "held_ce": 4.14355,
+      "sd": 0.0,
+      "bits_per_byte": 1.5921480415158646
     }
   },
   "P4_ladder_order": {
@@ -1951,6 +2307,18 @@
       "attention_last": 0.8270295411348343,
       "order_ratio": 7.909604100379213,
       "interaction_nats": 5.71444670855999
+    },
+    "d4_w128": {
+      "attention_first": 9.184723258018494,
+      "attention_last": 1.268447071313858,
+      "order_ratio": 7.240919598249341,
+      "interaction_nats": 7.916276186704636
+    },
+    "d4_w256": {
+      "attention_first": 13.327199578285217,
+      "attention_last": 1.5117822587490082,
+      "order_ratio": 8.815554952545483,
+      "interaction_nats": 11.815417319536209
     }
   }
 }
