@@ -1,0 +1,46 @@
+{
+  "stem": "tf_predicate_d3_w128_b8192_s1",
+  "depth": 3,
+  "width": 128,
+  "arms": {
+    "baseline": {
+      "induction_score_mean": 2.857623757256402,
+      "induction_score_sd": 0.03876834109117011,
+      "bag_score_mean": 0.2645544899834526
+    },
+    "A0_out_of_layer1_read": {
+      "induction_score_mean": 2.9567836973402235,
+      "induction_score_sd": 0.044108194211713324,
+      "bag_score_mean": 0.20952400631374815
+    },
+    "M0_out_of_layer1_read": {
+      "induction_score_mean": 2.8379617479112413,
+      "induction_score_sd": 0.030156293780502146,
+      "bag_score_mean": 0.21442148420545806
+    },
+    "A0_out_of_layer2_read": {
+      "induction_score_mean": 2.9531772401597762,
+      "induction_score_sd": 0.027204863138803864,
+      "bag_score_mean": 0.18251739078097842
+    },
+    "A1_out_of_layer2_read": {
+      "induction_score_mean": 2.7048031489054365,
+      "induction_score_sd": 0.022386762207129658,
+      "bag_score_mean": 0.21679414113362583
+    },
+    "M1_out_of_layer2_read": {
+      "induction_score_mean": 3.0016303804185656,
+      "induction_score_sd": 0.03995445044911206,
+      "bag_score_mean": 0.31438011593288806
+    }
+  },
+  "baseline_induction": 2.857623757256402,
+  "fraction_of_induction_removed": {
+    "A0_out_of_layer1_read": -0.0347001384741513,
+    "M0_out_of_layer1_read": 0.006880545171572182,
+    "A0_out_of_layer2_read": -0.033438090882585286,
+    "A1_out_of_layer2_read": 0.05347821173550435,
+    "M1_out_of_layer2_read": -0.05039383606623713
+  },
+  "note": "An attention-to-attention route that carries a large causal KL but removes no induction is OPEN BUT NOT USED BY THIS ALGORITHM; a route whose deletion removes a large fraction of the induction score is one the algorithm runs on.  Both are reported because the distinction is exactly the one FINDING 11 sec 2 had to make."
+}

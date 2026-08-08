@@ -1,0 +1,6 @@
+  fold gate: True  pipeline: {'pipeline_rel_logit_diff': 1.9218176621332733e-06, 'length1_table_rel_logit_diff': 5.55148622803158e-07, 'mlp_tensor_vs_factored_rel': 4.913554221275263e-07, 'layer0_folded_vs_weight_pattern_rel': 6.791013902329723e-07, 'residual_additivity_rel': 8.233597270645987e-08, 'pass': True}
+  rung2 10s
+  ladder 18s
+  induction 27s
+  ablations 31s
+== interp3 written to /workspace/tensor_language/basis_aligned/tiny_full_interp/tf_vanilla_d3_w192_b8192_s0_interp3.json (49.7s)

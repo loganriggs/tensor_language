@@ -7,6 +7,43 @@ they land with the finding in the commit message.
 
 ---
 
+**2026-08-08 20:50 UTC — DEPTH-3 VARIANT SLICE COMPLETE (6 architectures x
+3 seeds + geometry controls). Pre-registered verdict: (a) THE
+ARCHITECTURES ARE AN ACCELERANT, not an addition — with one exception that
+is not close.**
+Applying the decision rule registered before training (>2x the plain
+model's induction for >=3 of 5 variants = persists; <0.5x for >=3 =
+inverts; otherwise accelerant):
+  variant      CE                 induction         ratio vs plain
+  predicate    4.3046 +- 0.0014   +2.7578 +- 0.0954   **25.4x**
+  bandwidth    4.4654 +- 0.0056   +0.2617 +- 0.0287     2.4x
+  vanilla      4.4481 +- 0.0023   +0.1085 +- 0.0133     1.0x
+  codebook     4.5762 +- 0.0101   +0.1491 +- 0.0138     1.4x
+  shrink       4.6204 +- 0.0057   +0.1150 +- 0.0215     1.1x
+  slots        4.6488 +- 0.0063   +0.0822 +- 0.0181     0.8x
+Two of five clear 2x, none fall below 0.5x, so the rule returns
+ACCELERANT. At depth 2 these architectures gained a capability the plain
+model lacked entirely; at depth 3 the plain model has it and three of the
+five are within 40% of it. Private write channels — the arm that opened the
+route at depth 2 — is now BELOW the plain model on induction (0.76x) and
+0.20 nats worse on CE. What they bought was earlier arrival, not a
+different ceiling.
+THE EXCEPTION IS NAMED ATTENTION TERMS, AND IT IS NOT MARGINAL: 25.4x the
+plain model's induction and the ONLY variant that also beats it on CE
+(-0.1435). That is the same arm that won at depth 2, at width 264 in the
+parent programme, and against an unconstrained model there. Four settings,
+same direction.
+CAVEAT CARRIED: the masked-decoder variants needed 6 slots at depth 3 and
+128 is not divisible by 6, so private-channels and shrinking-channel ran 8
+slots of 16 rather than depth 2's 4 of 32. The analyst added two controls
+for exactly this — the same geometry change applied at the published
+depth-2 cell, and depth 3 at width 192 where 6x32 is exact — and both are
+trained; their read-out is the next thing to check before the accelerant
+verdict is final for those two arms specifically.
+
+---
+
+
 **2026-08-08 18:00 UTC — INDEPENDENT REVIEW OF THE DEPTH LADDER: TWO
 RETRACTIONS, one of them a mistake we made TWICE. Read before citing any
 "route" language.**

@@ -1,0 +1,28 @@
+{
+  "stem": "tf_slots_d2_w128_b8192_s1_g8",
+  "depth": 2,
+  "width": 128,
+  "arms": {
+    "baseline": {
+      "induction_score_mean": 0.03724093967013893,
+      "induction_score_sd": 0.010324432096858308,
+      "bag_score_mean": 0.06786142985026089
+    },
+    "A0_out_of_layer1_read": {
+      "induction_score_mean": -0.008530553181966027,
+      "induction_score_sd": 0.009910860657187505,
+      "bag_score_mean": 0.04705462985568545
+    },
+    "M0_out_of_layer1_read": {
+      "induction_score_mean": 0.031045659383137903,
+      "induction_score_sd": 0.005118262170919288,
+      "bag_score_mean": 0.04611985948350714
+    }
+  },
+  "baseline_induction": 0.03724093967013893,
+  "fraction_of_induction_removed": {
+    "A0_out_of_layer1_read": 1.2290638543904981,
+    "M0_out_of_layer1_read": 0.16635671231380386
+  },
+  "note": "An attention-to-attention route that carries a large causal KL but removes no induction is OPEN BUT NOT USED BY THIS ALGORITHM; a route whose deletion removes a large fraction of the induction score is one the algorithm runs on.  Both are reported because the distinction is exactly the one FINDING 11 sec 2 had to make."
+}
