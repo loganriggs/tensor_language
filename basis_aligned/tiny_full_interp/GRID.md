@@ -1,3 +1,10 @@
+> **2026-08-08: the rented box is OFFLINE and may not return. LOCAL owns the
+> entire grid.** Every cell here is a tiny model — width 256 depth 4 is still
+> minutes on the 16 GB card — so nothing in this program is blocked by losing
+> the big machine. The one thing that IS blocked is the parent program's
+> width-1152 predicate-basis confirmation, which needs 31 GB; that is noted
+> in ../qk_mdl/BRAINSTORM_STATE.md, not here.
+
 # Training grid — claim a cell by editing this file and pushing BEFORE starting
 
 Status: `unclaimed` / `local:running` / `scale:running` / `done` (+ CE)
@@ -75,7 +82,7 @@ which variants carry forward is decided by V1, not pre-committed):
 
 | variant | widths 32/64 | width 256 |
 |---|---|---|
-| (decided by V1) | local | scale |
+| (decided by V1) | local | local |
 
 **Phase V3 — seeds** (3 seeds on whatever V1/V2 leaves standing; the parent
 program's rule is that no structure claim survives a single seed).
@@ -92,12 +99,12 @@ reconstruction remainders directly.
 
 | depth | width | owner | status |
 |---|---|---|---|
-| 3 | 64 | scale | unclaimed |
-| 3 | 128 | scale | unclaimed |
-| 3 | 256 | scale | unclaimed |
-| 4 | 64 | scale | unclaimed |
-| 4 | 128 | scale | unclaimed |
-| 4 | 256 | scale | unclaimed |
+| 3 | 64 | LOCAL | unclaimed |
+| 3 | 128 | LOCAL | unclaimed |
+| 3 | 256 | LOCAL | unclaimed |
+| 4 | 64 | LOCAL | unclaimed |
+| 4 | 128 | LOCAL | unclaimed |
+| 4 | 256 | LOCAL | unclaimed |
 
 ## Baselines (matched-optimizer, per width — REQUIRED before quoting any cost)
 
