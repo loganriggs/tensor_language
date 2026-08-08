@@ -137,8 +137,61 @@
         "natural_swap": 0.04068102362058804,
         "inducts": false
       },
-      "arms": {},
-      "induction_verdict": {}
+      "arms": {
+        "x4": {
+          "expansion": 4,
+          "label": "nominal 4x (conventional model is the SMALLER one)",
+          "n_seeds": 1,
+          "held_ce": 5.11229,
+          "held_ce_sd": 0.0,
+          "per_seed": {
+            "0": 5.11229
+          },
+          "n_params": 573504,
+          "body_params": 49216,
+          "param_matched": false,
+          "induction": -0.018866178724500672,
+          "induction_sd": 0.0,
+          "induction_per_seed": [
+            -0.018866178724500672
+          ],
+          "induction_model_seed_t": null,
+          "induction_n_seeds": 1,
+          "bag": 0.05033478207058373,
+          "natural_swap": 0.04092362991104892,
+          "probe_floor": 0.008838290888431272,
+          "seeds_clearing_own_probe_floor": 0,
+          "gap_nats": 0.03559000000000001,
+          "gap_paired_by_seed": {
+            "seeds": [
+              0
+            ],
+            "per_seed": [
+              0.0301499999999999
+            ],
+            "mean": 0.0301499999999999,
+            "t": null
+          },
+          "gap_welch_t": null,
+          "param_ratio_std_over_family": 0.9589085072231139,
+          "provisional": true
+        }
+      },
+      "induction_verdict": {
+        "x4": {
+          "family_mean": -0.011525902924714634,
+          "family_model_seed_t": -8.137931053407415,
+          "family_inducts": false,
+          "conventional_mean": -0.018866178724500672,
+          "conventional_model_seed_t": null,
+          "conventional_inducts": false,
+          "welch_t_conventional_minus_family": null,
+          "n_seeds": [
+            3,
+            1
+          ]
+        }
+      }
     },
     "d1_w128": {
       "depth": 1,
@@ -166,8 +219,61 @@
         "natural_swap": 0.06711447115700746,
         "inducts": false
       },
-      "arms": {},
-      "induction_verdict": {}
+      "arms": {
+        "x4": {
+          "expansion": 4,
+          "label": "nominal 4x (conventional model is the SMALLER one)",
+          "n_seeds": 1,
+          "held_ce": 4.79455,
+          "held_ce_sd": 0.0,
+          "per_seed": {
+            "0": 4.79455
+          },
+          "n_params": 1245312,
+          "body_params": 196736,
+          "param_matched": false,
+          "induction": -0.03384081522623674,
+          "induction_sd": 0.0,
+          "induction_per_seed": [
+            -0.03384081522623674
+          ],
+          "induction_model_seed_t": null,
+          "induction_n_seeds": 1,
+          "bag": 0.09405216640896227,
+          "natural_swap": 0.07230117969265848,
+          "probe_floor": 0.011017391214021104,
+          "seeds_clearing_own_probe_floor": 0,
+          "gap_nats": 0.028003333333332492,
+          "gap_paired_by_seed": {
+            "seeds": [
+              0
+            ],
+            "per_seed": [
+              0.024849999999999817
+            ],
+            "mean": 0.024849999999999817,
+            "t": null
+          },
+          "gap_welch_t": null,
+          "param_ratio_std_over_family": 0.9268362389254072,
+          "provisional": true
+        }
+      },
+      "induction_verdict": {
+        "x4": {
+          "family_mean": -0.026406563652886322,
+          "family_model_seed_t": -24.351764683886493,
+          "family_inducts": false,
+          "conventional_mean": -0.03384081522623674,
+          "conventional_model_seed_t": null,
+          "conventional_inducts": false,
+          "welch_t_conventional_minus_family": null,
+          "n_seeds": [
+            3,
+            1
+          ]
+        }
+      }
     },
     "d1_w256": {
       "depth": 1,
@@ -195,8 +301,61 @@
         "natural_swap": 0.08532990795659619,
         "inducts": false
       },
-      "arms": {},
-      "induction_verdict": {}
+      "arms": {
+        "x4": {
+          "expansion": 4,
+          "label": "nominal 4x (conventional model is the SMALLER one)",
+          "n_seeds": 1,
+          "held_ce": 4.52073,
+          "held_ce_sd": 0.0,
+          "per_seed": {
+            "0": 4.52073
+          },
+          "n_params": 2883840,
+          "body_params": 786688,
+          "param_matched": false,
+          "induction": -0.04530025058322522,
+          "induction_sd": 0.0,
+          "induction_per_seed": [
+            -0.04530025058322522
+          ],
+          "induction_model_seed_t": null,
+          "induction_n_seeds": 1,
+          "bag": 0.14667655097113758,
+          "natural_swap": 0.1120265739664319,
+          "probe_floor": 0.008932011558561196,
+          "seeds_clearing_own_probe_floor": 0,
+          "gap_nats": 0.038406666666666034,
+          "gap_paired_by_seed": {
+            "seeds": [
+              0
+            ],
+            "per_seed": [
+              0.037519999999999776
+            ],
+            "mean": 0.037519999999999776,
+            "t": null
+          },
+          "gap_welch_t": null,
+          "param_ratio_std_over_family": 0.8800093742676354,
+          "provisional": true
+        }
+      },
+      "induction_verdict": {
+        "x4": {
+          "family_mean": -0.035448406360767494,
+          "family_model_seed_t": -40.23577700939141,
+          "family_inducts": false,
+          "conventional_mean": -0.04530025058322522,
+          "conventional_model_seed_t": null,
+          "conventional_inducts": false,
+          "welch_t_conventional_minus_family": null,
+          "n_seeds": [
+            3,
+            1
+          ]
+        }
+      }
     },
     "d2_w64": {
       "depth": 2,
@@ -224,8 +383,61 @@
         "natural_swap": 0.05519079051434043,
         "inducts": false
       },
-      "arms": {},
-      "induction_verdict": {}
+      "arms": {
+        "x4": {
+          "expansion": 4,
+          "label": "nominal 4x (conventional model is the SMALLER one)",
+          "n_seeds": 1,
+          "held_ce": 5.02826,
+          "held_ce_sd": 0.0,
+          "per_seed": {
+            "0": 5.02826
+          },
+          "n_params": 622720,
+          "body_params": 98432,
+          "param_matched": false,
+          "induction": -0.01599826812744176,
+          "induction_sd": 0.0,
+          "induction_per_seed": [
+            -0.01599826812744176
+          ],
+          "induction_model_seed_t": null,
+          "induction_n_seeds": 1,
+          "bag": 0.04960865444607201,
+          "natural_swap": 0.043533413590921555,
+          "probe_floor": 0.0034210698896890443,
+          "seeds_clearing_own_probe_floor": 0,
+          "gap_nats": -0.010140000000000704,
+          "gap_paired_by_seed": {
+            "seeds": [
+              0
+            ],
+            "per_seed": [
+              -0.007680000000000575
+            ],
+            "mean": -0.007680000000000575,
+            "t": null
+          },
+          "gap_welch_t": null,
+          "param_ratio_std_over_family": 0.9268432082301391,
+          "provisional": true
+        }
+      },
+      "induction_verdict": {
+        "x4": {
+          "family_mean": -0.013983790079752485,
+          "family_model_seed_t": -10.776492371991097,
+          "family_inducts": false,
+          "conventional_mean": -0.01599826812744176,
+          "conventional_model_seed_t": null,
+          "conventional_inducts": false,
+          "welch_t_conventional_minus_family": null,
+          "n_seeds": [
+            3,
+            1
+          ]
+        }
+      }
     },
     "d2_w128": {
       "depth": 2,
@@ -335,8 +547,61 @@
         "natural_swap": 0.24072722934526306,
         "inducts": true
       },
-      "arms": {},
-      "induction_verdict": {}
+      "arms": {
+        "x4": {
+          "expansion": 4,
+          "label": "nominal 4x (conventional model is the SMALLER one)",
+          "n_seeds": 1,
+          "held_ce": 4.25675,
+          "held_ce_sd": 0.0,
+          "per_seed": {
+            "0": 4.25675
+          },
+          "n_params": 3670528,
+          "body_params": 1573376,
+          "param_matched": false,
+          "induction": 0.35399347941080705,
+          "induction_sd": 0.0,
+          "induction_per_seed": [
+            0.35399347941080705
+          ],
+          "induction_model_seed_t": null,
+          "induction_n_seeds": 1,
+          "bag": 0.14436363644070055,
+          "natural_swap": 0.39846140547524556,
+          "probe_floor": 0.012112987432218635,
+          "seeds_clearing_own_probe_floor": 1,
+          "gap_nats": 0.06862666666666595,
+          "gap_paired_by_seed": {
+            "seeds": [
+              0
+            ],
+            "per_seed": [
+              0.06985999999999937
+            ],
+            "mean": 0.06985999999999937,
+            "t": null
+          },
+          "gap_welch_t": null,
+          "param_ratio_std_over_family": 0.8235496840896037,
+          "provisional": true
+        }
+      },
+      "induction_verdict": {
+        "x4": {
+          "family_mean": 0.09376651622630933,
+          "family_model_seed_t": 18.794023257595345,
+          "family_inducts": true,
+          "conventional_mean": 0.35399347941080705,
+          "conventional_model_seed_t": null,
+          "conventional_inducts": false,
+          "welch_t_conventional_minus_family": null,
+          "n_seeds": [
+            3,
+            1
+          ]
+        }
+      }
     },
     "d3_w64": {
       "depth": 3,
@@ -364,8 +629,61 @@
         "natural_swap": 0.05336761443898771,
         "inducts": false
       },
-      "arms": {},
-      "induction_verdict": {}
+      "arms": {
+        "x4": {
+          "expansion": 4,
+          "label": "nominal 4x (conventional model is the SMALLER one)",
+          "n_seeds": 1,
+          "held_ce": 4.93386,
+          "held_ce_sd": 0.0,
+          "per_seed": {
+            "0": 4.93386
+          },
+          "n_params": 671936,
+          "body_params": 147648,
+          "param_matched": false,
+          "induction": 0.1028139962090389,
+          "induction_sd": 0.0,
+          "induction_per_seed": [
+            0.1028139962090389
+          ],
+          "induction_model_seed_t": null,
+          "induction_n_seeds": 1,
+          "bag": 0.06149872673882406,
+          "natural_swap": 0.13797428491488972,
+          "probe_floor": 0.015395897811379745,
+          "seeds_clearing_own_probe_floor": 1,
+          "gap_nats": 0.007793333333333763,
+          "gap_paired_by_seed": {
+            "seeds": [
+              0
+            ],
+            "per_seed": [
+              0.00788000000000011
+            ],
+            "mean": 0.00788000000000011,
+            "t": null
+          },
+          "gap_welch_t": null,
+          "param_ratio_std_over_family": 0.9011243670071238,
+          "provisional": true
+        }
+      },
+      "induction_verdict": {
+        "x4": {
+          "family_mean": 0.0035019344753690024,
+          "family_model_seed_t": 1.4739959503533375,
+          "family_inducts": false,
+          "conventional_mean": 0.1028139962090389,
+          "conventional_model_seed_t": null,
+          "conventional_inducts": false,
+          "welch_t_conventional_minus_family": null,
+          "n_seeds": [
+            3,
+            1
+          ]
+        }
+      }
     },
     "d3_w128": {
       "depth": 3,
@@ -393,8 +711,61 @@
         "natural_swap": 0.18618826575751277,
         "inducts": true
       },
-      "arms": {},
-      "induction_verdict": {}
+      "arms": {
+        "x4": {
+          "expansion": 4,
+          "label": "nominal 4x (conventional model is the SMALLER one)",
+          "n_seeds": 1,
+          "held_ce": 4.4702,
+          "held_ce_sd": 0.0,
+          "per_seed": {
+            "0": 4.4702
+          },
+          "n_params": 1638784,
+          "body_params": 590208,
+          "param_matched": false,
+          "induction": 0.6225096172756619,
+          "induction_sd": 0.0,
+          "induction_per_seed": [
+            0.6225096172756619
+          ],
+          "induction_model_seed_t": null,
+          "induction_n_seeds": 1,
+          "bag": 0.11817819807264485,
+          "natural_swap": 0.496902581777249,
+          "probe_floor": 0.011830538191903496,
+          "seeds_clearing_own_probe_floor": 1,
+          "gap_nats": 0.05740666666666705,
+          "gap_paired_by_seed": {
+            "seeds": [
+              0
+            ],
+            "per_seed": [
+              0.058250000000000135
+            ],
+            "mean": 0.058250000000000135,
+            "t": null
+          },
+          "gap_welch_t": null,
+          "param_ratio_std_over_family": 0.8474879195075131,
+          "provisional": true
+        }
+      },
+      "induction_verdict": {
+        "x4": {
+          "family_mean": 0.10849020922625528,
+          "family_model_seed_t": 14.080430450701748,
+          "family_inducts": true,
+          "conventional_mean": 0.6225096172756619,
+          "conventional_model_seed_t": null,
+          "conventional_inducts": false,
+          "welch_t_conventional_minus_family": null,
+          "n_seeds": [
+            3,
+            1
+          ]
+        }
+      }
     },
     "d3_w256": {
       "depth": 3,
@@ -422,8 +793,61 @@
         "natural_swap": 0.3041948916581229,
         "inducts": true
       },
-      "arms": {},
-      "induction_verdict": {}
+      "arms": {
+        "x4": {
+          "expansion": 4,
+          "label": "nominal 4x (conventional model is the SMALLER one)",
+          "n_seeds": 1,
+          "held_ce": 4.14647,
+          "held_ce_sd": 0.0,
+          "per_seed": {
+            "0": 4.14647
+          },
+          "n_params": 4457216,
+          "body_params": 2360064,
+          "param_matched": false,
+          "induction": 0.8523179584079316,
+          "induction_sd": 0.0,
+          "induction_per_seed": [
+            0.8523179584079316
+          ],
+          "induction_model_seed_t": null,
+          "induction_n_seeds": 1,
+          "bag": 0.15169116126166457,
+          "natural_swap": 0.6183442415185709,
+          "probe_floor": 0.02808557672338247,
+          "seeds_clearing_own_probe_floor": 1,
+          "gap_nats": 0.06455333333333346,
+          "gap_paired_by_seed": {
+            "seeds": [
+              0
+            ],
+            "per_seed": [
+              0.07169999999999987
+            ],
+            "mean": 0.07169999999999987,
+            "t": null
+          },
+          "gap_welch_t": null,
+          "param_ratio_std_over_family": 0.790726191016849,
+          "provisional": true
+        }
+      },
+      "induction_verdict": {
+        "x4": {
+          "family_mean": 0.22074474758572035,
+          "family_model_seed_t": 6.315201967686006,
+          "family_inducts": true,
+          "conventional_mean": 0.8523179584079316,
+          "conventional_model_seed_t": null,
+          "conventional_inducts": false,
+          "welch_t_conventional_minus_family": null,
+          "n_seeds": [
+            3,
+            1
+          ]
+        }
+      }
     }
   },
   "lr_arms": {},
@@ -432,27 +856,45 @@
     "L1_conventional_wins_every_cell_by_0.05_to_0.20": {
       "registered": "the conventional model wins on held cross-entropy at EVERY cell, by 0.05 to 0.20 nats",
       "nominal_gaps": {
-        "d2_w128": 0.05442000000000036
+        "d1_w64": 0.03559000000000001,
+        "d1_w128": 0.028003333333332492,
+        "d1_w256": 0.038406666666666034,
+        "d2_w64": -0.010140000000000704,
+        "d2_w128": 0.05442000000000036,
+        "d2_w256": 0.06862666666666595,
+        "d3_w64": 0.007793333333333763,
+        "d3_w128": 0.05740666666666705,
+        "d3_w256": 0.06455333333333346
       },
-      "cells_won_by_conventional": 1,
-      "cells_measured": 1,
-      "cells_in_the_0.05_to_0.20_band": 1,
-      "verdict": "CONFIRMED"
+      "cells_won_by_conventional": 8,
+      "cells_measured": 9,
+      "cells_in_the_0.05_to_0.20_band": 4,
+      "verdict": "REFUTED"
     },
     "L2_A2_gap_grows_with_depth": {
       "registered": "the gap GROWS with depth, because softmax attention composes more readily and the depth-2 foldable models showed attention acting only through the feed-forward path",
       "mean_nominal_gap_by_depth": {
-        "2": 0.05442000000000036
+        "1": 0.03399999999999951,
+        "2": 0.0376355555555552,
+        "3": 0.04325111111111143
       },
-      "monotone_increasing": null,
-      "deepest_minus_shallowest": null,
-      "verdict": null
+      "monotone_increasing": true,
+      "deepest_minus_shallowest": 0.009251111111111918,
+      "verdict": "CONFIRMED"
     },
     "L3_A3_matched_parameters": {
       "registered_L3": "at matched parameter count the gap SHRINKS by at least a third",
       "registered_A3": "L3 presupposes that the conventional model is the larger one and would have to shrink. It is the smaller one: 12*W^2 versus 18*W^2 of body per block. Matching parameters therefore makes the CONVENTIONAL model bigger (expansion 4x -> 7x), so the gap should GROW, not shrink. Predicted: matched-arm gap exceeds nominal-arm gap by +0.01 to +0.06 nats at every cell, and L3 is refuted with the wrong sign rather than the wrong magnitude. NOTE for scoring: if Logan meant 'matched by shrinking the bilinear model', that arm is not run (the family's 101 checkpoints are not being retrained) and the relevant comparison is the NOMINAL arm, where the conventional model already carries ~12% fewer total parameters than the family cell it is compared with.",
       "nominal_gap": {
-        "d2_w128": 0.05442000000000036
+        "d1_w64": 0.03559000000000001,
+        "d1_w128": 0.028003333333332492,
+        "d1_w256": 0.038406666666666034,
+        "d2_w64": -0.010140000000000704,
+        "d2_w128": 0.05442000000000036,
+        "d2_w256": 0.06862666666666595,
+        "d3_w64": 0.007793333333333763,
+        "d3_w128": 0.05740666666666705,
+        "d3_w256": 0.06455333333333346
       },
       "matched_gap": {},
       "matched_minus_nominal": {},
@@ -481,8 +923,21 @@
       "reframing": "if any depth-2 cell flips, RESULTS FINDING 16 becomes a statement about the no-softmax bilinear family and not about transformers at this scale."
     },
     "A5_depth1_null_in_both_families": {
-      "per_cell": {},
-      "verdict": null
+      "per_cell": {
+        "d1_w64": {
+          "family": false,
+          "conventional": false
+        },
+        "d1_w128": {
+          "family": false,
+          "conventional": false
+        },
+        "d1_w256": {
+          "family": false,
+          "conventional": false
+        }
+      },
+      "verdict": "CONFIRMED"
     },
     "A9_learning_rate_fairness_bound": {
       "arms": {},
