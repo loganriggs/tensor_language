@@ -569,6 +569,32 @@ def controls(quick=False):
         print(f'  C1 diff={dd:.3e} self-noise={self_noise:.3e} '
               f'pass={dd <= thr}', flush=True)
 
+        print('=== C7 family reproduction (is the stored family CE stale?) ===',
+              flush=True)
+        # The conventional cells are trained NOW; the family cells were trained
+        # earlier.  If anything in the environment has drifted -- torch, driver,
+        # corpus -- every gap would absorb it.  So one family cell is retrained
+        # from scratch under the identical protocol and compared with the number
+        # on disk.  d1 w64 is the cheapest cell (~135 s at full length).
+        rep_stem = 'tf_vanilla_d1_w64_b8192_s0'
+        stored = json.load(open(f'{HERE}/{rep_stem}.json'))['run'][
+            'final_held_ce']
+        famr = M.TFConfig(depth=1, width=64, vocab=8192, tok='bpe', seed=0,
+                          variant='vanilla', T=TR.T)
+        lr_, _ = TR.train_cell(famr, corp, lr_muon=0.02, steps=TR.STEPS,
+                               save=False, log_every=10 ** 9, stem='C7_repro')
+        drift = abs(lr_['final_held_ce'] - stored)
+        res['C7_family_reproduction'] = {
+            'stem': rep_stem, 'stored_held_ce': stored,
+            'retrained_held_ce': lr_['final_held_ce'],
+            'abs_drift_nats': drift, 'pass': bool(drift < 0.01),
+            'claim': 'the family cross-entropies this comparison quotes were '
+                     'measured earlier; retraining one of them from scratch '
+                     'under the identical protocol reproduces the stored '
+                     'number, so the gap is not absorbing environment drift.'}
+        print(f'  C7 stored={stored} retrained={lr_["final_held_ce"]} '
+              f'drift={drift:.5f} pass={drift < 0.01}', flush=True)
+
     res['pass'] = all(v.get('pass', True) for v in res.values()
                       if isinstance(v, dict))
     json.dump(res, open(f'{HERE}/tf_baseline_controls.json', 'w'), indent=2)

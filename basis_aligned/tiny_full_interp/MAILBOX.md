@@ -7,6 +7,84 @@ they land with the finding in the commit message.
 
 ---
 
+**2026-08-08 23:05 UTC — THE FOLDABILITY TAX IS CLAIMED AND RUNNING. The
+one cell GRID.md has carried as unclaimed since the programme started: a
+same-size CONVENTIONAL transformer (softmax attention + GELU feed-forward)
+at depths 1/2/3 and widths 64/128/256, three seeds.**
+
+Everything this programme has measured is relative to another FOLDABLE
+model. STANDALONE_RESULTS.md section 8 opens with exactly this gap. The
+chain is gated behind tf_geom_control_chain.sh (exact-name pgrep on the
+chain and on each of its runners, plus 10 GB free for three consecutive
+checks) so it does not compete for the card.
+
+WHAT IS DIFFERENT: two computations, nothing else.
+  attention      softmax(q.k/sqrt(16)), ONE query/key branch
+                 vs  (q1.k1/16)*(q2.k2/16), no softmax, TWO branches
+  feed-forward   Down(GELU(Up(x)))  vs  Down(Left(x) * Right(x))
+Same corpus, same tokenizer, same 15,000-step single-epoch data order
+(first-batch sha256 pinned), same Muon+AdamW at the SAME 0.02 every
+foldable cell used, same head dimension 16, rotary, per-head query/key
+RMSNorm, tied embedding, readout, zero-init residual writes, same held
+evaluation, same induction battery.
+
+GELU not SwiGLU, deliberately: SwiGLU is a GATED bilinear form -- our own
+feed-forward with one branch through a nonlinearity -- so using it would
+make the feed-forward contrast nearly vacuous.
+
+THE PARAMETER COUNT SURPRISE, worth knowing before reading any table: OUR
+FAMILY IS THE BIGGER MODEL. Per block we cost 18W^2+W (five attention
+reads plus an output projection plus three 4W matrices) against a
+conventional block's 12W^2+W. So the nominal conventional arm carries
+~12% FEWER total parameters. A second arm at expansion 7x makes the body
+exactly 18W^2+W and the total bit-identical at every cell (checked against
+a live module count at 9/9 cells, e.g. 590,080 of body both sides at depth
+2 width 128).
+
+PREDICTIONS REGISTERED BEFORE THE FIRST STEP (tf_baseline_predictions.json),
+and Logan's and the analyst's disagree on two of three:
+  L1 conventional wins everywhere by 0.05-0.20 nats
+  A1 not at depth 1 -- a depth-1 model here is a bigram machine whose
+     attention acts only through the feed-forward input, so softmax buys
+     little while we carry 50% more body; depth-1 gap predicted in
+     [-0.05, +0.05] with the SIGN UNCERTAIN, depth 2 [+0.02, +0.12],
+     depth 3 [+0.05, +0.20]
+  L2 = A2 the gap grows with depth (agreed)
+  L3 matched parameters shrink the gap by a third
+  A3 WRONG SIGN: matching makes the CONVENTIONAL model bigger (4x -> 7x),
+     so the gap should WIDEN by +0.01 to +0.06
+  A4 the conventional model INDUCTS at depth 2 width 128, where every
+     foldable architecture except the hand-installed one is null. If it
+     does, FINDING 16's depth-versus-width surface is a statement about
+     THIS family, not about transformers, and gets relabelled.
+
+CONTROLS: C1 the transcribed training loop reproduces tf_train.train_cell
+exactly on a foldable config (0.0 nats; tf_train.py is NOT edited because
+the geometry chain imports it mid-flight), C2 parameter identity at 9/9
+against live module counts, C3 an independently written naive forward
+matches at 4.2e-16 in fp64, C5 causality bit-exact, C6 first-batch sha256,
+C7 one family cell retrained from scratch must reproduce its stored CE to
+0.01 nats, C4 the probe shim must reproduce a PUBLISHED foldable induction
+number so a family difference cannot be probe code.
+
+FAIRNESS, SAID PLAINLY (tf_baseline_selfreview.json): fair in everything
+that can be held identical; NOT fair in hyper-parameter search. Learning
+rate, optimiser, head dimension and softmax temperature were all fixed by
+our family's history. Only the learning rate is priced (full-length
+0.01/0.04 arms at width 128, depths 1-3). The SOFTMAX TEMPERATURE is the
+largest unpriced risk and the most likely way the conventional arm is
+undersold -- query/key RMSNorm caps |q.k| at the head dimension, so
+1/sqrt(16) may be too cold, and a null conventional induction result must
+not be over-read before that is checked. Every conventional number is
+therefore a LOWER bound and every gap in the conventional model's favour
+is a LOWER bound on the foldability tax.
+
+Live scored table: tf_baseline_table.md (rebuilt and pushed after every
+stage; any cell showing fewer than two seeds is PROVISIONAL). Full record:
+tf_baseline_std.json.
+
+---
+
 **2026-08-08 20:50 UTC — DEPTH-3 VARIANT SLICE COMPLETE (6 architectures x
 3 seeds + geometry controls). Pre-registered verdict: (a) THE
 ARCHITECTURES ARE AN ACCELERANT, not an addition — with one exception that

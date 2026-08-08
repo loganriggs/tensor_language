@@ -7,6 +7,128 @@ were **refuted** are marked as such rather than quietly dropped.
 
 ---
 
+## 2026-08-08 — FINDING 17 (IN FLIGHT): **THE FOLDABILITY TAX** — the first measurement in this programme that is not relative to another foldable model
+
+Files: `tf_baseline_std.py` (model, transcribed training loop, controls),
+`tf_baseline_probe.py` (the induction battery, verbatim, through a shim),
+`tf_baseline_report.py` → **`tf_baseline_std.json` / `tf_baseline_table.md`**
+(the live scored table — read that, not this prose, for the numbers),
+`tf_baseline_predictions.json` (registered BEFORE the first training step),
+`tf_baseline_selfreview.json` (the self-red-team), chain
+`tf_baseline_chain.sh` (log `tf_baseline_chain.log`).
+
+**STATUS: the chain is running. Cells land in the order depth 2 width 128 first,
+then the rest of each seed. Any cell in `tf_baseline_table.md` showing fewer
+than two seeds is PROVISIONAL and must not be quoted.**
+
+### Why this cell existed and was never run
+
+Every result in this document is a comparison between foldable models.
+`GRID.md` has carried "same-size softmax+GELU transformer — unclaimed" since the
+programme started, and `STANDALONE_RESULTS.md` §8 lists it as open question 1.
+The reviewer's first question — *how much prediction quality did you give up to
+get exact folds?* — has no answer on disk. Everything in FINDINGS 1–16 is
+conditional on the no-softmax bilinear family, including the depth-versus-width
+induction surface, which may be a property of this architecture rather than of
+transformers at this size.
+
+### What is held fixed, and what is not
+
+The conventional block is `tf_model.TinyBilin(variant='vanilla')` with exactly
+two computations changed:
+
+| | family | conventional |
+|---|---|---|
+| attention | `(q1·k1/16)·(q2·k2/16)`, causal-masked, **no softmax**, two branches | `softmax(q·k/√16)`, causal-masked, **one branch** |
+| feed-forward | `Down(Left(x) ⊙ Right(x))` — ungated bilinear | `Down(GELU(Up(x)))` |
+
+Everything else is the same *object*, not merely the same setting: the corpus
+and tokenizer (trained byte-level BPE, V=8192), the 15,000-step single-epoch
+data order (control C6 pins the first batch's sha256), the optimiser
+(`tf_train.Muon` + AdamW 4e-3 / weight decay 0.1, warmup 250, cosine, clip 1),
+the Muon learning rate **0.02 — the value every foldable cell used**, head
+dimension 16, the rotary tables, per-head query/key RMSNorm, the tied embedding,
+the `30·tanh(·/30)` readout, the zero-initialised residual-branch output
+projections, `tf_train.eval_held` on held rows [0:1500] at T=512, and the
+induction battery itself.
+
+**GELU, not SwiGLU, and the reason is substantive.** SwiGLU is
+`Down(SiLU(Ax) ⊙ Bx)` — a *gated* bilinear form, i.e. our own feed-forward with
+one branch passed through a nonlinearity. Choosing it would make the
+feed-forward contrast nearly vacuous and leave softmax as the only real
+difference, which is not the comparison `GRID.md` asks for. GELU is also what a
+reviewer means by "a conventional transformer".
+
+**The parameter count differs, and — contrary to the intuition behind the
+registered prediction L3 — OUR family is the BIGGER model.** Per block the
+family costs `18W² + W` (five W×W attention reads q,k,q2,k2,v, one W×W output
+projection, three W×4W feed-forward matrices, one W bias) while a conventional
+block at the conventional 4× expansion costs `12W² + W`. Two arms are therefore
+run and both are reported:
+
+- **×4 nominal** — the conventional shape. The conventional model carries about
+  12% fewer total parameters than the family cell it is compared with
+  (depth 2 width 128: 1,442,048 against 1,638,656).
+- **×7 matched** — expansion 7 makes the conventional body exactly `18W² + W`,
+  so the total parameter count is **bit-identical at every cell** (control C2
+  checks this against a live `nn.Module` count at all nine cells, not against a
+  formula: depth 2 width 128 gives 590,080 of body on both sides).
+
+### Registered predictions (before training; two of three disagree)
+
+Logan's: **L1** the conventional model wins at every cell by 0.05–0.20 nats;
+**L2** the gap grows with depth; **L3** at matched parameters the gap shrinks by
+at least a third.
+
+The analyst's: **A1** disagrees with L1 at depth 1 — a depth-1 model here is a
+bigram machine whose attention acts only through the feed-forward input
+(FINDING 2), so softmax buys little while the family carries 50% more body
+parameters; predicted depth-1 gap in [−0.05, +0.05] with the **sign genuinely
+uncertain**, depth 2 in [+0.02, +0.12], depth 3 in [+0.05, +0.20]. **A2** agrees
+with L2. **A3** says L3 has the **wrong sign**: matching parameters makes the
+*conventional* model bigger (4× → 7×), so the gap should widen by +0.01 to +0.06
+nats, not shrink. **A4**, the interesting half: the conventional model
+**inducts at depth 2 width 128**, where every foldable architecture except the
+one with the capability hand-installed is null — predicted +0.05 to +0.60 nats,
+separated over model seeds at t > 4. **A5** both families are null at depth 1.
+**A9** 0.02 is within 0.01 nats of the conventional model's best learning rate.
+
+If A4 lands, FINDING 16's depth-versus-width surface is a statement about **the
+no-softmax bilinear family at this size, corpus and budget** — not about
+transformers — and must be relabelled accordingly. (Scope discipline registered
+in advance: one conventional configuration is not "transformers".)
+
+### Controls (positive controls before every claim)
+
+| control | what it forbids |
+|---|---|
+| C1 loop equivalence | the transcribed training loop must reproduce `tf_train.train_cell` on a **foldable** config to within the reference loop's own run-to-run noise, so no gap can be a harness difference (`tf_train.py` is deliberately **not** edited — another chain imports it mid-flight). Reproduced exactly, difference 0.0, in the CPU dry run. |
+| C2 parameter identity | expansion 7 must equal the family body **exactly** at all nine cells and expansion 4 must be strictly smaller — checked against a live module count. Passed at 9/9. |
+| C3 naive reference | an independently written forward with explicit per-head, per-position loops and an explicit softmax must match `forward()` in fp64. **4.18e-16** relative. |
+| C5 causality | editing tokens after position *i* must leave position *i* bit-identical. **0.0**. |
+| C6 data identity | the first training batch's sha256, shared with the foldable path. |
+| C7 family reproduction | one family cell retrained from scratch **now** must reproduce its stored cross-entropy to 0.01 nats, so the gap cannot absorb environment drift. |
+| C4 probe shim | the induction battery, run through this file's shim on a **published** foldable checkpoint, must reproduce that cell's published score — so a family induction difference cannot be a probe-code difference. |
+
+### Fairness assessment, stated before the numbers exist
+
+`tf_baseline_selfreview.json` has the full round. The short form: the
+comparison is fair in everything that can be held identical, and **not** fair in
+hyper-parameter search. The learning rate, the optimiser, the head dimension and
+the softmax temperature were all fixed by the foldable family's history. Only
+the learning rate is priced (full-length 0.01 / 0.04 arms at width 128, depths
+1–3; the family already has that arm at depth 2 width 128 and is flat there —
+4.65183 / 4.65117 / 4.67175). Query/key normalisation is priced by a no-QK-norm
+arm at depth 2 width 128, three seeds. **The softmax temperature is the largest
+unpriced risk and the most likely way the conventional arm is undersold**:
+query/key RMSNorm caps `|q·k|` at the head dimension, so `1/√16` may be too
+cold, and a null conventional induction result must not be over-read before
+that is checked. Consequently every conventional number is a **lower bound** on
+what a conventional transformer of this size could do, and every gap in the
+conventional model's favour is a **lower bound on the foldability tax**.
+
+---
+
 ## 2026-08-08 — FINDING 16 (THE DEPTH LADDER AT THREE SEEDS, AND ITS FIRST INDEPENDENT REVIEW): the route half of FINDING 14 is **RETRACTED as a routing claim and restated as a magnitude one** — across all 243 write/read pairs in the ladder the read-ablation KL is a quadratic function of how big the write is (slope 1.99, r = 0.994, residual 0.26 dex), so nothing in this model gates a direction; and the induction "width threshold" turns out to be **a property of the detection criterion, not of the model** (three defensible criteria give 256/128/64, 256/64/64 and 256/128/128)
 
 Files: `tf_route_seeds.py` → `tf_route_seeds.json` / `tf_route_seeds_table.md`

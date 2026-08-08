@@ -1,0 +1,137 @@
+{
+  "stage": "reviewer_round_1 (self-red-team) for the conventional softmax+GELU baseline",
+  "written": "2026-08-08, before the first conventional training step finished",
+  "the_question_this_answers": "Is the comparison FAIR, and where is it not?",
+
+  "headline_fairness_verdict": "The comparison is fair in everything that can be held identical -- corpus, tokenizer, token stream and its order, single-epoch budget, optimiser family, schedule, head dimension, rotary, query/key normalisation, tied embedding, readout, held evaluation and the induction probe are the SAME OBJECTS, not merely the same settings. It is NOT fair in hyper-parameter search: the learning rate, the optimiser choice, the head dimension and the softmax temperature were all fixed by the foldable family's own history, and only the learning rate is priced. Every conventional number is therefore a LOWER BOUND on what a conventional transformer could do at this size, and every gap in the conventional model's favour is a LOWER BOUND on the foldability tax.",
+
+  "objections_to_the_claim": [
+    {
+      "id": "O1",
+      "objection": "The learning rate was tuned for one family. Muon 0.02 is what the foldable family's sweeps chose (three depth-1 cells, all landing on 0.02 out of {0.01, 0.02, 0.04}); the conventional model inherits it untuned.",
+      "status": "PRICED, NOT ELIMINATED",
+      "what_was_done": "full-length lr 0.01 and 0.04 arms for the conventional model at width 128, depths 1-3, plus the matched-parameter arm at depth 2 width 128. The family already has exactly this arm at depth 2 width 128 (4.65183 / 4.65117 / 4.67175 at 0.01 / 0.02 / 0.04, i.e. 0.00066 nats of curvature between 0.01 and 0.02).",
+      "residual_risk": "the grid {0.01, 0.02, 0.04} was itself chosen for the family. If the conventional optimum lies outside it -- say 0.08 -- the sweep cannot see it. Rule adopted in advance: if any conventional cell gains more than 0.02 nats from 0.01 or 0.04, the whole comparison is restated as a lower bound on the conventional advantage and a wider grid is run."
+    },
+    {
+      "id": "O2",
+      "objection": "Muon itself may suit one architecture. Muon orthogonalises 2D matrices; the family has eight per block, the conventional model six, with different conditioning.",
+      "status": "OPEN, UNTESTED",
+      "what_was_done": "nothing. Neither family is run under plain AdamW here.",
+      "residual_risk": "real but symmetric-looking. Both architectures are ordinary dense matrices with the same fan-ins; there is no mechanism by which Newton-Schulz orthogonalisation should prefer a bilinear product to a GELU gate. Recorded as an untested confound rather than argued away."
+    },
+    {
+      "id": "O3",
+      "objection": "The AdamW embedding learning rate (4e-3) and weight decay (0.1) are family values and were swept for neither architecture.",
+      "status": "OPEN, UNTESTED",
+      "residual_risk": "the embedding is 57-73% of the parameters at these widths, so this is not a small knob. It is however IDENTICAL for both arms, so it cannot manufacture a difference; it can only move both."
+    },
+    {
+      "id": "O4",
+      "objection": "Head dimension is pinned at 16, so width 256 gives the conventional model 16 heads. A conventional model at that width would normally use 4-8 heads of dimension 32-64.",
+      "status": "OPEN, UNTESTED",
+      "why_not_fixed": "head dimension 16 is the geometry the whole grid is defined on and changing it would add a third difference. The direction of the bias is unclear: more, narrower heads is usually mildly favourable at small scale.",
+      "residual_risk": "unquantified."
+    },
+    {
+      "id": "O5",
+      "objection": "The softmax temperature (1/sqrt(head_dim)) was not swept, and with query/key RMSNorm the pre-softmax logits are bounded, so the temperature directly controls how sharp attention can be -- which is exactly the mechanism induction needs.",
+      "status": "OPEN, UNTESTED, AND THE MOST LIKELY WAY THE CONVENTIONAL ARM IS UNDERSOLD",
+      "residual_risk": "if the conventional model fails to induct, temperature is the first thing to check before concluding anything, because query/key RMSNorm caps |q.k| at head_dim and 1/sqrt(16) may be too cold. Written down in advance so that a null conventional induction result is not over-read."
+    },
+    {
+      "id": "O6",
+      "objection": "Per-head query/key RMSNorm is not universal in conventional transformers; keeping it imports one of our conventions.",
+      "status": "PRICED",
+      "what_was_done": "a no-QK-norm arm at depth 2 width 128, three seeds, reporting both cross-entropy and induction."
+    },
+    {
+      "id": "O7",
+      "objection": "Zero-initialised residual-branch output projections are copied from the family's vanilla convention.",
+      "status": "OPEN, LOW RISK",
+      "residual_risk": "zero/small-init residual branches are also standard practice in conventional transformers (GPT-2's scaled init is the same idea). Keeping it identical is the conservative choice."
+    },
+    {
+      "id": "O8",
+      "objection": "The matched-parameter arm makes the conventional feed-forward 7x wide, which is not a shape anyone ships.",
+      "status": "ACCEPTED AND STATED",
+      "what_was_done": "both arms are reported. The 4x arm is what a reviewer means by 'a conventional transformer' and it is the SMALLER model; the 7x arm is the exact-parameter control and it is unusual. The third possibility -- shrinking the bilinear model to the conventional parameter count -- would require retraining the family's checkpoints and is not run."
+    },
+    {
+      "id": "O9",
+      "objection": "The family cross-entropies are read off checkpoints trained earlier; environment drift would land entirely in the gap.",
+      "status": "CONTROLLED",
+      "what_was_done": "control C7 retrains tf_vanilla_d1_w64_b8192_s0 from scratch under the identical protocol and requires the stored number back to 0.01 nats. Control C6 pins the first training batch's sha256. Control C1 shows the transcribed training loop is the reference loop."
+    },
+    {
+      "id": "O10",
+      "objection": "The induction battery was designed and calibrated on the foldable family, and its synthetic sequences are unigram-sampled random tokens -- far off distribution. A softmax model could behave differently there for reasons that have nothing to do with induction.",
+      "status": "MITIGATED BY A SECOND PROBE",
+      "what_was_done": "the order-only SWAP patch on held natural text (tf_interp2.natural_induction) is reported for both families at every cell, and the synthetic battery carries its planted-oracle calibration. STANDALONE_RESULTS section 8 item 6 asks for exactly this two-probe agreement.",
+      "residual_risk": "the two probes agreed at Pearson 0.9996 across the six foldable architectures but their RATIOS differ by up to 3x, so only the direction is safe to transfer."
+    },
+    {
+      "id": "O11",
+      "objection": "Nine cells times two arms times several predictions is a lot of comparisons for three seeds.",
+      "status": "MITIGATED BY DESIGN",
+      "what_was_done": "predictions were registered before training with numeric bands and explicit falsifiers, the verdict rules are mechanical, and effect sizes with seed spreads are reported beside every t. Induction is decided over MODEL seeds at the same t > 4.30 bar FINDING 16 used, never against a probe-seed floor."
+    },
+    {
+      "id": "O12",
+      "objection": "Even a clean conventional induction result at depth 2 width 128 would not license 'transformers induct there' -- it licenses 'this one conventional configuration does'.",
+      "status": "ACCEPTED; SCOPE LANGUAGE FIXED IN ADVANCE",
+      "what_was_done": "the reframing is written as: FINDING 16's surface is a property of the no-softmax bilinear family and does not transfer to a softmax+GELU transformer at the same size, corpus and budget. It is not written as a claim about transformers in general."
+    },
+    {
+      "id": "O13",
+      "objection": "One corpus, one vocabulary, one context length, one token budget, one optimiser.",
+      "status": "ACCEPTED, STATED, NOT FIXED"
+    },
+    {
+      "id": "O14",
+      "objection": "Two different cross-entropies exist in this programme (the training-protocol number at T=512 and the rung-5 ladder number at T=256) and mixing them has already cost this programme a retraction.",
+      "status": "GUARDED",
+      "what_was_done": "the report reads ONLY run.final_held_ce for both families and says so in its header."
+    }
+  ],
+
+  "objections_to_the_method": [
+    {
+      "id": "M1",
+      "objection": "The conventional training loop is a COPY of tf_train.train_cell rather than the same function, so it can drift.",
+      "status": "CONTROLLED BY C1",
+      "note": "tf_train.py is deliberately not edited because another chain imports it mid-flight; C1 requires the copy to reproduce the reference loop on a FOLDABLE config to within the reference loop's own run-to-run noise. On CPU it reproduced it exactly (difference 0.0)."
+    },
+    {
+      "id": "M2",
+      "objection": "A parameter-count formula is easy to get wrong.",
+      "status": "CONTROLLED BY C2",
+      "note": "the closed form is checked against a live nn.Module parameter count at all nine cells, for both arms, and against tf_model.vanilla_body_params AND a live TinyBilin count. Expansion 7 matches exactly at every cell (e.g. depth 2 width 128: 590,080 both sides); expansion 4 is strictly smaller at every cell."
+    },
+    {
+      "id": "M3",
+      "objection": "A hand-written attention implementation can be subtly wrong (masking, rotary, head reshape).",
+      "status": "CONTROLLED BY C3 AND C5",
+      "note": "an independently written forward with explicit per-head, per-position python loops and an explicit softmax matches at 4.18e-16 relative in fp64; editing tokens after position i leaves position i bit-identical."
+    },
+    {
+      "id": "M4",
+      "objection": "A probe wrapper is a place for a family difference to hide.",
+      "status": "CONTROLLED BY C4",
+      "note": "the shim is run on a published foldable checkpoint and must reproduce that cell's published induction score."
+    },
+    {
+      "id": "M5",
+      "objection": "Reporting from in-flight artifacts produced two wrong reports in this programme on 2026-08-08.",
+      "status": "GUARDED",
+      "note": "every table marks the seed count per cell and labels anything below two seeds PROVISIONAL; the chain rebuilds and pushes the report after each stage so the on-disk table is always a declared state rather than a scratch one."
+    }
+  ],
+
+  "what_would_change_the_headline": [
+    "a conventional learning rate outside {0.01, 0.02, 0.04} worth more than 0.02 nats (O1)",
+    "a softmax temperature sweep changing the induction verdict (O5)",
+    "the query/key-norm arm moving cross-entropy by more than 0.03 nats (O6)",
+    "control C7 failing, i.e. the family checkpoints not reproducing (O9)"
+  ]
+}
