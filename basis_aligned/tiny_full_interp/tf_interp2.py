@@ -807,6 +807,104 @@ def composed_vs_causal(D, n_seq=32, T=256, batch=8):
 
 
 @torch.no_grad()
+def natural_induction(D, n_seq=512, T=256, seed=0):
+    """INDUCTION ON REAL TEXT, as a causal intervention.
+
+    The synthetic battery uses unigram-sampled random tokens, and a reviewer is
+    entitled to ask whether a model could induct on natural text while failing
+    on random text.  So the same question is asked on held text by BREAKING the
+    induction evidence: find a position i whose token has occurred before at j,
+    take the model's probability for the token that followed that earlier
+    occurrence (x[j+1], the induction target), then re-run with x[j+1] replaced
+    by a random token and measure how much that probability falls.
+
+    A model that inducts must lose probability mass on the target when the
+    evidence for it is destroyed.  A model that does not will not move.  The
+    control is the same patch scored on a token that is NOT the induction
+    target, which absorbs the generic 'the prefix changed' effect."""
+    g = torch.Generator(device='cpu').manual_seed(seed)
+    arr = tf_corpus.load_split(D.V, 'held', n_seq, tok=D.cfg.tok)
+    x = torch.from_numpy(arr[:, :T]).to(D.dev)
+    B = x.shape[0]
+    tgt = I1._induction_target(x, D.V)                     # (B,T)
+    # the source position j+1 for each i: recompute the last-occurrence index
+    last = torch.full((B, D.V), -1, dtype=torch.long, device=D.dev)
+    src = torch.full((B, T), -1, dtype=torch.long, device=D.dev)
+    for i in range(T):
+        cur = x[:, i:i + 1]
+        prev = last.gather(1, cur)[:, 0]
+        src[:, i] = torch.where((prev >= 0) & (prev + 1 < T), prev + 1,
+                                torch.full_like(prev, -1))
+        last.scatter_(1, cur, torch.full_like(cur, i))
+    # one eligible position per sequence: the LAST eligible one before T-1
+    elig = (src >= 0) & (torch.arange(T, device=D.dev)[None] > T // 2) \
+        & (torch.arange(T, device=D.dev)[None] < T - 1)
+    idxs = torch.where(elig.any(1))[0]
+    pos = elig.float().cumsum(1).argmax(1)                  # last eligible
+    pos = pos[idxs]
+    xs = x[idxs]
+    jj = src[idxs].gather(1, pos[:, None])[:, 0]
+    tt = tgt[idxs].gather(1, pos[:, None])[:, 0]
+    rnd = torch.randint(0, D.V, (xs.shape[0],), generator=g).to(D.dev)
+    xp = xs.clone()
+    xp.scatter_(1, jj[:, None], rnd[:, None])
+    ctrl = torch.randint(0, D.V, (xs.shape[0],), generator=g).to(D.dev)
+    d_t, d_c, n = [], [], 0
+    for a in range(0, xs.shape[0], 16):
+        s = slice(a, a + 16)
+        lp0 = F.log_softmax(D.model(xs[s]).float(), -1)
+        lp1 = F.log_softmax(D.model(xp[s]).float(), -1)
+        p = pos[s]
+        r = torch.arange(p.shape[0], device=D.dev)
+        d_t.append((lp0[r, p, tt[s]] - lp1[r, p, tt[s]]).cpu())
+        d_c.append((lp0[r, p, ctrl[s]] - lp1[r, p, ctrl[s]]).cpu())
+        n += p.shape[0]
+    d_t = torch.cat(d_t).double().numpy()
+    d_c = torch.cat(d_c).double().numpy()
+    diff = d_t - d_c
+    return {
+        'n_positions': int(n),
+        'logprob_drop_on_induction_target': float(d_t.mean()),
+        'logprob_drop_on_control_token': float(d_c.mean()),
+        'induction_specific_drop': float(diff.mean()),
+        'se': float(diff.std(ddof=1) / math.sqrt(diff.size)),
+        't': float(diff.mean() / (diff.std(ddof=1) / math.sqrt(diff.size))),
+        'detectable_effect_floor_nats_3se': float(
+            3 * diff.std(ddof=1) / math.sqrt(diff.size)),
+        'note': 'positive means destroying the induction evidence costs the '
+                'model probability on the induction target SPECIFICALLY, i.e. '
+                'induction on natural text; the control subtracts the generic '
+                'effect of perturbing one prefix token'}
+
+
+@torch.no_grad()
+def fit_score_disjointness(D, n_seq=96, T=256):
+    """'IS THE KL MEASURED ON THE TOKENS THE TABLES WERE FIT ON?'
+
+    Answered two ways.  (1) Structurally: the only fitted objects in the ladder
+    are the token-independent distance profile, the mean past-attention
+    ablation value and the MLP hidden-unit ordering, all fitted on the
+    ESTIMATION split; the model's own bigram table is fitted on nothing at all.
+    (2) Empirically: the entire ladder is re-scored on the estimation split
+    and the two sets of KLs are compared -- if any stage were fit to the held
+    text it would look better on held than on est."""
+    h = ladder2(D, n_seq, T, split='held', extra=False)
+    e = ladder2(D, n_seq, T, split='est', extra=False)
+    rows = {k: {'held': h[k]['kl_from_model'], 'est': e[k]['kl_from_model'],
+                'held_minus_est': h[k]['kl_from_model'] - e[k]['kl_from_model']}
+            for k in h if not k.startswith('_')}
+    worst = max(abs(r['held_minus_est']) for r in rows.values())
+    return {'per_stage': rows, 'max_abs_held_minus_est': worst,
+            'fitted_objects': ['distance profile (est)',
+                               'mean past-attention ablation value (est)',
+                               'MLP hidden-unit importance ordering (est)'],
+            'unfitted_objects': ["the model's own bigram table (weights only)",
+                                 'every knockout stage (weights only)'],
+            'note': 'a stage that had been fit to held would show a NEGATIVE '
+                    'held_minus_est well outside the sampling noise'}
+
+
+@torch.no_grad()
 def mlp_composed_causal(D, n_seq=8, T=256):
     """THE FIX for the composition failure `composed_vs_causal` exposes.
 
@@ -944,6 +1042,8 @@ def main(stem, quick=False, skip_baselines=False):
                   'multisets, scored on the second copy only'}
     rep['induction_power'] = induction_power(D)
     rep['induction_by_head'] = induction_by_head(D)
+    rep['natural_induction'] = natural_induction(D)
+    rep['fit_score_disjointness'] = fit_score_disjointness(D, min(n_seq, 64), T)
     print(f'  induction {time.time()-t0:.0f}s', flush=True)
     rep['rung4'] = I1.rung4(D)
     rep['composed_vs_causal'] = composed_vs_causal(D, min(n_seq, 32), T)

@@ -7,6 +7,38 @@ they land with the finding in the commit message.
 
 ---
 
+**2026-08-08 05:50 UTC — DEPTH 2: the adversarial ladder-order test lands,
+and it says "what attention is worth" IS NOT A WELL-DEFINED NUMBER:**
+I asked for the reversed-order check because our ladder added a bigram/MLP
+term before attention, and attention then looked cheap — the ordering might
+have been stacking the deck. It was, and the magnitude is large.
+Adding attention to a model that has NOTHING else vs adding it LAST on top
+of the MLP (KL from the true model, nats/token, held):
+  width 32 seed 0: first 4.191 | last 0.373 | Shapley 2.282 | ratio 11.2x
+  width 64 seed 0: first 8.174 | last 0.612 | Shapley 4.393 | ratio 13.4x
+  width 64 seed 1: first 7.131 | last 0.615 | Shapley 3.873 | ratio 11.6x
+The attention-MLP INTERACTION is 3.8-7.6 nats — larger than either
+component's last-position marginal. So any single figure for attention's
+value is an artifact of ladder position, and every such number in this
+program must now be quoted with its position, or as a Shapley value with
+the interaction stated beside it. This is a methodological result that
+applies retroactively to the depth-1 numbers I have already reported.
+DEPTH-2 CE (held, BPE V=8192): width 32 5.3076, width 64 4.9164/4.9145
+(two seeds, 0.002 apart). Against depth 1 at the same widths (5.4130,
+5.0442) a second layer buys 0.105 and 0.128 nats.
+INDUCTION IS STILL ABSENT AT DEPTH 2: -0.0074 / -0.0163 / -0.0118, and the
+probe's power floor is now quoted explicitly with every claim (three
+standard errors across probe seeds), so this is an upper bound rather than
+an absence — consistent with the planted-oracle rescue (175 sigma) showing
+the probe works. Two layers are necessary but not sufficient for induction
+at widths 32-64.
+Also on disk: the MLP write alone reproduces the depth-2 model at KL 0.076
+while the attention write alone sits at 3.114 — the readout still reads
+almost entirely from the MLP, as at depth 1.
+
+---
+
+
 **2026-08-08 06:00 UTC — RETRACTION x2 (mine) + the corrected depth-1
 picture, which is the opposite of what I reported:**
 I told Logan twice that attention is inert in these models — "past

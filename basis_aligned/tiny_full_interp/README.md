@@ -371,3 +371,9 @@ actual mistakes):
   ladder must re-run every downstream nonlinearity on the ablated input, and
   must report both route decompositions (direct-only and through-only) so
   the two bracket the full effect.
+- **Quoting a component's value without its ladder position.** Measured at
+  depth 2: attention is worth 8.17 nats added first and 0.61 added last, an
+  11-13x order dependence with a 3.8-7.6 nat interaction term. A single
+  "component X is worth Y" number does not exist for interacting components.
+  Every such figure must carry its ladder position, or be a Shapley value
+  quoted with the interaction beside it.
