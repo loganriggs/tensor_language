@@ -75,12 +75,26 @@ Variants: A `vanilla` | B `slots` (partition + per-slot norm + in-loss lasso)
 
 | variant | owner | status |
 |---|---|---|
-| A vanilla | local | unclaimed |
-| B slots | local | unclaimed |
-| C bandwidth | local | unclaimed |
-| D predicate | local | unclaimed |
-| E codebook | local | unclaimed |
-| F shrink | local | unclaimed |
+| A vanilla | local | **local:claimed 2026-08-08 07:2x** (reuse `tf_vanilla_d2_w128_b8192_s0`, re-measured with the SAME variant-agnostic code path as B-F) |
+| B slots | local | **local:claimed 2026-08-08 07:2x** |
+| C bandwidth | local | **local:claimed 2026-08-08 07:2x** |
+| D predicate | local | **local:claimed 2026-08-08 07:2x** |
+| E codebook | local | **local:claimed 2026-08-08 07:2x** |
+| F shrink | local | **local:claimed 2026-08-08 07:2x** |
+
+Analysis code for this slice: `tf_interp3.py` (`VariantFold` + a variant-agnostic
+ladder).  Every stage is run through ONE code path for all six variants,
+including vanilla, so a variant difference cannot be a difference of analysis
+code; that path is separately gated against `tf_interp2.ladder2` on the vanilla
+checkpoint (positive control `tf_interp3_control.json`).
+
+**CE bookkeeping note (found while claiming this slice).** The depth-2 CEs in the
+primary-grid table above (4.5503 at w128 etc.) are the RUNG-5 LADDER's
+`_model_ce` — 96 held sequences at T=256. The training-protocol held CE (1500
+sequences at T=512, the number in `{stem}.json['run']['final_held_ce']`) is
+5.4131 / 5.0181 / 4.6463 / 4.3254 at widths 32/64/128/256, about 0.09 nats
+higher because the context is half as long. Both are correct; they are different
+measurements and must not be mixed. This slice quotes both.
 
 **Phase V2 — width sweep of the informative variants** (depth 2, seed 0;
 which variants carry forward is decided by V1, not pre-committed):
