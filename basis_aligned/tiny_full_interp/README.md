@@ -266,3 +266,25 @@ V=8192 model can represent every input instead of 87% of one.
 This also reframes rung 2 of the ladder: the deliverable is the **factor
 matrices with their spectra**, and V x V grids are rendered on demand for
 the token subsets an analysis names.
+
+## Precision: foldABLE architecture, folded ANALYSIS (2026-08-08, Logan's catch)
+
+We train the ordinary parameterization (query/key projections, the three
+bilinear MLP matrices, embeddings) and fold a trained checkpoint afterwards
+for analysis. The fold is exact — the folded object reproduces the model's
+forward pass to ~3e-7, gated — but it is an analysis artifact, not the
+training object.
+
+We deliberately do NOT train the folded form, and the reason is substantive:
+the fold maps into a LARGER model class, not onto the same one. A bilinear
+MLP at width 128 with hidden 512 is ~196k parameters; its folded tensor is
+128^3 ~ 2.1M and rank-unconstrained, so optimizing the tensor directly would
+leave the low-rank subset the factored form occupies and produce a strictly
+more expressive model whose folds correspond to nothing we trained. Same on
+the attention side: the factored form is what GUARANTEES the score table is
+rank <= head_dim per branch, which is exactly the property that makes the
+exact artifact small (four V x 16 factor matrices per head). Training the
+table directly would discard that guarantee.
+
+So: foldable by construction, folded for analysis, exactness verified by a
+gate rather than assumed.
