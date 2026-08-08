@@ -2614,7 +2614,7 @@
     "note": "a composed prediction that tracks the causal effect is the licence to name a sign; raw factor signs remain gauge"
   },
   "bits_per_byte": 2.0394493897982735,
-  "seconds": 30.2,
+  "seconds": 9.6,
   "mlp_composed_causal": {
     "l0_head0": {
       "through_mlp_pearson": 0.9323021959684757,
@@ -2676,5 +2676,149 @@
       "vocab": 8192
     },
     "note": "rank 0 would mean attending to u boosts u more than any other token; rank V/2 means attending to u says nothing about u.  This is the causal version of the claim; the composed-table version is in rung4."
+  },
+  "composition_budget": {
+    "l1_read_norm_share_e": 0.003566756029613316,
+    "l1_pattern_rel_change_without_e": 0.005504567641764879,
+    "l1_value_rel_change_without_e": 0.004660298814997077,
+    "l1_read_norm_share_A0": 0.0005910887412028387,
+    "l1_pattern_rel_change_without_A0": 0.0009539819293422624,
+    "l1_value_rel_change_without_A0": 0.0011141557188238949,
+    "l1_read_norm_share_M0": 0.9998167902231216,
+    "l1_pattern_rel_change_without_M0": 1.4566496312618256,
+    "l1_value_rel_change_without_M0": 1.4633862972259521,
+    "note": "a layer-1 pattern that barely moves when A0 is removed from its read means the attention->attention composition path -- the one induction needs -- is numerically closed, whatever the architecture permits"
+  },
+  "natural_induction": {
+    "n_positions": 1024,
+    "bag_plus_order_patch_random_token": {
+      "mean": 0.05245618342451053,
+      "se": 0.010024334212996014,
+      "t": 5.2328845297779365,
+      "detectable_effect_floor_nats_3se": 0.030073002638988044
+    },
+    "ORDER_ONLY_patch_swap": {
+      "mean": 0.03251898370945128,
+      "se": 0.010766065658672185,
+      "t": 3.0205076525106342,
+      "detectable_effect_floor_nats_3se": 0.032298196976016554
+    },
+    "raw": {
+      "rand_t": 0.04736708553537028,
+      "rand_c": -0.005089097889140248,
+      "swap_t": 0.027665428242471535,
+      "swap_c": -0.004853555466979742
+    },
+    "note": "the SWAP row is the induction number: it preserves the prefix token multiset exactly and destroys only the adjacency that induction reads.  The RANDOM row also removes the target from the prefix and therefore contains the order-free BAG effect, which these models do have; it must not be quoted as induction."
+  },
+  "fit_score_disjointness": {
+    "per_stage": {
+      "full_exact": {
+        "held": 0.0,
+        "est": 0.0,
+        "held_minus_est": 0.0
+      },
+      "embed_only": {
+        "held": 8.371058702468872,
+        "est": 8.475169003009796,
+        "held_minus_est": -0.10411030054092407
+      },
+      "plus_self_attn": {
+        "held": 4.107333242893219,
+        "est": 4.105634361505508,
+        "held_minus_est": 0.0016988813877105713
+      },
+      "model_bigram": {
+        "held": 0.34070606157183647,
+        "est": 0.33925342559814453,
+        "held_minus_est": 0.0014526359736919403
+      },
+      "no_attention_at_all": {
+        "held": 0.37266450375318527,
+        "est": 0.37503379210829735,
+        "held_minus_est": -0.002369288355112076
+      },
+      "past_attn_mean_ablated": {
+        "held": 0.35953978449106216,
+        "est": 0.3474646210670471,
+        "held_minus_est": 0.012075163424015045
+      },
+      "no_mlp": {
+        "held": 4.180148094892502,
+        "est": 4.2710554003715515,
+        "held_minus_est": -0.09090730547904968
+      },
+      "mlp_write_only": {
+        "held": 0.030991310020908713,
+        "est": 0.030906694708392024,
+        "held_minus_est": 8.46153125166893e-05
+      },
+      "attn_write_only": {
+        "held": 2.8071303367614746,
+        "est": 2.809798926115036,
+        "held_minus_est": -0.0026685893535614014
+      },
+      "past_attn_direct_route_only": {
+        "held": 0.253652673214674,
+        "est": 0.2500548977404833,
+        "held_minus_est": 0.003597775474190712
+      },
+      "past_attn_mlp_route_only": {
+        "held": 0.028168692253530025,
+        "est": 0.02805221709422767,
+        "held_minus_est": 0.00011647515930235386
+      },
+      "no_attn_layer0": {
+        "held": 0.13161903154104948,
+        "est": 0.12798861134797335,
+        "held_minus_est": 0.0036304201930761337
+      },
+      "no_past_attn_layer0": {
+        "held": 0.1169569967314601,
+        "est": 0.10375638958066702,
+        "held_minus_est": 0.013200607150793076
+      },
+      "self_attn_only_layer0": {
+        "held": 0.11315559968352318,
+        "est": 0.10368110425770283,
+        "held_minus_est": 0.00947449542582035
+      },
+      "no_mlp_layer0": {
+        "held": 2.8609284460544586,
+        "est": 2.8538894653320312,
+        "held_minus_est": 0.007038980722427368
+      },
+      "no_attn_layer1": {
+        "held": 0.23001785390079021,
+        "est": 0.22862575203180313,
+        "held_minus_est": 0.0013921018689870834
+      },
+      "no_past_attn_layer1": {
+        "held": 0.23033959418535233,
+        "est": 0.22219709679484367,
+        "held_minus_est": 0.008142497390508652
+      },
+      "self_attn_only_layer1": {
+        "held": 0.21491814590990543,
+        "est": 0.2133051659911871,
+        "held_minus_est": 0.001612979918718338
+      },
+      "no_mlp_layer1": {
+        "held": 0.9637606739997864,
+        "est": 0.9666188359260559,
+        "held_minus_est": -0.0028581619262695312
+      }
+    },
+    "max_abs_held_minus_est": 0.10411030054092407,
+    "fitted_objects": [
+      "distance profile (est)",
+      "mean past-attention ablation value (est)",
+      "MLP hidden-unit importance ordering (est)"
+    ],
+    "unfitted_objects": [
+      "the model's own bigram table (weights only)",
+      "every knockout stage (weights only)"
+    ],
+    "note": "a stage that had been fit to held would show a NEGATIVE held_minus_est well outside the sampling noise"
   }
 }

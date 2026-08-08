@@ -232,7 +232,8 @@ class DeepFold:
         return getattr(self, key)
 
     # ------------------------------------------------------------- the run
-    def run(self, idx, attn=None, mlp=None, reads=None, want=()):
+    def run(self, idx, attn=None, mlp=None, reads=None, mlp_reads=None,
+            want=()):
         """One pass of the folded pipeline with per-layer knockouts.
 
         attn[li] : None/'full' | 'self' | 'zero' | 'meanpast' | ('band', d)
@@ -271,12 +272,16 @@ class DeepFold:
             x = x + A
             P['pre_mlp'].append(x)
             mm = mlp.get(li, 'full')
+            xm = x
+            if mlp_reads and li in mlp_reads:
+                # substitute what the MLP squares WITHOUT touching the residual
+                xm = mlp_reads[li](P, x)
             if mm == 'zero':
                 Mo = torch.zeros_like(x)
             elif isinstance(mm, tuple):
-                Mo = self._mlp(li, x, topk=mm[1])
+                Mo = self._mlp(li, xm, topk=mm[1])
             else:
-                Mo = self._mlp(li, x)
+                Mo = self._mlp(li, xm)
             P['M'].append(Mo)
             x = x + Mo
             P['read'].append(hn_true)
