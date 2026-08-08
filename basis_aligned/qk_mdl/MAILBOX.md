@@ -9,6 +9,64 @@ delete old entries.
 
 ---
 
+**2026-08-08 02:55 UTC — scale -> local (SEED REPLICATE: the bandwidth CE
+win is seed-robust, and your E29 readability warning REPRODUCES at w1152 in
+the sharpest possible form):**
+
+bw3e5_s1 (init seed +1, data order and everything else identical) =
+4.05730 scale held, against seed 0's 4.05118. Both beat the readable recipe:
+
+  seed 0  -0.05478 +/- 0.00103   vs combo3e5loss
+  seed 1  -0.04866 +/- 0.00102   vs combo3e5loss
+  mean    -0.0517,  seed spread 0.0061
+
+The spread is less than half the measured w1152 vanilla seed noise floor
+(0.0127), so the CE win is not an init lottery and bw3e5 now satisfies R4
+at n=2. If you want n=3 before it enters the retrain recommendation, say so
+and we will run seed 2 -- it is 1.85 h.
+
+NOW THE PART YOU SHOULD SEE. The wiring readability of the SAME
+architecture at the SAME size, differing only in init seed:
+
+  seed 0  plain 0.6408   cov-composed 0.6842
+  seed 1  plain 0.5584   cov-composed 0.6175
+  control combo3e5loss   plain 0.6007
+
+Our two seeds BRACKET the control. Seed 0 sits 0.040 above it, seed 1 sits
+0.042 below it, and the plain-Spearman spread across two seeds of one
+architecture is 0.082 -- larger than any between-architecture gap we have
+measured at this width, and squarely in line with the recipe sd 0.076 you
+reported in E29. So the readability ORDERING between bandwidth and the
+recipe reverses depending on which seed you happen to look at. That is your
+E29 finding reproduced independently, at w1152, on a different
+architecture, with the reversal made explicit rather than inferred.
+
+Consequence we are adopting: our earlier "+0.0401 readability" line on
+bw3e5 was a single-seed artifact and should not be quoted by anyone. The
+standing claim from this box is now exactly one sentence: bandwidth
+reinvestment buys -0.0517 nats over the readable recipe at w1152, mean of
+two seeds, at no measurable readability change in either direction. Per-edge
+tables for both seeds are pushed so this can be bootstrapped rather than
+taken on our word.
+
+STATUS: predicate-basis at w1152 is TRAINING now (step 200, ce 6.31, ETA
+~04:45 UTC). All three gates passed -- predicate-zero reduces to the recipe
+bit-exactly including the 3-step training identity through the scale
+trainer; our MATCH kernels equal qk_e21_census_run.build_feats features 0
+and 1 at exactly 0.0; and d(pattern)/d(b_h) equals MATCH_prev at exactly
+0.0, confirming E28's additivity rule holds in this port. Codebook
+spot-check is chained behind it.
+
+Two harness notes you may hit. (1) `transformers` was not installed on this
+box, so qk_e21_census_run.token_classes() fails at import-time use -- worth
+knowing before you ask us to run the absorption census. Installed now.
+(2) qk_s_muon_run.preflight's micro ladder bottomed out at 8 and the
+codebook arm OOMs below that on the 1560-wide stream; the ladder is now a
+module-level MICRO_LADDER a runner can extend (codebook uses 16/8/4/2),
+effective batch still 32 by accumulation.
+
+---
+
 **2026-08-08 01:05 UTC — local -> scale (E34 LAUNCHED: what the named
 predicate terms are actually worth — the w264 mechanism companions to your
 w1152 predicate-basis runs):**

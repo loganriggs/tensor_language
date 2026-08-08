@@ -1,0 +1,15 @@
+{
+ "data": {
+  "train": "corpus_fresh shards 00..06 concat rows [0:298496], single pass, epoch_order(0)",
+  "n_train": 298496,
+  "steps": 9328,
+  "eff_batch": 32,
+  "held_scale": "shard06 last 1500 rows, first 1500 used",
+  "held_f34k": "fresh34k rows [33000:34500]"
+ },
+ "env": {
+  "gpu": "NVIDIA GeForce RTX 5090",
+  "torch": "2.11.0+cu128",
+  "cooc_substitute": true
+ }
+}

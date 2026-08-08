@@ -1,0 +1,77 @@
+{
+  "data": {
+    "train": "corpus_fresh shards 00..06 concat rows [0:298496], single pass, epoch_order(0)",
+    "n_train": 298496,
+    "steps": 9328,
+    "eff_batch": 32,
+    "held_scale": "shard06 last 1500 rows, first 1500 used",
+    "held_f34k": "fresh34k rows [33000:34500]"
+  },
+  "env": {
+    "gpu": "NVIDIA GeForce RTX 5090",
+    "torch": "2.11.0+cu128",
+    "cooc_substitute": true
+  },
+  "arm_description": {
+    "name": "predicate_basis_on_recipe_w1152",
+    "architecture": "combo3e5loss recipe (E1Route: masked full decoders, per-slot RMSNorm, 24 x 48-dim slots) + per-head named pattern terms (signed positional profile + b*MATCH_prev + c*MATCH_same), predicate params on AdamW-no-decay via muon_exclude",
+    "group_coeff": 3e-05,
+    "matched_control": "combo3e5loss",
+    "seed": 0,
+    "data_seed": 1234,
+    "data_order": "epoch_order(0)"
+  },
+  "preflight": {
+    "micro": 16,
+    "peak_mib": 24810
+  },
+  "gate1_pred_zero_reduction": {
+    "shared_param_identity_max_abs_diff": 0.0,
+    "predicate_param_max_abs_at_init": 0.0,
+    "forward_pred_off_max_logit_diff": 0.0,
+    "forward_pred_on_but_zero_max_logit_diff": 0.0,
+    "train3_parent_per_step_ce": [
+      19.3384,
+      19.345,
+      19.329
+    ],
+    "train3_pred_off_per_step_ce": [
+      19.3384,
+      19.345,
+      19.329
+    ],
+    "train3_max_per_step_abs_diff": 0.0,
+    "train3_held100_abs_diff": 0.0,
+    "note": "3-step identity runs through the SCALE trainer, so it also proves the muon_exclude routing addition to qk_s_muon_run.muon_params_split is inert when a model declares nothing to exclude",
+    "pass": true
+  },
+  "gate2_kernels_vs_e21": {
+    "match_same_vs_e21_feat0_max_abs_diff": 0.0,
+    "match_prev_vs_e21_feat1_max_abs_diff": 0.0,
+    "n_rows": 4,
+    "pass": true
+  },
+  "gate3_terms_live": {
+    "logit_shift_from_b_0.05": 0.001734614372253418,
+    "d_pattern_d_b_minus_matchprev_max_abs": 0.0,
+    "pass": true
+  },
+  "registered_predictions": {
+    "registered": "before training",
+    "parent": "combo3e5loss",
+    "parent_scale_held_ce": 4.105955,
+    "parent_f34k": 4.155002,
+    "muonvanilla_scale": 3.964506,
+    "w264_basis": {
+      "predicate_basis_ce": 4.9,
+      "predicate_basis_sd_n3": 0.0068,
+      "its_parent_frontier": 4.9858,
+      "recipe": 5.0454,
+      "note": "the w264 predicate arm sits on the BANDWIDTH architecture; this one sits on the RECIPE, per local"
+    },
+    "primary": "HOLDS if this beats combo3e5loss on scale held CE by more than the seed noise floor (0.0127) plus the paired SE. Full transfer of the w264 predicate-minus-its-parent gap (-0.0858) on top of the recipe would land near 4.020; even partial transfer should clear 4.09.",
+    "cross_check": "our own bw3e5 measured -0.05478 vs the same parent. If naming beats that, naming outranks bandwidth at scale and the retrain recipe should carry named terms; if it lands between 4.051 and 4.106, both help and the composition question becomes the next experiment; if it does not beat the recipe at all, naming is a w264/bandwidth-architecture effect and does not transfer.",
+    "absorption": "the census follow-up asks whether naming still ABSORBS at 48-dim slots: predict residual MATCH_prev cos^2 collapses as it did at w264 (0.5036 -> 0.0951) and the full-pattern programmatic head count rises well above the parent census baseline",
+    "measurement_note": "per local E29/E30 this arm will be ranked on CE and causal mechanism tests, NOT on wiring Spearman: readability differences between leading arms do not survive seeds (recipe sd 0.076) or interaction-aware causal targets (0.858 -> 0.343)"
+  }
+}

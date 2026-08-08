@@ -371,10 +371,19 @@ def train_muon_run(lr_muon, lr_adamw, total_steps, micro, save_stem=None,
     return log
 
 
+# Micro-batch ladder tried by preflight, largest first. A runner may narrow
+# or extend it before calling preflight -- the codebook arm needs 4 and 2
+# because vector quantization adds fp32 pursuit temporaries at every one of
+# the 24 block-level reads on top of an already-heavy 1560-wide stream, and
+# the stock ladder bottoms out at 8 and raises "does not fit even at micro
+# 8". Effective batch is held at EFF_BATCH by accumulation either way.
+MICRO_LADDER = [G.EFF_BATCH, 16, 8]
+
+
 def preflight(out, lr_adamw):
     if 'preflight' in out:
         return out['preflight']['micro']
-    for micro in (G.EFF_BATCH, 16, 8):
+    for micro in MICRO_LADDER:
         try:
             torch.cuda.reset_peak_memory_stats()
             model = factory()
@@ -410,7 +419,7 @@ def preflight(out, lr_adamw):
             print(f"preflight muon: micro {micro} OOM", flush=True)
             torch.cuda.empty_cache()
             torch.cuda.reset_peak_memory_stats()
-    raise RuntimeError("muon does not fit even at micro 8")
+    raise RuntimeError(f"muon does not fit at any micro in {MICRO_LADDER}")
 
 
 def main():

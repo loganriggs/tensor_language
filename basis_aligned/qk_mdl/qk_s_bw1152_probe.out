@@ -44,3 +44,27 @@ width patched: D 1152, NH 18, slot dim 48, write_init_std 0.002357
 == bw3e5 COV-COMPOSED 0.6842 all / 0.6212 effectual / top10 0.2
 == bw3e5 vs matched control combo3e5loss (plain, same rows): 0.6408 vs 0.6007 -> +0.0401
 == bw3e5 untrained-init null: {'spearman_all': 0.2035, 'spearman_effectual': 0.2613, 'top10_precision': 0.2}
+width patched: D 264, NH 6, HD 44, slot dim 11
+width patched: D 1152, NH 18, slot dim 48, write_init_std 0.002357
+==== probing bw3e5_s1 (slot 65, stream 1560) ====
+  consumption row 0: emb +0.4561  (1s)
+  consumption row 1: emb +0.8810, mlp0 +0.0686, attn0 +0.0486  (4s)
+  consumption row 2: emb +0.7137, attn1 +0.0902, attn0 +0.0416, mlp0 +0.0305  (8s)
+  consumption row 3: emb +0.5363, mlp2 +0.0412, attn1 +0.0170, mlp0 +0.0134  (14s)
+  consumption row 4: emb +0.3717, mlp3 +0.0831, attn3 +0.0259, mlp2 +0.0161  (22s)
+  consumption row 5: emb +0.2261, mlp4 +0.1502, attn4 +0.0278, mlp3 +0.0272  (32s)
+  consumption row 6: emb +0.4177, mlp5 +0.0833, attn5 +0.0737, attn4 +0.0356  (44s)
+  consumption row 7: emb +0.2387, attn6 +0.0936, mlp6 +0.0913, mlp5 +0.0535  (57s)
+  consumption row 8: emb +0.1315, mlp7 +0.0384, attn7 +0.0289, mlp6 +0.0255  (72s)
+  consumption row 9: emb +0.0755, mlp8 +0.0202, attn6 +0.0195, mlp7 +0.0170  (89s)
+  consumption row 10: emb +0.0880, mlp8 +0.0215, attn6 +0.0193, mlp9 +0.0187  (108s)
+  consumption row 11: mlp10 +0.0899, mlp8 +0.0599, mlp0 +0.0550, mlp1 +0.0484  (129s)
+  consumption row 12: attn1 +0.7058, attn2 +0.3686, mlp10 +0.3621, mlp11 +0.3259  (151s)
+  consumption done in 152s (base CE 4.15900)
+  cov pass: 4/300 seqs (0s)
+  cov pass: 104/300 seqs (1s)
+  cov pass: 204/300 seqs (2s)
+== bw3e5_s1 PLAIN Spearman 0.5584 all / 0.5898 effectual / top10 0.2 (130 of 156 effectual)
+== bw3e5_s1 COV-COMPOSED 0.6175 all / 0.6419 effectual / top10 0.3
+== bw3e5_s1 vs matched control combo3e5loss (plain, same rows): 0.5584 vs 0.6007 -> -0.0423
+== bw3e5_s1 untrained-init null: {'spearman_all': 0.2212, 'spearman_effectual': 0.3182, 'top10_precision': 0.2}

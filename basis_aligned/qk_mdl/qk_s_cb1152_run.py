@@ -336,6 +336,10 @@ def main():
                   'torch': torch.__version__, 'cooc_substitute': True}
     G.savej(JP, out)
 
+    # measured 2026-08-08: quantization on top of the 1560-wide stream OOMs
+    # at micro 8, so extend the ladder downward rather than shrink the
+    # effective batch (which would break comparability with the parent)
+    M.MICRO_LADDER = [16, 8, 4, 2]
     micro = M.preflight(G.loadj(JP), lr_adamw)
     accum = G.EFF_BATCH // micro
     # Preserve the w264 meaning of QZ_DEAD ("unused for 200 OPTIMIZER steps")

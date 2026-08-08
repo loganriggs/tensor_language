@@ -306,8 +306,12 @@ def gate_kernels():
     maskf = torch.tril(torch.ones(Q.T, Q.T, device=E.DEV))
     kprev, ksame = match_kernels(idx, maskf)
     feats = E21.build_feats(idx, maskf)
-    d_same = float((ksame - feats[0]).abs().max())
-    d_prev = float((kprev - feats[1]).abs().max())
+    # build_feats returns (B, NF, T, T): the FEATURE axis is 1, not 0.
+    # feats[0] would be batch row 0 (shape (NF, T, T)) -- the mismatch that
+    # crashed the first launch.
+    assert feats.shape[0] == idx.shape[0] and feats.ndim == 4, feats.shape
+    d_same = float((ksame - feats[:, 0]).abs().max())
+    d_prev = float((kprev - feats[:, 1]).abs().max())
     rec = {'match_same_vs_e21_feat0_max_abs_diff': d_same,
            'match_prev_vs_e21_feat1_max_abs_diff': d_prev,
            'n_rows': int(idx.shape[0]),
