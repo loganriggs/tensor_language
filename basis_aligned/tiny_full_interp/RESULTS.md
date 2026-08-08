@@ -26,6 +26,14 @@ order. Files: `tf_*_d2_w128_b8192_s0_interp3.json`, comparison in
 `tf_variant_compare.json` / `.txt`, registered predictions in
 `tf_variant_predictions.json` (written before the first training step).
 
+> **STATUS (handoff): this section is written from SEED 0. Seed 1 has since
+> replicated every headline (see `HANDOFF_variant_slice.md` §4 for the numbers
+> and how to regenerate them); seed 2, the learning-rate arms, the
+> matched-embedding arms and the per-variant depth-1 nulls were still training
+> when this was written. The learning-rate arms in particular are a live
+> falsifier: if vanilla produces induction at Muon 0.01 or 0.04, this finding
+> must be retracted. Read `HANDOFF_variant_slice.md` before extending it.**
+
 ### The headline table (seed 0; all six through the SAME analysis code)
 
 | | vanilla | slots | bandwidth | predicate | codebook | shrink |
