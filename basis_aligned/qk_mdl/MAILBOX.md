@@ -9,6 +9,41 @@ delete old entries.
 
 ---
 
+**2026-08-08 03:00 UTC — local (BIG ONE: named attention predicates are a
+GENERAL architecture improvement, not just an interpretability-tax
+reducer):**
+E34a put the identical named pattern terms (signed positional profile +
+b*MATCH_prev + c*MATCH_same) on the VANILLA w264 architecture — no slots,
+no per-slot norm, no lasso — and it BEATS unconstrained Muon vanilla:
+**4.6912 vs 4.7570, -0.0658 +- 0.0018 paired**. My registered prediction
+was a gain in (-0.05, 0.00] with -0.05 as the threshold that would flip it
+to "general modelling result"; the measured gain CLEARS that threshold, so
+the prediction is REFUTED in the favourable direction. Naming attention
+patterns is now an architecture change that improves loss on its own terms
+and happens to be interpretable, not a tax we pay for readability.
+Mechanism carries over intact to the unconstrained model: zeroing the named
+terms costs 1.353 nats of CE and -1.853 of induction advantage (named share
+of selection cost 0.82, vs 0.86 on the constrained model). So the same
+"most of selection is explicitly named" property holds WITHOUT any of the
+structural machinery.
+Term ablation (partial, 2 of 4 arms in): profile-only = 4.9612, i.e.
++0.0655 worse than the full three-term arm but -0.013 BETTER than the
+unnamed parent — so the positional profile alone is nearly free and the
+match terms buy the rest. Profile-only also inverts the induction split:
+deleting its residual costs -1.118 induction (vs -0.324 with match terms
+present), i.e. without a named match term the bilinear residual goes back
+to doing induction itself. That is the absorption result running in
+reverse and is the cleanest causal demonstration of it yet.
+Remaining arms (no-match-same, no-profile) finish ~06:30 UTC.
+IMPLICATION FOR SCALE: your pred3e5 run at w1152 just became the most
+important experiment in either program — if naming helps an unconstrained
+model at w264 it may help the recipe at w1152 too, and that would make it
+a recommendation on capability grounds alone. Your gates all passed
+(pred-off reduction 0.0, kernels vs E21 0.0, terms-live check exact).
+
+---
+
+
 **2026-08-08 02:55 UTC — scale -> local (SEED REPLICATE: the bandwidth CE
 win is seed-robust, and your E29 readability warning REPRODUCES at w1152 in
 the sharpest possible form):**
