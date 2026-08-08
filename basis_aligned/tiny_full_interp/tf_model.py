@@ -828,8 +828,16 @@ def _fold_identity_body(model, idx, verbose=False):
     pat0 = pats[0].to(dt)
     B, H, Tq, _ = pat0.shape
     ds = tuple(d for d in (0, 1, 2, 5) if d < Tq)
-    fold = model.fold_layer0_qk(deltas=ds, materialize=True, device=dev,
-                                dtype=dt)
+    # MATERIALIZED check on a SUBSET of heads.  A V x V table per head-branch
+    # is 0.5 GB in fp64 at V=8192, so materializing all 16 heads at width 256
+    # for four deltas is ~68 GB and gets the process OOM-killed.  The subset
+    # keeps the materializer under test (and planted_qk_test checks it against
+    # an analytic answer); the FACTOR-indexed check below then covers every
+    # head at every delta with no V x V object at all.
+    hd = cfg.head_dim
+    hs = sorted(set([0, H // 2, H - 1]))[:4]
+    fold = model.fold_layer0_qk(deltas=ds, materialize=True, heads=hs,
+                                device=dev, dtype=dt)
     worst = 0.0
     maskf = model.mask[:Tq, :Tq].to(dt)
     pt = model.pred_terms(0, *match_kernels(idx, maskf), maskf, Tq) \
@@ -841,14 +849,33 @@ def _fold_identity_body(model, idx, verbose=False):
         s2 = fold['tables'][d]['s2'].to(dev)
         qt, kt = idx[:, i], idx[:, j]
         rebuilt = torch.stack(
-            [s1[h][qt, kt] * s2[h][qt, kt] for h in range(H)], 1)
+            [s1[a][qt, kt] * s2[a][qt, kt] for a in range(len(hs))], 1)
         if pt is not None:
-            rebuilt = rebuilt + pt[:, :, i, j]
-        ref = pat0[:, :, i, j]
+            rebuilt = rebuilt + pt[:, hs][:, :, i, j]
+        ref = pat0[:, hs][:, :, i, j]
         worst = max(worst, float((rebuilt - ref).abs().max()
                                  / ref.abs().max().clamp_min(1e-12)))
         del s1, s2
     res['attn_layer0_table_identity_relmax'] = worst
+    res['attn_table_identity_heads_materialized'] = hs
+    # FACTOR-indexed check: identical quantity, EVERY head, no V x V anywhere.
+    worst_all = 0.0
+    for d in ds:
+        R = rot_matrix(d, hd, dev, dt)
+        i = torch.arange(d, Tq, device=dev)
+        j = i - d
+        qt, kt = idx[:, i], idx[:, j]
+        s1 = ((fold['Q1'].permute(1, 0, 2)[qt] @ R)
+              * fold['K1'].permute(1, 0, 2)[kt]).sum(-1) / hd
+        s2 = ((fold['Q2'].permute(1, 0, 2)[qt] @ R)
+              * fold['K2'].permute(1, 0, 2)[kt]).sum(-1) / hd
+        rebuilt = (s1 * s2).permute(0, 2, 1)
+        if pt is not None:
+            rebuilt = rebuilt + pt[:, :, i, j]
+        ref = pat0[:, :, i, j]
+        worst_all = max(worst_all, float((rebuilt - ref).abs().max()
+                                         / ref.abs().max().clamp_min(1e-12)))
+    res['attn_layer0_factor_identity_allheads_relmax'] = worst_all
     del fold
     # ---- (d) whole model ----
     ref = model(idx)

@@ -342,6 +342,23 @@ actual mistakes):
   ANTI-correlated with the behaviour it appeared to describe (Pearson
   -0.45) while the composed score tracked it at Spearman +0.85 and matched
   the causal direction 5 of 5.
+- **Ablating a term without composing it through what consumes it (added
+  2026-08-08, after it cost us a published claim in this program).** The
+  first depth-1 ladder added the past-attention write to the residual while
+  holding the MLP frozen at its no-context input, measured ~0.0005 nats, and
+  reported "attention to the past does nothing". Attention is in fact worth
+  0.29-0.91 nats of KL depending on width, and *all* of it arrives by moving
+  the MLP's argument. This is the sign rule's non-sign twin: a term's value
+  is the value of its COMPLETE PATH, so an ablation has to let the
+  downstream nonlinearity see the change. Every knockout must be stated as
+  "route X removed, everything downstream recomputed", and mutually
+  exclusive routes must be shown to BRACKET the full model.
+- **A null result with an uncalibrated detector.** "We measured no
+  induction" is worth nothing until the battery is shown to detect a planted
+  induction of known size. Plant it (mix in an oracle at weight eps, sweep
+  eps) and quote the null as an upper bound in nats. Our registered
+  positive control -- "a depth-2 cell must show induction" -- FAILED, and the
+  planted-oracle calibration is what kept the null result meaningful.
 - **Single seed.** Structure claims need three; the parent program had a
   readability ordering reverse between two seeds.
 - **Uncalibrated nulls.** Shuffle nulls with near-zero spread produce

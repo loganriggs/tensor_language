@@ -7,6 +7,105 @@ they land with the finding in the commit message.
 
 ---
 
+**2026-08-08 05:40 UTC — GATE VERDICT: PRECISION, and the corrected gate is
+STRICTLY STRONGER. Plus a RETRACTION of this morning's depth-1 headline.**
+
+**Task 1, the gate.** All 16 local checkpoints now pass. Diagnosis confirmed
+and then some. `fold_forward`, `fold_mlp`, `fold_layer0_qk` and `rot_matrix`
+hard-cast to float32, so a float64 comparison could not run at all; with that
+fixed the end-to-end fold-vs-forward residual goes from 1.5e-5-2.7e-5 (fp32,
+absolute) to **1.3e-14 to 4.4e-14** in fp64 -- about ten fp64 ulps at logit
+magnitude 15. Three independent reasons to call it precision rather than a bug:
+ - the fp64 collapse above, with the algebraic identities at 5e-16 to 1.5e-15;
+ - the model's own fp32 forward differs from its fp64 forward by 6e-7 to
+   2.9e-6 relative, which at width 128 is LARGER than the fold-vs-forward gap
+   (1.7e-6): the fold agrees with the forward better than the forward agrees
+   with itself. That ratio is now a gate clause;
+ - a NEGATIVE CONTROL on the gate itself. Corrupting the MLP tensor by a factor
+   1+1e-7 produces an fp32 absolute logit difference of 1.19e-7 -- the old
+   absolute-1e-5 gate would have PASSED that corruption; the new fp64 tier
+   fails it. The new gate is not a loosening.
+A real dtype bug did fall out: `rot_matrix` built its inverse frequencies in
+fp64 and rounded to fp32 while `rope_tables_exact` built them in fp32. Fixing
+that took the planted known-answer table at delta=3 from 5.79e-9 to 1.59e-14.
+The gate is now two-tier: fp32 relative sanity band at 1e-5 (sized by
+sqrt(N)*eps), fp64 exactness at 1e-12 relative / 1e-9 absolute plus the
+self-noise ratio. Full table in tf_identity_table.json and RESULTS.md.
+NOTE: the six width-256 cells could NOT be re-folded -- only their JSONs were
+pushed, not their .pt files. A width-256 depth-1 BPE cell was retrained locally
+(held CE 4.558) and is folded and interpreted.
+
+**RETRACTION.** MAILBOX 2026-08-08 05:00 / commit 631ddaa20 said the depth-1
+model's attention to the past "buys 0.0005 nats. Nothing." **That is wrong.**
+That ladder added the past-attention write to the residual while holding the
+MLP frozen at its no-context input, so it measured the DIRECT route only. The
+distance-restriction table in that entry is superseded.
+
+**Task 2, what the depth-1 models actually are (4 widths x up to 3 seeds).**
+The pre-tanh logit is exactly additive in the folded terms, so the accounting
+is closed-form. Measured shares:
+ - the MLP write carries **1.0000 of the logit variance** at every width; the
+   embedding and both attention writes carry -5e-4 and +4e-4. Keeping ONLY the
+   MLP write in the residual reproduces the model at KL 1e-5. The residual skip
+   into the readout is functionally dead.
+ - attention's whole causal effect is on the MLP's INPUT. Direct route only:
+   KL 0.258 / 0.431 / 0.644 / 0.851 at w32/64/128/256 -- exactly the
+   no-attention numbers (0.285 / 0.466 / 0.687 / 0.911). MLP route only: KL
+   0.0000 at every width. The two routes bracket the model.
+ - the attention is mostly a learned DISTANCE KERNEL. Replacing the token-pair
+   pattern by its distance-only average keeps 16% / 44% / 61% / 68% of the
+   attention effect as width grows; deleting the rotary and keeping the
+   token-pair table is worse than having no attention at all (KL 0.96-2.11).
+ - rung-5 KL ladder (w128, 3 seeds): embedding 15.90 -> +self-attention 15.17
+   -> +MLP = the model's own bigram (a weights-only V x V table) **0.644** ->
+   +past attention delta<=1 0.378 -> <=4 0.211 -> <=16 0.079 -> <=64 0.011 ->
+   all 0. Two terms carry the model; there is no third ingredient.
+ - REGISTERED PREDICTION REFUTED: we predicted delta>=2 would be worth less
+   than delta=1. It is worth more, at every width.
+ - rung 2 with nulls: the delta=0 branch score tables have entropy-effective
+   rank 2.3 / 2.9 / 3.4 / 5.9 against an iid-Gaussian null of 15.99 at the same
+   rank bound 16, while the VALUE factor sits at 15.3-15.7 and the MLP tensor's
+   mode-0 unfolding at 30.0/61.1/121.9/239.7 against a random-factored null of
+   ~31/62/123/247. Selection is low rank, content is spectral -- the parent
+   program's 18-layer headline, reproduced at depth 1 width 32.
+ - rung 4, composed to logits throughout: these are NOT copy heads. For each
+   head's strongest keys the attended token ranks ~5600th of 8192 among the
+   tokens it boosts. Width 128 head 0's four strongest keys are all closing
+   quotes (,", .", ", ".) and each boosts the same generic set: '.' +59,
+   ' and' +47, ',' +47, ' in' +40, ' to' +32. The composed pair table is
+   nearly an outer product (sigma1 share 0.37-0.85), so most heads have no
+   genuine pair specificity.
+ - honest baselines: widths 64-256 beat the dense closed-form bigram (5.200)
+   at 5.048 / 4.723 / 4.461; width 32 does NOT (5.413). At MATCHED parameter
+   count the model's own bigram stage LOSES to a data-fitted sparse bigram
+   (5.490 vs 5.322 at 2.1M). And at position 0, where model and bigram see the
+   same one token, the bigram wins at every width.
+
+**Task 3, reviewer round 1 (tf_reviewer_round_1.json).** Nine claims, each with
+the strongest hostile objection, the fix, and the residual. The one that bit:
+our REGISTERED positive control for the induction battery FAILED -- three
+depth-2 cells score -0.007 / -0.016 / -0.012, the same null as depth 1. Rescued
+by planting a known amount of induction: mixing in a perfect induction oracle
+at weight 1e-4 moves the score from -0.015 +- 0.005 to +0.94 +- 0.02 (175 sd),
+so the battery is demonstrably not blind and the honest claim is "induction is
+absent to within ~0.02 nats at depths 1-2 and widths <= 256 on this budget",
+not "depth 2 cannot induct". Also renamed the second behavioural number from
+"copy score" to BAG score, because rung 4 shows these heads push the attended
+token's own logit DOWN -- naming it copying would be inferring mechanism from a
+behavioural delta.
+
+Two new standing failure modes are in the README: (a) ablating a term without
+composing it through what consumes it -- the sign rule's non-sign twin, and the
+cause of this morning's retraction; (b) a null result from an uncalibrated
+detector.
+
+Next: depth 2 needs its own fold-based decomposition (Depth1Fold refuses depth
+2 by assertion), and the interesting question the depth-1 work raises is
+whether the "MLP carries everything, attention only steers it" split survives
+composition.
+
+---
+
 **2026-08-08 05:10 UTC — WIDTH SWEEP AT DEPTH 1, plus a CORRECTION to my
 own earlier headline:**
 CORRECTION FIRST. I reported at 05:00 that the depth-1 width-32 model

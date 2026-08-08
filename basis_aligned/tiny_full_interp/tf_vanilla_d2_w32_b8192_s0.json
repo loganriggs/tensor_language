@@ -1,0 +1,1162 @@
+{
+  "registered_predictions": {
+    "written_before_training": true,
+    "ladder_rungs_1_2": "the exact fold and the materialized tables pass their identity gates at EVERY width and depth in the grid; if a rung fails it fails at the LARGEST width first",
+    "width_effect": "held CE improves monotonically with width at fixed depth, with diminishing returns by width 128",
+    "depth_effect": "depth 2 beats depth 1 at every width, and the depth-2 gain GROWS with width (composition needs capacity to be worth having)",
+    "baseline_gap": "every trained cell beats the closed-form bigram table; the width-32 depth-1 cell beats it by less than 0.5 nats",
+    "attn_table_rank": "each layer-0 V x V score table has numerical rank equal to its algebraic bound (head_dim = 16) at delta = 0, so no head wastes its key subspace",
+    "seed_convergence": "held CE across seeds at a fixed cell spreads by less than 0.02 nats, but the materialized tables do NOT match across seeds beyond a permutation"
+  },
+  "config": {
+    "depth": 2,
+    "width": 32,
+    "vocab": 8192,
+    "tok": "bpe",
+    "seed": 0,
+    "variant": "vanilla",
+    "head_dim": 16,
+    "exp": 4,
+    "T": 512,
+    "n_slots": 1,
+    "group_coeff": 0.0,
+    "write_init": false,
+    "small_dec": false,
+    "slot": 32,
+    "predicate": false,
+    "codebook": false,
+    "cb_n": 256,
+    "cb_k_attn": 4,
+    "cb_k_mlp": 2,
+    "shrink_mode": "",
+    "shrink_floor_slots": 1,
+    "stream_width": 32,
+    "n_heads": 2,
+    "hidden": 128
+  },
+  "corpus": {
+    "vocab": 8192,
+    "tokenizer": "bpe",
+    "seq_len": 513,
+    "unk": {
+      "tokenizer": "bpe",
+      "train_per_token": 0.0,
+      "held_per_token": 0.0,
+      "held_per_seq_mean": 0.0,
+      "held_eval_target_unk_frac": 0.0,
+      "note": "byte-level BPE: UNK impossible by construction; id 0 is <|endoftext|>",
+      "held_eos_frac": 0.001238281256519258
+    },
+    "train_split_rows": 240000,
+    "data_order_id": "epoch_order(0)@seed1234",
+    "single_epoch_arithmetic": "15000 steps x batch 16 = 240000 sequences = the entire train split, each visited exactly once",
+    "held": "held split rows [0:1500] (pure eval, never trained)"
+  },
+  "run": {
+    "lr_muon": 0.02,
+    "lr_adamw": 0.004,
+    "steps": 15000,
+    "batch": 16,
+    "train_curve_every200": [
+      [
+        0,
+        9.0193,
+        9.0193
+      ],
+      [
+        200,
+        6.8654,
+        7.2875
+      ],
+      [
+        400,
+        6.2305,
+        6.3107
+      ],
+      [
+        600,
+        5.8854,
+        6.0149
+      ],
+      [
+        800,
+        5.8729,
+        5.8611
+      ],
+      [
+        1000,
+        5.8866,
+        5.7851
+      ],
+      [
+        1200,
+        5.6922,
+        5.7173
+      ],
+      [
+        1400,
+        5.7568,
+        5.6832
+      ],
+      [
+        1600,
+        5.551,
+        5.6565
+      ],
+      [
+        1800,
+        5.641,
+        5.6244
+      ],
+      [
+        2000,
+        5.5497,
+        5.5923
+      ],
+      [
+        2200,
+        5.592,
+        5.5895
+      ],
+      [
+        2400,
+        5.6177,
+        5.5626
+      ],
+      [
+        2600,
+        5.574,
+        5.5581
+      ],
+      [
+        2800,
+        5.5584,
+        5.5498
+      ],
+      [
+        3000,
+        5.6631,
+        5.555
+      ],
+      [
+        3200,
+        5.62,
+        5.5352
+      ],
+      [
+        3400,
+        5.469,
+        5.5272
+      ],
+      [
+        3600,
+        5.4891,
+        5.5301
+      ],
+      [
+        3800,
+        5.5459,
+        5.5034
+      ],
+      [
+        4000,
+        5.4629,
+        5.5107
+      ],
+      [
+        4200,
+        5.5131,
+        5.4972
+      ],
+      [
+        4400,
+        5.4767,
+        5.4969
+      ],
+      [
+        4600,
+        5.3908,
+        5.4919
+      ],
+      [
+        4800,
+        5.4492,
+        5.4842
+      ],
+      [
+        5000,
+        5.4734,
+        5.4892
+      ],
+      [
+        5200,
+        5.5589,
+        5.4772
+      ],
+      [
+        5400,
+        5.4099,
+        5.484
+      ],
+      [
+        5600,
+        5.3604,
+        5.4716
+      ],
+      [
+        5800,
+        5.402,
+        5.4694
+      ],
+      [
+        6000,
+        5.367,
+        5.4695
+      ],
+      [
+        6200,
+        5.3784,
+        5.4722
+      ],
+      [
+        6400,
+        5.4587,
+        5.4589
+      ],
+      [
+        6600,
+        5.4426,
+        5.4516
+      ],
+      [
+        6800,
+        5.4497,
+        5.4562
+      ],
+      [
+        7000,
+        5.3418,
+        5.452
+      ],
+      [
+        7200,
+        5.4617,
+        5.4419
+      ],
+      [
+        7400,
+        5.5531,
+        5.4388
+      ],
+      [
+        7600,
+        5.3818,
+        5.4484
+      ],
+      [
+        7800,
+        5.5198,
+        5.4385
+      ],
+      [
+        8000,
+        5.4827,
+        5.4328
+      ],
+      [
+        8200,
+        5.6209,
+        5.4425
+      ],
+      [
+        8400,
+        5.4374,
+        5.4272
+      ],
+      [
+        8600,
+        5.3682,
+        5.4186
+      ],
+      [
+        8800,
+        5.4321,
+        5.4335
+      ],
+      [
+        9000,
+        5.4182,
+        5.4188
+      ],
+      [
+        9200,
+        5.3979,
+        5.4341
+      ],
+      [
+        9400,
+        5.4173,
+        5.425
+      ],
+      [
+        9600,
+        5.4733,
+        5.4146
+      ],
+      [
+        9800,
+        5.5152,
+        5.4209
+      ],
+      [
+        10000,
+        5.4832,
+        5.4263
+      ],
+      [
+        10200,
+        5.483,
+        5.432
+      ],
+      [
+        10400,
+        5.5113,
+        5.4208
+      ],
+      [
+        10600,
+        5.3969,
+        5.4163
+      ],
+      [
+        10800,
+        5.5139,
+        5.4119
+      ],
+      [
+        11000,
+        5.5336,
+        5.4154
+      ],
+      [
+        11200,
+        5.4309,
+        5.4131
+      ],
+      [
+        11400,
+        5.4483,
+        5.4064
+      ],
+      [
+        11600,
+        5.3302,
+        5.4078
+      ],
+      [
+        11800,
+        5.5425,
+        5.4054
+      ],
+      [
+        12000,
+        5.3556,
+        5.4064
+      ],
+      [
+        12200,
+        5.4265,
+        5.4104
+      ],
+      [
+        12400,
+        5.3901,
+        5.3994
+      ],
+      [
+        12600,
+        5.4654,
+        5.3994
+      ],
+      [
+        12800,
+        5.378,
+        5.3994
+      ],
+      [
+        13000,
+        5.2646,
+        5.3935
+      ],
+      [
+        13200,
+        5.4133,
+        5.4089
+      ],
+      [
+        13400,
+        5.5188,
+        5.3953
+      ],
+      [
+        13600,
+        5.4097,
+        5.3965
+      ],
+      [
+        13800,
+        5.3288,
+        5.3903
+      ],
+      [
+        14000,
+        5.5355,
+        5.4084
+      ],
+      [
+        14200,
+        5.3733,
+        5.3921
+      ],
+      [
+        14400,
+        5.3941,
+        5.3945
+      ],
+      [
+        14600,
+        5.3654,
+        5.3949
+      ],
+      [
+        14800,
+        5.4478,
+        5.404
+      ]
+    ],
+    "held100_curve": [
+      [
+        1875,
+        5.5261
+      ],
+      [
+        3750,
+        5.4386
+      ],
+      [
+        5625,
+        5.3947
+      ],
+      [
+        7500,
+        5.3703
+      ],
+      [
+        9375,
+        5.3505
+      ],
+      [
+        11250,
+        5.3326
+      ],
+      [
+        13125,
+        5.3218
+      ]
+    ],
+    "spikes": 0,
+    "diverged": false,
+    "wall_seconds": 152.3,
+    "sec_per_step": 0.01015,
+    "peak_mib": 2174,
+    "final_held_ce": 5.40143,
+    "n_params": 299072,
+    "body_params": 36928
+  },
+  "vs_baselines": {
+    "unigram_floor": 7.30343,
+    "bigram": 5.2842,
+    "model_minus_bigram": 0.11723,
+    "model_minus_unigram": -1.902,
+    "model_bits_per_byte": 2.07549,
+    "bigram_bits_per_byte": 2.03044,
+    "unigram_floor_bits_per_byte": 2.80632,
+    "bits_per_byte_rule": "the ONLY quantity comparable across tokenizers; nats/token above are within-tokenizer only"
+  },
+  "fold": {
+    "stem": "tf_vanilla_d2_w32_b8192_s0",
+    "variant": "vanilla",
+    "depth": 2,
+    "width": 32,
+    "stream_width": 32,
+    "n_heads": 2,
+    "head_dim": 16,
+    "vocab": 8192,
+    "tokenizer": "bpe",
+    "deltas": [
+      0,
+      1,
+      2
+    ],
+    "identity_gate": {
+      "mlp_tensor_identity_l0_relmax": 2.226891382406393e-07,
+      "mlp_rmsnorm_gauge_l0_relmax": 3.0636073233836214e-07,
+      "decoder_absmax_l0": 3.398000717163086,
+      "mlp_tensor_identity_l1_relmax": 3.0666024031233974e-07,
+      "mlp_rmsnorm_gauge_l1_relmax": 3.276871609614318e-07,
+      "decoder_absmax_l1": 4.408575057983398,
+      "attn_layer0_table_identity_relmax": 9.411720043317473e-07,
+      "attn_table_identity_heads_materialized": [
+        0,
+        1
+      ],
+      "attn_layer0_factor_identity_allheads_relmax": 1.142851715485449e-06,
+      "fold_forward_max_logit_diff": 1.4543533325195312e-05,
+      "logit_absmax": 13.136222839355469,
+      "fold_forward_rel_logit_diff": 1.107132050289495e-06,
+      "fp64_mlp_tensor_identity_l0_relmax": 7.322503183278836e-16,
+      "fp64_mlp_rmsnorm_gauge_l0_relmax": 6.391243430129649e-16,
+      "fp64_decoder_absmax_l0": 3.398000717163086,
+      "fp64_mlp_tensor_identity_l1_relmax": 8.17558020756691e-16,
+      "fp64_mlp_rmsnorm_gauge_l1_relmax": 8.370308452984633e-16,
+      "fp64_decoder_absmax_l1": 4.408575057983398,
+      "fp64_attn_layer0_table_identity_relmax": 2.128728101437971e-15,
+      "fp64_attn_table_identity_heads_materialized": [
+        0,
+        1
+      ],
+      "fp64_attn_layer0_factor_identity_allheads_relmax": 2.5043860016917303e-15,
+      "fp64_fold_forward_max_logit_diff": 3.9745984281580604e-14,
+      "fp64_logit_absmax": 13.136221023714787,
+      "fp64_fold_forward_rel_logit_diff": 3.025678710020734e-15,
+      "fp32_forward_vs_fp64_forward_rel": 1.8788063365843856e-06,
+      "fold_vs_forward_over_fp32_selfnoise": 0.5892741730380942,
+      "fp32_sanity_pass": true,
+      "fp64_exactness_pass": true,
+      "pass": true,
+      "criterion": {
+        "fp32_sanity": {
+          "mlp_rel": 1e-05,
+          "attn_rel": 1e-05,
+          "logit_rel": 1e-05
+        },
+        "fp64_exactness": {
+          "algebraic_rel": 1e-12,
+          "logit_abs": 1e-09,
+          "noise_multiple": 10.0
+        },
+        "note": "TWO-TIER.  fp32 tier is a scale-free sanity band sized by sqrt(N)*eps_fp32 ~ 1e-5; fp64 tier is the real exactness gate (algebraic identities to 1e-12 relative, end-to-end to 1e-9 absolute) plus a calibration requiring the fold-vs-forward gap to stay within 10x the forward pass own fp32-vs-fp64 self-noise.  SUPERSEDED: the old absolute-1e-5-fp32 logit criterion and the 1e-6 fp32 algebraic criteria, which together failed 5/6 cells on rounding alone while every fp64 residual sat at 1e-14 to 1e-16."
+      }
+    },
+    "planted_known_answer": {
+      "planted_delta0_maxdiff": 1.2823075934420558e-14,
+      "planted_delta0_scale": 0.48431475409306896,
+      "planted_delta3_maxdiff": 1.587618925213974e-14,
+      "planted_delta3_scale": 0.4802893055867663,
+      "pass": true
+    },
+    "gate_negative_control": {
+      "clean_pass": true,
+      "mlp_scale_1p1e-7_pass": false,
+      "mlp_scale_1p1e-7_fp64_logit_abs": 9.894860805714778e-09,
+      "mlp_scale_1p1e-7_fp32_logit_abs": 1.1920928955078125e-07,
+      "mlp_scale_1p1e-7_caught_by_old_absolute_1e-5_gate": false,
+      "vv_head_roll_pass": false,
+      "vv_head_roll_fp64_logit_abs": 0.033177727890211825,
+      "vv_head_roll_fp32_logit_abs": 0.033184878528118134,
+      "vv_head_roll_caught_by_old_absolute_1e-5_gate": true,
+      "pass": true
+    },
+    "spectra": {
+      "s1_d0": {
+        "per_head": [
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.2213130844547428,
+            "entropy_rank": 1.6807669562483125,
+            "top1_share": 0.9041105209578545
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.4557849710966064,
+            "entropy_rank": 2.09419528842735,
+            "top1_share": 0.8225363435573393
+          }
+        ],
+        "rank_bound": 16,
+        "mean_numerical_rank": 16.0,
+        "mean_entropy_rank": 1.8874811223378312
+      },
+      "s2_d0": {
+        "per_head": [
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.1865354557082768,
+            "entropy_rank": 1.5442134110300865,
+            "top1_share": 0.9170781677196777
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.576505265235002,
+            "entropy_rank": 2.3904170509795315,
+            "top1_share": 0.789252070579383
+          }
+        ],
+        "rank_bound": 16,
+        "mean_numerical_rank": 16.0,
+        "mean_entropy_rank": 1.967315231004809
+      },
+      "s1_d1": {
+        "per_head": [
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.2404000455301953,
+            "entropy_rank": 1.727995127536677,
+            "top1_share": 0.8969520561468395
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.4570186946380561,
+            "entropy_rank": 2.1034045496787597,
+            "top1_share": 0.8223764179488924
+          }
+        ],
+        "rank_bound": 16,
+        "mean_numerical_rank": 16.0,
+        "mean_entropy_rank": 1.9156998386077184
+      },
+      "s2_d1": {
+        "per_head": [
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.1956684262884716,
+            "entropy_rank": 1.5624028520072364,
+            "top1_share": 0.9134096743324207
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.5799654552015856,
+            "entropy_rank": 2.3994254312739027,
+            "top1_share": 0.7883568080840136
+          }
+        ],
+        "rank_bound": 16,
+        "mean_numerical_rank": 16.0,
+        "mean_entropy_rank": 1.9809141416405696
+      },
+      "s1_d2": {
+        "per_head": [
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.2987071454700683,
+            "entropy_rank": 1.8829252624267163,
+            "top1_share": 0.8761024373882859
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.5588862011110938,
+            "entropy_rank": 2.314444670810488,
+            "top1_share": 0.7927874528029523
+          }
+        ],
+        "rank_bound": 16,
+        "mean_numerical_rank": 16.0,
+        "mean_entropy_rank": 2.098684966618602
+      },
+      "s2_d2": {
+        "per_head": [
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.195124463582888,
+            "entropy_rank": 1.5665312429306217,
+            "top1_share": 0.9136902428561704
+          },
+          {
+            "numerical_rank": 16,
+            "participation_ratio": 1.5827610144705024,
+            "entropy_rank": 2.421144034695526,
+            "top1_share": 0.7877679264439867
+          }
+        ],
+        "rank_bound": 16,
+        "mean_numerical_rank": 16.0,
+        "mean_entropy_rank": 1.9938376388130739
+      }
+    },
+    "control_spectrum_qr_vs_eig_rel": 1.7305046773994464e-12,
+    "control_spectrum_factor_vs_dense_svd_rel": 2.7384330734846945e-15,
+    "control_dense_svd_tail_over_rank_bound": 1.7844941763579133e-12,
+    "mlp": [
+      {
+        "shape": [
+          32,
+          32,
+          32
+        ],
+        "fro": 1375.2005615234375,
+        "unfolding_spectrum": {
+          "numerical_rank": 32,
+          "participation_ratio": 27.254190083821932,
+          "entropy_rank": 29.37536055431737,
+          "top1_share": 0.06216303723990488
+        },
+        "sv_top8": [
+          446.287606358506,
+          432.7647439332281,
+          384.63588747139437,
+          347.9951173740748,
+          326.7703540167405,
+          309.18766370413607,
+          299.23885385267226,
+          285.20837152830677
+        ]
+      },
+      {
+        "shape": [
+          32,
+          32,
+          32
+        ],
+        "fro": 2546.764404296875,
+        "unfolding_spectrum": {
+          "numerical_rank": 32,
+          "participation_ratio": 29.818510114604624,
+          "entropy_rank": 30.86186223235869,
+          "top1_share": 0.050016949408181036
+        },
+        "sv_top8": [
+          695.582924693718,
+          639.4426482961999,
+          621.3340025344285,
+          604.6621892588721,
+          581.19150590865,
+          574.6851675646278,
+          554.3648324885402,
+          533.2200710390333
+        ]
+      }
+    ],
+    "top_pairs_delta0": [
+      {
+        "head": 0,
+        "max": [
+          [
+            "2953:' easily'",
+            "7038:' referred'",
+            0.00814411323517561
+          ],
+          [
+            "3818:' gar'",
+            "7038:' referred'",
+            0.007102019619196653
+          ],
+          [
+            "2953:' easily'",
+            "3963:' www'",
+            0.006158468779176474
+          ],
+          [
+            "3818:' gar'",
+            "3963:' www'",
+            0.0059228022582829
+          ],
+          [
+            "1216:'ically'",
+            "7038:' referred'",
+            0.005865646526217461
+          ],
+          [
+            "2953:' easily'",
+            "6549:' millions'",
+            0.005470735486596823
+          ],
+          [
+            "3818:' gar'",
+            "6549:' millions'",
+            0.005330055486410856
+          ],
+          [
+            "2953:' easily'",
+            "3743:'Here'",
+            0.005203465931117535
+          ],
+          [
+            "2953:' easily'",
+            "5769:' hundreds'",
+            0.005060200113803148
+          ],
+          [
+            "2953:' easily'",
+            "3000:' Here'",
+            0.005006161984056234
+          ],
+          [
+            "3818:' gar'",
+            "5769:' hundreds'",
+            0.0049928766675293446
+          ],
+          [
+            "1216:'ically'",
+            "6549:' millions'",
+            0.0049845390021800995
+          ],
+          [
+            "2953:' easily'",
+            "6520:' firstname'",
+            0.004739696159958839
+          ],
+          [
+            "4461:' happens'",
+            "3963:' www'",
+            0.004736711271107197
+          ],
+          [
+            "3818:' gar'",
+            "4654:' thousands'",
+            0.004715418443083763
+          ],
+          [
+            "3620:' beyond'",
+            "6549:' millions'",
+            0.004704070743173361
+          ],
+          [
+            "2953:' easily'",
+            "4654:' thousands'",
+            0.004685412626713514
+          ],
+          [
+            "1216:'ically'",
+            "5769:' hundreds'",
+            0.004647039342671633
+          ],
+          [
+            "3818:' gar'",
+            "6520:' firstname'",
+            0.004545583855360746
+          ],
+          [
+            "534:' sa'",
+            "7038:' referred'",
+            0.004505281802266836
+          ]
+        ],
+        "min": [
+          [
+            "615:'ings'",
+            "7038:' referred'",
+            -0.11678581684827805
+          ],
+          [
+            "288:' of'",
+            "7038:' referred'",
+            -0.11190705746412277
+          ],
+          [
+            "500:'ake'",
+            "7038:' referred'",
+            -0.10172457993030548
+          ],
+          [
+            "83:'s'",
+            "7038:' referred'",
+            -0.10143676400184631
+          ],
+          [
+            "641:'ors'",
+            "7038:' referred'",
+            -0.10139089077711105
+          ],
+          [
+            "288:' of'",
+            "3963:' www'",
+            -0.10065789520740509
+          ],
+          [
+            "279:'ing'",
+            "7038:' referred'",
+            -0.10039102286100388
+          ],
+          [
+            "83:'s'",
+            "3963:' www'",
+            -0.09615110605955124
+          ],
+          [
+            "615:'ings'",
+            "3963:' www'",
+            -0.09518997371196747
+          ],
+          [
+            "641:'ors'",
+            "3963:' www'",
+            -0.09296617656946182
+          ],
+          [
+            "673:'ory'",
+            "7038:' referred'",
+            -0.09240926057100296
+          ],
+          [
+            "279:'ing'",
+            "3963:' www'",
+            -0.09059377759695053
+          ],
+          [
+            "487:'ice'",
+            "3963:' www'",
+            -0.08879775553941727
+          ],
+          [
+            "487:'ice'",
+            "7038:' referred'",
+            -0.08797191083431244
+          ],
+          [
+            "284:' to'",
+            "3963:' www'",
+            -0.08718034625053406
+          ],
+          [
+            "811:'als'",
+            "7038:' referred'",
+            -0.08708926290273666
+          ],
+          [
+            "1632:'ination'",
+            "7038:' referred'",
+            -0.0867043063044548
+          ],
+          [
+            "500:'ake'",
+            "3963:' www'",
+            -0.08606287091970444
+          ],
+          [
+            "615:'ings'",
+            "6549:' millions'",
+            -0.08468880504369736
+          ],
+          [
+            "547:'ance'",
+            "7038:' referred'",
+            -0.0846543088555336
+          ]
+        ],
+        "abs_mean": 0.003105475567281246,
+        "std": 0.0034579173661768436
+      },
+      {
+        "head": 1,
+        "max": [
+          [
+            "674:' said'",
+            "1032:',\u201d'",
+            0.08370309323072433
+          ],
+          [
+            "1426:' says'",
+            "1032:',\u201d'",
+            0.08266408741474152
+          ],
+          [
+            "674:' said'",
+            "1273:',\"'",
+            0.0782163217663765
+          ],
+          [
+            "1426:' says'",
+            "1273:',\"'",
+            0.07752633094787598
+          ],
+          [
+            "674:' said'",
+            "1352:' i'",
+            0.06892694532871246
+          ],
+          [
+            "1426:' says'",
+            "1352:' i'",
+            0.05778859555721283
+          ],
+          [
+            "2:'\"'",
+            "1217:' fr'",
+            0.05265026167035103
+          ],
+          [
+            "1426:' says'",
+            "6296:' 300'",
+            0.04926100745797157
+          ],
+          [
+            "674:' said'",
+            "6296:' 300'",
+            0.04889781028032303
+          ],
+          [
+            "1426:' says'",
+            "7569:' 150'",
+            0.04737846553325653
+          ],
+          [
+            "674:' said'",
+            "7569:' 150'",
+            0.046941932290792465
+          ],
+          [
+            "1426:' says'",
+            "5444:' 500'",
+            0.04494837298989296
+          ],
+          [
+            "674:' said'",
+            "5444:' 500'",
+            0.044656410813331604
+          ],
+          [
+            "674:' said'",
+            "7757:' 55'",
+            0.04401196911931038
+          ],
+          [
+            "1426:' says'",
+            "7677:' 400'",
+            0.0438544861972332
+          ],
+          [
+            "674:' said'",
+            "7677:' 400'",
+            0.04343091696500778
+          ],
+          [
+            "674:' said'",
+            "7724:' 38'",
+            0.042359109967947006
+          ],
+          [
+            "1426:' says'",
+            "816:' 200'",
+            0.0420130155980587
+          ],
+          [
+            "1426:' says'",
+            "7757:' 55'",
+            0.041897524148225784
+          ],
+          [
+            "674:' said'",
+            "816:' 200'",
+            0.04141434654593468
+          ]
+        ],
+        "min": [
+          [
+            "291:'ic'",
+            "8165:' jur'",
+            -0.19442348182201385
+          ],
+          [
+            "259:'in'",
+            "8165:' jur'",
+            -0.19159814715385437
+          ],
+          [
+            "529:'ans'",
+            "8165:' jur'",
+            -0.1906806379556656
+          ],
+          [
+            "291:'ic'",
+            "4521:' outd'",
+            -0.19010533392429352
+          ],
+          [
+            "272:'or'",
+            "8165:' jur'",
+            -0.18992158770561218
+          ],
+          [
+            "294:'as'",
+            "8165:' jur'",
+            -0.1884913593530655
+          ],
+          [
+            "529:'ans'",
+            "4521:' outd'",
+            -0.18791472911834717
+          ],
+          [
+            "259:'in'",
+            "4521:' outd'",
+            -0.18607039749622345
+          ],
+          [
+            "79:'o'",
+            "8165:' jur'",
+            -0.1853644698858261
+          ],
+          [
+            "901:'up'",
+            "8165:' jur'",
+            -0.18534965813159943
+          ],
+          [
+            "272:'or'",
+            "4521:' outd'",
+            -0.18460695445537567
+          ],
+          [
+            "275:'en'",
+            "8165:' jur'",
+            -0.18456284701824188
+          ],
+          [
+            "274:'is'",
+            "8165:' jur'",
+            -0.18385811150074005
+          ],
+          [
+            "291:'ic'",
+            "5313:' phil'",
+            -0.1835072636604309
+          ],
+          [
+            "294:'as'",
+            "4521:' outd'",
+            -0.18345467746257782
+          ],
+          [
+            "267:'at'",
+            "8165:' jur'",
+            -0.1834213137626648
+          ],
+          [
+            "389:'us'",
+            "8165:' jur'",
+            -0.18313057720661163
+          ],
+          [
+            "283:'al'",
+            "8165:' jur'",
+            -0.18297217786312103
+          ],
+          [
+            "529:'ans'",
+            "5313:' phil'",
+            -0.18262304365634918
+          ],
+          [
+            "445:'out'",
+            "8165:' jur'",
+            -0.1824313998222351
+          ]
+        ],
+        "abs_mean": 0.0019082993967458606,
+        "std": 0.006350473500788212
+      }
+    ],
+    "artifact": "tf_vanilla_d2_w32_b8192_s0_fold.npz",
+    "artifact_mib": 4.87
+  }
+}

@@ -690,7 +690,82 @@ def data_baselines(D, n_seq=64, T=256, batch=8, lowrank=(8, 32, 64),
 
 # ---------------------------------------------------------------- induction
 @torch.no_grad()
-def induction_for_stem(stem, seeds=5, device=DEV):
+def _induction_target(idx, V):
+    """(B, T) -- the token that followed the most recent EARLIER occurrence of
+    tok_i, or -1 when there is none.  Vectorised over the batch (T steps of
+    tensor ops, not B*T python steps)."""
+    B, T = idx.shape
+    dev = idx.device
+    last = torch.full((B, V), -1, dtype=torch.long, device=dev)
+    tgt = torch.full((B, T), -1, dtype=torch.long, device=dev)
+    for i in range(T):
+        cur = idx[:, i:i + 1]
+        prev = last.gather(1, cur)[:, 0]
+        ok = (prev >= 0) & (prev + 1 < T)
+        if ok.any():
+            nxt = idx.gather(1, (prev + 1).clamp(0, T - 1)[:, None])[:, 0]
+            tgt[:, i] = torch.where(ok, nxt, tgt[:, i])
+        last.scatter_(1, cur, torch.full_like(cur, i))
+    return tgt
+
+
+@torch.no_grad()
+def induction_sensitivity(D, epsilons=(0.0, 1e-4, 3e-4, 1e-3, 3e-3, 1e-2),
+                          n_seq=48, L=96, seeds=3, model=None):
+    """SENSITIVITY CALIBRATION.  A null induction score means nothing until we
+    know how much induction the battery could have seen, so a KNOWN amount is
+    planted and the detection floor is read off.
+
+    The planted predictor is a mixture (1-eps)*model + eps*ORACLE, where the
+    oracle puts (almost) all its mass on the token that followed the most
+    recent earlier occurrence of the current token -- a perfect induction head.
+    In the repeat condition it is right; in the shuffled condition it is wrong,
+    but a mixture can only cost -log(1-eps) there, so the score is dominated by
+    the genuine induction gain and eps maps monotonically onto 'how much
+    induction'."""
+    fwd = model or D.model
+    V = D.V
+    tr = tf_corpus.load_split(V, 'train', 4000, tok=D.cfg.tok)
+    cnt = np.bincount(tr.reshape(-1), minlength=V).astype(np.float64) + 1.0
+    p = torch.from_numpy(cnt / cnt.sum()).float()
+    scores = {f'eps_{e}': [] for e in epsilons}
+    for sd in range(seeds):
+        g = torch.Generator(device='cpu').manual_seed(1000 + sd)
+        R = torch.multinomial(p.expand(n_seq, V), L, True, generator=g)
+        perm = torch.argsort(torch.rand(n_seq, L, generator=g), dim=1)
+        conds = {'repeat': torch.cat([R, R], 1),
+                 'shuffled': torch.cat([torch.gather(R, 1, perm), R], 1)}
+        ce = {e: {} for e in epsilons}
+        for nm, s in conds.items():
+            s = s.to(D.dev)
+            tot = {e: 0.0 for e in epsilons}
+            n = 0
+            for a in range(0, n_seq, 8):
+                b = s[a:a + 8]
+                x, y = b[:, :-1], b[:, 1:]
+                pm = F.log_softmax(fwd(x).float(), -1).exp()
+                tgt = _induction_target(x, V)
+                hit = tgt >= 0
+                pm_t = pm.gather(-1, y[..., None])[..., 0]
+                orc_t = torch.where(hit & (tgt == y),
+                                    torch.ones_like(pm_t),
+                                    torch.full_like(pm_t, 1.0 / V))
+                orc_t = torch.where(hit, orc_t, torch.full_like(pm_t, 1.0 / V))
+                for e in epsilons:
+                    q = ((1 - e) * pm_t + e * orc_t)[:, L - 1:]
+                    tot[e] += float(-q.clamp_min(1e-30).log().sum())
+                n += y[:, L - 1:].numel()
+            for e in epsilons:
+                ce[e][nm] = tot[e] / n
+        for e in epsilons:
+            scores[f'eps_{e}'].append(ce[e]['shuffled'] - ce[e]['repeat'])
+    return {k: {'induction_score_mean': float(np.mean(v)),
+                'induction_score_sd': float(np.std(v, ddof=1))}
+            for k, v in scores.items()}
+
+
+@torch.no_grad()
+def induction_for_stem(stem, seeds=5, device=DEV, sensitivity=True):
     """The identical battery for ANY depth, so a depth-2 cell can serve as the
     POSITIVE CONTROL for the depth-1 null result."""
     model, cfg, _ = tf_fold.load_checkpoint(stem, device)
@@ -708,7 +783,8 @@ def induction_for_stem(stem, seeds=5, device=DEV):
                                                 for r in runs], ddof=1)),
             'bag_score_mean': float(np.mean([r['bag_score'] for r in runs])),
             'bag_score_sd': float(np.std([r['bag_score'] for r in runs],
-                                         ddof=1))}
+                                         ddof=1)),
+            'sensitivity': induction_sensitivity(s) if sensitivity else None}
 
 
 @torch.no_grad()

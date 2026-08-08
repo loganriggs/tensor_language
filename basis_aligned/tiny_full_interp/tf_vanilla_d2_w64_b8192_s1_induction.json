@@ -1,0 +1,72 @@
+{
+  "stem": "tf_vanilla_d2_w64_b8192_s1",
+  "depth": 2,
+  "width": 64,
+  "per_seed": [
+    {
+      "repeat": 9.172663688659668,
+      "shuffled": 9.170730908711752,
+      "control": 9.203923437330458,
+      "induction_score": -0.0019327799479160745,
+      "bag_score": 0.03319252861870581
+    },
+    {
+      "repeat": 9.161334991455078,
+      "shuffled": 9.144895235697428,
+      "control": 9.18901507059733,
+      "induction_score": -0.01643975575765033,
+      "bag_score": 0.044119834899902344
+    },
+    {
+      "repeat": 9.142474386427137,
+      "shuffled": 9.134478357103136,
+      "control": 9.183907614813911,
+      "induction_score": -0.007996029324001341,
+      "bag_score": 0.04942925771077533
+    },
+    {
+      "repeat": 9.077341185675728,
+      "shuffled": 9.066531711154514,
+      "control": 9.104676564534506,
+      "induction_score": -0.010809474521213502,
+      "bag_score": 0.03814485337999152
+    },
+    {
+      "repeat": 9.17180421617296,
+      "shuffled": 9.150042427910698,
+      "control": 9.203629069858128,
+      "induction_score": -0.02176178826226227,
+      "bag_score": 0.05358664194742957
+    }
+  ],
+  "induction_score_mean": -0.011787965562608704,
+  "induction_score_sd": 0.007641616319840476,
+  "bag_score_mean": 0.04369462331136091,
+  "bag_score_sd": 0.00824640540646246,
+  "sensitivity": {
+    "eps_0.0": {
+      "induction_score_mean": -0.011998317859791404,
+      "induction_score_sd": 0.010334346341086867
+    },
+    "eps_0.0001": {
+      "induction_score_mean": 0.9539067656905562,
+      "induction_score_sd": 0.015011607514315522
+    },
+    "eps_0.0003": {
+      "induction_score_mean": 1.4265180517126013,
+      "induction_score_sd": 0.027074114363570826
+    },
+    "eps_0.001": {
+      "induction_score_mean": 2.044137636820476,
+      "induction_score_sd": 0.042469099827673815
+    },
+    "eps_0.003": {
+      "induction_score_mean": 2.6755560415762445,
+      "induction_score_sd": 0.05633776539805408
+    },
+    "eps_0.01": {
+      "induction_score_mean": 3.4099748399522567,
+      "induction_score_sd": 0.07031803276422481
+    }
+  }
+}

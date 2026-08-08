@@ -66,11 +66,18 @@ def summary():
     for f in sorted(glob.glob(f'{HERE}/*_interp.json')):
         stem = os.path.basename(f)[:-len('_interp.json')]
         d = json.load(open(f))
-        if 'rung5_ladder' not in d:
+        # depth-2 work (tf_interp2) writes its own keys into a file with the
+        # same suffix; this aggregator is the DEPTH-1 one and skips anything
+        # that does not carry the full depth-1 rung set.
+        need = ('rung5_ladder', 'rung2', 'stream_geometry', 'rung3_baselines',
+                'rung3_induction', 'rung4')
+        if any(k not in d for k in need):
             continue
         L, r2, g = d['rung5_ladder'], d['rung2'], d['stream_geometry']
         b = d['rung3_baselines']
         cell = json.load(open(f'{HERE}/{stem}.json'))
+        if cell['config']['depth'] != 1:
+            continue
         ent = {
             'width': cell['config']['width'],
             'seed': cell['config']['seed'],
@@ -299,10 +306,21 @@ def reviewer_round_1(ident, summ):
                 'claim': 'depth 1 shows no induction; the metric is calibrated',
                 'objection': 'a null result from a metric that has never been '
                              'shown to detect the thing is worthless.',
+                'objection_confirmed': 'THE REGISTERED POSITIVE CONTROL FAILED. '
+                                       'We registered that a depth-2 cell must '
+                                       'show a nonzero induction score or the '
+                                       'metric is broken.  Three depth-2 cells '
+                                       '(w32 s0, w64 s0, w64 s1) score '
+                                       '-0.007, -0.016, -0.012 -- the same '
+                                       'null as depth 1.',
                 'fix': [
-                    'the identical battery is run on a DEPTH-2 cell as the '
-                    'positive control (tf_vanilla_d2_w64_b8192_s0), and the '
-                    'conditions are matched on token multiset (repeat vs '
+                    'the null was re-established a different way: a KNOWN '
+                    'amount of induction is planted by mixing the model with a '
+                    'perfect induction oracle at weight eps, and the detection '
+                    'floor is read off.  eps = 1e-4 (0.01% mixture) already '
+                    'moves the induction score from -0.015 +- 0.005 to '
+                    '+0.94 +- 0.02, about 175 sd.  The battery is not blind.',
+                    'the conditions are matched on token multiset (repeat vs '
                     'shuffled-prefix vs fresh-prefix), so the induction score '
                     'is an order effect by construction.',
                     'five probe seeds per cell, sd reported.',
@@ -311,12 +329,20 @@ def reviewer_round_1(ident, summ):
                     'what attending to it boosts, so calling the bag effect '
                     '"copying" would be naming a mechanism from a behavioural '
                     'delta.',
+                    'the claim is accordingly weakened to "induction is absent '
+                    'to within ~0.02 nats at depths 1-2, widths <= 256, on '
+                    'this corpus and this 15k-step budget" -- NOT to "depth 2 '
+                    'cannot induct".',
                 ],
                 'not_fixed': 'the probe sequences are iid draws from the train '
                              'unigram, which is out of distribution in '
                              'structure even though it is in distribution in '
                              'frequency.  A natural-text repeated-span probe '
-                             'was not run.',
+                             'was not run.  And the depth-2 cells are 2 seeds '
+                             'at w64 plus 1 at w32, trained for the same 15k '
+                             'steps as depth 1 -- the absence of induction '
+                             'there may be a budget effect, which this '
+                             'experiment cannot separate from a size effect.',
             },
             {
                 'id': 'C6_beats_the_bigram',

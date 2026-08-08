@@ -529,14 +529,26 @@
       "mlp_tensor_identity_l0_relmax": 4.541813893865765e-07,
       "mlp_rmsnorm_gauge_l0_relmax": 5.236408355813182e-07,
       "decoder_absmax_l0": 3.707874059677124,
-      "attn_layer0_table_identity_relmax": 7.436453302034352e-07,
+      "attn_layer0_table_identity_relmax": 9.794039215194061e-07,
+      "attn_table_identity_heads_materialized": [
+        0,
+        4,
+        7
+      ],
+      "attn_layer0_factor_identity_allheads_relmax": 8.610630288785615e-07,
       "fold_forward_max_logit_diff": 2.7179718017578125e-05,
       "logit_absmax": 15.700294494628906,
       "fold_forward_rel_logit_diff": 1.731159757982651e-06,
       "fp64_mlp_tensor_identity_l0_relmax": 1.357490319909653e-15,
       "fp64_mlp_rmsnorm_gauge_l0_relmax": 1.319441036008532e-15,
       "fp64_decoder_absmax_l0": 3.707874059677124,
-      "fp64_attn_layer0_table_identity_relmax": 6.925739739105136e-16,
+      "fp64_attn_layer0_table_identity_relmax": 6.831957120012883e-16,
+      "fp64_attn_table_identity_heads_materialized": [
+        0,
+        4,
+        7
+      ],
+      "fp64_attn_layer0_factor_identity_allheads_relmax": 6.196714503409859e-16,
       "fp64_fold_forward_max_logit_diff": 4.440892098500626e-14,
       "fp64_logit_absmax": 15.700296631169511,
       "fp64_fold_forward_rel_logit_diff": 2.8285402517072224e-15,

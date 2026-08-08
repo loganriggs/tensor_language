@@ -503,6 +503,12 @@
       "mlp_rmsnorm_gauge_l0_relmax": 3.570802107333293e-07,
       "decoder_absmax_l0": 3.6123173236846924,
       "attn_layer0_table_identity_relmax": 4.5379098878584045e-07,
+      "attn_table_identity_heads_materialized": [
+        0,
+        2,
+        3
+      ],
+      "attn_layer0_factor_identity_allheads_relmax": 5.894685841667524e-07,
       "fold_forward_max_logit_diff": 1.1920928955078125e-05,
       "logit_absmax": 14.662145614624023,
       "fold_forward_rel_logit_diff": 8.130412334186745e-07,
@@ -510,6 +516,12 @@
       "fp64_mlp_rmsnorm_gauge_l0_relmax": 1.4486449848173356e-15,
       "fp64_decoder_absmax_l0": 3.6123173236846924,
       "fp64_attn_layer0_table_identity_relmax": 9.4111802118746e-16,
+      "fp64_attn_table_identity_heads_materialized": [
+        0,
+        2,
+        3
+      ],
+      "fp64_attn_layer0_factor_identity_allheads_relmax": 1.0167173879590111e-15,
       "fp64_fold_forward_max_logit_diff": 2.886579864025407e-14,
       "fp64_logit_absmax": 14.662146401095947,
       "fp64_fold_forward_rel_logit_diff": 1.9687293968157654e-15,

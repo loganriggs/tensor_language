@@ -502,7 +502,13 @@
       "mlp_tensor_identity_l0_relmax": 5.507170612872869e-07,
       "mlp_rmsnorm_gauge_l0_relmax": 4.5196645714895567e-07,
       "decoder_absmax_l0": 4.076641082763672,
-      "attn_layer0_table_identity_relmax": 1.2717644040094456e-06,
+      "attn_layer0_table_identity_relmax": 6.358822020047228e-07,
+      "attn_table_identity_heads_materialized": [
+        0,
+        4,
+        7
+      ],
+      "attn_layer0_factor_identity_allheads_relmax": 1.3512496934708906e-06,
       "fold_forward_max_logit_diff": 3.814697265625e-05,
       "logit_absmax": 15.414499282836914,
       "fold_forward_rel_logit_diff": 2.4747461436340185e-06,
@@ -510,6 +516,12 @@
       "fp64_mlp_rmsnorm_gauge_l0_relmax": 1.3442304532376582e-15,
       "fp64_decoder_absmax_l0": 4.076641082763672,
       "fp64_attn_layer0_table_identity_relmax": 7.10653898791998e-16,
+      "fp64_attn_table_identity_heads_materialized": [
+        0,
+        4,
+        7
+      ],
+      "fp64_attn_layer0_factor_identity_allheads_relmax": 6.218221614429982e-16,
       "fp64_fold_forward_max_logit_diff": 3.019806626980426e-14,
       "fp64_logit_absmax": 15.414502575873279,
       "fp64_fold_forward_rel_logit_diff": 1.9590684889871282e-15,
