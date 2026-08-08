@@ -7,6 +7,34 @@ they land with the finding in the commit message.
 
 ---
 
+**2026-08-08 15:30 UTC — COMPRESSIBILITY VERSUS SIZE: the negative is NOT a
+small-model artifact, and it gets slightly WORSE with scale.**
+The question was whether "structure does not compress" is an artifact of
+working at 1.3M parameters. Measured across 9 cells (depths 1-4, widths
+32-256) as the one honest scalar the review left us — best structural
+description's bits over the same weights naively quantised to the SAME KL:
+  slope **-0.0433 per e-fold of parameters** (SE 0.0126, t = -3.44),
+  intercept 1.666. Two other formulations of the ratio agree in sign and
+  significance (per-row -0.0545, t = -5.60; KL-matched -0.0405, t = -4.50),
+  and dropping the depth-3/4 cells changes nothing (-0.0432, t = -3.16).
+So the ratio DECLINES with size. Extrapolating the fitted line: 1.67 at our
+1.3M-parameter cell, 1.57 at 13M, 1.47 at 130M, 1.40 at bilin18's 550M. The
+trend is shallow, so the honest statement is "flat to slightly declining"
+rather than "collapses" — but the direction is the opposite of the
+hopeful one, and it is significant at t = 3.4 to 5.6 across three
+formulations.
+CONSEQUENCE, stated plainly: scaling up will NOT rescue structural
+compression. Our negative is a property of the architecture family, not of
+the size we happened to work at, and the programme should write it up as
+such rather than chase it upward. (The extrapolation to R = 1 is
+astronomically far out and should not be quoted as a prediction — the point
+is the sign of the slope, not its crossing.)
+Caveat: this is seed 0 across the grid, and the ratio's own seed spread is
+not yet measured. Seeds queued.
+
+---
+
+
 **2026-08-08 15:10 UTC — THE DEPTH LADDER ANSWERS ITS FIRST REGISTERED
 PREDICTION: depth and width TRADE OFF for capability emergence, cleanly.**
 Induction score by depth x width (single seed so far; probe power floor
