@@ -28,14 +28,16 @@ LADDER = ['embed_only', 'plus_self_attn', 'model_bigram', 'no_attention_at_all',
           'no_rotary_pattern']
 
 
-def ms(vals, fmt='{:.4f}'):
-    """mean +- sd, or the single value when n == 1."""
+def ms(vals, fmt='{:.4f}', sdfmt=None):
+    """mean +- sd, or the single value when n == 1.  The sd never carries a
+    sign, even when the mean's format asks for one."""
     a = np.asarray([v for v in vals if v is not None], dtype=float)
     if a.size == 0:
         return '-'
     if a.size == 1:
         return fmt.format(a[0])
-    return fmt.format(a.mean()) + ' ± ' + fmt.format(a.std(ddof=1))
+    return (fmt.format(a.mean()) + ' ± '
+            + (sdfmt or fmt.replace('+', '')).format(a.std(ddof=1)))
 
 
 def main():
@@ -56,21 +58,34 @@ def main():
 
     A('#### Table A — per architecture, per seed (the six primary arms)\n')
     A('| architecture | seed | held CE (T512) | bits/byte | induction '
-      '(± probe floor 3 SE) | A0→layer-1 read deleted, KL [zero, resample] | '
+      '(± probe floor 3 SE) | natural swap (excess over own depth-1 null) | '
+      'A0→layer-1 read deleted, KL [zero, resample] | '
       'content/null | selection/null |')
-    A('|---|---|---|---|---|---|---|---|')
+    A('|---|---|---|---|---|---|---|---|---|')
     for var in vs:
         for k, r in prim[var]:
             z, rs = r['A2A_kl_range_zero_to_resample']
             zf = ('%.2e' % z) if z < 1e-3 else ('%.3f' % z)
             rf = ('%.2e' % rs) if rs < 1e-3 else ('%.3f' % rs)
+            ratio = r['induction_mean'] / r['induction_floor_3se']
+            flag = '' if ratio > 1 else ' **below floor**'
+            ex = r.get('natural_swap_excess_over_depth1_null')
             A(f"| {var} | {k.rsplit('_s', 1)[1]} | "
               f"{r['held_ce_T512_1500seq']:.4f} | {r['bits_per_byte']:.4f} | "
               f"{r['induction_mean']:+.4f} ± {r['induction_floor_3se']:.4f} "
-              f"({r['induction_mean']/r['induction_floor_3se']:+.1f}×) | "
+              f"({ratio:+.1f}×){flag} | "
+              f"{r['natural_swap_mean']:+.4f} (t={r['natural_swap_t']:.1f}) "
+              f"({'-' if ex is None else f'{ex:+.4f}'}) | "
               f"[{zf}, {rf}] | {r['content_over_null']:.3f} | "
               f"{r['selection_over_null']:.3f} |")
     A('')
+    A('> `predicate`\'s induction is **supplied by the architecture, not '
+      'discovered**: `MATCH_prev[i,j] = 1[tok_{j-1} == tok_i]` is a complete '
+      'induction head handed over as one scalar per head, zeroing those 16 '
+      'scalars removes 98.7–99.1% of the score, and its depth-1 cell already '
+      'scores +1.536 on the natural-text swap — which is why its *excess over '
+      'its own depth-1 null* is negative. Do not read its column as a learned '
+      'circuit.\n')
     A('#### Table B — the same, aggregated over the three seeds (mean ± sd)\n')
     A('| architecture | nominal params (body / embed) | effective params | '
       'stream width | held CE | bits/byte | induction | routing KL zero | '
@@ -88,7 +103,7 @@ def main():
           f"{r0['stream_width']} | "
           f"{ms([r['held_ce_T512_1500seq'] for r in rs_])} | "
           f"{ms([r['bits_per_byte'] for r in rs_])} | "
-          f"{ms([r['induction_mean'] for r in rs_], '{:+.4f}')} | "
+          f"{ms([r['induction_mean'] for r in rs_], '{:+.4f}', '{:.4f}')} | "
           f"{ms([r['A2A_kl_range_zero_to_resample'][0] for r in rs_], '{:.2e}')} | "
           f"{ms([r['A2A_kl_range_zero_to_resample'][1] for r in rs_], '{:.2e}')} | "
           f"{ms([r['content_over_null'] for r in rs_], '{:.3f}')} | "

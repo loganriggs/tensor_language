@@ -203,17 +203,31 @@ def summarise(cells):
     out['cells'] = rows
     out['dropped_because_produced_by_an_older_analysis_revision'] = stale
     # ---- depth-1 matched nulls for the natural swap probe ----
-    d1 = {}
+    # AVERAGED OVER WHATEVER DEPTH-1 SEEDS EXIST.  This used to be
+    # `d1[variant] = ...` inside the loop, which silently kept only the LAST
+    # seed found -- harmless while only seed 0 existed and a seed-mixing bug the
+    # moment a second one was trained (round-2 review).
+    acc1 = {}
     for stem, r in cells.items():
         if r.get('depth') == 1 and r.get('width') == 128:
-            d1[r['variant']] = {
-                'natural_swap_mean': r['natural_induction'][
-                    'ORDER_ONLY_patch_swap']['mean'],
-                'natural_swap_se': r['natural_induction'][
-                    'ORDER_ONLY_patch_swap']['se'],
-                'synthetic_induction_mean': r['rung3_induction'][
-                    'induction_score_mean'],
-                'stem': stem}
+            acc1.setdefault(r['variant'], []).append((stem, r))
+    d1 = {}
+    for v_, lst in acc1.items():
+        sw = [r['natural_induction']['ORDER_ONLY_patch_swap']['mean']
+              for _, r in lst]
+        si = [r['rung3_induction']['induction_score_mean'] for _, r in lst]
+        d1[v_] = {
+            'natural_swap_mean': float(np.mean(sw)),
+            'natural_swap_sd_over_seeds': (float(np.std(sw, ddof=1))
+                                           if len(sw) > 1 else None),
+            'natural_swap_values': [float(z) for z in sw],
+            'natural_swap_se': float(np.mean(
+                [r['natural_induction']['ORDER_ONLY_patch_swap']['se']
+                 for _, r in lst])),
+            'synthetic_induction_mean': float(np.mean(si)),
+            'synthetic_induction_values': [float(z) for z in si],
+            'n_seeds': len(lst),
+            'stems': sorted(s for s, _ in lst)}
     out['depth1_matched_nulls'] = d1
     for k, v in rows.items():
         base = d1.get(v['variant'])

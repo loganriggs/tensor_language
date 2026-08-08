@@ -7,6 +7,44 @@ they land with the finding in the commit message.
 
 ---
 
+**2026-08-08 12:10 UTC — HONEST STATUS OF THE ACTUAL GOAL (Logan asked):
+rungs 1-4 and 6 are DONE; RUNG 5, the point of the program, IS NOT.**
+What is genuinely complete:
+  rung 1 exact fold        DONE — two-tier gate, fp64 residual 1.3e-14, all
+                           33 cells including every architecture variant
+  rung 2 tables + spectra  DONE — factors, effective ranks, nulls
+  rung 3 behaviour         DONE — bigram/skip/positional/induction, each
+                           with causal ablation, floor, and a power floor
+  rung 4 content           DONE, and NEGATIVE: content sits at 0.98-1.00 of
+                           its random-factored null in ALL SIX architectures
+  rung 6 convergence       DONE — 3 seeds everywhere that carries a claim
+RUNG 5 IS THE GAP. The deliverable was "an explicit weights-free program
+(code + small tables) reproducing the next-token distribution to a stated
+KL". What we actually have at depth 1 width 128:
+  - the exact fold reaches KL 0.0000, but that is a RE-ENCODING of the
+    model, not an explanation — it references every weight.
+  - the only genuinely weights-free artifact is the model's own V x V
+    bigram table: KL 0.649. It has 67.1M entries against the model's 1.31M
+    parameters, i.e. THE EXPLANATION IS 51x LARGER THAN THE THING IT
+    EXPLAINS and is still 0.649 nats short.
+  - every compact alternative fails: rank-64 factorisation of that table
+    scores 6.47 nats against the model's 4.72; keeping the MLP's top 256 of
+    512 hidden units leaves KL 0.643; top 128 leaves 1.518. There is no
+    small basis.
+So the honest one-line status: WE CAN REPRODUCE THESE MODELS EXACTLY AND WE
+CANNOT COMPRESS THEM. The ladder's rung 5 remainder is not a small residue
+to be chased — it is essentially the whole model, and the measurements say
+why: the MLP is distributed (no small unit basis), and its content is
+spectral in every architecture we built to make it legible.
+That is a real result and should be reported as one rather than as
+"pending". The next honest move is either (a) find a description language
+in which these models ARE compressible (the MDL-in-the-loss line), or
+(b) state the negative result properly: for this architecture family at
+these sizes, exact folding buys auditability, not compression.
+
+---
+
+
 **2026-08-08 11:10 UTC — INDEPENDENT REVIEW (round 2) LANDS AND CORRECTS
 THE HEADLINE'S MECHANISM. Read this before citing the routing result.**
 The reviewer did not produce the results, re-ran the whole 33-cell slice

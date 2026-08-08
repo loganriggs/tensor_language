@@ -345,6 +345,19 @@ class TinyBilin(nn.Module):
                 wm[k] = 1.0
             else:
                 wm[k, cfg.slot * k:cfg.slot * (k + 1)] = 1.0
+        # FOUND BY THE ROUND-2 REVIEW.  A python slice past the end is legal and
+        # empty, so `n_slots < 2*depth` used to build an ALL-ZERO write mask for
+        # every module beyond the last slot -- the model trained happily with
+        # its second block writing nothing at all, and nothing anywhere said so.
+        # (A `--n-slots 2` arm at depth 2 was run as a partition dose-response
+        # and was silently a depth-2 model with a mute second block; it was
+        # discarded.)  Every arm in the slice uses n_slots = 2*depth or 1 and is
+        # unaffected; this assertion only forbids the silent case.
+        assert bool((wm.sum(1) > 0).all()), (
+            f'n_slots={cfg.n_slots} leaves modules {[k for k in range(2*cfg.depth) if wm[k].sum()==0]} '
+            f'with an empty write mask at depth {cfg.depth}; a masked decoder '
+            f'needs n_slots >= 2*depth (or n_slots == 1 for the vanilla '
+            f'reduction)')
         self.register_buffer('wmask', wm)
         cos, sin = rope_tables_exact(cfg.T, cfg.head_dim, 'cpu')
         self.register_buffer('cos', cos)
