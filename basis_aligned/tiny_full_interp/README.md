@@ -441,3 +441,15 @@ basis tried, and here are the bits" is a real deliverable.
   on 2026-08-08 (a bound reported as a detection, and a compressibility level
   off by 0.5). Read only the agent's declared-final report; its intermediate
   files are scratch.
+- **Reinstating a retracted inference at a new depth/size without redoing the
+  check that retracted it.** The "route opens / channel is shut" reading was
+  retracted at depth 2 (a matched-displacement probe showed the plain model's
+  receiver was the MOST sensitive), then reasserted at depth 3 from the same
+  kind of deletion evidence without rerunning that probe. When a claim is
+  retracted for a methodological reason, the retraction travels with the
+  METHOD, not with the cell it was measured in — re-running the same analysis
+  elsewhere requires re-running the control that killed it.
+- **A floor defined over probe seeds is not a detection threshold.** It
+  shrinks as 1/sqrt(n), so any nonzero score clears it if the probe is run
+  longer. Thresholds must be defined over MODEL seeds. Three defensible
+  criteria gave three different width thresholds on the same data.

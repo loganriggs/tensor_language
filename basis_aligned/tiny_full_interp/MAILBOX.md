@@ -7,6 +7,56 @@ they land with the finding in the commit message.
 
 ---
 
+**2026-08-08 18:00 UTC — INDEPENDENT REVIEW OF THE DEPTH LADDER: TWO
+RETRACTIONS, one of them a mistake we made TWICE. Read before citing any
+"route" language.**
+RETRACTION 1 — **the routing result is a MAGNITUDE result wearing routing
+language.** Across all 243 write/read pairs in the ladder, log of the
+read-ablation KL regresses on log of the write's own norm share with
+**r = 0.9944, slope 1.992**, residual spread 0.264 dex. A KL is locally
+quadratic in a perturbation, so slope 2 is exactly what NO direction-specific
+gating looks like. Layer-0 attention's residual is **+0.12 dex — it transmits
+slightly MORE than its size predicts**, the opposite of a gated channel. It
+is mute because at depth 3 width 128 it writes a vector of norm 4.0 where
+layer-1 attention writes 1028. "The route opens" and "the channel is shut"
+are WITHDRAWN at depth 3, exactly as they were at depth 2.
+AND THE PROCESS FAILURE, which is worse than the error: this is the SAME
+inference FINDING 11 retracted at depth 2 — where a matched-displacement
+probe showed the plain model's receiver was the MOST sensitive — reinstated
+at depth 3 WITHOUT that control being rerun. A retraction travels with the
+METHOD, not with the cell. Added to the README failure modes.
+RETRACTION 2 — **the width threshold is a property of the detection
+criterion, not of the model.** The floor was 3 standard errors across PROBE
+seeds, which shrinks as 1/sqrt(n), so any nonzero score clears it if you run
+the probe longer. Three defensible criteria give three answers: 256/128/64
+(published), 256/64/64 (20 probe seeds), 256/128/128 (t-test over model
+seeds). Adopted: thresholds defined over MODEL seeds — which is what makes
+the corrected "moves once" claim the one that stands — and the headline
+should be the continuous magnitude surface, not a threshold.
+WHAT SURVIVES, and it is the substantive part: **route USE.** Cutting
+layer-1 attention out of layer 2's read removes **0.857 +- 0.103** of the
+induction score at depth 3 width 128 and 0.551 +- 0.101 at width 256, while
+cutting layer-0 attention removes **0.000 everywhere**. The effect is
+present at every cell and every seed (smallest share 0.073 against
+1.1e-6..1.9e-5 at depth 2). And the probe is NOT depth-biased: replacing
+every attention pattern with a causal-past average or position-only pattern
+leaves depth and the MLPs intact but makes induction impossible, and 0 of 48
+such arms clears its own floor (max apparent induction +0.0010).
+NUMBERS CORRECTED: depth-3 width-256 route 0.386 -> **0.299 +- 0.075**; the
+tidy "0.17/0.26/0.39 growing with width" becomes 0.195+-0.025 /
+0.233+-0.050 / 0.299+-0.075, monotone in the mean with overlapping spreads —
+a trend, not a measurement; route-use 94.5% -> a 74-95% range; layer-0's
+bound widens 3e-5 -> 1.6e-4; and a transcription error (depth-4 width-128
+layer-2 fraction is 0.086, not 0.220 — that was layer 3's).
+MY META-LESSON WAS ALSO WRONG. I said seed 0 was "the luckiest of three".
+It is the LOWEST of three at four of the six deep cells, and highest only at
+the two width-64 cells where the decision was marginal. The real lesson is
+about MARGINAL CELLS: where the between-seed spread is the size of the
+effect, no number of probe seeds can adjudicate it.
+
+---
+
+
 **2026-08-08 18:05 UTC — THE DEPTH LADDER'S ROUTE HALF IS RETRACTED. It was a
 magnitude result wearing routing language, and it is the SAME error FINDING 11
 retracted at depth 2, made again one depth up.**
