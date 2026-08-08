@@ -78,7 +78,22 @@ def cell_ratios(d):
     ce0 = d['model']['held_ce']
     head = d['headroom_over_unigram_nats']
     out = {}
+    # THE EMBEDDING-ONLY CONTROL (adversarial review).  The embedding is 93% of
+    # the parameters at width 32 and 57% at width 256, and every structural
+    # scheme in the family attacks the embedding -- so the ratio could fall with
+    # width for the trivial reason that there is proportionally less embedding
+    # to attack.  Holding the body at its near-lossless 12-bit code isolates the
+    # embedding coder, and the same trend must survive there.
+    embonly = [p for p in pts if p['name'].endswith('+body_naive12')]
     for key, cap in (('ce', ce0 + 0.15 * head), ('kl', 0.15 * head)):
+        for tag, den, num in (('emb_only_vs_naive', ('naive',),
+                               ('recode', 'structure')),
+                              ('emb_only_struct', ('naive',), ('structure',))):
+            r = frontier_ratios(embonly, key, den, num, cap)
+            v = [x['ratio'] for x in r]
+            out[f'{key}_{tag}'] = {
+                'n_frontier_points': len(v),
+                'median': float(np.median(v)) if v else None}
         for tag, den, num in (
                 ('vs_naive', ('naive',), ('recode', 'structure')),
                 ('vs_naive_strong', ('naive', 'naiveG'),
@@ -116,6 +131,8 @@ def load():
             'R_struct': fr['ce_struct_vs_naive_strong']['median'],
             'R_struct_perrow': fr['ce_struct_vs_naive']['median'],
             'R_struct_kl': fr['kl_struct_vs_naive_strong']['median'],
+            'R_embonly': fr['ce_emb_only_vs_naive']['median'],
+            'R_embonly_struct': fr['ce_emb_only_struct']['median'],
             'stem': d['stem'], 'depth': d['depth'], 'width': d['width'],
             'seed': int(d['stem'].split('_s')[-1]),
             'n_params': d['n_params'], 'n_body': d['n_body'],
@@ -160,6 +177,7 @@ def main():
     out = {'n_cells': len(rows), 'n_cells_seed0': len(s0)}
 
     for key in ('R', 'R_perrow', 'R_kl', 'R_struct', 'R_struct_perrow',
+                'R_embonly', 'R_embonly_struct',
                 'ratio', 'ratio_strong', 'ratio_struct'):
         v = [(r['n_params'], r[key]) for r in s0 if r[key]]
         if len(v) >= 3:
@@ -245,9 +263,10 @@ def main():
          'plus an honestly coded remainder -- with recodings excluded.',
          '',
          '| depth | width | seed | params | emb share | held CE | **R** | R '
-         'range | R (per-row denom) | R (KL not CE) | **R (structure)** | R '
-         '(structure, per-row denom) | naive per-row overhead share |',
-         '|---|---|---|---|---|---|---|---|---|---|---|---|---|']
+         'range | R (per-row denom) | R (KL not CE) | R (embedding only) | '
+         '**R (structure)** | R (structure, per-row) | R (structure, '
+         'embedding only) | naive per-row overhead share |',
+         '|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|']
     for r in sorted(rows, key=lambda r: (r['depth'], r['width'], r['seed'])):
         f = lambda v: '—' if v is None else f'{v:.3f}'
         L.append(f"| {r['depth']} | {r['width']} | {r['seed']} | "
@@ -255,7 +274,9 @@ def main():
                  f"{r['held_ce']:.4f} | **{f(r['R'])}** | "
                  f"{f(r['R_min'])}–{f(r['R_max'])} | "
                  f"{f(r['R_perrow'])} | {f(r['R_kl'])} | "
+                 f"{f(r['R_embonly'])} | "
                  f"**{f(r['R_struct'])}** | {f(r['R_struct_perrow'])} | "
+                 f"{f(r['R_embonly_struct'])} | "
                  f"{r['naive_overhead_share_b4']:.0%} |")
     L += ['', '## Trend', '', '```', json.dumps(
         {k: v for k, v in out.items() if k != 'depth_effect_at_fixed_width'},
