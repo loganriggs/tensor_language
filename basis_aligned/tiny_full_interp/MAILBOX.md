@@ -7,6 +7,72 @@ they land with the finding in the commit message.
 
 ---
 
+**2026-08-08 06:40 UTC — ADVERSARIAL REVIEW OF THE DEPTH-2 WRITE-UP. Three
+of our own claims did not survive it, including one from the 06:30 entry
+below. Artifacts: `tf_reviewer_round_1_depth2.json`, `tf_interp2.py`,
+`tf_induction_circuit.py`, RESULTS.md FINDINGS 7-10.**
+
+CORRECTION 1 — THE INDUCTION CIRCUIT IS NOT THE TEXTBOOK ONE. The 06:30
+entry says "a previous-token head in layer 0 and a matching head in layer 1
+is the textbook story, and here it is". The participants are right; the
+WIRING is not, and the route decomposition says so. Holding the model fixed
+and deleting layer-0 head 1's write from one consumer at a time (depth 2,
+width 256, seed 0; induction score, baseline 0.0841):
+  from layer 1's Q/K/V READ ............ 0.0841  (no effect at all)
+  from MLP-1's input ................... 0.0841  (no effect at all)
+  from MLP-0's input ................... 0.0083  (the ENTIRE effect)
+  the head deleted outright ............ 0.0083
+So the previous-token signal reaches layer-1 attention THROUGH THE LAYER-0
+MLP, not through the residual-stream attention->attention path the textbook
+circuit runs on. That path is measurably closed: layer 1's read is 99.91%
+MLP-0's write and 0.42% layer-0 attention, and layer 1's pattern moves by
+0.60% when layer-0 attention is deleted from its read. Control: the same
+read-deletion for a different layer-0 head also gives 0.0841, and the whole
+decomposition reproduces on DISJOINT probe seeds (100-104), so it is not a
+selection artifact.
+
+CORRECTION 2 — ZEROING WAS THE GENTLER ABLATION, SO EVERY "ATTENTION IS
+CHEAP" NUMBER IN THIS PROGRAM IS A LOWER BOUND. Added a resample ablation
+(replace a layer's attention write with the write that layer produced on a
+different sequence — on-distribution by construction). Resample cost beats
+zero cost at 13 of 14 layer-cells: depth 1 w128 0.703 -> 1.118, w256 0.939
+-> 1.435; depth 2 w128 0.941 -> 1.510, w256 1.229 -> 2.013. And the
+layer-0/layer-1 ordering flip I was about to report at width 128 does NOT
+survive it — under the on-distribution ablation layer-1 attention costs
+more than layer-0 at EVERY width.
+
+CORRECTION 3 — FINDING 6's HEADLINE IS RETRACTED. The standing rule is
+"compose to the logits AND confirm causally"; FINDING 6 did only the first
+half. Correlation between the rung-4 direct-route composed object and the
+head's actual causal effect: 0.002-0.02 at depth-2 layer 0, 0.00-0.43 at
+depth 1. It describes nothing — which follows from FINDING 2, since the
+direct route to the readout is dead. The through-MLP composition (exact,
+because the bilinear MLP gives MLP(x-d)-MLP(x) = -2T(x,d)+T(d,d)) tracks the
+causal effect at 0.63-0.98 with 92-95% sign agreement, and re-deriving the
+copy claim causally puts the attended token at median rank 286-4880 of 8192,
+not the 5600 we reported, with several heads placing it in the top 4-6%.
+
+ALSO NEW, all in `tf_interp2.py`:
+- NATURAL-TEXT induction probe with the two confounds removed. The obvious
+  version (overwrite the token after the earlier occurrence) also removes
+  the target from the prefix and so measures the BAG effect; replaced with a
+  bag-preserving SWAP. The swap still changes distances, which a depth-1
+  distance kernel notices, so the depth-1 cell at the same width is the
+  MATCHED NULL. Excess over that null: +0.003 (w32), +0.015 (w64), +0.036
+  (w128), +0.164 (w256, t=6.0). Only width 256 clears it — independent
+  confirmation of the synthetic battery on real text.
+- FIT/SCORE DISJOINTNESS, measured not asserted: the whole ladder re-scored
+  on the estimation split. Every fitted stage's held-minus-est is POSITIVE
+  and at most +0.037 nats.
+- KNOWN-ANSWER CONTROL for the new code: `tf_interp2.DeepFold` reproduces
+  the reviewed depth-1 ladder to 9.5e-7 nats on every shared stage.
+
+STILL OPEN: the width-256 induction is ONE model seed. Seeds 1-2 at depth 2
+and depth 1 are training (`tf_w256_seeds_chain.sh`); nothing about emergence
+should be repeated outside this repo until they land.
+
+---
+
 **2026-08-08 06:30 UTC — INDUCTION EMERGES, and we caught it in a model we
 can fold exactly. The depth x width grid is complete (16 cells).**
 Induction score by cell (probe power floor = 0.0172 nats, three standard

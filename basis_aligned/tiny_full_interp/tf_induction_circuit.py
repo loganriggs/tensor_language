@@ -64,7 +64,8 @@ def distance_profile_per_head(D, n_seq=32, T=256):
 
 
 @torch.no_grad()
-def battery_with(D, attn=None, read_minus=None, mlp_read_minus=None, seeds=5):
+def battery_with(D, attn=None, read_minus=None, mlp_read_minus=None,
+                 seeds=5, seed0=0):
     """The induction battery with an intervention, using the folded pipeline.
 
     `read_minus=(li, h)`      : delete layer-0 head h's write from layer li's
@@ -88,7 +89,8 @@ def battery_with(D, attn=None, read_minus=None, mlp_read_minus=None, seeds=5):
         keep = D.run(z, attn={0: ('keep', h)})['A'][0]
         return D.readout(D.run(z, attn=attn,
                                mlp_reads={li: lambda P, x: x - keep})['r'])
-    r = [I1.induction_battery(D, seed=s, model=fwd) for s in range(seeds)]
+    r = [I1.induction_battery(D, seed=seed0 + s, model=fwd)
+         for s in range(seeds)]
     return {'induction_score_mean': float(np.mean([q['induction_score']
                                                    for q in r])),
             'induction_score_sd': float(np.std([q['induction_score']
@@ -112,6 +114,20 @@ def main(stem, l0=1, l1=15):
     out['control_layer1_read_minus_other_head'] = battery_with(
         D, read_minus=(1, ctrl))
     out['control_head'] = ctrl
+    # SELECTION-EFFECT CONTROL: the head was chosen on probe seeds 0-4, which
+    # are the seeds the effect is then scored on.  Re-score the whole route
+    # decomposition on DISJOINT probe seeds 100-104.
+    out['held_out_probe_seeds'] = {
+        'baseline': battery_with(D, seed0=100),
+        f'drop_l0_head{l0}': battery_with(D, attn={0: ('drop', l0)}, seed0=100),
+        f'drop_l1_head{l1}': battery_with(D, attn={1: ('drop', l1)}, seed0=100),
+        'layer1_read_minus_l0_head': battery_with(D, read_minus=(1, l0),
+                                                  seed0=100),
+        'mlp0_input_minus_l0_head': battery_with(D, mlp_read_minus=(0, l0),
+                                                 seed0=100),
+        'note': 'probe seeds 100-104, disjoint from the 0-4 used to pick the '
+                'heads; if the route decomposition is a selection artifact it '
+                'will not reproduce here'}
     # and the KL cost of each, so 'kills the induction' is not confused with
     # 'breaks the model'
     kl = {}

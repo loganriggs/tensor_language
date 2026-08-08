@@ -297,6 +297,34 @@
     "bag_score_mean": 0.13340026007758218
   },
   "control_head": 2,
+  "held_out_probe_seeds": {
+    "baseline": {
+      "induction_score_mean": 0.08357164594862213,
+      "induction_score_sd": 0.009162991310016164,
+      "bag_score_mean": 0.12932046254475935
+    },
+    "drop_l0_head1": {
+      "induction_score_mean": 0.009500673082139598,
+      "induction_score_sd": 0.008041984918718619,
+      "bag_score_mean": 0.1506883197360569
+    },
+    "drop_l1_head15": {
+      "induction_score_mean": 0.038975397745768706,
+      "induction_score_sd": 0.009050959104667793,
+      "bag_score_mean": 0.10830686357286154
+    },
+    "layer1_read_minus_l0_head": {
+      "induction_score_mean": 0.0836469226413307,
+      "induction_score_sd": 0.009162172165670099,
+      "bag_score_mean": 0.1294055514865448
+    },
+    "mlp0_input_minus_l0_head": {
+      "induction_score_mean": 0.009476915995280066,
+      "induction_score_sd": 0.008046430718844623,
+      "bag_score_mean": 0.15064197116427955
+    },
+    "note": "probe seeds 100-104, disjoint from the 0-4 used to pick the heads; if the route decomposition is a selection artifact it will not reproduce here"
+  },
   "kl_cost": {
     "drop_l0": 0.1858460046350956,
     "drop_l1": 0.01592557888943702,

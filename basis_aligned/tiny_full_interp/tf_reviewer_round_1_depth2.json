@@ -41,9 +41,10 @@
     "objection_to_claim": "Single-knockout costs are not a partition; the layers could be compensating so that each looks cheap.",
     "fix": "The joint deletion is reported next to the sum of the two singles. At w32-64 joint > sum (super-additive: the layers back each other up, so the singles UNDERSTATE); at w128-256 joint < sum (sub-additive: they overlap, so the singles OVERSTATE). Both directions are reported rather than the flattering one.",
     "objection_to_technique": "Deleting a layer's attention is a large intervention that pushes the model off distribution; the MLPs then see inputs they were never trained on and the KL measures that, not the layer's function.",
-    "answer": "PARTLY CONCEDED. Every knockout in this ladder has that property, at both depths, which is why the comparison is always knockout-vs-knockout at the same magnitude rather than knockout-vs-absolute. The mean-ablation variants (which keep the first moment) agree with the zeroings to within 0.03 nats, which bounds the off-distribution component for the past-attention knockouts but NOT for the whole-layer ones.",
-    "status": "OPEN (bounded)",
-    "measurement_that_would_close_it": "resample-ablation: replace the layer's write with the write it produces on a different randomly chosen context, which is on-distribution by construction; not run"
+    "answer": "CONCEDED AND MEASURED. A resample ablation was added (tf_interp2.resample_ablation): the layer's attention write is replaced by the write that same layer produced on a DIFFERENT sequence, which is a real module output and therefore on distribution by construction.",
+    "result": "The resample cost EXCEEDS the zero cost at 13 of 14 layer-cells (e.g. depth-2 width-64 layer 1: 0.336 zero vs 0.594 resample; depth-1 width-128: 0.703 vs 1.118). Zeroing was the GENTLER intervention, so every attention-knockout number in this program is a LOWER bound, not an inflated one. The exceptions are layer 0 at widths 128 and 256, where 12-14% of the zeroing cost is distribution shift.",
+    "consequence_against_our_own_claim": "the layer-0/layer-1 ordering flip at width 128 does NOT survive: under the on-distribution ablation layer 1 costs more at EVERY width. FINDING 8 was rewritten.",
+    "status": "CLOSED (and it changed the answer)"
   },
 
   "C3_per_head_drops": {
@@ -84,8 +85,8 @@
     "objection_to_technique": "Deleting one head's write from a downstream read is not something the model ever experiences; the near-zero effect on the layer-1 read could be a scale artifact rather than an absence of the path.",
     "answer": "That IS the finding, quantified independently: layer-1's read is 99.91% MLP-0's write and 0.42% layer-0 attention, and the layer-1 pattern moves by 0.60% when layer-0 attention is removed from it. The intervention is small because the path is small. A control deleting a DIFFERENT layer-0 head from the same read also gives 0.0841, so the null is not an artifact of the intervention being ineffective in general -- the MLP-0-input version of the same intervention moves the score by 90%.",
     "objection_remaining": "Head identification used the per-head sweep from the same battery it is being explained by, so the head is selected on the statistic it is then scored on.",
-    "status": "OPEN (selection effect)",
-    "measurement_that_would_close_it": "select the head on one set of probe seeds and score the route decomposition on disjoint ones; and replicate on seeds 1-2 (training)"
+    "fix2": "The whole route decomposition was re-scored on DISJOINT probe seeds (100-104 instead of 0-4). It reproduces to within 0.001: baseline 0.0836, drop layer-0 head 1 0.0095, layer-1 read minus that head 0.0836, MLP-0 input minus that head 0.0095.",
+    "status": "CLOSED for the selection effect; OPEN for model-seed replication (depth-2 width-256 seeds 1 and 2 training)"
   },
 
   "C7_signs_composed_and_causally_confirmed": {
