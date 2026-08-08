@@ -541,10 +541,10 @@ def ladder_v(D, n_seq=96, T=256, batch=8, split='held', extra=True):
             # --- COMPOSITION: what does layer 1+ actually read? ---
             for li in range(1, L):
                 def mk(fn, li_=li):
-                    return lambda P_: D._pre(2 * li_, fn(P_), {})
-                emb = mk(lambda P_: P_['rem'][li])
-                eA0 = mk(lambda P_: P_['rem'][li] + P_['A'][0])
-                eM0 = mk(lambda P_: P_['rem'][li] + P_['M'][0])
+                    return lambda P_: D._pre(2 * li_, fn(P_, li_), {})
+                emb = mk(lambda P_, l: P_['rem'][l])
+                eA0 = mk(lambda P_, l: P_['rem'][l] + P_['A'][0])
+                eM0 = mk(lambda P_, l: P_['rem'][l] + P_['M'][0])
                 c[f'l{li}_reads_embedding'] = D.run(x, reads={li: emb})['r']
                 c[f'l{li}_qk_reads_embedding'] = D.run(
                     x, reads={li: ('qk', emb)})['r']
