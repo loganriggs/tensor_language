@@ -127,12 +127,21 @@ G.MEM_BUDGET_MIB = 26000
 ARM = sys.argv[1] if len(sys.argv) > 1 else 'bw1e4'
 CFG = {'bw1e4': dict(stem='qk_s_w1152_bw1e4', coeff=1e-4,
                      control='qk_s_w1152_combo1e4loss',
-                     control_label='combo1e4loss'),
+                     control_label='combo1e4loss', seed_offset=0),
        'bw3e5': dict(stem='qk_s_w1152_bw3e5', coeff=3e-5,
                      control='qk_s_w1152_combo3e5loss',
-                     control_label='combo3e5loss')}[ARM]
+                     control_label='combo3e5loss', seed_offset=0),
+       # SEED REPLICATE of the winning arm (reviewer-2 R4: nothing enters the
+       # retrain recommendation single-seed). Init seed +1, data order and
+       # everything else identical -- so the bw3e5-vs-bw3e5_s1 spread is the
+       # init lottery on THIS architecture, to be read against the measured
+       # w1152 vanilla seed noise floor of 0.0127.
+       'bw3e5_s1': dict(stem='qk_s_w1152_bw3e5_s1', coeff=3e-5,
+                        control='qk_s_w1152_combo3e5loss',
+                        control_label='combo3e5loss', seed_offset=1)}[ARM]
 STEM = CFG['stem']
 COEFF = CFG['coeff']
+SEED_OFFSET = CFG['seed_offset']
 JP = os.path.join(G.OUT_DIR, f'{STEM}.json')
 
 VANILLA_BODY_W1152 = 286_668_288           # asserted against a live count
@@ -382,6 +391,13 @@ SLOT, PER_S = None, None
 def main():
     global SLOT, PER_S
     W2.patch_width(G.WIDTH)
+    if SEED_OFFSET:
+        # every factory reseeds from Q.SEED, so bumping it here is the whole
+        # of the replicate; the data order (epoch_order(0), driven by
+        # Q.DATA_SEED) is deliberately left untouched
+        Q.SEED = Q.SEED + SEED_OFFSET
+        print(f"SEED REPLICATE: init seed -> {Q.SEED} "
+              f"(data order unchanged, epoch_order(0))", flush=True)
     SLOT, PER_S = solve_slot()
     print(f"solved slot dim {SLOT} at compute width {Q.D}, hidden {4 * Q.D}: "
           f"body per slot dim {PER_S} x depth {DEPTH} = {DEPTH * PER_S}; "
@@ -418,7 +434,8 @@ def main():
         'write_init_note': 'scale convention (width-rescaled), NOT the w264 '
                            'parent hardcoded 0.02/sqrt(24); control (c) shows '
                            'the re-draw is otherwise bit-exact',
-        'seed': Q.SEED, 'data_seed': Q.DATA_SEED, 'data_order': 'epoch_order(0)'}
+        'seed': Q.SEED, 'seed_offset': SEED_OFFSET,
+        'data_seed': Q.DATA_SEED, 'data_order': 'epoch_order(0)'}
     G.savej(JP, out)
 
     M.main()

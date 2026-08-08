@@ -74,7 +74,10 @@ CONTROL_REFERENCE = {
               'top10': 0.2, 'n_effectual': 121},
     'bw3e5': {'stem': 'qk_s_w1152_combo3e5loss', 'label': 'combo3e5loss',
               'plain_all': 0.6007, 'plain_effectual': 0.5728,
-              'top10': 0.2, 'n_effectual': 133}}
+              'top10': 0.2, 'n_effectual': 133},
+    'bw3e5_s1': {'stem': 'qk_s_w1152_combo3e5loss', 'label': 'combo3e5loss',
+                 'plain_all': 0.6007, 'plain_effectual': 0.5728,
+                 'top10': 0.2, 'n_effectual': 133}}
 
 CAVEAT = ('probe eval data = the documented cooc substitute '
           'fresh34k[5500:6000] (first 96 seqs causal), byte-identical to the '
@@ -204,7 +207,8 @@ def main():
     W2.patch_width(G.WIDTH)
     for arm in ARMS:
         BW.ARM = arm
-        BW.CFG = {'bw1e4': dict(coeff=1e-4), 'bw3e5': dict(coeff=3e-5)}[arm]
+        BW.CFG = {'bw1e4': dict(coeff=1e-4), 'bw3e5': dict(coeff=3e-5),
+                  'bw3e5_s1': dict(coeff=3e-5)}[arm]
         probe(arm)
 
 

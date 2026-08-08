@@ -1,0 +1,18 @@
+width patched: D 1152, NH 18, slot dim 48, write_init_std 0.002357
+SEED REPLICATE: init seed -> 1 (data order unchanged, epoch_order(0))
+solved slot dim 65 at compute width 1152, hidden 4608: body per slot dim 365185 x depth 12 = 4382220; stream widens 1152 -> 1560
+control (c) write-init re-draw at the class std: max |diff| 0.00e+00 (expect exactly 0.0)
+recipe (E1) body params 286668288 (MATCH vanilla-1152 286668288)
+control (a) bandwidth(s=48, weights copied from the recipe) == recipe at init: max |logit diff| 5.72e-06 (threshold 1e-4; algebraic identity, GEMM reduction order may differ)
+control (b) penalty fast 10368.2334 vs naive 10368.2334 rel 1.71e-09; V8T dispatch 10368.2334
+control (d) bandwidth arm: slot 65, stream 1560 (compute 1152, hidden 4608), body 284844300 (284.84M) vs vanilla-1152 286.67M -> -0.64%; embedding 78400920 (78.4M, excluded from body)
+registered predictions written to the JSON before training
+width patched: D 1152, NH 18, slot dim 48, write_init_std 0.002357
+data: 298496 train rows, 9328 steps x eff batch 32; held scale 1500 + f34k 1500
+preflight muon: micro 32 OOM
+preflight muon: micro 16 peak 27360 MiB
+preflight muon: micro 8 peak 20331 MiB
+muon: micro 8 (accum 4), lr_adamw 0.002 from qk_s_w1152_gc1e4.json
+muon lr chosen: 0.02 (ranking [0.02, 0.01])
+==== training muonbase w1152 (muon lr 0.02) ====
+  MUON[lr 0.02/0.002] step 0/9328 ce 23.3308 (ema 23.3308) 1s mem 21419MiB

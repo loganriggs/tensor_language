@@ -1,0 +1,46 @@
+width patched: D 264, NH 6, HD 44, slot dim 11
+width patched: D 1152, NH 18, slot dim 48, write_init_std 0.002357
+==== probing bw1e4 (slot 65, stream 1560) ====
+  consumption row 0: emb +0.4395  (1s)
+  consumption row 1: emb +0.5528, attn0 +0.0390, mlp0 +0.0086  (4s)
+  consumption row 2: emb +0.7599, attn1 +0.2526, attn0 +0.0062, mlp1 +0.0058  (8s)
+  consumption row 3: emb +0.5975, mlp2 +0.0818, attn2 +0.0399, attn1 +0.0219  (14s)
+  consumption row 4: emb +0.5357, mlp3 +0.1034, attn3 +0.0280, mlp2 +0.0239  (22s)
+  consumption row 5: emb +0.1647, mlp4 +0.1621, attn4 +0.0297, mlp3 +0.0120  (32s)
+  consumption row 6: emb +0.5432, mlp5 +0.1144, attn3 +0.0799, attn5 +0.0715  (44s)
+  consumption row 7: emb +0.2210, mlp6 +0.1038, mlp5 +0.0299, attn6 +0.0181  (57s)
+  consumption row 8: emb +0.1623, mlp7 +0.0411, mlp6 +0.0250, attn7 +0.0167  (72s)
+  consumption row 9: emb +0.1311, attn6 +0.0424, mlp8 +0.0329, mlp6 +0.0186  (89s)
+  consumption row 10: mlp8 +0.0277, attn6 +0.0130, emb +0.0126, mlp7 +0.0105  (108s)
+  consumption row 11: mlp10 +0.0683, emb +0.0442, attn1 +0.0432, attn8 +0.0424  (128s)
+  consumption row 12: attn1 +0.4239, attn2 +0.3608, mlp11 +0.2427, mlp9 +0.2032  (151s)
+  consumption done in 152s (base CE 4.25755)
+  cov pass: 4/300 seqs (0s)
+  cov pass: 104/300 seqs (1s)
+  cov pass: 204/300 seqs (2s)
+== bw1e4 PLAIN Spearman 0.7562 all / 0.6379 effectual / top10 0.2 (116 of 156 effectual)
+== bw1e4 COV-COMPOSED 0.7991 all / 0.6941 effectual / top10 0.4
+== bw1e4 vs matched control combo1e4loss (plain, same rows): 0.7562 vs 0.7765 -> -0.0203
+== bw1e4 untrained-init null: {'spearman_all': 0.2451, 'spearman_effectual': 0.3366, 'top10_precision': 0.2}
+==== probing bw3e5 (slot 65, stream 1560) ====
+  consumption row 0: emb +0.7896  (1s)
+  consumption row 1: emb +0.2636, attn0 +0.0337, mlp0 +0.0018  (4s)
+  consumption row 2: emb +0.6542, attn1 +0.0349, mlp1 +0.0120, attn0 +0.0071  (8s)
+  consumption row 3: emb +0.8676, mlp2 +0.0737, attn2 +0.0251, attn1 +0.0130  (14s)
+  consumption row 4: emb +0.4226, mlp3 +0.1025, attn3 +0.0335, mlp2 +0.0246  (22s)
+  consumption row 5: emb +0.2258, mlp4 +0.1720, mlp3 +0.0373, attn4 +0.0207  (32s)
+  consumption row 6: emb +0.3442, mlp5 +0.1081, attn5 +0.0955, attn3 +0.0441  (44s)
+  consumption row 7: emb +0.2069, mlp6 +0.0894, attn6 +0.0481, mlp5 +0.0359  (57s)
+  consumption row 8: emb +0.1215, mlp7 +0.0350, mlp6 +0.0222, attn6 +0.0213  (72s)
+  consumption row 9: emb +0.1208, mlp8 +0.0369, attn6 +0.0316, mlp7 +0.0209  (89s)
+  consumption row 10: emb +0.0462, mlp8 +0.0224, attn6 +0.0212, mlp9 +0.0174  (108s)
+  consumption row 11: mlp10 +0.1834, mlp9 +0.0894, attn0 +0.0674, mlp4 +0.0430  (129s)
+  consumption row 12: mlp9 +0.3411, mlp10 +0.3133, attn11 +0.2479, mlp11 +0.2287  (151s)
+  consumption done in 152s (base CE 4.15294)
+  cov pass: 4/300 seqs (0s)
+  cov pass: 104/300 seqs (1s)
+  cov pass: 204/300 seqs (2s)
+== bw3e5 PLAIN Spearman 0.6408 all / 0.5768 effectual / top10 0.1 (123 of 156 effectual)
+== bw3e5 COV-COMPOSED 0.6842 all / 0.6212 effectual / top10 0.2
+== bw3e5 vs matched control combo3e5loss (plain, same rows): 0.6408 vs 0.6007 -> +0.0401
+== bw3e5 untrained-init null: {'spearman_all': 0.2035, 'spearman_effectual': 0.2613, 'top10_precision': 0.2}
