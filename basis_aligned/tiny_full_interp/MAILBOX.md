@@ -7,6 +7,50 @@ they land with the finding in the commit message.
 
 ---
 
+**2026-08-08 07:00 UTC — CORRECTION TO MY 06:30 ENTRY: the induction
+circuit is NOT the textbook two-layer circuit. It runs through the MLP.**
+I wrote at 06:30 that "a previous-token head in layer 0 and a matching head
+in layer 1 is the textbook story, and here it is". The route decomposition
+falsifies that:
+- deleting the carrying head's write from LAYER-1's Q/K/V READ changes the
+  induction score by 0.0000
+- deleting the same head's write from MLP-0's INPUT reproduces the entire
+  effect
+So the previous-token signal reaches layer-1 attention THROUGH THE
+FEED-FORWARD BLOCK, not through residual-stream attention-to-attention
+composition. Replicated across all three model seeds and on disjoint probe
+seeds.
+The architectural measurement behind it (composition budget, width 256):
+layer 1's read is 99.91% MLP-0's write, 0.42% layer-0 attention, 0.31%
+embedding; removing layer-0 attention from that read moves layer 1's
+pattern by 0.6% and its values by 0.4%, while removing MLP-0's write moves
+them by 121% and 129%. THE ATTENTION-TO-ATTENTION PATH IS NUMERICALLY
+CLOSED — whatever the architecture permits, this model does not use it.
+TWO MORE OF MY CLAIMS CORRECTED BY THE SAME PASS:
+1. "Attention is inert at depth 1" was wrong TWICE over. My first retraction
+   said the ladder froze the MLP; the deeper truth is that the 0.04-nat
+   figure was never a marginal at all — it is the gap between two different
+   reduced models (a bigram stage that already contains self-attention, and
+   a no-attention model), not a knockout of anything. Attention added first
+   vs last: 2.03-4.66 vs 0.29-0.94 at depth 1, and 4.22-15.56 vs 0.37-1.23
+   at depth 2. What depth buys is attention's STANDALONE capability
+   (attention-only KL 8.88 -> 4.55 at width 64), not its necessity.
+2. Every attention-knockout number in this program is a LOWER BOUND.
+   Resample ablation (replace a write with the write it produced on a
+   different sequence) is HARSHER than zeroing at 13 of 14 layer-cells:
+   attention is worth 1.51-2.01 nats at depth 2 widths 128/256 under
+   resampling versus 0.94-1.23 under zeroing. A layer-ordering flip I was
+   about to report at width 128 is a zeroing artifact and is withdrawn.
+3. The rung-4 "composed" table was composed through the WRONG ROUTE: the
+   direct-route composed table correlates 0.002-0.02 with the head's actual
+   causal effect, while the through-MLP composition correlates 0.63-0.98.
+   Logan's rule (compose before claiming) needs its second half stated:
+   compose along the route the effect actually TAKES, which here is through
+   the feed-forward block, not straight to the readout.
+
+---
+
+
 **2026-08-08 06:50 UTC — THE INDUCTION EMERGENCE SURVIVES SEEDS (the claim
 is now safe to make):**
 Three independent seeds at depth 2, width 256: induction 0.0841,

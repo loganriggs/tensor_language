@@ -377,3 +377,13 @@ actual mistakes):
   "component X is worth Y" number does not exist for interacting components.
   Every such figure must carry its ladder position, or be a Shapley value
   quoted with the interaction beside it.
+- **Composing along the wrong route.** Logan's compose-before-claiming rule
+  has a second half: compose along the route the effect actually takes. In
+  these models the direct write->readout composition correlates 0.002-0.02
+  with a head's causal effect while the through-MLP composition correlates
+  0.63-0.98. Always identify the carrying route by ablation first, then
+  compose along it.
+- **Zeroing is not the harshest ablation.** Resample ablation (substitute
+  the write the module produced on a DIFFERENT sequence) is harsher than
+  zeroing at 13 of 14 layer-cells measured, so knockout numbers obtained by
+  zeroing are LOWER BOUNDS and orderings derived from them can invert.
