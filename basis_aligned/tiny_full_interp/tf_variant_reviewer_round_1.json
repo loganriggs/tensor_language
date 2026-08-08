@@ -1,0 +1,112 @@
+{
+  "stage": "reviewer_round_1 (self-red-team), GRID.md phase V1, the six-architecture slice",
+  "analyst_note": "For each claim: the strongest objection to the CLAIM and to the METHOD, then what was done about it. Items marked OPEN are limitations, not to-do notes; items marked CLOSED carry the measurement that closed them. Nothing is left in the 'we will check later' state.",
+  "headline_claims_under_review": [
+    "H1 all five non-vanilla variants open the attention-to-attention path the plain model leaves shut",
+    "H2 all five acquire induction at width 128 where vanilla needs 256",
+    "H3 the mechanism is the write partition plus per-slot RMSNorm, not the lasso and not the write init",
+    "H4 predicate gets its induction from sixteen named scalars and beats vanilla on loss",
+    "H5 no variant moves CONTENT off its spectral null; selection stays low rank everywhere"
+  ],
+  "C1_write_init_confound": {
+    "objection": "Every variant sets a nonzero decoder init while vanilla zero-inits. 'Interpretability architecture changes the computation' could be 'a nonzero decoder init changes the computation'. This was judged the single biggest threat to H1-H3.",
+    "why_it_is_decidable_here": "the reduction gate shows slots(n_slots=1, lasso 0, ZERO writes) is BIT-EXACT vanilla (0.0), so an arm with n_slots 1 and no lasso differs from vanilla by the init alone",
+    "measurement": "tf_slots_d2_w128_b8192_s0_writeinit_only: CE 4.65758 vs vanilla 4.65117 (inside the 0.0074 seed spread), induction -0.0095 (null), layer-0 attention out of layer-1's read 3.5e-6 zero / 3.1e-6 resample (path still shut), A0 logit share 0.00008",
+    "status": "CLOSED -- the init explains none of the effect"
+  },
+  "C2_learning_rate": {
+    "objection": "Every arm runs Muon 0.02 for matching, but 0.02 was nobody's swept optimum. If the plain model produced induction at 0.01 or 0.04, the slot result would be a learning-rate effect in an architecture costume.",
+    "measurement": "vanilla and slots trained at 0.01, 0.02 and 0.04, induction read off each (tf_*_lr0.01 / _lr0.04 arms, tf_variant_train3.log)",
+    "status": "RUNNING -- verdict recorded in tf_variant_compare.json when it lands; the claim is provisional until it does"
+  },
+  "C3_parameter_count": {
+    "objection": "bandwidth/predicate/codebook reinvest the small decoder's savings into a 160-wide stream, which is 262,144 MORE embedding parameters than vanilla (1,894,480 vs 1,638,656 total). Any advantage of theirs could be the count.",
+    "what_already_answers_it": "slots has an IDENTICAL parameter count to vanilla -- 1,638,656 total, 590,080 body, 1,048,576 embedding, the same 128-wide stream -- and shows the full effect (induction +0.113, path KL 0.574). shrink adds only 12,288 (0.75%) and also shows it. So the effect cannot be parameter count.",
+    "additional_arms": "bandwidth --slot 32 and predicate --slot 32 pin the stream back to 128 so the embedding is identical to vanilla's, isolating the mechanism from the reinvestment",
+    "effective_vs_nominal": "the codebook variant additionally carries 40,960 floats of EMA codebook as BUFFERS, which .parameters() does not see. They are learned state and are reported as effective parameters (1,935,440 effective vs 1,894,480 nominal) rather than hidden.",
+    "status": "PARTLY CLOSED by slots' exact parameter match; the slot32 arms are RUNNING"
+  },
+  "C4_single_seed": {
+    "objection": "No structure claim in this program survives a single seed; a readability ordering once reversed between two seeds in the parent program.",
+    "yardstick_measured_before_this_slice": "vanilla at this exact cell: CE 4.65117 / 4.65005 / 4.63768 (sd 0.0074); induction -0.0138 / -0.0022 / +0.0059 (sd 0.0099, mean -0.0034); attention-to-attention KL 2.4e-5 / 9.8e-6 / 4.7e-6",
+    "effect_sizes_against_it": "slots' induction of +0.113 is 11.7 vanilla seed standard deviations above vanilla's mean; the CE differences of 0.085-0.097 are 11-13 sd; the path KL differs by a factor of 2e4, which is 4-5 orders of magnitude outside a spread of 2e-5",
+    "measurement": "seeds 1 and 2 for all five variants at this cell are RUNNING",
+    "status": "RUNNING -- the seed-0 effect sizes are large relative to the measured vanilla spread, but that is an argument, not a replication"
+  },
+  "C5_norm_share_is_not_normalisation_invariant": {
+    "objection": "raised in review and it is correct: per-slot RMSNorm equalises what each module contributes to a read, so a balanced norm share could be mechanical",
+    "action_taken": "every norm-share number is WITHDRAWN as evidence. The verdict is re-derived from an intervention (delete the write from layer l's read only, residual untouched, everything downstream recomputed) scored as KL and CE from the true model plus relative pattern and value movement -- none of which a normalisation convention can move.",
+    "control": "norm_confound_control imposes a 4-way slot norm on the PLAIN model at analysis time with no retraining. Its pattern sensitivity to layer-0 attention moves 0.00424 -> 0.00434 (2%), not to the slot variant's 1.27. The post-norm share is forced to 1/G and is explicitly labelled worthless; the pre-norm share cannot move under the control at all and is demoted to context.",
+    "status": "CLOSED"
+  },
+  "C6_slot_geometry_not_content": {
+    "objection": "THE STRONGEST SURVIVING ONE. In a slot architecture layer-0 attention occupies a dedicated quarter of the read vector, so deleting it destroys a quarter of the read whatever it contains. The large KL could be geometry, not information.",
+    "answers": [
+      "the RESAMPLE arm substitutes a real layer-0 attention write from a DIFFERENT sequence: same slot, same occupancy, same magnitude, only the content differs. It still costs 0.071-0.150 nats against vanilla's 5.5e-6.",
+      "the route decomposition is content-specific: the INDUCTION SCORE dies when layer-0 attention leaves layer-1's read (111-153% removed in slots/bandwidth/shrink) and survives when it leaves MLP-0's input (17-37%). Geometry cannot select which behaviour dies.",
+      "the plain model at width 256 HAS induction and still routes around the channel, so a shut channel is not a capacity limit"
+    ],
+    "residual_concern": "the honest mechanism statement is weaker than 'the architecture opens a route': it is 'the architecture removes the plain model's option to collapse one'. In vanilla the first attention block writes with norm 9.4 into a stream whose last write has norm 6931, so it is renormalised into invisibility. That framing is used in the write-up.",
+    "status": "CLOSED as far as the data can close it; the framing is weakened accordingly"
+  },
+  "C7_analysis_code_confound": {
+    "objection": "vanilla's published ladder came out of tf_interp2 and the variants' out of new code, so any difference could be a difference of scripts",
+    "action_taken": "ONE code path (tf_interp3) runs all six INCLUDING vanilla, and it is gated against tf_interp2 on the vanilla checkpoint: every ladder stage agrees to 1.8e-6 nats, the composition budget to 1.0e-6, the stream geometry to 4.0e-6 relative, the length-1 bigram table to 1.5e-6, the OV composition to exactly 0.0, and the counterfactual read substitution to 1.9e-6 (tf_interp3_control.json)",
+    "status": "CLOSED"
+  },
+  "C8_arithmetic_dressed_as_a_finding": {
+    "instance_caught": "the MLP content spectrum for the MASKED-decoder variants was first measured over all 128 output rows, but write_out discards every row outside the module's slot so 96 of 128 never get a gradient (measured row norms 100.5 inside slot 1, 4.7 outside). The all-rows number, 'entropy rank 51 against a null of 123', is exactly 32/128 and nothing else. Restricted to live rows with a shape-matched null, all six sit at 0.98-1.00.",
+    "declared_in_advance": "the registered predictions already declare that a jump in the norm-share and pattern-sensitivity numbers across the partition boundary is architecture and not learning, so that one could not be reported as a finding either",
+    "still_arithmetic_and_labelled_as_such": [
+      "rank <= head_dim per branch is a construction guarantee, never a result; only the gap below it is quoted",
+      "the post-norm slot share is 1/G by construction",
+      "the predicate variant's induction is HANDED OVER by an architectural kernel, not discovered. That is a real capability difference but it is not the model learning a circuit, and the write-up says so."
+    ],
+    "status": "CLOSED"
+  },
+  "C9_probe_validity": {
+    "objection": "a null or a positive from an uncalibrated detector is worth nothing",
+    "actions": "every cell quotes its own power floor (3 SE across probe seeds) from a planted-oracle sensitivity sweep; the synthetic score is corroborated on natural text by a BAG-PRESERVING SWAP that exchanges two prefix tokens, so the token multiset is exactly preserved and only the adjacency induction reads is destroyed; the random-token patch, which contains the order-free bag effect these models do have, is reported but never quoted as induction",
+    "depth1_matched_nulls": "depth-1 cells of every variant are RUNNING; a depth-1 model cannot compose, so its swap score is the generic prefix-perturbation baseline the depth-2 number must be quoted against",
+    "status": "RUNNING for the depth-1 nulls, otherwise CLOSED"
+  },
+  "C10_codebook_route_not_separable": {
+    "objection": "the codebook variant's induction dies at 124% via layer-1's read AND 123% via MLP-0's input, so the two routes are not separable there",
+    "status": "OPEN, recorded as a limitation. The codebook cell's route attribution is not claimed. Its path-opening number (0.113 zero / 0.108 resample) still stands on its own."
+  },
+  "C11_ladder_reordering_is_one_cell": {
+    "objection": "the claim that predicate REORDERS the ladder (attention 2.608 > MLP 2.174) rests on one seed",
+    "status": "RUNNING (seeds 1-2). Until then it is quoted as a seed-0 observation, not a result."
+  },
+  "C12_ce_and_structure_in_the_same_sentence": {
+    "objection": "'changes the computation' must not be reported without 'and costs this much'",
+    "action": "the headline table carries CE for every arm and the write-up states the cost in the same paragraph: four of five variants are 0.085-0.097 nats WORSE (11-13 vanilla seed sd), bandwidth is 0.025 better, predicate 0.267 better",
+    "status": "CLOSED"
+  },
+  "C13_two_ce_conventions": {
+    "objection": "the primary grid table quotes 4.5503 for vanilla d2 w128 while the checkpoint says 4.65117",
+    "resolution": "these are different measurements, not a discrepancy: 4.5503 is the rung-5 ladder's _model_ce (96 held sequences at T=256) and 4.65117 is the training protocol's held CE (1500 sequences at T=512). The context is half as long in the first, worth about 0.09 nats. Both are reported for every arm and never mixed. Recorded in GRID.md.",
+    "status": "CLOSED"
+  },
+  "C14_fold_exactness": {
+    "objection": "a variant that breaks the exact fold would be the headline, not a bug",
+    "result": "all six pass the two-tier gate on their TRAINED checkpoints (fp64 end-to-end residual and the fp32 relative band), and the variant-agnostic pipeline reproduces each model's own forward to 0.8-3.1e-6 relative with the residual additivity identity at 0.0 to 6.6e-8",
+    "bug_found_and_fixed_before_training": "the codebook variant's quantiser hard-cast activations to float32, so cast_model(model, float64) RAISED instead of running -- the codebook variant had never been through the fp64 tier of the gate at all. Fixed to quantise at the codebook's own dtype; bit-identical in fp32 so no training behaviour changed.",
+    "status": "CLOSED"
+  },
+  "C15_registered_predictions_that_were_refuted": {
+    "P1_ladder_no_reordering": "REFUTED by predicate (attention knockout 2.608 > MLP knockout 2.174; true in no other cell in this program)",
+    "P3_induction_absent_in_A_B_C_E_F": "the D half was RIGHT and for the right mechanism; the B/C/E/F half was WRONG -- all four induct at width 128",
+    "P5_resample_harsher_everywhere": "REFUTED for the layer-0 attention WRITE in slots (zero 1.72 > resample 0.75): a zeroed slot under per-slot RMSNorm is further off distribution than a zeroed contribution to a shared stream, so the order inverts",
+    "P2_path_opens": "HELD, and the counter-prediction it registered (an open route that carries no induction would be the stronger result) did not occur -- the route carries the algorithm",
+    "P4_content_stays_spectral": "HELD (0.98-1.00 of the same-shape null in all six), and the sub-prediction that predicate's branch tables would get LOWER entropy rank than vanilla's also held (0.27 vs 0.36 of null), though so did every other variant's, so it is not specific to predicate",
+    "P6_ce_ordering": "PARTLY WRONG -- predicate was predicted to be mid-pack and is the best by 0.267 nats; codebook was predicted worst and is worst (4.748) by a hair over slots (4.742), inside the seed spread",
+    "P7_verdict": "the prediction was B/C/F same-computation and D/E different. WRONG: B, C and F are as different as D on the routing question. Only the mechanism differs -- B/C/F change WHICH ROUTE carries the signal, D changes WHAT IS COMPUTABLE IN ONE LAYER."
+  },
+  "C16_what_would_falsify_the_headline": [
+    "vanilla producing induction at width 128 at Muon 0.01 or 0.04 (running)",
+    "the variant induction failing to replicate at seeds 1 and 2 (running)",
+    "the depth-1 variant cells showing the same natural-text swap score as the depth-2 ones, which would mean the swap probe is measuring something depth-free (running)",
+    "the slot32 arms losing the effect, which would make it the reinvested embedding rather than the mechanism (running) -- though slots already has vanilla's exact parameter count, so this can only affect the C/D/E rows"
+  ]
+}
