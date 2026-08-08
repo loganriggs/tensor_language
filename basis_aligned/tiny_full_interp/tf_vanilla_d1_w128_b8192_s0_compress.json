@@ -1,0 +1,5526 @@
+{
+ "stem": "tf_vanilla_d1_w128_b8192_s0",
+ "registered_predictions": {
+  "written_before_any_measurement": true,
+  "P1_read_vs_write_asymmetry": "The embedding's READ role is far more compressible than its WRITE role. Concretely: coarsening the read table to 512 learned clusters (a 16x cut on the token axis) will leave KL < 0.10 nats, while coarsening the WRITE table to 512 clusters will leave KL > 1.0 nats. Reason offered in advance: the write role must NAME the next token, which is irreducibly per-token information; the read role only has to steer a 128-dimensional computation.",
+  "P2_features_lose_to_identity": "At a matched number of groups, groupings built from token FEATURES (frequency band x orthographic class x length band) will recover less than 30% of the KL that learned behavioural clusters recover, i.e. the per-token content of the read role is NOT a function of cheap surface features. Both must beat a random grouping at the same group count.",
+  "P3_embedding_dominates_the_bill": "The best point on the frontier will be dominated by embedding compression: at the knee, the embedding will account for < 60% of the bits (down from 78% in the fp32 model) and the total will be at least 6x below the model's own 43.0 Mbit, at KL < 0.05.",
+  "P4_body_resists": "The MLP will resist structural compression: no low-rank or refitted-CP scheme will beat plain scalar quantisation of Left/Right/Down at matched bits, anywhere on the curve.",
+  "P5_anchor_hybrid_wins": "Ported from ../qk_mdl (RESULTS_l0_mdl.md 3b/3c): exact rows for the top-B tokens by attribution plus a compressed tail will dominate a pure compressed scheme at matched bits, by at least 1.5x in bits at matched KL somewhere on the curve.",
+  "P7_corpus_statistics_do_not_pay_for_the_embedding": "REGISTERED BEFORE SECTION L RAN (sections A-K were already measured; L was added in response to the self-red-team objection that the strongest structural hypothesis had not been tried). Predicting each embedding row from that token's PPMI co-occurrence statistics on the est split will reach a higher regression R^2 than the orthographic features did (0.256) -- somewhere in 0.40-0.65 -- but will still save LESS THAN 25% of the bits at matched KL even with the statistics given away free, because what the model needs is the residual, not the statistic.",
+  "P6_no_weights_free_table_survives": "No weights-free table description (the V x V token-pair table and its factorisations) will land anywhere near the frontier: all of them cost more bits than the fp32 model AND have higher KL."
+ },
+ "positive_control": {
+  "rel_logit_diff": 4.52531185146654e-06,
+  "kl_identity": 1.4653066671144188e-06,
+  "ce_identity": 4.711396515369415
+ },
+ "model": {
+  "ce": 4.711396515369415,
+  "n_params": 1343616,
+  "fp32_bits": 42995712
+ },
+ "A_self_quantisation": {
+  "n_params_embed": 1048576,
+  "n_params_body": 295040,
+  "n_params_total": 1343616,
+  "fp32_bits": 42995712,
+  "rows": [
+   {
+    "scheme": "uniform_2bit",
+    "emb_bits": 2,
+    "body_bits": 2,
+    "bits": 3014656,
+    "bill": {
+     "embedding": 2359296,
+     "body_Wq": 36864,
+     "body_Wk": 36864,
+     "body_Wq2": 36864,
+     "body_Wk2": 36864,
+     "body_Wv": 36864,
+     "body_Wproj": 36864,
+     "body_Left": 147456,
+     "body_Right": 147456,
+     "body_Down": 135168,
+     "body_Down_bias": 4096,
+     "TOTAL": 3014656
+    },
+    "kl": 4.0312976241111755,
+    "ce": 9.12765383720398,
+    "ntok": 16384
+   },
+   {
+    "scheme": "uniform_3bit",
+    "emb_bits": 3,
+    "body_bits": 3,
+    "bits": 4358144,
+    "bill": {
+     "embedding": 3407872,
+     "body_Wq": 53248,
+     "body_Wk": 53248,
+     "body_Wq2": 53248,
+     "body_Wk2": 53248,
+     "body_Wv": 53248,
+     "body_Wproj": 53248,
+     "body_Left": 212992,
+     "body_Right": 212992,
+     "body_Down": 200704,
+     "body_Down_bias": 4096,
+     "TOTAL": 4358144
+    },
+    "kl": 1.6062975525856018,
+    "ce": 6.523086488246918,
+    "ntok": 16384
+   },
+   {
+    "scheme": "uniform_4bit",
+    "emb_bits": 4,
+    "body_bits": 4,
+    "bits": 5701632,
+    "bill": {
+     "embedding": 4456448,
+     "body_Wq": 69632,
+     "body_Wk": 69632,
+     "body_Wq2": 69632,
+     "body_Wk2": 69632,
+     "body_Wv": 69632,
+     "body_Wproj": 69632,
+     "body_Left": 278528,
+     "body_Right": 278528,
+     "body_Down": 266240,
+     "body_Down_bias": 4096,
+     "TOTAL": 5701632
+    },
+    "kl": 0.28790105134248734,
+    "ce": 5.047615230083466,
+    "ntok": 16384
+   },
+   {
+    "scheme": "uniform_5bit",
+    "emb_bits": 5,
+    "body_bits": 5,
+    "bits": 7045120,
+    "bill": {
+     "embedding": 5505024,
+     "body_Wq": 86016,
+     "body_Wk": 86016,
+     "body_Wq2": 86016,
+     "body_Wk2": 86016,
+     "body_Wv": 86016,
+     "body_Wproj": 86016,
+     "body_Left": 344064,
+     "body_Right": 344064,
+     "body_Down": 331776,
+     "body_Down_bias": 4096,
+     "TOTAL": 7045120
+    },
+    "kl": 0.058076123241335154,
+    "ce": 4.783797442913055,
+    "ntok": 16384
+   },
+   {
+    "scheme": "uniform_6bit",
+    "emb_bits": 6,
+    "body_bits": 6,
+    "bits": 8388608,
+    "bill": {
+     "embedding": 6553600,
+     "body_Wq": 102400,
+     "body_Wk": 102400,
+     "body_Wq2": 102400,
+     "body_Wk2": 102400,
+     "body_Wv": 102400,
+     "body_Wproj": 102400,
+     "body_Left": 409600,
+     "body_Right": 409600,
+     "body_Down": 397312,
+     "body_Down_bias": 4096,
+     "TOTAL": 8388608
+    },
+    "kl": 0.011183719616383314,
+    "ce": 4.72489994764328,
+    "ntok": 16384
+   },
+   {
+    "scheme": "uniform_8bit",
+    "emb_bits": 8,
+    "body_bits": 8,
+    "bits": 11075584,
+    "bill": {
+     "embedding": 8650752,
+     "body_Wq": 135168,
+     "body_Wk": 135168,
+     "body_Wq2": 135168,
+     "body_Wk2": 135168,
+     "body_Wv": 135168,
+     "body_Wproj": 135168,
+     "body_Left": 540672,
+     "body_Right": 540672,
+     "body_Down": 528384,
+     "body_Down_bias": 4096,
+     "TOTAL": 11075584
+    },
+    "kl": 0.0006439469652832486,
+    "ce": 4.712270498275757,
+    "ntok": 16384
+   },
+   {
+    "scheme": "uniform_12bit",
+    "emb_bits": 12,
+    "body_bits": 12,
+    "bits": 16449536,
+    "bill": {
+     "embedding": 12845056,
+     "body_Wq": 200704,
+     "body_Wk": 200704,
+     "body_Wq2": 200704,
+     "body_Wk2": 200704,
+     "body_Wv": 200704,
+     "body_Wproj": 200704,
+     "body_Left": 802816,
+     "body_Right": 802816,
+     "body_Down": 790528,
+     "body_Down_bias": 4096,
+     "TOTAL": 16449536
+    },
+    "kl": 4.415230250742752e-06,
+    "ce": 4.711399078369141,
+    "ntok": 16384
+   },
+   {
+    "scheme": "uniform_16bit",
+    "emb_bits": 16,
+    "body_bits": 16,
+    "bits": 21823488,
+    "bill": {
+     "embedding": 17039360,
+     "body_Wq": 266240,
+     "body_Wk": 266240,
+     "body_Wq2": 266240,
+     "body_Wk2": 266240,
+     "body_Wv": 266240,
+     "body_Wproj": 266240,
+     "body_Left": 1064960,
+     "body_Right": 1064960,
+     "body_Down": 1052672,
+     "body_Down_bias": 4096,
+     "TOTAL": 21823488
+    },
+    "kl": 1.5006995113253652e-06,
+    "ce": 4.711400747299194,
+    "ntok": 16384
+   },
+   {
+    "scheme": "uniform_32bit",
+    "emb_bits": 32,
+    "body_bits": 32,
+    "bits": 42995712,
+    "bill": {
+     "embedding": 33554432,
+     "body_Wq": 524288,
+     "body_Wk": 524288,
+     "body_Wq2": 524288,
+     "body_Wk2": 524288,
+     "body_Wv": 524288,
+     "body_Wproj": 524288,
+     "body_Left": 2097152,
+     "body_Right": 2097152,
+     "body_Down": 2097152,
+     "body_Down_bias": 4096,
+     "TOTAL": 42995712
+    },
+    "kl": 1.4653066671144188e-06,
+    "ce": 4.711396515369415,
+    "ntok": 16384
+   },
+   {
+    "scheme": "emb2bit_body32",
+    "emb_bits": 2,
+    "body_bits": 32,
+    "bits": 11800576,
+    "bill": {
+     "embedding": 2359296,
+     "body": 9441280,
+     "TOTAL": 11800576
+    },
+    "kl": 0.7498944848775864,
+    "ce": 5.535673022270203,
+    "ntok": 16384
+   },
+   {
+    "scheme": "emb3bit_body32",
+    "emb_bits": 3,
+    "body_bits": 32,
+    "bits": 12849152,
+    "bill": {
+     "embedding": 3407872,
+     "body": 9441280,
+     "TOTAL": 12849152
+    },
+    "kl": 0.1292356913909316,
+    "ce": 4.854556024074554,
+    "ntok": 16384
+   },
+   {
+    "scheme": "emb4bit_body32",
+    "emb_bits": 4,
+    "body_bits": 32,
+    "bits": 13897728,
+    "bill": {
+     "embedding": 4456448,
+     "body": 9441280,
+     "TOTAL": 13897728
+    },
+    "kl": 0.02774941991083324,
+    "ce": 4.73962539434433,
+    "ntok": 16384
+   },
+   {
+    "scheme": "emb6bit_body32",
+    "emb_bits": 6,
+    "body_bits": 32,
+    "bits": 15994880,
+    "bill": {
+     "embedding": 6553600,
+     "body": 9441280,
+     "TOTAL": 15994880
+    },
+    "kl": 0.0015789003518875688,
+    "ce": 4.713046729564667,
+    "ntok": 16384
+   },
+   {
+    "scheme": "emb8bit_body32",
+    "emb_bits": 8,
+    "body_bits": 32,
+    "bits": 18092032,
+    "bill": {
+     "embedding": 8650752,
+     "body": 9441280,
+     "TOTAL": 18092032
+    },
+    "kl": 9.540212249703472e-05,
+    "ce": 4.711430549621582,
+    "ntok": 16384
+   },
+   {
+    "scheme": "emb32_body2bit",
+    "emb_bits": 32,
+    "body_bits": 2,
+    "bits": 34209792,
+    "bill": {
+     "embedding": 33554432,
+     "body_Wq": 36864,
+     "body_Wk": 36864,
+     "body_Wq2": 36864,
+     "body_Wk2": 36864,
+     "body_Wv": 36864,
+     "body_Wproj": 36864,
+     "body_Left": 147456,
+     "body_Right": 147456,
+     "body_Down": 135168,
+     "body_Down_bias": 4096,
+     "TOTAL": 34209792
+    },
+    "kl": 3.4869270622730255,
+    "ce": 8.587627172470093,
+    "ntok": 16384
+   },
+   {
+    "scheme": "emb32_body3bit",
+    "emb_bits": 32,
+    "body_bits": 3,
+    "bits": 34504704,
+    "bill": {
+     "embedding": 33554432,
+     "body_Wq": 53248,
+     "body_Wk": 53248,
+     "body_Wq2": 53248,
+     "body_Wk2": 53248,
+     "body_Wv": 53248,
+     "body_Wproj": 53248,
+     "body_Left": 212992,
+     "body_Right": 212992,
+     "body_Down": 200704,
+     "body_Down_bias": 4096,
+     "TOTAL": 34504704
+    },
+    "kl": 1.3480686247348785,
+    "ce": 6.247240900993347,
+    "ntok": 16384
+   },
+   {
+    "scheme": "emb32_body4bit",
+    "emb_bits": 32,
+    "body_bits": 4,
+    "bits": 34799616,
+    "bill": {
+     "embedding": 33554432,
+     "body_Wq": 69632,
+     "body_Wk": 69632,
+     "body_Wq2": 69632,
+     "body_Wk2": 69632,
+     "body_Wv": 69632,
+     "body_Wproj": 69632,
+     "body_Left": 278528,
+     "body_Right": 278528,
+     "body_Down": 266240,
+     "body_Down_bias": 4096,
+     "TOTAL": 34799616
+    },
+    "kl": 0.2520020604133606,
+    "ce": 5.0102808475494385,
+    "ntok": 16384
+   },
+   {
+    "scheme": "emb32_body6bit",
+    "emb_bits": 32,
+    "body_bits": 6,
+    "bits": 35389440,
+    "bill": {
+     "embedding": 33554432,
+     "body_Wq": 102400,
+     "body_Wk": 102400,
+     "body_Wq2": 102400,
+     "body_Wk2": 102400,
+     "body_Wv": 102400,
+     "body_Wproj": 102400,
+     "body_Left": 409600,
+     "body_Right": 409600,
+     "body_Down": 397312,
+     "body_Down_bias": 4096,
+     "TOTAL": 35389440
+    },
+    "kl": 0.009601438185200095,
+    "ce": 4.723332524299622,
+    "ntok": 16384
+   },
+   {
+    "scheme": "emb32_body8bit",
+    "emb_bits": 32,
+    "body_bits": 8,
+    "bits": 35979264,
+    "bill": {
+     "embedding": 33554432,
+     "body_Wq": 135168,
+     "body_Wk": 135168,
+     "body_Wq2": 135168,
+     "body_Wk2": 135168,
+     "body_Wv": 135168,
+     "body_Wproj": 135168,
+     "body_Left": 540672,
+     "body_Right": 540672,
+     "body_Down": 528384,
+     "body_Down_bias": 4096,
+     "TOTAL": 35979264
+    },
+    "kl": 0.0005475639809446875,
+    "ce": 4.712230205535889,
+    "ntok": 16384
+   }
+  ]
+ },
+ "B_split": {
+  "unigram_ce": 7.284461557865143,
+  "model_ce": 4.711396515369415,
+  "advantage_nats": 2.5730650424957275,
+  "curves": {
+   "read": [
+    {
+     "k": 1,
+     "bits": 4096,
+     "bill": {
+      "centroids": 4096,
+      "index": 0,
+      "TOTAL": 4096
+     },
+     "kl": 5.0527161955833435,
+     "ce": 10.146000385284424,
+     "ntok": 16384
+    },
+    {
+     "k": 2,
+     "bits": 16384,
+     "bill": {
+      "centroids": 8192,
+      "index": 8192,
+      "TOTAL": 16384
+     },
+     "kl": 5.318467676639557,
+     "ce": 10.387459397315979,
+     "ntok": 16384
+    },
+    {
+     "k": 4,
+     "bits": 32768,
+     "bill": {
+      "centroids": 16384,
+      "index": 16384,
+      "TOTAL": 32768
+     },
+     "kl": 3.8850426077842712,
+     "ce": 8.957063555717468,
+     "ntok": 16384
+    },
+    {
+     "k": 8,
+     "bits": 57344,
+     "bill": {
+      "centroids": 32768,
+      "index": 24576,
+      "TOTAL": 57344
+     },
+     "kl": 3.280620515346527,
+     "ce": 8.308185458183289,
+     "ntok": 16384
+    },
+    {
+     "k": 16,
+     "bits": 98304,
+     "bill": {
+      "centroids": 65536,
+      "index": 32768,
+      "TOTAL": 98304
+     },
+     "kl": 2.8853434026241302,
+     "ce": 7.893394112586975,
+     "ntok": 16384
+    },
+    {
+     "k": 32,
+     "bits": 172032,
+     "bill": {
+      "centroids": 131072,
+      "index": 40960,
+      "TOTAL": 172032
+     },
+     "kl": 2.4698262214660645,
+     "ce": 7.45762825012207,
+     "ntok": 16384
+    },
+    {
+     "k": 64,
+     "bits": 311296,
+     "bill": {
+      "centroids": 262144,
+      "index": 49152,
+      "TOTAL": 311296
+     },
+     "kl": 1.8815103024244308,
+     "ce": 6.819272518157959,
+     "ntok": 16384
+    },
+    {
+     "k": 128,
+     "bits": 581632,
+     "bill": {
+      "centroids": 524288,
+      "index": 57344,
+      "TOTAL": 581632
+     },
+     "kl": 1.6896372437477112,
+     "ce": 6.6251272559165955,
+     "ntok": 16384
+    },
+    {
+     "k": 256,
+     "bits": 1114112,
+     "bill": {
+      "centroids": 1048576,
+      "index": 65536,
+      "TOTAL": 1114112
+     },
+     "kl": 1.48910553753376,
+     "ce": 6.400337338447571,
+     "ntok": 16384
+    },
+    {
+     "k": 512,
+     "bits": 2170880,
+     "bill": {
+      "centroids": 2097152,
+      "index": 73728,
+      "TOTAL": 2170880
+     },
+     "kl": 1.1838856786489487,
+     "ce": 6.059344947338104,
+     "ntok": 16384
+    },
+    {
+     "k": 1024,
+     "bits": 4276224,
+     "bill": {
+      "centroids": 4194304,
+      "index": 81920,
+      "TOTAL": 4276224
+     },
+     "kl": 1.1439261585474014,
+     "ce": 5.99592661857605,
+     "ntok": 16384
+    },
+    {
+     "k": 2048,
+     "bits": 8478720,
+     "bill": {
+      "centroids": 8388608,
+      "index": 90112,
+      "TOTAL": 8478720
+     },
+     "kl": 0.7888149321079254,
+     "ce": 5.609234929084778,
+     "ntok": 16384
+    },
+    {
+     "k": 4096,
+     "bits": 16875520,
+     "bill": {
+      "centroids": 16777216,
+      "index": 98304,
+      "TOTAL": 16875520
+     },
+     "kl": 0.4350116215646267,
+     "ce": 5.196729838848114,
+     "ntok": 16384
+    }
+   ],
+   "write": [
+    {
+     "k": 1,
+     "bits": 4096,
+     "bill": {
+      "centroids": 4096,
+      "index": 0,
+      "TOTAL": 4096
+     },
+     "kl": 3.8591482639312744,
+     "ce": 9.01091194152832,
+     "ntok": 16384
+    },
+    {
+     "k": 2,
+     "bits": 16384,
+     "bill": {
+      "centroids": 8192,
+      "index": 8192,
+      "TOTAL": 16384
+     },
+     "kl": 2.771883249282837,
+     "ce": 7.900520741939545,
+     "ntok": 16384
+    },
+    {
+     "k": 4,
+     "bits": 32768,
+     "bill": {
+      "centroids": 16384,
+      "index": 16384,
+      "TOTAL": 32768
+     },
+     "kl": 2.342009514570236,
+     "ce": 7.473950982093811,
+     "ntok": 16384
+    },
+    {
+     "k": 8,
+     "bits": 57344,
+     "bill": {
+      "centroids": 32768,
+      "index": 24576,
+      "TOTAL": 57344
+     },
+     "kl": 2.0712969601154327,
+     "ce": 7.174337923526764,
+     "ntok": 16384
+    },
+    {
+     "k": 16,
+     "bits": 98304,
+     "bill": {
+      "centroids": 65536,
+      "index": 32768,
+      "TOTAL": 98304
+     },
+     "kl": 1.872044399380684,
+     "ce": 6.965272784233093,
+     "ntok": 16384
+    },
+    {
+     "k": 32,
+     "bits": 172032,
+     "bill": {
+      "centroids": 131072,
+      "index": 40960,
+      "TOTAL": 172032
+     },
+     "kl": 1.6733981519937515,
+     "ce": 6.72843074798584,
+     "ntok": 16384
+    },
+    {
+     "k": 64,
+     "bits": 311296,
+     "bill": {
+      "centroids": 262144,
+      "index": 49152,
+      "TOTAL": 311296
+     },
+     "kl": 1.4537261724472046,
+     "ce": 6.460582435131073,
+     "ntok": 16384
+    },
+    {
+     "k": 128,
+     "bits": 581632,
+     "bill": {
+      "centroids": 524288,
+      "index": 57344,
+      "TOTAL": 581632
+     },
+     "kl": 1.2807770073413849,
+     "ce": 6.2538599371910095,
+     "ntok": 16384
+    },
+    {
+     "k": 256,
+     "bits": 1114112,
+     "bill": {
+      "centroids": 1048576,
+      "index": 65536,
+      "TOTAL": 1114112
+     },
+     "kl": 1.0731594413518906,
+     "ce": 6.021368563175201,
+     "ntok": 16384
+    },
+    {
+     "k": 512,
+     "bits": 2170880,
+     "bill": {
+      "centroids": 2097152,
+      "index": 73728,
+      "TOTAL": 2170880
+     },
+     "kl": 0.8684414327144623,
+     "ce": 5.7806203961372375,
+     "ntok": 16384
+    },
+    {
+     "k": 1024,
+     "bits": 4276224,
+     "bill": {
+      "centroids": 4194304,
+      "index": 81920,
+      "TOTAL": 4276224
+     },
+     "kl": 0.8786967843770981,
+     "ce": 5.771759808063507,
+     "ntok": 16384
+    },
+    {
+     "k": 2048,
+     "bits": 8478720,
+     "bill": {
+      "centroids": 8388608,
+      "index": 90112,
+      "TOTAL": 8478720
+     },
+     "kl": 0.50279426202178,
+     "ce": 5.344350516796112,
+     "ntok": 16384
+    },
+    {
+     "k": 4096,
+     "bits": 16875520,
+     "bill": {
+      "centroids": 16777216,
+      "index": 98304,
+      "TOTAL": 16875520
+     },
+     "kl": 0.3538742661476135,
+     "ce": 5.1365437507629395,
+     "ntok": 16384
+    }
+   ],
+   "read_features": [
+    {
+     "k": 28,
+     "desc": "class(6) x len(8) x freq_band(1)",
+     "bits": 155648,
+     "kl": 3.502344846725464,
+     "ce": 8.531352162361145,
+     "ntok": 16384
+    },
+    {
+     "k": 28,
+     "desc": "class(6) x len(8) x freq_band(1)",
+     "bits": 155648,
+     "kl": 3.5023453533649445,
+     "ce": 8.531352400779724,
+     "ntok": 16384
+    },
+    {
+     "k": 51,
+     "desc": "class(6) x len(8) x freq_band(2)",
+     "bits": 258048,
+     "kl": 3.412225157022476,
+     "ce": 8.439391613006592,
+     "ntok": 16384
+    },
+    {
+     "k": 95,
+     "desc": "class(6) x len(8) x freq_band(4)",
+     "bits": 446464,
+     "kl": 3.29522767663002,
+     "ce": 8.314030528068542,
+     "ntok": 16384
+    },
+    {
+     "k": 175,
+     "desc": "class(6) x len(8) x freq_band(8)",
+     "bits": 782336,
+     "kl": 3.079546958208084,
+     "ce": 8.079829752445221,
+     "ntok": 16384
+    },
+    {
+     "k": 324,
+     "desc": "class(6) x len(8) x freq_band(16)",
+     "bits": 1400832,
+     "kl": 2.8360273241996765,
+     "ce": 7.8259522914886475,
+     "ntok": 16384
+    },
+    {
+     "k": 601,
+     "desc": "class(6) x len(8) x freq_band(32)",
+     "bits": 2543616,
+     "kl": 2.5740221440792084,
+     "ce": 7.554204940795898,
+     "ntok": 16384
+    },
+    {
+     "k": 1056,
+     "desc": "class(6) x len(8) x freq_band(64)",
+     "bits": 4415488,
+     "kl": 2.311622440814972,
+     "ce": 7.272353947162628,
+     "ntok": 16384
+    }
+   ],
+   "read_random": [
+    {
+     "k": 1,
+     "bits": 4096,
+     "kl": 5.052714288234711,
+     "ce": 10.145998358726501,
+     "ntok": 16384
+    },
+    {
+     "k": 2,
+     "bits": 16384,
+     "kl": 4.851447522640228,
+     "ce": 9.953328490257263,
+     "ntok": 16384
+    },
+    {
+     "k": 4,
+     "bits": 32768,
+     "kl": 4.863037109375,
+     "ce": 9.954736232757568,
+     "ntok": 16384
+    },
+    {
+     "k": 8,
+     "bits": 57344,
+     "kl": 4.703025043010712,
+     "ce": 9.795907974243164,
+     "ntok": 16384
+    },
+    {
+     "k": 16,
+     "bits": 98304,
+     "kl": 4.415278792381287,
+     "ce": 9.489560604095459,
+     "ntok": 16384
+    },
+    {
+     "k": 32,
+     "bits": 172032,
+     "kl": 3.9592118859291077,
+     "ce": 9.016780495643616,
+     "ntok": 16384
+    },
+    {
+     "k": 64,
+     "bits": 311296,
+     "kl": 3.437072455883026,
+     "ce": 8.472482085227966,
+     "ntok": 16384
+    },
+    {
+     "k": 128,
+     "bits": 581632,
+     "kl": 2.9031749963760376,
+     "ce": 7.897341310977936,
+     "ntok": 16384
+    },
+    {
+     "k": 256,
+     "bits": 1114112,
+     "kl": 2.3874942660331726,
+     "ce": 7.3585487604141235,
+     "ntok": 16384
+    },
+    {
+     "k": 512,
+     "bits": 2170880,
+     "kl": 1.9736620783805847,
+     "ce": 6.900378108024597,
+     "ntok": 16384
+    },
+    {
+     "k": 1024,
+     "bits": 4276224,
+     "kl": 1.522656410932541,
+     "ce": 6.420126676559448,
+     "ntok": 16384
+    },
+    {
+     "k": 2048,
+     "bits": 8478720,
+     "kl": 1.1077155023813248,
+     "ce": 5.961601674556732,
+     "ntok": 16384
+    },
+    {
+     "k": 4096,
+     "bits": 16875520,
+     "kl": 0.7211688980460167,
+     "ce": 5.521874964237213,
+     "ntok": 16384
+    }
+   ],
+   "write_features": [
+    {
+     "k": 28,
+     "desc": "class(6) x len(8) x freq_band(1)",
+     "bits": 155648,
+     "kl": 3.5720859467983246,
+     "ce": 8.677309393882751,
+     "ntok": 16384
+    },
+    {
+     "k": 28,
+     "desc": "class(6) x len(8) x freq_band(1)",
+     "bits": 155648,
+     "kl": 3.572085976600647,
+     "ce": 8.677309513092041,
+     "ntok": 16384
+    },
+    {
+     "k": 51,
+     "desc": "class(6) x len(8) x freq_band(2)",
+     "bits": 258048,
+     "kl": 2.973495453596115,
+     "ce": 8.071650624275208,
+     "ntok": 16384
+    },
+    {
+     "k": 95,
+     "desc": "class(6) x len(8) x freq_band(4)",
+     "bits": 446464,
+     "kl": 2.6497536301612854,
+     "ce": 7.7305304408073425,
+     "ntok": 16384
+    },
+    {
+     "k": 175,
+     "desc": "class(6) x len(8) x freq_band(8)",
+     "bits": 782336,
+     "kl": 2.411942481994629,
+     "ce": 7.490767002105713,
+     "ntok": 16384
+    },
+    {
+     "k": 324,
+     "desc": "class(6) x len(8) x freq_band(16)",
+     "bits": 1400832,
+     "kl": 2.166441470384598,
+     "ce": 7.234123349189758,
+     "ntok": 16384
+    },
+    {
+     "k": 601,
+     "desc": "class(6) x len(8) x freq_band(32)",
+     "bits": 2543616,
+     "kl": 1.9524071961641312,
+     "ce": 7.008750021457672,
+     "ntok": 16384
+    },
+    {
+     "k": 1056,
+     "desc": "class(6) x len(8) x freq_band(64)",
+     "bits": 4415488,
+     "kl": 1.7679119557142258,
+     "ce": 6.799419045448303,
+     "ntok": 16384
+    }
+   ],
+   "write_random": [
+    {
+     "k": 1,
+     "bits": 4096,
+     "kl": 3.8591482639312744,
+     "ce": 9.01091194152832,
+     "ntok": 16384
+    },
+    {
+     "k": 2,
+     "bits": 16384,
+     "kl": 3.865801453590393,
+     "ce": 9.018075704574585,
+     "ntok": 16384
+    },
+    {
+     "k": 4,
+     "bits": 32768,
+     "kl": 3.8970985412597656,
+     "ce": 9.047367811203003,
+     "ntok": 16384
+    },
+    {
+     "k": 8,
+     "bits": 57344,
+     "kl": 3.9187758564949036,
+     "ce": 9.06759512424469,
+     "ntok": 16384
+    },
+    {
+     "k": 16,
+     "bits": 98304,
+     "kl": 3.915393590927124,
+     "ce": 9.043229937553406,
+     "ntok": 16384
+    },
+    {
+     "k": 32,
+     "bits": 172032,
+     "kl": 4.017626196146011,
+     "ce": 9.14636766910553,
+     "ntok": 16384
+    },
+    {
+     "k": 64,
+     "bits": 311296,
+     "kl": 4.026060372591019,
+     "ce": 9.142313480377197,
+     "ntok": 16384
+    },
+    {
+     "k": 128,
+     "bits": 581632,
+     "kl": 3.964289367198944,
+     "ce": 9.075279474258423,
+     "ntok": 16384
+    },
+    {
+     "k": 256,
+     "bits": 1114112,
+     "kl": 3.5781719088554382,
+     "ce": 8.64801561832428,
+     "ntok": 16384
+    },
+    {
+     "k": 512,
+     "bits": 2170880,
+     "kl": 3.0187886357307434,
+     "ce": 8.064451217651367,
+     "ntok": 16384
+    },
+    {
+     "k": 1024,
+     "bits": 4276224,
+     "kl": 2.465084493160248,
+     "ce": 7.475308120250702,
+     "ntok": 16384
+    },
+    {
+     "k": 2048,
+     "bits": 8478720,
+     "kl": 1.8957844525575638,
+     "ce": 6.836365640163422,
+     "ntok": 16384
+    },
+    {
+     "k": 4096,
+     "bits": 16875520,
+     "kl": 1.2538387328386307,
+     "ce": 6.138725161552429,
+     "ntok": 16384
+    }
+   ]
+  },
+  "note": "read = the embedding as the layer-0 module input (rms(wte)); write = the embedding as the tied unembedding. Only one role is coarsened at a time; the other is exact fp32."
+ },
+ "C_embedding": {
+  "rows": [
+   {
+    "scheme": "scalar_q2",
+    "bits_embedding": 2359296,
+    "bill": {
+     "values": 2097152,
+     "scales": 262144,
+     "TOTAL": 2359296
+    },
+    "bits_total_with_fp32_body": 11800576,
+    "kl": 0.7498944848775864,
+    "ce": 5.535673022270203,
+    "ntok": 16384
+   },
+   {
+    "scheme": "scalar_q3",
+    "bits_embedding": 3407872,
+    "bill": {
+     "values": 3145728,
+     "scales": 262144,
+     "TOTAL": 3407872
+    },
+    "bits_total_with_fp32_body": 12849152,
+    "kl": 0.1292356913909316,
+    "ce": 4.854556024074554,
+    "ntok": 16384
+   },
+   {
+    "scheme": "scalar_q4",
+    "bits_embedding": 4456448,
+    "bill": {
+     "values": 4194304,
+     "scales": 262144,
+     "TOTAL": 4456448
+    },
+    "bits_total_with_fp32_body": 13897728,
+    "kl": 0.02774941991083324,
+    "ce": 4.73962539434433,
+    "ntok": 16384
+   },
+   {
+    "scheme": "scalar_q5",
+    "bits_embedding": 5505024,
+    "bill": {
+     "values": 5242880,
+     "scales": 262144,
+     "TOTAL": 5505024
+    },
+    "bits_total_with_fp32_body": 14946304,
+    "kl": 0.006457611685618758,
+    "ce": 4.717800319194794,
+    "ntok": 16384
+   },
+   {
+    "scheme": "scalar_q6",
+    "bits_embedding": 6553600,
+    "bill": {
+     "values": 6291456,
+     "scales": 262144,
+     "TOTAL": 6553600
+    },
+    "bits_total_with_fp32_body": 15994880,
+    "kl": 0.0015789003518875688,
+    "ce": 4.713046729564667,
+    "ntok": 16384
+   },
+   {
+    "scheme": "scalar_q8",
+    "bits_embedding": 8650752,
+    "bill": {
+     "values": 8388608,
+     "scales": 262144,
+     "TOTAL": 8650752
+    },
+    "bits_total_with_fp32_body": 18092032,
+    "kl": 9.540212249703472e-05,
+    "ce": 4.711430549621582,
+    "ntok": 16384
+   },
+   {
+    "scheme": "lowrank_r4",
+    "bits_embedding": 1064960,
+    "bill": {
+     "factorA": 1048576,
+     "factorB": 16384,
+     "TOTAL": 1064960
+    },
+    "bits_total_with_fp32_body": 10506240,
+    "kl": 2.41058886051178,
+    "ce": 7.520330786705017,
+    "ntok": 16384
+   },
+   {
+    "scheme": "lowrank_r8",
+    "bits_embedding": 2129920,
+    "bill": {
+     "factorA": 2097152,
+     "factorB": 32768,
+     "TOTAL": 2129920
+    },
+    "bits_total_with_fp32_body": 11571200,
+    "kl": 2.2713703513145447,
+    "ce": 7.371487200260162,
+    "ntok": 16384
+   },
+   {
+    "scheme": "lowrank_r16",
+    "bits_embedding": 4259840,
+    "bill": {
+     "factorA": 4194304,
+     "factorB": 65536,
+     "TOTAL": 4259840
+    },
+    "bits_total_with_fp32_body": 13701120,
+    "kl": 2.0586743354797363,
+    "ce": 7.120028913021088,
+    "ntok": 16384
+   },
+   {
+    "scheme": "lowrank_r32",
+    "bits_embedding": 8519680,
+    "bill": {
+     "factorA": 8388608,
+     "factorB": 131072,
+     "TOTAL": 8519680
+    },
+    "bits_total_with_fp32_body": 17960960,
+    "kl": 1.8292553573846817,
+    "ce": 6.8460827469825745,
+    "ntok": 16384
+   },
+   {
+    "scheme": "lowrank_r48",
+    "bits_embedding": 12779520,
+    "bill": {
+     "factorA": 12582912,
+     "factorB": 196608,
+     "TOTAL": 12779520
+    },
+    "bits_total_with_fp32_body": 22220800,
+    "kl": 1.6222722381353378,
+    "ce": 6.607398509979248,
+    "ntok": 16384
+   },
+   {
+    "scheme": "lowrank_r64",
+    "bits_embedding": 17039360,
+    "bill": {
+     "factorA": 16777216,
+     "factorB": 262144,
+     "TOTAL": 17039360
+    },
+    "bits_total_with_fp32_body": 26480640,
+    "kl": 1.390578493475914,
+    "ce": 6.333944857120514,
+    "ntok": 16384
+   },
+   {
+    "scheme": "lowrank_r96",
+    "bits_embedding": 25559040,
+    "bill": {
+     "factorA": 25165824,
+     "factorB": 393216,
+     "TOTAL": 25559040
+    },
+    "bits_total_with_fp32_body": 35000320,
+    "kl": 0.8004427701234818,
+    "ce": 5.644489526748657,
+    "ntok": 16384
+   },
+   {
+    "scheme": "lowrank_r16_q8",
+    "bits_embedding": 1327616,
+    "bill": {
+     "A_values": 1048576,
+     "A_scales": 262144,
+     "B_values": 16384,
+     "B_scales": 512,
+     "TOTAL": 1327616
+    },
+    "bits_total_with_fp32_body": 10768896,
+    "kl": 2.0587300062179565,
+    "ce": 7.120076656341553,
+    "ntok": 16384
+   },
+   {
+    "scheme": "lowrank_r32_q8",
+    "bits_embedding": 2393088,
+    "bill": {
+     "A_values": 2097152,
+     "A_scales": 262144,
+     "B_values": 32768,
+     "B_scales": 1024,
+     "TOTAL": 2393088
+    },
+    "bits_total_with_fp32_body": 11834368,
+    "kl": 1.8281470984220505,
+    "ce": 6.845012307167053,
+    "ntok": 16384
+   },
+   {
+    "scheme": "lowrank_r64_q8",
+    "bits_embedding": 4524032,
+    "bill": {
+     "A_values": 4194304,
+     "A_scales": 262144,
+     "B_values": 65536,
+     "B_scales": 2048,
+     "TOTAL": 4524032
+    },
+    "bits_total_with_fp32_body": 13965312,
+    "kl": 1.3898986279964447,
+    "ce": 6.333384871482849,
+    "ntok": 16384
+   },
+   {
+    "scheme": "pq_m8_b8",
+    "bits_embedding": 1572864,
+    "bill": {
+     "codebooks": 1048576,
+     "indices": 524288,
+     "TOTAL": 1572864
+    },
+    "bits_total_with_fp32_body": 11014144,
+    "kl": 1.6846025735139847,
+    "ce": 6.69362086057663,
+    "ntok": 16384
+   },
+   {
+    "scheme": "pq_m16_b8",
+    "bits_embedding": 2097152,
+    "bill": {
+     "codebooks": 1048576,
+     "indices": 1048576,
+     "TOTAL": 2097152
+    },
+    "bits_total_with_fp32_body": 11538432,
+    "kl": 1.1155557036399841,
+    "ce": 6.026456952095032,
+    "ntok": 16384
+   },
+   {
+    "scheme": "pq_m32_b8",
+    "bits_embedding": 3145728,
+    "bill": {
+     "codebooks": 1048576,
+     "indices": 2097152,
+     "TOTAL": 3145728
+    },
+    "bits_total_with_fp32_body": 12587008,
+    "kl": 0.31319552659988403,
+    "ce": 5.093876659870148,
+    "ntok": 16384
+   },
+   {
+    "scheme": "pq_m16_b6",
+    "bits_embedding": 1048576,
+    "bill": {
+     "codebooks": 262144,
+     "indices": 786432,
+     "TOTAL": 1048576
+    },
+    "bits_total_with_fp32_body": 10489856,
+    "kl": 1.761361300945282,
+    "ce": 6.764416038990021,
+    "ntok": 16384
+   },
+   {
+    "scheme": "pq_m32_b6",
+    "bits_embedding": 1835008,
+    "bill": {
+     "codebooks": 262144,
+     "indices": 1572864,
+     "TOTAL": 1835008
+    },
+    "bits_total_with_fp32_body": 11276288,
+    "kl": 0.9053059741854668,
+    "ce": 5.7684366106987,
+    "ntok": 16384
+   },
+   {
+    "scheme": "pq_m64_b8",
+    "bits_embedding": 5242880,
+    "bill": {
+     "codebooks": 1048576,
+     "indices": 4194304,
+     "TOTAL": 5242880
+    },
+    "bits_total_with_fp32_body": 14684160,
+    "kl": 0.024256141390651464,
+    "ce": 4.738887310028076,
+    "ntok": 16384
+   },
+   {
+    "scheme": "pq_m16_b4",
+    "bits_embedding": 589824,
+    "bill": {
+     "codebooks": 65536,
+     "indices": 524288,
+     "TOTAL": 589824
+    },
+    "bits_total_with_fp32_body": 10031104,
+    "kl": 2.560782879590988,
+    "ce": 7.647149682044983,
+    "ntok": 16384
+   },
+   {
+    "scheme": "pq_m32_b4",
+    "bits_embedding": 1114112,
+    "bill": {
+     "codebooks": 65536,
+     "indices": 1048576,
+     "TOTAL": 1114112
+    },
+    "bits_total_with_fp32_body": 10555392,
+    "kl": 1.9825335443019867,
+    "ce": 6.979231894016266,
+    "ntok": 16384
+   },
+   {
+    "scheme": "pq_m64_b4",
+    "bits_embedding": 2162688,
+    "bill": {
+     "codebooks": 65536,
+     "indices": 2097152,
+     "TOTAL": 2162688
+    },
+    "bits_total_with_fp32_body": 11603968,
+    "kl": 0.7847063019871712,
+    "ce": 5.605992138385773,
+    "ntok": 16384
+   },
+   {
+    "scheme": "pq_m128_b4",
+    "bits_embedding": 4259840,
+    "bill": {
+     "codebooks": 65536,
+     "indices": 4194304,
+     "TOTAL": 4259840
+    },
+    "bits_total_with_fp32_body": 13701120,
+    "kl": 0.08100114483386278,
+    "ce": 4.804195046424866,
+    "ntok": 16384
+   },
+   {
+    "scheme": "pq_m128_b8",
+    "bits_embedding": 9437184,
+    "bill": {
+     "codebooks": 1048576,
+     "indices": 8388608,
+     "TOTAL": 9437184
+    },
+    "bits_total_with_fp32_body": 18878464,
+    "kl": 0.00012518045059550786,
+    "ce": 4.711509644985199,
+    "ntok": 16384
+   },
+   {
+    "scheme": "cluster_k256",
+    "bits_embedding": 1114112,
+    "bill": {
+     "index": 65536,
+     "centroids": 1048576,
+     "TOTAL": 1114112
+    },
+    "bits_total_with_fp32_body": 10555392,
+    "kl": 1.9346692711114883,
+    "ce": 6.90502005815506,
+    "ntok": 16384
+   },
+   {
+    "scheme": "cluster_k512",
+    "bits_embedding": 2170880,
+    "bill": {
+     "index": 73728,
+     "centroids": 2097152,
+     "TOTAL": 2170880
+    },
+    "bits_total_with_fp32_body": 11612160,
+    "kl": 1.7630898654460907,
+    "ce": 6.7456135749816895,
+    "ntok": 16384
+   },
+   {
+    "scheme": "cluster_k1024",
+    "bits_embedding": 4276224,
+    "bill": {
+     "index": 81920,
+     "centroids": 4194304,
+     "TOTAL": 4276224
+    },
+    "bits_total_with_fp32_body": 13717504,
+    "kl": 1.734071597456932,
+    "ce": 6.686753511428833,
+    "ntok": 16384
+   },
+   {
+    "scheme": "cluster_k2048",
+    "bits_embedding": 8478720,
+    "bill": {
+     "index": 90112,
+     "centroids": 8388608,
+     "TOTAL": 8478720
+    },
+    "bits_total_with_fp32_body": 17920000,
+    "kl": 1.1873527318239212,
+    "ce": 6.1010332107543945,
+    "ntok": 16384
+   },
+   {
+    "scheme": "cluster_k4096",
+    "bits_embedding": 16875520,
+    "bill": {
+     "index": 98304,
+     "centroids": 16777216,
+     "TOTAL": 16875520
+    },
+    "bits_total_with_fp32_body": 26316800,
+    "kl": 0.8607356324791908,
+    "ce": 5.69686895608902,
+    "ntok": 16384
+   }
+  ]
+ },
+ "D_anchor": {
+  "rows": [
+   {
+    "scheme": "anchor0_freq_tail_pq_m16_b8",
+    "bits_embedding": 2097152,
+    "bill": {
+     "anchor_rows": 0,
+     "anchor_ids": 0,
+     "tail_codebooks": 1048576,
+     "tail_indices": 1048576,
+     "TOTAL": 2097152
+    },
+    "bits_total_with_fp32_body": 11538432,
+    "kl": 1.1155557036399841,
+    "ce": 6.026457071304321,
+    "ntok": 16384,
+    "B": 0,
+    "tail": "pq_m16_b8",
+    "attribution": "est_frequency"
+   },
+   {
+    "scheme": "anchor0_freq_tail_pq_m8_b8",
+    "bits_embedding": 1572864,
+    "bill": {
+     "anchor_rows": 0,
+     "anchor_ids": 0,
+     "tail_codebooks": 1048576,
+     "tail_indices": 524288,
+     "TOTAL": 1572864
+    },
+    "bits_total_with_fp32_body": 11014144,
+    "kl": 1.6846025735139847,
+    "ce": 6.693620681762695,
+    "ntok": 16384,
+    "B": 0,
+    "tail": "pq_m8_b8",
+    "attribution": "est_frequency"
+   },
+   {
+    "scheme": "anchor0_freq_tail_q4",
+    "bits_embedding": 4456448,
+    "bill": {
+     "anchor_rows": 0,
+     "anchor_ids": 0,
+     "tail_values": 4194304,
+     "tail_scales": 262144,
+     "TOTAL": 4456448
+    },
+    "bits_total_with_fp32_body": 13897728,
+    "kl": 0.02774941991083324,
+    "ce": 4.73962539434433,
+    "ntok": 16384,
+    "B": 0,
+    "tail": "q4",
+    "attribution": "est_frequency"
+   },
+   {
+    "scheme": "anchor0_freq_tail_q3",
+    "bits_embedding": 3407872,
+    "bill": {
+     "anchor_rows": 0,
+     "anchor_ids": 0,
+     "tail_values": 3145728,
+     "tail_scales": 262144,
+     "TOTAL": 3407872
+    },
+    "bits_total_with_fp32_body": 12849152,
+    "kl": 0.1292356913909316,
+    "ce": 4.854556024074554,
+    "ntok": 16384,
+    "B": 0,
+    "tail": "q3",
+    "attribution": "est_frequency"
+   },
+   {
+    "scheme": "anchor0_freq_tail_q2",
+    "bits_embedding": 2359296,
+    "bill": {
+     "anchor_rows": 0,
+     "anchor_ids": 0,
+     "tail_values": 2097152,
+     "tail_scales": 262144,
+     "TOTAL": 2359296
+    },
+    "bits_total_with_fp32_body": 11800576,
+    "kl": 0.7498944848775864,
+    "ce": 5.535673022270203,
+    "ntok": 16384,
+    "B": 0,
+    "tail": "q2",
+    "attribution": "est_frequency"
+   },
+   {
+    "scheme": "anchor0_freq_tail_cluster_k512",
+    "bits_embedding": 2170880,
+    "bill": {
+     "anchor_rows": 0,
+     "anchor_ids": 0,
+     "tail_index": 73728,
+     "tail_centroids": 2097152,
+     "TOTAL": 2170880
+    },
+    "bits_total_with_fp32_body": 11612160,
+    "kl": 2.2226650416851044,
+    "ce": 7.22504734992981,
+    "ntok": 16384,
+    "B": 0,
+    "tail": "cluster_k512",
+    "attribution": "est_frequency"
+   },
+   {
+    "scheme": "anchor64_freq_tail_pq_m16_b8",
+    "bits_embedding": 2351936,
+    "bill": {
+     "anchor_rows": 262144,
+     "anchor_ids": 832,
+     "tail_codebooks": 1048576,
+     "tail_indices": 1040384,
+     "TOTAL": 2351936
+    },
+    "bits_total_with_fp32_body": 11793216,
+    "kl": 0.7233196273446083,
+    "ce": 5.58820515871048,
+    "ntok": 16384,
+    "B": 64,
+    "tail": "pq_m16_b8",
+    "attribution": "est_frequency"
+   },
+   {
+    "scheme": "anchor64_freq_tail_pq_m8_b8",
+    "bits_embedding": 1831744,
+    "bill": {
+     "anchor_rows": 262144,
+     "anchor_ids": 832,
+     "tail_codebooks": 1048576,
+     "tail_indices": 520192,
+     "TOTAL": 1831744
+    },
+    "bits_total_with_fp32_body": 11273024,
+    "kl": 1.1993818283081055,
+    "ce": 6.119606018066406,
+    "ntok": 16384,
+    "B": 64,
+    "tail": "pq_m8_b8",
+    "attribution": "est_frequency"
+   },
+   {
+    "scheme": "anchor64_freq_tail_q4",
+    "bits_embedding": 4684608,
+    "bill": {
+     "anchor_rows": 262144,
+     "anchor_ids": 832,
+     "tail_values": 4161536,
+     "tail_scales": 260096,
+     "TOTAL": 4684608
+    },
+    "bits_total_with_fp32_body": 14125888,
+    "kl": 0.020736983744427562,
+    "ce": 4.7317014336586,
+    "ntok": 16384,
+    "B": 64,
+    "tail": "q4",
+    "attribution": "est_frequency"
+   },
+   {
+    "scheme": "anchor64_freq_tail_q3",
+    "bits_embedding": 3644224,
+    "bill": {
+     "anchor_rows": 262144,
+     "anchor_ids": 832,
+     "tail_values": 3121152,
+     "tail_scales": 260096,
+     "TOTAL": 3644224
+    },
+    "bits_total_with_fp32_body": 13085504,
+    "kl": 0.0957169272005558,
+    "ce": 4.816402494907379,
+    "ntok": 16384,
+    "B": 64,
+    "tail": "q3",
+    "attribution": "est_frequency"
+   },
+   {
+    "scheme": "anchor64_freq_tail_q2",
+    "bits_embedding": 2603840,
+    "bill": {
+     "anchor_rows": 262144,
+     "anchor_ids": 832,
+     "tail_values": 2080768,
+     "tail_scales": 260096,
+     "TOTAL": 2603840
+    },
+    "bits_total_with_fp32_body": 12045120,
+    "kl": 0.5647181570529938,
+    "ce": 5.327119529247284,
+    "ntok": 16384,
+    "B": 64,
+    "tail": "q2",
+    "attribution": "est_frequency"
+   },
+   {
+    "scheme": "anchor64_freq_tail_cluster_k512",
+    "bits_embedding": 2433280,
+    "bill": {
+     "anchor_rows": 262144,
+     "anchor_ids": 832,
+     "tail_index": 73152,
+     "tail_centroids": 2097152,
+     "TOTAL": 2433280
+    },
+    "bits_total_with_fp32_body": 11874560,
+    "kl": 1.5011935085058212,
+    "ce": 6.451413929462433,
+    "ntok": 16384,
+    "B": 64,
+    "tail": "cluster_k512",
+    "attribution": "est_frequency"
+   },
+   {
+    "scheme": "anchor256_freq_tail_pq_m16_b8",
+    "bits_embedding": 3116288,
+    "bill": {
+     "anchor_rows": 1048576,
+     "anchor_ids": 3328,
+     "tail_codebooks": 1048576,
+     "tail_indices": 1015808,
+     "TOTAL": 3116288
+    },
+    "bits_total_with_fp32_body": 12557568,
+    "kl": 0.5393726974725723,
+    "ce": 5.380856513977051,
+    "ntok": 16384,
+    "B": 256,
+    "tail": "pq_m16_b8",
+    "attribution": "est_frequency"
+   },
+   {
+    "scheme": "anchor256_freq_tail_pq_m8_b8",
+    "bits_embedding": 2608384,
+    "bill": {
+     "anchor_rows": 1048576,
+     "anchor_ids": 3328,
+     "tail_codebooks": 1048576,
+     "tail_indices": 507904,
+     "TOTAL": 2608384
+    },
+    "bits_total_with_fp32_body": 12049664,
+    "kl": 0.9320869073271751,
+    "ce": 5.838046193122864,
+    "ntok": 16384,
+    "B": 256,
+    "tail": "pq_m8_b8",
+    "attribution": "est_frequency"
+   },
+   {
+    "scheme": "anchor256_freq_tail_q4",
+    "bits_embedding": 5369088,
+    "bill": {
+     "anchor_rows": 1048576,
+     "anchor_ids": 3328,
+     "tail_values": 4063232,
+     "tail_scales": 253952,
+     "TOTAL": 5369088
+    },
+    "bits_total_with_fp32_body": 14810368,
+    "kl": 0.016980307758785784,
+    "ce": 4.729872524738312,
+    "ntok": 16384,
+    "B": 256,
+    "tail": "q4",
+    "attribution": "est_frequency"
+   },
+   {
+    "scheme": "anchor256_freq_tail_q3",
+    "bits_embedding": 4353280,
+    "bill": {
+     "anchor_rows": 1048576,
+     "anchor_ids": 3328,
+     "tail_values": 3047424,
+     "tail_scales": 253952,
+     "TOTAL": 4353280
+    },
+    "bits_total_with_fp32_body": 13794560,
+    "kl": 0.07889934442937374,
+    "ce": 4.801359593868256,
+    "ntok": 16384,
+    "B": 256,
+    "tail": "q3",
+    "attribution": "est_frequency"
+   },
+   {
+    "scheme": "anchor256_freq_tail_q2",
+    "bits_embedding": 3337472,
+    "bill": {
+     "anchor_rows": 1048576,
+     "anchor_ids": 3328,
+     "tail_values": 2031616,
+     "tail_scales": 253952,
+     "TOTAL": 3337472
+    },
+    "bits_total_with_fp32_body": 12778752,
+    "kl": 0.47091247886419296,
+    "ce": 5.227900505065918,
+    "ntok": 16384,
+    "B": 256,
+    "tail": "q2",
+    "attribution": "est_frequency"
+   },
+   {
+    "scheme": "anchor256_freq_tail_cluster_k512",
+    "bits_embedding": 3220480,
+    "bill": {
+     "anchor_rows": 1048576,
+     "anchor_ids": 3328,
+     "tail_index": 71424,
+     "tail_centroids": 2097152,
+     "TOTAL": 3220480
+    },
+    "bits_total_with_fp32_body": 12661760,
+    "kl": 1.2526224851608276,
+    "ce": 6.17934262752533,
+    "ntok": 16384,
+    "B": 256,
+    "tail": "cluster_k512",
+    "attribution": "est_frequency"
+   },
+   {
+    "scheme": "anchor512_freq_tail_pq_m16_b8",
+    "bits_embedding": 4135424,
+    "bill": {
+     "anchor_rows": 2097152,
+     "anchor_ids": 6656,
+     "tail_codebooks": 1048576,
+     "tail_indices": 983040,
+     "TOTAL": 4135424
+    },
+    "bits_total_with_fp32_body": 13576704,
+    "kl": 0.4139687791466713,
+    "ce": 5.242162883281708,
+    "ntok": 16384,
+    "B": 512,
+    "tail": "pq_m16_b8",
+    "attribution": "est_frequency"
+   },
+   {
+    "scheme": "anchor512_freq_tail_pq_m8_b8",
+    "bits_embedding": 3643904,
+    "bill": {
+     "anchor_rows": 2097152,
+     "anchor_ids": 6656,
+     "tail_codebooks": 1048576,
+     "tail_indices": 491520,
+     "TOTAL": 3643904
+    },
+    "bits_total_with_fp32_body": 13085184,
+    "kl": 0.7577923759818077,
+    "ce": 5.645926296710968,
+    "ntok": 16384,
+    "B": 512,
+    "tail": "pq_m8_b8",
+    "attribution": "est_frequency"
+   },
+   {
+    "scheme": "anchor512_freq_tail_q4",
+    "bits_embedding": 6281728,
+    "bill": {
+     "anchor_rows": 2097152,
+     "anchor_ids": 6656,
+     "tail_values": 3932160,
+     "tail_scales": 245760,
+     "TOTAL": 6281728
+    },
+    "bits_total_with_fp32_body": 15723008,
+    "kl": 0.014624069794081151,
+    "ce": 4.727427303791046,
+    "ntok": 16384,
+    "B": 512,
+    "tail": "q4",
+    "attribution": "est_frequency"
+   },
+   {
+    "scheme": "anchor512_freq_tail_q3",
+    "bits_embedding": 5298688,
+    "bill": {
+     "anchor_rows": 2097152,
+     "anchor_ids": 6656,
+     "tail_values": 2949120,
+     "tail_scales": 245760,
+     "TOTAL": 5298688
+    },
+    "bits_total_with_fp32_body": 14739968,
+    "kl": 0.06793428491801023,
+    "ce": 4.789471864700317,
+    "ntok": 16384,
+    "B": 512,
+    "tail": "q3",
+    "attribution": "est_frequency"
+   },
+   {
+    "scheme": "anchor512_freq_tail_q2",
+    "bits_embedding": 4315648,
+    "bill": {
+     "anchor_rows": 2097152,
+     "anchor_ids": 6656,
+     "tail_values": 1966080,
+     "tail_scales": 245760,
+     "TOTAL": 4315648
+    },
+    "bits_total_with_fp32_body": 13756928,
+    "kl": 0.4077925756573677,
+    "ce": 5.153326511383057,
+    "ntok": 16384,
+    "B": 512,
+    "tail": "q2",
+    "attribution": "est_frequency"
+   },
+   {
+    "scheme": "anchor512_freq_tail_cluster_k512",
+    "bits_embedding": 4270080,
+    "bill": {
+     "anchor_rows": 2097152,
+     "anchor_ids": 6656,
+     "tail_index": 69120,
+     "tail_centroids": 2097152,
+     "TOTAL": 4270080
+    },
+    "bits_total_with_fp32_body": 13711360,
+    "kl": 1.0239838138222694,
+    "ce": 5.941038072109222,
+    "ntok": 16384,
+    "B": 512,
+    "tail": "cluster_k512",
+    "attribution": "est_frequency"
+   },
+   {
+    "scheme": "anchor1024_freq_tail_pq_m16_b8",
+    "bits_embedding": 6173696,
+    "bill": {
+     "anchor_rows": 4194304,
+     "anchor_ids": 13312,
+     "tail_codebooks": 1048576,
+     "tail_indices": 917504,
+     "TOTAL": 6173696
+    },
+    "bits_total_with_fp32_body": 15614976,
+    "kl": 0.30352075956761837,
+    "ce": 5.104801952838898,
+    "ntok": 16384,
+    "B": 1024,
+    "tail": "pq_m16_b8",
+    "attribution": "est_frequency"
+   },
+   {
+    "scheme": "anchor1024_freq_tail_pq_m8_b8",
+    "bits_embedding": 5714944,
+    "bill": {
+     "anchor_rows": 4194304,
+     "anchor_ids": 13312,
+     "tail_codebooks": 1048576,
+     "tail_indices": 458752,
+     "TOTAL": 5714944
+    },
+    "bits_total_with_fp32_body": 15156224,
+    "kl": 0.5689024329185486,
+    "ce": 5.4250770807266235,
+    "ntok": 16384,
+    "B": 1024,
+    "tail": "pq_m8_b8",
+    "attribution": "est_frequency"
+   },
+   {
+    "scheme": "anchor1024_freq_tail_q4",
+    "bits_embedding": 8107008,
+    "bill": {
+     "anchor_rows": 4194304,
+     "anchor_ids": 13312,
+     "tail_values": 3670016,
+     "tail_scales": 229376,
+     "TOTAL": 8107008
+    },
+    "bits_total_with_fp32_body": 17548288,
+    "kl": 0.011693740263581276,
+    "ce": 4.72379744052887,
+    "ntok": 16384,
+    "B": 1024,
+    "tail": "q4",
+    "attribution": "est_frequency"
+   },
+   {
+    "scheme": "anchor1024_freq_tail_q3",
+    "bits_embedding": 7189504,
+    "bill": {
+     "anchor_rows": 4194304,
+     "anchor_ids": 13312,
+     "tail_values": 2752512,
+     "tail_scales": 229376,
+     "TOTAL": 7189504
+    },
+    "bits_total_with_fp32_body": 16630784,
+    "kl": 0.05461376067250967,
+    "ce": 4.7736247181892395,
+    "ntok": 16384,
+    "B": 1024,
+    "tail": "q3",
+    "attribution": "est_frequency"
+   },
+   {
+    "scheme": "anchor1024_freq_tail_q2",
+    "bits_embedding": 6272000,
+    "bill": {
+     "anchor_rows": 4194304,
+     "anchor_ids": 13312,
+     "tail_values": 1835008,
+     "tail_scales": 229376,
+     "TOTAL": 6272000
+    },
+    "bits_total_with_fp32_body": 15713280,
+    "kl": 0.33199505135416985,
+    "ce": 5.072477459907532,
+    "ntok": 16384,
+    "B": 1024,
+    "tail": "q2",
+    "attribution": "est_frequency"
+   },
+   {
+    "scheme": "anchor1024_freq_tail_cluster_k512",
+    "bits_embedding": 6369280,
+    "bill": {
+     "anchor_rows": 4194304,
+     "anchor_ids": 13312,
+     "tail_index": 64512,
+     "tail_centroids": 2097152,
+     "TOTAL": 6369280
+    },
+    "bits_total_with_fp32_body": 15810560,
+    "kl": 0.8120348080992699,
+    "ce": 5.690347671508789,
+    "ntok": 16384,
+    "B": 1024,
+    "tail": "cluster_k512",
+    "attribution": "est_frequency"
+   },
+   {
+    "scheme": "anchor2048_freq_tail_pq_m16_b8",
+    "bits_embedding": 10250240,
+    "bill": {
+     "anchor_rows": 8388608,
+     "anchor_ids": 26624,
+     "tail_codebooks": 1048576,
+     "tail_indices": 786432,
+     "TOTAL": 10250240
+    },
+    "bits_total_with_fp32_body": 19691520,
+    "kl": 0.19167250208556652,
+    "ce": 4.961397230625153,
+    "ntok": 16384,
+    "B": 2048,
+    "tail": "pq_m16_b8",
+    "attribution": "est_frequency"
+   },
+   {
+    "scheme": "anchor2048_freq_tail_pq_m8_b8",
+    "bits_embedding": 9857024,
+    "bill": {
+     "anchor_rows": 8388608,
+     "anchor_ids": 26624,
+     "tail_codebooks": 1048576,
+     "tail_indices": 393216,
+     "TOTAL": 9857024
+    },
+    "bits_total_with_fp32_body": 19298304,
+    "kl": 0.3705010712146759,
+    "ce": 5.18634819984436,
+    "ntok": 16384,
+    "B": 2048,
+    "tail": "pq_m8_b8",
+    "attribution": "est_frequency"
+   },
+   {
+    "scheme": "anchor2048_freq_tail_q4",
+    "bits_embedding": 11757568,
+    "bill": {
+     "anchor_rows": 8388608,
+     "anchor_ids": 26624,
+     "tail_values": 3145728,
+     "tail_scales": 196608,
+     "TOTAL": 11757568
+    },
+    "bits_total_with_fp32_body": 21198848,
+    "kl": 0.008211751119233668,
+    "ce": 4.72020423412323,
+    "ntok": 16384,
+    "B": 2048,
+    "tail": "q4",
+    "attribution": "est_frequency"
+   },
+   {
+    "scheme": "anchor2048_freq_tail_q3",
+    "bits_embedding": 10971136,
+    "bill": {
+     "anchor_rows": 8388608,
+     "anchor_ids": 26624,
+     "tail_values": 2359296,
+     "tail_scales": 196608,
+     "TOTAL": 10971136
+    },
+    "bits_total_with_fp32_body": 20412416,
+    "kl": 0.038854353595525026,
+    "ce": 4.7565078139305115,
+    "ntok": 16384,
+    "B": 2048,
+    "tail": "q3",
+    "attribution": "est_frequency"
+   },
+   {
+    "scheme": "anchor2048_freq_tail_q2",
+    "bits_embedding": 10184704,
+    "bill": {
+     "anchor_rows": 8388608,
+     "anchor_ids": 26624,
+     "tail_values": 1572864,
+     "tail_scales": 196608,
+     "TOTAL": 10184704
+    },
+    "bits_total_with_fp32_body": 19625984,
+    "kl": 0.24148350022733212,
+    "ce": 4.971851825714111,
+    "ntok": 16384,
+    "B": 2048,
+    "tail": "q2",
+    "attribution": "est_frequency"
+   },
+   {
+    "scheme": "anchor2048_freq_tail_cluster_k512",
+    "bits_embedding": 10567680,
+    "bill": {
+     "anchor_rows": 8388608,
+     "anchor_ids": 26624,
+     "tail_index": 55296,
+     "tail_centroids": 2097152,
+     "TOTAL": 10567680
+    },
+    "bits_total_with_fp32_body": 20008960,
+    "kl": 0.5575253330171108,
+    "ce": 5.38610714673996,
+    "ntok": 16384,
+    "B": 2048,
+    "tail": "cluster_k512",
+    "attribution": "est_frequency"
+   },
+   {
+    "scheme": "anchor256_q8_tail_pq_m16_b8",
+    "bits_embedding": 2338048,
+    "bill": {
+     "anchor_ids": 3328,
+     "anchor_values": 262144,
+     "anchor_scales": 8192,
+     "tail_codebooks": 1048576,
+     "tail_indices": 1015808,
+     "TOTAL": 2338048
+    },
+    "bits_total_with_fp32_body": 11779328,
+    "kl": 0.5399259217083454,
+    "ce": 5.380866765975952,
+    "ntok": 16384,
+    "B": 256
+   },
+   {
+    "scheme": "anchor1024_q8_tail_pq_m16_b8",
+    "bits_embedding": 3060736,
+    "bill": {
+     "anchor_ids": 13312,
+     "anchor_values": 1048576,
+     "anchor_scales": 32768,
+     "tail_codebooks": 1048576,
+     "tail_indices": 917504,
+     "TOTAL": 3060736
+    },
+    "bits_total_with_fp32_body": 12502016,
+    "kl": 0.3035787269473076,
+    "ce": 5.104909062385559,
+    "ntok": 16384,
+    "B": 1024
+   }
+  ]
+ },
+ "E_body": {
+  "rows": [
+   {
+    "scheme": "mlp_trunc_units32",
+    "bits_body": 3543040,
+    "bill": {
+     "LR": 262144,
+     "Down": 131072,
+     "bias": 4096,
+     "attn": 3145728,
+     "TOTAL": 3543040
+    },
+    "bits_total_with_fp32_embedding": 37097472,
+    "kl": 2.7894285023212433,
+    "ce": 7.8103949427604675,
+    "ntok": 16384,
+    "h2": 32
+   },
+   {
+    "scheme": "mlp_trunc_units64",
+    "bits_body": 3936256,
+    "bill": {
+     "LR": 524288,
+     "Down": 262144,
+     "bias": 4096,
+     "attn": 3145728,
+     "TOTAL": 3936256
+    },
+    "bits_total_with_fp32_embedding": 37490688,
+    "kl": 2.2859447598457336,
+    "ce": 7.244568109512329,
+    "ntok": 16384,
+    "h2": 64
+   },
+   {
+    "scheme": "mlp_trunc_units128",
+    "bits_body": 4722688,
+    "bill": {
+     "LR": 1048576,
+     "Down": 524288,
+     "bias": 4096,
+     "attn": 3145728,
+     "TOTAL": 4722688
+    },
+    "bits_total_with_fp32_embedding": 38277120,
+    "kl": 1.694593295454979,
+    "ce": 6.60698527097702,
+    "ntok": 16384,
+    "h2": 128
+   },
+   {
+    "scheme": "mlp_trunc_units256",
+    "bits_body": 6295552,
+    "bill": {
+     "LR": 2097152,
+     "Down": 1048576,
+     "bias": 4096,
+     "attn": 3145728,
+     "TOTAL": 6295552
+    },
+    "bits_total_with_fp32_embedding": 39849984,
+    "kl": 0.9232622310519218,
+    "ce": 5.757071793079376,
+    "ntok": 16384,
+    "h2": 256
+   },
+   {
+    "scheme": "mlp_trunc_units384",
+    "bits_body": 7868416,
+    "bill": {
+     "LR": 3145728,
+     "Down": 1572864,
+     "bias": 4096,
+     "attn": 3145728,
+     "TOTAL": 7868416
+    },
+    "bits_total_with_fp32_embedding": 41422848,
+    "kl": 0.31645138561725616,
+    "ce": 5.087182462215424,
+    "ntok": 16384,
+    "h2": 384
+   },
+   {
+    "scheme": "mlp_cp_refit32",
+    "bits_body": 3543040,
+    "bill": {
+     "LR": 262144,
+     "Down": 131072,
+     "bias": 4096,
+     "attn": 3145728,
+     "TOTAL": 3543040
+    },
+    "bits_total_with_fp32_embedding": 37097472,
+    "kl": 2.360328257083893,
+    "ce": 7.369784355163574,
+    "ntok": 16384,
+    "h2": 32
+   },
+   {
+    "scheme": "mlp_cp_refit64",
+    "bits_body": 3936256,
+    "bill": {
+     "LR": 524288,
+     "Down": 262144,
+     "bias": 4096,
+     "attn": 3145728,
+     "TOTAL": 3936256
+    },
+    "bits_total_with_fp32_embedding": 37490688,
+    "kl": 1.9273242950439453,
+    "ce": 6.882099747657776,
+    "ntok": 16384,
+    "h2": 64
+   },
+   {
+    "scheme": "mlp_cp_refit128",
+    "bits_body": 4722688,
+    "bill": {
+     "LR": 1048576,
+     "Down": 524288,
+     "bias": 4096,
+     "attn": 3145728,
+     "TOTAL": 4722688
+    },
+    "bits_total_with_fp32_embedding": 38277120,
+    "kl": 1.3605223894119263,
+    "ce": 6.25966864824295,
+    "ntok": 16384,
+    "h2": 128
+   },
+   {
+    "scheme": "mlp_cp_refit256",
+    "bits_body": 6295552,
+    "bill": {
+     "LR": 2097152,
+     "Down": 1048576,
+     "bias": 4096,
+     "attn": 3145728,
+     "TOTAL": 6295552
+    },
+    "bits_total_with_fp32_embedding": 39849984,
+    "kl": 0.7469014748930931,
+    "ce": 5.571220755577087,
+    "ntok": 16384,
+    "h2": 256
+   },
+   {
+    "scheme": "mlp_cp_refit384",
+    "bits_body": 7868416,
+    "bill": {
+     "LR": 3145728,
+     "Down": 1572864,
+     "bias": 4096,
+     "attn": 3145728,
+     "TOTAL": 7868416
+    },
+    "bits_total_with_fp32_embedding": 41422848,
+    "kl": 0.270001333206892,
+    "ce": 5.036583065986633,
+    "ntok": 16384,
+    "h2": 384
+   },
+   {
+    "scheme": "mlp_q2",
+    "bits_body": 3579904,
+    "bill": {
+     "mlp": 430080,
+     "bias": 4096,
+     "attn": 3145728,
+     "TOTAL": 3579904
+    },
+    "bits_total_with_fp32_embedding": 37134336,
+    "kl": 0.8382595255970955,
+    "ce": 5.665047883987427,
+    "ntok": 16384
+   },
+   {
+    "scheme": "mlp_q3",
+    "bits_body": 3776512,
+    "bill": {
+     "mlp": 626688,
+     "bias": 4096,
+     "attn": 3145728,
+     "TOTAL": 3776512
+    },
+    "bits_total_with_fp32_embedding": 37330944,
+    "kl": 0.11633757315576077,
+    "ce": 4.8500548005104065,
+    "ntok": 16384
+   },
+   {
+    "scheme": "mlp_q4",
+    "bits_body": 3973120,
+    "bill": {
+     "mlp": 823296,
+     "bias": 4096,
+     "attn": 3145728,
+     "TOTAL": 3973120
+    },
+    "bits_total_with_fp32_embedding": 37527552,
+    "kl": 0.024850899120792747,
+    "ce": 4.742796719074249,
+    "ntok": 16384
+   },
+   {
+    "scheme": "mlp_q6",
+    "bits_body": 4366336,
+    "bill": {
+     "mlp": 1216512,
+     "bias": 4096,
+     "attn": 3145728,
+     "TOTAL": 4366336
+    },
+    "bits_total_with_fp32_embedding": 37920768,
+    "kl": 0.0014212577079888433,
+    "ce": 4.71336567401886,
+    "ntok": 16384
+   },
+   {
+    "scheme": "mlp_q8",
+    "bits_body": 4759552,
+    "bill": {
+     "mlp": 1609728,
+     "bias": 4096,
+     "attn": 3145728,
+     "TOTAL": 4759552
+    },
+    "bits_total_with_fp32_embedding": 38313984,
+    "kl": 8.816957324597752e-05,
+    "ce": 4.711670279502869,
+    "ntok": 16384
+   },
+   {
+    "scheme": "mlp_cp128_q4",
+    "bits_body": 3358720,
+    "bill": {
+     "mlp": 208896,
+     "bias": 4096,
+     "attn": 3145728,
+     "TOTAL": 3358720
+    },
+    "bits_total_with_fp32_embedding": 36913152,
+    "kl": 1.4079162180423737,
+    "ce": 6.305988550186157,
+    "ntok": 16384,
+    "h2": 128
+   },
+   {
+    "scheme": "mlp_cp128_q6",
+    "bits_body": 3457024,
+    "bill": {
+     "mlp": 307200,
+     "bias": 4096,
+     "attn": 3145728,
+     "TOTAL": 3457024
+    },
+    "bits_total_with_fp32_embedding": 37011456,
+    "kl": 1.3724700212478638,
+    "ce": 6.272118508815765,
+    "ntok": 16384,
+    "h2": 128
+   },
+   {
+    "scheme": "mlp_cp128_q8",
+    "bits_body": 3555328,
+    "bill": {
+     "mlp": 405504,
+     "bias": 4096,
+     "attn": 3145728,
+     "TOTAL": 3555328
+    },
+    "bits_total_with_fp32_embedding": 37109760,
+    "kl": 1.3612689673900604,
+    "ce": 6.260332107543945,
+    "ntok": 16384,
+    "h2": 128
+   },
+   {
+    "scheme": "mlp_cp256_q4",
+    "bits_body": 3563520,
+    "bill": {
+     "mlp": 413696,
+     "bias": 4096,
+     "attn": 3145728,
+     "TOTAL": 3563520
+    },
+    "bits_total_with_fp32_embedding": 37117952,
+    "kl": 0.7877349928021431,
+    "ce": 5.617871105670929,
+    "ntok": 16384,
+    "h2": 256
+   },
+   {
+    "scheme": "mlp_cp256_q6",
+    "bits_body": 3760128,
+    "bill": {
+     "mlp": 610304,
+     "bias": 4096,
+     "attn": 3145728,
+     "TOTAL": 3760128
+    },
+    "bits_total_with_fp32_embedding": 37314560,
+    "kl": 0.7461354956030846,
+    "ce": 5.570901930332184,
+    "ntok": 16384,
+    "h2": 256
+   },
+   {
+    "scheme": "mlp_cp256_q8",
+    "bits_body": 3956736,
+    "bill": {
+     "mlp": 806912,
+     "bias": 4096,
+     "attn": 3145728,
+     "TOTAL": 3956736
+    },
+    "bits_total_with_fp32_embedding": 37511168,
+    "kl": 0.747600294649601,
+    "ce": 5.571993052959442,
+    "ntok": 16384,
+    "h2": 256
+   },
+   {
+    "scheme": "mlp_cp384_q4",
+    "bits_body": 3768320,
+    "bill": {
+     "mlp": 618496,
+     "bias": 4096,
+     "attn": 3145728,
+     "TOTAL": 3768320
+    },
+    "bits_total_with_fp32_embedding": 37322752,
+    "kl": 0.32008087635040283,
+    "ce": 5.093005836009979,
+    "ntok": 16384,
+    "h2": 384
+   },
+   {
+    "scheme": "mlp_cp384_q6",
+    "bits_body": 4063232,
+    "bill": {
+     "mlp": 913408,
+     "bias": 4096,
+     "attn": 3145728,
+     "TOTAL": 4063232
+    },
+    "bits_total_with_fp32_embedding": 37617664,
+    "kl": 0.2694544717669487,
+    "ce": 5.036351203918457,
+    "ntok": 16384,
+    "h2": 384
+   },
+   {
+    "scheme": "mlp_cp384_q8",
+    "bits_body": 4358144,
+    "bill": {
+     "mlp": 1208320,
+     "bias": 4096,
+     "attn": 3145728,
+     "TOTAL": 4358144
+    },
+    "bits_total_with_fp32_embedding": 37912576,
+    "kl": 0.27037439309060574,
+    "ce": 5.036933898925781,
+    "ntok": 16384,
+    "h2": 384
+   },
+   {
+    "scheme": "attn_q2",
+    "bits_body": 6516736,
+    "bill": {
+     "attn": 221184,
+     "mlp": 6295552,
+     "TOTAL": 6516736
+    },
+    "bits_total_with_fp32_embedding": 40071168,
+    "kl": 3.052675187587738,
+    "ce": 8.124887824058533,
+    "ntok": 16384
+   },
+   {
+    "scheme": "attn_q3",
+    "bits_body": 6615040,
+    "bill": {
+     "attn": 319488,
+     "mlp": 6295552,
+     "TOTAL": 6615040
+    },
+    "bits_total_with_fp32_embedding": 40169472,
+    "kl": 1.1954365521669388,
+    "ce": 6.070012807846069,
+    "ntok": 16384
+   },
+   {
+    "scheme": "attn_q4",
+    "bits_body": 6713344,
+    "bill": {
+     "attn": 417792,
+     "mlp": 6295552,
+     "TOTAL": 6713344
+    },
+    "bits_total_with_fp32_embedding": 40267776,
+    "kl": 0.2205576803535223,
+    "ce": 4.971991240978241,
+    "ntok": 16384
+   },
+   {
+    "scheme": "attn_q6",
+    "bits_body": 6909952,
+    "bill": {
+     "attn": 614400,
+     "mlp": 6295552,
+     "TOTAL": 6909952
+    },
+    "bits_total_with_fp32_embedding": 40464384,
+    "kl": 0.008074961951933801,
+    "ce": 4.721221566200256,
+    "ntok": 16384
+   },
+   {
+    "scheme": "attn_q8",
+    "bits_body": 7106560,
+    "bill": {
+     "attn": 811008,
+     "mlp": 6295552,
+     "TOTAL": 7106560
+    },
+    "bits_total_with_fp32_embedding": 40660992,
+    "kl": 0.00046149360059644096,
+    "ce": 4.711959004402161,
+    "ntok": 16384
+   },
+   {
+    "scheme": "body_cp256_q3",
+    "bits_body": 638976,
+    "bill": {
+     "body": 634880,
+     "bias": 4096,
+     "TOTAL": 638976
+    },
+    "bits_total_with_fp32_embedding": 34193408,
+    "kl": 2.1349768936634064,
+    "ce": 7.103234827518463,
+    "ntok": 16384
+   },
+   {
+    "scheme": "body_cp256_q4",
+    "bits_body": 835584,
+    "bill": {
+     "body": 831488,
+     "bias": 4096,
+     "TOTAL": 835584
+    },
+    "bits_total_with_fp32_embedding": 34390016,
+    "kl": 1.0077268332242966,
+    "ce": 5.8646175265312195,
+    "ntok": 16384
+   },
+   {
+    "scheme": "body_cp256_q6",
+    "bits_body": 1228800,
+    "bill": {
+     "body": 1224704,
+     "bias": 4096,
+     "TOTAL": 1228800
+    },
+    "bits_total_with_fp32_embedding": 34783232,
+    "kl": 0.7574363052845001,
+    "ce": 5.583458483219147,
+    "ntok": 16384
+   }
+  ],
+  "n_attn_params": 98304,
+  "n_mlp_params": 196736
+ },
+ "G_codes": {
+  "rows": [
+   {
+    "scheme": "scalar_q3_entropy",
+    "bits_embedding": 2913293,
+    "bill": {
+     "values": 2651149,
+     "scales": 262144,
+     "TOTAL": 2913293
+    },
+    "bits_total_with_fp32_body": 12354573,
+    "kl": 0.1292356913909316,
+    "ce": 4.854556024074554,
+    "ntok": 16384
+   },
+   {
+    "scheme": "scalar_q4_entropy",
+    "bits_embedding": 4029227,
+    "bill": {
+     "values": 3767083,
+     "scales": 262144,
+     "TOTAL": 4029227
+    },
+    "bits_total_with_fp32_body": 13470507,
+    "kl": 0.02774941991083324,
+    "ce": 4.73962539434433,
+    "ntok": 16384
+   },
+   {
+    "scheme": "scalar_q5_entropy",
+    "bits_embedding": 5110247,
+    "bill": {
+     "values": 4848103,
+     "scales": 262144,
+     "TOTAL": 5110247
+    },
+    "bits_total_with_fp32_body": 14551527,
+    "kl": 0.006457611685618758,
+    "ce": 4.717800319194794,
+    "ntok": 16384
+   },
+   {
+    "scheme": "scalar_q6_entropy",
+    "bits_embedding": 6169053,
+    "bill": {
+     "values": 5906909,
+     "scales": 262144,
+     "TOTAL": 6169053
+    },
+    "bits_total_with_fp32_body": 15610333,
+    "kl": 0.0015789003518875688,
+    "ce": 4.713046729564667,
+    "ntok": 16384
+   },
+   {
+    "scheme": "scalar_q8_entropy",
+    "bits_embedding": 8257665,
+    "bill": {
+     "values": 7995521,
+     "scales": 262144,
+     "TOTAL": 8257665
+    },
+    "bits_total_with_fp32_body": 17698945,
+    "kl": 9.540212249703472e-05,
+    "ce": 4.711430549621582,
+    "ntok": 16384
+   },
+   {
+    "scheme": "transform_none_256bpr",
+    "bits_embedding": 1061366,
+    "bill": {
+     "mean": 4096,
+     "rot": 0,
+     "codes": 1052662,
+     "colscales": 4096,
+     "alloc": 512,
+     "TOTAL": 1061366
+    },
+    "bits_total_with_fp32_body": 10502646,
+    "kl": 1.6497384309768677,
+    "ce": 6.445910811424255,
+    "ntok": 16384,
+    "rot": "none",
+    "bpr": 256
+   },
+   {
+    "scheme": "transform_none_384bpr",
+    "bits_embedding": 1855959,
+    "bill": {
+     "mean": 4096,
+     "rot": 0,
+     "codes": 1847255,
+     "colscales": 4096,
+     "alloc": 512,
+     "TOTAL": 1855959
+    },
+    "bits_total_with_fp32_body": 11297239,
+    "kl": 0.3134424276649952,
+    "ce": 5.054113805294037,
+    "ntok": 16384,
+    "rot": "none",
+    "bpr": 384
+   },
+   {
+    "scheme": "transform_none_512bpr",
+    "bits_embedding": 2935504,
+    "bill": {
+     "mean": 4096,
+     "rot": 0,
+     "codes": 2926800,
+     "colscales": 4096,
+     "alloc": 512,
+     "TOTAL": 2935504
+    },
+    "bits_total_with_fp32_body": 12376784,
+    "kl": 0.06484446488320827,
+    "ce": 4.785496354103088,
+    "ntok": 16384,
+    "rot": "none",
+    "bpr": 512
+   },
+   {
+    "scheme": "transform_none_640bpr",
+    "bits_embedding": 4042224,
+    "bill": {
+     "mean": 4096,
+     "rot": 0,
+     "codes": 4033520,
+     "colscales": 4096,
+     "alloc": 512,
+     "TOTAL": 4042224
+    },
+    "bits_total_with_fp32_body": 13483504,
+    "kl": 0.014961710199713707,
+    "ce": 4.731676399707794,
+    "ntok": 16384,
+    "rot": "none",
+    "bpr": 640
+   },
+   {
+    "scheme": "transform_none_768bpr",
+    "bits_embedding": 5169617,
+    "bill": {
+     "mean": 4096,
+     "rot": 0,
+     "codes": 5160913,
+     "colscales": 4096,
+     "alloc": 512,
+     "TOTAL": 5169617
+    },
+    "bits_total_with_fp32_body": 14610897,
+    "kl": 0.0036589705559890717,
+    "ce": 4.716299295425415,
+    "ntok": 16384,
+    "rot": "none",
+    "bpr": 768
+   },
+   {
+    "scheme": "transform_hadamard_256bpr",
+    "bits_embedding": 1039360,
+    "bill": {
+     "mean": 4096,
+     "rot": 0,
+     "codes": 1030656,
+     "colscales": 4096,
+     "alloc": 512,
+     "TOTAL": 1039360
+    },
+    "bits_total_with_fp32_body": 10480640,
+    "kl": 1.859463557600975,
+    "ce": 6.683165907859802,
+    "ntok": 16384,
+    "rot": "hadamard",
+    "bpr": 256
+   },
+   {
+    "scheme": "transform_hadamard_384bpr",
+    "bits_embedding": 1809773,
+    "bill": {
+     "mean": 4096,
+     "rot": 0,
+     "codes": 1801069,
+     "colscales": 4096,
+     "alloc": 512,
+     "TOTAL": 1809773
+    },
+    "bits_total_with_fp32_body": 11251053,
+    "kl": 0.3313590995967388,
+    "ce": 5.0966477394104,
+    "ntok": 16384,
+    "rot": "hadamard",
+    "bpr": 384
+   },
+   {
+    "scheme": "transform_hadamard_512bpr",
+    "bits_embedding": 2884355,
+    "bill": {
+     "mean": 4096,
+     "rot": 0,
+     "codes": 2875651,
+     "colscales": 4096,
+     "alloc": 512,
+     "TOTAL": 2884355
+    },
+    "bits_total_with_fp32_body": 12325635,
+    "kl": 0.06895557045936584,
+    "ce": 4.79313737154007,
+    "ntok": 16384,
+    "rot": "hadamard",
+    "bpr": 512
+   },
+   {
+    "scheme": "transform_hadamard_640bpr",
+    "bits_embedding": 3989698,
+    "bill": {
+     "mean": 4096,
+     "rot": 0,
+     "codes": 3980994,
+     "colscales": 4096,
+     "alloc": 512,
+     "TOTAL": 3989698
+    },
+    "bits_total_with_fp32_body": 13430978,
+    "kl": 0.015378250041976571,
+    "ce": 4.7289488315582275,
+    "ntok": 16384,
+    "rot": "hadamard",
+    "bpr": 640
+   },
+   {
+    "scheme": "transform_hadamard_768bpr",
+    "bits_embedding": 5117740,
+    "bill": {
+     "mean": 4096,
+     "rot": 0,
+     "codes": 5109036,
+     "colscales": 4096,
+     "alloc": 512,
+     "TOTAL": 5117740
+    },
+    "bits_total_with_fp32_body": 14559020,
+    "kl": 0.0038576607475988567,
+    "ce": 4.715203642845154,
+    "ntok": 16384,
+    "rot": "hadamard",
+    "bpr": 768
+   },
+   {
+    "scheme": "transform_pca_256bpr",
+    "bits_embedding": 1160226,
+    "bill": {
+     "mean": 4096,
+     "rot_values": 131072,
+     "rot_scales": 4096,
+     "codes": 1016354,
+     "colscales": 4096,
+     "alloc": 512,
+     "TOTAL": 1160226
+    },
+    "bits_total_with_fp32_body": 10601506,
+    "kl": 2.899881273508072,
+    "ce": 7.8428672552108765,
+    "ntok": 16384,
+    "rot": "pca",
+    "bpr": 256
+   },
+   {
+    "scheme": "transform_pca_384bpr",
+    "bits_embedding": 1835325,
+    "bill": {
+     "mean": 4096,
+     "rot_values": 131072,
+     "rot_scales": 4096,
+     "codes": 1691453,
+     "colscales": 4096,
+     "alloc": 512,
+     "TOTAL": 1835325
+    },
+    "bits_total_with_fp32_body": 11276605,
+    "kl": 0.33906013146042824,
+    "ce": 5.0934136509895325,
+    "ntok": 16384,
+    "rot": "pca",
+    "bpr": 384
+   },
+   {
+    "scheme": "transform_pca_512bpr",
+    "bits_embedding": 2885496,
+    "bill": {
+     "mean": 4096,
+     "rot_values": 131072,
+     "rot_scales": 4096,
+     "codes": 2741624,
+     "colscales": 4096,
+     "alloc": 512,
+     "TOTAL": 2885496
+    },
+    "bits_total_with_fp32_body": 12326776,
+    "kl": 0.08010492008179426,
+    "ce": 4.808071613311768,
+    "ntok": 16384,
+    "rot": "pca",
+    "bpr": 512
+   },
+   {
+    "scheme": "transform_pca_640bpr",
+    "bits_embedding": 3976052,
+    "bill": {
+     "mean": 4096,
+     "rot_values": 131072,
+     "rot_scales": 4096,
+     "codes": 3832180,
+     "colscales": 4096,
+     "alloc": 512,
+     "TOTAL": 3976052
+    },
+    "bits_total_with_fp32_body": 13417332,
+    "kl": 0.01682584430091083,
+    "ce": 4.7294411063194275,
+    "ntok": 16384,
+    "rot": "pca",
+    "bpr": 640
+   },
+   {
+    "scheme": "transform_pca_768bpr",
+    "bits_embedding": 5104060,
+    "bill": {
+     "mean": 4096,
+     "rot_values": 131072,
+     "rot_scales": 4096,
+     "codes": 4960188,
+     "colscales": 4096,
+     "alloc": 512,
+     "TOTAL": 5104060
+    },
+    "bits_total_with_fp32_body": 14545340,
+    "kl": 0.004211262974422425,
+    "ce": 4.716098129749298,
+    "ntok": 16384,
+    "rot": "pca",
+    "bpr": 768
+   },
+   {
+    "scheme": "strat_hi8_lo3_n512",
+    "bits_embedding": 3257480,
+    "bill": {
+     "strata_ids": 6656,
+     "hi_values": 506618,
+     "hi_scales": 16384,
+     "lo_values": 2482062,
+     "lo_scales": 245760,
+     "TOTAL": 3257480
+    },
+    "bits_total_with_fp32_body": 12698760,
+    "kl": 0.06797855626791716,
+    "ce": 4.789495944976807,
+    "ntok": 16384,
+    "b_hi": 8,
+    "b_lo": 3,
+    "n_hi": 512
+   },
+   {
+    "scheme": "strat_hi8_lo3_n1024",
+    "bits_embedding": 3597957,
+    "bill": {
+     "strata_ids": 13312,
+     "hi_values": 1007362,
+     "hi_scales": 32768,
+     "lo_values": 2315139,
+     "lo_scales": 229376,
+     "TOTAL": 3597957
+    },
+    "bits_total_with_fp32_body": 13039237,
+    "kl": 0.05466086883097887,
+    "ce": 4.773672103881836,
+    "ntok": 16384,
+    "b_hi": 8,
+    "b_lo": 3,
+    "n_hi": 1024
+   },
+   {
+    "scheme": "strat_hi8_lo4_n512",
+    "bits_embedding": 4303614,
+    "bill": {
+     "strata_ids": 6656,
+     "hi_values": 506618,
+     "hi_scales": 16384,
+     "lo_values": 3528196,
+     "lo_scales": 245760,
+     "TOTAL": 4303614
+    },
+    "bits_total_with_fp32_body": 13744894,
+    "kl": 0.014668651390820742,
+    "ce": 4.727451682090759,
+    "ntok": 16384,
+    "b_hi": 8,
+    "b_lo": 4,
+    "n_hi": 512
+   },
+   {
+    "scheme": "strat_hi6_lo3_n1024",
+    "bits_embedding": 3334399,
+    "bill": {
+     "strata_ids": 13312,
+     "hi_values": 743804,
+     "hi_scales": 32768,
+     "lo_values": 2315139,
+     "lo_scales": 229376,
+     "TOTAL": 3334399
+    },
+    "bits_total_with_fp32_body": 12775679,
+    "kl": 0.05548646952956915,
+    "ce": 4.774320125579834,
+    "ntok": 16384,
+    "b_hi": 6,
+    "b_lo": 3,
+    "n_hi": 1024
+   },
+   {
+    "scheme": "strat_hi6_lo4_n1024",
+    "bits_embedding": 4310633,
+    "bill": {
+     "strata_ids": 13312,
+     "hi_values": 743804,
+     "hi_scales": 32768,
+     "lo_values": 3291373,
+     "lo_scales": 229376,
+     "TOTAL": 4310633
+    },
+    "bits_total_with_fp32_body": 13751913,
+    "kl": 0.012575410306453705,
+    "ce": 4.7245190143585205,
+    "ntok": 16384,
+    "b_hi": 6,
+    "b_lo": 4,
+    "n_hi": 1024
+   },
+   {
+    "scheme": "strat_hi8_lo4_n1024",
+    "bits_embedding": 4574191,
+    "bill": {
+     "strata_ids": 13312,
+     "hi_values": 1007362,
+     "hi_scales": 32768,
+     "lo_values": 3291373,
+     "lo_scales": 229376,
+     "TOTAL": 4574191
+    },
+    "bits_total_with_fp32_body": 14015471,
+    "kl": 0.01174969575367868,
+    "ce": 4.723869562149048,
+    "ntok": 16384,
+    "b_hi": 8,
+    "b_lo": 4,
+    "n_hi": 1024
+   },
+   {
+    "scheme": "strat_hi6_lo4_n2048",
+    "bits_embedding": 4591367,
+    "bill": {
+     "strata_ids": 26624,
+     "hi_values": 1484629,
+     "hi_scales": 65536,
+     "lo_values": 2817970,
+     "lo_scales": 196608,
+     "TOTAL": 4591367
+    },
+    "bits_total_with_fp32_body": 14032647,
+    "kl": 0.009297955664806068,
+    "ce": 4.7212077379226685,
+    "ntok": 16384,
+    "b_hi": 6,
+    "b_lo": 4,
+    "n_hi": 2048
+   },
+   {
+    "scheme": "strat_hi8_lo5_n512",
+    "bits_embedding": 5316986,
+    "bill": {
+     "strata_ids": 6656,
+     "hi_values": 506618,
+     "hi_scales": 16384,
+     "lo_values": 4541568,
+     "lo_scales": 245760,
+     "TOTAL": 5316986
+    },
+    "bits_total_with_fp32_body": 14758266,
+    "kl": 0.003461771208094433,
+    "ce": 4.71466338634491,
+    "ntok": 16384,
+    "b_hi": 8,
+    "b_lo": 5,
+    "n_hi": 512
+   },
+   {
+    "scheme": "strat_hi6_lo5_n1024",
+    "bits_embedding": 5256438,
+    "bill": {
+     "strata_ids": 13312,
+     "hi_values": 743804,
+     "hi_scales": 32768,
+     "lo_values": 4237178,
+     "lo_scales": 229376,
+     "TOTAL": 5256438
+    },
+    "bits_total_with_fp32_body": 14697718,
+    "kl": 0.0036435765505302697,
+    "ce": 4.714513957500458,
+    "ntok": 16384,
+    "b_hi": 6,
+    "b_lo": 5,
+    "n_hi": 1024
+   },
+   {
+    "scheme": "strat_hi5_lo4_n2048",
+    "bits_embedding": 4326258,
+    "bill": {
+     "strata_ids": 26624,
+     "hi_values": 1219520,
+     "hi_scales": 65536,
+     "lo_values": 2817970,
+     "lo_scales": 196608,
+     "TOTAL": 4326258
+    },
+    "bits_total_with_fp32_body": 13767538,
+    "kl": 0.012796356226317585,
+    "ce": 4.724445343017578,
+    "ntok": 16384,
+    "b_hi": 5,
+    "b_lo": 4,
+    "n_hi": 2048
+   }
+  ]
+ },
+ "H_weightsfree": {
+  "rows": [
+   {
+    "scheme": "weightsfree_VxV_bigram_table_fp32",
+    "bits": 2147483648,
+    "kl": 0.657294787466526,
+    "ce": 5.511687994003296,
+    "note": "the only weights-free artifact rung 5 had"
+   },
+   {
+    "scheme": "weightsfree_VxV_bigram_table_fp16",
+    "bits": 1073741824,
+    "kl": 0.657294787466526,
+    "ce": 5.511687994003296,
+    "note": "the only weights-free artifact rung 5 had"
+   },
+   {
+    "scheme": "weightsfree_VxV_bigram_table_int8",
+    "bits": 536870912,
+    "kl": 0.657294787466526,
+    "ce": 5.511687994003296,
+    "note": "the only weights-free artifact rung 5 had"
+   },
+   {
+    "scheme": "factored_r0_plus_WU_fp32",
+    "bits": 67108864,
+    "kl": 0.657294787466526,
+    "ce": 5.511687994003296,
+    "note": "r0 row table + the unembedding; MDL makes the \"weights-free\" distinction vacuous"
+   },
+   {
+    "scheme": "full_exact_ladder_control",
+    "bits": null,
+    "kl": 0.0,
+    "ce": 4.711396634578705
+   }
+  ],
+  "V": 8192
+ },
+ "I_distilled": {
+  "rows": [
+   {
+    "scheme": "distilled_emb1_body4",
+    "emb_bits": 1,
+    "body_bits": 4,
+    "bits": 2431255,
+    "bill": {
+     "wte_out": 1309801,
+     "Wq": 64053,
+     "Wk": 63541,
+     "Wq2": 63814,
+     "Wk2": 63686,
+     "Wv": 63967,
+     "Wproj": 61981,
+     "Left": 254244,
+     "Right": 254402,
+     "Down": 227670,
+     "Down_bias": 4096,
+     "TOTAL": 2431255
+    },
+    "distill_selection": {
+     "est_val_kl": 0.8351634740829468,
+     "best_step": 10000
+    },
+    "kl": 0.8290731906890869,
+    "ce": 5.654417634010315,
+    "ntok": 16384,
+    "kl_se": 0.008359250612556934,
+    "n_seq": 64,
+    "control_posthoc": {
+     "bits": 2428949,
+     "kl": 6.071521699428558,
+     "ce": 10.798281908035278,
+     "ntok": 16384
+    }
+   },
+   {
+    "scheme": "distilled_emb2_body3",
+    "emb_bits": 2,
+    "body_bits": 3,
+    "bits": 2680297,
+    "bill": {
+     "wte_out": 1871350,
+     "Wq": 46699,
+     "Wk": 46035,
+     "Wq2": 46547,
+     "Wk2": 46087,
+     "Wv": 46209,
+     "Wproj": 45878,
+     "Left": 184820,
+     "Right": 184667,
+     "Down": 157909,
+     "Down_bias": 4096,
+     "TOTAL": 2680297
+    },
+    "distill_selection": {
+     "est_val_kl": 0.411259051412344,
+     "best_step": 10000
+    },
+    "kl": 0.408969521522522,
+    "ce": 5.209656119346619,
+    "ntok": 16384,
+    "kl_se": 0.003833150491118431,
+    "n_seq": 64,
+    "control_posthoc": {
+     "bits": 2590924,
+     "kl": 2.332252085208893,
+     "ce": 7.315665304660797,
+     "ntok": 16384
+    }
+   },
+   {
+    "scheme": "distilled_emb2_body4",
+    "emb_bits": 2,
+    "body_bits": 4,
+    "bits": 2998984,
+    "bill": {
+     "wte_out": 1876978,
+     "Wq": 64118,
+     "Wk": 63445,
+     "Wq2": 63977,
+     "Wk2": 63562,
+     "Wv": 63725,
+     "Wproj": 62648,
+     "Left": 254333,
+     "Right": 254684,
+     "Down": 227418,
+     "Down_bias": 4096,
+     "TOTAL": 2998984
+    },
+    "distill_selection": {
+     "est_val_kl": 0.4139082357287407,
+     "best_step": 10000
+    },
+    "kl": 0.41099411249160767,
+    "ce": 5.18865031003952,
+    "ntok": 16384,
+    "kl_se": 0.0035650539211928844,
+    "n_seq": 64,
+    "control_posthoc": {
+     "bits": 2905856,
+     "kl": 1.1566203832626343,
+     "ce": 5.9914321303367615,
+     "ntok": 16384
+    }
+   },
+   {
+    "scheme": "distilled_emb2_body6",
+    "emb_bits": 2,
+    "body_bits": 6,
+    "bits": 3613193,
+    "bill": {
+     "wte_out": 1883486,
+     "Wq": 98207,
+     "Wk": 97495,
+     "Wq2": 98227,
+     "Wk2": 97562,
+     "Wv": 97933,
+     "Wproj": 96078,
+     "Left": 388682,
+     "Right": 388851,
+     "Down": 362576,
+     "Down_bias": 4096,
+     "TOTAL": 3613193
+    },
+    "distill_selection": {
+     "est_val_kl": 0.39092677272856236,
+     "best_step": 10000
+    },
+    "kl": 0.38760846853256226,
+    "ce": 5.142597138881683,
+    "ntok": 16384,
+    "kl_se": 0.003201541258022189,
+    "n_seq": 64,
+    "control_posthoc": {
+     "bits": 3515272,
+     "kl": 0.7680570855736732,
+     "ce": 5.554941296577454,
+     "ntok": 16384
+    }
+   },
+   {
+    "scheme": "distilled_emb3_body3",
+    "emb_bits": 3,
+    "body_bits": 3,
+    "bits": 3765718,
+    "bill": {
+     "wte_out": 2955999,
+     "Wq": 46700,
+     "Wk": 45889,
+     "Wq2": 46503,
+     "Wk2": 46187,
+     "Wv": 46268,
+     "Wproj": 45945,
+     "Left": 184770,
+     "Right": 185052,
+     "Down": 158309,
+     "Down_bias": 4096,
+     "TOTAL": 3765718
+    },
+    "distill_selection": {
+     "est_val_kl": 0.13379439432173967,
+     "best_step": 10000
+    },
+    "kl": 0.1323038637638092,
+    "ce": 4.88013881444931,
+    "ntok": 16384,
+    "kl_se": 0.0012945710914209485,
+    "n_seq": 64,
+    "control_posthoc": {
+     "bits": 3718605,
+     "kl": 1.6062975525856018,
+     "ce": 6.523086488246918,
+     "ntok": 16384
+    }
+   },
+   {
+    "scheme": "distilled_emb3_body4",
+    "emb_bits": 3,
+    "body_bits": 4,
+    "bits": 4088748,
+    "bill": {
+     "wte_out": 2966783,
+     "Wq": 64215,
+     "Wk": 63404,
+     "Wq2": 63845,
+     "Wk2": 63646,
+     "Wv": 63835,
+     "Wproj": 62749,
+     "Left": 254197,
+     "Right": 254580,
+     "Down": 227398,
+     "Down_bias": 4096,
+     "TOTAL": 4088748
+    },
+    "distill_selection": {
+     "est_val_kl": 0.10516915423795581,
+     "best_step": 10000
+    },
+    "kl": 0.10486949980258942,
+    "ce": 4.8356963992118835,
+    "ntok": 16384,
+    "kl_se": 0.0009582970524206758,
+    "n_seq": 64,
+    "control_posthoc": {
+     "bits": 4033537,
+     "kl": 0.4208632744848728,
+     "ce": 5.195479393005371,
+     "ntok": 16384
+    }
+   },
+   {
+    "scheme": "distilled_emb3_body6",
+    "emb_bits": 3,
+    "body_bits": 6,
+    "bits": 4701816,
+    "bill": {
+     "wte_out": 2971961,
+     "Wq": 98253,
+     "Wk": 97532,
+     "Wq2": 98084,
+     "Wk2": 97790,
+     "Wv": 98024,
+     "Wproj": 96061,
+     "Left": 388509,
+     "Right": 388908,
+     "Down": 362598,
+     "Down_bias": 4096,
+     "TOTAL": 4701816
+    },
+    "distill_selection": {
+     "est_val_kl": 0.09350607497617602,
+     "best_step": 10000
+    },
+    "kl": 0.09298348426818848,
+    "ce": 4.8102113008499146,
+    "ntok": 16384,
+    "kl_se": 0.0007907355902716517,
+    "n_seq": 64,
+    "control_posthoc": {
+     "bits": 4642953,
+     "kl": 0.1416047252714634,
+     "ce": 4.86914449930191,
+     "ntok": 16384
+    }
+   },
+   {
+    "scheme": "distilled_emb4_body4",
+    "emb_bits": 4,
+    "body_bits": 4,
+    "bits": 5167472,
+    "bill": {
+     "wte_out": 4044768,
+     "Wq": 64250,
+     "Wk": 63481,
+     "Wq2": 63957,
+     "Wk2": 63685,
+     "Wv": 63960,
+     "Wproj": 62886,
+     "Left": 254279,
+     "Right": 254537,
+     "Down": 227573,
+     "Down_bias": 4096,
+     "TOTAL": 5167472
+    },
+    "distill_selection": {
+     "est_val_kl": 0.03487464692443609,
+     "best_step": 10000
+    },
+    "kl": 0.03454548120498657,
+    "ce": 4.758756220340729,
+    "ntok": 16384,
+    "kl_se": 0.0003376618551556021,
+    "n_seq": 64,
+    "control_posthoc": {
+     "bits": 5149471,
+     "kl": 0.28790105134248734,
+     "ce": 5.047615230083466,
+     "ntok": 16384
+    }
+   },
+   {
+    "scheme": "distilled_emb4_body6",
+    "emb_bits": 4,
+    "body_bits": 6,
+    "bits": 5784535,
+    "bill": {
+     "wte_out": 4054253,
+     "Wq": 98353,
+     "Wk": 97497,
+     "Wq2": 98137,
+     "Wk2": 97931,
+     "Wv": 98055,
+     "Wproj": 96148,
+     "Left": 388584,
+     "Right": 388858,
+     "Down": 362623,
+     "Down_bias": 4096,
+     "TOTAL": 5784535
+    },
+    "distill_selection": {
+     "est_val_kl": 0.024167634430341423,
+     "best_step": 10000
+    },
+    "kl": 0.023870937526226044,
+    "ce": 4.735715687274933,
+    "ntok": 16384,
+    "kl_se": 0.00019386208441574126,
+    "n_seq": 64,
+    "control_posthoc": {
+     "bits": 5758887,
+     "kl": 0.03783992910757661,
+     "ce": 4.752107620239258,
+     "ntok": 16384
+    }
+   },
+   {
+    "scheme": "distilled_emb4_body8",
+    "emb_bits": 4,
+    "body_bits": 8,
+    "bits": 6401464,
+    "bill": {
+     "wte_out": 4057349,
+     "Wq": 133804,
+     "Wk": 132983,
+     "Wq2": 133742,
+     "Wk2": 133308,
+     "Wv": 133585,
+     "Wproj": 131377,
+     "Left": 521860,
+     "Right": 522166,
+     "Down": 497194,
+     "Down_bias": 4096,
+     "TOTAL": 6401464
+    },
+    "distill_selection": {
+     "est_val_kl": 0.023129674256779253,
+     "best_step": 10000
+    },
+    "kl": 0.022936875000596046,
+    "ce": 4.737402975559235,
+    "ntok": 16384,
+    "kl_se": 0.0001966404524864629,
+    "n_seq": 64,
+    "control_posthoc": {
+     "bits": 6373201,
+     "kl": 0.02828228333964944,
+     "ce": 4.740558207035065,
+     "ntok": 16384
+    }
+   },
+   {
+    "scheme": "distilled_emb5_body8",
+    "emb_bits": 5,
+    "body_bits": 8,
+    "bits": 7464129,
+    "bill": {
+     "wte_out": 5119947,
+     "Wq": 133799,
+     "Wk": 132998,
+     "Wq2": 133718,
+     "Wk2": 133331,
+     "Wv": 133571,
+     "Wproj": 131405,
+     "Left": 521877,
+     "Right": 522123,
+     "Down": 497264,
+     "Down_bias": 4096,
+     "TOTAL": 7464129
+    },
+    "distill_selection": {
+     "est_val_kl": 0.0057239135785494,
+     "best_step": 10000
+    },
+    "kl": 0.005674506537616253,
+    "ce": 4.717086315155029,
+    "ntok": 16384,
+    "kl_se": 5.082176721771248e-05,
+    "n_seq": 64,
+    "control_posthoc": {
+     "bits": 7454221,
+     "kl": 0.00696633366169408,
+     "ce": 4.71863180398941,
+     "ntok": 16384
+    }
+   },
+   {
+    "scheme": "distilled_emb6_body8",
+    "emb_bits": 6,
+    "body_bits": 8,
+    "bits": 8516333,
+    "bill": {
+     "wte_out": 6172077,
+     "Wq": 133801,
+     "Wk": 133036,
+     "Wq2": 133702,
+     "Wk2": 133337,
+     "Wv": 133608,
+     "Wproj": 131433,
+     "Left": 521874,
+     "Right": 522096,
+     "Down": 497273,
+     "Down_bias": 4096,
+     "TOTAL": 8516333
+    },
+    "distill_selection": {
+     "est_val_kl": 0.0015513795224251226,
+     "best_step": 10000
+    },
+    "kl": 0.0015166513621807098,
+    "ce": 4.712981641292572,
+    "ntok": 16384,
+    "kl_se": 1.2948418770974968e-05,
+    "n_seq": 64,
+    "control_posthoc": {
+     "bits": 8513027,
+     "kl": 0.0021293110330589116,
+     "ce": 4.713889479637146,
+     "ntok": 16384
+    }
+   }
+  ]
+ },
+ "K_features": {
+  "regression_r2": 0.25603723526000977,
+  "n_features": 272,
+  "rows": [
+   {
+    "scheme": "feature_residual_q2",
+    "b": 2,
+    "bits_embedding": 2097349,
+    "bill": {
+     "regression": 287232,
+     "residual_values": 1547973,
+     "residual_scales": 262144,
+     "TOTAL": 2097349
+    },
+    "bits_total_with_fp32_body": 11538629,
+    "kl": 0.4451315142214298,
+    "ce": 5.197832524776459,
+    "ntok": 16384,
+    "control_plain_q": {
+     "bits_embedding": 1785612,
+     "kl": 0.7498944848775864,
+     "ce": 5.535673022270203,
+     "ntok": 16384
+    }
+   },
+   {
+    "scheme": "feature_residual_q3",
+    "b": 3,
+    "bits_embedding": 3236620,
+    "bill": {
+     "regression": 287232,
+     "residual_values": 2687244,
+     "residual_scales": 262144,
+     "TOTAL": 3236620
+    },
+    "bits_total_with_fp32_body": 12677900,
+    "kl": 0.07795452885329723,
+    "ce": 4.801417529582977,
+    "ntok": 16384,
+    "control_plain_q": {
+     "bits_embedding": 2913293,
+     "kl": 0.1292356913909316,
+     "ce": 4.854556024074554,
+     "ntok": 16384
+    }
+   },
+   {
+    "scheme": "feature_residual_q4",
+    "b": 4,
+    "bits_embedding": 4353499,
+    "bill": {
+     "regression": 287232,
+     "residual_values": 3804123,
+     "residual_scales": 262144,
+     "TOTAL": 4353499
+    },
+    "bits_total_with_fp32_body": 13794779,
+    "kl": 0.0166987597476691,
+    "ce": 4.728899419307709,
+    "ntok": 16384,
+    "control_plain_q": {
+     "bits_embedding": 4029227,
+     "kl": 0.02774941991083324,
+     "ce": 4.73962539434433,
+     "ntok": 16384
+    }
+   },
+   {
+    "scheme": "feature_residual_q5",
+    "b": 5,
+    "bits_embedding": 5434830,
+    "bill": {
+     "regression": 287232,
+     "residual_values": 4885454,
+     "residual_scales": 262144,
+     "TOTAL": 5434830
+    },
+    "bits_total_with_fp32_body": 14876110,
+    "kl": 0.003975238505518064,
+    "ce": 4.715727925300598,
+    "ntok": 16384,
+    "control_plain_q": {
+     "bits_embedding": 5110247,
+     "kl": 0.006457611685618758,
+     "ce": 4.717800319194794,
+     "ntok": 16384
+    }
+   },
+   {
+    "scheme": "feature_residual_q6",
+    "b": 6,
+    "bits_embedding": 6493754,
+    "bill": {
+     "regression": 287232,
+     "residual_values": 5944378,
+     "residual_scales": 262144,
+     "TOTAL": 6493754
+    },
+    "bits_total_with_fp32_body": 15935034,
+    "kl": 0.0009548712114337832,
+    "ce": 4.711520612239838,
+    "ntok": 16384,
+    "control_plain_q": {
+     "bits_embedding": 6169053,
+     "kl": 0.0015789003518875688,
+     "ce": 4.713046729564667,
+     "ntok": 16384
+    }
+   }
+  ],
+  "note": "the token surface strings are free to the decoder (they are part of the corpus specification), which is generous to this scheme and therefore conservative for the negative result"
+ },
+ "F_combined": {
+  "rows": [
+   {
+    "scheme": "embQ3e+body4",
+    "bits": 4158477,
+    "bill": {
+     "embedding": 2913293,
+     "body_Wq": 69632,
+     "body_Wk": 69632,
+     "body_Wq2": 69632,
+     "body_Wk2": 69632,
+     "body_Wv": 69632,
+     "body_Wproj": 69632,
+     "body_Left": 278528,
+     "body_Right": 278528,
+     "body_Down": 266240,
+     "body_Down_bias": 4096,
+     "TOTAL": 4158477
+    },
+    "emb_coder": "embQ3e",
+    "body_bits": 4,
+    "kl": 0.4208632744848728,
+    "ce": 5.195479393005371,
+    "ntok": 16384
+   },
+   {
+    "scheme": "embQ3e+body5",
+    "bits": 4453389,
+    "bill": {
+     "embedding": 2913293,
+     "body_Wq": 86016,
+     "body_Wk": 86016,
+     "body_Wq2": 86016,
+     "body_Wk2": 86016,
+     "body_Wv": 86016,
+     "body_Wproj": 86016,
+     "body_Left": 344064,
+     "body_Right": 344064,
+     "body_Down": 331776,
+     "body_Down_bias": 4096,
+     "TOTAL": 4453389
+    },
+    "emb_coder": "embQ3e",
+    "body_bits": 5,
+    "kl": 0.1932878103107214,
+    "ce": 4.931917369365692,
+    "ntok": 16384
+   },
+   {
+    "scheme": "embQ3e+body6",
+    "bits": 4748301,
+    "bill": {
+     "embedding": 2913293,
+     "body_Wq": 102400,
+     "body_Wk": 102400,
+     "body_Wq2": 102400,
+     "body_Wk2": 102400,
+     "body_Wv": 102400,
+     "body_Wproj": 102400,
+     "body_Left": 409600,
+     "body_Right": 409600,
+     "body_Down": 397312,
+     "body_Down_bias": 4096,
+     "TOTAL": 4748301
+    },
+    "emb_coder": "embQ3e",
+    "body_bits": 6,
+    "kl": 0.1416047252714634,
+    "ce": 4.86914449930191,
+    "ntok": 16384
+   },
+   {
+    "scheme": "embQ3e+body8",
+    "bits": 5338125,
+    "bill": {
+     "embedding": 2913293,
+     "body_Wq": 135168,
+     "body_Wk": 135168,
+     "body_Wq2": 135168,
+     "body_Wk2": 135168,
+     "body_Wv": 135168,
+     "body_Wproj": 135168,
+     "body_Left": 540672,
+     "body_Right": 540672,
+     "body_Down": 528384,
+     "body_Down_bias": 4096,
+     "TOTAL": 5338125
+    },
+    "emb_coder": "embQ3e",
+    "body_bits": 8,
+    "kl": 0.1297973422333598,
+    "ce": 4.855238318443298,
+    "ntok": 16384
+   },
+   {
+    "scheme": "embQ3e+body32",
+    "bits": 12354573,
+    "bill": {
+     "embedding": 2913293,
+     "body_Wq": 524288,
+     "body_Wk": 524288,
+     "body_Wq2": 524288,
+     "body_Wk2": 524288,
+     "body_Wv": 524288,
+     "body_Wproj": 524288,
+     "body_Left": 2097152,
+     "body_Right": 2097152,
+     "body_Down": 2097152,
+     "body_Down_bias": 4096,
+     "TOTAL": 12354573
+    },
+    "emb_coder": "embQ3e",
+    "body_bits": 32,
+    "kl": 0.1292356913909316,
+    "ce": 4.854556024074554,
+    "ntok": 16384
+   },
+   {
+    "scheme": "embQ4e+body4",
+    "bits": 5274411,
+    "bill": {
+     "embedding": 4029227,
+     "body_Wq": 69632,
+     "body_Wk": 69632,
+     "body_Wq2": 69632,
+     "body_Wk2": 69632,
+     "body_Wv": 69632,
+     "body_Wproj": 69632,
+     "body_Left": 278528,
+     "body_Right": 278528,
+     "body_Down": 266240,
+     "body_Down_bias": 4096,
+     "TOTAL": 5274411
+    },
+    "emb_coder": "embQ4e",
+    "body_bits": 4,
+    "kl": 0.28790105134248734,
+    "ce": 5.047615230083466,
+    "ntok": 16384
+   },
+   {
+    "scheme": "embQ4e+body5",
+    "bits": 5569323,
+    "bill": {
+     "embedding": 4029227,
+     "body_Wq": 86016,
+     "body_Wk": 86016,
+     "body_Wq2": 86016,
+     "body_Wk2": 86016,
+     "body_Wv": 86016,
+     "body_Wproj": 86016,
+     "body_Left": 344064,
+     "body_Right": 344064,
+     "body_Down": 331776,
+     "body_Down_bias": 4096,
+     "TOTAL": 5569323
+    },
+    "emb_coder": "embQ4e",
+    "body_bits": 5,
+    "kl": 0.08164191618561745,
+    "ce": 4.8074657917022705,
+    "ntok": 16384
+   },
+   {
+    "scheme": "embQ4e+body6",
+    "bits": 5864235,
+    "bill": {
+     "embedding": 4029227,
+     "body_Wq": 102400,
+     "body_Wk": 102400,
+     "body_Wq2": 102400,
+     "body_Wk2": 102400,
+     "body_Wv": 102400,
+     "body_Wproj": 102400,
+     "body_Left": 409600,
+     "body_Right": 409600,
+     "body_Down": 397312,
+     "body_Down_bias": 4096,
+     "TOTAL": 5864235
+    },
+    "emb_coder": "embQ4e",
+    "body_bits": 6,
+    "kl": 0.03783992910757661,
+    "ce": 4.752107620239258,
+    "ntok": 16384
+   },
+   {
+    "scheme": "embQ4e+body8",
+    "bits": 6454059,
+    "bill": {
+     "embedding": 4029227,
+     "body_Wq": 135168,
+     "body_Wk": 135168,
+     "body_Wq2": 135168,
+     "body_Wk2": 135168,
+     "body_Wv": 135168,
+     "body_Wproj": 135168,
+     "body_Left": 540672,
+     "body_Right": 540672,
+     "body_Down": 528384,
+     "body_Down_bias": 4096,
+     "TOTAL": 6454059
+    },
+    "emb_coder": "embQ4e",
+    "body_bits": 8,
+    "kl": 0.02828228333964944,
+    "ce": 4.740558207035065,
+    "ntok": 16384
+   },
+   {
+    "scheme": "embQ4e+body32",
+    "bits": 13470507,
+    "bill": {
+     "embedding": 4029227,
+     "body_Wq": 524288,
+     "body_Wk": 524288,
+     "body_Wq2": 524288,
+     "body_Wk2": 524288,
+     "body_Wv": 524288,
+     "body_Wproj": 524288,
+     "body_Left": 2097152,
+     "body_Right": 2097152,
+     "body_Down": 2097152,
+     "body_Down_bias": 4096,
+     "TOTAL": 13470507
+    },
+    "emb_coder": "embQ4e",
+    "body_bits": 32,
+    "kl": 0.02774941991083324,
+    "ce": 4.73962539434433,
+    "ntok": 16384
+   },
+   {
+    "scheme": "embQ5e+body4",
+    "bits": 6355431,
+    "bill": {
+     "embedding": 5110247,
+     "body_Wq": 69632,
+     "body_Wk": 69632,
+     "body_Wq2": 69632,
+     "body_Wk2": 69632,
+     "body_Wv": 69632,
+     "body_Wproj": 69632,
+     "body_Left": 278528,
+     "body_Right": 278528,
+     "body_Down": 266240,
+     "body_Down_bias": 4096,
+     "TOTAL": 6355431
+    },
+    "emb_coder": "embQ5e",
+    "body_bits": 4,
+    "kl": 0.2611012663692236,
+    "ce": 5.018837332725525,
+    "ntok": 16384
+   },
+   {
+    "scheme": "embQ5e+body5",
+    "bits": 6650343,
+    "bill": {
+     "embedding": 5110247,
+     "body_Wq": 86016,
+     "body_Wk": 86016,
+     "body_Wq2": 86016,
+     "body_Wk2": 86016,
+     "body_Wv": 86016,
+     "body_Wproj": 86016,
+     "body_Left": 344064,
+     "body_Right": 344064,
+     "body_Down": 331776,
+     "body_Down_bias": 4096,
+     "TOTAL": 6650343
+    },
+    "emb_coder": "embQ5e",
+    "body_bits": 5,
+    "kl": 0.058076123241335154,
+    "ce": 4.783797442913055,
+    "ntok": 16384
+   },
+   {
+    "scheme": "embQ5e+body6",
+    "bits": 6945255,
+    "bill": {
+     "embedding": 5110247,
+     "body_Wq": 102400,
+     "body_Wk": 102400,
+     "body_Wq2": 102400,
+     "body_Wk2": 102400,
+     "body_Wv": 102400,
+     "body_Wproj": 102400,
+     "body_Left": 409600,
+     "body_Right": 409600,
+     "body_Down": 397312,
+     "body_Down_bias": 4096,
+     "TOTAL": 6945255
+    },
+    "emb_coder": "embQ5e",
+    "body_bits": 6,
+    "kl": 0.01603544258978218,
+    "ce": 4.729510009288788,
+    "ntok": 16384
+   },
+   {
+    "scheme": "embQ5e+body8",
+    "bits": 7535079,
+    "bill": {
+     "embedding": 5110247,
+     "body_Wq": 135168,
+     "body_Wk": 135168,
+     "body_Wq2": 135168,
+     "body_Wk2": 135168,
+     "body_Wv": 135168,
+     "body_Wproj": 135168,
+     "body_Left": 540672,
+     "body_Right": 540672,
+     "body_Down": 528384,
+     "body_Down_bias": 4096,
+     "TOTAL": 7535079
+    },
+    "emb_coder": "embQ5e",
+    "body_bits": 8,
+    "kl": 0.00696633366169408,
+    "ce": 4.71863180398941,
+    "ntok": 16384
+   },
+   {
+    "scheme": "embQ5e+body32",
+    "bits": 14551527,
+    "bill": {
+     "embedding": 5110247,
+     "body_Wq": 524288,
+     "body_Wk": 524288,
+     "body_Wq2": 524288,
+     "body_Wk2": 524288,
+     "body_Wv": 524288,
+     "body_Wproj": 524288,
+     "body_Left": 2097152,
+     "body_Right": 2097152,
+     "body_Down": 2097152,
+     "body_Down_bias": 4096,
+     "TOTAL": 14551527
+    },
+    "emb_coder": "embQ5e",
+    "body_bits": 32,
+    "kl": 0.006457611685618758,
+    "ce": 4.717800319194794,
+    "ntok": 16384
+   },
+   {
+    "scheme": "embT512+body4",
+    "bits": 4180688,
+    "bill": {
+     "embedding": 2935504,
+     "body_Wq": 69632,
+     "body_Wk": 69632,
+     "body_Wq2": 69632,
+     "body_Wk2": 69632,
+     "body_Wv": 69632,
+     "body_Wproj": 69632,
+     "body_Left": 278528,
+     "body_Right": 278528,
+     "body_Down": 266240,
+     "body_Down_bias": 4096,
+     "TOTAL": 4180688
+    },
+    "emb_coder": "embT512",
+    "body_bits": 4,
+    "kl": 0.3332141302525997,
+    "ce": 5.103337347507477,
+    "ntok": 16384
+   },
+   {
+    "scheme": "embT512+body5",
+    "bits": 4475600,
+    "bill": {
+     "embedding": 2935504,
+     "body_Wq": 86016,
+     "body_Wk": 86016,
+     "body_Wq2": 86016,
+     "body_Wk2": 86016,
+     "body_Wv": 86016,
+     "body_Wproj": 86016,
+     "body_Left": 344064,
+     "body_Right": 344064,
+     "body_Down": 331776,
+     "body_Down_bias": 4096,
+     "TOTAL": 4475600
+    },
+    "emb_coder": "embT512",
+    "body_bits": 5,
+    "kl": 0.11973919812589884,
+    "ce": 4.8562445640563965,
+    "ntok": 16384
+   },
+   {
+    "scheme": "embT512+body6",
+    "bits": 4770512,
+    "bill": {
+     "embedding": 2935504,
+     "body_Wq": 102400,
+     "body_Wk": 102400,
+     "body_Wq2": 102400,
+     "body_Wk2": 102400,
+     "body_Wv": 102400,
+     "body_Wproj": 102400,
+     "body_Left": 409600,
+     "body_Right": 409600,
+     "body_Down": 397312,
+     "body_Down_bias": 4096,
+     "TOTAL": 4770512
+    },
+    "emb_coder": "embT512",
+    "body_bits": 6,
+    "kl": 0.07519357744604349,
+    "ce": 4.7982617020606995,
+    "ntok": 16384
+   },
+   {
+    "scheme": "embT512+body8",
+    "bits": 5360336,
+    "bill": {
+     "embedding": 2935504,
+     "body_Wq": 135168,
+     "body_Wk": 135168,
+     "body_Wq2": 135168,
+     "body_Wk2": 135168,
+     "body_Wv": 135168,
+     "body_Wproj": 135168,
+     "body_Left": 540672,
+     "body_Right": 540672,
+     "body_Down": 528384,
+     "body_Down_bias": 4096,
+     "TOTAL": 5360336
+    },
+    "emb_coder": "embT512",
+    "body_bits": 8,
+    "kl": 0.0654798075556755,
+    "ce": 4.78646981716156,
+    "ntok": 16384
+   },
+   {
+    "scheme": "embT512+body32",
+    "bits": 12376784,
+    "bill": {
+     "embedding": 2935504,
+     "body_Wq": 524288,
+     "body_Wk": 524288,
+     "body_Wq2": 524288,
+     "body_Wk2": 524288,
+     "body_Wv": 524288,
+     "body_Wproj": 524288,
+     "body_Left": 2097152,
+     "body_Right": 2097152,
+     "body_Down": 2097152,
+     "body_Down_bias": 4096,
+     "TOTAL": 12376784
+    },
+    "emb_coder": "embT512",
+    "body_bits": 32,
+    "kl": 0.06484446488320827,
+    "ce": 4.785496354103088,
+    "ntok": 16384
+   },
+   {
+    "scheme": "embT640+body4",
+    "bits": 5287408,
+    "bill": {
+     "embedding": 4042224,
+     "body_Wq": 69632,
+     "body_Wk": 69632,
+     "body_Wq2": 69632,
+     "body_Wk2": 69632,
+     "body_Wv": 69632,
+     "body_Wproj": 69632,
+     "body_Left": 278528,
+     "body_Right": 278528,
+     "body_Down": 266240,
+     "body_Down_bias": 4096,
+     "TOTAL": 5287408
+    },
+    "emb_coder": "embT640",
+    "body_bits": 4,
+    "kl": 0.27030617371201515,
+    "ce": 5.03517472743988,
+    "ntok": 16384
+   },
+   {
+    "scheme": "embT640+body5",
+    "bits": 5582320,
+    "bill": {
+     "embedding": 4042224,
+     "body_Wq": 86016,
+     "body_Wk": 86016,
+     "body_Wq2": 86016,
+     "body_Wk2": 86016,
+     "body_Wv": 86016,
+     "body_Wproj": 86016,
+     "body_Left": 344064,
+     "body_Right": 344064,
+     "body_Down": 331776,
+     "body_Down_bias": 4096,
+     "TOTAL": 5582320
+    },
+    "emb_coder": "embT640",
+    "body_bits": 5,
+    "kl": 0.06714891269803047,
+    "ce": 4.798163414001465,
+    "ntok": 16384
+   },
+   {
+    "scheme": "embT640+body6",
+    "bits": 5877232,
+    "bill": {
+     "embedding": 4042224,
+     "body_Wq": 102400,
+     "body_Wk": 102400,
+     "body_Wq2": 102400,
+     "body_Wk2": 102400,
+     "body_Wv": 102400,
+     "body_Wproj": 102400,
+     "body_Left": 409600,
+     "body_Right": 409600,
+     "body_Down": 397312,
+     "body_Down_bias": 4096,
+     "TOTAL": 5877232
+    },
+    "emb_coder": "embT640",
+    "body_bits": 6,
+    "kl": 0.024866659892722964,
+    "ce": 4.743683815002441,
+    "ntok": 16384
+   },
+   {
+    "scheme": "embT640+body8",
+    "bits": 6467056,
+    "bill": {
+     "embedding": 4042224,
+     "body_Wq": 135168,
+     "body_Wk": 135168,
+     "body_Wq2": 135168,
+     "body_Wk2": 135168,
+     "body_Wv": 135168,
+     "body_Wproj": 135168,
+     "body_Left": 540672,
+     "body_Right": 540672,
+     "body_Down": 528384,
+     "body_Down_bias": 4096,
+     "TOTAL": 6467056
+    },
+    "emb_coder": "embT640",
+    "body_bits": 8,
+    "kl": 0.01556215831078589,
+    "ce": 4.732564032077789,
+    "ntok": 16384
+   },
+   {
+    "scheme": "embT640+body32",
+    "bits": 13483504,
+    "bill": {
+     "embedding": 4042224,
+     "body_Wq": 524288,
+     "body_Wk": 524288,
+     "body_Wq2": 524288,
+     "body_Wk2": 524288,
+     "body_Wv": 524288,
+     "body_Wproj": 524288,
+     "body_Left": 2097152,
+     "body_Right": 2097152,
+     "body_Down": 2097152,
+     "body_Down_bias": 4096,
+     "TOTAL": 13483504
+    },
+    "emb_coder": "embT640",
+    "body_bits": 32,
+    "kl": 0.014961710199713707,
+    "ce": 4.731676399707794,
+    "ntok": 16384
+   },
+   {
+    "scheme": "embT768+body4",
+    "bits": 6414801,
+    "bill": {
+     "embedding": 5169617,
+     "body_Wq": 69632,
+     "body_Wk": 69632,
+     "body_Wq2": 69632,
+     "body_Wk2": 69632,
+     "body_Wv": 69632,
+     "body_Wproj": 69632,
+     "body_Left": 278528,
+     "body_Right": 278528,
+     "body_Down": 266240,
+     "body_Down_bias": 4096,
+     "TOTAL": 6414801
+    },
+    "emb_coder": "embT768",
+    "body_bits": 4,
+    "kl": 0.2566938977688551,
+    "ce": 5.016554892063141,
+    "ntok": 16384
+   },
+   {
+    "scheme": "embT768+body5",
+    "bits": 6709713,
+    "bill": {
+     "embedding": 5169617,
+     "body_Wq": 86016,
+     "body_Wk": 86016,
+     "body_Wq2": 86016,
+     "body_Wk2": 86016,
+     "body_Wv": 86016,
+     "body_Wproj": 86016,
+     "body_Left": 344064,
+     "body_Right": 344064,
+     "body_Down": 331776,
+     "body_Down_bias": 4096,
+     "TOTAL": 6709713
+    },
+    "emb_coder": "embT768",
+    "body_bits": 5,
+    "kl": 0.05521701509132981,
+    "ce": 4.78227299451828,
+    "ntok": 16384
+   },
+   {
+    "scheme": "embT768+body6",
+    "bits": 7004625,
+    "bill": {
+     "embedding": 5169617,
+     "body_Wq": 102400,
+     "body_Wk": 102400,
+     "body_Wq2": 102400,
+     "body_Wk2": 102400,
+     "body_Wv": 102400,
+     "body_Wproj": 102400,
+     "body_Left": 409600,
+     "body_Right": 409600,
+     "body_Down": 397312,
+     "body_Down_bias": 4096,
+     "TOTAL": 7004625
+    },
+    "emb_coder": "embT768",
+    "body_bits": 6,
+    "kl": 0.013257421320304275,
+    "ce": 4.728242516517639,
+    "ntok": 16384
+   },
+   {
+    "scheme": "embT768+body8",
+    "bits": 7594449,
+    "bill": {
+     "embedding": 5169617,
+     "body_Wq": 135168,
+     "body_Wk": 135168,
+     "body_Wq2": 135168,
+     "body_Wk2": 135168,
+     "body_Wv": 135168,
+     "body_Wproj": 135168,
+     "body_Left": 540672,
+     "body_Right": 540672,
+     "body_Down": 528384,
+     "body_Down_bias": 4096,
+     "TOTAL": 7594449
+    },
+    "emb_coder": "embT768",
+    "body_bits": 8,
+    "kl": 0.004210276470985264,
+    "ce": 4.717164218425751,
+    "ntok": 16384
+   },
+   {
+    "scheme": "embT768+body32",
+    "bits": 14610897,
+    "bill": {
+     "embedding": 5169617,
+     "body_Wq": 524288,
+     "body_Wk": 524288,
+     "body_Wq2": 524288,
+     "body_Wk2": 524288,
+     "body_Wv": 524288,
+     "body_Wproj": 524288,
+     "body_Left": 2097152,
+     "body_Right": 2097152,
+     "body_Down": 2097152,
+     "body_Down_bias": 4096,
+     "TOTAL": 14610897
+    },
+    "emb_coder": "embT768",
+    "body_bits": 32,
+    "kl": 0.0036589705559890717,
+    "ce": 4.716299295425415,
+    "ntok": 16384
+   },
+   {
+    "scheme": "embS6_4_2048+body4",
+    "bits": 5836551,
+    "bill": {
+     "embedding": 4591367,
+     "body_Wq": 69632,
+     "body_Wk": 69632,
+     "body_Wq2": 69632,
+     "body_Wk2": 69632,
+     "body_Wv": 69632,
+     "body_Wproj": 69632,
+     "body_Left": 278528,
+     "body_Right": 278528,
+     "body_Down": 266240,
+     "body_Down_bias": 4096,
+     "TOTAL": 5836551
+    },
+    "emb_coder": "embS6_4_2048",
+    "body_bits": 4,
+    "kl": 0.26350611075758934,
+    "ce": 5.022414743900299,
+    "ntok": 16384
+   },
+   {
+    "scheme": "embS6_4_2048+body5",
+    "bits": 6131463,
+    "bill": {
+     "embedding": 4591367,
+     "body_Wq": 86016,
+     "body_Wk": 86016,
+     "body_Wq2": 86016,
+     "body_Wk2": 86016,
+     "body_Wv": 86016,
+     "body_Wproj": 86016,
+     "body_Left": 344064,
+     "body_Right": 344064,
+     "body_Down": 331776,
+     "body_Down_bias": 4096,
+     "TOTAL": 6131463
+    },
+    "emb_coder": "embS6_4_2048",
+    "body_bits": 5,
+    "kl": 0.06180485663935542,
+    "ce": 4.788083553314209,
+    "ntok": 16384
+   },
+   {
+    "scheme": "embS6_4_2048+body6",
+    "bits": 6426375,
+    "bill": {
+     "embedding": 4591367,
+     "body_Wq": 102400,
+     "body_Wk": 102400,
+     "body_Wq2": 102400,
+     "body_Wk2": 102400,
+     "body_Wv": 102400,
+     "body_Wproj": 102400,
+     "body_Left": 409600,
+     "body_Right": 409600,
+     "body_Down": 397312,
+     "body_Down_bias": 4096,
+     "TOTAL": 6426375
+    },
+    "emb_coder": "embS6_4_2048",
+    "body_bits": 6,
+    "kl": 0.019127100007608533,
+    "ce": 4.733220100402832,
+    "ntok": 16384
+   },
+   {
+    "scheme": "embS6_4_2048+body8",
+    "bits": 7016199,
+    "bill": {
+     "embedding": 4591367,
+     "body_Wq": 135168,
+     "body_Wk": 135168,
+     "body_Wq2": 135168,
+     "body_Wk2": 135168,
+     "body_Wv": 135168,
+     "body_Wproj": 135168,
+     "body_Left": 540672,
+     "body_Right": 540672,
+     "body_Down": 528384,
+     "body_Down_bias": 4096,
+     "TOTAL": 7016199
+    },
+    "emb_coder": "embS6_4_2048",
+    "body_bits": 8,
+    "kl": 0.009871055488474667,
+    "ce": 4.722124874591827,
+    "ntok": 16384
+   },
+   {
+    "scheme": "embS6_4_2048+body32",
+    "bits": 14032647,
+    "bill": {
+     "embedding": 4591367,
+     "body_Wq": 524288,
+     "body_Wk": 524288,
+     "body_Wq2": 524288,
+     "body_Wk2": 524288,
+     "body_Wv": 524288,
+     "body_Wproj": 524288,
+     "body_Left": 2097152,
+     "body_Right": 2097152,
+     "body_Down": 2097152,
+     "body_Down_bias": 4096,
+     "TOTAL": 14032647
+    },
+    "emb_coder": "embS6_4_2048",
+    "body_bits": 32,
+    "kl": 0.009297955664806068,
+    "ce": 4.7212077379226685,
+    "ntok": 16384
+   },
+   {
+    "scheme": "embS6_3_1024+body4",
+    "bits": 4579583,
+    "bill": {
+     "embedding": 3334399,
+     "body_Wq": 69632,
+     "body_Wk": 69632,
+     "body_Wq2": 69632,
+     "body_Wk2": 69632,
+     "body_Wv": 69632,
+     "body_Wproj": 69632,
+     "body_Left": 278528,
+     "body_Right": 278528,
+     "body_Down": 266240,
+     "body_Down_bias": 4096,
+     "TOTAL": 4579583
+    },
+    "emb_coder": "embS6_3_1024",
+    "body_bits": 4,
+    "kl": 0.3231714814901352,
+    "ce": 5.088377237319946,
+    "ntok": 16384
+   },
+   {
+    "scheme": "embS6_3_1024+body5",
+    "bits": 4874495,
+    "bill": {
+     "embedding": 3334399,
+     "body_Wq": 86016,
+     "body_Wk": 86016,
+     "body_Wq2": 86016,
+     "body_Wk2": 86016,
+     "body_Wv": 86016,
+     "body_Wproj": 86016,
+     "body_Left": 344064,
+     "body_Right": 344064,
+     "body_Down": 331776,
+     "body_Down_bias": 4096,
+     "TOTAL": 4874495
+    },
+    "emb_coder": "embS6_3_1024",
+    "body_bits": 5,
+    "kl": 0.11360523384064436,
+    "ce": 4.845453202724457,
+    "ntok": 16384
+   },
+   {
+    "scheme": "embS6_3_1024+body6",
+    "bits": 5169407,
+    "bill": {
+     "embedding": 3334399,
+     "body_Wq": 102400,
+     "body_Wk": 102400,
+     "body_Wq2": 102400,
+     "body_Wk2": 102400,
+     "body_Wv": 102400,
+     "body_Wproj": 102400,
+     "body_Left": 409600,
+     "body_Right": 409600,
+     "body_Down": 397312,
+     "body_Down_bias": 4096,
+     "TOTAL": 5169407
+    },
+    "emb_coder": "embS6_3_1024",
+    "body_bits": 6,
+    "kl": 0.06665104674175382,
+    "ce": 4.787920355796814,
+    "ntok": 16384
+   },
+   {
+    "scheme": "embS6_3_1024+body8",
+    "bits": 5759231,
+    "bill": {
+     "embedding": 3334399,
+     "body_Wq": 135168,
+     "body_Wk": 135168,
+     "body_Wq2": 135168,
+     "body_Wk2": 135168,
+     "body_Wv": 135168,
+     "body_Wproj": 135168,
+     "body_Left": 540672,
+     "body_Right": 540672,
+     "body_Down": 528384,
+     "body_Down_bias": 4096,
+     "TOTAL": 5759231
+    },
+    "emb_coder": "embS6_3_1024",
+    "body_bits": 8,
+    "kl": 0.05618487950414419,
+    "ce": 4.775244295597076,
+    "ntok": 16384
+   },
+   {
+    "scheme": "embS6_3_1024+body32",
+    "bits": 12775679,
+    "bill": {
+     "embedding": 3334399,
+     "body_Wq": 524288,
+     "body_Wk": 524288,
+     "body_Wq2": 524288,
+     "body_Wk2": 524288,
+     "body_Wv": 524288,
+     "body_Wproj": 524288,
+     "body_Left": 2097152,
+     "body_Right": 2097152,
+     "body_Down": 2097152,
+     "body_Down_bias": 4096,
+     "TOTAL": 12775679
+    },
+    "emb_coder": "embS6_3_1024",
+    "body_bits": 32,
+    "kl": 0.05548646952956915,
+    "ce": 4.774320125579834,
+    "ntok": 16384
+   },
+   {
+    "scheme": "embS8_5_512+body4",
+    "bits": 6562170,
+    "bill": {
+     "embedding": 5316986,
+     "body_Wq": 69632,
+     "body_Wk": 69632,
+     "body_Wq2": 69632,
+     "body_Wk2": 69632,
+     "body_Wv": 69632,
+     "body_Wproj": 69632,
+     "body_Left": 278528,
+     "body_Right": 278528,
+     "body_Down": 266240,
+     "body_Down_bias": 4096,
+     "TOTAL": 6562170
+    },
+    "emb_coder": "embS8_5_512",
+    "body_bits": 4,
+    "kl": 0.2564897872507572,
+    "ce": 5.014013946056366,
+    "ntok": 16384
+   },
+   {
+    "scheme": "embS8_5_512+body5",
+    "bits": 6857082,
+    "bill": {
+     "embedding": 5316986,
+     "body_Wq": 86016,
+     "body_Wk": 86016,
+     "body_Wq2": 86016,
+     "body_Wk2": 86016,
+     "body_Wv": 86016,
+     "body_Wproj": 86016,
+     "body_Left": 344064,
+     "body_Right": 344064,
+     "body_Down": 331776,
+     "body_Down_bias": 4096,
+     "TOTAL": 6857082
+    },
+    "emb_coder": "embS8_5_512",
+    "body_bits": 5,
+    "kl": 0.05479930993169546,
+    "ce": 4.780283331871033,
+    "ntok": 16384
+   },
+   {
+    "scheme": "embS8_5_512+body6",
+    "bits": 7151994,
+    "bill": {
+     "embedding": 5316986,
+     "body_Wq": 102400,
+     "body_Wk": 102400,
+     "body_Wq2": 102400,
+     "body_Wk2": 102400,
+     "body_Wv": 102400,
+     "body_Wproj": 102400,
+     "body_Left": 409600,
+     "body_Right": 409600,
+     "body_Down": 397312,
+     "body_Down_bias": 4096,
+     "TOTAL": 7151994
+    },
+    "emb_coder": "embS8_5_512",
+    "body_bits": 6,
+    "kl": 0.013136791530996561,
+    "ce": 4.726542234420776,
+    "ntok": 16384
+   },
+   {
+    "scheme": "embS8_5_512+body8",
+    "bits": 7741818,
+    "bill": {
+     "embedding": 5316986,
+     "body_Wq": 135168,
+     "body_Wk": 135168,
+     "body_Wq2": 135168,
+     "body_Wk2": 135168,
+     "body_Wv": 135168,
+     "body_Wproj": 135168,
+     "body_Left": 540672,
+     "body_Right": 540672,
+     "body_Down": 528384,
+     "body_Down_bias": 4096,
+     "TOTAL": 7741818
+    },
+    "emb_coder": "embS8_5_512",
+    "body_bits": 8,
+    "kl": 0.004003209643997252,
+    "ce": 4.715507805347443,
+    "ntok": 16384
+   },
+   {
+    "scheme": "embS8_5_512+body32",
+    "bits": 14758266,
+    "bill": {
+     "embedding": 5316986,
+     "body_Wq": 524288,
+     "body_Wk": 524288,
+     "body_Wq2": 524288,
+     "body_Wk2": 524288,
+     "body_Wv": 524288,
+     "body_Wproj": 524288,
+     "body_Left": 2097152,
+     "body_Right": 2097152,
+     "body_Down": 2097152,
+     "body_Down_bias": 4096,
+     "TOTAL": 14758266
+    },
+    "emb_coder": "embS8_5_512",
+    "body_bits": 32,
+    "kl": 0.003461771208094433,
+    "ce": 4.71466338634491,
+    "ntok": 16384
+   }
+  ]
+ },
+ "J_roles": {
+  "read_precision": [
+   {
+    "b": 1,
+    "bits_this_table": 1308703,
+    "kl": 1.0867599546909332,
+    "ce": 5.953204095363617,
+    "ntok": 16384
+   },
+   {
+    "b": 2,
+    "bits_this_table": 1785616,
+    "kl": 0.442551352083683,
+    "ce": 5.228248298168182,
+    "ntok": 16384
+   },
+   {
+    "b": 3,
+    "bits_this_table": 2913310,
+    "kl": 0.07361936941742897,
+    "ce": 4.8017414808273315,
+    "ntok": 16384
+   },
+   {
+    "b": 4,
+    "bits_this_table": 4029242,
+    "kl": 0.015725741512142122,
+    "ce": 4.727517187595367,
+    "ntok": 16384
+   },
+   {
+    "b": 5,
+    "bits_this_table": 5110256,
+    "kl": 0.003644167329184711,
+    "ce": 4.7167428731918335,
+    "ntok": 16384
+   },
+   {
+    "b": 6,
+    "bits_this_table": 6169021,
+    "kl": 0.0008918005696614273,
+    "ce": 4.7125603556633,
+    "ntok": 16384
+   },
+   {
+    "b": 8,
+    "bits_this_table": 8257691,
+    "kl": 5.430057944977307e-05,
+    "ce": 4.71136873960495,
+    "ntok": 16384
+   }
+  ],
+  "write_precision": [
+   {
+    "b": 1,
+    "bits_this_table": 1308705,
+    "kl": 3.1210027635097504,
+    "ce": 7.466093897819519,
+    "ntok": 16384
+   },
+   {
+    "b": 2,
+    "bits_this_table": 1785612,
+    "kl": 0.29603420943021774,
+    "ce": 5.005524754524231,
+    "ntok": 16384
+   },
+   {
+    "b": 3,
+    "bits_this_table": 2913293,
+    "kl": 0.05442153802141547,
+    "ce": 4.763532221317291,
+    "ntok": 16384
+   },
+   {
+    "b": 4,
+    "bits_this_table": 4029227,
+    "kl": 0.011870318441651762,
+    "ce": 4.723189532756805,
+    "ntok": 16384
+   },
+   {
+    "b": 5,
+    "bits_this_table": 5110247,
+    "kl": 0.002826826908858493,
+    "ce": 4.712507009506226,
+    "ntok": 16384
+   },
+   {
+    "b": 6,
+    "bits_this_table": 6169053,
+    "kl": 0.0006883889072923921,
+    "ce": 4.711942732334137,
+    "ntok": 16384
+   },
+   {
+    "b": 8,
+    "bits_this_table": 8257665,
+    "kl": 4.385085367175634e-05,
+    "ce": 4.711384475231171,
+    "ntok": 16384
+   }
+  ],
+  "both_precision": [
+   {
+    "b": 1,
+    "bits_this_table": 1308705,
+    "kl": 4.883011519908905,
+    "ce": 9.492143750190735,
+    "ntok": 16384
+   },
+   {
+    "b": 2,
+    "bits_this_table": 1785612,
+    "kl": 0.7498944848775864,
+    "ce": 5.535673022270203,
+    "ntok": 16384
+   },
+   {
+    "b": 3,
+    "bits_this_table": 2913293,
+    "kl": 0.1292356913909316,
+    "ce": 4.854556024074554,
+    "ntok": 16384
+   },
+   {
+    "b": 4,
+    "bits_this_table": 4029227,
+    "kl": 0.02774941991083324,
+    "ce": 4.73962539434433,
+    "ntok": 16384
+   },
+   {
+    "b": 5,
+    "bits_this_table": 5110247,
+    "kl": 0.006457611685618758,
+    "ce": 4.717800319194794,
+    "ntok": 16384
+   },
+   {
+    "b": 6,
+    "bits_this_table": 6169053,
+    "kl": 0.0015789003518875688,
+    "ce": 4.713046729564667,
+    "ntok": 16384
+   },
+   {
+    "b": 8,
+    "bits_this_table": 8257665,
+    "kl": 9.540212249703472e-05,
+    "ce": 4.711430549621582,
+    "ntok": 16384
+   }
+  ],
+  "feature_size_matched_random": [
+   {
+    "k": 51,
+    "role": "read",
+    "desc": "class(6) x len(8) x freq_band(2)",
+    "bits": 258048,
+    "feature_kl": 3.412225306034088,
+    "size_matched_random_kl": 4.190424978733063
+   },
+   {
+    "k": 51,
+    "role": "write",
+    "desc": "class(6) x len(8) x freq_band(2)",
+    "bits": 258048,
+    "feature_kl": 2.97349551320076,
+    "size_matched_random_kl": 3.8832671642303467
+   },
+   {
+    "k": 157,
+    "role": "read",
+    "desc": "class(6) x len(8) x freq_band(7)",
+    "bits": 708608,
+    "feature_kl": 3.1236836314201355,
+    "size_matched_random_kl": 3.4282464385032654
+   },
+   {
+    "k": 157,
+    "role": "write",
+    "desc": "class(6) x len(8) x freq_band(7)",
+    "bits": 708608,
+    "feature_kl": 2.456714928150177,
+    "size_matched_random_kl": 3.964495837688446
+   },
+   {
+    "k": 436,
+    "role": "read",
+    "desc": "class(6) x len(8) x freq_band(22)",
+    "bits": 1859584,
+    "feature_kl": 2.7205682396888733,
+    "size_matched_random_kl": 2.444197654724121
+   },
+   {
+    "k": 436,
+    "role": "write",
+    "desc": "class(6) x len(8) x freq_band(22)",
+    "bits": 1859584,
+    "feature_kl": 2.0618749260902405,
+    "size_matched_random_kl": 3.439393937587738
+   }
+  ],
+  "write_unweighted": [
+   {
+    "k": 256,
+    "bits": 1114112,
+    "kl": 1.4544987827539444,
+    "ce": 6.4133580327034,
+    "ntok": 16384
+   },
+   {
+    "k": 1024,
+    "bits": 4276224,
+    "kl": 1.1428475081920624,
+    "ce": 6.036720871925354,
+    "ntok": 16384
+   },
+   {
+    "k": 4096,
+    "bits": 16875520,
+    "kl": 0.4624553732573986,
+    "ce": 5.25041276216507,
+    "ntok": 16384
+   }
+  ]
+ },
+ "L_corpus_stats": {
+  "regression_r2": 0.40494388341903687,
+  "n_features": 257,
+  "rows": [
+   {
+    "scheme": "corpusstat_residual_q2",
+    "b": 2,
+    "bits_embedding": 2079566,
+    "bits_embedding_basis_charged": 18922318,
+    "bill": {
+     "regression": 271392,
+     "residual_values": 1546030,
+     "residual_scales": 262144,
+     "TOTAL": 2079566
+    },
+    "bits_total_with_fp32_body": 11520846,
+    "kl": 0.27925660088658333,
+    "ce": 5.038344621658325,
+    "ntok": 16384,
+    "control_plain_q": {
+     "bits_embedding": 1785612,
+     "kl": 0.7498944848775864,
+     "ce": 5.535673022270203,
+     "ntok": 16384
+    }
+   },
+   {
+    "scheme": "corpusstat_residual_q3",
+    "b": 3,
+    "bits_embedding": 3218575,
+    "bits_embedding_basis_charged": 20061327,
+    "bill": {
+     "regression": 271392,
+     "residual_values": 2685039,
+     "residual_scales": 262144,
+     "TOTAL": 3218575
+    },
+    "bits_total_with_fp32_body": 12659855,
+    "kl": 0.04976436169818044,
+    "ce": 4.7690709233284,
+    "ntok": 16384,
+    "control_plain_q": {
+     "bits_embedding": 2913293,
+     "kl": 0.1292356913909316,
+     "ce": 4.854556024074554,
+     "ntok": 16384
+    }
+   },
+   {
+    "scheme": "corpusstat_residual_q4",
+    "b": 4,
+    "bits_embedding": 4335556,
+    "bits_embedding_basis_charged": 21178308,
+    "bill": {
+     "regression": 271392,
+     "residual_values": 3802020,
+     "residual_scales": 262144,
+     "TOTAL": 4335556
+    },
+    "bits_total_with_fp32_body": 13776836,
+    "kl": 0.011091300286352634,
+    "ce": 4.726974070072174,
+    "ntok": 16384,
+    "control_plain_q": {
+     "bits_embedding": 4029227,
+     "kl": 0.02774941991083324,
+     "ce": 4.73962539434433,
+     "ntok": 16384
+    }
+   },
+   {
+    "scheme": "corpusstat_residual_q5",
+    "b": 5,
+    "bits_embedding": 5416691,
+    "bits_embedding_basis_charged": 22259443,
+    "bill": {
+     "regression": 271392,
+     "residual_values": 4883155,
+     "residual_scales": 262144,
+     "TOTAL": 5416691
+    },
+    "bits_total_with_fp32_body": 14857971,
+    "kl": 0.002485206176061183,
+    "ce": 4.714126408100128,
+    "ntok": 16384,
+    "control_plain_q": {
+     "bits_embedding": 5110247,
+     "kl": 0.006457611685618758,
+     "ce": 4.717800319194794,
+     "ntok": 16384
+    }
+   },
+   {
+    "scheme": "corpusstat_residual_q6",
+    "b": 6,
+    "bits_embedding": 6475723,
+    "bits_embedding_basis_charged": 23318475,
+    "bill": {
+     "regression": 271392,
+     "residual_values": 5942187,
+     "residual_scales": 262144,
+     "TOTAL": 6475723
+    },
+    "bits_total_with_fp32_body": 15917003,
+    "kl": 0.0006189020932652056,
+    "ce": 4.711840391159058,
+    "ntok": 16384,
+    "control_plain_q": {
+     "bits_embedding": 6169053,
+     "kl": 0.0015789003518875688,
+     "ce": 4.713046729564667,
+     "ntok": 16384
+    }
+   }
+  ]
+ },
+ "M_conditional_combined": {
+  "rows": [
+   {
+    "scheme": "spelling_res_q3+body5",
+    "bits": 4774943,
+    "bill": {
+     "embedding": 3234847,
+     "body_Wq": 86016,
+     "body_Wk": 86016,
+     "body_Wq2": 86016,
+     "body_Wk2": 86016,
+     "body_Wv": 86016,
+     "body_Wproj": 86016,
+     "body_Left": 344064,
+     "body_Right": 344064,
+     "body_Down": 331776,
+     "body_Down_bias": 4096,
+     "TOTAL": 4774943
+    },
+    "kl": 0.13348899502307177,
+    "ce": 4.873783111572266,
+    "ntok": 16384
+   },
+   {
+    "scheme": "spelling_res_q3+body6",
+    "bits": 5069855,
+    "bill": {
+     "embedding": 3234847,
+     "body_Wq": 102400,
+     "body_Wk": 102400,
+     "body_Wq2": 102400,
+     "body_Wk2": 102400,
+     "body_Wv": 102400,
+     "body_Wproj": 102400,
+     "body_Left": 409600,
+     "body_Right": 409600,
+     "body_Down": 397312,
+     "body_Down_bias": 4096,
+     "TOTAL": 5069855
+    },
+    "kl": 0.09014651365578175,
+    "ce": 4.819754064083099,
+    "ntok": 16384
+   },
+   {
+    "scheme": "spelling_res_q3+body8",
+    "bits": 5659679,
+    "bill": {
+     "embedding": 3234847,
+     "body_Wq": 135168,
+     "body_Wk": 135168,
+     "body_Wq2": 135168,
+     "body_Wk2": 135168,
+     "body_Wv": 135168,
+     "body_Wproj": 135168,
+     "body_Left": 540672,
+     "body_Right": 540672,
+     "body_Down": 528384,
+     "body_Down_bias": 4096,
+     "TOTAL": 5659679
+    },
+    "kl": 0.07979405578225851,
+    "ce": 4.807054340839386,
+    "ntok": 16384
+   },
+   {
+    "scheme": "spelling_res_q4+body5",
+    "bits": 5891650,
+    "bill": {
+     "embedding": 4351554,
+     "body_Wq": 86016,
+     "body_Wk": 86016,
+     "body_Wq2": 86016,
+     "body_Wk2": 86016,
+     "body_Wv": 86016,
+     "body_Wproj": 86016,
+     "body_Left": 344064,
+     "body_Right": 344064,
+     "body_Down": 331776,
+     "body_Down_bias": 4096,
+     "TOTAL": 5891650
+    },
+    "kl": 0.06904306076467037,
+    "ce": 4.794333517551422,
+    "ntok": 16384
+   },
+   {
+    "scheme": "spelling_res_q4+body6",
+    "bits": 6186562,
+    "bill": {
+     "embedding": 4351554,
+     "body_Wq": 102400,
+     "body_Wk": 102400,
+     "body_Wq2": 102400,
+     "body_Wk2": 102400,
+     "body_Wv": 102400,
+     "body_Wproj": 102400,
+     "body_Left": 409600,
+     "body_Right": 409600,
+     "body_Down": 397312,
+     "body_Down_bias": 4096,
+     "TOTAL": 6186562
+    },
+    "kl": 0.026955337962135673,
+    "ce": 4.741180717945099,
+    "ntok": 16384
+   },
+   {
+    "scheme": "spelling_res_q4+body8",
+    "bits": 6776386,
+    "bill": {
+     "embedding": 4351554,
+     "body_Wq": 135168,
+     "body_Wk": 135168,
+     "body_Wq2": 135168,
+     "body_Wk2": 135168,
+     "body_Wv": 135168,
+     "body_Wproj": 135168,
+     "body_Left": 540672,
+     "body_Right": 540672,
+     "body_Down": 528384,
+     "body_Down_bias": 4096,
+     "TOTAL": 6776386
+    },
+    "kl": 0.018010679865255952,
+    "ce": 4.7298465967178345,
+    "ntok": 16384
+   },
+   {
+    "scheme": "spelling_res_q5+body5",
+    "bits": 6972923,
+    "bill": {
+     "embedding": 5432827,
+     "body_Wq": 86016,
+     "body_Wk": 86016,
+     "body_Wq2": 86016,
+     "body_Wk2": 86016,
+     "body_Wv": 86016,
+     "body_Wproj": 86016,
+     "body_Left": 344064,
+     "body_Right": 344064,
+     "body_Down": 331776,
+     "body_Down_bias": 4096,
+     "TOTAL": 6972923
+    },
+    "kl": 0.055217931512743235,
+    "ce": 4.781765699386597,
+    "ntok": 16384
+   },
+   {
+    "scheme": "spelling_res_q5+body6",
+    "bits": 7267835,
+    "bill": {
+     "embedding": 5432827,
+     "body_Wq": 102400,
+     "body_Wk": 102400,
+     "body_Wq2": 102400,
+     "body_Wk2": 102400,
+     "body_Wv": 102400,
+     "body_Wproj": 102400,
+     "body_Left": 409600,
+     "body_Right": 409600,
+     "body_Down": 397312,
+     "body_Down_bias": 4096,
+     "TOTAL": 7267835
+    },
+    "kl": 0.013632294372655451,
+    "ce": 4.72816014289856,
+    "ntok": 16384
+   },
+   {
+    "scheme": "spelling_res_q5+body8",
+    "bits": 7857659,
+    "bill": {
+     "embedding": 5432827,
+     "body_Wq": 135168,
+     "body_Wk": 135168,
+     "body_Wq2": 135168,
+     "body_Wk2": 135168,
+     "body_Wv": 135168,
+     "body_Wproj": 135168,
+     "body_Left": 540672,
+     "body_Right": 540672,
+     "body_Down": 528384,
+     "body_Down_bias": 4096,
+     "TOTAL": 7857659
+    },
+    "kl": 0.004495770204812288,
+    "ce": 4.717083215713501,
+    "ntok": 16384
+   },
+   {
+    "scheme": "corpusstat_res_q3+body5",
+    "bits": 4758671,
+    "bill": {
+     "embedding": 3218575,
+     "body_Wq": 86016,
+     "body_Wk": 86016,
+     "body_Wq2": 86016,
+     "body_Wk2": 86016,
+     "body_Wv": 86016,
+     "body_Wproj": 86016,
+     "body_Left": 344064,
+     "body_Right": 344064,
+     "body_Down": 331776,
+     "body_Down_bias": 4096,
+     "TOTAL": 4758671
+    },
+    "kl": 0.10600264370441437,
+    "ce": 4.838408887386322,
+    "ntok": 16384
+   },
+   {
+    "scheme": "corpusstat_res_q3+body6",
+    "bits": 5053583,
+    "bill": {
+     "embedding": 3218575,
+     "body_Wq": 102400,
+     "body_Wk": 102400,
+     "body_Wq2": 102400,
+     "body_Wk2": 102400,
+     "body_Wv": 102400,
+     "body_Wproj": 102400,
+     "body_Left": 409600,
+     "body_Right": 409600,
+     "body_Down": 397312,
+     "body_Down_bias": 4096,
+     "TOTAL": 5053583
+    },
+    "kl": 0.06072908919304609,
+    "ce": 4.782195508480072,
+    "ntok": 16384
+   },
+   {
+    "scheme": "corpusstat_res_q3+body8",
+    "bits": 5643407,
+    "bill": {
+     "embedding": 3218575,
+     "body_Wq": 135168,
+     "body_Wk": 135168,
+     "body_Wq2": 135168,
+     "body_Wk2": 135168,
+     "body_Wv": 135168,
+     "body_Wproj": 135168,
+     "body_Left": 540672,
+     "body_Right": 540672,
+     "body_Down": 528384,
+     "body_Down_bias": 4096,
+     "TOTAL": 5643407
+    },
+    "kl": 0.050294481217861176,
+    "ce": 4.7698033452034,
+    "ntok": 16384
+   },
+   {
+    "scheme": "corpusstat_res_q4+body5",
+    "bits": 5875652,
+    "bill": {
+     "embedding": 4335556,
+     "body_Wq": 86016,
+     "body_Wk": 86016,
+     "body_Wq2": 86016,
+     "body_Wk2": 86016,
+     "body_Wv": 86016,
+     "body_Wproj": 86016,
+     "body_Left": 344064,
+     "body_Right": 344064,
+     "body_Down": 331776,
+     "body_Down_bias": 4096,
+     "TOTAL": 5875652
+    },
+    "kl": 0.062268472742289305,
+    "ce": 4.792133450508118,
+    "ntok": 16384
+   },
+   {
+    "scheme": "corpusstat_res_q4+body6",
+    "bits": 6170564,
+    "bill": {
+     "embedding": 4335556,
+     "body_Wq": 102400,
+     "body_Wk": 102400,
+     "body_Wq2": 102400,
+     "body_Wk2": 102400,
+     "body_Wv": 102400,
+     "body_Wproj": 102400,
+     "body_Left": 409600,
+     "body_Right": 409600,
+     "body_Down": 397312,
+     "body_Down_bias": 4096,
+     "TOTAL": 6170564
+    },
+    "kl": 0.020944999996572733,
+    "ce": 4.739025771617889,
+    "ntok": 16384
+   },
+   {
+    "scheme": "corpusstat_res_q4+body8",
+    "bits": 6760388,
+    "bill": {
+     "embedding": 4335556,
+     "body_Wq": 135168,
+     "body_Wk": 135168,
+     "body_Wq2": 135168,
+     "body_Wk2": 135168,
+     "body_Wv": 135168,
+     "body_Wproj": 135168,
+     "body_Left": 540672,
+     "body_Right": 540672,
+     "body_Down": 528384,
+     "body_Down_bias": 4096,
+     "TOTAL": 6760388
+    },
+    "kl": 0.01170886040199548,
+    "ce": 4.7278852462768555,
+    "ntok": 16384
+   },
+   {
+    "scheme": "corpusstat_res_q5+body5",
+    "bits": 6956787,
+    "bill": {
+     "embedding": 5416691,
+     "body_Wq": 86016,
+     "body_Wk": 86016,
+     "body_Wq2": 86016,
+     "body_Wk2": 86016,
+     "body_Wv": 86016,
+     "body_Wproj": 86016,
+     "body_Left": 344064,
+     "body_Right": 344064,
+     "body_Down": 331776,
+     "body_Down_bias": 4096,
+     "TOTAL": 6956787
+    },
+    "kl": 0.05380040919408202,
+    "ce": 4.779705286026001,
+    "ntok": 16384
+   },
+   {
+    "scheme": "corpusstat_res_q5+body6",
+    "bits": 7251699,
+    "bill": {
+     "embedding": 5416691,
+     "body_Wq": 102400,
+     "body_Wk": 102400,
+     "body_Wq2": 102400,
+     "body_Wk2": 102400,
+     "body_Wv": 102400,
+     "body_Wproj": 102400,
+     "body_Left": 409600,
+     "body_Right": 409600,
+     "body_Down": 397312,
+     "body_Down_bias": 4096,
+     "TOTAL": 7251699
+    },
+    "kl": 0.012251654639840126,
+    "ce": 4.7262122631073,
+    "ntok": 16384
+   },
+   {
+    "scheme": "corpusstat_res_q5+body8",
+    "bits": 7841523,
+    "bill": {
+     "embedding": 5416691,
+     "body_Wq": 135168,
+     "body_Wk": 135168,
+     "body_Wq2": 135168,
+     "body_Wk2": 135168,
+     "body_Wv": 135168,
+     "body_Wproj": 135168,
+     "body_Left": 540672,
+     "body_Right": 540672,
+     "body_Down": 528384,
+     "body_Down_bias": 4096,
+     "TOTAL": 7841523
+    },
+    "kl": 0.0030464436567854136,
+    "ce": 4.714962124824524,
+    "ntok": 16384
+   }
+  ]
+ }
+}

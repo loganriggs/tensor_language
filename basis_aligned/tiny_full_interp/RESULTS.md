@@ -7,6 +7,616 @@ were **refuted** are marked as such rather than quietly dropped.
 
 ---
 
+## 2026-08-08 — FINDING 12 (RUNG 5, THE COMPRESSION FRONTIER): a description 5.7× shorter than the model exists, but it is the model's own weights coded better — every description built out of an *interpretation* is dominated, and merging tokens is the worst code we measured
+
+Files: `tf_compress.py` (coders + the swappable depth-1 decoder),
+`tf_compress_run.py` (sections A–M), `tf_compress_frontier.py` (Pareto + figure),
+`tf_compress_tables.py` (every table below is printed by this script from the
+JSONs, so nothing here is transcribed by hand),
+`tf_vanilla_d1_w128_b8192_s0_compress.json` (+ `_s1_` for the confirmation cell),
+`tf_vanilla_d1_w128_b8192_s0_compress_frontier.json`,
+`fig_tf_compression_frontier.png`.
+
+**Why this exists.** Rung 5 asked for an explicit description reproducing the
+model, and the only weights-free artifact the ladder produced was the model's
+own token-pair table: 8192×8192 = 67.1M entries against a 1.34M-parameter
+model, at KL 0.657. The "explanation" was 50× larger than the thing explained.
+Rather than argue about whether that counts, this finding replaces the argument
+with a plot: **description length in bits on x, KL from the true model on y,
+with the model's own length marked**, so "does any description beat the model
+itself?" is a measurement.
+
+**The accounting, stated once and applied everywhere.** A description is a bit
+string that a fixed decoder (`tf_compress.D1Desc.forward`, the depth-1 vanilla
+forward with every table swappable) turns into a next-token predictor.
+Everything the decoder needs that is not source code is charged: tables,
+codebooks, cluster indices, per-row scales, bit-allocation maps, entropy-coder
+histograms. fp32 = 32 bits; an index into k things = ⌈log₂k⌉ bits; an
+arithmetic-coded symbol stream = its empirical entropy plus its histogram at
+fp16. Tables are fitted on `est`; every number is scored on `held` (64
+sequences × 256 tokens = 16 384 tokens). Two conventions are declared because
+they are generous to the *structural* schemes and therefore conservative for
+the negative result: the token surface strings and the estimation split itself
+are free to the decoder (they are part of the corpus specification, shared by
+the model and by every description), so a scheme may condition on a token's
+spelling or on its corpus co-occurrence statistics without paying for them.
+
+**Positive control.** The decoder with all tables at their trained values
+reproduces the model to `rel_logit_diff` 4.5e-6 and KL 1.5e-6 — that 1.5e-6 is
+the measurement floor and no KL below it is meaningful.
+
+### The headline
+
+| | |
+|---|---|
+| the model | 1 343 616 parameters (78.0% embedding, 22.0% body), **42.996 Mbit** at fp32, held CE 4.7114 |
+| shortest description at KL ≤ 0.005 | **7.59 Mbit, 5.7× smaller** |
+| shortest at KL ≤ 0.025 | **5.79 Mbit, 7.4× smaller** |
+| shortest at KL ≤ 0.11 | **4.09 Mbit, 10.5× smaller** |
+| shortest at KL ≤ 0.45 | **2.68 Mbit, 16.0× smaller** |
+| the extreme point (a 1-bit embedding) | **2.43 Mbit, 17.7× smaller**, KL 0.829 |
+| lossless to the measurement floor | 16.45 Mbit, 2.6× smaller |
+| the rung-5 weights-free table | **2147 Mbit at fp32 (50× the model), 537 Mbit even at int8**, at KL 0.657 |
+
+For scale on the KL axis: the model's whole advantage over the unigram floor is
+CE 7.2845 → 4.7114, i.e. **2.573 nats**. So KL 0.005 is 0.2% of everything the
+model knows, KL 0.023 is 0.9%, and KL 0.41 is 16%.
+
+**Every point on that frontier is the model's own weights, coded better** —
+with exactly one partial exception, which is the honest positive of this
+finding: conditioning the embedding code on the token's estimation-split
+co-occurrence statistics lands on the frontier at four of its twenty-five
+points and is worth 7–14% of the bits. Nothing else assembled out of an
+interpretation — prototypes, named feature groups, low-rank factors, CP terms,
+exact anchor rows for important tokens — comes within a factor of two of the
+frontier at any KL.
+
+![compression frontier](fig_tf_compression_frontier.png)
+
+### 1. Memorisation vs structure, measured three ways — and the first two registered predictions are REFUTED
+
+Logan's framing was that some of the model is memorisation (token-specific
+facts) and some is structure (rules that generalise across tokens), that the
+structure should compress a lot and the memorisation somewhat. The embedding is
+78% of the parameters, so "the memorisation" is concretely the 8192×128 token
+table, in its two roles: the **read** role (`rms(Wte[t])`, the layer-0 module
+input — how a token steers the computation) and the **write** role (the tied
+unembedding — the token's identity as an answer). The description may compress
+the two separately, paying for both tables.
+
+**(a) Merging tokens — the obvious attack — is the worst code we measured.**
+Cluster the token axis into k behavioural prototypes (frequency-weighted Lloyd
+on the trained rows), coarsen one role, leave the other exact, score. At k=512
+— the 16× cut Logan's intuition points at — the read role leaves **KL 1.184**
+and the write role **0.868**. For calibration, *deleting the MLP entirely*
+costs 4.70 and deleting all past attention costs 0.29. A prototype dictionary
+that keeps 512 of 8192 tokens distinct is worse than throwing away the model's
+attention several times over. Pushing to k=4096 (a 2× cut) still leaves KL
+0.435 for the read role and costs 16.9 Mbit — while plain 4-bit scalar
+quantisation of the *whole* table costs 4.03 Mbit at KL 0.028. **Clustering is
+4× the bits at 15× the KL.** Learned clusters do beat a random grouping at
+matched k (1.184 vs 1.974 at k=512), so the clustering is working; it is the
+*idea* that fails.
+
+**(b) Precision per role: the two roles are nearly symmetric, and P1 is
+refuted.** We registered that the read role would be far more compressible than
+the write role (< 0.10 vs > 1.0 at 512 clusters). Measured, in the currency
+that actually decides the frontier — bits per weight, not number of prototypes
+— the two roles cost almost the same, and the *write* role is marginally
+cheaper: at 3 bits, read-only KL 0.0736 vs write-only 0.0544; at 4 bits, 0.0157
+vs 0.0119. The prediction is refuted, and in the opposite direction. There is
+no cheap role.
+
+**(c) Features vs identity: the spelling pays for 1% of the table and the
+corpus statistics for 7–14%.** Two conditional codes were built, both
+with their conditioning information given away free:
+
+* **orthography + frequency** (log unigram band, orthographic class, length,
+  hashed character 1- and 2-grams: 272 features): regression R² **0.256** on
+  the embedding. Coding only the residual saves **1.1, 1.3, 1.2 and 0.7%** of
+  bits at matched KL for 2-, 3-, 4- and 5-bit residuals — i.e. essentially
+  nothing.
+* **corpus co-occurrence** (PPMI of the est-split bigram table, 128 left + 128
+  right singular directions): R² **0.405**. Saves **14.0 / 10.7 / 7.9 / 7.1%**
+  of bits at matched KL for 2-/3-/4-/5-bit residuals — small, but real enough that with a quantised body it reaches the Pareto
+  frontier at four points (5.05 Mbit at KL 0.061, 6.17 at 0.021, 6.76 at 0.012,
+  7.84 at 0.0031). If the 8192×257 projection basis is *charged* rather than
+  regenerated from the corpus, it loses by 4×; the frontier claim depends on
+  the declared convention that the corpus is free.
+
+So a token's embedding row is 26% predictable from its spelling and 41% from
+its corpus statistics — and knowing the spelling buys 1% of its description
+length, knowing the corpus statistics 7–14%. What the model stores is precisely the part that is *not* predictable
+from the token's surface or its data statistics. Registered P2 (features
+recover < 30% of what learned clusters recover) is **refuted as stated**: as a
+*grouping* at ~440 groups, features recover 60% of the learned clusters' KL —
+but that is only because grouping at all is so weak a baseline that a
+size-matched random grouping recovers 67%, i.e. more. The corrected verdict is
+sharper than the registered one: **surface features are worth about as much as
+chance when used to merge tokens and about 1% when used to predict-and-code;
+corpus co-occurrence statistics, which are a fairer reading of "structure", are
+worth 7–14%.**
+
+**The split, in bits.** At the 5.77 Mbit / KL 0.023 point the bill is 4.03 Mbit
+embedding (70%) and 1.74 Mbit body (30%) — so at the knee the memorisation is
+**492 bits ≈ 62 bytes per token** and the structure is 1.74 Mbit for all of it.
+The memorisation *is* compressible, 8.3× from fp32, but only by dropping
+precision, not by finding types. Registered P3 (< 60% of the bits in the
+embedding at the knee) is **refuted**: 70%.
+
+### 2. What resisted compression — the negative deliverable
+
+Each of these is a well-measured "no", with the bits.
+
+**The MLP is not low CP rank, in the neuron basis or out of it.** The bilinear
+MLP *is* a rank-512 symmetric CP decomposition, so truncating hidden units is a
+genuine CP truncation — and the program's standing lesson is that the neuron
+basis is a gauge, so we also **refitted** the CP decomposition by ALS directly
+on the folded tensor (never materialising the 128³ object; the ALS normal
+equations only need Gram matrices). The refit is a real improvement at every
+rank — 384 terms: KL 0.270 refitted vs 0.316 truncated; 128 terms: 1.361 vs
+1.695; 32 terms: 2.360 vs 2.789 — which confirms the gauge lesson. It does not
+matter: **plain 3-bit quantisation of Left/Right/Down costs 3.78 Mbit at KL
+0.116, while the best 384-term refit costs 7.87 Mbit at KL 0.270.** Registered
+P4 (no structural MLP scheme beats scalar quantisation at matched bits) is
+**CONFIRMED**, and it is confirmed by a wide margin. The tensor genuinely needs
+all 512 of its terms; what it does not need is 32-bit coefficients.
+
+**The embedding has no low-dimensional token manifold.** Rank 96 of 128 costs
+25.6 Mbit and still leaves KL 0.800. Every low-rank point is off the frontier
+by more than 5×.
+
+**Rotating the coding basis buys nothing.** Transform coding with per-column
+reverse-water-filling bit allocation is the best embedding coder we found — but
+the gain is entirely the *allocation*, not the *rotation*: at ~4.0 Mbit the
+identity basis gives KL 0.0150, Hadamard 0.0154, PCA 0.0168. For a program
+built around basis alignment this is worth stating plainly: **the embedding's
+trained coordinate basis is already as good a coding basis as any orthogonal
+alternative**, including its own principal axes.
+
+**Exact anchor rows do not port from `../qk_mdl`.** The parent program's
+frontier-dominating hybrid — exact fp32 rows for the top-B tokens by
+attribution plus a compressed remainder — is *dominated* here at every B and
+every tail coder: `anchor256 + 4-bit tail` costs 5.37 Mbit at KL 0.017 while
+plain 5-bit costs 5.11 Mbit at KL 0.0065. Registered P5 is **REFUTED**. The
+weakened form survives: *graded* precision (6 bits for the top 2048 tokens, 4
+for the tail) does beat uniform precision by about 30% in bits at matched KL
+(4.59 Mbit at KL 0.0093 against ~5.2 Mbit interpolated). So "spend more bits on
+frequent tokens" is right; "spend infinite bits on a few tokens" is wrong. The
+difference from the parent program is that there the compressed object was a
+V×V score table with wildly heterogeneous row importance, whereas here every
+row of the unembedding sits in the softmax denominator of *every* prediction —
+that is a plausible explanation, and it is not measured here.
+
+**Product quantisation loses to scalar quantisation.** At ~4.3 Mbit,
+`pq_m128_b4` gives KL 0.081 and 4-bit scalar with per-row scales gives 0.028.
+Per-row scales beat per-subspace codebooks: the row norms of the embedding vary
+enough that removing that one degree of freedom per token is worth more than a
+learned 256-word codebook per 8 dimensions.
+
+### 3. What *did* work, and the one thing that surprised us
+
+* **Entropy-coding the quantised symbols** (histogram charged) saves a flat
+  ~10% at every bit depth. Free and honest.
+* **Per-column bit allocation** (reverse water-filling on the column variances)
+  is worth about 1.5× in bits at matched KL over uniform per-row quantisation.
+* **Graded precision by token frequency** ≈ another 30%.
+* **Distilling the quantised description on `est`** (straight-through
+  quantiser in the loop, best iterate selected on a disjoint `est` slice,
+  nothing fitted on held) is the only technique that changes the *shape* of the
+  frontier rather than shifting it: it is worth almost nothing at 5–8 bits and
+  it is worth **an order of magnitude of KL** at 1–3 bits. A **1-bit embedding**
+  — every one of the 1 048 576 embedding weights reduced to one of two values
+  per row — post-hoc gives KL 6.07 and distilled gives **0.83, at 2.43 Mbit,
+  17.7× smaller than the model.** That the model survives a binary embedding at
+  all is the most surprising number in this finding.
+* **Conditioning on corpus statistics** is worth 7–14% of the embedding's bits
+  and, uniquely among the structural schemes, makes the frontier.
+* The body is the *precision-sensitive* part, not the embedding: at 4 bits the
+  attention matrices alone cost KL 0.221 while the whole embedding costs 0.028.
+  98k of the 1.34M parameters carry most of the precision requirement.
+
+### 4. The rung-5 reframe: "weights-free" is not a meaningful MDL constraint
+
+Rung 5 as written asks for a description "with no weights". Charging bits
+dissolves that distinction: an 8192×128 table called *the embedding* and an
+8192×8192 table called *the model's bigram table* are both just tables, and the
+second is 64× bigger. The weights-free artifact the ladder produced costs 2147
+Mbit at fp32 — **50× the model it explains** — and 537 Mbit even at int8, at KL
+0.657. It is off the frontier by two and a half orders of magnitude and it is
+not close to being a competitive description of anything.
+
+The honest restatement, and the one this finding answers: **is there a
+description shorter than the model that reproduces it?** Yes — 5.7× shorter at
+KL 0.004, 7.4× at 0.023, 16× at 0.41. And the answer that matters for
+interpretability: **all of them are the model's own weights coded better, and
+no description built out of an interpretation is anywhere near the frontier.**
+Rung 5 is therefore *passed* in the MDL sense and *failed* in the sense it was
+meant: at this size, the model's per-token content is not compressible into
+types, features, prototypes, factors or exceptions — only into fewer bits per
+number.
+
+### 5. Registered predictions and their verdicts
+
+All six of P1–P6 were written into the results JSON before section A ran; P7
+was registered after the self-red-team demanded the corpus-statistic
+experiment, and before that experiment ran. Three of seven survive.
+
+| | prediction | verdict |
+|---|---|---|
+| P1 | the read role is far more compressible than the write role (< 0.10 vs > 1.0 at 512 clusters) | **REFUTED** — 1.184 vs 0.868 at 512 clusters, and 0.074 vs 0.054 at 3 bits: nearly symmetric, write marginally cheaper |
+| P2 | feature groupings recover < 30% of what learned clusters recover | **REFUTED as stated** (60%) — but only because a size-matched *random* grouping recovers 67%; the intended claim survives in stronger form |
+| P3 | at the knee the embedding is < 60% of the bits, total ≥ 6× below fp32, KL < 0.05 | **PARTLY REFUTED** — 7.4× below fp32 at KL 0.023, but the embedding is **70%** of the bits, not < 60% |
+| P4 | no structural MLP scheme beats scalar quantisation at matched bits | **CONFIRMED**, by 2× in bits and 2.3× in KL |
+| P5 | exact anchor rows + compressed tail dominate a pure scheme by ≥ 1.5× | **REFUTED** — dominated everywhere; only the graded (non-exact) form helps, by ~30% |
+| P6 | no weights-free table lands near the frontier | **CONFIRMED** — 12–50× the model's own bits at KL 0.657 |
+| P7 | corpus co-occurrence statistics reach R² 0.40–0.65 but save < 25% of bits | **CONFIRMED** — R² 0.405, saves 7–14% |
+
+### 6. Confirmation on a second cell
+
+The battery (sections A, B, C, E, F, G, J, K, L) was re-run on
+`tf_vanilla_d1_w128_b8192_s1` — independent seed, same cell. See T11. What
+replicates tightly: the frontier's *position* (`embT640+body8` 6.467 Mbit at KL
+0.0156 vs 6.464 at 0.0164; `embT768+body8` 7.594 at 0.0042 vs 7.593 at 0.0051),
+the per-role near-symmetry at 3 bits (0.0736/0.0544 vs 0.0821/0.0584), the
+clustering failure (k=512 read 1.184 vs 1.224) and both regression R² values
+(0.256 vs 0.260, 0.405 vs 0.405). What does **not** replicate tightly is the
+absolute KL of *aggressive uniform quantisation of the whole model*: 4-bit is
+0.288 on seed 0 and 0.849 on seed 1, 6-bit is 0.0112 vs 0.0327. Seed 1 is
+simply a more quantisation-brittle model at low precision, so the frontier's
+low-bit tail should be read as a shape, not as a per-model constant. Every
+claim in §1–§4 is about orderings and ratios, all of which hold on both seeds.
+
+### 7. Adversarial review, round 1 (self-red-team)
+
+**O1 — "quantisation is not an interpretation, so this finding is vacuous."**
+Accepted as a description of the result and rejected as a criticism of it. The
+implicit hope in rung 5 was that a *structured* description would be short. The
+measurement says it is not, and it says so against seven structural families
+with honest bit accounting. A negative frontier result is exactly the kind of
+thing this program said it wanted.
+
+**O2 — "you searched a finite family of schemes."** True, and the two
+strongest candidates we could think of were added *because of this objection*
+(section K, orthography; section L, corpus co-occurrence), both with their
+conditioning given away free, and both lose. Still untried and worth a future
+tick: tensor-train / hierarchical Tucker of the MLP tensor; learned rotations
+per PQ subspace; weight sharing under a learned permutation; magnitude pruning
+plus sparse coding; and coding the embedding conditional on a *trained* small
+model's embedding rather than on raw statistics.
+
+**O3 — "16 384 held tokens is not many."** Sequence-clustered standard errors
+are attached to every distilled point (64 sequences as the independent unit);
+they are 1–3% of the KL at the knee, far below the effect sizes quoted. The
+frontier's ordering is not within noise anywhere it is used.
+
+**O4 — "a distilled description is a different model, not a description of
+this one."** It is scored by KL to *this* model on held text, which is
+precisely the rung-5 criterion, and the tables it stores are decoded by exactly
+the same decoder as the post-hoc points. The distinction that matters is
+declared: distilled points are fitted on `est` against the true model's own
+outputs, post-hoc points are not fitted at all, and both are scored on `held`.
+
+**O5 — "entropy coding assumes an arithmetic coder you did not charge for."**
+The coder is code, like the rest of the decoder; the standing convention charges
+data, not the program. The histogram *is* charged (2^b × 16 bits). Removing
+entropy coding entirely moves every affected point right by ~10% and changes no
+ordering.
+
+**O6 — "features lose to random grouping only because feature groups are
+unbalanced."** Caught by this objection and fixed: a size-matched random
+control (same group-size histogram, random membership) is in section J. It
+changes the verdict — features beat size-matched random for the write role at
+all three group counts and for the read role at the two smaller ones — and the
+corrected statement is in §1(c).
+
+**O7 — "the frequency ordering used by stratification and anchors is fitted on
+est and not charged."** Declared. It is free under the same convention that
+makes the token strings free (the decoder can recompute it from the corpus). If
+you reject that convention, delete the stratified and anchor families: they are
+not the frontier winners, so the headline is unchanged.
+
+**O8 — "the KL direction."** All numbers are KL(model ‖ description), matching
+the existing rung-5 ladder in `tf_interp.ladder`, so this finding's KLs are
+directly comparable to Table C and FINDING 3.
+
+**What we could not compress, in one sentence.** The MLP tensor's CP rank, the
+embedding's row space, and the per-token content of the embedding are all
+incompressible in every basis we tried: 512 CP terms, 128 dimensions and 8192
+distinct tokens are all *needed*, and the only thing that turned out to be
+surplus was precision — about 27 of the 32 bits on every number.
+
+### 8. The tables (printed by `tf_compress_tables.py` from the JSONs)
+
+model: 1343616 params, fp32 42.996 Mbit, held CE 4.7114, KL floor 1.47e-06
+
+### T1 the model as its own description (uniform b-bit weights)
+
+| bits/weight | description length | x smaller than fp32 | KL |
+|---|---|---|---|
+| 2 | 3.015 Mbit | 14.3x | 4.03130 |
+| 3 | 4.358 Mbit | 9.9x | 1.60630 |
+| 4 | 5.702 Mbit | 7.5x | 0.28790 |
+| 5 | 7.045 Mbit | 6.1x | 0.05808 |
+| 6 | 8.389 Mbit | 5.1x | 0.01118 |
+| 8 | 11.076 Mbit | 3.9x | 0.00064 |
+| 12 | 16.450 Mbit | 2.6x | 0.00000 |
+| 16 | 21.823 Mbit | 2.0x | 0.00000 |
+| 32 | 42.996 Mbit | 1.0x | 0.00000 |
+
+### T2 the Pareto frontier (all families, everything charged)
+
+| description length | x smaller | KL | scheme |
+|---|---|---|---|
+| 2.431 Mbit | 17.7x | 0.82907 | `distilled_emb1_body4` |
+| 2.680 Mbit | 16.0x | 0.40897 | `distilled_emb2_body3` |
+| 3.613 Mbit | 11.9x | 0.38761 | `distilled_emb2_body6` |
+| 3.766 Mbit | 11.4x | 0.13230 | `distilled_emb3_body3` |
+| 4.089 Mbit | 10.5x | 0.10487 | `distilled_emb3_body4` |
+| 4.702 Mbit | 9.1x | 0.09298 | `distilled_emb3_body6` |
+| 4.771 Mbit | 9.0x | 0.07519 | `embT512+body6` |
+| 5.054 Mbit | 8.5x | 0.06073 | `corpusstat_res_q3+body6` |
+| 5.167 Mbit | 8.3x | 0.03455 | `distilled_emb4_body4` |
+| 5.785 Mbit | 7.4x | 0.02387 | `distilled_emb4_body6` |
+| 6.171 Mbit | 7.0x | 0.02094 | `corpusstat_res_q4+body6` |
+| 6.426 Mbit | 6.7x | 0.01913 | `embS6_4_2048+body6` |
+| 6.467 Mbit | 6.6x | 0.01556 | `embT640+body8` |
+| 6.760 Mbit | 6.4x | 0.01171 | `corpusstat_res_q4+body8` |
+| 7.016 Mbit | 6.1x | 0.00987 | `embS6_4_2048+body8` |
+| 7.464 Mbit | 5.8x | 0.00567 | `distilled_emb5_body8` |
+| 7.594 Mbit | 5.7x | 0.00421 | `embT768+body8` |
+| 7.742 Mbit | 5.6x | 0.00400 | `embS8_5_512+body8` |
+| 7.842 Mbit | 5.5x | 0.00305 | `corpusstat_res_q5+body8` |
+| 8.516 Mbit | 5.0x | 0.00152 | `distilled_emb6_body8` |
+| 11.076 Mbit | 3.9x | 0.00064 | `uniform_8bit` |
+| 15.917 Mbit | 2.7x | 0.00062 | `corpusstat_residual_q6` |
+| 16.450 Mbit | 2.6x | 0.00000 | `uniform_12bit` |
+| 21.823 Mbit | 2.0x | 0.00000 | `uniform_16bit` |
+| 42.996 Mbit | 1.0x | 0.00000 | `uniform_32bit` |
+
+### T3 coarsening the token axis: merging tokens is a bad code
+
+| groups k | read-role KL | write-role KL | read, random grouping | write, random grouping |
+|---|---|---|---|---|
+| 1 | 5.053 | 3.859 | 5.053 | 3.859 |
+| 2 | 5.318 | 2.772 | 4.851 | 3.866 |
+| 4 | 3.885 | 2.342 | 4.863 | 3.897 |
+| 8 | 3.281 | 2.071 | 4.703 | 3.919 |
+| 16 | 2.885 | 1.872 | 4.415 | 3.915 |
+| 32 | 2.470 | 1.673 | 3.959 | 4.018 |
+| 64 | 1.882 | 1.454 | 3.437 | 4.026 |
+| 128 | 1.690 | 1.281 | 2.903 | 3.964 |
+| 256 | 1.489 | 1.073 | 2.387 | 3.578 |
+| 512 | 1.184 | 0.868 | 1.974 | 3.019 |
+| 1024 | 1.144 | 0.879 | 1.523 | 2.465 |
+| 2048 | 0.789 | 0.503 | 1.108 | 1.896 |
+| 4096 | 0.435 | 0.354 | 0.721 | 1.254 |
+
+### T4 per-role PRECISION (the currency that works)
+
+| bits/weight | read role coarsened only | write role only | both (tied) |
+|---|---|---|---|
+| 1 | 1.08676 | 3.12100 | 4.88301 |
+| 2 | 0.44255 | 0.29603 | 0.74989 |
+| 3 | 0.07362 | 0.05442 | 0.12924 |
+| 4 | 0.01573 | 0.01187 | 0.02775 |
+| 5 | 0.00364 | 0.00283 | 0.00646 |
+| 6 | 0.00089 | 0.00069 | 0.00158 |
+| 8 | 0.00005 | 0.00004 | 0.00010 |
+
+### T5 embedding schemes at ~matched bits
+
+| scheme | embedding bits | KL (body exact fp32) |
+|---|---|---|
+| `pq_m16_b4` | 0.590 Mbit | 2.56078 |
+| `transform_hadamard_256bpr` | 1.039 Mbit | 1.85946 |
+| `pq_m16_b6` | 1.049 Mbit | 1.76136 |
+| `transform_none_256bpr` | 1.061 Mbit | 1.64974 |
+| `lowrank_r4` | 1.065 Mbit | 2.41059 |
+| `pq_m32_b4` | 1.114 Mbit | 1.98253 |
+| `cluster_k256` | 1.114 Mbit | 1.93467 |
+| `transform_pca_256bpr` | 1.160 Mbit | 2.89988 |
+| `lowrank_r16_q8` | 1.328 Mbit | 2.05873 |
+| `pq_m8_b8` | 1.573 Mbit | 1.68460 |
+| `transform_hadamard_384bpr` | 1.810 Mbit | 0.33136 |
+| `pq_m32_b6` | 1.835 Mbit | 0.90531 |
+| `transform_pca_384bpr` | 1.835 Mbit | 0.33906 |
+| `transform_none_384bpr` | 1.856 Mbit | 0.31344 |
+| `pq_m16_b8` | 2.097 Mbit | 1.11556 |
+| `lowrank_r8` | 2.130 Mbit | 2.27137 |
+| `pq_m64_b4` | 2.163 Mbit | 0.78471 |
+| `cluster_k512` | 2.171 Mbit | 1.76309 |
+| `scalar_q2` | 2.359 Mbit | 0.74989 |
+| `lowrank_r32_q8` | 2.393 Mbit | 1.82815 |
+| `transform_hadamard_512bpr` | 2.884 Mbit | 0.06896 |
+| `transform_pca_512bpr` | 2.885 Mbit | 0.08010 |
+| `scalar_q3_entropy` | 2.913 Mbit | 0.12924 |
+| `transform_none_512bpr` | 2.936 Mbit | 0.06484 |
+| `pq_m32_b8` | 3.146 Mbit | 0.31320 |
+| `strat_hi8_lo3_n512` | 3.257 Mbit | 0.06798 |
+| `strat_hi6_lo3_n1024` | 3.334 Mbit | 0.05549 |
+| `scalar_q3` | 3.408 Mbit | 0.12924 |
+| `strat_hi8_lo3_n1024` | 3.598 Mbit | 0.05466 |
+| `transform_pca_640bpr` | 3.976 Mbit | 0.01683 |
+| `transform_hadamard_640bpr` | 3.990 Mbit | 0.01538 |
+| `scalar_q4_entropy` | 4.029 Mbit | 0.02775 |
+| `transform_none_640bpr` | 4.042 Mbit | 0.01496 |
+| `lowrank_r16` | 4.260 Mbit | 2.05867 |
+| `pq_m128_b4` | 4.260 Mbit | 0.08100 |
+| `cluster_k1024` | 4.276 Mbit | 1.73407 |
+| `strat_hi8_lo4_n512` | 4.304 Mbit | 0.01467 |
+| `strat_hi6_lo4_n1024` | 4.311 Mbit | 0.01258 |
+| `strat_hi5_lo4_n2048` | 4.326 Mbit | 0.01280 |
+| `scalar_q4` | 4.456 Mbit | 0.02775 |
+| `lowrank_r64_q8` | 4.524 Mbit | 1.38990 |
+| `strat_hi8_lo4_n1024` | 4.574 Mbit | 0.01175 |
+| `strat_hi6_lo4_n2048` | 4.591 Mbit | 0.00930 |
+| `transform_pca_768bpr` | 5.104 Mbit | 0.00421 |
+| `scalar_q5_entropy` | 5.110 Mbit | 0.00646 |
+| `transform_hadamard_768bpr` | 5.118 Mbit | 0.00386 |
+| `transform_none_768bpr` | 5.170 Mbit | 0.00366 |
+| `pq_m64_b8` | 5.243 Mbit | 0.02426 |
+| `strat_hi6_lo5_n1024` | 5.256 Mbit | 0.00364 |
+| `strat_hi8_lo5_n512` | 5.317 Mbit | 0.00346 |
+| `scalar_q5` | 5.505 Mbit | 0.00646 |
+| `scalar_q6_entropy` | 6.169 Mbit | 0.00158 |
+| `scalar_q6` | 6.554 Mbit | 0.00158 |
+| `scalar_q8_entropy` | 8.258 Mbit | 0.00010 |
+| `cluster_k2048` | 8.479 Mbit | 1.18735 |
+| `lowrank_r32` | 8.520 Mbit | 1.82926 |
+| `scalar_q8` | 8.651 Mbit | 0.00010 |
+| `pq_m128_b8` | 9.437 Mbit | 0.00013 |
+| `lowrank_r48` | 12.780 Mbit | 1.62227 |
+| `cluster_k4096` | 16.876 Mbit | 0.86074 |
+| `lowrank_r64` | 17.039 Mbit | 1.39058 |
+| `lowrank_r96` | 25.559 Mbit | 0.80044 |
+
+### T6 the body: structure vs precision
+
+| scheme | body bits | KL (embedding exact fp32) |
+|---|---|---|
+| `mlp_trunc_units32` | 3.543 Mbit | 2.78943 |
+| `mlp_trunc_units64` | 3.936 Mbit | 2.28594 |
+| `mlp_trunc_units128` | 4.723 Mbit | 1.69459 |
+| `mlp_trunc_units256` | 6.296 Mbit | 0.92326 |
+| `mlp_trunc_units384` | 7.868 Mbit | 0.31645 |
+| `mlp_cp_refit32` | 3.543 Mbit | 2.36033 |
+| `mlp_cp_refit64` | 3.936 Mbit | 1.92732 |
+| `mlp_cp_refit128` | 4.723 Mbit | 1.36052 |
+| `mlp_cp_refit256` | 6.296 Mbit | 0.74690 |
+| `mlp_cp_refit384` | 7.868 Mbit | 0.27000 |
+| `mlp_q2` | 3.580 Mbit | 0.83826 |
+| `mlp_q3` | 3.777 Mbit | 0.11634 |
+| `mlp_q4` | 3.973 Mbit | 0.02485 |
+| `mlp_q6` | 4.366 Mbit | 0.00142 |
+| `mlp_q8` | 4.760 Mbit | 0.00009 |
+| `mlp_cp128_q4` | 3.359 Mbit | 1.40792 |
+| `mlp_cp128_q6` | 3.457 Mbit | 1.37247 |
+| `mlp_cp128_q8` | 3.555 Mbit | 1.36127 |
+| `mlp_cp256_q4` | 3.564 Mbit | 0.78773 |
+| `mlp_cp256_q6` | 3.760 Mbit | 0.74614 |
+| `mlp_cp256_q8` | 3.957 Mbit | 0.74760 |
+| `mlp_cp384_q4` | 3.768 Mbit | 0.32008 |
+| `mlp_cp384_q6` | 4.063 Mbit | 0.26945 |
+| `mlp_cp384_q8` | 4.358 Mbit | 0.27037 |
+| `attn_q2` | 6.517 Mbit | 3.05268 |
+| `attn_q3` | 6.615 Mbit | 1.19544 |
+| `attn_q4` | 6.713 Mbit | 0.22056 |
+| `attn_q6` | 6.910 Mbit | 0.00807 |
+| `attn_q8` | 7.107 Mbit | 0.00046 |
+| `body_cp256_q3` | 0.639 Mbit | 2.13498 |
+| `body_cp256_q4` | 0.836 Mbit | 1.00773 |
+| `body_cp256_q6` | 1.229 Mbit | 0.75744 |
+
+### T7 anchor rows + compressed tail (ported from ../qk_mdl)
+
+| scheme | embedding bits | KL |
+|---|---|---|
+| `anchor0_freq_tail_pq_m16_b8` | 2.097 Mbit | 1.11556 |
+| `anchor0_freq_tail_pq_m8_b8` | 1.573 Mbit | 1.68460 |
+| `anchor0_freq_tail_q4` | 4.456 Mbit | 0.02775 |
+| `anchor0_freq_tail_q3` | 3.408 Mbit | 0.12924 |
+| `anchor0_freq_tail_q2` | 2.359 Mbit | 0.74989 |
+| `anchor0_freq_tail_cluster_k512` | 2.171 Mbit | 2.22267 |
+| `anchor64_freq_tail_pq_m16_b8` | 2.352 Mbit | 0.72332 |
+| `anchor64_freq_tail_pq_m8_b8` | 1.832 Mbit | 1.19938 |
+| `anchor64_freq_tail_q4` | 4.685 Mbit | 0.02074 |
+| `anchor64_freq_tail_q3` | 3.644 Mbit | 0.09572 |
+| `anchor64_freq_tail_q2` | 2.604 Mbit | 0.56472 |
+| `anchor64_freq_tail_cluster_k512` | 2.433 Mbit | 1.50119 |
+| `anchor256_freq_tail_pq_m16_b8` | 3.116 Mbit | 0.53937 |
+| `anchor256_freq_tail_pq_m8_b8` | 2.608 Mbit | 0.93209 |
+| `anchor256_freq_tail_q4` | 5.369 Mbit | 0.01698 |
+| `anchor256_freq_tail_q3` | 4.353 Mbit | 0.07890 |
+| `anchor256_freq_tail_q2` | 3.337 Mbit | 0.47091 |
+| `anchor256_freq_tail_cluster_k512` | 3.220 Mbit | 1.25262 |
+| `anchor512_freq_tail_pq_m16_b8` | 4.135 Mbit | 0.41397 |
+| `anchor512_freq_tail_pq_m8_b8` | 3.644 Mbit | 0.75779 |
+| `anchor512_freq_tail_q4` | 6.282 Mbit | 0.01462 |
+| `anchor512_freq_tail_q3` | 5.299 Mbit | 0.06793 |
+| `anchor512_freq_tail_q2` | 4.316 Mbit | 0.40779 |
+| `anchor512_freq_tail_cluster_k512` | 4.270 Mbit | 1.02398 |
+| `anchor1024_freq_tail_pq_m16_b8` | 6.174 Mbit | 0.30352 |
+| `anchor1024_freq_tail_pq_m8_b8` | 5.715 Mbit | 0.56890 |
+| `anchor1024_freq_tail_q4` | 8.107 Mbit | 0.01169 |
+| `anchor1024_freq_tail_q3` | 7.190 Mbit | 0.05461 |
+| `anchor1024_freq_tail_q2` | 6.272 Mbit | 0.33200 |
+| `anchor1024_freq_tail_cluster_k512` | 6.369 Mbit | 0.81203 |
+| `anchor2048_freq_tail_pq_m16_b8` | 10.250 Mbit | 0.19167 |
+| `anchor2048_freq_tail_pq_m8_b8` | 9.857 Mbit | 0.37050 |
+| `anchor2048_freq_tail_q4` | 11.758 Mbit | 0.00821 |
+| `anchor2048_freq_tail_q3` | 10.971 Mbit | 0.03885 |
+| `anchor2048_freq_tail_q2` | 10.185 Mbit | 0.24148 |
+| `anchor2048_freq_tail_cluster_k512` | 10.568 Mbit | 0.55753 |
+| `anchor256_q8_tail_pq_m16_b8` | 2.338 Mbit | 0.53993 |
+| `anchor1024_q8_tail_pq_m16_b8` | 3.061 Mbit | 0.30358 |
+
+### T8 distillation vs post-hoc quantisation at the same bits
+
+| budget (emb/body bits) | distilled bits | distilled KL | post-hoc bits | post-hoc KL |
+|---|---|---|---|---|
+| 1/4 | 2.431 Mbit | 0.82907 ± 0.00836 | 2.429 Mbit | 6.07152 |
+| 2/3 | 2.680 Mbit | 0.40897 ± 0.00383 | 2.591 Mbit | 2.33225 |
+| 2/4 | 2.999 Mbit | 0.41099 ± 0.00357 | 2.906 Mbit | 1.15662 |
+| 2/6 | 3.613 Mbit | 0.38761 ± 0.00320 | 3.515 Mbit | 0.76806 |
+| 3/3 | 3.766 Mbit | 0.13230 ± 0.00129 | 3.719 Mbit | 1.60630 |
+| 3/4 | 4.089 Mbit | 0.10487 ± 0.00096 | 4.034 Mbit | 0.42086 |
+| 3/6 | 4.702 Mbit | 0.09298 ± 0.00079 | 4.643 Mbit | 0.14160 |
+| 4/4 | 5.167 Mbit | 0.03455 ± 0.00034 | 5.149 Mbit | 0.28790 |
+| 4/6 | 5.785 Mbit | 0.02387 ± 0.00019 | 5.759 Mbit | 0.03784 |
+| 4/8 | 6.401 Mbit | 0.02294 ± 0.00020 | 6.373 Mbit | 0.02828 |
+| 5/8 | 7.464 Mbit | 0.00567 ± 0.00005 | 7.454 Mbit | 0.00697 |
+| 6/8 | 8.516 Mbit | 0.00152 ± 0.00001 | 8.513 Mbit | 0.00213 |
+
+### T9 does the token SPELLING pay for its row?
+
+feature regression R^2 on the embedding = 0.2560 (272 features)
+
+| residual bits | feature-conditional bits | its KL | plain bits at the SAME KL | bits saved |
+|---|---|---|---|---|
+| 2 | 2.097 Mbit | 0.44513 | 2.120 Mbit | +1.1% |
+| 3 | 3.237 Mbit | 0.07795 | 3.280 Mbit | +1.3% |
+| 4 | 4.353 Mbit | 0.01670 | 4.406 Mbit | +1.2% |
+| 5 | 5.435 Mbit | 0.00398 | 5.475 Mbit | +0.7% |
+| 6 | 6.494 Mbit | 0.00095 | — | — |
+
+### T9b does the CORPUS CO-OCCURRENCE statistic pay for it?
+
+PPMI-SVD regression R^2 on the embedding = 0.4049 (257 features)
+
+| residual bits | conditional bits (statistic free) | its KL | plain bits at the SAME KL | bits saved |
+|---|---|---|---|---|
+| 2 | 2.080 Mbit | 0.27926 | 2.419 Mbit | +14.0% |
+| 3 | 3.219 Mbit | 0.04976 | 3.606 Mbit | +10.7% |
+| 4 | 4.336 Mbit | 0.01109 | 4.709 Mbit | +7.9% |
+| 5 | 5.417 Mbit | 0.00249 | 5.828 Mbit | +7.1% |
+| 6 | 6.476 Mbit | 0.00062 | — | — |
+
+### T10 the weights-free artifacts, priced
+
+| artifact | description length | x the fp32 model | KL |
+|---|---|---|---|
+| `weightsfree_VxV_bigram_table_fp32` | 2147.484 Mbit | 49.9x | 0.6573 |
+| `weightsfree_VxV_bigram_table_fp16` | 1073.742 Mbit | 25.0x | 0.6573 |
+| `weightsfree_VxV_bigram_table_int8` | 536.871 Mbit | 12.5x | 0.6573 |
+| `factored_r0_plus_WU_fp32` | 67.109 Mbit | 1.6x | 0.6573 |
+
+### T11 CONFIRMATION on seed 1 (same cell, independent run)
+
+| quantity | seed 0 | seed 1 |
+|---|---|---|
+| held CE | 4.7114 | 4.7094 |
+| KL, uniform_4bit | 0.28790 | 0.84900 |
+| KL, uniform_6bit | 0.01118 | 0.03272 |
+| KL, uniform_8bit | 0.00064 | 0.00169 |
+| embT640+body8: bits / KL | 6.467 Mbit / 0.01556 | 6.464 Mbit / 0.01638 |
+| embT768+body8: bits / KL | 7.594 Mbit / 0.00421 | 7.593 Mbit / 0.00509 |
+| feature regression R^2 | 0.2560 | 0.2598 |
+| read-only / write-only KL at 3 bits | 0.07362 / 0.05442 | 0.08214 / 0.05839 |
+| read clustering k=512 KL | 1.184 | 1.224 |
+
+---
+
 ## 2026-08-08 — FINDING 11 (PHASE V1, the six-architecture slice): the interpretable architectures compute something GENUINELY DIFFERENT — they USE a residual route the plain model leaves empty, and they get induction at half the width
 
 **The question this slice was built to answer** is not which variant wins on

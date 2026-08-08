@@ -7,6 +7,88 @@ they land with the finding in the commit message.
 
 ---
 
+**2026-08-08 12:52 UTC — RUNG 5 CLOSED BY A COMPRESSION FRONTIER (FINDING 12 in
+RESULTS.md). A description 5.7x shorter than the model exists at KL 0.004 and
+16x shorter at KL 0.41 — but every point on the frontier is the model's own
+weights coded better. Only ONE structural idea makes the frontier at all
+(conditioning the embedding code on est co-occurrence statistics, worth 7-14%);
+everything else — prototypes, feature groups, low rank, CP terms, exact anchor
+rows — is off it by more than 2x. Merging tokens is the worst code we
+measured.**
+
+Code: `tf_compress.py` (bit accounting + coders + a depth-1 vanilla decoder
+with every table swappable, gated at rel_logit_diff 4.5e-6 / KL floor 1.5e-6),
+`tf_compress_run.py` (sections A-L), `tf_compress_frontier.py` (Pareto +
+`fig_tf_compression_frontier.png`), `tf_compress_tables.py` (prints every
+RESULTS table straight from the JSONs). Data:
+`tf_vanilla_d1_w128_b8192_s{0,1}_compress.json`.
+
+THE NUMBERS. Model = 1,343,616 params (78% embedding), 42.996 Mbit at fp32,
+held CE 4.7114, unigram 7.2845 (so the whole model is worth 2.573 nats).
+Frontier: 7.59 Mbit at KL 0.004 (5.7x), 5.77 at 0.023 (7.4x), 4.07 at 0.10
+(10.6x), 2.64 at 0.41 (16.3x); lossless-to-floor at 16.45 Mbit (2.6x). The
+rung-5 weights-free V x V table is 2147 Mbit (50x the model) at KL 0.657 — off
+the plot by two and a half orders of magnitude.
+
+MEMORISATION / STRUCTURE, three ways. (a) Merging tokens is catastrophic: 512
+frequency-weighted behavioural clusters leave KL 1.18 (read role) / 0.87 (write
+role) — worse than deleting all past attention (0.29) — and 4096 clusters cost
+16.9 Mbit at KL 0.44 while plain 4-bit quantisation of the whole table costs
+4.03 Mbit at KL 0.028. Clustering is 4x the bits at 15x the KL. (b) Per-role
+PRECISION is nearly symmetric (3 bits: read-only 0.074, write-only 0.054) — the
+registered read-is-cheaper prediction is refuted, in the opposite direction.
+(c) A token's row is 26% predictable from its spelling and 41% from its est
+PPMI co-occurrence statistics, both given away free — and coding the residual
+saves ~1% (spelling) and 7-14% (co-occurrence); the co-occurrence code is the
+only structural scheme that reaches the Pareto frontier, at 4 of its 25
+points. At the knee the bill is 70% embedding / 30% body, i.e.
+492 bits = 62 bytes of irreducible per-token memorisation.
+
+WHAT RESISTED. The MLP tensor is not low CP rank: ALS-refitted CP beats
+neuron-unit truncation at every rank (384 terms 0.270 vs 0.316; 32 terms 2.360
+vs 2.789 — the neuron basis IS a gauge, confirmed) but both lose to 3-bit
+quantisation of the same matrices by 2x in bits and 2.3x in KL. The embedding
+is effectively full rank (rank 96 of 128 = 25.6 Mbit still leaves KL 0.80).
+ROTATION BUYS NOTHING: at ~4.0 Mbit the identity basis gives 0.0150, Hadamard
+0.0154, PCA 0.0168 — the trained coordinate basis is already as good a coding
+basis as any orthogonal one, which is a direct negative for the basis-alignment
+thesis on this object. Product quantisation loses to per-row-scaled scalar
+quantisation.
+
+THE PARENT PROGRAM'S WINNER DOES NOT PORT. Exact anchor rows for the top-B
+tokens + compressed tail (../qk_mdl RESULTS_l0_mdl.md 3b/3c) is DOMINATED at
+every B and every tail coder here: anchor256+q4 = 5.37 Mbit at KL 0.017 vs
+plain q5 = 5.11 Mbit at KL 0.0065. The weakened form survives — graded
+precision (6 bits for the top 2048, 4 for the tail) beats uniform by ~30%.
+Candidate reason, NOT measured: there the compressed object was a V x V score
+table with heterogeneous row importance; here every unembedding row is in every
+softmax denominator.
+
+THE ONE SURPRISE. Distilling the quantised description on est (straight-through
+quantiser, best iterate chosen on a disjoint est slice, nothing fitted on held)
+is worth almost nothing at 5-8 bits and an ORDER OF MAGNITUDE at 1-3 bits. A
+1-BIT EMBEDDING — every embedding weight one of two values per row — is KL 6.07
+post-hoc and 0.83 distilled, at 2.43 Mbit (17.7x smaller than the model).
+
+REGISTERED PREDICTIONS: 3 of 7 survive (P4 body-resists, P6 no-weights-free-
+table, P7 corpus-statistics-do-not-pay). P1, P2, P3, P5 refuted; all four
+refutations are written up rather than dropped.
+
+REFRAME WORTH ARGUING ABOUT. Under MDL the "weights-free" clause of rung 5 is
+empty — a V x Ws table called the embedding and a V x V table called the bigram
+table are both just tables, and the second is 64x bigger. The honest rung-5
+question is "is there a description shorter than the model that reproduces it",
+and the answer is yes by 5.7x. The interpretability question — "is any SHORT
+description made of an interpretation" — is answered no at this size.
+
+SCALE BOX: nothing here is claimed beyond depth 1 width 128 (confirmed on seeds
+0 and 1). The obvious extension is whether the picture changes with width — at
+width 32 the embedding is 91% of the parameters and at width 256 it is 57%, so
+the memorisation/structure bit split should move a lot. `tf_compress_run.py
+--stem <any depth-1 vanilla stem>` runs the whole battery in ~10 minutes
+(sections ABCDEFGHJKLM) plus ~15 for the distillation sweep (section I).
+
+
 **2026-08-08 12:25 UTC — ROUND-2 REVIEW COMPLETE: the two placeholders are
 closed, the fix round is done, and the CONSOLIDATED TABLE is in RESULTS.md.**
 Everything below is in `tf_reviewer_round_2.json` (with a `fix_round` block)

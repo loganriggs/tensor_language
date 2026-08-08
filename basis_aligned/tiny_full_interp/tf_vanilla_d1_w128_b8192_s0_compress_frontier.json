@@ -1,0 +1,1743 @@
+{
+ "fp32_bits": 42995712,
+ "frontier": [
+  {
+   "family": "distilled (tables re-fit on est)",
+   "fi": 6,
+   "scheme": "distilled_emb1_body4",
+   "bits": 2431255.0,
+   "kl": 0.8290731906890869,
+   "ce": 5.654417634010315
+  },
+  {
+   "family": "distilled (tables re-fit on est)",
+   "fi": 6,
+   "scheme": "distilled_emb2_body3",
+   "bits": 2680297.0,
+   "kl": 0.408969521522522,
+   "ce": 5.209656119346619
+  },
+  {
+   "family": "distilled (tables re-fit on est)",
+   "fi": 6,
+   "scheme": "distilled_emb2_body6",
+   "bits": 3613193.0,
+   "kl": 0.38760846853256226,
+   "ce": 5.142597138881683
+  },
+  {
+   "family": "distilled (tables re-fit on est)",
+   "fi": 6,
+   "scheme": "distilled_emb3_body3",
+   "bits": 3765718.0,
+   "kl": 0.1323038637638092,
+   "ce": 4.88013881444931
+  },
+  {
+   "family": "distilled (tables re-fit on est)",
+   "fi": 6,
+   "scheme": "distilled_emb3_body4",
+   "bits": 4088748.0,
+   "kl": 0.10486949980258942,
+   "ce": 4.8356963992118835
+  },
+  {
+   "family": "distilled (tables re-fit on est)",
+   "fi": 6,
+   "scheme": "distilled_emb3_body6",
+   "bits": 4701816.0,
+   "kl": 0.09298348426818848,
+   "ce": 4.8102113008499146
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embT512+body6",
+   "bits": 4770512.0,
+   "kl": 0.07519357744604349,
+   "ce": 4.7982617020606995
+  },
+  {
+   "family": "conditional on spelling / corpus statistics",
+   "fi": 5,
+   "scheme": "corpusstat_res_q3+body6",
+   "bits": 5053583.0,
+   "kl": 0.06072908919304609,
+   "ce": 4.782195508480072
+  },
+  {
+   "family": "distilled (tables re-fit on est)",
+   "fi": 6,
+   "scheme": "distilled_emb4_body4",
+   "bits": 5167472.0,
+   "kl": 0.03454548120498657,
+   "ce": 4.758756220340729
+  },
+  {
+   "family": "distilled (tables re-fit on est)",
+   "fi": 6,
+   "scheme": "distilled_emb4_body6",
+   "bits": 5784535.0,
+   "kl": 0.023870937526226044,
+   "ce": 4.735715687274933
+  },
+  {
+   "family": "conditional on spelling / corpus statistics",
+   "fi": 5,
+   "scheme": "corpusstat_res_q4+body6",
+   "bits": 6170564.0,
+   "kl": 0.020944999996572733,
+   "ce": 4.739025771617889
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embS6_4_2048+body6",
+   "bits": 6426375.0,
+   "kl": 0.019127100007608533,
+   "ce": 4.733220100402832
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embT640+body8",
+   "bits": 6467056.0,
+   "kl": 0.01556215831078589,
+   "ce": 4.732564032077789
+  },
+  {
+   "family": "conditional on spelling / corpus statistics",
+   "fi": 5,
+   "scheme": "corpusstat_res_q4+body8",
+   "bits": 6760388.0,
+   "kl": 0.01170886040199548,
+   "ce": 4.7278852462768555
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embS6_4_2048+body8",
+   "bits": 7016199.0,
+   "kl": 0.009871055488474667,
+   "ce": 4.722124874591827
+  },
+  {
+   "family": "distilled (tables re-fit on est)",
+   "fi": 6,
+   "scheme": "distilled_emb5_body8",
+   "bits": 7464129.0,
+   "kl": 0.005674506537616253,
+   "ce": 4.717086315155029
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embT768+body8",
+   "bits": 7594449.0,
+   "kl": 0.004210276470985264,
+   "ce": 4.717164218425751
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embS8_5_512+body8",
+   "bits": 7741818.0,
+   "kl": 0.004003209643997252,
+   "ce": 4.715507805347443
+  },
+  {
+   "family": "conditional on spelling / corpus statistics",
+   "fi": 5,
+   "scheme": "corpusstat_res_q5+body8",
+   "bits": 7841523.0,
+   "kl": 0.0030464436567854136,
+   "ce": 4.714962124824524
+  },
+  {
+   "family": "distilled (tables re-fit on est)",
+   "fi": 6,
+   "scheme": "distilled_emb6_body8",
+   "bits": 8516333.0,
+   "kl": 0.0015166513621807098,
+   "ce": 4.712981641292572
+  },
+  {
+   "family": "model quantised uniformly",
+   "fi": 0,
+   "scheme": "uniform_8bit",
+   "bits": 11075584.0,
+   "kl": 0.0006439469652832486,
+   "ce": 4.712270498275757
+  },
+  {
+   "family": "conditional on spelling / corpus statistics",
+   "fi": 5,
+   "scheme": "corpusstat_residual_q6",
+   "bits": 15917003.0,
+   "kl": 0.0006189020932652056,
+   "ce": 4.711840391159058
+  },
+  {
+   "family": "model quantised uniformly",
+   "fi": 0,
+   "scheme": "uniform_12bit",
+   "bits": 16449536.0,
+   "kl": 4.415230250742752e-06,
+   "ce": 4.711399078369141
+  },
+  {
+   "family": "model quantised uniformly",
+   "fi": 0,
+   "scheme": "uniform_16bit",
+   "bits": 21823488.0,
+   "kl": 1.5006995113253652e-06,
+   "ce": 4.711400747299194
+  },
+  {
+   "family": "model quantised uniformly",
+   "fi": 0,
+   "scheme": "uniform_32bit",
+   "bits": 42995712.0,
+   "kl": 1.4653066671144188e-06,
+   "ce": 4.711396515369415
+  }
+ ],
+ "all_points": [
+  {
+   "family": "model quantised uniformly",
+   "fi": 0,
+   "scheme": "uniform_2bit",
+   "bits": 3014656.0,
+   "kl": 4.0312976241111755,
+   "ce": 9.12765383720398
+  },
+  {
+   "family": "model quantised uniformly",
+   "fi": 0,
+   "scheme": "uniform_3bit",
+   "bits": 4358144.0,
+   "kl": 1.6062975525856018,
+   "ce": 6.523086488246918
+  },
+  {
+   "family": "model quantised uniformly",
+   "fi": 0,
+   "scheme": "uniform_4bit",
+   "bits": 5701632.0,
+   "kl": 0.28790105134248734,
+   "ce": 5.047615230083466
+  },
+  {
+   "family": "model quantised uniformly",
+   "fi": 0,
+   "scheme": "uniform_5bit",
+   "bits": 7045120.0,
+   "kl": 0.058076123241335154,
+   "ce": 4.783797442913055
+  },
+  {
+   "family": "model quantised uniformly",
+   "fi": 0,
+   "scheme": "uniform_6bit",
+   "bits": 8388608.0,
+   "kl": 0.011183719616383314,
+   "ce": 4.72489994764328
+  },
+  {
+   "family": "model quantised uniformly",
+   "fi": 0,
+   "scheme": "uniform_8bit",
+   "bits": 11075584.0,
+   "kl": 0.0006439469652832486,
+   "ce": 4.712270498275757
+  },
+  {
+   "family": "model quantised uniformly",
+   "fi": 0,
+   "scheme": "uniform_12bit",
+   "bits": 16449536.0,
+   "kl": 4.415230250742752e-06,
+   "ce": 4.711399078369141
+  },
+  {
+   "family": "model quantised uniformly",
+   "fi": 0,
+   "scheme": "uniform_16bit",
+   "bits": 21823488.0,
+   "kl": 1.5006995113253652e-06,
+   "ce": 4.711400747299194
+  },
+  {
+   "family": "model quantised uniformly",
+   "fi": 0,
+   "scheme": "uniform_32bit",
+   "bits": 42995712.0,
+   "kl": 1.4653066671144188e-06,
+   "ce": 4.711396515369415
+  },
+  {
+   "family": "embedding: token clustering",
+   "fi": 1,
+   "scheme": "cluster_k256",
+   "bits": 10555392.0,
+   "kl": 1.9346692711114883,
+   "ce": 6.90502005815506
+  },
+  {
+   "family": "embedding: token clustering",
+   "fi": 1,
+   "scheme": "cluster_k512",
+   "bits": 11612160.0,
+   "kl": 1.7630898654460907,
+   "ce": 6.7456135749816895
+  },
+  {
+   "family": "embedding: token clustering",
+   "fi": 1,
+   "scheme": "cluster_k1024",
+   "bits": 13717504.0,
+   "kl": 1.734071597456932,
+   "ce": 6.686753511428833
+  },
+  {
+   "family": "embedding: token clustering",
+   "fi": 1,
+   "scheme": "cluster_k2048",
+   "bits": 17920000.0,
+   "kl": 1.1873527318239212,
+   "ce": 6.1010332107543945
+  },
+  {
+   "family": "embedding: token clustering",
+   "fi": 1,
+   "scheme": "cluster_k4096",
+   "bits": 26316800.0,
+   "kl": 0.8607356324791908,
+   "ce": 5.69686895608902
+  },
+  {
+   "family": "embedding: low rank / product quantisation",
+   "fi": 2,
+   "scheme": "lowrank_r4",
+   "bits": 10506240.0,
+   "kl": 2.41058886051178,
+   "ce": 7.520330786705017
+  },
+  {
+   "family": "embedding: low rank / product quantisation",
+   "fi": 2,
+   "scheme": "lowrank_r8",
+   "bits": 11571200.0,
+   "kl": 2.2713703513145447,
+   "ce": 7.371487200260162
+  },
+  {
+   "family": "embedding: low rank / product quantisation",
+   "fi": 2,
+   "scheme": "lowrank_r16",
+   "bits": 13701120.0,
+   "kl": 2.0586743354797363,
+   "ce": 7.120028913021088
+  },
+  {
+   "family": "embedding: low rank / product quantisation",
+   "fi": 2,
+   "scheme": "lowrank_r32",
+   "bits": 17960960.0,
+   "kl": 1.8292553573846817,
+   "ce": 6.8460827469825745
+  },
+  {
+   "family": "embedding: low rank / product quantisation",
+   "fi": 2,
+   "scheme": "lowrank_r48",
+   "bits": 22220800.0,
+   "kl": 1.6222722381353378,
+   "ce": 6.607398509979248
+  },
+  {
+   "family": "embedding: low rank / product quantisation",
+   "fi": 2,
+   "scheme": "lowrank_r64",
+   "bits": 26480640.0,
+   "kl": 1.390578493475914,
+   "ce": 6.333944857120514
+  },
+  {
+   "family": "embedding: low rank / product quantisation",
+   "fi": 2,
+   "scheme": "lowrank_r96",
+   "bits": 35000320.0,
+   "kl": 0.8004427701234818,
+   "ce": 5.644489526748657
+  },
+  {
+   "family": "embedding: low rank / product quantisation",
+   "fi": 2,
+   "scheme": "lowrank_r16_q8",
+   "bits": 10768896.0,
+   "kl": 2.0587300062179565,
+   "ce": 7.120076656341553
+  },
+  {
+   "family": "embedding: low rank / product quantisation",
+   "fi": 2,
+   "scheme": "lowrank_r32_q8",
+   "bits": 11834368.0,
+   "kl": 1.8281470984220505,
+   "ce": 6.845012307167053
+  },
+  {
+   "family": "embedding: low rank / product quantisation",
+   "fi": 2,
+   "scheme": "lowrank_r64_q8",
+   "bits": 13965312.0,
+   "kl": 1.3898986279964447,
+   "ce": 6.333384871482849
+  },
+  {
+   "family": "embedding: low rank / product quantisation",
+   "fi": 2,
+   "scheme": "pq_m8_b8",
+   "bits": 11014144.0,
+   "kl": 1.6846025735139847,
+   "ce": 6.69362086057663
+  },
+  {
+   "family": "embedding: low rank / product quantisation",
+   "fi": 2,
+   "scheme": "pq_m16_b8",
+   "bits": 11538432.0,
+   "kl": 1.1155557036399841,
+   "ce": 6.026456952095032
+  },
+  {
+   "family": "embedding: low rank / product quantisation",
+   "fi": 2,
+   "scheme": "pq_m32_b8",
+   "bits": 12587008.0,
+   "kl": 0.31319552659988403,
+   "ce": 5.093876659870148
+  },
+  {
+   "family": "embedding: low rank / product quantisation",
+   "fi": 2,
+   "scheme": "pq_m16_b6",
+   "bits": 10489856.0,
+   "kl": 1.761361300945282,
+   "ce": 6.764416038990021
+  },
+  {
+   "family": "embedding: low rank / product quantisation",
+   "fi": 2,
+   "scheme": "pq_m32_b6",
+   "bits": 11276288.0,
+   "kl": 0.9053059741854668,
+   "ce": 5.7684366106987
+  },
+  {
+   "family": "embedding: low rank / product quantisation",
+   "fi": 2,
+   "scheme": "pq_m64_b8",
+   "bits": 14684160.0,
+   "kl": 0.024256141390651464,
+   "ce": 4.738887310028076
+  },
+  {
+   "family": "embedding: low rank / product quantisation",
+   "fi": 2,
+   "scheme": "pq_m16_b4",
+   "bits": 10031104.0,
+   "kl": 2.560782879590988,
+   "ce": 7.647149682044983
+  },
+  {
+   "family": "embedding: low rank / product quantisation",
+   "fi": 2,
+   "scheme": "pq_m32_b4",
+   "bits": 10555392.0,
+   "kl": 1.9825335443019867,
+   "ce": 6.979231894016266
+  },
+  {
+   "family": "embedding: low rank / product quantisation",
+   "fi": 2,
+   "scheme": "pq_m64_b4",
+   "bits": 11603968.0,
+   "kl": 0.7847063019871712,
+   "ce": 5.605992138385773
+  },
+  {
+   "family": "embedding: low rank / product quantisation",
+   "fi": 2,
+   "scheme": "pq_m128_b4",
+   "bits": 13701120.0,
+   "kl": 0.08100114483386278,
+   "ce": 4.804195046424866
+  },
+  {
+   "family": "embedding: low rank / product quantisation",
+   "fi": 2,
+   "scheme": "pq_m128_b8",
+   "bits": 18878464.0,
+   "kl": 0.00012518045059550786,
+   "ce": 4.711509644985199
+  },
+  {
+   "family": "embedding: anchor rows + tail",
+   "fi": 3,
+   "scheme": "anchor0_freq_tail_pq_m16_b8",
+   "bits": 11538432.0,
+   "kl": 1.1155557036399841,
+   "ce": 6.026457071304321
+  },
+  {
+   "family": "embedding: anchor rows + tail",
+   "fi": 3,
+   "scheme": "anchor0_freq_tail_pq_m8_b8",
+   "bits": 11014144.0,
+   "kl": 1.6846025735139847,
+   "ce": 6.693620681762695
+  },
+  {
+   "family": "embedding: anchor rows + tail",
+   "fi": 3,
+   "scheme": "anchor0_freq_tail_q4",
+   "bits": 13897728.0,
+   "kl": 0.02774941991083324,
+   "ce": 4.73962539434433
+  },
+  {
+   "family": "embedding: anchor rows + tail",
+   "fi": 3,
+   "scheme": "anchor0_freq_tail_q3",
+   "bits": 12849152.0,
+   "kl": 0.1292356913909316,
+   "ce": 4.854556024074554
+  },
+  {
+   "family": "embedding: anchor rows + tail",
+   "fi": 3,
+   "scheme": "anchor0_freq_tail_q2",
+   "bits": 11800576.0,
+   "kl": 0.7498944848775864,
+   "ce": 5.535673022270203
+  },
+  {
+   "family": "embedding: anchor rows + tail",
+   "fi": 3,
+   "scheme": "anchor0_freq_tail_cluster_k512",
+   "bits": 11612160.0,
+   "kl": 2.2226650416851044,
+   "ce": 7.22504734992981
+  },
+  {
+   "family": "embedding: anchor rows + tail",
+   "fi": 3,
+   "scheme": "anchor64_freq_tail_pq_m16_b8",
+   "bits": 11793216.0,
+   "kl": 0.7233196273446083,
+   "ce": 5.58820515871048
+  },
+  {
+   "family": "embedding: anchor rows + tail",
+   "fi": 3,
+   "scheme": "anchor64_freq_tail_pq_m8_b8",
+   "bits": 11273024.0,
+   "kl": 1.1993818283081055,
+   "ce": 6.119606018066406
+  },
+  {
+   "family": "embedding: anchor rows + tail",
+   "fi": 3,
+   "scheme": "anchor64_freq_tail_q4",
+   "bits": 14125888.0,
+   "kl": 0.020736983744427562,
+   "ce": 4.7317014336586
+  },
+  {
+   "family": "embedding: anchor rows + tail",
+   "fi": 3,
+   "scheme": "anchor64_freq_tail_q3",
+   "bits": 13085504.0,
+   "kl": 0.0957169272005558,
+   "ce": 4.816402494907379
+  },
+  {
+   "family": "embedding: anchor rows + tail",
+   "fi": 3,
+   "scheme": "anchor64_freq_tail_q2",
+   "bits": 12045120.0,
+   "kl": 0.5647181570529938,
+   "ce": 5.327119529247284
+  },
+  {
+   "family": "embedding: anchor rows + tail",
+   "fi": 3,
+   "scheme": "anchor64_freq_tail_cluster_k512",
+   "bits": 11874560.0,
+   "kl": 1.5011935085058212,
+   "ce": 6.451413929462433
+  },
+  {
+   "family": "embedding: anchor rows + tail",
+   "fi": 3,
+   "scheme": "anchor256_freq_tail_pq_m16_b8",
+   "bits": 12557568.0,
+   "kl": 0.5393726974725723,
+   "ce": 5.380856513977051
+  },
+  {
+   "family": "embedding: anchor rows + tail",
+   "fi": 3,
+   "scheme": "anchor256_freq_tail_pq_m8_b8",
+   "bits": 12049664.0,
+   "kl": 0.9320869073271751,
+   "ce": 5.838046193122864
+  },
+  {
+   "family": "embedding: anchor rows + tail",
+   "fi": 3,
+   "scheme": "anchor256_freq_tail_q4",
+   "bits": 14810368.0,
+   "kl": 0.016980307758785784,
+   "ce": 4.729872524738312
+  },
+  {
+   "family": "embedding: anchor rows + tail",
+   "fi": 3,
+   "scheme": "anchor256_freq_tail_q3",
+   "bits": 13794560.0,
+   "kl": 0.07889934442937374,
+   "ce": 4.801359593868256
+  },
+  {
+   "family": "embedding: anchor rows + tail",
+   "fi": 3,
+   "scheme": "anchor256_freq_tail_q2",
+   "bits": 12778752.0,
+   "kl": 0.47091247886419296,
+   "ce": 5.227900505065918
+  },
+  {
+   "family": "embedding: anchor rows + tail",
+   "fi": 3,
+   "scheme": "anchor256_freq_tail_cluster_k512",
+   "bits": 12661760.0,
+   "kl": 1.2526224851608276,
+   "ce": 6.17934262752533
+  },
+  {
+   "family": "embedding: anchor rows + tail",
+   "fi": 3,
+   "scheme": "anchor512_freq_tail_pq_m16_b8",
+   "bits": 13576704.0,
+   "kl": 0.4139687791466713,
+   "ce": 5.242162883281708
+  },
+  {
+   "family": "embedding: anchor rows + tail",
+   "fi": 3,
+   "scheme": "anchor512_freq_tail_pq_m8_b8",
+   "bits": 13085184.0,
+   "kl": 0.7577923759818077,
+   "ce": 5.645926296710968
+  },
+  {
+   "family": "embedding: anchor rows + tail",
+   "fi": 3,
+   "scheme": "anchor512_freq_tail_q4",
+   "bits": 15723008.0,
+   "kl": 0.014624069794081151,
+   "ce": 4.727427303791046
+  },
+  {
+   "family": "embedding: anchor rows + tail",
+   "fi": 3,
+   "scheme": "anchor512_freq_tail_q3",
+   "bits": 14739968.0,
+   "kl": 0.06793428491801023,
+   "ce": 4.789471864700317
+  },
+  {
+   "family": "embedding: anchor rows + tail",
+   "fi": 3,
+   "scheme": "anchor512_freq_tail_q2",
+   "bits": 13756928.0,
+   "kl": 0.4077925756573677,
+   "ce": 5.153326511383057
+  },
+  {
+   "family": "embedding: anchor rows + tail",
+   "fi": 3,
+   "scheme": "anchor512_freq_tail_cluster_k512",
+   "bits": 13711360.0,
+   "kl": 1.0239838138222694,
+   "ce": 5.941038072109222
+  },
+  {
+   "family": "embedding: anchor rows + tail",
+   "fi": 3,
+   "scheme": "anchor1024_freq_tail_pq_m16_b8",
+   "bits": 15614976.0,
+   "kl": 0.30352075956761837,
+   "ce": 5.104801952838898
+  },
+  {
+   "family": "embedding: anchor rows + tail",
+   "fi": 3,
+   "scheme": "anchor1024_freq_tail_pq_m8_b8",
+   "bits": 15156224.0,
+   "kl": 0.5689024329185486,
+   "ce": 5.4250770807266235
+  },
+  {
+   "family": "embedding: anchor rows + tail",
+   "fi": 3,
+   "scheme": "anchor1024_freq_tail_q4",
+   "bits": 17548288.0,
+   "kl": 0.011693740263581276,
+   "ce": 4.72379744052887
+  },
+  {
+   "family": "embedding: anchor rows + tail",
+   "fi": 3,
+   "scheme": "anchor1024_freq_tail_q3",
+   "bits": 16630784.0,
+   "kl": 0.05461376067250967,
+   "ce": 4.7736247181892395
+  },
+  {
+   "family": "embedding: anchor rows + tail",
+   "fi": 3,
+   "scheme": "anchor1024_freq_tail_q2",
+   "bits": 15713280.0,
+   "kl": 0.33199505135416985,
+   "ce": 5.072477459907532
+  },
+  {
+   "family": "embedding: anchor rows + tail",
+   "fi": 3,
+   "scheme": "anchor1024_freq_tail_cluster_k512",
+   "bits": 15810560.0,
+   "kl": 0.8120348080992699,
+   "ce": 5.690347671508789
+  },
+  {
+   "family": "embedding: anchor rows + tail",
+   "fi": 3,
+   "scheme": "anchor2048_freq_tail_pq_m16_b8",
+   "bits": 19691520.0,
+   "kl": 0.19167250208556652,
+   "ce": 4.961397230625153
+  },
+  {
+   "family": "embedding: anchor rows + tail",
+   "fi": 3,
+   "scheme": "anchor2048_freq_tail_pq_m8_b8",
+   "bits": 19298304.0,
+   "kl": 0.3705010712146759,
+   "ce": 5.18634819984436
+  },
+  {
+   "family": "embedding: anchor rows + tail",
+   "fi": 3,
+   "scheme": "anchor2048_freq_tail_q4",
+   "bits": 21198848.0,
+   "kl": 0.008211751119233668,
+   "ce": 4.72020423412323
+  },
+  {
+   "family": "embedding: anchor rows + tail",
+   "fi": 3,
+   "scheme": "anchor2048_freq_tail_q3",
+   "bits": 20412416.0,
+   "kl": 0.038854353595525026,
+   "ce": 4.7565078139305115
+  },
+  {
+   "family": "embedding: anchor rows + tail",
+   "fi": 3,
+   "scheme": "anchor2048_freq_tail_q2",
+   "bits": 19625984.0,
+   "kl": 0.24148350022733212,
+   "ce": 4.971851825714111
+  },
+  {
+   "family": "embedding: anchor rows + tail",
+   "fi": 3,
+   "scheme": "anchor2048_freq_tail_cluster_k512",
+   "bits": 20008960.0,
+   "kl": 0.5575253330171108,
+   "ce": 5.38610714673996
+  },
+  {
+   "family": "embedding: anchor rows + tail",
+   "fi": 3,
+   "scheme": "anchor256_q8_tail_pq_m16_b8",
+   "bits": 11779328.0,
+   "kl": 0.5399259217083454,
+   "ce": 5.380866765975952
+  },
+  {
+   "family": "embedding: anchor rows + tail",
+   "fi": 3,
+   "scheme": "anchor1024_q8_tail_pq_m16_b8",
+   "bits": 12502016.0,
+   "kl": 0.3035787269473076,
+   "ce": 5.104909062385559
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embQ3e+body4",
+   "bits": 4158477.0,
+   "kl": 0.4208632744848728,
+   "ce": 5.195479393005371
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embQ3e+body5",
+   "bits": 4453389.0,
+   "kl": 0.1932878103107214,
+   "ce": 4.931917369365692
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embQ3e+body6",
+   "bits": 4748301.0,
+   "kl": 0.1416047252714634,
+   "ce": 4.86914449930191
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embQ3e+body8",
+   "bits": 5338125.0,
+   "kl": 0.1297973422333598,
+   "ce": 4.855238318443298
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embQ3e+body32",
+   "bits": 12354573.0,
+   "kl": 0.1292356913909316,
+   "ce": 4.854556024074554
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embQ4e+body4",
+   "bits": 5274411.0,
+   "kl": 0.28790105134248734,
+   "ce": 5.047615230083466
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embQ4e+body5",
+   "bits": 5569323.0,
+   "kl": 0.08164191618561745,
+   "ce": 4.8074657917022705
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embQ4e+body6",
+   "bits": 5864235.0,
+   "kl": 0.03783992910757661,
+   "ce": 4.752107620239258
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embQ4e+body8",
+   "bits": 6454059.0,
+   "kl": 0.02828228333964944,
+   "ce": 4.740558207035065
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embQ4e+body32",
+   "bits": 13470507.0,
+   "kl": 0.02774941991083324,
+   "ce": 4.73962539434433
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embQ5e+body4",
+   "bits": 6355431.0,
+   "kl": 0.2611012663692236,
+   "ce": 5.018837332725525
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embQ5e+body5",
+   "bits": 6650343.0,
+   "kl": 0.058076123241335154,
+   "ce": 4.783797442913055
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embQ5e+body6",
+   "bits": 6945255.0,
+   "kl": 0.01603544258978218,
+   "ce": 4.729510009288788
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embQ5e+body8",
+   "bits": 7535079.0,
+   "kl": 0.00696633366169408,
+   "ce": 4.71863180398941
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embQ5e+body32",
+   "bits": 14551527.0,
+   "kl": 0.006457611685618758,
+   "ce": 4.717800319194794
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embT512+body4",
+   "bits": 4180688.0,
+   "kl": 0.3332141302525997,
+   "ce": 5.103337347507477
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embT512+body5",
+   "bits": 4475600.0,
+   "kl": 0.11973919812589884,
+   "ce": 4.8562445640563965
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embT512+body6",
+   "bits": 4770512.0,
+   "kl": 0.07519357744604349,
+   "ce": 4.7982617020606995
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embT512+body8",
+   "bits": 5360336.0,
+   "kl": 0.0654798075556755,
+   "ce": 4.78646981716156
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embT512+body32",
+   "bits": 12376784.0,
+   "kl": 0.06484446488320827,
+   "ce": 4.785496354103088
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embT640+body4",
+   "bits": 5287408.0,
+   "kl": 0.27030617371201515,
+   "ce": 5.03517472743988
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embT640+body5",
+   "bits": 5582320.0,
+   "kl": 0.06714891269803047,
+   "ce": 4.798163414001465
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embT640+body6",
+   "bits": 5877232.0,
+   "kl": 0.024866659892722964,
+   "ce": 4.743683815002441
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embT640+body8",
+   "bits": 6467056.0,
+   "kl": 0.01556215831078589,
+   "ce": 4.732564032077789
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embT640+body32",
+   "bits": 13483504.0,
+   "kl": 0.014961710199713707,
+   "ce": 4.731676399707794
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embT768+body4",
+   "bits": 6414801.0,
+   "kl": 0.2566938977688551,
+   "ce": 5.016554892063141
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embT768+body5",
+   "bits": 6709713.0,
+   "kl": 0.05521701509132981,
+   "ce": 4.78227299451828
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embT768+body6",
+   "bits": 7004625.0,
+   "kl": 0.013257421320304275,
+   "ce": 4.728242516517639
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embT768+body8",
+   "bits": 7594449.0,
+   "kl": 0.004210276470985264,
+   "ce": 4.717164218425751
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embT768+body32",
+   "bits": 14610897.0,
+   "kl": 0.0036589705559890717,
+   "ce": 4.716299295425415
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embS6_4_2048+body4",
+   "bits": 5836551.0,
+   "kl": 0.26350611075758934,
+   "ce": 5.022414743900299
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embS6_4_2048+body5",
+   "bits": 6131463.0,
+   "kl": 0.06180485663935542,
+   "ce": 4.788083553314209
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embS6_4_2048+body6",
+   "bits": 6426375.0,
+   "kl": 0.019127100007608533,
+   "ce": 4.733220100402832
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embS6_4_2048+body8",
+   "bits": 7016199.0,
+   "kl": 0.009871055488474667,
+   "ce": 4.722124874591827
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embS6_4_2048+body32",
+   "bits": 14032647.0,
+   "kl": 0.009297955664806068,
+   "ce": 4.7212077379226685
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embS6_3_1024+body4",
+   "bits": 4579583.0,
+   "kl": 0.3231714814901352,
+   "ce": 5.088377237319946
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embS6_3_1024+body5",
+   "bits": 4874495.0,
+   "kl": 0.11360523384064436,
+   "ce": 4.845453202724457
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embS6_3_1024+body6",
+   "bits": 5169407.0,
+   "kl": 0.06665104674175382,
+   "ce": 4.787920355796814
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embS6_3_1024+body8",
+   "bits": 5759231.0,
+   "kl": 0.05618487950414419,
+   "ce": 4.775244295597076
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embS6_3_1024+body32",
+   "bits": 12775679.0,
+   "kl": 0.05548646952956915,
+   "ce": 4.774320125579834
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embS8_5_512+body4",
+   "bits": 6562170.0,
+   "kl": 0.2564897872507572,
+   "ce": 5.014013946056366
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embS8_5_512+body5",
+   "bits": 6857082.0,
+   "kl": 0.05479930993169546,
+   "ce": 4.780283331871033
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embS8_5_512+body6",
+   "bits": 7151994.0,
+   "kl": 0.013136791530996561,
+   "ce": 4.726542234420776
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embS8_5_512+body8",
+   "bits": 7741818.0,
+   "kl": 0.004003209643997252,
+   "ce": 4.715507805347443
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "embS8_5_512+body32",
+   "bits": 14758266.0,
+   "kl": 0.003461771208094433,
+   "ce": 4.71466338634491
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "scalar_q3_entropy",
+   "bits": 12354573.0,
+   "kl": 0.1292356913909316,
+   "ce": 4.854556024074554
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "scalar_q4_entropy",
+   "bits": 13470507.0,
+   "kl": 0.02774941991083324,
+   "ce": 4.73962539434433
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "scalar_q5_entropy",
+   "bits": 14551527.0,
+   "kl": 0.006457611685618758,
+   "ce": 4.717800319194794
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "scalar_q6_entropy",
+   "bits": 15610333.0,
+   "kl": 0.0015789003518875688,
+   "ce": 4.713046729564667
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "scalar_q8_entropy",
+   "bits": 17698945.0,
+   "kl": 9.540212249703472e-05,
+   "ce": 4.711430549621582
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "transform_none_256bpr",
+   "bits": 10502646.0,
+   "kl": 1.6497384309768677,
+   "ce": 6.445910811424255
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "transform_none_384bpr",
+   "bits": 11297239.0,
+   "kl": 0.3134424276649952,
+   "ce": 5.054113805294037
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "transform_none_512bpr",
+   "bits": 12376784.0,
+   "kl": 0.06484446488320827,
+   "ce": 4.785496354103088
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "transform_none_640bpr",
+   "bits": 13483504.0,
+   "kl": 0.014961710199713707,
+   "ce": 4.731676399707794
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "transform_none_768bpr",
+   "bits": 14610897.0,
+   "kl": 0.0036589705559890717,
+   "ce": 4.716299295425415
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "transform_hadamard_256bpr",
+   "bits": 10480640.0,
+   "kl": 1.859463557600975,
+   "ce": 6.683165907859802
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "transform_hadamard_384bpr",
+   "bits": 11251053.0,
+   "kl": 0.3313590995967388,
+   "ce": 5.0966477394104
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "transform_hadamard_512bpr",
+   "bits": 12325635.0,
+   "kl": 0.06895557045936584,
+   "ce": 4.79313737154007
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "transform_hadamard_640bpr",
+   "bits": 13430978.0,
+   "kl": 0.015378250041976571,
+   "ce": 4.7289488315582275
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "transform_hadamard_768bpr",
+   "bits": 14559020.0,
+   "kl": 0.0038576607475988567,
+   "ce": 4.715203642845154
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "transform_pca_256bpr",
+   "bits": 10601506.0,
+   "kl": 2.899881273508072,
+   "ce": 7.8428672552108765
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "transform_pca_384bpr",
+   "bits": 11276605.0,
+   "kl": 0.33906013146042824,
+   "ce": 5.0934136509895325
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "transform_pca_512bpr",
+   "bits": 12326776.0,
+   "kl": 0.08010492008179426,
+   "ce": 4.808071613311768
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "transform_pca_640bpr",
+   "bits": 13417332.0,
+   "kl": 0.01682584430091083,
+   "ce": 4.7294411063194275
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "transform_pca_768bpr",
+   "bits": 14545340.0,
+   "kl": 0.004211262974422425,
+   "ce": 4.716098129749298
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "strat_hi8_lo3_n512",
+   "bits": 12698760.0,
+   "kl": 0.06797855626791716,
+   "ce": 4.789495944976807
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "strat_hi8_lo3_n1024",
+   "bits": 13039237.0,
+   "kl": 0.05466086883097887,
+   "ce": 4.773672103881836
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "strat_hi8_lo4_n512",
+   "bits": 13744894.0,
+   "kl": 0.014668651390820742,
+   "ce": 4.727451682090759
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "strat_hi6_lo3_n1024",
+   "bits": 12775679.0,
+   "kl": 0.05548646952956915,
+   "ce": 4.774320125579834
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "strat_hi6_lo4_n1024",
+   "bits": 13751913.0,
+   "kl": 0.012575410306453705,
+   "ce": 4.7245190143585205
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "strat_hi8_lo4_n1024",
+   "bits": 14015471.0,
+   "kl": 0.01174969575367868,
+   "ce": 4.723869562149048
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "strat_hi6_lo4_n2048",
+   "bits": 14032647.0,
+   "kl": 0.009297955664806068,
+   "ce": 4.7212077379226685
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "strat_hi8_lo5_n512",
+   "bits": 14758266.0,
+   "kl": 0.003461771208094433,
+   "ce": 4.71466338634491
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "strat_hi6_lo5_n1024",
+   "bits": 14697718.0,
+   "kl": 0.0036435765505302697,
+   "ce": 4.714513957500458
+  },
+  {
+   "family": "best scalar codes x quantised body",
+   "fi": 4,
+   "scheme": "strat_hi5_lo4_n2048",
+   "bits": 13767538.0,
+   "kl": 0.012796356226317585,
+   "ce": 4.724445343017578
+  },
+  {
+   "family": "conditional on spelling / corpus statistics",
+   "fi": 5,
+   "scheme": "spelling_res_q3+body5",
+   "bits": 4774943.0,
+   "kl": 0.13348899502307177,
+   "ce": 4.873783111572266
+  },
+  {
+   "family": "conditional on spelling / corpus statistics",
+   "fi": 5,
+   "scheme": "spelling_res_q3+body6",
+   "bits": 5069855.0,
+   "kl": 0.09014651365578175,
+   "ce": 4.819754064083099
+  },
+  {
+   "family": "conditional on spelling / corpus statistics",
+   "fi": 5,
+   "scheme": "spelling_res_q3+body8",
+   "bits": 5659679.0,
+   "kl": 0.07979405578225851,
+   "ce": 4.807054340839386
+  },
+  {
+   "family": "conditional on spelling / corpus statistics",
+   "fi": 5,
+   "scheme": "spelling_res_q4+body5",
+   "bits": 5891650.0,
+   "kl": 0.06904306076467037,
+   "ce": 4.794333517551422
+  },
+  {
+   "family": "conditional on spelling / corpus statistics",
+   "fi": 5,
+   "scheme": "spelling_res_q4+body6",
+   "bits": 6186562.0,
+   "kl": 0.026955337962135673,
+   "ce": 4.741180717945099
+  },
+  {
+   "family": "conditional on spelling / corpus statistics",
+   "fi": 5,
+   "scheme": "spelling_res_q4+body8",
+   "bits": 6776386.0,
+   "kl": 0.018010679865255952,
+   "ce": 4.7298465967178345
+  },
+  {
+   "family": "conditional on spelling / corpus statistics",
+   "fi": 5,
+   "scheme": "spelling_res_q5+body5",
+   "bits": 6972923.0,
+   "kl": 0.055217931512743235,
+   "ce": 4.781765699386597
+  },
+  {
+   "family": "conditional on spelling / corpus statistics",
+   "fi": 5,
+   "scheme": "spelling_res_q5+body6",
+   "bits": 7267835.0,
+   "kl": 0.013632294372655451,
+   "ce": 4.72816014289856
+  },
+  {
+   "family": "conditional on spelling / corpus statistics",
+   "fi": 5,
+   "scheme": "spelling_res_q5+body8",
+   "bits": 7857659.0,
+   "kl": 0.004495770204812288,
+   "ce": 4.717083215713501
+  },
+  {
+   "family": "conditional on spelling / corpus statistics",
+   "fi": 5,
+   "scheme": "corpusstat_res_q3+body5",
+   "bits": 4758671.0,
+   "kl": 0.10600264370441437,
+   "ce": 4.838408887386322
+  },
+  {
+   "family": "conditional on spelling / corpus statistics",
+   "fi": 5,
+   "scheme": "corpusstat_res_q3+body6",
+   "bits": 5053583.0,
+   "kl": 0.06072908919304609,
+   "ce": 4.782195508480072
+  },
+  {
+   "family": "conditional on spelling / corpus statistics",
+   "fi": 5,
+   "scheme": "corpusstat_res_q3+body8",
+   "bits": 5643407.0,
+   "kl": 0.050294481217861176,
+   "ce": 4.7698033452034
+  },
+  {
+   "family": "conditional on spelling / corpus statistics",
+   "fi": 5,
+   "scheme": "corpusstat_res_q4+body5",
+   "bits": 5875652.0,
+   "kl": 0.062268472742289305,
+   "ce": 4.792133450508118
+  },
+  {
+   "family": "conditional on spelling / corpus statistics",
+   "fi": 5,
+   "scheme": "corpusstat_res_q4+body6",
+   "bits": 6170564.0,
+   "kl": 0.020944999996572733,
+   "ce": 4.739025771617889
+  },
+  {
+   "family": "conditional on spelling / corpus statistics",
+   "fi": 5,
+   "scheme": "corpusstat_res_q4+body8",
+   "bits": 6760388.0,
+   "kl": 0.01170886040199548,
+   "ce": 4.7278852462768555
+  },
+  {
+   "family": "conditional on spelling / corpus statistics",
+   "fi": 5,
+   "scheme": "corpusstat_res_q5+body5",
+   "bits": 6956787.0,
+   "kl": 0.05380040919408202,
+   "ce": 4.779705286026001
+  },
+  {
+   "family": "conditional on spelling / corpus statistics",
+   "fi": 5,
+   "scheme": "corpusstat_res_q5+body6",
+   "bits": 7251699.0,
+   "kl": 0.012251654639840126,
+   "ce": 4.7262122631073
+  },
+  {
+   "family": "conditional on spelling / corpus statistics",
+   "fi": 5,
+   "scheme": "corpusstat_res_q5+body8",
+   "bits": 7841523.0,
+   "kl": 0.0030464436567854136,
+   "ce": 4.714962124824524
+  },
+  {
+   "family": "conditional on spelling / corpus statistics",
+   "fi": 5,
+   "scheme": "feature_residual_q2",
+   "bits": 11538629.0,
+   "kl": 0.4451315142214298,
+   "ce": 5.197832524776459
+  },
+  {
+   "family": "conditional on spelling / corpus statistics",
+   "fi": 5,
+   "scheme": "feature_residual_q3",
+   "bits": 12677900.0,
+   "kl": 0.07795452885329723,
+   "ce": 4.801417529582977
+  },
+  {
+   "family": "conditional on spelling / corpus statistics",
+   "fi": 5,
+   "scheme": "feature_residual_q4",
+   "bits": 13794779.0,
+   "kl": 0.0166987597476691,
+   "ce": 4.728899419307709
+  },
+  {
+   "family": "conditional on spelling / corpus statistics",
+   "fi": 5,
+   "scheme": "feature_residual_q5",
+   "bits": 14876110.0,
+   "kl": 0.003975238505518064,
+   "ce": 4.715727925300598
+  },
+  {
+   "family": "conditional on spelling / corpus statistics",
+   "fi": 5,
+   "scheme": "feature_residual_q6",
+   "bits": 15935034.0,
+   "kl": 0.0009548712114337832,
+   "ce": 4.711520612239838
+  },
+  {
+   "family": "conditional on spelling / corpus statistics",
+   "fi": 5,
+   "scheme": "corpusstat_residual_q2",
+   "bits": 11520846.0,
+   "kl": 0.27925660088658333,
+   "ce": 5.038344621658325
+  },
+  {
+   "family": "conditional on spelling / corpus statistics",
+   "fi": 5,
+   "scheme": "corpusstat_residual_q3",
+   "bits": 12659855.0,
+   "kl": 0.04976436169818044,
+   "ce": 4.7690709233284
+  },
+  {
+   "family": "conditional on spelling / corpus statistics",
+   "fi": 5,
+   "scheme": "corpusstat_residual_q4",
+   "bits": 13776836.0,
+   "kl": 0.011091300286352634,
+   "ce": 4.726974070072174
+  },
+  {
+   "family": "conditional on spelling / corpus statistics",
+   "fi": 5,
+   "scheme": "corpusstat_residual_q5",
+   "bits": 14857971.0,
+   "kl": 0.002485206176061183,
+   "ce": 4.714126408100128
+  },
+  {
+   "family": "conditional on spelling / corpus statistics",
+   "fi": 5,
+   "scheme": "corpusstat_residual_q6",
+   "bits": 15917003.0,
+   "kl": 0.0006189020932652056,
+   "ce": 4.711840391159058
+  },
+  {
+   "family": "distilled (tables re-fit on est)",
+   "fi": 6,
+   "scheme": "distilled_emb1_body4",
+   "bits": 2431255.0,
+   "kl": 0.8290731906890869,
+   "ce": 5.654417634010315
+  },
+  {
+   "family": "distilled (tables re-fit on est)",
+   "fi": 6,
+   "scheme": "distilled_emb2_body3",
+   "bits": 2680297.0,
+   "kl": 0.408969521522522,
+   "ce": 5.209656119346619
+  },
+  {
+   "family": "distilled (tables re-fit on est)",
+   "fi": 6,
+   "scheme": "distilled_emb2_body4",
+   "bits": 2998984.0,
+   "kl": 0.41099411249160767,
+   "ce": 5.18865031003952
+  },
+  {
+   "family": "distilled (tables re-fit on est)",
+   "fi": 6,
+   "scheme": "distilled_emb2_body6",
+   "bits": 3613193.0,
+   "kl": 0.38760846853256226,
+   "ce": 5.142597138881683
+  },
+  {
+   "family": "distilled (tables re-fit on est)",
+   "fi": 6,
+   "scheme": "distilled_emb3_body3",
+   "bits": 3765718.0,
+   "kl": 0.1323038637638092,
+   "ce": 4.88013881444931
+  },
+  {
+   "family": "distilled (tables re-fit on est)",
+   "fi": 6,
+   "scheme": "distilled_emb3_body4",
+   "bits": 4088748.0,
+   "kl": 0.10486949980258942,
+   "ce": 4.8356963992118835
+  },
+  {
+   "family": "distilled (tables re-fit on est)",
+   "fi": 6,
+   "scheme": "distilled_emb3_body6",
+   "bits": 4701816.0,
+   "kl": 0.09298348426818848,
+   "ce": 4.8102113008499146
+  },
+  {
+   "family": "distilled (tables re-fit on est)",
+   "fi": 6,
+   "scheme": "distilled_emb4_body4",
+   "bits": 5167472.0,
+   "kl": 0.03454548120498657,
+   "ce": 4.758756220340729
+  },
+  {
+   "family": "distilled (tables re-fit on est)",
+   "fi": 6,
+   "scheme": "distilled_emb4_body6",
+   "bits": 5784535.0,
+   "kl": 0.023870937526226044,
+   "ce": 4.735715687274933
+  },
+  {
+   "family": "distilled (tables re-fit on est)",
+   "fi": 6,
+   "scheme": "distilled_emb4_body8",
+   "bits": 6401464.0,
+   "kl": 0.022936875000596046,
+   "ce": 4.737402975559235
+  },
+  {
+   "family": "distilled (tables re-fit on est)",
+   "fi": 6,
+   "scheme": "distilled_emb5_body8",
+   "bits": 7464129.0,
+   "kl": 0.005674506537616253,
+   "ce": 4.717086315155029
+  },
+  {
+   "family": "distilled (tables re-fit on est)",
+   "fi": 6,
+   "scheme": "distilled_emb6_body8",
+   "bits": 8516333.0,
+   "kl": 0.0015166513621807098,
+   "ce": 4.712981641292572
+  },
+  {
+   "family": "weights-free tables",
+   "fi": 7,
+   "scheme": "weightsfree_VxV_bigram_table_fp32",
+   "bits": 2147483648.0,
+   "kl": 0.657294787466526,
+   "ce": 5.511687994003296
+  },
+  {
+   "family": "weights-free tables",
+   "fi": 7,
+   "scheme": "weightsfree_VxV_bigram_table_fp16",
+   "bits": 1073741824.0,
+   "kl": 0.657294787466526,
+   "ce": 5.511687994003296
+  },
+  {
+   "family": "weights-free tables",
+   "fi": 7,
+   "scheme": "weightsfree_VxV_bigram_table_int8",
+   "bits": 536870912.0,
+   "kl": 0.657294787466526,
+   "ce": 5.511687994003296
+  },
+  {
+   "family": "weights-free tables",
+   "fi": 7,
+   "scheme": "factored_r0_plus_WU_fp32",
+   "bits": 67108864.0,
+   "kl": 0.657294787466526,
+   "ce": 5.511687994003296
+  }
+ ]
+}

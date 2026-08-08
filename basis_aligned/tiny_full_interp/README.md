@@ -113,6 +113,19 @@ artifact, not a narrative:
 Rungs 1–3 are expected to be routine; rung 5's remainder is the real
 deliverable, and rung 6 is what makes the width/depth curve meaningful.
 
+**Rung 5 restated, 2026-08-08 (RESULTS FINDING 12).** The "no weights" clause
+turned out to be empty once description length is charged in bits: an 8192×128
+table called *the embedding* and an 8192×8192 table called *the model's bigram
+table* are both just tables, and the second is 64× bigger — the only
+weights-free artifact the ladder produced costs 50× the model it explains. The
+rung is therefore measured as a **compression frontier**: bits on x, KL from
+the true model on y, the model's own description length marked, every table
+fitted on `est` and scored on `held`, and every codebook / index / scale
+charged. The rung is passed when a description is shorter than the model at a
+stated KL — and the *interpretability* question, which is the one that matters
+here, is whether any short description is made out of an interpretation.
+Machinery: `tf_compress.py`, `tf_compress_run.py`, `tf_compress_frontier.py`.
+
 ## Division of labour
 
 Two machines, coordinated exactly as in the parent program: git + an
