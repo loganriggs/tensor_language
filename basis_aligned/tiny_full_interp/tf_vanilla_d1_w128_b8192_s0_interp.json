@@ -7161,5 +7161,14 @@
       }
     }
   },
-  "seconds": 14.2
+  "seconds": 14.2,
+  "resample_ablation": {
+    "resample_attn_layer0": 1.1327874064445496,
+    "zero_attn_layer0": 0.6980063542723656,
+    "resample_attn_all": 1.1327874064445496,
+    "zero_attn_all": 0.6980063542723656,
+    "distribution_shift_share_layer0": 0.0,
+    "distribution_shift_share_layerall": 0.0,
+    "note": "resample >= zero would mean the zeroing was the GENTLER intervention; resample < zero means part of the zeroing cost was distribution shift, and the share is quoted"
+  }
 }

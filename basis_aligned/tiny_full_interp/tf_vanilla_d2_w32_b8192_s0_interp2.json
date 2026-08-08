@@ -2820,5 +2820,17 @@
       "every knockout stage (weights only)"
     ],
     "note": "a stage that had been fit to held would show a NEGATIVE held_minus_est well outside the sampling noise"
+  },
+  "resample_ablation": {
+    "resample_attn_layer0": 0.2183603160083294,
+    "zero_attn_layer0": 0.13161903154104948,
+    "resample_attn_layer1": 0.4743378385901451,
+    "zero_attn_layer1": 0.23001785390079021,
+    "resample_attn_all": 0.6726704239845276,
+    "zero_attn_all": 0.37266450375318527,
+    "distribution_shift_share_layer0": 0.0,
+    "distribution_shift_share_layer1": 0.0,
+    "distribution_shift_share_layerall": 0.0,
+    "note": "resample >= zero would mean the zeroing was the GENTLER intervention; resample < zero means part of the zeroing cost was distribution shift, and the share is quoted"
   }
 }

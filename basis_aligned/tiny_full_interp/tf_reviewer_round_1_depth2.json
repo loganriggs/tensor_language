@@ -1,0 +1,117 @@
+{
+  "stage": "reviewer_round_1 (self-red-team) for the DEPTH-2 interpretation",
+  "date": "2026-08-08",
+  "analyst": "local box",
+  "procedure": "README.md 'Adversarial review is a required stage'. For every claim: the strongest objection to the CLAIM, the strongest objection to the TECHNIQUE that produced it, what was fixed, and what could not be. Nothing is left in a 'we will check later' state; items that could not be closed are marked OPEN with the measurement that would close them.",
+  "artifacts": [
+    "tf_interp2.py",
+    "tf_interp2_control.py / tf_interp2_control.json",
+    "tf_induction_circuit.py",
+    "tf_report2.py / tf_report2.json",
+    "tf_causal_addendum.py / tf_causal_addendum_d1.json",
+    "tf_vanilla_d2_*_interp2.json",
+    "tf_vanilla_d*_order.json"
+  ],
+
+  "C0_the_new_code_is_correct": {
+    "claim": "tf_interp2.DeepFold is a new implementation of the folded pipeline; every depth-2 number depends on it.",
+    "objection_to_technique": "A new implementation can reproduce a bug consistently and look self-consistent. Nothing about the depth-2 numbers is checkable by inspection.",
+    "fix": "KNOWN-ANSWER CONTROL. The new code is run on DEPTH-1 cells and every stage it shares with the already-reviewed tf_interp.ladder is compared on the same held text. Worst absolute disagreement over 3 cells x 16 shared stages x per-head drops: 9.5e-07 nats of KL (tf_interp2_control.json, pass gate 2e-3).",
+    "additional_controls": [
+      "pipeline_rel_logit_diff < 1.7e-6 on every cell (the folded pipeline reproduces the model's logits)",
+      "length1_table_rel_logit_diff < 6.7e-7 (the weights-only bigram table reproduces the model on a length-1 context, at depth 2 as well)",
+      "mlp_tensor_vs_factored_rel < 4.5e-7 (the cheap factored MLP evaluation used in the ladder equals the folded symmetric tensor used in rung 2)",
+      "layer0_folded_vs_weight_pattern_rel = 0.0 exactly (the layer-0 token-factor table path equals applying the weights to the stream)"
+    ],
+    "status": "CLOSED"
+  },
+
+  "C1_attention_is_not_inert_the_ladder_was": {
+    "claim": "The depth-1 headline 'removing attention entirely costs only ~0.04 nats beyond a bigram-only reconstruction' is an artifact of ladder order. Attention's marginal value is 0.29-1.23 nats added last and 2.0-15.6 nats added first, at both depths.",
+    "objection_to_claim": "Maybe the reversed order is the unfair one: attention-with-no-MLP is a model that was never trained, so its KL says nothing about the trained model's decomposition.",
+    "answer": "Both orderings are equally 'never trained' -- the MLP-with-no-attention arm is just as counterfactual -- which is exactly the point. Neither marginal is privileged; that is why the order-free Shapley average is quoted alongside, and why the headline is now 'no single number is what attention is worth' rather than a replacement number.",
+    "objection_to_technique": "The knockouts change the residual norm, and RMSNorm makes the readout scale-sensitive, so part of every KL could be a gauge change rather than a functional one.",
+    "fix": "Two of the stages are mean-ablations rather than zeroings (past_attn_mean_ablated, fitted on the estimation split) precisely to hold the mean offset fixed; they land within 0.03 nats of the zeroing stage at every cell, so the gauge component is small. The zero-attention stage keeps e and both MLP writes, whose norms dominate the stream by 3 orders of magnitude (stream_geometry), so the norm change is under 0.1%.",
+    "residual_objection": "The depth-1 mailbox increment was never wrong as arithmetic; it was wrong as an interpretation. The retraction is of the interpretation.",
+    "status": "CLOSED"
+  },
+
+  "C2_layer_split": {
+    "claim": "Deleting layer-1 attention costs more than deleting layer-0 attention at widths 32-64; the ordering flips at 128-256.",
+    "objection_to_claim": "Single-knockout costs are not a partition; the layers could be compensating so that each looks cheap.",
+    "fix": "The joint deletion is reported next to the sum of the two singles. At w32-64 joint > sum (super-additive: the layers back each other up, so the singles UNDERSTATE); at w128-256 joint < sum (sub-additive: they overlap, so the singles OVERSTATE). Both directions are reported rather than the flattering one.",
+    "objection_to_technique": "Deleting a layer's attention is a large intervention that pushes the model off distribution; the MLPs then see inputs they were never trained on and the KL measures that, not the layer's function.",
+    "answer": "PARTLY CONCEDED. Every knockout in this ladder has that property, at both depths, which is why the comparison is always knockout-vs-knockout at the same magnitude rather than knockout-vs-absolute. The mean-ablation variants (which keep the first moment) agree with the zeroings to within 0.03 nats, which bounds the off-distribution component for the past-attention knockouts but NOT for the whole-layer ones.",
+    "status": "OPEN (bounded)",
+    "measurement_that_would_close_it": "resample-ablation: replace the layer's write with the write it produces on a different randomly chosen context, which is on-distribution by construction; not run"
+  },
+
+  "C3_per_head_drops": {
+    "claim": "Per-head drop costs are informative and the heads are not merely compensating for each other.",
+    "objection_to_claim": "A per-head drop is confounded exactly by compensation: if the other heads absorb the loss, a load-bearing head looks free.",
+    "fix": "Three measurements instead of one: (a) drop-one, (b) KEEP-ONLY-one (the complementary intervention -- compensation cannot hide in it), (c) the ratio sum-of-singles / joint. That ratio is 0.55-0.96 at every cell and every layer, i.e. ALWAYS BELOW 1, so the joint deletion costs MORE than the sum of the singles. The heads are complementary, not compensating, and the singles therefore understate. Registered prediction d2_head_compensation (sub-additive) is REFUTED.",
+    "trend": "the ratio falls with width (0.92 at w32 layer 0 to 0.55 at w256), so head complementarity increases with width",
+    "status": "CLOSED"
+  },
+
+  "C4_fitting_and_scoring_on_the_same_tokens": {
+    "claim": "No stage is fitted on the text it is scored on.",
+    "objection_to_technique": "The ladder contains fitted objects (the token-independent distance profile, the mean past-attention ablation value, the MLP hidden-unit importance ordering). If any were fitted on held text every KL below them would be optimistic.",
+    "fix_structural": "All three are fitted on the ESTIMATION split (tf_corpus.load_split(..., 'est')) and scored on HELD. The model's own bigram table and every knockout are weights-only and fitted on nothing.",
+    "fix_empirical": "fit_score_disjointness re-scores the whole ladder on the estimation split. Every fitted stage's held-minus-est is POSITIVE (est is slightly easier, which is the direction fitting predicts) and at most +0.037 nats -- an order of magnitude below the effects being claimed. The only large disagreement is embed_only at -0.119, a stage with NO fitted object at all, which shows the sign is a property of the two texts and not of leakage.",
+    "status": "CLOSED"
+  },
+
+  "C5_induction_probe_power": {
+    "claim": "Induction is absent at depth 2 widths 32-128 and present at width 256.",
+    "objection_to_claim_absent": "A null is not a finding unless the instrument could have seen the effect.",
+    "fix": "The oracle-mixture sensitivity curve is extended down to mixture weight 1e-6, and the detectable-effect floor is quoted as 3 standard errors of the score across probe seeds: 0.008 / 0.011 / 0.010 / 0.017 nats at widths 32/64/128/256. A mixture weight of 1e-6 (one part in a million of a perfect induction oracle) already produces +0.05 nats, about 5x the floor. The null therefore excludes induction above ~0.01 nats, which is the claim actually made.",
+    "objection_to_claim_present": "The width-256 positive is ONE SEED, and this program's own rule is that structure claims need three.",
+    "status": "OPEN -- seeds 1 and 2 training (tf_w256_seeds_chain.sh), finding marked provisional in RESULTS.md",
+    "objection_to_technique": "The synthetic battery uses unigram-sampled random tokens; a model could induct on natural text and fail on random text.",
+    "fix2": "A natural-text probe was added: destroy the induction evidence on real held text and measure the specific loss on the induction target.",
+    "objection_to_that_fix": "The obvious version of that probe (overwrite the token with a random one) also REMOVES the target from the prefix, and these models have a positive bag effect, so it measures bag+order.",
+    "fix3": "The probe was changed to a bag-preserving SWAP (a permutation of two prefix tokens), which leaves the multiset identical and destroys only the adjacency.",
+    "objection_to_that_fix_too": "The swap still changes DISTANCES, and a depth-1 model's whole attention is a distance kernel, so it can score positive without composing -- and it does (+0.023 to +0.080).",
+    "fix4": "The depth-1 cell at the same width is used as the MATCHED NULL and only the excess is quoted: +0.003 (w32), +0.015 (w64), +0.036 (w128), +0.164 (w256, t=6.0). Only width 256 clears it.",
+    "status_natural": "CLOSED as a design; the width-256 value inherits the single-seed caveat above"
+  },
+
+  "C6_induction_circuit": {
+    "claim": "At depth 2 width 256 the induction runs layer-0 head 1 -> MLP-0 -> layer-1 attention, NOT through the residual-stream attention-composition path.",
+    "objection_to_claim": "'Dropping head 1 kills the induction' is also what you would see if head 1 were simply load-bearing for the model in general.",
+    "fix": "The KL cost of each ablation is reported next to the induction score. Dropping layer-1 head 15 costs KL 0.016 and removes 58% of the induction; dropping layer-0 head 1 costs 0.186. More decisively, the ROUTE decomposition holds the model fixed and deletes head 1's write only from one consumer at a time: from layer-1's Q/K/V read (score 0.0841, unchanged), from MLP-1's input (0.0841, unchanged), from MLP-0's input (0.0083, the entire effect). Only one route carries it.",
+    "objection_to_technique": "Deleting one head's write from a downstream read is not something the model ever experiences; the near-zero effect on the layer-1 read could be a scale artifact rather than an absence of the path.",
+    "answer": "That IS the finding, quantified independently: layer-1's read is 99.91% MLP-0's write and 0.42% layer-0 attention, and the layer-1 pattern moves by 0.60% when layer-0 attention is removed from it. The intervention is small because the path is small. A control deleting a DIFFERENT layer-0 head from the same read also gives 0.0841, so the null is not an artifact of the intervention being ineffective in general -- the MLP-0-input version of the same intervention moves the score by 90%.",
+    "objection_remaining": "Head identification used the per-head sweep from the same battery it is being explained by, so the head is selected on the statistic it is then scored on.",
+    "status": "OPEN (selection effect)",
+    "measurement_that_would_close_it": "select the head on one set of probe seeds and score the route decomposition on disjoint ones; and replicate on seeds 1-2 (training)"
+  },
+
+  "C7_signs_composed_and_causally_confirmed": {
+    "claim": "Every sign-bearing statement is composed to the logits AND causally confirmed.",
+    "objection_to_technique": "FINDING 6 composed to the logits but never causally confirmed, and the standing rule requires both.",
+    "measurement": "For every head, the Pearson correlation between the rung-4 DIRECT-route composed object p_h*(OV_h W_U^T) and the actual causal effect logits(full) - logits(drop h) on held text.",
+    "result": "0.002-0.02 at depth-2 layer 0, 0.51-0.70 at depth-2 layer 1, 0.00-0.43 at depth 1. The direct-route object does not describe what the head causally does -- which follows from FINDING 2 (the direct route to the readout is dead; attention acts by moving the MLP's argument).",
+    "fix": "The through-MLP composition (exact here, because the bilinear MLP gives MLP(x-d)-MLP(x) = -2T(x,d)+T(d,d) with no approximation) correlates at 0.63-0.98 with 92-95% sign agreement. That is the object any naming statement must use from now on.",
+    "consequence": "FINDING 6's headline number is RETRACTED. Its causal re-derivation (build the two-token context [u,t], drop the head, rank the attended token) puts the attended token at median rank 286-4880 of 8192, not 5600, and several heads put it in the top 4-6%. The weaker claim -- no head is a copy head in the strict sense, the effect is diffuse -- survives.",
+    "status": "CLOSED (with a retraction)"
+  },
+
+  "C8_seeds": {
+    "claim": "The depth-2 picture is a property of the size, not of the run.",
+    "coverage": "3 seeds at widths 32, 64, 128; 1 seed at width 256 (2 more training). Seed spread on the headline knockouts is 0.001-0.032 nats, i.e. 1-5% of the effects.",
+    "exception": "the width-256 induction result, which is the one place a single seed carries a qualitative claim",
+    "status": "OPEN at width 256 only"
+  },
+
+  "C9_arithmetic_dressed_as_a_finding": {
+    "checked": "rank <= head_dim and rank <= hidden are stated as architectural guarantees in every rung-2 output and never reported as results; only the gap below the bound, against an iid-Gaussian null of the same shape, is reported. For depth 2 an ADDITIONAL structural statement is made explicitly rather than hidden: layer >= 1 has no token factor table at all, because its read is context dependent.",
+    "status": "CLOSED"
+  },
+
+  "C10_beating_nothing": {
+    "checked": "the depth-2 cells carry the same data baselines as depth 1 (unigram, positional-only, low-rank bigram, sparse bigram with unigram backoff, dense closed-form bigram) fitted on train/est and scored on held, plus the position-by-position profile that is the only fair head-to-head against a bigram.",
+    "status": "CLOSED"
+  }
+}

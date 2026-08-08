@@ -7,6 +7,257 @@ were **refuted** are marked as such rather than quietly dropped.
 
 ---
 
+## 2026-08-08 — FINDING 7 (DEPTH 2): "attention is inert" was a property of the LADDER, not of the model
+
+**Verdict: the depth-1 headline does not survive its own adversarial test, at
+either depth.** The claim came from one increment — the gap between the
+bigram-only reconstruction and the no-attention-at-all knockout — and that
+increment is not attention's marginal value. It is the gap between two
+*different* reduced models, one of which (the bigram) still contains the
+self-attention term and has already frozen the context away.
+
+The same two components, added in both orders, on held text, KL from the true
+model (`*_order.json`, `tf_interp2.ladder_order`; mean ± sd over 3 seeds):
+
+| cell | attention added FIRST | attention added LAST | ratio | MLP first | MLP last |
+|---|---|---|---|---|---|
+| depth 1, w32 | 2.030 ± 0.028 | 0.290 ± 0.027 | **7.0** | 8.549 | 6.810 |
+| depth 1, w64 | 3.460 ± 0.231 | 0.475 ± 0.017 | **7.3** | 11.779 | 8.794 |
+| depth 1, w128 | 4.659 ± 0.151 | 0.707 ± 0.009 | **6.6** | 15.158 | 11.206 |
+| depth 1, w256 | 4.074 | 0.939 | 4.3 | 17.923 | 14.787 |
+| depth 2, w32 | 4.224 ± 0.050 | 0.371 ± 0.012 | **11.4** | 8.033 | 4.180 |
+| depth 2, w64 | 7.670 ± 0.522 | 0.617 ± 0.006 | **12.4** | 11.564 | 4.510 |
+| depth 2, w128 | 11.633 ± 0.473 | 0.941 ± 0.007 | **12.4** | 15.351 | 4.659 |
+| depth 2, w256 | 15.561 | 1.229 | 12.7 | 18.541 | 4.208 |
+
+Readings, including the ones that cost us a headline:
+
+* **No single number is "what attention is worth".** It ranges over a factor of
+  4–13 depending only on where in the ladder it is added. The order-free
+  Shapley average is the honest scalar; the depth-1 mailbox number (0.04 nats)
+  is neither marginal — it is smaller than *both*.
+* **What actually changes with depth is attention's STANDALONE capability, not
+  its necessity.** Attention-with-no-MLPs goes from KL 8.88 (depth 1, w64) to
+  4.55 (depth 2, w64): two attention layers compose into something twice as
+  good on their own. Its marginal on top of the MLPs barely moves
+  (0.47 → 0.61). The MLPs still do the same job, so the second attention layer
+  is mostly *redundant capability*, not new function.
+* **Under an on-distribution (resample) ablation attention is worth 2-3x more
+  than the zeroing says** — 1.12/1.44 nats at depth 1 widths 128/256 and
+  1.51/2.01 at depth 2 — so every "attention is cheap" number in this program,
+  including the ones above, is a LOWER bound. See FINDING 8.
+* **The depth-1-style increment reproduces at depth 2 and is still small**
+  (no-attention-at-all minus bigram: 0.032 / 0.049 / 0.107 / 0.131 at widths
+  32/64/128/256). Registered prediction `d2_attention_not_inert` is **half
+  right**: the two framings do continue to disagree, as predicted, but the
+  absolute knockout cost at width 64 is 0.61, not the ">1.0 nats" registered.
+  **Refuted on the number, confirmed on the mechanism.**
+
+The full depth-2 ladder (KL from the model, held text, mean ± sd over 3 seeds;
+width 256 is one seed):
+
+| stage | d2 w32 | d2 w64 | d2 w128 | d2 w256 |
+|---|---|---|---|---|
+| embed only | 8.44 | 12.21 | 16.31 | 19.77 |
+| model's own bigram (weights-only table) | 0.333 ± 0.008 | 0.559 ± 0.001 | 0.815 ± 0.007 | 1.058 |
+| no attention at all | 0.366 ± 0.012 | 0.608 ± 0.007 | 0.922 ± 0.007 | 1.189 |
+| past attention mean-ablated | 0.357 ± 0.015 | 0.588 ± 0.003 | 0.889 ± 0.003 | 1.202 |
+| no MLP (both) | 4.19 ± 0.05 | 4.55 ± 0.50 | 4.70 ± 0.45 | 4.18 |
+| pattern replaced by its distance profile | 0.248 | 0.268 | 0.318 | 0.418 |
+| rotary removed | 1.81 | 3.00 | 3.50 | 3.71 |
+
+CE and bits/byte (BPE V=8192, 3.755 bytes/token): depth 2 reaches 5.3166 /
+4.9124 / 4.5503 / 4.2446 nats at widths 32–256 (2.043 / 1.888 / 1.748 / 1.631
+bits per byte), against depth 1's 5.4130 / 5.0477 / 4.7234 / 4.4613. **A second
+layer buys 0.10–0.22 nats — less than one width doubling buys** (0.37).
+
+---
+
+## 2026-08-08 — FINDING 8 (DEPTH 2): layer 1 reads the MLP, not the attention — the composition channel is 0.1–0.4% wide
+
+The two attention layers, deleted separately (KL from the model; the deletion
+is a full re-run of the folded pipeline, so everything downstream responds):
+
+| cell | delete layer-0 attention | delete layer-1 attention | delete both | sum of the two |
+|---|---|---|---|---|
+| w32 | 0.123 ± 0.016 | **0.232 ± 0.017** | 0.366 | 0.355 |
+| w64 | 0.253 ± 0.020 | **0.334 ± 0.014** | 0.608 | 0.587 |
+| w128 | **0.559 ± 0.013** | 0.510 ± 0.032 | 0.922 | 1.069 |
+| w256 | **0.889** | 0.621 | 1.189 | 1.510 |
+
+**Registered prediction `d2_layer_split` REFUTED**: we registered that layer 0
+dominates at every width. Layer *1* dominates at widths 32 and 64, and under
+the zero-ablation the ordering appears to flip at 128. And the two deletions
+are *super*-additive at 32–64 (joint > sum: the layers back each other up) and
+*sub*-additive at 128–256.
+
+**But the flip is an artifact of the ablation, and the reviewer round caught
+it.** A zeroed write is off distribution, so a **resample ablation** was added
+(`resample_ablation`): replace the layer's attention write with the write that
+same layer produced on a *different* sequence — a real output of that module,
+on distribution by construction.
+
+| cell | layer 0: zero → resample | layer 1: zero → resample | both: zero → resample |
+|---|---|---|---|
+| d1 w128 | 0.703 → **1.118** | — | 0.703 → **1.118** |
+| d1 w256 | 0.939 → **1.435** | — | 0.939 → **1.435** |
+| d2 w32 | 0.129 → 0.215 | 0.232 → **0.473** | 0.371 → **0.667** |
+| d2 w64 | 0.260 → 0.376 | 0.336 → **0.594** | 0.617 → **1.007** |
+| d2 w128 | 0.566 → 0.535 | 0.520 → **0.861** | 0.941 → **1.510** |
+| d2 w256 | 0.905 → 0.782 | 0.644 → **1.075** | 1.229 → **2.013** |
+
+Two consequences, both against our own earlier statements:
+
+* **Zeroing was the GENTLER intervention almost everywhere.** The resample cost
+  exceeds the zero cost at 13 of 14 layer-cells, so the knockout numbers quoted
+  above (and at depth 1) *understate* attention's value rather than inflating
+  it with distribution shift. The only exceptions are layer 0 at widths 128–256,
+  where 12–14% of the zeroing cost is distribution shift.
+* **The layer ordering does NOT flip.** Under the on-distribution ablation,
+  layer-1 attention costs more than layer-0 attention at **every** width. The
+  flip at 128 was a property of the zeroing, and the honest statement is
+  "layer 1 carries more, and the zero-ablation understates that at large
+  widths."
+
+**What layer 1 reads** (`composition_budget`, held text). Layer 1's module
+input is `rms(e + A0 + M0)`; the shares of that vector's norm, and the relative
+change in layer 1's own attention pattern when each write is deleted **from the
+read only** (the residual is untouched, so nothing else moves):
+
+| cell | share of read: e | share: layer-0 attention | share: MLP-0 | pattern change without layer-0 attention | without MLP-0 |
+|---|---|---|---|---|---|
+| w32 | 0.37% | **0.075%** | 99.98% | **0.14%** | 145% |
+| w64 | 0.31% | **0.114%** | 99.98% | **0.19%** | 124% |
+| w128 | 0.31% | **0.227%** | 99.96% | **0.33%** | 126% |
+| w256 | 0.31% | **0.416%** | 99.91% | **0.60%** | 121% |
+
+And the causal version, in the ladder: substituting `rms(e + M0)` for layer 1's
+read — i.e. deleting layer-0's attention write from what layer 1 sees —
+reproduces the model at **KL 0.0000 at every width and seed**. Substituting
+`rms(e)` costs 0.80–1.46, which is *worse* than deleting layer-1 attention
+outright, and substituting `rms(e + A0)` costs 0.86–1.68.
+
+So: **the attention→attention path — the one the textbook induction circuit
+runs on — is numerically closed in these models.** Layer 1's selection is a
+function of the layer-0 MLP's write and essentially nothing else. The channel
+does widen monotonically with width (0.075% → 0.416%), which is the only
+structural quantity we have found that moves in the direction of composition.
+
+---
+
+## 2026-08-08 — FINDING 9 (DEPTH 2): induction APPEARS, at width 256, and it does not use the residual-stream composition path
+
+**Registered prediction `d2_induction` REFUTED at width 256, held at 128.** We
+registered, before measuring the unmeasured cells, that the induction score
+would stay within ±0.05 nats and under 3 standard errors at depths 2, widths
+128 and 256.
+
+| cell | induction score | bag score | detectable-effect floor (3 SE) |
+|---|---|---|---|
+| depth 1, w32 / w64 / w128 / w256 | −0.006 / −0.012 / −0.026 / −0.034 | +0.015 / +0.031 / +0.060 / +0.081 | — |
+| depth 2, w32 (3 seeds) | −0.008 ± 0.002 | +0.020 | 0.008 |
+| depth 2, w64 (3 seeds) | −0.014 ± 0.002 | +0.045 | 0.011 |
+| depth 2, w128 (3 seeds) | −0.003 ± 0.010 | +0.086 | 0.010 |
+| **depth 2, w256 (1 seed so far)** | **+0.0841 ± 0.0065** | +0.133 | 0.017 |
+
+The width-256 score is **five times the battery's own detectable-effect floor**
+and the first positive value anywhere in the program. It is corroborated by an
+independent probe on **real held text**: destroying the induction evidence with
+a **bag-preserving swap** (exchange the token that followed the earlier
+occurrence with another prefix token — a permutation, so the prefix multiset is
+identical and only the adjacency changes) costs the model 0.244 nats on the
+induction target. Because a *depth-1* model — which structurally cannot compose
+— also scores positive on that probe (its distance kernel notices the swap),
+the depth-1 cell at the same width is used as the **matched null**:
+
+| width | depth-1 null | depth 2 | excess | t |
+|---|---|---|---|---|
+| 32 | +0.023 | +0.026 | +0.003 | 0.2 |
+| 64 | +0.041 | +0.055 | +0.015 | 0.9 |
+| 128 | +0.067 | +0.103 | +0.036 | 1.7 |
+| **256** | +0.080 | **+0.244** | **+0.164** | **6.0** |
+
+### The circuit, and why it is not the textbook one
+
+Located by ablation (`tf_induction_circuit.py`,
+`tf_vanilla_d2_w256_b8192_s0_induction_circuit.json`):
+
+| intervention | induction score | KL cost |
+|---|---|---|
+| none | 0.0841 ± 0.0065 | 0 |
+| drop **layer-0 head 1** | **0.0083 ± 0.0051** | 0.186 |
+| drop layer-1 head 15 | 0.0353 ± 0.0064 | 0.016 |
+| drop both | −0.0025 ± 0.0035 | 0.189 |
+| delete layer-0 head 1 **from layer 1's Q/K/V read** | **0.0841** | — |
+| delete layer-0 head 1 **from MLP-1's input** | 0.0841 | — |
+| delete layer-0 head 1 **from MLP-0's input** | **0.0083** | — |
+| control: delete a *different* layer-0 head from layer 1's read | 0.0841 | — |
+
+Layer-0 head 1 is one of the two heads with the most distance-1 attention mass
+(11.0% and 11.9%, against 0.8–8% for the other fourteen), and layer-1 head 15
+has the most in its layer (10.8%). So the *participants* are the ones the
+standard story names. **The wiring is not.** Deleting head 1's write from what
+layer 1's queries and keys read changes the induction score by 0.0000; deleting
+it from what the layer-0 **MLP** squares reproduces the entire effect. The
+previous-token signal reaches layer-1 attention **through the MLP**, which is
+exactly what FINDING 8's composition budget predicts, since layer 1's read is
+99.9% MLP-0's write and 0.4% layer-0 attention.
+
+**Status: ONE SEED.** This program's own rule is that a structure claim needs
+three, so `tf_w256_seeds_chain.sh` is training depth-2 width-256 seeds 1 and 2
+(plus depth-1 width-256 seeds 1 and 2 for the matched null) and this finding is
+provisional until they land.
+
+---
+
+## 2026-08-08 — FINDING 10 (ADVERSARIAL REVIEW): the rung-4 composed table does not predict what its head causally does — FINDING 6 is corrected
+
+The standing rule is "compose to the logits **and confirm causally**". FINDING 6
+did the first half. Doing the second half breaks it.
+
+For every head, the agreement between the rung-4 object
+`p_h · (OV_h W_Uᵀ)` — the head's **direct** route to the logit — and the head's
+actual causal effect `logits(full) − logits(drop h)` on held text:
+
+| cell | direct-route Pearson (per head) | through-MLP Pearson |
+|---|---|---|
+| depth 1, w32 | 0.17–0.39 | 0.63–0.83 |
+| depth 1, w64 | 0.03–0.42 | 0.69–0.91 |
+| depth 1, w128 | 0.00–0.43 | 0.77–0.95 |
+| depth 1, w256 | −0.01–0.19 | 0.87–0.98 |
+| depth 2, layer 0 | **0.002–0.02** | 0.93–0.96 |
+| depth 2, layer 1 | 0.51–0.70 | 0.94–0.98 |
+
+This is FINDING 2 biting back: the direct route is dead, so an object built out
+of the direct route describes nothing. The correct composition — propagating
+the head's write through the MLPs, which is *exact* here because the MLP is
+bilinear — tracks the causal effect at 0.63–0.98 with 92–95% sign agreement.
+
+**What that costs FINDING 6.** Its headline was "the heads are not copy heads:
+the median rank of the attended token among the tokens it boosts is ≈5600 of
+8192, i.e. attending to a token pushes its own logit *down*". Re-derived
+causally — build the two-token context `[u, t]`, drop the head, and rank the
+attended token `u` by how much the head's presence pushes it:
+
+| cell | causal median rank of the attended token (of 8192), per head |
+|---|---|
+| depth 1, w32 | 1003, 1902 |
+| depth 1, w64 | 286, 2834, 2867, 3310 |
+| depth 1, w128 | 296, 694, 2190, 2316, 2563, 3144, 3689, 3752 |
+| depth 1, w256 | 425, 508, 795, 2234 … 4880 |
+| depth 2, w64 | layer 0: 3526, 3582, 3670, 5231; layer 1: **572**, 1084, 2255, 5222 |
+
+**Retraction:** "≈5600 of 8192, pushed down" is a statement about the direct
+composed table, not about the heads. Causally the median is 286–4880, several
+heads put the attended token in the top 4–6% of the vocabulary, and no head is
+anywhere near the "pushes its own token down" description. The *weaker* claim
+survives: no head is a copy head in the strict sense (rank 0), the effect is
+diffuse, and identity pairs are not specially favoured.
+
+Everything else in the reviewer round is in `tf_reviewer_round_1_depth2.json`.
+
+---
+
 ## 2026-08-08 — FINDING 1: the fold gate failures were PRECISION, and fixing the dtype made three independent controls sharper
 
 **Verdict: precision, not a bug — and the corrected gate is strictly stronger

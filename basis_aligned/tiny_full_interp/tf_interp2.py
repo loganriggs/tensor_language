@@ -313,6 +313,12 @@ class DeepFold:
                 pat = pat * k[None, :, None, None]
             elif kind == 'freq':
                 pat = self._pat_freq(li, idx, hn_qk, arg)
+            elif kind == 'inject':
+                # RESAMPLE ABLATION: use a write this layer actually produced,
+                # on a different context.  On-distribution by construction, so
+                # it separates 'the layer's information is gone' from 'the
+                # downstream modules are off distribution'.
+                return arg
         elif mode == 'self':
             eye = torch.eye(Tq, device=self.dev, dtype=torch.bool)
             pat = pat * eye
@@ -812,6 +818,52 @@ def composed_vs_causal(D, n_seq=32, T=256, batch=8):
 
 
 @torch.no_grad()
+def resample_ablation(D, n_seq=64, T=256, batch=8):
+    """REVIEWER FIX for 'a zeroed layer pushes the model off distribution'.
+
+    Instead of deleting a layer's attention write, replace it with the write
+    that same layer produced on a DIFFERENT sequence (the batch rolled by one).
+    The substituted vector is on-distribution by construction -- it is a real
+    output of that module -- so the difference between the zero-ablation KL and
+    the resample KL bounds how much of the knockout cost was distribution shift
+    rather than lost information."""
+    out, kl, ntok = {}, {}, 0
+    for x, y in I1.held_batches(D, n_seq, T, batch):
+        if x.shape[0] < 2:
+            continue
+        P = D.run(x)
+        ref = D.readout(P['r'])
+        lp = F.log_softmax(ref.float(), -1)
+        p = lp.exp()
+        cand = {}
+        for li in range(D.L):
+            alt = P['A'][li].roll(1, 0)
+            cand[f'resample_attn_layer{li}'] = D.run(
+                x, attn={li: ('inject', alt)})['r']
+            cand[f'zero_attn_layer{li}'] = D.run(x, attn={li: 'zero'})['r']
+        cand['resample_attn_all'] = D.run(
+            x, attn={li: ('inject', P['A'][li].roll(1, 0))
+                     for li in range(D.L)})['r']
+        cand['zero_attn_all'] = D.run(
+            x, attn={li: 'zero' for li in range(D.L)})['r']
+        for s, r in cand.items():
+            q = F.log_softmax(D.readout(r).float(), -1)
+            kl[s] = kl.get(s, 0.0) + float((p * (lp - q)).sum())
+        ntok += y.numel()
+    out = {k: v / ntok for k, v in kl.items()}
+    for li in list(range(D.L)) + ['all']:
+        z, r = out.get(f'zero_attn_layer{li}'), out.get(f'resample_attn_layer{li}')
+        if li == 'all':
+            z, r = out['zero_attn_all'], out['resample_attn_all']
+        if z and r:
+            out[f'distribution_shift_share_layer{li}'] = max(0.0, (z - r)) / z
+    out['note'] = ('resample >= zero would mean the zeroing was the GENTLER '
+                   'intervention; resample < zero means part of the zeroing '
+                   'cost was distribution shift, and the share is quoted')
+    return out
+
+
+@torch.no_grad()
 def composition_budget(D, n_seq=32, T=256, batch=8):
     """WHAT DOES LAYER l READ, IN THE STREAM'S OWN UNITS?
 
@@ -1117,6 +1169,7 @@ def main(stem, quick=False, skip_baselines=False):
                   'multisets, scored on the second copy only'}
     rep['induction_power'] = induction_power(D)
     rep['induction_by_head'] = induction_by_head(D)
+    rep['resample_ablation'] = resample_ablation(D)
     rep['composition_budget'] = composition_budget(D)
     rep['natural_induction'] = natural_induction(D, n_seq=1024)
     rep['fit_score_disjointness'] = fit_score_disjointness(D, min(n_seq, 64), T)
