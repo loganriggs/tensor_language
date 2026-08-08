@@ -7,6 +7,81 @@ they land with the finding in the commit message.
 
 ---
 
+**2026-08-08 14:25 UTC — FINDING 13: THE PARENT PROGRAM'S LAYER-0 DICTIONARY
+METHOD WAS PORTED PROPERLY (folded per-head-branch object + the context-expected
+OV objective of `../qk_mdl/ov_metric_explainer.md` eq. (dagger) + exact anchor
+rows), and it TRANSFERS — but the two self-red-team controls show that what
+transfers is exposure-proportional BIT ALLOCATION, not the OV geometry and not
+exact rows. Nothing structural is short, and nothing beats the model on the
+data.**
+
+Code: `tf_dict_lib.py` (eq. (dagger) worked out in closed form as a per-token,
+per-block PSD metric on the folded rows: scatter at T, systematic at T^2, unigram
+exposure from est; metric-weighted OMP/least-squares; anchors; bits),
+`tf_dict_fold_run.py`, `tf_dict_emb_run.py`, `tf_dict_addendum.py`,
+`tf_dict_atoms.py`, `tf_dict_frontier.py`. Data:
+`tf_vanilla_d1_w128_b8192_s{0,1}_dict_{fold,emb,addendum,atoms}.json`,
+`fig_tf_dict_frontier.png`, `tf_dict_tables.md`, `tf_dict_atoms.md`.
+Full write-up: RESULTS.md FINDING 13.
+
+WHAT REPRODUCES FROM THE PARENT, at 1/60th the scale: the objective beats plain
+MSE at low budgets and crosses over at high ones (1.47x in bits at held CE 4.85);
+dictionaries beat low rank by 1.6-1.9x (parent: 6x); anchors beat both and beat
+their random-anchor null by 1.40x; the objective's mass sits on fifty scaffold
+tokens (50.1% here, 52% there -- newline, punctuation, function words) and the
+useful anchors are chosen BY EXPOSURE, NOT MISFIT, exactly as the parent found;
+plain factor FVU predicts held cross-entropy better (0.962) than the context
+metric does (0.869), also exactly as the parent found (0.952 / 0.905); the atoms
+are nameable (surface-class purity 0.79 against a 0.49 null -- capital letters,
+capitalised name prefixes, derivational suffixes, contraction tails, digits,
+spatial prepositions).
+
+THE THREE THINGS THE PORT ADDS, all of which are corrections:
+1. THE FOLD IS AN EXPANSION. At this cell the exact fold is 4.19M numbers =
+   134.2 Mbit = 3.1x the whole model and 4x the embedding, because it trades four
+   128x128 projections for a V-row table. Compressing it to 6% of raw bits is a
+   real statement about the circuit and a meaningless one about description
+   length. Any use of the parent's frontier as an MDL claim needs this caveat.
+2. EXACT ANCHOR ROWS ARE A BIT-ALLOCATION EFFECT. Control: same dictionary, top-B
+   tokens get k_hi active atoms and the tail k_lo, extra indices and coefficients
+   charged. The smooth version MATCHES the exact-row hybrid at matched bits
+   (4.8231 at 5.14 Mbit vs 4.8244 at 5.37 Mbit). Exactness buys nothing.
+3. THE OV GEOMETRY CONTRIBUTES NOTHING. Control: keep only the metric's per-token
+   per-block SCALAR mass and throw the directions away. The scalar BEATS the full
+   context metric at both budgets (4.8296 vs 4.8524 at 4.85 Mbit; 4.7715 vs 4.7854
+   at 19.5 Mbit), and both beat MSE (4.8868 / 4.8013). The T-versus-T^2
+   cancellation split and the OV directions are decoration at this scale; the
+   portable ingredient is "how much of the circuit's work passes through this
+   token's row".
+
+DESCRIPTION B (the same metric pulled back through the exact Jacobian onto the
+embedding, where 78% of the bits are, plus a write-role Fisher term for the tied
+table): QUANTISATION WINS BY ~5x IN BITS, on both seeds. 4-bit entropy-coded
+embedding = 4.03 Mbit at +0.031 nats; the best dictionary at comparable bits is
++1.43. The reason is the round-3 reviewer's own conversion law: n=1024/k=8 sparse
+coding attains R^2 = 0.893, worth 1.61 bits/weight, while the code costs 6.63
+bits/weight -- it spends four times what its structure is worth, and even a FREE
+dictionary could only save 1.69 Mbit.
+
+AGAINST THE DATA (Logan's second redirection): 0 of 214 descriptions have held CE
+below the model's 4.7556 on this held set, reproducing the round-3 reviewer's
+0-of-208 on a disjoint set of schemes. The closest structural point ties the model
+(+0.0025 +/- 0.005 nats) and costs 101.7 Mbit in total -- 2.4x the model.
+
+SEED 1 CONFIRMS: anchors-beat-null, anchors-beat-dictionary, FVU-beats-the-metric
+and quantisation-beats-the-dictionary all replicate; the objective's gain
+replicates at half size for per-head-branch grouping and does NOT replicate for
+the joint grouping (-0.004 vs -0.034). Registered predictions: R1/R2/R4/R5/R6 and
+S3/S5 confirmed, R3 (joint grouping dominates) REFUTED, S1/S2 partially.
+
+FOR THE SCALE BOX: the exposure-scalar result is the one worth carrying upstream.
+If it holds at bilin18 it means `../qk_mdl`'s OV-context training can be replaced
+by a per-token scalar weight at equal or better quality and a tiny fraction of the
+derivation -- worth one run there to check.
+
+---
+
+
 **2026-08-08 14:20 UTC — INDEPENDENT REVIEW CLOSES THE COMPRESSION WORK.
 The honest compression discovery is ~1.2x, not 5.7x; one of my headline
 refutations was WRONG; and Logan's CE insight found a real positive that

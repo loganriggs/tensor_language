@@ -7,6 +7,289 @@ were **refuted** are marked as such rather than quietly dropped.
 
 ---
 
+## 2026-08-08 — FINDING 13 (PORTING THE PARENT PROGRAM'S LAYER-0 MDL METHOD): the method transfers — objective, anchors, atoms and even the 50%-of-the-mass-on-50-tokens statistic — but what transfers is **exposure-proportional bit allocation**, not the OV geometry and not exact anchor rows; and because the fold is a 3.1× EXPANSION of the model at this scale, the technique that produced the parent's frontier cannot produce a short description here
+
+Files: `tf_dict_lib.py` (the folded object, eq.(†) in closed form as a per-token
+PSD metric, metric-weighted OMP/least-squares, dictionary learning, anchors,
+bits), `tf_dict_fold_run.py` (Description A — compress the fold),
+`tf_dict_emb_run.py` (Description B — compress the embedding in the fold's
+metric), `tf_dict_addendum.py` (the two self-red-team controls),
+`tf_dict_atoms.py` + `tf_dict_atoms.md` (are the atoms an interpretation?),
+`tf_dict_frontier.py` + `fig_tf_dict_frontier.png` + `tf_dict_tables.md`.
+Data: `tf_vanilla_d1_w128_b8192_s{0,1}_dict_{fold,emb,addendum,atoms}.json`.
+
+**Why this exists.** FINDING 12 and its review closed rung 5 with "no structural
+description of this model beats bit-packing it". Logan's redirection: the
+parent program (`../qk_mdl`, RESULTS_l0_mdl.md §3/3b/3c) has a *working* method
+for exactly this problem — fold the embedding into attention, learn a sparse
+dictionary over the folded per-head-branch object, train it against the
+context-expected OV objective (`ov_metric_explainer.md` eq. †), and add exact
+anchor rows for the top tokens by attribution. At bilin18 that reached
++0.006 nats at 6.1% of the raw bits and beat matched-bits SVD sixfold. The
+earlier "anchors do not port" was measured against the embedding table with no
+context objective and was therefore not a test of the method. This finding is
+the proper test.
+
+### 0. The arithmetic that frames everything (registered as R1 before running)
+
+The exact layer-0 fold of this cell is four (V × head_dim) factor tables per
+head: 4 × 8 × 8192 × 16 = **4 194 304 numbers = 134.2 Mbit**, which is
+**3.1× the whole 1.34M-parameter model and 4× the embedding it is derived
+from** — the fold trades four 128×128 projections (2.10 Mbit) for a V-row
+table. The parent's object had the same 4× ratio, but there the *quality*
+question was the whole question; here, as soon as bits are charged, a
+description that STORES the fold starts 40.9 Mbit in the hole. That is a
+property of the object, not of the coder, and it is why this finding splits
+into a method test (Description A, panel A of the figure) and a description
+test (Description B, panel B).
+
+![the ported method](fig_tf_dict_frontier.png)
+
+### 1. Controls
+
+| control | result |
+|---|---|
+| folded forward vs the model | rel. logit diff **5.3e-6**, KL −9.3e-10 |
+| identity dictionary (n = V, k = 1, coefficient 1) | max reconstruction error **exactly 0.0**, held CE **4.755636** = the model's to 6 d.p. |
+| random dictionary at matched bits (n=256,k=2 / n=1024,k=8) | CE 4.977 / 4.839 vs learned 4.887 / 4.801 |
+| random anchor rows at matched bits | 4.873 vs 4.824 (B=32,n=256,k=2), 5.014 vs 4.812 (B=512,n=64,k=1) |
+| est/held separation | every dictionary is fitted on weights + the est unigram; every blend/T/α/β hyperparameter is chosen on est; held is 256 sequences × 256 tokens (65 536 predictions) and is only ever read out |
+
+Held CE here is **4.7556** for the model, not the 4.7114 of FINDING 12, because
+this held set is 256 sequences and that one was 64. Cross-set comparisons in
+this section are therefore always made as **paired ΔCE against the model**
+(`dce_vs_model`, sequence-clustered SE ≈ 0.005 nats).
+
+### 2. The ported objective is real, and it is worth ~1.5× in bits
+
+Eq. (†) says a pattern error's *scatter* part accumulates as T and never
+cancels while its *systematic* part accumulates as T² and does. Worked out in
+closed form for this architecture (`tf_dict_lib.ctx_metrics`) it becomes a
+per-token, per-block PSD metric on the folded rows: for the query role
+`M_i = q_i[T·A_i + (T²−T)·C_iᵀ G C_i]`, for the key role
+`M_j = q_j ν_j [T + (T²−T) q_j] · Σ_i q_i coef(i,j)² Qr Qrᵀ / hd²`. Both are
+exact within a block; the only approximation beyond eq. (†) is that errors from
+different blocks are treated as incoherent. T is then a free knob interpolating
+the explainer's two limits (T=1 is the norm rung, large T the Gram rung), and a
+blend with the identity is swept because pure eq.(†) over-concentrates.
+
+Paired ΔCE of the context objective minus MSE **at identical bits** (negative =
+the objective wins), one dictionary per row-grouping:
+
+| bits on the fold | joint dictionary | per-head-branch dictionaries |
+|---|---|---|
+| 1.4 Mbit (n=64,k=1) | +0.006 | — |
+| 2.7 Mbit (n=128,k=2) | −0.012 | — |
+| 4.9 Mbit (n=256,k=2) | **−0.034** | — |
+| 6.0 Mbit (n=64,k=1) | — | **−0.048** |
+| 9.7 Mbit (n=512,k=4) | −0.029 | — |
+| 12.3 Mbit (n=128,k=2) | — | −0.040 |
+| 19.5 Mbit (n=1024,k=8) | −0.016 | — |
+| 25.2 Mbit (n=256,k=4) | — | −0.036 |
+| 60.8 Mbit (n=1024,k=8) | — | −0.010 |
+| 70.0 Mbit (n=4096,k=8) | +0.002 | — |
+
+In bits: reaching held CE 4.85 costs **7.27 Mbit under MSE and 4.93 Mbit under
+the context objective — 1.47×** — and the gain shrinks monotonically with
+budget, crossing over to MSE at ~52% of raw bits. The parent measured the same
+shape (their crossover was ~12% of raw). The est-selected setting is T=16 with
+a 0.8 identity blend at low budgets and 0.5 at high ones.
+
+**Seed check, and it splits the claim.** On seed 1 the per-head-branch gains
+keep their sign and shape at about half the size (−0.027 / −0.026 / −0.005 at
+6.0 / 14.7 / 60.8 Mbit against seed 0's −0.048 / −0.041 / −0.010), but the joint
+grouping's gain collapses to −0.004 at 4.85 Mbit (seed 0: −0.034). So the
+honest statement is: **the ported objective is seed-robust on the parent's own
+per-head-branch grouping and not seed-robust on the joint grouping.** The
+concentration statistic is also seed-dependent in magnitude though not in kind —
+the top 50 tokens carry 50.1% of the objective's mass on seed 0 and 82.5% on
+seed 1.
+
+Two of the parent's diagnostics reproduce almost numerically:
+
+| statistic | parent (bilin18, V=50304) | here (d1 w128, V=8192) |
+|---|---|---|
+| share of the objective's mass on the top 50 tokens | 52% | **50.1%** |
+| those tokens | newline, punctuation, function words | ` the` `.` `,` ` a` `\n` ` to` ` and` ` of` ` in` ` is` |
+| Spearman of plain factor FVU vs held ΔCE | 0.952 | **0.962** |
+| Spearman of the context metric vs held ΔCE | 0.905 | **0.869** |
+
+The last row is worth stating plainly: as in the parent, **the context metric is
+a better training objective than plain MSE and a worse predictor of held CE
+than plain FVU.** Those are not contradictory — the metric reallocates error to
+where it is cheap, which changes the error's composition, so FVU and the metric
+disagree exactly on the arms the metric shaped.
+
+### 3. Anchors port to the folded object — the FINDING-12 negative does not survive the retest
+
+Exact fp32 rows for the top-B tokens by attribution (ids and rows charged) plus
+a dictionary fitted on the tail only:
+
+| bits on the fold | pure dictionary (best) | anchor hybrid (best) | random-anchor null |
+|---|---|---|---|
+| to reach CE 4.85 | 4.93 Mbit | **4.52 Mbit** | 6.33 Mbit |
+| to reach CE 4.80 | 11.41 Mbit (per-head-branch) / 18.24 (joint) | **9.09 Mbit** | never |
+| to reach CE 4.78 | 15.18 Mbit | 16.26 Mbit | never |
+
+So anchors beat the pure joint dictionary by **1.09–2.0×** and beat their own
+random-anchor null by **1.40×**, which is the parent's 1.8–2.9× effect in
+weaker form; above ~15 Mbit per-head-branch dictionaries catch them. The
+attribution ordering is **exposure ≈ frequency > context-error ≫ random**: the
+useful anchors are the tokens the circuit *runs into*, not the tokens it fits
+worst — the parent's phrasing, "by exposure, not misfit", verbatim.
+
+Low rank on the same object is dominated throughout: reaching CE 4.85 costs
+8.34 Mbit by SVD against 4.93 by dictionary (**1.69×**), CE 4.80 costs 18.2
+against 11.4 (**1.60×**), CE 4.78 costs 28.6 against 15.2 (**1.88×**). Real,
+but a third of the parent's sixfold margin.
+
+Grouping: registered prediction **R3 is REFUTED**. A single joint dictionary
+over the token's whole folded signature was predicted to dominate the parent's
+per-head-branch grouping because the index+coefficient cost amortises over 512
+numbers instead of 32. It does win below ~6 Mbit (where per-head-branch cannot
+reach at all), but above that the parent's grouping wins outright — 11.4 Mbit
+against 18.2 at CE 4.80.
+
+### 4. SELF-RED-TEAM: the two controls that change what the finding claims
+
+**(a) Exact rows are not the point — precision allocation is.** Control: keep
+one dictionary and give the top-B tokens k_hi active atoms and the tail k_lo,
+charging the extra indices and coefficients (`stratified_k`). At matched bits
+the smooth version *matches or beats* the exact-row hybrid: 4.8231 at 5.14 Mbit
+(B=1024, k 16/2) against 4.8244 at 5.37 Mbit for exact anchors, and 4.8131 at
+5.44 Mbit against ~4.82 interpolated. **The anchor result is a bit-allocation
+result.** Exactness buys nothing that a longer code for the same tokens does
+not.
+
+**(b) The OV geometry contributes nothing; the exposure scalar is the whole
+gain.** Control: throw away the metric's directions and keep only its per-token,
+per-block scalar mass (trace/hd × I) — the same exposure weighting, isotropic:
+
+| metric on the folded rows | CE at 4.85 Mbit | CE at 19.5 Mbit |
+|---|---|---|
+| plain MSE | 4.8868 | 4.8013 |
+| full context-expected OV metric | 4.8524 | 4.7854 |
+| **exposure scalar only (directions discarded)** | **4.8296** | **4.7715** |
+
+The scalar beats the full metric at both budgets. So the portable ingredient of
+eq. (†) is *how much of the circuit's work passes through this token's row*, and
+the cancellation structure that the explainer's derivation is mostly about — the
+T versus T² split, the OV directions, the Gram/norm interpolation — is decoration
+at this scale. (Caveat: the scalar arm inherits the blend/T selected for the full
+metric and was not separately tuned; it wins anyway.)
+
+### 5. Are the atoms an interpretation? Partly, and measurably
+
+`tf_dict_atoms.md`. Surface-class purity of an atom's top-32 users is **0.79
+against a random-token null of 0.49**; no dead atoms; the top 10 atoms carry
+15.9% of uses. Concretely, atom 41 is single capital letters
+(`V W J A Y C K G Z B H N T D O S U R`), atom 140 is capitalised name prefixes
+(` De` ` Br` ` Bl` ` Ar` ` Ph` ` Mc` ` La` ` Mar`), atom 30 is derivational
+suffixes (`ably ally ful ive able ations ation ily`), atom 47 is contraction
+tails (`'ll 't 'd 've`), atom 221 is digits, and atom 211 is spatial
+prepositions (` toward` ` towards` ` along` ` throughout` ` onto` ` across`
+` past`) — morphology plus some genuine semantics, as the parent found. So the
+code *is* made out of an interpretation; it is simply not a short one.
+
+### 6. Description B — the same method where the bits actually are, and the negative is emphatic
+
+Description A cannot be short (§0), so the metric was pulled back through the
+**exact Jacobian** of the folded rows with respect to an embedding row (through
+both RMS norms) and used to code the one table that holds 78% of the model:
+`M_emb(t) = Σ_blocks J_bᵀ M_ctx(t) J_b`. Because the table is tied, a write-role
+Gauss-Newton term measured on est was added (rank-24 in the principal subspace
+of the pre-readout activation, 58% of its variance), and an isotropic floor α
+was added after the first grid showed why it is needed: the two derived terms
+cover the query/key path and the unembedding but **not** the value path, **not**
+the direct residual contribution of `e`, and **not** the MLP, so without a floor
+the code puts its error exactly where the metric is blind.
+
+| description of the embedding (body exact) | bits (table) | held CE | above the model |
+|---|---|---|---|
+| dictionary n=512, k=4, fold metric | 3.44 Mbit | 6.1888 | +1.433 |
+| dictionary n=1024, k=8, MSE | 6.95 Mbit | 5.5550 | +0.799 |
+| dictionary n=2048, k=8, MSE | 11.21 Mbit | 5.2330 | +0.477 |
+| anchors B=1024 + dictionary n=512,k=4 (frequency) | 7.48 Mbit | 5.3211 | +0.565 |
+| same, random anchors (null) | 7.48 Mbit | 6.0751 | +1.320 |
+| **2-bit uniform + entropy code (RECODING)** | **1.79 Mbit** | **5.5635** | **+0.808** |
+| **4-bit uniform + entropy code (RECODING)** | **4.03 Mbit** | **4.7865** | **+0.031** |
+| 512-bits-per-row PCA transform code (RECODING) | 2.89 Mbit | 4.8466 | +0.091 |
+
+**Quantisation wins by roughly a factor of five in bits, everywhere.** Four-bit
+quantisation at 4.03 Mbit is 1.4 nats better than the best dictionary at
+comparable bits; the dictionary needs 11.2 Mbit to reach a CE that quantisation
+reaches at 1.79. Anchors and the fold metric both help *within* the family
+(anchors by 0.75 nats over their null; the derived metric by 0.045 nats at the
+low-bit end, though it loses above n=1024 and the est-optimal identity weight
+sits at the edge of the grid in the MSE direction) and neither rescues it.
+
+The reason is arithmetic and matches the round-3 reviewer's conversion law
+(§7b R5): a dictionary with n=1024, k=8 attains R² = 0.893 on the embedding,
+which is worth −½log₂(1−R²) = **1.61 bits per weight** — while the code itself
+costs 6.95 Mbit / 1.05M weights = **6.63 bits per weight**. It spends four times
+what its own structure is worth. Even a *free* dictionary could only save
+1.69 Mbit. Sparse coding cannot pay on this table at this width.
+
+(Bit convention: atoms and coefficients at fp32, ⌈log₂n⌉ per index — the
+parent's convention, verified against their published 455 Mbit at n=1024, k=8.
+The round-3 reviewer's independent implementation of the same family charges
+atoms and coefficients at 8 bits and therefore lands it at about a third of
+these bits, where it does win below 1.5 Mbit at KL ≈ 1 — §7b R7. Our
+contribution to that family is the objective, the anchors and the metric, not
+the coefficient precision, and none of them changes the verdict above 2 Mbit.)
+
+### 7. Against the DATA: nothing beat the model, and the near-misses are all recodings
+
+Scoring every point by held cross-entropy rather than KL (Logan's second
+redirection): **0 of 214 descriptions measured here have held CE below the
+model's 4.7556**, which reproduces the round-3 reviewer's 0-of-208 on a disjoint
+set of schemes. The closest structural point is the per-head-branch
+context-objective dictionary at n=1024, k=8: **+0.0025 ± 0.005 nats** — a tie
+with the model — but it spends 60.8 Mbit on the fold, i.e. **101.7 Mbit in
+total, 2.4× the model itself**. Registered predictions R5 and R6 are confirmed.
+Refitting a description's coefficients against est cross-entropy with the bit
+bill unchanged helps a lot at low capacity (6.685 → 6.085 nats at 1.70 Mbit) and
+slightly hurts at higher capacity (5.616 → 5.657 at 6.95 Mbit), and never comes
+near the model — consistent with §7b R8, where the arms that *do* beat the model
+on data are full-precision-ish recodings refit on fresh est text, not structural
+descriptions.
+
+### 8. What this adds up to
+
+The parent's method is not wrong and it did not fail to transfer. Every
+qualitative claim in RESULTS_l0_mdl.md §3–3c reproduces at 1/60th the scale:
+the objective beats MSE at low budgets and crosses over at high ones,
+dictionaries beat low rank, anchors beat both, the mass is on fifty scaffold
+tokens, and the atoms are nameable. What the port adds is the part that only
+shows up when the bits are charged against the model rather than against the
+object:
+
+1. **The fold is an expansion.** Compressing it to 6% of raw bits is a real
+   statement about the circuit and a meaningless one about description length,
+   because 6% of a 3.1× expansion is still not a short program. Any future use
+   of the parent's frontier as an MDL claim has to carry this correction.
+2. **The transferable ingredient is exposure-proportional allocation** —
+   per-token, per-block, derived from the circuit rather than from frequency
+   alone, but scalar. The OV directions and the cancellation split do not pay.
+3. **Exact anchor rows are a bit-allocation effect**, reproducible by a longer
+   code for the same tokens.
+4. **On the table that holds the bits, sparse coding is 5× behind
+   quantisation**, and the conversion law says why before any experiment is run.
+
+**Seed robustness** (`tf_vanilla_d1_w128_b8192_s1_dict_{fold,emb}.json`, same
+controls, gate 5.0e-6, identity dictionary exact):
+
+| claim | seed 0 | seed 1 | verdict |
+|---|---|---|---|
+| anchors beat their random-anchor null | 4.824 vs 4.873 (5.4 Mbit) | 4.827 vs 4.861 | **robust** |
+| anchors beat the pure dictionary at matched bits | 4.824 vs 4.852 | 4.827 vs 4.872 | **robust** |
+| context objective, per-head-branch | −0.048 / −0.041 / −0.010 | −0.027 / −0.026 / −0.005 | **robust in sign, halved** |
+| context objective, joint | −0.034 at 4.85 Mbit | −0.004 | **not robust** |
+| quantisation beats the embedding dictionary at matched bits | 5.564 vs 6.685 at 1.7–1.8 Mbit | 5.642 vs 6.641 at 1.70 Mbit | **robust, ~1 nat** |
+| FVU predicts held ΔCE better than the context metric | 0.962 vs 0.869 | 0.967 vs 0.918 | **robust** |
+
+---
+
 ## 2026-08-08 — FINDING 12 (RUNG 5, THE COMPRESSION FRONTIER), **AS AMENDED BY INDEPENDENT REVIEW (§7b)**: no structural description of this model beats bit-packing it — and the "5.7× shorter than the model" headline is 1.15× against an honest baseline. The review also found the one thing KL-from-the-model could not see: a description **5.8× smaller than the fp32 model predicts the held text BETTER than the model does**.
 
 > **Read §7b before quoting anything in §§1–6.** Two claims below are retracted or materially corrected there ("merging tokens is the worst code we measured"; the attribution of the transform code's gain to per-column bit allocation), the headline compression factor is restated against four honest denominators, and every frontier point is marked for seed robustness on three seeds.
