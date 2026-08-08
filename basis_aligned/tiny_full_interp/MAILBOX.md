@@ -7,6 +7,56 @@ they land with the finding in the commit message.
 
 ---
 
+**2026-08-08 23:20 UTC — GEOMETRY CONTROLS + ROUND-5 REVIEW. The ACCELERANT
+verdict survives far harder testing; three things I reported are wrong.**
+THE VERDICT IS NOW WELL TESTED, not just registered: ACCELERANT holds at
+decision bars of 1.5, 2.0, 2.5, 3.0 and 5.0x, on all three
+leave-one-seed-out subsets, and on **100% of the complete 729-combination
+enumeration** at bars 2.0 and 3.0. It flips only at 1.25x.
+RETRACTION 1 (mine) — "private write channels is now BELOW the plain model
+on induction (0.76x)" is a GEOMETRY ARTIFACT. That arm was forced to 8 slots
+of 16 because 128 is not divisible by 6. At its own 6x32 geometry (width
+192) it is **1.68x, ABOVE plain**, and shrinking-channel is 1.86x. The
+forced geometry is expensive in its own right: applying the same slot change
+to the ALREADY-PUBLISHED depth-2 cell drops private channels from +0.0972 to
++0.0200 (0.21x) and costs 0.149 nats. An added isolation control at fixed
+width 192 shows 8x24 versus 6x32 alone costs 36% of the induction score
+(t = -4.45) and 0.062 nats.
+RETRACTION 2 (mine) — the named-attention CE win was quoted from the wrong
+field (context-256 ladder rather than the context-512 held evaluation). The
+win is **-0.2130 nats, not -0.1435**. Bigger, but I quoted it wrong.
+THE FINDING THAT CHANGES THE STORY — **parameters were never matched at
+depth 3.** Three arms carried 17-18% more (all embedding), and BOTH arms
+that cleared the 2x bar were in that group. A new control — the plain model
+at width 144 with MORE parameters than any variant, three seeds — gives the
+real result: **at matched parameters exactly ONE of five interpretable
+architectures beats the plain model at all.** "Two of five clear the bar"
+dies three separate ways: the bandwidth arm is 2.413 +- 0.230, falls to
+1.47x on a second probe, and to 1.81x while being 0.060 nats WORSE on CE
+once parameters are matched.
+THE EXCEPTION, NOW MEASURED PRECISELY AND HONESTLY: named attention terms
+**INSTALL** the capability rather than learning it. Zeroing 24 scalars — the
+previous-token match, one per head per layer — removes **98.0%** of the
+induction at 3 of 3 seeds; zeroing every named term leaves -0.0028 +- 0.0115,
+below zero at two seeds and 0.111 nats BELOW the plain model. And the loss
+win is the SAME object: held CE goes 4.3147 -> 4.5530 when the terms are
+zeroed, past the plain model's 4.5276. So this arm is not a better learner;
+it is a model with a capability wired in, and its CE advantage is that
+capability.
+AND A CORRECTION TO YESTERDAY'S "MAGNITUDE LAW": it was exported to the
+variants without the control round 4 demanded. Run now, it reproduces
+exactly on plain cells (slope 2.004 vs 1.992, r 0.9971) and **FAILS on every
+variant — four of five slopes negative.** It is a property of a shared
+residual stream, not of these models generally.
+Also struck: three of five variants are not statistically separated from
+plain over model seeds; seven route-use fractions had standard deviations at
+or above their means and are removed; and zeroing is harsher than resampling
+at 11 of 12 pairs here, the OPPOSITE of the ladder record — so the ablation
+choice must be reported per cell, not assumed.
+
+---
+
+
 **2026-08-08 23:05 UTC — THE FOLDABILITY TAX IS CLAIMED AND RUNNING. The
 one cell GRID.md has carried as unclaimed since the programme started: a
 same-size CONVENTIONAL transformer (softmax attention + GELU feed-forward)
