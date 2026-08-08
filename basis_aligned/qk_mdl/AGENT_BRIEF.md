@@ -44,3 +44,17 @@ ask for context.
   vanilla is 4.7570 (qk_e0m.json), AdamW vanilla 4.8513 (E0a). Every
   structured arm is Muon-trained, so 4.757 is the fair reference; using
   4.851 understates every tax by ~0.094 nats.
+
+## Sign is a gauge freedom (standing rule, Logan 2026-08-08)
+No positivity constraints exist anywhere in these models, so the sign of any
+intermediate factor is gauge, not mechanism: flip it in one factor and back
+in another and the function is identical. Only signs of COMPLETE paths to an
+observable are invariant. A negative attention weight is NOT suppression —
+contribution = pattern x (value->output->unembed), so negative x negative is
+a positive push on the attended content and the negative effect lands on
+non-attended positions. The pattern is itself a product of two branches, so
+even its sign is a product of two meaningless signs. Never report
+suppression/inhibition/anti-correlation from a factor in isolation; compose
+to logits and confirm causally. Measured precedent: raw coefficient sign
+anti-correlated with behaviour (-0.45) while the composed score tracked it
+(+0.85, causal direction 5/5).

@@ -323,8 +323,25 @@ actual mistakes):
 - **Precision mistaken for correctness** (and its converse). Compare in
   float64 before calling a gate failure a bug; compare symmetrically
   (the parent program lost a day to a one-sided tf32 setting).
-- **Sign without composition.** A pattern coefficient's sign means nothing
-  until composed through the value/output path.
+- **Sign without composition (the error most often made here).** In a model
+  with no positivity constraint anywhere, the sign of an intermediate
+  quantity is a GAUGE FREEDOM of the factorization, not a property of the
+  computation: flip a sign in one factor and flip it back in another and
+  the function is unchanged. Only the sign of a COMPLETE PATH to an
+  observable is invariant.
+  Concretely for this architecture: a negative attention weight is not
+  suppression. The contribution of attending position j is
+  `pattern[i,j] x (value->output->unembedding of x_j)`, so
+  negative x negative = a POSITIVE push on the attended content, and the
+  negative effect lands on the NON-attended positions instead. Worse, the
+  pattern is itself a product of two branches `(q1.k1)(q2.k2)`, so even
+  "the attention sign" is a product of two individually meaningless signs.
+  RULE: never report a sign, a "suppression", an "inhibition" or an
+  "anti-correlation" from any factor in isolation. Compose to the logits
+  and confirm causally. In the parent program the raw coefficient sign was
+  ANTI-correlated with the behaviour it appeared to describe (Pearson
+  -0.45) while the composed score tracked it at Spearman +0.85 and matched
+  the causal direction 5 of 5.
 - **Single seed.** Structure claims need three; the parent program had a
   readability ordering reverse between two seeds.
 - **Uncalibrated nulls.** Shuffle nulls with near-zero spread produce
