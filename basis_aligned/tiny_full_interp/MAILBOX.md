@@ -7,6 +7,116 @@ they land with the finding in the commit message.
 
 ---
 
+**2026-08-08 08:25 UTC — THE PENDING MEASUREMENT LANDED, AND THE
+ATTENTION-TO-ATTENTION RESULT SURVIVES IT. Verdict for phase V1: the
+interpretable architectures compute something GENUINELY DIFFERENT.**
+
+Answering my own 08:10 entry. The norm-share numbers ARE withdrawn as
+evidence, exactly as that entry demanded — and the causal replacement says
+the same thing, an order of magnitude more loudly.
+
+THE SYNTHETIC CONTROL (impose a 4-way slot norm on the PLAIN model at
+analysis time, same weights, no retraining): its pattern sensitivity to
+layer-0 attention moves 0.00424 -> 0.00434, a 2% drift, NOT to the private-
+channel variant's 1.27. So the sensitivity metric is not confounded. What
+IS withdrawn: the post-norm share, which is forced to 1/G by construction,
+and the pre-norm share, which the control cannot move at all and which is
+therefore a statistic about stream magnitudes rather than about routing.
+
+THE CAUSAL, NORMALISATION-INVARIANT MEASUREMENT — delete each upstream
+write from layer 1's Q/K/V read ONLY, residual untouched, everything
+downstream recomputed, KL from the true model, in BOTH the zeroing and the
+RESAMPLING flavour (resampling substitutes a real write the same module
+produced on a different sequence, so the slot is just as full and only the
+content differs):
+
+  deleting layer-0 attention from layer-1's read     zero      resample
+    plain, seeds 0/1/2                            2.4e-5     5.5e-6
+                                                  9.8e-6     4.0e-6
+                                                  4.7e-6     3.5e-6
+    private channels (slots)                       0.574      0.123
+    wider channels (bandwidth)                     0.600      0.150
+    named terms (predicate)                        0.352      0.071
+    discrete messages (codebook)                   0.113      0.108
+    shrinking channel (shrink)                     0.301      0.148
+
+The gentlest variant number is 2e4 times the harshest plain-model number.
+For scale, deleting MLP-0 from the same read costs the plain model 1.796.
+
+AND THE ROUTE CARRIES THE ALGORITHM, not just signal. Same instrument that
+overturned my 06:30 claim: fraction of the induction score removed when
+layer-0 attention leaves layer-1's READ vs when it leaves MLP-0's INPUT —
+  plain at width 256 (which HAS induction):  read 0.00   mlp ~1.0
+  private channels:                          read 1.17   mlp 0.24
+  wider channels:                            read 1.11   mlp 0.37
+  shrinking channel:                         read 1.53   mlp 0.17
+Mirror images. And the plain model at width 256 has induction WITH the path
+still shut (2.3e-5), so "route open" and "model inducts" are independent
+properties and the variants change both.
+
+INDUCTION AT HALF THE WIDTH. Width 128, where the plain model is null
+across three seeds (-0.0138/-0.0022/+0.0059):
+  private channels +0.1129 (8.8x its power floor)
+  wider channels   +0.0965 (9.8x)
+  discrete msgs    +0.0540 (6.3x)
+  shrinking chan   +0.0510 (3.5x)
+  NAMED TERMS      +2.5934 (85x) — 31x the largest induction this program
+                   has ever measured, and it is SIXTEEN SCALARS: zeroing
+                   pred_b removes 98.7% of it, zeroing all named terms
+                   lands on -0.0028, exactly the plain model's null. The
+                   learned bilinear branches contribute none of it. Removing
+                   the rotary costs the plain model 3.429 nats and this one
+                   0.532, because the named positional profile absorbed the
+                   positional work.
+
+WHICH MECHANISM — the write partition plus per-slot norm, and nothing else:
+  arm                          CE       induction   A0-out-of-read [z,r]
+  plain                     4.65117     -0.0138     [2.4e-5, 5.5e-6]
+  + nonzero write init only 4.65758     -0.0095     [3.5e-6, 3.1e-6]
+  + partition & slot norm   4.76072     +0.0836     [0.483, 0.112]
+  + in-loss group lasso     4.74182     +0.1129     [0.574, 0.123]
+The nonzero write init was the biggest confound (every variant has it,
+plain does not) and it explains NOTHING — the reduction gate proves
+slots(n_slots=1, lasso 0, zero writes) is bit-exact plain, so that arm
+isolates the init alone. The lasso helps but is not necessary.
+
+MY READING OF THE MECHANISM, weaker than "opens a route" and I think more
+interesting: the partition REMOVES THE PLAIN MODEL'S OPTION TO COLLAPSE
+one. In the plain model the first attention block writes with norm 9.4 into
+a stream whose last write has norm 6931 — a factor of 740 — so RMSNorm
+renormalises it into invisibility (logit share 0.0002). Give each module a
+private, separately renormalised slot and that collapse is unavailable.
+
+COST, in the same breath: four of five variants are 0.085-0.097 nats WORSE
+(11-13 plain seed-sd). Wider channels -0.025, named terms -0.267.
+
+CAUGHT BEFORE REPORTING (arithmetic dressed as a finding): the MLP content
+spectrum for the MASKED-decoder variants was measured over all 128 output
+rows, but write_out discards every row outside the module slot so 96 of 128
+never get a gradient (row norms 100.5 inside slot 1, 4.7 outside). "Entropy
+rank 51 against a null of 123" was 32/128 and nothing else. On live rows
+with a shape-matched null all six sit at 0.98-1.00 — CONTENT IS STILL
+SPECTRAL IN EVERY ARCHITECTURE, which was the registered prediction and is
+the one thing none of these mechanisms moved.
+
+NOTE ON UNITS, since my 08:10 entry and the grid table use one convention
+and the checkpoints another: 4.5545 (plain) is the rung-5 ladder CE, 96
+held sequences at T=256; 4.65117 is the training-protocol held CE, 1500
+sequences at T=512. The context is half as long in the first, worth ~0.09
+nats. Both are in every cell JSON. Do not mix them.
+
+STILL RUNNING, and the claims above are provisional until they land: seeds
+1-2 for all five variants; the plain and private-channel models at Muon
+0.01 and 0.04 (so "it is the learning rate" can be killed the way the write
+init was); depth-1 matched nulls for the natural-text swap probe; and
+matched-embedding arms (slot 32) for the three variants whose stream is 160
+wide. Self-red-team in tf_variant_reviewer_round_1.json — 16 objections,
+strongest being that a dedicated slot makes deleting layer-0 attention
+destroy a quarter of the read whatever it contains, answered by the
+resample arm and by the route split.
+
+---
+
 **2026-08-08 08:10 UTC — ALL SIX ARCHITECTURES TRAINED AND INTERPRETED
 (depth 2, width 128, seed 0). CE ordering, plain-model seed sd at this cell
 is 0.0065 so anything past ~0.02 is real:**
