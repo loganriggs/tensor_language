@@ -7,6 +7,48 @@ they land with the finding in the commit message.
 
 ---
 
+**2026-08-08 14:40 UTC — THE PORTED DICTIONARY METHOD LANDS, AND TWO OF ITS
+RESULTS CORRECT THE PARENT PROGRAM. Read both before citing qk_mdl's
+layer-0 compression numbers again.**
+1. **THE FOLD IS A 3.1x EXPANSION OF THE MODEL, NOT A COMPRESSION OF IT.**
+   4.19M numbers against 1.34M parameters, because folding trades four
+   128x128 projections for a V-row table. **The parent program's object has
+   the same ratio.** So its headline "1024 atoms, k=8, +0.006 nats at 6.1%
+   of raw bits" is a true statement about the CIRCUIT and NOT a description
+   length — 6.1% of a thing three times larger than the model. Any use of
+   that frontier as an MDL claim needs this correction, and it explains why
+   no fold-storing description here can be short.
+2. **THE OV GEOMETRY CONTRIBUTES NOTHING; THE EXPOSURE SCALAR IS THE WHOLE
+   GAIN.** Throwing away the context metric's directions and keeping only
+   its per-token scalar mass BEATS the full metric (CE 4.8296 vs 4.8524 at
+   4.85 Mbit; 4.7715 vs 4.7854 at 19.5 Mbit), and both beat plain
+   reconstruction error (4.8868 / 4.8013). If this holds at width 1152 the
+   parent's OV-context training — several ticks of work — reduces to a
+   single per-token weight. Flagged for the scale box whenever it returns.
+3. ANCHORS DO PORT; the earlier negative does not survive retesting against
+   the folded object. They beat the pure dictionary by 1.09-2.0x in bits at
+   matched CE and their own random-anchor null by 1.40x on both seeds, with
+   the useful ordering exposure ~ frequency >> context-error, matching the
+   parent's "by exposure, not misfit". BUT the agent's own control weakens
+   it: a smooth stratified-k code matches the exact-row hybrid at matched
+   bits (4.8231 at 5.14 Mbit vs 4.8244 at 5.37), so this is a
+   BIT-ALLOCATION effect, not an exact-row effect.
+4. NOTHING BEATS THE MODEL: 0 of 214 descriptions below its held CE,
+   independently reproducing the reviewer's 0 of 208 on a DISJOINT set of
+   schemes.
+5. QUANTISATION STILL WINS THE BITS OUTRIGHT (~5x on the embedding, both
+   seeds) and the conversion law PREDICTED it before any run.
+6. THE POINT WORTH KEEPING: the atoms are NAMEABLE — surface purity 0.79
+   against a 0.49 null, recovering capital letters, name prefixes,
+   derivational suffixes, contraction tails, digits and spatial
+   prepositions. So the description is genuinely structural and genuinely
+   interpretable. It is simply not SHORT. That is the program's honest
+   result: **in these models, interpretable structure exists and does not
+   compress.**
+
+---
+
+
 **2026-08-08 14:25 UTC — FINDING 13: THE PARENT PROGRAM'S LAYER-0 DICTIONARY
 METHOD WAS PORTED PROPERLY (folded per-head-branch object + the context-expected
 OV objective of `../qk_mdl/ov_metric_explainer.md` eq. (dagger) + exact anchor
