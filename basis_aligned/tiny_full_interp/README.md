@@ -387,3 +387,39 @@ actual mistakes):
   the write the module produced on a DIFFERENT sequence) is harsher than
   zeroing at 13 of 14 layer-cells measured, so knockout numbers obtained by
   zeroing are LOWER BOUNDS and orderings derived from them can invert.
+
+## PROGRAM REFOCUSED ON COMPRESSION (Logan, 2026-08-08)
+
+Rungs 1-4 and 6 are done; rung 5 is not, and the measurement of why is the
+new starting point: the only weights-free description we have is the model's
+own token-pair table at KL 0.649 with 67.1M entries against the model's
+1.31M parameters — **the explanation is 51x larger than the model.** Naive
+compact alternatives all fail.
+
+The deliverable is now a **COMPRESSION FRONTIER**: description length in
+bits against KL from the true model, with the model's own size marked, so
+"does any description beat the model itself?" is settled by a plot. Every
+point must be a real evaluable description (code + tables) scored on held
+text with tables fit on the estimation split, and every point must carry its
+bits honestly including index and codebook overhead.
+
+Two facts that shape the attack:
+- **The embedding is 80% of the budget** at depth 1 width 128 (1.05M of
+  1.31M). The compression target is mostly the embedding, not the circuit.
+- **The model is ALREADY a 51x compression of the bigram table**, at better
+  loss (4.72 vs 5.20). So the model is the compressed artifact; the task is
+  a description SMALLER than the model that is also legible.
+
+Logan's framing, which the work should follow: at one layer part of the
+model is MEMORISATION (token-specific facts) and part is STRUCTURE (rules
+across tokens); structure should compress a lot and the memorisation should
+be somewhat compressible too. So: split them, measure each, compress each
+with the appropriate tool.
+
+Untried technique with the strongest prior: the parent program's frontier
+winner for this exact problem was EXACT ANCHOR ROWS (top tokens by
+attribution, bits charged) plus a compressed remainder, which beat
+everything else by 1.8-2.9x at matched bits (RESULTS_l0_mdl.md 3b/3c).
+
+A well-measured negative counts here: "this part is incompressible in every
+basis tried, and here are the bits" is a real deliverable.
