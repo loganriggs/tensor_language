@@ -1,0 +1,27 @@
+{
+  "vocab": 4096,
+  "unigram_floor_held_ce": 5.59924,
+  "unigram_floor_est_ce": 5.61374,
+  "bigram_held_ce": 4.43427,
+  "bigram_alpha_sweep_on_est": {
+    "0.1": 4.53386,
+    "0.5": 4.51556,
+    "1.0": 4.50768,
+    "3.0": 4.49521,
+    "10.0": 4.48159,
+    "30.0": 4.46932,
+    "100.0": 4.45646,
+    "300.0": 4.44648,
+    "1000.0": 4.44185,
+    "3000.0": 4.45316,
+    "10000.0": 4.49972
+  },
+  "bigram_alpha_chosen": 1000.0,
+  "bigram_alpha_at_grid_edge": false,
+  "bigram_beats_unigram_nats": 1.16497,
+  "bigram_nonzero_cells": 2788918,
+  "bigram_row_coverage": 1.0,
+  "fit": "counts on the train split; alpha tuned on the estimation split; scored on held.  Both are closed form -- no optimizer, so they are matched baselines by construction.",
+  "seconds": 7.4,
+  "control_bigram_beats_unigram": true
+}
