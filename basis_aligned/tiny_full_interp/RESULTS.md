@@ -53,7 +53,15 @@ order. Files: `tf_*_d2_w128_b8192_s0_interp3.json`, comparison in
 | content / random-factored null | 0.98 | ~1.0 | 1.00 | 1.00 | 0.99 | ~1.0 |
 | selection / random-table null | 0.36 | 0.29 | 0.27 | 0.27 | 0.27 | 0.19 |
 
-### 1. The attention-to-attention path: the plain model shuts it, every variant opens it
+### 1. The attention-to-attention path: nothing flows through it in the plain model — but the reason is MAGNITUDE, not a closed channel
+
+> **CORRECTED BY THE INDEPENDENT ROUND-2 REVIEW (`tf_reviewer_round_2.json`,
+> objection R1).** The causal numbers below are unchanged and replicate on
+> three seeds. What is **retracted** is the mechanistic gloss that the plain
+> model's layer 1 is *blind* to layer-0 attention, or that the variants
+> *opened* something in weight space. Under a matched-displacement probe the
+> plain model turns out to be the **most** sensitive of the six to layer-0
+> attention's direction. See §8.
 
 FINDING 8 measured that layer 1's read is 99.9% the first MLP's write, and
 concluded the attention→attention path induction needs is numerically closed.
@@ -203,7 +211,14 @@ when it *has* induction to route.
    variant moves content off its null** — 0.98 to 1.00 of the same-shape
    random-factored null in all six. P4 held. *A first draft of this number said
    slots and shrink sat at 0.42 and 0.40; that was the masking, not the content
-   — see the correction below.*
+   — see the correction below.* **Detection threshold, added by the round-2
+   review (R5):** this is a null result, so the detector was calibrated by
+   planting content confined to an *r*-dimensional input subspace. It reads
+   0.02–0.09 of the null at *r* = 2, 0.07–0.30 at *r* = 4, 0.27–0.83 at *r* = 8,
+   0.80–0.96 at *r* = 16 and 0.95–0.99 at *r* = 32 — indistinguishable from the
+   models' own 0.98–1.00. So the supported claim is **"content is not confined
+   to fewer than roughly 8–16 of the stream's 128–160 input directions"**, not
+   "content has no structure".
 5. **Ablation ranges.** Every knockout is quoted as [zero, resample]. P5 said
    resample would be harsher everywhere: **REFUTED.** For the layer-0 attention
    *write* in `slots` the order inverts (zero 1.72, resample 0.75) because a
@@ -237,14 +252,40 @@ only half kept:
   used in all four quantised modules, usage entropy is 5.32–5.43 nats against a
   maximum of 5.545, and it takes 182–204 atoms to cover 90% of assignments. The
   dictionary is as flat as a random one. Registered prediction P4's sub-clause
-  ("fewer than half the atoms carry 90%") is **REFUTED.** The quantisation is
-  also not gentle: the relative error it injects at the MLP inputs is 22% at
-  block 0 and 39% at block 1 — a large perturbation the model trains around,
-  for 0.097 nats.
-* **The shrinking channel does not find a low-dimensional token summary.** Its
-  remnant projections are near full rank for the width they are given (entropy
-  rank 62.2 of 64 at block 1, 30.9 of 32 at the readout), so the floor is doing
-  the compressing, not the model.
+  ("fewer than half the atoms carry 90%") is **REFUTED.**
+  **Round-2 review (R3b), two corrections, both against our own design.**
+  (i) *The flatness is in the data, not the mechanism, and that half is now
+  stronger:* a k-means dictionary of the same 256 atoms, fit on those very
+  activations and free to be as unequal as it likes, is **flatter still** —
+  usage entropy 0.98 of maximum against the trained codebook's 0.83, 202 atoms
+  for 90% against 111. (ii) *The published error figure is retracted.* "22% at
+  block 0, 39% at block 1" is the residual over the **full** module input, of
+  which only one or two of four slots are ever quantised; **on the slots
+  actually quantised the relative error is 0.77–0.85.** Worse, the dictionary
+  is under-trained: with the model's own matching pursuit at the model's own
+  *k*, k-means at the same 256 atoms reaches **0.43–0.51**, and the trained
+  codebook (0.846) is **no better than the random unit dictionary it was
+  initialised from** (0.816). A same-budget PCA to *k* dimensions also beats it
+  (0.70–0.77), so the mechanism fails the README's "beat a same-parameter-count
+  alternative" test. The honest sentence is that the codebook arm pays 0.097
+  nats for a dictionary that is both flat *and* barely trained at this size.
+* **The shrinking channel: half of this claim was wrong, and a spectral
+  statistic is why.** The original reading was "the remnant projections are near
+  full rank for the width they are given (entropy rank 62.2 of 64 at block 1,
+  30.9 of 32 at the readout), so the floor is doing the compressing". Entropy
+  rank is not causal, so the round-2 review (R3c) truncated each projection to
+  its top-*r* singular directions and scored the held KL, against a random
+  subspace of the same rank, on three seeds:
+  * **block-1 remnant (64 of 128): the claim SURVIVES, causally.** Rank 32 still
+    costs 0.28–0.33 nats, rank 48 costs 0.12–0.16, only the full 64 reaches 0.
+    And the *particular* subspace is doing work — a **random** 64-dimensional
+    subspace costs 0.45–0.50 nats where the model's own costs 0 — so the model
+    has selected a specific 64-dimensional summary without making it low rank.
+  * **readout remnant (32): the claim is RETRACTED.** Truncating it to **rank
+    one** costs 0.022–0.023 nats, and a random rank-1 subspace costs 0.023–0.026
+    — statistically the same. Thirty-one of its thirty-two directions are
+    causally worthless and the whole projection is worth ≤0.023 nats. Entropy
+    rank 30.9 of 32 was describing a spectrum that carries almost nothing.
 * **The predicate profiles are genuinely readable.** Each layer-0 head's named
   positional term peaks at a specific relative distance — heads 1–4 at distance
   0, heads 5–7 at distance 1, head 0 at distance 2 — which is a per-head distance

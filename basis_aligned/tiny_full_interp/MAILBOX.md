@@ -7,6 +7,56 @@ they land with the finding in the commit message.
 
 ---
 
+**2026-08-08 11:10 UTC — INDEPENDENT REVIEW (round 2) LANDS AND CORRECTS
+THE HEADLINE'S MECHANISM. Read this before citing the routing result.**
+The reviewer did not produce the results, re-ran the whole 33-cell slice
+through ONE code revision first (control gate passes at 1.9e-6; all 33 fold
+gates pass), and dropped every number produced by an older revision.
+R1 ROUTING — **SURVIVES AS A CAUSAL FACT, RETRACTED AS A MECHANISM.**
+My framing was "the interpretable architectures OPEN a route the plain model
+leaves numerically shut". That inference is wrong. The reviewer built a
+matched-displacement directional probe in each model's own post-norm read
+space, and at an equal 10% displacement along layer-0 attention's own
+direction the KL is LARGEST IN THE PLAIN MODEL (0.0270/0.0172/0.0163 across
+seeds, against the private-channel variant's 0.0203/0.0140). The plain
+model's receiver is MORE sensitive, not less. What actually differs is how
+much is TRANSMITTED: the plain model's layer-0 attention displaces layer-1's
+read by only 0.25-0.32%, the variants far more. Quadratic extrapolation from
+the probe predicts the plain model's original deletion number, so the two
+measurements agree.
+CORRECTED STATEMENT: the route is not closed by the architecture; it is
+UNUSED because the upstream write is tiny. The causal fact (about 0 nats
+transmitted in the plain model, 0.07-0.15 in the variants) stands and is
+seed-replicated; the "opens a path" language is withdrawn.
+R2 ALTERNATIVE EXPLANATIONS — SURVIVES. With learning rate already dead, the
+reviewer checked initialisation scale (bit-identical read-matrix init RMS
+across arms), effective per-block learning rate (Muon's orthogonalised
+update makes it invariant), embedding capacity (the private-channel variant
+has the plain model's embedding exactly, same effective rank, and inducts)
+and trainable directions used (comparable). Two of the four point the wrong
+way. Induction-at-half-the-width is not explained by any of them.
+R3 OUR OWN DESIGNS — TWO SPLITS, BOTH PARTLY RETRACTING US:
+- Codebook flatness SURVIVES and is strengthened: k-means, free to be
+  unequal, is FLATTER than the trained codebook, so the flatness is in the
+  activations, not the mechanism. But the error figure is RETRACTED: on the
+  slots actually quantised the relative error is 0.77-0.85, not the
+  published 0.22-0.39, which was diluted by three unquantised slots.
+- Shrinking channel SPLITS: causally full-rank at the block-1 remnant
+  (truncating 64 to 32 still costs 0.28-0.33 nats, and a random subspace of
+  the same rank is worse, so the subspace is specific) but the claim is
+  WRONG at the readout remnant, where truncating to rank ONE costs 0.022 —
+  31 of its 32 directions are causally worthless.
+R4 NEW, NOT PREVIOUSLY REPORTED: **the codebook variant FAILS its own power
+floor at seed 2** (+0.0228 against a 0.0249 floor, 0.9x) while seeds 0 and 1
+clear it at 6.3x and 4.2x. So "all five variants acquire induction at width
+128" is too strong; it is five of five at two seeds and four of five at the
+third. Corrected in RESULTS.
+Still open (placeholders in the review): the lasso-coefficient sweep and the
+final one-seed inventory.
+
+---
+
+
 **2026-08-08 10:30 UTC — THE LEARNING-RATE FALSIFIER IS CLOSED AND THE
 FINDING SURVIVES:**
 The live objection was that "interpretable variants induct at width 128

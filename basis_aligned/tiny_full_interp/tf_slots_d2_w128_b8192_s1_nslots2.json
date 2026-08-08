@@ -1,0 +1,486 @@
+{
+  "registered_predictions": {
+    "written_before_training": true,
+    "ladder_rungs_1_2": "the exact fold and the materialized tables pass their identity gates at EVERY width and depth in the grid; if a rung fails it fails at the LARGEST width first",
+    "width_effect": "held CE improves monotonically with width at fixed depth, with diminishing returns by width 128",
+    "depth_effect": "depth 2 beats depth 1 at every width, and the depth-2 gain GROWS with width (composition needs capacity to be worth having)",
+    "baseline_gap": "every trained cell beats the closed-form bigram table; the width-32 depth-1 cell beats it by less than 0.5 nats",
+    "attn_table_rank": "each layer-0 V x V score table has numerical rank equal to its algebraic bound (head_dim = 16) at delta = 0, so no head wastes its key subspace",
+    "seed_convergence": "held CE across seeds at a fixed cell spreads by less than 0.02 nats, but the materialized tables do NOT match across seeds beyond a permutation"
+  },
+  "config": {
+    "depth": 2,
+    "width": 128,
+    "vocab": 8192,
+    "tok": "bpe",
+    "seed": 1,
+    "variant": "slots",
+    "head_dim": 16,
+    "exp": 4,
+    "T": 512,
+    "n_slots": 2,
+    "group_coeff": 3e-05,
+    "write_init": true,
+    "small_dec": false,
+    "slot": 64,
+    "predicate": false,
+    "codebook": false,
+    "cb_n": 256,
+    "cb_k_attn": 4,
+    "cb_k_mlp": 2,
+    "shrink_mode": "",
+    "shrink_floor_slots": 1,
+    "stream_width": 128,
+    "n_heads": 8,
+    "hidden": 512
+  },
+  "corpus": {
+    "vocab": 8192,
+    "tokenizer": "bpe",
+    "seq_len": 513,
+    "unk": {
+      "tokenizer": "bpe",
+      "train_per_token": 0.0,
+      "held_per_token": 0.0,
+      "held_per_seq_mean": 0.0,
+      "held_eval_target_unk_frac": 0.0,
+      "note": "byte-level BPE: UNK impossible by construction; id 0 is <|endoftext|>",
+      "held_eos_frac": 0.001238281256519258
+    },
+    "train_split_rows": 240000,
+    "data_order_id": "epoch_order(0)@seed1234",
+    "single_epoch_arithmetic": "15000 steps x batch 16 = 240000 sequences = the entire train split, each visited exactly once",
+    "held": "held split rows [0:1500] (pure eval, never trained)"
+  },
+  "run": {
+    "lr_muon": 0.02,
+    "lr_adamw": 0.004,
+    "steps": 15000,
+    "batch": 16,
+    "train_curve_every200": [
+      [
+        0,
+        9.0359,
+        9.0359
+      ],
+      [
+        200,
+        6.08,
+        6.5721
+      ],
+      [
+        400,
+        5.6746,
+        5.7402
+      ],
+      [
+        600,
+        5.4211,
+        5.5108
+      ],
+      [
+        800,
+        5.3884,
+        5.3806
+      ],
+      [
+        1000,
+        5.4456,
+        5.335
+      ],
+      [
+        1200,
+        5.2555,
+        5.2866
+      ],
+      [
+        1400,
+        5.3403,
+        5.2547
+      ],
+      [
+        1600,
+        5.1442,
+        5.2388
+      ],
+      [
+        1800,
+        5.2124,
+        5.2057
+      ],
+      [
+        2000,
+        5.171,
+        5.1782
+      ],
+      [
+        2200,
+        5.1557,
+        5.1741
+      ],
+      [
+        2400,
+        5.1513,
+        5.1486
+      ],
+      [
+        2600,
+        5.1494,
+        5.1403
+      ],
+      [
+        2800,
+        5.1594,
+        5.1333
+      ],
+      [
+        3000,
+        5.2166,
+        5.1362
+      ],
+      [
+        3200,
+        5.1985,
+        5.1184
+      ],
+      [
+        3400,
+        5.0128,
+        5.1069
+      ],
+      [
+        3600,
+        5.0476,
+        5.1083
+      ],
+      [
+        3800,
+        5.129,
+        5.0819
+      ],
+      [
+        4000,
+        5.0196,
+        5.0873
+      ],
+      [
+        4200,
+        5.0602,
+        5.0686
+      ],
+      [
+        4400,
+        5.0322,
+        5.0651
+      ],
+      [
+        4600,
+        4.989,
+        5.0605
+      ],
+      [
+        4800,
+        5.0179,
+        5.0519
+      ],
+      [
+        5000,
+        5.0573,
+        5.0535
+      ],
+      [
+        5200,
+        5.1267,
+        5.0461
+      ],
+      [
+        5400,
+        4.9942,
+        5.0438
+      ],
+      [
+        5600,
+        4.9526,
+        5.0286
+      ],
+      [
+        5800,
+        5.0016,
+        5.0265
+      ],
+      [
+        6000,
+        4.9101,
+        5.0235
+      ],
+      [
+        6200,
+        4.935,
+        5.0195
+      ],
+      [
+        6400,
+        4.9978,
+        5.0093
+      ],
+      [
+        6600,
+        5.0407,
+        5.0022
+      ],
+      [
+        6800,
+        4.9947,
+        5.0025
+      ],
+      [
+        7000,
+        4.8994,
+        4.9947
+      ],
+      [
+        7200,
+        4.966,
+        4.9813
+      ],
+      [
+        7400,
+        5.1169,
+        4.9789
+      ],
+      [
+        7600,
+        4.9146,
+        4.9853
+      ],
+      [
+        7800,
+        5.0475,
+        4.9736
+      ],
+      [
+        8000,
+        5.059,
+        4.9634
+      ],
+      [
+        8200,
+        5.196,
+        4.9709
+      ],
+      [
+        8400,
+        4.9795,
+        4.9563
+      ],
+      [
+        8600,
+        4.8779,
+        4.9469
+      ],
+      [
+        8800,
+        4.9337,
+        4.954
+      ],
+      [
+        9000,
+        4.9626,
+        4.9408
+      ],
+      [
+        9200,
+        4.8832,
+        4.9516
+      ],
+      [
+        9400,
+        4.9457,
+        4.941
+      ],
+      [
+        9600,
+        4.953,
+        4.929
+      ],
+      [
+        9800,
+        5.0246,
+        4.9364
+      ],
+      [
+        10000,
+        4.9766,
+        4.9383
+      ],
+      [
+        10200,
+        4.891,
+        4.9343
+      ],
+      [
+        10400,
+        5.055,
+        4.929
+      ],
+      [
+        10600,
+        4.8392,
+        4.9129
+      ],
+      [
+        10800,
+        5.0513,
+        4.9168
+      ],
+      [
+        11000,
+        5.0391,
+        4.9203
+      ],
+      [
+        11200,
+        4.9606,
+        4.9156
+      ],
+      [
+        11400,
+        4.9718,
+        4.9041
+      ],
+      [
+        11600,
+        4.7998,
+        4.9064
+      ],
+      [
+        11800,
+        5.0541,
+        4.9041
+      ],
+      [
+        12000,
+        4.862,
+        4.9006
+      ],
+      [
+        12200,
+        4.9021,
+        4.9105
+      ],
+      [
+        12400,
+        4.8573,
+        4.893
+      ],
+      [
+        12600,
+        4.9531,
+        4.8923
+      ],
+      [
+        12800,
+        4.8658,
+        4.8921
+      ],
+      [
+        13000,
+        4.7784,
+        4.8834
+      ],
+      [
+        13200,
+        4.8869,
+        4.8936
+      ],
+      [
+        13400,
+        5.0175,
+        4.8878
+      ],
+      [
+        13600,
+        4.8984,
+        4.8854
+      ],
+      [
+        13800,
+        4.8131,
+        4.8808
+      ],
+      [
+        14000,
+        4.9241,
+        4.893
+      ],
+      [
+        14200,
+        4.8682,
+        4.8801
+      ],
+      [
+        14400,
+        4.8803,
+        4.8864
+      ],
+      [
+        14600,
+        4.8869,
+        4.884
+      ],
+      [
+        14800,
+        4.9087,
+        4.8903
+      ]
+    ],
+    "held100_curve": [
+      [
+        1875,
+        5.0998
+      ],
+      [
+        3750,
+        5.0114
+      ],
+      [
+        5625,
+        4.9448
+      ],
+      [
+        7500,
+        4.9039
+      ],
+      [
+        9375,
+        4.8635
+      ],
+      [
+        11250,
+        4.8281
+      ],
+      [
+        13125,
+        4.8075
+      ]
+    ],
+    "spikes": 0,
+    "diverged": false,
+    "wall_seconds": 280.1,
+    "sec_per_step": 0.01867,
+    "peak_mib": 2600,
+    "final_held_ce": 4.89137,
+    "n_params": 1638656,
+    "body_params": 590080
+  },
+  "vs_baselines": {
+    "unigram_floor": 7.30343,
+    "bigram": 5.2842,
+    "model_minus_bigram": -0.39283,
+    "model_minus_unigram": -2.41206,
+    "model_bits_per_byte": 1.8795,
+    "bigram_bits_per_byte": 2.03044,
+    "unigram_floor_bits_per_byte": 2.80632,
+    "bits_per_byte_rule": "the ONLY quantity comparable across tokenizers; nats/token above are within-tokenizer only"
+  }
+}
