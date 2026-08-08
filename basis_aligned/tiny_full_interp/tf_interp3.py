@@ -813,6 +813,65 @@ def norm_confound_control(D, G=4, n_seq=32, T=256, batch=8):
 
 
 @torch.no_grad()
+def induction_route_split(D, seeds=5):
+    """BY WHICH ROUTE DOES THE INDUCTION SIGNAL REACH LAYER-1 ATTENTION?
+
+    This is the measurement that overturned the program's first induction-circuit
+    claim: in the plain model at width 256, deleting layer-0 attention's write
+    from layer 1's Q/K/V READ moved the induction score by 0.0000, while
+    deleting it from MLP-0's INPUT reproduced the whole effect -- the signal
+    travels through the feed-forward block, not the attention-to-attention path.
+
+    Any claim that a variant 'opens the attention-to-attention path' has to be
+    settled with the same instrument, because an open route that carries no
+    induction is a different (and weaker) result than an open route the
+    algorithm actually uses.  Four arms, all with everything downstream
+    recomputed:
+
+      read_only : A0 removed from layer 1's Q/K/V read; MLP-0 untouched
+      mlp_only  : A0 removed from MLP-0's input; layer 1's read untouched
+      both      : removed from both
+      baseline  : the folded pipeline, unmodified
+    """
+    if D.L < 2:
+        return None
+
+    def read_sub(P_):
+        v = P_['rem'][1] + P_['M'][0]
+        return D._pre(2, v, {})
+
+    def mlp_sub(P_, x):
+        return x - P_['A'][0]
+
+    arms = {
+        'baseline': {},
+        'A0_out_of_layer1_read_only': {'reads': {1: read_sub}},
+        'A0_out_of_mlp0_input_only': {'mlp_reads': {0: mlp_sub}},
+        'A0_out_of_both': {'reads': {1: read_sub}, 'mlp_reads': {0: mlp_sub}},
+        'A0_write_deleted_entirely': {'attn': {0: 'zero'}},
+    }
+    out = {}
+    for nm, kw in arms.items():
+        fwd = (lambda kw_: lambda z: D.readout(D.run(z, **kw_)['r']))(kw)
+        r = [I1.induction_battery(D, seed=s, model=fwd) for s in range(seeds)]
+        out[nm] = {
+            'induction_score_mean': float(np.mean([q['induction_score']
+                                                   for q in r])),
+            'induction_score_sd': float(np.std([q['induction_score']
+                                                for q in r], ddof=1)),
+            'bag_score_mean': float(np.mean([q['bag_score'] for q in r]))}
+    b = out['baseline']['induction_score_mean']
+    out['fraction_of_induction_removed'] = {
+        k: (b - v['induction_score_mean']) / b for k, v in out.items()
+        if isinstance(v, dict) and 'induction_score_mean' in v and k != 'baseline'}
+    out['note'] = ('read_only large => the attention-to-attention path is not '
+                   'merely open, the algorithm USES it.  mlp_only large with '
+                   'read_only near zero is the plain model pattern: the signal '
+                   'goes through the feed-forward block.')
+    return out
+
+
+@torch.no_grad()
 def predicate_induction_split(D, seeds=5):
     """WHICH NAMED TERM CARRIES THE PREDICATE VARIANT'S INDUCTION?
 
@@ -1124,6 +1183,9 @@ def analyse(stem, quick=False, skip_baselines=True):
         'bag_score_sd': float(np.std([i['bag_score'] for i in ind], ddof=1))}
     rep['induction_power'] = I2.induction_power(D)
     rep['induction_by_head'] = I2.induction_by_head(D)
+    rs = induction_route_split(D)
+    if rs is not None:
+        rep['induction_route_split'] = rs
     ps = predicate_induction_split(D)
     if ps is not None:
         rep['predicate_induction_split'] = ps

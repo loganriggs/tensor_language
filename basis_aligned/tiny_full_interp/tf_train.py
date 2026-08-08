@@ -436,7 +436,7 @@ def lr_sweep(cfg, corpus, jp):
 
 def run_cell(variant='vanilla', depth=1, width=32, seed=0, vocab=8192,
              tok='bpe', do_sweep=True, slot=0, suffix='', n_slots=0,
-             group_coeff=None):
+             group_coeff=None, lr=None):
     """`slot` and `suffix` exist for MATCHED-PARAMETER CONTROLS only.
 
     solve_slot reinvests a small decoder's savings into a WIDER STREAM, and the
@@ -475,7 +475,8 @@ def run_cell(variant='vanilla', depth=1, width=32, seed=0, vocab=8192,
                                    f'train split, each visited exactly once',
         'held': 'held split rows [0:%d] (pure eval, never trained)' % HELD_EVAL_N}
     json.dump(out, open(jp, 'w'), indent=2)
-    lr = lr_sweep(cfg, corpus, jp) if (do_sweep and not SMOKE) else 0.02
+    if lr is None:
+        lr = lr_sweep(cfg, corpus, jp) if (do_sweep and not SMOKE) else 0.02
     out = json.load(open(jp))
     log, model = train_cell(cfg, corpus, lr_muon=lr, steps=STEPS, stem=stem)
     out['run'] = log
@@ -532,10 +533,12 @@ if __name__ == '__main__':
                     help='override the slot count (mechanism-decomposition arms)')
     ap.add_argument('--group-coeff', type=float, default=None,
                     help='override the in-loss group lasso coefficient')
+    ap.add_argument('--lr', type=float, default=None,
+                    help='force the Muon lr (learning-rate robustness arms)')
     a = ap.parse_args()
     if a.cmd == 'baselines':
         baselines(a.vocab, a.tok)
     else:
         run_cell(a.variant, a.depth, a.width, a.seed, a.vocab, a.tok,
                  do_sweep=not a.no_sweep, slot=a.slot, suffix=a.suffix,
-                 n_slots=a.n_slots, group_coeff=a.group_coeff)
+                 n_slots=a.n_slots, group_coeff=a.group_coeff, lr=a.lr)
