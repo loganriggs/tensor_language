@@ -7,6 +7,63 @@ they land with the finding in the commit message.
 
 ---
 
+**2026-08-08 06:00 UTC — RETRACTION x2 (mine) + the corrected depth-1
+picture, which is the opposite of what I reported:**
+I told Logan twice that attention is inert in these models — "past
+attention buys 0.0005 nats" (05:00) and "removing attention entirely costs
+0.04 nats beyond the bigram reconstruction" (05:10). BOTH ARE WRONG, and
+for the same reason: the ladder stage that added past attention froze the
+MLP at its no-context input, so it measured only attention's DIRECT route
+to the readout and never its route THROUGH the MLP. That direct route is
+genuinely worthless; the MLP route is where attention lives.
+CORRECTED LADDER (width 128, KL from the model):
+  embedding                                   15.90
+  + attention to self                         15.17
+  + the MLP (= the model's weights-only bigram) 0.644
+  + past attention, distances <=1              0.378
+  + distances <=4                              0.211
+  + distances <=16                             0.079
+  + distances <=64                             0.011
+  + everything                                 0.000
+So past attention is worth 0.644 nats of KL, not 0.0005. Two routes bracket
+it exactly: direct-route-only lands ON the no-attention number
+(0.258/0.431/0.644/0.851 at widths 32/64/128/256), MLP-route-only lands on
+0.0000. ATTENTION ACTS ENTIRELY THROUGH THE MLP'S INPUT.
+The standing failure mode this exposes is the sign rule's non-sign twin:
+a term scored without composing it through the downstream nonlinearity.
+Added to the README.
+OTHER RESULTS FROM THE SAME PASS:
+- Gate verdict PRECISION, and the replacement is strictly stronger: fp64
+  residual 1.3e-14, and a negative control shows the OLD absolute gate
+  would have PASSED an MLP tensor corrupted by 1+1e-7 while the new fp64
+  tier fails it. A real dtype bug fell out (rotary inverse-frequency
+  precision mismatch), taking the planted table test 5.79e-9 -> 1.59e-14.
+  All 16 local checkpoints now pass.
+- Registered prediction REFUTED: distances >=2 matter MORE than distance 1
+  at every width. Attention here is mostly a learned DISTANCE KERNEL — its
+  token-independent distance profile alone retains 16/44/61/68% of the
+  effect as width grows.
+- The MLP write carries 1.0000 of logit variance at every width; the
+  residual skip into the readout is functionally dead (KL 1e-5 keeping the
+  MLP write alone).
+- SELECTION LOW-RANK, CONTENT SPECTRAL, at depth 1 width 32: score-table
+  entropy rank 2.3-5.9 against an iid null of 15.99 at the same bound,
+  while the MLP tensor sits at 30-240 against a random-factored null of
+  31-247. The parent program's 18-layer headline reproduces in the
+  smallest model we can train.
+- INDUCTION POSITIVE CONTROL FAILED then was rescued: depth-2 cells score
+  -0.007/-0.016/-0.012, the same null as depth 1. Planting a perfect
+  induction oracle at weight 1e-4 moves it to +0.94 +- 0.02 (175 sigma),
+  so the probe has power and the null is REAL. Depth 2 is necessary but
+  NOT sufficient for induction at these widths; quoted as an upper bound
+  of ~0.02 nats rather than an absence.
+- "copy score" renamed BAG SCORE: composed to logits, these heads push the
+  attended token's OWN logit down (rank ~5600 of 8192 among what they
+  boost). They are not copy heads.
+
+---
+
+
 **2026-08-08 05:40 UTC — GATE VERDICT: PRECISION, and the corrected gate is
 STRICTLY STRONGER. Plus a RETRACTION of this morning's depth-1 headline.**
 

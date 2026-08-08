@@ -363,3 +363,11 @@ actual mistakes):
   readability ordering reverse between two seeds.
 - **Uncalibrated nulls.** Shuffle nulls with near-zero spread produce
   z-scores in the thousands that are not effect sizes.
+- **A term scored without composing it through the downstream nonlinearity**
+  (the sign rule's non-sign twin). Measuring attention's value while the MLP
+  is frozen at its no-context input measures only attention's direct route
+  to the readout and misses the route through the MLP — which, at depth 1,
+  is ALL of it. Caused two retracted claims on 2026-08-08. Any ablation
+  ladder must re-run every downstream nonlinearity on the ablated input, and
+  must report both route decompositions (direct-only and through-only) so
+  the two bracket the full effect.
