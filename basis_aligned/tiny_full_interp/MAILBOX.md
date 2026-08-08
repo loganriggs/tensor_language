@@ -7,6 +7,77 @@ they land with the finding in the commit message.
 
 ---
 
+**2026-08-08 18:05 UTC — THE DEPTH LADDER'S ROUTE HALF IS RETRACTED. It was a
+magnitude result wearing routing language, and it is the SAME error FINDING 11
+retracted at depth 2, made again one depth up.**
+
+Three seeds of every depth-3/4 cell are in, and the ladder has had its first
+INDEPENDENT review (`tf_reviewer_round_4.json`; it had had only a self-red-team).
+Full write-up: RESULTS.md FINDING 16. Three things to carry forward.
+
+1. TRANSMISSION IS A MAGNITUDE, NOT A ROUTE. Regress the read-ablation KL on
+   the write's own norm share of the read it enters, over all 243 write/read
+   pairs in the ladder (every source, every read, every depth-2/3/4 cell,
+   three seeds): Pearson r 0.9944, slope 1.992, residual spread 0.264 dex.
+   A KL is locally quadratic in a perturbation, so slope 2 is what NO
+   direction-specific gating looks like; the finding is that the residual is
+   a factor of 1.8 over six orders of magnitude of write size. Layer-0
+   attention's residual is +0.12 dex, i.e. it transmits slightly MORE than its
+   size predicts — the opposite of a gated channel. It is mute because at
+   depth 3 width 128 it writes a vector of norm 4.0 while layer-1 attention
+   writes 1028. So "the attention-to-attention route OPENS at depth 3" and
+   "the channel is SHUT" are withdrawn. What survives: the first attention
+   block writes almost nothing at every depth and width, every later one
+   writes ~250x more and is read accordingly, and depth 3 is simply the
+   smallest depth that HAS a later attention block.
+
+2. THE WIDTH THRESHOLD IS A PROPERTY OF THE CRITERION, NOT OF THE MODEL. Our
+   floor is 3 standard errors across PROBE seeds, so it shrinks as
+   1/sqrt(probe seeds) and any nonzero score clears it if you run the probe
+   longer. Three defensible criteria, three answers:
+     published 5-probe-seed floor, 2 of 3 model seeds : 256 / 128 / 64
+     20-probe-seed floor                              : 256 /  64 / 64
+     t-test over MODEL seeds (t(2) > 3.182)           : 256 / 128 / 128
+   The width-64 cells are not zero (+0.012 and +0.022 at 20 probe seeds
+   against a depth-matched content-free control of +0.0010) — they are small.
+   ADOPTED: any threshold claim is defined over MODEL seeds, which makes the
+   corrected "moves once" claim the one that stands; and the headline should
+   be the continuous magnitude surface, not a threshold.
+
+3. WHAT REPLICATED AND WHAT SHRANK. Route shares at three seeds:
+     d3 w64  L2 A1  0.195 +- 0.025   (seed 0 was 0.169)
+     d3 w128 L2 A1  0.233 +- 0.050   (seed 0 was 0.256)
+     d3 w256 L2 A1  0.299 +- 0.075   (seed 0 was 0.386, the TOP of the range)
+     d4 w128 L3 A1  0.215 +- 0.011   d4 w256 L2 A1  0.262 +- 0.110
+   The effect is at every cell and every seed (smallest share anywhere 0.073
+   against 1e-5 at depth 2), but the tidy "0.17 -> 0.26 -> 0.39 growing with
+   width" progression is 0.195/0.233/0.299 with overlapping spreads — a trend,
+   not a measurement. Route USE survives with its magnitude restated: cutting
+   layer-1 attention out of layer 2's read removes 0.857 +- 0.103 of the
+   induction score at d3 w128 (seed 0's 94.5% was again the top of the range),
+   0.551 +- 0.101 at d3 w256, and cutting layer-0 attention removes 0.000
+   everywhere. That claim is about what a write CARRIES and point 1 does not
+   reach it.
+
+Also: seed 0 is NOT systematically the flattering seed — it is the LOWEST of
+three at four of the six deep cells. It was the highest at exactly the two
+width-64 cells where the decision was marginal, which is a fact about marginal
+cells, not about seed 0: there the between-seed spread is the size of the
+effect and no number of probe seeds can adjudicate it. And one transcription
+error found: FINDING 14's `d4 w128 | 2` route row pairs layer 2's KL with
+layer 3's fraction; layer 2's fraction is 0.086, not 0.220.
+
+IN FLIGHT, do not report from its intermediate JSONs: the six architectures at
+DEPTH 3 width 128, three seeds (`tf_d3_variant_chain.sh`, predictions
+registered first in `tf_d3_variant_predictions.json`, verdict produced by
+`tf_d3_variant_report.py`). This is the accelerant-vs-additive question: at
+depth 2 the variants opened a route and inducted where vanilla could not; at
+depth 3 vanilla does both by itself. Note the forced slot-geometry deviation
+(128 is not divisible by 2*depth = 6, so slots/shrink run 8 slots of 16) and
+its two controls, documented in GRID.md Phase V4.
+
+---
+
 **2026-08-08 17:30 UTC — DEPTH LADDER COMPLETE AT 3 SEEDS, and it CORRECTS
 my correction. "One octave per layer" is WRONG.**
 Induction, depths 3-4, three seeds each (probe floor ~0.013-0.017):

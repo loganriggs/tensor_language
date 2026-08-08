@@ -7,6 +7,169 @@ were **refuted** are marked as such rather than quietly dropped.
 
 ---
 
+## 2026-08-08 — FINDING 16 (THE DEPTH LADDER AT THREE SEEDS, AND ITS FIRST INDEPENDENT REVIEW): the route half of FINDING 14 is **RETRACTED as a routing claim and restated as a magnitude one** — across all 243 write/read pairs in the ladder the read-ablation KL is a quadratic function of how big the write is (slope 1.99, r = 0.994, residual 0.26 dex), so nothing in this model gates a direction; and the induction "width threshold" turns out to be **a property of the detection criterion, not of the model** (three defensible criteria give 256/128/64, 256/64/64 and 256/128/128)
+
+Files: `tf_route_seeds.py` → `tf_route_seeds.json` / `tf_route_seeds_table.md`
+(the three-seed read-out of every route magnitude FINDING 14 quoted from seed
+0); `tf_reviewer_round_4.py` → `tf_reviewer_round_4_measurements.json` and
+`tf_reviewer_round_4_gpu.json` (the measurements); `tf_reviewer_round_4.json`
+(objection / measurement / verdict / fix round). The reviewer did not produce
+FINDING 14; it had had only a self-red-team.
+
+### 1. The route magnitudes at three seeds — what replicates
+
+Every depth-3/4 cell now has all three seeds. Mean ± sd, harsher of
+{zero, resample}, over the dominant MLP term, computed per seed:
+
+| cell | layer | source | zero KL | resample KL | share of dominant MLP | per-seed shares |
+|---|---|---|---|---|---|---|
+| d3 w64 | 2 | A1 | 0.0794 ± 0.0096 | 0.0585 ± 0.0021 | 0.195 ± 0.025 | 0.169, 0.197, 0.218 |
+| d3 w128 | 2 | A1 | 0.1617 ± 0.039 | 0.1020 ± 0.012 | 0.233 ± 0.050 | 0.256, 0.175, 0.267 |
+| d3 w256 | 2 | A1 | 0.2030 ± 0.056 | 0.0914 ± 0.014 | 0.299 ± 0.075 | **0.386**, 0.251, 0.260 |
+| d4 w64 | 3 | A2 | 0.0437 ± 0.0085 | 0.0306 ± 0.0053 | 0.233 ± 0.085 | 0.317, 0.235, 0.147 |
+| d4 w128 | 2 | A1 | 0.2121 ± 0.012 | 0.1565 ± 0.0031 | 0.082 ± 0.008 | 0.086, 0.086, 0.073 |
+| d4 w128 | 3 | A1 | 0.0851 ± 0.012 | 0.0582 ± 0.0088 | 0.215 ± 0.011 | 0.220, 0.222, 0.203 |
+| d4 w256 | 2 | A1 | 0.2899 ± 0.051 | 0.1277 ± 0.017 | 0.262 ± 0.110 | 0.344, 0.310, 0.131 |
+| d4 w256 | 3 | A1 | 0.0768 ± 0.015 | 0.0456 ± 0.010 | 0.234 ± 0.059 | 0.279, 0.255, 0.166 |
+
+**Survives:** the effect exists at every cell and every seed — the smallest
+attention-to-attention share anywhere in 18 cell-seeds is 0.073, against
+1.1e−6 … 1.9e−5 at depth 2 (all four widths, all three seeds). **Does not
+survive:** the *size* as quoted. Seed 0 was the top of its range at depth 3
+width 256 (0.386 of a 0.251–0.386 spread; the mean is 0.299), so the clean
+"0.17 → 0.26 → 0.39, growing with width" progression becomes
+0.195 ± 0.025 → 0.233 ± 0.050 → 0.299 ± 0.075, monotone in the mean but with
+overlapping seed spreads — a trend, not a measurement. **Layer-0 attention
+stays negligible at three seeds** but its published range must widen: the
+worst case anywhere is 1.6e−4 (depth 3, width 256, seed 1), not 3e−5.
+
+**The route-USE test at three seeds** (the strongest claim in FINDING 14, and
+it holds): cutting layer-1 attention out of layer 2's read removes
+**0.857 ± 0.103** of the induction score at depth 3 width 128 — seed 0's 94.5%
+was again the top of the range — 0.551 ± 0.101 at depth 3 width 256, and at
+depth 4 width 128 0.584 ± 0.009 (layer-1) and 0.328 ± 0.033 (layer-2), while
+cutting layer-0 attention removes 0.000 ± 0.001 everywhere. The two width-64
+cells produce fractions ranging from −28.6 to +5.4 across seeds because their
+baseline induction is at its own floor; they are noise and are reported as
+noise.
+
+### 2. THE RETRACTION: transmission is a magnitude, not a route
+
+The reviewer's decisive measurement. For all **243** (upstream write,
+downstream read) pairs in the ladder — every source, every read, every
+depth-2/3/4 cell, three seeds — regress log₁₀ of the read-ablation KL on
+log₁₀ of that write's own **norm share of the read it enters** (mean per-token
+write norm ÷ root-sum-square of every source feeding that read, both from the
+same interp3 JSON):
+
+| | |
+|---|---|
+| Pearson r | **0.9944** |
+| slope | **1.992** |
+| residual sd | **0.264 dex** (a factor of 1.8) |
+| residual for layer-0 attention | **+0.120 dex** |
+| A0 vs A1 write norm, depth 3 width 128 seed 0 | **4.04 vs 1027.7** |
+
+A KL is locally quadratic in a perturbation, so the slope of 2 is what *no
+direction-specific gating* looks like; the finding is that the **residual is
+only 0.26 dex over six orders of magnitude of write size**, i.e. the
+directional factor is nearly constant and the read-ablation KL carries almost
+no routing information at all. A genuinely gated channel would appear as a
+large negative residual for its source. Layer-0 attention's residual is
+**positive** — it transmits slightly *more* than its size predicts.
+
+So **"the attention-to-attention route opens at depth 3", "the channel is
+shut" and "layer-0 attention is the shut channel" are withdrawn.** What
+survives is the plain magnitude statement:
+
+> The FIRST attention block writes almost nothing at every depth and every
+> width; every LATER attention block writes about 250× more and is read
+> accordingly. Depth 3 is simply the smallest depth that HAS a later
+> attention block.
+
+This is the FINDING 11 retraction repeated one depth up: the same inference
+was made and withdrawn at depth 2 in August, and FINDING 14 reinstated it at
+depth 3 without redoing the check. The self-red-team did not catch it; an
+outside reviewer with the same JSONs did, in one regression.
+
+The route-USE result (§1) is **not** touched by this. "How much of the
+induction score does this write carry" is a question about content, and the
+answer (86% for layer-1 attention, 0% for layer-0 attention) is not
+predictable from write size alone.
+
+### 3. THE SECOND RETRACTION: the width threshold is a property of the criterion
+
+The induction floor in this programme is 3 standard errors of the score across
+**probe** seeds, so it shrinks as 1/√(probe seeds) and any nonzero score can be
+made to clear it by running the probe longer. Recomputing the threshold table
+three defensible ways:
+
+| criterion | depth 2 | depth 3 | depth 4 |
+|---|---|---|---|
+| published 5-probe-seed floor, 2 of 3 model seeds | 256 | 128 | **64** |
+| 20-probe-seed floor, score recomputed on the same 20 | 256 | **64** | **64** |
+| **t-test over MODEL seeds** (t(2) > 3.182) | 256 | **128** | **128** |
+
+Three answers: "one octave per layer", "two octaves at depth 3", and "the
+threshold moves once". The width-64 cells are not zero — +0.0122 and +0.0221
+at 20 probe seeds, against a depth-matched content-free control of +0.0010 —
+they are **small**. **Adopted:** a threshold claim must be defined over MODEL
+seeds, because that is the population "a model of this size does X"
+quantifies over, and under that criterion the corrected FINDING 14 claim
+(256 at depth 2, 128 at depths 3 AND 4) is the one that stands. **Adopted
+more strongly:** the programme should stop quoting a threshold as the
+headline. The defensible object is the continuous magnitude surface, which is
+monotone in both axes and has none of this fragility — +0.094/+0.221/+0.294 at
+width 256 for depths 2/3/4, +0.109/+0.158 at width 128 for depths 3/4,
++0.004/+0.010 at width 64.
+
+### 4. The probe is NOT depth-biased (the objection that did not stick)
+
+A depth-matched false-positive control that no untrained-model control can
+give: every layer's attention pattern is replaced by the uniform average over
+the causal past, and separately by the position-only pattern. Depth, the
+trained MLPs and the trained readout are untouched, but the pattern no longer
+depends on which token is where, so induction is impossible by construction.
+Across 24 checkpoints × 2 modes × 20 probe seeds, **0 of 48 arms clears its own
+floor** and the largest apparent induction anywhere is **+0.0010 nats** — two
+orders of magnitude below the depth-3/4 width-128 scores, with no depth trend
+(max +0.0010/+0.0008/+0.0009/+0.0008 at depths 1/2/3/4). The floor itself does
+creep upward with depth (+0.0010 nats per layer, 0.0093 → 0.0125 from depth 1
+to 4, r = 0.37), which makes deep detections *harder*, not easier.
+
+### 5. Three smaller findings from the same review
+
+- **A transcription error in FINDING 14's route table.** The row
+  `d4 w128 | 2 | A1 | [0.2140, 0.1530] | 0.220` pairs layer 2's KL with layer
+  3's fraction. Layer 2's fraction is **0.086**. Corrected in §1 above. The
+  general lesson: a finding's table should be the generated artifact, not a
+  hand-selected row from it.
+- **Route numbers are max-selected over a candidate set that grows with
+  depth** (1 attention candidate at depth 2, 2 at depth 3, 3 at depth 4). The
+  criticism is correct and was not stated; it cannot explain five orders of
+  magnitude over two candidates, and the *within-read* comparison — layer-0
+  against layer-1 attention into the *same* layer-2 read, where the candidate
+  count is fixed — gives a ratio of 2.8e3 to 5.8e5 at all 18 cell-seeds. Every
+  route number should now carry its candidate count and the share-of-total
+  normalization (0.064–0.233) beside the share-of-dominant-MLP (0.073–0.386).
+- **Seed 0 is not the flattering seed — the marginal cells are marginal.**
+  Seed 0 is the *lowest* of three at four of the six depth-3/4 cells and the
+  highest at exactly the two width-64 cells where the decision was marginal.
+  At those cells the between-seed spread (0.004–0.007) is the size of the
+  effect, so no number of probe seeds can adjudicate them. That is a stronger
+  statement than "seed 0 was lucky" and it agrees with §3.
+
+### 6. What this leaves standing in FINDING 14
+
+The induction magnitude surface at three seeds; the corrected threshold under
+the model-seed criterion; the route-USE result restated at three seeds; the
+first-attention-block magnitude anomaly; and the depth-2 comparison arm as the
+instrument's own null. Everything else in FINDING 14 §2 is retracted or
+restated above, and FINDING 14's header should be read only with this section
+beside it.
+
+---
+
 ## 2026-08-08 — FINDING 15 (COMPRESSIBILITY ACROSS THE WHOLE GRID): "structure does not compress" is a **property of this architecture family, not an artifact of the smallest model** — the ratio SHRINKS with size (slope −0.042 ± 0.009 per e-fold of parameters, t = −4.9), at the largest cell the best description we can build is **worse** than bit-packing, and no description made out of an interpretation appears anywhere on the frontier at any cell
 
 Files: `tf_compress_grid.py` (a DEPTH-GENERAL decoder and the identical scheme
@@ -145,11 +308,18 @@ in `tf_depth_ladder.json` / `tf_depth_ladder_table.md`. Registered predictions
 P1–P4 in `tf_depth_ladder_predictions.json`, written before the first depth-3
 training step.
 
-> **SEED STATUS.** Depths 1 and 2 are three seeds a cell. Depths 3 and 4 are
-> **seed 0 only** at the time of writing; seeds 1 and 2 are training in the same
-> chain and `tf_depth_report.py` regenerates every number and both verdicts from
-> the JSONs when they land. Every depth-3/4 claim below is therefore marked
-> PROVISIONAL ON ONE SEED, which in this programme is not yet a structure claim.
+> **SUPERSEDED IN PART — READ FINDING 16 FIRST.** All three seeds have landed
+> and this finding has been through an independent review it had not had when
+> it was written. Two things below are **RETRACTED**: the routing language in
+> §2 ("the route opens", "the channel is shut") is withdrawn and restated as a
+> magnitude result, and the "one octave per layer" threshold in §1 is withdrawn
+> twice over — first by the seeds (the corrected claim is that the threshold
+> moves ONCE, 256 → 128 → 128) and then by the review, which shows the
+> threshold is a property of the detection criterion rather than of the model.
+> Every route number in §2 is a seed-0 number; the three-seed values, and one
+> transcription error in the §2 table, are in FINDING 16 §1 and §5. The
+> route-USE result in §3 survives replication with its magnitude restated
+> (94.5% → 86% ± 10%).
 
 ![the depth ladder](fig_tf_depth_ladder.png)
 

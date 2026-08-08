@@ -1,0 +1,70 @@
+{
+  "registered_utc": "2026-08-08T17:35Z",
+  "written_before": "the first depth-3 variant training step (no depth-3 non-vanilla checkpoint exists on disk at registration time)",
+  "question": "At depth 2 the five interpretable architectures opened an attention-to-attention residual route the plain model left empty, and they acquired induction at width 128 where the plain model needed 256. At depth 3 the PLAIN model opens that route by itself and inducts at width 128. Do the architectures merely ACCELERATE what depth provides, or do they still add something at depth 3?",
+  "cells": "six variants (vanilla / slots / bandwidth / predicate / codebook / shrink) x depth 3 x width 128 x seeds 0,1,2; vanilla already trained by the depth-ladder chain, the other five trained here with the identical command (Muon 0.02, AdamW 0.004 on the embedding, 15000 steps x batch 16, single epoch, --no-sweep, V=8192 trained BPE, identical data order)",
+  "instruments": "tf_interp3.py verbatim (the same code path that produced every depth-1/2, depth-3/4 and six-architecture number) plus tf_depth_addendum.py for the route-USE test; every route number quoted as [zero, resample]; induction quoted against its OWN per-cell planted-oracle power floor",
+  "three_outcomes_to_distinguish": {
+    "a_accelerant": "the variants' advantage VANISHES at depth 3 -- depth supplies what the architecture supplied at depth 2",
+    "b_additive": "the advantage PERSISTS at the same size -- the architectures add something depth does not",
+    "c_interference": "it INVERTS -- depth and the architectures interfere"
+  },
+  "anchors_at_depth_2_width_128": {
+    "induction_mean_sd_over_3_seeds": {"vanilla": [-0.0034, 0.0099], "slots": [0.0972, 0.0275], "bandwidth": [0.1190, 0.0524], "predicate": [2.6402, 0.0481], "codebook": [0.0375, 0.0157], "shrink": [0.0860, 0.0303]},
+    "A0_into_layer1_read_kl_zero_resample": {"vanilla": [1.3e-05, 4.3e-06], "slots": [0.551, 0.124], "bandwidth": [0.538, 0.144], "predicate": [0.353, 0.070], "codebook": [0.119, 0.096], "shrink": [0.229, 0.143]},
+    "held_ce_T512": {"vanilla": 4.6463, "slots": 4.7414, "bandwidth": 4.6279, "predicate": 4.3861, "codebook": 4.7542, "shrink": 4.7243}
+  },
+  "anchors_at_depth_3_width_128_vanilla_seed0": {
+    "induction": 0.0974, "floor": 0.0078,
+    "A1_into_layer2_read_kl_zero_resample": [0.1798, 0.1150],
+    "A1_fraction_of_dominant_MLP": 0.256,
+    "A0_into_any_downstream_read": "~1e-6",
+    "route_use_A1_out_of_layer2_read": "-94.5% of induction",
+    "route_use_A0_out_of_any_read": "0.0%"
+  },
+  "predictions": [
+    {
+      "id": "PD1",
+      "claim": "The QUALITATIVE advantage vanishes. Plain vanilla at depth 3 width 128 clears its own power floor at 3 of 3 seeds, so 'the variants induct where the plain model cannot' is no longer true at this cell.",
+      "falsifier": "vanilla below its per-cell floor at 2 or 3 of 3 seeds",
+      "confidence": 0.85
+    },
+    {
+      "id": "PD2",
+      "claim": "The MAGNITUDE advantage largely goes with it. Excluding predicate (whose induction is handed over by 16 named scalars, not learned), the ratio variant/vanilla of the 3-seed mean induction score lands in [0.5, 2.0] for at least 3 of the 4 remaining variants.",
+      "decision_rule": "ratio > 2.0 for >=3 of the 5 variants => outcome (b) PERSISTS; ratio < 0.5 for >=3 of 5 => outcome (c) INVERTS; otherwise outcome (a) ACCELERANT",
+      "confidence": 0.6
+    },
+    {
+      "id": "PD3",
+      "claim": "The variants' OWN channel stays open and is depth-independent: layer-0 attention into layer 1's read carries >= 0.05 nats (zeroing) in at least 4 of the 5 non-vanilla variants at depth 3, while vanilla stays below 1e-4 there at all three seeds. This is the one thing that should NOT be supplied by depth, because FINDING 14 showed layer-0 attention stays mute at every depth in the plain model.",
+      "falsifier": "variant A0->layer-1 route below 0.01 nats in 3 or more of the 5 variants",
+      "confidence": 0.8
+    },
+    {
+      "id": "PD4",
+      "claim": "The newly depth-opened route (layer-1 attention into layer 2's read) is open in ALL SIX architectures at depth 3, with a fraction-of-dominant-MLP in [0.10, 0.70] everywhere, and the variants' fraction is >= vanilla's.",
+      "falsifier": "any variant below 0.05, or the variant mean fraction below vanilla's",
+      "confidence": 0.55
+    },
+    {
+      "id": "PD5",
+      "claim": "The variants' induction is carried on MORE THAN ONE route. Cutting layer-1 attention out of layer 2's read removes 40-90% of the induction score in the variants (against 94.5% in vanilla at seed 0), and cutting layer-0 attention out of a downstream read removes more than 10% in at least 3 of the 5 variants (against 0.0% in vanilla).",
+      "falsifier": "A0 removal below 10% in 3 or more variants, i.e. the variants also run the algorithm purely on the depth-supplied route",
+      "confidence": 0.5
+    },
+    {
+      "id": "PD6",
+      "claim": "The held-CE ordering from depth 2 survives depth 3: predicate best of the six, bandwidth within 0.03 nats of vanilla, and slots/codebook/shrink between 0.05 and 0.15 nats worse than vanilla.",
+      "falsifier": "any of the three clauses failing at the 3-seed means",
+      "confidence": 0.7
+    },
+    {
+      "id": "PD7",
+      "claim": "Depth is worth more than architecture on loss: every variant's depth-3 held CE is below its own depth-2 held CE by 0.06-0.14 nats, a gain comparable to vanilla's own 2->3 gain of 0.118 at width 128.",
+      "falsifier": "any variant failing to improve, or a gain outside [0.03, 0.20]",
+      "confidence": 0.75
+    }
+  ],
+  "verdict_rule": "The headline is decided by PD2's decision rule on induction magnitude AND PD1 on the qualitative threshold, with PD3/PD4/PD5 deciding whether the ROUTE story is the same object as the CAPABILITY story. It is possible and interesting for the capability advantage to vanish (a) while the routing difference persists -- that would say the variants' distinctive route is real but no longer buys the capability once depth supplies its own."
+}

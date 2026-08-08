@@ -142,6 +142,41 @@ Priority order, unclaimed:
 **Phase V3 — seeds** (3 seeds on whatever V1/V2 leaves standing; the parent
 program's rule is that no structure claim survives a single seed).
 
+## Phase V4 — THE SIX ARCHITECTURES AT DEPTH 3 (CLAIMED BY LOCAL 2026-08-08 17:30, RUNNING)
+
+The interaction the slice and the ladder jointly set up and neither ran. At
+depth 2 the five interpretable architectures used a residual route the plain
+model left empty AND inducted at width 128 where the plain model needed 256.
+At depth 3 the plain model does both by itself. **So are the architectures an
+ACCELERANT for what depth supplies (a), do they still ADD something (b), or do
+they INTERFERE (c)?** Predictions PD1–PD7 registered before the first training
+step in `tf_d3_variant_predictions.json`; chain `tf_d3_variant_chain.sh` (log
+`tf_d3_variant_chain.log`); verdict produced mechanically by
+`tf_d3_variant_report.py` → `tf_d3_variant_slice.json` / `tf_d3_variant_table.md`.
+
+| cell | owner | status |
+|---|---|---|
+| vanilla d3 w128 s0/1/2 | LOCAL | **done** (from the depth ladder, not retrained) — CE 4.5276 ± 0.0007, induction +0.1085 ± 0.0133 |
+| slots / bandwidth / predicate / codebook / shrink, d3 w128, s0/1/2 | LOCAL | local:running (15 cells, ~8 min each including analysis) |
+| `slots` d2 w128 `_g8`, s0/1/2 — slot-geometry control | LOCAL | local:running |
+| vanilla and slots d3 **w192** s0 — the exact 6×32 geometry | LOCAL | local:running |
+
+**SLOT-GEOMETRY DEVIATION, forced by arithmetic and documented rather than
+hidden.** The masked-decoder variants (`slots`, `shrink`) need one slot per
+module, i.e. n_slots = 2·depth = 6 at depth 3, and the stream must partition
+evenly — but 128 is not divisible by 6. The only n_slots that both divides 128
+and leaves every module a nonempty write mask is **8**, so `slots` and
+`shrink` run 8 slots of 16 instead of depth 2's 4 of 32 (two slots written by
+nothing). The small-decoder variants are unaffected: they scatter into 6
+solved slots, stream 168. The two controls in the table price the deviation —
+the same geometry change at the depth-2 cell whose answer is already
+published, and depth 3 at width 192 where 6 × 32 is exact.
+
+**Round-4 review compliance.** Per `tf_reviewer_round_4.json`, this slice
+quotes every route KL beside the write's **norm share of the read it enters**
+(a read-ablation KL is quadratic in that share, r = 0.994), and decides
+induction over **model seeds**, not against a probe-noise floor.
+
 The question V1 answers is NOT which variant wins on loss — at this size that
 is nearly meaningless. It is: **do the architectures that claim to be more
 interpretable actually compute the same thing by different means, or do they
@@ -162,15 +197,25 @@ so the whole ladder is one code path end to end.
 
 | depth | width | owner | status |
 |---|---|---|---|
-| 3 | 64 | LOCAL | **seed 0 done + interpreted** — CE 4.9417, induction +0.0077 (BELOW its 0.0109 floor); seeds 1,2 running |
-| 3 | 128 | LOCAL | **seed 0 done + interpreted** — CE 4.5285, **induction +0.0974** vs floor 0.0078; seeds 1,2 running |
-| 3 | 256 | LOCAL | **seed 0 done + interpreted** — CE 4.2182, **induction +0.1642** vs floor 0.0156; seeds 1,2 running |
-| 4 | 64 | LOCAL | **seed 0 done + interpreted** — CE 4.8817, **induction +0.0173** vs floor 0.0133 (1.3× the floor, the one marginal cell); seeds 1,2 running |
-| 4 | 128 | LOCAL | **seed 0 done + interpreted** — CE 4.4601, **induction +0.1264** vs floor 0.0112; seeds 1,2 running |
-| 4 | 256 | LOCAL | **seed 0 done + interpreted** — CE 4.1436, **induction +0.3019** vs floor 0.0137; seeds 1,2 running |
+| 3 | 64 | LOCAL | **done, 3 seeds, interpreted + route-use** — induction +0.0035 ± 0.0041, model-seed t 1.47, **NULL** |
+| 3 | 128 | LOCAL | **done, 3 seeds** — CE 4.5276 ± 0.0007, **induction +0.1085 ± 0.0133** (t 14.1) |
+| 3 | 256 | LOCAL | **done, 3 seeds** — **induction +0.2207 ± 0.0605** (t 6.3) |
+| 4 | 64 | LOCAL | **done, 3 seeds** — induction +0.0099 ± 0.0068, model-seed t 2.52, **NULL** (seed 0's +0.0173 was the highest of the three) |
+| 4 | 128 | LOCAL | **done, 3 seeds** — **induction +0.1583 ± 0.0277** (t 9.9) |
+| 4 | 256 | LOCAL | **done, 3 seeds** — **induction +0.2945 ± 0.0284** (t 18.0) |
 
-**Seed-0 verdicts (RESULTS.md FINDING 14; PROVISIONAL until seeds 1 and 2 land,
-which the same chain is producing).** The induction width threshold falls **one
+> **THREE SEEDS ARE IN AND THE LADDER HAS BEEN INDEPENDENTLY REVIEWED — read
+> RESULTS.md FINDING 16 before the paragraph below, which is the superseded
+> seed-0 verdict and is kept only as the record.** Corrections: the threshold
+> moves **ONCE** (256 at depth 2, 128 at depths 3 AND 4), and even that is
+> criterion-dependent; the routing language is **retracted** and restated as a
+> magnitude result (read-ablation KL is quadratic in the write's norm share,
+> r = 0.994 over 243 pairs); the route-USE result survives at 86% ± 10%, not
+> 94.5%. Machinery: `tf_route_seeds.py`, `tf_reviewer_round_4.py`,
+> `tf_reviewer_round_4.json`.
+
+**Seed-0 verdicts (RESULTS.md FINDING 14; SUPERSEDED — see the box above).**
+The induction width threshold falls **one
 octave per layer** — 256 at depth 2, 128 at depth 3, 64 at depth 4 — and at
 depth 3 the **attention-to-attention route opens** (layer-1 attention into layer
 2's read is 17–39% of the dominant MLP term, against 1e−5 at depth 2) **and the

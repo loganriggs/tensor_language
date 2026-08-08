@@ -1,0 +1,128 @@
+{
+  "round": 4,
+  "date_utc": "2026-08-08",
+  "target": "RESULTS.md FINDING 14 (the depth ladder, depths 3 and 4), including the 2026-08-08 17:30 MAILBOX correction of its P1 headline",
+  "reviewer": "independent - did not produce FINDING 14, had the checkpoints, the JSONs and the code in hand",
+  "prior_review_status": "self-red-team only (FINDING 14 section 6). This is the first outside attack.",
+  "machinery": "tf_reviewer_round_4.py (all measurements), tf_reviewer_round_4_measurements.json (numbers), tf_reviewer_round_4_gpu.json (the content-free control and the 20-probe-seed floors), tf_route_seeds.py / tf_route_seeds.json (the three-seed route read-out this review depends on)",
+  "objections": [
+    {
+      "id": "O1",
+      "objection": "The induction probe's POWER FLOOR may itself be depth-dependent. A deeper model has more machinery that could manufacture a positive induction score for a non-induction reason, so 'depth-3 width 128 inducts' could be depth-driven false positive rather than a capability. The floor is also estimated from only five probe seeds.",
+      "measurement": "A depth-matched FALSE-POSITIVE control that no untrained-model control can give: every layer's attention pattern is replaced by the uniform average over the causal past ('meanpast') and, separately, by the position-only pattern ('pos'). Depth, the trained MLPs and the trained readout are untouched, but the pattern no longer depends on which token is where, so induction is impossible by construction. The induction battery is then run on that object with 20 probe seeds, at depths 1, 2, 3 and 4 and widths 64, 128, 256 (24 checkpoints, 48 control arms). Separately, the published 5-probe-seed floor is regressed on depth across all 42 cell-seeds.",
+      "result": {
+        "false_positive_rate": "0 of 48 control arms cleared their own floor",
+        "largest_content_free_induction_score_anywhere": 0.0010126908620196496,
+        "content_free_score_mean_by_depth": {"1": -0.00937, "2": -0.00750, "3": -0.00621, "4": -0.00681},
+        "content_free_score_max_by_depth": {"1": 0.00101, "2": 0.00077, "3": 0.00092, "4": 0.00081},
+        "published_floor_vs_depth": {"slope_nats_per_layer": 0.00104, "pearson_r": 0.367, "floor_by_depth": {"1": 0.00930, "2": 0.00985, "3": 0.01074, "4": 0.01254}}
+      },
+      "verdict": "OBJECTION NOT SUSTAINED as a threat to the finding, and the one part that is real works AGAINST the finding rather than for it. Depth-matched machinery with the content stripped out of the attention pattern produces at most +0.0010 nats of apparent induction at any depth - two orders of magnitude below the +0.108 and +0.158 the depth-3 and depth-4 width-128 cells show, and it does not grow with depth. The floor itself DOES creep upward with depth (+0.0010 nats per layer, 0.0093 at depth 1 to 0.0125 at depth 4, r = 0.37), so a deeper model must clear a HIGHER bar; that makes the deep detections harder, not easier, and it makes the two width-64 nulls slightly more likely to be called null. FINDING 14 should state the depth trend in the floor rather than leave the floor unexamined."
+    },
+    {
+      "id": "O2",
+      "objection": "The route measurement is not comparable across depths. Layer 1 of a depth-2 model has three upstream sources; layer 2 of a depth-3 model has five and layer 3 of a depth-4 model has seven. 'The largest attention-to-attention source' is therefore a MAXIMUM OVER A GROWING CANDIDATE SET (one candidate at depth 2, two at depth 3, three at depth 4), which biases the statistic upward with depth; and the denominator ('the dominant MLP term') is itself a different object at each depth.",
+      "measurement": "Four things, all from the existing JSONs at three seeds: (i) the decisive comparison restated WITHIN A SINGLE READ, where the candidate count is fixed by construction - layer-0 attention against layer-1 attention into the SAME layer-2 read of the SAME model; (ii) the route renormalized three ways - share of the dominant MLP, share of the total read-ablation mass, and rank among all sources; (iii) all attention sources listed rather than the maximum; (iv) a source-matched, depth-varied contrast - the second attention block's transmission into layer 2 at depth 3 against the same quantity at depth 4.",
+      "result": {
+        "within_read_ratio_largest_attention_over_A0": "2.8e3 to 5.8e5, median about 1.6e5, at all 18 depth-3/4 cell-seeds - the same read, the same model, the same candidate count",
+        "share_of_dominant_mlp_vs_share_of_total": "0.073-0.386 against 0.064-0.233; the conclusion is unchanged by the normalization",
+        "rank_of_the_largest_attention_source_among_all_sources": "2nd or 3rd of 5 at depth 3 and 3rd of 7 at depth 4 - never the largest, always well inside the pack",
+        "A1_into_layer_2_by_depth_zero_KL": {"depth_3": [0.148, 0.064], "depth_4": [0.199, 0.089]},
+        "n_attention_candidates_per_read": {"depth2_layer1": 1, "depth3_layer2": 2, "depth4_layer3": 3}
+      },
+      "verdict": "OBJECTION PARTLY SUSTAINED ON METHOD, NOT ON CONCLUSION. The maximum-over-a-growing-candidate-set criticism is correct as stated and FINDING 14 should not have quoted a max-selected statistic across depths without saying so - but it cannot explain a five-order-of-magnitude effect over two or three candidates, and the non-selected candidate (layer-0 attention) is 1e-6 in the very same read. The within-read comparison, which the objection cannot touch, gives the same answer at all 18 cell-seeds. The source-matched contrast shows the second attention block transmits the same amount at depth 3 (0.148 +- 0.064) and at depth 4 (0.199 +- 0.089), so the quantity tracks WHICH BLOCK WROTE IT, not how deep the model is. REQUIRED FIX: quote share-of-total beside share-of-dominant-MLP, and state the candidate count."
+    },
+    {
+      "id": "O2b",
+      "objection": "RAISED BY THE REVIEWER WHILE MEASURING O2, and it is the most serious finding of this round. FINDING 14 describes routes as OPENING and CLOSING. That is a claim about direction-specific gating. But a read-ablation KL is, for any perturbation, locally quadratic in the size of the perturbation, so 'this route carries a lot' and 'this module writes a lot' are not distinguishable without a measurement that separates them - and FINDING 11 already retracted exactly this inference at depth 2 (the plain model's shut route turned out to be a small write, not a closed channel). FINDING 14 reinstated the routing language at depth 3 without redoing that check.",
+      "measurement": "For all 243 (upstream write, downstream read) pairs in the ladder - every source, every read, every depth-2/3/4 cell, three seeds - regress log10 of the read-ablation KL on log10 of that write's own NORM SHARE of the read it enters (its mean per-token write norm divided by the root-sum-square of every source feeding that read, from stream_geometry in the same interp3 JSON). A slope of 2 with a small residual is what NO direction-specific gating looks like; a genuinely gated channel must appear as a large NEGATIVE residual for that source.",
+      "result": {
+        "n_pairs": 243,
+        "pearson_r": 0.9944,
+        "slope_log_kl_per_log_norm_share": 1.9918,
+        "residual_sd_dex": 0.2637,
+        "residual_by_source_dex": {"e": -0.142, "A0": 0.120, "A1": 0.352, "A2": 0.013, "M0": 0.037, "M1": -0.251, "M2": -0.413},
+        "A0_write_norm_vs_A1_write_norm_at_d3_w128_s0": [4.04, 1027.72]
+      },
+      "verdict": "OBJECTION SUSTAINED. THE ROUTING LANGUAGE IN FINDING 14 SECTION 2 MUST BE RETRACTED AND RESTATED AS A MAGNITUDE RESULT. Across every source-read pair in the ladder the read-ablation KL is a quadratic function of how big the write is (slope 1.99, r = 0.994) with a residual spread of only 0.26 dex - a factor of 1.8 - so there is essentially no direction-specific transmission information in the measurement at all. Layer-0 attention's residual is +0.12 dex, i.e. it transmits slightly MORE than its size predicts, which is the opposite of a gated channel: it is mute because at depth 3 width 128 it writes a vector of norm 4.0 into a read whose other sources sum to thousands, while layer-1 attention writes 1028. What survives is the plain magnitude statement: THE FIRST ATTENTION BLOCK WRITES ALMOST NOTHING AT EVERY DEPTH AND EVERY WIDTH; EVERY LATER ATTENTION BLOCK WRITES 250 TIMES MORE. What does not survive is 'the route opens', 'the channel is shut' and any implication that the weights gate a path. This is the same error FINDING 11 retracted at depth 2, repeated at depth 3."
+    },
+    {
+      "id": "O3",
+      "objection": "Does 'the induction width threshold moves once with depth' survive if the floor is RECOMPUTED PER CELL rather than assumed?",
+      "measurement": "The floor is already per cell in the published pipeline (each cell's own planted-oracle 3-standard-error floor from its own interp3 JSON), so the objection is re-posed in the form that bites: the floor is 3 standard errors of the score across PROBE seeds, which shrinks as 1/sqrt(n_probe), so the decision can be moved by running more probe seeds. The threshold table is therefore recomputed under three criteria: (a) the published 5-probe-seed floor with a 2-of-3-model-seeds rule; (b) a 20-probe-seed floor with the score recomputed on the same 20 seeds; (c) a test over MODEL seeds - the population the claim generalizes over - requiring the 3-seed mean to clear zero at t(2) = 3.182.",
+      "result": {
+        "threshold_by_criterion": {
+          "published_5_probe_seed_floor_2of3_model_seeds": {"2": 256, "3": 128, "4": 64},
+          "20_probe_seed_floor": {"2": 256, "3": 64, "4": 64},
+          "model_seed_t_test": {"2": 256, "3": 128, "4": 128}
+        },
+        "width_64_cells": {
+          "d3_w64": {"model_seed_mean": 0.0035, "model_seed_sd": 0.0041, "t": 1.47, "score_at_20_probe_seeds": 0.0122, "floor_at_20_probe_seeds": 0.0048},
+          "d4_w64": {"model_seed_mean": 0.0099, "model_seed_sd": 0.0068, "t": 2.52, "score_at_20_probe_seeds": 0.0221, "floor_at_20_probe_seeds": 0.0063, "seeds_above_published_floor": "2 of 3"}
+        },
+        "content_free_reference": 0.0010
+      },
+      "verdict": "OBJECTION SUSTAINED, AND IT IS THE SECOND SERIOUS FINDING OF THIS ROUND. The width threshold is NOT A PROPERTY OF THE MODEL - it is a property of the detection criterion, and the three defensible criteria give three different answers: 256/128/64 (the original 'one octave per layer'), 256/64/64, and 256/128/128 (the corrected 'moves once'). The published criterion is the worst of the three because its floor shrinks with the number of PROBE seeds, so any nonzero score can be made to clear it by running the probe longer, and that is exactly what happens: at 20 probe seeds both width-64 cells pass. The width-64 cells are not zero - +0.012 and +0.022 at 20 probe seeds against a depth-matched content-free control of +0.0010 - they are SMALL. Two required fixes: (1) any threshold claim must be defined over MODEL seeds, because that is the population 'a model of this size does X' quantifies over, and under that criterion the corrected claim (256 at depth 2, 128 at depths 3 and 4 - the threshold moves ONCE) is the one that stands; (2) the programme should stop quoting a threshold as the headline at all. The defensible object is the continuous magnitude surface, which is monotone in both width and depth and has none of this fragility: +0.094/+0.221/+0.294 at width 256 for depths 2/3/4, +0.109/+0.158 at width 128 for depths 3/4, +0.004/+0.010 at width 64."
+    },
+    {
+      "id": "O4",
+      "objection": "'The attention-to-attention route opens at depth 3' is partly TRUE BY CONSTRUCTION, which is this programme's own standing failure mode 'arithmetic dressed as a finding'. A depth-2 model has exactly one attention-to-attention route available, the one from the FIRST attention block, and FINDING 14 itself establishes that the first attention block transmits ~1e-6 at every depth. So the depth-2-versus-depth-3 contrast compares 'the only route a 2-layer model can have, which is known to be mute' against 'a route only a 3-layer model can have'. Depth 3 is simply the first depth that HAS a later attention block.",
+      "measurement": "The source-matched contrast in O2 (the second attention block transmits 0.148 +- 0.064 at depth 3 and 0.199 +- 0.089 at depth 4) plus the within-read contrast (layer-0 against layer-1 attention into the same read) plus the write-norm regression in O2b.",
+      "verdict": "OBJECTION SUSTAINED ON THE HEADLINE, NOT ON THE UNDERLYING MEASUREMENT. The sentence 'the attention-to-attention route opens at depth 3' is close to a definitional statement dressed as a discovery, and it should be replaced. The non-definitional content is entirely in FINDING 14's own clause (b) and in O2b's magnitude restatement: the first attention block writes almost nothing at every depth, every later attention block writes ~250 times more and is read accordingly, and depth 3 is the smallest depth that has a later attention block. Stated that way the finding is about the first block being anomalous, which is a real and reproducible fact, and the depth axis is a consequence rather than a cause."
+    },
+    {
+      "id": "O5",
+      "objection": "FINDING 14's route table disagrees with the table its own generator produces. The row 'd4 w128 | 2 | A1 | [0.2140, 0.1530] | 0.220' pairs LAYER 2's causal KL with LAYER 3's fraction-of-the-dominant-MLP. tf_depth_report.py emits 'd4 w128 | 2 | ... A1 | 0.214 | 8.55e-02' and 'd4 w128 | 3 | ... A1 | 0.07256 | 2.20e-01'.",
+      "measurement": "Regenerated tf_depth_ladder_table.md from tf_depth_report.py and diffed it against the transcribed table in RESULTS.md.",
+      "verdict": "OBJECTION SUSTAINED - a transcription error. Layer 2's route fraction at depth 4 width 128 is 0.086, not 0.220; 0.220 is layer 3's. The direction of the error is to overstate the depth-4 width-128 cell. It does not change the P2 verdict (the maximum over layers at that cell is 0.222, which is what the P2 machinery uses) but the row as printed is wrong and the general lesson is that hand-transcribed rows from a generated table are a standing hazard: every table in a finding should be the generated artifact, not a selection from it."
+    },
+    {
+      "id": "O6",
+      "objection": "Is seed 0 systematically the flattering seed? The programme has now revised one claim three times on added seeds, and the MAILBOX note says seed 0 was 'the luckiest of three by 75% of the effect size'.",
+      "measurement": "For every depth-3/4 cell, where seed 0's induction score sits in its own three-seed range.",
+      "result": {
+        "d3_w64": "seed 0 is the HIGHEST of three (+0.0077 against +0.0033, -0.0005)",
+        "d4_w64": "seed 0 is the HIGHEST of three (+0.0173 against +0.0040, +0.0083)",
+        "d3_w128": "seed 0 is the LOWEST of three",
+        "d3_w256": "seed 0 is the LOWEST of three",
+        "d4_w128": "seed 0 is the LOWEST of three",
+        "d4_w256": "seed 0 is the MIDDLE of three",
+        "mean_rank_low_to_high": 1.83
+      },
+      "verdict": "OBJECTION NOT SUSTAINED AS STATED, BUT THE UNDERLYING WORRY IS WORSE THAN STATED. Seed 0 is not systematically high - it is the LOWEST of three at four of the six cells. What is true is that it is the highest at EXACTLY THE TWO CELLS WHERE THE DECISION WAS MARGINAL, which is not a property of seed 0 but of marginal cells: at the width-64 cells the between-seed spread (0.004-0.007) is the same size as the effect, so any single seed there is a coin flip. The right lesson is therefore not 'seed 0 is lucky' but 'a cell whose effect is the size of its own seed spread cannot be adjudicated by any number of probe seeds' - which is a stronger and more general statement than the one in the MAILBOX, and it is the same conclusion O3 reaches from the other direction."
+    }
+  ],
+  "what_survives": [
+    "The induction MAGNITUDE surface, at three seeds: monotone in width at every depth and monotone in depth at every width, +0.094/+0.221/+0.294 at width 256 for depths 2/3/4. Nothing in this review touches it, and the content-free control shows it is not a probe artifact at any depth.",
+    "The corrected threshold statement (width 256 at depth 2, width 128 at depths 3 AND 4 - the threshold moves ONCE) under the model-seed criterion, which is the only criterion of the three that quantifies over the right population.",
+    "The route-USE result, restated at three seeds: cutting layer-1 attention out of layer 2's read removes 86% +- 10% of the induction score at depth 3 width 128 (seed 0's 94.5% was the top of the range), 55% +- 10% at depth 3 width 256, and 58% +- 1% (layer-1) / 33% +- 3% (layer-2) at depth 4 width 128, while cutting layer-0 attention removes 0.0% everywhere. This is a claim about what a write CARRIES, not about how big it is, and O2b does not reach it.",
+    "The first attention block writes almost nothing at every depth and width, and every later attention block writes about 250 times more.",
+    "The depth-2 comparison arm: the same instrument returns 1e-6 at all four depth-2 widths and all three seeds, so the instrument is calibrated by its own nulls inside the cells that show the effect."
+  ],
+  "what_must_be_retracted_or_restated": [
+    "RETRACT the routing language in FINDING 14 section 2: 'the attention-to-attention route OPENS at depth 3', 'the channel is SHUT', 'layer-0 attention is the shut channel'. Replace with the magnitude statement (O2b). This is the FINDING 11 retraction repeated one depth up.",
+    "RETRACT the headline framing of P1 as a threshold. Restate as the magnitude surface, and quote the threshold only with its criterion attached (O3).",
+    "CORRECT the d4 w128 route row (O5): layer 2's fraction is 0.086, not 0.220.",
+    "ADD to every route number: the candidate count it was maximized over, and the share-of-total normalization beside the share-of-dominant-MLP (O2).",
+    "ADD the depth trend in the power floor (+0.0010 nats per layer) wherever a null is quoted (O1)."
+  ],
+  "documented_limitations": [
+    "The quadratic law in O2b is partly expected by construction - a KL is locally quadratic in a perturbation - so the finding is not that the slope is 2 but that the RESIDUAL is only 0.26 dex over six orders of magnitude of write size and 243 pairs, i.e. that the directional factor is nearly constant. A model that DID gate a specific direction would show up as a large negative residual for that source, and none does.",
+    "The write norms come from stream_geometry, which measures each write's mean per-token norm over held text at the end of the pipeline, not at the moment of the read. For the vanilla residual stream those coincide up to the RMS gauge; for a variant with per-slot norms they would not, so O2b's regression must be re-derived before it is applied to the architecture-variant slice.",
+    "The content-free control removes content from the attention PATTERN. A model could in principle produce an induction-like score through a content-dependent VALUE path with a content-free pattern; the control does not exclude that, though at these depths there is no mechanism for it.",
+    "The route-USE fractions at depth 3 width 64 and depth 4 width 64 are ratios to a baseline that is at or below its own floor and are numerically meaningless (they range from -28.6 to +5.4 across three seeds). They are reported as such and no verdict rests on them.",
+    "This review covers FINDING 14 only. FINDING 15 (compressibility) has its own review status and is untouched here."
+  ],
+  "fix_round": {
+    "status": "applied in the same session that produced this file",
+    "actions": [
+      {"objection": "O1", "action": "measurement + documented limitation", "detail": "the content-free control is now part of the pipeline (tf_reviewer_round_4.py --gpu); the depth trend in the floor is recorded and quoted in RESULTS.md"},
+      {"objection": "O2", "action": "measurement + fix", "detail": "share-of-total and the candidate count are computed for every route row and stored in tf_reviewer_round_4_measurements.json; RESULTS.md quotes both normalizations"},
+      {"objection": "O2b", "action": "RETRACTION", "detail": "FINDING 14 section 2's routing language is retracted in RESULTS.md and replaced by the magnitude statement, with the regression as the evidence"},
+      {"objection": "O3", "action": "RETRACTION of the framing + measurement", "detail": "the threshold is quoted only with its criterion; the model-seed criterion is adopted as primary and the magnitude surface becomes the headline"},
+      {"objection": "O4", "action": "RETRACTION of the headline sentence", "detail": "restated as a fact about the first attention block, with depth as a consequence"},
+      {"objection": "O5", "action": "correction", "detail": "the d4 w128 row is corrected and RESULTS.md now points at the generated table rather than a transcription"},
+      {"objection": "O6", "action": "documented limitation", "detail": "the marginal-cell statement replaces the seed-0 statement in RESULTS.md and MAILBOX"}
+    ]
+  }
+}
