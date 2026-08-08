@@ -7,6 +7,119 @@ they land with the finding in the commit message.
 
 ---
 
+**2026-08-08 14:10 UTC — INDEPENDENT REVIEW OF FINDING 12, COMPLETE (round 3).
+This SUPERSEDES the 13:50 note below, which was written from my JSON while it
+was still being filled in and gets one thing backwards. Headline: "5.7x smaller
+than the model" is 1.15x against an honest baseline; NO STRUCTURAL DESCRIPTION
+OF THIS MODEL BEATS BIT-PACKING IT; and — the correction to the 13:50 note — a
+description 5.8x SMALLER than the fp32 model DOES predict the held text BETTER
+than the model, once it is fitted to the DATA instead of to the model.**
+
+Code: `tf_reviewer_r3.py` (objections 1-8), `tf_reviewer_r3_codec.py` (a real
+static arithmetic coder that serialises the winning description and decodes it
+from the blob alone), `tf_reviewer_r3_o2b.py`, `tf_reviewer_r3_sparse.py`,
+`tf_reviewer_r3_r7c.py`, `tf_reviewer_r3_o8b.py`, `tf_reviewer_r3_o8c.py`,
+`tf_reviewer_r3_verdicts.py`, `tf_reviewer_r3_figure.py`. Data:
+`tf_reviewer_round_3_compression.json` (the VERDICTS key holds all eight),
+`tf_rev3_seed1_IM.json`, `tf_rev3_seed2_full.json`,
+`fig_tf_compression_frontier_review.png`. Write-up: RESULTS.md section 7b.
+
+CORRECTION TO THE 13:50 NOTE, point 2. "Nothing beats the model on the data" is
+true only of descriptions that IMITATE the model (0 of 208, dCE = 1.13 x KL).
+The CE-distillation arm had not finished when that note was written. It has now:
+refitting the description's tables to the DATA cross-entropy on fresh est text
+gives held CE 4.70446 at 10.602 Mbit, 4.70605 at 8.513 Mbit and 4.70937 at
+7.455 Mbit — all BELOW the model's 4.71140. THE SHORTEST DESCRIPTION THAT BEATS
+THE MODEL ON HELD TEXT IS 7.455 Mbit, 5.8x smaller than fp32 and 2.9x smaller
+than fp16; the cliff is between 5 and 4 bits per embedding weight (6.375 Mbit
+gives 4.72808). The confound control fired too: full precision on the same
+fresh data gains 0.00727 nats, so this is an undertrained model plus data, not
+parsimony finding structure — the 7.455 Mbit arm recovers 28% of the available
+gain and the 10.6 Mbit arm 95%. And fitting to the MODEL is strictly better on
+held data than fitting to the data at every matched budget (4/6: 4.73572 vs
+4.75211; 3/6: 4.81021 vs 4.84850), so the model's own distribution is a better
+teacher for a compressed description than the text is. Logan's hypothesis is
+therefore not refuted, it is REFRAMED: there is a shorter-and-better
+description, and what makes it possible is data the model did not get, not
+structure the model missed.
+
+ALSO CORRECTED, point 1. The 13:50 note quotes 17.7x/8.8x/1.99x for the 2.43
+Mbit extreme point. The comparable numbers for the headline 7.594 Mbit point at
+KL 0.0042 are 5.66x vs fp32, 4.74x vs the best LOSSLESS recompression of the
+same fp32 weights (36.0 Mbit — fp32 is nearly incompressible losslessly, 1.19x,
+so 43 Mbit IS the exact description length, just not the right lossy baseline),
+2.83x vs fp16 (KL 2.4e-6, at the floor), 2.17x vs 12-bit uniform, and 1.15x vs
+naive per-row quantisation + entropy coding at the SAME KL. Over the whole
+frontier the win over naive quantisation is 1.13-1.54x, median 1.20x, and the
+best of it is bought by distillation, not by structure.
+
+WHAT SURVIVED. The bit accounting is exact: an independent recount of the three
+lowest-KL frontier points matches the analyst's bill TO THE BIT (7,594,449 /
+6,467,056 / 4,770,512) and the KLs to seven decimals, and the embedding half of
+the headline point was actually SERIALISED and decoded from its own blob —
+5,169,672 real bits against 5,169,617 charged (1.000011x), reconstruction
+identical to 1.2e-7. est/held/spare are disjoint text regions and nothing is
+fitted on held; the one limitation is that the PARETO SELECTION uses held, and
+re-scored on the untouched spare split (4x more tokens) KLs move a median +0.5%
+and the selected set changes by one point of 22.
+
+WHAT CHANGED, beyond the denominator. (a) MISATTRIBUTION in sections 2 and 3:
+the reverse-water-filling allocation gives every one of the 128 embedding
+columns exactly the same number of bits at every budget (384->3, 512->4,
+640->5, 768->6), so it contributes NOTHING; a 2x2 ablation shows the whole
+1.06-1.14x comes from per-COLUMN scales and a per-COLUMN entropy model. (b)
+RETRACTED: "merging tokens is the worst code we measured". The clustering was
+charged fp32 centroids and given no residual. With 4-bit centroids
+cluster_k4096 drops from 16.876 Mbit to 2.123 Mbit for a 2.6% KL cost (7.9x);
+with a coded residual, 512 prototypes + 4-bit residual costs 4.672 Mbit at KL
+0.0097 where the best recoder needs the same bits for 0.0089 — a penalty of
+1.09x, not 15x — and below ~1.2 Mbit for the write role a quantised-centroid
+clustering BEATS recoding. Behaviour-whitened metrics (Sigma =
+E[rms(x)rms(x)^T], free to the decoder because the optimal centroid is still
+the mean) help 8-9% at k=512/4096 and hurt at k=1024/2048; a Fisher-weighted
+read metric hurt outright. (c) INVERTED: the seed caveat is true of post-hoc
+quantisation (uniform_8bit spreads 2.62x over three seeds) and FALSE of the
+frontier, whose whole low-bit tail is distilled and spreads only 1.03-1.13x.
+All 25 frontier points now carry three seeds.
+
+STRUCTURE, with the mechanism (this extends the 13:50 note's point 3, which is
+right). The coder is provably competent: its gross saving (0.52-0.63
+bits/weight for co-occurrence) lands between the variance-law bound 0.374 and
+the row-range bound 0.922. The 257x128 regression matrix costs 0.259
+bits/weight, eating 44% of that. Decisively: when the PLAIN arm is also given
+the frontier-winning coder, the co-occurrence advantage collapses from 7-14% to
+2.7-3.5% and spelling goes NEGATIVE (-5.5% to -1.7%). Cross-validated over
+tokens the two R^2 are 0.359 and 0.208, not 0.405 and 0.256.
+
+LOGAN REDIRECTION 1 (quantising is against the spirit). 208 descriptions split
+into 107 recodings, 28 structure-plus-coded-residual, 73 pure structure, and I
+added the one structural family the finding never tried and this program has a
+prior on: each token's row as a SPARSE COMBINATION OF A SHARED OVERCOMPLETE
+DICTIONARY (batched OMP + least-squares dictionary update, atoms, indices,
+coefficients and scales all charged). Compared on the embedding alone against
+the LOWER CONVEX HULL of the recoding points (the achievable boundary — the raw
+staircase flatters the challenger), pure structure is 1.05-1.76x behind
+wherever fidelity matters and CP structure in the body is 3.2-3.6x behind.
+Structure wins in exactly one region: below ~1.5 Mbit, where the description
+has already discarded a third to a half of what the model knows (KL 0.8-1.2 out
+of the model's 2.573-nat advantage over unigram) — there a sparse dictionary
+beats recoding by 1.4x. So: no structural description beats bit-packing this
+model at any bit budget worth having.
+
+ONE BUG. The "measurement floor 1.5e-6 (fp32 round-off)" caption is wrong:
+D1Desc.cache_ref stores the reference log-probabilities in fp16, and the seed-1
+positive control returns KL = -5.14e-7, which is negative. The floor is fp16
+reference storage; no KL below ~1e-5 is a measurement. Nothing quoted is
+affected (the smallest quoted KL is 0.00064).
+
+FOR THE SCALE BOX, and for `tf_dict_*`: the two things that will bite when this
+machinery is ported are (a) quoting compression against fp32 rather than
+against a matched-KL naive quantiser, and (b) scoring only KL-from-the-model,
+which is structurally unable to see a description better than the model. The
+new `tf_dict_emb_run.py` already scores held CE as primary, which is right.
+
+---
+
 **2026-08-08 13:50 UTC — INDEPENDENT REVIEW OF THE COMPRESSION FRONTIER.
 Three results, and the third EXPLAINS the second rather than just observing
 it.**

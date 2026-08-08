@@ -840,7 +840,10 @@ def o6(out):
         e['kl_min'] = min(kls)
         e['kl_max'] = max(kls)
         e['kl_spread_x'] = (max(kls) / max(min(kls), 1e-12)) if len(kls) > 1 else None
-        e['verdict'] = ('single seed only' if len(kls) == 1 else
+        e['verdict'] = ('at the measurement floor (KL < 1e-4, fp16 reference '
+                        'storage) -- no spread is meaningful'
+                        if e['kl_max'] < 1e-4 else
+                        'single seed only' if len(kls) == 1 else
                         'seed-robust (<1.25x)' if e['kl_spread_x'] < 1.25 else
                         'seed-sensitive (>2x)' if e['kl_spread_x'] > 2 else
                         'moderately seed-sensitive (1.25-2x)')

@@ -204,11 +204,34 @@ def main():
             'write-up should say 36 % and 20 %, not 41 % and 26 %.'),
     }
 
+    pts6 = O6.get('points', [])
+    real = [p for p in pts6 if p.get('kl_max', 1) >= 1e-4]
+    dist = [p for p in real if p['scheme'].startswith('distilled_')]
     V['claim_6_seed_dependence'] = {
-        'verdict': 'the flag was right and incomplete — every point is now '
-                   'marked',
-        'measured': O6.get('summary', {}),
-        'points': O6.get('points', []),
+        'verdict': ('the flag was right about post-hoc quantisation and WRONG '
+                    'about the frontier: the frontier tail is distilled, and '
+                    'distillation removes the seed sensitivity'),
+        'measured': {
+            'n_frontier_points_with_3_seeds': sum(1 for p in pts6
+                                                  if p['n_seeds'] >= 3),
+            'distilled_points_spread_x': [p['kl_spread_x'] for p in dist],
+            'worst_distilled_spread_x': max([p['kl_spread_x'] for p in dist]
+                                            or [0]),
+            'seed_sensitive_points': [p['scheme'] for p in real
+                                      if p['kl_spread_x'] > 2],
+            'moderately_sensitive_points': [p['scheme'] for p in real
+                                            if 1.25 < p['kl_spread_x'] <= 2],
+            'at_the_measurement_floor': [p['scheme'] for p in pts6
+                                         if p.get('kl_max', 1) < 1e-4]},
+        'points': pts6,
+        'statement': (
+            'All 25 frontier points now carry three seeds. Every DISTILLED '
+            'point -- the whole low-bit tail, including the 1-bit embedding -- '
+            'is seed-robust (spread 1.03-1.13x). The seed-sensitive points are '
+            'post-hoc: uniform_8bit 2.62x, embS6_4_2048+body6 2.21x, '
+            'corpusstat_res_q4+body6 2.00x. The headline embT768+body8 is '
+            '1.21x. Three points sit at the measurement floor and no spread '
+            'is meaningful for them.'),
     }
 
     V['LOGAN_redirection_1_quantisation_is_not_an_explanation'] = {
@@ -235,9 +258,18 @@ def main():
             'BIT-PACKING THEM.'),
     }
 
+    O8b = r.get('O8b_power_check_on_the_data_fit_test', {})
+    O8c = r.get('O8c_shortest_description_that_beats_the_model_on_data', {})
     V['LOGAN_redirection_2_score_against_the_data_not_the_model'] = {
-        'verdict': ('the blind spot was real and the answer is NO: nothing '
-                    'beats the model on data'),
+        'verdict': ('THE BLIND SPOT WAS REAL AND IT HID A POSITIVE RESULT: no '
+                    'description that imitates the model beats it on data, but '
+                    'a description fitted to the DATA does -- the shortest is '
+                    '7.455 Mbit, 5.8x smaller than fp32 and 2.9x smaller than '
+                    'fp16, at held CE 4.70937 against the model\'s 4.71140'),
+        'power_check': O8b,
+        'shortest_beating_description': O8c.get(
+            'shortest_beating_description'),
+        'data_fit_sweep': O8c.get('rows', []),
         'measured': {
             'model_held_ce': O7['model_held_ce'],
             'n_descriptions_scored': O7['n_points'],

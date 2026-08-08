@@ -38,10 +38,27 @@ for b in (4,5,6):
             r=code(b,sa,ea); r.update({'b':b,'scales':sa,'entropy':ea,
                 'scheme':f'q{b}_{sa}scale_{ea}entropy'})
             rows.append(r); print(r['scheme'], round(r['bits']/1e6,4),'Mbit KL',round(r['kl'],5))
+def _curve(sa,ea): return sorted([(r['bits'],r['kl']) for r in rows if r['scales']==sa and r['entropy']==ea], key=lambda t:t[1])
+def _at(c,kl):
+    for i in range(len(c)-1):
+        (b0,k0),(b1,k1)=c[i],c[i+1]
+        if k0<=kl<=k1:
+            t=(math.log(kl)-math.log(k0))/(math.log(k1)-math.log(k0))
+            return math.exp(math.log(b0)+t*(math.log(b1)-math.log(b0)))
+    return None
+_base=_curve('row','global'); tab=[]
+for r in rows:
+    if r['scales']=='row' and r['entropy']=='global': continue
+    b=_at(_base,r['kl'])
+    if b: tab.append({'scheme':r['scheme'],'bits':r['bits'],'kl':r['kl'],
+                      'per_row_global_bits_at_same_kl':b,'x_better':b/r['bits']})
+for t in tab: print('%-34s %.4f Mbit KL %.5f  baseline %.4f -> %.3fx'%(t['scheme'],t['bits']/1e6,t['kl'],t['per_row_global_bits_at_same_kl']/1e6,t['x_better']))
+
 out=json.load(open(P))
 out['O2b_where_the_transform_codes_gain_comes_from']={
  'allocation_vectors':alloc,'allocation_is_uniform_at_every_budget':uniform,
- 'ablation_rows':rows,
+ 'ablation_rows':rows,'matched_kl_vs_per_row_global':tab,
+ 'measured_gain_range_x':[min(t['x_better'] for t in tab),max(t['x_better'] for t in tab)],
  'finding':('The reverse-water-filling allocation gives EVERY one of the 128 '
    'embedding columns exactly the same number of bits at every budget tested '
    '(384->3, 512->4, 640->5, 768->6), so it contributes nothing: the column '

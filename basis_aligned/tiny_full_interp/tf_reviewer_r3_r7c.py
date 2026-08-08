@@ -29,13 +29,34 @@ def front(ps):
     return o
 
 
+def hull(pts):
+    """Lower convex hull in (bits, KL).  This -- not the raw staircase
+    -- is the baseline a competing scheme has to beat, because any point on the
+    chord between two achievable schemes is itself achievable by splitting the
+    table and coding the halves differently.  Interpolating the staircase
+    instead flatters the challenger at every budget between two recoding
+    points, which is how a prototype code can look like a winner when it is
+    not."""
+    p = sorted((b, k) for b, k, *_ in pts if k > 0)
+    h = []
+    for q in p:
+        while len(h) >= 2:
+            (x1, y1), (x2, y2) = h[-2], h[-1]
+            if (y2 - y1) * (q[0] - x1) >= (q[1] - y1) * (x2 - x1):
+                h.pop()
+            else:
+                break
+        h.append(q)
+    return h
+
+
 def kl_at(c, b):
-    c = sorted([(x[0], x[1]) for x in c])
-    for i in range(len(c) - 1):
-        if c[i][0] <= b <= c[i + 1][0]:
-            (b0, k0), (b1, k1) = c[i], c[i + 1]
-            t = (math.log(b) - math.log(b0)) / (math.log(b1) - math.log(b0))
-            return math.exp(math.log(k0) + t * (math.log(k1) - math.log(k0)))
+    h = hull(c)
+    for i in range(len(h) - 1):
+        if h[i][0] <= b <= h[i + 1][0]:
+            (x0, y0), (x1, y1) = h[i], h[i + 1]
+            t = (b - x0) / (x1 - x0)
+            return y0 + t * (y1 - y0)
     return None
 
 

@@ -3996,5 +3996,4536 @@
    }
   ],
   "note": "the 32/32 row is the confound control: it is the same objective and the same fresh est data with NO quantisation, so it separates \"compression found simpler structure\" from \"the model was undertrained and est is more data\""
+ },
+ "O8b_power_check_on_the_data_fit_test": {
+  "model_held_ce": 4.711396515369415,
+  "rows": [
+   {
+    "emb_bits": 32,
+    "body_bits": 32,
+    "lr": 0.0002,
+    "bits": 42995712,
+    "held_ce": 4.711396515369415,
+    "delta_ce_vs_model": 0.0,
+    "kl_from_model": 1.4653066671144188e-06,
+    "best_step": 0,
+    "est_val_ce": 4.814317852258682,
+    "beats_the_model_on_data": false
+   },
+   {
+    "emb_bits": 32,
+    "body_bits": 32,
+    "lr": 5e-05,
+    "bits": 42995712,
+    "held_ce": 4.704126954078674,
+    "delta_ce_vs_model": -0.007269561290740967,
+    "kl_from_model": 0.01493725215550512,
+    "best_step": 5750,
+    "est_val_ce": 4.808545798063278,
+    "beats_the_model_on_data": true
+   },
+   {
+    "emb_bits": 32,
+    "body_bits": 32,
+    "lr": 1e-05,
+    "bits": 42995712,
+    "held_ce": 4.7062225341796875,
+    "delta_ce_vs_model": -0.005173981189727783,
+    "kl_from_model": 0.0027382464904803783,
+    "best_step": 9750,
+    "est_val_ce": 4.809809654951096,
+    "beats_the_model_on_data": true
+   },
+   {
+    "emb_bits": 6,
+    "body_bits": 8,
+    "lr": 0.0002,
+    "bits": 8513027,
+    "held_ce": 4.713889479637146,
+    "delta_ce_vs_model": 0.002492964267730713,
+    "kl_from_model": 0.0021293110330589116,
+    "best_step": 0,
+    "est_val_ce": 4.8164574801921844,
+    "beats_the_model_on_data": false
+   },
+   {
+    "emb_bits": 6,
+    "body_bits": 8,
+    "lr": 5e-05,
+    "bits": 8513048,
+    "held_ce": 4.706049680709839,
+    "delta_ce_vs_model": -0.005346834659576416,
+    "kl_from_model": 0.016092388075776398,
+    "best_step": 5250,
+    "est_val_ce": 4.810127526521683,
+    "beats_the_model_on_data": true
+   },
+   {
+    "emb_bits": 6,
+    "body_bits": 8,
+    "lr": 1e-05,
+    "bits": 8513181,
+    "held_ce": 4.7081334590911865,
+    "delta_ce_vs_model": -0.0032630562782287598,
+    "kl_from_model": 0.004399213416036218,
+    "best_step": 8500,
+    "est_val_ce": 4.810834109783173,
+    "beats_the_model_on_data": true
+   }
+  ],
+  "any_arm_beats_the_model": true,
+  "best_full_precision_delta_ce": -0.007269561290740967
+ },
+ "O2b_where_the_transform_codes_gain_comes_from": {
+  "allocation_vectors": {
+   "256": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   "384": [
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3
+   ],
+   "512": [
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+   ],
+   "640": [
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5
+   ],
+   "768": [
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6
+   ]
+  },
+  "allocation_is_uniform_at_every_budget": {
+   "256": true,
+   "384": true,
+   "512": true,
+   "640": true,
+   "768": true
+  },
+  "ablation_rows": [
+   {
+    "bits": 4029227,
+    "bill": {
+     "codes": 3767083,
+     "scales": 262144,
+     "TOTAL": 4029227
+    },
+    "kl": 0.02774941991083324,
+    "ce": 4.73962539434433,
+    "ntok": 16384,
+    "b": 4,
+    "scales": "row",
+    "entropy": "global",
+    "scheme": "q4_rowscale_globalentropy"
+   },
+   {
+    "bits": 3527014,
+    "bill": {
+     "codes": 3264870,
+     "scales": 262144,
+     "TOTAL": 3527014
+    },
+    "kl": 0.02774941991083324,
+    "ce": 4.73962539434433,
+    "ntok": 16384,
+    "b": 4,
+    "scales": "row",
+    "entropy": "col",
+    "scheme": "q4_rowscale_colentropy"
+   },
+   {
+    "bits": 3045925,
+    "bill": {
+     "codes": 3037733,
+     "scales": 4096,
+     "mean": 4096,
+     "TOTAL": 3045925
+    },
+    "kl": 0.06484446488320827,
+    "ce": 4.785496354103088,
+    "ntok": 16384,
+    "b": 4,
+    "scales": "col",
+    "entropy": "global",
+    "scheme": "q4_colscale_globalentropy"
+   },
+   {
+    "bits": 2934992,
+    "bill": {
+     "codes": 2926800,
+     "scales": 4096,
+     "mean": 4096,
+     "TOTAL": 2934992
+    },
+    "kl": 0.06484446488320827,
+    "ce": 4.785496354103088,
+    "ntok": 16384,
+    "b": 4,
+    "scales": "col",
+    "entropy": "col",
+    "scheme": "q4_colscale_colentropy"
+   },
+   {
+    "bits": 5110247,
+    "bill": {
+     "codes": 4848103,
+     "scales": 262144,
+     "TOTAL": 5110247
+    },
+    "kl": 0.006457611685618758,
+    "ce": 4.717800319194794,
+    "ntok": 16384,
+    "b": 5,
+    "scales": "row",
+    "entropy": "global",
+    "scheme": "q5_rowscale_globalentropy"
+   },
+   {
+    "bits": 4632558,
+    "bill": {
+     "codes": 4370414,
+     "scales": 262144,
+     "TOTAL": 4632558
+    },
+    "kl": 0.006457611685618758,
+    "ce": 4.717800319194794,
+    "ntok": 16384,
+    "b": 5,
+    "scales": "row",
+    "entropy": "col",
+    "scheme": "q5_rowscale_colentropy"
+   },
+   {
+    "bits": 4127792,
+    "bill": {
+     "codes": 4119600,
+     "scales": 4096,
+     "mean": 4096,
+     "TOTAL": 4127792
+    },
+    "kl": 0.014961710199713707,
+    "ce": 4.731676399707794,
+    "ntok": 16384,
+    "b": 5,
+    "scales": "col",
+    "entropy": "global",
+    "scheme": "q5_colscale_globalentropy"
+   },
+   {
+    "bits": 4041712,
+    "bill": {
+     "codes": 4033520,
+     "scales": 4096,
+     "mean": 4096,
+     "TOTAL": 4041712
+    },
+    "kl": 0.014961710199713707,
+    "ce": 4.731676399707794,
+    "ntok": 16384,
+    "b": 5,
+    "scales": "col",
+    "entropy": "col",
+    "scheme": "q5_colscale_colentropy"
+   },
+   {
+    "bits": 6169053,
+    "bill": {
+     "codes": 5906909,
+     "scales": 262144,
+     "TOTAL": 6169053
+    },
+    "kl": 0.0015789003518875688,
+    "ce": 4.713046729564667,
+    "ntok": 16384,
+    "b": 6,
+    "scales": "row",
+    "entropy": "global",
+    "scheme": "q6_rowscale_globalentropy"
+   },
+   {
+    "bits": 5751499,
+    "bill": {
+     "codes": 5489355,
+     "scales": 262144,
+     "TOTAL": 5751499
+    },
+    "kl": 0.0015789003518875688,
+    "ce": 4.713046729564667,
+    "ntok": 16384,
+    "b": 6,
+    "scales": "row",
+    "entropy": "col",
+    "scheme": "q6_rowscale_colentropy"
+   },
+   {
+    "bits": 5196066,
+    "bill": {
+     "codes": 5187874,
+     "scales": 4096,
+     "mean": 4096,
+     "TOTAL": 5196066
+    },
+    "kl": 0.0036589705559890717,
+    "ce": 4.716299295425415,
+    "ntok": 16384,
+    "b": 6,
+    "scales": "col",
+    "entropy": "global",
+    "scheme": "q6_colscale_globalentropy"
+   },
+   {
+    "bits": 5169105,
+    "bill": {
+     "codes": 5160913,
+     "scales": 4096,
+     "mean": 4096,
+     "TOTAL": 5169105
+    },
+    "kl": 0.0036589705559890717,
+    "ce": 4.716299295425415,
+    "ntok": 16384,
+    "b": 6,
+    "scales": "col",
+    "entropy": "col",
+    "scheme": "q6_colscale_colentropy"
+   }
+  ],
+  "matched_kl_vs_per_row_global": [
+   {
+    "scheme": "q4_rowscale_colentropy",
+    "bits": 3527014,
+    "kl": 0.02774941991083324,
+    "per_row_global_bits_at_same_kl": 4029226.999999999,
+    "x_better": 1.142390418637408
+   },
+   {
+    "scheme": "q5_rowscale_colentropy",
+    "bits": 4632558,
+    "kl": 0.006457611685618758,
+    "per_row_global_bits_at_same_kl": 5110246.999999996,
+    "x_better": 1.103115600495449
+   },
+   {
+    "scheme": "q5_colscale_globalentropy",
+    "bits": 4127792,
+    "kl": 0.014961710199713707,
+    "per_row_global_bits_at_same_kl": 4456101.25193623,
+    "x_better": 1.0795362876657133
+   },
+   {
+    "scheme": "q5_colscale_colentropy",
+    "bits": 4041712,
+    "kl": 0.014961710199713707,
+    "per_row_global_bits_at_same_kl": 4456101.25193623,
+    "x_better": 1.1025281494416797
+   },
+   {
+    "scheme": "q6_rowscale_colentropy",
+    "bits": 5751499,
+    "kl": 0.0015789003518875688,
+    "per_row_global_bits_at_same_kl": 6169053.000000003,
+    "x_better": 1.072599160670984
+   },
+   {
+    "scheme": "q6_colscale_globalentropy",
+    "bits": 5196066,
+    "kl": 0.0036589705559890717,
+    "per_row_global_bits_at_same_kl": 5513449.438431781,
+    "x_better": 1.0610814871157874
+   },
+   {
+    "scheme": "q6_colscale_colentropy",
+    "bits": 5169105,
+    "kl": 0.0036589705559890717,
+    "per_row_global_bits_at_same_kl": 5513449.438431781,
+    "x_better": 1.0666158722703023
+   }
+  ],
+  "measured_gain_range_x": [
+   1.0610814871157874,
+   1.142390418637408
+  ],
+  "finding": "The reverse-water-filling allocation gives EVERY one of the 128 embedding columns exactly the same number of bits at every budget tested (384->3, 512->4, 640->5, 768->6), so it contributes nothing: the column variances are too homogeneous for water-filling to bite. The transform code beats per-row scalar quantisation for two other reasons, isolated in the ablation: per-COLUMN min/max scales (128 fp16 pairs instead of 8192, saving 0.258 Mbit) and a per-COLUMN entropy model instead of one global histogram. RESULTS.md section 2 and 3 attribute the gain to the allocation; that attribution is wrong."
+ },
+ "R7b_sparse_dictionary_the_untried_structural_family": {
+  "positive_control_max_abs_err_at_s_equals_d": 0.0004311203956604004,
+  "rows": [
+   {
+    "scheme": "sparsedict_m512_s4_d8_c6",
+    "m": 512,
+    "s": 4,
+    "bits": 1226698,
+    "bill": {
+     "indices": 294912,
+     "coefficients": 144609,
+     "coef_scales": 262144,
+     "mean": 4096,
+     "dict_values": 504553,
+     "dict_scales": 16384,
+     "TOTAL": 1226698
+    },
+    "kl": 1.16868257522583,
+    "ce": 6.0859081745147705,
+    "ntok": 16384,
+    "best_recoding_kl_at_same_bits": 1.3247179444201185,
+    "kl_penalty_x": 0.8822123835103697
+   },
+   {
+    "scheme": "sparsedict_m512_s4_d6_c5",
+    "m": 512,
+    "s": 4,
+    "bits": 1074765,
+    "bill": {
+     "indices": 294912,
+     "coefficients": 125991,
+     "coef_scales": 262144,
+     "mean": 4096,
+     "dict_values": 371238,
+     "dict_scales": 16384,
+     "TOTAL": 1074765
+    },
+    "kl": 1.1736858636140823,
+    "ce": 6.091511011123657,
+    "ntok": 16384,
+    "best_recoding_kl_at_same_bits": 1.6186665676386027,
+    "kl_penalty_x": 0.7250942764119221
+   },
+   {
+    "scheme": "sparsedict_m512_s8_d8_c6",
+    "m": 512,
+    "s": 8,
+    "bits": 1732274,
+    "bill": {
+     "indices": 589824,
+     "coefficients": 354571,
+     "coef_scales": 262144,
+     "mean": 4096,
+     "dict_values": 505255,
+     "dict_scales": 16384,
+     "TOTAL": 1732274
+    },
+    "kl": 0.8257290422916412,
+    "ce": 5.690248966217041,
+    "ntok": 16384,
+    "best_recoding_kl_at_same_bits": 0.7851666226930389,
+    "kl_penalty_x": 1.0516609066486773
+   },
+   {
+    "scheme": "sparsedict_m512_s8_d6_c5",
+    "m": 512,
+    "s": 8,
+    "bits": 1545696,
+    "bill": {
+     "indices": 589824,
+     "coefficients": 301226,
+     "coef_scales": 262144,
+     "mean": 4096,
+     "dict_values": 372022,
+     "dict_scales": 16384,
+     "TOTAL": 1545696
+    },
+    "kl": 0.8269606381654739,
+    "ce": 5.6935425996780396,
+    "ntok": 16384,
+    "best_recoding_kl_at_same_bits": 0.9331991773634173,
+    "kl_penalty_x": 0.8861566300367937
+   },
+   {
+    "scheme": "sparsedict_m512_s16_d8_c6",
+    "m": 512,
+    "s": 16,
+    "bits": 2724640,
+    "bill": {
+     "indices": 1179648,
+     "coefficients": 756580,
+     "coef_scales": 262144,
+     "mean": 4096,
+     "dict_values": 505788,
+     "dict_scales": 16384,
+     "TOTAL": 2724640
+    },
+    "kl": 0.4362822659313679,
+    "ce": 5.255539000034332,
+    "ntok": 16384,
+    "best_recoding_kl_at_same_bits": 0.14740578102748883,
+    "kl_penalty_x": 2.9597364695622637
+   },
+   {
+    "scheme": "sparsedict_m512_s16_d6_c5",
+    "m": 512,
+    "s": 16,
+    "bits": 2470335,
+    "bill": {
+     "indices": 1179648,
+     "coefficients": 635592,
+     "coef_scales": 262144,
+     "mean": 4096,
+     "dict_values": 372471,
+     "dict_scales": 16384,
+     "TOTAL": 2470335
+    },
+    "kl": 0.44558077678084373,
+    "ce": 5.264595687389374,
+    "ntok": 16384,
+    "best_recoding_kl_at_same_bits": 0.17870270059571222,
+    "kl_penalty_x": 2.4934193792006685
+   },
+   {
+    "scheme": "sparsedict_m512_s32_d8_c6",
+    "m": 512,
+    "s": 32,
+    "bits": 4678987,
+    "bill": {
+     "indices": 2359296,
+     "coefficients": 1532153,
+     "coef_scales": 262144,
+     "mean": 4096,
+     "dict_values": 504914,
+     "dict_scales": 16384,
+     "TOTAL": 4678987
+    },
+    "kl": 0.1333901695907116,
+    "ce": 4.879709959030151,
+    "ntok": 16384,
+    "best_recoding_kl_at_same_bits": 0.008857197576993192,
+    "kl_penalty_x": 15.060087395723919
+   },
+   {
+    "scheme": "sparsedict_m512_s32_d6_c5",
+    "m": 512,
+    "s": 32,
+    "bits": 4291974,
+    "bill": {
+     "indices": 2359296,
+     "coefficients": 1278392,
+     "coef_scales": 262144,
+     "mean": 4096,
+     "dict_values": 371662,
+     "dict_scales": 16384,
+     "TOTAL": 4291974
+    },
+    "kl": 0.14633690938353539,
+    "ce": 4.894371390342712,
+    "ntok": 16384,
+    "best_recoding_kl_at_same_bits": 0.012068979290575474,
+    "kl_penalty_x": 12.12504436873201
+   },
+   {
+    "scheme": "sparsedict_m1024_s4_d8_c6",
+    "m": 1024,
+    "s": 4,
+    "bits": 1777809,
+    "bill": {
+     "indices": 327680,
+     "coefficients": 144560,
+     "coef_scales": 262144,
+     "mean": 4096,
+     "dict_values": 1006561,
+     "dict_scales": 32768,
+     "TOTAL": 1777809
+    },
+    "kl": 0.8428574874997139,
+    "ce": 5.727953851222992,
+    "ntok": 16384,
+    "best_recoding_kl_at_same_bits": 0.7548886373664604,
+    "kl_penalty_x": 1.1165322218124063
+   },
+   {
+    "scheme": "sparsedict_m1024_s4_d6_c5",
+    "m": 1024,
+    "s": 4,
+    "bits": 1495437,
+    "bill": {
+     "indices": 327680,
+     "coefficients": 125777,
+     "coef_scales": 262144,
+     "mean": 4096,
+     "dict_values": 742972,
+     "dict_scales": 32768,
+     "TOTAL": 1495437
+    },
+    "kl": 0.843224048614502,
+    "ce": 5.728793263435364,
+    "ntok": 16384,
+    "best_recoding_kl_at_same_bits": 0.9811439476701205,
+    "kl_penalty_x": 0.8594294961680894
+   },
+   {
+    "scheme": "sparsedict_m1024_s8_d8_c6",
+    "m": 1024,
+    "s": 8,
+    "bits": 2315648,
+    "bill": {
+     "indices": 655360,
+     "coefficients": 353955,
+     "coef_scales": 262144,
+     "mean": 4096,
+     "dict_values": 1007325,
+     "dict_scales": 32768,
+     "TOTAL": 2315648
+    },
+    "kl": 0.5388062074780464,
+    "ce": 5.358440518379211,
+    "ntok": 16384,
+    "best_recoding_kl_at_same_bits": 0.20291512866301148,
+    "kl_penalty_x": 2.6553279246756483
+   },
+   {
+    "scheme": "sparsedict_m1024_s8_d6_c5",
+    "m": 1024,
+    "s": 8,
+    "bits": 1998825,
+    "bill": {
+     "indices": 655360,
+     "coefficients": 300721,
+     "coef_scales": 262144,
+     "mean": 4096,
+     "dict_values": 743736,
+     "dict_scales": 32768,
+     "TOTAL": 1998825
+    },
+    "kl": 0.5430295169353485,
+    "ce": 5.362903356552124,
+    "ntok": 16384,
+    "best_recoding_kl_at_same_bits": 0.2709397105869247,
+    "kl_penalty_x": 2.0042448401491524
+   },
+   {
+    "scheme": "sparsedict_m1024_s16_d8_c6",
+    "m": 1024,
+    "s": 16,
+    "bits": 3372208,
+    "bill": {
+     "indices": 1310720,
+     "coefficients": 754665,
+     "coef_scales": 262144,
+     "mean": 4096,
+     "dict_values": 1007815,
+     "dict_scales": 32768,
+     "TOTAL": 3372208
+    },
+    "kl": 0.24035999178886414,
+    "ce": 5.023455858230591,
+    "ntok": 16384,
+    "best_recoding_kl_at_same_bits": 0.044714228449757705,
+    "kl_penalty_x": 5.375469959387538
+   },
+   {
+    "scheme": "sparsedict_m1024_s16_d6_c5",
+    "m": 1024,
+    "s": 16,
+    "bits": 2988611,
+    "bill": {
+     "indices": 1310720,
+     "coefficients": 634763,
+     "coef_scales": 262144,
+     "mean": 4096,
+     "dict_values": 744120,
+     "dict_scales": 32768,
+     "TOTAL": 2988611
+    },
+    "kl": 0.24601302668452263,
+    "ce": 5.029797852039337,
+    "ntok": 16384,
+    "best_recoding_kl_at_same_bits": 0.061802167384597526,
+    "kl_penalty_x": 3.98065370674742
+   },
+   {
+    "scheme": "sparsedict_m1024_s32_d8_c6",
+    "m": 1024,
+    "s": 32,
+    "bits": 5451292,
+    "bill": {
+     "indices": 2621440,
+     "coefficients": 1523460,
+     "coef_scales": 262144,
+     "mean": 4096,
+     "dict_values": 1007384,
+     "dict_scales": 32768,
+     "TOTAL": 5451292
+    },
+    "kl": 0.0685590011999011,
+    "ce": 4.799697279930115,
+    "ntok": 16384,
+    "best_recoding_kl_at_same_bits": 0.002843123096501365,
+    "kl_penalty_x": 24.113975678459756
+   },
+   {
+    "scheme": "sparsedict_m1024_s32_d6_c5",
+    "m": 1024,
+    "s": 32,
+    "bits": 4934264,
+    "bill": {
+     "indices": 2621440,
+     "coefficients": 1270090,
+     "coef_scales": 262144,
+     "mean": 4096,
+     "dict_values": 743726,
+     "dict_scales": 32768,
+     "TOTAL": 4934264
+    },
+    "kl": 0.07909158151596785,
+    "ce": 4.812587916851044,
+    "ntok": 16384,
+    "best_recoding_kl_at_same_bits": 0.007321765406978696,
+    "kl_penalty_x": 10.802255620015112
+   },
+   {
+    "scheme": "sparsedict_m2048_s4_d8_c6",
+    "m": 2048,
+    "s": 4,
+    "bits": 2846509,
+    "bill": {
+     "indices": 360448,
+     "coefficients": 144541,
+     "coef_scales": 262144,
+     "mean": 4096,
+     "dict_values": 2009744,
+     "dict_scales": 65536,
+     "TOTAL": 2846509
+    },
+    "kl": 0.5352493152022362,
+    "ce": 5.360301911830902,
+    "ntok": 16384,
+    "best_recoding_kl_at_same_bits": 0.13526113679568819,
+    "kl_penalty_x": 3.9571552323320316
+   },
+   {
+    "scheme": "sparsedict_m2048_s4_d6_c5",
+    "m": 2048,
+    "s": 4,
+    "bits": 2303544,
+    "bill": {
+     "indices": 360448,
+     "coefficients": 125917,
+     "coef_scales": 262144,
+     "mean": 4096,
+     "dict_values": 1485403,
+     "dict_scales": 65536,
+     "TOTAL": 2303544
+    },
+    "kl": 0.5410558357834816,
+    "ce": 5.36564576625824,
+    "ntok": 16384,
+    "best_recoding_kl_at_same_bits": 0.20501554756298696,
+    "kl_penalty_x": 2.639096606159847
+   },
+   {
+    "scheme": "sparsedict_m2048_s8_d8_c6",
+    "m": 2048,
+    "s": 8,
+    "bits": 3416204,
+    "bill": {
+     "indices": 720896,
+     "coefficients": 354563,
+     "coef_scales": 262144,
+     "mean": 4096,
+     "dict_values": 2008969,
+     "dict_scales": 65536,
+     "TOTAL": 3416204
+    },
+    "kl": 0.27879105135798454,
+    "ce": 5.055947244167328,
+    "ntok": 16384,
+    "best_recoding_kl_at_same_bits": 0.043187518339200946,
+    "kl_penalty_x": 6.4553616896511565
+   },
+   {
+    "scheme": "sparsedict_m2048_s8_d6_c5",
+    "m": 2048,
+    "s": 8,
+    "bits": 2838808,
+    "bill": {
+     "indices": 720896,
+     "coefficients": 301586,
+     "coef_scales": 262144,
+     "mean": 4096,
+     "dict_values": 1484550,
+     "dict_scales": 65536,
+     "TOTAL": 2838808
+    },
+    "kl": 0.2823942080140114,
+    "ce": 5.0608779191970825,
+    "ntok": 16384,
+    "best_recoding_kl_at_same_bits": 0.13598309438218037,
+    "kl_penalty_x": 2.076686144678711
+   },
+   {
+    "scheme": "sparsedict_m2048_s16_d8_c6",
+    "m": 2048,
+    "s": 16,
+    "bits": 4533509,
+    "bill": {
+     "indices": 1441792,
+     "coefficients": 749248,
+     "coef_scales": 262144,
+     "mean": 4096,
+     "dict_values": 2010693,
+     "dict_scales": 65536,
+     "TOTAL": 4533509
+    },
+    "kl": 0.1158418133854866,
+    "ce": 4.858693540096283,
+    "ntok": 16384,
+    "best_recoding_kl_at_same_bits": 0.009918746206240924,
+    "kl_penalty_x": 11.679078280337324
+   },
+   {
+    "scheme": "sparsedict_m2048_s16_d6_c5",
+    "m": 2048,
+    "s": 16,
+    "bits": 3889322,
+    "bill": {
+     "indices": 1441792,
+     "coefficients": 629407,
+     "coef_scales": 262144,
+     "mean": 4096,
+     "dict_values": 1486347,
+     "dict_scales": 65536,
+     "TOTAL": 3889322
+    },
+    "kl": 0.11952654737979174,
+    "ce": 4.863150119781494,
+    "ntok": 16384,
+    "best_recoding_kl_at_same_bits": 0.030506171382709238,
+    "kl_penalty_x": 3.9181104006889194
+   },
+   {
+    "scheme": "sparsedict_m2048_s32_d8_c6",
+    "m": 2048,
+    "s": 32,
+    "bits": 6720458,
+    "bill": {
+     "indices": 2883584,
+     "coefficients": 1496201,
+     "coef_scales": 262144,
+     "mean": 4096,
+     "dict_values": 2008897,
+     "dict_scales": 65536,
+     "TOTAL": 6720458
+    },
+    "kl": 0.03127123136073351,
+    "ce": 4.75026798248291,
+    "ntok": 16384,
+    "best_recoding_kl_at_same_bits": null,
+    "kl_penalty_x": null
+   },
+   {
+    "scheme": "sparsedict_m2048_s32_d6_c5",
+    "m": 2048,
+    "s": 32,
+    "bits": 5942931,
+    "bill": {
+     "indices": 2883584,
+     "coefficients": 1242992,
+     "coef_scales": 262144,
+     "mean": 4096,
+     "dict_values": 1484579,
+     "dict_scales": 65536,
+     "TOTAL": 5942931
+    },
+    "kl": 0.03995777294039726,
+    "ce": 4.759760797023773,
+    "ntok": 16384,
+    "best_recoding_kl_at_same_bits": 0.0018856995056103706,
+    "kl_penalty_x": 21.189894159442744
+   }
+  ],
+  "recoding_baselines": [
+   {
+    "scheme": "transform_256",
+    "bits": 1061366,
+    "kl": 1.6497384309768677,
+    "ce": 6.445910811424255,
+    "ntok": 16384
+   },
+   {
+    "scheme": "transform_384",
+    "bits": 1855959,
+    "kl": 0.3134424276649952,
+    "ce": 5.054113805294037,
+    "ntok": 16384
+   },
+   {
+    "scheme": "transform_512",
+    "bits": 2935504,
+    "kl": 0.06484446488320827,
+    "ce": 4.785496354103088,
+    "ntok": 16384
+   },
+   {
+    "scheme": "transform_640",
+    "bits": 4042224,
+    "kl": 0.014961710199713707,
+    "ce": 4.731676399707794,
+    "ntok": 16384
+   },
+   {
+    "scheme": "transform_768",
+    "bits": 5169617,
+    "kl": 0.0036589705559890717,
+    "ce": 4.716299295425415,
+    "ntok": 16384
+   },
+   {
+    "scheme": "scalar_q2e",
+    "bits": 1785612,
+    "kl": 0.7498944848775864,
+    "ce": 5.535673022270203,
+    "ntok": 16384
+   },
+   {
+    "scheme": "scalar_q3e",
+    "bits": 2913293,
+    "kl": 0.1292356913909316,
+    "ce": 4.854556024074554,
+    "ntok": 16384
+   },
+   {
+    "scheme": "scalar_q4e",
+    "bits": 4029227,
+    "kl": 0.02774941991083324,
+    "ce": 4.73962539434433,
+    "ntok": 16384
+   },
+   {
+    "scheme": "scalar_q5e",
+    "bits": 5110247,
+    "kl": 0.006457611685618758,
+    "ce": 4.717800319194794,
+    "ntok": 16384
+   },
+   {
+    "scheme": "scalar_q6e",
+    "bits": 6169053,
+    "kl": 0.0015789003518875688,
+    "ce": 4.713046729564667,
+    "ntok": 16384
+   }
+  ],
+  "best_penalty_vs_recoding": {
+   "scheme": "sparsedict_m512_s4_d6_c5",
+   "m": 512,
+   "s": 4,
+   "bits": 1074765,
+   "bill": {
+    "indices": 294912,
+    "coefficients": 125991,
+    "coef_scales": 262144,
+    "mean": 4096,
+    "dict_values": 371238,
+    "dict_scales": 16384,
+    "TOTAL": 1074765
+   },
+   "kl": 1.1736858636140823,
+   "ce": 6.091511011123657,
+   "ntok": 16384,
+   "best_recoding_kl_at_same_bits": 1.6186665676386027,
+   "kl_penalty_x": 0.7250942764119221
+  },
+  "note": "Each token's embedding row as a sparse combination of a shared overcomplete dictionary -- the feature hypothesis, and the one structural family the finding never tried. Charged: atoms, per-token atom indices, per-token coefficients with an fp16 scale, and the column mean."
+ },
+ "O8c_shortest_description_that_beats_the_model_on_data": {
+  "model_held_ce": 4.711396515369415,
+  "rows": [
+   {
+    "emb_bits": 8,
+    "body_bits": 8,
+    "lr": 5e-05,
+    "bits": 10601957,
+    "held_ce": 4.704461753368378,
+    "delta_ce_vs_model": -0.006934762001037598,
+    "kl_from_model": 0.015336284530349076,
+    "best_step": 5750,
+    "beats_the_model_on_data": true,
+    "x_smaller_than_fp32": 4.055450517296005,
+    "x_smaller_than_fp16": 2.0277252586480023
+   },
+   {
+    "emb_bits": 8,
+    "body_bits": 8,
+    "lr": 2e-05,
+    "bits": 10601696,
+    "held_ce": 4.7052149176597595,
+    "delta_ce_vs_model": -0.006181597709655762,
+    "kl_from_model": 0.00631585466908291,
+    "best_step": 7000,
+    "beats_the_model_on_data": true,
+    "x_smaller_than_fp32": 4.055550357225862,
+    "x_smaller_than_fp16": 2.027775178612931
+   },
+   {
+    "emb_bits": 6,
+    "body_bits": 8,
+    "lr": 5e-05,
+    "bits": 8513048,
+    "held_ce": 4.706049680709839,
+    "delta_ce_vs_model": -0.005346834659576416,
+    "kl_from_model": 0.016092388075776398,
+    "best_step": 5250,
+    "beats_the_model_on_data": true,
+    "x_smaller_than_fp32": 5.050566142702356,
+    "x_smaller_than_fp16": 2.525283071351178
+   },
+   {
+    "emb_bits": 6,
+    "body_bits": 8,
+    "lr": 2e-05,
+    "bits": 8513186,
+    "held_ce": 4.706978976726532,
+    "delta_ce_vs_model": -0.004417538642883301,
+    "kl_from_model": 0.007779955805744976,
+    "best_step": 7250,
+    "beats_the_model_on_data": true,
+    "x_smaller_than_fp32": 5.050484272280672,
+    "x_smaller_than_fp16": 2.525242136140336
+   },
+   {
+    "emb_bits": 5,
+    "body_bits": 8,
+    "lr": 5e-05,
+    "bits": 7454552,
+    "held_ce": 4.709365665912628,
+    "delta_ce_vs_model": -0.0020308494567871094,
+    "kl_from_model": 0.022754515754058957,
+    "best_step": 9000,
+    "beats_the_model_on_data": true,
+    "x_smaller_than_fp32": 5.767712399081796,
+    "x_smaller_than_fp16": 2.883856199540898
+   },
+   {
+    "emb_bits": 5,
+    "body_bits": 8,
+    "lr": 2e-05,
+    "bits": 7454515,
+    "held_ce": 4.710340857505798,
+    "delta_ce_vs_model": -0.0010556578636169434,
+    "kl_from_model": 0.011607390362769365,
+    "best_step": 7000,
+    "beats_the_model_on_data": true,
+    "x_smaller_than_fp32": 5.767741026746878,
+    "x_smaller_than_fp16": 2.883870513373439
+   },
+   {
+    "emb_bits": 4,
+    "body_bits": 8,
+    "lr": 5e-05,
+    "bits": 6374823,
+    "held_ce": 4.728079080581665,
+    "delta_ce_vs_model": 0.016682565212249756,
+    "kl_from_model": 0.03737147245556116,
+    "best_step": 10000,
+    "beats_the_model_on_data": false,
+    "x_smaller_than_fp32": 6.744612673951888,
+    "x_smaller_than_fp16": 3.372306336975944
+   },
+   {
+    "emb_bits": 4,
+    "body_bits": 8,
+    "lr": 2e-05,
+    "bits": 6373608,
+    "held_ce": 4.728472828865051,
+    "delta_ce_vs_model": 0.017076313495635986,
+    "kl_from_model": 0.027501201489940286,
+    "best_step": 8750,
+    "beats_the_model_on_data": false,
+    "x_smaller_than_fp32": 6.7458983985209,
+    "x_smaller_than_fp16": 3.37294919926045
+   },
+   {
+    "emb_bits": 4,
+    "body_bits": 6,
+    "lr": 5e-05,
+    "bits": 5760338,
+    "held_ce": 4.7292338609695435,
+    "delta_ce_vs_model": 0.017837345600128174,
+    "kl_from_model": 0.04004461597651243,
+    "best_step": 9750,
+    "beats_the_model_on_data": false,
+    "x_smaller_than_fp32": 7.464095336072293,
+    "x_smaller_than_fp16": 3.7320476680361465
+   },
+   {
+    "emb_bits": 4,
+    "body_bits": 6,
+    "lr": 2e-05,
+    "bits": 5759478,
+    "held_ce": 4.731186211109161,
+    "delta_ce_vs_model": 0.019789695739746094,
+    "kl_from_model": 0.029033880215138197,
+    "best_step": 10000,
+    "beats_the_model_on_data": false,
+    "x_smaller_than_fp32": 7.465209867977618,
+    "x_smaller_than_fp16": 3.732604933988809
+   },
+   {
+    "emb_bits": 3,
+    "body_bits": 6,
+    "lr": 5e-05,
+    "bits": 4646182,
+    "held_ce": 4.797166466712952,
+    "delta_ce_vs_model": 0.08576995134353638,
+    "kl_from_model": 0.10332184191793203,
+    "best_step": 10000,
+    "beats_the_model_on_data": false,
+    "x_smaller_than_fp32": 9.253987898020354,
+    "x_smaller_than_fp16": 4.626993949010177
+   },
+   {
+    "emb_bits": 3,
+    "body_bits": 6,
+    "lr": 2e-05,
+    "bits": 4644256,
+    "held_ce": 4.810973286628723,
+    "delta_ce_vs_model": 0.09957677125930786,
+    "kl_from_model": 0.09479717537760735,
+    "best_step": 10000,
+    "beats_the_model_on_data": false,
+    "x_smaller_than_fp32": 9.257825580674279,
+    "x_smaller_than_fp16": 4.628912790337139
+   }
+  ],
+  "n_arms_beating_the_model": 6,
+  "shortest_beating_description": {
+   "emb_bits": 5,
+   "body_bits": 8,
+   "lr": 2e-05,
+   "bits": 7454515,
+   "held_ce": 4.710340857505798,
+   "delta_ce_vs_model": -0.0010556578636169434,
+   "kl_from_model": 0.011607390362769365,
+   "best_step": 7000,
+   "beats_the_model_on_data": true,
+   "x_smaller_than_fp32": 5.767741026746878,
+   "x_smaller_than_fp16": 2.883870513373439
+  },
+  "note": "These descriptions are fitted to fresh `est` text, which the model never saw, so they carry information the model does not. Under the finding's declared convention the corpus is free to the decoder, so this is inside the rules \u2014 but the honest reading is a 2-D one: the full-precision arm gains 0.0073 nats from the same data (O8b), so a compressed arm that beats the model is beating it on DATA, not on PARSIMONY alone."
+ },
+ "R7c_embedding_only_class_fronts": {
+  "recoding_front": [
+   {
+    "scheme": "transform_hadamard_256bpr",
+    "bits": 1039360,
+    "kl": 1.859463557600975
+   },
+   {
+    "scheme": "transform_none_256bpr",
+    "bits": 1061366,
+    "kl": 1.6497384309768677
+   },
+   {
+    "scheme": "transform_hadamard_384bpr",
+    "bits": 1809773,
+    "kl": 0.3313590995967388
+   },
+   {
+    "scheme": "transform_none_384bpr",
+    "bits": 1855959,
+    "kl": 0.3134424276649952
+   },
+   {
+    "scheme": "transform_hadamard_512bpr",
+    "bits": 2884355,
+    "kl": 0.06895557045936584
+   },
+   {
+    "scheme": "transform_none_512bpr",
+    "bits": 2935504,
+    "kl": 0.06484446488320827
+   },
+   {
+    "scheme": "strat_hi6_lo3_n1024",
+    "bits": 3334399,
+    "kl": 0.05548646952956915
+   },
+   {
+    "scheme": "strat_hi8_lo3_n1024",
+    "bits": 3597957,
+    "kl": 0.05466086883097887
+   },
+   {
+    "scheme": "transform_hadamard_640bpr",
+    "bits": 3989698,
+    "kl": 0.015378250041976571
+   },
+   {
+    "scheme": "transform_none_640bpr",
+    "bits": 4042224,
+    "kl": 0.014961710199713707
+   },
+   {
+    "scheme": "strat_hi8_lo4_n512",
+    "bits": 4303614,
+    "kl": 0.014668651390820742
+   },
+   {
+    "scheme": "strat_hi6_lo4_n1024",
+    "bits": 4310633,
+    "kl": 0.012575410306453705
+   },
+   {
+    "scheme": "strat_hi8_lo4_n1024",
+    "bits": 4574191,
+    "kl": 0.01174969575367868
+   },
+   {
+    "scheme": "strat_hi6_lo4_n2048",
+    "bits": 4591367,
+    "kl": 0.009297955664806068
+   },
+   {
+    "scheme": "scalar_q5_entropy",
+    "bits": 5110247,
+    "kl": 0.006457611685618758
+   },
+   {
+    "scheme": "transform_hadamard_768bpr",
+    "bits": 5117740,
+    "kl": 0.0038576607475988567
+   },
+   {
+    "scheme": "transform_none_768bpr",
+    "bits": 5169617,
+    "kl": 0.0036589705559890717
+   },
+   {
+    "scheme": "strat_hi6_lo5_n1024",
+    "bits": 5256438,
+    "kl": 0.0036435765505302697
+   },
+   {
+    "scheme": "strat_hi8_lo5_n512",
+    "bits": 5316986,
+    "kl": 0.003461771208094433
+   },
+   {
+    "scheme": "scalar_q6_entropy",
+    "bits": 6169053,
+    "kl": 0.0015789003518875688
+   },
+   {
+    "scheme": "scalar_q8_entropy",
+    "bits": 8257665,
+    "kl": 9.540212249703472e-05
+   }
+  ],
+  "comparisons": {
+   "hybrid_structure_plus_coded_residual": [
+    {
+     "scheme": "corpusstat_residual_q2",
+     "bits": 2079566,
+     "kl": 0.27925660088658333,
+     "recoding_kl_at_same_bits": 0.26028297091955943,
+     "kl_penalty_x": 1.072896163356333
+    },
+    {
+     "scheme": "corpusstat_residual_q3",
+     "bits": 3218575,
+     "kl": 0.04976436169818044,
+     "recoding_kl_at_same_bits": 0.05156185190938913,
+     "kl_penalty_x": 0.9651391456154936
+    },
+    {
+     "scheme": "corpusstat_residual_q4",
+     "bits": 4335556,
+     "kl": 0.011091300286352634,
+     "recoding_kl_at_same_bits": 0.011846034067593625,
+     "kl_penalty_x": 0.9362880625756713
+    },
+    {
+     "scheme": "corpusstat_residual_q5",
+     "bits": 5416691,
+     "kl": 0.002485206176061183,
+     "recoding_kl_at_same_bits": 0.0031447492695753595,
+     "kl_penalty_x": 0.7902716442626806
+    },
+    {
+     "scheme": "corpusstat_residual_q6",
+     "bits": 6475723,
+     "kl": 0.0006189020932652056,
+     "recoding_kl_at_same_bits": 0.0013610789460892707,
+     "kl_penalty_x": 0.45471432428182823
+    }
+   ],
+   "hybrid_structure_plus_coded_residual_summary": {
+    "best_penalty_x": 0.45471432428182823,
+    "worst_penalty_x": 1.072896163356333,
+    "penalty_below_1_only_at_bits_under": 6475723
+   },
+   "pure_structure": [
+    {
+     "scheme": "pq_m16_b4",
+     "bits": 589824,
+     "kl": 2.560782879590988,
+     "recoding_kl_at_same_bits": null,
+     "kl_penalty_x": null
+    },
+    {
+     "scheme": "pq_m16_b6",
+     "bits": 1048576,
+     "kl": 1.761361300945282,
+     "recoding_kl_at_same_bits": 1.7716317495955323,
+     "kl_penalty_x": 0.9942028310044708
+    },
+    {
+     "scheme": "sparsedict_m512_s4_d6_c5",
+     "bits": 1074765,
+     "kl": 1.1736858636140823,
+     "recoding_kl_at_same_bits": 1.6261350110981623,
+     "kl_penalty_x": 0.7217640943733622
+    },
+    {
+     "scheme": "sparsedict_m512_s4_d8_c6",
+     "bits": 1226698,
+     "kl": 1.16868257522583,
+     "recoding_kl_at_same_bits": 1.358492769704673,
+     "kl_penalty_x": 0.8602788334897754
+    },
+    {
+     "scheme": "sparsedict_m1024_s4_d6_c5",
+     "bits": 1495437,
+     "kl": 0.843224048614502,
+     "recoding_kl_at_same_bits": 0.885087332374765,
+     "kl_penalty_x": 0.9527015219527092
+    },
+    {
+     "scheme": "sparsedict_m512_s8_d6_c5",
+     "bits": 1545696,
+     "kl": 0.8269606381654739,
+     "recoding_kl_at_same_bits": 0.7965520476756188,
+     "kl_penalty_x": 1.038175271256397
+    },
+    {
+     "scheme": "sparsedict_m512_s8_d8_c6",
+     "bits": 1732274,
+     "kl": 0.8257290422916412,
+     "recoding_kl_at_same_bits": 0.46787984272531546,
+     "kl_penalty_x": 1.7648314094531599
+    },
+    {
+     "scheme": "transform_pca_384bpr",
+     "bits": 1835325,
+     "kl": 0.33906013146042824,
+     "recoding_kl_at_same_bits": 0.3214468577658829,
+     "kl_penalty_x": 1.0547937342332756
+    },
+    {
+     "scheme": "vq_k512_resid_q2",
+     "bits": 2416094,
+     "kl": 0.25387403927743435,
+     "recoding_kl_at_same_bits": 0.1802781157064936,
+     "kl_penalty_x": 1.4082354826182035
+    },
+    {
+     "scheme": "transform_pca_512bpr",
+     "bits": 2885496,
+     "kl": 0.08010492008179426,
+     "recoding_kl_at_same_bits": 0.06886386247949536,
+     "kl_penalty_x": 1.1632359440431619
+    },
+    {
+     "scheme": "vq_k512_resid_q3",
+     "bits": 3555114,
+     "kl": 0.04442147212103009,
+     "recoding_kl_at_same_bits": 0.035770346288551524,
+     "kl_penalty_x": 1.2418518893468864
+    },
+    {
+     "scheme": "transform_pca_640bpr",
+     "bits": 3976052,
+     "kl": 0.01682584430091083,
+     "recoding_kl_at_same_bits": 0.016018564792130194,
+     "kl_penalty_x": 1.050396494271275
+    },
+    {
+     "scheme": "vq_k512_resid_q4",
+     "bits": 4672236,
+     "kl": 0.009721735725179315,
+     "recoding_kl_at_same_bits": 0.008407552163878082,
+     "kl_penalty_x": 1.1563098908797076
+    },
+    {
+     "scheme": "transform_pca_768bpr",
+     "bits": 5104060,
+     "kl": 0.004211262974422425,
+     "recoding_kl_at_same_bits": 0.0039973733305940715,
+     "kl_penalty_x": 1.0535075476166662
+    },
+    {
+     "scheme": "pq_m128_b8",
+     "bits": 9437184,
+     "kl": 0.00012518045059550786,
+     "recoding_kl_at_same_bits": null,
+     "kl_penalty_x": null
+    }
+   ],
+   "pure_structure_summary": {
+    "best_penalty_x": 0.7217640943733622,
+    "worst_penalty_x": 1.7648314094531599,
+    "penalty_below_1_only_at_bits_under": 1495437
+   }
+  }
+ },
+ "O6_seed_robustness": {
+  "points": [
+   {
+    "scheme": "distilled_emb1_body4",
+    "bits_s0": 2431255.0,
+    "kl_s0": 0.8290731906890869,
+    "bits_s1_IM": 2428580,
+    "kl_s1_IM": 0.772788405418396,
+    "bits_s2": 2423388,
+    "kl_s2": 0.734825849533081,
+    "n_seeds": 3,
+    "kl_min": 0.734825849533081,
+    "kl_max": 0.8290731906890869,
+    "kl_spread_x": 1.1282580644323985,
+    "verdict": "seed-robust (<1.25x)"
+   },
+   {
+    "scheme": "distilled_emb2_body3",
+    "bits_s0": 2680297.0,
+    "kl_s0": 0.408969521522522,
+    "bits_s1_IM": 2643539,
+    "kl_s1_IM": 0.4540483355522156,
+    "bits_s2": 2643013,
+    "kl_s2": 0.4170060157775879,
+    "n_seeds": 3,
+    "kl_min": 0.408969521522522,
+    "kl_max": 0.4540483355522156,
+    "kl_spread_x": 1.1102253631563377,
+    "verdict": "seed-robust (<1.25x)"
+   },
+   {
+    "scheme": "distilled_emb2_body6",
+    "bits_s0": 3613193.0,
+    "kl_s0": 0.38760846853256226,
+    "bits_s1_IM": 3584416,
+    "kl_s1_IM": 0.4310532510280609,
+    "bits_s2": 3593739,
+    "kl_s2": 0.41660088300704956,
+    "n_seeds": 3,
+    "kl_min": 0.38760846853256226,
+    "kl_max": 0.4310532510280609,
+    "kl_spread_x": 1.1120841932581484,
+    "verdict": "seed-robust (<1.25x)"
+   },
+   {
+    "scheme": "distilled_emb3_body3",
+    "bits_s0": 3765718.0,
+    "kl_s0": 0.1323038637638092,
+    "bits_s1_IM": 3709928,
+    "kl_s1_IM": 0.1381736695766449,
+    "bits_s2": 3693132,
+    "kl_s2": 0.136801078915596,
+    "n_seeds": 3,
+    "kl_min": 0.1323038637638092,
+    "kl_max": 0.1381736695766449,
+    "kl_spread_x": 1.0443660951830898,
+    "verdict": "seed-robust (<1.25x)"
+   },
+   {
+    "scheme": "distilled_emb3_body4",
+    "bits_s0": 4088748.0,
+    "kl_s0": 0.10486949980258942,
+    "bits_s1_IM": 4042604,
+    "kl_s1_IM": 0.10749554634094238,
+    "bits_s2": 4024572,
+    "kl_s2": 0.10778796672821045,
+    "n_seeds": 3,
+    "kl_min": 0.10486949980258942,
+    "kl_max": 0.10778796672821045,
+    "kl_spread_x": 1.027829511260327,
+    "verdict": "seed-robust (<1.25x)"
+   },
+   {
+    "scheme": "distilled_emb3_body6",
+    "bits_s0": 4701816.0,
+    "kl_s0": 0.09298348426818848,
+    "bits_s1_IM": 4654936,
+    "kl_s1_IM": 0.100892573595047,
+    "bits_s2": 4646813,
+    "kl_s2": 0.09899076074361801,
+    "n_seeds": 3,
+    "kl_min": 0.09298348426818848,
+    "kl_max": 0.100892573595047,
+    "kl_spread_x": 1.085059076771598,
+    "verdict": "seed-robust (<1.25x)"
+   },
+   {
+    "scheme": "embT512+body6",
+    "bits_s0": 4770512.0,
+    "kl_s0": 0.07519357744604349,
+    "bits_s1": 4767462,
+    "kl_s1": 0.09697450883686543,
+    "bits_s2": 4762255,
+    "kl_s2": 0.08543187379837036,
+    "n_seeds": 3,
+    "kl_min": 0.07519357744604349,
+    "kl_max": 0.09697450883686543,
+    "kl_spread_x": 1.2896647842889406,
+    "verdict": "moderately seed-sensitive (1.25-2x)"
+   },
+   {
+    "scheme": "corpusstat_res_q3+body6",
+    "bits_s0": 5053583.0,
+    "kl_s0": 0.06072908919304609,
+    "bits_s1_IM": 5056087,
+    "kl_s1_IM": 0.0854702340438962,
+    "bits_s2": 5053750,
+    "kl_s2": 0.07150912564247847,
+    "n_seeds": 3,
+    "kl_min": 0.06072908919304609,
+    "kl_max": 0.0854702340438962,
+    "kl_spread_x": 1.4074018757666984,
+    "verdict": "moderately seed-sensitive (1.25-2x)"
+   },
+   {
+    "scheme": "distilled_emb4_body4",
+    "bits_s0": 5167472.0,
+    "kl_s0": 0.03454548120498657,
+    "bits_s1_IM": 5104810,
+    "kl_s1_IM": 0.03727731853723526,
+    "bits_s2": 5078241,
+    "kl_s2": 0.03637130185961723,
+    "n_seeds": 3,
+    "kl_min": 0.03454548120498657,
+    "kl_max": 0.03727731853723526,
+    "kl_spread_x": 1.0790794406955417,
+    "verdict": "seed-robust (<1.25x)"
+   },
+   {
+    "scheme": "distilled_emb4_body6",
+    "bits_s0": 5784535.0,
+    "kl_s0": 0.023870937526226044,
+    "bits_s1_IM": 5712975,
+    "kl_s1_IM": 0.025943081825971603,
+    "bits_s2": 5701134,
+    "kl_s2": 0.025408640503883362,
+    "n_seeds": 3,
+    "kl_min": 0.023870937526226044,
+    "kl_max": 0.025943081825971603,
+    "kl_spread_x": 1.0868061548679844,
+    "verdict": "seed-robust (<1.25x)"
+   },
+   {
+    "scheme": "corpusstat_res_q4+body6",
+    "bits_s0": 6170564.0,
+    "kl_s0": 0.020944999996572733,
+    "bits_s1_IM": 6172612,
+    "kl_s1_IM": 0.04189649363979697,
+    "bits_s2": 6170483,
+    "kl_s2": 0.03215507697314024,
+    "n_seeds": 3,
+    "kl_min": 0.020944999996572733,
+    "kl_max": 0.04189649363979697,
+    "kl_spread_x": 2.000310033261044,
+    "verdict": "seed-sensitive (>2x)"
+   },
+   {
+    "scheme": "embS6_4_2048+body6",
+    "bits_s0": 6426375.0,
+    "kl_s0": 0.019127100007608533,
+    "bits_s1": 6331771,
+    "kl_s1": 0.04217525897547603,
+    "bits_s2": 6326606,
+    "kl_s2": 0.03173604025505483,
+    "n_seeds": 3,
+    "kl_min": 0.019127100007608533,
+    "kl_max": 0.04217525897547603,
+    "kl_spread_x": 2.205000180827162,
+    "verdict": "seed-sensitive (>2x)"
+   },
+   {
+    "scheme": "embT640+body8",
+    "bits_s0": 6467056.0,
+    "kl_s0": 0.01556215831078589,
+    "bits_s1": 6464203,
+    "kl_s1": 0.01637628604657948,
+    "bits_s2": 6458973,
+    "kl_s2": 0.016234904527664185,
+    "n_seeds": 3,
+    "kl_min": 0.01556215831078589,
+    "kl_max": 0.01637628604657948,
+    "kl_spread_x": 1.0523145774213936,
+    "verdict": "seed-robust (<1.25x)"
+   },
+   {
+    "scheme": "corpusstat_res_q4+body8",
+    "bits_s0": 6760388.0,
+    "kl_s0": 0.01170886040199548,
+    "bits_s1_IM": 6762436,
+    "kl_s1_IM": 0.01236330543179065,
+    "bits_s2": 6760307,
+    "kl_s2": 0.012540252646431327,
+    "n_seeds": 3,
+    "kl_min": 0.01170886040199548,
+    "kl_max": 0.012540252646431327,
+    "kl_spread_x": 1.0710053938549098,
+    "verdict": "seed-robust (<1.25x)"
+   },
+   {
+    "scheme": "embS6_4_2048+body8",
+    "bits_s0": 7016199.0,
+    "kl_s0": 0.009871055488474667,
+    "bits_s1": 6921595,
+    "kl_s1": 0.012403063126839697,
+    "bits_s2": 6916430,
+    "kl_s2": 0.012701632804237306,
+    "n_seeds": 3,
+    "kl_min": 0.009871055488474667,
+    "kl_max": 0.012701632804237306,
+    "kl_spread_x": 1.2867552835730272,
+    "verdict": "moderately seed-sensitive (1.25-2x)"
+   },
+   {
+    "scheme": "distilled_emb5_body8",
+    "bits_s0": 7464129.0,
+    "kl_s0": 0.005674506537616253,
+    "bits_s1_IM": 7381055,
+    "kl_s1_IM": 0.006323302164673805,
+    "bits_s2": 7369390,
+    "kl_s2": 0.006203635595738888,
+    "n_seeds": 3,
+    "kl_min": 0.005674506537616253,
+    "kl_max": 0.006323302164673805,
+    "kl_spread_x": 1.1143351624950455,
+    "verdict": "seed-robust (<1.25x)"
+   },
+   {
+    "scheme": "embT768+body8",
+    "bits_s0": 7594449.0,
+    "kl_s0": 0.004210276470985264,
+    "bits_s1": 7592652,
+    "kl_s1": 0.005091079685371369,
+    "bits_s2": 7586661,
+    "kl_s2": 0.004999659839086235,
+    "n_seeds": 3,
+    "kl_min": 0.004210276470985264,
+    "kl_max": 0.005091079685371369,
+    "kl_spread_x": 1.209203177144323,
+    "verdict": "seed-robust (<1.25x)"
+   },
+   {
+    "scheme": "embS8_5_512+body8",
+    "bits_s0": 7741818.0,
+    "kl_s0": 0.004003209643997252,
+    "bits_s1": 7648867,
+    "kl_s1": 0.00545333867194131,
+    "bits_s2": 7641590,
+    "kl_s2": 0.005490695300977677,
+    "n_seeds": 3,
+    "kl_min": 0.004003209643997252,
+    "kl_max": 0.005490695300977677,
+    "kl_spread_x": 1.3715732597744128,
+    "verdict": "moderately seed-sensitive (1.25-2x)"
+   },
+   {
+    "scheme": "corpusstat_res_q5+body8",
+    "bits_s0": 7841523.0,
+    "kl_s0": 0.0030464436567854136,
+    "bits_s1_IM": 7843808,
+    "kl_s1_IM": 0.0041638066177256405,
+    "bits_s2": 7841942,
+    "kl_s2": 0.003959600784583017,
+    "n_seeds": 3,
+    "kl_min": 0.0030464436567854136,
+    "kl_max": 0.0041638066177256405,
+    "kl_spread_x": 1.3667761780039813,
+    "verdict": "moderately seed-sensitive (1.25-2x)"
+   },
+   {
+    "scheme": "distilled_emb6_body8",
+    "bits_s0": 8516333.0,
+    "kl_s0": 0.0015166513621807098,
+    "bits_s1_IM": 8428263,
+    "kl_s1_IM": 0.0016889991238713264,
+    "bits_s2": 8415526,
+    "kl_s2": 0.0016421228647232056,
+    "n_seeds": 3,
+    "kl_min": 0.0015166513621807098,
+    "kl_max": 0.0016889991238713264,
+    "kl_spread_x": 1.1136370335254948,
+    "verdict": "seed-robust (<1.25x)"
+   },
+   {
+    "scheme": "uniform_8bit",
+    "bits_s0": 11075584.0,
+    "kl_s0": 0.0006439469652832486,
+    "bits_s1": 11075584,
+    "kl_s1": 0.0016852040425874293,
+    "bits_s2": 11075584,
+    "kl_s2": 0.0015212437574518844,
+    "n_seeds": 3,
+    "kl_min": 0.0006439469652832486,
+    "kl_max": 0.0016852040425874293,
+    "kl_spread_x": 2.616991978285308,
+    "verdict": "seed-sensitive (>2x)"
+   },
+   {
+    "scheme": "corpusstat_residual_q6",
+    "bits_s0": 15917003.0,
+    "kl_s0": 0.0006189020932652056,
+    "bits_s1": null,
+    "kl_s1": 0.0006317411680356599,
+    "bits_s2": null,
+    "kl_s2": 0.0006157211901154369,
+    "n_seeds": 3,
+    "kl_min": 0.0006157211901154369,
+    "kl_max": 0.0006317411680356599,
+    "kl_spread_x": 1.0260182338652655,
+    "verdict": "seed-robust (<1.25x)"
+   },
+   {
+    "scheme": "uniform_12bit",
+    "bits_s0": 16449536.0,
+    "kl_s0": 4.415230250742752e-06,
+    "bits_s1": 16449536,
+    "kl_s1": 6.721096042383579e-06,
+    "bits_s2": 16449536,
+    "kl_s2": 6.955536719033262e-06,
+    "n_seeds": 3,
+    "kl_min": 4.415230250742752e-06,
+    "kl_max": 6.955536719033262e-06,
+    "kl_spread_x": 1.5753508478664655,
+    "verdict": "at the measurement floor (KL < 1e-4, fp16 reference storage) -- no spread is meaningful"
+   },
+   {
+    "scheme": "uniform_16bit",
+    "bits_s0": 21823488.0,
+    "kl_s0": 1.5006995113253652e-06,
+    "bits_s1": 21823488,
+    "kl_s1": -3.739542080438696e-07,
+    "bits_s2": 21823488,
+    "kl_s2": 1.142904807238665e-06,
+    "n_seeds": 3,
+    "kl_min": -3.739542080438696e-07,
+    "kl_max": 1.5006995113253652e-06,
+    "kl_spread_x": 1500699.5113253652,
+    "verdict": "at the measurement floor (KL < 1e-4, fp16 reference storage) -- no spread is meaningful"
+   },
+   {
+    "scheme": "uniform_32bit",
+    "bits_s0": 42995712.0,
+    "kl_s0": 1.4653066671144188e-06,
+    "bits_s1": 42995712,
+    "kl_s1": -5.140072811826712e-07,
+    "bits_s2": 42995712,
+    "kl_s2": 1.0718517415853057e-06,
+    "n_seeds": 3,
+    "kl_min": -5.140072811826712e-07,
+    "kl_max": 1.4653066671144188e-06,
+    "kl_spread_x": 1465306.667114419,
+    "verdict": "at the measurement floor (KL < 1e-4, fp16 reference storage) -- no spread is meaningful"
+   }
+  ]
+ },
+ "VERDICTS": {
+  "claim_1_descriptions_beat_the_model_5.7x": {
+   "verdict": "WEAKENED \u2014 the factor survives only against fp32",
+   "objection": "fp32 is the laziest possible encoding of a trained network; the denominator decides the headline.",
+   "measured": {
+    "fp32_raw_Mbit": 42.995712,
+    "best_lossless_recompression_of_the_fp32_weights_Mbit": 36.01808,
+    "lossless_gain_over_raw_fp32_x": 1.1937258177004437,
+    "fp16_Mbit": 21.497856,
+    "fp16_kl": 2.4055603660144698e-06,
+    "bf16_kl": 5.7241170452471124e-05,
+    "twelve_bit_uniform_Mbit": 16.449536,
+    "headline_point_Mbit": 7.594449,
+    "x_vs_fp32": 5.661465631015496,
+    "x_vs_best_lossless": 4.742685084856057,
+    "x_vs_fp16": 2.830732815507748,
+    "x_vs_12bit_uniform": 2.1659946626805975,
+    "x_vs_naive_quantisation_at_matched_kl": 1.1502780767266054,
+    "median_x_vs_naive_quantisation_over_the_whole_frontier": 1.1758985624298262,
+    "max_x_vs_naive_quantisation_anywhere": 1.535479192427459
+   },
+   "corrected_headline": "At KL 0.0042 the shortest description is 7.594 Mbit. That is 5.7x below the fp32 weights, 4.7x below the best LOSSLESS recompression of those weights, 2.8x below fp16 (which is behaviourally identical to the model), 2.2x below 12-bit uniform (also below the measurement floor), and 1.15x below the SAME weights coded by naive per-row uniform quantisation plus entropy coding at the SAME KL. The last number is the only one that measures a discovery; over the whole frontier it is 1.18x (median) and never exceeds 1.54x."
+  },
+  "claim_2_the_bits_are_charged_completely": {
+   "verdict": "SURVIVES",
+   "measured": {
+    "independent_recount_matches": true,
+    "points_recounted": [
+     {
+      "scheme": "embT768+body8",
+      "reviewer_bits": 7594449,
+      "analyst_bits": 7594449,
+      "reviewer_kl": 0.004210276470985264,
+      "analyst_kl": 0.004210276470985264
+     },
+     {
+      "scheme": "embT640+body8",
+      "reviewer_bits": 6467056,
+      "analyst_bits": 6467056,
+      "reviewer_kl": 0.01556215831078589,
+      "analyst_kl": 0.01556215831078589
+     },
+     {
+      "scheme": "embT512+body6",
+      "reviewer_bits": 4770512,
+      "analyst_bits": 4770512,
+      "reviewer_kl": 0.07519357744604349,
+      "analyst_kl": 0.07519357744604349
+     }
+    ],
+    "serialisation_roundtrip": {
+     "scheme": "embT768 (the embedding half of the headline point)",
+     "charged_bits": 5169617,
+     "actual_serialised_bits": 5169672,
+     "actual_over_charged": 1.000010639086029,
+     "roundtrip_bit_identical": false,
+     "max_abs_reconstruction_diff": 1.1920928955078125e-07,
+     "decoder_received_only_the_blob": true,
+     "blob_bytes": 646209,
+     "itemised": {
+      "means_fp32": 4096,
+      "lo_hi_fp16": 4096,
+      "alloc_4bit": 512,
+      "histograms_fp16": 131072,
+      "arith_stream": 5029896
+     }
+    }
+   },
+   "note": "The embedding half of the headline description was actually serialised with a static arithmetic coder and decoded from the resulting blob alone: 5 169 672 real bits against 5 169 617 charged (1.000011x), reconstruction identical to 1.2e-7. Nothing the decoder needs is missing from the bill.",
+   "one_correction": "The write-up calls 1.5e-6 the \"measurement floor (fp32 round-off)\". It is not: `D1Desc.cache_ref` stores the reference log-probabilities in fp16, and the seed-1 positive control returns KL = -5.14e-7, which is negative and therefore impossible for a true KL. The floor is fp16 REFERENCE STORAGE and no KL below about 1e-5 should be read as a measurement."
+  },
+  "claim_3_nothing_is_fitted_on_the_scored_tokens": {
+   "verdict": "SURVIVES, with one documented limitation",
+   "measured": {
+    "splits_are_disjoint_text_regions": {
+     "train": [
+      0,
+      240000
+     ],
+     "held": [
+      240000,
+      246000
+     ],
+     "est": [
+      246000,
+      276000
+     ],
+     "spare": [
+      276000,
+      300000
+     ]
+    },
+    "kl_ratio_on_an_untouched_disjoint_split": {
+     "median": 1.005254461582759,
+     "min": 0.9762406888258063,
+     "max": 1.0250281245028627
+    },
+    "pareto_set_identical_on_the_disjoint_split": false,
+    "pareto_on_held": [
+     "embT256+body4",
+     "embT256+body6",
+     "embQ2e+body4",
+     "embT384+body4",
+     "embT384+body6",
+     "embT384+body8",
+     "embQ3e+body6",
+     "embT512+body6",
+     "embS6_3_1024+body6",
+     "embT512+body8",
+     "embS6_3_1024+body8",
+     "embQ4e+body6",
+     "embT640+body6",
+     "embS6_4_2048+body6",
+     "embT640+body8",
+     "embT768+body6",
+     "embS6_4_2048+body8",
+     "embQ5e+body8",
+     "embT768+body8",
+     "embS8_5_512+body8",
+     "embQ6e+body8",
+     "embQ8e+body8"
+    ],
+    "pareto_on_disjoint": [
+     "embT256+body4",
+     "embT256+body6",
+     "embQ2e+body4",
+     "embT384+body4",
+     "embT384+body6",
+     "embT512+body4",
+     "embT384+body8",
+     "embQ3e+body6",
+     "embT512+body6",
+     "embS6_3_1024+body6",
+     "embT512+body8",
+     "embS6_3_1024+body8",
+     "embQ4e+body6",
+     "embT640+body6",
+     "embS6_4_2048+body6",
+     "embT640+body8",
+     "embT768+body6",
+     "embS6_4_2048+body8",
+     "embQ5e+body8",
+     "embT768+body8",
+     "embS8_5_512+body8",
+     "embQ6e+body8",
+     "embQ8e+body8"
+    ]
+   },
+   "limitation": "No table is fitted on held, but the PARETO SELECTION is made on the same 16 384 held tokens for all ~150 schemes. Re-scored on the untouched `spare` split (65 536 tokens, 4x larger) the KLs move by a median of +0.5 % (range -2.4 % to +2.5 %) and the selected set changes by exactly one of 22 points (embT512+body4 enters). Every quoted headline point is unchanged. The frontier should nevertheless be quoted on a split that the selection never saw."
+  },
+  "claim_4_merging_tokens_is_the_worst_code_measured": {
+   "verdict": "RETRACTED as stated",
+   "objection": "The clustering was charged fp32 centroids and given no residual \u2014 the two things any competent vector quantiser does. \"Worst code measured\" is a property of that implementation, not of prototypes.",
+   "measured": {
+    "centroids_at_fp32_vs_4_bits": {
+     "k4096_fp32_centroids": {
+      "bits": 16875520,
+      "kl": 0.38431981205940247
+     },
+     "k4096_4bit_centroids": {
+      "bits": 2123486,
+      "kl": 0.39423157647252083
+     },
+     "bits_saved_x": 7.947083239541019,
+     "kl_cost_x": 1.0257904071091353
+    },
+    "best_prototype_code_vs_best_recoding_at_matched_bits": {
+     "scheme": "vq_k512_resid_q4",
+     "role": "both",
+     "bits": 4672236,
+     "kl": 0.009721735725179315,
+     "best_recoding_kl_at_same_bits": 0.00890314864580286,
+     "kl_penalty_x": 1.091943548506556
+    },
+    "behaviour_whitened_metric_helps_by": "write role: 8-9 % lower KL at k=512 and k=4096, WORSE at k=1024 and k=2048 \u2014 metric choice is second order",
+    "fisher_weighted_read_metric": "HURT: k=4096 KL 0.674 against 0.436 for plain frequency-weighted Euclidean",
+    "full_matched_bits_table": [
+     {
+      "scheme": "writecluster_k512_cent4",
+      "role": "wte_out",
+      "bits": 326409,
+      "kl": 0.8769545331597328,
+      "best_recoding_kl_at_same_bits": null,
+      "kl_penalty_x": null
+     },
+     {
+      "scheme": "writecluster_k512_cent6",
+      "role": "wte_out",
+      "bits": 460862,
+      "kl": 0.8681912273168564,
+      "best_recoding_kl_at_same_bits": null,
+      "kl_penalty_x": null
+     },
+     {
+      "scheme": "writecluster_k512_cent8",
+      "role": "wte_out",
+      "bits": 594139,
+      "kl": 0.8681847751140594,
+      "best_recoding_kl_at_same_bits": null,
+      "kl_penalty_x": null
+     },
+     {
+      "scheme": "writecluster_k512_cent32",
+      "role": "wte_out",
+      "bits": 2170880,
+      "kl": 0.8684414476156235,
+      "best_recoding_kl_at_same_bits": 0.089694690474895,
+      "kl_penalty_x": 9.682194598337958
+     },
+     {
+      "scheme": "writecluster_k1024_cent4",
+      "role": "wte_out",
+      "bits": 587217,
+      "kl": 0.920468270778656,
+      "best_recoding_kl_at_same_bits": null,
+      "kl_penalty_x": null
+     },
+     {
+      "scheme": "writecluster_k1024_cent6",
+      "role": "wte_out",
+      "bits": 854460,
+      "kl": 0.9096682667732239,
+      "best_recoding_kl_at_same_bits": null,
+      "kl_penalty_x": null
+     },
+     {
+      "scheme": "writecluster_k1024_cent8",
+      "role": "wte_out",
+      "bits": 1117157,
+      "kl": 0.9100221991539001,
+      "best_recoding_kl_at_same_bits": 0.6441394469769887,
+      "kl_penalty_x": 1.4127720378323763
+     },
+     {
+      "scheme": "writecluster_k1024_cent32",
+      "role": "wte_out",
+      "bits": 4276224,
+      "kl": 0.9098251983523369,
+      "best_recoding_kl_at_same_bits": 0.004925709180432365,
+      "kl_penalty_x": 184.7094834519798
+     },
+     {
+      "scheme": "writecluster_k2048_cent4",
+      "role": "wte_out",
+      "bits": 1102742,
+      "kl": 0.5442285686731339,
+      "best_recoding_kl_at_same_bits": 0.6581578648958629,
+      "kl_penalty_x": 0.8268967032084992
+     },
+     {
+      "scheme": "writecluster_k2048_cent6",
+      "role": "wte_out",
+      "bits": 1635587,
+      "kl": 0.5340746194124222,
+      "best_recoding_kl_at_same_bits": 0.3423925678009918,
+      "kl_penalty_x": 1.5598312277702282
+     },
+     {
+      "scheme": "writecluster_k2048_cent8",
+      "role": "wte_out",
+      "bits": 2157023,
+      "kl": 0.533368818461895,
+      "best_recoding_kl_at_same_bits": 0.09067564823278686,
+      "kl_penalty_x": 5.8821616261579415
+     },
+     {
+      "scheme": "writecluster_k2048_cent32",
+      "role": "wte_out",
+      "bits": 8478720,
+      "kl": 0.5333539545536041,
+      "best_recoding_kl_at_same_bits": null,
+      "kl_penalty_x": null
+     },
+     {
+      "scheme": "writecluster_k4096_cent4",
+      "role": "wte_out",
+      "bits": 2123486,
+      "kl": 0.39423157647252083,
+      "best_recoding_kl_at_same_bits": 0.09312159682704729,
+      "kl_penalty_x": 4.233513920564727
+     },
+     {
+      "scheme": "writecluster_k4096_cent6",
+      "role": "wte_out",
+      "bits": 3187363,
+      "kl": 0.3855482079088688,
+      "best_recoding_kl_at_same_bits": 0.020963364344002894,
+      "kl_penalty_x": 18.391523496998452
+     },
+     {
+      "scheme": "writecluster_k4096_cent8",
+      "role": "wte_out",
+      "bits": 4226292,
+      "kl": 0.3841463252902031,
+      "best_recoding_kl_at_same_bits": 0.005109360491358414,
+      "kl_penalty_x": 75.18481538735016
+     },
+     {
+      "scheme": "writecluster_k4096_cent32",
+      "role": "wte_out",
+      "bits": 16875520,
+      "kl": 0.38431981205940247,
+      "best_recoding_kl_at_same_bits": null,
+      "kl_penalty_x": null
+     },
+     {
+      "scheme": "writecluster_whitened_k512_cent6",
+      "role": "wte_out",
+      "bits": 458711,
+      "kl": 0.7927093505859375,
+      "best_recoding_kl_at_same_bits": null,
+      "kl_penalty_x": null
+     },
+     {
+      "scheme": "writecluster_whitened_k512_cent32",
+      "role": "wte_out",
+      "bits": 2170880,
+      "kl": 0.792375274002552,
+      "best_recoding_kl_at_same_bits": 0.089694690474895,
+      "kl_penalty_x": 8.834138005351978
+     },
+     {
+      "scheme": "writecluster_whitened_k1024_cent6",
+      "role": "wte_out",
+      "bits": 851484,
+      "kl": 0.8175827115774155,
+      "best_recoding_kl_at_same_bits": null,
+      "kl_penalty_x": null
+     },
+     {
+      "scheme": "writecluster_whitened_k1024_cent32",
+      "role": "wte_out",
+      "bits": 4276224,
+      "kl": 0.8173373192548752,
+      "best_recoding_kl_at_same_bits": 0.004925709180432365,
+      "kl_penalty_x": 165.93292241080536
+     },
+     {
+      "scheme": "writecluster_whitened_k2048_cent6",
+      "role": "wte_out",
+      "bits": 1630635,
+      "kl": 0.6794465780258179,
+      "best_recoding_kl_at_same_bits": 0.3441180070965736,
+      "kl_penalty_x": 1.9744580754680976
+     },
+     {
+      "scheme": "writecluster_whitened_k2048_cent32",
+      "role": "wte_out",
+      "bits": 8478720,
+      "kl": 0.6789819970726967,
+      "best_recoding_kl_at_same_bits": null,
+      "kl_penalty_x": null
+     },
+     {
+      "scheme": "writecluster_whitened_k4096_cent6",
+      "role": "wte_out",
+      "bits": 3182598,
+      "kl": 0.3551097512245178,
+      "best_recoding_kl_at_same_bits": 0.021039606339082615,
+      "kl_penalty_x": 16.878155679409048
+     },
+     {
+      "scheme": "writecluster_whitened_k4096_cent32",
+      "role": "wte_out",
+      "bits": 16875520,
+      "kl": 0.3545864187180996,
+      "best_recoding_kl_at_same_bits": null,
+      "kl_penalty_x": null
+     },
+     {
+      "scheme": "readcluster_fisher_k512_cent6",
+      "role": "wte_read",
+      "bits": 459868,
+      "kl": 1.2735891342163086,
+      "best_recoding_kl_at_same_bits": null,
+      "kl_penalty_x": null
+     },
+     {
+      "scheme": "readcluster_fisher_k512_cent32",
+      "role": "wte_read",
+      "bits": 2170880,
+      "kl": 1.268994688987732,
+      "best_recoding_kl_at_same_bits": 0.08815014998514158,
+      "kl_penalty_x": 14.39583130830329
+     },
+     {
+      "scheme": "readcluster_fisher_k1024_cent6",
+      "role": "wte_read",
+      "bits": 853123,
+      "kl": 1.2196669280529022,
+      "best_recoding_kl_at_same_bits": null,
+      "kl_penalty_x": null
+     },
+     {
+      "scheme": "readcluster_fisher_k1024_cent32",
+      "role": "wte_read",
+      "bits": 4276224,
+      "kl": 1.2194152772426605,
+      "best_recoding_kl_at_same_bits": 0.004347222368090234,
+      "kl_penalty_x": 280.5044633082247
+     },
+     {
+      "scheme": "readcluster_fisher_k2048_cent6",
+      "role": "wte_read",
+      "bits": 1626239,
+      "kl": 0.9879705160856247,
+      "best_recoding_kl_at_same_bits": 0.4552539384944507,
+      "kl_penalty_x": 2.1701525951711615
+     },
+     {
+      "scheme": "readcluster_fisher_k2048_cent32",
+      "role": "wte_read",
+      "bits": 8478720,
+      "kl": 0.9892806485295296,
+      "best_recoding_kl_at_same_bits": null,
+      "kl_penalty_x": null
+     },
+     {
+      "scheme": "readcluster_fisher_k4096_cent6",
+      "role": "wte_read",
+      "bits": 3119479,
+      "kl": 0.674453616142273,
+      "best_recoding_kl_at_same_bits": 0.019688426174175815,
+      "kl_penalty_x": 34.25634990707969
+     },
+     {
+      "scheme": "readcluster_fisher_k4096_cent32",
+      "role": "wte_read",
+      "bits": 16875520,
+      "kl": 0.6749095395207405,
+      "best_recoding_kl_at_same_bits": null,
+      "kl_penalty_x": null
+     },
+     {
+      "scheme": "readcluster_freq_k512_cent4",
+      "role": "wte_read",
+      "bits": 324797,
+      "kl": 1.1972165405750275,
+      "best_recoding_kl_at_same_bits": null,
+      "kl_penalty_x": null
+     },
+     {
+      "scheme": "readcluster_freq_k512_cent6",
+      "role": "wte_read",
+      "bits": 459306,
+      "kl": 1.183973029255867,
+      "best_recoding_kl_at_same_bits": null,
+      "kl_penalty_x": null
+     },
+     {
+      "scheme": "readcluster_freq_k1024_cent4",
+      "role": "wte_read",
+      "bits": 584922,
+      "kl": 1.1557546257972717,
+      "best_recoding_kl_at_same_bits": null,
+      "kl_penalty_x": null
+     },
+     {
+      "scheme": "readcluster_freq_k1024_cent6",
+      "role": "wte_read",
+      "bits": 853097,
+      "kl": 1.146843820810318,
+      "best_recoding_kl_at_same_bits": null,
+      "kl_penalty_x": null
+     },
+     {
+      "scheme": "readcluster_freq_k2048_cent4",
+      "role": "wte_read",
+      "bits": 1096073,
+      "kl": 0.799917034804821,
+      "best_recoding_kl_at_same_bits": 0.5129994027607331,
+      "kl_penalty_x": 1.5592942808510608
+     },
+     {
+      "scheme": "readcluster_freq_k2048_cent6",
+      "role": "wte_read",
+      "bits": 1631595,
+      "kl": 0.7903725132346153,
+      "best_recoding_kl_at_same_bits": 0.45480107498376127,
+      "kl_penalty_x": 1.7378422275339513
+     },
+     {
+      "scheme": "readcluster_freq_k4096_cent4",
+      "role": "wte_read",
+      "bits": 2111979,
+      "kl": 0.44844960048794746,
+      "best_recoding_kl_at_same_bits": 0.08964758156051926,
+      "kl_penalty_x": 5.002361387576398
+     },
+     {
+      "scheme": "readcluster_freq_k4096_cent6",
+      "role": "wte_read",
+      "bits": 3181498,
+      "kl": 0.43577252328395844,
+      "best_recoding_kl_at_same_bits": 0.01935098571212218,
+      "kl_penalty_x": 22.519396673988254
+     },
+     {
+      "scheme": "vq_k512_resid_q2",
+      "role": "both",
+      "bits": 2416094,
+      "kl": 0.25387403927743435,
+      "best_recoding_kl_at_same_bits": 0.18667130380588728,
+      "kl_penalty_x": 1.3600057111157735
+     },
+     {
+      "scheme": "vq_k512_resid_q3",
+      "role": "both",
+      "bits": 3555114,
+      "kl": 0.04442147212103009,
+      "best_recoding_kl_at_same_bits": 0.03881202991030313,
+      "kl_penalty_x": 1.1445284419209898
+     },
+     {
+      "scheme": "vq_k512_resid_q4",
+      "role": "both",
+      "bits": 4672236,
+      "kl": 0.009721735725179315,
+      "best_recoding_kl_at_same_bits": 0.00890314864580286,
+      "kl_penalty_x": 1.091943548506556
+     },
+     {
+      "scheme": "vq_k2048_resid_q2",
+      "role": "both",
+      "bits": 4039100,
+      "kl": 0.17281288839876652,
+      "best_recoding_kl_at_same_bits": 0.017353427826347585,
+      "kl_penalty_x": 9.958429546489135
+     },
+     {
+      "scheme": "vq_k2048_resid_q3",
+      "role": "both",
+      "bits": 5178245,
+      "kl": 0.030468289041891694,
+      "best_recoding_kl_at_same_bits": 0.0036300710844053025,
+      "kl_penalty_x": 8.393303693909115
+     },
+     {
+      "scheme": "vq_k2048_resid_q4",
+      "role": "both",
+      "bits": 6293651,
+      "kl": 0.006484001933131367,
+      "best_recoding_kl_at_same_bits": null,
+      "kl_penalty_x": null
+     }
+    ]
+   },
+   "corrected_claim": "A competently built prototype code \u2014 512 learned prototypes, entropy-coded centroids and an entropy-coded residual \u2014 costs 4.672 Mbit at KL 0.0097 where the best recoder needs the same bits for KL 0.0089: a penalty of 1.09x, not 15x. Below about 1.2 Mbit for the write role a quantised-centroid clustering actually BEATS the best recoding (KL 0.544 vs 0.658). Pure prototypes with no residual do fall behind by 1.4-6x at mid budgets, and that is the real finding; \"the worst code we measured\" was an artifact of charging 32-bit centroids."
+  },
+  "claim_5_structure_exists_but_does_not_pay": {
+   "verdict": "SURVIVES and STRENGTHENS \u2014 the mechanism is now identified",
+   "question_posed": "is the residual coder inefficient, or does R^2 in weight space not translate into bits?",
+   "answer": "the second, and it is arithmetic, not a coding failure",
+   "measured": {
+    "conversion_law": "For an entropy-coded uniform quantiser at a fixed step, rate = h(X) - log2(step), so replacing a source by a residual with variance ratio v saves exactly -0.5*log2(v) bits per weight at the SAME distortion, independent of the bit depth.  R^2 = 1 - v, so R^2 = 0.405 buys 0.374 bits/weight and R^2 = 0.256 buys 0.213 bits/weight.  To halve a 4-bit code you would need R^2 = 1 - 2^-4 = 0.9375.",
+    "corpusstat": {
+     "r2_in_sample": 0.40494388341903687,
+     "r2_cross_validated_over_tokens": 0.35927312897309727,
+     "variance_law_bound_bits_per_weight": 0.374289278729807,
+     "row_range_bound_bits_per_weight": 0.9217730489066701,
+     "measured_gross_saving_bits_per_weight": [
+      0.5175267614712058,
+      0.5867797269260069,
+      0.5862933511362494,
+      0.6301541915269517
+     ],
+     "regression_matrix_cost_bits_per_weight": 0.258819580078125,
+     "net_saving_with_the_plain_coder": [
+      0.11539455050766437,
+      0.09653176353933735,
+      0.07338870493653797,
+      0.06706308971782118
+     ],
+     "net_saving_when_BOTH_arms_use_the_frontier_winning_coder": [
+      0.02737527211071022,
+      0.03480561148673547,
+      0.032843571434868525
+     ]
+    },
+    "spelling": {
+     "r2_in_sample": 0.2585379481315613,
+     "r2_cross_validated_over_tokens": 0.20822358938210694,
+     "net_saving_with_the_plain_coder": [
+      -0.01598309218173583,
+      0.00026579910284180045,
+      0.0015859353468378288,
+      0.0038552339119749418
+     ],
+     "net_saving_when_BOTH_arms_use_the_frontier_winning_coder": [
+      -0.054721338525290784,
+      -0.029249433438737028,
+      -0.017394090694556916
+     ]
+    }
+   },
+   "corrected_claim": "The residual coder is competent: its GROSS bit saving (0.52-0.63 bits per weight for co-occurrence, 0.24-0.29 for spelling) lands between the two rate-distortion bounds the source allows \u2014 the variance law -0.5 log2(1-R^2) and the row-range law. R^2 simply does not buy bits: R^2 = 0.405 is worth 0.374 bits out of ~4.5, and the 257x128 regression matrix that delivers it costs 0.259 bits per weight, eating 44 % of the gross gain. Worse for the structural story: when the PLAIN arm is also given the frontier-winning transform coder, the co-occurrence advantage collapses from 7-14 % to 2.7-3.5 % and the spelling advantage goes NEGATIVE (-5.5 % to -1.7 %) \u2014 most of the apparent structural gain was the conditional code doing a job per-column bit allocation already does. Both R^2 values are in-sample; cross-validated over tokens they are 0.359 and 0.203, so the write-up should say 36 % and 20 %, not 41 % and 26 %."
+  },
+  "claim_6_seed_dependence": {
+   "verdict": "the flag was right about post-hoc quantisation and WRONG about the frontier: the frontier tail is distilled, and distillation removes the seed sensitivity",
+   "measured": {
+    "n_frontier_points_with_3_seeds": 25,
+    "distilled_points_spread_x": [
+     1.1282580644323985,
+     1.1102253631563377,
+     1.1120841932581484,
+     1.0443660951830898,
+     1.027829511260327,
+     1.085059076771598,
+     1.0790794406955417,
+     1.0868061548679844,
+     1.1143351624950455,
+     1.1136370335254948
+    ],
+    "worst_distilled_spread_x": 1.1282580644323985,
+    "seed_sensitive_points": [
+     "corpusstat_res_q4+body6",
+     "embS6_4_2048+body6",
+     "uniform_8bit"
+    ],
+    "moderately_sensitive_points": [
+     "embT512+body6",
+     "corpusstat_res_q3+body6",
+     "embS6_4_2048+body8",
+     "embS8_5_512+body8",
+     "corpusstat_res_q5+body8"
+    ],
+    "at_the_measurement_floor": [
+     "uniform_12bit",
+     "uniform_16bit",
+     "uniform_32bit"
+    ]
+   },
+   "points": [
+    {
+     "scheme": "distilled_emb1_body4",
+     "bits_s0": 2431255.0,
+     "kl_s0": 0.8290731906890869,
+     "bits_s1_IM": 2428580,
+     "kl_s1_IM": 0.772788405418396,
+     "bits_s2": 2423388,
+     "kl_s2": 0.734825849533081,
+     "n_seeds": 3,
+     "kl_min": 0.734825849533081,
+     "kl_max": 0.8290731906890869,
+     "kl_spread_x": 1.1282580644323985,
+     "verdict": "seed-robust (<1.25x)"
+    },
+    {
+     "scheme": "distilled_emb2_body3",
+     "bits_s0": 2680297.0,
+     "kl_s0": 0.408969521522522,
+     "bits_s1_IM": 2643539,
+     "kl_s1_IM": 0.4540483355522156,
+     "bits_s2": 2643013,
+     "kl_s2": 0.4170060157775879,
+     "n_seeds": 3,
+     "kl_min": 0.408969521522522,
+     "kl_max": 0.4540483355522156,
+     "kl_spread_x": 1.1102253631563377,
+     "verdict": "seed-robust (<1.25x)"
+    },
+    {
+     "scheme": "distilled_emb2_body6",
+     "bits_s0": 3613193.0,
+     "kl_s0": 0.38760846853256226,
+     "bits_s1_IM": 3584416,
+     "kl_s1_IM": 0.4310532510280609,
+     "bits_s2": 3593739,
+     "kl_s2": 0.41660088300704956,
+     "n_seeds": 3,
+     "kl_min": 0.38760846853256226,
+     "kl_max": 0.4310532510280609,
+     "kl_spread_x": 1.1120841932581484,
+     "verdict": "seed-robust (<1.25x)"
+    },
+    {
+     "scheme": "distilled_emb3_body3",
+     "bits_s0": 3765718.0,
+     "kl_s0": 0.1323038637638092,
+     "bits_s1_IM": 3709928,
+     "kl_s1_IM": 0.1381736695766449,
+     "bits_s2": 3693132,
+     "kl_s2": 0.136801078915596,
+     "n_seeds": 3,
+     "kl_min": 0.1323038637638092,
+     "kl_max": 0.1381736695766449,
+     "kl_spread_x": 1.0443660951830898,
+     "verdict": "seed-robust (<1.25x)"
+    },
+    {
+     "scheme": "distilled_emb3_body4",
+     "bits_s0": 4088748.0,
+     "kl_s0": 0.10486949980258942,
+     "bits_s1_IM": 4042604,
+     "kl_s1_IM": 0.10749554634094238,
+     "bits_s2": 4024572,
+     "kl_s2": 0.10778796672821045,
+     "n_seeds": 3,
+     "kl_min": 0.10486949980258942,
+     "kl_max": 0.10778796672821045,
+     "kl_spread_x": 1.027829511260327,
+     "verdict": "seed-robust (<1.25x)"
+    },
+    {
+     "scheme": "distilled_emb3_body6",
+     "bits_s0": 4701816.0,
+     "kl_s0": 0.09298348426818848,
+     "bits_s1_IM": 4654936,
+     "kl_s1_IM": 0.100892573595047,
+     "bits_s2": 4646813,
+     "kl_s2": 0.09899076074361801,
+     "n_seeds": 3,
+     "kl_min": 0.09298348426818848,
+     "kl_max": 0.100892573595047,
+     "kl_spread_x": 1.085059076771598,
+     "verdict": "seed-robust (<1.25x)"
+    },
+    {
+     "scheme": "embT512+body6",
+     "bits_s0": 4770512.0,
+     "kl_s0": 0.07519357744604349,
+     "bits_s1": 4767462,
+     "kl_s1": 0.09697450883686543,
+     "bits_s2": 4762255,
+     "kl_s2": 0.08543187379837036,
+     "n_seeds": 3,
+     "kl_min": 0.07519357744604349,
+     "kl_max": 0.09697450883686543,
+     "kl_spread_x": 1.2896647842889406,
+     "verdict": "moderately seed-sensitive (1.25-2x)"
+    },
+    {
+     "scheme": "corpusstat_res_q3+body6",
+     "bits_s0": 5053583.0,
+     "kl_s0": 0.06072908919304609,
+     "bits_s1_IM": 5056087,
+     "kl_s1_IM": 0.0854702340438962,
+     "bits_s2": 5053750,
+     "kl_s2": 0.07150912564247847,
+     "n_seeds": 3,
+     "kl_min": 0.06072908919304609,
+     "kl_max": 0.0854702340438962,
+     "kl_spread_x": 1.4074018757666984,
+     "verdict": "moderately seed-sensitive (1.25-2x)"
+    },
+    {
+     "scheme": "distilled_emb4_body4",
+     "bits_s0": 5167472.0,
+     "kl_s0": 0.03454548120498657,
+     "bits_s1_IM": 5104810,
+     "kl_s1_IM": 0.03727731853723526,
+     "bits_s2": 5078241,
+     "kl_s2": 0.03637130185961723,
+     "n_seeds": 3,
+     "kl_min": 0.03454548120498657,
+     "kl_max": 0.03727731853723526,
+     "kl_spread_x": 1.0790794406955417,
+     "verdict": "seed-robust (<1.25x)"
+    },
+    {
+     "scheme": "distilled_emb4_body6",
+     "bits_s0": 5784535.0,
+     "kl_s0": 0.023870937526226044,
+     "bits_s1_IM": 5712975,
+     "kl_s1_IM": 0.025943081825971603,
+     "bits_s2": 5701134,
+     "kl_s2": 0.025408640503883362,
+     "n_seeds": 3,
+     "kl_min": 0.023870937526226044,
+     "kl_max": 0.025943081825971603,
+     "kl_spread_x": 1.0868061548679844,
+     "verdict": "seed-robust (<1.25x)"
+    },
+    {
+     "scheme": "corpusstat_res_q4+body6",
+     "bits_s0": 6170564.0,
+     "kl_s0": 0.020944999996572733,
+     "bits_s1_IM": 6172612,
+     "kl_s1_IM": 0.04189649363979697,
+     "bits_s2": 6170483,
+     "kl_s2": 0.03215507697314024,
+     "n_seeds": 3,
+     "kl_min": 0.020944999996572733,
+     "kl_max": 0.04189649363979697,
+     "kl_spread_x": 2.000310033261044,
+     "verdict": "seed-sensitive (>2x)"
+    },
+    {
+     "scheme": "embS6_4_2048+body6",
+     "bits_s0": 6426375.0,
+     "kl_s0": 0.019127100007608533,
+     "bits_s1": 6331771,
+     "kl_s1": 0.04217525897547603,
+     "bits_s2": 6326606,
+     "kl_s2": 0.03173604025505483,
+     "n_seeds": 3,
+     "kl_min": 0.019127100007608533,
+     "kl_max": 0.04217525897547603,
+     "kl_spread_x": 2.205000180827162,
+     "verdict": "seed-sensitive (>2x)"
+    },
+    {
+     "scheme": "embT640+body8",
+     "bits_s0": 6467056.0,
+     "kl_s0": 0.01556215831078589,
+     "bits_s1": 6464203,
+     "kl_s1": 0.01637628604657948,
+     "bits_s2": 6458973,
+     "kl_s2": 0.016234904527664185,
+     "n_seeds": 3,
+     "kl_min": 0.01556215831078589,
+     "kl_max": 0.01637628604657948,
+     "kl_spread_x": 1.0523145774213936,
+     "verdict": "seed-robust (<1.25x)"
+    },
+    {
+     "scheme": "corpusstat_res_q4+body8",
+     "bits_s0": 6760388.0,
+     "kl_s0": 0.01170886040199548,
+     "bits_s1_IM": 6762436,
+     "kl_s1_IM": 0.01236330543179065,
+     "bits_s2": 6760307,
+     "kl_s2": 0.012540252646431327,
+     "n_seeds": 3,
+     "kl_min": 0.01170886040199548,
+     "kl_max": 0.012540252646431327,
+     "kl_spread_x": 1.0710053938549098,
+     "verdict": "seed-robust (<1.25x)"
+    },
+    {
+     "scheme": "embS6_4_2048+body8",
+     "bits_s0": 7016199.0,
+     "kl_s0": 0.009871055488474667,
+     "bits_s1": 6921595,
+     "kl_s1": 0.012403063126839697,
+     "bits_s2": 6916430,
+     "kl_s2": 0.012701632804237306,
+     "n_seeds": 3,
+     "kl_min": 0.009871055488474667,
+     "kl_max": 0.012701632804237306,
+     "kl_spread_x": 1.2867552835730272,
+     "verdict": "moderately seed-sensitive (1.25-2x)"
+    },
+    {
+     "scheme": "distilled_emb5_body8",
+     "bits_s0": 7464129.0,
+     "kl_s0": 0.005674506537616253,
+     "bits_s1_IM": 7381055,
+     "kl_s1_IM": 0.006323302164673805,
+     "bits_s2": 7369390,
+     "kl_s2": 0.006203635595738888,
+     "n_seeds": 3,
+     "kl_min": 0.005674506537616253,
+     "kl_max": 0.006323302164673805,
+     "kl_spread_x": 1.1143351624950455,
+     "verdict": "seed-robust (<1.25x)"
+    },
+    {
+     "scheme": "embT768+body8",
+     "bits_s0": 7594449.0,
+     "kl_s0": 0.004210276470985264,
+     "bits_s1": 7592652,
+     "kl_s1": 0.005091079685371369,
+     "bits_s2": 7586661,
+     "kl_s2": 0.004999659839086235,
+     "n_seeds": 3,
+     "kl_min": 0.004210276470985264,
+     "kl_max": 0.005091079685371369,
+     "kl_spread_x": 1.209203177144323,
+     "verdict": "seed-robust (<1.25x)"
+    },
+    {
+     "scheme": "embS8_5_512+body8",
+     "bits_s0": 7741818.0,
+     "kl_s0": 0.004003209643997252,
+     "bits_s1": 7648867,
+     "kl_s1": 0.00545333867194131,
+     "bits_s2": 7641590,
+     "kl_s2": 0.005490695300977677,
+     "n_seeds": 3,
+     "kl_min": 0.004003209643997252,
+     "kl_max": 0.005490695300977677,
+     "kl_spread_x": 1.3715732597744128,
+     "verdict": "moderately seed-sensitive (1.25-2x)"
+    },
+    {
+     "scheme": "corpusstat_res_q5+body8",
+     "bits_s0": 7841523.0,
+     "kl_s0": 0.0030464436567854136,
+     "bits_s1_IM": 7843808,
+     "kl_s1_IM": 0.0041638066177256405,
+     "bits_s2": 7841942,
+     "kl_s2": 0.003959600784583017,
+     "n_seeds": 3,
+     "kl_min": 0.0030464436567854136,
+     "kl_max": 0.0041638066177256405,
+     "kl_spread_x": 1.3667761780039813,
+     "verdict": "moderately seed-sensitive (1.25-2x)"
+    },
+    {
+     "scheme": "distilled_emb6_body8",
+     "bits_s0": 8516333.0,
+     "kl_s0": 0.0015166513621807098,
+     "bits_s1_IM": 8428263,
+     "kl_s1_IM": 0.0016889991238713264,
+     "bits_s2": 8415526,
+     "kl_s2": 0.0016421228647232056,
+     "n_seeds": 3,
+     "kl_min": 0.0015166513621807098,
+     "kl_max": 0.0016889991238713264,
+     "kl_spread_x": 1.1136370335254948,
+     "verdict": "seed-robust (<1.25x)"
+    },
+    {
+     "scheme": "uniform_8bit",
+     "bits_s0": 11075584.0,
+     "kl_s0": 0.0006439469652832486,
+     "bits_s1": 11075584,
+     "kl_s1": 0.0016852040425874293,
+     "bits_s2": 11075584,
+     "kl_s2": 0.0015212437574518844,
+     "n_seeds": 3,
+     "kl_min": 0.0006439469652832486,
+     "kl_max": 0.0016852040425874293,
+     "kl_spread_x": 2.616991978285308,
+     "verdict": "seed-sensitive (>2x)"
+    },
+    {
+     "scheme": "corpusstat_residual_q6",
+     "bits_s0": 15917003.0,
+     "kl_s0": 0.0006189020932652056,
+     "bits_s1": null,
+     "kl_s1": 0.0006317411680356599,
+     "bits_s2": null,
+     "kl_s2": 0.0006157211901154369,
+     "n_seeds": 3,
+     "kl_min": 0.0006157211901154369,
+     "kl_max": 0.0006317411680356599,
+     "kl_spread_x": 1.0260182338652655,
+     "verdict": "seed-robust (<1.25x)"
+    },
+    {
+     "scheme": "uniform_12bit",
+     "bits_s0": 16449536.0,
+     "kl_s0": 4.415230250742752e-06,
+     "bits_s1": 16449536,
+     "kl_s1": 6.721096042383579e-06,
+     "bits_s2": 16449536,
+     "kl_s2": 6.955536719033262e-06,
+     "n_seeds": 3,
+     "kl_min": 4.415230250742752e-06,
+     "kl_max": 6.955536719033262e-06,
+     "kl_spread_x": 1.5753508478664655,
+     "verdict": "at the measurement floor (KL < 1e-4, fp16 reference storage) -- no spread is meaningful"
+    },
+    {
+     "scheme": "uniform_16bit",
+     "bits_s0": 21823488.0,
+     "kl_s0": 1.5006995113253652e-06,
+     "bits_s1": 21823488,
+     "kl_s1": -3.739542080438696e-07,
+     "bits_s2": 21823488,
+     "kl_s2": 1.142904807238665e-06,
+     "n_seeds": 3,
+     "kl_min": -3.739542080438696e-07,
+     "kl_max": 1.5006995113253652e-06,
+     "kl_spread_x": 1500699.5113253652,
+     "verdict": "at the measurement floor (KL < 1e-4, fp16 reference storage) -- no spread is meaningful"
+    },
+    {
+     "scheme": "uniform_32bit",
+     "bits_s0": 42995712.0,
+     "kl_s0": 1.4653066671144188e-06,
+     "bits_s1": 42995712,
+     "kl_s1": -5.140072811826712e-07,
+     "bits_s2": 42995712,
+     "kl_s2": 1.0718517415853057e-06,
+     "n_seeds": 3,
+     "kl_min": -5.140072811826712e-07,
+     "kl_max": 1.4653066671144188e-06,
+     "kl_spread_x": 1465306.667114419,
+     "verdict": "at the measurement floor (KL < 1e-4, fp16 reference storage) -- no spread is meaningful"
+    }
+   ],
+   "statement": "All 25 frontier points now carry three seeds. Every DISTILLED point -- the whole low-bit tail, including the 1-bit embedding -- is seed-robust (spread 1.03-1.13x). The seed-sensitive points are post-hoc: uniform_8bit 2.62x, embS6_4_2048+body6 2.21x, corpusstat_res_q4+body6 2.00x. The headline embT768+body8 is 1.21x. Three points sit at the measurement floor and no spread is meaningful for them."
+  },
+  "LOGAN_redirection_1_quantisation_is_not_an_explanation": {
+   "verdict": "CONFIRMED IN THE STRONGEST FORM: no structural description of this model beats bit-packing it",
+   "measured": {
+    "class_sizes": {
+     "a_recoding_of_the_weights": 107,
+     "b_pure_structure": 73,
+     "b_hybrid_structure_plus_coded_residual": 28,
+     "unclassified": 0
+    },
+    "structural_fronts_vs_the_recoding_front": [
+     {
+      "class": "b_pure_structure",
+      "scheme": "pq_m16_b4",
+      "bits": 10031104.0,
+      "kl": 2.560782879590988,
+      "ce": 7.647149682044983,
+      "recoding_bits_at_same_kl": null,
+      "structure_over_recoding_x": null
+     },
+     {
+      "class": "b_pure_structure",
+      "scheme": "pq_m16_b6",
+      "bits": 10489856.0,
+      "kl": 1.761361300945282,
+      "ce": 6.764416038990021,
+      "recoding_bits_at_same_kl": null,
+      "structure_over_recoding_x": null
+     },
+     {
+      "class": "b_pure_structure",
+      "scheme": "pq_m8_b8",
+      "bits": 11014144.0,
+      "kl": 1.6846025735139847,
+      "ce": 6.69362086057663,
+      "recoding_bits_at_same_kl": null,
+      "structure_over_recoding_x": null
+     },
+     {
+      "class": "b_pure_structure",
+      "scheme": "anchor64_freq_tail_pq_m8_b8",
+      "bits": 11273024.0,
+      "kl": 1.1993818283081055,
+      "ce": 6.119606018066406,
+      "recoding_bits_at_same_kl": null,
+      "structure_over_recoding_x": null
+     },
+     {
+      "class": "b_pure_structure",
+      "scheme": "pq_m32_b6",
+      "bits": 11276288.0,
+      "kl": 0.9053059741854668,
+      "ce": 5.7684366106987,
+      "recoding_bits_at_same_kl": null,
+      "structure_over_recoding_x": null
+     },
+     {
+      "class": "b_pure_structure",
+      "scheme": "transform_pca_384bpr",
+      "bits": 11276605.0,
+      "kl": 0.33906013146042824,
+      "ce": 5.0934136509895325,
+      "recoding_bits_at_same_kl": 3631839.595958927,
+      "structure_over_recoding_x": 3.104929251982176
+     },
+     {
+      "class": "b_pure_structure",
+      "scheme": "transform_pca_512bpr",
+      "bits": 12326776.0,
+      "kl": 0.08010492008179426,
+      "ce": 4.808071613311768,
+      "recoding_bits_at_same_kl": 4749939.722933367,
+      "structure_over_recoding_x": 2.5951436689784964
+     },
+     {
+      "class": "b_pure_structure",
+      "scheme": "transform_pca_640bpr",
+      "bits": 13417332.0,
+      "kl": 0.01682584430091083,
+      "ce": 4.7294411063194275,
+      "recoding_bits_at_same_kl": 6451627.46156435,
+      "structure_over_recoding_x": 2.0796817671097596
+     },
+     {
+      "class": "b_pure_structure",
+      "scheme": "transform_pca_768bpr",
+      "bits": 14545340.0,
+      "kl": 0.004211262974422425,
+      "ce": 4.716098129749298,
+      "recoding_bits_at_same_kl": 7594345.814398972,
+      "structure_over_recoding_x": 1.9152854446556618
+     },
+     {
+      "class": "b_pure_structure",
+      "scheme": "pq_m128_b8",
+      "bits": 18878464.0,
+      "kl": 0.00012518045059550786,
+      "ce": 4.711509644985199,
+      "recoding_bits_at_same_kl": 12613518.868319813,
+      "structure_over_recoding_x": 1.4966849613564426
+     },
+     {
+      "class": "b_hybrid_structure_plus_coded_residual",
+      "scheme": "corpusstat_res_q3+body5",
+      "bits": 4758671.0,
+      "kl": 0.10600264370441437,
+      "ce": 4.838408887386322,
+      "recoding_bits_at_same_kl": 4073214.90176415,
+      "structure_over_recoding_x": 1.1682838040141148
+     },
+     {
+      "class": "b_hybrid_structure_plus_coded_residual",
+      "scheme": "corpusstat_res_q3+body6",
+      "bits": 5053583.0,
+      "kl": 0.06072908919304609,
+      "ce": 4.782195508480072,
+      "recoding_bits_at_same_kl": 4876407.534682573,
+      "structure_over_recoding_x": 1.0363331948893317
+     },
+     {
+      "class": "b_hybrid_structure_plus_coded_residual",
+      "scheme": "corpusstat_res_q3+body8",
+      "bits": 5643407.0,
+      "kl": 0.050294481217861176,
+      "ce": 4.7698033452034,
+      "recoding_bits_at_same_kl": 4971804.857055323,
+      "structure_over_recoding_x": 1.1350821607552897
+     },
+     {
+      "class": "b_hybrid_structure_plus_coded_residual",
+      "scheme": "corpusstat_res_q4+body6",
+      "bits": 6170564.0,
+      "kl": 0.020944999996572733,
+      "ce": 4.739025771617889,
+      "recoding_bits_at_same_kl": 6413910.981875575,
+      "structure_over_recoding_x": 0.9620595012055476
+     },
+     {
+      "class": "b_hybrid_structure_plus_coded_residual",
+      "scheme": "corpusstat_res_q4+body8",
+      "bits": 6760388.0,
+      "kl": 0.01170886040199548,
+      "ce": 4.7278852462768555,
+      "recoding_bits_at_same_kl": 7009496.792290436,
+      "structure_over_recoding_x": 0.9644612445554688
+     },
+     {
+      "class": "b_hybrid_structure_plus_coded_residual",
+      "scheme": "corpusstat_res_q5+body8",
+      "bits": 7841523.0,
+      "kl": 0.0030464436567854136,
+      "ce": 4.714962124824524,
+      "recoding_bits_at_same_kl": 7952350.54742776,
+      "structure_over_recoding_x": 0.9860635485361484
+     },
+     {
+      "class": "b_hybrid_structure_plus_coded_residual",
+      "scheme": "corpusstat_residual_q5",
+      "bits": 14857971.0,
+      "kl": 0.002485206176061183,
+      "ce": 4.714126408100128,
+      "recoding_bits_at_same_kl": 8113024.799419672,
+      "structure_over_recoding_x": 1.8313725604613948
+     },
+     {
+      "class": "b_hybrid_structure_plus_coded_residual",
+      "scheme": "corpusstat_residual_q6",
+      "bits": 15917003.0,
+      "kl": 0.0006189020932652056,
+      "ce": 4.711840391159058,
+      "recoding_bits_at_same_kl": 11110518.842252275,
+      "structure_over_recoding_x": 1.4326066339466623
+     }
+    ],
+    "apples_to_apples": {
+     "embedding_only_fp32_body": {
+      "fronts": {
+       "b_pure_structure": [
+        {
+         "scheme": "pq_m16_b4",
+         "bits": 589824.0,
+         "kl": 2.560782879590988
+        },
+        {
+         "scheme": "pq_m16_b6",
+         "bits": 1048576.0,
+         "kl": 1.761361300945282
+        },
+        {
+         "scheme": "pq_m8_b8",
+         "bits": 1572864.0,
+         "kl": 1.6846025735139847
+        },
+        {
+         "scheme": "anchor64_freq_tail_pq_m8_b8",
+         "bits": 1831744.0,
+         "kl": 1.1993818283081055
+        },
+        {
+         "scheme": "pq_m32_b6",
+         "bits": 1835008.0,
+         "kl": 0.9053059741854668
+        },
+        {
+         "scheme": "transform_pca_384bpr",
+         "bits": 1835325.0,
+         "kl": 0.33906013146042824
+        },
+        {
+         "scheme": "transform_pca_512bpr",
+         "bits": 2885496.0,
+         "kl": 0.08010492008179426
+        },
+        {
+         "scheme": "transform_pca_640bpr",
+         "bits": 3976052.0,
+         "kl": 0.01682584430091083
+        },
+        {
+         "scheme": "transform_pca_768bpr",
+         "bits": 5104060.0,
+         "kl": 0.004211262974422425
+        },
+        {
+         "scheme": "pq_m128_b8",
+         "bits": 9437184.0,
+         "kl": 0.00012518045059550786
+        }
+       ],
+       "a_recoding_of_the_weights": [
+        {
+         "scheme": "transform_hadamard_256bpr",
+         "bits": 1039360.0,
+         "kl": 1.859463557600975
+        },
+        {
+         "scheme": "transform_none_256bpr",
+         "bits": 1061366.0,
+         "kl": 1.6497384309768677
+        },
+        {
+         "scheme": "transform_hadamard_384bpr",
+         "bits": 1809773.0,
+         "kl": 0.3313590995967388
+        },
+        {
+         "scheme": "transform_none_384bpr",
+         "bits": 1855959.0,
+         "kl": 0.3134424276649952
+        },
+        {
+         "scheme": "transform_hadamard_512bpr",
+         "bits": 2884355.0,
+         "kl": 0.06895557045936584
+        },
+        {
+         "scheme": "transform_none_512bpr",
+         "bits": 2935504.0,
+         "kl": 0.06484446488320827
+        },
+        {
+         "scheme": "strat_hi6_lo3_n1024",
+         "bits": 3334399.0,
+         "kl": 0.05548646952956915
+        },
+        {
+         "scheme": "strat_hi8_lo3_n1024",
+         "bits": 3597957.0,
+         "kl": 0.05466086883097887
+        },
+        {
+         "scheme": "transform_hadamard_640bpr",
+         "bits": 3989698.0,
+         "kl": 0.015378250041976571
+        },
+        {
+         "scheme": "transform_none_640bpr",
+         "bits": 4042224.0,
+         "kl": 0.014961710199713707
+        },
+        {
+         "scheme": "strat_hi8_lo4_n512",
+         "bits": 4303614.0,
+         "kl": 0.014668651390820742
+        },
+        {
+         "scheme": "strat_hi6_lo4_n1024",
+         "bits": 4310633.0,
+         "kl": 0.012575410306453705
+        },
+        {
+         "scheme": "strat_hi8_lo4_n1024",
+         "bits": 4574191.0,
+         "kl": 0.01174969575367868
+        },
+        {
+         "scheme": "strat_hi6_lo4_n2048",
+         "bits": 4591367.0,
+         "kl": 0.009297955664806068
+        },
+        {
+         "scheme": "scalar_q5_entropy",
+         "bits": 5110247.0,
+         "kl": 0.006457611685618758
+        },
+        {
+         "scheme": "transform_hadamard_768bpr",
+         "bits": 5117740.0,
+         "kl": 0.0038576607475988567
+        },
+        {
+         "scheme": "transform_none_768bpr",
+         "bits": 5169617.0,
+         "kl": 0.0036589705559890717
+        },
+        {
+         "scheme": "strat_hi6_lo5_n1024",
+         "bits": 5256438.0,
+         "kl": 0.0036435765505302697
+        },
+        {
+         "scheme": "strat_hi8_lo5_n512",
+         "bits": 5316986.0,
+         "kl": 0.003461771208094433
+        },
+        {
+         "scheme": "scalar_q6_entropy",
+         "bits": 6169053.0,
+         "kl": 0.0015789003518875688
+        },
+        {
+         "scheme": "scalar_q8_entropy",
+         "bits": 8257665.0,
+         "kl": 9.540212249703472e-05
+        }
+       ],
+       "b_hybrid_structure_plus_coded_residual": [
+        {
+         "scheme": "corpusstat_residual_q2",
+         "bits": 2079566.0,
+         "kl": 0.27925660088658333
+        },
+        {
+         "scheme": "corpusstat_residual_q3",
+         "bits": 3218575.0,
+         "kl": 0.04976436169818044
+        },
+        {
+         "scheme": "corpusstat_residual_q4",
+         "bits": 4335556.0,
+         "kl": 0.011091300286352634
+        },
+        {
+         "scheme": "corpusstat_residual_q5",
+         "bits": 5416691.0,
+         "kl": 0.002485206176061183
+        },
+        {
+         "scheme": "corpusstat_residual_q6",
+         "bits": 6475723.0,
+         "kl": 0.0006189020932652056
+        }
+       ]
+      },
+      "structure_vs_recoding": [
+       {
+        "class": "b_pure_structure",
+        "scheme": "pq_m16_b4",
+        "bits": 589824.0,
+        "kl": 2.560782879590988,
+        "recoding_bits_at_same_kl": null,
+        "structure_over_recoding_x": null
+       },
+       {
+        "class": "b_pure_structure",
+        "scheme": "pq_m16_b6",
+        "bits": 1048576.0,
+        "kl": 1.761361300945282,
+        "recoding_bits_at_same_kl": 1049269.77065482,
+        "structure_over_recoding_x": 0.999338806211498
+       },
+       {
+        "class": "b_pure_structure",
+        "scheme": "pq_m8_b8",
+        "bits": 1572864.0,
+        "kl": 1.6846025735139847,
+        "recoding_bits_at_same_kl": 1057487.0625646831,
+        "structure_over_recoding_x": 1.4873600403066802
+       },
+       {
+        "class": "b_pure_structure",
+        "scheme": "anchor64_freq_tail_pq_m8_b8",
+        "bits": 1831744.0,
+        "kl": 1.1993818283081055,
+        "recoding_bits_at_same_kl": 1180037.8478404533,
+        "structure_over_recoding_x": 1.5522756353554352
+       },
+       {
+        "class": "b_pure_structure",
+        "scheme": "pq_m32_b6",
+        "bits": 1835008.0,
+        "kl": 0.9053059741854668,
+        "recoding_bits_at_same_kl": 1295714.1012178306,
+        "structure_over_recoding_x": 1.4162136525914875
+       },
+       {
+        "class": "b_pure_structure",
+        "scheme": "transform_pca_384bpr",
+        "bits": 1835325.0,
+        "kl": 0.33906013146042824,
+        "recoding_bits_at_same_kl": 1796002.5083248133,
+        "structure_over_recoding_x": 1.0218944525371871
+       },
+       {
+        "class": "b_pure_structure",
+        "scheme": "transform_pca_512bpr",
+        "bits": 2885496.0,
+        "kl": 0.08010492008179426,
+        "recoding_bits_at_same_kl": 2761184.858740295,
+        "structure_over_recoding_x": 1.0450209412333291
+       },
+       {
+        "class": "b_pure_structure",
+        "scheme": "transform_pca_640bpr",
+        "bits": 3976052.0,
+        "kl": 0.01682584430091083,
+        "recoding_bits_at_same_kl": 3960555.3088539615,
+        "structure_over_recoding_x": 1.0039127571609454
+       },
+       {
+        "class": "b_pure_structure",
+        "scheme": "transform_pca_768bpr",
+        "bits": 5104060.0,
+        "kl": 0.004211262974422425,
+        "recoding_bits_at_same_kl": 5116463.700285779,
+        "structure_over_recoding_x": 0.9975757278830911
+       },
+       {
+        "class": "b_pure_structure",
+        "scheme": "pq_m128_b8",
+        "bits": 9437184.0,
+        "kl": 0.00012518045059550786,
+        "recoding_bits_at_same_kl": 8027840.534564354,
+        "structure_over_recoding_x": 1.1755569831472898
+       },
+       {
+        "class": "b_hybrid_structure_plus_coded_residual",
+        "scheme": "corpusstat_residual_q2",
+        "bits": 2079566.0,
+        "kl": 0.27925660088658333,
+        "recoding_bits_at_same_kl": 1919431.4307131264,
+        "structure_over_recoding_x": 1.0834281270612407
+       },
+       {
+        "class": "b_hybrid_structure_plus_coded_residual",
+        "scheme": "corpusstat_residual_q3",
+        "bits": 3218575.0,
+        "kl": 0.04976436169818044,
+        "recoding_bits_at_same_kl": 3625579.9102115785,
+        "structure_over_recoding_x": 0.8877407420906006
+       },
+       {
+        "class": "b_hybrid_structure_plus_coded_residual",
+        "scheme": "corpusstat_residual_q4",
+        "bits": 4335556.0,
+        "kl": 0.011091300286352634,
+        "recoding_bits_at_same_kl": 4578417.23726656,
+        "structure_over_recoding_x": 0.9469551976849635
+       },
+       {
+        "class": "b_hybrid_structure_plus_coded_residual",
+        "scheme": "corpusstat_residual_q5",
+        "bits": 5416691.0,
+        "kl": 0.002485206176061183,
+        "recoding_bits_at_same_kl": 5661321.321944591,
+        "structure_over_recoding_x": 0.9567891825895225
+       },
+       {
+        "class": "b_hybrid_structure_plus_coded_residual",
+        "scheme": "corpusstat_residual_q6",
+        "bits": 6475723.0,
+        "kl": 0.0006189020932652056,
+        "recoding_bits_at_same_kl": 6799546.782890793,
+        "structure_over_recoding_x": 0.952375681316642
+       }
+      ]
+     },
+     "body_only_fp32_embedding": {
+      "fronts": {
+       "b_pure_structure": [
+        {
+         "scheme": "body_cp256_q3",
+         "bits": 638976.0,
+         "kl": 2.1349768936634064
+        },
+        {
+         "scheme": "body_cp256_q4",
+         "bits": 835584.0,
+         "kl": 1.0077268332242966
+        },
+        {
+         "scheme": "body_cp256_q6",
+         "bits": 1228800.0,
+         "kl": 0.7574363052845001
+        },
+        {
+         "scheme": "mlp_cp256_q6",
+         "bits": 3760128.0,
+         "kl": 0.7461354956030846
+        },
+        {
+         "scheme": "mlp_cp384_q4",
+         "bits": 3768320.0,
+         "kl": 0.32008087635040283
+        },
+        {
+         "scheme": "mlp_cp384_q6",
+         "bits": 4063232.0,
+         "kl": 0.2694544717669487
+        }
+       ],
+       "a_recoding_of_the_weights": [
+        {
+         "scheme": "emb32_body2bit",
+         "bits": 655360.0,
+         "kl": 3.4869270622730255
+        },
+        {
+         "scheme": "emb32_body3bit",
+         "bits": 950272.0,
+         "kl": 1.3480686247348785
+        },
+        {
+         "scheme": "emb32_body4bit",
+         "bits": 1245184.0,
+         "kl": 0.2520020604133606
+        },
+        {
+         "scheme": "emb32_body6bit",
+         "bits": 1835008.0,
+         "kl": 0.009601438185200095
+        },
+        {
+         "scheme": "emb32_body8bit",
+         "bits": 2424832.0,
+         "kl": 0.0005475639809446875
+        },
+        {
+         "scheme": "mlp_q8",
+         "bits": 4759552.0,
+         "kl": 8.816957324597752e-05
+        }
+       ]
+      },
+      "structure_vs_recoding": [
+       {
+        "class": "b_pure_structure",
+        "scheme": "body_cp256_q3",
+        "bits": 638976.0,
+        "kl": 2.1349768936634064,
+        "recoding_bits_at_same_kl": 793921.0491165484,
+        "structure_over_recoding_x": 0.8048356958302508
+       },
+       {
+        "class": "b_pure_structure",
+        "scheme": "body_cp256_q4",
+        "bits": 835584.0,
+        "kl": 1.0077268332242966,
+        "recoding_bits_at_same_kl": 995899.6604138819,
+        "structure_over_recoding_x": 0.8390242844873981
+       },
+       {
+        "class": "b_pure_structure",
+        "scheme": "body_cp256_q6",
+        "bits": 1228800.0,
+        "kl": 0.7574363052845001,
+        "recoding_bits_at_same_kl": 1042799.5870486294,
+        "structure_over_recoding_x": 1.1783664044956097
+       },
+       {
+        "class": "b_pure_structure",
+        "scheme": "mlp_cp256_q6",
+        "bits": 3760128.0,
+        "kl": 0.7461354956030846,
+        "recoding_bits_at_same_kl": 1045329.178725889,
+        "structure_over_recoding_x": 3.59707552082596
+       },
+       {
+        "class": "b_pure_structure",
+        "scheme": "mlp_cp384_q4",
+        "bits": 3768320.0,
+        "kl": 0.32008087635040283,
+        "recoding_bits_at_same_kl": 1198103.9996897457,
+        "structure_over_recoding_x": 3.145236140581972
+       },
+       {
+        "class": "b_pure_structure",
+        "scheme": "mlp_cp384_q6",
+        "bits": 4063232.0,
+        "kl": 0.2694544717669487,
+        "recoding_bits_at_same_kl": 1231817.3864445041,
+        "structure_over_recoding_x": 3.2985668531015304
+       }
+      ]
+     }
+    }
+   },
+   "statement": "Split into (a) descriptions that merely recode the model's own weights and (b) descriptions that assert structure, class (b) is not empty but it is never ahead by a meaningful margin. Within the embedding, every PURE structural scheme is 1.0-1.6x worse than recoding at matched KL (product quantisation 1.18-1.55x, anchor rows 1.55x, PCA rotation 1.00-1.05x). Within the body, CP structure costs 3.2-3.6x at any usable KL. The only class-(b) points that touch the joint frontier are corpus-statistic HYBRIDS, which are structure wrapped around a per-weight coded residual, and their advantage is 0.96-1.17x \u2014 a wash, and 3 % once the baseline gets the same coder. Restated in the terms Logan asked for: NO STRUCTURAL DESCRIPTION OF THESE MODELS BEATS BIT-PACKING THEM."
+  },
+  "LOGAN_redirection_2_score_against_the_data_not_the_model": {
+   "verdict": "THE BLIND SPOT WAS REAL AND IT HID A POSITIVE RESULT: no description that imitates the model beats it on data, but a description fitted to the DATA does -- the shortest is 7.455 Mbit, 5.8x smaller than fp32 and 2.9x smaller than fp16, at held CE 4.70937 against the model's 4.71140",
+   "power_check": {
+    "model_held_ce": 4.711396515369415,
+    "rows": [
+     {
+      "emb_bits": 32,
+      "body_bits": 32,
+      "lr": 0.0002,
+      "bits": 42995712,
+      "held_ce": 4.711396515369415,
+      "delta_ce_vs_model": 0.0,
+      "kl_from_model": 1.4653066671144188e-06,
+      "best_step": 0,
+      "est_val_ce": 4.814317852258682,
+      "beats_the_model_on_data": false
+     },
+     {
+      "emb_bits": 32,
+      "body_bits": 32,
+      "lr": 5e-05,
+      "bits": 42995712,
+      "held_ce": 4.704126954078674,
+      "delta_ce_vs_model": -0.007269561290740967,
+      "kl_from_model": 0.01493725215550512,
+      "best_step": 5750,
+      "est_val_ce": 4.808545798063278,
+      "beats_the_model_on_data": true
+     },
+     {
+      "emb_bits": 32,
+      "body_bits": 32,
+      "lr": 1e-05,
+      "bits": 42995712,
+      "held_ce": 4.7062225341796875,
+      "delta_ce_vs_model": -0.005173981189727783,
+      "kl_from_model": 0.0027382464904803783,
+      "best_step": 9750,
+      "est_val_ce": 4.809809654951096,
+      "beats_the_model_on_data": true
+     },
+     {
+      "emb_bits": 6,
+      "body_bits": 8,
+      "lr": 0.0002,
+      "bits": 8513027,
+      "held_ce": 4.713889479637146,
+      "delta_ce_vs_model": 0.002492964267730713,
+      "kl_from_model": 0.0021293110330589116,
+      "best_step": 0,
+      "est_val_ce": 4.8164574801921844,
+      "beats_the_model_on_data": false
+     },
+     {
+      "emb_bits": 6,
+      "body_bits": 8,
+      "lr": 5e-05,
+      "bits": 8513048,
+      "held_ce": 4.706049680709839,
+      "delta_ce_vs_model": -0.005346834659576416,
+      "kl_from_model": 0.016092388075776398,
+      "best_step": 5250,
+      "est_val_ce": 4.810127526521683,
+      "beats_the_model_on_data": true
+     },
+     {
+      "emb_bits": 6,
+      "body_bits": 8,
+      "lr": 1e-05,
+      "bits": 8513181,
+      "held_ce": 4.7081334590911865,
+      "delta_ce_vs_model": -0.0032630562782287598,
+      "kl_from_model": 0.004399213416036218,
+      "best_step": 8500,
+      "est_val_ce": 4.810834109783173,
+      "beats_the_model_on_data": true
+     }
+    ],
+    "any_arm_beats_the_model": true,
+    "best_full_precision_delta_ce": -0.007269561290740967
+   },
+   "shortest_beating_description": {
+    "emb_bits": 5,
+    "body_bits": 8,
+    "lr": 2e-05,
+    "bits": 7454515,
+    "held_ce": 4.710340857505798,
+    "delta_ce_vs_model": -0.0010556578636169434,
+    "kl_from_model": 0.011607390362769365,
+    "best_step": 7000,
+    "beats_the_model_on_data": true,
+    "x_smaller_than_fp32": 5.767741026746878,
+    "x_smaller_than_fp16": 2.883870513373439
+   },
+   "data_fit_sweep": [
+    {
+     "emb_bits": 8,
+     "body_bits": 8,
+     "lr": 5e-05,
+     "bits": 10601957,
+     "held_ce": 4.704461753368378,
+     "delta_ce_vs_model": -0.006934762001037598,
+     "kl_from_model": 0.015336284530349076,
+     "best_step": 5750,
+     "beats_the_model_on_data": true,
+     "x_smaller_than_fp32": 4.055450517296005,
+     "x_smaller_than_fp16": 2.0277252586480023
+    },
+    {
+     "emb_bits": 8,
+     "body_bits": 8,
+     "lr": 2e-05,
+     "bits": 10601696,
+     "held_ce": 4.7052149176597595,
+     "delta_ce_vs_model": -0.006181597709655762,
+     "kl_from_model": 0.00631585466908291,
+     "best_step": 7000,
+     "beats_the_model_on_data": true,
+     "x_smaller_than_fp32": 4.055550357225862,
+     "x_smaller_than_fp16": 2.027775178612931
+    },
+    {
+     "emb_bits": 6,
+     "body_bits": 8,
+     "lr": 5e-05,
+     "bits": 8513048,
+     "held_ce": 4.706049680709839,
+     "delta_ce_vs_model": -0.005346834659576416,
+     "kl_from_model": 0.016092388075776398,
+     "best_step": 5250,
+     "beats_the_model_on_data": true,
+     "x_smaller_than_fp32": 5.050566142702356,
+     "x_smaller_than_fp16": 2.525283071351178
+    },
+    {
+     "emb_bits": 6,
+     "body_bits": 8,
+     "lr": 2e-05,
+     "bits": 8513186,
+     "held_ce": 4.706978976726532,
+     "delta_ce_vs_model": -0.004417538642883301,
+     "kl_from_model": 0.007779955805744976,
+     "best_step": 7250,
+     "beats_the_model_on_data": true,
+     "x_smaller_than_fp32": 5.050484272280672,
+     "x_smaller_than_fp16": 2.525242136140336
+    },
+    {
+     "emb_bits": 5,
+     "body_bits": 8,
+     "lr": 5e-05,
+     "bits": 7454552,
+     "held_ce": 4.709365665912628,
+     "delta_ce_vs_model": -0.0020308494567871094,
+     "kl_from_model": 0.022754515754058957,
+     "best_step": 9000,
+     "beats_the_model_on_data": true,
+     "x_smaller_than_fp32": 5.767712399081796,
+     "x_smaller_than_fp16": 2.883856199540898
+    },
+    {
+     "emb_bits": 5,
+     "body_bits": 8,
+     "lr": 2e-05,
+     "bits": 7454515,
+     "held_ce": 4.710340857505798,
+     "delta_ce_vs_model": -0.0010556578636169434,
+     "kl_from_model": 0.011607390362769365,
+     "best_step": 7000,
+     "beats_the_model_on_data": true,
+     "x_smaller_than_fp32": 5.767741026746878,
+     "x_smaller_than_fp16": 2.883870513373439
+    },
+    {
+     "emb_bits": 4,
+     "body_bits": 8,
+     "lr": 5e-05,
+     "bits": 6374823,
+     "held_ce": 4.728079080581665,
+     "delta_ce_vs_model": 0.016682565212249756,
+     "kl_from_model": 0.03737147245556116,
+     "best_step": 10000,
+     "beats_the_model_on_data": false,
+     "x_smaller_than_fp32": 6.744612673951888,
+     "x_smaller_than_fp16": 3.372306336975944
+    },
+    {
+     "emb_bits": 4,
+     "body_bits": 8,
+     "lr": 2e-05,
+     "bits": 6373608,
+     "held_ce": 4.728472828865051,
+     "delta_ce_vs_model": 0.017076313495635986,
+     "kl_from_model": 0.027501201489940286,
+     "best_step": 8750,
+     "beats_the_model_on_data": false,
+     "x_smaller_than_fp32": 6.7458983985209,
+     "x_smaller_than_fp16": 3.37294919926045
+    },
+    {
+     "emb_bits": 4,
+     "body_bits": 6,
+     "lr": 5e-05,
+     "bits": 5760338,
+     "held_ce": 4.7292338609695435,
+     "delta_ce_vs_model": 0.017837345600128174,
+     "kl_from_model": 0.04004461597651243,
+     "best_step": 9750,
+     "beats_the_model_on_data": false,
+     "x_smaller_than_fp32": 7.464095336072293,
+     "x_smaller_than_fp16": 3.7320476680361465
+    },
+    {
+     "emb_bits": 4,
+     "body_bits": 6,
+     "lr": 2e-05,
+     "bits": 5759478,
+     "held_ce": 4.731186211109161,
+     "delta_ce_vs_model": 0.019789695739746094,
+     "kl_from_model": 0.029033880215138197,
+     "best_step": 10000,
+     "beats_the_model_on_data": false,
+     "x_smaller_than_fp32": 7.465209867977618,
+     "x_smaller_than_fp16": 3.732604933988809
+    },
+    {
+     "emb_bits": 3,
+     "body_bits": 6,
+     "lr": 5e-05,
+     "bits": 4646182,
+     "held_ce": 4.797166466712952,
+     "delta_ce_vs_model": 0.08576995134353638,
+     "kl_from_model": 0.10332184191793203,
+     "best_step": 10000,
+     "beats_the_model_on_data": false,
+     "x_smaller_than_fp32": 9.253987898020354,
+     "x_smaller_than_fp16": 4.626993949010177
+    },
+    {
+     "emb_bits": 3,
+     "body_bits": 6,
+     "lr": 2e-05,
+     "bits": 4644256,
+     "held_ce": 4.810973286628723,
+     "delta_ce_vs_model": 0.09957677125930786,
+     "kl_from_model": 0.09479717537760735,
+     "best_step": 10000,
+     "beats_the_model_on_data": false,
+     "x_smaller_than_fp32": 9.257825580674279,
+     "x_smaller_than_fp16": 4.628912790337139
+    }
+   ],
+   "measured": {
+    "model_held_ce": 4.711396515369415,
+    "n_descriptions_scored": 208,
+    "n_with_held_ce_below_the_model": 0,
+    "delta_ce_per_nat_of_kl_slope": 1.1344382729419762,
+    "joint_frontier_with_ce": [
+     {
+      "scheme": "distilled_emb1_body4",
+      "bits": 2431255.0,
+      "x_vs_fp32": 17.684575250230846,
+      "kl": 0.8290731906890869,
+      "ce": 5.654417634010315,
+      "delta_ce_vs_model": 0.9430211186408997,
+      "class": "a_recoding_of_the_weights"
+     },
+     {
+      "scheme": "distilled_emb2_body3",
+      "bits": 2680297.0,
+      "x_vs_fp32": 16.04139839726717,
+      "kl": 0.408969521522522,
+      "ce": 5.209656119346619,
+      "delta_ce_vs_model": 0.49825960397720337,
+      "class": "a_recoding_of_the_weights"
+     },
+     {
+      "scheme": "distilled_emb2_body6",
+      "bits": 3613193.0,
+      "x_vs_fp32": 11.899644441910521,
+      "kl": 0.38760846853256226,
+      "ce": 5.142597138881683,
+      "delta_ce_vs_model": 0.43120062351226807,
+      "class": "a_recoding_of_the_weights"
+     },
+     {
+      "scheme": "distilled_emb3_body3",
+      "bits": 3765718.0,
+      "x_vs_fp32": 11.417666431740242,
+      "kl": 0.1323038637638092,
+      "ce": 4.88013881444931,
+      "delta_ce_vs_model": 0.16874229907989502,
+      "class": "a_recoding_of_the_weights"
+     },
+     {
+      "scheme": "distilled_emb3_body4",
+      "bits": 4088748.0,
+      "x_vs_fp32": 10.515617983793572,
+      "kl": 0.10486949980258942,
+      "ce": 4.8356963992118835,
+      "delta_ce_vs_model": 0.12429988384246826,
+      "class": "a_recoding_of_the_weights"
+     },
+     {
+      "scheme": "distilled_emb3_body6",
+      "bits": 4701816.0,
+      "x_vs_fp32": 9.14449055428796,
+      "kl": 0.09298348426818848,
+      "ce": 4.8102113008499146,
+      "delta_ce_vs_model": 0.09881478548049927,
+      "class": "a_recoding_of_the_weights"
+     },
+     {
+      "scheme": "embT512+body6",
+      "bits": 4770512.0,
+      "x_vs_fp32": 9.012808688040193,
+      "kl": 0.07519357744604349,
+      "ce": 4.7982617020606995,
+      "delta_ce_vs_model": 0.08686518669128418,
+      "class": "a_recoding_of_the_weights"
+     },
+     {
+      "scheme": "corpusstat_res_q3+body6",
+      "bits": 5053583.0,
+      "x_vs_fp32": 8.507965932290022,
+      "kl": 0.06072908919304609,
+      "ce": 4.782195508480072,
+      "delta_ce_vs_model": 0.07079899311065674,
+      "class": "b_hybrid_structure_plus_coded_residual"
+     },
+     {
+      "scheme": "distilled_emb4_body4",
+      "bits": 5167472.0,
+      "x_vs_fp32": 8.320453792492732,
+      "kl": 0.03454548120498657,
+      "ce": 4.758756220340729,
+      "delta_ce_vs_model": 0.04735970497131348,
+      "class": "a_recoding_of_the_weights"
+     },
+     {
+      "scheme": "distilled_emb4_body6",
+      "bits": 5784535.0,
+      "x_vs_fp32": 7.432872650956386,
+      "kl": 0.023870937526226044,
+      "ce": 4.735715687274933,
+      "delta_ce_vs_model": 0.024319171905517578,
+      "class": "a_recoding_of_the_weights"
+     },
+     {
+      "scheme": "corpusstat_res_q4+body6",
+      "bits": 6170564.0,
+      "x_vs_fp32": 6.9678739253008315,
+      "kl": 0.020944999996572733,
+      "ce": 4.739025771617889,
+      "delta_ce_vs_model": 0.02762925624847412,
+      "class": "b_hybrid_structure_plus_coded_residual"
+     },
+     {
+      "scheme": "embS6_4_2048+body6",
+      "bits": 6426375.0,
+      "x_vs_fp32": 6.6905077901616385,
+      "kl": 0.019127100007608533,
+      "ce": 4.733220100402832,
+      "delta_ce_vs_model": 0.021823585033416748,
+      "class": "a_recoding_of_the_weights"
+     },
+     {
+      "scheme": "embT640+body8",
+      "bits": 6467056.0,
+      "x_vs_fp32": 6.648421167220448,
+      "kl": 0.01556215831078589,
+      "ce": 4.732564032077789,
+      "delta_ce_vs_model": 0.021167516708374023,
+      "class": "a_recoding_of_the_weights"
+     },
+     {
+      "scheme": "corpusstat_res_q4+body8",
+      "bits": 6760388.0,
+      "x_vs_fp32": 6.359947387635148,
+      "kl": 0.01170886040199548,
+      "ce": 4.7278852462768555,
+      "delta_ce_vs_model": 0.016488730907440186,
+      "class": "b_hybrid_structure_plus_coded_residual"
+     },
+     {
+      "scheme": "embS6_4_2048+body8",
+      "bits": 7016199.0,
+      "x_vs_fp32": 6.128063357381967,
+      "kl": 0.009871055488474667,
+      "ce": 4.722124874591827,
+      "delta_ce_vs_model": 0.01072835922241211,
+      "class": "a_recoding_of_the_weights"
+     },
+     {
+      "scheme": "distilled_emb5_body8",
+      "bits": 7464129.0,
+      "x_vs_fp32": 5.760312020330838,
+      "kl": 0.005674506537616253,
+      "ce": 4.717086315155029,
+      "delta_ce_vs_model": 0.005689799785614014,
+      "class": "a_recoding_of_the_weights"
+     },
+     {
+      "scheme": "embT768+body8",
+      "bits": 7594449.0,
+      "x_vs_fp32": 5.661465631015496,
+      "kl": 0.004210276470985264,
+      "ce": 4.717164218425751,
+      "delta_ce_vs_model": 0.005767703056335449,
+      "class": "a_recoding_of_the_weights"
+     },
+     {
+      "scheme": "embS8_5_512+body8",
+      "bits": 7741818.0,
+      "x_vs_fp32": 5.553697077353148,
+      "kl": 0.004003209643997252,
+      "ce": 4.715507805347443,
+      "delta_ce_vs_model": 0.004111289978027344,
+      "class": "a_recoding_of_the_weights"
+     },
+     {
+      "scheme": "corpusstat_res_q5+body8",
+      "bits": 7841523.0,
+      "x_vs_fp32": 5.483081794187175,
+      "kl": 0.0030464436567854136,
+      "ce": 4.714962124824524,
+      "delta_ce_vs_model": 0.0035656094551086426,
+      "class": "b_hybrid_structure_plus_coded_residual"
+     },
+     {
+      "scheme": "distilled_emb6_body8",
+      "bits": 8516333.0,
+      "x_vs_fp32": 5.048617990865317,
+      "kl": 0.0015166513621807098,
+      "ce": 4.712981641292572,
+      "delta_ce_vs_model": 0.0015851259231567383,
+      "class": "a_recoding_of_the_weights"
+     },
+     {
+      "scheme": "uniform_8bit",
+      "bits": 11075584.0,
+      "x_vs_fp32": 3.8820266272189348,
+      "kl": 0.0006439469652832486,
+      "ce": 4.712270498275757,
+      "delta_ce_vs_model": 0.0008739829063415527,
+      "class": "a_recoding_of_the_weights"
+     },
+     {
+      "scheme": "corpusstat_residual_q6",
+      "bits": 15917003.0,
+      "x_vs_fp32": 2.701244197792763,
+      "kl": 0.0006189020932652056,
+      "ce": 4.711840391159058,
+      "delta_ce_vs_model": 0.000443875789642334,
+      "class": "b_hybrid_structure_plus_coded_residual"
+     },
+     {
+      "scheme": "uniform_12bit",
+      "bits": 16449536.0,
+      "x_vs_fp32": 2.6137948207171315,
+      "kl": 4.415230250742752e-06,
+      "ce": 4.711399078369141,
+      "delta_ce_vs_model": 2.562999725341797e-06,
+      "class": "a_recoding_of_the_weights"
+     },
+     {
+      "scheme": "uniform_16bit",
+      "bits": 21823488.0,
+      "x_vs_fp32": 1.9701576576576576,
+      "kl": 1.5006995113253652e-06,
+      "ce": 4.711400747299194,
+      "delta_ce_vs_model": 4.231929779052734e-06,
+      "class": "a_recoding_of_the_weights"
+     },
+     {
+      "scheme": "uniform_32bit",
+      "bits": 42995712.0,
+      "x_vs_fp32": 1.0,
+      "kl": 1.4653066671144188e-06,
+      "ce": 4.711396515369415,
+      "delta_ce_vs_model": 0.0,
+      "class": "a_recoding_of_the_weights"
+     }
+    ],
+    "descriptions_refitted_to_the_DATA": [
+     {
+      "scheme": "ce_distilled_emb32_body32",
+      "emb_bits": 32,
+      "body_bits": 32,
+      "bits": 42995712,
+      "kl_from_model": 1.4653066671144188e-06,
+      "held_ce": 4.711396515369415,
+      "model_held_ce": 4.711396515369415,
+      "delta_ce_vs_model": 0.0,
+      "beats_the_model_on_data": false,
+      "selection": {
+       "est_val_ce": 4.814317852258682,
+       "best_step": 0
+      }
+     },
+     {
+      "scheme": "ce_distilled_emb8_body8",
+      "emb_bits": 8,
+      "body_bits": 8,
+      "bits": 10601639,
+      "kl_from_model": 0.0006439469652832486,
+      "held_ce": 4.712270498275757,
+      "model_held_ce": 4.711396515369415,
+      "delta_ce_vs_model": 0.0008739829063415527,
+      "beats_the_model_on_data": false,
+      "selection": {
+       "est_val_ce": 4.815220147371292,
+       "best_step": 0
+      }
+     },
+     {
+      "scheme": "ce_distilled_emb6_body8",
+      "emb_bits": 6,
+      "body_bits": 8,
+      "bits": 8513027,
+      "kl_from_model": 0.0021293110330589116,
+      "held_ce": 4.713889479637146,
+      "model_held_ce": 4.711396515369415,
+      "delta_ce_vs_model": 0.002492964267730713,
+      "beats_the_model_on_data": false,
+      "selection": {
+       "est_val_ce": 4.8164574801921844,
+       "best_step": 0
+      }
+     },
+     {
+      "scheme": "ce_distilled_emb4_body6",
+      "emb_bits": 4,
+      "body_bits": 6,
+      "bits": 5758887,
+      "kl_from_model": 0.03783992910757661,
+      "held_ce": 4.752107620239258,
+      "model_held_ce": 4.711396515369415,
+      "delta_ce_vs_model": 0.04071110486984253,
+      "beats_the_model_on_data": false,
+      "selection": {
+       "est_val_ce": 4.857965886592865,
+       "best_step": 0
+      }
+     },
+     {
+      "scheme": "ce_distilled_emb3_body6",
+      "emb_bits": 3,
+      "body_bits": 6,
+      "bits": 4669773,
+      "kl_from_model": 0.24858415126800537,
+      "held_ce": 4.848498046398163,
+      "model_held_ce": 4.711396515369415,
+      "delta_ce_vs_model": 0.13710153102874756,
+      "beats_the_model_on_data": false,
+      "selection": {
+       "est_val_ce": 4.961470007896423,
+       "best_step": 10000
+      }
+     },
+     {
+      "scheme": "ce_distilled_emb2_body4",
+      "emb_bits": 2,
+      "body_bits": 4,
+      "bits": 2961886,
+      "kl_from_model": 0.5502035915851593,
+      "held_ce": 5.201732039451599,
+      "model_held_ce": 4.711396515369415,
+      "delta_ce_vs_model": 0.49033552408218384,
+      "beats_the_model_on_data": false,
+      "selection": {
+       "est_val_ce": 5.290732115507126,
+       "best_step": 10000
+      }
+     }
+    ]
+   },
+   "statement": "KL-from-the-model cannot see a description better than the model, so held cross-entropy against the DATA was added for all 208 measured descriptions. Not one is below the model's 4.7114 nats, and the penalty tracks the KL one-for-one (slope 1.13 nats of held CE per nat of KL), i.e. no description carries anything about the text that the model does not already carry. The stronger version of the test \u2014 refitting the description's tables to the DATA cross-entropy on fresh est text instead of to the model \u2014 is in O8, with a full-precision arm as the confound control (est is data the model never saw, so a gain there would be extra data rather than simpler structure)."
+  }
  }
 }
