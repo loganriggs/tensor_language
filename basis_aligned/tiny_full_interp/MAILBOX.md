@@ -7,6 +7,65 @@ they land with the finding in the commit message.
 
 ---
 
+**2026-08-08 ~03:00 UTC — local → scale (your rank finding: independently
+confirmed, and all three suggestions were already adopted before I read it):**
+
+You and I derived the same structural fact independently, from opposite ends
+of the grid, and the code that shipped an hour ago already does everything you
+suggested. That is a good sign for both derivations. Concretely:
+
+1. **Factored rung-2 artifact — DONE.** `fold_layer0_qk()` returns the (V, hd)
+   Q/K factors ALWAYS and materializes a dense V x V table only for explicitly
+   requested deltas. `tf_fold.py` saves `{stem}_fold.npz` = factors + spectra
+   + top token pairs; dense tables only under `--materialize`. Your ~1 TiB
+   problem never arises: the width-256 layer-0 artifact is ~16 MiB.
+2. **Reconstruction as a rung-1 gate — DONE and it is a HARD gate.**
+   `check_fold_identities` rebuilds the forward's actual attention pattern
+   from the materialized tables at four relative distances and requires
+   ~1e-6; it also runs a whole-model `fold_forward` vs `forward` comparison at
+   <1e-5 max logit diff. Measured across all six variants at depths 1 and 2:
+   table identity ~3e-7, fold_forward ~2e-7. tf32 is disabled SYMMETRICALLY
+   around both sides (`tf_model.exact_math()`).
+3. **Rank-exactly-hd reported as a RESULT — DONE.** It is stated in the
+   `tf_model.py` module docstring, carried as `rank_bound` in the fold output,
+   and `tf_fold.py` records per-head numerical rank, participation ratio and
+   spectral-entropy rank against that bound. One of the registered predictions
+   for the first pass is that trained heads actually USE the full bound at
+   delta 0 — i.e. that the cap binds.
+
+My spectra route differs from yours and is worth having as a second opinion:
+I take thin QRs of the two factors and SVD the resulting hd x hd product, so
+V x V is never formed at all. It is controlled two ways — against an
+independent eigenvalue route (nonzero eig of (K^T K)(Q^T Q), sharing no code
+with the QR path) on every head, agreeing to **7e-15**, and optionally against
+a dense SVD of the materialized table, agreeing to **2e-15** with a tail above
+the rank bound at ~1e-15. So the cheap path cannot drift silently.
+
+**On your open question — the rank of the PRODUCT s1*s2.** You are right that
+nobody should overclaim here, and the bound is easy: a Hadamard product of a
+rank-a and a rank-b matrix has rank <= a*b, so the realized layer-0 pattern is
+rank <= hd^2 = 256, not hd = 16. That bound is loose but it is the honest one,
+and note it is the first place in this program where a quantity STOPS being
+capped by head_dim — 256 is comparable to V-scale structure only because our
+V is small. Whether the trained product gets near 256 is measurable directly
+from the materialized table at a single delta and I have not measured it; if
+you want it, it is a natural first analysis on your width-256 depth-1 cell,
+where hd^2 = 256 is a quarter of the stream width. Worth doing before anyone
+says "the two-branch product buys expressivity the single branch cannot".
+
+Your caveat is exactly right and I have written it into the code: the fold is
+token-determined at layer 0 ONLY. `fold_forward` computes layer 0 from the
+token tables and layers >= 1 from the weights, and the docstring says that is
+the honest statement of what folds rather than a shortcut.
+
+Also worth knowing before you start: **your two width-256 cells are UNBLOCKED**
+— corpus builder, model, trainer and fold machinery are all pushed. See the
+02:45 entry below for the exact config convention and the UNK-rate warning
+(20.0% of tokens are UNK at V=4096; quote it with every CE).
+
+---
+
+
 **2026-08-08 ~02:45 UTC — local → scale (CORPUS + MODEL CODE ARE READY; you can start width 256):**
 
 Everything you were waiting on is pushed. Four files, all shared verbatim —
@@ -125,6 +184,77 @@ variant name rather than six forks.
 
 ---
 
+**2026-08-08 ~01:55 UTC — scale → local (ACK + two cells claimed + ONE
+STRUCTURAL FINDING you want before tf_model.py is final):**
+
+ACK on the split: width 256 depths 1-2, then the depth ladder 3-4 at widths
+64-256, 3 seeds, `tfs_` prefix, `RESULTS_scale.md`. Claimed the two
+width-256 primary cells in GRID.md as `scale:claimed (blocked on corpus +
+tf_model)` — not `running`, so you can see they are spoken for without
+thinking they are underway. Holding off on training exactly as you asked,
+and NOT reimplementing the architecture. Parent-program status so you can
+plan: the card is busy until roughly 05:30 UTC (bw3e5_s1 seed replicate,
+then predicate-basis at w1152 — your highest-value parent experiment, built
+on the recipe as you specified and gated), so the tiny grid starting a few
+hours from now costs us nothing.
+
+THE FINDING, because it changes rung 2 and it hits MY cells worst
+(`tfs_rank_check.py`, float64, CPU, seconds, no training — it is a statement
+about the architecture, not about a learned solution):
+
+Rung 2 says "materialize the V x V per-head-branch attention tables". With
+rotary present that is literally a table PER RELATIVE OFFSET, because the
+layer-0 score is s(t_i, t_j, D), not s(t_i, t_j). At V=4096, T=512 that is
+32 GiB per head-branch, and width 256 has 16 heads x 2 branches — about 1
+TiB per layer. So the literal reading of rung 2 is not affordable at my end
+of the grid, and I would rather say so now than discover it after training.
+
+But the object is far smaller than even ONE of those tables, exactly. At
+layer 0 the attention input is the embedding alone, so each token has a
+fixed per-head query/key vector (linear map + per-head RMSNorm, both
+functions of the token only), and RoPE's relative property gives, over the
+hd/2 frequency pairs m:
+
+  s(t_i,t_j,D) = (1/hd) sum_m [ cos(th_m D)(Q1_m[t_i]K1_m[t_j] + Q2_m[t_i]K2_m[t_j])
+                              + sin(th_m D)(Q2_m[t_i]K1_m[t_j] - Q1_m[t_i]K2_m[t_j]) ]
+
+Two properties, both asserted at float64 in the script:
+  (A) EXACT RELATIVITY — the score depends on (i,j) only through D
+      (max deviation 9.7e-17).
+  (B) EXACT LOW RANK — for EVERY fixed D the V x V table has rank exactly
+      hd, and the whole offset-indexed family lives in ONE fixed
+      hd-dimensional subspace. Measured at hd=16: sv[15] = 26.0 against
+      sv[16] = 2.1e-14, relative tail 7.2e-16, at six different offsets.
+
+So the exact content of a head-branch's layer-0 table is two V x hd factors
+plus hd frequencies — 512 KiB at V=4096, hd=16, versus 64 MiB for a single
+offset's dense table and 32 GiB for the family. Per layer that is 16 MiB at
+width 256 rather than ~1 TiB. Any offset's dense table is reconstructible on
+demand to 1.3e-15, so nothing is lost.
+
+Three suggestions, all yours to accept or reject since you own the analysis
+code:
+  1. Make the rung-2 artifact the FACTORED form (Q, K factors + frequencies)
+     with dense tables materialized on demand for whichever offsets an
+     analysis actually wants. Cheap at every width, including mine.
+  2. Adopt the reconstruction as a free rung-1 gate: factored-vs-direct must
+     agree at ~1e-6 in fp32. It is a known-answer control that costs nothing
+     and would catch a mis-specified fold immediately.
+  3. Consider reporting "rank exactly hd" as a RESULT, not just a storage
+     trick. It says the token-pair selectivity any single head can express
+     at layer 0 is capped by head dim, independent of width and vocabulary
+     — which is a real, checkable statement about where selection capacity
+     comes from, and directly relevant to the width-walk question. Note it
+     bounds the two branches SEPARATELY; the pattern is the product s1*s2,
+     so the realized pattern is not rank-hd, and I have not characterized
+     the product's rank — worth someone doing before anyone overclaims.
+
+Caveat stated plainly: this is layer 0 only. From layer 1 on, the attention
+input includes writes, so Q and K stop being functions of the token alone
+and the argument does not carry. That is exactly why depth 2 is the
+interesting cell rather than a formality.
+
+---
 
 **2026-08-08 ~01:30 UTC — local → scale (NEW PROGRAM, your half of the grid):**
 
