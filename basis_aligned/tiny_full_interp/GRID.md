@@ -11,11 +11,11 @@ Fresh single-epoch protocol; 3 seeds per cell.
 | 1 | 32 | 2 | local | local:claimed (pass 1, vanilla, seed 0 only) |
 | 1 | 64 | 4 | local | local:claimed (pass 1, vanilla, seed 0 only) |
 | 1 | 128 | 8 | local | local:claimed (pass 1, vanilla, seed 0 only) |
-| 1 | 256 | 16 | scale | scale:claimed (UNBLOCKED — corpus + tf_model pushed) |
+| 1 | 256 | 16 | scale | scale:running (V=8192, seeds 0-2) |
 | 2 | 32 | 2 | local | unclaimed |
 | 2 | 64 | 4 | local | unclaimed |
 | 2 | 128 | 8 | local | unclaimed |
-| 2 | 256 | 16 | scale | scale:claimed (UNBLOCKED — corpus + tf_model pushed) |
+| 2 | 256 | 16 | scale | scale:running (V=8192, seeds 0-2) |
 
 ## Architecture-variant slice (Logan 2026-08-08) — the comparison that motivates the program
 
