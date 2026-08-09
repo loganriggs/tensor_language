@@ -344,6 +344,48 @@ review.)
   this table would be exactly the unearned attribution this programme's
   retraction ledger is full of. The factorial below is the fix.
 
+### 03:25 — THE THIRD SEED SETTLES THE REVIEW'S CENTRAL OBJECTION, AGAINST MY ORIGINAL CLAIM, AND THE HANDICAP EXPLAINS WHY
+
+The third conventional seed at depth 2 width 128 landed at **+0.0472**,
+continuing the downward drift (+0.1887, +0.0826, +0.0472). The complete
+three-versus-three picture at the cell the whole threshold argument turned on:
+
+| arm, depth 2 width 128 | three seeds | mean | sd | own model-seed t |
+|---|---|---|---|---|
+| foldable family | −0.0138, −0.0022, +0.0059 | −0.0034 | 0.0099 | −0.59 |
+| conventional, query/key norm ON (handicapped) | +0.1887, +0.0826, +0.0472 | **+0.1061** | 0.0736 | **+2.50** |
+| conventional, query/key norm OFF | +1.2677, +1.2991, +0.8037 | **+1.1235** | 0.2774 | **+7.01** |
+
+**The one-octave threshold claim does not clear the adopted 4.30 bar at depth 2,
+now confirmed at three seeds** (t = 2.50, down from 2.56 at two). Retracting it
+as the headline was the right call, and it is now settled rather than merely
+suspected.
+
+**But the honest reading goes further than the reviewer's, and it cuts against
+my replacement wording too.** Between families at three seeds each, the
+handicapped comparison gives a Welch t of only **2.55** — suggestive, not
+conclusive. The "9.8× the family's upper bound" figure I substituted for the
+threshold claim has fallen to **7.7×** with the third seed, and a ratio of means
+was always a flattering way to describe a difference this noisy. At this cell,
+in the handicapped configuration, the two families are **not cleanly
+separated**.
+
+**Removing the handicap is what separates them.** Against the un-handicapped
+conventional model the same comparison gives Welch t = **7.03** and a ratio of
+**81.5×**. So the correct statement about this cell is not "the conventional
+model inducts and ours does not, marginally" — it is:
+
+> Under the query/key cap this programme imposed, *neither* family separates
+> cleanly at depth 2 width 128. Lift the cap and the conventional model
+> separates decisively. The cap, not the cell, was the source of the
+> marginality — and every seed-level instability documented at this cell
+> tonight is downstream of that.
+
+Depth 3 width 128, which was never near the boundary, is unaffected and clears
+everything: family +0.0974/+0.1233/+0.1048, conventional
++0.6225/+0.5517/+0.6710, conventional t = 17.75, ratio 5.7×. Depth 3 width 64 —
+the other threshold cell — has not yet reached its third seed.
+
 ### 🔴 THE UNPRICED RISK WAS REAL AND LARGE — every tax number above is PROVISIONAL (2026-08-09 02:50)
 
 The query/key-norm control landed at three seeds and it is the most
