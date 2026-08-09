@@ -1114,6 +1114,53 @@ about shares — are unscoreable rather than passed or failed. Writing that guar
 in advance is what stops this cell from contributing three meaningless
 percentages to FINDING 21's trend.
 
+### 23:30 — **N2 REFUTED: the sign flips inside the bracket.** The discriminating-cell result depends on the parameter allowance, and the bracket is why we know
+
+| slot 14 arm, depth 2 width 64 | value |
+|---|---|
+| parameters | 565,036 — **15.9% fewer** than the conventional 671,872 |
+| ours, cap on, three seeds | 4.95410, 4.95422, 4.95324 → **4.95385** |
+| conventional | 4.90259 |
+| **symmetric tax** | **+0.0513** — ours *loses* (interim; cap-off training, can only lower it) |
+
+**The bracket at this cell spans a sign change:**
+
+| parameter handicap | symmetric tax |
+|---|---|
+| −4.0% (slot 16) | **−0.0344** ours wins |
+| −15.9% (slot 14) | **+0.0513** ours loses |
+
+**So "our arm wins at a no-copying depth-2 cell" is not robust.** It holds at a
+4% handicap and fails at a 16% one. Had I run only slot 16 — the natural
+choice, since its stream matches the plain model's compute width — I would have
+reported a clean discrimination result that a different defensible
+configuration reverses.
+
+**What survives, stated at the strength the data supports.** The other three
+cells all carried about a **7%** handicap. Interpolating the bracket linearly in
+parameter fraction to −7.0% gives roughly **−0.013** — nominally still on the
+"ours wins" side, but with a margin about **seven times thinner** than depth 1's
+−0.0905, and resting on an interpolation between two points rather than a
+measurement. Linearity in parameter fraction is an assumption, not a
+established fact.
+
+**The four-cell split therefore weakens from clean to suggestive:**
+
+| cell | copying? | tax | handicap | note |
+|---|---|---|---|---|
+| depth 1, width 128 | no | −0.0905 | −7.3% | solid |
+| depth 2, width 64 | no | **≈ −0.013** | −7.0% (interpolated) | **thin, interpolated** |
+| depth 2, width 128 | yes | +0.0759 | −7.0% | solid |
+| depth 3, width 128 | yes | +0.1221 | −7.2% | solid |
+
+The ordering still tracks copying availability rather than depth, and depth 2
+still appears on both sides — but the cell that does the discriminating is the
+one whose margin is thinnest and least directly measured. **A cleaner test would
+train the discriminating cell at an exact −7% handicap** rather than
+interpolating; no slot value lands there, so it would need the slot mechanism
+generalised to non-integer per-slot widths, or a conventional arm resized to
+match one of the bracket points exactly.
+
 ### 23:05 — the first bracket arm is FINAL: tax **−0.0344**, and the cap now helps our architecture at **four cells**
 
 Slot 16 (−4.0% parameters), three seeds every arm: ours cap-on 4.87637,
