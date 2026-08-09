@@ -1114,6 +1114,33 @@ about shares — are unscoreable rather than passed or failed. Writing that guar
 in advance is what stops this cell from contributing three meaningless
 percentages to FINDING 21's trend.
 
+### 16:25 — the replacement tax reaches three seeds and does not move: **+0.0879 nats**
+
+The predicate slot-32 arm's third seed landed: 4.48303, 4.48126, 4.48173 →
+**4.48201**, standard deviation 0.00092. That is the tightest three-seed spread
+of any arm in this programme — a factor of ten smaller than the vanilla family's
+at the same cell.
+
+| version of the foldability tax at depth 2 width 128 | value |
+|---|---|
+| as originally published (vanilla only, RETRACTED) | +0.2522 |
+| symmetric replacement, two seeds | +0.0880 |
+| **symmetric replacement, three seeds** | **+0.0879** |
+
+The retraction's number survives seeding essentially unchanged, at 1,523,808
+parameters against the conventional model's 1,638,656 — **7% fewer**.
+Prediction K2 (registered range +0.05 to +0.12) **holds**.
+
+So the corrected headline is stable: **a foldable architecture with 7% fewer
+parameters than an un-handicapped conventional transformer pays about
+nine hundredths of a nat**, not the quarter-nat originally reported. The caveat
+that must travel with it is unchanged — this arm buys its induction by
+hand-installation (24 named scalars carry 98% of it), so the number is a
+statement about loss, not about mechanism we discovered.
+
+The cap-off arms, which test whether the query/key cap is load-bearing for
+*this* architecture or only for vanilla at one cell, are training now.
+
 ### 16:15 — THE GAP IS CLOSED: all 12 un-capped foldable checkpoints PASS the fold gate. And **my hypothesis about why was wrong, for an instructive reason**
 
 Files: `tf_noqknorm_foldgate.py` / `.json`, `tf_qknorm_flag_check.py` / `.json`.
