@@ -1,0 +1,483 @@
+{
+  "registered_predictions_file": "tf_baseline_predictions.json",
+  "config": {
+    "depth": 2,
+    "width": 128,
+    "vocab": 8192,
+    "tok": "bpe",
+    "seed": 2,
+    "exp": 4,
+    "head_dim": 16,
+    "T": 512,
+    "qk_norm": false,
+    "suffix": "_noqknorm",
+    "variant": "std",
+    "group_coeff": 0.0,
+    "n_heads": 8,
+    "hidden": 512
+  },
+  "architecture": {
+    "attention": "softmax(q.k / sqrt(head_dim)) over the causal mask, ONE query/key branch",
+    "feed_forward": "Down(GELU(Up(x))), exact erf GELU",
+    "expansion": 4,
+    "qk_norm": false,
+    "differences_from_family": [
+      "softmax vs no-softmax two-branch product",
+      "GELU gate vs ungated bilinear product"
+    ],
+    "everything_else": "identical -- see tf_baseline_predictions.json"
+  },
+  "params": {
+    "std_body_closed_form": 393472,
+    "family_body_same_cell": 590080,
+    "embedding": 1048576,
+    "body_ratio_std_over_family": 0.6668112798264642,
+    "exactly_parameter_matched": false
+  },
+  "corpus": {
+    "vocab": 8192,
+    "tokenizer": "bpe",
+    "seq_len": 513,
+    "train_split_rows": 240000,
+    "data_order_id": "epoch_order(0)@seed1234",
+    "single_epoch_arithmetic": "15000 steps x batch 16 = 240000 sequences = the entire train split, once each",
+    "held": "held split rows [0:1500]"
+  },
+  "learning_rate_note": "Muon 0.02 is the value EVERY foldable cell used and was chosen by the foldable family's own sweeps, NOT tuned for this architecture. The lr0.01 / lr0.04 arms at width 128 price that; see tf_baseline_predictions.json A9.",
+  "run": {
+    "lr_muon": 0.02,
+    "lr_adamw": 0.004,
+    "steps": 15000,
+    "batch": 16,
+    "train_curve_every200": [
+      [
+        0,
+        9.0381,
+        9.0381
+      ],
+      [
+        200,
+        6.0198,
+        6.5409
+      ],
+      [
+        400,
+        5.4923,
+        5.5786
+      ],
+      [
+        600,
+        5.1914,
+        5.3154
+      ],
+      [
+        800,
+        5.1778,
+        5.1766
+      ],
+      [
+        1000,
+        5.2458,
+        5.1223
+      ],
+      [
+        1200,
+        5.045,
+        5.0689
+      ],
+      [
+        1400,
+        5.1292,
+        5.0341
+      ],
+      [
+        1600,
+        4.9153,
+        5.0121
+      ],
+      [
+        1800,
+        4.9873,
+        4.9747
+      ],
+      [
+        2000,
+        4.9295,
+        4.9418
+      ],
+      [
+        2200,
+        4.9447,
+        4.9276
+      ],
+      [
+        2400,
+        4.8861,
+        4.8913
+      ],
+      [
+        2600,
+        4.8873,
+        4.8697
+      ],
+      [
+        2800,
+        4.8881,
+        4.8519
+      ],
+      [
+        3000,
+        4.9337,
+        4.8464
+      ],
+      [
+        3200,
+        4.8891,
+        4.819
+      ],
+      [
+        3400,
+        4.7126,
+        4.8015
+      ],
+      [
+        3600,
+        4.7432,
+        4.7948
+      ],
+      [
+        3800,
+        4.778,
+        4.7585
+      ],
+      [
+        4000,
+        4.6989,
+        4.7619
+      ],
+      [
+        4200,
+        4.7401,
+        4.7416
+      ],
+      [
+        4400,
+        4.6942,
+        4.7312
+      ],
+      [
+        4600,
+        4.6322,
+        4.7211
+      ],
+      [
+        4800,
+        4.7204,
+        4.716
+      ],
+      [
+        5000,
+        4.6943,
+        4.7121
+      ],
+      [
+        5200,
+        4.835,
+        4.7027
+      ],
+      [
+        5400,
+        4.7012,
+        4.6927
+      ],
+      [
+        5600,
+        4.634,
+        4.6773
+      ],
+      [
+        5800,
+        4.668,
+        4.6771
+      ],
+      [
+        6000,
+        4.6099,
+        4.6711
+      ],
+      [
+        6200,
+        4.6166,
+        4.6652
+      ],
+      [
+        6400,
+        4.6158,
+        4.647
+      ],
+      [
+        6600,
+        4.6472,
+        4.635
+      ],
+      [
+        6800,
+        4.6367,
+        4.6363
+      ],
+      [
+        7000,
+        4.5697,
+        4.6294
+      ],
+      [
+        7200,
+        4.6366,
+        4.6168
+      ],
+      [
+        7400,
+        4.7525,
+        4.6041
+      ],
+      [
+        7600,
+        4.4931,
+        4.6077
+      ],
+      [
+        7800,
+        4.6831,
+        4.5948
+      ],
+      [
+        8000,
+        4.7064,
+        4.5865
+      ],
+      [
+        8200,
+        4.7685,
+        4.584
+      ],
+      [
+        8400,
+        4.6075,
+        4.5734
+      ],
+      [
+        8600,
+        4.4961,
+        4.5616
+      ],
+      [
+        8800,
+        4.5625,
+        4.5733
+      ],
+      [
+        9000,
+        4.5915,
+        4.5564
+      ],
+      [
+        9200,
+        4.4541,
+        4.5585
+      ],
+      [
+        9400,
+        4.6132,
+        4.5484
+      ],
+      [
+        9600,
+        4.5793,
+        4.5355
+      ],
+      [
+        9800,
+        4.6272,
+        4.5452
+      ],
+      [
+        10000,
+        4.5647,
+        4.5381
+      ],
+      [
+        10200,
+        4.524,
+        4.5326
+      ],
+      [
+        10400,
+        4.6552,
+        4.5289
+      ],
+      [
+        10600,
+        4.4362,
+        4.5102
+      ],
+      [
+        10800,
+        4.5767,
+        4.5078
+      ],
+      [
+        11000,
+        4.5444,
+        4.5104
+      ],
+      [
+        11200,
+        4.58,
+        4.5116
+      ],
+      [
+        11400,
+        4.5996,
+        4.4951
+      ],
+      [
+        11600,
+        4.3645,
+        4.4949
+      ],
+      [
+        11800,
+        4.6344,
+        4.4934
+      ],
+      [
+        12000,
+        4.4813,
+        4.4883
+      ],
+      [
+        12200,
+        4.4824,
+        4.5042
+      ],
+      [
+        12400,
+        4.4525,
+        4.4826
+      ],
+      [
+        12600,
+        4.5125,
+        4.4753
+      ],
+      [
+        12800,
+        4.4586,
+        4.4731
+      ],
+      [
+        13000,
+        4.3693,
+        4.4662
+      ],
+      [
+        13200,
+        4.4975,
+        4.4737
+      ],
+      [
+        13400,
+        4.5451,
+        4.4715
+      ],
+      [
+        13600,
+        4.4843,
+        4.4636
+      ],
+      [
+        13800,
+        4.3572,
+        4.4641
+      ],
+      [
+        14000,
+        4.4833,
+        4.4721
+      ],
+      [
+        14200,
+        4.449,
+        4.4635
+      ],
+      [
+        14400,
+        4.5106,
+        4.4739
+      ],
+      [
+        14600,
+        4.5014,
+        4.4637
+      ],
+      [
+        14800,
+        4.4895,
+        4.4784
+      ]
+    ],
+    "held100_curve": [
+      [
+        1875,
+        4.861
+      ],
+      [
+        3750,
+        4.6965
+      ],
+      [
+        5625,
+        4.5944
+      ],
+      [
+        7500,
+        4.5234
+      ],
+      [
+        9375,
+        4.4786
+      ],
+      [
+        11250,
+        4.4285
+      ],
+      [
+        13125,
+        4.3959
+      ]
+    ],
+    "spikes": 0,
+    "diverged": false,
+    "wall_seconds": 263.2,
+    "sec_per_step": 0.01755,
+    "peak_mib": 2526,
+    "final_held_ce": 4.45426,
+    "n_params": 1442048,
+    "body_params": 393472
+  },
+  "vs_baselines": {
+    "unigram_floor": 7.30343,
+    "bigram": 5.2842,
+    "model_minus_bigram": -0.82994,
+    "model_bits_per_byte": 1.71154
+  },
+  "vs_family_same_cell": {
+    "family_stem": "tf_vanilla_d2_w128_b8192_s2",
+    "family_held_ce": 4.63768,
+    "conventional_held_ce": 4.45426,
+    "foldability_tax_nats": 0.18342,
+    "sign": "positive = the conventional model wins = the fold costs prediction quality",
+    "family_total_params": 1638656,
+    "conventional_total_params": 1442048
+  }
+}

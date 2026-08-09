@@ -1382,7 +1382,17 @@
     }
   },
   "lr_arms": {},
-  "qk_norm_arm": {},
+  "qk_norm_arm": {
+    "d2_w128_x4": {
+      "no_qk_norm_held_ce": 4.439203333333333,
+      "no_qk_norm_sd": 0.013253981791647832,
+      "n_seeds": 3,
+      "with_qk_norm_held_ce": 4.602625,
+      "cost_of_removing_qk_norm": -0.16342166666666635,
+      "induction_no_qk_norm": 1.1235204979225442,
+      "claim": "per-head query/key RMSNorm is shared with the family and is therefore kept in the conventional model; this arm prices that choice."
+    }
+  },
   "verdicts": {
     "L1_conventional_wins_every_cell_by_0.05_to_0.20": {
       "registered": "the conventional model wins on held cross-entropy at EVERY cell, by 0.05 to 0.20 nats",

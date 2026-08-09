@@ -41,6 +41,12 @@ Synthetic order-sensitive score (shuffled − repeat), decided over MODEL seeds 
 | L3 (matched parameters shrink the gap by a third) | **REFUTED** |
 | A3 (matched parameters WIDEN the gap, because the family is the larger model) | **CONFIRMED** |
 
+## Query/key-norm control
+
+| cell | with QK-norm | without | cost of removing |
+|---|---|---|---|
+| d2_w128_x4 | 4.602625 | 4.439203333333333 | -0.16342166666666635 |
+
 ## Controls
 
 - `model_and_harness`: pass = **True**
