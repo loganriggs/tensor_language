@@ -41,6 +41,15 @@ Synthetic order-sensitive score (shuffled − repeat), decided over MODEL seeds 
 | L3 (matched parameters shrink the gap by a third) | **REFUTED** |
 | A3 (matched parameters WIDEN the gap, because the family is the larger model) | **CONFIRMED** |
 
+## Learning-rate fairness bound
+
+| cell | 0.01 | 0.02 (primary) | 0.04 | best | gain over 0.02 |
+|---|---|---|---|---|---|
+| d1_w128_x4 | 4.7995 | 4.7939 | 4.7962 | 0.02 | 0.0000 |
+| d2_w128_x4 | 4.6067 | 4.6026 | 4.6246 | 0.02 | 0.0000 |
+| d2_w128_x7 | 4.5432 | 4.5525 | 4.5563 | 0.01 | 0.0092 |
+| d3_w128_x4 | 4.4723 | 4.4741 | 4.4854 | 0.01 | 0.0018 |
+
 ## Query/key-norm control
 
 | cell | with QK-norm | without | cost of removing |

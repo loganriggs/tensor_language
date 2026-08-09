@@ -1381,7 +1381,80 @@
       }
     }
   },
-  "lr_arms": {},
+  "lr_arms": {
+    "d1_w128_x4": {
+      "0.01": {
+        "held_ce": 4.79952,
+        "n_seeds": 1
+      },
+      "0.04": {
+        "held_ce": 4.79622,
+        "n_seeds": 1
+      },
+      "0.02": {
+        "held_ce": 4.79389,
+        "n_seeds": 2,
+        "note": "the primary arm"
+      },
+      "best_lr": "0.02",
+      "best_held_ce": 4.79389,
+      "gain_over_0.02": 0.0
+    },
+    "d2_w128_x4": {
+      "0.01": {
+        "held_ce": 4.60669,
+        "n_seeds": 1
+      },
+      "0.04": {
+        "held_ce": 4.62461,
+        "n_seeds": 1
+      },
+      "0.02": {
+        "held_ce": 4.602625,
+        "n_seeds": 2,
+        "note": "the primary arm"
+      },
+      "best_lr": "0.02",
+      "best_held_ce": 4.602625,
+      "gain_over_0.02": 0.0
+    },
+    "d2_w128_x7": {
+      "0.01": {
+        "held_ce": 4.54325,
+        "n_seeds": 1
+      },
+      "0.04": {
+        "held_ce": 4.55631,
+        "n_seeds": 1
+      },
+      "0.02": {
+        "held_ce": 4.552465,
+        "n_seeds": 2,
+        "note": "the primary arm"
+      },
+      "best_lr": "0.01",
+      "best_held_ce": 4.54325,
+      "gain_over_0.02": 0.009215000000000195
+    },
+    "d3_w128_x4": {
+      "0.01": {
+        "held_ce": 4.47234,
+        "n_seeds": 1
+      },
+      "0.04": {
+        "held_ce": 4.48539,
+        "n_seeds": 1
+      },
+      "0.02": {
+        "held_ce": 4.474115,
+        "n_seeds": 2,
+        "note": "the primary arm"
+      },
+      "best_lr": "0.01",
+      "best_held_ce": 4.47234,
+      "gain_over_0.02": 0.0017750000000003041
+    }
+  },
   "qk_norm_arm": {
     "d2_w128_x4": {
       "no_qk_norm_held_ce": 4.439203333333333,
@@ -1501,8 +1574,81 @@
       "verdict": "CONFIRMED"
     },
     "A9_learning_rate_fairness_bound": {
-      "arms": {},
-      "worst_gain_over_0.02": null,
+      "arms": {
+        "d1_w128_x4": {
+          "0.01": {
+            "held_ce": 4.79952,
+            "n_seeds": 1
+          },
+          "0.04": {
+            "held_ce": 4.79622,
+            "n_seeds": 1
+          },
+          "0.02": {
+            "held_ce": 4.79389,
+            "n_seeds": 2,
+            "note": "the primary arm"
+          },
+          "best_lr": "0.02",
+          "best_held_ce": 4.79389,
+          "gain_over_0.02": 0.0
+        },
+        "d2_w128_x4": {
+          "0.01": {
+            "held_ce": 4.60669,
+            "n_seeds": 1
+          },
+          "0.04": {
+            "held_ce": 4.62461,
+            "n_seeds": 1
+          },
+          "0.02": {
+            "held_ce": 4.602625,
+            "n_seeds": 2,
+            "note": "the primary arm"
+          },
+          "best_lr": "0.02",
+          "best_held_ce": 4.602625,
+          "gain_over_0.02": 0.0
+        },
+        "d2_w128_x7": {
+          "0.01": {
+            "held_ce": 4.54325,
+            "n_seeds": 1
+          },
+          "0.04": {
+            "held_ce": 4.55631,
+            "n_seeds": 1
+          },
+          "0.02": {
+            "held_ce": 4.552465,
+            "n_seeds": 2,
+            "note": "the primary arm"
+          },
+          "best_lr": "0.01",
+          "best_held_ce": 4.54325,
+          "gain_over_0.02": 0.009215000000000195
+        },
+        "d3_w128_x4": {
+          "0.01": {
+            "held_ce": 4.47234,
+            "n_seeds": 1
+          },
+          "0.04": {
+            "held_ce": 4.48539,
+            "n_seeds": 1
+          },
+          "0.02": {
+            "held_ce": 4.474115,
+            "n_seeds": 2,
+            "note": "the primary arm"
+          },
+          "best_lr": "0.01",
+          "best_held_ce": 4.47234,
+          "gain_over_0.02": 0.0017750000000003041
+        }
+      },
+      "worst_gain_over_0.02": 0.009215000000000195,
       "verdict_note": "if any conventional cell gains more than 0.02 nats from a different learning rate, every gap quoted at 0.02 UNDERSTATES the conventional model and the whole comparison is a LOWER BOUND on the conventional advantage."
     }
   }
