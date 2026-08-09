@@ -678,10 +678,46 @@ having it at all, and which side of the edge a given seed lands on is close to
 a coin flip.
 
 **P1a is refuted more decisively than at seed 0** (+0.1170 against a predicted
-+0.5). The three-way decomposition cannot be recomputed until the remaining
-arms reach two seeds; the seed-0 figure of 71% should now be expected to move
-*upward*, since the largest single-factor contributor shrank, but I am not
-quoting a revised number until the cells exist.
++0.5).
+
+### 07:05 — THE CORE DECOMPOSITION IS NOW THREE-SEED, and the interaction share rose to **86%** exactly as anticipated
+
+All four cap-off corners have three seeds:
+
+| attention | feed-forward | three seeds | mean | t | held CE |
+|---|---|---|---|---|---|
+| ours | ours | −0.0264, −0.0301, −0.0234 | −0.0266 | −13.73 | 4.68547 |
+| ours | GELU | −0.0271, −0.0191, −0.0247 | −0.0236 | −9.99 | 4.67685 |
+| softmax | ours | +0.2628, +0.0452, +0.0429 | +0.1170 | 1.60 | 4.50029 |
+| **softmax** | **GELU** | +1.0784, +1.1734, +0.8828 | **+1.0448** | **12.21** | **4.39413** |
+
+| term | induction | share | held CE | share |
+|---|---|---|---|---|
+| total move | +1.0715 | 100% | −0.2913 | 100% |
+| attention alone | +0.1436 | **13.4%** | −0.1852 | 63.6% |
+| feed-forward alone | +0.0030 | **0.3%** | −0.0086 | 3.0% |
+| **interaction** | **+0.9249** | **86.3%** | −0.0975 | 33.5% |
+
+> **86% of the copying capability lives in the interaction. The two main
+> effects together account for 14%.** On held cross-entropy the split is almost
+> exactly inverted — 67% main effects, 34% interaction.
+
+Last tick I wrote that the seed-0 figure of 71% "should now be expected to move
+upward, since the largest single-factor contributor shrank." It moved to
+**86.3%**. Recording that because a prediction made one tick and checked the
+next is the cheapest calibration available, and it is worth noting that the
+direction was right while the seed-0 magnitude was not.
+
+**What this now supports, stated at the strength the data allows.** Giving our
+foldable architecture a softmax and nothing else would buy 13% of the copying
+and 64% of the loss. Giving it a gated nonlinearity and nothing else would buy
+0.3% and 3%. Neither is a route to the capability; the capability is in having
+both, and the whole is roughly seven times the sum of its parts.
+
+The three-*way* decomposition including the cap still needs the cap-on arms at
+three seeds; those are running. Until then the 71% three-way figure stands as
+seed-0 only and should be read against the fact that its two-way parent moved
+by 12 points when seeded.
 
 ## 2026-08-09 05:05 — FINDING 19 (THE SYMMETRIC CONTROL): the query/key cap is **not a shared handicap — it is load-bearing for the foldable family and a handicap for the conventional one**. Each family at its own better configuration, the foldability tax at depth 2 width 128 is **+0.2071 nats, 6.4× what was measured under the shared cap**. Both registered predictions hold
 
