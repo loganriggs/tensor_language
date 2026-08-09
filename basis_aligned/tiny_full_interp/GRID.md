@@ -366,12 +366,40 @@ baseline probe unchanged), chain `tf_factorial_chain.sh`.
 
 | depth | width | arms | owner | status |
 |---|---|---|---|---|
-| 2 | 128 | 4 new arms, seed 0 — the discriminating cell (family null, conventional +0.189) | LOCAL | claimed, queued behind the baseline chain |
-| 3 | 64 | 4 new arms, seed 0 — the other discriminating cell (family null, conventional +0.103) | LOCAL | claimed, queued |
-| 2 | 256 | 4 new arms, seed 0 — both induct, conventional 3.8× higher | LOCAL | claimed, queued |
-| 3 | 128 | 4 new arms, seed 0 — both induct, conventional 6.4× higher | LOCAL | claimed, queued |
-| 1 | 128 | 4 new arms, seed 0 — the negative control; nothing may induct | LOCAL | claimed, queued |
-| 2 | 128 | seeds 1-2 of whichever arms separate | LOCAL | queued last |
+**STATUS 2026-08-09 13:25 — the two-factor plan above was SUPERSEDED and the
+design is now THREE factors over FOUR cells.** The query/key cap turned out to
+interact with the attention factor (FINDING 19), so holding it fixed would have
+confounded the very thing the factorial measures; it is varied as a third
+factor. And the whole decomposition turned out to depend on the cell
+(FINDING 21), so it is run over a 2×2 of cells rather than one.
+
+| cell | design | status |
+|---|---|---|
+| depth 2, width 128 | full 3×2×2, three seeds every corner | **DONE** — three-way 88.8%, softmax×cap pair 12.3% |
+| depth 3, width 64 | full 3×2×2, three seeds every corner | **DONE** — three-way 48.4%, pair 43.5% |
+| depth 3, width 128 | full 3×2×2, three seeds every corner | **DONE** for the 2×2×2; row-L1 diagnostic finishing — three-way −1.3%, pair 75.9% |
+| depth 2, width 64 | full 3×2×2, three seeds every corner | queued (`tf_factorial5_chain.sh`, gated); closes the cell factorial |
+
+Machinery: `tf_factorial.py` (+ gates), `tf_factorial_probe.py`,
+`tf_factorial2_chain.sh` / `tf_factorial2_seeds.sh` (depth 2 width 128),
+`tf_factorial3_reordered.sh` (depth 3 width 64), `tf_factorial4b_chain.sh`
+(depth 3 width 128), `tf_factorial5_chain.sh` (depth 2 width 64). Predictions
+registered per cell in `tf_factorial{2,3,4,5}_predictions.json`; independent
+review in `tf_factorial_independent_review.json`.
+
+**Headline as it now stands (RESULTS FINDING 21 and its 12:30 subsection):**
+softmax and an uncapped logit range are **jointly necessary and individually
+worthless at every cell** — softmax alone never exceeds 3.1% of the move, the
+uncapped range alone never 0.8%, the pair is worth 12% / 44% / 76%. Whether a
+GATE must also join them depends on model size: required at the smallest cell,
+optional at the largest.
+
+**Two claims from earlier today were corrected, and a memoryless reader should
+know which:** the "+0.2522 nats foldability tax" is RETRACTED (it held our side
+to vanilla while letting the conventional model pick its best configuration; a
+foldable arm at 7% fewer parameters pays +0.088 and our unconstrained best
+wins by 0.008), and "the row-L1 diagnostic is dead" is qualified to "under 10%
+of softmax at the same corner" — it reaches +0.1836 at the largest cell.
 
 **STATUS 2026-08-09 04:50 — the baseline chain is DONE (exited clean at 04:37,
 all stages). The factorial chain was STOPPED two minutes in, before writing any
