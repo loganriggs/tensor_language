@@ -507,6 +507,73 @@ arms uncapped to give softmax a fair test, and the design has to state which
 comparison each arm is making. Either way the decision waits on data rather
 than on my guess, which is why the control was interposed rather than queued.
 
+## 2026-08-09 05:45 — FINDING 20 (THE THREE-FACTOR FACTORIAL, cap-off half, seed 0): **NEITHER factor buys the induction — the INTERACTION does.** Softmax alone recovers 26% of the gap, the GELU gate alone recovers **0%**, and the two together recover 100%; the interaction term carries **74%**. My registered headline prediction is REFUTED, and a lower-confidence prediction registered eight hours earlier is confirmed instead
+
+Files: `tf_factorial2_predictions.json` (registered before the chain),
+`tf_factorial2_chain.sh`, arms `tff_*_d2_w128_b8192_s0_noqknorm`.
+**Seed 0 only** — this cell's history is a specific warning that near-boundary
+magnitudes move by 2× between seeds, so nothing here is settled.
+
+All four corners at depth 2 width 128 with the query/key cap **off**, matched
+body parameters:
+
+| attention | feed-forward | held CE | induction |
+|---|---|---|---|
+| ours (unnormalised two-branch) | ours (ungated bilinear) | 4.68263 | −0.0264 |
+| ours | **GELU** | 4.67878 | −0.0271 |
+| **softmax** | ours | 4.47100 | **+0.2628** |
+| **softmax** | **GELU** | 4.39500 | **+1.0784** |
+
+Decomposed as a 2×2:
+
+| | induction | share | held CE | share |
+|---|---|---|---|---|
+| total move, our corner → conventional corner | +1.1048 | 100% | −0.2876 | 100% |
+| attention alone (softmax with **our** feed-forward) | +0.2892 | **26%** | −0.2116 | **74%** |
+| feed-forward alone (**our** attention with GELU) | −0.0007 | **−0.1%** | −0.0038 | 1% |
+| **interaction** | **+0.8163** | **74%** | −0.0722 | 25% |
+
+**The two measures decompose almost exactly oppositely, and that is the
+finding.** Loss is mostly a main effect of attention (74%); induction is mostly
+the *interaction* (74%). Handing our architecture a softmax and keeping our
+ungated bilinear feed-forward buys most of the loss but only a quarter of the
+copying. Handing it a GELU gate and keeping our attention buys **nothing at
+all** — −0.0271 against a −0.0264 baseline, a difference of 0.0007.
+
+**Mechanistically this says induction needs both halves and neither is
+substitutable.** A pattern that can concentrate on one previous position is
+necessary but not sufficient; something has to convert "what was at that
+position" into a logit push, and our ungated bilinear feed-forward cannot do it
+even when a softmax hands it a clean selection. That is a sharper and more
+useful statement than "it's the softmax", which is what I predicted.
+
+**Scoring the registered predictions honestly:**
+
+- **P1a REFUTED.** I predicted softmax with our feed-forward would score above
+  +0.5, more than half the conventional model's move. It scored **+0.2628**,
+  about a quarter. Confidence was 0.8; that was overconfident, and the error
+  was assuming the factors were roughly separable when the whole point of the
+  earlier query/key result was that this system's knobs interact.
+- **P1b holds.** Our attention with a GELU gate stays below +0.1: measured
+  −0.0271.
+- **P3 holds, and strongly.** The L1-row-normalised diagnostic arm recovers
+  **4%** of the softmax arm's move (−0.0141 against a −0.0264 base and a
+  +0.2628 softmax arm), far under the predicted 40% ceiling. Competition
+  between keys is *not* the active ingredient; whatever softmax is doing here,
+  a signed normalised product does not reproduce it. This closes off the
+  cheap-substitute route that the arm existed to scout.
+- **The eight-hour-old F4, registered at confidence 0.45 in the superseded
+  two-factor file, is the prediction that came good**: *"the two factors are
+  close to additive on held CE but super-additive on the induction score …
+  induction plausibly needs both a pattern that can select one position AND a
+  nonlinearity that can use what it read."* The induction half is confirmed and
+  the interaction is the dominant term. Its CE half is refuted — the CE
+  interaction is 0.0722, not the predicted under-0.02.
+
+Remaining: the fourth cap-off arm (row-normalised with GELU) is training, then
+the four cap-on arms, then seeds. The cap-on half is what tests P2, the claim
+that the cap × attention interaction is confined to the softmax level.
+
 ## 2026-08-09 05:05 — FINDING 19 (THE SYMMETRIC CONTROL): the query/key cap is **not a shared handicap — it is load-bearing for the foldable family and a handicap for the conventional one**. Each family at its own better configuration, the foldability tax at depth 2 width 128 is **+0.2071 nats, 6.4× what was measured under the shared cap**. Both registered predictions hold
 
 Files: `tf_qknorm_predictions.json` (registered before the code existed),
