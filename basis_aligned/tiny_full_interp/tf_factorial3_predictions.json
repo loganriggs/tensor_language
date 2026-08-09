@@ -1,0 +1,28 @@
+{
+  "registered": "2026-08-09 08:00 UTC, BEFORE any depth-3 width-64 factorial cell was trained",
+  "question": "Does the CONJUNCTION result generalise off its one cell? The entire three-way analysis (89% of the copying capability requires softmax AND a gated nonlinearity AND an uncapped attention logit range, simultaneously) is measured at depth 2 width 128. tf_factorial2_predictions.json listed 'one cell' as an explicit limitation.",
+  "why_this_cell": "Depth 3 width 64 is the OTHER threshold cell and the only one where the one-octave shift survived three seeds on both sides (family +0.0035 at t=1.47, a null; conventional +0.1252 at t=5.55; between-family Welch 5.36). It is also the sharpest single comparison in the programme -- same depth, same width, fewer parameters for the conventional model -- and it is a different depth, so an extra layer is available for partial configurations to compose across.",
+  "design": "the same 2x2x2 -- softmax vs our unnormalised two-branch product, GELU vs our ungated bilinear product, query/key cap off vs on -- three seeds per corner, 24 cells, all held at the family's body parameter count for this cell",
+  "predictions": {
+    "G1_the_conjunction_replicates": {
+      "claim": "The three-way interaction is the dominant term at depth 3 width 64 as well: its share of the total move exceeds 50%.",
+      "reason": "the proposed mechanism is architectural, not cell-specific -- copying needs a pattern that can select one previous position, a nonlinearity that can convert what was there into a logit push, and a logit range wide enough for the selection to be sharp. None of those is a property of depth 2 or width 128.",
+      "confidence": "0.75"
+    },
+    "G2_but_it_is_SMALLER_than_at_depth_2": {
+      "claim": "The three-way share at depth 3 width 64 is LOWER than the 88.8% measured at depth 2 width 128.",
+      "reason": "an extra layer gives partial configurations a second route -- a model with softmax but no gate can in principle use the third block's feed-forward to do what the second block's cannot, which converts some of what was a conjunction at depth 2 into a main effect at depth 3.",
+      "confidence": "0.55 -- genuinely uncertain, and this is the prediction that carries information either way"
+    },
+    "G3_single_factors_stay_small": {
+      "claim": "Softmax alone still buys under 15% of the total move.",
+      "confidence": "0.7"
+    },
+    "G4_the_cap_stays_load_bearing_for_us": {
+      "claim": "At this cell too, removing the query/key cap HURTS every arm built on our attention (all four move down or stay flat) and HELPS the softmax arms.",
+      "reason": "FINDING 19 measured this at depth 2 and it held at two different feed-forward settings",
+      "confidence": "0.8"
+    }
+  },
+  "method_note": "Three seeds per corner from the start, not seed 0 first. The seed-architecture interaction documented at 07:30 -- seed 0 sits above its own mean on every softmax arm and below it on every non-softmax arm, inflating the cross-architecture gap by about 0.071 -- means a single-seed run of this design would be biased, not merely noisy, and biased in the direction that flatters the conjunction's headline."
+}
