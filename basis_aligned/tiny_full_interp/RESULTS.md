@@ -552,11 +552,21 @@ cost at this cell is **about a fifth of a nat**, and the induction gap is not
 "3.5–5.4× larger" but "they do it and we do not". This is the largest
 correction in the programme's history and it is against us.
 
-**One reason it is still a lower bound**: the un-capped conventional number is
-the ×4 arm, which has ~12% *fewer* parameters than the family. The
-matched-parameter un-capped arm is training now (`tf_bestbest_chain.sh`, three
-seeds), with the registered expectation that it beats the ×4 arm and pushes the
-best-against-best tax **above** +0.2071.
+**05:25 — the matched-parameter un-capped arm has landed, and the registered
+expectation held.** Three seeds, CE 4.39500 / 4.38730 / 4.40008 → **4.39413**,
+induction +1.0784 / +1.1734 / +0.8828 → **+1.0448 at t = 12.2**, zero spikes.
+It beats the ×4 un-capped arm as predicted, so the final figure is:
+
+> **Foldability tax at depth 2 width 128, each family at its own better
+> configuration, at exactly matched parameters: 4.64630 − 4.39413 =
+> +0.2522 nats.**
+
+That is **7.7× the +0.0326 originally measured at this cell** under the shared
+cap, and 2.7× the matched-parameter +0.0939. The induction comparison at each
+family's best is −0.0034 against **+1.0448**.
+
+This is the number the programme should quote. Everything above it in this
+finding is superseded arithmetic kept for the record.
 
 ### 🔴 THE UNPRICED RISK WAS REAL AND LARGE — every tax number above is PROVISIONAL (2026-08-09 02:50)
 

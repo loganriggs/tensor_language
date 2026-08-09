@@ -1,0 +1,56 @@
+{
+  "registered": "2026-08-09 05:25 UTC, BEFORE any three-factor factorial cell was trained",
+  "supersedes": "tf_factorial_predictions.json, whose two-factor design was stopped before writing any checkpoint because it held the query/key cap FIXED AT ON for every arm -- including its softmax arms -- and FINDING 19 shows the cap interacts with the attention factor rather than being independent of it",
+  "why_the_cap_must_be_a_factor": {
+    "FINDING_19": "removing the per-head query/key cap moves the conventional model -0.1745 nats and +1.0174 induction, and moves the foldable family +0.0392 nats and -0.0233 induction -- OPPOSITE SIGNS. It is load-bearing for us and a handicap for them.",
+    "consequence": "a factorial that fixes the cap at ON measures the softmax factor with softmax's concentration mechanism throttled, and would understate it invisibly. A factorial that fixes it at OFF measures the bilinear factor with our own architecture degraded. Neither single setting is neutral, so the cap is varied as a third factor and the interaction is reported."
+  },
+  "design": {
+    "factors": {
+      "attention": ["bilin (ours, unnormalised two-branch product)", "bilinnorm (the same product / its row L1 -- DIAGNOSTIC ONLY, does not fold to a fixed token-pair table)", "softmax (conventional)"],
+      "feed_forward": ["bilin (ungated, ours)", "gelu (conventional)"],
+      "query_key_cap": ["on", "off"]
+    },
+    "cells": "3 x 2 x 2 = 12 arms at depth 2 width 128, seed 0, all held at the family's body parameter count",
+    "already_on_disk": {
+      "bilin+bilin, cap on": "the published family model, CE 4.64630, induction -0.0034 (3 seeds)",
+      "bilin+bilin, cap off": "the FINDING 19 control, CE 4.68547, induction -0.0266 (3 seeds)",
+      "softmax+gelu, cap on": "matched conventional, CE 4.55236, induction +0.1078 (3 seeds)",
+      "softmax+gelu, cap off": "matched conventional un-capped, CE 4.39413, induction +1.0448 (3 seeds)"
+    },
+    "to_run": "the 8 remaining arms, seed 0 first"
+  },
+  "predictions": {
+    "P1_where_the_induction_lives": {
+      "claim": "With the cap OFF, the ATTENTION factor carries the overwhelming majority of the induction gap and the feed-forward factor carries little.",
+      "sharp_form": "(softmax, bilinear feed-forward, cap off) scores above +0.5, i.e. more than half of the full conventional model's +1.0448; (our attention, GELU, cap off) stays below +0.1",
+      "reason": "FINDING 19 already localises the mechanism: the cap only mattered for the softmax arm, and it mattered by an order of magnitude, which is evidence the selection mechanism and not the gate nonlinearity is what copying needs.",
+      "confidence": "0.8"
+    },
+    "P2_the_interaction_is_the_point": {
+      "claim": "The cap x attention interaction is LARGE and confined to the softmax level: removing the cap changes the softmax arms' induction by more than +0.5 and the bilin arms' by less than 0.1 in absolute value, at both feed-forward levels.",
+      "reason": "if the cap acts by throttling softmax concentration, it can only act where there is a softmax",
+      "confidence": "0.75",
+      "note": "bilinnorm is the interesting middle case and I am NOT predicting it here; see P3"
+    },
+    "P3_row_normalisation": {
+      "claim": "The L1-row-normalised arm recovers a MINORITY of the softmax arm's induction, under 40% of it, at both cap settings.",
+      "reason": "Competition between keys is necessary but probably not sufficient -- an L1-normalised signed pattern can spread mass or cancel it, whereas the exponential forces a positive, sharply peaked distribution. If normalisation alone got most of the way, the cheap foldable substitute would already exist and the family would not be where it is.",
+      "confidence": "0.55 -- this is the prediction I am least sure of and the one whose refutation would matter most, since a normalisation arm that recovers most of the induction points directly at a foldable-ish fix"
+    },
+    "P4_cross_entropy": {
+      "claim": "On held cross-entropy with the cap off, the attention main effect exceeds the feed-forward main effect.",
+      "confidence": "0.6"
+    },
+    "P5_our_own_best_configuration_does_not_move": {
+      "claim": "No arm built from OUR attention (bilin, either feed-forward, either cap) inducts above +0.1 at this cell.",
+      "reason": "four such configurations are already measured or implied and none is near it",
+      "confidence": "0.85"
+    }
+  },
+  "what_this_still_cannot_settle": [
+    "bilinnorm remains DIAGNOSTIC ONLY -- its denominator depends on every visible key, so it never folds to a fixed token-pair table and can never be reported as a foldable win, whatever it scores.",
+    "Seed 0 first. Nothing is settled until at least two model seeds agree; the induction quantities here are large but FINDING 18's history at this exact cell is a warning that near-boundary magnitudes move by 2x between seeds.",
+    "One cell. Depth 2 width 128 is where the two families first diverge; the attribution could differ at depth 3."
+  ]
+}
