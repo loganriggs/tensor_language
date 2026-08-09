@@ -1025,7 +1025,116 @@ depth 3 width 128 or depth 2 width 64 — which is 24 more cells and is the
 obvious next run. **Until that exists, no depth attribution is licensed**, and
 the paragraph above should be read as naming the two cells, not the mechanism.
 
-## 2026-08-09 05:05 — FINDING 19 (THE SYMMETRIC CONTROL): the query/key cap is **not a shared handicap — it is load-bearing for the foldable family and a handicap for the conventional one**. Each family at its own better configuration, the foldability tax at depth 2 width 128 is **+0.2071 nats, 6.4× what was measured under the shared cap**. Both registered predictions hold
+## 2026-08-09 11:00 — FINDING 19 IS **RETRACTED IN ITS HEADLINE NUMBER** and FINDING 20's claim C is WEAKENED, after independent adversarial review
+
+Review: `tf_factorial_independent_review.json` (reviewer did not produce either
+finding). Verdicts: the cap asymmetry **WEAKENED**, the 88.8% three-way
+**SURVIVES WITH QUALIFICATION**, "depth makes the gate optional" **WEAKENED**,
+row-normalisation-is-dead **SURVIVES** (could not be dented). Both major
+objections verified against source before being applied.
+
+### RETRACTED: "the foldability tax is +0.2522 nats"
+
+I applied *"each family at its own better configuration"* to the conventional
+model only. It got to pick its better **cap setting**; the foldable family was
+held to **vanilla** — one of six architectures this programme has built, and
+not its best. Applied symmetrically, using arms already on disk at this cell:
+
+| comparison | foldable arm | its CE | params | tax vs conventional 4.39413 |
+|---|---|---|---|---|
+| as published | vanilla | 4.64630 | 1,638,656 | **+0.2522** |
+| symmetric, **fewer** params | predicate slot-32 | 4.48215 | **1,523,808** (7% fewer) | **+0.0880** |
+| family's unconstrained best | predicate stream-160 | 4.38614 | 1,902,704 (16% more) | **−0.0080** |
+
+**At 7% fewer parameters than the conventional model, a foldable arm pays
++0.088 nats — 2.9× less than I reported. At its own unconstrained best a
+foldable arm WINS by 0.008.** This is not new data: RESULTS.md already records
+the predicate variant as 0.267 nats better than vanilla at this cell. It is an
+internal inconsistency I introduced by quoting a vanilla-only tax as *the*
+foldability tax after explicitly adopting a best-against-best rule.
+
+**The corrected statement**: there is no single foldability tax. It ranges from
+**+0.25 to −0.01 nats at one cell** depending on which foldable architecture is
+chosen, and the programme's own best foldable architecture roughly **ties** an
+un-handicapped conventional transformer on loss. The honest headline is that
+*vanilla* pays a quarter-nat, not that *folding* does.
+
+One caveat that cuts the other way and must travel with this: the predicate
+arm's induction is **hand-installed** — FINDING 17 showed 24 named scalars
+carry 98% of it — so it buys its loss with a capability that was written down
+rather than learned. That does not affect the cross-entropy comparison, but it
+means "the foldable family ties the conventional model" is a statement about
+loss, not about discovering mechanism.
+
+### WEAKENED: "opposite signs"
+
+The sign flip does **not** replicate. The family's cap effect, paired per seed:
+
+| cell | family effect | t | conventional effect | t |
+|---|---|---|---|---|
+| depth 2 width 128 | **+0.0392** | +9.02 | −0.1582 | −19.36 |
+| depth 3 width 64 | +0.0043 | +0.72 | −0.1602 | −24.22 |
+| depth 3 width 128 | −0.0051 | −0.64 | −0.1266 | −50.30 |
+
+The family effect is significant at exactly one of three cells and is
+*point-negative* at the third. **The replicated fact is a 30× magnitude
+asymmetry, not a sign flip** — the cap costs the conventional model 0.13–0.16
+nats everywhere and does essentially nothing to us anywhere except one cell.
+"Load-bearing for us" is retracted; "nearly free for us and expensive for them"
+is what the data supports. The tax itself replicates well across the three
+cells (+0.252 / +0.226 / +0.230), which is why this weakens the mechanism story
+without touching the magnitude story.
+
+### The two objections I expected to be fatal both FAILED
+
+I briefed the reviewer that the scale choice and the near-zero base were the
+most likely killers. Neither is.
+
+- **Near-zero base**: perturbing the base arm by ±2 standard errors moves the
+  headline from 88.77% to **88.64–88.89%** — it cancels between numerator and
+  denominator. Non-problem.
+- **Scale**: the objection lands, but *opposite* to my guess. The induction
+  score is a difference of cross-entropies and therefore already logarithmic;
+  the programme's own planted-oracle control gives 0.26–1.36 nats per decade of
+  planted copy mass. Decompressing to the mechanistic scale makes the
+  interaction **larger**, not smaller: the three-way share is 88.8% on raw nats
+  and **98.6%** on the oracle-equivalent scale at depth 2, and it is the largest
+  term on all ten scales tried, including an independent natural-text
+  operationalisation (83.5%).
+- **Probe saturation**: no ceiling — the planted oracle registers 3.79 nats,
+  3.2× the largest observed arm.
+
+### QUALIFIED: the depth story, and the precision of both headlines
+
+On the mechanistic scale the depth-3 three-way share is **82.8%**, not "about
+half" — so *"an extra block makes the gate optional"* holds only on raw nats.
+The scale-robust version is that the three-way share **falls with the new cell
+on 6 of 6 scales** but does not stop dominating on most of them. Also, the
+softmax×cap pair at depth 2 is t = 1.73, indistinguishable from zero, so claim
+C is better stated as **"an insignificant 12% becomes a significant 44%"**.
+
+Bootstrap intervals: the 88.8% is **[73, 104]** and the 48.4% is **[33, 62]**;
+their difference is 40 points, CI **[19, 62]**, P(>0) = 0.9999. The narrative
+holds at better than 3σ; **neither endpoint supports four significant figures**
+and both are quoted to one decimal above. Treat them as ~89% and ~48%.
+
+### What survived
+
+Arithmetic: **121 numbers recomputed, zero disagreements in FINDING 20.** Live
+parameter counts confirm exact matching at 22 of 24 arms. And a confound the
+reviewer went hunting for and disproved, which is worth adding to the gate
+file: the family's cap-ON corner is trained by one training loop and its
+cap-OFF partner by another, and gate G1 tests only the forward — but the two
+model classes are **bit-identical at initialisation (max abs diff 0.000e+00) at
+all six cell/seed pairs**, with identical optimiser splits, so the pairing is
+sound.
+
+**Next experiment, from the review**: train the predicate slot-32 arm at three
+seeds, cap on and off, at both cells — 475k body parameters, cheaper than arms
+already run. It gives a genuinely symmetric tax and tests whether the cap is
+load-bearing for *the family* or only for *vanilla at one cell*.
+
+## 2026-08-09 05:05 — FINDING 19 (THE SYMMETRIC CONTROL) — see the retraction immediately above before reading this section: the query/key cap is **not a shared handicap — it is load-bearing for the foldable family and a handicap for the conventional one**. Each family at its own better configuration, the foldability tax at depth 2 width 128 is **+0.2071 nats, 6.4× what was measured under the shared cap**. Both registered predictions hold
 
 Files: `tf_qknorm_predictions.json` (registered before the code existed),
 `tf_qknorm_chain.sh`, `tf_qknorm_report.py` → `tf_qknorm.json` /

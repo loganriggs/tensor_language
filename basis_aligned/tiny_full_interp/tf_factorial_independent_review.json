@@ -1,0 +1,210 @@
+{
+  "reviewer": "independent, did not produce FINDING 19 or 20",
+  "date": "2026-08-09",
+  "scope": "FINDING 19 (query/key cap asymmetry) and FINDING 20 (2x2x2 factorial) as written in RESULTS.md, sections 05:05-10:20. All numbers below recomputed from the source JSONs on disk; nothing was trained.",
+  "verdict_A_qknorm_asymmetry": "WEAKENED",
+  "verdict_B_three_way_88pct": "SURVIVES WITH QUALIFICATION",
+  "verdict_C_depth_makes_gate_optional": "WEAKENED",
+  "verdict_D_row_normalisation_dead": "SURVIVES",
+
+  "one_paragraph_summary": "The arithmetic is clean: I recomputed roughly 120 numbers from the source JSONs across both findings and found zero disagreements, the live parameter counts match the claimed matching at every arm, the factorial's (bilin,bilin) initialisation is bit-identical to tf_model.TinyBilin at all six (cell, seed) pairs I tested, and the C1 loop-equivalence and G1-G4 gates are real. The two objections the brief flagged as most likely fatal both fail on measurement: the base corner is NOT a badly conditioned denominator (moving f(0,0,0) by two seed standard errors changes the 88.8% three-way share to 88.64-88.89%, because the base cancels between numerator and denominator), and the induction battery is NOT saturating (the planted-oracle control registers 3.79 nats at eps=1e-2, 3.2x the largest score ever observed on a real arm). What does bite is scale and replication. The induction score is a difference of cross-entropies, so it is already logarithmic in the mechanism it measures -- the programme's own planted-oracle calibration shows roughly 0.4-1.2 nats per DECADE of planted copy mass -- and the three-way share moves a lot when that is undone or exaggerated: 88.8% on raw nats, 98.6% on the eps-equivalent copy-mass scale, 83.5% on natural text, 39.2% on held cross-entropy, 67-85% on log-of-shifted scales. Claim B survives all of them (three-way is the largest single term on every scale at depth 2 width 128) but '88.8%' should be stated as a band. Claim C does not: on the mechanistic copy-mass scale the depth-3 three-way share is 82.8%, not 48.4%, and the interaction still dominates, so 'about half' and 'the gate becomes optional' are scale-specific readings even though the DIRECTION of the change is robust on 6 of 6 scales. Claim A is the weakest. Its 'each family at its own better configuration' rule was applied to the conventional model but not to the family: the programme's own tf_predicate_d2_w128_b8192_s{0,1}_slot32, a foldable arm that passes the fp64 fold gate with SEVEN PERCENT FEWER PARAMETERS than the conventional matched arm, reaches held CE 4.48215, which turns the headline +0.2522-nat tax into +0.0880. And the load-bearing half of the sign asymmetry does not replicate: the family's cap effect is +0.0392 (t=+9.02) at depth 2 width 128, +0.0043 (t=+0.72) at depth 3 width 64 and -0.0051 (t=-0.64) at depth 3 width 128, so the surviving asymmetry is 30x in magnitude, not opposite in sign. Claim D I could not dent at all.",
+
+  "objections": [
+    {
+      "id": "O1",
+      "target": "FINDING 19, claim A: the +0.2522-nat foldability tax quoted as 'each family at its own better configuration'",
+      "objection": "The symmetry rule was applied to one side only. The conventional model was granted its better configuration (cap off, worth 0.158 nats to it); the foldable family was represented by its VANILLA configuration only, even though the programme has already trained, fold-gated and published foldable arms at the same cell that are much better on held cross-entropy. If the same rule is applied to both sides the headline number collapses.",
+      "what_I_measured": "Scanned every tf_*_d2_w128_b8192_s0*.json with a run.final_held_ce and read its live n_params, body_params and fold gate. Compared against the conventional matched uncapped arm tfb_std7_d2_w128_b8192_s{0,1,2}_noqknorm (3-seed mean 4.39413, 1,638,656 total / 590,080 body parameters).",
+      "result": "tf_predicate_d2_w128_b8192_s{0,1}_slot32: held CE 4.48303 / 4.48126 (2-seed mean 4.48215), 1,523,808 total and 475,232 body parameters -- 7.0% fewer total and 19.5% fewer body parameters than the conventional arm -- and its interp3 fold_gate has pass=true with fp64_fold_forward_rel_logit_diff 1.4e-15. Applying FINDING 19's own rule symmetrically: tax = 4.48215 - 4.39413 = +0.0880 nats, 2.9x SMALLER than the quoted +0.2522. At the family's unconstrained best (tf_predicate_d2_w128, 3-seed mean 4.3861, stream width 160, 1,902,704 parameters = 16% more than the conventional arm) the tax is -0.0080, i.e. the foldable arm WINS on loss. RESULTS.md already records the predicate arm as 0.267 nats better than vanilla at this cell (line ~3849), so this is an internal inconsistency, not new data. Note the honest counter-argument: predicate's induction is hand-installed (MATCH_prev) rather than learned, and RESULTS says so; but the tax is a cross-entropy statement, predicate is foldable by the programme's own gate, and the slot32 variant is strictly smaller than the model it is being taxed against.",
+      "severity": "major",
+      "survives_or_not": "The qualitative claim (a foldability tax exists at this cell and is larger than the shared-cap figure) survives. The specific number +0.2522 nats does not survive as 'each family at its own better configuration'; it is 'foldable VANILLA versus best conventional'.",
+      "recommended_wording": "Foldability tax at depth 2 width 128, foldable VANILLA against the conventional model at its own better configuration and matched parameters: +0.2522 nats. The family's own better configurations are not vanilla: at the same cell, and with 7% FEWER parameters than the conventional arm, the fold-gated predicate arm reaches 4.48215, which reduces the tax to +0.0880; with 16% more parameters the predicate arm at stream width 160 reaches 4.3861 and the tax goes to -0.008. Quote all three, and say which comparison each answers."
+    },
+    {
+      "id": "O2",
+      "target": "FINDING 19, claim A: 'the cap is load-bearing for the foldable family and a handicap for the conventional one -- opposite signs, not a smaller magnitude'",
+      "objection": "The load-bearing half is a single-cell result and does not replicate at the two other cells where both arms now exist on disk. The programme's own standing failure mode 'quoting a number from a cell that has since gained data' applies: the depth-3 width-64 replication was on disk and in use by FINDING 20 at 10:20 and FINDING 19 was not revisited.",
+      "what_I_measured": "Paired (per-seed) cap effect on held CE, foldable family (tf_vanilla_* cap on versus tff_bilin_bilin_*_noqknorm cap off) and conventional matched (tfb_std7_* versus tfb_std7_*_noqknorm), three seeds each, at every cell where both arms exist.",
+      "result": "Foldable family cap effect (off minus on, positive = cap is load-bearing): depth 2 width 128 +0.03917 (t=+9.02, per-seed +0.031/+0.040/+0.046); depth 3 width 64 +0.00431 (t=+0.72, per-seed +0.0007/-0.0038/+0.0160); depth 3 width 128 -0.00514 (t=-0.64, per-seed -0.0057/-0.0188/+0.0091). Conventional matched cap effect at the same three cells: -0.15824 (t=-19.36), -0.16024 (t=-24.22), -0.12658 (t=-50.30). So at two of three cells the family's effect is statistically indistinguishable from zero, and at depth 3 width 128 its point estimate has the SAME sign as the conventional model's. The asymmetry that replicates is 30x in magnitude, not a sign flip. Timing caveat: the depth-3 width-128 pair was written to disk at 10:26-10:55 today by the running tf_factorial4_chain, after RESULTS.md's last entry at 10:20, so that cell could not have been used; the depth-3 width-64 pair could have been. Both were complete, 15,000 steps, zero spikes, not diverged. What DOES replicate well is the tax itself: each-family-at-its-own-best gives +0.2522 (depth 2 width 128), +0.2265 (depth 3 width 64), +0.2299 (depth 3 width 128).",
+      "severity": "major",
+      "survives_or_not": "The handicap half survives strongly and generalises (three cells, |t| 19-50). The load-bearing half does not generalise. 'Opposite signs' should be retracted as a family-level statement.",
+      "recommended_wording": "Removing the per-head query/key cap helps the conventional transformer by 0.13-0.16 nats at all three cells measured (|t| 19-50). It does not help the foldable family anywhere: it costs the family 0.039 nats at depth 2 width 128 (t=9.0) and is indistinguishable from zero at depth 3 width 64 (+0.004, t=0.7) and depth 3 width 128 (-0.005, t=-0.6). The asymmetry that replicates is one of magnitude -- the conventional model gains ~30x what the family does -- not of sign; the opposite sign is specific to depth 2 width 128."
+    },
+    {
+      "id": "O3",
+      "target": "FINDING 20, claims B and C: '88.8% is the three-way' and '48.4% at depth 3 width 64, so the gate becomes optional'",
+      "objection": "The shares are computed on raw induction-score differences. The induction score is CE(shuffled) - CE(repeat), i.e. already a log-likelihood ratio, and the programme's own planted-oracle calibration shows it is roughly LOGARITHMIC in the underlying copy mass. Interaction shares are not invariant under monotone reparametrisation, so the number has to be quoted with the scale.",
+      "what_I_measured": "Recomputed the full seven-term corner decomposition on six outcome scales at both cells: (1) raw nats; (2) expm1(score), which is proportional to the planted-oracle mixture weight in the small-eps regime and is therefore linear in copy mass; (3) score divided by the arm's own CE(shuffled), a bounded 0-1 rescale; (4) -CE(repeat), which drops the shuffled baseline entirely; (5) -held CE, a different outcome measured on the same models; (6) the natural-text ORDER_ONLY_patch_swap mean, an independent operationalisation on real held text. Plus an eps-equivalent scale built by inverting the base arm's own planted-oracle curve, and an adversarial log(x - min + c) family for c in {0.05, 0.1, 0.25, 0.5, 1.0}.",
+      "result": "Three-way share, depth 2 width 128 / depth 3 width 64: raw nats 88.8% / 48.4%; copy-mass expm1 92.9% / 62.1%; eps-equivalent (base arm's own oracle curve) 98.6% / 82.8%; fraction-of-shuffled-CE 88.9% / 48.4%; -CE(repeat) 100.1% / 46.5%; natural text 83.5% / 38.9%; held CE 39.2% / 17.5%; log(x-min+0.05) 67.1% / -0.5%; log(x-min+1.0) 84.7% / 37.6%. The planted-oracle calibration that motivates scale (2): the base arm's score rises 0.264, 0.411, 1.104, 1.362 nats per decade as planted eps goes 1e-5 -> 1e-4 -> 1e-3 -> 1e-2, confirming the score compresses the mechanism. Consequences: (a) claim B is robust -- the three-way term is the largest single term at depth 2 width 128 on every scale tried, range 67-99%, and undoing the log compression makes it LARGER not smaller, so the brief's hypothesis that the interaction is a linear-units artefact is refuted in the opposite direction; (b) claim C is NOT robust in magnitude -- on the mechanistically linear copy-mass scale the depth-3 three-way share is 82.8% and still dominant, on raw nats it is 48.4% and merely comparable to softmax x cap, and on a compressive log-shift scale it is near zero and softmax x cap dominates at 67%. The DIRECTION of claim C (three-way falls, softmax x cap rises, from depth 2 width 128 to depth 3 width 64) holds on 6 of 6 scales: softmax x cap goes 12.3 -> 43.5, 1.3 -> 16.3, 28.8 -> 66.7, 12.2 -> 43.5, 17.4 -> 48.5, 51.9 -> 59.9 percent. Fair caveat on scale (2): on a strongly convex scale the corner with the largest value mechanically absorbs the decomposition, so 98.6% is close to tautological; it is quoted as the far end of the defensible range, not as the right answer.",
+      "severity": "major",
+      "survives_or_not": "Claim B survives on every scale. Claim C's direction survives on every scale; its magnitude ('about half', 'the gate becomes optional') survives only on the raw-nats scale and should not be stated without it.",
+      "recommended_wording": "At depth 2 width 128 the three-way term is the largest single term on every outcome scale we tried (67-99% of the move; 88.8% on raw induction nats, 83.5% on the natural-text swap, 39% on held cross-entropy). At depth 3 width 64 the three-way term FALLS and softmax x uncapped-range RISES on every scale, but by how much is scale-dependent: 88.8 -> 48.4% on raw nats, 98.6 -> 82.8% on the planted-oracle copy-mass scale. The defensible claim is the direction, not 'about half'."
+    },
+    {
+      "id": "O4",
+      "target": "FINDING 20: the precision of '88.8%' and '48.4%'",
+      "objection": "Three seeds per corner, and the two corners that dominate the arithmetic have large seed spreads (softmax+ours cap-off at depth 2 width 128 is +0.2628/+0.0452/+0.0429, a 6x range). Four significant figures are not supported.",
+      "what_I_measured": "Three uncertainty propagations. (a) Paired seed bootstrap, exhaustive enumeration of all 27 resamples of the shared seed labels applied to all eight corners jointly. (b) Unpaired bootstrap, each corner resampled independently, 20,000 draws. (c) Normal-theory Monte Carlo with each corner mean ~ N(mean, sd/sqrt(3)), 200,000 draws.",
+      "result": "Three-way share at depth 2 width 128: paired 88.9% +- 7.8, 2.5-97.5 percentile [76.0, 98.7]; unpaired 95% CI [75.0, 99.7]; normal-theory 95% CI [72.8, 104.2]. At depth 3 width 64: paired [37.8, 58.2]; unpaired [35.5, 58.9]; normal-theory [32.7, 62.3]. The DIFFERENCE between the two cells: median 40.4 points, 95% CI [19.2, 62.3], P(difference > 0) = 0.9999 -- so the '88.8% -> 48.4%' narrative is supported at better than 3 sigma even though each endpoint is +-8 to +-15 points. Two individual terms deserve a t-value in the text: softmax alone at depth 2 width 128 is +0.0145 with SE 0.0150 (t=0.97, indistinguishable from zero, consistent with the claim); softmax x cap at depth 2 width 128 is +0.1291 with SE 0.0745 (t=1.73, also indistinguishable from zero), while at depth 3 width 64 it is +0.4007 with SE 0.0545 (t=7.35). So claim C is more precisely 'an insignificant 12% becomes a significant 44%'.",
+      "severity": "moderate",
+      "survives_or_not": "Survives. The narrative is supported; the four-figure precision is not.",
+      "recommended_wording": "The three-way term carries 89% of the move at depth 2 width 128 (95% CI 73-100) and 48% at depth 3 width 64 (95% CI 33-62); the fall between the cells is 40 points (95% CI 19-62). Softmax x cap is not distinguishable from zero at depth 2 width 128 (t=1.7) and is at depth 3 width 64 (t=7.4)."
+    },
+    {
+      "id": "O5",
+      "target": "FINDING 20: the phrase '88.8% of the induction capability'",
+      "objection": "The seven terms are shares of a SIGNED total whose components partly cancel (GELU x cap is -9.5% and cap alone is -2.2% at depth 2 width 128). A share of a signed total can exceed the same term's share of the total variation, and 'share of the capability' invites a variance-decomposition reading the arithmetic does not support.",
+      "what_I_measured": "Recomputed the three-way term's share of the sum of ABSOLUTE term magnitudes alongside its share of the signed total.",
+      "result": "Depth 2 width 128: signed-total share 88.8%, absolute-sum share 71.3%. Depth 3 width 64: 48.4% versus 47.0%. So the depth-2 headline is inflated by about 17 points by cancellation among the smaller terms; the depth-3 one is not.",
+      "severity": "minor",
+      "survives_or_not": "Survives, with the caveat that the depth-2 figure is the one sensitive to it.",
+      "recommended_wording": "88.8% of the NET move, or 71.3% of the total absolute term mass, sits in the three-way term at depth 2 width 128."
+    },
+    {
+      "id": "O6",
+      "target": "brief's line of attack 2: 'several shares divide by a total move whose base arm is indistinguishable from zero'",
+      "objection": "Tested and refuted as a source of instability.",
+      "what_I_measured": "Perturbed f(0,0,0) alone by -2, -1, 0, +1, +2 of its own seed standard error, holding the other seven corners fixed, and recomputed the shares.",
+      "result": "Depth 2 width 128, base SE = 0.0057: three-way share 88.89 / 88.83 / 88.77 / 88.71 / 88.64 percent. Depth 3 width 64, base SE = 0.0024: 48.67 / 48.54 / 48.41 / 48.28 / 48.14. A two-standard-error move in the base changes the headline by 0.12 points. The base cancels almost exactly between numerator and denominator because it enters the three-way term with coefficient -1 and the total with coefficient -1. The near-zero base is a non-problem; the uncertainty that matters is in the two softmax cap-off corners (SE 0.073 and 0.086), which is what O4 quantifies.",
+      "severity": "cosmetic",
+      "survives_or_not": "The objection does not stand. No change needed.",
+      "recommended_wording": "No change; if anyone raises it, the answer is that a two-SE move in the base corner moves the headline share by 0.12 points."
+    },
+    {
+      "id": "O7",
+      "target": "brief's line of attack 3: probe saturation / regime change",
+      "objection": "Tested. No ceiling; there IS a distributional oddity worth stating.",
+      "what_I_measured": "Read the induction battery (tf_interp.induction_battery) and the planted-oracle calibration curves stored in every arm's induction_power block. Checked the per-condition repeat/shuffled/control cross-entropies of all 24 arm-cells, and the shuffled-baseline drift across corners.",
+      "result": "No ceiling: the planted-oracle control drives the score to 3.79 nats at eps=1e-2 on the strongest arm and 3.48 on the base arm, 3.2x the largest score ever observed on a real arm (+1.173). The upper bound of the measure is CE(shuffled) ~ 9.2, and the conventional model reaches 11% of it. The shuffled and control conditions do NOT behave differently for the strong arms -- CE(shuffled) ranges only 9.2190-9.3263 across the eight depth-2 corners (0.107 nats) while CE(repeat) ranges 8.07-9.32 (1.25 nats), so the score is essentially -CE(repeat) plus a near-constant, which is why the -CE(repeat) scale in O3 reproduces the same decomposition. Two genuine remarks: (i) the shuffled drift, 0.107 nats, is nineteen times the smallest reported decomposition term (softmax x GELU, -0.0056), so the sub-0.02 terms are at the level of the baseline's own arm-to-arm wander -- they should not be interpreted individually; (ii) all the weak arms sit ABOVE the uniform-distribution cross-entropy on this battery (repeat CE 9.10-9.34 against ln 8192 = 9.011), so the battery is far out of distribution for these models, which is a limitation on external validity rather than a distortion of the contrast.",
+      "severity": "minor",
+      "survives_or_not": "The saturation objection does not stand. The out-of-distribution remark is a limitation worth writing down, and it is partly answered already because the natural-text swap reproduces the decomposition (83.5% / 38.9%).",
+      "recommended_wording": "Add: the battery has no ceiling in this range (planted oracle registers 3.79 nats, 3.2x the largest observed arm), the shuffled baseline moves only 0.107 nats across the eight corners so the score is effectively -CE(repeat), and the same decomposition on real held text via the order-only swap patch gives 83.5% / 38.9%. Terms below about 0.02 nats are at the level of the shuffled baseline's own arm-to-arm drift and should not be read individually."
+    },
+    {
+      "id": "O8",
+      "target": "FINDING 20: parameter matching across factorial arms",
+      "objection": "RESULTS reports the softmax+ours arm as 256 parameters short at depth 2 width 128. At depth 3 width 64 the same arm is 192 parameters OVER budget, and that is the arm whose +0.4070 drives the whole of claim C. The over-budget direction is not mentioned.",
+      "what_I_measured": "Instantiated all twelve arms at both cells, with qk_norm True and False, on CPU and counted live parameters; compared against the live family body count from tf_model.TinyBilin.",
+      "result": "Depth 2 width 128, family body 590,080: every arm exactly 590,080 except softmax+ours at 589,824 (hidden 597), residual -256 (-0.043%). Depth 3 width 64, family body 221,376: every arm exactly 221,376 except softmax+ours at 221,568 (hidden 299), residual +192 (+0.087%). Totals track: 1,638,656 / 745,664 everywhere except those two arms. qk_norm on and off are exactly parameter-identical at every arm, because F.rms_norm is called without a learnable weight -- FINDING 19's claim on this point is correct. Size of the worry: a 0.087% body-parameter surplus against the programme's own width scaling, where quadrupling the body from depth 3 width 64 to depth 3 width 128 moves the family's induction from +0.0035 to +0.1085, implies an effect on the order of 1e-4 nats, five thousand times smaller than the +0.4070 being explained.",
+      "severity": "minor",
+      "survives_or_not": "Survives. The shortfall and the surplus are both negligible, but the surplus should be stated because it is on the arm carrying the claim.",
+      "recommended_wording": "The softmax+ours arm is the one arm whose expansion does not divide evenly: -256 parameters (-0.043%) at depth 2 width 128 and +192 (+0.087%) at depth 3 width 64. Both are five thousand times too small to matter at the observed effect sizes; the query/key cap is parameter-free either way."
+    },
+    {
+      "id": "O9",
+      "target": "FINDING 19, 02:50 subsection: mixed seed counts inside one sentence",
+      "objection": "The sentence 'at this cell the reported tax is +0.0593 unmatched and +0.1031 matched' combines two figures computed at different seed counts, and both are now stale.",
+      "what_I_measured": "Reconstructed each figure from the JSONs at every seed count.",
+      "result": "+0.0593 = tf_vanilla_d2_w128_s0 (4.65117) minus tfb_std4_d2_w128_s0 (4.59188), single seed on both sides. +0.1031 = the family's THREE-seed mean (4.64630) minus tfb_std7_d2_w128_s0 (4.54320), single seed on one side only. At three seeds on both sides they are +0.0326 and +0.0939. Likewise the same subsection's '0.163 nats' and '8.3x' come from a two-seed conventional cap-on arm (4.60262, +0.1356); at three seeds they are 0.1745 and 10.6x. The 05:05 headline does use the three-seed numbers, so the errors are confined to the timestamped superseded block, but the block is not marked superseded on those specific figures.",
+      "severity": "minor",
+      "survives_or_not": "Survives; the conclusion is unaffected and moves in the finding's own favour when corrected.",
+      "recommended_wording": "Mark the 02:50 tax figures explicitly as single-seed and give the three-seed replacements (+0.0326 unmatched, +0.0939 matched, cap worth 0.1745 nats, 10.6x on induction) inline."
+    },
+    {
+      "id": "O10",
+      "target": "FINDING 20 section heading (line 510)",
+      "objection": "The heading still leads with the seed-0 numbers 'Softmax alone recovers 26% ... the interaction term carries 74%', which the same section supersedes twice (13.4%/86.3% at three seeds on the 2x2, then 1.4%/88.8% on the 2x2x2). A reader scanning headings collects the stale figure.",
+      "what_I_measured": "Recomputed all three versions from the JSONs.",
+      "result": "Seed 0 2x2: attention 26.2%, interaction 73.9%. Three-seed 2x2: 13.4%, 86.3%. Three-seed 2x2x2: softmax alone 1.4%, three-way 88.8%. All three reproduce exactly.",
+      "severity": "cosmetic",
+      "survives_or_not": "Survives; presentational only.",
+      "recommended_wording": "Retitle the section with the three-seed 2x2x2 result and keep the seed-0 numbers in the body under their own timestamp."
+    },
+    {
+      "id": "O11",
+      "target": "FINDING 20, claim D: 'competition between keys is not softmax's active ingredient'",
+      "objection": "Two refinements, neither of which breaks the claim. (i) 'Dead' is an absolute-magnitude statement; two of the eight row-L1 corners are significantly nonzero. (ii) The fraction-of-the-softmax-move framing quoted at seed 0 (4%) is not the three-seed figure at the pivotal corner.",
+      "what_I_measured": "Three-seed mean, model-seed t, and the fraction of the corresponding softmax move recovered, for all eight row-L1 corners.",
+      "result": "Depth 2 width 128: +ours cap on -0.0032 (t=-1.31), cap off -0.0078 (t=-1.89); +GELU cap on +0.0461 (t=+4.11), cap off +0.0251 (t=+3.14). Depth 3 width 64: +ours cap on +0.0108 (t=+2.34), cap off +0.0011 (t=+0.55); +GELU cap on +0.0343 (t=+2.26), cap off +0.0263 (t=+15.25). The maximum is +0.0461, exactly as reported, against +1.0448 for the softmax corner at the same cell -- a 23x separation. So 'dead' in the sense of 'never within an order of magnitude of softmax' is exactly right; 'dead' in the sense of 'null' is not, at 4 of 8 corners. The recovery-fraction framing is unstable because its denominator goes to zero: at the pivotal corner (ours feed-forward, cap off, depth 2 width 128) three seeds give 13.1%, not the 4% quoted from seed 0; at depth 3 width 64 with ours feed-forward and the cap on it reads 67.4%, but only because the softmax move there is +0.0108. Do not quote recovery fractions off near-zero denominators; the absolute framing the 10:20 section adopted is the right one.",
+      "severity": "minor",
+      "survives_or_not": "Survives. This is the claim I could not dent.",
+      "recommended_wording": "Row normalisation never exceeds +0.0461 at any of eight corners across two cells, against +0.9237 to +1.0448 for the softmax corner at the same cells -- a 20-23x separation. It is small, not null: 4 of 8 corners are significantly nonzero (t 2.3 to 15.3). Recovery fractions are not quoted because the denominator passes through zero."
+    },
+    {
+      "id": "O12",
+      "target": "what I attacked and could NOT break -- recorded because a review that only lists hits is not a review",
+      "objection": "Candidate confound: the family's cap-ON corner (tf_vanilla, trained by tf_train.train_cell) and its cap-OFF corner (tff_bilin_bilin_*_noqknorm, trained by tf_baseline_std.train_std through tf_factorial.run_fac_cell) come from different code paths, so gate G1, which only tests the FORWARD, would not catch a training-path difference; the whole 2x2x2 base and the entire family cap effect ride on that one pairing.",
+      "what_I_measured": "(a) Instantiated tf_model.TinyBilin(variant=vanilla) and tf_factorial.FacTransformer(bilin,bilin) at depth 2 width 128 and depth 3 width 64, seeds 0/1/2, and compared every parameter tensor elementwise. (b) Read tf_train.muon_params_split and both models' muon_exclude. (c) Read the stored C1 loop-equivalence control.",
+      "result": "(a) Maximum absolute initialisation difference 0.000e+00 at all six (cell, seed) pairs, with identical parameter name sets and 1,638,656 / 745,664 parameters -- the two code paths start from bit-identical weights, so the family's cap comparison is properly paired. (b) TinyBilin's muon_exclude is ('pred_',), which matches nothing in the vanilla variant, so the optimiser split is identical. (c) C1 exists and compares train_std against tf_train.train_cell on a foldable config, judged against the reference loop's own run-to-run noise; C6 pins the first training batch by sha256 for both families. Also checked and passing: 60 numbers in the 06:25 seed-0 twelve-corner table and 36 in the 10:20 depth-3 twelve-corner table reproduce exactly; parameter matching is exact at body and total for 22 of 24 arms (see O8); the seed-0 diagnostic table at 07:30 reproduces, including the 4-of-4 / 5-of-5 softmax-versus-non-softmax split.",
+      "severity": "cosmetic",
+      "survives_or_not": "The confound does not exist. Worth adding the init-identity check to the gate file, because G1 as written would not have caught it.",
+      "recommended_wording": "Add to the gate list: the factorial's (bilin, bilin) arm and tf_model.TinyBilin(vanilla) are bit-identical at INITIALISATION as well as in the forward, at every cell and seed used, so the family's cap-on / cap-off pair is a paired comparison and not a cross-harness one."
+    }
+  ],
+
+  "scale_sensitivity_analysis": {
+    "why_this_matters": "The induction score is CE(shuffled) - CE(repeat), a difference of log-losses, so it is ALREADY a log of the underlying mechanism. The programme's own planted-oracle control makes that quantitative: on the base arm the score rises 0.264, 0.411, 1.104 and 1.362 nats per successive decade of planted copy mass eps over 1e-5 to 1e-2. A transform that undoes that compression makes the interaction larger, not smaller; the brief's hypothesis that the interaction is an artefact of linear units is refuted in the opposite direction.",
+    "scales_tried": [
+      "raw induction nats (as reported)",
+      "expm1(score) -- proportional to planted-oracle copy mass in the small-eps regime, i.e. linear in mechanism",
+      "eps-equivalent, obtained by inverting the base arm's own planted-oracle calibration curve",
+      "score / CE(shuffled) -- bounded 0-1 rescale by the maximum attainable score",
+      "-CE(repeat) -- absolute performance in the repeat condition, drops the shuffled baseline",
+      "-held CE -- a different outcome on the same models",
+      "natural-text ORDER_ONLY_patch_swap -- an independent operationalisation on real held text",
+      "log(x - min + c) for c in {0.05, 0.1, 0.25, 0.5, 1.0} -- an adversarial compressive family, reported for completeness though the origin shift is arbitrary"
+    ],
+    "three_way_share_on_each": {
+      "raw_nats": {"d2w128": 88.8, "d3w64": 48.4},
+      "copy_mass_expm1": {"d2w128": 92.9, "d3w64": 62.1},
+      "eps_equivalent_from_oracle_curve": {"d2w128": 98.6, "d3w64": 82.8},
+      "fraction_of_shuffled_ce": {"d2w128": 88.9, "d3w64": 48.4},
+      "neg_repeat_ce": {"d2w128": 100.1, "d3w64": 46.5},
+      "held_ce": {"d2w128": 39.2, "d3w64": 17.5},
+      "natural_text_order_only_swap": {"d2w128": 83.5, "d3w64": 38.9},
+      "log_shift_c_0.05": {"d2w128": 67.1, "d3w64": -0.5},
+      "log_shift_c_0.25": {"d2w128": 77.9, "d3w64": 22.3},
+      "log_shift_c_1.0": {"d2w128": 84.7, "d3w64": 37.6}
+    },
+    "softmax_x_cap_pair_share_on_each": {
+      "raw_nats": {"d2w128": 12.3, "d3w64": 43.5},
+      "copy_mass_expm1": {"d2w128": 7.6, "d3w64": 32.8},
+      "eps_equivalent_from_oracle_curve": {"d2w128": 1.3, "d3w64": 16.3},
+      "neg_repeat_ce": {"d2w128": 6.6, "d3w64": 47.9},
+      "held_ce": {"d2w128": 51.9, "d3w64": 59.9},
+      "natural_text_order_only_swap": {"d2w128": 17.4, "d3w64": 48.5},
+      "log_shift_c_0.05": {"d2w128": 43.0, "d3w64": 72.7}
+    },
+    "conclusion": "Claim B survives every scale: at depth 2 width 128 the three-way term is the largest single term on all ten scales tried, from 67% (most compressive) to 99% (most expansive), and the single-factor terms never sum above about 20%. Claim C's DIRECTION survives every scale -- the three-way share falls and the softmax x cap share rises between the two cells on 6 of 6 monotone reparametrisations and on the two independent outcomes -- but its MAGNITUDE does not: on the mechanistically linear copy-mass scale the depth-3 three-way share is 82.8%, so 'about half' and 'the gate becomes optional' are statements about the raw-nats scale, not about the models. The one thing that would be an artefact -- a compressive-units illusion -- is ruled out, because the raw score is the compressed scale and decompressing it strengthens the interaction."
+  },
+
+  "bootstrap_intervals": {
+    "method": "three independent propagations of the three model seeds: exact enumeration of all 27 paired resamples (seed labels applied jointly to all eight corners, which respects the documented seed-architecture interaction); 20,000 unpaired resamples (each corner independent); 200,000 normal-theory draws with corner mean ~ N(mean, sd/sqrt(3)).",
+    "three_way_share_d2w128": [72.8, 104.2],
+    "three_way_share_d2w128_paired_2p5_97p5": [76.0, 98.7],
+    "three_way_share_d2w128_unpaired": [75.0, 99.7],
+    "three_way_share_d3w64": [32.7, 62.3],
+    "three_way_share_d3w64_paired_2p5_97p5": [37.8, 58.2],
+    "three_way_share_d3w64_unpaired": [35.5, 58.9],
+    "difference_d2w128_minus_d3w64_points": [19.2, 62.3],
+    "P_difference_positive": 0.9999,
+    "point_estimates": {"d2w128": 88.77, "d3w64": 48.41},
+    "term_t_values": {
+      "softmax_alone_d2w128": 0.97,
+      "gelu_alone_d2w128": 4.33,
+      "softmax_x_cap_d2w128": 1.73,
+      "softmax_x_cap_d3w64": 7.35
+    },
+    "base_corner_conditioning": "moving f(0,0,0) by +-2 of its own seed SE changes the depth-2 three-way share from 88.77% to 88.64-88.89% and the depth-3 share from 48.41% to 48.14-48.67%. The near-zero base is not a conditioning problem.",
+    "conclusion": "The '86% -> 51%' / '88.8% -> 48.4%' narrative IS supported: the fall is 40 points with a 95% interval of 19-62 points and P>0 of 0.9999. What is not supported is quoting either endpoint to one decimal place. Report 89% (73-100) and 48% (33-62)."
+  },
+
+  "arithmetic_check": {
+    "numbers_recomputed": 121,
+    "what_was_covered": "the 05:45 two-by-two table and both its decompositions (16), the 06:05 seven-term seed-0 decomposition and the cap-removal column (13), the 06:25 twelve-corner seed-0 table (24), the 06:45 and 07:05 three-seed tables including t-values and the CE decomposition (18), the 07:30 seed-diagnostic table (18), the 07:45 three-seed seven-term decomposition (8), the 09:25/09:45 depth-3 decompositions (16), the 10:20 twelve-corner depth-3 table including t-values (36 checked, overlapping the above), the FINDING 19 four-cell table, the +0.2071/+0.2522/6.4x/7.7x/2.2x/2.7x ratios, and the 02:50 subsection's 0.163/8.3x/t=7.0.",
+    "disagreements": [
+      {"where": "FINDING 19, 02:50 subsection", "text": "'the reported tax is +0.0593 unmatched and +0.1031 matched'", "recomputed": "+0.0593 is single-seed on both sides; +0.1031 mixes a three-seed family mean with a single-seed conventional value; at three seeds they are +0.0326 and +0.0939", "kind": "mixed seed counts, not an arithmetic error, and confined to a superseded timestamped block"}
+    ],
+    "note": "No arithmetic disagreement of any kind was found in FINDING 20. Every table, every t-value and every share reproduces from the source JSONs to the printed precision."
+  },
+
+  "things_I_could_not_check_and_why": [
+    "Whether the depth/width confound in claim C resolves. The third cell needs all eight corners at depth 3 width 128 or depth 2 width 64; only two of the eight exist at depth 3 width 128 (tff_bilin_bilin_*_noqknorm and tfb_std7_*_noqknorm, written 10:26-10:55 today by the running tf_factorial4_chain), so no share can be computed there. RESULTS states this confound explicitly and does not claim depth attribution, which is correct.",
+    "Whether the query/key cap's effect on the family would reverse under a different learning rate. The family's lr sweep at depth 2 width 128 exists only cap-ON (4.65117 / 4.65183 / 4.67175 at lr 0.02 / 0.01 / 0.04, so 0.02 is its own best and matched to the conventional sweep), but no cap-OFF lr sweep exists. Training is forbidden here.",
+    "Whether tf_predicate at depth 3 width 64 would also beat vanilla -- no non-vanilla foldable arm exists at that cell, so O1's counterexample is a depth-2-width-128 statement only.",
+    "Whether the C1 loop-equivalence control still passes at full length on the current environment. It is a 60-step, depth-1 width-32 test; I verified it exists and that the two code paths produce bit-identical INITIAL weights, which is the part G1 does not cover, but re-running C1 would require training.",
+    "The softmax temperature. The 1/sqrt(16) scaling remains unswept, as RESULTS already says, and with the cap off the argument that it makes every number a lower bound is no longer even a plausibility argument in the same form -- with unbounded logits the network can absorb temperature into the query/key weights, which is a point in the finding's favour but is not measured."
+  ],
+
+  "what_would_settle_the_biggest_open_objection": "O1 and O2 are the biggest, and one run settles both. Train the foldable family's OWN best fold-gated configuration -- tf_predicate at slot 32, stream width 128 -- at three seeds with the query/key cap ON and OFF, at depth 2 width 128 AND at depth 3 width 64. That produces (a) a genuine 'each family at its own better configuration' tax at both cells, replacing the vanilla-versus-best-conventional +0.2522 with a number that applies the finding's own rule symmetrically, and (b) a second architecture on which to test whether the cap is load-bearing for the FAMILY or only for vanilla at one cell, which is what the +0.0392 / +0.0043 / -0.0051 sequence currently leaves open. Predicate is cheaper than the arms already run (475,232 body parameters against 590,080) so this is four cells of about the same cost as one factorial stage. For claim C, the separate and already-identified run is the eight-corner depth 3 width 128 design the current chain is producing; when it lands, recompute the three-way share on BOTH the raw-nats and the planted-oracle copy-mass scale and quote them together, because O3 shows they disagree by 34 points at depth 3 width 64 and the disagreement is the whole content of 'the gate becomes optional'."
+}
