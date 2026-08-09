@@ -46,7 +46,7 @@ gate() {
 
 push() {
   shopt -s nullglob
-  local f=( tf_predicate_*_slot${SLOT}*.json out_tf_predicate_*slot32*.txt \
+  local f=( tf_predicate_*_w64_*slot${SLOT}*.json out_tf_predicate_*slot32*.txt \
             tf_symtax_predictions.json RESULTS.md GRID.md )
   shopt -u nullglob
   [ ${#f[@]} -eq 0 ] && return 0
@@ -66,12 +66,12 @@ Claude-Session: https://claude.ai/code/session_01UkpvpG8hGeMVyGrk8er2uc" >/dev/n
 run() {
   local D=$1 S=$2 CAP=$3 SUF="_slot${SLOT}" EXTRA=""
   if [ "$CAP" = off ]; then SUF="_slot${SLOT}_noqknorm"; EXTRA="--no-qk-norm"; fi
-  local ST="tf_predicate_d${D}_w128_b8192_s${S}${SUF}"
+  local ST="tf_predicate_d${D}_w64_b8192_s${S}${SUF}"
   if [ -f "${ST}.pt" ]; then
     say "$ST exists -- skip"
   else
     say "training $ST  (depth $D seed $S cap $CAP)"
-    python tf_train.py cell --variant predicate --depth "$D" --width 128 \
+    python tf_train.py cell --variant predicate --depth "$D" --width 64 \
       --seed "$S" --slot ${SLOT} --suffix "$SUF" $EXTRA --no-sweep \
       >> "out_${ST}.txt" 2>&1 && say "  trained" \
       || { say "  TRAIN FAILED $ST"; return; }
