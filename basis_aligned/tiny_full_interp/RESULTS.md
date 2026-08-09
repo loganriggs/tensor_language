@@ -1072,6 +1072,46 @@ a bigger model than the conventional one to get there, which is the same
 statement the width-threshold work made and is a much more modest claim than
 "a missing conjunction".
 
+### 12:30 — THE FULL THREE-WAY SERIES IS COMPLETE, and it resolves to one sentence: **the three-way term is replaced, almost exactly, by the softmax × uncapped-range PAIR**
+
+All eight corners at all three cells, three seeds each. Raw nats:
+
+| term | depth 2 width 128 | depth 3 width 64 | depth 3 width 128 |
+|---|---|---|---|
+| softmax alone | +0.0145 = 1.4% | +0.0108 = 1.2% | +0.0544 = 3.1% |
+| GELU alone | +0.1022 = 9.8% | +0.0507 = 5.5% | +0.1837 = 10.5% |
+| cap removal alone | −0.0233 = −2.2% | −0.0080 = −0.9% | +0.0141 = 0.8% |
+| softmax × GELU | −0.0056 = −0.5% | +0.0263 = 2.9% | +0.1901 = 10.8% |
+| **softmax × cap** | **+0.1291 = 12.3%** | **+0.4007 = 43.5%** | **+1.3320 = 75.9%** |
+| GELU × cap | −0.0992 = −9.5% | −0.0057 = −0.6% | +0.0044 = 0.2% |
+| **three-way** | **+0.9305 = 88.8%** | **+0.4454 = 48.4%** | **−0.0234 = −1.3%** |
+| total move | +1.0482 | +0.9202 | +1.7552 |
+
+**The three-way term falls 88.8% → 48.4% → −1.3% and the softmax × cap pair
+rises 12.3% → 43.5% → 75.9%.** At the largest cell the three-way interaction is
+literally zero — slightly negative — and the pair carries three quarters of the
+move on its own. The two terms trade places almost exactly; nothing else moves
+much.
+
+**What is constant across all three cells, and it is the real finding:**
+
+- **softmax alone is never worth more than 3.1%**
+- **an uncapped logit range alone is never worth more than 0.8%**
+- **the two together are worth 12% → 44% → 76%**
+
+So **softmax and an uncapped logit range are jointly necessary everywhere and
+individually worthless everywhere.** That pair is the irreducible core. What
+changes with model size is only whether a *gate* has to join them: required at
+the smallest cell (the three-way is 89% there), optional at the largest (the
+three-way is zero). The gate's own main effect is flat at 5–11% throughout —
+it always contributes a little, and at small cells it additionally has to be
+present for the pair to work at all.
+
+**This supersedes every earlier formulation in FINDING 20.** "You need all
+three" was true only at the cell it was measured on. The scale-invariant
+statement is "you need softmax *with* room to concentrate; at small sizes you
+also need a gate."
+
 ### The trend now has intervals: EXACT resampling over model seeds, all three cells, both scales
 
 The review bootstrapped the first two shares and flagged that the third — a
