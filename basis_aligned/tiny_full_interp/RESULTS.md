@@ -892,11 +892,55 @@ twenty-four cells remain.
   single-seed.
 
 **The corrected general claim.** The conjunction is not a property of the
-architecture; it is a property of the architecture *at small depth*. At two
-blocks, 86% of the copying needs all the ingredients together and softmax alone
-buys 13%. At three blocks it is a near-even split and softmax alone buys 44%.
-Extra depth substitutes for the missing gate — **subject to the width confound
-below, which is not resolved.**
+architecture; it is a property of the architecture *at small depth* — at two
+blocks 86% of the copying needs all the ingredients together, at three blocks
+about half does. **Subject to the width confound below, which is not
+resolved.**
+
+### 09:45 — THE FULL THREE-WAY AT DEPTH 3, and a correction to the sentence above
+
+All eight corners at three seeds. This is more precise than the cap-off
+sub-table, and it changes the interpretation:
+
+| term | depth 3 width 64 | depth 2 width 128 |
+|---|---|---|
+| softmax alone | +0.0108 = **1.2%** | 1.4% |
+| GELU alone | +0.0507 = 5.5% | 9.8% |
+| cap removal alone | −0.0080 = −0.9% | −2.2% |
+| softmax × GELU | +0.0263 = 2.9% | −0.5% |
+| **softmax × cap** | **+0.4007 = 43.5%** | **12.3%** |
+| GELU × cap | −0.0057 = −0.6% | −9.5% |
+| **three-way** | **+0.4454 = 48.4%** | **88.8%** |
+| total move | +0.9202 | +1.0482 |
+
+**Correction to what I wrote twenty minutes ago.** I said "at three blocks
+softmax alone buys 44%." That is misleading. In the full decomposition
+**softmax alone buys 1.2%** — essentially nothing, and essentially the same as
+at depth 2 (1.4%). The 44% figure was the *attention* term inside the cap-off
+sub-table, which is the softmax × cap pair, not softmax by itself. Easy to
+misread, and I misread my own table.
+
+**What actually changes with the new cell is much more specific.** The
+three-way term falls 88.8% → 48.4%, and almost exactly that difference appears
+in **softmax × cap**, 12.3% → 43.5%. Every other term is small at both cells.
+So:
+
+> At depth 2, copying needs softmax **and** a gate **and** an uncapped logit
+> range. At depth 3, softmax **and** an uncapped logit range is already worth
+> 43.5% on its own — the *gate* is the ingredient the extra block makes
+> optional. Softmax and the uncapped range remain non-negotiable at both cells:
+> neither is worth more than 1.4% alone anywhere.
+
+That is a mechanistically specific claim and it is what "extra depth
+substitutes for the missing gate" should have meant. It also fits the earlier
+reasoning: the gate's job was to convert a retrieved value into a logit push,
+and a third block supplies another place to do that — whereas nothing else in
+the model can supply selection or logit range.
+
+**The width confound still applies to all of it.** Two cells, differing in
+depth *and* width. A third cell — depth 3 width 128 or depth 2 width 64 —
+separates them and is 24 cells. Until then this is a statement about two
+configurations, not about depth.
 
 ### 09:05 — the preliminary version of the above (kept for the record)
 
