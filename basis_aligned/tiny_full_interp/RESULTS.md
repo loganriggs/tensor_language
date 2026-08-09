@@ -1114,7 +1114,51 @@ about shares — are unscoreable rather than passed or failed. Writing that guar
 in advance is what stops this cell from contributing three meaningless
 percentages to FINDING 21's trend.
 
-### 17:00 — FINAL at this cell, three seeds both sides: **the cap effect is −0.0120 (t = −5.69) and the symmetric tax is +0.0759 nats**
+### 17:45 — a depth-3 result that looks like a WIN for us, and **is not fair.** K3 is unscoreable at this cell
+
+The depth-3 cap-on arm reached three seeds and the arithmetic says the foldable
+model **beats** the un-handicapped conventional one:
+
+| depth 3 width 128 | three seeds | mean |
+|---|---|---|
+| predicate slot-32 (ours) | 4.26159, 4.26142, 4.25904 | **4.26068** |
+| conventional, matched arm, cap off | 4.30368, 4.29440, 4.29502 | 4.29770 |
+| apparent tax | | **−0.0370** — ours wins |
+
+**It is not a fair comparison.** Checking parameters before reporting it:
+
+| model | total parameters |
+|---|---|
+| predicate slot-32 at depth 3 width 128 | **2,605,200** |
+| conventional matched arm at the same cell | 1,933,696 |
+
+**Ours has 34.7% MORE.** The slot-32 pinning that made this architecture
+*smaller* than the conventional model at depth 2 (1,523,808 against 1,638,656,
+7% fewer) makes it substantially *larger* at depth 3, because the predicate
+variant's per-layer costs scale differently with depth than I assumed when I
+reused the configuration across cells.
+
+**So no tax is quoted at depth 3, and K3 is unscoreable rather than passed.**
+A −0.037 "win" bought with 35% more parameters is not a win, and reporting it
+would be precisely the error the independent review caught this morning —
+an asymmetric comparison — with the sign of the asymmetry reversed. The
+depth-2 number, **+0.0759 at 7% fewer parameters**, remains the only
+symmetric tax this programme has.
+
+**Worth stating plainly**: I caught this because I decided to verify parameter
+counts *before* writing up a result that favoured us, having spent the day
+having results that favoured the conventional model corrected by someone else.
+The same check applied to the morning's headline would have caught that one
+too. It is now the first thing to do with any cross-architecture number here,
+in either direction.
+
+**What would make depth 3 fair**: either a predicate configuration whose
+parameters land at or below 1,933,696 at this cell — the slot pinning would
+need retuning per depth, not reused — or a conventional arm grown to ~2.6M for
+a matched comparison. Both are cheap; neither has been run, so the depth-3
+column stays empty.
+
+### 17:00 — FINAL at depth 2 width 128, three seeds both sides: **the cap effect is −0.0120 (t = −5.69) and the symmetric tax is +0.0759 nats**
 
 | predicate slot-32, depth 2 width 128 | three seeds | mean |
 |---|---|---|
