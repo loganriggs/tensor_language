@@ -857,6 +857,50 @@ it with three, which is exactly the mechanism that prediction described.
 Nothing is claimed from this yet beyond the raw arm value. Twenty of
 twenty-four cells remain.
 
+### 09:05 — PRELIMINARY depth-3 decomposition: the conjunction **weakens sharply with the new cell**, 86% → 51%, and G2 looks like a hit
+
+Three of four cap-off corners are at three seeds; the conventional corner has
+two of three. Reported as preliminary for that reason and because tonight's
+seed-architecture finding says cross-architecture numbers from few seeds are
+*biased*, not merely noisy.
+
+| arm, depth 3 width 64, cap off | seeds | mean | t |
+|---|---|---|---|
+| our attention + our feed-forward | −0.0065, +0.0009, −0.0079 | −0.0045 | −1.66 |
+| our attention + GELU | +0.0155, +0.0762, +0.0297 | +0.0405 | 2.21 |
+| softmax + our feed-forward | +0.3550, +0.3506, +0.5152 | +0.4070 | 7.52 |
+| softmax + GELU | +1.0352, +0.8202 (n=2) | +0.9277 | 8.63 |
+
+| term | depth 3 width 64 (prelim) | depth 2 width 128 (final) |
+|---|---|---|
+| total move | +0.9322 | +1.0715 |
+| attention alone | **44.1%** | 13.4% |
+| feed-forward alone | 4.8% | 0.3% |
+| **interaction** | **51.0%** | **86.3%** |
+
+**G2 registered, at 0.55 confidence, that the share would be lower here** —
+*"an extra layer gives partial configurations a second route … which converts
+some of what was a conjunction at depth 2 into a main effect at depth 3."* It
+fell from 86.3% to 51.0%, and the term that absorbed the difference is exactly
+the one that prediction named: softmax alone, from 13.4% to **44.1%**. G1
+(interaction still dominant, above 50%) holds by a single point and should be
+called a near-miss rather than a clean pass.
+
+**What this does to the conjunction story.** It stops being a fact about the
+architecture and becomes a fact about the architecture *at a given depth*. With
+two blocks, handing our model a softmax buys 13% of the copying; with three, it
+buys 44%. The honest general statement is now: **the conjunction is strong at
+depth 2 and roughly half-strength at depth 3, and the trend is that extra depth
+substitutes for the missing gate.**
+
+**The confound has to be repeated, because it is not small.** The two cells
+differ in depth *and* width (2×128 versus 3×64). Everything above is consistent
+with "depth substitutes for the gate" and equally consistent with "the
+conjunction is weaker at narrow widths". Separating them needs a third cell —
+depth 3 width 128 or depth 2 width 64 — which is 24 more cells and is the
+obvious next run. **Until that exists, no depth attribution is licensed**, and
+the paragraph above should be read as naming the two cells, not the mechanism.
+
 ## 2026-08-09 05:05 — FINDING 19 (THE SYMMETRIC CONTROL): the query/key cap is **not a shared handicap — it is load-bearing for the foldable family and a handicap for the conventional one**. Each family at its own better configuration, the foldability tax at depth 2 width 128 is **+0.2071 nats, 6.4× what was measured under the shared cap**. Both registered predictions hold
 
 Files: `tf_qknorm_predictions.json` (registered before the code existed),
