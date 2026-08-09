@@ -1114,6 +1114,41 @@ about shares — are unscoreable rather than passed or failed. Writing that guar
 in advance is what stops this cell from contributing three meaningless
 percentages to FINDING 21's trend.
 
+### 14:50 — the smallest cell's cap-off design is complete and **uniformly null — but the ORDERING is intact**
+
+All four cap-off corners at depth 2 width 64, three seeds each:
+
+| arm | three seeds | mean | t |
+|---|---|---|---|
+| our attention + our feed-forward | −0.0200, −0.0215, −0.0225 | −0.0213 | −28.58 |
+| our attention + GELU | −0.0147, −0.0122, −0.0130 | −0.0133 | −17.70 |
+| softmax + our feed-forward | −0.0099, −0.0063, −0.0097 | −0.0086 | −7.39 |
+| softmax + GELU | −0.0007, +0.0239, +0.0009 | **+0.0080** | 1.01 |
+
+**Total move +0.0293 nats**, against +1.0482, +0.9202 and +1.7552 at the other
+three cells — a factor of 30 to 60. Not one of the four configurations inducts.
+Below the floor the architecture simply does not matter.
+
+**But the ordering is exactly preserved**, and that is the part worth keeping.
+Reading down the table, every arm is better than the one above it, in precisely
+the order the other three cells establish: adding a gate helps a little, adding
+softmax helps more, adding both helps most. The whole range is 0.029 nats
+instead of ~1.0, so **the mechanism is present and sub-threshold rather than
+absent or different**. A model this small is not doing something else; it is
+doing the same thing, forty times too weakly to count.
+
+That distinction matters for how the floor should be described. It is not a
+regime change in *what* the ingredients do — it is a regime where their
+combined effect has not yet cleared the noise. Which also means the floor is
+probably not sharp: somewhere between this cell and its neighbours the same
+ordered, monotone structure crosses from 0.03 nats to 1.0.
+
+**Shares are not quoted**, per the pre-registered guard (total move 0.0293
+against a 0.10 threshold), so predictions J1 and J2 stay unscoreable. J3 —
+softmax alone and cap-removal alone each under 5% of the move — is also
+unscoreable for the same reason: a percentage of 0.029 nats is not a
+measurement of anything.
+
 ### 13:05 — QUALIFYING "the row-normalised arm is dead": it is not dead at the largest cell, it is **an order of magnitude weaker than softmax**, which is the claim that actually holds
 
 At 10:20 I wrote that the L1-row-normalised diagnostic was "dead across eight
