@@ -1072,6 +1072,48 @@ a bigger model than the conventional one to get there, which is the same
 statement the width-threshold work made and is a much more modest claim than
 "a missing conjunction".
 
+### 14:30 — J4 REFUTED, and it finds **a size floor below which the pair stops working entirely**
+
+I registered at 0.7 that the un-capped conventional model would induct at depth
+2 width 64 — above +0.10 — since removing the cap moved it by +0.9 to +1.0 at
+every other cell. It does not:
+
+| cell | conventional, cap OFF | conventional, cap ON |
+|---|---|---|
+| **depth 2, width 64** | **+0.0080** (−0.0007, +0.0239, +0.0009), t = 1.01 | −0.0137 |
+| depth 2, width 128 | +1.0448 | +0.1078 |
+| depth 3, width 64 | +0.9237 | +0.0912 |
+| depth 3, width 128 | +1.8637 | +0.1558 |
+
+**At the smallest cell the pair produces essentially nothing.** Everywhere else
+softmax-with-an-uncapped-range yields around a nat or more; here it yields
++0.008, indistinguishable from zero. Adding *either* a third block or twice the
+width takes the same configuration from ~0 to ~1. That is a **threshold, not a
+gradient**, and it is the most interesting thing this cell could have produced.
+
+**The consequence for the headline.** The 12:30 statement — "softmax and an
+uncapped logit range are jointly necessary and individually worthless at every
+cell" — needs a precondition: **jointly necessary, individually worthless, and
+jointly insufficient below a size floor that sits between depth 2 width 64 and
+its two neighbours.** The pair is not a sufficient recipe; it is a sufficient
+recipe *given enough model*.
+
+**A clean dissociation worth recording.** Removing the cap still buys the
+conventional model **0.0772 nats** of held cross-entropy here (4.97975 →
+4.90259), which is the same order as at the other cells. So the cap costs loss
+at this cell exactly as elsewhere — there is simply **no induction for it to
+unlock**. Loss and capability come apart cleanly at the floor, which is further
+evidence they are not measuring the same thing.
+
+**The pre-registered conditioning guard now fires.** `tf_factorial5_predictions.json`
+said: *"if the total move at this cell is under 0.10 nats, shares will NOT be
+quoted; only the raw arm values and the pair-versus-single comparison."* The
+total move here will be roughly +0.022 nats. **No decomposition shares will be
+reported for depth 2 width 64**, and predictions J1 and J2 — which are both
+about shares — are unscoreable rather than passed or failed. Writing that guard
+in advance is what stops this cell from contributing three meaningless
+percentages to FINDING 21's trend.
+
 ### 13:05 — QUALIFYING "the row-normalised arm is dead": it is not dead at the largest cell, it is **an order of magnitude weaker than softmax**, which is the claim that actually holds
 
 At 10:20 I wrote that the L1-row-normalised diagnostic was "dead across eight
