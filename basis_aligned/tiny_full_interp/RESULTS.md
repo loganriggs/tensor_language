@@ -1114,7 +1114,58 @@ about shares — are unscoreable rather than passed or failed. Writing that guar
 in advance is what stops this cell from contributing three meaningless
 percentages to FINDING 21's trend.
 
-### 15:25 — an interpretation-coverage audit, and one genuine gap: **the un-capped foldable arms have never had a fold gate**
+### 16:15 — THE GAP IS CLOSED: all 12 un-capped foldable checkpoints PASS the fold gate. And **my hypothesis about why was wrong, for an instructive reason**
+
+Files: `tf_noqknorm_foldgate.py` / `.json`, `tf_qknorm_flag_check.py` / `.json`.
+
+**The gate passes, so the two findings that rest on these arms are sound.** All
+12 un-capped checkpoints clear the float64 identity gate — worst end-to-end
+residual **1.72e-13** against a 1e-9 threshold — as do all 12 cell-matched
+capped partners (worst 1.19e-13). The algebraic layer-0 attention-table
+identities span 3.0e-16 to 2.4e-15 against a 1e-12 threshold. The
+planted-known-answer test and the gate negative control both pass in the same
+run. FINDING 19's cap-effect measurements and FINDING 21's four cap-off
+baselines are no longer resting on unverified foldability.
+
+**But the reason I gave was wrong.** I predicted the un-capped models would fold
+*more* exactly, because per-head query/key RMSNorm is "a data-dependent
+rescaling the fold has to absorb". Measured:
+
+| observable | result |
+|---|---|
+| attention-table identity, un-capped smaller in | **5 of 12** matched cells (geometric mean ratio 0.92 — capped marginally tighter) |
+| MLP identity (negative control, the cap cannot reach it) | 7 of 12, ratio 1.08 — what a null looks like |
+| end-to-end residual, un-capped smaller in | **0 of 12** (ratio 1.54 — consistently *larger*) |
+
+**The premise was the error, not the measurement. At layer 0 the query/key norm
+is not data-dependent at all**: its input is `rms_norm(wte[token])` with no
+context mixed in yet, so it is a deterministic function of the token, and the
+fold absorbs it exactly into the token-indexed factor tables at no cost. I
+reasoned from "RMSNorm is data-dependent in general" without checking what its
+input actually is at the one layer being folded.
+
+The mechanism behind the residual ordering was measured rather than asserted:
+capped folded query rows have mean norm exactly **4.000 = √16**, while
+un-capped rows run **1.24 to 2.27** with element maxima up to 8.08 — a wider
+dynamic range for the score products to round in. All 24 residuals sit within a
+decade of the float64 machine floor, so this is rounding bookkeeping, not
+mechanism.
+
+**Two build details worth keeping.**
+
+1. The query/key norm was hardcoded at **three** sites, not the one I named —
+   the forward, and both fold paths. Patching only the forward would have left
+   the fold silently normalising what the forward does not. That mismatch is
+   now itself a gate control: forcing it drives the table residual from ~1e-15
+   to **1.489** and is rejected, which is what makes the null above calibrated
+   rather than blind.
+2. The default path is **bitwise** unchanged — parameters, forward and folded
+   forward all at max abs diff exactly 0.0 against the pre-edit module pulled
+   from git, at both precisions; `tf_vanilla_d2_w128_b8192_s0` reproduces its
+   stored held cross-entropy 4.65117 to **2.83e-07**; the factorial's transplant
+   gates still return 0.0.
+
+### 15:25 — the coverage audit that found this gap (kept for the record; the gap is now closed above)
 
 Checked what the interpretation ladder actually covers after today's work.
 **122 checkpoints carry a full ladder including rung 5** — every family cell,
