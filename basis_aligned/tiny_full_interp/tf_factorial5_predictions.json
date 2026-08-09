@@ -1,0 +1,39 @@
+{
+  "registered": "2026-08-09 12:45 UTC, BEFORE any depth-2 width-64 factorial cell was trained",
+  "question": "FINDING 21 rests on three cells: (depth 2, width 128), (depth 3, width 64), (depth 3, width 128). That is three corners of a 2x2 over cells. The fourth, (depth 2, width 64), closes it and turns two single comparisons into a factorial over cells -- the limitation recorded in FINDING 21's own limits paragraph.",
+  "what_the_completed_series_now_claims": "softmax alone is never worth more than 3.1% of the move and an uncapped logit range alone never more than 0.8%, but the two TOGETHER are worth 12% / 44% / 76% across the three cells in increasing order of model capability. The pair is jointly necessary and individually worthless at every cell. What varies is only whether a GATE must also be present: the three-way term runs 88.8% / 48.4% / -1.3%.",
+  "why_this_cell_was_NOT_chosen_first_and_why_it_is_worth_running_now": {
+    "the_original_objection": "at depth 2 width 64 both families are null on induction with the cap ON (family -0.0140, conventional -0.0132), so the total move could be near zero and every share becomes a ratio with a near-zero denominator.",
+    "why_it_is_now_worth_it": "the completed series says the active ingredient is softmax WITH an uncapped range, and neither previous cell had that combination measured at width 64 depth 2. The un-capped conventional model may well induct here even though the capped one does not -- that is exactly what the pair effect predicts. If it does, the total move is large and the shares are well conditioned. If it does not, that is itself a finding: it would place a floor on model size below which the pair stops working.",
+    "conditioning_guard": "if the total move at this cell is under 0.10 nats, shares will NOT be quoted; only the raw arm values and the pair-versus-single comparison will be reported."
+  },
+  "design": "the same 2x2x2, three seeds per corner, at the family's body parameter count for this cell. Three seeds from the start.",
+  "predictions": {
+    "J1_the_three_way_is_the_HIGHEST_of_all_four_cells": {
+      "claim": "The three-way share at depth 2 width 64 exceeds the 88.8% measured at depth 2 width 128.",
+      "reason": "the established ordering is that BOTH depth and width dissolve the conjunction; this cell is the smallest on both axes, so it should sit at the far end of the trend.",
+      "confidence": "0.6",
+      "note": "the ordering is NOT by parameter count -- depth 3 width 64 has fewer parameters than depth 2 width 128 yet a lower three-way share -- so this prediction rests on the depth-and-width reading, and refuting it would undercut that reading directly."
+    },
+    "J2_the_pair_is_the_SMALLEST_of_all_four": {
+      "claim": "The softmax-times-cap pair share is below the 12.3% measured at depth 2 width 128.",
+      "confidence": "0.6",
+      "note": "J1 and J2 are near-complements by construction; they are registered separately because the other five terms could absorb the difference instead."
+    },
+    "J3_the_two_non_negotiables_hold_a_fourth_time": {
+      "claim": "Softmax alone stays under 5% and cap-removal alone stays under 5% of the total move.",
+      "reason": "held at 1.4/1.2/3.1 and -2.2/-0.9/0.8 across three cells",
+      "confidence": "0.8"
+    },
+    "J4_the_uncapped_conventional_model_INDUCTS_here": {
+      "claim": "The conventional model without the cap clears +0.10 induction at depth 2 width 64, even though with the cap it is null at -0.0132.",
+      "reason": "the pair effect is the active ingredient and it has never been measured at this cell; at every other cell removing the cap moved the conventional model by +0.9 to +1.0",
+      "confidence": "0.7",
+      "what_refutation_would_mean": "a floor on model size below which softmax-plus-uncapped-range stops working -- which would be a more interesting result than confirmation"
+    }
+  },
+  "what_this_cannot_settle": [
+    "Four cells over one corpus, tokenizer, optimiser and data order. A 2x2 over cells is not a scaling law.",
+    "Depth 2 and 3 and widths 64 and 128 only. Nothing here licenses extrapolation to depth 4 or width 256."
+  ]
+}
