@@ -942,6 +942,45 @@ depth *and* width. A third cell — depth 3 width 128 or depth 2 width 64 —
 separates them and is 24 cells. Until then this is a statement about two
 configurations, not about depth.
 
+### 10:20 — the depth-3 width-64 design is COMPLETE: 12 of 12 corners, three seeds each
+
+| attention | feed-forward | cap | held CE | induction | t |
+|---|---|---|---|---|---|
+| ours | ours | on | 4.94165 | +0.0035 | 1.47 |
+| ours | ours | off | 4.94596 | −0.0045 | −1.66 |
+| ours | GELU | on | 4.90463 | +0.0542 | 5.72 |
+| ours | GELU | off | 4.91974 | +0.0405 | 2.21 |
+| row-L1 | ours | on | 4.92865 | +0.0108 | 2.34 |
+| row-L1 | ours | off | 4.93241 | +0.0011 | 0.55 |
+| row-L1 | GELU | on | 4.92853 | +0.0343 | 2.26 |
+| row-L1 | GELU | off | 4.92067 | +0.0263 | 15.25 |
+| softmax | ours | on | 4.90367 | +0.0143 | 7.53 |
+| softmax | ours | off | 4.77236 | **+0.4070** | 7.52 |
+| softmax | GELU | on | 4.87544 | +0.0912 | 5.15 |
+| **softmax** | **GELU** | **off** | **4.71520** | **+0.9237** | **14.85** |
+
+**The row-normalised diagnostic is now dead across eight corners and two
+cells.** Its largest value anywhere is **+0.0461** (depth 2 width 128, with a
+GELU gate and the cap on); the softmax arms reach +0.9237 at the same cell
+type. Every one of its eight corners:
+
+| cell | + our feed-forward, cap on / off | + GELU, cap on / off |
+|---|---|---|
+| depth 2 width 128 | −0.0032 / −0.0078 | +0.0461 / +0.0251 |
+| depth 3 width 64 | +0.0108 / +0.0011 | +0.0343 / +0.0263 |
+
+Dividing the two-branch product by its row magnitude does not reproduce what
+softmax does, at either depth, either width, either feed-forward, either cap
+setting. **Competition between keys is not the active ingredient**, and the
+cheap nearly-foldable substitute this arm was built to scout does not exist.
+Eight corners is enough to stop looking.
+
+One incidental: `ours + GELU, cap on` reaches **+0.0542 at t = 5.72** here,
+clearly above the family's own +0.0035. A gate alone does buy a little at this
+cell — 5.5% of the total move in the decomposition above — where at depth 2 it
+bought essentially nothing. Small, but it is the same direction as everything
+else the extra block changes.
+
 ### 09:05 — the preliminary version of the above (kept for the record)
 
 Three of four cap-off corners are at three seeds; the conventional corner has
