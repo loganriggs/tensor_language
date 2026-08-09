@@ -28,6 +28,9 @@ gate() {
   say "gating on GPU compute processes (not on command-line text)"
   while true; do
     napps=$(nvidia-smi --query-compute-apps=pid --format=csv,noheader | wc -l)
+    # also wait for the analysis pass, which has priority: it scores a
+    # registered prediction and gives 12 trained checkpoints their ladder.
+    pgrep -f -x "/bin/bash ./tf_symtax_analysis.sh" > /dev/null && napps=$((napps + 1))
     free=$(nvidia-smi --query-gpu=memory.free --format=csv,noheader,nounits | head -1)
     if [ "$napps" -eq 0 ] && [ "${free:-0}" -ge 10000 ]; then
       ok=$((ok + 1))
