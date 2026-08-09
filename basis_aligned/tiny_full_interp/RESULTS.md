@@ -821,6 +821,42 @@ a missing softmax, not a missing gate, not a self-imposed cap — a missing
 *conjunction* of all three, worth 89% of the capability, with each ingredient
 worth almost nothing alone.
 
+### 08:25 — EARLY SIGNAL from the depth-3 replication: softmax alone buys **3.5× more** there, which is what G2 predicted
+
+The depth-3 width-64 design is 4 of 24 cells in, and its first arm is complete
+at three seeds. It is the arm that carries the whole "softmax alone is nearly
+worthless" claim:
+
+| cell | softmax + **our** feed-forward, cap off | t |
+|---|---|---|
+| depth 2, width 128 | +0.1170 | 1.60 |
+| **depth 3, width 64** | **+0.4070** (+0.3550, +0.3506, +0.5152) | **7.52** |
+
+At the new cell this partial configuration is not marginal at all — it is 3.5×
+larger and solid at t = 7.52, where at the old cell it could not be
+distinguished from null. For scale, it is **4.5× the full conventional model
+with the cap on** at the same cell (+0.0912).
+
+**This is the direction G2 registered**, at 0.55 confidence: *"the three-way
+share at depth 3 width 64 is LOWER than the 88.8% measured at depth 2 width
+128 … an extra layer gives partial configurations a second route."* A partial
+configuration that was at the noise floor with two blocks is decisively above
+it with three, which is exactly the mechanism that prediction described.
+
+**Two honest limits before this is read as confirmation.**
+
+1. **The share cannot be computed yet.** The cap-off conventional corner does
+   not exist at this cell — it is in the gated supplementary chain — so there
+   is no denominator. A larger partial term does not by itself imply a smaller
+   three-way share; the total move may be larger too. G2 is about the *share*.
+2. **The two cells differ in depth AND width** (2×128 versus 3×64). Attributing
+   the change to depth alone is not licensed by this comparison. The clean
+   version would hold width fixed and vary depth, which this programme has the
+   machinery to do and has not done for the factorial.
+
+Nothing is claimed from this yet beyond the raw arm value. Twenty of
+twenty-four cells remain.
+
 ## 2026-08-09 05:05 — FINDING 19 (THE SYMMETRIC CONTROL): the query/key cap is **not a shared handicap — it is load-bearing for the foldable family and a handicap for the conventional one**. Each family at its own better configuration, the foldability tax at depth 2 width 128 is **+0.2071 nats, 6.4× what was measured under the shared cap**. Both registered predictions hold
 
 Files: `tf_qknorm_predictions.json` (registered before the code existed),
