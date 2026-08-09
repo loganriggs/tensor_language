@@ -1114,6 +1114,44 @@ about shares — are unscoreable rather than passed or failed. Writing that guar
 in advance is what stops this cell from contributing three meaningless
 percentages to FINDING 21's trend.
 
+### 20:50 — the cap's cost SPLITS IN TWO, and only about half of it is about copying
+
+The depth-1 conventional cap-off arm completed, which adds a second cell where
+*nothing inducts in either family*. Across all five cells now measured:
+
+| cell | cap ON | cap OFF | CE effect | induction ON → OFF |
+|---|---|---|---|---|
+| depth 1, width 128 | 4.74912 | 4.67860 | **−0.0705** | −0.0321 → −0.0182 (null both) |
+| depth 2, width 64 | 4.97975 | 4.90259 | **−0.0772** | −0.0141 → −0.0007 (null both) |
+| depth 2, width 128 | 4.55236 | 4.39413 | −0.1582 | +0.1558 → +1.0784 |
+| depth 3, width 64 | 4.87544 | 4.71520 | −0.1602 | +0.1128 → +1.0352 |
+| depth 3, width 128 | 4.42428 | 4.29770 | −0.1266 | +0.4662 → +1.8246 |
+
+**Two clean regimes.** Where no copying is possible the cap costs the
+conventional model **0.074 nats on average** (0.0705, 0.0772). Where copying is
+possible it costs **0.148** (0.1582, 0.1602, 0.1266). The difference is
+**0.074** — almost exactly the same again.
+
+> **Roughly half the query/key cap's cost has nothing to do with copying.** It
+> is a general expressivity cost of constraining attention logits, paid even at
+> depth 1 where induction is impossible by construction. The other half appears
+> only where copying is available and tracks the induction unlock.
+
+**This refines how I have been describing the cap all day.** From the 02:50
+control onward I treated its cost as fundamentally a softmax-concentration
+effect in service of copying — the mechanism that FINDING 20's pair term
+measures. That story accounts for about half the number. The remainder is
+present in models that cannot copy at all.
+
+**The caveat, which is not small.** The two no-induction cells differ from the
+three induction cells in depth and width as well as in whether they induct, so
+this is a two-group comparison with confounds, not a controlled decomposition.
+What makes it worth recording anyway is the tightness: the two no-copy cells
+agree to 0.007 of each other and the three copy cells span 0.034, with no
+overlap between the groups. A controlled version would hold the cell fixed and
+vary only whether copying is available, which this design cannot do — copying
+availability *is* a property of the cell.
+
 ### 20:25 — FINAL fair depth-3, three seeds every arm, all six fold gates passing
 
 | depth 3 width 128 | mean of three seeds |
