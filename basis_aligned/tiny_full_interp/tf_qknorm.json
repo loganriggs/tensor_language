@@ -28,33 +28,48 @@
       "any_diverged": false
     },
     "foldable_without_qknorm": {
-      "n_ce": 0,
-      "ce": null,
-      "ce_sd": null,
-      "n_ind": 0,
-      "induction": null,
-      "induction_sd": null,
-      "induction_per_seed": [],
-      "ce_per_seed": [],
-      "spikes": [],
+      "n_ce": 3,
+      "ce": 4.68547,
+      "ce_sd": 0.0036670969444509327,
+      "n_ind": 3,
+      "induction": -0.026640708358199323,
+      "induction_sd": 0.003359598168499762,
+      "induction_per_seed": [
+        -0.02644265492757114,
+        -0.030094952053493884,
+        -0.023384518093532945
+      ],
+      "ce_per_seed": [
+        4.68263,
+        4.68961,
+        4.68417
+      ],
+      "spikes": [
+        0,
+        0,
+        0
+      ],
       "any_diverged": false
     },
     "conventional_with_qknorm": {
-      "n_ce": 2,
-      "ce": 4.602625,
-      "ce_sd": 0.015195724727698912,
-      "n_ind": 2,
-      "induction": 0.13563315073649101,
-      "induction_sd": 0.07498698353546024,
+      "n_ce": 3,
+      "ce": 4.613713333333333,
+      "ce_sd": 0.022007008732068418,
+      "n_ind": 3,
+      "induction": 0.10614211470992482,
+      "induction_sd": 0.07362531811567517,
       "induction_per_seed": [
         0.18865695529513893,
-        0.08260934617784307
+        0.08260934617784307,
+        0.04716004265679245
       ],
       "ce_per_seed": [
         4.59188,
-        4.61337
+        4.61337,
+        4.63589
       ],
       "spikes": [
+        0,
         0,
         0
       ],
@@ -86,11 +101,44 @@
     }
   },
   "effect_of_removing_qknorm": {
-    "foldable_ce_change": null,
-    "foldable_induction_change": null,
-    "conventional_ce_change": -0.16342166666666635,
-    "conventional_induction_change": 0.9878873471860532,
+    "foldable_ce_change": 0.03916999999999948,
+    "foldable_induction_change": -0.023276724638762045,
+    "conventional_ce_change": -0.17450999999999972,
+    "conventional_induction_change": 1.0173783832126193,
     "sign_convention": "negative CE change = removing the norm HELPS"
   },
-  "prediction_scores": {}
+  "tax_best_against_best": {
+    "foldable_best_ce": 4.6463,
+    "conventional_best_ce": 4.439203333333333,
+    "tax_nats": 0.2071,
+    "claim": "each family at ITS OWN better configuration -- the only symmetric way to quote a tax once one arm turns out to have been handicapped"
+  },
+  "prediction_scores": {
+    "Q1_size_of_the_family_gain": {
+      "family_ce_change": 0.03917,
+      "conventional_ce_change": -0.17451,
+      "predicted": "family change between -0.05 and +0.10",
+      "holds": true
+    },
+    "Q2_does_the_family_start_inducting": {
+      "family_induction_without_qknorm": -0.02664,
+      "predicted": "stays below +0.05",
+      "holds": true,
+      "note_if_refuted": "a large family induction here means the cap we imposed, not the missing softmax, was blocking induction -- a more actionable result than the current story"
+    },
+    "Q3_training_stability": {
+      "spikes_without_qknorm": [
+        0,
+        0,
+        0
+      ],
+      "spikes_with_qknorm": [
+        0,
+        0,
+        0
+      ],
+      "any_diverged": false,
+      "predicted": "trains without divergence, more spikes than with"
+    }
+  }
 }

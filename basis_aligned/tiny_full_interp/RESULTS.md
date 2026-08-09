@@ -507,6 +507,57 @@ arms uncapped to give softmax a fair test, and the design has to state which
 comparison each arm is making. Either way the decision waits on data rather
 than on my guess, which is why the control was interposed rather than queued.
 
+## 2026-08-09 05:05 — FINDING 19 (THE SYMMETRIC CONTROL): the query/key cap is **not a shared handicap — it is load-bearing for the foldable family and a handicap for the conventional one**. Each family at its own better configuration, the foldability tax at depth 2 width 128 is **+0.2071 nats, 6.4× what was measured under the shared cap**. Both registered predictions hold
+
+Files: `tf_qknorm_predictions.json` (registered before the code existed),
+`tf_qknorm_chain.sh`, `tf_qknorm_report.py` → `tf_qknorm.json` /
+`tf_qknorm_table.md`. Three seeds every arm, zero loss spikes and no divergence
+anywhere.
+
+| depth 2 width 128 | query/key cap ON | query/key cap OFF | effect of removing it |
+|---|---|---|---|
+| **foldable family** CE | **4.64630** | 4.68547 | **+0.0392 — removing it HURTS us** |
+| **foldable family** induction | −0.0034 | −0.0266 | −0.0233, still null, still negative |
+| **conventional** CE | 4.61371 | **4.43920** | **−0.1745 — removing it HELPS them** |
+| **conventional** induction | +0.1061 | **+1.1235** | **+1.0174** |
+
+**The cap is not a symmetric handicap.** It costs the conventional model 0.175
+nats and it *buys* our family 0.039. That is the opposite sign, not a smaller
+magnitude — so there is no single "fair" setting, and the only symmetric way to
+quote a tax is **each family at its own better configuration**:
+
+> **foldability tax at depth 2 width 128 = 4.64630 − 4.43920 = +0.2071 nats.**
+> Against the +0.0326 measured at this cell under the shared cap, that is
+> **6.4×**. Against the matched-parameter +0.0939, **2.2×**.
+
+And on induction it stops being a ratio and becomes a categorical difference:
+our family's best configuration scores **−0.0034**, the conventional model's
+best scores **+1.1235**.
+
+**Both registered predictions hold, including the one I hoped to be wrong
+about.** Q1 predicted the family's cross-entropy change would land in
+[−0.05, +0.10] against the conventional −0.175; measured **+0.0392**. Q2
+predicted the family would still not induct without the cap; measured
+**−0.0266**, still negative. The registered reasoning was that the conventional
+gain is a *softmax-concentration* effect and our attention has no softmax to
+concentrate, so lifting the cap changes the pattern's scale rather than its
+selectivity — and that is what the numbers show. Q3's stability guess was
+wrong in detail: I predicted more loss spikes without the cap and there were
+**zero either way**, at every seed.
+
+**What this means for the programme, stated plainly.** The interpretability tax
+we have been quoting all night — 0.03 to 0.12 nats — was measured with the
+comparison model wearing our own architecture's brace. Removing it, our real
+cost at this cell is **about a fifth of a nat**, and the induction gap is not
+"3.5–5.4× larger" but "they do it and we do not". This is the largest
+correction in the programme's history and it is against us.
+
+**One reason it is still a lower bound**: the un-capped conventional number is
+the ×4 arm, which has ~12% *fewer* parameters than the family. The
+matched-parameter un-capped arm is training now (`tf_bestbest_chain.sh`, three
+seeds), with the registered expectation that it beats the ×4 arm and pushes the
+best-against-best tax **above** +0.2071.
+
 ### 🔴 THE UNPRICED RISK WAS REAL AND LARGE — every tax number above is PROVISIONAL (2026-08-09 02:50)
 
 The query/key-norm control landed at three seeds and it is the most
