@@ -397,9 +397,9 @@ def controls(depth=2, width=128, vocab=512, seed=0):
 
 # ---------------------------------------------------------------- cell
 def run_fac_cell(attn='softmax', mlp='bilin', depth=2, width=128, seed=0,
-                 vocab=8192, tok='bpe', lr=0.02, suffix=''):
+                 vocab=8192, tok='bpe', lr=0.02, suffix='', qk_norm=True):
     cfg = FacConfig(attn=attn, mlp=mlp, depth=depth, width=width, vocab=vocab,
-                    tok=tok, seed=seed, T=TR.T, suffix=suffix)
+                    tok=tok, seed=seed, T=TR.T, suffix=suffix, qk_norm=qk_norm)
     stem = cfg.stem()
     jp = f'{HERE}/{stem}.json'
     out = json.load(open(jp)) if os.path.exists(jp) else {}
@@ -484,10 +484,11 @@ if __name__ == '__main__':
     ap.add_argument('--tok', default='bpe')
     ap.add_argument('--lr', type=float, default=0.02)
     ap.add_argument('--suffix', default='')
+    ap.add_argument('--no-qk-norm', action='store_true')
     a = ap.parse_args()
     if a.cmd == 'controls':
         controls()
     else:
         run_fac_cell(attn=a.attn, mlp=a.mlp, depth=a.depth, width=a.width,
                      seed=a.seed, vocab=a.vocab, tok=a.tok, lr=a.lr,
-                     suffix=a.suffix)
+                     suffix=a.suffix, qk_norm=not a.no_qk_norm)

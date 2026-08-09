@@ -344,6 +344,73 @@ review.)
   this table would be exactly the unearned attribution this programme's
   retraction ledger is full of. The factorial below is the fix.
 
+### 🔴 THE UNPRICED RISK WAS REAL AND LARGE — every tax number above is PROVISIONAL (2026-08-09 02:50)
+
+The query/key-norm control landed at three seeds and it is the most
+consequential result of the night. **Removing per-head query/key RMSNorm from
+the conventional model is worth more than the entire foldability tax.**
+
+| depth 2 width 128 | held CE | induction | seeds |
+|---|---|---|---|
+| foldable family, query/key norm ON | 4.64630 | −0.0034 | 3 |
+| conventional, query/key norm ON | 4.60262 | +0.1356 | 2 |
+| **conventional, query/key norm OFF** | **4.43920** | **+1.1235** | 3 |
+
+Removing the norm buys the conventional model **0.163 nats** of held
+cross-entropy and takes its induction score from +0.1356 to **+1.1235** — an
+8.3× increase, model-seed t = 7.0, with zero loss spikes and no divergence at
+any seed. The bag-of-tokens control stays flat at 0.13, so this is genuine
+order-dependent copying and not a bag effect, and natural-text order-only
+copying rises to +0.82–0.87 against the family's +0.1032 at the same cell.
+
+**Why this matters more than its size.** Query/key RMSNorm was inherited from
+*this family's* training history and imposed on the conventional model for
+comparability. RESULTS.md named it the largest unpriced risk and argued it
+biased *against* the conventional arm. That argument was right, and the bias is
+bigger than the effect it was a caveat on: at this cell the reported tax is
++0.0593 unmatched and +0.1031 matched, while un-handicapping the conventional
+model alone moves cross-entropy by 0.163.
+
+**Two things follow immediately.**
+
+1. **Every tax number in this finding is provisional**, and the provisional
+   replacement at this cell is **+0.2071 nats** (family 4.64630 against
+   conventional 4.43920) — **2.0× the matched-arm figure** — *if* the foldable
+   family gains nothing from the same change. That conditional is the whole
+   question, and it is not yet measured.
+2. **It undercuts the "instability at the qualitative boundary" reading from
+   02:40.** With the norm off, the conventional model at depth 2 width 128 is
+   not marginal at all — it inducts at +1.12 with t = 7.0. The marginality was
+   substantially an artefact of the handicap, not a signature of a capability
+   at its onset. That paragraph is left standing above with this pointer rather
+   than deleted, because it is accurate about the *handicapped* configuration
+   it describes.
+
+**The symmetric control is registered and queued.** Predictions are in
+`tf_qknorm_predictions.json`, written before any foldable cell was trained,
+with a decision rule fixed in advance. My registered prediction is that the
+foldable family gains **much less** (cross-entropy change between −0.05 and
++0.10 against the conventional −0.163) and still does not induct, because the
+conventional gain is a *softmax-concentration* effect — per-head normalisation
+caps the attention logit range, and a capped range limits how nearly one-hot a
+softmax row can be over a 512-position prefix, which is exactly what copying
+from one matched position needs. Our attention has no softmax, so there is no
+concentration to unlock; removing the cap changes the pattern's scale, not its
+selectivity.
+
+**The outcome I would most like to be wrong about** is registered too: if the
+foldable family *also* jumps, then what has been blocking induction in our
+family is the cap **we imposed on ourselves**, not the missing softmax — which
+would be far more actionable, because the cap is ours to remove and softmax is
+not.
+
+Machinery: `tf_qknorm_chain.sh` runs the foldable arm at three seeds through
+the factorial's `(bilin, bilin)` path, which gate G1 shows reproduces
+`tf_model.TinyBilin` vanilla bit-for-bit and which is parameter-identical with
+the norm on or off (body 590,080 either way). `tf_model.py` is deliberately
+**not** edited — it hardcodes the norm and is imported by chains that are
+running. Scored by `tf_qknorm_report.py` as a 2×2.
+
 ### The unpriced risk, restated
 
 The softmax temperature is still unpriced and query/key RMSNorm caps `|q·k|` at

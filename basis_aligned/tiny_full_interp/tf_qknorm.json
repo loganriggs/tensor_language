@@ -1,0 +1,96 @@
+{
+  "predictions_file": "tf_qknorm_predictions.json",
+  "cell": "depth 2 width 128, V=8192 BPE",
+  "note": "the foldable arms are parameter-identical with the norm on or off (body 590,080); so are the conventional arms",
+  "arms": {
+    "foldable_with_qknorm": {
+      "n_ce": 3,
+      "ce": 4.6463,
+      "ce_sd": 0.007486113811584919,
+      "n_ind": 3,
+      "induction": -0.0033639837194372768,
+      "induction_sd": 0.009899299340858087,
+      "induction_per_seed": [
+        -0.013777648078070826,
+        -0.0022391637166343514,
+        0.005924860636393347
+      ],
+      "ce_per_seed": [
+        4.65117,
+        4.65005,
+        4.63768
+      ],
+      "spikes": [
+        0,
+        0,
+        0
+      ],
+      "any_diverged": false
+    },
+    "foldable_without_qknorm": {
+      "n_ce": 0,
+      "ce": null,
+      "ce_sd": null,
+      "n_ind": 0,
+      "induction": null,
+      "induction_sd": null,
+      "induction_per_seed": [],
+      "ce_per_seed": [],
+      "spikes": [],
+      "any_diverged": false
+    },
+    "conventional_with_qknorm": {
+      "n_ce": 2,
+      "ce": 4.602625,
+      "ce_sd": 0.015195724727698912,
+      "n_ind": 2,
+      "induction": 0.13563315073649101,
+      "induction_sd": 0.07498698353546024,
+      "induction_per_seed": [
+        0.18865695529513893,
+        0.08260934617784307
+      ],
+      "ce_per_seed": [
+        4.59188,
+        4.61337
+      ],
+      "spikes": [
+        0,
+        0
+      ],
+      "any_diverged": false
+    },
+    "conventional_without_qknorm": {
+      "n_ce": 3,
+      "ce": 4.439203333333333,
+      "ce_sd": 0.013253981791647832,
+      "n_ind": 3,
+      "induction": 1.1235204979225442,
+      "induction_sd": 0.2774386132102895,
+      "induction_per_seed": [
+        1.267738151550293,
+        1.299147690667047,
+        0.8036756515502926
+      ],
+      "ce_per_seed": [
+        4.43405,
+        4.4293,
+        4.45426
+      ],
+      "spikes": [
+        0,
+        0,
+        0
+      ],
+      "any_diverged": false
+    }
+  },
+  "effect_of_removing_qknorm": {
+    "foldable_ce_change": null,
+    "foldable_induction_change": null,
+    "conventional_ce_change": -0.16342166666666635,
+    "conventional_induction_change": 0.9878873471860532,
+    "sign_convention": "negative CE change = removing the norm HELPS"
+  },
+  "prediction_scores": {}
+}

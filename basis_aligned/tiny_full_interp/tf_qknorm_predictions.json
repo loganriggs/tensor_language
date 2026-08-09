@@ -1,0 +1,38 @@
+{
+  "registered": "2026-08-09 02:45 UTC, BEFORE any foldable no-query/key-norm cell was trained",
+  "what_prompted_this": {
+    "observation": "The conventional baseline's query/key-norm control at depth 2 width 128 came in at two seeds and the effect is enormous. Removing per-head query/key RMSNorm improves the conventional model's held cross-entropy from 4.60262 to 4.43168 (-0.1709 nats, larger than the entire foldability tax reported anywhere in FINDING 18) and lifts its induction score from +0.1356 to +1.2834 -- a 9.5x increase, model-seed t = 81.7, with the bag-of-tokens control unmoved at 0.13 and natural-text order-only copying at +0.82 to +0.87.",
+    "why_it_matters": "Query/key RMSNorm was inherited from THIS FAMILY's training history and imposed on the conventional model. RESULTS.md named it the largest unpriced risk and argued it biased AGAINST the conventional arm. It did, and by more than expected. But the conventional model has now been un-handicapped and the foldable family has not, so the comparison is currently ASYMMETRIC and no tax number should be quoted from it until this control runs.",
+    "the_question": "Does removing query/key normalisation help the FOLDABLE family by a comparable amount?"
+  },
+  "design": {
+    "arm": "the factorial code path at (attn=bilin, mlp=bilin), which gate G1 shows reproduces tf_model.TinyBilin variant=vanilla bit-for-bit (max abs diff 0.0), with qk_norm=False",
+    "why_not_edit_tf_model": "tf_model.py hardcodes query/key normalisation and is imported by chains that are running right now; editing a file mid-flight is a documented hazard in this programme. The factorial path is parameter-identical (body 590,080 either way, checked) and already gated.",
+    "cells": "depth 2 width 128, seeds 0-1-2, V=8192 byte-level BPE, everything else identical to every other cell",
+    "comparison": "against the family's own published qk-normed numbers at the same cell (3-seed CE 4.64630, 3-seed induction -0.0034)"
+  },
+  "predictions": {
+    "Q1_size_of_the_family_gain": {
+      "claim": "Removing query/key norm helps the foldable family MUCH LESS than it helps the conventional model, and may hurt it.",
+      "sharp_form": "the family's cross-entropy change lands between -0.05 and +0.10 nats, versus the conventional model's -0.171",
+      "reason": "The conventional gain is a SOFTMAX-CONCENTRATION effect: per-head RMSNorm caps |q.k| at the head dimension, so dividing by sqrt(16) caps the attention logit range, and a capped logit range limits how nearly one-hot a softmax row can be over a 512-position prefix. Copying from one matched previous position needs exactly that concentration. Our attention has NO softmax -- the pattern is a raw product of two bilinear forms -- so there is no concentration mechanism to unlock. Removing the cap changes the pattern's SCALE, not its SELECTIVITY, and the downstream RMSNorm absorbs scale.",
+      "confidence": "0.70"
+    },
+    "Q2_does_the_family_start_inducting": {
+      "claim": "The foldable family STILL does not induct at depth 2 width 128 without query/key norm: score stays below +0.05.",
+      "reason": "same as Q1 -- no softmax, so no concentration to recover",
+      "confidence": "0.75",
+      "what_would_refute_it_and_why_that_matters_more": "If the family ALSO jumps to a large induction score, then the thing blocking induction in our family was never 'no softmax' but the query/key cap we ourselves imposed -- which would be a far more interesting and far more actionable result than the current story, because the cap is ours to remove and softmax is not. This is the outcome I would most like to be wrong about."
+    },
+    "Q3_training_stability": {
+      "claim": "The family without query/key norm trains without divergence but with more loss spikes than with it.",
+      "reason": "the unnormalised two-branch product is a degree-4 form in the stream; removing the per-head cap removes the only magnitude bound before the pattern multiplies values",
+      "confidence": "0.55, and a divergence would itself be the answer to Q1 -- an architecture that needs the cap is not free to drop it"
+    }
+  },
+  "decision_rule_fixed_in_advance": {
+    "if_the_family_gains_little_or_nothing": "the foldability tax at this cell is restated at roughly +0.21 nats (family 4.64630 against conventional 4.43168) rather than the +0.0593 reported, i.e. about 3.6x larger, and every tax number in FINDING 18 is marked as measured under a handicap that turned out to be one-sided",
+    "if_the_family_gains_comparably": "the tax stands near its reported value and the control is recorded as having priced the risk at zero net",
+    "either_way": "FINDING 18's tax numbers are PROVISIONAL until this lands, and are labelled so in RESULTS.md now rather than after the fact"
+  }
+}
