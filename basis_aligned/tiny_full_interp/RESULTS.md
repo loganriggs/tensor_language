@@ -714,10 +714,61 @@ and 64% of the loss. Giving it a gated nonlinearity and nothing else would buy
 0.3% and 3%. Neither is a route to the capability; the capability is in having
 both, and the whole is roughly seven times the sum of its parts.
 
-The three-*way* decomposition including the cap still needs the cap-on arms at
-three seeds; those are running. Until then the 71% three-way figure stands as
-seed-0 only and should be read against the fact that its two-way parent moved
-by 12 points when seeded.
+### 07:30 — a METHODOLOGICAL finding: the model seed interacts with the architecture, so single-seed cross-architecture comparisons are BIASED, not merely noisy
+
+Seven of eight arms now have three seeds, which is enough to ask whether seed 0
+— the seed nearly every headline tonight was first reported from — is simply a
+lucky draw. **It is not, globally**: seed 0 is the highest of three in exactly
+3 of 9 arms, which is the null expectation to one decimal place. But sorting
+the arms by attention type shows something the global count hides:
+
+| arm | seed 0 | 3-seed mean | seed 0 − mean | rank of seed 0 |
+|---|---|---|---|---|
+| ours + ours, cap on | −0.0138 | −0.0034 | −0.0104 | 3 of 3 |
+| ours + ours, cap off | −0.0264 | −0.0266 | +0.0002 | 2 of 3 |
+| ours + GELU, cap off | −0.0271 | −0.0236 | −0.0035 | 3 of 3 |
+| row-L1 + ours, cap off | −0.0141 | −0.0078 | −0.0063 | 3 of 3 |
+| row-L1 + GELU, cap off | +0.0123 | +0.0251 | −0.0128 | 3 of 3 |
+| **softmax** + ours, cap on | +0.0389 | +0.0111 | **+0.0277** | 1 of 3 |
+| **softmax** + ours, cap off | +0.2628 | +0.1170 | **+0.1459** | 1 of 3 |
+| **softmax** + GELU, cap on | +0.1558 | +0.1078 | **+0.0480** | 1 of 3 |
+| **softmax** + GELU, cap off | +1.0784 | +1.0448 | **+0.0336** | 2 of 3 |
+
+**Every softmax arm is above its own mean at seed 0 (4 of 4), and every
+non-softmax arm is at or below it (5 of 5).** Averaged, seed 0 inflates the
+softmax arms by **+0.064** and deflates the others by **−0.007** — so it
+inflates the *gap between architectures* by about **0.071** while being a
+perfectly ordinary seed in aggregate.
+
+**Why this matters more than the usual "use three seeds" advice.** The standard
+argument for seeding is variance: a single seed gives a noisy estimate of the
+right quantity. This is worse than that. The seed interacts with the
+architecture, so a single-seed comparison gives a *biased* estimate whose
+direction depends on which architectures are being compared — and the bias here
+runs in the direction that flatters the conventional model, which is the
+direction every seed-0 headline tonight erred. It is not a coincidence that
+softmax-alone fell from 27% to 13%, and that the seed-0 three-way share of 71%
+is expected to be an overstatement of the single-factor terms.
+
+**Caveats on the diagnostic itself**: nine arms, not independent (they share the
+three seeds and the same data order), so this is a pattern worth acting on, not
+a test with a p-value. The actionable form is narrow and safe — **do not quote a
+cross-architecture difference from one seed in this programme**, and treat any
+already-quoted single-seed difference as an upper bound on the conventional
+model's advantage.
+
+**One live consequence, flagged now rather than after it corrects.** Two ticks
+ago I reported that our attention with a GELU gate and the cap on scores
++0.0596, "the highest of any non-softmax arm", and called it a second
+independent demonstration that the cap is load-bearing for our architecture.
+**That arm is still single-seed** — it is the one cell of the sixteen not yet
+finished — and every non-softmax arm that has been seeded came in *below* its
+seed-0 value. That claim should be expected to weaken, and I am recording the
+expectation before the data rather than after.
+
+The three-*way* decomposition needs that last arm; until it lands the 71%
+three-way figure stands as seed-0 only, and its two-way parent already moved by
+12 points when seeded.
 
 ## 2026-08-09 05:05 — FINDING 19 (THE SYMMETRIC CONTROL): the query/key cap is **not a shared handicap — it is load-bearing for the foldable family and a handicap for the conventional one**. Each family at its own better configuration, the foldability tax at depth 2 width 128 is **+0.2071 nats, 6.4× what was measured under the shared cap**. Both registered predictions hold
 
