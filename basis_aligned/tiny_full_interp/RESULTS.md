@@ -386,31 +386,54 @@ scheduled as part of the chain's third-seed stage — decides whether the
 one-octave framing clears the adopted bar. It does not affect the separation
 restatement that is now the headline, which needs no bar.
 
-**Update 02:20 — the matched-parameter arm's second seed independently
-reproduces the sub-bar result, so this is not an artefact of one arm.** Four of
-its nine cells now have two seeds:
+**Update 02:40 — both arms are now two-seed at 8 of 9 cells, and the result is
+sharper than "the matched arm was single-seed". The two cells that define the
+between-family qualitative difference are exactly the two cells where the
+conventional model's OWN induction is seed-unstable, in both arms.**
 
-| depth | width | matched arm, seed 0 | seed 1 | model-seed t |
-|---|---|---|---|---|
-| 1 | 128 | −0.0321 | −0.0324 | −241.91 (null, as designed) |
-| 2 | 64 | −0.0141 | −0.0122 | −14.09 (null) |
-| 2 | 128 | **+0.1558** | **+0.0660** | **2.47** |
-| 3 | 128 | **+0.4662** | **+0.5302** | 15.58 |
+| depth | width | family (3 seeds) | t | ×4 (2 seeds) | t | ×7 matched (2 seeds) | t | both arms agree on the 4.30 bar? |
+|---|---|---|---|---|---|---|---|---|
+| 1 | 64 | −0.0115 | −8.14 | −0.0219 | −7.13 | −0.0212 | −18.46 | below, both |
+| 1 | 128 | −0.0264 | −24.35 | −0.0349 | −34.23 | −0.0323 | −241.91 | below, both |
+| 1 | 256 | −0.0354 | −40.24 | −0.0447 | −80.30 | −0.0424 | −19.51 | below, both |
+| 2 | 64 | −0.0140 | −10.78 | −0.0153 | −22.84 | −0.0132 | −14.09 | below, both |
+| 2 | 128 | −0.0034 | −0.59 | **+0.1356** | **2.56** | **+0.1109** | **2.47** | **below, both** |
+| 2 | 256 | +0.0938 | 18.79 | +0.3283 | 12.80 | +0.3678 | 4.30 | above, both |
+| 3 | 64 | +0.0035 | 1.47 | **+0.1365** | **4.05** | **+0.0845** | **2.98** | **below, both** |
+| 3 | 128 | +0.1085 | 14.08 | +0.5871 | 16.57 | +0.4982 | 15.58 | above, both |
+| 3 | 256 | +0.2207 | 6.32 | +0.8197 | 25.15 | +0.7523 (1 seed) | — | — |
 
-The depth-2 width-128 cell gives **t = 2.47** here against **t = 2.56** at the
-other arm — two independent parameter allocations agreeing that this cell does
-not clear 4.30 on two seeds. Both arms also show the same seed-1 dip at that
-cell (+0.1887 → +0.0826 and +0.1558 → +0.0660, each roughly halving), which
-points at the model seed rather than the allocation as the source of the swing.
-Depth 3 width 128 sits at t = 15.58, far clear — the instability is specific to
-the cell nearest the qualitative boundary, not general.
+Three things follow, and the third is the one that matters.
 
-**The one thing this does not do is rescue the threshold framing**, and it is
-worth being explicit that a third seed could move it either way. What it does
-do is remove "the matched arm is single-seed" as a reason to doubt the
-sub-bar finding at depth 2. The matched arm's tax at depth 2 width 64 also
-moved with its second seed, from +0.0516 to **+0.0430**, consistent with the
-±0.02-nat seed spread already documented.
+1. **The two arms agree at 8 of 8 comparable cells** on which side of the 4.30
+   bar a cell falls. Two independent parameter allocations, same verdict
+   everywhere.
+2. **Both threshold cells are below the bar on both arms** — 2.56 / 2.47 at
+   depth 2 width 128 and 4.05 / 2.98 at depth 3 width 64. The review's central
+   objection is confirmed twice over, not once.
+3. **The instability is not general — it is exactly co-located with the
+   qualitative boundary.** Every cell away from the two threshold cells is
+   stable in both arms (|t| from 7.1 to 242). The two cells where our family is
+   null and the conventional model is not are the same two cells where the
+   conventional model's own score swings by roughly a factor of two between
+   seeds: +0.1887 → +0.0826 and +0.1558 → +0.0660 at depth 2 width 128,
+   +0.1128 → +0.0561 at depth 3 width 64 on the matched arm. That is what a
+   capability switching on looks like near its onset, and it is a reason to
+   distrust any threshold statement at those cells specifically — including
+   the one this finding originally led with.
+
+**The separation restatement is unaffected and gets firmer with more data.**
+Pooling all four conventional runs at each threshold cell (both arms, both
+seeds) against the family's three-seed upper bound: **8.9×** at depth 2 width
+128 and **10.4×** at depth 3 width 64. Pooling across arms is offered as a
+sensitivity check and **not** as the primary statistic — the two arms are
+different architectures (the matched arm has a 1.75× wider hidden layer), so
+treating them as exchangeable draws understates the variance. For the record it
+gives t = 4.21 and t = 4.71.
+
+The matched arm's tax at depth 2 width 64 also moved with its second seed, from
++0.0516 to **+0.0430**, consistent with the ±0.02-nat spread already
+documented.
 
 ---
 
