@@ -1114,6 +1114,40 @@ about shares — are unscoreable rather than passed or failed. Writing that guar
 in advance is what stops this cell from contributing three meaningless
 percentages to FINDING 21's trend.
 
+### 20:25 — FINAL fair depth-3, three seeds every arm, all six fold gates passing
+
+| depth 3 width 128 | mean of three seeds |
+|---|---|
+| predicate slot-22, cap ON | 4.42901 |
+| predicate slot-22, cap OFF | **4.41980** (4.41887, 4.42116, 4.41936) |
+| conventional matched, cap off | 4.29770 |
+| **symmetric tax, final** | **+0.1221** at 7.2% fewer parameters for us |
+
+**All six new checkpoints pass their gates**: fold identity true on every one,
+decomposition control true, layer-0 folded-versus-weight-pattern between
+8.2e-08 (cap on) and 3.8e-07 (cap off). These are the models the tax is quoted
+from, so unlike this afternoon's un-capped arms they are verified-foldable
+before the number is used, not after.
+
+**L3 holds: the cap helps this architecture at depth 3 too** — effect −0.0092
+at t = −4.08, alongside −0.0120 at t = −5.69 at depth 2. Two architectures,
+two depths, and "the cap is load-bearing for the foldable family" now rests on
+vanilla at a single cell.
+
+**The depth trend, both points matched on parameters:**
+
+| cell | our parameter disadvantage | symmetric tax |
+|---|---|---|
+| depth 2, width 128 | −7.0% | +0.0759 |
+| depth 3, width 128 | −7.2% | **+0.1221** |
+
+A third point is now training at depth 1 (`tf_symtax_d1.sh`, predictions in
+`tf_symtax_d1_predictions.json`). **Parameter fairness was checked before
+queueing it**, which is the direct lesson of the depth-3 mistake: sweeping slot
+48–64 shows the natural analogue, slot 64 with stream 128, gives our side only
+a 2.7% disadvantage where the other two depths carried 7%. Using it would have
+tilted the trend in our favour by construction. Slot 61 is used instead.
+
 ### 19:45 — the FAIR depth-3 comparison: **L1 holds, L2 is refuted, and the tax GROWS with depth**
 
 With the slot pinning retuned per depth (slot 22, stream 132), our side now

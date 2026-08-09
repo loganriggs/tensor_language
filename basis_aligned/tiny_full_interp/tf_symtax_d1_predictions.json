@@ -1,0 +1,32 @@
+{
+  "registered": "2026-08-09 20:30 UTC, BEFORE any cell of this run was trained",
+  "question": "Does the foldability tax GROW WITH DEPTH? Two matched-parameter points exist: +0.0759 at depth 2 width 128 (-7.0% parameters for us) and +0.1221 at depth 3 width 128 (-7.2%). Two points is not a trend. Depth 1 width 128 gives a third.",
+  "parameter_fairness_checked_first": {
+    "conventional_matched_arm_at_this_cell": 1343616,
+    "chosen": "predicate slot 61, stream 122",
+    "note": "swept slot 48-64. slot 61 lands closest to the -7% disadvantage our side carried at the other two depths, which is what makes the three points comparable. slot 64 (stream 128, the natural analogue of the plain model's embedding) is only -2.7% and would give our side a smaller handicap than at depths 2 and 3 -- using it would tilt the trend in our favour by construction.",
+    "why_this_check_is_first": "at depth 3 a reused slot value silently gave our side 34.7% MORE parameters and produced an apparent win of -0.0370 that had to be discarded. Parameter counts are now checked before any cell is queued."
+  },
+  "design": "predicate variant, slot 61, depth 1 width 128, three seeds, cap ON and OFF (6 cells); plus the conventional matched arm without the cap at this cell, which does not exist yet, three seeds (3 cells). 9 cells.",
+  "predictions": {
+    "M1_the_tax_is_smallest_at_depth_1": {
+      "claim": "The symmetric tax at depth 1 is below the +0.0759 measured at depth 2.",
+      "reason": "the two existing points rise with depth (+0.0759 then +0.1221); if that is a real trend rather than two-point noise, depth 1 should sit below both.",
+      "confidence": "0.65"
+    },
+    "M2_it_is_still_positive": {
+      "claim": "The tax at depth 1 is positive -- the conventional model still wins.",
+      "reason": "every honest matched-parameter comparison in this programme has favoured the conventional model. Note the counter-consideration: at depth 1 NOTHING inducts in either family, so the conventional model cannot be drawing on the softmax-plus-uncapped-range pair that FINDING 21 identifies as its edge, and the gap may close.",
+      "confidence": "0.6"
+    },
+    "M3_the_cap_helps_this_architecture_a_third_time": {
+      "claim": "Removing the cap helps the predicate arm at depth 1, as it did at depth 2 (-0.0120, t = -5.69) and depth 3 (-0.0092, t = -4.08).",
+      "confidence": "0.7",
+      "note": "a third confirmation would make it three depths and leave 'the cap is load-bearing for the foldable family' resting on exactly one architecture at one cell"
+    }
+  },
+  "what_this_cannot_settle": [
+    "Three depths at one width, one corpus, one optimiser. A monotone trend over three points is suggestive, not a scaling law.",
+    "The predicate arm buys its induction by hand-installation, so all of this is about LOSS."
+  ]
+}
