@@ -1114,6 +1114,44 @@ about shares — are unscoreable rather than passed or failed. Writing that guar
 in advance is what stops this cell from contributing three meaningless
 percentages to FINDING 21's trend.
 
+### 18:35 — the analysis pass FAILED on all six cap-off arms, and **the positive control is why**. A fourth file hardcodes the query/key norm
+
+The ladder ran on 10 arms: **4 passed, 6 failed — and the 6 are exactly the
+cap-off ones.** The failure is not a crash; it is an assertion in the
+decomposition control:
+
+| decomposition control, cap-off arm | value |
+|---|---|
+| fold identity gate | **True** — passes |
+| MLP tensor versus factored | 1.57e-07 — fine |
+| residual additivity | 0.0 — fine |
+| length-1 table | 0.047 |
+| pipeline | 0.607 |
+| **layer-0 folded versus weight pattern** | **0.988** — total disagreement |
+
+**The diagnosis.** `tf_interp3.py` applies `F.rms_norm(..., (head_dim,))` in its
+own reconstruction paths at four sites (lines 155, 346, 348, 368) with no check
+on `cfg.qk_norm`. So on a cap-off model the analysis normalises the query and
+key while the model does not, and its independently-reconstructed layer-0
+pattern disagrees with the model's by 99%. This is the **same defect the build
+agent found and fixed at three sites in `tf_model.py` this afternoon**, living
+in a fourth file that was not in that task's scope.
+
+**The control did exactly what it exists for.** The fold gate passed — the fold
+is fine — and it would have been easy for the ladder to emit a full set of
+plausible numbers for these six arms. Instead the decomposition control refused,
+loudly, with a number that names the broken component. Every induction score,
+head ablation and rung-5 remainder that would have come out of those runs would
+have been computed against a wrongly-normalised reconstruction.
+
+**What this does and does not block.** It does not touch any published number:
+all 122 existing ladders are cap-ON models, where the analysis and the model
+agree. It blocks prediction K4 — whether the predicate arm's hand-installed
+induction (+2.4893 with the cap on) survives removing the cap — which needs
+precisely these six analyses. Queued as build work with the same discipline as
+the last patch: make the four sites conditional, and prove the default path is
+bit-identical before trusting anything downstream.
+
 ### 17:45 — a depth-3 result that looks like a WIN for us, and **is not fair.** K3 is unscoreable at this cell
 
 The depth-3 cap-on arm reached three seeds and the arithmetic says the foldable
