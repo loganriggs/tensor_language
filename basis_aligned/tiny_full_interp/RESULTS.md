@@ -358,6 +358,35 @@ review.)
 | 3 | 128 | +0.1085 | 14.08 | +0.6151 | 17.75 | yes | 14.27 | 4.7× |
 | 3 | 256 | +0.2207 | 6.32 | +0.7826 | 18.82 | yes | 10.34 | 2.4× |
 
+**The matched-parameter arm reaches three seeds too, and agrees at 7 of 7
+comparable cells** (04:30; depth 3 widths 64 and 256 still finishing):
+
+| depth | width | matched arm, 3 seeds | mean | t | clears 4.30? | Welch | primary arm's verdict | agree? |
+|---|---|---|---|---|---|---|---|---|
+| 1 | 64 | −0.0223, −0.0200, −0.0202 | −0.0208 | −28.25 | no | −5.84 | no | ✓ |
+| 1 | 128 | −0.0321, −0.0324, −0.0290 | −0.0312 | −28.72 | no | −3.12 | no | ✓ |
+| 1 | 256 | −0.0446, −0.0402, −0.0428 | −0.0425 | −33.68 | no | −4.60 | no | ✓ |
+| 2 | 64 | −0.0141, −0.0122, −0.0147 | −0.0137 | −18.38 | no | 0.21 | no | ✓ |
+| 2 | 128 | +0.1558, +0.0660, +0.1016 | **+0.1078** | **4.13** | **no** | 4.16 | no | ✓ |
+| 2 | 256 | +0.4534, +0.2823, +0.3868 | +0.3741 | 7.52 | yes | 5.60 | yes | ✓ |
+| 3 | 128 | +0.4662, +0.5302, +0.6134 | +0.5366 | 12.60 | yes | 9.89 | yes | ✓ |
+
+Two structurally different allocations — one matching hidden width, one
+matching parameter count with a 1.75× wider hidden layer — reach the same
+verdict at every cell they can both be scored on. **One honest nuance at the
+contested cell**: the matched arm gets t = 4.13 and Welch 4.16 there, close to
+the 4.30 bar rather than far from it, against the primary arm's 2.50 and 2.55.
+"Not established" remains the right call at both, but the depth-2 result is
+marginal rather than absent, and a fourth seed could plausibly tip the matched
+arm over. That is worth saying rather than hiding behind a binary.
+
+**Matched-arm tax at three seeds** (family three-seed mean minus matched
+three-seed mean): +0.0696, +0.0734, +0.0834 at depth 1; +0.0384, +0.0939,
++0.1172 at depth 2; +0.1033 at depth 3 width 128. Positive at 7 of 7, still
+monotone in width at both complete depths. This **revises the range from the
+0.052–0.125 quoted earlier to 0.038–0.117** — the earlier figure came from a
+single seed on the conventional side.
+
 **Complete: 9 of 9 cells, three seeds on both sides.** The held cross-entropy
 tax on this arm, also now three-seed on both sides, is +0.0340, +0.0283,
 +0.0392, −0.0105, +0.0326, +0.0612, +0.0169, +0.0553, +0.0575 reading down —
