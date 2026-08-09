@@ -379,13 +379,38 @@ Worth recording, because it is the part that took the attack:
 
 ### The open objection, and what settles it
 
-The matched-parameter arm is single-seed, and the two threshold cells sit at
-model-seed t of 2.56 and 4.05 against an adopted bar of 4.30. Running the ×4
-arm's **third seed at depth 2 width 128 and depth 3 width 64 only** — about
-twelve minutes on this card at the observed chain rate, and already scheduled
-as part of the chain's third-seed stage — decides whether the one-octave
-framing clears the adopted bar. It does not affect the separation restatement
-that is now the headline, which needs no bar.
+The two threshold cells sit at model-seed t of 2.56 and 4.05 against an adopted
+bar of 4.30. Running the **third seed at depth 2 width 128 and depth 3 width 64**
+— about twelve minutes on this card at the observed chain rate, and already
+scheduled as part of the chain's third-seed stage — decides whether the
+one-octave framing clears the adopted bar. It does not affect the separation
+restatement that is now the headline, which needs no bar.
+
+**Update 02:20 — the matched-parameter arm's second seed independently
+reproduces the sub-bar result, so this is not an artefact of one arm.** Four of
+its nine cells now have two seeds:
+
+| depth | width | matched arm, seed 0 | seed 1 | model-seed t |
+|---|---|---|---|---|
+| 1 | 128 | −0.0321 | −0.0324 | −241.91 (null, as designed) |
+| 2 | 64 | −0.0141 | −0.0122 | −14.09 (null) |
+| 2 | 128 | **+0.1558** | **+0.0660** | **2.47** |
+| 3 | 128 | **+0.4662** | **+0.5302** | 15.58 |
+
+The depth-2 width-128 cell gives **t = 2.47** here against **t = 2.56** at the
+other arm — two independent parameter allocations agreeing that this cell does
+not clear 4.30 on two seeds. Both arms also show the same seed-1 dip at that
+cell (+0.1887 → +0.0826 and +0.1558 → +0.0660, each roughly halving), which
+points at the model seed rather than the allocation as the source of the swing.
+Depth 3 width 128 sits at t = 15.58, far clear — the instability is specific to
+the cell nearest the qualitative boundary, not general.
+
+**The one thing this does not do is rescue the threshold framing**, and it is
+worth being explicit that a third seed could move it either way. What it does
+do is remove "the matched arm is single-seed" as a reason to doubt the
+sub-bar finding at depth 2. The matched arm's tax at depth 2 width 64 also
+moved with its second seed, from +0.0516 to **+0.0430**, consistent with the
+±0.02-nat seed spread already documented.
 
 ---
 
