@@ -1148,9 +1148,18 @@ have been computed against a wrongly-normalised reconstruction.
 all 122 existing ladders are cap-ON models, where the analysis and the model
 agree. It blocks prediction K4 — whether the predicate arm's hand-installed
 induction (+2.4893 with the cap on) survives removing the cap — which needs
-precisely these six analyses. Queued as build work with the same discipline as
-the last patch: make the four sites conditional, and prove the default path is
-bit-identical before trusting anything downstream.
+precisely these six analyses. **Dispatched as build work at 18:55** with the
+same discipline as the last patch: make the four sites conditional, prove the
+default path still reproduces the 122 existing ladders key by key, and sweep
+the whole directory for the same defect in other files.
+
+**Correction to the wording above as first written.** This entry originally
+said the fix was "queued" at 18:35. It was not — it had only been decided, and
+nothing was dispatched until 18:55. An intention written as a state is the same
+category of error as reporting from an in-flight artifact, which is already a
+standing failure mode here, and it matters most in a file whose purpose is to
+be trustworthy about what has and has not been done. Caught by checking the
+running-agent list against what this file claimed.
 
 ### 17:45 — a depth-3 result that looks like a WIN for us, and **is not fair.** K3 is unscoreable at this cell
 
