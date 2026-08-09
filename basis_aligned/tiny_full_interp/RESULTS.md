@@ -1114,6 +1114,49 @@ about shares — are unscoreable rather than passed or failed. Writing that guar
 in advance is what stops this cell from contributing three meaningless
 percentages to FINDING 21's trend.
 
+### 21:10 — THE DEPTH TREND CROSSES ZERO: at depth 1 the foldable arm **beats** the un-handicapped conventional model by 0.082 nats at 7.3% fewer parameters
+
+| depth (width 128, ours ~7% smaller each time) | symmetric tax |
+|---|---|
+| **depth 1** | **−0.0818** — ours wins |
+| depth 2 | +0.0759 |
+| depth 3 | +0.1221 |
+
+M1 holds (below depth 2's figure). **M2 is refuted** — I predicted the tax would
+stay positive, and registered the counter-consideration that at depth 1 nothing
+inducts in either family so the conventional model cannot draw on the
+softmax-plus-uncapped-range pair that FINDING 21 identifies as its edge. The gap
+did not merely close; it reversed.
+
+**This is the first result today that favours us, so it got the scrutiny that
+implies** — and the scrutiny is why it is reportable:
+
+1. **Parameters**: ours 1,245,645 against 1,343,616, **7.3% fewer** — checked
+   before the run was queued, not after.
+2. **Neither side is broken**: no divergence, zero loss spikes, all six runs
+   full length.
+3. **The gap is 41× the larger per-seed standard deviation** (ours 0.00201,
+   theirs 0.00192, gap 0.0818). This is not a seed effect.
+4. **The number quoted is the conservative one.** It uses our cap-ON arm at
+   three seeds; the cap-OFF arm's first seed is *better* (4.58650), which would
+   widen the win to −0.092. That is left out until it has three seeds.
+
+**The two lines of evidence now agree mechanistically.** FINDING 21 says the
+conventional model's edge is softmax *with* an uncapped logit range, and that
+the pair only pays where copying is possible. Depth 1 is where copying is
+impossible by construction. So the prediction that our arm should be
+*relatively strongest* there is one the factorial already implied, and it is
+what the trend shows: ours wins at depth 1, loses by 0.076 at depth 2, loses by
+0.122 at depth 3.
+
+**The caveat that keeps this honest.** The predicate variant's named terms are a
+signed positional profile plus match terms. At depth 1 the match terms cannot
+drive copying, so the win is most likely bought by the **hand-installed
+positional prior** — structure we wrote down, not structure the model
+discovered. "A foldable architecture beats a conventional transformer at depth
+1" is true and is a statement about **loss with hand-installed priors**, which
+is a weaker and more specific claim than it sounds.
+
 ### 20:50 — the cap's cost SPLITS IN TWO, and only about half of it is about copying
 
 The depth-1 conventional cap-off arm completed, which adds a second cell where
