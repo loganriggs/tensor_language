@@ -108,6 +108,14 @@ class TFConfig:
                                     # (comparison arm, 13-20% UNK)
     seed: int = 0
     variant: str = 'vanilla'
+    qk_norm: bool = True            # per-head query/key RMSNorm -- "the cap".
+                                    # False = the un-capped arm, matching
+                                    # tf_baseline_std's --no-qk-norm and
+                                    # tf_factorial's FacConfig.qk_norm, so a
+                                    # (bilin, bilin) factorial checkpoint
+                                    # transplants into TinyBilin either way.
+                                    # NOT in stem(): use --suffix, as the
+                                    # factorial arms do.
     head_dim: int = HEAD_DIM
     exp: int = EXP
     T: int = 512
@@ -553,7 +561,9 @@ class TinyBilin(nn.Module):
 
             def qk(lin):
                 z = lin(hn).view(B, Tq, H, hd)
-                return apply_rot(F.rms_norm(z, (hd,)), cos, sin)
+                if cfg.qk_norm:
+                    z = F.rms_norm(z, (hd,))
+                return apply_rot(z, cos, sin)
 
             q, k = qk(blk.c_q), qk(blk.c_k)
             q2, k2 = qk(blk.c_q2), qk(blk.c_k2)
@@ -614,6 +624,7 @@ class TinyBilin(nn.Module):
 
         Returns
           'Q1','K1','Q2','K2' : (H, V, hd) factors, Q = rms_norm_hd(W_q Ehn)
+                                (plain W_q Ehn when cfg.qk_norm is False)
           'Vv'                : (H, V, hd) the layer-0 value table
           'tables'            : {delta: {'s1': (H,V,V), 's2': (H,V,V)}} when
                                 materialize; s1[h,t,u] is the EXACT branch-1
@@ -636,7 +647,7 @@ class TinyBilin(nn.Module):
 
         def proj(lin, norm=True):
             z = (Ehn @ lin.weight.detach().to(dtype).to(dev).t()).view(V, H, hd)
-            if norm:
+            if norm and cfg.qk_norm:
                 z = F.rms_norm(z, (hd,))
             return z.permute(1, 0, 2).contiguous()
 
@@ -746,7 +757,9 @@ class TinyBilin(nn.Module):
             else:
                 def qkf(lin):
                     z = (hn @ lin.weight.detach().to(dt).t()).view(B, Tq, H, hd)
-                    return apply_rot(F.rms_norm(z, (hd,)), cos, sin)
+                    if cfg.qk_norm:
+                        z = F.rms_norm(z, (hd,))
+                    return apply_rot(z, cos, sin)
 
                 q, k = qkf(blk.c_q), qkf(blk.c_k)
                 q2, k2 = qkf(blk.c_q2), qkf(blk.c_k2)

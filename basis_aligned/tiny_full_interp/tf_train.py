@@ -436,7 +436,7 @@ def lr_sweep(cfg, corpus, jp):
 
 def run_cell(variant='vanilla', depth=1, width=32, seed=0, vocab=8192,
              tok='bpe', do_sweep=True, slot=0, suffix='', n_slots=0,
-             group_coeff=None, lr=None):
+             group_coeff=None, lr=None, qk_norm=True):
     """`slot` and `suffix` exist for MATCHED-PARAMETER CONTROLS only.
 
     solve_slot reinvests a small decoder's savings into a WIDER STREAM, and the
@@ -449,7 +449,8 @@ def run_cell(variant='vanilla', depth=1, width=32, seed=0, vocab=8192,
     nothing downstream has to parse it back out of the stem."""
     kw = {} if group_coeff is None else {'group_coeff': group_coeff}
     cfg = M.TFConfig(depth=depth, width=width, vocab=vocab, tok=tok, seed=seed,
-                     variant=variant, T=T, slot=slot, n_slots=n_slots, **kw)
+                     variant=variant, T=T, slot=slot, n_slots=n_slots,
+                     qk_norm=qk_norm, **kw)
     if cfg.small_dec and not cfg.slot:
         cfg.slot = M.solve_slot(cfg)[0]
     stem = cfg.stem() + suffix
@@ -535,10 +536,18 @@ if __name__ == '__main__':
                     help='override the in-loss group lasso coefficient')
     ap.add_argument('--lr', type=float, default=None,
                     help='force the Muon lr (learning-rate robustness arms)')
+    ap.add_argument('--no-qk-norm', action='store_true',
+                    help='drop the per-head query/key RMSNorm (the CAP).  Same '
+                         'flag as tf_baseline_std.py and tf_factorial.py, so '
+                         'the three families can be compared symmetrically.  '
+                         'qk_norm is NOT in the checkpoint stem -- pass '
+                         '--suffix _noqknorm (or similar) or you will overwrite '
+                         'the capped cell.')
     a = ap.parse_args()
     if a.cmd == 'baselines':
         baselines(a.vocab, a.tok)
     else:
         run_cell(a.variant, a.depth, a.width, a.seed, a.vocab, a.tok,
                  do_sweep=not a.no_sweep, slot=a.slot, suffix=a.suffix,
-                 n_slots=a.n_slots, group_coeff=a.group_coeff, lr=a.lr)
+                 n_slots=a.n_slots, group_coeff=a.group_coeff, lr=a.lr,
+                 qk_norm=not a.no_qk_norm)

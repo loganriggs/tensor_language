@@ -1,0 +1,97 @@
+{
+  "task": "TASK 1 -- --no-qk-norm flag for tf_train.py/tf_model.py",
+  "claim": "the default (qk_norm=True) path is unchanged; the new qk_norm=False path runs and is not a no-op",
+  "A_bitwise_vs_preedit_module": {
+    "preedit_source": "/tmp/claude-0/-workspace-tensor-language/a6c5fb86-7bce-48e6-bb32-8679e85cbf66/scratchpad/tf_model_preedit_from_git.py",
+    "preedit_provenance": "git HEAD",
+    "available": true,
+    "old_has_qk_norm_field": false,
+    "new_has_qk_norm_field": true,
+    "new_default_qk_norm": true,
+    "fp32_param_max_abs_diff": 0.0,
+    "fp32_forward_max_abs_diff": 0.0,
+    "fp32_forward_bitwise_equal": true,
+    "fp32_fold_forward_max_abs_diff": 0.0,
+    "fp32_fold_forward_bitwise_equal": true,
+    "fp64_param_max_abs_diff": 0.0,
+    "fp64_forward_max_abs_diff": 0.0,
+    "fp64_forward_bitwise_equal": true,
+    "fp64_fold_forward_max_abs_diff": 0.0,
+    "fp64_fold_forward_bitwise_equal": true,
+    "pass": true
+  },
+  "B_trained_checkpoint_reproduction": {
+    "stem": "tf_vanilla_d2_w128_b8192_s0",
+    "tol": 0.0001,
+    "stored_run_final_held_ce": 4.65117,
+    "reproduced_held_ce": 4.65117,
+    "abs_diff": 2.8284708619708e-07,
+    "device": "cuda",
+    "eval_labels": {
+      "split": "held",
+      "rows": "[0:1500]",
+      "context_len": 512,
+      "target_tokens": 768000,
+      "autocast": "bfloat16 on cuda",
+      "note": "same function, split, rows, context and autocast the stored number was produced under"
+    },
+    "cfg_qk_norm_after_load": true,
+    "pass": true
+  },
+  "C_qk_norm_false_smoke": {
+    "vocab": 64,
+    "width": 32,
+    "depth": 2,
+    "steps": 8,
+    "device": "cpu",
+    "note_writes_randomised": "c_proj / Down / Down_bias randomised before the comparison; they are zero at init, which would make any cap-on/cap-off diff vacuously 0",
+    "cap_off_vs_cap_on_max_logit_diff": 0.03338867425918579,
+    "flag_is_not_a_noop": true,
+    "loss_curve_step_loss_gradnorm": [
+      [
+        0,
+        4.16826,
+        0.71882
+      ],
+      [
+        1,
+        4.16892,
+        0.72737
+      ],
+      [
+        2,
+        4.17339,
+        0.7303
+      ],
+      [
+        3,
+        4.15259,
+        0.70198
+      ],
+      [
+        4,
+        4.14534,
+        0.7118
+      ],
+      [
+        5,
+        4.16428,
+        0.70125
+      ],
+      [
+        6,
+        4.16701,
+        0.69301
+      ],
+      [
+        7,
+        4.17489,
+        0.7382
+      ]
+    ],
+    "all_finite": true,
+    "fold_Q1_equals_raw_projection_when_cap_off": 0.0,
+    "pass": true
+  },
+  "all_pass": true
+}
