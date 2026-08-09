@@ -1114,6 +1114,40 @@ about shares — are unscoreable rather than passed or failed. Writing that guar
 in advance is what stops this cell from contributing three meaningless
 percentages to FINDING 21's trend.
 
+### 15:25 — an interpretation-coverage audit, and one genuine gap: **the un-capped foldable arms have never had a fold gate**
+
+Checked what the interpretation ladder actually covers after today's work.
+**122 checkpoints carry a full ladder including rung 5** — every family cell,
+every architecture variant, every seed. The ~90 factorial arms carry only the
+induction probe, which is correct for most of them: arms built on softmax or a
+GELU gate are *not* foldable, so a fold gate is not defined for them. They are
+comparison objects, not interpretation targets.
+
+**The exception is real.** `tff_bilin_bilin_*_noqknorm` — our own architecture
+with the query/key cap removed — is fully foldable in principle, exists at four
+cells × three seeds = **12 checkpoints**, and has **no fold-gate verification
+at all**. Every statement made about those arms today, including the FINDING 19
+cap-effect measurements and all four cap-off baselines in FINDING 21, rests on
+checkpoints whose exact foldability was never checked.
+
+**Why this is not a formality, and why it may cut in our favour.** The standard
+fold gate cannot simply be run on these: `tf_model.TinyBilin` hardcodes the
+query/key norm, so transplanting a no-cap checkpoint into it would fail for the
+wrong reason. But there is a substantive argument that these models are **more**
+exactly foldable than the capped ones: per-head query/key RMSNorm is a
+*data-dependent* rescaling of q and k at every position, which is precisely the
+kind of thing the fold has to absorb. Remove it and `q·k` is purely bilinear in
+the normed stream. If that is right, the un-capped arms should pass a fold gate
+at least as tightly as the capped ones — and the capped ones are what the whole
+programme's foldability claims rest on.
+
+**Recorded as an open item, not silently assumed.** The work is a fold path for
+`FacTransformer` at `qk_norm=False` plus the usual fp64 identity gate — modest,
+and cheap to run on 12 small checkpoints. Until it exists, the honest status of
+the cap-off foldable arms is *"trained and behaviourally measured, exact
+foldability unverified"*, and that phrase belongs on FINDING 19 and FINDING 21
+wherever those arms are quoted.
+
 ### 15:05 — THE COMPLETE FOUR-CELL PICTURE, and the cell-factorial **cannot be completed as designed** — its fourth corner is below the floor
 
 All four cells now have the full 2×2×2 at three seeds per corner:
