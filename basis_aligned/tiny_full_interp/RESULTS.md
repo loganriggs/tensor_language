@@ -766,9 +766,60 @@ finished — and every non-softmax arm that has been seeded came in *below* its
 seed-0 value. That claim should be expected to weaken, and I am recording the
 expectation before the data rather than after.
 
-The three-*way* decomposition needs that last arm; until it lands the 71%
-three-way figure stands as seed-0 only, and its two-way parent already moved by
-12 points when seeded.
+### 07:45 — MY PREDICTION WAS BACKWARDS, and it was backwards *against my own diagnostic*
+
+The flagged arm finished: our attention + GELU + cap on scores **+0.0596,
++0.0982, +0.1388 → mean +0.0989**. I predicted one tick ago that it would
+weaken. It **strengthened by 66%**, and it remains well above the family's own
+−0.0034.
+
+The error is worth spelling out because it was not bad luck. My own diagnostic,
+written in the paragraph immediately above, says *"every non-softmax arm is at
+or below its own mean at seed 0."* If seed 0 is **below** the mean for
+non-softmax arms, then adding seeds must move a non-softmax arm **up**. I then
+predicted this non-softmax arm would come in *below* its seed-0 value — the
+exact opposite of what my own stated pattern implies. Checking the five earlier
+non-softmax arms confirms the diagnostic and refutes the prediction: every one
+of them has a three-seed mean at or above its seed-0 value (−0.0138→−0.0034,
+−0.0271→−0.0236, −0.0141→−0.0078, +0.0123→+0.0251, and −0.0264→−0.0266 flat).
+
+So the methodological finding stands unchanged and is now 6 of 6 on the
+non-softmax side; the prediction I drew from it was simply reasoned backwards.
+Recording it because "I predicted a correction and the opposite happened" is
+worth exactly as much as the hits, and because the underlying diagnostic is now
+better supported than when I stated it.
+
+### 07:45 — THE FULL THREE-WAY DECOMPOSITION AT THREE SEEDS: the conjunction is **89%**, stronger than the single seed said
+
+All eight corners of the 2×2×2 now have three seeds. The seven terms sum
+exactly to the total move of +1.0482:
+
+| term | value | share | seed-0 said |
+|---|---|---|---|
+| softmax alone | +0.0145 | **1.4%** | 4.8% |
+| GELU alone | +0.1022 | 9.8% | 6.7% |
+| cap removal alone | −0.0233 | −2.2% | −1.2% |
+| softmax × GELU | −0.0056 | −0.5% | 4.0% |
+| softmax × cap | +0.1291 | 12.3% | 21.7% |
+| GELU × cap | −0.0992 | −9.5% | −6.8% |
+| **softmax × GELU × cap** | **+0.9305** | **88.8%** | 70.8% |
+
+> **89% of the copying capability requires softmax, a gated nonlinearity, and
+> an uncapped attention logit range, all three at once. The three single-factor
+> effects together account for 8.9%, and softmax alone for 1.4%.**
+
+Seeding moved the conjunction share *up* by 18 points, in the same direction as
+the two-way parent (74% → 86%). That is the third time tonight that adding
+seeds strengthened the interaction story and weakened every partial account of
+it, which is itself the signature the conjunction hypothesis predicts: partial
+configurations sit at the edge of having the capability, so their single-seed
+estimates are both noisy and biased upward by the seed-architecture interaction
+documented above.
+
+**This is the programme's answer to "why can't the foldable family copy?"** Not
+a missing softmax, not a missing gate, not a self-imposed cap — a missing
+*conjunction* of all three, worth 89% of the capability, with each ingredient
+worth almost nothing alone.
 
 ## 2026-08-09 05:05 — FINDING 19 (THE SYMMETRIC CONTROL): the query/key cap is **not a shared handicap — it is load-bearing for the foldable family and a handicap for the conventional one**. Each family at its own better configuration, the foldability tax at depth 2 width 128 is **+0.2071 nats, 6.4× what was measured under the shared cap**. Both registered predictions hold
 
