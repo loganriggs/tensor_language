@@ -141,42 +141,46 @@
         "x4": {
           "expansion": 4,
           "label": "nominal 4x (conventional model is the SMALLER one)",
-          "n_seeds": 2,
-          "held_ce": 5.113754999999999,
-          "held_ce_sd": 0.0020718228688766547,
+          "n_seeds": 3,
+          "held_ce": 5.113913333333333,
+          "held_ce_sd": 0.0014904473601350535,
           "per_seed": {
             "0": 5.11229,
-            "1": 5.11522
+            "1": 5.11522,
+            "2": 5.11423
           },
           "n_params": 573504,
           "body_params": 49216,
           "param_matched": false,
-          "induction": -0.021943219502766988,
-          "induction_sd": 0.004351592800599287,
+          "induction": -0.02124748936405882,
+          "induction_sd": 0.0033045879060534067,
           "induction_per_seed": [
             -0.018866178724500672,
-            -0.025020260281033303
+            -0.025020260281033303,
+            -0.01985602908664248
           ],
-          "induction_model_seed_t": -7.131273546244769,
-          "induction_n_seeds": 2,
-          "bag": 0.05429020987616671,
-          "natural_swap": 0.04309689765977964,
-          "probe_floor": 0.010047499538480649,
+          "induction_model_seed_t": -11.136556859151817,
+          "induction_n_seeds": 3,
+          "bag": 0.05449197557237421,
+          "natural_swap": 0.04237540393417779,
+          "probe_floor": 0.010450150368959202,
           "seeds_clearing_own_probe_floor": 0,
-          "gap_nats": 0.034125000000000405,
+          "gap_nats": 0.033966666666667145,
           "gap_paired_by_seed": {
             "seeds": [
               0,
-              1
+              1,
+              2
             ],
             "per_seed": [
               0.0301499999999999,
-              0.03247
+              0.03247,
+              0.03927999999999976
             ],
-            "mean": 0.03130999999999995,
-            "t": 26.99137931034362
+            "mean": 0.033966666666666555,
+            "t": 12.397575340753212
           },
-          "gap_welch_t": 9.703642170127498,
+          "gap_welch_t": 10.259268460637815,
           "param_ratio_std_over_family": 0.9589085072231139,
           "provisional": false
         },
@@ -228,13 +232,13 @@
           "family_mean": -0.011525902924714634,
           "family_model_seed_t": -8.137931053407415,
           "family_inducts": false,
-          "conventional_mean": -0.021943219502766988,
-          "conventional_model_seed_t": -7.131273546244769,
+          "conventional_mean": -0.02124748936405882,
+          "conventional_model_seed_t": -11.136556859151817,
           "conventional_inducts": false,
-          "welch_t_conventional_minus_family": -3.075359020368665,
+          "welch_t_conventional_minus_family": -4.0913294006932315,
           "n_seeds": [
             3,
-            2
+            3
           ]
         },
         "x7": {
@@ -282,42 +286,46 @@
         "x4": {
           "expansion": 4,
           "label": "nominal 4x (conventional model is the SMALLER one)",
-          "n_seeds": 2,
-          "held_ce": 4.79389,
-          "held_ce_sd": 0.0009333809511660771,
+          "n_seeds": 3,
+          "held_ce": 4.794276666666667,
+          "held_ce_sd": 0.0009402836451480339,
           "per_seed": {
             "0": 4.79455,
-            "1": 4.79323
+            "1": 4.79323,
+            "2": 4.79505
           },
           "n_params": 1245312,
           "body_params": 196736,
           "param_matched": false,
-          "induction": -0.03485923343234561,
-          "induction_sd": 0.0014402608392468318,
+          "induction": -0.034431612933123294,
+          "induction_sd": 0.0012592670553140891,
           "induction_per_seed": [
             -0.03384081522623674,
-            -0.035877651638454466
+            -0.035877651638454466,
+            -0.03357637193467866
           ],
-          "induction_model_seed_t": -34.22880033295415,
-          "induction_n_seeds": 2,
-          "bag": 0.09562721252441353,
-          "natural_swap": 0.07195066574013254,
-          "probe_floor": 0.012066404373651272,
+          "induction_model_seed_t": -47.35874152749937,
+          "induction_n_seeds": 3,
+          "bag": 0.09629728529188325,
+          "natural_swap": 0.06988969406605368,
+          "probe_floor": 0.012675861761128138,
           "seeds_clearing_own_probe_floor": 0,
-          "gap_nats": 0.028663333333332375,
+          "gap_nats": 0.02827666666666584,
           "gap_paired_by_seed": {
             "seeds": [
               0,
-              1
+              1,
+              2
             ],
             "per_seed": [
               0.024849999999999817,
-              0.03200999999999965
+              0.03200999999999965,
+              0.02796999999999983
             ],
-            "mean": 0.028429999999999733,
-            "t": 7.941340782123016
+            "mean": 0.028276666666666433,
+            "t": 13.643130984948876
           },
-          "gap_welch_t": 15.702276203755503,
+          "gap_welch_t": 15.828696507931754,
           "param_ratio_std_over_family": 0.9268362389254072,
           "provisional": false
         },
@@ -369,13 +377,13 @@
           "family_mean": -0.026406563652886322,
           "family_model_seed_t": -24.351764683886493,
           "family_inducts": false,
-          "conventional_mean": -0.03485923343234561,
-          "conventional_model_seed_t": -34.22880033295415,
+          "conventional_mean": -0.034431612933123294,
+          "conventional_model_seed_t": -47.35874152749937,
           "conventional_inducts": false,
-          "welch_t_conventional_minus_family": -5.681954650601156,
+          "welch_t_conventional_minus_family": -6.146866236374944,
           "n_seeds": [
             3,
-            2
+            3
           ]
         },
         "x7": {
@@ -423,42 +431,46 @@
         "x4": {
           "expansion": 4,
           "label": "nominal 4x (conventional model is the SMALLER one)",
-          "n_seeds": 2,
-          "held_ce": 4.519865,
-          "held_ce_sd": 0.0012232947314528909,
+          "n_seeds": 3,
+          "held_ce": 4.519946666666667,
+          "held_ce_sd": 0.0008764892089087402,
           "per_seed": {
             "0": 4.52073,
-            "1": 4.519
+            "1": 4.519,
+            "2": 4.52011
           },
           "n_params": 2883840,
           "body_params": 786688,
           "param_matched": false,
-          "induction": -0.0447430398729118,
-          "induction_sd": 0.0007880149436247917,
+          "induction": -0.04301290865297697,
+          "induction_sd": 0.003048039679903705,
           "induction_per_seed": [
             -0.04530025058322522,
-            -0.04418582916259837
+            -0.04418582916259837,
+            -0.03955264621310732
           ],
-          "induction_model_seed_t": -80.29824094325882,
-          "induction_n_seeds": 2,
-          "bag": 0.14997308519151548,
-          "natural_swap": 0.10818476730082693,
-          "probe_floor": 0.01151571555737576,
+          "induction_model_seed_t": -24.44211722684291,
+          "induction_n_seeds": 3,
+          "bag": 0.1464264693083591,
+          "natural_swap": 0.11254344197489748,
+          "probe_floor": 0.010717041926420498,
           "seeds_clearing_own_probe_floor": 0,
-          "gap_nats": 0.03927166666666615,
+          "gap_nats": 0.039189999999999614,
           "gap_paired_by_seed": {
             "seeds": [
               0,
-              1
+              1,
+              2
             ],
             "per_seed": [
               0.037519999999999776,
-              0.04319000000000006
+              0.04319000000000006,
+              0.03685999999999989
             ],
-            "mean": 0.04035499999999992,
-            "t": 14.234567901233822
+            "mean": 0.03918999999999991,
+            "t": 19.50668830645409
           },
-          "gap_welch_t": 21.900656793111892,
+          "gap_welch_t": 23.747929366166737,
           "param_ratio_std_over_family": 0.8800093742676354,
           "provisional": false
         },
@@ -510,13 +522,13 @@
           "family_mean": -0.035448406360767494,
           "family_model_seed_t": -40.23577700939141,
           "family_inducts": false,
-          "conventional_mean": -0.0447430398729118,
-          "conventional_model_seed_t": -80.29824094325882,
+          "conventional_mean": -0.04301290865297697,
+          "conventional_model_seed_t": -24.44211722684291,
           "conventional_inducts": false,
-          "welch_t_conventional_minus_family": -8.916254612123364,
+          "welch_t_conventional_minus_family": -3.8437433704649067,
           "n_seeds": [
             3,
-            2
+            3
           ]
         },
         "x7": {
@@ -564,42 +576,46 @@
         "x4": {
           "expansion": 4,
           "label": "nominal 4x (conventional model is the SMALLER one)",
-          "n_seeds": 2,
-          "held_ce": 5.029680000000001,
-          "held_ce_sd": 0.002008183258569762,
+          "n_seeds": 3,
+          "held_ce": 5.02865,
+          "held_ce_sd": 0.00228015350360483,
           "per_seed": {
             "0": 5.02826,
-            "1": 5.0311
+            "1": 5.0311,
+            "2": 5.02659
           },
           "n_params": 622720,
           "body_params": 98432,
           "param_matched": false,
-          "induction": -0.015327231089274385,
-          "induction_sd": 0.0009489896802309762,
+          "induction": -0.014874853911223222,
+          "induction_sd": 0.0010316133191545394,
           "induction_per_seed": [
             -0.01599826812744176,
-            -0.014656194051107008
+            -0.014656194051107008,
+            -0.013970099555120897
           ],
-          "induction_model_seed_t": -22.841110426830596,
-          "induction_n_seeds": 2,
-          "bag": 0.05041312111748599,
-          "natural_swap": 0.04340672981015814,
-          "probe_floor": 0.004972952439638065,
+          "induction_model_seed_t": -24.97447662901269,
+          "induction_n_seeds": 3,
+          "bag": 0.05059929600468382,
+          "natural_swap": 0.04465446922949923,
+          "probe_floor": 0.006600520378105682,
           "seeds_clearing_own_probe_floor": 0,
-          "gap_nats": -0.011560000000001125,
+          "gap_nats": -0.01053000000000015,
           "gap_paired_by_seed": {
             "seeds": [
               0,
-              1
+              1,
+              2
             ],
             "per_seed": [
               -0.007680000000000575,
-              -0.009970000000000034
+              -0.009970000000000034,
+              -0.013939999999999841
             ],
-            "mean": -0.008825000000000305,
-            "t": -7.707423580788113
+            "mean": -0.01053000000000015,
+            "t": -5.758283889748654
           },
-          "gap_welch_t": -3.7462568179894555,
+          "gap_welch_t": -3.464403136365983,
           "param_ratio_std_over_family": 0.9268432082301391,
           "provisional": false
         },
@@ -651,13 +667,13 @@
           "family_mean": -0.013983790079752485,
           "family_model_seed_t": -10.776492371991097,
           "family_inducts": false,
-          "conventional_mean": -0.015327231089274385,
-          "conventional_model_seed_t": -22.841110426830596,
+          "conventional_mean": -0.014874853911223222,
+          "conventional_model_seed_t": -24.97447662901269,
           "conventional_inducts": false,
-          "welch_t_conventional_minus_family": -0.9196242492225554,
+          "welch_t_conventional_minus_family": -0.6240898955399994,
           "n_seeds": [
             3,
-            2
+            3
           ]
         },
         "x7": {
@@ -705,42 +721,46 @@
         "x4": {
           "expansion": 4,
           "label": "nominal 4x (conventional model is the SMALLER one)",
-          "n_seeds": 2,
-          "held_ce": 4.602625,
-          "held_ce_sd": 0.015195724727698912,
+          "n_seeds": 3,
+          "held_ce": 4.613713333333333,
+          "held_ce_sd": 0.022007008732068418,
           "per_seed": {
             "0": 4.59188,
-            "1": 4.61337
+            "1": 4.61337,
+            "2": 4.63589
           },
           "n_params": 1442048,
           "body_params": 393472,
           "param_matched": false,
-          "induction": 0.13563315073649101,
-          "induction_sd": 0.07498698353546024,
+          "induction": 0.10614211470992484,
+          "induction_sd": 0.07362531811567517,
           "induction_per_seed": [
             0.18865695529513893,
-            0.08260934617784307
+            0.08260934617784307,
+            0.04716004265679245
           ],
-          "induction_model_seed_t": 2.5579671595702185,
-          "induction_n_seeds": 2,
-          "bag": 0.10088271035088478,
-          "natural_swap": 0.22288863385392688,
-          "probe_floor": 0.008284485213225671,
-          "seeds_clearing_own_probe_floor": 2,
-          "gap_nats": 0.04367500000000035,
+          "induction_model_seed_t": 2.497015160077829,
+          "induction_n_seeds": 3,
+          "bag": 0.09668382008870478,
+          "natural_swap": 0.2032603282847655,
+          "probe_floor": 0.009420203667895956,
+          "seeds_clearing_own_probe_floor": 3,
+          "gap_nats": 0.032586666666666986,
           "gap_paired_by_seed": {
             "seeds": [
               0,
-              1
+              1,
+              2
             ],
             "per_seed": [
               0.05928999999999984,
-              0.03668000000000049
+              0.03668000000000049,
+              0.0017899999999997362
             ],
-            "mean": 0.047985000000000166,
-            "t": 4.24458204334379
+            "mean": 0.03258666666666669,
+            "t": 1.948436208853006
           },
-          "gap_welch_t": 3.771036978648046,
+          "gap_welch_t": 2.428079228329776,
           "param_ratio_std_over_family": 0.8800187470707702,
           "provisional": false
         },
@@ -792,13 +812,13 @@
           "family_mean": -0.003363983719437276,
           "family_model_seed_t": -0.5885861733518234,
           "family_inducts": false,
-          "conventional_mean": 0.13563315073649101,
-          "conventional_model_seed_t": 2.5579671595702185,
+          "conventional_mean": 0.10614211470992484,
+          "conventional_model_seed_t": 2.497015160077829,
           "conventional_inducts": false,
-          "welch_t_conventional_minus_family": 2.6063131998463382,
+          "welch_t_conventional_minus_family": 2.5531785410064667,
           "n_seeds": [
             3,
-            2
+            3
           ]
         },
         "x7": {
@@ -846,42 +866,46 @@
         "x4": {
           "expansion": 4,
           "label": "nominal 4x (conventional model is the SMALLER one)",
-          "n_seeds": 2,
-          "held_ce": 4.2652350000000006,
-          "held_ce_sd": 0.011999602076735505,
+          "n_seeds": 3,
+          "held_ce": 4.264173333333334,
+          "held_ce_sd": 0.008681971742255924,
           "per_seed": {
             "0": 4.25675,
-            "1": 4.27372
+            "1": 4.27372,
+            "2": 4.26205
           },
           "n_params": 3670528,
           "body_params": 1573376,
           "param_matched": false,
-          "induction": 0.32834600872463626,
-          "induction_sd": 0.036271000884949084,
+          "induction": 0.327726039180049,
+          "induction_sd": 0.025669940383776426,
           "induction_per_seed": [
             0.35399347941080705,
-            0.3026985380384655
+            0.3026985380384655,
+            0.3264861000908745
           ],
-          "induction_model_seed_t": 12.802276401535455,
-          "induction_n_seeds": 2,
-          "bag": 0.1461348109775118,
-          "natural_swap": 0.3811384133455249,
-          "probe_floor": 0.011613995590412363,
-          "seeds_clearing_own_probe_floor": 2,
-          "gap_nats": 0.06014166666666565,
+          "induction_model_seed_t": 22.11295166006324,
+          "induction_n_seeds": 3,
+          "bag": 0.14352578763608578,
+          "natural_swap": 0.376825705004497,
+          "probe_floor": 0.01626307776488591,
+          "seeds_clearing_own_probe_floor": 3,
+          "gap_nats": 0.06120333333333239,
           "gap_paired_by_seed": {
             "seeds": [
               0,
-              1
+              1,
+              2
             ],
             "per_seed": [
               0.06985999999999937,
-              0.05034000000000027
+              0.05034000000000027,
+              0.0634099999999993
             ],
-            "mean": 0.06009999999999982,
-            "t": 6.1577868852461695
+            "mean": 0.06120333333333298,
+            "t": 10.658998652249819
           },
-          "gap_welch_t": 7.061389504588613,
+          "gap_welch_t": 12.080065385214644,
           "param_ratio_std_over_family": 0.8235496840896037,
           "provisional": false
         },
@@ -933,13 +957,13 @@
           "family_mean": 0.09376651622630933,
           "family_model_seed_t": 18.794023257595345,
           "family_inducts": true,
-          "conventional_mean": 0.32834600872463626,
-          "conventional_model_seed_t": 12.802276401535455,
+          "conventional_mean": 0.327726039180049,
+          "conventional_model_seed_t": 22.11295166006324,
           "conventional_inducts": true,
-          "welch_t_conventional_minus_family": 8.978008436071436,
+          "welch_t_conventional_minus_family": 14.961165244644782,
           "n_seeds": [
             3,
-            2
+            3
           ]
         },
         "x7": {
@@ -987,42 +1011,46 @@
         "x4": {
           "expansion": 4,
           "label": "nominal 4x (conventional model is the SMALLER one)",
-          "n_seeds": 2,
-          "held_ce": 4.9266749999999995,
-          "held_ce_sd": 0.010161124445650998,
+          "n_seeds": 3,
+          "held_ce": 4.924753333333332,
+          "held_ce_sd": 0.00791849943697262,
           "per_seed": {
             "0": 4.93386,
-            "1": 4.91949
+            "1": 4.91949,
+            "2": 4.92091
           },
           "n_params": 671936,
           "body_params": 147648,
           "param_matched": false,
-          "induction": 0.1365404976738825,
-          "induction_sd": 0.047696475782977844,
+          "induction": 0.12515932718912773,
+          "induction_sd": 0.0390649462545036,
           "induction_per_seed": [
             0.1028139962090389,
-            0.17026699913872606
+            0.17026699913872606,
+            0.10239698621961821
           ],
-          "induction_model_seed_t": 4.048463129690815,
-          "induction_n_seeds": 2,
-          "bag": 0.06478169759114608,
-          "natural_swap": 0.15464669421180588,
-          "probe_floor": 0.014343200068997121,
-          "seeds_clearing_own_probe_floor": 2,
-          "gap_nats": 0.014978333333334426,
+          "induction_model_seed_t": 5.54927971282475,
+          "induction_n_seeds": 3,
+          "bag": 0.06421993396900329,
+          "natural_swap": 0.14458580589052872,
+          "probe_floor": 0.013052424710932972,
+          "seeds_clearing_own_probe_floor": 3,
+          "gap_nats": 0.01690000000000147,
           "gap_paired_by_seed": {
             "seeds": [
               0,
-              1
+              1,
+              2
             ],
             "per_seed": [
               0.00788000000000011,
-              0.023109999999999964
+              0.023109999999999964,
+              0.019709999999999894
             ],
-            "mean": 0.015495000000000037,
-            "t": 2.034799737360497
+            "mean": 0.016899999999999988,
+            "t": 3.6615241581733047
           },
-          "gap_welch_t": 2.0780643898967743,
+          "gap_welch_t": 3.667898223096008,
           "param_ratio_std_over_family": 0.9011243670071238,
           "provisional": false
         },
@@ -1074,13 +1102,13 @@
           "family_mean": 0.0035019344753690024,
           "family_model_seed_t": 1.4739959503533375,
           "family_inducts": false,
-          "conventional_mean": 0.1365404976738825,
-          "conventional_model_seed_t": 4.048463129690815,
-          "conventional_inducts": false,
-          "welch_t_conventional_minus_family": 3.9348789191785802,
+          "conventional_mean": 0.12515932718912773,
+          "conventional_model_seed_t": 5.54927971282475,
+          "conventional_inducts": true,
+          "welch_t_conventional_minus_family": 5.364332436379214,
           "n_seeds": [
             3,
-            2
+            3
           ]
         },
         "x7": {
@@ -1128,42 +1156,46 @@
         "x4": {
           "expansion": 4,
           "label": "nominal 4x (conventional model is the SMALLER one)",
-          "n_seeds": 2,
-          "held_ce": 4.474115,
-          "held_ce_sd": 0.0055366460966908265,
+          "n_seeds": 3,
+          "held_ce": 4.472270000000001,
+          "held_ce_sd": 0.005053642250892037,
           "per_seed": {
             "0": 4.4702,
-            "1": 4.47803
+            "1": 4.47803,
+            "2": 4.46858
           },
           "n_params": 1638784,
           "body_params": 590208,
           "param_matched": false,
-          "induction": 0.5870851516723633,
-          "induction_sd": 0.05009775969600407,
+          "induction": 0.6150585457130714,
+          "induction_sd": 0.060020205645677754,
           "induction_per_seed": [
             0.6225096172756619,
-            0.5516606860690647
+            0.5516606860690647,
+            0.6710053337944875
           ],
-          "induction_model_seed_t": 16.572872495716528,
-          "induction_n_seeds": 2,
-          "bag": 0.11257297727796711,
-          "natural_swap": 0.46588930471443746,
-          "probe_floor": 0.012152128310418179,
-          "seeds_clearing_own_probe_floor": 2,
-          "gap_nats": 0.05349166666666694,
+          "induction_model_seed_t": 17.749233601321077,
+          "induction_n_seeds": 3,
+          "bag": 0.11466060214572439,
+          "natural_swap": 0.47202348080251494,
+          "probe_floor": 0.016055953873003317,
+          "seeds_clearing_own_probe_floor": 3,
+          "gap_nats": 0.05533666666666637,
           "gap_paired_by_seed": {
             "seeds": [
               0,
-              1
+              1,
+              2
             ],
             "per_seed": [
               0.058250000000000135,
-              0.04903999999999975
+              0.04903999999999975,
+              0.058720000000000105
             ],
-            "mean": 0.05364499999999994,
-            "t": 11.649294245384954
+            "mean": 0.055336666666666666,
+            "t": 17.560196876308932
           },
-          "gap_welch_t": 13.58276308278711,
+          "gap_welch_t": 18.76594469961189,
           "param_ratio_std_over_family": 0.8474879195075131,
           "provisional": false
         },
@@ -1215,13 +1247,13 @@
           "family_mean": 0.10849020922625528,
           "family_model_seed_t": 14.080430450701748,
           "family_inducts": true,
-          "conventional_mean": 0.5870851516723633,
-          "conventional_model_seed_t": 16.572872495716528,
+          "conventional_mean": 0.6150585457130714,
+          "conventional_model_seed_t": 17.749233601321077,
           "conventional_inducts": true,
-          "welch_t_conventional_minus_family": 13.201625410667408,
+          "welch_t_conventional_minus_family": 14.269949985262592,
           "n_seeds": [
             3,
-            2
+            3
           ]
         },
         "x7": {
@@ -1269,42 +1301,46 @@
         "x4": {
           "expansion": 4,
           "label": "nominal 4x (conventional model is the SMALLER one)",
-          "n_seeds": 2,
-          "held_ce": 4.14896,
-          "held_ce_sd": 0.0035213917703088384,
+          "n_seeds": 3,
+          "held_ce": 4.153569999999999,
+          "held_ce_sd": 0.008363994261117327,
           "per_seed": {
             "0": 4.14647,
-            "1": 4.15145
+            "1": 4.15145,
+            "2": 4.16279
           },
           "n_params": 4457216,
           "body_params": 2360064,
           "param_matched": false,
-          "induction": 0.8197210311889647,
-          "induction_sd": 0.04609901656475168,
+          "induction": 0.7826298325150102,
+          "induction_sd": 0.0720404797411213,
           "induction_per_seed": [
             0.8523179584079316,
-            0.7871241039699978
+            0.7871241039699978,
+            0.7084474351671013
           ],
-          "induction_model_seed_t": 25.147187208247058,
-          "induction_n_seeds": 2,
-          "bag": 0.148979155222575,
-          "natural_swap": 0.6061126606100515,
-          "probe_floor": 0.026135330872923586,
-          "seeds_clearing_own_probe_floor": 2,
-          "gap_nats": 0.06206333333333358,
+          "induction_model_seed_t": 18.81656866120725,
+          "induction_n_seeds": 3,
+          "bag": 0.14560463516800487,
+          "natural_swap": 0.5901558359485838,
+          "probe_floor": 0.025733053008799366,
+          "seeds_clearing_own_probe_floor": 3,
+          "gap_nats": 0.05745333333333402,
           "gap_paired_by_seed": {
             "seeds": [
               0,
-              1
+              1,
+              2
             ],
             "per_seed": [
               0.07169999999999987,
-              0.05404000000000053
+              0.05404000000000053,
+              0.046619999999999884
             ],
-            "mean": 0.0628700000000002,
-            "t": 7.120045300113539
+            "mean": 0.05745333333333343,
+            "t": 7.723875137298047
           },
-          "gap_welch_t": 13.792075099868008,
+          "gap_welch_t": 9.398640656368045,
           "param_ratio_std_over_family": 0.790726191016849,
           "provisional": false
         },
@@ -1356,13 +1392,13 @@
           "family_mean": 0.22074474758572035,
           "family_model_seed_t": 6.315201967686006,
           "family_inducts": true,
-          "conventional_mean": 0.8197210311889647,
-          "conventional_model_seed_t": 25.147187208247058,
+          "conventional_mean": 0.7826298325150102,
+          "conventional_model_seed_t": 18.81656866120725,
           "conventional_inducts": true,
-          "welch_t_conventional_minus_family": 12.532154525483733,
+          "welch_t_conventional_minus_family": 10.342056794688276,
           "n_seeds": [
             3,
-            2
+            3
           ]
         },
         "x7": {
@@ -1392,12 +1428,12 @@
         "n_seeds": 1
       },
       "0.02": {
-        "held_ce": 4.79389,
-        "n_seeds": 2,
+        "held_ce": 4.794276666666667,
+        "n_seeds": 3,
         "note": "the primary arm"
       },
       "best_lr": "0.02",
-      "best_held_ce": 4.79389,
+      "best_held_ce": 4.794276666666667,
       "gain_over_0.02": 0.0
     },
     "d2_w128_x4": {
@@ -1410,13 +1446,13 @@
         "n_seeds": 1
       },
       "0.02": {
-        "held_ce": 4.602625,
-        "n_seeds": 2,
+        "held_ce": 4.613713333333333,
+        "n_seeds": 3,
         "note": "the primary arm"
       },
-      "best_lr": "0.02",
-      "best_held_ce": 4.602625,
-      "gain_over_0.02": 0.0
+      "best_lr": "0.01",
+      "best_held_ce": 4.60669,
+      "gain_over_0.02": 0.007023333333332715
     },
     "d2_w128_x7": {
       "0.01": {
@@ -1446,13 +1482,13 @@
         "n_seeds": 1
       },
       "0.02": {
-        "held_ce": 4.474115,
-        "n_seeds": 2,
+        "held_ce": 4.472270000000001,
+        "n_seeds": 3,
         "note": "the primary arm"
       },
-      "best_lr": "0.01",
-      "best_held_ce": 4.47234,
-      "gain_over_0.02": 0.0017750000000003041
+      "best_lr": "0.02",
+      "best_held_ce": 4.472270000000001,
+      "gain_over_0.02": 0.0
     }
   },
   "qk_norm_arm": {
@@ -1460,8 +1496,8 @@
       "no_qk_norm_held_ce": 4.439203333333333,
       "no_qk_norm_sd": 0.013253981791647832,
       "n_seeds": 3,
-      "with_qk_norm_held_ce": 4.602625,
-      "cost_of_removing_qk_norm": -0.16342166666666635,
+      "with_qk_norm_held_ce": 4.613713333333333,
+      "cost_of_removing_qk_norm": -0.17450999999999972,
       "induction_no_qk_norm": 1.1235204979225442,
       "claim": "per-head query/key RMSNorm is shared with the family and is therefore kept in the conventional model; this arm prices that choice."
     }
@@ -1470,15 +1506,15 @@
     "L1_conventional_wins_every_cell_by_0.05_to_0.20": {
       "registered": "the conventional model wins on held cross-entropy at EVERY cell, by 0.05 to 0.20 nats",
       "nominal_gaps": {
-        "d1_w64": 0.034125000000000405,
-        "d1_w128": 0.028663333333332375,
-        "d1_w256": 0.03927166666666615,
-        "d2_w64": -0.011560000000001125,
-        "d2_w128": 0.04367500000000035,
-        "d2_w256": 0.06014166666666565,
-        "d3_w64": 0.014978333333334426,
-        "d3_w128": 0.05349166666666694,
-        "d3_w256": 0.06206333333333358
+        "d1_w64": 0.033966666666667145,
+        "d1_w128": 0.02827666666666584,
+        "d1_w256": 0.039189999999999614,
+        "d2_w64": -0.01053000000000015,
+        "d2_w128": 0.032586666666666986,
+        "d2_w256": 0.06120333333333239,
+        "d3_w64": 0.01690000000000147,
+        "d3_w128": 0.05533666666666637,
+        "d3_w256": 0.05745333333333402
       },
       "cells_won_by_conventional": 8,
       "cells_measured": 9,
@@ -1488,27 +1524,27 @@
     "L2_A2_gap_grows_with_depth": {
       "registered": "the gap GROWS with depth, because softmax attention composes more readily and the depth-2 foldable models showed attention acting only through the feed-forward path",
       "mean_nominal_gap_by_depth": {
-        "1": 0.03401999999999964,
-        "2": 0.030752222222221626,
-        "3": 0.043511111111111646
+        "1": 0.03381111111111087,
+        "2": 0.027753333333333075,
+        "3": 0.04323000000000062
       },
       "monotone_increasing": false,
-      "deepest_minus_shallowest": 0.009491111111112005,
+      "deepest_minus_shallowest": 0.009418888888889754,
       "verdict": "CONFIRMED"
     },
     "L3_A3_matched_parameters": {
       "registered_L3": "at matched parameter count the gap SHRINKS by at least a third",
       "registered_A3": "L3 presupposes that the conventional model is the larger one and would have to shrink. It is the smaller one: 12*W^2 versus 18*W^2 of body per block. Matching parameters therefore makes the CONVENTIONAL model bigger (expansion 4x -> 7x), so the gap should GROW, not shrink. Predicted: matched-arm gap exceeds nominal-arm gap by +0.01 to +0.06 nats at every cell, and L3 is refuted with the wrong sign rather than the wrong magnitude. NOTE for scoring: if Logan meant 'matched by shrinking the bilinear model', that arm is not run (the family's 101 checkpoints are not being retrained) and the relevant comparison is the NOMINAL arm, where the conventional model already carries ~12% fewer total parameters than the family cell it is compared with.",
       "nominal_gap": {
-        "d1_w64": 0.034125000000000405,
-        "d1_w128": 0.028663333333332375,
-        "d1_w256": 0.03927166666666615,
-        "d2_w64": -0.011560000000001125,
-        "d2_w128": 0.04367500000000035,
-        "d2_w256": 0.06014166666666565,
-        "d3_w64": 0.014978333333334426,
-        "d3_w128": 0.05349166666666694,
-        "d3_w256": 0.06206333333333358
+        "d1_w64": 0.033966666666667145,
+        "d1_w128": 0.02827666666666584,
+        "d1_w256": 0.039189999999999614,
+        "d2_w64": -0.01053000000000015,
+        "d2_w128": 0.032586666666666986,
+        "d2_w256": 0.06120333333333239,
+        "d3_w64": 0.01690000000000147,
+        "d3_w128": 0.05533666666666637,
+        "d3_w256": 0.05745333333333402
       },
       "matched_gap": {
         "d1_w64": 0.07114999999999938,
@@ -1522,17 +1558,17 @@
         "d3_w256": 0.11476333333333333
       },
       "matched_minus_nominal": {
-        "d1_w64": 0.037024999999998975,
-        "d1_w128": 0.04516999999999971,
-        "d1_w256": 0.043389999999999596,
-        "d2_w64": 0.05459500000000084,
-        "d2_w128": 0.05015999999999998,
-        "d2_w256": 0.055470000000000574,
-        "d3_w64": 0.04666499999999907,
-        "d3_w128": 0.048205000000000275,
-        "d3_w256": 0.05269999999999975
+        "d1_w64": 0.037183333333332236,
+        "d1_w128": 0.045556666666666246,
+        "d1_w256": 0.04347166666666613,
+        "d2_w64": 0.05356499999999986,
+        "d2_w128": 0.06124833333333335,
+        "d2_w256": 0.054408333333333836,
+        "d3_w64": 0.044743333333332025,
+        "d3_w128": 0.046360000000000845,
+        "d3_w256": 0.057309999999999306
       },
-      "mean_matched_minus_nominal": 0.048153333333333194,
+      "mean_matched_minus_nominal": 0.04931629629629598,
       "direction_note": "the family is the LARGER model at nominal expansion, so matching parameters makes the CONVENTIONAL model bigger and should widen the gap.",
       "L3_verdict": "REFUTED",
       "A3_verdict": "CONFIRMED"
@@ -1543,17 +1579,19 @@
         "family_mean": -0.003363983719437276,
         "family_model_seed_t": -0.5885861733518234,
         "family_inducts": false,
-        "conventional_mean": 0.13563315073649101,
-        "conventional_model_seed_t": 2.5579671595702185,
+        "conventional_mean": 0.10614211470992484,
+        "conventional_model_seed_t": 2.497015160077829,
         "conventional_inducts": false,
-        "welch_t_conventional_minus_family": 2.6063131998463382,
+        "welch_t_conventional_minus_family": 2.5531785410064667,
         "n_seeds": [
           3,
-          2
+          3
         ]
       },
       "verdict": "REFUTED",
-      "all_cells_where_conventional_inducts_and_family_does_not": [],
+      "all_cells_where_conventional_inducts_and_family_does_not": [
+        "d3_w64"
+      ],
       "reframing": "if any depth-2 cell flips, RESULTS FINDING 16 becomes a statement about the no-softmax bilinear family and not about transformers at this scale."
     },
     "A5_depth1_null_in_both_families": {
@@ -1585,12 +1623,12 @@
             "n_seeds": 1
           },
           "0.02": {
-            "held_ce": 4.79389,
-            "n_seeds": 2,
+            "held_ce": 4.794276666666667,
+            "n_seeds": 3,
             "note": "the primary arm"
           },
           "best_lr": "0.02",
-          "best_held_ce": 4.79389,
+          "best_held_ce": 4.794276666666667,
           "gain_over_0.02": 0.0
         },
         "d2_w128_x4": {
@@ -1603,13 +1641,13 @@
             "n_seeds": 1
           },
           "0.02": {
-            "held_ce": 4.602625,
-            "n_seeds": 2,
+            "held_ce": 4.613713333333333,
+            "n_seeds": 3,
             "note": "the primary arm"
           },
-          "best_lr": "0.02",
-          "best_held_ce": 4.602625,
-          "gain_over_0.02": 0.0
+          "best_lr": "0.01",
+          "best_held_ce": 4.60669,
+          "gain_over_0.02": 0.007023333333332715
         },
         "d2_w128_x7": {
           "0.01": {
@@ -1639,13 +1677,13 @@
             "n_seeds": 1
           },
           "0.02": {
-            "held_ce": 4.474115,
-            "n_seeds": 2,
+            "held_ce": 4.472270000000001,
+            "n_seeds": 3,
             "note": "the primary arm"
           },
-          "best_lr": "0.01",
-          "best_held_ce": 4.47234,
-          "gain_over_0.02": 0.0017750000000003041
+          "best_lr": "0.02",
+          "best_held_ce": 4.472270000000001,
+          "gain_over_0.02": 0.0
         }
       },
       "worst_gain_over_0.02": 0.009215000000000195,
