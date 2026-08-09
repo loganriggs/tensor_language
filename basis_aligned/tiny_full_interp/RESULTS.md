@@ -1114,6 +1114,44 @@ about shares — are unscoreable rather than passed or failed. Writing that guar
 in advance is what stops this cell from contributing three meaningless
 percentages to FINDING 21's trend.
 
+### 22:45 — THE DISCRIMINATING CELL SPLITS IT: the sign tracks **copying availability, not depth** (interim, first bracket arm only)
+
+Depth 2 width 64 is depth 2, but nothing inducts there in either family. Our
+arm at slot 16 (−4.0% parameters), three cap-on seeds: 4.87899, 4.87216,
+4.87796 → **4.87637** against the conventional 4.90259.
+
+**Symmetric tax −0.0262 — our arm wins at a depth-2 cell.** N1 holds.
+
+| cell | copying possible? | symmetric tax |
+|---|---|---|
+| depth 1, width 128 | no | **−0.0905** ours wins |
+| **depth 2, width 64** | **no** | **−0.0262** ours wins |
+| depth 2, width 128 | yes | +0.0759 ours loses |
+| depth 3, width 128 | yes | +0.1221 ours loses |
+
+**The four cells separate perfectly by whether copying is available, and not at
+all by depth.** Depth 2 appears on both sides of the line. That is the reading
+FINDING 21 independently implies — the conventional edge is softmax *with* an
+uncapped range, a pair that only pays where copying is possible — and it is now
+supported by a comparison designed to distinguish the two explanations rather
+than by a trend that happened to be consistent with both.
+
+**Three reasons this is interim and the honest version is narrower.**
+
+1. **Only the first bracket arm has run.** Slot 16 gives our side a **4.0%**
+   parameter disadvantage where the other three cells carried about 7% — a
+   *smaller* handicap, so this cell slightly flatters us. The slot-14 arm at
+   **15.9%** is the hard bound and is the one I registered real uncertainty
+   about (N2, confidence 0.5). Until it lands, −0.0262 is an upper bound on our
+   performance, not a measurement of it.
+2. **The margin is thin.** −0.0262 against −0.0905 at depth 1. A 3-point
+   parameter swing could plausibly cover it, which is precisely why the bracket
+   exists.
+3. **The separation is still not fully controlled.** This cell differs from
+   depth 2 width 128 in width as well as in copying availability, so "copying
+   availability" and "width" remain partly entangled even though depth is now
+   cleanly excluded.
+
 ### 21:25 — DEPTH 1 FINAL, and M3 holds at t = −9.98. The cap effect on our architecture is now negative at **three depths**
 
 Three seeds every arm: ours cap-on 4.59676, cap-off **4.58814**, conventional
