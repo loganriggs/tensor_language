@@ -115,6 +115,21 @@ class VariantFold(I2.DeepFold):
         self._bigt = None
 
     # --------------------------------------------------------- variant pieces
+    def _qkn(self, z):
+        """The per-head query/key RMSNorm -- "the cap" -- applied over the head
+        dimension of an (..., H, hd) projection.
+
+        CONDITIONAL ON THE MODEL, exactly as `tf_model.make_model` (three
+        sites) and `tf_factorial` already are.  A checkpoint trained with
+        `TFConfig.qk_norm=False` normalises query and key NOWHERE in its own
+        forward pass, so a reconstruction that normalises anyway is computing a
+        different function: measured on
+        `tf_predicate_d2_w128_b8192_s0_slot32_noqknorm`, the hardcoded form put
+        `layer0_folded_vs_weight_pattern_rel` at 0.988.  The layer-0 FOLDED
+        factors (Q1/K1/Q2/K2) come from `model.fold_layer0_qk`, which is
+        already conditional, so this is what makes the two paths agree."""
+        return F.rms_norm(z, (self.hd,)) if self.cfg.qk_norm else z
+
     def _pre(self, k, x, cache=None):
         """A module input: per-slot norm, then quantisation of the slots that
         have already been written (`k` = how many writes precede this consumer).
@@ -152,7 +167,7 @@ class VariantFold(I2.DeepFold):
         cos, sin = self.cos[None, :Tq, None, :], self.sin[None, :Tq, None, :]
 
         def qk(W):
-            z = F.rms_norm((hn @ W.t()).view(B, Tq, self.H, self.hd), (self.hd,))
+            z = self._qkn((hn @ W.t()).view(B, Tq, self.H, self.hd))
             return M.apply_rot(z, cos, sin) if rot else z
         s1 = torch.einsum('bqhd,bkhd->bhqk', qk(self.Wq[li]), qk(self.Wk[li])) \
             / self.hd
@@ -343,10 +358,8 @@ class VariantFold(I2.DeepFold):
             en = torch.zeros(self.H, d, device=self.dev)
             for Wq_, Wk_ in ((self.Wq[li], self.Wk[li]),
                              (self.Wq2[li], self.Wk2[li])):
-                zq = F.rms_norm((hn @ Wq_.t()).view(B, Tq, self.H, self.hd),
-                                (self.hd,))
-                zk = F.rms_norm((hn @ Wk_.t()).view(B, Tq, self.H, self.hd),
-                                (self.hd,))
+                zq = self._qkn((hn @ Wq_.t()).view(B, Tq, self.H, self.hd))
+                zk = self._qkn((hn @ Wk_.t()).view(B, Tq, self.H, self.hd))
                 eq = (zq[..., :d] ** 2 + zq[..., d:] ** 2).mean((0, 1))
                 ek = (zk[..., :d] ** 2 + zk[..., d:] ** 2).mean((0, 1))
                 en = en + (eq * ek).sqrt()
@@ -365,7 +378,7 @@ class VariantFold(I2.DeepFold):
         mk = m.permute(1, 0, 2)
 
         def qk(W):
-            z = F.rms_norm((hn @ W.t()).view(B, Tq, self.H, self.hd), (self.hd,))
+            z = self._qkn((hn @ W.t()).view(B, Tq, self.H, self.hd))
             return M.apply_rot(z * mk[None], cos, sin)
         s1 = torch.einsum('bqhd,bkhd->bhqk', qk(self.Wq[li]),
                           qk(self.Wk[li])) / self.hd

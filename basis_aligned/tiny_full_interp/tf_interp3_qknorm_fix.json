@@ -1,0 +1,406 @@
+{
+  "title": "tf_interp3 / tf_interp2 hardcoded per-head QK RMSNorm made conditional on cfg.qk_norm",
+  "date": "2026-08-09",
+  "author": "build agent",
+  "note_this_file": "Summary of a code fix and its two gates. It overwrites no existing result JSON; the six cap-off *_interp3.json files it references were (re)written by the ladder runs it reports.",
+  "defect": {
+    "what": "tf_interp3.VariantFold reconstructed the layer-1+ attention pattern with F.rms_norm(..., (hd,)) unconditionally, while tf_model.TFConfig gained a qk_norm flag (default True) and cap-off checkpoints now exist.",
+    "symptom_on_a_cap_off_model": {
+      "stem": "tf_predicate_d2_w128_b8192_s0_slot32_noqknorm",
+      "layer0_folded_vs_weight_pattern_rel": 0.9876983165740967,
+      "pipeline_rel_logit_diff": 0.606808460551445,
+      "length1_table_rel_logit_diff": 0.04710697120849965,
+      "pass": false
+    },
+    "why_it_was_caught": "VariantFold.self_check compares the independently reconstructed layer-0 pattern against the folded factors from model.fold_layer0_qk (already conditional). The two paths disagreed and the assert in analyse() stopped six ladders rather than emitting wrong numbers."
+  },
+  "fix": {
+    "shape": "one _qkn(z) helper per fold class, returning F.rms_norm(z,(hd,)) if self.cfg.qk_norm else z -- the same guard tf_model / tf_factorial / tf_baseline_std already use.",
+    "tf_interp3.py": {
+      "helper_line": 118,
+      "call_sites": [
+        {
+          "line": 170,
+          "method": "_pat_from"
+        },
+        {
+          "line": 361,
+          "method": "_pat_freq"
+        },
+        {
+          "line": 362,
+          "method": "_pat_freq"
+        },
+        {
+          "line": 381,
+          "method": "_pat_freq"
+        }
+      ]
+    },
+    "tf_interp2.py": {
+      "helper_line": 183,
+      "note": "same defect in the PARENT class DeepFold, found by the (c) sweep; fixed for the same reason. Provably inert today: DeepFold accepts only the vanilla variant and no vanilla cap-off checkpoint exists, and under qk_norm=True the helper is bit-identical to the old call.",
+      "call_sites": [
+        {
+          "line": 201,
+          "method": "_pat_from"
+        },
+        {
+          "line": 362,
+          "method": "_pat_freq"
+        },
+        {
+          "line": 363,
+          "method": "_pat_freq"
+        },
+        {
+          "line": 382,
+          "method": "_pat_freq"
+        },
+        {
+          "line": 425,
+          "method": "bigram_table"
+        }
+      ]
+    }
+  },
+  "gate_a_default_path_unchanged": {
+    "stem": "tf_vanilla_d2_w128_b8192_s0",
+    "method": "published *_interp3.json copied aside, tf_interp3.py re-run, output compared key by key against the copy, then the published file restored (md5 c2a2bcd7e3567eb35149b7733aed28f5 verified identical after restore).",
+    "scalars_compared_total": 4057,
+    "scalars_compared_excluding_wall_clock": 4056,
+    "scalars_that_moved": 0,
+    "largest_disagreement_abs_excluding_wall_clock": 0.0,
+    "largest_disagreement_rel_excluding_wall_clock": 0.0,
+    "only_numeric_difference": {
+      "key": ".seconds",
+      "ref": 28.2,
+      "new": 79.5,
+      "why": "wall-clock of the run; the box is simultaneously training. Not a result."
+    },
+    "structural_differences": [
+      {
+        "key": ".config.qk_norm",
+        "change": "ADDED in new",
+        "why": "the config dump now carries the new TFConfig field. Not a result."
+      }
+    ],
+    "verdict": "PASS -- exact bitwise equality on every one of 4056 result scalars, not merely float noise. The 122 existing ladders remain reproducible."
+  },
+  "gate_b_fix_works": {
+    "stem": "tf_predicate_d2_w128_b8192_s0_slot32_noqknorm",
+    "decomposition_control_before": {
+      "pipeline_rel_logit_diff": 0.606808460551445,
+      "length1_table_rel_logit_diff": 0.04710697120849965,
+      "mlp_tensor_vs_factored_rel": 1.565433507266789e-07,
+      "layer0_folded_vs_weight_pattern_rel": 0.9876983165740967,
+      "residual_additivity_rel": 0.0,
+      "pass": false
+    },
+    "decomposition_control_after": {
+      "pipeline_rel_logit_diff": 7.341212330251289e-07,
+      "length1_table_rel_logit_diff": 3.954061711041124e-07,
+      "mlp_tensor_vs_factored_rel": 1.565433507266789e-07,
+      "layer0_folded_vs_weight_pattern_rel": 6.2192037830755e-07,
+      "residual_additivity_rel": 0.0,
+      "pass": true
+    },
+    "verdict": "PASS -- layer0 pattern 0.988 -> 6.2e-07, pipeline 0.607 -> 7.3e-07, length-1 table 0.047 -> 4.0e-07. mlp_tensor_vs_factored_rel is unchanged at 1.565e-07 (correct: the MLP fold never touches the QK cap) and residual_additivity_rel stays exactly 0."
+  },
+  "gate_c_same_defect_elsewhere": {
+    "sweep": "every rms_norm in every .py in the directory, classified by the dimension it normalises over; plus a sweep for hand-rolled RMS (rsqrt / pow(2).mean(-1) / norm(dim=-1)) over a head dimension.",
+    "head_dimension_sites": [
+      {
+        "file": "tf_model.py",
+        "line": 565,
+        "context": "make_model forward",
+        "conditional": true,
+        "guard": "if cfg.qk_norm: (line 564)",
+        "changed_by_me": false
+      },
+      {
+        "file": "tf_model.py",
+        "line": 651,
+        "context": "fold_layer0_qk proj()",
+        "conditional": true,
+        "guard": "if norm and cfg.qk_norm: (line 650)",
+        "changed_by_me": false
+      },
+      {
+        "file": "tf_model.py",
+        "line": 761,
+        "context": "exact/fp64 forward",
+        "conditional": true,
+        "guard": "if cfg.qk_norm: (line 760)",
+        "changed_by_me": false
+      },
+      {
+        "file": "tf_factorial.py",
+        "line": 185,
+        "context": "FacTransformer forward",
+        "conditional": true,
+        "guard": "if cfg.qk_norm: (line 184)",
+        "changed_by_me": false
+      },
+      {
+        "file": "tf_baseline_std.py",
+        "line": 190,
+        "context": "StdTransformer forward",
+        "conditional": true,
+        "guard": "if cfg.qk_norm: (line 189)",
+        "changed_by_me": false
+      },
+      {
+        "file": "tf_baseline_std.py",
+        "line": 254,
+        "context": "fp64 reference forward",
+        "conditional": true,
+        "guard": "if cfg.qk_norm: (line 253)",
+        "changed_by_me": false
+      },
+      {
+        "file": "tf_interp3.py",
+        "line": 131,
+        "context": "VariantFold._qkn, used at 170/361/362/381",
+        "conditional": true,
+        "guard": "if self.cfg.qk_norm",
+        "changed_by_me": true,
+        "was": "unconditional at old lines 155/346/348/368"
+      },
+      {
+        "file": "tf_interp2.py",
+        "line": 193,
+        "context": "DeepFold._qkn, used at 201/362/363/382/425",
+        "conditional": true,
+        "guard": "if self.cfg.qk_norm",
+        "changed_by_me": true,
+        "was": "unconditional at old lines 189/350/352/372/415"
+      }
+    ],
+    "sites_inspected_and_safe": [
+      {
+        "file": "tf_fold.py",
+        "finding": "no rms_norm at all; load_checkpoint reconstructs TFConfig so cfg.qk_norm is always present (default True for old checkpoints)."
+      },
+      {
+        "file": "tf_baseline_probe.py",
+        "finding": "no rms_norm at all; it calls the model, it does not reimplement attention."
+      },
+      {
+        "file": "tf_interp.py",
+        "finding": "one rms_norm, the generic _rms(x,d) helper at line 100, never called with a head dimension. Depth1Fold contains no c_q/Wq reference at all -- it consumes model.fold_layer0_qk output, already conditional."
+      },
+      {
+        "file": "tf_compress.py:61 / tf_dict_lib.py:59",
+        "finding": "generic _rms(x,d) helpers; no head-dimension call site anywhere."
+      },
+      {
+        "file": "tf_noqknorm_foldgate.py",
+        "finding": "its two rms_norm hits are inside docstrings; it is the dedicated gate for this very flag (18 qk_norm references)."
+      },
+      {
+        "file": "stream-width (Ws/W/Dm) normalisation",
+        "finding": "tf_model 545/589/617/737/782/852, tf_interp3 80/1219, tf_interp2, tf_reviewer_r3 493, tf_compress_run 232/624, tf_factorial 207/209/216/221, tf_baseline_std 183/185/202/204 -- the GLOBAL stream RMSNorm, unconditional by architecture. qk_norm does not reach it."
+      },
+      {
+        "file": "per-slot normalisation",
+        "finding": "tf_model.py:434 and tf_interp3.py:782 normalise over slot size S, not head dim. Unrelated to the cap."
+      }
+    ],
+    "hand_rolled_rms_over_head_dim": "none found. Every norm(dim=-1) / rsqrt hit is a diagnostic magnitude readout (entry_norm logging, write/read ratios, table row norms), not a normalisation applied inside a computation.",
+    "verdict": "Eight head-dimension sites exist in the directory. All eight are now conditional on the model cfg. Six were already correct; two (the _qkn helpers in tf_interp3 and tf_interp2) were fixed here."
+  },
+  "gate_d_K4": {
+    "prediction_K4": "the predicate arm's hand-installed induction (+2.4893 with the cap on) stays above +2.0 with the cap off, because 24 named scalars carry 98% of it",
+    "registered_in": "tf_symtax_predictions.json / RESULTS.md 2026-08-09",
+    "baseline_provenance": "the quoted +2.4893 is the mean of the two cap-ON depth-2 probe files available when K4 was written (seeds 0 and 1: 2.4597, 2.5189). With all three cap-ON depth-2 seeds the baseline is 2.4942.",
+    "arms": {
+      "depth2_cap_ON": {
+        "per_seed": [
+          {
+            "seed": 0,
+            "induction_score_mean": 2.459686724344889,
+            "induction_score_sd_over_probe_seeds": 0.03877105639034464,
+            "final_held_ce": 4.48303,
+            "decomposition_control_pass": true,
+            "layer0_folded_vs_weight_pattern_rel": 8.129097750497749e-08,
+            "fraction_of_induction_carried_by_all_named_terms": 1.0081210842622912,
+            "fraction_carried_by_prev_token_match_b_alone": 0.9901805992062161
+          },
+          {
+            "seed": 1,
+            "induction_score_mean": 2.5189081192016602,
+            "induction_score_sd_over_probe_seeds": 0.040303154359981656,
+            "final_held_ce": 4.48126,
+            "decomposition_control_pass": true,
+            "layer0_folded_vs_weight_pattern_rel": 6.961079179745866e-08,
+            "fraction_of_induction_carried_by_all_named_terms": 1.0026197700418091,
+            "fraction_carried_by_prev_token_match_b_alone": 0.9889692989635267
+          },
+          {
+            "seed": 2,
+            "induction_score_mean": 2.5038954840766054,
+            "induction_score_sd_over_probe_seeds": 0.03385953675239623,
+            "final_held_ce": 4.48173,
+            "decomposition_control_pass": true,
+            "layer0_folded_vs_weight_pattern_rel": 8.112667870818768e-08,
+            "fraction_of_induction_carried_by_all_named_terms": 1.0042788399410059,
+            "fraction_carried_by_prev_token_match_b_alone": 0.9941219537983231
+          }
+        ],
+        "mean": 2.4941634425410517,
+        "sd_over_model_seeds": 0.030786813354628188,
+        "min": 2.459686724344889
+      },
+      "depth2_cap_OFF": {
+        "per_seed": [
+          {
+            "seed": 0,
+            "induction_score_mean": 2.5618062761094835,
+            "induction_score_sd_over_probe_seeds": 0.024493869364782133,
+            "final_held_ce": 4.46843,
+            "decomposition_control_pass": true,
+            "layer0_folded_vs_weight_pattern_rel": 6.2192037830755e-07,
+            "fraction_of_induction_carried_by_all_named_terms": 1.0036739050525199,
+            "fraction_carried_by_prev_token_match_b_alone": 0.9923971708881147
+          },
+          {
+            "seed": 1,
+            "induction_score_mean": 2.5077014923095704,
+            "induction_score_sd_over_probe_seeds": 0.029844785319079782,
+            "final_held_ce": 4.47344,
+            "decomposition_control_pass": true,
+            "layer0_folded_vs_weight_pattern_rel": 6.603240763070062e-07,
+            "fraction_of_induction_carried_by_all_named_terms": 1.0011679210675406,
+            "fraction_carried_by_prev_token_match_b_alone": 0.9894001769755613
+          },
+          {
+            "seed": 2,
+            "induction_score_mean": 2.5909145779079865,
+            "induction_score_sd_over_probe_seeds": 0.03299013054088152,
+            "final_held_ce": 4.46818,
+            "decomposition_control_pass": true,
+            "layer0_folded_vs_weight_pattern_rel": 6.245912800295628e-07,
+            "fraction_of_induction_carried_by_all_named_terms": 1.001084048408843,
+            "fraction_carried_by_prev_token_match_b_alone": 0.9947131270745214
+          }
+        ],
+        "mean": 2.553474115442347,
+        "sd_over_model_seeds": 0.04222763407698289,
+        "min": 2.5077014923095704
+      },
+      "depth3_cap_ON": {
+        "per_seed": [
+          {
+            "seed": 0,
+            "induction_score_mean": 2.8912209828694664,
+            "induction_score_sd_over_probe_seeds": 0.03069005715676935,
+            "final_held_ce": 4.26159,
+            "decomposition_control_pass": true,
+            "layer0_folded_vs_weight_pattern_rel": 8.569362108801215e-08,
+            "fraction_of_induction_carried_by_all_named_terms": 1.004531584045912,
+            "fraction_carried_by_prev_token_match_b_alone": 0.979538503969238
+          },
+          {
+            "seed": 1,
+            "induction_score_mean": 2.8914389080471463,
+            "induction_score_sd_over_probe_seeds": 0.028395886829453088,
+            "final_held_ce": 4.26142,
+            "decomposition_control_pass": true,
+            "layer0_folded_vs_weight_pattern_rel": 9.43609137493695e-08,
+            "fraction_of_induction_carried_by_all_named_terms": 0.9978588224351624,
+            "fraction_carried_by_prev_token_match_b_alone": 0.9736189277540206
+          },
+          {
+            "seed": 2,
+            "induction_score_mean": 2.8519839180840387,
+            "induction_score_sd_over_probe_seeds": 0.02974989808240217,
+            "final_held_ce": 4.25904,
+            "decomposition_control_pass": true,
+            "layer0_folded_vs_weight_pattern_rel": 8.514557237049303e-08,
+            "fraction_of_induction_carried_by_all_named_terms": 1.0014708172267368,
+            "fraction_carried_by_prev_token_match_b_alone": 0.9787271541641355
+          }
+        ],
+        "mean": 2.878214603000217,
+        "sd_over_model_seeds": 0.02271670082174432,
+        "min": 2.8519839180840387
+      },
+      "depth3_cap_OFF": {
+        "per_seed": [
+          {
+            "seed": 0,
+            "induction_score_mean": 2.8051168017917214,
+            "induction_score_sd_over_probe_seeds": 0.03130761887971531,
+            "final_held_ce": 4.26141,
+            "decomposition_control_pass": true,
+            "layer0_folded_vs_weight_pattern_rel": 2.65611475924743e-07,
+            "fraction_of_induction_carried_by_all_named_terms": 1.0039354945762125,
+            "fraction_carried_by_prev_token_match_b_alone": 0.9805131407146811
+          },
+          {
+            "seed": 1,
+            "induction_score_mean": 2.7982771979437935,
+            "induction_score_sd_over_probe_seeds": 0.038778347352825676,
+            "final_held_ce": 4.25762,
+            "decomposition_control_pass": true,
+            "layer0_folded_vs_weight_pattern_rel": 4.67161584083442e-07,
+            "fraction_of_induction_carried_by_all_named_terms": 1.0002038105568642,
+            "fraction_carried_by_prev_token_match_b_alone": 0.979077461522739
+          },
+          {
+            "seed": 2,
+            "induction_score_mean": 2.8403515709771057,
+            "induction_score_sd_over_probe_seeds": 0.027217758776795543,
+            "final_held_ce": 4.25811,
+            "decomposition_control_pass": true,
+            "layer0_folded_vs_weight_pattern_rel": 2.565448653513158e-07,
+            "fraction_of_induction_carried_by_all_named_terms": 1.0012859206252298,
+            "fraction_carried_by_prev_token_match_b_alone": 0.9786122401616982
+          }
+        ],
+        "mean": 2.8145818569042067,
+        "sd_over_model_seeds": 0.022577725034829507,
+        "min": 2.7982771979437935
+      }
+    },
+    "all_six_cap_off_induction_scores": [
+      2.5077014923095704,
+      2.5618062761094835,
+      2.5909145779079865,
+      2.7982771979437935,
+      2.8051168017917214,
+      2.8403515709771057
+    ],
+    "min_cap_off_induction_score": 2.5077014923095704,
+    "K4_bar": 2.0,
+    "K4_HOLDS": true,
+    "margin_of_the_weakest_arm_above_the_bar": 0.5077014923095704,
+    "cap_effect_depth2": {
+      "off_minus_on": 0.0593106729012951,
+      "se": 0.030171735980728052,
+      "t": 1.9657693193119317
+    },
+    "cap_effect_depth3": {
+      "off_minus_on": -0.06363274609601044,
+      "se": 0.018491458965091658,
+      "t": -3.441196620349801
+    },
+    "mechanism_check": "the reason K4 holds is confirmed directly: zeroing ALL named predicate terms removes 100.1-100.5% of the induction score under BOTH cap settings, and zeroing the prev-token-match scalar b alone removes 97.7-99.2%. The hand-installed induction is carried by the named scalars, not by the learned QK pattern, so removing the cap on that pattern barely moves it.",
+    "honest_caveats": [
+      "the cap effect is not zero, it is small and depth-dependent and it changes SIGN: depth 2 cap-off is HIGHER by +0.0593 (t=1.97, not resolvable at 3 seeds) while depth 3 cap-off is LOWER by -0.0636 (t=-3.44).",
+      "both effects clear the pre-registered 0.0086 seed-spread guard in absolute value, so neither should be called noise -- but they are ~2% of a 2.5-2.9 score and they do not threaten the +2.0 bar in any arm.",
+      "a pre-registered bar is not a measurement: the weakest cap-off arm sits at 2.5077, i.e. 0.51 nats clear of the bar, which is ~20x the model-seed spread. This one is not a borderline call."
+    ],
+    "verdict": "K4 HOLDS. All six cap-off arms exceed +2.0 with a large margin (min 2.5077, mean 2.6840). The earlier finding that the named terms are largely independent of the learned attention pattern is supported, not overturned."
+  },
+  "files_written_by_this_work": [
+    "tf_interp3.py (edited)",
+    "tf_interp2.py (edited)",
+    "tf_predicate_d{2,3}_w128_b8192_s{0,1,2}_slot32_noqknorm_interp3.json (ladders that previously aborted at the assert; now complete)",
+    "tf_interp3_qknorm_fix.json (this file)"
+  ],
+  "files_deliberately_not_modified": [
+    "tf_vanilla_d2_w128_b8192_s0_interp3.json -- re-run for gate (a) then RESTORED byte-for-byte"
+  ]
+}

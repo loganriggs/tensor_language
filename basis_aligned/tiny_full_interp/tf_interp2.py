@@ -180,13 +180,25 @@ class DeepFold:
         s2 = torch.einsum('bqhd,bkhd->bhqk', g(self.Q2), g(self.K2)) / self.hd
         return (s1 * s2).masked_fill(~self.model.mask[:Tq, :Tq], 0.0)
 
+    def _qkn(self, z):
+        """The per-head query/key RMSNorm -- "the cap" -- over an (..., H, hd)
+        projection, CONDITIONAL on the model exactly as `tf_model.make_model`,
+        `tf_factorial` and `tf_baseline_std` already are.  A `qk_norm=False`
+        checkpoint normalises query and key nowhere in its own forward pass, so
+        an unconditional norm here reconstructs a different function (the same
+        defect measured 0.988 relative at layer 0 in `tf_interp3`).  Provably
+        inert for every checkpoint analysed by this file to date: `DeepFold`
+        accepts only the vanilla variant and no vanilla cap-off checkpoint
+        exists."""
+        return F.rms_norm(z, (self.hd,)) if self.cfg.qk_norm else z
+
     def _pat_from(self, li, hn, rot=True):
         """Layer-li pattern from a read vector (B, T, Ws)."""
         B, Tq, _ = hn.shape
         cos, sin = self.cos[None, :Tq, None, :], self.sin[None, :Tq, None, :]
 
         def qk(W):
-            z = F.rms_norm((hn @ W.t()).view(B, Tq, self.H, self.hd), (self.hd,))
+            z = self._qkn((hn @ W.t()).view(B, Tq, self.H, self.hd))
             return M.apply_rot(z, cos, sin) if rot else z
         s1 = torch.einsum('bqhd,bkhd->bhqk', qk(self.Wq[li]), qk(self.Wk[li])) \
             / self.hd
@@ -347,10 +359,8 @@ class DeepFold:
             en = torch.zeros(self.H, d, device=self.dev)
             for Wq_, Wk_ in ((self.Wq[li], self.Wk[li]),
                              (self.Wq2[li], self.Wk2[li])):
-                zq = F.rms_norm((hn @ Wq_.t()).view(B, Tq, self.H, self.hd),
-                                (self.hd,))
-                zk = F.rms_norm((hn @ Wk_.t()).view(B, Tq, self.H, self.hd),
-                                (self.hd,))
+                zq = self._qkn((hn @ Wq_.t()).view(B, Tq, self.H, self.hd))
+                zk = self._qkn((hn @ Wk_.t()).view(B, Tq, self.H, self.hd))
                 eq = (zq[..., :d] ** 2 + zq[..., d:] ** 2).mean((0, 1))
                 ek = (zk[..., :d] ** 2 + zk[..., d:] ** 2).mean((0, 1))
                 en = en + (eq * ek).sqrt()
@@ -369,7 +379,7 @@ class DeepFold:
         mk = m.permute(1, 0, 2)                                  # (1,H,hd)
 
         def qk(W):
-            z = F.rms_norm((hn @ W.t()).view(B, Tq, self.H, self.hd), (self.hd,))
+            z = self._qkn((hn @ W.t()).view(B, Tq, self.H, self.hd))
             return M.apply_rot(z * mk[None], cos, sin)
         s1 = torch.einsum('bqhd,bkhd->bhqk', qk(self.Wq[li]),
                           qk(self.Wk[li])) / self.hd
@@ -412,8 +422,8 @@ class DeepFold:
                 A = torch.einsum('hv,hvd->vd', p, self.OV)
             else:
                 def qk(W):
-                    return F.rms_norm((hn @ W.t()).view(self.V, self.H, self.hd),
-                                      (self.hd,))
+                    return self._qkn(
+                        (hn @ W.t()).view(self.V, self.H, self.hd))
                 s1 = (qk(self.Wq[li]) * qk(self.Wk[li])).sum(-1) / self.hd
                 s2 = (qk(self.Wq2[li]) * qk(self.Wk2[li])).sum(-1) / self.hd
                 p = s1 * s2                                       # (V, H)
