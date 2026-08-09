@@ -129,7 +129,42 @@ conventional model's favour is a **lower bound on the foldability tax**.
 
 ---
 
-## 2026-08-09 — FINDING 18 (THE FOLDABILITY TAX, SEED 0, ALL NINE CELLS, BOTH PARAMETER ARMS): a conventional softmax+GELU transformer crosses the induction floor **one octave of width earlier at every depth ≥ 2** and scores 2–6× higher wherever both families induct; the held cross-entropy tax at exactly matched parameters is **0.054–0.127 nats and grows with width**. FINDING 16's emergence surface is therefore a statement about the **no-softmax bilinear family**, not about transformers at this size
+## 2026-08-09 — FINDING 18 (THE FOLDABILITY TAX): at the two cells where the two families differ *qualitatively*, the foldable family's induction score is bounded above by **+0.0138 and +0.0106** over three model seeds while a conventional softmax+GELU transformer scores **+0.1356 and +0.1365** — separations of **9.8× and 12.8×** that no threshold convention can undo; where both induct the conventional model is **3.5–5.4×** higher; and the held cross-entropy tax at exactly matched parameters is **0.052–0.125 nats, positive at 9 of 9 cells and growing with width**. FINDING 16's emergence surface is a statement about the **no-softmax bilinear family**, not about transformers at this size
+
+> **REVISED 2026-08-09 02:00 after independent adversarial review**
+> (`tf_baseline_independent_review.json`, reviewer did not produce the finding;
+> verdict SURVIVES WITH QUALIFICATION, 12 objections, 108 numbers recomputed
+> with 1 rounding disagreement). Three substantive corrections, all verified
+> against source before being applied:
+>
+> 1. **The headline was a THRESHOLD claim and is now a SEPARATION claim.** The
+>    original said the conventional model "crosses the induction floor one
+>    octave of width earlier at every depth ≥ 2". That is criterion-dependent —
+>    exactly the error FINDING 16 retracted three findings ago, in this same
+>    file. Of seven defensible criteria the reviewer constructed, five give one
+>    octave at both depths and two do not; **the bar this finding's own
+>    `tf_baseline_report.py` hard-codes** (`MODEL_SEED_T_BAR = 4.30`, adopted
+>    from FINDING 16) gives **no shift at either depth**, because the
+>    conventional model's across-model-seed t is 2.56 at depth 2 width 128 and
+>    4.05 at depth 3 width 64. The separation restatement above needs no
+>    threshold at all and is stronger. **The one-octave sentence is RETRACTED
+>    as a headline** and kept below only as one criterion's answer.
+> 2. **The family's depth-3 column was single-seed and is now three-seed.** All
+>    three seeds were on disk the whole time and were already published as a
+>    three-seed surface in FINDING 16 §3 of this same file; seed 0 happened to
+>    be the *low* seed at both depth-3 cells. Corrected family means: **+0.0035**
+>    (was +0.0077), **+0.1085** (was +0.0974), **+0.2207** (was +0.1642). The
+>    multipliers fall from 3.8×/6.4×/5.2× to **3.50×/5.41×/3.71×**, so the
+>    advertised band changes from "2–6×" to **3.5–5.4×**. The depth-3 width-64
+>    null gets *stronger*, not weaker: three-seed mean +0.0035, t = 1.47.
+> 3. **"8–21% fewer total parameters" was wrong**; the true range is
+>    **4.1–20.9%** (depth 1 width 64 is 573,504 against 598,080 = 4.1%).
+>
+> Also corrected: the tax is positive at **8 of 9** two-seed cells and
+> sign-agreeing at 9 of 9 — an earlier revision wrote "8 of 8 positive" in the
+> same sentence that named the one negative cell. Depth 3 width 256 seed 1 has
+> landed (+0.7871 induction, 4.15145 CE), so the second seed is complete at
+> **9 of 9**, not 8 of 9. What the review did NOT break is listed at the end.
 
 Files: `tfb_std{4,7}_d{1,2,3}_w{64,128,256}_b8192_s0.json` and their
 `_induction.json`; chain `tf_baseline_chain.sh`; predictions registered before
@@ -143,21 +178,30 @@ either family's across-seed spread, not because the replication is in.
 
 ### Induction, both families, same cells, same battery
 
-The family column is the published surface (three model seeds at depths 1–2,
-one at depth 3). Each floor is that measurement's own 3-standard-error probe
-floor — a power floor, **not** a detection threshold.
+**Both families are now three-seed and two-seed respectively at every cell.**
+Family = mean over three model seeds. Conventional ×4 = mean over two model
+seeds. Conventional ×7 = **one seed only**, which is why its column carries no
+verdict of its own (see the qualification below).
 
-| depth | width | family | floor | inducts | conventional ×4 | floor | inducts | conventional ×7 (matched) | floor | inducts |
-|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | 64 | −0.0115 | 0.0096 | no | −0.0189 | 0.0091 | no | −0.0223 | 0.0060 | no |
-| 1 | 128 | −0.0264 | 0.0093 | no | −0.0338 | 0.0064 | no | −0.0321 | 0.0066 | no |
-| 1 | 256 | −0.0354 | 0.0092 | no | −0.0453 | 0.0091 | no | −0.0446 | 0.0084 | no |
-| 2 | 64 | −0.0140 | 0.0111 | no | −0.0160 | 0.0102 | no | −0.0141 | 0.0059 | no |
-| 2 | 128 | −0.0034 | 0.0103 | no | **+0.1887** | 0.0227 | **YES** | **+0.1558** | 0.0189 | **YES** |
-| 2 | 256 | **+0.0938** | 0.0101 | **YES** | **+0.3540** | 0.0338 | **YES** | **+0.4534** | 0.0320 | **YES** |
-| 3 | 64 | +0.0077 | 0.0109 | no | **+0.1028** | 0.0077 | **YES** | **+0.1128** | 0.0073 | **YES** |
-| 3 | 128 | **+0.0974** | 0.0078 | **YES** | **+0.6225** | 0.0384 | **YES** | **+0.4662** | 0.0341 | **YES** |
-| 3 | 256 | **+0.1642** | 0.0156 | **YES** | **+0.8523** | 0.0394 | **YES** | **+0.7523** | 0.0292 | **YES** |
+| depth | width | family (3 seeds) | model-seed t | conventional ×4 (2 seeds) | model-seed t | ×7 (1 seed) | ratio |
+|---|---|---|---|---|---|---|---|
+| 1 | 64 | −0.0115 | −8.14 | −0.0219 | −7.13 | −0.0223 | — |
+| 1 | 128 | −0.0264 | −24.35 | −0.0349 | −34.23 | −0.0321 | — |
+| 1 | 256 | −0.0354 | −40.24 | −0.0447 | −80.30 | −0.0446 | — |
+| 2 | 64 | −0.0140 | −10.78 | −0.0153 | −22.84 | −0.0141 | — |
+| 2 | 128 | −0.0034 | −0.59 | **+0.1356** | 2.56 | +0.1558 | family is null |
+| 2 | 256 | **+0.0938** | 18.79 | **+0.3283** | 12.80 | +0.4534 | **3.50×** |
+| 3 | 64 | +0.0035 | 1.47 | **+0.1365** | 4.05 | +0.1128 | family is null |
+| 3 | 128 | **+0.1085** | 14.08 | **+0.5871** | 16.57 | +0.4662 | **5.41×** |
+| 3 | 256 | **+0.2207** | 6.32 | **+0.8197** | 25.15 | +0.7523 | **3.71×** |
+
+The `t` columns are one-sample t statistics across **model** seeds — a
+different and much harsher statistic than the per-cell probe floors quoted in
+the earlier revision of this section. Those probe floors were 3 standard errors
+over *probe* seeds, which the README's failure-mode list explicitly warns is a
+power floor and **not** a detection threshold; an earlier revision of this
+finding used them as one anyway, in a column headed "inducts". They have been
+removed rather than relabelled.
 
 Three things in that table are worth stating separately.
 
@@ -168,23 +212,44 @@ and the scores are *negative*, growing more negative with width (−0.011 to
 battery says so. That is the strongest available evidence that the depth-2 and
 depth-3 detections are the capability and not a probe artefact.
 
-**2. The threshold shift is exactly one octave, at both depths where a
-threshold exists.** At depth 2 the conventional model inducts at width 128 and
-ours needs 256; at depth 3 it inducts at width 64 and ours needs 128. FINDING
-16's "one octave of width per layer" law survives — it holds in *both*
-families — but our family's whole curve sits one octave to the right. The
-depth-3 width-64 cell is the sharpest single comparison in the programme: ours
-scores +0.0077 against a 0.0109 floor (null), the conventional model scores
-+0.1028 against a 0.0077 floor (13× its own noise), at the *same* depth, the
-*same* width, and 10% *fewer* parameters.
+**2. At two cells the families differ qualitatively, and the separation needs
+no threshold to state.** At depth 2 width 128 and depth 3 width 64 the family
+is null over three seeds and the conventional model is not. Stated without any
+detection convention:
 
-**3. Where both induct, the conventional score is 2–6× larger** — 3.8× at depth
-2 width 256, 6.4× at depth 3 width 128, 5.2× at depth 3 width 256. The gap is
-not a threshold effect that closes once ours turns on.
+| cell | family, 3 seeds | family upper bound at 3 model-seed SE | conventional, 2 seeds | separation |
+|---|---|---|---|---|
+| depth 2, width 128 | −0.0138, −0.0022, +0.0059 → **−0.0034** (t = −0.59) | **+0.0138** | +0.1887, +0.0826 → **+0.1356** | **9.8×** the bound |
+| depth 3, width 64 | +0.0077, +0.0033, −0.0005 → **+0.0035** (t = 1.47) | **+0.0106** | +0.1028, +0.1703 → **+0.1365** | **12.8×** the bound |
+
+Depth 3 width 64 remains the sharpest comparison in the programme — same depth,
+same width, and 4–21% *fewer* parameters for the conventional model — and the
+three-seed family number makes its null *stronger* than the single seed did
+(+0.0035 at t = 1.47, against the +0.0077 originally quoted).
+
+**2b. The one-octave framing, kept as one criterion's answer and no longer the
+headline.** Under "probe-seed mean exceeds 3 standard errors over probe seeds"
+the thresholds are 256/128 for the family and 128/64 for the conventional model
+at depths 2/3 — one octave at both. Five of the seven criteria the independent
+reviewer constructed agree. Two do not, and one of those two is the bar this
+programme adopted in FINDING 16 and hard-coded in this finding's own report
+script (`MODEL_SEED_T_BAR = 4.30`), under which there is **no shift at either
+depth**. FINDING 16's own three criteria split one-for-three on "at every depth
+≥ 2". FINDING 16 also adopted, in writing, "stop quoting a threshold as the
+headline" — and the first version of this finding quoted one anyway. The law
+that survives is FINDING 16's "one octave of width per layer" *within* each
+family; the *between-family* shift is criterion-dependent and is reported as
+such.
+
+**3. Where both induct, the conventional score is 3.5–5.4× larger** — 3.50× at
+depth 2 width 256, 5.41× at depth 3 width 128, 3.71× at depth 3 width 256, all
+against three-seed family means. (An earlier revision said "2–6×" from
+single-seed depth-3 family numbers.) The gap is not a threshold effect that
+closes once ours turns on.
 
 ### Held cross-entropy: the tax, and what it costs to pay it
 
-The `×4` arm gives the conventional model 8–21% **fewer** total parameters (our
+The `×4` arm gives the conventional model 4.1–20.9% **fewer** total parameters (our
 body is 18·W²+W per block against its 12·W²+W); the `×7` arm makes the body
 exactly equal.
 
@@ -232,34 +297,39 @@ Every null stays null and negative; every detection stays a detection against
 its own floor. The one-octave threshold shift is two-for-two at both cells that
 define it — depth 2 width 128 and depth 3 width 64.
 
-**The sharpest cell got sharper, not weaker.** Depth 3 width 64, where our
-family scores +0.0077 against a 0.0109 floor and does not induct, gives the
-conventional model +0.1028 then **+0.1703** — the second seed is 66% *larger*
-than the first. That is the cell where the two families differ at the same
-depth, the same width, and 10% fewer parameters for the conventional model, and
-a second seed did not soften it.
+**The sharpest cell got sharper, not weaker.** Depth 3 width 64 gives the
+conventional model +0.1028 then **+0.1703** — the second seed is 66% *larger* —
+against a family that is null there at +0.0035 over three seeds (t = 1.47). A
+second seed on one side and a third on the other both moved the comparison in
+the same direction.
 
-**What the second seed does moderate is magnitude, in both directions.**
-Near-threshold scores swing by roughly a factor of two either way: depth 2
-width 128 falls 2.3× (+0.1887 → +0.0826) while depth 3 width 64 rises 1.7×
-(+0.1028 → +0.1703). Away from the threshold it is much steadier — 14% at depth
-2 width 256, 11% at depth 3 width 128. So the honest statement is that **the
-threshold crossing is stable and the size of the effect just past it is not**,
-which is what one would expect of a capability appearing.
+**What the second seed does moderate is magnitude, in both directions.** Scores
+near the qualitative boundary swing by roughly a factor of two either way:
+depth 2 width 128 falls 2.3× (+0.1887 → +0.0826) while depth 3 width 64 rises
+1.7× (+0.1028 → +0.1703). Away from it they are much steadier — 14% at depth 2
+width 256, 11% at depth 3 width 128. The honest statement is that **which side
+of the boundary a cell falls on is stable and the size of the effect just past
+it is not**, which is what one would expect of a capability appearing.
 
 **The cross-entropy tax should not be quoted to four decimal places from one
 seed.** Its across-seed spread at the ×4 arm is about 0.02 nats — comparable to
 half the tax at most cells and to three times it at depth 3 width 64 (+0.0079
-then +0.0231). The seed-0 tables above are kept as recorded, but the
-matched-parameter arm's 0.054–0.127 range carries the same uncertainty until
-its own seeds land. What survives seeding is the *sign*: positive at 8 of 8
-two-seed cells at the matched arm's smaller sibling, with the single negative
-cell (depth 2 width 64) negative at both seeds and at the arm where the
-conventional model is also 7% smaller.
+then +0.0231). Recomputed against the family's **three-seed** mean rather than
+its seed 0, the matched-parameter arm's range shifts slightly to
+**+0.052 to +0.125** and stays monotone in width at every depth (0.068 → 0.081
+at depth 1, 0.052 → 0.125 at depth 2, 0.063 → 0.114 at depth 3). The smallest
+of those, +0.0516, still exceeds the largest conventional seed-to-seed CE swing
+observed anywhere (0.0215), so the sign is safe even single-seeded — but the
+matched arm remains **one seed** and its per-cell values should be read as
+provisional.
 
-The two-to-six-fold size claim is unchanged and now has two seeds at two of its
-cells: depth 2 width 256 averages 3.5× the family, depth 3 width 128 averages
-6.0×.
+What survives seeding is the sign: with all nine ×4 cells now at two seeds, the
+tax is **positive at 8 of 9 and sign-agreeing at 9 of 9**. The one negative
+cell, depth 2 width 64, is negative at both seeds and sits at the arm where the
+conventional model is also smaller; at matched parameters that same cell pays
++0.0516. (An earlier revision of this paragraph wrote "positive at 8 of 8" in
+the same sentence that named the negative cell — a self-contradiction caught in
+review.)
 
 ### What this does and does not overturn
 
@@ -277,9 +347,45 @@ cells: depth 2 width 256 averages 3.5× the family, depth 3 width 128 averages
 ### The unpriced risk, restated
 
 The softmax temperature is still unpriced and query/key RMSNorm caps `|q·k|` at
-the head dimension, so `1/√16` may be cold. That biases *against* the
-conventional model, so it makes every number above a **lower bound** on the
-tax. It cannot explain the gap away — it can only widen it.
+the head dimension, so `1/√16` may be cold. The argument that this makes every
+number a lower bound is **asserted, not measured** — the reviewer flagged it,
+and it stands as a plausibility argument only until a temperature sweep runs.
+The reviewer searched for the opposite bias (initialisation, data order,
+optimiser, evaluation, biases, zero-init) and found every one symmetric, so no
+*known* asymmetry flatters the conventional model. One real asymmetry the
+review did surface: the two parameter arms **bracket** rather than match — the
+×4 arm matches hidden width while the ×7 arm matches parameters and in doing so
+gives the conventional model a 1.75× wider hidden layer. No single allocation
+matches both, which is why both arms are reported.
+
+### What the independent review did NOT break
+
+Worth recording, because it is the part that took the attack:
+
+- **Arithmetic.** 108 numbers recomputed from the source JSON; **one**
+  disagreement, and it is a round-half tie (0.024850).
+- **The controls are real, not nominal.** Loop transcription 0.0; the fp64
+  naive reference forward 4.3e-16; causality 0.0; a family cell retrained from
+  scratch *now* drifts 0.0 from its stored value; the probe shim reproduces a
+  published foldable number at absolute difference 0.0.
+- **Parameter matching is exact at body *and* total**, to the integer, at 9 of
+  9 cells — checked against live module counts, not the closed form.
+- **The two families are scored on bit-identical inputs.** The battery's
+  synthetic sequences depend only on probe seed, vocabulary and tokenizer, all
+  identical across families; the cell the shim control validated is one of the
+  nine family cells in the table; neither model has dropout, so the shim's
+  `.eval()` is a no-op. The reviewer found no probe-code difference of any
+  kind. This was the objection most likely to have been fatal, and it failed.
+
+### The open objection, and what settles it
+
+The matched-parameter arm is single-seed, and the two threshold cells sit at
+model-seed t of 2.56 and 4.05 against an adopted bar of 4.30. Running the ×4
+arm's **third seed at depth 2 width 128 and depth 3 width 64 only** — about
+twelve minutes on this card at the observed chain rate, and already scheduled
+as part of the chain's third-seed stage — decides whether the one-octave
+framing clears the adopted bar. It does not affect the separation restatement
+that is now the headline, which needs no bar.
 
 ---
 
