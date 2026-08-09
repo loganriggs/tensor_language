@@ -326,6 +326,34 @@ Procedure per cell:
 
 Standing failure modes to attack every time (from the parent program's
 actual mistakes):
+- **A chain gate that matches a STALE TOOL WRAPPER instead of a run.**
+  (2026-08-09, cost 15 minutes of idle card.) Gates here `pgrep` for
+  command-line text like `python tf_[b]aseline_std\.py`. The `[b]`
+  character class stops the pattern matching *its own* pgrep — it does
+  **not** stop it matching a leftover `/bin/bash -c` wrapper from the tick
+  that *wrote* the chain, whose command line contains the whole script as
+  text. That wrapper survives `nohup ... &`, sits with parent PID 1, and
+  looks exactly like a live training run to the gate. **Gate on actual GPU
+  compute processes** — `nvidia-smi --query-compute-apps=pid --format=csv`
+  — and use command-line matching only as a secondary check. Diagnose a
+  stuck gate by running its three checks by hand and `ps`-ing whatever
+  matches: if the match is a `/bin/bash -c` it is a ghost.
+- **A chain DERIVED from another cell's chain, inheriting its skips.**
+  (2026-08-09, would have made a decomposition uncomputable.) The depth-3
+  width-64 script legitimately omitted four arms that an earlier run had
+  already trained; deriving the width-128 chain from it silently dropped
+  two of the eight corners at a cell where nothing was pre-run. The chain
+  would have exited "successfully". **Audit every derived chain against
+  `ls` of what is actually on disk for that cell before launching**, not
+  after the analysis fails.
+- **Claims formed at one model size, stated as claims about the
+  architecture.** (2026-08-09, twice in one day.) "Copying needs all three
+  ingredients" was true at depth 2 width 128 and false at depth 3 width
+  128; "the row-normalised arm is dead" was true at two cells and wrong at
+  the third. Both were absolute-scale statements made from cells where
+  every quantity is small. **Before generalising, ask what the same
+  measurement does at a bigger cell, and prefer ratios to the strongest
+  arm at the same corner over absolute thresholds.**
 - **Arithmetic dressed as a finding.** The layer-0 table is rank <=
   head_dim BY CONSTRUCTION. Only rank far below that bound is a result.
 - **Fitting and evaluating on the same tokens.** Any table, dictionary or
