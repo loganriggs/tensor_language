@@ -1114,6 +1114,45 @@ about shares — are unscoreable rather than passed or failed. Writing that guar
 in advance is what stops this cell from contributing three meaningless
 percentages to FINDING 21's trend.
 
+### 16:45 — K1 holds: on a SECOND foldable architecture the cap has the **OPPOSITE sign**. "Load-bearing for the family" is now a vanilla-at-one-cell fact
+
+Two of three cap-off seeds at depth 2 width 128 (preliminary):
+
+| architecture, depth 2 width 128 | cap effect (+ = removing it hurts us) | t |
+|---|---|---|
+| vanilla | **+0.0392** | +9.02 |
+| **predicate slot-32** | **−0.0112** (−0.0146, −0.0078) | −3.31 (n=2) |
+
+Removing the cap **helps** the predicate arm and **hurts** vanilla, at the same
+cell, same corpus, same optimiser. Put beside the reviewer's three-cell
+breakdown for vanilla, the complete picture of the cap's effect on *foldable*
+models is:
+
+| arm | cap effect |
+|---|---|
+| vanilla, depth 2 width 128 | +0.0392 (t = 9.02) — the only significant positive anywhere |
+| vanilla, depth 3 width 64 | +0.0043 (t = 0.72) — null |
+| vanilla, depth 3 width 128 | −0.0051 (t = −0.64) — null, point-negative |
+| predicate slot-32, depth 2 width 128 | **−0.0112** — negative |
+
+Against the conventional model's −0.127 to −0.160 at |t| between 19 and 50 at
+every cell.
+
+**So FINDING 19's mechanism claim is finished.** "The cap is load-bearing for
+the foldable family and a handicap for the conventional one" is **retracted in
+full**. What the data supports is narrower and duller: **the cap is a large,
+consistent handicap for the conventional model and essentially irrelevant to
+foldable ones** — one architecture at one cell happens to gain 0.039 from it,
+and a second architecture at the same cell loses 0.011. I built a mechanism
+story out of that single cell.
+
+**And the tax moves again, slightly.** If the predicate arm is better *without*
+the cap, then "each family at its own better configuration" gives
+4.47093 − 4.39413 = **+0.0768 nats**, against the +0.0879 quoted twenty minutes
+ago. Preliminary at two seeds; the third is training. The running history of
+this one number is +0.2522 → +0.0880 → +0.0879 → +0.0768, and every revision
+has been downward.
+
 ### 16:25 — the replacement tax reaches three seeds and does not move: **+0.0879 nats**
 
 The predicate slot-32 arm's third seed landed: 4.48303, 4.48126, 4.48173 →
