@@ -467,6 +467,46 @@ everything: family +0.0974/+0.1233/+0.1048, conventional
 +0.6225/+0.5517/+0.6710, conventional t = 17.75, ratio 5.7×. Depth 3 width 64 —
 the other threshold cell — has not yet reached its third seed.
 
+### 04:50 — the conventional-baseline chain is DONE; the factorial was STOPPED and is being redesigned, because it inherited the same handicap it exists to measure
+
+The foldability-tax chain exited cleanly at 04:37 with every stage complete.
+The factorial chain took the card at 04:42 and was **deliberately stopped two
+minutes in**, before it wrote a single checkpoint, for two reasons.
+
+**1. Ordering.** The foldable query/key-norm control is three cells (~15
+minutes) and decides whether every tax number in this finding is roughly right
+or roughly half the truth. The factorial is 28 cells (~2.5 hours) and answers a
+different question. Leaving the headline marked PROVISIONAL for 2.5 hours while
+the resolving experiment sat in a queue behind it was the wrong order. Both
+chains skip completed work, so the factorial resumes from scratch at no cost.
+
+**2. A design error in the factorial, which is the more important reason.**
+`FacConfig` defaults to `qk_norm=True`, so every factorial arm — including its
+softmax arms — would have run under the per-head query/key cap. The control
+above shows that cap costs the conventional model 0.163 nats and 8.3× of its
+induction, and the proposed mechanism is specifically that it **throttles how
+sharply a softmax row can peak**. A factorial that asks "how much of the
+induction gap does softmax buy?" while capping softmax's ability to concentrate
+would understate the softmax factor by construction, and would have done so
+invisibly — the arms would all have trained fine and produced a clean-looking
+table.
+
+This is the failure mode "compose along the route the effect actually takes"
+wearing a different hat: the factorial's attention factor and the query/key cap
+are not independent knobs, and treating them as one fixed setting and one
+varied setting silently confounds them. Caught before any factorial cell was
+written to disk, but only because the control landed first — which is an
+argument for running cheap controls before expensive factorials, not for
+cleverness.
+
+**What the factorial's configuration should be is now a question with a
+measurable answer**, and the query/key control is exactly the measurement. If
+removing the cap helps the foldable family too, the common setting for all six
+arms should be cap-off. If it does not, the factorial still needs its softmax
+arms uncapped to give softmax a fair test, and the design has to state which
+comparison each arm is making. Either way the decision waits on data rather
+than on my guess, which is why the control was interposed rather than queued.
+
 ### 🔴 THE UNPRICED RISK WAS REAL AND LARGE — every tax number above is PROVISIONAL (2026-08-09 02:50)
 
 The query/key-norm control landed at three seeds and it is the most

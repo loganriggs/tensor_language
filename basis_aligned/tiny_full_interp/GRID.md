@@ -373,7 +373,19 @@ baseline probe unchanged), chain `tf_factorial_chain.sh`.
 | 1 | 128 | 4 new arms, seed 0 — the negative control; nothing may induct | LOCAL | claimed, queued |
 | 2 | 128 | seeds 1-2 of whichever arms separate | LOCAL | queued last |
 
-**OPERATIONAL NOTE FOR THE NEXT TICK — interpose the factorial before the
+**STATUS 2026-08-09 04:50 — the baseline chain is DONE (exited clean at 04:37,
+all stages). The factorial chain was STOPPED two minutes in, before writing any
+checkpoint, and must be REDESIGNED before relaunch: `FacConfig` defaults to
+`qk_norm=True`, so every arm including the softmax arms would have run under the
+per-head query/key cap that the control shows costs the conventional model 0.163
+nats and 8.3x of its induction by throttling softmax concentration. A factorial
+that measures "how much does softmax buy" while capping softmax would understate
+its own headline factor invisibly. The foldable query/key-norm control
+(`tf_qknorm_chain.sh`, 3 cells, ~15 min) has the card and decides the right
+common setting for all six arms. DO NOT relaunch `tf_factorial_chain.sh` until
+that lands and the arm configuration is chosen from data.**
+
+**(SUPERSEDED) operational note — interpose the factorial before the
 baseline chain's third seed.** `tf_factorial_chain.sh` is launched and sitting
 in its gate loop (it re-checks every 120 s and starts within two minutes of the
 card going quiet). `tf_baseline_chain.sh` will reach **stage 5, the third
