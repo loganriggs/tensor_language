@@ -213,6 +213,42 @@ roughly a tenth of a nat, but the capability gap is not modest. Buying
 foldability at depth 3 width 64 does not cost 6% of a nat — it costs induction
 entirely.
 
+### Seed 1, first four cells (added 2026-08-09 01:10, chain still running)
+
+| depth | width | arm | induction seed 0 | seed 1 | seed-1 floor | tax seed 0 | tax seed 1 |
+|---|---|---|---|---|---|---|---|
+| 1 | 128 | ×4 | −0.0338 | −0.0359 | 0.0080 | +0.0249 | +0.0320 |
+| 2 | 64 | ×4 | −0.0160 | −0.0147 | 0.0098 | −0.0077 | −0.0100 |
+| 2 | 128 | ×4 | **+0.1887** | **+0.0826** | 0.0114 | +0.0593 | +0.0367 |
+| 3 | 128 | ×4 | **+0.6225** | **+0.5517** | 0.0286 | +0.0583 | +0.0490 |
+
+**Every qualitative call replicates at 4 of 4 cells**: both nulls stay null and
+negative, and both detections stay detections — the depth-2 width-128 cell is
+still seven times its own floor at seed 1, against a family that is null there
+across three seeds (−0.0034 ± 0.0099). The one-octave threshold shift is
+therefore two-for-two at the cell that defines it.
+
+**Two magnitude claims need moderating, and I am moderating them now rather
+than at the end of the chain.**
+
+1. **The induction magnitude at the threshold cell is seed-sensitive by a
+   factor of 2.3** — +0.1887 then +0.0826. That is a much wider spread than the
+   family shows at the same cell, but the family is sitting on its floor there,
+   where there is nothing to vary. The coherent reading is that crossing the
+   threshold replicates while the size of the effect *just past* it does not
+   yet have a settled value. Away from the threshold it is far steadier: depth
+   3 width 128 gives +0.6225 then +0.5517, an 11% spread.
+2. **The cross-entropy tax has an across-seed spread of roughly 0.02 nats**,
+   which at the ×4 arm is about half the tax itself. Quoting it to four decimal
+   places from one seed, as the seed-0 table above does, oversells its
+   precision. The matched-parameter arm's 0.054–0.127 range should be read as
+   having comparable uncertainty until its seeds land.
+
+Neither moderation touches the two-to-six-fold claim, which is measured only at
+cells where both families induct, and which holds where a second seed exists:
+depth 3 width 128 averages 6.0× over its two conventional seeds against the
+family's single seed.
+
 ### What this does and does not overturn
 
 - **FINDING 16's emergence surface is now a family-specific statement.** "One
