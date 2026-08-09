@@ -1,0 +1,48 @@
+{
+  "registered_predictions_file": "tf_factorial_predictions.json",
+  "gates_file": "tf_factorial_controls.json",
+  "config": {
+    "attn": "softmax",
+    "mlp": "bilin",
+    "depth": 3,
+    "width": 128,
+    "vocab": 8192,
+    "tok": "bpe",
+    "seed": 2,
+    "head_dim": 16,
+    "T": 512,
+    "qk_norm": true,
+    "hidden": 597,
+    "suffix": "",
+    "variant": "factorial",
+    "group_coeff": 0.0,
+    "n_heads": 8
+  },
+  "factor_levels": {
+    "attention": "softmax",
+    "feed_forward": "bilin"
+  },
+  "is_a_known_corner": null,
+  "foldable": {
+    "attention": false,
+    "feed_forward": true,
+    "note": "bilinnorm is DIAGNOSTIC ONLY -- its row denominator depends on every visible key, so it does not fold to a fixed token-pair table and must never be reported as a foldable win"
+  },
+  "params": {
+    "closed_form_body": 884736,
+    "family_body_same_cell": 885120,
+    "body_over_family": 0.999566,
+    "residual_params_vs_family": -384,
+    "hidden": 597,
+    "embedding": 1048576
+  },
+  "corpus": {
+    "vocab": 8192,
+    "tokenizer": "bpe",
+    "seq_len": 513,
+    "train_split_rows": 240000,
+    "data_order_id": "epoch_order(0)@seed1234",
+    "single_epoch_arithmetic": "15000 steps x batch 16",
+    "held": "held split rows [0:1500]"
+  }
+}
