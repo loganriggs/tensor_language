@@ -344,7 +344,52 @@ review.)
   this table would be exactly the unearned attribution this programme's
   retraction ledger is full of. The factorial below is the fix.
 
-### 03:25 — THE THIRD SEED SETTLES THE REVIEW'S CENTRAL OBJECTION, AGAINST MY ORIGINAL CLAIM, AND THE HANDICAP EXPLAINS WHY
+### 03:45 — SETTLED: three seeds on BOTH sides at 8 of 9 cells. The one-octave shift holds at depth 3 and is NOT established at depth 2. This is exactly the fallback wording the reviewer specified in advance.
+
+| depth | width | family mean (3) | t | conventional mean (3) | t | clears 4.30? | between-family Welch t | ratio to family bound |
+|---|---|---|---|---|---|---|---|---|
+| 1 | 64 | −0.0115 | −8.14 | −0.0212 | −11.14 | no | −4.09 | — |
+| 1 | 128 | −0.0264 | −24.35 | −0.0344 | −47.36 | no | −6.15 | — |
+| 1 | 256 | −0.0354 | −40.24 | −0.0430 | −24.44 | no | −3.84 | — |
+| 2 | 64 | −0.0140 | −10.78 | −0.0149 | −24.97 | no | −0.62 | — |
+| 2 | 128 | −0.0034 | −0.59 | **+0.1061** | **2.50** | **NO** | **2.55** | 7.7× |
+| 2 | 256 | +0.0938 | 18.79 | +0.3277 | 22.11 | yes | 14.96 | 3.0× |
+| 3 | 64 | +0.0035 | 1.47 | **+0.1252** | **5.55** | **YES** | **5.36** | 11.8× |
+| 3 | 128 | +0.1085 | 14.08 | +0.6151 | 17.75 | yes | 14.27 | 4.7× |
+| 3 | 256 | +0.2207 | 6.32 | 2 of 3 seeds | — | — | — | — |
+
+**The two threshold cells split, and the split is clean.**
+
+- **Depth 3 width 64 — the shift HOLDS.** Family +0.0077, +0.0033, −0.0005 →
+  mean +0.0035 at t = 1.47, a null. Conventional +0.1028, +0.1703, +0.1024 →
+  mean +0.1252 at t = 5.55, clearing the adopted 4.30 bar, with a
+  between-family Welch t of **5.36**. Same depth, same width, fewer
+  parameters. This one is decided.
+- **Depth 2 width 128 — the shift is NOT established.** Conventional t = 2.50,
+  between-family Welch t = 2.55. Suggestive, not conclusive.
+
+**The reviewer specified this outcome in advance.** Their words: *"If depth 2
+width 128 clears it, O1 collapses to a labelling fix; if not, the headline must
+become 'one octave at depth 3, and a large but not-yet-separated magnitude gap
+at depth 2.'"* It did not clear. **That wording is hereby adopted.**
+
+So the final form of the claim, three seeds a side:
+
+> A conventional transformer inducts at depth 3 width 64, where the foldable
+> family does not, at a between-family Welch t of 5.36 — one octave of width
+> earlier, decided. At depth 2 the conventional model's advantage at width 128
+> is large in the mean (+0.1061 against −0.0034) but not separated at three
+> seeds, so no depth-2 threshold shift is claimed. Where both families induct,
+> the conventional model is 3.0–4.7× higher.
+
+And the caveat that now dominates everything above: **all conventional numbers
+in this table are from the query/key-capped configuration**, which the control
+below shows costs the conventional model 0.163 nats and 8.3× of its induction.
+The depth-2 cell that fails to separate here separates at Welch t = 7.03 once
+the cap is lifted. The table is a lower bound on the conventional model in
+every row.
+
+### 03:25 — the third seed at depth 2 width 128, and why the handicap explains its marginality
 
 The third conventional seed at depth 2 width 128 landed at **+0.0472**,
 continuing the downward drift (+0.1887, +0.0826, +0.0472). The complete
