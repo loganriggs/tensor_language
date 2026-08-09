@@ -1114,6 +1114,46 @@ about shares — are unscoreable rather than passed or failed. Writing that guar
 in advance is what stops this cell from contributing three meaningless
 percentages to FINDING 21's trend.
 
+### 15:05 — THE COMPLETE FOUR-CELL PICTURE, and the cell-factorial **cannot be completed as designed** — its fourth corner is below the floor
+
+All four cells now have the full 2×2×2 at three seeds per corner:
+
+| cell | params | our model | full conventional | total move | pair | three-way |
+|---|---|---|---|---|---|---|
+| depth 2, width 64 | 671,872 | −0.0140 | +0.0080 | **+0.0220** | *n/q* | *n/q* |
+| depth 3, width 64 | 745,664 | +0.0035 | +0.9237 | +0.9202 | 43.5% | 48.4% |
+| depth 2, width 128 | 1,638,656 | −0.0034 | +1.0448 | +1.0482 | 12.3% | **88.8%** |
+| depth 3, width 128 | 1,933,696 | +0.1085 | +1.8637 | +1.7552 | **75.9%** | −1.3% |
+
+**The design does not close.** I queued depth 2 width 64 to complete a 2×2 over
+cells and turn two single comparisons into a factorial. Its total move is
++0.0220 nats, under the pre-registered 0.10 guard, so its shares are not
+quotable — **the fourth corner exists but cannot carry the measurement**. The
+factorial over cells is therefore *not* completed, and the two contrasts remain
+single comparisons. The design was right; the cell is below the floor. Recording
+that plainly rather than quoting three percentages of a 0.022-nat move.
+
+**What the three quotable cells do support, and it is not "bigger is smaller".**
+Parameter count does **not** order the shares: 745,664 parameters gives 48.4%
+while 1,638,656 gives **88.8%** — the larger model has the *higher* three-way
+share. Any "the conjunction weakens with model size" phrasing is wrong on this
+table. The two clean contrasts are:
+
+- **fixed width 128, depth 2 → 3: 88.8% → −1.3%**
+- **fixed depth 3, width 64 → 128: 48.4% → −1.3%**
+
+Both depth and width independently collapse the three-way term, and neither is
+a proxy for total size.
+
+**The four-cell summary in one paragraph.** Below about 670k parameters at depth
+2 width 64 nothing induct at all — every configuration sits within ±0.03 of
+zero, though in the right order. Above that floor, softmax with an uncapped
+logit range is the irreducible requirement: individually those two ingredients
+are worth almost nothing (never above 3.1% and 0.8% of the move), together they
+are worth 12% to 76%. Whether a gate must *also* be present depends on the
+cell — required at depth 2 width 128, where the three-way term is 88.8%, and
+irrelevant at depth 3 width 128, where it is zero.
+
 ### 14:50 — the smallest cell's cap-off design is complete and **uniformly null — but the ORDERING is intact**
 
 All four cap-off corners at depth 2 width 64, three seeds each:
