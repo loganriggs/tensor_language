@@ -1114,6 +1114,44 @@ about shares — are unscoreable rather than passed or failed. Writing that guar
 in advance is what stops this cell from contributing three meaningless
 percentages to FINDING 21's trend.
 
+### 19:45 — the FAIR depth-3 comparison: **L1 holds, L2 is refuted, and the tax GROWS with depth**
+
+With the slot pinning retuned per depth (slot 22, stream 132), our side now
+carries **1,794,930 parameters against the conventional 1,933,696 — 7.2%
+fewer**, almost exactly the 7.0% disadvantage it carried at depth 2.
+
+| depth 3 width 128 | three seeds | mean |
+|---|---|---|
+| predicate slot-22, cap ON | 4.43161, 4.42617, 4.42926 | 4.42901 |
+| predicate slot-22, cap OFF | 4.41887 (1 of 3) | — |
+| conventional matched, cap off | | 4.29770 |
+| **symmetric tax** | | **+0.1313** (interim; cap-off can only lower it, to ≈ +0.1212) |
+
+**L1 holds.** The tax turns positive once parameters are honest. The unfair
+slot-32 version measured **−0.0370** — an apparent win — with 34.7% *more*
+parameters. Correcting the parameter count moved this number by **0.168 nats**,
+which is worth recording as a calibration in its own right: at this cell, a 35%
+parameter advantage is worth about 0.17 nats, comfortably more than any
+architecture effect measured today.
+
+**L2 is refuted, and in the unfavourable direction.** I predicted the depth-3
+tax would be *smaller* than depth 2's +0.0759, reasoning that an extra block
+gives the hand-installed arm another site to use and that the conventional
+model's edge increasingly comes from a pair our named terms partly substitute
+for. It is **1.7× larger**. At matched-ish parameters the foldability cost
+**grows** with depth between these two cells:
+
+| cell | our parameter disadvantage | symmetric tax |
+|---|---|---|
+| depth 2, width 128 | −7.0% | **+0.0759** |
+| depth 3, width 128 | −7.2% | **+0.1313** (interim) |
+
+That is the opposite of the trend I expected and it is the one that matters for
+the programme's direction: whatever advantage naming the attention terms buys,
+it does not keep pace with what a conventional transformer gains from an extra
+block. Two cells is not a trend, but it is the only matched-parameter
+comparison we have at two depths, and it points the wrong way for us.
+
 ### 19:15 — the fix lands, K4 HOLDS, and the sweep found the **same defect a third time**
 
 Files: `tf_interp3_qknorm_fix.json`. All three gates pass.
