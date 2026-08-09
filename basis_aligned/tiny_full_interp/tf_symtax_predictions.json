@@ -1,0 +1,35 @@
+{
+  "registered": "2026-08-09 15:50 UTC, BEFORE any cell of this run was trained",
+  "why_this_experiment": {
+    "the_retraction": "FINDING 19's headline (+0.2522 nats foldability tax) was RETRACTED after independent review: it applied 'each family at its own better configuration' to the CONVENTIONAL model only, letting it pick its best cap setting while holding our side to vanilla -- one of six architectures this programme built, and not its best. A foldable arm already on disk (predicate slot-32, 1,523,808 parameters, 7% FEWER than the conventional matched arm) reaches 4.48215, giving a symmetric tax of +0.0880 rather than +0.2522.",
+    "what_is_still_missing": "that symmetric comparison uses a foldable arm that has NEVER been run without the query/key cap, and only has two seeds. So the two things FINDING 19 actually claims -- the size of the tax, and that the cap is load-bearing for the foldable family -- are both untested on the architecture that matters.",
+    "the_reviewer_s_own_recommendation": "train predicate slot-32 at three seeds, cap on and off, at both cells; 475k body parameters, cheaper than arms already run."
+  },
+  "design": "predicate variant, slot 32 (stream pinned to 128, matching the plain model's embedding), three seeds, cap ON and cap OFF, at depth 2 width 128 and depth 3 width 128. 12 cells. Seed 2 of the cap-on arm is also missing and is included.",
+  "predictions": {
+    "K1_the_cap_is_NOT_load_bearing_for_this_architecture": {
+      "claim": "Removing the query/key cap changes the predicate arm's held cross-entropy by less than the +0.0392 it costs vanilla at depth 2 width 128, and the sign may be negative (removing it helps).",
+      "reason": "the independent review already showed the family's cap effect is significant at exactly ONE of three cells for vanilla (+0.0392 at t=9.02, then +0.0043 and -0.0051), so 'load-bearing for the family' was over-read from a single cell of a single architecture. A second architecture is the cleanest test of whether it was ever about the family at all.",
+      "confidence": "0.65"
+    },
+    "K2_the_symmetric_tax_stays_near_+0.09": {
+      "claim": "Best-against-best at depth 2 width 128 -- the better of the predicate arm's two cap settings against the conventional model's 4.39413 -- lands between +0.05 and +0.12 nats.",
+      "reason": "the two-seed capped value is 4.48215, giving +0.0880; a third seed and a cap sweep should move it only a little",
+      "confidence": "0.7"
+    },
+    "K3_it_does_not_close_at_depth_3": {
+      "claim": "At depth 3 width 128 the same symmetric tax is also positive and within a factor of two of the depth-2 value.",
+      "confidence": "0.5 -- genuinely unknown; the conventional model gains a lot from depth and the predicate arm may or may not keep pace"
+    },
+    "K4_hand_installed_induction_is_unaffected_by_the_cap": {
+      "claim": "The predicate arm's induction stays above +2.0 at both cap settings (FINDING 17 measured +2.6402 with the cap on).",
+      "reason": "24 named scalars carry 98% of that arm's induction and they are hand-installed, not learned through the attention pattern, so a cap on q.k should barely touch them",
+      "confidence": "0.75",
+      "note": "if the cap DOES move it substantially, the named terms are less independent of the learned pattern than FINDING 17 concluded"
+    }
+  },
+  "what_this_cannot_settle": [
+    "The predicate arm buys its induction by hand-installation, so any tax it wins is a statement about LOSS, not about discovered mechanism. That caveat travels with every number this run produces.",
+    "Two cells, one corpus, one optimiser."
+  ]
+}
