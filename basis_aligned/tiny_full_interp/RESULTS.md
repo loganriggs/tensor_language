@@ -1114,6 +1114,69 @@ about shares — are unscoreable rather than passed or failed. Writing that guar
 in advance is what stops this cell from contributing three meaningless
 percentages to FINDING 21's trend.
 
+### 19:15 — the fix lands, K4 HOLDS, and the sweep found the **same defect a third time**
+
+Files: `tf_interp3_qknorm_fix.json`. All three gates pass.
+
+**Default path: exactly zero, not float noise.** Re-running a published ladder
+against a copy of its own JSON gives **4056 of 4056 result scalars bitwise
+identical** — largest disagreement 0.0. The only differences are the wall-clock
+field and the newly added config key. The published file was restored and its
+checksum verified. The 122 existing ladders remain reproducible.
+
+**The fix works, and its blast radius is bounded.**
+
+| decomposition control | before | after |
+|---|---|---|
+| layer-0 folded vs weight pattern | 0.9876983 | **6.22e-07** |
+| pipeline | 0.6068085 | **7.34e-07** |
+| length-1 table | 0.0471070 | **3.95e-07** |
+| MLP tensor vs factored | 1.565e-07 | **1.565e-07 — unchanged** |
+| pass | false | **true** |
+
+The MLP number not moving is the useful part: the feed-forward fold never
+touches the cap, so an edit that changed it would have been overreach.
+
+**The same defect, a third time — and this one was latent.** The sweep found
+five more unconditional head-dimension norms in `tf_interp2.py`, the **parent
+class** of the analysis object. They were not firing, because that class asserts
+the plain variant and no plain cap-off checkpoint exists. Fixed anyway, and
+verified inert under the default. Full inventory: eight head-dimension sites
+across five files, all now conditional; every other norm in the directory is
+over the stream width or a slot, which the flag does not reach. A hand-rolled
+RMS sweep (`rsqrt`, `pow(2).mean`, `norm(dim=-1)`) found no further sites.
+
+**Three files, found three separate times, by three different routes** — the
+first by a build agent patching the model, the second by a positive control
+firing on six analyses, the third by an explicit directory sweep. That is the
+argument for the sweep being a standing step rather than a one-off: the first
+two finds were reactive, and the third would still be sitting there.
+
+### K4 HOLDS — and the cap effect is not zero, and changes sign with depth
+
+| depth | cap ON (3 seeds) | cap OFF (3 seeds) | difference |
+|---|---|---|---|
+| 2 | 2.4942 | 2.5535 | **+0.0593** (t = 1.97, not resolvable) |
+| 3 | 2.8782 | 2.8146 | **−0.0636** (t = −3.44, resolvable) |
+
+All six arms clear +2.0; the weakest is 2.5077, half a nat clear and about 20×
+the model-seed spread. Not a borderline call.
+
+**The mechanism was checked, not just the bar.** Zeroing all named predicate
+terms removes **100.1–100.5%** of the induction score under *both* cap
+settings, and the previous-token-match scalar alone removes **97.7–99.2%**. The
+named scalars carry the induction, so uncapping the learned pattern barely
+moves it — the reason K4 was predicted is the reason it held.
+
+**But it is not exactly zero and the sign flips between adjacent depths.** Both
+differences exceed the pre-registered seed-spread guard of 0.0086 in absolute
+value, so neither is noise, and depth 3's is statistically resolvable. Both are
+about 2% of a 2.5–2.9 score and neither threatens the bar. Recording it because
+**"the cap does not affect the hand-installed induction" is not safe to state
+as a depth-independent fact**, and a sign flip across two adjacent depths is
+exactly the kind of thing that becomes a retraction later if it is rounded to
+zero now.
+
 ### 18:35 — the analysis pass FAILED on all six cap-off arms, and **the positive control is why**. A fourth file hardcodes the query/key norm
 
 The ladder ran on 10 arms: **4 passed, 6 failed — and the 6 are exactly the
