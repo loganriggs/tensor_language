@@ -1,0 +1,68 @@
+{
+  "registered": "2026-08-09, BEFORE tf_factorial.py was written and before any factorial cell was trained",
+  "why_this_experiment_exists": [
+    "The conventional-baseline chain (tfb_std*) established, at seed 0 across a full 3x3 grid and at BOTH expansion factors, that a conventional softmax+GELU transformer crosses the induction floor exactly ONE OCTAVE OF WIDTH earlier than our foldable family at every depth >= 2, and scores 2-6x higher wherever both induct.",
+    "But the conventional model differs from ours in TWO ways at once -- softmax versus an unnormalized two-branch product, and a GELU gate versus an ungated bilinear product. The grid therefore CANNOT say which difference carries the gap. Attributing it to either one right now would be exactly the kind of unearned attribution this programme's retraction ledger is full of.",
+    "This is a 3x2 factorial that separates them, plus one extra attention level that asks WHICH PROPERTY of softmax matters."
+  ],
+  "design": {
+    "attention_levels": {
+      "bilin": "OURS. pat = (q1.k1/hd) * (q2.k2/hd), causally masked to zero, NO normalization of any kind. Exactly foldable to a token-pair table.",
+      "bilinnorm": "DIAGNOSTIC ONLY, NOT A PROPOSED ARCHITECTURE. The same two-branch product, then divided by the row's L1 norm (sum of |pat| over visible keys, plus 1e-6). This adds COMPETITION between keys while keeping the exponential out and keeping signs. It is NOT exactly foldable to a fixed token-pair table, because the denominator depends on the whole row -- so it can never be reported as a foldable win. Its only job is to say whether the softmax effect is about competition or about the exponential.",
+      "softmax": "CONVENTIONAL. pat = softmax(q.k/sqrt(hd)) over the visible prefix, ONE query/key branch."
+    },
+    "mlp_levels": {
+      "bilin": "OURS. Down(Left(x) * Right(x)) + bias. Ungated bilinear, exactly foldable to a symmetric tensor.",
+      "gelu": "CONVENTIONAL. Down(GELU(Up(x))) + bias, exact erf GELU."
+    },
+    "known_corners": {
+      "bilin x bilin": "IS the published foldable family vanilla model",
+      "softmax x gelu": "IS the published conventional baseline"
+    },
+    "parameter_matching": "Every arm's hidden size is chosen so that its body parameter count equals the family's 18*W^2 + W per block. Two arms need a non-integer expansion to do this (softmax attention frees 2*W^2 per block), so hidden is set directly and the exact residual is recorded per arm rather than being hidden behind an integer expansion factor.",
+    "everything_else": "identical -- same corpus, same byte-level BPE at V=8192, same data order, same single epoch of 15000 steps x batch 16, same Muon 0.02 with AdamW 0.004 on the embedding, same T=512, same head_dim 16, same query/key norm, same rotary tables, same zero-init on both residual writes, same 30*tanh(logits/30) readout.",
+    "probe": "the SAME induction battery, through the same shim whose C4 control reproduces a published foldable number exactly."
+  },
+  "gates_that_must_pass_before_any_arm_is_read": {
+    "G1": "The factorial code at (bilin, bilin) must reproduce tf_model.TinyBilin variant=vanilla EXACTLY -- same parameter names and shapes, state dict transplanted, forward outputs agreeing to fp32 round-off (< 1e-5 max abs) on random tokens.",
+    "G2": "The factorial code at (softmax, gelu) must reproduce tf_baseline_std.StdTransformer the same way.",
+    "G3": "Closed-form body parameter counts must equal the live counts for all six arms.",
+    "G4": "The bilinnorm rows must have unit L1 mass over visible keys (and exactly zero on masked positions) on a random input.",
+    "note": "G1 and G2 are what make the two OFF-DIAGONAL arms trustworthy. If the code reproduces both known corners bit-for-bit, the hybrids are the same code with one factor flipped."
+  },
+  "predictions": {
+    "F1_attribution_of_the_induction_gap": {
+      "cell": "depth 2 width 128 seed 0, where the family is null (-0.0034) and the conventional model inducts (+0.1887 at 4x, +0.1558 param-matched)",
+      "claim": "The ATTENTION factor carries the majority of the gap and the MLP factor carries the minority.",
+      "sharp_form": "(softmax, bilin-MLP) scores above +0.08 and above its own probe floor; (bilin-attn, gelu) stays below +0.04.",
+      "reason": "An unnormalized quadratic pattern has no competition between keys -- nothing in it forces the read mass onto ONE previous position, which is what copying from a matched prefix requires. The gate nonlinearity changes what can be computed from a position's content, not which position is read.",
+      "confidence": "0.75 on the direction (attention factor larger than MLP factor); 0.55 on both sharp numeric bounds together"
+    },
+    "F2_which_property_of_softmax": {
+      "claim": "Row normalization ALONE recovers at least half of the softmax arm's induction score: (bilinnorm, bilin) >= 0.5 * (softmax, bilin).",
+      "reason": "If F1's mechanism is right, competition is the active ingredient and the exponential is a detail of how softmax implements it.",
+      "confidence": "0.6",
+      "what_would_refute_it": "bilinnorm scoring at the family's null while softmax inducts -- that would mean the exponential's sharpening, not normalization, is doing the work, and would kill the idea that a cheap normalized-bilinear substitute could recover the capability."
+    },
+    "F3_held_cross_entropy_main_effects": {
+      "claim": "At matched parameters the ATTENTION main effect on held CE is larger than the MLP main effect.",
+      "sharp_form": "|mean CE over the two softmax arms - mean CE over the two bilin-attn arms| > |mean CE over the three gelu arms - mean CE over the three bilin-MLP arms|",
+      "confidence": "0.6 -- deliberately weaker than F1, because CE and the induction probe do not have to be carried by the same factor, and a 0.11-nat total gap leaves little room between the two main effects"
+    },
+    "F4_interaction": {
+      "claim": "The two factors are close to ADDITIVE on held CE (two-factor interaction under 0.02 nats) but SUPER-additive on the induction score (interaction positive).",
+      "reason": "Induction plausibly needs both a pattern that can select one position AND a nonlinearity that can use what it read; CE is an average over mostly-local prediction where the two contributions are more nearly independent.",
+      "confidence": "0.45 on the induction super-additivity, 0.6 on the CE additivity"
+    },
+    "F5_negative_control": {
+      "claim": "At depth 1 NO arm inducts, including the softmax arms.",
+      "reason": "One layer cannot both match a prefix and copy its successor. The conventional grid already shows depth-1 softmax scoring NEGATIVE at every width (-0.019 to -0.045), so this is a real check on the battery rather than a formality.",
+      "confidence": "0.95 -- and an arm that inducts at depth 1 means the probe leaks, not that the arm is clever"
+    }
+  },
+  "what_this_experiment_cannot_settle": [
+    "It cannot make bilinnorm a foldable architecture. If F2 confirms, the finding is a POINTER at what a foldable substitute would have to provide, not a substitute.",
+    "It is seed 0 first. Nothing here is settled until at least two model seeds agree; the induction gaps being measured (0.19 against a 0.02 floor) are large relative to the family's across-seed induction spread (about 0.009), but that is an argument for expecting replication, not a substitute for it.",
+    "It holds head_dim, query/key norm, rotary and the readout fixed. A softmax model with a different head budget is a different experiment."
+  ]
+}

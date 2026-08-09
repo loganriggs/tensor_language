@@ -316,6 +316,63 @@ Machinery: `tf_baseline_std.py` (model + duplicated-and-gated training loop +
 controls), `tf_baseline_probe.py` (induction through the verbatim probe),
 `tf_baseline_report.py` → `tf_baseline_std.json` / `tf_baseline_table.md`.
 
+### Seed-0 result, all nine cells, both parameter arms (2026-08-09)
+
+The conventional model crosses the induction floor **one octave of width
+earlier at every depth ≥ 2**, and scores 2–6× higher wherever both induct. The
+held cross-entropy tax at exactly matched parameters is 0.054–0.127 nats,
+growing with width. Full table in RESULTS.md FINDING 18. Seeds 1 and 2, the
+query/key-norm control and the learning-rate bound are still running.
+
+## THE ATTENTION × FEED-FORWARD FACTORIAL — what the tax is MADE OF (CLAIMED BY LOCAL 2026-08-09, gates passed, runs gated behind the baseline chain)
+
+The baseline above changes **two** things at once — softmax versus an
+unnormalised two-branch product, and a GELU gate versus an ungated bilinear
+product — so it cannot say which one buys the induction. This 3×2 factorial
+changes them one at a time.
+
+| | feed-forward `bilin` (ours, foldable) | feed-forward `gelu` (conventional) |
+|---|---|---|
+| attention `bilin` (ours, foldable) | = the published family vanilla model | **new arm** |
+| attention `bilinnorm` (diagnostic only) | **new arm** | **new arm** |
+| attention `softmax` (conventional) | **new arm** | = the published conventional baseline |
+
+`bilinnorm` is the same two-branch product divided by its row L1 norm. It is
+**NOT a proposed architecture** — its denominator depends on every visible key,
+so it does not fold to a fixed token-pair table and can never be reported as a
+foldable win. Its only job is to separate *competition between keys* from *the
+exponential* as the active ingredient in softmax. L1 rather than row-sum
+because the product is signed and a row sum can cross zero.
+
+Every arm's hidden size is set to hold the body at the family's 18·W²+W; the
+one arm that cannot match exactly (softmax frees 2·W², which does not divide by
+3) lands 256 parameters low out of 590,080, recorded per arm.
+
+| gate | result |
+|---|---|
+| G1 `(bilin, bilin)` reproduces `tf_model.TinyBilin` vanilla under state-dict transplant | **PASS, max abs diff 0.0** |
+| G2 `(softmax, gelu)` reproduces `tf_baseline_std.StdTransformer` at the matched expansion | **PASS, max abs diff 0.0** |
+| G3 closed-form body counts equal live counts, all six arms | **PASS** |
+| G4 `bilinnorm` block 0 == `bilin` block 0 ÷ its row L1, and the two arms genuinely differ | **PASS, max abs diff 0.0** |
+| probe corner: the factorial's foldable path returns a published foldable induction score | **PASS, 1.7e-7** |
+
+G1 and G2 are what earn the right to read the hybrids: the code reproduces both
+known corners bit-for-bit, so an off-diagonal arm is that same code with one
+factor flipped.
+
+Predictions registered in `tf_factorial_predictions.json` before the file was
+written. Machinery: `tf_factorial.py`, `tf_factorial_probe.py` (calls the
+baseline probe unchanged), chain `tf_factorial_chain.sh`.
+
+| depth | width | arms | owner | status |
+|---|---|---|---|---|
+| 2 | 128 | 4 new arms, seed 0 — the discriminating cell (family null, conventional +0.189) | LOCAL | claimed, queued behind the baseline chain |
+| 3 | 64 | 4 new arms, seed 0 — the other discriminating cell (family null, conventional +0.103) | LOCAL | claimed, queued |
+| 2 | 256 | 4 new arms, seed 0 — both induct, conventional 3.8× higher | LOCAL | claimed, queued |
+| 3 | 128 | 4 new arms, seed 0 — both induct, conventional 6.4× higher | LOCAL | claimed, queued |
+| 1 | 128 | 4 new arms, seed 0 — the negative control; nothing may induct | LOCAL | claimed, queued |
+| 2 | 128 | seeds 1-2 of whichever arms separate | LOCAL | queued last |
+
 ## Vocab check
 
 | vocab | owner | status |

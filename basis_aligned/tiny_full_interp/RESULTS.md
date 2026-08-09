@@ -129,6 +129,158 @@ conventional model's favour is a **lower bound on the foldability tax**.
 
 ---
 
+## 2026-08-09 — FINDING 18 (THE FOLDABILITY TAX, SEED 0, ALL NINE CELLS, BOTH PARAMETER ARMS): a conventional softmax+GELU transformer crosses the induction floor **one octave of width earlier at every depth ≥ 2** and scores 2–6× higher wherever both families induct; the held cross-entropy tax at exactly matched parameters is **0.054–0.127 nats and grows with width**. FINDING 16's emergence surface is therefore a statement about the **no-softmax bilinear family**, not about transformers at this size
+
+Files: `tfb_std{4,7}_d{1,2,3}_w{64,128,256}_b8192_s0.json` and their
+`_induction.json`; chain `tf_baseline_chain.sh`; predictions registered before
+the first training step in `tf_baseline_predictions.json`.
+
+**Status: seed 0 only on the conventional side.** Seeds 1 and 2, the
+no-query/key-norm control and the full-length learning-rate bound are still
+running. Nothing below is settled until at least two model seeds agree; it is
+reported now because the induction gaps are an order of magnitude larger than
+either family's across-seed spread, not because the replication is in.
+
+### Induction, both families, same cells, same battery
+
+The family column is the published surface (three model seeds at depths 1–2,
+one at depth 3). Each floor is that measurement's own 3-standard-error probe
+floor — a power floor, **not** a detection threshold.
+
+| depth | width | family | floor | inducts | conventional ×4 | floor | inducts | conventional ×7 (matched) | floor | inducts |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | 64 | −0.0115 | 0.0096 | no | −0.0189 | 0.0091 | no | −0.0223 | 0.0060 | no |
+| 1 | 128 | −0.0264 | 0.0093 | no | −0.0338 | 0.0064 | no | −0.0321 | 0.0066 | no |
+| 1 | 256 | −0.0354 | 0.0092 | no | −0.0453 | 0.0091 | no | −0.0446 | 0.0084 | no |
+| 2 | 64 | −0.0140 | 0.0111 | no | −0.0160 | 0.0102 | no | −0.0141 | 0.0059 | no |
+| 2 | 128 | −0.0034 | 0.0103 | no | **+0.1887** | 0.0227 | **YES** | **+0.1558** | 0.0189 | **YES** |
+| 2 | 256 | **+0.0938** | 0.0101 | **YES** | **+0.3540** | 0.0338 | **YES** | **+0.4534** | 0.0320 | **YES** |
+| 3 | 64 | +0.0077 | 0.0109 | no | **+0.1028** | 0.0077 | **YES** | **+0.1128** | 0.0073 | **YES** |
+| 3 | 128 | **+0.0974** | 0.0078 | **YES** | **+0.6225** | 0.0384 | **YES** | **+0.4662** | 0.0341 | **YES** |
+| 3 | 256 | **+0.1642** | 0.0156 | **YES** | **+0.8523** | 0.0394 | **YES** | **+0.7523** | 0.0292 | **YES** |
+
+Three things in that table are worth stating separately.
+
+**1. Depth 1 is a clean negative control that both families pass.** No arm
+inducts at depth 1 at any width, in either family, at either parameter arm —
+and the scores are *negative*, growing more negative with width (−0.011 to
+−0.045). One layer cannot both match a prefix and copy its successor, and the
+battery says so. That is the strongest available evidence that the depth-2 and
+depth-3 detections are the capability and not a probe artefact.
+
+**2. The threshold shift is exactly one octave, at both depths where a
+threshold exists.** At depth 2 the conventional model inducts at width 128 and
+ours needs 256; at depth 3 it inducts at width 64 and ours needs 128. FINDING
+16's "one octave of width per layer" law survives — it holds in *both*
+families — but our family's whole curve sits one octave to the right. The
+depth-3 width-64 cell is the sharpest single comparison in the programme: ours
+scores +0.0077 against a 0.0109 floor (null), the conventional model scores
++0.1028 against a 0.0077 floor (13× its own noise), at the *same* depth, the
+*same* width, and 10% *fewer* parameters.
+
+**3. Where both induct, the conventional score is 2–6× larger** — 3.8× at depth
+2 width 256, 6.4× at depth 3 width 128, 5.2× at depth 3 width 256. The gap is
+not a threshold effect that closes once ours turns on.
+
+### Held cross-entropy: the tax, and what it costs to pay it
+
+The `×4` arm gives the conventional model 8–21% **fewer** total parameters (our
+body is 18·W²+W per block against its 12·W²+W); the `×7` arm makes the body
+exactly equal.
+
+| depth | width | family CE | conventional ×4 | tax | conv. params | conventional ×7 | tax at matched parameters |
+|---|---|---|---|---|---|---|---|
+| 1 | 64 | 5.14244 | 5.11229 | +0.0301 | 0.959× | 5.07971 | **+0.0627** |
+| 1 | 128 | 4.81940 | 4.79455 | +0.0249 | 0.927× | 4.74877 | **+0.0706** |
+| 1 | 256 | 4.55825 | 4.52073 | +0.0375 | 0.880× | 4.47815 | **+0.0801** |
+| 2 | 64 | 5.02058 | 5.02826 | −0.0077 | 0.927× | 4.96647 | **+0.0541** |
+| 2 | 128 | 4.65117 | 4.59188 | +0.0593 | 0.880× | 4.54320 | **+0.1080** |
+| 2 | 256 | 4.32661 | 4.25675 | +0.0699 | 0.824× | 4.20009 | **+0.1265** |
+| 3 | 64 | 4.94174 | 4.93386 | +0.0079 | 0.901× | 4.87913 | **+0.0626** |
+| 3 | 128 | 4.52845 | 4.47020 | +0.0583 | 0.847× | 4.42622 | **+0.1022** |
+| 3 | 256 | 4.21817 | 4.14647 | +0.0717 | 0.791× | 4.09689 | **+0.1213** |
+
+Positive = the conventional model wins = folding costs prediction quality. At
+matched parameters the tax is positive at **9 of 9** cells, ranges 0.054 to
+0.127 nats, and **grows with width at every depth** (0.063 → 0.080 at depth 1,
+0.054 → 0.127 at depth 2, 0.063 → 0.121 at depth 3). The one cell where the
+sign flips — depth 2 width 64 at the `×4` arm, −0.0077 — is the arm where the
+conventional model is also 7% smaller; at matched parameters that same cell
+pays +0.054.
+
+**The honest reading of the two tables together**: the loss tax is modest and
+roughly a tenth of a nat, but the capability gap is not modest. Buying
+foldability at depth 3 width 64 does not cost 6% of a nat — it costs induction
+entirely.
+
+### What this does and does not overturn
+
+- **FINDING 16's emergence surface is now a family-specific statement.** "One
+  octave per layer" is not overturned; "these are the widths at which induction
+  emerges" is, as a claim about transformers. It is a claim about *ours*.
+- **It does not overturn any interpretation result.** Everything the folding
+  machinery decomposed, it still decomposes; the models are what they were.
+  What changed is the reference frame those results are quoted in.
+- **It does not attribute the gap.** The conventional model differs from ours
+  in two ways at once. Attributing the induction to softmax on the strength of
+  this table would be exactly the unearned attribution this programme's
+  retraction ledger is full of. The factorial below is the fix.
+
+### The unpriced risk, restated
+
+The softmax temperature is still unpriced and query/key RMSNorm caps `|q·k|` at
+the head dimension, so `1/√16` may be cold. That biases *against* the
+conventional model, so it makes every number above a **lower bound** on the
+tax. It cannot explain the gap away — it can only widen it.
+
+---
+
+## 2026-08-09 — THE ATTENTION × FEED-FORWARD FACTORIAL: gates passed, runs queued
+
+Files: `tf_factorial.py`, `tf_factorial_probe.py`, `tf_factorial_report.py`,
+chain `tf_factorial_chain.sh`; predictions in
+`tf_factorial_predictions.json`, **registered before `tf_factorial.py` was
+written**; gates in `tf_factorial_controls.json`.
+
+FINDING 18 cannot say whether the induction gap is bought by softmax or by the
+GELU gate. This 3×2 factorial changes one factor at a time at matched
+parameters, and adds a third attention level — the same two-branch product
+divided by its row L1 norm — to ask *which property* of softmax matters:
+competition between keys, or the exponential.
+
+**`bilinnorm` is diagnostic only and can never be reported as a foldable win.**
+Its denominator depends on every visible key, so it does not fold to a fixed
+token-pair table. If it turns out to recover the capability, the finding is a
+pointer at what a foldable substitute would have to provide — not a substitute.
+
+| gate | result |
+|---|---|
+| G1 `(bilin, bilin)` reproduces the family's `TinyBilin` under state-dict transplant | **PASS, max abs diff 0.0** |
+| G2 `(softmax, gelu)` reproduces `StdTransformer` at the matched expansion | **PASS, max abs diff 0.0** |
+| G3 closed-form body counts equal live counts, all six arms | **PASS** (five arms exactly matched; the softmax+bilinear arm lands 256 parameters low out of 590,080, because softmax frees 2·W² and that does not divide by 3 — recorded, not rounded away) |
+| G4 `bilinnorm` block 0 == `bilin` block 0 ÷ its row L1, at identical weights, and the arms genuinely differ | **PASS, max abs diff 0.0** |
+| probe corner: the factorial's foldable path returns a published foldable induction score | **PASS, 1.7e-7** |
+
+G1 and G2 are what earn the right to read the two hybrid arms: the code
+reproduces both known corners bit-for-bit, so an off-diagonal arm is that same
+code with exactly one factor flipped.
+
+**A note on G4, because it failed first and the fix matters.** The first
+version asserted that a normalised row carries unit L1 mass; it measured 0.0029
+off and failed. The deviation turned out to be exactly the 1e-6 denominator
+floor acting on query position 0 — the row with one visible key, whose raw mass
+on an untrained model is 3.5e-4 — matching the epsilon prediction to 1.8e-7.
+The wrong fix was to loosen the tolerance until it passed. The gate now tests
+the exact identity instead (normalised == raw ÷ its own L1), which is tighter
+by three orders of magnitude and correct at every row mass, and it passes at
+0.0. A second clause was added because the first rewrite was **vacuous**:
+`pat_out` hands back the pattern *after* normalisation, so measuring its L1
+against a recomputed denominator divides twice and is true of anything. It now
+compares two models with transplanted weights, and separately asserts the two
+arms do not agree.
+
+---
+
 ## 2026-08-08 — FINDING 17 (THE DEPTH-3 VARIANT SLICE: ITS SLOT-GEOMETRY CONTROLS AND ITS INDEPENDENT REVIEW): the pre-registered **ACCELERANT** verdict SURVIVES every attack — bar, seeds, probe, slot geometry and parameter matching — but three of the sentences it was published in do not; the forced 8-slot geometry is worth a third to four fifths of the induction score at identical parameters, so "private write channels is now BELOW the plain model" is **RETRACTED**; and named attention terms, the one exception, is shown to **INSTALL** its capability — 24 scalars carry 98% of its induction and *all* of its loss advantage
 
 Files: geometry controls `tf_geom_control_chain.sh` / `tf_geom_control_report.py`

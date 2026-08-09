@@ -1,0 +1,1099 @@
+{
+  "predictions_file": "tf_factorial_predictions.json",
+  "gates_file": "tf_factorial_controls.json",
+  "probe_control_file": "tf_factorial_probe_control.json",
+  "gates": {
+    "tf_factorial_controls.json": true,
+    "tf_factorial_probe_control.json": true
+  },
+  "cells": {
+    "2x128_s0": {
+      "depth": 2,
+      "width": 128,
+      "seed": 0,
+      "arms": {
+        "bilin+bilin": {
+          "stem": "tf_vanilla_d2_w128_b8192_s0",
+          "source": "published family model",
+          "held_ce": 4.65117,
+          "induction": {
+            "mean": -0.013777648078070826,
+            "sd": 0.0060350217900715705,
+            "probe_floor_3se": 0.008096831380975496,
+            "n_probe_seeds": 5
+          }
+        },
+        "bilin+gelu": {
+          "stem": "tff_bilin_gelu_d2_w128_b8192_s0",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "bilinnorm+bilin": {
+          "stem": "tff_bilinnorm_bilin_d2_w128_b8192_s0",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "bilinnorm+gelu": {
+          "stem": "tff_bilinnorm_gelu_d2_w128_b8192_s0",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "softmax+bilin": {
+          "stem": "tff_softmax_bilin_d2_w128_b8192_s0",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "softmax+gelu": {
+          "stem": "tfb_std7_d2_w128_b8192_s0",
+          "source": "published conventional baseline, parameter-matched arm",
+          "held_ce": 4.5432,
+          "induction": {
+            "mean": 0.1557790544297962,
+            "sd": 0.014086726174946534,
+            "probe_floor_3se": 0.018899326384563625,
+            "n_probe_seeds": 5
+          }
+        }
+      },
+      "ce_effects": {
+        "per_arm": {
+          "bilin+bilin": 4.65117,
+          "bilin+gelu": null,
+          "bilinnorm+bilin": null,
+          "bilinnorm+gelu": null,
+          "softmax+bilin": null,
+          "softmax+gelu": 4.5432
+        },
+        "complete": false
+      },
+      "induction_effects": {
+        "per_arm": {
+          "bilin+bilin": -0.013777648078070826,
+          "bilin+gelu": null,
+          "bilinnorm+bilin": null,
+          "bilinnorm+gelu": null,
+          "softmax+bilin": null,
+          "softmax+gelu": 0.1557790544297962
+        },
+        "complete": false
+      }
+    },
+    "2x128_s1": {
+      "depth": 2,
+      "width": 128,
+      "seed": 1,
+      "arms": {
+        "bilin+bilin": {
+          "stem": "tf_vanilla_d2_w128_b8192_s1",
+          "source": "published family model",
+          "held_ce": 4.65005,
+          "induction": {
+            "mean": -0.0022391637166343514,
+            "sd": 0.01098548994706499,
+            "probe_floor_3se": 0.01473858137266673,
+            "n_probe_seeds": 5
+          }
+        },
+        "bilin+gelu": {
+          "stem": "tff_bilin_gelu_d2_w128_b8192_s1",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "bilinnorm+bilin": {
+          "stem": "tff_bilinnorm_bilin_d2_w128_b8192_s1",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "bilinnorm+gelu": {
+          "stem": "tff_bilinnorm_gelu_d2_w128_b8192_s1",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "softmax+bilin": {
+          "stem": "tff_softmax_bilin_d2_w128_b8192_s1",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "softmax+gelu": {
+          "stem": "tfb_std7_d2_w128_b8192_s1",
+          "source": "published conventional baseline, parameter-matched arm",
+          "held_ce": null,
+          "induction": null
+        }
+      },
+      "ce_effects": {
+        "per_arm": {
+          "bilin+bilin": 4.65005,
+          "bilin+gelu": null,
+          "bilinnorm+bilin": null,
+          "bilinnorm+gelu": null,
+          "softmax+bilin": null,
+          "softmax+gelu": null
+        },
+        "complete": false
+      },
+      "induction_effects": {
+        "per_arm": {
+          "bilin+bilin": -0.0022391637166343514,
+          "bilin+gelu": null,
+          "bilinnorm+bilin": null,
+          "bilinnorm+gelu": null,
+          "softmax+bilin": null,
+          "softmax+gelu": null
+        },
+        "complete": false
+      }
+    },
+    "2x128_s2": {
+      "depth": 2,
+      "width": 128,
+      "seed": 2,
+      "arms": {
+        "bilin+bilin": {
+          "stem": "tf_vanilla_d2_w128_b8192_s2",
+          "source": "published family model",
+          "held_ce": 4.63768,
+          "induction": {
+            "mean": 0.005924860636393347,
+            "sd": 0.009440348218495402,
+            "probe_floor_3se": 0.012665556208694853,
+            "n_probe_seeds": 5
+          }
+        },
+        "bilin+gelu": {
+          "stem": "tff_bilin_gelu_d2_w128_b8192_s2",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "bilinnorm+bilin": {
+          "stem": "tff_bilinnorm_bilin_d2_w128_b8192_s2",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "bilinnorm+gelu": {
+          "stem": "tff_bilinnorm_gelu_d2_w128_b8192_s2",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "softmax+bilin": {
+          "stem": "tff_softmax_bilin_d2_w128_b8192_s2",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "softmax+gelu": {
+          "stem": "tfb_std7_d2_w128_b8192_s2",
+          "source": "published conventional baseline, parameter-matched arm",
+          "held_ce": null,
+          "induction": null
+        }
+      },
+      "ce_effects": {
+        "per_arm": {
+          "bilin+bilin": 4.63768,
+          "bilin+gelu": null,
+          "bilinnorm+bilin": null,
+          "bilinnorm+gelu": null,
+          "softmax+bilin": null,
+          "softmax+gelu": null
+        },
+        "complete": false
+      },
+      "induction_effects": {
+        "per_arm": {
+          "bilin+bilin": 0.005924860636393347,
+          "bilin+gelu": null,
+          "bilinnorm+bilin": null,
+          "bilinnorm+gelu": null,
+          "softmax+bilin": null,
+          "softmax+gelu": null
+        },
+        "complete": false
+      }
+    },
+    "3x64_s0": {
+      "depth": 3,
+      "width": 64,
+      "seed": 0,
+      "arms": {
+        "bilin+bilin": {
+          "stem": "tf_vanilla_d3_w64_b8192_s0",
+          "source": "published family model",
+          "held_ce": 4.94174,
+          "induction": {
+            "mean": 0.007733747694227589,
+            "sd": 0.008552398480234041,
+            "probe_floor_3se": 0.011474246623481524,
+            "n_probe_seeds": 5
+          }
+        },
+        "bilin+gelu": {
+          "stem": "tff_bilin_gelu_d3_w64_b8192_s0",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "bilinnorm+bilin": {
+          "stem": "tff_bilinnorm_bilin_d3_w64_b8192_s0",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "bilinnorm+gelu": {
+          "stem": "tff_bilinnorm_gelu_d3_w64_b8192_s0",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "softmax+bilin": {
+          "stem": "tff_softmax_bilin_d3_w64_b8192_s0",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "softmax+gelu": {
+          "stem": "tfb_std7_d3_w64_b8192_s0",
+          "source": "published conventional baseline, parameter-matched arm",
+          "held_ce": 4.87913,
+          "induction": {
+            "mean": 0.11283611721462669,
+            "sd": 0.005420201334238541,
+            "probe_floor_3se": 0.007271963181055462,
+            "n_probe_seeds": 5
+          }
+        }
+      },
+      "ce_effects": {
+        "per_arm": {
+          "bilin+bilin": 4.94174,
+          "bilin+gelu": null,
+          "bilinnorm+bilin": null,
+          "bilinnorm+gelu": null,
+          "softmax+bilin": null,
+          "softmax+gelu": 4.87913
+        },
+        "complete": false
+      },
+      "induction_effects": {
+        "per_arm": {
+          "bilin+bilin": 0.007733747694227589,
+          "bilin+gelu": null,
+          "bilinnorm+bilin": null,
+          "bilinnorm+gelu": null,
+          "softmax+bilin": null,
+          "softmax+gelu": 0.11283611721462669
+        },
+        "complete": false
+      }
+    },
+    "3x64_s1": {
+      "depth": 3,
+      "width": 64,
+      "seed": 1,
+      "arms": {
+        "bilin+bilin": {
+          "stem": "tf_vanilla_d3_w64_b8192_s1",
+          "source": "published family model",
+          "held_ce": 4.9426,
+          "induction": {
+            "mean": 0.0032574547661674558,
+            "sd": 0.003956592340327004,
+            "probe_floor_3se": 0.005308325659335697,
+            "n_probe_seeds": 5
+          }
+        },
+        "bilin+gelu": {
+          "stem": "tff_bilin_gelu_d3_w64_b8192_s1",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "bilinnorm+bilin": {
+          "stem": "tff_bilinnorm_bilin_d3_w64_b8192_s1",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "bilinnorm+gelu": {
+          "stem": "tff_bilinnorm_gelu_d3_w64_b8192_s1",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "softmax+bilin": {
+          "stem": "tff_softmax_bilin_d3_w64_b8192_s1",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "softmax+gelu": {
+          "stem": "tfb_std7_d3_w64_b8192_s1",
+          "source": "published conventional baseline, parameter-matched arm",
+          "held_ce": null,
+          "induction": null
+        }
+      },
+      "ce_effects": {
+        "per_arm": {
+          "bilin+bilin": 4.9426,
+          "bilin+gelu": null,
+          "bilinnorm+bilin": null,
+          "bilinnorm+gelu": null,
+          "softmax+bilin": null,
+          "softmax+gelu": null
+        },
+        "complete": false
+      },
+      "induction_effects": {
+        "per_arm": {
+          "bilin+bilin": 0.0032574547661674558,
+          "bilin+gelu": null,
+          "bilinnorm+bilin": null,
+          "bilinnorm+gelu": null,
+          "softmax+bilin": null,
+          "softmax+gelu": null
+        },
+        "complete": false
+      }
+    },
+    "3x64_s2": {
+      "depth": 3,
+      "width": 64,
+      "seed": 2,
+      "arms": {
+        "bilin+bilin": {
+          "stem": "tf_vanilla_d3_w64_b8192_s2",
+          "source": "published family model",
+          "held_ce": 4.94062,
+          "induction": {
+            "mean": -0.00048539903428803657,
+            "sd": 0.00868162598160384,
+            "probe_floor_3se": 0.011647623510056715,
+            "n_probe_seeds": 5
+          }
+        },
+        "bilin+gelu": {
+          "stem": "tff_bilin_gelu_d3_w64_b8192_s2",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "bilinnorm+bilin": {
+          "stem": "tff_bilinnorm_bilin_d3_w64_b8192_s2",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "bilinnorm+gelu": {
+          "stem": "tff_bilinnorm_gelu_d3_w64_b8192_s2",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "softmax+bilin": {
+          "stem": "tff_softmax_bilin_d3_w64_b8192_s2",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "softmax+gelu": {
+          "stem": "tfb_std7_d3_w64_b8192_s2",
+          "source": "published conventional baseline, parameter-matched arm",
+          "held_ce": null,
+          "induction": null
+        }
+      },
+      "ce_effects": {
+        "per_arm": {
+          "bilin+bilin": 4.94062,
+          "bilin+gelu": null,
+          "bilinnorm+bilin": null,
+          "bilinnorm+gelu": null,
+          "softmax+bilin": null,
+          "softmax+gelu": null
+        },
+        "complete": false
+      },
+      "induction_effects": {
+        "per_arm": {
+          "bilin+bilin": -0.00048539903428803657,
+          "bilin+gelu": null,
+          "bilinnorm+bilin": null,
+          "bilinnorm+gelu": null,
+          "softmax+bilin": null,
+          "softmax+gelu": null
+        },
+        "complete": false
+      }
+    },
+    "1x128_s0": {
+      "depth": 1,
+      "width": 128,
+      "seed": 0,
+      "arms": {
+        "bilin+bilin": {
+          "stem": "tf_vanilla_d1_w128_b8192_s0",
+          "source": "published family model",
+          "held_ce": 4.8194,
+          "induction": {
+            "mean": -0.027565214369032275,
+            "sd": 0.006503071894295045,
+            "probe_floor_3se": 0.008724786490927228,
+            "n_probe_seeds": 5
+          }
+        },
+        "bilin+gelu": {
+          "stem": "tff_bilin_gelu_d1_w128_b8192_s0",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "bilinnorm+bilin": {
+          "stem": "tff_bilinnorm_bilin_d1_w128_b8192_s0",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "bilinnorm+gelu": {
+          "stem": "tff_bilinnorm_gelu_d1_w128_b8192_s0",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "softmax+bilin": {
+          "stem": "tff_softmax_bilin_d1_w128_b8192_s0",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "softmax+gelu": {
+          "stem": "tfb_std7_d1_w128_b8192_s0",
+          "source": "published conventional baseline, parameter-matched arm",
+          "held_ce": 4.74877,
+          "induction": {
+            "mean": -0.03214177025688976,
+            "sd": 0.004942961609244777,
+            "probe_floor_3se": 0.0066316789010658446,
+            "n_probe_seeds": 5
+          }
+        }
+      },
+      "ce_effects": {
+        "per_arm": {
+          "bilin+bilin": 4.8194,
+          "bilin+gelu": null,
+          "bilinnorm+bilin": null,
+          "bilinnorm+gelu": null,
+          "softmax+bilin": null,
+          "softmax+gelu": 4.74877
+        },
+        "complete": false
+      },
+      "induction_effects": {
+        "per_arm": {
+          "bilin+bilin": -0.027565214369032275,
+          "bilin+gelu": null,
+          "bilinnorm+bilin": null,
+          "bilinnorm+gelu": null,
+          "softmax+bilin": null,
+          "softmax+gelu": -0.03214177025688976
+        },
+        "complete": false
+      }
+    },
+    "1x128_s1": {
+      "depth": 1,
+      "width": 128,
+      "seed": 1,
+      "arms": {
+        "bilin+bilin": {
+          "stem": "tf_vanilla_d1_w128_b8192_s1",
+          "source": "published family model",
+          "held_ce": 4.82524,
+          "induction": {
+            "mean": -0.02741493648952904,
+            "sd": 0.0047964696131096414,
+            "probe_floor_3se": 0.006435139264155165,
+            "n_probe_seeds": 5
+          }
+        },
+        "bilin+gelu": {
+          "stem": "tff_bilin_gelu_d1_w128_b8192_s1",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "bilinnorm+bilin": {
+          "stem": "tff_bilinnorm_bilin_d1_w128_b8192_s1",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "bilinnorm+gelu": {
+          "stem": "tff_bilinnorm_gelu_d1_w128_b8192_s1",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "softmax+bilin": {
+          "stem": "tff_softmax_bilin_d1_w128_b8192_s1",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "softmax+gelu": {
+          "stem": "tfb_std7_d1_w128_b8192_s1",
+          "source": "published conventional baseline, parameter-matched arm",
+          "held_ce": null,
+          "induction": null
+        }
+      },
+      "ce_effects": {
+        "per_arm": {
+          "bilin+bilin": 4.82524,
+          "bilin+gelu": null,
+          "bilinnorm+bilin": null,
+          "bilinnorm+gelu": null,
+          "softmax+bilin": null,
+          "softmax+gelu": null
+        },
+        "complete": false
+      },
+      "induction_effects": {
+        "per_arm": {
+          "bilin+bilin": -0.02741493648952904,
+          "bilin+gelu": null,
+          "bilinnorm+bilin": null,
+          "bilinnorm+gelu": null,
+          "softmax+bilin": null,
+          "softmax+gelu": null
+        },
+        "complete": false
+      }
+    },
+    "1x128_s2": {
+      "depth": 1,
+      "width": 128,
+      "seed": 2,
+      "arms": {
+        "bilin+bilin": {
+          "stem": "tf_vanilla_d1_w128_b8192_s2",
+          "source": "published family model",
+          "held_ce": 4.82302,
+          "induction": {
+            "mean": -0.024239540100097656,
+            "sd": 0.009304196811726043,
+            "probe_floor_3se": 0.012482889928233747,
+            "n_probe_seeds": 5
+          }
+        },
+        "bilin+gelu": {
+          "stem": "tff_bilin_gelu_d1_w128_b8192_s2",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "bilinnorm+bilin": {
+          "stem": "tff_bilinnorm_bilin_d1_w128_b8192_s2",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "bilinnorm+gelu": {
+          "stem": "tff_bilinnorm_gelu_d1_w128_b8192_s2",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "softmax+bilin": {
+          "stem": "tff_softmax_bilin_d1_w128_b8192_s2",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "softmax+gelu": {
+          "stem": "tfb_std7_d1_w128_b8192_s2",
+          "source": "published conventional baseline, parameter-matched arm",
+          "held_ce": null,
+          "induction": null
+        }
+      },
+      "ce_effects": {
+        "per_arm": {
+          "bilin+bilin": 4.82302,
+          "bilin+gelu": null,
+          "bilinnorm+bilin": null,
+          "bilinnorm+gelu": null,
+          "softmax+bilin": null,
+          "softmax+gelu": null
+        },
+        "complete": false
+      },
+      "induction_effects": {
+        "per_arm": {
+          "bilin+bilin": -0.024239540100097656,
+          "bilin+gelu": null,
+          "bilinnorm+bilin": null,
+          "bilinnorm+gelu": null,
+          "softmax+bilin": null,
+          "softmax+gelu": null
+        },
+        "complete": false
+      }
+    },
+    "2x256_s0": {
+      "depth": 2,
+      "width": 256,
+      "seed": 0,
+      "arms": {
+        "bilin+bilin": {
+          "stem": "tf_vanilla_d2_w256_b8192_s0",
+          "source": "published family model",
+          "held_ce": 4.32661,
+          "induction": {
+            "mean": 0.08408372667100679,
+            "sd": 0.006542091782003257,
+            "probe_floor_3se": 0.00877713716376121,
+            "n_probe_seeds": 5
+          }
+        },
+        "bilin+gelu": {
+          "stem": "tff_bilin_gelu_d2_w256_b8192_s0",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "bilinnorm+bilin": {
+          "stem": "tff_bilinnorm_bilin_d2_w256_b8192_s0",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "bilinnorm+gelu": {
+          "stem": "tff_bilinnorm_gelu_d2_w256_b8192_s0",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "softmax+bilin": {
+          "stem": "tff_softmax_bilin_d2_w256_b8192_s0",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "softmax+gelu": {
+          "stem": "tfb_std7_d2_w256_b8192_s0",
+          "source": "published conventional baseline, parameter-matched arm",
+          "held_ce": 4.20009,
+          "induction": {
+            "mean": 0.4533580568101673,
+            "sd": 0.023881730102080046,
+            "probe_floor_3se": 0.03204070315713239,
+            "n_probe_seeds": 5
+          }
+        }
+      },
+      "ce_effects": {
+        "per_arm": {
+          "bilin+bilin": 4.32661,
+          "bilin+gelu": null,
+          "bilinnorm+bilin": null,
+          "bilinnorm+gelu": null,
+          "softmax+bilin": null,
+          "softmax+gelu": 4.20009
+        },
+        "complete": false
+      },
+      "induction_effects": {
+        "per_arm": {
+          "bilin+bilin": 0.08408372667100679,
+          "bilin+gelu": null,
+          "bilinnorm+bilin": null,
+          "bilinnorm+gelu": null,
+          "softmax+bilin": null,
+          "softmax+gelu": 0.4533580568101673
+        },
+        "complete": false
+      }
+    },
+    "2x256_s1": {
+      "depth": 2,
+      "width": 256,
+      "seed": 1,
+      "arms": {
+        "bilin+bilin": {
+          "stem": "tf_vanilla_d2_w256_b8192_s1",
+          "source": "published family model",
+          "held_ce": 4.32406,
+          "induction": {
+            "mean": 0.09652031792534714,
+            "sd": 0.012989945742683386,
+            "probe_floor_3se": 0.017427841022804424,
+            "n_probe_seeds": 5
+          }
+        },
+        "bilin+gelu": {
+          "stem": "tff_bilin_gelu_d2_w256_b8192_s1",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "bilinnorm+bilin": {
+          "stem": "tff_bilinnorm_bilin_d2_w256_b8192_s1",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "bilinnorm+gelu": {
+          "stem": "tff_bilinnorm_gelu_d2_w256_b8192_s1",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "softmax+bilin": {
+          "stem": "tff_softmax_bilin_d2_w256_b8192_s1",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "softmax+gelu": {
+          "stem": "tfb_std7_d2_w256_b8192_s1",
+          "source": "published conventional baseline, parameter-matched arm",
+          "held_ce": null,
+          "induction": null
+        }
+      },
+      "ce_effects": {
+        "per_arm": {
+          "bilin+bilin": 4.32406,
+          "bilin+gelu": null,
+          "bilinnorm+bilin": null,
+          "bilinnorm+gelu": null,
+          "softmax+bilin": null,
+          "softmax+gelu": null
+        },
+        "complete": false
+      },
+      "induction_effects": {
+        "per_arm": {
+          "bilin+bilin": 0.09652031792534714,
+          "bilin+gelu": null,
+          "bilinnorm+bilin": null,
+          "bilinnorm+gelu": null,
+          "softmax+bilin": null,
+          "softmax+gelu": null
+        },
+        "complete": false
+      }
+    },
+    "2x256_s2": {
+      "depth": 2,
+      "width": 256,
+      "seed": 2,
+      "arms": {
+        "bilin+bilin": {
+          "stem": "tf_vanilla_d2_w256_b8192_s2",
+          "source": "published family model",
+          "held_ce": 4.32546,
+          "induction": {
+            "mean": 0.10069550408257406,
+            "sd": 0.007688660921324538,
+            "probe_floor_3se": 0.010315421085616698,
+            "n_probe_seeds": 5
+          }
+        },
+        "bilin+gelu": {
+          "stem": "tff_bilin_gelu_d2_w256_b8192_s2",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "bilinnorm+bilin": {
+          "stem": "tff_bilinnorm_bilin_d2_w256_b8192_s2",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "bilinnorm+gelu": {
+          "stem": "tff_bilinnorm_gelu_d2_w256_b8192_s2",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "softmax+bilin": {
+          "stem": "tff_softmax_bilin_d2_w256_b8192_s2",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "softmax+gelu": {
+          "stem": "tfb_std7_d2_w256_b8192_s2",
+          "source": "published conventional baseline, parameter-matched arm",
+          "held_ce": null,
+          "induction": null
+        }
+      },
+      "ce_effects": {
+        "per_arm": {
+          "bilin+bilin": 4.32546,
+          "bilin+gelu": null,
+          "bilinnorm+bilin": null,
+          "bilinnorm+gelu": null,
+          "softmax+bilin": null,
+          "softmax+gelu": null
+        },
+        "complete": false
+      },
+      "induction_effects": {
+        "per_arm": {
+          "bilin+bilin": 0.10069550408257406,
+          "bilin+gelu": null,
+          "bilinnorm+bilin": null,
+          "bilinnorm+gelu": null,
+          "softmax+bilin": null,
+          "softmax+gelu": null
+        },
+        "complete": false
+      }
+    },
+    "3x128_s0": {
+      "depth": 3,
+      "width": 128,
+      "seed": 0,
+      "arms": {
+        "bilin+bilin": {
+          "stem": "tf_vanilla_d3_w128_b8192_s0",
+          "source": "published family model",
+          "held_ce": 4.52845,
+          "induction": {
+            "mean": 0.09735919104682118,
+            "sd": 0.01896491327867923,
+            "probe_floor_3se": 0.025444101167109098,
+            "n_probe_seeds": 5
+          }
+        },
+        "bilin+gelu": {
+          "stem": "tff_bilin_gelu_d3_w128_b8192_s0",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "bilinnorm+bilin": {
+          "stem": "tff_bilinnorm_bilin_d3_w128_b8192_s0",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "bilinnorm+gelu": {
+          "stem": "tff_bilinnorm_gelu_d3_w128_b8192_s0",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "softmax+bilin": {
+          "stem": "tff_softmax_bilin_d3_w128_b8192_s0",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "softmax+gelu": {
+          "stem": "tfb_std7_d3_w128_b8192_s0",
+          "source": "published conventional baseline, parameter-matched arm",
+          "held_ce": 4.42622,
+          "induction": {
+            "mean": 0.466239399380154,
+            "sd": 0.025422624544994988,
+            "probe_floor_3se": 0.03410802998943807,
+            "n_probe_seeds": 5
+          }
+        }
+      },
+      "ce_effects": {
+        "per_arm": {
+          "bilin+bilin": 4.52845,
+          "bilin+gelu": null,
+          "bilinnorm+bilin": null,
+          "bilinnorm+gelu": null,
+          "softmax+bilin": null,
+          "softmax+gelu": 4.42622
+        },
+        "complete": false
+      },
+      "induction_effects": {
+        "per_arm": {
+          "bilin+bilin": 0.09735919104682118,
+          "bilin+gelu": null,
+          "bilinnorm+bilin": null,
+          "bilinnorm+gelu": null,
+          "softmax+bilin": null,
+          "softmax+gelu": 0.466239399380154
+        },
+        "complete": false
+      }
+    },
+    "3x128_s1": {
+      "depth": 3,
+      "width": 128,
+      "seed": 1,
+      "arms": {
+        "bilin+bilin": {
+          "stem": "tf_vanilla_d3_w128_b8192_s1",
+          "source": "published family model",
+          "held_ce": 4.52707,
+          "induction": {
+            "mean": 0.12328491210937571,
+            "sd": 0.011102608491949939,
+            "probe_floor_3se": 0.014895712389339894,
+            "n_probe_seeds": 5
+          }
+        },
+        "bilin+gelu": {
+          "stem": "tff_bilin_gelu_d3_w128_b8192_s1",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "bilinnorm+bilin": {
+          "stem": "tff_bilinnorm_bilin_d3_w128_b8192_s1",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "bilinnorm+gelu": {
+          "stem": "tff_bilinnorm_gelu_d3_w128_b8192_s1",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "softmax+bilin": {
+          "stem": "tff_softmax_bilin_d3_w128_b8192_s1",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "softmax+gelu": {
+          "stem": "tfb_std7_d3_w128_b8192_s1",
+          "source": "published conventional baseline, parameter-matched arm",
+          "held_ce": null,
+          "induction": null
+        }
+      },
+      "ce_effects": {
+        "per_arm": {
+          "bilin+bilin": 4.52707,
+          "bilin+gelu": null,
+          "bilinnorm+bilin": null,
+          "bilinnorm+gelu": null,
+          "softmax+bilin": null,
+          "softmax+gelu": null
+        },
+        "complete": false
+      },
+      "induction_effects": {
+        "per_arm": {
+          "bilin+bilin": 0.12328491210937571,
+          "bilin+gelu": null,
+          "bilinnorm+bilin": null,
+          "bilinnorm+gelu": null,
+          "softmax+bilin": null,
+          "softmax+gelu": null
+        },
+        "complete": false
+      }
+    },
+    "3x128_s2": {
+      "depth": 3,
+      "width": 128,
+      "seed": 2,
+      "arms": {
+        "bilin+bilin": {
+          "stem": "tf_vanilla_d3_w128_b8192_s2",
+          "source": "published family model",
+          "held_ce": 4.5273,
+          "induction": {
+            "mean": 0.10482652452256894,
+            "sd": 0.013986707936251022,
+            "probe_floor_3se": 0.018765137836135846,
+            "n_probe_seeds": 5
+          }
+        },
+        "bilin+gelu": {
+          "stem": "tff_bilin_gelu_d3_w128_b8192_s2",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "bilinnorm+bilin": {
+          "stem": "tff_bilinnorm_bilin_d3_w128_b8192_s2",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "bilinnorm+gelu": {
+          "stem": "tff_bilinnorm_gelu_d3_w128_b8192_s2",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "softmax+bilin": {
+          "stem": "tff_softmax_bilin_d3_w128_b8192_s2",
+          "source": "new",
+          "held_ce": null,
+          "induction": null
+        },
+        "softmax+gelu": {
+          "stem": "tfb_std7_d3_w128_b8192_s2",
+          "source": "published conventional baseline, parameter-matched arm",
+          "held_ce": null,
+          "induction": null
+        }
+      },
+      "ce_effects": {
+        "per_arm": {
+          "bilin+bilin": 4.5273,
+          "bilin+gelu": null,
+          "bilinnorm+bilin": null,
+          "bilinnorm+gelu": null,
+          "softmax+bilin": null,
+          "softmax+gelu": null
+        },
+        "complete": false
+      },
+      "induction_effects": {
+        "per_arm": {
+          "bilin+bilin": 0.10482652452256894,
+          "bilin+gelu": null,
+          "bilinnorm+bilin": null,
+          "bilinnorm+gelu": null,
+          "softmax+bilin": null,
+          "softmax+gelu": null
+        },
+        "complete": false
+      }
+    }
+  },
+  "prediction_scores": {
+    "scored_at": "depth 2 width 128 seed 0",
+    "available": true,
+    "F5_negative_control": {
+      "depth_1_scores": {
+        "bilin+bilin": -0.027565214369032275,
+        "softmax+gelu": -0.03214177025688976
+      },
+      "predicted": "no arm inducts at depth 1",
+      "holds": true,
+      "note": "a depth-1 arm above floor means the probe leaks, not that the arm is clever"
+    }
+  }
+}
