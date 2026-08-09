@@ -411,7 +411,7 @@ the norm on or off (body 590,080 either way). `tf_model.py` is deliberately
 **not** edited — it hardcodes the norm and is imported by chains that are
 running. Scored by `tf_qknorm_report.py` as a 2×2.
 
-### The OTHER unpriced risk prices at zero: the learning rate (2026-08-09 03:00, 2 of 4 triples)
+### The OTHER unpriced risk prices at zero: the learning rate (2026-08-09 03:10, COMPLETE, 4 of 4 triples)
 
 The comparison inherited two things from this family's history and imposed them
 on the conventional model: per-head query/key normalisation and Muon at 0.02.
@@ -419,26 +419,34 @@ The first turned out to be worth more than the entire tax. **The second is
 worth nothing**, and it is worth saying so in the same breath, because the
 lesson is specific rather than general.
 
-| cell | lr 0.01 | **lr 0.02 (the inherited rate)** | lr 0.04 | best | spread |
-|---|---|---|---|---|---|
-| depth 1 width 128 | 4.79952 | **4.79455** | 4.79622 | 0.02 | 0.0050 |
-| depth 2 width 128 | 4.60669 | **4.59188** | 4.62461 | 0.02 | 0.0327 |
-| depth 3 width 128 | in flight | 4.47020 | in flight | — | — |
-| depth 2 width 128, matched arm | in flight | 4.54320 | in flight | — | — |
+| cell | lr 0.01 | **lr 0.02 (the inherited rate)** | lr 0.04 | best | full spread | induction at the three rates |
+|---|---|---|---|---|---|---|
+| depth 1 width 128 | 4.79952 | **4.79455** | 4.79622 | 0.02 | 0.0050 | −0.033 / −0.034 / −0.035 |
+| depth 2 width 128 | 4.60669 | **4.59188** | 4.62461 | 0.02 | 0.0327 | +0.104 / +0.189 / +0.105 |
+| depth 3 width 128 | 4.47234 | **4.47020** | 4.48539 | 0.02 | 0.0152 | +0.541 / +0.623 / +0.550 |
+| depth 2 width 128, matched arm | 4.54325 | **4.54320** | 4.55631 | 0.02 (by 0.00005 — a tie) | 0.0131 | +0.147 / +0.156 / +0.124 |
 
-At both completed cells the rate our family's own sweeps chose is **the best of
-the three for the conventional model too**, and the whole 0.01-to-0.04 spread
-is 0.005 and 0.033 nats — smaller than the tax at the second cell and far
-smaller than the 0.163 the query/key cap was worth. So it is not that inherited
-settings generically hurt the conventional arm; it is specifically the
-**query/key cap**, and specifically because it throttles softmax concentration.
-That contrast is evidence for the mechanism, not just a caveat cleared.
+**At 4 of 4 cells the rate our family's own sweeps chose is the best of the
+three for the conventional model too**, and the largest full 0.01-to-0.04
+spread anywhere is 0.0327 nats. At the matched arm the margin over 0.01 is
+0.00005 and should be read as a tie, which does not change the conclusion: no
+rate tested beats the inherited one. Against the **0.1634 nats** the query/key
+cap was worth at the same cell, the learning rate is worth nothing.
+
+So it is not that inherited settings generically hurt the conventional arm; it
+is specifically the **query/key cap**, and specifically because it throttles
+softmax concentration. That contrast is evidence for the mechanism, not just a
+caveat cleared — a learning rate cannot touch how sharply a softmax row peaks,
+and it produced no effect; the cap can, and produced a large one.
 
 One side observation, consistent with everything else about this cell: at depth
 2 width 128 the induction score also moves with the learning rate, +0.104 at
-0.01, +0.189 at 0.02, +0.105 at 0.04. In the handicapped configuration that
-cell is sensitive to almost every knob — which is exactly what the query/key
-result explains, since un-handicapped it sits at +1.12.
+0.01, +0.189 at 0.02, +0.105 at 0.04 — a 1.8× swing from a knob that barely
+moves loss. In the handicapped configuration that cell is sensitive to almost
+every knob, which is exactly what the query/key result explains, since
+un-handicapped it sits at +1.12. Note the same pattern does *not* appear at
+depth 3 width 128 (+0.541 / +0.623 / +0.550, a 1.15× swing), the cell that was
+always far from the boundary.
 
 ### The unpriced risk, restated
 
