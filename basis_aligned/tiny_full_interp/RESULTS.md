@@ -857,7 +857,48 @@ it with three, which is exactly the mechanism that prediction described.
 Nothing is claimed from this yet beyond the raw arm value. Twenty of
 twenty-four cells remain.
 
-### 09:05 — PRELIMINARY depth-3 decomposition: the conjunction **weakens sharply with the new cell**, 86% → 51%, and G2 looks like a hit
+### 09:25 — FINAL depth-3 cap-off decomposition, three seeds every corner. The 09:05 preliminary held to 0.2 points
+
+| arm, depth 3 width 64, cap off | three seeds | mean | t |
+|---|---|---|---|
+| our attention + our feed-forward | −0.0065, +0.0009, −0.0079 | −0.0045 | −1.66 |
+| our attention + GELU | +0.0155, +0.0762, +0.0297 | +0.0405 | 2.21 |
+| softmax + our feed-forward | +0.3550, +0.3506, +0.5152 | +0.4070 | 7.52 |
+| softmax + GELU | +1.0352, +0.8202, +0.9156 | +0.9237 | 14.85 |
+
+| term | **depth 3 width 64** | depth 2 width 128 |
+|---|---|---|
+| total move | +0.9282 | +1.0715 |
+| attention alone | **+0.4115 = 44.3%** | 13.4% |
+| feed-forward alone | +0.0450 = 4.8% | 0.3% |
+| **interaction** | **+0.4717 = 50.8%** | **86.3%** |
+
+**Scoring the four registered predictions:**
+
+- **G2 HOLDS — the one I flagged as carrying information either way, at 0.55.**
+  The share is lower at this cell: 50.8% against 86.3%, and the term that
+  absorbed it is the one the prediction named.
+- **G1 holds only in its letter and should not be quoted.** It required the
+  interaction to stay "dominant, above 50%". It is 50.8% against a 44.3%
+  attention main effect — a 6-point gap on quantities whose seed spreads are
+  larger than that. The honest statement is that at this cell **the interaction
+  and the softmax main effect are comparable**, roughly a 50/44 split, not that
+  the interaction dominates.
+- **G3 REFUTED, and badly.** I predicted softmax alone would stay under 15% of
+  the total move. It is **44.3%**, three times the ceiling I set.
+- **G4 holds so far** — removing the cap hurts both arms built on our attention
+  (+0.0035 → −0.0045, and +0.0731 → +0.0405) and helps both softmax arms
+  (+0.0143 → +0.4070, +0.0912 → +0.9237). One of the four cap-on arms is still
+  single-seed.
+
+**The corrected general claim.** The conjunction is not a property of the
+architecture; it is a property of the architecture *at small depth*. At two
+blocks, 86% of the copying needs all the ingredients together and softmax alone
+buys 13%. At three blocks it is a near-even split and softmax alone buys 44%.
+Extra depth substitutes for the missing gate — **subject to the width confound
+below, which is not resolved.**
+
+### 09:05 — the preliminary version of the above (kept for the record)
 
 Three of four cap-off corners are at three seeds; the conventional corner has
 two of three. Reported as preliminary for that reason and because tonight's
