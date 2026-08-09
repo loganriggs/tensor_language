@@ -1025,7 +1025,62 @@ depth 3 width 128 or depth 2 width 64 — which is 24 more cells and is the
 obvious next run. **Until that exists, no depth attribution is licensed**, and
 the paragraph above should be read as naming the two cells, not the mechanism.
 
-## 2026-08-09 11:25 — PRELIMINARY, and it looks like **the conjunction is a SMALL-CELL phenomenon**. My depth-vs-width prediction was mis-specified: the third cell did not interpolate, it went far above both
+## 2026-08-09 11:50 — FINDING 21: **THE CONJUNCTION DISSOLVES AS THE MODEL GROWS, AND BOTH DEPTH AND WIDTH DISSOLVE IT.** Three cells, three seeds every corner, and the trend survives the rescaling the independent review demanded. Not a "small-cell" effect in the parameter-count sense — my 11:25 wording was wrong about that
+
+| cell | attention alone | feed-fwd alone | **interaction** | — | attention | feed-fwd | **interaction** |
+|---|---|---|---|---|---|---|---|
+| | *raw nats* | | | | *copy-mass (expm1)* | | |
+| depth 2, width 128 | 13.4% | 0.3% | **86.3%** | | 8.0% | 0.2% | **91.8%** |
+| depth 3, width 64 | 44.3% | 4.8% | **50.8%** | | 33.3% | 3.0% | **63.7%** |
+| depth 3, width 128 | **79.6%** | 10.8% | **9.6%** | | 63.8% | 4.4% | **31.8%** |
+
+Underlying arms (three seeds each), cap off:
+
+| cell | base | + GELU | + softmax | both |
+|---|---|---|---|---|
+| depth 2, width 128 | −0.0266 | −0.0236 | +0.1170 | +1.0448 |
+| depth 3, width 64 | −0.0045 | +0.0405 | +0.4070 | +0.9237 |
+| depth 3, width 128 | **+0.1226** | +0.3106 | +1.5090 | +1.8637 |
+
+**The trend is monotone on both scales**, which answers the independent
+review's scale objection directly: the decompressed copy-mass scale keeps the
+interaction larger at every cell, as the reviewer showed it would, but the fall
+is just as steep — 92% → 64% → 32%. The conclusion does not depend on the
+scale choice.
+
+**Correcting my own 11:25 wording.** I called this a "small-cell phenomenon".
+That is wrong in the obvious reading, because parameter count does not order
+the shares: depth 3 width 64 has **745,664** parameters, *fewer* than depth 2
+width 128's **1,638,656**, yet a much lower interaction share (50.8% against
+86.3%). Size in parameters is not the variable. What the three cells actually
+show is that **depth and width each dissolve the conjunction independently**:
+
+- at fixed width 128, adding a third block: **86.3% → 9.6%**
+- at fixed depth 3, doubling width 64 → 128: **50.8% → 9.6%**
+
+**The corrected statement of FINDING 20.** Copying requires softmax *and* a
+gate *and* an uncapped logit range simultaneously **only at the smallest cell
+we measured**. Give the model either another block or twice the width and
+softmax with an uncapped range does most of the work by itself — 79.6% of the
+move at depth 3 width 128. The conjunction is a property of operating at the
+capability's onset, and both depth and width move a model away from that onset.
+
+**This also demotes the earlier "why can't the foldable family copy" answer.**
+At depth 3 width 128 our own foldable model **does** copy: +0.1226 with the cap
+off, and +0.1085 with it on (FINDING 18). The family is not incapable; it needs
+a bigger model than the conventional one to get there, which is the same
+statement the width-threshold work made and is a much more modest claim than
+"a missing conjunction".
+
+**Limits.** Three cells, sharing one corpus, tokenizer, optimiser and data
+order; the fourth corner of the depth × width design (depth 2 width 64) is not
+run, so the two contrasts above are single comparisons rather than a factorial
+over cells. The independent review's bootstrap gave [73, 104] and [33, 62] for
+the first two shares; the third has not been bootstrapped and the 9.6% in
+particular is a small difference of large numbers. The cap-on arms at this cell
+are still training, so the three-way version is not yet available.
+
+## 2026-08-09 11:25 — the preliminary version of the above (kept for the record; its "small-cell" framing is corrected above)
 
 The separator's crux arm — softmax attention with **our** feed-forward, cap off,
 the arm whose rise from +0.117 to +0.407 carried the entire depth story — has
