@@ -1114,7 +1114,37 @@ about shares — are unscoreable rather than passed or failed. Writing that guar
 in advance is what stops this cell from contributing three meaningless
 percentages to FINDING 21's trend.
 
-### 22:45 — THE DISCRIMINATING CELL SPLITS IT: the sign tracks **copying availability, not depth** (interim, first bracket arm only)
+### 23:05 — the first bracket arm is FINAL: tax **−0.0344**, and the cap now helps our architecture at **four cells**
+
+Slot 16 (−4.0% parameters), three seeds every arm: ours cap-on 4.87637,
+cap-off **4.86816**, conventional 4.90259.
+
+**Symmetric tax −0.0344.** N1 holds. The four-cell split by copying
+availability stands, now with the final number:
+
+| cell | copying possible? | symmetric tax |
+|---|---|---|
+| depth 1, width 128 | no | −0.0905 |
+| **depth 2, width 64** | **no** | **−0.0344** |
+| depth 2, width 128 | yes | +0.0759 |
+| depth 3, width 128 | yes | +0.1221 |
+
+**N3 holds, and the cap result is now four-for-four.** The effect on our
+architecture: −0.0086 (t = −9.98), −0.0120 (t = −5.69), −0.0092 (t = −4.08),
+and here **−0.0082 (t = −3.33)**. Four cells spanning two depths and two
+widths, every one negative and significant, tight around −0.009. Against
+vanilla's single positive cell. FINDING 19's mechanism claim has now been
+contradicted at four cells and supported at one.
+
+**The hard bracket arm is what matters next and it is running.** Slot 14 gives
+our side a **15.9%** parameter disadvantage against this arm's 4.0%. The
+registered prediction there is 0.5 — a coin flip — because at depth 1 our arm
+won by 0.0905 at only a 7.3% handicap, and 16% is much heavier. If the win
+survives it, the copying-availability reading is solid at this cell. If it does
+not, the honest conclusion is that this cell's result depends on the parameter
+allowance and the four-cell split is not clean.
+
+### 22:45 — the interim version of the above (kept for the record)
 
 Depth 2 width 64 is depth 2, but nothing inducts there in either family. Our
 arm at slot 16 (−4.0% parameters), three cap-on seeds: 4.87899, 4.87216,
