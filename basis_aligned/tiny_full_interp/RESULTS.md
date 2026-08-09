@@ -1025,6 +1025,58 @@ depth 3 width 128 or depth 2 width 64 — which is 24 more cells and is the
 obvious next run. **Until that exists, no depth attribution is licensed**, and
 the paragraph above should be read as naming the two cells, not the mechanism.
 
+## 2026-08-09 11:25 — PRELIMINARY, and it looks like **the conjunction is a SMALL-CELL phenomenon**. My depth-vs-width prediction was mis-specified: the third cell did not interpolate, it went far above both
+
+The separator's crux arm — softmax attention with **our** feed-forward, cap off,
+the arm whose rise from +0.117 to +0.407 carried the entire depth story — has
+two of three seeds at depth 3 width 128:
+
+| cell | our attn + our fwd | **softmax + our fwd** | softmax + GELU (full) |
+|---|---|---|---|
+| depth 2, width 128 | −0.0266 | **+0.1170** | +1.0448 |
+| depth 3, width 64 | −0.0045 | **+0.4070** | +0.9237 |
+| **depth 3, width 128** | **+0.1226** | **+1.5616** (n=2) | **+1.8637** |
+
+**H1 asked the wrong question.** It framed this as "does the third cell resemble
+depth 3 width 64 or depth 2 width 128?", assuming it would land between them.
+It landed at **+1.5616 — 3.8× above the higher of the two**. Both depth and
+width raise this arm and they compound; there is no "which one is the driver"
+to answer. The prediction is not so much refuted as **mis-specified**, and the
+"closer to which" test I wrote into it is meaningless once the value sits
+outside the interval.
+
+**What the numbers point at instead, preliminarily.** At this cell the partial
+configuration reaches **84% of the full conventional model** (1.5616 of 1.8637)
+where at depth 2 width 128 it reached 11%. Taking the three arms available, the
+attention main effect is +1.4390 against a total move of +1.7411 — an
+**~83% main effect** where the same quantity was 13.4% at depth 2 width 128.
+If that holds when the missing arm lands, the sequence of interaction shares
+across the three cells is roughly **86% → 48% → under 20%**, and the honest
+conclusion becomes:
+
+> **The conjunction is a small-cell phenomenon.** At depth 2 width 128 copying
+> requires softmax and a gate and an uncapped range together. As the cell grows,
+> softmax with an uncapped range increasingly suffices on its own. What looked
+> like a fact about the architecture is substantially a fact about operating
+> near the capability's onset.
+
+That also reframes the partial-versus-complete stability pattern noticed at
+06:45: partial configurations were noisy and weak **because those cells sat at
+the onset**, not because partiality is intrinsically unstable.
+
+**Three reasons this is labelled preliminary and not written as a finding.**
+
+1. One arm has two of three seeds and one arm (our attention + GELU, cap off)
+   is not trained, so the decomposition is not yet computable — the ~83% uses
+   three of four corners and assumes the fourth behaves as at the other cells.
+2. The independent review's bootstrap put the depth-2 share at [73, 104] and
+   the depth-3 share at [33, 62]. A third point in that sequence needs its own
+   interval before "86 → 48 → under 20" is quoted as a trend.
+3. The review also showed the depth-2-to-depth-3 fall shrinks on the
+   mechanistic scale (88.8% → 82.8% rather than → 48.4%). The same rescaling
+   must be applied here before any trend claim survives; on that scale the
+   sequence may be much flatter.
+
 ## 2026-08-09 11:00 — FINDING 19 IS **RETRACTED IN ITS HEADLINE NUMBER** and FINDING 20's claim C is WEAKENED, after independent adversarial review
 
 Review: `tf_factorial_independent_review.json` (reviewer did not produce either
