@@ -1,0 +1,7 @@
+usage: tf_train.py [-h] [--variant VARIANT] [--depth DEPTH] [--width WIDTH]
+                   [--seed SEED] [--vocab VOCAB] [--tok {bpe,trunc}]
+                   [--no-sweep] [--slot SLOT] [--suffix SUFFIX]
+                   [--n-slots N_SLOTS] [--group-coeff GROUP_COEFF] [--lr LR]
+                   [--no-qk-norm]
+                   {baselines,cell}
+tf_train.py: error: the following arguments are required: cmd
