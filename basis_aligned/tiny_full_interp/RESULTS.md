@@ -649,10 +649,39 @@ corners is no. Since it was never foldable anyway — its denominator depends on
 every visible key — this closes the line rather than opening one: there is no
 cheap normalisation trick standing in for softmax here.
 
-**Seeds 1 and 2 of all eight arms are now running** (`tf_factorial2_seeds.sh`,
-16 cells). **Everything above is seed 0**, and the two- and three-way terms are
-differences of differences, which compound seed noise — the 71% figure in
-particular is an order of magnitude, not a measurement, until they land.
+### 06:45 — first seeds land, and seed 0 was an OUTLIER on the pivotal arm: softmax alone buys **13%**, not 27%, and is not clearly above null at all
+
+Five of sixteen seed cells in. The arm that refuted P1a — softmax attention
+with **our** ungated feed-forward, cap off — now has three seeds:
+
+| arm | seeds | mean | model-seed t |
+|---|---|---|---|
+| ours + ours, cap on | −0.0138, −0.0022, +0.0059 | −0.0034 | −0.59 |
+| ours + ours, cap off | −0.0264, −0.0301, −0.0234 | −0.0266 | −13.73 |
+| **softmax + ours, cap off** | **+0.2628, +0.0452, +0.0429** | **+0.1170** | **1.60** |
+| softmax + GELU, cap on | +0.1558, +0.0660, +0.1016 | +0.1078 | 4.13 |
+| softmax + GELU, cap off | +1.0784, +1.1734, +0.8828 | **+1.0448** | **12.21** |
+
+**Seed 0 was 6× the other two seeds on that arm.** Its share of the full move
+falls from the 27% reported an hour ago to **13%**, and at t = 1.60 the arm is
+not clearly distinguishable from null on its own. The caveat I attached to the
+seed-0 numbers — that near-boundary magnitudes move by about 2× between seeds —
+was correct in kind and understated in size.
+
+**This strengthens the conjunction result rather than weakening it.** Softmax
+alone buys even less than seed 0 suggested. Meanwhile the full conventional
+corner is rock solid across seeds: +1.0448 at t = 12.21, a 33% spread against
+the partial arm's 6×. So the pattern is that **complete configurations are
+stable and partial ones are noisy**, which is what one expects if the
+capability is a conjunction — a partial configuration is sitting on the edge of
+having it at all, and which side of the edge a given seed lands on is close to
+a coin flip.
+
+**P1a is refuted more decisively than at seed 0** (+0.1170 against a predicted
++0.5). The three-way decomposition cannot be recomputed until the remaining
+arms reach two seeds; the seed-0 figure of 71% should now be expected to move
+*upward*, since the largest single-factor contributor shrank, but I am not
+quoting a revised number until the cells exist.
 
 ## 2026-08-09 05:05 — FINDING 19 (THE SYMMETRIC CONTROL): the query/key cap is **not a shared handicap — it is load-bearing for the foldable family and a handicap for the conventional one**. Each family at its own better configuration, the foldability tax at depth 2 width 128 is **+0.2071 nats, 6.4× what was measured under the shared cap**. Both registered predictions hold
 
