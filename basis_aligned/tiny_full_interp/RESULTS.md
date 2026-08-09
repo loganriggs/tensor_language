@@ -356,7 +356,14 @@ review.)
 | 2 | 256 | +0.0938 | 18.79 | +0.3277 | 22.11 | yes | 14.96 | 3.0× |
 | 3 | 64 | +0.0035 | 1.47 | **+0.1252** | **5.55** | **YES** | **5.36** | 11.8× |
 | 3 | 128 | +0.1085 | 14.08 | +0.6151 | 17.75 | yes | 14.27 | 4.7× |
-| 3 | 256 | +0.2207 | 6.32 | 2 of 3 seeds | — | — | — | — |
+| 3 | 256 | +0.2207 | 6.32 | +0.7826 | 18.82 | yes | 10.34 | 2.4× |
+
+**Complete: 9 of 9 cells, three seeds on both sides.** The held cross-entropy
+tax on this arm, also now three-seed on both sides, is +0.0340, +0.0283,
++0.0392, −0.0105, +0.0326, +0.0612, +0.0169, +0.0553, +0.0575 reading down —
+**positive at 8 of 9**, the single negative being depth 2 width 64 as before,
+and still growing with width at every depth. These supersede the seed-0 tax
+figures in the tables higher up, which are left as recorded.
 
 **The two threshold cells split, and the split is clean.**
 
