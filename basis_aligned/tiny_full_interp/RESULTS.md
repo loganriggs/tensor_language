@@ -1072,13 +1072,43 @@ a bigger model than the conventional one to get there, which is the same
 statement the width-threshold work made and is a much more modest claim than
 "a missing conjunction".
 
-**Limits.** Three cells, sharing one corpus, tokenizer, optimiser and data
-order; the fourth corner of the depth × width design (depth 2 width 64) is not
-run, so the two contrasts above are single comparisons rather than a factorial
-over cells. The independent review's bootstrap gave [73, 104] and [33, 62] for
-the first two shares; the third has not been bootstrapped and the 9.6% in
-particular is a small difference of large numbers. The cap-on arms at this cell
-are still training, so the three-way version is not yet available.
+### The trend now has intervals: EXACT resampling over model seeds, all three cells, both scales
+
+The review bootstrapped the first two shares and flagged that the third — a
+small difference of large numbers — had not been. Doing it: each arm is a
+separate training run, so its seed is drawn independently, giving 3⁴ = 81
+exact assignments per cell rather than a sampled bootstrap.
+
+| cell | point | median | 2.5% | 97.5% | scale |
+|---|---|---|---|---|---|
+| depth 2, width 128 | 86.3% | 92.2% | **67.4** | **94.6** | raw nats |
+| depth 3, width 64 | 50.8% | 52.4% | **28.0** | **63.6** | raw nats |
+| depth 3, width 128 | 9.6% | 10.3% | **−3.5** | **23.0** | raw nats |
+| depth 2, width 128 | 91.6% | 95.2% | **76.9** | **97.1** | copy-mass |
+| depth 3, width 64 | 63.6% | 64.7% | **40.8** | **75.4** | copy-mass |
+| depth 3, width 128 | 31.6% | 31.2% | **13.6** | **48.3** | copy-mass |
+
+**On raw nats all three intervals are pairwise disjoint** — 67.4 > 63.6 and
+28.0 > 23.0, both narrowly — so the ordering of the three cells is supported,
+not just their endpoints. **On the copy-mass scale the two extremes are
+disjoint (76.9 > 48.3) but the middle cell overlaps the largest** (40.8 against
+48.3), so on that scale the trend is established between the extremes and not
+step-by-step.
+
+One nuance the intervals expose that the point estimates hid: **at the largest
+cell the interaction is not distinguishable from zero on raw nats** (interval
+−3.5 to 23.0) while remaining clearly positive on copy-mass (13.6 to 48.3).
+So "the conjunction has essentially vanished by depth 3 width 128" is a
+raw-scale statement; on the mechanistic scale it has shrunk to about a third
+rather than disappeared. FINDING 21's headline should be read as the ordering,
+which both scales support, not as the endpoint value, which they disagree
+about.
+
+**Remaining limits.** Three cells, sharing one corpus, tokenizer, optimiser and
+data order; the fourth corner of the depth × width design (depth 2 width 64) is
+not run, so the two contrasts are single comparisons rather than a factorial
+over cells. The cap-on arms at the largest cell are still training, so the
+three-way version is not yet available.
 
 ## 2026-08-09 11:25 — the preliminary version of the above (kept for the record; its "small-cell" framing is corrected above)
 
