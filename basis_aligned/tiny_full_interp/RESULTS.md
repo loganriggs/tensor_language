@@ -1114,7 +1114,50 @@ about shares — are unscoreable rather than passed or failed. Writing that guar
 in advance is what stops this cell from contributing three meaningless
 percentages to FINDING 21's trend.
 
-### 21:10 — THE DEPTH TREND CROSSES ZERO: at depth 1 the foldable arm **beats** the un-handicapped conventional model by 0.082 nats at 7.3% fewer parameters
+### 21:25 — DEPTH 1 FINAL, and M3 holds at t = −9.98. The cap effect on our architecture is now negative at **three depths**
+
+Three seeds every arm: ours cap-on 4.59676, cap-off **4.58814**, conventional
+4.67860.
+
+**Final symmetric tax at depth 1: −0.0905** — our arm wins by nine hundredths
+of a nat at 7.3% fewer parameters. The complete trend, all three points at
+about a 7% parameter disadvantage for us:
+
+| depth | symmetric tax |
+|---|---|
+| 1 | **−0.0905** (ours wins) |
+| 2 | +0.0759 |
+| 3 | +0.1221 |
+
+**M3 holds, and completes the case against FINDING 19's mechanism.** The cap
+effect on the predicate architecture, at every depth measured:
+
+| depth | cap effect on ours | t |
+|---|---|---|
+| 1 | −0.0086 | **−9.98** |
+| 2 | −0.0120 | −5.69 |
+| 3 | −0.0092 | −4.08 |
+
+**Three depths, one architecture, all negative and all significant** — removing
+the query/key cap consistently *helps* it. Against vanilla, where the effect is
++0.0392 at one cell and null at the two others. So "the cap is load-bearing for
+the foldable family", which I published this morning as a mechanism, is
+contradicted at every cell where it has been tested on a second architecture,
+and supported at exactly one cell of one architecture. The final form is the
+dull one: **the cap is a large, consistent handicap for the conventional model
+(−0.13 to −0.16 where copying is possible, −0.07 where it is not) and a small,
+consistent handicap for ours.**
+
+**What the three-point trend is worth.** It is monotone and crosses zero
+between depth 1 and depth 2, and the crossing is where copying becomes
+possible — which is what FINDING 21 independently predicts, since the
+conventional model's edge is a pair of ingredients that only pays where copying
+is available. Two independent lines agreeing on a mechanism is the strongest
+structural claim of the day. It remains three points at one width on one
+corpus, and the depth-1 win is still most likely bought by a hand-installed
+positional prior rather than by anything the model discovered.
+
+### 21:10 — the interim version of the above (kept for the record)
 
 | depth (width 128, ours ~7% smaller each time) | symmetric tax |
 |---|---|
