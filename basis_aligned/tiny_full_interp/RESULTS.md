@@ -1072,6 +1072,37 @@ a bigger model than the conventional one to get there, which is the same
 statement the width-threshold work made and is a much more modest claim than
 "a missing conjunction".
 
+### 13:05 — QUALIFYING "the row-normalised arm is dead": it is not dead at the largest cell, it is **an order of magnitude weaker than softmax**, which is the claim that actually holds
+
+At 10:20 I wrote that the L1-row-normalised diagnostic was "dead across eight
+corners and two cells" and that "eight corners is enough to stop looking". The
+third cell's cap-off corners say that was too strong in its absolute form:
+
+| cell | + our feed-fwd, cap off | + GELU, cap off | softmax at the same corner | row-L1 as % of softmax |
+|---|---|---|---|---|
+| depth 2, width 128 | −0.0078 | +0.0251 | +1.0448 | **2.4%** |
+| depth 3, width 64 | +0.0011 | +0.0263 | +0.9237 | **2.8%** |
+| **depth 3, width 128** | **+0.0437** | **+0.1836** | +1.8637 | **9.9%** |
+
+**+0.1836 is not null.** At the two smaller cells that value would have cleared
+every detection criterion this programme uses. Calling the arm "dead" was an
+absolute-scale statement made from cells where everything is small, and the
+same growth that lifts every other arm lifts this one too.
+
+**What survives, and is the claim that was always doing the work**: as a
+*fraction of what softmax achieves at the same corner*, row normalisation never
+exceeds **9.9%**, and is 2–3% at the other two cells. Dividing the two-branch
+product by its row magnitude buys roughly a tenth of what softmax buys, at
+best. So **competition between keys is not the active ingredient** — that
+holds, on the relative comparison, at all three cells. What does not hold is
+"dead", and the sentence "eight corners is enough to stop looking" was
+overconfident: the ninth and tenth corners changed the description.
+
+The relative fraction is also *rising* with cell size (2.4 → 2.8 → 9.9), which
+is worth flagging rather than dismissing. It is still an order of magnitude
+short, but a trend that direction means the arm should not be assumed dead at
+sizes beyond those tested here.
+
 ### 12:30 — THE FULL THREE-WAY SERIES IS COMPLETE, and it resolves to one sentence: **the three-way term is replaced, almost exactly, by the softmax × uncapped-range PAIR**
 
 All eight corners at all three cells, three seeds each. Raw nats:
