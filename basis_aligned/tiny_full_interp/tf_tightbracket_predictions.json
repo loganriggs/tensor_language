@@ -1,0 +1,31 @@
+{
+  "registered": "2026-08-09 23:50 UTC, BEFORE any cell of this run was trained",
+  "problem_this_addresses": {
+    "what_happened": "At the discriminating cell (depth 2 width 64, where nothing inducts) our arm WINS by -0.0344 at a 4.0% parameter handicap and LOSES by +0.0513 at a 15.9% one. The sign flips inside the bracket, so the four-cell 'the tax sign tracks copying availability, not depth' result rests at that cell on an interpolation to the ~7% handicap the other three cells carried, giving about -0.013.",
+    "why_interpolation_is_not_enough": "it assumes linearity in parameter fraction between two points 12 percentage points apart, and the interpolated margin is about a seventh of depth 1's. A conclusion that thin should be measured, not inferred."
+  },
+  "the_fix": {
+    "idea": "no slot value puts OUR arm at -7%, because the slot mechanism moves the stream width in steps of 4 at depth 2 and the embedding dominates. But the CONVENTIONAL arm's size is freely tunable through its feed-forward expansion, so hold our arm fixed at slot 16 (645,168 parameters) and resize the conventional model instead.",
+    "bracket": "expansion 8 gives 688,256 -> our handicap 6.26%; expansion 9 gives 704,640 -> our handicap 8.44%. That brackets the -7% used at the other three cells to within about a point on each side, against the current -4.0%/-15.9% bracket which spans a sign change.",
+    "cost": "2 conventional arms x 3 seeds, cap off = 6 cells. Our side is already trained."
+  },
+  "predictions": {
+    "P1_ours_wins_at_both": {
+      "claim": "Our slot-16 arm beats both conventional arms -- the tax is negative at a 6.26% handicap and at an 8.44% one.",
+      "reason": "the interpolation puts -7% at about -0.013, so both bracket points should land near it and on the same side; a sign change inside a two-point-wide bracket would be surprising given the sign change over the previous 12-point bracket was roughly linear.",
+      "confidence": "0.55 -- the interpolated margin is thin enough that either bracket point could cross zero, which is exactly why this is being measured"
+    },
+    "P2_the_margin_is_thin": {
+      "claim": "Whichever way the signs fall, both taxes lie within +/-0.03 of zero -- an order of magnitude smaller than depth 1's -0.0905.",
+      "confidence": "0.75"
+    },
+    "P3_what_a_split_would_mean": {
+      "claim": "If the two bracket points disagree in sign, the discriminating cell cannot support the four-cell claim at all and the claim reduces to three cells with depth and copying availability re-confounded.",
+      "note": "this is not a prediction but a pre-committed reading, written now so it is not negotiated after the numbers arrive"
+    }
+  },
+  "what_this_still_cannot_settle": [
+    "Even a clean two-sided win leaves copying availability entangled with WIDTH, since this cell differs from depth 2 width 128 in both. Only depth is cleanly excluded.",
+    "The conventional arms here are resized purely to match parameters; a wider feed-forward is not otherwise a fairer or less fair opponent, but it is a different model from the one used at the other cells."
+  ]
+}
