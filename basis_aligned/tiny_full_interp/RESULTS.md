@@ -1114,7 +1114,45 @@ about shares — are unscoreable rather than passed or failed. Writing that guar
 in advance is what stops this cell from contributing three meaningless
 percentages to FINDING 21's trend.
 
-### 16:45 — K1 holds: on a SECOND foldable architecture the cap has the **OPPOSITE sign**. "Load-bearing for the family" is now a vanilla-at-one-cell fact
+### 17:00 — FINAL at this cell, three seeds both sides: **the cap effect is −0.0120 (t = −5.69) and the symmetric tax is +0.0759 nats**
+
+| predicate slot-32, depth 2 width 128 | three seeds | mean |
+|---|---|---|
+| cap ON | 4.48303, 4.48126, 4.48173 | 4.48201 |
+| cap OFF | 4.46843, 4.47344, 4.46818 | **4.47002** |
+| paired cap effect | −0.0146, −0.0078, −0.0135 | **−0.0120, t = −5.69** |
+
+**K1 holds, and now significantly.** The cap effect on this architecture is
+negative at t = −5.69 — removing the cap reliably *helps* it — where the same
+measurement on vanilla at the same cell is +0.0392 at t = +9.02. Two foldable
+architectures, one cell, opposite signs, both significant. That is as clean a
+refutation of "load-bearing for the family" as this design can produce.
+
+**K2 holds.** The symmetric tax, each family at its own better configuration and
+at 7% fewer parameters for ours, is **+0.0759 nats** — inside the registered
++0.05 to +0.12 band.
+
+**The full history of this number**, which is the most-revised quantity in the
+programme:
+
+| version | value | what changed |
+|---|---|---|
+| as published | +0.2522 | — |
+| after independent review | **RETRACTED** | our side held to vanilla while the conventional model picked its best configuration |
+| symmetric, 2 seeds | +0.0880 | used the better foldable architecture |
+| symmetric, 3 seeds | +0.0879 | seeding |
+| **symmetric, both cap settings, 3 seeds** | **+0.0759** | our side allowed its better cap setting too |
+
+Every revision downward, and each one removed an asymmetry that had favoured
+the conventional model. The final figure is **3.3× smaller** than what I
+published this morning.
+
+**K4 is on track but not yet scoreable**: the predicate arm's hand-installed
+induction is +2.4893 with the cap on (two probe files so far); the cap-off
+probes have not run. The prediction is that it stays above +2.0 either way,
+because 24 named scalars carry 98% of it.
+
+### 16:45 — K1's preliminary two-seed version (kept for the record) "Load-bearing for the family" is now a vanilla-at-one-cell fact
 
 Two of three cap-off seeds at depth 2 width 128 (preliminary):
 
