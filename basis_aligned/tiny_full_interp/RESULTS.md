@@ -623,10 +623,36 @@ the family's own −0.0138 — while the same arm with the cap off collapses to
 load-bearing for our architecture rather than a handicap, consistent with
 FINDING 19 and now visible at a different feed-forward setting.
 
-Remaining: one arm training, then seeds. **Everything above is seed 0**, and
-the two-way and three-way terms are differences of differences, which compound
-seed noise — the 71% figure in particular should be treated as an order of
-magnitude, not a measurement, until seeds 1 and 2 land.
+### 06:25 — all twelve corners of the seed-0 design are on disk
+
+| attention | feed-forward | cap | held CE | induction |
+|---|---|---|---|---|
+| ours | ours | on | 4.65117 | −0.0138 |
+| ours | ours | off | 4.68263 | −0.0264 |
+| ours | GELU | on | 4.61102 | +0.0596 |
+| ours | GELU | off | 4.67878 | −0.0271 |
+| row-L1 | ours | on | 4.67197 | −0.0078 |
+| row-L1 | ours | off | 4.67758 | −0.0141 |
+| row-L1 | GELU | on | 4.65265 | +0.0253 |
+| row-L1 | GELU | off | 4.65432 | +0.0123 |
+| softmax | ours | on | 4.58166 | +0.0389 |
+| softmax | ours | off | 4.47100 | +0.2628 |
+| softmax | GELU | on | 4.54320 | +0.1558 |
+| **softmax** | **GELU** | **off** | **4.39500** | **+1.0784** |
+
+**The row-normalised diagnostic is dead as a substitute, at every setting.**
+Paired with a GELU gate it recovers 23% of softmax-with-GELU under the cap and
+**4%** without it; paired with our own feed-forward it never leaves the null
+(−0.0078 and −0.0141). It was built to ask whether *competition between keys*
+is the active ingredient in softmax, and the answer across all four of its
+corners is no. Since it was never foldable anyway — its denominator depends on
+every visible key — this closes the line rather than opening one: there is no
+cheap normalisation trick standing in for softmax here.
+
+**Seeds 1 and 2 of all eight arms are now running** (`tf_factorial2_seeds.sh`,
+16 cells). **Everything above is seed 0**, and the two- and three-way terms are
+differences of differences, which compound seed noise — the 71% figure in
+particular is an order of magnitude, not a measurement, until they land.
 
 ## 2026-08-09 05:05 — FINDING 19 (THE SYMMETRIC CONTROL): the query/key cap is **not a shared handicap — it is load-bearing for the foldable family and a handicap for the conventional one**. Each family at its own better configuration, the foldability tax at depth 2 width 128 is **+0.2071 nats, 6.4× what was measured under the shared cap**. Both registered predictions hold
 
