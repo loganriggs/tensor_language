@@ -1,0 +1,8 @@
+  fold gate: True  pipeline: {'pipeline_rel_logit_diff': 0.4709060680399918, 'length1_table_rel_logit_diff': 0.11638138855240152, 'mlp_tensor_vs_factored_rel': 1.9501904091612232e-07, 'layer0_folded_vs_weight_pattern_rel': 1.03983473777771, 'residual_additivity_rel': 0.0, 'pass': False}
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/tiny_full_interp/tf_interp3.py", line 1407, in <module>
+    analyse(a.stem, a.quick, skip_baselines=not a.baselines)
+  File "/workspace/tensor_language/basis_aligned/tiny_full_interp/tf_interp3.py", line 1278, in analyse
+    assert rep['decomposition_control']['pass'], rep['decomposition_control']
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+AssertionError: {'pipeline_rel_logit_diff': 0.4709060680399918, 'length1_table_rel_logit_diff': 0.11638138855240152, 'mlp_tensor_vs_factored_rel': 1.9501904091612232e-07, 'layer0_folded_vs_weight_pattern_rel': 1.03983473777771, 'residual_additivity_rel': 0.0, 'pass': False}
