@@ -1,0 +1,30 @@
+{
+  "registered": "2026-08-09 18:10 UTC, BEFORE any cell of this run was trained",
+  "the_bug_being_fixed": {
+    "what": "`slot` in tf_train.py is the PER-SLOT width and the slot count is 2*depth, so the stream width is 2*depth*slot. Reusing slot=32 across cells pins the stream to 128 at depth 2 (correct, matching the plain model) but to 192 at depth 3.",
+    "consequence": "the depth-3 predicate slot-32 arm carries 2,605,200 parameters against the conventional matched arm's 1,933,696 -- 34.7% MORE -- so the -0.0370 'win' measured there at 17:45 is unfair and was not quoted.",
+    "the_fix": "slot 22 gives stream 132 and 1,794,930 total parameters, 7.2% FEWER than the conventional arm -- almost exactly the 7.0% disadvantage our side carried in the depth-2 comparison (1,523,808 against 1,638,656). It is the correct analogue of that comparison at this cell."
+  },
+  "design": "predicate variant, slot 22, depth 3 width 128, three seeds, cap ON and cap OFF. 6 cells. Scored against the conventional matched arm without the cap, 4.29770 over three seeds.",
+  "predictions": {
+    "L1_the_tax_turns_positive": {
+      "claim": "With parameters honestly matched-or-fewer, the depth-3 symmetric tax is POSITIVE -- the conventional model wins.",
+      "reason": "the -0.0370 apparent win was bought with 34.7% more parameters; removing about 31% of them (2,605,200 -> 1,794,930) should cost more than 0.037 nats. Every honest cross-architecture comparison in this programme so far has favoured the conventional model.",
+      "confidence": "0.7"
+    },
+    "L2_it_is_smaller_than_depth_2s": {
+      "claim": "The depth-3 tax is smaller than depth 2's +0.0759.",
+      "reason": "the predicate arm's advantage is hand-installed copying, and the extra block gives it another site to use; also FINDING 21 shows the conventional model's own edge comes increasingly from the softmax-plus-uncapped-range pair, which our arm partly substitutes for by naming the terms outright",
+      "confidence": "0.55"
+    },
+    "L3_the_cap_still_helps_this_architecture": {
+      "claim": "Removing the cap helps the slot-22 arm at depth 3, as it did the slot-32 arm at depth 2 (-0.0120, t = -5.69).",
+      "confidence": "0.6",
+      "note": "vanilla's cap effect was already null at depth 3 (+0.0043 and -0.0051), so a negative effect here would make it two architectures and two depths against 'load-bearing for the family'"
+    }
+  },
+  "what_this_cannot_settle": [
+    "The predicate arm buys its induction by hand-installation (24 named scalars carry 98%), so any tax it wins is about LOSS, not about discovered mechanism. That caveat travels with every number here.",
+    "Changing slot changes the stream width, so the slot-22 arm is not the same model as the slot-32 arm with fewer parameters -- it is a different point in the family. The comparison is fair on parameters, not on architecture identity across depths."
+  ]
+}
