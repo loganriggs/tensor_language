@@ -373,6 +373,28 @@ baseline probe unchanged), chain `tf_factorial_chain.sh`.
 | 1 | 128 | 4 new arms, seed 0 — the negative control; nothing may induct | LOCAL | claimed, queued |
 | 2 | 128 | seeds 1-2 of whichever arms separate | LOCAL | queued last |
 
+**OPERATIONAL NOTE FOR THE NEXT TICK — interpose the factorial before the
+baseline chain's third seed.** `tf_factorial_chain.sh` is launched and sitting
+in its gate loop (it re-checks every 120 s and starts within two minutes of the
+card going quiet). `tf_baseline_chain.sh` will reach **stage 5, the third
+seed** — 18 cells, roughly 90 minutes — before it exits, and a third
+conventional seed is worth less than the factorial's attribution. Both chains
+skip any cell whose `.pt` already exists, so the safe interposition is:
+
+1. Watch `tf_baseline_chain.log` for `stage 5: ` (or for stage 4's
+   learning-rate report having been pushed).
+2. `pkill -f -x "/bin/bash ./tf_baseline_chain.sh"` and any live
+   `python tf_baseline_std.py` — the in-flight cell is lost and simply retrains
+   later, which is why this is only worth doing at a stage boundary.
+3. The factorial chain's gate opens on its own within two minutes.
+4. When the factorial chain exits, relaunch `./tf_baseline_chain.sh`; it
+   re-runs its gate, skips all 40-odd completed cells on checkpoint existence,
+   and picks up at the third seed.
+
+Do **not** edit either chain script while it is running — bash reads a script
+incrementally, so an in-place edit can corrupt the execution of a running
+chain.
+
 ## Vocab check
 
 | vocab | owner | status |
