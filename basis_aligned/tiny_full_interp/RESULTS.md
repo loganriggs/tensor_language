@@ -570,9 +570,63 @@ useful statement than "it's the softmax", which is what I predicted.
   the interaction is the dominant term. Its CE half is refuted — the CE
   interaction is 0.0722, not the predicted under-0.02.
 
-Remaining: the fourth cap-off arm (row-normalised with GELU) is training, then
-the four cap-on arms, then seeds. The cap-on half is what tests P2, the claim
-that the cap × attention interaction is confined to the softmax level.
+### 06:05 — the cap-on half lands: it is a THREE-way interaction, and 71% of the capability needs all three ingredients at once
+
+Seven of eight arms complete (row-normalised with GELU under the cap still
+training). The full table, seed 0, matched body parameters:
+
+| attention | feed-forward | CE cap ON | ind ON | CE cap OFF | ind OFF | cap removal moves induction |
+|---|---|---|---|---|---|---|
+| ours | ours | 4.65117 | −0.0138 | 4.68263 | −0.0264 | −0.0127 |
+| ours | GELU | 4.61102 | **+0.0596** | 4.67878 | −0.0271 | **−0.0867** |
+| row-L1 | ours | 4.67197 | −0.0078 | 4.67758 | −0.0141 | −0.0063 |
+| row-L1 | GELU | training | — | 4.65432 | +0.0123 | — |
+| softmax | ours | 4.58166 | +0.0389 | 4.47100 | +0.2628 | **+0.2240** |
+| softmax | GELU | 4.54320 | +0.1558 | **4.39500** | **+1.0784** | **+0.9226** |
+
+Decomposing all eight corners as a 2×2×2 (softmax vs our attention × GELU vs
+our feed-forward × cap off vs on), the seven terms sum exactly to the total
+move of +1.0922:
+
+| term | value | share of the move |
+|---|---|---|
+| softmax alone | +0.0527 | 4.8% |
+| GELU alone | +0.0734 | 6.7% |
+| cap removal alone | −0.0126 | −1.2% |
+| softmax × GELU | +0.0435 | 4.0% |
+| softmax × cap | +0.2365 | 21.7% |
+| GELU × cap | −0.0741 | −6.8% |
+| **softmax × GELU × cap** | **+0.7728** | **70.8%** |
+
+> **71% of the induction capability requires all three ingredients
+> simultaneously. The three single-factor effects together account for 10%.**
+
+No pair suffices either: the best two-way term is softmax × cap at 22%. This is
+the cleanest statement the programme has of *why* the foldable family cannot
+copy — it is not missing one thing, it is missing a conjunction, and each piece
+is nearly worthless without the other two.
+
+**P2 is refuted in its sharp form and holds in its direction.** I registered
+that removing the cap would move the softmax arms by more than +0.5 at *both*
+feed-forward levels; it moves softmax with GELU by +0.9226 but softmax with our
+feed-forward by only **+0.2240**. The qualitative claim — that the cap effect
+is confined to the softmax level — does hold: the two arms built on our
+attention move −0.0127 and −0.0867, and the row-normalised arm moves −0.0063.
+The error is the same one that sank P1a: I predicted a two-way effect would be
+uniform across the third factor, in a system that has just been shown to be
+dominated by interaction.
+
+**One incidental result worth flagging.** Our attention with a GELU gate *and*
+the cap on scores **+0.0596** — the highest of any non-softmax arm, and above
+the family's own −0.0138 — while the same arm with the cap off collapses to
+−0.0271. That is a second, independent demonstration that the cap is
+load-bearing for our architecture rather than a handicap, consistent with
+FINDING 19 and now visible at a different feed-forward setting.
+
+Remaining: one arm training, then seeds. **Everything above is seed 0**, and
+the two-way and three-way terms are differences of differences, which compound
+seed noise — the 71% figure in particular should be treated as an order of
+magnitude, not a measurement, until seeds 1 and 2 land.
 
 ## 2026-08-09 05:05 — FINDING 19 (THE SYMMETRIC CONTROL): the query/key cap is **not a shared handicap — it is load-bearing for the foldable family and a handicap for the conventional one**. Each family at its own better configuration, the foldability tax at depth 2 width 128 is **+0.2071 nats, 6.4× what was measured under the shared cap**. Both registered predictions hold
 
