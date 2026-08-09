@@ -5,3 +5,86 @@ usage: tf_train.py [-h] [--variant VARIANT] [--depth DEPTH] [--width WIDTH]
                    [--no-qk-norm]
                    {baselines,cell}
 tf_train.py: error: the following arguments are required: cmd
+  tf_predicate_d3_w128_b8192_s2_slot32 step 0/15000 ce 9.0493 (ema 9.0493) 0s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 200/15000 ce 5.7671 (ema 6.3087) 13s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 400/15000 ce 5.1999 (ema 5.2830) 26s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 600/15000 ce 4.8959 (ema 4.9911) 38s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 800/15000 ce 4.6609 (ema 4.8383) 51s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 1000/15000 ce 4.8404 (ema 4.7757) 64s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 1200/15000 ce 4.7411 (ema 4.7421) 76s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 1400/15000 ce 4.8389 (ema 4.7038) 89s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 1600/15000 ce 4.6009 (ema 4.6806) 101s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 1800/15000 ce 4.7379 (ema 4.6549) 114s
+  held100 CE 4.5691 at step 1875
+  tf_predicate_d3_w128_b8192_s2_slot32 step 2000/15000 ce 4.6470 (ema 4.6303) 127s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 2200/15000 ce 4.6258 (ema 4.6122) 139s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 2400/15000 ce 4.5284 (ema 4.5851) 152s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 2600/15000 ce 4.5274 (ema 4.5781) 165s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 2800/15000 ce 4.5930 (ema 4.5635) 177s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 3000/15000 ce 4.6453 (ema 4.5800) 190s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 3200/15000 ce 4.5866 (ema 4.5598) 203s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 3400/15000 ce 4.4905 (ema 4.5501) 215s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 3600/15000 ce 4.4694 (ema 4.5487) 228s
+  held100 CE 4.4700 at step 3750
+  tf_predicate_d3_w128_b8192_s2_slot32 step 3800/15000 ce 4.5074 (ema 4.5137) 241s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 4000/15000 ce 4.5228 (ema 4.5297) 253s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 4200/15000 ce 4.5062 (ema 4.5024) 266s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 4400/15000 ce 4.4899 (ema 4.4944) 279s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 4600/15000 ce 4.4318 (ema 4.4877) 291s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 4800/15000 ce 4.5384 (ema 4.4887) 304s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 5000/15000 ce 4.4666 (ema 4.4823) 316s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 5200/15000 ce 4.5954 (ema 4.4801) 329s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 5400/15000 ce 4.4827 (ema 4.4652) 342s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 5600/15000 ce 4.4403 (ema 4.4550) 354s
+  held100 CE 4.4006 at step 5625
+  tf_predicate_d3_w128_b8192_s2_slot32 step 5800/15000 ce 4.4976 (ema 4.4589) 367s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 6000/15000 ce 4.4187 (ema 4.4527) 380s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 6200/15000 ce 4.4216 (ema 4.4497) 392s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 6400/15000 ce 4.4387 (ema 4.4313) 405s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 6600/15000 ce 4.4594 (ema 4.4239) 418s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 6800/15000 ce 4.4429 (ema 4.4266) 430s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 7000/15000 ce 4.3790 (ema 4.4213) 443s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 7200/15000 ce 4.4309 (ema 4.4121) 455s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 7400/15000 ce 4.5518 (ema 4.4005) 468s
+  held100 CE 4.3427 at step 7500
+  tf_predicate_d3_w128_b8192_s2_slot32 step 7600/15000 ce 4.2889 (ema 4.4044) 481s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 7800/15000 ce 4.4719 (ema 4.3888) 493s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 8000/15000 ce 4.5236 (ema 4.3848) 506s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 8200/15000 ce 4.5606 (ema 4.3815) 519s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 8400/15000 ce 4.4274 (ema 4.3728) 531s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 8600/15000 ce 4.2829 (ema 4.3622) 544s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 8800/15000 ce 4.3454 (ema 4.3727) 557s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 9000/15000 ce 4.4121 (ema 4.3622) 569s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 9200/15000 ce 4.2411 (ema 4.3570) 582s
+  held100 CE 4.2951 at step 9375
+  tf_predicate_d3_w128_b8192_s2_slot32 step 9400/15000 ce 4.4085 (ema 4.3504) 595s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 9600/15000 ce 4.3553 (ema 4.3359) 607s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 9800/15000 ce 4.3981 (ema 4.3511) 620s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 10000/15000 ce 4.3386 (ema 4.3387) 632s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 10200/15000 ce 4.2399 (ema 4.3313) 645s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 10400/15000 ce 4.4740 (ema 4.3316) 658s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 10600/15000 ce 4.2369 (ema 4.3116) 670s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 10800/15000 ce 4.3529 (ema 4.3133) 683s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 11000/15000 ce 4.3287 (ema 4.3141) 695s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 11200/15000 ce 4.3929 (ema 4.3211) 708s
+  held100 CE 4.2495 at step 11250
+  tf_predicate_d3_w128_b8192_s2_slot32 step 11400/15000 ce 4.3951 (ema 4.2995) 721s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 11600/15000 ce 4.1634 (ema 4.3013) 733s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 11800/15000 ce 4.4067 (ema 4.2975) 746s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 12000/15000 ce 4.3176 (ema 4.2986) 759s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 12200/15000 ce 4.2975 (ema 4.3142) 771s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 12400/15000 ce 4.2599 (ema 4.2947) 784s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 12600/15000 ce 4.2891 (ema 4.2834) 797s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 12800/15000 ce 4.2668 (ema 4.2819) 809s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 13000/15000 ce 4.1940 (ema 4.2743) 822s
+  held100 CE 4.2220 at step 13125
+  tf_predicate_d3_w128_b8192_s2_slot32 step 13200/15000 ce 4.3254 (ema 4.2791) 835s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 13400/15000 ce 4.3497 (ema 4.2817) 847s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 13600/15000 ce 4.2896 (ema 4.2766) 860s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 13800/15000 ce 4.1174 (ema 4.2724) 873s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 14000/15000 ce 4.2597 (ema 4.2813) 885s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 14200/15000 ce 4.2757 (ema 4.2723) 898s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 14400/15000 ce 4.3190 (ema 4.2881) 910s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 14600/15000 ce 4.3114 (ema 4.2719) 923s
+  tf_predicate_d3_w128_b8192_s2_slot32 step 14800/15000 ce 4.3012 (ema 4.2882) 936s
+== tf_predicate_d3_w128_b8192_s2_slot32 FINAL held CE 4.25904 (948s, 0 spikes, 2954 MiB)
