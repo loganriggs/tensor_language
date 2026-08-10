@@ -25,5 +25,6 @@
       "confidence": "0.7",
       "note": "this is the claim I withdrew a null on at 12:00, so it is the one most worth re-testing with more data"
     }
-  }
+  },
+  "timestamp_correction_2026-08-10": "in-file phrasing \"BEFORE any cell of this run was trained\" is imprecise: committed 12:50:35 while the queued chain was already training the first cell (first result readable 12:52:32, after the commit). No prediction could have been informed by any result; git order is authoritative."
 }

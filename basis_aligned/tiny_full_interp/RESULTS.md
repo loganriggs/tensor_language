@@ -6417,3 +6417,79 @@ depth-3 partial-copying effect appears at both vocabularies.
 baseline — a 6.6% win overall, with one group (the heavier softmax arm)
 slightly losing. Concurrency stays, priced honestly as marginal on this card
 at this model size, not transformative.
+
+## 2026-08-10 18:10 — **FIX ROUND for the independent review: the 14:55 "genuinely nonzero" verdict is RETRACTED to "marginal, method-dependent."** Eight objections; one flips a conclusion, two are restatements, two get queued measurements, three become documented limitations
+
+**Objection 1 (HIGH) — RETRACTION.** I scored "the largest cell keeps a lower
+bound above zero" as holding "not by luck," quoting 1.75% of bootstrap mass at
+or below zero. The reviewer showed — and I reproduce exactly — that the
+percentile bootstrap is the anti-conservative method here: on Welch-t the
+interaction is 0.122 ± 0.064 nats, df 12, **one-sided p = 3.97%**, and both
+the delta-method t-interval **[−0.9, 15.2]** and a studentized bootstrap
+include zero. My own 13:45 section diagnosed plug-in variance shrinkage at
+three seeds and then stopped worrying at six; that was inconsistent. The
+twenty-RNG check measured Monte Carlo jitter of one estimator and added no
+evidence — presenting it under "not by luck" conflated simulation noise with
+sampling noise. **Corrected statement: evidence for a positive interaction at
+depth 3 width 128 is marginal (one-sided p 0.02–0.04 depending on method);
+the null "no interaction at the largest cell" is neither established nor
+excluded.** U4's scoring changes from "holds" to "marginal — registered
+criterion technically met by the percentile method, but the criterion itself
+baked in the wrong method." `tf_cell_interval.py` now reports the t-interval
+and Welch p alongside the bootstrap, and its gate covers all seven published
+numbers.
+
+**Objection 2 (HIGH) — RESTATEMENT of both vocabulary sections.** Point-inside-
+a-CI-on-the-mean is not a calibrated acceptance test (the new point has its own
+noise), and I scored its pass as confirmation at one cell while excusing its
+fail as seed noise at the other. The symmetric two-sample version: central
+cell 91.4 ± 2.2 vs 87.9 ± 3.1 (difference 3.5 ± 3.8, z ≈ 0.9); depth-3 cell
+19.9 ± 10.5 vs 7.2 ± 3.7 (difference 12.8 ± 11.1, z ≈ 1.15, p ≈ 0.25).
+**Corrected statement for both: no detectable vocabulary effect on the
+interaction share, at low power.** The 16:00 headline "NOT a vocabulary
+artifact" overstated a non-rejection; what is actually established within
+vocabulary 4096 is the dissolution itself (W4, registered, holds — though its
+30-point bar was weak, and "holds by 71 points" was margin against that weak
+bar). The depth-3 share moving 7.2 → 19.9 across vocabularies remains an open
+numeric instability, not noise-dismissed.
+
+**Objection 3 (MEDIUM) — restated + measurement queued.** The 17:10
+"disjoint intervals" claim used three-seed intervals four hours after the
+programme ruled them lower bounds on width. Restated as point separation
+(52 points, which would survive both widths doubling); seeds 3-5 for both
+vocabulary-4096 cells are queued to settle it properly.
+
+**Objection 4 (MEDIUM) — measurement queued.** "Co-tenancy does not affect
+results" was asserted, never measured, and the one concurrently-trained cell
+is the one whose prediction failed. A sequential retrain of one conventional
+arm is queued; pass = induction score within the corner's seed spread (0.081)
+of the concurrent value.
+
+**Objection 5 (MEDIUM-LOW) — documented limitation.** "Attention exceeds five
+times feed-forward" passed with a noise denominator (feed-forward-alone
+0.0032 ± 0.0027, consistent with zero), making the registered ratio criterion
+nearly unfalsifiable. Corrected reading: feed-forward-alone is consistent with
+zero; attention-alone is real (0.0627 ± 0.0169, t ≈ 3.7). Future ratio
+criteria get a positivity requirement on the denominator.
+
+**Objection 6 (LOW-MEDIUM) — provenance corrected.** Two prediction files
+carried in-file "registered" timestamps that are wrong as written (one
+postdates the first result on disk by 12 minutes; git commit order — the
+authoritative record — shows both files were committed before any readable
+result existed, so the predictions are genuine). Correction fields added to
+both files; practice from now on: the in-file stamp is the git commit time.
+
+**Objections 7-8 (LOW) — fixed/documented.** Probe-battery measurement error
+is not propagated into corner intervals (documented in the script; effect
+under one point of share everywhere checked). The reproduction gate now pins
+all seven published numbers including the vocabulary cells.
+
+**Reviewer checks that did not land** (recorded so they are not re-litigated):
+ratio-denominator instability (resampled totals never near zero, cv 3-5%),
+the bits-per-byte rule (shares are unit-invariant; no scored criterion crosses
+vocabularies in nats), and the depth-3 "+0.175 induction" line — it clears its
+own probe floors at all three seeds (floors 0.0115-0.0191 against scores
+0.128-0.228); the floor citation is hereby attached. One data note adopted:
+the softmax-corner seed-0 outlier (0.263 vs 0.043-0.096) means the 11.8%
+attention-alone figure at the central cell leans on one seed; a median-based
+share will accompany it if it ever becomes load-bearing.
