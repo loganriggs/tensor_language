@@ -1114,6 +1114,47 @@ about shares — are unscoreable rather than passed or failed. Writing that guar
 in advance is what stops this cell from contributing three meaningless
 percentages to FINDING 21's trend.
 
+### 00:30 — THE TIGHT BRACKET IS COMPLETE: ours wins at **both** points around 7%, so the discriminating cell holds. And laying out all four cells shows **the width confound I kept flagging was already excluded**
+
+| conventional arm | its params | our handicap | conventional CE | symmetric tax |
+|---|---|---|---|---|
+| expansion 7 | 671,872 | 3.97% | 4.90259 | −0.0344 |
+| **expansion 8** | 688,256 | **6.26%** | 4.89548 | **−0.0273** |
+| **expansion 9** | 704,640 | **8.44%** | 4.87743 | **−0.0093** |
+| (our slot-14 arm) | — | 15.90% | — | +0.0429 |
+
+**P1 holds** — ours wins at both points bracketing the ~7% comparison handicap.
+**P2 holds** — both within ±0.03 of zero. The **pre-committed reading applies in
+the direction that keeps the claim**: the signs agree, so the discriminating
+cell supports the four-cell result, now *measured* on both sides of the
+comparison handicap rather than interpolated. The margin is thin and shrinking
+with handicap (−0.027 → −0.009), and the crossing sits between 8.44% and 15.9%.
+
+### The width confound: I was wrong to keep flagging it
+
+I have written three times that copying availability stays entangled with width
+because the discriminating cell differs from depth 2 width 128 in both. That is
+true of *that pairwise contrast* and false of the design as a whole:
+
+| cell | depth | width | copying? | sign |
+|---|---|---|---|---|
+| depth 1, width 128 | 1 | **128** | no | **ours wins** |
+| depth 2, width 64 | **2** | 64 | no | **ours wins** |
+| depth 2, width 128 | **2** | **128** | yes | ours loses |
+| depth 3, width 128 | 3 | **128** | yes | ours loses |
+
+**Width 128 appears on both sides of the line, exactly as depth 2 does.**
+Copying availability is the only single factor that predicts the sign at all
+four cells; depth fails (2 on both sides) and width fails (128 on both sides).
+So the design already excludes both as single-factor explanations, and my
+repeated caveat was over-cautious in a way that understated the result.
+
+**What genuinely remains** is narrower: an *interaction* of depth and width, or
+a third property correlated with copying availability across these four cells.
+Four cells cannot separate those from copying itself. That is the honest
+residual limitation, and it is a different and smaller one than the width
+confound I had been asserting.
+
 ### 00:10 — the tight bracket's first point MEASURES what I interpolated, and **the interpolation was pessimistic**
 
 Our slot-16 arm held fixed at 645,168 parameters; the conventional arm resized:
