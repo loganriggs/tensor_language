@@ -1154,7 +1154,15 @@ every cell. The finding is not "we can only ever reach 70%" — it is that **at
 fixed program complexity the shortfall grows monotonically with model size**,
 which is the scaling question the programme has to answer and had not measured.
 A ceiling result would need the best weights-free program we can write, not the
-simplest, and building that is the obvious next piece of work.
+simplest, and building that is the obvious next piece of work — **dispatched at
+07:15**.
+
+**One correction to how rung 5 has been described.** The ladder's rung-5 section
+is a ~90-entry **component-ablation** ladder: it measures what removing parts of
+the model costs, but every entry still runs the model's weights. Only
+`model_bigram` is weights-free. That is a useful ladder and it is not what the
+programme's brief means by "an explicit weights-free program"; the brief has
+been treated as satisfied by it, and it is not.
 
 It also puts the night's other findings in proportion. The foldability tax
 arguments were about 0.03–0.25 nats. **The unexplained remainder at a single
