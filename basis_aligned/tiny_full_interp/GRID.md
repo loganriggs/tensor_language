@@ -130,7 +130,7 @@ V1 says every variant is informative on the routing question, so the V2 cell tha
 matters most is the one that dates the transition: **the plain model's induction
 appears between width 128 and 256, and the slot variants already have it at 128
 — so the question V2 should answer is how far DOWN the slot variants carry it.**
-Priority order, unclaimed:
+Priority order — CLAIMED BY LOCAL 2026-08-10 17:40 (all five cells, 3 seeds, chain tf_v2_transition_chain.sh, predictions tf_v2_transition_predictions.json):
 
 | cell | question |
 |---|---|

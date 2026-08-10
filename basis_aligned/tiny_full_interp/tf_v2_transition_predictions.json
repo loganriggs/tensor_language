@@ -1,0 +1,18 @@
+{
+  "experiment": "Phase V2 transition sweep: where does induction appear/disappear in width, per architecture? Cells (3 seeds each): slots at depth 2 widths 32/64/256, predicate at width 32, vanilla at width 192. Train with the V1 slice's default invocations; induction scored by the same ladder battery (probe-seed mean vs planted-oracle floor) as V1.",
+  "registered": "2026-08-10 17:40 UTC, before any cell was trained",
+  "reference_numbers": {
+    "slots_d2_w128": "+0.0972 +/- 0.0275, 3/3 above floor",
+    "vanilla_d2_w128": "-0.0034 (below floor every seed)",
+    "vanilla_d2_w256": "+0.0938 +/- 0.0086 (above floor)",
+    "predicate_d2_w128": "+2.6402 +/- 0.0481 (handed over by 16 named scalars)"
+  },
+  "predictions": [
+    {"id": "X1", "claim": "Slots at width 64 still inducts: 3/3 seeds above their own floors.", "confidence": 0.6},
+    {"id": "X2", "claim": "Slots at width 32 does not: at most 1/3 seeds above floor (the transition for the partition sits between 32 and 64).", "confidence": 0.6},
+    {"id": "X3", "claim": "Predicate at width 32 still inducts (majority of seeds above floor) — its mechanism is handed over by named scalars, not bought with width.", "confidence": 0.65},
+    {"id": "X4", "claim": "Slots at width 256 stays above floor (the advantage coexists with the plain model's own induction rather than being displaced by it).", "confidence": 0.85},
+    {"id": "X5", "claim": "Vanilla at width 192 inducts at 2/3 or more seeds (the plain transition sits below 192, not between 192 and 256).", "confidence": 0.5}
+  ],
+  "decision_rule": "X1+X2 date the partition's transition an octave below the plain model's; X3 separates handed-over structure from capacity; X4 failing would resurrect the displacement story V1 retracted; X5 locates the plain transition for the width-vs-depth story. Ladders run on every cell regardless of verdicts — interpretation is the deliverable."
+}
