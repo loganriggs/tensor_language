@@ -1359,6 +1359,44 @@ positive — I am less confident of that than I was an hour ago.
 **What survives regardless**: the central cell and this one remain **disjoint**
 (48.0 to 75.6 against 81.4 to 92.2), so the ordering across cells is unaffected.
 
+### 14:55 — **the withdrawn null stays withdrawn, and now on six seeds: the largest cell's interaction is small but genuinely nonzero.** FINDING 21's three cells are all at six seeds per corner and all pairwise disjoint
+
+| cell (all six seeds/corner) | interaction share | 95% interval |
+|---|---|---|
+| depth 2, width 128 | 87.9% | [81.4, 92.2] |
+| depth 3, width 64 | 61.2% | [48.0, 75.6] |
+| depth 3, width 128 | **7.2%** | **[0.5, 13.7]** |
+
+Scoring the four registered predictions:
+
+- **U1 (both intervals narrow 35–60%) — refuted at both cells.** Depth 3 width
+  64's interval *rose* 26%; this one narrowed 20%, below the predicted band.
+  The central cell's clean halving was the exception, not the rule.
+- **U2 (both points move under 8) — half wrong.** Depth 3 width 64 moved +10.4;
+  this cell moved only −2.4 (9.6% → 7.2%).
+- **U3 (all three cells pairwise disjoint) — holds**, with real margins: 13.7
+  against 48.0, and 75.6 against 81.4.
+- **U4 (the largest cell keeps a lower bound above zero) — holds, and not by
+  luck.** The bound fell from 1.1 to 0.5, which looks fragile, so I checked:
+  across twenty independent bootstrap RNGs the bound is positive every time
+  (range 0.40–0.83), and only **1.75%** of bootstrap mass sits at or below
+  zero (100,000 replicates). The 12:00 withdrawal of the null stands on twice
+  the data. The honest reading: at depth 3 width 128 the conjunction still
+  exists — softmax, gate and uncapped range together buy something the parts
+  do not — but it is a **7% effect**, down from 88% at the smallest cell.
+
+**A fourth reconstruction trap, worth its own line.** The interval computation
+lived in inline snippets all day; writing it down as a script
+(`tf_cell_interval.py`, with a gate that must reproduce all four published
+numbers) immediately exposed that I would have reconstructed it wrong — my
+first version decomposed held cross-entropy and missed the published numbers
+by 54 points. FINDING 21 decomposes the **induction score**, not cross-entropy.
+The gate caught it before any wrong number was written anywhere, which is the
+argument for never leaving a load-bearing computation as a snippet: the same
+day produced three derivation-inheritance bugs in shell scripts and now one
+definitional drift in a reconstruction. All four were caught by controls, none
+by inspection.
+
 ### All three cells recomputed on the correct quantity — and the trend gets STRONGER
 
 | cell | interaction share | correct 95% interval | seeds/corner |
