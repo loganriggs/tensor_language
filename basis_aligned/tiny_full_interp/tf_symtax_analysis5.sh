@@ -63,7 +63,17 @@ for D in 3; do
     for S in 0 1 2; do
       ST="tf_predicate_d${D}_w64_b8192_s${S}_slot${SLOT}${CAP}"
       [ -f "${ST}.pt" ] || { say "$ST not trained yet -- skip"; continue; }
-      if [ -f "${ST}_interp3.json" ]; then say "$ST already analysed -- skip"; continue; fi
+      # EXISTENCE IS NOT COMPLETION. A crashed ladder leaves a truncated JSON
+      # (10 of 32 top-level keys after a mid-pipeline failure), and skipping on
+      # existence alone means it is never re-run and reads as done. Require the
+      # last-written section instead.
+      if [ -f "${ST}_interp3.json" ] && python -c "
+import json,sys
+d=json.load(open('${ST}_interp3.json'))
+sys.exit(0 if 'bits_per_byte_ladder' in d else 1)" 2>/dev/null; then
+        say "$ST already analysed (complete) -- skip"; continue
+      fi
+      [ -f "${ST}_interp3.json" ] && say "  $ST has a PARTIAL ladder -- re-running"
       say "analysing $ST"
       python tf_interp3.py --stem "$ST" >> "out_interp3_${ST}.txt" 2>&1 \
         && { say "  OK"; n=$((n+1)); } || say "  ANALYSIS FAILED $ST"
