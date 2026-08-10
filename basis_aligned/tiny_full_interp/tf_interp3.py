@@ -775,13 +775,20 @@ def norm_confound_control(D, G=4, n_seq=32, T=256, batch=8):
     sensitivities, the sensitivity metric is confounded too and only the causal
     KL survives."""
     Ws = D.Ws
+    # G is a hard-coded group count and S was Ws // G, which SILENTLY TRUNCATES
+    # when the stream width is not divisible by G -- the reshape then fails with
+    # a shape error (stream 66 at depth 3 slot 11: 4 x 16 = 64 != 66).  Fall back
+    # to the largest divisor of Ws at or below G so the control still runs on
+    # streams of any width, and record what was actually used.
+    if Ws % G:
+        G = max((g for g in range(1, G + 1) if Ws % g == 0), default=1)
     S = Ws // G
 
     def gnorm(x):
         sh = x.shape
         return F.rms_norm(x.view(*sh[:-1], G, S), (S,)).view(sh)
 
-    acc, n = {}, 0
+    acc, n = {'_groups_used': float(G), '_group_size': float(S)}, 0
     for x, y in I1.held_batches(D, n_seq, T, batch):
         P = D.run(x)
         for li in range(1, D.L):
