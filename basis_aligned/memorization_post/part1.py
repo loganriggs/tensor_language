@@ -59,19 +59,28 @@ PAIRS3 = {"Dog": (0, 1), "Cat": (0, 2), "Catfish": (2, 1)}
 ABSENT3 = {"Dog": 2, "Cat": 1, "Catfish": 0}  # the class's absent feature
 KEYS3 = np.array([[1, 1, 0], [1, 0, 1], [0, 1, 1]], dtype=np.float64)  # z_Dog, z_Cat, z_Catfish
 
-# extended setup for 1d path removal
-FEATS5 = ["furry", "happy", "whiskers", "hands", "dog-ears"]
-CLASSES4 = ["Dog", "Cat", "Catfish", "Human"]
-# keys: Dog has TWO paths (furry+happy and furry+dog-ears); Human = hands+dog-ears
-KEYS5 = np.array([
-    [1, 1, 0, 0, 0],   # Dog path 1 (furry, happy)
-    [1, 0, 0, 0, 1],   # Dog path 2 (furry, dog-ears)
-    [1, 0, 1, 0, 0],   # Cat (furry, whiskers)
-    [0, 1, 1, 0, 0],   # Catfish (whiskers, happy)
-    [0, 0, 0, 1, 1],   # Human (hands, dog-ears)
+# extended setup for 1d path removal: ONE extra feature (tail), still 3 classes.
+# (Deviation from handoff, per Logan 2026-08-10: no 4th class; tail is ANDed once
+# for Dog and once for Cat.) Each class keeps a core feature (Dog: happy,
+# Cat: whiskers) ANDed with either furry or tail:
+#   Dog = furry&happy | happy&tail; Cat = furry&whiskers | whiskers&tail;
+#   Catfish = whiskers&happy (unchanged).
+FEATS_E = ["furry", "happy", "whiskers", "tail"]
+CLASSES_E = ["Dog", "Cat", "Catfish"]
+KEYS_E = np.array([
+    [1, 1, 0, 0],   # Dog path 1 (furry, happy)
+    [0, 1, 0, 1],   # Dog path 2 (happy, tail)
+    [1, 0, 1, 0],   # Cat path 1 (furry, whiskers)
+    [0, 0, 1, 1],   # Cat path 2 (whiskers, tail)
+    [0, 1, 1, 0],   # Catfish (whiskers, happy)
 ], dtype=np.float64)
-KEYS5_NAMES = ["Dog(f,h)", "Dog(f,de)", "Cat", "Catfish", "Human"]
-LABELS5 = np.array([0, 0, 1, 2, 3])
+KEYS_E_NAMES = ["Dog(f,h)", "Dog(h,t)", "Cat(f,w)", "Cat(w,t)", "Catfish"]
+LABELS_E = np.array([0, 0, 1, 1, 2])
+# edit target: zero (happy,tail)->Dog while preserving (furry,happy)->Dog; the
+# kept Cat(w,t) path shares tail with the removed path — the sharing stress test.
+RM_PAIR = (1, 3)     # (happy, tail)
+KEEP_PAIR = (0, 1)   # (furry, happy)
+DOG_IDX = 0
 
 SEEDS = [0, 1, 2, 3, 4]
 WDS = [0.0, 1e-3, 1e-2]
@@ -396,9 +405,11 @@ def stage_1b():
             print(f"        own-diags B[{FEATS3[a]},{FEATS3[a]}] = {fmt_mr(Bs[:, c, a, a])}, "
                   f"B[{FEATS3[b]},{FEATS3[b]}] = {fmt_mr(Bs[:, c, b, b])}")
 
-    # ---- F2: clean row + one row per weight decay (seed-mean), shared scale per row
-    rows = [("hand-coded\n(clean)", B_clean)] + \
-           [(f"trained H=8\nwd={wd:g}\n(5-seed mean)", allB[wd].mean(0)) for wd in WDS]
+    # ---- F2: clean row + ONE trained row (wd=0, seed 0), shared scale per row.
+    # (Per Logan 2026-08-10: single seed, no weight-decay sweep in the figure;
+    # the sweep is still trained and its stats printed above.)
+    rows = [("hand-coded\n(clean)", B_clean),
+            ("trained H=8\n(seed 0)", allB[0.0][0])]
     fig, axes = plt.subplots(len(rows), 3, figsize=(10.2, 3.15 * len(rows)))
     for r, (label, Bset) in enumerate(rows):
         vmax = np.abs(Bset).max()
@@ -413,25 +424,21 @@ def stage_1b():
     diag_note(fig, y=-0.015)
     save_fig(fig, "F2_trained_vs_clean")
 
-    # ---- F3: diagonal entries per class, wd=1e-3, bar chart with seed range
-    Bs = allB[1e-3]
+    # ---- F3: diagonal entries per class, wd=0 seed 0 (single seed per Logan 2026-08-10)
+    Bs = allB[0.0]
     diags = np.stack([np.diagonal(Bs[:, c], axis1=1, axis2=2) for c in range(3)], axis=1)  # (seed, class, feat)
-    np.save(os.path.join(FIG, "F3_diagonals_wd1e-3.npy"), diags)
+    np.save(os.path.join(FIG, "F3_diagonals.npy"), diags)
     fig, ax = plt.subplots(figsize=(7.2, 3.8))
     width = 0.25
     xs = np.arange(3)
     cols = [BLUE, ORANGE, AQUA]
     for f in range(3):
-        m = diags[:, :, f].mean(0)
-        lo = diags[:, :, f].min(0)
-        hi = diags[:, :, f].max(0)
-        ax.bar(xs + (f - 1) * width, m, width * 0.92, label=FEATS3[f], color=cols[f],
-               yerr=[m - lo, hi - m], error_kw=dict(ecolor=INK2, lw=1, capsize=2))
+        ax.bar(xs + (f - 1) * width, diags[0, :, f], width * 0.92, label=FEATS3[f], color=cols[f])
     ax.axhline(0, color=MUTED, lw=1)
     ax.set_xticks(xs)
     ax.set_xticklabels(CLASSES3)
     ax.set_ylabel("diagonal entry B$_c$[f,f]  (linear term on booleans)")
-    ax.set_title("F3 — linear logic via the diagonal (H=8, wd=1e-3; mean $\\pm$ range over 5 seeds)",
+    ax.set_title("F3 — linear logic via the diagonal (H=8, seed 0)",
                  color=INK)
     ax.legend(title="feature", frameon=False)
     for s in ("top", "right"):
@@ -468,10 +475,8 @@ def stage_1c():
         for j in range(i + 1, 5):
             a, b = Bs[i].ravel(), Bs[j].ravel()
             cos.append(a @ b / (np.linalg.norm(a) * np.linalg.norm(b)))
-    consistent = np.min(cos) > 0.9
-    print(f"  cross-seed folded-tensor cosine mean={np.mean(cos):.4f} min={np.min(cos):.4f} "
-          f"-> {'seed-mean shown in F4' if consistent else 'seed 0 shown in F4 (solutions differ)'}")
-    Bshow = Bs.mean(0) if consistent else Bs[0]
+    print(f"  cross-seed folded-tensor cosine mean={np.mean(cos):.4f} min={np.min(cos):.4f}")
+    Bshow = Bs[0]  # single-seed display per Logan 2026-08-10
 
     fig, axes = plt.subplots(1, 3, figsize=(9.6, 3.4))
     vmax = np.abs(Bshow).max()
@@ -479,8 +484,7 @@ def stage_1c():
         im = heat(ax, Bshow[c], FEATS3, CLASSES3[c], vmax, ylabels=(c == 0))
     cb = fig.colorbar(im, ax=axes, shrink=0.8, pad=0.02)
     cb.outline.set_visible(False)
-    lbl = "mean of 5 seeds" if consistent else "seed 0"
-    fig.suptitle(f"F4 — undercomplete H=2 interaction matrices ({lbl}): shared hidden units mix classes",
+    fig.suptitle("F4 — undercomplete H=2 interaction matrices (seed 0): shared hidden units mix classes",
                  y=1.04, color=INK)
     diag_note(fig, y=-0.06)
     save_fig(fig, "F4_undercomplete_interactions")
@@ -507,10 +511,10 @@ def stage_1c():
 
     fig, axes = plt.subplots(1, 2, figsize=(8.4, 3.8))
     for ax, (regime, Gs) in zip(axes, grams.items()):
-        im = heat(ax, Gs.mean(0), CLASSES3, regime, 1.0, outline_diag=False, fs=9)
+        im = heat(ax, Gs[0], CLASSES3, regime, 1.0, outline_diag=False, fs=9)
     cb = fig.colorbar(im, ax=axes, shrink=0.85, pad=0.02)
     cb.outline.set_visible(False)
-    fig.suptitle("F5 — Gram matrix of stored keys $h_c = (Lz_c)*(Rz_c)$ (cosine, mean of 5 seeds)",
+    fig.suptitle("F5 — Gram matrix of stored keys $h_c = (Lz_c)*(Rz_c)$ (cosine, seed 0)",
                  y=1.03, color=INK)
     fig.text(0.5, -0.04, "overcomplete: near-diagonal; undercomplete: off-diagonal mass "
              "(shared hidden units)", ha="center", fontsize=9, color=INK2, style="italic")
@@ -701,34 +705,72 @@ def fit_min_H(B_target, d, C, Hmax=6, tol=1e-8, restarts=3, steps=6000):
 
 
 def train_extended(H, seed, wd=1e-3):
-    X = np.vstack([KEYS5, np.zeros((1, 5))])
-    P = make_targets(list(LABELS5), 1, 4)
-    return train_bilinear(5, H, 4, X, P, seed, wd, steps=8000)
+    X = np.vstack([KEYS_E, np.zeros((1, 4))])
+    P = make_targets(list(LABELS_E), 1, 3)
+    return train_bilinear(4, H, 3, X, P, seed, wd, steps=8000)
 
 
-def path_removal_minD(L, R, D, f_idx, de_idx, dog_idx, h_idx=1):
-    """Minimal-norm edit to Dog's D-row that EXACTLY zeroes the folded (furry,dog-ears)->Dog
-    interaction entry while EXACTLY preserving the (furry,happy)->Dog entry (the handoff's
-    stated preservation target; (hands,dog-ears)->Human is untouched automatically since
-    only Dog's D-row changes). T[i,j,c] is linear in D: dT[i,j,dog]/dD[dog,h] = s^{ij}_h,
-    so this is a 2-constraint least-norm problem: min ||dd|| s.t. A dd = b."""
+def path_removal_minD(L, R, D, rm, keep, cls_idx):
+    """Minimal-norm edit to class cls_idx's D-row that EXACTLY zeroes the folded
+    rm=(i,j) interaction entry while EXACTLY preserving the keep=(i,j) entry.
+    Other classes' D-rows are untouched, so their whole slices (incl. the shared-
+    tail (whiskers,tail)->Cat path) are exactly preserved by construction.
+    T[i,j,c] is linear in D: dT[i,j,c]/dD[c,h] = s^{ij}_h, so this is a
+    2-constraint least-norm problem: min ||dd|| s.t. A dd = b."""
     def scoef(i, j):
         return 0.5 * (L[:, i] * R[:, j] + L[:, j] * R[:, i])
     B, _ = fold(L, R, D)
-    A = np.stack([scoef(f_idx, de_idx), scoef(f_idx, h_idx)])   # (2, H)
-    b = np.array([-B[dog_idx, f_idx, de_idx], 0.0])
+    A = np.stack([scoef(*rm), scoef(*keep)])   # (2, H)
+    b = np.array([-B[cls_idx, rm[0], rm[1]], 0.0])
     dd = A.T @ np.linalg.solve(A @ A.T, b)
     D2 = D.copy()
-    D2[dog_idx, :] = D2[dog_idx, :] + dd
+    D2[cls_idx, :] = D2[cls_idx, :] + dd
     return D2
 
 
-def path_removal_edit(L, R, D, f_idx, de_idx, dog_idx, thresh=0.05):
-    """Greedily zero whole hidden units (D[:,h]=0) to remove the (furry,dog-ears)->Dog
+def path_removal_full_tail(L, R, D, cls_idx):
+    """Least-norm D-row edit zeroing EVERY tail-involving entry of the class's
+    slice ((furry,tail),(happy,tail),(whiskers,tail),(tail,tail)) while
+    preserving (furry,happy) — the honest 'remove the whole (happy,tail) path'
+    edit, since booleans make diagonals co-carry the path. 5 exact constraints,
+    so only solvable when H >= 5 (overcomplete)."""
+    def scoef(i, j):
+        return 0.5 * (L[:, i] * R[:, j] + L[:, j] * R[:, i])
+    B, _ = fold(L, R, D)
+    t = 3
+    cons = [(i, t) for i in range(4)]
+    A = np.stack([scoef(i, j) for i, j in cons] + [scoef(*KEEP_PAIR)])
+    b = np.array([-B[cls_idx, i, j] for i, j in cons] + [0.0])
+    dd = A.T @ np.linalg.solve(A @ A.T, b)
+    D2 = D.copy()
+    D2[cls_idx, :] = D2[cls_idx, :] + dd
+    return D2
+
+
+def path_removal_kkt(L, R, D, cls_idx, z_rm, z_keep, gap=1.0):
+    """FUNCTIONAL key-frame edit (the KKT family from Part 2): least-norm update
+    to class cls_idx's D-row setting its logit on key z_rm to (max other-class
+    logit on z_rm - gap) while exactly preserving its logit on z_keep. The
+    constraints are linear in the D-row via the stored-key representation
+    a_z = (Lz)*(Rz): f_c(z) = D[c,:] . a_z. Expressible whenever H >= 2."""
+    a_rm = (L @ z_rm) * (R @ z_rm)
+    a_keep = (L @ z_keep) * (R @ z_keep)
+    f = forward_np(L, R, D, z_rm[None])[0]
+    target = np.delete(f, cls_idx).max() - gap
+    A = np.stack([a_rm, a_keep])
+    b = np.array([target - f[cls_idx], 0.0])
+    dd = A.T @ np.linalg.solve(A @ A.T, b)
+    D2 = D.copy()
+    D2[cls_idx, :] = D2[cls_idx, :] + dd
+    return D2
+
+
+def path_removal_edit(L, R, D, rm, cls_idx, thresh=0.05):
+    """Greedily zero whole hidden units (D[:,h]=0) to remove the rm=(i,j)->cls_idx
     interaction entry; returns edited D, list of zeroed units, residual entry."""
     B, M = fold(L, R, D)
-    target = B[dog_idx, f_idx, de_idx]
-    contrib = D[dog_idx, :] * 0.5 * (L[:, f_idx] * R[:, de_idx] + L[:, de_idx] * R[:, f_idx])
+    target = B[cls_idx, rm[0], rm[1]]
+    contrib = D[cls_idx, :] * 0.5 * (L[:, rm[0]] * R[:, rm[1]] + L[:, rm[1]] * R[:, rm[0]])
     D2 = D.copy()
     zeroed = []
     resid = target
@@ -804,10 +846,10 @@ def stage_1d():
     # discriminator
     Bs_tr = np.load(os.path.join(FIG, "F2_B_H8_wd0.001.npy"))
     disc_clean = B_clean[0] - B_clean[1]
-    disc_tr = Bs_tr.mean(0)[0] - Bs_tr.mean(0)[1]
+    disc_tr = Bs_tr[0][0] - Bs_tr[0][1]  # seed 0 (single-seed display per Logan 2026-08-10)
     np.save(os.path.join(FIG, "F7_discriminator_clean.npy"), disc_clean)
-    np.save(os.path.join(FIG, "F7_discriminator_trained_meanseeds.npy"), disc_tr)
-    for nm, Dm in (("clean", disc_clean), ("trained (seed-mean)", disc_tr)):
+    np.save(os.path.join(FIG, "F7_discriminator_trained_seed0.npy"), disc_tr)
+    for nm, Dm in (("clean", disc_clean), ("trained (seed 0)", disc_tr)):
         w, V = np.linalg.eigh(Dm)
         order = np.argsort(-np.abs(w))
         print(f"  discriminator T[:,:,Dog]-T[:,:,Cat] ({nm}) eigenvalues: "
@@ -818,7 +860,7 @@ def stage_1d():
     fig = plt.figure(figsize=(10.5, 6.8))
     gs = fig.add_gridspec(2, 2, height_ratios=[1.25, 1], hspace=0.55, wspace=0.35)
     for j, (nm, Dm) in enumerate((("hand-coded clean", disc_clean),
-                                  ("trained H=8 (mean of 5 seeds)", disc_tr))):
+                                  ("trained H=8 (seed 0)", disc_tr))):
         ax = fig.add_subplot(gs[0, j])
         vmax = np.abs(Dm).max()
         im = heat(ax, Dm, FEATS3, f"Dog $-$ Cat discriminator: {nm}", vmax)
@@ -848,16 +890,16 @@ def stage_1d():
     diag_note(fig, y=0.02)
     save_fig(fig, "F7_discriminator")
 
-    # ---------- path removal (extended 5-feature, 4-class setup)
-    print("\n-- 1d path removal: extended setup [furry,happy,whiskers,hands,dog-ears] --")
-    f_idx, de_idx, dog_idx = 0, 4, 0
+    # ---------- path removal (extended 4-feature tail setup, 3 classes)
+    print("\n-- 1d path removal: extended setup [furry,happy,whiskers,tail] --")
+    print("   Dog = f&h | h&t, Cat = f&w | w&t, Catfish = w&h; remove (happy,tail)->Dog")
     regimes = {}
     for regime, Hs in (("overcomplete", [12]), ("undercomplete", [3, 4])):
         for H in Hs:
             models, accs = [], []
             for seed in SEEDS:
                 L, R, D, loss = train_extended(H, seed)
-                a = key_accuracy(L, R, D, KEYS5, LABELS5)
+                a = key_accuracy(L, R, D, KEYS_E, LABELS_E)
                 models.append((L, R, D))
                 accs.append(a)
             ok = sum(a == 1.0 for a in accs)
@@ -873,88 +915,148 @@ def stage_1d():
 
     table = {}
     for regime, (H, models) in regimes.items():
-        for edit_name in ("minD", "unit_ablation"):
-            if edit_name == "minD":
+        for edit_name in ("minD", "fulltail", "kkt", "unit_ablation"):
+            if edit_name == "kkt":
+                print(f"\n  {regime} (H={H}), FUNCTIONAL key-frame edit (F8b): set "
+                      f"f_Dog(z_ht) below competitors, preserve f_Dog(z_fh) exactly")
+            elif edit_name == "minD":
                 print(f"\n  {regime} (H={H}), PRIMARY edit: minimal-norm Dog D-row update "
-                      f"exactly zeroing T[furry,dog-ears,Dog]")
+                      f"exactly zeroing T[happy,tail,Dog]")
+            elif edit_name == "fulltail":
+                if H < 5:
+                    print(f"\n  {regime} (H={H}): FULL tail removal needs 5 exact constraints "
+                          f"> H={H} free parameters -> not expressible; skipped")
+                    continue
+                print(f"\n  {regime} (H={H}), FULL path edit: zero all tail-involving "
+                      f"entries of Dog's slice, preserving (furry,happy)")
             else:
                 print(f"\n  {regime} (H={H}), secondary edit: greedy whole-unit ablation "
                       f"(zero D[:,h]) until the path entry is gone")
             deltas, kept_entries = [], []
             for seed, (L, R, D) in enumerate(models):
                 B0, _ = fold(L, R, D)
-                m0 = margins(L, R, D, KEYS5, LABELS5)
+                m0 = margins(L, R, D, KEYS_E, LABELS_E)
                 if edit_name == "minD":
-                    D2 = path_removal_minD(L, R, D, f_idx, de_idx, dog_idx)
-                    zeroed, resid, target = None, 0.0, float(B0[dog_idx, f_idx, de_idx])
+                    D2 = path_removal_minD(L, R, D, RM_PAIR, KEEP_PAIR, DOG_IDX)
+                    zeroed, resid, target = None, 0.0, float(B0[DOG_IDX, RM_PAIR[0], RM_PAIR[1]])
+                elif edit_name == "fulltail":
+                    D2 = path_removal_full_tail(L, R, D, DOG_IDX)
+                    zeroed, resid, target = None, 0.0, float(B0[DOG_IDX, RM_PAIR[0], RM_PAIR[1]])
+                elif edit_name == "kkt":
+                    D2 = path_removal_kkt(L, R, D, DOG_IDX, KEYS_E[1], KEYS_E[0])
+                    zeroed, resid, target = None, 0.0, float(B0[DOG_IDX, RM_PAIR[0], RM_PAIR[1]])
                 else:
-                    D2, zeroed, resid, target = path_removal_edit(L, R, D, f_idx, de_idx, dog_idx)
+                    D2, zeroed, resid, target = path_removal_edit(L, R, D, RM_PAIR, DOG_IDX)
                 B1, _ = fold(L, R, D2)
-                m1 = margins(L, R, D2, KEYS5, LABELS5)
-                pred0 = forward_np(L, R, D, KEYS5).argmax(1)
-                pred1 = forward_np(L, R, D2, KEYS5).argmax(1)
-                deltas.append(((pred1 == LABELS5).astype(float) - (pred0 == LABELS5).astype(float),
+                if edit_name == "kkt":
+                    resid = float(B1[DOG_IDX, RM_PAIR[0], RM_PAIR[1]])  # entry NOT zeroed — that's the point
+                m1 = margins(L, R, D2, KEYS_E, LABELS_E)
+                pred0 = forward_np(L, R, D, KEYS_E).argmax(1)
+                pred1 = forward_np(L, R, D2, KEYS_E).argmax(1)
+                deltas.append(((pred1 == LABELS_E).astype(float) - (pred0 == LABELS_E).astype(float),
                                m1 - m0))
                 kept_entries.append([target, resid,
-                                     B0[dog_idx, 0, 1], B1[dog_idx, 0, 1],   # (furry,happy)->Dog
-                                     B0[3, 3, 4], B1[3, 3, 4]])              # (hands,dog-ears)->Human
-                if seed == 0 and edit_name == "minD":
-                    np.save(os.path.join(FIG, f"F8_B_ext_{regime}_before.npy"), B0)
-                    np.save(os.path.join(FIG, f"F8_B_ext_{regime}_after.npy"), B1)
-                    table[regime + "_seed0"] = (B0, B1)
+                                     B0[DOG_IDX, 0, 1], B1[DOG_IDX, 0, 1],   # (furry,happy)->Dog
+                                     B0[1, 2, 3], B1[1, 2, 3]])              # (whiskers,tail)->Cat
+                if seed == 0 and edit_name in ("minD", "fulltail", "kkt"):
+                    np.save(os.path.join(FIG, f"F8_B_ext_{regime}_{edit_name}_before.npy"), B0)
+                    np.save(os.path.join(FIG, f"F8_B_ext_{regime}_{edit_name}_after.npy"), B1)
+                    table[(regime, edit_name, "seed0")] = (B0, B1)
                 zmsg = f"zeroed units {zeroed} (of H={H}); " if zeroed is not None else ""
                 print(f"    seed{seed}: {zmsg}entry {target:+.4f} -> {resid:+.4f}; "
-                      f"argmax before {[CLASSES4[i] for i in pred0]} -> "
-                      f"after {[CLASSES4[i] for i in pred1]}")
+                      f"argmax before {[CLASSES_E[i] for i in pred0]} -> "
+                      f"after {[CLASSES_E[i] for i in pred1]}")
             ke = np.array(kept_entries)
             print(f"    preserved (furry,happy)->Dog entry: before {fmt_mr(ke[:, 2])} after {fmt_mr(ke[:, 3])}")
-            print(f"    preserved (hands,dog-ears)->Human entry: before {fmt_mr(ke[:, 4])} after {fmt_mr(ke[:, 5])}")
+            print(f"    preserved (whiskers,tail)->Cat entry: before {fmt_mr(ke[:, 4])} after {fmt_mr(ke[:, 5])}")
             acc_d = np.array([d[0] for d in deltas])   # (seed, key)
             mar_d = np.array([d[1] for d in deltas])
             table[(regime, edit_name)] = (acc_d, mar_d, H)
-            for k, kn in enumerate(KEYS5_NAMES):
+            for k, kn in enumerate(KEYS_E_NAMES):
                 print(f"    key {kn}: acc delta {fmt_mr(acc_d[:, k])}, margin delta {fmt_mr(mar_d[:, k])}")
             with open(os.path.join(FIG, f"F8_table_{regime}_{edit_name}.json"), "w") as fjs:
-                json.dump({"H": H, "edit": edit_name, "keys": KEYS5_NAMES,
+                json.dump({"H": H, "edit": edit_name, "keys": KEYS_E_NAMES,
                            "acc_delta_mean": acc_d.mean(0).tolist(),
                            "acc_delta_per_seed": acc_d.tolist(),
                            "margin_delta_mean": mar_d.mean(0).tolist()}, fjs, indent=1)
 
-    # F8 figure: before/after B_Dog and B_Human per regime (seed 0) + accuracy-delta table
-    fig = plt.figure(figsize=(15.5, 9.6))
-    gs = fig.add_gridspec(3, 4, height_ratios=[1, 1, 0.55], hspace=0.75, wspace=0.42)
-    for r, regime in enumerate(("overcomplete", "undercomplete")):
-        B0, B1 = table[regime + "_seed0"]
-        vmax = max(np.abs(B0[[0, 3]]).max(), np.abs(B1[[0, 3]]).max())
+    # F8 figure: before/after B_Dog and B_Cat (seed 0) for three edit rows + table
+    frows = [("overcomplete", "minD", "zero (happy,tail) entry only"),
+             ("overcomplete", "fulltail", "zero ALL tail terms in Dog row"),
+             ("undercomplete", "minD", "zero (happy,tail) entry only")]
+    fig = plt.figure(figsize=(15.5, 13.0))
+    gs = fig.add_gridspec(4, 4, height_ratios=[1, 1, 1, 0.62], hspace=0.8, wspace=0.42)
+    for r, (regime, edit_name, elbl) in enumerate(frows):
+        B0, B1 = table[(regime, edit_name, "seed0")]
+        vmax = max(np.abs(B0[[0, 1]]).max(), np.abs(B1[[0, 1]]).max())
         panels = [(B0[0], "Dog before"), (B1[0], "Dog after"),
-                  (B0[3], "Human before"), (B1[3], "Human after")]
+                  (B0[1], "Cat before"), (B1[1], "Cat after")]
         for j, (Bp, ttl) in enumerate(panels):
             ax = fig.add_subplot(gs[r, j])
-            im = heat(ax, Bp, FEATS5, ttl, vmax, fs=7, ylabels=(j == 0))
+            im = heat(ax, Bp, FEATS_E, ttl, vmax, fs=7, ylabels=(j == 0))
+            if j == 0:
+                ax.set_ylabel(f"{regime}\n(H={table[(regime, 'minD')][2]}, seed 0)\n{elbl}",
+                              fontsize=9, color=INK)
+        cb = fig.colorbar(im, ax=[fig.axes[-4], fig.axes[-3], fig.axes[-2], fig.axes[-1]],
+                          shrink=0.8, pad=0.015)
+        cb.outline.set_visible(False)
+    axt = fig.add_subplot(gs[3, :])
+    axt.axis("off")
+    lines = ["per-key accuracy delta after path removal (mean over 5 seeds; 0 = unchanged, "
+             "-1 = key now misclassified; Dog(h,t) SHOULD drop):", ""]
+    hdr = f"{'':>40}" + "".join(f"{kn:>12}" for kn in KEYS_E_NAMES)
+    lines.append(hdr)
+    for regime in ("overcomplete", "undercomplete"):
+        for edit_name, lbl in (("minD", "minimal T-entry edit"),
+                               ("fulltail", "full tail removal"),
+                               ("kkt", "functional key-frame edit"),
+                               ("unit_ablation", "whole-unit ablation")):
+            if (regime, edit_name) not in table:
+                lines.append(f"{regime + ', ' + lbl:>40}" +
+                             "   not expressible (5 constraints > H=3 params)")
+                continue
+            acc_d = table[(regime, edit_name)][0]
+            lines.append(f"{regime + ', ' + lbl:>40}" +
+                         "".join(f"{v:>12.2f}" for v in acc_d.mean(0)))
+    axt.text(0.5, 0.95, "\n".join(lines), family="monospace", fontsize=10,
+             ha="center", va="top", color=INK)
+    fig.suptitle("F8 — removing the (happy, tail)$\\to$Dog path (heatmaps: seed 0):\n"
+                 "the interaction entry alone is not the path (diagonals co-carry); "
+                 "full tail removal is the honest edit, expressible only when overcomplete",
+                 color=INK, y=0.995)
+    save_fig(fig, "F8_path_removal")
+
+    # F8b figure: the FUNCTIONAL key-frame edit that actually removes the fact
+    fig = plt.figure(figsize=(15.5, 9.6))
+    gs = fig.add_gridspec(3, 4, height_ratios=[1, 1, 0.5], hspace=0.8, wspace=0.42)
+    for r, regime in enumerate(("overcomplete", "undercomplete")):
+        B0, B1 = table[(regime, "kkt", "seed0")]
+        vmax = max(np.abs(B0[[0, 1]]).max(), np.abs(B1[[0, 1]]).max())
+        panels = [(B0[0], "Dog before"), (B1[0], "Dog after"),
+                  (B0[1], "Cat before"), (B1[1], "Cat after")]
+        for j, (Bp, ttl) in enumerate(panels):
+            ax = fig.add_subplot(gs[r, j])
+            im = heat(ax, Bp, FEATS_E, ttl, vmax, fs=7, ylabels=(j == 0))
             if j == 0:
                 ax.set_ylabel(f"{regime}\n(H={table[(regime, 'minD')][2]}, seed 0)",
-                              fontsize=10, color=INK)
+                              fontsize=9.5, color=INK)
         cb = fig.colorbar(im, ax=[fig.axes[-4], fig.axes[-3], fig.axes[-2], fig.axes[-1]],
                           shrink=0.8, pad=0.015)
         cb.outline.set_visible(False)
     axt = fig.add_subplot(gs[2, :])
     axt.axis("off")
-    lines = ["per-key accuracy delta after path removal (mean over 5 seeds; 0 = unchanged, "
-             "-1 = key now misclassified; Dog(f,de) SHOULD drop):", ""]
-    hdr = f"{'':>38}" + "".join(f"{kn:>12}" for kn in KEYS5_NAMES)
+    lines = ["per-key accuracy delta (mean over 5 seeds; Dog(h,t) SHOULD drop to -1):", ""]
+    hdr = f"{'':>26}" + "".join(f"{kn:>12}" for kn in KEYS_E_NAMES)
     lines.append(hdr)
     for regime in ("overcomplete", "undercomplete"):
-        for edit_name, lbl in (("minD", "minimal T-entry edit"),
-                               ("unit_ablation", "whole-unit ablation")):
-            acc_d = table[(regime, edit_name)][0]
-            lines.append(f"{regime + ', ' + lbl:>38}" +
-                         "".join(f"{v:>12.2f}" for v in acc_d.mean(0)))
+        acc_d = table[(regime, "kkt")][0]
+        lines.append(f"{regime:>26}" + "".join(f"{v:>12.2f}" for v in acc_d.mean(0)))
     axt.text(0.5, 0.95, "\n".join(lines), family="monospace", fontsize=10,
              ha="center", va="top", color=INK)
-    fig.suptitle("F8 — removing the (furry, dog-ears)$\\to$Dog path "
-                 "(minimal-norm edit that zeroes the interaction entry; heatmaps: seed 0):\n"
-                 "surgical when overcomplete, collateral when undercomplete", color=INK, y=0.99)
-    save_fig(fig, "F8_path_removal")
+    fig.suptitle("F8b — the FUNCTIONAL key-frame edit removes the fact the tensor surgery couldn't:\n"
+                 "set f$_{Dog}$(z$_{h,t}$) below competitors, preserve f$_{Dog}$(z$_{f,h}$) exactly "
+                 "(note: the (happy,tail) entry is NOT zeroed)", color=INK, y=0.99)
+    save_fig(fig, "F8b_functional_edit")
 
 
 # ============================================================================= main

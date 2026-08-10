@@ -17,21 +17,32 @@
    regardless), but "CP-decompose the slice and get the rank-1 fact back" only holds for the
    clean construction, not for what SGD writes.
 
-3. Zeroing the (furry,dog-ears) interaction does not behaviorally remove Dog's second path.
-   With the entry exactly zeroed (and (furry,happy) exactly preserved), the Dog(furry,dog-ears)
-   key still classifies as Dog in 9/10 runs across both regimes; its margin drops by ~11-12 nats
-   but stays positive. The second path's classification is co-carried by diagonal linear terms
-   (positive furry/dog-ears diagonals in Dog's slice and negative diagonals in competitors'
-   slices), consistent with the diagonal-as-linear channel from 1b being load-bearing. "The
-   path" in the draft should be identified with interaction + diagonal structure, not the single
-   off-diagonal cell.
+3. Zeroing the removed path's interaction entry does not behaviorally remove the path — and in
+   the tail redesign (2026-08-10), even zeroing EVERY tail-involving entry of Dog's slice does
+   not. In the [furry,happy,whiskers,tail] setup, with all four tail terms exactly zeroed and
+   (furry,happy) preserved, the Dog(happy,tail) key still classifies as Dog on 5/5 seeds
+   (registered 0.65-confidence prediction failed): the (happy,happy) diagonal — Dog's core-
+   feature linear term, shared with the kept path — alone outscores the competitors on that
+   input. "The path" is not a set of tensor entries you can cut; shared linear structure
+   co-carries it.
+
+3b. What DOES remove the fact is the functional key-frame edit (the Part-2 KKT family brought
+   back to the toy): constrain f_Dog on the stored key itself (set below competitors, preserve
+   the kept key's logit exactly). Overcomplete: 5/5 target flips, zero collateral, kept-key
+   margin delta exactly 0 — while the (happy,tail) tensor entry stays visibly NONZERO. The
+   same edit in the undercomplete regime flips Cat keys to Dog on 3/5 seeds: collateral is a
+   property of the regime (stored-key overlap), not of the edit — exactly the Gram story from
+   F5/F6. Bonus asymmetry: full tail removal is not even EXPRESSIBLE in the undercomplete
+   model (5 constraints > 3 free D-row parameters).
 
 4. Whole-unit surgery fails even in the overcomplete regime. The handoff's framing suggests
    overcomplete models should permit surgical path removal; that holds for the minimal-norm
-   tensor-entry edit but NOT for unit-level ablation: H=12 networks spread the (furry,dog-ears)
-   path over 5-8 units that also carry other functions, so ablating them flips 40-80% of Dog keys
-   and halves Human's key entry. Overcompleteness did not buy dedicated units (training had no
-   sparsity pressure); surgery must be done in folded-tensor coordinates, not unit coordinates.
+   D-row edits but NOT for unit-level ablation: H=12 networks spread the (happy,tail) path
+   over 4-9 units that also carry other functions, so ablating them flips 40-60% of Dog keys
+   and degrades the preserved entries ((furry,happy)->Dog +3.37 -> +0.66 mean). Overcompleteness
+   did not buy dedicated units (training had no sparsity pressure); surgery must be done in
+   folded-tensor or stored-key coordinates, not unit coordinates. (Numbers updated 2026-08-10
+   for the tail redesign; the old Human-class design showed the same phenomenon.)
 
 5. Minor: undercomplete H=2 (3 classes) trained to 100% on every seed — the handoff's
    contingency ("if H=2 fails to train") was not needed; and the 3-4-point dataset was not

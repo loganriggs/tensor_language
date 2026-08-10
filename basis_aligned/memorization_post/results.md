@@ -112,31 +112,48 @@ Two-class sub-model (Dog + Cat):
   (0.54, 0.80, -0.28) = "furry and happy, not whiskers", second (0.63, -0.16, 0.76) with
   negative eigenvalue = "furry and whiskers" penalized.
 
-Path removal (extended features [furry, happy, whiskers, hands, dog-ears], classes Dog, Cat,
-Catfish, Human; Dog has paths (furry,happy) and (furry,dog-ears); Human = (hands,dog-ears);
-overcomplete H=12 and undercomplete H=3 both train 5/5 seeds to 100% on the 5 keys):
-- PRIMARY edit (the surgical instrument): minimal-norm update to Dog's D-row with two linear
-  constraints — the folded (furry,dog-ears)->Dog entry goes exactly to 0 and the
-  (furry,happy)->Dog entry is exactly unchanged. Because only Dog's D-row changes, every other
-  class's slice, including (hands,dog-ears)->Human, is untouched by construction.
-- Overcomplete H=12: fully surgical — zero accuracy changes on all 5 keys on all 5 seeds; the
-  targeted Dog(furry,dog-ears) key takes by far the largest margin hit (-10.8 mean), other keys
-  move little (means -1.7 to -3.6, some seeds positive).
-- Undercomplete H=3: same edit, larger collateral — margin swings on non-Dog keys are much
-  bigger and wilder (Cat ranges -14.0 to +9.8 across seeds; Catfish mean -6.4), and 1/5 seeds
-  flips the Dog(furry,dog-ears) key to Human. Surgical-overcomplete / collateral-undercomplete
-  contrast confirmed at the margin level.
-- Secondary edit (naive baseline): greedy whole-unit ablation (zero D[:,h]) until the path entry
-  is gone. Catastrophic in BOTH regimes: it needs 5-8 of 12 units even when overcomplete,
-  destroys the preserved entries ((furry,happy)->Dog +3.41 -> +0.35; Human's entry +3.64 -> +1.40),
-  and flips 40-80% of Dog keys plus (undercomplete) 60-100% of other-class keys. Trained H=12
-  networks do NOT store the (furry,dog-ears) path in dedicated units — unit-level surgery is the
-  wrong knife even with room to spare.
-- Honest caveat (also in surprises.md): zeroing the (furry,dog-ears) interaction entry does NOT
-  make the Dog(furry,dog-ears) key stop classifying as Dog in most runs (9/10 across regimes with
-  the primary edit) — the margin drops by ~11-12 but stays positive, because diagonal linear
-  terms (furry, dog-ears diagonals and competitors' negative diagonals) carry a large share of
-  path 2. The off-diagonal interaction is one ingredient of the path, not the whole path.
+Path removal — REDESIGNED 2026-08-10 per Logan (deviation from the handoff's 4th-class
+Human/hands/dog-ears design, documented here). One extra feature instead of one extra class:
+features [furry, happy, whiskers, tail], classes still Dog/Cat/Catfish. Each class keeps a
+core feature ANDed with either furry or tail: Dog = (furry,happy) | (happy,tail),
+Cat = (furry,whiskers) | (whiskers,tail), Catfish = (whiskers,happy). Five keys; the kept
+Cat(whiskers,tail) path SHARES tail with the removed Dog(happy,tail) path. Overcomplete H=12
+and undercomplete H=3 both train 5/5 seeds to 100%. Registered predictions in
+predictions/part1_f8_tail_prediction.md (three rounds, each committed before its measurement).
+
+- Edit 1, minimal T-entry edit: least-norm Dog D-row update, (happy,tail)->Dog exactly 0,
+  (furry,happy)->Dog exactly preserved; Cat/Catfish slices untouched by construction.
+  Overcomplete: surgical in the weight sense (0 accuracy flips anywhere) but the Dog(h,t) key
+  is STILL classified Dog on 5/5 seeds — margin drops -8.5 mean but stays positive. The
+  diagonals co-carry the path (registered prediction expected a flip: FAILED, replicating the
+  old design's surprise). Undercomplete: same edit, real collateral — 2/5 seeds flip
+  non-target keys (seed 0: both Cat keys -> Dog; seed 3: Dog(f,h) -> Cat, target -> Catfish).
+- Edit 2, FULL tail removal: least-norm zeroing of ALL four tail-involving entries of Dog's
+  slice, preserving (furry,happy) — 5 exact constraints, so expressible only when H >= 5
+  (in undercomplete H=3 the edit does not exist: fewer free parameters than constraints).
+  Overcomplete result: STILL no flip on any seed (registered 0.65-confidence prediction
+  FAILED). With every tail term gone, f_Dog({happy,tail}) = the (happy,happy) diagonal alone
+  — Dog's core-feature linear term, shared with the kept (furry,happy) path — and it still
+  outscores Cat and Catfish. Weight-basis path surgery cannot remove this fact without
+  touching shared structure.
+- Edit 3, FUNCTIONAL key-frame edit (F8b; the Part-2 KKT family): least-norm Dog D-row update
+  with constraints in the stored-key frame — f_Dog(z_{h,t}) set to (max competitor logit - 1),
+  f_Dog(z_{f,h}) exactly preserved. Registered prediction CONFIRMED both halves:
+  overcomplete flips Dog(h,t) on 5/5 seeds (to Catfish 4x, Cat 1x) with ZERO other changes
+  (Dog(f,h) margin delta exactly 0.0000) and the (happy,tail) tensor entry is NOT zeroed
+  (+3.82 -> -0.42 on seed 0; the entry is not the fact). Undercomplete: target flips 5/5 but
+  3/5 seeds also flip Cat keys to Dog — the mean accuracy deltas on Cat(f,w)/Cat(w,t)/Catfish
+  are -0.60/-0.60/-0.40. Same edit, same code path: collateral is a property of the REGIME
+  (shared stored keys), not of the edit.
+- Edit 4, greedy whole-unit ablation baseline: catastrophic in both regimes (overcomplete:
+  needs 4-9 of 12 units, flips 40-60% of Dog keys and 20% of Cat(f,w); undercomplete: zeroes
+  all 3 units, everything becomes Dog). Facts are not stored in dedicated units.
+
+Figure-display convention (2026-08-10, per Logan): all Part-1 figures now display ONE seed
+(seed 0), not seed-means; F2 shows a single trained row (wd = 0) with no weight-decay sweep
+in the figure (the sweep is still trained and reported in the stage log); cross-seed stats
+stay in this file. Downstream stages (F5, F6/C1, F7, pull-out) still use the wd=1e-3 model
+family their registered predictions were committed against.
 
 ## Part 2: 100 random facts (n = 20-bit keys, 10 classes) — F9-F12
 
