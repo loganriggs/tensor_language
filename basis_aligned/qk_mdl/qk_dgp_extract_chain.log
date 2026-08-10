@@ -16,3 +16,8 @@
 [20:49:26] running qk_dgp_extract.py --stage identifiable
 [20:51:04] stage identifiable finished OK
 [20:51:04] stage identifiable numbers: learned: machine 5.56947 vs model 5.06407 (gap 0.5054); semi: machine 5.07765 vs model 5.06071 (gap 0.01694); consistency_oracle_components_semi: machine 5.36729 vs model 5.06071 (gap 0.30658)
+[20:51:04] committed
+[20:51:05] pushed
+[20:51:05] running qk_dgp_extract.py --stage overlap
+[20:52:40] stage overlap finished OK
+[20:52:40] stage overlap numbers: learned: machine 3.99589 vs model 3.71606 (gap 0.27983); semi: machine 4.00469 vs model 3.70666 (gap 0.29803); consistency_oracle_components_semi: machine 4.18511 vs model 3.70666 (gap 0.47844)
