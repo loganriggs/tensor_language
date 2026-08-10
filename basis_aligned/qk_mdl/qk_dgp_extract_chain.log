@@ -21,3 +21,8 @@
 [20:51:05] running qk_dgp_extract.py --stage overlap
 [20:52:40] stage overlap finished OK
 [20:52:40] stage overlap numbers: learned: machine 3.99589 vs model 3.71606 (gap 0.27983); semi: machine 4.00469 vs model 3.70666 (gap 0.29803); consistency_oracle_components_semi: machine 4.18511 vs model 3.70666 (gap 0.47844)
+[20:52:40] committed
+[20:52:42] pushed
+[20:52:42] running qk_dgp_extract.py --stage subadd
+[20:52:46] stage subadd finished OK
+[20:52:46] stage subadd numbers: identifiable_learned: shared dCE 1.11122 vs matched-single 0.87224 ratio 1.274; identifiable_semi: shared dCE 0.69738 vs matched-single 0.26363 ratio 2.645; oracle ref dCE 0.54068
