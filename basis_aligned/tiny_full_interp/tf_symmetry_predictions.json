@@ -1,0 +1,30 @@
+{
+  "registered": "2026-08-10 00:40 UTC, BEFORE any cell of this run was trained",
+  "why": "The four-cell result says the sign of the foldability tax tracks COPYING AVAILABILITY, not depth and not width. Depth is excluded because depth 2 appears on both sides; width is excluded because width 128 appears on both sides. But width 64 currently appears ONLY on the no-copying side (depth 2 width 64). Depth 3 width 64 is a COPYING cell at width 64 -- adding it makes the width exclusion symmetric and removes the last asymmetry in the design.",
+  "what_makes_this_a_real_test": "the claim predicts WE LOSE here. Copying is available at depth 3 width 64 (the conventional model reaches +1.0352 induction uncapped), so the copying-availability reading requires a POSITIVE tax. If our arm wins, the reading is broken. This is the first cell in this arc where the hypothesis under test predicts the unfavourable outcome for us, which makes it the strongest available check on it.",
+  "design": {
+    "ours": "predicate slot 11 at depth 3 width 64 -- 722,169 parameters, three seeds, cap ON and OFF",
+    "opponent": "no slot value lands at the ~7% handicap the other cells carry (slot 11 is +3.15%, slot 10 is +11.88%), so the conventional arm is resized instead, as at the previous cell: expansion 8 gives 770,240 (our handicap 6.24%) and expansion 9 gives 794,816 (9.14%), bracketing 7% within about a point either side",
+    "cells": "6 ours + 6 conventional = 12"
+  },
+  "predictions": {
+    "Q1_we_lose_here": {
+      "claim": "The symmetric tax at depth 3 width 64 is POSITIVE at both bracket points.",
+      "reason": "copying is available at this cell, and at both other copying cells the conventional model wins (+0.0759, +0.1221)",
+      "confidence": "0.75"
+    },
+    "Q2_magnitude_between_the_two_copying_cells": {
+      "claim": "The tax lands between +0.05 and +0.15, in the range spanned by the other two copying cells.",
+      "confidence": "0.55"
+    },
+    "Q3_cap_helps_us_a_fifth_time": {
+      "claim": "Removing the cap helps our arm here too, as at all four cells measured (-0.0086, -0.0120, -0.0092, -0.0082, all significant).",
+      "confidence": "0.8"
+    }
+  },
+  "pre_committed_reading": "If our arm WINS at either bracket point, the copying-availability reading does not survive: width 64 would then predict the sign better than copying does, and the four-cell result collapses to a width effect. Written before the run so it is not renegotiated afterwards.",
+  "what_this_still_cannot_settle": [
+    "Five cells cannot separate copying availability from an interaction of depth and width, or from a third property correlated with it.",
+    "The predicate arm's advantage is hand-installed throughout."
+  ]
+}
