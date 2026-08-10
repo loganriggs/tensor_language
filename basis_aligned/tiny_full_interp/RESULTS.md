@@ -6338,3 +6338,42 @@ downstream nonlinearity.** It is now in the README failure-mode list.
 
 The self-red-team of every claim above, with what was fixed and what could not
 be, is `tf_reviewer_round_1.json`.
+
+## 2026-08-10 16:00 — **FINDING 21's central cell is NOT a vocabulary artifact: retrained at half the vocabulary, the interaction share lands at 91.4% against the vocabulary-8192 interval [81.4, 92.2].** All three registered predictions hold
+
+The cap-off two-by-two at depth 2 width 128, retrained end-to-end on the
+vocabulary-4096 corpus (already built, byte-identical regeneration), three
+seeds per corner, twelve cells:
+
+| corner | induction score (V=4096) | V=8192 comparator |
+|---|---|---|
+| our model | −0.0136 | −0.0266 |
+| our attention + GELU | −0.0104 | −0.0236 |
+| softmax + our feed-forward | +0.0491 | +0.1170 |
+| conventional | +0.7556 | +1.0448 |
+
+Shares of the move: attention alone **8.1%**, feed-forward alone **0.4%**,
+interaction **91.4%** with three-seed interval [88.3, 95.6].
+
+- **V1 (point lands inside the vocabulary-8192 six-seed interval [81.4, 92.2],
+  registered at 0.6) — holds**: 91.4 is inside. The criterion was
+  point-in-reference-interval, registered in advance, so today's three-seed
+  interval caveat does not touch it.
+- **V2 (attention share exceeds five times feed-forward share, 0.8) — holds**
+  at twenty times.
+- **V3 (conventional-minus-ours gap above half a nat within the new
+  vocabulary, 0.85) — holds**: 0.769 nats.
+
+The conjunction claim — softmax, gate and uncapped range interacting to
+produce copying, with both main effects small — reproduces at half the
+vocabulary with every qualitative feature intact and the interaction share
+four points higher. Self-red-team notes: (1) the absolute induction scores are
+smaller at the smaller vocabulary (conventional +0.76 against +1.04) — that is
+a cross-tokenizer comparison of nats and is quoted as description only, per
+the standing rule; every scored criterion was within-vocabulary or
+dimensionless. (2) Three seeds per corner — the registered criteria were
+chosen to be robust to that (point location, ordering, threshold), not
+interval-overlap tests. (3) This answers the single-vocabulary objection that
+has stood against FINDING 21 since the independent review; the depth-3 cells
+remain single-vocabulary and any vocabulary statement about the *trend* (the
+dissolution) would need the same check at another cell.
