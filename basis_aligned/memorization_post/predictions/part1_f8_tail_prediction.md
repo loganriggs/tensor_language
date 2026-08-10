@@ -25,3 +25,16 @@ Predictions (before running):
 3. Greedy whole-unit ablation (both regimes): non-surgical — at least one non-target key
    flips in most seeds, because units carrying (happy,tail) also carry tail/happy mass
    used by kept paths. Confidence 0.7.
+
+## Addendum (registered before the follow-up measurement)
+
+Outcome of prediction 1: SURGICAL half confirmed (no other key flips, preserves exact) but
+Dog(h,t) did NOT flip on any seed — the diagonal entries (happy,happy)/(tail,tail) co-carry
+the path (replicates the Part-1 surprise from the old design). Follow-up edit: FULL tail
+removal — least-norm Dog D-row update zeroing all four tail-involving entries of Dog's slice
+((furry,tail),(happy,tail),(whiskers,tail),(tail,tail)) while preserving (furry,happy).
+Only exactly solvable when H >= 5, so overcomplete only; in undercomplete H=3 the edit is
+not even expressible (5 constraints > 3 free parameters) — itself a reportable fact.
+
+Prediction: in overcomplete H=12, full tail removal flips Dog(h,t) away from Dog in >= 4/5
+seeds while all four other keys keep their labels. Confidence 0.65.
