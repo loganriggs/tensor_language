@@ -1,0 +1,32 @@
+{
+  "registered": "2026-08-10 03:20 UTC, BEFORE any cell of this run was trained",
+  "question": "FINDING 22 -- the sign of the foldability tax tracks copying availability at five cells -- was measured entirely with ONE foldable architecture, the predicate variant. So it may be a fact about foldability, or a fact about that variant. A second foldable architecture at one cell from each side tests which.",
+  "design": {
+    "architecture": "bandwidth variant -- foldable, and unlike predicate it does NOT hand-install named attention terms, so if the split reproduces it is not an artefact of the hand-installed positional prior that carries the predicate arm's depth-1 win",
+    "no_copying_cell": "depth 1 width 128, bandwidth slot 61 (1,241,533 params) against the existing conventional cap-off arm (1,343,616) -- our handicap 7.60%",
+    "copying_cell": "depth 3 width 64, bandwidth slot 11 (716,001 params) against the existing conventional expansion-8 cap-off arm (770,240) -- our handicap 7.04%",
+    "cost": "2 cells x 2 cap settings x 3 seeds = 12. Both opponents are already trained, and both handicaps land inside the 6-9% band used throughout without needing a bracket."
+  },
+  "predictions": {
+    "R1_the_sign_split_reproduces": {
+      "claim": "bandwidth WINS at depth 1 width 128 (negative tax) and LOSES at depth 3 width 64 (positive tax), matching predicate's -0.0905 and +0.1312 in sign.",
+      "reason": "if FINDING 22 is about copying availability rather than about one variant, any foldable architecture should show the same split",
+      "confidence": "0.6",
+      "what_refutation_means": "if bandwidth loses at BOTH cells, FINDING 22 is a predicate-variant result and the general claim collapses -- which is the outcome I would consider most likely if the depth-1 win is really the hand-installed positional prior rather than foldability"
+    },
+    "R2_bandwidth_wins_by_less_at_depth_1": {
+      "claim": "bandwidth's depth-1 margin is smaller than predicate's -0.0905.",
+      "reason": "predicate's depth-1 advantage is most plausibly its hand-installed positional profile, which bandwidth does not have",
+      "confidence": "0.7"
+    },
+    "R3_the_cap_helps_bandwidth_too": {
+      "claim": "removing the query/key cap helps the bandwidth arm at both cells, as it does the predicate arm at all five measured (-0.007 to -0.012).",
+      "confidence": "0.65",
+      "note": "a second architecture agreeing would make the cap result two architectures deep and finish off FINDING 19's mechanism for good"
+    }
+  },
+  "what_this_cannot_settle": [
+    "Two architectures and two cells is a spot check, not a survey of the foldable family.",
+    "Bandwidth is still a member of the same family sharing the fold and the corpus."
+  ]
+}

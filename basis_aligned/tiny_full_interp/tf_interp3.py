@@ -788,7 +788,11 @@ def norm_confound_control(D, G=4, n_seq=32, T=256, batch=8):
         sh = x.shape
         return F.rms_norm(x.view(*sh[:-1], G, S), (S,)).view(sh)
 
-    acc, n = {'_groups_used': float(G), '_group_size': float(S)}, 0
+    acc, n = {}, 0
+    # NOT stored in `acc`: everything in it is divided by n at the end, which
+    # turned "3 groups of 22" into "0.75 groups of 5.5" in the written file.
+    meta = {'_groups_used': int(G), '_group_size': int(S),
+            '_stream_width': int(Ws), '_fallback_fired': bool(Ws % 4)}
     for x, y in I1.held_batches(D, n_seq, T, batch):
         P = D.run(x)
         for li in range(1, D.L):
@@ -829,7 +833,9 @@ def norm_confound_control(D, G=4, n_seq=32, T=256, batch=8):
                    'same weights at analysis time.  A statistic that moves '
                    'between the two blocks is a property of the normalisation, '
                    'not of the computation, and may not be used as evidence.')
-    return out
+    _out = out
+    _out.update(meta)
+    return _out
 
 
 @torch.no_grad()
