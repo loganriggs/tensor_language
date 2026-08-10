@@ -16,3 +16,8 @@
 [19:42:12] running qk_dgp_modular.py --variant identifiable --arm learned
 [19:45:23] cell identifiable/learned finished OK
 [19:45:23] cell identifiable/learned numbers: held CE 5.03931 paired gap 0.00591 task gate PASS; D2 frac>=0.9 0.875
+[19:45:23] committed
+[19:45:24] pushed
+[19:45:24] running qk_dgp_modular.py --variant overlap --arm semi
+[19:48:29] cell overlap/semi finished OK
+[19:48:29] cell overlap/semi numbers: held CE 3.71091 paired gap 0.00548 task gate PASS; D1 frac>=0.9 0.0 (ceiling 0.9583); D3 codable 0/112; D4 sel-vs-pca top2 1.581 sel-vs-shrink top2 0.374
