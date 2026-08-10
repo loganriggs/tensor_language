@@ -440,6 +440,7 @@ chain.
 | vocab | owner | status |
 |---|---|---|
 | bpe 16384 at width 256 depth 2 | scale | unclaimed (corpus not built; one `tf_tokenizer.py` call) |
+| bpe 4096 depth-3 trend check (d3 w128 2x2, seeds 0-2) | local | CLAIMED 2026-08-10 16:15: does the DISSOLUTION reproduce at V=4096? predictions in tf_vocab4096_d3_predictions.json |
 | bpe 4096 vs bpe 8192 same cell (vocab-size check) | local | DONE 2026-08-10 (RESULTS.md 16:00): interaction share 91.4% at V=4096 vs [81.4, 92.2] at V=8192 — central cell not a vocabulary artifact; all three registered predictions held |
 | bpe 2048 low-end probe | local | measured as a tokenizer only (2.899 bytes/token — a 512-token sequence would see 1484 bytes, which changes the task); no corpus built |
 

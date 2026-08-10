@@ -1,0 +1,34 @@
+{
+  "experiment": "vocabulary-size check of the DISSOLUTION TREND: the cap-off 2x2 at depth 3 width 128 retrained at V=4096, seeds 0-2 per corner (12 cells). Companion to the 16:00 central-cell check; together they test whether FINDING 21's trend (interaction share collapsing from ~88% to ~7% as the model grows) is vocabulary-robust.",
+  "registered": "2026-08-10 16:15 UTC, before any cell was trained",
+  "reference_numbers_v8192_six_seeds": {
+    "d2_w128": {"interaction": 87.9, "interval": [81.4, 92.2]},
+    "d3_w128": {"interaction": 7.2, "interval": [0.5, 13.7], "attention": 80.8, "feedforward": 12.0, "gap_nats": 1.74}
+  },
+  "v4096_central_cell_result": {"interaction": 91.4, "interval_3seed": [88.3, 95.6]},
+  "predictions": [
+    {
+      "id": "W1",
+      "claim": "The V=4096 depth-3-width-128 interaction share (3-seed point) lands inside the V=8192 six-seed interval [0.5, 13.7].",
+      "confidence": 0.55,
+      "note": "Tighter reference interval than the central cell's, so more room to miss on seed noise even if the architecture claim is exactly right."
+    },
+    {
+      "id": "W2",
+      "claim": "Attention-alone remains the dominant term at this cell (share above 50%).",
+      "confidence": 0.8
+    },
+    {
+      "id": "W3",
+      "claim": "The capability gap reproduces within the new vocabulary: conventional minus ours above 0.5 nats.",
+      "confidence": 0.85
+    },
+    {
+      "id": "W4",
+      "claim": "THE TREND ITSELF: the V=4096 depth-3 interaction share sits at least 30 points below the V=4096 central cell's 91.4 — the dissolution reproduces entirely within the new vocabulary, no cross-vocabulary comparison needed.",
+      "confidence": 0.75,
+      "note": "This is the load-bearing prediction; W1 could fail on seed noise while W4 still establishes vocabulary-robustness of the dissolution."
+    }
+  ],
+  "concurrency_note": "This chain trains the three seeds of each arm CONCURRENTLY (three processes, ~2.5 GB each) as a throughput experiment, logging wall time per arm-group. Sequential baseline from the seed-extension chain: ~5.5-6 min per depth-3-width-128 training. If a concurrent group of three exceeds 16.5 min, concurrency loses and the next chain reverts to sequential. Training results are unaffected by co-tenancy; only wall clock is at stake, and no wall-clock claims are made anywhere in this programme."
+}
