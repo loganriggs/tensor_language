@@ -5968,3 +5968,41 @@ recommendation's Spearman >= 0.75 prediction for the bandwidth-first stack is
 now DOUBTED pending a readability-preserving variant (e.g. stronger lasso on
 the widened slots).
 
+
+## 2026-08-10 15:10 — §35 The scalar-mass retest (aggregate list #1): the collapse MOSTLY replicates — exposure-times-trace carries ~90% of the context metric's advantage, and the geometry's remaining ~10% is real only when bits are tight
+
+Predictions were registered in `qk_scalar_mass_predictions.json` before any code; the build's two
+gates both passed (the scalar objective equals the full context-expected objective under the
+Gram-to-trace-times-identity substitution at relative error 0.0 in closed form; the audit path
+reproduces the published full-metric number, +0.00538 against the recorded +0.0054).
+
+Dictionaries refit under the scalar-only objective (per-token mass = unigram exposure x trace of
+the OV Gram, all cross-token OV geometry dropped), matched bits, matched encoder, matched init,
+full 307k FineWeb audit, paired sequence-clustered standard errors:
+
+| budget | plain linear | plain OMP | full context metric | **scalar-only** | scalar minus full (paired) |
+|---|---|---|---|---|---|
+| 455.4 Mbit | +0.00758 | +0.00592 | +0.00538 | **+0.00535** | −0.00003 ± 0.00012 (tie) |
+| 182.8 Mbit | +0.01710 | +0.01493 | +0.00731 | **+0.00820** | **+0.00089 ± 0.00017 (5.3 SE, scalar loses)** |
+
+Scoring:
+- **P1 (scalar matches-or-beats the full metric at every budget, 0.55) — REFUTED.** It ties
+  exactly at the generous budget and loses by five standard errors at the tight one.
+- **P2 (scalar captures at least half the full metric's gain over plain reconstruction, 0.8) —
+  HOLDS, strongly**: 101% of the gain at 455 Mbit, 91% at 183 Mbit.
+- **P3 (no budget crossover, conditional on P1) — the crossover is the finding.** The geometry
+  contributes nothing when the dictionary has bits to spare and a small real amount (~9% of the
+  metric's advantage) when compression is tight.
+
+The registered decision rule said P1 failing means "the geometry earns its keep at scale; FINDING
+13 §4b gets a scale-boundary caveat." The honest version is narrower: **the transferable statement
+"allocate bits by exposure" carries roughly ninety percent of everything the context-expected
+objective ever bought**, at both budgets, and the OV directions buy a last sliver only under
+pressure. At the replication scale the scalar arm outright beat the full metric; at bilin18 it
+does not — so the FINDING 13 result was slightly too strong as stated, and BILIN18_LAYERS_0_1.md
+Correction 2's prediction lands as "mostly, not exactly."
+
+Practical consequence for the program: future layer-0 fits can default to the scalar objective
+(it is simpler, cheaper, and within noise at generous budgets), switching to the full metric only
+below roughly 3% of raw bits. The anchors, the batch-top-k failure and the objective progression
+now compress to one sentence plus one caveat.

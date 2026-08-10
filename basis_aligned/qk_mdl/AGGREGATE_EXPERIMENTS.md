@@ -99,7 +99,7 @@ whether 9 is needed.
 
 | # | experiment | status |
 |---|---|---|
-| 1 | scalar-mass collapse retest at bilin18 | built, gates pass in smoke; chain launched, waiting for the GPU (runs first) |
+| 1 | scalar-mass collapse retest at bilin18 | **DONE** (RESULTS_l0_mdl.md §35): collapse mostly replicates — scalar carries 91–101% of the metric's gain; geometry's sliver is real (5.3 SE) only at the tight budget. P1 refuted, P2 holds. |
 | 2 | ledger on the MLP's realised interface | queued |
 | 3 | static-fraction-by-depth port profile | built, layer-1 gate passes in smoke; chain launched, holds behind #1 (predictions in `qk_port_profile_predictions.json`) |
 | 4 | planted-modular-content DGP | queued (batch with 5, 6) |
