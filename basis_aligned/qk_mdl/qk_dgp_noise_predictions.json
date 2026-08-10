@@ -1,0 +1,19 @@
+{
+  "experiment": "noise-robustness probe on the four trained DGP checkpoints (Logan's question, 2026-08-10): perturb the token-embedding table with iid Gaussian noise scaled to the table's global RMS (sigma in {0.05, 0.1, 0.2, 0.4, 0.8}, 3 noise seeds each), measure held-CE degradation on fresh held sequences; compare semi (frozen planted orthonormal embeddings) vs learned (free embeddings) within each DGP variant, and identifiable vs overlap across variants.",
+  "registered": "committed before the probe ran; git commit time is the registration time",
+  "predictions": [
+    {
+      "id": "N1",
+      "claim": "Semi and learned arms are similarly robust: mean dCE within 20% of each other at every sigma <= 0.4, in both variants.",
+      "confidence": 0.55,
+      "note": "The learned embeddings are a near-perfect linear re-encoding of the planted bundles (ridge weighted R2 0.992), so the representations should transmit embedding noise similarly unless the learned mixing is ill-conditioned."
+    },
+    {
+      "id": "N2",
+      "claim": "The overlap variant degrades LESS than the identifiable variant at matched sigma (relative dCE at sigma 0.2), in both arms.",
+      "confidence": 0.55,
+      "note": "Overlapping 2-3-unit bundles give redundant content coding; the identifiable variant's 75%-singleton bundles put more weight on single directions. Genuinely uncertain - the overlap law also has lower entropy, so damage is measured relative to each cell's own base CE."
+    }
+  ],
+  "decision_rule": "N1 holds -> the SGD-found representation is not more fragile than the planted one; the arms differ only on the analysis side. N1 fails with learned more fragile -> ill-conditioned mixing is a real cost of free embeddings that CE does not show. N2 either way quantifies redundancy-as-robustness in the DGP family."
+}
