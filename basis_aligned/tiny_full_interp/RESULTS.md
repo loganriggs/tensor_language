@@ -1320,6 +1320,30 @@ carries **87.9% of the move, 95% interval [81.4, 92.2]** on six seeds per
 corner. The interaction is the dominant term by a wide margin, and the two main
 effects together account for about 12%.
 
+### All three cells recomputed on the correct quantity — and the trend gets STRONGER
+
+| cell | interaction share | correct 95% interval | seeds/corner |
+|---|---|---|---|
+| depth 2, width 128 | **87.9%** | **[81.4, 92.2]** | 6 |
+| depth 3, width 64 | **50.8%** | **[38.5, 60.4]** | 3 |
+| depth 3, width 128 | **9.6%** | **[1.1, 17.8]** | 3 |
+
+**All three pairwise disjoint**, as they were on the wrong quantity — but now
+with real margins rather than by a point or two: 81.4 against 60.4, and 38.5
+against 17.8. The ordering claim was conservative before and is comfortable
+now.
+
+**And the largest cell's interaction is resolved from zero after all.** On the
+old quantity it was [−3.5, 23.0], spanning zero, and I wrote at 00:30 that "at
+the largest cell the interaction is not distinguishable from zero on raw nats".
+On the correct quantity it is **[1.1, 17.8]** — small, but positive. That
+sentence is **withdrawn**: the interaction at depth 3 width 128 is
+distinguishable from zero, at about a tenth of the move.
+
+So the correction costs nothing and buys two things: tighter margins on the
+ordering, and one withdrawn negative claim. Both because the interval finally
+measures the quantity its label always claimed.
+
 ### 09:20 — verification note on FINDING 24, and the bit-budget comparison that matters most
 
 Checked the build's headline block against its own JSON. Everything reported
