@@ -1,0 +1,101 @@
+[] === port profile chain (pid 1056532) ===
+[] gating on GPU (0 compute apps, >=10000 MiB free, no qk_scalar_chain.sh) x3 min
+[]   gate: gpu_apps=1 free=12423MiB scalar_chain=0 ok=0
+[]   gate: gpu_apps=0 free=15841MiB scalar_chain=0 ok=1
+[]   gate: gpu_apps=1 free=12423MiB scalar_chain=1 ok=0
+[]   gate: gpu_apps=1 free=12423MiB scalar_chain=0 ok=0
+[]   gate: gpu_apps=1 free=12423MiB scalar_chain=1 ok=0
+[]   gate: gpu_apps=1 free=12423MiB scalar_chain=1 ok=0
+[]   gate: gpu_apps=1 free=12423MiB scalar_chain=1 ok=0
+[]   gate: gpu_apps=1 free=12423MiB scalar_chain=1 ok=0
+[]   gate: gpu_apps=1 free=12389MiB scalar_chain=1 ok=0
+[]   gate: gpu_apps=1 free=12381MiB scalar_chain=1 ok=0
+[]   gate: gpu_apps=1 free=12381MiB scalar_chain=1 ok=0
+[]   gate: gpu_apps=1 free=12381MiB scalar_chain=1 ok=0
+[]   gate: gpu_apps=1 free=12381MiB scalar_chain=1 ok=0
+[]   gate: gpu_apps=1 free=12381MiB scalar_chain=1 ok=0
+[]   gate: gpu_apps=1 free=12381MiB scalar_chain=1 ok=0
+[]   gate: gpu_apps=1 free=12381MiB scalar_chain=1 ok=0
+[]   gate: gpu_apps=1 free=12381MiB scalar_chain=1 ok=0
+[]   gate: gpu_apps=1 free=12381MiB scalar_chain=1 ok=0
+[]   gate: gpu_apps=1 free=12381MiB scalar_chain=1 ok=0
+[]   gate: gpu_apps=1 free=12381MiB scalar_chain=1 ok=0
+[]   gate: gpu_apps=1 free=12381MiB scalar_chain=1 ok=0
+[]   gate: gpu_apps=1 free=12381MiB scalar_chain=1 ok=0
+[]   gate: gpu_apps=1 free=12381MiB scalar_chain=1 ok=0
+[]   gate: gpu_apps=1 free=12381MiB scalar_chain=1 ok=0
+[]   gate: gpu_apps=1 free=12381MiB scalar_chain=1 ok=0
+[]   gate: gpu_apps=1 free=14697MiB scalar_chain=1 ok=0
+[]   gate: gpu_apps=0 free=15841MiB scalar_chain=1 ok=0
+[]   gate: gpu_apps=0 free=15841MiB scalar_chain=1 ok=0
+[]   gate: gpu_apps=1 free=3057MiB scalar_chain=1 ok=0
+[]   gate: gpu_apps=1 free=2855MiB scalar_chain=1 ok=0
+[]   gate: gpu_apps=1 free=2793MiB scalar_chain=1 ok=0
+[]   gate: gpu_apps=1 free=2799MiB scalar_chain=1 ok=0
+[]   gate: gpu_apps=1 free=2799MiB scalar_chain=1 ok=0
+[]   gate: gpu_apps=1 free=2499MiB scalar_chain=1 ok=0
+[]   gate: gpu_apps=1 free=2499MiB scalar_chain=1 ok=0
+[]   gate: gpu_apps=0 free=15841MiB scalar_chain=0 ok=1
+[]   gate: gpu_apps=0 free=15841MiB scalar_chain=0 ok=2
+[]   gate: gpu_apps=0 free=15841MiB scalar_chain=0 ok=3
+[] gate OPEN
+[] running qk_port_profile.py (full)
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[    2.2s] model loaded (torch.float32); audit 600 seqs, est 1024 seqs, layers [1, 2, 3, 4, 6, 9, 13, 17]
+[    2.2s] accumulating token-conditional mean residuals (one pass, all tap layers)...
+[   29.9s] tables: 31297/50304 types seen (62.2%), 93.98% of audit token mass, 524288 est positions
+[   30.3s] baseline audit...
+[   49.6s] baseline CE 3.07630 (published 3.0763)
+[   49.6s] positive control: identity score_patch...
+[   49.9s] identity control max |dlogit| = 0.00e+00
+[   49.9s] --- layer 1: building shrunk tables ---
+[   49.9s] layer 1: port audit (static tables on the pattern input)...
+[   85.0s] layer 1: port dCE +0.05152 (pos-SE 0.00067, seq-SE 0.00127)
+[   85.0s] layer 1: destruction floor (s1 branch zeroed)...
+[  104.4s] layer 1: floor dCE +2.70310 (pos-SE 0.00489, seq-SE 0.02047)
+[  104.4s] layer 1: static fraction 0.9809
+[  104.4s] GATE PASS: port +0.05152 vs 0.0515 (tol 0.002), floor +2.70310 vs 2.7 (tol 0.05)
+[  104.4s] --- layer 2: building shrunk tables ---
+[  104.4s] layer 2: port audit (static tables on the pattern input)...
+[  139.4s] layer 2: port dCE +0.02788 (pos-SE 0.00048, seq-SE 0.00066)
+[  139.5s] layer 2: destruction floor (s1 branch zeroed)...
+[  158.9s] layer 2: floor dCE +0.39043 (pos-SE 0.00178, seq-SE 0.00587)
+[  158.9s] layer 2: static fraction 0.9286
+[  158.9s] --- layer 3: building shrunk tables ---
+[  158.9s] layer 3: port audit (static tables on the pattern input)...
+[  194.0s] layer 3: port dCE +0.03893 (pos-SE 0.00056, seq-SE 0.00085)
+[  194.0s] layer 3: destruction floor (s1 branch zeroed)...
+[  213.4s] layer 3: floor dCE +0.16456 (pos-SE 0.00111, seq-SE 0.00287)
+[  213.4s] layer 3: static fraction 0.7634
+[  213.4s] --- layer 4: building shrunk tables ---
+[  213.4s] layer 4: port audit (static tables on the pattern input)...
+[  248.5s] layer 4: port dCE +0.04701 (pos-SE 0.00061, seq-SE 0.00085)
+[  248.5s] layer 4: destruction floor (s1 branch zeroed)...
+[  267.9s] layer 4: floor dCE +0.34772 (pos-SE 0.00156, seq-SE 0.00395)
+[  267.9s] layer 4: static fraction 0.8648
+[  267.9s] --- layer 6: building shrunk tables ---
+[  267.9s] layer 6: port audit (static tables on the pattern input)...
+[  303.0s] layer 6: port dCE +0.04245 (pos-SE 0.00059, seq-SE 0.00142)
+[  303.0s] layer 6: destruction floor (s1 branch zeroed)...
+[  322.4s] layer 6: floor dCE +0.10593 (pos-SE 0.00090, seq-SE 0.00153)
+[  322.4s] layer 6: static fraction 0.5992
+[  322.4s] --- layer 9: building shrunk tables ---
+[  322.4s] layer 9: port audit (static tables on the pattern input)...
+[  357.5s] layer 9: port dCE +0.02701 (pos-SE 0.00045, seq-SE 0.00075)
+[  357.5s] layer 9: destruction floor (s1 branch zeroed)...
+[  376.9s] layer 9: floor dCE +0.04267 (pos-SE 0.00055, seq-SE 0.00065)
+[  376.9s] layer 9: static fraction 0.3670
+[  376.9s] --- layer 13: building shrunk tables ---
+[  376.9s] layer 13: port audit (static tables on the pattern input)...
+[  412.0s] layer 13: port dCE +0.01426 (pos-SE 0.00034, seq-SE 0.00038)
+[  412.0s] layer 13: destruction floor (s1 branch zeroed)...
+[  431.4s] layer 13: floor dCE +0.01668 (pos-SE 0.00036, seq-SE 0.00039)
+[  431.4s] layer 13: static fraction 0.1450
+[  431.4s] --- layer 17: building shrunk tables ---
+[  431.4s] layer 17: port audit (static tables on the pattern input)...
+[  466.5s] layer 17: port dCE +0.03200 (pos-SE 0.00047, seq-SE 0.00108)
+[  466.5s] layer 17: destruction floor (s1 branch zeroed)...
+[  485.9s] layer 17: floor dCE +0.01336 (pos-SE 0.00031, seq-SE 0.00036)
+[  485.9s] layer 17: static fraction -1.3961
+[  486.0s] PORT PROFILE DONE -> /workspace/tensor_language/basis_aligned/qk_mdl/qk_port_profile.json
+[] profile complete
