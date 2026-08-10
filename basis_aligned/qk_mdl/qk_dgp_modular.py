@@ -39,11 +39,21 @@ FROZEN PIPELINE RULES (no per-DGP tuning; sources in parentheses):
     the MC entropy itself is also reported).  An arm that fails is stopped --
     no recovery verdict.
 
-POSITIVE CONTROL (gates everything, runs first): the exact third-moment tensor
-implied by the DGP tables (uniform token weights, no training, no sampling) in
-the 24-unit code space, through the same CP + corrected-null machinery.
-Requires Hungarian-matched cosine vs the planted units >= 0.99 (mean) and the
-null clearly separated (margin >= 0.15).  Failure writes the JSON and exits.
+POSITIVE CONTROLS (gate, run first; 2026-08-10 amendment): the exact
+third-moment tensor implied by each variant's DGP tables (uniform token
+weights, no training, no sampling) in the 24-unit code space, through the same
+CP + corrected-null machinery.  TWO VARIANTS (--variant, see qk_dgp_lang):
+  * identifiable (D1-D4 verdict arm): gate = Hungarian-matched cosine vs the
+    planted units >= 0.99 mean AND null margin >= 0.15 (the original bar).
+  * overlap (realism arm, calibration finding F0): its exact tensor is not a
+    pure rank-24 object, so the gate is that the frozen machinery REPRODUCES
+    THE ANALYTIC-TENSOR OPTIMUM (matched cosine vs the heavy-opt solution
+    >= 0.99) AND margin >= 0.15; recovery is scored against the noiseless
+    ceiling (23/24 units at >= 0.9), reported alongside the vs-units numbers.
+Full-mode gate failure for the SELECTED variant writes the JSON and exits.
+--arm {semi,learned,both} selects arms; per-arm invocations of one variant
+merge into the same qk_dgp_modular_<variant>.json.  --controls-only runs both
+variants' controls, writes qk_dgp_controls.json, and exits (chain pre-gate).
 
 --smoke (or QK_SMOKE=1): the analytic control at FULL fidelity, a few hundred
 training steps of the semi-planted arm, one head's pipeline on a small sample;
@@ -73,8 +83,23 @@ SMOKE = ('--smoke' in sys.argv) or (os.environ.get('QK_SMOKE') == '1')
 # learned arm and the D3/D4 sections at smoke scale (all code paths exercised
 # once before a full run).  Never changes full-mode behavior.
 TESTALL = os.environ.get('QK_DGP_TESTALL') == '1'
+
+
+def _argval(flag, default):
+    return sys.argv[sys.argv.index(flag) + 1] if flag in sys.argv else default
+
+
+# 2026-08-10 amendment (see qk_dgp_modular_predictions.json amendment block):
+# two DGP variants.  'identifiable' carries the D1-D4 verdicts at the original
+# bar; 'overlap' is the realism arm, scored against its noiseless ceiling.
+VARIANT = os.environ.get('QK_DGP_VARIANT') or _argval('--variant', 'identifiable')
+assert VARIANT in ('identifiable', 'overlap'), VARIANT
+ARM_SEL = _argval('--arm', 'both')
+assert ARM_SEL in ('semi', 'learned', 'both'), ARM_SEL
+CONTROLS_ONLY = '--controls-only' in sys.argv
 torch.manual_seed(0)
-OUT = f'{QK}/qk_dgp_modular_smoke.json' if SMOKE else f'{QK}/qk_dgp_modular.json'
+OUT = (f'{QK}/qk_dgp_modular_smoke.json' if SMOKE
+       else f'{QK}/qk_dgp_modular_{VARIANT}.json')
 
 # device rule: smoke must be runnable beside a busy GPU -- take CUDA only if
 # >= 4000 MiB are free, else CPU (the model is tiny; CPU smoke is fine).
@@ -234,7 +259,7 @@ def hungarian_vs_units(C):
     """C: (ncomp, 24) |cos| matrix.  Hungarian max matching; returns the
     24-vector of matched cosines (0 for unmatched units) + assignment."""
     ri, ci = linear_sum_assignment(-C.numpy())
-    cos24 = np.zeros(NUNITS)
+    cos24 = np.zeros(C.shape[1])
     assign = {}
     for r, c in zip(ri, ci):
         cos24[c] = float(C[r, c])
@@ -243,79 +268,126 @@ def hungarian_vs_units(C):
 
 
 # ----------------------------------------------------------------------------
-# A. ANALYTIC POSITIVE CONTROL (GATE) -- the exact third moment implied by the
-# DGP tables, in the 24-unit code space, uniform token weights, no sampling.
+# A. ANALYTIC POSITIVE CONTROLS (GATE) -- the exact third moment implied by
+# each variant's DGP tables, in the 24-unit code space, uniform token weights,
+# no sampling.  Per-variant gate rules (2026-08-10 amendment):
+#   identifiable: frozen CP matches the PLANTED UNITS at mean cos >= 0.99
+#                 (the original bar) AND null margin >= 0.15.
+#   overlap:      frozen CP REPRODUCES THE ANALYTIC-TENSOR OPTIMUM (matched
+#                 cos vs the heavy-opt solution >= 0.99) AND margin >= 0.15;
+#                 the units comparison is reported as the noiseless CEILING
+#                 the trained-model recovery is scored against (F0).
 # ----------------------------------------------------------------------------
 say(f'=== planted-modular DGP experiment ({"SMOKE" if SMOKE else "FULL"}) '
-    f'on {DEV} (free {free_mib} MiB) ===')
-tabs = DL.DGPTables()
-say('A. analytic positive control: exact code-space third moment, CP + '
-    'corrected transplant null (gates everything)')
-chi = tabs.CHI                                      # (V, 24)
-core_a = torch.einsum('ta,tb,tc->abc', chi, chi, chi) / V
-core_an = core_a / core_a.norm()
-Us_a, rels_a = [], []
-for sd in range(RESTARTS):
-    U = cp_fit(core_an, NUNITS, sd)
-    rel, _ = eval_on_core(core_an, U)
-    Us_a.append(U)
-    rels_a.append(rel)
-best_a = int(np.argmin(rels_a))
-U_a = Us_a[best_a]
-rel_a = rels_a[best_a]
-stab_a = stability(Us_a)
-# components live in the code space where the planted units ARE the axes
-cos24_a, _ = hungarian_vs_units(U_a.T.abs())
-# corrected transplant null: permute each unit column of chi over tokens
-gp = torch.Generator().manual_seed(7)
-chi_null = chi.clone()
-for u in range(NUNITS):
-    chi_null[:, u] = chi_null[torch.randperm(V, generator=gp), u]
-core_null = torch.einsum('ta,tb,tc->abc', chi_null, chi_null, chi_null) / V
-U_null_a = cp_fit(core_null / core_null.norm(), NUNITS, 0)
-null_on_real_a, _ = eval_on_core(core_an, U_null_a)
-margin_a = null_on_real_a - rel_a
-# diagnostics (identifiability, not solver): oracle pure-unit factors with
-# refit lambdas, and a heavy-optimization probe (32 starts, 400 iters -- a
-# DIAGNOSTIC only; the pipeline stays at the frozen 8/60)
-rel_oracle, _ = eval_on_core(core_an, torch.eye(NUNITS))
-U_heavy = cp_fit(core_an, NUNITS, 0, n_starts=32, iters=400)
-cos24_h, _ = hungarian_vs_units(U_heavy.T.abs())
-ctrl = {
-    'construction': 'core = (1/V) sum_t chi_t^{x3} in the 24-unit code space; '
-                    'uniform token weights (no sampling, no training)',
-    'matched_cos_mean': round(float(cos24_a.mean()), 4),
-    'matched_cos_min': round(float(cos24_a.min()), 4),
-    'matched_cosines': [round(float(x), 4) for x in cos24_a],
-    'frac_ge_0.99': round(float((cos24_a >= 0.99).mean()), 4),
-    'frac_ge_0.9': round(float((cos24_a >= 0.9).mean()), 4),
-    'real_relerr': round(rel_a, 4), 'null_on_real': round(null_on_real_a, 4),
-    'margin': round(margin_a, 4), 'restart_stability': round(stab_a, 4),
-    'restart_relerrs': [round(x, 4) for x in rels_a],
-    'diagnostics': {
-        'oracle_pure_units_relerr': round(rel_oracle, 4),
-        'heavy_opt_probe_matched_cos_mean': round(float(cos24_h.mean()), 4),
-        'heavy_opt_probe_matched_cos_min': round(float(cos24_h.min()), 4),
-        'note': 'if oracle_pure_units_relerr > real_relerr, the best rank-24 '
-                'nonneg CP of the DGP-implied tensor is NOT the planted units '
-                '(co-occurrence cross-moments of overlapping bundles) -- an '
-                'identifiability property of the object, not a solver '
-                'failure; the heavy-opt probe (32 starts, 400 iters) tests '
-                'the same point from the optimization side.'},
-}
-gate_ctrl = bool(cos24_a.mean() >= GATE_COS and margin_a >= MARGIN)
-ctrl['pass'] = gate_ctrl
-say(f'  control: matched cos mean {cos24_a.mean():.4f} min {cos24_a.min():.4f} '
-    f'| real {rel_a:.4f} null-on-real {null_on_real_a:.4f} margin '
-    f'{margin_a:+.4f} | stability {stab_a:.4f} -> '
-    f'{"PASS" if gate_ctrl else "FAIL"}')
+    f'variant={VARIANT} arms={ARM_SEL} on {DEV} (free {free_mib} MiB) ===')
+tabs = DL.DGPTables(variant=VARIANT)
+
+
+def analytic_control(tabs_v):
+    chi = tabs_v.CHI                                    # (V, 24)
+    core_a = torch.einsum('ta,tb,tc->abc', chi, chi, chi) / V
+    core_an = core_a / core_a.norm()
+    Us_a, rels_a = [], []
+    for sd in range(RESTARTS):
+        U = cp_fit(core_an, NUNITS, sd)
+        rel, _ = eval_on_core(core_an, U)
+        Us_a.append(U)
+        rels_a.append(rel)
+    best_a = int(np.argmin(rels_a))
+    U_a = Us_a[best_a]
+    rel_a = rels_a[best_a]
+    stab_a = stability(Us_a)
+    # components live in the code space where the planted units ARE the axes
+    cos24_a, _ = hungarian_vs_units(U_a.T.abs())
+    # corrected transplant null: permute each unit column of chi over tokens
+    gp = torch.Generator().manual_seed(7)
+    chi_null = chi.clone()
+    for u in range(NUNITS):
+        chi_null[:, u] = chi_null[torch.randperm(V, generator=gp), u]
+    core_null = torch.einsum('ta,tb,tc->abc',
+                             chi_null, chi_null, chi_null) / V
+    U_null_a = cp_fit(core_null / core_null.norm(), NUNITS, 0)
+    null_on_real_a, _ = eval_on_core(core_an, U_null_a)
+    margin_a = null_on_real_a - rel_a
+    # diagnostics + the analytic-optimum reference: oracle pure-unit factors
+    # with refit lambdas, and a heavy-optimization solution (32 starts, 400
+    # iters -- the best available stand-in for the tensor's true optimum; the
+    # pipeline itself stays at the frozen 8/60)
+    rel_oracle, _ = eval_on_core(core_an, torch.eye(NUNITS))
+    U_heavy = cp_fit(core_an, NUNITS, 0, n_starts=32, iters=400)
+    cos24_h, _ = hungarian_vs_units(U_heavy.T.abs())
+    # does the frozen machinery reproduce the analytic optimum?
+    Cfh = (U_a.T @ U_heavy).abs()
+    ri_, ci_ = linear_sum_assignment(-Cfh.numpy())
+    repro_mean = float(Cfh.numpy()[ri_, ci_].mean())
+    ctrl = {
+        'variant': tabs_v.variant,
+        'construction': 'core = (1/V) sum_t chi_t^{x3} in the 24-unit code '
+                        'space; uniform token weights (no sampling, no '
+                        'training)',
+        'matched_cos_mean': round(float(cos24_a.mean()), 4),
+        'matched_cos_min': round(float(cos24_a.min()), 4),
+        'matched_cosines': [round(float(x), 4) for x in cos24_a],
+        'frac_ge_0.99': round(float((cos24_a >= 0.99).mean()), 4),
+        'frac_ge_0.9': round(float((cos24_a >= 0.9).mean()), 4),
+        'real_relerr': round(rel_a, 4),
+        'null_on_real': round(null_on_real_a, 4),
+        'margin': round(margin_a, 4), 'restart_stability': round(stab_a, 4),
+        'restart_relerrs': [round(x, 4) for x in rels_a],
+        'frozen_reproduces_analytic_optimum_cos': round(repro_mean, 4),
+        'diagnostics': {
+            'oracle_pure_units_relerr': round(rel_oracle, 4),
+            'heavy_opt_probe_matched_cos_mean': round(float(cos24_h.mean()), 4),
+            'heavy_opt_probe_matched_cos_min': round(float(cos24_h.min()), 4),
+            'note': 'if oracle_pure_units_relerr > real_relerr, the best '
+                    'rank-24 nonneg CP of the DGP-implied tensor is NOT the '
+                    'planted units (co-occurrence cross-moments of '
+                    'overlapping bundles) -- an identifiability property of '
+                    'the object, not a solver failure (calibration finding '
+                    'F0); the heavy-opt solution (32 starts, 400 iters) is '
+                    'the analytic-optimum reference.'},
+    }
+    if tabs_v.variant == 'identifiable':
+        ok = bool(cos24_a.mean() >= GATE_COS and margin_a >= MARGIN)
+        ctrl['gate_rule'] = ('mean matched cos vs planted units >= '
+                             f'{GATE_COS} and margin >= {MARGIN}')
+    else:
+        ok = bool(repro_mean >= GATE_COS and margin_a >= MARGIN)
+        ctrl['gate_rule'] = ('frozen solution reproduces the analytic-tensor '
+                             f'optimum at matched cos >= {GATE_COS} and '
+                             f'margin >= {MARGIN} (units comparison = '
+                             'noiseless ceiling, not the gate; F0)')
+    ctrl['pass'] = ok
+    say(f'  {tabs_v.variant}: vs-units mean {cos24_a.mean():.4f} min '
+        f'{cos24_a.min():.4f} | reproduces-optimum {repro_mean:.4f} | real '
+        f'{rel_a:.4f} null-on-real {null_on_real_a:.4f} margin {margin_a:+.4f}'
+        f' | stability {stab_a:.4f} -> {"PASS" if ok else "FAIL"}')
+    return ctrl, U_a, cos24_a
+
+
+say('A. analytic positive controls (both variants; per-variant gate rules)')
+CTRLS, U_AN, COS24_AN = {}, {}, {}
+for vn in ('identifiable', 'overlap'):
+    tv = tabs if vn == VARIANT else DL.DGPTables(variant=vn)
+    CTRLS[vn], U_AN[vn], COS24_AN[vn] = analytic_control(tv)
+gate_ctrl = CTRLS[VARIANT]['pass']
+
+if CONTROLS_ONLY:
+    json.dump({vn: CTRLS[vn] for vn in CTRLS},
+              open(f'{QK}/qk_dgp_controls.json', 'w'), indent=2)
+    say(f'controls-only mode: wrote qk_dgp_controls.json '
+        f'(identifiable {"PASS" if CTRLS["identifiable"]["pass"] else "FAIL"}'
+        f', overlap {"PASS" if CTRLS["overlap"]["pass"] else "FAIL"})')
+    sys.exit(0)
 
 result = {
     'mode': 'smoke' if SMOKE else 'full',
+    'variant': VARIANT,
     'testall': TESTALL,
     'device': DEV,
     'config': {
         'dgp': {'V': V, 'T': T, 'n_classes': NCLASS, 'n_units': NUNITS,
+                'variant': VARIANT,
                 'gamma': DL.GAMMA, 'bw_std': DL.BW_STD,
                 'sigma': 'derangement k -> (k+3) mod 8',
                 'table_seed': DL.TABLE_SEED,
@@ -355,25 +427,37 @@ result = {
                               'energy + concentration, one load-bearing head',
         },
     },
-    'analytic_control': ctrl,
-    'gates': {'G0_analytic_control': 'PASS' if gate_ctrl else 'FAIL'},
+    'analytic_controls': CTRLS,
+    'gates': {f'G0_analytic_{vn}': ('PASS' if CTRLS[vn]['pass'] else 'FAIL')
+              for vn in CTRLS},
 }
+# per-arm invocations of the same variant share one JSON: seed from the
+# existing file so semi/learned cells merge instead of clobbering (data,
+# tables and controls are deterministic, so overlapping keys are identical)
+if (not SMOKE) and os.path.exists(OUT):
+    try:
+        prev = json.load(open(OUT))
+        result['gates'] = {**prev.get('gates', {}), **result['gates']}
+        for k in ('arms', 'per_head', 'D1', 'D2', 'D3', 'D4',
+                  'dgp_reference'):
+            if k in prev:
+                result[k] = prev[k]
+    except Exception as e:
+        say(f'  (could not merge existing {OUT}: {e} -- starting fresh)')
 json.dump(result, open(OUT, 'w'), indent=2)
 if not gate_ctrl:
-    result['verdict'] = ('GATE FAILED: the exact DGP third moment did not '
-                         'yield the planted units at matched cosine >= 0.99 '
-                         'through the CP + null machinery. The pipeline '
-                         'cannot certify anything downstream. STOP. See '
-                         'analytic_control.diagnostics for whether this is '
-                         'solver failure or object identifiability.')
+    result['verdict'] = (f'GATE FAILED for variant {VARIANT} under its rule '
+                         f'({CTRLS[VARIANT]["gate_rule"]}). The pipeline '
+                         'cannot certify anything downstream for this '
+                         'variant. STOP. See analytic_controls.diagnostics.')
     json.dump(result, open(OUT, 'w'), indent=2)
     if not SMOKE:
-        say('G0 analytic control FAILED -- stopping.')
+        say(f'G0 analytic control FAILED for {VARIANT} -- stopping.')
         sys.exit(1)
     say('G0 analytic control FAILED -- SMOKE continues past the gate to '
         'exercise the training + pipeline machinery (no verdicts).')
 else:
-    say('G0 gate OPEN')
+    say(f'G0 gate OPEN for variant {VARIANT}')
 
 # ----------------------------------------------------------------------------
 # B. Data + entropy references
@@ -396,9 +480,11 @@ json.dump(result, open(OUT, 'w'), indent=2)
 # C. Train arms + task-learned gate
 # ----------------------------------------------------------------------------
 ARMS = ['semi'] if (SMOKE and not TESTALL) else ['semi', 'learned']
+if ARM_SEL != 'both':
+    ARMS = [a for a in ARMS if a == ARM_SEL]
 models, arm_logs, task_pass = {}, {}, {}
 for arm in ARMS:
-    ck = f'{QK}/qk_dgp_{arm}.pt'
+    ck = f'{QK}/qk_dgp_{VARIANT}_{arm}.pt'
     model = DL.make_arm_model(tabs, arm, seed=0, device=DEV)
     if (not SMOKE) and os.path.exists(ck):
         st = torch.load(ck, map_location=DEV)
@@ -430,7 +516,8 @@ for arm in ARMS:
     say(f'  {arm}: held CE {ce:.4f} | paired gap {gap_paired:+.4f} '
         f'(vs entropy {gap_entropy:+.4f}) -> task gate '
         f'{"PASS" if ok else "FAIL"}')
-result['arms'] = {a: arm_logs[a] for a in ARMS}
+result['arms'] = {**result.get('arms', {}),
+                  **{a: arm_logs[a] for a in ARMS}}
 json.dump(result, open(OUT, 'w'), indent=2)
 if SMOKE and not task_pass['semi']:
     say('  (smoke: task-gate failure at 400 steps is expected; pipeline '
@@ -537,18 +624,28 @@ for arm in ARMS:
             f'{hres["real_fit"]} null-on-real {hres["null_on_real"]} margin '
             f'{hres["margin"]:+.4f} {"PASS" if hres["m1_pass"] else "fail"} | '
             f'stability {hres["restart_stability"]} | {len(comps)} components')
-result['per_head'] = head_results
+result['per_head'] = {**result.get('per_head', {}), **head_results}
 json.dump(result, open(OUT, 'w'), indent=2)
 
-# D1: semi arm, components pooled across heads, cosine in the content block
+# D1: semi arm, components pooled across heads, cosine in the content block.
+# Per the 2026-08-10 amendment: the identifiable variant carries the verdict
+# at the original bar; the overlap variant reports the same numbers AGAINST
+# ITS NOISELESS CEILING (the analytic-tensor optimum, finding F0), plus the
+# match against the analytic-optimum directions themselves.
 if 'semi' in arm_comps:
     dirs = [c['e_dir'] for _, c in arm_comps['semi']]
     cos24, assign, fracs = score_components_vs_units(dirs)
+    ceil24 = COS24_AN[VARIANT]
+    ceiling = round(float((ceil24 >= 0.9).mean()), 4)
+    frac09 = round(float((cos24 >= 0.9).mean()), 4)
     result['D1'] = {
-        'arm': 'semi', 'n_components_pooled': len(dirs),
+        'arm': 'semi', 'variant': VARIANT, 'n_components_pooled': len(dirs),
         'matched_cosines': [round(float(x), 4) for x in cos24],
-        'frac_units_matched_cos_ge_0.9': round(float((cos24 >= 0.9).mean()), 4),
+        'frac_units_matched_cos_ge_0.9': frac09,
         'matched_cos_mean': round(float(cos24.mean()), 4),
+        'noiseless_ceiling_frac_ge_0.9': ceiling,
+        'frac_relative_to_ceiling': (round(frac09 / ceiling, 4)
+                                     if ceiling > 0 else None),
         'content_energy_frac_per_component': [
             round(f, 3) for f in fracs if f is not None],
         'note': 'Hungarian match of pooled per-head CP components (value-'
@@ -556,9 +653,23 @@ if 'semi' in arm_comps:
                 'units' + (' -- SMOKE: reduced heads/steps; not a D1 verdict'
                            if SMOKE else ''),
     }
-    say(f'D1 (semi): frac units matched at cos>=0.9: '
-        f'{result["D1"]["frac_units_matched_cos_ge_0.9"]} over {len(dirs)} '
-        f'components')
+    # match vs the analytic-optimum directions in content space (primary
+    # reference for the overlap variant; reported for both)
+    A64 = tabs.UNITS @ U_AN[VARIANT]                     # (64, n_analytic)
+    A64 = A64 / A64.norm(dim=0, keepdim=True).clamp_min(1e-12)
+    rows = torch.stack([(e[DL.CONTENT_SLICE]
+                         / e[DL.CONTENT_SLICE].norm().clamp_min(1e-12))
+                        for e in dirs])
+    Ca = (rows @ A64).abs()
+    cosA, _ = hungarian_vs_units(Ca)
+    result['D1']['vs_analytic_optimum'] = {
+        'matched_cosines': [round(float(x), 4) for x in cosA],
+        'frac_ge_0.9': round(float((cosA >= 0.9).mean()), 4),
+        'matched_cos_mean': round(float(cosA.mean()), 4)}
+    say(f'D1 (semi, {VARIANT}): frac units matched at cos>=0.9: {frac09} '
+        f'(ceiling {ceiling}, vs-analytic-optimum '
+        f'{result["D1"]["vs_analytic_optimum"]["frac_ge_0.9"]}) over '
+        f'{len(dirs)} components')
 
 # D2: learned arm -- fit linear map learned-embedding -> planted content space
 if 'learned' in arm_comps:

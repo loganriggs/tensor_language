@@ -127,28 +127,66 @@ TABLE_SEED = 2026
 
 
 class DGPTables:
-    """All ground-truth tables, deterministic in TABLE_SEED (CPU float32)."""
+    """All ground-truth tables, deterministic in TABLE_SEED (CPU float32).
 
-    def __init__(self, seed=TABLE_SEED):
+    TWO VARIANTS (identical in everything except the bundle table CHI):
+      * 'overlap' (the original REALISM ARM): bundles of 2-3 units, all 512
+        distinct, drawn at random.  Its exact third moment is NOT a pure
+        rank-24 object (co-occurrence cross-moments): the best rank-24 nonneg
+        CP matches the units at mean cosine ~0.947 (23/24 at >= 0.9, one
+        Perron-like mixture) -- calibration finding F0, measured, and the
+        noiseless ceiling that variant is scored against.
+      * 'identifiable' (the IDENTIFIABILITY ARM, added per the 2026-08-10
+        amendment): bundle sizes 1-2 -- 75% singletons (units assigned
+        round-robin) and 25% pairs, each specific pair used AT MOST ONCE
+        (128 pairs of the 276 possible), singleton/pair status interleaved by
+        t mod 4 so bundle size is EXACTLY balanced across the 8 selection
+        classes (64 mod 4 == 0).  STATED TRADES vs the overlap variant:
+        smaller bundles (overlap counts in {0,1,2} instead of {0..3}) and
+        bundles are no longer all distinct (24 + 128 distinct bundle types
+        over 512 tokens -- synonym tokens).  MEASURED acceptance (the
+        analytic control re-checks it every run): the frozen CP machinery on
+        the exact third moment matches the planted units at mean cosine
+        0.993, min 0.990, 24/24 at >= 0.99."""
+
+    def __init__(self, seed=TABLE_SEED, variant='overlap'):
+        assert variant in ('overlap', 'identifiable')
         g = torch.Generator().manual_seed(seed)
         self.seed = seed
+        self.variant = variant
         # 24 exactly-orthonormal content units in R^64
         Q, _ = torch.linalg.qr(torch.randn(DCONTENT, NUNITS, generator=g))
         self.UNITS = Q.contiguous()                       # (64, 24)
         # classes and derangement
         self.CLS = torch.arange(V) // (V // NCLASS)       # (V,) long
         self.SIGMA = (torch.arange(NCLASS) + 3) % NCLASS  # derangement
-        # distinct bundles of 2-3 units
         chi = torch.zeros(V, NUNITS)
-        seen = set()
-        for t in range(V):
-            while True:
-                sz = 2 + int(torch.randint(0, 2, (1,), generator=g))
-                sup = tuple(sorted(torch.randperm(NUNITS, generator=g)[:sz].tolist()))
-                if sup not in seen:
-                    break
-            seen.add(sup)
-            chi[t, list(sup)] = 1.0
+        if variant == 'overlap':
+            # distinct bundles of 2-3 units
+            seen = set()
+            for t in range(V):
+                while True:
+                    sz = 2 + int(torch.randint(0, 2, (1,), generator=g))
+                    sup = tuple(sorted(
+                        torch.randperm(NUNITS, generator=g)[:sz].tolist()))
+                    if sup not in seen:
+                        break
+                seen.add(sup)
+                chi[t, list(sup)] = 1.0
+        else:
+            # sizes 1-2, pair-once, class-balanced (see class docstring)
+            pairs = [(a, b) for a in range(NUNITS) for b in range(a + 1, NUNITS)]
+            perm = torch.randperm(len(pairs), generator=g)
+            n_single = 0
+            n_pair = 0
+            for t in range(V):
+                if t % 4 != 3:                            # 3 of 4: singleton
+                    chi[t, n_single % NUNITS] = 1.0
+                    n_single += 1
+                else:                                     # 1 of 4: a fresh pair
+                    a, b = pairs[perm[n_pair % len(pairs)]]
+                    chi[t, a] = chi[t, b] = 1.0
+                    n_pair += 1
         self.CHI = chi                                    # (V, 24) 0/1
         self.B = chi @ self.UNITS.T                       # (V, 64) content bundles
         # planted embedding table

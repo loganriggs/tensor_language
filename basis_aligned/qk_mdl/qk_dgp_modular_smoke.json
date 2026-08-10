@@ -1,5 +1,6 @@
 {
   "mode": "smoke",
+  "variant": "identifiable",
   "testall": true,
   "device": "cuda",
   "config": {
@@ -8,6 +9,7 @@
       "T": 128,
       "n_classes": 8,
       "n_units": 24,
+      "variant": "identifiable",
       "gamma": 1.0,
       "bw_std": 0.5,
       "sigma": "derangement k -> (k+3) mod 8",
@@ -30,80 +32,137 @@
       "equal_ablation": "pattern-energy-matched arms, damage per unit energy + concentration, one load-bearing head"
     }
   },
-  "analytic_control": {
-    "construction": "core = (1/V) sum_t chi_t^{x3} in the 24-unit code space; uniform token weights (no sampling, no training)",
-    "matched_cos_mean": 0.9468,
-    "matched_cos_min": 0.4246,
-    "matched_cosines": [
-      0.9472,
-      0.9654,
-      0.9837,
-      0.9814,
-      0.9818,
-      0.9555,
-      0.9819,
-      0.9785,
-      0.9568,
-      0.9691,
-      0.9758,
-      0.9794,
-      0.9634,
-      0.9764,
-      0.9809,
-      0.967,
-      0.4246,
-      0.9823,
-      0.9504,
-      0.9757,
-      0.9515,
-      0.9732,
-      0.975,
-      0.9473
-    ],
-    "frac_ge_0.99": 0.0,
-    "frac_ge_0.9": 0.9583,
-    "real_relerr": 0.3448,
-    "null_on_real": 0.6096,
-    "margin": 0.2648,
-    "restart_stability": 0.9994,
-    "restart_relerrs": [
-      0.3448,
-      0.3452,
-      0.3453
-    ],
-    "diagnostics": {
-      "oracle_pure_units_relerr": 0.5657,
-      "heavy_opt_probe_matched_cos_mean": 0.9472,
-      "heavy_opt_probe_matched_cos_min": 0.4319,
-      "note": "if oracle_pure_units_relerr > real_relerr, the best rank-24 nonneg CP of the DGP-implied tensor is NOT the planted units (co-occurrence cross-moments of overlapping bundles) -- an identifiability property of the object, not a solver failure; the heavy-opt probe (32 starts, 400 iters) tests the same point from the optimization side."
+  "analytic_controls": {
+    "identifiable": {
+      "variant": "identifiable",
+      "construction": "core = (1/V) sum_t chi_t^{x3} in the 24-unit code space; uniform token weights (no sampling, no training)",
+      "matched_cos_mean": 0.9928,
+      "matched_cos_min": 0.991,
+      "matched_cosines": [
+        0.991,
+        0.9944,
+        0.9918,
+        0.9927,
+        0.9914,
+        0.9941,
+        0.9916,
+        0.9926,
+        0.9932,
+        0.9926,
+        0.9936,
+        0.991,
+        0.9939,
+        0.994,
+        0.9916,
+        0.9922,
+        0.992,
+        0.9948,
+        0.9932,
+        0.9926,
+        0.9929,
+        0.9943,
+        0.9923,
+        0.994
+      ],
+      "frac_ge_0.99": 1.0,
+      "frac_ge_0.9": 1.0,
+      "real_relerr": 0.0396,
+      "null_on_real": 0.5304,
+      "margin": 0.4908,
+      "restart_stability": 1.0,
+      "restart_relerrs": [
+        0.0397,
+        0.0396,
+        0.0396
+      ],
+      "frozen_reproduces_analytic_optimum_cos": 1.0,
+      "diagnostics": {
+        "oracle_pure_units_relerr": 0.2068,
+        "heavy_opt_probe_matched_cos_mean": 0.9928,
+        "heavy_opt_probe_matched_cos_min": 0.991,
+        "note": "if oracle_pure_units_relerr > real_relerr, the best rank-24 nonneg CP of the DGP-implied tensor is NOT the planted units (co-occurrence cross-moments of overlapping bundles) -- an identifiability property of the object, not a solver failure (calibration finding F0); the heavy-opt solution (32 starts, 400 iters) is the analytic-optimum reference."
+      },
+      "gate_rule": "mean matched cos vs planted units >= 0.99 and margin >= 0.15",
+      "pass": true
     },
-    "pass": false
+    "overlap": {
+      "variant": "overlap",
+      "construction": "core = (1/V) sum_t chi_t^{x3} in the 24-unit code space; uniform token weights (no sampling, no training)",
+      "matched_cos_mean": 0.9468,
+      "matched_cos_min": 0.4246,
+      "matched_cosines": [
+        0.9472,
+        0.9654,
+        0.9837,
+        0.9814,
+        0.9818,
+        0.9555,
+        0.9819,
+        0.9785,
+        0.9568,
+        0.9691,
+        0.9758,
+        0.9794,
+        0.9634,
+        0.9764,
+        0.9809,
+        0.967,
+        0.4246,
+        0.9823,
+        0.9504,
+        0.9757,
+        0.9515,
+        0.9732,
+        0.975,
+        0.9473
+      ],
+      "frac_ge_0.99": 0.0,
+      "frac_ge_0.9": 0.9583,
+      "real_relerr": 0.3448,
+      "null_on_real": 0.6096,
+      "margin": 0.2648,
+      "restart_stability": 0.9994,
+      "restart_relerrs": [
+        0.3448,
+        0.3452,
+        0.3453
+      ],
+      "frozen_reproduces_analytic_optimum_cos": 0.9993,
+      "diagnostics": {
+        "oracle_pure_units_relerr": 0.5657,
+        "heavy_opt_probe_matched_cos_mean": 0.9472,
+        "heavy_opt_probe_matched_cos_min": 0.4319,
+        "note": "if oracle_pure_units_relerr > real_relerr, the best rank-24 nonneg CP of the DGP-implied tensor is NOT the planted units (co-occurrence cross-moments of overlapping bundles) -- an identifiability property of the object, not a solver failure (calibration finding F0); the heavy-opt solution (32 starts, 400 iters) is the analytic-optimum reference."
+      },
+      "gate_rule": "frozen solution reproduces the analytic-tensor optimum at matched cos >= 0.99 and margin >= 0.15 (units comparison = noiseless ceiling, not the gate; F0)",
+      "pass": true
+    }
   },
   "gates": {
-    "G0_analytic_control": "FAIL",
+    "G0_analytic_identifiable": "PASS",
+    "G0_analytic_overlap": "PASS",
     "G_task_semi": "PASS",
     "G_task_learned": "FAIL"
   },
-  "verdict": "GATE FAILED: the exact DGP third moment did not yield the planted units at matched cosine >= 0.99 through the CP + null machinery. The pipeline cannot certify anything downstream. STOP. See analytic_control.diagnostics for whether this is solver failure or object identifiability.",
   "dgp_reference": {
-    "entropy_mc_mean": 3.6855340003967285,
+    "entropy_mc_mean": 5.044404983520508,
     "entropy_by_pos_first8": [
-      6.1131,
-      6.0847,
-      6.06,
-      6.0368,
-      6.013,
-      5.9887,
-      5.9644,
-      5.9523
+      6.1084,
+      6.1006,
+      6.0921,
+      6.0862,
+      6.0768,
+      6.0733,
+      6.0666,
+      6.0656
     ],
     "entropy_by_pos_last4": [
-      1.6828,
-      1.4172,
-      1.3924,
-      1.5193
+      3.4104,
+      3.3087,
+      3.4387,
+      3.091
     ],
-    "true_law_logloss_mean": 3.671292543411255,
+    "true_law_logloss_mean": 5.0423078536987305,
     "n_seqs": 300
   },
   "arms": {
@@ -118,53 +177,53 @@
       "train_curve_every200": [
         [
           0,
-          14.135,
-          14.135
+          12.3812,
+          12.3812
         ],
         [
           200,
-          3.9479,
-          5.0115
+          5.0886,
+          5.8242
         ]
       ],
       "held100_curve": [
         [
           50,
-          11.455
+          10.1033
         ],
         [
           100,
-          5.5248
+          5.8263
         ],
         [
           150,
-          4.6656
+          5.5268
         ],
         [
           200,
-          3.8642
+          5.2058
         ],
         [
           250,
-          3.7885
+          5.1423
         ],
         [
           300,
-          3.7606
+          5.1253
         ],
         [
           350,
-          3.7329
+          5.1037
         ]
       ],
       "spikes": 0,
       "diverged": false,
       "wall_seconds": 1.7,
-      "final_held_ce": 3.71652,
+      "final_held_ce": 5.06927,
       "task_gate": {
-        "held_ce": 3.71652,
-        "gap_vs_true_law_paired": 0.04523,
-        "gap_vs_entropy_mc": 0.03099,
+        "held_ce": 5.06927,
+        "gap_vs_true_law_paired": 0.02696,
+        "gap_vs_entropy_mc": 0.02487,
         "threshold": 0.05,
         "pass": true
       }
@@ -180,53 +239,53 @@
       "train_curve_every200": [
         [
           0,
-          6.2793,
-          6.2793
+          6.2732,
+          6.2732
         ],
         [
           200,
-          4.8455,
-          5.3131
+          5.4684,
+          5.7538
         ]
       ],
       "held100_curve": [
         [
           50,
-          6.1856
+          6.1992
         ],
         [
           100,
-          5.7685
+          5.9214
         ],
         [
           150,
-          5.4083
+          5.7632
         ],
         [
           200,
-          4.8276
+          5.569
         ],
         [
           250,
-          4.3701
+          5.427
         ],
         [
           300,
-          4.1169
+          5.3348
         ],
         [
           350,
-          3.989
+          5.2607
         ]
       ],
       "spikes": 0,
       "diverged": false,
-      "wall_seconds": 1.6,
-      "final_held_ce": 3.95724,
+      "wall_seconds": 1.5,
+      "final_held_ce": 5.21663,
       "task_gate": {
-        "held_ce": 3.95724,
-        "gap_vs_true_law_paired": 0.28595,
-        "gap_vs_entropy_mc": 0.27171,
+        "held_ce": 5.21663,
+        "gap_vs_true_law_paired": 0.17432,
+        "gap_vs_entropy_mc": 0.17223,
         "threshold": 0.05,
         "pass": false
       }
@@ -235,300 +294,338 @@
   "per_head": {
     "semi": {
       "h0": {
-        "eff": 19.26,
+        "eff": 17.2,
         "r": 16,
         "m_atoms": 32,
-        "real_fit": 0.4783,
-        "null_on_real": 0.7555,
-        "margin": 0.2771,
+        "real_fit": 0.3062,
+        "null_on_real": 0.626,
+        "margin": 0.3198,
         "m1_pass": true,
         "restart_stability": 1.0,
         "restart_relerrs": [
-          0.4784,
-          0.4783,
-          0.4784
+          0.3062,
+          0.3062,
+          0.3062
         ]
       }
     },
     "learned": {
       "h0": {
-        "eff": 21.55,
+        "eff": 17.31,
         "r": 16,
         "m_atoms": 32,
-        "real_fit": 0.3692,
-        "null_on_real": 0.7141,
-        "margin": 0.3449,
+        "real_fit": 0.3203,
+        "null_on_real": 0.6661,
+        "margin": 0.3458,
         "m1_pass": true,
         "restart_stability": 1.0,
         "restart_relerrs": [
-          0.3692,
-          0.3692,
-          0.3692
+          0.3203,
+          0.3204,
+          0.3203
         ]
       }
     }
   },
   "D1": {
     "arm": "semi",
+    "variant": "identifiable",
     "n_components_pooled": 16,
     "matched_cosines": [
-      0.3323,
-      0.8105,
+      0.7909,
+      0.8659,
       0.0,
-      0.7496,
-      0.0,
-      0.6513,
-      0.0,
-      0.8422,
-      0.0,
-      0.7323,
-      0.3663,
+      0.8851,
+      0.2712,
+      0.4088,
+      0.8015,
+      0.912,
+      0.9091,
       0.0,
       0.0,
-      0.3261,
-      0.828,
-      0.7825,
-      0.7689,
       0.0,
-      0.631,
+      0.3111,
       0.0,
-      0.6506,
-      0.2296,
-      0.2608,
-      0.7005
+      0.867,
+      0.8009,
+      0.8247,
+      0.2123,
+      0.3556,
+      0.0,
+      0.0,
+      0.8953,
+      0.7975,
+      0.0
     ],
-    "frac_units_matched_cos_ge_0.9": 0.0,
-    "matched_cos_mean": 0.4026,
+    "frac_units_matched_cos_ge_0.9": 0.0833,
+    "matched_cos_mean": 0.4545,
+    "noiseless_ceiling_frac_ge_0.9": 1.0,
+    "frac_relative_to_ceiling": 0.0833,
     "content_energy_frac_per_component": [
-      0.84,
-      0.854,
-      0.871,
-      0.845,
-      0.879,
-      0.917,
-      0.86,
-      0.807,
-      0.812,
-      0.819,
+      0.905,
+      0.88,
+      0.893,
+      0.85,
+      0.833,
+      0.851,
+      0.707,
+      0.867,
+      0.793,
+      0.868,
+      0.816,
+      0.737,
       0.811,
-      0.873,
-      0.879,
-      0.803,
-      0.877,
-      0.82
+      0.814,
+      0.692,
+      0.706
     ],
-    "note": "Hungarian match of pooled per-head CP components (value-slice minimal-norm preimage, content block) vs 24 planted units -- SMOKE: reduced heads/steps; not a D1 verdict"
+    "note": "Hungarian match of pooled per-head CP components (value-slice minimal-norm preimage, content block) vs 24 planted units -- SMOKE: reduced heads/steps; not a D1 verdict",
+    "vs_analytic_optimum": {
+      "matched_cosines": [
+        0.0,
+        0.7797,
+        0.2978,
+        0.8434,
+        0.7924,
+        0.7723,
+        0.0,
+        0.0,
+        0.7769,
+        0.7902,
+        0.8768,
+        0.0,
+        0.8984,
+        0.298,
+        0.3534,
+        0.8949,
+        0.0,
+        0.0,
+        0.4043,
+        0.8824,
+        0.0,
+        0.0,
+        0.8564,
+        0.1642
+      ],
+      "frac_ge_0.9": 0.0,
+      "matched_cos_mean": 0.4451
+    }
   },
   "D2": {
     "arm": "learned",
     "n_components_pooled": 16,
-    "map_fit": "unigram-weighted ridge LS from rms-normed learned embedding rows to planted bundle vectors, ridge = 1e-3 * trace/Ws (fit on estimation split); weighted R2 = 0.9095",
+    "map_fit": "unigram-weighted ridge LS from rms-normed learned embedding rows to planted bundle vectors, ridge = 1e-3 * trace/Ws (fit on estimation split); weighted R2 = 0.8721",
     "matched_cosines": [
-      0.3545,
-      0.0,
-      0.3131,
-      0.4618,
-      0.3355,
-      0.0,
-      0.395,
-      0.4454,
-      0.0,
-      0.3034,
-      0.0,
-      0.2983,
-      0.5304,
-      0.3929,
-      0.4346,
       0.0,
       0.0,
-      0.4741,
-      0.6631,
-      0.3719,
+      0.6409,
+      0.8697,
+      0.8445,
+      0.0,
+      0.704,
+      0.8276,
+      0.0,
+      0.8836,
+      0.0,
+      0.7479,
+      0.7458,
+      0.2932,
+      0.1453,
+      0.7973,
+      0.8804,
       0.0,
       0.0,
-      0.7309,
-      0.7805
+      0.0,
+      0.6736,
+      0.8692,
+      0.8387,
+      0.7502
     ],
     "frac_units_matched_cos_ge_0.9": 0.0,
-    "matched_cos_mean": 0.3036,
-    "points_fewer_than_D1": 0.0
+    "matched_cos_mean": 0.4797,
+    "points_fewer_than_D1": 8.3
   },
   "D3": {
     "arm": "semi",
     "total_coords": 23,
-    "codable_n": 0,
-    "codable_frac": 0.0,
+    "codable_n": 1,
+    "codable_frac": 0.043,
     "selection_class_codable": 0,
-    "unit_class_codable": 0,
-    "median_class_r2": 0.392,
-    "codable_classes_top": [],
+    "unit_class_codable": 1,
+    "median_class_r2": 0.502,
+    "codable_classes_top": [
+      [
+        "unit_3",
+        1
+      ]
+    ],
     "substitution_identity_control_maxdiff": 4.76837158203125e-06,
     "fullrank_spectra_control_dce": -0.0,
-    "exact_spectra_dce": 0.40665,
-    "coded_spectra_dce": 0.40665,
+    "exact_spectra_dce": 0.40289,
+    "coded_spectra_dce": 0.40771,
     "meaning_gate_coded_minus_exact": {
-      "dCE": 0.0,
-      "SE": 0.0
+      "dCE": 0.00482,
+      "SE": 0.001012
     },
     "coord_table": [
       {
         "head": 0,
         "coord": 0,
-        "class": "unit_7",
-        "r2": 0.518
+        "class": "unit_3",
+        "r2": 0.831
       },
       {
         "head": 0,
         "coord": 1,
-        "class": "unit_18",
-        "r2": 0.392
+        "class": "unit_7",
+        "r2": 0.76
       },
       {
         "head": 0,
         "coord": 2,
-        "class": "unit_1",
-        "r2": 0.616
+        "class": "unit_8",
+        "r2": 0.777
       },
       {
         "head": 0,
         "coord": 3,
-        "class": "unit_20",
-        "r2": 0.497
+        "class": "unit_14",
+        "r2": 0.712
       },
       {
         "head": 0,
         "coord": 4,
-        "class": "unit_15",
-        "r2": 0.659
+        "class": "unit_0",
+        "r2": 0.589
       },
       {
         "head": 0,
         "coord": 5,
-        "class": "unit_9",
-        "r2": 0.497
+        "class": "unit_21",
+        "r2": 0.7
       },
       {
         "head": 0,
         "coord": 6,
-        "class": "unit_14",
-        "r2": 0.636
+        "class": "unit_1",
+        "r2": 0.256
       },
       {
         "head": 0,
         "coord": 7,
-        "class": "unit_5",
-        "r2": 0.38
+        "class": "unit_22",
+        "r2": 0.614
       },
       {
         "head": 0,
         "coord": 8,
-        "class": "unit_16",
-        "r2": 0.623
+        "class": "unit_6",
+        "r2": 0.621
       },
       {
         "head": 0,
         "coord": 9,
-        "class": "unit_3",
-        "r2": 0.619
+        "class": "unit_5",
+        "r2": 0.227
       },
       {
         "head": 0,
         "coord": 10,
-        "class": "unit_5",
-        "r2": 0.342
+        "class": "unit_16",
+        "r2": 0.378
       },
       {
         "head": 0,
         "coord": 11,
-        "class": "unit_0",
-        "r2": 0.447
+        "class": "unit_23",
+        "r2": 0.439
       },
       {
         "head": 0,
         "coord": 12,
-        "class": "unit_18",
-        "r2": 0.157
+        "class": "unit_12",
+        "r2": 0.341
       },
       {
         "head": 0,
         "coord": 13,
-        "class": "unit_2",
-        "r2": 0.343
+        "class": "unit_15",
+        "r2": 0.502
       },
       {
         "head": 0,
         "coord": 14,
-        "class": "unit_22",
-        "r2": 0.266
+        "class": "unit_20",
+        "r2": 0.387
       },
       {
         "head": 0,
         "coord": 15,
-        "class": "unit_17",
-        "r2": 0.529
+        "class": "unit_12",
+        "r2": 0.314
       },
       {
         "head": 1,
         "coord": 0,
         "class": "class_4",
-        "r2": 0.174
+        "r2": 0.585
       },
       {
         "head": 2,
         "coord": 0,
-        "class": "unit_19",
-        "r2": 0.357
+        "class": "unit_13",
+        "r2": 0.452
       },
       {
         "head": 3,
         "coord": 0,
-        "class": "unit_9",
-        "r2": 0.316
+        "class": "unit_22",
+        "r2": 0.716
       },
       {
         "head": 4,
         "coord": 0,
-        "class": "unit_6",
-        "r2": 0.543
+        "class": "unit_11",
+        "r2": 0.432
       },
       {
         "head": 5,
         "coord": 0,
-        "class": "class_5",
-        "r2": 0.11
+        "class": "unit_12",
+        "r2": 0.63
       },
       {
         "head": 6,
         "coord": 0,
-        "class": "unit_1",
-        "r2": 0.117
+        "class": "unit_6",
+        "r2": 0.18
       },
       {
         "head": 7,
         "coord": 0,
-        "class": "unit_13",
-        "r2": 0.186
+        "class": "unit_20",
+        "r2": 0.443
       }
     ]
   },
   "D4": {
-    "head": 0,
+    "head": 1,
     "whole_head_dce": {
-      "h0": 0.42736,
-      "h1": 0.0015,
-      "h2": 0.0485,
-      "h3": 0.12099,
-      "h4": 0.08068,
-      "h5": 0.06339,
-      "h6": 0.01857,
-      "h7": 0.00014
+      "h0": 0.12094,
+      "h1": 0.31384,
+      "h2": 0.27869,
+      "h3": 0.00795,
+      "h4": 0.00809,
+      "h5": 0.02489,
+      "h6": 0.00548,
+      "h7": 0.00751
     },
-    "fold_identity_control_maxdiff": 9.5367431640625e-06,
-    "base_ce": 3.66437,
-    "E_P2_total": 0.08925899118185043,
+    "fold_identity_control_maxdiff": 1.1920928955078125e-05,
+    "base_ce": 5.13985,
+    "E_P2_total": 0.22501207143068314,
     "shrink_betas": {
-      "shrink_matched8": 0.0027,
-      "shrink_top2": 0.6967
+      "shrink_matched8": 0.0129,
+      "shrink_top2": 0.7337
     },
     "span_dims": {
       "sel_span8": 8,
@@ -536,58 +633,58 @@
     },
     "arms": {
       "sel_span8": {
-        "energy_removed": 0.08925766870379448,
-        "mean_dce": 0.42735,
-        "dce_per_energy": 4.79,
-        "top0.1pct_share": 0.006,
-        "top1pct_share": 0.052,
-        "frac_positions_hit": 0.9313
+        "energy_removed": 0.22493737936019897,
+        "mean_dce": 0.31155,
+        "dce_per_energy": 1.39,
+        "top0.1pct_share": 0.009,
+        "top1pct_share": 0.068,
+        "frac_positions_hit": 0.9727
       },
       "pca_matched8": {
-        "energy_removed": 0.08925779908895493,
-        "mean_dce": 0.42735,
-        "dce_per_energy": 4.79,
-        "top0.1pct_share": 0.006,
-        "top1pct_share": 0.052,
-        "frac_positions_hit": 0.9313
+        "energy_removed": 0.22501134127378464,
+        "mean_dce": 0.30989,
+        "dce_per_energy": 1.38,
+        "top0.1pct_share": 0.009,
+        "top1pct_share": 0.069,
+        "frac_positions_hit": 0.9715
       },
       "sel_top2": {
-        "energy_removed": 0.02363337203860283,
-        "mean_dce": 0.0894,
-        "dce_per_energy": 3.78,
-        "top0.1pct_share": 0.01,
-        "top1pct_share": 0.076,
-        "frac_positions_hit": 0.8927
+        "energy_removed": 0.04797239974141121,
+        "mean_dce": 0.03689,
+        "dce_per_energy": 0.77,
+        "top0.1pct_share": 0.016,
+        "top1pct_share": 0.107,
+        "frac_positions_hit": 0.9181
       },
       "pca_top2": {
-        "energy_removed": 0.03145124763250351,
-        "mean_dce": 0.11567,
-        "dce_per_energy": 3.68,
-        "top0.1pct_share": 0.015,
-        "top1pct_share": 0.113,
-        "frac_positions_hit": 0.8533
+        "energy_removed": 0.22477540373802185,
+        "mean_dce": 0.31064,
+        "dce_per_energy": 1.38,
+        "top0.1pct_share": 0.009,
+        "top1pct_share": 0.069,
+        "frac_positions_hit": 0.9727
       },
       "shrink_matched8": {
-        "energy_removed": 0.08925766870379448,
-        "mean_dce": 0.42735,
-        "dce_per_energy": 4.79,
-        "top0.1pct_share": 0.006,
-        "top1pct_share": 0.052,
-        "frac_positions_hit": 0.9313
+        "energy_removed": 0.22493736445903778,
+        "mean_dce": 0.31367,
+        "dce_per_energy": 1.39,
+        "top0.1pct_share": 0.009,
+        "top1pct_share": 0.068,
+        "frac_positions_hit": 0.9724
       },
       "shrink_top2": {
-        "energy_removed": 0.02363337017595768,
-        "mean_dce": 0.093,
-        "dce_per_energy": 3.94,
-        "top0.1pct_share": 0.007,
-        "top1pct_share": 0.062,
-        "frac_positions_hit": 0.8856
+        "energy_removed": 0.04797239042818546,
+        "mean_dce": 0.03656,
+        "dce_per_energy": 0.76,
+        "top0.1pct_share": 0.012,
+        "top1pct_share": 0.092,
+        "frac_positions_hit": 0.9306
       }
     },
-    "privilege_ratio_sel_vs_pca_span8": 1.0,
+    "privilege_ratio_sel_vs_pca_span8": 1.007,
     "privilege_ratio_sel_vs_shrink_span8": 1.0,
-    "privilege_ratio_sel_vs_pca_top2": 1.027,
-    "privilege_ratio_sel_vs_shrink_top2": 0.959
+    "privilege_ratio_sel_vs_pca_top2": 0.558,
+    "privilege_ratio_sel_vs_shrink_top2": 1.013
   },
-  "wall_seconds": 14.0
+  "wall_seconds": 16.6
 }
