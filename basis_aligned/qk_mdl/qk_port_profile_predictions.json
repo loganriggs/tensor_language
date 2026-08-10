@@ -1,0 +1,34 @@
+{
+  "experiment": "static-fraction-by-depth port profile (aggregate list #3)",
+  "registered": "2026-08-10, before the run; the build agent was working concurrently but no deeper-layer number exists yet anywhere",
+  "known_numbers_going_in": {
+    "layer_1": {"port_cost_shrunk": 0.0515, "destruction_floor": 2.70, "static_fraction": 0.981}
+  },
+  "definitions": "static fraction = 1 - (port cost with shrunk token-conditional mean-residual tables / destruction floor), per layer, on the 307k FineWeb audit at T=512",
+  "predictions": [
+    {
+      "id": "P1",
+      "claim": "The static fraction decays with depth overall, but NOT strictly monotonically: at least one deeper layer (boundary/positional-heavy) beats the layer above it.",
+      "confidence": 0.6,
+      "note": "Layer-1 archetypes were already boundary-dominated; some deep layers likely attend on document/sentence boundaries, which token tables capture well."
+    },
+    {
+      "id": "P2",
+      "claim": "Layer 2's static fraction is above 0.90.",
+      "confidence": 0.6,
+      "note": "Block 1's output adds real context sensitivity (its pattern was worth +2.70), but the same argument at layer 1 did not stop tables from working; one more block of mixing should degrade tables only partially."
+    },
+    {
+      "id": "P3",
+      "claim": "By layer 9 the static fraction is below 0.80 — i.e. the ledger pipeline in its current static form does not extend to mid-depth.",
+      "confidence": 0.55
+    },
+    {
+      "id": "P4",
+      "claim": "Destruction floors are non-monotone in depth and at least one mid-or-late layer has a floor under 0.5 nats, i.e. much of the pattern stack is individually cheap.",
+      "confidence": 0.7,
+      "note": "Layer 1 at +2.70 looked exceptional in the doc (27x all of layer-0 attention); most layers are probably not like it."
+    }
+  ],
+  "decision_rule": "The decay curve stands on its own as a result either way. If P3 fails high (static fraction stays above 0.8 deep), the ledger pipeline extends much further than assumed and experiments 2/9 rise in priority; if the curve collapses immediately at layer 2, the layer-1 landmark is a boundary effect of the first context-free read, and 'port the machinery deeper' dies early."
+}
