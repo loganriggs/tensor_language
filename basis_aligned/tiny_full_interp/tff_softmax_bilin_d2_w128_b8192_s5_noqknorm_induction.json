@@ -1,0 +1,117 @@
+{
+  "probe_seeds": 5,
+  "per_probe_seed": [
+    {
+      "repeat": 9.270443386501736,
+      "shuffled": 9.367547988891602,
+      "control": 9.427240689595541,
+      "induction_score": 0.09710460238986585,
+      "bag_score": 0.059692700703939394
+    },
+    {
+      "repeat": 9.25509770711263,
+      "shuffled": 9.347738160027397,
+      "control": 9.409852769639757,
+      "induction_score": 0.09264045291476641,
+      "bag_score": 0.06211460961235993
+    },
+    {
+      "repeat": 9.208653450012207,
+      "shuffled": 9.312334378560385,
+      "control": 9.376344998677572,
+      "induction_score": 0.10368092854817768,
+      "bag_score": 0.0640106201171875
+    },
+    {
+      "repeat": 9.156814045376247,
+      "shuffled": 9.262450006273058,
+      "control": 9.329435454474556,
+      "induction_score": 0.10563596089681049,
+      "bag_score": 0.06698544820149799
+    },
+    {
+      "repeat": 9.29188092549642,
+      "shuffled": 9.372167269388834,
+      "control": 9.448555840386284,
+      "induction_score": 0.08028634389241418,
+      "bag_score": 0.07638857099744989
+    }
+  ],
+  "induction_score_mean": 0.09586965772840692,
+  "induction_score_sd": 0.010138899737561755,
+  "bag_score_mean": 0.06583838992648694,
+  "bag_score_sd": 0.0064729985640385335,
+  "induction_power": {
+    "sensitivity": {
+      "eps_0.0": {
+        "induction_score_mean": 0.09774657355414576,
+        "induction_score_sd": 0.009214255904605704
+      },
+      "eps_1e-06": {
+        "induction_score_mean": 0.17492576175265953,
+        "induction_score_sd": 0.005837448262917132
+      },
+      "eps_3e-06": {
+        "induction_score_mean": 0.2643172581990555,
+        "induction_score_sd": 0.0038841782108575114
+      },
+      "eps_1e-05": {
+        "induction_score_mean": 0.44448350270589254,
+        "induction_score_sd": 0.004545947212242244
+      },
+      "eps_3e-05": {
+        "induction_score_mean": 0.7083629184299042,
+        "induction_score_sd": 0.010302582453083152
+      },
+      "eps_0.0001": {
+        "induction_score_mean": 1.1183500501844617,
+        "induction_score_sd": 0.01988028845196676
+      },
+      "eps_0.001": {
+        "induction_score_mean": 2.215227614508734,
+        "induction_score_sd": 0.04035958883906269
+      },
+      "eps_0.01": {
+        "induction_score_mean": 3.562549718221029,
+        "induction_score_sd": 0.05675157458554894
+      }
+    },
+    "null_sd_across_probe_seeds": 0.009214255904605704,
+    "null_standard_error": 0.004120740512955434,
+    "detectable_effect_floor_nats_3se": 0.012362221538866302,
+    "smallest_detected_oracle_mixture_weight": 1e-06,
+    "note": "the floor is 3 standard errors of the score across probe seeds.  Any registered \"induction is absent\" claim is only a claim down to this floor."
+  },
+  "detectable_effect_floor_nats_3se": 0.012362221538866302,
+  "clears_own_probe_floor": true,
+  "natural_induction": {
+    "n_positions": 512,
+    "bag_plus_order_patch_random_token": {
+      "mean": 0.2417374368997116,
+      "se": 0.03819515298145641,
+      "t": 6.329008212562314,
+      "detectable_effect_floor_nats_3se": 0.11458545894436924
+    },
+    "ORDER_ONLY_patch_swap": {
+      "mean": 0.19167807906251255,
+      "se": 0.03647330983262349,
+      "t": 5.255297090999578,
+      "detectable_effect_floor_nats_3se": 0.10941992949787048
+    },
+    "raw": {
+      "rand_t": 0.23541708237098646,
+      "rand_c": -0.006320354528725147,
+      "swap_t": 0.18075796610992256,
+      "swap_c": -0.010920112952589989
+    },
+    "note": "the SWAP row is the induction number: it preserves the prefix token multiset exactly and destroys only the adjacency that induction reads.  The RANDOM row also removes the target from the prefix and therefore contains the order-free BAG effect, which these models do have; it must not be quoted as induction."
+  },
+  "threshold_note": "the probe floor is 3 standard errors over PROBE seeds and shrinks as 1/sqrt(n); it calibrates the battery, it is NOT the detection threshold. The verdict is taken over MODEL seeds in tf_baseline_report.py.",
+  "stem": "tff_softmax_bilin_d2_w128_b8192_s5_noqknorm",
+  "attn": "softmax",
+  "mlp": "bilin",
+  "depth": 2,
+  "width": 128,
+  "hidden": 597,
+  "seed": 5
+}

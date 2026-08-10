@@ -438,3 +438,113 @@
   },
   "all_pass": true
 }
+{
+  "note": "gates that must pass before any factorial arm is read",
+  "tf32_disabled": true,
+  "device": "cuda",
+  "grid": {
+    "depth": 2,
+    "width": 128,
+    "vocab": 512
+  },
+  "G1_family_corner": {
+    "pass": true,
+    "max_abs_diff": 0.0,
+    "n_params_matched": 21,
+    "claim": "the factorial at (bilin, bilin) reproduces tf_model.TinyBilin variant=vanilla",
+    "hidden": 512,
+    "family_hidden": 512,
+    "hidden_agrees": true
+  },
+  "G2_conventional_corner": {
+    "pass": true,
+    "max_abs_diff": 0.0,
+    "n_params_matched": 15,
+    "claim": "the factorial at (softmax, gelu) reproduces tf_baseline_std.StdTransformer at the parameter-matched expansion",
+    "hidden": 896,
+    "std_matched_hidden": 896,
+    "hidden_agrees": true
+  },
+  "G3_parameter_accounting": {
+    "pass": true,
+    "arms": [
+      {
+        "attn": "bilin",
+        "mlp": "bilin",
+        "hidden": 512,
+        "closed_form_body": 590080,
+        "live_body": 590080,
+        "agrees": true,
+        "family_body": 590080,
+        "body_over_family": 1.0,
+        "residual_params_vs_family": 0
+      },
+      {
+        "attn": "bilin",
+        "mlp": "gelu",
+        "hidden": 768,
+        "closed_form_body": 590080,
+        "live_body": 590080,
+        "agrees": true,
+        "family_body": 590080,
+        "body_over_family": 1.0,
+        "residual_params_vs_family": 0
+      },
+      {
+        "attn": "bilinnorm",
+        "mlp": "bilin",
+        "hidden": 512,
+        "closed_form_body": 590080,
+        "live_body": 590080,
+        "agrees": true,
+        "family_body": 590080,
+        "body_over_family": 1.0,
+        "residual_params_vs_family": 0
+      },
+      {
+        "attn": "bilinnorm",
+        "mlp": "gelu",
+        "hidden": 768,
+        "closed_form_body": 590080,
+        "live_body": 590080,
+        "agrees": true,
+        "family_body": 590080,
+        "body_over_family": 1.0,
+        "residual_params_vs_family": 0
+      },
+      {
+        "attn": "softmax",
+        "mlp": "bilin",
+        "hidden": 597,
+        "closed_form_body": 589824,
+        "live_body": 589824,
+        "agrees": true,
+        "family_body": 590080,
+        "body_over_family": 0.999566,
+        "residual_params_vs_family": -256
+      },
+      {
+        "attn": "softmax",
+        "mlp": "gelu",
+        "hidden": 896,
+        "closed_form_body": 590080,
+        "live_body": 590080,
+        "agrees": true,
+        "family_body": 590080,
+        "body_over_family": 1.0,
+        "residual_params_vs_family": 0
+      }
+    ]
+  },
+  "G4_row_normalisation": {
+    "pass": true,
+    "max_abs_deviation_from_raw_over_L1": 0.0,
+    "identity_tested": "block 0 of the bilinnorm arm == block 0 of the bilin arm at identical weights, divided by its row L1 plus 1e-6",
+    "max_abs_value_on_a_masked_key": 0.0,
+    "smallest_raw_row_mass_seen": 0.00034798463457264006,
+    "resulting_max_abs_row_L1_minus_one": 0.0028654932975769043,
+    "why_that_is_not_zero": "the 1e-6 denominator floor, which bites only on rows whose raw mass is comparable to it -- query position 0, one visible key, on an untrained model. It is a property of the definition, not slack in the gate, which is why the gate tests the identity above and not this number.",
+    "arms_actually_differ": true
+  },
+  "all_pass": true
+}
