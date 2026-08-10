@@ -1,0 +1,431 @@
+{
+ "definition": {
+  "edit": "KKT-edit class c to uniform: minimal-norm rank-1 update to D along the stored key h_c=(Lz_c)*(Rz_c) so that logits(z_c) become equal (uniform softmax). Weights + the key only; no corpus.",
+  "predicted_collateral": "|cosine(h_c, h_v)| \u2014 the (c,v) off-diagonal of the stored-key Gram matrix (F5). Computed from model weights BEFORE any edit is applied or measured.",
+  "measured_collateral": "victim margin drop = margin_v(before) - margin_v(after) on the victim's key z_v, margin = true logit minus max other logit.",
+  "prediction": "predicted_collateral rank-correlates strongly with measured margin drop across all (edit, victim) pairs, seeds, and both regimes; undercomplete points have large Gram off-diagonals and large measured collateral, overcomplete points small on both."
+ },
+ "registration_note": "The git commit time of this file is the registration time; part1.py refuses to run measure_c1 unless this file is committed and unmodified.",
+ "entries": [
+  {
+   "regime": "overcomplete",
+   "seed": 0,
+   "edit_class": "Dog",
+   "victim": "Cat",
+   "predicted_collateral": 0.014507863750040439
+  },
+  {
+   "regime": "overcomplete",
+   "seed": 0,
+   "edit_class": "Dog",
+   "victim": "Catfish",
+   "predicted_collateral": 0.17160681987805895
+  },
+  {
+   "regime": "overcomplete",
+   "seed": 0,
+   "edit_class": "Cat",
+   "victim": "Dog",
+   "predicted_collateral": 0.014507863750040439
+  },
+  {
+   "regime": "overcomplete",
+   "seed": 0,
+   "edit_class": "Cat",
+   "victim": "Catfish",
+   "predicted_collateral": 0.07939377503203388
+  },
+  {
+   "regime": "overcomplete",
+   "seed": 0,
+   "edit_class": "Catfish",
+   "victim": "Dog",
+   "predicted_collateral": 0.17160681987805895
+  },
+  {
+   "regime": "overcomplete",
+   "seed": 0,
+   "edit_class": "Catfish",
+   "victim": "Cat",
+   "predicted_collateral": 0.07939377503203388
+  },
+  {
+   "regime": "overcomplete",
+   "seed": 1,
+   "edit_class": "Dog",
+   "victim": "Cat",
+   "predicted_collateral": 0.10870209492471804
+  },
+  {
+   "regime": "overcomplete",
+   "seed": 1,
+   "edit_class": "Dog",
+   "victim": "Catfish",
+   "predicted_collateral": 0.1809839905347632
+  },
+  {
+   "regime": "overcomplete",
+   "seed": 1,
+   "edit_class": "Cat",
+   "victim": "Dog",
+   "predicted_collateral": 0.10870209492471804
+  },
+  {
+   "regime": "overcomplete",
+   "seed": 1,
+   "edit_class": "Cat",
+   "victim": "Catfish",
+   "predicted_collateral": 0.007676049240991744
+  },
+  {
+   "regime": "overcomplete",
+   "seed": 1,
+   "edit_class": "Catfish",
+   "victim": "Dog",
+   "predicted_collateral": 0.1809839905347632
+  },
+  {
+   "regime": "overcomplete",
+   "seed": 1,
+   "edit_class": "Catfish",
+   "victim": "Cat",
+   "predicted_collateral": 0.007676049240991744
+  },
+  {
+   "regime": "overcomplete",
+   "seed": 2,
+   "edit_class": "Dog",
+   "victim": "Cat",
+   "predicted_collateral": 0.29507232374292525
+  },
+  {
+   "regime": "overcomplete",
+   "seed": 2,
+   "edit_class": "Dog",
+   "victim": "Catfish",
+   "predicted_collateral": 0.40853177246072037
+  },
+  {
+   "regime": "overcomplete",
+   "seed": 2,
+   "edit_class": "Cat",
+   "victim": "Dog",
+   "predicted_collateral": 0.29507232374292525
+  },
+  {
+   "regime": "overcomplete",
+   "seed": 2,
+   "edit_class": "Cat",
+   "victim": "Catfish",
+   "predicted_collateral": 0.05640895903072007
+  },
+  {
+   "regime": "overcomplete",
+   "seed": 2,
+   "edit_class": "Catfish",
+   "victim": "Dog",
+   "predicted_collateral": 0.40853177246072037
+  },
+  {
+   "regime": "overcomplete",
+   "seed": 2,
+   "edit_class": "Catfish",
+   "victim": "Cat",
+   "predicted_collateral": 0.05640895903072007
+  },
+  {
+   "regime": "overcomplete",
+   "seed": 3,
+   "edit_class": "Dog",
+   "victim": "Cat",
+   "predicted_collateral": 0.148739772045196
+  },
+  {
+   "regime": "overcomplete",
+   "seed": 3,
+   "edit_class": "Dog",
+   "victim": "Catfish",
+   "predicted_collateral": 0.19113921824591817
+  },
+  {
+   "regime": "overcomplete",
+   "seed": 3,
+   "edit_class": "Cat",
+   "victim": "Dog",
+   "predicted_collateral": 0.148739772045196
+  },
+  {
+   "regime": "overcomplete",
+   "seed": 3,
+   "edit_class": "Cat",
+   "victim": "Catfish",
+   "predicted_collateral": 0.17719922148264372
+  },
+  {
+   "regime": "overcomplete",
+   "seed": 3,
+   "edit_class": "Catfish",
+   "victim": "Dog",
+   "predicted_collateral": 0.19113921824591817
+  },
+  {
+   "regime": "overcomplete",
+   "seed": 3,
+   "edit_class": "Catfish",
+   "victim": "Cat",
+   "predicted_collateral": 0.17719922148264372
+  },
+  {
+   "regime": "overcomplete",
+   "seed": 4,
+   "edit_class": "Dog",
+   "victim": "Cat",
+   "predicted_collateral": 0.22755469411530324
+  },
+  {
+   "regime": "overcomplete",
+   "seed": 4,
+   "edit_class": "Dog",
+   "victim": "Catfish",
+   "predicted_collateral": 0.13563579951487284
+  },
+  {
+   "regime": "overcomplete",
+   "seed": 4,
+   "edit_class": "Cat",
+   "victim": "Dog",
+   "predicted_collateral": 0.22755469411530324
+  },
+  {
+   "regime": "overcomplete",
+   "seed": 4,
+   "edit_class": "Cat",
+   "victim": "Catfish",
+   "predicted_collateral": 0.4912796427793765
+  },
+  {
+   "regime": "overcomplete",
+   "seed": 4,
+   "edit_class": "Catfish",
+   "victim": "Dog",
+   "predicted_collateral": 0.13563579951487284
+  },
+  {
+   "regime": "overcomplete",
+   "seed": 4,
+   "edit_class": "Catfish",
+   "victim": "Cat",
+   "predicted_collateral": 0.4912796427793765
+  },
+  {
+   "regime": "undercomplete",
+   "seed": 0,
+   "edit_class": "Dog",
+   "victim": "Cat",
+   "predicted_collateral": 0.31137759801571074
+  },
+  {
+   "regime": "undercomplete",
+   "seed": 0,
+   "edit_class": "Dog",
+   "victim": "Catfish",
+   "predicted_collateral": 0.026946958932333405
+  },
+  {
+   "regime": "undercomplete",
+   "seed": 0,
+   "edit_class": "Cat",
+   "victim": "Dog",
+   "predicted_collateral": 0.31137759801571074
+  },
+  {
+   "regime": "undercomplete",
+   "seed": 0,
+   "edit_class": "Cat",
+   "victim": "Catfish",
+   "predicted_collateral": 0.9583318650825139
+  },
+  {
+   "regime": "undercomplete",
+   "seed": 0,
+   "edit_class": "Catfish",
+   "victim": "Dog",
+   "predicted_collateral": 0.026946958932333405
+  },
+  {
+   "regime": "undercomplete",
+   "seed": 0,
+   "edit_class": "Catfish",
+   "victim": "Cat",
+   "predicted_collateral": 0.9583318650825139
+  },
+  {
+   "regime": "undercomplete",
+   "seed": 1,
+   "edit_class": "Dog",
+   "victim": "Cat",
+   "predicted_collateral": 0.6038899921188914
+  },
+  {
+   "regime": "undercomplete",
+   "seed": 1,
+   "edit_class": "Dog",
+   "victim": "Catfish",
+   "predicted_collateral": 0.407580918164365
+  },
+  {
+   "regime": "undercomplete",
+   "seed": 1,
+   "edit_class": "Cat",
+   "victim": "Dog",
+   "predicted_collateral": 0.6038899921188914
+  },
+  {
+   "regime": "undercomplete",
+   "seed": 1,
+   "edit_class": "Cat",
+   "victim": "Catfish",
+   "predicted_collateral": 0.48172352893959486
+  },
+  {
+   "regime": "undercomplete",
+   "seed": 1,
+   "edit_class": "Catfish",
+   "victim": "Dog",
+   "predicted_collateral": 0.407580918164365
+  },
+  {
+   "regime": "undercomplete",
+   "seed": 1,
+   "edit_class": "Catfish",
+   "victim": "Cat",
+   "predicted_collateral": 0.48172352893959486
+  },
+  {
+   "regime": "undercomplete",
+   "seed": 2,
+   "edit_class": "Dog",
+   "victim": "Cat",
+   "predicted_collateral": 0.2950978730112065
+  },
+  {
+   "regime": "undercomplete",
+   "seed": 2,
+   "edit_class": "Dog",
+   "victim": "Catfish",
+   "predicted_collateral": 0.4522853308757194
+  },
+  {
+   "regime": "undercomplete",
+   "seed": 2,
+   "edit_class": "Cat",
+   "victim": "Dog",
+   "predicted_collateral": 0.2950978730112065
+  },
+  {
+   "regime": "undercomplete",
+   "seed": 2,
+   "edit_class": "Cat",
+   "victim": "Catfish",
+   "predicted_collateral": 0.7186870918939205
+  },
+  {
+   "regime": "undercomplete",
+   "seed": 2,
+   "edit_class": "Catfish",
+   "victim": "Dog",
+   "predicted_collateral": 0.4522853308757194
+  },
+  {
+   "regime": "undercomplete",
+   "seed": 2,
+   "edit_class": "Catfish",
+   "victim": "Cat",
+   "predicted_collateral": 0.7186870918939205
+  },
+  {
+   "regime": "undercomplete",
+   "seed": 3,
+   "edit_class": "Dog",
+   "victim": "Cat",
+   "predicted_collateral": 0.8608358623367991
+  },
+  {
+   "regime": "undercomplete",
+   "seed": 3,
+   "edit_class": "Dog",
+   "victim": "Catfish",
+   "predicted_collateral": 0.5866091274972532
+  },
+  {
+   "regime": "undercomplete",
+   "seed": 3,
+   "edit_class": "Cat",
+   "victim": "Dog",
+   "predicted_collateral": 0.8608358623367991
+  },
+  {
+   "regime": "undercomplete",
+   "seed": 3,
+   "edit_class": "Cat",
+   "victim": "Catfish",
+   "predicted_collateral": 0.09284523048628683
+  },
+  {
+   "regime": "undercomplete",
+   "seed": 3,
+   "edit_class": "Catfish",
+   "victim": "Dog",
+   "predicted_collateral": 0.5866091274972532
+  },
+  {
+   "regime": "undercomplete",
+   "seed": 3,
+   "edit_class": "Catfish",
+   "victim": "Cat",
+   "predicted_collateral": 0.09284523048628683
+  },
+  {
+   "regime": "undercomplete",
+   "seed": 4,
+   "edit_class": "Dog",
+   "victim": "Cat",
+   "predicted_collateral": 0.7503431248834166
+  },
+  {
+   "regime": "undercomplete",
+   "seed": 4,
+   "edit_class": "Dog",
+   "victim": "Catfish",
+   "predicted_collateral": 0.17377485351115765
+  },
+  {
+   "regime": "undercomplete",
+   "seed": 4,
+   "edit_class": "Cat",
+   "victim": "Dog",
+   "predicted_collateral": 0.7503431248834166
+  },
+  {
+   "regime": "undercomplete",
+   "seed": 4,
+   "edit_class": "Cat",
+   "victim": "Catfish",
+   "predicted_collateral": 0.5206002066337156
+  },
+  {
+   "regime": "undercomplete",
+   "seed": 4,
+   "edit_class": "Catfish",
+   "victim": "Dog",
+   "predicted_collateral": 0.17377485351115765
+  },
+  {
+   "regime": "undercomplete",
+   "seed": 4,
+   "edit_class": "Catfish",
+   "victim": "Cat",
+   "predicted_collateral": 0.5206002066337156
+  }
+ ]
+}
