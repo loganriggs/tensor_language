@@ -326,5 +326,166 @@
     ],
     "corr_attr_recovered_vs_overlap": -0.13704428732170698,
     "corr_attr_margin_vs_overlap": -0.14775000723637616
+  },
+  "f11": {
+    "pearson_pred_vs_measured": 0.9999999999999994,
+    "spearman_pred_vs_measured": 1.0,
+    "spearman_gram_proxy": 0.46873297298100447,
+    "per_seed": [
+      {
+        "kkt": {
+          "forget_dev_from_uniform": 9.860272598416486e-10,
+          "forgotten_argmax": 10,
+          "acc90_pre": 1.0,
+          "acc90_post": 1.0,
+          "victim_flips": 0,
+          "mean_abs_dmargin": 2.029537572701609,
+          "max_abs_dmargin": 9.765920826200468
+        },
+        "kkt_1pass": {
+          "forget_dev_from_uniform": 8.710776828494508,
+          "forgotten_argmax": 9,
+          "acc90_pre": 1.0,
+          "acc90_post": 1.0,
+          "victim_flips": 0,
+          "mean_abs_dmargin": 1.9828335052724473,
+          "max_abs_dmargin": 10.3194943820776
+        },
+        "naive": {
+          "forget_dev_from_uniform": 23.077293155915925,
+          "forgotten_argmax": 10,
+          "acc90_pre": 1.0,
+          "acc90_post": 0.4888888888888889,
+          "victim_flips": 46,
+          "mean_abs_dmargin": 15.802308684799277,
+          "max_abs_dmargin": 47.09585436954679
+        },
+        "kkt_passes": 14
+      },
+      {
+        "kkt": {
+          "forget_dev_from_uniform": 2.2945823019426825e-10,
+          "forgotten_argmax": 9,
+          "acc90_pre": 1.0,
+          "acc90_post": 0.9888888888888889,
+          "victim_flips": 1,
+          "mean_abs_dmargin": 3.0486932030557794,
+          "max_abs_dmargin": 15.31222589007043
+        },
+        "kkt_1pass": {
+          "forget_dev_from_uniform": 12.217022499260352,
+          "forgotten_argmax": 10,
+          "acc90_pre": 1.0,
+          "acc90_post": 0.9555555555555556,
+          "victim_flips": 4,
+          "mean_abs_dmargin": 3.45111799100346,
+          "max_abs_dmargin": 18.407588696815605
+        },
+        "naive": {
+          "forget_dev_from_uniform": 68.45257527089738,
+          "forgotten_argmax": 9,
+          "acc90_pre": 1.0,
+          "acc90_post": 0.3,
+          "victim_flips": 63,
+          "mean_abs_dmargin": 32.319775810568366,
+          "max_abs_dmargin": 100.63041740412248
+        },
+        "kkt_passes": 15
+      },
+      {
+        "kkt": {
+          "forget_dev_from_uniform": 8.624324587813703e-10,
+          "forgotten_argmax": 9,
+          "acc90_pre": 1.0,
+          "acc90_post": 1.0,
+          "victim_flips": 0,
+          "mean_abs_dmargin": 1.7943665484215432,
+          "max_abs_dmargin": 9.26696495940268
+        },
+        "kkt_1pass": {
+          "forget_dev_from_uniform": 4.978815479814851,
+          "forgotten_argmax": 9,
+          "acc90_pre": 1.0,
+          "acc90_post": 1.0,
+          "victim_flips": 0,
+          "mean_abs_dmargin": 1.7389153064283727,
+          "max_abs_dmargin": 8.44014294206419
+        },
+        "naive": {
+          "forget_dev_from_uniform": 23.303546429352846,
+          "forgotten_argmax": 7,
+          "acc90_pre": 1.0,
+          "acc90_post": 0.6,
+          "victim_flips": 36,
+          "mean_abs_dmargin": 13.517972180740427,
+          "max_abs_dmargin": 52.95640235802918
+        },
+        "kkt_passes": 14
+      },
+      {
+        "kkt": {
+          "forget_dev_from_uniform": 5.89494786318312e-10,
+          "forgotten_argmax": 9,
+          "acc90_pre": 1.0,
+          "acc90_post": 1.0,
+          "victim_flips": 0,
+          "mean_abs_dmargin": 2.1143507460420214,
+          "max_abs_dmargin": 10.312709097322077
+        },
+        "kkt_1pass": {
+          "forget_dev_from_uniform": 6.243721765984253,
+          "forgotten_argmax": 7,
+          "acc90_pre": 1.0,
+          "acc90_post": 1.0,
+          "victim_flips": 0,
+          "mean_abs_dmargin": 2.155720620366433,
+          "max_abs_dmargin": 10.543835561270056
+        },
+        "naive": {
+          "forget_dev_from_uniform": 30.838832645411923,
+          "forgotten_argmax": 8,
+          "acc90_pre": 1.0,
+          "acc90_post": 0.43333333333333335,
+          "victim_flips": 51,
+          "mean_abs_dmargin": 17.121294987686884,
+          "max_abs_dmargin": 50.15407041443662
+        },
+        "kkt_passes": 14
+      },
+      {
+        "kkt": {
+          "forget_dev_from_uniform": 1.8289122993842e-10,
+          "forgotten_argmax": 10,
+          "acc90_pre": 1.0,
+          "acc90_post": 0.9888888888888889,
+          "victim_flips": 1,
+          "mean_abs_dmargin": 2.1006165615571932,
+          "max_abs_dmargin": 12.36854906940501
+        },
+        "kkt_1pass": {
+          "forget_dev_from_uniform": 8.185349272024501,
+          "forgotten_argmax": 10,
+          "acc90_pre": 1.0,
+          "acc90_post": 0.9777777777777777,
+          "victim_flips": 2,
+          "mean_abs_dmargin": 2.229926691444494,
+          "max_abs_dmargin": 12.173632623398118
+        },
+        "naive": {
+          "forget_dev_from_uniform": 41.73637207552683,
+          "forgotten_argmax": 10,
+          "acc90_pre": 1.0,
+          "acc90_post": 0.4111111111111111,
+          "victim_flips": 53,
+          "mean_abs_dmargin": 23.601105391468174,
+          "max_abs_dmargin": 68.04735132046852
+        },
+        "kkt_passes": 15
+      }
+    ],
+    "naive_vs_kkt_mean_abs_dmargin_ratio": 9.232185827524411,
+    "naive_victim_flips_total": 249,
+    "kkt_victim_flips_total": 2,
+    "no_corpus_note": "KKT edit inputs: model weights + fact-key list only (C = sum_k z_k z_k^T over the 100 stored keys); NO training corpus accessed."
   }
 }
