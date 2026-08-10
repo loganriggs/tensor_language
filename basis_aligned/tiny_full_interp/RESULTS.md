@@ -1114,7 +1114,39 @@ about shares — are unscoreable rather than passed or failed. Writing that guar
 in advance is what stops this cell from contributing three meaningless
 percentages to FINDING 21's trend.
 
-### 05:30 — the cap claim NARROWS: at a third architecture the effect is the right sign but **not resolved from zero**
+### 05:55 — the narrowing is **REVERSED at six seeds**: the codebook effect resolves at −0.0293, t = −5.65
+
+Six paired seeds: −0.0292, −0.0428, −0.0074, −0.0411, −0.0286, −0.0267 →
+**−0.0293, SE 0.0052, t = −5.65, 95% interval [−0.0426, −0.0159]** — excludes
+zero.
+
+| seeds | mean | 95% interval | verdict |
+|---|---|---|---|
+| 3 | −0.0265 | [−0.0708, +0.0179] | unresolved |
+| 4 | −0.0301 | [−0.0561, −0.0042] | resolved |
+| **6** | **−0.0293** | **[−0.0426, −0.0159]** | **resolved** |
+
+**So the 05:30 narrowing is withdrawn.** The claim returns to its full form:
+**removing the query/key cap significantly helps every foldable architecture
+tested — predicate at five cells, bandwidth at two, codebook at one — eight
+cells, three architectures, every effect negative and every one resolved from
+zero.** S1 holds after all.
+
+**The point estimate never moved; only the precision did.** −0.0265 at three
+seeds against −0.0293 at six. The three-seed run was not wrong, it was
+underpowered, and seed 2's −0.0074 was enough to widen the interval past zero
+on its own. That is a useful calibration on this programme's three-seed
+default: three seeds resolve an effect of about 0.01 nats against this noise
+level, and this one is three times that size and still needed more.
+
+**And it sharpens yesterday's scoring lesson rather than excusing it.** Had my
+invented `|t| > 3` bar been the registered criterion, this cell would have read
+"refuted" at three seeds and "holds" at four — flipping on a seed that had not
+been run. The interval test gives the same two answers, but it says *unresolved*
+rather than *refuted*, which is the distinction that matters: one invites more
+data, the other closes the question.
+
+### 05:30 — the narrowing as first published (withdrawn above; kept for the record)
 
 Codebook at depth 1 width 128, three seeds, cap effect per seed −0.02919,
 −0.04283, −0.00742 → **−0.0265, t = −2.57**, 95% interval **[−0.0708, +0.0179]
