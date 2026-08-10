@@ -1,0 +1,20 @@
+  fold gate: True  pipeline: {'pipeline_rel_logit_diff': 4.660236162127752e-07, 'length1_table_rel_logit_diff': 5.592381833770764e-07, 'mlp_tensor_vs_factored_rel': 1.5943831499498629e-07, 'layer0_folded_vs_weight_pattern_rel': 0.0, 'residual_additivity_rel': 0.0, 'pass': True}
+  rung2 7s
+  ladder 12s
+  induction 18s
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/tiny_full_interp/tf_interp3.py", line 1420, in <module>
+    analyse(a.stem, a.quick, skip_baselines=not a.baselines)
+  File "/workspace/tensor_language/basis_aligned/tiny_full_interp/tf_interp3.py", line 1323, in analyse
+    rep['norm_confound_control'] = norm_confound_control(D, 4, min(n_seq, 32), T)
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/tiny_full_interp/tf_interp3.py", line 795, in norm_confound_control
+    hn = nf(pre)
+         ^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/tiny_full_interp/tf_interp3.py", line 782, in gnorm
+    return F.rms_norm(x.view(*sh[:-1], G, S), (S,)).view(sh)
+                      ^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: shape '[8, 256, 4, 16]' is invalid for input of size 135168
