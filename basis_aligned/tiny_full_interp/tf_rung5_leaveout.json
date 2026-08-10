@@ -1,0 +1,269 @@
+{
+ "created": "2026-08-10 08:21:41",
+ "what": "leave-one-out around the top stage of the rung-5 program ladder: each ingredient also gets a REMOVED-LAST value, because the cumulative ladder only gives ADDED-LAST",
+ "args": {
+  "cells": "tf_vanilla_d1_w32_b8192_s0,tf_vanilla_d2_w128_b8192_s0,tf_vanilla_d4_w256_b8192_s0",
+  "out": "tf_rung5_leaveout.json",
+  "merge_into": "",
+  "T": 256,
+  "n_est": 24576,
+  "n_held": 512,
+  "batch": 8,
+  "steps": 6000,
+  "lr": 0.05,
+  "rank": 0,
+  "a": 8,
+  "nh": 4
+ },
+ "cells": {
+  "tf_vanilla_d1_w32_b8192_s0": {
+   "stem": "tf_vanilla_d1_w32_b8192_s0",
+   "rank_r": 16,
+   "gate_rank_a": 8,
+   "n_gates": 4,
+   "context_length": 256,
+   "est_rows_fitted_on": 24576,
+   "held_tokens_scored": 131072,
+   "model_bits_at_32": 8979456,
+   "variants": {
+    "TOP": {
+     "ingredient_removed": "TOP",
+     "kl_from_model_held": 0.09688364376779646,
+     "total_entries": 1983493,
+     "total_bits": 63471776,
+     "bits_over_model": 7.068554709773064
+    },
+    "no_current_token": {
+     "ingredient_removed": "no_current_token",
+     "kl_from_model_held": 0.10998289857525378,
+     "total_entries": 1852421,
+     "total_bits": 59277472,
+     "bits_over_model": 6.601454698369255,
+     "kl_cost_of_removing": 0.013099254807457328,
+     "bits_saved_by_removing": 4194304
+    },
+    "no_context": {
+     "ingredient_removed": "no_context",
+     "kl_from_model_held": 0.22737809899263084,
+     "total_entries": 409601,
+     "total_bits": 13107232,
+     "bits_over_model": 1.4596910993271752,
+     "kl_cost_of_removing": 0.13049445522483438,
+     "bits_saved_by_removing": 50364544
+    },
+    "no_heads": {
+     "ingredient_removed": "no_heads",
+     "kl_from_model_held": 0.11179749097209424,
+     "total_entries": 803074,
+     "total_bits": 25698368,
+     "bits_over_model": 2.8619070019386474,
+     "kl_cost_of_removing": 0.014913847204297781,
+     "bits_saved_by_removing": 37773408
+    },
+    "no_induction": {
+     "ingredient_removed": "no_induction",
+     "kl_from_model_held": 0.09704817191231996,
+     "total_entries": 1975300,
+     "total_bits": 63209600,
+     "bits_over_model": 7.039357395370054,
+     "kl_cost_of_removing": 0.0001645281445235014,
+     "bits_saved_by_removing": 262176
+    },
+    "no_squared_content": {
+     "ingredient_removed": "no_squared_content",
+     "kl_from_model_held": 0.12572050059679896,
+     "total_entries": 1852421,
+     "total_bits": 59277472,
+     "bits_over_model": 6.601454698369255,
+     "kl_cost_of_removing": 0.0288368568290025,
+     "bits_saved_by_removing": 4194304
+    },
+    "no_rotary_in_gate": {
+     "ingredient_removed": "no_rotary_in_gate",
+     "kl_from_model_held": 0.09502728038933128,
+     "total_entries": 1459205,
+     "total_bits": 46694560,
+     "bits_over_model": 5.200154664157829,
+     "kl_cost_of_removing": -0.0018563633784651756,
+     "bits_saved_by_removing": 16777216
+    },
+    "no_second_gate_branch": {
+     "ingredient_removed": "no_second_gate_branch",
+     "kl_from_model_held": 0.09615153342019767,
+     "total_entries": 1459205,
+     "total_bits": 46694560,
+     "bits_over_model": 5.200154664157829,
+     "kl_cost_of_removing": -0.0007321103475987911,
+     "bits_saved_by_removing": 16777216
+    }
+   },
+   "seconds": 635.1637558937073
+  },
+  "tf_vanilla_d2_w128_b8192_s0": {
+   "stem": "tf_vanilla_d2_w128_b8192_s0",
+   "rank_r": 64,
+   "gate_rank_a": 8,
+   "n_gates": 4,
+   "context_length": 256,
+   "est_rows_fitted_on": 24576,
+   "held_tokens_scored": 131072,
+   "model_bits_at_32": 52436992,
+   "variants": {
+    "TOP": {
+     "ingredient_removed": "TOP",
+     "kl_from_model_held": 0.2655150801874697,
+     "total_entries": 4736005,
+     "total_bits": 151552160,
+     "bits_over_model": 2.890176461685674
+    },
+    "no_current_token": {
+     "ingredient_removed": "no_current_token",
+     "kl_from_model_held": 0.27497630077414215,
+     "total_entries": 4211717,
+     "total_bits": 134774944,
+     "bits_over_model": 2.5702264538743944,
+     "kl_cost_of_removing": 0.009461220586672425,
+     "bits_saved_by_removing": 16777216
+    },
+    "no_context": {
+     "ingredient_removed": "no_context",
+     "kl_from_model_held": 0.6635527992621064,
+     "total_entries": 1589249,
+     "total_bits": 50855968,
+     "bits_over_model": 0.9698490714341509,
+     "kl_cost_of_removing": 0.3980377190746367,
+     "bits_saved_by_removing": 100696192
+    },
+    "no_heads": {
+     "ingredient_removed": "no_heads",
+     "kl_from_model_held": 0.31658216239884496,
+     "total_entries": 2375938,
+     "total_bits": 76030016,
+     "bits_over_model": 1.4499309189970317,
+     "kl_cost_of_removing": 0.051067082211375237,
+     "bits_saved_by_removing": 75522144
+    },
+    "no_induction": {
+     "ingredient_removed": "no_induction",
+     "kl_from_model_held": 0.26747177238576114,
+     "total_entries": 4727812,
+     "total_bits": 151289984,
+     "bits_over_model": 2.885176632557413,
+     "kl_cost_of_removing": 0.001956692198291421,
+     "bits_saved_by_removing": 262176
+    },
+    "no_squared_content": {
+     "ingredient_removed": "no_squared_content",
+     "kl_from_model_held": 0.29722423385828733,
+     "total_entries": 4211717,
+     "total_bits": 134774944,
+     "bits_over_model": 2.5702264538743944,
+     "kl_cost_of_removing": 0.031709153670817614,
+     "bits_saved_by_removing": 16777216
+    },
+    "no_rotary_in_gate": {
+     "ingredient_removed": "no_rotary_in_gate",
+     "kl_from_model_held": 0.2680173651315272,
+     "total_entries": 4211717,
+     "total_bits": 134774944,
+     "bits_over_model": 2.5702264538743944,
+     "kl_cost_of_removing": 0.0025022849440574646,
+     "bits_saved_by_removing": 16777216
+    },
+    "no_second_gate_branch": {
+     "ingredient_removed": "no_second_gate_branch",
+     "kl_from_model_held": 0.2679184328299016,
+     "total_entries": 4211717,
+     "total_bits": 134774944,
+     "bits_over_model": 2.5702264538743944,
+     "kl_cost_of_removing": 0.002403352642431855,
+     "bits_saved_by_removing": 16777216
+    }
+   },
+   "seconds": 666.005784034729
+  },
+  "tf_vanilla_d4_w256_b8192_s0": {
+   "stem": "tf_vanilla_d4_w256_b8192_s0",
+   "rank_r": 128,
+   "gate_rank_a": 8,
+   "n_gates": 4,
+   "context_length": 256,
+   "est_rows_fitted_on": 24576,
+   "held_tokens_scored": 131072,
+   "model_bits_at_32": 218136576,
+   "variants": {
+    "TOP": {
+     "ingredient_removed": "TOP",
+     "kl_from_model_held": 0.5083169210702181,
+     "total_entries": 8406021,
+     "total_bits": 268992672,
+     "bits_over_model": 1.2331387836581793
+    },
+    "no_current_token": {
+     "ingredient_removed": "no_current_token",
+     "kl_from_model_held": 0.5008375179022551,
+     "total_entries": 7357445,
+     "total_bits": 235438240,
+     "bits_over_model": 1.0793157402452307,
+     "kl_cost_of_removing": -0.007479403167963028,
+     "bits_saved_by_removing": 33554432
+    },
+    "no_context": {
+     "ingredient_removed": "no_context",
+     "kl_from_model_held": 1.0216763596981764,
+     "total_entries": 3162113,
+     "total_bits": 101187616,
+     "bits_over_model": 0.4638727619892594,
+     "kl_cost_of_removing": 0.5133594386279583,
+     "bits_saved_by_removing": 167805056
+    },
+    "no_heads": {
+     "ingredient_removed": "no_heads",
+     "kl_from_model_held": 0.586277674883604,
+     "total_entries": 4473090,
+     "total_bits": 143138880,
+     "bits_over_model": 0.6561892674064894,
+     "kl_cost_of_removing": 0.07796075381338596,
+     "bits_saved_by_removing": 125853792
+    },
+    "no_induction": {
+     "ingredient_removed": "no_induction",
+     "kl_from_model_held": 0.552576188929379,
+     "total_entries": 8397828,
+     "total_bits": 268730496,
+     "bits_over_model": 1.23193689443443,
+     "kl_cost_of_removing": 0.0442592678591609,
+     "bits_saved_by_removing": 262176
+    },
+    "no_squared_content": {
+     "ingredient_removed": "no_squared_content",
+     "kl_from_model_held": 0.5456804088316858,
+     "total_entries": 7357445,
+     "total_bits": 235438240,
+     "bits_over_model": 1.0793157402452307,
+     "kl_cost_of_removing": 0.037363487761467695,
+     "bits_saved_by_removing": 33554432
+    },
+    "no_rotary_in_gate": {
+     "ingredient_removed": "no_rotary_in_gate",
+     "kl_from_model_held": 0.49705340480431914,
+     "total_entries": 7881733,
+     "total_bits": 252215456,
+     "bits_over_model": 1.1562272619517049,
+     "kl_cost_of_removing": -0.011263516265898943,
+     "bits_saved_by_removing": 16777216
+    },
+    "no_second_gate_branch": {
+     "ingredient_removed": "no_second_gate_branch",
+     "kl_from_model_held": 0.4955948060378432,
+     "total_entries": 7881733,
+     "total_bits": 252215456,
+     "bits_over_model": 1.1562272619517049,
+     "kl_cost_of_removing": -0.012722115032374859,
+     "bits_saved_by_removing": 16777216
+    }
+   },
+   "seconds": 525.1732816696167
+  }
+ }
+}

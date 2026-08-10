@@ -1114,6 +1114,171 @@ about shares — are unscoreable rather than passed or failed. Writing that guar
 in advance is what stops this cell from contributing three meaningless
 percentages to FINDING 21's trend.
 
+## 2026-08-10 — FINDING 24: **the best weights-free program we can write roughly HALVES the remainder at every cell — and the remainder still grows monotonically with model size.** The bigram baseline is beaten at strictly fewer bits at all three cells; the model is still the shortest description of itself
+
+Files: `tf_rung5_program.py` (the program, the staged ladder, the bit bill and
+controls i–iii), `tf_rung5_leaveout.py` (removed-last values), 
+`tf_rung5_fitnoise.py` (the refit noise band) →
+**`tf_rung5_program.json`** (everything, with `headline` at the top level),
+plus `tf_rung5_leaveout.json`, `tf_rung5_fitnoise.json`,
+`tf_rung5_program_seeds.json`.
+
+FINDING 23 measured the *simplest* weights-free program — the model's own
+length-1 table — and said in as many words that a ceiling result needs the best
+one we can write. This is that program. It is code plus tables indexed by token,
+token-pair, position and distance, with arithmetic on the entries and nothing
+else: no matrix that multiplies a computed activation, and no call into the
+network. Every table is fitted on the estimation split by distilling the model's
+next-token distribution, and scored on held.
+
+### The answer to FINDING 23's scaling question
+
+All numbers on **held**, 512 rows × 256 tokens = **131,072 tokens**, tables
+fitted on **24,576 estimation rows (6,291,456 positions)**; the splits are
+disjoint and nothing is ever fitted on held. Bits are 32 per table entry, and 32
+per model parameter with the tied embedding counted once.
+
+| cell | model cross-entropy | bigram baseline KL (its size) | best program at or below the baseline's size | best program at any size |
+|---|---|---|---|---|
+| depth 1 width 32 | 5.4964 | **0.2905** (2.10 MB) | **0.1866** at 1.61 MB (0.77×) | **0.0558** at 13.67 MB |
+| depth 2 width 128 | 4.6486 | **0.8193** (8.39 MB) | **0.3688** at 7.37 MB (0.88×) | **0.2655** at 18.94 MB |
+| depth 4 width 256 | 4.1565 | **1.2356** (16.78 MB) | **0.6942** at 13.67 MB (0.81×) | **0.5083** at 33.62 MB |
+
+As a fraction of the model's own cross-entropy — the quantity FINDING 23
+reported — the remainder goes
+
+| cell | bigram baseline | best program at ≤ baseline size | best program at any size | baseline ÷ best |
+|---|---|---|---|---|
+| depth 1 width 32 | 5.3% | 3.4% | **1.0%** | 5.2× |
+| depth 2 width 128 | 17.6% | 7.9% | **5.7%** | 3.1× |
+| depth 4 width 256 | 29.7% | 16.7% | **12.2%** | 2.4× |
+
+**Both readings of FINDING 23 survive, and the interesting correction is not the
+one expected.** The richer program roughly halves the shortfall at matched size
+(36%, 55% and 44% lower KL) and does five, three and two-and-a-half times better
+than the baseline when size is unconstrained — so the 30% figure at the largest
+cell was an artefact of program simplicity, not a ceiling. But the shortfall
+still grows monotonically with model size, and it grows **faster** for the richer
+program (1.0% → 12.2%, a factor of twelve) than for the bigram baseline (5.3% →
+29.7%, a factor of 5.6). **The advantage of writing a better program shrinks as
+the model grows**: 5.2× at depth 1 width 32, 3.1× at depth 2 width 128, 2.4× at
+depth 4 width 256. Extrapolating that trend is exactly the wrong direction for
+the programme's brief, and it is the sharpest version of FINDING 23's warning.
+
+### The staged ladder — which ingredient buys what
+
+Cumulative, one ingredient at a time, each stage warm-started from the previous
+one. Added-last KL improvements at the three cells:
+
+| ingredient added | depth 1 width 32 | depth 2 width 128 | depth 4 width 256 |
+|---|---|---|---|
+| current-token content table (over unigram) | 1.189 | 1.607 | 1.745 |
+| prefix-mean context | 0.031 | 0.109 | 0.140 |
+| **per-distance weight profile** (256 numbers) | **0.046** | **0.143** | **0.194** |
+| token-pair gate (rank 8) | 0.033 | 0.045 | 0.043 |
+| rotary distance-dependence in the gate | 0.000 | 0.006 | 0.009 |
+| second gate branch (the folded pattern's shape) | 0.005 | 0.012 | 0.013 |
+| four independent gates with their own value tables | 0.000 | 0.000 | 0.000 |
+| induction / copy rule | 0.000 | 0.004 | 0.051 |
+| squared-content term (boundary case, see below) | 0.034 | 0.039 | 0.039 |
+
+**The cheapest ingredient is the most valuable one.** A table of 256 numbers —
+one weight per distance — buys more than the rank-8 token-pair gate, the rotary,
+the second branch and the extra heads put together, at 1/500th of their bit cost.
+
+### Added last is not removed last, and a refit noise band decides what counts
+
+The programme's standing failure mode — *quoting a component's value without its
+ladder position* — bites here. Refitting the top configuration with exactly one
+ingredient removed (cold, `tf_rung5_leaveout.json`) gives removed-last costs that
+disagree with the added-last column by up to two orders of magnitude, and the
+refit spread of the identical configuration (`tf_rung5_fitnoise.json`, four
+repeats) is ±0.0029, ±0.0024 and ±0.0075 nats one standard deviation at the three
+cells, which retires several apparent effects:
+
+| ingredient | added last (d2 w128) | removed last (d2 w128) | verdict |
+|---|---|---|---|
+| four independent gates | 0.000 | **+0.051** | real, and invisible from the ladder |
+| squared-content term | 0.039 | +0.032 | real at both ends |
+| induction rule | 0.004 | +0.002 | **noise at depth 2**; +0.044 at depth 4, real |
+| rotary in the gate | 0.006 | +0.003 | **noise at every cell** |
+| second gate branch | 0.012 | +0.002 | **noise at every cell** |
+| current-token content table | 1.607 | +0.010 | almost entirely redundant once the context term exists |
+
+The two features that make this architecture's attention pattern what it is —
+the rotary and the product of two branches — buy **nothing** in a weights-free
+reconstruction of it, at any of the three cells, once the noise band is applied.
+And at depth 4 the current-token table is redundant to within noise (−0.008)
+once a rich context term is present.
+
+### Two smaller facts worth keeping
+
+**The model's own length-1 table is not the best token-only program.** A fitted
+rank-16 table at *half* the entries beats it at depth 1 width 32 (0.2635 versus
+0.2905), and the exact optimum over all token-only programs — the estimation-split
+average of the model's distribution per current token, a dense 8192 × 8192 table —
+is 0.1853, 0.6452 and 1.0575. A rank-128 factored table reaches 0.1876, 0.6584 and
+1.0922, i.e. within 1–3% of that optimum at 1/30th of the dense table's entries.
+
+**Separating the read and write roles of the token table is load-bearing.**
+Tying them, as the model itself does, saves 20% of the bill and costs 0.064,
+0.176 and 0.320 nats at the three cells.
+
+### What is still true: the model is the shortest description of itself
+
+Under the same quantisation rules the model reaches KL 0.0007, 0.0008 and 0.0004
+at **0.32, 1.69 and 6.92 MB** with 8-bit weights. Eight-bit quantisation of the
+program is likewise free (under 0.0004 nats), so this is not a quantisation
+artefact: **no program point measured here is both shorter than the model and
+comparable to it in KL.** What the program does beat, at strictly fewer bits and
+at all three cells, is the bigram baseline. FINDING 12's verdict stands — the
+model is the compressed artefact — and the contribution here is that the
+*interpretation* is now a factor of two better than the trivial one at the same
+price.
+
+### Controls (without these the numbers do not count)
+
+1. **Exact fold.** Given the model's own folded layer-0 tables at full rank —
+   the per-head query and key factor tables, the per-head output-value table, the
+   causal mask, the rotary — the program's attention code reproduces the model's
+   layer-0 attention write to relative 5.8e-7, 4.4e-6 and 4.9e-6. Same code path
+   the fitted program uses, so the harness is certified rather than assumed.
+2. **Shuffled tables.** Permuting the token axis of every fitted table (leaving
+   the unigram bias intact, so the marginal is still right) moves the KL from
+   0.1143 to 2.6976, from 0.3273 to 3.7025 and from 0.6041 to 4.5857 — factors of
+   23.6, 11.3 and 7.6. The gate can fail.
+3. **Splits.** Estimation 24,576 rows (6,291,456 positions), held 512 rows ×
+   256 tokens = 131,072 tokens, disjoint corpus splits. Every table is also
+   scored on the 96 × 256 = 24,576-token slice `tf_interp3.ladder_v` uses so the
+   comparison with FINDING 23 is on the identical text; the two settings differ
+   by 0.005–0.026 nats and both are reported for every stage.
+4. **Seeds.** The whole ladder was re-run on two further seeds of the depth-2
+   width-128 cell: the bigram baseline lands at 0.8193 / 0.8309 / 0.8325 and the
+   comparable-size program at 0.3706 / 0.3730 / 0.3834. No verdict here rests on
+   one run.
+
+### Two honest caveats
+
+**The cumulative ladder is path-dependent and conservative.** It is warm-started,
+so every stage above the second inherits the previous stage's basin. Cold-fitting
+the identical top configuration lands at 0.0969, 0.2655 and 0.5083 against the
+warm ladder's 0.1143, 0.3273 and 0.6041. The headline "best at any size" column
+therefore takes the minimum over the ladder, the rank frontier and the cold
+refits (it is a rank-128 frontier point at depth 1 width 32 and the cold refit at
+the other two), and every ladder increment should be read as a lower bound on
+that ingredient's worth.
+
+**The grammar boundary is a judgement, and it is stated so it can be attacked.**
+The rule used is that every parameter must be attached to a discrete symbol on at
+least one axis (a token, a position, a distance) and that nothing may be a map
+between two latent spaces. Under that rule the layer-0 attention of these models
+is exactly weights-free and the bilinear MLP is exactly not. The last ladder stage
+— a squared-content term, `logits += <z ⊙ z, W2[v]>` — is legal under the rule
+because `W2` is token-indexed and `z ⊙ z` is arithmetic on table entries, but it
+is the ingredient closest to re-implementing the MLP, so it is labelled as a
+boundary case and reported separately rather than folded into the headline. It is
+worth 0.03–0.04 nats, so no conclusion here turns on it.
+
 ## 2026-08-10 07:00 — FINDING 23: **the weights-free remainder grows monotonically with model size on BOTH axes.** A bigram table is within 4.8% of the smallest model's own distribution and misses 29.5% of the largest
 
 Now that all 189 ladders are complete, the rung-5 numbers can be aggregated for

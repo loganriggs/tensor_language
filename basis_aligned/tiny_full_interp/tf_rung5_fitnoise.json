@@ -1,0 +1,66 @@
+{
+ "created": "2026-08-10 08:55:01",
+ "what": "refit spread of the top-stage program (fit noise floor)",
+ "args": {
+  "cells": "tf_vanilla_d1_w32_b8192_s0,tf_vanilla_d2_w128_b8192_s0,tf_vanilla_d4_w256_b8192_s0",
+  "out": "tf_rung5_fitnoise.json",
+  "merge_into": "",
+  "T": 256,
+  "n_est": 24576,
+  "n_held": 512,
+  "batch": 8,
+  "steps": 6000,
+  "lr": 0.05,
+  "rank": 0,
+  "a": 8,
+  "nh": 4,
+  "repeats": 4
+ },
+ "cells": {
+  "tf_vanilla_d1_w32_b8192_s0": {
+   "stem": "tf_vanilla_d1_w32_b8192_s0",
+   "rank_r": 16,
+   "repeats": 4,
+   "kls": [
+    0.10212161275558174,
+    0.0984022538177669,
+    0.10305661789607257,
+    0.09708392224274576
+   ],
+   "mean": 0.10016610167804174,
+   "sd": 0.0028746070413558818,
+   "range": 0.005972695653326809,
+   "what": "same TOP configuration, different table init and batch order; any leave-one-out cost inside this band is noise"
+  },
+  "tf_vanilla_d2_w128_b8192_s0": {
+   "stem": "tf_vanilla_d2_w128_b8192_s0",
+   "rank_r": 64,
+   "repeats": 4,
+   "kls": [
+    0.26088339975103736,
+    0.2648424964863807,
+    0.26588383223861456,
+    0.2661584073211998
+   ],
+   "mean": 0.2644420339493081,
+   "sd": 0.00243919163245302,
+   "range": 0.0052750075701624155,
+   "what": "same TOP configuration, different table init and batch order; any leave-one-out cost inside this band is noise"
+  },
+  "tf_vanilla_d4_w256_b8192_s0": {
+   "stem": "tf_vanilla_d4_w256_b8192_s0",
+   "rank_r": 128,
+   "repeats": 4,
+   "kls": [
+    0.5254798633977771,
+    0.5238604671321809,
+    0.5228506340645254,
+    0.5092377155087888
+   ],
+   "mean": 0.520357170025818,
+   "sd": 0.007491655572861754,
+   "range": 0.016242147888988256,
+   "what": "same TOP configuration, different table init and batch order; any leave-one-out cost inside this band is noise"
+  }
+ }
+}

@@ -1,0 +1,4730 @@
+{
+ "created": "2026-08-10 07:43:42",
+ "what": "rung 5: a weights-free program, staged, with bits and controls",
+ "grammar": "tables indexed by token / token-pair / position / distance, plus arithmetic; no latent-to-latent matrix, no call into the model",
+ "bit_convention": "every table entry charged 32 bits; the model charged 32 bits per parameter with the tied embedding counted once (tf_compress.py rules)",
+ "args": {
+  "cells": "tf_vanilla_d1_w32_b8192_s0,tf_vanilla_d2_w128_b8192_s0,tf_vanilla_d4_w256_b8192_s0",
+  "out": "tf_rung5_program.json",
+  "T": 256,
+  "n_est": 24576,
+  "n_held": 512,
+  "n_dense": 8192,
+  "batch": 8,
+  "steps": 4000,
+  "steps_first": 6000,
+  "lr": 0.05,
+  "rank": 0,
+  "a": 8,
+  "nh": 4,
+  "ranks": [
+   8,
+   16,
+   32,
+   64,
+   128,
+   256
+  ],
+  "smoke": false
+ },
+ "cells": {
+  "tf_vanilla_d1_w32_b8192_s0": {
+   "stem": "tf_vanilla_d1_w32_b8192_s0",
+   "depth": 1,
+   "width": 32,
+   "vocab": 8192,
+   "tok": "bpe",
+   "Ws": 32,
+   "n_heads": 2,
+   "context_length": 256,
+   "rank_r": 16,
+   "gate_rank_a": 8,
+   "n_gates": 4,
+   "model_params_tied_once": 280608,
+   "model_bits_at_32": 8979456,
+   "splits": {
+    "est_rows_fitted_on": 24576,
+    "est_tokens_available": 6291456,
+    "held_rows_scored_on": 512,
+    "held_tokens_scored": 131072,
+    "held_ref_rows": 96,
+    "held_ref_tokens": 24576,
+    "note": "nothing is fitted on held; est and held are disjoint corpus splits (tf_corpus MANIFEST)"
+   },
+   "stages": {
+    "A_unigram": {
+     "description": "U[v] only",
+     "ingredient_added": [
+      "(base)"
+     ],
+     "kl_from_model_held": 1.4522011633962393,
+     "kl_from_model_est": 1.4521556366235018,
+     "kl_at_finding23_setting": 1.461268663406372,
+     "held_minus_est_kl": 4.552677273750305e-05,
+     "program_ce_held": 7.320351347327232,
+     "model_ce_held": 5.496354468166828,
+     "remainder_frac_of_model_ce": 0.26421170101144964,
+     "bits": {
+      "entries": {
+       "U": 8192
+      },
+      "total_entries": 8192,
+      "bits_per_entry": 32,
+      "total_bits": 262144
+     },
+     "bits_over_model": 0.029193750712738054,
+     "over_model_budget": false,
+     "bits_over_bigram_baseline": 0.015625,
+     "beats_bigram_kl": false,
+     "beats_bigram_at_or_below_its_size": false,
+     "fit_steps": 6000,
+     "fit_loss_curve": [
+      [
+       0,
+       7.38491153717041
+      ],
+      [
+       1200,
+       7.386826992034912
+      ],
+      [
+       2400,
+       7.445957660675049
+      ],
+      [
+       3600,
+       7.352117538452148
+      ],
+      [
+       4800,
+       7.280017852783203
+      ],
+      [
+       5999,
+       7.302820205688477
+      ]
+     ]
+    },
+    "B_bigram_rank": {
+     "description": "+ current-token content Pc[x_t]",
+     "ingredient_added": [
+      "bigram"
+     ],
+     "kl_from_model_held": 0.2634523455053568,
+     "kl_from_model_est": 0.2579279092606157,
+     "kl_at_finding23_setting": 0.2535318819185098,
+     "held_minus_est_kl": 0.005524436244741082,
+     "program_ce_held": 5.840234756469727,
+     "model_ce_held": 5.496354468166828,
+     "remainder_frac_of_model_ce": 0.0479321970646527,
+     "bits": {
+      "entries": {
+       "U": 8192,
+       "W": 131072,
+       "Pc": 131072
+      },
+      "total_entries": 270336,
+      "bits_per_entry": 32,
+      "total_bits": 8650752
+     },
+     "bits_over_model": 0.9633937735203558,
+     "over_model_budget": false,
+     "bits_over_bigram_baseline": 0.515625,
+     "beats_bigram_kl": true,
+     "beats_bigram_at_or_below_its_size": true,
+     "fit_steps": 4000,
+     "fit_loss_curve": [
+      [
+       0,
+       7.383259296417236
+      ],
+      [
+       800,
+       5.992446422576904
+      ],
+      [
+       1600,
+       6.138166427612305
+      ],
+      [
+       2400,
+       6.301091194152832
+      ],
+      [
+       3200,
+       6.086233615875244
+      ],
+      [
+       3999,
+       6.187198638916016
+      ]
+     ]
+    },
+    "C_prefix_mean": {
+     "description": "+ prefix-mean context",
+     "ingredient_added": [
+      "ctx"
+     ],
+     "kl_from_model_held": 0.23268911335617304,
+     "kl_from_model_est": 0.22991955955512822,
+     "kl_at_finding23_setting": 0.22496225560704866,
+     "held_minus_est_kl": 0.0027695538010448217,
+     "program_ce_held": 5.777818687260151,
+     "model_ce_held": 5.496354468166828,
+     "remainder_frac_of_model_ce": 0.042335172286255524,
+     "bits": {
+      "entries": {
+       "U": 8192,
+       "W": 131072,
+       "Pc": 131072,
+       "Vc": 131072,
+       "cscale": 1
+      },
+      "total_entries": 401409,
+      "bits_per_entry": 32,
+      "total_bits": 12845088
+     },
+     "bits_over_model": 1.4304973486144372,
+     "over_model_budget": true,
+     "bits_over_bigram_baseline": 0.7656269073486328,
+     "beats_bigram_kl": true,
+     "beats_bigram_at_or_below_its_size": true,
+     "fit_steps": 4000,
+     "fit_loss_curve": [
+      [
+       0,
+       6.199579238891602
+      ],
+      [
+       800,
+       5.961021900177002
+      ],
+      [
+       1600,
+       6.115778923034668
+      ],
+      [
+       2400,
+       6.271823406219482
+      ],
+      [
+       3200,
+       6.055597305297852
+      ],
+      [
+       3999,
+       6.162052631378174
+      ]
+     ]
+    },
+    "D_distance_profile": {
+     "description": "+ per-distance weights g[d]",
+     "ingredient_added": [
+      "ctx"
+     ],
+     "kl_from_model_held": 0.18662838102318347,
+     "kl_from_model_est": 0.18422057526186109,
+     "kl_at_finding23_setting": 0.1783609874546528,
+     "held_minus_est_kl": 0.002407805761322379,
+     "program_ce_held": 5.702685430645943,
+     "model_ce_held": 5.496354468166828,
+     "remainder_frac_of_model_ce": 0.03395493906080419,
+     "bits": {
+      "entries": {
+       "U": 8192,
+       "W": 131072,
+       "Pc": 131072,
+       "Vc": 131072,
+       "cscale": 1,
+       "g": 256
+      },
+      "total_entries": 401665,
+      "bits_per_entry": 32,
+      "total_bits": 12853280
+     },
+     "bits_over_model": 1.4314096533242102,
+     "over_model_budget": true,
+     "bits_over_bigram_baseline": 0.7661151885986328,
+     "beats_bigram_kl": true,
+     "beats_bigram_at_or_below_its_size": true,
+     "fit_steps": 4000,
+     "fit_loss_curve": [
+      [
+       0,
+       6.174861907958984
+      ],
+      [
+       800,
+       5.917475700378418
+      ],
+      [
+       1600,
+       6.069387435913086
+      ],
+      [
+       2400,
+       6.220851898193359
+      ],
+      [
+       3200,
+       6.011857986450195
+      ],
+      [
+       3999,
+       6.114933013916016
+      ]
+     ]
+    },
+    "E_tokenpair_gate": {
+     "description": "+ rank-a token-pair gate",
+     "ingredient_added": [
+      "ctx"
+     ],
+     "kl_from_model_held": 0.1534572613891214,
+     "kl_from_model_est": 0.15218062372878194,
+     "kl_at_finding23_setting": 0.14666137844324112,
+     "held_minus_est_kl": 0.0012766376603394747,
+     "program_ce_held": 5.665249474346638,
+     "model_ce_held": 5.496354468166828,
+     "remainder_frac_of_model_ce": 0.027919826182590302,
+     "bits": {
+      "entries": {
+       "U": 8192,
+       "W": 131072,
+       "Pc": 131072,
+       "Vc": 131072,
+       "cscale": 1,
+       "g": 256,
+       "Kq": 65536,
+       "Kk": 65536
+      },
+      "total_entries": 532737,
+      "bits_per_entry": 32,
+      "total_bits": 17047584
+     },
+     "bits_over_model": 1.898509664728019,
+     "over_model_budget": true,
+     "bits_over_bigram_baseline": 1.0161151885986328,
+     "beats_bigram_kl": true,
+     "beats_bigram_at_or_below_its_size": false,
+     "fit_steps": 4000,
+     "fit_loss_curve": [
+      [
+       0,
+       6.102255821228027
+      ],
+      [
+       800,
+       5.891326427459717
+      ],
+      [
+       1600,
+       6.041153430938721
+      ],
+      [
+       2400,
+       6.189810752868652
+      ],
+      [
+       3200,
+       5.981907844543457
+      ],
+      [
+       3999,
+       6.087921142578125
+      ]
+     ]
+    },
+    "F_rotary_gate": {
+     "description": "+ rotary (distance) in the gate",
+     "ingredient_added": [
+      "ctx"
+     ],
+     "kl_from_model_held": 0.15325842588208616,
+     "kl_from_model_est": 0.151947001228109,
+     "kl_at_finding23_setting": 0.14698110396663347,
+     "held_minus_est_kl": 0.0013114246539771557,
+     "program_ce_held": 5.662936255335808,
+     "model_ce_held": 5.496354468166828,
+     "remainder_frac_of_model_ce": 0.027883650293974157,
+     "bits": {
+      "entries": {
+       "U": 8192,
+       "W": 131072,
+       "Pc": 131072,
+       "Vc": 131072,
+       "cscale": 1,
+       "g": 256,
+       "Kq": 65536,
+       "Kk": 65536
+      },
+      "total_entries": 532737,
+      "bits_per_entry": 32,
+      "total_bits": 17047584
+     },
+     "bits_over_model": 1.898509664728019,
+     "over_model_budget": true,
+     "bits_over_bigram_baseline": 1.0161151885986328,
+     "beats_bigram_kl": true,
+     "beats_bigram_at_or_below_its_size": false,
+     "fit_steps": 4000,
+     "fit_loss_curve": [
+      [
+       0,
+       6.110520362854004
+      ],
+      [
+       800,
+       5.8946943283081055
+      ],
+      [
+       1600,
+       6.042881965637207
+      ],
+      [
+       2400,
+       6.185102462768555
+      ],
+      [
+       3200,
+       5.981642723083496
+      ],
+      [
+       3999,
+       6.087457180023193
+      ]
+     ]
+    },
+    "G_two_branch_gate": {
+     "description": "+ second gate branch: the exact shape of the folded pattern",
+     "ingredient_added": [
+      "ctx"
+     ],
+     "kl_from_model_held": 0.14856917201541364,
+     "kl_from_model_est": 0.14711421285755932,
+     "kl_at_finding23_setting": 0.14198552444577217,
+     "held_minus_est_kl": 0.0014549591578543186,
+     "program_ce_held": 5.6554872915148735,
+     "model_ce_held": 5.496354468166828,
+     "remainder_frac_of_model_ce": 0.02703049318887273,
+     "bits": {
+      "entries": {
+       "U": 8192,
+       "W": 131072,
+       "Pc": 131072,
+       "Vc": 131072,
+       "cscale": 1,
+       "g": 256,
+       "Kq": 65536,
+       "Kk": 65536,
+       "Kq2": 65536,
+       "Kk2": 65536
+      },
+      "total_entries": 663809,
+      "bits_per_entry": 32,
+      "total_bits": 21241888
+     },
+     "bits_over_model": 2.365609676131828,
+     "over_model_budget": true,
+     "bits_over_bigram_baseline": 1.2661151885986328,
+     "beats_bigram_kl": true,
+     "beats_bigram_at_or_below_its_size": false,
+     "fit_steps": 4000,
+     "fit_loss_curve": [
+      [
+       0,
+       6.058945655822754
+      ],
+      [
+       800,
+       5.890836715698242
+      ],
+      [
+       1600,
+       6.040705680847168
+      ],
+      [
+       2400,
+       6.180488109588623
+      ],
+      [
+       3200,
+       5.976954460144043
+      ],
+      [
+       3999,
+       6.0834245681762695
+      ]
+     ]
+    },
+    "H_heads": {
+     "description": "+ 4 independent gates with own value tables",
+     "ingredient_added": [
+      "nh"
+     ],
+     "kl_from_model_held": 0.14829778112471104,
+     "kl_from_model_est": 0.1468442170880735,
+     "kl_at_finding23_setting": 0.14168052126963934,
+     "held_minus_est_kl": 0.0014535640366375446,
+     "program_ce_held": 5.655719049274921,
+     "model_ce_held": 5.496354468166828,
+     "remainder_frac_of_model_ce": 0.026981116662618026,
+     "bits": {
+      "entries": {
+       "U": 8192,
+       "W": 131072,
+       "Pc": 131072,
+       "Vc": 524288,
+       "cscale": 4,
+       "g": 1024,
+       "Kq": 262144,
+       "Kk": 262144,
+       "Kq2": 262144,
+       "Kk2": 262144
+      },
+      "total_entries": 1844228,
+      "bits_per_entry": 32,
+      "total_bits": 59015296
+     },
+     "bits_over_model": 6.572257383966245,
+     "over_model_budget": true,
+     "bits_over_bigram_baseline": 3.5175857543945312,
+     "beats_bigram_kl": true,
+     "beats_bigram_at_or_below_its_size": false,
+     "fit_steps": 4000,
+     "fit_loss_curve": [
+      [
+       0,
+       6.0526909828186035
+      ],
+      [
+       800,
+       5.891280651092529
+      ],
+      [
+       1600,
+       6.040595054626465
+      ],
+      [
+       2400,
+       6.181175231933594
+      ],
+      [
+       3200,
+       5.976433753967285
+      ],
+      [
+       3999,
+       6.082565784454346
+      ]
+     ]
+    },
+    "I_induction": {
+     "description": "+ induction/copy rule",
+     "ingredient_added": [
+      "induction"
+     ],
+     "kl_from_model_held": 0.14776132942643017,
+     "kl_from_model_est": 0.14632811187766492,
+     "kl_at_finding23_setting": 0.14122960654397806,
+     "held_minus_est_kl": 0.001433217548765242,
+     "program_ce_held": 5.634858779609203,
+     "model_ce_held": 5.496354468166828,
+     "remainder_frac_of_model_ce": 0.026883515297679166,
+     "bits": {
+      "entries": {
+       "U": 8192,
+       "W": 131072,
+       "Pc": 131072,
+       "Vc": 524288,
+       "cscale": 4,
+       "g": 1024,
+       "Kq": 262144,
+       "Kk": 262144,
+       "Kq2": 262144,
+       "Kk2": 262144,
+       "lam0": 1,
+       "lam_tok": 8192
+      },
+      "total_entries": 1852421,
+      "bits_per_entry": 32,
+      "total_bits": 59277472
+     },
+     "bits_over_model": 6.601454698369255,
+     "over_model_budget": true,
+     "bits_over_bigram_baseline": 3.533212661743164,
+     "beats_bigram_kl": true,
+     "beats_bigram_at_or_below_its_size": false,
+     "fit_steps": 4000,
+     "fit_loss_curve": [
+      [
+       0,
+       6.052065849304199
+      ],
+      [
+       800,
+       5.891521453857422
+      ],
+      [
+       1600,
+       6.039106845855713
+      ],
+      [
+       2400,
+       6.180563926696777
+      ],
+      [
+       3200,
+       5.977053642272949
+      ],
+      [
+       3999,
+       6.082428455352783
+      ]
+     ]
+    },
+    "J_squared_content": {
+     "description": "+ squared-content term (BOUNDARY: closest thing to the MLP)",
+     "ingredient_added": [
+      "square"
+     ],
+     "kl_from_model_held": 0.11431743286084384,
+     "kl_from_model_est": 0.1124626473756507,
+     "kl_at_finding23_setting": 0.10890863463282585,
+     "held_minus_est_kl": 0.0018547854851931334,
+     "program_ce_held": 5.595340095460415,
+     "model_ce_held": 5.496354468166828,
+     "remainder_frac_of_model_ce": 0.020798773718641105,
+     "bits": {
+      "entries": {
+       "U": 8192,
+       "W": 131072,
+       "Pc": 131072,
+       "Vc": 524288,
+       "cscale": 4,
+       "g": 1024,
+       "Kq": 262144,
+       "Kk": 262144,
+       "Kq2": 262144,
+       "Kk2": 262144,
+       "lam0": 1,
+       "lam_tok": 8192,
+       "W2": 131072
+      },
+      "total_entries": 1983493,
+      "bits_per_entry": 32,
+      "total_bits": 63471776
+     },
+     "bits_over_model": 7.068554709773064,
+     "over_model_budget": true,
+     "bits_over_bigram_baseline": 3.783212661743164,
+     "beats_bigram_kl": true,
+     "beats_bigram_at_or_below_its_size": false,
+     "fit_steps": 4000,
+     "fit_loss_curve": [
+      [
+       0,
+       6.051811218261719
+      ],
+      [
+       800,
+       5.900846481323242
+      ],
+      [
+       1600,
+       6.017391204833984
+      ],
+      [
+       2400,
+       6.153340816497803
+      ],
+      [
+       3200,
+       5.946250915527344
+      ],
+      [
+       3999,
+       6.048186302185059
+      ]
+     ]
+    }
+   },
+   "controls": {
+    "i_exact_fold": {
+     "attn_write_max_abs_diff": 5.245208740234375e-06,
+     "attn_write_absmax": 9.024374008178711,
+     "attn_write_rel_diff": 5.812268790589451e-07,
+     "tol_rel": 1e-05,
+     "pass": true,
+     "what": "the program attention code, given the exact folded layer-0 tables at full rank, vs the model attention write"
+    },
+    "ii_shuffled_tables": {
+     "kl_from_model": 2.6976400054991245,
+     "program_ce": 8.559193208813667,
+     "model_ce": 5.496354468166828,
+     "tokens": 131072,
+     "stage": "J_squared_content",
+     "kl_unshuffled": 0.11431743286084384,
+     "ratio": 23.5978007727212,
+     "pass": true,
+     "what": "token axis of every fitted table permuted; the KL must blow up"
+    }
+   },
+   "references": {
+    "model_bigram": {
+     "kl_from_model": 0.2904504123143852,
+     "program_ce": 5.840983107686043,
+     "model_ce": 5.496354468166828,
+     "tokens": 131072,
+     "kl_at_finding23_setting": 0.27439381927251816,
+     "bits": {
+      "entries": {
+       "R0": 262144,
+       "WU": 262144
+      },
+      "total_entries": 524288,
+      "bits_per_entry": 32,
+      "total_bits": 16777216,
+      "dense_VxV_entries": 67108864,
+      "dense_VxV_bits": 2147483648
+     },
+     "what": "the model's own length-1 output table -- the baseline FINDING 23 measured"
+    },
+    "model_self": {
+     "held_ce": 5.496354468166828,
+     "held_ce_finding23_setting": 5.411303997039795
+    },
+    "dense_fitted_bigram": {
+     "kl_from_model": 0.1852822012733668,
+     "program_ce": 5.731730870902538,
+     "model_ce": 5.496354468166828,
+     "tokens": 131072,
+     "alpha": 0.01,
+     "alpha_val_kl": 0.17827721685171127,
+     "est_rows_accumulated": 8192,
+     "est_rows_for_alpha": 128,
+     "alphas_tried": [
+      0.001,
+      0.01,
+      0.1,
+      1.0,
+      10.0,
+      100.0,
+      1000.0
+     ],
+     "bits": {
+      "entries": {
+       "table_VxV": 67108864
+      },
+      "total_entries": 67108864,
+      "bits_per_entry": 32,
+      "total_bits": 2147483648
+     },
+     "what": "the OPTIMAL token-only program (est-average of the model distribution per current token, backed off); the ceiling of the whole bigram family, and astronomically over budget"
+    },
+    "model_quantised": {
+     "16bit": {
+      "total_bits": 4768256,
+      "kl_from_model_held": 1.1127033161528743e-07,
+      "bits_over_fp32_model": 0.5310183601322842
+     },
+     "8bit": {
+      "total_bits": 2523392,
+      "kl_from_model_held": 0.0006543294002767652,
+      "bits_over_fp32_model": 0.2810183601322842
+     },
+     "4bit": {
+      "total_bits": 1400960,
+      "kl_from_model_held": 0.5037173693999648,
+      "bits_over_fp32_model": 0.15601836013228418
+     }
+    }
+   },
+   "quantised": {
+    "J_squared_content_at_16bit": {
+     "bits_per_entry": 16,
+     "total_bits": 33047536,
+     "kl_from_model_held": 0.11431899096351117,
+     "bits_over_model": 3.6803494554681264,
+     "over_model_budget": true,
+     "kl_cost_vs_fp32": 1.5581026673316956e-06
+    },
+    "J_squared_content_at_8bit": {
+     "bits_per_entry": 8,
+     "total_bits": 17179592,
+     "kl_from_model_held": 0.1144358990713954,
+     "bits_over_model": 1.9132107780248604,
+     "over_model_budget": true,
+     "kl_cost_vs_fp32": 0.00011846621055155993
+    },
+    "J_squared_content_at_4bit": {
+     "bits_per_entry": 4,
+     "total_bits": 9245620,
+     "kl_from_model_held": 0.14221941586583853,
+     "bits_over_model": 1.0296414393032274,
+     "over_model_budget": true,
+     "kl_cost_vs_fp32": 0.02790198300499469
+    }
+   },
+   "tied_variant": {
+    "what": "stage G with the current-token table TIED to the output table (the model ties its embedding); halves the content bill",
+    "rank": 16,
+    "kl_from_model_held": 0.21210485720075667,
+    "bits": {
+     "entries": {
+      "U": 8192,
+      "W": 131072,
+      "Vc": 131072,
+      "cscale": 1,
+      "g": 256,
+      "Kq": 65536,
+      "Kk": 65536,
+      "Kq2": 65536,
+      "Kk2": 65536
+     },
+     "total_entries": 532737,
+     "bits_per_entry": 32,
+     "total_bits": 17047584
+    },
+    "bits_over_model": 1.898509664728019,
+    "over_model_budget": true
+   },
+   "frontier": {
+    "bigram_only_r8": {
+     "rank": 8,
+     "family": "bigram_only",
+     "kl_from_model_held": 0.39895209576934576,
+     "total_entries": 139264,
+     "total_bits": 4456448,
+     "bits_over_model": 0.4962937621165469,
+     "over_model_budget": false
+    },
+    "bigram_only_r16": {
+     "rank": 16,
+     "family": "bigram_only",
+     "kl_from_model_held": 0.2628930634818971,
+     "total_entries": 270336,
+     "total_bits": 8650752,
+     "bits_over_model": 0.9633937735203558,
+     "over_model_budget": false
+    },
+    "bigram_only_r32": {
+     "rank": 32,
+     "family": "bigram_only",
+     "kl_from_model_held": 0.1888778053689748,
+     "total_entries": 532480,
+     "total_bits": 17039360,
+     "bits_over_model": 1.8975937963279736,
+     "over_model_budget": true
+    },
+    "bigram_only_r64": {
+     "rank": 64,
+     "family": "bigram_only",
+     "kl_from_model_held": 0.18747182423248887,
+     "total_entries": 1056768,
+     "total_bits": 33816576,
+     "bits_over_model": 3.765993841943209,
+     "over_model_budget": true
+    },
+    "bigram_only_r128": {
+     "rank": 128,
+     "family": "bigram_only",
+     "kl_from_model_held": 0.1876185666769743,
+     "total_entries": 2105344,
+     "total_bits": 67371008,
+     "bits_over_model": 7.50279393317368,
+     "over_model_budget": true
+    },
+    "bigram_only_r256": {
+     "rank": 256,
+     "family": "bigram_only",
+     "kl_from_model_held": 0.1877950355410576,
+     "total_entries": 4202496,
+     "total_bits": 134479872,
+     "bits_over_model": 14.976394115634623,
+     "over_model_budget": true
+    },
+    "full_gate_r8": {
+     "rank": 8,
+     "family": "full_gate",
+     "kl_from_model_held": 0.31625006068497896,
+     "total_entries": 467201,
+     "total_bits": 14950432,
+     "bits_over_model": 1.6649596590261146,
+     "over_model_budget": true
+    },
+    "full_gate_r16": {
+     "rank": 16,
+     "family": "full_gate",
+     "kl_from_model_held": 0.14780821767635643,
+     "total_entries": 663809,
+     "total_bits": 21241888,
+     "bits_over_model": 2.365609676131828,
+     "over_model_budget": true
+    },
+    "full_gate_r32": {
+     "rank": 32,
+     "family": "full_gate",
+     "kl_from_model_held": 0.05860011820914224,
+     "total_entries": 1057025,
+     "total_bits": 33824800,
+     "bits_over_model": 3.7669097103432545,
+     "over_model_budget": true
+    },
+    "full_gate_r64": {
+     "rank": 64,
+     "family": "full_gate",
+     "kl_from_model_held": 0.05598557606572285,
+     "total_entries": 1843457,
+     "total_bits": 58990624,
+     "bits_over_model": 6.569509778766108,
+     "over_model_budget": true
+    },
+    "full_gate_r128": {
+     "rank": 128,
+     "family": "full_gate",
+     "kl_from_model_held": 0.05582053796388209,
+     "total_entries": 3416321,
+     "total_bits": 109322272,
+     "bits_over_model": 12.174709915611814,
+     "over_model_budget": true
+    },
+    "full_gate_r256": {
+     "rank": 256,
+     "family": "full_gate",
+     "kl_from_model_held": 0.05675942578818649,
+     "total_entries": 6562049,
+     "total_bits": 209985568,
+     "bits_over_model": 23.385110189303226,
+     "over_model_budget": true
+    }
+   },
+   "seconds": 549.1499707698822
+  },
+  "tf_vanilla_d2_w128_b8192_s0": {
+   "stem": "tf_vanilla_d2_w128_b8192_s0",
+   "depth": 2,
+   "width": 128,
+   "vocab": 8192,
+   "tok": "bpe",
+   "Ws": 128,
+   "n_heads": 8,
+   "context_length": 256,
+   "rank_r": 64,
+   "gate_rank_a": 8,
+   "n_gates": 4,
+   "model_params_tied_once": 1638656,
+   "model_bits_at_32": 52436992,
+   "splits": {
+    "est_rows_fitted_on": 24576,
+    "est_tokens_available": 6291456,
+    "held_rows_scored_on": 512,
+    "held_tokens_scored": 131072,
+    "held_ref_rows": 96,
+    "held_ref_tokens": 24576,
+    "note": "nothing is fitted on held; est and held are disjoint corpus splits (tf_corpus MANIFEST)"
+   },
+   "stages": {
+    "A_unigram": {
+     "description": "U[v] only",
+     "ingredient_added": [
+      "(base)"
+     ],
+     "kl_from_model_held": 2.2910993322730064,
+     "kl_from_model_est": 2.27826626598835,
+     "kl_at_finding23_setting": 2.29338671763738,
+     "held_minus_est_kl": 0.012833066284656525,
+     "program_ce_held": 7.319220371544361,
+     "model_ce_held": 4.648617401719093,
+     "remainder_frac_of_model_ce": 0.49285607617992844,
+     "bits": {
+      "entries": {
+       "U": 8192
+      },
+      "total_entries": 8192,
+      "bits_per_entry": 32,
+      "total_bits": 262144
+     },
+     "bits_over_model": 0.004999218872051242,
+     "over_model_budget": false,
+     "bits_over_bigram_baseline": 0.00390625,
+     "beats_bigram_kl": false,
+     "beats_bigram_at_or_below_its_size": false,
+     "fit_steps": 6000,
+     "fit_loss_curve": [
+      [
+       0,
+       7.292071342468262
+      ],
+      [
+       1200,
+       7.317670822143555
+      ],
+      [
+       2400,
+       7.380712032318115
+      ],
+      [
+       3600,
+       7.278092861175537
+      ],
+      [
+       4800,
+       7.216646671295166
+      ],
+      [
+       5999,
+       7.207911968231201
+      ]
+     ]
+    },
+    "B_bigram_rank": {
+     "description": "+ current-token content Pc[x_t]",
+     "ingredient_added": [
+      "bigram"
+     ],
+     "kl_from_model_held": 0.6845253994688392,
+     "kl_from_model_est": 0.6631946498528123,
+     "kl_at_finding23_setting": 0.6688919961452484,
+     "held_minus_est_kl": 0.02133074961602688,
+     "program_ce_held": 5.458160273730755,
+     "model_ce_held": 4.648617401719093,
+     "remainder_frac_of_model_ce": 0.1472535466600664,
+     "bits": {
+      "entries": {
+       "U": 8192,
+       "W": 524288,
+       "Pc": 524288
+      },
+      "total_entries": 1056768,
+      "bits_per_entry": 32,
+      "total_bits": 33816576
+     },
+     "bits_over_model": 0.6448992344946102,
+     "over_model_budget": false,
+     "bits_over_bigram_baseline": 0.50390625,
+     "beats_bigram_kl": true,
+     "beats_bigram_at_or_below_its_size": true,
+     "fit_steps": 4000,
+     "fit_loss_curve": [
+      [
+       0,
+       7.2854719161987305
+      ],
+      [
+       800,
+       5.6720499992370605
+      ],
+      [
+       1600,
+       5.768373489379883
+      ],
+      [
+       2400,
+       5.841889381408691
+      ],
+      [
+       3200,
+       5.659590721130371
+      ],
+      [
+       3999,
+       5.770822525024414
+      ]
+     ]
+    },
+    "C_prefix_mean": {
+     "description": "+ prefix-mean context",
+     "ingredient_added": [
+      "ctx"
+     ],
+     "kl_from_model_held": 0.5755772572010756,
+     "kl_from_model_est": 0.5558924553915858,
+     "kl_at_finding23_setting": 0.5679222693045934,
+     "held_minus_est_kl": 0.019684801809489727,
+     "program_ce_held": 5.3095981404185295,
+     "model_ce_held": 4.648617401719093,
+     "remainder_frac_of_model_ce": 0.12381687014900877,
+     "bits": {
+      "entries": {
+       "U": 8192,
+       "W": 524288,
+       "Pc": 524288,
+       "Vc": 524288,
+       "cscale": 1
+      },
+      "total_entries": 1581057,
+      "bits_per_entry": 32,
+      "total_bits": 50593824
+     },
+     "bits_over_model": 0.9648498525620997,
+     "over_model_budget": false,
+     "bits_over_bigram_baseline": 0.7539067268371582,
+     "beats_bigram_kl": true,
+     "beats_bigram_at_or_below_its_size": true,
+     "fit_steps": 4000,
+     "fit_loss_curve": [
+      [
+       0,
+       5.65100622177124
+      ],
+      [
+       800,
+       5.573257923126221
+      ],
+      [
+       1600,
+       5.679962635040283
+      ],
+      [
+       2400,
+       5.738729476928711
+      ],
+      [
+       3200,
+       5.558681488037109
+      ],
+      [
+       3999,
+       5.660656929016113
+      ]
+     ]
+    },
+    "D_distance_profile": {
+     "description": "+ per-distance weights g[d]",
+     "ingredient_added": [
+      "ctx"
+     ],
+     "kl_from_model_held": 0.43264067778363824,
+     "kl_from_model_est": 0.4131351667456329,
+     "kl_at_finding23_setting": 0.4139828185240428,
+     "held_minus_est_kl": 0.019505511038005352,
+     "program_ce_held": 5.126767106354237,
+     "model_ce_held": 4.648617401719093,
+     "remainder_frac_of_model_ce": 0.09306867836093469,
+     "bits": {
+      "entries": {
+       "U": 8192,
+       "W": 524288,
+       "Pc": 524288,
+       "Vc": 524288,
+       "cscale": 1,
+       "g": 256
+      },
+      "total_entries": 1581313,
+      "bits_per_entry": 32,
+      "total_bits": 50602016
+     },
+     "bits_over_model": 0.9650060781518512,
+     "over_model_budget": false,
+     "bits_over_bigram_baseline": 0.7540287971496582,
+     "beats_bigram_kl": true,
+     "beats_bigram_at_or_below_its_size": true,
+     "fit_steps": 4000,
+     "fit_loss_curve": [
+      [
+       0,
+       5.582021236419678
+      ],
+      [
+       800,
+       5.435794830322266
+      ],
+      [
+       1600,
+       5.553077697753906
+      ],
+      [
+       2400,
+       5.5925679206848145
+      ],
+      [
+       3200,
+       5.407261848449707
+      ],
+      [
+       3999,
+       5.514204978942871
+      ]
+     ]
+    },
+    "E_tokenpair_gate": {
+     "description": "+ rank-a token-pair gate",
+     "ingredient_added": [
+      "ctx"
+     ],
+     "kl_from_model_held": 0.3881385759450495,
+     "kl_from_model_est": 0.3677833662368357,
+     "kl_at_finding23_setting": 0.3702624539534251,
+     "held_minus_est_kl": 0.020355209708213806,
+     "program_ce_held": 5.075704596936703,
+     "model_ce_held": 4.648617401719093,
+     "remainder_frac_of_model_ce": 0.08349548745429404,
+     "bits": {
+      "entries": {
+       "U": 8192,
+       "W": 524288,
+       "Pc": 524288,
+       "Vc": 524288,
+       "cscale": 1,
+       "g": 256,
+       "Kq": 65536,
+       "Kk": 65536
+      },
+      "total_entries": 1712385,
+      "bits_per_entry": 32,
+      "total_bits": 54796320
+     },
+     "bits_over_model": 1.0449935801046712,
+     "over_model_budget": true,
+     "bits_over_bigram_baseline": 0.8165287971496582,
+     "beats_bigram_kl": true,
+     "beats_bigram_at_or_below_its_size": true,
+     "fit_steps": 4000,
+     "fit_loss_curve": [
+      [
+       0,
+       5.391176223754883
+      ],
+      [
+       800,
+       5.415566921234131
+      ],
+      [
+       1600,
+       5.523645401000977
+      ],
+      [
+       2400,
+       5.550386428833008
+      ],
+      [
+       3200,
+       5.3690643310546875
+      ],
+      [
+       3999,
+       5.473403453826904
+      ]
+     ]
+    },
+    "F_rotary_gate": {
+     "description": "+ rotary (distance) in the gate",
+     "ingredient_added": [
+      "ctx"
+     ],
+     "kl_from_model_held": 0.3822347833774984,
+     "kl_from_model_est": 0.3597958143800497,
+     "kl_at_finding23_setting": 0.36212246616681415,
+     "held_minus_est_kl": 0.022438968997448683,
+     "program_ce_held": 5.065117537975311,
+     "model_ce_held": 4.648617401719093,
+     "remainder_frac_of_model_ce": 0.08222547702810412,
+     "bits": {
+      "entries": {
+       "U": 8192,
+       "W": 524288,
+       "Pc": 524288,
+       "Vc": 524288,
+       "cscale": 1,
+       "g": 256,
+       "Kq": 65536,
+       "Kk": 65536
+      },
+      "total_entries": 1712385,
+      "bits_per_entry": 32,
+      "total_bits": 54796320
+     },
+     "bits_over_model": 1.0449935801046712,
+     "over_model_budget": true,
+     "bits_over_bigram_baseline": 0.8165287971496582,
+     "beats_bigram_kl": true,
+     "beats_bigram_at_or_below_its_size": true,
+     "fit_steps": 4000,
+     "fit_loss_curve": [
+      [
+       0,
+       5.377572536468506
+      ],
+      [
+       800,
+       5.417665004730225
+      ],
+      [
+       1600,
+       5.555088043212891
+      ],
+      [
+       2400,
+       5.546306610107422
+      ],
+      [
+       3200,
+       5.360371112823486
+      ],
+      [
+       3999,
+       5.465750217437744
+      ]
+     ]
+    },
+    "G_two_branch_gate": {
+     "description": "+ second gate branch: the exact shape of the folded pattern",
+     "ingredient_added": [
+      "ctx"
+     ],
+     "kl_from_model_held": 0.3705802629701793,
+     "kl_from_model_est": 0.34885778510943055,
+     "kl_at_finding23_setting": 0.35181914269924164,
+     "held_minus_est_kl": 0.021722477860748768,
+     "program_ce_held": 5.046112321317196,
+     "model_ce_held": 4.648617401719093,
+     "remainder_frac_of_model_ce": 0.07971838311174759,
+     "bits": {
+      "entries": {
+       "U": 8192,
+       "W": 524288,
+       "Pc": 524288,
+       "Vc": 524288,
+       "cscale": 1,
+       "g": 256,
+       "Kq": 65536,
+       "Kk": 65536,
+       "Kq2": 65536,
+       "Kk2": 65536
+      },
+      "total_entries": 1843457,
+      "bits_per_entry": 32,
+      "total_bits": 58990624
+     },
+     "bits_over_model": 1.124981082057491,
+     "over_model_budget": true,
+     "bits_over_bigram_baseline": 0.8790287971496582,
+     "beats_bigram_kl": true,
+     "beats_bigram_at_or_below_its_size": true,
+     "fit_steps": 4000,
+     "fit_loss_curve": [
+      [
+       0,
+       5.333139419555664
+      ],
+      [
+       800,
+       5.502507209777832
+      ],
+      [
+       1600,
+       5.553170204162598
+      ],
+      [
+       2400,
+       5.572022914886475
+      ],
+      [
+       3200,
+       5.35019063949585
+      ],
+      [
+       3999,
+       5.455929279327393
+      ]
+     ]
+    },
+    "H_heads": {
+     "description": "+ 4 independent gates with own value tables",
+     "ingredient_added": [
+      "nh"
+     ],
+     "kl_from_model_held": 0.3701559128239751,
+     "kl_from_model_est": 0.34792912378907204,
+     "kl_at_finding23_setting": 0.34969111035267514,
+     "held_minus_est_kl": 0.02222678903490305,
+     "program_ce_held": 5.04800621420145,
+     "model_ce_held": 4.648617401719093,
+     "remainder_frac_of_model_ce": 0.07962709787367932,
+     "bits": {
+      "entries": {
+       "U": 8192,
+       "W": 524288,
+       "Pc": 524288,
+       "Vc": 2097152,
+       "cscale": 4,
+       "g": 1024,
+       "Kq": 262144,
+       "Kk": 262144,
+       "Kq2": 262144,
+       "Kk2": 262144
+      },
+      "total_entries": 4203524,
+      "bits_per_entry": 32,
+      "total_bits": 134512768
+     },
+     "bits_over_model": 2.5652266247461335,
+     "over_model_budget": true,
+     "bits_over_bigram_baseline": 2.004396438598633,
+     "beats_bigram_kl": true,
+     "beats_bigram_at_or_below_its_size": false,
+     "fit_steps": 4000,
+     "fit_loss_curve": [
+      [
+       0,
+       5.316643714904785
+      ],
+      [
+       800,
+       5.56696081161499
+      ],
+      [
+       1600,
+       5.620967388153076
+      ],
+      [
+       2400,
+       5.537250518798828
+      ],
+      [
+       3200,
+       5.351846218109131
+      ],
+      [
+       3999,
+       5.453456401824951
+      ]
+     ]
+    },
+    "I_induction": {
+     "description": "+ induction/copy rule",
+     "ingredient_added": [
+      "induction"
+     ],
+     "kl_from_model_held": 0.3660952774807811,
+     "kl_from_model_est": 0.34384383633732796,
+     "kl_at_finding23_setting": 0.3461470579107602,
+     "held_minus_est_kl": 0.02225144114345312,
+     "program_ce_held": 4.993197552859783,
+     "model_ce_held": 4.648617401719093,
+     "remainder_frac_of_model_ce": 0.07875358323646861,
+     "bits": {
+      "entries": {
+       "U": 8192,
+       "W": 524288,
+       "Pc": 524288,
+       "Vc": 2097152,
+       "cscale": 4,
+       "g": 1024,
+       "Kq": 262144,
+       "Kk": 262144,
+       "Kq2": 262144,
+       "Kk2": 262144,
+       "lam0": 1,
+       "lam_tok": 8192
+      },
+      "total_entries": 4211717,
+      "bits_per_entry": 32,
+      "total_bits": 134774944
+     },
+     "bits_over_model": 2.5702264538743944,
+     "over_model_budget": true,
+     "bits_over_bigram_baseline": 2.008303165435791,
+     "beats_bigram_kl": true,
+     "beats_bigram_at_or_below_its_size": false,
+     "fit_steps": 4000,
+     "fit_loss_curve": [
+      [
+       0,
+       5.3129143714904785
+      ],
+      [
+       800,
+       5.4097795486450195
+      ],
+      [
+       1600,
+       5.547264575958252
+      ],
+      [
+       2400,
+       5.54396915435791
+      ],
+      [
+       3200,
+       5.34790563583374
+      ],
+      [
+       3999,
+       5.452218055725098
+      ]
+     ]
+    },
+    "J_squared_content": {
+     "description": "+ squared-content term (BOUNDARY: closest thing to the MLP)",
+     "ingredient_added": [
+      "square"
+     ],
+     "kl_from_model_held": 0.32730608945712447,
+     "kl_from_model_est": 0.30851256800815463,
+     "kl_at_finding23_setting": 0.3097594330708186,
+     "held_minus_est_kl": 0.01879352144896984,
+     "program_ce_held": 4.950283765792847,
+     "model_ce_held": 4.648617401719093,
+     "remainder_frac_of_model_ce": 0.07040934135299762,
+     "bits": {
+      "entries": {
+       "U": 8192,
+       "W": 524288,
+       "Pc": 524288,
+       "Vc": 2097152,
+       "cscale": 4,
+       "g": 1024,
+       "Kq": 262144,
+       "Kk": 262144,
+       "Kq2": 262144,
+       "Kk2": 262144,
+       "lam0": 1,
+       "lam_tok": 8192,
+       "W2": 524288
+      },
+      "total_entries": 4736005,
+      "bits_per_entry": 32,
+      "total_bits": 151552160
+     },
+     "bits_over_model": 2.890176461685674,
+     "over_model_budget": true,
+     "bits_over_bigram_baseline": 2.258303165435791,
+     "beats_bigram_kl": true,
+     "beats_bigram_at_or_below_its_size": false,
+     "fit_steps": 4000,
+     "fit_loss_curve": [
+      [
+       0,
+       5.314033508300781
+      ],
+      [
+       800,
+       5.4363112449646
+      ],
+      [
+       1600,
+       5.572214603424072
+      ],
+      [
+       2400,
+       5.524468421936035
+      ],
+      [
+       3200,
+       5.318985939025879
+      ],
+      [
+       3999,
+       5.420829772949219
+      ]
+     ]
+    }
+   },
+   "controls": {
+    "i_exact_fold": {
+     "attn_write_max_abs_diff": 3.1948089599609375e-05,
+     "attn_write_absmax": 7.318121910095215,
+     "attn_write_rel_diff": 4.365613198590962e-06,
+     "tol_rel": 1e-05,
+     "pass": true,
+     "what": "the program attention code, given the exact folded layer-0 tables at full rank, vs the model attention write"
+    },
+    "ii_shuffled_tables": {
+     "kl_from_model": 3.702507473528385,
+     "program_ce": 8.690556675195694,
+     "model_ce": 4.648617401719093,
+     "tokens": 131072,
+     "stage": "J_squared_content",
+     "kl_unshuffled": 0.32730608945712447,
+     "ratio": 11.312064128319237,
+     "pass": true,
+     "what": "token axis of every fitted table permuted; the KL must blow up"
+    }
+   },
+   "references": {
+    "model_bigram": {
+     "kl_from_model": 0.8193136733025312,
+     "program_ce": 5.5790406838059425,
+     "model_ce": 4.648617401719093,
+     "tokens": 131072,
+     "kl_at_finding23_setting": 0.8061971416076025,
+     "bits": {
+      "entries": {
+       "R0": 1048576,
+       "WU": 1048576
+      },
+      "total_entries": 2097152,
+      "bits_per_entry": 32,
+      "total_bits": 67108864,
+      "dense_VxV_entries": 67108864,
+      "dense_VxV_bits": 2147483648
+     },
+     "what": "the model's own length-1 output table -- the baseline FINDING 23 measured"
+    },
+    "model_self": {
+     "held_ce": 4.648617401719093,
+     "held_ce_finding23_setting": 4.554524501164754
+    },
+    "dense_fitted_bigram": {
+     "kl_from_model": 0.6452014241367579,
+     "program_ce": 5.41173804551363,
+     "model_ce": 4.648617401719093,
+     "tokens": 131072,
+     "alpha": 0.1,
+     "alpha_val_kl": 0.633824422955513,
+     "est_rows_accumulated": 8192,
+     "est_rows_for_alpha": 128,
+     "alphas_tried": [
+      0.001,
+      0.01,
+      0.1,
+      1.0,
+      10.0,
+      100.0,
+      1000.0
+     ],
+     "bits": {
+      "entries": {
+       "table_VxV": 67108864
+      },
+      "total_entries": 67108864,
+      "bits_per_entry": 32,
+      "total_bits": 2147483648
+     },
+     "what": "the OPTIMAL token-only program (est-average of the model distribution per current token, backed off); the ceiling of the whole bigram family, and astronomically over budget"
+    },
+    "model_quantised": {
+     "16bit": {
+      "total_bits": 26611712,
+      "kl_from_model_held": 3.933494119312542e-08,
+      "bits_over_fp32_model": 0.5074988283080769
+     },
+     "8bit": {
+      "total_bits": 13502464,
+      "kl_from_model_held": 0.0008189209511328954,
+      "bits_over_fp32_model": 0.25749882830807685
+     },
+     "4bit": {
+      "total_bits": 6947840,
+      "kl_from_model_held": 0.4460599715821445,
+      "bits_over_fp32_model": 0.13249882830807685
+     }
+    }
+   },
+   "quantised": {
+    "J_squared_content_at_16bit": {
+     "bits_per_entry": 16,
+     "total_bits": 77087728,
+     "kl_from_model_held": 0.32731222873553634,
+     "bits_over_model": 1.4701020226331822,
+     "over_model_budget": true,
+     "kl_cost_vs_fp32": 6.139278411865234e-06
+    },
+    "J_squared_content_at_8bit": {
+     "bits_per_entry": 8,
+     "total_bits": 39199688,
+     "kl_from_model_held": 0.3276282995939255,
+     "bits_over_model": 0.7475579072117637,
+     "over_model_budget": false,
+     "kl_cost_vs_fp32": 0.0003222101368010044
+    },
+    "J_squared_content_at_4bit": {
+     "bits_per_entry": 4,
+     "total_bits": 20255668,
+     "kl_from_model_held": 0.3976802034303546,
+     "bits_over_model": 0.38628584950105455,
+     "over_model_budget": false,
+     "kl_cost_vs_fp32": 0.07037411397323012
+    }
+   },
+   "tied_variant": {
+    "what": "stage G with the current-token table TIED to the output table (the model ties its embedding); halves the content bill",
+    "rank": 64,
+    "kl_from_model_held": 0.54608204215765,
+    "bits": {
+     "entries": {
+      "U": 8192,
+      "W": 524288,
+      "Vc": 524288,
+      "cscale": 1,
+      "g": 256,
+      "Kq": 65536,
+      "Kk": 65536,
+      "Kq2": 65536,
+      "Kk2": 65536
+     },
+     "total_entries": 1319169,
+     "bits_per_entry": 32,
+     "total_bits": 42213408
+    },
+    "bits_over_model": 0.8050310742462116,
+    "over_model_budget": false
+   },
+   "frontier": {
+    "bigram_only_r8": {
+     "rank": 8,
+     "family": "bigram_only",
+     "kl_from_model_held": 1.081283874809742,
+     "total_entries": 139264,
+     "total_bits": 4456448,
+     "bits_over_model": 0.08498672082487112,
+     "over_model_budget": false
+    },
+    "bigram_only_r16": {
+     "rank": 16,
+     "family": "bigram_only",
+     "kl_from_model_held": 0.8952731247991323,
+     "total_entries": 270336,
+     "total_bits": 8650752,
+     "bits_over_model": 0.164974222777691,
+     "over_model_budget": false
+    },
+    "bigram_only_r32": {
+     "rank": 32,
+     "family": "bigram_only",
+     "kl_from_model_held": 0.7577949883416295,
+     "total_entries": 532480,
+     "total_bits": 17039360,
+     "bits_over_model": 0.3249492266833307,
+     "over_model_budget": false
+    },
+    "bigram_only_r64": {
+     "rank": 64,
+     "family": "bigram_only",
+     "kl_from_model_held": 0.6822514981031418,
+     "total_entries": 1056768,
+     "total_bits": 33816576,
+     "bits_over_model": 0.6448992344946102,
+     "over_model_budget": false
+    },
+    "bigram_only_r128": {
+     "rank": 128,
+     "family": "bigram_only",
+     "kl_from_model_held": 0.6584355561062694,
+     "total_entries": 2105344,
+     "total_bits": 67371008,
+     "bits_over_model": 1.2847992501171692,
+     "over_model_budget": true
+    },
+    "bigram_only_r256": {
+     "rank": 256,
+     "family": "bigram_only",
+     "kl_from_model_held": 0.6582230152562261,
+     "total_entries": 4202496,
+     "total_bits": 134479872,
+     "bits_over_model": 2.564599281362287,
+     "over_model_budget": true
+    },
+    "full_gate_r8": {
+     "rank": 8,
+     "family": "full_gate",
+     "kl_from_model_held": 0.912622569128871,
+     "total_entries": 467201,
+     "total_bits": 14950432,
+     "bits_over_model": 0.28511231155288236,
+     "over_model_budget": false
+    },
+    "full_gate_r16": {
+     "rank": 16,
+     "family": "full_gate",
+     "kl_from_model_held": 0.6743990713730454,
+     "total_entries": 663809,
+     "total_bits": 21241888,
+     "bits_over_model": 0.40509356448211215,
+     "over_model_budget": false
+    },
+    "full_gate_r32": {
+     "rank": 32,
+     "family": "full_gate",
+     "kl_from_model_held": 0.48557427944615483,
+     "total_entries": 1057025,
+     "total_bits": 33824800,
+     "bits_over_model": 0.6450560703405718,
+     "over_model_budget": false
+    },
+    "full_gate_r64": {
+     "rank": 64,
+     "family": "full_gate",
+     "kl_from_model_held": 0.36882272409275174,
+     "total_entries": 1843457,
+     "total_bits": 58990624,
+     "bits_over_model": 1.124981082057491,
+     "over_model_budget": true
+    },
+    "full_gate_r128": {
+     "rank": 128,
+     "family": "full_gate",
+     "kl_from_model_held": 0.3210104410536587,
+     "total_entries": 3416321,
+     "total_bits": 109322272,
+     "bits_over_model": 2.0848311054913293,
+     "over_model_budget": true
+    },
+    "full_gate_r256": {
+     "rank": 256,
+     "family": "full_gate",
+     "kl_from_model_held": 0.3195820404216647,
+     "total_entries": 6562049,
+     "total_bits": 209985568,
+     "bits_over_model": 4.004531152359006,
+     "over_model_budget": true
+    }
+   },
+   "seconds": 646.9231834411621
+  },
+  "tf_vanilla_d4_w256_b8192_s0": {
+   "stem": "tf_vanilla_d4_w256_b8192_s0",
+   "depth": 4,
+   "width": 256,
+   "vocab": 8192,
+   "tok": "bpe",
+   "Ws": 256,
+   "n_heads": 16,
+   "context_length": 256,
+   "rank_r": 128,
+   "gate_rank_a": 8,
+   "n_gates": 4,
+   "model_params_tied_once": 6816768,
+   "model_bits_at_32": 218136576,
+   "splits": {
+    "est_rows_fitted_on": 24576,
+    "est_tokens_available": 6291456,
+    "held_rows_scored_on": 512,
+    "held_tokens_scored": 131072,
+    "held_ref_rows": 96,
+    "held_ref_tokens": 24576,
+    "note": "nothing is fitted on held; est and held are disjoint corpus splits (tf_corpus MANIFEST)"
+   },
+   "stages": {
+    "A_unigram": {
+     "description": "U[v] only",
+     "ingredient_added": [
+      "(base)"
+     ],
+     "kl_from_model_held": 2.838461596518755,
+     "kl_from_model_est": 2.8097141087055206,
+     "kl_at_finding23_setting": 2.8362287481625876,
+     "held_minus_est_kl": 0.02874748781323433,
+     "program_ce_held": 7.31973172724247,
+     "model_ce_held": 4.156472515314817,
+     "remainder_frac_of_model_ce": 0.6829015676298212,
+     "bits": {
+      "entries": {
+       "U": 8192
+      },
+      "total_entries": 8192,
+      "bits_per_entry": 32,
+      "total_bits": 262144
+     },
+     "bits_over_model": 0.0012017425266636623,
+     "over_model_budget": false,
+     "bits_over_bigram_baseline": 0.001953125,
+     "beats_bigram_kl": false,
+     "beats_bigram_at_or_below_its_size": false,
+     "fit_steps": 6000,
+     "fit_loss_curve": [
+      [
+       0,
+       7.294599533081055
+      ],
+      [
+       1200,
+       7.320527076721191
+      ],
+      [
+       2400,
+       7.3610076904296875
+      ],
+      [
+       3600,
+       7.297473907470703
+      ],
+      [
+       4800,
+       7.201234340667725
+      ],
+      [
+       5999,
+       7.2085700035095215
+      ]
+     ]
+    },
+    "B_bigram_rank": {
+     "description": "+ current-token content Pc[x_t]",
+     "ingredient_added": [
+      "bigram"
+     ],
+     "kl_from_model_held": 1.09363420214504,
+     "kl_from_model_est": 1.058782042004168,
+     "kl_at_finding23_setting": 1.0728934804598491,
+     "held_minus_est_kl": 0.034852160140872,
+     "program_ce_held": 5.392281375825405,
+     "model_ce_held": 4.156472515314817,
+     "remainder_frac_of_model_ce": 0.26311594702370034,
+     "bits": {
+      "entries": {
+       "U": 8192,
+       "W": 1048576,
+       "Pc": 1048576
+      },
+      "total_entries": 2105344,
+      "bits_per_entry": 32,
+      "total_bits": 67371008
+     },
+     "bits_over_model": 0.3088478293525612,
+     "over_model_budget": false,
+     "bits_over_bigram_baseline": 0.501953125,
+     "beats_bigram_kl": true,
+     "beats_bigram_at_or_below_its_size": true,
+     "fit_steps": 4000,
+     "fit_loss_curve": [
+      [
+       0,
+       7.270366191864014
+      ],
+      [
+       800,
+       5.675279140472412
+      ],
+      [
+       1600,
+       5.7494940757751465
+      ],
+      [
+       2400,
+       5.741586208343506
+      ],
+      [
+       3200,
+       5.571598052978516
+      ],
+      [
+       3999,
+       5.586633682250977
+      ]
+     ]
+    },
+    "C_prefix_mean": {
+     "description": "+ prefix-mean context",
+     "ingredient_added": [
+      "ctx"
+     ],
+     "kl_from_model_held": 0.9534266442060471,
+     "kl_from_model_est": 0.9089823272079229,
+     "kl_at_finding23_setting": 0.9390544841686884,
+     "held_minus_est_kl": 0.04444431699812412,
+     "program_ce_held": 5.214637279510498,
+     "model_ce_held": 4.156472515314817,
+     "remainder_frac_of_model_ce": 0.2293836036911297,
+     "bits": {
+      "entries": {
+       "U": 8192,
+       "W": 1048576,
+       "Pc": 1048576,
+       "Vc": 1048576,
+       "cscale": 1
+      },
+      "total_entries": 3153921,
+      "bits_per_entry": 32,
+      "total_bits": 100925472
+     },
+     "bits_over_model": 0.46267101946259576,
+     "over_model_budget": false,
+     "bits_over_bigram_baseline": 0.7519533634185791,
+     "beats_bigram_kl": true,
+     "beats_bigram_at_or_below_its_size": true,
+     "fit_steps": 4000,
+     "fit_loss_curve": [
+      [
+       0,
+       5.511049270629883
+      ],
+      [
+       800,
+       5.559650421142578
+      ],
+      [
+       1600,
+       5.652010917663574
+      ],
+      [
+       2400,
+       5.601880073547363
+      ],
+      [
+       3200,
+       5.426114559173584
+      ],
+      [
+       3999,
+       5.442770004272461
+      ]
+     ]
+    },
+    "D_distance_profile": {
+     "description": "+ per-distance weights g[d]",
+     "ingredient_added": [
+      "ctx"
+     ],
+     "kl_from_model_held": 0.7591687124222517,
+     "kl_from_model_est": 0.7071974687278271,
+     "kl_at_finding23_setting": 0.7226767688989639,
+     "held_minus_est_kl": 0.05197124369442463,
+     "program_ce_held": 4.981621690094471,
+     "model_ce_held": 4.156472515314817,
+     "remainder_frac_of_model_ce": 0.18264735532955909,
+     "bits": {
+      "entries": {
+       "U": 8192,
+       "W": 1048576,
+       "Pc": 1048576,
+       "Vc": 1048576,
+       "cscale": 1,
+       "g": 256
+      },
+      "total_entries": 3154177,
+      "bits_per_entry": 32,
+      "total_bits": 100933664
+     },
+     "bits_over_model": 0.462708573916554,
+     "over_model_budget": false,
+     "bits_over_bigram_baseline": 0.7520143985748291,
+     "beats_bigram_kl": true,
+     "beats_bigram_at_or_below_its_size": true,
+     "fit_steps": 4000,
+     "fit_loss_curve": [
+      [
+       0,
+       5.4011430740356445
+      ],
+      [
+       800,
+       5.425447940826416
+      ],
+      [
+       1600,
+       5.508662223815918
+      ],
+      [
+       2400,
+       5.4499359130859375
+      ],
+      [
+       3200,
+       5.2227067947387695
+      ],
+      [
+       3999,
+       5.226286888122559
+      ]
+     ]
+    },
+    "E_tokenpair_gate": {
+     "description": "+ rank-a token-pair gate",
+     "ingredient_added": [
+      "ctx"
+     ],
+     "kl_from_model_held": 0.7158829886466265,
+     "kl_from_model_est": 0.6637198934331536,
+     "kl_at_finding23_setting": 0.676342710852623,
+     "held_minus_est_kl": 0.05216309521347284,
+     "program_ce_held": 4.93357589840889,
+     "model_ce_held": 4.156472515314817,
+     "remainder_frac_of_model_ce": 0.17223330264037712,
+     "bits": {
+      "entries": {
+       "U": 8192,
+       "W": 1048576,
+       "Pc": 1048576,
+       "Vc": 1048576,
+       "cscale": 1,
+       "g": 256,
+       "Kq": 65536,
+       "Kk": 65536
+      },
+      "total_entries": 3285249,
+      "bits_per_entry": 32,
+      "total_bits": 105127968
+     },
+     "bits_over_model": 0.4819364543431726,
+     "over_model_budget": false,
+     "bits_over_bigram_baseline": 0.7832643985748291,
+     "beats_bigram_kl": true,
+     "beats_bigram_at_or_below_its_size": true,
+     "fit_steps": 4000,
+     "fit_loss_curve": [
+      [
+       0,
+       5.119220733642578
+      ],
+      [
+       800,
+       5.3889007568359375
+      ],
+      [
+       1600,
+       5.518954753875732
+      ],
+      [
+       2400,
+       5.409994125366211
+      ],
+      [
+       3200,
+       5.180422306060791
+      ],
+      [
+       3999,
+       5.191576957702637
+      ]
+     ]
+    },
+    "F_rotary_gate": {
+     "description": "+ rotary (distance) in the gate",
+     "ingredient_added": [
+      "ctx"
+     ],
+     "kl_from_model_held": 0.7071626577526331,
+     "kl_from_model_est": 0.654985697939992,
+     "kl_at_finding23_setting": 0.6686639686425527,
+     "held_minus_est_kl": 0.052176959812641144,
+     "program_ce_held": 4.9183168560266495,
+     "model_ce_held": 4.156472515314817,
+     "remainder_frac_of_model_ce": 0.17013529023638246,
+     "bits": {
+      "entries": {
+       "U": 8192,
+       "W": 1048576,
+       "Pc": 1048576,
+       "Vc": 1048576,
+       "cscale": 1,
+       "g": 256,
+       "Kq": 65536,
+       "Kk": 65536
+      },
+      "total_entries": 3285249,
+      "bits_per_entry": 32,
+      "total_bits": 105127968
+     },
+     "bits_over_model": 0.4819364543431726,
+     "over_model_budget": false,
+     "bits_over_bigram_baseline": 0.7832643985748291,
+     "beats_bigram_kl": true,
+     "beats_bigram_at_or_below_its_size": true,
+     "fit_steps": 4000,
+     "fit_loss_curve": [
+      [
+       0,
+       5.102007865905762
+      ],
+      [
+       800,
+       5.47098970413208
+      ],
+      [
+       1600,
+       5.527980804443359
+      ],
+      [
+       2400,
+       5.450840473175049
+      ],
+      [
+       3200,
+       5.171366214752197
+      ],
+      [
+       3999,
+       5.187274932861328
+      ]
+     ]
+    },
+    "G_two_branch_gate": {
+     "description": "+ second gate branch: the exact shape of the folded pattern",
+     "ingredient_added": [
+      "ctx"
+     ],
+     "kl_from_model_held": 0.6941985869780183,
+     "kl_from_model_est": 0.6428769454360008,
+     "kl_at_finding23_setting": 0.6550217767556509,
+     "held_minus_est_kl": 0.05132164154201746,
+     "program_ce_held": 4.910097032785416,
+     "model_ce_held": 4.156472515314817,
+     "remainder_frac_of_model_ce": 0.1670162822971148,
+     "bits": {
+      "entries": {
+       "U": 8192,
+       "W": 1048576,
+       "Pc": 1048576,
+       "Vc": 1048576,
+       "cscale": 1,
+       "g": 256,
+       "Kq": 65536,
+       "Kk": 65536,
+       "Kq2": 65536,
+       "Kk2": 65536
+      },
+      "total_entries": 3416321,
+      "bits_per_entry": 32,
+      "total_bits": 109322272
+     },
+     "bits_over_model": 0.5011643347697912,
+     "over_model_budget": false,
+     "bits_over_bigram_baseline": 0.8145143985748291,
+     "beats_bigram_kl": true,
+     "beats_bigram_at_or_below_its_size": true,
+     "fit_steps": 4000,
+     "fit_loss_curve": [
+      [
+       0,
+       5.049871444702148
+      ],
+      [
+       800,
+       5.353581428527832
+      ],
+      [
+       1600,
+       5.485589504241943
+      ],
+      [
+       2400,
+       5.426844120025635
+      ],
+      [
+       3200,
+       5.17996883392334
+      ],
+      [
+       3999,
+       5.176697254180908
+      ]
+     ]
+    },
+    "H_heads": {
+     "description": "+ 4 independent gates with own value tables",
+     "ingredient_added": [
+      "nh"
+     ],
+     "kl_from_model_held": 0.6938590658828616,
+     "kl_from_model_est": 0.6413345197215676,
+     "kl_at_finding23_setting": 0.6575049062569936,
+     "held_minus_est_kl": 0.05252454616129398,
+     "program_ce_held": 4.909137852489948,
+     "model_ce_held": 4.156472515314817,
+     "remainder_frac_of_model_ce": 0.16693459738426966,
+     "bits": {
+      "entries": {
+       "U": 8192,
+       "W": 1048576,
+       "Pc": 1048576,
+       "Vc": 4194304,
+       "cscale": 4,
+       "g": 1024,
+       "Kq": 262144,
+       "Kk": 262144,
+       "Kq2": 262144,
+       "Kk2": 262144
+      },
+      "total_entries": 7349252,
+      "bits_per_entry": 32,
+      "total_bits": 235176064
+     },
+     "bits_over_model": 1.0781138510214812,
+     "over_model_budget": true,
+     "bits_over_bigram_baseline": 1.7521982192993164,
+     "beats_bigram_kl": true,
+     "beats_bigram_at_or_below_its_size": false,
+     "fit_steps": 4000,
+     "fit_loss_curve": [
+      [
+       0,
+       5.025973320007324
+      ],
+      [
+       800,
+       5.523551940917969
+      ],
+      [
+       1600,
+       5.452271461486816
+      ],
+      [
+       2400,
+       5.450860500335693
+      ],
+      [
+       3200,
+       5.173620223999023
+      ],
+      [
+       3999,
+       5.178616523742676
+      ]
+     ]
+    },
+    "I_induction": {
+     "description": "+ induction/copy rule",
+     "ingredient_added": [
+      "induction"
+     ],
+     "kl_from_model_held": 0.6430006735026836,
+     "kl_from_model_est": 0.6040686443448067,
+     "kl_at_finding23_setting": 0.6195078243811926,
+     "held_minus_est_kl": 0.03893202915787697,
+     "program_ce_held": 4.784881591796875,
+     "model_ce_held": 4.156472515314817,
+     "remainder_frac_of_model_ce": 0.15469864678125553,
+     "bits": {
+      "entries": {
+       "U": 8192,
+       "W": 1048576,
+       "Pc": 1048576,
+       "Vc": 4194304,
+       "cscale": 4,
+       "g": 1024,
+       "Kq": 262144,
+       "Kk": 262144,
+       "Kq2": 262144,
+       "Kk2": 262144,
+       "lam0": 1,
+       "lam_tok": 8192
+      },
+      "total_entries": 7357445,
+      "bits_per_entry": 32,
+      "total_bits": 235438240
+     },
+     "bits_over_model": 1.0793157402452307,
+     "over_model_budget": true,
+     "bits_over_bigram_baseline": 1.7541515827178955,
+     "beats_bigram_kl": true,
+     "beats_bigram_at_or_below_its_size": false,
+     "fit_steps": 4000,
+     "fit_loss_curve": [
+      [
+       0,
+       5.011926651000977
+      ],
+      [
+       800,
+       5.419442653656006
+      ],
+      [
+       1600,
+       5.653449058532715
+      ],
+      [
+       2400,
+       5.436557292938232
+      ],
+      [
+       3200,
+       5.1449666023254395
+      ],
+      [
+       3999,
+       5.152256488800049
+      ]
+     ]
+    },
+    "J_squared_content": {
+     "description": "+ squared-content term (BOUNDARY: closest thing to the MLP)",
+     "ingredient_added": [
+      "square"
+     ],
+     "kl_from_model_held": 0.6041452325880527,
+     "kl_from_model_est": 0.5668683825060725,
+     "kl_at_finding23_setting": 0.577687089641889,
+     "held_minus_est_kl": 0.03727685008198023,
+     "program_ce_held": 4.74472139775753,
+     "model_ce_held": 4.156472515314817,
+     "remainder_frac_of_model_ce": 0.14535046974616983,
+     "bits": {
+      "entries": {
+       "U": 8192,
+       "W": 1048576,
+       "Pc": 1048576,
+       "Vc": 4194304,
+       "cscale": 4,
+       "g": 1024,
+       "Kq": 262144,
+       "Kk": 262144,
+       "Kq2": 262144,
+       "Kk2": 262144,
+       "lam0": 1,
+       "lam_tok": 8192,
+       "W2": 1048576
+      },
+      "total_entries": 8406021,
+      "bits_per_entry": 32,
+      "total_bits": 268992672
+     },
+     "bits_over_model": 1.2331387836581793,
+     "over_model_budget": true,
+     "bits_over_bigram_baseline": 2.0041515827178955,
+     "beats_bigram_kl": true,
+     "beats_bigram_at_or_below_its_size": false,
+     "fit_steps": 4000,
+     "fit_loss_curve": [
+      [
+       0,
+       4.999910831451416
+      ],
+      [
+       800,
+       5.450963973999023
+      ],
+      [
+       1600,
+       5.60737419128418
+      ],
+      [
+       2400,
+       5.541240692138672
+      ],
+      [
+       3200,
+       5.093441963195801
+      ],
+      [
+       3999,
+       5.100388526916504
+      ]
+     ]
+    }
+   },
+   "controls": {
+    "i_exact_fold": {
+     "attn_write_max_abs_diff": 3.910064697265625e-05,
+     "attn_write_absmax": 8.02670955657959,
+     "attn_write_rel_diff": 4.871317031847126e-06,
+     "tol_rel": 1e-05,
+     "pass": true,
+     "what": "the program attention code, given the exact folded layer-0 tables at full rank, vs the model attention write"
+    },
+    "ii_shuffled_tables": {
+     "kl_from_model": 4.585695251822472,
+     "program_ce": 8.990149453282356,
+     "model_ce": 4.156472515314817,
+     "tokens": 131072,
+     "stage": "J_squared_content",
+     "kl_unshuffled": 0.6041452325880527,
+     "ratio": 7.590385563713138,
+     "pass": true,
+     "what": "token axis of every fitted table permuted; the KL must blow up"
+    }
+   },
+   "references": {
+    "model_bigram": {
+     "kl_from_model": 1.2356027700006962,
+     "program_ce": 5.529473505914211,
+     "model_ce": 4.156472515314817,
+     "tokens": 131072,
+     "kl_at_finding23_setting": 1.2099153399467468,
+     "bits": {
+      "entries": {
+       "R0": 2097152,
+       "WU": 2097152
+      },
+      "total_entries": 4194304,
+      "bits_per_entry": 32,
+      "total_bits": 134217728,
+      "dense_VxV_entries": 67108864,
+      "dense_VxV_bits": 2147483648
+     },
+     "what": "the model's own length-1 output table -- the baseline FINDING 23 measured"
+    },
+    "model_self": {
+     "held_ce": 4.156472515314817,
+     "held_ce_finding23_setting": 4.083528697490692
+    },
+    "dense_fitted_bigram": {
+     "kl_from_model": 1.0575026301667094,
+     "program_ce": 5.348224274814129,
+     "model_ce": 4.156472515314817,
+     "tokens": 131072,
+     "alpha": 0.1,
+     "alpha_val_kl": 1.0393394269049168,
+     "est_rows_accumulated": 8192,
+     "est_rows_for_alpha": 128,
+     "alphas_tried": [
+      0.001,
+      0.01,
+      0.1,
+      1.0,
+      10.0,
+      100.0,
+      1000.0
+     ],
+     "bits": {
+      "entries": {
+       "table_VxV": 67108864
+      },
+      "total_entries": 67108864,
+      "bits_per_entry": 32,
+      "total_bits": 2147483648
+     },
+     "what": "the OPTIMAL token-only program (est-average of the model distribution per current token, backed off); the ceiling of the whole bigram family, and astronomically over budget"
+    },
+    "model_quantised": {
+     "16bit": {
+      "total_bits": 109854720,
+      "kl_from_model_held": 3.4342448884672194e-08,
+      "bits_over_fp32_model": 0.5036052275799909
+     },
+     "8bit": {
+      "total_bits": 55320576,
+      "kl_from_model_held": 0.00041436700894337264,
+      "bits_over_fp32_model": 0.253605227579991
+     },
+     "4bit": {
+      "total_bits": 28053504,
+      "kl_from_model_held": 0.13624189712572843,
+      "bits_over_fp32_model": 0.128605227579991
+     }
+    }
+   },
+   "quantised": {
+    "J_squared_content_at_16bit": {
+     "bits_per_entry": 16,
+     "total_bits": 135807984,
+     "kl_from_model_held": 0.6041561206802726,
+     "bits_over_model": 0.6225823586778955,
+     "over_model_budget": false,
+     "kl_cost_vs_fp32": 1.088809221982956e-05
+    },
+    "J_squared_content_at_8bit": {
+     "bits_per_entry": 8,
+     "total_bits": 68559816,
+     "kl_from_model_held": 0.6044659959152341,
+     "bits_over_model": 0.3142976627633506,
+     "over_model_budget": false,
+     "kl_cost_vs_fp32": 0.00032076332718133926
+    },
+    "J_squared_content_at_4bit": {
+     "bits_per_entry": 4,
+     "total_bits": 34935732,
+     "kl_from_model_held": 0.6926358686760068,
+     "bits_over_model": 0.1601553148060782,
+     "over_model_budget": false,
+     "kl_cost_vs_fp32": 0.08849063608795404
+    }
+   },
+   "tied_variant": {
+    "what": "stage G with the current-token table TIED to the output table (the model ties its embedding); halves the content bill",
+    "rank": 128,
+    "kl_from_model_held": 1.013874450698495,
+    "bits": {
+     "entries": {
+      "U": 8192,
+      "W": 1048576,
+      "Vc": 1048576,
+      "cscale": 1,
+      "g": 256,
+      "Kq": 65536,
+      "Kk": 65536,
+      "Kq2": 65536,
+      "Kk2": 65536
+     },
+     "total_entries": 2367745,
+     "bits_per_entry": 32,
+     "total_bits": 75767840
+    },
+    "bits_over_model": 0.34734129135684244,
+    "over_model_budget": false
+   },
+   "frontier": {
+    "bigram_only_r8": {
+     "rank": 8,
+     "family": "bigram_only",
+     "kl_from_model_held": 1.5740306060761213,
+     "total_entries": 139264,
+     "total_bits": 4456448,
+     "bits_over_model": 0.02042962295328226,
+     "over_model_budget": false
+    },
+    "bigram_only_r16": {
+     "rank": 16,
+     "family": "bigram_only",
+     "kl_from_model_held": 1.3676770944148302,
+     "total_entries": 270336,
+     "total_bits": 8650752,
+     "bits_over_model": 0.03965750337990086,
+     "over_model_budget": false
+    },
+    "bigram_only_r32": {
+     "rank": 32,
+     "family": "bigram_only",
+     "kl_from_model_held": 1.2112361174076796,
+     "total_entries": 532480,
+     "total_bits": 17039360,
+     "bits_over_model": 0.07811326423313805,
+     "over_model_budget": false
+    },
+    "bigram_only_r64": {
+     "rank": 64,
+     "family": "bigram_only",
+     "kl_from_model_held": 1.124180362559855,
+     "total_entries": 1056768,
+     "total_bits": 33816576,
+     "bits_over_model": 0.15502478593961244,
+     "over_model_budget": false
+    },
+    "bigram_only_r128": {
+     "rank": 128,
+     "family": "bigram_only",
+     "kl_from_model_held": 1.092176703736186,
+     "total_entries": 2105344,
+     "total_bits": 67371008,
+     "bits_over_model": 0.3088478293525612,
+     "over_model_budget": false
+    },
+    "bigram_only_r256": {
+     "rank": 256,
+     "family": "bigram_only",
+     "kl_from_model_held": 1.0880931494757533,
+     "total_entries": 4202496,
+     "total_bits": 134479872,
+     "bits_over_model": 0.6164939161784587,
+     "over_model_budget": false
+    },
+    "full_gate_r8": {
+     "rank": 8,
+     "family": "full_gate",
+     "kl_from_model_held": 1.381375377997756,
+     "total_entries": 467201,
+     "total_bits": 14950432,
+     "bits_over_model": 0.06853702517087276,
+     "over_model_budget": false
+    },
+    "full_gate_r16": {
+     "rank": 16,
+     "family": "full_gate",
+     "kl_from_model_held": 1.11911931168288,
+     "total_entries": 663809,
+     "total_bits": 21241888,
+     "bits_over_model": 0.09737884581080065,
+     "over_model_budget": false
+    },
+    "full_gate_r32": {
+     "rank": 32,
+     "family": "full_gate",
+     "kl_from_model_held": 0.9068220453336835,
+     "total_entries": 1057025,
+     "total_bits": 33824800,
+     "bits_over_model": 0.15506248709065645,
+     "over_model_budget": false
+    },
+    "full_gate_r64": {
+     "rank": 64,
+     "family": "full_gate",
+     "kl_from_model_held": 0.7674932535737753,
+     "total_entries": 1843457,
+     "total_bits": 58990624,
+     "bits_over_model": 0.270429769650368,
+     "over_model_budget": false
+    },
+    "full_gate_r128": {
+     "rank": 128,
+     "family": "full_gate",
+     "kl_from_model_held": 0.6961179869249463,
+     "total_entries": 3416321,
+     "total_bits": 109322272,
+     "bits_over_model": 0.5011643347697912,
+     "over_model_budget": false
+    },
+    "full_gate_r256": {
+     "rank": 256,
+     "family": "full_gate",
+     "kl_from_model_held": 0.6846828032284975,
+     "total_entries": 6562049,
+     "total_bits": 209985568,
+     "bits_over_model": 0.9626334650086376,
+     "over_model_budget": false
+    }
+   },
+   "seconds": 1063.8959653377533
+  }
+ },
+ "leave_one_out": {
+  "created": "2026-08-10 08:21:41",
+  "what": "leave-one-out around the top stage of the rung-5 program ladder: each ingredient also gets a REMOVED-LAST value, because the cumulative ladder only gives ADDED-LAST",
+  "args": {
+   "cells": "tf_vanilla_d1_w32_b8192_s0,tf_vanilla_d2_w128_b8192_s0,tf_vanilla_d4_w256_b8192_s0",
+   "out": "tf_rung5_leaveout.json",
+   "merge_into": "",
+   "T": 256,
+   "n_est": 24576,
+   "n_held": 512,
+   "batch": 8,
+   "steps": 6000,
+   "lr": 0.05,
+   "rank": 0,
+   "a": 8,
+   "nh": 4
+  },
+  "cells": {
+   "tf_vanilla_d1_w32_b8192_s0": {
+    "stem": "tf_vanilla_d1_w32_b8192_s0",
+    "rank_r": 16,
+    "gate_rank_a": 8,
+    "n_gates": 4,
+    "context_length": 256,
+    "est_rows_fitted_on": 24576,
+    "held_tokens_scored": 131072,
+    "model_bits_at_32": 8979456,
+    "variants": {
+     "TOP": {
+      "ingredient_removed": "TOP",
+      "kl_from_model_held": 0.09688364376779646,
+      "total_entries": 1983493,
+      "total_bits": 63471776,
+      "bits_over_model": 7.068554709773064
+     },
+     "no_current_token": {
+      "ingredient_removed": "no_current_token",
+      "kl_from_model_held": 0.10998289857525378,
+      "total_entries": 1852421,
+      "total_bits": 59277472,
+      "bits_over_model": 6.601454698369255,
+      "kl_cost_of_removing": 0.013099254807457328,
+      "bits_saved_by_removing": 4194304
+     },
+     "no_context": {
+      "ingredient_removed": "no_context",
+      "kl_from_model_held": 0.22737809899263084,
+      "total_entries": 409601,
+      "total_bits": 13107232,
+      "bits_over_model": 1.4596910993271752,
+      "kl_cost_of_removing": 0.13049445522483438,
+      "bits_saved_by_removing": 50364544
+     },
+     "no_heads": {
+      "ingredient_removed": "no_heads",
+      "kl_from_model_held": 0.11179749097209424,
+      "total_entries": 803074,
+      "total_bits": 25698368,
+      "bits_over_model": 2.8619070019386474,
+      "kl_cost_of_removing": 0.014913847204297781,
+      "bits_saved_by_removing": 37773408
+     },
+     "no_induction": {
+      "ingredient_removed": "no_induction",
+      "kl_from_model_held": 0.09704817191231996,
+      "total_entries": 1975300,
+      "total_bits": 63209600,
+      "bits_over_model": 7.039357395370054,
+      "kl_cost_of_removing": 0.0001645281445235014,
+      "bits_saved_by_removing": 262176
+     },
+     "no_squared_content": {
+      "ingredient_removed": "no_squared_content",
+      "kl_from_model_held": 0.12572050059679896,
+      "total_entries": 1852421,
+      "total_bits": 59277472,
+      "bits_over_model": 6.601454698369255,
+      "kl_cost_of_removing": 0.0288368568290025,
+      "bits_saved_by_removing": 4194304
+     },
+     "no_rotary_in_gate": {
+      "ingredient_removed": "no_rotary_in_gate",
+      "kl_from_model_held": 0.09502728038933128,
+      "total_entries": 1459205,
+      "total_bits": 46694560,
+      "bits_over_model": 5.200154664157829,
+      "kl_cost_of_removing": -0.0018563633784651756,
+      "bits_saved_by_removing": 16777216
+     },
+     "no_second_gate_branch": {
+      "ingredient_removed": "no_second_gate_branch",
+      "kl_from_model_held": 0.09615153342019767,
+      "total_entries": 1459205,
+      "total_bits": 46694560,
+      "bits_over_model": 5.200154664157829,
+      "kl_cost_of_removing": -0.0007321103475987911,
+      "bits_saved_by_removing": 16777216
+     }
+    },
+    "seconds": 635.1637558937073
+   },
+   "tf_vanilla_d2_w128_b8192_s0": {
+    "stem": "tf_vanilla_d2_w128_b8192_s0",
+    "rank_r": 64,
+    "gate_rank_a": 8,
+    "n_gates": 4,
+    "context_length": 256,
+    "est_rows_fitted_on": 24576,
+    "held_tokens_scored": 131072,
+    "model_bits_at_32": 52436992,
+    "variants": {
+     "TOP": {
+      "ingredient_removed": "TOP",
+      "kl_from_model_held": 0.2655150801874697,
+      "total_entries": 4736005,
+      "total_bits": 151552160,
+      "bits_over_model": 2.890176461685674
+     },
+     "no_current_token": {
+      "ingredient_removed": "no_current_token",
+      "kl_from_model_held": 0.27497630077414215,
+      "total_entries": 4211717,
+      "total_bits": 134774944,
+      "bits_over_model": 2.5702264538743944,
+      "kl_cost_of_removing": 0.009461220586672425,
+      "bits_saved_by_removing": 16777216
+     },
+     "no_context": {
+      "ingredient_removed": "no_context",
+      "kl_from_model_held": 0.6635527992621064,
+      "total_entries": 1589249,
+      "total_bits": 50855968,
+      "bits_over_model": 0.9698490714341509,
+      "kl_cost_of_removing": 0.3980377190746367,
+      "bits_saved_by_removing": 100696192
+     },
+     "no_heads": {
+      "ingredient_removed": "no_heads",
+      "kl_from_model_held": 0.31658216239884496,
+      "total_entries": 2375938,
+      "total_bits": 76030016,
+      "bits_over_model": 1.4499309189970317,
+      "kl_cost_of_removing": 0.051067082211375237,
+      "bits_saved_by_removing": 75522144
+     },
+     "no_induction": {
+      "ingredient_removed": "no_induction",
+      "kl_from_model_held": 0.26747177238576114,
+      "total_entries": 4727812,
+      "total_bits": 151289984,
+      "bits_over_model": 2.885176632557413,
+      "kl_cost_of_removing": 0.001956692198291421,
+      "bits_saved_by_removing": 262176
+     },
+     "no_squared_content": {
+      "ingredient_removed": "no_squared_content",
+      "kl_from_model_held": 0.29722423385828733,
+      "total_entries": 4211717,
+      "total_bits": 134774944,
+      "bits_over_model": 2.5702264538743944,
+      "kl_cost_of_removing": 0.031709153670817614,
+      "bits_saved_by_removing": 16777216
+     },
+     "no_rotary_in_gate": {
+      "ingredient_removed": "no_rotary_in_gate",
+      "kl_from_model_held": 0.2680173651315272,
+      "total_entries": 4211717,
+      "total_bits": 134774944,
+      "bits_over_model": 2.5702264538743944,
+      "kl_cost_of_removing": 0.0025022849440574646,
+      "bits_saved_by_removing": 16777216
+     },
+     "no_second_gate_branch": {
+      "ingredient_removed": "no_second_gate_branch",
+      "kl_from_model_held": 0.2679184328299016,
+      "total_entries": 4211717,
+      "total_bits": 134774944,
+      "bits_over_model": 2.5702264538743944,
+      "kl_cost_of_removing": 0.002403352642431855,
+      "bits_saved_by_removing": 16777216
+     }
+    },
+    "seconds": 666.005784034729
+   },
+   "tf_vanilla_d4_w256_b8192_s0": {
+    "stem": "tf_vanilla_d4_w256_b8192_s0",
+    "rank_r": 128,
+    "gate_rank_a": 8,
+    "n_gates": 4,
+    "context_length": 256,
+    "est_rows_fitted_on": 24576,
+    "held_tokens_scored": 131072,
+    "model_bits_at_32": 218136576,
+    "variants": {
+     "TOP": {
+      "ingredient_removed": "TOP",
+      "kl_from_model_held": 0.5083169210702181,
+      "total_entries": 8406021,
+      "total_bits": 268992672,
+      "bits_over_model": 1.2331387836581793
+     },
+     "no_current_token": {
+      "ingredient_removed": "no_current_token",
+      "kl_from_model_held": 0.5008375179022551,
+      "total_entries": 7357445,
+      "total_bits": 235438240,
+      "bits_over_model": 1.0793157402452307,
+      "kl_cost_of_removing": -0.007479403167963028,
+      "bits_saved_by_removing": 33554432
+     },
+     "no_context": {
+      "ingredient_removed": "no_context",
+      "kl_from_model_held": 1.0216763596981764,
+      "total_entries": 3162113,
+      "total_bits": 101187616,
+      "bits_over_model": 0.4638727619892594,
+      "kl_cost_of_removing": 0.5133594386279583,
+      "bits_saved_by_removing": 167805056
+     },
+     "no_heads": {
+      "ingredient_removed": "no_heads",
+      "kl_from_model_held": 0.586277674883604,
+      "total_entries": 4473090,
+      "total_bits": 143138880,
+      "bits_over_model": 0.6561892674064894,
+      "kl_cost_of_removing": 0.07796075381338596,
+      "bits_saved_by_removing": 125853792
+     },
+     "no_induction": {
+      "ingredient_removed": "no_induction",
+      "kl_from_model_held": 0.552576188929379,
+      "total_entries": 8397828,
+      "total_bits": 268730496,
+      "bits_over_model": 1.23193689443443,
+      "kl_cost_of_removing": 0.0442592678591609,
+      "bits_saved_by_removing": 262176
+     },
+     "no_squared_content": {
+      "ingredient_removed": "no_squared_content",
+      "kl_from_model_held": 0.5456804088316858,
+      "total_entries": 7357445,
+      "total_bits": 235438240,
+      "bits_over_model": 1.0793157402452307,
+      "kl_cost_of_removing": 0.037363487761467695,
+      "bits_saved_by_removing": 33554432
+     },
+     "no_rotary_in_gate": {
+      "ingredient_removed": "no_rotary_in_gate",
+      "kl_from_model_held": 0.49705340480431914,
+      "total_entries": 7881733,
+      "total_bits": 252215456,
+      "bits_over_model": 1.1562272619517049,
+      "kl_cost_of_removing": -0.011263516265898943,
+      "bits_saved_by_removing": 16777216
+     },
+     "no_second_gate_branch": {
+      "ingredient_removed": "no_second_gate_branch",
+      "kl_from_model_held": 0.4955948060378432,
+      "total_entries": 7881733,
+      "total_bits": 252215456,
+      "bits_over_model": 1.1562272619517049,
+      "kl_cost_of_removing": -0.012722115032374859,
+      "bits_saved_by_removing": 16777216
+     }
+    },
+    "seconds": 525.1732816696167
+   }
+  },
+  "LABEL_CORRECTION": "'no_rotary_in_gate' sets ctx='pair', which removes the rotary AND the second gate branch; 'no_second_gate_branch' sets ctx='pair_rot', which removes only the second branch and keeps the rotary.  The rotary alone is therefore isolated by comparing those two rows, not by reading 'no_rotary_in_gate' against TOP."
+ },
+ "fit_noise": {
+  "created": "2026-08-10 08:55:01",
+  "what": "refit spread of the top-stage program (fit noise floor)",
+  "args": {
+   "cells": "tf_vanilla_d1_w32_b8192_s0,tf_vanilla_d2_w128_b8192_s0,tf_vanilla_d4_w256_b8192_s0",
+   "out": "tf_rung5_fitnoise.json",
+   "merge_into": "",
+   "T": 256,
+   "n_est": 24576,
+   "n_held": 512,
+   "batch": 8,
+   "steps": 6000,
+   "lr": 0.05,
+   "rank": 0,
+   "a": 8,
+   "nh": 4,
+   "repeats": 4
+  },
+  "cells": {
+   "tf_vanilla_d1_w32_b8192_s0": {
+    "stem": "tf_vanilla_d1_w32_b8192_s0",
+    "rank_r": 16,
+    "repeats": 4,
+    "kls": [
+     0.10212161275558174,
+     0.0984022538177669,
+     0.10305661789607257,
+     0.09708392224274576
+    ],
+    "mean": 0.10016610167804174,
+    "sd": 0.0028746070413558818,
+    "range": 0.005972695653326809,
+    "what": "same TOP configuration, different table init and batch order; any leave-one-out cost inside this band is noise"
+   },
+   "tf_vanilla_d2_w128_b8192_s0": {
+    "stem": "tf_vanilla_d2_w128_b8192_s0",
+    "rank_r": 64,
+    "repeats": 4,
+    "kls": [
+     0.26088339975103736,
+     0.2648424964863807,
+     0.26588383223861456,
+     0.2661584073211998
+    ],
+    "mean": 0.2644420339493081,
+    "sd": 0.00243919163245302,
+    "range": 0.0052750075701624155,
+    "what": "same TOP configuration, different table init and batch order; any leave-one-out cost inside this band is noise"
+   },
+   "tf_vanilla_d4_w256_b8192_s0": {
+    "stem": "tf_vanilla_d4_w256_b8192_s0",
+    "rank_r": 128,
+    "repeats": 4,
+    "kls": [
+     0.5254798633977771,
+     0.5238604671321809,
+     0.5228506340645254,
+     0.5092377155087888
+    ],
+    "mean": 0.520357170025818,
+    "sd": 0.007491655572861754,
+    "range": 0.016242147888988256,
+    "what": "same TOP configuration, different table init and batch order; any leave-one-out cost inside this band is noise"
+   }
+  }
+ },
+ "seed_replication": {
+  "what": "the same ladder on two further seeds of the depth-2 width-128 cell, so no verdict rests on one run",
+  "runs": {
+   "created": "2026-08-10 08:21:46",
+   "what": "rung 5: a weights-free program, staged, with bits and controls",
+   "grammar": "tables indexed by token / token-pair / position / distance, plus arithmetic; no latent-to-latent matrix, no call into the model",
+   "bit_convention": "every table entry charged 32 bits; the model charged 32 bits per parameter with the tied embedding counted once (tf_compress.py rules)",
+   "args": {
+    "cells": "tf_vanilla_d2_w128_b8192_s1,tf_vanilla_d2_w128_b8192_s2",
+    "out": "tf_rung5_program_seeds.json",
+    "T": 256,
+    "n_est": 24576,
+    "n_held": 512,
+    "n_dense": 8192,
+    "batch": 8,
+    "steps": 4000,
+    "steps_first": 6000,
+    "lr": 0.05,
+    "rank": 0,
+    "a": 8,
+    "nh": 4,
+    "ranks": [],
+    "smoke": false
+   },
+   "cells": {
+    "tf_vanilla_d2_w128_b8192_s1": {
+     "stem": "tf_vanilla_d2_w128_b8192_s1",
+     "depth": 2,
+     "width": 128,
+     "vocab": 8192,
+     "tok": "bpe",
+     "Ws": 128,
+     "n_heads": 8,
+     "context_length": 256,
+     "rank_r": 64,
+     "gate_rank_a": 8,
+     "n_gates": 4,
+     "model_params_tied_once": 1638656,
+     "model_bits_at_32": 52436992,
+     "splits": {
+      "est_rows_fitted_on": 24576,
+      "est_tokens_available": 6291456,
+      "held_rows_scored_on": 512,
+      "held_tokens_scored": 131072,
+      "held_ref_rows": 96,
+      "held_ref_tokens": 24576,
+      "note": "nothing is fitted on held; est and held are disjoint corpus splits (tf_corpus MANIFEST)"
+     },
+     "stages": {
+      "A_unigram": {
+       "description": "U[v] only",
+       "ingredient_added": [
+        "(base)"
+       ],
+       "kl_from_model_held": 2.2955976016819477,
+       "kl_from_model_est": 2.284583318978548,
+       "kl_at_finding23_setting": 2.2970475355784097,
+       "held_minus_est_kl": 0.011014282703399658,
+       "program_ce_held": 7.319348558783531,
+       "model_ce_held": 4.646032825112343,
+       "remainder_frac_of_model_ce": 0.49409844658737195,
+       "bits": {
+        "entries": {
+         "U": 8192
+        },
+        "total_entries": 8192,
+        "bits_per_entry": 32,
+        "total_bits": 262144
+       },
+       "bits_over_model": 0.004999218872051242,
+       "over_model_budget": false,
+       "bits_over_bigram_baseline": 0.00390625,
+       "beats_bigram_kl": false,
+       "beats_bigram_at_or_below_its_size": false,
+       "fit_steps": 6000,
+       "fit_loss_curve": [
+        [
+         0,
+         7.300238609313965
+        ],
+        [
+         1200,
+         7.324423313140869
+        ],
+        [
+         2400,
+         7.397784233093262
+        ],
+        [
+         3600,
+         7.306865215301514
+        ],
+        [
+         4800,
+         7.201364040374756
+        ],
+        [
+         5999,
+         7.2085466384887695
+        ]
+       ]
+      },
+      "B_bigram_rank": {
+       "description": "+ current-token content Pc[x_t]",
+       "ingredient_added": [
+        "bigram"
+       ],
+       "kl_from_model_held": 0.6877899561077356,
+       "kl_from_model_est": 0.6668834928423166,
+       "kl_at_finding23_setting": 0.6754313011964163,
+       "held_minus_est_kl": 0.020906463265419006,
+       "program_ce_held": 5.460206210613251,
+       "model_ce_held": 4.646032825112343,
+       "remainder_frac_of_model_ce": 0.14803811811017598,
+       "bits": {
+        "entries": {
+         "U": 8192,
+         "W": 524288,
+         "Pc": 524288
+        },
+        "total_entries": 1056768,
+        "bits_per_entry": 32,
+        "total_bits": 33816576
+       },
+       "bits_over_model": 0.6448992344946102,
+       "over_model_budget": false,
+       "bits_over_bigram_baseline": 0.50390625,
+       "beats_bigram_kl": true,
+       "beats_bigram_at_or_below_its_size": true,
+       "fit_steps": 4000,
+       "fit_loss_curve": [
+        [
+         0,
+         7.290378570556641
+        ],
+        [
+         800,
+         5.663311004638672
+        ],
+        [
+         1600,
+         5.774074554443359
+        ],
+        [
+         2400,
+         5.853153228759766
+        ],
+        [
+         3200,
+         5.662783622741699
+        ],
+        [
+         3999,
+         5.756016254425049
+        ]
+       ]
+      },
+      "C_prefix_mean": {
+       "description": "+ prefix-mean context",
+       "ingredient_added": [
+        "ctx"
+       ],
+       "kl_from_model_held": 0.5795651893131435,
+       "kl_from_model_est": 0.5586796207353473,
+       "kl_at_finding23_setting": 0.573056568702062,
+       "held_minus_est_kl": 0.02088556857779622,
+       "program_ce_held": 5.310120351612568,
+       "model_ce_held": 4.646032825112343,
+       "remainder_frac_of_model_ce": 0.12474410128583828,
+       "bits": {
+        "entries": {
+         "U": 8192,
+         "W": 524288,
+         "Pc": 524288,
+         "Vc": 524288,
+         "cscale": 1
+        },
+        "total_entries": 1581057,
+        "bits_per_entry": 32,
+        "total_bits": 50593824
+       },
+       "bits_over_model": 0.9648498525620997,
+       "over_model_budget": false,
+       "bits_over_bigram_baseline": 0.7539067268371582,
+       "beats_bigram_kl": true,
+       "beats_bigram_at_or_below_its_size": true,
+       "fit_steps": 4000,
+       "fit_loss_curve": [
+        [
+         0,
+         5.644826889038086
+        ],
+        [
+         800,
+         5.561064720153809
+        ],
+        [
+         1600,
+         5.6893720626831055
+        ],
+        [
+         2400,
+         5.751379013061523
+        ],
+        [
+         3200,
+         5.556633949279785
+        ],
+        [
+         3999,
+         5.6482720375061035
+        ]
+       ]
+      },
+      "D_distance_profile": {
+       "description": "+ per-distance weights g[d]",
+       "ingredient_added": [
+        "ctx"
+       ],
+       "kl_from_model_held": 0.43639602744951844,
+       "kl_from_model_est": 0.4161705682054162,
+       "kl_at_finding23_setting": 0.4186073939005534,
+       "held_minus_est_kl": 0.02022545924410224,
+       "program_ce_held": 5.127220779657364,
+       "model_ce_held": 4.646032825112343,
+       "remainder_frac_of_model_ce": 0.09392874391475403,
+       "bits": {
+        "entries": {
+         "U": 8192,
+         "W": 524288,
+         "Pc": 524288,
+         "Vc": 524288,
+         "cscale": 1,
+         "g": 256
+        },
+        "total_entries": 1581313,
+        "bits_per_entry": 32,
+        "total_bits": 50602016
+       },
+       "bits_over_model": 0.9650060781518512,
+       "over_model_budget": false,
+       "bits_over_bigram_baseline": 0.7540287971496582,
+       "beats_bigram_kl": true,
+       "beats_bigram_at_or_below_its_size": true,
+       "fit_steps": 4000,
+       "fit_loss_curve": [
+        [
+         0,
+         5.573541641235352
+        ],
+        [
+         800,
+         5.427420616149902
+        ],
+        [
+         1600,
+         5.566371917724609
+        ],
+        [
+         2400,
+         5.597083568572998
+        ],
+        [
+         3200,
+         5.413006782531738
+        ],
+        [
+         3999,
+         5.50104284286499
+        ]
+       ]
+      },
+      "E_tokenpair_gate": {
+       "description": "+ rank-a token-pair gate",
+       "ingredient_added": [
+        "ctx"
+       ],
+       "kl_from_model_held": 0.3912867773324251,
+       "kl_from_model_est": 0.3706743265502155,
+       "kl_at_finding23_setting": 0.3739468604326248,
+       "held_minus_est_kl": 0.020612450782209635,
+       "program_ce_held": 5.074865758419037,
+       "model_ce_held": 4.646032825112343,
+       "remainder_frac_of_model_ce": 0.08421954645207735,
+       "bits": {
+        "entries": {
+         "U": 8192,
+         "W": 524288,
+         "Pc": 524288,
+         "Vc": 524288,
+         "cscale": 1,
+         "g": 256,
+         "Kq": 65536,
+         "Kk": 65536
+        },
+        "total_entries": 1712385,
+        "bits_per_entry": 32,
+        "total_bits": 54796320
+       },
+       "bits_over_model": 1.0449935801046712,
+       "over_model_budget": true,
+       "bits_over_bigram_baseline": 0.8165287971496582,
+       "beats_bigram_kl": true,
+       "beats_bigram_at_or_below_its_size": true,
+       "fit_steps": 4000,
+       "fit_loss_curve": [
+        [
+         0,
+         5.365253925323486
+        ],
+        [
+         800,
+         5.425291061401367
+        ],
+        [
+         1600,
+         5.527742385864258
+        ],
+        [
+         2400,
+         5.6111602783203125
+        ],
+        [
+         3200,
+         5.3774824142456055
+        ],
+        [
+         3999,
+         5.461264610290527
+        ]
+       ]
+      },
+      "F_rotary_gate": {
+       "description": "+ rotary (distance) in the gate",
+       "ingredient_added": [
+        "ctx"
+       ],
+       "kl_from_model_held": 0.3839114741422236,
+       "kl_from_model_est": 0.3624657797627151,
+       "kl_at_finding23_setting": 0.36469897876183194,
+       "held_minus_est_kl": 0.021445694379508495,
+       "program_ce_held": 5.066565044224262,
+       "model_ce_held": 4.646032825112343,
+       "remainder_frac_of_model_ce": 0.0826321054098322,
+       "bits": {
+        "entries": {
+         "U": 8192,
+         "W": 524288,
+         "Pc": 524288,
+         "Vc": 524288,
+         "cscale": 1,
+         "g": 256,
+         "Kq": 65536,
+         "Kk": 65536
+        },
+        "total_entries": 1712385,
+        "bits_per_entry": 32,
+        "total_bits": 54796320
+       },
+       "bits_over_model": 1.0449935801046712,
+       "over_model_budget": true,
+       "bits_over_bigram_baseline": 0.8165287971496582,
+       "beats_bigram_kl": true,
+       "beats_bigram_at_or_below_its_size": true,
+       "fit_steps": 4000,
+       "fit_loss_curve": [
+        [
+         0,
+         5.357688903808594
+        ],
+        [
+         800,
+         5.4410014152526855
+        ],
+        [
+         1600,
+         5.524894714355469
+        ],
+        [
+         2400,
+         5.5535078048706055
+        ],
+        [
+         3200,
+         5.368111610412598
+        ],
+        [
+         3999,
+         5.451134204864502
+        ]
+       ]
+      },
+      "G_two_branch_gate": {
+       "description": "+ second gate branch: the exact shape of the folded pattern",
+       "ingredient_added": [
+        "ctx"
+       ],
+       "kl_from_model_held": 0.3729622224345803,
+       "kl_from_model_est": 0.3496078080497682,
+       "kl_at_finding23_setting": 0.3508297974864642,
+       "held_minus_est_kl": 0.023354414384812117,
+       "program_ce_held": 5.053023010492325,
+       "model_ce_held": 4.646032825112343,
+       "remainder_frac_of_model_ce": 0.08027541700064549,
+       "bits": {
+        "entries": {
+         "U": 8192,
+         "W": 524288,
+         "Pc": 524288,
+         "Vc": 524288,
+         "cscale": 1,
+         "g": 256,
+         "Kq": 65536,
+         "Kk": 65536,
+         "Kq2": 65536,
+         "Kk2": 65536
+        },
+        "total_entries": 1843457,
+        "bits_per_entry": 32,
+        "total_bits": 58990624
+       },
+       "bits_over_model": 1.124981082057491,
+       "over_model_budget": true,
+       "bits_over_bigram_baseline": 0.8790287971496582,
+       "beats_bigram_kl": true,
+       "beats_bigram_at_or_below_its_size": true,
+       "fit_steps": 4000,
+       "fit_loss_curve": [
+        [
+         0,
+         5.302966117858887
+        ],
+        [
+         800,
+         5.5071845054626465
+        ],
+        [
+         1600,
+         5.494544506072998
+        ],
+        [
+         2400,
+         5.574340343475342
+        ],
+        [
+         3200,
+         5.370623588562012
+        ],
+        [
+         3999,
+         5.440188407897949
+        ]
+       ]
+      },
+      "H_heads": {
+       "description": "+ 4 independent gates with own value tables",
+       "ingredient_added": [
+        "nh"
+       ],
+       "kl_from_model_held": 0.37302112579345703,
+       "kl_from_model_est": 0.34985661087557673,
+       "kl_at_finding23_setting": 0.3514617159962654,
+       "held_minus_est_kl": 0.023164514917880297,
+       "program_ce_held": 5.0478766188025475,
+       "model_ce_held": 4.646032825112343,
+       "remainder_frac_of_model_ce": 0.08028809520613692,
+       "bits": {
+        "entries": {
+         "U": 8192,
+         "W": 524288,
+         "Pc": 524288,
+         "Vc": 2097152,
+         "cscale": 4,
+         "g": 1024,
+         "Kq": 262144,
+         "Kk": 262144,
+         "Kq2": 262144,
+         "Kk2": 262144
+        },
+        "total_entries": 4203524,
+        "bits_per_entry": 32,
+        "total_bits": 134512768
+       },
+       "bits_over_model": 2.5652266247461335,
+       "over_model_budget": true,
+       "bits_over_bigram_baseline": 2.004396438598633,
+       "beats_bigram_kl": true,
+       "beats_bigram_at_or_below_its_size": false,
+       "fit_steps": 4000,
+       "fit_loss_curve": [
+        [
+         0,
+         5.285146713256836
+        ],
+        [
+         800,
+         5.362157821655273
+        ],
+        [
+         1600,
+         5.4914164543151855
+        ],
+        [
+         2400,
+         5.609517574310303
+        ],
+        [
+         3200,
+         5.362370014190674
+        ],
+        [
+         3999,
+         5.441148281097412
+        ]
+       ]
+      },
+      "I_induction": {
+       "description": "+ induction/copy rule",
+       "ingredient_added": [
+        "induction"
+       ],
+       "kl_from_model_held": 0.37119004782289267,
+       "kl_from_model_est": 0.34957326017320156,
+       "kl_at_finding23_setting": 0.3513925050695737,
+       "held_minus_est_kl": 0.021616787649691105,
+       "program_ce_held": 4.993833549320698,
+       "model_ce_held": 4.646032825112343,
+       "remainder_frac_of_model_ce": 0.07989397875464152,
+       "bits": {
+        "entries": {
+         "U": 8192,
+         "W": 524288,
+         "Pc": 524288,
+         "Vc": 2097152,
+         "cscale": 4,
+         "g": 1024,
+         "Kq": 262144,
+         "Kk": 262144,
+         "Kq2": 262144,
+         "Kk2": 262144,
+         "lam0": 1,
+         "lam_tok": 8192
+        },
+        "total_entries": 4211717,
+        "bits_per_entry": 32,
+        "total_bits": 134774944
+       },
+       "bits_over_model": 2.5702264538743944,
+       "over_model_budget": true,
+       "bits_over_bigram_baseline": 2.008303165435791,
+       "beats_bigram_kl": true,
+       "beats_bigram_at_or_below_its_size": false,
+       "fit_steps": 4000,
+       "fit_loss_curve": [
+        [
+         0,
+         5.286449432373047
+        ],
+        [
+         800,
+         5.420300006866455
+        ],
+        [
+         1600,
+         5.738790512084961
+        ],
+        [
+         2400,
+         5.542981147766113
+        ],
+        [
+         3200,
+         5.355363845825195
+        ],
+        [
+         3999,
+         5.441709995269775
+        ]
+       ]
+      },
+      "J_squared_content": {
+       "description": "+ squared-content term (BOUNDARY: closest thing to the MLP)",
+       "ingredient_added": [
+        "square"
+       ],
+       "kl_from_model_held": 0.33193389838561416,
+       "kl_from_model_est": 0.3141838298179209,
+       "kl_at_finding23_setting": 0.31399152676264447,
+       "held_minus_est_kl": 0.017750068567693233,
+       "program_ce_held": 4.961824171245098,
+       "model_ce_held": 4.646032825112343,
+       "remainder_frac_of_model_ce": 0.07144458743198567,
+       "bits": {
+        "entries": {
+         "U": 8192,
+         "W": 524288,
+         "Pc": 524288,
+         "Vc": 2097152,
+         "cscale": 4,
+         "g": 1024,
+         "Kq": 262144,
+         "Kk": 262144,
+         "Kq2": 262144,
+         "Kk2": 262144,
+         "lam0": 1,
+         "lam_tok": 8192,
+         "W2": 524288
+        },
+        "total_entries": 4736005,
+        "bits_per_entry": 32,
+        "total_bits": 151552160
+       },
+       "bits_over_model": 2.890176461685674,
+       "over_model_budget": true,
+       "bits_over_bigram_baseline": 2.258303165435791,
+       "beats_bigram_kl": true,
+       "beats_bigram_at_or_below_its_size": false,
+       "fit_steps": 4000,
+       "fit_loss_curve": [
+        [
+         0,
+         5.287867546081543
+        ],
+        [
+         800,
+         5.715696334838867
+        ],
+        [
+         1600,
+         5.697174549102783
+        ],
+        [
+         2400,
+         5.606369972229004
+        ],
+        [
+         3200,
+         5.337637901306152
+        ],
+        [
+         3999,
+         5.399820327758789
+        ]
+       ]
+      }
+     },
+     "controls": {
+      "i_exact_fold": {
+       "attn_write_max_abs_diff": 2.9206275939941406e-05,
+       "attn_write_absmax": 5.458083152770996,
+       "attn_write_rel_diff": 5.351013372728441e-06,
+       "tol_rel": 1e-05,
+       "pass": true,
+       "what": "the program attention code, given the exact folded layer-0 tables at full rank, vs the model attention write"
+      },
+      "ii_shuffled_tables": {
+       "kl_from_model": 3.7071665413677692,
+       "program_ce": 8.69713094830513,
+       "model_ce": 4.646032825112343,
+       "tokens": 131072,
+       "stage": "J_squared_content",
+       "kl_unshuffled": 0.33193389838561416,
+       "ratio": 11.168387921203157,
+       "pass": true,
+       "what": "token axis of every fitted table permuted; the KL must blow up"
+      }
+     },
+     "references": {
+      "model_bigram": {
+       "kl_from_model": 0.8309165025129914,
+       "program_ce": 5.591831669211388,
+       "model_ce": 4.646032825112343,
+       "tokens": 131072,
+       "kl_at_finding23_setting": 0.8185959855715433,
+       "bits": {
+        "entries": {
+         "R0": 1048576,
+         "WU": 1048576
+        },
+        "total_entries": 2097152,
+        "bits_per_entry": 32,
+        "total_bits": 67108864,
+        "dense_VxV_entries": 67108864,
+        "dense_VxV_bits": 2147483648
+       },
+       "what": "the model's own length-1 output table -- the baseline FINDING 23 measured"
+      },
+      "model_self": {
+       "held_ce": 4.646032825112343,
+       "held_ce_finding23_setting": 4.553542653719584
+      },
+      "dense_fitted_bigram": {
+       "kl_from_model": 0.6486665746197104,
+       "program_ce": 5.414881192147732,
+       "model_ce": 4.646032825112343,
+       "tokens": 131072,
+       "alpha": 0.1,
+       "alpha_val_kl": 0.6350473240017891,
+       "est_rows_accumulated": 8192,
+       "est_rows_for_alpha": 128,
+       "alphas_tried": [
+        0.001,
+        0.01,
+        0.1,
+        1.0,
+        10.0,
+        100.0,
+        1000.0
+       ],
+       "bits": {
+        "entries": {
+         "table_VxV": 67108864
+        },
+        "total_entries": 67108864,
+        "bits_per_entry": 32,
+        "total_bits": 2147483648
+       },
+       "what": "the OPTIMAL token-only program (est-average of the model distribution per current token, backed off); the ceiling of the whole bigram family, and astronomically over budget"
+      },
+      "model_quantised": {
+       "16bit": {
+        "total_bits": 26611712,
+        "kl_from_model_held": 5.2819915552504426e-08,
+        "bits_over_fp32_model": 0.5074988283080769
+       },
+       "8bit": {
+        "total_bits": 13502464,
+        "kl_from_model_held": 0.0009366747735839454,
+        "bits_over_fp32_model": 0.25749882830807685
+       },
+       "4bit": {
+        "total_bits": 6947840,
+        "kl_from_model_held": 0.3590572881512344,
+        "bits_over_fp32_model": 0.13249882830807685
+       }
+      }
+     },
+     "quantised": {
+      "J_squared_content_at_16bit": {
+       "bits_per_entry": 16,
+       "total_bits": 77087728,
+       "kl_from_model_held": 0.33192896749824286,
+       "bits_over_model": 1.4701020226331822,
+       "over_model_budget": true,
+       "kl_cost_vs_fp32": -4.930887371301651e-06
+      },
+      "J_squared_content_at_8bit": {
+       "bits_per_entry": 8,
+       "total_bits": 39199688,
+       "kl_from_model_held": 0.33213328989222646,
+       "bits_over_model": 0.7475579072117637,
+       "over_model_budget": false,
+       "kl_cost_vs_fp32": 0.00019939150661230087
+      },
+      "J_squared_content_at_4bit": {
+       "bits_per_entry": 4,
+       "total_bits": 20255668,
+       "kl_from_model_held": 0.39385228836908937,
+       "bits_over_model": 0.38628584950105455,
+       "over_model_budget": false,
+       "kl_cost_vs_fp32": 0.06191838998347521
+      }
+     },
+     "tied_variant": {
+      "what": "stage G with the current-token table TIED to the output table (the model ties its embedding); halves the content bill",
+      "rank": 64,
+      "kl_from_model_held": 0.5510691087692976,
+      "bits": {
+       "entries": {
+        "U": 8192,
+        "W": 524288,
+        "Vc": 524288,
+        "cscale": 1,
+        "g": 256,
+        "Kq": 65536,
+        "Kk": 65536,
+        "Kq2": 65536,
+        "Kk2": 65536
+       },
+       "total_entries": 1319169,
+       "bits_per_entry": 32,
+       "total_bits": 42213408
+      },
+      "bits_over_model": 0.8050310742462116,
+      "over_model_budget": false
+     },
+     "frontier": {},
+     "seconds": 612.3424911499023
+    },
+    "tf_vanilla_d2_w128_b8192_s2": {
+     "stem": "tf_vanilla_d2_w128_b8192_s2",
+     "depth": 2,
+     "width": 128,
+     "vocab": 8192,
+     "tok": "bpe",
+     "Ws": 128,
+     "n_heads": 8,
+     "context_length": 256,
+     "rank_r": 64,
+     "gate_rank_a": 8,
+     "n_gates": 4,
+     "model_params_tied_once": 1638656,
+     "model_bits_at_32": 52436992,
+     "splits": {
+      "est_rows_fitted_on": 24576,
+      "est_tokens_available": 6291456,
+      "held_rows_scored_on": 512,
+      "held_tokens_scored": 131072,
+      "held_ref_rows": 96,
+      "held_ref_tokens": 24576,
+      "note": "nothing is fitted on held; est and held are disjoint corpus splits (tf_corpus MANIFEST)"
+     },
+     "stages": {
+      "A_unigram": {
+       "description": "U[v] only",
+       "ingredient_added": [
+        "(base)"
+       ],
+       "kl_from_model_held": 2.302730016410351,
+       "kl_from_model_est": 2.2908984795212746,
+       "kl_at_finding23_setting": 2.305588642756144,
+       "held_minus_est_kl": 0.011831536889076233,
+       "program_ce_held": 7.3191743567585945,
+       "model_ce_held": 4.634340085089207,
+       "remainder_frac_of_model_ce": 0.49688412462850695,
+       "bits": {
+        "entries": {
+         "U": 8192
+        },
+        "total_entries": 8192,
+        "bits_per_entry": 32,
+        "total_bits": 262144
+       },
+       "bits_over_model": 0.004999218872051242,
+       "over_model_budget": false,
+       "bits_over_bigram_baseline": 0.00390625,
+       "beats_bigram_kl": false,
+       "beats_bigram_at_or_below_its_size": false,
+       "fit_steps": 6000,
+       "fit_loss_curve": [
+        [
+         0,
+         7.306239128112793
+        ],
+        [
+         1200,
+         7.3321075439453125
+        ],
+        [
+         2400,
+         7.403159141540527
+        ],
+        [
+         3600,
+         7.283744812011719
+        ],
+        [
+         4800,
+         7.2119035720825195
+        ],
+        [
+         5999,
+         7.232441425323486
+        ]
+       ]
+      },
+      "B_bigram_rank": {
+       "description": "+ current-token content Pc[x_t]",
+       "ingredient_added": [
+        "bigram"
+       ],
+       "kl_from_model_held": 0.6947940113022923,
+       "kl_from_model_est": 0.6715868636965752,
+       "kl_at_finding23_setting": 0.6798140009244283,
+       "held_minus_est_kl": 0.023207147605717182,
+       "program_ce_held": 5.463669531047344,
+       "model_ce_held": 4.634340085089207,
+       "remainder_frac_of_model_ce": 0.1499229660632293,
+       "bits": {
+        "entries": {
+         "U": 8192,
+         "W": 524288,
+         "Pc": 524288
+        },
+        "total_entries": 1056768,
+        "bits_per_entry": 32,
+        "total_bits": 33816576
+       },
+       "bits_over_model": 0.6448992344946102,
+       "over_model_budget": false,
+       "bits_over_bigram_baseline": 0.50390625,
+       "beats_bigram_kl": true,
+       "beats_bigram_at_or_below_its_size": true,
+       "fit_steps": 4000,
+       "fit_loss_curve": [
+        [
+         0,
+         7.296942234039307
+        ],
+        [
+         800,
+         5.698101043701172
+        ],
+        [
+         1600,
+         5.799111366271973
+        ],
+        [
+         2400,
+         5.84970760345459
+        ],
+        [
+         3200,
+         5.674946308135986
+        ],
+        [
+         3999,
+         5.755553245544434
+        ]
+       ]
+      },
+      "C_prefix_mean": {
+       "description": "+ prefix-mean context",
+       "ingredient_added": [
+        "ctx"
+       ],
+       "kl_from_model_held": 0.5852807424962521,
+       "kl_from_model_est": 0.5641971509903669,
+       "kl_at_finding23_setting": 0.5779531250397364,
+       "held_minus_est_kl": 0.021083591505885124,
+       "program_ce_held": 5.311342194676399,
+       "model_ce_held": 4.634340085089207,
+       "remainder_frac_of_model_ce": 0.126292143379673,
+       "bits": {
+        "entries": {
+         "U": 8192,
+         "W": 524288,
+         "Pc": 524288,
+         "Vc": 524288,
+         "cscale": 1
+        },
+        "total_entries": 1581057,
+        "bits_per_entry": 32,
+        "total_bits": 50593824
+       },
+       "bits_over_model": 0.9648498525620997,
+       "over_model_budget": false,
+       "bits_over_bigram_baseline": 0.7539067268371582,
+       "beats_bigram_kl": true,
+       "beats_bigram_at_or_below_its_size": true,
+       "fit_steps": 4000,
+       "fit_loss_curve": [
+        [
+         0,
+         5.652925491333008
+        ],
+        [
+         800,
+         5.601596832275391
+        ],
+        [
+         1600,
+         5.702231407165527
+        ],
+        [
+         2400,
+         5.74356746673584
+        ],
+        [
+         3200,
+         5.571660995483398
+        ],
+        [
+         3999,
+         5.650324821472168
+        ]
+       ]
+      },
+      "D_distance_profile": {
+       "description": "+ per-distance weights g[d]",
+       "ingredient_added": [
+        "ctx"
+       ],
+       "kl_from_model_held": 0.4447437599301338,
+       "kl_from_model_est": 0.4225219083018601,
+       "kl_at_finding23_setting": 0.42496106028556824,
+       "held_minus_est_kl": 0.022221851628273726,
+       "program_ce_held": 5.126151256263256,
+       "model_ce_held": 4.634340085089207,
+       "remainder_frac_of_model_ce": 0.09596700970674941,
+       "bits": {
+        "entries": {
+         "U": 8192,
+         "W": 524288,
+         "Pc": 524288,
+         "Vc": 524288,
+         "cscale": 1,
+         "g": 256
+        },
+        "total_entries": 1581313,
+        "bits_per_entry": 32,
+        "total_bits": 50602016
+       },
+       "bits_over_model": 0.9650060781518512,
+       "over_model_budget": false,
+       "bits_over_bigram_baseline": 0.7540287971496582,
+       "beats_bigram_kl": true,
+       "beats_bigram_at_or_below_its_size": true,
+       "fit_steps": 4000,
+       "fit_loss_curve": [
+        [
+         0,
+         5.582724571228027
+        ],
+        [
+         800,
+         5.451661109924316
+        ],
+        [
+         1600,
+         5.57390022277832
+        ],
+        [
+         2400,
+         5.6066131591796875
+        ],
+        [
+         3200,
+         5.425189018249512
+        ],
+        [
+         3999,
+         5.503019332885742
+        ]
+       ]
+      },
+      "E_tokenpair_gate": {
+       "description": "+ rank-a token-pair gate",
+       "ingredient_added": [
+        "ctx"
+       ],
+       "kl_from_model_held": 0.4000462247058749,
+       "kl_from_model_est": 0.37747803423553705,
+       "kl_at_finding23_setting": 0.3816417207320531,
+       "held_minus_est_kl": 0.022568190470337868,
+       "program_ce_held": 5.072522021830082,
+       "model_ce_held": 4.634340085089207,
+       "remainder_frac_of_model_ce": 0.08632215533620563,
+       "bits": {
+        "entries": {
+         "U": 8192,
+         "W": 524288,
+         "Pc": 524288,
+         "Vc": 524288,
+         "cscale": 1,
+         "g": 256,
+         "Kq": 65536,
+         "Kk": 65536
+        },
+        "total_entries": 1712385,
+        "bits_per_entry": 32,
+        "total_bits": 54796320
+       },
+       "bits_over_model": 1.0449935801046712,
+       "over_model_budget": true,
+       "bits_over_bigram_baseline": 0.8165287971496582,
+       "beats_bigram_kl": true,
+       "beats_bigram_at_or_below_its_size": true,
+       "fit_steps": 4000,
+       "fit_loss_curve": [
+        [
+         0,
+         5.37669563293457
+        ],
+        [
+         800,
+         5.44349479675293
+        ],
+        [
+         1600,
+         5.575594902038574
+        ],
+        [
+         2400,
+         5.554996490478516
+        ],
+        [
+         3200,
+         5.387599468231201
+        ],
+        [
+         3999,
+         5.461217880249023
+        ]
+       ]
+      },
+      "F_rotary_gate": {
+       "description": "+ rotary (distance) in the gate",
+       "ingredient_added": [
+        "ctx"
+       ],
+       "kl_from_model_held": 0.3926511937752366,
+       "kl_from_model_est": 0.36921835225075483,
+       "kl_at_finding23_setting": 0.37188444038232166,
+       "held_minus_est_kl": 0.023432841524481773,
+       "program_ce_held": 5.064637824892998,
+       "model_ce_held": 4.634340085089207,
+       "remainder_frac_of_model_ce": 0.08472645221669753,
+       "bits": {
+        "entries": {
+         "U": 8192,
+         "W": 524288,
+         "Pc": 524288,
+         "Vc": 524288,
+         "cscale": 1,
+         "g": 256,
+         "Kq": 65536,
+         "Kk": 65536
+        },
+        "total_entries": 1712385,
+        "bits_per_entry": 32,
+        "total_bits": 54796320
+       },
+       "bits_over_model": 1.0449935801046712,
+       "over_model_budget": true,
+       "bits_over_bigram_baseline": 0.8165287971496582,
+       "beats_bigram_kl": true,
+       "beats_bigram_at_or_below_its_size": true,
+       "fit_steps": 4000,
+       "fit_loss_curve": [
+        [
+         0,
+         5.365283489227295
+        ],
+        [
+         800,
+         5.428948402404785
+        ],
+        [
+         1600,
+         5.544727325439453
+        ],
+        [
+         2400,
+         5.555124282836914
+        ],
+        [
+         3200,
+         5.380886077880859
+        ],
+        [
+         3999,
+         5.457589149475098
+        ]
+       ]
+      },
+      "G_two_branch_gate": {
+       "description": "+ second gate branch: the exact shape of the folded pattern",
+       "ingredient_added": [
+        "ctx"
+       ],
+       "kl_from_model_held": 0.38337915716692805,
+       "kl_from_model_est": 0.35839163279160857,
+       "kl_at_finding23_setting": 0.36133381476004917,
+       "held_minus_est_kl": 0.02498752437531948,
+       "program_ce_held": 5.043899528682232,
+       "model_ce_held": 4.634340085089207,
+       "remainder_frac_of_model_ce": 0.08272572796295945,
+       "bits": {
+        "entries": {
+         "U": 8192,
+         "W": 524288,
+         "Pc": 524288,
+         "Vc": 524288,
+         "cscale": 1,
+         "g": 256,
+         "Kq": 65536,
+         "Kk": 65536,
+         "Kq2": 65536,
+         "Kk2": 65536
+        },
+        "total_entries": 1843457,
+        "bits_per_entry": 32,
+        "total_bits": 58990624
+       },
+       "bits_over_model": 1.124981082057491,
+       "over_model_budget": true,
+       "bits_over_bigram_baseline": 0.8790287971496582,
+       "beats_bigram_kl": true,
+       "beats_bigram_at_or_below_its_size": true,
+       "fit_steps": 4000,
+       "fit_loss_curve": [
+        [
+         0,
+         5.316715717315674
+        ],
+        [
+         800,
+         5.427637100219727
+        ],
+        [
+         1600,
+         5.597929954528809
+        ],
+        [
+         2400,
+         5.568325996398926
+        ],
+        [
+         3200,
+         5.3708086013793945
+        ],
+        [
+         3999,
+         5.448398590087891
+        ]
+       ]
+      },
+      "H_heads": {
+       "description": "+ 4 independent gates with own value tables",
+       "ingredient_added": [
+        "nh"
+       ],
+       "kl_from_model_held": 0.3776735560968518,
+       "kl_from_model_est": 0.35346736665815115,
+       "kl_at_finding23_setting": 0.35656193147102994,
+       "held_minus_est_kl": 0.024206189438700676,
+       "program_ce_held": 5.050282716751099,
+       "model_ce_held": 4.634340085089207,
+       "remainder_frac_of_model_ce": 0.08149457078301192,
+       "bits": {
+        "entries": {
+         "U": 8192,
+         "W": 524288,
+         "Pc": 524288,
+         "Vc": 2097152,
+         "cscale": 4,
+         "g": 1024,
+         "Kq": 262144,
+         "Kk": 262144,
+         "Kq2": 262144,
+         "Kk2": 262144
+        },
+        "total_entries": 4203524,
+        "bits_per_entry": 32,
+        "total_bits": 134512768
+       },
+       "bits_over_model": 2.5652266247461335,
+       "over_model_budget": true,
+       "bits_over_bigram_baseline": 2.004396438598633,
+       "beats_bigram_kl": true,
+       "beats_bigram_at_or_below_its_size": false,
+       "fit_steps": 4000,
+       "fit_loss_curve": [
+        [
+         0,
+         5.305911064147949
+        ],
+        [
+         800,
+         5.423221588134766
+        ],
+        [
+         1600,
+         5.5586957931518555
+        ],
+        [
+         2400,
+         5.615883827209473
+        ],
+        [
+         3200,
+         5.368598937988281
+        ],
+        [
+         3999,
+         5.447254657745361
+        ]
+       ]
+      },
+      "I_induction": {
+       "description": "+ induction/copy rule",
+       "ingredient_added": [
+        "induction"
+       ],
+       "kl_from_model_held": 0.37203996675089,
+       "kl_from_model_est": 0.3495190474204719,
+       "kl_at_finding23_setting": 0.3508580724398295,
+       "held_minus_est_kl": 0.02252091933041811,
+       "program_ce_held": 4.985035352408886,
+       "model_ce_held": 4.634340085089207,
+       "remainder_frac_of_model_ce": 0.08027895232546979,
+       "bits": {
+        "entries": {
+         "U": 8192,
+         "W": 524288,
+         "Pc": 524288,
+         "Vc": 2097152,
+         "cscale": 4,
+         "g": 1024,
+         "Kq": 262144,
+         "Kk": 262144,
+         "Kq2": 262144,
+         "Kk2": 262144,
+         "lam0": 1,
+         "lam_tok": 8192
+        },
+        "total_entries": 4211717,
+        "bits_per_entry": 32,
+        "total_bits": 134774944
+       },
+       "bits_over_model": 2.5702264538743944,
+       "over_model_budget": true,
+       "bits_over_bigram_baseline": 2.008303165435791,
+       "beats_bigram_kl": true,
+       "beats_bigram_at_or_below_its_size": false,
+       "fit_steps": 4000,
+       "fit_loss_curve": [
+        [
+         0,
+         5.302026271820068
+        ],
+        [
+         800,
+         5.610077381134033
+        ],
+        [
+         1600,
+         5.668065547943115
+        ],
+        [
+         2400,
+         5.539039611816406
+        ],
+        [
+         3200,
+         5.3680338859558105
+        ],
+        [
+         3999,
+         5.449938774108887
+        ]
+       ]
+      },
+      "J_squared_content": {
+       "description": "+ squared-content term (BOUNDARY: closest thing to the MLP)",
+       "ingredient_added": [
+        "square"
+       ],
+       "kl_from_model_held": 0.33877928694710135,
+       "kl_from_model_est": 0.3180934716947377,
+       "kl_at_finding23_setting": 0.3179592440525691,
+       "held_minus_est_kl": 0.020685815252363682,
+       "program_ce_held": 4.9419215098023415,
+       "model_ce_held": 4.634340085089207,
+       "remainder_frac_of_model_ce": 0.07310194779125283,
+       "bits": {
+        "entries": {
+         "U": 8192,
+         "W": 524288,
+         "Pc": 524288,
+         "Vc": 2097152,
+         "cscale": 4,
+         "g": 1024,
+         "Kq": 262144,
+         "Kk": 262144,
+         "Kq2": 262144,
+         "Kk2": 262144,
+         "lam0": 1,
+         "lam_tok": 8192,
+         "W2": 524288
+        },
+        "total_entries": 4736005,
+        "bits_per_entry": 32,
+        "total_bits": 151552160
+       },
+       "bits_over_model": 2.890176461685674,
+       "over_model_budget": true,
+       "bits_over_bigram_baseline": 2.258303165435791,
+       "beats_bigram_kl": true,
+       "beats_bigram_at_or_below_its_size": false,
+       "fit_steps": 4000,
+       "fit_loss_curve": [
+        [
+         0,
+         5.292208671569824
+        ],
+        [
+         800,
+         5.654521465301514
+        ],
+        [
+         1600,
+         6.011046886444092
+        ],
+        [
+         2400,
+         5.553050518035889
+        ],
+        [
+         3200,
+         5.340994358062744
+        ],
+        [
+         3999,
+         5.408109664916992
+        ]
+       ]
+      }
+     },
+     "controls": {
+      "i_exact_fold": {
+       "attn_write_max_abs_diff": 4.094839096069336e-05,
+       "attn_write_absmax": 4.147575378417969,
+       "attn_write_rel_diff": 9.872850334142092e-06,
+       "tol_rel": 1e-05,
+       "pass": true,
+       "what": "the program attention code, given the exact folded layer-0 tables at full rank, vs the model attention write"
+      },
+      "ii_shuffled_tables": {
+       "kl_from_model": 3.7416793033480644,
+       "program_ce": 8.713908314704895,
+       "model_ce": 4.634340085089207,
+       "tokens": 131072,
+       "stage": "J_squared_content",
+       "kl_unshuffled": 0.33877928694710135,
+       "ratio": 11.044592888384905,
+       "pass": true,
+       "what": "token axis of every fitted table permuted; the KL must blow up"
+      }
+     },
+     "references": {
+      "model_bigram": {
+       "kl_from_model": 0.8325202232226729,
+       "program_ce": 5.5890384539961815,
+       "model_ce": 4.634340085089207,
+       "tokens": 131072,
+       "kl_at_finding23_setting": 0.8189269204934438,
+       "bits": {
+        "entries": {
+         "R0": 1048576,
+         "WU": 1048576
+        },
+        "total_entries": 2097152,
+        "bits_per_entry": 32,
+        "total_bits": 67108864,
+        "dense_VxV_entries": 67108864,
+        "dense_VxV_bits": 2147483648
+       },
+       "what": "the model's own length-1 output table -- the baseline FINDING 23 measured"
+      },
+      "model_self": {
+       "held_ce": 4.634340085089207,
+       "held_ce_finding23_setting": 4.542863368988037
+      },
+      "dense_fitted_bigram": {
+       "kl_from_model": 0.6547547653317451,
+       "program_ce": 5.415414579212666,
+       "model_ce": 4.634340085089207,
+       "tokens": 131072,
+       "alpha": 0.1,
+       "alpha_val_kl": 0.6433758623898029,
+       "est_rows_accumulated": 8192,
+       "est_rows_for_alpha": 128,
+       "alphas_tried": [
+        0.001,
+        0.01,
+        0.1,
+        1.0,
+        10.0,
+        100.0,
+        1000.0
+       ],
+       "bits": {
+        "entries": {
+         "table_VxV": 67108864
+        },
+        "total_entries": 67108864,
+        "bits_per_entry": 32,
+        "total_bits": 2147483648
+       },
+       "what": "the OPTIMAL token-only program (est-average of the model distribution per current token, backed off); the ceiling of the whole bigram family, and astronomically over budget"
+      },
+      "model_quantised": {
+       "16bit": {
+        "total_bits": 26611712,
+        "kl_from_model_held": 1.0345048484516894e-07,
+        "bits_over_fp32_model": 0.5074988283080769
+       },
+       "8bit": {
+        "total_bits": 13502464,
+        "kl_from_model_held": 0.001547681080410257,
+        "bits_over_fp32_model": 0.25749882830807685
+       },
+       "4bit": {
+        "total_bits": 6947840,
+        "kl_from_model_held": 0.40246665803715587,
+        "bits_over_fp32_model": 0.13249882830807685
+       }
+      }
+     },
+     "quantised": {
+      "J_squared_content_at_16bit": {
+       "bits_per_entry": 16,
+       "total_bits": 77087728,
+       "kl_from_model_held": 0.3387716468423605,
+       "bits_over_model": 1.4701020226331822,
+       "over_model_budget": true,
+       "kl_cost_vs_fp32": -7.640104740858078e-06
+      },
+      "J_squared_content_at_8bit": {
+       "bits_per_entry": 8,
+       "total_bits": 39199688,
+       "kl_from_model_held": 0.3389474027790129,
+       "bits_over_model": 0.7475579072117637,
+       "over_model_budget": false,
+       "kl_cost_vs_fp32": 0.00016811583191156387
+      },
+      "J_squared_content_at_4bit": {
+       "bits_per_entry": 4,
+       "total_bits": 20255668,
+       "kl_from_model_held": 0.4222093722783029,
+       "bits_over_model": 0.38628584950105455,
+       "over_model_budget": false,
+       "kl_cost_vs_fp32": 0.08343008533120155
+      }
+     },
+     "tied_variant": {
+      "what": "stage G with the current-token table TIED to the output table (the model ties its embedding); halves the content bill",
+      "rank": 64,
+      "kl_from_model_held": 0.5615508081391454,
+      "bits": {
+       "entries": {
+        "U": 8192,
+        "W": 524288,
+        "Vc": 524288,
+        "cscale": 1,
+        "g": 256,
+        "Kq": 65536,
+        "Kk": 65536,
+        "Kq2": 65536,
+        "Kk2": 65536
+       },
+       "total_entries": 1319169,
+       "bits_per_entry": 32,
+       "total_bits": 42213408
+      },
+      "bits_over_model": 0.8050310742462116,
+      "over_model_budget": false
+     },
+     "frontier": {},
+     "seconds": 648.5479533672333
+    }
+   }
+  }
+ },
+ "headline": {
+  "tf_vanilla_d1_w32_b8192_s0": {
+   "depth": 1,
+   "width": 32,
+   "model_held_ce": 5.496354468166828,
+   "held_tokens": 131072,
+   "context_length": 256,
+   "model_bits_at_32": 8979456,
+   "bigram_baseline": {
+    "kl": 0.2904504123143852,
+    "kl_at_finding23_setting": 0.27439381927251816,
+    "bits_factored": 16777216,
+    "bits_dense_VxV": 2147483648,
+    "remainder_frac_of_model_ce": 0.052844192272638785
+   },
+   "optimal_token_only_ceiling": 0.1852822012733668,
+   "best_program_at_or_below_bigram_bits": {
+    "point": "D_distance_profile",
+    "kl": 0.18662838102318347,
+    "bits": 12853280,
+    "bits_over_bigram": 0.7661151885986328,
+    "bits_over_model": 1.4314096533242102,
+    "remainder_frac_of_model_ce": 0.03395493906080419,
+    "kl_ratio_vs_bigram": 0.6425481703953508
+   },
+   "best_program_at_or_below_model_bits": {
+    "point": "bigram_only_r16",
+    "kl": 0.2628930634818971,
+    "bits": 8650752,
+    "remainder_frac_of_model_ce": 0.047830441978313404
+   },
+   "best_program_any_size": {
+    "point": "full_gate_r128",
+    "kl": 0.05582053796388209,
+    "bits": 109322272,
+    "bits_over_model": 12.174709915611814,
+    "remainder_frac_of_model_ce": 0.01015592030812009,
+    "kl_ratio_vs_bigram": 0.1921861205810981,
+    "note": "includes the COLD-fit top-stage program from tf_rung5_leaveout.json, which beats the warm-started ladder"
+   },
+   "best_program_cold_fit_top_stage": {
+    "kl": 0.09688364376779646,
+    "bits": 63471776,
+    "bits_over_model": 7.068554709773064,
+    "remainder_frac_of_model_ce": 0.017626891483967476,
+    "note": "the cumulative ladder is warm-started and therefore PATH DEPENDENT; a cold fit of the same top configuration lands lower, so every ladder increment above stage B is a conservative reading"
+   },
+   "fit_noise_sd": 0.0028746070413558818,
+   "fit_noise_range": 0.005972695653326809,
+   "model_at_8_bits": {
+    "total_bits": 2523392,
+    "kl_from_model_held": 0.0006543294002767652,
+    "bits_over_fp32_model": 0.2810183601322842
+   },
+   "verdicts": {
+    "beats_bigram_at_or_below_its_bits": true,
+    "beats_bigram_at_or_below_the_MODEL_bits": true,
+    "shorter_than_the_model_at_comparable_KL": false,
+    "shorter_than_the_8bit_model_at_comparable_KL": false
+   }
+  },
+  "tf_vanilla_d2_w128_b8192_s0": {
+   "depth": 2,
+   "width": 128,
+   "model_held_ce": 4.648617401719093,
+   "held_tokens": 131072,
+   "context_length": 256,
+   "model_bits_at_32": 52436992,
+   "bigram_baseline": {
+    "kl": 0.8193136733025312,
+    "kl_at_finding23_setting": 0.8061971416076025,
+    "bits_factored": 67108864,
+    "bits_dense_VxV": 2147483648,
+    "remainder_frac_of_model_ce": 0.17624889348810313
+   },
+   "optimal_token_only_ceiling": 0.6452014241367579,
+   "best_program_at_or_below_bigram_bits": {
+    "point": "full_gate_r64",
+    "kl": 0.36882272409275174,
+    "bits": 58990624,
+    "bits_over_bigram": 0.8790287971496582,
+    "bits_over_model": 1.124981082057491,
+    "remainder_frac_of_model_ce": 0.07934030534678083,
+    "kl_ratio_vs_bigram": 0.4501605869777351
+   },
+   "best_program_at_or_below_model_bits": {
+    "point": "D_distance_profile",
+    "kl": 0.43264067778363824,
+    "bits": 50602016,
+    "remainder_frac_of_model_ce": 0.09306867836093469
+   },
+   "best_program_any_size": {
+    "point": "leave_one_out_TOP_cold_fit",
+    "kl": 0.2655150801874697,
+    "bits": 151552160,
+    "bits_over_model": 2.890176461685674,
+    "remainder_frac_of_model_ce": 0.057117000011504555,
+    "kl_ratio_vs_bigram": 0.32407011971034005,
+    "note": "includes the COLD-fit top-stage program from tf_rung5_leaveout.json, which beats the warm-started ladder"
+   },
+   "best_program_cold_fit_top_stage": {
+    "kl": 0.2655150801874697,
+    "bits": 151552160,
+    "bits_over_model": 2.890176461685674,
+    "remainder_frac_of_model_ce": 0.057117000011504555,
+    "note": "the cumulative ladder is warm-started and therefore PATH DEPENDENT; a cold fit of the same top configuration lands lower, so every ladder increment above stage B is a conservative reading"
+   },
+   "fit_noise_sd": 0.00243919163245302,
+   "fit_noise_range": 0.0052750075701624155,
+   "model_at_8_bits": {
+    "total_bits": 13502464,
+    "kl_from_model_held": 0.0008189209511328954,
+    "bits_over_fp32_model": 0.25749882830807685
+   },
+   "verdicts": {
+    "beats_bigram_at_or_below_its_bits": true,
+    "beats_bigram_at_or_below_the_MODEL_bits": true,
+    "shorter_than_the_model_at_comparable_KL": false,
+    "shorter_than_the_8bit_model_at_comparable_KL": false
+   }
+  },
+  "tf_vanilla_d4_w256_b8192_s0": {
+   "depth": 4,
+   "width": 256,
+   "model_held_ce": 4.156472515314817,
+   "held_tokens": 131072,
+   "context_length": 256,
+   "model_bits_at_32": 218136576,
+   "bigram_baseline": {
+    "kl": 1.2356027700006962,
+    "kl_at_finding23_setting": 1.2099153399467468,
+    "bits_factored": 134217728,
+    "bits_dense_VxV": 2147483648,
+    "remainder_frac_of_model_ce": 0.29727196930763533
+   },
+   "optimal_token_only_ceiling": 1.0575026301667094,
+   "best_program_at_or_below_bigram_bits": {
+    "point": "G_two_branch_gate",
+    "kl": 0.6941985869780183,
+    "bits": 109322272,
+    "bits_over_bigram": 0.8145143985748291,
+    "bits_over_model": 0.5011643347697912,
+    "remainder_frac_of_model_ce": 0.1670162822971148,
+    "kl_ratio_vs_bigram": 0.5618299050734785
+   },
+   "best_program_at_or_below_model_bits": {
+    "point": "full_gate_r256",
+    "kl": 0.6846828032284975,
+    "bits": 209985568,
+    "remainder_frac_of_model_ce": 0.1647268929857554
+   },
+   "best_program_any_size": {
+    "point": "leave_one_out_TOP_cold_fit",
+    "kl": 0.5083169210702181,
+    "bits": 268992672,
+    "bits_over_model": 1.2331387836581793,
+    "remainder_frac_of_model_ce": 0.12229526821055316,
+    "kl_ratio_vs_bigram": 0.4113918594322443,
+    "note": "includes the COLD-fit top-stage program from tf_rung5_leaveout.json, which beats the warm-started ladder"
+   },
+   "best_program_cold_fit_top_stage": {
+    "kl": 0.5083169210702181,
+    "bits": 268992672,
+    "bits_over_model": 1.2331387836581793,
+    "remainder_frac_of_model_ce": 0.12229526821055316,
+    "note": "the cumulative ladder is warm-started and therefore PATH DEPENDENT; a cold fit of the same top configuration lands lower, so every ladder increment above stage B is a conservative reading"
+   },
+   "fit_noise_sd": 0.007491655572861754,
+   "fit_noise_range": 0.016242147888988256,
+   "model_at_8_bits": {
+    "total_bits": 55320576,
+    "kl_from_model_held": 0.00041436700894337264,
+    "bits_over_fp32_model": 0.253605227579991
+   },
+   "verdicts": {
+    "beats_bigram_at_or_below_its_bits": true,
+    "beats_bigram_at_or_below_the_MODEL_bits": true,
+    "shorter_than_the_model_at_comparable_KL": false,
+    "shorter_than_the_8bit_model_at_comparable_KL": false
+   }
+  }
+ },
+ "headline_notes": [
+  "Every KL is KL(model || program) per token on HELD text, 512 rows x 256 tokens = 131,072 tokens, tables fitted on 24,576 est rows (6.29M positions). The `kl_at_finding23_setting` column is the same quantity on the 96 x 256 = 24,576-token slice tf_interp3.ladder_v uses, so it is directly comparable to FINDING 23.",
+  "Bits: 32 per table entry, and 32 per model parameter with the tied embedding counted once.  Measured 8-bit quantisation of the top-stage program costs <0.0004 nats, so every program bill can be divided by ~4 at negligible KL; the model quantises just as well, so the ORDERING of program vs model is unchanged by quantisation.",
+  "The model is still the shortest description of itself: at 8 bits per parameter it reaches KL 0.0004-0.0008 at 0.32-6.92 MB, and no program point is both shorter and comparable in KL.  What the program beats is the BIGRAM BASELINE, at strictly fewer bits, at all three cells."
+ ]
+}
