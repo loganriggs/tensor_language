@@ -139,6 +139,7 @@
     "tok": "bpe",
     "seed": 0,
     "variant": "vanilla",
+    "qk_norm": true,
     "head_dim": 16,
     "exp": 4,
     "T": 512,
@@ -8210,7 +8211,7 @@
     "note": "rank 0 would mean attending to u boosts u more than any other token; rank V/2 means attending to u says nothing about u.  This is the causal version of the claim; the composed-table version is in rung4."
   },
   "bits_per_byte_ladder": 1.7500639132704474,
-  "seconds": 28.2,
+  "seconds": 28.1,
   "read_ablation_causal": {
     "kl_from_model": {
       "l1_read_zero_e": 1.1843845641124062e-05,
@@ -8251,6 +8252,8 @@
     "note": "the attention-to-attention verdict is quoted from kl_from_model[l1_read_resample_A0] with l1_read_zero_A0 beside it as the lower bound.  KL, CE and the relative pattern/value changes are all invariant to the normalisation convention, unlike a norm share."
   },
   "norm_confound_control": {
+    "_groups_used": 1.0,
+    "_group_size": 8.0,
     "true_norm_l1_pattern_rel_change_without_e": 0.005427818628959358,
     "true_norm_l1_value_rel_change_without_e": 0.003489355556666851,
     "true_norm_l1_pattern_rel_change_without_A0": 0.0042408526642248034,
