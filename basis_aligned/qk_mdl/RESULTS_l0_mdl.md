@@ -6052,3 +6052,41 @@ model from 6-9 (this is where the windowed-moment idea, aggregate #9, would
 live), and is the wrong object past that. The decay curve also hands the
 writeup a clean one-figure summary of where weights-plus-unigram
 understanding ends.
+
+## 2026-08-10 17:25 — §37 The realised-interface ledger (aggregate list #2): THE WEIGHT-SPACE NULL-TIE WAS GAUGE POLLUTION. In the realised gauge, 32 of 36 MLP-to-layer-1 channels carry CP structure that beats the corrected null (median margin 0.24) — but only a fifth of the components are nameable in the known classes
+
+The registered coin flip (0.5) lands on "structure exists." Where the composed-tensor CP in the
+rank-4608 neuron gauge TIED its transplant null (0.483 vs 0.485, §7h), the same decomposition run
+on each channel's realised subspace (top-r principal directions of held-out activations, r =
+effective rank capped at 16, disjoint PCA/moment splits) separates cleanly:
+
+- **M1 (real fit beats null-on-real-core by >= 0.15 on a majority of channels, registered 0.5) —
+  HOLDS: 32 of 36 channels pass, median margin 0.2411**, restart stability 1.000 nearly
+  everywhere. The four failures (two query channels of head 7/8, two more at 0.099-0.144) sit just
+  under the margin, not at a tie.
+- **M3 (solver discipline repeats, 0.7) — HOLDS**: tensor power iteration recovers plants at
+  matched cosine 1.0000 on all three interface-shaped core configurations while projected ALS
+  (0.17) and multiplicative updates (0.67) both fail. One honest note: the first planted-control
+  recipe scaled down from tick 174 was itself broken at this dimension (dense noise floor + near-
+  parallel supports broke identifiability, every solver failed) and was repaired to
+  disjoint-support, one-decade plants — the control caught its own miscalibration before it could
+  certify anything.
+- **M2 (components at least 5x enriched in the known selection classes, registered 0.5,
+  conditional on M1) — REFUTED on the registered reading**: median best-class enrichment per
+  component is 2.46x, and only 67 of 315 components (21%) reach 5x. Reported alongside, not as the
+  scored criterion: 27 of 32 passing channels contain AT LEAST ONE strongly-enriched nameable
+  component — subword-fragment components up to 9.9x ('oph', 'ab', 'ized', 'isation'),
+  punctuation/table-structure components at 8x ('||', ' |', ' :') — so the nameable scaffold
+  classes thread through the interface, but they are a minority of its structure.
+
+**What this changes.** "Content is spectral" was partly an artifact of the gauge: run the ledger
+where the computation actually lives (the realised rank-10-16 interface) and content has real,
+recoverable, restart-stable CP structure — the null-tie disappears. What survives of the original
+claim: most of that structure is still not nameable in human categories (M2), so the amended
+dichotomy is "selection is nameable; content is STRUCTURED but mostly alien, and the structure is
+only visible in the realised gauge." Path C into layer-1 QK is open: the per-channel archetypes
+recovered here are the candidate vocabulary for naming the composed layer0-MLP -> layer1-QK map.
+Per the registered decision rule, the windowed-moment experiment (#9) keeps its priority (M2's
+failure means naming needs new categories, not that structure is absent), and the next step on
+this thread is the planted-modular-content DGP (#4), which now doubles as the calibration for
+whether the 21% nameable fraction is a floor of the tool or of the model.
