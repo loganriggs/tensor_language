@@ -1320,6 +1320,45 @@ carries **87.9% of the move, 95% interval [81.4, 92.2]** on six seeds per
 corner. The interaction is the dominant term by a wide margin, and the two main
 effects together account for about 12%.
 
+### 13:45 — **a three-seed bootstrap UNDERSTATES its own uncertainty.** At depth 3 width 64 six seeds made the interval WIDER and moved the point 10 points
+
+| depth 3, width 64 | share | 95% interval | width |
+|---|---|---|---|
+| 3 seeds per corner | 50.8% | [38.5, 60.4] | 21.9 |
+| **6 seeds per corner** | **61.2%** | **[48.0, 75.6]** | **27.5** |
+
+**U1 refuted** — I predicted the width would fall 35–60%; it *rose* 26%.
+**U2 refuted** — I predicted the point would move under 8 points; it moved
+**+10.4**. The three-seed point estimate sits essentially at the edge of its own
+interval once more data arrives.
+
+**The mechanism is a property of the bootstrap, not of these models.** A
+bootstrap resamples from the values it has. With three, it cannot see
+variability the three did not happen to show, so when those three cluster the
+interval comes out falsely tight. The central cell narrowed on doubling because
+its three seeds were representative; this cell's were not.
+
+**This partially undercuts the 11:55 correction, and I would rather say so than
+let it stand.** That correction was right about *which quantity* to compute —
+uncertainty on the mean, not spread of single-seed estimates — but two of its
+three cells were computed from three-seed bootstraps, which this result shows
+can be too narrow. So:
+
+- depth 2, width 128 — **six seeds, trustworthy**: 87.9% [81.4, 92.2]
+- depth 3, width 64 — **now six seeds**: 61.2% [48.0, 75.6]
+- depth 3, width 128 — **still three seeds, interval should be treated as a
+  lower bound on the true width**: 9.6% [1.1, 17.8]
+
+**The withdrawn null is back in question.** At 12:00 I withdrew "the
+interaction at the largest cell is not distinguishable from zero" because the
+corrected three-seed interval read [1.1, 17.8]. If three-seed intervals run
+narrow, that lower bound of 1.1 is exactly the kind of number that moves. Its
+six-seed version is training now, and I registered at 0.7 that the bound stays
+positive — I am less confident of that than I was an hour ago.
+
+**What survives regardless**: the central cell and this one remain **disjoint**
+(48.0 to 75.6 against 81.4 to 92.2), so the ordering across cells is unaffected.
+
 ### All three cells recomputed on the correct quantity — and the trend gets STRONGER
 
 | cell | interaction share | correct 95% interval | seeds/corner |
