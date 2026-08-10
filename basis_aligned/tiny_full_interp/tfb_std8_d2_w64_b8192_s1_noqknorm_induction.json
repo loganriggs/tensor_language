@@ -1,0 +1,115 @@
+{
+  "probe_seeds": 5,
+  "per_probe_seed": [
+    {
+      "repeat": 9.191054662068685,
+      "shuffled": 9.207413037618002,
+      "control": 9.254064030117458,
+      "induction_score": 0.016358375549316406,
+      "bag_score": 0.04665099249945648
+    },
+    {
+      "repeat": 9.220616552564833,
+      "shuffled": 9.241924497816298,
+      "control": 9.270260492960611,
+      "induction_score": 0.021307945251464844,
+      "bag_score": 0.02833599514431384
+    },
+    {
+      "repeat": 9.178200085957846,
+      "shuffled": 9.206333584255642,
+      "control": 9.255707422892252,
+      "induction_score": 0.028133498297796322,
+      "bag_score": 0.049373838636610046
+    },
+    {
+      "repeat": 9.110830201043022,
+      "shuffled": 9.128613260057238,
+      "control": 9.173446549309624,
+      "induction_score": 0.017783059014215397,
+      "bag_score": 0.044833289252386166
+    },
+    {
+      "repeat": 9.185362286037869,
+      "shuffled": 9.188591957092285,
+      "control": 9.244183540344238,
+      "induction_score": 0.0032296710544166274,
+      "bag_score": 0.055591583251953125
+    }
+  ],
+  "induction_score_mean": 0.017362509833441918,
+  "induction_score_sd": 0.009117331467663276,
+  "bag_score_mean": 0.04495713975694393,
+  "bag_score_sd": 0.010145757016321479,
+  "induction_power": {
+    "sensitivity": {
+      "eps_0.0": {
+        "induction_score_mean": 0.021507051255967368,
+        "induction_score_sd": 0.01013058679415437
+      },
+      "eps_1e-06": {
+        "induction_score_mean": 0.09091205596923864,
+        "induction_score_sd": 0.007376272833113877
+      },
+      "eps_3e-06": {
+        "induction_score_mean": 0.1731212404039173,
+        "induction_score_sd": 0.0065024432808068865
+      },
+      "eps_1e-05": {
+        "induction_score_mean": 0.34331069522433816,
+        "induction_score_sd": 0.006531596872856058
+      },
+      "eps_3e-05": {
+        "induction_score_mean": 0.598603757222493,
+        "induction_score_sd": 0.00868907528940412
+      },
+      "eps_0.0001": {
+        "induction_score_mean": 1.0022057427300344,
+        "induction_score_sd": 0.014394955804863541
+      },
+      "eps_0.001": {
+        "induction_score_mean": 2.098525280422635,
+        "induction_score_sd": 0.03128789533310392
+      },
+      "eps_0.01": {
+        "induction_score_mean": 3.463697327507867,
+        "induction_score_sd": 0.0485629521046798
+      }
+    },
+    "null_sd_across_probe_seeds": 0.01013058679415437,
+    "null_standard_error": 0.004530536144738168,
+    "detectable_effect_floor_nats_3se": 0.013591608434214503,
+    "smallest_detected_oracle_mixture_weight": 1e-06,
+    "note": "the floor is 3 standard errors of the score across probe seeds.  Any registered \"induction is absent\" claim is only a claim down to this floor."
+  },
+  "detectable_effect_floor_nats_3se": 0.013591608434214503,
+  "clears_own_probe_floor": true,
+  "natural_induction": {
+    "n_positions": 512,
+    "bag_plus_order_patch_random_token": {
+      "mean": 0.15192661876972124,
+      "se": 0.026214883822731513,
+      "t": 5.795433609283528,
+      "detectable_effect_floor_nats_3se": 0.07864465146819453
+    },
+    "ORDER_ONLY_patch_swap": {
+      "mean": 0.10218827911739936,
+      "se": 0.023905480177337003,
+      "t": 4.274680046555869,
+      "detectable_effect_floor_nats_3se": 0.07171644053201101
+    },
+    "raw": {
+      "rand_t": 0.14225184428687498,
+      "rand_c": -0.00967477448284626,
+      "swap_t": 0.10490934942936292,
+      "swap_c": 0.002721070311963558
+    },
+    "note": "the SWAP row is the induction number: it preserves the prefix token multiset exactly and destroys only the adjacency that induction reads.  The RANDOM row also removes the target from the prefix and therefore contains the order-free BAG effect, which these models do have; it must not be quoted as induction."
+  },
+  "threshold_note": "the probe floor is 3 standard errors over PROBE seeds and shrinks as 1/sqrt(n); it calibrates the battery, it is NOT the detection threshold. The verdict is taken over MODEL seeds in tf_baseline_report.py.",
+  "stem": "tfb_std8_d2_w64_b8192_s1_noqknorm",
+  "depth": 2,
+  "width": 64,
+  "exp": 8,
+  "seed": 1
+}
