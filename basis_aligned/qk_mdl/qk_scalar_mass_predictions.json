@@ -1,0 +1,36 @@
+{
+  "experiment": "scalar-mass collapse retest at bilin18 (aggregate list #1; BILIN18_LAYERS_0_1.md Correction 2)",
+  "registered": "2026-08-10, before any code was written or run",
+  "design": {
+    "what": "Refit the layer-0 QK dictionary under the SCALAR-ONLY objective: per-token weight w_t times plain squared row error, where w_t is the per-token scalar mass of the context-expected metric (trace of the OV Gram over head-dim, times unigram exposure) with all geometry (OV directions, T-vs-T2 cancellation split, Gram/norm interpolation) discarded. Same encoder scheme, same bits, same init discipline as qk_ctx_train.py so the comparison is at identical description length.",
+    "budgets": "two to three of the existing frontier points, nominally 183 Mbit (n=256,k=8-equivalent config used for the 183 Mbit context arm) and 455 Mbit (n=1024,k=8); a third smaller budget if cheap",
+    "audit": "standard 307k-prediction FineWeb audit at T=512, delta-CE vs baseline 3.0763, with PAIRED per-position standard errors (red-team item 8)",
+    "comparators": "at each budget: (a) plain reconstruction-MSE dictionary, (b) full context-expected metric dictionary (existing numbers where available, refit where not), (c) scalar-only refit"
+  },
+  "known_numbers_going_in": {
+    "183_Mbit": {"context_metric": 0.0073, "plain_recon": 0.0149},
+    "455_Mbit": {"context_metric_exact_moment": 0.0027, "plain_recon": 0.0076},
+    "finding_13_small_scale": "scalar-only BEAT the full metric at both budgets (4.8296 vs 4.8524 at 4.85 Mbit; 4.7715 vs 4.7854 at 19.5 Mbit), both beating plain reconstruction"
+  },
+  "predictions": [
+    {
+      "id": "P1",
+      "claim": "The scalar-only arm lands within one paired standard error of the full context-expected metric, or beats it, at every budget tested — the geometry contributes nothing at bilin18 either.",
+      "confidence": 0.55,
+      "note": "This is the replication of FINDING 13 section 4b at 546M scale. Below a coin flip plus a little: the small-scale result was clean, but bilin18's OV structure is far richer (head 3 carries 40% of delivered pattern error through specific directions), and the doc only calls it 'a prediction'."
+    },
+    {
+      "id": "P2",
+      "claim": "The scalar-only arm beats plain reconstruction MSE at every budget tested, by at least half of the full metric's gain over MSE.",
+      "confidence": 0.8,
+      "note": "The exposure weighting is the load-bearing ingredient on every piece of evidence in the doc (anchors, batch-top-k failure, FINDING 13); if this fails the whole 'allocate bits by exposure' reading is in trouble, not just the collapse."
+    },
+    {
+      "id": "P3",
+      "claim": "If P1 holds, the verdict is uniform across budgets (no crossover where geometry starts to matter at the larger budget).",
+      "confidence": 0.6,
+      "note": "The context metric's known crossover is against plain reconstruction at ~12% of raw bits, where its iid-unigram floor binds; that is a property of the unigram context model shared by both arms, so it should not separate them."
+    }
+  ],
+  "decision_rule": "P1 holds -> Correction 2 is confirmed at bilin18; the objective, the anchors and the batch-top-k failure become one statement (allocate bits by exposure), and future layer-0 fits use the scalar objective only. P1 fails -> the geometry earns its keep at scale; FINDING 13 section 4b gets a scale-boundary caveat and the derivation ticks stay."
+}
