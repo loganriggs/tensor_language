@@ -1,0 +1,36 @@
+{
+  "experiment": "planted-modular-content DGP (aggregate list #4, first of the Tier 2 calibration batch). A toy language whose next-token law factors by construction: each token = a selection class (who attends) plus a content bundle (a sum of a few named unit vectors from a small dictionary of modular content units). Train the standard foldable bilinear architecture on it, then run the UNCHANGED bilin18 pipeline (fold, exposure-weighted third moment, sparse code + tensor-power-iteration CP, corrected transplant null, naming/codability gates, equal-ablation) and score recovery against the planted truth.",
+  "registered": "committed before the build agent was launched; git commit time is the registration time",
+  "design_commitments": {
+    "two_tiers": "semi-planted arm (frozen factorized embeddings; ground truth lives in the model's input space; recovery scored by Hungarian-matched cosine against planted units) and fully-learned arm (free embeddings; truth is functional only). The two arms separate 'the pipeline cannot find it' from 'the model does not represent it modularly'.",
+    "task_learned_gate": "no recovery verdict counts unless the model actually learns the planted law (held-out CE within a stated margin of the DGP entropy); a model that failed to learn has no structure to recover.",
+    "pipeline_frozen": "the analysis pipeline is the bilin18 one with hyperparameters fixed in advance; no per-DGP tuning of the tools being calibrated."
+  },
+  "predictions": [
+    {
+      "id": "D1",
+      "claim": "Semi-planted arm: the ledger recovers at least 80% of planted content units at matched cosine >= 0.9.",
+      "confidence": 0.65,
+      "note": "The solvers pass planted tests at the tensor level; end-to-end through training adds noise but the representation is pinned by frozen embeddings."
+    },
+    {
+      "id": "D2",
+      "claim": "Fully-learned arm: recovery is SUBSTANTIALLY worse than the semi-planted arm (at least 20 points fewer units recovered at the same bar) — the trained model mixes the planted basis even when the task is modular.",
+      "confidence": 0.6,
+      "note": "If this holds, part of bilin18's 'mostly alien' content is the model's own choice, not the tool's failure; if recovery stays high, the tool is vindicated AND bilin18's alienness becomes a model fact."
+    },
+    {
+      "id": "D3",
+      "claim": "The naming/codability gate, run exactly as at bilin18 (section 34 recipe), passes on the planted classes in the semi-planted arm — i.e. the gate is capable of certifying real modular content when it exists.",
+      "confidence": 0.7,
+      "note": "If the gate fails on provably-modular planted content, the section-34 near-zero codability at bilin18 loses most of its evidential force."
+    },
+    {
+      "id": "D4",
+      "claim": "Equal-ablation on the planted selection directions shows no causal privilege per unit energy (matching the bilin18 negative), EVEN in the DGP where selection is planted — i.e. the equal-ablation negative is what modular selection looks like under this test, not evidence against modularity.",
+      "confidence": 0.5,
+      "note": "A genuine coin flip and the most decision-relevant: if planted selection DOES show privilege here, the bilin18 equal-ablation negative becomes evidence that bilin18's archetypes are not the causal units."
+    }
+  ],
+  "decision_rule": "D1+D3 hold -> the pipeline is certified on known truth; bilin18's spectral/alien content verdicts stand as model facts, and the 21% nameable fraction at the realised interface reads as a property of bilin18. D1 or D3 fail -> the dichotomy and the section-34 codability zeros are downgraded to tool-limited until the pipeline is fixed and recalibrated. D2 separates model-mixing from tool-blindness either way. D4 calibrates the equal-ablation instrument."
+}
