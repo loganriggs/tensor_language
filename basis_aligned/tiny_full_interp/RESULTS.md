@@ -1114,6 +1114,43 @@ about shares — are unscoreable rather than passed or failed. Writing that guar
 in advance is what stops this cell from contributing three meaningless
 percentages to FINDING 21's trend.
 
+### 05:30 — the cap claim NARROWS: at a third architecture the effect is the right sign but **not resolved from zero**
+
+Codebook at depth 1 width 128, three seeds, cap effect per seed −0.02919,
+−0.04283, −0.00742 → **−0.0265, t = −2.57**, 95% interval **[−0.0708, +0.0179]
+— which includes zero.**
+
+**The pre-committed reading applies.** From `tf_thirdarch_predictions.json`:
+*"if the cap effect on codebook is positive or indistinguishable from zero, the
+claim narrows from 'every foldable architecture' to 'predicate and bandwidth',
+and RESULTS must say so in the same sentence that states the effect."* So,
+in that sentence: **removing the query/key cap significantly helps the
+predicate and bandwidth architectures (7 cells, all resolved), and at codebook
+the effect points the same way but is not resolved from zero on three seeds.**
+
+| architecture | cells | cap effect | resolved? |
+|---|---|---|---|
+| predicate | 5 | −0.0068 to −0.0120 | yes, all |
+| bandwidth | 2 | −0.0345, −0.0225 | yes, both |
+| **codebook** | 1 | **−0.0265** | **no — CI [−0.071, +0.018]** |
+
+**Direction is 8 for 8; resolution is 7 for 8.** The point estimate sits inside
+the bandwidth range, so S2 (that the magnitude would land outside both known
+ranges) is refuted as well.
+
+**A scoring error of mine, which matters more than the result.** My scoring
+script declared S1 "REFUTED" using a `|t| > 3` bar. **That threshold was not in
+the registered prediction** — S1 said only "negative effect, significant" — and
+I invented it after seeing the number. The defensible test is whether the
+interval excludes zero, which it does not, so the conclusion happens to be the
+same; but choosing the bar after seeing the data is how a scoring rule stops
+being a scoring rule. Registered predictions in this programme should carry
+their significance criterion explicitly, and from here they will.
+
+**Three more seeds are running** (seeds 3–5, both cap settings) to resolve this
+one cell rather than leave the strongest surviving claim resting on an interval
+that spans zero.
+
 ### 05:05 — a THIRD foldable architecture also loses, and the predicate arm is now the **outlier among three**
 
 Depth 1 width 128, every arm at a **7.3–7.6% parameter handicap**, all three
