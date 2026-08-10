@@ -1,0 +1,25 @@
+{
+  "experiment": "fix-round measurements from the 18:10 independent review: (a) seeds 3-5 for all four cap-off corners at BOTH vocabulary-4096 cells (depth 2 width 128 and depth 3 width 128), trained SEQUENTIALLY (no co-tenancy, deliberately, since objection 4 is about co-tenancy); (b) the co-tenancy control: one sequential retrain of the conventional depth-3 vocabulary-4096 arm at seed 0, compared to its concurrently-trained twin.",
+  "registered": "committed before the chain started; the git commit time of this file is the registration time (per the objection-6 practice change)",
+  "predictions": [
+    {
+      "id": "S1",
+      "claim": "Co-tenancy control passes: the sequentially retrained conventional arm's induction score lands within the corner's seed spread (0.081) of the concurrent seed-0 value.",
+      "confidence": 0.85,
+      "note": "GPU nondeterminism plus co-tenancy should be well inside seed-level variation; if this fails, every concurrent cell needs a sequential twin and the concurrency change is reverted."
+    },
+    {
+      "id": "S2",
+      "claim": "At six seeds per corner, the two vocabulary-4096 cells remain separated: the central cell's t-interval lower bound stays above the depth-3 cell's t-interval upper bound.",
+      "confidence": 0.85,
+      "note": "Scored on the delta-method t-intervals now reported by tf_cell_interval.py, not the percentile bootstrap, per the fix round."
+    },
+    {
+      "id": "S3",
+      "claim": "The depth-3 vocabulary discrepancy survives seeds: the six-seed V=4096 share at depth 3 width 128 stays above the six-seed V=8192 share by at least one two-sample standard error (today: 19.9 vs 7.2 at z 1.15).",
+      "confidence": 0.5,
+      "note": "Genuinely open. If it firms up, the share at the large cell is genuinely vocabulary-dependent and FINDING 21's numeric claims get a vocabulary axis; if it dissolves, today's 19.9 was three-seed wander, as the depth-3-width-64 case was."
+    }
+  ],
+  "decision_rule": "S1 fail -> revert concurrency, flag all concurrent cells. S2 holds -> the dissolution's within-V=4096 statement gets proper six-seed t-interval support. S3 resolves the last open numeric question from the vocabulary work either way."
+}
