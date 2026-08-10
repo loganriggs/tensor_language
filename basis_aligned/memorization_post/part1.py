@@ -222,14 +222,15 @@ def repo_root():
 
 def require_committed(path, what):
     """Exit unless `path` is committed to git and identical to HEAD."""
-    rel = os.path.relpath(path, repo_root())
+    root = repo_root()
+    rel = os.path.relpath(path, root)
     r = subprocess.run(["git", "log", "-1", "--format=%H %cI", "--", rel],
-                       cwd=ROOT, capture_output=True, text=True)
+                       cwd=root, capture_output=True, text=True)
     if not r.stdout.strip():
         sys.exit(f"[GATE FAILED] {rel} has never been committed. "
                  f"Commit the {what} prediction file first (git commit time = registration time).")
     d = subprocess.run(["git", "diff", "HEAD", "--", rel],
-                       cwd=ROOT, capture_output=True, text=True)
+                       cwd=root, capture_output=True, text=True)
     if d.stdout.strip():
         sys.exit(f"[GATE FAILED] {rel} differs from HEAD. Commit it before running the {what} stage.")
     sha, when = r.stdout.strip().split(" ", 1)
@@ -396,15 +397,15 @@ def stage_1b():
                   f"B[{FEATS3[b]},{FEATS3[b]}] = {fmt_mr(Bs[:, c, b, b])}")
 
     # ---- F2: clean row + one row per weight decay (seed-mean), shared scale per row
-    rows = [("hand-coded (clean)", B_clean)] + \
-           [(f"trained H=8, wd={wd:g} (mean of 5 seeds)", allB[wd].mean(0)) for wd in WDS]
+    rows = [("hand-coded\n(clean)", B_clean)] + \
+           [(f"trained H=8\nwd={wd:g}\n(5-seed mean)", allB[wd].mean(0)) for wd in WDS]
     fig, axes = plt.subplots(len(rows), 3, figsize=(10.2, 3.15 * len(rows)))
     for r, (label, Bset) in enumerate(rows):
         vmax = np.abs(Bset).max()
         for c in range(3):
             im = heat(axes[r, c], Bset[c], FEATS3, CLASSES3[c] if r == 0 else "", vmax,
                       ylabels=(c == 0))
-        axes[r, 0].set_ylabel(label + "\n", fontsize=9.5, color=INK)
+        axes[r, 0].set_ylabel(label, fontsize=9.5, color=INK, labelpad=14)
         cb = fig.colorbar(im, ax=list(axes[r, :]), shrink=0.85, pad=0.02)
         cb.outline.set_visible(False)
     fig.suptitle("F2 — trained interaction matrices next to the hand-coded clean model",
