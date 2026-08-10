@@ -1,0 +1,25 @@
+{
+  "experiment": "vocabulary-size check of FINDING 21's central cell: the cap-off 2x2 at depth 2 width 128 retrained at V=4096 (trained BPE, corpus already built), seeds 0-2 per corner",
+  "registered": "2026-08-10 15:25 UTC, before any V=4096 cell was trained",
+  "why": "FINDING 21's conjunction claim (softmax+gate+uncapped-range interact to produce copying, 87.9% interaction share at this cell) rests entirely on V=8192. If the share is a vocabulary artifact the finding does not survive. Shares are dimensionless ratios of induction scores computed within one vocabulary, so they compare across vocabularies directly; any CE comparison is quoted in bits/byte per the standing rule.",
+  "interval_quantity": "as defined in tf_cell_interval.py: 95% bootstrap on the MEAN share, resampling seeds within corners. Three-seed caveat from 13:45 applies: the point estimate is what is scored, and V1's criterion is point-inside-reference-interval, not interval overlap.",
+  "predictions": [
+    {
+      "id": "V1",
+      "claim": "The V=4096 interaction share (3-seed point estimate) lands inside the V=8192 six-seed interval [81.4, 92.2].",
+      "confidence": 0.6,
+      "note": "I believe the underlying claim (not a vocab artifact) at about 0.8, but a three-seed point can wander by 10 points, as depth 3 width 64 showed today; 0.6 prices both risks."
+    },
+    {
+      "id": "V2",
+      "claim": "The ordering of main effects reproduces: attention-alone share exceeds five times the feed-forward-alone share.",
+      "confidence": 0.8
+    },
+    {
+      "id": "V3",
+      "claim": "The capability gap itself reproduces: the conventional corner's induction score exceeds the our-model corner's by more than 0.5 nats (V=8192 gap was 1.07).",
+      "confidence": 0.85
+    }
+  ],
+  "decision_rule": "V1 and V3 hold -> FINDING 21 gains a vocabulary-robustness line. V1 fails while V3 holds -> the capability is vocab-robust but the decomposition is not; investigate before restating shares as architecture facts (standing failure mode: claims formed at one setting stated as architecture claims). V3 fails -> the copying phenomenon itself is vocabulary-sensitive and the whole finding needs a vocab axis."
+}

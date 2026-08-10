@@ -440,7 +440,7 @@ chain.
 | vocab | owner | status |
 |---|---|---|
 | bpe 16384 at width 256 depth 2 | scale | unclaimed (corpus not built; one `tf_tokenizer.py` call) |
-| bpe 4096 vs bpe 8192 same cell (vocab-size check) | local | unclaimed |
+| bpe 4096 vs bpe 8192 same cell (vocab-size check) | local | CLAIMED 2026-08-10: cap-off 2x2 at depth 2 width 128, V=4096, seeds 0-2 (12 cells) — does the conjunction finding survive a vocabulary change? predictions in tf_vocab4096_predictions.json |
 | bpe 2048 low-end probe | local | measured as a tokenizer only (2.899 bytes/token — a 512-token sequence would see 1484 bytes, which changes the task); no corpus built |
 
 Answers whether conclusions are vocabulary-size artifacts, SEPARATELY from the
