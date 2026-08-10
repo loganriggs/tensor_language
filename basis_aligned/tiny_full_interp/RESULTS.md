@@ -1114,6 +1114,30 @@ about shares — are unscoreable rather than passed or failed. Writing that guar
 in advance is what stops this cell from contributing three meaningless
 percentages to FINDING 21's trend.
 
+### 05:05 — a THIRD foldable architecture also loses, and the predicate arm is now the **outlier among three**
+
+Depth 1 width 128, every arm at a **7.3–7.6% parameter handicap**, all three
+seeds, against the same conventional cap-off opponent (4.67860):
+
+| foldable architecture | hand-installed attention terms? | tax |
+|---|---|---|
+| **predicate** | **yes** (24 named scalars) | **−0.0905** — wins |
+| bandwidth | no | +0.1920 — loses |
+| **codebook** | no | **+0.2834** — loses (interim, 1 of 3 cap-off seeds) |
+
+S3 holds. **Two of three foldable architectures lose at this cell, and the one
+that wins is the only one that hand-installs the structure it needs.** That
+converts the collapse diagnosis from an inference into a three-architecture
+pattern: when FINDING 22's win was first attributed to the hand-installed
+positional prior, that was reasoning from a single contrast; it is now the
+distinguishing feature across three arms tested identically.
+
+It also makes the arithmetic uncomfortable for the programme's premise: the two
+architectures that discover their own structure are **0.19 and 0.28 nats worse**
+than a conventional transformer at 7.6% fewer parameters, at a cell where
+copying — the capability the whole factorial says the conventional model's edge
+depends on — is impossible.
+
 ## 🔴 2026-08-10 04:10 — **FINDING 22 IS RETITLED. The collapse is complete: bandwidth loses at BOTH cells.** The general claim is dead; the cap result gets stronger
 
 | cell | copying? | **predicate** | **bandwidth** |
