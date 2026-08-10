@@ -1279,6 +1279,37 @@ is the ingredient closest to re-implementing the MLP, so it is labelled as a
 boundary case and reported separately rather than folded into the headline. It is
 worth 0.03–0.04 nats, so no conclusion here turns on it.
 
+### 09:20 — verification note on FINDING 24, and the bit-budget comparison that matters most
+
+Checked the build's headline block against its own JSON. Everything reported
+reproduces. One framing point is worth surfacing because it changes which
+number a reader should carry.
+
+The build reports beating the bigram baseline "at strictly fewer bits" — true,
+but *bigram's* bits, and the dense bigram table is enormous. The like-for-like
+question for this programme is the comparison against **the model's own bits**,
+since the claim under test is whether a weights-free program can be a shorter
+description than the network:
+
+| cell | bigram KL | best at ≤ **bigram** bits | best at ≤ **model** bits | best at any size |
+|---|---|---|---|---|
+| depth 1, width 32 | 0.2905 | 0.1866 (**1.43× model bits**) | **0.2629** | 0.0558 (12.2×) |
+| depth 2, width 128 | 0.8193 | 0.3688 (**1.12×**) | **0.4326** | 0.2655 (2.9×) |
+| depth 4, width 256 | 1.2356 | 0.6942 (0.50×) | **0.6847** | 0.5083 (1.2×) |
+
+**At a budget equal to the model's own parameter bits the program beats bigram
+by 9%, 47% and 45%** — a real gain at the two larger cells and a small one at
+the smallest. At the two smaller cells the headline "best at bigram bits" point
+costs **more bits than the model it is describing**, which the JSON records
+honestly in its `bits_over_model` field and which should travel with the
+number.
+
+So the build's own conclusion is the right one and worth repeating in the
+strongest form: **the model remains the shortest description of itself.** What
+was beaten is the baseline, not the network. FINDING 12's verdict survives a
+serious attempt to overturn it, which is more than most of tonight's claims
+managed.
+
 ## 2026-08-10 07:00 — FINDING 23: **the weights-free remainder grows monotonically with model size on BOTH axes.** A bigram table is within 4.8% of the smallest model's own distribution and misses 29.5% of the largest
 
 Now that all 189 ladders are complete, the rung-5 numbers can be aggregated for
