@@ -1,0 +1,115 @@
+{
+  "probe_seeds": 5,
+  "per_probe_seed": [
+    {
+      "repeat": 7.415824254353841,
+      "shuffled": 9.148900455898708,
+      "control": 9.320874214172363,
+      "induction_score": 1.7330762015448675,
+      "bag_score": 0.1719737582736549
+    },
+    {
+      "repeat": 7.278740459018284,
+      "shuffled": 9.118057992723253,
+      "control": 9.292656898498535,
+      "induction_score": 1.8393175337049694,
+      "bag_score": 0.17459890577528192
+    },
+    {
+      "repeat": 7.263000700208876,
+      "shuffled": 9.09821859995524,
+      "control": 9.288264062669542,
+      "induction_score": 1.8352178997463646,
+      "bag_score": 0.190045462714302
+    },
+    {
+      "repeat": 7.161872333950466,
+      "shuffled": 9.014024098714193,
+      "control": 9.18147521548801,
+      "induction_score": 1.8521517647637271,
+      "bag_score": 0.16745111677381708
+    },
+    {
+      "repeat": 7.41642623477512,
+      "shuffled": 9.135281562805176,
+      "control": 9.305071936713325,
+      "induction_score": 1.718855328030056,
+      "bag_score": 0.16979037390814966
+    }
+  ],
+  "induction_score_mean": 1.795723745557997,
+  "induction_score_sd": 0.0641829344835268,
+  "bag_score_mean": 0.1747719234890411,
+  "bag_score_sd": 0.008937990704794953,
+  "induction_power": {
+    "sensitivity": {
+      "eps_0.0": {
+        "induction_score_mean": 1.789444096883138,
+        "induction_score_sd": 0.04838757393976728
+      },
+      "eps_1e-06": {
+        "induction_score_mean": 1.8140393575032547,
+        "induction_score_sd": 0.04733201798199821
+      },
+      "eps_3e-06": {
+        "induction_score_mean": 1.8453077528211808,
+        "induction_score_sd": 0.046204794859267775
+      },
+      "eps_1e-05": {
+        "induction_score_mean": 1.9148530324300128,
+        "induction_score_sd": 0.044645140936347465
+      },
+      "eps_3e-05": {
+        "induction_score_mean": 2.029538451300727,
+        "induction_score_sd": 0.04338196292895417
+      },
+      "eps_0.0001": {
+        "induction_score_mean": 2.232995753818088,
+        "induction_score_sd": 0.04275376790070269
+      },
+      "eps_0.001": {
+        "induction_score_mean": 2.899119673834906,
+        "induction_score_sd": 0.045426124018169846
+      },
+      "eps_0.01": {
+        "induction_score_mean": 3.901355351342095,
+        "induction_score_sd": 0.05316976701703989
+      }
+    },
+    "null_sd_across_probe_seeds": 0.04838757393976728,
+    "null_standard_error": 0.02163958091912339,
+    "detectable_effect_floor_nats_3se": 0.06491874275737017,
+    "smallest_detected_oracle_mixture_weight": 1e-05,
+    "note": "the floor is 3 standard errors of the score across probe seeds.  Any registered \"induction is absent\" claim is only a claim down to this floor."
+  },
+  "detectable_effect_floor_nats_3se": 0.06491874275737017,
+  "clears_own_probe_floor": true,
+  "natural_induction": {
+    "n_positions": 512,
+    "bag_plus_order_patch_random_token": {
+      "mean": 1.167796051100595,
+      "se": 0.0723768194297461,
+      "t": 16.13494569534294,
+      "detectable_effect_floor_nats_3se": 0.21713045828923827
+    },
+    "ORDER_ONLY_patch_swap": {
+      "mean": 1.0272114727304142,
+      "se": 0.06562372441506573,
+      "t": 15.65305050706006,
+      "detectable_effect_floor_nats_3se": 0.19687117324519718
+    },
+    "raw": {
+      "rand_t": 0.9795255977369379,
+      "rand_c": -0.188270453363657,
+      "swap_t": 0.8944870283485216,
+      "swap_c": -0.13272444438189268
+    },
+    "note": "the SWAP row is the induction number: it preserves the prefix token multiset exactly and destroys only the adjacency that induction reads.  The RANDOM row also removes the target from the prefix and therefore contains the order-free BAG effect, which these models do have; it must not be quoted as induction."
+  },
+  "threshold_note": "the probe floor is 3 standard errors over PROBE seeds and shrinks as 1/sqrt(n); it calibrates the battery, it is NOT the detection threshold. The verdict is taken over MODEL seeds in tf_baseline_report.py.",
+  "stem": "tfb_std7_d3_w128_b8192_s4_noqknorm",
+  "depth": 3,
+  "width": 128,
+  "exp": 7,
+  "seed": 4
+}
