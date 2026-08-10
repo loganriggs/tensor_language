@@ -1,0 +1,29 @@
+{
+  "registered": "2026-08-10 12:20 UTC, BEFORE any cell of this run was trained",
+  "why": "FINDING 21's three cells now have correct intervals, but only the central cell has six seeds per corner. Depth 3 width 64 [38.5, 60.4] and depth 3 width 128 [1.1, 17.8] rest on three. Bringing both to six halves their interval widths and is the last load-bearing gap in that finding.",
+  "significance_criterion_stated_in_advance": "an interval is the 95% bootstrap uncertainty on the MEAN share, resampling seeds within each corner and recomputing from corner means -- NOT the spread of one-seed-per-corner estimates, which is what every interval in this programme wrongly carried until 11:55 and which does not shrink with data.",
+  "design": "seeds 3-5 for all four cap-off corners at depth 3 width 64 and depth 3 width 128: our model, our-attention+GELU, softmax+our-feed-forward, and the conventional matched arm. 24 cells.",
+  "predictions": {
+    "U1_intervals_roughly_halve": {
+      "claim": "both intervals narrow by 35-60% in width",
+      "reason": "the central cell went from 20.1 to 10.8 points, a 46% reduction, on the same doubling",
+      "confidence": "0.7"
+    },
+    "U2_points_barely_move": {
+      "claim": "both point estimates move by under 8 points",
+      "reason": "the central cell moved 1.6 points on doubling; every point estimate in this programme has been stable while precision was not",
+      "confidence": "0.75"
+    },
+    "U3_disjointness_survives": {
+      "claim": "all three cells remain pairwise disjoint",
+      "reason": "they are disjoint with margin already (81.4 vs 60.4, 38.5 vs 17.8) and narrowing can only help",
+      "confidence": "0.85"
+    },
+    "U4_the_largest_cell_stays_resolved": {
+      "claim": "depth 3 width 128 keeps a lower bound above zero",
+      "reason": "it is [1.1, 17.8] on three seeds; narrowing should lift the lower bound, not drop it, unless the point estimate falls",
+      "confidence": "0.7",
+      "note": "this is the claim I withdrew a null on at 12:00, so it is the one most worth re-testing with more data"
+    }
+  }
+}
