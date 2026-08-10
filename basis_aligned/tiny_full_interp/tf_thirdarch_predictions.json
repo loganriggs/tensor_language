@@ -1,0 +1,31 @@
+{
+  "registered": "2026-08-10 04:40 UTC, BEFORE any cell of this run was trained",
+  "why_this_and_why_now": {
+    "the_lesson": "Twelve cells of a second architecture killed FINDING 22's general claim after it had been built five cells deep on one architecture. The cheapest test available was the one not run until the end.",
+    "so": "apply that test to the STRONGEST SURVIVING claim before building anything further on it. That is the cap result: removing the per-head query/key cap helps every foldable architecture measured, at seven cells across two (predicate -0.0068 to -0.0120 at five; bandwidth -0.0345 and -0.0225 at two), all significant.",
+    "the_test": "a THIRD foldable architecture. If the cap effect is positive or null there, the claim is two-architecture-specific and must be narrowed exactly as FINDING 22 was."
+  },
+  "design": "codebook variant at depth 1 width 128, slot 61 (1,241,533 parameters, 7.60% fewer than the conventional matched cap-off arm -- the same handicap the bandwidth arm carried at this cell), three seeds, cap ON and OFF. 6 cells. codebook is the variable-k discrete-slot-content variant: it is foldable, and unlike predicate it hand-installs no attention terms, and unlike bandwidth its slot contents are discretised -- so it differs from both on the axis most likely to interact with an attention-logit cap.",
+  "predictions": {
+    "S1_the_cap_helps_codebook_too": {
+      "claim": "Removing the cap helps the codebook arm -- negative effect, significant.",
+      "reason": "seven for seven so far across two architectures, and the proposed mechanism (the cap constrains attention logit range) has nothing to do with how slot contents are represented",
+      "confidence": "0.75"
+    },
+    "S2_magnitude_is_architecture_specific": {
+      "claim": "The magnitude does NOT match either predecessor closely -- it lands outside the range spanned by predicate (-0.007 to -0.012) and bandwidth (-0.023 to -0.035), or between them rather than inside either.",
+      "reason": "bandwidth gains two to five times what predicate gains, so magnitude is already known to be architecture-specific",
+      "confidence": "0.5"
+    },
+    "S3_codebook_loses_on_loss": {
+      "claim": "The symmetric tax is positive -- codebook loses to the conventional model at this cell, as bandwidth did (+0.1920).",
+      "reason": "no hand-installed structure; the predicate win is now attributed to its positional prior",
+      "confidence": "0.8"
+    }
+  },
+  "pre_committed_reading": "If the cap effect on codebook is positive or indistinguishable from zero, the cap claim narrows from 'every foldable architecture' to 'predicate and bandwidth', and RESULTS must say so in the same sentence that states the effect. Written before the run.",
+  "what_this_cannot_settle": [
+    "Three architectures at one cell is a spot check on generality, not a survey.",
+    "All three share the fold, the corpus, the optimiser and the data order."
+  ]
+}
