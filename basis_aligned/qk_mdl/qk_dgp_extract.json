@@ -1,0 +1,81 @@
+{
+  "experiment": "archetype extraction into a standalone machine (aggregate #5)",
+  "registered": "qk_dgp_extract_predictions.json (E1-E4)",
+  "mode": "full",
+  "seeds": {
+    "held2_scoring": 21,
+    "calibration": 22,
+    "pipeline_exposure_est": 13,
+    "note": "held2/cal are FRESH sampler seeds, never used in the frozen runs (11/12/13, 101-104)"
+  },
+  "config": {
+    "held2_n": 1500,
+    "cal_n": 400,
+    "sae_steps": 6000,
+    "heads": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "key_rel_thresh": 0.1,
+    "unit_load_thresh": 0.3,
+    "class_share_thresh": 0.25,
+    "e4_gate_nats": 0.05
+  },
+  "deviations": [
+    "class index: the machine indexes its selection tables by the PLANTED token->class map (taken as known vocabulary structure, like scoring recovery against planted units); the model's conformance to the class block structure is measured, not assumed (per-head pattern block R^2).",
+    "calibration: two global scalars per machine (g on the interaction, beta on the centered bias), fit by coordinate ternary search (CE is convex in both) on the fresh calibration split (seed 22). No gradient training. The E4 gate itself is UNCALIBRATED (g = beta = 1).",
+    "bias slot: exposure-weighted mean of the model's position-0 logits on single-token sequences (the model's no-context table; the law at position 0 is exactly softmax(b) since sigma is a derangement).",
+    "content entries are ridge-LS dual coefficients of the folded value table on the component dictionary (ridge 1e-6 * trace(Gram)/nc): reconstruction semantics, no double counting of non-orthogonal components. The oracle-component consistency machine uses pinv (rtol 1e-6) because 24 unit images exceed the 16-dim head value space.",
+    "attention tables use STATIC (non-rotary) fold scores -- the frozen pipeline's own energy-meter convention; rotary drift is part of what the assembly may lose.",
+    "key restriction: per head, K1/K2 are projected onto the span of the recovered components' k1/k2 slices with relative norm >= 0.1 of the full 48-dim atom combination; a head with no passing slice contributes no selection.",
+    "E2 operationalization: shared = (>= 2 planted units at exposure-weighted |corr(enc, unit indicator)| >= 0.3) OR (>= 2 selection classes at >= 0.25 row-energy share of the head SelTab); single-role = exactly 1 unit and <= 1 class; components with no unit above threshold are \"unclassified\" and belong to neither set. On the ORACLE machine the class axis is degenerate (every component serves all 8 classes by construction), so its split is unit-only and its reference arm is a random energy-fraction-matched subset.",
+    "structural note: with dual-coefficient content entries the aggregate machine depends on components only through per-head value/key SPANS; E1 tests template+spans, E2 tests per-component individuation."
+  ],
+  "E4": {
+    "identifiable": {
+      "references": {
+        "true_law_logloss": 5.05826,
+        "entropy_mc": 5.05156,
+        "unigram_floor_ce": 6.08408,
+        "n_seqs": 1500
+      },
+      "oracle_ce": 5.05826,
+      "gap_vs_law_paired": 4e-06,
+      "gate_threshold": 0.05,
+      "pass": true,
+      "calibration_consistency": {
+        "g": 0.9965,
+        "beta": 1.00364,
+        "cal_ce": 5.05474,
+        "held_ce_calibrated": 5.05826,
+        "note": "the recipe's calibration applied to the oracle machine should return ~ (1, 1)"
+      }
+    },
+    "overlap": {
+      "references": {
+        "true_law_logloss": 3.70136,
+        "entropy_mc": 3.69794,
+        "unigram_floor_ce": 6.0509,
+        "n_seqs": 1500
+      },
+      "oracle_ce": 3.70136,
+      "gap_vs_law_paired": -4e-06,
+      "gate_threshold": 0.05,
+      "pass": true,
+      "calibration_consistency": {
+        "g": 1.00106,
+        "beta": 1.01112,
+        "cal_ce": 3.68692,
+        "held_ce_calibrated": 3.70138,
+        "note": "the recipe's calibration applied to the oracle machine should return ~ (1, 1)"
+      }
+    },
+    "gate": "PASS"
+  }
+}
