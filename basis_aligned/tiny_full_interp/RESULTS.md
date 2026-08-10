@@ -6377,3 +6377,43 @@ interval-overlap tests. (3) This answers the single-vocabulary objection that
 has stood against FINDING 21 since the independent review; the depth-3 cells
 remain single-vocabulary and any vocabulary statement about the *trend* (the
 dissolution) would need the same check at another cell.
+
+## 2026-08-10 17:10 — **THE DISSOLUTION TREND IS VOCABULARY-ROBUST: within vocabulary 4096 alone, the interaction share falls 91.4% → 19.9% from the central cell to depth 3 width 128.** The load-bearing prediction holds by 71 points; the point-value prediction misses, as priced
+
+The same cap-off two-by-two at depth 3 width 128, vocabulary 4096, three seeds
+per corner (concurrent training groups):
+
+| corner | induction score (V=4096) | V=8192 comparator (6 seeds) |
+|---|---|---|
+| our model | +0.1751 | +0.1226 |
+| our attention + GELU | +0.2856 | +0.3106 |
+| softmax + our feed-forward | +1.3615 | +1.5090 |
+| conventional | +1.7951 | +1.8637 |
+
+Shares: attention alone **73.2%**, feed-forward alone 6.8%, interaction
+**19.9%** with three-seed interval [3.4, 36.6].
+
+- **W4, the load-bearing one (interaction at least 30 points below the
+  vocabulary-4096 central cell's 91.4, registered 0.75) — holds by 71.5
+  points.** The dissolution is established entirely within the new
+  vocabulary: 91.4% → 19.9% with disjoint intervals ([88.3, 95.6] against
+  [3.4, 36.6]). No cross-vocabulary comparison is needed for the claim.
+- **W2 (attention dominant at this cell, 0.8) — holds**: 73.2%.
+- **W3 (capability gap above half a nat, 0.85) — holds**: 1.62 nats.
+- **W1 (point lands inside the vocabulary-8192 six-seed interval [0.5, 13.7],
+  registered at only 0.55 for exactly this reason) — refuted**: 19.9 is six
+  points above the upper bound. With three seeds and an interval of width 33
+  this is indistinguishable from seed noise (the intervals overlap heavily),
+  but by the registered criterion it fails, and the honest statement is that
+  the *qualitative* dissolution is vocabulary-robust while the *numeric* share
+  at the large cell is not pinned across vocabularies.
+
+Also worth a line: at the smaller vocabulary, even our foldable model shows
+positive induction at depth 3 (+0.175 against −0.014 at depth 2) — the known
+depth-3 partial-copying effect appears at both vocabularies.
+
+**Concurrency tally, final**: four groups of three concurrent trainings took
+884 + 871 + 1019 + 964 = 3,738 seconds against a ~4,000-second sequential
+baseline — a 6.6% win overall, with one group (the heavier softmax arm)
+slightly losing. Concurrency stays, priced honestly as marginal on this card
+at this model size, not transformative.
