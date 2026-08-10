@@ -1114,7 +1114,41 @@ about shares — are unscoreable rather than passed or failed. Writing that guar
 in advance is what stops this cell from contributing three meaningless
 percentages to FINDING 21's trend.
 
-### 23:30 — **N2 REFUTED: the sign flips inside the bracket.** The discriminating-cell result depends on the parameter allowance, and the bracket is why we know
+### 00:10 — the tight bracket's first point MEASURES what I interpolated, and **the interpolation was pessimistic**
+
+Our slot-16 arm held fixed at 645,168 parameters; the conventional arm resized:
+
+| conventional | its params | our handicap | conventional CE | symmetric tax |
+|---|---|---|---|---|
+| expansion 7 | 671,872 | 3.97% | 4.90259 | **−0.0344** |
+| **expansion 8** | **688,256** | **6.26%** | 4.89548 | **−0.0273** |
+| expansion 9 | 704,640 | 8.44% | 1 of 3 seeds | pending |
+| — (slot-14 arm) | 671,872 | 15.9% | 4.90259 | **+0.0429** |
+
+**At a 6.26% handicap — essentially the ~7% the other three cells carried — our
+arm wins by 0.0273.** I interpolated **−0.013** for that point last tick from
+the wide bracket. The measurement is **twice** that, so the linear-in-parameter-
+fraction assumption I flagged as unverified was not merely unverified but
+wrong, and wrong in the direction that understated our arm.
+
+**The slot-14 arm also finalised**: with its cap-off seeds in, the tax at a
+15.9% handicap is **+0.0429**, down from the +0.0513 cap-on-only figure. So the
+sign change sits somewhere between 8.44% and 15.9%, not near 7%.
+
+**What this restores, carefully.** Last tick I weakened the four-cell claim from
+clean to suggestive because its discriminating cell rested on an interpolation.
+That cell now has a direct measurement within a point of the comparison
+handicap, and it lands on the "ours wins" side by twice the interpolated
+margin. If expansion 9 also comes in negative, the discriminating cell is
+measured rather than inferred at both sides of 7% and the claim goes back to
+clean — **with the width entanglement still outstanding**, which no amount of
+parameter-matching at this cell can fix.
+
+**Pre-committed reading, unchanged**: if the two tight-bracket points disagree
+in sign, the cell cannot support the four-cell claim and it reduces to three
+cells with depth and copying availability re-confounded.
+
+### 23:30 — **N2 REFUTED: the sign flips inside the wide bracket.** The discriminating-cell result depends on the parameter allowance, and the bracket is why we know
 
 | slot 14 arm, depth 2 width 64 | value |
 |---|---|
