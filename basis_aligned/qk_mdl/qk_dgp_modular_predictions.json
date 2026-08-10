@@ -6,6 +6,7 @@
     "task_learned_gate": "no recovery verdict counts unless the model actually learns the planted law (held-out CE within a stated margin of the DGP entropy); a model that failed to learn has no structure to recover.",
     "pipeline_frozen": "the analysis pipeline is the bilin18 one with hyperparameters fixed in advance; no per-DGP tuning of the tools being calibrated."
   },
+  "amendment_2026-08-10_logan": "Logan (before any DGP run landed): the freeze applies to PHASE 1 only — measure the current instruments unchanged so the calibration numbers mean something. A PHASE 2 tool-improvement round is explicitly authorized afterwards: brainstorm better tools against whatever phase 1 shows the current ones miss, but admit only candidates that could reasonably be modified to generalize to realistic models (no toy-specific hacks that exploit knowing the ground truth or the DGP's smallness). Any improved tool must (a) beat the frozen tool on the planted DGP, (b) be re-run on bilin18 itself, and (c) carry its own planted positive control.",
   "predictions": [
     {
       "id": "D1",
