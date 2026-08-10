@@ -99,9 +99,9 @@ whether 9 is needed.
 
 | # | experiment | status |
 |---|---|---|
-| 1 | scalar-mass collapse retest at bilin18 | predictions registered (`qk_scalar_mass_predictions.json`); building |
+| 1 | scalar-mass collapse retest at bilin18 | built, gates pass in smoke; chain launched, waiting for the GPU (runs first) |
 | 2 | ledger on the MLP's realised interface | queued |
-| 3 | static-fraction-by-depth port profile | queued |
+| 3 | static-fraction-by-depth port profile | built, layer-1 gate passes in smoke; chain launched, holds behind #1 (predictions in `qk_port_profile_predictions.json`) |
 | 4 | planted-modular-content DGP | queued (batch with 5, 6) |
 | 5 | archetype extraction into a standalone machine | queued (batch with 4, 6) |
 | 6 | planted-tree topology recovery | queued (batch with 4, 5) |
