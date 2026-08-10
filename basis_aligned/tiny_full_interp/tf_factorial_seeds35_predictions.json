@@ -1,0 +1,26 @@
+{
+  "registered": "2026-08-10 09:00 UTC, BEFORE any cell of this run was trained",
+  "problem": "FINDING 21's three-way interaction shares carry wide intervals from exact resampling over three model seeds: 88.8% [67.4, 94.6] at depth 2 width 128 and 9.6% [-3.5, 23.0] at depth 3 width 128. The ORDERING is supported (the intervals are pairwise disjoint on raw nats) but no endpoint is pinned, and the largest cell's interaction is not distinguishable from zero.",
+  "fix": "three more model seeds (3, 4, 5) for all eight corners of the 2x2x2 at depth 2 width 128 -- the cell whose share is the headline and whose interval is widest in absolute terms. Doubling the seeds should roughly halve the standard error on each corner and shrink the interval accordingly.",
+  "significance_criterion_stated_in_advance": "an interaction share is 'resolved' if its exact-resampling 95% interval excludes zero, and two shares 'differ' if their intervals are disjoint. This is stated here because a criterion invented after seeing the numbers is not a criterion -- that error was made at 05:30 on the codebook cap effect, where an unregistered t>3 bar would have flipped a verdict on a seed that had not been run.",
+  "predictions": {
+    "T1_the_point_estimate_barely_moves": {
+      "claim": "the six-seed three-way share at depth 2 width 128 lands within 8 points of the three-seed 88.8%",
+      "reason": "the codebook precedent: doubling seeds moved that point estimate by 0.003 nats while halving the interval. Point estimates here have been stable; precision has not.",
+      "confidence": "0.7"
+    },
+    "T2_the_interval_narrows_by_about_a_third": {
+      "claim": "the 95% interval width falls from 27 points to under 20",
+      "reason": "sqrt(2) on the standard error plus a smaller t-critical value at n=6 (2.571 against 4.303)",
+      "confidence": "0.65"
+    },
+    "T3_no_verdict_flips": {
+      "claim": "the interaction remains the largest single term at this cell, and remains resolved from zero",
+      "confidence": "0.8"
+    }
+  },
+  "what_this_cannot_settle": [
+    "It tightens one cell. The depth 3 width 128 interval spanning zero is a separate run.",
+    "More seeds cannot address the scale-dependence the independent review raised, which is a different objection to the same number."
+  ]
+}
