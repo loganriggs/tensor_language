@@ -1,0 +1,53 @@
+{
+  "mode": "smoke",
+  "layers": {
+    "1": {
+      "port_dce": 0.04899,
+      "port_se_pos": 0.00739,
+      "port_se_seq": 0.00909,
+      "floor_dce": 2.59441,
+      "floor_se_pos": 0.05508,
+      "floor_se_seq": 0.19251,
+      "static_fraction": 0.9811,
+      "table_seen_types": 31297,
+      "table_est_positions": 524288
+    },
+    "2": {
+      "port_dce": 0.03153,
+      "port_se_pos": 0.00544,
+      "port_se_seq": 0.00429,
+      "floor_dce": 0.42949,
+      "floor_se_pos": 0.02133,
+      "floor_se_seq": 0.04274,
+      "static_fraction": 0.9266,
+      "table_seen_types": 31297,
+      "table_est_positions": 524288
+    }
+  },
+  "tau": 8.0,
+  "n_est_seqs": 1024,
+  "est_positions": 524288,
+  "coverage_types": 0.6222,
+  "coverage_mass": 0.64867,
+  "n_audit_seqs": 4,
+  "published": {
+    "base_ce": 3.0763,
+    "l1_port_shrunk": 0.0515,
+    "l1_port_rawmean": 0.02738,
+    "l1_floor": 2.7
+  },
+  "base_ce": 3.37769,
+  "identity_control_max_logit_err": 0.0,
+  "gate": {
+    "l1_port_dce": 0.04899,
+    "l1_floor_dce": 2.59441,
+    "published_port": 0.0515,
+    "published_floor": 2.7,
+    "tol_port": 0.05,
+    "tol_floor": 0.5,
+    "port_ok": true,
+    "floor_ok": true,
+    "pass": true
+  },
+  "done": true
+}
