@@ -643,83 +643,148 @@ def extraction_scores(B, Z, y, Cinv):
     return scores
 
 
+def keyframe_attribution(B, Z, y, Cinv):
+    """Informed extraction: least-squares decomposition of the folded tensor
+    in the fact-key frame {u_k u_k^T}, u_k = C^{-1} z_k (dictionary = the key
+    list; still weights + fact list only). Fact k is 'recovered' if
+    argmax_c lambda_{ck} equals its stored class. Returns (recovered,
+    attribution margin lambda_true - max-other, residual op norms)."""
+    lam, res_op = keyframe_bound_terms(B, Z, Cinv)   # lam: (C, K)
+    rec = lam.argmax(0) == y
+    lt = lam[y, np.arange(K_FACTS)]
+    lo = np.where(np.eye(N_CLASSES)[y].T > 0, -np.inf, lam).max(0)
+    return rec, lt - lo, res_op
+
+
 def stage_f10():
     Z, y, C, Cinv, Hat, Gcos, max_ov = load_setup()
     con = np.load(CACHE / "construct.npz")
     sgd = np.load(CACHE / "sgd.npz")
     Bs = sgd["Bs"]
 
+    # (a) BLIND eigen-extraction: top-|K_c| eigenvectors of each class slice
     sc_sgd = np.stack([extraction_scores(Bs[i], Z, y, Cinv)
                        for i in range(len(SGD_SEEDS))])
     sc_con = extraction_scores(con["B"], Z, y, Cinv)
+    sc_kkt = extraction_scores(con["Bk"], Z, y, Cinv)
     rec_sgd = (sc_sgd >= RECOVERY_TAU)
-    rec_con = (sc_con >= RECOVERY_TAU)
+    # robustness of the blind null to excess capacity (seed 0, larger H)
+    blind_H = {}
+    for Hbig in [100, 400]:
+        (Lb, Rb, Db), _, accb, _ = sgd_train(Z, y, Hbig, seed=0, steps=8000)
+        sb = extraction_scores(fold(Lb, Rb, Db), Z, y, Cinv)
+        blind_H[Hbig] = dict(acc=accb, mean_score=float(sb.mean()),
+                             recovery=float((sb >= RECOVERY_TAU).mean()))
+        print(f"[f10] blind extraction at H={Hbig}: recovery "
+              f"{blind_H[Hbig]['recovery']:.2f}, mean score {sb.mean():.3f}")
+
+    # (b) INFORMED key-frame attribution
+    att_sgd, attm_sgd = [], []
+    for i in range(len(SGD_SEEDS)):
+        rec, marg, res_op = keyframe_attribution(Bs[i], Z, y, Cinv)
+        att_sgd.append(rec); attm_sgd.append(marg)
+    att_sgd = np.stack(att_sgd); attm_sgd = np.stack(attm_sgd)
+    att_con, attm_con, _ = keyframe_attribution(con["B"], Z, y, Cinv)
+    att_kkt, attm_kkt, _ = keyframe_attribution(con["Bk"], Z, y, Cinv)
 
     edges = np.quantile(max_ov, np.linspace(0, 1, 6))
     edges[0] -= 1e-9; edges[-1] += 1e-9
     binid = np.digitize(max_ov, edges) - 1
-    centers, rates_mean, rates_lo, rates_hi, rate_con, counts = [], [], [], [], [], []
-    for b in range(5):
-        mask = binid == b
-        counts.append(int(mask.sum()))
-        centers.append(float(max_ov[mask].mean()))
-        per_seed = rec_sgd[:, mask].mean(axis=1)
-        rates_mean.append(float(per_seed.mean()))
-        rates_lo.append(float(per_seed.min()))
-        rates_hi.append(float(per_seed.max()))
-        rate_con.append(float(rec_con[mask].mean()))
 
-    fig, axes = plt.subplots(1, 2, figsize=(11, 4.2))
+    def binned(rec_matrix):
+        m, lo, hi = [], [], []
+        for b in range(5):
+            per_seed = rec_matrix[:, binid == b].mean(axis=1)
+            m.append(float(per_seed.mean()))
+            lo.append(float(per_seed.min())); hi.append(float(per_seed.max()))
+        return m, lo, hi
+
+    centers = [float(max_ov[binid == b].mean()) for b in range(5)]
+    counts = [int((binid == b).sum()) for b in range(5)]
+    blind_m, blind_lo, blind_hi = binned(rec_sgd)
+    att_m, att_lo, att_hi = binned(att_sgd)
+    att_con_b = [float(att_con[binid == b].mean()) for b in range(5)]
+    att_kkt_b = [float(att_kkt[binid == b].mean()) for b in range(5)]
+
+    corr_rec_ov = float(np.corrcoef(np.tile(max_ov, len(SGD_SEEDS)),
+                                    att_sgd.ravel().astype(float))[0, 1])
+    corr_margin_ov = float(np.corrcoef(np.tile(max_ov, len(SGD_SEEDS)),
+                                       attm_sgd.ravel())[0, 1])
+
+    fig, axes = plt.subplots(1, 2, figsize=(11.5, 4.4))
     ax = axes[0]
-    ax.fill_between(centers, rates_lo, rates_hi, color=BLUE, alpha=0.18, lw=0)
-    ax.plot(centers, rates_mean, "-o", color=BLUE, ms=5,
-            label="SGD (mean of 5 seeds, band = range)")
-    ax.plot(centers, rate_con, "-s", color=ORANGE, ms=5,
-            label="ALS construction")
-    for x, cn, rm in zip(centers, counts, rates_mean):
-        ax.annotate(f"n={cn}", (x, rm), textcoords="offset points",
-                    xytext=(0, -14), fontsize=7.5, color=MUTED, ha="center")
+    ax.fill_between(centers, att_lo, att_hi, color=BLUE, alpha=0.18, lw=0)
+    ax.plot(centers, att_m, "-o", color=BLUE, ms=5,
+            label="SGD, key-frame attribution (5 seeds, band = range)")
+    ax.plot(centers, att_con_b, "-s", color=ORANGE, ms=5,
+            label="ALS construction, key-frame attribution")
+    ax.plot(centers, att_kkt_b, "-^", color=VIOLET, ms=5,
+            label="KKT interpolant, key-frame attribution")
+    ax.fill_between(centers, blind_lo, blind_hi, color=AQUA, alpha=0.25, lw=0)
+    ax.plot(centers, blind_m, "-d", color=AQUA, ms=5,
+            label=f"SGD, blind eigen-extraction (|cos| >= {RECOVERY_TAU})")
+    ax.axhline(1.0 / N_CLASSES, color=MUTED, lw=1, ls=":")
+    ax.annotate("chance (attribution)", (centers[0], 1.0 / N_CLASSES),
+                textcoords="offset points", xytext=(2, 3), fontsize=7.5,
+                color=MUTED)
+    for x, cn in zip(centers, counts):
+        ax.annotate(f"n={cn}", (x, -0.02), fontsize=7.5, color=MUTED,
+                    ha="center")
     ax.set_xlabel("max off-diagonal Gram overlap  max_j |cos(z_k, z_j)|")
-    ax.set_ylabel(f"recovery rate  (|cos| >= {RECOVERY_TAU})")
-    ax.set_ylim(-0.04, 1.04)
-    ax.set_title("F10a: fact extraction vs key overlap (quantile bins)")
-    ax.legend(fontsize=8)
+    ax.set_ylabel("recovery rate")
+    ax.set_ylim(-0.06, 1.04)
+    ax.set_title("F10a: per-fact recovery vs key overlap (quantile bins)")
+    ax.legend(fontsize=7.5, loc="upper right")
     ax = axes[1]
     for i in range(len(SGD_SEEDS)):
-        ax.scatter(max_ov, sc_sgd[i], s=10, color=BLUE, alpha=0.35,
+        ax.scatter(max_ov, attm_sgd[i], s=10, color=BLUE, alpha=0.35,
                    label="SGD seeds" if i == 0 else None)
-    ax.scatter(max_ov, sc_con, s=12, color=ORANGE, alpha=0.8, marker="s",
-               label="construction")
-    ax.axhline(RECOVERY_TAU, color=RED, lw=1.2, ls="--")
-    ax.annotate(f"recovery threshold {RECOVERY_TAU}", (max_ov.min(), RECOVERY_TAU),
-                textcoords="offset points", xytext=(2, 4), fontsize=8, color=RED)
+    ax.axhline(0, color=RED, lw=1.2, ls="--")
+    ax.annotate("recovered above this line", (max_ov.min(), 0),
+                textcoords="offset points", xytext=(2, 4), fontsize=8,
+                color=RED)
     ax.set_xlabel("max off-diagonal Gram overlap")
-    ax.set_ylabel("best |cos| eigvec vs key (or C^{-1}-key)")
-    ax.set_title("F10b: per-fact match score")
+    ax.set_ylabel("attribution margin  lambda_true - max lambda_other")
+    ax.set_title(f"F10b: key-frame attribution margin\n"
+                 f"corr(margin, overlap) = {corr_margin_ov:+.3f}, "
+                 f"corr(recovered, overlap) = {corr_rec_ov:+.3f}")
     ax.legend(fontsize=8, loc="lower left")
-    fig.suptitle("F10: recovering individual facts as rank-1-ish components "
-                 "of the folded tensor (top-|K_c| eigenvectors per class slice)")
+    fig.suptitle("F10: recovering individual facts as rank-1-ish components of "
+                 "the folded tensor.  Blind eigen-extraction FAILS (~0 at every "
+                 "overlap and H up to 400); informed key-frame attribution "
+                 "(dictionary = C^{-1}-weighted keys) partially succeeds and "
+                 "degrades with overlap")
     fig.tight_layout()
     savefig(fig, "F10")
 
     np.save(FIG / "F10_scores_sgd.npy", sc_sgd)
     np.save(FIG / "F10_scores_construction.npy", sc_con)
+    np.save(FIG / "F10_attribution_recovered_sgd.npy", att_sgd)
+    np.save(FIG / "F10_attribution_margin_sgd.npy", attm_sgd)
     np.save(FIG / "F10_max_overlap.npy", max_ov)
     metrics_update("f10", {
         "tau": RECOVERY_TAU,
-        "overall_recovery_sgd_per_seed": rec_sgd.mean(axis=1).tolist(),
-        "overall_recovery_construction": float(rec_con.mean()),
+        "blind_recovery_sgd_per_seed": rec_sgd.mean(axis=1).tolist(),
+        "blind_recovery_construction": float((sc_con >= RECOVERY_TAU).mean()),
+        "blind_recovery_kkt_interpolant": float((sc_kkt >= RECOVERY_TAU).mean()),
+        "blind_mean_score_sgd": float(sc_sgd.mean()),
+        "blind_large_H_seed0": blind_H,
+        "attr_recovery_sgd_per_seed": att_sgd.mean(axis=1).tolist(),
+        "attr_recovery_construction": float(att_con.mean()),
+        "attr_recovery_kkt_interpolant": float(att_kkt.mean()),
         "bin_centers": centers, "bin_counts": counts,
-        "bin_rate_sgd_mean": rates_mean, "bin_rate_sgd_range":
-            [[lo, hi] for lo, hi in zip(rates_lo, rates_hi)],
-        "bin_rate_construction": rate_con,
-        "corr_score_vs_overlap_sgd": float(np.corrcoef(
-            np.tile(max_ov, len(SGD_SEEDS)), sc_sgd.ravel())[0, 1]),
+        "bin_attr_sgd_mean": att_m,
+        "bin_attr_sgd_range": [[lo, hi] for lo, hi in zip(att_lo, att_hi)],
+        "bin_blind_sgd_mean": blind_m,
+        "corr_attr_recovered_vs_overlap": corr_rec_ov,
+        "corr_attr_margin_vs_overlap": corr_margin_ov,
     })
-    print(f"[f10] recovery per seed {rec_sgd.mean(axis=1)}, "
-          f"construction {rec_con.mean():.2f}")
-    print(f"[f10] bin rates SGD {np.round(rates_mean, 2)} at overlaps "
-          f"{np.round(centers, 2)}")
+    print(f"[f10] blind recovery per seed {rec_sgd.mean(axis=1)} "
+          f"(mean score {sc_sgd.mean():.3f}; typical inter-key |cos| ~0.51)")
+    print(f"[f10] attribution recovery per seed {att_sgd.mean(axis=1)} "
+          f"(constr {att_con.mean():.2f}, interpolant {att_kkt.mean():.2f})")
+    print(f"[f10] attribution bins {np.round(att_m, 2)} at overlaps "
+          f"{np.round(centers, 2)}; corr(recovered, overlap) {corr_rec_ov:+.3f}")
 
 
 # ----------------------------------------------------------------- F11
