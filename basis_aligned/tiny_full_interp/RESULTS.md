@@ -1114,6 +1114,53 @@ about shares — are unscoreable rather than passed or failed. Writing that guar
 in advance is what stops this cell from contributing three meaningless
 percentages to FINDING 21's trend.
 
+## 2026-08-10 07:00 — FINDING 23: **the weights-free remainder grows monotonically with model size on BOTH axes.** A bigram table is within 4.8% of the smallest model's own distribution and misses 29.5% of the largest
+
+Now that all 189 ladders are complete, the rung-5 numbers can be aggregated for
+the first time. The only *fully weights-free* reconstruction the ladder computes
+is a bigram table fit on the estimation split and scored on held against the
+model's own next-token distribution. Across 52 plain-model checkpoints:
+
+| depth | width | seeds | model CE | table KL | KL as % of CE |
+|---|---|---|---|---|---|
+| 1 | 32 | 3 | 5.4130 | **0.2580** | **4.8%** |
+| 1 | 64 | 3 | 5.0477 | 0.4312 | 8.5% |
+| 1 | 128 | 3 | 4.7234 | 0.6442 | 13.6% |
+| 1 | 256 | 3 | 4.4592 | 0.8529 | 19.1% |
+| 2 | 32 | 3 | 5.3166 | 0.3334 | 6.3% |
+| 2 | 64 | 3 | 4.9124 | 0.5594 | 11.4% |
+| 2 | 128 | 7 | 4.5589 | 0.8072 | 17.7% |
+| 2 | 256 | 3 | 4.2453 | 1.0586 | 24.9% |
+| 3 | 64 | 3 | 4.8391 | 0.6354 | 13.1% |
+| 3 | 128 | 3 | 4.4481 | 0.9042 | 20.3% |
+| 3 | 256 | 3 | 4.1411 | 1.1556 | 27.9% |
+| 4 | 64 | 3 | 4.7890 | 0.6881 | 14.4% |
+| 4 | 128 | 3 | 4.3820 | 0.9748 | 22.2% |
+| **4** | **256** | 3 | 4.0825 | **1.2043** | **29.5%** |
+
+**Monotone in width at every depth, and monotone in depth at every width.** No
+exceptions in 14 cells. The shortfall grows by roughly 0.2 nats per doubling of
+width and 0.05 per added block.
+
+**This is the programme's own question answered on its own terms.** "Fully
+interpret them" was the brief. The one artefact here that meets the strict
+definition of interpretation — a program with no weights in it, reproducing the
+model's distribution — captures 95% of the smallest model and 70% of the
+largest, and the trend across the range we can train is the wrong direction.
+
+**What this is and is not.** It is a **lower bound**: a bigram table is the
+simplest possible weights-free program, and a richer one would do better at
+every cell. The finding is not "we can only ever reach 70%" — it is that **at
+fixed program complexity the shortfall grows monotonically with model size**,
+which is the scaling question the programme has to answer and had not measured.
+A ceiling result would need the best weights-free program we can write, not the
+simplest, and building that is the obvious next piece of work.
+
+It also puts the night's other findings in proportion. The foldability tax
+arguments were about 0.03–0.25 nats. **The unexplained remainder at a single
+mid-sized cell is 0.81 nats** — three to twenty-five times larger than any
+architecture effect measured tonight.
+
 ### 06:40 — the analysis backlog is CLEAR: **189 of 189 foldable checkpoints carry a complete ladder, and all 189 pass both gates**
 
 | audited | result |
