@@ -1,0 +1,593 @@
+{
+  "mode": "smoke",
+  "testall": true,
+  "device": "cuda",
+  "config": {
+    "dgp": {
+      "V": 512,
+      "T": 128,
+      "n_classes": 8,
+      "n_units": 24,
+      "gamma": 1.0,
+      "bw_std": 0.5,
+      "sigma": "derangement k -> (k+3) mod 8",
+      "table_seed": 2026,
+      "train_seed": 11,
+      "held_seed": 12,
+      "est_seed": 13,
+      "law": "p(next=w) = softmax(gamma * <A_i, chi(w)> + b_w); A_i = per-unit counts over ALL earlier tokens of class sigma(c(t_i)); see qk_dgp_lang.py docstring incl. stated deviations (sum- not most-recent-selection; in-softmax unigram floor; always-on coordinate)"
+    },
+    "model": "tf_model.TinyBilin vanilla depth 1 width 128 (8 heads x hd 16, hidden 512), T 128, vocab 512; reused, not reimplemented (fold machinery + identity gates for free)",
+    "trainer": "tiny-models defaults: Muon 0.02 (nesterov 0.95, 5-step NS), AdamW 0.004 b(0.9,0.95) wd 0.1 on embedding, warmup 250, cosine, clip 1.0, batch 16, 400 steps, fresh single-epoch iid data, fp32 held eval",
+    "pipeline_rules": {
+      "moment": "per head, unigram-weighted third moment of source-side triple rows [k1|k2|v] from the exact layer-0 fold",
+      "rank_rule": "r = min(16, max(2, round(eff))), eff = participation ratio of p-weighted mean-removed row covariance",
+      "dict_rule": "m = 2r, k = 2 (annealed 4->2), SAE 600 steps batch 2048 lr 0.003, unigram token sampling, revival every 500",
+      "cp": "TPI+deflation, R = r, 3 restarts, 8 starts, 60 iters",
+      "null": "corrected transplant (fit on permuted-code core, transplant onto SAME real core, nonneg lambdas refit only), margin 0.15",
+      "task_gate": "held CE - true-law log-loss on same tokens <= 0.05 (paired form; MC entropy also reported)",
+      "codability": "R2 >= 0.8, frequency-weighted; class library = 8 planted selection classes + 24 unit-membership classes; substitution meaning gate",
+      "equal_ablation": "pattern-energy-matched arms, damage per unit energy + concentration, one load-bearing head"
+    }
+  },
+  "analytic_control": {
+    "construction": "core = (1/V) sum_t chi_t^{x3} in the 24-unit code space; uniform token weights (no sampling, no training)",
+    "matched_cos_mean": 0.9468,
+    "matched_cos_min": 0.4246,
+    "matched_cosines": [
+      0.9472,
+      0.9654,
+      0.9837,
+      0.9814,
+      0.9818,
+      0.9555,
+      0.9819,
+      0.9785,
+      0.9568,
+      0.9691,
+      0.9758,
+      0.9794,
+      0.9634,
+      0.9764,
+      0.9809,
+      0.967,
+      0.4246,
+      0.9823,
+      0.9504,
+      0.9757,
+      0.9515,
+      0.9732,
+      0.975,
+      0.9473
+    ],
+    "frac_ge_0.99": 0.0,
+    "frac_ge_0.9": 0.9583,
+    "real_relerr": 0.3448,
+    "null_on_real": 0.6096,
+    "margin": 0.2648,
+    "restart_stability": 0.9994,
+    "restart_relerrs": [
+      0.3448,
+      0.3452,
+      0.3453
+    ],
+    "diagnostics": {
+      "oracle_pure_units_relerr": 0.5657,
+      "heavy_opt_probe_matched_cos_mean": 0.9472,
+      "heavy_opt_probe_matched_cos_min": 0.4319,
+      "note": "if oracle_pure_units_relerr > real_relerr, the best rank-24 nonneg CP of the DGP-implied tensor is NOT the planted units (co-occurrence cross-moments of overlapping bundles) -- an identifiability property of the object, not a solver failure; the heavy-opt probe (32 starts, 400 iters) tests the same point from the optimization side."
+    },
+    "pass": false
+  },
+  "gates": {
+    "G0_analytic_control": "FAIL",
+    "G_task_semi": "PASS",
+    "G_task_learned": "FAIL"
+  },
+  "verdict": "GATE FAILED: the exact DGP third moment did not yield the planted units at matched cosine >= 0.99 through the CP + null machinery. The pipeline cannot certify anything downstream. STOP. See analytic_control.diagnostics for whether this is solver failure or object identifiability.",
+  "dgp_reference": {
+    "entropy_mc_mean": 3.6855340003967285,
+    "entropy_by_pos_first8": [
+      6.1131,
+      6.0847,
+      6.06,
+      6.0368,
+      6.013,
+      5.9887,
+      5.9644,
+      5.9523
+    ],
+    "entropy_by_pos_last4": [
+      1.6828,
+      1.4172,
+      1.3924,
+      1.5193
+    ],
+    "true_law_logloss_mean": 3.671292543411255,
+    "n_seqs": 300
+  },
+  "arms": {
+    "semi": {
+      "lr_muon": 0.02,
+      "lr_adamw": 0.004,
+      "steps": 400,
+      "batch": 16,
+      "warmup": 250,
+      "grad_clip": 1.0,
+      "weight_decay": 0.1,
+      "train_curve_every200": [
+        [
+          0,
+          14.135,
+          14.135
+        ],
+        [
+          200,
+          3.9479,
+          5.0115
+        ]
+      ],
+      "held100_curve": [
+        [
+          50,
+          11.455
+        ],
+        [
+          100,
+          5.5248
+        ],
+        [
+          150,
+          4.6656
+        ],
+        [
+          200,
+          3.8642
+        ],
+        [
+          250,
+          3.7885
+        ],
+        [
+          300,
+          3.7606
+        ],
+        [
+          350,
+          3.7329
+        ]
+      ],
+      "spikes": 0,
+      "diverged": false,
+      "wall_seconds": 1.7,
+      "final_held_ce": 3.71652,
+      "task_gate": {
+        "held_ce": 3.71652,
+        "gap_vs_true_law_paired": 0.04523,
+        "gap_vs_entropy_mc": 0.03099,
+        "threshold": 0.05,
+        "pass": true
+      }
+    },
+    "learned": {
+      "lr_muon": 0.02,
+      "lr_adamw": 0.004,
+      "steps": 400,
+      "batch": 16,
+      "warmup": 250,
+      "grad_clip": 1.0,
+      "weight_decay": 0.1,
+      "train_curve_every200": [
+        [
+          0,
+          6.2793,
+          6.2793
+        ],
+        [
+          200,
+          4.8455,
+          5.3131
+        ]
+      ],
+      "held100_curve": [
+        [
+          50,
+          6.1856
+        ],
+        [
+          100,
+          5.7685
+        ],
+        [
+          150,
+          5.4083
+        ],
+        [
+          200,
+          4.8276
+        ],
+        [
+          250,
+          4.3701
+        ],
+        [
+          300,
+          4.1169
+        ],
+        [
+          350,
+          3.989
+        ]
+      ],
+      "spikes": 0,
+      "diverged": false,
+      "wall_seconds": 1.6,
+      "final_held_ce": 3.95724,
+      "task_gate": {
+        "held_ce": 3.95724,
+        "gap_vs_true_law_paired": 0.28595,
+        "gap_vs_entropy_mc": 0.27171,
+        "threshold": 0.05,
+        "pass": false
+      }
+    }
+  },
+  "per_head": {
+    "semi": {
+      "h0": {
+        "eff": 19.26,
+        "r": 16,
+        "m_atoms": 32,
+        "real_fit": 0.4783,
+        "null_on_real": 0.7555,
+        "margin": 0.2771,
+        "m1_pass": true,
+        "restart_stability": 1.0,
+        "restart_relerrs": [
+          0.4784,
+          0.4783,
+          0.4784
+        ]
+      }
+    },
+    "learned": {
+      "h0": {
+        "eff": 21.55,
+        "r": 16,
+        "m_atoms": 32,
+        "real_fit": 0.3692,
+        "null_on_real": 0.7141,
+        "margin": 0.3449,
+        "m1_pass": true,
+        "restart_stability": 1.0,
+        "restart_relerrs": [
+          0.3692,
+          0.3692,
+          0.3692
+        ]
+      }
+    }
+  },
+  "D1": {
+    "arm": "semi",
+    "n_components_pooled": 16,
+    "matched_cosines": [
+      0.3323,
+      0.8105,
+      0.0,
+      0.7496,
+      0.0,
+      0.6513,
+      0.0,
+      0.8422,
+      0.0,
+      0.7323,
+      0.3663,
+      0.0,
+      0.0,
+      0.3261,
+      0.828,
+      0.7825,
+      0.7689,
+      0.0,
+      0.631,
+      0.0,
+      0.6506,
+      0.2296,
+      0.2608,
+      0.7005
+    ],
+    "frac_units_matched_cos_ge_0.9": 0.0,
+    "matched_cos_mean": 0.4026,
+    "content_energy_frac_per_component": [
+      0.84,
+      0.854,
+      0.871,
+      0.845,
+      0.879,
+      0.917,
+      0.86,
+      0.807,
+      0.812,
+      0.819,
+      0.811,
+      0.873,
+      0.879,
+      0.803,
+      0.877,
+      0.82
+    ],
+    "note": "Hungarian match of pooled per-head CP components (value-slice minimal-norm preimage, content block) vs 24 planted units -- SMOKE: reduced heads/steps; not a D1 verdict"
+  },
+  "D2": {
+    "arm": "learned",
+    "n_components_pooled": 16,
+    "map_fit": "unigram-weighted ridge LS from rms-normed learned embedding rows to planted bundle vectors, ridge = 1e-3 * trace/Ws (fit on estimation split); weighted R2 = 0.9095",
+    "matched_cosines": [
+      0.3545,
+      0.0,
+      0.3131,
+      0.4618,
+      0.3355,
+      0.0,
+      0.395,
+      0.4454,
+      0.0,
+      0.3034,
+      0.0,
+      0.2983,
+      0.5304,
+      0.3929,
+      0.4346,
+      0.0,
+      0.0,
+      0.4741,
+      0.6631,
+      0.3719,
+      0.0,
+      0.0,
+      0.7309,
+      0.7805
+    ],
+    "frac_units_matched_cos_ge_0.9": 0.0,
+    "matched_cos_mean": 0.3036,
+    "points_fewer_than_D1": 0.0
+  },
+  "D3": {
+    "arm": "semi",
+    "total_coords": 23,
+    "codable_n": 0,
+    "codable_frac": 0.0,
+    "selection_class_codable": 0,
+    "unit_class_codable": 0,
+    "median_class_r2": 0.392,
+    "codable_classes_top": [],
+    "substitution_identity_control_maxdiff": 4.76837158203125e-06,
+    "fullrank_spectra_control_dce": -0.0,
+    "exact_spectra_dce": 0.40665,
+    "coded_spectra_dce": 0.40665,
+    "meaning_gate_coded_minus_exact": {
+      "dCE": 0.0,
+      "SE": 0.0
+    },
+    "coord_table": [
+      {
+        "head": 0,
+        "coord": 0,
+        "class": "unit_7",
+        "r2": 0.518
+      },
+      {
+        "head": 0,
+        "coord": 1,
+        "class": "unit_18",
+        "r2": 0.392
+      },
+      {
+        "head": 0,
+        "coord": 2,
+        "class": "unit_1",
+        "r2": 0.616
+      },
+      {
+        "head": 0,
+        "coord": 3,
+        "class": "unit_20",
+        "r2": 0.497
+      },
+      {
+        "head": 0,
+        "coord": 4,
+        "class": "unit_15",
+        "r2": 0.659
+      },
+      {
+        "head": 0,
+        "coord": 5,
+        "class": "unit_9",
+        "r2": 0.497
+      },
+      {
+        "head": 0,
+        "coord": 6,
+        "class": "unit_14",
+        "r2": 0.636
+      },
+      {
+        "head": 0,
+        "coord": 7,
+        "class": "unit_5",
+        "r2": 0.38
+      },
+      {
+        "head": 0,
+        "coord": 8,
+        "class": "unit_16",
+        "r2": 0.623
+      },
+      {
+        "head": 0,
+        "coord": 9,
+        "class": "unit_3",
+        "r2": 0.619
+      },
+      {
+        "head": 0,
+        "coord": 10,
+        "class": "unit_5",
+        "r2": 0.342
+      },
+      {
+        "head": 0,
+        "coord": 11,
+        "class": "unit_0",
+        "r2": 0.447
+      },
+      {
+        "head": 0,
+        "coord": 12,
+        "class": "unit_18",
+        "r2": 0.157
+      },
+      {
+        "head": 0,
+        "coord": 13,
+        "class": "unit_2",
+        "r2": 0.343
+      },
+      {
+        "head": 0,
+        "coord": 14,
+        "class": "unit_22",
+        "r2": 0.266
+      },
+      {
+        "head": 0,
+        "coord": 15,
+        "class": "unit_17",
+        "r2": 0.529
+      },
+      {
+        "head": 1,
+        "coord": 0,
+        "class": "class_4",
+        "r2": 0.174
+      },
+      {
+        "head": 2,
+        "coord": 0,
+        "class": "unit_19",
+        "r2": 0.357
+      },
+      {
+        "head": 3,
+        "coord": 0,
+        "class": "unit_9",
+        "r2": 0.316
+      },
+      {
+        "head": 4,
+        "coord": 0,
+        "class": "unit_6",
+        "r2": 0.543
+      },
+      {
+        "head": 5,
+        "coord": 0,
+        "class": "class_5",
+        "r2": 0.11
+      },
+      {
+        "head": 6,
+        "coord": 0,
+        "class": "unit_1",
+        "r2": 0.117
+      },
+      {
+        "head": 7,
+        "coord": 0,
+        "class": "unit_13",
+        "r2": 0.186
+      }
+    ]
+  },
+  "D4": {
+    "head": 0,
+    "whole_head_dce": {
+      "h0": 0.42736,
+      "h1": 0.0015,
+      "h2": 0.0485,
+      "h3": 0.12099,
+      "h4": 0.08068,
+      "h5": 0.06339,
+      "h6": 0.01857,
+      "h7": 0.00014
+    },
+    "fold_identity_control_maxdiff": 9.5367431640625e-06,
+    "base_ce": 3.66437,
+    "E_P2_total": 0.08925899118185043,
+    "shrink_betas": {
+      "shrink_matched8": 0.0027,
+      "shrink_top2": 0.6967
+    },
+    "span_dims": {
+      "sel_span8": 8,
+      "sel_top2": 2
+    },
+    "arms": {
+      "sel_span8": {
+        "energy_removed": 0.08925766870379448,
+        "mean_dce": 0.42735,
+        "dce_per_energy": 4.79,
+        "top0.1pct_share": 0.006,
+        "top1pct_share": 0.052,
+        "frac_positions_hit": 0.9313
+      },
+      "pca_matched8": {
+        "energy_removed": 0.08925779908895493,
+        "mean_dce": 0.42735,
+        "dce_per_energy": 4.79,
+        "top0.1pct_share": 0.006,
+        "top1pct_share": 0.052,
+        "frac_positions_hit": 0.9313
+      },
+      "sel_top2": {
+        "energy_removed": 0.02363337203860283,
+        "mean_dce": 0.0894,
+        "dce_per_energy": 3.78,
+        "top0.1pct_share": 0.01,
+        "top1pct_share": 0.076,
+        "frac_positions_hit": 0.8927
+      },
+      "pca_top2": {
+        "energy_removed": 0.03145124763250351,
+        "mean_dce": 0.11567,
+        "dce_per_energy": 3.68,
+        "top0.1pct_share": 0.015,
+        "top1pct_share": 0.113,
+        "frac_positions_hit": 0.8533
+      },
+      "shrink_matched8": {
+        "energy_removed": 0.08925766870379448,
+        "mean_dce": 0.42735,
+        "dce_per_energy": 4.79,
+        "top0.1pct_share": 0.006,
+        "top1pct_share": 0.052,
+        "frac_positions_hit": 0.9313
+      },
+      "shrink_top2": {
+        "energy_removed": 0.02363337017595768,
+        "mean_dce": 0.093,
+        "dce_per_energy": 3.94,
+        "top0.1pct_share": 0.007,
+        "top1pct_share": 0.062,
+        "frac_positions_hit": 0.8856
+      }
+    },
+    "privilege_ratio_sel_vs_pca_span8": 1.0,
+    "privilege_ratio_sel_vs_shrink_span8": 1.0,
+    "privilege_ratio_sel_vs_pca_top2": 1.027,
+    "privilege_ratio_sel_vs_shrink_top2": 0.959
+  },
+  "wall_seconds": 14.0
+}
