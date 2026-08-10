@@ -1,0 +1,31 @@
+{
+  "experiment": "archetype extraction into a standalone machine (aggregate list #5). Reuse qk_dgp_lang.py: train the standard architecture on the planted language, run the frozen ledger (sparse code + tensor-power-iteration CP) on the trained model, then HAND-ASSEMBLE the recovered components into a small explicit machine (no gradient training of the assembly) and test whether it implements the planted grammar. Includes the registered sub-prediction that the extracted machine needs the shared/overlap directions (sub-additivity functional).",
+  "registered": "committed before the build agent was launched; git commit time is the registration time",
+  "context_from_38": "recovery on the identifiable variant is seed-stably ~45% of units at cosine >= 0.9 (mean cosine ~0.88); the naming gate is irrelevant here (assembly is functional, not nominal); the learned arm recovers better than semi (21/24). Predictions priced accordingly.",
+  "predictions": [
+    {
+      "id": "E1",
+      "claim": "The machine assembled from the LEARNED arm's recovered components (identifiable variant) reaches held CE within 0.3 nats of the trained model it was extracted from.",
+      "confidence": 0.5,
+      "note": "Recovery is 21/24 at 0.9 there, but assembly compounds errors multiplicatively through selection x content; 0.3 nats is the 'clearly implements the grammar' band given base CE ~5.04 and unigram-only ~6.1."
+    },
+    {
+      "id": "E2",
+      "claim": "Sub-additivity is functional: zeroing the shared/overlap directions (components serving more than one selection class or unit) degrades the assembled machine by at least 3x the CE damage of zeroing energy-matched single-role components.",
+      "confidence": 0.6,
+      "note": "Logan's registered sub-prediction from the aggregate list. If it fails, overlap directions are redundant packaging, not function."
+    },
+    {
+      "id": "E3",
+      "claim": "Assembly from the OVERLAP variant's recovered components fails to implement the grammar (held CE gap > 0.5 nats from its trained model), given end-to-end recovery there is zero at the 0.9 bar.",
+      "confidence": 0.65
+    },
+    {
+      "id": "E4",
+      "claim": "Oracle-assembly positive control: a machine assembled the same way from the TRUE planted tables (no recovery step) lands within 0.05 nats of the true law's log-loss -- gating that the assembly recipe itself is sound before any recovered-component verdict counts.",
+      "confidence": 0.8,
+      "note": "This is the gate: if E4 fails, E1-E3 are uninterpretable and the assembly recipe gets fixed before any verdict."
+    }
+  ],
+  "decision_rule": "E4 gates everything. E1 holds -> extraction-to-machine is demonstrated on known truth and becomes a candidate instrument for bilin18 (aggregate item 5's ambition). E1 fails with E4 passing -> the ~45-88% recovery grade is functionally insufficient for reassembly; quantifies the recovery bar that phase-2 tools must clear. E2 either way settles whether overlap directions are functional. E3 calibrates against the hard variant."
+}
