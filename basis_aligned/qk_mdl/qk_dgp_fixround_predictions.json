@@ -1,0 +1,27 @@
+{
+  "experiment": "fix round for §38 (four review-mandated measurements): F1 oracle-coordinate gate test, F2 symmetric D1/D2 rescoring, F3 D1 seed replication, F4 D4 dose-response with standard errors.",
+  "registered": "committed before the fix-round agent was launched; git commit time is the registration time",
+  "predictions": [
+    {
+      "id": "F1",
+      "claim": "Oracle coordinates (true planted units' value-path images on the semi model, no CP) certify >= 20/24 at R2 >= 0.8 under the frozen gate — the gate is exonerated and D3's failure attributes upstream.",
+      "confidence": 0.7
+    },
+    {
+      "id": "F2",
+      "claim": "Symmetric scoring (semi projected onto the 24-dim unit span, or pulled through an identically-fit ridge map) erases the D2 reversal: semi lands within 5 points of learned or above it.",
+      "confidence": 0.7
+    },
+    {
+      "id": "F3",
+      "claim": "Across 4 train seeds of identifiable/semi, the D1 fraction at cosine >= 0.9 spans the 0.8 bar (at least one seed passes and at least one fails) — the single-seed FAIL becomes 'below-bar on average, not seed-stable'.",
+      "confidence": 0.5
+    },
+    {
+      "id": "F4",
+      "claim": "With per-token standard errors, the identifiable top-2 selection-vs-PCA privilege ratio 1.27 is within 2 SE of 1.0 — no resolvable privilege, D4 restated as 'directionally consistent, underpowered'.",
+      "confidence": 0.6
+    }
+  ],
+  "decision_rule": "F1+F2 hold -> §38 is amended: D2 reversal retracted as artifact, D3 reframed as composition failure (downgrade unchanged, phase-2 targets shift upstream). F3 either way replaces the 'third of the units' prose with a seed distribution. F4 either way replaces 'supported' with an interval statement."
+}
