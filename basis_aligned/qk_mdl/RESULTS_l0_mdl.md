@@ -6006,3 +6006,49 @@ Practical consequence for the program: future layer-0 fits can default to the sc
 (it is simpler, cheaper, and within noise at generous budgets), switching to the full metric only
 below roughly 3% of raw bits. The anchors, the batch-top-k failure and the objective progression
 now compress to one sentence plus one caveat.
+
+## 2026-08-10 17:00 — §36 The static-fraction-by-depth profile (aggregate list #3): the ledger pipeline's static form extends through layer 4, is half-gone by 6, dead by 9 — and at layer 17 static tables are WORSE than no pattern at all
+
+Gate passed (layer 1 reproduces the published numbers through the new code path: port +0.05152
+against +0.0515, floor +2.7031 against +2.70; identity-patch control exact zero). Shrunk (tau=8)
+token-conditional mean-residual tables at every tap layer from one accumulation pass over 524k
+held-out positions; floors by zeroing one branch's scores; 307k-prediction audits throughout.
+
+| layer | port cost | destruction floor | static fraction |
+|---|---|---|---|
+| 1 | +0.0515 | +2.703 | **98.1%** |
+| 2 | +0.0279 | +0.390 | **92.9%** |
+| 3 | +0.0389 | +0.165 | 76.3% |
+| 4 | +0.0470 | +0.348 | **86.5%** |
+| 6 | +0.0425 | +0.106 | 59.9% |
+| 9 | +0.0270 | +0.043 | 36.7% |
+| 13 | +0.0143 | +0.017 | 14.5% |
+| 17 | +0.0320 | +0.013 | **−139.6%** |
+
+All four registered predictions hold (`qk_port_profile_predictions.json`):
+- **P1 (decay but not monotone, 0.6)**: layer 4 (86.5%) beats layer 3 (76.3%).
+- **P2 (layer 2 above 90%, 0.6)**: 92.9%.
+- **P3 (below 80% by layer 9, 0.55)**: 36.7%.
+- **P4 (non-monotone floors, at least one under 0.5 nats, 0.7)**: every floor
+  after layer 1 is under 0.4, and they wiggle (0.165 up to 0.348 at 3→4).
+
+Two findings the predictions did not anticipate:
+
+1. **Layer 1's +2.70 destruction floor is a freak of the stack.** The next
+   largest is 0.39, and from layer 9 on, zeroing an entire layer's pattern
+   costs at most 0.043 nats. Whatever attention is doing after the early
+   layers, almost none of it is individually load-bearing — the causal weight
+   of the pattern stack is overwhelmingly concentrated in layers 1-2.
+2. **At layer 17 the static fraction is negative: token-conditional tables
+   (+0.0320) do MORE damage than deleting the pattern outright (+0.0134).**
+   Deep patterns are pure context — feeding them the token-identity prior is
+   actively misleading, not merely incomplete. "Static fraction" stops being a
+   fraction of anything there; the pipeline does not degrade gracefully into
+   noise, it inverts.
+
+Practical read for the program: the two-ledger machinery (static tables +
+archetypes) is the right description through roughly layer 4, needs a context
+model from 6-9 (this is where the windowed-moment idea, aggregate #9, would
+live), and is the wrong object past that. The decay curve also hands the
+writeup a clean one-figure summary of where weights-plus-unigram
+understanding ends.

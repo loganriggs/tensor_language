@@ -101,7 +101,7 @@ whether 9 is needed.
 |---|---|---|
 | 1 | scalar-mass collapse retest at bilin18 | **DONE** (RESULTS_l0_mdl.md §35): collapse mostly replicates — scalar carries 91–101% of the metric's gain; geometry's sliver is real (5.3 SE) only at the tight budget. P1 refuted, P2 holds. |
 | 2 | ledger on the MLP's realised interface | queued |
-| 3 | static-fraction-by-depth port profile | built, layer-1 gate passes in smoke; chain launched, holds behind #1 (predictions in `qk_port_profile_predictions.json`) |
+| 3 | static-fraction-by-depth port profile | **DONE** (RESULTS_l0_mdl.md §36): 98→93→76→86→60→37→15% then NEGATIVE at 17; all four predictions held; static form works through layer 4, dead by 9 |
 | 4 | planted-modular-content DGP | queued (batch with 5, 6) |
 | 5 | archetype extraction into a standalone machine | queued (batch with 4, 6) |
 | 6 | planted-tree topology recovery | queued (batch with 4, 5) |
