@@ -706,6 +706,23 @@ def train_extended(H, seed, wd=1e-3):
     return train_bilinear(5, H, 4, X, P, seed, wd, steps=8000)
 
 
+def path_removal_minD(L, R, D, f_idx, de_idx, dog_idx, h_idx=1):
+    """Minimal-norm edit to Dog's D-row that EXACTLY zeroes the folded (furry,dog-ears)->Dog
+    interaction entry while EXACTLY preserving the (furry,happy)->Dog entry (the handoff's
+    stated preservation target; (hands,dog-ears)->Human is untouched automatically since
+    only Dog's D-row changes). T[i,j,c] is linear in D: dT[i,j,dog]/dD[dog,h] = s^{ij}_h,
+    so this is a 2-constraint least-norm problem: min ||dd|| s.t. A dd = b."""
+    def scoef(i, j):
+        return 0.5 * (L[:, i] * R[:, j] + L[:, j] * R[:, i])
+    B, _ = fold(L, R, D)
+    A = np.stack([scoef(f_idx, de_idx), scoef(f_idx, h_idx)])   # (2, H)
+    b = np.array([-B[dog_idx, f_idx, de_idx], 0.0])
+    dd = A.T @ np.linalg.solve(A @ A.T, b)
+    D2 = D.copy()
+    D2[dog_idx, :] = D2[dog_idx, :] + dd
+    return D2
+
+
 def path_removal_edit(L, R, D, f_idx, de_idx, dog_idx, thresh=0.05):
     """Greedily zero whole hidden units (D[:,h]=0) to remove the (furry,dog-ears)->Dog
     interaction entry; returns edited D, list of zeroed units, residual entry."""
@@ -856,42 +873,52 @@ def stage_1d():
 
     table = {}
     for regime, (H, models) in regimes.items():
-        print(f"\n  {regime} (H={H}): removing the (furry,dog-ears)->Dog path "
-              f"by zeroing whole hidden units (D[:,h]=0)")
-        deltas, kept_entries = [], []
-        for seed, (L, R, D) in enumerate(models):
-            B0, _ = fold(L, R, D)
-            m0 = margins(L, R, D, KEYS5, LABELS5)
-            D2, zeroed, resid, target = path_removal_edit(L, R, D, f_idx, de_idx, dog_idx)
-            B1, _ = fold(L, R, D2)
-            m1 = margins(L, R, D2, KEYS5, LABELS5)
-            pred0 = forward_np(L, R, D, KEYS5).argmax(1)
-            pred1 = forward_np(L, R, D2, KEYS5).argmax(1)
-            deltas.append(((pred1 == LABELS5).astype(float) - (pred0 == LABELS5).astype(float),
-                           m1 - m0))
-            kept_entries.append([target, resid,
-                                 B0[dog_idx, 0, 1], B1[dog_idx, 0, 1],       # (furry,happy)->Dog
-                                 B0[3, 3, 4], B1[3, 3, 4]])                  # (hands,dog-ears)->Human
-            if seed == 0:
-                np.save(os.path.join(FIG, f"F8_B_ext_{regime}_before.npy"), B0)
-                np.save(os.path.join(FIG, f"F8_B_ext_{regime}_after.npy"), B1)
-                table[regime + "_seed0"] = (B0, B1)
-            print(f"    seed{seed}: zeroed units {zeroed} (of H={H}); "
-                  f"target entry {target:+.4f} -> residual {resid:+.4f}; "
-                  f"argmax before {[CLASSES4[i] for i in pred0]} -> after {[CLASSES4[i] for i in pred1]}")
-        ke = np.array(kept_entries)
-        print(f"    preserved (furry,happy)->Dog entry: before {fmt_mr(ke[:, 2])} after {fmt_mr(ke[:, 3])}")
-        print(f"    preserved (hands,dog-ears)->Human entry: before {fmt_mr(ke[:, 4])} after {fmt_mr(ke[:, 5])}")
-        acc_d = np.array([d[0] for d in deltas])   # (seed, key)
-        mar_d = np.array([d[1] for d in deltas])
-        table[regime] = (acc_d, mar_d, H)
-        for k, kn in enumerate(KEYS5_NAMES):
-            print(f"    key {kn}: acc delta {fmt_mr(acc_d[:, k])}, margin delta {fmt_mr(mar_d[:, k])}")
-        with open(os.path.join(FIG, f"F8_table_{regime}.json"), "w") as fjs:
-            json.dump({"H": H, "keys": KEYS5_NAMES,
-                       "acc_delta_mean": acc_d.mean(0).tolist(),
-                       "acc_delta_per_seed": acc_d.tolist(),
-                       "margin_delta_mean": mar_d.mean(0).tolist()}, fjs, indent=1)
+        for edit_name in ("minD", "unit_ablation"):
+            if edit_name == "minD":
+                print(f"\n  {regime} (H={H}), PRIMARY edit: minimal-norm Dog D-row update "
+                      f"exactly zeroing T[furry,dog-ears,Dog]")
+            else:
+                print(f"\n  {regime} (H={H}), secondary edit: greedy whole-unit ablation "
+                      f"(zero D[:,h]) until the path entry is gone")
+            deltas, kept_entries = [], []
+            for seed, (L, R, D) in enumerate(models):
+                B0, _ = fold(L, R, D)
+                m0 = margins(L, R, D, KEYS5, LABELS5)
+                if edit_name == "minD":
+                    D2 = path_removal_minD(L, R, D, f_idx, de_idx, dog_idx)
+                    zeroed, resid, target = None, 0.0, float(B0[dog_idx, f_idx, de_idx])
+                else:
+                    D2, zeroed, resid, target = path_removal_edit(L, R, D, f_idx, de_idx, dog_idx)
+                B1, _ = fold(L, R, D2)
+                m1 = margins(L, R, D2, KEYS5, LABELS5)
+                pred0 = forward_np(L, R, D, KEYS5).argmax(1)
+                pred1 = forward_np(L, R, D2, KEYS5).argmax(1)
+                deltas.append(((pred1 == LABELS5).astype(float) - (pred0 == LABELS5).astype(float),
+                               m1 - m0))
+                kept_entries.append([target, resid,
+                                     B0[dog_idx, 0, 1], B1[dog_idx, 0, 1],   # (furry,happy)->Dog
+                                     B0[3, 3, 4], B1[3, 3, 4]])              # (hands,dog-ears)->Human
+                if seed == 0 and edit_name == "minD":
+                    np.save(os.path.join(FIG, f"F8_B_ext_{regime}_before.npy"), B0)
+                    np.save(os.path.join(FIG, f"F8_B_ext_{regime}_after.npy"), B1)
+                    table[regime + "_seed0"] = (B0, B1)
+                zmsg = f"zeroed units {zeroed} (of H={H}); " if zeroed is not None else ""
+                print(f"    seed{seed}: {zmsg}entry {target:+.4f} -> {resid:+.4f}; "
+                      f"argmax before {[CLASSES4[i] for i in pred0]} -> "
+                      f"after {[CLASSES4[i] for i in pred1]}")
+            ke = np.array(kept_entries)
+            print(f"    preserved (furry,happy)->Dog entry: before {fmt_mr(ke[:, 2])} after {fmt_mr(ke[:, 3])}")
+            print(f"    preserved (hands,dog-ears)->Human entry: before {fmt_mr(ke[:, 4])} after {fmt_mr(ke[:, 5])}")
+            acc_d = np.array([d[0] for d in deltas])   # (seed, key)
+            mar_d = np.array([d[1] for d in deltas])
+            table[(regime, edit_name)] = (acc_d, mar_d, H)
+            for k, kn in enumerate(KEYS5_NAMES):
+                print(f"    key {kn}: acc delta {fmt_mr(acc_d[:, k])}, margin delta {fmt_mr(mar_d[:, k])}")
+            with open(os.path.join(FIG, f"F8_table_{regime}_{edit_name}.json"), "w") as fjs:
+                json.dump({"H": H, "edit": edit_name, "keys": KEYS5_NAMES,
+                           "acc_delta_mean": acc_d.mean(0).tolist(),
+                           "acc_delta_per_seed": acc_d.tolist(),
+                           "margin_delta_mean": mar_d.mean(0).tolist()}, fjs, indent=1)
 
     # F8 figure: before/after B_Dog and B_Human per regime (seed 0) + accuracy-delta table
     fig = plt.figure(figsize=(15.5, 9.6))
@@ -905,22 +932,27 @@ def stage_1d():
             ax = fig.add_subplot(gs[r, j])
             im = heat(ax, Bp, FEATS5, ttl, vmax, fs=7, ylabels=(j == 0))
             if j == 0:
-                ax.set_ylabel(f"{regime}\n(H={table[regime][2]}, seed 0)", fontsize=10, color=INK)
+                ax.set_ylabel(f"{regime}\n(H={table[(regime, 'minD')][2]}, seed 0)",
+                              fontsize=10, color=INK)
         cb = fig.colorbar(im, ax=[fig.axes[-4], fig.axes[-3], fig.axes[-2], fig.axes[-1]],
                           shrink=0.8, pad=0.015)
         cb.outline.set_visible(False)
     axt = fig.add_subplot(gs[2, :])
     axt.axis("off")
     lines = ["per-key accuracy delta after path removal (mean over 5 seeds; 0 = unchanged, "
-             "-1 = key now misclassified):", ""]
-    hdr = f"{'':>16}" + "".join(f"{kn:>13}" for kn in KEYS5_NAMES)
+             "-1 = key now misclassified; Dog(f,de) SHOULD drop):", ""]
+    hdr = f"{'':>38}" + "".join(f"{kn:>12}" for kn in KEYS5_NAMES)
     lines.append(hdr)
     for regime in ("overcomplete", "undercomplete"):
-        acc_d = table[regime][0]
-        lines.append(f"{regime:>16}" + "".join(f"{v:>13.2f}" for v in acc_d.mean(0)))
-    axt.text(0.5, 0.9, "\n".join(lines), family="monospace", fontsize=10.5,
+        for edit_name, lbl in (("minD", "minimal T-entry edit"),
+                               ("unit_ablation", "whole-unit ablation")):
+            acc_d = table[(regime, edit_name)][0]
+            lines.append(f"{regime + ', ' + lbl:>38}" +
+                         "".join(f"{v:>12.2f}" for v in acc_d.mean(0)))
+    axt.text(0.5, 0.95, "\n".join(lines), family="monospace", fontsize=10,
              ha="center", va="top", color=INK)
-    fig.suptitle("F8 — removing the (furry, dog-ears)$\\to$Dog path by zeroing its hidden units:\n"
+    fig.suptitle("F8 — removing the (furry, dog-ears)$\\to$Dog path "
+                 "(minimal-norm edit that zeroes the interaction entry; heatmaps: seed 0):\n"
                  "surgical when overcomplete, collateral when undercomplete", color=INK, y=0.99)
     save_fig(fig, "F8_path_removal")
 
