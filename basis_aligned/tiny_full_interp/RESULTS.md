@@ -1279,6 +1279,47 @@ is the ingredient closest to re-implementing the MLP, so it is labelled as a
 boundary case and reported separately rather than folded into the headline. It is
 worth 0.03–0.04 nats, so no conclusion here turns on it.
 
+## 2026-08-10 11:55 — **METHODOLOGICAL CORRECTION: every "95% CI" I have quoted for FINDING 21 is the wrong quantity.** The six-seed run exposed it by not behaving as an interval on a mean should
+
+Six seeds at every corner of the cap-off 2×2 at depth 2 width 128:
+
+| term | 3 seeds | **6 seeds** |
+|---|---|---|
+| attention alone | 13.4% | **11.8%** |
+| feed-forward alone | 0.3% | **0.3%** |
+| **interaction** | 86.3% | **87.9%** |
+
+T1 holds (the point estimate moved 1.6 points). T3 holds. **T2 is refuted — and
+the refutation is the interesting part.** I predicted the interval would narrow
+from 27 points to under 20. It went to **25.8**. Doubling the data barely moved
+it, which is not how uncertainty on a mean behaves, so I checked what my
+interval was actually measuring:
+
+| quantity | 3 seeds | 6 seeds |
+|---|---|---|
+| **(1) spread of one-seed-per-corner estimates** *(what I have been quoting)* | [67.4, 94.6] w 27.2 | [68.5, 94.3] **w 25.8** |
+| **(2) uncertainty on the MEAN share** *(what "95% CI" should mean)* | [73.8, 93.9] w 20.1 | [81.4, 92.2] **w 10.8** |
+
+**Quantity (1) does not shrink with seeds and never will.** It is the spread of
+the estimator you get by drawing *one* seed per corner — a property of seed
+variability itself, not of how much evidence we have. Quantity (2) is the
+uncertainty on the number actually reported, and it halves with four times the
+data, exactly as it should.
+
+**Every interval labelled "95% CI" in FINDING 21 and its follow-ups is quantity
+(1).** That includes the headline [67.4, 94.6] and [33.0, 62.0], and the
+statement that the three cells' intervals are "pairwise disjoint". Those
+intervals are *wider* than the correct ones, so **the conclusions they support
+are conservative, not overstated** — the ordering claim is safe and gets
+stronger. But the label was wrong, and an interval that does not shrink with
+data should have prompted this question the first time I computed one rather
+than the fourth.
+
+**Corrected headline for FINDING 21's central cell**: the three-way interaction
+carries **87.9% of the move, 95% interval [81.4, 92.2]** on six seeds per
+corner. The interaction is the dominant term by a wide margin, and the two main
+effects together account for about 12%.
+
 ### 09:20 — verification note on FINDING 24, and the bit-budget comparison that matters most
 
 Checked the build's headline block against its own JSON. Everything reported
