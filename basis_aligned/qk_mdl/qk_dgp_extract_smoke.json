@@ -1,0 +1,751 @@
+{
+  "experiment": "archetype extraction into a standalone machine (aggregate #5)",
+  "registered": "qk_dgp_extract_predictions.json (E1-E4)",
+  "mode": "smoke",
+  "seeds": {
+    "held2_scoring": 21,
+    "calibration": 22,
+    "pipeline_exposure_est": 13,
+    "note": "held2/cal are FRESH sampler seeds, never used in the frozen runs (11/12/13, 101-104)"
+  },
+  "config": {
+    "held2_n": 200,
+    "cal_n": 60,
+    "sae_steps": 600,
+    "heads": [
+      0,
+      1
+    ],
+    "key_rel_thresh": 0.1,
+    "unit_load_thresh": 0.3,
+    "class_share_thresh": 0.25,
+    "e4_gate_nats": 0.05
+  },
+  "deviations": [
+    "class index: the machine indexes its selection tables by the PLANTED token->class map (taken as known vocabulary structure, like scoring recovery against planted units); the model's conformance to the class block structure is measured, not assumed (per-head pattern block R^2).",
+    "calibration: two global scalars per machine (g on the interaction, beta on the centered bias), fit by coordinate ternary search (CE is convex in both) on the fresh calibration split (seed 22). No gradient training. The E4 gate itself is UNCALIBRATED (g = beta = 1).",
+    "bias slot: exposure-weighted mean of the model's position-0 logits on single-token sequences (the model's no-context table; the law at position 0 is exactly softmax(b) since sigma is a derangement).",
+    "content entries are ridge-LS dual coefficients of the folded value table on the component dictionary (ridge 1e-6 * trace(Gram)/nc): reconstruction semantics, no double counting of non-orthogonal components. The oracle-component consistency machine uses pinv (rtol 1e-6) because 24 unit images exceed the 16-dim head value space.",
+    "attention tables use STATIC (non-rotary) fold scores -- the frozen pipeline's own energy-meter convention; rotary drift is part of what the assembly may lose.",
+    "key restriction: per head, K1/K2 are projected onto the span of the recovered components' k1/k2 slices with relative norm >= 0.1 of the full 48-dim atom combination; a head with no passing slice contributes no selection.",
+    "E2 operationalization: shared = (>= 2 planted units at exposure-weighted |corr(enc, unit indicator)| >= 0.3) OR (>= 2 selection classes at >= 0.25 row-energy share of the head SelTab); single-role = exactly 1 unit and <= 1 class; components with no unit above threshold are \"unclassified\" and belong to neither set. On the ORACLE machine the class axis is degenerate (every component serves all 8 classes by construction), so its split is unit-only and its reference arm is a random energy-fraction-matched subset.",
+    "structural note: with dual-coefficient content entries the aggregate machine depends on components only through per-head value/key SPANS; E1 tests template+spans, E2 tests per-component individuation."
+  ],
+  "E4": {
+    "identifiable": {
+      "references": {
+        "true_law_logloss": 5.03781,
+        "entropy_mc": 5.0288,
+        "unigram_floor_ce": 6.07918,
+        "n_seqs": 200
+      },
+      "oracle_ce": 5.03781,
+      "gap_vs_law_paired": 4e-06,
+      "gate_threshold": 0.05,
+      "pass": true,
+      "calibration_consistency": {
+        "g": 1.00621,
+        "beta": 1.03231,
+        "cal_ce": 4.98393,
+        "held_ce_calibrated": 5.03805,
+        "note": "the recipe's calibration applied to the oracle machine should return ~ (1, 1)"
+      }
+    },
+    "overlap": {
+      "references": {
+        "true_law_logloss": 3.71998,
+        "entropy_mc": 3.71716,
+        "unigram_floor_ce": 6.05143,
+        "n_seqs": 200
+      },
+      "oracle_ce": 3.71998,
+      "gap_vs_law_paired": 0.0,
+      "gate_threshold": 0.05,
+      "pass": true,
+      "calibration_consistency": {
+        "g": 0.9932,
+        "beta": 1.01069,
+        "cal_ce": 3.68866,
+        "held_ce_calibrated": 3.71999,
+        "note": "the recipe's calibration applied to the oracle machine should return ~ (1, 1)"
+      }
+    },
+    "gate": "PASS"
+  },
+  "E1": {
+    "identifiable": {
+      "references": {
+        "true_law_logloss": 5.03781,
+        "entropy_mc": 5.0288,
+        "unigram_floor_ce": 6.07918,
+        "n_seqs": 200
+      },
+      "semi": {
+        "machine_ce_blocked": 6.00989,
+        "machine_minus_law": 0.97208,
+        "bias_only_ce": 6.13861,
+        "calibration": {
+          "g": 11.73239636794384,
+          "beta": 0.41380595112766894
+        },
+        "model_ce": 5.03968,
+        "machine_minus_model": 0.97021,
+        "machine_ce_fulltable": 6.03407,
+        "fulltable_calibration": {
+          "g": 9.227091351463912,
+          "beta": 0.6871044469600567,
+          "cal_ce": 6.00411
+        },
+        "blocked_minus_fulltable": -0.02418,
+        "n_components": 28,
+        "cal_ce": 5.98048,
+        "per_head": {
+          "h0": {
+            "n_components": 14,
+            "key_span_dims": [
+              0,
+              0
+            ],
+            "pattern_block_r2": 1.0,
+            "pattern_overlap_with_full": 0.0,
+            "value_span_coverage": 0.928
+          },
+          "h1": {
+            "n_components": 14,
+            "key_span_dims": [
+              4,
+              9
+            ],
+            "pattern_block_r2": 0.0976,
+            "pattern_overlap_with_full": 0.0001,
+            "value_span_coverage": 0.927
+          }
+        },
+        "pipeline_heads": {
+          "h0": {
+            "eff": 13.7,
+            "r": 14,
+            "m_atoms": 28,
+            "real_fit": 0.2594,
+            "null_on_real": 0.5331,
+            "margin": 0.2737,
+            "m1_pass": true,
+            "restart_stability": 1.0,
+            "restart_relerrs": [
+              0.2594,
+              0.2598,
+              0.2594
+            ]
+          },
+          "h1": {
+            "eff": 14.16,
+            "r": 14,
+            "m_atoms": 28,
+            "real_fit": 0.3441,
+            "null_on_real": 0.5932,
+            "margin": 0.2491,
+            "m1_pass": true,
+            "restart_stability": 1.0,
+            "restart_relerrs": [
+              0.3441,
+              0.3441,
+              0.3441
+            ]
+          }
+        }
+      },
+      "consistency_oracle_components_semi": {
+        "machine_ce_blocked": 5.767,
+        "machine_minus_law": 0.72919,
+        "bias_only_ce": 6.41771,
+        "calibration": {
+          "g": 0.0018760867485432516,
+          "beta": -0.5065088709795053
+        },
+        "model_ce": 5.03968,
+        "machine_minus_model": 0.72732,
+        "per_head": {
+          "h0": {
+            "n_components": 24,
+            "key_span_dims": [
+              16,
+              16
+            ],
+            "pattern_block_r2": 0.9966,
+            "pattern_overlap_with_full": 1.0,
+            "value_span_coverage": 1.0
+          },
+          "h1": {
+            "n_components": 24,
+            "key_span_dims": [
+              16,
+              16
+            ],
+            "pattern_block_r2": 0.108,
+            "pattern_overlap_with_full": 1.0,
+            "value_span_coverage": 1.0
+          }
+        },
+        "cal_ce": 5.72424
+      }
+    }
+  },
+  "E3": {
+    "overlap": {
+      "references": {
+        "true_law_logloss": 3.71998,
+        "entropy_mc": 3.71716,
+        "unigram_floor_ce": 6.05143,
+        "n_seqs": 200
+      },
+      "semi": {
+        "machine_ce_blocked": 6.00956,
+        "machine_minus_law": 2.28958,
+        "bias_only_ce": 6.02398,
+        "calibration": {
+          "g": 0.23937042777886638,
+          "beta": 1.3713812167541848
+        },
+        "model_ce": 3.72581,
+        "machine_minus_model": 2.28375,
+        "machine_ce_fulltable": 6.02393,
+        "fulltable_calibration": {
+          "g": 0.07365423870606373,
+          "beta": 1.3581244230606846,
+          "cal_ce": 6.00454
+        },
+        "blocked_minus_fulltable": -0.01437,
+        "n_components": 31,
+        "cal_ce": 5.98265,
+        "per_head": {
+          "h0": {
+            "n_components": 15,
+            "key_span_dims": [
+              0,
+              0
+            ],
+            "pattern_block_r2": 1.0,
+            "pattern_overlap_with_full": 0.0,
+            "value_span_coverage": 0.9433
+          },
+          "h1": {
+            "n_components": 16,
+            "key_span_dims": [
+              16,
+              16
+            ],
+            "pattern_block_r2": 0.1415,
+            "pattern_overlap_with_full": 1.0,
+            "value_span_coverage": 1.0
+          }
+        },
+        "pipeline_heads": {
+          "h0": {
+            "eff": 15.36,
+            "r": 15,
+            "m_atoms": 30,
+            "real_fit": 0.4144,
+            "null_on_real": 0.7105,
+            "margin": 0.296,
+            "m1_pass": true,
+            "restart_stability": 1.0,
+            "restart_relerrs": [
+              0.4144,
+              0.4144,
+              0.4144
+            ]
+          },
+          "h1": {
+            "eff": 23.75,
+            "r": 16,
+            "m_atoms": 32,
+            "real_fit": 0.464,
+            "null_on_real": 0.792,
+            "margin": 0.328,
+            "m1_pass": true,
+            "restart_stability": 0.957,
+            "restart_relerrs": [
+              0.464,
+              0.4647,
+              0.4655
+            ]
+          }
+        }
+      },
+      "consistency_oracle_components_semi": {
+        "machine_ce_blocked": 4.12186,
+        "machine_minus_law": 0.40188,
+        "bias_only_ce": 6.03099,
+        "calibration": {
+          "g": 0.008334147182940272,
+          "beta": 1.0857444762876642
+        },
+        "model_ce": 3.72581,
+        "machine_minus_model": 0.39605,
+        "per_head": {
+          "h0": {
+            "n_components": 24,
+            "key_span_dims": [
+              16,
+              16
+            ],
+            "pattern_block_r2": 0.9984,
+            "pattern_overlap_with_full": 1.0,
+            "value_span_coverage": 1.0
+          },
+          "h1": {
+            "n_components": 24,
+            "key_span_dims": [
+              16,
+              16
+            ],
+            "pattern_block_r2": 0.1415,
+            "pattern_overlap_with_full": 1.0,
+            "value_span_coverage": 1.0
+          }
+        },
+        "cal_ce": 4.06638
+      }
+    }
+  },
+  "E2": {
+    "identifiable_semi": {
+      "n_components": 28,
+      "n_shared": 9,
+      "n_single_role": 6,
+      "n_unclassified": 13,
+      "shared_energy": 0.0,
+      "single_all_energy": 2.1867654140805826e-05,
+      "total_energy": 0.003241773694753647,
+      "base_machine_ce": 6.00989,
+      "component_table": [
+        {
+          "i": 0,
+          "head": 0,
+          "units": [
+            15
+          ],
+          "classes": [],
+          "max_load": 0.8124,
+          "n_units": 1,
+          "n_classes": 0,
+          "energy": 0.0,
+          "set": "single"
+        },
+        {
+          "i": 1,
+          "head": 0,
+          "units": [
+            14
+          ],
+          "classes": [],
+          "max_load": 0.8882,
+          "n_units": 1,
+          "n_classes": 0,
+          "energy": 0.0,
+          "set": "single"
+        },
+        {
+          "i": 2,
+          "head": 0,
+          "units": [
+            4,
+            5,
+            8
+          ],
+          "classes": [],
+          "max_load": 0.674,
+          "n_units": 3,
+          "n_classes": 0,
+          "energy": 0.0,
+          "set": "shared"
+        },
+        {
+          "i": 3,
+          "head": 0,
+          "units": [
+            15
+          ],
+          "classes": [],
+          "max_load": 0.8154,
+          "n_units": 1,
+          "n_classes": 0,
+          "energy": 0.0,
+          "set": "single"
+        },
+        {
+          "i": 4,
+          "head": 0,
+          "units": [
+            15
+          ],
+          "classes": [],
+          "max_load": 0.8146,
+          "n_units": 1,
+          "n_classes": 0,
+          "energy": 0.0,
+          "set": "single"
+        },
+        {
+          "i": 5,
+          "head": 0,
+          "units": [
+            21
+          ],
+          "classes": [],
+          "max_load": 0.855,
+          "n_units": 1,
+          "n_classes": 0,
+          "energy": 0.0,
+          "set": "single"
+        },
+        {
+          "i": 6,
+          "head": 0,
+          "units": [
+            11,
+            12,
+            16
+          ],
+          "classes": [],
+          "max_load": 0.6128,
+          "n_units": 3,
+          "n_classes": 0,
+          "energy": 0.0,
+          "set": "shared"
+        },
+        {
+          "i": 7,
+          "head": 0,
+          "units": [
+            5,
+            22
+          ],
+          "classes": [],
+          "max_load": 0.6753,
+          "n_units": 2,
+          "n_classes": 0,
+          "energy": 0.0,
+          "set": "shared"
+        },
+        {
+          "i": 8,
+          "head": 0,
+          "units": [
+            1,
+            4,
+            11,
+            12
+          ],
+          "classes": [],
+          "max_load": 0.5256,
+          "n_units": 4,
+          "n_classes": 0,
+          "energy": 0.0,
+          "set": "shared"
+        },
+        {
+          "i": 9,
+          "head": 0,
+          "units": [
+            0,
+            11,
+            12
+          ],
+          "classes": [],
+          "max_load": 0.5858,
+          "n_units": 3,
+          "n_classes": 0,
+          "energy": 0.0,
+          "set": "shared"
+        },
+        {
+          "i": 10,
+          "head": 0,
+          "units": [
+            11,
+            18
+          ],
+          "classes": [],
+          "max_load": 0.6131,
+          "n_units": 2,
+          "n_classes": 0,
+          "energy": 0.0,
+          "set": "shared"
+        },
+        {
+          "i": 11,
+          "head": 0,
+          "units": [
+            4,
+            5,
+            12,
+            23
+          ],
+          "classes": [],
+          "max_load": 0.6689,
+          "n_units": 4,
+          "n_classes": 0,
+          "energy": 0.0,
+          "set": "shared"
+        },
+        {
+          "i": 12,
+          "head": 0,
+          "units": [
+            4,
+            6,
+            12,
+            15
+          ],
+          "classes": [],
+          "max_load": 0.6606,
+          "n_units": 4,
+          "n_classes": 0,
+          "energy": 0.0,
+          "set": "shared"
+        },
+        {
+          "i": 13,
+          "head": 0,
+          "units": [
+            4,
+            15,
+            20
+          ],
+          "classes": [],
+          "max_load": 0.5591,
+          "n_units": 3,
+          "n_classes": 0,
+          "energy": 0.0,
+          "set": "shared"
+        },
+        {
+          "i": 14,
+          "head": 1,
+          "units": [],
+          "classes": [],
+          "max_load": 0.2572,
+          "n_units": 0,
+          "n_classes": 0,
+          "energy": 0.00034887867514044046,
+          "set": "unclassified"
+        },
+        {
+          "i": 15,
+          "head": 1,
+          "units": [],
+          "classes": [],
+          "max_load": 0.231,
+          "n_units": 0,
+          "n_classes": 0,
+          "energy": 9.683700773166493e-05,
+          "set": "unclassified"
+        },
+        {
+          "i": 16,
+          "head": 1,
+          "units": [],
+          "classes": [],
+          "max_load": 0.2136,
+          "n_units": 0,
+          "n_classes": 0,
+          "energy": 5.5660828365944326e-05,
+          "set": "unclassified"
+        },
+        {
+          "i": 17,
+          "head": 1,
+          "units": [],
+          "classes": [],
+          "max_load": 0.2373,
+          "n_units": 0,
+          "n_classes": 0,
+          "energy": 5.885630343982484e-06,
+          "set": "unclassified"
+        },
+        {
+          "i": 18,
+          "head": 1,
+          "units": [],
+          "classes": [],
+          "max_load": 0.2612,
+          "n_units": 0,
+          "n_classes": 0,
+          "energy": 0.0001081356531358324,
+          "set": "unclassified"
+        },
+        {
+          "i": 19,
+          "head": 1,
+          "units": [],
+          "classes": [],
+          "max_load": 0.1852,
+          "n_units": 0,
+          "n_classes": 0,
+          "energy": 2.1521143935387954e-05,
+          "set": "unclassified"
+        },
+        {
+          "i": 20,
+          "head": 1,
+          "units": [],
+          "classes": [],
+          "max_load": 0.2009,
+          "n_units": 0,
+          "n_classes": 0,
+          "energy": 0.0012483960017561913,
+          "set": "unclassified"
+        },
+        {
+          "i": 21,
+          "head": 1,
+          "units": [],
+          "classes": [],
+          "max_load": 0.2675,
+          "n_units": 0,
+          "n_classes": 0,
+          "energy": 0.0003982565540354699,
+          "set": "unclassified"
+        },
+        {
+          "i": 22,
+          "head": 1,
+          "units": [
+            19
+          ],
+          "classes": [],
+          "max_load": 0.3217,
+          "n_units": 1,
+          "n_classes": 0,
+          "energy": 2.1867654140805826e-05,
+          "set": "single"
+        },
+        {
+          "i": 23,
+          "head": 1,
+          "units": [],
+          "classes": [],
+          "max_load": 0.2338,
+          "n_units": 0,
+          "n_classes": 0,
+          "energy": 0.00010162072430830449,
+          "set": "unclassified"
+        },
+        {
+          "i": 24,
+          "head": 1,
+          "units": [],
+          "classes": [],
+          "max_load": 0.1968,
+          "n_units": 0,
+          "n_classes": 0,
+          "energy": 0.0008077265229076147,
+          "set": "unclassified"
+        },
+        {
+          "i": 25,
+          "head": 1,
+          "units": [],
+          "classes": [],
+          "max_load": 0.2966,
+          "n_units": 0,
+          "n_classes": 0,
+          "energy": 1.887959115265403e-05,
+          "set": "unclassified"
+        },
+        {
+          "i": 26,
+          "head": 1,
+          "units": [],
+          "classes": [],
+          "max_load": 0.1666,
+          "n_units": 0,
+          "n_classes": 0,
+          "energy": 2.0865388705715304e-06,
+          "set": "unclassified"
+        },
+        {
+          "i": 27,
+          "head": 1,
+          "units": [],
+          "classes": [],
+          "max_load": 0.2177,
+          "n_units": 0,
+          "n_classes": 0,
+          "energy": 6.0209849834791385e-06,
+          "set": "unclassified"
+        }
+      ],
+      "zero_shared": {
+        "n_dropped": 9,
+        "ce": 6.00989,
+        "dce": 0.0,
+        "dce_se_seq_clustered": 0.0,
+        "energy_removed": 0.0
+      },
+      "zero_single_energy_matched": {
+        "n_dropped": 5,
+        "ce": 6.00989,
+        "dce": 0.0,
+        "dce_se_seq_clustered": 0.0,
+        "energy_removed": 0.0,
+        "energy_match_achieved_frac": 0.0,
+        "picked": [
+          0,
+          1,
+          3,
+          4,
+          5
+        ]
+      },
+      "zero_single_all": {
+        "n_dropped": 6,
+        "ce": 6.04809,
+        "dce": 0.0382,
+        "dce_se_seq_clustered": 0.002697,
+        "energy_removed": 2.1867654140805826e-05
+      },
+      "damage_ratio_shared_over_single_matched": null,
+      "damage_per_energy_ratio_shared_over_single_all": 0.0
+    },
+    "oracle_reference": {
+      "note": "oracle machine: class axis degenerate, all 24 components single-unit; reference = random subsets matched to the primary machine's shared energy fraction",
+      "base_ce": 5.03781,
+      "draws": [
+        {
+          "n_dropped": 1,
+          "ce": 5.08071,
+          "dce": 0.0429,
+          "dce_se_seq_clustered": 0.006535,
+          "energy_removed": 0.0002744986559264362,
+          "picked": [
+            20
+          ]
+        },
+        {
+          "n_dropped": 1,
+          "ce": 5.09077,
+          "dce": 0.05295,
+          "dce_se_seq_clustered": 0.006863,
+          "energy_removed": 0.00046149431727826595,
+          "picked": [
+            13
+          ]
+        },
+        {
+          "n_dropped": 1,
+          "ce": 5.0857,
+          "dce": 0.04788,
+          "dce_se_seq_clustered": 0.007187,
+          "energy_removed": 0.00044763085315935314,
+          "picked": [
+            0
+          ]
+        }
+      ],
+      "target_energy_fraction": 0.0,
+      "mean_dce": 0.04791
+    }
+  }
+}
