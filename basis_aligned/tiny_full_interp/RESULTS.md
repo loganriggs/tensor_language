@@ -1114,7 +1114,54 @@ about shares — are unscoreable rather than passed or failed. Writing that guar
 in advance is what stops this cell from contributing three meaningless
 percentages to FINDING 21's trend.
 
-## 🔴 2026-08-10 03:50 — FINDING 22 IS **COLLAPSING TO A PREDICATE-VARIANT RESULT**: a second foldable architecture LOSES at the no-copying cell where the first one won, by a 0.32-nat swing
+## 🔴 2026-08-10 04:10 — **FINDING 22 IS RETITLED. The collapse is complete: bandwidth loses at BOTH cells.** The general claim is dead; the cap result gets stronger
+
+| cell | copying? | **predicate** | **bandwidth** |
+|---|---|---|---|
+| depth 1, width 128 | no | **−0.0905** ours wins | **+0.1920** ours loses |
+| depth 3, width 64 | yes | +0.1312 | **+0.4097** (interim, cap-off training) |
+
+Bandwidth carries a 7.6% and 7.0% handicap respectively — the same band as
+every other cell. **It loses at both.** The pre-committed reading from
+`tf_secondarch_predictions.json` was: *"if bandwidth loses at BOTH cells,
+FINDING 22 is a predicate-variant result and the general claim collapses."* It
+does, so it is.
+
+**FINDING 22 is retitled**: *"the predicate variant beats a conventional
+transformer where copying is unavailable and loses where it is available"* —
+a statement about **one hand-installed architecture**, not about foldability.
+The five-cell table stands as measurement; its generalisation does not. R1 is
+refuted at both cells.
+
+**The mechanism is now identified rather than suspected.** The predicate
+variant's win came from its **hand-installed positional profile**. Bandwidth is
+foldable, is trained identically, carries the same handicap, and lacks those
+named terms — and the sign flips by 0.28 nats at the no-copying cell. Whatever
+was winning, it was the structure we wrote down, not the fold.
+
+**What got stronger.** The cap result now spans **two architectures**:
+
+| architecture | cells | cap effect |
+|---|---|---|
+| predicate | 5 | −0.0068 to −0.0120, all significant |
+| **bandwidth** | 1 | **−0.0345, t = −13.74** |
+
+R3 holds. Removing the query/key cap helps both foldable architectures, and
+helps bandwidth **three to five times more**. So the direction generalises
+across architectures while the magnitude does not — and FINDING 19's original
+mechanism ("load-bearing for the foldable family") is now contradicted at six
+cells across two architectures, against one supporting cell of a third.
+
+**What this costs the programme, stated plainly.** The headline result of the
+last eight hours — that a foldable architecture can beat a conventional
+transformer at matched parameters wherever copying is not the task — was true
+of one variant and false of the next one tested. The honest current position is
+that **no foldable architecture in this programme beats a conventional
+transformer at matched parameters on loss except by hand-installing the
+structure it needs**, and that hand-installation is exactly what the
+interpretability claim is supposed to *discover* rather than supply.
+
+## 2026-08-10 03:50 — the first cell of the collapse (kept for the record): a second foldable architecture LOSES at the no-copying cell where the first one won, by a 0.32-nat swing
 
 The bandwidth variant — foldable, but with **no hand-installed named attention
 terms** — at depth 1 width 128, the cell where the predicate arm's win was
