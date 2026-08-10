@@ -1119,7 +1119,13 @@ percentages to FINDING 21's trend.
 | cell | copying? | **predicate** | **bandwidth** |
 |---|---|---|---|
 | depth 1, width 128 | no | **−0.0905** ours wins | **+0.1920** ours loses |
-| depth 3, width 64 | yes | +0.1312 | **+0.4097** (interim, cap-off training) |
+| depth 3, width 64 | yes | +0.1312 | **+0.3872** (final, three seeds both caps) |
+
+**Final at 04:25**: bandwidth cap-on 5.12109, cap-off 5.09861, conventional
+4.71136 — tax **+0.3872**, three seeds every arm. The cap effect on bandwidth
+here is **−0.0225 at t = −24.36**, alongside −0.0345 at t = −13.74 at the other
+cell. Both architectures, seven cells, every cap effect negative and
+significant.
 
 Bandwidth carries a 7.6% and 7.0% handicap respectively — the same band as
 every other cell. **It loses at both.** The pre-committed reading from
