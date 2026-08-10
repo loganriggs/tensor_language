@@ -38,3 +38,22 @@ not even expressible (5 constraints > 3 free parameters) — itself a reportable
 
 Prediction: in overcomplete H=12, full tail removal flips Dog(h,t) away from Dog in >= 4/5
 seeds while all four other keys keep their labels. Confidence 0.65.
+
+## Addendum 2 (registered before the follow-up measurement)
+
+Outcome of the addendum-1 prediction: FAILED (0/5 flips). Even with ALL tail-involving
+entries of Dog's slice zeroed, {happy,tail} is still classified Dog on every seed: the
+(happy,happy) diagonal — Dog's core-feature linear term, shared with the kept (furry,happy)
+path — alone outscores Cat and Catfish on that input. Weight-basis path surgery cannot
+remove this fact without touching shared structure.
+
+Follow-up (F8b): FUNCTIONAL key-frame edit — least-norm update to Dog's D-row setting
+f_Dog(z_{h,t}) to (max other-class logit on z_{h,t} - 1) while exactly preserving
+f_Dog(z_{f,h}). Constraints are linear in the D-row via the stored-key representation
+a_z = (Lz)*(Rz). Expressible in BOTH regimes (2 constraints).
+
+Predictions: (1) overcomplete H=12 — Dog(h,t) flips away from Dog on 5/5 seeds, no other
+key flips, and the (happy,tail) TENSOR ENTRY stays visibly nonzero (behavior removed
+without zeroing the mechanistic entry). Confidence 0.8. (2) undercomplete H=3 — target
+flips on 5/5 (exact constraint) but collateral is larger; at least 1 seed has a
+non-target key flip. Confidence 0.55.
