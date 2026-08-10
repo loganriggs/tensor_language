@@ -1114,6 +1114,45 @@ about shares — are unscoreable rather than passed or failed. Writing that guar
 in advance is what stops this cell from contributing three meaningless
 percentages to FINDING 21's trend.
 
+## 2026-08-10 02:30 — FINDING 22: **the sign of the foldability tax tracks COPYING AVAILABILITY at five cells, and neither depth nor width predicts it.** The test that could have killed it predicted our own loss, and we lost
+
+| cell | copying? | our handicap | symmetric tax | |
+|---|---|---|---|---|
+| depth 1, width **128** | no | 7.3% | **−0.0905** | ours wins |
+| depth 2, width **64** | no | 6.3% | **−0.0273** | ours wins |
+| depth **2**, width 128 | yes | 7.0% | +0.0759 | ours loses |
+| depth 3, width 128 | yes | 7.2% | +0.1221 | ours loses |
+| depth **3**, width **64** | yes | 6.2% / 9.1% | **+0.1312 / +0.1497** | ours loses |
+
+**Copying availability predicts the sign at all five cells. Depth does not —
+depth 2 appears on both sides. Width does not — width 64 appears on both sides,
+and so does width 128.** Every cell carries a 6–9% parameter handicap for us,
+and the two cells whose configuration could not hit that range directly were
+bracketed on both sides rather than picked.
+
+**The strongest part is which prediction was tested.** At the symmetry cell the
+copying-availability reading *requires* our arm to lose, because copying is
+available there. I registered Q1 at 0.75 saying exactly that, with a
+pre-committed reading that a win at either bracket point would kill the
+hypothesis. Measured: **+0.1312 and +0.1497** — we lose at both. Q2 also holds
+(both inside the +0.05 to +0.15 range spanned by the other copying cells). This
+is the first cell in the arc where the hypothesis forecast the unfavourable
+outcome for us; every earlier one was a cell where a win would have confirmed
+the story.
+
+**Why this cell was run at all**: width 64 previously appeared only on the
+no-copying side, so width was excluded only by an argument about width 128.
+Adding a copying cell at width 64 makes the exclusion symmetric. It is the
+difference between "width happens not to predict the sign in the cells we
+looked at" and "width is on both sides of the line by construction".
+
+**What remains, and it is now the only thing.** Five cells cannot separate
+copying availability from an *interaction* of depth and width, or from a third
+property that co-varies with copying across exactly these five configurations.
+Nothing here is a scaling law, everything is one corpus and one optimiser, and
+the foldable arm buys its advantage by hand-installed structure throughout — so
+this is a statement about **loss**, not about mechanism the model discovered.
+
 ### 02:10 — Q3 holds at a **fifth** cell. The cap effect on our architecture is now five-for-five
 
 Symmetry cell (depth 3 width 64), our arm at both cap settings, three seeds
