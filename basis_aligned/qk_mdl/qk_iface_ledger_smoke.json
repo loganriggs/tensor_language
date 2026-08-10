@@ -1,0 +1,592 @@
+{
+  "mode": "smoke",
+  "config": {
+    "rank_rule": "r = min(16, max(2, round(eff))), eff = (sum ev)^2/sum ev^2 of mean-removed held-out channel covariance (PCA split)",
+    "dict_rule": "m_atoms = 2r, k = 2 (annealed 4->2), CP rank R = r, restarts = 3 (seeds 0,1,2), n_starts = 8, power iters = 60",
+    "null": "corrected transplant: factors fit on column-permuted-code core, transplanted onto the SAME real core, nonneg lambdas refit only",
+    "n_docs": 16,
+    "sae_steps": 600,
+    "sae_batch": 2048,
+    "margin_threshold": 0.15,
+    "gate_cos": 0.99,
+    "min_token_count": 2,
+    "top_k_tokens": 20
+  },
+  "planted_control": {
+    "detail": {
+      "m16_R6_s2": {
+        "m": 16,
+        "R0": 6,
+        "support": 2,
+        "tpi_matched_cos": 1.0,
+        "tpi_relerr": 0.01,
+        "als_matched_cos": 0.1668,
+        "als_relerr": 0.7884,
+        "mult_matched_cos": 0.6669,
+        "mult_relerr": 0.2561
+      },
+      "m24_R6_s3": {
+        "m": 24,
+        "R0": 6,
+        "support": 3,
+        "tpi_matched_cos": 1.0,
+        "tpi_relerr": 0.0097,
+        "als_matched_cos": 0.1667,
+        "als_relerr": 0.9027,
+        "mult_matched_cos": 0.6666,
+        "mult_relerr": 0.513
+      },
+      "m32_R8_s3": {
+        "m": 32,
+        "R0": 8,
+        "support": 3,
+        "tpi_matched_cos": 1.0,
+        "tpi_relerr": 0.0095,
+        "als_matched_cos": 0.2501,
+        "als_relerr": 0.6771,
+        "mult_matched_cos": 0.7501,
+        "mult_relerr": 0.2096
+      }
+    },
+    "primary_solver_pass": true,
+    "an_als_variant_failed": true
+  },
+  "gates": {
+    "M3_primary_solver_planted_recovery": "PASS",
+    "M1_majority_beats_null": "PASS",
+    "M2_computed_on_validated_channels_only": "enrichments stored for every channel; only m1_pass channels count for M2"
+  },
+  "channels": {
+    "q1_h3": {
+      "eff_rank_measured": 3.33,
+      "r_used": 3,
+      "m_atoms": 6,
+      "k_code": 2,
+      "cp_rank": 3,
+      "real_fit": 0.1826,
+      "null_on_real": 0.3503,
+      "margin": 0.1676,
+      "m1_pass": true,
+      "restart_stability": 1.0,
+      "restart_relerrs": [
+        0.1826,
+        0.1826,
+        0.1826
+      ],
+      "components": [
+        {
+          "lambda": 0.9003,
+          "top_tokens": [
+            "\ufffd",
+            " \"",
+            "\ufffd",
+            " \ufffd",
+            "<|endoftext|>",
+            " (",
+            "\ufffd",
+            " [",
+            "-",
+            " `",
+            " Pro",
+            "/"
+          ],
+          "enrichment": {
+            "boundary": {
+              "top_frac": 0.05,
+              "exposure_base": 0.01831,
+              "ratio": 2.73
+            },
+            "punctuation": {
+              "top_frac": 0.3,
+              "exposure_base": 0.11279,
+              "ratio": 2.66
+            },
+            "function_word": {
+              "top_frac": 0.0,
+              "exposure_base": 0.24902,
+              "ratio": 0.0
+            },
+            "subword_fragment": {
+              "top_frac": 0.15,
+              "exposure_base": 0.13281,
+              "ratio": 1.13
+            }
+          }
+        },
+        {
+          "lambda": 0.262,
+          "top_tokens": [
+            " Pro",
+            " Rand",
+            " M",
+            " Car",
+            " R",
+            " Rep",
+            " Tur",
+            " J",
+            " par",
+            "Leg",
+            " tease",
+            " rub"
+          ],
+          "enrichment": {
+            "boundary": {
+              "top_frac": 0.0,
+              "exposure_base": 0.01831,
+              "ratio": 0.0
+            },
+            "punctuation": {
+              "top_frac": 0.0,
+              "exposure_base": 0.11279,
+              "ratio": 0.0
+            },
+            "function_word": {
+              "top_frac": 0.0,
+              "exposure_base": 0.24902,
+              "ratio": 0.0
+            },
+            "subword_fragment": {
+              "top_frac": 0.0,
+              "exposure_base": 0.13281,
+              "ratio": 0.0
+            }
+          }
+        },
+        {
+          "lambda": 0.1754,
+          "top_tokens": [
+            " the",
+            " in",
+            " your",
+            ",",
+            " that",
+            " by",
+            " and",
+            " as",
+            " at",
+            " who",
+            " when",
+            " our"
+          ],
+          "enrichment": {
+            "boundary": {
+              "top_frac": 0.0,
+              "exposure_base": 0.01831,
+              "ratio": 0.0
+            },
+            "punctuation": {
+              "top_frac": 0.05,
+              "exposure_base": 0.11279,
+              "ratio": 0.44
+            },
+            "function_word": {
+              "top_frac": 0.9,
+              "exposure_base": 0.24902,
+              "ratio": 3.61
+            },
+            "subword_fragment": {
+              "top_frac": 0.0,
+              "exposure_base": 0.13281,
+              "ratio": 0.0
+            }
+          }
+        }
+      ]
+    },
+    "k1_h1": {
+      "eff_rank_measured": 1.28,
+      "r_used": 2,
+      "m_atoms": 4,
+      "k_code": 2,
+      "cp_rank": 2,
+      "real_fit": 0.4729,
+      "null_on_real": 0.8377,
+      "margin": 0.3648,
+      "m1_pass": true,
+      "restart_stability": 1.0,
+      "restart_relerrs": [
+        0.4729,
+        0.4729,
+        0.4729
+      ],
+      "components": [
+        {
+          "lambda": 0.8358,
+          "top_tokens": [
+            " the",
+            " an",
+            " his",
+            " a",
+            " their",
+            "The",
+            " The",
+            " our",
+            " your",
+            " and",
+            ",",
+            " this"
+          ],
+          "enrichment": {
+            "boundary": {
+              "top_frac": 0.0,
+              "exposure_base": 0.01831,
+              "ratio": 0.0
+            },
+            "punctuation": {
+              "top_frac": 0.05,
+              "exposure_base": 0.11279,
+              "ratio": 0.44
+            },
+            "function_word": {
+              "top_frac": 0.85,
+              "exposure_base": 0.24902,
+              "ratio": 3.41
+            },
+            "subword_fragment": {
+              "top_frac": 0.0,
+              "exposure_base": 0.13281,
+              "ratio": 0.0
+            }
+          }
+        },
+        {
+          "lambda": 0.2788,
+          "top_tokens": [
+            " D",
+            " M",
+            " B",
+            " W",
+            " H",
+            " R",
+            " J",
+            " E",
+            " S",
+            " 6",
+            " G",
+            " V"
+          ],
+          "enrichment": {
+            "boundary": {
+              "top_frac": 0.0,
+              "exposure_base": 0.01831,
+              "ratio": 0.0
+            },
+            "punctuation": {
+              "top_frac": 0.05,
+              "exposure_base": 0.11279,
+              "ratio": 0.44
+            },
+            "function_word": {
+              "top_frac": 0.0,
+              "exposure_base": 0.24902,
+              "ratio": 0.0
+            },
+            "subword_fragment": {
+              "top_frac": 0.0,
+              "exposure_base": 0.13281,
+              "ratio": 0.0
+            }
+          }
+        }
+      ]
+    },
+    "q1_h7": {
+      "eff_rank_measured": 7.01,
+      "r_used": 7,
+      "m_atoms": 14,
+      "k_code": 2,
+      "cp_rank": 7,
+      "real_fit": 0.192,
+      "null_on_real": 0.7874,
+      "margin": 0.5955,
+      "m1_pass": true,
+      "restart_stability": 1.0,
+      "restart_relerrs": [
+        0.192,
+        0.192,
+        0.192
+      ],
+      "components": [
+        {
+          "lambda": 0.9007,
+          "top_tokens": [
+            "\ufffd",
+            "<|endoftext|>",
+            " \ufffd",
+            " which",
+            "\\n",
+            "]",
+            " including",
+            "\ufffd",
+            " of",
+            "\ufffd",
+            "s",
+            " who"
+          ],
+          "enrichment": {
+            "boundary": {
+              "top_frac": 0.1,
+              "exposure_base": 0.01831,
+              "ratio": 5.46
+            },
+            "punctuation": {
+              "top_frac": 0.1,
+              "exposure_base": 0.11279,
+              "ratio": 0.89
+            },
+            "function_word": {
+              "top_frac": 0.2,
+              "exposure_base": 0.24902,
+              "ratio": 0.8
+            },
+            "subword_fragment": {
+              "top_frac": 0.15,
+              "exposure_base": 0.13281,
+              "ratio": 1.13
+            }
+          }
+        },
+        {
+          "lambda": 0.2614,
+          "top_tokens": [
+            ").",
+            ".\"",
+            "]",
+            ".",
+            ";",
+            ");",
+            ".)",
+            " \u2013",
+            " but",
+            "\\n",
+            " which",
+            " including"
+          ],
+          "enrichment": {
+            "boundary": {
+              "top_frac": 0.1,
+              "exposure_base": 0.01831,
+              "ratio": 5.46
+            },
+            "punctuation": {
+              "top_frac": 0.45,
+              "exposure_base": 0.11279,
+              "ratio": 3.99
+            },
+            "function_word": {
+              "top_frac": 0.2,
+              "exposure_base": 0.24902,
+              "ratio": 0.8
+            },
+            "subword_fragment": {
+              "top_frac": 0.05,
+              "exposure_base": 0.13281,
+              "ratio": 0.38
+            }
+          }
+        },
+        {
+          "lambda": 0.1667,
+          "top_tokens": [
+            " R",
+            " M",
+            " D",
+            " J",
+            " W",
+            " B",
+            " V",
+            " S",
+            " E",
+            " H",
+            " G",
+            " Gardner"
+          ],
+          "enrichment": {
+            "boundary": {
+              "top_frac": 0.0,
+              "exposure_base": 0.01831,
+              "ratio": 0.0
+            },
+            "punctuation": {
+              "top_frac": 0.0,
+              "exposure_base": 0.11279,
+              "ratio": 0.0
+            },
+            "function_word": {
+              "top_frac": 0.0,
+              "exposure_base": 0.24902,
+              "ratio": 0.0
+            },
+            "subword_fragment": {
+              "top_frac": 0.0,
+              "exposure_base": 0.13281,
+              "ratio": 0.0
+            }
+          }
+        },
+        {
+          "lambda": 0.1226,
+          "top_tokens": [
+            " the",
+            "The",
+            " your",
+            " his",
+            " The",
+            " their",
+            " an",
+            " this",
+            " our",
+            " a",
+            " her",
+            " THE"
+          ],
+          "enrichment": {
+            "boundary": {
+              "top_frac": 0.0,
+              "exposure_base": 0.01831,
+              "ratio": 0.0
+            },
+            "punctuation": {
+              "top_frac": 0.0,
+              "exposure_base": 0.11279,
+              "ratio": 0.0
+            },
+            "function_word": {
+              "top_frac": 0.85,
+              "exposure_base": 0.24902,
+              "ratio": 3.41
+            },
+            "subword_fragment": {
+              "top_frac": 0.05,
+              "exposure_base": 0.13281,
+              "ratio": 0.38
+            }
+          }
+        },
+        {
+          "lambda": 0.1031,
+          "top_tokens": [
+            "old",
+            " With",
+            ")",
+            " who",
+            " looks",
+            " From",
+            " All",
+            ");",
+            " were",
+            "14",
+            " will",
+            "\""
+          ],
+          "enrichment": {
+            "boundary": {
+              "top_frac": 0.0,
+              "exposure_base": 0.01831,
+              "ratio": 0.0
+            },
+            "punctuation": {
+              "top_frac": 0.2,
+              "exposure_base": 0.11279,
+              "ratio": 1.77
+            },
+            "function_word": {
+              "top_frac": 0.35,
+              "exposure_base": 0.24902,
+              "ratio": 1.41
+            },
+            "subword_fragment": {
+              "top_frac": 0.05,
+              "exposure_base": 0.13281,
+              "ratio": 0.38
+            }
+          }
+        },
+        {
+          "lambda": 0.1,
+          "top_tokens": [
+            "year",
+            " projects",
+            " 40",
+            "14",
+            " person",
+            " V",
+            " G",
+            " control",
+            " experience",
+            " protection",
+            " cm",
+            " art"
+          ],
+          "enrichment": {
+            "boundary": {
+              "top_frac": 0.0,
+              "exposure_base": 0.01831,
+              "ratio": 0.0
+            },
+            "punctuation": {
+              "top_frac": 0.0,
+              "exposure_base": 0.11279,
+              "ratio": 0.0
+            },
+            "function_word": {
+              "top_frac": 0.05,
+              "exposure_base": 0.24902,
+              "ratio": 0.2
+            },
+            "subword_fragment": {
+              "top_frac": 0.1,
+              "exposure_base": 0.13281,
+              "ratio": 0.75
+            }
+          }
+        },
+        {
+          "lambda": 0.0943,
+          "top_tokens": [
+            "born",
+            "18",
+            "a",
+            "E",
+            "is",
+            "el",
+            "ized",
+            "via",
+            "ba",
+            "uring",
+            "ard",
+            "AN"
+          ],
+          "enrichment": {
+            "boundary": {
+              "top_frac": 0.0,
+              "exposure_base": 0.01831,
+              "ratio": 0.0
+            },
+            "punctuation": {
+              "top_frac": 0.0,
+              "exposure_base": 0.11279,
+              "ratio": 0.0
+            },
+            "function_word": {
+              "top_frac": 0.2,
+              "exposure_base": 0.24902,
+              "ratio": 0.8
+            },
+            "subword_fragment": {
+              "top_frac": 0.6,
+              "exposure_base": 0.13281,
+              "ratio": 4.52
+            }
+          }
+        }
+      ]
+    }
+  },
+  "m1_summary": {
+    "n_channels": 3,
+    "n_pass_margin_0.15": 3,
+    "median_margin": 0.3648,
+    "majority_pass": true
+  }
+}
