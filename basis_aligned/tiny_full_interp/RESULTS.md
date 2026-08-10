@@ -1114,6 +1114,37 @@ about shares — are unscoreable rather than passed or failed. Writing that guar
 in advance is what stops this cell from contributing three meaningless
 percentages to FINDING 21's trend.
 
+### 02:10 — Q3 holds at a **fifth** cell. The cap effect on our architecture is now five-for-five
+
+Symmetry cell (depth 3 width 64), our arm at both cap settings, three seeds
+each: cap-on 4.84932, cap-off 4.84255, **effect −0.0068 at t = −2.82**.
+
+| cell | cap effect on our architecture | t |
+|---|---|---|
+| depth 1, width 128 | −0.0086 | −9.98 |
+| depth 2, width 128 | −0.0120 | −5.69 |
+| depth 3, width 128 | −0.0092 | −4.08 |
+| depth 2, width 64 | −0.0082 | −3.33 |
+| **depth 3, width 64** | **−0.0068** | **−2.82** |
+
+**Five cells, spanning three depths and two widths, every one negative and
+every one significant**, clustered tightly between −0.007 and −0.012. Removing
+the query/key cap consistently helps this architecture, everywhere it has been
+measured.
+
+Against that, the claim I published as FINDING 19's mechanism — *"the cap is
+load-bearing for the foldable family"* — rests on **one architecture at one
+cell**: vanilla at depth 2 width 128, +0.0392. Vanilla itself is null at the
+two other cells where it was tested. So the mechanism claim is now contradicted
+at five cells of a second architecture and supported at one cell of the first.
+
+**The final wording, which supersedes FINDING 19's mechanism entirely:** the
+query/key cap is a **large, consistent handicap for the conventional model**
+(−0.13 to −0.16 where copying is possible, −0.07 where it is not) and a
+**small, consistent handicap for ours** (−0.007 to −0.012 at five cells). It is
+not load-bearing for anything. The single positive vanilla cell is the outlier,
+not the rule, and I built a mechanism story on it.
+
 ### 00:30 — THE TIGHT BRACKET IS COMPLETE: ours wins at **both** points around 7%, so the discriminating cell holds. And laying out all four cells shows **the width confound I kept flagging was already excluded**
 
 | conventional arm | its params | our handicap | conventional CE | symmetric tax |
