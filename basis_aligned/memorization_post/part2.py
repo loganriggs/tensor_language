@@ -1039,7 +1039,9 @@ def stage_f12():
                     for m, Bx in models.items()}
     for m, Bx in models.items():
         guess = 2 * maxlam[m] * 1.0 + 2 * resop[m] * N_BITS
-        edges[m] = np.linspace(0, max(guess, 1.5 * fact_margins[m].max()), nbins + 1)
+        # log-spaced bins: margins span ~1e-4 .. bound; clip below 1e-3
+        edges[m] = np.concatenate([[0.0], np.geomspace(
+            1e-3, max(guess, 1.5 * fact_margins[m].max()), nbins)])
         hists[m] = np.zeros(nbins, dtype=np.int64)
     t0 = time.time()
     for idx, X in all_inputs_batches():
@@ -1079,31 +1081,39 @@ def stage_f12():
               "als_construction": "ALS construction",
               "sgd_seed0": "SGD (seed 0)"}
     for m in models:
-        ctr = 0.5 * (edges[m][:-1] + edges[m][1:])
-        ax.stairs(np.maximum(hists[m], 0.5), edges[m], color=colors[m],
+        ax.stairs(np.maximum(hists[m], 0.5),
+                  np.maximum(edges[m], 5e-4), color=colors[m],
                   lw=1.5, label=labels[m])
         ax.axvline(bounds[m], color=colors[m], lw=1.2, ls="--")
         ax.axvline(fact_margins[m].min(), color=colors[m], lw=1.0, ls=":")
+        ax.annotate(f"bound {bounds[m]:.0f}", (bounds[m], 3e5),
+                    rotation=90, fontsize=7.5, color=colors[m],
+                    ha="right", va="top")
+    ax.set_xscale("log")
     ax.set_yscale("log")
-    ax.set_xlabel("output margin  top1 - top2 logit")
+    ax.set_xlim(5e-4, 6e3)
+    ax.set_xlabel("output margin  top1 - top2 logit  (log)")
     ax.set_ylabel("count over 2^20 - 100 off-fact inputs (log)")
     ax.set_title("F12a: off-fact-set margins, exhaustive over all 2^20 inputs\n"
                  "dashed = analytic Gram-overlap bound, dotted = min on-fact margin")
-    ax.legend(fontsize=8)
+    ax.legend(fontsize=8, loc="upper left")
     ax = axes[1]
     m = "kkt_interpolant"
-    ax.scatter(scatq, np.concatenate(scat[m]), s=4, color=BLUE, alpha=0.25,
+    mvals = np.concatenate(scat[m])
+    ax.scatter(scatq, np.maximum(mvals, 1e-4), s=4, color=BLUE, alpha=0.25,
                label="off-fact inputs (1/1024 subsample)")
-    qq = np.linspace(0, qmax_off * 1.02, 100)
+    qq = np.linspace(1e-3, qmax_off * 1.02, 200)
     ax.plot(qq, 2 * maxlam[m] * qq, color=RED, lw=1.5,
             label="bound 2 max|lambda| * x^T C^{-1} x")
     qk = np.einsum("ki,ij,kj->k", Z, Cinv, Z, optimize=True)
     ax.scatter(qk, margins(logits_folded(Bk, Z), y), s=18, color=ORANGE,
                marker="s", label="the 100 fact keys", zorder=4)
+    ax.set_yscale("log")
+    ax.set_ylim(1e-4, 1.2e3)
     ax.set_xlabel("x^T C^{-1} x   (Gram-overlap coordinate)")
-    ax.set_ylabel("margin")
+    ax.set_ylabel("margin (log)")
     ax.set_title("F12b: margin vs the bound coordinate (KKT interpolant)")
-    ax.legend(fontsize=8)
+    ax.legend(fontsize=8, loc="lower right")
     fig.suptitle("F12: behavior on ALL 2^20 inputs - off-fact margins vs the "
                  "analytic bound  |f_c(x)| <= max_k|lambda_ck| x^T C^{-1} x + ||E_c||_2 ||x||^2")
     fig.tight_layout()

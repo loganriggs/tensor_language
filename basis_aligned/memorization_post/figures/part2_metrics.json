@@ -487,5 +487,44 @@
     "naive_victim_flips_total": 249,
     "kkt_victim_flips_total": 2,
     "no_corpus_note": "KKT edit inputs: model weights + fact-key list only (C = sum_k z_k z_k^T over the 100 stored keys); NO training corpus accessed."
+  },
+  "f12": {
+    "qmax_offfact": 0.5004184232142526,
+    "kkt_interpolant": {
+      "max_offfact_margin": 12.174922306569213,
+      "argmax_input_int": 371662,
+      "mean_offfact_margin": 1.3181903473469205,
+      "min_onfact_margin": 4.999999999999982,
+      "median_onfact_margin": 4.9999999999999964,
+      "frac_offfact_above_min_onfact": 0.013818151297693032,
+      "bound": 689.8978775554845,
+      "max_abs_lambda": 689.3210217203642,
+      "residual_opnorm": 0.0,
+      "bound_tightness_max_over_bound": 0.017647426818746887
+    },
+    "als_construction": {
+      "max_offfact_margin": 33.52205125872089,
+      "argmax_input_int": 104015,
+      "mean_offfact_margin": 3.191955183714487,
+      "min_onfact_margin": 4.999843383800415,
+      "median_onfact_margin": 4.999996343264035,
+      "frac_offfact_above_min_onfact": 0.2104750132573373,
+      "bound": 1238.0362101939268,
+      "max_abs_lambda": 961.1282081646256,
+      "residual_opnorm": 6.902592133024075,
+      "bound_tightness_max_over_bound": 0.02707679386329902
+    },
+    "sgd_seed0": {
+      "max_offfact_margin": 63.25579680881126,
+      "argmax_input_int": 805315,
+      "mean_offfact_margin": 6.756801796889013,
+      "min_onfact_margin": 10.900855599170502,
+      "median_onfact_margin": 12.005534440801432,
+      "frac_offfact_above_min_onfact": 0.20403709765411893,
+      "bound": 2151.425093481661,
+      "max_abs_lambda": 1516.6193366984803,
+      "residual_opnorm": 15.838414482696567,
+      "bound_tightness_max_over_bound": 0.0294018123152241
+    }
   }
 }
