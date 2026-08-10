@@ -1114,6 +1114,34 @@ about shares — are unscoreable rather than passed or failed. Writing that guar
 in advance is what stops this cell from contributing three meaningless
 percentages to FINDING 21's trend.
 
+### 06:40 — the analysis backlog is CLEAR: **189 of 189 foldable checkpoints carry a complete ladder, and all 189 pass both gates**
+
+| audited | result |
+|---|---|
+| foldable checkpoints on disk | 189 |
+| lacking a complete ladder | **0** |
+| fold identity gate passing | **189 / 189** |
+| decomposition control passing | **189 / 189** |
+
+Fifteen were outstanding at 06:20 — the twelve codebook third-architecture arms
+trained tonight, and three truncated-tokenizer cells old enough that I did not
+know they existed until the audit found them. All fifteen are now analysed and
+gated.
+
+**Two things this makes true that were not true earlier tonight.** Every number
+quoted in FINDINGS 19 through 22 now comes from a checkpoint whose exact
+foldability has been verified, rather than assumed — that was an open item at
+15:25 and is closed. And the completeness test that catches truncated ladders
+is applied across the whole corpus rather than to the files I happened to be
+watching, which is what turned "I fixed the six I noticed" into "there are no
+others".
+
+**Worth stating as a programme-level fact rather than a chore log**: 189
+foldable models, three depths, five widths, six architecture variants, two cap
+settings, and every single one folds exactly and reproduces its own
+decomposition. Whatever else has been retracted tonight, the fold itself has
+never failed a gate.
+
 ### 05:55 — the narrowing is **REVERSED at six seeds**: the codebook effect resolves at −0.0293, t = −5.65
 
 Six paired seeds: −0.0292, −0.0428, −0.0074, −0.0411, −0.0286, −0.0267 →
