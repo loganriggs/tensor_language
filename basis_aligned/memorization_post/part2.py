@@ -517,6 +517,12 @@ def stage_f9():
     sim_perm = [sims(permB[i]) for i in range(permB.shape[0])]
     sim_sgd_pair = [gauss_frob_cos(Bs[i], Bs[j])
                     for i in range(5) for j in range(i + 1, 5)]
+    # construction self-similarity under re-initialization (context for (ii))
+    als_self = []
+    for s in range(3):
+        La, Ra, Da, _ = als_construction(Z, y, H, seed=MASTER_SEED + 31 + s,
+                                         restarts=1)
+        als_self.append(gauss_frob_cos(fold(La, Ra, Da), B_con))
 
     # D ~ -I check: per hidden unit, dominance and sign of the dominant entry
     dom_frac, dom_sign_neg = [], []
@@ -609,6 +615,7 @@ def stage_f9():
         "randinit_vs_constr": {m: [d[m] for d in sim_rnd] for m in metrics},
         "permuted_vs_constr": {m: [d[m] for d in sim_perm] for m in metrics},
         "sgd_pairwise_gauss": sim_sgd_pair,
+        "als_self_similarity_gauss": als_self,
         "D_dominance_per_seed": dom_frac,
         "D_dominant_sign_negative_frac_per_seed": dom_sign_neg,
         "sign_flip_flag_across_seeds": bool(sign_flip_flag),
