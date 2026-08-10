@@ -137,3 +137,121 @@ overcomplete H=12 and undercomplete H=3 both train 5/5 seeds to 100% on the 5 ke
   the primary edit) — the margin drops by ~11-12 but stays positive, because diagonal linear
   terms (furry, dog-ears diagonals and competitors' negative diagonals) carry a large share of
   path 2. The off-diagonal interaction is one ingredient of the path, not the whole path.
+
+## Part 2: 100 random facts (n = 20-bit keys, 10 classes) — F9-F12
+
+Everything from `part2.py` (seeded, re-runnable end to end; stage list in the docstring).
+Numbers in `figures/part2_metrics.json`. All edits below use model weights + the fact-key
+list only (C = sum_k z_k z_k^T over the 100 stored keys); no training corpus is accessed
+anywhere in Part 2.
+
+Setup and sizing. 100 distinct Bernoulli(1/2) 20-bit keys, classes uniform (counts
+11,5,10,9,16,10,10,14,11,4). Key overlap is meaningful: mean inter-key |cos| 0.51; per-fact
+max off-diagonal Gram overlap ranges 0.65-0.89. H sweep {10,20,30,40,50,60,80,100}:
+SGD memorizes 100/100 already at H=10; the ALS construction reaches 100% argmax accuracy at
+H=20 (but with target MSE 0.107) and exact interpolation from H=40 (MSE 5.7e-11).
+Working point H* = 40, chosen as the smallest H with 100% memorization for BOTH methods AND
+exact ALS interpolation (deviation from a pure accuracy criterion, stated here: with an
+inexact construction, F9's "construction" would not be a well-defined reference).
+
+Construction convention. D is FIXED at the tiled negative identity (exactly D = -I when
+H = C; D = -[I|I|...|I] for H = mC) and never trained; L and R found by ALS with exact
+convex per-class least-squares block solves, 60 iterations, best of 3 restarts. The KKT
+machinery: the single-fact edit is rank-1 in the C^{-1}z* direction with coefficient
+(y* - f(z*)) / (z*^T C^{-1} z*)^2 per class. The joint minimum-C-norm interpolant from the
+zero tensor (S lambda = Y with S = Hat^2 elementwise, Hat = Z C^{-1} Z^T) is well conditioned
+(cond S = 52, fit error 9.6e-15) and the cyclic single-fact edit provably reaches it
+(51 passes to 1e-6; relative distance 1.7e-7). Add-a-101st-fact demo on the ALS
+construction: new fact stored, all 100 old facts retained, mean |margin change| on old
+facts 0.23 (max 2.58).
+
+### F9 — SGD vs construction (acceptance PASSES; D = -I REFUTED)
+
+Folded-tensor similarity of SGD (5 seeds) to the ALS construction, with BOTH required
+baselines (mean [min, max] over 5):
+
+| metric | SGD vs constr | random init | permuted-fact constr |
+|---|---|---|---|
+| Frobenius cos, class-centered (= Gaussian-input corr) | 0.119 [0.092, 0.154] | 0.001 [-0.020, 0.012] | -0.004 [-0.021, 0.028] |
+| Frobenius cos, off-diagonal only | 0.133 [0.101, 0.172] | 0.001 [-0.023, 0.027] | -0.003 [-0.018, 0.036] |
+| boolean-input logit corr (2^16 sample) | 0.134 [0.100, 0.169] | 0.008 [-0.021, 0.045] | -0.017 [-0.046, 0.006] |
+| fact-key logit corr | 0.582 [0.504, 0.614] | -0.008 [-0.051, 0.045] | 0.000 [-0.067, 0.033] |
+
+Clear separation from both baselines on every metric (no overlap of ranges) — the
+acceptance criterion passes. Interpretive caution that the post should carry: the absolute
+similarity is small, and re-running the ALS construction from different inits gives
+construction-vs-construction similarity 0.07-0.13 — the same range as SGD-vs-construction.
+SGD seeds agree with each other at 0.32 [0.25, 0.41]. So SGD lands in the same wide
+solution family as the construction (far from both nulls), not on the construction itself;
+SGD's own basin is tighter than the construction's.
+
+D approx -I: REFUTED. With D trained freely under L1 (1e-3), per-hidden-unit dominance
+(largest |D| entry / column L1 mass) is only 0.39-0.49 across seeds (a one-hot column would
+be 1.0), and the dominant entries are negative only 40-55% of the time — sign flips across
+seeds flagged (flag = True). SGD does not converge to per-unit single-class routing of
+either sign. Weight statistics (F9 panel i): the construction's L is heavy-tailed (entries
+to +-10) with compact R; SGD spreads magnitude evenly across L, R, D.
+
+### F10 — extraction recovery vs Gram overlap
+
+Blind extraction (top-|K_c| eigenvectors of each symmetrized class slice, matched to keys
+or C^{-1}-keys at |cos| >= 0.8) FAILS: recovery 0-1% per seed, at every overlap bin, for the
+ALS construction (0%), for the KKT interpolant (3%), and for SGD with H = 100 and H = 400
+(0-1%; side-check seed 0). Mean best match score 0.52 = the typical inter-key overlap 0.51,
+i.e. eigenvectors match keys no better than keys match each other. Facts are not stored as
+eigen-separable rank-1 components; the slice is a compressed joint code (per-class key-frame
+residual operator norms 11-30, comparable to the slice eigenvalues themselves).
+
+Informed key-frame attribution (least-squares decomposition of the folded tensor onto the
+dictionary {(C^{-1}z_k)(C^{-1}z_k)^T}, fact recovered if argmax_c lambda_ck = stored class):
+SGD 44-51% per seed vs 10% chance; ALS construction 52%; pure KKT interpolant 96%. This is
+where the recovery-vs-overlap relationship lives: binned by max off-diagonal Gram overlap,
+recovery falls 0.61 -> 0.43 from the lowest-overlap bin (0.70) to the highest (0.86);
+corr(recovered, overlap) = -0.14, corr(attribution margin, overlap) = -0.15 (pooled, 500
+fact-seed points). Direction as predicted, but overlap explains little variance.
+
+### F11 — unlearning 10 facts via the KKT edit (prediction registered pre-measurement)
+
+Edit set [10, 27, 28, 35, 44, 55, 58, 67, 73, 88], target uniform, applied to all 5 SGD
+folded tensors by cyclic single-fact KKT edits (converged, 14-15 passes). Predictions
+(per-victim margin changes from the joint-KKT lambda through the squared hat-matrix
+off-diagonals, plus a pure-Gram proxy sum_m Hat[j,m]^2) were committed in
+`predictions/part2_f11_predictions.json` at commit 43bf4289c (2026-08-10T20:38:42+00:00),
+BEFORE the measurement commit ebe594ab6; commit time = registration time.
+
+- Forgetting: max deviation from uniform < 1e-9 on all 10 facts, all seeds (an argmax-based
+  count reads 9-10/10 only because argmax over exactly-equal logits is tie-breaking noise).
+- Collateral on the 90: 2 argmax flips total over 5 seeds x 90 victims; mean |victim margin
+  change| 1.79-3.05 per seed.
+- Predicted vs measured: Pearson r = 1.000000, Spearman = 1.000000; max |predicted -
+  measured| margin change = 1.8e-10. The closed-form Gram prediction of the KKT edit is
+  EXACT (the edit is linear algebra; the registered prediction is the theorem, the
+  measurement its verification). The scale-free Gram proxy (no lambda solve) still ranks
+  collateral at Spearman r = 0.47.
+- Naive-removal baseline (subtract the rank-1 component in the RAW key direction, one pass,
+  no re-tensioning): 9.2x worse mean |margin change| (15.8-32.3), 249/450 victims flipped
+  (retained-fact accuracy 0.30-0.60 vs 0.989-1.000 for KKT), and it does not even forget —
+  residual deviation from uniform 23-68 logits from cross-talk among the 10 edits.
+  KKT single-pass (no re-tensioning): collateral same as converged KKT, forgetting
+  incomplete (deviation 5-12) — re-tensioning buys exact forgetting, C^{-1}-weighting buys
+  the 9x collateral reduction.
+
+### F12 — behavior on ALL 2^20 inputs (exhaustive enumeration, batched; 6 s CPU)
+
+Method: exhaustive enumeration in batches of 65536 (not a derived bound), for the KKT
+interpolant, the ALS construction, and SGD seed 0. Margin = top1 - top2 logit.
+
+| model | max off-fact margin | min on-fact margin | frac off-fact > min on-fact | analytic bound | tightness |
+|---|---|---|---|---|---|
+| KKT interpolant | 12.17 | 5.00 | 1.4e-2 | 689.9 | 0.018 |
+| ALS construction | 33.52 | 5.00 | 2.1e-1 | 1238.0 | 0.027 |
+| SGD seed 0 | 63.26 | 10.90 | 2.0e-1 | 2151.4 | 0.029 |
+
+The analytic Gram-overlap bound margin(x) <= 2 max_k|lambda_ck| x^T C^{-1} x (exact form
+for the interpolant; + 2||E_c||_2 ||x||^2 residual term for ALS/SGD, lambda from key-frame
+projection) HOLDS on every one of the 2^20 inputs but is loose: 35-55x above the realized
+maximum. Off-fact margins are NOT uniformly small: for ALS/SGD, ~20% of the 2^20 - 100
+inputs carry a larger margin than the least-confident stored fact (mostly key neighbors and
+unions); the minimum-C-norm interpolant is an order of magnitude better behaved (1.4%).
+The claim the post can make is exactly the bound and no more — pointwise "no confident
+class off the fact set" is false.

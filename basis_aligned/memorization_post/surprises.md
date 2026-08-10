@@ -37,3 +37,31 @@
    contingency ("if H=2 fails to train") was not needed; and the 3-4-point dataset was not
    degenerate under softmax CE (the all-zeros row pins the loss but has zero gradient, and all
    runs converge to consistent structure), so no label noise or 4th class was added in 1b/1c.
+
+## Part 2 surprises (contradicting the handoff's expectations)
+
+1. D approx -I does NOT emerge (F9 panel iii premise refuted). Sparsity-regularized SGD
+   (L1 1e-3) at H=40 gives per-unit dominance 0.39-0.49 (one-hot would be 1.0) and the
+   dominant D entries are negative only 40-55% of the time, with sign flips across seeds.
+   Hidden units are shared across classes; nothing prefers the -I convention.
+2. The F9 acceptance criterion passes but is weaker than it looks: SGD-vs-construction
+   similarity (0.09-0.15) is numerically the SAME as construction-vs-construction under
+   ALS re-initialization (0.07-0.13). The honest statement is "same wide solution family,
+   clearly distinct from both nulls", not "SGD finds the construction". SGD seeds are 2.5x
+   closer to each other (0.32) than to the construction.
+3. Blind extraction of facts as rank-1-ish components fails COMPLETELY (F10): recovery
+   0-1% at every Gram-overlap bin, for every model, and at every capacity tested up to
+   H=400 (10x overparameterized). Recovery-vs-overlap only exists for an informed
+   key-frame attribution (dictionary = C^{-1}-weighted keys), and even there overlap
+   explains little variance (corr -0.14). The folded slice is a compressed joint code of
+   its keys, not a sum of recoverable per-fact components.
+4. The naive-removal baseline is worse than expected in kind, not just degree: subtracting
+   the raw-key rank-1 components does not even achieve forgetting (residual deviation from
+   uniform 23-68 logits, from cross-talk among the 10 edits) while flipping 55% of retained
+   facts. Decomposition of the advantage: re-tensioning buys exact forgetting; the
+   C^{-1}-weighted direction buys the ~9x collateral reduction.
+5. Off-fact-set margins are not small (F12): for SGD and the ALS construction ~20% of all
+   2^20 - 100 inputs have a larger top1-top2 margin than the least-confident stored fact,
+   and the analytic Gram bound, though valid everywhere, is 35-55x loose. Only the
+   minimum-C-norm KKT interpolant is well behaved off-distribution (1.4%). The post's
+   "behavior guarantee on all 2^n inputs" must be stated as the bound itself.
