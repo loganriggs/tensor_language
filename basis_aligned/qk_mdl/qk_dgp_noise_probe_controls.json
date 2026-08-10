@@ -1,0 +1,64 @@
+{
+ "perrow": {
+  "identifiable/semi": {
+   "0.1": 0.01462,
+   "0.2": 0.05829,
+   "0.4": 0.23256
+  },
+  "identifiable/learned": {
+   "0.1": 0.00607,
+   "0.2": 0.02573,
+   "0.4": 0.12455
+  },
+  "overlap/semi": {
+   "0.1": 0.01697,
+   "0.2": 0.0679,
+   "0.4": 0.27301
+  },
+  "overlap/learned": {
+   "0.1": 0.00792,
+   "0.2": 0.03273,
+   "0.4": 0.15944
+  }
+ },
+ "absolute": {
+  "identifiable/semi": {
+   "0.01": 0.00479,
+   "0.02": 0.01906,
+   "0.04": 0.076
+  },
+  "identifiable/learned": {
+   "0.01": 0.00681,
+   "0.02": 0.02879,
+   "0.04": 0.13858
+  },
+  "overlap/semi": {
+   "0.01": 0.00407,
+   "0.02": 0.01632,
+   "0.04": 0.06531
+  },
+  "overlap/learned": {
+   "0.01": 0.00611,
+   "0.02": 0.02467,
+   "0.04": 0.11503
+  }
+ },
+ "row_norm_stats": {
+  "identifiable/semi": {
+   "row_norm_mean": 1.9475,
+   "row_norm_cv": 0.0569
+  },
+  "identifiable/learned": {
+   "row_norm_mean": 1.0168,
+   "row_norm_cv": 0.1121
+  },
+  "overlap/semi": {
+   "row_norm_mean": 2.2739,
+   "row_norm_cv": 0.0481
+  },
+  "overlap/learned": {
+   "row_norm_mean": 1.2198,
+   "row_norm_cv": 0.1135
+  }
+ }
+}
