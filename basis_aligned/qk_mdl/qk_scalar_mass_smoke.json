@@ -1,0 +1,94 @@
+{
+  "experiment": "scalar-mass collapse retest (aggregate list #1)",
+  "smoke": true,
+  "published": {
+    "baseline_ce_fw": 3.0763,
+    "n1024_k8": {
+      "ctx": 0.0054,
+      "plain_lin": 0.0076,
+      "plain_omp": 0.0059,
+      "Mbits": 455.4
+    },
+    "n256_k4": {
+      "ctx": 0.0073,
+      "plain_lin": 0.0171,
+      "plain_omp": 0.0149,
+      "Mbits": 182.8
+    }
+  },
+  "gates": {
+    "B": {
+      "scalar_loss": 2083686.75,
+      "ctx_iso_diag": 2083686.75,
+      "ctx_iso_block": 2083686.75,
+      "ctx_real_geometry": 1991118.125,
+      "mc_iso_mean_500": 2046183.2455,
+      "rel_err_diag": 0.0,
+      "rel_err_block": 0.0,
+      "rel_err_mc": 0.017998628872598073,
+      "rel_diff_vs_real_geometry": 0.04442540367452066,
+      "pass": true,
+      "note": "exact constructions must match to 1e-5; MC to 5% (clamp bias + sampling); real-geometry loss must DIFFER (else nothing was ablated)"
+    },
+    "A": {
+      "dce_reproduced": 0.00733,
+      "published": 0.0054,
+      "tol": 0.01,
+      "pass": true,
+      "note": "smoke: ~2k-pred subset, loose plumbing-level tolerance"
+    }
+  },
+  "budgets": {
+    "n1024_k8": {
+      "n": 1024,
+      "k": 8,
+      "Mbits": 455.4,
+      "arms": {
+        "plain_lin": {
+          "fvu": 0.45249,
+          "dce": 0.00771
+        },
+        "ctx": {
+          "dce": 0.00733,
+          "source": "qk_dict_l0_ctx.pt (Gate A audit)"
+        },
+        "scalar": {
+          "dce": 0.00772,
+          "train_losses": [
+            [
+              0.5828,
+              0.9847
+            ]
+          ]
+        }
+      },
+      "contrasts": {
+        "scalar_minus_ctx": {
+          "mean": 0.000396,
+          "se_pos": 0.003037,
+          "se_seq": 0.003742,
+          "n_pos": 2048,
+          "n_seq": 4
+        },
+        "scalar_minus_plain_lin": {
+          "mean": 1.6e-05,
+          "se_pos": 0.000129,
+          "se_seq": 7.1e-05,
+          "n_pos": 2048,
+          "n_seq": 4
+        },
+        "ctx_minus_plain_lin": {
+          "mean": -0.00038,
+          "se_pos": 0.003046,
+          "se_seq": 0.003746,
+          "n_pos": 2048,
+          "n_seq": 4
+        }
+      }
+    }
+  },
+  "scalar_weight_formula": "w_t = q_t * w2_t (unigram exposure x trace of OV Gram); per-entry weight on dP_ij^2 is q_i * q_j * w2_j * (T + (T^2-T)*q_j), T=512 \u2014 the exact Gram->(tr/hd)*I collapse of the qk_ctx_train.py objective (see module docstring)",
+  "baseline_ce_fw": 3.3762,
+  "n_predictions": 2048,
+  "runtime_s": 42.5
+}
