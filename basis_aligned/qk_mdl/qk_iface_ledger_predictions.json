@@ -1,0 +1,29 @@
+{
+  "experiment": "ledger on the MLP's realised interface (aggregate list #2): symmetric nonnegative CP on the third moment of the block-0 MLP output RESTRICTED to its realised MLP-to-layer-1-reader channels (median effective rank 10, max 62, vs 68 in weight space), instead of the rank-4608 weight tensor",
+  "registered": "2026-08-10 16:05 UTC, before any code was written",
+  "why": "In pure weight space the composed-tensor CP was dense and the corrected transplant null TIED the real fit (0.483 vs 0.485, BILIN18_LAYERS_0_1.md section 5). If CP on the realised interface validates and its components are nameable, 'content is spectral' was partly an artifact of working in the gauge-polluted 4608-dimensional neuron space; if it fails the same way, the spectral conclusion hardens. This is also the main open door on the composed path into layer-1 QK.",
+  "known_numbers_going_in": {
+    "weight_space_null_tie": [0.483, 0.485],
+    "realised_channel_ranks": "median effective rank 10, min 1, max 62 across the 36 read channels; rank-16 oracle adapters recover 78% of the static gap at +0.0113",
+    "solver_history": "only tensor power iteration with deflation passed the planted known-answer test at layer 0; every ALS and gradient variant failed on spiky-sparse cores"
+  },
+  "predictions": [
+    {
+      "id": "M1",
+      "claim": "CP on the realised-interface third moment BEATS the corrected transplant null (real relative error at least 0.15 below null-factors-on-real-core) on a majority of read channels, unlike the weight-space tie.",
+      "confidence": 0.5,
+      "note": "This is the genuine coin flip the experiment exists to call. The interface is 40x smaller than the weight tensor, which removes the gauge-pollution excuse if it still ties."
+    },
+    {
+      "id": "M2",
+      "claim": "Conditional on M1: the components' top-loading tokens are enriched (at least 5x over a unigram-matched baseline) in the token classes already named at the two ledgers' selection sides (boundary, punctuation, function-word, subword-fragment classes).",
+      "confidence": 0.5
+    },
+    {
+      "id": "M3",
+      "claim": "Solver discipline repeats: a planted known-answer control on realised-interface-shaped cores is passed by tensor power iteration with deflation and failed by at least one ALS variant tried alongside it.",
+      "confidence": 0.7
+    }
+  ],
+  "decision_rule": "M1 holds and M2 holds -> content has modular structure in the realised gauge; the selection/content dichotomy weakens and the windowed-moment experiment (#9) drops in priority. M1 holds, M2 fails -> structure exists but is not human-nameable; dichotomy survives in amended form (spectral in weight space, structured-but-alien in the realised gauge). M1 fails -> the spectral conclusion hardens with the gauge excuse removed, and #9 becomes the main path forward. Solver gate (M3-style control) gates everything: no CP verdict counts from a fitter that has not passed planted recovery on matched core shapes."
+}
