@@ -1114,7 +1114,52 @@ about shares — are unscoreable rather than passed or failed. Writing that guar
 in advance is what stops this cell from contributing three meaningless
 percentages to FINDING 21's trend.
 
-## 2026-08-10 02:30 — FINDING 22: **the sign of the foldability tax tracks COPYING AVAILABILITY at five cells, and neither depth nor width predicts it.** The test that could have killed it predicted our own loss, and we lost
+## 🔴 2026-08-10 03:50 — FINDING 22 IS **COLLAPSING TO A PREDICATE-VARIANT RESULT**: a second foldable architecture LOSES at the no-copying cell where the first one won, by a 0.32-nat swing
+
+The bandwidth variant — foldable, but with **no hand-installed named attention
+terms** — at depth 1 width 128, the cell where the predicate arm's win was
+largest:
+
+| architecture at depth 1 width 128 | our handicap | tax |
+|---|---|---|
+| predicate (hand-installed named terms) | 7.3% | **−0.0905** ours wins |
+| **bandwidth (no named terms)** | **7.6%** | **+0.2265** ours loses |
+
+Three cap-on seeds, 4.90383 / 4.90372 / 4.90776, against the conventional
+4.67860. The single cap-off seed so far is 4.87287, which would still leave the
+tax at **+0.1943**. Interim only in the sense that it can move slightly; it
+cannot approach zero.
+
+**This is the outcome I pre-registered as most likely if the win was the prior
+rather than the fold.** From `tf_secondarch_predictions.json`, written before
+the run: *"if bandwidth loses at BOTH cells, FINDING 22 is a predicate-variant
+result and the general claim collapses — which is the outcome I would consider
+most likely if the depth-1 win is really the hand-installed positional prior
+rather than foldability."* R1 is refuted at this cell. R2 holds trivially and
+uninterestingly.
+
+**What this does to FINDING 22.** Its five-cell table is still a correct set of
+measurements, but the thing it measures is now **the predicate variant against
+a conventional transformer**, not *foldable architectures* against one. The
+sentence "at cells where copying is unavailable, a foldable architecture beats
+a conventional transformer" does not survive: swap the foldable architecture
+and the sign flips. What was carrying the win is almost certainly the
+hand-installed positional profile — structure we wrote down — which is the
+caveat I attached to the depth-1 result when it first landed and then let
+recede as the cell count grew.
+
+**What still stands.** The *copying* cells are unaffected in direction: both
+architectures are expected to lose there, and predicate does. The cap result is
+untouched — that is five cells of one architecture and is being extended to
+bandwidth by this same run. And the factorial's mechanism (softmax with an
+uncapped range is the conventional edge, and it only pays where copying is
+possible) is independent of which foldable arm is on the other side.
+
+**Pending**: the copying cell for bandwidth, and bandwidth's cap effect. If
+bandwidth loses at both cells, the collapse is complete and FINDING 22 should
+be retitled as a predicate-variant finding.
+
+## 2026-08-10 02:30 — FINDING 22 as first written (superseded above): the sign tracks copying availability at five cells
 
 | cell | copying? | our handicap | symmetric tax | |
 |---|---|---|---|---|
