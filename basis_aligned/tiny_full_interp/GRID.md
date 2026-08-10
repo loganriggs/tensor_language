@@ -488,3 +488,10 @@ its bits/byte is not a code length for the text at all.
 `bandwidth`, `predicate`, `codebook`, `shrink`, each transcribed from the parent
 program. All six pass the fold identity gate and all five reductions to their
 parent variant are **bit-exact (0.0)**. See MAILBOX.md for the config convention.
+
+## 2026-08-10 19:10 UTC — priority override (Logan)
+Logan: focus on Tier 2 (planted-DGP calibration batch in ../qk_mdl); width-transition
+sweep done, its follow-on fix-round chain (tf_v4096_seeds35_chain.sh) STOPPED deliberately
+after the gate loop, before any training. Do NOT relaunch tiny-model cells while the Tier 2
+batch is pending; resume the fix-round chain by rerunning its script (skip logic) when
+Tier 2 has the results it needs.
