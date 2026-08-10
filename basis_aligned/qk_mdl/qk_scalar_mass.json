@@ -1,0 +1,263 @@
+{
+  "experiment": "scalar-mass collapse retest (aggregate list #1)",
+  "smoke": false,
+  "published": {
+    "baseline_ce_fw": 3.0763,
+    "n1024_k8": {
+      "ctx": 0.0054,
+      "plain_lin": 0.0076,
+      "plain_omp": 0.0059,
+      "Mbits": 455.4
+    },
+    "n256_k4": {
+      "ctx": 0.0073,
+      "plain_lin": 0.0171,
+      "plain_omp": 0.0149,
+      "Mbits": 182.8
+    }
+  },
+  "gates": {
+    "B": {
+      "scalar_loss": 2083686.75,
+      "ctx_iso_diag": 2083686.75,
+      "ctx_iso_block": 2083686.75,
+      "ctx_real_geometry": 1991118.125,
+      "mc_iso_mean_500": 2046183.2455,
+      "rel_err_diag": 0.0,
+      "rel_err_block": 0.0,
+      "rel_err_mc": 0.017998628872598073,
+      "rel_diff_vs_real_geometry": 0.04442540367452066,
+      "pass": true,
+      "note": "exact constructions must match to 1e-5; MC to 5% (clamp bias + sampling); real-geometry loss must DIFFER (else nothing was ablated)"
+    },
+    "A": {
+      "dce_reproduced": 0.00538,
+      "published": 0.0054,
+      "tol": 0.0005,
+      "pass": true,
+      "note": "full 307k audit vs qk_ctx_train.json dce_fw"
+    }
+  },
+  "budgets": {
+    "n1024_k8": {
+      "n": 1024,
+      "k": 8,
+      "Mbits": 455.4,
+      "arms": {
+        "plain_lin": {
+          "fvu": 0.45249,
+          "dce": 0.00758
+        },
+        "plain_omp": {
+          "dce": 0.00592
+        },
+        "ctx": {
+          "dce": 0.00538,
+          "source": "qk_dict_l0_ctx.pt (Gate A audit)"
+        },
+        "scalar": {
+          "dce": 0.00535,
+          "train_losses": [
+            [
+              0.7254,
+              0.3443
+            ],
+            [
+              1.0934,
+              0.4371
+            ],
+            [
+              1.3345,
+              0.3647
+            ],
+            [
+              0.0233,
+              0.0068
+            ],
+            [
+              0.2374,
+              0.0938
+            ],
+            [
+              1.2797,
+              0.3273
+            ],
+            [
+              0.072,
+              0.0465
+            ],
+            [
+              0.2455,
+              0.1082
+            ],
+            [
+              0.0657,
+              0.0466
+            ]
+          ]
+        }
+      },
+      "contrasts": {
+        "scalar_minus_ctx": {
+          "mean": -3.2e-05,
+          "se_pos": 0.000102,
+          "se_seq": 0.000122,
+          "n_pos": 307200,
+          "n_seq": 600
+        },
+        "scalar_minus_plain_lin": {
+          "mean": -0.002233,
+          "se_pos": 0.000257,
+          "se_seq": 0.000293,
+          "n_pos": 307200,
+          "n_seq": 600
+        },
+        "ctx_minus_plain_lin": {
+          "mean": -0.002202,
+          "se_pos": 0.000259,
+          "se_seq": 0.000287,
+          "n_pos": 307200,
+          "n_seq": 600
+        },
+        "scalar_minus_plain_omp": {
+          "mean": -0.000575,
+          "se_pos": 0.000241,
+          "se_seq": 0.000285,
+          "n_pos": 307200,
+          "n_seq": 600
+        }
+      }
+    },
+    "n256_k4": {
+      "n": 256,
+      "k": 4,
+      "Mbits": 182.8,
+      "arms": {
+        "plain_lin": {
+          "fvu": 0.5869,
+          "dce": 0.0171
+        },
+        "plain_omp": {
+          "dce": 0.01493
+        },
+        "ctx": {
+          "dce": 0.00731,
+          "train_losses": [
+            [
+              1.293,
+              0.3654
+            ],
+            [
+              2.3676,
+              0.4595
+            ],
+            [
+              3.363,
+              0.4196
+            ],
+            [
+              0.0569,
+              0.0104
+            ],
+            [
+              0.6611,
+              0.0765
+            ],
+            [
+              3.086,
+              0.2523
+            ],
+            [
+              0.1624,
+              0.0577
+            ],
+            [
+              1.0735,
+              0.0727
+            ],
+            [
+              0.1547,
+              0.065
+            ]
+          ],
+          "source": "refit here (/workspace/tensor_language/basis_aligned/qk_mdl/qk_dict_l0_ctx_n256_k4.pt)"
+        },
+        "scalar": {
+          "dce": 0.0082,
+          "train_losses": [
+            [
+              1.2216,
+              0.442
+            ],
+            [
+              2.2289,
+              0.5014
+            ],
+            [
+              3.1692,
+              0.5427
+            ],
+            [
+              0.0513,
+              0.0144
+            ],
+            [
+              0.5925,
+              0.1292
+            ],
+            [
+              2.349,
+              0.452
+            ],
+            [
+              0.1489,
+              0.0696
+            ],
+            [
+              0.95,
+              0.1609
+            ],
+            [
+              0.1424,
+              0.0611
+            ]
+          ]
+        }
+      },
+      "contrasts": {
+        "scalar_minus_ctx": {
+          "mean": 0.000894,
+          "se_pos": 0.000113,
+          "se_seq": 0.000168,
+          "n_pos": 307200,
+          "n_seq": 600
+        },
+        "scalar_minus_plain_lin": {
+          "mean": -0.008895,
+          "se_pos": 0.000361,
+          "se_seq": 0.000437,
+          "n_pos": 307200,
+          "n_seq": 600
+        },
+        "ctx_minus_plain_lin": {
+          "mean": -0.009788,
+          "se_pos": 0.000356,
+          "se_seq": 0.000411,
+          "n_pos": 307200,
+          "n_seq": 600
+        },
+        "scalar_minus_plain_omp": {
+          "mean": -0.006725,
+          "se_pos": 0.000346,
+          "se_seq": 0.000421,
+          "n_pos": 307200,
+          "n_seq": 600
+        }
+      }
+    }
+  },
+  "scalar_weight_formula": "w_t = q_t * w2_t (unigram exposure x trace of OV Gram); per-entry weight on dP_ij^2 is q_i * q_j * w2_j * (T + (T^2-T)*q_j), T=512 \u2014 the exact Gram->(tr/hd)*I collapse of the qk_ctx_train.py objective (see module docstring)",
+  "baseline_ce_fw": 3.0763,
+  "n_predictions": 307200,
+  "runtime_s": 423.9
+}
