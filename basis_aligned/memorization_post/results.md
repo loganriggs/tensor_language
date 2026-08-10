@@ -255,3 +255,20 @@ inputs carry a larger margin than the least-confident stored fact (mostly key ne
 unions); the minimum-C-norm interpolant is an order of magnitude better behaved (1.4%).
 The claim the post can make is exactly the bound and no more — pointwise "no confident
 class off the fact set" is false.
+
+### Part 2 addendum: the D-to-minus-I sweep (Logan's feedback on F9 panel iii)
+
+Registered in predictions/part2_Dsweep_prediction.md before running; numbers in part2_dsweep.json; figure F9b.
+Logan reports D -> -I locally under a sparsity constraint, as one of many solutions. The sweep (L1 in
+{1e-3..1e-1}, H=40, 5 seeds, 100% memorization everywhere) resolves the apparent conflict in three parts:
+1. F9's "dominance 0.39-0.49" averaged over ALL 40 columns including near-dead ones. Restricted to LIVE
+   units (column norm > 1e-3 of max), dominance is already 0.78-0.88 at our original L1=1e-3 and rises to
+   0.87-0.95 at L1=1e-1, while live units collapse to 10-12 (~= C=10, one unit per class). The signed
+   one-hot column structure Logan saw IS there and strengthens with sparsity.
+2. The SIGN is gauge in our parameterization: flipping L_h's sign flips the product's sign, and the L1
+   penalty is invariant under (L_h, D[:,h]) -> (-L_h, -D[:,h]); measured negative-dominant fractions sit at
+   0.25-0.75 (mean ~0.5) at every L1, exactly as a sign gauge predicts. "-I vs +I" is unidentified here;
+   the invariant statement is |D| -> scaled class-permutation. A convention that fixes signs (e.g., D
+   initialized at -I, or nonnegativity on L/R) would make -I the selected representative.
+3. Prediction scoring: dominance-rises-with-L1 held; negative-fraction -> 1 FAILED (explained by the gauge);
+   memorization never broke, even at L1=1e-1 (predicted it might).
