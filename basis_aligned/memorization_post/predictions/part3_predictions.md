@@ -33,3 +33,33 @@ P4. Ablation asymmetry: zeroing block 2 kills more facts than zeroing block 1 (b
     < survivors(no block 1). Confidence 0.55.
 
 Honest-outcome clause per handoff: "verified: it is/isn't cross-layer" both acceptable.
+
+## Addendum (registered before the capacity curve and 2-layer edit measurements)
+
+P9 (capacity curve, F13b): training on a fixed pool of 4000 facts, the 1-block curve of
+facts-fit vs width is FLAT beyond H=40 (variation < 10% from H=40 to H=300, all near the
+~650 seen at N=1200 overload), because H=210 already spans all quadratics; the 2-block
+curve rises with width through H=210, exceeding 3000 facts. Confidence 0.5.
+
+2-layer edits at N*=1200, H*=40 (all closed-form; logits are LINEAR in the last block's
+output map D2 via G = W D2, logits = W x1 + G h2, so the Part-2 KKT machinery transfers
+with the last-layer hidden representations h2(z) in R^40 as the stored-key frame):
+
+P5 (removal): the retain-aware joint KKT edit (C^-1-weighted, C = sum h2 h2^T over the
+   1200) unlearning 10 random facts achieves EXACT forgetting by construction, but flips
+   >= 5% of the 1190 retained facts — 1200 facts crowd a 40-dim frame (vs Part 2's
+   2/450 flips with 100 facts in the same-size frame). Confidence 0.6.
+
+P6 (frame comparison): the same edit done in the readout frame (Delta W, keys x2 in R^20)
+   produces >= 2x the retained flips of the h2-frame edit. Confidence 0.7.
+
+P7 (injection): 10 NEW facts injected by the same least-norm machinery land exactly
+   (10/10 correct after edit, by construction) with retained-fact collateral of the same
+   order as removal. Confidence 0.55.
+
+P8 (pull-out): informed h2-frame attribution (dictionary = C^-1-weighted h2 keys, the
+   2-layer analog of F10's informed extraction) recovers < 10% of the 1200 facts —
+   far below Part 2's 44-51%, because the frame is 30x overloaded. Confidence 0.65.
+   (Class-level pull-out — keep one row of W plus both blocks — is exact by construction
+   and will be reported as such; there is no generalizable behavior to pull out of random
+   facts: that question belongs to Part 4's structured variant.)
