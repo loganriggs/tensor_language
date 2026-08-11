@@ -21,3 +21,14 @@ P16 (overload arm, one layer, 350 facts, H=40, seed 0, trained without the L1 pe
     rounds — demonstrating that the ladder is about FRAME LOAD, not depth: one layer
     behaves exactly like the 2-layer model once its frame is overloaded. Confidence 0.5
     (the alternation half is the uncertain part; infeasibility half ~0.7).
+
+## Addendum (registered before the escalation measurement)
+
+P16 outcome: first half FAILED — at 350 facts the D-frame LP is still feasible (0 flips,
+one round). Escalation: N in {600, 900} (one layer, H=40, l1=0, seed 0), stopping where
+memorization drops below 100%.
+
+P16b: the one-layer model remains ONE-ROUND editable (D-frame margin LP feasible, zero
+collateral) at every N it can still memorize 100% — the editing wall coincides with the
+capacity wall, so the multi-frame ladder NEVER appears in a single layer; it is specific
+to composed (cross-layer) storage. Confidence 0.5.
