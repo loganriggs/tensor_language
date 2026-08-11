@@ -1235,30 +1235,35 @@ def stage_f11d():
         print(f"  seed {s}: violation {viol:.2e} "
               f"({'FEASIBLE' if viol < 1e-6 else 'infeasible'}), retained flips "
               f"{flips}/90, forget dev {fdev:.1e}")
-    print("-- P16: overload arm, one layer, 350 facts, H=40, seed 0, l1=0 --")
-    rng = np.random.default_rng(MASTER_SEED + 1)
-    seen, Zo = set(), []
-    while len(Zo) < 350:
-        z = tuple(int(v) for v in rng.integers(0, 2, N_BITS))
-        if sum(z) > 0 and z not in seen:
-            seen.add(z); Zo.append(z)
-    Zo = np.array(Zo, dtype=np.float64)
-    yo = rng.integers(0, N_CLASSES, 350)
-    (Lo, Ro, Do), _, acc, _ = sgd_train(Zo, yo, 40, seed=0, steps=20000, l1=0.0)
-    print(f"  trained: acc {acc:.1%}")
-    assert acc == 1.0, "overload arm did not memorize; adjust before measuring"
-    rmo = np.random.default_rng(7).choice(350, 10, replace=False)
-    keepo = np.setdiff1d(np.arange(350), rmo)
-    W = (Lo, Ro, Do)
-    for rnd, frame in enumerate(["D", "R", "L", "D", "R", "L", "D"]):
-        W, viol, _ = lp_frame_edit(*W, Zo, yo, rmo, keepo, frame)
-        flips, fdev = frame_eval(*W, Zo, yo, rmo, keepo)
-        res["overload"].append({"round": rnd, "frame": frame, "violation": viol,
-                                "flips": flips, "forget_dev": fdev})
-        print(f"  round {rnd} [{frame}]: violation {viol:9.2f}, retained flips "
-              f"{flips}/340, forget dev {fdev:.1e}")
-        if viol < 1e-6 and flips == 0:
-            break
+    print("-- P16/P16b: overload arms, one layer, H=40, seed 0, l1=0 --")
+    for N_over in (350, 600, 900):
+        rng = np.random.default_rng(MASTER_SEED + 1)
+        seen, Zo = set(), []
+        while len(Zo) < N_over:
+            z = tuple(int(v) for v in rng.integers(0, 2, N_BITS))
+            if sum(z) > 0 and z not in seen:
+                seen.add(z); Zo.append(z)
+        Zo = np.array(Zo, dtype=np.float64)
+        yo = rng.integers(0, N_CLASSES, N_over)
+        (Lo, Ro, Do), _, acc, _ = sgd_train(Zo, yo, 40, seed=0, steps=20000, l1=0.0)
+        print(f"  N={N_over}: trained acc {acc:.1%}")
+        if acc < 1.0:
+            res["overload"].append({"N": N_over, "acc": acc,
+                                    "note": "memorization failed; no edit test"})
+            continue
+        rmo = np.random.default_rng(7).choice(N_over, 10, replace=False)
+        keepo = np.setdiff1d(np.arange(N_over), rmo)
+        W = (Lo, Ro, Do)
+        for rnd, frame in enumerate(["D", "R", "L", "D", "R", "L", "D"]):
+            W, viol, _ = lp_frame_edit(*W, Zo, yo, rmo, keepo, frame)
+            flips, fdev = frame_eval(*W, Zo, yo, rmo, keepo)
+            res["overload"].append({"N": N_over, "round": rnd, "frame": frame,
+                                    "violation": viol, "flips": flips,
+                                    "forget_dev": fdev})
+            print(f"    round {rnd} [{frame}]: violation {viol:9.2f}, retained flips "
+                  f"{flips}/{len(keepo)}, forget dev {fdev:.1e}")
+            if viol < 1e-6 and flips == 0:
+                break
     metrics_update("f11d", res)
 
     # F11d figure
@@ -1280,17 +1285,26 @@ def stage_f11d():
                  "(naive also FAILS to forget; LP: exact-uniform, zero collateral, all 5 seeds)",
                  fontsize=9.5)
     ax = fig.add_subplot(gs[0, 1])
-    xs = [h["round"] for h in res["overload"]]
-    fl = [h["flips"] for h in res["overload"]]
-    ax.plot(xs, fl, "o-", color=BLUE, lw=2, ms=7)
-    for h in res["overload"]:
-        ax.annotate(h["frame"], (h["round"], h["flips"]),
-                    textcoords="offset points", xytext=(8, 6), fontsize=9, color=MUTED)
-    ax.axhline(0, color=MUTED, lw=1)
-    ax.set_xlabel("round (frame edited)")
-    ax.set_ylabel("retained facts broken (of 340)")
-    ax.set_title("(ii) ONE layer, overloaded (350 facts, H=40):\n"
-                 "same ladder as the 2-layer model — frame load, not depth", fontsize=9.5)
+    Ns, first_round_flips, rounds_used = [], [], []
+    for N_over in (350, 600, 900):
+        rounds = [h for h in res["overload"] if h.get("N") == N_over and "round" in h]
+        if not rounds:
+            continue
+        Ns.append(N_over)
+        first_round_flips.append(rounds[0]["flips"])
+        rounds_used.append(len(rounds))
+    xs = np.arange(len(Ns))
+    ax.bar(xs, first_round_flips, 0.5, color=BLUE)
+    for i, (f, ru) in enumerate(zip(first_round_flips, rounds_used)):
+        ax.annotate(f"{f} flips\n({ru} round{'s' if ru > 1 else ''})",
+                    (i, max(f, 0.4)), ha="center", va="bottom", fontsize=9)
+    ax.set_xticks(xs)
+    ax.set_xticklabels([f"N={n}\n(load {n/40:.1f}x)" for n in Ns], fontsize=8.5)
+    ax.set_ylim(0, max(max(first_round_flips), 5) * 1.3)
+    ax.set_ylabel("retained facts broken after D-frame LP")
+    ax.set_title("(ii) ONE layer pushed toward capacity (H=40, seed 0):\n"
+                 "is the single-frame LP ever insufficient before memorization fails?",
+                 fontsize=9.5)
     fig.suptitle("F11d — the margin-LP / multi-frame editor in the one-layer setting", y=1.04)
     savefig(fig, "F11d")
 
