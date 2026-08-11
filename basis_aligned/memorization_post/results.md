@@ -432,3 +432,42 @@ Verdict: composed (cross-layer) storage is UNEDITABLE layer-locally — provably
 FULLY editable cross-layer with pure closed-form steps. The storage knowledge that
 matters is which parameter blocks the function is linear in (D2, W, R2, L2 each are,
 with the others fixed); alternation through those frames is the editing algorithm.
+
+## Part 2 addendum (2026-08-11): the margin-LP / multi-frame editor in one layer — F11d
+
+Registered P15/P16/P16b/P16c in predictions/part2_f11d_prediction.md (three commits, each
+before its measurement). One deviation, stated: the overload arms train without the L1
+penalty (l1=0, 20k steps) so that memorization is exact at large N.
+
+One layer has the same three exact linear frames as the 2-layer last block (D, R, L) plus
+one the 2-layer model cannot afford: the FOLDED TENSOR itself (Delta-B, C x 210 = 2100
+dof — every quadratic logit function). Results, same 10-fact removals as F11:
+
+- P15 CONFIRMED (working point, 100 facts, all 5 seeds): the D-frame margin LP alone is
+  feasible — exact-uniform forgetting (dev ~1e-12; seed 4 3e-4, LP tolerance), 0/90
+  retained flips, one round. Upgrades F11's KKT result (2/450 flips, 0.44%) to exactly
+  zero; naive rank-1 subtraction remains the disaster baseline (55% flips + fails to
+  forget).
+- P16 half-failed as registered: at 350 facts (load 8.8x) the D-frame LP is STILL
+  feasible (0 flips, one round) — no ladder needed yet.
+- Escalation (P16b REFUTED): at 600 facts (15x) the D-frame goes infeasible (255 flips at
+  its optimum) but ONE more weight-frame round (D -> R) reaches 0 — the ladder appears in
+  one layer. At 900 facts (22.5x, still 100% memorized; capacity ~1024) the weight-frame
+  alternation STALLS: 572 -> 403 flips over 7 rounds, violation plateauing ~733. Near
+  capacity, a single layer is NOT weight-frame editable — unlike the 2-layer model at
+  30x load, whose last-block frames sit on a composed representation rich enough for
+  alternation to converge (F13d).
+- P16c CONFIRMED: the tensor-frame margin LP is feasible at 350, 600, AND 900 — one
+  round, zero collateral, exact-uniform forgetting (dev <= 3e-9), verified by evaluating
+  the edited folded tensor. The alternation stall is a parameterization artifact of
+  coordinate descent in L/R/D, not a function-class limit. (Note: realizing the edited
+  tensor as an explicit bilinear layer may need H up to d per class — folding is the
+  free maximal frame for ONE layer only.)
+
+Story for the post: editability = which LINEAR frame you can afford. A single bilinear
+layer gets its maximal frame for free by folding (210 x C coefficients), and in it
+removal is one convex solve at any memorizable load. A composed 2-layer model's maximal
+frame is the degree-4 polynomial space (~d^4 — unaffordable); it must edit in weight
+frames, where alternation converges BECAUSE composition makes those frames rich. The
+weight-frame ladder is the fallback that happens to work; folding is the primitive that
+makes one layer trivially editable.

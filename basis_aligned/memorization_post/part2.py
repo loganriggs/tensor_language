@@ -1260,7 +1260,7 @@ def lp_tensor_edit(B, Z, y, rm, keep, eps=0.5):
     for c in range(C):
         M = np.zeros((d, d))
         M[iu] = x[c]
-        dB[c] = (M + M.T) / 2.0
+        dB[c] = M + M.T - np.diag(np.diag(M))   # dB_ij = x_ij (phi carries the 2)
     B2 = B + dB
     lo = np.einsum("ni,cij,nj->nc", Z, B2, Z, optimize=True)
     fdev = float(np.abs(lo[rm] - lo[rm].mean(1, keepdims=True)).max())

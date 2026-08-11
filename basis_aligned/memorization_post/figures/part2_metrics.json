@@ -526,5 +526,137 @@
       "residual_opnorm": 15.838414482696567,
       "bound_tightness_max_over_bound": 0.0294018123152241
     }
+  },
+  "f11d": {
+    "working_point": {
+      "0": {
+        "violation": 0.0,
+        "flips": 0,
+        "forget_dev": 1.4336865028496959e-12
+      },
+      "1": {
+        "violation": 0.0,
+        "flips": 0,
+        "forget_dev": 9.674483436583614e-13
+      },
+      "2": {
+        "violation": 0.0,
+        "flips": 0,
+        "forget_dev": 6.0254023992456496e-12
+      },
+      "3": {
+        "violation": 0.0,
+        "flips": 0,
+        "forget_dev": 1.3886669592011458e-12
+      },
+      "4": {
+        "violation": 0.0,
+        "flips": 0,
+        "forget_dev": 0.0003077248925063003
+      }
+    },
+    "overload": [
+      {
+        "N": 350,
+        "frame": "tensor",
+        "violation": 0.0,
+        "flips": 0,
+        "forget_dev": 1.9895196601282805e-11
+      },
+      {
+        "N": 350,
+        "round": 0,
+        "frame": "D",
+        "violation": 0.0,
+        "flips": 0,
+        "forget_dev": 2.3874235921539366e-12
+      },
+      {
+        "N": 600,
+        "frame": "tensor",
+        "violation": 0.0,
+        "flips": 0,
+        "forget_dev": 2.650835995154921e-09
+      },
+      {
+        "N": 600,
+        "round": 0,
+        "frame": "D",
+        "violation": 520.7055260733766,
+        "flips": 255,
+        "forget_dev": 5.218225851422176e-11
+      },
+      {
+        "N": 600,
+        "round": 1,
+        "frame": "R",
+        "violation": 0.0,
+        "flips": 0,
+        "forget_dev": 1.4551915228366852e-11
+      },
+      {
+        "N": 900,
+        "frame": "tensor",
+        "violation": 0.0,
+        "flips": 0,
+        "forget_dev": 3.044362983928295e-09
+      },
+      {
+        "N": 900,
+        "round": 0,
+        "frame": "D",
+        "violation": 1454.6673727587304,
+        "flips": 572,
+        "forget_dev": 5.644551492878236e-11
+      },
+      {
+        "N": 900,
+        "round": 1,
+        "frame": "R",
+        "violation": 1043.202049230551,
+        "flips": 517,
+        "forget_dev": 6.252776074688882e-13
+      },
+      {
+        "N": 900,
+        "round": 2,
+        "frame": "L",
+        "violation": 867.2282480166131,
+        "flips": 450,
+        "forget_dev": 7.247535904753022e-13
+      },
+      {
+        "N": 900,
+        "round": 3,
+        "frame": "D",
+        "violation": 852.4174693207641,
+        "flips": 442,
+        "forget_dev": 2.8421709430404007e-13
+      },
+      {
+        "N": 900,
+        "round": 4,
+        "frame": "R",
+        "violation": 771.0200548239385,
+        "flips": 416,
+        "forget_dev": 4.547473508864641e-13
+      },
+      {
+        "N": 900,
+        "round": 5,
+        "frame": "L",
+        "violation": 737.0142896689274,
+        "flips": 414,
+        "forget_dev": 5.684341886080801e-13
+      },
+      {
+        "N": 900,
+        "round": 6,
+        "frame": "D",
+        "violation": 732.9439650818551,
+        "flips": 403,
+        "forget_dev": 5.684341886080801e-13
+      }
+    ]
   }
 }

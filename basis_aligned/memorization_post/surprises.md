@@ -130,3 +130,14 @@
    (Also: the LS-refit baseline quietly fails at FORGETTING, not retention — uniform-
    target regression against 100:1 weighting still leaves removed facts 35-57 logits
    from uniform. Removal needs constraints, not squared-error pressure.)
+
+## Part 2 addendum surprises (F11d)
+
+6. The one-layer/two-layer editability comparison INVERTS with the frame. In weight
+   frames, one layer near capacity (900 facts, 22.5x load) is UNEDITABLE — alternation
+   stalls at ~403 broken facts — while the 2-layer model at 30x load converges to zero
+   (F13d): composition makes the last block's weight frames richer, not poorer. But one
+   layer owns a frame composition destroys: the folded tensor (2100 dof), in which
+   removal is a single feasible LP with zero collateral at every memorizable load tested
+   (350/600/900). Editability is a property of the affordable linear frame, not of the
+   model's depth or load alone.
