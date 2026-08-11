@@ -107,3 +107,39 @@ exactly linear with the others held fixed, removal equalities re-imposed every r
 drive retained flips below 10% of 1190 within 6 rounds (seed 0). Confidence 0.4
 (may plateau around 15-20% — each frame is only 400-800 dof against ~550 required
 repairs; the composed storage may not be reachable by single-frame moves at all).
+
+## Addendum 4 (registered before the masking-diagnosis battery — response to the other
+## session's critique of the LP editor as "certified masking")
+
+Their critique, accepted as the test: the LP certificate covers logits on constrained
+inputs only; block 1 is not even an exact frame (logits are QUADRATIC in block-1 weights
+— x1 enters the last block twice via (L2 x1)*(R2 x1); conceded), so nothing the
+alternation does touches early computation, and the edit may be shallow (resurrectable,
+fast to relearn). Their registered-style prediction is adopted as P17. One toy-specific
+nuance to be measured rather than assumed: in THIS capacity-stressed toy, block-1-alone
+readout was already ~chance BEFORE editing (composed storage; F13), so the LM failure
+mode "lens finds the answer mid-stack" has no direct analog here — the masking question
+must be settled by relearn speed and perturbation recovery instead.
+
+Battery (seed 0, N=1200, H*=40; LP-alternation edit regenerated deterministically and
+saved; oracle = retrained from scratch on the 1190 retained):
+
+P17 (relearn speed, THEIR prediction): fine-tuning the LP-edited model on all 1200 facts
+    (the 10 removed restored to their original labels) reaches 10/10 on the removed
+    facts in >= 3x fewer optimizer steps than the oracle model learning the same 10 as
+    genuinely new facts (same protocol, 3 finetune seeds each). Confidence 0.6.
+
+P18 (perturbation resurrection): adding Gaussian weight noise to the LP-edited model, at
+    the largest noise level where <= 5% of retained facts break, at least 20 percentage
+    points more of the 10 removed facts revert to their ORIGINAL labels than in the
+    noise-matched oracle control (where reversion to the never-stored label is ~chance).
+    Confidence 0.5.
+
+P19 (edit cost, their unmeasured-norm point): the alternation's total weight change
+    (sum of per-round ||Delta||_F over D2/R2/L2, relative) is >= 5x the single
+    C-weighted KKT edit's ||Delta G||_F — echoing their 10-20x retension-cost
+    observation. Confidence 0.6.
+
+P20 (lens, analytic — no uncertainty claimed): W and block 1 are untouched by the
+    alternation, so the block-1-only readout W(z + B1(z)) is IDENTICAL pre/post edit;
+    reported with counts of removed facts decodable from it (expected ~chance, per F13).
