@@ -48,7 +48,7 @@ Every registered prediction cited below was committed to git <em>before</em> its
 <a href="#s7">7. All-inputs audit</a> ·
 <a href="#s8">8. Injection &amp; causal component tests</a> ·
 <a href="#s9">9. Summary table</a> ·
-<a href="#s10">10. Loose ends</a>
+<a href="#s10">10. Loose ends</a> · <a href="#s11">11. Critique response</a>
 </p>
 
 <h2 id="defs">0. Definitions (everything used below)</h2>
@@ -307,6 +307,17 @@ retension costs 10&ndash;20&times; the delete-only change; the LP edits' cost is
 confirmation vs the stored-key Gram.</li>
 </ul>
 
+
+<h2 id="s11"><span class="tag">11</span> Response to the sister session’s critique (added 2026-08-11)</h2>
+<p>The session working in the prior repo reviewed this document and made three claims: (a) block 1 is not an exact frame at all (logits are <em>quadratic</em> in block-1 weights, since x₁ enters the last block twice) — <b>conceded, correct, and a sharpening of section 2</b>: exact frames require reaching the logits without self-multiplication, so frames are output-concentrated even in fully multilinear networks; (b) the retain set must be enumerable for margin rows to exist, and open-text fluency (their KL-to-base anchor) has no LP analog — <b>conceded</b>; (c) the LP editor is "certified masking": exact on constrained logits, shallow underneath, resurrectable and fast to relearn. Claim (c) was tested here with their proposed battery (registered P17–P21):</p>
+<ul>
+<li><b>Relearn speed (their registered prediction): refuted.</b> The LP-edited model relearns the 10 removed facts in 25 steps; a from-scratch oracle (retrained on the 1190) learns them fresh in 20 — no masking signature, though the test has weak power in a toy where everything relearns in dozens of steps.</li>
+<li><b>Perturbation resurrection: none</b> — removed-fact reversion under weight noise is at chance (8–14% vs 10%) at every noise level. <b>But the fragility finding supersedes it:</b> the LP-edited model is ~50–100× more noise-fragile than the oracle (12.2% of retained facts break at σ = 0.002 where the oracle breaks 0.0%). Diagnosis: LP vertex solutions bind the retention constraints, collapsing retained margins from median ~24 to the ε = 0.5 floor. <b>The certificate is exact on the nose and brittle everywhere around it.</b></li>
+<li><b>Edit cost: their concern confirmed exactly</b> — the alternation’s total weight change is 10.0× the single KKT edit’s, matching their 10–20× retension-cost observation.</li>
+<li><b>Lens analog:</b> W and block 1 are untouched, so the block-1 readout is identical pre/post (verified); 2/10 removed facts decodable from block 1 alone (~chance) — in this composed-storage toy there was never a mid-stack decodable answer to find, so the LM lens failure mode has no direct analog.</li>
+<li><b>Margin-floor fix (ε = 10): half-works.</b> Alternation still converges to zero collateral (5 rounds, min retained margin exactly 10.00) at 2× the weight cost, and small-noise fragility improves ~6× — but margins remain vertex-pinned and the oracle stays far more robust. A phase-2 max-min-margin program (or norm-regularized QP) is the natural completion.</li>
+</ul>
+<p><b>Net:</b> the critique’s resurrection/relearn predictions did not hold in this toy, but its cost concern was right and cashes out as <em>margin collapse</em>. This supports their proposed synthesis: margin-LP for certified stage-1 deletion where frames exist; gradient repair with distribution anchoring for robustness, depth, and non-enumerable retain sets. Full numbers in <code>results.md</code>; predictions P17–P21 in <code>predictions/part3_predictions.md</code>.</p>
 <p class="sub">Sources: this session — <code>results.md</code>, <code>surprises.md</code>,
 <code>predictions/</code>, figures F1&ndash;F13d in <code>figures/</code>, the figure report artifact.
 Prior repo — <code>README.md</code>, <code>reports/results.md</code>, <code>reports/p2_transfer_report.md</code>,
