@@ -873,10 +873,189 @@ def edits3_figure(hist):
     save_fig(fig, "F13d_alternating_frames")
 
 
+# ============================================================================= edits4
+def alternate_lp(ps, Z, y, rm, keep, frames, eps=0.5):
+    """Re-run the exact alternating-frame hinge LPs (stage edits3 logic, refactored so
+    the edited model and per-round deltas can be captured). Returns (ps, history)."""
+    import scipy.sparse as sp
+    from scipy.optimize import linprog
+    N = len(y); C = N_CLASSES; H = ps["L1"].shape[0]; d = Z.shape[1]
+    x1 = Z + block_out(ps, Z, 0)
+    rows = len(keep) * (C - 1)
+    hist = []
+    for rnd, frame in enumerate(frames):
+        logits = np_fwd(ps, Z, 2)
+        G2 = ps["W"] @ ps["D1"]
+        if frame == "G":
+            h2 = (x1 @ ps["L1"].T) * (x1 @ ps["R1"].T)
+            nv = C * H
+            def rowfn(k, cp, cn):
+                v = np.zeros((C, H)); v[cp] = h2[k]; v[cn] -= h2[k]
+                return v.ravel()
+        else:
+            fac = x1 @ (ps["L1"].T if frame == "R2" else ps["R1"].T)
+            nv = H * d
+            def rowfn(k, cp, cn):
+                return ((G2[cp] - G2[cn])[:, None]
+                        * (fac[k][:, None] * x1[k][None, :])).ravel()
+        A_ret = np.empty((rows, nv)); b_ub = np.empty(rows)
+        r = 0
+        for k in keep:
+            for c in range(C):
+                if c == y[k]:
+                    continue
+                A_ret[r] = -rowfn(k, y[k], c)
+                b_ub[r] = (logits[k, y[k]] - logits[k, c]) - eps
+                r += 1
+        A_eqd = np.empty((10 * (C - 1), nv)); b_eq = np.empty(10 * (C - 1))
+        r = 0
+        for k in rm:
+            for c in range(C - 1):
+                A_eqd[r] = rowfn(k, c, c + 1)
+                b_eq[r] = -(logits[k, c] - logits[k, c + 1])
+                r += 1
+        A_ub = sp.hstack([sp.csr_matrix(A_ret), -sp.eye(rows)], format="csr")
+        A_eq = sp.hstack([sp.csr_matrix(A_eqd), sp.csr_matrix((r, rows))], format="csr")
+        lp = linprog(np.concatenate([np.zeros(nv), np.ones(rows)]),
+                     A_ub=A_ub, b_ub=b_ub, A_eq=A_eq, b_eq=b_eq,
+                     bounds=[(None, None)] * nv + [(0, None)] * rows, method="highs")
+        assert lp.status == 0, lp.message
+        dx = lp.x[:nv]
+        ps = dict(ps)
+        if frame == "G":
+            dmat = np.linalg.pinv(ps["W"]) @ dx.reshape(C, H)
+            ps["D1"] = ps["D1"] + dmat
+            base = np.linalg.norm(ps["D1"])
+        elif frame == "R2":
+            dmat = dx.reshape(H, d); ps["R1"] = ps["R1"] + dmat
+            base = np.linalg.norm(ps["R1"])
+        else:
+            dmat = dx.reshape(H, d); ps["L1"] = ps["L1"] + dmat
+            base = np.linalg.norm(ps["L1"])
+        logits_a = np_fwd(ps, Z, 2)
+        flips = int((logits_a[keep].argmax(1) != y[keep]).sum())
+        hist.append({"round": rnd, "frame": frame, "violation": float(lp.x[nv:].sum()),
+                     "flips": flips, "dnorm": float(np.linalg.norm(dmat)),
+                     "relnorm": float(np.linalg.norm(dmat) / base)})
+        if lp.x[nv:].sum() < 1e-6 and flips == 0:
+            break
+    return ps, hist
+
+
+def finetune(ps, Z, y, steps_max, lr=1e-2, ft_seed=0, check_idx=None):
+    """Full-batch AdamW fine-tune; returns steps until check_idx facts are all correct
+    (and final retained accuracy), or (steps_max, ...) if never."""
+    ps_t = {k: torch.tensor(v, device=DEV).requires_grad_(True) for k, v in ps.items()}
+    torch.manual_seed(10_000 + ft_seed)
+    Zt = torch.tensor(Z, device=DEV); yt = torch.tensor(y, device=DEV)
+    opt = torch.optim.AdamW(list(ps_t.values()), lr=lr, weight_decay=0.0)
+    hit = None
+    for step in range(1, steps_max + 1):
+        logits = fwd(ps_t, Zt, 2)
+        loss = torch.nn.functional.cross_entropy(logits, yt)
+        opt.zero_grad(); loss.backward(); opt.step()
+        if step % 5 == 0 or step == steps_max:
+            with torch.no_grad():
+                pred = fwd(ps_t, Zt, 2).argmax(1)
+            if hit is None and bool((pred[check_idx] == yt[check_idx]).all()):
+                hit = step
+                break
+    with torch.no_grad():
+        acc = float((fwd(ps_t, Zt, 2).argmax(1) == yt).float().mean())
+    return (hit if hit is not None else steps_max), acc
+
+
+def stage_edits4():
+    """Masking-diagnosis battery on the LP-edited model (registered P17-P20)."""
+    require_committed(os.path.join(PRED, "part3_predictions.md"), "part3")
+    print("=" * 70)
+    print("STAGE edits4: relearn speed / perturbation resurrection / lens / edit cost")
+    print("=" * 70)
+    ps0 = dict(np.load(os.path.join(MODELS, f"p3_two_N{N_FACTS}_H40_s0.npz")))
+    Z, y = make_facts()
+    rng = np.random.default_rng(7)
+    rm = rng.choice(len(y), 10, replace=False)
+    keep = np.setdiff1d(np.arange(len(y)), rm)
+    res = {}
+
+    # LP-alternation edit (regenerate + save) with per-round norms (P19)
+    ps_lp, hist = alternate_lp(ps0, Z, y, rm, keep,
+                               ["G", "R2", "L2", "G", "R2", "L2", "G"])
+    np.savez(os.path.join(MODELS, "p3_two_N1200_H40_s0_LPedited.npz"), **ps_lp)
+    final = hist[-1]
+    print(f"  alternation regenerated: {len(hist)} rounds, final flips {final['flips']}, "
+          f"violation {final['violation']:.2e}")
+    assert final["flips"] == 0 and final["violation"] < 1e-6
+    # KKT single-edit norm for comparison (edits2 A-method dG)
+    x1 = Z + block_out(ps0, Z, 0)
+    h2 = (x1 @ ps0["L1"].T) * (x1 @ ps0["R1"].T)
+    G = ps0["W"] @ ps0["D1"]
+    logits0 = np_fwd(ps0, Z, 2)
+    H = h2.shape[1]
+    ridge = 1e-8 * np.trace(h2.T @ h2) / H
+    Cih = np.linalg.inv(h2.T @ h2 + ridge * np.eye(H))
+    T_rm = logits0[rm].mean(1, keepdims=True) - logits0[rm]
+    dG_kkt = joint_kkt(h2[rm], Cih, T_rm)
+    kkt_norm = float(np.linalg.norm(np.linalg.pinv(ps0["W"]) @ dG_kkt))
+    alt_total = float(sum(h["dnorm"] for h in hist))
+    res["cost"] = {"per_round": hist, "alternation_total_dnorm": alt_total,
+                   "kkt_dnorm": kkt_norm, "ratio": alt_total / kkt_norm}
+    print(f"  P19 cost: alternation total ||d|| {alt_total:.2f} vs KKT ||d|| {kkt_norm:.2f} "
+          f"-> ratio {alt_total/kkt_norm:.1f}x")
+
+    # P20 lens: block-1-only readout is IDENTICAL pre/post (W, block 1 untouched)
+    l1_pre = np_fwd(ps0, Z, 2, use=[1, 0]).argmax(1)
+    l1_post = np_fwd(ps_lp, Z, 2, use=[1, 0]).argmax(1)
+    assert (l1_pre == l1_post).all()
+    res["lens"] = {"identical": True,
+                   "removed_decodable_from_block1": int((l1_pre[rm] == y[rm]).sum())}
+    print(f"  P20 lens: block-1 readout identical pre/post (verified); removed facts "
+          f"decodable from block 1 alone: {res['lens']['removed_decodable_from_block1']}/10")
+
+    # oracle: retrain from scratch on the 1190
+    ps_or, acc_or, _ = train(40, 2, 0, Z[keep], y[keep], steps=25000)
+    print(f"  oracle retrained on 1190: acc {acc_or:.1%}")
+
+    # P18 perturbation resurrection
+    noise_rng = np.random.default_rng(1234)
+    sigmas = [0.002, 0.005, 0.01, 0.02, 0.05]
+    res["perturb"] = []
+    for sig in sigmas:
+        row = {"sigma": sig}
+        for tag, psx in (("lp", ps_lp), ("oracle", ps_or)):
+            rev, brk = [], []
+            for t in range(20):
+                psn = {k: v + noise_rng.normal(0, sig * np.std(v), v.shape)
+                       for k, v in psx.items()}
+                pred = np_fwd(psn, Z, 2).argmax(1)
+                rev.append((pred[rm] == y[rm]).mean())
+                brk.append((pred[keep] != y[keep]).mean())
+            row[tag + "_revert"] = float(np.mean(rev))
+            row[tag + "_retained_broken"] = float(np.mean(brk))
+        res["perturb"].append(row)
+        print(f"  P18 sigma {sig}: LP revert {row['lp_revert']:.2f} "
+              f"(retained broken {row['lp_retained_broken']:.2%}); "
+              f"oracle revert {row['oracle_revert']:.2f} "
+              f"(broken {row['oracle_retained_broken']:.2%})")
+
+    # P17 relearn speed (3 finetune seeds each)
+    res["relearn"] = {"lp": [], "oracle": []}
+    for fs in range(3):
+        s_lp, a_lp = finetune(ps_lp, Z, y, 3000, ft_seed=fs, check_idx=rm)
+        s_or, a_or = finetune(ps_or, Z, y, 3000, ft_seed=fs, check_idx=rm)
+        res["relearn"]["lp"].append({"steps": s_lp, "final_acc": a_lp})
+        res["relearn"]["oracle"].append({"steps": s_or, "final_acc": a_or})
+        print(f"  P17 ft-seed {fs}: LP-edited relearns 10/10 in {s_lp} steps "
+              f"(final acc {a_lp:.1%}); oracle learns them in {s_or} steps "
+              f"(final acc {a_or:.1%})")
+    with open(os.path.join(FIG, "part3_edits4.json"), "w") as f:
+        json.dump(res, f, indent=1)
+
+
 STAGES = {"sweep": stage_sweep, "verify": stage_verify, "control": stage_control,
           "measure": stage_measure, "figure": stage_figure,
           "capacity": stage_capacity, "edits": stage_edits, "edits2": stage_edits2,
-          "edits3": stage_edits3}
+          "edits3": stage_edits3, "edits4": stage_edits4}
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
