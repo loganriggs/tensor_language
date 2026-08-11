@@ -346,3 +346,51 @@ Verdict for the post (handoff allows "it is/isn't cross-layer" + one figure): it
 cross-layer — at capacity-stressed sizing, SGD stores facts almost entirely in the
 composed degree-3/4 structure spanning both blocks, with no per-layer fact partition and
 no evidence for the negation hunch at the logit level.
+
+### Part 3 follow-ups per Logan 2026-08-11 (F13b capacity curve, F13c closed-form edits)
+
+Bin relabel (F13, terminology question): the attribution bins classify each fact by
+whether a SINGLE layer suffices. "both" = either layer alone classifies the fact
+(redundant storage); "neither" = no single layer suffices — which is exactly where
+cross-term (composed) storage lands. Figure labels renamed to "either alone (redundant)"
+and "needs both (composed)".
+
+F13b capacity-vs-width (registered P9). Trained on a fixed pool of 4000 facts, seed 0:
+- 1 block: 955 facts at H=20, then 1022-1026 for every H in {40, 80, 120, 210, 300} —
+  flat to three digits across a 7.5x width range, including past H=210 (the full
+  quadratic span). The plateau is the expressivity wall of the degree-2 function class.
+- 2 blocks: 1244 (H=10), 1994 (H=20), 3522 (H=40), 4000 = the whole pool (H >= 80).
+  True 2-block capacity at H >= 80 exceeds the pool; the curve is width-limited below
+  that, never expressivity-limited in the range tested.
+- P9 CONFIRMED both halves (plateau even flatter than the predicted <10% variation;
+  plateau LEVEL ~1024 was higher than the guessed ~650 — with a 4000 pool the model
+  selects an easier 1024-fact subset than a fixed 1200-fact set forces).
+
+F13c closed-form edits in the 2-layer model (registered P5-P8). The model is LINEAR in
+the last block's output map: logits = W x1 + G h2 with G = W D2, x1 = z + B1(z),
+h2 = (L2 x1)*(R2 x1) in R^40. The entire Part-2 KKT machinery transfers with h2 as the
+stored-key frame and C = sum_k h2(z_k) h2(z_k)^T. Delta-D2 realized as pinv(W) Delta-G;
+exactness verified against the actual edited network (max deviation < 1e-6).
+- P5 removal (10 random facts -> uniform, retain-aware C^-1-weighted joint KKT): exact
+  forgetting by construction, but 516-536 of 1190 retained facts flip (~45%) with median
+  retained margin drop 22.7-25.3 — essentially the whole median margin (24.4). CONFIRMED
+  (predicted >= 5%) but the magnitude is the story: the same machinery that cost 2/450
+  flips in Part 2 (100 facts, same 40-dim frame size) costs ~45% at 1200 facts. The
+  frame is 30x overloaded; even the collateral-OPTIMAL edit destroys half the store.
+- P6 frame comparison: the readout-frame edit (Delta W, keys x2 in R^20) flips 679-773
+  (1.3-1.5x the h2 frame). Direction confirmed, the registered 2x threshold NOT met —
+  scored REFUTED on its stated bar.
+- P7 injection of 10 NEW facts (raise the new label's logit to best-competitor + 1,
+  same least-norm machinery): 10/10 land exactly on every seed; 218-390 of 1200 stored
+  facts flip (~18-32%) — same order as removal, slightly cheaper. CONFIRMED.
+- P8 pull-out: the naive F10-style metric (component classifies its own key) returns
+  1199-1200/1200 — DEGENERATE, not recovery: with 1200 dictionary atoms in a 40-dim
+  frame, a_k <d_k, h2_k> is a whitened copy of the model's own logits (metric bug caught
+  before claiming; see surprises). The meaningful component-DELETION test: removing fact
+  k's least-squares component breaks fact k 0/1200 times, flips a median 0.0% of other
+  facts, clean pull-outs 0/1200. No per-fact component is selective OR load-bearing —
+  facts have no addressable weight-space location in the composed regime. P8's letter
+  (<10% on the naive metric) is moot (metric saturates upward); its substance (no
+  per-fact pull-out) is maximally confirmed. Class-level pull-out (one row of W plus
+  both blocks) remains exact by construction. Generalizable-behavior pull-out is not
+  defined for random facts — Part 4's structured variant is where that lives.

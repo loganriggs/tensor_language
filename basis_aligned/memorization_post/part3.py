@@ -498,25 +498,47 @@ def stage_edits():
             "retained_flips": int((logits_inj.argmax(1) != y).sum()),
             "median_retained_margin_drop": float(np.median(m0 - m1i)),
         }
-        # --- informed pull-out: G ~= sum_k a_k (Cih h2_k)^T, recovery per fact
+        # --- informed pull-out: G ~= sum_k a_k (Cih h2_k)^T
         Dm = h2 @ Cih                                  # (N, H) dictionary rows
-        Acoef = G @ np.linalg.pinv(Dm)                 # (C, N)
-        comp = Acoef.T * (Dm * h2).sum(1, keepdims=True)   # (N, C): a_k * <d_k, h2_k>
-        out["pullout_recovery"] = int((comp.argmax(1) == y).sum())
+        Acoef = G @ np.linalg.pinv(Dm)                 # (C, N); a_k = column k
+        # NAIVE metric (Part 2 F10 style: component classifies its own key) is DEGENERATE
+        # here: with N >> H the dictionary is 30x overcomplete and a_k <d_k, h2_k> is just
+        # a whitened copy of the model's own logits — it saturates at ~100% regardless of
+        # whether per-fact components exist. Reported for the record, not as recovery.
+        comp = Acoef.T * (Dm * h2).sum(1, keepdims=True)
+        out["pullout_naive_saturated"] = int((comp.argmax(1) == y).sum())
+        # MEANINGFUL metric: component DELETION — remove fact k's component from G and ask
+        # (a) does fact k break, (b) how many other facts break. Clean pull-out = own fact
+        # breaks and < 5% of others do.
+        S = h2 @ Dm.T                                  # (N, N): h2_j . d_k
+        own_broken, other_flip_frac = np.zeros(N, bool), np.zeros(N)
+        a = Acoef.T                                    # (N, C)
+        for k in range(N):
+            Lk = logits0 - np.outer(S[:, k], a[k])
+            pred = Lk.argmax(1)
+            own_broken[k] = pred[k] != y[k]
+            other_flip_frac[k] = (pred != y).sum() - (pred[k] != y[k])
+        other_flip_frac /= (N - 1)
+        out["pullout_del_own_broken"] = int(own_broken.sum())
+        out["pullout_del_median_other_flips"] = float(np.median(other_flip_frac))
+        out["pullout_clean"] = int((own_broken & (other_flip_frac < 0.05)).sum())
         out["m0_median"] = float(np.median(m0))
         res[seed] = out
         if seed == 0:
             np.savez(os.path.join(FIG, "F13c_seed0_data.npz"),
                      drop_h2=(m0 - m1)[keep], drop_W=(m0 - m1w)[keep],
-                     drop_inj=(m0 - m1i), m0=m0)
+                     drop_inj=(m0 - m1i), m0=m0,
+                     own_broken=own_broken, other_flip_frac=other_flip_frac)
         print(f"  seed{seed}: rm-h2 flips {out['rm_h2']['retained_flips']}/1190 "
               f"(med margin drop {out['rm_h2']['median_retained_margin_drop']:.2f}), "
               f"rm-W flips {out['rm_W']['retained_flips']}/1190 "
               f"(med drop {out['rm_W']['median_retained_margin_drop']:.2f}); "
               f"inject {out['inject_h2']['injected_correct']}/10 ok, "
               f"flips {out['inject_h2']['retained_flips']}/1200; "
-              f"pull-out recovery {out['pullout_recovery']}/1200; "
-              f"median margin {out['m0_median']:.1f}")
+              f"pull-out: naive {out['pullout_naive_saturated']}/1200 (degenerate), "
+              f"deletion breaks own {out['pullout_del_own_broken']}/1200, "
+              f"med other-flips {out['pullout_del_median_other_flips']:.1%}, "
+              f"CLEAN {out['pullout_clean']}/1200; median margin {out['m0_median']:.1f}")
     with open(os.path.join(FIG, "part3_edits.json"), "w") as f:
         json.dump(res, f, indent=1)
 
@@ -543,15 +565,16 @@ def stage_edits():
                  f"{inj['retained_flips']}/1200 stored facts flip", fontsize=9.5)
     ax.set_xlabel("stored-fact margin before $-$ after")
     ax = fig.add_subplot(gs[0, 2])
-    rec = [res[s]["pullout_recovery"] / 12 for s in SEEDS]  # percent
-    ax.bar(np.arange(5), rec, 0.6, color=BLUE)
-    ax.axhline(10, color=INK, lw=1, ls="--")
-    ax.text(3.6, 11, "10% chance", fontsize=8, color=INK2)
-    ax.axhline(47.5, color=ORANGE, lw=1.2, ls=":")
-    ax.text(0.1, 49, "Part 2 (100 facts, 1 layer): 44-51%", fontsize=8, color=ORANGE)
-    ax.set_xticks(np.arange(5)); ax.set_xticklabels([f"seed {s}" for s in SEEDS], fontsize=8)
-    ax.set_ylabel("facts recovered (%)")
-    ax.set_title("(iii) informed per-fact pull-out\n(dictionary = $C^{-1}$-weighted h2 keys)", fontsize=9.5)
+    ax.scatter(d["other_flip_frac"] * 100, np.where(d["own_broken"], 1, 0)
+               + (np.random.default_rng(0).uniform(-0.12, 0.12, len(d["own_broken"]))),
+               s=5, alpha=0.25, color=BLUE)
+    ax.axvline(5, color=INK, lw=1, ls="--")
+    ax.text(5.5, 0.5, "5% collateral bar", fontsize=8, color=INK2, rotation=90, va="center")
+    clean = res[0]["pullout_clean"]
+    ax.set_yticks([0, 1]); ax.set_yticklabels(["own fact\nsurvives", "own fact\nbreaks"], fontsize=8)
+    ax.set_xlabel("other facts flipped when deleting this fact's component (%)")
+    ax.set_title(f"(iii) per-fact component DELETION (seed 0):\n"
+                 f"clean pull-outs (own breaks, <5% collateral): {clean}/1200", fontsize=9.5)
     for a in fig.axes:
         for s in ("top", "right"):
             a.spines[s].set_visible(False)

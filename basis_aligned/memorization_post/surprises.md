@@ -98,3 +98,24 @@
    +0.07 to +0.13), so the composed term is a nearly orthogonal channel, not an
    interference canceller. P4 also refuted: zeroing block 1 hurts slightly more than
    zeroing block 2 (block 2 computes on the block-1-enriched stream).
+
+4. Editability collapses in the composed regime. The identical retain-aware KKT machinery
+   that unlearned 10 of 100 facts with 2/450 collateral flips in Part 2 costs ~45% of the
+   store (516-536/1190 flips) when unlearning 10 of 1200 facts in the 2-layer model's
+   40-dim last-block frame — and that is the collateral-OPTIMAL closed-form edit (the
+   20-dim readout frame is 1.3-1.5x worse). Injection is asymmetrically cheap: 10/10 new
+   facts land exactly with 18-32% collateral.
+
+5. There are no per-fact components at all — and the naive metric lies in the OTHER
+   direction. The F10-style "component classifies its own key" recovery metric returns
+   ~100% here, which is a degeneracy (30x-overcomplete dictionary makes each component a
+   whitened copy of the full model's logits), not recovery; caught before claiming by
+   asking what the null would produce. The deletion test gives the true answer: removing
+   any fact's component breaks nothing (0/1200 own-fact breaks, 0.0% median collateral) —
+   each component is weightless. Facts in the composed regime are functionally present
+   but have no addressable weight-space location.
+
+6. The capacity plateau is exact: 1022-1026 facts fit from a 4000 pool at every 1-block
+   width from 40 to 300 — flat THROUGH the full-quadratic-span boundary (H=210), pinning
+   the failure to the degree-2 function class itself. Two blocks blow past the pool at
+   H=80 (true capacity > 4000).
