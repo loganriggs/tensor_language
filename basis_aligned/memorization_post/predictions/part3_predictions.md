@@ -94,3 +94,16 @@ P13 (oracle existence baseline): retraining from scratch on the 1190 retained fa
     gives 100% retention and puts the 10 removed facts at chance (0-3 of 10 correct) —
     the edit we want EXISTS in parameter space; the question is only whether closed-form
     reaches it. Confidence 0.85.
+
+## Addendum 3 (registered before the alternating-frames measurement)
+
+Context from Addendum-2 results: the margin LP is INFEASIBLE in the last-layer frame on
+all 5 seeds (certified: NO Delta-D2 edit removes the 10 facts with zero collateral;
+~550-620 facts must violate) — but ONE exact R2-frame repair round after the LP edit
+halves retained flips to 233-274 (~20%), below the certified last-layer floor.
+
+P14: alternating exact single-frame hinge LPs (G -> R2 -> L2 -> repeat, all three frames
+exactly linear with the others held fixed, removal equalities re-imposed every round)
+drive retained flips below 10% of 1190 within 6 rounds (seed 0). Confidence 0.4
+(may plateau around 15-20% — each frame is only 400-800 dof against ~550 required
+repairs; the composed storage may not be reachable by single-frame moves at all).
