@@ -846,6 +846,31 @@ def stage_edits3():
               f"retained flips {flips}/1190, forget dev {fdev:.1e}")
     with open(os.path.join(FIG, "part3_edits3.json"), "w") as f:
         json.dump(hist, f, indent=1)
+    edits3_figure(hist)
+
+
+def edits3_figure(hist):
+    fig, ax = plt.subplots(figsize=(7.6, 4.2))
+    xs = [h["round"] for h in hist]
+    fl = [h["retained_flips"] for h in hist]
+    ax.plot(xs, fl, "o-", color=BLUE, lw=2, ms=7)
+    for h in hist:
+        ax.annotate(h["frame"], (h["round"], h["retained_flips"]),
+                    textcoords="offset points", xytext=(8, 6), fontsize=9, color=INK2)
+    ax.axhline(0, color=MUTED, lw=1)
+    ax.axhline(522, color=ORANGE, lw=1.2, ls="--")
+    ax.text(3.4, 540, "certified floor for ANY single last-layer edit (~550 broken)",
+            fontsize=8, color=ORANGE)
+    ax.set_xlabel("round (frame edited: G = last-block output map, R2/L2 = last-block factors)")
+    ax.set_ylabel("retained facts broken (of 1190)")
+    ax.set_title("F13d — certified impossible in one frame, exactly solved in six:\n"
+                 "alternating single-frame margin LPs reach zero-collateral removal (seed 0)",
+                 fontsize=10)
+    for s in ("top", "right"):
+        ax.spines[s].set_visible(False)
+    ax.grid(axis="y", color=GRIDC, lw=0.8)
+    ax.set_axisbelow(True)
+    save_fig(fig, "F13d_alternating_frames")
 
 
 STAGES = {"sweep": stage_sweep, "verify": stage_verify, "control": stage_control,

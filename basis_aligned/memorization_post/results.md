@@ -394,3 +394,41 @@ exactness verified against the actual edited network (max deviation < 1e-6).
   per-fact pull-out) is maximally confirmed. Class-level pull-out (one row of W plus
   both blocks) remains exact by construction. Generalizable-behavior pull-out is not
   defined for random facts — Part 4's structured variant is where that lives.
+
+### Removal-methods ladder (Logan's question: is the KKT collateral fundamental?) — F13d
+
+Registered P10-P14 (predictions/part3_predictions.md, addenda 2-3, committed before each
+measurement). All methods are closed-form/convex, corpus-free, fact-list-only. Numbers in
+figures/part3_edits2.json and part3_edits3.json. A note on the "forget n/10" counters for
+LP methods: the removal equalities pin the removed keys' logits to EXACTLY uniform
+(deviation ~1e-11); argmax at exact uniformity is a tie-break artifact, so forgetting is
+exact for every LP method regardless of that counter.
+
+- A. KKT L2-minimal (from F13c): exact forgetting, 516-536/1190 retained flips.
+- B. Weighted LS refit of the joint readout [W,G] (P10): 236-300 flips but FORGETTING
+  FAILS — only 1-6 of 10 removed facts actually flip (deviation from uniform 35-57
+  logits). It trades forgetting for retention; not a valid removal method. P10's flip
+  clauses technically held, but the registered prediction omitted a forgetting criterion
+  — scored as moot, lesson noted.
+- C. Margin LP over Delta-G (P11, the decisive test): INFEASIBLE on all 5 seeds —
+  minimum total hinge violation 5067-5873 with 552-620 facts violated at the optimum.
+  This is a CERTIFICATE: no edit of the last block's output map (any Delta-D2, not just
+  the KKT one) can remove the 10 facts while keeping all 1190 at margin >= 0.5. The
+  ~45% KKT collateral is fundamental to the last-layer frame, not an objective artifact
+  (the LP optimum's own flips, 522-578, match the KKT edit's). P11 CONFIRMED.
+- D. One exact R2-frame repair round after C (P12): 233-274 flips — a 52-56% cut vs A,
+  beating the certified single-frame floor by editing a SECOND frame. P12 CONFIRMED.
+- E. Alternating single-frame margin LPs, G -> R2 -> L2 -> ... (P14, seed 0), removal
+  equalities re-imposed exactly every round: retained flips 522 -> 257 -> 121 -> 118 ->
+  23 -> 0 -> 0. Round 5 reaches TOTAL SUCCESS: all 1190 retained facts hold with margin
+  >= 0.5, the 10 removed keys sit at uniform to 3e-12, verified by exact forward
+  evaluation of the edited network. P14 CONFIRMED far beyond its bar (predicted <10%
+  within 6 rounds at confidence 0.4; got 0%).
+- Oracle retrain on the 1190 (P13): 100% retention, 0/10 removed still correct.
+  CONFIRMED. The alternating-LP editor matches the oracle's behavior on the fact set
+  with six convex solves and no training.
+
+Verdict: composed (cross-layer) storage is UNEDITABLE layer-locally — provably — but
+FULLY editable cross-layer with pure closed-form steps. The storage knowledge that
+matters is which parameter blocks the function is linear in (D2, W, R2, L2 each are,
+with the others fixed); alternation through those frames is the editing algorithm.

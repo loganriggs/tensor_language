@@ -119,3 +119,14 @@
    width from 40 to 300 — flat THROUGH the full-quadratic-span boundary (H=210), pinning
    the failure to the degree-2 function class itself. Two blocks blow past the pool at
    H=80 (true capacity > 4000).
+
+7. Certified impossible in one frame, exactly solvable in six. A margin LP proves NO
+   last-layer-output edit can unlearn 10 of 1200 facts without breaking ~550 retained
+   ones (infeasibility on all 5 seeds) — yet alternating exact single-frame margin LPs
+   across the last block's three linear frames (output map, right factor, left factor)
+   reach ZERO retained flips with exact-uniform forgetting in 6 rounds (522 -> 257 ->
+   121 -> 118 -> 23 -> 0), matching the from-scratch oracle without gradients or corpus.
+   Composed storage is layer-locally uneditable but cross-layer editable in closed form.
+   (Also: the LS-refit baseline quietly fails at FORGETTING, not retention — uniform-
+   target regression against 100:1 weighting still leaves removed facts 35-57 logits
+   from uniform. Removal needs constraints, not squared-error pressure.)
