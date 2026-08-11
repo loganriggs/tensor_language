@@ -72,16 +72,17 @@ def require_committed(path, what):
         sys.exit(f"{what} prediction file has uncommitted changes — commit before measuring.")
 
 
-def make_facts():
-    rng = np.random.default_rng(300)
+def make_facts(n=None, rng_seed=300):
+    n = n if n is not None else N_FACTS
+    rng = np.random.default_rng(rng_seed)
     seen, Z = set(), []
-    while len(Z) < N_FACTS:
+    while len(Z) < n:
         z = tuple(int(v) for v in rng.integers(0, 2, N_BITS))
         if sum(z) > 0 and z not in seen:
             seen.add(z)
             Z.append(z)
     Z = np.array(Z, dtype=np.float64)
-    y = rng.integers(0, N_CLASSES, N_FACTS)
+    y = rng.integers(0, N_CLASSES, n)
     return Z, y
 
 
@@ -315,6 +316,8 @@ def stage_figure():
         met = json.load(f)
     n_facts = met.get("n_facts", N_FACTS)
     names = ["linear", "l1only", "l2only", "both", "neither"]
+    disp = ["linear\n(no blocks)", "layer 1\nalone", "layer 2\nalone",
+            "either alone\n(redundant)", "needs both\n(composed)"]
     seed_bins = np.array([[met["seeds"][str(s)]["bins"][k] for k in names] for s in SEEDS])
     fig = plt.figure(figsize=(13.5, 4.2))
     gs = fig.add_gridspec(1, 3, wspace=0.32)
@@ -325,7 +328,7 @@ def stage_figure():
     for i in range(len(names)):
         lo, hi = seed_bins[:, i].min(), seed_bins[:, i].max()
         ax.plot([i, i], [lo, hi], color=INK, lw=1.2)
-    ax.set_xticks(xs); ax.set_xticklabels(names, fontsize=8.5)
+    ax.set_xticks(xs); ax.set_xticklabels(disp, fontsize=7.8)
     ax.set_ylabel(f"facts (of {n_facts})")
     ax.axhline(0.1 * n_facts, color=INK, lw=1, ls="--")
     ax.text(len(names) - 0.45, 0.1 * n_facts, " 10% chance", fontsize=8, color=INK2, va="bottom", ha="right")
@@ -363,8 +366,204 @@ def stage_figure():
     save_fig(fig, "F13_cross_layer")
 
 
+# ============================================================================= capacity
+def stage_capacity():
+    """F13b: facts learned (y) vs width (x), 1-block vs 2-block, trained on a fixed
+    pool of 4000 facts (single seed per Logan's display convention)."""
+    require_committed(os.path.join(PRED, "part3_predictions.md"), "part3")
+    CAP_N = 4000
+    grids = {1: [20, 40, 80, 120, 210, 300], 2: [10, 20, 40, 80, 120, 210]}
+    Z, y = make_facts(CAP_N)
+    out = {"pool": CAP_N, "one": {}, "two": {}}
+    print("=" * 70)
+    print(f"STAGE capacity: facts fit vs width, pool of {CAP_N} facts (seed 0, dev={DEV})")
+    print("=" * 70)
+    for nb, key in ((1, "one"), (2, "two")):
+        for H in grids[nb]:
+            _, acc, _ = train(H, nb, 0, Z, y, steps=25000)
+            out[key][H] = acc
+            print(f"  {nb}-block H={H:3d}: {acc:.1%} = {acc*CAP_N:.0f} facts")
+    with open(os.path.join(FIG, "part3_capacity.json"), "w") as f:
+        json.dump(out, f, indent=1)
+
+    fig, ax = plt.subplots(figsize=(7.4, 4.4))
+    for key, col, lbl, nb in (("one", ORANGE, "1 block", 1), ("two", BLUE, "2 blocks", 2)):
+        Hs = sorted(int(h) for h in out[key])
+        ax.plot(Hs, [out[key][h] * CAP_N for h in Hs], "o-", color=col, lw=2, ms=6, label=lbl)
+    ax.axhline(CAP_N, color=MUTED, lw=1, ls=":")
+    ax.text(11, CAP_N - 130, "pool size (4000)", fontsize=8, color=INK2)
+    ax.axhline(0.1 * CAP_N, color=INK, lw=1, ls="--")
+    ax.text(11, 0.1 * CAP_N + 40, "10% chance", fontsize=8, color=INK2)
+    ax.axvline(210, color=MUTED, lw=1, ls=":")
+    ax.text(214, 1500, "H=210 = full\nquadratic span", fontsize=8, color=INK2)
+    ax.set_xscale("log")
+    ax.set_xticks([10, 20, 40, 80, 120, 210, 300])
+    ax.set_xticklabels([10, 20, 40, 80, 120, 210, 300])
+    ax.set_xlabel("width H (hidden units per block)")
+    ax.set_ylabel("facts learned (of 4000)")
+    ax.legend(frameon=False)
+    for s in ("top", "right"):
+        ax.spines[s].set_visible(False)
+    ax.grid(axis="y", color=GRIDC, lw=0.8)
+    ax.set_axisbelow(True)
+    ax.set_title("F13b — the expressivity wall: one quadratic block plateaus, two compose past it\n"
+                 "(trained on a fixed pool of 4000 random 20-bit facts; seed 0)", fontsize=10)
+    save_fig(fig, "F13b_capacity_vs_width")
+
+
+# ============================================================================= edits
+def h2_frame(ps):
+    """The 2-layer model is LINEAR in its last-block output map D2 (stored as D1):
+    logits = W x1 + G h2, with G = W D2, x1 = z + B1(z), h2 = (L2 x1)*(R2 x1).
+    Returns (x1, h2, base_logits_without_G_term)."""
+    Z, y = make_facts()
+    x1 = Z + block_out(ps, Z, 0)
+    h2 = (x1 @ ps["L1"].T) * (x1 @ ps["R1"].T)
+    base = x1 @ ps["W"].T
+    return Z, y, x1, h2, base
+
+
+def joint_kkt(K, Ci, T):
+    """Least-C-norm Delta s.t. Delta @ K.T = T.T for constraint keys K (m, dim),
+    metric C^-1 (Ci), targets T (m, C). Returns Delta (C, dim)."""
+    M = K @ Ci                       # (m, dim)
+    A = K @ Ci @ K.T                 # (m, m)
+    return T.T @ np.linalg.solve(A, M)
+
+
+def stage_edits():
+    require_committed(os.path.join(PRED, "part3_predictions.md"), "part3")
+    print("=" * 70)
+    print("STAGE edits: closed-form KKT removal / injection / pull-out in the 2-layer model")
+    print("=" * 70)
+    res = {}
+    for seed in SEEDS:
+        ps = dict(np.load(os.path.join(MODELS, f"p3_two_N{N_FACTS}_H40_s{seed}.npz")))
+        Z, y, x1, h2, base = h2_frame(ps)
+        G = ps["W"] @ ps["D1"]                     # (C, H)
+        logits0 = base + h2 @ G.T
+        assert np.abs(logits0 - np_fwd(ps, Z, 2)).max() < 1e-8
+        m0 = margins(logits0, y)
+        N, H = h2.shape
+        ridge = 1e-8 * np.trace(h2.T @ h2) / H
+        Ch = h2.T @ h2 + ridge * np.eye(H)
+        Cih = np.linalg.inv(Ch)
+        x2 = x1 + h2 @ ps["D1"].T
+        Cx = x2.T @ x2 + 1e-8 * np.trace(x2.T @ x2) / x2.shape[1] * np.eye(x2.shape[1])
+        Cix = np.linalg.inv(Cx)
+
+        rng = np.random.default_rng(7)
+        rm = rng.choice(N, 10, replace=False)
+        keep = np.setdiff1d(np.arange(N), rm)
+
+        out = {}
+        # --- removal, h2 frame (edit G, i.e. D2): target = uniform logits at the 10 keys
+        T_rm = logits0[rm].mean(1, keepdims=True) - logits0[rm]
+        dG = joint_kkt(h2[rm], Cih, T_rm)
+        logits_h = logits0 + h2 @ dG.T
+        # exactness check via actual weights: D2' = D2 + pinv(W) dG
+        ps_ed = dict(ps); ps_ed["D1"] = ps["D1"] + np.linalg.pinv(ps["W"]) @ dG
+        assert np.abs((np_fwd(ps_ed, Z, 2)) - logits_h).max() < 1e-6
+        m1 = margins(logits_h, y)
+        out["rm_h2"] = {
+            "forget_dev": float(np.abs(logits_h[rm] - logits_h[rm].mean(1, keepdims=True)).max()),
+            "retained_flips": int((logits_h[keep].argmax(1) != y[keep]).sum()),
+            "median_retained_margin_drop": float(np.median((m0 - m1)[keep])),
+        }
+        # --- removal, readout frame (edit W, keys x2 in R^20)
+        dW = joint_kkt(x2[rm], Cix, T_rm)
+        logits_w = logits0 + x2 @ dW.T
+        m1w = margins(logits_w, y)
+        out["rm_W"] = {
+            "forget_dev": float(np.abs(logits_w[rm] - logits_w[rm].mean(1, keepdims=True)).max()),
+            "retained_flips": int((logits_w[keep].argmax(1) != y[keep]).sum()),
+            "median_retained_margin_drop": float(np.median((m0 - m1w)[keep])),
+        }
+        # --- injection of 10 NEW facts (h2 frame)
+        Znew_all, ynew_all = make_facts(N + 200, rng_seed=300)   # same stream; take beyond N
+        Znew, ynew = Znew_all[N:N + 10], ynew_all[N:N + 10]
+        x1n = Znew + block_out(ps, Znew, 0)
+        h2n = (x1n @ ps["L1"].T) * (x1n @ ps["R1"].T)
+        ln = x1n @ ps["W"].T + h2n @ G.T
+        T_in = np.zeros_like(ln)
+        for i in range(10):
+            others = np.delete(ln[i], ynew[i])
+            T_in[i, ynew[i]] = (others.max() + 1.0) - ln[i, ynew[i]]
+        dGi = joint_kkt(h2n, Cih, T_in)
+        logits_inj = logits0 + h2 @ dGi.T
+        ln_after = ln + h2n @ dGi.T
+        m1i = margins(logits_inj, y)
+        out["inject_h2"] = {
+            "injected_correct": int((ln_after.argmax(1) == ynew).sum()),
+            "retained_flips": int((logits_inj.argmax(1) != y).sum()),
+            "median_retained_margin_drop": float(np.median(m0 - m1i)),
+        }
+        # --- informed pull-out: G ~= sum_k a_k (Cih h2_k)^T, recovery per fact
+        Dm = h2 @ Cih                                  # (N, H) dictionary rows
+        Acoef = G @ np.linalg.pinv(Dm)                 # (C, N)
+        comp = Acoef.T * (Dm * h2).sum(1, keepdims=True)   # (N, C): a_k * <d_k, h2_k>
+        out["pullout_recovery"] = int((comp.argmax(1) == y).sum())
+        out["m0_median"] = float(np.median(m0))
+        res[seed] = out
+        if seed == 0:
+            np.savez(os.path.join(FIG, "F13c_seed0_data.npz"),
+                     drop_h2=(m0 - m1)[keep], drop_W=(m0 - m1w)[keep],
+                     drop_inj=(m0 - m1i), m0=m0)
+        print(f"  seed{seed}: rm-h2 flips {out['rm_h2']['retained_flips']}/1190 "
+              f"(med margin drop {out['rm_h2']['median_retained_margin_drop']:.2f}), "
+              f"rm-W flips {out['rm_W']['retained_flips']}/1190 "
+              f"(med drop {out['rm_W']['median_retained_margin_drop']:.2f}); "
+              f"inject {out['inject_h2']['injected_correct']}/10 ok, "
+              f"flips {out['inject_h2']['retained_flips']}/1200; "
+              f"pull-out recovery {out['pullout_recovery']}/1200; "
+              f"median margin {out['m0_median']:.1f}")
+    with open(os.path.join(FIG, "part3_edits.json"), "w") as f:
+        json.dump(res, f, indent=1)
+
+    # F13c figure
+    d = np.load(os.path.join(FIG, "F13c_seed0_data.npz"))
+    fig = plt.figure(figsize=(13.5, 4.2))
+    gs = fig.add_gridspec(1, 3, wspace=0.3)
+    ax = fig.add_subplot(gs[0, 0])
+    bins = np.linspace(min(d["drop_h2"].min(), d["drop_W"].min()),
+                       max(d["drop_h2"].max(), d["drop_W"].max()), 50)
+    ax.hist(d["drop_W"], bins=bins, color=ORANGE, alpha=0.7, label="readout frame (20-dim)")
+    ax.hist(d["drop_h2"], bins=bins, color=BLUE, alpha=0.7, label="h2 key frame (40-dim)")
+    ax.axvline(0, color=INK, lw=1)
+    f_h2 = res[0]["rm_h2"]["retained_flips"]; f_W = res[0]["rm_W"]["retained_flips"]
+    ax.set_title(f"(i) unlearn 10 of 1200: retained-fact margin drop\n"
+                 f"flips: h2 frame {f_h2}/1190, readout frame {f_W}/1190", fontsize=9.5)
+    ax.set_xlabel("margin before $-$ after"); ax.set_ylabel("retained facts")
+    ax.legend(frameon=False, fontsize=8)
+    ax = fig.add_subplot(gs[0, 1])
+    ax.hist(d["drop_inj"], bins=50, color=AQUA, alpha=0.85)
+    ax.axvline(0, color=INK, lw=1)
+    inj = res[0]["inject_h2"]
+    ax.set_title(f"(ii) inject 10 NEW facts (h2 frame): {inj['injected_correct']}/10 land,\n"
+                 f"{inj['retained_flips']}/1200 stored facts flip", fontsize=9.5)
+    ax.set_xlabel("stored-fact margin before $-$ after")
+    ax = fig.add_subplot(gs[0, 2])
+    rec = [res[s]["pullout_recovery"] / 12 for s in SEEDS]  # percent
+    ax.bar(np.arange(5), rec, 0.6, color=BLUE)
+    ax.axhline(10, color=INK, lw=1, ls="--")
+    ax.text(3.6, 11, "10% chance", fontsize=8, color=INK2)
+    ax.axhline(47.5, color=ORANGE, lw=1.2, ls=":")
+    ax.text(0.1, 49, "Part 2 (100 facts, 1 layer): 44-51%", fontsize=8, color=ORANGE)
+    ax.set_xticks(np.arange(5)); ax.set_xticklabels([f"seed {s}" for s in SEEDS], fontsize=8)
+    ax.set_ylabel("facts recovered (%)")
+    ax.set_title("(iii) informed per-fact pull-out\n(dictionary = $C^{-1}$-weighted h2 keys)", fontsize=9.5)
+    for a in fig.axes:
+        for s in ("top", "right"):
+            a.spines[s].set_visible(False)
+        a.grid(axis="y", color=GRIDC, lw=0.8); a.set_axisbelow(True)
+    fig.suptitle("F13c — closed-form edits in the 2-layer model (last-block key frame; seed 0)",
+                 color=INK, y=1.04)
+    save_fig(fig, "F13c_two_layer_edits")
+
+
 STAGES = {"sweep": stage_sweep, "verify": stage_verify, "control": stage_control,
-          "measure": stage_measure, "figure": stage_figure}
+          "measure": stage_measure, "figure": stage_figure,
+          "capacity": stage_capacity, "edits": stage_edits}
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
