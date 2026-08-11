@@ -63,3 +63,34 @@ P8 (pull-out): informed h2-frame attribution (dictionary = C^-1-weighted h2 keys
    (Class-level pull-out — keep one row of W plus both blocks — is exact by construction
    and will be reported as such; there is no generalizable behavior to pull out of random
    facts: that question belongs to Part 4's structured variant.)
+
+## Addendum 2 (registered before the "better removal" measurements — Logan's question:
+## is the KKT collateral fundamental, or just the wrong objective?)
+
+Clarification of framing: the h2-frame KKT edit achieves EXACT forgetting; what it loses
+is retention. Its L2 (C-metric) objective is a proxy that spreads disturbance evenly and
+knows nothing about margins. Methods that use more knowledge:
+
+P10 (LS readout refit): jointly refit the full linear readout [W, G] over [x1, h2]
+    (60-dim frame) by weighted least squares to targets {retained: current logits,
+    removed: uniform, weight 100}. Beats the KKT edit's retained flips by >= 30% but
+    still flips > 20% of retained facts. Confidence 0.5.
+
+P11 (margin LP — the decisive test): a hinge LP over Delta-G (400 vars) with EXACT
+    removal equalities and per-retained-fact margin constraints (>= 0.5) decides whether
+    ANY last-layer-output edit can remove the 10 facts with zero collateral. Prediction:
+    INFEASIBLE (minimum total hinge violation > 0) — the h2 code is a class-clustered
+    40-dim representation, and separating a fact from its class-mates inside it is
+    exactly what "no addressable location" forbids; the min-violation solution still
+    flips >= 10% of retained facts. Confidence 0.6.
+
+P12 (cross-layer repair): one exact repair round in the R2 frame (Delta-R2, 800 dof —
+    logits are exactly linear in R2 with everything else fixed, and h2 is invariant to
+    the D2 edit) after the best last-layer edit, holding the removal equalities, cuts
+    retained flips by >= half vs the plain KKT edit. Confidence 0.45 (genuinely unsure;
+    moot if P11 turns out feasible).
+
+P13 (oracle existence baseline): retraining from scratch on the 1190 retained facts
+    gives 100% retention and puts the 10 removed facts at chance (0-3 of 10 correct) —
+    the edit we want EXISTS in parameter space; the question is only whether closed-form
+    reaches it. Confidence 0.85.
