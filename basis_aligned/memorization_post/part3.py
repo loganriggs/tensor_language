@@ -107,8 +107,9 @@ def fwd(ps, Z, n_blocks, use=None):
     return x @ ps["W"].T
 
 
-def train(H, n_blocks, seed, Z, y, freeze_zero=None, steps=STEPS):
+def train(H, n_blocks, seed, Z, y, freeze_zero=None, steps=None):
     """freeze_zero: block index whose D is fixed at zero (block disabled but present)."""
+    steps = steps if steps is not None else STEPS
     ps = init_params(H, n_blocks, seed)
     if freeze_zero is not None:
         for k in (f"L{freeze_zero}", f"R{freeze_zero}", f"D{freeze_zero}"):
@@ -367,8 +368,17 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--stage", default="all", choices=list(STAGES) + ["all"])
     ap.add_argument("--nfacts", type=int, default=400)
+    ap.add_argument("--h1grid", type=str, default="")
+    ap.add_argument("--h2grid", type=str, default="")
+    ap.add_argument("--steps", type=int, default=0)
     args = ap.parse_args()
     N_FACTS = args.nfacts
+    if args.h1grid:
+        H1_GRID = [int(v) for v in args.h1grid.split(",")]
+    if args.h2grid:
+        H2_GRID = [int(v) for v in args.h2grid.split(",")]
+    if args.steps:
+        STEPS = args.steps
     SIZE_JSON = os.path.join(FIG, f"part3_sizing_N{N_FACTS}.json")
     MET_JSON = os.path.join(FIG, f"part3_metrics_N{N_FACTS}.json")
     if args.stage == "all":
