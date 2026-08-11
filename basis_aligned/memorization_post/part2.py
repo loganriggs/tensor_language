@@ -42,6 +42,7 @@ cached in cache_part2/ (regenerated deterministically if deleted).
 """
 
 import argparse
+import subprocess
 import json
 import time
 from pathlib import Path
@@ -1152,11 +1153,153 @@ def stage_f12():
 
 
 # ----------------------------------------------------------------- driver
+# ----------------------------------------------------------------- F11d (frames/LP)
+def lp_frame_edit(L, R, D, Z, y, rm, keep, frame, eps=0.5):
+    """Hinge LP for one exact frame of the one-layer model: logits = D((Lz)*(Rz))
+    is linear in D, in R (L, D fixed), and in L (R, D fixed). Exact removal
+    equalities at rm keys + margin >= eps at keep keys, minimize total hinge
+    violation. Returns (edited (L,R,D), total_violation, nvars)."""
+    import scipy.sparse as sp
+    from scipy.optimize import linprog
+    C, H = D.shape
+    d = Z.shape[1]
+    hz = (Z @ L.T) * (Z @ R.T)
+    logits = hz @ D.T
+    if frame == "D":
+        nv = C * H
+        def rowfn(k, cp, cn):
+            v = np.zeros((C, H)); v[cp] = hz[k]; v[cn] -= hz[k]
+            return v.ravel()
+    else:
+        fac = Z @ (L.T if frame == "R" else R.T)      # (N, H)
+        nv = H * d
+        def rowfn(k, cp, cn):
+            return ((D[cp] - D[cn])[:, None] * (fac[k][:, None] * Z[k][None, :])).ravel()
+    rows = len(keep) * (C - 1)
+    A_ret = np.empty((rows, nv)); b_ub = np.empty(rows)
+    r = 0
+    for k in keep:
+        for c in range(C):
+            if c == y[k]:
+                continue
+            A_ret[r] = -rowfn(k, y[k], c)
+            b_ub[r] = (logits[k, y[k]] - logits[k, c]) - eps
+            r += 1
+    A_eqd = np.empty((len(rm) * (C - 1), nv)); b_eq = np.empty(len(rm) * (C - 1))
+    r = 0
+    for k in rm:
+        for c in range(C - 1):
+            A_eqd[r] = rowfn(k, c, c + 1)
+            b_eq[r] = -(logits[k, c] - logits[k, c + 1])
+            r += 1
+    A_ub = sp.hstack([sp.csr_matrix(A_ret), -sp.eye(rows)], format="csr")
+    A_eq = sp.hstack([sp.csr_matrix(A_eqd), sp.csr_matrix((r, rows))], format="csr")
+    lp = linprog(np.concatenate([np.zeros(nv), np.ones(rows)]),
+                 A_ub=A_ub, b_ub=b_ub, A_eq=A_eq, b_eq=b_eq,
+                 bounds=[(None, None)] * nv + [(0, None)] * rows, method="highs")
+    assert lp.status == 0, lp.message
+    dx = lp.x[:nv]
+    if frame == "D":
+        D = D + dx.reshape(C, H)
+    elif frame == "R":
+        R = R + dx.reshape(H, d)
+    else:
+        L = L + dx.reshape(H, d)
+    return (L, R, D), float(lp.x[nv:].sum()), nv
+
+
+def frame_eval(L, R, D, Z, y, rm, keep):
+    logits = ((Z @ L.T) * (Z @ R.T)) @ D.T
+    fdev = float(np.abs(logits[rm] - logits[rm].mean(1, keepdims=True)).max())
+    flips = int((logits[keep].argmax(1) != y[keep]).sum())
+    return flips, fdev
+
+
+def stage_f11d():
+    pred = PRED / "part2_f11d_prediction.md"
+    r = subprocess.run(["git", "status", "--porcelain", "--", str(pred)],
+                       cwd=ROOT, capture_output=True, text=True)
+    assert not r.stdout.strip(), "commit part2_f11d_prediction.md before measuring"
+    Z, y, *_ = load_setup()
+    sgd = np.load(CACHE / "sgd.npz")
+    st = np.load(CACHE / "f11_setup.npz")
+    rm = st["edit_idx"]
+    keep = np.setdiff1d(np.arange(K_FACTS), rm)
+    res = {"working_point": {}, "overload": []}
+    print("-- P15: margin LP, D-frame only, 100 facts, same 10 edit facts as F11 --")
+    for s in SGD_SEEDS:
+        L, R, D = sgd[f"L{s}"], sgd[f"R{s}"], sgd[f"D{s}"]
+        (L2_, R2_, D2_), viol, _ = lp_frame_edit(L, R, D, Z, y, rm, keep, "D")
+        flips, fdev = frame_eval(L2_, R2_, D2_, Z, y, rm, keep)
+        res["working_point"][s] = {"violation": viol, "flips": flips, "forget_dev": fdev}
+        print(f"  seed {s}: violation {viol:.2e} "
+              f"({'FEASIBLE' if viol < 1e-6 else 'infeasible'}), retained flips "
+              f"{flips}/90, forget dev {fdev:.1e}")
+    print("-- P16: overload arm, one layer, 350 facts, H=40, seed 0, l1=0 --")
+    rng = np.random.default_rng(MASTER_SEED + 1)
+    seen, Zo = set(), []
+    while len(Zo) < 350:
+        z = tuple(int(v) for v in rng.integers(0, 2, N_BITS))
+        if sum(z) > 0 and z not in seen:
+            seen.add(z); Zo.append(z)
+    Zo = np.array(Zo, dtype=np.float64)
+    yo = rng.integers(0, N_CLASSES, 350)
+    (Lo, Ro, Do), _, acc, _ = sgd_train(Zo, yo, 40, seed=0, steps=20000, l1=0.0)
+    print(f"  trained: acc {acc:.1%}")
+    assert acc == 1.0, "overload arm did not memorize; adjust before measuring"
+    rmo = np.random.default_rng(7).choice(350, 10, replace=False)
+    keepo = np.setdiff1d(np.arange(350), rmo)
+    W = (Lo, Ro, Do)
+    for rnd, frame in enumerate(["D", "R", "L", "D", "R", "L", "D"]):
+        W, viol, _ = lp_frame_edit(*W, Zo, yo, rmo, keepo, frame)
+        flips, fdev = frame_eval(*W, Zo, yo, rmo, keepo)
+        res["overload"].append({"round": rnd, "frame": frame, "violation": viol,
+                                "flips": flips, "forget_dev": fdev})
+        print(f"  round {rnd} [{frame}]: violation {viol:9.2f}, retained flips "
+              f"{flips}/340, forget dev {fdev:.1e}")
+        if viol < 1e-6 and flips == 0:
+            break
+    metrics_update("f11d", res)
+
+    # F11d figure
+    fig = plt.figure(figsize=(11.5, 4.0))
+    gs = fig.add_gridspec(1, 2, wspace=0.3)
+    ax = fig.add_subplot(gs[0, 0])
+    methods = ["naive rank-1\nsubtraction", "KKT (L2,\nC-weighted)", "margin LP\n(D-frame, 1 round)"]
+    kkt_flips_frac = 2 / 450
+    naive_flips_frac = 0.55
+    lp_frac = np.mean([res["working_point"][s]["flips"] for s in SGD_SEEDS]) / 90
+    vals = [naive_flips_frac * 100, kkt_flips_frac * 100, lp_frac * 100]
+    bars = ax.bar(range(3), vals, 0.55, color=[RED, ORANGE, BLUE])
+    for b, v in zip(bars, vals):
+        ax.annotate(f"{v:.2f}%", (b.get_x() + b.get_width() / 2, v),
+                    ha="center", va="bottom", fontsize=9)
+    ax.set_xticks(range(3)); ax.set_xticklabels(methods, fontsize=8.5)
+    ax.set_ylabel("retained facts flipped (%)")
+    ax.set_title("(i) unlearn 10 of 100 facts (H=40): collateral by method\n"
+                 "(naive also FAILS to forget; LP: exact-uniform, zero collateral, all 5 seeds)",
+                 fontsize=9.5)
+    ax = fig.add_subplot(gs[0, 1])
+    xs = [h["round"] for h in res["overload"]]
+    fl = [h["flips"] for h in res["overload"]]
+    ax.plot(xs, fl, "o-", color=BLUE, lw=2, ms=7)
+    for h in res["overload"]:
+        ax.annotate(h["frame"], (h["round"], h["flips"]),
+                    textcoords="offset points", xytext=(8, 6), fontsize=9, color=MUTED)
+    ax.axhline(0, color=MUTED, lw=1)
+    ax.set_xlabel("round (frame edited)")
+    ax.set_ylabel("retained facts broken (of 340)")
+    ax.set_title("(ii) ONE layer, overloaded (350 facts, H=40):\n"
+                 "same ladder as the 2-layer model — frame load, not depth", fontsize=9.5)
+    fig.suptitle("F11d — the margin-LP / multi-frame editor in the one-layer setting", y=1.04)
+    savefig(fig, "F11d")
+
+
 STAGES = {
     "setup": stage_setup, "sweep": stage_sweep, "construct": stage_construct,
     "sgd": stage_sgd, "f9": stage_f9, "f10": stage_f10,
     "f11_predict": stage_f11_predict, "f11_measure": stage_f11_measure,
-    "f12": stage_f12,
+    "f12": stage_f12, "f11d": stage_f11d,
 }
 ORDER = list(STAGES)
 
