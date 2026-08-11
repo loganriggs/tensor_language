@@ -1,0 +1,106 @@
+# Query/key normalisation: the 2x2
+
+Depth 2 width 128. Parameter-identical within each family whether the norm is on or off.
+
+| family | query/key norm | seeds | held CE | induction |
+|---|---|---|---|---|
+| foldable (ours) | on | 3 | 4.64630 | -0.0034 |
+| foldable (ours) | OFF | 3 | 4.68547 | -0.0266 |
+| conventional | on | 3 | 4.61371 | +0.1061 |
+| conventional | OFF | 3 | 4.43920 | +1.1235 |
+
+```
+{
+  "foldable_ce_change": 0.03916999999999948,
+  "foldable_induction_change": -0.023276724638762045,
+  "conventional_ce_change": -0.17450999999999972,
+  "conventional_induction_change": 1.0173783832126193,
+  "sign_convention": "negative CE change = removing the norm HELPS"
+}
+```
+
+## Predictions, scored
+
+```
+{
+  "Q1_size_of_the_family_gain": {
+    "family_ce_change": 0.03917,
+    "conventional_ce_change": -0.17451,
+    "predicted": "family change between -0.05 and +0.10",
+    "holds": true
+  },
+  "Q2_does_the_family_start_inducting": {
+    "family_induction_without_qknorm": -0.02664,
+    "predicted": "stays below +0.05",
+    "holds": true,
+    "note_if_refuted": "a large family induction here means the cap we imposed, not the missing softmax, was blocking induction -- a more actionable result than the current story"
+  },
+  "Q3_training_stability": {
+    "spikes_without_qknorm": [
+      0,
+      0,
+      0
+    ],
+    "spikes_with_qknorm": [
+      0,
+      0,
+      0
+    ],
+    "any_diverged": false,
+    "predicted": "trains without divergence, more spikes than with"
+  }
+}
+```
+# Query/key normalisation: the 2x2
+
+Depth 2 width 128. Parameter-identical within each family whether the norm is on or off.
+
+| family | query/key norm | seeds | held CE | induction |
+|---|---|---|---|---|
+| foldable (ours) | on | 3 | 4.64630 | -0.0034 |
+| foldable (ours) | OFF | 3 | 4.68547 | -0.0266 |
+| conventional | on | 3 | 4.61371 | +0.1061 |
+| conventional | OFF | 3 | 4.43920 | +1.1235 |
+
+```
+{
+  "foldable_ce_change": 0.03916999999999948,
+  "foldable_induction_change": -0.023276724638762045,
+  "conventional_ce_change": -0.17450999999999972,
+  "conventional_induction_change": 1.0173783832126193,
+  "sign_convention": "negative CE change = removing the norm HELPS"
+}
+```
+
+## Predictions, scored
+
+```
+{
+  "Q1_size_of_the_family_gain": {
+    "family_ce_change": 0.03917,
+    "conventional_ce_change": -0.17451,
+    "predicted": "family change between -0.05 and +0.10",
+    "holds": true
+  },
+  "Q2_does_the_family_start_inducting": {
+    "family_induction_without_qknorm": -0.02664,
+    "predicted": "stays below +0.05",
+    "holds": true,
+    "note_if_refuted": "a large family induction here means the cap we imposed, not the missing softmax, was blocking induction -- a more actionable result than the current story"
+  },
+  "Q3_training_stability": {
+    "spikes_without_qknorm": [
+      0,
+      0,
+      0
+    ],
+    "spikes_with_qknorm": [
+      0,
+      0,
+      0
+    ],
+    "any_diverged": false,
+    "predicted": "trains without divergence, more spikes than with"
+  }
+}
+```
