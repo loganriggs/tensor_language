@@ -1215,6 +1215,59 @@ def frame_eval(L, R, D, Z, y, rm, keep):
     return flips, fdev
 
 
+def lp_tensor_edit(B, Z, y, rm, keep, eps=0.5):
+    """Margin LP in the MAXIMAL one-layer frame: the folded tensor itself.
+    Vars = Delta-B, one symmetric 20x20 per class (C x 210 dof). Exact removal
+    equalities at rm keys, margin >= eps at keep keys, min total hinge."""
+    import scipy.sparse as sp
+    from scipy.optimize import linprog
+    C = B.shape[0]
+    d = Z.shape[1]
+    iu = np.triu_indices(d)
+    nfeat = len(iu[0])                                  # 210
+    phi = Z[:, iu[0]] * Z[:, iu[1]]
+    phi[:, iu[0] != iu[1]] *= 2.0                       # symmetric off-diag doubles
+    logits = np.einsum("ni,cij,nj->nc", Z, B, Z, optimize=True)
+    nv = C * nfeat
+    def rowfn(k, cp, cn):
+        v = np.zeros((C, nfeat)); v[cp] = phi[k]; v[cn] -= phi[k]
+        return v.ravel()
+    rows = len(keep) * (C - 1)
+    A_ret = np.empty((rows, nv)); b_ub = np.empty(rows)
+    r = 0
+    for k in keep:
+        for c in range(C):
+            if c == y[k]:
+                continue
+            A_ret[r] = -rowfn(k, y[k], c)
+            b_ub[r] = (logits[k, y[k]] - logits[k, c]) - eps
+            r += 1
+    A_eqd = np.empty((len(rm) * (C - 1), nv)); b_eq = np.empty(len(rm) * (C - 1))
+    r = 0
+    for k in rm:
+        for c in range(C - 1):
+            A_eqd[r] = rowfn(k, c, c + 1)
+            b_eq[r] = -(logits[k, c] - logits[k, c + 1])
+            r += 1
+    A_ub = sp.hstack([sp.csr_matrix(A_ret), -sp.eye(rows)], format="csr")
+    A_eq = sp.hstack([sp.csr_matrix(A_eqd), sp.csr_matrix((r, rows))], format="csr")
+    lp = linprog(np.concatenate([np.zeros(nv), np.ones(rows)]),
+                 A_ub=A_ub, b_ub=b_ub, A_eq=A_eq, b_eq=b_eq,
+                 bounds=[(None, None)] * nv + [(0, None)] * rows, method="highs")
+    assert lp.status == 0, lp.message
+    dB = np.zeros_like(B)
+    x = lp.x[:nv].reshape(C, nfeat)
+    for c in range(C):
+        M = np.zeros((d, d))
+        M[iu] = x[c]
+        dB[c] = (M + M.T) / 2.0
+    B2 = B + dB
+    lo = np.einsum("ni,cij,nj->nc", Z, B2, Z, optimize=True)
+    fdev = float(np.abs(lo[rm] - lo[rm].mean(1, keepdims=True)).max())
+    flips = int((lo[keep].argmax(1) != y[keep]).sum())
+    return float(lp.x[nv:].sum()), flips, fdev
+
+
 def stage_f11d():
     pred = PRED / "part2_f11d_prediction.md"
     r = subprocess.run(["git", "status", "--porcelain", "--", str(pred)],
@@ -1253,6 +1306,12 @@ def stage_f11d():
             continue
         rmo = np.random.default_rng(7).choice(N_over, 10, replace=False)
         keepo = np.setdiff1d(np.arange(N_over), rmo)
+        Bo = fold(Lo, Ro, Do)
+        tviol, tflips, tfdev = lp_tensor_edit(Bo, Zo, yo, rmo, keepo)
+        res["overload"].append({"N": N_over, "frame": "tensor", "violation": tviol,
+                                "flips": tflips, "forget_dev": tfdev})
+        print(f"    tensor frame (2100 dof, 1 round): violation {tviol:9.2f}, "
+              f"retained flips {tflips}/{len(keepo)}, forget dev {tfdev:.1e}")
         W = (Lo, Ro, Do)
         for rnd, frame in enumerate(["D", "R", "L", "D", "R", "L", "D"]):
             W, viol, _ = lp_frame_edit(*W, Zo, yo, rmo, keepo, frame)
@@ -1285,25 +1344,31 @@ def stage_f11d():
                  "(naive also FAILS to forget; LP: exact-uniform, zero collateral, all 5 seeds)",
                  fontsize=9.5)
     ax = fig.add_subplot(gs[0, 1])
-    Ns, first_round_flips, rounds_used = [], [], []
+    Ns, dflips, ladder, tensor = [], [], [], []
     for N_over in (350, 600, 900):
         rounds = [h for h in res["overload"] if h.get("N") == N_over and "round" in h]
         if not rounds:
             continue
         Ns.append(N_over)
-        first_round_flips.append(rounds[0]["flips"])
-        rounds_used.append(len(rounds))
+        dflips.append(rounds[0]["flips"])
+        ladder.append(rounds[-1]["flips"])
+        t = [h for h in res["overload"] if h.get("N") == N_over
+             and h.get("frame") == "tensor"]
+        tensor.append(t[0]["flips"] if t else np.nan)
     xs = np.arange(len(Ns))
-    ax.bar(xs, first_round_flips, 0.5, color=BLUE)
-    for i, (f, ru) in enumerate(zip(first_round_flips, rounds_used)):
-        ax.annotate(f"{f} flips\n({ru} round{'s' if ru > 1 else ''})",
-                    (i, max(f, 0.4)), ha="center", va="bottom", fontsize=9)
+    wd = 0.26
+    ax.bar(xs - wd, dflips, wd * 0.92, color=ORANGE, label="D-frame LP (1 round)")
+    ax.bar(xs, ladder, wd * 0.92, color=BLUE, label="weight-frame ladder (7 rounds)")
+    ax.bar(xs + wd, tensor, wd * 0.92, color=AQUA, label="tensor frame (1 round)")
+    for i in range(len(Ns)):
+        for off, v in ((-wd, dflips[i]), (0, ladder[i]), (wd, tensor[i])):
+            ax.annotate(f"{v}", (i + off, v), ha="center", va="bottom", fontsize=8)
     ax.set_xticks(xs)
     ax.set_xticklabels([f"N={n}\n(load {n/40:.1f}x)" for n in Ns], fontsize=8.5)
-    ax.set_ylim(0, max(max(first_round_flips), 5) * 1.3)
-    ax.set_ylabel("retained facts broken after D-frame LP")
+    ax.set_ylabel("retained facts broken")
+    ax.legend(fontsize=8)
     ax.set_title("(ii) ONE layer pushed toward capacity (H=40, seed 0):\n"
-                 "is the single-frame LP ever insufficient before memorization fails?",
+                 "weight frames stall at high load; the folded-tensor frame does not",
                  fontsize=9.5)
     fig.suptitle("F11d — the margin-LP / multi-frame editor in the one-layer setting", y=1.04)
     savefig(fig, "F11d")
