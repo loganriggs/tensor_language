@@ -584,9 +584,187 @@ def stage_edits():
     save_fig(fig, "F13c_two_layer_edits")
 
 
+# ============================================================================= edits2
+def edit_metrics(logits, y, rm, keep, m0):
+    m = margins(logits, y)
+    pred = logits.argmax(1)
+    return {
+        "forget": int((pred[rm] != y[rm]).sum()),
+        "forget_dev": float(np.abs(logits[rm] - logits[rm].mean(1, keepdims=True)).max()),
+        "retained_flips": int((pred[keep] != y[keep]).sum()),
+        "median_retained_margin_drop": float(np.median((m0 - m)[keep])),
+    }
+
+
+def stage_edits2():
+    """Logan's question: is the ~45% KKT collateral fundamental or the wrong objective?
+    B: weighted LS refit of the joint linear readout [W, G] over [x1, h2].
+    C: hinge LP over Delta-G — exact removal equalities + per-retained-fact margin
+       constraints. Total violation 0 <=> a zero-collateral last-layer edit EXISTS.
+    D: one exact repair round in the R2 frame (logits linear in R2; h2 invariant to the
+       D2 edit) on top of the LP edit, holding removal equalities.
+    Oracle: retrain from scratch on the 1190 retained facts (existence baseline, seed 0).
+    """
+    require_committed(os.path.join(PRED, "part3_predictions.md"), "part3")
+    import scipy.sparse as sp
+    from scipy.optimize import linprog
+    print("=" * 70)
+    print("STAGE edits2: LS refit / margin LP / cross-layer repair / oracle retrain")
+    print("=" * 70)
+    EPS = 0.5
+    res = {}
+    for seed in SEEDS:
+        ps = dict(np.load(os.path.join(MODELS, f"p3_two_N{N_FACTS}_H40_s{seed}.npz")))
+        Z, y, x1, h2, base = h2_frame(ps)
+        G = ps["W"] @ ps["D1"]
+        logits0 = base + h2 @ G.T
+        m0 = margins(logits0, y)
+        N, H = h2.shape
+        C = N_CLASSES
+        rng = np.random.default_rng(7)
+        rm = rng.choice(N, 10, replace=False)
+        keep = np.setdiff1d(np.arange(N), rm)
+        out = {}
+
+        # ---- B: weighted LS refit of the joint readout [W | G] over M = [x1 | h2]
+        M = np.hstack([x1, h2])                       # (N, d+H)
+        T = logits0.copy()
+        T[rm] = logits0[rm].mean(1, keepdims=True)
+        w = np.ones(N); w[rm] = 100.0
+        sw = np.sqrt(w)[:, None]
+        Theta, *_ = np.linalg.lstsq(M * sw, T * sw, rcond=None)
+        out["B_ls_refit"] = edit_metrics(M @ Theta, y, rm, keep, m0)
+
+        # ---- C: hinge LP over Delta-G
+        nkeep = len(keep)
+        rows = nkeep * (C - 1)
+        # retention block: row (k, c!=y_k): -(df_y - df_c) - s <= m_kc - EPS
+        data, ri, ci = [], [], []
+        b_ub = np.empty(rows)
+        r = 0
+        for kk, k in enumerate(keep):
+            hk = h2[k]
+            for c in range(C):
+                if c == y[k]:
+                    continue
+                ri.extend([r] * (2 * H))
+                ci.extend(range(y[k] * H, y[k] * H + H))
+                data.extend(-hk)
+                ci.extend(range(c * H, c * H + H))
+                data.extend(hk)
+                b_ub[r] = (logits0[k, y[k]] - logits0[k, c]) - EPS
+                r += 1
+        A_ret = sp.csr_matrix((data, (ri, ci)), shape=(rows, C * H))
+        A_ub = sp.hstack([A_ret, -sp.eye(rows)], format="csr")
+        # removal equalities: df_c - df_{c+1} = -(f_c - f_{c+1}) at removed keys
+        data, ri, ci = [], [], []
+        b_eq = np.empty(10 * (C - 1))
+        r = 0
+        for k in rm:
+            hk = h2[k]
+            for c in range(C - 1):
+                ri.extend([r] * (2 * H))
+                ci.extend(range(c * H, c * H + H))
+                data.extend(hk)
+                ci.extend(range((c + 1) * H, (c + 1) * H + H))
+                data.extend(-hk)
+                b_eq[r] = -(logits0[k, c] - logits0[k, c + 1])
+                r += 1
+        A_eq = sp.hstack([sp.csr_matrix((data, (ri, ci)), shape=(r, C * H)),
+                          sp.csr_matrix((r, rows))], format="csr")
+        cobj = np.concatenate([np.zeros(C * H), np.ones(rows)])
+        lp = linprog(cobj, A_ub=A_ub, b_ub=b_ub, A_eq=A_eq, b_eq=b_eq,
+                     bounds=[(None, None)] * (C * H) + [(0, None)] * rows,
+                     method="highs")
+        assert lp.status == 0, lp.message
+        dG = lp.x[:C * H].reshape(C, H)
+        s = lp.x[C * H:]
+        viol_rows = int((s > 1e-6).sum())
+        viol_facts = int(len({keep[i // (C - 1)] for i in np.where(s > 1e-6)[0]}))
+        logitsC = logits0 + h2 @ dG.T
+        out["C_margin_lp"] = edit_metrics(logitsC, y, rm, keep, m0)
+        out["C_margin_lp"].update({"total_violation": float(s.sum()),
+                                   "violated_facts": viol_facts,
+                                   "feasible_zero_collateral": bool(s.sum() < 1e-6)})
+
+        # ---- D: one exact repair round in the R2 frame on the LP-edited model
+        # Edited model: D2' = D2 + pinv(W) dG; h2 map unchanged; logits_C exact.
+        G2 = G + dG
+        a2 = x1 @ ps["L1"].T                          # (N, H): (L2 x1)
+        d_in = x1.shape[1]
+        nv = H * d_in
+        # coeff for row (k, c-pair) and var (h, j): G2[c,h] * a2[k,h] * x1[k,j]
+        def r2_row(k, cpos, cneg):
+            v = (G2[cpos][:, None] * a2[k][:, None] * x1[k][None, :]
+                 - G2[cneg][:, None] * a2[k][:, None] * x1[k][None, :])
+            return v.ravel()
+        A_ret2 = np.empty((rows, nv))
+        b_ub2 = np.empty(rows)
+        mC = logitsC
+        r = 0
+        for kk, k in enumerate(keep):
+            for c in range(C):
+                if c == y[k]:
+                    continue
+                A_ret2[r] = -r2_row(k, y[k], c)
+                b_ub2[r] = (mC[k, y[k]] - mC[k, c]) - EPS
+                r += 1
+        A_ub2 = sp.hstack([sp.csr_matrix(A_ret2), -sp.eye(rows)], format="csr")
+        A_eq2 = np.empty((10 * (C - 1), nv))
+        b_eq2 = np.zeros(10 * (C - 1))
+        r = 0
+        for k in rm:
+            for c in range(C - 1):
+                A_eq2[r] = r2_row(k, c, c + 1)
+                b_eq2[r] = -(mC[k, c] - mC[k, c + 1])
+                r += 1
+        A_eq2 = sp.hstack([sp.csr_matrix(A_eq2), sp.csr_matrix((r, rows))], format="csr")
+        cobj2 = np.concatenate([np.zeros(nv), np.ones(rows)])
+        lp2 = linprog(cobj2, A_ub=A_ub2, b_ub=b_ub2, A_eq=A_eq2, b_eq=b_eq2,
+                      bounds=[(None, None)] * nv + [(0, None)] * rows,
+                      method="highs")
+        assert lp2.status == 0, lp2.message
+        dR2 = lp2.x[:nv].reshape(H, d_in)
+        # exact evaluation with edited weights
+        ps_d = dict(ps)
+        ps_d["D1"] = ps["D1"] + np.linalg.pinv(ps["W"]) @ dG
+        ps_d["R1"] = ps["R1"] + dR2
+        logitsD = np_fwd(ps_d, Z, 2)
+        out["D_r2_repair"] = edit_metrics(logitsD, y, rm, keep, m0)
+        out["D_r2_repair"]["total_violation"] = float(lp2.x[nv:].sum())
+
+        res[seed] = out
+        print(f"  seed{seed}:")
+        for tag in ("B_ls_refit", "C_margin_lp", "D_r2_repair"):
+            o = out[tag]
+            extra = ""
+            if "feasible_zero_collateral" in o:
+                extra = (f", LP {'FEASIBLE' if o['feasible_zero_collateral'] else 'infeasible'}"
+                         f" (violation {o['total_violation']:.1f}, {o['violated_facts']} facts)")
+            if tag == "D_r2_repair":
+                extra = f", residual violation {o['total_violation']:.1f}"
+            print(f"    {tag}: forget {o['forget']}/10 (dev {o['forget_dev']:.2e}), "
+                  f"retained flips {o['retained_flips']}/{len(keep)}, "
+                  f"med margin drop {o['median_retained_margin_drop']:.2f}{extra}")
+
+    # oracle retrain (seed 0 only)
+    Z, yy = make_facts()
+    rng = np.random.default_rng(7)
+    rm = rng.choice(len(yy), 10, replace=False)
+    keep = np.setdiff1d(np.arange(len(yy)), rm)
+    ps_o, acc, _ = train(40, 2, 0, Z[keep], yy[keep], steps=25000)
+    pred_rm = np_fwd(ps_o, Z[rm], 2).argmax(1)
+    oracle = {"retained_acc": acc, "removed_correct": int((pred_rm == yy[rm]).sum())}
+    res["oracle_seed0"] = oracle
+    print(f"  oracle retrain (seed0): retained {acc:.1%}, removed still-correct "
+          f"{oracle['removed_correct']}/10 (chance ~1)")
+    with open(os.path.join(FIG, "part3_edits2.json"), "w") as f:
+        json.dump(res, f, indent=1)
+
+
 STAGES = {"sweep": stage_sweep, "verify": stage_verify, "control": stage_control,
           "measure": stage_measure, "figure": stage_figure,
-          "capacity": stage_capacity, "edits": stage_edits}
+          "capacity": stage_capacity, "edits": stage_edits, "edits2": stage_edits2}
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
