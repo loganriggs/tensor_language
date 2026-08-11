@@ -141,3 +141,14 @@
    removal is a single feasible LP with zero collateral at every memorizable load tested
    (350/600/900). Editability is a property of the affordable linear frame, not of the
    model's depth or load alone.
+
+8. The LP editor's real weakness is margin collapse, not resurrection. Under the sister
+   session's masking-diagnosis battery, the LP-edited model shows NO resurrection signal
+   (removed-fact reversion ~chance under noise, relearn speed no faster than an oracle
+   learning fresh facts — their registered prediction refuted) — but it is ~50-100x more
+   noise-fragile than a retrained oracle, because LP vertex solutions pin retained
+   margins at the constraint floor (median 24 -> 0.5). Exactness and robustness traded
+   places: the certificate is exact on the nose and brittle everywhere around it.
+   Raising the floor to eps = 10 converges at 2x the weight cost and remains
+   vertex-pinned (min margin exactly 10.00). The from-scratch retrain is still the only
+   robust zero-collateral point found.

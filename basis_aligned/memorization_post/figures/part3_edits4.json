@@ -1,0 +1,128 @@
+{
+ "cost": {
+  "per_round": [
+   {
+    "round": 0,
+    "frame": "G",
+    "violation": 5067.341758510063,
+    "flips": 522,
+    "dnorm": 17.334941761981025,
+    "relnorm": 1.0869832446773482
+   },
+   {
+    "round": 1,
+    "frame": "R2",
+    "violation": 1165.1408396703173,
+    "flips": 257,
+    "dnorm": 11.305223132132655,
+    "relnorm": 0.7226018289519257
+   },
+   {
+    "round": 2,
+    "frame": "L2",
+    "violation": 362.58606648136987,
+    "flips": 121,
+    "dnorm": 7.393248733680689,
+    "relnorm": 0.5206795654220902
+   },
+   {
+    "round": 3,
+    "frame": "G",
+    "violation": 355.287693047182,
+    "flips": 118,
+    "dnorm": 0.08947056088404381,
+    "relnorm": 0.005609941814077293
+   },
+   {
+    "round": 4,
+    "frame": "R2",
+    "violation": 63.99386476415816,
+    "flips": 23,
+    "dnorm": 9.390224392640471,
+    "relnorm": 0.43844345638710686
+   },
+   {
+    "round": 5,
+    "frame": "L2",
+    "violation": 0.0,
+    "flips": 0,
+    "dnorm": 5.469844538446296,
+    "relnorm": 0.3555122170267246
+   }
+  ],
+  "alternation_total_dnorm": 50.98295311976518,
+  "kkt_dnorm": 5.093081446602796,
+  "ratio": 10.010237152946374
+ },
+ "lens": {
+  "identical": true,
+  "removed_decodable_from_block1": 2
+ },
+ "perturb": [
+  {
+   "sigma": 0.002,
+   "lp_revert": 0.10500000000000001,
+   "lp_retained_broken": 0.12222689075630251,
+   "oracle_revert": 0.0,
+   "oracle_retained_broken": 0.0
+  },
+  {
+   "sigma": 0.005,
+   "lp_revert": 0.08000000000000003,
+   "lp_retained_broken": 0.2274789915966387,
+   "oracle_revert": 0.0,
+   "oracle_retained_broken": 0.0
+  },
+  {
+   "sigma": 0.01,
+   "lp_revert": 0.135,
+   "lp_retained_broken": 0.31243697478991594,
+   "oracle_revert": 0.0,
+   "oracle_retained_broken": 4.201680672268908e-05
+  },
+  {
+   "sigma": 0.02,
+   "lp_revert": 0.09000000000000001,
+   "lp_retained_broken": 0.4179831932773109,
+   "oracle_revert": 0.0,
+   "oracle_retained_broken": 0.0018907563025210082
+  },
+  {
+   "sigma": 0.05,
+   "lp_revert": 0.07500000000000001,
+   "lp_retained_broken": 0.5952100840336134,
+   "oracle_revert": 0.01,
+   "oracle_retained_broken": 0.08521008403361344
+  }
+ ],
+ "relearn": {
+  "lp": [
+   {
+    "steps": 25,
+    "final_acc": 0.9433333277702332
+   },
+   {
+    "steps": 25,
+    "final_acc": 0.9433333277702332
+   },
+   {
+    "steps": 25,
+    "final_acc": 0.9433333277702332
+   }
+  ],
+  "oracle": [
+   {
+    "steps": 20,
+    "final_acc": 0.9925000071525574
+   },
+   {
+    "steps": 20,
+    "final_acc": 0.9925000071525574
+   },
+   {
+    "steps": 20,
+    "final_acc": 0.9925000071525574
+   }
+  ]
+ }
+}

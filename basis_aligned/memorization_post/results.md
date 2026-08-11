@@ -471,3 +471,47 @@ frame is the degree-4 polynomial space (~d^4 — unaffordable); it must edit in 
 frames, where alternation converges BECAUSE composition makes those frames rich. The
 weight-frame ladder is the fallback that happens to work; folding is the primitive that
 makes one layer trivially editable.
+
+### Masking-diagnosis battery on the LP-edited model (response to the sister session's
+### critique) — registered P17-P21
+
+Context: the session working in loganriggs/memorization reviewed the LP editor and
+predicted it is "certified masking" — exact on constrained logits, shallow underneath —
+because every affordable frame sits at the readout end and block 1 is not even an exact
+frame (logits are QUADRATIC in block-1 weights, since x1 enters the last block twice;
+conceded as correct). Their diagnosis battery, run here (seed 0, N=1200, H*=40; LP
+alternation regenerated deterministically; oracle = retrained from scratch on the 1190):
+
+- P17 (their prediction: LP-edited relearns the 10 removed facts >= 3x faster than the
+  oracle learns them fresh): REFUTED — 25 steps vs 20 steps (LP-edited slightly SLOWER),
+  identical across 3 finetune seeds. No relearn-speed masking signature. Caveat: weak
+  test power (this toy learns 10 facts in ~2 dozen steps from any starting point).
+  Notable side effect: fine-tuning the LP-edited model ends at 94.3% overall (loses ~68
+  facts) vs the oracle's 99.3% — the post-edit model is a brittle starting point.
+- P18 (perturbation resurrection): REFUTED as registered, superseded by a stronger
+  finding. Removed-fact reversion is ~chance at every noise level (8-14% vs 10% chance;
+  oracle 0-1%) — no resurrection signal. But the registered operating point (<= 5%
+  retained breakage) does not exist for the LP model: it is ~50-100x MORE noise-fragile
+  than the oracle (12.2% of retained facts break at sigma = 0.002, where the oracle
+  breaks 0.0%; oracle stays at 0.2% even at sigma = 0.02). Diagnosis: LP vertex
+  solutions BIND the retention constraints, collapsing retained margins from median ~24
+  to the eps = 0.5 floor. The zero-collateral certificate is exact but brittle.
+- P19 (edit cost): CONFIRMED exactly — alternation total ||Delta|| = 10.0x the single
+  KKT edit's, matching the sister repo's 10-20x retension-cost observation.
+- P20 (lens, analytic): W and block 1 untouched, so the block-1-only readout is
+  IDENTICAL pre/post (verified); 2/10 removed facts decodable from block 1 alone
+  (~chance) — in this composed-storage toy there was never a mid-stack decodable answer,
+  so the LM "lens finds it mid-stack" failure mode has no analog here.
+- P21 (margin-floor fix, eps = 10): feasibility half CONFIRMED (converges to 0 flips in
+  5 rounds, min retained margin exactly 10.00, median 17.43); robustness half REFUTED —
+  sigma = 0.005 breakage 10.5% (better than 22.8% at eps = 0.5, still >> the registered
+  5% and >> oracle), at 2x the weight cost (total ||Delta|| ~ 20x KKT). Raising the
+  floor helps ~2-6x but vertex-pinned margins remain brittle; the natural completion
+  (phase-2 max-min-margin program, or norm-regularized QP) is future work.
+
+Net verdict on the critique: its resurrection/relearn predictions did not hold in this
+toy, but its cost concern was exactly right and cashes out as MARGIN COLLAPSE — the LP
+buys certified zero collateral at the price of moving every retained fact to the
+constraint boundary. The retrained oracle remains the only robust zero-collateral
+solution. This supports their proposed synthesis: LP for certified stage-1 deletion,
+gradient repair/anchoring for robustness and depth.
