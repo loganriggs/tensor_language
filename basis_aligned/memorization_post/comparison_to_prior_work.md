@@ -142,3 +142,24 @@ has results the other lacks.
 - His t3c two-stage neighbor pipeline (weights-side shortlist -> forward-margin
   confirmation) vs our Gram forecast on the same model would settle which pre-edit
   forecaster is stronger where.
+
+## Update 2026-08-11: the sister session's critique and the battery outcome
+
+The prior repo's session reviewed this comparison and returned a critique: the LP editor
+is "certified masking" (exact on constrained logits only; block 1 is not even an exact
+frame — logits are quadratic in block-1 weights; conceded), the retain set must be
+enumerable (conceded; their KL-to-base anchor has no LP analog), and the missing
+experiment is their diagnosis battery on LP-edited models. Battery run here (registered
+P17-P21; details in results.md):
+
+- Their relearn-speed prediction REFUTED (25 vs 20 steps — no masking signature; weak
+  test power) and no perturbation resurrection (reversion ~chance at all noise levels).
+- Their cost concern CONFIRMED exactly (alternation = 10.0x the KKT edit's weight
+  change) and superseded by the sharper finding: LP vertex solutions collapse retained
+  margins to the constraint floor (median 24 -> 0.5), making the edited model 50-100x
+  more noise-fragile than a from-scratch retrain. "Certified masking" in this toy is
+  better named "certified brittleness". eps = 10 improves fragility ~6x at 2x cost but
+  stays vertex-pinned; phase-2 max-min-margin is the un-run method both sides now point
+  to.
+- Synthesis adopted: margin-LP for certified stage-1 deletion where frames exist;
+  gradient repair + anchoring for robustness, depth, and non-enumerable retain sets.
