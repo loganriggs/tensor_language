@@ -143,3 +143,21 @@ P19 (edit cost, their unmeasured-norm point): the alternation's total weight cha
 P20 (lens, analytic — no uncertainty claimed): W and block 1 are untouched by the
     alternation, so the block-1-only readout W(z + B1(z)) is IDENTICAL pre/post edit;
     reported with counts of removed facts decodable from it (expected ~chance, per F13).
+
+## Addendum 5 (registered before the margin-floor robustness fix)
+
+Battery outcomes: P17 REFUTED (LP-edited relearns in 25 steps vs oracle 20 — no relearn
+advantage; weak test power, everything relearns fast here); P18 refuted AS REGISTERED but
+superseded — no sigma gives <= 5% retained breakage for the LP model because it is
+~50-100x MORE noise-fragile than the oracle (12.2% retained broken at sigma 0.002 vs
+oracle 0.0% at 0.02; removed-fact reversion ~chance at all sigmas, no resurrection
+signal). Diagnosis: LP vertex solutions BIND the retention constraints — the edit
+collapses retained margins toward the eps = 0.5 floor (pre-edit median 24), so the
+zero-collateral certificate is exact but brittle. This vindicates the critique's cost
+concern in margin currency rather than resurrection currency (P19 confirmed at exactly
+10.0x the KKT edit's weight change).
+
+P21: re-running the alternation with retention floor eps = 10 (20x higher) still
+converges to 0 retained flips within 7 rounds, and the resulting model's noise
+fragility at sigma = 0.005 drops below 5% retained breakage (vs 22.75% at eps = 0.5).
+Confidence 0.5 (feasibility at the higher floor is the uncertain half).
