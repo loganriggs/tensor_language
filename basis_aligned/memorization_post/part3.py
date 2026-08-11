@@ -31,16 +31,20 @@ os.makedirs(FIG, exist_ok=True)
 os.makedirs(MODELS, exist_ok=True)
 
 N_BITS = 20
-N_FACTS = 200
+N_FACTS = 200   # overridden by --nfacts; sizing outcome documented in results.md
 N_CLASSES = 10
 SEEDS = [0, 1, 2, 3, 4]
 STEPS = 15000
 LR = 1e-2
 DEV = "cuda" if torch.cuda.is_available() else "cpu"
 
-H1_GRID = [8, 12, 16, 20, 24, 32, 40]     # single-block model
-H2_GRID = [4, 6, 8, 10, 12, 16, 20]       # per-block H of the 2-block model
-SIZE_JSON = os.path.join(FIG, "part3_sizing.json")
+# Sizing note (2026-08-11): at 200 facts EVERY config memorized (a single quadratic
+# layer in 20 booleans has ~210 free monomials — 200 facts is below the expressivity
+# cap at any H). The sizing knob is the fact count. H1 grid includes H=210 = the full
+# quadratic span, so a 1-block failure is an EXPRESSIVITY limit, not parameter shortage.
+H1_GRID = [40, 80, 120, 210]
+H2_GRID = [12, 20, 40, 80]
+SIZE_JSON = os.path.join(FIG, "part3_sizing.json")   # reset per --nfacts in __main__
 MET_JSON = os.path.join(FIG, "part3_metrics.json")
 
 # ----------------------------------------------------------------------------- style
@@ -168,26 +172,24 @@ def stage_sweep():
 def stage_verify():
     with open(SIZE_JSON) as f:
         sz = json.load(f)
-    # chosen sizes: smallest 2-block H with both sizing seeds at 100%, such that the
-    # 1-block model at the SAME H (and at 2H) is clearly below 100%
-    Hstar = None
-    for H in H2_GRID:
-        if min(sz["two"][str(H)]) == 1.0:
-            one_same = max(sz["one"].get(str(H), [0.0]))
-            if one_same < 1.0:
-                Hstar = H
-                break
+    # sizing criterion: smallest 2-block H with both sizing seeds at 100%, given that
+    # the 1-block model fails even at the FULL quadratic span (H=210) — an
+    # expressivity failure, not a parameter shortage
+    one_best = max(max(v) for v in sz["one"].values())
+    if one_best == 1.0:
+        sys.exit("a 1-block model memorized everything — raise --nfacts (document!).")
+    Hstar = next((H for H in H2_GRID if min(sz["two"][str(H)]) == 1.0), None)
     if Hstar is None:
         sys.exit("no H satisfies the sizing criterion — adjust N_FACTS/grids (document!).")
     print(f"chosen H* = {Hstar} per block")
     Z, y = make_facts()
-    res = {"Hstar": Hstar, "two": [], "one_same": [], "one_double": []}
+    res = {"Hstar": Hstar, "n_facts": N_FACTS, "two": [], "one_same": [], "one_fullspan": []}
     for seed in SEEDS:
         ps, acc, loss = train(Hstar, 2, seed, Z, y)
-        np.savez(os.path.join(MODELS, f"p3_two_H{Hstar}_s{seed}.npz"), **ps)
+        np.savez(os.path.join(MODELS, f"p3_two_N{N_FACTS}_H{Hstar}_s{seed}.npz"), **ps)
         res["two"].append(acc)
         print(f"  2-block H={Hstar} seed{seed}: acc {acc:.1%} loss {loss:.4f}")
-    for tag, H in (("one_same", Hstar), ("one_double", 2 * Hstar)):
+    for tag, H in (("one_same", Hstar), ("one_fullspan", 210)):
         for seed in SEEDS:
             ps, acc, loss = train(H, 1, seed, Z, y)
             res[tag].append(acc)
@@ -220,12 +222,12 @@ def stage_control():
     print("=" * 70)
     print("STAGE control: attribution metric gates (one block frozen at zero)")
     print("=" * 70)
-    Z, y = make_facts()
-    # H large enough that a single live block memorizes well (from the sweep table)
-    with open(SIZE_JSON) as f:
-        sz = json.load(f)
-    Hc = next((H for H in H1_GRID if min(sz["one"][str(H)]) == 1.0), H1_GRID[-1])
-    print(f"  control H = {Hc} (smallest 1-block H at 100% in the sweep)")
+    # controls run on the first 200 facts (memorizable by ONE live block at H=40,
+    # per the N=200 sweep) — the metric gate does not need the final sizing
+    Zf, yf = make_facts()
+    Z, y = Zf[:200], yf[:200]
+    Hc = 40
+    print(f"  control: first 200 facts, H = {Hc} (1 block at H=40 memorized 200/200)")
     ok = True
     for dead in (1, 0):
         ps, acc, _ = train(Hc, 2, 0, Z, y, freeze_zero=dead)
@@ -235,7 +237,7 @@ def stage_control():
         frac = dead_bin / max(mem, 1)
         verdict = "PASS" if frac <= 0.05 else "FAIL"
         ok &= (frac <= 0.05)
-        print(f"  block {dead} frozen at zero: memorized {mem}/{N_FACTS}; "
+        print(f"  block {dead} frozen at zero: memorized {mem}/{len(y)}; "
               f"facts attributed to the DEAD layer: {dead_bin} ({frac:.1%}) [{verdict}]")
         counts = {k: int(v[full].sum()) for k, v in bins.items()}
         print(f"    bins over memorized facts: {counts}")
@@ -253,9 +255,9 @@ def stage_measure():
     Z, y = make_facts()
     with open(SIZE_JSON.replace("sizing", "verify")) as f:
         Hstar = json.load(f)["Hstar"]
-    met = {"Hstar": Hstar, "seeds": {}}
+    met = {"Hstar": Hstar, "n_facts": N_FACTS, "seeds": {}}
     for seed in SEEDS:
-        ps = dict(np.load(os.path.join(MODELS, f"p3_two_H{Hstar}_s{seed}.npz")))
+        ps = dict(np.load(os.path.join(MODELS, f"p3_two_N{N_FACTS}_H{Hstar}_s{seed}.npz")))
         full_logits = np_fwd(ps, Z, 2)
         full = full_logits.argmax(1) == y
         _, bins, c1ok, c2ok = attribution_bins(ps, Z, y)
@@ -310,6 +312,7 @@ def stage_figure():
     d = np.load(os.path.join(FIG, "F13_seed0_data.npz"))
     with open(MET_JSON) as f:
         met = json.load(f)
+    n_facts = met.get("n_facts", N_FACTS)
     names = ["linear", "l1only", "l2only", "both", "neither"]
     seed_bins = np.array([[met["seeds"][str(s)]["bins"][k] for k in names] for s in SEEDS])
     fig = plt.figure(figsize=(13.5, 4.2))
@@ -322,7 +325,7 @@ def stage_figure():
         lo, hi = seed_bins[:, i].min(), seed_bins[:, i].max()
         ax.plot([i, i], [lo, hi], color=INK, lw=1.2)
     ax.set_xticks(xs); ax.set_xticklabels(names, fontsize=8.5)
-    ax.set_ylabel("facts (of 200)")
+    ax.set_ylabel(f"facts (of {n_facts})")
     ax.set_title("(i) fact attribution by single-layer evaluation\n(bars: seed 0; whiskers: range over 5 seeds)", fontsize=9.5)
     for s in ("top", "right"):
         ax.spines[s].set_visible(False)
@@ -334,7 +337,7 @@ def stage_figure():
     ax.axvline(0, color=INK, lw=1)
     lost = int((d["full"] & ~d["add_ok"]).sum())
     ax.set_title(f"(ii) cross-term margin contribution per fact (seed 0)\n"
-                 f"degree-2 surrogate loses {lost}/200 facts", fontsize=9.5)
+                 f"degree-2 surrogate loses {lost}/{n_facts} facts", fontsize=9.5)
     ax.set_xlabel("margin(full) $-$ margin(additive)")
     ax.set_ylabel("facts")
     for s in ("top", "right"):
@@ -352,7 +355,7 @@ def stage_figure():
         ax.spines[s].set_visible(False)
     ax.grid(axis="y", color=GRIDC, lw=0.8); ax.set_axisbelow(True)
 
-    fig.suptitle(f"F13 — how 200 facts live in 2 bilinear blocks (H*={met['Hstar']} per block)",
+    fig.suptitle(f"F13 — how {n_facts} facts live in 2 bilinear blocks (H*={met['Hstar']} per block)",
                  color=INK, y=1.04)
     save_fig(fig, "F13_cross_layer")
 
@@ -363,7 +366,11 @@ STAGES = {"sweep": stage_sweep, "verify": stage_verify, "control": stage_control
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--stage", default="all", choices=list(STAGES) + ["all"])
+    ap.add_argument("--nfacts", type=int, default=400)
     args = ap.parse_args()
+    N_FACTS = args.nfacts
+    SIZE_JSON = os.path.join(FIG, f"part3_sizing_N{N_FACTS}.json")
+    MET_JSON = os.path.join(FIG, f"part3_metrics_N{N_FACTS}.json")
     if args.stage == "all":
         for name, fn in STAGES.items():
             fn()
