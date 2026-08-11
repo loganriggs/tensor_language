@@ -289,3 +289,60 @@ Logan reports D -> -I locally under a sparsity constraint, as one of many soluti
    initialized at -I, or nonnegativity on L/R) would make -I the selected representative.
 3. Prediction scoring: dominance-rises-with-L1 held; negative-fraction -> 1 FAILED (explained by the gauge);
    memorization never broke, even at L1=1e-1 (predicted it might).
+
+## Part 3: facts in 2 bilinear blocks with a residual stream — F13
+
+From `part3.py` (stages sweep/verify/control/measure/figure; seeded, re-runnable).
+Registered predictions P1-P4 in `predictions/part3_predictions.md`, committed before the
+sizing sweep and all measurements. Metrics in `figures/part3_metrics_N1200.json`.
+
+Sizing (documented deviation from the handoff's "200 facts": 200 turned out to be far
+below single-layer capacity, so the fact count is the sizing knob).
+- Architecture: x -> x + B1(x) -> ... + B2(...), linear readout, no biases; d = 20 stream,
+  n = 20-bit keys, 10 classes; AdamW, 25k steps, 5 seeds.
+- A single bilinear block memorizes 200, 400, and 800 facts at every H tried — 400+ facts
+  with only ~210 quadratic monomials available, so margin classification capacity is far
+  beyond the interpolation count. The ceiling sits between 800 and 1200: at 1200 facts a
+  single block gets 54.0-54.2% and is EXPRESSIVITY-limited, not parameter-limited — H = 40
+  and H = 210 (the full quadratic span) give identical accuracy to three decimal places.
+- Two blocks at H = 40 per block (4,800 block parameters vs the failing single block's
+  12,600) memorize all 1200 with loss ~0; H = 120 two-block holds 2000 facts at 100%.
+- Working point: N* = 1200, H* = 40 per block.
+
+Metric positive controls (gate): train the 2-block model with one block frozen at zero
+(200 facts, H = 40). The attribution metric assigns 0 of 200 memorized facts to the dead
+layer in both directions (177 to the live layer, 23 to the linear bin). PASS both ways.
+
+Attribution by single-layer evaluation (5 seeds, bins over the 1200 facts):
+- linear (correct with both blocks off) 104-156; layer-1-only 124-157; layer-2-only
+  127-157; both 14-33; NEITHER 739-790 (62-66% of all facts).
+- The chance floor is 10% (10 classes, 120 facts): the linear and single-layer bins all
+  sit at or barely above chance. Single-layer evaluations are close to random with respect
+  to the stored labels — essentially NO fact is attributable to one layer.
+- P1 (attribution not disjoint, < 30% in clean single-layer bins) CONFIRMED: 21-25%.
+
+Cross terms (full logits minus the additive degree-2 surrogate W(z + B1(z) + B2(z))):
+- The additive surrogate keeps only 17.2-18.9% accuracy — it loses 973-994 of 1200 facts.
+  P2 (>= 25% lost) CONFIRMED at ~82% lost: the composed degree-3/4 terms are not a
+  correction, they ARE the memory.
+- Median |cross| / |full logits| per fact: 0.97-0.99 — ~98% of logit magnitude on stored
+  keys comes from the composed terms.
+- Per-fact margin contribution of the cross terms (F13 panel ii): almost entirely
+  positive, median ~+40 (seed 0), i.e. the composed terms build the margin.
+
+Cancellation / the draft's "negation for every fact" hunch (F13 panel iii):
+- P3 predicted median cos(cross, layer-1 contribution) < 0 (cancellation). REFUTED:
+  medians are +0.07 to +0.13 (layer 1) and -0.07 to +0.004 (layer 2) — broad,
+  near-zero-centered distributions. The composed term neither systematically cancels nor
+  amplifies a layer's direct write; it is a nearly orthogonal third channel.
+
+Ablations (survivors out of 1200):
+- zero block 2: 185-237 survive; zero block 1: 175-198 survive. Both catastrophic
+  (~16-20%, vs 10% chance). P4 predicted removing block 2 hurts MORE; REFUTED in 4/5
+  seeds — block 1 is slightly more load-bearing (block 2's contribution is computed on
+  the block-1-enriched stream, so removing block 1 also corrupts block 2's input).
+
+Verdict for the post (handoff allows "it is/isn't cross-layer" + one figure): it IS
+cross-layer — at capacity-stressed sizing, SGD stores facts almost entirely in the
+composed degree-3/4 structure spanning both blocks, with no per-layer fact partition and
+no evidence for the negation hunch at the logit level.

@@ -327,6 +327,8 @@ def stage_figure():
         ax.plot([i, i], [lo, hi], color=INK, lw=1.2)
     ax.set_xticks(xs); ax.set_xticklabels(names, fontsize=8.5)
     ax.set_ylabel(f"facts (of {n_facts})")
+    ax.axhline(0.1 * n_facts, color=INK, lw=1, ls="--")
+    ax.text(len(names) - 0.45, 0.1 * n_facts, " 10% chance", fontsize=8, color=INK2, va="bottom", ha="right")
     ax.set_title("(i) fact attribution by single-layer evaluation\n(bars: seed 0; whiskers: range over 5 seeds)", fontsize=9.5)
     for s in ("top", "right"):
         ax.spines[s].set_visible(False)

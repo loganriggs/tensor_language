@@ -76,3 +76,25 @@
    and the analytic Gram bound, though valid everywhere, is 35-55x loose. Only the
    minimum-C-norm KKT interpolant is well behaved off-distribution (1.4%). The post's
    "behavior guarantee on all 2^n inputs" must be stated as the bound itself.
+
+## Part 3 surprises
+
+1. Single-block capacity is 4x the monomial count. A quadratic in 20 booleans has ~210
+   free monomials, yet one bilinear block memorizes 800 random 10-class facts (and 400,
+   and 200) at every width tried; the ceiling sits between 800 and 1200. At 1200 facts it
+   saturates at 54% with H = 40 and H = 210 giving identical accuracy — the failure is
+   expressivity of the quadratic function class, not parameters. Margin classification is
+   much cheaper than interpolation.
+
+2. At capacity-stressed sizing nothing is stored "in a layer". 62-66% of the 1200 facts
+   are classified correctly by NEITHER single-layer evaluation, and every attribution bin
+   except "neither" sits at the 10% chance floor. The degree-2 additive surrogate keeps
+   18% of facts; ~98% of logit magnitude on stored keys lives in the composed degree-3/4
+   cross terms. The handoff's question "disjoint per layer or composed?" has an extreme
+   answer: composed, almost totally.
+
+3. The "negation for every fact" hunch is not supported at the logit level (P3 refuted):
+   cos(cross-term, layer-1 write) distributions are broad and centered near zero (medians
+   +0.07 to +0.13), so the composed term is a nearly orthogonal channel, not an
+   interference canceller. P4 also refuted: zeroing block 1 hurts slightly more than
+   zeroing block 2 (block 2 computes on the block-1-enriched stream).
