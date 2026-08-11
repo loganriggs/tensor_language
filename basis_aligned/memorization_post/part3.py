@@ -762,9 +762,96 @@ def stage_edits2():
         json.dump(res, f, indent=1)
 
 
+# ============================================================================= edits3
+def stage_edits3():
+    """P14: alternate exact single-frame hinge LPs (G -> R2 -> L2 -> ...), removal
+    equalities re-imposed every round; seed 0. Each frame is exactly linear in the
+    varied parameter with the others fixed, so every round is exact (no Taylor)."""
+    require_committed(os.path.join(PRED, "part3_predictions.md"), "part3")
+    import scipy.sparse as sp
+    from scipy.optimize import linprog
+    print("=" * 70)
+    print("STAGE edits3: alternating-frame hinge LPs, seed 0")
+    print("=" * 70)
+    EPS = 0.5
+    ps = dict(np.load(os.path.join(MODELS, f"p3_two_N{N_FACTS}_H40_s0.npz")))
+    Z, y, x1, _, _ = h2_frame(ps)
+    N = len(y); C = N_CLASSES; H = ps["L1"].shape[0]; d = x1.shape[1]
+    rng = np.random.default_rng(7)
+    rm = rng.choice(N, 10, replace=False)
+    keep = np.setdiff1d(np.arange(N), rm)
+    m0 = margins(np_fwd(ps, Z, 2), y)
+    rows = len(keep) * (C - 1)
+
+    def frame_rows(ps, frame):
+        """Return (nv, rowfn) where rowfn(k, cpos, cneg) gives the Delta-logit-difference
+        coefficient row for key k. x1 fixed (block 0 untouched throughout)."""
+        G2 = ps["W"] @ ps["D1"]
+        if frame == "G":
+            h2 = (x1 @ ps["L1"].T) * (x1 @ ps["R1"].T)
+            def rowfn(k, cp, cn):
+                v = np.zeros((C, H))
+                v[cp] = h2[k]; v[cn] -= h2[k]
+                return v.ravel()
+            return C * H, rowfn
+        fac = x1 @ (ps["L1"].T if frame == "R2" else ps["R1"].T)   # (N, H)
+        def rowfn(k, cp, cn):
+            base = fac[k][:, None] * x1[k][None, :]
+            return ((G2[cp] - G2[cn])[:, None] * base).ravel()
+        return H * d, rowfn
+
+    def apply(ps, frame, dx):
+        ps = dict(ps)
+        if frame == "G":
+            ps["D1"] = ps["D1"] + np.linalg.pinv(ps["W"]) @ dx.reshape(C, H)
+        elif frame == "R2":
+            ps["R1"] = ps["R1"] + dx.reshape(H, d)
+        else:
+            ps["L1"] = ps["L1"] + dx.reshape(H, d)
+        return ps
+
+    hist = []
+    for rnd, frame in enumerate(["G", "R2", "L2", "G", "R2", "L2", "G"]):
+        logits = np_fwd(ps, Z, 2)
+        nv, rowfn = frame_rows(ps, frame)
+        A_ret = np.empty((rows, nv)); b_ub = np.empty(rows)
+        r = 0
+        for k in keep:
+            for c in range(C):
+                if c == y[k]:
+                    continue
+                A_ret[r] = -rowfn(k, y[k], c)
+                b_ub[r] = (logits[k, y[k]] - logits[k, c]) - EPS
+                r += 1
+        A_eqd = np.empty((10 * (C - 1), nv)); b_eq = np.empty(10 * (C - 1))
+        r = 0
+        for k in rm:
+            for c in range(C - 1):
+                A_eqd[r] = rowfn(k, c, c + 1)
+                b_eq[r] = -(logits[k, c] - logits[k, c + 1])
+                r += 1
+        A_ub = sp.hstack([sp.csr_matrix(A_ret), -sp.eye(rows)], format="csr")
+        A_eq = sp.hstack([sp.csr_matrix(A_eqd), sp.csr_matrix((r, rows))], format="csr")
+        lp = linprog(np.concatenate([np.zeros(nv), np.ones(rows)]),
+                     A_ub=A_ub, b_ub=b_ub, A_eq=A_eq, b_eq=b_eq,
+                     bounds=[(None, None)] * nv + [(0, None)] * rows, method="highs")
+        assert lp.status == 0, lp.message
+        ps = apply(ps, frame, lp.x[:nv])
+        logits_a = np_fwd(ps, Z, 2)
+        flips = int((logits_a[keep].argmax(1) != y[keep]).sum())
+        fdev = float(np.abs(logits_a[rm] - logits_a[rm].mean(1, keepdims=True)).max())
+        hist.append({"round": rnd, "frame": frame, "violation": float(lp.x[nv:].sum()),
+                     "retained_flips": flips, "forget_dev": fdev})
+        print(f"  round {rnd} [{frame}]: violation {lp.x[nv:].sum():9.1f}, "
+              f"retained flips {flips}/1190, forget dev {fdev:.1e}")
+    with open(os.path.join(FIG, "part3_edits3.json"), "w") as f:
+        json.dump(hist, f, indent=1)
+
+
 STAGES = {"sweep": stage_sweep, "verify": stage_verify, "control": stage_control,
           "measure": stage_measure, "figure": stage_figure,
-          "capacity": stage_capacity, "edits": stage_edits, "edits2": stage_edits2}
+          "capacity": stage_capacity, "edits": stage_edits, "edits2": stage_edits2,
+          "edits3": stage_edits3}
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
