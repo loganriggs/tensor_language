@@ -1052,10 +1052,48 @@ def stage_edits4():
         json.dump(res, f, indent=1)
 
 
+def stage_edits4b():
+    """P21: margin-floor robustness fix — alternation at eps = 10, then noise test."""
+    require_committed(os.path.join(PRED, "part3_predictions.md"), "part3")
+    print("=" * 70)
+    print("STAGE edits4b: alternation with retention floor eps = 10")
+    print("=" * 70)
+    ps0 = dict(np.load(os.path.join(MODELS, f"p3_two_N{N_FACTS}_H40_s0.npz")))
+    Z, y = make_facts()
+    rng = np.random.default_rng(7)
+    rm = rng.choice(len(y), 10, replace=False)
+    keep = np.setdiff1d(np.arange(len(y)), rm)
+    ps_lp, hist = alternate_lp(ps0, Z, y, rm, keep,
+                               ["G", "R2", "L2", "G", "R2", "L2", "G"], eps=10.0)
+    for h in hist:
+        print(f"  round {h['round']} [{h['frame']}]: violation {h['violation']:9.1f}, "
+              f"flips {h['flips']}, ||d|| {h['dnorm']:.2f}")
+    logits = np_fwd(ps_lp, Z, 2)
+    m = margins(logits, y)
+    print(f"  final: flips {int((logits[keep].argmax(1) != y[keep]).sum())}, "
+          f"retained margin min {m[keep].min():.2f} median {np.median(m[keep]):.2f}, "
+          f"total ||d|| {sum(h['dnorm'] for h in hist):.2f}")
+    noise_rng = np.random.default_rng(1234)
+    out = {"rounds": hist}
+    for sig in (0.002, 0.005, 0.01, 0.02):
+        rev, brk = [], []
+        for t in range(20):
+            psn = {k: v + noise_rng.normal(0, sig * np.std(v), v.shape)
+                   for k, v in ps_lp.items()}
+            pred = np_fwd(psn, Z, 2).argmax(1)
+            rev.append((pred[rm] == y[rm]).mean())
+            brk.append((pred[keep] != y[keep]).mean())
+        out[f"sigma_{sig}"] = {"revert": float(np.mean(rev)),
+                               "retained_broken": float(np.mean(brk))}
+        print(f"  sigma {sig}: revert {np.mean(rev):.2f}, retained broken {np.mean(brk):.2%}")
+    with open(os.path.join(FIG, "part3_edits4b.json"), "w") as f:
+        json.dump(out, f, indent=1)
+
+
 STAGES = {"sweep": stage_sweep, "verify": stage_verify, "control": stage_control,
           "measure": stage_measure, "figure": stage_figure,
           "capacity": stage_capacity, "edits": stage_edits, "edits2": stage_edits2,
-          "edits3": stage_edits3, "edits4": stage_edits4}
+          "edits3": stage_edits3, "edits4": stage_edits4, "edits4b": stage_edits4b}
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
