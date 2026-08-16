@@ -704,3 +704,51 @@ these features key on the token actually present, not on the prediction being ma
   1–13 need rank 32–64 on 4–8× more output directions, which is two orders of magnitude
   more terms and is not readable the same way. Whether the same treatment produces
   anything legible in the middle of the network is untested and is the natural next step.
+
+---
+
+## 9. Does layer 17's treatment work anywhere else? A profile of all 18 MLPs
+
+File: `bilin18_depth_profile.py` (503 s).
+
+§8.4 recorded the limit of the layer-17 result — it worked because layer 17 is nearly
+rank-4 — and named the natural next step: whether the same treatment produces anything
+at the other seventeen layers. It does not.
+
+Each MLP was replaced by `R` principal output directions carrying rank-`k` forms, with
+`R` set by that layer's own 90%-of-output-variance point (capped at 48) and `k` swept to
+32, then the model re-scored. Damage is measured against the untouched model and
+normalised by what deleting that layer's quadratic part costs, so each layer is graded
+on its own scale.
+
+| layer | cost of deleting it | cheapest config within 5% | compression |
+|---|---|---|---|
+| 0 | 1.802 | R=48, k=32 → 4.0% | 9× |
+| 1 | **5.650** | — | — |
+| 2–15 | 0.024–0.520 | — | — |
+| 16 | 1.167 | **R=9, k=2 → 2.2%** | **512×** |
+| 17 | 1.077 | — | — |
+
+**Two of eighteen layers compress**, and the winner is layer 16, not 17: nine output
+directions carrying rank-2 forms — eighteen squared projections, 31,122 numbers for a
+15.9M-parameter layer — at 2.2% damage.
+
+Three things need saying about this table rather than leaving it to be misread.
+
+**Layer 17 appears to fail its own result, and does not.** §8.1 reported 0.7% damage at
+R=4, k=2. The difference is the reference point: §8.1 measured damage *beyond the
+projection step*, this table measures it from the untouched model, and layer 17's
+projection-to-4-directions step alone costs 8.8%. Both numbers are right and they answer
+different questions. The deeper problem is that `R` was fixed by a variance rule chosen
+in advance, which is not the same as choosing it by what it costs — resolved in §10.
+
+**Layer 1 is the most important MLP in the model by a wide margin.** Deleting its
+quadratic part costs 5.65 nats, against 1.80 for layer 0 and about 1.1 for layers 16 and
+17. Every layer from 2 to 15 costs less than 0.52, most of them under 0.06. Nothing in
+the toy program predicted this concentration and it was not looked for.
+
+**The 5% tolerance is far harsher on the middle than on the ends.** 5% of layer 12's
+0.024-nat delete cost is 0.0012 nats — a bar an order of magnitude tighter in absolute
+terms than the same 5% imposes on layer 1. So "layers 2–15 do not compress" may be the
+wrong reading of these rows; "layers 2–15 barely do anything individually" is at least
+as consistent with them. Which of those is true is what §10 tests.

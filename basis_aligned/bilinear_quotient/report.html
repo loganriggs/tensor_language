@@ -95,6 +95,22 @@ td.n{text-align:right;}
 .wide{max-width:none;}
 a{color:var(--accent);}
 :focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+
+nav.toc{margin:2.4em 0 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule);
+  padding:1.1em 0 1.2em;}
+nav.toc ol{list-style:none; margin:0; padding:0; display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(268px,1fr)); gap:.18em 2em;}
+nav.toc li{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; font-size:.795rem;
+  line-height:1.75; display:flex; gap:.55em; align-items:baseline;}
+nav.toc a{color:var(--ink-2); text-decoration:none; border-bottom:1px solid transparent;}
+nav.toc a:hover{color:var(--ink); border-bottom-color:var(--rule-2);}
+nav.toc .num{color:var(--ink-3); font-variant-numeric:tabular-nums; min-width:1.5em;}
+nav.toc .flag{font-size:.6rem; letter-spacing:.1em; text-transform:uppercase;
+  padding:.1em .42em; border-radius:2px; white-space:nowrap; font-weight:700;}
+nav.toc .flag.new{background:var(--s3); color:var(--ground);}
+nav.toc .flag.upd{border:1px solid var(--s2); color:var(--s2);}
+nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--ink-3); margin:0 0 .5em;}
 @media (max-width:640px){ .wrap{padding:40px 18px 64px} h1{font-size:1.9rem} body{font-size:16px} }
 </style>
 
@@ -107,10 +123,11 @@ a{color:var(--accent);}
   demoted two of the "findings" to theorems. This is where all three stand, what the
   results mean, and — new in this revision — what happened when the same measurements were
   finally run on the 546M-parameter model itself.</p>
+<nav class="toc" aria-label="Contents"><p class="tochd">Contents &mdash; 16 August revision: three new sections on the real 546M model, three updated</p><ol><li><span class="num">01</span><a href="#setup">The setup, and the words</a></li><li><span class="num">02</span><a href="#tracks">Where the three tracks stand</a></li><li><span class="num">03</span><a href="#h1">1 · A circuit cut out of the weights</a></li><li><span class="num">04</span><a href="#h2">2 · Which tools don't work</a></li><li><span class="num">05</span><a href="#h3">3 · Routing, and the split inside a head</a><span class="flag upd">updated</span></li><li><span class="num">06</span><a href="#h4">4 · Two findings were theorems</a></li><li><span class="num">07</span><a href="#h5">5 · When parts can be trusted</a></li><li><span class="num">08</span><a href="#red">Red teaming</a></li><li><span class="num">09</span><a href="#openq">The unanswered question</a></li><li><span class="num">10</span><a href="#real">What this says about the real model</a><span class="flag upd">updated</span></li><li><span class="num">11</span><a href="#rm1">Real model · the attention evidence</a><span class="flag new">new</span></li><li><span class="num">12</span><a href="#rm2">Real model · the ignored direction</a><span class="flag new">new</span></li><li><span class="num">13</span><a href="#rm3">Real model · eight numbers for a layer</a><span class="flag new">new</span></li><li><span class="num">14</span><a href="#ledger">Honest ledger</a><span class="flag upd">updated</span></li></ol></nav>
 </header>
 
 <section class="col">
-  <h2>The setup, and the words</h2>
+  <h2 id="setup">The setup, and the words</h2>
   <p>Everything here concerns one kind of network layer. It takes an input, applies two
   different linear maps to it, multiplies the two results together entry by entry, and
   mixes the outcome down to an output. That multiplication is the whole point: it is what
@@ -146,7 +163,7 @@ a{color:var(--accent);}
 </section>
 
 <section class="col">
-  <h2>Where the three tracks stand</h2>
+  <h2 id="tracks">Where the three tracks stand</h2>
   <div class="status">
     <div><div class="k">Experiments</div><div class="v done">10 of 10 run, all with baselines</div></div>
     <div><div class="k">Red teaming</div><div class="v done">closed — 3 retractions, 6 corrections</div></div>
@@ -162,7 +179,7 @@ a{color:var(--accent);}
 
 <section>
   <div class="col">
-  <h2>Highlight 1 — a circuit you can cut out of the weights</h2>
+  <h2 id="h1">Highlight 1 — a circuit you can cut out of the weights</h2>
   <p>A network learning <span class="mono">(a + b) mod 23</span> memorises first and
   generalises much later — the phenomenon called grokking. The correct solution is known:
   it works in waves, eleven frequencies, each in its own slice of the input space.</p>
@@ -284,7 +301,7 @@ a{color:var(--accent);}
 
 <section>
   <div class="col">
-  <h2>Highlight 2 — most of the tools don't work, and we can say which</h2>
+  <h2 id="h2">Highlight 2 — most of the tools don't work, and we can say which</h2>
   <p>The single most useful output of the programme is not a discovery but a scorecard.
   Every method was run against a task whose answer was known, so its failures are
   measurable rather than arguable.</p>
@@ -414,71 +431,34 @@ a{color:var(--accent);}
 
 <section>
   <div class="col">
-  <h2>Highlight 3 — routing is recoverable, the split inside a head is not</h2>
+  <h2 id="h3">Highlight 3 — routing is recoverable, the split inside a head is not</h2>
   <p>The final experiment stacks everything: a layer that computes three features from
   tokens, a two-part attention head that should read one feature in each part, and a
   separate path that should read the third. The whole routing table is known in advance.</p>
 
-  <p>Between paths, the answer comes back cleanly and repeatably — resampling the third
-  feature moves its own path 13–27× more than it moves the attention head, and features
-  nothing should read are read at 0.001. But the division of labour <em>inside</em> the
-  two-part head is not stable at all.</p>
+  <p>Two claims came out of the first six networks. The division of labour <em>inside</em>
+  the two-part head is not stable — that one survived. The other, that routing
+  <em>between</em> paths is reliable, did not.</p>
   </div>
 
   <figure>
-    <svg viewBox="0 0 760 330" role="img" aria-label="Factor split across seeds" preserveAspectRatio="xMidYMid meet">
-<line class="grid" x1="64" y1="272.0" x2="736" y2="272.0"/>
-<text class="tick" x="54.0" y="276.0" text-anchor="end">0.0</text>
-<line class="grid" x1="64" y1="223.6" x2="736" y2="223.6"/>
-<text class="tick" x="54.0" y="227.6" text-anchor="end">0.2</text>
-<line class="grid" x1="64" y1="175.2" x2="736" y2="175.2"/>
-<text class="tick" x="54.0" y="179.2" text-anchor="end">0.4</text>
-<line class="grid" x1="64" y1="126.9" x2="736" y2="126.9"/>
-<text class="tick" x="54.0" y="130.9" text-anchor="end">0.6</text>
-<line class="grid" x1="64" y1="78.5" x2="736" y2="78.5"/>
-<text class="tick" x="54.0" y="82.5" text-anchor="end">0.8</text>
-<line class="grid" x1="64" y1="30.1" x2="736" y2="30.1"/>
-<text class="tick" x="54.0" y="34.1" text-anchor="end">1.0</text>
-<rect class="bar s1" x="104.0" y="216.4" width="32" height="55.6" rx="3"/>
-<text class="val" x="120.0" y="208.4" text-anchor="middle">0.23</text>
-<text class="tick" x="120.0" y="292.0" text-anchor="middle">s0</text>
-<text class="note" x="120.0" y="308.0" text-anchor="middle">16x</text>
-<rect class="bar s1" x="216.0" y="264.7" width="32" height="7.3" rx="3"/>
-<text class="val" x="232.0" y="256.7" text-anchor="middle">0.03</text>
-<text class="tick" x="232.0" y="292.0" text-anchor="middle">s1</text>
-<text class="note" x="232.0" y="308.0" text-anchor="middle">20x</text>
-<rect class="bar s1" x="328.0" y="194.6" width="32" height="77.4" rx="3"/>
-<text class="val" x="344.0" y="186.6" text-anchor="middle">0.32</text>
-<text class="tick" x="344.0" y="292.0" text-anchor="middle">s2</text>
-<text class="note" x="344.0" y="308.0" text-anchor="middle">22x</text>
-<rect class="bar s1" x="440.0" y="230.9" width="32" height="41.1" rx="3"/>
-<text class="val" x="456.0" y="222.9" text-anchor="middle">0.17</text>
-<text class="tick" x="456.0" y="292.0" text-anchor="middle">s3</text>
-<text class="note" x="456.0" y="308.0" text-anchor="middle">16x</text>
-<rect class="bar s1" x="552.0" y="119.6" width="32" height="152.4" rx="3"/>
-<text class="val" x="568.0" y="111.6" text-anchor="middle">0.63</text>
-<text class="tick" x="568.0" y="292.0" text-anchor="middle">s4</text>
-<text class="note" x="568.0" y="308.0" text-anchor="middle">1x</text>
-<rect class="bar s1" x="664.0" y="264.7" width="32" height="7.3" rx="3"/>
-<text class="val" x="680.0" y="256.7" text-anchor="middle">0.03</text>
-<text class="tick" x="680.0" y="292.0" text-anchor="middle">s5</text>
-<text class="note" x="680.0" y="308.0" text-anchor="middle">27x</text>
-<line class="mark" x1="64" y1="259.9" x2="736" y2="259.9"/>
-<text class="note" x="70.0" y="253.9" text-anchor="start">both factors doing the same thing</text>
-<text class="axlab" x="400" y="322" text-anchor="middle">seed   (below each bar: how cleanly the third path is separated)</text>
-<text class="axlab" transform="translate(14,145) rotate(-90)" text-anchor="middle">how cleanly the two factors divide the work</text>
-</svg>
-    <figcaption>Six networks, identical in architecture, task and training budget, all
-    reaching 100% accuracy. How cleanly the head's two halves divide the two properties
-    between them ranges from a near-perfect split to both halves doing the same thing.
-    Below each bar: how cleanly the separate third path was isolated in that same
-    network.</figcaption>
+    <svg viewBox="0 0 760 344" role="img" aria-label="factor split and path isolation across sixteen networks"><text class="panel" x="8" y="16">how cleanly the head's two halves divide the work — sixteen identical networks</text><line class="grid" x1="62" y1="196.0" x2="724" y2="196.0"/><text class="tick" x="54" y="200.0" text-anchor="end">0.00</text><line class="grid" x1="62" y1="148.0" x2="724" y2="148.0"/><text class="tick" x="54" y="152.0" text-anchor="end">0.25</text><line class="grid" x1="62" y1="100.0" x2="724" y2="100.0"/><text class="tick" x="54" y="104.0" text-anchor="end">0.50</text><line class="grid" x1="62" y1="52.0" x2="724" y2="52.0"/><text class="tick" x="54" y="56.0" text-anchor="end">0.75</text><rect class="bar s1" x="69.9" y="152.5" width="25.7" height="43.5" rx="1.5"/><text class="note" x="82.7" y="212" text-anchor="middle" style="font-size:10px">16x</text><text class="grouplab" x="69.9" y="42" style="font-size:10.5px">normalised bus</text><rect class="bar s2" x="111.2" y="189.6" width="25.7" height="6.4" rx="1.5"/><text class="note" x="124.1" y="212" text-anchor="middle" style="font-size:10px">20x</text><rect class="bar s1" x="152.6" y="133.6" width="25.7" height="62.4" rx="1.5"/><text class="note" x="165.4" y="212" text-anchor="middle" style="font-size:10px">22x</text><rect class="bar s1" x="194.0" y="163.9" width="25.7" height="32.1" rx="1.5"/><text class="note" x="206.8" y="212" text-anchor="middle" style="font-size:10px">16x</text><rect class="bar s1" x="235.4" y="75.1" width="25.7" height="120.9" rx="1.5"/><text class="s2t" x="248.2" y="212" text-anchor="middle" style="font-size:10px">1x</text><rect class="bar s2" x="276.7" y="190.2" width="25.7" height="5.8" rx="1.5"/><text class="note" x="289.6" y="212" text-anchor="middle" style="font-size:10px">27x</text><rect class="bar s1" x="318.1" y="72.1" width="25.7" height="123.9" rx="1.5"/><text class="note" x="330.9" y="212" text-anchor="middle" style="font-size:10px">18x</text><rect class="bar s2" x="359.5" y="182.4" width="25.7" height="13.6" rx="1.5"/><text class="note" x="372.3" y="212" text-anchor="middle" style="font-size:10px">17x</text><rect class="bar s1" x="400.9" y="73.7" width="25.7" height="122.3" rx="1.5"/><text class="note" x="413.7" y="212" text-anchor="middle" style="font-size:10px">13x</text><text class="grouplab" x="400.9" y="42" style="font-size:10.5px">raw bus</text><rect class="bar s2" x="442.2" y="173.3" width="25.7" height="22.7" rx="1.5"/><text class="note" x="455.1" y="212" text-anchor="middle" style="font-size:10px">19x</text><rect class="bar s1" x="483.6" y="153.1" width="25.7" height="42.9" rx="1.5"/><text class="note" x="496.4" y="212" text-anchor="middle" style="font-size:10px">21x</text><rect class="bar s1" x="525.0" y="143.3" width="25.7" height="52.7" rx="1.5"/><text class="note" x="537.8" y="212" text-anchor="middle" style="font-size:10px">21x</text><rect class="bar s1" x="566.4" y="149.6" width="25.7" height="46.4" rx="1.5"/><text class="note" x="579.2" y="212" text-anchor="middle" style="font-size:10px">22x</text><rect class="bar s2" x="607.7" y="178.0" width="25.7" height="18.0" rx="1.5"/><text class="s2t" x="620.6" y="212" text-anchor="middle" style="font-size:10px">1x</text><rect class="bar s1" x="649.1" y="78.7" width="25.7" height="117.3" rx="1.5"/><text class="s2t" x="661.9" y="212" text-anchor="middle" style="font-size:10px">1x</text><rect class="bar s2" x="690.5" y="189.7" width="25.7" height="6.3" rx="1.5"/><text class="s2t" x="703.3" y="212" text-anchor="middle" style="font-size:10px">1x</text><line class="mark" x1="393.0" y1="28" x2="393.0" y2="218"/><text class="axlab" x="393.0" y="236" text-anchor="middle">each bar one network; the number under it is how well the separate third path was isolated</text><text class="axlab" x="14" y="124.0" transform="rotate(-90 14 124.0)" text-anchor="middle">split of work</text><text class="note" x="66" y="28">orange bars: both halves ended up on the SAME property</text></svg>
+    <figcaption>Sixteen networks, identical in architecture, task and training budget, every
+    one solving the task perfectly. Bar height is how cleanly the head's two halves divide
+    the two properties; orange marks the six where both halves ended up on the same one.
+    Underneath, how well the separate third path was isolated in that same network —
+    orange where it failed entirely.</figcaption>
   </figure>
 
   <div class="col">
-  <p>Note seed 4, which has the cleanest split of the two halves and the <em>worst</em>
-  separation of the third path — the only network where that separation failed. Six points
-  is not enough to call that a trade-off, and the full run is still going.</p>
+  <p><span class="tag off">updated</span> The full run finished at sixteen networks and
+  split the two claims apart. The instability is confirmed and quantified: the division
+  ranges over a factor of twenty, and <strong>six of the sixteen put both halves on the
+  same property</strong> while still solving the task perfectly. But my own accompanying
+  claim — that routing between paths is robust everywhere — is refuted by the same data.
+  <strong>Four of the sixteen show no path separation at all</strong> (the 1× figures
+  under the chart). Between-path routing is the more stable of the two, but it is not
+  reliable either.</p>
 
   <p>This matters for the real model because the plan proposes a per-head census of its 162
   heads, classifying each by how its two halves divide the work. If that division is not a
@@ -489,7 +469,7 @@ a{color:var(--accent);}
 
 <section>
   <div class="col">
-  <h2>Highlight 4 — two "findings" were theorems</h2>
+  <h2 id="h4">Highlight 4 — two "findings" were theorems</h2>
   <p>Writing out the mathematics behind each experiment demoted two headline results. Both
   are still true and useful; neither was a measurement.</p>
 
@@ -583,7 +563,7 @@ a{color:var(--accent);}
 
 <section>
   <div class="col">
-  <h2>Highlight 5 — when a decomposition into parts can be trusted</h2>
+  <h2 id="h5">Highlight 5 — when a decomposition into parts can be trusted</h2>
   <p>This experiment exists to bound the others. Build a teacher out of K known independent
   pieces, train a student, try to recover the pieces.</p>
   </div>
@@ -651,7 +631,7 @@ a{color:var(--accent);}
 </section>
 
 <section class="col">
-  <h2>Red teaming</h2>
+  <h2 id="red">Red teaming</h2>
   <p>An independent adversarial review went through every claim, every script and every
   stored number. It found real errors. Its verdict on fabrication was clean — every number
   it checked matched to the printed precision — but it found selection and framing
@@ -687,7 +667,7 @@ a{color:var(--accent);}
 </section>
 
 <section class="col">
-  <h2>The question we could not answer</h2>
+  <h2 id="openq">The question we could not answer</h2>
   <p>One thing resisted five attempts. A trained model's leftover mess defeats
   structure-finding where artificial noise of exactly the same size does not — by a factor
   of two to three. Understanding why would be the difference between recovering a circuit
@@ -714,7 +694,7 @@ a{color:var(--accent);}
 </section>
 
 <section class="col">
-  <h2>What this says about the real model</h2>
+  <h2 id="real">What this says about the real model</h2>
   <p>The 546M-parameter model these toys were built for uses <em>exactly</em> this layer —
   verified in its source, not its documentation. So the tools apply literally rather than
   by analogy. Its attention, however, is a variant the research plan does not list: an
@@ -732,7 +712,7 @@ a{color:var(--accent);}
 <section>
   <div class="col">
   <p class="eyebrow"><b>Real model 1</b> <span>the recorded attention evidence</span></p>
-  <h2>A statistic that fires on 100% of heads — and on 100% of random ones</h2>
+  <h2 id="rm1">A statistic that fires on 100% of heads — and on 100% of random ones</h2>
   <p>The existing analysis of this model records that in every one of its 162 attention
   heads, combining the two score matrices produces a <em>sharper</em> pattern than either
   alone. That was read as evidence the two branches genuinely work together: each narrows
@@ -751,7 +731,7 @@ a{color:var(--accent);}
 <section>
   <div class="col">
   <p class="eyebrow"><b>Real model 2</b> <span>what the data can even see</span></p>
-  <h2>The middle of the network is built to ignore the thing its input is made of</h2>
+  <h2 id="rm2">The middle of the network is built to ignore the thing its input is made of</h2>
   <p>A bilinear layer's behaviour for one output is captured by a symmetric matrix — a
   table of how strongly each pair of input directions interacts. Only the part of that table
   the data actually probes can affect the network's behaviour; the rest is dead weight left
@@ -789,7 +769,7 @@ a{color:var(--accent);}
 <section>
   <div class="col">
   <p class="eyebrow"><b>Real model 3</b> <span>the payoff</span></p>
-  <h2>Eight numbers in place of sixteen million parameters</h2>
+  <h2 id="rm3">Eight numbers in place of sixteen million parameters</h2>
   <p>The fix implied above is to weigh directions by how much the data uses them before
   ranking them. Tested against the alternative on every layer, that reweighting is worth a
   factor of 1.5 to 5 in how compactly a layer can be described. It also exposed a mistake
@@ -836,7 +816,7 @@ a{color:var(--accent);}
 </section>
 
 <section class="col">
-  <h2>Honest ledger</h2>
+  <h2 id="ledger">Honest ledger</h2>
   <p>Ten experiments, all with baselines. Two of the research plan's predictions measured
   wrong and corrected; two more of its proposed instruments shown not to work at all; one
   of its experiments shown to be unidentifiable as specified. Three retractions from
