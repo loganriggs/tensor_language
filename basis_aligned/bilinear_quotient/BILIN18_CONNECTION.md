@@ -370,3 +370,143 @@ Two things this does establish, both new:
 What this does *not* say: that the branches are not conjunctive. It says the two statistics
 on record cannot tell. The instrument that survived the toys is the readout of what each
 branch *reads* (B2-4, A6, B3), and that is the measurement to run next on these heads.
+
+---
+
+## 6. RESULT: test #2, run on the real model — the identifiable-subspace question
+
+Files: `bilin18_identifiable.py`, `bilin18_identifiable_power.py`, `bilin18_blind_direction.py`.
+
+### 6.1 What was being asked
+
+A2-3 on the toy established a procedure. A bilinear layer's per-output *interaction
+form* `M_d` is a symmetric matrix, and the function only ever uses it through
+`x^T M_d x`. So any part of `M_d` orthogonal to `span{x x^T : x in data}` is invisible
+to the function no matter how much Frobenius mass it carries. On the toy, one-hot
+inputs probe 529 of Sym²'s 1081 dimensions, and a trained model kept 65–71% of its
+mass inside that span against a 49% chance level — enough that projecting first
+changed conclusions, and little enough that mass statistics stayed roughly meaningful.
+
+The registered prediction for bilin18 was that the identifiable fraction is *much*
+lower, because Sym² at width 1152 has 664,128 dimensions. That prediction is confirmed,
+but the interesting part is why, and it is not the reason I expected.
+
+### 6.2 The raw measurement, and why it means less than it looks like
+
+With 4000 sampled MLP inputs per layer (`bilin18_identifiable.py`, 19 s):
+
+| layer | identifiable fraction | random-form null | ×null |
+|---|---|---|---|
+| 0 | 0.0161 | 0.0061 | **2.6×** |
+| 1 | 0.0070 | 0.0058 | 1.2× |
+| 5 | 0.0060 | 0.0062 | 1.0× |
+| 9 | 0.0047 | 0.0058 | 0.8× |
+| 13 | 0.0045 | 0.0061 | 0.7× |
+| 16 | 0.0059 | 0.0061 | 1.0× |
+| 17 | 0.0083 | 0.0059 | 1.4× |
+
+Read naively: **less than 1% of an interaction form's mass can affect the function, and
+the forms are no better aligned with the data than a random symmetric matrix.** The
+first half of that is real. The second half is not a licensed conclusion from this
+table, because two very different worlds produce the same number — a form whose learned
+part is a tiny share of its mass, and a form whose learned part is large but spread over
+far more than 4000 directions. So the table was not written up until the confound was
+tested.
+
+### 6.3 The power analysis, which is where the actual result is
+
+An unrelated form has identifiable fraction exactly `N/dim`, dead linear in `N`. A form
+concentrated on `k` data directions saturates as `N → k`. So sweep `N` and read the
+*shape* (`bilin18_identifiable_power.py`, 23 s). Expressed as a multiple of chance:
+
+| layer | N=250 | 500 | 1000 | 2000 | 4000 | 8000 |
+|---|---|---|---|---|---|---|
+| 0 | **4.93×** | 4.15× | 3.68× | 3.15× | 2.69× | 2.31× |
+| 5 | **0.10×** | 0.15× | 0.28× | 0.65× | 0.95× | 1.09× |
+| 13 | **0.19×** | 0.23× | 0.36× | 0.58× | 0.79× | 0.89× |
+| 17 | **2.25×** | 1.67× | 1.39× | 1.29× | 1.27× | 1.29× |
+| *unrelated-form null* | 1.14× | 1.09× | 1.11× | 1.05× | 0.99× | 0.99× |
+
+The null is flat at 1.0× across a 32× range in `N`, exactly as the theory says it must
+be, which validates the estimator. Against that, three things are visible that the
+single-`N` table hid completely:
+
+1. **The 4000-sample table is a sampling artefact, not a fact about the weights.** Every
+   layer's curve is still moving at N=8000. The absolute fraction is not measurable by
+   this route at this scale — it would need ≳10⁵ samples and a 10⁵×10⁵ solve.
+2. **Layers 0 and 17 are concentrated.** Nearly 5× chance at N=250, decaying as more
+   directions are added: the signature of mass sitting on the few directions the data
+   visits most.
+3. **Layers 5 and 13 are the opposite, and this is the finding.** At 0.10× and 0.19×
+   chance they are an *order of magnitude below* what an unrelated matrix scores. Below
+   chance is not "no structure" — an unrelated form gets chance by construction. It
+   means the form has **less** mass on the data's leading directions than a random
+   matrix does, i.e. it is actively orthogonal to them.
+
+### 6.4 The mechanism, confirmed directly
+
+The same run measured the other half. The Gram of `x x^T` at layers 5 and 13 has
+participation ratio 1.3 and 2.1 — essentially *one* direction carries the second-moment
+mass of the rms-normed MLP input. That makes a sharp prediction: the MLP's quadratic
+form should nearly annihilate that direction. Tested on all 11 sampled layers
+(`bilin18_blind_direction.py`, 20 s), with `v` the top PC of the normalised input and
+curvature `|v^T M v| / ||M||_F` compared against an equally-sized random form along the
+same `v`:
+
+| layer | top-PC share of the input | mean \|v·x̂\| | curvature along v, vs a random form |
+|---|---|---|---|
+| 0 | 0.086 | 0.244 | **5.23×** |
+| 1 | 0.862 | 0.928 | 0.03× |
+| 3 | 0.271 | 0.512 | 0.15× |
+| 5 | 0.941 | 0.970 | 0.03× |
+| 7 | **0.944** | **0.972** | **0.00×** |
+| 9 | 0.895 | 0.946 | 0.03× |
+| 11 | 0.855 | 0.924 | 0.14× |
+| 13 | 0.831 | 0.911 | 0.19× |
+| 15 | 0.769 | 0.876 | 0.82× |
+| 16 | 0.701 | 0.835 | 1.79× |
+| 17 | 0.543 | 0.715 | **4.41×** |
+
+Two clean monotone trends, and they are the same story from both ends:
+
+**Through the middle of the network the rms-normed MLP input is nearly a single fixed
+vector.** At layers 5–7 the mean \|cos\| between a token's normed MLP input and the top
+PC is 0.97 — every token, at every position, arrives within about 14° of the same
+direction. (This is the massive-activation / attention-sink phenomenon that is already
+documented in the literature for other transformers; the contribution here is not that
+it exists but that it is measured on bilin18 and connected to the forms.)
+
+**And the bilinear MLPs there are built to not see it.** Curvature along `v` runs
+0.00–0.19× a random form's — layer 7 annihilates it to four significant figures. The
+MLP reads only the small residual variation *around* the dominant direction. Layer 0,
+whose input is the embedding and genuinely spread (top-PC share 0.086), is 5.2×
+*enriched* along its top PC instead, and the last two layers swing back the same way.
+
+This is what produces the below-chance numbers in §6.3, and it also explains the
+sample-starvation: the directions these MLPs actually use are precisely the ones the
+data visits rarely, which is the worst possible regime for a random-sample probe.
+
+### 6.5 What this does to the rest of the program
+
+This is the sharpest transfer failure found so far, and it cuts against the toys rather
+than against bilin18.
+
+- **A2-3's projection procedure does not transfer by this route.** It is not that the
+  answer is different; the measurement is not executable at width 1152. The substitute
+  that *does* transfer is the curve-shape diagnostic above, which is cheap (23 s) and
+  gave a stronger answer than the absolute number would have.
+- **Every Frobenius-mass statistic the toys rely on is compromised on bilin18.** Block
+  mass, eigenvalue participation ratio, dictionary-atom mass — all of them weight
+  directions by `||·||_F`, and on layers 1–13 the overwhelming majority of that norm sits
+  where the data never goes. A form can look "concentrated" in weight space while its
+  functionally live part is elsewhere entirely.
+- **The toys could not have caught this.** Their one-hot inputs have no dominant
+  direction by construction (top-PC share 1/d), so the entire phenomenon — a nearly
+  one-dimensional input distribution that the layer is engineered to ignore — has no
+  analogue in any toy run in this program. That is a gap in the toy design, not a
+  wrong result.
+- **The concrete fix for future measurements** is to whiten by the input second moment
+  before any mass statistic — i.e. work with `S^{1/2} M S^{1/2}` rather than `M`, which
+  is the Λ-weighted functional metric the program already defined in `bq_common.py` and
+  then, on bilin18, did not use. That is now the recommended default for §2.2's
+  weight-space reads.

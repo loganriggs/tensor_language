@@ -1359,3 +1359,44 @@ placement, the independent review (see `REVIEW_RESPONSE.md`), the bilin18 connec
   weights-only pipeline.
 - **A4 should be re-run with A3's CP fitter in place of the oracle component
   decomposition,** and with its four nulls, before its numbers are used downstream.
+
+---
+
+## Real-model results: the 546M bilinear transformer
+
+Two of the four tests registered in `BILIN18_CONNECTION.md` have now been run on the
+actual 18-layer, 546M-parameter bilinear model rather than on toys. Both came back
+against the program's own prior expectations, and both are written up in full in
+`BILIN18_CONNECTION.md` §5–6.
+
+**Test #4 — the attention census (`bilin18_attention.py`).** The recorded observation
+that `PR(product) < min(PR(factors))` at 100% of bilin18's 162 heads, read as evidence
+that the two QK branches are genuinely conjunctive, is **uninformative**: the identical
+architecture with random weights fires it on 162/162 heads too, with a *larger* median
+participation-ratio drop (0.207 against the trained model's 0.097). The recorded 0.49
+negative-mass figure is likewise matched at 0.500 by random weights. Zero of 162 heads
+have near-identical QK circuits (median |cos(W₁,W₂)| = 0.031).
+
+**Test #2 — the identifiable subspace (`bilin18_identifiable.py`,
+`_power.py`, `_blind_direction.py`).** Under 1% of an MLP interaction form's Frobenius
+mass is identifiable from 4000 sampled inputs — but the sample-scaling control shows
+that number is a sampling artefact, not a fact about the weights. The real finding is in
+the curve shape: layers 5 and 13 sit at **0.10× and 0.19× chance** at small sample
+counts, an order of magnitude *below* what an unrelated matrix scores, while the
+unrelated-form null stays flat at 1.0× across a 32× range in N.
+
+The mechanism was then confirmed directly. Through the middle of the network the
+rms-normed MLP input is nearly a single fixed vector — at layers 5–7 the mean |cos|
+between a token's input and the top principal component is **0.97**, so every token
+arrives within ~14° of the same direction — and the bilinear MLPs there are built to be
+blind to it, with curvature along that direction running 0.00–0.19× that of an
+equally-sized random form. Layer 7 annihilates it outright. Layer 0 and the last two
+layers run the opposite way (up to 5.2× enriched).
+
+The consequence for this program is direct and unwelcome: **every Frobenius-mass
+statistic used in Part A is compromised on bilin18**, because on layers 1–13 most of a
+form's norm sits in directions the data never visits. The toys could not have caught
+this — their one-hot inputs have no dominant direction by construction. The fix is to
+whiten by the input second moment (the Λ-weighted metric already implemented in
+`bq_common.py`, and not previously applied to the real model) before reading any mass
+statistic off bilin18 weights.

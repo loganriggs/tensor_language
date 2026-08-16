@@ -54,7 +54,8 @@ def mlp_inputs(model, tokens, layers, n_samples):
         hooks.append(model.transformer.h[li].mlp.register_forward_hook(mk(li)))
     with torch.no_grad():
         for i in range(0, len(tokens), 4):
-            model(tokens[i:i + 4].to(DEV))
+            b = tokens[i:i + 4].to(DEV)
+            model(b[:, :-1].contiguous(), b[:, 1:].contiguous())
     for h in hooks:
         h.remove()
     out = {}
