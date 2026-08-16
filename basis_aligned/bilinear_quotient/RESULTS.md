@@ -1495,3 +1495,40 @@ constant's energy share is absent. The diagnosis was right and the predicted con
 wrong; the test is closed negative.
 
 Full detail in `BILIN18_CONNECTION.md` §9–11.
+
+### Test #3: a challenge that failed, and a statistic that does not mean what it says
+
+The last of the four real-model tests asked whether the repository's boundary result —
+"individual directions account for 24% of MLP1's effect; the other 76% appears only under
+joint removal", read as evidence the layer is irreducibly distributed — is a fact about
+the layer or an artefact of using PCA directions. A5 predicted sparse-dictionary atoms
+would be substantially more individually attributable.
+
+**At the original operating point, no basis helps.** Thirty-two directions each: SVD 9.0%
+attributable, a random rotation of the same subspace 9.1% (reproducing the original's own
+basis-independence control exactly), a 32-atom dictionary 13.1%, and the top 32 of a
+4096-atom dictionary 20.5%. Four fifths of the effect stays joint-only under every basis
+tried. The boundary result survives the challenge.
+
+**And A5's prediction fails once removed energy is matched** — the control the test
+specification asked for and my first script omitted. At matched ~53% removed energy, SVD
+is **3× more** individually attributable than the dictionary, the opposite direction; at
+~71% the dictionary leads by 1.5×. The direction flips with the matching point, which is
+what a confounded comparison looks like.
+
+**What the run does establish is more useful than either prediction.** On the same
+unchanged layer, the attributable fraction ranges from **9% to 64%** depending only on how
+many directions are removed — 64.1% at 4 directions, 9.0% at 32, 13.8% at 82. Going from
+4 to 32 directions grows the joint effect 14× and the sum of solo effects only 1.4×:
+interference grows superlinearly in the size of the ablation set. So "76% appears only
+jointly" is largely a statement about removing 32 things at once, not a scale-free
+property of the layer, and the figure is not meaningful without its count and energy
+attached.
+
+That is the same phenomenon as the 2.87× superadditivity found across depth, measured
+inside one layer instead of across fourteen. Both my prediction and the framing I
+inherited were wrong the same way: treating a budget-dependent number as a measurement of
+the layer.
+
+Full detail in `BILIN18_CONNECTION.md` §12. **All four planned real-model tests are now
+run.**

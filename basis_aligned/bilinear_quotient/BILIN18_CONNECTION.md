@@ -874,3 +874,92 @@ closed negative.
 box; the pile-10k sample built for the other bilin18 runs was substituted. Both arms see
 identical data so the contrast is unaffected, but the absolute ΔCE values here are not
 comparable to those in `qk_analytic_bilin.json`.)*
+
+---
+
+## 12. RESULT: test #3 — "irreducibly distributed" is real at its operating point, and the number is not a property of the layer
+
+Files: `bilin18_joint_removal.py` (216 s), `bilin18_joint_removal_matched.py`.
+
+§74 of `RESULTS_l0_mdl.md` reports the repo's boundary result: MLP1's top-32 SVD output
+directions removed together cost 0.161 nats while the sum of the 32 individual removals
+is 0.039, so **individual directions account for 24% and 76% appears only jointly**. A5
+predicted this is what PCA produces when the true parts overlap, and that dictionary
+atoms would raise the individually-attributable fraction substantially.
+
+§78 already red-teamed §74 with a sparse dictionary and settled that a dictionary crosses
+the *nameability* boundary (23/32 monosemantic against SVD's 0/32) and not the *causal*
+one. But it never measured §74's own statistic — it used a different denominator (the
+full-layer knockout, 5.57 nats) — so the number A5 predicts on was still open.
+
+### 12.1 At §74's operating point, no basis helps
+
+Four arms, all 32 directions, all mean-ablated identically on the same data:
+
+| arm | removed energy | joint ΔCE | sum of solos | attributable |
+|---|---|---|---|---|
+| svd32 (§74's own) | 70.5% | +0.3832 | +0.0345 | **9.0%** |
+| rot32 (random rotation in the same span) | 70.5% | +0.3832 | +0.0350 | **9.1%** |
+| dict32 (32-atom dictionary) | 64.3% | +0.1146 | +0.0151 | 13.1% |
+| dict4096 (top 32 of 4096, §78's object) | 53.0% | +0.1820 | +0.0374 | 20.5% |
+
+The rotation control reproduces svd32 to within 0.1 points, confirming §74's own
+basis-independence claim exactly. And at fixed count 32, **no basis makes this layer
+individually attributable** — the best is 20.5%, so four fifths of the effect is still
+joint-only. §74's qualitative claim survives.
+
+*(Gate caveat: this reproduces §74's signature but not its number — 9.0% here against
+their 24%, with joint ΔCE 0.383 against their 0.161. The fineweb token file their script
+uses is not on this box, so this runs on the pile-10k sample. Same layer, same method,
+different corpus; the comparison across arms is internally matched, the comparison to
+§74's absolute figure is not.)*
+
+### 12.2 A5's prediction fails once removed energy is matched
+
+The energies above are not matched, and the test specification required matching them
+precisely because they confound this statistic — directions that remove less of the
+layer's output have less overlap to interfere. dict4096 removes 53% where svd32 removes
+70.5%, and dict4096 is the arm carrying the result. So: hold energy fixed, vary count.
+
+| arm | n | removed energy | joint ΔCE | sum of solos | attributable |
+|---|---|---|---|---|---|
+| **svd** | **4** | 55.8% | +0.0411 | +0.0264 | **64.1%** |
+| dict4096 | 32 | 53.0% | +0.1820 | +0.0374 | 20.5% |
+| svd | 32 | 70.5% | +0.3832 | +0.0345 | 9.0% |
+| **dict4096** | **82** | 69.5% | +0.5706 | +0.0789 | 13.8% |
+
+At ~53% energy, SVD is **3× more** individually attributable than the dictionary — the
+opposite of A5's prediction. At ~71% the dictionary is ahead by 1.5×. The direction of
+the effect flips depending on which energy you match at, which is what a confounded
+comparison looks like. **A5's prediction is refuted**; the apparent dictionary advantage
+in §12.1 was an energy artefact, and my own 1.5× threshold passed it only because the
+script did not match energy — the one control the test called for.
+
+### 12.3 What this actually establishes, which is more useful than either prediction
+
+**The attributable fraction is not a property of the layer.** On the same MLP1, unchanged,
+it takes values from **9% to 64%** depending only on how many directions you remove:
+
+| directions removed | 4 | 32 | 82 |
+|---|---|---|---|
+| attributable fraction | 64.1% | 9.0% | 13.8% |
+| joint ΔCE | 0.041 | 0.383 | 0.571 |
+| sum of solos | 0.026 | 0.035 | 0.079 |
+
+The mechanism is plain in the last two rows: the joint effect grows 14× from 4 to 32
+directions while the solo sum grows 1.4×. Interference grows superlinearly in the size of
+the ablation set. So "76% appears only under joint removal" is substantially a statement
+about *removing 32 things at once*, not a scale-free fact about how distributed the layer
+is. Quoting the fraction without its count and removed energy is not meaningful, and the
+repo's phrasing does quote it that way.
+
+This is the same phenomenon as §10.2's 2.87× superadditivity across depth, measured
+within a single layer instead of across fourteen. Ablation superadditivity is pervasive
+in this model, and any "X% is joint-only" or "layer *n* contributes almost nothing" claim
+needs its ablation-set size attached to mean anything.
+
+**Net verdict on test #3.** §74's boundary result survives at its own operating point and
+survives the basis challenge that A5 aimed at it — that is a real win for §74, and it is
+worth more than the challenge would have been. What does not survive is the number's
+status as a layer property. Both my prediction and the framing I inherited were wrong in
+the same way: treating a budget-dependent statistic as though it measured the layer.
