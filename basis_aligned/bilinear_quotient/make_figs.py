@@ -62,10 +62,10 @@ def fig_dynamics():
     ax.set_xlim(4e2, 1.6e5)
     ax.set_xticks([1e3, 1e4, 4e4])
     ax.set_xticklabels(['1k', '10k', '40k'])
-    style(ax, 'The generalising circuit is complete at step 1500,\nwhen the model itself is still a pure memoriser',
+    style(ax, 'From step 1500 the clean part of the weights already RANKS every held-out\npair correctly, while the model itself scores zero',
           'training step (log)', 'test accuracy')
     ax.axvline(1500, color=MUTED, lw=1, ls=(0, (3, 3)))
-    ax.annotate('projection hits 1.000', (1500, 0.60), xytext=(6, 0),
+    ax.annotate('ranking correct from here', (1500, 0.52), xytext=(6, 0),
                 textcoords='offset points', color=MUTED, fontsize=8, rotation=90, va='center')
     ax.legend(fontsize=8, labelcolor=SECONDARY, ncol=4, loc='upper center',
               bbox_to_anchor=(0.5, -0.19))
