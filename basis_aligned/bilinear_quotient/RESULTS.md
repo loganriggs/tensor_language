@@ -1000,10 +1000,35 @@ Replacing one factor with a constant that preserves its scale, and re-measuring:
 > same ablation still drops the head to 0.27, indistinguishable from the conjunctive 0.265.
 > A factor that can score 1.000 alone is not "doing nothing".
 >
-> The conclusion that the score-level placement is functionally single-circuit is withdrawn,
-> along with test #4 in `BILIN18_CONNECTION.md` as motivated. A correct ablation replaces
-> the factor with a positive constant matched on RMS *and* resulting pattern entropy, or
-> shuffles its keys. Not yet run.
+> The conclusion that the score-level placement is functionally single-circuit is withdrawn.
+
+**And the replacement does not exist** (`fix_ablation.py`). Three schemes were implemented
+and put through a soundness test that does not involve the conjunctive task at all: *on a
+control task where one property already suffices, ablating the factor that reads the other
+property must leave accuracy near 1.000.* All three fail:
+
+| replacement scheme | best factor retained, on controls (ceiling 1.000) | worst case | on the conjunctive task, worse factor falls to |
+|---|---|---|---|
+| positive constant matched on RMS | 0.590 | **0.000** | 0.367 |
+| shuffle the factor's scores across keys | 0.658 | 0.436 | 0.318 |
+| per-key mean (the original, broken one) | 0.898 | 0.726 | 0.573 |
+
+None comes near 1.000, so none is measuring the mechanism. The reason is structural rather
+than a bad choice of constant: in a product head the output depends on `s₁ · s₂`, so
+deleting one factor does not leave "the other factor's computation" behind — it leaves a
+differently scaled and differently shaped object, and there is no canonical "rest of the
+head without factor 2" to compare against.
+
+**So the plan's B1 verification step — "ablate one factor, confirm degradation to
+single-property chance performance" — is not implementable as specified.** Taken with B2-2
+and B0-1 (the entropy and participation-ratio signatures are non-specific) and `THEORY.md`
+T8 (per-factor entropies are gauge-dependent), *every* instrument Part B proposes for
+characterising a two-factor head has now failed on a toy with known ground truth.
+
+What did work is asking what each factor **reads** rather than what happens when it is
+removed: the weight-space factor readout of B2-4, and the path-sensitivity measurement A6
+introduced and B3 uses. That is the instrument to carry to bilin18, and it replaces test #4
+in `BILIN18_CONNECTION.md`.
 
 ### FINDING B2-4 — factor specialisation is real, but only in the post-softmax placement, and only when the task needs it
 
