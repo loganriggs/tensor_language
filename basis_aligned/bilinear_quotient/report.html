@@ -116,14 +116,14 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
 
 <div class="wrap">
 <header class="col">
-  <p class="eyebrow"><b>Progress report</b> <span>16 August 2026</span> <span>32 commits</span></p>
+  <p class="eyebrow"><b>Progress report</b> <span>16 August 2026</span> <span>34 commits</span></p>
   <h1>What a bilinear layer throws away</h1>
   <p class="lede">Ten experiments on toy networks whose right answer is known in advance,
   an adversarial review that forced three retractions, and a mathematical pass that
   demoted two of the "findings" to theorems. This is where all three stand, what the
   results mean, and — new in this revision — what happened when the same measurements were
   finally run on the 546M-parameter model itself.</p>
-<nav class="toc" aria-label="Contents"><p class="tochd">Contents &mdash; 16 August revision: five new sections on the real 546M model, three updated (one carries a correction)</p><ol><li><span class="num">01</span><a href="#setup">The setup, and the words</a></li><li><span class="num">02</span><a href="#tracks">Where the three tracks stand</a></li><li><span class="num">03</span><a href="#h1">1 · A circuit cut out of the weights</a></li><li><span class="num">04</span><a href="#h2">2 · Which tools don't work</a></li><li><span class="num">05</span><a href="#h3">3 · Routing, and the split inside a head</a><span class="flag upd">updated</span></li><li><span class="num">06</span><a href="#h4">4 · Two findings were theorems</a></li><li><span class="num">07</span><a href="#h5">5 · When parts can be trusted</a></li><li><span class="num">08</span><a href="#red">Red teaming</a></li><li><span class="num">09</span><a href="#openq">The unanswered question</a></li><li><span class="num">10</span><a href="#real">What this says about the real model</a><span class="flag upd">updated</span></li><li><span class="num">11</span><a href="#rm1">Real model · the attention evidence</a><span class="flag new">new</span></li><li><span class="num">12</span><a href="#rm2">Real model · the ignored direction</a><span class="flag new">new</span></li><li><span class="num">13</span><a href="#rm3">Real model · eight numbers for a layer</a><span class="flag new">new</span></li><li><span class="num">14</span><a href="#rm4">Real model · where it stops working</a><span class="flag new">new</span></li><li><span class="num">15</span><a href="#test1">A fix that isn't one</a><span class="flag new">new</span></li><li><span class="num">16</span><a href="#ledger">Honest ledger</a><span class="flag upd">updated</span></li></ol></nav>
+<nav class="toc" aria-label="Contents"><p class="tochd">Contents &mdash; 16 August revision: six new sections on the real 546M model, three updated (one carries a correction)</p><ol><li><span class="num">01</span><a href="#setup">The setup, and the words</a></li><li><span class="num">02</span><a href="#tracks">Where the three tracks stand</a></li><li><span class="num">03</span><a href="#h1">1 · A circuit cut out of the weights</a></li><li><span class="num">04</span><a href="#h2">2 · Which tools don't work</a></li><li><span class="num">05</span><a href="#h3">3 · Routing, and the split inside a head</a><span class="flag upd">updated</span></li><li><span class="num">06</span><a href="#h4">4 · Two findings were theorems</a></li><li><span class="num">07</span><a href="#h5">5 · When parts can be trusted</a></li><li><span class="num">08</span><a href="#red">Red teaming</a></li><li><span class="num">09</span><a href="#openq">The unanswered question</a></li><li><span class="num">10</span><a href="#real">What this says about the real model</a><span class="flag upd">updated</span></li><li><span class="num">11</span><a href="#rm1">Real model · the attention evidence</a><span class="flag new">new</span></li><li><span class="num">12</span><a href="#rm2">Real model · the ignored direction</a><span class="flag new">new</span></li><li><span class="num">13</span><a href="#rm3">Real model · eight numbers for a layer</a><span class="flag new">new</span></li><li><span class="num">14</span><a href="#rm4">Real model · where it stops working</a><span class="flag new">new</span></li><li><span class="num">15</span><a href="#test1">A fix that isn't one</a><span class="flag new">new</span></li><li><span class="num">16</span><a href="#rm5">Real model · a number that isn't one</a><span class="flag new">new</span></li><li><span class="num">17</span><a href="#ledger">Honest ledger</a><span class="flag upd">updated</span></li></ol></nav>
 </header>
 
 <section class="col">
@@ -169,7 +169,7 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
     <div><div class="k">Red teaming</div><div class="v done">closed — 3 retractions, 6 corrections</div></div>
     <div><div class="k">Theory</div><div class="v done">47 of 47 propositions verified</div></div>
     <div><div class="k">Open question</div><div class="v notdone">5 attempts, answered negatively</div></div>
-    <div><div class="k">Real 546M model</div><div class="v done">3 of 4 tests done, plus 5 follow-ups</div></div>
+    <div><div class="k">Real 546M model</div><div class="v done">all 4 tests done, plus 6 follow-ups</div></div>
   </div>
   <p>The experiments cover: what a layer ignores; a network learning modular arithmetic;
   when a decomposition into parts can be trusted; when a curved computation can be
@@ -875,6 +875,45 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   matters when the budget is already too small to work.</p>
   <p class="q">Diagnosis right, predicted consequence wrong. Worth doing as tidiness, not a
   result. Closed negative.</p>
+</section>
+
+
+<section>
+  <div class="col">
+  <p class="eyebrow"><b>Real model 5</b> <span>the last of the four tests</span></p>
+  <h2 id="rm5">A number that ranges from 9% to 64% on the same unchanged layer</h2>
+  <p>The final test targeted the strongest existing claim about this model. Earlier work
+  found that removing 32 directions from its second layer together does far more damage
+  than removing them one at a time and adding up — individual directions explained 24% of
+  the effect, the rest appeared only jointly — and read that as evidence the layer's
+  computation is irreducibly spread out, the point where naming one direction at a time
+  stops working. The toy work predicted this was an artefact of the method used to pick
+  the directions, and that a sparse dictionary would do much better.</p>
+  <p><strong>It does not.</strong> At the original budget of 32 directions, principal
+  directions explain 9% individually, a random rotation of the same subspace 9% (which
+  reproduces that work's own control exactly), a matched-size dictionary 13%, and a large
+  dictionary's best 32 atoms 21%. Four fifths of the effect stays joint-only under every
+  basis tried. The claim survives the challenge, which is a better outcome for it than the
+  challenge succeeding would have been.</p>
+  <p>But matching the comparison properly — equalising how much of the layer's output each
+  set removes, which the original test design asked for and my first script skipped —
+  produced something neither prediction anticipated.</p>
+  <figure><svg viewBox="0 0 760 286" role="img" aria-label="attributable fraction against number of directions removed"><text class="panel" x="8" y="16">the same unchanged layer, scored at different budgets</text><line class="grid" x1="68" y1="214.0" x2="660" y2="214.0"/><text class="tick" x="60" y="218.0" text-anchor="end">0%</text><line class="grid" x1="68" y1="165.4" x2="660" y2="165.4"/><text class="tick" x="60" y="169.4" text-anchor="end">20%</text><line class="grid" x1="68" y1="116.9" x2="660" y2="116.9"/><text class="tick" x="60" y="120.9" text-anchor="end">40%</text><line class="grid" x1="68" y1="68.3" x2="660" y2="68.3"/><text class="tick" x="60" y="72.3" text-anchor="end">60%</text><text class="tick" x="116.6" y="232.0" text-anchor="middle">4</text><text class="tick" x="233.6" y="232.0" text-anchor="middle">8</text><text class="tick" x="350.6" y="232.0" text-anchor="middle">16</text><text class="tick" x="467.6" y="232.0" text-anchor="middle">32</text><text class="tick" x="584.7" y="232.0" text-anchor="middle">64</text><text class="tick" x="660.0" y="232.0" text-anchor="middle">100</text><polyline class="s1" points="116.6,58.4 467.6,192.1" fill="none" stroke-width="2.2"/><circle class="s1d" cx="116.6" cy="58.4" r="4"/><text class="val" x="116.6" y="47.4" text-anchor="middle">64%</text><circle class="s1d" cx="467.6" cy="192.1" r="4"/><text class="val" x="467.6" y="181.1" text-anchor="middle">9%</text><text class="val s1t" x="479.6" y="196.1">principal directions</text><polyline class="s2" points="467.6,164.1 626.5,180.4" fill="none" stroke-width="2.2"/><circle class="s2d" cx="467.6" cy="164.1" r="4"/><text class="val" x="467.6" y="153.1" text-anchor="middle">21%</text><circle class="s2d" cx="626.5" cy="180.4" r="4"/><text class="val" x="626.5" y="169.4" text-anchor="middle">14%</text><text class="val s2t" x="638.5" y="184.4">dictionary atoms</text><text class="axlab" x="364.0" y="254.0" text-anchor="middle">number of directions removed (log scale)</text><text class="axlab" x="16" y="129.0" transform="rotate(-90 16 129.0)" text-anchor="middle">explained individually</text><text class="note" x="126.6" y="76.3">the published figure is the 32-direction point</text></svg><figcaption>Share of a 32-direction removal's damage that is recovered by removing the directions one at a time and adding up, against how many directions are removed. Both series are the same layer of the same model; only the budget changes. Points are matched in pairs on how much of the layer's output they remove.</figcaption></figure>
+  <p>The fraction is not a property of the layer. It ranges from <strong>64% down to
+  9%</strong> on the same untouched weights, driven almost entirely by how many directions
+  you remove at once. Going from 4 directions to 32 multiplies the joint damage by
+  fourteen and the summed individual damage by only 1.4 — interference grows much faster
+  than the number of things being removed.</p>
+  <div class="callout"><p>So "76% appears only under joint removal" is largely a statement
+  about removing 32 things simultaneously, not a scale-free measure of how distributed the
+  layer is. The figure needs its budget attached to mean anything — and this is the second
+  time in this batch that a superadditive ablation produced a misleading headline, the
+  first being the middle layers looking free one at a time.</p></div>
+  <p class="q">My own prediction failed here too, and failed because the first version of
+  the script omitted the very control the test called for. At equal removed output the
+  ordering reverses: principal directions come out three times more individually
+  attributable than dictionary atoms, not less.</p>
+  </div>
 </section>
 
 <section class="col">
