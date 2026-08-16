@@ -116,14 +116,14 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
 
 <div class="wrap">
 <header class="col">
-  <p class="eyebrow"><b>Progress report</b> <span>16 August 2026</span> <span>29 commits</span></p>
+  <p class="eyebrow"><b>Progress report</b> <span>16 August 2026</span> <span>32 commits</span></p>
   <h1>What a bilinear layer throws away</h1>
   <p class="lede">Ten experiments on toy networks whose right answer is known in advance,
   an adversarial review that forced three retractions, and a mathematical pass that
   demoted two of the "findings" to theorems. This is where all three stand, what the
   results mean, and — new in this revision — what happened when the same measurements were
   finally run on the 546M-parameter model itself.</p>
-<nav class="toc" aria-label="Contents"><p class="tochd">Contents &mdash; 16 August revision: three new sections on the real 546M model, three updated</p><ol><li><span class="num">01</span><a href="#setup">The setup, and the words</a></li><li><span class="num">02</span><a href="#tracks">Where the three tracks stand</a></li><li><span class="num">03</span><a href="#h1">1 · A circuit cut out of the weights</a></li><li><span class="num">04</span><a href="#h2">2 · Which tools don't work</a></li><li><span class="num">05</span><a href="#h3">3 · Routing, and the split inside a head</a><span class="flag upd">updated</span></li><li><span class="num">06</span><a href="#h4">4 · Two findings were theorems</a></li><li><span class="num">07</span><a href="#h5">5 · When parts can be trusted</a></li><li><span class="num">08</span><a href="#red">Red teaming</a></li><li><span class="num">09</span><a href="#openq">The unanswered question</a></li><li><span class="num">10</span><a href="#real">What this says about the real model</a><span class="flag upd">updated</span></li><li><span class="num">11</span><a href="#rm1">Real model · the attention evidence</a><span class="flag new">new</span></li><li><span class="num">12</span><a href="#rm2">Real model · the ignored direction</a><span class="flag new">new</span></li><li><span class="num">13</span><a href="#rm3">Real model · eight numbers for a layer</a><span class="flag new">new</span></li><li><span class="num">14</span><a href="#ledger">Honest ledger</a><span class="flag upd">updated</span></li></ol></nav>
+<nav class="toc" aria-label="Contents"><p class="tochd">Contents &mdash; 16 August revision: five new sections on the real 546M model, three updated (one carries a correction)</p><ol><li><span class="num">01</span><a href="#setup">The setup, and the words</a></li><li><span class="num">02</span><a href="#tracks">Where the three tracks stand</a></li><li><span class="num">03</span><a href="#h1">1 · A circuit cut out of the weights</a></li><li><span class="num">04</span><a href="#h2">2 · Which tools don't work</a></li><li><span class="num">05</span><a href="#h3">3 · Routing, and the split inside a head</a><span class="flag upd">updated</span></li><li><span class="num">06</span><a href="#h4">4 · Two findings were theorems</a></li><li><span class="num">07</span><a href="#h5">5 · When parts can be trusted</a></li><li><span class="num">08</span><a href="#red">Red teaming</a></li><li><span class="num">09</span><a href="#openq">The unanswered question</a></li><li><span class="num">10</span><a href="#real">What this says about the real model</a><span class="flag upd">updated</span></li><li><span class="num">11</span><a href="#rm1">Real model · the attention evidence</a><span class="flag new">new</span></li><li><span class="num">12</span><a href="#rm2">Real model · the ignored direction</a><span class="flag new">new</span></li><li><span class="num">13</span><a href="#rm3">Real model · eight numbers for a layer</a><span class="flag new">new</span></li><li><span class="num">14</span><a href="#rm4">Real model · where it stops working</a><span class="flag new">new</span></li><li><span class="num">15</span><a href="#test1">A fix that isn't one</a><span class="flag new">new</span></li><li><span class="num">16</span><a href="#ledger">Honest ledger</a><span class="flag upd">updated</span></li></ol></nav>
 </header>
 
 <section class="col">
@@ -169,7 +169,7 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
     <div><div class="k">Red teaming</div><div class="v done">closed — 3 retractions, 6 corrections</div></div>
     <div><div class="k">Theory</div><div class="v done">47 of 47 propositions verified</div></div>
     <div><div class="k">Open question</div><div class="v notdone">5 attempts, answered negatively</div></div>
-    <div><div class="k">Real 546M model</div><div class="v done">running — 2 of 4 tests done, plus 3 follow-ups</div></div>
+    <div><div class="k">Real 546M model</div><div class="v done">3 of 4 tests done, plus 5 follow-ups</div></div>
   </div>
   <p>The experiments cover: what a layer ignores; a network learning modular arithmetic;
   when a decomposition into parts can be trusted; when a curved computation can be
@@ -782,10 +782,21 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   two squared projections each — eight terms, about 13,800 numbers standing in for roughly
   15.9 million parameters — and the whole model re-scored on held-out text.</p>
   <figure><svg viewBox="0 0 760 232" role="img" aria-label="cross-entropy ladder for layer 17 replacements"><text class="panel" x="8" y="16">cross-entropy after replacing layer 17's MLP (lower is better)</text><line class="grid" x1="272.0" y1="34" x2="272.0" y2="188"/><text class="tick" x="272.0" y="204" text-anchor="middle">3.4</text><line class="grid" x1="347.3" y1="34" x2="347.3" y2="188"/><text class="tick" x="347.3" y="204" text-anchor="middle">3.6</text><line class="grid" x1="422.7" y1="34" x2="422.7" y2="188"/><text class="tick" x="422.7" y="204" text-anchor="middle">3.8</text><line class="grid" x1="498.0" y1="34" x2="498.0" y2="188"/><text class="tick" x="498.0" y="204" text-anchor="middle">4.0</text><line class="grid" x1="573.3" y1="34" x2="573.3" y2="188"/><text class="tick" x="573.3" y="204" text-anchor="middle">4.2</text><line class="grid" x1="648.7" y1="34" x2="648.7" y2="188"/><text class="tick" x="648.7" y="204" text-anchor="middle">4.4</text><line class="grid" x1="724.0" y1="34" x2="724.0" y2="188"/><text class="tick" x="724.0" y="204" text-anchor="middle">4.6</text><line class="mark" x1="293.0" y1="30" x2="293.0" y2="192"/><rect class="bar s3" x="272" y="38" width="21.0" height="19" rx="2"/><text class="grouplab" x="264" y="52" text-anchor="end">untouched model</text><text class="val" x="300.0" y="52">3.4557</text><rect class="bar s1" x="272" y="72" width="59.3" height="19" rx="2"/><text class="grouplab" x="264" y="86" text-anchor="end">4 output dirs x rank 2 (whitened)</text><text class="val" x="338.3" y="86">3.5576</text><rect class="bar s2" x="272" y="106" width="77.2" height="19" rx="2"/><text class="grouplab" x="264" y="120" text-anchor="end">4 output dirs x rank 2 (by size)</text><text class="val" x="356.2" y="120">3.6049</text><rect class="bar s4" x="272" y="140" width="426.8" height="19" rx="2"/><text class="grouplab" x="264" y="154" text-anchor="end">layer 17 quadratic deleted</text><text class="val" x="705.8" y="154">4.5330</text><text class="axlab" x="498.0" y="222" text-anchor="middle">cross-entropy (nats)</text><text class="note" x="278" y="30">baseline</text></svg><figcaption>Cross-entropy on held-out text after replacing layer 17's bilinear unit. Lower is better; the dashed line is the untouched model. "By size" ranks directions by raw magnitude, "whitened" by how much the data uses them — same number of parameters, seven times the damage.</figcaption></figure>
-  <p>Deleting the layer's quadratic part costs 1.08 nats. The eight-term replacement gives
-  back all but <strong>0.7%</strong> of that. Spending the identical budget the naive way —
-  ranking by size instead of by how much the data uses each direction — does seven times the
-  damage. That is the reweighting argument confirmed in the only currency that counts.</p>
+  <p>Deleting the layer's quadratic part costs 1.08 nats. The eight-term replacement costs
+  <strong>9.5%</strong> of that — and of those 9.5 points, 8.8 come from confining the output
+  to four directions and only <strong>0.7</strong> from squashing those four down to two terms
+  each. So the hard part is choosing the directions; once chosen, going to two terms is nearly
+  free. Spending the identical budget the naive way — ranking by size instead of by how much
+  the data uses each direction — does seven times the damage. That is the reweighting argument
+  confirmed in the only currency that counts.</p>
+
+  <div class="callout"><p><strong>Correction.</strong> An earlier version of this page said the
+  replacement "gives back all but 0.7%". That is the wrong quantity — 0.7% is the extra damage
+  from the rank cut alone, not the cost of the whole replacement, which is 9.5%. Choosing the
+  number of output directions by what it costs, rather than by a rule fixed in advance, also
+  showed that <strong>the second-to-last layer, not the last, is the model's most compressible
+  one</strong>: same 13,800 numbers, 4.2% damage against 9.5%. The rank finding stands; the
+  compression headline was pointed at the wrong layer.</p></div>
 
   <h3>And the eight terms are readable</h3>
   <p>A symmetric table is a signed sum of squares, so the layer literally takes a few
@@ -815,6 +826,57 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   </div>
 </section>
 
+
+<section>
+  <div class="col">
+  <p class="eyebrow"><b>Real model 4</b> <span>where it stops working</span></p>
+  <h2 id="rm4">The middle layers look free one at a time, and cost 2.9× that together</h2>
+  <p>The obvious next question was whether the last layer was the start of a pattern. It is
+  not. Running the same replacement on all eighteen layers, only two of them compress at
+  all — and the reason turned out to be more interesting than "the rest are more
+  complicated".</p>
+  <figure><svg viewBox="0 0 760 268" role="img" aria-label="cost of deleting each layer"><text class="panel" x="8" y="16">what it costs to delete each layer's bilinear unit, one at a time</text><line class="grid" x1="64" y1="196.0" x2="724" y2="196.0"/><text class="tick" x="56" y="200.0" text-anchor="end">0</text><line class="grid" x1="64" y1="171.3" x2="724" y2="171.3"/><text class="tick" x="56" y="175.3" text-anchor="end">1</text><line class="grid" x1="64" y1="146.7" x2="724" y2="146.7"/><text class="tick" x="56" y="150.7" text-anchor="end">2</text><line class="grid" x1="64" y1="122.0" x2="724" y2="122.0"/><text class="tick" x="56" y="126.0" text-anchor="end">3</text><line class="grid" x1="64" y1="97.3" x2="724" y2="97.3"/><text class="tick" x="56" y="101.3" text-anchor="end">4</text><line class="grid" x1="64" y1="72.7" x2="724" y2="72.7"/><text class="tick" x="56" y="76.7" text-anchor="end">5</text><line class="grid" x1="64" y1="48.0" x2="724" y2="48.0"/><text class="tick" x="56" y="52.0" text-anchor="end">6</text><rect class="bar s3" x="71.3" y="151.5" width="22.0" height="44.5" rx="1.5"/><text class="tick" x="82.3" y="212" text-anchor="middle">0</text><text class="val" x="82.3" y="145.5" text-anchor="middle" style="font-size:10px">1.80</text><rect class="bar s1" x="108.0" y="56.6" width="22.0" height="139.4" rx="1.5"/><text class="tick" x="119.0" y="212" text-anchor="middle">1</text><text class="val" x="119.0" y="50.6" text-anchor="middle" style="font-size:10px">5.65</text><rect class="bar s4" x="144.7" y="187.3" width="22.0" height="8.7" rx="1.5"/><text class="tick" x="155.7" y="212" text-anchor="middle">2</text><rect class="bar s4" x="181.3" y="183.2" width="22.0" height="12.8" rx="1.5"/><text class="tick" x="192.3" y="212" text-anchor="middle">3</text><rect class="bar s4" x="218.0" y="186.6" width="22.0" height="9.4" rx="1.5"/><text class="tick" x="229.0" y="212" text-anchor="middle">4</text><rect class="bar s4" x="254.7" y="194.5" width="22.0" height="1.5" rx="1.5"/><text class="tick" x="265.7" y="212" text-anchor="middle">5</text><rect class="bar s4" x="291.3" y="195.4" width="22.0" height="1.2" rx="1.5"/><text class="tick" x="302.3" y="212" text-anchor="middle">6</text><rect class="bar s4" x="328.0" y="194.7" width="22.0" height="1.3" rx="1.5"/><text class="tick" x="339.0" y="212" text-anchor="middle">7</text><rect class="bar s4" x="364.7" y="194.8" width="22.0" height="1.2" rx="1.5"/><text class="tick" x="375.7" y="212" text-anchor="middle">8</text><rect class="bar s4" x="401.3" y="195.4" width="22.0" height="1.2" rx="1.5"/><text class="tick" x="412.3" y="212" text-anchor="middle">9</text><rect class="bar s4" x="438.0" y="195.0" width="22.0" height="1.2" rx="1.5"/><text class="tick" x="449.0" y="212" text-anchor="middle">10</text><rect class="bar s4" x="474.7" y="194.7" width="22.0" height="1.3" rx="1.5"/><text class="tick" x="485.7" y="212" text-anchor="middle">11</text><rect class="bar s4" x="511.3" y="195.4" width="22.0" height="1.2" rx="1.5"/><text class="tick" x="522.3" y="212" text-anchor="middle">12</text><rect class="bar s4" x="548.0" y="195.0" width="22.0" height="1.2" rx="1.5"/><text class="tick" x="559.0" y="212" text-anchor="middle">13</text><rect class="bar s4" x="584.7" y="195.2" width="22.0" height="1.2" rx="1.5"/><text class="tick" x="595.7" y="212" text-anchor="middle">14</text><rect class="bar s4" x="621.3" y="192.8" width="22.0" height="3.2" rx="1.5"/><text class="tick" x="632.3" y="212" text-anchor="middle">15</text><rect class="bar s3" x="658.0" y="167.2" width="22.0" height="28.8" rx="1.5"/><text class="tick" x="669.0" y="212" text-anchor="middle">16</text><text class="val" x="669.0" y="161.2" text-anchor="middle" style="font-size:10px">1.17</text><rect class="bar s1" x="694.7" y="169.4" width="22.0" height="26.6" rx="1.5"/><text class="tick" x="705.7" y="212" text-anchor="middle">17</text><text class="val" x="705.7" y="163.4" text-anchor="middle" style="font-size:10px">1.08</text><text class="axlab" x="394.0" y="234" text-anchor="middle">layer</text><text class="axlab" x="16" y="122.0" transform="rotate(-90 16 122.0)" text-anchor="middle">nats of cross-entropy</text><text class="note" x="159.3" y="131.3">green: the only two layers that compress</text></svg><figcaption>Cross-entropy cost of deleting each layer's bilinear unit on its own, leaving the rest of the model exact. Green marks the two layers that compress under the treatment from the previous section; blue marks the others costing more than a nat.</figcaption></figure>
+  <p>Two things stand out. The first layer is the most important bilinear unit in the model
+  by a wide margin — deleting it costs 5.65 nats where nothing else costs more than 1.8.
+  And everything from layer 2 to layer 15 looks almost free: under 0.52 nats each, most of
+  them under 0.06. Nothing in the toy work predicted that concentration and nobody had
+  looked for it.</p>
+  <p>"Almost free" is a trap, though, and the cheapest possible check exposes it. Delete all
+  fourteen middle layers' bilinear units at once instead of one at a time:</p>
+  <figure><svg viewBox="0 0 760 190" role="img" aria-label="individual versus joint ablation of the middle layers"><text class="panel" x="8" y="16">deleting layers 2–15: one at a time, added up, versus all at once</text><line class="grid" x1="286.0" y1="34" x2="286.0" y2="124"/><text class="tick" x="286.0" y="140" text-anchor="middle">0</text><line class="grid" x1="359.9" y1="34" x2="359.9" y2="124"/><text class="tick" x="359.9" y="140" text-anchor="middle">1</text><line class="grid" x1="433.9" y1="34" x2="433.9" y2="124"/><text class="tick" x="433.9" y="140" text-anchor="middle">2</text><line class="grid" x1="507.8" y1="34" x2="507.8" y2="124"/><text class="tick" x="507.8" y="140" text-anchor="middle">3</text><line class="grid" x1="581.7" y1="34" x2="581.7" y2="124"/><text class="tick" x="581.7" y="140" text-anchor="middle">4</text><line class="grid" x1="655.6" y1="34" x2="655.6" y2="124"/><text class="tick" x="655.6" y="140" text-anchor="middle">5</text><rect class="bar s1" x="286" y="46" width="132.3" height="22" rx="2"/><text class="grouplab" x="278" y="62" text-anchor="end">the 14 costs added up</text><text class="val" x="426.3" y="62">1.79 nats</text><rect class="bar s2" x="286" y="84" width="380.1" height="22" rx="2"/><text class="grouplab" x="278" y="100" text-anchor="end">all 14 deleted together</text><text class="val" x="674.1" y="100">5.14 nats</text><text class="axlab" x="493.0" y="158" text-anchor="middle">cross-entropy cost (nats)</text><text class="note" x="294" y="30">2.87x more damage than the parts predict</text></svg><figcaption>The same fourteen middle layers, removed one at a time and summed, against all fourteen removed simultaneously. Ablations do not add: the network compensates for any one of them and cannot compensate for the group.</figcaption></figure>
+  <p>Nearly three times the damage the parts predict. When one middle layer is removed the
+  other thirteen absorb the loss; when all fourteen go there is nothing left to absorb it.
+  So <strong>any claim that a particular layer "contributes almost nothing", based on
+  removing it by itself, is unsafe in this model</strong> — and the chart above is exactly
+  such a claim.</p>
+  <div class="callout"><p>This also explains the compression result rather than just
+  bounding it. The two layers that compress are precisely the two whose individual
+  contribution is large. The ones that resist are those that matter little alone and a great
+  deal together — which is what computation spread across depth looks like, rather than
+  computation sitting in a layer.</p></div>
+  </div>
+</section>
+
+<section class="col">
+  <h2 id="test1">A promised improvement to existing code that isn't one</h2>
+  <p>The remaining item on the list was a proposed fix to code already in the repository,
+  described in an earlier revision as the most actionable of the four. Reading that code
+  first corrected the premise: it does not rank features "by size" as claimed — it already
+  weights them by how much the data uses them, the same correction validated above.</p>
+  <p>But it did expose a genuine defect. The approximation is built around a quantity whose
+  average was never subtracted, so the fit has to spend part of its budget reproducing a
+  constant that could have been stored for free. That omitted constant turns out to carry
+  <strong>16 to 52%</strong> of the relevant energy, so the diagnosis looked substantial.</p>
+  <p>Fixing it buys almost nothing: seven of twelve settings improve, by an average of
+  0.0045 nats, and the single best case is a 3% relative gain at the very smallest budget.
+  Beyond that budget it is a wash in both directions, and the predicted link between the
+  size of the win and the size of the constant is absent. The reason is mundane — the
+  approximation method absorbs a single constant direction nearly for free, so it only
+  matters when the budget is already too small to work.</p>
+  <p class="q">Diagnosis right, predicted consequence wrong. Worth doing as tidiness, not a
+  result. Closed negative.</p>
+</section>
+
 <section class="col">
   <h2 id="ledger">Honest ledger</h2>
   <p>Ten experiments, all with baselines. Two of the research plan's predictions measured
@@ -828,8 +890,9 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   known, we now know which of these methods can be believed and at what noise level they
   stop working. That is what the toys were for.</p>
 
-  <p>On the real model, two of the four planned tests are done and three follow-ups they
-  forced are done with them. One recorded piece of evidence about the model's attention has
+  <p>On the real model, three of the four planned tests are done and five follow-ups they
+  forced are done with them. One headline number of my own needed correcting by an order of
+  magnitude, and does not survive in its original form. One recorded piece of evidence about the model's attention has
   been shown to carry no information. One family of statistics used throughout the toy work
   has been shown not to transfer, with the reason measured. One registered prediction of
   mine failed. One verification attempt had no statistical power and was rerun rather than
