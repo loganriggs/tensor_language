@@ -506,6 +506,29 @@ Two things to carry into the other experiments:
    component decomposition is scored against planted directions rather than against its
    own residual.
 
+### FINDING A3-1b — the limit is NOT on the input-dimension axis (`a3_axis.py`)
+
+A3 as originally run varied only the component count at fixed `m = 8` outputs and `d = 16`
+input dimensions, and attributed the breakdown to `K/d`. Reviewer 2 pointed out that the
+form family's own effective rank is exactly `m` at every `K`, so the same data is equally
+consistent with a limit in `K/m`. Sweeping `m` and `d` independently settles it, and one
+pair of cells is decisive:
+
+| m | d | K | K/d | K/m | outcome |
+|---|---|---|---|---|---|
+| 8 | 16 | 32 | 2.0 | 4.0 | **failed** (3% of components above 0.99) |
+| 16 | 16 | 32 | 2.0 | 2.0 | **recovered** (100%) |
+
+Same `K/d`, opposite outcome — doubling the number of *outputs* turns failure into complete
+recovery. Across all 25 cells, recovery correlates with `−log(K/Kruskal bound)` at **+0.762**,
+with `−log(K/m)` at **+0.722**, and with `−log(K/d)` at **+0.658** — the axis A3 originally
+reported is the worst of the three. The Kruskal bound `R ≤ (m + 2d − 2)/2` (`THEORY.md` T6)
+is the best single predictor and agrees with the observed outcome on 17 of 25 cells;
+recovery beyond it does happen, which is expected since Kruskal is sufficient, not necessary.
+
+The practical statement for `BILIN18_CONNECTION.md` §2.1 is therefore the Kruskal one, not
+the `K/d` one, and that document has been corrected.
+
 ### FINDING A3-2 — correlation between planted directions, not learning, is the binding constraint
 
 Arm 1b (solver) and arm 2c (learned) agree closely, so this is a property of the
