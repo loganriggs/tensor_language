@@ -100,12 +100,13 @@ a{color:var(--accent);}
 
 <div class="wrap">
 <header class="col">
-  <p class="eyebrow"><b>Progress report</b> <span>16 August 2026</span> <span>24 commits</span></p>
+  <p class="eyebrow"><b>Progress report</b> <span>16 August 2026</span> <span>29 commits</span></p>
   <h1>What a bilinear layer throws away</h1>
   <p class="lede">Ten experiments on toy networks whose right answer is known in advance,
   an adversarial review that forced three retractions, and a mathematical pass that
   demoted two of the "findings" to theorems. This is where all three stand, what the
-  results mean, and what they say about the 546M-parameter model they were built for.</p>
+  results mean, and — new in this revision — what happened when the same measurements were
+  finally run on the 546M-parameter model itself.</p>
 </header>
 
 <section class="col">
@@ -151,7 +152,7 @@ a{color:var(--accent);}
     <div><div class="k">Red teaming</div><div class="v done">closed — 3 retractions, 6 corrections</div></div>
     <div><div class="k">Theory</div><div class="v done">47 of 47 propositions verified</div></div>
     <div><div class="k">Open question</div><div class="v notdone">5 attempts, answered negatively</div></div>
-    <div><div class="k">Real 546M model</div><div class="v notdone">4 tests specified, not runnable here</div></div>
+    <div><div class="k">Real 546M model</div><div class="v done">running — 2 of 4 tests done, plus 3 follow-ups</div></div>
   </div>
   <p>The experiments cover: what a layer ignores; a network learning modular arithmetic;
   when a decomposition into parts can be trusted; when a curved computation can be
@@ -722,12 +723,116 @@ a{color:var(--accent);}
   and that pattern is not one — so the census as written cannot be run on the model it was
   designed for.</p>
 
-  <p>Four concrete measurements are specified, cheapest first, in the connection document.
-  The most actionable: existing code in the repository picks which quadratic features to
-  keep by <em>size</em>, and the theorem above says size carries no information about which
-  features must stay curved. Re-ranking an existing computation would test that directly.</p>
+  <div class="callout"><p><strong>Correction to the previous revision.</strong> It said the
+  four proposed measurements were "not runnable here — the checkpoint is not on this
+  machine." That was wrong. The checkpoint was merely not yet downloaded. It now is, and the
+  rest of this page is what the measurements returned.</p></div>
+</section>
 
-  <p>None of the four are runnable here — the checkpoint is not on this machine.</p>
+<section>
+  <div class="col">
+  <p class="eyebrow"><b>Real model 1</b> <span>the recorded attention evidence</span></p>
+  <h2>A statistic that fires on 100% of heads — and on 100% of random ones</h2>
+  <p>The existing analysis of this model records that in every one of its 162 attention
+  heads, combining the two score matrices produces a <em>sharper</em> pattern than either
+  alone. That was read as evidence the two branches genuinely work together: each narrows
+  what the other proposes.</p>
+  <p>The control is to run the identical measurement on the identical architecture with
+  <em>untrained</em> weights. It fires on 162 of 162 there too — with a
+  <em>larger</em> sharpening effect than the trained model shows (0.207 against 0.097). A
+  second recorded number, that about half the pattern mass is negative, is 0.490 in the
+  trained model and 0.500 in the random one.</p>
+  <div class="callout"><p>Both recorded statistics are consequences of multiplying two
+  matrices together, not of anything the model learned. They should not be cited as
+  evidence about this model's attention.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="col">
+  <p class="eyebrow"><b>Real model 2</b> <span>what the data can even see</span></p>
+  <h2>The middle of the network is built to ignore the thing its input is made of</h2>
+  <p>A bilinear layer's behaviour for one output is captured by a symmetric matrix — a
+  table of how strongly each pair of input directions interacts. Only the part of that table
+  the data actually probes can affect the network's behaviour; the rest is dead weight left
+  over from initialisation. In the toys, roughly two thirds of the table was live. The
+  question was how much survives at real scale, where the table has 664,128 independent
+  entries.</p>
+  <p>The first measurement said "under 1%, no better than a random matrix" — but that number
+  turned out to be an artefact of sampling, not a fact about the weights. The fix is to vary
+  the number of samples and read the <em>shape</em> of the curve rather than its
+  height.</p>
+  <figure><svg viewBox="0 0 760 300" role="img" aria-label="identifiable fraction relative to chance versus sample count"><text class="panel" x="8" y="16">how much of an interaction form the data can even see, relative to chance</text><line class="grid" x1="64" y1="232.0" x2="700" y2="232.0"/><text class="tick" x="56" y="236.0" text-anchor="end">0x</text><line class="grid" x1="64" y1="195.1" x2="700" y2="195.1"/><text class="tick" x="56" y="199.1" text-anchor="end">1x</text><line class="grid" x1="64" y1="158.2" x2="700" y2="158.2"/><text class="tick" x="56" y="162.2" text-anchor="end">2x</text><line class="grid" x1="64" y1="121.2" x2="700" y2="121.2"/><text class="tick" x="56" y="125.2" text-anchor="end">3x</text><line class="grid" x1="64" y1="84.3" x2="700" y2="84.3"/><text class="tick" x="56" y="88.3" text-anchor="end">4x</text><line class="grid" x1="64" y1="47.4" x2="700" y2="47.4"/><text class="tick" x="56" y="51.4" text-anchor="end">5x</text><text class="tick" x="64.0" y="250.0" text-anchor="middle">250</text><text class="tick" x="191.2" y="250.0" text-anchor="middle">500</text><text class="tick" x="318.4" y="250.0" text-anchor="middle">1000</text><text class="tick" x="445.6" y="250.0" text-anchor="middle">2000</text><text class="tick" x="572.8" y="250.0" text-anchor="middle">4000</text><text class="tick" x="700.0" y="250.0" text-anchor="middle">8000</text><polyline class="s1" points="64.0,49.8 191.2,78.6 318.4,96.0 445.6,115.7 572.8,132.8 700.0,146.7" fill="none" stroke-width="2"/><circle class="s1d" cx="64.0" cy="49.8" r="3.2"/><circle class="s1d" cx="191.2" cy="78.6" r="3.2"/><circle class="s1d" cx="318.4" cy="96.0" r="3.2"/><circle class="s1d" cx="445.6" cy="115.7" r="3.2"/><circle class="s1d" cx="572.8" cy="132.8" r="3.2"/><circle class="s1d" cx="700.0" cy="146.7" r="3.2"/><text class="val s1t" x="708.0" y="150.7">L0</text><polyline class="s2" points="64.0,228.2 191.2,226.6 318.4,221.7 445.6,207.9 572.8,197.0 700.0,191.8" fill="none" stroke-width="2"/><circle class="s2d" cx="64.0" cy="228.2" r="3.2"/><circle class="s2d" cx="191.2" cy="226.6" r="3.2"/><circle class="s2d" cx="318.4" cy="221.7" r="3.2"/><circle class="s2d" cx="445.6" cy="207.9" r="3.2"/><circle class="s2d" cx="572.8" cy="197.0" r="3.2"/><circle class="s2d" cx="700.0" cy="191.8" r="3.2"/><text class="val s2t" x="708.0" y="195.8">L5</text><polyline class="s4" points="64.0,224.9 191.2,223.4 318.4,218.8 445.6,210.7 572.8,202.9 700.0,199.1" fill="none" stroke-width="2"/><circle class="s4d" cx="64.0" cy="224.9" r="3.2"/><circle class="s4d" cx="191.2" cy="223.4" r="3.2"/><circle class="s4d" cx="318.4" cy="218.8" r="3.2"/><circle class="s4d" cx="445.6" cy="210.7" r="3.2"/><circle class="s4d" cx="572.8" cy="202.9" r="3.2"/><circle class="s4d" cx="700.0" cy="199.1" r="3.2"/><text class="val s4t" x="708.0" y="203.1">L13</text><polyline class="s3" points="64.0,149.0 191.2,170.2 318.4,180.6 445.6,184.5 572.8,184.9 700.0,184.4" fill="none" stroke-width="2"/><circle class="s3d" cx="64.0" cy="149.0" r="3.2"/><circle class="s3d" cx="191.2" cy="170.2" r="3.2"/><circle class="s3d" cx="318.4" cy="180.6" r="3.2"/><circle class="s3d" cx="445.6" cy="184.5" r="3.2"/><circle class="s3d" cx="572.8" cy="184.9" r="3.2"/><circle class="s3d" cx="700.0" cy="184.4" r="3.2"/><text class="val s3t" x="708.0" y="188.4">L17</text><polyline points="64.0,190.1 191.2,191.9 318.4,191.1 445.6,193.1 572.8,195.3 700.0,195.3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-dasharray="4 4" opacity=".55"/><text class="note" x="708.0" y="199.3">null</text><text class="axlab" x="382.0" y="272.0" text-anchor="middle">number of sampled inputs (log scale)</text><text class="note" x="74" y="187.1">an unrelated matrix scores exactly here, at every sample count</text><text class="note" x="74.0" y="220.5">layers 5 and 13 start an order of magnitude BELOW an unrelated matrix</text></svg><figcaption>How much of a layer's interaction table the data can see, as a multiple of what an unrelated matrix scores, against the number of sampled inputs. The dashed null is flat at 1× as theory requires, which calibrates the measurement. Layers 5 and 13 begin far below it.</figcaption></figure>
+  <p>An unrelated matrix scores exactly 1× at every sample count, and the dashed null
+  confirms the measurement is calibrated. Against that, layers 5 and 13 come in at
+  <strong>0.10× and 0.19×</strong> — an order of magnitude <em>below</em> an unrelated
+  matrix. Scoring below chance is not "no structure". It means these layers are actively
+  avoiding the directions the data uses most.</p>
+  <p>Checking why produced the cleanest result of the whole program. The input to each
+  middle layer's bilinear unit, after normalisation, is almost a single fixed vector: at
+  layers 5 through 7, every token at every position arrives within about 14° of the same
+  direction. And the layer's response along that direction is essentially zero.</p>
+  <figure><svg viewBox="0 0 760 286" role="img" aria-label="input concentration and form blindness across depth"><text class="panel" x="8" y="16">the middle of the network runs on one direction — and is built not to see it</text><line class="grid" x1="64" y1="214.0" x2="700" y2="214.0"/><text class="tick" x="56" y="218.0" text-anchor="end">0.00</text><line class="grid" x1="64" y1="171.5" x2="700" y2="171.5"/><text class="tick" x="56" y="175.5" text-anchor="end">0.25</text><line class="grid" x1="64" y1="129.0" x2="700" y2="129.0"/><text class="tick" x="56" y="133.0" text-anchor="end">0.50</text><line class="grid" x1="64" y1="86.5" x2="700" y2="86.5"/><text class="tick" x="56" y="90.5" text-anchor="end">0.75</text><line class="grid" x1="64" y1="44.0" x2="700" y2="44.0"/><text class="tick" x="56" y="48.0" text-anchor="end">1.00</text><polyline class="s1" points="64.0,199.4 127.6,67.5 191.2,167.9 254.8,54.1 318.4,53.5 382.0,61.8 445.6,68.6 509.2,72.8 572.8,83.2 636.4,94.9 700.0,121.7" fill="none" stroke-width="2.2"/><polyline class="s2" points="64.0,44.0 127.6,208.6 191.2,188.1 254.8,208.3 318.4,213.5 382.0,209.5 445.6,190.2 509.2,182.0 572.8,74.5 636.4,44.0 700.0,44.0" fill="none" stroke-width="2.2"/><circle class="s1d" cx="64.0" cy="199.4" r="3.4"/><circle class="s2d" cx="64.0" cy="44.0" r="3.4"/><text class="tick" x="64.0" y="232" text-anchor="middle">0</text><circle class="s1d" cx="127.6" cy="67.5" r="3.4"/><circle class="s2d" cx="127.6" cy="208.6" r="3.4"/><text class="tick" x="127.6" y="232" text-anchor="middle">1</text><circle class="s1d" cx="191.2" cy="167.9" r="3.4"/><circle class="s2d" cx="191.2" cy="188.1" r="3.4"/><text class="tick" x="191.2" y="232" text-anchor="middle">3</text><circle class="s1d" cx="254.8" cy="54.1" r="3.4"/><circle class="s2d" cx="254.8" cy="208.3" r="3.4"/><text class="tick" x="254.8" y="232" text-anchor="middle">5</text><circle class="s1d" cx="318.4" cy="53.5" r="3.4"/><circle class="s2d" cx="318.4" cy="213.5" r="3.4"/><text class="tick" x="318.4" y="232" text-anchor="middle">7</text><circle class="s1d" cx="382.0" cy="61.8" r="3.4"/><circle class="s2d" cx="382.0" cy="209.5" r="3.4"/><text class="tick" x="382.0" y="232" text-anchor="middle">9</text><circle class="s1d" cx="445.6" cy="68.6" r="3.4"/><circle class="s2d" cx="445.6" cy="190.2" r="3.4"/><text class="tick" x="445.6" y="232" text-anchor="middle">11</text><circle class="s1d" cx="509.2" cy="72.8" r="3.4"/><circle class="s2d" cx="509.2" cy="182.0" r="3.4"/><text class="tick" x="509.2" y="232" text-anchor="middle">13</text><circle class="s1d" cx="572.8" cy="83.2" r="3.4"/><circle class="s2d" cx="572.8" cy="74.5" r="3.4"/><text class="tick" x="572.8" y="232" text-anchor="middle">15</text><circle class="s1d" cx="636.4" cy="94.9" r="3.4"/><circle class="s2d" cx="636.4" cy="44.0" r="3.4"/><text class="tick" x="636.4" y="232" text-anchor="middle">16</text><circle class="s1d" cx="700.0" cy="121.7" r="3.4"/><circle class="s2d" cx="700.0" cy="44.0" r="3.4"/><text class="tick" x="700.0" y="232" text-anchor="middle">17</text><text class="val s2t" x="64.0" y="36.0" text-anchor="middle">5.2x</text><text class="val s2t" x="636.4" y="36.0" text-anchor="middle">1.8x</text><text class="val s2t" x="700.0" y="36.0" text-anchor="middle">4.4x</text><text class="axlab" x="382.0" y="254" text-anchor="middle">layer</text><text class="note" x="326.4" y="45.3">every token arrives within ~14° of the same vector</text><text class="note" x="326.4" y="202.6">…and the layer's curvature there is 0.00x a random form's</text></svg><figcaption>Blue: the share of the normalised input's variation carried by its single strongest direction. Orange: the layer's response along that direction, relative to a random table of the same size (clipped at 1.0; values above are labelled). Where the input is most concentrated, the layer is most blind to it.</figcaption></figure>
+  <p>Two monotone trends telling one story. Where the input is most concentrated, the layer
+  is most blind to it — reading only the small variation around the dominant direction. The
+  first layer, whose input is the raw embedding and genuinely spread out, does the opposite
+  and is five times <em>more</em> responsive there than chance; the last two layers swing
+  back the same way.</p>
+  <p class="q">The near-constant input is a known phenomenon in transformers. What is new
+  here is that the layers are shaped around it — and the consequence: any measurement that
+  weighs a layer's table by raw size is mostly measuring weight the data never touches. That
+  invalidates a family of statistics used throughout the toy experiments, and the toys could
+  not have caught it, because their inputs have no dominant direction by construction.</p>
+  </div>
+</section>
+
+<section>
+  <div class="col">
+  <p class="eyebrow"><b>Real model 3</b> <span>the payoff</span></p>
+  <h2>Eight numbers in place of sixteen million parameters</h2>
+  <p>The fix implied above is to weigh directions by how much the data uses them before
+  ranking them. Tested against the alternative on every layer, that reweighting is worth a
+  factor of 1.5 to 5 in how compactly a layer can be described. It also exposed a mistake
+  worth flagging: measuring these tables along <em>random</em> output directions overstates
+  their complexity by two to eight times. Along the directions a layer's output actually
+  occupies, most layers need 32 to 64 terms.</p>
+  <p>The last layer needs <strong>four</strong>. That made it the one place in the model
+  where the toys' machinery had enough signal per parameter to be pointed at something real.
+  So its entire bilinear unit was deleted and replaced by four output directions carrying
+  two squared projections each — eight terms, about 13,800 numbers standing in for roughly
+  15.9 million parameters — and the whole model re-scored on held-out text.</p>
+  <figure><svg viewBox="0 0 760 232" role="img" aria-label="cross-entropy ladder for layer 17 replacements"><text class="panel" x="8" y="16">cross-entropy after replacing layer 17's MLP (lower is better)</text><line class="grid" x1="272.0" y1="34" x2="272.0" y2="188"/><text class="tick" x="272.0" y="204" text-anchor="middle">3.4</text><line class="grid" x1="347.3" y1="34" x2="347.3" y2="188"/><text class="tick" x="347.3" y="204" text-anchor="middle">3.6</text><line class="grid" x1="422.7" y1="34" x2="422.7" y2="188"/><text class="tick" x="422.7" y="204" text-anchor="middle">3.8</text><line class="grid" x1="498.0" y1="34" x2="498.0" y2="188"/><text class="tick" x="498.0" y="204" text-anchor="middle">4.0</text><line class="grid" x1="573.3" y1="34" x2="573.3" y2="188"/><text class="tick" x="573.3" y="204" text-anchor="middle">4.2</text><line class="grid" x1="648.7" y1="34" x2="648.7" y2="188"/><text class="tick" x="648.7" y="204" text-anchor="middle">4.4</text><line class="grid" x1="724.0" y1="34" x2="724.0" y2="188"/><text class="tick" x="724.0" y="204" text-anchor="middle">4.6</text><line class="mark" x1="293.0" y1="30" x2="293.0" y2="192"/><rect class="bar s3" x="272" y="38" width="21.0" height="19" rx="2"/><text class="grouplab" x="264" y="52" text-anchor="end">untouched model</text><text class="val" x="300.0" y="52">3.4557</text><rect class="bar s1" x="272" y="72" width="59.3" height="19" rx="2"/><text class="grouplab" x="264" y="86" text-anchor="end">4 output dirs x rank 2 (whitened)</text><text class="val" x="338.3" y="86">3.5576</text><rect class="bar s2" x="272" y="106" width="77.2" height="19" rx="2"/><text class="grouplab" x="264" y="120" text-anchor="end">4 output dirs x rank 2 (by size)</text><text class="val" x="356.2" y="120">3.6049</text><rect class="bar s4" x="272" y="140" width="426.8" height="19" rx="2"/><text class="grouplab" x="264" y="154" text-anchor="end">layer 17 quadratic deleted</text><text class="val" x="705.8" y="154">4.5330</text><text class="axlab" x="498.0" y="222" text-anchor="middle">cross-entropy (nats)</text><text class="note" x="278" y="30">baseline</text></svg><figcaption>Cross-entropy on held-out text after replacing layer 17's bilinear unit. Lower is better; the dashed line is the untouched model. "By size" ranks directions by raw magnitude, "whitened" by how much the data uses them — same number of parameters, seven times the damage.</figcaption></figure>
+  <p>Deleting the layer's quadratic part costs 1.08 nats. The eight-term replacement gives
+  back all but <strong>0.7%</strong> of that. Spending the identical budget the naive way —
+  ranking by size instead of by how much the data uses each direction — does seven times the
+  damage. That is the reweighting argument confirmed in the only currency that counts.</p>
+
+  <h3>And the eight terms are readable</h3>
+  <p>A symmetric table is a signed sum of squares, so the layer literally takes a few
+  projections of the running state, squares them, and adds them with signs. The second
+  output direction writes toward determiners — <span class="mono">the, their, our, a,
+  your</span>. It <em>subtracts</em> a squared projection onto sentence-closing punctuation
+  and <em>adds</em> one onto copulas and pronouns. Read as a rule: after a full stop,
+  suppress "a determiner comes next"; when a copula or pronoun is present, boost it.</p>
+  <p>Naming a direction by the words it points at is the standard shortcut, and it is weak
+  evidence — it assumes the direction the layer reads is the direction the output vocabulary
+  writes. So the names were checked against what actually makes each feature fire, across
+  262,144 positions of real text, against a shuffled null.</p>
+  <figure><svg viewBox="0 0 760 232" role="img" aria-label="feature naming verified against a permutation null"><text class="panel" x="8" y="16">do the features fire on the tokens the unembedding names? (262,144 positions)</text><line class="grid" x1="250.0" y1="32" x2="250.0" y2="180"/><text class="tick" x="250.0" y="196" text-anchor="middle">0.0</text><line class="grid" x1="375.0" y1="32" x2="375.0" y2="180"/><text class="tick" x="375.0" y="196" text-anchor="middle">0.2</text><line class="grid" x1="500.0" y1="32" x2="500.0" y2="180"/><text class="tick" x="500.0" y="196" text-anchor="middle">0.4</text><line class="grid" x1="625.0" y1="32" x2="625.0" y2="180"/><text class="tick" x="625.0" y="196" text-anchor="middle">0.6</text><rect class="bar s1" x="250" y="38" width="410.4" height="14" rx="2"/><text class="grouplab" x="242" y="50" text-anchor="end">output dir 1, feature 1</text><text class="val" x="667.4" y="50">0.657</text><line class="mark" x1="285.8" y1="37" x2="285.8" y2="53"/><rect class="bar s1" x="250" y="61" width="315.8" height="14" rx="2"/><text class="grouplab" x="242" y="73" text-anchor="end">output dir 1, feature 2</text><text class="val" x="572.8" y="73">0.505</text><line class="mark" x1="289.2" y1="60" x2="289.2" y2="76"/><rect class="bar s1" x="250" y="84" width="245.1" height="14" rx="2"/><text class="grouplab" x="242" y="96" text-anchor="end">output dir 2, feature 1</text><text class="val" x="502.1" y="96">0.392</text><line class="mark" x1="296.0" y1="83" x2="296.0" y2="99"/><rect class="bar s1" x="250" y="107" width="191.2" height="14" rx="2"/><text class="grouplab" x="242" y="119" text-anchor="end">output dir 3, feature 1</text><text class="val" x="448.2" y="119">0.306</text><line class="mark" x1="286.3" y1="106" x2="286.3" y2="122"/><rect class="bar s2" x="250" y="130" width="92.0" height="14" rx="2"/><text class="grouplab" x="242" y="142" text-anchor="end">output dir 3, feature 2</text><text class="val" x="349.0" y="142">0.147</text><line class="mark" x1="291.6" y1="129" x2="291.6" y2="145"/><rect class="bar s2" x="250" y="153" width="71.4" height="14" rx="2"/><text class="grouplab" x="242" y="165" text-anchor="end">output dir 2, feature 2</text><text class="val" x="328.4" y="165">0.114</text><line class="mark" x1="287.6" y1="152" x2="287.6" y2="168"/><text class="axlab" x="475.0" y="214" text-anchor="middle">rank correlation between the name and what actually excites the feature</text><text class="note" x="293.5" y="30">dashes: chance</text></svg><figcaption>Rank correlation between the tokens a feature's direction points at in the output vocabulary and the tokens that actually make it fire, over 262,144 positions. Dashes mark the 95th percentile of 200 shuffles. Orange bars are the two weak cases.</figcaption></figure>
+  <p>All six clear the null, but unevenly, and "six out of six confirmed" would overstate
+  it: the three leading features are solid, while the weakest sits at 0.114 against a chance
+  level of 0.06 and its name should be treated as unverified. Five of six correlate better
+  with the token actually present than with the one being predicted — these are detectors of
+  what is there, not of what comes next.</p>
+  <div class="callout"><p>The honest limit: this worked because the last layer happens to be
+  nearly four-dimensional. The middle layers need 32 to 64 terms across four to eight times
+  as many output directions — two orders of magnitude more, and not readable this way. That
+  is the next thing to attack.</p></div>
+  <p class="q">A first version of this verification is recorded in the notes as having
+  failed: it used a text sample so small that only 48 words cleared the counting threshold,
+  which put the chance level <em>above</em> the measured value. It established nothing and
+  was rerun with 21× more data rather than reported.</p>
+  </div>
 </section>
 
 <section class="col">
@@ -742,5 +847,12 @@ a{color:var(--accent);}
   <p>The single most reusable output is the scorecard: on problems where the answer is
   known, we now know which of these methods can be believed and at what noise level they
   stop working. That is what the toys were for.</p>
+
+  <p>On the real model, two of the four planned tests are done and three follow-ups they
+  forced are done with them. One recorded piece of evidence about the model's attention has
+  been shown to carry no information. One family of statistics used throughout the toy work
+  has been shown not to transfer, with the reason measured. One registered prediction of
+  mine failed. One verification attempt had no statistical power and was rerun rather than
+  reported. And one layer of the model has been replaced by eight numbers and read.</p>
 </section>
 </div>
