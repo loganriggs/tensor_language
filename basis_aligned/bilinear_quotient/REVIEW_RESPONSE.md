@@ -136,7 +136,14 @@ identifiability fails" argument extrapolated along an axis A3 cannot resolve.
 ## Reproducibility fixes
 
 The reviewer verified by hand that every unreproducible number is *correct*, but several
-headline numbers existed only in `RESULTS.md`, produced by ad-hoc inline commands:
+headline numbers existed only in `RESULTS.md`, produced by ad-hoc inline commands.
+
+*Note on this table's own honesty:* when first written it said these were "now in
+`a2_followups.py`" — and that file did not exist yet. It was written afterwards (commit
+following this document's first version), and re-running it reproduces every number below
+exactly. Claiming a fix before making it, in the document whose purpose is honest
+accounting, is the same failure mode the review was catching; recorded rather than quietly
+corrected.
 
 | numbers | status |
 |---|---|
