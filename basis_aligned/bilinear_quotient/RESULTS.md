@@ -1270,9 +1270,27 @@ Meanwhile the between-path routing is robust everywhere. Resampling the modifier
 the MLP path by 1.376–1.400 and the attention factors by 0.064–0.105 in every arm — a
 **13–20× separation** — and dead coordinates are read at 0.001 and move nothing.
 
-The conclusion the toys support is therefore narrower and more useful than the plan's:
-**which path reads what is reliably recoverable; how work divides between the two factors
-inside one product head is not a stable property of the architecture at all.** For bilin18
+**Confirmed and partly corrected at 16 models** (`b3_seeds.py`, eight seeds per arm, every
+one reaching retrieval 1.0000):
+
+| | factor split | both factors on one property | MLP path isolation |
+|---|---|---|---|
+| rms-normed bus | 0.27 ± 0.23 (range 0.03–0.65) | **3 of 8 seeds** | 17.0 ± 7.0 (worst **1.0×**) |
+| raw bus | 0.28 ± 0.21 (range 0.03–0.64) | **3 of 8 seeds** | 12.4 ± 9.2 (worst **1.0×**) |
+
+The variability claim holds and is now quantified: relative spread 0.82, a 20× range, and
+**6 of 16 models put both factors on the same property** while still solving the task
+perfectly.
+
+But my accompanying claim that between-path routing is robust *everywhere* is **wrong**.
+Four of the sixteen models — one normed, three raw — show isolation of 1.0×, i.e. no path
+separation at all. Path isolation is more stable than the factor split (relative spread
+0.58 against 0.82) but it is not reliable either; it fails outright in a quarter of models.
+
+The conclusion the toys support is therefore narrower than both the plan's and my own
+earlier statement: **which path reads what is usually recoverable and the factor split
+usually is not, but neither is a guaranteed property of the architecture — the same
+architecture on the same task produces models where either can fail.** For bilin18
 that means a per-head factor census may be asking a question that has no consistent answer,
 while a per-path routing ledger should be reliable. It also sharpens B2-4's weaker version
 of the same observation, and it is the most direct evidence the program has about the plan's
