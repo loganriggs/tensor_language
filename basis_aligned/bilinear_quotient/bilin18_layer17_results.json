@@ -1,0 +1,132 @@
+{
+ "layer": 17,
+ "r_out": 4,
+ "ks": [
+  2,
+  4,
+  8,
+  16
+ ],
+ "ce_baseline": 3.4557433128356934,
+ "output_pc_variance": {
+  "top16": 0.9702773690223694,
+  "top64": 0.9814883470535278,
+  "top256": 0.9907317757606506,
+  "r_needed": {
+   "0.5": 2,
+   "0.9": 4,
+   "0.99": 232
+  }
+ },
+ "ce_layer17_quadratic_removed": 4.533046275377274,
+ "ce_project_only": 3.5505377054214478,
+ "ks_result": {
+  "2": {
+   "ce_whitened": 3.55755478143692,
+   "ce_raw": 3.604887366294861,
+   "frac_damage_whitened": 0.006513558636205437,
+   "frac_damage_raw": 0.05044974604468831
+  },
+  "4": {
+   "ce_whitened": 3.5566695630550385,
+   "ce_raw": 3.5715746879577637,
+   "frac_damage_whitened": 0.005691859993705373,
+   "frac_damage_raw": 0.019527452599485413
+  },
+  "8": {
+   "ce_whitened": 3.552512615919113,
+   "ce_raw": 3.565003275871277,
+   "frac_damage_whitened": 0.001833198799533776,
+   "frac_damage_raw": 0.013427578826759962
+  },
+  "16": {
+   "ce_whitened": 3.550954908132553,
+   "ce_raw": 3.562929928302765,
+   "frac_damage_whitened": 0.00038726590904482365,
+   "frac_damage_raw": 0.011503006407855154
+  }
+ },
+ "directions": [
+  {
+   "eigenvalue": -22750.97152899859,
+   "abs_share_of_form": 0.5899589269618895,
+   "sign": "suppresses",
+   "top_tokens": [
+    " with",
+    " by",
+    " and",
+    " of",
+    " are",
+    " for",
+    " is",
+    " to",
+    " from",
+    "The",
+    ",",
+    " or"
+   ],
+   "activation_kurtosis": 2.5601062774658203
+  },
+  {
+   "eigenvalue": 8265.092160631408,
+   "abs_share_of_form": 0.2143233705915439,
+   "sign": "boosts",
+   "top_tokens": [
+    "\ufffd",
+    "\n",
+    "/",
+    " \"",
+    "-",
+    " (",
+    "||",
+    "\ufffd",
+    "<|endoftext|>",
+    "|",
+    "\u2014",
+    " '"
+   ],
+   "activation_kurtosis": 3.4819283485412598
+  },
+  {
+   "eigenvalue": 1531.755153186532,
+   "abs_share_of_form": 0.03972017746101268,
+   "sign": "boosts",
+   "top_tokens": [
+    " (",
+    "\n",
+    "(",
+    " he",
+    "\ufffd",
+    " they",
+    "\ufffd",
+    " \"",
+    " can",
+    " she",
+    "-",
+    " non"
+   ],
+   "activation_kurtosis": 2.9085564613342285
+  },
+  {
+   "eigenvalue": 538.3064817642042,
+   "abs_share_of_form": 0.013958907818659575,
+   "sign": "boosts",
+   "top_tokens": [
+    "\n",
+    " (",
+    "\ufffd",
+    "-",
+    " \"",
+    "<|endoftext|>",
+    "/",
+    "\ufffd",
+    " [",
+    "||",
+    "\u2014",
+    " '"
+   ],
+   "activation_kurtosis": 3.9561562538146973
+  }
+ ],
+ "runtime_s": 91.42449855804443
+}

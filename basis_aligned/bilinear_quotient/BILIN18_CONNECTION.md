@@ -588,3 +588,119 @@ candidate so far for a place in bilin18 where the toys' decomposition machinery
 (dictionary learning, simultaneous block diagonalisation, CP) would actually have enough
 signal-to-parameter ratio to work — a rank-4 object in a 1152-dimensional space is
 tractable in a way a rank-64 one is not.
+
+---
+
+## 8. Reading layer 17: 8 numbers that reproduce a 16M-parameter layer
+
+Files: `bilin18_layer17.py`, `bilin18_layer17_readout.py`, `bilin18_layer17_verify.py`.
+
+§7.3 identified layer 17 as the one place on the real model where the decomposition
+machinery has enough signal per parameter to be worth pointing at. This does that. It is
+the first result in the program that reads a real computation out of the 546M model
+rather than measuring a property of it.
+
+### 8.1 The gate: does the rank claim survive as cross-entropy?
+
+Held-out FVU on a quadratic feature is not the same thing as the model still working, so
+the layer-17 MLP was actually **replaced** by its truncation — output confined to the
+top-`R` principal output directions, each carrying a rank-`k` form — and the model
+re-scored. The output variance decides `R`: layer 17's MLP output needs just **4**
+principal directions for 90% of its variance (2 for 50%), so `R = 4`.
+
+| replacement | CE | Δ vs baseline | share of the way to a dead layer |
+|---|---|---|---|
+| baseline | 3.4557 | — | — |
+| **quadratic part of layer 17 removed** | 4.5330 | +1.0773 | 100% |
+| output projected to top-4 PCs, forms exact | 3.5505 | +0.0948 | 8.8% |
+| …+ **whitened rank 2** | 3.5576 | +0.1018 | **0.7%** |
+| …+ raw rank 2 | 3.6049 | +0.1491 | 5.0% |
+| …+ whitened rank 4 | 3.5567 | +0.1009 | 0.6% |
+| …+ raw rank 4 | 3.5716 | +0.1158 | 2.0% |
+
+Two things come out of this table.
+
+**The layer compresses enormously.** Deleting layer 17's quadratic part costs 1.08 nats.
+Keeping **4 output directions × rank-2 forms — 8 signed squared projections — recovers
+all but 0.7% of that.** The replacement is about 13.8k numbers standing in for a layer of
+roughly 15.9M parameters, at a cost of 0.007 nats.
+
+**Whitening matters to the model, not just to a reconstruction error.** At the same rank
+budget, ranking eigenpairs by |eigenvalue| does 5.0% of a dead layer's damage where the
+Λ-weighted ranking does 0.7% — a **7× difference in functional damage for identical
+parameter cost**. This is the strongest confirmation of §6.5's recommendation, and it is
+in the currency that matters.
+
+*(A first version of this gate reported "project only" costing more than deleting the
+layer, which is impossible. The cause was mine: `mu` was the mean of the MLP output,
+which already contains `Down_bias`, so the bias was added twice. Fixed by passing
+`mu − bias` and restoring only the component of the mean lying outside span(P).)*
+
+### 8.2 What it computes
+
+A symmetric form is a signed sum of squares, `x^T M_d x = Σ λ_i (w_i·x)²`, so the layer
+is literally: take a few projections of the residual stream, square them, and add them
+with signs. With `R = 4` and rank 2, that is eight terms. The two leading output
+directions, named on both ends:
+
+**Output direction 1** — 48.4% of the MLP's output variance. Writing along it promotes
+` challenge, draw, promise, presented, designed, battle, tackle, pose`.
+- feature 1 (59% of the form, **subtracts**): squared projection onto a direction whose
+  strongest excitation is auxiliaries and function words — ` has, who, 're, 've, have,
+  include, will`.
+- feature 2 (21%, **adds**): a delimiter/punctuation direction — `', **, ", (, \n, £`.
+
+**Output direction 2** — 22.3% of output variance. Promotes determiners and possessives
+` the, their, our, a, your`; demotes verbs and participles.
+- feature 1 (59%, **subtracts**): sentence-final and closing punctuation — `####, )., ?,
+  ###, ]).`
+- feature 2 (19%, adds): copulas and pronouns — ` are, he, be, they, is, it, were, was`.
+
+Direction 2 reads as a syntactically sensible next-token rule: after a sentence-closing
+punctuation mark, suppress "predict a determiner"; in the presence of a copula or
+pronoun, boost it.
+
+### 8.3 Verifying the names — including a first attempt that had no power
+
+Naming a direction by the tokens whose unembedding rows it points along is the standard
+shortcut, and it is weak: it assumes the residual direction the MLP *reads* is aligned
+with the one the unembedding *writes*. So the names were tested directly — run the
+corpus, record `(w·x)²` at every position, and ask which tokens actually sit where the
+feature fires.
+
+**The first attempt failed for lack of power and is recorded rather than quietly
+replaced.** It used the 32×513 eval set, where only 48 tokens clear 30 occurrences; the
+chance overlap between a 20-name list and a 10-token excitation list against a pool of 48
+is 4.2/10, and the measured 2.7/10 sat *below* it. That run establishes nothing either
+way. Two fixes: 512×513 = 262,144 positions (1,026 tokens clearing the threshold, 21×
+more), and a Spearman correlation across all qualifying tokens against a 200-draw
+permutation null, instead of an overlap between mismatched lists.
+
+| feature | ρ, current token | ρ, next token | permutation null (95th) | |
+|---|---|---|---|---|
+| dir 1, feature 1 | **0.657** | 0.447 | 0.057 | supported |
+| dir 1, feature 2 | **0.505** | 0.253 | 0.063 | supported |
+| dir 2, feature 1 | **0.392** | 0.086 | 0.074 | supported |
+| dir 3, feature 1 | 0.306 | 0.279 | 0.058 | supported |
+| dir 3, feature 2 | 0.147 | 0.189 | 0.067 | weakly supported |
+| dir 2, feature 2 | 0.114 | −0.050 | 0.060 | **barely above null** |
+
+All six clear their null, but the spread matters and "6/6 confirmed" would overstate it:
+the three leading features are solidly supported (ρ 0.39–0.66 against ~0.06), while
+dir 2 feature 2 at 0.114 is barely distinguishable from chance and its name should be
+treated as unverified. **ρ(current token) exceeds ρ(next token) in five of six**, so
+these features key on the token actually present, not on the prediction being made.
+
+### 8.4 What this settles for the program
+
+- The toys' central methodological claim — that the useful decomposition is into
+  interaction-form eigendirections under the functional metric, not into neurons —
+  **holds on the real model, gated by cross-entropy**, at least at layer 17.
+- The Λ-weighted metric is not a technicality. Same parameter budget, 7× less damage.
+- Interpretability by unembedding alignment is **partially** justified here: it agrees
+  with measured excitation for the strong features and not for the weak ones. It should
+  be reported with the correlation attached, never on its own.
+- The obvious limit: this worked at layer 17 because layer 17 is nearly rank-4. Layers
+  1–13 need rank 32–64 on 4–8× more output directions, which is two orders of magnitude
+  more terms and is not readable the same way. Whether the same treatment produces
+  anything legible in the middle of the network is untested and is the natural next step.

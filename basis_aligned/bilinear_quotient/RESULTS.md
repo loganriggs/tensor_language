@@ -1417,3 +1417,32 @@ this — their one-hot inputs have no dominant direction by construction. The fi
 whiten by the input second moment (the Λ-weighted metric already implemented in
 `bq_common.py`, and not previously applied to the real model) before reading any mass
 statistic off bilin18 weights.
+
+### Reading a real computation out of layer 17
+
+The rank result led somewhere. Layer 17's MLP output needs only **4** principal
+directions for 90% of its variance, so the layer was replaced outright by 4 output
+directions each carrying a rank-2 form — eight signed squared projections, ~13.8k
+numbers standing in for ~15.9M parameters — and the model re-scored. Deleting layer 17's
+quadratic part costs 1.077 nats of cross-entropy; the eight-term replacement recovers all
+but **0.7%** of that. The same budget spent by |eigenvalue| instead of in the Λ-weighted
+metric does 5.0% of the damage, so **whitening buys a 7× reduction in functional damage
+at identical parameter cost** — the strongest confirmation yet that the functional metric
+is not a technicality.
+
+The eight terms are readable. The leading output direction subtracts a squared
+projection onto an auxiliary/function-word direction (59% of the form) and adds one onto
+a delimiter/punctuation direction (21%). The second reads as a syntax rule: suppress
+"predict a determiner" after sentence-closing punctuation, boost it in the presence of a
+copula or pronoun.
+
+Those names were then verified rather than asserted, against measured excitation over
+262,144 corpus positions with a permutation null. **A first attempt had no power and is
+recorded as such** — it used the 32×513 eval set where only 48 tokens clear the count
+threshold, making chance overlap higher than the measured value. On the corrected test
+all six features clear their null, but unevenly: the three leading features sit at
+ρ = 0.39–0.66 against a null of ~0.06, while the weakest is at 0.114 and its name should
+be treated as unverified. Interpretation by unembedding alignment is therefore *partially*
+justified here, and should always be reported with the correlation attached.
+
+Full detail in `BILIN18_CONNECTION.md` §8.
