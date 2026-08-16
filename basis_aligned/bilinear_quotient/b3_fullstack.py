@@ -21,8 +21,18 @@ bus. Downstream:
     the MLP path        must read C          (the query's own modifier)
     nobody              may read the dead coordinates
 
-and the answer is (payload of the key matching BOTH A and B) + (C of the query),
-so all three paths are load-bearing and the routing table is known exactly.
+with two separately decodable outputs: the payload of the key matching BOTH A and
+B, and the query's own modifier C. All three paths are load-bearing and the routing
+table is known exactly.
+
+(An earlier version asked for (payload + C) mod NV from a single linear readout.
+That needs a bilinear interaction between two retrieved quantities, which this
+stack does not have — the MLP path never sees the attended value — so the target
+was unreachable. Both arms plateaued at ~0.50 with each seed latching onto one of
+A/B and ignoring the other. Recorded because the diagnosis came from the ledger:
+the unread feature showed up as ~0.02 in the weight-side readout and as a ~0.03
+patching effect, i.e. the instruments correctly reported a model that was not doing
+the planted computation.)
 
 Predictions, registered before running:
  (i)   each path's sensitivity concentrates on its own planted feature;
@@ -124,8 +134,9 @@ def sampler(T, seed=0):
         x[:, SEQ, SL['C']] = T['C'][cq]              # the modifier lives on the query
         x[:, SEQ, SL['marker']] = 1.0
         x[:, :, SL['dead']] = torch.randn(n, SEQ + 1, DDEAD, generator=g, device=DEV)
-        y = (v[r, match] + cq) % NV                  # needs the retrieval AND the modifier
-        return {'x': x, 'y': y, 'match': match, 'a': a, 'b': b, 'v': v,
+        y = v[r, match]                              # the attention path's job
+        yc = cq                                      # the MLP path's job
+        return {'x': x, 'y': y, 'yc': yc, 'match': match, 'a': a, 'b': b, 'v': v,
                 'aq': aq, 'bq': bq, 'cq': cq}
 
     return gen
@@ -135,8 +146,9 @@ class Stack(torch.nn.Module):
     """token -> shared bilinear layer -> bus; then an unnormalised two-factor
     attention head plus a bilinear MLP path on the query."""
 
-    def __init__(self, seed=0):
+    def __init__(self, seed=0, norm_bus=True):
         super().__init__()
+        self.norm_bus = norm_bus
 
         def par(p):
             return torch.nn.ParameterDict(
@@ -155,11 +167,18 @@ class Stack(torch.nn.Module):
         self.Wk = torch.nn.ParameterList([mk(r, D_BUS), mk(r, D_BUS)])
         self.Wv = mk(D_BUS, D_BUS)
         self.Wo = mk(NV, D_BUS)
+        self.Wc = mk(NC, D_BUS)
         self.scale = 1.0 / r
 
     def bus(self, x):
         n, L, _ = x.shape
-        return forward({k: v for k, v in self.l1.items()}, x.reshape(n * L, -1)).reshape(n, L, -1)
+        h = forward({k: v for k, v in self.l1.items()}, x.reshape(n * L, -1)).reshape(n, L, -1)
+        if self.norm_bus:
+            # bilin18 RMS-norms before attention and again before the MLP
+            # (jacclust/tt_model.py:214-216), affine-free. Without it the
+            # unnormalised score product has unbounded scale and does not train.
+            h = h / h.pow(2).mean(-1, keepdim=True).clamp_min(1e-12).sqrt()
+        return h
 
     def qk(self, i):
         return self.Wq[i].T @ self.Wk[i] * self.scale
@@ -174,8 +193,16 @@ class Stack(torch.nn.Module):
         return attn, mlp, s, h
 
     def forward(self, x):
+        """Two separately decodable heads.
+
+        The first version asked for (payload + modifier) mod NV from a LINEAR
+        readout. That needs a bilinear interaction between two retrieved
+        quantities, and this stack does not have one — the MLP path never sees
+        the attended value. The target was not solvable here, which is why both
+        arms plateaued at ~0.50 with each seed latching onto one property.
+        """
         attn, mlp, _, _ = self.parts(x)
-        return (attn + mlp) @ self.Wo.T
+        return attn @ self.Wo.T, mlp @ self.Wc.T
 
 
 def path_sensitivity(model, x, which, n_probe=4096):
@@ -222,7 +249,9 @@ def patch(model, T, gen, feature, n=2048):
 def report(model, T, gen, tag, verbose=True):
     b = gen(8192)
     with torch.no_grad():
-        acc = float((model(b['x']).argmax(1) == b['y']).double().mean())
+        lv, lc = model(b['x'])
+        acc = float((lv.argmax(1) == b['y']).double().mean())
+        acc_c = float((lc.argmax(1) == b['yc']).double().mean())
     paths = ['factor0', 'factor1', 'mlp']
     led = {p: block_shares(path_sensitivity(model, b['x'], p)) for p in paths}
     pat = {f: patch(model, T, gen, f) for f in ('A', 'B', 'C', 'dead')}
@@ -235,9 +264,12 @@ def report(model, T, gen, tag, verbose=True):
         gg = g.reshape(-1, D_TOK)
         Sl += (gg.T @ gg) / gg.shape[0]
     lay = block_shares(Sl.detach())
-    res = {'tag': tag, 'acc': acc, 'layer1_transmits': lay, 'ledger': led, 'patch': pat}
+    res = {'tag': tag, 'acc_retrieval': acc, 'acc_modifier': acc_c,
+           'retrieval_ceiling_single_property': 1.0 / (1 + MDIST),
+           'layer1_transmits': lay, 'ledger': led, 'patch': pat}
     if verbose:
-        print(f'  [{tag}] accuracy {acc:.4f}')
+        print(f'  [{tag}] retrieval {acc:.4f} (single-property ceiling '
+              f'{1/(1+MDIST):.3f}) | modifier {acc_c:.4f}')
         print('    layer 1 transmits: ' + ' '.join(f'{k} {v:.3f}' for k, v in lay.items()))
         for p in paths:
             top = max(('A', 'B', 'C'), key=lambda k: led[p][k])
@@ -255,24 +287,30 @@ def main():
     t0 = time.time()
     out = {'registered': REGISTERED, 'config': {'d_tok': D_TOK, 'd_bus': D_BUS, 'seq': SEQ,
            'm_distractors': MDIST, 'steps': STEPS}, 'runs': []}
-    for seed in range(2):
+    for norm_bus, arm in ((True, 'rms-normed bus (bilin18-faithful)'),
+                          (False, 'raw bus (no normalisation)')):
+      print(f'\n#### arm: {arm} ####')
+      for seed in range(2 if norm_bus else 1):
         T = make_tables(seed)
         gen = sampler(T, seed)
-        model = Stack(seed).to(DEV)
+        model = Stack(seed, norm_bus=norm_bus).to(DEV)
         opt = torch.optim.AdamW(model.parameters(), lr=2e-3, weight_decay=1e-4)
         sch = torch.optim.lr_scheduler.CosineAnnealingLR(opt, STEPS)
         for s in range(STEPS):
             b = gen(BATCH)
-            loss = torch.nn.functional.cross_entropy(model(b['x']), b['y'])
+            lv, lc = model(b['x'])
+            loss = (torch.nn.functional.cross_entropy(lv, b['y'])
+                    + torch.nn.functional.cross_entropy(lc, b['yc']))
             opt.zero_grad()
             loss.backward()
             opt.step()
             sch.step()
         print(f'== seed {seed} ==')
-        r = report(model, T, gen, f'trained s{seed}')
+        r = report(model, T, gen, f'{arm} s{seed}')
+        r['arm'] = arm
         out['runs'].append(r)
 
-        if seed == 0:
+        if seed == 0 and norm_bus:
             print('  NULL gauge (refactor layer 1, function preserving):')
             pg, resid = gauge_refactor({k: v.detach() for k, v in model.l1.items()}, seed=9)
             import copy
@@ -280,7 +318,8 @@ def main():
             m2.l1 = torch.nn.ParameterDict({k: torch.nn.Parameter(v) for k, v in pg.items()})
             bb = gen(2048)
             with torch.no_grad():
-                dfn = float((model(bb['x']) - m2(bb['x'])).abs().max())
+                dfn = max(float((u - v).abs().max())
+                          for u, v in zip(model(bb['x']), m2(bb['x'])))
             rg = report(m2, T, gen, 'gauge-scrambled', verbose=False)
             out['null_gauge'] = {'residual': resid, 'fn_diff': dfn,
                                  'h_before': H1, 'h_after': int(pg['L'].shape[0]),
@@ -295,7 +334,7 @@ def main():
     print('== NULL 1: random weights ==')
     T = make_tables(0)
     gen = sampler(T, 0)
-    mr = Stack(555).to(DEV)
+    mr = Stack(555, norm_bus=True).to(DEV)
     out['null_random'] = report(mr, T, gen, 'random')
 
     out['runtime_s'] = time.time() - t0
