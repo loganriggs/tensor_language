@@ -269,9 +269,42 @@ scores solve the conjunctive task; and every null that separated trained from un
 ## Open, and worth a proof
 
 1. **Why is a trained residual harder for joint block-diagonalisation than matched noise?**
-   A2-5 measures 2–3× and A2-8 attributes about half to symmetry-breaking. A perturbation
-   bound on the commutator spectrum in terms of the perturbation's symmetry content would
-   settle it. This is the one place where a theorem would tell us something we do not know.
+   Still open, but two candidate mechanisms have now been tested and refuted, and one new
+   damage channel found (`a2_coherence.py`).
+
+   *A real mechanism, not the operative one.* JADE reads structure off the coupling graph
+   `W_ij = √(Σ_m T²_mij)`, so a perturbation that is low-rank in the READER mode adds
+   coherently across slices while an independent one adds incoherently. Tested at fixed
+   off-block mass (0.178, the trained level):
+
+   | perturbation | effective reader rank | frequencies recovered (blind / oracle) |
+   |---|---|---|
+   | reader-rank 1 | 1.00 | **0 / 5** |
+   | reader-rank 2 | 1.99 | 8 / 9 |
+   | reader-rank 3 | 2.57 | 9 / 11 |
+   | reader-rank ≥ 5 | ≥ 4.05 | **11 / 11** |
+
+   So reader-mode coherence *is* a genuine damage channel: at identical magnitude, a
+   coherent perturbation destroys recovery where an incoherent one is harmless. That is a
+   new fact and it is what a perturbation bound should be written against.
+
+   *But it does not explain the trained residual*, whose effective reader rank is **19.66 of
+   23** — nearly as incoherent as isotropic noise at 22.43 — while being far more damaging
+   (2/11 against 11/11). Hypothesis refuted.
+
+   *Second refutation.* The natural follow-up — that the residual's off-block mass is
+   concentrated on a few pairs of blocks — also fails. Measured as a participation ratio
+   over the 110 ordered pairs of frequency blocks: trained residual 100.4, isotropic 109.5,
+   and the *damaging* reader-rank-1 perturbation 95.8. None of the three is meaningfully
+   concentrated, so spatial concentration separates neither the damaging from the harmless
+   nor the real from the synthetic.
+
+   The hypothesis space is now: not magnitude (A2-5), not reader-mode coherence, not
+   coupling-graph concentration, and only about half symmetry-breaking (A2-8). What remains
+   is presumably that the residual is not an independent perturbation at all — it is the
+   part of one fitted function that lies off-block, so it is correlated with the block part
+   in a way no injected noise reproduces. Constructing a surrogate with that correlation is
+   the next experiment.
 2. **A sharp condition for when JADE's coupling graph recovers the true partition.** The
    tolerance is currently chosen by oracle (Reviewer 2's finding 6); a Davis–Kahan style
    bound on the coupling matrix would give a blind rule.
