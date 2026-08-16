@@ -439,21 +439,35 @@ transfers is the phase relationship the blocks encode, not merely their span.
 Prediction (iii) asked whether block crystallisation precedes or coincides with the
 generalisation transition. Measured (seed 0, canonicalised off-block mass):
 
-| step | 0 | 2500 | 10000 | 20000 | 30000 | 40000 |
-|---|---|---|---|---|---|---|
-| test acc | 0.031 | 0.006 | 0.406 | 0.566 | 0.940 | 0.978 |
-| off-block mass (canonicalised) | 0.913 | 0.580 | 0.344 | 0.311 | 0.206 | 0.178 |
+| step | 0 | 20k | 40k | 60k | 100k | 140k | 200k | 260k |
+|---|---|---|---|---|---|---|---|---|
+| test acc | 0.031 | 0.566 | 0.978 | 0.981 | 0.981 | 0.987 | 0.987 | 0.991 |
+| off-block, canonicalised | 0.913 | 0.311 | 0.178 | 0.172 | 0.171 | 0.168 | 0.167 | **0.169** |
+| off-block, raw | 0.896 | 0.355 | 0.223 | 0.216 | 0.215 | 0.214 | 0.213 | 0.214 |
+| functional residual | 0.903 | 0.452 | 0.319 | 0.313 | 0.309 | 0.307 | 0.307 | 0.306 |
 
-*(The 200k and 260k columns are withdrawn: they came from an exploratory run whose script
-was not committed, so the "arrests and is permanent" claim now rests only on the plateau
-between 30k and 40k plus the retracted-and-corrected dynamics in A2-4.)*
+*Restored and now reproducible* (`a2_followups.py`). These columns were withdrawn after
+review because they came from an exploratory run whose script was never committed. Re-run
+under a committed script, step 40000 reproduces the cached trajectory exactly
+(0.9780 / 0.2226 / 0.1777), so the continuation is faithful. The reviewer also caught a
+labelling error: what I originally called the canonicalised off-block at 200k/260k
+(0.213 / 0.214) was the **raw** figure. Both are now given.
+
+**Crystallisation arrests.** Over the last nine checkpoints — 100k to 260k steps — the
+canonicalised off-block mass moves only between 0.1672 and 0.1713, a spread of 0.004, while
+test accuracy creeps from 0.981 to 0.991. Six times as much training past the transition
+buys nothing structurally.
 
 Crystallisation is monotone and coincident with the test-accuracy rise — and then it
-**stops**, at ~0.21 raw / ~0.18 canonicalised, and does not move between 40k and 260k
-steps while test accuracy creeps to 0.991. The grokked bilinear solution is not the pure
-Fourier solution and does not converge to it under continued weight decay. Combined with
-A2-4 (deleting that residual gives test 1.000), the residue is both permanent and
-harmful — training does not remove it, but weight surgery does.
+**stops**, at ~0.214 raw / ~0.169 canonicalised, holding flat from 40k to 260k steps while
+test accuracy creeps to 0.991. The grokked bilinear solution is not the pure Fourier
+solution and does not converge to it under continued weight decay.
+
+Combined with A2-4 the residue is both permanent and harmful: training will not remove it,
+and deleting it by hand takes the model to test 1.000. Note this is consistent with, and
+sharper than, the corrected A2-4 dynamics — the residual's *logit scale* rises and then
+partially recedes, but its *share* of the function stops falling at 40k and stays put for
+another 220k steps.
 
 ### A2 nulls (summary)
 
