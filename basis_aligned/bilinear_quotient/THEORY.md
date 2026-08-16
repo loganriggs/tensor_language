@@ -373,10 +373,39 @@ scores solve the conjunctive task; and every null that separated trained from un
    came from — but whose damaging character travels with it. Removing that chunk helps
    because it removes the chunk, not because of what it was aligned to.
 
-   The well-posed successor question is therefore intrinsic and constructive: **find the
-   minimal-mass component of the residual whose removal restores recovery**, and describe
-   that component. That is a search over subspaces with a clear objective, not another guess
-   at a summary statistic.
+   *Fifth attempt: the constructive search, and the thread's answer* (`a2_minimal.py`).
+   Rather than propose a sixth statistic, decompose the residual by its own reader-mode SVD
+   into 23 rank-one pieces and search directly for the minimal set whose removal restores
+   recovery. The answer is that **there is no compact culprit**:
+
+   - *No single piece.* The best single removal (piece 3, 6.2% of the mass) moves oracle
+     recovery only from 4/11 to 6/11.
+   - *No special small set.* Ranked removal reaches 9/11 after 4 pieces (24.2% of the mass) —
+     but removing the **top 4 by singular value** does exactly as well (9/11, 27.7%), and
+     random 4 gets 6/11 at 16.7% while the bottom 4 get 4/11 at 6.7%. Recovery tracks how
+     much top-end reader mass was deleted and nothing else; the search found no structure
+     the singular values did not already give.
+   - *The removed set is not the culprit.* Those 4 pieces, applied alone to the planted
+     signal, give 8/11 oracle — nearly harmless — against 2/11 for the whole residual. So
+     they are not a damaging object that was extracted; the whole is worse than its parts.
+
+   **The one positive structural fact.** This is not merely "less mass is easier". Removing
+   the top reader pieces without rescaling lands at off-block 0.141 and gives **11/11**,
+   whereas uniformly scaling the residual down to a comparable 0.149 gives only **6/11**
+   (A2-5's α-sweep). At matched magnitude, mass in the large reader directions is
+   disproportionately damaging.
+
+   **Verdict on the thread.** Five attempts: reader coherence (refuted as the explanation,
+   but a real damage channel in its own right), coupling concentration (refuted), reader
+   alignment (necessary, not sufficient, with a working intervention), reader profile
+   (refuted, and its transplant control ruled out every relational hypothesis at once), and
+   the constructive search (no compact culprit; the damage is diffuse across the top reader
+   directions). The remaining gap — a trained residual is 2–3× harder than matched synthetic
+   noise — is now known **not** to be explained by any second-order statistic of the
+   residual considered here, nor by any relationship to the signal. That is a much stronger
+   statement than the thread began with, and it is where guessing should stop: the next
+   move is either a genuine perturbation bound on the coupling spectrum, or accepting the
+   calibrated operating range (A2-2) as the practical answer and moving on.
 2. **A sharp condition for when JADE's coupling graph recovers the true partition.** The
    tolerance is currently chosen by oracle (Reviewer 2's finding 6); a Davis–Kahan style
    bound on the coupling matrix would give a blind rule.
