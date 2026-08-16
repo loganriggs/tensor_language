@@ -1393,6 +1393,23 @@ blind to it, with curvature along that direction running 0.00–0.19× that of a
 equally-sized random form. Layer 7 annihilates it outright. Layer 0 and the last two
 layers run the opposite way (up to 5.2× enriched).
 
+**Testing that program's own fix (`bilin18_whitened.py`, `_dirs.py`).** The
+recommendation below — whiten before reading mass statistics — was then tested rather
+than asserted, by scoring rank-k truncations of the forms by held-out functional error.
+Whitening helps at every layer, by 1.5–5.2×, and at four of six layers it is the
+difference between reaching 90% of the function inside rank 32–64 and not reaching it
+by rank 128. The recommendation holds. **A registered prediction attached to it failed**:
+the benefit is largest at layer 17, the layer *least* dominated by a single input
+direction, so whitening does not work for the mechanism reason I gave.
+
+That run also produced a methodological correction worth more than its headline.
+Scoring interaction-form rank on **random** output directions overstates rank by 2–8×;
+on the directions the layer's output actually occupies, whitened rank 32–64 captures 90%
+of the function where random directions suggested "irreducibly high rank". And one
+robust structural fact survived every basis: **layer 17's MLP is very nearly a
+four-dimensional quadratic form** (whitened rank 4 → 90%, rank 16 → 99.5%), against
+rank 32–64 for layers 1–13.
+
 The consequence for this program is direct and unwelcome: **every Frobenius-mass
 statistic used in Part A is compromised on bilin18**, because on layers 1–13 most of a
 form's norm sits in directions the data never visits. The toys could not have caught

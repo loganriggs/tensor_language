@@ -510,3 +510,81 @@ than against bilin18.
   is the Λ-weighted functional metric the program already defined in `bq_common.py` and
   then, on bilin18, did not use. That is now the recommended default for §2.2's
   weight-space reads.
+
+---
+
+## 7. Testing §6.5's own recommendation — and a registered prediction that failed
+
+Files: `bilin18_whitened.py`, `bilin18_whitened_dirs.py`.
+
+§6.5 ended with a recommendation: whiten by the input second moment before reading any
+mass statistic off bilin18 weights. That was an argument, not a result, so it was tested.
+
+**The measurement.** For an output direction `d` with interaction form `M_d`, take the
+rank-`k` approximation two ways — top-`k` eigenpairs of `M_d` by |eigenvalue| ("raw",
+which is what a Frobenius-mass statistic sees), and top-`k` eigenpairs of
+`S^{1/2} M_d S^{1/2}` mapped back ("whitened", the Λ-weighted functional metric) — and
+score both by fraction of variance unexplained of `x^T M_d x` on 6000 held-out inputs.
+FVU is purely functional: it does not care about Frobenius norm at all.
+
+**Registered prediction, written before the run:** the gap is large through the middle
+of the network (layers 5–13, where §6.4 found curvature along the dominant direction at
+0.00–0.19× random, so the norm is mostly dead weight) and small at layers 0 and 17.
+
+### 7.1 Result — the recommendation holds, the prediction does not
+
+Rank needed for 90% of the function, and the FVU ratio at k=16, on the top-8 principal
+directions of each MLP's own output:
+
+| layer | raw rank for 90% | whitened rank for 90% | whitening gap at k=16 |
+|---|---|---|---|
+| 0 | 128 | 64 | 1.5× |
+| 1 | >128 | **32** | 3.0× |
+| 5 | >128 | **32** | 2.6× |
+| 9 | >128 | 64 | 2.2× |
+| 13 | >128 | **32** | 2.7× |
+| 17 | 8 | **4** | **5.2×** |
+
+Whitening helps everywhere, by 1.5–5.2×, and at four of six layers it is the difference
+between reaching 90% of the function inside rank 32–64 and not reaching it at all by
+rank 128. **The recommendation is validated.**
+
+**The prediction is wrong, and consistently so.** The gap is *largest* at layer 17
+(5.2×), which is the layer where the input is *least* dominated by a single direction
+(top-PC share 0.543 against 0.94 at layer 7). It is smallest at layer 0. So whitening's
+benefit does not track the blind-direction mechanism of §6.4 at all — it is right for a
+different reason than the one I argued for. The same ordering appeared in the
+random-direction run (`bilin18_whitened.py`: 3.9× at the ends against 1.9× in the
+middle), so this is not a basis artefact. I do not have a mechanism for it and am not
+going to invent one.
+
+### 7.2 A methodological correction that matters more than the above
+
+The first run used **random** output directions `d`. A random `d` mixes all 4608 neurons,
+and it turns out to overstate rank badly. Same layers, same metric, random `d` against
+output-PC `d`:
+
+| layer | whitened FVU at rank 128, random d | …output-PC d |
+|---|---|---|
+| 9 | 0.151 | **0.026** |
+| 13 | 0.179 | **0.019** |
+| 5 | 0.089 | 0.015 |
+
+On random directions layers 9 and 13 never reach 90% of the function even at rank 128,
+and the honest-looking conclusion would have been "bilin18's mid-network interaction
+forms are irreducibly high rank." On the directions the layer actually uses, rank 32–64
+suffices. **Measuring interaction-form rank on random output directions overstates it by
+roughly 2–8×.** Anyone repeating this analysis should sample `d` from the layer's own
+output distribution; this program's toy runs used the natural output basis throughout,
+so the error is specific to scaling up, and it is an easy one to make.
+
+### 7.3 The one robust structural fact
+
+Layer 17 is qualitatively different from every other layer measured, in both bases and
+by every statistic here: **whitened rank 4 captures 90% of its function and rank 16
+captures 99.5%.** The final bilinear MLP is very nearly a four-dimensional quadratic
+form. Layers 1–13 need 32–64. That is an 8–16× separation, and it is the strongest
+candidate so far for a place in bilin18 where the toys' decomposition machinery
+(dictionary learning, simultaneous block diagonalisation, CP) would actually have enough
+signal-to-parameter ratio to work — a rank-4 object in a 1152-dimensional space is
+tractable in a way a rank-64 one is not.
