@@ -752,3 +752,125 @@ the toy program predicted this concentration and it was not looked for.
 terms than the same 5% imposes on layer 1. So "layers 2–15 do not compress" may be the
 wrong reading of these rows; "layers 2–15 barely do anything individually" is at least
 as consistent with them. Which of those is true is what §10 tests.
+
+---
+
+## 10. Resolving §9 — and a correction to §8's headline number
+
+File: `bilin18_depth_followup.py` (237 s).
+
+### 10.1 Correction: layer 17's replacement costs 9.5%, not 0.7%
+
+§9 flagged that `R` was fixed by a variance rule rather than chosen by cost. Sweeping
+`R ∈ {4,8,16,32,64}` against `k ∈ {2,4,8,16}` and taking the cheapest configuration
+inside each damage tolerance, measured from the untouched model:
+
+| layer | cheapest ≤5% | cheapest ≤10% |
+|---|---|---|
+| 0 | — | R=16, k=16 → 7.6%, 51× |
+| 16 | **R=4, k=2 → 4.2%, 1151×** | R=4, k=2 → 4.2%, 1151× |
+| 17 | R=32, k=4 → 4.8%, 86× | R=4, k=2 → 9.5%, 1151× |
+
+**§8.1 said the eight-term replacement of layer 17 "recovers all but 0.7%" of the cost of
+deleting the layer. That sentence conveys the wrong quantity.** 0.7% is the damage added
+by truncating the forms to rank 2, measured *beyond* the projection step. Measured from
+the untouched model — which is what "recovers all but X" means to a reader — the same
+replacement costs **9.5%**. Both numbers appear in §8.1's table; the prose picked the
+flattering one. The correct decomposition of layer 17 at R=4, k=2:
+
+- total cost of the replacement: 9.5% of what deleting the layer costs (+0.102 nats)
+- of which 8.8 points come from confining the output to 4 directions
+- and only 0.7 points from truncating those 4 forms to rank 2
+
+So the *rank* claim is as strong as §8 said — rank 2 is nearly free once you have the
+four directions — but the *compression* claim was overstated by an order of magnitude in
+damage terms.
+
+**And layer 16, not 17, is the model's most compressible layer.** At the identical
+parameter budget (R=4, k=2, 13,832 numbers, 1151×) it costs 4.2% where layer 17 costs
+9.5%. §9's table already showed this and I read past it. The §8 machinery is sound; it
+was pointed at the wrong layer.
+
+Unaffected by this: the whitened-versus-raw comparison in §8.1, since both arms are
+measured beyond the same projection step at matched parameter cost, and the 7× gap
+stands. Also unaffected: the feature naming and its verification in §8.2–8.3.
+
+### 10.2 The middle layers are individually cheap and jointly not
+
+§9's third caveat was that a 5% relative tolerance is brutal for layers whose delete cost
+is 0.024 nats, so "layers 2–15 do not compress" might really be "layers 2–15 barely do
+anything". Deleting all fourteen at once settles it:
+
+| | cost |
+|---|---|
+| each of layers 2–15 deleted alone | 0.024 – 0.520 nats |
+| **sum** of the fourteen individual costs | 1.790 nats |
+| **all fourteen deleted together** | **5.142 nats** (CE 3.456 → 8.598) |
+
+**2.87× superadditive.** The middle of this network is not doing little — single-layer
+ablation massively understates it, because when one mid-layer's quadratic part is
+removed the other thirteen absorb the loss, and when all fourteen go there is nothing
+left to absorb it. Any claim of the form "layer *n* contributes almost nothing" built on
+a one-at-a-time ablation is unsafe in this model, and §9's own table is the example.
+
+This also reframes §9's compression result. The two compressible layers, 0 and 16, are
+exactly the two whose individual delete cost is large (1.80 and 1.17 nats). The layers
+that resist compression are the ones whose individual contribution is small *and*
+collectively large — which is the signature of computation distributed across depth
+rather than localised in any layer. That is the honest reason layer 17's treatment does
+not generalise, and it is a stronger statement than "the other layers are higher rank".
+
+---
+
+## 11. RESULT: test #1, and a correction to how it was specified
+
+File: `bilin18_centered_features.py` (62 s).
+
+§4 listed as the highest-value test: "re-rank `qk_analytic_bilin.py`'s quadratic features
+by curvature instead of singular value", on the grounds that T3 makes size uninformative
+about which features must stay curved.
+
+**Reading the code changed the test.** That script's ranking is the SVD of `Down·C^{1/2}`
+with `C = E[hh^T]` — already in the data-weighted metric, i.e. exactly the whitening §7
+independently validated. "Ranked by raw size" was a wrong description of existing code
+and §2.4's framing of it should be read with that correction.
+
+But the same reading exposed a real defect. `C` is the **uncentered** second moment, and
+the constant term contains `Down[(Lμ)⊙(Rμ)] + Down_bias` but **not** `Down·E[h]`. Since
+`h = (Ld)⊙(Rd)` is quadratic, `E[h] ≠ 0` even though `d` is centred by construction. So
+there is an unmodelled constant, and Eckart–Young must spend singular directions
+representing it — rank spent on a constant that could be stored for free in the bias.
+
+Registered prediction: centring wins, most at small `k`, with the win tracking the
+constant's energy share.
+
+| block | constant's share of the quadratic term's energy | k=8 | k=32 | k=128 |
+|---|---|---|---|---|
+| 0 | **52.2%** | +0.0131 | −0.0012 | −0.0001 |
+| 1 | 15.8% | **+0.0400** | −0.0008 | +0.0005 |
+| 5 | 44.1% | +0.0007 | −0.0006 | −0.0001 |
+| 7 | 22.4% | +0.0017 | +0.0010 | +0.0003 |
+
+*(improvement in held-out CE, positive = centring better)*
+
+**The diagnosis is confirmed and the predicted consequence is not.** The omitted constant
+really does carry 16–52% of the quadratic term's energy, so the defect is large in the
+terms that motivated looking for it. But the benefit is negligible: centring wins 7 of 12
+cells, mean improvement +0.0045 nats, best +0.0400 at block 1 `k=8` — a 3% relative gain
+against that cell's +1.3251 error — and at `k ≥ 32` it is a wash in both directions. The
+predicted correlation with energy share is absent: block 0 has the largest constant
+(52.2%) and a third of block 1's improvement.
+
+The reason is that Eckart–Young absorbs a rank-one constant nearly for free. One singular
+direction out of eight is a real cost only when eight is already too few, which is why
+the entire effect lives at `k=8`.
+
+**Verdict on test #1: no meaningful frontier improvement is available here.** Centring is
+still worth doing — it makes the constant exact instead of approximated, costs nothing,
+and removes a conceptual wart — but it is a tidiness fix, not a result. The test is
+closed negative.
+
+*(Data note: the original script reads `data_fineweb_tokens.npy`, which is not on this
+box; the pile-10k sample built for the other bilin18 runs was substituted. Both arms see
+identical data so the contrast is unaffected, but the absolute ΔCE values here are not
+comparable to those in `qk_analytic_bilin.json`.)*

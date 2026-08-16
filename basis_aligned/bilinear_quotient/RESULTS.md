@@ -1424,11 +1424,20 @@ The rank result led somewhere. Layer 17's MLP output needs only **4** principal
 directions for 90% of its variance, so the layer was replaced outright by 4 output
 directions each carrying a rank-2 form — eight signed squared projections, ~13.8k
 numbers standing in for ~15.9M parameters — and the model re-scored. Deleting layer 17's
-quadratic part costs 1.077 nats of cross-entropy; the eight-term replacement recovers all
-but **0.7%** of that. The same budget spent by |eigenvalue| instead of in the Λ-weighted
-metric does 5.0% of the damage, so **whitening buys a 7× reduction in functional damage
-at identical parameter cost** — the strongest confirmation yet that the functional metric
-is not a technicality.
+quadratic part costs 1.077 nats of cross-entropy; the eight-term replacement costs
+**9.5%** of that. Of those 9.5 points, 8.8 come from confining the output to four
+directions and only **0.7** from truncating those four forms to rank 2 — so rank 2 is
+nearly free once the directions are chosen. The same rank budget spent by |eigenvalue|
+instead of in the Λ-weighted metric does 7× the damage, which is the strongest
+confirmation yet that the functional metric is not a technicality.
+
+> **Correction.** An earlier version of this paragraph said the replacement "recovers all
+> but 0.7%" of the deletion cost. That conveys the wrong quantity: 0.7% is the damage
+> added by rank truncation *beyond* the projection step, while the replacement as a whole
+> costs 9.5%. Sweeping the number of output directions properly also showed that
+> **layer 16, not 17, is the model's most compressible layer** — same 13,832-number
+> budget, 4.2% damage against layer 17's 9.5%. The rank finding stands; the compression
+> headline was pointed at the wrong layer.
 
 The eight terms are readable. The leading output direction subtracts a squared
 projection onto an auxiliary/function-word direction (59% of the form) and adds one onto
@@ -1446,3 +1455,43 @@ be treated as unverified. Interpretation by unembedding alignment is therefore *
 justified here, and should always be reported with the correlation attached.
 
 Full detail in `BILIN18_CONNECTION.md` §8.
+
+### The middle of the network, and where this stops working
+
+Running the layer-17 treatment on all eighteen MLPs answered the question §8.4 left open:
+it does not generalise. Only layers 0 and 16 compress at all, and the reason turned out
+to be more interesting than "the others are higher rank".
+
+Deleting any single middle layer's quadratic part is nearly free — 0.024 to 0.520 nats,
+most under 0.06. Deleting **all fourteen at once costs 5.14 nats**, against 1.79 for the
+sum of the individual costs: **2.87× superadditive**. When one mid-layer goes the other
+thirteen absorb the loss; when all fourteen go there is nothing left to absorb it. So any
+claim of the form "layer *n* contributes almost nothing", built on a one-at-a-time
+ablation, is unsafe in this model.
+
+The two layers that do compress are exactly the two with large individual delete costs
+(1.80 and 1.17 nats). The ones that resist are those whose individual contribution is
+small and whose collective contribution is large — the signature of computation spread
+across depth rather than localised. Also worth recording: **layer 1 is the single most
+important MLP in the model**, at 5.65 nats to delete, against ~1.1–1.8 for layers 0, 16
+and 17 and under 0.52 for everything else. Nothing in the toy program predicted that
+concentration and nobody had looked.
+
+### Test #1, closed negative
+
+The last outstanding test from the connection document asked whether re-ranking the
+existing repository's quadratic features would improve its error-versus-parameter
+frontier. Reading the code corrected the premise — its ranking is already in the
+data-weighted metric, not "by raw size" as the document claimed. But it exposed a real
+defect: the feature second moment is uncentered while the constant term omits the
+corresponding mean, so the low-rank fit spends directions representing a constant that
+could be stored free in the bias. That omitted constant carries **16–52%** of the
+quadratic term's energy.
+
+Fixing it buys almost nothing: 7 of 12 cells improve, mean +0.0045 nats, best +0.0400 —
+a 3% relative gain — and only at the smallest budget, because Eckart–Young absorbs a
+rank-one constant nearly for free. The predicted correlation between the win and the
+constant's energy share is absent. The diagnosis was right and the predicted consequence
+wrong; the test is closed negative.
+
+Full detail in `BILIN18_CONNECTION.md` §9–11.
