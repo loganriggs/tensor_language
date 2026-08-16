@@ -10,14 +10,18 @@ Setting. `y = D((Lx) ⊙ (Rx))`, per-output form `Q_i = sym(Σ_k D_ik l_k r_kᵀ
 claim below is a claim about `Q`, and every one is checked against the four nulls
 (random weights / gauge scramble / task shuffle / reader shuffle).
 
-Status: **A1, A2, A3, A4 done.** A5, A6 and Part B not started.
+Status: **A1, A2, A3, A4, A5 and B2 (with the B1 census) done.** A6, B0's third
+placement, B3 and B4 not started. `BILIN18_CONNECTION.md` carries the results up to the
+546M model.
 
 | experiment | scripts | results |
 |---|---|---|
 | A1 parity/XOR kernel | `a1_parity.py` | `a1_results.json` |
 | A2 modular addition | `a2_modular.py`, `a2_calibrate.py`, `a2_jade.py`, `a2_jade_struct.py`, `a2_extra.py`, `a2_diag.py` | `a2_*.json` |
 | A3 CP calibration | `a3_cp.py` | `a3_results.json` |
-| A4 planted quotient | `a4_quotient.py` | `a4_results.json` |
+| A4 planted quotient | `a4_quotient.py`, `a4_nulls.py` | `a4_results.json`, `a4_nulls_results.json` |
+| A5 shared vs private | `a5_shared.py`, `a5_extra.py` | `a5_results.json`, `a5_extra_results.json` |
+| B2 conjunctive retrieval + B1 census | `b_common.py`, `b2_conjunctive.py` | `b2_results.json` |
 
 ---
 
@@ -829,6 +833,120 @@ choosing between them by fit.
 | 2. gauge scramble | refactorisation residual 4.5e-28, hidden width 96 → 78, ratio **4.000 → 4.000** — exact invariance |
 | 3. task shuffle | not run for A5 — the DGP has no labels to shuffle independently of the readers; the matched no-sharing control in A5-2 plays the same role and separates 4.00 vs 1.00 |
 | 4. reader shuffle | run, and **shown to be the wrong instrument** (A5-2): it cannot move a statistic about sharing |
+
+---
+
+## B2 / B1 — conjunctive retrieval and the degeneracy census (`b_common.py`, `b2_conjunctive.py`)
+
+DGP. Each token carries a type (1 of 8) and a timing value (1 of 8) in disjoint embedding
+subspaces; the query names one of each. Exactly one key matches both, three match the type
+only, three the timing only, so any single-property strategy spreads over four keys and
+reads the right payload 25% of the time. Two controls make one property sufficient on its
+own (ceiling 1.00). Three heads at matched parameter count: score-level product
+(`s = (qᵀW₁k)(qᵀW₂k)` then softmax), post-softmax product (`normalise(A₁ ⊙ A₂)`), and an
+ordinary single-circuit head at twice the rank. Predictions were registered in the script
+before running and are stored in `b2_results.json`.
+
+### FINDING B2-1 — the conjunctive DGP does not force conjunctive machinery
+
+All 18 runs reach accuracy **1.0000**, including the ordinary single-circuit head on the
+conjunctive task. Prediction P5 (a measurable penalty for standard attention) is **false**,
+and in hindsight it had to be: with two conditions and a unique double match, an *additive*
+score gives the match `2h` and every distractor `h + l`, so a sharp enough softmax
+implements AND. Raising the distractor count to 7 of each kind (ceiling 0.125) does not
+change it — still 1.0000.
+
+So this DGP cannot discriminate architectures by performance. Anything B2 says has to come
+from what the heads *are*, not what they score. That is a design lesson for B3: a task whose
+conjunction is expressible as a sum of two match scores tests nothing about multiplication.
+
+### FINDING B2-2 — the entropy signature for "genuine conjunction" has no specificity
+
+The plan's B1 test for regime (c) is: both factors individually broad, product sharp. It
+fires on **12 of 12** multiplicative runs — including all 8 on control tasks where a single
+property is sufficient and there is nothing to conjoin:
+
+| task | head | H(factor 1) | H(factor 2) | H(product) | verdict |
+|---|---|---|---|---|---|
+| conjunctive | score-level | 0.86 | 0.88 | 0.04 | (c) |
+| **timing alone suffices** | score-level | 0.88 | 0.92 | 0.02 | **(c)** |
+| **type alone suffices** | score-level | 0.87 | 0.89 | 0.03 | **(c)** |
+| conjunctive | post-softmax | 0.65 | 0.63 | 0.21 | (c) |
+| **timing alone suffices** | post-softmax | 0.67 | 0.64 | 0.17 | **(c)** |
+
+(entropies normalised by log of sequence length). Multiplying two score fields sharpens the
+result whatever they encode; the signature is a property of the operation, not of the task.
+
+The test is not useless — it correctly calls random weights and label-shuffled models
+"(a) factor collapse" (accuracy 0.061–0.063). It discriminates trained from untrained. It
+does not discriminate conjunctive from non-conjunctive, which is the job the plan gives it.
+
+### FINDING B2-3 — ablation is the test that works, and it says the score-level placement is usually one circuit wearing two hats
+
+Replacing one factor with a constant that preserves its scale, and re-measuring:
+
+| head | task | ablate factor 1 | ablate factor 2 | ceiling |
+|---|---|---|---|---|
+| score-level, seed 0 | conjunctive | **0.265** | 0.982 | 0.25 |
+| score-level, seed 1 | conjunctive | 0.879 | **0.451** | 0.25 |
+| post-softmax, seed 0 | conjunctive | 0.870 | 0.838 | 0.25 |
+| post-softmax, seed 1 | conjunctive | 0.861 | 0.870 | 0.25 |
+
+In the score-level placement one factor is nearly inert while the other is load-bearing —
+and *which* one flips with the seed. Seed 0 falls to 0.265, essentially exactly the 0.25
+single-property ceiling, when factor 1 goes: the other factor is doing nothing that matters.
+That is regime (a) in function while the entropy test says (c). The post-softmax placement
+is balanced, with neither factor individually necessary.
+
+Any census applied to a real model should be built on scale-preserving ablation, with the
+entropy or participation-ratio signature reported as description rather than evidence.
+
+### FINDING B2-4 — factor specialisation is real, but only in the post-softmax placement, and only when the task needs it
+
+Fraction of each factor's QK form sitting in each planted (query-side, key-side) block:
+
+| task | head | factor 1 reads | factor 2 reads |
+|---|---|---|---|
+| conjunctive | post-softmax s0 | timing→timing 0.39 | type→type 0.37 |
+| conjunctive | post-softmax s1 | timing→timing 0.33 | type→type 0.33 |
+| timing alone suffices | post-softmax s0/s1 | timing→timing 0.52 | timing→timing 0.52 |
+| type alone suffices | post-softmax s0/s1 | type→type 0.48 | type→type 0.49 |
+| conjunctive | score-level s0 | timing→timing 0.38 | type→payload 0.15 |
+| conjunctive | score-level s1 | type→type 0.18 | type→type 0.45 |
+
+The post-softmax head does exactly what the plan predicts — one factor per property on the
+conjunctive task — and, tellingly, puts *both* factors on the sufficient property when only
+one is needed. That is a clean confirmation of prediction P2 for one of the two placements.
+But the specialisation is weak: only a third to a half of each factor's mass sits in its
+block. The score-level head does not split at all.
+
+This matters for the plan's B4 bet that "factors are simpler than their product". At best
+they are somewhat simpler, in one placement, on a task built to reward the split.
+
+### FINDING B2-5 — correlated properties do not produce factor alignment
+
+The plan predicts that correlating the two properties should "induce drift from (c) toward
+(b) factor alignment". Measured across correlation 0 → 0.9, the similarity between the two
+QK circuits goes **0.139 → 0.171 → 0.038 → 0.017** — down, not up. What does change is the
+ablation asymmetry, which shrinks (0.265/0.982 → 0.656/0.798): the factors become more
+equally unimportant, not more alike.
+
+### B2 nulls
+
+| null | outcome |
+|---|---|
+| 1. random weights | accuracy 0.061 / 0.063, both heads called "(a) factor collapse" |
+| 2. gauge scramble | `Wq → M Wq, Wk → M⁻ᵀWk` per factor: function unchanged to 8.6e-06 while the raw weights move 2.97 relative; accuracy 1.0000 → 1.0000, regime and factor readouts unchanged |
+| 3. task shuffle | accuracy 0.062, "(a) factor collapse" |
+| 4. factor swap (the reader-shuffle analogue) | function difference **exactly 0.0**, readout labels swap. Factor identity is pure gauge, so "factor 1 reads type" is only meaningful as an unordered pairing |
+
+### B2 verification
+
+Changing the query's type moves attention off the old match (0.977 → 0.157) and onto keys
+carrying the new type (0.357), so the head is reading the query rather than memorising —
+prediction P6 holds. The ordinary single-circuit head does the same thing (0.844 → 0.125,
+0.326), which is another instance of B2-1: this verification does not distinguish
+architectures either.
 
 ---
 
