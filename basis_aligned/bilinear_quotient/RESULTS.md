@@ -1236,20 +1236,36 @@ The MLP path's isolation is the cleanest result: C moves it by 1.400 and moves t
 attention factors by 0.084 and 0.089 — a **16× separation**, from weights and from patching
 independently. Dead coordinates are read at 0.001 by every path and move nothing.
 
-### FINDING B3-2 — the attention factors do not cleanly split the two properties
+### FINDING B3-2 — path routing recovers reliably; the split *within* a two-factor path does not
 
-Each factor's *top* read is its planted feature, but the split is weak: factor 1 reads A at
-0.434 and B at 0.389, and patching moves factor 1 almost as much for B (1.106) as for A
-(1.145). Only factor 2 is reasonably specialised (B 0.582 against A 0.250).
+All three trained models reach retrieval 1.0000, and all three isolate the MLP path
+cleanly. What varies wildly is whether the two attention factors specialise:
 
-So prediction (iv) — the factors split A and B up to the swap gauge — is **only weakly
-supported**, in exactly the way B2-4 found for the isolated head: each factor's largest
-block is the right one, but a third to a half of its mass sits elsewhere. Two independent
-experiments, one isolated and one embedded in a stack, agree that factor specialisation in
-a product head is real but partial. That is the sharpest thing the toys say about the plan's
-B4 bet that "factors are simpler than their product".
+| model | factor 1 reads | factor 2 reads | patching separation for A / B |
+|---|---|---|---|
+| normed bus, seed 0 | A 0.434, B 0.389 | B 0.582, A 0.250 | 1.9× / 1.2× |
+| normed bus, seed 1 | **A 0.517**, B 0.304 | **A 0.549**, B 0.278 | 1.0× / 1.2× — *both factors read A* |
+| raw bus, seed 0 | **A 0.720**, B 0.181 | **B 0.746**, A 0.145 | **3.8× / 4.0×** |
 
-### FINDING B3-3 — the pre-attention normalisation is load-bearing, and the first task design was unreachable
+Same architecture, same task, same number of steps: one model splits the two properties
+almost perfectly between its factors, one splits them weakly, and one puts *both* factors on
+the same property and still solves the task. Prediction (iv) is therefore **sometimes true
+and sometimes false, unpredictably**.
+
+Meanwhile the between-path routing is robust everywhere. Resampling the modifier C moves
+the MLP path by 1.376–1.400 and the attention factors by 0.064–0.105 in every arm — a
+**13–20× separation** — and dead coordinates are read at 0.001 and move nothing.
+
+The conclusion the toys support is therefore narrower and more useful than the plan's:
+**which path reads what is reliably recoverable; how work divides between the two factors
+inside one product head is not a stable property of the architecture at all.** For bilin18
+that means a per-head factor census may be asking a question that has no consistent answer,
+while a per-path routing ledger should be reliable. It also sharpens B2-4's weaker version
+of the same observation, and it is the most direct evidence the program has about the plan's
+B4 bet that "factors are simpler than their product": sometimes they are, and you cannot
+tell in advance which case you are in.
+
+### FINDING B3-3 — the first task design was unreachable, and the normalisation is *not* load-bearing after all
 
 The first version of this experiment asked for `(payload + modifier) mod 8` from a single
 linear readout. That needs a bilinear interaction between two retrieved quantities and the
@@ -1262,22 +1278,27 @@ unread feature showed up as ~0.02 in the weight-side readout *and* as a ~0.03 pa
 effect, so the ledger said "this model is not doing the planted computation" rather than
 inventing structure. That is the more valuable direction for an instrument to fail in.
 
-Second, a measured architectural fact: with an unnormalised score product the attention
-path's output scale goes as the **fourth power of the bus norm** — RMS 2.9e-3 without
-normalisation against 0.39 with it. The attention path is effectively dead at initialisation
-and the model routes everything through the MLP. bilin18's pre-attention RMSNorm
-(`tt_model.py:214-216`) is load-bearing, not incidental. (Normalisation alone did not rescue
-the task, though — the unreachable target was the real problem.)
+Second, a measured fact about initialisation: with an unnormalised score product the
+attention path's output scale goes as the **fourth power of the bus norm** — RMS 2.9e-3
+without normalisation against 0.39 with it, so at initialisation the attention path is two
+orders of magnitude quieter than the MLP path.
+
+> **Correction.** On the strength of that measurement I claimed bilin18's pre-attention
+> RMSNorm is "load-bearing, not incidental". The comparison arm refutes it: once the target
+> is reachable, the **raw un-normalised bus trains to retrieval 1.0000 as well** — and in
+> fact produces the *cleanest* factor specialisation of any arm (0.720 / 0.746 against the
+> normed arms' 0.434 / 0.582 and 0.517 / 0.549). Training walks through the initialisation
+> handicap. The scale effect is real and measurable; the conclusion I drew from it was not.
+> Whether the normalisation matters at bilin18's depth and context length is untested here.
 
 ### B3 nulls
 
 | null | outcome |
 |---|---|
-| 1. random weights | layer 1 transmits every feature roughly equally *including dead at 0.202*, against 0.002 trained — the learned discard is real |
+| 1. random weights | retrieval 0.1256 and modifier 0.2561, both exactly chance (1/8 and 1/4); layer 1 transmits every feature roughly equally *including dead at 0.202*, against 0.002 trained — the learned discard is real |
 | 2. gauge scramble of layer 1 | refactorisation residual 2.2e-26, hidden width 128 → 496, end-to-end function difference **5.7e-11**, and every ledger entry unchanged to three decimals (0.434 → 0.434, 0.582 → 0.581, 0.349 → 0.349) |
 
-*(Seed 1 and the no-normalisation arm were still training at the time of writing; the
-numbers above are seed 0 of the rms-normed arm plus the v1 failure diagnostics.)*
+All three trained arms and both nulls are complete.
 
 ---
 
