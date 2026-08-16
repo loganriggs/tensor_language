@@ -1197,20 +1197,101 @@ corrected ablation has not been run.
 
 ---
 
+## B3 — full-stack testbed: a planted quotient upstream of conjunctive attention (`b3_fullstack.py`)
+
+Composes A6 and B2, with two departures from the plan that earlier results forced:
+the attention head uses bilin18's **unnormalised score product** rather than either
+placement B0 names, and routing is measured by **path sensitivity** (A6's instrument) rather
+than by the kernel of a quadratic form, because a bilinear layer composed with a bilinear
+head is quartic and has no single form.
+
+Planted design: each token carries a type A, a timing B, a payload and a modifier C in
+disjoint subspaces, plus dead coordinates nothing should read. A shared bilinear layer maps
+tokens to a bus; downstream, attention factor 1 should read A, factor 2 should read B, and
+the MLP path should read C. Two separately decodable outputs — retrieve the payload of the
+key matching *both* A and B, and report the query's own modifier.
+
+### FINDING B3-1 — the routing table comes back from the composed weights, and patching agrees
+
+Seed 0, rms-normed bus. **Retrieval accuracy 1.0000 against a single-property ceiling of
+0.250**, so the conjunction is genuinely being computed; modifier accuracy 1.0000.
+
+| | A | B | C | dead |
+|---|---|---|---|---|
+| layer 1 transmits | 0.246 | 0.274 | 0.068 | **0.002** |
+| attention factor 1 reads | **0.434** | 0.389 | 0.046 | 0.001 |
+| attention factor 2 reads | 0.250 | **0.582** | 0.040 | 0.001 |
+| MLP path reads | 0.167 | 0.213 | **0.349** | 0.001 |
+
+Activation patching, resampling one planted feature and measuring each path's change:
+
+| resampled | factor 1 | factor 2 | MLP |
+|---|---|---|---|
+| A | **1.145** | 0.597 | 0.326 |
+| B | 1.106 | **1.366** | 0.441 |
+| C | 0.084 | 0.089 | **1.400** |
+| dead | 0.119 | 0.101 | 0.145 |
+
+The MLP path's isolation is the cleanest result: C moves it by 1.400 and moves the two
+attention factors by 0.084 and 0.089 — a **16× separation**, from weights and from patching
+independently. Dead coordinates are read at 0.001 by every path and move nothing.
+
+### FINDING B3-2 — the attention factors do not cleanly split the two properties
+
+Each factor's *top* read is its planted feature, but the split is weak: factor 1 reads A at
+0.434 and B at 0.389, and patching moves factor 1 almost as much for B (1.106) as for A
+(1.145). Only factor 2 is reasonably specialised (B 0.582 against A 0.250).
+
+So prediction (iv) — the factors split A and B up to the swap gauge — is **only weakly
+supported**, in exactly the way B2-4 found for the isolated head: each factor's largest
+block is the right one, but a third to a half of its mass sits elsewhere. Two independent
+experiments, one isolated and one embedded in a stack, agree that factor specialisation in
+a product head is real but partial. That is the sharpest thing the toys say about the plan's
+B4 bet that "factors are simpler than their product".
+
+### FINDING B3-3 — the pre-attention normalisation is load-bearing, and the first task design was unreachable
+
+The first version of this experiment asked for `(payload + modifier) mod 8` from a single
+linear readout. That needs a bilinear interaction between two retrieved quantities and the
+stack has none — the MLP path never sees the attended value. Both arms plateaued at ~0.50
+with each seed latching onto one of A/B and dropping the other (seed 0 dropped B, seed 1
+dropped A).
+
+Two things came out of the failure. First, **the instruments correctly reported it**: the
+unread feature showed up as ~0.02 in the weight-side readout *and* as a ~0.03 patching
+effect, so the ledger said "this model is not doing the planted computation" rather than
+inventing structure. That is the more valuable direction for an instrument to fail in.
+
+Second, a measured architectural fact: with an unnormalised score product the attention
+path's output scale goes as the **fourth power of the bus norm** — RMS 2.9e-3 without
+normalisation against 0.39 with it. The attention path is effectively dead at initialisation
+and the model routes everything through the MLP. bilin18's pre-attention RMSNorm
+(`tt_model.py:214-216`) is load-bearing, not incidental. (Normalisation alone did not rescue
+the task, though — the unreachable target was the real problem.)
+
+### B3 nulls
+
+| null | outcome |
+|---|---|
+| 1. random weights | layer 1 transmits every feature roughly equally *including dead at 0.202*, against 0.002 trained — the learned discard is real |
+| 2. gauge scramble of layer 1 | refactorisation residual 2.2e-26, hidden width 128 → 496, end-to-end function difference **5.7e-11**, and every ledger entry unchanged to three decimals (0.434 → 0.434, 0.582 → 0.581, 0.349 → 0.349) |
+
+*(Seed 1 and the no-normalisation arm were still training at the time of writing; the
+numbers above are seed 0 of the rms-normed arm plus the v1 failure diagnostics.)*
+
+---
+
 ## Queue (authoritative — the hourly cron reads this)
 
 Done since the last update: B2, A5, A4's nulls + oracle-free arm, A6, B0's third
 placement, the independent review (see `REVIEW_RESPONSE.md`), the bilin18 connection
 (`BILIN18_CONNECTION.md`) and the theory pass (`THEORY.md`, 47/47 verified).
 
-1. **Act on the review's remaining items:** a correct factor ablation for Part B (positive
-   constant matched on RMS *and* resulting entropy, or key shuffling); a blind rule for the
-   JADE tolerance so A2-5 is not oracle-selected; sanity checks for `canonicalise`, `jade`,
-   `fit_cp`, `fit_dictionary`; re-run A2-7's long-run columns under a committed script.
-2. **B3**, the full-stack testbed — now unblocked by A6 and B2, and it should use the
-   unnormalised placement rather than the two the plan names.
-3. **A3's missing axis:** one sweep over `m` at fixed `d` to settle whether the
-   identifiability limit is in `R/m` (as `THEORY.md` T6 argues) rather than `R/d`.
+1. **Review items:** ~~blind JADE tolerance~~ done; ~~sanity checks~~ done (12 → 20);
+   ~~correct factor ablation~~ done, and it showed no sound ablation exists. Still open:
+   re-run A2-7's long-run columns under a committed script.
+2. **Finish B3's remaining arms** (seed 1, the no-normalisation comparison) and fold them in.
+3. ~~A3's missing axis~~ — done (`a3_axis.py`): the limit is not on the `K/d` axis.
 4. **The open theory questions** in `THEORY.md`, chiefly a perturbation bound explaining
    why a trained residual is harder for joint block-diagonalisation than matched noise.
 
