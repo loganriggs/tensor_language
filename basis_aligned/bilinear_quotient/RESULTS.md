@@ -1099,15 +1099,23 @@ per `THEORY.md` T8 — is the statistic the two-factor scale gauge *requires*.
 Does `PR(product) < min(PR(factors))` — "individually vague, jointly precise" — distinguish
 tasks that need a conjunction from tasks that do not?
 
-| placement | conjunctive task | controls needing no conjunction |
-|---|---|---|
-| unnormalised (bilin18's) | fires 2/2 | **fires 4/4** |
-| score-level product | fires 2/2 | **fires 4/4** |
-| post-softmax product | fires 2/2 | **fires 4/4 so far** |
+| placement | conjunctive task | controls needing no conjunction | mean PR drop, conjunctive vs controls | at **random init** |
+|---|---|---|---|---|
+| unnormalised (bilin18's) | fires 2/2 | **fires 4/4** | 0.199 vs 0.187 | **FIRES** (0.446/0.423 → 0.265) |
+| score-level product | fires 2/2 | **fires 4/4** | 0.444 vs 0.323 | does not fire (→ 1.000) |
+| post-softmax product | fires 2/2 | **fires 4/4** | 0.318 vs 0.260 | does not fire (→ 0.933) |
 
-It fires everywhere. In the score-level placement the product's PR is pinned at 0.063
-regardless of task or seed. Multiplying two score fields concentrates the result whatever
-they encode; that is a property of multiplication, not of the computation.
+It fires everywhere, and the size of the drop barely distinguishes the cases either
+(0.199 vs 0.187 for the unnormalised placement). In the score-level placement the product's
+PR is pinned at 0.063 regardless of task or seed. Multiplying two score fields concentrates
+the result whatever they encode; that is a property of multiplication, not of the
+computation.
+
+**And the last column is worse news for bilin18 specifically.** The two softmax placements
+at least fail to fire on randomly initialised weights, so their signature separates trained
+from untrained. In the unnormalised placement — the one bilin18 uses — **it fires at random
+initialisation too.** There it carries no information at all: not about conjunction, and not
+even about whether the model was trained.
 
 **This is what the bilin18 connection needed.** `jacclust/SUMMARY.md:69` records
 `PR(product) < min(PR(s₁), PR(s₂))` at **100% of bilin18's 162 heads**. My connection
