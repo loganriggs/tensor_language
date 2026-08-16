@@ -416,6 +416,22 @@ gap is structural (tokens genuinely don't share more block structure). Undetermi
 - e2 arms share pretrained checkpoints per seed (protocol arms start from the same dense
   model), so arm differences are attributable to the sparsification target set.
 
+## Thread 4 (bilinear quotient program) — Part A in progress
+
+Separate sub-program with its own spec and results:
+[`bilinear-quotient-experiments.md`](bilinear-quotient-experiments.md) →
+[`bilinear_quotient/RESULTS.md`](bilinear_quotient/RESULTS.md). A1 (parity kernels),
+A2 (modular addition / ∗-algebra blocks / grokking), A3 (CP calibration) and
+A4 (stratification and the linearization band) are done; A5, A6 and Part B are not.
+
+Two results there bear directly on this folder's threads:
+- A1-2 reproduces FINDING 2 (never-probed directions fill with junk) with the equivalence
+  class made explicit and the junk shown to be *causally* visible: inputs the task calls
+  equivalent give outputs differing by 36-51%.
+- A2-3 shows 29-35% of a trained model's interaction-form mass is not identifiable from
+  the function at all, and gives the function-preserving projection that removes it — the
+  canonicalisation any weight-space mass statistic in this folder should run first.
+
 ## Thread 3 (real LLM embedding structure) — not started
 
 Awaiting details from Logan (reduce the vocab→d_model linear map to fewer "objects").

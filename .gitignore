@@ -59,3 +59,7 @@ basis_aligned/tiny_full_interp/*.out
 
 # large binary arrays -- regenerable from scripts, exceed GitHub limits
 *.npz
+
+# bilinear-quotient program: trained checkpoint cache (29MB, deterministic —
+# regenerate with `python a2_modular.py`, which retrains and re-saves it if absent)
+basis_aligned/bilinear_quotient/a2_cache.pt
