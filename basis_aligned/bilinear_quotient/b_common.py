@@ -162,6 +162,12 @@ class Head(torch.nn.Module):
             return torch.softmax(s[0], -1), s
         if self.kind == 'logit':
             return torch.softmax(s[0] * s[1], -1), s
+        if self.kind == 'unnorm':
+            # bilin18's actual placement: the product of two score fields, causally
+            # masked, with NO softmax and NO normalisation anywhere
+            # (jacclust/tt_model.py:134-144). Entries are signed and rows do not sum
+            # to one, so every entropy-based statistic is undefined here.
+            return s[0] * s[1], s
         a = torch.softmax(s[0], -1) * torch.softmax(s[1], -1)
         return a / a.sum(-1, keepdim=True).clamp_min(1e-30), s
 
@@ -282,6 +288,10 @@ def ablate_factor(model, dgp, which, n=4096):
         # the factors multiply BEFORE the softmax, so replacing one by a constant
         # must keep its scale or the ablation silently changes the temperature
         A = torch.softmax(s[keep] * s[which].mean(-1, keepdim=True), -1)
+    elif model.kind == 'unnorm':
+        # no softmax in this head at all — substituting one would be a distribution
+        # shift, not an ablation. Replace the factor by its own mean score.
+        A = s[keep] * s[which].mean(-1, keepdim=True)
     else:
         A = torch.softmax(s[keep], -1)
     vals = b['x'][:, :-1, :] @ model.Wv.T

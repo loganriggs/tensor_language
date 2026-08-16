@@ -1,5 +1,10 @@
 # Results — bilinear quotient experiments (Part A)
 
+> **Amended after independent review.** Three claims are retracted and six corrected —
+> see [`REVIEW_RESPONSE.md`](REVIEW_RESPONSE.md) for the full triage, and
+> [`THEORY.md`](THEORY.md) for the results that turned out to be theorems rather than
+> measurements. Retractions are marked inline below.
+
 Program spec: [`../bilinear-quotient-experiments.md`](../bilinear-quotient-experiments.md).
 Shared machinery: `bq_common.py` (forms, Λ metric, whitening, reader moments, the four
 nulls, five block-recovery routines, CP and dictionary fits). `bq_sanity.py` asserts the
@@ -187,7 +192,7 @@ Three things this buys:
 The same holds for *structured* noise (off-block frequency-pair couplings, the kind
 training actually leaves): 11/11 up to off-block 0.33 at ε=0.4.
 
-### FINDING A2-3 — 29–35% of a trained model's form mass is not identifiable from the function at all
+### FINDING A2-3 — a third of a trained model's form mass is unidentifiable — but that is *better* than chance
 
 One-hot inputs probe only a 529-dimensional slice of the 1081-dimensional Sym²(V). The
 minimum-norm representative of the same function on the data manifold (`canonicalise`)
@@ -199,11 +204,19 @@ drops 29–35% of the trained model's mass while changing the function by 6e-12:
 | 1 | 0.646 | 0.2444 | 0.2075 |
 | 2 | 0.705 | 0.2281 | 0.1717 |
 
-The planted family is 0.99999999999978 identifiable, i.e. this is entirely a property of
-the trained model, not of the parameterisation. Any weight-space geometry claim has to be
-made after this projection; the discarded part is a gauge of the data.
+**With its baseline** (added after review). The identifiable subspace is 529 of 1081
+dimensions, so isotropic chance identifiability is **48.9%**. Measured: random symmetric
+forms 0.489, random-initialised layers 0.479 / 0.500 / 0.488, trained 0.712 / 0.646 / 0.705.
+So the trained model is ~1.4× *more* data-aligned than chance, and the honest framing is
+that it concentrates 65–71% of its mass in a subspace occupying 49% of the space — not that
+a third of it is junk. The planted family is 0.99999999999978 identifiable.
 
-### FINDING A2-4 — projecting the weights onto the Fourier blocks is a data-free generalisation surgery, and the circuit it isolates is complete 26× before the model uses it
+The methodological point stands unchanged: any weight-space mass statistic must be computed
+after this projection, because a third of the raw mass cannot affect the function. Caveat
+recorded: `canonicalise` projects in the Frobenius metric, which the program's own rule says
+not to use for error; the fraction is metric-dependent.
+
+### FINDING A2-4 — projecting the weights onto the Fourier blocks is a data-free generalisation surgery, and the circuit it isolates ranks correctly long before the model does
 
 Projecting the canonicalised forms onto the planted frequency blocks — a purely
 weight-space operation, no data, no gradient:
@@ -242,11 +255,31 @@ result:
 | 27000 | 0.881 | 1.000 | 0.001 | 0.152 | 0.199 |
 | 39000 | 0.978 | 1.000 | 0.001 | 0.174 | 0.233 |
 
-**The generalising circuit is fully formed at step 1500, when the model's own test
-accuracy is 0.000 and it is a pure memoriser.** Grokking, in this model, is not the
-formation of the circuit — it is the slow decay of the memorisation term that is drowning
-it. The projected CE (1.130 → 0.001) shows what is actually still improving after 1500
-steps: the circuit's *margin*, not its correctness.
+> **RETRACTED as written.** Two claims here were wrong and are corrected below; see
+> `REVIEW_RESPONSE.md` R1 and R2.
+
+**From step 1500 a 44-dimensional projection carrying a quarter of the function already
+gets every held-out pair's ordering right, while the model itself scores 0.000.** That much
+holds. But the two stronger claims do not:
+
+*The circuit is not "fully formed" at 1500.* At that point the block part accounts for only
+25% of the function (functional residual 0.749) and is 0.80 aligned with its own final form
+in the Λ metric — an alignment that then wanders (0.835, 0.848, 0.817) before converging.
+Test accuracy 1.000 is an argmax statistic; projected CE is 1.130 against 0.0006 at the end.
+What is right at step 1500 is the *ranking*, not the circuit.
+
+*Grokking is not the decay of the memorisation term.* Measured directly:
+
+| step | circuit logit rms | residual logit rms | off-block | functional residual |
+|---|---|---|---|---|
+| 3000 | 0.905 | 1.506 | 0.564 | 0.708 |
+| 12000 | 1.843 | 1.850 | 0.322 | 0.490 |
+| 21000 | 2.589 | **2.343** | 0.298 | 0.441 |
+| 39000 | 2.780 | 1.929 | 0.179 | 0.320 |
+
+The residual *grows* to a peak and ends 28% above its early value; the circuit grows 3.1×.
+The falling off-block fraction is the numerator growing. Grokking here is dominated by the
+circuit's growth against a memorisation term that rises and then partially recedes.
 
 Both matched controls fail as they should: projecting onto random 4-dim subspaces of the
 same total dimension gives 0.01–0.17, and onto the Fourier blocks of a randomly
@@ -386,10 +419,14 @@ transfers is the phase relationship the blocks encode, not merely their span.
 Prediction (iii) asked whether block crystallisation precedes or coincides with the
 generalisation transition. Measured (seed 0, canonicalised off-block mass):
 
-| step | 0 | 2500 | 10000 | 20000 | 30000 | 40000 | 200000 | 260000 |
-|---|---|---|---|---|---|---|---|---|
-| test acc | 0.031 | 0.006 | 0.406 | 0.566 | 0.940 | 0.978 | 0.987 | 0.991 |
-| off-block mass | 0.913 | 0.580 | 0.344 | 0.311 | 0.206 | 0.178 | 0.213 | 0.214 |
+| step | 0 | 2500 | 10000 | 20000 | 30000 | 40000 |
+|---|---|---|---|---|---|---|
+| test acc | 0.031 | 0.006 | 0.406 | 0.566 | 0.940 | 0.978 |
+| off-block mass (canonicalised) | 0.913 | 0.580 | 0.344 | 0.311 | 0.206 | 0.178 |
+
+*(The 200k and 260k columns are withdrawn: they came from an exploratory run whose script
+was not committed, so the "arrests and is permanent" claim now rests only on the plateau
+between 30k and 40k plus the retracted-and-corrected dynamics in A2-4.)*
 
 Crystallisation is monotone and coincident with the test-accuracy rise — and then it
 **stops**, at ~0.21 raw / ~0.18 canonicalised, and does not move between 40k and 260k
@@ -587,7 +624,7 @@ measured under an input distribution with a nonzero mean, and the cross terms do
 vanish. So the reported curve is an *achievable* frontier obtained by an identical
 procedure on both sides — a fair comparison, not a proven optimum.
 
-### FINDING A4-3 — the band is not where the doc predicts: curvature governs it, gain does not
+### FINDING A4-3 — curvature governs straightenability and gain does not — but this is a theorem, not a measurement
 
 Correlation of `log(linearize error / prune error)` across the 18 components:
 
@@ -612,8 +649,15 @@ exactly 1.000 because the tangent at the mean is zero, so linearising *is* pruni
 
 ![A4 band axis](figures/a4_band_axis.png)
 
-The doc's prediction that the linearisation band sits at "intermediate singular value" is
-therefore wrong as stated, and the correction is clean:
+> **Relabelled after review.** `THEORY.md` T3 proves that `err_lin/err_prune` is invariant
+> under scaling a component's gain, so the `+0.000` correlation is *forced*, not observed;
+> in this DGP the ratio is exactly `1/(1+ρ²)²` (1, 0.04, 9.803e-5 against measured 1.0000000,
+> 0.039817, 9.691e-5). The experiment confirmed arithmetic.
+>
+> I also over-claimed against the plan. The plan's stated prediction is that the band *moves
+> with the tolerance*, and `band_vs_budget` confirms exactly that. I substituted a different
+> statistic and then called the plan wrong. What is corrected is the mechanism, not the
+> prediction:
 
 > **ρ decides whether a component can be linearised; γ decides whether it is worth the
 > budget.** They are orthogonal axes, and only the first is about linearisation at all.
@@ -753,15 +797,18 @@ form's, "with eigenvalue ≈ 3× the private forms" for three readers. Measured,
 
 | readers R | measured top/next | analytic | top eigenvector's overlap with the pure shared form |
 |---|---|---|---|
-| 3 | **4.000** | R+1 = 4 | 0.837 measured, √(R/(R+1)) = 0.866 analytic |
+| 3 | **4.000** | R+1 = 4 | 0.866 analytic; 0.837 is the **Λ**-metric cosine of the same pair — a metric mismatch, not a discrepancy (see `REVIEW_RESPONSE.md` C4) |
 | 5 | **6.000** | R+1 = 6 | — |
 | 8 | **9.000** | R+1 = 9 | — |
 
 The ratio is **R+1, not R**. And the top eigenvector is *not* the shared form: it is
 √(R/(R+1)) of the shared form plus 1/√(R(R+1)) of **every** private form — (0.866, 0.289,
 0.289, 0.289) at R=3. Reading it as "the shared computation" silently imports a slice of
-every private one. Both facts fall out of diagonalising the 4×4 coordinate matrix by hand,
-and the measurements match to three decimals.
+every private one. Both facts fall out of diagonalising the coordinate matrix (`THEORY.md` T4, Proposition 4).
+**Caveat added after review:** the `R+1` identity holds only at equal shared and private
+gains — at g/h = 1.2 the ratio is 5.32, at 2.0 it is 13.0. It is not a usable read-out of
+reader multiplicity unless the gains are known to be balanced. Rows R=5 and R=8 come from
+the planted family directly and train no model.
 
 ### FINDING A5-2 — the reader shuffle cannot test sharing; a no-sharing control can
 
@@ -777,8 +824,10 @@ identical coordinates to every reader, so permuting readers cannot touch it. The
 that works is a matched family of the same size and norm in which nothing is shared; it
 separates perfectly, 4.00 versus 1.00.
 
-Generalising: the reader shuffle is the wrong instrument for any claim about *sharing*. It
-tests claims about which reader gets which form, not about whether a form is reused.
+Generalising, **with the limit review forced**: the shuffle is insensitive at small R and
+only *partially* sensitive as R grows — at R=8 it does move the statistic 9.00 → 4.95, a 45%
+collapse, so "cannot test sharing" is too strong. The matched no-sharing control is the
+instrument to use either way, since it separates completely at every R.
 
 ### FINDING A5-3 — a single reader cannot be decomposed into shared and private
 
@@ -877,11 +926,20 @@ property is sufficient and there is nothing to conjoin:
 (entropies normalised by log of sequence length). Multiplying two score fields sharpens the
 result whatever they encode; the signature is a property of the operation, not of the task.
 
+**And it is worse than non-specific for the score-level placement.** `THEORY.md` T8 proves
+`(W₁, W₂) → (cW₁, W₂/c)` is exactly function-preserving while softmax entropy is not
+invariant under it — measured, the same head's factor entropies move `[2.768, 2.769] →
+[1.799, 2.773]` under `c = 20` with the function unchanged to 2.7e-16. So the score-level
+entropy numbers in the table above carry no information at all and are withdrawn as
+evidence; the participation ratio is invariant and is what B0 uses instead. B2's null 2
+never tested this gauge — it only applied `Wq → MWq, Wk → M⁻ᵀWk`, which preserves each `W_i`
+exactly, and its 7-significant-figure agreement should have been the tell.
+
 The test is not useless — it correctly calls random weights and label-shuffled models
 "(a) factor collapse" (accuracy 0.061–0.063). It discriminates trained from untrained. It
 does not discriminate conjunctive from non-conjunctive, which is the job the plan gives it.
 
-### FINDING B2-3 — ablation is the test that works, and it says the score-level placement is usually one circuit wearing two hats
+### FINDING B2-3 — RETRACTED: the ablation instrument is broken
 
 Replacing one factor with a constant that preserves its scale, and re-measuring:
 
@@ -892,14 +950,17 @@ Replacing one factor with a constant that preserves its scale, and re-measuring:
 | post-softmax, seed 0 | conjunctive | 0.870 | 0.838 | 0.25 |
 | post-softmax, seed 1 | conjunctive | 0.861 | 0.870 | 0.25 |
 
-In the score-level placement one factor is nearly inert while the other is load-bearing —
-and *which* one flips with the seed. Seed 0 falls to 0.265, essentially exactly the 0.25
-single-property ceiling, when factor 1 goes: the other factor is doing nothing that matters.
-That is regime (a) in function while the entropy test says (c). The post-softmax placement
-is balanced, with neither factor individually necessary.
-
-Any census applied to a real model should be built on scale-preserving ablation, with the
-entropy or participation-ratio signature reported as description rather than evidence.
+> **RETRACTED.** The replacement constant is the per-example mean over keys, which is
+> negative on 55.9% of examples — a negative multiplier inverts the attention ordering, so
+> this measures the intervention, not the mechanism. The falsifying evidence was in the same
+> JSON: on the *control* tasks, where one property suffices and the ceiling is 1.000, the
+> same ablation still drops the head to 0.27, indistinguishable from the conjunctive 0.265.
+> A factor that can score 1.000 alone is not "doing nothing".
+>
+> The conclusion that the score-level placement is functionally single-circuit is withdrawn,
+> along with test #4 in `BILIN18_CONNECTION.md` as motivated. A correct ablation replaces
+> the factor with a positive constant matched on RMS *and* resulting pattern entropy, or
+> shuffles its keys. Not yet run.
 
 ### FINDING B2-4 — factor specialisation is real, but only in the post-softmax placement, and only when the task needs it
 

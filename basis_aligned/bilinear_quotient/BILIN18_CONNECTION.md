@@ -55,16 +55,22 @@ This is not a detail. It changes what is even definable — see §3.
 unchanged… which is why we never do neuron-level interpretation." That is the gauge
 argument, and it is correct.
 
-**[measured here]** A3 adds the quantitative version, which is stronger and less
-comfortable. Components of a bilinear layer are recoverable up to about `K/d ≈ 1.5`; past
-`K/d ≈ 2` they degrade; and at `K/d = 3` **the reconstruction is perfect to machine
-precision (1.7e-32) while a third of the recovered components are wrong.**
+**[measured here]** A3 adds a quantitative version: at 48 components in 16 input dimensions
+**the reconstruction is perfect to machine precision (1.7e-32) while a third of the
+recovered components are wrong.** A low fit residual is not evidence the parts mean anything.
 
-**[inferred]** bilin18's MLP has `K/d = 4608/1152 = 4` **by construction**. That is twice
-the point where identifiability fails in a setting with exact planted truth, no estimation
-noise, and no depth. So the statement is not merely "neurons are a gauge choice" but
-"any decomposition of a bilin18 MLP into 4608-ish rank-1 parts is in a regime where a
-perfect fit is compatible with mostly-wrong parts, and the fit residual will not tell you."
+**[corrected after review]** My first version of this section argued from `K/d` — bilin18 at
+`4608/1152 = 4` being "twice" A3's breakdown around 2. That extrapolates along an axis A3
+cannot resolve: A3 varied only the component count at fixed `m = 8, d = 16`, and the form
+family's effective rank is exactly `m` at every count, so the breakdown is equally
+consistent with a limit in `R/m`. The correct argument is Kruskal's bound applied to
+bilin18's own shape (`THEORY.md` T6): for an `(m, d, d)` partially symmetric family,
+uniqueness is guaranteed only to `R ≤ (m + 2d − 2)/2`, which at `m = d = 1152` is **1727**.
+
+**[inferred]** bilin18's MLP has `R = 4608 ≫ 1727`. So any decomposition of a bilin18 MLP
+into its 4608 rank-1 pieces sits far outside any uniqueness guarantee, and the binding
+constraint is the *output* dimension, not the input one. The conclusion survives the
+correction; the previous argument for it did not.
 
 This bears directly on the registered next step "(b) estimation-noise-robust CP fitting"
 (`STATUS_2026-08-10.md:57-60`). A3 says robustness to estimation noise is necessary but not
@@ -123,11 +129,21 @@ between the toy and the model, and worth knowing.
 
 ### 2.4 The linearization band, and a specific correction to existing code
 
-**[measured here]** A4: allowing components to be replaced by their tangent beats
-keep-or-delete at 22 of 25 parameter budgets, up to 10×. And which components can be
-straightened is governed **entirely** by curvature — how large the input mean is along the
-component's directions relative to the fluctuation — with correlation −0.99, while
-correlation with the component's *size* is **+0.00**.
+**[proved, see THEORY.md T3]** The error left by straightening a component, relative to
+deleting it, is invariant under scaling that component's gain — identically, because both
+quantities are homogeneous of degree 2 in the form. In A4's design the ratio is exactly
+`1/(1+ρ²)²` where `ρ` is the mean-to-fluctuation ratio along the component's directions.
+So curvature governs straightenability and the *planted gain* cannot, as a matter of
+algebra rather than measurement.
+
+**[correction]** An earlier version of this section said "correlation with the component's
+**size** is +0.00". That `+0.00` is against the planted gain. Measured against a component's
+*realised* contribution — which is what a practitioner would use — `a4_nulls.py` reports
+−0.71 to −0.89, because the realised contribution inherits curvature. Size is not useless;
+it is entangled.
+
+**[measured here]** Allowing the tangent substitution beats keep-or-delete at 22 of 25
+parameter budgets, up to 10×.
 
 **[measured here, and this is the caveat]** A4's four nulls, run afterwards, show the
 frontier advantage is **not task-specific**: a randomly initialised model shows it at 23/25
@@ -141,11 +157,13 @@ components exist at all (recovery cos 1.00 trained vs 0.06 random).
 `qk_analytic_bilin.py:1-19` does "exact constant/linear/quadratic split about the data mean
 `μ = E[x̂]`, plus Eckart–Young-optimal k general quadratic forms".
 
-**[inferred]** Eckart–Young picks the k features by **size**. A4 says size carries no
-information about how much is lost by linearising a feature instead of keeping it. So the
-existing truncation is optimising the wrong ranking for the wrong question: it answers
-"which k quadratic features best reconstruct" when the question is "which features must
-stay quadratic".
+**[inferred, motivation corrected]** Eckart–Young picks the k features by size, which
+answers "which k features best reconstruct". The question for a linearisation budget is
+"which features must stay quadratic", and T3 says the answer to that is set by curvature.
+The two rankings coincide only if size and curvature happen to be correlated in bilin18 —
+which is an empirical question nobody has asked. Note the honest version of the claim: the
+best ranking for a budget is by `err_prune − err_lin` per parameter saved, which depends on
+both.
 
 **[test]** Cheap and self-contained: for each quadratic feature in `qk_analytic_bilin.py`,
 compute its mean-to-fluctuation ratio through the data, then compare two error-vs-parameter
@@ -252,12 +270,18 @@ task.
 B2 gives the reason it would fire regardless. The sharpening at 100% of bilin18's heads
 should not be read as 100% conjunctive heads.
 
-**[measured here]** What did discriminate in the toys was **ablation**: replace one factor
-by a constant that preserves its scale and see whether accuracy falls to the
-single-property ceiling. That separated the seeds cleanly (one factor fell to 0.265 —
-chance — while the other cost nothing) where entropy called them all the same. Any B1
-census applied to bilin18 should be built on ablation with a matched-scale replacement, and
-should treat the entropy/PR signature as a descriptive statistic, not a test.
+**[retracted after review]** I previously claimed ablation was the statistic that
+discriminated. That ablation was broken — it replaced a factor by its per-example mean over
+keys, which is negative on 56% of examples and inverts the attention ordering, and it drops
+the head to 0.27 even on control tasks whose ceiling is 1.000. See `REVIEW_RESPONSE.md` R3.
+A correct ablation (positive constant matched on RMS and on resulting pattern entropy, or
+key-shuffling) has not been run.
+
+**[proved, THEORY.md T8]** What the toys *do* establish is which statistics are admissible
+at all. `(W₁, W₂) → (cW₁, W₂/c)` is exactly function-preserving, so any per-factor statistic
+must be invariant under it. Softmax entropy is not; the participation ratio is. Since
+bilin18's pattern is unnormalised and signed, PR is the only one of the two even defined
+there — two independent arguments landing on the same statistic.
 
 ### 3.3 Depth, and the value bus
 
