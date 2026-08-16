@@ -333,10 +333,50 @@ scores solve the conjunctive task; and every null that separated trained from un
    directions.
 
    So the damaging component of a trained residual lives in the signal's reader subspace,
-   and taking it out fixes the problem — but merely occupying that subspace is harmless. The
-   remaining question is what distinguishes the aligned part of a real residual from
-   arbitrary mass in the same subspace, and that is now a much sharper question than the one
-   this section started with.
+   and taking it out fixes the problem — but merely occupying that subspace is harmless.
+
+   *Fourth attempt, and the control that reframes the whole thread* (`a2_profile.py`). The
+   natural next guess was that the aligned mass has to be distributed the way the signal
+   distributes its own — concentrated on the reader directions the computation leans on.
+   The premise checks out emphatically: the residual's reader-energy profile correlates with
+   the signal's own at **+0.968**, against −0.089 for isotropic noise. But a surrogate built
+   to that profile is harmless:
+
+   | surrogate, all at off-block 0.178 | alignment | recovered (blind / oracle) |
+   |---|---|---|
+   | flat over the signal's subspace | 0.266 | 11 / 11 |
+   | matched to the signal's own profile | 0.283 | 11 / 11 |
+   | matched to the **real residual's** profile | **0.638** | 11 / 11 |
+
+   The last row reaches *higher* alignment than the real residual itself (0.541) and is
+   still completely harmless. Refuted.
+
+   **The control that matters.** Transplanting the real residual onto the *planted* signal —
+   a signal it has no relationship to — leaves it just as damaging as on its own:
+
+   | | recovered (blind / oracle) |
+   |---|---|
+   | real residual on its own signal | 2 / 4 |
+   | real residual transplanted onto the planted signal | **0 / 2** |
+   | isotropic noise on the planted signal | 11 / 11 |
+
+   **This rules out the entire class of hypotheses the thread has been testing.** Alignment,
+   profile, correlation-with-the-signal — all *relational* properties — cannot be the
+   mechanism, because the damage survives being moved to an unrelated signal. That is why
+   four rounds of surrogate construction failed: I kept building relational properties when
+   the property is intrinsic to the residual object.
+
+   Note the apparent tension with the third attempt, which should be stated rather than
+   smoothed over: stripping the signal-aligned part *did* rescue recovery (2 → 7 blind). Both
+   facts hold, and together they say the damaging structure is a specific *component* of the
+   residual which happens to sit largely inside the signal's reader subspace in the model it
+   came from — but whose damaging character travels with it. Removing that chunk helps
+   because it removes the chunk, not because of what it was aligned to.
+
+   The well-posed successor question is therefore intrinsic and constructive: **find the
+   minimal-mass component of the residual whose removal restores recovery**, and describe
+   that component. That is a search over subspaces with a clear objective, not another guess
+   at a summary statistic.
 2. **A sharp condition for when JADE's coupling graph recovers the true partition.** The
    tolerance is currently chosen by oracle (Reviewer 2's finding 6); a Davis–Kahan style
    bound on the coupling matrix would give a blind rule.
