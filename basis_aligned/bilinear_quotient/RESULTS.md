@@ -1532,3 +1532,21 @@ the layer.
 
 Full detail in `BILIN18_CONNECTION.md` §12. **All four planned real-model tests are now
 run.**
+
+### The budget-free answer: MLP1 runs on about ten directions
+
+The batch's through-line — solo-vs-joint attribution depends on the ablation budget —
+has a standard repair: Shapley values, which average each direction's marginal effect
+over all coalition sizes and are forced by construction to sum to the joint effect
+exactly, leaving no unexplained residual. Twenty permutations, 660 model evaluations.
+
+On the same 32 directions where solo ablation says "1.4 effective directions but 91% of
+the effect unexplained" and §74's phrasing says "irreducibly distributed", the Shapley
+attribution says: **participation ratio 9.5 of 32** — about ten effective directions,
+the largest carrying 27% of the layer by itself, the top eight carrying two thirds.
+Neither a few nameable parts nor an even smear; both prior readings were artefacts of
+their instruments. Solo ablation also *misranks*: the leading direction's true
+contribution is 4.6× its solo effect, and two directions with negative solo effects
+(removal appears helpful) genuinely carry +0.019 nats each.
+
+Full detail in `BILIN18_CONNECTION.md` §13.

@@ -963,3 +963,59 @@ survives the basis challenge that A5 aimed at it — that is a real win for §74
 worth more than the challenge would have been. What does not survive is the number's
 status as a layer property. Both my prediction and the framing I inherited were wrong in
 the same way: treating a budget-dependent statistic as though it measured the layer.
+
+---
+
+## 13. The budget-free version of §74's question, answered
+
+File: `bilin18_shapley.py` (478 s, 660 model evaluations).
+
+§12 left the program without a usable statistic: "X% individually attributable" moves
+from 9% to 64% with the analyst's choice of ablation-set size, so the question §74
+actually cared about — is MLP1's causal content concentrated in a few directions or
+spread across many? — had no budget-free answer. The Shapley value is the standard
+repair, and it is the *right* repair here for a precise reason: it averages each
+direction's marginal contribution over all coalition sizes (so no budget is chosen), and
+its efficiency axiom forces the attributions to sum to the joint effect exactly — the
+"91% unexplained" residual that solo ablation leaves cannot exist by construction.
+
+Twenty random permutations of the 32 SVD directions, marginal contributions measured by
+held-out CE at every step. *(A gate note against my own script's description: with
+full-permutation sampling, efficiency holds identically — each permutation's marginals
+telescope to v(all) — so the measured 0.0000 gap validates the bookkeeping only. The
+honest uncertainty is the per-direction standard error, ±0.004–0.014 nats.)*
+
+| | solo ablation (§74's numerator) | Shapley |
+|---|---|---|
+| sum of attributions | 0.0345 (9.0% of joint) | **0.3832 (100%, by axiom)** |
+| participation ratio | 1.4 of 32 | **9.5 of 32** |
+| top direction | 0.0224 | 0.1034 (27.0% of the layer) |
+| top 4 / top 8 share | — | 50% / 67% |
+| negative contributions | 14 of 32 solo values ≤ 0 | 1 of 32 |
+
+**The budget-free answer is "about ten directions".** Participation ratio 9.5 of 32: the
+causal content of MLP1's top-32 subspace is carried by roughly ten effective directions,
+with the largest single one holding 27% and the top eight holding two thirds.
+
+Three consequences:
+
+1. **Both prior readings were artefacts of their instruments.** Solo ablation says
+   "1.4 effective directions but 91% unexplained" — concentration by interference
+   blindness. The §74 phrasing says "irreducibly distributed" — a smear, by the
+   budget effect of §12. The layer is neither: it is *oligarchic*, ten-ish directions
+   with a clear leader, and that answer required an attribution that handles
+   interference rather than a bigger or smaller ablation set.
+2. **Solo ablation understates every important direction, non-uniformly.** The top
+   direction's Shapley value is 4.6× its solo effect; directions 4 and 5 have *negative*
+   solo effects (+0.019/+0.018 Shapley) — they look actively helpful to remove one at a
+   time while genuinely carrying part of the layer. Ranking directions by solo ablation
+   — which the repo's nameability batteries do — misranks them.
+3. **§74's nameability conclusion is untouched**: its z-score battery asks whether any
+   single direction is *interpretable*, not how the causal mass is distributed, and
+   nothing here contradicts 0/32 nameable. What changes is the phrase "irreducibly
+   distributed": the distribution has ten-ish parts, and the reason no part shows up
+   solo is interference, not absence of parts.
+
+The natural follow-on — are the ten Shapley-leading directions the ones a dictionary
+names, i.e. do nameability and causality align once interference is handled — is
+registered as an open question, not run.
