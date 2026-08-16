@@ -299,12 +299,44 @@ scores solve the conjunctive task; and every null that separated trained from un
    concentrated, so spatial concentration separates neither the damaging from the harmless
    nor the real from the synthetic.
 
-   The hypothesis space is now: not magnitude (A2-5), not reader-mode coherence, not
-   coupling-graph concentration, and only about half symmetry-breaking (A2-8). What remains
-   is presumably that the residual is not an independent perturbation at all — it is the
-   part of one fitted function that lies off-block, so it is correlated with the block part
-   in a way no injected noise reproduces. Constructing a surrogate with that correlation is
-   the next experiment.
+   *Third attempt, and a causal handle* (`a2_alignment.py`). Every surrogate so far is
+   INDEPENDENT of the signal; the real residual is the off-block part of the same fitted
+   function. The two are orthogonal in Sym² by construction, so any shared structure must
+   live in the reader mode — and it does. Alignment between the residual's and the signal's
+   top-6 reader subspaces (chance for independent 6-subspaces of ℝ²³ is 0.261):
+
+   | | reader alignment |
+   |---|---|
+   | trained residual, seeds 0/1/2 | **0.541 / 0.411 / 0.459** |
+   | isotropic noise | 0.267 |
+   | reader-rank-1 synthetic | 0.228 |
+   | reader-rank-5 synthetic | 0.256 |
+
+   Every surrogate sits at chance; every real residual is 1.6–2× above it. So alignment is
+   the first measured property that separates the real case from all four synthetic ones.
+
+   **And it is causally load-bearing.** Removing the reader-aligned component from the real
+   residual, rescaled to the *same* off-block mass, rescues recovery:
+
+   | | alignment | recovered (blind / oracle) |
+   |---|---|---|
+   | real residual, unchanged | 0.541 | 2 / 4 |
+   | real residual, aligned part removed | 0.000 | **7 / 10** |
+
+   That is the first intervention in three attempts that turns the hard case into an easy
+   one at matched magnitude.
+
+   **But alignment is necessary, not sufficient.** Forcing isotropic noise *into* the
+   signal's reader subspace does not make it damaging — at alignment 0.475 to 1.000 recovery
+   stays at 10–11 of 11. Pooled over both experiments the correlation between alignment and
+   recovery is +0.071, i.e. nothing, precisely because the two halves pull in opposite
+   directions.
+
+   So the damaging component of a trained residual lives in the signal's reader subspace,
+   and taking it out fixes the problem — but merely occupying that subspace is harmless. The
+   remaining question is what distinguishes the aligned part of a real residual from
+   arbitrary mass in the same subspace, and that is now a much sharper question than the one
+   this section started with.
 2. **A sharp condition for when JADE's coupling graph recovers the true partition.** The
    tolerance is currently chosen by oracle (Reviewer 2's finding 6); a Davis–Kahan style
    bound on the coupling matrix would give a blind rule.
