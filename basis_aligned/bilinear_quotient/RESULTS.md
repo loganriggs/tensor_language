@@ -333,11 +333,29 @@ any surrogate, and the decay is steep rather than gradual.
 
 ![A2 calibration](figures/a2_calibration.png)
 
+> **Corrected after review (`fix_blind_eps.py`).** The tolerance ε in the table above was
+> selected as the best of a 9-point sweep *scored against the planted answer*, so these are
+> oracle numbers and "no ground truth used in the recovery" was wrong. Redone with a blind
+> rule — ε = the JADE-rotated family's own residual off-diagonal mass, which needs no
+> ground truth — and applied identically to every model:
+>
+> | | off-block | **blind ε** | oracle best-of-9 |
+> |---|---|---|---|
+> | planted + isotropic noise, all six levels to 0.29 | ≤0.29 | **11/11** | 11/11 |
+> | trained seed 0 / 1 / 2 | 0.18 / 0.21 / 0.17 | **2 / 1 / 2** | 4 / 1 / 5 |
+> | symmetrised seed 0 / 1 / 2 (A2-8) | 0.11 / 0.12 / 0.10 | **8 / 7 / 11** | 10 / 9 / 11 |
+> | null: random weights, task shuffle | 0.91 | **0/11** | 0/11 |
+>
+> The blind rule is free on the whole synthetic calibration (gap 0 at every noise level,
+> mean gap 0.60 frequencies overall) and costs 2–3 frequencies on the hardest trained
+> models. So the calibration in A2-2 stands as written; the trained-model number in the
+> table below drops from 4–5/11 to **1–2/11**; and A2-8's symmetrised pipeline still
+> recovers **7–11 of 11 with no ground truth anywhere**, one seed at 11/11.
+
 The honest verdict is therefore *partial recovery, tool-limited, with the limitation
 localised and quantified*: not "the instrument is too weak" but "this particular residual
-is harder than noise of its size, by a measured factor of 2–3, and none of the three
-obvious models of it reproduces that hardness." A2-8 identifies most of what makes it
-hard, and removes it.
+is harder than noise of its size, and none of the three obvious models of it reproduces
+that hardness." A2-8 identifies most of what makes it hard, and removes it.
 
 ### FINDING A2-8 — the trained model breaks the task's input symmetry; restoring it is a second data-free surgery that both completes grokking and makes the blocks recoverable
 
@@ -378,9 +396,11 @@ is a large part of the answer, not all of it, and symmetrisation helps twice ove
 deletes the worse half and halves the total residual at the same time. What remains hard
 about the symmetry-preserving half is still open.
 
-This gives a fully weights-only pipeline for this model: **symmetrise → JADE at ε ≈ 0.15 →
-9–11 of 11 frequency blocks recovered → project onto them → test accuracy 1.000.** The only
-task knowledge used is that the two input slots are interchangeable.
+This gives a fully weights-only pipeline for this model: **symmetrise → JADE at a blind
+tolerance → 7–11 of 11 frequency blocks recovered → project onto them → test accuracy
+1.000.** The only task knowledge used is that the two input slots are interchangeable.
+(With the oracle tolerance it is 9–11; the blind rule costs about two frequencies. Both are
+reported in `fix_blind_eps_results.json`.)
 
 ### FINDING A2-6 — verification: blocks ablate as predicted, and splice across independently trained models
 
