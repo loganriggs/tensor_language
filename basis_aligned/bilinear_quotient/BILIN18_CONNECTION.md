@@ -326,6 +326,47 @@ realistic input metric is a cheap way to cover it.
    implement the unnormalised-product placement so Part B is about bilin18's actual
    architecture (§3.1–3.2).
 
-Note that the weights are not on this box — `HF_HOME` has no `Elriggs` entry and the
-FineWeb token files are absent — so all four need the checkpoint pulled first via
-`load_elriggs('bilin18')` (`qk_mdl/tier2_model.py:36-45`).
+**Correction to an earlier version of this document**, which said the four tests were not
+runnable here because the weights were absent. They were merely *uncached*: `load_elriggs`
+downloads from the Hub, the box has 113 GB free and a 32 GB GPU, and the checkpoint pulls
+in about 100 seconds. Test #4 has now been run — see below — and the model loads and gates
+correctly (546M parameters, 18 layers, d=1152, ungated MLPs of width 4608, CE 3.46 on a
+32-chunk pile-10k sample).
+
+---
+
+## 5. RESULT: test #4, run on the real model (`bilin18_attention.py`)
+
+The census rebuilt on bilin18's own attention, with participation ratio in place of
+entropy (undefined there, and gauge-dependent anyway — `THEORY.md` T8), and compared
+against **the same architecture with random weights**, which is the control the toys said
+would be decisive and which had not been run.
+
+| | sharpening signature fires | median PR drop | median negative mass | median \|cos(W₁,W₂)\| |
+|---|---|---|---|---|
+| bilin18, trained | **162 / 162 heads (100%)** | 0.097 | 0.490 | 0.031 |
+| same architecture, random weights | **162 / 162 heads (100%)** | **0.207** | 0.500 | 0.002 |
+
+**The signature carries no information.** An untrained network of the same shape shows
+"individually vague, jointly precise" at exactly the same universal rate, and with a
+*larger* median drop. The recorded 100%-of-heads result
+(`jacclust/SUMMARY.md:69`) is therefore not evidence that bilin18's branches are
+conjunctive — it is what this architecture does before it has learned anything.
+
+**The negative-mass figure too.** The recorded 0.49 ± 0.27 negative mass is reproduced
+here at 0.490 for the trained model — and random weights give **0.500**. That statistic
+also fails to distinguish trained from untrained.
+
+Two things this does establish, both new:
+
+- **Regime (b), factor alignment, does not occur in bilin18.** Zero of 162 heads have their
+  two QK circuits near-identical (|cos| > 0.9); the median is 0.031, barely above the 0.002
+  of random weights. So whatever the two branches are doing, they are not duplicates.
+- **The reimplementation is validated against the existing record.** An independently
+  written measurement reproduces the recorded 100% firing and the recorded 0.49 negative
+  mass, so the comparison against the null is like-for-like rather than a different
+  statistic disagreeing.
+
+What this does *not* say: that the branches are not conjunctive. It says the two statistics
+on record cannot tell. The instrument that survived the toys is the readout of what each
+branch *reads* (B2-4, A6, B3), and that is the measurement to run next on these heads.
