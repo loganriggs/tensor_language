@@ -1,0 +1,1894 @@
+{
+ "config": {
+  "d": 12,
+  "mh": 8,
+  "h": 96,
+  "readers": 3,
+  "steps": 12000,
+  "device": "cuda"
+ },
+ "registered": {
+  "i": "top eigenvalue of the reader-weighted moment belongs to the shared form, ratio to the private ones about 3 (the number of readers sharing it)",
+  "ii": "a 4-atom sparse dictionary separates shared from private, each reader using exactly 2 atoms",
+  "iii": "per-reader decomposition finds the shared form once per reader, in bases that do not agree with each other",
+  "iv": "the reader shuffle collapses the shared/private eigenvalue gap"
+ },
+ "runs": [
+  {
+   "tag": "",
+   "seed": 0,
+   "gains": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "priv": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "fvu": 2.7524059180028904e-13,
+   "reader_form_error": 2.6929435260726036e-13,
+   "registered": {
+    "i": "top eigenvalue of the reader-weighted moment belongs to the shared form, ratio to the private ones about 3 (the number of readers sharing it)",
+    "ii": "a 4-atom sparse dictionary separates shared from private, each reader using exactly 2 atoms",
+    "iii": "per-reader decomposition finds the shared form once per reader, in bases that do not agree with each other",
+    "iv": "the reader shuffle collapses the shared/private eigenvalue gap"
+   },
+   "moment_spectrum": [
+    3.9999967035741024,
+    0.9999987733699173,
+    0.9999987290677992,
+    5.248594117435685e-16,
+    1.0962163119277172e-16,
+    7.357626882835185e-17,
+    5.970120596244779e-17,
+    5.954735767979065e-17
+   ],
+   "participation_ratio": 1.9999996225110608,
+   "top_eigvec_cos_shared": 0.837437034315236,
+   "top_eigvec_cos_private": [
+    0.27999163691565354,
+    0.18649869548663386,
+    0.23561708527036473
+   ],
+   "eig_ratio_top_to_next": 4.000001610096408,
+   "eig_ratio_reader_shuffled": [
+    3.4971700642412133,
+    3.717676108310016,
+    3.99579847095166
+   ],
+   "dictionary": {
+    "2": {
+     "err": 0.16140408505680917,
+     "mean_active_atoms_per_reader": 1.3333333333333333,
+     "match_shared_private": null
+    },
+    "3": {
+     "err": 4.610023665735218e-05,
+     "mean_active_atoms_per_reader": 1.0,
+     "match_shared_private": null
+    },
+    "4": {
+     "err": 2.596667835432386e-05,
+     "mean_active_atoms_per_reader": 1.3333333333333333,
+     "match_shared_private": [
+      {
+       "atom": 1,
+       "cos": 0.7108254688682354
+      },
+      {
+       "atom": 0,
+       "cos": 0.7071097292562407
+      },
+      {
+       "atom": 2,
+       "cos": 0.7114535289919057
+      },
+      {
+       "atom": 3,
+       "cos": 0.7071105929574212
+      }
+     ]
+    },
+    "5": {
+     "err": 1.6641445394516267e-05,
+     "mean_active_atoms_per_reader": 1.6666666666666665,
+     "match_shared_private": [
+      {
+       "atom": 4,
+       "cos": 0.7092394245664637
+      },
+      {
+       "atom": 0,
+       "cos": 0.7106067121702986
+      },
+      {
+       "atom": 2,
+       "cos": 0.7076528506367931
+      },
+      {
+       "atom": 1,
+       "cos": 0.7071124884937995
+      }
+     ]
+    },
+    "6": {
+     "err": 1.227523023800342e-05,
+     "mean_active_atoms_per_reader": 2.0,
+     "match_shared_private": [
+      {
+       "atom": 2,
+       "cos": 0.7721190152621469
+      },
+      {
+       "atom": 3,
+       "cos": 0.7109054700517046
+      },
+      {
+       "atom": 0,
+       "cos": 0.7200356583144405
+      },
+      {
+       "atom": 4,
+       "cos": 0.7401436089879457
+      }
+     ]
+    }
+   },
+   "per_reader": [
+    {
+     "reader": 0,
+     "cp_err": 0.021003943104675182,
+     "best_cos_to_shared": 0.41341170167816416
+    },
+    {
+     "reader": 1,
+     "cp_err": 0.027002472713476455,
+     "best_cos_to_shared": 0.4051461366164684
+    },
+    {
+     "reader": 2,
+     "cp_err": 0.05146681514488194,
+     "best_cos_to_shared": 0.40851278766151755
+    }
+   ],
+   "pca_singular_values": [
+    1.9999991758933562,
+    0.9999993866847702,
+    0.9999993645336961
+   ],
+   "pca_error": {
+    "1": 0.34290474428944945,
+    "2": 0.1728621929848106,
+    "3": 2.269000673742383e-30
+   }
+  },
+  {
+   "tag": "",
+   "seed": 1,
+   "gains": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "priv": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "fvu": 3.0319066911798195e-13,
+   "reader_form_error": 2.8598798453123614e-13,
+   "registered": {
+    "i": "top eigenvalue of the reader-weighted moment belongs to the shared form, ratio to the private ones about 3 (the number of readers sharing it)",
+    "ii": "a 4-atom sparse dictionary separates shared from private, each reader using exactly 2 atoms",
+    "iii": "per-reader decomposition finds the shared form once per reader, in bases that do not agree with each other",
+    "iv": "the reader shuffle collapses the shared/private eigenvalue gap"
+   },
+   "moment_spectrum": [
+    3.9999966791792723,
+    0.9999986735960291,
+    0.9999986475879474,
+    2.144782466479819e-16,
+    1.494575204471244e-16,
+    9.18961753295514e-17,
+    8.530366201831359e-17,
+    6.46090994341855e-17
+   ],
+   "participation_ratio": 1.999999547374836,
+   "top_eigvec_cos_shared": 0.8754264288753985,
+   "top_eigvec_cos_private": [
+    0.2954951714280886,
+    0.21780633404015956,
+    0.3334449981299063
+   ],
+   "eig_ratio_top_to_next": 4.000001984797788,
+   "eig_ratio_reader_shuffled": [
+    3.6469919915858853,
+    3.030725056901187,
+    3.4046274185815877
+   ],
+   "dictionary": {
+    "2": {
+     "err": 0.15635213235762535,
+     "mean_active_atoms_per_reader": 1.3333333333333333,
+     "match_shared_private": null
+    },
+    "3": {
+     "err": 4.760202121853292e-05,
+     "mean_active_atoms_per_reader": 1.0,
+     "match_shared_private": null
+    },
+    "4": {
+     "err": 2.685341708059715e-05,
+     "mean_active_atoms_per_reader": 1.0,
+     "match_shared_private": [
+      {
+       "atom": 2,
+       "cos": 0.710242648969964
+      },
+      {
+       "atom": 0,
+       "cos": 0.7071088154679712
+      },
+      {
+       "atom": 1,
+       "cos": 0.7286446764378324
+      },
+      {
+       "atom": 3,
+       "cos": 0.7071100163212632
+      }
+     ]
+    },
+    "5": {
+     "err": 1.7172110399428366e-05,
+     "mean_active_atoms_per_reader": 1.6666666666666665,
+     "match_shared_private": [
+      {
+       "atom": 3,
+       "cos": 0.7207557065100975
+      },
+      {
+       "atom": 1,
+       "cos": 0.7126905910087052
+      },
+      {
+       "atom": 2,
+       "cos": 0.7071096051462097
+      },
+      {
+       "atom": 0,
+       "cos": 0.7071770264800978
+      }
+     ]
+    },
+    "6": {
+     "err": 1.1929937535158908e-05,
+     "mean_active_atoms_per_reader": 2.0,
+     "match_shared_private": [
+      {
+       "atom": 0,
+       "cos": 0.7096524579200785
+      },
+      {
+       "atom": 2,
+       "cos": 0.7074653702091998
+      },
+      {
+       "atom": 3,
+       "cos": 0.7072831139115694
+      },
+      {
+       "atom": 4,
+       "cos": 0.7105639948233127
+      }
+     ]
+    }
+   },
+   "per_reader": [
+    {
+     "reader": 0,
+     "cp_err": 0.029237868145299578,
+     "best_cos_to_shared": 0.4321224777311761
+    },
+    {
+     "reader": 1,
+     "cp_err": 0.05384458337362783,
+     "best_cos_to_shared": 0.48638334674658557
+    },
+    {
+     "reader": 2,
+     "cp_err": 0.050443033191767635,
+     "best_cos_to_shared": 0.4944837824450914
+    }
+   ],
+   "pca_singular_values": [
+    1.9999991697946453,
+    0.9999993367977943,
+    0.9999993237937456
+   ],
+   "pca_error": {
+    "1": 0.32930535595738514,
+    "2": 0.1624893426447698,
+    "3": 6.706994742292167e-31
+   }
+  },
+  {
+   "tag": "",
+   "seed": 2,
+   "gains": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "priv": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "fvu": 2.844171954006056e-13,
+   "reader_form_error": 2.7615567134881815e-13,
+   "registered": {
+    "i": "top eigenvalue of the reader-weighted moment belongs to the shared form, ratio to the private ones about 3 (the number of readers sharing it)",
+    "ii": "a 4-atom sparse dictionary separates shared from private, each reader using exactly 2 atoms",
+    "iii": "per-reader decomposition finds the shared form once per reader, in bases that do not agree with each other",
+    "iv": "the reader shuffle collapses the shared/private eigenvalue gap"
+   },
+   "moment_spectrum": [
+    3.9999967014667166,
+    0.9999987879364198,
+    0.9999986325874666,
+    8.248758833012377e-16,
+    4.4058580192165934e-16,
+    1.0048696775582707e-16,
+    6.593715304594594e-17,
+    6.279908057659703e-17
+   ],
+   "participation_ratio": 1.9999995865731843,
+   "top_eigvec_cos_shared": 0.8506842358037184,
+   "top_eigvec_cos_private": [
+    0.2855136473488953,
+    0.27171852545363595,
+    0.2759870022957081
+   ],
+   "eig_ratio_top_to_next": 4.000001549722915,
+   "eig_ratio_reader_shuffled": [
+    3.5302938581398102,
+    3.38954689039192,
+    3.622547350099481
+   ],
+   "dictionary": {
+    "2": {
+     "err": 0.15898150283471837,
+     "mean_active_atoms_per_reader": 1.3333333333333333,
+     "match_shared_private": null
+    },
+    "3": {
+     "err": 4.6839844168343806e-05,
+     "mean_active_atoms_per_reader": 1.0,
+     "match_shared_private": null
+    },
+    "4": {
+     "err": 2.6411630332912e-05,
+     "mean_active_atoms_per_reader": 1.3333333333333333,
+     "match_shared_private": [
+      {
+       "atom": 0,
+       "cos": 0.7149380794233902
+      },
+      {
+       "atom": 3,
+       "cos": 0.707110219047303
+      },
+      {
+       "atom": 1,
+       "cos": 0.7111333531510045
+      },
+      {
+       "atom": 2,
+       "cos": 0.7071091402269075
+      }
+     ]
+    },
+    "5": {
+     "err": 1.697904419214028e-05,
+     "mean_active_atoms_per_reader": 1.6666666666666665,
+     "match_shared_private": [
+      {
+       "atom": 3,
+       "cos": 0.769974872272615
+      },
+      {
+       "atom": 2,
+       "cos": 0.7071112487720853
+      },
+      {
+       "atom": 4,
+       "cos": 0.7751420050480432
+      },
+      {
+       "atom": 0,
+       "cos": 0.7071105493053164
+      }
+     ]
+    },
+    "6": {
+     "err": 1.174042465110597e-05,
+     "mean_active_atoms_per_reader": 2.0,
+     "match_shared_private": [
+      {
+       "atom": 3,
+       "cos": 0.7215160820396399
+      },
+      {
+       "atom": 2,
+       "cos": 0.7072746073792289
+      },
+      {
+       "atom": 1,
+       "cos": 0.7190634521775717
+      },
+      {
+       "atom": 5,
+       "cos": 0.7071244698405595
+      }
+     ]
+    }
+   },
+   "per_reader": [
+    {
+     "reader": 0,
+     "cp_err": 0.04441190421117869,
+     "best_cos_to_shared": 0.3884204536750995
+    },
+    {
+     "reader": 1,
+     "cp_err": 0.027838143493811106,
+     "best_cos_to_shared": 0.4338336771869206
+    },
+    {
+     "reader": 2,
+     "cp_err": 0.0393063747161592,
+     "best_cos_to_shared": 0.3997345662914321
+    }
+   ],
+   "pca_singular_values": [
+    1.9999991753665103,
+    0.9999993939680278,
+    0.9999993162934997
+   ],
+   "pca_error": {
+    "1": 0.3638836766260189,
+    "2": 0.17642535524065622,
+    "3": 2.1090767347187838e-30
+   }
+  }
+ ],
+ "bank": {
+  "n_readers": 8,
+  "n_atoms": 4,
+  "per_reader": 2,
+  "codes": [
+   [
+    0.0,
+    -1.3627825209594198,
+    0.0,
+    -1.3226842836041222
+   ],
+   [
+    0.0,
+    0.0,
+    -0.9624572022558924,
+    -0.8864950750194089
+   ],
+   [
+    -0.6998162361474858,
+    -0.6871423394146061,
+    0.0,
+    0.0
+   ],
+   [
+    -0.9180488642046931,
+    0.0,
+    1.1239985396847147,
+    0.0
+   ],
+   [
+    1.1262138998462123,
+    0.0,
+    -0.6093177657816045,
+    0.0
+   ],
+   [
+    0.0,
+    0.0,
+    -0.8237738965512326,
+    1.3438063373243738
+   ],
+   [
+    0.0,
+    1.009129577558582,
+    0.0,
+    -0.6216718732729364
+   ],
+   [
+    -1.2329619204196676,
+    0.0,
+    0.0,
+    -1.199496917635118
+   ]
+  ],
+  "pca_singular_values": [
+   2.7537048706520983,
+   2.1455885033053397,
+   1.7082522252035772,
+   1.3305059389735776,
+   2.8771188165260123e-16,
+   2.0228444339207524e-16,
+   1.3405014859562406e-16,
+   1.1452245609266604e-16
+  ],
+  "frontier": {
+   "1": {
+    "pca_err": 0.5570951871854316,
+    "dict_err": 0.5574552533411375,
+    "atoms_per_reader": 0.875,
+    "match": null
+   },
+   "2": {
+    "pca_err": 0.28473431934838855,
+    "dict_err": 0.2845230239946151,
+    "atoms_per_reader": 1.5,
+    "match": null
+   },
+   "3": {
+    "pca_err": 0.11001157430797642,
+    "dict_err": 0.10946156290662905,
+    "atoms_per_reader": 2.25,
+    "match": null
+   },
+   "4": {
+    "pca_err": 4.893022308632968e-30,
+    "dict_err": 7.46678596859082e-05,
+    "atoms_per_reader": 2.25,
+    "match": [
+     {
+      "atom": 1,
+      "cos": 0.6456016355937215
+     },
+     {
+      "atom": 3,
+      "cos": 0.9595249758082084
+     },
+     {
+      "atom": 2,
+      "cos": 0.7730826046937636
+     },
+     {
+      "atom": 0,
+      "cos": 0.9198556801447437
+     }
+    ]
+   },
+   "5": {
+    "pca_err": 4.8882213938479494e-30,
+    "dict_err": 4.928671400925138e-05,
+    "atoms_per_reader": 2.875,
+    "match": [
+     {
+      "atom": 1,
+      "cos": 0.9320822414601232
+     },
+     {
+      "atom": 3,
+      "cos": 0.9958579734218936
+     },
+     {
+      "atom": 0,
+      "cos": 0.8938069569143485
+     },
+     {
+      "atom": 4,
+      "cos": 0.9672537079348973
+     }
+    ]
+   },
+   "6": {
+    "pca_err": 4.903282594617546e-30,
+    "dict_err": 2.7251867684888394e-05,
+    "atoms_per_reader": 2.5,
+    "match": [
+     {
+      "atom": 3,
+      "cos": 0.8875998364328548
+     },
+     {
+      "atom": 2,
+      "cos": 0.8771215200312822
+     },
+     {
+      "atom": 4,
+      "cos": 0.8142572302842461
+     },
+     {
+      "atom": 5,
+      "cos": 0.8072685835514914
+     }
+    ]
+   },
+   "7": {
+    "pca_err": 4.9045848344337795e-30,
+    "dict_err": 1.6464542665204944e-05,
+    "atoms_per_reader": 2.375,
+    "match": [
+     {
+      "atom": 2,
+      "cos": 0.8605047528587612
+     },
+     {
+      "atom": 6,
+      "cos": 0.8726874787854827
+     },
+     {
+      "atom": 3,
+      "cos": 0.7360758279548609
+     },
+     {
+      "atom": 1,
+      "cos": 0.7528990973765205
+     }
+    ]
+   },
+   "8": {
+    "pca_err": 4.907593123813614e-30,
+    "dict_err": 1.2756539922086872e-05,
+    "atoms_per_reader": 2.875,
+    "match": [
+     {
+      "atom": 4,
+      "cos": 0.94636553532647
+     },
+     {
+      "atom": 2,
+      "cos": 0.9564505565600366
+     },
+     {
+      "atom": 1,
+      "cos": 0.9507380306487762
+     },
+     {
+      "atom": 3,
+      "cos": 0.8569233916196243
+     }
+    ]
+   }
+  }
+ },
+ "gain_sweep": [
+  {
+   "tag": "gains(1.0, 1.0, 1.0)",
+   "seed": 0,
+   "gains": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "priv": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "fvu": 2.9416619651843474e-13,
+   "reader_form_error": 2.6868606798818553e-13,
+   "registered": {
+    "i": "top eigenvalue of the reader-weighted moment belongs to the shared form, ratio to the private ones about 3 (the number of readers sharing it)",
+    "ii": "a 4-atom sparse dictionary separates shared from private, each reader using exactly 2 atoms",
+    "iii": "per-reader decomposition finds the shared form once per reader, in bases that do not agree with each other",
+    "iv": "the reader shuffle collapses the shared/private eigenvalue gap"
+   },
+   "moment_spectrum": [
+    3.999996672727319,
+    0.9999988183813376,
+    0.9999987209795281,
+    4.602157383582468e-16,
+    2.379747006027117e-16,
+    9.84527076569456e-17,
+    7.392849040887533e-17,
+    6.185282942459939e-17
+   ],
+   "participation_ratio": 1.9999996457762108,
+   "top_eigvec_cos_shared": 0.8374370384205064,
+   "top_eigvec_cos_private": [
+    0.27999164306013424,
+    0.18649868438852787,
+    0.23561707853396066
+   ],
+   "eig_ratio_top_to_next": 4.000001399203621,
+   "eig_ratio_reader_shuffled": [
+    3.497169944964525,
+    3.7176759821825245,
+    3.995798399295028
+   ],
+   "dictionary": {
+    "2": {
+     "err": 0.16140409074043952,
+     "mean_active_atoms_per_reader": 1.3333333333333333,
+     "match_shared_private": null
+    },
+    "3": {
+     "err": 4.6087723741710945e-05,
+     "mean_active_atoms_per_reader": 1.0,
+     "match_shared_private": null
+    },
+    "4": {
+     "err": 2.594764019562942e-05,
+     "mean_active_atoms_per_reader": 1.3333333333333333,
+     "match_shared_private": [
+      {
+       "atom": 1,
+       "cos": 0.7108240256093658
+      },
+      {
+       "atom": 0,
+       "cos": 0.7071099761125927
+      },
+      {
+       "atom": 2,
+       "cos": 0.7114507848223995
+      },
+      {
+       "atom": 3,
+       "cos": 0.7071101833859124
+      }
+     ]
+    },
+    "5": {
+     "err": 1.6656786602895237e-05,
+     "mean_active_atoms_per_reader": 1.6666666666666665,
+     "match_shared_private": [
+      {
+       "atom": 4,
+       "cos": 0.7092438310904343
+      },
+      {
+       "atom": 0,
+       "cos": 0.7106148479163922
+      },
+      {
+       "atom": 2,
+       "cos": 0.7076486428300414
+      },
+      {
+       "atom": 1,
+       "cos": 0.7071120877345635
+      }
+     ]
+    },
+    "6": {
+     "err": 1.2283432505775522e-05,
+     "mean_active_atoms_per_reader": 2.0,
+     "match_shared_private": [
+      {
+       "atom": 2,
+       "cos": 0.7721186378808571
+      },
+      {
+       "atom": 3,
+       "cos": 0.7108980340271563
+      },
+      {
+       "atom": 0,
+       "cos": 0.7200365608045513
+      },
+      {
+       "atom": 4,
+       "cos": 0.7401438501640801
+      }
+     ]
+    }
+   },
+   "per_reader": [
+    {
+     "reader": 0,
+     "cp_err": 0.021003941472903576,
+     "best_cos_to_shared": 0.41341170177312553
+    },
+    {
+     "reader": 1,
+     "cp_err": 0.02700247490400127,
+     "best_cos_to_shared": 0.40514615742780874
+    },
+    {
+     "reader": 2,
+     "cp_err": 0.051466815337174406,
+     "best_cos_to_shared": 0.4085127782876262
+    }
+   ],
+   "pca_singular_values": [
+    1.9999991681816598,
+    0.9999994091904942,
+    0.9999993604895597
+   ],
+   "pca_error": {
+    "1": 0.34290474876954785,
+    "2": 0.17385670739337755,
+    "3": 4.7776703959323806e-30
+   }
+  },
+  {
+   "tag": "gains(1.0, 1.0, 0.0)",
+   "seed": 0,
+   "gains": [
+    1.0,
+    1.0,
+    0.0
+   ],
+   "priv": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "fvu": 2.5843765136226965e-13,
+   "reader_form_error": 2.5958310227039794e-13,
+   "registered": {
+    "i": "top eigenvalue of the reader-weighted moment belongs to the shared form, ratio to the private ones about 3 (the number of readers sharing it)",
+    "ii": "a 4-atom sparse dictionary separates shared from private, each reader using exactly 2 atoms",
+    "iii": "per-reader decomposition finds the shared form once per reader, in bases that do not agree with each other",
+    "iv": "the reader shuffle collapses the shared/private eigenvalue gap"
+   },
+   "moment_spectrum": [
+    2.999997332989574,
+    0.9999990622085557,
+    0.999998767107382,
+    3.927238490289831e-16,
+    1.257353877442841e-16,
+    7.518550275420074e-17,
+    6.699208723945941e-17,
+    5.487336224171273e-17
+   ],
+   "participation_ratio": 2.272727078011153,
+   "top_eigvec_cos_shared": 0.79065299951066,
+   "top_eigvec_cos_private": [
+    0.39900287411392166,
+    0.29400669201118695,
+    0.03663865886732106
+   ],
+   "eig_ratio_top_to_next": 3.0000001463640444,
+   "eig_ratio_reader_shuffled": [
+    1.5797398045348143,
+    1.471951011521049,
+    1.6395639284986772
+   ],
+   "dictionary": {
+    "2": {
+     "err": 0.19029371557598712,
+     "mean_active_atoms_per_reader": 1.6666666666666665,
+     "match_shared_private": null
+    },
+    "3": {
+     "err": 3.9062880500594534e-05,
+     "mean_active_atoms_per_reader": 1.0,
+     "match_shared_private": null
+    },
+    "4": {
+     "err": 2.6155529832798077e-05,
+     "mean_active_atoms_per_reader": 1.6666666666666665,
+     "match_shared_private": [
+      {
+       "atom": 2,
+       "cos": 0.8114258499229928
+      },
+      {
+       "atom": 3,
+       "cos": 0.757465240391
+      },
+      {
+       "atom": 1,
+       "cos": 0.7603145574506137
+      },
+      {
+       "atom": 0,
+       "cos": 0.9999999999994911
+      }
+     ]
+    },
+    "5": {
+     "err": 1.407922031895124e-05,
+     "mean_active_atoms_per_reader": 1.6666666666666665,
+     "match_shared_private": [
+      {
+       "atom": 4,
+       "cos": 0.7097223845820437
+      },
+      {
+       "atom": 0,
+       "cos": 0.7104126495879327
+      },
+      {
+       "atom": 3,
+       "cos": 0.7089752644637799
+      },
+      {
+       "atom": 1,
+       "cos": 0.9999999999965233
+      }
+     ]
+    },
+    "6": {
+     "err": 1.0203831695304803e-05,
+     "mean_active_atoms_per_reader": 2.0,
+     "match_shared_private": [
+      {
+       "atom": 0,
+       "cos": 0.7702338787995525
+      },
+      {
+       "atom": 3,
+       "cos": 0.7295226732986465
+      },
+      {
+       "atom": 2,
+       "cos": 0.7090576034623145
+      },
+      {
+       "atom": 4,
+       "cos": 0.9999999999889078
+      }
+     ]
+    }
+   },
+   "per_reader": [
+    {
+     "reader": 0,
+     "cp_err": 0.02100394523631794,
+     "best_cos_to_shared": 0.41341170213534606
+    },
+    {
+     "reader": 1,
+     "cp_err": 0.027002481899744874,
+     "best_cos_to_shared": 0.40514612222355173
+    },
+    {
+     "reader": 2,
+     "cp_err": 0.055637871977676674,
+     "best_cos_to_shared": 0.19930897262587113
+    }
+   ],
+   "pca_singular_values": [
+    1.7320500376691126,
+    0.9999995311041676,
+    0.9999993835535008
+   ],
+   "pca_error": {
+    "1": 0.420651923040851,
+    "2": 0.21118212985183463,
+    "3": 1.2753112881831267e-31
+   }
+  },
+  {
+   "tag": "gains(1.0, 0.5, 0.25)",
+   "seed": 0,
+   "gains": [
+    1.0,
+    0.5,
+    0.25
+   ],
+   "priv": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "fvu": 2.338490595659317e-13,
+   "reader_form_error": 2.355038711071519e-13,
+   "registered": {
+    "i": "top eigenvalue of the reader-weighted moment belongs to the shared form, ratio to the private ones about 3 (the number of readers sharing it)",
+    "ii": "a 4-atom sparse dictionary separates shared from private, each reader using exactly 2 atoms",
+    "iii": "per-reader decomposition finds the shared form once per reader, in bases that do not agree with each other",
+    "iv": "the reader shuffle collapses the shared/private eigenvalue gap"
+   },
+   "moment_spectrum": [
+    2.312497989827698,
+    0.9999990736583244,
+    0.999998921826475,
+    1.842570630129314e-16,
+    7.528242871592905e-17,
+    5.845554874842407e-17,
+    5.2379889046334984e-17,
+    4.8094235619171456e-17
+   ],
+   "participation_ratio": 2.531100349494162,
+   "top_eigvec_cos_shared": 0.7296853528352665,
+   "top_eigvec_cos_private": [
+    0.5645912271177578,
+    0.1945495671267508,
+    0.10338707089197421
+   ],
+   "eig_ratio_top_to_next": 2.312500131992945,
+   "eig_ratio_reader_shuffled": [
+    1.589784321041033,
+    1.5076320646220043,
+    1.7089198373832986
+   ],
+   "dictionary": {
+    "2": {
+     "err": 0.2167962114052028,
+     "mean_active_atoms_per_reader": 1.0,
+     "match_shared_private": null
+    },
+    "3": {
+     "err": 3.420642469374228e-05,
+     "mean_active_atoms_per_reader": 1.0,
+     "match_shared_private": null
+    },
+    "4": {
+     "err": 1.9251733053202618e-05,
+     "mean_active_atoms_per_reader": 1.3333333333333333,
+     "match_shared_private": [
+      {
+       "atom": 2,
+       "cos": 0.7118378619067414
+      },
+      {
+       "atom": 3,
+       "cos": 0.7093095656342417
+      },
+      {
+       "atom": 1,
+       "cos": 0.8944282845056429
+      },
+      {
+       "atom": 0,
+       "cos": 0.9701431437215966
+      }
+     ]
+    },
+    "5": {
+     "err": 1.2320675359377694e-05,
+     "mean_active_atoms_per_reader": 1.6666666666666665,
+     "match_shared_private": [
+      {
+       "atom": 4,
+       "cos": 0.7129109039580391
+      },
+      {
+       "atom": 0,
+       "cos": 0.7177408486873412
+      },
+      {
+       "atom": 2,
+       "cos": 0.8980712885647293
+      },
+      {
+       "atom": 1,
+       "cos": 0.9701436948886986
+      }
+     ]
+    },
+    "6": {
+     "err": 8.7846077321519e-06,
+     "mean_active_atoms_per_reader": 1.6666666666666665,
+     "match_shared_private": [
+      {
+       "atom": 5,
+       "cos": 0.708201972340633
+      },
+      {
+       "atom": 0,
+       "cos": 0.7081355430940617
+      },
+      {
+       "atom": 3,
+       "cos": 0.9260100060866359
+      },
+      {
+       "atom": 4,
+       "cos": 0.9739334532617573
+      }
+     ]
+    }
+   },
+   "per_reader": [
+    {
+     "reader": 0,
+     "cp_err": 0.02100394302202425,
+     "best_cos_to_shared": 0.4134116939788372
+    },
+    {
+     "reader": 1,
+     "cp_err": 0.04792272899672689,
+     "best_cos_to_shared": 0.27640071122122406
+    },
+    {
+     "reader": 2,
+     "cp_err": 0.05647563171335028,
+     "best_cos_to_shared": 0.22045033436134062
+    }
+   ],
+   "pca_singular_values": [
+    1.5206899716338282,
+    0.9999995368290547,
+    0.999999460913092
+   ],
+   "pca_error": {
+    "1": 0.49215469653287697,
+    "2": 0.26194248418642707,
+    "3": 2.0355980835779613e-30
+   }
+  },
+  {
+   "tag": "gains(2.0, 2.0, 2.0)",
+   "seed": 0,
+   "gains": [
+    2.0,
+    2.0,
+    2.0
+   ],
+   "priv": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "fvu": 3.7990696430104377e-13,
+   "reader_form_error": 3.439067285505167e-13,
+   "registered": {
+    "i": "top eigenvalue of the reader-weighted moment belongs to the shared form, ratio to the private ones about 3 (the number of readers sharing it)",
+    "ii": "a 4-atom sparse dictionary separates shared from private, each reader using exactly 2 atoms",
+    "iii": "per-reader decomposition finds the shared form once per reader, in bases that do not agree with each other",
+    "iv": "the reader shuffle collapses the shared/private eigenvalue gap"
+   },
+   "moment_spectrum": [
+    12.999987941628005,
+    0.9999980398897976,
+    0.9999978726685739,
+    1.798537438291406e-15,
+    2.2764916564485983e-16,
+    1.8963478210181638e-16,
+    1.5898006395636415e-16,
+    1.346207715927961e-16
+   ],
+   "participation_ratio": 1.315789116404752,
+   "top_eigvec_cos_shared": 0.9559223063295067,
+   "top_eigvec_cos_private": [
+    0.1414971386660489,
+    0.00032928961057751126,
+    0.067060164418231
+   ],
+   "eig_ratio_top_to_next": 13.000013423086946,
+   "eig_ratio_reader_shuffled": [
+    11.336181360751844,
+    12.06529924855491,
+    12.844144938536196
+   ],
+   "dictionary": {
+    "2": {
+     "err": 0.061860006045858264,
+     "mean_active_atoms_per_reader": 1.3333333333333333,
+     "match_shared_private": null
+    },
+    "3": {
+     "err": 0.00012883384185427958,
+     "mean_active_atoms_per_reader": 1.0,
+     "match_shared_private": null
+    },
+    "4": {
+     "err": 8.414990158260963e-05,
+     "mean_active_atoms_per_reader": 2.333333333333333,
+     "match_shared_private": [
+      {
+       "atom": 0,
+       "cos": 0.9023499644702337
+      },
+      {
+       "atom": 3,
+       "cos": 0.47800076650177736
+      },
+      {
+       "atom": 1,
+       "cos": 0.5132976597897421
+      },
+      {
+       "atom": 2,
+       "cos": 0.5334949478017894
+      }
+     ]
+    },
+    "5": {
+     "err": 4.8211363806599426e-05,
+     "mean_active_atoms_per_reader": 1.6666666666666665,
+     "match_shared_private": [
+      {
+       "atom": 2,
+       "cos": 0.9147648372975784
+      },
+      {
+       "atom": 4,
+       "cos": 0.47248933438621454
+      },
+      {
+       "atom": 3,
+       "cos": 0.48525294664176083
+      },
+      {
+       "atom": 1,
+       "cos": 0.5043999871752582
+      }
+     ]
+    },
+    "6": {
+     "err": 3.4390012654896744e-05,
+     "mean_active_atoms_per_reader": 2.6666666666666665,
+     "match_shared_private": [
+      {
+       "atom": 2,
+       "cos": 0.913668461880261
+      },
+      {
+       "atom": 1,
+       "cos": 0.49016658132849483
+      },
+      {
+       "atom": 0,
+       "cos": 0.5153426629651788
+      },
+      {
+       "atom": 4,
+       "cos": 0.4887276976467322
+      }
+     ]
+    }
+   },
+   "per_reader": [
+    {
+     "reader": 0,
+     "cp_err": 0.02268835181868693,
+     "best_cos_to_shared": 0.5005575882248163
+    },
+    {
+     "reader": 1,
+     "cp_err": 0.012938901803851039,
+     "best_cos_to_shared": 0.48754995436089205
+    },
+    {
+     "reader": 2,
+     "cp_err": 0.04662368808794106,
+     "best_cos_to_shared": 0.5016158733663353
+    }
+   ],
+   "pca_singular_values": [
+    3.605549603268264,
+    0.9999990199444174,
+    0.9999989363337212
+   ],
+   "pca_error": {
+    "1": 0.1309030032479614,
+    "2": 0.06180483512482008,
+    "3": 1.821684509448601e-29
+   }
+  }
+ ],
+ "priv_sweep": [
+  {
+   "tag": "priv(0.5, 0.5, 0.5)",
+   "seed": 0,
+   "gains": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "priv": [
+    0.5,
+    0.5,
+    0.5
+   ],
+   "fvu": 2.5291336166356687e-13,
+   "reader_form_error": 2.4412153413631205e-13,
+   "registered": {
+    "i": "top eigenvalue of the reader-weighted moment belongs to the shared form, ratio to the private ones about 3 (the number of readers sharing it)",
+    "ii": "a 4-atom sparse dictionary separates shared from private, each reader using exactly 2 atoms",
+    "iii": "per-reader decomposition finds the shared form once per reader, in bases that do not agree with each other",
+    "iv": "the reader shuffle collapses the shared/private eigenvalue gap"
+   },
+   "moment_spectrum": [
+    3.249997572343454,
+    0.24999959176532266,
+    0.24999954545327066,
+    6.137848166469052e-16,
+    1.5028998473895168e-16,
+    5.127046506092699e-17,
+    4.081949548307496e-17,
+    3.600805903592367e-17
+   ],
+   "participation_ratio": 1.3157891604382925,
+   "top_eigvec_cos_shared": 0.9559223048322495,
+   "top_eigvec_cos_private": [
+    0.14149714403633523,
+    0.0003293019772378067,
+    0.06706015521786342
+   ],
+   "eig_ratio_top_to_next": 13.000011517595846,
+   "eig_ratio_reader_shuffled": [
+    11.336180521353121,
+    12.065297111473424,
+    12.844142834170393
+   ],
+   "dictionary": {
+    "2": {
+     "err": 0.06163926014369982,
+     "mean_active_atoms_per_reader": 1.3333333333333333,
+     "match_shared_private": null
+    },
+    "3": {
+     "err": 3.0342679612074755e-05,
+     "mean_active_atoms_per_reader": 1.0,
+     "match_shared_private": null
+    },
+    "4": {
+     "err": 1.8479108337182223e-05,
+     "mean_active_atoms_per_reader": 1.3333333333333333,
+     "match_shared_private": [
+      {
+       "atom": 0,
+       "cos": 0.9172439090658224
+      },
+      {
+       "atom": 3,
+       "cos": 0.4811779833584067
+      },
+      {
+       "atom": 1,
+       "cos": 0.4826796577302775
+      },
+      {
+       "atom": 2,
+       "cos": 0.44721884118185273
+      }
+     ]
+    },
+    "5": {
+     "err": 1.1005586898893299e-05,
+     "mean_active_atoms_per_reader": 1.6666666666666665,
+     "match_shared_private": [
+      {
+       "atom": 2,
+       "cos": 0.8974116414237081
+      },
+      {
+       "atom": 4,
+       "cos": 0.4476880533059831
+      },
+      {
+       "atom": 3,
+       "cos": 0.45137972828588624
+      },
+      {
+       "atom": 1,
+       "cos": 0.4472209457942476
+      }
+     ]
+    },
+    "6": {
+     "err": 8.449330536329096e-06,
+     "mean_active_atoms_per_reader": 2.0,
+     "match_shared_private": [
+      {
+       "atom": 0,
+       "cos": 0.9210808793902887
+      },
+      {
+       "atom": 1,
+       "cos": 0.47869044340640476
+      },
+      {
+       "atom": 5,
+       "cos": 0.49756604966098406
+      },
+      {
+       "atom": 4,
+       "cos": 0.5094059046137247
+      }
+     ]
+    }
+   },
+   "per_reader": [
+    {
+     "reader": 0,
+     "cp_err": 0.022688347324187334,
+     "best_cos_to_shared": 0.5285265566777382
+    },
+    {
+     "reader": 1,
+     "cp_err": 0.012938905296021016,
+     "best_cos_to_shared": 0.49256574272124043
+    },
+    {
+     "reader": 2,
+     "cp_err": 0.04662369237050369,
+     "best_cos_to_shared": 0.4666717774483063
+    }
+   ],
+   "pca_singular_values": [
+    1.8027749644210875,
+    0.4999995917651559,
+    0.49999954545306396
+   ],
+   "pca_error": {
+    "1": 0.13090301828278345,
+    "2": 0.06449274379809637,
+    "3": 1.031974201149362e-31
+   }
+  },
+  {
+   "tag": "priv(1.0, 1.0, 1.0)",
+   "seed": 0,
+   "gains": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "priv": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "fvu": 3.1063590377035975e-13,
+   "reader_form_error": 2.951628305384242e-13,
+   "registered": {
+    "i": "top eigenvalue of the reader-weighted moment belongs to the shared form, ratio to the private ones about 3 (the number of readers sharing it)",
+    "ii": "a 4-atom sparse dictionary separates shared from private, each reader using exactly 2 atoms",
+    "iii": "per-reader decomposition finds the shared form once per reader, in bases that do not agree with each other",
+    "iv": "the reader shuffle collapses the shared/private eigenvalue gap"
+   },
+   "moment_spectrum": [
+    3.999996524524797,
+    0.9999987396959439,
+    0.9999986544468883,
+    2.659629962205538e-16,
+    1.6998315473273435e-16,
+    6.965877621269608e-17,
+    6.333830336772181e-17,
+    5.437413476747875e-17
+   ],
+   "participation_ratio": 1.9999996141687095,
+   "top_eigvec_cos_shared": 0.8374370341876677,
+   "top_eigvec_cos_private": [
+    0.27999164361376966,
+    0.18649869756413837,
+    0.2356170769795177
+   ],
+   "eig_ratio_top_to_next": 4.000001565742995,
+   "eig_ratio_reader_shuffled": [
+    3.497170091052116,
+    3.7176761207696067,
+    3.9957985048268707
+   ],
+   "dictionary": {
+    "2": {
+     "err": 0.161404086461885,
+     "mean_active_atoms_per_reader": 1.3333333333333333,
+     "match_shared_private": null
+    },
+    "3": {
+     "err": 4.609804573029419e-05,
+     "mean_active_atoms_per_reader": 1.0,
+     "match_shared_private": null
+    },
+    "4": {
+     "err": 2.5952307886856714e-05,
+     "mean_active_atoms_per_reader": 1.3333333333333333,
+     "match_shared_private": [
+      {
+       "atom": 1,
+       "cos": 0.7108190835356948
+      },
+      {
+       "atom": 0,
+       "cos": 0.7071101867161385
+      },
+      {
+       "atom": 2,
+       "cos": 0.7114442976187552
+      },
+      {
+       "atom": 3,
+       "cos": 0.7071106098069334
+      }
+     ]
+    },
+    "5": {
+     "err": 1.6652017110065978e-05,
+     "mean_active_atoms_per_reader": 1.6666666666666665,
+     "match_shared_private": [
+      {
+       "atom": 4,
+       "cos": 0.7092433562902409
+      },
+      {
+       "atom": 0,
+       "cos": 0.7106166997019994
+      },
+      {
+       "atom": 2,
+       "cos": 0.7076481696516838
+      },
+      {
+       "atom": 1,
+       "cos": 0.7071115748599731
+      }
+     ]
+    },
+    "6": {
+     "err": 1.2277057639422045e-05,
+     "mean_active_atoms_per_reader": 2.0,
+     "match_shared_private": [
+      {
+       "atom": 2,
+       "cos": 0.7721114488310817
+      },
+      {
+       "atom": 3,
+       "cos": 0.7109029950549886
+      },
+      {
+       "atom": 0,
+       "cos": 0.7200322962565215
+      },
+      {
+       "atom": 4,
+       "cos": 0.7401397570833168
+      }
+     ]
+    }
+   },
+   "per_reader": [
+    {
+     "reader": 0,
+     "cp_err": 0.021003942690535456,
+     "best_cos_to_shared": 0.4134117070614829
+    },
+    {
+     "reader": 1,
+     "cp_err": 0.027002473357177963,
+     "best_cos_to_shared": 0.40514612838728764
+    },
+    {
+     "reader": 2,
+     "cp_err": 0.051466814157176556,
+     "best_cos_to_shared": 0.40851277420882454
+    }
+   ],
+   "pca_singular_values": [
+    1.99999913113101,
+    0.9999993698477737,
+    0.9999993272232176
+   ],
+   "pca_error": {
+    "1": 0.3429047430364831,
+    "2": 0.1772472057571343,
+    "3": 9.231980298864867e-31
+   }
+  },
+  {
+   "tag": "priv(2.0, 2.0, 2.0)",
+   "seed": 0,
+   "gains": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "priv": [
+    2.0,
+    2.0,
+    2.0
+   ],
+   "fvu": 3.5699402010223313e-13,
+   "reader_form_error": 3.6005438219420104e-13,
+   "registered": {
+    "i": "top eigenvalue of the reader-weighted moment belongs to the shared form, ratio to the private ones about 3 (the number of readers sharing it)",
+    "ii": "a 4-atom sparse dictionary separates shared from private, each reader using exactly 2 atoms",
+    "iii": "per-reader decomposition finds the shared form once per reader, in bases that do not agree with each other",
+    "iv": "the reader shuffle collapses the shared/private eigenvalue gap"
+   },
+   "moment_spectrum": [
+    6.999992627941834,
+    3.999995183888435,
+    3.999994899883225,
+    3.4378833752211086e-15,
+    4.2003449184556077e-16,
+    4.1732240072601685e-16,
+    1.9546624154816776e-16,
+    1.5777356145538903e-16
+   ],
+   "participation_ratio": 2.7777776346070464,
+   "top_eigvec_cos_shared": 0.5569486293192872,
+   "top_eigvec_cos_private": [
+    0.43811635742371147,
+    0.4246568018965857,
+    0.44224290211146117
+   ],
+   "eig_ratio_top_to_next": 1.7500002640345862,
+   "eig_ratio_reader_shuffled": [
+    1.5357437856769904,
+    1.6308551436954795,
+    1.816341206117569
+   ],
+   "dictionary": {
+    "2": {
+     "err": 0.2583967505712509,
+     "mean_active_atoms_per_reader": 1.6666666666666665,
+     "match_shared_private": null
+    },
+    "3": {
+     "err": 0.0001153194060492243,
+     "mean_active_atoms_per_reader": 1.0,
+     "match_shared_private": null
+    },
+    "4": {
+     "err": 6.485292694352864e-05,
+     "mean_active_atoms_per_reader": 1.3333333333333333,
+     "match_shared_private": [
+      {
+       "atom": 0,
+       "cos": 0.4506173971080466
+      },
+      {
+       "atom": 2,
+       "cos": 0.8944273591950391
+      },
+      {
+       "atom": 3,
+       "cos": 0.8944274599791455
+      },
+      {
+       "atom": 1,
+       "cos": 0.8955292212666105
+      }
+     ]
+    },
+    "5": {
+     "err": 4.152798071572335e-05,
+     "mean_active_atoms_per_reader": 1.6666666666666665,
+     "match_shared_private": [
+      {
+       "atom": 2,
+       "cos": 0.4473143250348145
+      },
+      {
+       "atom": 4,
+       "cos": 0.8944295635158461
+      },
+      {
+       "atom": 0,
+       "cos": 0.8944611000916716
+      },
+      {
+       "atom": 1,
+       "cos": 0.8944280901092632
+      }
+     ]
+    },
+    "6": {
+     "err": 2.8721807457897462e-05,
+     "mean_active_atoms_per_reader": 2.0,
+     "match_shared_private": [
+      {
+       "atom": 3,
+       "cos": 0.45527629426543376
+      },
+      {
+       "atom": 0,
+       "cos": 0.8971413683444096
+      },
+      {
+       "atom": 1,
+       "cos": 0.9009578237917809
+      },
+      {
+       "atom": 4,
+       "cos": 0.8946520657656029
+      }
+     ]
+    }
+   },
+   "per_reader": [
+    {
+     "reader": 0,
+     "cp_err": 0.020963362247316,
+     "best_cos_to_shared": 0.3163692136325045
+    },
+    {
+     "reader": 1,
+     "cp_err": 0.0479227257430951,
+     "best_cos_to_shared": 0.24843123240659643
+    },
+    {
+     "reader": 2,
+     "cp_err": 0.056414810785683556,
+     "best_cos_to_shared": 0.278243711144955
+    }
+   ],
+   "pca_singular_values": [
+    2.645749917876183,
+    1.999998795971747,
+    1.999998724970402
+   ],
+   "pca_error": {
+    "1": 0.5465152074819927,
+    "2": 0.2894697798210601,
+    "3": 1.3461156070542648e-30
+   }
+  },
+  {
+   "tag": "priv(4.0, 4.0, 4.0)",
+   "seed": 0,
+   "gains": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "priv": [
+    4.0,
+    4.0,
+    4.0
+   ],
+   "fvu": 5.918383939252621e-13,
+   "reader_form_error": 5.917667788147371e-13,
+   "registered": {
+    "i": "top eigenvalue of the reader-weighted moment belongs to the shared form, ratio to the private ones about 3 (the number of readers sharing it)",
+    "ii": "a 4-atom sparse dictionary separates shared from private, each reader using exactly 2 atoms",
+    "iii": "per-reader decomposition finds the shared form once per reader, in bases that do not agree with each other",
+    "iv": "the reader shuffle collapses the shared/private eigenvalue gap"
+   },
+   "moment_spectrum": [
+    18.999972562778876,
+    15.999975700651914,
+    15.999975186141143,
+    2.026791310994532e-15,
+    1.0031575473703144e-15,
+    8.710957026417245e-16,
+    6.787141393871903e-16,
+    5.576477026564553e-16
+   ],
+   "participation_ratio": 2.979381421151871,
+   "top_eigvec_cos_shared": 0.23313035549115485,
+   "top_eigvec_cos_private": [
+    0.5203585690477606,
+    0.5798955043755116,
+    0.5670835874065466
+   ],
+   "eig_ratio_top_to_next": 1.1875000886410552,
+   "eig_ratio_reader_shuffled": [
+    1.0849220479202863,
+    1.1120273359467359,
+    1.3003050972805912
+   ],
+   "dictionary": {
+    "2": {
+     "err": 0.2953215255615508,
+     "mean_active_atoms_per_reader": 1.6666666666666665,
+     "match_shared_private": null
+    },
+    "3": {
+     "err": 0.0004488089958205018,
+     "mean_active_atoms_per_reader": 1.0,
+     "match_shared_private": null
+    },
+    "4": {
+     "err": 0.0003662974262869582,
+     "mean_active_atoms_per_reader": 1.6666666666666665,
+     "match_shared_private": [
+      {
+       "atom": 0,
+       "cos": 0.27715372041620123
+      },
+      {
+       "atom": 2,
+       "cos": 0.9615914987604793
+      },
+      {
+       "atom": 3,
+       "cos": 0.9675549024146274
+      },
+      {
+       "atom": 1,
+       "cos": 0.778132334541495
+      }
+     ]
+    },
+    "5": {
+     "err": 0.00014302744220459838,
+     "mean_active_atoms_per_reader": 1.6666666666666665,
+     "match_shared_private": [
+      {
+       "atom": 2,
+       "cos": 0.26198434928330366
+      },
+      {
+       "atom": 0,
+       "cos": 0.9701678210001136
+      },
+      {
+       "atom": 1,
+       "cos": 0.9678502030370154
+      },
+      {
+       "atom": 4,
+       "cos": 0.9660356953531996
+      }
+     ]
+    },
+    "6": {
+     "err": 0.00010113431980693064,
+     "mean_active_atoms_per_reader": 2.0,
+     "match_shared_private": [
+      {
+       "atom": 0,
+       "cos": 0.24254314297164722
+      },
+      {
+       "atom": 2,
+       "cos": 0.9701433482809169
+      },
+      {
+       "atom": 3,
+       "cos": 0.9701425796702782
+      },
+      {
+       "atom": 5,
+       "cos": 0.9701425664223962
+      }
+     ]
+    }
+   },
+   "per_reader": [
+    {
+     "reader": 0,
+     "cp_err": 0.018366417977115898,
+     "best_cos_to_shared": 0.22770977372374684
+    },
+    {
+     "reader": 1,
+     "cp_err": 0.062446837313153,
+     "best_cos_to_shared": 0.09997586860908445
+    },
+    {
+     "reader": 2,
+     "cp_err": 0.05647562854170155,
+     "best_cos_to_shared": 0.13015778912374878
+    }
+   ],
+   "pca_singular_values": [
+    4.358895796274431,
+    3.9999969625803367,
+    3.999996898266441
+   ],
+   "pca_error": {
+    "1": 0.6229432309782558,
+    "2": 0.326595271283734,
+    "3": 1.1088902163701542e-30
+   }
+  }
+ ],
+ "null_random": [
+  {
+   "seed": 0,
+   "eig_ratio_top_to_next": 1.0553574287161014,
+   "top_eigvec_cos_shared": 0.160008668549092,
+   "participation_ratio": 2.655256334977479
+  },
+  {
+   "seed": 1,
+   "eig_ratio_top_to_next": 1.5581283204587575,
+   "top_eigvec_cos_shared": 0.14434897749621994,
+   "participation_ratio": 2.768634773582865
+  }
+ ],
+ "null_gauge": {
+  "refactor_residual": 4.485114528854287e-28,
+  "hidden_before": 96,
+  "hidden_after": 78,
+  "eig_ratio_before": 4.00000145742574,
+  "eig_ratio_after": 4.0000014574257
+ },
+ "runtime_s": 1456.5321369171143
+}

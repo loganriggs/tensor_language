@@ -1,0 +1,670 @@
+<title>Reading Bilinear Layers</title>
+<style>
+:root{
+  --ground:#fcfcfb; --panel:#f6f5f1; --ink:#0b0b0b; --ink-2:#52514e; --ink-3:#8b8981;
+  --rule:#e1e0d9; --rule-2:#cfcec5;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100;
+  --accent:#104281;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#15150f; --panel:#1d1d16; --ink:#f3f2ea; --ink-2:#b8b6a8; --ink-3:#86847a;
+    --rule:#33322a; --rule-2:#45443a;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500;
+    --accent:#8fb6ea;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#15150f; --panel:#1d1d16; --ink:#f3f2ea; --ink-2:#b8b6a8; --ink-3:#86847a;
+  --rule:#33322a; --rule-2:#45443a;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500;
+  --accent:#8fb6ea;
+}
+*{box-sizing:border-box}
+body{
+  background:var(--ground); color:var(--ink); margin:0;
+  font-family:ui-serif,"Iowan Old Style","Source Serif 4",Palatino,"Palatino Linotype",Georgia,serif;
+  font-size:17px; line-height:1.62; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1000px; margin:0 auto; padding:64px 28px 96px;}
+.col{max-width:64ch;}
+h1{font-size:2.45rem; line-height:1.12; margin:0 0 .4em; letter-spacing:-.015em; text-wrap:balance;}
+h2{font-size:1.5rem; line-height:1.25; margin:0 0 .5em; letter-spacing:-.01em; text-wrap:balance;}
+h3{font-size:1.06rem; margin:0 0 .35em; letter-spacing:-.005em;}
+p{margin:0 0 1.05em;}
+.mono,.eyebrow,.tick,.val,.note,.panel-t,.legend,.tag,.axlab,.grouplab,figcaption{
+  font-family:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+}
+.eyebrow{
+  font-size:.7rem; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-3);
+  margin:0 0 .6em; display:flex; gap:.9em; align-items:baseline;
+}
+.eyebrow b{color:var(--accent); font-weight:700;}
+.lede{font-size:1.16rem; color:var(--ink-2); margin-bottom:2.2em;}
+header{border-bottom:1px solid var(--rule); padding-bottom:2.2em; margin-bottom:2.6em;}
+section{margin:0 0 4.4em;}
+section+section{border-top:1px solid var(--rule); padding-top:3.2em;}
+.q{font-style:italic; color:var(--ink-2);}
+strong{font-weight:700;}
+figure{margin:2em 0 1.6em; background:var(--panel); border:1px solid var(--rule);
+  border-radius:2px; padding:20px 20px 14px; overflow-x:auto;}
+figure svg{display:block; width:100%; height:auto; min-width:520px;}
+figcaption{font-size:.78rem; color:var(--ink-2); line-height:1.5; margin-top:.9em;
+  padding-top:.8em; border-top:1px solid var(--rule);}
+.legend{display:flex; flex-wrap:wrap; gap:.35em 1.4em; font-size:.75rem;
+  color:var(--ink-2); margin-bottom:.9em;}
+.legend span{display:flex; align-items:center; gap:.5em;}
+.swatch{width:16px; height:3px; border-radius:2px; display:inline-block;}
+svg .grid{stroke:var(--rule); stroke-width:1;}
+svg .mark{stroke:var(--rule-2); stroke-width:1; stroke-dasharray:3 4;}
+svg .tick{fill:var(--ink-3); font-size:11px;}
+svg .axlab{fill:var(--ink-2); font-size:11.5px;}
+svg .val{fill:var(--ink-2); font-size:11px; font-weight:600;}
+svg .note{fill:var(--ink-3); font-size:11px;}
+svg .panel{fill:var(--ink-2); font-size:11.5px; font-weight:700;}
+svg .grouplab{fill:var(--ink-2); font-size:11.5px;}
+svg .s1{stroke:var(--s1)} svg .s2{stroke:var(--s2)}
+svg .s3{stroke:var(--s3)} svg .s4{stroke:var(--s4)}
+svg .s1d{fill:var(--s1); stroke:var(--panel); stroke-width:1.3}
+svg .s2d{fill:var(--s2); stroke:var(--panel); stroke-width:1.3}
+svg .s3d{fill:var(--s3); stroke:var(--panel); stroke-width:1.3}
+svg .s4d{fill:var(--s4); stroke:var(--panel); stroke-width:1.3}
+svg .s1t{fill:var(--s1)} svg .s2t{fill:var(--s2)} svg .s3t{fill:var(--s3)}
+svg rect.bar{stroke:none}
+svg rect.bar.s1{fill:var(--s1)} svg rect.bar.s2{fill:var(--s2)}
+svg rect.bar.s3{fill:var(--s3)} svg rect.bar.s4{fill:var(--s4)}
+.callout{border-left:3px solid var(--accent); padding:.15em 0 .15em 1.1em; margin:1.6em 0;
+  color:var(--ink);}
+.tag{display:inline-block; font-size:.68rem; letter-spacing:.09em; text-transform:uppercase;
+  border:1px solid var(--rule-2); color:var(--ink-2); padding:.18em .55em; border-radius:2px;
+  margin-right:.4em;}
+.tag.off{border-color:var(--s2); color:var(--s2);}
+table{border-collapse:collapse; width:100%; font-size:.85rem; margin:1.4em 0;
+  font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; font-variant-numeric:tabular-nums;}
+th,td{text-align:left; padding:.5em .7em; border-bottom:1px solid var(--rule);}
+th{font-size:.7rem; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3);
+  font-weight:600;}
+td.n{text-align:right;}
+.status{display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:1px;
+  background:var(--rule); border:1px solid var(--rule); margin:2em 0;}
+.status div{background:var(--ground); padding:.9em 1em;}
+.status .k{font-family:ui-monospace,Menlo,monospace; font-size:.7rem; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--ink-3); margin-bottom:.25em;}
+.status .v{font-size:.95rem;}
+.done{color:var(--s3)} .notdone{color:var(--s2)}
+.wide{max-width:none;}
+a{color:var(--accent);}
+:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+@media (max-width:640px){ .wrap{padding:40px 18px 64px} h1{font-size:1.9rem} body{font-size:16px} }
+</style>
+
+<div class="wrap">
+<header class="col">
+  <p class="eyebrow"><b>Progress report</b> <span>16 August 2026</span> <span>commit bab35fb</span></p>
+  <h1>What a bilinear layer throws away</h1>
+  <p class="lede">Four experiments from the bilinear-quotient plan, each with a task whose
+  right answer we already know, so that when the analysis says something we can check
+  whether it is true. Two of the plan's own predictions turned out to be wrong, and one
+  experiment produced a result nobody had written down.</p>
+</header>
+
+<section class="col">
+  <h2>The setup, in one page</h2>
+  <p>The layer under study takes an input, applies two different linear maps to it,
+  multiplies the two results together entry by entry, and mixes the outcome down to an
+  output. Because everything is a sum of products of <em>pairs</em> of input numbers, each
+  output is exactly a quadratic function of the input — and any quadratic function can be
+  written with a single square table of numbers. So the entire layer, no matter how it was
+  parameterised, is captured by one table per output.</p>
+
+  <p>That matters because the same layer can be written down in endlessly many ways: you
+  can rotate the internal representation and compensate elsewhere, and nothing about the
+  function changes even though every weight does. The tables don't change. So the tables
+  are what we analyse, and every claim below is a claim about them rather than about any
+  particular set of weights.</p>
+
+  <p>Two questions follow naturally. <strong>What does the layer ignore?</strong> If moving
+  the input in some direction leaves every output untouched, the layer is blind to it —
+  that's readable straight off the tables, and it's checkable by actually nudging the input
+  and watching nothing happen. And <strong>does the computation split into independent
+  pieces?</strong> If the input space can be carved into chunks that never interact, the
+  layer is really several smaller layers side by side, which is the difference between a
+  mechanism you can describe and a blob you can't.</p>
+
+  <p>Every experiment ran against four sceptical baselines: an untrained network (does the
+  method find "structure" in noise?), the same trained network rewritten in a scrambled
+  internal basis (does the finding survive, as it must, if it's really about the function?),
+  a network trained on shuffled labels (is this structure from the task or from training in
+  general?), and a shuffle of which output reads which piece.</p>
+</section>
+
+<section class="col">
+  <p class="eyebrow"><b>A1</b> <span>parity</span></p>
+  <h2>Can we read off what the layer ignores — and is it true?</h2>
+  <p class="q">Task: eight input bits, four outputs, each output the product of a designated
+  pair of bits. Four extra input slots carry pure noise the task never uses. Everything is
+  fed through a random rotation first, so nothing is conveniently lined up with the
+  coordinates.</p>
+
+  <p>All three predictions held exactly. The recovered tables matched the intended ones to
+  full precision. The method identified precisely the four ignored directions. And the
+  causal check worked: nudging the input along a direction the analysis called ignored
+  changed the output about a <em>quadrillion</em> times less than a nudge of the same size
+  anywhere else. Two inputs whose difference the analysis said was invisible produced
+  identical outputs, while a control pair changed the output by exactly the 50% predicted
+  in advance.</p>
+
+  <p>Then the second half of the experiment, which is where it got interesting. If the bits
+  are exactly ±1, then each bit squared is always 1 — so the training data contains no
+  information whatsoever about the part of the table that handles squares. Nothing pushes
+  it anywhere. Between a third and a half of the learned table ends up parked there.</p>
+
+  <div class="callout">
+    <p>The consequence is not cosmetic. Hand the trained model two inputs that the task
+    treats as identical — same product, different magnitudes — and its outputs differ by
+    <strong>36 to 51%</strong>. It solved the task perfectly and still distinguishes things
+    the task says are the same. You only find this by testing it.</p>
+  </div>
+
+  <p>So "what this layer throws away" has two separate sources: what the <em>weights</em>
+  discard, and what the <em>data</em> never asked about. Only the first is a property of the
+  model. This is worth carrying into any analysis of a real network, where the second
+  category is much larger and much less obvious.</p>
+</section>
+
+<section>
+  <div class="col">
+  <p class="eyebrow"><b>A2</b> <span>modular addition</span></p>
+  <h2>Grokking: the circuit is finished long before the model uses it</h2>
+  <p class="q">Task: learn (a + b) mod 23 from 40% of the possible pairs. Networks on this
+  task famously memorise first and only much later start generalising — "grokking".</p>
+
+  <p>The known correct solution works in waves: eleven different frequencies, each occupying
+  its own four-dimensional slice of the input space, with no interaction between slices. So
+  there is a ground truth to check any structure-finding method against.</p>
+
+  <h3>First, does the tool work at all?</h3>
+  <p>The textbook method for finding independent slices is algebraic and demands that the
+  slices be <em>exactly</em> independent. Real trained weights are never exactly anything.
+  We measured where each method breaks by taking the known-correct solution, stirring in a
+  controlled amount of cross-frequency mixing, and asking each method to find the eleven
+  frequencies back.</p>
+  </div>
+
+  <figure>
+    <div class="legend"><span><i class="swatch" style="background:var(--s4)"></i>exact algebraic method</span><span><i class="swatch" style="background:var(--s2)"></i>a relaxed version of it</span><span><i class="swatch" style="background:var(--s1)"></i>numerical method + explicit tolerance</span><span><i class="swatch" style="background:var(--s3)"></i>the real trained models</span></div>
+    <svg viewBox="0 0 760 350" role="img" aria-label="Which method finds the structure, and how much mess it tolerates" preserveAspectRatio="xMidYMid meet">
+<line class="grid" x1="64" y1="294.0" x2="736" y2="294.0"/>
+<text class="tick" x="54.0" y="298.0" text-anchor="end">0</text>
+<line class="grid" x1="64" y1="246.4" x2="736" y2="246.4"/>
+<text class="tick" x="54.0" y="250.4" text-anchor="end">2</text>
+<line class="grid" x1="64" y1="198.8" x2="736" y2="198.8"/>
+<text class="tick" x="54.0" y="202.8" text-anchor="end">4</text>
+<line class="grid" x1="64" y1="151.2" x2="736" y2="151.2"/>
+<text class="tick" x="54.0" y="155.2" text-anchor="end">6</text>
+<line class="grid" x1="64" y1="103.7" x2="736" y2="103.7"/>
+<text class="tick" x="54.0" y="107.7" text-anchor="end">8</text>
+<line class="grid" x1="64" y1="56.1" x2="736" y2="56.1"/>
+<text class="tick" x="54.0" y="60.1" text-anchor="end">10</text>
+<text class="tick" x="170.4" y="314.0" text-anchor="middle">0.1%</text>
+<text class="tick" x="374.0" y="314.0" text-anchor="middle">1%</text>
+<text class="tick" x="577.6" y="314.0" text-anchor="middle">10%</text>
+<polyline class="s4" points="64.0,32.3 64.0,294.0 64.0,294.0 151.2,294.0 273.4,294.0 363.1,294.0 482.8,294.0 574.7,294.0 628.0,294.0" fill="none" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle class="s4d" cx="64.0" cy="32.3" r="3.4"/>
+<circle class="s4d" cx="64.0" cy="294.0" r="3.4"/>
+<circle class="s4d" cx="64.0" cy="294.0" r="3.4"/>
+<circle class="s4d" cx="151.2" cy="294.0" r="3.4"/>
+<circle class="s4d" cx="273.4" cy="294.0" r="3.4"/>
+<circle class="s4d" cx="363.1" cy="294.0" r="3.4"/>
+<circle class="s4d" cx="482.8" cy="294.0" r="3.4"/>
+<circle class="s4d" cx="574.7" cy="294.0" r="3.4"/>
+<circle class="s4d" cx="628.0" cy="294.0" r="3.4"/>
+<polyline class="s2" points="64.0,32.3 64.0,32.3 64.0,32.3 151.2,32.3 273.4,32.3 363.1,32.3 482.8,79.9 574.7,222.6 628.0,294.0" fill="none" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle class="s2d" cx="64.0" cy="32.3" r="3.4"/>
+<circle class="s2d" cx="64.0" cy="32.3" r="3.4"/>
+<circle class="s2d" cx="64.0" cy="32.3" r="3.4"/>
+<circle class="s2d" cx="151.2" cy="32.3" r="3.4"/>
+<circle class="s2d" cx="273.4" cy="32.3" r="3.4"/>
+<circle class="s2d" cx="363.1" cy="32.3" r="3.4"/>
+<circle class="s2d" cx="482.8" cy="79.9" r="3.4"/>
+<circle class="s2d" cx="574.7" cy="222.6" r="3.4"/>
+<circle class="s2d" cx="628.0" cy="294.0" r="3.4"/>
+<polyline class="s1" points="64.0,32.3 363.1,32.3 482.8,32.3 574.7,32.3 628.0,32.3 671.8,32.3 708.8,270.2" fill="none" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle class="s1d" cx="64.0" cy="32.3" r="3.4"/>
+<circle class="s1d" cx="363.1" cy="32.3" r="3.4"/>
+<circle class="s1d" cx="482.8" cy="32.3" r="3.4"/>
+<circle class="s1d" cx="574.7" cy="32.3" r="3.4"/>
+<circle class="s1d" cx="628.0" cy="32.3" r="3.4"/>
+<circle class="s1d" cx="671.8" cy="32.3" r="3.4"/>
+<circle class="s1d" cx="708.8" cy="270.2" r="3.4"/>
+<polyline class="s3" points="584.7,32.3 594.8,103.7 604.2,79.9 612.8,151.2 620.9,175.0 628.4,198.8" fill="none" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline class="s3" points="599.7,103.7 609.5,127.4 618.6,151.2 627.0,222.6 634.9,222.6 642.1,270.2" fill="none" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline class="s3" points="581.4,32.3 591.6,79.9 601.0,79.9 609.7,103.7 617.8,151.2 625.4,175.0" fill="none" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/>
+<rect class="bar s3" x="623.4" y="193.8" width="10" height="10" transform="rotate(45 628.4 198.8)"/>
+<rect class="bar s3" x="637.1" y="265.2" width="10" height="10" transform="rotate(45 642.1 270.2)"/>
+<rect class="bar s3" x="620.4" y="170.0" width="10" height="10" transform="rotate(45 625.4 175.0)"/>
+<text class="note s3t" x="654.1" y="274.2" text-anchor="start">the actual trained models</text>
+<text class="axlab" x="400" y="342" text-anchor="middle">how much the frequencies are mixed together in the weights</text>
+<text class="axlab" transform="translate(14,156) rotate(-90)" text-anchor="middle">frequencies found (of 11)</text>
+</svg>
+    <figcaption>Horizontal axis: how much the eleven frequencies bleed into each other, on a
+    log scale. The exact algebraic method finds all eleven when the mixing is zero and
+    nothing at all once it reaches 0.001%. The numerical method — joint approximate
+    diagonalisation, standard in signal processing — plus an explicit statement of how much
+    mixing we're willing to write off, holds all eleven up to 29% mixing. Trained models sit
+    at 17–21% mixing (green diamonds); the thin green lines scale each model's own mess up
+    and down to trace where it personally breaks.</figcaption>
+  </figure>
+
+  <div class="col">
+  <p>Worth noting what the green lines say: at the same amount of mixing, a trained model's
+  mess is harder to see through than artificial noise. Three quarters of a real model's mess
+  is tolerable and then it falls off a cliff. We chased that down — see the last part of this
+  section.</p>
+
+  <h3>Then, the surgery</h3>
+  <p>Delete everything in the weights outside those eleven frequency slices. No data, no
+  retraining, no gradients — just zero out part of the tables.</p>
+  </div>
+
+  <figure>
+    <div class="legend"><span><i class="swatch" style="background:var(--s2)"></i>as trained</span><span><i class="swatch" style="background:var(--s1)"></i>after deleting the off-structure part</span></div>
+    <svg viewBox="0 0 760 300" role="img" aria-label="Accuracy before and after the weight edit" preserveAspectRatio="xMidYMid meet">
+<rect class="bar s2" x="170" y="28" width="553.5" height="15" rx="3"/>
+<text class="tick" x="160.0" y="39.0" text-anchor="end">as trained</text>
+<text class="val" x="731.5" y="39.0" text-anchor="start">97.8%</text>
+<rect class="bar s1" x="170" y="48" width="566.0" height="15" rx="3"/>
+<text class="tick" x="160.0" y="59.0" text-anchor="end">after the edit</text>
+<text class="val" x="744.0" y="59.0" text-anchor="start">100.0%</text>
+<text class="grouplab" x="8.0" y="50.0" text-anchor="start">seed 0</text>
+<rect class="bar s2" x="170" y="90" width="528.6" height="15" rx="3"/>
+<text class="tick" x="160.0" y="101.0" text-anchor="end">as trained</text>
+<text class="val" x="706.6" y="101.0" text-anchor="start">93.4%</text>
+<rect class="bar s1" x="170" y="110" width="566.0" height="15" rx="3"/>
+<text class="tick" x="160.0" y="121.0" text-anchor="end">after the edit</text>
+<text class="val" x="744.0" y="121.0" text-anchor="start">100.0%</text>
+<text class="grouplab" x="8.0" y="112.0" text-anchor="start">seed 1</text>
+<rect class="bar s2" x="170" y="152" width="539.3" height="15" rx="3"/>
+<text class="tick" x="160.0" y="163.0" text-anchor="end">as trained</text>
+<text class="val" x="717.3" y="163.0" text-anchor="start">95.3%</text>
+<rect class="bar s1" x="170" y="172" width="566.0" height="15" rx="3"/>
+<text class="tick" x="160.0" y="183.0" text-anchor="end">after the edit</text>
+<text class="val" x="744.0" y="183.0" text-anchor="start">100.0%</text>
+<text class="grouplab" x="8.0" y="174.0" text-anchor="start">seed 2</text>
+<text class="axlab" x="453" y="292" text-anchor="middle">accuracy on held-out pairs</text>
+</svg>
+    <figcaption>Held-out accuracy before and after a pure weight edit, three independently
+    trained networks. All three go to 100%.</figcaption>
+  </figure>
+
+  <div class="col">
+  <p>Deleting a third of the function makes the model strictly better. So what was in the
+  deleted part? Run it on its own:</p>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 760 190" role="img" aria-label="What the deleted part does on its own" preserveAspectRatio="xMidYMid meet">
+<rect class="bar s2" x="170" y="34" width="539.2" height="22" rx="3"/>
+<text class="tick" x="160.0" y="50.0" text-anchor="end">on pairs it was trained on</text>
+<text class="val" x="717.2" y="50.0" text-anchor="start">95.3%</text>
+<rect class="bar s2" x="170" y="74" width="2.0" height="22" rx="3"/>
+<text class="tick" x="160.0" y="90.0" text-anchor="end">on pairs it has never seen</text>
+<text class="val" x="180.0" y="90.0" text-anchor="start">0.0%</text>
+<text class="axlab" x="453" y="182" text-anchor="middle">accuracy of the deleted part, run on its own</text>
+</svg>
+    <figcaption>The deleted part, evaluated as a model in its own right. It is a lookup
+    table: it has the training pairs memorised and knows nothing else. It doesn't merely
+    fail on unseen pairs — it pushes the correct answer <em>down</em> on them.</figcaption>
+  </figure>
+
+  <div class="col">
+  <p>Which raises the question of when the good part appeared. So we ran the same deletion
+  on every saved checkpoint through training.</p>
+  </div>
+
+  <figure>
+    <div class="legend"><span><i class="swatch" style="background:var(--s1)"></i>the clean part of the weights, on its own</span><span><i class="swatch" style="background:var(--s2)"></i>the model as trained</span><span><i class="swatch" style="background:var(--s4)"></i>control: same operation, wrong structure</span><span><i class="swatch" style="background:var(--s3)"></i>control: random directions</span></div>
+    <svg viewBox="0 0 760 360" role="img" aria-label="Accuracy over training" preserveAspectRatio="xMidYMid meet">
+<line class="grid" x1="64" y1="304.0" x2="736" y2="304.0"/>
+<text class="tick" x="54.0" y="308.0" text-anchor="end">0%</text>
+<line class="grid" x1="64" y1="249.5" x2="736" y2="249.5"/>
+<text class="tick" x="54.0" y="253.5" text-anchor="end">20%</text>
+<line class="grid" x1="64" y1="195.0" x2="736" y2="195.0"/>
+<text class="tick" x="54.0" y="199.0" text-anchor="end">40%</text>
+<line class="grid" x1="64" y1="140.6" x2="736" y2="140.6"/>
+<text class="tick" x="54.0" y="144.6" text-anchor="end">60%</text>
+<line class="grid" x1="64" y1="86.1" x2="736" y2="86.1"/>
+<text class="tick" x="54.0" y="90.1" text-anchor="end">80%</text>
+<line class="grid" x1="64" y1="31.6" x2="736" y2="31.6"/>
+<text class="tick" x="54.0" y="35.6" text-anchor="end">100%</text>
+<text class="tick" x="182.3" y="324.0" text-anchor="middle">1k</text>
+<text class="tick" x="420.7" y="324.0" text-anchor="middle">5k</text>
+<text class="tick" x="523.4" y="324.0" text-anchor="middle">10k</text>
+<text class="tick" x="728.8" y="324.0" text-anchor="middle">40k</text>
+<line class="mark" x1="242.4" y1="18" x2="242.4" y2="304"/>
+<text class="note" x="249.4" y="32.0" text-anchor="start">step 1500</text>
+<polyline class="s1" points="79.6,33.3 182.3,32.5 242.4,31.6 285.0,31.6 318.0,31.6 345.0,31.6 367.9,31.6 387.7,31.6 405.1,31.6 420.7,31.6 434.8,31.6 447.7,31.6 459.6,31.6 470.6,31.6 480.8,31.6 490.3,31.6 499.3,31.6 507.8,31.6 515.8,31.6 523.4,31.6 530.6,31.6 537.5,31.6 544.1,31.6 550.4,31.6 556.5,31.6 562.3,31.6 567.9,31.6 573.2,31.6 578.4,31.6 583.5,31.6 588.3,31.6 593.0,31.6 597.6,31.6 602.0,31.6 606.3,31.6 610.5,31.6 614.5,31.6 618.5,31.6 622.3,31.6 626.1,31.6 629.7,31.6 633.3,31.6 636.8,31.6 640.2,31.6 643.5,31.6 646.8,31.6 650.0,31.6 653.1,31.6 656.2,31.6 659.1,31.6 662.1,31.6 665.0,31.6 667.8,31.6 670.5,31.6 673.3,31.6 675.9,31.6 678.6,31.6 681.1,31.6 683.7,31.6 686.2,31.6 688.6,31.6 691.0,31.6 693.4,31.6 695.7,31.6 698.0,31.6 700.3,31.6 702.5,31.6 704.7,31.6 706.9,31.6 709.0,31.6 711.1,31.6 713.2,31.6 715.2,31.6 717.2,31.6 719.2,31.6 721.2,31.6 723.1,31.6 725.0,31.6 726.9,31.6 728.8,31.6" fill="none" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline class="s2" points="79.6,304.0 182.3,303.1 242.4,304.0 285.0,303.1 318.0,302.3 345.0,300.6 367.9,299.7 387.7,298.9 405.1,297.1 420.7,289.4 434.8,284.3 447.7,279.2 459.6,268.9 470.6,259.5 480.8,244.9 490.3,223.5 499.3,216.6 507.8,202.1 515.8,200.4 523.4,193.5 530.6,176.4 537.5,172.9 544.1,171.2 550.4,169.5 556.5,173.8 562.3,176.4 567.9,184.9 573.2,187.5 578.4,178.9 583.5,167.0 588.3,168.7 593.0,177.2 597.6,187.5 602.0,186.7 606.3,178.1 610.5,172.9 614.5,172.1 618.5,155.8 622.3,152.4 626.1,149.8 629.7,132.7 633.3,120.7 636.8,111.3 640.2,110.4 643.5,106.1 646.8,103.6 650.0,100.1 653.1,95.0 656.2,95.9 659.1,88.2 662.1,80.4 665.0,79.6 667.8,71.0 670.5,64.2 673.3,63.3 675.9,58.2 678.6,55.6 681.1,53.0 683.7,50.5 686.2,47.9 688.6,47.0 691.0,45.3 693.4,40.2 695.7,42.8 698.0,42.8 700.3,45.3 702.5,42.8 704.7,42.8 706.9,42.8 709.0,42.8 711.1,42.8 713.2,41.9 715.2,41.9 717.2,41.9 719.2,40.2 721.2,39.3 723.1,37.6 725.0,37.6 726.9,37.6 728.8,37.6" fill="none" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline class="s4" points="79.6,289.2 182.3,285.2 242.4,280.9 285.0,280.9 318.0,278.0 345.0,278.0 367.9,277.2 387.7,275.7 405.1,273.4 420.7,270.9 434.8,268.3 447.7,265.2 459.6,264.3 470.6,263.7 480.8,260.9 490.3,258.9 499.3,258.0 507.8,258.0 515.8,257.7 523.4,258.0 530.6,258.9 537.5,258.0 544.1,256.3 550.4,255.2 556.5,258.0 562.3,257.5 567.9,257.2 573.2,258.0 578.4,256.9 583.5,257.2 588.3,259.7 593.0,258.6 597.6,260.3 602.0,262.0 606.3,262.6 610.5,263.2 614.5,263.5 618.5,264.9 622.3,263.7 626.1,260.9 629.7,259.2 633.3,258.0 636.8,256.3 640.2,254.9 643.5,252.0 646.8,254.0 650.0,253.5 653.1,250.9 656.2,251.5 659.1,249.5 662.1,246.9 665.0,247.8 667.8,247.2 670.5,249.8 673.3,248.6 675.9,246.9 678.6,250.3 681.1,248.6 683.7,249.8 686.2,249.8 688.6,247.8 691.0,248.3 693.4,246.6 695.7,245.8 698.0,244.6 700.3,243.2 702.5,244.0 704.7,243.5 706.9,243.5 709.0,244.0 711.1,243.5 713.2,244.0 715.2,243.8 717.2,244.0 719.2,241.5 721.2,241.2 723.1,240.3 725.0,240.6 726.9,240.0 728.8,240.3" fill="none" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline class="s3" points="79.6,300.6 182.3,298.6 242.4,297.4 285.0,296.0 318.0,296.0 345.0,294.0 367.9,293.7 387.7,292.9 405.1,293.4 420.7,293.2 434.8,293.4 447.7,292.9 459.6,289.4 470.6,285.7 480.8,284.6 490.3,282.6 499.3,280.3 507.8,277.2 515.8,277.4 523.4,277.2 530.6,277.4 537.5,277.4 544.1,277.4 550.4,275.4 556.5,276.3 562.3,278.9 567.9,276.6 573.2,278.9 578.4,278.3 583.5,280.3 588.3,280.6 593.0,278.6 597.6,281.2 602.0,282.3 606.3,282.0 610.5,281.7 614.5,280.6 618.5,278.6 622.3,278.6 626.1,276.6 629.7,274.3 633.3,274.0 636.8,269.7 640.2,266.9 643.5,266.6 646.8,263.7 650.0,264.3 653.1,265.5 656.2,266.9 659.1,265.7 662.1,264.9 665.0,263.7 667.8,262.6 670.5,262.6 673.3,263.5 675.9,261.5 678.6,260.9 681.1,260.0 683.7,260.9 686.2,261.2 688.6,260.3 691.0,259.7 693.4,257.7 695.7,258.6 698.0,258.0 700.3,256.3 702.5,257.5 704.7,258.0 706.9,257.5 709.0,258.6 711.1,257.7 713.2,257.2 715.2,257.5 717.2,256.6 719.2,257.5 721.2,256.9 723.1,256.3 725.0,256.6 726.9,255.7 728.8,255.2" fill="none" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<text class="val s1t" x="722.8" y="21.6" text-anchor="end">100%</text>
+<text class="val s2t" x="722.8" y="55.6" text-anchor="end">97.8%</text>
+<text class="axlab" x="400" y="352" text-anchor="middle">training step</text>
+<text class="axlab" transform="translate(14,161) rotate(-90)" text-anchor="middle">accuracy on held-out pairs</text>
+</svg>
+    <figcaption>Held-out accuracy through training. By step 1500 the clean part of the
+    weights is already a perfect general solution, while the network it lives inside scores
+    zero on held-out pairs and is a pure memoriser. Both controls — deleting the same amount
+    along random directions, and along the frequency slices of a deliberately scrambled
+    version of the task — stay near the floor, so the operation isn't doing the work.</figcaption>
+  </figure>
+
+  <div class="callout col">
+    <p>In this model, grokking is not the circuit being built. The circuit is finished at
+    step 1500. Grokking is the memorised lookup table slowly shrinking until the circuit
+    that was there all along becomes audible over it.</p>
+  </div>
+
+  <div class="col">
+  <h3>And a loose end that closed</h3>
+  <p>Since a + b = b + a, the correct solution treats the two input slots interchangeably —
+  we verified the ideal solution does this exactly. The trained networks don't: about 13% of
+  what they compute is asymmetric between the two slots. Averaging each network with its own
+  slot-swapped copy — again a pure weight edit, and one that assumes far less than knowing
+  the answer is made of waves — also takes all three to 100% held-out accuracy, and roughly
+  doubles how much of the frequency structure the analysis can find on its own (from 4, 1 and
+  5 of eleven, to 10, 9 and 11).</p>
+
+  <p>That accounts for most, though not all, of why real models are harder to see through
+  than artificial noise: the symmetry-breaking half of the mess is more than twice as
+  damaging as the rest at equal size. What's left is still open.</p>
+  </div>
+</section>
+
+<section>
+  <div class="col">
+  <p class="eyebrow"><b>A3</b> <span>calibration</span></p>
+  <h2>When is a decomposition into parts trustworthy?</h2>
+  <p class="q">Task: build a teacher out of K known independent pieces, train a student on
+  it, then try to recover the pieces from the student's weights. Sweep K.</p>
+
+  <p>This experiment exists to put bounds on the others. Its answer is a limit, not a
+  finding.</p>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 760 300" role="img" aria-label="How many pieces can be pulled apart before the answer stops meaning anything" preserveAspectRatio="xMidYMid meet">
+<line class="grid" x1="64" y1="242.0" x2="736" y2="242.0"/>
+<text class="tick" x="54.0" y="246.0" text-anchor="end">0%</text>
+<line class="grid" x1="64" y1="190.1" x2="736" y2="190.1"/>
+<text class="tick" x="54.0" y="194.1" text-anchor="end">25%</text>
+<line class="grid" x1="64" y1="138.3" x2="736" y2="138.3"/>
+<text class="tick" x="54.0" y="142.3" text-anchor="end">50%</text>
+<line class="grid" x1="64" y1="86.4" x2="736" y2="86.4"/>
+<text class="tick" x="54.0" y="90.4" text-anchor="end">75%</text>
+<line class="grid" x1="64" y1="34.6" x2="736" y2="34.6"/>
+<text class="tick" x="54.0" y="38.6" text-anchor="end">100%</text>
+<rect class="bar s1" x="85.0" y="34.6" width="42.0" height="207.4" rx="3"/>
+<text class="tick" x="106.0" y="262.0" text-anchor="middle">2</text>
+<text class="val" x="106.0" y="26.6" text-anchor="middle">100%</text>
+<rect class="bar s1" x="169.0" y="34.6" width="42.0" height="207.4" rx="3"/>
+<text class="tick" x="190.0" y="262.0" text-anchor="middle">4</text>
+<text class="val" x="190.0" y="26.6" text-anchor="middle">100%</text>
+<rect class="bar s1" x="253.0" y="34.6" width="42.0" height="207.4" rx="3"/>
+<text class="tick" x="274.0" y="262.0" text-anchor="middle">8</text>
+<text class="val" x="274.0" y="26.6" text-anchor="middle">100%</text>
+<rect class="bar s1" x="337.0" y="34.6" width="42.0" height="207.4" rx="3"/>
+<text class="tick" x="358.0" y="262.0" text-anchor="middle">12</text>
+<text class="val" x="358.0" y="26.6" text-anchor="middle">100%</text>
+<rect class="bar s1" x="421.0" y="34.6" width="42.0" height="207.4" rx="3"/>
+<text class="tick" x="442.0" y="262.0" text-anchor="middle">16</text>
+<text class="val" x="442.0" y="26.6" text-anchor="middle">100%</text>
+<rect class="bar s1" x="505.0" y="34.6" width="42.0" height="207.4" rx="3"/>
+<text class="tick" x="526.0" y="262.0" text-anchor="middle">24</text>
+<text class="val" x="526.0" y="26.6" text-anchor="middle">100%</text>
+<rect class="bar s4" x="589.0" y="235.5" width="42.0" height="6.5" rx="3"/>
+<text class="tick" x="610.0" y="262.0" text-anchor="middle">32</text>
+<text class="val" x="610.0" y="227.5" text-anchor="middle">3%</text>
+<rect class="bar s2" x="673.0" y="242.0" width="42.0" height="0.0" rx="3"/>
+<text class="tick" x="694.0" y="262.0" text-anchor="middle">48</text>
+<text class="val" x="694.0" y="234.0" text-anchor="middle">0%</text>
+<line class="mark" x1="484.0" y1="18" x2="484.0" y2="242"/>
+<text class="axlab" x="400" y="292" text-anchor="middle">number of pieces the teacher was built from (input has 16 dimensions)</text>
+<text class="axlab" transform="translate(14,130) rotate(-90)" text-anchor="middle">pieces recovered correctly</text>
+</svg>
+    <figcaption>Fraction of the teacher's pieces recovered essentially exactly, against how
+    many pieces it was built from. The input has 16 dimensions, so everything to the right
+    of the dashed line has more pieces than there are dimensions to hold them.</figcaption>
+  </figure>
+
+  <div class="col">
+  <p>Recovery is perfect well past the point where the pieces outnumber the input dimensions
+  — up to about 1.5× — and then falls apart. Two warnings come out of it:</p>
+
+  <div class="callout">
+    <p>At 48 pieces the reconstruction is <strong>perfect to machine precision</strong> while
+    a third of the recovered pieces are simply wrong. "It fits beautifully" is not evidence
+    that the parts mean anything.</p>
+  </div>
+
+  <p>The same asymmetry shows up when you guess the number of pieces. Guessing too few
+  announces itself loudly — the reconstruction error jumps by four orders of magnitude —
+  and the pieces you do get are still correct. Guessing too many is silent: the error is
+  indistinguishable from the correct guess while a quarter of the pieces have been split in
+  half. And if the teacher's pieces point in similar directions to begin with, recovery
+  degrades badly (down to a third of pieces at high overlap) with, again, no signal in the
+  error.</p>
+  </div>
+</section>
+
+<section>
+  <div class="col">
+  <p class="eyebrow"><b>A4</b> <span>simplification</span></p>
+  <h2>Which parts of a computation can be straightened out?</h2>
+  <p class="q">Task: a teacher built from 18 pieces laid out on a grid of two properties —
+  how much each piece contributes, and how curved each piece is over the range of inputs the
+  model actually sees.</p>
+
+  <p>The idea being tested: a bilinear layer multiplies things, but if some piece barely
+  varies over the inputs that actually occur, you could replace that multiplication with a
+  straight-line approximation and store half as many numbers. The plan predicted this would
+  pay off for the <em>middle-sized</em> pieces — big ones you keep, small ones you delete,
+  medium ones you straighten.</p>
+
+  <p>It does pay off. At a fixed budget of numbers, allowing straightening beats
+  keep-or-delete at 22 of 25 budgets, by up to a factor of ten.</p>
+  </div>
+
+  <figure>
+    <div class="legend"><span><i class="swatch" style="background:var(--s2)"></i>keep or delete only</span><span><i class="swatch" style="background:var(--s1)"></i>keep, delete, or straighten</span></div>
+    <svg viewBox="0 0 760 320" role="img" aria-label="Error at a given size, with and without straightening" preserveAspectRatio="xMidYMid meet">
+<line class="grid" x1="64" y1="264.0" x2="736" y2="264.0"/>
+<text class="tick" x="54.0" y="268.0" text-anchor="end">0.000001%</text>
+<line class="grid" x1="64" y1="204.7" x2="736" y2="204.7"/>
+<text class="tick" x="54.0" y="208.7" text-anchor="end">0.0001%</text>
+<line class="grid" x1="64" y1="145.5" x2="736" y2="145.5"/>
+<text class="tick" x="54.0" y="149.5" text-anchor="end">0.01%</text>
+<line class="grid" x1="64" y1="86.2" x2="736" y2="86.2"/>
+<text class="tick" x="54.0" y="90.2" text-anchor="end">1%</text>
+<line class="grid" x1="64" y1="26.9" x2="736" y2="26.9"/>
+<text class="tick" x="54.0" y="30.9" text-anchor="end">100%</text>
+<text class="tick" x="64.0" y="284.0" text-anchor="middle">0</text>
+<text class="tick" x="240.8" y="284.0" text-anchor="middle">500</text>
+<text class="tick" x="417.7" y="284.0" text-anchor="middle">1000</text>
+<text class="tick" x="594.5" y="284.0" text-anchor="middle">1500</text>
+<polyline class="s2" points="64.0,27.5 90.9,27.5 118.1,27.8 145.0,75.8 172.2,94.7 199.1,94.7 226.3,96.7 253.2,113.1 280.5,126.4 307.3,126.4 334.6,129.8 361.4,136.4 388.7,148.8 415.6,148.8 442.8,155.2 469.7,167.2 496.9,194.7 523.8,194.7 551.0,212.6 577.9,217.9 605.1,235.3 632.0,235.3 659.3,253.8 686.1,270.8 713.4,293.6" fill="none" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle class="s2d" cx="64.0" cy="27.5" r="3.2"/>
+<circle class="s2d" cx="90.9" cy="27.5" r="3.2"/>
+<circle class="s2d" cx="118.1" cy="27.8" r="3.2"/>
+<circle class="s2d" cx="145.0" cy="75.8" r="3.2"/>
+<circle class="s2d" cx="172.2" cy="94.7" r="3.2"/>
+<circle class="s2d" cx="199.1" cy="94.7" r="3.2"/>
+<circle class="s2d" cx="226.3" cy="96.7" r="3.2"/>
+<circle class="s2d" cx="253.2" cy="113.1" r="3.2"/>
+<circle class="s2d" cx="280.5" cy="126.4" r="3.2"/>
+<circle class="s2d" cx="307.3" cy="126.4" r="3.2"/>
+<circle class="s2d" cx="334.6" cy="129.8" r="3.2"/>
+<circle class="s2d" cx="361.4" cy="136.4" r="3.2"/>
+<circle class="s2d" cx="388.7" cy="148.8" r="3.2"/>
+<circle class="s2d" cx="415.6" cy="148.8" r="3.2"/>
+<circle class="s2d" cx="442.8" cy="155.2" r="3.2"/>
+<circle class="s2d" cx="469.7" cy="167.2" r="3.2"/>
+<circle class="s2d" cx="496.9" cy="194.7" r="3.2"/>
+<circle class="s2d" cx="523.8" cy="194.7" r="3.2"/>
+<circle class="s2d" cx="551.0" cy="212.6" r="3.2"/>
+<circle class="s2d" cx="577.9" cy="217.9" r="3.2"/>
+<circle class="s2d" cx="605.1" cy="235.3" r="3.2"/>
+<circle class="s2d" cx="632.0" cy="235.3" r="3.2"/>
+<circle class="s2d" cx="659.3" cy="253.8" r="3.2"/>
+<circle class="s2d" cx="686.1" cy="270.8" r="3.2"/>
+<circle class="s2d" cx="713.4" cy="293.6" r="3.2"/>
+<polyline class="s1" points="64.0,27.5 90.9,27.8 118.1,75.7 145.0,96.1 172.2,110.6 199.1,121.9 226.3,124.1 253.2,129.0 280.5,131.4 307.3,138.3 334.6,145.5 361.4,154.6 388.7,165.3 415.6,186.3 442.8,188.7 469.7,196.9 496.9,203.0 523.8,220.1 551.0,223.3 577.9,243.1 605.1,247.3 632.0,254.9 659.3,260.5 686.1,270.8 713.4,293.6" fill="none" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle class="s1d" cx="64.0" cy="27.5" r="3.2"/>
+<circle class="s1d" cx="90.9" cy="27.8" r="3.2"/>
+<circle class="s1d" cx="118.1" cy="75.7" r="3.2"/>
+<circle class="s1d" cx="145.0" cy="96.1" r="3.2"/>
+<circle class="s1d" cx="172.2" cy="110.6" r="3.2"/>
+<circle class="s1d" cx="199.1" cy="121.9" r="3.2"/>
+<circle class="s1d" cx="226.3" cy="124.1" r="3.2"/>
+<circle class="s1d" cx="253.2" cy="129.0" r="3.2"/>
+<circle class="s1d" cx="280.5" cy="131.4" r="3.2"/>
+<circle class="s1d" cx="307.3" cy="138.3" r="3.2"/>
+<circle class="s1d" cx="334.6" cy="145.5" r="3.2"/>
+<circle class="s1d" cx="361.4" cy="154.6" r="3.2"/>
+<circle class="s1d" cx="388.7" cy="165.3" r="3.2"/>
+<circle class="s1d" cx="415.6" cy="186.3" r="3.2"/>
+<circle class="s1d" cx="442.8" cy="188.7" r="3.2"/>
+<circle class="s1d" cx="469.7" cy="196.9" r="3.2"/>
+<circle class="s1d" cx="496.9" cy="203.0" r="3.2"/>
+<circle class="s1d" cx="523.8" cy="220.1" r="3.2"/>
+<circle class="s1d" cx="551.0" cy="223.3" r="3.2"/>
+<circle class="s1d" cx="577.9" cy="243.1" r="3.2"/>
+<circle class="s1d" cx="605.1" cy="247.3" r="3.2"/>
+<circle class="s1d" cx="632.0" cy="254.9" r="3.2"/>
+<circle class="s1d" cx="659.3" cy="260.5" r="3.2"/>
+<circle class="s1d" cx="686.1" cy="270.8" r="3.2"/>
+<circle class="s1d" cx="713.4" cy="293.6" r="3.2"/>
+<text class="axlab" x="400" y="312" text-anchor="middle">numbers kept (out of 1836)</text>
+<text class="axlab" transform="translate(14,141) rotate(-90)" text-anchor="middle">error vs the full model</text>
+</svg>
+    <figcaption>Error against the full model, at each budget of stored numbers. Lower is
+    better; both axes are log-like. The two curves meet only at the extremes, where
+    everything is deleted or everything is kept.</figcaption>
+  </figure>
+
+  <div class="col">
+  <p>But the prediction about <em>which</em> pieces was wrong, and not marginally so.</p>
+  </div>
+
+  <figure>
+    <div class="legend"><span><i class="swatch" style="background:var(--s1)"></i>big pieces</span><span><i class="swatch" style="background:var(--s2)"></i>medium pieces</span><span><i class="swatch" style="background:var(--s3)"></i>small pieces</span></div>
+    <svg viewBox="0 0 760 330" role="img" aria-label="What decides whether a piece can be straightened" preserveAspectRatio="xMidYMid meet">
+<line class="grid" x1="70" y1="251.8" x2="740" y2="251.8"/>
+<text class="tick" x="60.0" y="255.8" text-anchor="end">0.01%</text>
+<line class="grid" x1="70" y1="198.0" x2="740" y2="198.0"/>
+<text class="tick" x="60.0" y="202.0" text-anchor="end">0.1%</text>
+<line class="grid" x1="70" y1="144.1" x2="740" y2="144.1"/>
+<text class="tick" x="60.0" y="148.1" text-anchor="end">1%</text>
+<line class="grid" x1="70" y1="90.3" x2="740" y2="90.3"/>
+<text class="tick" x="60.0" y="94.3" text-anchor="end">10%</text>
+<line class="grid" x1="70" y1="36.4" x2="740" y2="36.4"/>
+<text class="tick" x="60.0" y="40.4" text-anchor="end">100%</text>
+<circle class="pt s1d" cx="109.0" cy="36.4" r="4.2"/>
+<circle class="pt s1d" cx="109.0" cy="36.4" r="4.2"/>
+<circle class="pt s1d" cx="122.0" cy="111.6" r="4.2"/>
+<circle class="pt s1d" cx="122.0" cy="111.7" r="4.2"/>
+<circle class="pt s1d" cx="135.0" cy="252.9" r="4.2"/>
+<circle class="pt s1d" cx="135.0" cy="251.8" r="4.2"/>
+<text class="tick" x="122.0" y="288.0" text-anchor="middle">big</text>
+<circle class="pt s2d" cx="213.0" cy="36.4" r="4.2"/>
+<circle class="pt s2d" cx="213.0" cy="36.4" r="4.2"/>
+<circle class="pt s2d" cx="226.0" cy="112.4" r="4.2"/>
+<circle class="pt s2d" cx="226.0" cy="112.1" r="4.2"/>
+<circle class="pt s2d" cx="239.0" cy="252.6" r="4.2"/>
+<circle class="pt s2d" cx="239.0" cy="252.6" r="4.2"/>
+<text class="tick" x="226.0" y="288.0" text-anchor="middle">medium</text>
+<circle class="pt s3d" cx="317.0" cy="36.4" r="4.2"/>
+<circle class="pt s3d" cx="317.0" cy="36.4" r="4.2"/>
+<circle class="pt s3d" cx="330.0" cy="111.7" r="4.2"/>
+<circle class="pt s3d" cx="330.0" cy="111.4" r="4.2"/>
+<circle class="pt s3d" cx="343.0" cy="252.5" r="4.2"/>
+<circle class="pt s3d" cx="343.0" cy="252.7" r="4.2"/>
+<text class="tick" x="330.0" y="288.0" text-anchor="middle">small</text>
+<text class="panel" x="226.0" y="16.0" text-anchor="middle">grouped by how big the piece is</text>
+<circle class="pt s1d" cx="467.0" cy="36.4" r="4.2"/>
+<circle class="pt s1d" cx="467.0" cy="36.4" r="4.2"/>
+<circle class="pt s2d" cx="480.0" cy="36.4" r="4.2"/>
+<circle class="pt s2d" cx="480.0" cy="36.4" r="4.2"/>
+<circle class="pt s3d" cx="493.0" cy="36.4" r="4.2"/>
+<circle class="pt s3d" cx="493.0" cy="36.4" r="4.2"/>
+<text class="tick" x="480.0" y="288.0" text-anchor="middle">none</text>
+<circle class="pt s1d" cx="571.0" cy="111.6" r="4.2"/>
+<circle class="pt s1d" cx="571.0" cy="111.7" r="4.2"/>
+<circle class="pt s2d" cx="584.0" cy="112.4" r="4.2"/>
+<circle class="pt s2d" cx="584.0" cy="112.1" r="4.2"/>
+<circle class="pt s3d" cx="597.0" cy="111.7" r="4.2"/>
+<circle class="pt s3d" cx="597.0" cy="111.4" r="4.2"/>
+<text class="tick" x="584.0" y="288.0" text-anchor="middle">some</text>
+<circle class="pt s1d" cx="675.0" cy="252.9" r="4.2"/>
+<circle class="pt s1d" cx="675.0" cy="251.8" r="4.2"/>
+<circle class="pt s2d" cx="688.0" cy="252.6" r="4.2"/>
+<circle class="pt s2d" cx="688.0" cy="252.6" r="4.2"/>
+<circle class="pt s3d" cx="701.0" cy="252.5" r="4.2"/>
+<circle class="pt s3d" cx="701.0" cy="252.7" r="4.2"/>
+<text class="tick" x="688.0" y="288.0" text-anchor="middle">a lot</text>
+<text class="panel" x="584.0" y="16.0" text-anchor="middle">grouped by how curved the piece is</text>
+<text class="axlab" transform="translate(14,143) rotate(-90)" text-anchor="middle">error left over after straightening</text>
+</svg>
+    <figcaption>How much error is left after straightening a piece, as a fraction of the
+    error from deleting it outright — low means straightening captured almost everything.
+    Left: grouped by how big the piece is. Right: grouped by how curved it is. Each dot is
+    one of the 18 pieces; colour is size in both panels. Grouping by size explains nothing —
+    the three columns are identical. Grouping by curvature explains everything, across four
+    orders of magnitude.</figcaption>
+  </figure>
+
+  <div class="callout col">
+    <p>Correlation of straightenability with a piece's size: <strong>+0.00</strong>. With its
+    curvature: <strong>−0.99</strong>. Curvature decides whether a piece <em>can</em> be
+    straightened; size only decides whether it's worth spending the budget on. They are
+    independent, and the plan named the wrong one.</p>
+  </div>
+</section>
+
+<section class="col">
+  <h2>Where this stands</h2>
+  <div class="status">
+    <div><div class="k">A1 parity</div><div class="v done">done, all predictions held</div></div>
+    <div><div class="k">A2 modular addition</div><div class="v done">done, plus one new result</div></div>
+    <div><div class="k">A3 calibration</div><div class="v done">done, limits established</div></div>
+    <div><div class="k">A4 simplification</div><div class="v done">done, prediction corrected</div></div>
+    <div><div class="k">A5 shared subcomputation</div><div class="v notdone">not started</div></div>
+    <div><div class="k">A6 two-hop routing</div><div class="v notdone">not started</div></div>
+    <div><div class="k">Part B attention</div><div class="v notdone">not started — needs new toy model</div></div>
+  </div>
+
+  <h3>Known gaps in what's done</h3>
+  <p>A4 ran without the four sceptical baselines, and used the teacher's own directions
+  rather than recovering them blind — A3 says what that would have cost, but it wasn't
+  actually done. A2's structure-finding gets 9–11 of 11 frequencies rather than all of them,
+  and the remaining difficulty is localised but not explained. A4 used a single teacher and
+  a single student.</p>
+
+  <h3>What Part A changes about the plan</h3>
+  <table>
+    <tr><th>the plan said</th><th>what we measured</th></tr>
+    <tr><td>the solution splits into one 2×2 block per frequency</td>
+        <td>it splits twice as finely, and the finer split is arbitrary — only the coarser
+        grouping is a real feature of the computation</td></tr>
+    <tr><td>straightening pays off for middle-sized pieces</td>
+        <td>size is irrelevant; curvature is the whole story</td></tr>
+    <tr><td>every experiment ships with its four baselines</td>
+        <td>one of the four is logically vacuous for most of these claims, and another can
+        only disprove a finding that was there to begin with — both now recorded per
+        experiment instead of reported as passes</td></tr>
+    <tr><td>whiten by the input covariance before measuring</td>
+        <td>necessary but not sufficient: on modular addition, 29–35% of a trained model's
+        weights have no effect on the function at all and must be projected away first</td></tr>
+  </table>
+</section>
+</div>

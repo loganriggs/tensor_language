@@ -679,6 +679,169 @@ Three items in the spec should be updated before A5/A6/Part B are built on top:
    form mass is invisible to the function (A2-3); on parity the never-probed diagonal takes
    34–44% and is causally harmful (A1-2). Project onto the span of the lifted data first.
 
+## A4 addendum — the four nulls, and the oracle-free version (`a4_nulls.py`)
+
+Both gaps recorded against A4 are now closed, and one of the nulls changes how A4 should
+be read.
+
+### FINDING A4-4 — the result survives dropping the oracle
+
+A4 originally decomposed the student using the teacher's own component directions. Redone
+blind, with the CP fitter A3 calibrated (A4 has 18 components in 48 dimensions, K/d = 0.38,
+inside A3's certified range):
+
+| arm | component recovery | corr with curvature | straightening wins | median gain |
+|---|---|---|---|---|
+| oracle directions | 1.000 (by construction) | **−0.992** | 22/25 | 5.2× |
+| blind, rank 18 | mean cos 0.534, 44% > 0.9 | **−0.978** | 21/25 | 2.0× |
+| blind, rank 22 | mean cos 0.581, 44% > 0.9 | **−0.981** | 21/25 | 2.3× |
+
+The conclusion does not depend on the oracle. Note the components are only half-recovered
+(44% above cosine 0.9) and the axis result is unchanged anyway — it is robust to getting
+the parts substantially wrong.
+
+One measurement caveat. In the blind arm "size" has to be estimated, and the natural proxy —
+how much error deleting the component causes — is itself driven by curvature, so it
+correlates −0.88 with straightenability. That is not a contradiction of A4-3: against the
+*planted gain*, the correlation is +0.00. The clean statement is that the gain is
+uninformative and the realised contribution is informative only because it inherits
+curvature.
+
+### FINDING A4-5 — the nulls say the linearization result is not about training
+
+| null | component recovery | corr with curvature | straightening wins | median gain |
+|---|---|---|---|---|
+| trained (reference) | 1.000 | −0.992 | 22/25 | 5.2× |
+| 1. random weights | **0.063**, 0% > 0.9 | −0.757 | **23/25** | **9.3×** |
+| 2. gauge scramble | 1.000 | −0.993 | 22/25 | 5.1× |
+| 3. task shuffle | **0.075**, 0% > 0.9 | −0.938 | **23/25** | 1.7× |
+| 4. reader shuffle | 1.000 | −0.992 | 22/25 | 5.2× |
+
+Null 2 is perfect invariance as required (refactorisation residual 8.4e-26, hidden width
+192 → 1225, every number unchanged). Null 4 is vacuous by construction and measured to be so.
+
+Nulls 1 and 3 are the informative ones, and they are not kind to the framing. **A randomly
+initialised network shows the straightening advantage at 23/25 budgets with a larger median
+gain than the trained one.** What collapses under nulls 1 and 3 is *component recovery*
+(cosine 1.00 → 0.06/0.08); what survives is the entire linearization story.
+
+This is correct rather than broken, and worth stating plainly: straightenability is a
+property of quadratic forms evaluated on an input distribution with a large mean. It is not
+something training puts there. So A4 is a **compression result with a correct selection
+rule**, validated against planted truth — not a finding about learned mechanisms. The plan
+files it under "the stratification and the linearization band" as though it characterises
+the trained computation; it does not, and only the nulls reveal that.
+
+---
+
+## A5 — shared vs private subcomputation (`a5_shared.py`, `a5_extra.py`)
+
+DGP. One shared quadratic form feeds three readers; each reader also has a private form of
+its own, so reader u computes `Q_u = S_shared + S_private[u]`. The planted forms are made
+mutually orthogonal — an early version used random positive-semidefinite forms, which all
+have positive trace and therefore large positive inner products, planting a spurious common
+direction at the top of every spectrum and confounding the entire question.
+
+### FINDING A5-1 — the spectral prediction is off, and the correction is exact
+
+The plan predicts the top eigenvalue of the reader-weighted second moment is the shared
+form's, "with eigenvalue ≈ 3× the private forms" for three readers. Measured, and derived:
+
+| readers R | measured top/next | analytic | top eigenvector's overlap with the pure shared form |
+|---|---|---|---|
+| 3 | **4.000** | R+1 = 4 | 0.837 measured, √(R/(R+1)) = 0.866 analytic |
+| 5 | **6.000** | R+1 = 6 | — |
+| 8 | **9.000** | R+1 = 9 | — |
+
+The ratio is **R+1, not R**. And the top eigenvector is *not* the shared form: it is
+√(R/(R+1)) of the shared form plus 1/√(R(R+1)) of **every** private form — (0.866, 0.289,
+0.289, 0.289) at R=3. Reading it as "the shared computation" silently imports a slice of
+every private one. Both facts fall out of diagonalising the 4×4 coordinate matrix by hand,
+and the measurements match to three decimals.
+
+### FINDING A5-2 — the reader shuffle cannot test sharing; a no-sharing control can
+
+| R | shared family | after reader shuffle | matched family with no sharing |
+|---|---|---|---|
+| 3 | 4.000 | 3.50 / 3.72 / 4.00 | **1.000** |
+| 5 | 6.000 | 4.41 / 5.33 / 4.48 | **1.000** |
+| 8 | 9.000 | 4.95 / 6.22 / 6.17 | **1.000** |
+
+The plan's prediction (iv) — that the reader shuffle collapses the shared/private gap — is
+false, and necessarily so. A component that is *identical* across readers contributes
+identical coordinates to every reader, so permuting readers cannot touch it. The control
+that works is a matched family of the same size and norm in which nothing is shared; it
+separates perfectly, 4.00 versus 1.00.
+
+Generalising: the reader shuffle is the wrong instrument for any claim about *sharing*. It
+tests claims about which reader gets which form, not about whether a form is reused.
+
+### FINDING A5-3 — a single reader cannot be decomposed into shared and private
+
+Decomposing each reader's form on its own recovers the shared component at cosine
+**0.41, 0.41, 0.41** — barely better than chance. This is not a solver failure: `Q_u = S₀ + S_u`
+is a sum of two orthogonal forms, and any rotation within their span produces the same `Q_u`,
+so from one reader the split is *unidentifiable in principle*. The plan predicted the shared
+form would be found "three times in mutually incompatible gauges"; the truth is stronger —
+it is not found at all. This is the concrete argument for fitting globally across readers
+and explaining individual paths afterwards.
+
+### FINDING A5-4 — with one private form per reader, a dictionary cannot recover the split either — and that is correct behaviour
+
+With 3 readers, "one atom per reader" costs 3 atoms while the true structure costs 4, so the
+shortest description is the one that hides the sharing. Measured exactly that: at 3 atoms
+the fit is already exact (error 0.000) with 1.00 active atoms per reader, and at 4 atoms the
+recovered atoms match the planted ones at only ~0.71.
+
+So the plan's prediction (ii) is untestable in the DGP the plan specifies. Sharing is only
+worth representing when readers outnumber atoms. Rebuilt that way — 8 readers each combining
+2 of 4 shared forms — the atoms come back at cosine 0.93–1.00.
+
+### FINDING A5-5 — PCA's failure is invisible in reconstruction error
+
+The plan's PCA-orthogonality claim, tested by planting a coarse form plus refinements that
+contain it and sweeping how much they overlap. At the true budget in every case:
+
+| planted mutual overlap | PCA error | dictionary error | dictionary atoms vs planted | **PCA components vs planted** |
+|---|---|---|---|---|
+| 0.00 | 0.0000 | 0.0000 | 0.985 / 0.986 / 0.988 | 0.815 / 0.894 / 0.919 |
+| +0.25 | 0.0000 | 0.0000 | 0.972 / 0.983 / 0.990 | 0.704 / 0.805 / 0.800 |
+| +0.64 | 0.0000 | 0.0000 | 0.962 / 0.983 / 0.998 | 0.870 / **0.385** / **0.529** |
+| +0.90 | 0.0000 | 0.0000 | 0.958 / 0.899 / 0.625 | 0.967 / **0.203** / **0.273** |
+
+PCA and the dictionary are **indistinguishable on error at every overlap level** — both
+reconstruct exactly at the true budget — while their recovered components diverge
+completely as the planted parts start to overlap. PCA's mean match falls 0.88 → 0.48; the
+dictionary holds 0.99 → 0.83.
+
+The model-selection protocol in the plan compares candidate structures on "functional error
+against description length". This says that comparison **cannot see the difference that
+matters**. Error-versus-budget is blind to identification; only scoring against ground truth
+separates them, which is exactly what a real model does not come with. That is an argument
+for calibrating decomposition methods on planted structure before applying them, not for
+choosing between them by fit.
+
+### A5 nulls
+
+| null | outcome |
+|---|---|
+| 1. random weights | top/next eigenvalue ratio **1.56 / 1.56** against the trained 4.000; top eigenvector's overlap with the shared form **0.144** against 0.837 |
+| 2. gauge scramble | refactorisation residual 4.5e-28, hidden width 96 → 78, ratio **4.000 → 4.000** — exact invariance |
+| 3. task shuffle | not run for A5 — the DGP has no labels to shuffle independently of the readers; the matched no-sharing control in A5-2 plays the same role and separates 4.00 vs 1.00 |
+| 4. reader shuffle | run, and **shown to be the wrong instrument** (A5-2): it cannot move a statistic about sharing |
+
+---
+
+## Queue (authoritative — the hourly cron reads this)
+
+1. **In flight:** B2 conjunctive retrieval (`b2_conjunctive.py`) and A5 shared/private
+   (`a5_shared.py`).
+2. **Close the A1–A4 gaps** recorded above: A4's four nulls and its oracle-free component
+   decomposition (using A3's fitter); A2's remaining recovery shortfall.
+3. **Independent reviewer pass** over everything in Part A + B2/A5 — what did we miss.
+4. **Connect up to bilin18** (the ~500M bilinear GPT): which of these results carry over to
+   a real model, which are artefacts of toy scale, and what the toys cannot tell us.
+
 ## Next
 
 - **A5 / A6** are the natural continuation: `bq_common` already has `reader_moment`,
