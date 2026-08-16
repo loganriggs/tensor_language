@@ -1011,15 +1011,132 @@ architectures either.
 
 ---
 
+## A6 — two-hop routing: the quotient is a property of the path, not the layer (`a6_routing.py`)
+
+DGP. A first bilinear layer computes features A, B, C from its input; two downstream
+bilinear readers consume the result, with reader 1's target depending only on A and
+reader 2's only on B. C is read by nobody. Planted features occupy disjoint blocks of a
+random orthonormal frame (verified orthogonal to 1e-16), so the routing table is exact.
+
+Because the composition of two bilinear layers is quartic, there is no single quadratic
+form for a path. The object that answers the routing question is the path's expected
+input-gradient outer product, `S = E[(∂out/∂x)(∂out/∂x)ᵀ]`, whose kernel is the set of
+input directions the path cannot be moved along anywhere on the data.
+
+### FINDING A6-1 — the routing table comes back from the composed weights
+
+Share of each path's input sensitivity sitting in each planted feature block (2 seeds,
+student FVU 8.4e-2 and 7.2e-2):
+
+| | A | B | C |
+|---|---|---|---|
+| layer 1 transmits | 0.431 | 0.412 | **0.040** |
+| reader 1's path | **0.940** | 0.012 | 0.012 |
+| reader 2's path | 0.010 | **0.951** | 0.010 |
+
+Each reader reads exactly its planted feature, with 77–103× separation from the next
+feature. Activation patching — resampling the input inside one feature's block — agrees:
+reader 1 moves 1.40 for A against 0.157 for B, reader 2 moves 1.45 for B against 0.145 for
+A. Argmax agreement between the weight-side ledger and patching is 2/2 in both seeds, and
+the Spearman correlation across all six (reader, feature) pairs is +1.00 and +0.49.
+
+*Scoring note.* An earlier version of this comparison applied one absolute 5% threshold to
+both quantities and scored 2/6. That was wrong: the weight-side number is a share of
+sensitivity that sums to 1 across features, while the patching number is a relative RMS
+change under a full resample of 4 of 24 input dimensions. They are on different scales, so
+the comparison has to be on ranking and separation, which is what is reported above.
+
+### FINDING A6-2 — the path kernel is strictly larger than the layer kernel, and B is the proof
+
+This is the point of the experiment. Layer 1 **transmits** B at 0.412 — nearly as much as A.
+Reader 1's path is blind to B at 0.012. So reader 1's blindness to B is not something layer
+1 did; the information is present in the bus and the reader does not look. The path kernel
+therefore strictly contains the layer kernel, and the difference is exactly the
+transmitted-but-ignored feature.
+
+Any analysis that computes "what this layer discards" and stops there will overstate what
+is available downstream by exactly this term.
+
+### FINDING A6-3 — end-to-end training does not transmit what no reader needs
+
+C was planted as a third feature to be transmitted and ignored. Layer 1 carries it at
+**0.040**, an order of magnitude below A and B: with both readers trained end to end,
+the layer simply stopped computing the feature nobody consumes. So the interesting case —
+transmitted *and* ignored — has to be forced by construction (as B is, by being needed by
+the other reader) rather than hoped for. Worth carrying into B3.
+
+### A6 nulls
+
+| null | outcome |
+|---|---|
+| 1. random weights | sensitivity is flat across features — reader 1 gives A 0.190, B 0.175, C 0.176, against the trained 0.940 / 0.012 / 0.012 |
+| 2. gauge scramble of layer 1 | refactorisation residual 5.8e-29, hidden width 128 → 300, end-to-end function change 2.1e-13, and the ledger is **bit-identical**: 0.940 → 0.940, 0.012 → 0.012 |
+| 3, 4 | not run |
+
+Caveat: the students reach FVU ~0.08, not machine precision — a quartic composition through
+an 18-dimensional bus is a harder fit than the single-layer experiments. The routing
+separations are large enough (77–103×) that this does not threaten the conclusion, but the
+numbers are not exact the way A1's are.
+
+---
+
+## B0 — the third placement, the one bilin18 actually uses (`b0_placements.py`)
+
+The plan's B0 lists two placements: the product taken before a softmax, and the product of
+two softmaxed patterns. Verified at source (`jacclust/tt_model.py:134-144`), bilin18 uses
+neither — its pattern is `(q₁·k₁/D)(q₂·k₂/D)`, causally masked to zero and **never
+normalised**, with no softmax anywhere in the model. Entries are signed; measured negative
+mass fraction 0.14–0.86 depending on seed.
+
+So the B1 taxonomy, every statistic of which is an entropy of an attention distribution, is
+**undefined on the architecture it was written for**. This module adds the third placement
+and replaces entropy with the participation ratio `PR(w) = (Σw²)²/Σw⁴`, which is defined for
+signed unnormalised patterns, is what the earlier jacclust program used on bilin18, and —
+per `THEORY.md` T8 — is the statistic the two-factor scale gauge *requires*.
+
+### FINDING B0-1 — the sharpening signature has no specificity in any placement
+
+Does `PR(product) < min(PR(factors))` — "individually vague, jointly precise" — distinguish
+tasks that need a conjunction from tasks that do not?
+
+| placement | conjunctive task | controls needing no conjunction |
+|---|---|---|
+| unnormalised (bilin18's) | fires 2/2 | **fires 4/4** |
+| score-level product | fires 2/2 | **fires 4/4** |
+| post-softmax product | fires 2/2 | **fires 4/4 so far** |
+
+It fires everywhere. In the score-level placement the product's PR is pinned at 0.063
+regardless of task or seed. Multiplying two score fields concentrates the result whatever
+they encode; that is a property of multiplication, not of the computation.
+
+**This is what the bilin18 connection needed.** `jacclust/SUMMARY.md:69` records
+`PR(product) < min(PR(s₁), PR(s₂))` at **100% of bilin18's 162 heads**. My connection
+document listed "that is not evidence of conjunction" as an inference. It is now a
+measurement, in bilin18's own placement, with control tasks: a statistic that fires on
+100% of heads is doing no discriminating work, and here is a controlled setting showing it
+fires with nothing to conjoin.
+
+What the right test is remains open — B2-3's ablation was retracted as broken, and a
+corrected ablation has not been run.
+
+---
+
 ## Queue (authoritative — the hourly cron reads this)
 
-1. **In flight:** B2 conjunctive retrieval (`b2_conjunctive.py`) and A5 shared/private
-   (`a5_shared.py`).
-2. **Close the A1–A4 gaps** recorded above: A4's four nulls and its oracle-free component
-   decomposition (using A3's fitter); A2's remaining recovery shortfall.
-3. **Independent reviewer pass** over everything in Part A + B2/A5 — what did we miss.
-4. **Connect up to bilin18** (the ~500M bilinear GPT): which of these results carry over to
-   a real model, which are artefacts of toy scale, and what the toys cannot tell us.
+Done since the last update: B2, A5, A4's nulls + oracle-free arm, A6, B0's third
+placement, the independent review (see `REVIEW_RESPONSE.md`), the bilin18 connection
+(`BILIN18_CONNECTION.md`) and the theory pass (`THEORY.md`, 47/47 verified).
+
+1. **Act on the review's remaining items:** a correct factor ablation for Part B (positive
+   constant matched on RMS *and* resulting entropy, or key shuffling); a blind rule for the
+   JADE tolerance so A2-5 is not oracle-selected; sanity checks for `canonicalise`, `jade`,
+   `fit_cp`, `fit_dictionary`; re-run A2-7's long-run columns under a committed script.
+2. **B3**, the full-stack testbed — now unblocked by A6 and B2, and it should use the
+   unnormalised placement rather than the two the plan names.
+3. **A3's missing axis:** one sweep over `m` at fixed `d` to settle whether the
+   identifiability limit is in `R/m` (as `THEORY.md` T6 argues) rather than `R/d`.
+4. **The open theory questions** in `THEORY.md`, chiefly a perturbation bound explaining
+   why a trained residual is harder for joint block-diagonalisation than matched noise.
 
 ## Next
 
