@@ -1935,3 +1935,16 @@ coefficient scale. Operating-point scaling narrowly failed its bar (ρ 0.29 vs 0
 n=12) and stays unproven.
 
 Full detail in `BILIN18_CONNECTION.md` §41.
+
+### The product law refined: coupling is a bilinear form, not a constant
+
+Second linked pair (the 3→4 edge, 3×3 damage grid): the unlinked control (3,14) shows
+excess ≤0.0013 at every cell — the cleanest graph validation yet — while the linked
+pair's c ranges 6–30 (both registered predictions about the constant failed). The
+structure: coupling strength depends on *which* directions are damaged (L3's 8–32 band
+couples ~4× stronger than 32–128). Refined law: excess ≈ e_aᵀ C_edge e_b, a bilinear
+form in the damage profiles; the scalar law is its rank-1 shadow, valid when damage
+shape is fixed (as in the 16→17 sweeps). The scalar c is an engineering number per
+damage family, not a constant of the edge.
+
+Full detail in `BILIN18_CONNECTION.md` §42.

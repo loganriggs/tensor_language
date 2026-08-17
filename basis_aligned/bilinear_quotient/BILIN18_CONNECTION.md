@@ -2123,3 +2123,27 @@ Practical consequence: interchange faithfulness for this architecture has a ceil
 by fit residual × propagation, so "the abstraction is 68% faithful" should be read as
 "the abstraction has 1.3% coefficient error in a model that amplifies error ~25×" —
 two descriptions of one number, the second one predictive.
+
+## 42. Second linked pair: the product coupling is real, the scalar constant is not
+
+File: `bilin18_product_law_pair2.py` (26 s). A 3×3 damage grid on the 3→4 edge (partial
+span deletions as the lossy replacements) plus the unlinked pair (3, 14) as control.
+
+**The control is the cleanest graph validation yet**: the unlinked pair's excess is
+≤ 0.0013 at every cell — c ≈ 0–1 — while the linked pair at comparable damages shows
+excess up to 0.19. No edge, no interaction, across eighteen cells.
+
+**Both registered predictions about the constant failed, in an instructive direction.**
+On the 3→4 edge, c ranges **6.1–30.2** (rel sd 59%; (a) failed), with clear structure:
+it depends on *which part* of layer 3's span is damaged — the k∈(8,32] band of L3's
+output couples ~4× more strongly per unit damage (c ≈ 17–30) than the (32,128] band
+(c ≈ 6–7). And (b) failed trivially — the unstable mean (14.3) sits within 2× of 22.9.
+
+**The refined law**: the composition excess is a *bilinear form in the two damage
+profiles*, `excess ≈ e_aᵀ C_edge e_b`, and the scalar law of §35–36 is its rank-1
+approximation — valid exactly when the damage profile's *shape* is held fixed, which
+the 16→17 sweeps did (varying R and k changes the amount, barely the shape) and the
+3×3 grid deliberately did not. This is the bilinear architecture's signature stated
+completely: composition coupling is itself a quadratic object, edge-local and
+direction-resolved. The scalar c is a useful engineering number per (edge,
+damage-family); it is not a physical constant of the edge.
