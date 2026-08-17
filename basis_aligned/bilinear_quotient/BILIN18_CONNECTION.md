@@ -4495,3 +4495,15 @@ only the *ratio* side — the transplant effects were read from the original run
 cache. The effects-side replication (fresh base/source rows for all ten
 transplants) is queued; registered: (a) new effects correlate with old at ≥ 0.8;
 (b) the law holds jointly on the all-fresh pair at ≥ 0.7.
+
+## 145. Dilution law fully replicated
+
+File: `bilin18_effects_replicate.py`. Fresh base/source rows reproduce all ten
+transplant effects (Spearman +0.89 vs original), and the all-fresh law —
+new ratios against new effects — holds at **+0.83**, slightly better than the
+original +0.79. The tail-routing headline (§93) is now replicated end-to-end on
+independent data: writes unaimed, edge strength = the writer's share of the
+stream. Queued: a combined replication sweep of three remaining headline
+numbers on fresh rows — score-rank ~4.6 (registered: fresh median within ±2),
+within-vs-matched-null watch-list gap +0.36 (registered: ≥ +0.25), and L1's
+linearization cost +0.28 (registered: within ±30%).

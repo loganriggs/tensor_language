@@ -2893,3 +2893,10 @@ Fresh stats rows give near-identical ratios (Spearman +0.79, 0 inversions);
 effects-side replication queued to complete the check.
 
 Full detail in `BILIN18_CONNECTION.md` §144.
+
+### Dilution law fully replicated (+0.83 all-fresh)
+
+Both sides now independent-data replicated. Headline sweep queued (score-rank,
+watch-list gap, L1 linearization cost).
+
+Full detail in `BILIN18_CONNECTION.md` §145.
