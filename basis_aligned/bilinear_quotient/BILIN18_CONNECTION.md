@@ -3879,3 +3879,24 @@ as L1's mezzanine (§110), now on the input side. Queued: the same fit in the
 weights) — registered: Gram top-64 captures ≥ 2× what PCA-64 did at L17, and
 ≥ 0.25 absolute at L9; if it also fails, the residual is diffuse in every basis
 and "compressed quadratic" is closed.
+
+## 113. The compressed-quadratic door closes; the residues are diffuse in every natural basis
+
+File: `bilin18_gram_residual.py`. The user-suggested rescue — fit the quadratic in
+the layer's own input-mode Gram eigenbasis instead of input PCA — fails too: L17's
+residual capture peaks at 0.203 (k=32) and *drops* at k=64 (0.126; the added
+features fit noise), L9 stays at ~0 and goes negative. Combined with §112:
+**the nonlinear residues are high-rank and diffuse in both the data's principal
+basis and the quadratic's own weight-preferred basis.** The MLPs are exactly
+quadratic, so the residue is a quadratic form — but one spread across so many
+input directions that no 64-dim restriction sees more than a fifth of it. The
+compressed-quadratic direction is closed; this is the same diffuseness the
+program has met everywhere (dense interactions, distributed vocabulary, mezzanine
+computation), now in the approximation algebra.
+
+**User prediction registered** (2026-08-17, verbatim intent): L11, the dissident
+w.r.t. L1's vocabulary, "reads from other layers" — i.e. it should share a code
+with some *other* writer. Queued: L11's reconstruction from the shared reader
+basis computed over writers L0 and L9 (the two other writers with measured
+vocabularies). Registered per the user: R² ≥ 0.4 for at least one other writer;
+alternative: L11 is a universal dissident (its own private input coordinates).

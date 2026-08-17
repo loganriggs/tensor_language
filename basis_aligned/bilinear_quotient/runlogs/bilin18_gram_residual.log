@@ -1,0 +1,11 @@
+L17 quad-on-top-16: residual R^2 +0.186
+L17 quad-on-top-32: residual R^2 +0.203
+L17 quad-on-top-64: residual R^2 +0.126
+L9 quad-on-top-16: residual R^2 +0.009
+L9 quad-on-top-32: residual R^2 -0.005
+L9 quad-on-top-64: residual R^2 -0.173
+
+(a) Gram-64 doubles PCA at L17 (>=0.38): FAILED
+(b) L9 Gram-64 >= 0.25: FAILED
+(c) monotone in k: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_gram_residual_results.json (1s)

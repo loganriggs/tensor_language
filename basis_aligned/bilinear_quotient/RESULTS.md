@@ -2625,3 +2625,11 @@ low-rank quadratics in input PCA (19% at L17, 0% at L9); Gram-basis version
 queued.
 
 Full detail in `BILIN18_CONNECTION.md` §112.
+
+### Compressed quadratic closed; L11-other-writers queued
+
+The nonlinear residues are diffuse in input-PCA AND the Gram basis (peak 0.20 at
+L17, ~0 at L9) -- no compact quadratic exists. User prediction registered: L11
+shares a code with some other writer.
+
+Full detail in `BILIN18_CONNECTION.md` §113.
