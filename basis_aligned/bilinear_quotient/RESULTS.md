@@ -2180,3 +2180,15 @@ to move one deep functional moves the collective state more. The opacity of the 
 is a selectivity phenomenon.
 
 Full detail in `BILIN18_CONNECTION.md` §62.
+
+### The vocabulary is not made of the verified axes
+
+Both structural-naming predictions failed: the top principal functionals align with
+none of the verified directions (below their own nulls) and none are low-rank
+(eff-ranks 11–20). Combined with LORO R² 0.71, the verified axes should live inside
+the vocabulary's span without being principal — the third appearance of the
+importance-vs-identity split. Containment test queued. (This result ran during a
+session-restart gap: the cron died, the supervisor runner kept working, and the queue
+sat empty until recovery — the cron now self-documents that failure mode.)
+
+Full detail in `BILIN18_CONNECTION.md` §63.

@@ -2737,3 +2737,32 @@ enough to move one deep functional moves the collective state more, at every
 intervention class tested (static direct-path, static gradient, per-sequence
 gradient). Per-token injection is the next rung and is registered-open; the pattern
 across three rungs predicts it buys further power and no selectivity.
+
+## 63. The vocabulary's words are not the verified axes
+
+File: `bilin18_principal_semantics.py` (11 s; ran under the queue runner during a
+session-restart gap — the cron died with the session, the runner survived, and this
+write-up is the recovery; the cron now carries a restart-recovery note).
+
+Both registered predictions **failed**, and the failures characterise the vocabulary:
+
+| principal | mass | eff-rank | \|cos\| with verified z | null p95 |
+|---|---|---|---|---|
+| #1 | 0.198 | 10.8 | 0.14 | 0.28 |
+| #2 | 0.105 | 15.8 | 0.09 | 0.33 |
+| #3–5 | 0.04–0.08 | 12–20 | 0.01–0.15 | ~0.31 |
+
+- **(a) failed**: the top principal functional does not align with the verified
+  z/register direction — below its own permutation null. The causally-verified axes of
+  the layer batteries are *not* the principal axes of the cross-reader vocabulary.
+- **(b) failed**: no top-5 principal is low-rank (eff-ranks 11–20 of 48). The
+  vocabulary's words are medium-rank quadratics — structured well below the 48-dim
+  ceiling, but not few-term-nameable objects.
+
+The reconciliation matters: the LORO result (§61) says the vocabulary's *span* carries
+the readers' forms at R² 0.71, and the verified surrogates are reader forms — so the
+verified axes should live *inside* the span while not being principal. That is the
+third appearance of the same split (G_lam leaders vs coverage ordering; solo vs
+Shapley): **importance orderings and identity orderings differ in this model**.
+Registered next: the containment test — energy of the verified axes' coupling matrices
+inside the top-80 principal span, against matched random quadratics.
