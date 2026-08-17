@@ -4148,3 +4148,23 @@ the lexical complement — is the content part predictable from the key token's
 identity (per-head mean score per key token, held out)? Registered: (a) lexical
 R² > positional R² for the majority of heads at every layer (the model's lexical
 theme extends to attention); (b) shuffled-key null ≤ 0.05.
+
+## 126. Patterns are contextual: the census's triple-negative
+
+File: `bilin18_pattern_lexical.py` (after a shape fix; shuffled null clean). The
+lexical hypothesis fails everywhere: held-out key-token identity explains
+essentially none of any head's pattern (medians −0.12 to +0.00; the negative
+values are honest held-out overfit of per-token means), and offset+lexical
+combined peaks at a median of 0.19 (L2). With §125:
+
+- **Position**: weak except the L2 hub.
+- **Token identity**: nothing, at any layer.
+- **Therefore: contextual.** The patterns are irreducibly driven by the full
+  query-key content interaction.
+
+The contrast is the finding: the residual stream is embedding-dominated and the
+bus is lexical-headed (§§101, 111–112), but **attention is the one component
+family that is not lexical** — it is where context enters the computation. The
+division of labor in one line: the stream remembers the token, attention reads
+the context, the front MLPs do the nonlinear work, and the output end amplifies
+and stabilizes.

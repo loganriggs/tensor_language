@@ -1,10 +1,11 @@
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_pattern_lexical.py", line 136, in <module>
-    if __name__=='__main__': main()
-                             ^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_pattern_lexical.py", line 90, in main
-    ssum.index_add_(0,keys[:qpos+1],row)
-RuntimeError: index_add_(): Number of indices (256) should be equal to source.size(dim): (257), for dim: 0
+L 0: lexical R^2 +0.01 +0.03 -0.01 -0.06 -0.00 -0.06 -0.02 -0.07 -0.05 | med -0.02 | comb med +0.02 | null -0.15
+L 2: lexical R^2 -0.24 -0.08 -0.22 -0.07 +0.06 -0.08 -0.10 -0.10 -0.03 | med -0.08 | comb med +0.19 | null -0.24
+L 5: lexical R^2 -0.12 -0.14 -0.18 -0.04 -0.08 -0.01 -0.09 -0.54 -0.12 | med -0.12 | comb med -0.08 | null -0.32
+L 9: lexical R^2 -0.06 -0.08 -0.04 -0.07 -0.10 -0.11 -0.06 -0.18 -0.02 | med -0.07 | comb med +0.05 | null -0.18
+L13: lexical R^2 +0.03 -0.04 -0.03 +0.11 -0.01 +0.00 -0.03 -0.04 -0.09 | med -0.03 | comb med +0.03 | null -0.16
+L16: lexical R^2 +0.00 +0.09 +0.07 -0.04 +0.02 +0.01 -0.18 -0.06 -0.22 | med +0.00 | comb med +0.06 | null -0.27
+
+(a) lexical beats positional at >=4/6 layers: FAILED (0/6)
+(b) shuffled null <=0.05: HELD
+(c) combined med >=0.5 at >=3 layers: FAILED (0)
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_pattern_lexical_results.json (6s)

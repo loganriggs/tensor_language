@@ -2736,3 +2736,11 @@ machinery; content routing dominates from L0. Lexical-attention complement
 queued.
 
 Full detail in `BILIN18_CONNECTION.md` §125.
+
+### Patterns are contextual
+
+Triple-negative census: not positional (except L2's hub), not lexical (0
+everywhere), therefore contextual -- attention is the one non-lexical component.
+Stream remembers the token; attention reads the context.
+
+Full detail in `BILIN18_CONNECTION.md` §126.
