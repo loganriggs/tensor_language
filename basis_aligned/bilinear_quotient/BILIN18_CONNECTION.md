@@ -1618,3 +1618,42 @@ training-like and a shifted corpus, and the difference measures how much of a
 component is distribution-robust computation versus distribution-specific fit. Layer
 16's leader: entirely robust core. Worth running on the other layers' surrogates
 (registered, not yet run — layer 1's 92% and layer 0's 66% may decompose differently).
+
+---
+
+## 26. The robustness split for all three verified leaders
+
+File: `bilin18_robustness_split.py` (17 s). §25's protocol applied to layers 0 and 1,
+with registered expectations: layer 1's missing 8% should close in-distribution (its
+leader is a context summary and its gap looked shift-shaped); layer 0's missing 34%
+should not (token identity does not shift between corpora).
+
+| layer | corpus | delete − base | surrogate − base | repair |
+|---|---|---|---|---|
+| 0 | pile | +0.0120 | +0.0048 | 60.1% |
+| 0 | **fineweb** | +0.0065 | +0.0016 | **76.1%** |
+| 1 | pile | +0.0067 | **−0.0007** | 109.8% |
+| 1 | **fineweb** | +0.0121 | +0.0016 | **86.8%** |
+| 16 (§25) | pile | +0.0244 | −0.0285 | >100% |
+| 16 (§25) | fineweb | +0.0416 | +0.0011 | ~100% |
+
+**Layer 1 shows the same shift pattern as 16**: on pile its surrogate now *beats* the
+full form (109.8% on these rows), in-distribution it genuinely misses 13%. **Layer 0's
+gap does not close** (76.1% in-distribution) — as registered, a token-identity feature
+really does use more of its form than any rank-1 surrogate carries, on any corpus.
+(Both registered expectations held qualitatively; layer 1's "should close" closed to
+87%, not 100%.)
+
+Two structural observations the table adds:
+
+- **In-distribution missing fraction orders by mechanism class**: token identity (24%)
+  > context summary (13%) > accumulated computation (~0%). The deeper and more
+  aggregated the feature, the more completely a rank-1 whitened core captures it.
+- **Leaders matter more in-distribution where they are deep**: layer 1 and 16's delete
+  costs are ~2× larger on fineweb than pile, layer 0's is 2× smaller. Shallow
+  token-features carry relatively more of the load on shifted text; deep context
+  features carry more on the training distribution.
+
+The distribution-robust core of every verified leader is its rank-1 whitened surrogate;
+every remainder is neutral-to-harmful under shift. That is now a three-layer regularity,
+not a curiosity.

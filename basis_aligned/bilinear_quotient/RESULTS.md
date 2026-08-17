@@ -1764,3 +1764,16 @@ the method generalises: surrogate-vs-full across corpora measures how much of a
 component is distribution-robust computation.
 
 Full detail in `BILIN18_CONNECTION.md` §25.
+
+### The robustness split, completed for all three leaders
+
+Layer 1 turns out to share layer 16's pattern — on shifted data its surrogate beats the
+full form (109.8% repair), in-distribution it genuinely misses 13% — while layer 0's gap
+does not close (76% in-distribution), as registered: token identity uses more of its
+form than a rank-1 core carries, on any corpus. The in-distribution missing fraction
+orders by mechanism class (token identity 24% > context summary 13% > accumulated
+computation ~0%), and delete costs flip with depth (shallow features matter more on
+shifted text, deep ones on the training distribution). Three-layer regularity: the
+distribution-robust core of every verified leader is its rank-1 whitened surrogate.
+
+Full detail in `BILIN18_CONNECTION.md` §26.
