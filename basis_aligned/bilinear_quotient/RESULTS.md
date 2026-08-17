@@ -2223,3 +2223,12 @@ from the independence question is complete: dense support → orthogonal functio
 80-word vocabulary → complementary causal constituencies.
 
 Full detail in `BILIN18_CONNECTION.md` §66.
+
+### Arc closed: the vocabulary is corpus-robust
+
+Transfer held on both bars (fineweb individuation −0.24; per-word cross-corpus
+constituency correlation mean +0.78). The independence-question arc is complete at
+all five levels: dense support, orthogonal functionals, 80-word verified vocabulary,
+complementary corpus-robust constituencies, one-layer steering range.
+
+Full detail in `BILIN18_CONNECTION.md` §67.

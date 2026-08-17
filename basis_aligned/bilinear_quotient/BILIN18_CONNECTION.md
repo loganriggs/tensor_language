@@ -2840,3 +2840,28 @@ the signed near-orthogonality (§56-57), now established at the pre-registered l
 and it completes the chain from the user's original independence question: dense
 shared support → near-orthogonal signed functionals → ~80-word shared vocabulary →
 causally complementary constituencies.
+
+## 67. The constituencies are corpus-robust: the individuation arc closes
+
+File: `bilin18_constituency_transfer.py` (12 s). Both registered predictions held:
+
+- individuation holds in-distribution: fineweb mean residual pairwise correlation
+  **−0.24** (bar ≤ 0.1);
+- and they are the *same* constituencies: per-word cross-corpus profile correlations
+  0.52–0.94, **mean +0.78** (bar ≥ 0.5).
+
+The vocabulary's causal structure is not a pile artifact — the same words move the
+same complementary reader-sets on the training-like corpus. With this, the arc that
+began with the user's independence question is complete at every level it was posed:
+
+1. dense shared support (no disjoint sub-structure, §54–55);
+2. near-orthogonal signed functionals, universal (§56–57);
+3. an ~80-word shared vocabulary, leave-one-reader-out verified (§58, §61);
+4. words causally individuated with complementary constituencies, pre-registered and
+   corpus-robust (§66–67);
+5. steerable at range one, power-recoverable but never addressable at depth (§59–64).
+
+That is the program's final answer to "can the middle be compressed, and in what
+coordinates": yes — into a corpus-robust functional vocabulary of ~80 words whose
+causal identities are real, whose supports are inseparable, and whose reach is one
+layer.
