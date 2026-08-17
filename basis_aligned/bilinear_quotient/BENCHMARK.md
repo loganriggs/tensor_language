@@ -144,8 +144,11 @@ architecture-agnostic harness (traced-forward contract, five mandatory
 self-tests, refit + joint scoring, both regimes) — the port surface for a new
 model is ~100 lines of traced forward. Measured search results: greedy rank
 allocation matches uniform (§195); reader-aligned subspace allocation loses to
-variance (§196) — the frontier levers are computation class, refit, and
-(hypothesized) cross-layer sharing.
+variance (§196) — the frontier levers are computation class and refit ONLY: cross-layer
+sharing is exactly param-neutral (§198), and the tail's Pareto curve is
+parameterization-invariant across all four schemes tried — scale investment
+should go to class selection, refit machinery, and harness self-tests, not
+allocation search.
 
 ## Why this is not quantization
 

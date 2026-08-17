@@ -3309,3 +3309,11 @@ hypothesis: cross-layer shared bases. The scale harness (HARNESS.md +
 harness_skeleton.py) shipped with all five self-tests green.
 
 Full detail in `BILIN18_CONNECTION.md` §§196-197.
+
+### The curve is parameterization-invariant
+
+Shared basis lands exactly on the uniform curve; four schemes tried, none beat
+it. Diffuseness as Pareto-invariance. Levers that work: refit, class
+selection, regime accounting.
+
+Full detail in `BILIN18_CONNECTION.md` §198.

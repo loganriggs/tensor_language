@@ -545,7 +545,15 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   six model pairs agree at 0.74–0.84 with coverage matched. The fingerprint matrix
   factorizes into where-in-the-stack × where-in-the-language: the models differ in how
   they compute, and agree on what is hard, where in the stack to work on it, and which
-  words the work lands on. The benchmark's semantic track has run its first scored
+  words the work lands on. The structural track's first hillclimb rounds returned a clean negative with a
+  sharp moral: four parameterization schemes at matched budgets (uniform ranks, greedy
+  allocation, reader-aligned subspaces, a cross-layer shared basis) all land on — or
+  below — one Pareto curve; nothing shifts it. The tail's replaceable function is
+  parameterization-invariant, the strongest measured form of the diffuseness thesis, and
+  the levers that actually move the frontier are sequential refit, computation-class
+  selection, and norm-regime accounting. A scale harness (HARNESS.md) with mandatory
+  per-model self-tests now makes porting a new architecture a ~100-line task. The
+  benchmark's semantic track has run its first scored
   pilot with the program's own explanations: one certified in both measurement regimes
   (the net-harmful late attention, +0.28 gain-frozen), one floor-grade with its
   predicted regime-flip confirmed live, one refuted — and the pilot's failures became

@@ -5422,3 +5422,26 @@ staleness-keyed map caching, and balanced-gauge parameter accounting. The
 model-specific surface is ~100 lines of traced forward per architecture;
 everything else is generic. This was the identified blocker for
 "throw GPUs at larger models" — it now has a reference implementation.
+
+## 198. Hillclimb rounds 1–2 synthesis: the Pareto curve is parameterization-invariant
+
+File: `bilin18_shared_basis.py`. The shared-basis assembly (one 64-dim basis
+pair for all twelve tail stand-ins, 0.20M params) scores **+1.734 — exactly on
+the uniform curve's interpolation at 0.2M** (neither better nor worse at
+matched params); held-out-layer bases cost +0.12 more (partial generalization).
+Combined with §§195–196, four parameterization schemes have now been tried at
+matched budgets:
+
+    uniform ranks        -> on the curve (the reference)
+    greedy allocation    -> on the curve (matches, never beats)
+    reader-aligned       -> below the curve (loses 0.34)
+    cross-layer shared   -> on the curve (param-neutral)
+
+**The fidelity-vs-parameter curve of this model's tail appears
+parameterization-invariant**: any r-parameter linear summary, however
+structured, captures the same amount — the strongest measured form of the
+diffuseness thesis, now as Pareto-invariance. The levers that actually moved
+the frontier this session: sequential refit (+36%), computation-class selection
+(constants where §155 licensed them), and the norm-regime accounting. Scale
+recommendation recorded in BENCHMARK.md: invest engineering in class selection,
+refit protocol, and the harness self-tests — not in allocation search.

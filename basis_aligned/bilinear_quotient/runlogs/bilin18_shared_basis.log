@@ -1,0 +1,7 @@
+shared-basis r64: +1.734 at 0.20M
+held-out bases (6 layers): +1.850
+
+(a) beats uniform-r16 by >=0.05 at 0.2M: FAILED
+(b) within 0.10 of unshared r64: FAILED
+(c) bases generalize across layers (<=0.08): FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_shared_basis_results.json (13s)
