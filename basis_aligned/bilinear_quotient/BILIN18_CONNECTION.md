@@ -3388,3 +3388,26 @@ alignment signature — which redirects the explanation of §91's depth decline
 (0.36 → 0.04) to **dilution**: the write shrinking relative to the accumulated
 residual, not de-aiming. That is registered and queued as v3: Spearman(write-to-
 residual energy ratio, measured effect) ≥ 0.7 over the ten edges.
+
+## 93. The tail routes by dilution: edge strength is the write's share of the stream
+
+Instrument note first: v3's ratios came out ~5×10⁴ — physically impossible — because
+the denominator captured the MLP's RMS-*normalized* input while the numerator was the
+raw write (units mismatch). v3.1 (`bilin18_edge_dilution2.py`) divides by the raw
+residual stream entering the next block. Both registered predictions then held:
+
+| edge | write/stream | measured effect |
+|---|---|---|
+| 5→6 | 0.252 | 0.277 |
+| 9→10 | 0.100 | 0.277 |
+| 14→15 | 0.040 | 0.041 |
+
+The dilution ratio declines **perfectly monotonically** through the tail (zero
+inversions in nine comparisons) and predicts measured edge strength at Spearman
++0.79. Combined with §92, the tail's layer-to-layer story is complete and simple:
+**writes are unaimed (alignment ratio ≈ 1.0), and an edge is exactly as strong as
+the writer's share of the stream the reader sees.** Each layer speaks at roughly
+constant absolute volume into an accumulating stream, so its marginal voice fades
+with depth — no routing structure, just arithmetic. This is the mechanism behind
+the depth map's tail: shallow-compressible because nothing downstream is aimed at
+anything specific upstream.

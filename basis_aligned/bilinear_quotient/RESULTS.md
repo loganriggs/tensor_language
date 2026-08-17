@@ -2444,3 +2444,12 @@ for a blind edge predictor to find (while the same machinery finds within-layer
 leader subspaces blindly). Dilution check queued.
 
 Full detail in `BILIN18_CONNECTION.md` §92.
+
+### The tail routes by dilution
+
+After a units-mismatch fix, both bars held: write-to-stream ratio declines
+perfectly monotonically (0.252 to 0.040) and predicts edge strength (Spearman
++0.79). With section 92: tail edges are unaimed, and edge strength = the writer's
+share of the stream. No routing structure, just arithmetic.
+
+Full detail in `BILIN18_CONNECTION.md` §93.

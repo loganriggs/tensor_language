@@ -392,9 +392,14 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   top-vector match. Two caveats travel with the hits: the tail layers' attributions are
   noisy at the cheap permutation budget used, and one tail layer's top output span
   <em>improves</em> shifted-corpus loss when deleted — the truncation-as-regularisation
-  pattern appearing unprompted. Remaining open: the same blind protocol for <em>edges</em>
-  (the input-mode Gram's untested forward predictions — now queued), and profiles for the
-  rest of the tail. One hypothesis was tested and refuted on three candidate classes: that
+  pattern appearing unprompted. The blind protocol for <em>edges</em> has now run, and its answer reshapes the tail:
+  adjacent tail edges carry <strong>no alignment structure at all</strong> (write-to-reader
+  alignment ratios 0.81–1.18, indistinguishable from isotropic), and measured edge strength
+  is instead predicted by pure <strong>dilution</strong> — the writer's share of the residual
+  stream, which declines perfectly monotonically with depth (0.252 → 0.040, Spearman +0.79
+  against intervention-measured effects). The tail routes by arithmetic, not by aiming:
+  each layer speaks at roughly constant volume into an accumulating stream. Remaining open:
+  profiles for the rest of the tail. One hypothesis was tested and refuted on three candidate classes: that
   the residual stream <em>constrains</em> the model — that pruning connections plus a short
   finetune could beat the intact model. Spans flagged by deletion benefit (+0.026 nats vs
   an identically-finetuned control), the foreign-code reader L11 (+0.033), and the
