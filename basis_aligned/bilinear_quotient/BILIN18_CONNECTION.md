@@ -2323,3 +2323,50 @@ reduced absolute pattern mass *globally* — a scale confound (the injected offs
 perturbs the rms normalisations, shrinking q/k products everywhere). No conclusion
 about where head 1 re-aims is licensed from this run; a scale-controlled redesign
 (per-row normalised patterns, corpus-frequency-matched classes) is queued.
+
+## 49. Layer 1 factorizes after all — one entangled core, one inert complement — plus the completed shallowness map
+
+Files: `bilin18_factorization.py` (15 s, run for the user's independence question),
+`bilin18_tail_shallowness.py` (140 s), `bilin18_head1_aim2.py` (5 s).
+
+### 49.1 The factorization test: my "no factorization" prediction failed
+
+Two-way 576+576 splits of layer 1's output space, synergy share = (full − dA − dB)/full:
+
+| split | d(A) | d(B) | synergy share |
+|---|---|---|---|
+| **PCA low/high** | **+4.169** | **+0.009** | **15%** |
+| G_lam top/bottom | +2.759 | +0.011 | 44% |
+| PCA interleaved | +0.224 | +0.209 | 91% |
+| random ×5 | ~0.12 | ~0.12 | **95–96%** |
+
+Registered prediction (a) — no split below 50% — **failed**, and the failure sharpens
+§45: layer 1 is *not* unstructured holism. The PCA-aligned top-576 subspace carries 85%
+of the layer *by itself*, the complement is nearly inert (+0.009), and cross-synergy is
+only 15%. **Layer 1 ≈ (deeply entangled 576-dim core) ⊕ (inert complement)** — a
+factorization exists; it is just that the working factor is half the space and
+internally graded to all orders (§46). Meanwhile any *misaligned* cut sees 95%
+synergy (random splits, isotropy prediction (b) held at 1pp spread), which is why the
+band analysis read as total holism. All synergies are positive everywhere: the
+structure is need-both synergy, never mutual exclusivity. §45's "hard boundary on any
+pairwise calculus" stands *within the core*; "no small core" stands (the core is big,
+not absent); "no factorization" is corrected here.
+
+### 49.2 The 18-layer shallowness map is complete
+
+All eleven tail layers (5–15) land **above** layer 3's 57% solo+pair share — most at
+85–95% — with the registered prediction held and no exclusions needed (every tail
+layer cleared the 0.02-nat power floor). Final map: **deep interaction is exclusive to
+layers 1–3.** One narrow early region of genuinely high-order computation feeds an
+otherwise shallow, compressible, weight-predictable machine.
+
+### 49.3 The re-aiming mechanism is real; head-specificity is not licensed
+
+The scale-controlled redesign: under L0-leader steering, head 1's *relative* pattern
+mass on punctuation keys shifts **4.1×** more than under a matched random steer
+(registered bar 3×, held). But the inert-head control was violated again — head 6's
+punctuation mass moves 57× its random-steer baseline — so the class re-aiming is
+attention-wide, not head-1-specific. Combined with §46 (only head 1's freeze affects
+c₀): **the steer re-aims many heads toward punctuation; only head 1's re-aiming is
+read by the leader coefficient.** The mechanism claim is supported; the selectivity
+lives in what c₀ reads, not in which heads move.

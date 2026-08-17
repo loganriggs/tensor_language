@@ -1,0 +1,6 @@
+punct keys 980 | frequent-content keys 2672
+head 1: punct rel-mass 0.9874 | Δ leader-steer +0.05421 | Δ random-steer +0.01330 | ratio 4.1x
+head 6: punct rel-mass 1.2469 | Δ leader-steer -0.29794 | Δ random-steer +0.00522 | ratio 57.1x
+
+prediction (head-1 ratio >= 3x): HELD | head-6 control < 1.5x: VIOLATED
+wrote bilin18_head1_aim2_results.json (5s)

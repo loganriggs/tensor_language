@@ -1,0 +1,15 @@
+layer  5: full +0.1029 -> solo+pair share 90%
+layer  6: full +0.0759 -> solo+pair share 84%
+layer  7: full +0.0549 -> solo+pair share 93%
+layer  8: full +0.0597 -> solo+pair share 94%
+layer  9: full +0.0456 -> solo+pair share 88%
+layer 10: full +0.0629 -> solo+pair share 96%
+layer 11: full +0.0744 -> solo+pair share 96%
+layer 12: full +0.0609 -> solo+pair share 96%
+layer 13: full +0.0574 -> solo+pair share 95%
+layer 14: full +0.0492 -> solo+pair share 97%
+layer 15: full +0.0337 -> solo+pair share 95%
+
+tested (|full|>=0.02): [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]; above 57%: [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+registered (all tested tail layers above layer 3's 57%): HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_tail_shallowness_results.json (140s)

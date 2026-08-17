@@ -2019,3 +2019,17 @@ underpowered class, violated control, scale confound — and is recorded as inst
 failure, not evidence.)
 
 Full detail in `BILIN18_CONNECTION.md` §48.
+
+### Factorization found, map completed, mechanism refined
+
+Answering the independence question directly: layer 1's synergies are all **positive**
+(need-both, never mutual exclusivity), and my "no factorization" prediction **failed**
+informatively — the PCA low/high split shows only 15% cross-synergy: an entangled
+576-dim core carrying 85% of the layer alone, plus a nearly inert complement (+0.009).
+Random cuts see 95% synergy, which is why band analyses read as total holism. Also: the
+18-layer shallowness map is complete (all tail layers above 57%; deep interaction is
+exclusive to layers 1–3), and the re-aiming mechanism is real but attention-wide (4.1×
+punctuation-specific vs random steer; head-6 control violated, so selectivity lives in
+what c₀ reads, not in which heads move).
+
+Full detail in `BILIN18_CONNECTION.md` §49.
