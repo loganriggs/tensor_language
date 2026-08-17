@@ -3300,3 +3300,12 @@ Greedy matches uniform at every budget despite 32x nonuniform allocations --
 the flat frontier extends to allocation. Refit remains the only lever found.
 
 Full detail in `BILIN18_CONNECTION.md` §195.
+
+### Round 1 verdict + harness shipped
+
+Reader-alignment loses to variance 11/12 (+0.34 jointly): subspace-grain
+circuit knowledge loses twice; the wins are class/protocol-level. Round-2
+hypothesis: cross-layer shared bases. The scale harness (HARNESS.md +
+harness_skeleton.py) shipped with all five self-tests green.
+
+Full detail in `BILIN18_CONNECTION.md` §§196-197.

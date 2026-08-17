@@ -5387,3 +5387,38 @@ blind allocation search is not a frontier lever here; the standing levers
 remain refit and (untested at scale) different computation classes. The
 strategy-2 fight (reader-aligned vs variance truncation) is next on the queue
 and now carries the interesting question alone.
+
+## 196. Round 1 verdict: at this grain, understanding loses to variance — twice
+
+File: `bilin18_circuit_assign.py`. The reader-aligned rule ("write what your
+reader reads") **loses to blind variance truncation 11/12 individually and by
+0.34 nats jointly** (A +1.708 vs B +2.049) — the registered alternative, and
+the §109 diffuseness verdict extending to allocation: the measured watch-lists
+are genuine but *minority* channels (28% of a layer's value, §172), so
+spending all eight ranks on them discards the diffuse majority the reader also
+consumes.
+
+Round-1 synthesis, stated plainly for the hillclimbing program: **at the
+subspace-allocation grain, circuit knowledge does not beat blind variance in
+this model — in either form tried** (greedy rank allocation matched uniform,
+§195; reader-alignment lost outright). Where understanding *has* paid on this
+benchmark: choosing the computation class per layer (constants where §155
+showed nothing is needed), the sequential-refit protocol, and knowing the norm
+regimes. Hypothesis for round 2: the wins live at the class-and-protocol level
+and at *cross-layer sharing* (one basis amortized across the diffuse tail),
+not at per-layer subspace choice.
+
+## 197. The scale harness ships: self-tests green
+
+Files: `HARNESS.md` (spec) and `harness_skeleton.py` (working reference,
+drafted by a parallel subagent, verified end-to-end): an architecture-agnostic
+replacement harness with the single-traced-forward contract, five mandatory
+per-model self-tests (identity, no-op vs an independent reference
+implementation, mean-ablation cross-check, gain-freeze-free-at-zero-damage,
+fit cross-check — all GREEN on the bilin18 adapter), sequential refit and
+joint-only scoring built in, both norm regimes (the frozen regime got its own
+dual forward, validated by the zero-damage test), greedy allocation with
+staleness-keyed map caching, and balanced-gauge parameter accounting. The
+model-specific surface is ~100 lines of traced forward per architecture;
+everything else is generic. This was the identified blocker for
+"throw GPUs at larger models" — it now has a reference implementation.
