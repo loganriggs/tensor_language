@@ -1777,3 +1777,23 @@ shifted text, deep ones on the training distribution). Three-layer regularity: t
 distribution-robust core of every verified leader is its rank-1 whitened surrogate.
 
 Full detail in `BILIN18_CONNECTION.md` §26.
+
+### The middle attributed fairly — and the 2.87× corrected to 1.42×
+
+Layer-level Shapley over the fourteen middle quadratic parts, which first forced a
+correction: §10's 2.87× superadditivity mixed two different deletion operators and used
+stale means; under one clean operator (exact intact-model mean write) the joint cost is
+2.963 vs a solo sum of 2.087 — **1.42×**. Qualitative claim survives, magnitude halved,
+and "delete cost" is now flagged as operator-dependent throughout (per-layer costs move
+up to 3.5× between operators).
+
+The fair shares reshape the middle entirely: **layers 2 and 3 carry 64%** of it (the
+"distributed middle" is mostly two adjacent early layers), the tail layers 5–15 carry
+3–7% each with their solo costs understated 3–5×, and **layer 4's Shapley value is
+large and negative** (−0.668, −22.5%, robust across operators): removing it *repairs*
+part of the damage of removing the others. Its computation helps only while its
+downstream partners are intact — a coupling signature invisible to any solo or joint
+number, and the sharpest evidence yet that the middle is a pipeline rather than a
+collection.
+
+Full detail in `BILIN18_CONNECTION.md` §27.

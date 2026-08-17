@@ -1657,3 +1657,61 @@ Two structural observations the table adds:
 The distribution-robust core of every verified leader is its rank-1 whitened surrogate;
 every remainder is neutral-to-harmful under shift. That is now a three-layer regularity,
 not a curiosity.
+
+---
+
+## 27. The middle, attributed fairly — and a correction to the 2.87× headline
+
+Files: `bilin18_middle_shapley.py` (673 s, 20 permutations under a clean operator),
+plus the operator check (scratch).
+
+### 27.1 Correction: the superadditivity is 1.42×, not 2.87×
+
+Cross-checking this run's gates against §10.2 exposed two defects in that measurement.
+Its numerator and denominator used **different deletion operators** — the solo costs
+came from §9's machinery (which writes the layer's mean *minus its component in the
+top-R output span*, R ≤ 48) while the joint deletion used a top-1-PC variant — and the
+joint run computed each layer's mean **on a model whose earlier layers were already
+ablated** (stale means). Under one clean operator (write the exact intact-model mean;
+no span removal, no staleness), on intact means throughout:
+
+| | §10.2 (mixed operators, stale means) | clean operator C |
+|---|---|---|
+| sum of 14 solo deletions | 1.790 | 2.087 |
+| all 14 deleted together | 5.142 | 2.963 |
+| **superadditivity** | **2.87×** | **1.42×** |
+
+The qualitative claim — the middle is jointly more than its parts, so one-at-a-time
+ablation understates it — survives. The magnitude was inflated 2×. Everything
+downstream that quoted 2.87× (§12.3's analogy, RESULTS, the report chart) carries this
+correction. A general lesson worth the ink: **"delete cost" is operator-dependent** —
+§9's span-removal operator distorts the layer's *mean* along with its variation, and
+per-layer costs move by up to 3.5× between operators (layer 4: 0.381 under A, 0.110
+under C). Any ablation number needs its operator stated.
+
+### 27.2 The fair shares: two working layers, one saboteur, eleven understudies
+
+Shapley over the fourteen quadratic parts, everything under operator C:
+
+| layer | solo | Shapley | amplification | share |
+|---|---|---|---|---|
+| 2 | +0.679 | +0.861 | 1.3× | 29.1% |
+| 3 | +0.801 | +1.024 | 1.3× | **34.6%** |
+| **4** | +0.110 | **−0.668** | — | **−22.5%** |
+| 5–15 (each) | 0.017–0.071 | +0.09–0.22 | **2.9–5.4×** | 3–7% |
+
+Participation ratio 3.5 of 14. Three structural facts:
+
+1. **Layers 2 and 3 are the middle.** Together 64% of the fair share — the "distributed
+   middle" of §10 is mostly two adjacent early layers plus a long tail. With §9's
+   layer-1 result, the model's MLP story is heavily front-loaded: layers 1–3 dominate.
+2. **Layer 4's Shapley value is large and negative** (−0.668, robust across both
+   operators). Averaged over deletion contexts, *removing layer 4's quadratic part
+   repairs part of the damage of removing the others*. Its computation is useful only
+   when its downstream partners are intact; with them gone, its output is actively
+   harmful. That is a strong, testable coupling signature — layer 4 writes something
+   that later layers must process — and no solo or joint number could have shown it
+   (solo: +0.110, unremarkable).
+3. **The tail's importance was uniformly hidden**: layers 5–15 carry 3–7% each at
+   amplification 2.9–5.4×. Solo ablation understated every one of them, by more the
+   later they sit.
