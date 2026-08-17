@@ -1019,3 +1019,42 @@ Three consequences:
 The natural follow-on — are the ten Shapley-leading directions the ones a dictionary
 names, i.e. do nameability and causality align once interference is handled — is
 registered as an open question, not run.
+
+---
+
+## 14. The follow-on: nameability and causality are aligned after all
+
+File: `bilin18_shapley_dict.py` (no new model evaluations — geometry on §12/§13's objects).
+
+§78 (repo) reported the nameable axis and the causal axis of MLP1 are "nearly
+orthogonal": a dictionary names 23/32 atoms but 0/32 are load-bearing. §13 showed the
+causal instrument behind that second number — solo ablation — misranks by up to 4.6× and
+assigns negative effects to genuinely load-bearing directions. So the recorded
+orthogonality could be an artefact of the instrument. With Shapley values in hand the
+question becomes geometric: does the dictionary's nameable structure live where the
+causal mass lives?
+
+For each of the top 32 dictionary atoms, the fraction of its energy inside three
+10-direction spans of the same top-32 SVD subspace:
+
+| span | mean atom energy | usage-weighted |
+|---|---|---|
+| top-10 Shapley directions | **0.238** | **0.288** |
+| random 10-subsets (200 draws) | 0.177 [0.143–0.214] | — |
+| bottom-10 Shapley directions | 0.132 | 0.135 |
+
+Top beats the 95th percentile of the null; top/bottom ratio 1.80×; weighting by atom
+usage strengthens it (0.288), meaning the *most-used* atoms are the most concentrated on
+the causal directions.
+
+**The nameable atoms preferentially occupy the causally responsible subspace.** §78's
+"naming does not explain the hub" conclusion was at least partly an artefact of scoring
+causality with solo ablation. The corrected statement: the dictionary's atoms do point
+where the causal mass is — what remains true from §78 is only that no *single* atom is
+individually load-bearing, which §13 explains as interference among ~10 genuine parts
+rather than absence of parts.
+
+Caveats stated rather than buried: the alignment is a 1.8× enrichment, not identity
+(atoms still hold most of their energy outside the top-10 span); the dictionary explains
+0.82 of output variance (FVU 0.179), so a fifth of the structure is unmodelled; and this
+is one layer of one model.

@@ -1550,3 +1550,18 @@ contribution is 4.6× its solo effect, and two directions with negative solo eff
 (removal appears helpful) genuinely carry +0.019 nats each.
 
 Full detail in `BILIN18_CONNECTION.md` §13.
+
+### Naming and causing turn out to be aligned
+
+The registered follow-on closed the loop. The repository's §78 had concluded the
+nameable axis and the causal axis of MLP1 are nearly orthogonal — dictionaries name but
+do not explain. Its causal side was measured with solo ablation, the instrument just
+shown to misrank. Re-asked geometrically with the Shapley ranking: dictionary atoms hold
+**1.8× more** of their energy in the span of the ten causally-leading directions than in
+the ten trailing ones, above the 95th percentile of a random-subset null, and the effect
+*strengthens* when atoms are weighted by usage. The nameable structure lives where the
+causal mass lives; what survives of §78 is only that no single atom is individually
+load-bearing — which is interference among ten real parts, not orthogonality of naming
+and causing. (Enrichment, not identity: 1.8×, one layer, dictionary FVU 0.179.)
+
+Full detail in `BILIN18_CONNECTION.md` §14.
