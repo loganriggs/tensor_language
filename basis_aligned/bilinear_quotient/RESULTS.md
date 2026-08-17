@@ -2232,3 +2232,14 @@ all five levels: dense support, orthogonal functionals, 80-word verified vocabul
 complementary corpus-robust constituencies, one-layer steering range.
 
 Full detail in `BILIN18_CONNECTION.md` §67.
+
+### The words have correlational names
+
+Predictions failed optimistically: 3 of 5 vocabulary words clear their nulls at ρ
+0.48–0.56 (determiner/possessive context; clause openers; a measurement register), and
+four of five carry the document component at ICC ≈ 0.56 — the register leader's exact
+number. Principal decomposition finds register-shaped words because the mixture is the
+dominant variance. Names are verified correlationally only; the causal test of the
+best name is queued (the token-story record stands at three-for-three failures).
+
+Full detail in `BILIN18_CONNECTION.md` §68.

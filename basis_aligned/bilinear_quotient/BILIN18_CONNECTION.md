@@ -2865,3 +2865,31 @@ That is the program's final answer to "can the middle be compressed, and in what
 coordinates": yes — into a corpus-robust functional vocabulary of ~80 words whose
 causal identities are real, whose supports are inseparable, and whose reach is one
 layer.
+
+## 68. The words have names after all — correlationally
+
+File: `bilin18_word_naming.py` (11 s). Both registered predictions **failed in the
+informative direction** — I predicted, from the program's token-story record, that at
+most 2 of 5 words would be token-nameable and none register-shaped. Instead:
+
+| word | ρ (null ~0.08) | ICC | fires on |
+|---|---|---|---|
+| #1 | **+0.50** | 0.56 | ` your, their, both, the` + whitespace |
+| #2 | **+0.56** | 0.56 | `(, [, ", We` + whitespace |
+| #3 | −0.17 | 0.22 | (not nameable) |
+| #4 | +0.18 | 0.56 | (not nameable) |
+| #5 | **+0.48** | 0.57 | ` detected, levels, samples, As` |
+
+**Three of five words carry verified token structure** (determiner/possessive context;
+clause-and-bracket openers; a quantitative/measurement register), and four of five have
+document-level ICC ≈ 0.56 — *the same number as the original register leader's* (§17).
+The vocabulary's principal words are substantially register-shaped, which in hindsight
+is what a variance-driven principal decomposition must find when the document mixture
+is the dominant variance structure.
+
+Status of these names, stated carefully per the three-for-three record: they are
+**verified correlational descriptions** (nulls cleared decisively), not causal claims —
+the program's every causal test of a token story has failed, and the queued test
+(steering word #5 and reading measurement-vocabulary log-probs) will either make it
+four-for-four or record the first causal token-story success. Either outcome is worth
+having, and the bar is registered accordingly modest.
