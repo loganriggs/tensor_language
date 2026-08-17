@@ -2254,3 +2254,12 @@ interventions along the same directions shift broad distributional mass, never t
 named tokens selectively. The decisive test (the ρ = 0.95 punctuation axis) is queued.
 
 Full detail in `BILIN18_CONNECTION.md` §69.
+
+### The regularity breaks at its decisive test — and becomes graded
+
+The ρ=0.95 axis steers its tokens at 1.7× controls: above the regularity bar, below
+clean success. Revised statement: causal token selectivity is graded by correlational
+crispness and weak even at its best (0.95→1.7×, 0.48→1.3×, weaker→≤1×). The
+systematic ρ-vs-selectivity test is queued.
+
+Full detail in `BILIN18_CONNECTION.md` §70.

@@ -2921,3 +2921,20 @@ Registered decisive test, queued: the strongest correlational name in the progra
 layer 0's ρ = 0.95 punctuation axis. If even that fails causal selectivity, the
 regularity holds at maximal strength; if it succeeds, the boundary is "steerable only
 where naming is near-perfect," which would be its own finding.
+
+## 70. The regularity is graded, not absolute
+
+File: `bilin18_punct_causal.py` (5 s). The five-for-five prediction **failed**: the
+ρ = 0.95 punctuation axis shows a **1.7×** causal swing ratio — above the 1.5×
+regularity bar, below the 2× "cleanly bounded" alternative. Even the crispest name in
+the program steers its tokens only 1.7× more than controls, but it *does* steer them.
+
+Revision, stated plainly: **causal token selectivity in bilin18 is graded by
+correlational crispness, and weak even at its best.** The data points so far: ρ 0.95 →
+1.7×; ρ 0.48 → 1.3×; weaker names → ≤1×. "Readable but not steerable" overstated the
+dichotomy; the true statement is a steep, lossy conversion from correlational to
+causal token structure — most of what makes a name readable does not survive into
+steering, but a residue does, in proportion. The systematic test (selectivity ratio vs
+naming ρ across ~8 named directions, registered Spearman ≥ 0.6) is queued; if the
+monotone relation holds, the program closes with a quantitative law for when token
+semantics can be causally used at all.
