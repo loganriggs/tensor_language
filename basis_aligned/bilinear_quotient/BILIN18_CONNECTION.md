@@ -4094,3 +4094,26 @@ model's biggest content span is gone, the sharpener (§98) sharpens corrupted
 content, so removing it helps. The regularization story and the composition
 accounting meet: negative spans are not free-floating benefits but interaction
 partners whose sign depends on what else is broken.
+
+## 123. The product law's final scope
+
+File: `bilin18_content_product_law.py`. Across a 3×3 grid of *damage shapes*
+(span sizes 2/8/32 at both layers), the scalar product law fails at both levels —
+raw R² 0.12, content R² 0.47 — **as §48 predicted it would**: the law is
+per-damage-family (a bilinear form in the damage profiles), and this grid mixes
+families. The scalar version's validated domain was always fixed-shape sweeps.
+Two new facts from the grid:
+
+- **Raw excess flips sign** for small-L17-damage cells (−0.07 to −0.11): with a
+  2-dim L17 deletion, adding L16 damage *helps* relative to additivity — the
+  output-end compensation machinery (§121) is strong enough to invert the
+  interaction. The product law's positive-coupling regime requires both damages
+  substantial.
+- **The content-level constant is ~13, not 23** (registered (b) held): the
+  historic c = 22.9 was roughly norm-doubled. Compression budgeting with the
+  §law formula should use the content-level constant and expect ±families.
+
+Also logged: raw d17 is non-monotone in span size (k=32 < k=8) — ranks 9–32 of
+L17's output PCA include beneficial-to-delete directions. Band scan queued
+(registered: (a) some band beyond rank 8 has negative content-level damage;
+(b) the non-monotonicity localizes to that band).

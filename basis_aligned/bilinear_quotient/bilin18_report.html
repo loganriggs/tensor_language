@@ -350,7 +350,12 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   cancels about two-thirds of that; the remaining +0.16 content-level excess is carried
   ~21% by L17's quadratic and the rest by attention-and-upstream interaction. Compensation
   — the model actively attenuating compound damage — appears three separate times in this
-  arc, and the product-law constant was always the residue of that cancellation war.</p>
+  arc, and the product-law constant was always the residue of that cancellation war. The
+  law's final scope, measured on a grid of damage shapes: it holds within a fixed damage
+  family (where it was validated out-of-sample), fails across families (R² 0.12–0.47, as
+  the bilinear-form refinement predicted), carries a content-level constant of ~13 rather
+  than the norm-inflated 23, and inverts outright when one damage is small — the
+  compensation machinery can make joint damage cheaper than the sum.</p>
   <p>Three registered attempts to <em>remove</em> the interaction then failed in a row —
   refitting downstream-of-upstream closed 21%, raising the form rank closed 0%, widening
   the output span closed 30% — and the failures were the finding. Across all eight

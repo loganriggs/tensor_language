@@ -1,0 +1,25 @@
+raw k16= 2 k17= 2: d16 +0.0547 d17 +0.3264 excess -0.0675
+raw k16= 2 k17= 8: d16 +0.0547 d17 +0.4890 excess +0.1012
+raw k16= 2 k17=32: d16 +0.0547 d17 +0.4706 excess +0.1726
+raw k16= 8 k17= 2: d16 +0.2220 d17 +0.3264 excess -0.1089
+raw k16= 8 k17= 8: d16 +0.2220 d17 +0.4890 excess +0.1539
+raw k16= 8 k17=32: d16 +0.2220 d17 +0.4706 excess +0.1715
+raw k16=32 k17= 2: d16 +0.2107 d17 +0.3264 excess -0.1105
+raw k16=32 k17= 8: d16 +0.2107 d17 +0.4890 excess +0.1420
+raw k16=32 k17=32: d16 +0.2107 d17 +0.4706 excess +0.1620
+raw: product-law c=1.0, R^2=0.12
+
+content k16= 2 k17= 2: d16 +0.0328 d17 +0.0638 excess +0.0380
+content k16= 2 k17= 8: d16 +0.0328 d17 +0.0928 excess +0.0554
+content k16= 2 k17=32: d16 +0.0328 d17 +0.0775 excess +0.0748
+content k16= 8 k17= 2: d16 +0.1480 d17 +0.0638 excess +0.0110
+content k16= 8 k17= 8: d16 +0.1480 d17 +0.0928 excess +0.2160
+content k16= 8 k17=32: d16 +0.1480 d17 +0.0775 excess +0.1708
+content k16=32 k17= 2: d16 +0.1353 d17 +0.0638 excess +0.0090
+content k16=32 k17= 8: d16 +0.1353 d17 +0.0928 excess +0.2092
+content k16=32 k17=32: d16 +0.1353 d17 +0.0775 excess +0.1701
+content: product-law c=12.9, R^2=0.47
+
+(a) product law survives at content level (R^2>=0.7): FAILED (0.47)
+(b) constant changes >=2x: HELD (raw 1.0 vs content 12.9)
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_content_product_law_results.json (24s)

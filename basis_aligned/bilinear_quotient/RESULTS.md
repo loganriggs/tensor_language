@@ -2711,3 +2711,12 @@ misreading excess as joint total -- recorded.) Content-level product-law re-fit
 queued.
 
 Full detail in `BILIN18_CONNECTION.md` §122.
+
+### Product law: final scope
+
+Across damage shapes the scalar law fails (raw R^2 0.12 with sign flips, content
+0.47) -- per-family as section 48 said; content-level constant ~13 vs the
+norm-inflated 23. Small-damage cells INVERT (compensation strong enough to make
+joint damage beneficial). L17 band scan queued.
+
+Full detail in `BILIN18_CONNECTION.md` §123.
