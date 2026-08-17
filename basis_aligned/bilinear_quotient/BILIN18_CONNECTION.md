@@ -3522,3 +3522,25 @@ attention gathering: **L16's MLP computes the bus from the accumulated token-loc
 residual state.** The model's strongest interaction is assembled in place from
 ingredients no single component supplies — the interchange is real, its supply
 chain is the whole stream.
+
+## 99. The finetune erases the signature; assembly regression needs an aligned rerun
+
+**Reclaim anatomy** (`bilin18_reclaim_anatomy.py`): the registered *alternative*
+landed. After both arms finetune, the pruned model's hard-token advantage is gone —
+the +0.010 gap spreads roughly evenly (hard quartile +0.002, easy +0.005). The
+frozen-model redistribution signature (§98) says nothing about adapted models: a
+200-step finetune re-tunes the calibration/sharpness trade across the board rather
+than fighting the deletion locally. §97's conclusion is unchanged and now fully
+mechanistic: deletion benefits are frozen-point local properties, erased by the
+first opportunity to adapt.
+
+**Bus assembly v1** (`bilin18_bus_assembly.py`): instrument error, recorded. The
+stream features were captured from a separate 256-token forward while the bus
+targets came from a 257-token run — per-row misalignment garbles the stream and
+early-stream R²s (−0.08, −0.02), and the one internally aligned feature (L16's own
+attention output, R² +0.33) is the only valid number. It creates a genuine tension
+worth resolving: attention output *correlates* with bus coordinates (0.33) though
+its cross-document content is causally inert (0.05σ, §98). The aligned v2 is queued;
+prediction updated: stream-in R² ≥ 0.6 stands, and the attention correlation should
+be explained away as shared position/context signal (partialling out the stream
+should drop it below 0.15).

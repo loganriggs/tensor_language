@@ -2498,3 +2498,11 @@ upstream MLPs nor via L16's attention (0.05-sigma, below the diffuse floor): L16
 MLP assembles it from accumulated stream state.
 
 Full detail in `BILIN18_CONNECTION.md` §98.
+
+### The finetune erases the signature
+
+After adaptation the pruned model's hard-token advantage vanishes (gap spread
+evenly) -- frozen-model deletion signatures do not transfer to adapted models.
+Bus-assembly regression had a misalignment bug (recorded); aligned v2 queued.
+
+Full detail in `BILIN18_CONNECTION.md` §99.
