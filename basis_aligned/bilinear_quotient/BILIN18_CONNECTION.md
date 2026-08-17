@@ -1254,3 +1254,28 @@ from preference:
    does *that writer* respond to" — for the leader, the next unfold is through attn1's
    value circuit (which past tokens, with what pattern weights), not through the
    current-token vocabulary.
+
+---
+
+## 18. The leader unfolded: one head, squared
+
+File: `bilin18_leader_unfold.py` (6 s; exactness gates 5e-7 head level, 3e-7 key level).
+
+§17 said the register leader is attn1's output squared. Splitting that exactly by head
+pair (attention output is linear in heads through c_proj, so the quadratic splits into
+an exact 9×9 grid), then attributing each key position's exact share:
+
+- **Head 4 of layer 1, squared, is 90.4% of the leader's variance.** The next term
+  (head 1 × head 4) is 5.0%. One head carries the register feature almost alone.
+- **The keys that drive it are layout characters.** Attending to ` `, ` <`, `</`, `\r`,
+  `\n\n`, `#`, `$`, `%`, `!` pushes the signal up; attending to `The`, `).`, ` we`,
+  ` my`, `.`, ` and` pushes it down. The feature is literally "how much of the attended
+  context is markup/layout rather than prose".
+- **It is a local-context feature**: half the attribution mass lies within 15 tokens;
+  offsets 0–4 carry 16%, beyond 64 only 19%.
+
+Full mechanistic sentence, every step exact: *MLP1's dominant causal direction squares
+head 4's aggregation of layout tokens in the recent context, producing a
+document-register signal that carries 39% of the layer's causal effect.* Every clause
+above is a measurement (§13/§16 for the 39%, §17 for the writer, this for the head, the
+keys, and the range).
