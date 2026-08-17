@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_bus_assembly2.py", line 102, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_bus_assembly2.py", line 57, in main
+    tr=collect(FW[0:60,:257]); te=collect(FW[300:336,:257])
+       ^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_bus_assembly2.py", line 46, in collect
+    return {k:torch.cat(v) for k,v in feats.items()}
+              ^^^^^^^^^^^^
+ValueError: torch.cat(): expected a non-empty list of Tensors
