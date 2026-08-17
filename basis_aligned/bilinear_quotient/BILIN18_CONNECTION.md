@@ -4485,3 +4485,13 @@ concentrated hard-token-critical content. What stands from the whole chain
 late-attention negatives, the L6 cargo edge, the gain channel's two faces
 (masking interactions, §117; faking content, §142), and L16 as the largest net
 content span with its value on the easy side.
+
+## 144. Dilution law: ratio side replicates exactly (effects side queued)
+
+File: `bilin18_dilution_replicate.py`. With fresh statistics rows the
+write-to-stream ratios are nearly identical (0.253 → 0.043, zero inversions) and
+the law holds at Spearman +0.79. Caveat stated plainly: this script re-measures
+only the *ratio* side — the transplant effects were read from the original run's
+cache. The effects-side replication (fresh base/source rows for all ten
+transplants) is queued; registered: (a) new effects correlate with old at ≥ 0.8;
+(b) the law holds jointly on the all-fresh pair at ≥ 0.7.

@@ -2886,3 +2886,10 @@ value is on easy tokens; L17's +1.67 was pure gain channel (collapses to -0.06).
 Difficulty splits cannot separate content from generic damage here.
 
 Full detail in `BILIN18_CONNECTION.md` §143.
+
+### Dilution ratios replicate
+
+Fresh stats rows give near-identical ratios (Spearman +0.79, 0 inversions);
+effects-side replication queued to complete the check.
+
+Full detail in `BILIN18_CONNECTION.md` §144.
