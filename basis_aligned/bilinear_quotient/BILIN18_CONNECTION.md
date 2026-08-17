@@ -4244,3 +4244,17 @@ own MLP's input watch-list (the input-mode Gram's top directions)? Registered:
 (a) alignment exceeds the covariance-matched null by ≥ 0.15 (one watch-list per
 layer, shared across component types); alternative: two separate lexicons — also
 an answer, and it would echo §84's cross-type disjointness.
+
+## 131. Two watch-lists per layer: the component types divide the stream
+
+File: `bilin18_one_watchlist.py`. The registered alternative fired: a layer's
+attention lexicon and its MLP input watch-list align at 0.13–0.40 — at or below
+the covariance-matched null (0.35), and at L9/L13 well below it (the two lists
+*avoid* each other more than chance). (Caveat: the null was computed with L2's
+covariance; per-layer nulls would shift slightly, not enough to flip sub-null
+values into wins.) There is no "one watch-list per layer": **attention and the
+MLP each maintain their own**, and cross-type separation is now measured three
+independent ways — QK couplings reconstruct below chance from the MLP vocabulary
+(§84), OV paths are indifferent to it (§86), and the input watch-lists are
+disjoint (here). The component types divide the stream between them: same
+carrier, separate channels, separate reading institutions.

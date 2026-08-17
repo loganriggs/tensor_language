@@ -2777,3 +2777,11 @@ cross-layer does not (+0.06). Shared watch-list + private combinations now
 measured in both component families. One-watchlist unifier queued.
 
 Full detail in `BILIN18_CONNECTION.md` §130.
+
+### Two watch-lists per layer
+
+Attention lexicon vs MLP watch-list: 0.13-0.40, at/below the matched null --
+separate institutions, third independent measurement of cross-type separation.
+Write-channel symmetry check queued.
+
+Full detail in `BILIN18_CONNECTION.md` §131.
