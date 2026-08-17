@@ -3989,3 +3989,26 @@ The composition law is not a gain artifact — the gain was hiding a third of it
 Queued: the content-level version of §106's quadratic-skin kill (does linearizing
 L17 still remove ≥60% of the *content* excess?), which either re-grounds or
 re-opens the skin story at the corrected level.
+
+## 118. REVISION of the skin story: at content level, the quadratic skin carries only 21%
+
+File: `bilin18_content_kill.py` (controls exact). Linearizing L17 under per-arm
+frozen final gain kills only **21%** of the content-level excess (+0.205 → +0.162).
+
+> **Revision to §§102/106.** The "linearizing L17 kills 79–98% of the interaction"
+> result was dominated by the *norm channel*: L17's quadratic amplifies the two
+> ablations' joint effect on residual energy, and the final gain converts that to
+> loss. At **content level** the 16→17 interaction survives a linear L17 nearly
+> intact. The quadratic-skin story explains the gain-mediated interaction, not
+> the content interaction.
+
+What can carry a +0.162 interaction through a *linear* L17 with a *frozen* final
+gain? Logit deltas through a linear map superpose exactly, so the prime suspect
+is **loss curvature**: CE is convex in logit perturbations — two deltas each
+costing little can cost more together even when they add exactly. Queued, the
+final decomposition: (a) measure logit-delta additivity under linear-L17 +
+frozen-gain (registered: relative residual ≤15% — deltas do superpose); (b)
+evaluate CE at base+Δ₁₆+Δ₁₇ (synthetically added logits) vs the true joint run —
+registered: this curvature term accounts for ≥70% of the surviving excess. If
+both hold, the composition law finally decomposes into three named parts:
+quadratic content cross-term (~21%), norm-gain channel, and loss curvature.

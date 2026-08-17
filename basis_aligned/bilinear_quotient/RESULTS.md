@@ -2668,3 +2668,11 @@ both content damages combined. The product law is understated, not artifactual.
 Content-level skin-kill test queued.
 
 Full detail in `BILIN18_CONNECTION.md` §117.
+
+### Revision: the skin carries 21% at content level
+
+Linear L17 + frozen gain kills only 21% of the content excess -- the 79-98%
+kills were the norm channel. Prime suspect for the survivor: CE curvature (convex
+loss on superposing logit deltas). Logit-additivity decomposition queued.
+
+Full detail in `BILIN18_CONNECTION.md` §118.
