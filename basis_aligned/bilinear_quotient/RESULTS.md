@@ -1893,6 +1893,9 @@ directions cost ≥5× random at 4/7 (75× at layer 5); the misses are layers wi
 to find (span effects under 0.01) and layer 15, whose predicted top-2 *improve* pile CE
 when deleted. Negative span effects now at layers 9, 12, 15: shift-fragility is the
 tail's norm — its highest-variance directions are largely fineweb-specific fit.
-Registered follow-up: fineweb arm for the tail negatives.
+Fineweb arm run and all predictions held: every negative deletion effect flips
+positive in-distribution (layer 15's harmful pred-2: +0.0052 on fineweb). The tail does
+real fineweb-tuned work in exactly the directions the Λ-Gram finds; under shift that
+work inverts to a liability. Confirmed on both sides of the split.
 
 Full detail in `BILIN18_CONNECTION.md` §37.

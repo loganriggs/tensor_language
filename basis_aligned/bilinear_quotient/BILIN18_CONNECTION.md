@@ -2025,3 +2025,20 @@ The formula is working correctly and measuring something real: in the tail, "mos
 important by variance" and "most distribution-specific" largely coincide, which is the
 §25/§26 robust-core story at layer scale. A fineweb arm for the tail negatives is the
 registered confirmation (predicted: positive deletion costs in-distribution).
+
+## 38. The tail's negative effects flip sign in-distribution — prediction held
+
+File: `bilin18_tail_fineweb.py` (11 s). All registered predictions held, cleanly:
+
+| layer | span-32, pile | span-32, fineweb | pred-2, fineweb |
+|---|---|---|---|
+| 9 | −0.0068 | **+0.0109** | +0.0007 |
+| 12 | −0.0025 | **+0.0083** | +0.0036 |
+| 15 | −0.0065 | **+0.0124** | +0.0052 |
+
+Every negative deletion effect in the tail is positive on training-like data, including
+layer 15's harmful-on-pile predicted top-2 (+0.0052 in-distribution). The tail layers
+do real (small) in-distribution work in exactly the directions the Λ-Gram identifies;
+that work is fineweb-tuned and inverts to a liability under shift. The shift-fragility
+of the tail is now fully confirmed on both sides of the split, and every negative
+ablation number in this program's pile evaluations should be read through it.
