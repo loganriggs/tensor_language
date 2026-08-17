@@ -4204,3 +4204,22 @@ over positions — rank is not preserved through position-dependent rotation, an
 any pattern-level compression scheme must work post-RoPE. (This also explains
 §125's L2 positional hub cleanly: positional structure emerges precisely where
 the filters engage RoPE's frequency ladder hardest.)
+
+## 129. The filters look shared — pending the covariance-matched null
+
+File: `bilin18_filter_sharing.py`. All three skeptical registrations failed and
+the named alternative fired: content-filter subspaces align at median principal
+cos **0.71 within layers** and **0.41 across layers** (isotropic random floor
+0.10). Read at face value this is a *shared attention lexicon* — and it would
+complete a beautiful symmetry: heads watching the same few stream directions
+while combining them into private quadratic forms is exactly the "dense shared
+support, private functionals" structure the program found in MLP reading (§§49–58,
+§84: shared support, per-head couplings).
+
+**Held provisionally.** The C-metric concentrates any operator's singular vectors
+toward the covariance's top directions, so isotropic random subspaces are the
+wrong floor — the same envelope-style artifact the constituency arc caught in
+§55. Queued: covariance-matched null (random subspaces drawn inside the C-metric
+ball). Registered: (a) within-layer 0.71 exceeds the matched null by ≥ 0.2 (the
+lexicon is real beyond concentration); alternative: a matched null near 0.6 would
+attribute the sharing to covariance concentration and void the claim.

@@ -2761,3 +2761,11 @@ predictor (Spearman -0.20; shuffled null still 2x). Matched filters describe the
 content computation, not the realized pattern.
 
 Full detail in `BILIN18_CONNECTION.md` §128.
+
+### A shared attention lexicon? (pending null)
+
+Filter subspaces align at 0.71 within layers (random floor 0.10) -- the
+shared-support/private-functional motif possibly extending to attention. Held
+pending the covariance-matched null (the section-55 artifact class).
+
+Full detail in `BILIN18_CONNECTION.md` §129.
