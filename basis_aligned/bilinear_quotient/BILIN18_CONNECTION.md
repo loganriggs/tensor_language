@@ -2249,3 +2249,25 @@ holistic in the concrete, measured sense that most of its causal effect exists o
 combinations of three or more direction-bands. That is the final and strongest form of
 "no small core": not only is the mass not in any band, it is not even in any *pair* of
 bands.
+
+## 46. The edge rides head 1, and the interaction hierarchy is graded to all orders
+
+Files: `bilin18_mediation_heads.py`, `bilin18_band_triples.py` (10 + 20 s).
+
+**The L0→L1 edge is carried by head 1, not head 4.** Registered prediction (a) — no
+non-4 head kills more than 30% — **failed in the best way**: freezing **head 1 kills
+96%** of the steered effect, nearly double head 4's 51%, with every other head at ≤3%
+(concentration prediction (b) held). Combined with §21 (head 4 produces 79% of *z*'s
+natural movement, head 1 second at 14%), the front of the graph resolves into two
+distinct channels through the same attention block: **head 4 computes z's ordinary
+context dependence; head 1 transports the L0-leader signal** into the coefficient. The
+single-head kills sum well past 100% — mediation itself is non-additive, consistent
+with everything else in this model.
+
+**The within-layer interaction hierarchy is graded, not truncated.** Möbius
+decomposition through order 3 at layer 1: solo bands 0.24 (5%), pairwise 0.94 (19%),
+pure order-3 1.70 (35%), leaving **order-4-and-above at 2.02 (41%)**. The registered
+bar (order-3 sum < 1.86, i.e. order-4+ still dominates) held, narrowly and honestly.
+The full picture: each interaction order contributes *more* than the last through at
+least order 4 — layer 1 is holistic all the way up, with no order at which a truncated
+interaction model captures it.

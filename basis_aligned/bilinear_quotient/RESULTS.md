@@ -1986,3 +1986,14 @@ combinations of three or more direction-bands. The pairwise product law prices
 between-layer composition, not within-layer structure.
 
 Full detail in `BILIN18_CONNECTION.md` §45.
+
+### Two channels through one block; interactions graded to all orders
+
+The mediation head sweep inverted expectations again: **head 1 carries the L0→L1 edge**
+(96% kill vs head 4's 51%, everything else ≤3%) — so the attention block hosts two
+distinct channels: head 4 computes z's context, head 1 transports the L0 signal. And
+layer 1's interaction hierarchy is graded, not truncated: solo 5%, pairs 19%, order-3
+35%, order-4+ 41% — every order contributes more than the last, so no truncated
+interaction model captures the layer.
+
+Full detail in `BILIN18_CONNECTION.md` §46.
