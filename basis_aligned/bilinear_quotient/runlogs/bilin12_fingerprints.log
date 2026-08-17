@@ -1,0 +1,12 @@
+mlp1: net -0.0024
+mlp5: net +0.0608
+mlp8: net +0.0128
+attn1: net +0.4474
+attn2: net +0.3637
+attn6: net +0.1925
+
+pairwise 0.12 | base floor 0.11 | cross-model analog 0.34 vs non-analog 0.05
+(a) distinguishable: HELD
+(b) floor low: HELD
+(c) analogs transfer: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin12_fingerprints_results.json and /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin12_fingerprints.pt (5s)

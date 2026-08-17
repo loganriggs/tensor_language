@@ -86,5 +86,7 @@ both.
 - Instrument suite with known failure modes and their controls (twelve ledger
   corrections — each one is a trap a naive benchmark would fall into).
 - A second model (bilin12) with verified transfer of the structural laws (§154)
-  for train/test split at the *model* level.
+  AND of token-level causal responsibility (§163: analogous components'
+  fingerprints correlate 0.34 cross-model vs 0.05 non-analog) — the model-level
+  train/test split, with `bilin12_fingerprints.pt` as the held-out target.
 - The canary regression script for scoring-environment stability.

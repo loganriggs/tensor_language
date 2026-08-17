@@ -4801,3 +4801,19 @@ publish the 0.13 base-loss floor beside every score; anything above ~0.2 is
 real signal; component identity is never in doubt (pairwise 0.04). The
 benchmark's both tracks now have measured reference instruments, floors, and
 known traps. BENCHMARK.md updated.
+
+## 163. Cross-model analog transfer: the two models place function on the same text
+
+File: `bilin12_fingerprints.py`, all three bars held; dataset saved
+(`bilin12_fingerprints.pt`). The bilin12 fingerprints are distinguishable
+(pairwise 0.12) with a low floor (0.11) — and the registered cross-model
+question landed decisively: **analogous components' fingerprints correlate at
+0.34 across models, versus 0.05 for non-analog pairs.** The two
+independently-trained bilinear transformers, ablated at their analogous
+components (front attention, mid MLP), lose accuracy on the *same held-out
+tokens*. Function placement is convergent across the family — universality
+(§154) extended from structural laws to token-level causal responsibility. For
+the benchmark this is the ideal transfer split: an explanation of bilin18's
+front attention should partially predict bilin12's fingerprint (expected ~0.34
+ceiling), and beating the 0.05 non-analog floor across models is the
+generalization test Track 1 needed.

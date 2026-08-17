@@ -3036,3 +3036,11 @@ above ~0.2 carry real signal. Both benchmark tracks now have measured
 instruments, floors, and traps.
 
 Full detail in `BILIN18_CONNECTION.md` §162.
+
+### Cross-model analog transfer: 0.34 vs 0.05
+
+Analogous components in the two independently-trained models hurt the SAME
+tokens when ablated (7x above non-analog). Universality extended to token-level
+causal responsibility; Track-1 gets its cross-model generalization split.
+
+Full detail in `BILIN18_CONNECTION.md` §163.
