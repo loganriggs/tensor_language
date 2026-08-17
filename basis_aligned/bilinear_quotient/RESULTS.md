@@ -1582,3 +1582,24 @@ Shapley run — two earlier versions of the script recomputed the SVD from large
 and the tail directions silently rotated.
 
 Full detail in `BILIN18_CONNECTION.md` §15.
+
+### The sample-size control: the count was inflated, the ratios were not
+
+Refitting the basis on 4.8× the data (153,900 positions, rows disjoint from evaluation)
+and rerunning the entire Shapley attribution: **§13's "about ten directions" corrects to
+five-to-six**, with the leader at 39% rather than 27%. The mechanism is instructive —
+the small-sample PCA split one real component into two noisy directions (both old
+"leaders" #3 and #5 map onto the same new direction), and the attribution spread that
+component's mass across both, inflating the participation ratio. Basis noise makes a
+layer look *more* distributed than it is. The two top leaders and their names are
+rock-solid (cos 0.985, 0.946); §15's ranks #3 and #5 were two names for one thing.
+
+The weight basis is not exonerated: at 60% of the data span's causal effect and 63% of
+its held-out energy, its standing is identical at both sample sizes. And a third finding
+neither prediction anticipated: the in-sample "70.5% of the layer" figures were roughly
+double the held-out ones **by document heterogeneity, not overfitting** — the weight
+basis, which fits nothing, drops by the same factor on fresh rows, and context length is
+irrelevant. Ratios between bases are trustworthy; absolute "X% of the layer" figures are
+row-group-relative throughout §12–§15.
+
+Full detail in `BILIN18_CONNECTION.md` §16.

@@ -997,6 +997,11 @@ honest uncertainty is the per-direction standard error, ±0.004–0.014 nats.)*
 causal content of MLP1's top-32 subspace is carried by roughly ten effective directions,
 with the largest single one holding 27% and the top eight holding two thirds.
 
+> **Corrected by §16:** the count was inflated by sampling noise in the basis. With a
+> 4.8×-data basis the participation ratio is **5.6**, the leader holds **39%**, and two
+> of the six "leaders" turn out to be one real component split in two by the small-sample
+> PCA. The qualitative verdict (oligarchy with a leader) stands; "ten" does not.
+
 Three consequences:
 
 1. **Both prior readings were artefacts of their instruments.** Solo ablation says
@@ -1103,3 +1108,59 @@ statement: the causally-leading directions of MLP1 have real, verifiable token s
 (all six, p < 0.05 against permutation), but that structure is diffuse in exactly the
 way §74's stricter causal bar registers as unnameable. Both instruments are right; they
 measure different grades of "having a name".
+
+---
+
+## 16. The sample-size control — §13's count was inflated, the weight basis is not exonerated
+
+Files: `bilin18_shapley_bigdata.py` (472 s), plus the length-confound split (scratch).
+
+Prompted by the observation that every §13–§15 number rests on a PCA basis fit on 32,768
+positions. Refit on 153,900 positions (4.8×, rows disjoint from the evaluation rows),
+re-derive everything.
+
+### 16.1 What survived and what did not
+
+| | 32k basis (§13) | 154k basis | verdict |
+|---|---|---|---|
+| joint effect of the span | 0.383 | 0.434 | stable |
+| participation ratio | 9.5 | **5.6** | **§13's count was inflated** |
+| leader share | 27% | **39%** | leader underestimated |
+| top-8 share | 67% | 72% | stable |
+| leader identity (dirs 0, 1) | — | cos 0.985, 0.946 | rock solid |
+
+**Correction to §13: "about ten directions" was an overestimate; the better-estimated
+basis gives five-to-six, with the leader carrying 39%.** The qualitative verdict — an
+oligarchy with a clear leader, neither a smear nor a single star — survives and in fact
+sharpens. The count did not.
+
+The mechanism of the inflation is visible in the basis correspondence: old directions 6
+and 4 — Shapley ranks #3 and #5, with 9% and 5% of the layer — **both** best-match new
+direction 3 (cos 0.41 and 0.62). The small-sample PCA split one real component into two
+noisy ones, and the Shapley attribution dutifully spread that component's mass across
+both, pushing the participation ratio up. Sampling noise in the basis *inflates* the
+apparent number of parts. §15's naming of ranks #3 and #5 is correspondingly
+contaminated (two names for one thing); ranks #1, #2 and their names stand.
+
+### 16.2 The weight basis: not exonerated, but its standing is unchanged, and the
+in-sample numbers were misleading for a different reason than overfitting
+
+Held-out output energy (fresh rows, neither basis fit on them): data-154k **37.5%**,
+data-32k 35.4%, weight SVD 23.5%. Two things:
+
+- **4.8× more data moves the data basis by 2 points** (35.4 → 37.5). The basis estimate
+  was already essentially converged at 32k; the inflation in §16.1 lives in a handful of
+  tail directions (27/32 principal cosines > 0.9, min 0.007), not in the subspace.
+- **The in-sample numbers (70.5% data / 44.3% weight) were roughly double the held-out
+  ones — but by row-group heterogeneity, not overfitting.** The tell: the weight basis
+  fits *nothing*, yet drops by the same factor (×0.53) as the data basis (×0.51) on the
+  new rows. A context-length split confirms length is irrelevant (36.3% at 128 vs 35.4%
+  at 513). Different document groups simply concentrate different amounts of MLP1's
+  output in *any* fixed 32-dim subspace. Consequence: every "X% of the layer" figure in
+  §12–§15 is row-group-relative; ratios between bases are trustworthy, absolute
+  percentages are not.
+
+The weight verdict, updated: 60% of the data span's causal effect (0.261/0.434) and 63%
+of its held-out energy — both essentially identical to the small-basis numbers (59%,
+64%). **More data neither exonerates nor further indicts the weights; the data basis's
+~1.6× edge is real, held-out-stable, and not an artefact of sample size.**
