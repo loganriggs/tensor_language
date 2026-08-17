@@ -3092,3 +3092,12 @@ agree). Correspondence warps by MLP family even at equal depth (gated models
 front-shifted); front universal.
 
 Full detail in `BILIN18_CONNECTION.md` §169.
+
+### Interfaces graded; edges typed
+
+L5->L6 edge: ~8 dims dominant (72%) with a fat tail. Edge complexity redefined
+as functional-form description length: summary-typed (norm/share), coordinate-
+typed (few dims), or opaque -- all three measured in this model. BENCHMARK.md
+updated.
+
+Full detail in `BILIN18_CONNECTION.md` §170.

@@ -88,7 +88,17 @@ work. A submission is a GRAPH, and each of its three cost axes is explicit:
 - **Edge** = a declared dependency: node B reads variables node A writes. Edge
   claims are verified by the program's cut instruments (project A's write out of
   B's watch-list; §§131–134); *unclaimed* edges must be verified inert the same
-  way. Edge complexity = the count of claimed edges. The measured macro-graph
+  way. Edge complexity = the DESCRIPTION LENGTH OF THE DEPENDENCY'S FUNCTIONAL
+  FORM, not the wire count: the algebra is {k specific coordinates | a summary
+  statistic (norm, mean, share) over a declared set | a low-rank map | opaque}.
+  A dense connection that only transmits a norm is one variable wide and priced
+  accordingly. All three non-opaque types are measured in this model: L17's
+  span dependence is 82% energy->gain (summary-typed, §116); generic tail edges
+  are share-of-stream typed (§93); the L5->L6 cargo edge is coordinate-typed
+  (~8 dims, §170). Typed-edge claims are verified both ways: cut the claimed
+  channel (effect should vanish) and keep ONLY the claimed channel (effect
+  should survive) — the §117 gain-frozen instrument is the reference
+  implementation for norm-typed claims. The measured macro-graph
   here is the relay (MLP → attention-transport → MLP), so sparse type-level
   graphs are achievable.
 - **Semantic cost with amortization** = total description length of the

@@ -4930,3 +4930,28 @@ base CE 4.17, identity fine). Three findings:
   bilin18, independent of depth ratio. The §168 law finalizes: front
   correspondence is universal; mid-stack correspondence is exact within the
   pure-bilinear family and front-warped across MLP families.
+
+## 170. Interface ladder graded; edges get types
+
+**Interface ladder** (`bilin18_interface_ladder.py`, L5→L6 cargo edge): the
+effect grows gradually — k=2 carries 26%, k=8 carries 72%, k=32 gives +0.0415
+(random controls at floor throughout). Registered (a)/(c) failed at their exact
+bars; the honest shape is *small-interface-dominant with a fat tail*: most of
+the edge flows through ~8 dims, the rest is spread.
+
+**Typed edges** (user design point, folded into BENCHMARK.md): edge complexity
+must be the description length of the dependency's *functional form*, not its
+wire count. A dense connection that only transmits a norm is simple. The
+program has measured all three edge types this model actually uses:
+- **summary-typed** (dense wires, one variable): L17's span dependence is 82%
+  "energy → final gain" (§116); the dilution law says generic tail edges are
+  share-of-stream typed (§93).
+- **coordinate-typed** (few specific dims): the L5→L6 cargo edge (~8 dims
+  dominant, this section).
+- **opaque/full**: the front (L0–L2), where nothing simple substitutes.
+The edge algebra for submissions: {k coordinates | summary statistic (norm,
+mean) over a declared set | low-rank map | opaque}, priced by description
+length. This is the user's "semantics to an extent": an edge label like "reads
+the stream's energy" is a one-variable mini-explanation, and typed edges give
+the compositional, cleanly-separated structure of good code — nodes as
+functions, edges as typed arguments.

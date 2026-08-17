@@ -1,0 +1,12 @@
+base 3.9822
+
+k= 2: watch +0.0109 | random +0.0002
+k= 4: watch +0.0251 | random +0.0003
+k= 8: watch +0.0297 | random +0.0012
+k=16: watch +0.0307 | random +-0.0017
+k=32: watch +0.0415 | random +-0.0036
+
+(a) saturates by k=8: FAILED
+(b) random floor: HELD
+(c) k=2 >= 40%: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_interface_ladder_results.json (10s)
