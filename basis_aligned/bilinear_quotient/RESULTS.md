@@ -2958,3 +2958,9 @@ complete end to end. Program state: all maps filled, all headlines replicated,
 all origins accounted.
 
 Full detail in `BILIN18_CONNECTION.md` §153.
+
+### Canary green
+
+Standing regression test passes on first run (score-rank 4.1, L1 +0.275,
+dilution ratios exact). Re-run bilin18_canary.py after any environment or
+instrument change.
