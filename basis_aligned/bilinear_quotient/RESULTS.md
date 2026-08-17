@@ -2950,3 +2950,11 @@ only ever came from conceptual re-examination, never fragile numbers. L0 cell
 queued.
 
 Full detail in `BILIN18_CONNECTION.md` §152.
+
+### L0 cell filled (accidental exact replication)
+
+Cost +0.1767 (front map said +0.176); R^2 0.742. The nonlinearity map is
+complete end to end. Program state: all maps filled, all headlines replicated,
+all origins accounted.
+
+Full detail in `BILIN18_CONNECTION.md` §153.

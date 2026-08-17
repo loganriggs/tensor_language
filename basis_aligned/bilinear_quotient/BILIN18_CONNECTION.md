@@ -4616,3 +4616,17 @@ linearization sweep started at L1 or later, yet L0 is the "true reset" writing
 at RMS 1436 into a stream of 6). Registered: (a) linearization cost ≥ 0.15
 (front-loading extends to the front-most layer); (b) its write's linear R² ≤
 0.75 (real quadratic computation on raw embeddings).
+
+## 153. The L0 cell — and an accidental exact replication
+
+File: `bilin18_l0_cell.py`, all bars held. L0's write is 74% linearly
+predictable and costs **+0.1767** to linearize — agreeing with the §107 front
+map's +0.176 to three decimal places on different eval rows (the map had
+measured L0's cost; the §101 linearity sweep was the actually-empty cell, now
+filled at R² 0.742). The functional-nonlinearity map is complete end to end:
+
+    L0 +0.18 | L1 +0.28 (peak) | L2 +0.11 | L3 +0.09 | L4 +0.05 | L5-L15 ~0.03 | L16 +0.03 | L17 +0.10
+
+Program state at §153: every layer mapped by both instruments, every component
+family profiled, every headline replicated, every origin question answered, and
+eleven corrections on the ledger — all caught by the program's own controls.
