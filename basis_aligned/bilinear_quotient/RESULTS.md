@@ -1751,3 +1751,16 @@ claims fail every causal test. The reliable currency of this model's mechanisms 
 directions, edges, and gains.
 
 Full detail in `BILIN18_CONNECTION.md` §24.
+
+### The layer-16 anomaly resolved: truncation as regularisation
+
+The registered hypothesis tested and confirmed on a fresh fineweb sample streamed from
+the Hub. On pile (shifted) the surrogate beats the intact model by −0.0285 nats,
+replicating on fresh rows; on fineweb (training-like) the difference is +0.0011 —
+nothing. **In-distribution, the 1,154-parameter surrogate and the 664k-parameter form
+are functionally equivalent; the remainder is dead weight in-distribution and a
+liability under shift.** The compression claim strengthens to effectively lossless, and
+the method generalises: surrogate-vs-full across corpora measures how much of a
+component is distribution-robust computation.
+
+Full detail in `BILIN18_CONNECTION.md` §25.

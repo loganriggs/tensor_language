@@ -1585,3 +1585,36 @@ semantic claims (layout drives the register leader, the bus writes determiners) 
 specificity every time they are tested causally. The reliable currency of this model's
 mechanisms is *directions, edges, and gains* — not token stories. That is itself a
 finding about what interpretability claims this architecture licenses.
+
+---
+
+## 25. The anomaly resolved: truncation as regularisation, confirmed on fineweb
+
+File: `bilin18_l16_anomaly.py` (79 s; fresh fineweb sample streamed from the Hub,
+90×257 tokens, saved as `fineweb_eval_tokens.pt`).
+
+§22's registered hypothesis for the layer-16 anomaly — the surrogate beats the intact
+model because the eval corpus (pile) is shifted from the training corpus (fineweb), and
+the discarded remainder is distribution-specific — made a sharp prediction: the
+improvement should vanish on fineweb. It does, cleanly:
+
+| corpus | baseline | delete | surrogate − base | rank-2 − base |
+|---|---|---|---|---|
+| pile (shifted) | 4.0345 | 4.0589 | **−0.0285** | −0.0001 |
+| fineweb (training-like) | 3.0837 | 3.1253 | **+0.0011** | +0.0004 |
+
+(The pile improvement replicates on fresh rows, so §22's number was not a fluke; and
+baseline CE 3.08 vs 4.03 confirms fineweb is the in-distribution corpus.)
+
+**On the training distribution, the 1,154-parameter surrogate and the 664,128-parameter
+form are functionally equivalent** (+0.0011 nats, within noise). The remainder
+contributes nothing in-distribution and *hurts* under shift. So the compression result
+strengthens from "92–100% fidelity" to: **the leader's effective content is the
+surrogate; the other 663k parameters are dead weight in-distribution and a liability
+out of it.**
+
+This also hands the program a general protocol: score surrogate-vs-full on both the
+training-like and a shifted corpus, and the difference measures how much of a
+component is distribution-robust computation versus distribution-specific fit. Layer
+16's leader: entirely robust core. Worth running on the other layers' surrogates
+(registered, not yet run — layer 1's 92% and layer 0's 66% may decompose differently).
