@@ -3109,3 +3109,11 @@ damage and amplifies MLP-span damage. Attention edges are content-typed at
 every depth; benchmark audits must report the share's sign.
 
 Full detail in `BILIN18_CONNECTION.md` §171.
+
+### Keep-only: 28% preserved, 14x enrichment
+
+Both audit directions agree: the L5 interface is a real minority channel.
+Structure is real and never total -- the program's oldest lesson at the newest
+instrument.
+
+Full detail in `BILIN18_CONNECTION.md` §172.

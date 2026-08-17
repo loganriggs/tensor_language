@@ -4975,3 +4975,17 @@ correct content (damage is cushioned, by ~20–30%). Consequences:
   in both directions and its **sign reported** — a positive share says the edge
   was energy; a negative share says the component was content whose loss the
   norm partially papered over.
+
+## 172. Keep-only: interfaces are real (14×) and partial (28%)
+
+File: `bilin18_keep_only.py`. Deleting all of L5's write costs +0.069; keeping
+only the 8 watched dims reduces that to +0.050 — the interface preserves **28%**
+of the layer's downstream value, against 2% for a random 8 (registered (b)
+held; (a)'s 40% bar failed; (c)'s 0.08 sanity missed on row variation, 0.069 vs
+the other row-set's 0.095). The typed-edge audit's two directions now agree on
+the L5 interface: cutting the watched channel removes a concentrated ~0.03
+(§170), keeping only it preserves a concentrated ~0.02 of 0.07 — a real,
+14×-enriched, minority channel. The program's oldest lesson holds at the
+newest instrument: **structure is real and never total** — every concentrated
+channel found in this model carries a well-measured minority of the function,
+and the majority stays diffuse.
