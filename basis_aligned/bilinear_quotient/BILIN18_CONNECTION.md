@@ -1915,3 +1915,36 @@ Three things this settles:
 3. **The fix is prescribed by the mechanism**: refit L17's replacement on the
    L16-replaced model (scheduled/sequential fitting, downstream-after-upstream).
    Registered, not yet run; predicted to recover most of the 0.065.
+
+---
+
+## 33. The prescribed fix mostly fails: refitting closes 21%, not two thirds
+
+File: `bilin18_sequential_refit.py` (13 s). §32's mechanism story — L17's replacement
+was fit on intact-L16 inputs — prescribed scheduled fitting: install L16's replacement,
+refit L17's on the modified model. Registered prediction: at least two thirds of the
++0.0649 interaction closes.
+
+**It closed 21%** (excess +0.0649 → +0.0516; joint +0.1974 → +0.1841). And the sanity
+arm deepened the puzzle: the refit-for-modified-upstream L17 replacement, installed
+alone on the *intact* model, does *better* (+0.0916) than the intact-fit one (+0.1018)
+— fit-distribution matching is evidently not what governs these replacements' quality.
+The registered prediction failed; "wrong fitting distribution" is a minor mechanism.
+
+The surviving candidate, being tested next (rank sweep, in flight): **shared-wire
+truncation compounding** — both replacements truncate the same bus signal, and losses
+on a wire that L17 reads *quadratically* compound rather than add. If right, the
+interaction excess should collapse with form rank faster than the individual damages.
+
+## 34. Second hypothesis down: the interaction is rank-independent
+
+File: `bilin18_interaction_rank.py` (32 s). Registered prediction: shared-wire
+truncation compounding — the excess collapses with form rank. **Failed**: the excess is
+flat, +0.0649 / +0.0655 / +0.0632 / +0.0616 at k = 2/4/8/16, while both individual
+damages barely move. Neither refitting (§33, 21%) nor form truncation explains the
+16–17 interaction. By elimination the candidate is the **projection step** — confining
+both layers' outputs to their R=4 spans — which is the one component the k-sweep holds
+fixed. Registered next: sweep R at fixed k; if the excess persists at R=16, the bus
+signal between 16 and 17 lives substantially outside both top-4 output spans, which
+would connect this directly to the coverage-gap finding (top spans carry only a
+fraction of causal effect).
