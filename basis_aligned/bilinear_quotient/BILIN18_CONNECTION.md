@@ -5599,3 +5599,22 @@ showed no deletion-improves layers in any scan. The program's oldest
 observation (truncation-as-regularization, first seen as a shifted-corpus
 curiosity in §37) and its newest (slack as an architecture trait) close as one
 phenomenon.
+
+## 207. The slack-regularizer identity verified: exact in all three models
+
+File: `family_regularizer_scan.py` — the verification §206 owed. Both bars
+held, with an exactness the prediction didn't dare register:
+
+    bilin18 : slack {8,9,14,15} ⊇ regularizers {9,15}
+    bilin12 : slack ∅            = regularizers ∅
+    swiglu18: slack {15}         = regularizers {15}  (deletion −0.030)
+
+The no-slack model has no deletion-improves spans anywhere; the one-slack
+model's lone improving span is exactly its lone slack layer. The identity is
+now grounded cross-model instead of asserted: **a layer whose function a
+constant can carry is the same kind of layer whose principal span can hurt
+to keep** — slack and truncation-as-regularization are one property, and it
+appears wherever an architecture concentrates function enough to leave any.
+§206's overreach is retroactively licensed by its own verification run — but
+the lesson stands recorded: the assertion went in a section before the scan
+existed, and the discipline caught it one wake later.

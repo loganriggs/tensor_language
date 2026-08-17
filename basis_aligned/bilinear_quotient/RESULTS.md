@@ -3380,3 +3380,10 @@ bilin18's constant-licensed layers {8,9,14,15} contain the regularizer pair
 first seen in section 37, closed in section 205.
 
 Full detail in `BILIN18_CONNECTION.md` §206.
+
+### Identity verified: exact in three models
+
+bilin12: no slack, no regularizers; swiglu18: one slack layer (L15), one
+regularizer (L15, -0.030). The 206 assertion is now grounded, not asserted.
+
+Full detail in `BILIN18_CONNECTION.md` §207.
