@@ -392,11 +392,18 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   entering L16 predicts it at R² 0.979 with a purely linear map, two-thirds of its variance
   is already determined at L2 — and over half comes from the current token's embedding
   alone, so "syntax bus" overreads; it is a lexical channel with contextual refinement.
-  A new instrument re-drew the depth map independently: linear predictability of each
-  layer's write is lowest in the middle (L6–10, R² 0.52–0.62) and near-perfect at the end
-  (L16: 0.97, L17: 0.95) — nonlinear computation concentrates exactly where the program
-  found incompressibility. The open tension: the strongest interaction in the model sits
-  between its two most linear layers. The tail layers 5–15 have fair shares but no profiles. The syntax bus has
+  A new instrument re-drew the depth map: linear predictability of each layer's write is
+  lowest in the middle (L6–10, R² 0.52–0.62) and near-perfect at the end (L16: 0.97, L17:
+  0.95). <span class="tag off">corrected</span> But causal tests split that map in two:
+  the middle's nonlinear variance is largely <em>loss-irrelevant</em> — replacing a middle
+  layer's MLP with its 55–60% linear map costs only ~0.03 nats — while replacing L2's map
+  costs 0.23. Functionally necessary nonlinearity is front-loaded; the middle's
+  incompressibility is about representation, not about the nonlinearity of its map. The
+  resolved tension: the strongest interaction (16→17) sits between the two most linear
+  layers because it lives entirely in L17's 5% nonlinear residue — replacing L17 with its
+  linear stand-in kills 98% of the interaction excess while leaving L17's own function
+  intact. The same residue cushions damage on the same channel: one quadratic skin, two
+  faces. The tail layers 5–15 have fair shares but no profiles. The syntax bus has
   two verified stations and unknown origin. And the strongest tool found here — the
   weights-plus-S formula — has now made its <strong>first blind predictions</strong>: on
   four never-profiled tail layers, with the success bar registered in advance, it located

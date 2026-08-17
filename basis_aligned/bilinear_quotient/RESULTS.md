@@ -2535,3 +2535,13 @@ residue. (v1 was void -- hook-order artifact -- and is recorded.) Bonus thread:
 the nonlinearity absorbs upstream damage; compensation test queued.
 
 Full detail in `BILIN18_CONNECTION.md` §102.
+
+### Correction: functional nonlinearity is front-loaded
+
+Middle layers are cheap to linearize (+0.03) despite low linear R^2; L2 is
+expensive (+0.23). Variance-nonlinearity (middle) and functional nonlinearity
+(front) are different maps. The L17 residue's damage absorption is
+channel-specific -- same mechanism as the product law. Joint linear-pipe test
+queued.
+
+Full detail in `BILIN18_CONNECTION.md` §103.

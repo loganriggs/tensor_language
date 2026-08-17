@@ -3622,3 +3622,36 @@ One new thread, registered and queued: under linearized L17, upstream damage cos
 damage (gain-control/compensation). And the map's causal complement: linearizing
 middle layers (R² 0.52–0.62) should be catastrophic where linearizing L16/17 was
 cheap — queued as the causal version of §101's nonlinearity map.
+
+## 103. CORRECTION to §101's reading: functional nonlinearity is front-loaded
+
+Files: `bilin18_quadratic_compensation.py`, `bilin18_linearize_middle.py`.
+
+**Compensation is channel-specific, not gain-control** (registered (a) failed 2/4):
+the nonlinear residue absorbs damage to L16's principal span (real +0.212 vs
+linearized +0.312, ratio 0.68) but not matched additive noise (0.95), and random
+spans are inert under both arms (no damage to absorb — a design flaw in the
+prediction, recorded). The absorption lives on the same channel as the product-law
+coupling: the quadratic skin both *creates* the 16→17 interaction and *cushions*
+that channel's damage — one mechanism, two faces.
+
+**Linearization cost does not track nonlinear variance** (all §101-followup bars
+failed, Spearman −0.02):
+
+    L2: +0.228 | L4: +0.080 | L7: +0.026 | L9: +0.035 | L13: +0.041 | L16: +0.015
+
+> **Correction to §101's interpretation.** "Nonlinearity concentrates in the
+> middle" is true of *variance* (linear maps explain only 52–62% of L6–10's
+> outputs) but false of *function*: replacing a middle layer's MLP with its 55–60%
+> linear map costs almost nothing (+0.03 nats), while replacing L2's 70% map costs
+> +0.23. The middle's unexplained variance is largely loss-irrelevant on
+> distribution; **functionally necessary nonlinearity is front-loaded at L2**. The
+> report's "nonlinear computation concentrates where the program found
+> incompressibility" is corrected accordingly.
+
+The compression implication is queued as the joint test: if layers 5–17 are all
+individually near-linearizable, is the model literally "a few nonlinear layers on
+a linear pipe"? Registered: (a) joint linearization of 5–17 costs ≤ 1.3× the sum
+of individual costs (linearization removes the very machinery that makes damages
+interact); (b) the full joint cost stays ≤ 0.6 nats; (c) adding L2 to the joint
+adds ≥ 0.15 (the front's function is real).
