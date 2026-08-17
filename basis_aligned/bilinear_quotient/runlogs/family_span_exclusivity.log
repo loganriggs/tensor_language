@@ -1,0 +1,21 @@
+bilin18 mlp 0: E 91520416.0 rndE 7619665.0 ratio 12.01
+bilin18 mlp17: E 45130856.0 rndE 11460846.0 ratio  3.94
+bilin18 mlp16: E 35447356.0 rndE 2097703.2 ratio 16.90
+bilin18 mlp 3: E 19896514.0 rndE 2412307.8 ratio  8.25
+bilin18 mlp 4: E 18584236.0 rndE 1678482.8 ratio 11.07
+bilin18 mlp 2: E 11572952.0 rndE 1515975.8 ratio  7.63
+bilin18 attn 4: E 3982503.2 rndE  589305.8 ratio  6.76
+bilin18 mlp 1: E 1315682.5 rndE  127507.1 ratio 10.32
+bilin18: owner E 436109.7 | max other-MLP E 91520416.0 | aimers>3x: ['mlp0', 'mlp1', 'mlp2', 'mlp3', 'mlp4', 'mlp5', 'mlp7', 'mlp8', 'mlp9', 'mlp10', 'mlp11', 'mlp12', 'mlp13', 'mlp14', 'mlp15', 'mlp16', 'mlp17', 'attn1', 'attn2', 'attn3', 'attn4', 'attn5', 'attn6', 'attn7', 'attn8', 'attn9', 'attn10', 'attn11', 'attn12', 'attn13', 'attn17']
+bilin12 mlp 0: E 22354830.0 rndE 1753359.2 ratio 12.75
+bilin12 mlp 2: E 3239380.0 rndE  239866.3 ratio 13.50
+bilin12 mlp 3: E 2799800.0 rndE   80716.0 ratio 34.69
+bilin12 mlp 4: E 1999453.5 rndE   16441.1 ratio 121.61
+bilin12 mlp 1: E 1849661.1 rndE  172788.0 ratio 10.70
+bilin12 mlp11: E  653376.6 rndE  114545.6 ratio  5.70
+bilin12 mlp 5: E  210753.5 rndE    5730.6 ratio 36.78
+bilin12 mlp10: E  203978.7 rndE   19956.5 ratio 10.22
+bilin12: owner E 1999453.5 | max other-MLP E 22354830.0 | aimers>3x: ['mlp0', 'mlp1', 'mlp2', 'mlp3', 'mlp5', 'mlp6', 'mlp7', 'mlp8', 'mlp9', 'mlp10', 'mlp11', 'attn1', 'attn2', 'attn3', 'attn4', 'attn5', 'attn6', 'attn7', 'attn9', 'attn10']
+bilin18: (a) owner >=5x MLPs: FAILED | (b) exclusivity <=2x: FAILED
+bilin12: (a) owner >=5x MLPs: FAILED | (b) exclusivity <=2x: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/family_span_exclusivity_results.json (10s)

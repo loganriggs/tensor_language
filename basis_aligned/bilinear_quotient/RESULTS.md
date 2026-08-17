@@ -3475,3 +3475,11 @@ but still shares at 0.43 -- true secession is 18L-specific, mirroring the
 kinship/coupling dissociation.
 
 Full detail in `BILIN18_CONNECTION.md` §218.
+
+### Privacy is content, not address
+
+The private span's directions are the stream's most contested (owner among
+the quietest writers there, both models). What's private is the quadratic
+content, not the coordinates -- a whisper under the loudest channels.
+
+Full detail in `BILIN18_CONNECTION.md` §219.

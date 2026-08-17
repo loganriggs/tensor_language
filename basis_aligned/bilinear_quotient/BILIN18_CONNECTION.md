@@ -5898,3 +5898,29 @@ solitary reader is ordinal everywhere and categorical only at 18 layers —
 consistent with depth specializing the output head (bilin18's L17 is the
 near-linear, 4-direction unit; bilin12's L11 retains more generic function).
 The sharing landscape is complete at family scope.
+
+## 219. Privacy is content, not address: the private code is a whisper under the loudest channels
+
+File: `family_span_exclusivity.py`. Both registered bars failed in both
+models, killing the dedicated-wire picture completely — and the refutation
+reframes the anomaly better than the hypothesis would have:
+
+    write energy into span 6:1-8 directions (bilin18): L0 91.5M, L17 45.1M,
+    L16 35.4M, L3 19.9M ... owner L6: 0.44M — the owner is among the
+    QUIETEST writers into its own span. bilin12 identical in shape
+    (L0 22.4M vs owner L4 2.0M). Nearly every component in both models
+    writes into these directions above its matched-random baseline.
+
+So the private span's eight directions are not reserved real estate; they lie
+in the busiest, most communal part of the stream (consistent with §-communal
+overlap, where L6 scored *highest* among mid writers). What is private is not
+the address but the *content*: the specific quadratic structure the
+fraction-1/3 writer adds into directions everyone else also uses. The
+corrected description of the anomaly, at family scope: **one mid-depth writer
+whispers its own functional code underneath the loudest shared channels, the
+reader population owns no common vocabulary for that contribution (though it
+reads those same directions constantly), the middle absorbs its perturbations,
+and a faint direct channel carries it to the output end.** Instrument note
+recorded: absolute write energy compares differently-scaled layers — the
+aiming measure (each component vs its own random baseline) is what shows the
+directions are globally high-variance; both measures agree on the verdict.
