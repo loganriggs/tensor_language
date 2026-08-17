@@ -2545,3 +2545,12 @@ channel-specific -- same mechanism as the product law. Joint linear-pipe test
 queued.
 
 Full detail in `BILIN18_CONNECTION.md` §103.
+
+### Naive linear pipe fails; compounding, not cross-terms
+
+Joint linearization of layers 5-17 is 2.68x superadditive (+5.49 vs sum +2.05),
+and L5's stand-in alone costs +1.51 despite good linear R^2 -- variance predicts
+function in NEITHER direction. Mechanism hypothesis: approximation-validity
+drift; sequential-refit rescue queued.
+
+Full detail in `BILIN18_CONNECTION.md` §104.

@@ -1,0 +1,21 @@
+base 4.0041
+
+L 5 alone: +1.5110
+L 6 alone: +0.0979
+L 7 alone: +0.0261
+L 8 alone: +0.0224
+L 9 alone: +0.0346
+L10 alone: +0.0373
+L11 alone: +0.0416
+L12 alone: +0.0441
+L13 alone: +0.0409
+L14 alone: +0.0409
+L15 alone: +0.0407
+L16 alone: +0.0146
+L17 alone: +0.0971
+
+sum of individual: +2.0489 | joint 5-17: +5.4921 | middle block 6-10: +0.4650 | +L2: +5.7803
+(a) subadditive (<=1.3x sum): FAILED (2.68x)
+(b) pipe viable (<=0.6): FAILED
+(c) L2 adds >=0.15: HELD (+0.288)
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_linear_pipe_results.json (11s)

@@ -3655,3 +3655,30 @@ a linear pipe"? Registered: (a) joint linearization of 5–17 costs ≤ 1.3× th
 of individual costs (linearization removes the very machinery that makes damages
 interact); (b) the full joint cost stays ≤ 0.6 nats; (c) adding L2 to the joint
 adds ≥ 0.15 (the front's function is real).
+
+## 104. The naive linear pipe fails: approximation errors compound, and L5 is an outlier
+
+File: `bilin18_linear_pipe.py`. Registered (a) and (b) failed, (c) held (+0.29 for
+adding L2):
+
+- **L5 is an outlier**: its individual linear stand-in costs **+1.51 nats** — 58×
+  L7's cost — despite L5 having a *higher* linear R² (0.78 vs 0.55). Whatever L5's
+  low-variance components do, they are functionally critical and the ridge fit
+  loses them. (This inverts §103's lesson once more: neither high nor low linear
+  R² predicts functional cost; the map from variance to function is genuinely
+  uninformative in this model.)
+- **Joint linearization is superadditive at 2.68×** (sum of individual +2.05,
+  joint 5–17 +5.49; even the middle block 6–10 alone is 2.1× superadditive). My
+  registered subadditivity story — "linearization removes the interaction
+  machinery" — was wrong. The better explanation: each linear stand-in is a local
+  approximation, valid on the distribution it was fit on; stacking them drifts
+  every downstream layer's input off that distribution, and the fits degrade in
+  cascade. Composition fails here not through quadratic cross-terms but through
+  **approximation-validity drift**.
+
+The rescue is queued with a registered bar: refit each stand-in *sequentially* on
+the partially-linearized model's own activations (front-to-back). If drift is the
+mechanism, sequential refitting should recover most of the gap (registered: refit
+joint ≤ 1.5 nats, and the L5 refit alone ≤ 0.5). If even refitting fails, the
+tail's function is irreducibly nonlinear *in composition* — a stronger statement
+than any single-layer measurement can make.
