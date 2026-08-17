@@ -5445,3 +5445,18 @@ the frontier this session: sequential refit (+36%), computation-class selection
 (constants where §155 licensed them), and the norm-regime accounting. Scale
 recommendation recorded in BENCHMARK.md: invest engineering in class selection,
 refit protocol, and the harness self-tests — not in allocation search.
+
+## 199. Round 3: an optimization-limited null, not a class verdict
+
+File: `bilin18_hillclimb3.py`. Both class bars failed, but the failure is
+attributable to the fit, not (yet) the class: L16's outputs carry variance
+~2.5×10¹² (it writes at RMS 1851), and a cold-started Adam run leaves the
+stand-in at MSE 1.2×10⁹ — the +13.1 CE is a non-converged fit, not a measured
+class limit. L1's fit converged 45× and still lost to rank-64 linear (+2.11 vs
++1.11), suggestive but unclean for the same reason. Recorded as
+**optimization-limited**; the class lever gets one proper attempt (round 3b,
+queued): fit the closed-form refit linear first, then a narrow factored
+bilinear on the *residual* in output-normalized space — warm-started,
+scale-sane. Registered: (a) L1 linear+bilinear-residual (width 64) ≤ +0.90
+(beats rank-64 linear at comparable params); (b) L16 variant ≤ +0.05;
+alternative: a clean class negative, which would close the ladder for good.

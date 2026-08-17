@@ -3317,3 +3317,10 @@ it. Diffuseness as Pareto-invariance. Levers that work: refit, class
 selection, regime accounting.
 
 Full detail in `BILIN18_CONNECTION.md` §198.
+
+### Round 3: optimization-limited null
+
+Cold-start Adam couldn't bridge L16's 1e12 output variance; class verdict
+withheld. Round 3b queued (warm-start linear + residual bilinear, normalized).
+
+Full detail in `BILIN18_CONNECTION.md` §199.
