@@ -2337,3 +2337,14 @@ instrument error; the held-out version (120 atoms, fit on five readers, scored o
 sixth against the dense-basis 0.71 baseline) is queued.
 
 Full detail in `BILIN18_CONNECTION.md` §81.
+
+### Quiet steering: free, useless, and finally explanatory
+
+Projecting the target gradient off the other coefficients' gradients costs nothing
+(overlap 0.09 — sensitivities are not shared at first order) and buys nothing
+(cross-talk cut 1.1×). The mechanism of non-addressability: control is linear,
+collateral is quadratic — bystander coefficients respond to the injection's energy
+through their forms' curvature, which no direction can remove. The magnitude-sweep
+prediction (selectivity ∝ 1/‖δ‖ at short range; no rescue at depth) is queued.
+
+Full detail in `BILIN18_CONNECTION.md` §82.

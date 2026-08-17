@@ -3141,3 +3141,32 @@ readers' 200 functionals, code the sixth reader's 40 held-out functionals, and c
 (R², L0) against the dense 80-basis baseline (LORO R² 0.71 at "L0" = 80). The question
 the flawed run failed to ask: does sparse-over-complete beat dense-orthogonal
 *out of sample*? Only that comparison can open or close the sparsity door.
+
+## 82. Quiet steering: the projection is free — and useless. Cross-talk is second-order.
+
+File: `bilin18_quiet_steering.py` (12 s), answering the user's penalized-objective
+question. Both registered predictions failed, and *not* via the named alternative:
+
+| L13 target | own | monitored cross-talk | unmonitored |
+|---|---|---|---|
+| raw gradient | 0.06σ | 0.74σ | 0.57σ |
+| projected (off 5 monitored gradients) | 0.10σ | 0.68σ | 0.47σ |
+
+- **(d) failed at 0.09**: the target's gradient is nearly *orthogonal* to the other
+  coefficients' gradient span — sensitivity subspaces are not shared at first order.
+  My shared-subspace story is refuted.
+- **(a) failed the informative way**: the projection costs nothing (own-movement
+  154% of raw — consistent with 0.09 overlap) **and buys nothing** (monitored
+  cross-talk cut only 1.1×). First-order quiet is not quiet.
+
+**The mechanism, at last.** Every coefficient is a quadratic: Δc ≈ gᵀδ + δᵀHδ. The
+projection zeroes the *linear* response of the monitored coefficients — and their
+movement barely changes, so their response to the injection is dominated by the
+**second-order term**: they respond to the injection's *energy* through their forms'
+curvature, which no direction choice can remove. Addressability fails not because
+sensitivities overlap (they don't) but because **control is linear and collateral is
+quadratic** — at magnitudes large enough for deep reach, δᵀHδ beats gᵀδ for every
+bystander at once. This is the composition product law and the interchange leak in
+their cleanest form yet, and it makes a sharp registered prediction (queued):
+selectivity should *improve as 1/‖δ‖* at short range (linear own vs quadratic cross),
+while at L13 no magnitude rescues it (the linear own-term is ≈ 0 there).

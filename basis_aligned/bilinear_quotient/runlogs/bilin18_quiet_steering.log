@@ -1,0 +1,11 @@
+L5: overlap(g_t, span others) = 0.09
+  raw gradient : own 1.02s | monitored 0.36s | unmonitored 0.10s
+  projected    : own 0.96s | monitored 0.23s | unmonitored 0.09s
+L13: overlap(g_t, span others) = 0.09
+  raw gradient : own 0.06s | monitored 0.74s | unmonitored 0.57s
+  projected    : own 0.10s | monitored 0.68s | unmonitored 0.47s
+
+(d) overlap >= 0.6: FAILED (0.09)
+(a) projection keeps <= 50% own: FAILED (keeps 154%, cuts monitored cross-talk 1.1x)
+(b) Goodhart (unmonitored cut < 2x): HELD (1.2x)
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_quiet_steering_results.json (12s)

@@ -1,0 +1,37 @@
+{
+ "cases": [
+  {
+   "target_layer": 5,
+   "overlap": 0.09388774633407593,
+   "raw": {
+    "own": 1.0244891105786385,
+    "monitored": 0.3593898322273906,
+    "unmonitored": 0.10376402971281531
+   },
+   "projected": {
+    "own": 0.9634292814405305,
+    "monitored": 0.23012340182303695,
+    "unmonitored": 0.0875617741342424
+   }
+  },
+  {
+   "target_layer": 13,
+   "overlap": 0.0873950719833374,
+   "raw": {
+    "own": 0.06396696528700352,
+    "monitored": 0.7368521763004339,
+    "unmonitored": 0.5690307858108808
+   },
+   "projected": {
+    "own": 0.0985633711597695,
+    "monitored": 0.6840595888626624,
+    "unmonitored": 0.4734794325452785
+   }
+  }
+ ],
+ "pred_d_shared_sensitivity": false,
+ "pred_a_quietness_costly": false,
+ "alternative_addressable": false,
+ "pred_b_goodhart": true,
+ "runtime_s": 12.4013090133667
+}
