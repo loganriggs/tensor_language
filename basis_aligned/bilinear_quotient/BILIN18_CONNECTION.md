@@ -1844,3 +1844,36 @@ Verdict for the protocol: **weights + one data matrix locates the causal subspac
 an unseen layer, usually precisely, and its failures are detectable** (layer 7's low
 cos flagged itself). The battery order proposed in §23 — weight-side candidates first,
 model evaluations to verify — survives its first contact with layers it had never seen.
+
+---
+
+## 31. The 3→4 edge has no small set of channels
+
+File: `bilin18_chain_bus.py` (4 s after a caught bug: the first version's forward
+dropped the residual add, self-flagged by an exactly-zero reference effect).
+
+Weights-first candidates for the 2→3→4 chain's bus variables: top eigenvectors of the
+coupling operator `K(3→4) = C3^{1/2} G2(4) C3^{1/2}` — what layer 3 writes weighted by
+what layer 4's quadratic reads. Registered predictions: P1, coupling directions beat
+layer 3's own output PCA at matched k; P2, eight channels carry half the full-edge
+transplant effect.
+
+| k | coupling T(k) | L3-PCA T(k) | random |
+|---|---|---|---|
+| 1 | 0.021 | 0.020 | 0.000 |
+| 4 | 0.128 | 0.121 | 0.002 |
+| 8 | **0.211** | 0.195 | 0.004 |
+| 16 | 0.297 | 0.281 | 0.008 |
+
+**P2 failed decisively** (0.211 against a 0.5 bar), and P1 held only trivially (an 8%
+relative edge over plain PCA — real but useless). The 3→4 edge is **broadband**: no
+small set of variables carries it, and the coupling operator adds almost nothing over
+"layer 3's biggest outputs" here, in sharp contrast to the leader predictions where the
+same algebra was nearly exact.
+
+This is the edge-level twin of §29's verdict and it closes the question the
+causal-abstraction phase posed for the chain: **the 2→3→4 pipeline does not abstract
+into few variables.** Its existence and orientation are established (§28); its content
+is high-bandwidth by every instrument — output rank, surrogate failure, naming failure,
+and now channel count. For this model, "understand the middle" cannot mean "name its
+variables"; the honest unit is the subspace and its gain, not the coordinate.

@@ -1844,3 +1844,14 @@ unprompted in the tail. The weights-first battery order survives its first blind
 contact.
 
 Full detail in `BILIN18_CONNECTION.md` §30.
+
+### The 3→4 edge is broadband
+
+Weights-first bus candidates for the chain (coupling operator eigenvectors), registered
+bars, transplant test: **eight channels carry 21% of the edge, not the predicted 50%**,
+and the coupling directions beat plain output-PCA only trivially (0.211 vs 0.195). The
+2→3→4 pipeline's existence and orientation stand, but it does not abstract into few
+variables — matching the rank, surrogate, and naming verdicts on the same layers. The
+middle is high-bandwidth by every instrument.
+
+Full detail in `BILIN18_CONNECTION.md` §31.
