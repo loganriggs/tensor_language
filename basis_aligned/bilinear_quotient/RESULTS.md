@@ -1811,3 +1811,22 @@ protocol's second confirmed prediction. Method note: a negative Shapley value fi
 coupled stage but not the coupling's direction; the marginal-flip sweep orients it.
 
 Full detail in `BILIN18_CONNECTION.md` §28.
+
+### Layers 2 and 3: where the model refuses to compress
+
+The middle's two workhorses are the opposite end of every spectrum the battery
+measures: flattest Shapley spectra (PR 13.8 and 8.7 of 32; leaders 16% and 22%),
+highest-rank outputs (effective rank 80–87, ~500 dims for 90%), leaders reading almost
+purely from accumulated MLP/attention writes, and — the two firsts — a leader with **no
+verifiable token structure** (layer 3, ρ = −0.005) and a leader whose rank-1 surrogate
+**fails outright** (layer 2, 3.5% repair; rank-2 17.6%). This bounds the §26 regularity
+honestly (low-rank robust cores exist only for some mechanism classes) and closes the
+loop on "irreducibly distributed": layers 2–3 are what that genuinely looks like,
+measured with instruments that succeeded on four other layers.
+
+Assembled pipeline: 2–3 perform a high-rank uncompressible transformation; 4 reads it
+and misfires without it; 5–15 add small redundant refinements (fair shares 3–7%);
+16–17 collapse everything to a few readable directions. Distribution rises then falls
+with depth.
+
+Full detail in `BILIN18_CONNECTION.md` §29.

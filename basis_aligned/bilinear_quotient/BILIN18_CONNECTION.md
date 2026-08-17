@@ -1758,3 +1758,49 @@ The method note that generalises: **a negative Shapley value identifies a couple
 stage but not the direction of coupling** — the marginal-flip sweep (which coalition
 flips the sign) is the cheap follow-up that orients the edge, and the Λ-metric
 input-mode Gram predicts the answer from weights before any model evaluation is spent.
+
+---
+
+## 29. Layers 2 and 3: where the model refuses to compress
+
+Files: `bilin18_layer2_battery.py`, `bilin18_layer3_battery.py` (461+466 s, gates ~1e-7).
+The two layers carrying 64% of the middle's fair share (§27), given the full battery.
+
+| | layer 2 | layer 3 | (layer 16, for contrast) |
+|---|---|---|---|
+| Shapley PR / 32 | 8.7 | **13.8** | 2.5 |
+| leader share | 22% | **16%** | 42% |
+| output effective rank | **87** | **80** | 3 |
+| dims for 90% of output | 545 | 509 | 15 |
+| leader's rank-1 repair | **3.5%** | 67.8% | ~100% |
+| leader's rank-2 repair | 17.6% | 68.7% | ~100% |
+| leader naming ρ | 0.47 | **−0.01** | 0.26–0.39 |
+| dominant writers | mlps×mlps 47%, attn×mlps 37% | attn×mlps 43%, mlps×mlps 38% | attn×mlps 47–56% |
+
+**Layer 3 is the flattest layer measured** (PR 13.8 — half its 32 directions genuinely
+matter) and its leader is the program's first with *no verifiable token structure at
+all* (ρ = −0.005 against a 0.155 null). **Layer 2's leader is the least compressible**:
+the rank-1 whitened surrogate repairs 3.5%, rank-2 only 17.6% — against 66–100%
+everywhere else. Both layers' outputs are high-rank (effective rank 80–87, needing
+~500 dims for 90%), and their leaders read almost entirely from accumulated MLP and
+attention writes (embedding ≤0.5%).
+
+**This bounds §26's regularity honestly.** "The distribution-robust core of every
+verified leader is its rank-1 whitened surrogate" was measured on layers whose leaders
+*have* verified surrogates (0, 1, 16). Layers 2–3 show the construction failing: where
+the causal mass of the middle actually lives, no low-rank surrogate exists to be
+robust. The regularity is real but conditional on mechanism class.
+
+**And it closes the loop on the repo's boundary result.** §74 called MLP1's tail
+"irreducibly distributed"; §13–16 partially rehabilitated MLP1 into five-to-six
+directions. Layers 2–3 are what genuinely irreducible distribution looks like on this
+model: flat fair-share spectra, high-rank outputs, unnameable leaders, failed
+surrogates — measured with instruments that succeeded on four other layers, so the
+failure is informative rather than instrumental. The middle's workhorses are
+distributed in exactly the way the rest of the model is not.
+
+The pipeline picture assembled across §27–29: layers 2–3 perform a high-rank,
+uncompressible transformation; layer 4 reads it (and misfires without it); the tail
+5–15 adds small redundant refinements; 16–17 collapse everything back to a few
+readable directions for the unembedding. Distribution rises then falls with depth, and
+the compressible ends were exactly where every earlier success lived.
