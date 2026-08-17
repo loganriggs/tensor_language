@@ -4955,3 +4955,23 @@ length. This is the user's "semantics to an extent": an edge label like "reads
 the stream's energy" is a one-variable mini-explanation, and typed edges give
 the compositional, cleanly-separated structure of good code — nodes as
 functions, edges as typed arguments.
+
+## 171. The gain channel has a sign: it amplifies MLP-span damage and cushions attention damage
+
+File: `bilin18_attn_norm_share.py`. All attention norm-shares came out
+**negative** (L1 −21%, L2 −16%, L6 −32%, L14 −22%): gain-freezing makes
+attention ablations *worse*, the mirror image of the MLP-span result (§117:
+L17 82% positive). Reading: deleting an MLP span removes specific loud
+directions — the rms rescale then over-amplifies the distorted survivors
+(damage adds); mean-ablating a whole attention output shrinks the residual
+uniformly — the rescale restores the scale of the remaining, still largely
+correct content (damage is cushioned, by ~20–30%). Consequences:
+
+- **Attention edges are content-typed at every depth** — registered (a)
+  (front norm-typed) refuted; even L1's +0.32 is structure, not energy.
+- The §137 attention profile's raw numbers were, if anything, *understated* by
+  the gain compensation.
+- For the benchmark's typed-edge audits: the gain-frozen instrument must be run
+  in both directions and its **sign reported** — a positive share says the edge
+  was energy; a negative share says the component was content whose loss the
+  norm partially papered over.

@@ -98,7 +98,9 @@ work. A submission is a GRAPH, and each of its three cost axes is explicit:
   (~8 dims, §170). Typed-edge claims are verified both ways: cut the claimed
   channel (effect should vanish) and keep ONLY the claimed channel (effect
   should survive) — the §117 gain-frozen instrument is the reference
-  implementation for norm-typed claims. The measured macro-graph
+  implementation for norm-typed claims — run it in both directions and report
+  the share's SIGN (§171): positive = the dependency was energy; negative = the
+  component carried content whose loss the final norm partially compensated. The measured macro-graph
   here is the relay (MLP → attention-transport → MLP), so sparse type-level
   graphs are achievable.
 - **Semantic cost with amortization** = total description length of the

@@ -3101,3 +3101,11 @@ typed (few dims), or opaque -- all three measured in this model. BENCHMARK.md
 updated.
 
 Full detail in `BILIN18_CONNECTION.md` §170.
+
+### The gain channel has a sign
+
+Attention norm-shares all NEGATIVE (-16 to -32%): the gain cushions attention
+damage and amplifies MLP-span damage. Attention edges are content-typed at
+every depth; benchmark audits must report the share's sign.
+
+Full detail in `BILIN18_CONNECTION.md` §171.

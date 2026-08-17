@@ -1,0 +1,9 @@
+L 1: raw +0.3164 | gain-frozen +0.3821 | norm share -21%
+L 2: raw +0.2700 | gain-frozen +0.3131 | norm share -16%
+L 6: raw +0.0844 | gain-frozen +0.1114 | norm share -32%
+L14: raw -0.0360 | gain-frozen -0.0440 | norm share -22%
+
+(a) front norm-typed (>=40%): FAILED
+(b) L6 content-typed (<30%): HELD
+(c) L14 negative attenuates: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_attn_norm_share_results.json (7s)
