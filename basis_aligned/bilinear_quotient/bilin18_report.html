@@ -1,0 +1,279 @@
+<title>Reading bilin18</title>
+<style>
+:root{
+  --ground:#fcfcfb; --panel:#f6f5f1; --ink:#0b0b0b; --ink-2:#52514e; --ink-3:#8b8981;
+  --rule:#e1e0d9; --rule-2:#cfcec5;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100;
+  --accent:#104281;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#15150f; --panel:#1d1d16; --ink:#f3f2ea; --ink-2:#b8b6a8; --ink-3:#86847a;
+    --rule:#33322a; --rule-2:#45443a;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500;
+    --accent:#8fb6ea;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#15150f; --panel:#1d1d16; --ink:#f3f2ea; --ink-2:#b8b6a8; --ink-3:#86847a;
+  --rule:#33322a; --rule-2:#45443a;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500;
+  --accent:#8fb6ea;
+}
+*{box-sizing:border-box}
+body{
+  background:var(--ground); color:var(--ink); margin:0;
+  font-family:ui-serif,"Iowan Old Style","Source Serif 4",Palatino,"Palatino Linotype",Georgia,serif;
+  font-size:17px; line-height:1.62; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1000px; margin:0 auto; padding:64px 28px 96px;}
+.col{max-width:64ch;}
+h1{font-size:2.45rem; line-height:1.12; margin:0 0 .4em; letter-spacing:-.015em; text-wrap:balance;}
+h2{font-size:1.5rem; line-height:1.25; margin:0 0 .5em; letter-spacing:-.01em; text-wrap:balance;}
+h3{font-size:1.06rem; margin:0 0 .35em; letter-spacing:-.005em;}
+p{margin:0 0 1.05em;}
+.mono,.eyebrow,.tick,.val,.note,.panel-t,.legend,.tag,.axlab,.grouplab,figcaption{
+  font-family:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+}
+.eyebrow{
+  font-size:.7rem; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-3);
+  margin:0 0 .6em; display:flex; gap:.9em; align-items:baseline;
+}
+.eyebrow b{color:var(--accent); font-weight:700;}
+.lede{font-size:1.16rem; color:var(--ink-2); margin-bottom:2.2em;}
+header{border-bottom:1px solid var(--rule); padding-bottom:2.2em; margin-bottom:2.6em;}
+section{margin:0 0 4.4em;}
+section+section{border-top:1px solid var(--rule); padding-top:3.2em;}
+.q{font-style:italic; color:var(--ink-2);}
+strong{font-weight:700;}
+figure{margin:2em 0 1.6em; background:var(--panel); border:1px solid var(--rule);
+  border-radius:2px; padding:20px 20px 14px; overflow-x:auto;}
+figure svg{display:block; width:100%; height:auto; min-width:520px;}
+figcaption{font-size:.78rem; color:var(--ink-2); line-height:1.5; margin-top:.9em;
+  padding-top:.8em; border-top:1px solid var(--rule);}
+.legend{display:flex; flex-wrap:wrap; gap:.35em 1.4em; font-size:.75rem;
+  color:var(--ink-2); margin-bottom:.9em;}
+.legend span{display:flex; align-items:center; gap:.5em;}
+.swatch{width:16px; height:3px; border-radius:2px; display:inline-block;}
+svg .grid{stroke:var(--rule); stroke-width:1;}
+svg .mark{stroke:var(--rule-2); stroke-width:1; stroke-dasharray:3 4;}
+svg .tick{fill:var(--ink-3); font-size:11px;}
+svg .axlab{fill:var(--ink-2); font-size:11.5px;}
+svg .val{fill:var(--ink-2); font-size:11px; font-weight:600;}
+svg .note{fill:var(--ink-3); font-size:11px;}
+svg .panel{fill:var(--ink-2); font-size:11.5px; font-weight:700;}
+svg .grouplab{fill:var(--ink-2); font-size:11.5px;}
+svg .s1{stroke:var(--s1)} svg .s2{stroke:var(--s2)}
+svg .s3{stroke:var(--s3)} svg .s4{stroke:var(--s4)}
+svg .s1d{fill:var(--s1); stroke:var(--panel); stroke-width:1.3}
+svg .s2d{fill:var(--s2); stroke:var(--panel); stroke-width:1.3}
+svg .s3d{fill:var(--s3); stroke:var(--panel); stroke-width:1.3}
+svg .s4d{fill:var(--s4); stroke:var(--panel); stroke-width:1.3}
+svg .s1t{fill:var(--s1)} svg .s2t{fill:var(--s2)} svg .s3t{fill:var(--s3)}
+svg rect.bar{stroke:none}
+svg rect.bar.s1{fill:var(--s1)} svg rect.bar.s2{fill:var(--s2)}
+svg rect.bar.s3{fill:var(--s3)} svg rect.bar.s4{fill:var(--s4)}
+.callout{border-left:3px solid var(--accent); padding:.15em 0 .15em 1.1em; margin:1.6em 0;
+  color:var(--ink);}
+.tag{display:inline-block; font-size:.68rem; letter-spacing:.09em; text-transform:uppercase;
+  border:1px solid var(--rule-2); color:var(--ink-2); padding:.18em .55em; border-radius:2px;
+  margin-right:.4em;}
+.tag.off{border-color:var(--s2); color:var(--s2);}
+table{border-collapse:collapse; width:100%; font-size:.85rem; margin:1.4em 0;
+  font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; font-variant-numeric:tabular-nums;}
+th,td{text-align:left; padding:.5em .7em; border-bottom:1px solid var(--rule);}
+th{font-size:.7rem; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3);
+  font-weight:600;}
+td.n{text-align:right;}
+.status{display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:1px;
+  background:var(--rule); border:1px solid var(--rule); margin:2em 0;}
+.status div{background:var(--ground); padding:.9em 1em;}
+.status .k{font-family:ui-monospace,Menlo,monospace; font-size:.7rem; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--ink-3); margin-bottom:.25em;}
+.status .v{font-size:.95rem;}
+.done{color:var(--s3)} .notdone{color:var(--s2)}
+.wide{max-width:none;}
+a{color:var(--accent);}
+:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+
+nav.toc{margin:2.4em 0 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule);
+  padding:1.1em 0 1.2em;}
+nav.toc ol{list-style:none; margin:0; padding:0; display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(268px,1fr)); gap:.18em 2em;}
+nav.toc li{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; font-size:.795rem;
+  line-height:1.75; display:flex; gap:.55em; align-items:baseline;}
+nav.toc a{color:var(--ink-2); text-decoration:none; border-bottom:1px solid transparent;}
+nav.toc a:hover{color:var(--ink); border-bottom-color:var(--rule-2);}
+nav.toc .num{color:var(--ink-3); font-variant-numeric:tabular-nums; min-width:1.5em;}
+nav.toc .flag{font-size:.6rem; letter-spacing:.1em; text-transform:uppercase;
+  padding:.1em .42em; border-radius:2px; white-space:nowrap; font-weight:700;}
+nav.toc .flag.new{background:var(--s3); color:var(--ground);}
+nav.toc .flag.upd{border:1px solid var(--s2); color:var(--s2);}
+nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--ink-3); margin:0 0 .5em;}
+@media (max-width:640px){ .wrap{padding:40px 18px 64px} h1{font-size:1.9rem} body{font-size:16px} }
+</style>
+<div class="wrap">
+<header class="col">
+  <p class="eyebrow"><b>Findings report</b> <span>17 August 2026</span> <span>standalone</span></p>
+  <h1>Reading bilin18</h1>
+  <p class="lede">What we found inside a 546M-parameter bilinear transformer: six layers read
+  end to end, a causal graph with every edge tested by intervention, a depth map that says
+  where the model compresses and where it refuses to, and a weights-only formula that
+  predicted almost all of it. Including the four corrections it took to get here.</p>
+  <nav class="toc" aria-label="Contents"><p class="tochd">Contents</p><ol>
+    <li><span class="num">01</span><a href="#model">The model and the method</a></li>
+    <li><span class="num">02</span><a href="#depth">The depth map</a></li>
+    <li><span class="num">03</span><a href="#profiles">Six layers in profile</a></li>
+    <li><span class="num">04</span><a href="#graph">The causal graph</a></li>
+    <li><span class="num">05</span><a href="#pattern">Structure verifies, token stories don't</a></li>
+    <li><span class="num">06</span><a href="#weights">The weights knew</a></li>
+    <li><span class="num">07</span><a href="#corrections">Corrections ledger</a></li>
+    <li><span class="num">08</span><a href="#open">What's still open</a></li>
+  </ol></nav>
+</header>
+
+<section class="col">
+  <h2 id="model">The model and the method</h2>
+  <p>bilin18 is an 18-layer, 546M-parameter language model whose MLPs are purely
+  <em>bilinear</em> — each one computes <span class="mono">Down((Lx)·(Rx))</span>, no
+  activation function — and whose attention multiplies two separate score matrices with no
+  softmax. The absence of nonlinearities beyond multiplication is what makes it readable:
+  every layer is a third-order tensor, every output coefficient is an exact quadratic form,
+  and sums split exactly, so decompositions that are approximations elsewhere are identities
+  here.</p>
+  <p>Each layer went through the same loop. Find the causal directions by <strong>order-averaged
+  attribution</strong> (each direction's damage averaged over all removal orders, so nothing
+  hides behind redundancy and the parts must sum to the whole). Split each direction's
+  activation <strong>exactly by writer</strong> — embedding, each attention block, each MLP.
+  Name it two ways and keep only names that beat a <strong>permutation null</strong>. Replace
+  it with the smallest surrogate that holds the model's loss, against a random-direction
+  control. Then state the result as a variable graph and test each edge by
+  <strong>transplanting values between inputs</strong>. Every claim below survived that
+  loop, and the ones that didn't are reported with the same prominence.</p>
+</section>
+
+<section>
+  <div class="col">
+  <h2 id="depth">The depth map</h2>
+  <p>The single most useful picture. The ends of the network are individually heavy; the
+  middle looks free one layer at a time — and is not. A fair, order-averaged attribution
+  over the fourteen middle layers (green) shows two layers doing most of the middle's work,
+  a long redundant tail, and one layer whose fair share is <em>negative</em>.</p>
+  </div>
+  <figure><svg viewBox="0 0 780 320" role="img" aria-label="per-layer importance across depth"><text class="panel" x="8" y="16">the depth map: what each bilinear unit is worth</text><line class="grid" x1="64" y1="208.1" x2="748" y2="208.1"/><text class="tick" x="56" y="212.1" text-anchor="end">0</text><line class="grid" x1="64" y1="181.5" x2="748" y2="181.5"/><text class="tick" x="56" y="185.5" text-anchor="end">1</text><line class="grid" x1="64" y1="155.0" x2="748" y2="155.0"/><text class="tick" x="56" y="159.0" text-anchor="end">2</text><line class="grid" x1="64" y1="128.4" x2="748" y2="128.4"/><text class="tick" x="56" y="132.4" text-anchor="end">3</text><line class="grid" x1="64" y1="101.8" x2="748" y2="101.8"/><text class="tick" x="56" y="105.8" text-anchor="end">4</text><line class="grid" x1="64" y1="75.3" x2="748" y2="75.3"/><text class="tick" x="56" y="79.3" text-anchor="end">5</text><rect class="bar s1" x="71.2" y="160.2" width="23.6" height="47.9" rx="1.5"/><text class="val" x="83.0" y="154.2" text-anchor="middle" style="font-size:10px">1.80</text><text class="tick" x="83.0" y="248" text-anchor="middle">0</text><rect class="bar s1" x="109.2" y="58.0" width="23.6" height="150.1" rx="1.5"/><text class="val" x="121.0" y="52.0" text-anchor="middle" style="font-size:10px">5.65</text><text class="tick" x="121.0" y="248" text-anchor="middle">1</text><rect class="bar s3" x="147.2" y="185.2" width="23.6" height="22.9" rx="1.5"/><text class="val" x="159.0" y="179.2" text-anchor="middle" style="font-size:10px">+0.86</text><text class="tick" x="159.0" y="248" text-anchor="middle">2</text><rect class="bar s3" x="185.2" y="180.9" width="23.6" height="27.2" rx="1.5"/><text class="val" x="197.0" y="174.9" text-anchor="middle" style="font-size:10px">+1.02</text><text class="tick" x="197.0" y="248" text-anchor="middle">3</text><rect class="bar s2" x="223.2" y="208.1" width="23.6" height="17.7" rx="1.5"/><text class="val" x="235.0" y="239.8" text-anchor="middle" style="font-size:10px">-0.67</text><text class="tick" x="235.0" y="248" text-anchor="middle">4</text><rect class="bar s3" x="261.2" y="202.3" width="23.6" height="5.8" rx="1.5"/><text class="tick" x="273.0" y="248" text-anchor="middle">5</text><rect class="bar s3" x="299.2" y="204.3" width="23.6" height="3.7" rx="1.5"/><text class="tick" x="311.0" y="248" text-anchor="middle">6</text><rect class="bar s3" x="337.2" y="202.6" width="23.6" height="5.5" rx="1.5"/><text class="tick" x="349.0" y="248" text-anchor="middle">7</text><rect class="bar s3" x="375.2" y="203.3" width="23.6" height="4.8" rx="1.5"/><text class="tick" x="387.0" y="248" text-anchor="middle">8</text><rect class="bar s3" x="413.2" y="203.7" width="23.6" height="4.4" rx="1.5"/><text class="tick" x="425.0" y="248" text-anchor="middle">9</text><rect class="bar s3" x="451.2" y="204.3" width="23.6" height="3.8" rx="1.5"/><text class="tick" x="463.0" y="248" text-anchor="middle">10</text><rect class="bar s3" x="489.2" y="202.7" width="23.6" height="5.4" rx="1.5"/><text class="tick" x="501.0" y="248" text-anchor="middle">11</text><rect class="bar s3" x="527.2" y="204.3" width="23.6" height="3.8" rx="1.5"/><text class="tick" x="539.0" y="248" text-anchor="middle">12</text><rect class="bar s3" x="565.2" y="204.7" width="23.6" height="3.4" rx="1.5"/><text class="tick" x="577.0" y="248" text-anchor="middle">13</text><rect class="bar s3" x="603.2" y="204.8" width="23.6" height="3.3" rx="1.5"/><text class="tick" x="615.0" y="248" text-anchor="middle">14</text><rect class="bar s3" x="641.2" y="205.7" width="23.6" height="2.4" rx="1.5"/><text class="tick" x="653.0" y="248" text-anchor="middle">15</text><rect class="bar s1" x="679.2" y="177.1" width="23.6" height="31.0" rx="1.5"/><text class="val" x="691.0" y="171.1" text-anchor="middle" style="font-size:10px">1.17</text><text class="tick" x="691.0" y="248" text-anchor="middle">16</text><rect class="bar s1" x="717.2" y="179.5" width="23.6" height="28.6" rx="1.5"/><text class="val" x="729.0" y="173.5" text-anchor="middle" style="font-size:10px">1.08</text><text class="tick" x="729.0" y="248" text-anchor="middle">17</text><line class="grid" x1="64" y1="208.1" x2="748" y2="208.1" style="stroke:var(--rule-2)"/><text class="axlab" x="406.0" y="272" text-anchor="middle">layer — blue: cost of deleting the unit alone; green: fair (order-averaged) share of the middle's joint effect; orange: negative</text><text class="axlab" x="14" y="143.0" transform="rotate(-90 14 143.0)" text-anchor="middle">nats</text><text class="note" x="238.8" y="229.8">layer 4: removing it repairs damage — it reads layers 2–3</text></svg><figcaption>Blue bars: cross-entropy cost of deleting that unit alone
+  (layers 0, 1, 16, 17). Green/orange: each middle layer's fair share of the joint
+  middle-deletion effect (they sum to 2.96 nats exactly). The two measures answer different
+  questions and are shown together as a map, not compared numerically. Layer 4's share is
+  negative: deleting it <em>repairs</em> damage once layers 2–3 are gone.</figcaption></figure>
+  <div class="col">
+  <p>Layer 1 is the most important unit in the model (5.65 nats). Layers 2 and 3 carry 64%
+  of the middle. Layer 4's negative share was the strangest number in the program until a
+  coalition sweep oriented it: its cost flips sign exactly when layers 2–3 are deleted —
+  <strong>layer 4 is a reader of layers 2–3</strong>, and on an unwritten bus its
+  computation misfires. The tail (5–15) contributes 3–7% each, understated three-to-five-fold
+  by one-at-a-time ablation.</p>
+  <p>The second picture explains why every compression success lived at the ends:</p>
+  </div>
+  <figure><svg viewBox="0 0 780 240" role="img" aria-label="output dimensionality per layer"><text class="panel" x="8" y="16">how many directions each layer's output really uses (90% of variance, log scale)</text><line class="grid" x1="64" y1="152.4" x2="700" y2="152.4"/><text class="tick" x="56" y="156.4" text-anchor="end">10</text><line class="grid" x1="64" y1="95.8" x2="700" y2="95.8"/><text class="tick" x="56" y="99.8" text-anchor="end">100</text><line class="grid" x1="64" y1="56.3" x2="700" y2="56.3"/><text class="tick" x="56" y="60.3" text-anchor="end">500</text><rect class="bar s2" x="90.5" y="60.0" width="53.0" height="122.0" rx="1.5"/><text class="val" x="117.0" y="54.0" text-anchor="middle">430</text><text class="tick" x="117.0" y="198" text-anchor="middle">L0</text><rect class="bar s2" x="196.5" y="74.2" width="53.0" height="107.8" rx="1.5"/><text class="val" x="223.0" y="68.2" text-anchor="middle">241</text><text class="tick" x="223.0" y="198" text-anchor="middle">L1</text><rect class="bar s2" x="302.5" y="54.2" width="53.0" height="127.8" rx="1.5"/><text class="val" x="329.0" y="48.2" text-anchor="middle">545</text><text class="tick" x="329.0" y="198" text-anchor="middle">L2</text><rect class="bar s2" x="408.5" y="55.8" width="53.0" height="126.2" rx="1.5"/><text class="val" x="435.0" y="49.8" text-anchor="middle">509</text><text class="tick" x="435.0" y="198" text-anchor="middle">L3</text><rect class="bar s1" x="514.5" y="142.4" width="53.0" height="39.6" rx="1.5"/><text class="val" x="541.0" y="136.4" text-anchor="middle">15</text><text class="tick" x="541.0" y="198" text-anchor="middle">L16</text><rect class="bar s1" x="620.5" y="174.9" width="53.0" height="7.1" rx="1.5"/><text class="val" x="647.0" y="168.9" text-anchor="middle">4</text><text class="tick" x="647.0" y="198" text-anchor="middle">L17</text><text class="axlab" x="382.0" y="220" text-anchor="middle">the middle works in hundreds of directions; the ends in a handful</text></svg><figcaption>Number of output directions needed for 90% of each profiled
+  layer's output variance. The middle's workhorses (L2, L3) genuinely use hundreds of
+  directions; the last two layers use a handful. Orange marks the high-rank regime where
+  low-rank replacement fails.</figcaption></figure>
+</section>
+
+<section class="col">
+  <h2 id="profiles">Six layers in profile</h2>
+  <table><thead><tr><th>layer</th><th>lead mechanism</th><th>surrogate at ~1.2k params</th><th>verified name</th></tr></thead><tbody>
+  <tr><td>0</td><td>token identity (embedding² 75%)</td><td class="n">repairs 66%</td><td>punctuation-vs-content axis, ρ 0.95</td></tr>
+  <tr><td>1</td><td>one attention head's context, squared</td><td class="n">repairs 92%</td><td>register <em>correlate</em>; cause refuted</td></tr>
+  <tr><td>2</td><td>accumulated MLP writes, high-rank</td><td class="n"><strong>fails (3.5%)</strong></td><td>partial, ρ 0.47</td></tr>
+  <tr><td>3</td><td>accumulated MLP+attn writes, flattest layer</td><td class="n">repairs 68%</td><td><strong>none</strong> (ρ −0.005)</td></tr>
+  <tr><td>16</td><td>attn×MLP cross-terms, 2-direction layer</td><td class="n">repairs ~100% (beats model off-distribution)</td><td>weak; shares L17's syntax axis</td></tr>
+  <tr><td>17</td><td>near-rank-4 syntax rules</td><td class="n">whole layer ≈ 8 squared projections</td><td>verified, uneven (ρ 0.11–0.66)</td></tr>
+  </tbody></table>
+  <p>Two regularities fall out. <strong>Compressibility tracks mechanism class</strong>:
+  squared context summaries compress to one projection, token-identity features need more of
+  their form, accumulated high-rank computation refuses entirely. And <strong>the
+  distribution-robust part of every compressible leader is exactly its low-rank
+  core</strong>: on out-of-distribution text the discarded parameters are neutral at best
+  and harmful at worst — layer 16's replacement literally beats the intact model there, an
+  effect that vanishes on training-like data (tested on a fresh fineweb sample).</p>
+</section>
+
+<section>
+  <div class="col">
+  <h2 id="graph">The causal graph</h2>
+  <p>The program's end state is not a list of features but a graph whose edges were each
+  moved by hand: transplant a variable's value from one input into another and check the
+  downstream behaviour matches transplanting its low-level realizer.</p>
+  </div>
+  <figure><svg viewBox="0 0 780 330" role="img" aria-label="the tested causal graph"><text class="panel" x="8" y="16">the causal graph — every solid edge tested by intervention</text><rect x="20" y="120" width="120" height="44" rx="4" fill="var(--panel)" stroke="var(--rule-2)"/><text class="grouplab" x="80.0" y="138.0" text-anchor="middle" style="font-weight:700">embedding</text><text class="note" x="80.0" y="156.0" text-anchor="middle">token identity</text><rect x="20" y="220" width="120" height="44" rx="4" fill="var(--panel)" stroke="var(--rule-2)"/><text class="grouplab" x="80.0" y="238.0" text-anchor="middle" style="font-weight:700">attention</text><text class="note" x="80.0" y="256.0" text-anchor="middle">context</text><rect x="190" y="56" width="130" height="44" rx="4" fill="var(--panel)" stroke="var(--rule-2)"/><text class="grouplab" x="255.0" y="74.0" text-anchor="middle" style="font-weight:700">head 4 @ L1</text><text class="note" x="255.0" y="92.0" text-anchor="middle">layout aggregation</text><rect x="190" y="158" width="130" height="50" rx="4" fill="var(--panel)" stroke="var(--rule-2)"/><text class="grouplab" x="255.0" y="179.0" text-anchor="middle" style="font-weight:700">L0 / L1 leaders</text><text class="note" x="255.0" y="197.0" text-anchor="middle">punct axis · z, c0</text><rect x="190" y="252" width="130" height="44" rx="4" fill="var(--panel)" stroke="var(--rule-2)"/><text class="grouplab" x="255.0" y="270.0" text-anchor="middle" style="font-weight:700">L2 - L3</text><text class="note" x="255.0" y="288.0" text-anchor="middle">high-rank core</text><rect x="382" y="252" width="96" height="44" rx="4" fill="var(--panel)" stroke="var(--rule-2)"/><text class="grouplab" x="430.0" y="270.0" text-anchor="middle" style="font-weight:700">L4</text><text class="note" x="430.0" y="288.0" text-anchor="middle">reader of 2-3</text><rect x="382" y="158" width="96" height="44" rx="4" fill="var(--panel)" stroke="var(--rule-2)"/><text class="grouplab" x="430.0" y="176.0" text-anchor="middle" style="font-weight:700">L5-15</text><text class="note" x="430.0" y="194.0" text-anchor="middle">redundant tail</text><rect x="540" y="110" width="110" height="44" rx="4" fill="var(--panel)" stroke="var(--rule-2)"/><text class="grouplab" x="595.0" y="128.0" text-anchor="middle" style="font-weight:700">axis @ L16</text><text class="note" x="595.0" y="146.0" text-anchor="middle">syntax bus</text><rect x="540" y="226" width="110" height="44" rx="4" fill="var(--panel)" stroke="var(--rule-2)"/><text class="grouplab" x="595.0" y="244.0" text-anchor="middle" style="font-weight:700">axis @ L17</text><text class="note" x="595.0" y="262.0" text-anchor="middle">syntax rules</text><rect x="692" y="166" width="72" height="44" rx="4" fill="var(--panel)" stroke="var(--rule-2)"/><text class="grouplab" x="728.0" y="184.0" text-anchor="middle" style="font-weight:700">output</text><text class="note" x="728.0" y="202.0" text-anchor="middle">unembed</text><line x1="255" y1="100" x2="255" y2="156" class="s3" stroke-width="2"/><line x1="255" y1="156" x2="250.7" y2="147.0" class="s3" stroke-width="2"/><line x1="255" y1="156" x2="259.3" y2="147.0" class="s3" stroke-width="2"/><text class="note" x="352" y="132" text-anchor="middle">79% of z-movement</text><line x1="140" y1="142" x2="188" y2="172" class="s3" stroke-width="2"/><line x1="188" y1="172" x2="178.1" y2="170.9" class="s3" stroke-width="2"/><line x1="188" y1="172" x2="182.7" y2="163.5" class="s3" stroke-width="2"/><line x1="140" y1="242" x2="188" y2="266" class="s3" stroke-width="2"/><line x1="188" y1="266" x2="178.0" y2="265.9" class="s3" stroke-width="2"/><line x1="188" y1="266" x2="181.9" y2="258.1" class="s3" stroke-width="2"/><line x1="320" y1="274" x2="380" y2="274" class="s3" stroke-width="2"/><line x1="380" y1="274" x2="371.0" y2="278.3" class="s3" stroke-width="2"/><line x1="380" y1="274" x2="371.0" y2="269.7" class="s3" stroke-width="2"/><text class="note" x="350" y="306" text-anchor="middle">sign flip: -1.34 nats</text><line x1="430" y1="250" x2="430" y2="204" class="s3" stroke-width="2"/><line x1="430" y1="204" x2="434.3" y2="213.0" class="s3" stroke-width="2"/><line x1="430" y1="204" x2="425.7" y2="213.0" class="s3" stroke-width="2"/><line x1="478" y1="168" x2="538" y2="140" class="s3" stroke-width="2" stroke-dasharray="4 4"/><line x1="538" y1="140" x2="531.7" y2="147.7" class="s3" stroke-width="2"/><line x1="538" y1="140" x2="528.0" y2="139.9" class="s3" stroke-width="2"/><line x1="595" y1="156" x2="595" y2="224" class="s3" stroke-width="2"/><line x1="595" y1="224" x2="590.7" y2="215.0" class="s3" stroke-width="2"/><line x1="595" y1="224" x2="599.3" y2="215.0" class="s3" stroke-width="2"/><text class="note" x="676" y="196" text-anchor="middle">unit gain, rectified</text><line x1="650" y1="240" x2="690" y2="196" class="s3" stroke-width="2"/><line x1="690" y1="196" x2="687.2" y2="205.6" class="s3" stroke-width="2"/><line x1="690" y1="196" x2="680.7" y2="199.7" class="s3" stroke-width="2"/><line x1="650" y1="140" x2="690" y2="176" class="s3" stroke-width="2"/><line x1="690" y1="176" x2="680.4" y2="173.2" class="s3" stroke-width="2"/><line x1="690" y1="176" x2="686.2" y2="166.7" class="s3" stroke-width="2"/><text class="note" x="470" y="128">weight-predicted, untested</text></svg><figcaption>Solid arrows are interventionally tested edges. Head 4 of
+  layer 1 produces 79% of all movement in the scalar z when its context is swapped between
+  documents. The L16→L17 syntax-axis edge has unit gain in one direction and nearly none in
+  the other — the fingerprint of reading a bus through a <em>squared</em> projection. The
+  2→3→4 chain is oriented by the sign-flip of layer 4's deletion cost.</figcaption></figure>
+  <div class="col">
+  <p>The z → c₀ abstraction inside layer 1 is honest about its grade: transplanted across
+  documents it reproduces 68% of the true effect (against a 13% shuffled control) versus 92%
+  on-distribution — the leak is localised to cross-document transport, exactly where the
+  coefficient fit degrades. Partial abstractions with located leaks beat clean stories.</p>
+  </div>
+</section>
+
+<section class="col">
+  <h2 id="pattern">Structure verifies, token stories don't</h2>
+  <p>Every time a claim of the form "direction X detects token-thing Y" met an actual
+  intervention, it lost. Injecting layout characters into prose moves the supposed
+  register-detector no more than injecting random words. Steering the syntax axis moves
+  determiner probabilities less than it moves everything else. Meanwhile every
+  <em>structural</em> claim — which head computes a variable, which layer feeds which,
+  what gain an edge has, how few numbers replace a layer — survived intervention, three for
+  three.</p>
+  <div class="callout"><p>The reliable currency of this model's mechanisms is directions,
+  edges, and gains — not token stories. The exact writer decompositions that suggested the
+  token stories were not wrong as mathematics; they decompose covariance on the natural
+  distribution, and covariance across documents is still correlational. <strong>An exact
+  decomposition is not an intervention.</strong></p></div>
+</section>
+
+<section class="col">
+  <h2 id="weights">The weights knew</h2>
+  <p>The bilinear layer's output structure has a closed form: from the weights plus exactly
+  one data statistic (the input second moment S), a single matrix formula predicts which
+  output directions matter. Energy of the <em>measured</em> causal leader inside that
+  formula's top-8 eigenvectors:</p>
+  <table><thead><tr><th>layer</th><th>weights only</th><th>weights + S</th><th>random</th></tr></thead>
+  <tbody><tr><td>0</td><td class="n">0.14</td><td class="n"><strong>0.90</strong></td><td class="n">0.01</td></tr><tr><td>1</td><td class="n">0.59</td><td class="n"><strong>0.98</strong></td><td class="n">0.01</td></tr><tr><td>16</td><td class="n">0.57</td><td class="n"><strong>0.98</strong></td><td class="n">0.01</td></tr><tr><td>17</td><td class="n">0.96</td><td class="n"><strong>1.00</strong></td><td class="n">0.00</td></tr></tbody></table>
+  <p>90–99.6% at every depth tested. Pure weight algebra also ranks the responsible
+  attention head first (5× margin) and predicted both the direction and ranking of the
+  layer-4 coupling before any model was run. Consequence adopted: weight-side candidates
+  first; model evaluations only to verify and to test edges. The expensive discovery phase
+  of this program was, in retrospect, one Gaussian-equivalent computation away from the
+  weights.</p>
+</section>
+
+<section class="col">
+  <h2 id="corrections">Corrections ledger</h2>
+  <p>Every headline that changed, and what caught it.</p>
+  <table><thead><tr><th>claim</th><th>corrected to</th><th>caught by</th></tr></thead><tbody>
+  <tr><td>layer 17 replacement "recovers all but 0.7%"</td><td>9.5% total; 0.7% is the rank-cut alone</td><td>sweeping the direction budget by cost</td></tr>
+  <tr><td>"about ten directions run MLP1"</td><td>five-to-six; two "leaders" were one direction split by sampling noise</td><td>refitting the basis on 4.8× data</td></tr>
+  <tr><td>middle superadditivity 2.87×</td><td>1.42× — the original mixed two deletion operators and used stale means</td><td>a gate mismatch in the Shapley run</td></tr>
+  <tr><td>layer 4 "writes for downstream"</td><td>layer 4 <em>reads</em> layers 2–3</td><td>the coalition sign-flip sweep</td></tr>
+  <tr><td>register semantics of the L1 leader</td><td>correlate, not cause</td><td>token injection + damage profile</td></tr>
+  <tr><td>two ablation runs (void)</td><td>rerun — one patched a forward never called, one had chance above signal</td><td>identical rungs / null arithmetic</td></tr>
+  </tbody></table>
+  <p class="q">All caught by the program's own controls, none by luck: gates on every
+  decomposition, nulls on every name, registered predictions before every run.</p>
+</section>
+
+<section class="col">
+  <h2 id="open">What's still open</h2>
+  <p>The 2→3→4 chain deserves the abstraction treatment the ends got — variables, not just
+  edges — knowing its content is high-rank and may not abstract cleanly; that would itself
+  be a result. The tail layers 5–15 have fair shares but no profiles. The syntax bus has
+  two verified stations and unknown origin. And the strongest tool found here — the
+  weights-plus-S formula — has only been tested on the layers whose answers were already
+  measured; its first genuinely blind prediction is the natural next experiment.</p>
+</section>
+</div>
