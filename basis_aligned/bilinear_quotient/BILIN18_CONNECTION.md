@@ -4378,3 +4378,24 @@ harm has the §98 signature (sharpening easy tokens, overshooting hard ones) —
 queued (registered: (a) deletion benefit ≥60% concentrated in the base model's
 hardest-token quartile; (b) easy quartile hurt or flat; (c) L13-deletion control
 shows the opposite pattern — broad harm).
+
+## 139. All late attention sharpens; L14 just overdoes it
+
+File: `bilin18_l14_signature.py`. Registered (a) and (b) held strongly — L14's
+deletion benefit is a redistribution even more extreme than §98's spans (hard
+quartile relieved by −0.270 per token, easy hurt +0.022, hard-share 1.94). The
+(c) "control violation" is the finding: **L13's attention — net helpful — shows
+the same shape** (hard −0.003, easy +0.020 under deletion). Late attention
+components uniformly sharpen easy predictions and press on hard ones; they
+differ only in where the trade nets out. L14 is not a different kind of
+component — it is the same kind, tuned past the break-even point on this
+distribution.
+
+Queued, the depth-functional dichotomy this implies: early components should
+show the *opposite* deletion profile (hurting hard tokens most — they compute
+content), late components the sharpening profile (easy hurt, hard relieved).
+Registered: (a) all four late components tested (L13/L14 attention, L14/L16
+MLP-spans) show easy+ / hard− under deletion; (b) both early controls (L2
+attention, L2 MLP-span) show hard-mean > easy-mean under deletion (content
+loss lands on hard tokens); (c) the dichotomy is monotone-ish: hard-minus-easy
+delta decreases with depth across all six.

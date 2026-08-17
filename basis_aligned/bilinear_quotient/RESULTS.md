@@ -2844,3 +2844,12 @@ attention blocks reliably subtract value at the frozen point. Signature test
 queued.
 
 Full detail in `BILIN18_CONNECTION.md` §138.
+
+### All late attention sharpens
+
+L14's benefit is redistribution at the extreme (hard -0.270, easy +0.022) --
+and net-helpful L13 shows the SAME shape. Late components uniformly trade
+hard-token accuracy for easy-token sharpness. Early-vs-late dichotomy test
+queued.
+
+Full detail in `BILIN18_CONNECTION.md` §139.
