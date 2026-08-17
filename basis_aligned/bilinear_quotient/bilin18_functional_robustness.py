@@ -48,6 +48,11 @@ def main():
             M=torch.einsum('k,ka,kb->ab',DwP[:,f],L,R)
             mats.append(0.5*(M+M.T))
     g=torch.Generator(device=DEV).manual_seed(0)
+    # v2 control: sparse in the WHITENED basis (covariance-matched), isolating
+    # support density from data-covariance alignment (v1's confound, §74)
+    Cy=(y.T@y/y.shape[0]).double()
+    evy,Uy=torch.linalg.eigh(Cy)
+    Wh=(Uy*evy.clamp_min(1e-9).sqrt())@Uy.T
     def sparse_control(M):
         # rank-2 form supported on 4 random directions, scaled to match c-variance
         idx=torch.randperm(K,generator=g,device=DEV)[:4]
@@ -55,6 +60,7 @@ def main():
         v1=torch.zeros(K,device=DEV); v1[idx[:2]]=torch.randn(2,device=DEV,generator=g)
         v2=torch.zeros(K,device=DEV); v2[idx[2:]]=torch.randn(2,device=DEV,generator=g)
         A=torch.outer(v1,v1)-torch.outer(v2,v2)
+        A=(Wh.float()@A@Wh.float())      # place the sparse support in whitened coords
         c=torch.einsum('na,ab,nb->n',y,A,y)
         cm=torch.einsum('na,ab,nb->n',y,M,y)
         A=A*(cm.std()/c.std().clamp_min(1e-9))

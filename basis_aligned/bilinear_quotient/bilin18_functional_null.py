@@ -1,5 +1,9 @@
-"""The missing null: which parts of the functional structure are trained, and which
-are generic?
+"""The missing null, v2: WEIGHT-SHUFFLED rather than fresh-init.
+
+v1 used a freshly initialised model and broke: output projections are ~zero at init,
+so all couplings degenerate (NaN eff-ranks, trivial LORO). The correct null for 'what
+did training build' is the trained model with each MLP's Left/Right/Down entries
+RANDOMLY PERMUTED (same marginal distribution, destroyed structure).
 
 User question (2026-08-17): why would SGD produce dense-support orthogonal
 functionals -- is it optimal, or just typical? The decisive control the arc skipped:
@@ -30,9 +34,15 @@ OUT=('/workspace/tensor_language/basis_aligned/bilinear_quotient/'
 @torch.no_grad()
 def main():
     t0=time.time()
-    _,cfg=load_elriggs('bilin18', device='cpu')  # config only; free the trained copy
-    torch.manual_seed(0)
-    rnd=TT.GPT(TT.GPTConfig(**{k:v for k,v in cfg.items()})).to(DEV).eval()
+    rnd,cfg=load_elriggs('bilin18', device=DEV)
+    g=torch.Generator(device=DEV).manual_seed(0)
+    for blk in rnd.transformer.h:
+        for W in (blk.mlp.Left.weight, blk.mlp.Right.weight, blk.mlp.Down.weight):
+            with torch.no_grad():
+                flat=W.data.flatten()
+                W.data=flat[torch.randperm(flat.numel(),device=DEV,generator=g)]\
+                    .view_as(W.data)
+    rnd.eval()
     for p in rnd.parameters(): p.requires_grad_(False)
     # collect L1 output basis and reader bases ON THE RANDOM MODEL
     def collect(li):

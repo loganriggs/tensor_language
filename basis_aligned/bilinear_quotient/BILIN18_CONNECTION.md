@@ -3006,3 +3006,26 @@ signed orthogonality and the dense envelope are predicted to REPRODUCE on random
 weights (typicality), while the family compression (eff-rank 80 of 240) and the shared
 vocabulary (LORO R² 0.71) are predicted NOT to (training's actual contribution).
 Alongside it, the user's robustness hypothesis is queued as a direct test.
+
+## 74. The null broke, the robustness hypothesis half-held
+
+Files: `bilin18_functional_null.py` (broken instrument, recorded),
+`bilin18_functional_robustness.py` (8 s).
+
+**The fresh-init null is degenerate**: NaN eff-ranks, cosines of exactly 0, LORO
+trivially 1.0 — the freshly initialised model's couplings are ~zero (consistent with
+zero-initialised output projections at init). A fresh-init model is the wrong null for
+"what did training build" when training grows structures from zero; the right null is
+**weight-shuffled** (permute the trained weights' entries — same marginals, destroyed
+structure). Queued as the fix.
+
+**The user's robustness hypothesis: main bar held, discipline check caught a
+confound.** Real functionals' worst single-direction deletion damage is **0.25σ vs
+0.51σ** for sparse-support controls — dense support halves targeted fragility, as
+hypothesised. But the isotropic-noise null-prediction failed (real functionals also
+show 2.6× better noise SNR, which pure support-density should not provide) — meaning
+the sparse controls are not covariance-matched, and part of the "robustness" is the
+real forms' alignment with the data covariance rather than support density per se.
+Registered fix queued: sparse controls built in the whitened basis, isolating support
+density with covariance held equal. Until then: the hypothesis is *supported but not
+isolated*.
