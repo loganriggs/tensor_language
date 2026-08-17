@@ -2243,3 +2243,14 @@ dominant variance. Names are verified correlationally only; the causal test of t
 best name is queued (the token-story record stands at three-for-three failures).
 
 Full detail in `BILIN18_CONNECTION.md` §68.
+
+### Four-for-four, stated as a regularity
+
+Word #5's causal name failed at 1.3× (bar 1.5, the lowest ever set). With four causal
+token-story failures against four decisive correlational verifications on the same
+objects, the program states it as a regularity: **in bilin18, token-level semantics are
+readable but not steerable** — activations carry verifiable token structure;
+interventions along the same directions shift broad distributional mass, never the
+named tokens selectively. The decisive test (the ρ = 0.95 punctuation axis) is queued.
+
+Full detail in `BILIN18_CONNECTION.md` §69.

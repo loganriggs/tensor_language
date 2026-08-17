@@ -2893,3 +2893,31 @@ the program's every causal test of a token story has failed, and the queued test
 (steering word #5 and reading measurement-vocabulary log-probs) will either make it
 four-for-four or record the first causal token-story success. Either outcome is worth
 having, and the bar is registered accordingly modest.
+
+## 69. Four-for-four: readable but not steerable
+
+File: `bilin18_word5_causal.py` (11 s). Word #5's causal name test **failed** at 1.3×
+against a 1.5× bar — the lowest bar the program has ever set — with the familiar
+signature: both steering signs move the *whole* common-token distribution (control
+tokens shift 0.23–0.88 nats alongside the measurement set).
+
+The causal token-story record now stands at **four-for-four failures** — layout→
+register (§19), bus→determiners (§24), head-1 aiming (§48), measurement-register
+steering (here) — while the *correlational* token structure verified decisively in
+every one of those same cases. That is no longer a run of bad luck; it is a
+regularity of the model worth stating as such:
+
+> **In bilin18, token-level semantics are readable but not steerable.** Directions'
+> activations carry verifiable token structure (ρ up to 0.95 against nulls of ~0.08),
+> and interventions along those directions never move their named tokens selectively —
+> the write always shifts broad distributional mass instead.
+
+The mechanism is plausibly the §56 structure itself: a direction's token correlate
+lives in its *activation statistics* on natural data, while its causal write feeds an
+overcomplete family of readers that respond collectively — the same
+selectivity-not-reachability opacity as §62–64, at the vocabulary level.
+
+Registered decisive test, queued: the strongest correlational name in the program —
+layer 0's ρ = 0.95 punctuation axis. If even that fails causal selectivity, the
+regularity holds at maximal strength; if it succeeds, the boundary is "steerable only
+where naming is near-perfect," which would be its own finding.
