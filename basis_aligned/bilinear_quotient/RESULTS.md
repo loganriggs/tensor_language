@@ -2580,3 +2580,11 @@ most functionally nonlinear -- two independent hardness measures agree. Model =
 five nonlinear front layers + near-linear 13-layer pipe + one quadratic skin.
 
 Full detail in `BILIN18_CONNECTION.md` §107.
+
+### Drift is stream-borne
+
+Pattern-clamping is exactly free and saves 1% of the pipe cost: the compounding
+error lives in the residual stream, not in attention. L1 span-partition test
+queued (is the nonlinearity crown the same fact as the vocabulary crown?).
+
+Full detail in `BILIN18_CONNECTION.md` §108.

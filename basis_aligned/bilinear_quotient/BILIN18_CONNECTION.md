@@ -3752,3 +3752,23 @@ skin at L17 that carries four-fifths of the model's strongest coupling.** Queued
 whether the pipe's cumulative drift flows through attention reading off-manifold
 state (pattern-clamped hybrid; registered: clamping patterns to base-model values
 cuts the refit-pipe cost ≥40%).
+
+## 108. The drift is stream-borne; patterns exonerated
+
+File: `bilin18_clamped_pipe.py`. Registered (a) failed cleanly with the control
+perfect: clamping every attention pattern to base-model values is exactly free
+(+0.0000 — the dual-forward instrument is sound) and cuts the refit pipe's cost by
+only **1%** (+1.564 → +1.547). Attention patterns are not the drift channel. The
+pipe's compounding cost accumulates in the residual stream itself: each linear
+stand-in's approximation error feeds the next stand-in's input directly, no
+attention mediation required. Combined with §§92–93 (unaimed writes, dilution
+routing), the tail's error dynamics are as plain as its information dynamics:
+everything is carried by the stream, additively.
+
+Queued, to unify the two crowns: L1 is both the source of the functional
+vocabulary (§58) and the most functionally nonlinear layer (§107, +0.282). Are
+these the same fact? Partial linearization: replace L1's MLP output only within
+its top-48 principal span (the coordinates every reader's quadratic consumes),
+or only in the complement. Registered: (a) span-only linearization costs ≥ 60% of
+full; (b) complement-only ≤ 40%; (c) the two parts sum to full within 15%
+(additivity sanity).
