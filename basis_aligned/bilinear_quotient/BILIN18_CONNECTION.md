@@ -4037,3 +4037,25 @@ the quadratic residue cushions its channel (§103), L17's attention absorbs
 interaction damage (§115), and the joint logit response subadds (here). This
 model does not merely fail gracefully — it actively cancels compound damage,
 and the "product law" headline number was always the small residue of that war.
+
+## 120. Norm-mediation is loudness-concentrated; L16 is the true content heavyweight
+
+File: `bilin18_content_profiles.py` (control exact). Both registered bars failed
+in clarifying directions:
+
+- **No depth gradient** (Spearman 0.16): norm-mediation concentrates at the
+  *loudest writers* — L17 (81%, RMS 1851) and L5 (59%) — while mid-tail spans are
+  mostly content (5–36%). The mediator is the span's share of final-vector
+  energy, not depth per se.
+- **Ranking mostly survives** (tau 0.79) with one big exception: L17's span
+  demotes from +0.489 to +0.093, making **L16 the model's largest content-level
+  span (+0.148)**. §48's syntax-bus emphasis lands better than ever: the content
+  is at L16; L17's apparent dominance was mostly gain.
+- The deletion-improves spans are **content-real and slightly norm-masked**:
+  L9 −0.023, L6 −0.016, L15 −0.015 at content level (more negative than raw).
+  §96–97's regularization story survives the accounting intact.
+
+Queued, closing the compensation arc: is compound-damage cancellation (§119)
+general? Six random tail-layer span pairs, true joint excess vs synthetic
+superposed-logit excess. Registered: (a) synthetic > true for ≥5 of 6 pairs;
+(b) median cancellation ≥40%.

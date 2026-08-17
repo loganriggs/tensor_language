@@ -2685,3 +2685,11 @@ of a war between convex loss and damage-absorbing dynamics -- compensation is
 now a three-time motif.
 
 Full detail in `BILIN18_CONNECTION.md` §119.
+
+### Norm-mediation tracks loudness; L16 is the content heavyweight
+
+L17 81% and L5 59% mediated (the loud writers); mid-tail mostly content. At
+content level L16's span (+0.148) beats L17's (+0.093), and the
+deletion-improves spans get MORE negative. Compensation generality test queued.
+
+Full detail in `BILIN18_CONNECTION.md` §120.
