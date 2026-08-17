@@ -3277,3 +3277,11 @@ token-marking kinship only in 18L models. "Depth feature" withdrawn (ledger
 14); claims must name their signature.
 
 Full detail in `BILIN18_CONNECTION.md` §192.
+
+### c is not a scalar
+
+Coupling varies 4x with size within a model and flips sign in swiglu18 at small
+damage (compensation regime). Only the bilin12 > swiglu18 ordering is robust.
+Comparisons must fix (signature, family, size). Comparative arc closed.
+
+Full detail in `BILIN18_CONNECTION.md` §193.

@@ -5334,3 +5334,22 @@ everywhere, largest in the shallow bilinear model.
 
 The discipline note: this overclaim lived for one wake before its own protocol
 caught it — the two-instrument rule is doing its job.
+
+## 193. The coupling constant is not a model-level scalar
+
+File: `family_coupling_stability.py`. Registered (a) and (c) failed, (b) held:
+
+    bilin18  : c = 0.38 (k=4) -> 1.65 (k=8)
+    swiglu18 : c = -3.91 (k=4) -> 1.09 (k=8)   [negative: compensation regime]
+    bilin12  : c = 2.59 (k=4) -> 4.53 (k=8)
+
+Within one model, c moves severalfold with span size, and swiglu18's flips sign
+at small damage — the compensation-inversion regime §123 found in bilin18
+appearing in a sibling. What survives all sizes: **bilin12's coupling exceeds
+swiglu18's** (held at both k), and §192's dissociation lesson stands unchanged.
+Final scoping rule (added to the benchmark's interaction-fidelity axis):
+interchange and coupling comparisons are only meaningful per
+(signature, damage-family, damage-size) triple — there is no single number
+called "the interchange strength," within a model or across them. The
+comparative arc closes properly humbled: directionality of the relay is
+universal; everything quantitative about interactions is conditional.

@@ -1,0 +1,11 @@
+bilin18   k=4: d +0.221/+0.419 excess +0.0347 c=0.38
+bilin18   k=8: d +0.229/+0.496 excess +0.1873 c=1.65
+swiglu18  k=4: d +0.025/+0.704 excess -0.0699 c=-3.91
+swiglu18  k=8: d +0.016/+0.669 excess +0.0117 c=1.09
+bilin12   k=4: d +0.063/+0.335 excess +0.0548 c=2.59
+bilin12   k=8: d +0.064/+0.314 excess +0.0906 c=4.53
+
+(a) c stable within 2x: FAILED
+(b) bilin12 c >= 2x swiglu18 both sizes: HELD
+(c) all c positive: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/family_coupling_results.json (21s)
