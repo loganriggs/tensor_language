@@ -2996,3 +2996,10 @@ Also: clean-instrument naive joint is +1.26 -- section 104's superadditivity was
 mostly the lambda bug. BENCHMARK.md updated with the reference curve.
 
 Full detail in `BILIN18_CONNECTION.md` §157.
+
+### Refit moves the frontier
+
+(0.29M, +1.66) via sequential refit at rank-16 -- 36% bought by refitting alone.
+Frontier rank sweep queued.
+
+Full detail in `BILIN18_CONNECTION.md` §158.

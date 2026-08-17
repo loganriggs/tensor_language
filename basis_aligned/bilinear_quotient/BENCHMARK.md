@@ -47,8 +47,10 @@ Scoring:
   per-unit rescalings. Not bits/quantization — structural rank and sparsity.
 - **Metric:** the (log params, ΔCE) Pareto curve; headline numbers = ΔCE at
   fixed budgets (1%, 5%, 20% of original params). Measured reference points
-  (§157): knowledge assignment (4 constants + 8 rank-8 maps, layers 5-16) =
-  +2.68 nats at 0.15M params; all-full-linear same layers = +1.26 at 15.9M;
+  (§§157-158): naive assignment (4 constants + 8 rank-8) = +2.68 at 0.15M;
+  sequentially-REFIT assignment (rank-16) = +1.66 at 0.29M; all-full-linear
+  same layers = +1.26 at 15.9M. Sequential refit is the frontier lever (36%
+  cost reduction free);
   per-layer ladder in §155. Note: with the λ-mixing instrument fixed, naive
   joint composition drift is modest (+1.26 vs the sum ~+0.6) — score jointly
   anyway, but the drift penalty is real, not catastrophic.

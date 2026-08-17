@@ -4718,3 +4718,18 @@ numbers are the point:
 
 The benchmark now has a measured reference curve: (0.15M, +2.68),
 (15.9M, +1.26), plus §155's per-layer ladder. BENCHMARK.md updated.
+
+## 158. Reference v2: sequential refit moves the frontier
+
+File: `bilin18_reference_v2.py`, both bars held. The same architecture as v1's
+assignment (4 constants + 8 low-rank maps), but each stand-in fit on the model
+with upstream stand-ins already installed and ranks raised to 16:
+
+    Pareto so far: (0.15M, +2.68 naive r8) -> (0.29M, +1.66 REFIT r16) -> (15.9M, +1.26 full linear)
+
+Sequential refit is the frontier lever: it bought 36% of the cost (2.61 → 1.66
+at the same architecture) for free — the stand-ins absorb each other's errors
+when fit in sequence. At 1.8% of the full-linear parameter budget the refit
+assignment is within 0.4 nats of it. BENCHMARK.md's reference table updated;
+the frontier-tracing rank sweep is queued (registered: (a) refit-rank-64 joint
+≤ +1.40; (b) the refit curve dominates the naive curve at every rank tested).
