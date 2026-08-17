@@ -4787,3 +4787,17 @@ ablation does to a token depends on that token's context, not its neighbors'.
 Benchmark consequence, added to the spec: Track-1 scoring runs on a *fixed*
 held-out set where fingerprints are exact; generalization across sets is the
 explanation's burden, not the dataset's.
+
+## 162. The confound floor is low: Track-1 is well-posed end to end
+
+File: `bilin18_fingerprint_floor.py`. Registered (a) failed in the favorable
+direction: the base-loss floor is only **0.13** median |Spearman| (bar 0.2) —
+the flattening confound that invalidated aggregate difficulty-quartile
+statistics (§§140–142) barely structures per-token *ranks*. Position contributes
+nothing (0.01), and base-loss-residualized fingerprints stay near-orthogonal
+(0.06). Track-1 scoring rules, now fully grounded: score = Spearman between the
+explanation-predicted and measured fingerprint on the fixed held-out set;
+publish the 0.13 base-loss floor beside every score; anything above ~0.2 is
+real signal; component identity is never in doubt (pairwise 0.04). The
+benchmark's both tracks now have measured reference instruments, floors, and
+known traps. BENCHMARK.md updated.

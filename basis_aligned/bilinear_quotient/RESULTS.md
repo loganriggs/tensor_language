@@ -3028,3 +3028,11 @@ don't share structure (context-specificity again). Saved to
 bilin18_fingerprints.pt.
 
 Full detail in `BILIN18_CONNECTION.md` §161.
+
+### Confound floor low: Track-1 done
+
+Base-loss floor 0.13, position 0.01, residuals orthogonal: explanations scoring
+above ~0.2 carry real signal. Both benchmark tracks now have measured
+instruments, floors, and traps.
+
+Full detail in `BILIN18_CONNECTION.md` §162.
