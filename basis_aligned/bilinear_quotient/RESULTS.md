@@ -2379,3 +2379,12 @@ home distribution those connections are load-bearing even after adaptation. Long
 finetune control queued.
 
 Full detail in `BILIN18_CONNECTION.md` §85.
+
+### OV census: a third, indifferent code
+
+Value paths read L1's principal span at only 1.7x the uniform rate and their
+weighting is uncorrelated with the quadratic vocabulary (Spearman -0.01). Sector
+census complete: MLP-quadratic, QK-quadratic, and OV-linear reading are three
+mutually independent codes.
+
+Full detail in `BILIN18_CONNECTION.md` §86.

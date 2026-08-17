@@ -3251,3 +3251,19 @@ One caveat for the record: finetune-only at 600 steps (3.871) is worse than at 2
 comparisons live in an early-stopping regime. The conclusion is unaffected because
 both arms share every schedule detail and the gap holds at both doses (+0.026,
 +0.054).
+
+## 86. OV census: the linear sector is a third, indifferent code
+
+File: `bilin18_ov_census.py` (7 s), closing the last registered-open item. Per-head
+OV transmit maps (27 heads, layers 2–4) read L1's top-48 output span at median
+energy **0.071** — only 1.7× the uniform null of 0.042 (registered (a), ≥3×,
+**failed**), and their within-span coordinate weighting is completely uncorrelated
+with the quadratic vocabulary's usage (Spearman **−0.01**; registered (b) held).
+
+The sector census is now complete, and the answer is threefold disjointness:
+**MLP quadratic readers** share an 80–139-dim vocabulary; **QK quadratic readers**
+use a code that sits *below chance* in that vocabulary (§84); **OV linear readers**
+are close to indifferent — they transmit L1's principal content barely above a
+uniform-random rate and pay no attention to the coordinates the quadratic code
+works in. The functional vocabulary is a property of MLP-to-MLP reading
+specifically, not of the model's reading in general.
