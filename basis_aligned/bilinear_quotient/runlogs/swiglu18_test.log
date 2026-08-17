@@ -1,0 +1,15 @@
+bilin12 loaded: 18 layers, 9 heads, d=1152, hd=128
+lambdas (l0,l1): 5.16/5.16 0.17/4.72 0.64/5.06 0.72/4.06 0.59/4.00 0.40/3.09 0.46/2.08 0.31/1.09 0.62/2.19 1.05/2.28 0.73/2.08 0.65/2.67 1.12/4.00 1.12/3.91 1.11/2.59 1.08/2.06 1.05/-2.00 1.09/-2.05
+dilution ratios: 1.497 2.457 0.550 0.132 0.224 0.238 0.071 0.047 0.034 0.033 0.092 0.163 | inversions 5 -> (a) FAILED
+L0: linearization cost +0.1034
+L1: linearization cost +0.2133
+L2: linearization cost +0.1486
+L5: linearization cost +0.0711
+L9: linearization cost +0.0355
+(b) front peak 0.213 vs mid 0.053 -> HELD
+swiglu18 attn1: best bilin18 attn1 (0.37) -> hit
+swiglu18 attn2: best bilin18 attn2 (0.39) -> hit
+swiglu18 attn6: best bilin18 attn2 (0.39) -> miss
+swiglu18 attn9: best bilin18 attn6 (0.23) -> miss
+(d) same-layer correspondence >= 3/4: FAILED (2/4)
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/swiglu18_test_results.json (36s)

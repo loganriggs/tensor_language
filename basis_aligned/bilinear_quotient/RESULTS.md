@@ -3083,3 +3083,12 @@ sqrd12's mid-attention peaks at bilin18's L7 (fraction 0.39), bilin12's at L9
 families. Correspondence arc closed.
 
 Full detail in `BILIN18_CONNECTION.md` §168.
+
+### Fourth model refines two laws
+
+Front-loading universal (3/3 checkpoints tested). Dilution scope-noted: decline
+through mid-tail, RISE at the output end -- in every model (bilin18's own norms
+agree). Correspondence warps by MLP family even at equal depth (gated models
+front-shifted); front universal.
+
+Full detail in `BILIN18_CONNECTION.md` §169.

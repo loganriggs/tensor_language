@@ -71,6 +71,39 @@ Ground-truth asset: `bilin18_fingerprints.pt` — per-token ablation deltas for
 pairwise Spearman 0.04; deterministic, so scoring runs on this fixed set and
 cross-set generalization is the explanation's burden).
 
+## Graph formalization (nodes, edges, and amortized semantics)
+
+Responding to the design question of node complexity and compounding semantic
+work. A submission is a GRAPH, and each of its three cost axes is explicit:
+
+- **Node** = a component with a declared INTERFACE: the input variables it reads
+  (a subspace/watch-list) and the output variables it writes. Node complexity =
+  interface size (dims in + dims out) plus the stand-in class parameters needed
+  to reproduce its input-output behavior. Internal wiring is free — a node is
+  simple if its *behavior* needs few variables, however it computes them. (The
+  program's measurements say interfaces are naturally small here: watch-lists
+  ~8-dim, score filters ~5-dim — but §133 warns that any single 8-dim channel
+  carries little causal load alone; the fidelity axis keeps submissions honest
+  about that.)
+- **Edge** = a declared dependency: node B reads variables node A writes. Edge
+  claims are verified by the program's cut instruments (project A's write out of
+  B's watch-list; §§131–134); *unclaimed* edges must be verified inert the same
+  way. Edge complexity = the count of claimed edges. The measured macro-graph
+  here is the relay (MLP → attention-transport → MLP), so sparse type-level
+  graphs are achievable.
+- **Semantic cost with amortization** = total description length of the
+  explanations, where referencing an already-defined variable is nearly free:
+  explaining node B as "gates A's x-feature by recency" pays only for its
+  *marginal* content. This is exactly the compounding the design wants — sparse
+  edges + small interfaces make each successive node's explanation short, so a
+  good decomposition *reduces* total semantic work superlinearly. Score the
+  composed explanations causally (fingerprint prediction) at the graph level,
+  so credit flows only through explanations that actually predict interventions.
+
+The trade surfaces honestly: tiny interfaces are cheap on the complexity axis
+and weak on the fidelity axis (within-type diffuseness); the Pareto rewards
+finding the interface size where understanding actually lives.
+
 ## Why this is not quantization
 
 Quantization preserves the computation and shrinks the numbers; this benchmark

@@ -4906,3 +4906,27 @@ depth fractions (six for six, exact); across MLP families the correspondence
 survives (same components, 3×+ floor) but the depth mapping warps** — a
 conventional-MLP model's middle does what the bilinear model does earlier in
 its stack. The bilinear MLPs evidently stretch the early program deeper.
+
+## 169. Fourth model: front-loading universal, dilution scope-noted, correspondence warps by family not depth
+
+File: `swiglu18_test.py` (swiglu-gated MLPs, same 18-layer depth as bilin18;
+base CE 4.17, identity fine). Three findings:
+
+- **Front-loaded linearization holds at every checkpoint tested** (peak L1
+  +0.213 vs mid +0.053) — now bilin18, bilin12, swiglu18. A family-wide law.
+- **Dilution monotonicity FAILED (5 inversions) — and the failure scope-notes
+  §93 rather than contradicting it.** swiglu18's ratios decline through the
+  mid-tail then *rise* at L15–16 — and checking bilin18's own norm table
+  (§112), its ratios would rise too past edge 14→15 (L16's write is RMS 938
+  into a 1567 stream). §93's "monotone decline" was measured on edges 5→6
+  through 14→15 and is correct *in that range*; the general law is: **decline
+  through the mid-tail, rise again at the output-preparation end** — in every
+  model. Also logged: swiglu18's λ₁ turns *negative* at L16/17 (−2.0) — it
+  subtracts the embedding at the end.
+- **Correspondence warps by family even at equal depth**: front hits exactly
+  (attn1→attn1 0.37, attn2→attn2 0.39) but swiglu18's attn6 best-matches
+  bilin18's attn2, and its attn9 matches attn6 — the gated-MLP models
+  (swiglu18, sqrd12) are consistently *front-shifted* relative to pure-bilinear
+  bilin18, independent of depth ratio. The §168 law finalizes: front
+  correspondence is universal; mid-stack correspondence is exact within the
+  pure-bilinear family and front-warped across MLP families.
