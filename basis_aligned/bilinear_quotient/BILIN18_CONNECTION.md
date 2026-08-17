@@ -4328,3 +4328,12 @@ gauge-contaminated at the ~2× level and must be taken at the balanced point —
 balance step first**; (2) our luck was discipline, not chance — the program
 happened to work at the T/activation/function level throughout, which the spec
 identifies as the invariant classes.
+
+## 136. Unit masses are maximally flat: 98–99% of units active at every layer
+
+File: `bilin18_unit_mass.py` (both bars held). The gauge-invariant unit-mass
+spectrum is as flat as it can be: effective active units 98–99% of 4608 at every
+layer (depth ratio 1.02). No hidden unit anywhere carries outsized mass — the
+strongest possible statement of the program's diffuseness theme, now at the
+finest structural grain the architecture has (individual rank-1 terms of T).
+bilin18 has no "important neurons" at the weight level, at all.

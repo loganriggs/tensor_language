@@ -2820,3 +2820,10 @@ be ~2x gauge-contaminated. Standing rule: balance before any future per-matrix
 reading.
 
 Full detail in `BILIN18_CONNECTION.md` §135.
+
+### No important neurons
+
+Unit-mass spectrum maximally flat: 98-99% effective units at every layer.
+Diffuseness confirmed at the finest grain the architecture has.
+
+Full detail in `BILIN18_CONNECTION.md` §136.
