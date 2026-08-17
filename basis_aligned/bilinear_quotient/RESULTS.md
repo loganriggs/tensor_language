@@ -3261,3 +3261,11 @@ attn17~mlp16 at 0.212 vs 0.026, directional, MLP-side symmetric. Five
 instruments on one edge. Track-1: three certified.
 
 Full detail in `BILIN18_CONNECTION.md` §190.
+
+### The interchange is a depth feature
+
+Relay directionality universal (all siblings); the output interchange exists in
+both 18-layer models (swiglu18 certifies at 12x!) and neither 12-layer model.
+Depth, not architecture, builds the hand-off.
+
+Full detail in `BILIN18_CONNECTION.md` §191.

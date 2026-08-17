@@ -5288,3 +5288,23 @@ cut-and-finetune load (+0.067), the quadratic-skin and norm accounting, and
 fingerprint kinship. Track-1 scoreboard: **three certified explanations** (one
 component, two edges), and the kinship class has produced both a certification
 and its own scoring rule in two rounds.
+
+## 191. The interchange is a deep-model feature: family edges split by depth, not architecture
+
+File: `family_edge_kinship.py`. Registered (a) held — **relay directionality is
+universal** (upstream-partner fractions 12/12, 12/12, 11/18 across the three
+siblings; nulls ~7/12, 9/18): everywhere in the family, attention components
+mark the same tokens as upstream MLPs. Registered (b) failed with the
+informative pattern:
+
+    bilin12  (12L, bilinear):      attn11~mlp10 = 0.012 vs 0.032 — NOTHING
+    sqrd12   (12L, conventional):  attn11~mlp10 = 0.069 vs 0.036 — sub-bar
+    swiglu18 (18L, gated):         attn17~mlp16 = 0.255 vs 0.021 — CERTIFIED, 12×
+
+The output-stage interchange exists in **both 18-layer models** (swiglu18's is
+even stronger than bilin18's 0.212/0.026) and in **neither 12-layer model** —
+it splits by depth, not MLP architecture. The model family's strongest local
+structure is an emergent feature of deep stacks: given enough layers, the last
+attention and the second-to-last MLP form a dedicated hand-off that shallow
+siblings never build. A genuinely comparative finding that none of the
+single-model instruments could have seen.
