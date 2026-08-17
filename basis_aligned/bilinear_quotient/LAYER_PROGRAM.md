@@ -30,6 +30,42 @@ depth of treatment, starting at layer 0.
 - B5 causal check of its leader, A1-style.
 - Commit as §20.
 
+## Phase A' — strengthen the causal claims (user directive, 2026-08-17 second pass)
+The register-semantics failure is acceptable; the requirement going forward is
+STRONGER, testable causal claims in the causal-abstraction sense (Geiger): a proposed
+circuit is a set of VARIABLES and COMPUTATIONS between them, and every hypothesis must
+say which upstream variable affects which downstream one, tested by interchange
+interventions (patch variable values across inputs, not just ablate). Concretely for
+layer 1's verified surrogate: the candidate abstraction is
+    z := (u . xhat)          [scalar variable, computed by head-4-dominated attn1]
+    c0 := a z^2 + b          [the leader coefficient]
+    write := c0 * d0         [what downstream reads]
+Interchange tests: swap z between two inputs -> the downstream effect must match
+swapping c0; verify z's own upstream dependence (which keys/values move z, tested by
+patching attention inputs, not correlational attribution). Same template for every
+future leader. Bottom-up discipline: because we start at layer 0, the input side must
+be fully understood first -- layer 0's variables are functions of (token, attn0
+context) only, and their input dependence is exactly characterizable.
+
+## Phase D — theory pass (after analysis + red team of each layer)
+Re-derive the empirical findings from the weights where possible, with linear algebra
+and tensor-network structure doing the work:
+- The bilinear layer is a third-order tensor T = sum_j Down_j (x) Left_j (x) Right_j;
+  per-direction forms M_d are its contractions. Ask: do the measured leaders coincide
+  with the top components of a weight-side decomposition (HOSVD / CP of T, computed in
+  the Lambda-weighted metric)? The validated whitening says WHICH metric makes
+  weight-side SVD meaningful -- that is the bridge between the weight basis (60% of
+  causal effect) and the data basis.
+- Attn1-head-4's dominance should be visible in the weights: the folded operator
+  P_h^T M P_h per head, its spectral norm against the measured head shares.
+- The surrogate's u is the top whitened eigenvector -- check how much of this entire
+  pipeline could have been PREDICTED from weights + input second moment alone, i.e.
+  a weights-only protocol with one data statistic (S) as input. That is the honest
+  'make the most of the weight-based part'.
+- Tensor-network view of the two-layer composition (emb -> attn0 -> mlp0 -> attn1 ->
+  mlp1): each leader's surrogate is a small tensor network; write it down explicitly
+  and count its contraction cost vs the model's.
+
 ## Phase C — remaining layers, triaged
 - Layer 16 next (the compressible one, R=9: tractable), then 17 tail directions.
 - Layers 2-15: §10 showed individual ablations understate them (2.87x superadditive);
