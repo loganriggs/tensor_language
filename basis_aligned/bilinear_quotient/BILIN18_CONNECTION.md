@@ -5618,3 +5618,27 @@ appears wherever an architecture concentrates function enough to leave any.
 §206's overreach is retroactively licensed by its own verification run — but
 the lesson stands recorded: the assertion went in a section before the scan
 existed, and the discipline caught it one wake later.
+
+## 208. The shared vocabulary is behavioral, not elementwise — and §61 replicates
+
+Files: `bilin18_loro_replicate.py` + `bilin18_loro_fresh.py`, one mis-registration
+between them, stated plainly. The replicate script's bar (a) FAILED (0.26 vs the
+registered 0.55) — but the failure was in my registration, not in §61: I had it
+measure **matrix-element** (Frobenius) reconstruction of the coupling matrices,
+a stronger quantity §61 never claimed. The faithful rerun — §61's construction
+verbatim, with the evaluation activations drawn from fresh rows never used for
+the writer coordinates or reader spans — replicates the original:
+
+    activation-weighted LORO, fresh rows : 0.637   (original 0.711; random −0.27)
+    matrix-element LORO, fresh rows      : 0.261   (random +0.07; gap held)
+
+The two numbers together sharpen what "shared vocabulary" means. The 80-basis
+carries what a held-out reader's coupling matrices **do** to realized layer-1
+activity (R² 0.64) far better than what they **are** as matrices (0.26): readers
+share the behaviorally live components of their quadratic forms and diverge in
+the components the activation distribution never excites. The vocabulary is a
+shared way of acting on the same signals, not a shared set of matrix elements —
+consistent with §114's finding that the strong sharing is specific to writer L1,
+the one input every reader actually receives at high power. No ledger entry:
+§61's published claim was correct as stated and survives row-decontamination;
+the wrongly-registered bar is recorded here as the instrument note it is.

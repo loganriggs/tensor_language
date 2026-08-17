@@ -3387,3 +3387,10 @@ bilin12: no slack, no regularizers; swiglu18: one slack layer (L15), one
 regularizer (L15, -0.030). The 206 assertion is now grounded, not asserted.
 
 Full detail in `BILIN18_CONNECTION.md` §207.
+
+### Shared vocabulary: behavioral, not elementwise; section 61 replicates
+
+Fresh-rows LORO 0.637 (orig 0.711) on the activation-weighted metric; 0.26 on
+matrix elements. Readers share what their forms do, not what they are.
+
+Full detail in `BILIN18_CONNECTION.md` §208.
