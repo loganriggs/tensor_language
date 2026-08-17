@@ -152,7 +152,9 @@ computation class beats the within-class curve). Measured real levers:
 sequential refit (+36%) and constants where the maps license them. The
 frontier is close to an information-theoretic given on this model — grade
 submissions on REACHING it cheaply. Scale recipe: refit protocol, licensed
-constants, joint scoring, harness self-tests.
+constants, joint scoring, harness self-tests — with the licenses per-model
+empirical (§203: bilin12 licenses zero constants; replaceability scales WITH
+model size, so larger targets should offer more cheap tail).
 
 ## Why this is not quantization
 

@@ -3349,3 +3349,11 @@ information-theoretic given on this model -- grade submissions on reaching it
 cheaply.
 
 Full detail in `BILIN18_CONNECTION.md` §202.
+
+### Portability: protocol transfers, thresholds don't
+
+Refit buys 21% on bilin12; zero constants license (its tail is 4-5x less
+replaceable). Replaceability scales WITH model size -- good news for larger
+targets. Scan-refit-score-selftest is the universal part.
+
+Full detail in `BILIN18_CONNECTION.md` §203.

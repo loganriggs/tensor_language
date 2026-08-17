@@ -5532,3 +5532,20 @@ accounting error tried to say otherwise and lasted two hours (ledger #15).
 This is itself the benchmark's calibration: on a model this diffuse, the
 fidelity-complexity frontier is close to an information-theoretic given, and
 submissions should be graded on *reaching* it cheaply, not on mythical beats.
+
+## 203. Portability demo: the protocol transfers; replaceability scales with size
+
+File: `bilin12_recipe.py` — the closed recipe run end-to-end on bilin12.
+Registered (c) held: **sequential refit transfers** (21% improvement over
+naive, 3.572 → 2.808 — the protocol lever is model-general). Registered (a)/(b)
+failed for a substantive reason: **bilin12 licenses zero constants** — its tail
+rank-0 costs run +0.12 to +0.54 against bilin18's +0.03–0.10, and its rank-4
+joint lands at +2.81 where bilin18's comparable assignment sat near +1.8.
+
+The comparative finding: **the smaller model packs more irreplaceable function
+per layer — diffuse, compressible slack is a property of the larger model.**
+For the scale program this is the right direction: replaceability appears to
+grow with model size, so larger targets should have proportionally more cheap
+tail, not less. Workflow lesson confirmed: thresholds and class licenses are
+per-model empirical (the recipe's rank-0 scan is mandatory, not skippable);
+only the protocol — scan, refit, joint-score, self-test — is universal.
