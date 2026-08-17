@@ -3019,3 +3019,12 @@ linear -> full component is the whole practical ladder. Reference-instrument arc
 closed.
 
 Full detail in `BILIN18_CONNECTION.md` §160.
+
+### Fingerprint dataset shipped
+
+12 components, nearly orthogonal fingerprints (pairwise 0.04) -- causal scoring
+well-posed. Stability bar was ill-posed (deterministic deltas); adjacent tokens
+don't share structure (context-specificity again). Saved to
+bilin18_fingerprints.pt.
+
+Full detail in `BILIN18_CONNECTION.md` §161.

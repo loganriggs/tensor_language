@@ -4770,3 +4770,20 @@ With §§155–159 this closes the reference-instrument arc: the benchmark has a
 measured Pareto (0.07M/+1.81 → 15.9M/+1.26), a known frontier lever (sequential
 refit), a known dead rung, and the §104-softening note (composition drift modest
 on clean instruments). BENCHMARK.md finalized accordingly.
+
+## 161. The fingerprint dataset: distinguishable, deterministic, and context-specific
+
+File: `bilin18_fingerprints.py`; dataset saved to `bilin18_fingerprints.pt`
+(12 components × per-token CE deltas on rows 384–448, with base losses and
+manifest). Registered (b) held decisively — median pairwise Spearman between
+components' fingerprints is **0.04**: the twelve are nearly orthogonal, so
+component-specific causal scoring (Track 1) is well-posed. Registered (a)
+failed because the bar was ill-posed, recorded plainly: the deltas are
+deterministic (the model has no sampling noise), so "split-half stability" has
+no noise to test; the even/odd-position proxy instead measured whether
+*adjacent tokens* share fingerprint structure — they do not (0.06), which is
+the program's context-specificity theme at the finest grain: what a component's
+ablation does to a token depends on that token's context, not its neighbors'.
+Benchmark consequence, added to the spec: Track-1 scoring runs on a *fixed*
+held-out set where fingerprints are exact; generalization across sets is the
+explanation's burden, not the dataset's.

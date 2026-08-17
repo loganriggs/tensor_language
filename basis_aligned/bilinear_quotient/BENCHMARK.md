@@ -63,6 +63,11 @@ Scoring:
   strengths (the program's instruments: full-write transplants, dilution
   shares, span patches).
 
+Ground-truth asset: `bilin18_fingerprints.pt` — per-token ablation deltas for
+12 components on a fixed held-out set (fingerprints mutually near-orthogonal,
+pairwise Spearman 0.04; deterministic, so scoring runs on this fixed set and
+cross-set generalization is the explanation's burden).
+
 ## Why this is not quantization
 
 Quantization preserves the computation and shrinks the numbers; this benchmark

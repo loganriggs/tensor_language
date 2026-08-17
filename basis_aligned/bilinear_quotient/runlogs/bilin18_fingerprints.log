@@ -1,0 +1,18 @@
+mlp 1: net +0.0059
+mlp 5: net +0.0424
+mlp 9: net -0.0224
+mlp11: net +0.0187
+mlp15: net -0.0128
+mlp16: net +0.2118
+attn 1: net +0.3663
+attn 2: net +0.3032
+attn 6: net +0.1058
+attn13: net +0.0333
+attn14: net -0.0346
+attn16: net -0.0122
+
+stability (even/odd positions) median +0.06 | pairwise median +0.04
+(a) stable (>=0.5): FAILED
+(b) distinguishable (<=0.5): HELD
+note: even/odd adjacent-position split is a conservative proxy; adjacent tokens share context.
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_fingerprints_results.json and /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_fingerprints.pt (11s)
