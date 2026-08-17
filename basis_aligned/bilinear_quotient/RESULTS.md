@@ -3044,3 +3044,10 @@ tokens when ablated (7x above non-analog). Universality extended to token-level
 causal responsibility; Track-1 gets its cross-model generalization split.
 
 Full detail in `BILIN18_CONNECTION.md` §163.
+
+### Correspondence follows depth fraction
+
+Relative-depth pairing beats absolute at both mid components; front strongly
+aligned. Full correspondence matrix queued.
+
+Full detail in `BILIN18_CONNECTION.md` §164.

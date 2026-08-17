@@ -4817,3 +4817,21 @@ the benchmark this is the ideal transfer split: an explanation of bilin18's
 front attention should partially predict bilin12's fingerprint (expected ~0.34
 ceiling), and beating the 0.05 non-analog floor across models is the
 generalization test Track 1 needed.
+
+## 164. Correspondence follows depth fraction
+
+File: `bilin18_depth_scaling.py`, all three bars held:
+
+    attn6->attn9 (relative) 0.368 > attn6->attn6 (absolute) 0.344
+    mlp5->mlp7  (relative) 0.227 > mlp5->mlp5  (absolute) 0.171
+    front pairs: attn1 0.388, attn2 0.417 (schemes coincide there)
+
+The two models place token-level causal responsibility at **proportional depths**:
+bilin12's mid-stack components match bilin18's mid-stack, not its same-numbered
+layers. Margins are modest but consistent, and everything sits far above the
+0.05 non-analog floor. Queued, the definitive form: the full correspondence
+matrix — bilin18 attention fingerprints at every other layer (1–17) against
+bilin12's three attention fingerprints, tracing each component's best-matching
+depth. Registered: (a) each bilin12 component's best-matching bilin18 depth
+fraction is within ±0.15 of its own fraction; (b) the correspondence curve is
+unimodal around the match for ≥2 of 3 components.
