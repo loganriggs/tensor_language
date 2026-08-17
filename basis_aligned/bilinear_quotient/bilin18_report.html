@@ -393,7 +393,13 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   noisy at the cheap permutation budget used, and one tail layer's top output span
   <em>improves</em> shifted-corpus loss when deleted — the truncation-as-regularisation
   pattern appearing unprompted. Remaining open: the same blind protocol for <em>edges</em>
-  (the input-mode Gram's untested forward predictions), and profiles for the rest of the
-  tail.</p>
+  (the input-mode Gram's untested forward predictions — now queued), and profiles for the
+  rest of the tail. One hypothesis was tested and refuted on three candidate classes: that
+  the residual stream <em>constrains</em> the model — that pruning connections plus a short
+  finetune could beat the intact model. Spans flagged by deletion benefit (+0.026 nats vs
+  an identically-finetuned control), the foreign-code reader L11 (+0.033), and the
+  product-law interchange edge (+0.067) all proved load-bearing, with the most structurally
+  implicated connection the most load-bearing. The "deletion helps" observations were
+  distribution-shift artifacts; nothing tested frees capacity when removed.</p>
 </section>
 </div>

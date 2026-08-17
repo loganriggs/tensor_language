@@ -1,0 +1,19 @@
+scores frozen before intervention
+
+edge 5->6: score 6.640e+10 | measured 0.2768
+edge 6->7: score 2.575e+10 | measured 0.3593
+edge 7->8: score 5.783e+10 | measured 0.3403
+edge 8->9: score 1.847e+11 | measured 0.2401
+edge 9->10: score 2.268e+11 | measured 0.2771
+edge 10->11: score 3.520e+11 | measured 0.1500
+edge 11->12: score 8.189e+11 | measured 0.1620
+edge 12->13: score 9.774e+11 | measured 0.1396
+edge 13->14: score 1.082e+12 | measured 0.1475
+edge 14->15: score 1.809e+12 | measured 0.0406
+
+Spearman(K-score, effect) -0.85 | loudness-null -0.85
+top-scored effect / bottom-scored: 0.1x
+(a) rank prediction >=0.6: FAILED
+(b) top/bottom >=3x: FAILED
+(c) alignment beats loudness by >=0.2: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_blind_edges_results.json (6s)
