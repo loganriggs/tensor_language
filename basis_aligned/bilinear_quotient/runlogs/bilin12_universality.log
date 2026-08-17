@@ -1,0 +1,18 @@
+bilin12 loaded: 12 layers, 6 heads, d=768, hd=128
+lambdas (l0,l1): 4.19/4.19 0.13/7.03 0.52/8.00 0.21/4.00 0.27/3.34 0.25/0.61 0.34/1.34 1.02/3.83 1.08/4.03 1.05/4.03 1.09/4.00 0.96/2.27
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/bilin12_universality.py", line 169, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/bilin12_universality.py", line 64, in main
+    for i in range(0,36,6): tri.append(fwd_all(FW[i:i+6,:257].to(DEV)))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/bilin12_universality.py", line 51, in fwd_all
+    q,k1_,q2,k2=qk(a.c_q),qk(a.c_k),qk(a.c_q2),qk(a.c_k2)
+                                       ^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1968, in __getattr__
+    raise AttributeError(
+AttributeError: 'CausalSelfAttention' object has no attribute 'c_q2'. Did you mean: 'c_q'?

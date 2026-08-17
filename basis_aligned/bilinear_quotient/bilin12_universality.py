@@ -1,4 +1,6 @@
-"""UNIVERSALITY: do bilin18's structural laws hold in its sibling checkpoint
+"""UNIVERSALITY (v2 -- bilin12 uses a SINGLE squared score (q.k)^2, not the
+two-score product; module-level attention used; single-factor score analysis;
+architecture difference noted in the write-up): do bilin18's structural laws hold in its sibling checkpoint
 bilin12 (same bilinear-sqrd-attn family, 12 layers, 6 heads, 768 dims)? Three
 load-bearing structures, cheapest instruments:
 
@@ -29,32 +31,24 @@ def main():
     print(f'bilin12 loaded: {NL} layers, {NH} heads, d={D}, hd={HD}',flush=True)
     lam_tab=[(float(b.lambdas[0]),float(b.lambdas[1])) for b in m2.transformer.h]
     print('lambdas (l0,l1):',' '.join(f'{a:.2f}/{b:.2f}' for a,b in lam_tab),flush=True)
-    def fwd_all(idx):
-        B,T=idx.shape
+    def fwd_all(idx, lins=None):
+        # module-level blocks with manual lambda-mix so post-mix input is exact
         x=F.rms_norm(m2.transformer.wte(idx),(D,)); x0=x; v1=None
-        cos,sin=rope_tables(T,HD,DEV,x.dtype,'bf16')
-        cosb,sinb=cos[None,:,None,:],sin[None,:,None,:]
-        mask=torch.tril(torch.ones(T,T,device=DEV,dtype=torch.bool))
         ins={};mos={};hcs={}
         for li in range(NL):
-            blk=m2.transformer.h[li]; a=blk.attn
+            blk=m2.transformer.h[li]
             x=blk.lambdas[0]*x+blk.lambdas[1]*x0
             ins[li]=x.detach().reshape(-1,D).float()
             hcur=F.rms_norm(x,(D,))
             hcs[li]=hcur.detach().reshape(-1,D).float()
-            def qk(l):
-                z=F.rms_norm(l(hcur).view(B,T,NH,HD),(HD,))
-                return apply_rot(z,cosb,sinb)
-            v=a.c_v(hcur).view(B,T,NH,HD)
-            if v1 is None: v1=v
-            v=(1-a.lamb)*v+a.lamb*v1.view_as(v)
-            q,k1_,q2,k2=qk(a.c_q),qk(a.c_k),qk(a.c_q2),qk(a.c_k2)
-            s1=torch.einsum('bqhd,bkhd->bhqk',q,k1_)/HD
-            s2=torch.einsum('bqhd,bkhd->bhqk',q2,k2)/HD
-            pat=(s1*s2).masked_fill(~mask,0.0)
-            x=x+a.c_proj(torch.einsum('bhqk,bkhd->bqhd',pat,v).reshape(B,T,-1))
-            xhat=F.rms_norm(x,(D,)); mlp=blk.mlp
-            mo=mlp.Down(mlp.Left(xhat)*mlp.Right(xhat))+mlp.Down_bias
+            x1,v1=blk.attn(hcur,v1)
+            x=x+x1
+            if lins is not None and li in lins:
+                mp=lins[li]
+                xi=ins[li]
+                mo=((xi-mp['bx'])@mp['W']+mp['by']).to(x.dtype).view_as(x)
+            else:
+                mo=blk.mlp(F.rms_norm(x,(D,)))
             mos[li]=mo.detach().reshape(-1,D).float()
             x=x+mo
         lg=m2.lm_head(F.rms_norm(x,(D,)))
@@ -84,36 +78,7 @@ def main():
         return {'W':W,'bx':bx,'by':by}
     LINS={}
     def fwd_ce(idx,tg):
-        B,T=idx.shape
-        x=F.rms_norm(m2.transformer.wte(idx),(D,)); x0=x; v1=None
-        cos,sin=rope_tables(T,HD,DEV,x.dtype,'bf16')
-        cosb,sinb=cos[None,:,None,:],sin[None,:,None,:]
-        mask=torch.tril(torch.ones(T,T,device=DEV,dtype=torch.bool))
-        for li in range(NL):
-            blk=m2.transformer.h[li]; a=blk.attn
-            x=blk.lambdas[0]*x+blk.lambdas[1]*x0
-            xin=x
-            hcur=F.rms_norm(x,(D,))
-            def qk(l):
-                z=F.rms_norm(l(hcur).view(B,T,NH,HD),(HD,))
-                return apply_rot(z,cosb,sinb)
-            v=a.c_v(hcur).view(B,T,NH,HD)
-            if v1 is None: v1=v
-            v=(1-a.lamb)*v+a.lamb*v1.view_as(v)
-            q,k1_,q2,k2=qk(a.c_q),qk(a.c_k),qk(a.c_q2),qk(a.c_k2)
-            s1=torch.einsum('bqhd,bkhd->bhqk',q,k1_)/HD
-            s2=torch.einsum('bqhd,bkhd->bhqk',q2,k2)/HD
-            pat=(s1*s2).masked_fill(~mask,0.0)
-            x=x+a.c_proj(torch.einsum('bhqk,bkhd->bqhd',pat,v).reshape(B,T,-1))
-            xhat=F.rms_norm(x,(D,)); mlp=blk.mlp
-            if li in LINS:
-                mp=LINS[li]
-                xi=xin.reshape(-1,D).float()
-                mo=((xi-mp['bx'])@mp['W']+mp['by']).to(x.dtype).view_as(x)
-            else:
-                mo=mlp.Down(mlp.Left(xhat)*mlp.Right(xhat))+mlp.Down_bias
-            x=x+mo
-        lg=(30*torch.tanh(m2.lm_head(F.rms_norm(x,(D,)))/30)).float()
+        _,_,_,lg=fwd_all(idx, lins=LINS if LINS else None)
         return float(F.cross_entropy(lg.view(-1,lg.size(-1)),tg))
     def ce():
         tot,n=0.0,0
@@ -146,14 +111,13 @@ def main():
             Ch=((U*ev.clamp_min(0).sqrt())@U.T).float()
             a=m2.transformer.h[li].attn
             for h_ in range(NH):
-                for wq,wk in ((a.c_q,a.c_k),(a.c_q2,a.c_k2)):
-                    Wq=wq.weight.detach().float().view(NH,HD,D)[h_]
-                    Wk=wk.weight.detach().float().view(NH,HD,D)[h_]
-                    if shuffle:
-                        Wq=Wq[:,torch.randperm(D,generator=g,device=DEV)]
-                        Wk=Wk[:,torch.randperm(D,generator=g,device=DEV)]
-                    sv=torch.linalg.svdvals(Ch@Wq.T@Wk@Ch); e=sv**2
-                    rs.append(float(e.sum()**2/(e**2).sum()))
+                Wq=a.c_q.weight.detach().float().view(NH,HD,D)[h_]
+                Wk=a.c_k.weight.detach().float().view(NH,HD,D)[h_]
+                if shuffle:
+                    Wq=Wq[:,torch.randperm(D,generator=g,device=DEV)]
+                    Wk=Wk[:,torch.randperm(D,generator=g,device=DEV)]
+                sv=torch.linalg.svdvals(Ch@Wq.T@Wk@Ch); e=sv**2
+                rs.append(float(e.sum()**2/(e**2).sum()))
         return sorted(rs)[len(rs)//2]
     mr=rankset(False); msh=rankset(True)
     pc=mr<=12 and msh>=2*mr
