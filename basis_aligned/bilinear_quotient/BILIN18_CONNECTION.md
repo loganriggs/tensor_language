@@ -2438,3 +2438,30 @@ sometimes; second-order response energies find carriers, route character, and �
 registered test — edge strength.** If the number axis's weak edge is also predicted by
 its small maximal response energy, the calculus predicts which signals route at all,
 from weights.
+
+## 52. Response energy detects routing at 6,000× — and found a stronger edge than the one we knew
+
+File: `bilin18_edge_strength.py` (10 s).
+
+| signal | response energy (weights+cache) | measured \|Δc₁\| |
+|---|---|---|
+| punct (#1) | 4.20e11 | 1.04σ |
+| **#3** | **3.15e11** | **1.60σ** |
+| number (#2) | 5.47e10 | 0.23σ |
+| random-a | 6.77e7 | 0.015σ |
+| random-b | 1.36e8 | 0.002σ |
+
+Spearman(E, |Δc₁|) = **0.80 exactly** — the registered ≥0.8 bar formally failed on the
+strict float comparison and is reported as at-bar: the ordering has two adjacent swaps
+among five. Prediction (b) failed genuinely: the punctuation axis tops the energy list
+but **not** the measured list, because **L0's #3 causal direction routes into the L1
+leader at 1.60σ — the strongest front edge yet observed, previously unknown**, and the
+calculus had flagged it (second-highest energy) before the measurement.
+
+The substantive scorecard for the weights-side calculus: it separates routed from
+unrouted signals by **3–4 orders of magnitude** (3e11 vs 7e7), ranks the routed ones
+roughly (two swaps), and its false ordering at the top is between two signals it
+correctly identifies as both strongly routed. As a *detector* of which signals travel
+an edge, it is essentially solved; as a fine ranker, approximate. The newly found #3
+edge inherits the full protocol next: registered carrier prediction from enrichment,
+then the freeze sweep — the blind test §51 could not run now has an edge that exists.

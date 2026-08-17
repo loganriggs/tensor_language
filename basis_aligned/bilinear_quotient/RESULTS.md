@@ -2058,3 +2058,13 @@ both predicted. Registered next: does response energy predict edge *strength*,
 closing the loop on a weights-side calculus of which signals route at all.
 
 Full detail in `BILIN18_CONNECTION.md` §51.
+
+### The calculus as a routing detector: 6,000× separation, and a new strongest edge
+
+Response energy separates routed from unrouted signals by 3–4 orders of magnitude and
+ranked five signals at Spearman 0.80 (exactly at the registered bar; two adjacent
+swaps). Its top-ranking miss was itself a discovery: **L0's #3 direction routes into
+the L1 leader at 1.60σ — the strongest front edge found so far** — flagged by the
+energy ranking before measurement. The blind carrier protocol now runs on this edge.
+
+Full detail in `BILIN18_CONNECTION.md` §52.

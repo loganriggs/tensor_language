@@ -1,0 +1,10 @@
+      signal  resp energy  |Delta c1|
+   punct(#1)    4.202e+11       1.040
+  number(#2)    5.472e+10       0.225
+          #3    3.148e+11       1.600
+      rand-a    6.772e+07       0.015
+      rand-b    1.357e+08       0.002
+
+Spearman(E, |dc1|) = +0.80 -> (a) FAILED
+punct tops both: FAILED (E-top punct(#1), dc1-top #3)
+wrote bilin18_edge_strength_results.json (10s)
