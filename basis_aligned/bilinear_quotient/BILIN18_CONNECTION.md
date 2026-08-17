@@ -1279,3 +1279,74 @@ head 4's aggregation of layout tokens in the recent context, producing a
 document-register signal that carries 39% of the layer's causal effect.* Every clause
 above is a measurement (§13/§16 for the 39%, §17 for the writer, this for the head, the
 keys, and the range).
+
+---
+
+## 19. Phase A verdict: the compression is real, the register semantics are not causal
+
+File: `bilin18_leader_verify.py` (12 s). *(A first run of A1/A2/r1 was void — it patched
+`mlp1.forward`, which the custom forward never calls, and silently scored the intact
+model. Caught because every rung reported identical CE. Fixed with an explicit hook in
+the forward; r2/r3 never used patching and were valid in both runs.)*
+
+### 19.1 The compression claim: causally verified, red-teamed, MDL-scored
+
+Deleting only the leader direction (mean-ablating one coefficient of one layer) costs
++0.0158 nats. The ladder of replacements, all fit on rows the evaluation never sees:
+
+| replacement for c₀(x) | params | CE vs base | repairs |
+|---|---|---|---|
+| delete (mean) | 0 | +0.0158 | 0% |
+| **story surrogate: a·(u·x̂)² + b** | **1,154** | +0.0012 | **92.1%** |
+| **rank-2 whitened truncation** | **2,308** | −0.0001 | **100.9%** |
+| full form | 664,128 | 0 | 100% |
+
+**A 2,308-parameter object replaces a 664,128-parameter one at full functional
+fidelity — 288× smaller — and 1,154 parameters get 92%.** The red-team control that
+makes this meaningful: the *same* surrogate form with a random unit direction (a, b
+refit) repairs **0.0%**. The win is entirely in the direction u, which was derived from
+the story (top whitened eigenvector of the form restricted to the attn1 component).
+This is the causal MDL result the plan asked for.
+
+One nuance worth its ink: the surrogate's raw coefficient fit R² collapses from 0.984
+on fit rows to **0.265** on unseen documents (r2) — yet its CE repair, measured on
+those same unseen documents, is 92%. Both numbers are right. The R² drop is dominated
+by the document-level variance component (ICC 0.56), and that component evidently does
+little work for next-token prediction; the part of c₀ that matters downstream is the
+part u carries across documents. A fidelity metric on the *coefficient* and one on the
+*function* disagree, and the function is the one that matters.
+
+### 19.2 The semantic claim: fails both causal tests
+
+The register story made two causal predictions. Both failed.
+
+**A1 — damage should concentrate in layout-heavy contexts.** It does the opposite:
+binned by the layout fraction of the trailing 32 tokens, deletion damage is +0.0165 /
++0.0186 / +0.0136 / **+0.0066** from prose to most-layout — *smallest* where the story
+says largest. The control direction shows the reverse (rising) profile, so the
+instrument can detect gradients; the leader's just goes the wrong way.
+
+**r3 — injecting layout into prose should raise the leader.** Injecting 24 layout
+tokens shifts the leader by −26 ± 2 against a natural std of **3,449** — under 1% of a
+standard deviation, *negative*, and statistically indistinguishable from injecting
+random prose words (−28 ± 2). Stripping all layout from markup documents shifts it
++27 ± 9 — also the wrong sign for the story, also negligible. Token-level layout does
+not causally drive this direction at any scale the intervention can produce.
+
+**Reconciliation with §18, which is a methods lesson.** The per-key attribution
+(layout keys strongly positive) is exact *on the natural data distribution* — it
+decomposes covariance, and layout keys covary with high-leader documents. But
+attribution over a distribution is still correlational *across* that distribution:
+inserting isolated layout tokens into prose does not recreate the document context in
+which head 4's layout-attention naturally occurs. **An exact decomposition is not an
+intervention**, and this is now the program's cleanest demonstration of the gap.
+
+### 19.3 The corrected story
+
+What survives, all of it causal: MLP1's dominant direction is a cheap function of
+attn1's output — one-to-two squared projections, 288× smaller than its parameter count,
+92–101% of its function — whose *correlates* are register-like (document identity,
+layout density) but whose *causal role* is not the register story: its deletion damage
+sits in prose, and layout tokens do not drive it interventionally. "Register detector"
+is demoted from mechanism to correlate. What it actually computes for the network
+remains open; what is closed is that you can swap it for 2,308 numbers.

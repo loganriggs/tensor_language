@@ -1629,3 +1629,27 @@ exceptions only for the few heavy-tailed directions), and interpretation that fa
 through the writer-pair decomposition rather than the vocabulary.
 
 Full detail in `BILIN18_CONNECTION.md` §17.
+
+### Causal verification of the leader: compression confirmed, semantics refuted
+
+The register-leader story was put through the causal battery it needed. The
+**compression half survives decisively**: replacing the leader's 664k-parameter
+quadratic with a rank-2 whitened truncation (2,308 params) restores cross-entropy to
+within noise of the intact model — 288× smaller at full fidelity — and a single squared
+projection (1,154 params) gets 92%. The control that makes it meaningful: the same
+surrogate with a random direction repairs 0%.
+
+The **semantic half fails both causal tests**. Deletion damage is *smallest* in
+layout-heavy contexts (the story predicted largest), and injecting layout tokens into
+prose moves the leader by under 1% of a standard deviation — indistinguishable from
+injecting random words. The exact per-key attribution that named layout tokens was
+right about the natural covariance and wrong as a mechanism: attribution over a
+distribution is still correlational across it, and an exact decomposition is not an
+intervention. "Register detector" is demoted from mechanism to correlate.
+
+(A first run of the ablation arms was void — the patch targeted a forward the custom
+evaluation never calls, and every rung scored the intact model. Caught because the
+numbers were identical; fixed and rerun.)
+
+Full detail in `BILIN18_CONNECTION.md` §19. Next per the plan: the same-depth battery
+on layer 0.
