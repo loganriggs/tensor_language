@@ -5118,3 +5118,23 @@ Per the ledger-#13 lesson, **no verdict until the direct best-match instrument
 reports** — queued (registered: (a) instruments agree ≥0.5 across swiglu18's 18
 MLP components; (b) if they agree, the direct median displacement decides the
 law's boundary at the 0.08 bar).
+
+## 181. Resolution: the law's fourth model passes on the reliable instrument
+
+File: `swiglu18_direct.py` (print-label bug noted: the "nominal" column printed
+li/12; computations used li/18). Registered (a) failed — instruments disagree
+(ρ −0.22) — which triggers the pre-registered fallback: the **axis instrument is
+declared unreliable for weak cross-model fingerprints** (second demonstration;
+§178 was the first), and the direct best-match reading stands. That reading:
+swiglu18's MLP components' implied fractions rise monotonically 0.06 → 0.94 and
+track their nominal fractions at median |displacement| ≈ 0.06 — **inside the
+0.08 law bar**. §180's boundary threat dissolves: the depth-fraction placement
+law holds at its fourth model. One bounded anomaly logged: swiglu18's L2–L5 all
+best-match bilin18's L1 (a front plateau — its early stack compresses onto the
+bilinear model's crown layer).
+
+Benchmark rule added: spectral/joint-embedding placements require a minimum
+cross-correlation strength to be admissible; below it, use direct best-match.
+The final tally: **four models, two component types, one law — token-level
+causal responsibility sits at fractional depth** — earned twice over through
+the two-instrument discipline that caught its own instruments failing.

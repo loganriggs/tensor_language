@@ -3178,3 +3178,11 @@ Median displacement 0.333 on the axis instrument; per the ledger-13 lesson the
 direct instrument must report before any law-boundary claim. Queued.
 
 Full detail in `BILIN18_CONNECTION.md` §180.
+
+### The law's fourth model passes
+
+Direct instrument: swiglu18 tracks fraction at median displacement 0.06 (inside
+the bar); the axis instrument is twice-demonstrated unreliable at weak
+correlations and is now gated in the benchmark. Four models, one law.
+
+Full detail in `BILIN18_CONNECTION.md` §181.

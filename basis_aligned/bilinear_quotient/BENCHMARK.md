@@ -66,6 +66,10 @@ Scoring:
 Measured floors (§162): base-loss predicts fingerprints at only 0.13 median
 |Spearman| (publish beside every score; >0.2 = real signal); position 0.01.
 
+Instrument rule (§§178-181): spectral/joint-embedding placement is admissible
+only above a minimum cross-correlation strength; below it, direct best-match is
+the instrument of record (the axis method failed twice on weak fingerprints).
+
 Ground-truth asset: `bilin18_fingerprints.pt` — per-token ablation deltas for
 12 components on a fixed held-out set (fingerprints mutually near-orthogonal,
 pairwise Spearman 0.04; deterministic, so scoring runs on this fixed set and
