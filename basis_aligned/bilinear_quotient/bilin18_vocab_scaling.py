@@ -1,4 +1,6 @@
-"""Does vocabulary dimension track writer complexity? (The gradient-coupling
+"""v2, unit-normalised (v1 stacked raw matrices; large-norm forms dominated and
+absolute eff-ranks were incomparable to section 58). Same registered predictions.
+Does vocabulary dimension track writer complexity? (The gradient-coupling
 hypothesis's scaling prediction.)
 
 If readers converge onto a shared code because their gradients couple through the
@@ -54,7 +56,8 @@ def main():
             DwP=mlp.Down.weight.detach().float().T@P
             for f in range(P.shape[1]):
                 M=torch.einsum('k,ka,kb->ab',DwP[:,f],L,R)
-                rows.append((0.5*(M+M.T)).flatten())
+                Ms=0.5*(M+M.T)
+                rows.append((Ms/Ms.norm().clamp_min(1e-12)).flatten())
         X=torch.stack(rows)
         sv=torch.linalg.svdvals(X); e=sv**2
         er=float(e.sum()**2/(e**2).sum())

@@ -3072,3 +3072,15 @@ vocabulary.** The gradient-coupling hypothesis (readers training against a share
 writer converge onto a common code) remains the candidate mechanism, with its
 registered scaling test queued: vocabulary dimension should track the writer's output
 complexity across writer layers.
+
+## 77. Vocabulary scaling: right ordering, wrong normalisation
+
+File: `bilin18_vocab_scaling.py` (22 s). Results with an instrument inconsistency
+flagged before interpretation: this run stacked **un-normalised** coupling matrices,
+so large-norm forms dominate the spectrum and the absolute eff-ranks (13–16 for
+L0/L1/L3 writers; 5 for L16) are **not comparable** to §58's unit-normalised 80. What
+is internally valid is the cross-writer ordering: L16 (5) < L0 (13) < L1 (15) ≈ L3
+(16), matching the writers' output-complexity ordering with one adjacent swap —
+Spearman exactly 0.80 against the ≥0.8 bar (reported at-bar; n = 4, underpowered).
+Registered (b) held: the simple writer (L16) gets a small code. The scaling hypothesis
+has weak, suggestive support; the normalised rerun is queued for real numbers.
