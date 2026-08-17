@@ -4890,3 +4890,19 @@ pairs at absolute index instead (or the curve is flat between the two — the
 margin was not resolved). A fitting final note for the wake: the front of these
 models is universal across all three checkpoints tested; the middle is where
 families begin to differ.
+
+## 168. Tie-break: depth-fraction scaling is a within-family law
+
+File: `sqrd12_tiebreak.py`, both bars held. The curves resolve §167 cleanly:
+
+    sqrd12-attn6 : L5 0.203 | L6 0.229 | L7 0.259 | L9 0.169 | L11 0.179  (peak L7)
+    bilin12-attn6: L5 0.316 | L6 0.344 | L7 0.301 | L9 0.368 | L11 0.285  (peak L9)
+
+The bilinear sibling scales **fractionally** (0.50 → L9); the conventional-MLP
+model's mid-attention corresponds to bilin18's fraction ~0.36–0.39 — genuinely
+front-shifted, not a flat tie. Final form of the correspondence law: **within
+the bilinear family, models assign token-level causal responsibility at equal
+depth fractions (six for six, exact); across MLP families the correspondence
+survives (same components, 3×+ floor) but the depth mapping warps** — a
+conventional-MLP model's middle does what the bilinear model does earlier in
+its stack. The bilinear MLPs evidently stretch the early program deeper.

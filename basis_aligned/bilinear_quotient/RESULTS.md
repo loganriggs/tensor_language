@@ -3075,3 +3075,11 @@ mid pairs at absolute index (0.02 past the bar). Correspondence crosses the MLP
 family; fractional scaling of the middle may be bilinear-specific.
 
 Full detail in `BILIN18_CONNECTION.md` §167.
+
+### Tie-break: within-family law
+
+sqrd12's mid-attention peaks at bilin18's L7 (fraction 0.39), bilin12's at L9
+(0.50) -- fractional scaling holds within the bilinear family and warps across
+families. Correspondence arc closed.
+
+Full detail in `BILIN18_CONNECTION.md` §168.
