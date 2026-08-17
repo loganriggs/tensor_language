@@ -4186,3 +4186,21 @@ it through a handful of data-aligned matched filters per factor. Caveat register
 in the follow-up: these operators ignore RoPE, which sits between projection and
 dot product — the realized-pattern-rank run (queued) checks whether the
 weights-level ranks survive it.
+
+## 128. RoPE fans the filters out: realized rank 22.7, and the weights-level rank does not survive
+
+File: `bilin18_pattern_rank.py`. The §127 caveat matures into a scope
+qualification: realized pattern matrices run at median effective rank **22.7**
+(registered ≤12 failed), and the pre-RoPE weights-level rank does **not** predict
+realized rank across heads (Spearman −0.20; registered ≥0.5 failed). The
+shuffled-weights null held (48.7, 2.1×) — patterns are still structured, just not
+in a way the static bilinear operator captures.
+
+Corrected statement of §127: **pre-rotation, each score factor is a ~5-dim
+content filter; RoPE's position-dependent rotation fans those few filters into a
+~20-30-dim family of realized patterns.** The matched-filter picture is true of
+what the head *computes on content* and false of what the pattern *looks like*
+over positions — rank is not preserved through position-dependent rotation, and
+any pattern-level compression scheme must work post-RoPE. (This also explains
+§125's L2 positional hub cleanly: positional structure emerges precisely where
+the filters engage RoPE's frequency ladder hardest.)

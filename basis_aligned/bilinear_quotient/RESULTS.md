@@ -2752,3 +2752,12 @@ null 44.4; factors comparable). Attention reads context through ~5 data-aligned
 directions per factor. RoPE-honest validation running.
 
 Full detail in `BILIN18_CONNECTION.md` §127.
+
+### RoPE fans the filters out
+
+Realized pattern rank ~23 (not ~5): the ~5-dim content filters are fanned into a
+larger positional family by rotation; weights-level rank does not survive as a
+predictor (Spearman -0.20; shuffled null still 2x). Matched filters describe the
+content computation, not the realized pattern.
+
+Full detail in `BILIN18_CONNECTION.md` §128.
