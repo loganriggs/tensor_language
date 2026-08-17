@@ -1,0 +1,17 @@
+base 4.0041
+
+L 2: consistent cost +0.1091
+L 4: consistent cost +0.0542
+L 5: consistent cost +0.0247
+L 7: consistent cost +0.0358
+L 9: consistent cost +0.0324
+L13: consistent cost +0.0459
+L16: consistent cost +0.0332
+L17: consistent cost +0.0963
+real      : base 4.0041 | d16 +0.0000 | d17 +0.0000 | excess +0.0000
+linearized: base 4.1040 | d16 +0.0000 | d17 +0.4849 | excess +0.0000
+
+(a2) front-loading survives: HELD (L2 +0.109 vs median +0.036)
+(b2) interaction-kill survives (>=70%): FAILED (0%)
+(c2) consistent stand-in tighter (<=0.05): FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_consistent_linearization_results.json (16s)
