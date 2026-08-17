@@ -3193,3 +3193,11 @@ The front plateau was argmax noise over near-ties (runners-up are the correct
 depths). Universality arc closed clean.
 
 Full detail in `BILIN18_CONNECTION.md` §182.
+
+### Leverage is text-borne (0.78 cross-model)
+
+The fingerprint matrix factorizes: rows follow depth (the fraction law),
+columns follow the text (leverage shared across models beyond difficulty). Both
+axes of the family's computation measured.
+
+Full detail in `BILIN18_CONNECTION.md` §183.

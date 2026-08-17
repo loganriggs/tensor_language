@@ -5150,3 +5150,16 @@ ends with no exceptions and no open anomalies: four independently trained
 models, three MLP architectures, two component types, thirty-six to
 seventy-eight fingerprints each — all placing token-level causal responsibility
 at fractional depth.
+
+## 183. Leverage is text-borne: the fingerprint matrix factorizes
+
+File: `bilin18_token_leverage.py`, all three bars held. Summing |delta| over all
+36 components per token: leverage concentrates on hard tokens (0.65 vs base
+loss) but is *more* strongly shared across models than explained by difficulty —
+bilin18's and bilin12's per-token leverage profiles correlate at **0.78**. Which
+tokens the machinery bears on is a property of the language, not the model. The
+closing symmetry of the atlas work: the fingerprint matrix's **row structure
+follows depth** (one causal coordinate, fraction-lawful across four models) and
+its **column structure follows the text** (leverage shared at 0.78 across
+independently trained models). Where in the stack × where in the language — the
+two axes of this family's computation, both now measured.
