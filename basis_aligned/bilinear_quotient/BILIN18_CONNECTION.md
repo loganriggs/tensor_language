@@ -5259,3 +5259,19 @@ File: `bilin18_track1_round2.py`. Registered (a) and (c) held, (b) fell short:
 Track-1 scoreboard after two rounds: **two certified** (attn14's component
 story, attn6's edge story), two floor-to-weak, one refuted — with regime rules,
 distinctiveness rules, and now a working edge-explanation class.
+
+## 189. The kinship map recovers the relay's direction; global ranking is front-dominated
+
+File: `bilin18_kinship_map.py`. Registered (a) and (c) held: **16 of 18
+attention components' top MLP kinship partner sits at their own layer or
+upstream** (token-shuffled null: 11/18) — the relay's directionality is
+recoverable from fingerprint resemblance alone. Registered (b) failed
+instructively: the cargo edge ranks 19/324 globally because the map is
+**front-dominated** — most components' top partner is mlp0/mlp1, the crown
+layers whose fingerprints are strongest and correlate with everything.
+Instrument rule (added to the spec): kinship edge claims are scored in the
+per-component *relative* form (§188's certified design — partner vs that
+component's median-other), never by global ranking, which conflates "shares a
+channel" with "both touched by the dominant front signal." Also visible in the
+map: attn17's top partner is mlp16 (0.21) — the 16→17 interchange surfacing in
+a fourth independent instrument.

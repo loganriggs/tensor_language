@@ -3246,3 +3246,11 @@ fingerprint kinship -- the cargo edge's third independent confirmation, and a
 new scoreable relation type for Track-1. Scoreboard: two certified.
 
 Full detail in `BILIN18_CONNECTION.md` §188.
+
+### Kinship recovers the relay's direction
+
+16/18 attention components partner upstream (null 11/18). Global rankings are
+front-dominated -- kinship scoring must be per-component relative (spec rule).
+The 16->17 interchange surfaces in a fourth instrument (attn17~mlp16).
+
+Full detail in `BILIN18_CONNECTION.md` §189.
