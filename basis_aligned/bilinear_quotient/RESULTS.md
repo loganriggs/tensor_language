@@ -2435,3 +2435,12 @@ adjacent-edge strength declines monotonically through the tail (0.36 to 0.04).
 Alignment-only v2 queued.
 
 Full detail in `BILIN18_CONNECTION.md` §91.
+
+### Tail writes are unaimed
+
+Alignment ratios for all ten adjacent tail edges sit at 0.81-1.18 -- the isotropic
+baseline. The tail routes by dilution, not by aiming: no alignment structure exists
+for a blind edge predictor to find (while the same machinery finds within-layer
+leader subspaces blindly). Dilution check queued.
+
+Full detail in `BILIN18_CONNECTION.md` §92.

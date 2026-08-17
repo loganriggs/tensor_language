@@ -3370,3 +3370,21 @@ tail's shallow-compressibility. v2 is queued with the magnitude-free score
 trace(C·G₂)/(trace C · trace G₂/1152) — pure alignment; registered: Spearman ≥ 0.5
 against the same measured effects, and the score must now *beat* the loudness null
 by construction-independent margin ≥ 0.4.
+
+## 92. Blind edges v2: tail writes are unaimed — alignment ratio ≈ 1.0 everywhere
+
+File: `bilin18_blind_edges2.py`. With the magnitude-free score, the answer is a clean
+negative with the control finally behaving: every adjacent tail edge's alignment
+ratio sits at **0.81–1.18** — indistinguishable from the isotropic baseline of 1.0.
+Layer i's write is *not* preferentially aimed at layer i+1's quadratically sensitive
+directions, at any tail edge. Rank prediction accordingly has nothing to grab
+(Spearman −0.34, noise; registered (a2)/(b2) failed; (c) held — alignment beats the
+loudness null, which was anti-correlated at −0.85).
+
+Contrast with the node story: the same weights-plus-S machinery located four tail
+layers' causal-leader *subspaces* blindly (three of four, energies 0.89–0.97). The
+formula sees within-layer structure but the tail's layer-to-layer routing carries no
+alignment signature — which redirects the explanation of §91's depth decline
+(0.36 → 0.04) to **dilution**: the write shrinking relative to the accumulated
+residual, not de-aiming. That is registered and queued as v3: Spearman(write-to-
+residual energy ratio, measured effect) ≥ 0.7 over the ten edges.
