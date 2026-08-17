@@ -460,9 +460,15 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   component types keep to themselves: attention's and the MLP's watch-lists are separate
   institutions at every layer (alignment at or below the matched null), their write
   channels are separate too (5/5 layers, mild active avoidance), and their quadratic codes
-  are mutually unreadable. The residual stream is a <strong>multiplexed bus</strong> — one
-  carrier, two component types, clean separation between them, with the model's famous
-  diffuseness living entirely <em>within</em> each type. That diffuseness now has its
+  are mutually unreadable. Concretely: the residual stream is the 1152 numbers per token that every layer adds to
+  and reads from, and at any layer the attention heads are sensitive to ~8 directions of it
+  while the MLP is sensitive to a <em>different</em> ~8 (overlap at or below the
+  covariance-matched random level); their outputs likewise deposit into different ~8-dim
+  direction sets (overlap below random); and each type's quadratic reading code cannot
+  express the other's. Same vector, different apertures in and different deposits out —
+  with the model's famous diffuseness living entirely <em>within</em> each type. (Whether
+  downstream attention preferentially reads what upstream <em>attention</em> wrote — a true
+  end-to-end channel rather than local separation — is measured separately below.) That diffuseness now has its
   finest-grain measurement: the gauge-invariant unit-mass spectrum is maximally flat —
   98–99% of each layer's 4608 hidden units are effectively active — so this model has no
   important neurons at the weight level at all. (A gauge audit against the balanced-form
