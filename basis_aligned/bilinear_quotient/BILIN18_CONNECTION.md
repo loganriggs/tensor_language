@@ -3111,3 +3111,16 @@ compression to every layer's reading code, onto a near-universal ~80–110-dimen
 size. This is the origin-story arc's closing number: architecture supplies ~195
 generic dimensions everywhere; training halves it everywhere; the result is shared
 across readers (LORO) and mostly new relative to the generic content (§76).
+
+## 80. Confirmed out-of-sample: the origin story is complete
+
+File: `bilin18_vocab_writer9.py` (19 s). Writer L9, never used in the arc: trained
+family eff-rank **76**, shuffled **198**, compression **2.60×** — all three registered
+bars held. Five writers now agree: architecture supplies a ~195–198-dimensional
+generic reading structure everywhere; training compresses it ~2–2.6× into an
+~76–112-dimensional code that is shared across readers, mostly new relative to the
+generic content, and writer-independent in size. The "why did SGD find this" question
+has its measured answer: **SGD's contribution to the middle's reading structure is one
+thing — a universal, shared, built-from-scratch compression of the functional family —
+and everything else about the structure (density, orthogonality, the envelope) came
+free with the architecture.**

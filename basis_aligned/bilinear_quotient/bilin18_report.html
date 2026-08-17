@@ -313,6 +313,7 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   <tr><td>is the range limit intrinsic?</td><td>yes — the exact end-to-end gradient also fails at depth (0.06σ own, 3.70σ cross-talk)</td></tr>
   <tr><td>can context-dependence beat it?</td><td>power yes, addressability no — per-token steering lifts deep influence 15× (0.06→0.91σ) with cross-talk still ahead at every rung</td></tr>
   <tr><td>are the words causally real?</td><td>yes — complementary constituencies under steering (pre-registered residual correlation −0.20), and the <em>same</em> constituencies on the training corpus (cross-corpus +0.78)</td></tr>
+  <tr><td>did SGD choose this structure?</td><td>mostly no — a weight-shuffled null reproduces the density, orthogonality, and envelope exactly (generic); what training built is the <strong>compression and sharing</strong>: ~195 generic dimensions squeezed ~2–2.6× into a shared, 83%-new code, at every writer tested (five, one out-of-sample)</td></tr>
   </tbody></table>
   <p>The closing statement: the quadratic stack is <strong>locally transparent and
   globally opaque</strong> to static intervention, with the transition inside a single

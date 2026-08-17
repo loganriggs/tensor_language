@@ -2319,3 +2319,12 @@ compression is universal (1.77–2.46× across writers). Architecture supplies ~
 dimensions everywhere; training halves it everywhere, into shared, mostly-new codes.
 
 Full detail in `BILIN18_CONNECTION.md` §79.
+
+### Out-of-sample: the origin story closes
+
+Writer L9 (never used in the arc): trained 76, shuffled 198, ratio 2.60× — all bars
+held. Five writers agree. SGD's contribution to the middle's reading structure is one
+thing: a universal ~2× shared compression built from scratch; everything else came
+free with the architecture.
+
+Full detail in `BILIN18_CONNECTION.md` §80.
