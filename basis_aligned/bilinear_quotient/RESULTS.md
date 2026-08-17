@@ -2728,3 +2728,11 @@ floor via the norm channel); the non-monotonicity was inside the floor. L17 =
 eight directions of content plus ballast.
 
 Full detail in `BILIN18_CONNECTION.md` §124.
+
+### Pattern census: content-based, L2 positional hub
+
+Offset explains little anywhere (medians 0.01-0.26); L2 hosts the positional
+machinery; content routing dominates from L0. Lexical-attention complement
+queued.
+
+Full detail in `BILIN18_CONNECTION.md` §125.

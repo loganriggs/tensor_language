@@ -4129,3 +4129,22 @@ directions exist in L17's ranks 9–128; the content of L17's write is effective
 all in its top-8 (+0.508, 25× the floor). The loudest layer is also the most
 concentrated: one band of eight directions, everything else indistinguishable
 from ballast at the CE level.
+
+## 125. The pattern census: attention is mostly content-based, with a positional hub at L2
+
+File: `bilin18_pattern_census.py` (shuffled null clean at negative values). Both
+registered bars failed short of their thresholds while the shape is clear:
+
+    positional R² medians -- L0: 0.03 | L2: 0.26 | L5: 0.03 | L9: 0.09 | L13: 0.01 | L16: 0.02
+
+Offset alone explains little of most heads' patterns at any depth. **L2 is the
+positional hub** (median 0.26, one head at 0.76), a handful of positional
+specialists sit elsewhere (L0 h3: 0.71, L9 h7: 0.49, L16 h8: 0.48), and L13 has
+none above 0.26 (registered (c) failed there). The early-vs-late gradient exists
+(0.14 vs 0.02 median) but under the registered 0.2 bar. bilin18's attention is
+predominantly content-routing from the start — consistent with score-*product*
+attention having no softmax pressure toward sharp positional templates. Queued:
+the lexical complement — is the content part predictable from the key token's
+identity (per-head mean score per key token, held out)? Registered: (a) lexical
+R² > positional R² for the majority of heads at every layer (the model's lexical
+theme extends to attention); (b) shuffled-key null ≤ 0.05.
