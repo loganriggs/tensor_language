@@ -2370,3 +2370,38 @@ attention-wide, not head-1-specific. Combined with §46 (only head 1's freeze af
 c₀): **the steer re-aims many heads toward punctuation; only head 1's re-aiming is
 read by the leader coefficient.** The mechanism claim is supported; the selectivity
 lives in what c₀ reads, not in which heads move.
+
+## 50. Two user questions, answered with runs
+
+Files: `bilin18_operator_composition.py`, `bilin18_input_orders.py` (5 + 26 s).
+
+**Was the routing derivable from weights (operator-level composition)?** Partially —
+the important half, yes. The steered direction's qk-circuit enrichment per head ranks
+**head 1 first** (prediction (a) held): pure weight algebra identifies which head
+carries an injected signal, before any intervention. But (b) failed — head 1's raw
+v-enrichment slightly exceeds its qk-enrichment, so the *pattern-dominance* of the
+route is not readable from first-order enrichments (patterns respond nonlinearly to
+q/k perturbations; the operator calculus needs the quadratic response, not norms) —
+and (c) failed: head 4's qk rank is 8th, consistent with §46 (head 4 carries z's
+*natural* context, not the injected signal; the two channels really are different
+operators). Verdict: scalar edges don't compose; first-order operator signatures
+compose enough to find the carrier head; the route's internal character needs
+second-order signatures.
+
+**Does shallow=compressible go the other way, on the input side?** Yes, with exactly
+the architectural signature predicted. Input-side band Möbius (patching only the xhat
+each MLP reads):
+
+| | layer 1 | layer 16 |
+|---|---|---|
+| input-side solo+pair share | **89%** | 90% |
+| output-side (for contrast) | 24% | 99% |
+
+All three registered predictions held: layer 1's *input* side is dramatically shallower
+than its output side (89% vs 24%) because **a bilinear layer's own input interaction is
+architecturally bounded at order 2** — the depth we measure on the output side is
+manufactured *downstream* of the layer, by the stack that consumes it. The L1–L16 gap
+nearly vanishes on the input side (1pp vs 75pp). So the asymmetry of the unification is
+itself informative: compressibility is a property of *how a layer's output is consumed*,
+not of how the layer consumes its input — every layer reads shallowly; only the middle
+is read deeply.

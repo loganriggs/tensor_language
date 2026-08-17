@@ -2033,3 +2033,15 @@ punctuation-specific vs random steer; head-6 control violated, so selectivity li
 what c₀ reads, not in which heads move).
 
 Full detail in `BILIN18_CONNECTION.md` §49.
+
+### The two-sided answer: every layer reads shallowly; only the middle is read deeply
+
+Operator-composition test: weight-side qk-enrichment ranks head 1 first (the carrier
+head was derivable from weights), but pattern-dominance and head 4's absence need
+second-order signatures — scalar edges don't compose, first-order operator signatures
+half-compose. Input-side Möbius: layer 1's input side is 89% shallow vs its 24% output
+side (L16: 90/99) — the bilinear architecture bounds within-layer input order at 2, so
+interaction depth is manufactured downstream. Compressibility is a property of how a
+layer's output is *consumed*.
+
+Full detail in `BILIN18_CONNECTION.md` §50.
