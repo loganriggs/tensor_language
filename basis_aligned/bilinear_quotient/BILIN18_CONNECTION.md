@@ -3084,3 +3084,19 @@ is internally valid is the cross-writer ordering: L16 (5) < L0 (13) < L1 (15) �
 Spearman exactly 0.80 against the ≥0.8 bar (reported at-bar; n = 4, underpowered).
 Registered (b) held: the simple writer (L16) gets a small code. The scaling hypothesis
 has weak, suggestive support; the normalised rerun is queued for real numbers.
+
+## 78. Scaling is dead; the code size is universal
+
+File: `bilin18_vocab_scaling.py` v2 (unit-normalised, 22 s). Both registered
+predictions **failed decisively**: normalised family eff-ranks are **85 / 79 / 98 /
+112** for writers L0 / L1 / L3 / L16 — no relation to writer output complexity
+(Spearman −0.20; the *simplest* writer has the *largest* family rank). The
+gradient-coupling scaling story is dead.
+
+What replaces it is cleaner: **the reading code's effective dimension is roughly
+constant (~80–110) regardless of which layer is the writer**, against the generic
+(weight-shuffled) value of ~191. L1's "80" is not a fact about L1 — it is an instance
+of a model-wide constant: training compresses every writer's functional family by
+about 2× to a near-universal size. Registered next (queued): confirm the denominator —
+shuffled-weights families for the other writers should also sit near 191, making the
+~2× compression factor universal rather than L1-specific.

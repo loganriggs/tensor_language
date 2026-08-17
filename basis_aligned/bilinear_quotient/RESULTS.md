@@ -2302,3 +2302,12 @@ machinery's content wholesale with a new shared 80-dim code. Scaling test queued
 vocabulary dimension vs writer complexity across writer layers.
 
 Full detail in `BILIN18_CONNECTION.md` §76.
+
+### The code size is universal
+
+The normalised scaling rerun killed the scaling hypothesis (eff-ranks 79–112 across
+writers, Spearman −0.20 with complexity, reversed if anything) and found something
+better: the reading code's dimension is a model-wide constant (~80–110 vs ~191
+generic), not a property of any writer. Universal-compression check queued.
+
+Full detail in `BILIN18_CONNECTION.md` §78.

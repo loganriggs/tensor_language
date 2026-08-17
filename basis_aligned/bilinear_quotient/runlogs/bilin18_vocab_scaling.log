@@ -1,8 +1,8 @@
-writer L 0: 240 functionals, family eff-rank 13 (writer dims-90: 430)
-writer L 1: 240 functionals, family eff-rank 15 (writer dims-90: 241)
-writer L 3: 240 functionals, family eff-rank 16 (writer dims-90: 509)
-writer L16: 240 functionals, family eff-rank 5 (writer dims-90: 15)
+writer L 0: 240 functionals, family eff-rank 85 (writer dims-90: 430)
+writer L 1: 240 functionals, family eff-rank 79 (writer dims-90: 241)
+writer L 3: 240 functionals, family eff-rank 98 (writer dims-90: 509)
+writer L16: 240 functionals, family eff-rank 112 (writer dims-90: 15)
 
-Spearman(dims-90, vocab eff-rank) = +0.80 -> (a) FAILED
-L16 vocab rank 5 <= 30: HELD
+Spearman(dims-90, vocab eff-rank) = -0.20 -> (a) FAILED
+L16 vocab rank 112 <= 30: FAILED
 wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_vocab_scaling_results.json (22s)
