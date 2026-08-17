@@ -4533,3 +4533,18 @@ Replication status across the program's recent arcs: dilution (both sides),
 score-rank, watch-list gap, L1 linearization cost, L14 attention negativity,
 L9/L15 regularizer spans, the L9×L16 interaction, and QK disjointness — all
 replicated on independent data.
+
+## 148. The matched filters are trained
+
+File: `bilin18_scorerank_null.py`, registered bar held: row-shuffled weights give
+median score-rank **18.7** and gaussian weights **36.1**, against the trained
+**4.3**. Combined with §127's isotropic-input null (44.4), the origin bracket is
+complete: the data's covariance concentrates any weights' score functions
+somewhat (44 → 19–36), and **training compresses a further 4–8×** down to ~5
+matched filters per factor. The attention heads' selectivity is learned
+structure, like the functional vocabulary's compression (§62) and unlike the
+density/orthogonality that came free (§§60-era origin arc). Queued: the same
+origin question for the shared watch-list (§130) — is the within-layer filter
+*alignment* trained, or do shuffled weights' filters also cluster? Registered:
+shuffled within-layer alignment ≤ matched-null + 0.1 (the lexicon is trained);
+alternative: generic clustering would scope-note §130.

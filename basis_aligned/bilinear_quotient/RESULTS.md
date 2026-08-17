@@ -2913,3 +2913,10 @@ Full detail in `BILIN18_CONNECTION.md` §146.
 All recent headline claims now replicated on independent data.
 
 Full detail in `BILIN18_CONNECTION.md` §147.
+
+### The filters are trained
+
+Shuffled 18.7 / gaussian 36.1 vs trained 4.3: training compresses score
+functions 4-8x beyond covariance concentration. Lexicon origin null queued.
+
+Full detail in `BILIN18_CONNECTION.md` §148.
