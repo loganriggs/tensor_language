@@ -1,0 +1,8 @@
+d4 (PCA-32) = +0.0925
+ K-top8: d3 +0.0475 excess +0.0470  c=+10.7
+  PCA-8: d3 +0.0350 excess +0.0415  c=+12.8
+ K-bot8: d3 -0.0013 excess -0.0062  c=-6173324.7
+
+prediction (c_K > 1.5x c_PCA): FAILED (10.7 vs 12.8)
+control (K-bottom lowest): HELD (-6173324.7)
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_cedge_direction_results.json (9s)
