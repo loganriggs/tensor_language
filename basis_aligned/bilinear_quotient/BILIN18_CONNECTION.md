@@ -3430,3 +3430,17 @@ Conclusion: the syntax content L16 forwards is assembled *by L16* from diffusely
 accumulated stream state (or arrives via attention, untested) — there is no
 station-to-station relay behind the bus. The two-station L16→L17 structure is a
 local phenomenon sitting on top of an unstructured supply.
+
+## 95. The chain refuses variables: the 3→4 edge is high-rank, and the weights' aim is marginal
+
+File: `bilin18_chain_bus.py` (written in the operator arc with frozen predictions;
+executed only now). P1 held: the coupling operator's directions beat layer 3's own
+top output-PCA directions at every k ≤ 8 — the weights do know what layer 4 reads,
+slightly better than what layer 3 writes loudest. But the margin is thin (T(8):
+0.211 vs 0.195, ~8%), and P2 failed decisively: eight directions of 1152 carry only
+**21%** of the full-edge effect (sixteen carry 30%), nowhere near the registered
+half. The 2→3→4 chain's long-anticipated "abstraction treatment" is hereby answered:
+**the edge has no small variable set.** Its content is genuinely high-rank, and even
+at the front of the model — where adjacent coupling is strong (§93: share 0.13–0.25)
+— the writes are barely aimed (echoing §92's tail isotropy). The open item closes
+with a negative that the report registered in advance as an acceptable outcome.

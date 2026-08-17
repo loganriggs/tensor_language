@@ -1,0 +1,15 @@
+coupling operator built (weights + S + C3); predictions frozen
+
+full-L3-write transplant moves layer-4 output by 184183.7188 (the T=1 reference)
+
+     k  coupling T(k)  L3-PCA T(k)  random T(k)
+     1          0.021        0.020        0.000
+     2          0.055        0.054        0.001
+     4          0.128        0.121        0.002
+     8          0.211        0.195        0.004
+    16          0.297        0.281        0.008
+
+P1 (coupling beats L3's own PCA at k<=8): HELD
+P2 (8 of 1152 channels carry half the edge): FAILED  (T(8) = 0.211)
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_chain_bus_results.json (4s)

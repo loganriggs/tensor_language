@@ -2461,3 +2461,12 @@ long-range influence is a flat ~0.2-sigma floor, not share-proportional. The
 L16->L17 relay is local structure on top of diffuse supply.
 
 Full detail in `BILIN18_CONNECTION.md` §94.
+
+### The chain refuses variables
+
+Eight coupling directions carry 21% of the 3->4 edge (bar: half); coupling beats
+the writer's own PCA by only ~8%. The chain's content is high-rank -- no small
+variable set exists. Open item closed negatively, as the report registered it
+might be.
+
+Full detail in `BILIN18_CONNECTION.md` §95.
