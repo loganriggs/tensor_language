@@ -3059,3 +3059,11 @@ fractions (0.06/0.17/0.50). Curves single-peaked, collapsing past fraction 0.65.
 The program's strongest universality result.
 
 Full detail in `BILIN18_CONNECTION.md` §165.
+
+### Six for six
+
+MLP correspondence matches too (mlp1->L1, mlp5->L7, mlp8->L11). Every component
+tested best-matches the sibling model at its own depth fraction. Capstone
+universality result.
+
+Full detail in `BILIN18_CONNECTION.md` §166.

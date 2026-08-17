@@ -4855,3 +4855,20 @@ bilinear transformers of different sizes assign token-level causal
 responsibility to attention components at the same fractional depths** — the
 strongest universality result in the program, obtained entirely from ablation
 fingerprints on shared text.
+
+## 166. Six for six: the depth-fraction correspondence is complete
+
+File: `bilin18_mlp_correspondence.py`, both bars held. The MLP side matches like
+the attention side did:
+
+    mlp1 (0.08) -> L1 (0.06) | mlp5 (0.42) -> L7 (0.39) | mlp8 (0.67) -> L11 (0.61)
+
+With §165's attention triple, **every one of six components tested — both
+component types, two independently trained models of different sizes —
+best-matches the other model at its own fractional depth**, with correspondence
+curves single-peaked around the match. Two bilinear transformers trained
+separately on the same distribution develop causally interchangeable depth
+programs: what fraction-x-of-the-stack does to a given token in one model, the
+fraction-x components do in the other. This is the program's capstone
+universality result, and the benchmark's cross-model split now has calibrated
+expectations at every depth.
