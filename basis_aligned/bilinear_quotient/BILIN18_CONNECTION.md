@@ -5855,3 +5855,28 @@ loud, consumed, functional code that trained readers of the same stack
 systematically fail to — or decline to — decode with their common vocabulary.
 The arc rests with the phenomenon universal, localized, transport-measured,
 and unexplained: the best-specified open question the program has produced.
+
+## 217. The private computation is partially conserved — above every null, below the shared baseline
+
+File: `family_private_fingerprint.py`. Registered bar (a) FAILED as written
+(0.159 vs the 0.2 bar) and the honest statement keeps both halves:
+
+    private pair (b18 span 6:1-8 ~ b12 span 4:1-8):  ρ = 0.159
+    shared pair, fraction 0.5 (L9 ~ L6):             ρ = 0.229
+    nine random-span cross-model pairs:              max 0.021, median 0.007
+
+The two private spans damage substantially overlapping token sets on shared
+text — 7.5× the strongest random pair, unambiguously related computations —
+but the conservation is *weaker* than a generic matched-fraction shared span
+(long-shot (c) also failed; control (b) held, revalidating the instrument at
+span level). So the fraction-1/3 object is functionally the same kind of
+thing in both models without being token-identical. One reading, offered as
+interpretation and not claim: a code disciplined by a shared vocabulary is
+pinned by its many readers and reproduces tightly across training runs; a
+private code, read only weakly and directly (§214), is free to drift while
+serving a related function — privacy and looser conservation would then be
+two faces of missing consensus pressure. The measurable on-box facts about
+the private writer are now: placed (fraction 1/3, both models), localized
+(top-8 span), transported (direct to output end, compensation-masked),
+dissociated (not regularizer character), and partially conserved (0.16 vs
+0.23 shared baseline). What remains needs a bigger family.

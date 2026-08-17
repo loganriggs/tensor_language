@@ -3459,3 +3459,11 @@ bilin12-L4's privacy is span-concentrated too (tail coords 0.46 vs control
 privacy from regularizer character cross-model.
 
 Full detail in `BILIN18_CONNECTION.md` §216.
+
+### Private computation partially conserved
+
+Cross-model token-damage correlation 0.16 (7.5x every random pair, below the
+0.23 shared-span baseline): the fraction-1/3 object is functionally related
+across models but drifts more than shared code.
+
+Full detail in `BILIN18_CONNECTION.md` §217.
