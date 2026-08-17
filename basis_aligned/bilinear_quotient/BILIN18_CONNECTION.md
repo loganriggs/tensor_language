@@ -3822,3 +3822,29 @@ Queued: the causal closure — mean-ablating the mezzanine band (ranks 129–512
 versus the top-48 interface versus a random-384 span. Registered: (a) mezzanine
 ablation damage ≥ 2× interface ablation (the function is there, not in the loud
 part); (b) random-384 well below both.
+
+## 111. Content vs computation: the two operators disagree, and that completes the picture
+
+File: `bilin18_mezzanine_ablation.py`. Registered (a) failed, informative: for
+*ablation* the ordering reverses — deleting the top-48 interface costs +0.179 while
+deleting the mezzanine costs +0.078 (random-384 control +0.017, held). No
+contradiction with §110; the two operators measure different things:
+
+- **Ablation removes content.** The interface carries the important content
+  (+0.179) — content that §109 showed is *generated almost linearly*.
+- **Linearization removes generation.** The mezzanine's content is smaller, but
+  producing it *requires* the quadratic (half the layer's linearization cost).
+
+L1 in one line: **loud linear content, quiet nonlinear computation** — the
+interface is what matters downstream, the mezzanine is where the layer works.
+
+**The λ table** (read from weights, user's request): every block mixes
+`x = λ₀·x_prev + λ₁·x₀` (x₀ = token embeddings) before attention, and the values:
+λ₁ ≈ **8.0 at nearly every layer** — each block re-injects the raw token embedding
+at weight 8 — while λ₀ collapses to ≈ 0.013 at L1 and ≈ 0.065 at L5: **L1 and L5
+nearly discard the accumulated stream and recompute from embeddings.** This
+explains at a stroke: the bus's lexical head (§101 — every layer's input is
+embedding-dominated by construction), L1's role as the vocabulary source (it
+computes on nearly raw embeddings), and why the λ-mixing instrument bug (§105) hit
+hardest exactly at L5. Relative-norm measurement queued (λ-weighted term sizes per
+layer), plus the user-suggested compressed-quadratic-on-the-residual test.

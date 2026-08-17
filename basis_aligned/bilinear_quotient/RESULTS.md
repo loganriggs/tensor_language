@@ -2605,3 +2605,13 @@ tail (inert) but in mid-variance ranks ~50-500 -- half the replacement cost.
 Loud output linear, hard computation quiet. Causal ablation closure queued.
 
 Full detail in `BILIN18_CONNECTION.md` §110.
+
+### Content vs computation; the lambda table
+
+Ablating the interface hurts 2.3x more than ablating the mezzanine -- ablation
+removes content, linearization removes generation; L1 = loud linear content,
+quiet nonlinear computation. Lambda table: every block re-injects token
+embeddings at weight 8; L1 and L5 nearly discard the stream (lambda0 = 0.013,
+0.065) -- the lexical bus and L1's vocabulary role follow by construction.
+
+Full detail in `BILIN18_CONNECTION.md` §111.
