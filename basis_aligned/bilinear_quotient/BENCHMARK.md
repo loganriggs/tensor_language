@@ -49,8 +49,10 @@ Scoring:
 - **Fidelity:** held-out ΔCE of the *jointly installed* replacement (never the
   sum of per-component costs — composition drifts superadditively, §104), with a
   gain-frozen variant reported alongside (§116). Interaction fidelity: the
-  replacement must reproduce measured interaction excesses within a tolerance
-  (the composition law's grid, §123).
+  replacement must reproduce measured interaction excesses within a tolerance,
+  specified per (signature, damage-family, damage-size) triple — there is no
+  scalar "interaction strength" (§§123, 193: c varies severalfold with size and
+  can flip sign in the compensation regime).
 - **Complexity:** total parameter count of all stand-ins, computed at the
   **balanced gauge point** (balanced_gauge_spec.md) so it cannot be gamed by
   per-unit rescalings. Not bits/quantization — structural rank and sparsity.
