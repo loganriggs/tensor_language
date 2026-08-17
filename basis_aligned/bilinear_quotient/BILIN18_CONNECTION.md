@@ -3900,3 +3900,25 @@ with some *other* writer. Queued: L11's reconstruction from the shared reader
 basis computed over writers L0 and L9 (the two other writers with measured
 vocabularies). Registered per the user: R² ≥ 0.4 for at least one other writer;
 alternative: L11 is a universal dissident (its own private input coordinates).
+
+## 114. The dissidence is L1-specific — and the strong shared code is too
+
+File: `bilin18_l11_other_writers.py`, testing the user's registered prediction
+(L11 "reads from other layers"). The 0.4 bar failed, but the *control* failed
+with it, and that combination is the finding:
+
+| writer | L11 | healthy reader L12 (control) | random |
+|---|---|---|---|
+| L0 | +0.15 | +0.12 | +0.07 |
+| L9 | +0.25 | +0.19 | +0.07 |
+
+Over writers other than L1, cross-reader code sharing is weak for *everyone*
+(control violated at 0.12–0.19 vs the ≥0.5 bar) — the famous LORO 0.71 belongs to
+writer L1 specifically. And inside that weak regime **L11 is indistinguishable
+from a normal reader — in fact slightly above the control at both writers.** The
+§84 anomaly sharpens: L11 is not a generally foreign layer; its dissidence is
+specific to the one writer (L1) whose vocabulary the rest of the model shares
+most strongly. The user's prediction holds in its qualitative form — L11 relates
+normally to other layers — while the strong-sharing bar was unreachable because
+strong sharing itself is an L1 phenomenon. (Caveat: the reader set here swapped
+L9→L15 to avoid writer/reader overlap; a weaker basis than §84's.)

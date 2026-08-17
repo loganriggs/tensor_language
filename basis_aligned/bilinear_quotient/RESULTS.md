@@ -2633,3 +2633,12 @@ L17, ~0 at L9) -- no compact quadratic exists. User prediction registered: L11
 shares a code with some other writer.
 
 Full detail in `BILIN18_CONNECTION.md` §113.
+
+### The dissidence is L1-specific
+
+Over writers L0/L9, sharing is weak for every reader (control 0.12-0.19 vs
+random 0.07) and L11 sits AT OR ABOVE the healthy control -- not anomalous. Both
+the strong shared code and L11's foreignness are specific to writer L1. User's
+qualitative prediction supported.
+
+Full detail in `BILIN18_CONNECTION.md` §114.

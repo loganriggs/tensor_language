@@ -1,0 +1,7 @@
+writer L0: L11 median R^2 +0.15 | L12 control +0.12 | random +0.07
+writer L9: L11 median R^2 +0.25 | L12 control +0.19 | random +0.07
+
+(a) [user] L11 shares some writer's code (>=0.4): FAILED
+(b) control reader healthy (>=0.5): VIOLATED
+(c) random null (<=0.15): HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_l11_other_writers_results.json (17s)
