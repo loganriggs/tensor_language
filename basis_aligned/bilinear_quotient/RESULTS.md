@@ -3364,3 +3364,11 @@ Full detail in `BILIN18_CONNECTION.md` §203.
 architecture-modulated. The scaling prediction stands in scoped form.
 
 Full detail in `BILIN18_CONNECTION.md` §204.
+
+### The modulation is deep
+
+swiglu18: 0/11 layers replaceable even at rank-4 (uniform +0.05-0.09) --
+gated models spread function, bilinear models concentrate it and leave slack.
+The rank-0/rank-4 scan is the first thing to run on any new target.
+
+Full detail in `BILIN18_CONNECTION.md` §205.

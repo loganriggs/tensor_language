@@ -5567,3 +5567,19 @@ pure-bilinear 18L model far more replaceable than the gated one. "Scales with
 size" survives as a monotone ordering on this 2×2, not as a rate law; the real
 test remains a genuinely larger checkpoint, and the prediction stands in that
 scoped form.
+
+## 205. The modulation is deep: gated models spread function, bilinear models concentrate it
+
+File: `swiglu18_rank4_scan.py`. The registered alternative fired at **0/11** —
+no swiglu18 tail layer drops below 0.05 even at rank-4 (costs +0.052–0.162) —
+so its lower replaceability is not a missing zeroth rung but a property of
+every rung. The shape is the explanation: swiglu18's tail costs are nearly
+**uniform** (+0.05–0.09 across L7–15), while bilin18's ranged from ~0.02 slack
+layers to concentrated load-bearers. The two architectures at equal depth make
+opposite distributional choices: **the pure-bilinear model concentrates
+function and leaves diffuse slack (which replacement exploits); the gated
+model spreads function evenly and leaves slack nowhere.** This closes §204's
+open cell and gives the scale prediction its refined form: what grows with
+model size is the *slack*, and how much slack an architecture accumulates is a
+family trait — worth measuring early on any new target, since it bounds what
+any replacement submission can achieve before the first stand-in is fit.

@@ -153,8 +153,11 @@ sequential refit (+36%) and constants where the maps license them. The
 frontier is close to an information-theoretic given on this model — grade
 submissions on REACHING it cheaply. Scale recipe: refit protocol, licensed
 constants, joint scoring, harness self-tests — with the licenses per-model
-empirical (§203: bilin12 licenses zero constants; replaceability scales WITH
-model size, so larger targets should offer more cheap tail).
+empirical (§§203-205: replaceability ordering follows size — {4,1} constants at
+18L vs {0,0} at 12L — but the amount is an architecture trait: bilinear models
+concentrate function and leave exploitable slack, gated models spread it
+uniformly. A rank-0/rank-4 scan is the mandatory first measurement on any new
+target; it bounds achievable compression before any stand-in is fit).
 
 ## Why this is not quantization
 
