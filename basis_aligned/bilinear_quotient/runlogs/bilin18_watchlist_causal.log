@@ -1,0 +1,10 @@
+base 3.9822
+
+L5->L6: attn-watch +0.0297 | mlp-watch +0.0026 | random +-0.0006
+L9->L10: attn-watch +-0.0011 | mlp-watch +0.0034 | random +-0.0002
+L13->L14: attn-watch +0.0024 | mlp-watch +0.0050 | random +0.0008
+
+(a) mlp-watch deletion costlier (>=2/3): HELD (2/3)
+(b) both beat random (>=2/3): HELD (2/3)
+(c) random floor <=0.005: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_watchlist_causal_results.json (17s)

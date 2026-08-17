@@ -4274,3 +4274,18 @@ on both sides:
 > (§§84, 86). One carrier, two component types, and essentially no cross-talk in
 > either direction — the "everything is diffuse" theme of this model holds
 > *within* each component type, while *between* types the separation is clean.
+
+## 133. The watch-lists are causally real but individually light — except one attention edge
+
+File: `bilin18_watchlist_causal.py`. All three registered bars held (2/3, 2/3,
+floor clean), but the effect sizes tell the fuller story: deleting a writer's
+component within the next layer's institutional watch-lists costs little
+(+0.002–0.005 — the within-type diffuseness again; no 8-dim channel carries much
+alone), with one exception that is the section's finding: **L5's write into L6's
+attention watch-list costs +0.030** — 50× the random floor and 11× the
+MLP-watch-list cost at the same edge, locally inverting registered (a). The
+L5→L6-attention edge is the only concentrated attention-mediated consumption
+found anywhere in the tail; everywhere else, causal load spreads below the
+resolution of any 8-dim institutional channel. A fitting close for the motif:
+the institutions are real (geometry §§130–132, causality here), and inside them
+the model remains what it has always been — diffuse.

@@ -2794,3 +2794,11 @@ channels -- one carrier, two component types, clean separation between them,
 diffuseness only within them.
 
 Full detail in `BILIN18_CONNECTION.md` §132.
+
+### Watch-lists causally real, individually light
+
+Institutional deletions cost little (0.002-0.005) except L5->L6-attention
+(+0.030, 50x floor): the tail's one concentrated attention-mediated edge.
+Institutions real; within them, diffuse as ever.
+
+Full detail in `BILIN18_CONNECTION.md` §133.
