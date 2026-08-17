@@ -338,6 +338,13 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   L16→L17 syntax bus; the unlinked pairs contribute +0.0005, zero within noise). The
   causal graph predicted, in advance and from a different kind of experiment, exactly
   where composition would fail.</p>
+  <p><span class="tag off">refined</span> A late-arc accounting correction sharpened these
+  numbers: freezing the final norm's per-token gain to its no-damage values shows L17's raw
+  span damage is 82% <em>norm-mediated</em> (the final rms_norm re-scaling a suddenly
+  quieter residual; content-level cost +0.089, not +0.490) while L16's is mostly content
+  (35% mediated) — and the interaction excess <em>grows</em> to +0.205 at content level,
+  where it is ~90% the size of both individual content damages combined. The composition
+  law was understated by the gain channel, not created by it.</p>
   <p>Three registered attempts to <em>remove</em> the interaction then failed in a row —
   refitting downstream-of-upstream closed 21%, raising the form rank closed 0%, widening
   the output span closed 30% — and the failures were the finding. Across all eight

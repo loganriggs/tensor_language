@@ -3967,3 +3967,25 @@ fixed (each arm frozen to its **own** no-damage gain): (a) control exact ≤0.00
 (b) content-level excess ≥0.05 — the interaction is real at content level, not a
 gain artifact; (c) norm-mediated share of individual damage ≥60% at both spans,
 on the real (non-hybrid) model.
+
+## 117. Content-level accounting: the interaction is even bigger than we said
+
+File: `bilin18_norm_mediation.py` (control exact at 0.0000). Final numbers on the
+real model, per-arm gain-frozen:
+
+| | raw (free norm) | content-level (gain frozen) | norm-mediated share |
+|---|---|---|---|
+| d16 | +0.212 | +0.138 | 35% |
+| d17 | +0.490 | +0.089 | **82%** |
+| excess | +0.143 | **+0.205** | (negative — norm *masks* interaction) |
+
+Registered (c) failed at the 60%-both bar (35%/82%) but the refined picture is
+sharper than the prediction: L17's famous span damage is largely the final norm
+re-scaling a suddenly-quieter residual (it writes at RMS 1851; deleting its top-8
+span guts the final vector), while L16's is mostly content. And the interaction
+excess **grows** when the gain channel is frozen: at content level the 16→17
+interaction (+0.205) is 90% the size of both individual content damages combined.
+The composition law is not a gain artifact — the gain was hiding a third of it.
+Queued: the content-level version of §106's quadratic-skin kill (does linearizing
+L17 still remove ≥60% of the *content* excess?), which either re-grounds or
+re-opens the skin story at the corrected level.

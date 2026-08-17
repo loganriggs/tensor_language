@@ -2659,3 +2659,12 @@ removing energy, not content loss -- and the content-level 16->17 interaction is
 BIGGER (+0.158). Clean per-arm-referenced rerun queued.
 
 Full detail in `BILIN18_CONNECTION.md` §116.
+
+### Content-level accounting
+
+Control exact: L17's span damage is 82% norm-mediated, L16's 35% -- and the
+content-level interaction excess is +0.205, LARGER than raw (+0.143) and ~90% of
+both content damages combined. The product law is understated, not artifactual.
+Content-level skin-kill test queued.
+
+Full detail in `BILIN18_CONNECTION.md` §117.
