@@ -2263,3 +2263,12 @@ crispness and weak even at its best (0.95→1.7×, 0.48→1.3×, weaker→≤1×
 systematic ρ-vs-selectivity test is queued.
 
 Full detail in `BILIN18_CONNECTION.md` §70.
+
+### No law — but the first steerable token direction
+
+The graded law failed (Spearman 0.14): identical-ρ directions span 1.0–3.8×
+selectivity. The numbers axis (3.82×) is the program's first strongly token-steerable
+direction — causal token control exists, is rare, and is unpredicted by naming
+quality. The direct-write (unembedding-alignment) predictor is queued.
+
+Full detail in `BILIN18_CONNECTION.md` §71.

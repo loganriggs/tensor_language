@@ -1,0 +1,9 @@
+L0 punct       rho 0.95 -> selectivity 1.72x
+L0 numbers     rho 0.80 -> selectivity 3.82x
+L0 #3          rho 0.80 -> selectivity 1.02x
+word2 openers  rho 0.56 -> selectivity 1.22x
+word1 dets     rho 0.50 -> selectivity 1.40x
+word5 meas     rho 0.48 -> selectivity 1.30x
+
+Spearman(rho, selectivity) = +0.14 -> (a) FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_selectivity_law_results.json (17s)

@@ -2938,3 +2938,32 @@ steering, but a residue does, in proportion. The systematic test (selectivity ra
 naming ρ across ~8 named directions, registered Spearman ≥ 0.6) is queued; if the
 monotone relation holds, the program closes with a quantitative law for when token
 semantics can be causally used at all.
+
+## 71. No law: selectivity is direction-idiosyncratic — and the numbers axis is the first real token-steerable direction
+
+File: `bilin18_selectivity_law.py` (17 s). The graded-law prediction **failed** at
+Spearman +0.14:
+
+| direction | ρ | selectivity |
+|---|---|---|
+| L0 numbers | 0.80 | **3.82×** |
+| L0 punct | 0.95 | 1.72× |
+| word1 determiners | 0.50 | 1.40× |
+| word5 measurement | 0.48 | 1.30× |
+| word2 openers | 0.56 | 1.22× |
+| L0 #3 | 0.80 | 1.02× |
+
+Naming crispness does not predict causal usability — two directions at identical
+ρ = 0.80 span 1.02× to 3.82×. Two things stand:
+
+1. **The numbers axis is the program's first strongly token-steerable direction**
+   (3.82×) — causal token control exists in this model; it is just rare and
+   unpredicted by every correlational property measured so far.
+2. The regularity's third formulation also dies. The honest state: token steering
+   works for *some* directions, selectivity ranges 1.0–3.8×, and no measured property
+   yet predicts which. Registered next (queued): the **direct-write hypothesis** — 
+   selectivity tracks how much of the steered direction's write survives to the
+   unembedding aligned with its named set (a mechanism, not a semantic story: layer-0
+   writes ride the residual bypass to the logits, and the numbers axis may simply
+   write number-logits directly). Predictor computable from weights; registered
+   Spearman ≥ 0.7 across the six.
