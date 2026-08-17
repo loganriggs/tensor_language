@@ -1,0 +1,25 @@
+base 3.9822
+
+L 0: attention ablation +0.2420 | write energy  174053.6
+L 1: attention ablation +0.3017 | write energy  487000.6
+L 2: attention ablation +0.2049 | write energy 45095536.0
+L 3: attention ablation +0.1052 | write energy 52809856.0
+L 4: attention ablation +0.1782 | write energy 91967552.0
+L 5: attention ablation +0.1000 | write energy 2177353.0
+L 6: attention ablation +0.0733 | write energy  892067.9
+L 7: attention ablation +0.0442 | write energy  739912.0
+L 8: attention ablation +0.0516 | write energy 3224653.8
+L 9: attention ablation +0.0588 | write energy 3237404.5
+L10: attention ablation +-0.0042 | write energy 1720989.4
+L11: attention ablation +0.0660 | write energy 4836386.0
+L12: attention ablation +0.0689 | write energy 1940245.0
+L13: attention ablation +0.0375 | write energy 4340149.0
+L14: attention ablation +-0.0363 | write energy 8681351.0
+L15: attention ablation +-0.0014 | write energy 3734641.5
+L16: attention ablation +-0.0123 | write energy 9748404.0
+L17: attention ablation +0.0111 | write energy 34407472.0
+
+(a) dilution extends to attention (>=0.6): FAILED (+0.31)
+(b) L6 outlier (>=2x share-expected): HELD (0.0733 vs 0.0037)
+(c) front attention largest: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_attention_profile_results.json (12s)

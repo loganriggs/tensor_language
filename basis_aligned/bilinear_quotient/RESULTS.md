@@ -2827,3 +2827,12 @@ Unit-mass spectrum maximally flat: 98-99% effective units at every layer.
 Diffuseness confirmed at the finest grain the architecture has.
 
 Full detail in `BILIN18_CONNECTION.md` §136.
+
+### The attention profile
+
+Front-loaded (L1 +0.302 the model's most important attention), non-energetic
+(damage does not track write magnitude), L6 cargo edge re-confirmed, and L14's
+attention is NET HARMFUL (-0.036 deleted -- largest deletion-benefit in the
+program). Replication queued.
+
+Full detail in `BILIN18_CONNECTION.md` §137.

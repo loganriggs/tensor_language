@@ -4337,3 +4337,29 @@ layer (depth ratio 1.02). No hidden unit anywhere carries outsized mass — the
 strongest possible statement of the program's diffuseness theme, now at the
 finest structural grain the architecture has (individual rank-1 terms of T).
 bilin18 has no "important neurons" at the weight level, at all.
+
+## 137. The attention profile: front-loaded, non-energetic, and L14's is net harmful
+
+File: `bilin18_attention_profile.py` — the last unmeasured component/operator cell.
+
+    L0 +0.242 | L1 +0.302 | L2 +0.205 | L3 +0.105 | L4 +0.178 | L5 +0.100 | L6 +0.073
+    L7-L13: +0.04-0.07 (L10 -0.004) | L14 -0.036 | L15 -0.001 | L16 -0.012 | L17 +0.011
+
+- **Front-loaded** (registered (c) held): context assembly is early — L1's
+  attention is the single most important in the model (+0.302), and the front
+  three dwarf everything after L5. The same front-loading as functional
+  nonlinearity (§107): the model does its real work — nonlinear computation *and*
+  context gathering — in the first few layers.
+- **Not energetic** (registered (a) failed, Spearman 0.31): attention damage does
+  not track write energy. L2–L4 write at enormous magnitude (10⁷–10⁸ energy —
+  the ±4 value-mixing λs of §111's table live exactly there) yet cost only
+  +0.1–0.2; the dilution law is an MLP-write phenomenon, not a general one.
+- **The L6 cargo edge confirms independently** (registered (b) held, 20× its
+  share expectation) — §§133–134's edge, found again by a different operator.
+- **Four late attentions are net harmful or null** (L10, L14, L15, L16 ≤ 0), and
+  **L14's entire attention output improves CE by 0.036 when deleted** — the
+  largest deletion-benefit found anywhere in the program, at whole-component
+  scale. Per §97's hard-won lesson this is a frozen-point property (the four
+  constraint-release refutations pre-empt any spare-capacity reading), but the
+  magnitude demands replication before further interpretation — queued
+  (registered: sign holds on disjoint rows, magnitude ≥ 40%).
