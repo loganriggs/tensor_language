@@ -5192,3 +5192,27 @@ both axes — depth (the fraction law) and text (the leverage profile). The
 program's assets: four atlases, one benchmark spec with measured references and
 instrument rules, a 13-entry resolved corrections ledger, and a findings report
 current at a single URL.
+
+## 186. Track-1 pilot: one pass, two benchmark-hardening lessons
+
+File: `bilin18_track1_pilot.py`. Registered (a) and (b) failed, (c) held (3/4
+signs) — and each failure teaches the track something concrete:
+
+- **attn14 passed** (+0.183, above floor+0.05): the one explanation derived from
+  per-token evidence ("net-harmful; deleting it relieves confidently-wrong
+  tokens") predicts its fingerprint.
+- **mlp16 scored −0.135 — a regime mismatch, not necessarily a wrong story**:
+  its explanation describes the gain-frozen content level (value on easy
+  tokens, §143), but the fingerprints are free-norm, where §142 showed its
+  deletion lands on hard tokens via gain amplification. **Lesson 1: explanations
+  must be scored in the measurement regime they describe** — the fingerprint
+  assets should ship both free-norm and gain-frozen variants, and explanations
+  declare their regime.
+- **The matching null couldn't discriminate** (correct 0.107 vs shuffled 0.109)
+  because three of four predictors degenerated to ±base-loss. **Lesson 2:
+  difficulty-shaped explanations are unfalsifiable against each other; Track-1
+  explanations must compile to distinctive per-token predictions to be
+  scoreable** — a submission rule, now in the spec.
+- attn1's position story scored ~0: early attention's damage is not
+  position-graded — a small negative finding logged against any "more context,
+  more damage" intuition.

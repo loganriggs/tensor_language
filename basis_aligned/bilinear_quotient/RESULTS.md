@@ -3221,3 +3221,12 @@ Full detail in `BILIN18_CONNECTION.md` §185.
 Full-state regression suite in place and passing: original trio + atlas
 integrity + leverage law (0.78) + fraction spot (L7) + smoothness (35/36).
 Re-run bilin18_canary2.py after any environment change.
+
+### Track-1 pilot: one pass, two lessons
+
+attn14's per-token story passes (+0.18). Lessons hardened into the spec:
+explanations declare their measurement regime (free-norm vs gain-frozen
+fingerprints); explanations must compile to DISTINCTIVE predictions (difficulty
+-shaped stories are mutually unfalsifiable).
+
+Full detail in `BILIN18_CONNECTION.md` §186.

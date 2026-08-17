@@ -21,7 +21,13 @@ Scoring, in increasing order of stringency:
    Motivation: this program found correlational names verify while causal token
    stories fail (§§66–81); an explanation that only matches activations has not
    explained the computation.
-3. **Guards** (from the corrections ledger): per-token difficulty splits are NOT
+3. **Pilot lessons (§186), binding on submissions:** (i) every explanation
+   declares its measurement regime (free-norm or gain-frozen) and is scored
+   against fingerprints of that regime — the assets should ship both; (ii) an
+   explanation is admissible only if it compiles to a per-token prediction
+   distinctive from the difficulty baseline and from co-submitted explanations
+   (difficulty-shaped stories are mutually unfalsifiable and score as floor).
+4. **Guards** (from the corrections ledger): per-token difficulty splits are NOT
    valid evidence (flattening relief and gain amplification both fake them,
    §§140–142); loud-component fidelity must be offered gain-frozen (§§116–117).
 
