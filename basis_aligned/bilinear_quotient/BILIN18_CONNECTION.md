@@ -3498,3 +3498,27 @@ around them, reclaiming more than the regularization benefit was worth. Deletion
 benefit measures a local property of the frozen model, not spare capacity.
 **Nothing in this model is a removable constraint**; the residual stream's
 "pressure" is load, all the way down.
+
+## 98. The negative spans redistribute; the bus is assembled, not delivered
+
+**Regularizer signature** (`bilin18_regularizer_signature.py`): both registered bars
+held, and the shape is sharper than predicted. Deleting the L9+L15 spans is not a
+uniform improvement but a **redistribution**: the hardest-token quartile captures
+173% of the net gain — i.e. the deletion *hurts* everywhere else (easy quartile
++0.028 per token) and helps confidently-wrong tokens by more than the total. The
+spans sharpen easy predictions and overshoot on hard ones; removing them trades
+sharpness for calibration at a net frozen-model profit. One caveat: the random
+control was violated at small magnitude (−0.004 on hard tokens, ~9× smaller than
+the real spans' effect) — a sliver of hard-token help is generic damping, the bulk
+is span-specific. This also explains §97: a finetune can re-tune the sharpness the
+deletion sacrificed, reclaiming more than the calibration gain was worth.
+
+**Bus assembly** (`bilin18_bus_attention.py`): both registered predictions failed,
+completing the origin story with a double negative. Transplanting L16's *attention
+output* across documents moves the bus coordinates by only **0.052σ** — below even
+the §94 MLP-source floor (0.16–0.32σ), specificity 1.05. The syntax content L16
+forwards arrives neither from any upstream MLP write nor through L16's own
+attention gathering: **L16's MLP computes the bus from the accumulated token-local
+residual state.** The model's strongest interaction is assembled in place from
+ingredients no single component supplies — the interchange is real, its supply
+chain is the whole stream.

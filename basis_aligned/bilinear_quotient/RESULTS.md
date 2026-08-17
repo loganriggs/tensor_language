@@ -2488,3 +2488,13 @@ Four candidate classes, four refutations -- the last selected by the hypothesis'
 own criterion. Deletion benefit is a frozen-model property, not spare capacity.
 
 Full detail in `BILIN18_CONNECTION.md` §97.
+
+### Redistribution and assembly
+
+The negative spans trade calibration for sharpness: deleting them helps
+confidently-wrong tokens (173% of net gain) and hurts easy ones -- which is why a
+finetune reclaims the loss (section 97). The bus content arrives neither from
+upstream MLPs nor via L16's attention (0.05-sigma, below the diffuse floor): L16's
+MLP assembles it from accumulated stream state.
+
+Full detail in `BILIN18_CONNECTION.md` §98.
