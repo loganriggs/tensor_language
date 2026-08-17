@@ -2564,3 +2564,11 @@ survives: the self-consistent sequential-refit pipe -- 13 layers linearized for
 +1.56 nats total.
 
 Full detail in `BILIN18_CONNECTION.md` §105.
+
+### Linearization arc: final numbers
+
+Clean instrument: front-loading reinstated (L2 +0.109, 3x median; middle cheap at
++0.03); interaction-kill revised 98% -> 79% (+0.030 residue survives linear L17);
+refit pipe +1.56 for 13 layers. Arc closed.
+
+Full detail in `BILIN18_CONNECTION.md` §106.

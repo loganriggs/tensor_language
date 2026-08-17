@@ -3709,3 +3709,25 @@ real, just not catastrophic). Registered for the rerun: (a2) consistent individu
 costs are ≤0.1 everywhere except L2, and L2 ≥ 3× the median (front-loading
 retested); (b2) the §102 interaction-kill persists at ≥70% under the consistent
 protocol.
+
+## 106. The linearization arc, final numbers on a clean instrument
+
+File: `bilin18_consistent_linearization2.py` (v1's interchange arm was void — mlp
+hooks never fire in the manual forward; its individual-cost arm was valid and is
+carried over). The consistent protocol settles everything the λ-mixing bug touched:
+
+- **Individual linearization costs**: L2 +0.109 | L4 +0.054 | L5 +0.025 | L7 +0.036
+  | L9 +0.032 | L13 +0.046 | L16 +0.033 | L17 +0.096. **Front-loading reinstated**
+  (§103's claim, halved magnitudes): L2 is 3× the median; the middle stays cheap
+  despite its high nonlinear variance. L17's stand-in genuinely costs +0.096 (the
+  contaminated +0.10 was accidentally right).
+- **The §102 interaction-kill survives, revised 98% → 79%**: real excess +0.143,
+  linearized-L17 excess +0.030. Four-fifths of the model's strongest interaction is
+  the quadratic skin; a real +0.030 residue survives linear L17 (routed through
+  attention or the final norm — open thread, small).
+- **The sequential-refit pipe stands**: 13 layers linearized for +1.56 nats total,
+  marginals growing with depth — composition drift is real and bounded.
+
+Arc summary: variance-nonlinearity peaks in the middle, functional nonlinearity
+peaks at the front (L2) and at L17's interaction skin, and thirteen of eighteen
+layers can be replaced by refit linear maps for about a tenth of a nat each.

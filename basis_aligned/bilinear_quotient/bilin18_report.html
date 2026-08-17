@@ -394,16 +394,20 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   alone, so "syntax bus" overreads; it is a lexical channel with contextual refinement.
   A new instrument re-drew the depth map: linear predictability of each layer's write is
   lowest in the middle (L6–10, R² 0.52–0.62) and near-perfect at the end (L16: 0.97, L17:
-  0.95). <span class="tag off">corrected</span> But causal tests split that map in two:
-  the middle's nonlinear variance is largely <em>loss-irrelevant</em> — replacing a middle
-  layer's MLP with its 55–60% linear map costs only ~0.03 nats — while replacing L2's map
-  costs 0.23. Functionally necessary nonlinearity is front-loaded; the middle's
+  0.95). <span class="tag off">corrected</span> But causal tests split that map in two —
+  measured twice, after an instrument bug (stand-ins fit on post-mix inputs, applied
+  pre-mix) was caught and the whole set re-measured on a consistent protocol: the middle's
+  nonlinear variance is largely <em>loss-irrelevant</em> — replacing a middle layer's MLP
+  with its 55–60% linear map costs only ~0.03 nats — while replacing L2's map costs 0.109,
+  three times the median. Functionally necessary nonlinearity is front-loaded; the middle's
   incompressibility is about representation, not about the nonlinearity of its map. The
   resolved tension: the strongest interaction (16→17) sits between the two most linear
-  layers because it lives entirely in L17's 5% nonlinear residue — replacing L17 with its
-  linear stand-in kills 98% of the interaction excess while leaving L17's own function
-  intact. The same residue cushions damage on the same channel: one quadratic skin, two
-  faces. The tail layers 5–15 have fair shares but no profiles. The syntax bus has
+  layers because it lives mostly in L17's 5% nonlinear residue — replacing L17 with its
+  linear stand-in kills 79% of the interaction excess while leaving L17's own function
+  intact (a +0.030 residue survives, routed elsewhere). The same residue cushions damage
+  on the same channel: one quadratic skin, two faces. And the constructive version: all
+  thirteen layers 5–17 can be replaced by sequentially-refit linear maps for +1.56 nats
+  total. The tail layers 5–15 have fair shares but no profiles. The syntax bus has
   two verified stations and unknown origin. And the strongest tool found here — the
   weights-plus-S formula — has now made its <strong>first blind predictions</strong>: on
   four never-profiled tail layers, with the success bar registered in advance, it located
