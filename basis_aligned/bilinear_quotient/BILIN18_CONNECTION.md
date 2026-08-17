@@ -2224,3 +2224,28 @@ the folding attributes to attn1 rather than to what attn1 read. Proximate-writer
 variance shares do not bound upstream causal influence. The graph gains
 `L0-leader → (attn1) → z/c₀`, and the front of the model is a chain, not parallel
 tracks; mediation-through-attn1 is the registered next test, now queued.
+
+## 45. The hidden edge is attention-mediated (with overshoot), and layer 1's interactions are 80% higher-order
+
+Files: `bilin18_edge_mediation.py`, `bilin18_band_interactions.py` (10 + 14 s).
+
+**Mediation of the L0→L1 edge: held, with structure.** Freezing attn1's context while
+steering L0's leader kills the entire +1.04σ effect *and overshoots* (−0.35σ): the
+residual direct path (L0's write surviving in the stream L1's MLP reads directly) is
+slightly *negative*, and attention carries more than the whole net effect. Freezing
+head 4 alone kills 51% — **below the registered 60% bar**: unlike z's own context
+dependence (79% head 4), the L0-leader signal reaches c₀ through *several* attn1 heads.
+The attn0-freeze control is perfectly clean (0% killed). Confirmed graph edge:
+`L0-leader → attn1 (distributed across heads, 4 largest) → c₀`, minus a small negative
+direct path. The front chain is `token → L0 → attention → L1`, and the §17 folding's
+0.5% proximate share was measuring only the direct path.
+
+**Layer 1's within-layer interaction is dominantly higher-order.** All ten band pairs
+measured: pairwise excesses sum to 0.94 nats of the 4.66-nat interaction — **80% of the
+interaction is order-3 and above** (registered prediction held). The pair-level product
+law, which prices *between-layer* composition well, captures only a fifth of
+*within-layer* structure. Layer 1 is not a sum of parts plus pairwise couplings; it is
+holistic in the concrete, measured sense that most of its causal effect exists only in
+combinations of three or more direction-bands. That is the final and strongest form of
+"no small core": not only is the mass not in any band, it is not even in any *pair* of
+bands.

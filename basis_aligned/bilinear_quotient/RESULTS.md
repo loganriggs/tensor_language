@@ -1974,3 +1974,15 @@ share — the influence routes through attn1, which the folding attributes as th
 Proximate-writer shares do not bound upstream influence. Mediation test queued.
 
 Full detail in `BILIN18_CONNECTION.md` §44.
+
+### Mediation confirmed with overshoot; within-layer interactions are 80% higher-order
+
+Freezing attn1 kills the L0→L1 edge entirely and overshoots (−0.35σ — the direct path
+is slightly negative); head 4 alone carries 51% (below its 60% bar — this signal is
+spread across heads, unlike z's context). Control clean. And layer 1's 4.66-nat
+within-layer interaction decomposes as: pairwise 20%, **order-3-and-above 80%** — the
+layer is holistic in the measured sense that most of its causal effect exists only in
+combinations of three or more direction-bands. The pairwise product law prices
+between-layer composition, not within-layer structure.
+
+Full detail in `BILIN18_CONNECTION.md` §45.

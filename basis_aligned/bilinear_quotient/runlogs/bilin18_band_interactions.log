@@ -1,0 +1,16 @@
+                    pair    joint   excess
+       (0, 32)x(32, 128)  +0.5679  +0.3924
+      (0, 32)x(128, 256)  +0.2606  +0.1199
+      (0, 32)x(256, 512)  +0.2403  +0.0962
+     (0, 32)x(512, 1152)  +0.1577  +0.0291
+    (32, 128)x(128, 256)  +0.1971  +0.1124
+    (32, 128)x(256, 512)  +0.1688  +0.0808
+   (32, 128)x(512, 1152)  +0.1017  +0.0292
+   (128, 256)x(256, 512)  +0.0979  +0.0446
+  (128, 256)x(512, 1152)  +0.0552  +0.0174
+  (256, 512)x(512, 1152)  +0.0572  +0.0161
+
+solo sum +0.2416 | pairwise excess sum +0.9381 | full +4.9037
+higher-order (3+) share: +3.7239 (80% of the interaction)
+registered (pairwise sum < 2.0): HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_band_interactions_results.json (14s)
