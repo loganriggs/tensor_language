@@ -2692,3 +2692,28 @@ principal functionals, surgically steerable at range one, collectively but not
 individually influential at depth** — the quadratic stack is locally transparent and
 globally opaque to static intervention, with the transition happening in a single
 layer.
+
+## 61. The 80-functional basis is shared structure: leave-one-reader-out R² = 0.71
+
+File: `bilin18_functional_basis_fidelity.py` (11 s). All three bars held:
+
+| basis rank | leave-one-reader-out median R² | random-basis control |
+|---|---|---|
+| 8 | 0.152 | −0.08 |
+| **80** | **0.711** | −0.05 |
+
+A reader entirely excluded from fitting has its L1-coupling matrices reconstructed at
+R² 0.71 from the other readers' principal functionals. The basis is **shared
+vocabulary**, not per-reader bookkeeping; r=8 captures under a quarter of it
+(diversity is real); a random basis captures nothing.
+
+**The functional-coordinates arc, complete.** The middle's reading of layer 1 is: one
+dense support envelope (rank ~2.6) carrying **~80 shared principal quadratic
+functionals** (verified out-of-reader at 0.71) that are nearly orthogonal pairwise
+(0.09–0.16), surgically steerable at range one (20×), and individually unaddressable
+beyond that by any static direction (§60, intrinsic). This is the compressed
+description of the "incompressible" middle — not in direction coordinates, where every
+instrument failed, but in the coordinates the architecture reads with. Registered open
+items, honestly deferred: a CE-level gate (replacing live readers' L1-couplings with
+their rank-80 reconstructions — implementation is nontrivial because forms act on the
+full residual input), and the semantics of the principal functionals themselves.

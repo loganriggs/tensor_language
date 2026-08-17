@@ -2160,3 +2160,13 @@ functional-coordinates arc closes: ~80 principal functionals, surgical at range 
 individually unaddressable at depth. Locally transparent, globally opaque.
 
 Full detail in `BILIN18_CONNECTION.md` §60.
+
+### Verified: the 80-functional basis is shared vocabulary
+
+Leave-one-reader-out R² = 0.711 at rank 80 (bar 0.6; r=8 gives 0.152; random basis
+≈ 0). A never-seen reader's L1-couplings are reconstructed from other readers'
+principal functionals — the basis is shared structure, and the middle's compressed
+description is complete: dense envelope (rank 2.6), ~80 shared near-orthogonal
+functionals, steerable at range one, intrinsically unaddressable beyond.
+
+Full detail in `BILIN18_CONNECTION.md` §61.
