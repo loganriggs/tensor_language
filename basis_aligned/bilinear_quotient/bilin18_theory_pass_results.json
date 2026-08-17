@@ -1,0 +1,115 @@
+{
+ "layers": {
+  "0": {
+   "plain": {
+    "energy_top8": 0.3435608744621277,
+    "leader_best_cos": 0.22063681483268738,
+    "leader_energy": 0.13962134718894958
+   },
+   "lam": {
+    "energy_top8": 0.528544545173645,
+    "leader_best_cos": 0.6533589363098145,
+    "leader_energy": 0.8981211185455322
+   },
+   "random": {
+    "energy_top8": 0.005422202404588461,
+    "leader_best_cos": 0.07895477861166,
+    "leader_energy": 0.009344550780951977
+   }
+  },
+  "1": {
+   "plain": {
+    "energy_top8": 0.340152770280838,
+    "leader_best_cos": 0.5939244031906128,
+    "leader_energy": 0.5941200256347656
+   },
+   "lam": {
+    "energy_top8": 0.46739232540130615,
+    "leader_best_cos": 0.8070481419563293,
+    "leader_energy": 0.9832032918930054
+   },
+   "random": {
+    "energy_top8": 0.008333771489560604,
+    "leader_best_cos": 0.08933161199092865,
+    "leader_energy": 0.014888898469507694
+   }
+  },
+  "16": {
+   "plain": {
+    "energy_top8": 0.6052426695823669,
+    "leader_best_cos": 0.5672842860221863,
+    "leader_energy": 0.5693975687026978
+   },
+   "lam": {
+    "energy_top8": 0.7910033464431763,
+    "leader_best_cos": 0.5827072858810425,
+    "leader_energy": 0.9807459712028503
+   },
+   "random": {
+    "energy_top8": 0.007218478713184595,
+    "leader_best_cos": 0.0641556903719902,
+    "leader_energy": 0.010629283264279366
+   }
+  },
+  "17": {
+   "plain": {
+    "energy_top8": 0.7996214628219604,
+    "leader_best_cos": 0.8052467703819275,
+    "leader_energy": 0.9577856659889221
+   },
+   "lam": {
+    "energy_top8": 0.7884676456451416,
+    "leader_best_cos": 0.6612489819526672,
+    "leader_energy": 0.9961826205253601
+   },
+   "random": {
+    "energy_top8": 0.0065535991452634335,
+    "leader_best_cos": 0.03884711116552353,
+    "leader_energy": 0.003813323797658086
+   }
+  }
+ },
+ "d2": {
+  "head_fro_norms": [
+   3057.8125,
+   3153.639404296875,
+   2536.132080078125,
+   5228.22607421875,
+   12017.2998046875,
+   3519.739501953125,
+   2524.943359375,
+   3279.79150390625,
+   3008.09814453125
+  ],
+  "head_shares_sq": [
+   0.039611666088959115,
+   0.04213329973914379,
+   0.02724865945352746,
+   0.11580041704756233,
+   0.6118080655815289,
+   0.05248345906289195,
+   0.027008762545798027,
+   0.04557155827945233,
+   0.03833411220113606
+  ],
+  "predicted_head": 4,
+  "measured_interchange_shares": "head4=0.791 (bilin18_interchange)"
+ },
+ "d4": {
+  "full_layer": {
+   "params": 15925248,
+   "flops_per_token": 15925248
+  },
+  "leader_surrogate_l1": {
+   "network": "z=u.x ; c0=a z^2+b ; write=c0 d0",
+   "params": 2306,
+   "flops_per_token": 2307
+  },
+  "layer16_replacement": {
+   "network": "4 dirs x rank-2 forms (S8/S10)",
+   "params": 13832,
+   "flops_per_token": 13836
+  }
+ },
+ "runtime_s": 4.623793840408325
+}

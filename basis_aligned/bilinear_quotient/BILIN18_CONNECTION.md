@@ -1496,3 +1496,53 @@ metric identifies.
 
 Compressibility, writer profile, and nameability all shift together with depth — the
 battery is measuring mechanism class, not just size.
+
+---
+
+## 23. Phase D: the weights knew — one data matrix from prediction
+
+File: `bilin18_theory_pass.py` (5 s). The bilinear MLP is a third-order tensor
+`T = Σⱼ Downⱼ ⊗ Leftⱼ ⊗ Rightⱼ`, and its output-mode Gram has closed form:
+`G_plain = Down[(LLᵀ)∘(RRᵀ)]Downᵀ` from weights alone, and
+`G_lam = Down[(LSLᵀ)∘(RSRᵀ)]Downᵀ` with one data statistic — the input second moment S.
+(`G_lam` is what Isserlis gives for a Gaussian input with that second moment; it is the
+Λ-weighted object the toys have used since `bq_common`.) The question: how much of the
+program's expensive empirical pipeline was already in the weights?
+
+**D1 — the causal leader was predictable at every depth tested.** Energy of the
+*measured Shapley leader* inside the top-8 eigenvectors of each Gram:
+
+| layer | plain weights | **weights + S** | random |
+|---|---|---|---|
+| 0 | 0.140 | **0.898** | 0.009 |
+| 1 | 0.594 | **0.983** | 0.015 |
+| 16 | 0.569 | **0.981** | 0.011 |
+| 17 | 0.958 | **0.996** | 0.004 |
+
+The Λ-weighted Gram — pure linear algebra on the weights plus a single 1152×1152
+matrix of data — holds 90–99.6% of the causal leader in its top-8, at all four depths.
+Plain weights alone degrade with shallowness (0.96 at layer 17 down to 0.14 at layer 0,
+where the input distribution is furthest from isotropic). **The entire
+Shapley-and-basis pipeline, for the leader, was one Gaussian-equivalent computation
+away from the weights.** The empirical top-8 output basis is also substantially
+predicted (energy 0.47–0.79 lam vs 0.005–0.008 random).
+
+**D2 — the head was predictable too.** The per-head folded operators
+`B_h = W_proj,hᵀ M_d0 W_proj,h` — 128×128 matrices, pure weight algebra — give head 4 a
+61.2% squared-norm share at layer 1, ranked first by a factor of 5 over the runner-up.
+The interchange measurement said 79%. The expensive discovery of §18/§21 (which head
+computes z) required no forward passes to find, only to *verify*.
+
+**D4 — the tensor-network accounting.** The verified layer-1 leader surrogate
+(`z = u·x̂; c₀ = az²+b; write = c₀d₀`) is a three-node network: 2,306 parameters and
+2,307 flops/token against the layer's 15.9M — **6,903× cheaper** — with §19's measured
+92% on-distribution fidelity and §21's 68% interchange faithfulness as its quality
+certificates. Layer 16's four-direction rank-2 replacement: 13,832 parameters at 4.2%
+damage.
+
+**What the theory pass changes going forward.** The battery order inverts: compute
+`G_lam` and the folded head operators *first* (seconds, closed-form), take their top
+components as the hypothesis set, and spend the model evaluations only on Shapley
+*verification* and interchange tests of weight-derived candidates. The measurement
+budget so far was spent discovering things the weights already contained; from here it
+should be spent testing them.

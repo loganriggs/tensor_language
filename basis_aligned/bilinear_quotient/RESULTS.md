@@ -1715,3 +1715,22 @@ class.
 
 Full detail in `BILIN18_CONNECTION.md` §22. Next: the weights-first theory pass
 (Phase D).
+
+### The theory pass: the weights knew
+
+Phase D asked how much of the empirical pipeline was derivable from the weights. Answer:
+nearly all of it, given exactly one data statistic. The output-mode Gram of the bilinear
+tensor in the Λ-weighted metric — `Down[(LSLᵀ)∘(RSRᵀ)]Downᵀ`, closed form, seconds to
+compute — holds **90–99.6% of the measured Shapley leader** in its top-8 eigenvectors at
+every depth tested (layers 0, 1, 16, 17; random baseline ~1%). Plain weights without S
+degrade to 14% at layer 0, so the single matrix S is what turns weight algebra into
+prediction. The head discovery replicates too: pure weight algebra (per-head folded
+operators) ranks head 4 first at layer 1 with a 5× margin, where interchange measured
+79%.
+
+Consequence for the program: the battery order inverts. Weight-side components first
+(closed form), model evaluations only to verify and interchange-test them. The verified
+layer-1 surrogate, as a tensor network, is 2,306 parameters and 6,903× cheaper per token
+than the layer it replaces.
+
+Full detail in `BILIN18_CONNECTION.md` §23.
