@@ -1,3 +1,12 @@
 start (all r4): +1.868 at 0.11M
 sweep 0: L16 -> r2 (joint +1.817)
 sweep 1: L13 -> r2 (joint +1.808)
+sweep 2: L9 -> r2 (joint +1.808)
+budget 0.1M: +1.808 at 0.10M ranks=[4, 4, 4, 4, 2, 4, 4, 4, 2, 4, 4, 2]
+budget 0.3M: +1.682 at 0.30M ranks=[64, 8, 4, 4, 2, 8, 8, 4, 2, 16, 8, 2]
+budget 1.0M: +1.574 at 1.00M ranks=[64, 64, 4, 8, 2, 64, 64, 64, 2, 64, 32, 2]
+
+(a) beats uniform-r16 by >=0.10 at 0.3M: FAILED (+1.682)
+(b) dominates uniform curve at all budgets: FAILED
+(c) allocation nonuniform (>=4x spread): HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_hillclimb1_results.json (457s)

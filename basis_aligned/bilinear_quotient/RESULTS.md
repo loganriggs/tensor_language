@@ -3293,3 +3293,10 @@ Output-stage compensation is family-wide, dominant in the gated sibling at
 small damage. Comparative arc ledger clean.
 
 Full detail in `BILIN18_CONNECTION.md` §194.
+
+### Hillclimb 1: allocation doesn't pay
+
+Greedy matches uniform at every budget despite 32x nonuniform allocations --
+the flat frontier extends to allocation. Refit remains the only lever found.
+
+Full detail in `BILIN18_CONNECTION.md` §195.

@@ -5367,3 +5367,23 @@ only present in the gated sibling but *dominant* at its output pair in the
 small-damage regime — the family's output stages all stabilize, and they differ
 in where the compensation-vs-coupling balance tips. Recorded with its
 replication; the comparative arc's ledger is clean.
+
+## 195. Hillclimb round 1: allocation doesn't pay — the frontier is flat in every direction tried
+
+File: `bilin18_hillclimb1.py` (457s, the session's longest run). Greedy
+per-layer rank allocation with sequential refit and joint scoring **matches but
+does not beat** the uniform-rank reference at every budget:
+
+    0.1M: greedy +1.808 vs uniform +1.807
+    0.3M: greedy +1.682 vs uniform +1.660
+    1.0M: greedy +1.574 vs uniform +1.541
+
+Registered (a)/(b) failed; (c) held emphatically — the learned allocations are
+wildly nonuniform (rank spread 32×, e.g. L5 at 64 while L9/L13/L16 sit at 2) —
+and yet the nonuniformity buys nothing. §159's flat frontier extends to the
+allocation dimension: in this model, *where* rank is spent matters far less
+than *that* the stand-ins are sequentially refit. Benchmark lesson recorded:
+blind allocation search is not a frontier lever here; the standing levers
+remain refit and (untested at scale) different computation classes. The
+strategy-2 fight (reader-aligned vs variance truncation) is next on the queue
+and now carries the interesting question alone.
