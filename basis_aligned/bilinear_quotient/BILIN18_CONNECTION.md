@@ -4302,3 +4302,29 @@ pattern-side ≥60%, failed decisively). An ironic close: the span was found via
 the *score-filter* watch-list, but what makes it causally valuable is that the
 same directions are what L6's attention picks up and moves. Watch-lists locate
 the traffic; the traffic is cargo, not steering.
+
+## 135. Gauge audit and defect survey (from balanced_gauge_spec.md)
+
+The user pointed at `basis_aligned/balanced_gauge_spec.md`; the bilin18-relevant
+part is the gauge-freedom audit and the defect survey (`bilin18_gauge_defect.py`).
+
+**Audit of the program's published statistics: gauge-safe.** Everything headline
+is built from the interaction tensor T (coupling matrices, functional vocabulary
+and its eff-ranks/LORO, QK/OV comparisons), from activations (spans, PCA bases,
+all CE work), or from the function (linearization fits). The input-mode Gram is
+invariant by cancellation (checked algebraically), and the |DW| direct-write
+predictor uses embeddings dotted with activation-space directions, not raw unit
+norms. No result needs correction.
+
+**Defect survey: bilin18 is NOT near-balanced.** Every layer's m-weighted mean
+defect sits at **0.28–0.40** (registered near-balanced ≤0.15 failed; the ≥0.5
+arbitrary-gauge flag not tripped; zero dead units; m_i sanity held). The three
+factor norms of a typical unit disagree by roughly e^0.35 ≈ 1.4–1.9×, uniformly
+across depth — consistent with training without (effective) weight decay. Two
+consequences: (1) bilin18's raw per-matrix statistics (stable ranks of Left or
+Right alone, unit rankings by a single norm, any Hessian/curvature reading) are
+gauge-contaminated at the ~2× level and must be taken at the balanced point —
+**standing rule adopted: any future per-matrix weight statistic calls the
+balance step first**; (2) our luck was discipline, not chance — the program
+happened to work at the T/activation/function level throughout, which the spec
+identifies as the invariant classes.

@@ -2810,3 +2810,13 @@ The watch-list found the traffic; the traffic is routed content, not pattern
 steering.
 
 Full detail in `BILIN18_CONNECTION.md` §134.
+
+### Gauge audit clean; bilin18 not balanced
+
+All published statistics are gauge-invariant (T-level, activation-level, or
+function-level; Gram invariant by cancellation; |DW| activation-space). But the
+model itself carries uniform defect 0.28-0.40 -- raw per-matrix statistics would
+be ~2x gauge-contaminated. Standing rule: balance before any future per-matrix
+reading.
+
+Full detail in `BILIN18_CONNECTION.md` §135.
