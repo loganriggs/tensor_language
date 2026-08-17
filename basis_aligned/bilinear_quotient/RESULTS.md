@@ -2116,3 +2116,13 @@ measurements on a common dense substrate. Band deletions destroy all functionals
 support region at once, which is why they read as inseparable holism.
 
 Full detail in `BILIN18_CONNECTION.md` §56.
+
+### Universal: near-orthogonal functionals on a shared dense support
+
+The completion held on both bars (signed cross-reader 0.089, signed QK 0.156). The
+front of the model reads layer 1 through an overcomplete family of nearly-orthogonal
+quadratic functionals on one dense substrate — measured within readers, across readers,
+and across attention heads. The compression program re-aims to functional coordinates;
+the functional-family spectrum and single-functional steering are queued.
+
+Full detail in `BILIN18_CONNECTION.md` §57.

@@ -2571,3 +2571,24 @@ quadratic measurements on a common dense substrate. Path-separation of *supports
 impossible; path-separation of *functionals* is nearly free by construction — which is
 also, in hindsight, why whole-model band deletions (which destroy all functionals over
 a support region at once) read as inseparable holism.
+
+## 57. The orthogonal-functionals picture is universal
+
+File: `bilin18_signed_completion.py` (9 s). Both registered predictions held:
+
+- signed cross-reader form cosine **0.089** (bar ≤0.15) — functional orthogonality
+  extends across readers, not just within one;
+- signed cross-head QK cosine **0.156** (bar ≤0.25) — attention heads' signed score
+  functionals are near-orthogonal too, despite their 0.79 shared magnitude envelope.
+
+The §56 synthesis is now measured everywhere it was posed: **the front of the model
+reads layer 1 through an overcomplete family of nearly-orthogonal quadratic
+functionals on one shared dense support** — MLP forms within readers (0.11), across
+readers (0.089), and attention heads (0.156). This closes the interaction-structure
+arc that began with the user's independence question, and it re-aims the compression
+program: direction coordinates failed on the middle (space-filling coverage, holistic
+bands) because they cut across every functional at once; functional coordinates are
+the natural frame, and the two registered next steps are (i) the spectrum of the
+functional family itself — quantifying "overcomplete and diverse" against the rank-≲5
+envelope — and (ii) the causal payoff: single-functional steering with cross-talk
+measured, i.e. path-selective intervention despite dense support.
