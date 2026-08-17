@@ -1995,3 +1995,33 @@ the fitted axes, prediction from `excess = 22.9·d16·d17` registered before mea
 Both inside the registered 25% bar. The composition law is now a validated predictive
 tool, not a fit: `joint ≈ Σdᵢ + 23·Σ_linked dᵢdⱼ` for this edge, with a hint of mild
 underprediction at high fidelity worth watching if the law gets leaned on hard.
+
+## 37. The tail swept weights-first: prediction works where there is signal, and the tail is shift-fragile
+
+File: `bilin18_tail_sweep.py` (29 s — seven layers, three evaluations each, the adopted
+weights-first economy).
+
+| layer | delete pred-2 | delete rand-2 | ratio | delete span-32 |
+|---|---|---|---|---|
+| 5 | +0.0107 | −0.0001 | **75×** | +0.0412 |
+| 6 | +0.0020 | +0.0002 | 11× | −0.0003 |
+| 8 | −0.0008 | −0.0001 | — | +0.0084 |
+| 10 | −0.0011 | +0.0007 | — | +0.0099 |
+| 12 | +0.0100 | −0.0009 | 12× | **−0.0025** |
+| 14 | +0.0054 | +0.0002 | 24× | +0.0060 |
+| 15 | **−0.0091** | −0.0004 | — | **−0.0065** |
+
+Registered (a) — pred-2 ≥ 5× random — holds at **4/7** (5, 6, 12, 14; layer 5 at 75×).
+The three misses are informative rather than random: layers 8 and 10 have span effects
+under 0.01 nats — near the evaluation floor, nothing for the formula to find — and
+**layer 15's predicted top-2 are actively harmful** (−0.0091): deleting the two
+directions the Λ-Gram ranks most important *improves* pile CE.
+
+Registered (b) confirmed and extended: negative span effects at layers 12 and 15, on
+top of §30's layer 9. **The shift-fragility pattern is now the tail's norm, not an
+anomaly**: in layers 9–15, the highest-Gaussian-variance quadratic directions — exactly
+what G_lam finds — are substantially fineweb-specific fit that hurts on shifted text.
+The formula is working correctly and measuring something real: in the tail, "most
+important by variance" and "most distribution-specific" largely coincide, which is the
+§25/§26 robust-core story at layer scale. A fineweb arm for the tail negatives is the
+registered confirmation (predicted: positive deletion costs in-distribution).

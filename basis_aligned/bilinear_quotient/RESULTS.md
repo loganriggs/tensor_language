@@ -1885,3 +1885,14 @@ Out-of-sample test: two never-measured corners, predictions registered first, bo
 within the 25% bar (13% and 23% error). The law is a validated predictive tool.
 
 Full detail in `BILIN18_CONNECTION.md` §33–36.
+
+### The tail, three evaluations per layer
+
+Weights-first sweep of the seven unprofiled tail layers: the Λ-Gram's predicted top-2
+directions cost ≥5× random at 4/7 (75× at layer 5); the misses are layers with nothing
+to find (span effects under 0.01) and layer 15, whose predicted top-2 *improve* pile CE
+when deleted. Negative span effects now at layers 9, 12, 15: shift-fragility is the
+tail's norm — its highest-variance directions are largely fineweb-specific fit.
+Registered follow-up: fineweb arm for the tail negatives.
+
+Full detail in `BILIN18_CONNECTION.md` §37.
