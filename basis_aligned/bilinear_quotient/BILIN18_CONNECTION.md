@@ -4753,3 +4753,20 @@ stand-in help where linear saturates? Registered skeptical per §113 (the
 residues are diffuse in every natural basis): a rank-32-input quadratic stand-in
 for L16 beats the rank-32 linear by < 0.05 nats; alternative would reopen the
 compressed-quadratic door at the stand-in level.
+
+## 160. The quadratic rung is dead; the reference ladder is final
+
+File: `bilin18_quadratic_rung.py`, both skeptical bars held. A 528-feature
+quadratic correction on the top-32 refit directions buys **nothing**: −0.009 at
+L16 (held-out overfit), ±0.000 at L9. §113's basis-diffuseness verdict holds at
+the stand-in level: between low-rank linear and the full quadratic component
+there is no useful intermediate class in any compact basis. The benchmark's
+reference ladder is final:
+
+    constant mean  ->  low-rank REFIT linear (rank ~4-16; the flat frontier)
+    ->  [compact quadratic: measured dead]  ->  full component
+
+With §§155–159 this closes the reference-instrument arc: the benchmark has a
+measured Pareto (0.07M/+1.81 → 15.9M/+1.26), a known frontier lever (sequential
+refit), a known dead rung, and the §104-softening note (composition drift modest
+on clean instruments). BENCHMARK.md finalized accordingly.

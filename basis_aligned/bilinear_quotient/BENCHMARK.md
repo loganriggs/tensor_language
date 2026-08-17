@@ -31,8 +31,11 @@ Unit of submission: a **replacement program** for the model — per component, a
 stand-in from a typed ladder, plus a claimed interaction-edge list.
 
 Stand-in ladder (each rung has an explicit parameter count):
-constant mean (0 free params beyond d) → rank-r linear (2dr) → diagonal/scale →
-rank-r quadratic in a declared basis → full component. §155's measured reference:
+constant mean (0 free params beyond d) → rank-r REFIT linear (2dr; sequential
+refit is the frontier lever) → full component. The compact-quadratic rung is
+measured DEAD in this family (§160: −0.009/+0.000 over linear at L16/L9 —
+the nonlinear residues are diffuse in every compact basis, §113), so submissions
+claiming quadratic rungs must beat that null. §155's measured reference:
 bilin18's L9 = constant (+0.031 nats), L16 = rank-8 linear (+0.059),
 L1 = irreducibly quadratic (full linear still +0.29).
 

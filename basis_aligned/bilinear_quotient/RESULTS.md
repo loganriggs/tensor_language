@@ -3011,3 +3011,11 @@ Refit rank-4 (0.07M) = +1.81; rank-64 (1.18M) = +1.54; floor +1.26 (15.9M).
 upper rung queued.
 
 Full detail in `BILIN18_CONNECTION.md` §159.
+
+### The quadratic rung is dead; ladder final
+
+Quadratic corrections buy nothing (-0.009/-0.000): constant -> low-rank refit
+linear -> full component is the whole practical ladder. Reference-instrument arc
+closed.
+
+Full detail in `BILIN18_CONNECTION.md` §160.
