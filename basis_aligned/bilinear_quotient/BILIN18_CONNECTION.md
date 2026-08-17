@@ -5275,3 +5275,16 @@ component's median-other), never by global ranking, which conflates "shares a
 channel" with "both touched by the dominant front signal." Also visible in the
 map: attn17's top partner is mlp16 (0.21) — the 16→17 interchange surfacing in
 a fourth independent instrument.
+
+## 190. The interchange certifies by kinship: five instruments, one edge
+
+File: `bilin18_interchange_kinship.py`, all three bars held. "attn17 reads what
+mlp16 writes" certifies at kinship **0.212 vs 0.026 median-other** (8×
+enrichment — the strongest relative kinship measured), with directionality
+(attn17~mlp16 0.212 > attn17~mlp17 0.170) and MLP-side symmetry (mlp17's top
+same-type partner is mlp16). The 16→17 interchange now stands on **five
+independent instruments**: the composition excess and product law, the
+cut-and-finetune load (+0.067), the quadratic-skin and norm accounting, and
+fingerprint kinship. Track-1 scoreboard: **three certified explanations** (one
+component, two edges), and the kinship class has produced both a certification
+and its own scoring rule in two rounds.

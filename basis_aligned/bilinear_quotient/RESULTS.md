@@ -3254,3 +3254,10 @@ front-dominated -- kinship scoring must be per-component relative (spec rule).
 The 16->17 interchange surfaces in a fourth instrument (attn17~mlp16).
 
 Full detail in `BILIN18_CONNECTION.md` §189.
+
+### Interchange certifies by kinship (8x)
+
+attn17~mlp16 at 0.212 vs 0.026, directional, MLP-side symmetric. Five
+instruments on one edge. Track-1: three certified.
+
+Full detail in `BILIN18_CONNECTION.md` §190.
