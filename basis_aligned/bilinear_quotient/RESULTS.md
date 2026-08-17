@@ -2348,3 +2348,13 @@ through their forms' curvature, which no direction can remove. The magnitude-swe
 prediction (selectivity ∝ 1/‖δ‖ at short range; no rescue at depth) is queued.
 
 Full detail in `BILIN18_CONNECTION.md` §82.
+
+### Correction: depth is addressable — at small magnitude
+
+The magnitude sweep confirmed the second-order mechanism (selectivity 21.6× → 1.5×
+from quarter to double magnitude) and overturned the ladder's headline: at 0.25–0.5×
+magnitude, the deep target steers at 3–5× selectivity. §§60–64's "unaddressable"
+holds only for large effects (>0.5σ), where quadratic collateral necessarily wins.
+Propagated to the report.
+
+Full detail in `BILIN18_CONNECTION.md` §83.

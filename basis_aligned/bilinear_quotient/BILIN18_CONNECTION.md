@@ -3170,3 +3170,23 @@ bystander at once. This is the composition product law and the interchange leak 
 their cleanest form yet, and it makes a sharp registered prediction (queued):
 selectivity should *improve as 1/‖δ‖* at short range (linear own vs quadratic cross),
 while at L13 no magnitude rescues it (the linear own-term is ≈ 0 there).
+
+## 83. CORRECTION to §§60–64: depth is addressable at small magnitude
+
+File: `bilin18_magnitude_sweep.py` (12 s). Registered (b) held emphatically
+(selectivity 21.6× at 0.25× magnitude vs 1.5× at 2×; cross-talk log-log slope 1.53,
+superlinear as the second-order mechanism predicts; own-slope 0.22 — sublinear,
+saturating, (a) formally failed on that half). And **(c) failed in the direction that
+forces a correction**: at 0.25–0.5× magnitude, the L13 target steers at **4.7× and
+3.0× selectivity** (own-movement 0.15–0.34σ).
+
+> **Correction.** §§60–64 concluded deep coefficients are "individually unaddressable
+> from L1 by any tested intervention." All of those tests ran at 1–2× magnitude —
+> inside the regime where quadratic collateral dominates. The corrected statement:
+> **deep coefficients are weakly but selectively addressable at small magnitudes
+> (~0.15–0.35σ at 3–5× selectivity); what is impossible is *large* selective deep
+> control** — beyond ~0.5σ at depth, collateral (∝‖δ‖²) necessarily overtakes the
+> target (∝‖δ‖, saturating). The intrinsic-limit verdict survives only in this
+> magnitude-qualified form. Chain of discovery for the record: the user's
+> penalized-objective question → projection null result → second-order mechanism →
+> magnitude sweep → correction.

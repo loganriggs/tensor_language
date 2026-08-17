@@ -1,0 +1,14 @@
+L2 x0.25: own 0.556s | cross 0.026s | sel 21.6x
+L2 x0.50: own 0.911s | cross 0.052s | sel 17.7x
+L2 x1.00: own 1.279s | cross 0.220s | sel 5.8x
+L2 x2.00: own 0.833s | cross 0.539s | sel 1.5x
+L13 x0.25: own 0.146s | cross 0.031s | sel 4.7x
+L13 x0.50: own 0.344s | cross 0.114s | sel 3.0x
+L13 x1.00: own 0.064s | cross 0.640s | sel 0.1x
+L13 x2.00: own 0.539s | cross 1.110s | sel 0.5x
+
+L2 log-log slopes: own 0.22, cross 1.53
+(a) own linear, cross superlinear: FAILED
+(b) selectivity at 0.25x >= 2.5x that at 2x: HELD (21.6 vs 1.5)
+(c) L13 never selective: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_magnitude_sweep_results.json (12s)
