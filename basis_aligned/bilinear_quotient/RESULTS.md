@@ -3208,3 +3208,10 @@ All pairs >= 0.54; the coverage-matched cross-family pair is highest (0.83).
 The models agree on what is hard, where to work, and where it lands.
 
 Full detail in `BILIN18_CONNECTION.md` §184.
+
+### Coverage closed: minimum pair 0.74
+
+sqrd12's full atlas resolves the caveat; all six leverage pairs 0.74-0.84.
+Four complete atlases, both axes aligned. Program assets complete.
+
+Full detail in `BILIN18_CONNECTION.md` §185.

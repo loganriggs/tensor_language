@@ -5177,3 +5177,18 @@ bears on is a property of the language, shared across every architecture in the
 registry. A last line for the program's ledger of themes: the models differ in
 how they compute; they agree on what is hard, where in the stack to work on it,
 and which words the work lands on.
+
+## 185. Coverage closed: one text profile, four full atlases, minimum pair 0.74
+
+File: `sqrd12_atlas.py`; asset `sqrd12_atlas.pt` (24 components). All three bars
+held: the fourth atlas has the family structure (pairwise 0.10, depth-smooth
+22/24, type-marked), and with coverage matched the §184 caveat resolves —
+sqrd12's leverage correlations rise to 0.74–0.84, making the **four-model
+minimum pair 0.74**. Final form of the leverage law: every pair of the four
+independently trained models, spanning three MLP architectures and two depths,
+agrees on the per-token leverage profile at 0.74–0.84. All four fingerprint
+atlases are now complete, saved, structurally uniform, and mutually aligned on
+both axes — depth (the fraction law) and text (the leverage profile). The
+program's assets: four atlases, one benchmark spec with measured references and
+instrument rules, a 13-entry resolved corrections ledger, and a findings report
+current at a single URL.
