@@ -1,0 +1,9 @@
+punct: per-head E ['1.1e+10', '4.2e+11', '5.0e+09', '1.7e+10', '3.0e+09', '3.4e+09', '1.7e+09', '7.0e+09', '1.5e+10']
+      kills      [0.02, 0.96, -0.03, -0.04, 0.51, 0.03, -0.05, -0.02, -0.06]
+      Spearman +0.05 | top-1 energy share 0.87
+#3: per-head E ['2.0e+09', '3.1e+11', '1.5e+09', '7.5e+09', '6.7e+09', '2.3e+09', '9.6e+08', '3.0e+09', '3.5e+10']
+      kills      [0.07, 0.28, -0.01, 0.01, 0.16, 0.06, -0.02, 0.06, 0.32]
+      Spearman +0.77 | top-1 energy share 0.84
+
+(a) punct rho>=0.6: FAILED | (b) #3 rho>=0.6: HELD | (c) concentration transfers: HELD
+wrote bilin18_mediation_profile_results.json (5s)
