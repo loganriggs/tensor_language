@@ -2483,3 +2483,35 @@ enrichment neither ranks heads correctly when mediation is distributed nor predi
 whether a dominant carrier exists. The registered next step is the per-head
 second-order response energy against the measured kill profile (the §51 signature that
 recovered pattern-dominance may also recover the kill distribution), queued.
+
+## 54. Three runner results: a one-sided routing guarantee, a metric lesson, and the reader-coupling test confounded by its own aggregation
+
+Files: `bilin18_mediation_profile.py`, `bilin18_edge_census.py`,
+`bilin18_reader_coupling.py` (5 + 10 + 5 s).
+
+**The edge census (8 signals): response energy is necessary, not sufficient.**
+Spearman 0.64 (bar 0.7, failed — close), but the asymmetry is the finding: **zero
+low-energy signals route** (E < 1e10 never reaches 0.5σ; registered (b) held), while
+one high-energy signal barely routes (dir 4: the *highest* E at 5.8e11, only 0.33σ).
+The detector gives a one-sided guarantee — low energy proves no edge; high energy only
+licenses testing. Two new edges surfaced: rank-5 (0.36σ) and rank-6 (0.33σ), both
+modest.
+
+**The mediation-profile test: right on the spread edge, wrong metric on the
+concentrated one.** For the #3 edge, per-head response energies track the kill profile
+at ρ = 0.77 (held). For the punctuation edge, ρ = 0.05 — but both the energy top-1 and
+the kill top-1 are head 1; Spearman over nine heads is dominated by the seven
+noise-level entries. The registered metric was ill-chosen for concentrated profiles;
+top-1 agreement (2/2 edges) and concentration transfer (held) are the meaningful
+reads. Recorded as a metric lesson, not silently rescored.
+
+**The reader-coupling test failed both disjointness predictions — and the instrument
+is confounded, stated plainly.** Median per-reader top-5% mass 0.08 (near-uniform) and
+mean cross-reader cosine **0.99**: at whole-MLP resolution every downstream reader's
+coupling matrix over L1's output directions is essentially the same dense matrix. But
+the aggregation (energy over each reader's 1152 output directions) is central-limit
+flattening: per-output-direction coupling could be arbitrarily sparse and disjoint and
+this statistic would still come out uniform-and-identical. The user's path-separation
+hypothesis is NOT refuted at the resolution it was posed — individual forms are
+rank-bounded, hence necessarily structured — only the whole-reader version is dead.
+The per-form version is queued with the aggregation removed.

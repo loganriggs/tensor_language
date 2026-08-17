@@ -2079,3 +2079,16 @@ under distributed mediation nor predict whether a carrier exists. Per-head
 second-order energies vs the kill profile queued.
 
 Full detail in `BILIN18_CONNECTION.md` §53.
+
+### Census, profiles, and a confounded instrument
+
+Response energy is a one-sided routing guarantee (zero false negatives across eight
+signals; one false positive — the highest-energy signal barely routes). Mediation
+profiles: predicted well on the spread edge (ρ 0.77), and the concentrated edge's ρ =
+0.05 is a metric artifact (both top-1s agree; Spearman was eaten by noise-level
+entries). The reader-coupling disjointness test failed both bars — but its aggregation
+over each reader's 1152 output directions is central-limit flattening, so the
+path-separation hypothesis is untested at the resolution it was posed; the per-form
+version runs next.
+
+Full detail in `BILIN18_CONNECTION.md` §54.
