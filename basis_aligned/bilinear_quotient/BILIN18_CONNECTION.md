@@ -2465,3 +2465,21 @@ correctly identifies as both strongly routed. As a *detector* of which signals t
 an edge, it is essentially solved; as a fine ranker, approximate. The newly found #3
 edge inherits the full protocol next: registered carrier prediction from enrichment,
 then the freeze sweep — the blind test §51 could not run now has an edge that exists.
+
+## 53. The blind carrier test fails: the #3 edge has no carrier
+
+File: `bilin18_blind_routing2.py` (10 s). Both registered predictions **failed**, and
+the failure characterises the edge: freezing any single head kills at most **32%**
+(head 8), with head 1 second at 28%, head 4 at 16%, and the rest ≤7% — the #3 edge is
+**distributed across heads**, unlike the punctuation edge's 96% single-head carrier.
+First-order qk-enrichment predicted head 1 (4.03) and is wrong twice over: wrong head,
+and wrong presumption that a dominant carrier exists.
+
+Scorecard for the blind carrier protocol so far: 0-for-1 on testable attempts (the
+punctuation case was retrodiction; the number axis had no edge; the #3 edge has no
+carrier). The honest state of the operator calculus: **routing detection from weights
+is solved** (6,000× separation, §52); **carrier prediction is not** — first-order
+enrichment neither ranks heads correctly when mediation is distributed nor predicts
+whether a dominant carrier exists. The registered next step is the per-head
+second-order response energy against the measured kill profile (the §51 signature that
+recovered pattern-dominance may also recover the kill distribution), queued.

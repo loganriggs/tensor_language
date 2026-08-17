@@ -1,0 +1,17 @@
+L0 causal direction #3 (dir 3)
+STEP 1 -- enrichment: [1.76, 4.03, 1.61, 2.62, 2.23, 1.65, 1.26, 1.58, 2.32]
+REGISTERED PREDICTED CARRIER: head 1
+
+STEP 2 -- edge: Delta c1 = +1.600 sigma
+  freeze head 0: +1.492 (7% killed)
+  freeze head 1: +1.154 (28% killed)
+  freeze head 2: +1.616 (-1% killed)
+  freeze head 3: +1.581 (1% killed)
+  freeze head 4: +1.346 (16% killed)
+  freeze head 5: +1.507 (6% killed)
+  freeze head 6: +1.625 (-2% killed)
+  freeze head 7: +1.498 (6% killed)
+  freeze head 8: +1.088 (32% killed)
+
+top killer: head 8 | predicted: head 1 -> FAILED | predicted head kills 28% (>=40%: FAILED)
+wrote bilin18_blind_routing2_results.json (10s)

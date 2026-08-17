@@ -2068,3 +2068,14 @@ the L1 leader at 1.60σ — the strongest front edge found so far** — flagged 
 energy ranking before measurement. The blind carrier protocol now runs on this edge.
 
 Full detail in `BILIN18_CONNECTION.md` §52.
+
+### Blind carrier prediction fails: the new edge has no carrier
+
+The #3 edge is distributed — no head kills more than 32% (head 8; predicted head 1
+second at 28%) — so the blind protocol failed both bars, and the presumption of a
+dominant carrier was itself wrong. Standing: routing detection from weights is solved
+(6,000×); carrier prediction is not — first-order enrichment can neither rank heads
+under distributed mediation nor predict whether a carrier exists. Per-head
+second-order energies vs the kill profile queued.
+
+Full detail in `BILIN18_CONNECTION.md` §53.
