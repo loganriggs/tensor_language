@@ -2935,3 +2935,10 @@ bus's type separation is default; training added the overlap. Attention origin
 accounting closed (filters trained, lexicon one-third, separation free).
 
 Full detail in `BILIN18_CONNECTION.md` §150.
+
+### Front attention certified
+
+L1 +0.358 largest, ordering preserved, within 30%. Spectral-split replication
+queued (last headline).
+
+Full detail in `BILIN18_CONNECTION.md` §151.

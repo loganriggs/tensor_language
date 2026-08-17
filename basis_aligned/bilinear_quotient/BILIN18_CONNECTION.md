@@ -4587,3 +4587,14 @@ that exists**. Origin accounting of the attention structures, complete:
 The same moral as the §§60–62 origin arc, now for attention: geometry and
 separation come free; what training buys is selectivity (the filters) and
 sharing (the lexicon).
+
+## 151. Front attention replicates; the profile is certified
+
+File: `bilin18_attnfront_replicate.py`, all bars held: L0 +0.232, L1 +0.358,
+L2 +0.229 on fresh rows (originals 0.242/0.302/0.205; ordering L1 > L0 > L2
+preserved; all within 30%). The attention profile's positive headline — L1's
+attention as the model's single most important — is certified alongside its
+negative ones (§138). Queued: the last unreplicated headline, §109's spectral
+split of L1 (interface 12% of linearization cost at 59% of energy; complement
+53%) on fresh eval rows. Registered: (a) span-share stays ≤ 20%; (b)
+complement-share ≥ 40%; (c) full cost within ±30% of +0.282.
