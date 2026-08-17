@@ -2544,3 +2544,30 @@ Two caveats recorded: the cosines are between **absolute-value** matrices, which
 inflates overlap (all-positive vectors correlate; a signed version is queued and
 predicted lower), and **attention QK readers are untested** — the user's original
 suggestion included them, and heads are the component most likely to specialise.
+
+## 56. Signed coupling reverses §55's reading: shared envelope, near-orthogonal functionals
+
+File: `bilin18_signed_qk_coupling.py` (6 s).
+
+**(a) held decisively: the signed within-reader cosine is 0.11** against the unsigned
+0.64. §55's "shared coupling template" is a *magnitude envelope* only — which pairs
+have large |coupling| is common (plausibly inherited from the L/R singular structure) —
+but the **signed** couplings of different forms are nearly orthogonal. Each form reads
+an almost-independent quadratic functional of L1's output, over a shared dense support.
+
+**(b) failed: QK heads are no more specialised** than MLP forms at magnitude level
+(top-5% mass 0.15, cross-head |cos| 0.79) — the envelope is universal across reader
+types. (Limit: the signed version was computed for MLP forms only; the QK signed
+cosine is queued.)
+
+**Corrected synthesis of §§54–56, and the honest resolution of the user's question.**
+Layer 1's interaction is *dense in support* — no reader, form, or head couples a sparse
+or disjoint set of direction-pairs; the magnitude envelope is shared by everyone — but
+it is *diverse in functionals*: the signed quadratic forms the readers actually compute
+are close to mutually orthogonal (cos ≈ 0.1). So the structural-exclusivity picture
+fails in the support sense and substantially succeeds in the functional sense: the
+downstream stack reads layer 1 through an overcomplete family of nearly-independent
+quadratic measurements on a common dense substrate. Path-separation of *supports* is
+impossible; path-separation of *functionals* is nearly free by construction — which is
+also, in hindsight, why whole-model band deletions (which destroy all functionals over
+a support region at once) read as inseparable holism.

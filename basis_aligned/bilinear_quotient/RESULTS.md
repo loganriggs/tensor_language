@@ -2103,3 +2103,16 @@ resolution tested. Caveats queued: signed cosines (abs-matrices inflate overlap)
 attention QK readers (the component most likely to specialise).
 
 Full detail in `BILIN18_CONNECTION.md` §55.
+
+### Signed coupling settles it: dense support, near-orthogonal functionals
+
+The §55 "shared template" was absolute-value inflation: signed within-reader coupling
+cosine is **0.11** (vs 0.64 unsigned). Corrected synthesis: layer 1's interaction is
+dense in *support* (every reader's magnitude envelope is the same; QK heads included at
+0.79 unsigned) but diverse in *functionals* — the signed quadratic forms readers
+compute are nearly orthogonal. The exclusivity picture fails for supports and largely
+succeeds for functionals: an overcomplete family of nearly-independent quadratic
+measurements on a common dense substrate. Band deletions destroy all functionals over a
+support region at once, which is why they read as inseparable holism.
+
+Full detail in `BILIN18_CONNECTION.md` §56.
