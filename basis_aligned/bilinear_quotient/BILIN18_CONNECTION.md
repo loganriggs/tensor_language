@@ -5047,3 +5047,19 @@ per-token ablation deltas from two different models, pooled, self-organize onto
 a single axis — and that axis is fractional depth. Everything the program
 measured layer-by-layer (front-loading, dilution-then-amplification, the relay,
 the correspondence law) lives along this one recoverable coordinate.
+
+## 177. The axis transcends the family; the warp is attention-specific
+
+File: `sqrd12_join_axis.py`. Registered (a) and (c) held, (b) failed
+informatively: the three-model joint embedding still tracks depth fraction at
+**0.79** (null 0.04) — the causal depth coordinate spans even the cross-family
+model — but sqrd12's MLP components show **no front-shift** (3/12), sitting at
+their nominal fractions. Since §169's front-shift was measured on *attention*
+fingerprints, the refinement is clean: **MLP causal placement follows depth
+fraction universally, across all three architectures tested; the cross-family
+warp lives in the attention stream.** A satisfying division: the component type
+that is per-layer, contextual, and transport-typed (attention) is also where
+architectural families express their differences; the component type that
+carries the shared vocabulary (MLPs) places its work identically everywhere.
+The fingerprint arc ends here: one axis, three models, and the family
+differences localized to a single component type.

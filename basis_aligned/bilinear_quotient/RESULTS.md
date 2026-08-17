@@ -3148,3 +3148,10 @@ Pooled 30-component embedding tracks depth fraction at 0.85 across both models
 capstone.
 
 Full detail in `BILIN18_CONNECTION.md` §176.
+
+### The axis transcends the family
+
+Three models on one causal depth axis (0.79, null 0.04); the cross-family warp
+is attention-specific -- MLP placement is universal. Fingerprint arc complete.
+
+Full detail in `BILIN18_CONNECTION.md` §177.
