@@ -2907,3 +2907,9 @@ Score-rank 4.3, watch-list gap +0.48, L1 cost +0.289 -- all replicate on fresh
 rows. QK below-chance replication queued.
 
 Full detail in `BILIN18_CONNECTION.md` §146.
+
+### QK disjointness replicates (gap 0.63, identical)
+
+All recent headline claims now replicated on independent data.
+
+Full detail in `BILIN18_CONNECTION.md` §147.

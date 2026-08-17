@@ -4521,3 +4521,15 @@ With §§144–145, every load-bearing headline of the recent arcs is replicated
 independent data. Queued: the one striking older claim never independently
 replicated — §84's below-chance QK reconstruction (−0.26 vs random +0.37).
 Registered: fresh-rows QK median ≤ 0.0, random control ≥ +0.25, gap ≥ 0.3.
+
+## 147. The QK disjointness replicates with an identical gap
+
+File: `bilin18_qk_replicate.py` (log prints carry the old labels; the JSON bars
+are the registered ones, all held). On fresh rows: QK couplings reconstruct from
+the MLP basis at median R² **−0.08**, random matrices at **+0.55** — a
+below-chance gap of 0.63, *identical* to the original's (−0.26 vs +0.37). The
+cross-type code disjointness is a stable property of the model, not of the rows.
+Replication status across the program's recent arcs: dilution (both sides),
+score-rank, watch-list gap, L1 linearization cost, L14 attention negativity,
+L9/L15 regularizer spans, the L9×L16 interaction, and QK disjointness — all
+replicated on independent data.
