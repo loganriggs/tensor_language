@@ -5549,3 +5549,21 @@ grow with model size, so larger targets should have proportionally more cheap
 tail, not less. Workflow lesson confirmed: thresholds and class licenses are
 per-model empirical (the recipe's rank-0 scan is mandatory, not skippable);
 only the protocol — scan, refit, joint-score, self-test — is universal.
+
+## 204. The 2×2: size ordering survives, magnitude is architecture-modulated
+
+File: `family_size_scan.py`. Registered (b) held cleanly — sqrd12 licenses
+**zero** constants (rank-0 costs +0.12–0.37), matching bilin12's zero — but (a)
+failed: swiglu18 licenses only **one** (L15), under the ≥2 bar. The full
+licensing table:
+
+    18 layers:  bilin18 = 4 constants | swiglu18 = 1
+    12 layers:  bilin12 = 0           | sqrd12   = 0
+
+§203's claim scopes accordingly: **replaceability increases with depth/size as
+an ordering** (every 18-layer model out-licenses every 12-layer model; the 12L
+row is uniformly zero) — but the *amount* is architecture-modulated, with the
+pure-bilinear 18L model far more replaceable than the gated one. "Scales with
+size" survives as a monotone ordering on this 2×2, not as a rate law; the real
+test remains a genuinely larger checkpoint, and the prediction stands in that
+scoped form.

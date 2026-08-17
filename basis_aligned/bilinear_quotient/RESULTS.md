@@ -3357,3 +3357,10 @@ replaceable). Replaceability scales WITH model size -- good news for larger
 targets. Scan-refit-score-selftest is the universal part.
 
 Full detail in `BILIN18_CONNECTION.md` §203.
+
+### 2x2: ordering yes, rate no
+
+18L row licenses {4,1}, 12L row {0,0}: size ordering holds, magnitude is
+architecture-modulated. The scaling prediction stands in scoped form.
+
+Full detail in `BILIN18_CONNECTION.md` §204.
