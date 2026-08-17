@@ -2802,3 +2802,11 @@ Institutional deletions cost little (0.002-0.005) except L5->L6-attention
 Institutions real; within them, diffuse as ever.
 
 Full detail in `BILIN18_CONNECTION.md` §133.
+
+### The L5->L6 edge is cargo
+
+87% value-side (patterns clamped: +0.0257 of +0.0297 survives; control exact).
+The watch-list found the traffic; the traffic is routed content, not pattern
+steering.
+
+Full detail in `BILIN18_CONNECTION.md` §134.

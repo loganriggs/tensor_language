@@ -4289,3 +4289,16 @@ found anywhere in the tail; everywhere else, causal load spreads below the
 resolution of any 8-dim institutional channel. A fitting close for the motif:
 the institutions are real (geometry §§130–132, causality here), and inside them
 the model remains what it has always been — diffuse.
+
+## 134. The L5→L6 edge routes values, not patterns
+
+Files: `bilin18_l5l6_edge.py` (v1 control broken — the no-op arm ran with the
+deletion active; recorded), `bilin18_l5l6_edge2.py` (control exact at +0.0000).
+With L6's patterns clamped to their clean values, deleting L5's watched span
+still costs +0.0257 of the full +0.0297 — the tail's one concentrated attention
+edge is **87% value-side**: L5's content rides through L6's attention as routed
+values; only 13% of the effect comes from pattern steering (registered (a),
+pattern-side ≥60%, failed decisively). An ironic close: the span was found via
+the *score-filter* watch-list, but what makes it causally valuable is that the
+same directions are what L6's attention picks up and moves. Watch-lists locate
+the traffic; the traffic is cargo, not steering.
