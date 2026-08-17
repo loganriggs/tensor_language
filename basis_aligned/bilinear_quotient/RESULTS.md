@@ -3230,3 +3230,11 @@ fingerprints); explanations must compile to DISTINCTIVE predictions (difficulty
 -shaped stories are mutually unfalsifiable).
 
 Full detail in `BILIN18_CONNECTION.md` §186.
+
+### Track-1 demonstrated end to end
+
+attn14 certified in both regimes (+0.28 frozen); mlp16 regime-flip confirmed
+but floor-grade; frozen-fingerprint asset shipped. The semantic track is
+operational with honest mixed results.
+
+Full detail in `BILIN18_CONNECTION.md` §187.

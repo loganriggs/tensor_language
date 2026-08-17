@@ -1,0 +1,10 @@
+mlp16  : net +0.1314 | regime corr 0.67
+mlp9   : net -0.0301 | regime corr 0.82
+attn14 : net -0.0411 | regime corr 0.94
+attn1  : net +0.4331 | regime corr 0.90
+
+mlp16 frozen-regime score +0.053 | attn14 +0.277
+(a) mlp16 story vindicated (>=+0.15): FAILED
+(b) attn14 survives frozen: HELD
+(c) regime shift largest at mlp16: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_frozen_fp_results.json and /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_frozen_fingerprints.pt (6s)

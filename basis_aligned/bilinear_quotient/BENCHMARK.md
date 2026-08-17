@@ -76,6 +76,11 @@ Instrument rule (§§178-181): spectral/joint-embedding placement is admissible
 only above a minimum cross-correlation strength; below it, direct best-match is
 the instrument of record (the axis method failed twice on weak fingerprints).
 
+Regime-paired asset: `bilin18_frozen_fingerprints.pt` (gain-frozen variants;
+§187 demonstrated the regime flip live: mlp16's score moves −0.135 → +0.053
+between regimes). First scored pilot: attn14 certified (+0.28), mlp16
+floor-grade, attn1 refuted — the track works and grades honestly.
+
 Ground-truth asset: `bilin18_fingerprints.pt` — per-token ablation deltas for
 12 components on a fixed held-out set (fingerprints mutually near-orthogonal,
 pairwise Spearman 0.04; deterministic, so scoring runs on this fixed set and

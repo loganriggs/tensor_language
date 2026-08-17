@@ -5216,3 +5216,24 @@ signs) — and each failure teaches the track something concrete:
 - attn1's position story scored ~0: early attention's damage is not
   position-graded — a small negative finding logged against any "more context,
   more damage" intuition.
+
+## 187. Regime re-scoring: one explanation certified, one floor-grade, the asset shipped
+
+File: `bilin18_frozen_fingerprints.py`; asset `bilin18_frozen_fingerprints.pt`
+(gain-frozen fingerprints for the pilot components — the regime-paired data the
+spec now requires). Results:
+
+- **attn14's explanation is certified**: +0.277 in the frozen regime (up from
+  +0.183 free) — "net-harmful late attention whose deletion relieves
+  confidently-wrong tokens" predicts its fingerprint in both regimes, the
+  Track-1 pilot's one full pass.
+- **mlp16: regime mechanism confirmed, explanation floor-grade.** The score
+  flips sign exactly as diagnosed (−0.135 free → +0.053 frozen; largest regime
+  shift of the four, cross-regime corr 0.67, registered (c) held) — but +0.053
+  is below the bar. The "value on easy tokens" story is directionally right at
+  content level and too weak to count as understanding. An honest grade for the
+  program's own explanation.
+- The pilot ledger closes: 1 certified (attn14), 1 floor-grade (mlp16),
+  1 weak (mlp9), 1 refuted (attn1's position story). The benchmark's semantic
+  track is now demonstrated end to end — assets, floors, regime rules, matching
+  nulls, and a first scored submission with honest mixed results.
