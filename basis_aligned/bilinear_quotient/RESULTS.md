@@ -3215,3 +3215,9 @@ sqrd12's full atlas resolves the caveat; all six leverage pairs 0.74-0.84.
 Four complete atlases, both axes aligned. Program assets complete.
 
 Full detail in `BILIN18_CONNECTION.md` §185.
+
+### Canary v2 green
+
+Full-state regression suite in place and passing: original trio + atlas
+integrity + leverage law (0.78) + fraction spot (L7) + smoothness (35/36).
+Re-run bilin18_canary2.py after any environment change.
