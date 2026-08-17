@@ -3731,3 +3731,24 @@ carried over). The consistent protocol settles everything the λ-mixing bug touc
 Arc summary: variance-nonlinearity peaks in the middle, functional nonlinearity
 peaks at the front (L2) and at L17's interaction skin, and thirteen of eighteen
 layers can be replaced by refit linear maps for about a tenth of a nat each.
+
+## 107. The functional-nonlinearity map is complete — and it crowns L1
+
+File: `bilin18_front_map.py`, all three registered bars held (a rare clean sweep):
+
+    L0 +0.176 | L1 +0.282 | L2 +0.109 | L3 +0.092 | L4 +0.054 | mid/tail ~0.03 | L17 +0.096
+
+The map is **unimodal with its peak at L1** — the layer this program spent the most
+effort reading (densest interactions, source of the 80-word functional vocabulary,
+target of every steering experiment) is independently the model's most functionally
+nonlinear layer. Two entirely different hardness measures — interaction density
+measured by intervention, and linearization cost measured by replacement — agree on
+where the real computation is.
+
+Final synthesis of the arc: **bilin18 is five genuinely nonlinear layers (L0–L4,
+declining from L1), a nearly-linear thirteen-layer pipe (individually ~0.03 nats
+each to replace; +1.56 cumulatively due to drift), and one quadratic interaction
+skin at L17 that carries four-fifths of the model's strongest coupling.** Queued:
+whether the pipe's cumulative drift flows through attention reading off-manifold
+state (pattern-clamped hybrid; registered: clamping patterns to base-model values
+cuts the refit-pipe cost ≥40%).

@@ -2572,3 +2572,11 @@ Clean instrument: front-loading reinstated (L2 +0.109, 3x median; middle cheap a
 refit pipe +1.56 for 13 layers. Arc closed.
 
 Full detail in `BILIN18_CONNECTION.md` §106.
+
+### The map crowns L1
+
+Front map complete, unimodal, peak at L1 (+0.282): the hardest-read layer is the
+most functionally nonlinear -- two independent hardness measures agree. Model =
+five nonlinear front layers + near-linear 13-layer pipe + one quadratic skin.
+
+Full detail in `BILIN18_CONNECTION.md` §107.
