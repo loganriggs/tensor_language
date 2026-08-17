@@ -2271,3 +2271,26 @@ bar (order-3 sum < 1.86, i.e. order-4+ still dominates) held, narrowly and hones
 The full picture: each interaction order contributes *more* than the last through at
 least order 4 — layer 1 is holistic all the way up, with no order at which a truncated
 interaction model captures it.
+
+## 47. Head 1 works through its pattern, and interaction depth is compressibility's twin
+
+Files: `bilin18_head1_route.py`, `bilin18_band_orders_l16.py` (10 + 14 s).
+
+**The L0 signal moves head 1's attention, not its cargo.** Registered value-mediation
+**failed**, inverted: freezing head 1's *pattern* kills 54% of the steered effect,
+freezing its *values* only 30% (inert-head control clean at ±5%). The injected
+L0-leader offset changes *where head 1 looks* — its q/k geometry — more than *what it
+copies*. The two routes sum to 84% against the 96% joint kill, so they overlap
+non-additively, as everything in this model does. Graph annotation updated: the
+L0→L1 edge is pattern-dominant through head 1.
+
+**Layer 16's interaction hierarchy is shallow — the contrast case held at 99%.**
+Solo bands + pairwise excesses capture **99%** of layer 16's full-span deletion cost,
+against layer 1's **24%**. The registered unification survives its first test:
+**compressibility and interaction shallowness are the same property seen from two
+sides** — a layer whose causal effect decomposes into few directions is also a layer
+whose effect decomposes into low-order interactions, and the uncompressible middle is
+uncompressible precisely because its effect exists only in high-order combinations.
+Generalisation across layers 0/2/3/17 is queued; if the monotone relation holds, this
+becomes the program's unifying statement about what "understandable" means for this
+architecture.

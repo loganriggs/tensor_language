@@ -1997,3 +1997,13 @@ layer 1's interaction hierarchy is graded, not truncated: solo 5%, pairs 19%, or
 interaction model captures the layer.
 
 Full detail in `BILIN18_CONNECTION.md` §46.
+
+### Pattern-routed, and a unification candidate at 99% vs 24%
+
+Head 1 transports the L0 signal by *re-aiming* (pattern freeze kills 54%, value freeze
+30% — the registered value-route prediction failed, inverted; control clean). And the
+interaction-depth contrast held emphatically: solo+pairwise captures 99% of layer 16's
+full-span cost vs 24% at layer 1 — compressibility and interaction shallowness look
+like one property from two sides. Cross-layer generalisation queued.
+
+Full detail in `BILIN18_CONNECTION.md` §47.
