@@ -68,8 +68,8 @@ def main():
     g=torch.Generator(device=DEV).manual_seed(0)
     res={}
     for li in LAYERS:
-        tr_idx=FW[300:306,:257].to(DEV)[:,:-1]
-        te_idx=FW[306:312,:257].to(DEV)[:,:-1]
+        tr_idx=FW[300:306,:257].to(DEV)
+        te_idx=FW[306:312,:257].to(DEV)
         r2s=[];r2n=[];r2c=[]
         for h in range(NH):
             Ptr=ptr[li][:,h]; Pte=pte[li][:,h]
