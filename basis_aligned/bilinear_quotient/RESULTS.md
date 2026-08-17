@@ -2358,3 +2358,14 @@ holds only for large effects (>0.5σ), where quadratic collateral necessarily wi
 Propagated to the report.
 
 Full detail in `BILIN18_CONNECTION.md` §83.
+
+### The vocabulary's edges
+
+Nine of ten held-out MLP readers reconstruct from the six-reader basis (median R²
+up to 0.92); the full-model code is ~139-dim (sublinear growth) and L11 speaks none
+of it. Honest sparse coding needs 105 of 120 atoms for worse fit than dense-80 —
+no sparse structure exists. QK query-side couplings reconstruct BELOW chance from
+the MLP basis (−0.26 vs random +0.37): attention and MLPs read with disjoint
+quadratic codes.
+
+Full detail in `BILIN18_CONNECTION.md` §84.

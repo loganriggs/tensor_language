@@ -23,16 +23,6 @@ SPANS={9:32,12:32,15:32}
 OUT=('/workspace/tensor_language/basis_aligned/bilinear_quotient/'
      'bilin18_constraint_release_results.json')
 
-def heldce(mdl):
-    with torch.no_grad():
-        tot,n=0.0,0
-        for i in range(300,452,4):
-            b=FW[i:i+4,:257].to(DEV)
-            logits,_=mdl(b[:,:-1].contiguous(), b[:,1:].contiguous()),None
-            # tt_model GPT returns loss when target given? returns (logits?) --
-            # use functional CE via forward returning loss
-        return None
-
 @torch.no_grad()
 def eval_ce_local(mdl):
     tot,n=0.0,0
@@ -56,6 +46,7 @@ def make_hooks(mdl, spans_dirs):
     return handles
 
 def finetune(mdl, steps=200, lr=1e-5):
+    for p in mdl.parameters(): p.requires_grad_(True)
     opt=torch.optim.AdamW(mdl.parameters(), lr=lr, weight_decay=0.0)
     mdl.train()
     g=torch.Generator().manual_seed(0)
@@ -83,16 +74,19 @@ def main():
     mA,cfg=load_elriggs('bilin18', device=DEV)
     ceA=eval_ce_local(mA)
     print(f'A baseline:            {ceA:.4f}',flush=True)
+    del mA; torch.cuda.empty_cache()
     mB,_=load_elriggs('bilin18', device=DEV)
     finetune(mB)
     ceB=eval_ce_local(mB)
     print(f'B finetune-only:       {ceB:.4f}',flush=True)
+    del mB; torch.cuda.empty_cache()
     mC,_=load_elriggs('bilin18', device=DEV)
     hooks=make_hooks(mC,spans_dirs)
     finetune(mC)
     ceC=eval_ce_local(mC)
     print(f'C prune+finetune:      {ceC:.4f}',flush=True)
     for h in hooks: h.remove()
+    del mC; torch.cuda.empty_cache()
     out={'A':ceA,'B':ceB,'C':ceC,'C_minus_B':ceC-ceB}
     pa=ceB<ceA
     pb=(ceB-ceC)>=0.004

@@ -3190,3 +3190,35 @@ forces a correction**: at 0.25–0.5× magnitude, the L13 target steers at **4.7
 > magnitude-qualified form. Chain of discovery for the record: the user's
 > penalized-objective question → projection null result → second-order mechanism →
 > magnitude sweep → correction.
+
+## 84. The vocabulary's edges: one dissident reader, no sparse structure, and a QK code that avoids the MLP code
+
+Three runs close the sample-completeness questions about the 80-dim functional basis
+(`bilin18_all_readers.py`, `bilin18_matrix_sae2.py`, `bilin18_qk_vocabulary.py`).
+
+**All 16 MLP readers** (was the six-reader sample biased?): mostly no. Nine of ten
+held-out readers reconstruct from the six-reader basis at median R² 0.47–0.92
+(registered (b) held). Two registered bars failed informatively: the all-16 family
+eff-rank is **139**, above the [70,130] bar — the vocabulary grows sublinearly
+(~6 new dimensions per added reader, vs 191 available per reader) but it does grow;
+80 was the six-reader vocabulary, not the model's. And **L11 is a dissident**: its
+functionals reconstruct at R² −0.10 — worse than predicting the mean. One reader
+of sixteen speaks essentially none of the shared code.
+
+**Sparse coding, honest version** (`matrix_sae2`, after §81's vacuous v1): held-out
+sparse coding reaches R² 0.64 only at L0 ≈ **105 of 120 atoms** — that is dense
+coding wearing a dictionary, and it still loses to the dense-80 baseline (0.71).
+Atoms are complex (eff-rank ~32). Registered (a) failed. **The sparsity door is
+closed**: the functional vocabulary has no sparser atomic decomposition; it is a
+genuinely distributed 80–140 dimensional code.
+
+**QK query-side couplings** (do attention readers share the MLP vocabulary?): the
+strongest no on record, with an instrument caveat. The 27 heads' query-side
+quadratics reconstruct from the MLP basis at median R² **−0.26**, while random
+symmetric matrices reconstruct at **+0.37** — the random control is violated, so
+the registered bar's frame was miscalibrated (the fitted basis captures a sizable
+generic share of any symmetric matrix). The meaningful comparison is QK *versus*
+random: QK couplings sit far below chance, i.e. they concentrate in directions the
+MLP vocabulary actively avoids. Attention-pattern reading and MLP reading use
+**disjoint quadratic codes**. (Joint family eff-rank 88 — the QK code is itself
+compact.) Cross-reader-type sharing: refuted.
