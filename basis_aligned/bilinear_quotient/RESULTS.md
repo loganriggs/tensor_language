@@ -2170,3 +2170,13 @@ description is complete: dense envelope (rank 2.6), ~80 shared near-orthogonal
 functionals, steerable at range one, intrinsically unaddressable beyond.
 
 Full detail in `BILIN18_CONNECTION.md` §61.
+
+### Power without addressability
+
+Per-sequence gradient steering lifts deep own-movement 3.7× (0.22σ at L13, bar held)
+but cross-talk stays at 2.88σ (bar failed): context-dependence recovers reachability,
+not selectivity. Across all three intervention classes tested, anything strong enough
+to move one deep functional moves the collective state more. The opacity of the stack
+is a selectivity phenomenon.
+
+Full detail in `BILIN18_CONNECTION.md` §62.

@@ -2717,3 +2717,23 @@ instrument failed, but in the coordinates the architecture reads with. Registere
 items, honestly deferred: a CE-level gate (replacing live readers' L1-couplings with
 their rank-80 reconstructions — implementation is nontrivial because forms act on the
 full residual input), and the semantics of the principal functionals themselves.
+
+## 62. Context-dependent injection recovers power, not addressability
+
+File: `bilin18_contextual_steering.py` (9 s). Per-sequence gradient steering — each
+sequence steered along its own gradient direction:
+
+| target | own movement | cross-talk | (static gradient, for reference) |
+|---|---|---|---|
+| L5 | 0.71σ | 0.42σ | 1.02σ / 0.60σ |
+| L13 | **0.22σ** | **2.88σ** | 0.06σ / 3.70σ |
+
+Registered (a) held: context-dependence lifts L13 own-movement 3.7× over the static
+gradient — the *reachability* deficit is partly input-independence. Registered (b)
+failed: cross-talk remains 13× the own-movement. **Power returns; selectivity does
+not.** The refined final verdict on the stack's opacity: deep coefficients can be
+*influenced* by context-adaptive injection but not *addressed* — any injection strong
+enough to move one deep functional moves the collective state more, at every
+intervention class tested (static direct-path, static gradient, per-sequence
+gradient). Per-token injection is the next rung and is registered-open; the pattern
+across three rungs predicts it buys further power and no selectivity.
