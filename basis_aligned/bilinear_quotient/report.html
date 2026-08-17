@@ -116,14 +116,14 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
 
 <div class="wrap">
 <header class="col">
-  <p class="eyebrow"><b>Progress report</b> <span>16 August 2026</span> <span>36 commits</span></p>
+  <p class="eyebrow"><b>Progress report</b> <span>16 August 2026</span> <span>44 commits</span></p>
   <h1>What a bilinear layer throws away</h1>
   <p class="lede">Ten experiments on toy networks whose right answer is known in advance,
   an adversarial review that forced three retractions, and a mathematical pass that
   demoted two of the "findings" to theorems. This is where all three stand, what the
   results mean, and — new in this revision — what happened when the same measurements were
   finally run on the 546M-parameter model itself.</p>
-<nav class="toc" aria-label="Contents"><p class="tochd">Contents &mdash; 16 August revision: seven new sections on the real 546M model, three updated (one carries a correction)</p><ol><li><span class="num">01</span><a href="#setup">The setup, and the words</a></li><li><span class="num">02</span><a href="#tracks">Where the three tracks stand</a></li><li><span class="num">03</span><a href="#h1">1 · A circuit cut out of the weights</a></li><li><span class="num">04</span><a href="#h2">2 · Which tools don't work</a></li><li><span class="num">05</span><a href="#h3">3 · Routing, and the split inside a head</a><span class="flag upd">updated</span></li><li><span class="num">06</span><a href="#h4">4 · Two findings were theorems</a></li><li><span class="num">07</span><a href="#h5">5 · When parts can be trusted</a></li><li><span class="num">08</span><a href="#red">Red teaming</a></li><li><span class="num">09</span><a href="#openq">The unanswered question</a></li><li><span class="num">10</span><a href="#real">What this says about the real model</a><span class="flag upd">updated</span></li><li><span class="num">11</span><a href="#rm1">Real model · the attention evidence</a><span class="flag new">new</span></li><li><span class="num">12</span><a href="#rm2">Real model · the ignored direction</a><span class="flag new">new</span></li><li><span class="num">13</span><a href="#rm3">Real model · eight numbers for a layer</a><span class="flag new">new</span></li><li><span class="num">14</span><a href="#rm4">Real model · where it stops working</a><span class="flag new">new</span></li><li><span class="num">15</span><a href="#test1">A fix that isn't one</a><span class="flag new">new</span></li><li><span class="num">16</span><a href="#rm5">Real model · a number that isn't one</a><span class="flag new">new</span></li><li><span class="num">17</span><a href="#rm6">Real model · ten directions run the layer</a><span class="flag new">new</span></li><li><span class="num">18</span><a href="#ledger">Honest ledger</a><span class="flag upd">updated</span></li></ol></nav>
+<nav class="toc" aria-label="Contents"><p class="tochd">Contents &mdash; 16 August revision: 17 August revision: the layer program — four layers verified, red-teamed, and re-derived from the weights</p><ol><li><span class="num">01</span><a href="#setup">The setup, and the words</a></li><li><span class="num">02</span><a href="#tracks">Where the three tracks stand</a></li><li><span class="num">03</span><a href="#h1">1 · A circuit cut out of the weights</a></li><li><span class="num">04</span><a href="#h2">2 · Which tools don't work</a></li><li><span class="num">05</span><a href="#h3">3 · Routing, and the split inside a head</a><span class="flag upd">updated</span></li><li><span class="num">06</span><a href="#h4">4 · Two findings were theorems</a></li><li><span class="num">07</span><a href="#h5">5 · When parts can be trusted</a></li><li><span class="num">08</span><a href="#red">Red teaming</a></li><li><span class="num">09</span><a href="#openq">The unanswered question</a></li><li><span class="num">10</span><a href="#real">What this says about the real model</a><span class="flag upd">updated</span></li><li><span class="num">11</span><a href="#rm1">Real model · the attention evidence</a><span class="flag new">new</span></li><li><span class="num">12</span><a href="#rm2">Real model · the ignored direction</a><span class="flag new">new</span></li><li><span class="num">13</span><a href="#rm3">Real model · eight numbers for a layer</a><span class="flag new">new</span></li><li><span class="num">14</span><a href="#rm4">Real model · where it stops working</a><span class="flag new">new</span></li><li><span class="num">15</span><a href="#test1">A fix that isn't one</a><span class="flag new">new</span></li><li><span class="num">16</span><a href="#rm5">Real model · a number that isn't one</a><span class="flag new">new</span></li><li><span class="num">17</span><a href="#rm6">Real model · a handful of directions</a></li><li><span class="num">18</span><a href="#layers">Four layers read end to end</a><span class="flag new">new</span></li><li><span class="num">19</span><a href="#ledger">Honest ledger</a><span class="flag upd">updated</span></li></ol></nav>
 </header>
 
 <section class="col">
@@ -969,6 +969,61 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   survives of the orthogonality claim is only that no <em>single</em> atom is load-bearing
   — interference among ten real parts, not a divorce between naming and causing.
   (An enrichment of 1.8×, not identity; one layer of one model.)</p>
+  </div>
+</section>
+
+
+<section>
+  <div class="col">
+  <p class="eyebrow"><b>The layer program</b> <span>verify · red-team · abstract · theorize</span></p>
+  <h2 id="layers">Four layers read end to end — and the weights knew</h2>
+  <p>The work since the last revision follows one loop per layer: find the causal
+  directions, name what writes them, causally verify a compressed replacement, red-team
+  it, then state it as a variable graph and test each edge by transplanting values
+  between inputs. Four layers are through the loop.</p>
+
+  <table><thead><tr><th>layer</th><th>what its lead direction is</th><th>compressed replacement</th><th>naming</th></tr></thead>
+  <tbody>
+  <tr><td>0</td><td>current-token identity (embedding² 75%)</td><td>66% at 1.2k params</td><td>punctuation axis, <strong>ρ 0.95 verified</strong></td></tr>
+  <tr><td>1</td><td>squared context summary (one attention head)</td><td><strong>92–101% at 1.2–2.3k params</strong> (288×)</td><td>diffuse; register is correlate, not cause</td></tr>
+  <tr><td>16</td><td>accumulated attention×MLP cross-terms</td><td>replacement <em>beats</em> the model by 0.025 nats</td><td>weak; shares a syntax axis with layer 17</td></tr>
+  <tr><td>17</td><td>near-rank-4 syntax rules (previously read)</td><td>99% at rank 2 beyond projection</td><td>verified, uneven</td></tr>
+  </tbody></table>
+
+  <p>Highlights of the loop, each with its control:</p>
+  <p><strong>Causal verification split a story in half.</strong> Layer 1's lead direction
+  correlates with document register (its firing is half document-identity by variance,
+  and it tracks layout characters). The compression half verified: a 2,308-parameter
+  replacement restores the model to within noise, while the same replacement built on a
+  random direction repairs nothing. The semantics half failed: deleting the direction
+  hurts <em>prose</em> most, and injecting layout characters into prose moves it no more
+  than injecting random words. The exact attribution that named layout tokens was
+  decomposing natural covariance — <em>an exact decomposition is not an intervention</em>,
+  and that lesson is now load-bearing across the program.</p>
+  <p><strong>The variable graph holds where it should.</strong> Stated as variables —
+  head 4's context feeds a scalar z, the direction writes a·z²+b — and tested by
+  transplanting values between different documents: moving head 4's context moves z
+  (79% of all movement; no other head above 14%), and transplanting z reproduces 68% of
+  the true coefficient-transplant's downstream effect against a 13% shuffled control.
+  The 92%-versus-68% gap is localised to cross-document transport, which is exactly
+  where the earlier transfer test said the fit degrades.</p>
+  <p><strong>One anomaly, kept visible.</strong> Layer 16's replacement lands
+  <em>below</em> the intact model's loss. The discarded 664k parameters actively hurt on
+  this evaluation set. Registered hypothesis: train/eval distribution shift — the
+  compressed core generalises, the remainder is distribution-specific. Untested until
+  matching training-distribution data is available.</p>
+  <p><strong>Then the theory pass inverted the whole pipeline.</strong> The bilinear
+  layer is a third-order tensor, and its output structure has a closed form from the
+  weights plus exactly one data statistic (the input second moment). That formula holds
+  <strong>90–99.6% of the measured causal leader at all four depths</strong> (random:
+  ~1%), and pure weight algebra ranks the responsible attention head first with a 5×
+  margin. Everything expensive the program discovered about these leaders was one
+  computation away from the weights. Going forward the order reverses: weight-side
+  candidates first, model evaluations only to verify and to test edges.</p>
+  <p class="q">Also in this arc: the layer-1 investigation was corrected twice by its own
+  controls — a sample-size rerun collapsed "ten directions" to five-to-six (small-sample
+  PCA splits one real component into two), and a first ablation run silently scored the
+  intact model and was caught because every rung agreed. Both are in the record.</p>
   </div>
 </section>
 
