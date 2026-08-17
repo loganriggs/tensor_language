@@ -5810,3 +5810,31 @@ residual/attention channel to the output end, invisible at full strength
 because the middle compensates over it. The anomaly rests here at earned
 scope: eight private directions, written loudly, helping when deleted, read
 weakly-but-specifically by the output end, and shared by no one.
+
+## 215. The private writer is universal — and it sits at depth fraction one-third in both models
+
+File: `bilin12_sharing_landscape.py`. The registered long-shot held exactly:
+
+    bilin12 LORO by writer: L0 0.61  L1 0.56  L2 0.59  L3 0.32  L4 −0.08
+                            L5 0.38  L6 0.31  L7 0.40  L8 0.48  L9 0.24
+    random-V floor 0.22 | private writer L4, depth fraction 0.33
+    bilin18 private writer L6, depth fraction 0.33
+
+bilin12 reproduces the whole landscape shape: early writers shared most,
+sharing declining with depth, and **one sharp privacy notch — below the
+random-projection floor — at exactly the same depth fraction as bilin18's
+(0.33 vs 0.33)**. Registered bars (b), (c), (d) all held; (a) failed at the
+7-of-10 ≥ 0.35 bar (5 of 10) — overall sharing is weaker in the smaller
+model, the same size trend the replaceability arc measured, recorded as a
+scope note. The depth-fraction placement law, which put every component type
+at its fraction across four models, now places a phenomenon discovered two
+wakes ago: **wherever a bilinear stack is trained, the reader population
+declines to share a vocabulary over one writer at one-third depth.** The
+model-specific anomaly has become an architectural regularity — L6's private
+span is not a quirk of bilin18 but the 18-layer instance of a fixed-fraction
+structure. Scope stated plainly: the coupling-form instrument requires
+bilinear MLPs, so this family test covers the two bilinear models only;
+swiglu18/sqrd12 have no L⊙R forms to build the vocabulary from. Open,
+sharpened: what computation lives at fraction 1/3 that wants a code nobody
+else speaks — and does the fraction persist in a larger bilinear checkpoint
+(the standing scale prediction gains its sharpest test yet).

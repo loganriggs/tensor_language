@@ -3443,3 +3443,11 @@ the middle RAISES the ratio to 1.6-1.8: the middle absorbs the span's signal
 (compensation), and a modest direct residual/attention channel remains.
 
 Full detail in `BILIN18_CONNECTION.md` §214.
+
+### The private writer is universal: depth fraction 1/3 in both models
+
+bilin12's landscape reproduces bilin18's -- early sharing highest, declining
+with depth, one below-floor privacy notch at L4 = fraction 0.33 (bilin18: L6
+= 0.33). The placement law now places the newest phenomenon.
+
+Full detail in `BILIN18_CONNECTION.md` §215.

@@ -1,0 +1,19 @@
+writer L0: LORO +0.614 (random-basis -0.206)
+writer L1: LORO +0.564 (random-basis -0.014)
+writer L2: LORO +0.589 (random-basis +0.035)
+writer L3: LORO +0.324 (random-basis +0.056)
+writer L4: LORO -0.076 (random-basis +0.015)
+writer L5: LORO +0.376 (random-basis -0.058)
+writer L6: LORO +0.311 (random-basis -0.058)
+writer L7: LORO +0.404 (random-basis -0.013)
+writer L8: LORO +0.480 (random-basis -0.000)
+writer L9: LORO +0.243 (random-basis -0.065)
+random-V floor seed 0: +0.164
+random-V floor seed 1: +0.271
+
+floor +0.218 | min writer L4 at -0.076 (fraction 0.33)
+(a) >=7/10 writers >=0.35: FAILED
+(b) private writer exists: HELD
+(c) placement in [0.25,0.45]: HELD
+(d) random-basis <=0.1: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin12_sharing_landscape_results.json (46s)
