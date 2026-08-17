@@ -5638,7 +5638,33 @@ activity (R² 0.64) far better than what they **are** as matrices (0.26): reader
 share the behaviorally live components of their quadratic forms and diverge in
 the components the activation distribution never excites. The vocabulary is a
 shared way of acting on the same signals, not a shared set of matrix elements —
-consistent with §114's finding that the strong sharing is specific to writer L1,
-the one input every reader actually receives at high power. No ledger entry:
+(§209 note: the further claim made here that sharing is specific to writer L1,
+citing §114, was struck one wake later — behavioral sharing is writer-general.) No ledger entry:
 §61's published claim was correct as stated and survives row-decontamination;
 the wrongly-registered bar is recorded here as the instrument note it is.
+
+## 209. Correction: vocabulary sharing is writer-general — §114's L1-specificity was a metric artifact (ledger #16)
+
+File: `bilin18_behavioral_writers.py`. §208's lesson applied to §114, and §114
+does not survive it. §114 measured cross-reader sharing for writers L0 and L9
+with the matrix-element metric (0.12–0.25, bar failed) and concluded strong
+sharing is L1-specific. But the matrix-element metric underestimates behavioral
+sharing 2.5× (§208). On the activation-weighted instrument, fresh rows:
+
+    writer L0: behavioral LORO 0.699   (random −0.20)
+    writer L1: behavioral LORO 0.637   (random −0.27)
+    writer L9: behavioral LORO 0.538   (random −0.14)
+
+Registered bar (a) — both non-L1 writers under 0.45 — FAILED in the strongest
+way: **L0's vocabulary is shared more strongly than L1's.** Ledger entry #16:
+"strong sharing is L1-specific" corrects to **readers share a behavioral
+vocabulary over every strong writer tested** — the shared code is a property of
+how the reader population acts on upstream signals, not a special relationship
+with one writer. §114's subsidiary finding survives (L11 is a normal reader of
+L0/L9 — its dissidence remains L1-specific), and §208's closing sentence citing
+§114 as consistent is struck. The pattern of the last three sections, stated
+for the record: the elementwise metric systematically underestimates sharing,
+and every conclusion built on it needed re-measurement. Both LORO instruments
+now sit in the harness notes with their scopes: matrix-element for "what the
+forms are," activation-weighted for "what the forms do" — only the second
+supports vocabulary claims.

@@ -1,0 +1,8 @@
+writer L1: behavioral LORO +0.637 (random -0.272)
+writer L0: behavioral LORO +0.699 (random -0.204)
+writer L9: behavioral LORO +0.538 (random -0.140)
+
+(a) L0,L9 both <0.45 (L1-specific): FAILED -- ledger #16
+(b) L1 anchor >=0.55: HELD
+(c) randoms <=0.1: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_behavioral_writers_results.json (35s)

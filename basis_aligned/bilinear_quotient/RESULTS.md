@@ -3394,3 +3394,11 @@ Fresh-rows LORO 0.637 (orig 0.711) on the activation-weighted metric; 0.26 on
 matrix elements. Readers share what their forms do, not what they are.
 
 Full detail in `BILIN18_CONNECTION.md` §208.
+
+### Correction: vocabulary sharing is writer-general (ledger 16)
+
+Behavioral LORO: L0 0.70, L1 0.64, L9 0.54. Section 114's "L1-specific" was an
+artifact of the elementwise metric. Readers share a vocabulary over every
+strong writer tested.
+
+Full detail in `BILIN18_CONNECTION.md` §209.
