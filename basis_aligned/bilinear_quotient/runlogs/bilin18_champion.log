@@ -1,0 +1,9 @@
+/workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_hillclimb3b.py:57: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  if t==0: mse0=float(loss)
+champion: +1.619 at 2.82M | bilinear-rungs->r4-linear: +1.807
+NOTE: honest param count 2.82M exceeds 0.2M -- the bilinear combo carries a full-rank warm linear (D^2); (a) scored against the honest count.
+(a) <= +1.45 at <= 0.2M: FAILED
+(b) beats shared-basis by >= 0.25: FAILED
+(c) bilinear rungs matter (>= 0.05): HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_champion_results.json (13s)

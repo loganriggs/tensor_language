@@ -3333,3 +3333,10 @@ class-where selection is the understanding-shaped lever. Hillclimb arc: the
 recipe is class selection + refit + joint scoring.
 
 Full detail in `BILIN18_CONNECTION.md` §200.
+
+### Correction (ledger 15): the class lever's cost was misstated
+
+The warm full-rank base (1.33M) was uncounted; honestly, section 200's combo
+loses to full linear. Cheap-base retest queued -- the class question reopens.
+
+Full detail in `BILIN18_CONNECTION.md` §201.

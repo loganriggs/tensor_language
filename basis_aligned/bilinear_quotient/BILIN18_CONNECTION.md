@@ -5480,3 +5480,26 @@ hillclimb has its lever, and it is understanding-shaped after all — not
 recipe, final form: per-layer class selection from the maps (constant /
 low-rank linear / narrow warm-started quadratic), sequential refit, joint
 scoring, harness self-tests. BENCHMARK.md Pareto references updated.
+
+## 201. CORRECTION (ledger #15): §200's class-lever claim had a parameter-accounting error
+
+File: `bilin18_champion.py`. The champion assembly's honest parameter count
+exposed the bug: each warm-started bilinear combo carries a **full-rank D²
+linear base (1.33M params) that §200's accounting omitted**. Corrected:
+
+- §200's L1 combo: +0.330 at ~**1.55M** (not 0.22M) — versus full linear's
+  +0.29 at 1.33M. Slightly worse at slightly more params: **no Pareto win**.
+- The champion (class-selected 5–16): +1.619 at an honest **2.82M** — behind
+  the linear frontier (+1.541 at 1.18M). Registered (a)/(b) failed on the
+  honest count; (c) held (the bilinear rungs do buy 0.19 over rank-4 linear at
+  their positions — the *class* helps, the *cost* was misstated).
+
+> **Ledger #15.** "The class lever moves the frontier 3.4× at 1/6 size" is
+> withdrawn — the warm base was uncounted. What §200's numbers actually show:
+> linear + narrow quadratic residual ≈ full linear performance. Whether the
+> class lever wins *net* depends on whether the warm base can be made cheap —
+> queued: rank-32 linear base + width-64 bilinear at L1 (honest 0.30M).
+> Registered: (a) ≤ +0.60 individually — then the lever stands, honestly; a
+> failure closes the class question at this scale for good. The benchmark's
+> own accounting rules caught this within one run — which is the system
+> working, and the reason the parameter ledger exists.
