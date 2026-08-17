@@ -2470,3 +2470,12 @@ variable set exists. Open item closed negatively, as the report registered it
 might be.
 
 Full detail in `BILIN18_CONNECTION.md` §95.
+
+### Tail profiles complete; deletion-improves-CE is endemic
+
+The blind formula's spans are causal at 8/11 tail layers (all small, as dilution
+predicts). Five of eleven layers have an 8-dim span whose deletion IMPROVES
+home-corpus CE (best -0.016 at L9) -- truncation-as-regularization is not
+shift-specific. Stability check and constraint-release candidate four queued.
+
+Full detail in `BILIN18_CONNECTION.md` §96.

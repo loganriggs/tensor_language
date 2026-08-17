@@ -3444,3 +3444,30 @@ half. The 2→3→4 chain's long-anticipated "abstraction treatment" is hereby a
 at the front of the model — where adjacent coupling is strong (§93: share 0.13–0.25)
 — the writes are barely aimed (echoing §92's tail isotropy). The open item closes
 with a negative that the report registered in advance as an acceptable outcome.
+
+## 96. Tail profiles complete — and truncation-as-regularization is endemic, not shift-specific
+
+File: `bilin18_tail_profiles.py` (23 s), the report's last open item. Every tail
+layer 5–15 now has a measured 8-dim leader-span deletion effect, with three results:
+
+1. **The blind formula extends**: its weights-plus-S spans do real causal damage at
+   8 of 11 layers (≥5× the random-span noise of ±0.0009; registered (a) held).
+   Damage magnitudes are small everywhere (≤0.025 nats) — individual tail spans
+   matter little, exactly as the dilution picture predicts.
+2. **Formula-vs-PCA is muddied by a real phenomenon** (registered (b) failed at
+   4/11): the comparison breaks down because PCA deletion sometimes does *negative*
+   damage — at L9 the formula span costs +0.0060 while the PCA span *improves* CE
+   by −0.0156.
+3. **Five of eleven layers have a span whose deletion improves home-corpus CE**
+   (registered (c) held, far beyond its ≥1 bar): L8/L14/L15 formula-spans and
+   L6/L9/L15 PCA-spans, best −0.0156 at L9. The truncation-as-regularization
+   pattern, previously seen only on shifted corpora, is endemic to the tail on the
+   model's own distribution.
+
+Finding 3 reopens the constraint-release question with the candidates it always
+needed: §85's spans were chosen by *shifted*-corpus benefit and proved load-bearing
+at home. These new spans benefit the **home** corpus with no finetune. Queued:
+stability check (do the negatives replicate on disjoint held-out rows?) and
+constraint-release candidate four (delete L9's PCA span + finetune vs finetune-only
+control — registered skeptical after three refutations, but this is the first
+candidate whose no-finetune sign already points the right way).
