@@ -5008,3 +5008,17 @@ three bars held:
 The atlas completes the benchmark's ground-truth layer: every component of
 bilin18 now has an exact causal fingerprint, the sibling models have theirs,
 and the whole set is mutually distinguishable, smooth in depth, and typed.
+
+## 174. Seriation: the stack's order is written in its causal marks
+
+File: `bilin18_seriation.py`, all bars held. Spectral ordering of the
+fingerprint similarity graph recovers the true layer order at |ρ| **0.91**
+(MLP components) and **0.90** (attention), with shuffled-token nulls at
+0.23–0.28. Combined with depth-smoothness (§173) and the cross-model
+correspondence (§§163–168), the closing picture of the atlas arc: **a model's
+per-token ablation deltas, unlabeled, encode its architecture's depth order,
+vary smoothly along it, mark component type, and align across independently
+trained models at family-lawful depths.** The causal fingerprint is not noise
+around a net number — it is a structured coordinate system for the model's
+computation, and the benchmark's ground-truth layer inherits all of that
+structure.

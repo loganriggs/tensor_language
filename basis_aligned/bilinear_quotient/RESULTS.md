@@ -3124,3 +3124,11 @@ Full detail in `BILIN18_CONNECTION.md` §172.
 type-marked. Ground-truth layer complete.
 
 Full detail in `BILIN18_CONNECTION.md` §173.
+
+### Seriation: order from marks alone
+
+Layer order recoverable from unlabeled fingerprints (|rho| 0.91/0.90, nulls
+~0.25). The causal fingerprint is a structured coordinate system, not noise
+around a net number.
+
+Full detail in `BILIN18_CONNECTION.md` §174.
