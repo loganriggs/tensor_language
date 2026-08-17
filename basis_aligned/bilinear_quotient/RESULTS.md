@@ -1868,3 +1868,17 @@ criterion, the graph earned an advance prediction about a failure mode, and the 
 (refit 17's replacement downstream of 16's) is registered.
 
 Full detail in `BILIN18_CONNECTION.md` §32.
+
+### Composition has a law: excess ≈ 23 · d16 · d17
+
+Three single-mechanism explanations of the 16–17 composition interaction failed in a
+row (refit 21%, rank 0%, span 30% — each against a registered bar). The seven measured
+configurations then revealed the real structure: the excess follows a **product law**,
+excess ≈ c·d16·d17 with c = 22.9 ± 2.4, at 9% mean error across sweeps of two
+different fidelity knobs. Nothing was broken — a quadratic reader of summed errors
+produces a cross-term proportional to the product, so every knob shrinks a factor and
+none removes the coupling. Composition budgeting is now quantitative:
+joint ≈ Σdᵢ + c·Σ_linked dᵢdⱼ, with the causal graph naming the linked pairs (unlinked
+pairs measured at +0.0005).
+
+Full detail in `BILIN18_CONNECTION.md` §33–35.

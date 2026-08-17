@@ -1948,3 +1948,36 @@ fixed. Registered next: sweep R at fixed k; if the excess persists at R=16, the 
 signal between 16 and 17 lives substantially outside both top-4 output spans, which
 would connect this directly to the coverage-gap finding (top spans carry only a
 fraction of causal effect).
+
+## 35. The interaction obeys a product law — a composition rule, not a bug
+
+Files: `bilin18_interaction_span.py` (25 s) plus the joint analysis of §33–35's seven
+configurations. The span sweep also missed its registered bar (excess 0.0649 → 0.0452
+from R=4 to 16; 30% closed, bar was half). Three failed single-mechanism hypotheses in
+a row — refitting (21%), form rank (0%), output span (30%) — and then the data
+volunteered the actual structure:
+
+| config | d16 | d17 | excess | excess/(d16·d17) |
+|---|---|---|---|---|
+| k=2 | 0.0307 | 0.1018 | 0.0649 | 20.7 |
+| k=4 | 0.0304 | 0.1009 | 0.0655 | 21.4 |
+| k=8 | 0.0304 | 0.0968 | 0.0632 | 21.5 |
+| k=16 | 0.0298 | 0.0952 | 0.0616 | 21.7 |
+| R=8 | 0.0267 | 0.0770 | 0.0526 | 25.6 |
+| R=16 | 0.0258 | 0.0664 | 0.0452 | 26.4 |
+
+**excess ≈ c · d16 · d17 with c = 22.9 ± 2.4** — 9% mean prediction error across six
+configurations spanning two different fidelity knobs. The three fixes "failed" because
+there is nothing to fix: each knob shrinks a *factor*, and the excess follows the
+product, exactly as a quadratic reader of a sum of errors predicts (the cross-term of
+`(e16 + e17)` through a bilinear form is proportional to `e16·e17`). The architecture's
+signature again, this time in the composition algebra.
+
+**The practical composition rule for this model**:
+`joint damage ≈ Σᵢ dᵢ + c·Σ_(linked pairs) dᵢdⱼ`, with the graph supplying which pairs
+are linked (unlinked pairs contributed +0.0005 in §32) and c ≈ 23 for the 16→17 edge.
+Compression budgeting becomes quantitative: keep each replacement's solo damage small
+enough that the product terms stay inside the additive budget — e.g. d16·d17 < 0.002
+keeps the cross-term under 0.05 nats. Registered follow-ups: measure c on a second
+linked pair (needs one more verified edge with two surrogates), and test the law's
+out-of-sample prediction at an untried (R, k) corner.
