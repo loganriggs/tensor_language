@@ -4630,3 +4630,24 @@ filled at R² 0.742). The functional-nonlinearity map is complete end to end:
 Program state at §153: every layer mapped by both instruments, every component
 family profiled, every headline replicated, every origin question answered, and
 eleven corrections on the ledger — all caught by the program's own controls.
+
+## 154. UNIVERSALITY: all three laws hold in bilin12
+
+File: `bilin12_universality.py` (v1 failed on an architecture difference worth
+recording: bilin12 uses a *single squared score* (q·k)² where bilin18 uses a
+two-score product; v2 uses module-level attention). All three registered bars
+held on the sibling checkpoint (12 layers, 6 heads, 768 dims):
+
+- **Dilution**: tail write-to-stream ratios decline monotonically (1 inversion;
+  bilin18 had 0). Notably the *front* ratios exceed 1 (L3's write is 8.3× the
+  stream it joins) — the front-writes-loud motif is even stronger at small scale.
+- **Front-loaded functional nonlinearity**: costs L0 +0.265, **L1 +0.317
+  (peak)**, L2 +0.277, vs mid +0.10–0.14 — same shape, same L1 crown, though the
+  front/mid ratio is 2.6× (bilin18: ~9×) — the smaller model keeps relatively
+  more functional nonlinearity in its middle.
+- **Matched filters**: score-rank median 4.8 (of 128) vs shuffled 16.3 — nearly
+  identical numbers to bilin18's 4.3/18.7.
+- The λ-table motif repeats: embedding re-injection at weight ~4–8 everywhere.
+
+The program's structural laws are **family properties of bilinear transformers**,
+not bilin18 idiosyncrasies.

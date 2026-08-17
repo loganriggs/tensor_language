@@ -2964,3 +2964,11 @@ Full detail in `BILIN18_CONNECTION.md` §153.
 Standing regression test passes on first run (score-rank 4.1, L1 +0.275,
 dilution ratios exact). Re-run bilin18_canary.py after any environment or
 instrument change.
+
+### Universality: bilin12 obeys all three laws
+
+Dilution monotone, L1 linearization crown (+0.317), matched filters 4.8 vs 16.3
+shuffled -- family properties, not quirks. (bilin12 uses a single squared score;
+architecture note recorded.)
+
+Full detail in `BILIN18_CONNECTION.md` §154.
