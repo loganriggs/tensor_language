@@ -3922,3 +3922,20 @@ most strongly. The user's prediction holds in its qualitative form — L11 relat
 normally to other layers — while the strong-sharing bar was unreachable because
 strong sharing itself is an L1 phenomenon. (Caveat: the reader set here swapped
 L9→L15 to avoid writer/reader overlap; a weaker basis than §84's.)
+
+## 115. Attention compensates too; the last excess suspect is the final norm
+
+File: `bilin18_residual_excess_locator.py`. Registered (a) failed with a perfect
+control (clamp exactly free under no damage), and the failure is a discovery:
+freezing L17's attention to its clean-run values **doubles** the surviving excess
+(+0.030 → +0.066). L17's attention does not carry the residual interaction — it
+**absorbs** part of it, responding to the damaged stream in a way that reduces
+the joint penalty. That is the second damage-compensator found at this layer
+(§103 found the MLP's quadratic residue cushioning the same channel). The
+interaction accounting so far: 79% L17's quadratic skin, and the remainder is
+*more* than measured — attention hides a chunk of it. By elimination, the
+surviving excess must live in the **final rms_norm**, the only nonlinearity left
+on the linear-L17 path. Queued: freeze the final norm's per-token scale to
+clean-run values under the same arms; registered (a) that kills ≥60% of the
+free-attention excess (+0.030), closing the interaction ledger exactly; control
+(b) norm-freeze free under no damage.

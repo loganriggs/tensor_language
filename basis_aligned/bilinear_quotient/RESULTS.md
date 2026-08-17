@@ -2642,3 +2642,11 @@ the strong shared code and L11's foreignness are specific to writer L1. User's
 qualitative prediction supported.
 
 Full detail in `BILIN18_CONNECTION.md` §114.
+
+### Attention compensates too
+
+Freezing L17's attention DOUBLES the surviving excess (0.030 -> 0.066; control
+exact): attention absorbs interaction damage rather than carrying it -- second
+compensator at this layer. Final-norm freeze queued to close the ledger.
+
+Full detail in `BILIN18_CONNECTION.md` §115.
