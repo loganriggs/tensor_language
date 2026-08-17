@@ -5237,3 +5237,25 @@ spec now requires). Results:
   1 weak (mlp9), 1 refuted (attn1's position story). The benchmark's semantic
   track is now demonstrated end to end — assets, floors, regime rules, matching
   nulls, and a first scored submission with honest mixed results.
+
+## 188. Round 2: the first certified edge explanation
+
+File: `bilin18_track1_round2.py`. Registered (a) and (c) held, (b) fell short:
+
+- **E1 certified — the edge-explanation class works.** "attn6 transports L5's
+  MLP-written content" compiles to fingerprint kinship, and attn6's fingerprint
+  resembles mlp5's at 0.223 versus 0.087 for the median other MLP (2.6×, past
+  the +0.05 bar). The §§133–134 cargo edge is thereby re-confirmed by a third
+  independent instrument (span deletion, pattern-clamping, and now fingerprint
+  kinship), and Track-1 gains a scoreable relation type: edge claims compile to
+  "these two components mark the same tokens."
+- E2 (mlp9, confident-error refinement): improved +0.092 → +0.129 but under the
+  +0.05 gain bar — directionally supportive of the overshoot story, not
+  certified.
+- E3 (attn14): the confident-error framing ties its plain-difficulty score
+  (0.171 vs 0.183, within tolerance) — the plain story already carries the
+  content.
+
+Track-1 scoreboard after two rounds: **two certified** (attn14's component
+story, attn6's edge story), two floor-to-weak, one refuted — with regime rules,
+distinctiveness rules, and now a working edge-explanation class.

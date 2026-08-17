@@ -79,7 +79,10 @@ the instrument of record (the axis method failed twice on weak fingerprints).
 Regime-paired asset: `bilin18_frozen_fingerprints.pt` (gain-frozen variants;
 §187 demonstrated the regime flip live: mlp16's score moves −0.135 → +0.053
 between regimes). First scored pilot: attn14 certified (+0.28), mlp16
-floor-grade, attn1 refuted — the track works and grades honestly.
+floor-grade, attn1 refuted — the track works and grades honestly. Round 2 added
+the EDGE-EXPLANATION class: an edge claim compiles to fingerprint kinship
+("these two components mark the same tokens") and is scored against the median
+non-partner kinship; the cargo edge certified at 0.223 vs 0.087 (§188).
 
 Ground-truth asset: `bilin18_fingerprints.pt` — per-token ablation deltas for
 12 components on a fixed held-out set (fingerprints mutually near-orthogonal,

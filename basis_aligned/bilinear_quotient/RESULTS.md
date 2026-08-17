@@ -3238,3 +3238,11 @@ but floor-grade; frozen-fingerprint asset shipped. The semantic track is
 operational with honest mixed results.
 
 Full detail in `BILIN18_CONNECTION.md` §187.
+
+### First certified edge explanation
+
+"attn6 transports L5's content" scores 0.223 vs 0.087 median-other by
+fingerprint kinship -- the cargo edge's third independent confirmation, and a
+new scoreable relation type for Track-1. Scoreboard: two certified.
+
+Full detail in `BILIN18_CONNECTION.md` §188.
