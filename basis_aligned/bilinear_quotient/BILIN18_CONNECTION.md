@@ -1546,3 +1546,42 @@ components as the hypothesis set, and spend the model evaluations only on Shaple
 *verification* and interchange tests of weight-derived candidates. The measurement
 budget so far was spent discovering things the weights already contained; from here it
 should be spent testing them.
+
+---
+
+## 24. The syntax bus: a verified two-layer variable, with a rectified edge
+
+File: `bilin18_syntax_bus.py` (5 s). §22 noticed the same pronoun-vs-sentence-ender
+axis in layer 16's #2 causal direction and layer 17's #2 output direction. That was an
+observation; this makes it a tested graph edge.
+
+**T1 — the pair is special.** corr(c16-axis, c17-axis) = **0.935** across positions.
+Other layer-16 directions against the same layer-17 coefficient: median |r| 0.131, max
+0.284. The two sites carry the same signal to first approximation.
+
+**T2 — the edge is causal, specific, and one-sided.** Steering c16 by +2σ at every
+position moves c17 by **+0.95σ** — essentially unit gain — while a causally-irrelevant
+layer-16 direction steered identically moves it 0.035σ (**14.8× specificity**). But
+steering by −2σ moves c17 by only −0.04σ: the edge is **rectified**. That asymmetry is
+exactly what the architecture predicts: layer 17's coefficient is a *quadratic* form,
+and a squared readout of a shifted input responds linearly on one side of its operating
+point and flattens near the vertex on the other. The bilinear mechanism is visible in
+the intervention's shape — a structural signature no linear-circuit picture would
+produce.
+
+**T3 — the token-level semantics fail specificity, again.** Steering ±2σ moves
+determiner log-probs by large amounts (+1.45/−0.98), but matched control tokens move
+*more* (+1.71/−1.53). At this magnitude the intervention shifts the whole common-token
+distribution rather than the determiner slice — so "writes toward determiners" is not
+supported as a specific causal effect at the steering scale tested. Two caveats
+recorded: ±2σ at every position is a large, out-of-distribution intervention (log-prob
+shifts of 1.5 nats say the model is far from its operating regime), and a
+smaller-magnitude, positionally-targeted version might yet show specificity. As
+measured: unsupported.
+
+**The pattern across the program is now three-for-three**: structural/graph claims
+(head4→z, the L16→L17 bus, compression ladders) verify under intervention; token-level
+semantic claims (layout drives the register leader, the bus writes determiners) fail
+specificity every time they are tested causally. The reliable currency of this model's
+mechanisms is *directions, edges, and gains* — not token stories. That is itself a
+finding about what interpretability claims this architecture licenses.

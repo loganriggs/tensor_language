@@ -1734,3 +1734,20 @@ layer-1 surrogate, as a tensor network, is 2,306 parameters and 6,903× cheaper 
 than the layer it replaces.
 
 Full detail in `BILIN18_CONNECTION.md` §23.
+
+### The syntax bus: a verified two-layer variable
+
+The pronoun-vs-sentence-ender axis seen independently at layers 16 and 17 is now a
+tested edge: the two coefficients correlate at **0.935** (other direction pairs: median
+0.13), and steering the layer-16 side by +2σ moves the layer-17 side by **+0.95σ** —
+unit gain — with 14.8× specificity over a control direction. The edge is **rectified**
+(−2σ moves almost nothing), which is exactly the signature a squared readout predicts:
+the bilinear mechanism is visible in the intervention's shape.
+
+The token-level semantics failed specificity again: steering moves determiner log-probs
+strongly, but matched control tokens move more. Three-for-three now — structural claims
+(head→variable, layer→layer edge, compression) verify interventionally; token-story
+claims fail every causal test. The reliable currency of this model's mechanisms is
+directions, edges, and gains.
+
+Full detail in `BILIN18_CONNECTION.md` §24.
