@@ -517,7 +517,13 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   token-level causal responsibility to attention components at the <strong>same
   fractional depths</strong> — bilin12's components best-match bilin18 at exactly their
   own depth fraction (0.06/0.17/0.50, three for three), with analogous components
-  correlating at 0.34 against a 0.05 non-analog floor. One hypothesis was tested and refuted on three candidate classes: that
+  correlating at 0.34 against a 0.05 non-analog floor. The full fingerprint atlas (36
+  components, every layer's MLP span and attention) is mutually distinguishable (median
+  0.07), <strong>depth-smooth</strong> (35 of 36 components' nearest same-type fingerprint
+  is an adjacent layer's — causal responsibility varies smoothly along the stack), and
+  type-marked; edges in the benchmark carry <em>functional types</em> (coordinates,
+  summary statistics like norms, low-rank maps, or opaque) priced by description length,
+  with both-direction audits whose sign distinguishes energy-dependence from content. One hypothesis was tested and refuted on three candidate classes: that
   the residual stream <em>constrains</em> the model — that pruning connections plus a short
   finetune could beat the intact model. Spans flagged by deletion benefit (+0.026 nats vs
   an identically-finetuned control), the foreign-code reader L11 (+0.033), and the

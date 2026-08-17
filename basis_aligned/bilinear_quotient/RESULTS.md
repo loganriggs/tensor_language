@@ -3117,3 +3117,10 @@ Structure is real and never total -- the program's oldest lesson at the newest
 instrument.
 
 Full detail in `BILIN18_CONNECTION.md` §172.
+
+### The full atlas
+
+36 exact fingerprints: distinguishable (0.07), depth-smooth (35/36),
+type-marked. Ground-truth layer complete.
+
+Full detail in `BILIN18_CONNECTION.md` §173.

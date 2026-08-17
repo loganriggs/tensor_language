@@ -4989,3 +4989,22 @@ the L5 interface: cutting the watched channel removes a concentrated ~0.03
 newest instrument: **structure is real and never total** — every concentrated
 channel found in this model carries a well-measured minority of the function,
 and the majority stays diffuse.
+
+## 173. The full atlas: 36 fingerprints, depth-smooth, type-marked
+
+File: `bilin18_fingerprint_atlas.py`; asset saved
+(`bilin18_fingerprint_atlas.pt`, every layer's MLP span and attention). All
+three bars held:
+
+- **Distinguishable at scale**: median pairwise |Spearman| 0.07 across 36
+  components.
+- **Depth-smooth, 35/36**: nearly every component's most-similar same-type
+  fingerprint is an adjacent layer's (±2). Token-level causal responsibility
+  varies smoothly along the stack — the structural fact beneath the
+  single-peaked correspondence curves of §§165–168.
+- **Type-marked**: within-type similarity (0.09) exceeds cross-type (0.06) —
+  the relay's two stages leave systematically different marks on tokens.
+
+The atlas completes the benchmark's ground-truth layer: every component of
+bilin18 now has an exact causal fingerprint, the sibling models have theirs,
+and the whole set is mutually distinguishable, smooth in depth, and typed.
