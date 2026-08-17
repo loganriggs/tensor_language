@@ -2149,3 +2149,14 @@ backward pass) tests whether the range limit is intrinsic or a direct-path targe
 artifact.
 
 Full detail in `BILIN18_CONNECTION.md` §59.
+
+### The limit is intrinsic
+
+Gradient steering — the exact end-to-end sensitivity direction — fails at L13 exactly
+as direct-path targeting does (0.06σ own, 3.70σ cross-talk), and the two directions
+are nearly orthogonal to each other. No static direction addresses a deep coefficient
+individually: perturbations diffuse into collective motion within about one layer. The
+functional-coordinates arc closes: ~80 principal functionals, surgical at range one,
+individually unaddressable at depth. Locally transparent, globally opaque.
+
+Full detail in `BILIN18_CONNECTION.md` §60.

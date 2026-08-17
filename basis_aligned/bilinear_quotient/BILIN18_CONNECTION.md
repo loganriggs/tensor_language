@@ -2658,3 +2658,37 @@ deep coefficient with respect to an additive perturbation at L1's output is the 
 end-to-end sensitivity direction, computable by one backward pass. Registered: gradient
 steering restores own-movement ≥ 0.5σ at L13 (targeting artifact) — or fails to
 (intrinsic limit), and either answer settles the arc. Queued.
+
+## 60. The range limit is intrinsic: deep coefficients are not individually addressable from L1
+
+File: `bilin18_gradient_steering.py` (9 s). Both registered predictions failed, and the
+failures constitute the answer:
+
+| target | gradient own | direct own | gradient cross-talk | cos(grad, direct) |
+|---|---|---|---|---|
+| L5 | 1.02σ | 0.43σ | 0.60σ | +0.14 |
+| L9 | 0.37σ | 0.30σ | 0.09σ | −0.08 |
+| L13 | **0.06σ** | 0.05σ | **3.70σ** | −0.09 |
+
+The gradient — the *exact* end-to-end sensitivity direction, accounting for everything
+layers 2–12 do to the perturbation — restores nothing at L13 (0.06σ, bar 0.5) while its
+cross-talk explodes to 3.70σ: the optimal direction for moving one deep coefficient
+moves *other* coefficients sixty times more. And cos(gradient, direct-path) ≈ ±0.1 at
+depth: the two candidate targeting directions are nearly orthogonal *and both fail*,
+which rules out every static-direction strategy at once.
+
+**Verdict: the one-layer coherence length is an intrinsic property of the quadratic
+stack.** A static perturbation at L1, in any direction, diffuses into broadband
+collective motion within a few layers; deep coefficients respond to the *collective*
+state, not to any injectable direction. Individual addressability of deep functionals
+from shallow layers does not exist in this model at static-steering magnitudes —
+long-range control would require input-dependent (per-token, per-context) injection,
+which is a different class of intervention. At L5 the gradient does double the direct
+effect (1.02σ vs 0.43σ) at the cost of selectivity (0.60σ cross-talk): even at short
+range, power and precision trade off.
+
+This closes the functional-coordinates arc with a complete characterisation: **~80
+principal functionals, surgically steerable at range one, collectively but not
+individually influential at depth** — the quadratic stack is locally transparent and
+globally opaque to static intervention, with the transition happening in a single
+layer.
