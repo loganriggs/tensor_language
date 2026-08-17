@@ -2615,3 +2615,13 @@ embeddings at weight 8; L1 and L5 nearly discard the stream (lambda0 = 0.013,
 0.065) -- the lexical bus and L1's vocabulary role follow by construction.
 
 Full detail in `BILIN18_CONNECTION.md` §111.
+
+### Norms correct the lambda story; residual quadratic not PCA-compact
+
+No layer is embedding-dominated (the 8x re-injection is a constant whisper); L0's
+write (RMS 1436 into a stream of 6) is the true reset, and the tail amplifies
+(L17 writes at 1851, loudest in the network). The linear-residuals are not
+low-rank quadratics in input PCA (19% at L17, 0% at L9); Gram-basis version
+queued.
+
+Full detail in `BILIN18_CONNECTION.md` §112.

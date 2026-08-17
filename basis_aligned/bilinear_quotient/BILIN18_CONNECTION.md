@@ -3848,3 +3848,34 @@ embedding-dominated by construction), L1's role as the vocabulary source (it
 computes on nearly raw embeddings), and why the λ-mixing instrument bug (§105) hit
 hardest exactly at L5. Relative-norm measurement queued (λ-weighted term sizes per
 layer), plus the user-suggested compressed-quadratic-on-the-residual test.
+
+## 112. Corrections from the norm table; the residual quadratic is not PCA-compact
+
+**Correction to §111's inference.** The raw λs misled me: λ₀ ≈ 0.013 at L1 looks
+like a stream reset, but the stream it multiplies is huge, so the λ₀·x_prev term
+(RMS 18.3 at L1, 66.5 at L5) still exceeds the 8·x₀ embedding term (RMS 8.0, 5.1).
+**No layer is embedding-dominated** (registered (a) failed); the embedding
+re-injection is a constant-size 8.0 whisper that fades below 1% of the stream by
+the tail. The lexical bus (§101) is therefore carried by embedding information
+*persisting in the stream*, not by re-injection dominance. What the norm table
+found instead:
+
+- **L0 is the real reset**: its MLP writes at RMS **1436 into a stream of ~6** —
+  the post-L0 stream essentially *is* L0's computation on raw embeddings.
+- **The tail turns the volume up**: MLP write norms fall through the middle
+  (dilution, §93) then surge at the end — L15: 332, L16: 938, **L17: 1851**, the
+  loudest write in the network, exceeding the stream it joins. The last layers
+  are output-preparation amplifiers; registered (c) (monotone decline) failed on
+  exactly this surge.
+
+**The user-suggested compressed quadratic** (`bilin18_quadratic_residual.py`):
+the linear-fit residual is **not compact in the input's principal subspace**. A
+full quadratic on the top-64 input PCs captures only 19% of L17's residual
+variance and ~0% of L9's (registered (a) failed, (b) held). Since each MLP *is*
+exactly quadratic, this means the quadratic's active input subspace is
+misaligned with the input's principal directions — the same off-principal motif
+as L1's mezzanine (§110), now on the input side. Queued: the same fit in the
+**input-mode Gram eigenbasis** (the quadratic's own preferred coordinates, from
+weights) — registered: Gram top-64 captures ≥ 2× what PCA-64 did at L17, and
+≥ 0.25 absolute at L9; if it also fails, the residual is diffuse in every basis
+and "compressed quadratic" is closed.
