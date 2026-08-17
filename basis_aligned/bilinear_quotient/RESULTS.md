@@ -2293,3 +2293,12 @@ robustness hypothesis lost its main support under covariance-matched controls (1
 below bar): density is inherited, not selected.
 
 Full detail in `BILIN18_CONNECTION.md` §75.
+
+### Built, not carved
+
+The trained vocabulary is 83–93% outside the generic functional structure (7.5% energy
+in the shuffled top-80; 17% in the full generic span). SGD replaced the inherited
+machinery's content wholesale with a new shared 80-dim code. Scaling test queued:
+vocabulary dimension vs writer complexity across writer layers.
+
+Full detail in `BILIN18_CONNECTION.md` §76.

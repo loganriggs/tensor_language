@@ -3057,3 +3057,18 @@ covariance-matched sparse controls, the targeted-damage advantage shrinks to 1.6
 discipline check still fails — most of v1's apparent robustness was data-covariance
 alignment, not support density. Consistent with the null: density isn't selected *for*
 anything; it is inherited, and its incidental robustness benefits are modest.
+
+## 76. The vocabulary is built, not carved
+
+File: `bilin18_vocab_vs_generic.py` (19 s). Both registered predictions held, at the
+stronger end: the trained top-80 vocabulary has **0.075** of its energy in the
+shuffled-weights top-80 span (random baseline 0.035) and only **0.170** in the *full*
+generic 191-dimensional structure. Training did not compress the inherited functional
+family — it discarded it and built a nearly-orthogonal-to-generic subspace essentially
+from scratch. Combined with §75, the complete origin story of the middle's reading
+code: **architecture supplies dense, orthogonal, ~191-dimensional generic machinery;
+SGD replaces its content with an 83%-new, 80-dimensional, cross-reader-shared
+vocabulary.** The gradient-coupling hypothesis (readers training against a shared
+writer converge onto a common code) remains the candidate mechanism, with its
+registered scaling test queued: vocabulary dimension should track the writer's output
+complexity across writer layers.
