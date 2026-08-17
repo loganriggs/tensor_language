@@ -2415,3 +2415,14 @@ heads barely share even within a layer (eff-ranks 6-7.9 of 9; layer codes
 distinct): the shared-vocabulary phenomenon is MLP-specific at every grouping.
 
 Full detail in `BILIN18_CONNECTION.md` §89.
+
+### Constraint-release: closed. The dissident is contextual.
+
+Third candidate (cutting the L16-L17 interchange edge) is the most load-bearing
+yet: +0.067 nats over the finetuned control. All three motivated candidate classes
+refuted, ordered: the more structurally implicated, the more load-bearing. L11's
+damage concentration is per-occurrence, not per-token-type (frequency Spearman
+-0.09, split-half 0.35) -- contextual business, like every verified story in this
+model.
+
+Full detail in `BILIN18_CONNECTION.md` §90.

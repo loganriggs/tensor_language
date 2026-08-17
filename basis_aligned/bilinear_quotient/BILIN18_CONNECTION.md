@@ -3330,3 +3330,26 @@ the layer codes are mutually distinct (median principal cos 0.24, held). Combine
 with §88 (family 15.5/27, LOLO 0.18): QK reading is **mostly per-head**, with mild
 within-layer sharing and near-zero cross-layer sharing. The strong shared-vocabulary
 phenomenon is specific to MLP quadratic reading at every grouping we can form.
+
+## 90. Constraint-release closed on three candidate classes; the dissident's business is contextual
+
+**Candidate three — the interchange edge** (`bilin18_constraint_interchange.py`):
+cutting L17's read of L16's top-8 output span costs 0.183 nats raw; after a 200-step
+finetune the model recovers most but stays **+0.067 nats worse** than the finetuned
+control — the largest gap of the three candidates (registered skeptical bar held).
+The user's residual-stream-constraint hypothesis is now refuted on all three
+motivated candidate classes, with an instructive ordering: the more structurally
+implicated the connection, the *more* load-bearing it proves —
+deletion-benefit spans +0.026, foreign-code reader +0.033, product-law edge +0.067.
+Nothing tested behaves like a constraint whose removal frees capacity; everything
+tested carries function the finetune cannot rebuild. The arc is closed unless a
+fundamentally different candidate class appears.
+
+**L11's damage is contextual, not lexical** (`bilin18_l11_tokens.py`): the §89
+concentration (top decile of token *occurrences* = 51% of damage) does not project
+onto token *types*: damage is uncorrelated with corpus frequency (Spearman −0.09;
+"rare-token specialist" failed) and the per-type profile is only weakly stable
+across disjoint held-out halves (split-half 0.35 < 0.5 bar). The random-shift
+control held (0.08), so the profile is L11-specific — but it is organized by
+context, not by vocabulary item. Consistent with everything else about this model:
+token-level stories fail, structural/contextual ones verify.
