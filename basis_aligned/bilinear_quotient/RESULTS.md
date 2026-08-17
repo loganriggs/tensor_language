@@ -2980,3 +2980,11 @@ linear; L1 = irreducibly quadratic. The reference Pareto for the
 fidelity-vs-complexity benchmark.
 
 Full detail in `BILIN18_CONNECTION.md` §155.
+
+### Correction: a relay, not two channels
+
+Attention watch-lists align with upstream MLP writes (0.62-0.68), not attention
+writes (0.20-0.43): MLPs write, attention transports, MLPs consume. Ledger #12.
+bilin12 identity confirmed (CE 4.23).
+
+Full detail in `BILIN18_CONNECTION.md` §156.

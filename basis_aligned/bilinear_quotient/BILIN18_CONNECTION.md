@@ -4677,3 +4677,24 @@ the direction that answers the user's question at its strongest:
 This table is the reference fidelity-vs-complexity Pareto for the benchmark
 design (see RESULTS note): three regimes — constant, low-rank linear, full
 quadratic — and the program's maps say exactly where each applies.
+
+## 156. CORRECTION: not two channels — a relay. Attention reads what MLPs write
+
+File: `bilin18_channel_test.py` (prompted by the user's "what's reading what?").
+Registered (a) failed 0/3, decisively: at every reader layer tested, the
+attention watch-list aligns far more with upstream **MLP** writes (0.62–0.68)
+than with upstream attention writes (0.20–0.43). (b) held 3/3 but weakly
+(MLP-watch vs MLP-write 0.17–0.23, barely above the 0.16–0.22 null).
+
+> **Correction to §132's "multiplexed bus."** The two component types are
+> separated *locally* (different read apertures, different write directions at
+> each layer) but the end-to-end flow is **cross-type**: attention's read
+> directions are precisely where upstream MLPs deposit. With §134 (attention
+> moves content as values/cargo), the corrected picture is a **relay**:
+> MLPs write → attention reads MLP-written content and transports it across
+> positions → MLPs consume. There is no attention-to-attention channel.
+> Ledger #12; report updated.
+
+bilin12 identity check (user request): base CE 4.23 vs bilin18's 4.00 on the
+same rows — consistent with a half-depth, two-thirds-width sibling; config
+confirms `squared_attn: True`. Right model.
