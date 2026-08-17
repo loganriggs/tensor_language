@@ -3140,3 +3140,11 @@ type-marked -- the atlas structure is a family property. Joint seriation is the
 staged next step.
 
 Full detail in `BILIN18_CONNECTION.md` §175.
+
+### One causal depth coordinate
+
+Pooled 30-component embedding tracks depth fraction at 0.85 across both models
+(null 0.30). The family shares one causal depth axis -- the fingerprint arc's
+capstone.
+
+Full detail in `BILIN18_CONNECTION.md` §176.

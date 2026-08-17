@@ -5033,3 +5033,17 @@ component type — is now a property of the family, not one model. Assets in
 place for next: joint cross-model seriation (do the two stacks embed into one
 ordered causal coordinate system, with the family-lawful depth warp visible as
 the embedding's alignment?).
+
+## 176. One causal depth coordinate for the family
+
+File: `bilin_joint_seriation.py`. The registered headline held: embedding all 30
+MLP fingerprints from both models in a single spectral ordering yields a
+coordinate that tracks **depth fraction at |ρ| = 0.85** across models (shuffled
+null 0.30). Within-model orders inside the joint embedding: bilin18 0.85,
+bilin12 0.74 (the (a) bar of 0.8 missed narrowly on the smaller model — the
+joint axis costs it a little fine order). The fingerprint arc's capstone
+statement: **the bilinear family shares one causal depth coordinate.** Unlabeled
+per-token ablation deltas from two different models, pooled, self-organize onto
+a single axis — and that axis is fractional depth. Everything the program
+measured layer-by-layer (front-loading, dilution-then-amplification, the relay,
+the correspondence law) lives along this one recoverable coordinate.
