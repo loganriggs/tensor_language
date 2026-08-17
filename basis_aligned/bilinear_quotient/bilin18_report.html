@@ -503,7 +503,14 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   identically-finetuned intact control (+0.011 nats). Four candidate classes, four
   refutations, the last selected by the hypothesis's own success criterion: deletion
   benefit is a property of the frozen operating point, not spare capacity. Nothing found
-  in this model is a removable constraint. One hypothesis was tested and refuted on three candidate classes: that
+  in this model is a removable constraint. The program's instruments have meanwhile been
+  assembled into a benchmark draft (BENCHMARK.md in the repo): a semantic track scored
+  causally (explanations must predict ablation outcomes, not just activation
+  correlations) and a structural track scored on a measured fidelity-vs-complexity
+  Pareto — replacement programs from a typed ladder (constant → low-rank refit linear →
+  full component; the compact-quadratic rung is measured dead), with reference points
+  from +1.81 nats at 0.07M stand-in parameters to +1.26 at 15.9M, and complexity counted
+  at the balanced gauge point so it cannot be gamed by rescaling. One hypothesis was tested and refuted on three candidate classes: that
   the residual stream <em>constrains</em> the model — that pruning connections plus a short
   finetune could beat the intact model. Spans flagged by deletion benefit (+0.026 nats vs
   an identically-finetuned control), the foreign-code reader L11 (+0.033), and the
