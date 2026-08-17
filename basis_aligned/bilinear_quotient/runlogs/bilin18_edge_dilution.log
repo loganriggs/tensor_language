@@ -1,0 +1,15 @@
+edge 5->6: dilution ratio 53429.2439 | effect 0.2768
+edge 6->7: dilution ratio 20542.5426 | effect 0.3593
+edge 7->8: dilution ratio 12424.6302 | effect 0.3403
+edge 8->9: dilution ratio 31842.3518 | effect 0.2401
+edge 9->10: dilution ratio 35898.0703 | effect 0.2771
+edge 10->11: dilution ratio 27518.1737 | effect 0.1500
+edge 11->12: dilution ratio 56288.1838 | effect 0.1620
+edge 12->13: dilution ratio 60942.5114 | effect 0.1396
+edge 13->14: dilution ratio 57220.3255 | effect 0.1475
+edge 14->15: dilution ratio 51386.1912 | effect 0.0406
+
+Spearman(dilution, effect): -0.61 | inversions 4/9
+(a3) dilution explains (>=0.7): FAILED
+(b3) ratio ~monotone (<=1 inversion): FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_edge_dilution_results.json (1s)
