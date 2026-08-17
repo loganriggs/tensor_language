@@ -843,17 +843,28 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   looked for it.</p>
   <p>"Almost free" is a trap, though, and the cheapest possible check exposes it. Delete all
   fourteen middle layers' bilinear units at once instead of one at a time:</p>
-  <figure><svg viewBox="0 0 760 190" role="img" aria-label="individual versus joint ablation of the middle layers"><text class="panel" x="8" y="16">deleting layers 2–15: one at a time, added up, versus all at once</text><line class="grid" x1="286.0" y1="34" x2="286.0" y2="124"/><text class="tick" x="286.0" y="140" text-anchor="middle">0</text><line class="grid" x1="359.9" y1="34" x2="359.9" y2="124"/><text class="tick" x="359.9" y="140" text-anchor="middle">1</text><line class="grid" x1="433.9" y1="34" x2="433.9" y2="124"/><text class="tick" x="433.9" y="140" text-anchor="middle">2</text><line class="grid" x1="507.8" y1="34" x2="507.8" y2="124"/><text class="tick" x="507.8" y="140" text-anchor="middle">3</text><line class="grid" x1="581.7" y1="34" x2="581.7" y2="124"/><text class="tick" x="581.7" y="140" text-anchor="middle">4</text><line class="grid" x1="655.6" y1="34" x2="655.6" y2="124"/><text class="tick" x="655.6" y="140" text-anchor="middle">5</text><rect class="bar s1" x="286" y="46" width="132.3" height="22" rx="2"/><text class="grouplab" x="278" y="62" text-anchor="end">the 14 costs added up</text><text class="val" x="426.3" y="62">1.79 nats</text><rect class="bar s2" x="286" y="84" width="380.1" height="22" rx="2"/><text class="grouplab" x="278" y="100" text-anchor="end">all 14 deleted together</text><text class="val" x="674.1" y="100">5.14 nats</text><text class="axlab" x="493.0" y="158" text-anchor="middle">cross-entropy cost (nats)</text><text class="note" x="294" y="30">2.87x more damage than the parts predict</text></svg><figcaption>The same fourteen middle layers, removed one at a time and summed, against all fourteen removed simultaneously. Ablations do not add: the network compensates for any one of them and cannot compensate for the group.</figcaption></figure>
-  <p>Nearly three times the damage the parts predict. When one middle layer is removed the
-  other thirteen absorb the loss; when all fourteen go there is nothing left to absorb it.
+  <figure><svg viewBox="0 0 760 190" role="img" aria-label="individual versus joint ablation of the middle layers"><text class="panel" x="8" y="16">deleting layers 2–15: one at a time, added up, versus all at once</text><line class="grid" x1="286.0" y1="34" x2="286.0" y2="124"/><text class="tick" x="286.0" y="140" text-anchor="middle">0</text><line class="grid" x1="359.9" y1="34" x2="359.9" y2="124"/><text class="tick" x="359.9" y="140" text-anchor="middle">1</text><line class="grid" x1="433.9" y1="34" x2="433.9" y2="124"/><text class="tick" x="433.9" y="140" text-anchor="middle">2</text><line class="grid" x1="507.8" y1="34" x2="507.8" y2="124"/><text class="tick" x="507.8" y="140" text-anchor="middle">3</text><line class="grid" x1="581.7" y1="34" x2="581.7" y2="124"/><text class="tick" x="581.7" y="140" text-anchor="middle">4</text><line class="grid" x1="655.6" y1="34" x2="655.6" y2="124"/><text class="tick" x="655.6" y="140" text-anchor="middle">5</text><rect class="bar s1" x="286" y="46" width="154.3" height="22" rx="2"/><text class="grouplab" x="278" y="62" text-anchor="end">the 14 costs added up</text><text class="val" x="448.3" y="62">2.09 nats</text><rect class="bar s2" x="286" y="84" width="219.1" height="22" rx="2"/><text class="grouplab" x="278" y="100" text-anchor="end">all 14 deleted together</text><text class="val" x="513.1" y="100">2.96 nats</text><text class="axlab" x="493.0" y="158" text-anchor="middle">cross-entropy cost (nats)</text><text class="note" x="294" y="30">1.42x more damage than the parts predict (corrected)</text></svg><figcaption>The same fourteen middle layers, removed one at a time and summed, against all fourteen removed simultaneously. Ablations do not add: the network compensates for any one of them and cannot compensate for the group.</figcaption></figure>
+  <p><span class="tag off">corrected</span> More damage than the parts predict — though
+  less than this page first reported. The original figure of 2.9× mixed two different
+  deletion procedures and computed some layer averages on an already-damaged model; with
+  one clean procedure throughout the ratio is <strong>1.42×</strong> (2.96 nats against a
+  2.09 sum). The lesson stands with the smaller number: when one middle layer is removed
+  the others absorb the loss; when all fourteen go there is nothing left to absorb it.
   So <strong>any claim that a particular layer "contributes almost nothing", based on
   removing it by itself, is unsafe in this model</strong> — and the chart above is exactly
   such a claim.</p>
   <div class="callout"><p>This also explains the compression result rather than just
   bounding it. The two layers that compress are precisely the two whose individual
   contribution is large. The ones that resist are those that matter little alone and a great
-  deal together — which is what computation spread across depth looks like, rather than
-  computation sitting in a layer.</p></div>
+  deal together.</p></div>
+  <p><span class="tag off">updated</span> A fair attribution over the fourteen middle
+  layers (the same order-averaged method used within layers) later reshaped this picture:
+  <strong>layers 2 and 3 carry 64%</strong> of the middle's total effect, the tail layers
+  carry 3–7% each with their one-at-a-time costs understated three-to-five-fold, and
+  <strong>layer 4's fair share is large and negative</strong> — removing it repairs part
+  of the damage of removing the others, meaning its computation helps only while its
+  downstream partners are intact. The middle is a front-loaded pipeline with one
+  forward-coupled stage, not an even smear.</p>
   </div>
 </section>
 
