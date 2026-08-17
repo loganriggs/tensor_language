@@ -344,7 +344,13 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   quieter residual; content-level cost +0.089, not +0.490) while L16's is mostly content
   (35% mediated) — and the interaction excess <em>grows</em> to +0.205 at content level,
   where it is ~90% the size of both individual content damages combined. The composition
-  law was understated by the gain channel, not created by it.</p>
+  law was understated by the gain channel, not created by it. The full decomposition,
+  measured stepwise: loss curvature alone (convex CE on superposing logit perturbations)
+  would produce +0.46 of excess; the network's joint response destructively interferes and
+  cancels about two-thirds of that; the remaining +0.16 content-level excess is carried
+  ~21% by L17's quadratic and the rest by attention-and-upstream interaction. Compensation
+  — the model actively attenuating compound damage — appears three separate times in this
+  arc, and the product-law constant was always the residue of that cancellation war.</p>
   <p>Three registered attempts to <em>remove</em> the interaction then failed in a row —
   refitting downstream-of-upstream closed 21%, raising the form rank closed 0%, widening
   the output span closed 30% — and the failures were the finding. Across all eight

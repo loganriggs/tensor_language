@@ -4012,3 +4012,28 @@ evaluate CE at base+Δ₁₆+Δ₁₇ (synthetically added logits) vs the true j
 registered: this curvature term accounts for ≥70% of the surviving excess. If
 both hold, the composition law finally decomposes into three named parts:
 quadratic content cross-term (~21%), norm-gain channel, and loss curvature.
+
+## 119. The composition excess decomposed: curvature drives it, compensation halves it
+
+File: `bilin18_curvature_decomposition.py` (stale print labels in the log — the
+registered predictions and numbers are in the JSON; recorded). Both registered
+bars failed, in a direction that completes the accounting:
+
+- Logit deltas through the linear-L17/frozen-gain pipeline are **not** additive
+  (relative residual 0.239) — L17's attention and the upstream real layers still
+  interact.
+- The synthetic arm (forcing the logits to superpose) produces an excess of
+  **+0.461 — 2.8× the true +0.162**. Convex loss curvature alone would make joint
+  damage far worse than observed; the network's genuine joint response
+  *destructively interferes*, cancelling roughly two-thirds of the curvature
+  penalty.
+
+Final decomposition of the 16→17 composition excess (raw +0.143): a **norm-gain
+channel** (§§116–117, masks part of it), a **loss-curvature term** (would
+contribute +0.46 at content level), and a **compensation term** (−0.30, the
+network attenuating joint perturbations) leaving +0.162 content-level net, of
+which L17's quadratic carries ~21%. Compensation is now the third-time motif:
+the quadratic residue cushions its channel (§103), L17's attention absorbs
+interaction damage (§115), and the joint logit response subadds (here). This
+model does not merely fail gracefully — it actively cancels compound damage,
+and the "product law" headline number was always the small residue of that war.

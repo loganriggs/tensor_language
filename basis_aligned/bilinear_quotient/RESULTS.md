@@ -2676,3 +2676,12 @@ kills were the norm channel. Prime suspect for the survivor: CE curvature (conve
 loss on superposing logit deltas). Logit-additivity decomposition queued.
 
 Full detail in `BILIN18_CONNECTION.md` §118.
+
+### Composition decomposed
+
+Curvature alone would give +0.46 excess; network compensation cancels ~2/3,
+leaving +0.16 content-level (21% quadratic skin). The product law is the residue
+of a war between convex loss and damage-absorbing dynamics -- compensation is
+now a three-time motif.
+
+Full detail in `BILIN18_CONNECTION.md` §119.
