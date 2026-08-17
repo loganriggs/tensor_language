@@ -5163,3 +5163,17 @@ follows depth** (one causal coordinate, fraction-lawful across four models) and
 its **column structure follows the text** (leverage shared at 0.78 across
 independently trained models). Where in the stack × where in the language — the
 two axes of this family's computation, both now measured.
+
+## 184. Leverage universality: all four models, one text profile
+
+File: `leverage_universality.py`. Registered (a) held — all six model-pair
+leverage correlations ≥ 0.54 — and (b)'s failure is a coverage artifact stated
+plainly: every low pair involves sqrd12, whose saved fingerprint set holds only
+3 components against the others' 24–36, so its leverage sum is undersampled.
+The coverage-matched comparison is decisive the other way: **bilin18–swiglu18
+(36 components each, different MLP families) share the text-leverage profile at
+0.78–0.83 — the highest pair measured.** Which tokens a transformer's machinery
+bears on is a property of the language, shared across every architecture in the
+registry. A last line for the program's ledger of themes: the models differ in
+how they compute; they agree on what is hard, where in the stack to work on it,
+and which words the work lands on.

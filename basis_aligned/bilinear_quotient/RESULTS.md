@@ -3201,3 +3201,10 @@ columns follow the text (leverage shared across models beyond difficulty). Both
 axes of the family's computation measured.
 
 Full detail in `BILIN18_CONNECTION.md` §183.
+
+### One text profile, four models
+
+All pairs >= 0.54; the coverage-matched cross-family pair is highest (0.83).
+The models agree on what is hard, where to work, and where it lands.
+
+Full detail in `BILIN18_CONNECTION.md` §184.
