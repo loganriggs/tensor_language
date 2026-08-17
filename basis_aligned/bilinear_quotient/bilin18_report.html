@@ -593,8 +593,11 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   middle layers absorb the damage. The sharpest fact came last: the sibling 12-layer
   bilinear model has its own private writer, below its own random-projection floor, at
   exactly the same depth fraction (L4/12 = L6/18 = 0.33). The private writer is an
-  architectural regularity of trained bilinear stacks, not a quirk of this model — and
-  what computation at one-third depth wants a code nobody else speaks is the program's
-  standing open question.</p>
+  architectural regularity of trained bilinear stacks, not a quirk of this model — The two private spans even damage overlapping token
+  sets on shared text (7.5× every random control) while drifting more than shared code
+  does — functionally the same kind of object, loosely conserved. The landscape's other
+  exception is graded by depth: the last reader shares least in both models, but only
+  at 18 layers does it fully secede. What computation at one-third depth wants a code
+  nobody else speaks is the program's standing open question.</p>
 </section>
 </div>

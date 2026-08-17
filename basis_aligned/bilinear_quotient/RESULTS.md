@@ -3467,3 +3467,11 @@ Cross-model token-damage correlation 0.16 (7.5x every random pair, below the
 across models but drifts more than shared code.
 
 Full detail in `BILIN18_CONNECTION.md` §217.
+
+### Last reader ranks last everywhere; solitude needs depth
+
+bilin12's L11 is the worst fold for 4/5 writers (ordinal signature universal)
+but still shares at 0.43 -- true secession is 18L-specific, mirroring the
+kinship/coupling dissociation.
+
+Full detail in `BILIN18_CONNECTION.md` §218.

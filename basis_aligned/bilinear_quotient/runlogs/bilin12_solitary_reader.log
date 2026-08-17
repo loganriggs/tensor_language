@@ -1,0 +1,11 @@
+writer L0: L1:+0.65 L3:+0.67 L5:+0.63 L7:+0.47 L9:+0.69 L11:+0.46
+writer L1: L3:+0.48 L5:+0.71 L7:+0.56 L9:+0.71 L11:+0.45
+writer L2: L1:+0.84 L3:+0.58 L5:+0.85 L7:+0.44 L9:+0.72 L11:+0.43
+writer L5: L1:+0.48 L3:+0.40 L7:+0.52 L9:+0.29 L11:+0.33
+writer L8: L1:+0.54 L3:+0.55 L5:+0.36 L7:+0.77 L9:+0.54 L11:+0.34
+
+worst reader per writer: {0: 11, 1: 11, 2: 11, 5: 9, 8: 11} | L11 median +0.431
+(a) L11 worst for >=4/5: HELD (4/5)
+(b) L11 median <=0.25: FAILED
+(c) L9 worst <=1: HELD (1/5)
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin12_solitary_reader_results.json (22s)

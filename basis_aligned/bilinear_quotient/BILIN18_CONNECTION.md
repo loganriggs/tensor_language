@@ -5880,3 +5880,21 @@ the private writer are now: placed (fraction 1/3, both models), localized
 (top-8 span), transported (direct to output end, compensation-masked),
 dissociated (not regularizer character), and partially conserved (0.16 vs
 0.23 shared baseline). What remains needs a bigger family.
+
+## 218. The last reader ranks last everywhere; true solitude is 18-layer-deep
+
+File: `bilin12_solitary_reader.py`. Bars (a) and (c) held, (b) failed, and
+the split is the result. bilin12's fraction-0.94 reader L11 is the worst
+LORO fold for 4 of 5 writers (the fifth's worst is the second-deepest
+reader), so the ordinal signature — the output-end reader shares least — is
+universal. But L11's median fold is 0.43: it still participates in the
+common vocabulary, where bilin18's L17 genuinely secedes (median ≈ 0.11,
+below zero for one writer). The pattern repeats §192's dissociation exactly:
+in the shallow model the tendency is ordinal (last reader least shared); in
+the deep model it sharpens into a categorical exception (last reader
+solitary). Both landscape anomalies now have their universality statements:
+the private writer is categorical in both models at fraction 1/3; the
+solitary reader is ordinal everywhere and categorical only at 18 layers —
+consistent with depth specializing the output head (bilin18's L17 is the
+near-linear, 4-direction unit; bilin12's L11 retains more generic function).
+The sharing landscape is complete at family scope.
