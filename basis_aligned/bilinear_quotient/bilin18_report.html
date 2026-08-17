@@ -128,8 +128,8 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
     <li><span class="num">04</span><a href="#graph">The causal graph</a></li>
     <li><span class="num">05</span><a href="#pattern">Structure verifies, token stories don't</a></li>
     <li><span class="num">06</span><a href="#weights">The weights knew</a></li>
-    <li><span class="num">07</span><a href="#corrections">Corrections ledger</a></li>
-    <li><span class="num">08</span><a href="#open">What's still open</a></li>
+    <li><span class="num">07</span><a href="#law">Composition has a law</a></li><li><span class="num">08</span><a href="#corrections">Corrections ledger</a></li>
+    <li><span class="num">09</span><a href="#open">What's still open</a></li>
   </ol></nav>
 </header>
 
@@ -250,6 +250,33 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   first; model evaluations only to verify and to test edges. The expensive discovery phase
   of this program was, in retrospect, one Gaussian-equivalent computation away from the
   weights.</p>
+</section>
+
+
+<section class="col">
+  <h2 id="law">Composition has a law</h2>
+  <p>Installing verified replacements <em>together</em> is where "did we compress it
+  correctly" gets its final answer, and this model answered with structure. Three
+  surrogates installed jointly cost 1.48× the sum of installing them alone — and the
+  entire excess sits on the one pair of layers linked by a verified edge (the
+  L16→L17 syntax bus; the unlinked pairs contribute +0.0005, zero within noise). The
+  causal graph predicted, in advance and from a different kind of experiment, exactly
+  where composition would fail.</p>
+  <p>Three registered attempts to <em>remove</em> the interaction then failed in a row —
+  refitting downstream-of-upstream closed 21%, raising the form rank closed 0%, widening
+  the output span closed 30% — and the failures were the finding. Across all eight
+  measured configurations the excess follows a <strong>product law</strong>:</p>
+  <p class="mono" style="text-align:center">excess ≈ 23 · d₁₆ · d₁₇&nbsp;&nbsp;&nbsp;(c = 22.9 ± 2.4; 9% mean error)</p>
+  <p>A quadratic reader of summed errors produces a cross-term proportional to the
+  <em>product</em> of the error magnitudes — the architecture's signature, now in the
+  composition algebra. Every fidelity knob shrinks a factor; none removes the coupling,
+  which is why no single fix could work. Tested out of sample at two never-measured
+  corners with predictions registered first: 13% and 23% error, inside the registered
+  25% bar.</p>
+  <div class="callout"><p>The practical rule for compressing this model:
+  <span class="mono">joint ≈ Σ dᵢ + c·Σ dᵢdⱼ</span> over graph-linked pairs. The causal
+  graph names which pairs interact; the law prices the interaction; compression
+  budgeting becomes arithmetic.</p></div>
 </section>
 
 <section class="col">
