@@ -1350,3 +1350,47 @@ layout density) but whose *causal role* is not the register story: its deletion 
 sits in prose, and layout tokens do not drive it interventionally. "Register detector"
 is demoted from mechanism to correlate. What it actually computes for the network
 remains open; what is closed is that you can swap it for 2,308 numbers.
+
+---
+
+## 20. Phase B: layer 0 at full depth — the clean layer
+
+File: `bilin18_layer0_battery.py` (459 s; writer-decomposition gate 8e-8). Basis fit on
+153,900 positions, rows disjoint from evaluation, §16's lessons baked in from the start.
+
+**Concentration (Shapley, 20 permutations).** Joint effect of the top-32 span +0.126
+nats; participation ratio 8.1 of 32; leader 28%, top-4 55%. Same oligarchic shape as
+layer 1, a little flatter.
+
+**Writers.** All three leading directions are **embedding-dominated**: emb×emb carries
+75% / 67% / 62% of their variance, attention pairs the rest, and no attention head
+exceeds 6%. Exactly what bottom-up predicts at depth 0 — these are token-identity
+features, and the input side is fully characterizable: each leader is, to first order, a
+function of the current token alone.
+
+**Names — including the program's strongest verified name so far.**
+
+| leader | share | fires on (measured) | ρ vs null |
+|---|---|---|---|
+| dir 1 | 28% | ` (`, `).`, `.`, `\n`, `!`, `?`, `..`, `),` | **0.950** / 0.139 |
+| dir 8 | 11% | ` 10`, ` first`, ` not`, `3`, ` more`, ` no`, ` one` | 0.797 / 0.153 |
+| dir 3 | 9% | `.`, ` make`, `!`, ` work`, `;` | 0.803 / 0.175 |
+
+The layer-0 leader is a **punctuation-vs-content axis** (curvature positive on nouns
+like ` Boeing, Marvel, PlayStation`, negative on `).`, ` (`, `.`), verified at ρ = 0.95
+against a 0.14 null — the crispest feature naming in the program. The second is a
+number/quantifier axis. Layer 0 has what layer 1 lacked: nameable variables.
+
+**Structure.** Effective rank 24 (layer 1's was 3), dims for 50/90%: 19/430, kurtosis
+0.8–5.3, ICC ≤ 0.07 except one direction at 0.39. Layer 0's output is a moderate-rank,
+near-dense, token-driven code with little document-mixture — the opposite regime from
+layer 1, and the right regime for PCA+Gaussian description.
+
+**Causal MDL ladder.** Deleting the leader costs +0.0153; the 1,154-parameter surrogate
+repairs **65.8%**, rank-2 63.7% (tied within noise), random-u control 0.6%. So layer 0's
+leader is genuinely *less* compressible than layer 1's (66% vs 92–101%): a
+token-identity feature over a 50k vocabulary intrinsically uses more directions of its
+form than a squared context summary does. The compression each layer admits tracks what
+it computes — which is itself a finding: **surrogate compressibility is a probe of
+mechanism class** (context-summary features compress to 1–2 terms; token-identity
+features do not).

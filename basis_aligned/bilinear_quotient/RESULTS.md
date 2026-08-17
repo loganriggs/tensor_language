@@ -1653,3 +1653,23 @@ numbers were identical; fixed and rerun.)
 
 Full detail in `BILIN18_CONNECTION.md` §19. Next per the plan: the same-depth battery
 on layer 0.
+
+### Layer 0 at full depth: the clean layer
+
+The same battery (Shapley → writers → structure → naming → causal ladder) run
+bottom-up on layer 0. All three leading directions are embedding-dominated (emb×emb
+62–75% of variance; no attention head above 6%) — token-identity features, as depth 0
+predicts. The leader is a **punctuation-vs-content axis verified at ρ = 0.95** against a
+0.14 permutation null, the program's strongest name; the second leader is a
+number/quantifier axis (ρ = 0.80). Structure is the opposite regime from layer 1:
+effective rank 24, low kurtosis, almost no document mixture.
+
+The causal ladder splits the two layers: layer 0's leader repairs only 66% at 1,154
+params (layer 1's repaired 92%), with the random control at 0.6%. Token-identity
+features intrinsically need more of their form than squared context summaries — so
+surrogate compressibility itself probes mechanism class.
+
+Full detail in `BILIN18_CONNECTION.md` §20. Plan updated (`LAYER_PROGRAM.md`): next are
+interchange interventions in the causal-abstraction sense on the named variables, then
+layer 16, then the weights-first theory pass (HOSVD/CP of the bilinear tensor in the
+validated metric, per-head folded operators, and a weights-only prediction protocol).
