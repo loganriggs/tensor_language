@@ -2328,3 +2328,12 @@ thing: a universal ~2× shared compression built from scratch; everything else c
 free with the architecture.
 
 Full detail in `BILIN18_CONNECTION.md` §80.
+
+### Matrix-SAE: vacuous by design error
+
+300 atoms for 240 functionals makes perfect sparse reconstruction trivial — both arms
+hit R² = 1.00 and the trained/shuffled comparison carries no information. Recorded as
+instrument error; the held-out version (120 atoms, fit on five readers, scored on the
+sixth against the dense-basis 0.71 baseline) is queued.
+
+Full detail in `BILIN18_CONNECTION.md` §81.

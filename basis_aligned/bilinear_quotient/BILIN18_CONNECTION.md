@@ -3124,3 +3124,20 @@ has its measured answer: **SGD's contribution to the middle's reading structure 
 thing — a universal, shared, built-from-scratch compression of the functional family —
 and everything else about the structure (density, orthogonality, the envelope) came
 free with the architecture.**
+
+## 81. The matrix-SAE test was vacuous — instrument error, recorded
+
+File: `bilin18_matrix_sae.py` (98 s). All three bars nominally failed, but the run
+proves nothing either way: **the dictionary had 300 atoms for 240 functionals**, so
+sparse perfect reconstruction is trivially available (assign each functional its own
+atom), and that is what both arms found — R² = 1.00 at L0 ≈ 10–12 for trained *and*
+shuffled families alike. With more atoms than samples, neither the sparsity nor the
+"trained vs generic" comparison carries information. The atom-complexity reading
+(median eff-rank 32.5) is likewise uninterpretable, since degenerate atoms ≈ copies of
+individual functionals.
+
+The honest version, queued: **held-out sparse coding** — fit 120 atoms on five
+readers' 200 functionals, code the sixth reader's 40 held-out functionals, and compare
+(R², L0) against the dense 80-basis baseline (LORO R² 0.71 at "L0" = 80). The question
+the flawed run failed to ask: does sparse-over-complete beat dense-orthogonal
+*out of sample*? Only that comparison can open or close the sparsity door.
