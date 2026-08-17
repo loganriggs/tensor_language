@@ -510,7 +510,14 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   Pareto — replacement programs from a typed ladder (constant → low-rank refit linear →
   full component; the compact-quadratic rung is measured dead), with reference points
   from +1.81 nats at 0.07M stand-in parameters to +1.26 at 15.9M, and complexity counted
-  at the balanced gauge point so it cannot be gamed by rescaling. One hypothesis was tested and refuted on three candidate classes: that
+  at the balanced gauge point so it cannot be gamed by rescaling. The benchmark's transfer
+  split rests on a finding of its own: the sibling model bilin12 obeys all three
+  structural laws (dilution, the L1 nonlinearity crown, matched filters), and ablation
+  fingerprints on shared text show the two independently trained models assign
+  token-level causal responsibility to attention components at the <strong>same
+  fractional depths</strong> — bilin12's components best-match bilin18 at exactly their
+  own depth fraction (0.06/0.17/0.50, three for three), with analogous components
+  correlating at 0.34 against a 0.05 non-analog floor. One hypothesis was tested and refuted on three candidate classes: that
   the residual stream <em>constrains</em> the model — that pruning connections plus a short
   finetune could beat the intact model. Spans flagged by deletion benefit (+0.026 nats vs
   an identically-finetuned control), the foreign-code reader L11 (+0.033), and the
