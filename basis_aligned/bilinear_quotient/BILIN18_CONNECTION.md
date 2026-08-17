@@ -5711,3 +5711,21 @@ not generic geometry, not communal-subspace membership; it is registered here
 as open. L6's privacy is the sharper puzzle: the model routes a mid-depth
 unit's output *around* the shared vocabulary while keeping it in the most
 communal part of the stream.
+
+## 211. A fourth dead story, killed free of charge — L6's privacy stays open
+
+No new run: the fourth candidate explanation for L6's privacy dies on data
+already in `bilin18_content_profiles_results.json`. The candidate: L6 is
+private because its principal output span is a *regularizer* (content-level
+deletion −0.016, one of §120's improves-set), so the reader population never
+learned to consume it. The control kills it in the same table: **L9 is more
+regularizer-flavored still (−0.023) and shares at 0.54.** Four stories now
+dead — causality, global geometry, communal overlap, regularizer character —
+each by a registered check, none replaced. L6's privacy is the program's
+cleanest standing anomaly: a mid-depth writer sitting squarely in the
+communal part of the stream, with a regularizer-shaped principal span like
+its neighbors, whose 48-dimensional code the entire reader population
+nonetheless declines to share a vocabulary over. Registered for whoever picks
+this up (larger checkpoint or new instrument): the discriminating measurement
+is per-coordinate — whether L6's *non-principal* coords (9–48, past the
+regularizer span) are also unshared, which no current instrument isolates.

@@ -3411,3 +3411,11 @@ explanations (causality, global geometry, communal subspace) each refuted by
 a registered run. Organizing principle open.
 
 Full detail in `BILIN18_CONNECTION.md` §210.
+
+### Fourth story dead; L6 stays open
+
+"Private because regularizer" fails its control in existing data: L9 is more
+regularizer-flavored and shares fine. L6's privacy is the cleanest standing
+anomaly.
+
+Full detail in `BILIN18_CONNECTION.md` §211.
