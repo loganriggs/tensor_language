@@ -4872,3 +4872,21 @@ programs: what fraction-x-of-the-stack does to a given token in one model, the
 fraction-x components do in the other. This is the program's capstone
 universality result, and the benchmark's cross-model split now has calibrated
 expectations at every depth.
+
+## 167. Third model: correspondence crosses the MLP family at the front; mid-depth scaling wavers
+
+File: `sqrd12_correspondence.py`. Identity held (base CE 4.011 — better than
+bilin12's 4.225, sensible for conventional MLPs). Registered (b) failed 2/3 by
+a whisker: attn1 → fraction 0.06 (own 0.08, hit), attn2 → 0.11 (own 0.17, hit),
+but attn6 best-matches bilin18's **attn6** (fraction 0.33) rather than the
+fractional attn9 (0.50) — 0.02 beyond the ±0.15 bar. All matches sit 3×+ above
+the non-analog floor and land on the same-named component (c held).
+
+Reading: token-level causal correspondence **crosses the MLP-architecture
+family** — a conventional-MLP model's attention fingerprints still match the
+bilinear model's, strongly at the front — but the *fractional-depth scaling* of
+the mid-stack may be a bilinear-family property; for sqrd12 the mid component
+pairs at absolute index instead (or the curve is flat between the two — the
+margin was not resolved). A fitting final note for the wake: the front of these
+models is universal across all three checkpoints tested; the middle is where
+families begin to differ.

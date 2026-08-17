@@ -3067,3 +3067,11 @@ tested best-matches the sibling model at its own depth fraction. Capstone
 universality result.
 
 Full detail in `BILIN18_CONNECTION.md` §166.
+
+### Third model: front universal, mid-scaling wavers
+
+sqrd12 (conventional MLPs, CE 4.01): front attention corresponds at fraction;
+mid pairs at absolute index (0.02 past the bar). Correspondence crosses the MLP
+family; fractional scaling of the middle may be bilinear-specific.
+
+Full detail in `BILIN18_CONNECTION.md` §167.
