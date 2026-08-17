@@ -1,0 +1,7 @@
+base 3.9141
+d9 -0.0189 | d16 +0.2052 | joint +0.1646 | excess -0.0216
+control: d16rand -0.0032 | joint -0.0226 | excess -0.0005
+(a) joint negative replicates: FAILED
+(b) beneficial interaction (excess <= -0.01): HELD
+(c) random-pair control additive: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_l9l16_replicate_results.json (6s)

@@ -2702,3 +2702,12 @@ machinery at the model's final stage. L9+L16 joint-negative queued for
 replication.
 
 Full detail in `BILIN18_CONNECTION.md` §121.
+
+### Regularizer-content interaction replicates
+
+Excess -0.0216 on disjoint rows (orig -0.0237; control additive): deleting the
+L9 sharpener cushions L16 content damage. (Registered (a) failed due to my
+misreading excess as joint total -- recorded.) Content-level product-law re-fit
+queued.
+
+Full detail in `BILIN18_CONNECTION.md` §122.

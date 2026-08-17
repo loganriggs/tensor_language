@@ -4080,3 +4080,17 @@ neither absorbs nor amplifies much; it just carries.
 The L9–L16 joint-negative (−0.024, deleting the §96 regularizer span together
 with the model's biggest content span *helps* overall) is queued for replication
 on disjoint rows before it earns interpretation.
+
+## 122. The regularizer-content interaction is real: −0.022, replicated
+
+File: `bilin18_l9l16_replicate.py`. Registered (b) held with a textbook
+replication: the beneficial L9×L16 interaction is **−0.0216** on disjoint rows
+(vs −0.0237 original), with the random-pair control perfectly additive (−0.0005).
+Registered (a) failed for an embarrassing reason recorded here: I had misread
+§121's −0.024 as the *joint total* when it was the *excess*; the joint total is
+positive (+0.165) on both row sets. The replicated fact: **deleting L9's
+overshoot-trimming span cushions L16 content damage by ~0.022 nats** — when the
+model's biggest content span is gone, the sharpener (§98) sharpens corrupted
+content, so removing it helps. The regularization story and the composition
+accounting meet: negative spans are not free-floating benefits but interaction
+partners whose sign depends on what else is broken.
