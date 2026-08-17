@@ -1603,3 +1603,29 @@ irrelevant. Ratios between bases are trustworthy; absolute "X% of the layer" fig
 row-group-relative throughout §12–§15.
 
 Full detail in `BILIN18_CONNECTION.md` §16.
+
+### The data's shape, and the leader unmasked
+
+Two cheap runs (11 s total) answered "what structure does MLP1's output have" and "what
+writes its causal directions". The distribution is **not a dense 32-dim subspace**: one
+enormous direction, then a long tail (90% of energy needs ~241 dims; 32 dims hold 38%
+held-out). Coefficients are mostly near-Gaussian (median excess kurtosis 1.2) — not
+SAE-shaped — but the leader's coefficient is **56% document identity by variance**
+(ICC), and there is no hierarchical gating (leader anti-correlates with the tail, −0.30,
+as a register mixture predicts).
+
+The fold-in is exact because the layer is bilinear: the input is an exact sum of four
+writers (embedding, attn0, MLP0, attn1) and each output coefficient splits exactly into
+writer pairs (gates ~1e-7). Verdict: **the 39% causal leader is an attention-squared
+feature** — 76% of its variance is attn1's output interacting with itself, ≤9% involves
+the current token's embedding. Assembled with the earlier findings: attn1 summarises
+local context, MLP1 squares it, and the result is a document-register signal
+(whitespace-heavy material vs prose). It fires on whitespace but is not a token feature,
+which is why token-list naming found its correlate without its meaning.
+
+Compression recommendation that follows from the measurements: a register-conditioned
+mixture code (register symbol first, moderate-rank Gaussian bulk within register, sparse
+exceptions only for the few heavy-tailed directions), and interpretation that factors
+through the writer-pair decomposition rather than the vocabulary.
+
+Full detail in `BILIN18_CONNECTION.md` §17.

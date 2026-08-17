@@ -1164,3 +1164,93 @@ The weight verdict, updated: 60% of the data span's causal effect (0.261/0.434) 
 of its held-out energy — both essentially identical to the small-basis numbers (59%,
 64%). **More data neither exonerates nor further indicts the weights; the data basis's
 ~1.6× edge is real, held-out-stable, and not an artefact of sample size.**
+
+---
+
+## 17. What the data is, and what writes the causal directions
+
+Files: `bilin18_data_structure.py` (6 s), `bilin18_source_folding.py` (5 s).
+
+Two questions asked together because the answer to "which compression is right" depends
+on both: what shape MLP1's output distribution has, and what upstream writers actually
+drive its causal directions.
+
+### 17.1 The data: not a dense 32-dim subspace — a mixture with a long tail
+
+Measured on 153,900 positions, held-out rows for anything fittable:
+
+- **Spectrum.** One enormous direction (effective rank of the full 1152-dim output: 3)
+  followed by a long, slowly-decaying tail: 90% of energy needs ~241 dims, and held-out
+  energy at k = 8/32/128/512 is 19/38/60/88%. The top-32 slice §12–16 worked in is a
+  reasonable *causal* slice but is nowhere near the whole distribution. "Dense low-rank
+  subspace" is the wrong model.
+- **Sparsity: modest, not SAE-shaped.** Excess kurtosis along the top-32 PCA directions
+  has median **1.2** (Gaussian = 0), with a handful of heavy directions (up to 27).
+  Random directions score 3.7. This is not the strongly leptokurtic regime that makes a
+  global sparse dictionary the right code — most coefficients are near-Gaussian with a
+  few heavy-tailed exceptions.
+- **Document mixture: the real structure.** The leader's coefficient has **ICC 0.56 by
+  document** — more than half its variance is *which document you are in*, not which
+  token. Directions 2–8 sit at 0.02–0.14. Combined with §15 (the leader fires almost
+  exclusively on whitespace): the leading causal direction of MLP1 is substantially a
+  **document-register feature** (whitespace-heavy material — code, tables, lists —
+  against prose).
+- **No hierarchy.** Mean |off-diagonal| Spearman of the top-8 magnitude co-activations
+  is 0.10; the leader *anti*-correlates with tail energy (−0.30), which is what a
+  register mixture predicts (in whitespace documents the prose-tail goes quiet) and what
+  gating would contradict.
+
+### 17.2 The fold-in: exact for a bilinear layer, and the leader is not a token feature
+
+The residual stream at MLP1's input is an exact sum of four writers — embedding path
+(with the per-block λ re-injections), attn0, MLP0, attn1 — and the per-position rms
+scalar divides each, so `xhat = Σ xhat_a` exactly. Because the layer is bilinear, each
+output coefficient then splits exactly into writer pairs,
+`c_d = Σ_{a≤b} (2−δ) xhat_a^T M_d xhat_b` (reconstruction gates 3e-7–6e-7; measured, not
+assumed). Variance shares of `c_d`, top pairs:
+
+| | attn1×attn1 | mlp0×attn1 | emb×attn1 | emb×mlp0 | mlp0×mlp0 |
+|---|---|---|---|---|---|
+| direction 0 (39% leader) | **76.1%** | 12.6% | 9.3% | 0.5% | 0.9% |
+| direction 1 | 17.3% | **32.1%** | 11.4% | 14.9% | 13.3% |
+| direction 5 | 22.1% | **23.1%** | 12.2% | 18.7% | 14.2% |
+
+**The leader is an attention-squared feature.** 76% of its variance is attn1's output
+interacting with itself — the current token's embedding contributes 9% at most through
+cross terms. So the picture assembled across §15–17 is coherent: attn1 aggregates a
+summary of the local context; MLP1 squares it; the result is a register signal that is
+half document-identity by variance. The leading causal object in this layer is **not a
+token feature and cannot be named by token lists** — the §15 instrument found its
+correlate (whitespace) without being able to say what it was.
+
+Directions 1 and 5 are genuinely mixed — every writer pair contributes 11–32% — which is
+what "diffuse token structure, no crisp name" (§15) looks like mechanically.
+
+The embedding-only curvature `rmsnorm(wte_t)^T M_d rmsnorm(wte_t)`, computable for the
+whole vocabulary from weights alone, adds a per-token layer to each: direction 0 is
+positive on function words and whitespace, negative on content nouns; direction 1 is
+negative on all punctuation, positive on content nouns; direction 5 is negative on
+sentence-initial discourse openers (` As, So, When, After`) — each consistent with its
+§15 excitation profile.
+
+### 17.3 What this says the right compression is
+
+The measured structure rejects both default codes. A global sparse dictionary is wrong
+because the coefficients are mostly near-Gaussian (median excess kurtosis 1.2); plain
+PCA + Gaussian is wrong because the distribution is a document mixture with a
+heavy-tailed minority. The MDL-shaped recommendation, from the measurements rather than
+from preference:
+
+1. **Condition on register first.** A small discrete context state (predictable from
+   attn1's output; the leader is 56% document identity) should be the first code
+   symbol. Coding the register once per document region is nearly free and removes the
+   single largest variance component.
+2. **Within register, a moderate-rank Gaussian code** for the near-Gaussian bulk
+   (the spectrum says ~100–250 dims for the full distribution, ~5 for the causal slice).
+3. **A sparse exception code** only for the few heavy-tailed directions (kurtosis > 5),
+   which is where SAE-style atoms genuinely fit.
+4. **Interpretation should factor through the writers**: the exact pair decomposition
+   means "what does direction k mean" reduces to "which writer pair drives it, and what
+   does *that writer* respond to" — for the leader, the next unfold is through attn1's
+   value circuit (which past tokens, with what pattern weights), not through the
+   current-token vocabulary.

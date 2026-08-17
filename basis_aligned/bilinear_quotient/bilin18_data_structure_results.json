@@ -1,0 +1,58 @@
+{
+ "spectrum": {
+  "effective_rank": 2.9669528226622037,
+  "dims_for": {
+   "0.5": 1,
+   "0.9": 241,
+   "0.99": 863
+  },
+  "top1_share": 0.5788115290324639,
+  "heldout_energy_vs_k": {
+   "8": 0.1875021434539982,
+   "16": 0.27882877552218954,
+   "32": 0.37513786180951525,
+   "64": 0.4776244745133936,
+   "128": 0.5957941053653543,
+   "256": 0.7405199721339941,
+   "512": 0.8848686645939374
+  }
+ },
+ "sparsity": {
+  "excess_kurtosis_pca_median": 1.2040891647338867,
+  "excess_kurtosis_pca_max": 26.754844665527344,
+  "excess_kurtosis_pca_per_dir_top8": [
+   13.7,
+   -0.7,
+   6.7,
+   14.0,
+   26.8,
+   7.8,
+   23.9,
+   1.6
+  ],
+  "excess_kurtosis_random_median": 3.7451319694519043
+ },
+ "document_mixture": {
+  "icc_top8": [
+   0.562,
+   0.038,
+   0.092,
+   0.101,
+   0.115,
+   0.015,
+   0.144,
+   0.054
+  ]
+ },
+ "hierarchy": {
+  "mean_abs_offdiag_spearman": 0.09978964138299556,
+  "max_offdiag_spearman": 0.316190306104106,
+  "leader_vs_tail_energy": -0.2961674537287996
+ },
+ "verdict": [
+  "NOT a 32-dim story: 32 dims hold 38% held-out; 90% needs ~241 dims in-sample",
+  "document-mixture structure is real (ICC up to 0.56) -> part of the \"activation\" is document identity, not token computation",
+  "no leader-tail gating; directions activate independently"
+ ],
+ "runtime_s": 6.253378391265869
+}
