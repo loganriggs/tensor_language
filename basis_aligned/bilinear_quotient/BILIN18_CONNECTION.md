@@ -4598,3 +4598,21 @@ negative ones (§138). Queued: the last unreplicated headline, §109's spectral
 split of L1 (interface 12% of linearization cost at 59% of energy; complement
 53%) on fresh eval rows. Registered: (a) span-share stays ≤ 20%; (b)
 complement-share ≥ 40%; (c) full cost within ±30% of +0.282.
+
+## 152. The replication campaign closes: every headline stands
+
+File: `bilin18_split_replicate.py` — the spectral split replicates precisely
+(span share 12%, identical to the original; complement 58%; full +0.289, within
+3% of +0.282). Campaign summary — replicated on independent data: dilution law
+(both sides), transplant effects, score-rank, watch-list gap, L1 linearization,
+spectral split, front attention profile, late-attention negatives, regularizer
+spans, L9×L16 interaction, QK disjointness. Every load-bearing number in the
+program has now survived a fresh-data test; nothing required a correction at
+replication (the corrections all came from *conceptual* re-examination — nulls,
+instruments, decompositions — never from fragile numbers).
+
+Queued: the one empty cell in the layer maps — **L0's MLP** (every linearity and
+linearization sweep started at L1 or later, yet L0 is the "true reset" writing
+at RMS 1436 into a stream of 6). Registered: (a) linearization cost ≥ 0.15
+(front-loading extends to the front-most layer); (b) its write's linear R² ≤
+0.75 (real quadratic computation on raw embeddings).

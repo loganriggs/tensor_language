@@ -2942,3 +2942,11 @@ L1 +0.358 largest, ordering preserved, within 30%. Spectral-split replication
 queued (last headline).
 
 Full detail in `BILIN18_CONNECTION.md` §151.
+
+### Replication campaign closed
+
+Spectral split exact (12% identical). Every headline replicated; corrections
+only ever came from conceptual re-examination, never fragile numbers. L0 cell
+queued.
+
+Full detail in `BILIN18_CONNECTION.md` §152.
