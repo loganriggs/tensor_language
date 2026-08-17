@@ -2597,3 +2597,11 @@ of its linearization cost; the low-variance complement carries 53%, interaction
 the principal spectrum. Spectral localization queued.
 
 Full detail in `BILIN18_CONNECTION.md` §109.
+
+### The mezzanine
+
+L1's nonlinearity is neither in the top-48 interface (linear-ish) nor the deep
+tail (inert) but in mid-variance ranks ~50-500 -- half the replacement cost.
+Loud output linear, hard computation quiet. Causal ablation closure queued.
+
+Full detail in `BILIN18_CONNECTION.md` §110.

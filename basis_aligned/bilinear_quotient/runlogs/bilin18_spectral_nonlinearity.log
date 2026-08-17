@@ -1,0 +1,10 @@
+base 4.0041 | full +0.2823
+top- 48: +0.0336 (59% energy) | random-48: +0.0034 (4% energy)
+top-128: +0.0676 (72% energy) | random-128: +0.0024 (11% energy)
+top-256: +0.1239 (83% energy) | random-256: +0.0149 (22% energy)
+top-512: +0.2095 (93% energy) | random-512: +0.0472 (45% energy)
+complement-of-512: +0.0072
+(a) <=30% of full through k=256: FAILED
+(b) monotone in k: HELD
+(c) random controls track energy: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_spectral_nonlinearity_results.json (9s)

@@ -3798,3 +3798,27 @@ Queued: spectral localization — linearization cost of the top-k span for
 k ∈ {48, 128, 256, 512}, with random-k controls. Registered: cost stays ≤30% of
 full through k = 256 (the nonlinearity is deep in the spectrum, not just past 48);
 monotone in k; random controls track energy share.
+
+## 110. L1's nonlinearity lives in a mezzanine band
+
+File: `bilin18_spectral_nonlinearity.py`. Registered (a) failed — the nonlinearity
+is not deep in the spectrum either. The cost curve by rank band (marginal):
+
+    ranks 1-48: +0.034 | 49-128: +0.034 | 129-256: +0.056 | 257-512: +0.086 | 513-1152: +0.007
+
+Monotone in k (held), random controls track energy share (held), and the
+complement-of-512 alone is nearly free. Three spectral zones of L1's write:
+
+1. **The interface** (top ~48, 59% of energy): what every reader consumes, nearly
+   linearly generable.
+2. **The mezzanine** (ranks ~50–500, a third of energy): where the functionally
+   necessary nonlinear computation concentrates — half the layer's replacement
+   cost in these mid-variance directions.
+3. **The deep tail** (beyond ~512): functionally inert.
+
+The model's most important layer keeps its loud output linear and its hard
+computation quiet — mid-variance, below everything the reading program measured.
+Queued: the causal closure — mean-ablating the mezzanine band (ranks 129–512)
+versus the top-48 interface versus a random-384 span. Registered: (a) mezzanine
+ablation damage ≥ 2× interface ablation (the function is there, not in the loud
+part); (b) random-384 well below both.
