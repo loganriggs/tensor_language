@@ -5022,3 +5022,14 @@ trained models at family-lawful depths.** The causal fingerprint is not noise
 around a net number — it is a structured coordinate system for the model's
 computation, and the benchmark's ground-truth layer inherits all of that
 structure.
+
+## 175. The sibling atlas: same structure, second model
+
+File: `bilin12_atlas.py`; asset `bilin12_atlas.pt` (24 components, every layer,
+both types). All three atlas bars replicate: distinguishable (pairwise 0.09),
+depth-smooth (22/24), type-marked (0.13 within vs 0.08 cross). The fingerprint
+atlas's structural character — near-orthogonal, smooth along depth, marked by
+component type — is now a property of the family, not one model. Assets in
+place for next: joint cross-model seriation (do the two stacks embed into one
+ordered causal coordinate system, with the family-lawful depth warp visible as
+the embedding's alignment?).

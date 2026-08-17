@@ -3132,3 +3132,11 @@ Layer order recoverable from unlabeled fingerprints (|rho| 0.91/0.90, nulls
 around a net number.
 
 Full detail in `BILIN18_CONNECTION.md` §174.
+
+### Sibling atlas replicates
+
+bilin12's 24-component atlas: distinguishable, depth-smooth (22/24),
+type-marked -- the atlas structure is a family property. Joint seriation is the
+staged next step.
+
+Full detail in `BILIN18_CONNECTION.md` §175.
