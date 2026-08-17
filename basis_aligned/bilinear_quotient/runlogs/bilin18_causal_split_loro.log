@@ -1,0 +1,10 @@
+writer L 0: L2:+0.79 L3:+0.74 L5:+0.75 L9:+0.63 L13:+0.72 L17:+0.42
+writer L 1: L2:+0.80 L3:+0.76 L5:+0.66 L9:+0.63 L13:+0.48 L17:+0.42
+writer L 6: L2:+0.34 L3:+0.39 L5:+0.47 L9:+0.14 L13:+0.19 L17:-0.31
+writer L 9: L2:+0.44 L3:+0.51 L5:+0.71 L13:+0.68 L17:+0.03
+writer L12: L2:+0.42 L3:+0.58 L5:+0.64 L9:+0.62 L13:+0.69 L17:+0.11
+
+pooled downstream median +0.634 | upstream +0.514 | L6 downstream +0.137
+(a) every writer's downstream median >=0.5: FAILED
+(b) upstream pooled <=0.3: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_causal_split_loro_results.json (57s)
