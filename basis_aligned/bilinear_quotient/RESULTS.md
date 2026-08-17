@@ -2720,3 +2720,11 @@ norm-inflated 23. Small-damage cells INVERT (compensation strong enough to make
 joint damage beneficial). L17 band scan queued.
 
 Full detail in `BILIN18_CONNECTION.md` §123.
+
+### No beneficial band at L17
+
+Bands beyond rank 8 cost exactly what random spans cost (+0.02 generic-removal
+floor via the norm channel); the non-monotonicity was inside the floor. L17 =
+eight directions of content plus ballast.
+
+Full detail in `BILIN18_CONNECTION.md` §124.

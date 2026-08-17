@@ -4117,3 +4117,15 @@ Also logged: raw d17 is non-monotone in span size (k=32 < k=8) — ranks 9–32 
 L17's output PCA include beneficial-to-delete directions. Band scan queued
 (registered: (a) some band beyond rank 8 has negative content-level damage;
 (b) the non-monotonicity localizes to that band).
+
+## 124. No beneficial band at L17 — the wiggle was the generic-removal floor
+
+File: `bilin18_l17_bands.py`. Registered (a) failed and the control violation is
+the explanation: bands 9–32 (+0.019) and 33–128 (+0.010) cost the same as a
+**random 24-dim span** (+0.019). At a writer as loud as L17, removing *any*
+energy costs ~0.02 nats through the norm channel — a generic-removal floor — and
+§123's non-monotonicity (0.018) sits inside it. No beneficial-to-delete
+directions exist in L17's ranks 9–128; the content of L17's write is effectively
+all in its top-8 (+0.508, 25× the floor). The loudest layer is also the most
+concentrated: one band of eight directions, everything else indistinguishable
+from ballast at the CE level.
