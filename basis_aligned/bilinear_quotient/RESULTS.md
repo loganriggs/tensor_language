@@ -2870,3 +2870,11 @@ generic at sufficient damage (2/3, the miss being too-small damage). Content =
 hard-token harm; profile re-scoring queued.
 
 Full detail in `BILIN18_CONNECTION.md` §141.
+
+### The gain channel can fake content
+
+L17's hard-token harm (+1.67) is the norm channel amplifying survivors, not
+flattening -- content certification requires a frozen gain. L9/L15 regularizers
+reconfirmed; L5/L7/L11 moderate content. Gain-frozen scores queued.
+
+Full detail in `BILIN18_CONNECTION.md` §142.

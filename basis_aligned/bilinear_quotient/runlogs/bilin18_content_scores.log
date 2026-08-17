@@ -1,0 +1,19 @@
+base 3.8444
+
+L5      : easy +0.0199 | hard +0.0855 | h-e +0.0657
+L6      : easy +0.0119 | hard -0.0504 | h-e -0.0623
+L7      : easy +0.0150 | hard +0.0281 | h-e +0.0131
+L8      : easy +0.0145 | hard -0.0465 | h-e -0.0610
+L9      : easy +0.0168 | hard -0.1277 | h-e -0.1445
+L10     : easy +0.0085 | hard +0.0018 | h-e -0.0066
+L11     : easy +0.0155 | hard +0.0157 | h-e +0.0002
+L12     : easy +0.0120 | hard -0.0331 | h-e -0.0451
+L13     : easy +0.0119 | hard -0.0065 | h-e -0.0184
+L14     : easy +0.0033 | hard -0.0033 | h-e -0.0066
+L15     : easy +0.0050 | hard -0.0922 | h-e -0.0972
+L16     : easy +0.2317 | hard +0.3571 | h-e +0.1254
+L17     : easy +0.0204 | hard +1.6735 | h-e +1.6531
+
+(a) L16 only content span (hard>=+0.05): FAILED
+(b) content ranking reorders net (tau<=0.7): FAILED (+0.79)
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_content_scores_results.json (16s)

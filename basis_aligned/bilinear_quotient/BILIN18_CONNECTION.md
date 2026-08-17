@@ -4443,3 +4443,27 @@ direction. Queued: re-score the tail profile by the content criterion
 (hard-quartile mean under span deletion); registered: (a) L16's span is the only
 one with hard-mean ≥ +0.05; (b) the content ranking reorders the net-CE ranking
 (Kendall tau ≤ 0.7).
+
+## 142. Content scores, first pass: the gain channel can fake content too
+
+File: `bilin18_content_scores.py`. Both bars failed, and the failure teaches the
+criterion its final lesson. The per-layer hard-quartile deltas under span
+deletion (free final norm):
+
+    L5 +0.086 | L6 -0.050 | L7 +0.028 | L8 -0.047 | L9 -0.128 | L10 +0.002
+    L11 +0.016 | L12 -0.033 | L13 -0.007 | L14 -0.003 | L15 -0.092 | L16 +0.357 | L17 +1.674
+
+- **L17's +1.67 is mostly the gain channel running in reverse**: deleting a
+  huge-energy span shrinks the final RMS, the surviving logits get *amplified*,
+  and confident errors get much worse — the mirror image of the flattening
+  relief. Removing a loud span doesn't flatten; it sharpens. So hard-token harm
+  certifies content **only under a frozen gain** — the §141 criterion inherits
+  the §117 instrument requirement.
+- The regularizer spans re-announce themselves (L9 −0.128, L15 −0.092 hard
+  relief), and L5/L7/L11 emerge as moderate hard-token-content spans alongside
+  L16 (+0.357).
+
+Queued, the criterion done right: gain-frozen content scores. Registered:
+(a) L17's hard-mean drops ≥70% when the gain is frozen (it was the channel);
+(b) L16 stays ≥ +0.2 (true content at both levels); (c) L5's +0.086 persists
+at ≥50% (genuine front-of-tail content).
