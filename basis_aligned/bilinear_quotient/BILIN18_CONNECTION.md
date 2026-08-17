@@ -2766,3 +2766,34 @@ third appearance of the same split (G_lam leaders vs coverage ordering; solo vs
 Shapley): **importance orderings and identity orderings differ in this model**.
 Registered next: the containment test — energy of the verified axes' coupling matrices
 inside the top-80 principal span, against matched random quadratics.
+
+## 64. The intervention ladder completes; the containment test was ill-posed
+
+Files: `bilin18_pertoken_steering.py`, `bilin18_vocab_containment.py` (9 + 11 s).
+
+**The opacity characterisation is now complete across the full intervention ladder:**
+
+| intervention class | L13 own-movement | L13 cross-talk | addressable? |
+|---|---|---|---|
+| static direct-path | 0.05σ | — | no |
+| static gradient | 0.06σ | 3.70σ | no |
+| per-sequence gradient | 0.22σ | 2.88σ | no |
+| **per-token gradient** | **0.91σ** | **1.70σ** | **no** |
+
+Registered (a) held (power keeps rising — 15× from static to per-token) and (b)
+confirmed: cross-talk still exceeds own-movement at every rung. **Power is fully
+recoverable with enough context-dependence; addressability is recoverable at no rung
+tested.** The quadratic stack's depth-opacity is now a complete, graded, measured
+statement — the strongest single characterisation the program has produced.
+
+**The containment test is recorded as an instrument error, not a finding.** The
+numbers came back low (z-surrogate 0.156, leader coupling 0.351 in the top-80 span) —
+but the test compared objects from different spaces: the verified z and leader form
+act on L1's *input*; the vocabulary is quadratics over L1's *output* directions.
+Projecting input-space forms through the output-PCA basis is a category confusion, and
+the registered prediction should never have been posed on these objects. The honest
+state: the program has no *verified* reader-side (L1-output-coupling) axis independent
+of the family the vocabulary was built from, so containment is currently untestable —
+what is testable instead is whether vocabulary words are *causally individuated*,
+which is queued: steer along principal functional #1's top output direction vs #2's,
+and ask whether they move distinct constituencies of reader coefficients.

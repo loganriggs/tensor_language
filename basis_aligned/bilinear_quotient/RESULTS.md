@@ -2192,3 +2192,14 @@ session-restart gap: the cron died, the supervisor runner kept working, and the 
 sat empty until recovery — the cron now self-documents that failure mode.)
 
 Full detail in `BILIN18_CONNECTION.md` §63.
+
+### The ladder completes: power 15×, addressability never
+
+Per-token gradient steering lifts deep own-movement to 0.91σ (static: 0.06) with
+cross-talk still ahead at 1.70σ — the full intervention ladder now reads: power fully
+recoverable with context-dependence, addressability recoverable at no rung. The
+containment test is recorded as an instrument error (input-space objects projected
+into an output-space basis — a category confusion); the causal-individuation test of
+vocabulary words replaces it, queued.
+
+Full detail in `BILIN18_CONNECTION.md` §64.
