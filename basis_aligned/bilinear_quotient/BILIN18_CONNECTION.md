@@ -3682,3 +3682,30 @@ mechanism, sequential refitting should recover most of the gap (registered: refi
 joint ≤ 1.5 nats, and the L5 refit alone ≤ 0.5). If even refitting fails, the
 tail's function is irreducibly nonlinear *in composition* — a stronger statement
 than any single-layer measurement can make.
+
+## 105. INSTRUMENT CORRECTION: the lambda-mixing mismatch contaminates §§102–104's stand-in costs
+
+The sequential-refit run (`bilin18_pipe_refit.py`) solved §104's L5 anomaly by
+accident: under a self-consistent protocol L5's stand-in costs **+0.029**, not
++1.51. Diagnosis, confirmed in the architecture: each block applies
+`x = λ₀·x + λ₁·x₀` *inside* its forward, so the hook-based evaluators in
+§§102–104 captured the block input **before** λ-mixing while the linear maps were
+fit on activations recorded **after** it. Every stand-in was applied to an input
+it was never fit for; the damage depends on how far a block's λs sit from (1, 0),
+which is why some layers looked cheap and L5 looked catastrophic.
+
+Status of affected claims, pending the consistent rerun (queued):
+- §104's "L5 outlier" and the 2.68× superadditivity: **withdrawn** (artifacts).
+- §103's per-layer costs and the "functional nonlinearity is front-loaded"
+  correction: **suspended** — to be re-measured.
+- §102's 98% interaction-kill: internally consistent (both arms shared the bug)
+  but the stand-in's true fidelity needs re-verification.
+
+What survives cleanly is the refit run itself (self-consistent by construction):
+**a 13-layer sequentially-refit linear pipe costs +1.56 nats** — at-bar against
+the registered 1.5, far from the irreducible-nonlinearity alternative (>3), with
+per-layer marginals growing with depth (registered (c) held: composition drift is
+real, just not catastrophic). Registered for the rerun: (a2) consistent individual
+costs are ≤0.1 everywhere except L2, and L2 ≥ 3× the median (front-loading
+retested); (b2) the §102 interaction-kill persists at ≥70% under the consistent
+protocol.

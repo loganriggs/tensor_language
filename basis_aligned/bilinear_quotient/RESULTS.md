@@ -2554,3 +2554,13 @@ function in NEITHER direction. Mechanism hypothesis: approximation-validity
 drift; sequential-refit rescue queued.
 
 Full detail in `BILIN18_CONNECTION.md` §104.
+
+### Instrument correction: lambda-mixing mismatch
+
+Sections 102-104's hook-based stand-ins were fit on post-mix inputs but applied
+to pre-mix inputs. L5's "outlier" (+1.51 -> +0.029) and the 2.68x superadditivity
+are withdrawn; 103's front-loading claim suspended pending consistent rerun. What
+survives: the self-consistent sequential-refit pipe -- 13 layers linearized for
++1.56 nats total.
+
+Full detail in `BILIN18_CONNECTION.md` §105.
