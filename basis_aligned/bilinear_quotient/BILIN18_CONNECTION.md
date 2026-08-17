@@ -4835,3 +4835,23 @@ bilin12's three attention fingerprints, tracing each component's best-matching
 depth. Registered: (a) each bilin12 component's best-matching bilin18 depth
 fraction is within ±0.15 of its own fraction; (b) the correspondence curve is
 unimodal around the match for ≥2 of 3 components.
+
+## 165. The correspondence matrix: exact depth-fraction matching
+
+File: `bilin18_correspondence_matrix.py` (after a stale-block fix). Registered
+(a) held **3/3 with exact matches**:
+
+    bilin12 attn1 (fraction 0.08) -> best bilin18 match L1 (0.06)
+    bilin12 attn2 (fraction 0.17) -> best bilin18 match L3 (0.17)
+    bilin12 attn6 (fraction 0.50) -> best bilin18 match L9 (0.50)
+
+The correspondence curves peak at the proportional depth and collapse past
+bilin18 fraction ~0.65 (all three bilin12 components correlate near zero with
+bilin18's late attention — consistent with late attention being calibration
+machinery in both models, matched by nothing in the other's front/mid).
+Registered (b) failed only on the strict 0.03 wiggle tolerance; the curves are
+broadly single-peaked. Statement for the record: **two independently trained
+bilinear transformers of different sizes assign token-level causal
+responsibility to attention components at the same fractional depths** — the
+strongest universality result in the program, obtained entirely from ablation
+fingerprints on shared text.

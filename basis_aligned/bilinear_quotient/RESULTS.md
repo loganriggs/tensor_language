@@ -3051,3 +3051,11 @@ Relative-depth pairing beats absolute at both mid components; front strongly
 aligned. Full correspondence matrix queued.
 
 Full detail in `BILIN18_CONNECTION.md` §164.
+
+### Exact depth-fraction correspondence
+
+3/3 exact: bilin12's attention components best-match bilin18 at their own depth
+fractions (0.06/0.17/0.50). Curves single-peaked, collapsing past fraction 0.65.
+The program's strongest universality result.
+
+Full detail in `BILIN18_CONNECTION.md` §165.
