@@ -1689,3 +1689,29 @@ comes from parts of the form z does not see.
 
 Full detail in `BILIN18_CONNECTION.md` §21. Next: layer 16's battery, then the
 weights-first theory pass.
+
+### Layer 16: a two-direction layer, and a surrogate that beats the model
+
+The battery's third stop. Layer 16 is the concentration extreme — participation ratio
+**2.5** of 32, top two directions 42% + 40% — corroborating the earlier finding that
+13.8k numbers replace it at 4.2% damage. Its leaders are deep cross-features (attn×mlps
+47–56% of variance, embedding ≤1%), and its second direction is the same
+pronoun-vs-sentence-ender syntax axis previously read out of layer 17 — evidence for a
+cross-layer *bus signal* rather than a per-layer feature.
+
+The anomaly, reported not smoothed: the 1,154-parameter surrogate for its leader lands
+**0.025 nats below the intact model** (the random control behaves normally, so it is not
+the machinery). A replacement beating the original means the full form carries a
+component that hurts on this eval set. Registered hypothesis: train/eval distribution
+shift (fineweb→pile) — the whitened rank-1 core generalises, the 664k-parameter
+remainder is distribution-specific. Truncation as regularisation; testable when
+fineweb-like data is available.
+
+Depth taxonomy so far: layer 0 = token-identity features (ρ 0.95 naming, 66%
+compressible); layer 1 = squared context summary (92%, names diffuse); layer 16 =
+accumulated cross-computation (175%, names weak); layer 17 = near-rank-4 syntax rules.
+Compressibility, writers, and nameability move together — the battery measures mechanism
+class.
+
+Full detail in `BILIN18_CONNECTION.md` §22. Next: the weights-first theory pass
+(Phase D).

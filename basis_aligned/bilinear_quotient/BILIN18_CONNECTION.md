@@ -1438,3 +1438,61 @@ Graph status after Phase A′:
 | z → c₀ | c₀ = az²+b abstracts the form | value interchange | **68% faithful (13% control) — partial** |
 | c₀ → CE | the write is the leader's causal role | ablation + ladder (§19) | **holds, 288× compression** |
 | layout → z | layout tokens drive z | token injection (§19 r3) | **refuted** |
+
+---
+
+## 22. Phase C: layer 16 — two directions run the layer, and a surrogate that beats the model
+
+File: `bilin18_layer16_battery.py` (461 s, generated from the layer-0 battery with the
+writer tracker swapped to coarse groups: embedding path / all-attention / all-MLPs,
+tracked exactly through the 16-block recurrence; gate 1.8e-7).
+
+**Concentration: the extreme of the depth profile.** Participation ratio **2.5** of 32
+(layer 0: 8.1, layer 1 refit: 5.6). The top two directions carry 42% and 40%; the third
+25%; top-4 share is 109% because tail values go negative. Layer 16 is effectively a
+**two-direction layer**, which independently corroborates §10's finding that R=4, k=2
+replaces it at 4.2% damage.
+
+**Writers: deep cross-terms, embedding irrelevant.** All three leaders are dominated by
+**attn×mlps** cross-variance (47–56%), with emb×emb at 0–1% and no single head of block
+16's own attention above 0% variance share. These are accumulated-computation features —
+the interaction of everything attention has gathered with everything the MLPs have
+written — which is what "deep feature" means mechanically, and the opposite of layer 0's
+emb-dominated leaders.
+
+**Names: present but weak** (ρ 0.26–0.39 against nulls ~0.11–0.17). Leader #2 is the
+recurring syntax axis: curvature positive on pronouns/copulas (` we, can, she, I, he`),
+negative on sentence-enders (`. ). ! ? :`), firing on exactly those enders — the same
+axis §8.2 read out of layer 17's output direction 2. It is visible at layer 16 too,
+which suggests it is a *bus signal* maintained across the late layers rather than a
+single layer's property — a concrete cross-layer variable for the causal-abstraction
+program.
+
+**Structure**: effective rank 3, dims for 50/90% = 2/15, low kurtosis, mild ICC
+(0.12–0.23). A genuinely low-rank, near-Gaussian code — the easiest regime in the model.
+
+**The B5 anomaly, reported rather than smoothed over.** Deleting the leader costs
++0.0337. The 1,154-parameter surrogate does not merely repair it — it lands **0.0252
+nats BELOW the intact baseline** (repair "174.7%"); rank-2 also edges the baseline
+(−0.0024). The random-u control behaves normally (repairs 9.5%), so this is not an
+artifact of the patching machinery. A replacement beating the model it replaces means
+the full form carries a component that *hurts* on this evaluation set. The obvious
+hypothesis, registered not asserted: the model was trained on fineweb, this evaluation
+is pile-10k, and the rank-1 whitened core generalises across the shift while the
+discarded 664k-parameter remainder is distribution-specific — truncation as
+regularisation. Testable by rescoring on fineweb-like data (the original token file is
+not on this box); until then the honest statement is that layer 16's leader is
+over-parameterised for out-of-distribution prediction, in the direction the whitened
+metric identifies.
+
+### The emerging depth taxonomy
+
+| layer | leader mechanism | concentration (PR/32) | surrogate repair | naming |
+|---|---|---|---|---|
+| 0 | emb×emb — token identity | 8.1 | 66% | **ρ 0.95** (punctuation axis) |
+| 1 | attn1² — squared context summary | 5.6 | 92% | diffuse; register correlate |
+| 16 | attn×mlp — accumulated computation | **2.5** | **175%** (beats baseline) | ρ 0.3 (syntax bus) |
+| 17 | near-rank-4 output; syntax rules | — | 99% at rank 2 (§8) | verified, uneven |
+
+Compressibility, writer profile, and nameability all shift together with depth — the
+battery is measuring mechanism class, not just size.
