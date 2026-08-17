@@ -2515,3 +2515,13 @@ is special because of WHERE the content is written, not what it is. Lexicality a
 effective-linearity probes queued.
 
 Full detail in `BILIN18_CONNECTION.md` §100.
+
+### Lexical bus; nonlinearity map
+
+The bus's early core is token identity (embedding R^2 0.536); "syntax bus"
+overreads. Effective-linearity sweep: nonlinearity is NOT monotone -- it
+concentrates in the middle (L6-10 at 0.52-0.62) while L16/L17 are almost purely
+linear (0.97/0.95), independently re-drawing the depth map. Queued: does the
+16->17 product law live entirely in L17's 5% nonlinear residue?
+
+Full detail in `BILIN18_CONNECTION.md` §101.

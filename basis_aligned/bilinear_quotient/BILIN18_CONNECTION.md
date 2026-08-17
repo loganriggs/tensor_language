@@ -3570,3 +3570,30 @@ whether the early-determined share is mere token identity (lexicality control),
 and whether the tail's MLPs are *generally* this linear at their operating point —
 which would tie the whole tail phenomenology (unaimed writes, dilution routing,
 shallow compressibility) to effective linearity.
+
+## 101. The bus is lexical-headed, and nonlinearity lives in the middle
+
+**Lexicality** (`bilin18_bus_lexicality.py`): the registered alternative landed. The
+current token's embedding alone predicts the bus coordinates at held-out R² 0.536 —
+the early-determined core (§100's 0.659 at L2) is mostly **token identity**, with
+early context adding only ~0.12. The "syntax bus" label overreads: the channel's
+composition is ≈0.54 token identity + 0.12 early context + 0.32 accumulated later
+context (to 0.98 at L16). A more accurate name: a lexical-headed channel with
+contextual refinement. Propagated to the report.
+
+**Effective linearity map** (`bilin18_effective_linearity.py`): all three registered
+bars failed, and the measured shape is better than the hypothesis. Linear
+predictability of each MLP's write from its input stream is not monotone in depth:
+
+    L1-3: 0.65-0.76 | L4: 0.89 | L6-L10: 0.52-0.62 (minimum) | L15: 0.82 | L16: 0.97 | L17: 0.95
+
+**Nonlinearity concentrates in the middle** — exactly the layers the depth map
+called incompressible and the functional-vocabulary arc found hardest — while the
+final two layers are almost purely linear at their operating point. Two
+consequences: (1) an independent, registered-prediction-free cross-validation of
+the depth map by an entirely different instrument; (2) a sharp tension, queued for
+test: the model's strongest verified interaction (L16→L17, the composition product
+law, +0.067 under cut-and-finetune) sits between its two *most linear* layers. If
+replacing L17's MLP with its fitted linear map (R² 0.95) kills the 16→17 excess,
+the whole interaction lives in the 5% nonlinear residue — the product law as a
+thin quadratic skin on a linear pipe.
