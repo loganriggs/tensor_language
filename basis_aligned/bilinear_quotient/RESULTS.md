@@ -2311,3 +2311,11 @@ better: the reading code's dimension is a model-wide constant (~80–110 vs ~191
 generic), not a property of any writer. Universal-compression check queued.
 
 Full detail in `BILIN18_CONNECTION.md` §78.
+
+### The universal compression constant
+
+Both bars held: generic family size is writer-independent (195–198) and training's
+compression is universal (1.77–2.46× across writers). Architecture supplies ~195
+dimensions everywhere; training halves it everywhere, into shared, mostly-new codes.
+
+Full detail in `BILIN18_CONNECTION.md` §79.

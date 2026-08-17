@@ -3100,3 +3100,14 @@ of a model-wide constant: training compresses every writer's functional family b
 about 2× to a near-universal size. Registered next (queued): confirm the denominator —
 shuffled-weights families for the other writers should also sit near 191, making the
 ~2× compression factor universal rather than L1-specific.
+
+## 79. The compression constant is universal — the arc's closing number
+
+File: `bilin18_universal_compression.py` (27 s). Both bars held: shuffled-weights
+family eff-ranks are 195–198 for every writer (the generic value is
+writer-independent), and the trained/generic compression ratio is **1.77–2.46×
+across all four writers**. Training applies a roughly constant ~2× functional
+compression to every layer's reading code, onto a near-universal ~80–110-dimensional
+size. This is the origin-story arc's closing number: architecture supplies ~195
+generic dimensions everywhere; training halves it everywhere; the result is shared
+across readers (LORO) and mostly new relative to the generic content (§76).
