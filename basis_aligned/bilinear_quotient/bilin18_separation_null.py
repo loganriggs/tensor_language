@@ -48,6 +48,7 @@ OUT=('/workspace/tensor_language/basis_aligned/bilinear_quotient/'
 @torch.no_grad()
 def main():
     t0=time.time()
+    gsh=torch.Generator(device=DEV).manual_seed(9)
     caps={li:[] for li in LAYERS}
     hs=[]
     for li in LAYERS:
