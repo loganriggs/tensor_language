@@ -4168,3 +4168,21 @@ family that is not lexical** — it is where context enters the computation. The
 division of labor in one line: the stream remembers the token, attention reads
 the context, the front MLPs do the nonlinear work, and the output end amplifies
 and stabilizes.
+
+## 127. Attention heads are matched filters: effective score rank 4.6 of 128
+
+File: `bilin18_score_rank.py` — all three registered bars held, the program's
+second clean sweep:
+
+    median score eff-rank -- L0: 1.4 | L2: 3.5 | L5: 7.4 | L9: 4.5 | L13: 7.1 | L16: 4.9
+    overall median 4.6 of 128 | isotropic-input null: 44.4 | factor gap 0.37
+
+On the actual activation distribution, each of a head's two score factors is a
+~5-dimensional bilinear form — the 128-dim head dimension is scaffolding, and the
+compression comes from the *data* (the isotropic null is 10× higher), not the
+weights alone. The two factors of a head have comparable rank (product attention
+composes two similar filters). With §126: attention reads *context*, and it reads
+it through a handful of data-aligned matched filters per factor. Caveat registered
+in the follow-up: these operators ignore RoPE, which sits between projection and
+dot product — the realized-pattern-rank run (queued) checks whether the
+weights-level ranks survive it.

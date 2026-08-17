@@ -2744,3 +2744,11 @@ everywhere), therefore contextual -- attention is the one non-lexical component.
 Stream remembers the token; attention reads the context.
 
 Full detail in `BILIN18_CONNECTION.md` §126.
+
+### Heads are matched filters
+
+Score functions have median effective rank 4.6 of 128 on-distribution (isotropic
+null 44.4; factors comparable). Attention reads context through ~5 data-aligned
+directions per factor. RoPE-honest validation running.
+
+Full detail in `BILIN18_CONNECTION.md` §127.
