@@ -2900,3 +2900,10 @@ Both sides now independent-data replicated. Headline sweep queued (score-rank,
 watch-list gap, L1 linearization cost).
 
 Full detail in `BILIN18_CONNECTION.md` §145.
+
+### Headlines: three for three
+
+Score-rank 4.3, watch-list gap +0.48, L1 cost +0.289 -- all replicate on fresh
+rows. QK below-chance replication queued.
+
+Full detail in `BILIN18_CONNECTION.md` §146.

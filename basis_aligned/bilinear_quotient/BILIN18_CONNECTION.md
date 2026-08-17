@@ -4507,3 +4507,17 @@ stream. Queued: a combined replication sweep of three remaining headline
 numbers on fresh rows — score-rank ~4.6 (registered: fresh median within ±2),
 within-vs-matched-null watch-list gap +0.36 (registered: ≥ +0.25), and L1's
 linearization cost +0.28 (registered: within ±30%).
+
+## 146. Headline sweep: three for three
+
+File: `bilin18_headline_sweep.py`, all registered bars held on fresh rows:
+
+- Score-rank median **4.3** (original 4.6) — heads are matched filters, robust.
+- Watch-list gap at L9: within 0.73 vs matched null 0.26 = **+0.48** (the pooled
+  original was +0.36) — the attention lexicon is, if anything, stronger.
+- L1 linearization cost **+0.289** (original +0.282) — the crown stands.
+
+With §§144–145, every load-bearing headline of the recent arcs is replicated on
+independent data. Queued: the one striking older claim never independently
+replicated — §84's below-chance QK reconstruction (−0.26 vs random +0.37).
+Registered: fresh-rows QK median ≤ 0.0, random control ≥ +0.25, gap ≥ 0.3.
