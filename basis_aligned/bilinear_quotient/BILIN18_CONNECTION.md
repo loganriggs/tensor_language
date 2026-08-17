@@ -1804,3 +1804,43 @@ uncompressible transformation; layer 4 reads it (and misfires without it); the t
 5–15 adds small redundant refinements; 16–17 collapse everything back to a few
 readable directions for the unembedding. Distribution rises then falls with depth, and
 the compressible ends were exactly where every earlier success lived.
+
+---
+
+## 30. The formula's first blind test: 3/4, with the miss and its caveats on record
+
+File: `bilin18_blind_prediction.py` (731 s). Predictions computed and frozen from
+weights + input second moment *before* any causal measurement of layers 7, 9, 11, 13
+(never previously profiled); success bar registered in advance at leader-energy 0.5 in
+the predicted top-8. Empirical leaders from 8-permutation Shapley over each layer's
+top-32 output directions.
+
+| layer | span effect | measured leader (share, PR) | energy in predicted top-8 | cos w/ predicted #1 | verdict |
+|---|---|---|---|---|---|
+| 7 | +0.0202 | dir 4 (51%, PR 2.7) | **0.403** | 0.195 | **MISS** |
+| 9 | −0.0068 | dir 0 (−90%, PR 0.4) | 0.892 | 0.781 | HIT |
+| 11 | +0.0177 | dir 0 (61%, PR 2.1) | **0.954** | **0.917** | HIT |
+| 13 | +0.0060 | dir 0 (113%, PR 0.5) | 0.972 | 0.861 | HIT |
+
+(random-span baseline 0.003–0.010 throughout)
+
+**The formula predicts blind.** Three of four layers clear the registered bar, two of
+them at 0.95+, and at layer 11 the *single* predicted #1 eigenvector is the measured
+leader at cos 0.92. The miss is real and stays a miss: layer 7's leader sits at 0.403 —
+45× random, but below the bar I set, and its predicted-#1 cosine (0.195) is poor.
+
+Caveats that keep this honest rather than triumphant:
+
+- **Layers 9 and 13's attributions are noisy at 8 permutations** (PR 0.4–0.5, shares
+  −90%/113% — negative-value-dominated spectra). Their *leader identities* may be
+  unstable even though the subspace score is not. The clean hits are 11 and 13's
+  energy numbers; the clean identity hit is layer 11.
+- **Layer 9's span effect is negative** (−0.0068): deleting its top-32 output span
+  *improves* pile CE. That is §25–26's shift-regularisation pattern appearing
+  unprompted in a tail layer — the tail's top directions are partly fineweb-specific
+  fit, which is consistent with their small fair shares in §27.
+
+Verdict for the protocol: **weights + one data matrix locates the causal subspace of
+an unseen layer, usually precisely, and its failures are detectable** (layer 7's low
+cos flagged itself). The battery order proposed in §23 — weight-side candidates first,
+model evaluations to verify — survives its first contact with layers it had never seen.

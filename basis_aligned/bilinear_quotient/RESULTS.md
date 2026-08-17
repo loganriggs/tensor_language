@@ -1830,3 +1830,17 @@ and misfires without it; 5–15 add small redundant refinements (fair shares 3�
 with depth.
 
 Full detail in `BILIN18_CONNECTION.md` §29.
+
+### The weights+S formula predicts blind: 3/4 on unprofiled layers
+
+Predictions frozen from weights + input second moment before any measurement of layers
+7/9/11/13; bar registered in advance (leader energy 0.5 in the predicted top-8).
+Result: **3/4 hits** — energies 0.89/0.95/0.97 against random ~0.007, and at layer 11
+the single predicted #1 eigenvector *is* the measured leader (cos 0.92). Layer 7 missed
+(0.403, still 45× random) and stays a miss. Caveats on record: two tail layers'
+8-permutation attributions are noisy (negative-dominated spectra), and layer 9's top-32
+span *improves* pile CE when deleted — the shift-regularisation pattern appearing
+unprompted in the tail. The weights-first battery order survives its first blind
+contact.
+
+Full detail in `BILIN18_CONNECTION.md` §30.
