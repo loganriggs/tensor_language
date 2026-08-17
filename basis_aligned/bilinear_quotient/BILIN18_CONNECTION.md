@@ -3411,3 +3411,22 @@ constant absolute volume into an accumulating stream, so its marginal voice fade
 with depth — no routing structure, just arithmetic. This is the mechanism behind
 the depth map's tail: shallow-compressible because nothing downstream is aimed at
 anything specific upstream.
+
+## 94. The syntax bus has no upstream supplier — long-range influence is a flat floor
+
+File: `bilin18_bus_origin.py`. Both registered operationalizations failed, and the
+decisive number is the control: for every source layer 5–15, transplanting its full
+write moves L16's bus coordinates **no more than a matched random 8-dim span**
+(bus/random ratios 1.00–1.15). No layer feeds the bus specifically. The registered
+excess-over-share metric misfired for an instructive reason: bus movement is nearly
+*flat* across sources (0.16–0.32σ) while dilution shares vary 24-fold, so
+"excess" was just the reciprocal of the share. Share-proportionality — the §93 law —
+describes *adjacent* influence; at ten layers' range, every source's influence has
+saturated into the same undifferentiated ~0.2σ floor, the long-range diffusion the
+steering arc measured as cross-talk. Even L15, the largest mover (0.32σ), is only
+1.14× its own random-span control.
+
+Conclusion: the syntax content L16 forwards is assembled *by L16* from diffusely
+accumulated stream state (or arrives via attention, untested) — there is no
+station-to-station relay behind the bus. The two-station L16→L17 structure is a
+local phenomenon sitting on top of an unstructured supply.

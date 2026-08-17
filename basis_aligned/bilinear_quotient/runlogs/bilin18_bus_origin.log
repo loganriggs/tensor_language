@@ -1,0 +1,16 @@
+L5: bus move 0.245s | random-span 0.224s | dilution share 0.005
+L6: bus move 0.235s | random-span 0.216s | dilution share 0.002
+L7: bus move 0.216s | random-span 0.203s | dilution share 0.002
+L8: bus move 0.203s | random-span 0.192s | dilution share 0.006
+L9: bus move 0.199s | random-span 0.196s | dilution share 0.008
+L10: bus move 0.182s | random-span 0.182s | dilution share 0.008
+L11: bus move 0.193s | random-span 0.191s | dilution share 0.016
+L12: bus move 0.199s | random-span 0.193s | dilution share 0.020
+L13: bus move 0.182s | random-span 0.185s | dilution share 0.021
+L14: bus move 0.161s | random-span 0.169s | dilution share 0.022
+L15: bus move 0.321s | random-span 0.281s | dilution share 0.048
+
+max excess over dilution share: L7 at 7.07x
+(a) diffuse (<=2x everywhere): FAILED
+(b) dedicated adjacent origin (>=3x at L14/15): FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_bus_origin_results.json (5s)

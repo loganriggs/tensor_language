@@ -2453,3 +2453,11 @@ perfectly monotonically (0.252 to 0.040) and predicts edge strength (Spearman
 share of the stream. No routing structure, just arithmetic.
 
 Full detail in `BILIN18_CONNECTION.md` §93.
+
+### The bus has no supplier
+
+No source layer 5-15 moves L16's bus span more than a random span (ratios <=1.15);
+long-range influence is a flat ~0.2-sigma floor, not share-proportional. The
+L16->L17 relay is local structure on top of diffuse supply.
+
+Full detail in `BILIN18_CONNECTION.md` §94.
