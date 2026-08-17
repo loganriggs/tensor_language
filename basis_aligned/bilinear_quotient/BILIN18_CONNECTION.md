@@ -2629,3 +2629,32 @@ not just an eigvector.
 Registered next: the **coherence length** — same-protocol targets at every depth
 L2–L9, decay curve of selectivity, half-range estimate, and the B-norm gate for
 steerability.
+
+## 59. The coherence length is one layer
+
+File: `bilin18_coherence_length.py` (14 s; B-norm confound fixed by taking each
+reader's largest-coupling form).
+
+| reader | L2 | L3 | L4 | L5 | L7 | L9 | L11 | L13 |
+|---|---|---|---|---|---|---|---|---|
+| own movement (σ) | **1.46** | 0.28 | 0.49 | 0.38 | 0.10 | 0.29 | 0.03 | 0.05 |
+| selectivity | **13.0×** | 2.1× | 0.8× | 1.5× | 0.3× | 2.1× | 0.6× | 0.4× |
+
+- (a) at-bar: Spearman(depth, own) = −0.79 against a −0.8 bar — strong decay with
+  wiggles (L9 bounces), reported as at-bar rather than held.
+- **(b) failed informatively: the half-range is one layer.** Own-movement collapses
+  from 1.46σ at L2 to 0.28σ at L3 and never recovers past 0.5σ. My registered 2–6
+  layer half-range was optimistic by half an order of magnitude.
+- (c) held: absolute coupling gates steerability (ρ = 0.62).
+
+**Functional identity survives approximately one layer of the quadratic stack.** Note
+what this does *not* yet distinguish: the steering vector for a deep reader is that
+reader's weight-side coupling eigvector in L1's output basis — the *direct-path*
+functional — and its failure at depth could mean either (i) the range limit is
+intrinsic (propagation noise/attenuation swamps any targeting) or (ii) the direct-path
+vector is simply the wrong direction once layers 2–12 have transformed the
+perturbation. The discriminating experiment is exact and cheap: the **gradient** of the
+deep coefficient with respect to an additive perturbation at L1's output is the true
+end-to-end sensitivity direction, computable by one backward pass. Registered: gradient
+steering restores own-movement ≥ 0.5σ at L13 (targeting artifact) — or fails to
+(intrinsic limit), and either answer settles the arc. Queued.

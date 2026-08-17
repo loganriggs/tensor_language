@@ -2138,3 +2138,14 @@ governs composition also sets a finite steering range. Coherence-length measurem
 queued.
 
 Full detail in `BILIN18_CONNECTION.md` §58.
+
+### The coherence length is one layer
+
+With the coupling-norm confound fixed: own-movement 1.46σ at the adjacent reader,
+0.28σ one layer later, never recovering past 0.5σ (half-range = 1 layer; my registered
+2–6 was optimistic). Absolute coupling gates steerability (ρ 0.62). The queued
+discriminator: gradient steering (the exact end-to-end sensitivity direction, one
+backward pass) tests whether the range limit is intrinsic or a direct-path targeting
+artifact.
+
+Full detail in `BILIN18_CONNECTION.md` §59.

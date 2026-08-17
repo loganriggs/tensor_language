@@ -1,0 +1,13 @@
+L 2: own 1.46s | cross 0.11s | sel 13.0x | |B| 79.6
+L 3: own 0.28s | cross 0.14s | sel 2.1x | |B| 71.9
+L 4: own 0.49s | cross 0.63s | sel 0.8x | |B| 70.5
+L 5: own 0.38s | cross 0.26s | sel 1.5x | |B| 211.7
+L 7: own 0.10s | cross 0.33s | sel 0.3x | |B| 63.2
+L 9: own 0.29s | cross 0.14s | sel 2.1x | |B| 60.9
+L11: own 0.03s | cross 0.05s | sel 0.6x | |B| 63.7
+L13: own 0.05s | cross 0.11s | sel 0.4x | |B| 46.5
+
+Spearman(depth, own) = -0.79 -> (a) FAILED
+half-range: below half-L2 by layer 2 -> (b) FAILED
+Spearman(|B|, own) = +0.62 -> (c) HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_coherence_length_results.json (14s)
