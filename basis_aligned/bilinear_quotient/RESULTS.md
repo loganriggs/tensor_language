@@ -2506,3 +2506,12 @@ evenly) -- frozen-model deletion signatures do not transfer to adapted models.
 Bus-assembly regression had a misalignment bug (recorded); aligned v2 queued.
 
 Full detail in `BILIN18_CONNECTION.md` §99.
+
+### Bus origin complete: linear, old, delivered in place
+
+Stream entering L16 predicts the bus at R^2 0.979 (linear!); attention fully
+explained away; two-thirds of bus variance already present at L2. The interaction
+is special because of WHERE the content is written, not what it is. Lexicality and
+effective-linearity probes queued.
+
+Full detail in `BILIN18_CONNECTION.md` §100.

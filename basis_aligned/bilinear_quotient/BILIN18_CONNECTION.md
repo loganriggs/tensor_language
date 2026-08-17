@@ -3544,3 +3544,29 @@ its cross-document content is causally inert (0.05σ, §98). The aligned v2 is q
 prediction updated: stream-in R² ≥ 0.6 stands, and the attention correlation should
 be explained away as shared position/context signal (partialling out the stream
 should drop it below 0.15).
+
+## 100. The bus is linearly readable, carried from the bottom, and deliverable only in place
+
+File: `bilin18_bus_assembly2.py` (aligned rerun after §99's instrument error). Three
+numbers complete the syntax-bus origin story:
+
+- The stream entering L16 predicts the bus coordinates at held-out **R² 0.979 —
+  with a linear map**. The bus is a function of token-local stream state, and an
+  almost perfectly linear one, despite the MLP computing it being quadratic.
+- Attention's apparent correlation (0.33) is fully explained away on the stream
+  residual (−0.16): shared context signal, no independent contribution — matching
+  its causal inertness (§98).
+- Registered (c) **failed informatively**: the stream at *L2* already predicts the
+  bus at R² 0.659 — two-thirds of the variance is determined near the bottom of the
+  network and carried upward, refined from 0.66 to 0.98 along the way, readable
+  everywhere, but causally *deliverable* only as L16's own write (§94: transplants
+  at every station move nothing).
+
+The picture: the model's strongest interaction runs on content that is old,
+distributed, and linearly exposed — the L16→L17 relay is special not because its
+information is special but because L16 is where that information is written loudly
+enough, and freshly enough, for L17's quadratic to couple to it. Queued next:
+whether the early-determined share is mere token identity (lexicality control),
+and whether the tail's MLPs are *generally* this linear at their operating point —
+which would tie the whole tail phenomenology (unaimed writes, dilution routing,
+shallow compressibility) to effective linearity.
