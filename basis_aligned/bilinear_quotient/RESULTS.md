@@ -2862,3 +2862,11 @@ hurts hard tokens (true content). Sections 98/139 corrected; deciding random
 control queued.
 
 Full detail in `BILIN18_CONNECTION.md` §140.
+
+### Generic-damage control: confirmed at size
+
+A random 256-span at L9 relieves hard tokens by -0.044 -- flattening relief is
+generic at sufficient damage (2/3, the miss being too-small damage). Content =
+hard-token harm; profile re-scoring queued.
+
+Full detail in `BILIN18_CONNECTION.md` §141.

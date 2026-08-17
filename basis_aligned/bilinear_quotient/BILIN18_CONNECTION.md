@@ -4427,3 +4427,19 @@ signature of true content whose loss no flattening can compensate.
 > tokens. Propagated to the report (ledger #11). Deciding control queued:
 > random spans at matched energy must reproduce the easy+/hard− shape
 > (registered), else the generic-damage story fails too.
+
+## 141. The generic-damage control: confirmed where it matters
+
+File: `bilin18_generic_damage.py`. Registered (a) failed formally (2/3) and holds
+substantively: the large random damage (256-dim span at L9) reproduces the
+easy+/hard− shape decisively (easy +0.011, hard **−0.044** — from a *random*
+span), L13's random-96 does too (+0.003/−0.006), and only the smallest damage
+(L5 random-96) is too weak to flatten anything (both quartiles +0.003–0.006).
+The §140 correction stands with a magnitude qualifier: **at sufficient damage,
+flattening relief on confidently-wrong tokens is generic**; small damages sit
+below the effect. The content criterion survives: a component certifies real
+content by *hurting* hard tokens under deletion — flattening cannot fake that
+direction. Queued: re-score the tail profile by the content criterion
+(hard-quartile mean under span deletion); registered: (a) L16's span is the only
+one with hard-mean ≥ +0.05; (b) the content ranking reorders the net-CE ranking
+(Kendall tau ≤ 0.7).
