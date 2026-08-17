@@ -2426,3 +2426,12 @@ damage concentration is per-occurrence, not per-token-type (frequency Spearman
 model.
 
 Full detail in `BILIN18_CONNECTION.md` §90.
+
+### Blind edges: v1 instrument error, one real trend
+
+The registered score was magnitude-dominated (identical ranking to the loudness
+null, Spearman -0.85) -- the control caught it. Real observation: relative
+adjacent-edge strength declines monotonically through the tail (0.36 to 0.04).
+Alignment-only v2 queued.
+
+Full detail in `BILIN18_CONNECTION.md` §91.

@@ -3353,3 +3353,20 @@ across disjoint held-out halves (split-half 0.35 < 0.5 bar). The random-shift
 control held (0.08), so the profile is L11-specific — but it is organized by
 context, not by vocabulary item. Consistent with everything else about this model:
 token-level stories fail, structural/contextual ones verify.
+
+## 91. Blind edges v1: instrument error (score = loudness), plus a real depth decline
+
+File: `bilin18_blind_edges.py`. All three registered bars failed, and the failure is
+diagnostic of the instrument, not the idea: the score trace(C·G₂) grows monotonically
+with depth because activation magnitudes grow, so it ranks *identically* to the
+loudness-only null (both Spearman −0.85) — the alignment content of the score never
+got to speak. The registered comparison (c) existed precisely to catch this, and did.
+
+The anti-correlation itself contains a genuine observation: measured **relative**
+edge strength (transplant-induced change over output variance) declines monotonically
+through the tail — 0.28–0.36 for edges 5→6 through 7→8, down to 0.04 at 14→15.
+Adjacent layers couple progressively less as depth increases, consistent with the
+tail's shallow-compressibility. v2 is queued with the magnitude-free score
+trace(C·G₂)/(trace C · trace G₂/1152) — pure alignment; registered: Spearman ≥ 0.5
+against the same measured effects, and the score must now *beat* the loudness null
+by construction-independent margin ≥ 0.4.
