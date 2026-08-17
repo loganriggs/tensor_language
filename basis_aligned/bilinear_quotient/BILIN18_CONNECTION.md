@@ -2986,3 +2986,23 @@ exists — and the amount is predictable from weights. It does not work through 
 routing, which failed every causal test at every depth. This coheres with the whole
 program: mechanisms and structure verify; token *stories* fail; and the one causal
 token lever is the one that involves no story at all.
+
+## 73. Blind DW: a top-pick predictor, not a ranker — and the arc's missing null
+
+File: `bilin18_direct_write_blind.py` (16 s). Blind on four never-steered directions:
+(a) **failed** — Spearman 0.20; the measured range compressed to 1.2–1.7× and the fine
+ordering did not transfer. (b) held — the max-DW direction did steer best (1.70×).
+Honest scorecard: |DW| picks the best candidate blind and cannot rank the rest; the
+retrodictive 0.77 was partly fit to the spread of the original six.
+
+**And a gap the user's "why is this optimal" question exposed, stated plainly: the
+orthogonal-functionals arc (§54–57) never ran its random-weights null** — the control
+that the program's very first real-model result (§5, the attention census firing
+identically on random weights) established as mandatory. Signed near-orthogonality of
+high-dimensional objects is exactly the kind of statistic typicality can produce for
+free. Queued as the decisive split: recompute the entire §54–61 battery on a randomly
+initialised bilin18. Registered predictions carve "SGD found it" from "generic":
+signed orthogonality and the dense envelope are predicted to REPRODUCE on random
+weights (typicality), while the family compression (eff-rank 80 of 240) and the shared
+vocabulary (LORO R² 0.71) are predicted NOT to (training's actual contribution).
+Alongside it, the user's robustness hypothesis is queued as a direct test.

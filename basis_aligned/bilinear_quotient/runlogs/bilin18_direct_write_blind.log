@@ -1,0 +1,15 @@
+STEP 1 -- registered predictions (weights only):
+  L0 #4    |DW| 174.4
+  L0 #5    |DW| 33.1
+  word3    |DW| 9.1
+  word4    |DW| 4.1
+  predicted selectivity order: ['L0 #4', 'L0 #5', 'word3', 'word4']
+
+L0 #4    measured selectivity 1.70x
+L0 #5    measured selectivity 1.20x
+word3    measured selectivity 1.28x
+word4    measured selectivity 1.28x
+
+Spearman(DW, measured) = +0.20 -> (a) FAILED
+max-DW (L0 #4) measured 1.70x -> (b) HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_direct_write_blind_results.json (16s)
