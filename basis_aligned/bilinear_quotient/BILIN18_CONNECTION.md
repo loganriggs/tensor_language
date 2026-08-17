@@ -1715,3 +1715,46 @@ Participation ratio 3.5 of 14. Three structural facts:
 3. **The tail's importance was uniformly hidden**: layers 5–15 carry 3–7% each at
    amplification 2.9–5.4×. Solo ablation understated every one of them, by more the
    later they sit.
+
+---
+
+## 28. Layer 4's coupling located — and my §27 hypothesis was backwards
+
+Files: `bilin18_layer4_coupling.py` (13 s) + backward weight check (scratch).
+
+§27 read layer 4's negative Shapley value as "layer 4 writes something later layers
+must process." The interventional test inverts that reading.
+
+**T1 — the marginal flip locates the partner, and it is upstream.** Layer 4's marginal
+deletion cost inside coalitions, operator C:
+
+| coalition already deleted | m(4 \| S) |
+|---|---|
+| ∅ | +0.110 |
+| {5} … {5..9} | +0.20 → **+0.28** (rises) |
+| {5..15} | +0.226 |
+| **{2,3}** | **−1.335** |
+| {2,3,5..15} | −3.232 |
+
+Deleting the *downstream* layers makes layer 4 more valuable, not less — the forward
+consumers hypothesis is dead. The sign flips, violently, exactly when **layers 2–3**
+enter the coalition: with its upstream suppliers gone, layer 4's computation becomes
+toxic (−1.34 nats of extra damage). **Layer 4 is a reader of layers 2–3.** Its §27
+negative Shapley came entirely from coalitions containing {2,3}; averaged over orders,
+that dominated. The correct pipeline statement, interventionally grounded: layers
+**2 → 3 → 4** form a front-loaded chain at the entrance to the middle, and layer 4's
+quadratic is tuned to operate on what 2–3 write — on an unwritten bus it misfires and
+amplifies damage.
+
+**T2 — the weight-side Gram predicts both directions correctly.** The input-mode Gram
+of layer 4's tensor in the Λ metric ranks the writers it is sensitive to: **layer 3 at
+0.097 (12× random), layer 2 at 0.063 (8×)**, above layers 1, 5, 6 (0.03–0.04). And the
+forward direction exists but is weaker: layer 5 reads layer 4's output at 10× random,
+decaying to 2× by layer 9. Closed-form weight algebra, seconds, agreeing with the
+interventional flip on both the direction and the ranking of the edge — the Phase-D
+protocol's second confirmed prediction.
+
+The method note that generalises: **a negative Shapley value identifies a coupled
+stage but not the direction of coupling** — the marginal-flip sweep (which coalition
+flips the sign) is the cheap follow-up that orients the edge, and the Λ-metric
+input-mode Gram predicts the answer from weights before any model evaluation is spent.

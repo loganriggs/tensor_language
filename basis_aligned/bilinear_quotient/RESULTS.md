@@ -1797,3 +1797,17 @@ number, and the sharpest evidence yet that the middle is a pipeline rather than 
 collection.
 
 Full detail in `BILIN18_CONNECTION.md` §27.
+
+### Layer 4 oriented: it reads layers 2–3 (my hypothesis was backwards)
+
+The marginal-flip sweep inverted §27's reading. Deleting downstream layers makes layer
+4 *more* valuable (+0.11 → +0.28); its marginal flips violently negative exactly when
+layers 2–3 enter the coalition (−1.34). Layer 4 is a **reader** of 2–3, not a writer
+for 5+: with its suppliers gone its quadratic misfires on the unwritten bus. The
+interventionally grounded pipeline at the middle's entrance is **2 → 3 → 4**. The
+weight-side input-mode Gram predicts both the direction and the ranking (layer 3 at
+12× random, layer 2 at 8×, forward edge to layer 5 at 10× but decaying) — the Phase-D
+protocol's second confirmed prediction. Method note: a negative Shapley value finds a
+coupled stage but not the coupling's direction; the marginal-flip sweep orients it.
+
+Full detail in `BILIN18_CONNECTION.md` §28.
