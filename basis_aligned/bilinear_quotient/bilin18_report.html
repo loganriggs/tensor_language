@@ -408,9 +408,12 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   8 of 11 tail layers, all with small effects (≤0.025 nats), as the dilution law predicts —
   and at <strong>five of eleven layers an 8-dim span exists whose deletion improves
   home-corpus CE</strong> (best −0.016), so truncation-as-regularization is endemic to the
-  tail, not a distribution-shift curiosity. That reopens the constraint-release question
-  with properly selected candidates; the pruning-plus-finetune test on the best of them is
-  the program's current frontier. One hypothesis was tested and refuted on three candidate classes: that
+  tail, not a distribution-shift curiosity. Those spans replicate on disjoint data (−0.021 at the
+  strongest) — yet pruning exactly them plus a finetune <em>still</em> loses to an
+  identically-finetuned intact control (+0.011 nats). Four candidate classes, four
+  refutations, the last selected by the hypothesis's own success criterion: deletion
+  benefit is a property of the frozen operating point, not spare capacity. Nothing found
+  in this model is a removable constraint. One hypothesis was tested and refuted on three candidate classes: that
   the residual stream <em>constrains</em> the model — that pruning connections plus a short
   finetune could beat the intact model. Spans flagged by deletion benefit (+0.026 nats vs
   an identically-finetuned control), the foreign-code reader L11 (+0.033), and the

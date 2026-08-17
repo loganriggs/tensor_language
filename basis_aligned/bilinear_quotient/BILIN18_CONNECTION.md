@@ -3471,3 +3471,30 @@ stability check (do the negatives replicate on disjoint held-out rows?) and
 constraint-release candidate four (delete L9's PCA span + finetune vs finetune-only
 control — registered skeptical after three refutations, but this is the first
 candidate whose no-finetune sign already points the right way).
+
+## 97. Constraint-release closed for good: even genuinely beneficial deletions lose after adaptation
+
+Files: `bilin18_negative_stability.py`, `bilin18_constraint_c4.py`. The stability
+check passed all three bars — the home-corpus deletion benefits are real and
+replicate *stronger* on disjoint rows (L9 −0.0211, L15 −0.0133; fresh random spans
+inert at ±0.0003). Then candidate four: pruning exactly those two spans plus the
+standard 200-step finetune lands **+0.011 nats worse** than the finetune-only
+control (registered skeptical bar ≥ +0.005 held).
+
+This is the sharpest form of the phenomenon and it closes the hypothesis on four
+candidate classes, the last one selected by the hypothesis's own success criterion:
+
+| candidate class | no-finetune deletion | after both arms finetune |
+|---|---|---|
+| shifted-corpus-benefit spans | helps (shifted only) | +0.026 worse |
+| foreign-code reader L11 | hurts | +0.033 worse |
+| product-law interchange edge | hurts (−0.183) | +0.067 worse |
+| **home-corpus-benefit spans** | **helps (−0.021, replicated)** | **+0.011 worse** |
+
+The resolution of the apparent paradox: the negative spans genuinely act as noise
+at the model's *frozen* operating point — removing them helps the un-adapted model —
+but they also carry function, and the finetune re-tunes the rest of the network
+around them, reclaiming more than the regularization benefit was worth. Deletion
+benefit measures a local property of the frozen model, not spare capacity.
+**Nothing in this model is a removable constraint**; the residual stream's
+"pressure" is load, all the way down.

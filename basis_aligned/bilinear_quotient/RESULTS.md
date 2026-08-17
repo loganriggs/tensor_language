@@ -2479,3 +2479,12 @@ home-corpus CE (best -0.016 at L9) -- truncation-as-regularization is not
 shift-specific. Stability check and constraint-release candidate four queued.
 
 Full detail in `BILIN18_CONNECTION.md` §96.
+
+### Constraint-release: closed for good
+
+The home-corpus deletion benefits replicate (stronger: L9 -0.021), yet pruning
+those exact spans + finetune still loses to the finetuned control by +0.011.
+Four candidate classes, four refutations -- the last selected by the hypothesis's
+own criterion. Deletion benefit is a frozen-model property, not spare capacity.
+
+Full detail in `BILIN18_CONNECTION.md` §97.
