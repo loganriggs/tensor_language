@@ -2045,3 +2045,16 @@ interaction depth is manufactured downstream. Compressibility is a property of h
 layer's output is *consumed*.
 
 Full detail in `BILIN18_CONNECTION.md` §50.
+
+### Second-order operator signatures work; edges are filters
+
+The blind routing test failed its edge-existence gate honestly — L0's number axis
+moves the L1 leader at only 0.23σ vs the punctuation axis's 1.04σ, so the front edge
+is *signal-specific*: a filter, not a pipe. And the second-order response-energy
+signature (weights + cached activations, no interventions) recovers what first-order
+norms missed: head 1's pattern-response is 69× its value-response (matching the
+measured 54/30 route) and 30–300× every other head's — carrier and route character
+both predicted. Registered next: does response energy predict edge *strength*,
+closing the loop on a weights-side calculus of which signals route at all.
+
+Full detail in `BILIN18_CONNECTION.md` §51.

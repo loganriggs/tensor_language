@@ -2405,3 +2405,36 @@ nearly vanishes on the input side (1pp vs 75pp). So the asymmetry of the unifica
 itself informative: compressibility is a property of *how a layer's output is consumed*,
 not of how the layer consumes its input — every layer reads shallowly; only the middle
 is read deeply.
+
+## 51. The operator calculus at second order: route character recovered; edges are signal-specific
+
+Files: `bilin18_blind_routing.py`, `bilin18_secondorder_route.py` (10 + 5 s; the
+latter's first run crashed on dead code, fixed and rerun — and the crash exposed a
+runner flaw, `_completed.txt` logging `exit_ok` unconditionally, now fixed to record
+real exit codes).
+
+**The blind routing test failed its own gate, informatively.** Weights-only
+qk-enrichment named head 7 as the predicted carrier for L0's #2 causal direction (the
+number/quantifier axis) — but the registered edge-existence prediction failed: steering
+that axis moves the L1 leader by only **+0.23σ** (bar 0.3), against the punctuation
+axis's +1.04σ. The carrier prediction was therefore untestable, and the finding stands
+on its own: **the L0→L1 edge is signal-specific** — the front chain routes the
+punctuation axis at unit gain and largely ignores the number axis. Edges in this model
+are not pipes; they are filters.
+
+**The second-order signature recovers everything first-order norms missed.** Computing
+response *energies* from weights + cached activations (pattern response = score
+perturbations through the standing cross-scores, times standing value energy; value
+response = injected value content through the standing pattern):
+
+- head 1's pattern-response exceeds its value-response **69×** (registered (a) held) —
+  matching the measured 54/30 pattern-dominant route where first-order norms had
+  predicted the reverse;
+- head 1's *absolute* pattern-response (4.1e11) exceeds every other head's by 30–300×
+  — the carrier identity falls out too, more sharply than from first-order enrichment.
+
+The operator-composition picture is now: **first-order signatures find carriers
+sometimes; second-order response energies find carriers, route character, and — next
+registered test — edge strength.** If the number axis's weak edge is also predicted by
+its small maximal response energy, the calculus predicts which signals route at all,
+from weights.

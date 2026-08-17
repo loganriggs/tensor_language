@@ -73,12 +73,8 @@ def main():
     for h in range(NH):
         # value response: existing pattern moves injected value content
         Ev=float((st['pat'][:,h].abs().sum(-1)**2).mean())*float((dv[h]**2).sum())
-        # pattern response: ds1 = (dq.k + q.dk)/HD etc, cross-multiplied with standing s2/s1, times existing v energy
-        ds1=(torch.einsum('e,bkhe->bk',dq1[h],st['k'][:,:,h:h+1,:].transpose(1,2))
-             +torch.einsum('bqhe,e->bq',st['q'][:,:,h:h+1,:].transpose(1,2)
-                           .transpose(2,3).squeeze(-2)*0+st['q'][:,:,h,:],dk[h])
-             .unsqueeze(-1)*0).sum()*0
-        # simpler numeric estimate: ds1[q,k] = (dq.k[k] + q[q].dk)/HD
+        # pattern response: ds1[q,k] = (dq.k[k] + q[q].dk)/HD, likewise ds2;
+        # dpat = ds1*s2 + s1*ds2, energy weighted by standing value energy
         dqk1=(torch.einsum('e,bke->bk',dq1[h],st['k'][:,:,h,:])[:,None,:]
               +torch.einsum('bqe,e->bq',st['q'][:,:,h,:],dk[h])[:,:,None])/HD
         dqk2=(torch.einsum('e,bke->bk',dq2[h],st['k2'][:,:,h,:])[:,None,:]
