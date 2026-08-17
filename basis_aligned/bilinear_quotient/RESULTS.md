@@ -2920,3 +2920,10 @@ Shuffled 18.7 / gaussian 36.1 vs trained 4.3: training compresses score
 functions 4-8x beyond covariance concentration. Lexicon origin null queued.
 
 Full detail in `BILIN18_CONNECTION.md` §148.
+
+### Lexicon one-third trained
+
+0.71 = 0.36 concentration + 0.11 generic clustering + 0.24 trained -- section
+130's attribution corrected (training adds a third). Separation origin queued.
+
+Full detail in `BILIN18_CONNECTION.md` §149.

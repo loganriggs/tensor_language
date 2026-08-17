@@ -4548,3 +4548,23 @@ origin question for the shared watch-list (§130) — is the within-layer filter
 *alignment* trained, or do shuffled weights' filters also cluster? Registered:
 shuffled within-layer alignment ≤ matched-null + 0.1 (the lexicon is trained);
 alternative: generic clustering would scope-note §130.
+
+## 149. The lexicon is one-third trained — a scope note for §130
+
+File: `bilin18_lexicon_null.py`. Registered (a) failed at 0.47 vs the null+0.1
+bar, and the number decomposes the claim: within-layer filter alignment is
+
+    0.71 (trained) = 0.36 (covariance concentration) + 0.11 (generic clustering
+    of shuffled weights' filters) + 0.24 (trained sharing)
+
+Shuffled weights' filters cluster somewhat above the matched null — random-ish
+projections through shared marginal statistics land closer together than clean
+random subspaces do — so §130's "+0.36 genuine sharing" overstated training's
+role. Corrected attribution: **training contributes +0.24 of alignment**, about
+a third of the raw number and two-thirds of the above-null part. The lexicon is
+real and partly trained, sitting exactly in the pattern the origin arc found for
+the MLP vocabulary: geometry comes cheap, sharing is what training adds. Queued:
+the origin of the *separation* (§§131–132, two watch-lists and two write
+channels per layer) — registered skeptical: shuffled weights separate just as
+well (separation is the default state; training never had to fight it);
+alternative: trained avoidance would be new.
