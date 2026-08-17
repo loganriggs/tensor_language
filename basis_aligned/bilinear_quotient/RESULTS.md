@@ -3340,3 +3340,12 @@ The warm full-rank base (1.33M) was uncounted; honestly, section 200's combo
 loses to full linear. Cheap-base retest queued -- the class question reopens.
 
 Full detail in `BILIN18_CONNECTION.md` §201.
+
+### The class question closes; hillclimb final verdict
+
+No structural lever shifts the curve at honest cost. Real levers: refit
+protocol and licensed constants. The frontier is close to an
+information-theoretic given on this model -- grade submissions on reaching it
+cheaply.
+
+Full detail in `BILIN18_CONNECTION.md` §202.

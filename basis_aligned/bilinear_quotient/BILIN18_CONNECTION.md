@@ -5503,3 +5503,32 @@ linear base (1.33M params) that §200's accounting omitted**. Corrected:
 > failure closes the class question at this scale for good. The benchmark's
 > own accounting rules caught this within one run — which is the system
 > working, and the reason the parameter ledger exists.
+
+## 202. The class question closes: the hillclimb's final verdict
+
+File: `bilin18_hillclimb3c.py`. At honest accounting, both class bars failed:
+L1's rank-32-base + width-64 bilinear scores +0.889 at 0.29M — below rank-64
+linear (+1.11 at 0.15M) but consistent with the within-class curve at that
+budget, i.e. **no class advantage**; L16's variant ties linear-r8 at 40% of
+the params (+0.060 vs +0.059) — a marginal saving under its registered bar.
+Per the pre-registration, the class question closes.
+
+**Hillclimb arc, final summary (§§195–202):**
+
+| lever tried | verdict |
+|---|---|
+| greedy rank allocation | matches uniform, never beats (§195) |
+| reader-aligned subspaces | loses 0.34 (§196) |
+| cross-layer shared basis | exactly param-neutral (§198) |
+| narrow quadratic class (honest cost) | on the curve; marginal at best (§202) |
+| sequential refit | **+36%, the one real lever** |
+| constants where maps license | **free params, the other real lever** |
+
+The honest conclusion for the benchmark: this model's replaceable function
+defines a Pareto curve that *nothing structural shifts* — not allocation, not
+alignment, not sharing, not computation class at honest cost. The only wins are
+protocol (refit) and knowing where nothing is needed (constants). One
+accounting error tried to say otherwise and lasted two hours (ledger #15).
+This is itself the benchmark's calibration: on a model this diffuse, the
+fidelity-complexity frontier is close to an information-theoretic given, and
+submissions should be graded on *reaching* it cheaply, not on mythical beats.
