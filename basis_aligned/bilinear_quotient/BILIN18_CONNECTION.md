@@ -3222,3 +3222,24 @@ random: QK couplings sit far below chance, i.e. they concentrate in directions t
 MLP vocabulary actively avoids. Attention-pattern reading and MLP reading use
 **disjoint quadratic codes**. (Joint family eff-rank 88 — the QK code is itself
 compact.) Cross-reader-type sharing: refuted.
+
+## 85. Constraint-release test: pruning the "harmful" spans does not beat the finetune control
+
+File: `bilin18_constraint_release.py` (71 s), testing the user's hypothesis that the
+residual stream constrains the model — that removing certain connections plus a short
+finetune could beat the intact model's CE. Best available candidates: the three tail
+spans (top-32 output directions of L9/L12/L15) whose deletion *improved* pile CE with
+no finetune at all (§37–38). Arms, all evaluated on held-out rows never touched by
+training: A intact/no finetune 3.943; B finetune-only (200 steps, lr 1e-5) 3.571;
+C prune-then-finetune **3.597**.
+
+Registered (b) **failed**: C is 0.026 nats *worse* than B — six times the bar in the
+wrong direction — and the shift-artifact null (C ≈ B) is also excluded. Once the
+model is allowed to adapt, those spans are genuinely load-bearing: the finetune could
+not rebuild what they carry. The earlier "deletion improves CE" was a
+distribution-shift artifact, exactly as the §37 fineweb/pile asymmetry hinted — the
+spans hurt on *shifted* data while carrying real function on the home distribution.
+No evidence yet for released constraints; the dose–response control (600 steps —
+was recovery just slow?) is queued, with the note that a 6×-bar gap rarely flips at
+3× dose. A fairer future candidate: connections selected by interchange-leak rather
+than by raw deletion effect.

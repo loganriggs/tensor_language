@@ -2369,3 +2369,13 @@ the MLP basis (−0.26 vs random +0.37): attention and MLPs read with disjoint
 quadratic codes.
 
 Full detail in `BILIN18_CONNECTION.md` §84.
+
+### Constraint release: not yet
+
+Pruning the three tail spans whose deletion looked beneficial, then finetuning 200
+steps, lands 0.026 nats WORSE than an identically-finetuned intact control (3.597
+vs 3.571 held-out). The "deletion helps" observations were shift artifacts; on the
+home distribution those connections are load-bearing even after adaptation. Longer-
+finetune control queued.
+
+Full detail in `BILIN18_CONNECTION.md` §85.
