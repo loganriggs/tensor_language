@@ -3451,3 +3451,11 @@ with depth, one below-floor privacy notch at L4 = fraction 0.33 (bilin18: L6
 = 0.33). The placement law now places the newest phenomenon.
 
 Full detail in `BILIN18_CONNECTION.md` §215.
+
+### The signature transfers whole
+
+bilin12-L4's privacy is span-concentrated too (tail coords 0.46 vs control
+0.56) -- and its private span is NOT a regularizer (+0.036), dissociating
+privacy from regularizer character cross-model.
+
+Full detail in `BILIN18_CONNECTION.md` §216.

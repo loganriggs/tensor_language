@@ -5838,3 +5838,20 @@ swiglu18/sqrd12 have no L⊙R forms to build the vocabulary from. Open,
 sharpened: what computation lives at fraction 1/3 that wants a code nobody
 else speaks — and does the fraction persist in a larger bilinear checkpoint
 (the standing scale prediction gains its sharpest test yet).
+
+## 216. The signature transfers whole — and sheds the regularizer coincidence
+
+File: `bilin12_l4_tailcoords.py`, all bars held. bilin12-L4's privacy is
+span-concentrated exactly like bilin18-L6's: past the top-8 span its code is
+shared normally (0.46, control L8 at 0.56, randoms below 0.1). The universal
+object is now fully specified: **in each bilinear model, one writer at depth
+fraction one-third carries a top-8 output span the reader population declines
+to share a vocabulary over, while the rest of its code participates
+normally.** And the transfer subtracted a coincidence: bilin18-L6's private
+span happened to be deletion-improving, but bilin12-L4's private span costs
++0.036 to delete — private and useful. Privacy is not regularizer character
+(now dissociated cross-model, not just cross-layer); it is its own thing: a
+loud, consumed, functional code that trained readers of the same stack
+systematically fail to — or decline to — decode with their common vocabulary.
+The arc rests with the phenomenon universal, localized, transport-measured,
+and unexplained: the best-specified open question the program has produced.
