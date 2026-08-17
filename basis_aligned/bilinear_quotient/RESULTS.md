@@ -2406,3 +2406,12 @@ diffusely. QK heads compress 1.7x among themselves (eff-rank 15.5 vs 26.4 random
 but share within layers, not across them.
 
 Full detail in `BILIN18_CONNECTION.md` §88.
+
+### The dissident's job; QK is per-head
+
+L11's ablation damage is concentrated (top decile of tokens = 51% of damage) with
+an 8.3x entropy side-effect: concentrated content work plus decalibration. QK
+heads barely share even within a layer (eff-ranks 6-7.9 of 9; layer codes
+distinct): the shared-vocabulary phenomenon is MLP-specific at every grouping.
+
+Full detail in `BILIN18_CONNECTION.md` §89.

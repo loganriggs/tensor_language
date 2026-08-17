@@ -3311,3 +3311,22 @@ But leave-one-layer-out reconstruction is weak (median R² 0.18 < 0.3): the shar
 is mostly **within-layer**. QK reading has its own compact code, organized
 per-layer rather than model-wide — unlike the MLP vocabulary, which crosses
 fourteen of fifteen readers.
+
+## 89. The dissident does concentrated content work; the QK "code" is mostly per-head
+
+**L11's function** (`bilin18_l11_function.py`): both registered signatures returned
+the *content* verdict. Ablation damage is concentrated — the top decile of tokens
+carries **51%** of total CE damage (registered diffuse-bar <35% failed; past
+content features ran >50%) — and the entropy signature is strong too (mean
+next-token entropy shifts 8.3× more than under an energy-matched random shift).
+The dissident's profile is now complete: normal engagement with L1, a foreign
+functional code, no dedicated downstream reader, damage concentrated on a specific
+token subset, and a large calibration side-effect. A reader that works alone on
+its own token business — written diffusely, felt specifically.
+
+**QK per-layer** (`bilin18_qk_perlayer.py`): within-layer eff-ranks are 6.0–7.9
+of 9 — heads barely compress even inside a layer (registered ≤5 failed) — while
+the layer codes are mutually distinct (median principal cos 0.24, held). Combined
+with §88 (family 15.5/27, LOLO 0.18): QK reading is **mostly per-head**, with mild
+within-layer sharing and near-zero cross-layer sharing. The strong shared-vocabulary
+phenomenon is specific to MLP quadratic reading at every grouping we can form.
