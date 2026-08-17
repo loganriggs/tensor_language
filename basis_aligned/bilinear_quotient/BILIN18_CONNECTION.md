@@ -2095,3 +2095,31 @@ this amplification mechanism at layer scale, and the coverage curve (§39) says 
 concentrates where variance statistics do not look. Registered next test: per-position
 mismatch distribution (prediction: the top 5% of positions carry >60% of the mismatch
 KL), which would close the leak's accounting without closing the leak.
+
+## 41. The leak's accounting closed: local coefficient error, diluted by propagation
+
+Files: `bilin18_leak_accounting.py`, `bilin18_leak_singlepos.py` (6 + 10 s).
+
+The aggregate accounting test failed both its bars (top-5% share 48% vs a 52% generic
+control; ρ(mismatch, coeff error) = 0.18) — but with a design confound recorded before
+interpreting: a patch at position q affects every later position through causal
+attention, so per-position mismatch KL mixes all upstream errors and dilutes any local
+correlation. The clean design patches **one position at a time** (the KL downstream of
+q is then attributable to q alone; 24 forwards):
+
+- **(a) held: ρ(single-position mismatch, that position's coefficient error) = +0.52.**
+  The leak is locally coefficient-error-driven after all; the aggregate test was
+  measuring its own confound.
+- (b) failed narrowly: the quadratic operating-point scaling (mismatch per unit error
+  growing with base coefficient magnitude) lands at ρ = +0.29 against a 0.3 bar, n=12
+  positions. Suggestive, unproven; kept as failed.
+
+**The leak thread's verdict across §40–41**: the 32% z→c₀ interchange gap is the
+accumulation of small per-position coefficient errors (fit residual 1.3% of variance),
+each locally amplified (ρ 0.52) and mixed forward by propagation — not document
+identity, not a missing second direction. It is irreducible for any fixed-rank
+surrogate and calibrated by the same product-coupling that governs composition (§35).
+Practical consequence: interchange faithfulness for this architecture has a ceiling set
+by fit residual × propagation, so "the abstraction is 68% faithful" should be read as
+"the abstraction has 1.3% coefficient error in a model that amplifies error ~25×" —
+two descriptions of one number, the second one predictive.

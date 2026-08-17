@@ -1923,3 +1923,15 @@ mechanism as the composition product law at a different scale. Accounting test
 registered.
 
 Full detail in `BILIN18_CONNECTION.md` §40.
+
+### The leak accounted for
+
+Single-position patching (the clean design; the aggregate version was confounded by
+forward propagation and failed its bars measuring its own confound) shows the
+interchange leak is locally coefficient-error-driven: ρ = +0.52 between a position's
+mismatch KL and its coefficient error. The 32% gap is small fit residual (1.3% of
+variance) amplified ~25× by the quadratic stack — the product-coupling theme at
+coefficient scale. Operating-point scaling narrowly failed its bar (ρ 0.29 vs 0.3,
+n=12) and stays unproven.
+
+Full detail in `BILIN18_CONNECTION.md` §41.
