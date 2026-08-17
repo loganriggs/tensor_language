@@ -3939,3 +3939,31 @@ on the linear-L17 path. Queued: freeze the final norm's per-token scale to
 clean-run values under the same arms; registered (a) that kills ≥60% of the
 free-attention excess (+0.030), closing the interaction ledger exactly; control
 (b) norm-freeze free under no damage.
+
+## 116. Span-ablation damage is largely norm-mediated at the tail
+
+File: `bilin18_final_norm_test.py`. Registered (a) failed at −419% and the control
+was violated (freezing the hybrid's final gain to the *real* model's clean values
+shifts base by 0.0097 — wrong reference; instrument flaw recorded). But the effect
+that showed up dwarfs both problems:
+
+| arm | d16 | d17 | excess |
+|---|---|---|---|
+| free final norm | +0.283 | +0.485 | +0.030 |
+| gain frozen to clean | **+0.046** | **+0.083** | +0.158 |
+
+**Six-fold collapse of the individual damages.** Mean-ablating a top-8 span
+removes a large share of the residual's energy; the final rms_norm then re-scales
+the whole vector, distorting every logit. Most of the measured "content damage"
+of tail span-ablations is this global gain response — the spans' content-level
+value is closer to +0.05/+0.08 than +0.28/+0.49. And at content level the 16→17
+interaction is *bigger* (+0.158), not smaller.
+
+Scope: this does not void earlier results (the rms_norm is part of the model;
+the damages are real for the intervention) but it re-frames their
+*interpretation* wherever a large-energy span was ablated at the tail — most
+importantly the composition-law arc's d16/d17 inputs. Queued, with the control
+fixed (each arm frozen to its **own** no-damage gain): (a) control exact ≤0.002;
+(b) content-level excess ≥0.05 — the interaction is real at content level, not a
+gain artifact; (c) norm-mediated share of individual damage ≥60% at both spans,
+on the real (non-hybrid) model.

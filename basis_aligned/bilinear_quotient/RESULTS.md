@@ -2650,3 +2650,12 @@ exact): attention absorbs interaction damage rather than carrying it -- second
 compensator at this layer. Final-norm freeze queued to close the ledger.
 
 Full detail in `BILIN18_CONNECTION.md` §115.
+
+### Span damage is largely norm-mediated
+
+Freezing the final gain collapses individual span damages six-fold (0.28/0.49 ->
+0.05/0.08): most tail span-ablation "damage" is global gain distortion from
+removing energy, not content loss -- and the content-level 16->17 interaction is
+BIGGER (+0.158). Clean per-arm-referenced rerun queued.
+
+Full detail in `BILIN18_CONNECTION.md` §116.
