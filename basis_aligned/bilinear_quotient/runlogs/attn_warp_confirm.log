@@ -1,0 +1,8 @@
+sqrd12 attn fraction 0.08 -> axis-implied 0.11 (shift -0.03)
+sqrd12 attn fraction 0.17 -> axis-implied 0.33 (shift -0.17)
+sqrd12 attn fraction 0.50 -> axis-implied 0.61 (shift -0.11)
+bilinear-pair axis 0.88 | median front-shift -0.11 | null 0.04
+(a) axis holds (>=0.7): HELD
+(b) all front-shifted, median >=0.05: FAILED
+(c) null: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/attn_warp_confirm_results.json (10s)

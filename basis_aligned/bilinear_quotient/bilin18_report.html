@@ -120,7 +120,7 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   <p class="lede">What we found inside a 546M-parameter bilinear transformer: six layers read
   end to end, a causal graph with every edge tested by intervention, a depth map that says
   where the model compresses and where it refuses to, and a weights-only formula that
-  predicted almost all of it. Including every correction it took to get here — the ledger below runs to twelve.</p>
+  predicted almost all of it. Including every correction it took to get here — the ledger below runs to thirteen.</p>
   <nav class="toc" aria-label="Contents"><p class="tochd">Contents</p><ol>
     <li><span class="num">01</span><a href="#model">The model and the method</a></li>
     <li><span class="num">02</span><a href="#depth">The depth map</a></li>
@@ -391,6 +391,7 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   <tr><td>register semantics of the L1 leader</td><td>correlate, not cause</td><td>token injection + damage profile</td></tr>
   <tr><td>stand-in costs of §§linearization (v1)</td><td>re-measured — maps were fit on post-mix inputs but applied pre-mix (λ-mixing bug); L5 "outlier" and 2.68× superadditivity withdrawn</td><td>the sequential-refit run's self-consistency</td></tr>
   <tr><td>"linearizing L17 kills 98% of the 16→17 interaction"</td><td>79% on a consistent instrument — and at content level (final gain frozen) only 21%; the big kills were the norm channel</td><td>the norm-mediation accounting chain</td></tr>
+  <tr><td>"the cross-family attention warp is front-shifted"</td><td>displaced, direction unresolved — the two instruments disagree on the sign</td><td>the axis-side confirmation run</td></tr>
   <tr><td>"the stream is a multiplexed bus with two type-channels"</td><td>locally separated apertures, but end-to-end a relay: attention reads what MLPs write and transports it; no attention-to-attention channel</td><td>the reads-what-writes test the user's question forced</td></tr>
   <tr><td>"deletion-benefit spans sharpen easy tokens, overshoot hard ones"</td><td>the easy-hurt/hard-relieved shape is the generic flattening signature of damage under convex loss, at every depth; component content is signaled by hard-token <em>harm</em></td><td>the depth-dichotomy test failing at L2</td></tr>
   <tr><td>"L1 and L5 discard the stream (λ₀ ≈ 0)"</td><td>no layer is embedding-dominated — the λ-weighted stream term still wins; L0's giant write is the real reset</td><td>measuring the λ-term norms on data</td></tr>
@@ -529,7 +530,9 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   tracks fractional depth at 0.85 for the bilinear pair and 0.79 with the cross-family
   third model included (nulls ~0.05–0.30); layer order alone is recoverable from
   fingerprints at 0.9. MLP causal placement follows depth fraction universally across
-  all three architectures; the cross-family differences live in the attention stream. One hypothesis was tested and refuted on three candidate classes: that
+  all three architectures; the cross-family model's attention is displaced from its
+  nominal fractions on both instruments tried, but the displacement's <em>direction</em>
+  flips between instruments and is withdrawn as unresolved (ledger #13). One hypothesis was tested and refuted on three candidate classes: that
   the residual stream <em>constrains</em> the model — that pruning connections plus a short
   finetune could beat the intact model. Spans flagged by deletion benefit (+0.026 nats vs
   an identically-finetuned control), the foreign-code reader L11 (+0.033), and the

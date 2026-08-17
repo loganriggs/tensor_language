@@ -3155,3 +3155,11 @@ Three models on one causal depth axis (0.79, null 0.04); the cross-family warp
 is attention-specific -- MLP placement is universal. Fingerprint arc complete.
 
 Full detail in `BILIN18_CONNECTION.md` §177.
+
+### Correction: warp direction unresolved
+
+The two instruments disagree on the sqrd12 attention warp's sign (direct match:
+front; axis: back). Displacement real (~0.1-0.17), direction withdrawn. MLP
+universality unaffected. Ledger #13.
+
+Full detail in `BILIN18_CONNECTION.md` §178.

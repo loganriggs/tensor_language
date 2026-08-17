@@ -5063,3 +5063,25 @@ architectural families express their differences; the component type that
 carries the shared vocabulary (MLPs) places its work identically everywhere.
 The fingerprint arc ends here: one axis, three models, and the family
 differences localized to a single component type.
+
+## 178. CORRECTION: the attention warp's direction is instrument-dependent
+
+File: `attn_warp_confirm.py`. Registered (b) failed by *inversion*: on the
+joint-axis instrument, sqrd12's attention components sit at **higher**
+axis-implied fractions than nominal (−0.03/−0.17/−0.11), while §169's direct
+best-match instrument placed them **lower** (attn6 → bilin18 L6–7). The axis
+itself is sound (bilinear pair at 0.88, null 0.04).
+
+> **Correction to §§169/177.** What is established: sqrd12's attention
+> components do not sit at their nominal depth fractions on either instrument
+> (displacements ~0.1–0.17 both times) — the cross-family attention warp is
+> real. What is NOT established: its direction, which flips between the direct
+> best-match and the spectral-axis placements (plausibly because sqrd12's
+> attention fingerprints are weaker overall — peak cross-correlations 0.26 vs
+> the bilinear pair's 0.34–0.42 — so aggregate placement is noisy).
+> "Front-shifted" is withdrawn; "displaced, direction unresolved" stands. The
+> MLP-side conclusion of §177 (no displacement, universal fractional placement)
+> is unaffected — it held on both instruments.
+
+Ledger #13. A fitting late reminder of the program's oldest rule: a claim's
+direction needs two instruments to agree before it earns a verb.
