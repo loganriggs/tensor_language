@@ -34,35 +34,35 @@ def main():
     ce0=d18['base'].to(DEV)
     f18={k:v.float() for k,v in d18['fingerprints'].items()}
     f12={k:v.float() for k,v in d12['fingerprints'].items()}
-    # missing bilin18 fingerprints: attn9, mlp7
-    mu9=attn_mean(9)
-    f18['attn9']=(per_token(attn_layer=(9,mu9))-ce0).cpu().float()
-    print(f'attn9: net {float(f18["attn9"].mean()):+.4f}',flush=True)
-    accs=[]
-    for i in range(0,36,6):
-        acc=[]; fwd(FW[i:i+6,:513].to(DEV), collect=7, acc=acc); accs.append(acc[0])
-    Y=torch.cat(accs); Ybar=Y.mean(0)
-    _,_,Vh=torch.linalg.svd((Y-Ybar).float(), full_matrices=False)
-    Q=orth(Vh[:8].T)
-    f18['mlp7']=(per_token(mlp_span=(7,(Q,Ybar@Q)))-ce0).cpu().float()
-    print(f'mlp7: net {float(f18["mlp7"].mean()):+.4f}',flush=True)
-    def r(a,b): return abs(spearman(f12[a],f18[b]))
-    pairs={'attn6_abs':r('attn6','attn6'),'attn6_rel':r('attn6','attn9'),
-           'mlp5_abs':r('mlp5','mlp5'),'mlp5_rel':r('mlp5','mlp7'),
-           'attn1':r('attn1','attn1'),'attn2':r('attn2','attn2')}
-    for k,v in pairs.items(): print(f'{k:10s}: {v:.3f}',flush=True)
-    pa=(pairs['attn6_rel']>pairs['attn6_abs']) and \
-       (pairs['mlp5_rel']>pairs['mlp5_abs'])
-    pb=pairs['attn1']>=0.15 and pairs['attn2']>=0.15
-    pc=all(v>=0.15 for k,v in pairs.items() if k in
-           ('attn6_rel','mlp5_rel','attn1','attn2')) or \
-       all(v>=0.15 for k,v in pairs.items() if k in
-           ('attn6_abs','mlp5_abs','attn1','attn2'))
-    out={'pairs':pairs,'pred_a_relative':bool(pa),'pred_b_front':bool(pb),
-         'pred_c_above_floor':bool(pc)}
-    print(f"\n(a) relative-depth beats absolute at mid: {'HELD' if pa else 'FAILED'}")
-    print(f"(b) front aligned: {'HELD' if pb else 'FAILED'}")
-    print(f"(c) analog scheme >= 3x floor: {'HELD' if pc else 'FAILED'}")
+    L18=(1,3,5,7,9,11,13,15,17)
+    for li in L18:
+        k=f'attn{li}'
+        if k not in f18:
+            mu=attn_mean(li)
+            f18[k]=(per_token(attn_layer=(li,mu))-ce0).cpu().float()
+            print(f'{k}: net {float(f18[k].mean()):+.4f}',flush=True)
+    curves={}
+    for b12 in ('attn1','attn2','attn6'):
+        curves[b12]=[abs(spearman(f12[b12],f18[f'attn{li}'])) for li in L18]
+        print(f'{b12}: '+' '.join(f'{v:.2f}' for v in curves[b12]),flush=True)
+    fr12={'attn1':1/12,'attn2':2/12,'attn6':6/12}
+    hits=0; uni=0
+    out={'layers':list(L18),'curves':curves}
+    for b12,cv in curves.items():
+        pk=max(range(len(cv)),key=lambda i:cv[i])
+        best=L18[pk]
+        bf=best/18
+        if abs(bf-fr12[b12])<=0.15: hits+=1
+        left_ok=all(cv[i]<=cv[i+1]+0.03 for i in range(pk))
+        right_ok=all(cv[i]>=cv[i+1]-0.03 for i in range(pk,len(cv)-1))
+        if left_ok and right_ok: uni+=1
+        out[b12+'_best']=best
+        print(f'{b12}: best L{best} (fraction {bf:.2f} vs own {fr12[b12]:.2f})',
+              flush=True)
+    pa=hits==3; pb=uni>=2
+    out['pred_a']=bool(pa); out['pred_b']=bool(pb)
+    print(f"\n(a) fractions match (3/3): {'HELD' if pa else 'FAILED'} ({hits}/3)")
+    print(f"(b) unimodal >= 2/3: {'HELD' if pb else 'FAILED'} ({uni}/3)")
     out['runtime_s']=time.time()-t0
     json.dump(out,open(OUT,'w'),indent=1)
     print(f'wrote {OUT} ({out["runtime_s"]:.0f}s)')
