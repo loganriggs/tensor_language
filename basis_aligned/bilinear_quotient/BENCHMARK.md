@@ -144,14 +144,15 @@ architecture-agnostic harness (traced-forward contract, five mandatory
 self-tests, refit + joint scoring, both regimes) — the port surface for a new
 model is ~100 lines of traced forward. Measured search results: greedy rank
 allocation matches uniform (§195); reader-aligned subspace allocation loses to
-variance (§196) — the frontier levers are computation class and refit, now both demonstrated:
-the Pareto curve is parameterization-invariant WITHIN the linear class (§198;
-allocation, alignment, and sharing all land on one curve), and the CLASS lever
-moves it — a warm-started width-64 factored bilinear at L1 scores +0.33 at
-0.22M vs +1.11 for same-budget linear (§200), nearly matching full linear at
-1/6 size. Scale recipe: per-layer class selection guided by the
-functional-nonlinearity map, sequential refit, joint scoring, harness
-self-tests.
+variance (§196) — the Pareto curve is parameterization-invariant within the linear class
+(§198: allocation, alignment, and sharing all land on one curve), and the
+CLASS question is CLOSED at honest accounting (§§201-202, ledger #15: §200's
+apparent class win carried an uncounted 1.33M warm base; correctly costed, no
+computation class beats the within-class curve). Measured real levers:
+sequential refit (+36%) and constants where the maps license them. The
+frontier is close to an information-theoretic given on this model — grade
+submissions on REACHING it cheaply. Scale recipe: refit protocol, licensed
+constants, joint scoring, harness self-tests.
 
 ## Why this is not quantization
 
