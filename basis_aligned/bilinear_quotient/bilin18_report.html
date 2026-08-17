@@ -536,8 +536,15 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   0.000; the earlier apparent "warp" was three-sample noise, resolved on the ledger). The
   law's fourth model — the swiglu-gated 18-layer sibling — passes on the instrument of
   record (median displacement 0.06), after the joint-embedding method was caught failing
-  a second time on weak cross-correlations and gated behind a correlation floor. Four
-  models, two component types, one law. One hypothesis was tested and refuted on three candidate classes: that
+  a second time on weak cross-correlations and gated behind a correlation floor; its one
+  apparent anomaly (a front plateau) dissolved into argmax near-ties whose runners-up
+  were the correct depths. Four models, two component types, one law, zero anomalies.
+  And the matrix has a second universal axis: summing each model's fingerprints per
+  token gives a <strong>leverage profile that is a property of the text</strong> — all
+  six model pairs agree at 0.74–0.84 with coverage matched. The fingerprint matrix
+  factorizes into where-in-the-stack × where-in-the-language: the models differ in how
+  they compute, and agree on what is hard, where in the stack to work on it, and which
+  words the work lands on. One hypothesis was tested and refuted on three candidate classes: that
   the residual stream <em>constrains</em> the model — that pruning connections plus a short
   finetune could beat the intact model. Spans flagged by deletion benefit (+0.026 nats vs
   an identically-finetuned control), the foreign-code reader L11 (+0.033), and the
