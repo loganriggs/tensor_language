@@ -5780,3 +5780,33 @@ after this wake: eight directions that the whole model responds to, that no
 reader shares a vocabulary over, and that help when deleted. Certifying or
 killing the L17 channel needs variance-matched controls plus a
 freeze-intermediate-layers instrument, registered here as the requirement.
+
+## 214. The honest channel: 87% of the peak was confound; the rest is real, direct, and masked by compensation
+
+File: `bilin18_span6_channel.py` — the certifying instrument. Sanity exact
+(frozen clean drift 0.0). With magnitude-matched controls the story shrinks
+and sharpens at once:
+
+    open (middle live):   L16 ratio 1.21   L17 ratio 1.42
+    frozen (MLPs 8-15 pinned clean): L16 1.80   L17 1.62
+
+First the deflation, stated plainly: §213's 11× peak was overwhelmingly the
+magnitude confound — at equal injected energy, span content excites the
+output end only 1.4× more than random content. The dramatic private-channel-
+to-the-solitary-reader story dies at scale: bar (a) failed, and the frozen
+excess is no larger at L17 than at L16, so nothing singles out the solitary
+reader specifically.
+
+Then the certification, which is small but clean: bar (b) held, and the
+*pattern* is the interesting part. Freezing the middle MLPs — removing their
+ability to respond — makes the span-specific ratio **rise** (1.2→1.8, 1.4→1.6).
+The middle doesn't relay the span's signal to the output end; it partially
+**absorbs** it, diluting span-specific damage with generic compensating
+response, exactly the compensation regime the composition arc measured. What
+reaches L16/L17 directly through the residual stream and attention carries a
+genuine content signature (1.6–1.8× a matched-energy random perturbation).
+So span 6:1–8's transport is now characterized: a modest direct
+residual/attention channel to the output end, invisible at full strength
+because the middle compensates over it. The anomaly rests here at earned
+scope: eight private directions, written loudly, helping when deleted, read
+weakly-but-specifically by the output end, and shared by no one.

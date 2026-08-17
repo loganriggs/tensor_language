@@ -3435,3 +3435,11 @@ baseline); span-specific amplification peaks at L17 (2x) but compounding is
 unexcluded -- the private-channel story stays unproven.
 
 Full detail in `BILIN18_CONNECTION.md` §213.
+
+### The honest channel: mostly confound, remainder real
+
+Magnitude-matched, span 6:1-8 excites the output end 1.4x (not 11x). Freezing
+the middle RAISES the ratio to 1.6-1.8: the middle absorbs the span's signal
+(compensation), and a modest direct residual/attention channel remains.
+
+Full detail in `BILIN18_CONNECTION.md` §214.
