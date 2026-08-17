@@ -3243,3 +3243,11 @@ No evidence yet for released constraints; the dose–response control (600 steps
 was recovery just slow?) is queued, with the note that a 6×-bar gap rarely flips at
 3× dose. A fairer future candidate: connections selected by interchange-leak rather
 than by raw deletion effect.
+
+**§85 addendum — dose control.** At 600 steps the gap *widens*: C−B = +0.054
+(registered b6 ≥ 0.01: held). The spans are load-bearing; recovery is not just slow.
+One caveat for the record: finetune-only at 600 steps (3.871) is worse than at 200
+(3.571) — the finetune overfits the 256 training rows past ~200 steps — so these
+comparisons live in an early-stopping regime. The conclusion is unaffected because
+both arms share every schedule detail and the gap holds at both doses (+0.026,
++0.054).

@@ -1,0 +1,7 @@
+A baseline:            3.9427
+B finetune-only:       3.8711
+C prune+finetune:      3.9252
+
+(a) finetune helps: HELD
+(b) constraint release (C beats B by >=0.004): FAILED (C-B = +0.0541)
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_constraint_dose_results.json (159s)

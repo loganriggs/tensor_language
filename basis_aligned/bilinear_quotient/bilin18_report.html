@@ -314,6 +314,10 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   <tr><td>can context-dependence beat it?</td><td>power yes, addressability no at these magnitudes — per-token steering lifts deep influence 15× (0.06→0.91σ) with cross-talk still ahead at every rung</td></tr>
   <tr><td><span class="tag off">corrected</span> is depth truly unaddressable?</td><td>only for <em>large</em> effects. Collateral grows quadratically with injection size while control grows linearly, so shrinking the injection restores selectivity: at quarter magnitude the deep target steers at 4.7× selectivity (0.15σ). Nothing selective exists beyond ~0.5σ at depth — that limit stands.</td></tr>
   <tr><td>are the words causally real?</td><td>yes — complementary constituencies under steering (pre-registered residual correlation −0.20), and the <em>same</em> constituencies on the training corpus (cross-corpus +0.78)</td></tr>
+  <tr><td>why does addressability fail? (the mechanism)</td><td><strong>control is linear, collateral is quadratic.</strong> Coefficient gradients are nearly orthogonal (overlap 0.09), so a penalty/projection against moving bystanders is free — and useless (cross-talk cut only 1.1×). Bystanders respond to the injection's <em>energy</em> through their forms' curvature; cross-talk grows superlinearly with magnitude (slope 1.53) while the target saturates</td></tr>
+  <tr><td>is the 80-word basis sample-complete?</td><td>mostly — nine of ten held-out readers reconstruct from it (median R² up to 0.92); the full-model code is ~139-dim (sublinear growth, ~6 new dims per reader). One reader (L11) speaks none of it</td></tr>
+  <tr><td>any sparser structure inside it?</td><td>no — honest held-out sparse coding needs 105 of 120 atoms for a <em>worse</em> fit than the dense basis. The code is genuinely distributed</td></tr>
+  <tr><td>do attention readers share the vocabulary?</td><td>no — QK query-side couplings reconstruct <em>below chance</em> from the MLP basis (−0.26 vs +0.37 for random matrices): attention and MLPs read with disjoint quadratic codes</td></tr>
   <tr><td>did SGD choose this structure?</td><td>mostly no — a weight-shuffled null reproduces the density, orthogonality, and envelope exactly (generic); what training built is the <strong>compression and sharing</strong>: ~195 generic dimensions squeezed ~2–2.6× into a shared, 83%-new code, at every writer tested (five, one out-of-sample)</td></tr>
   </tbody></table>
   <p>The closing statement: the quadratic stack is <strong>locally transparent and
@@ -366,6 +370,7 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   <tr><td>middle superadditivity 2.87×</td><td>1.42× — the original mixed two deletion operators and used stale means</td><td>a gate mismatch in the Shapley run</td></tr>
   <tr><td>layer 4 "writes for downstream"</td><td>layer 4 <em>reads</em> layers 2–3</td><td>the coalition sign-flip sweep</td></tr>
   <tr><td>register semantics of the L1 leader</td><td>correlate, not cause</td><td>token injection + damage profile</td></tr>
+  <tr><td>"deep coefficients are unaddressable from L1"</td><td>unaddressable only above ~0.5σ — at quarter magnitude the deep target steers at 4.7× selectivity</td><td>the magnitude sweep the penalized-objective test forced</td></tr>
   <tr><td>two ablation runs (void)</td><td>rerun — one patched a forward never called, one had chance above signal</td><td>identical rungs / null arithmetic</td></tr>
   </tbody></table>
   <p class="q">All caught by the program's own controls, none by luck: gates on every
