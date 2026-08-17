@@ -560,7 +560,9 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   constants at 18 layers vs {0,0} at 12) while the amount is an architecture trait:
   bilinear models concentrate function and leave exploitable slack, gated models spread
   it uniformly and leave none (0/11 layers replaceable even at rank 4, costs uniform).
-  The slack layers contain the regularizer layers — the oldest curiosity in the program
+  The slack layers contain the regularizer layers — verified exactly across the family:
+  the no-slack sibling has zero deletion-improves spans, and the one-slack sibling's lone
+  improving span is precisely its lone slack layer. The oldest curiosity in the program
   (truncation-as-regularization) and the newest (slack as a family trait) are one
   phenomenon. A rank-0/rank-4 slack scan is the mandatory first measurement on any new
   target. The
