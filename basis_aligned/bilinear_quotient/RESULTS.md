@@ -3163,3 +3163,11 @@ front; axis: back). Displacement real (~0.1-0.17), direction withdrawn. MLP
 universality unaffected. Ledger #13.
 
 Full detail in `BILIN18_CONNECTION.md` §178.
+
+### Ledger #13 resolved: no warp
+
+At n=12 both instruments agree (0.90) and displacement is +0.000. The
+depth-fraction law is fully universal: every component, every model, both
+types.
+
+Full detail in `BILIN18_CONNECTION.md` §179.

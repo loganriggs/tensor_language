@@ -5085,3 +5085,21 @@ itself is sound (bilinear pair at 0.88, null 0.04).
 
 Ledger #13. A fitting late reminder of the program's oldest rule: a claim's
 direction needs two instruments to agree before it earns a verb.
+
+## 179. Ledger #13 resolved: there is no warp — the fraction law is fully universal
+
+File: `sqrd12_full_attn.py`. With all 12 sqrd12 attention fingerprints, the two
+instruments agree at ρ = **0.90** (registered (a) held) and the median
+displacement is **+0.000** (registered (b) failed in the best possible way):
+sqrd12's attention places causal responsibility at its nominal depth fractions,
+tracked closely by both the direct best-match and the axis instruments across
+the whole stack. §169's "front-shift" and §178's "back-shift" were both
+three-sample fluctuations in opposite directions — the honest ledger-#13 entry
+("direction unresolved") was the correct intermediate state, and its resolution
+is that the displacement itself was noise.
+
+Final form of the universality law, now without exceptions among models tested:
+**every component of every checkpoint — MLP and attention, bilinear and
+conventional, 12 and 18 layers — assigns token-level causal responsibility at
+its fractional depth.** One causal depth coordinate, three architectures, both
+component types.
