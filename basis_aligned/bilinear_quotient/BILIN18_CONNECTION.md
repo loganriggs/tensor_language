@@ -2062,7 +2062,13 @@ carries 12% of the full cost; 512 dims carry 75%. Per-direction cost actually *p
 the mid-spectrum* (dims 256–512 carry ~0.0095 nats each against 0.0055 for 128–256 and
 0.0019 for the final 640) — the §6 blind-direction theme at its sharpest: this layer
 puts its heaviest causal weight per direction in the *middle* of the variance spectrum,
-not the top. There is no low-dimensional causal core to find at layer 1; the
+not the top.
+
+> **Corrected by §44.2:** the mid-spectrum-peak reading was an artifact. Cumulative
+> differences do not measure per-band mass under superadditivity; disjoint band
+> deletions show per-dim cost decreasing monotonically with rank, and the causal mass
+> living in cross-band *interactions* (bands sum to 0.24 vs 4.90 jointly, 20×). The
+> space-filling conclusion stands; the mechanism stated here does not. There is no low-dimensional causal core to find at layer 1; the
 direction-level program's <10% coverage was not a sampling failure but the geometry.
 
 **(b) failed, inverted: PCA dominates G_lam for cumulative coverage at every k on both
@@ -2164,3 +2170,57 @@ its c is a divide-by-tiny artifact, recorded as uninformative rather than a win.
 **Operating-point scaling failed again at n=48** (§41(b) rerun with 4× the positions).
 The quadratic-sensitivity story for *which positions* amplify most is not supported;
 what stands is only the local error→mismatch link (ρ 0.52, §41(a)).
+
+## 44. Queue batch: signed coupling channels, a §39 correction, and a hidden front edge
+
+Files: `bilin18_coupling_bands.py`, `bilin18_coverage_bands.py`, `bilin18_l0_l1_edge.py`
+(12 + 6 + 10 s under the runner).
+
+### 44.1 C_edge(3→4) has signed structure — a coupling channel and an anti-coupling bulk
+
+Both registered predictions held, and the measured structure exceeds them:
+
+| L3 band | d3 | excess with L4 | c |
+|---|---|---|---|
+| [0,8) | +0.035 | +0.042 | +12.8 |
+| **[8,32)** | +0.036 | **+0.102** | **+30.8** |
+| [32,64) | +0.011 | **−0.006** | −5.8 |
+| [64,128) | +0.016 | **−0.010** | −6.9 |
+| [128,256) | +0.015 | −0.009 | −6.1 |
+
+The 3→4 coupling is a **narrow positive channel at ranks 8–32** (c = +31) sitting on a
+broad **anti-coupled** region: damaging L3's ranks 32–256 *reduces* the joint damage
+with L4 — layer 4 partially compensates mid-band damage while amplifying channel
+damage. C_edge is signed, not just anisotropic. (The random-span control is again a
+divide-by-near-zero artifact and is recorded as uninformative.)
+
+### 44.2 CORRECTION to §39: there is no mid-spectrum peak — cumulative differences measured interference, not band mass
+
+Both §44 predictions derived from §39's reading **failed**, and rightly: disjoint band
+deletions at layer 1 give per-dim costs of 0.0036 / 0.0006 / 0.0002 / 0.0001 / 0.00002
+for bands [0,32) → [512,1152) — **monotonically decreasing**. §39's "per-direction cost
+peaks mid-spectrum" came from differencing a *cumulative* curve, and under
+superadditivity cumulative differences do not measure band mass. I should have caught
+this — it is the §12 budget-dependence lesson recurring inside a single layer's
+spectrum, and §39 carries the correction notice.
+
+What replaces it is stronger: the disjoint bands sum to **0.24** nats against the
+full-span deletion's **4.90** — the within-layer cross-band superadditivity is **20×**.
+Layer 1's causal mass is not *in* any band of directions; it is overwhelmingly in the
+**interactions between bands**. The space-filling conclusion of §39 stands, with the
+mechanism corrected: not mid-band mass, but interaction dominance — the product-coupling
+theme at its most extreme, inside one layer.
+
+### 44.3 The front of the graph is chained after all: a hidden L0→L1 edge
+
+The registered *absence* claim failed spectacularly: steering L0's punctuation leader by
++2σ moves L1's leader coefficient by **+1.04σ** (potency control passed), while −2σ
+moves it +0.07σ — **unit gain, rectified**, the same quadratic-readout signature as the
+16→17 bus. §17's writer decomposition had assigned emb×mlp0 only 0.5% of the L1
+leader's variance; the resolution is not a contradiction but a blind spot of
+proximate-writer accounting: **L0's write feeds attn1's input, and attn1 is the L1
+leader's dominant writer** — the influence routes through the attention block, which
+the folding attributes to attn1 rather than to what attn1 read. Proximate-writer
+variance shares do not bound upstream causal influence. The graph gains
+`L0-leader → (attn1) → z/c₀`, and the front of the model is a chain, not parallel
+tracks; mediation-through-attn1 is the registered next test, now queued.

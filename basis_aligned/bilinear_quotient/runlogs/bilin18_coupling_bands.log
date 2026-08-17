@@ -1,0 +1,12 @@
+d4 = +0.0925
+        band       d3   excess       c
+       [0,8)  +0.0350  +0.0415   +12.8
+      [8,32)  +0.0359  +0.1024   +30.8
+     [32,64)  +0.0105  -0.0057    -5.8
+    [64,128)  +0.0163  -0.0104    -6.9
+   [128,256)  +0.0152  -0.0086    -6.1
+   random-24  -0.0011  +0.0022 +2232528.6
+
+(a) c[8,32) > 2x c[0,8): HELD
+(b) c[64,128) < c[8,32)/2: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_coupling_bands_results.json (12s)

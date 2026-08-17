@@ -1959,3 +1959,18 @@ its bar again at n=48 — of the amplification story, only the local error→mis
 (ρ 0.52) stands.
 
 Full detail in `BILIN18_CONNECTION.md` §43.
+
+### Runner batch: signed coupling, a §39 correction, and a hidden edge
+
+Three results in one batch. **C_edge(3→4) is signed**: a narrow positive coupling
+channel at L3 ranks 8–32 (c = +31) on a broad anti-coupled region (ranks 32–256,
+c ≈ −6: damaging them *reduces* joint damage — layer 4 compensates). **§39 corrected**:
+there is no mid-spectrum causal peak — cumulative differences measured interference,
+not band mass (the §12 lesson recurring in-spectrum); disjoint bands sum to 0.24 nats
+vs 4.90 jointly, so layer 1's causal mass is 20× in cross-band *interactions*, not in
+any band. **And the front of the graph is chained**: steering L0's punctuation leader
+moves L1's leader at unit gain (+1.04σ, rectified) despite a 0.5% proximate-writer
+share — the influence routes through attn1, which the folding attributes as the writer.
+Proximate-writer shares do not bound upstream influence. Mediation test queued.
+
+Full detail in `BILIN18_CONNECTION.md` §44.
