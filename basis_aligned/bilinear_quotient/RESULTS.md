@@ -2213,3 +2213,13 @@ envelope normalization flips it: residual constituencies are anti-correlated (�
 confirmatory rerun is queued.
 
 Full detail in `BILIN18_CONNECTION.md` §65.
+
+### Confirmed: causally individuated, one degenerate pair
+
+The pre-registered envelope-normalised rerun held its main bar (mean residual
+correlation −0.20): vocabulary words move complementary constituencies. One pair
+overlaps (+0.64) — plausibly near-degenerate principals rotating freely. The chain
+from the independence question is complete: dense support → orthogonal functionals →
+80-word vocabulary → complementary causal constituencies.
+
+Full detail in `BILIN18_CONNECTION.md` §66.

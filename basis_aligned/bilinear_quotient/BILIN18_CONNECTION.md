@@ -2818,3 +2818,25 @@ survives pre-registration, the vocabulary's words are causally individuated with
 near-orthogonality. Confirmatory version queued with the envelope-normalised statistic
 registered in advance (5 words, 2 random controls; mean residual pairwise correlation
 ≤ 0.1, all pairs < 0.5).
+
+## 66. Pre-registered confirmation: the words are causally individuated, with one degenerate pair
+
+File: `bilin18_word_constituencies2.py` (12 s). The envelope-normalised statistic,
+registered in advance this time, on 5 words + 2 random controls:
+
+- **(a) held: mean residual pairwise correlation −0.20** (bar ≤ 0.1). The post-hoc
+  flip of §65 survives pre-registration: vocabulary words move complementary
+  constituencies of reader coefficients on average.
+- (c) held: every word causally live (max moves 0.39–0.67σ).
+- (b) failed: one pair reaches +0.64 — two of the top-five words share a constituency.
+  The plausible mechanism (recorded as hypothesis): adjacent principal components with
+  close singular values rotate freely within their subspace, so neighbouring "words"
+  need not be individually well-defined even when the family is.
+
+Verdict: **the vocabulary is causally individuated as a family — distinct, largely
+complementary constituencies under steering — with individual word identity unstable
+where the principal spectrum is nearly degenerate.** This is the causal counterpart of
+the signed near-orthogonality (§56-57), now established at the pre-registered level,
+and it completes the chain from the user's original independence question: dense
+shared support → near-orthogonal signed functionals → ~80-word shared vocabulary →
+causally complementary constituencies.
