@@ -4651,3 +4651,29 @@ held on the sibling checkpoint (12 layers, 6 heads, 768 dims):
 
 The program's structural laws are **family properties of bilinear transformers**,
 not bilin18 idiosyncrasies.
+
+## 155. The replacement ladder: the mid-tail needs nothing, the end needs rank-8, the front needs everything
+
+File: `bilin18_replacement_ladder.py`. Registered (a) and (b) held; (c) failed in
+the direction that answers the user's question at its strongest:
+
+| stand-in | L1 | L9 | L16 |
+|---|---|---|---|
+| constant mean (rank 0) | +6.76 | **+0.031** | +0.241 |
+| rank-1 linear | +6.25 | +0.023 | +0.137 |
+| rank-8 linear | +4.25 | +0.039 | +0.059 |
+| rank-64 linear | +1.11 | +0.040 | +0.036 |
+| full linear | +0.290 | +0.039 | +0.029 |
+
+- **L9 needs literally nothing**: replacing its MLP with its *constant average
+  output* costs +0.031 — the same as the full linear map. For the mid-tail the
+  user's "just keep the scale" reading is not just right but understated: even
+  the input-dependence of the linear map buys nothing.
+- **L16 needs a rank-8 map** (+0.059) — a genuinely low-dimensional but
+  input-dependent stand-in.
+- **L1 needs everything**: rank-64 still costs +1.11, and the full 1152-rank
+  linear map still loses +0.29 to the real quadratic. The front is the model.
+
+This table is the reference fidelity-vs-complexity Pareto for the benchmark
+design (see RESULTS note): three regimes — constant, low-rank linear, full
+quadratic — and the program's maps say exactly where each applies.

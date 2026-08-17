@@ -2972,3 +2972,11 @@ shuffled -- family properties, not quirks. (bilin12 uses a single squared score;
 architecture note recorded.)
 
 Full detail in `BILIN18_CONNECTION.md` §154.
+
+### The replacement ladder
+
+L9's MLP = its constant mean output (+0.031, same as full linear); L16 = rank-8
+linear; L1 = irreducibly quadratic. The reference Pareto for the
+fidelity-vs-complexity benchmark.
+
+Full detail in `BILIN18_CONNECTION.md` §155.
