@@ -2878,3 +2878,11 @@ flattening -- content certification requires a frozen gain. L9/L15 regularizers
 reconfirmed; L5/L7/L11 moderate content. Gain-frozen scores queued.
 
 Full detail in `BILIN18_CONNECTION.md` §142.
+
+### Difficulty decomposition closed
+
+Gain-frozen: every tail span relieves hard tokens under deletion; L16's real
+value is on easy tokens; L17's +1.67 was pure gain channel (collapses to -0.06).
+Difficulty splits cannot separate content from generic damage here.
+
+Full detail in `BILIN18_CONNECTION.md` §143.

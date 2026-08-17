@@ -4467,3 +4467,21 @@ Queued, the criterion done right: gain-frozen content scores. Registered:
 (a) L17's hard-mean drops ≥70% when the gain is frozen (it was the channel);
 (b) L16 stays ≥ +0.2 (true content at both levels); (c) L5's +0.086 persists
 at ≥50% (genuine front-of-tail content).
+
+## 143. The difficulty-decomposition arc closes: no tail span carries hard-token content
+
+File: `bilin18_content_scores2.py`. Registered (a) held spectacularly — L17's
+hard-token harm collapses from +1.674 to **−0.058** under the frozen gain,
+certifying it as pure gain-channel amplification. But (b) and (c) failed, and
+that ends the criterion: with the gain controlled, **every** tail span's deletion
+relieves hard tokens and hurts easy ones — including L16 (hard +0.023, easy
++0.154). L16's genuine content value (§120's +0.148 net) lives on *easy* tokens:
+its span keeps the model confident where it is right. The arc's conclusion,
+stated honestly: token-difficulty decompositions cannot cleanly separate content
+from generic damage in this model — flattening dominates the hard quartile and
+easy-harm is itself generic — and at the 8-dim-span grain no tail span carries
+concentrated hard-token-critical content. What stands from the whole chain
+(§§137–143): the attention profile and its front-loading, the replicated
+late-attention negatives, the L6 cargo edge, the gain channel's two faces
+(masking interactions, §117; faking content, §142), and L16 as the largest net
+content span with its value on the easy side.
