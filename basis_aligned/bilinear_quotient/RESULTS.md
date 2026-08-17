@@ -2927,3 +2927,11 @@ Full detail in `BILIN18_CONNECTION.md` §148.
 130's attribution corrected (training adds a third). Separation origin queued.
 
 Full detail in `BILIN18_CONNECTION.md` §149.
+
+### Separation is free
+
+Shuffled weights separate MORE than trained (0.07 vs 0.13-0.40): the multiplexed
+bus's type separation is default; training added the overlap. Attention origin
+accounting closed (filters trained, lexicon one-third, separation free).
+
+Full detail in `BILIN18_CONNECTION.md` §150.

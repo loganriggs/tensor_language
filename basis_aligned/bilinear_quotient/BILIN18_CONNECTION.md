@@ -4568,3 +4568,22 @@ the origin of the *separation* (§§131–132, two watch-lists and two write
 channels per layer) — registered skeptical: shuffled weights separate just as
 well (separation is the default state; training never had to fight it);
 alternative: trained avoidance would be new.
+
+## 150. Separation is free; the attention origin accounting closes
+
+File: `bilin18_separation_null.py` (after a scope fix). Registered skeptical (a)
+held 5/5, emphatically: shuffled-weights watch-lists separate at cos 0.06–0.10 —
+*below* both the matched null (0.35) and the trained values (0.13–0.40). The
+multiplexed bus's type separation is the default state of any two reading
+mechanisms; **training did not create it, and in fact added the small overlap
+that exists**. Origin accounting of the attention structures, complete:
+
+| structure | trained share |
+|---|---|
+| matched filters (score-rank 4.3 vs shuffled 18.7) | strongly trained (4–8×) |
+| shared lexicon (0.71 = 0.36 conc. + 0.11 generic + 0.24 trained) | one-third |
+| type separation (shuffled 0.07 vs trained 0.13–0.40) | free — training *reduced* it |
+
+The same moral as the §§60–62 origin arc, now for attention: geometry and
+separation come free; what training buys is selectivity (the filters) and
+sharing (the lexicon).
