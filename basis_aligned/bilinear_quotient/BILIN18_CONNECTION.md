@@ -2797,3 +2797,24 @@ of the family the vocabulary was built from, so containment is currently untesta
 what is testable instead is whether vocabulary words are *causally individuated*,
 which is queued: steer along principal functional #1's top output direction vs #2's,
 and ask whether they move distinct constituencies of reader coefficients.
+
+## 65. Word constituencies: the envelope artifact again — and a post-hoc flip awaiting confirmation
+
+File: `bilin18_word_constituencies.py` (11 s, completed under the runner).
+
+As registered, the test **failed with a violated control** — and the violation is
+diagnostic: raw movement profiles of the three vocabulary words correlate at +0.70,
+but so does the *random-direction* control (>0.3), meaning the profiles are dominated
+by a shared **movability envelope** (which reader coefficients respond to any steering
+at all — the same envelope-vs-identity artifact as §55's |abs| matrices, now in its
+causal form). Every word is causally live (max moves 0.46–0.55σ, prediction (b) held).
+
+**Post-hoc, labelled as such**: dividing out the movability envelope (each
+coefficient's response normalised by its mean response across all four steers), the
+residual constituencies are **anti-correlated or uncorrelated** — word1×word2 −0.76,
+word1×word3 −0.38, word2×word3 −0.11, and each word distinct from random. If this
+survives pre-registration, the vocabulary's words are causally individuated with
+*complementary* constituencies — the causal counterpart of their signed
+near-orthogonality. Confirmatory version queued with the envelope-normalised statistic
+registered in advance (5 words, 2 random controls; mean residual pairwise correlation
+≤ 0.1, all pairs < 0.5).

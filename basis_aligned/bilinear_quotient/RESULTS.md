@@ -2203,3 +2203,13 @@ into an output-space basis — a category confusion); the causal-individuation t
 vocabulary words replaces it, queued.
 
 Full detail in `BILIN18_CONNECTION.md` §64.
+
+### Word constituencies: envelope artifact, then a post-hoc flip
+
+The registered test failed with a violated control — raw profiles share a movability
+envelope that even random steering shows (the §55 artifact in causal form). Post-hoc
+envelope normalization flips it: residual constituencies are anti-correlated (−0.76 /
+−0.38 / −0.11) — distinct and complementary. Labelled post-hoc; the pre-registered
+confirmatory rerun is queued.
+
+Full detail in `BILIN18_CONNECTION.md` §65.
