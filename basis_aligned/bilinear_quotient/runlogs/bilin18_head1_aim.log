@@ -1,0 +1,6 @@
+punct keys: 980 | content keys: 28
+head 1: delta|pattern| mass on punct keys -0.2101 vs content -0.2350 (ratio -0.9)
+head 6: delta|pattern| mass on punct keys -0.2159 vs content +0.0509 (ratio -4.2)
+
+prediction (head-1 punct/content shift >= 2x): FAILED | head-6 control: VIOLATED
+wrote bilin18_head1_aim_results.json (5s)

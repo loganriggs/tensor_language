@@ -2294,3 +2294,32 @@ uncompressible precisely because its effect exists only in high-order combinatio
 Generalisation across layers 0/2/3/17 is queued; if the monotone relation holds, this
 becomes the program's unifying statement about what "understandable" means for this
 architecture.
+
+## 48. The unification holds: interaction shallowness IS compressibility, across the model
+
+Files: `bilin18_depth_shallowness.py`, `bilin18_head1_aim.py` (51 + 5 s).
+
+**The ordinal prediction held at all six layers.** Share of each layer's full-span
+deletion cost captured by solo bands + pairwise interactions:
+
+| layer | 1 | 2 | 3 | 0 | 16 | 17 |
+|---|---|---|---|---|---|---|
+| solo+pair share | **24%** | **39%** | **57%** | 67% | **99%** | **100%** |
+
+Every layer known to compress (16, 17, and partially 0) sits above every layer known
+not to (1, 2, 3), exactly as registered. **Interaction shallowness and compressibility
+are one property seen from two sides**: a layer is replaceable by a few directions
+precisely to the extent that its causal effect decomposes into low-order combinations
+of directions — and the uncompressible early layers are uncompressible because 43–76%
+of their effect exists only in third-order-and-higher combinations. This is the
+program's unifying statement about what "understandable" means for this architecture,
+and it is now measured on all of layers 0–3, 16, 17 with the ordinal prediction
+registered in advance.
+
+**The head-1 re-aiming test invalidated itself and is recorded as such.** The
+punctuation-vs-content class comparison had 980 punctuation keys against **28** content
+keys (underpowered), the inert-head control violated its own bound, and steering
+reduced absolute pattern mass *globally* — a scale confound (the injected offset
+perturbs the rms normalisations, shrinking q/k products everywhere). No conclusion
+about where head 1 re-aims is licensed from this run; a scale-controlled redesign
+(per-row normalised patterns, corpus-frequency-matched classes) is queued.

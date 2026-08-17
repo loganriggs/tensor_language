@@ -191,7 +191,17 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   <tr><td>16</td><td>attn×MLP cross-terms, 2-direction layer</td><td class="n">repairs ~100% (beats model off-distribution)</td><td>weak; shares L17's syntax axis</td></tr>
   <tr><td>17</td><td>near-rank-4 syntax rules</td><td class="n">whole layer ≈ 8 squared projections</td><td>verified, uneven (ρ 0.11–0.66)</td></tr>
   </tbody></table>
-  <p>Two regularities fall out. <strong>Compressibility tracks mechanism class</strong>:
+  <p><span class="tag">unifying result</span> These profiles turned out to be one
+  measurement in disguise. For each layer, ask how much of its total deletion cost is
+  captured by individual direction-bands plus pairwise band interactions: layers 1, 2, 3
+  score <strong>24 / 39 / 57%</strong> — most of their effect exists only in third-order
+  and higher combinations — while layers 0, 16, 17 score <strong>67 / 99 / 100%</strong>.
+  Every layer that compresses is interaction-shallow; every layer that resists is
+  interaction-deep, in the registered ordinal prediction's exact order. <em>Compressibility
+  and interaction shallowness are the same property seen from two sides</em> — which is
+  this report's best one-line answer to what "understandable" means for a bilinear
+  stack.</p>
+  <p>Two further regularities fall out. <strong>Compressibility tracks mechanism class</strong>:
   squared context summaries compress to one projection, token-identity features need more of
   their form, accumulated high-rank computation refuses entirely. And <strong>the
   distribution-robust part of every compressible leader is exactly its low-rank

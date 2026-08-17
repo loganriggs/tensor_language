@@ -2007,3 +2007,15 @@ full-span cost vs 24% at layer 1 — compressibility and interaction shallowness
 like one property from two sides. Cross-layer generalisation queued.
 
 Full detail in `BILIN18_CONNECTION.md` §47.
+
+### The unifying statement, measured: shallow = compressible
+
+Solo+pairwise share of full-span deletion cost across six layers: L1 24%, L2 39%,
+L3 57%, L0 67%, L16 99%, L17 100% — every compressible layer above every uncompressible
+one, as registered in advance. Interaction shallowness and compressibility are one
+property from two sides; the middle resists reading because 43–76% of its effect exists
+only in order-3+ combinations. (The head-1 re-aiming test invalidated itself —
+underpowered class, violated control, scale confound — and is recorded as instrument
+failure, not evidence.)
+
+Full detail in `BILIN18_CONNECTION.md` §48.
