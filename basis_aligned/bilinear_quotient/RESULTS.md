@@ -1881,4 +1881,7 @@ none removes the coupling. Composition budgeting is now quantitative:
 joint ≈ Σdᵢ + c·Σ_linked dᵢdⱼ, with the causal graph naming the linked pairs (unlinked
 pairs measured at +0.0005).
 
-Full detail in `BILIN18_CONNECTION.md` §33–35.
+Out-of-sample test: two never-measured corners, predictions registered first, both
+within the 25% bar (13% and 23% error). The law is a validated predictive tool.
+
+Full detail in `BILIN18_CONNECTION.md` §33–36.
