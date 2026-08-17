@@ -2272,3 +2272,13 @@ direction — causal token control exists, is rare, and is unpredicted by naming
 quality. The direct-write (unembedding-alignment) predictor is queued.
 
 Full detail in `BILIN18_CONNECTION.md` §71.
+
+### Closed: token steering is direct logit-writing, predictable from weights
+
+|DW| (unembedding-alignment contrast, weights-only) predicts steering selectivity at
+Spearman +0.77. Where token steering works, it is the residual bypass writing named
+logits directly — no semantic routing, which failed every causal test. The arc closes
+consistent with the program's deepest pattern: mechanisms verify, stories don't, and
+the working token lever is the one with no story.
+
+Full detail in `BILIN18_CONNECTION.md` §72.

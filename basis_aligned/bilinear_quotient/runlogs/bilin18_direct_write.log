@@ -1,0 +1,10 @@
+L0 punct       |DW| 182.644 -> selectivity 1.72x
+L0 numbers     |DW| 108.869 -> selectivity 3.82x
+L0 #3          |DW| 13.618 -> selectivity 1.02x
+word2 openers  |DW| 99.886 -> selectivity 1.22x
+word1 dets     |DW| 140.855 -> selectivity 1.40x
+word5 meas     |DW| 16.697 -> selectivity 1.30x
+
+Spearman(|DW|, selectivity) = +0.77 -> (a) HELD
+largest DW: L0 punct -> (b) FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_direct_write_results.json (15s)

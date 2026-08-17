@@ -2967,3 +2967,22 @@ Naming crispness does not predict causal usability — two directions at identic
    writes ride the residual bypass to the logits, and the numbers axis may simply
    write number-logits directly). Predictor computable from weights; registered
    Spearman ≥ 0.7 across the six.
+
+## 72. Selectivity is direct logit-writing: the weights-computable predictor holds
+
+File: `bilin18_direct_write.py` (15 s). The direct-write contrast |DW| — the mean
+unembedding-alignment difference between a direction and its named token set,
+pure weight algebra — predicts measured steering selectivity at **Spearman +0.77**
+(bar 0.7, held) across the six §71 directions. Prediction (b) failed informatively:
+punct has the largest DW (183) yet the numbers axis (DW 109) out-steers it 3.82× to
+1.72× — DW ranks well but is modulated downstream (a large direct write can be
+partially cancelled by the stack's response; the residual ordering is exactly the
+§59-64 propagation story).
+
+**The closing synthesis of the token-semantics arc**: where token steering works in
+this model, it works because the steered direction *writes its named tokens' logits
+directly through the residual bypass* — the most mechanically shallow channel that
+exists — and the amount is predictable from weights. It does not work through semantic
+routing, which failed every causal test at every depth. This coheres with the whole
+program: mechanisms and structure verify; token *stories* fail; and the one causal
+token lever is the one that involves no story at all.
