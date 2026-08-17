@@ -3186,3 +3186,10 @@ the bar); the axis instrument is twice-demonstrated unreliable at weak
 correlations and is now gated in the benchmark. Four models, one law.
 
 Full detail in `BILIN18_CONNECTION.md` §181.
+
+### Zero anomalies
+
+The front plateau was argmax noise over near-ties (runners-up are the correct
+depths). Universality arc closed clean.
+
+Full detail in `BILIN18_CONNECTION.md` §182.

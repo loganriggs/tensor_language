@@ -5138,3 +5138,15 @@ cross-correlation strength to be admissible; below it, use direct best-match.
 The final tally: **four models, two component types, one law — token-level
 causal responsibility sits at fractional depth** — earned twice over through
 the two-instrument discipline that caught its own instruments failing.
+
+## 182. The plateau dissolves: zero anomalies outstanding
+
+File: `swiglu18_plateau.py`. All four plateau layers' L1 wins are near-ties
+(margins 0.023–0.039, verdict pre-registered as argmax noise), and the
+runners-up are the correct fractional neighbors (L2, L0, L2, L3) — the
+underlying similarity structure points at the right depths; only the argmax
+wobbled. §181's "bounded anomaly" is withdrawn as noise. The universality arc
+ends with no exceptions and no open anomalies: four independently trained
+models, three MLP architectures, two component types, thirty-six to
+seventy-eight fingerprints each — all placing token-level causal responsibility
+at fractional depth.
