@@ -3402,3 +3402,12 @@ artifact of the elementwise metric. Readers share a vocabulary over every
 strong writer tested.
 
 Full detail in `BILIN18_CONNECTION.md` §209.
+
+### The sharing landscape: one private writer, one solitary reader
+
+Vocabulary sharing is writer-general with two sharp exceptions: L6 (private
+-- below the random-projection floor) and reader L17 (shares nothing). Three
+explanations (causality, global geometry, communal subspace) each refuted by
+a registered run. Organizing principle open.
+
+Full detail in `BILIN18_CONNECTION.md` §210.

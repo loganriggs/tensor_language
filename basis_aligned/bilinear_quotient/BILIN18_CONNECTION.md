@@ -5668,3 +5668,46 @@ and every conclusion built on it needed re-measurement. Both LORO instruments
 now sit in the harness notes with their scopes: matrix-element for "what the
 forms are," activation-weighted for "what the forms do" — only the second
 supports vocabulary claims.
+
+## 210. The sharing landscape: a private writer, a solitary reader, and three dead stories
+
+Files: `bilin18_weak_writers.py`, `bilin18_causal_split_loro.py`,
+`bilin18_random_v_loro.py`, `bilin18_communal_overlap.py` — one arc, four
+runs, run in the wake of ledger #16. The corrected claim (§209: behavioral
+vocabulary sharing is writer-general) needed its scope mapped, and the map has
+real structure:
+
+    behavioral LORO by writer:  L0 0.70   L1 0.64   L6 0.16   L9 0.54   L12 0.51
+    per-fold, reader L17 only:      0.42      0.42     −0.31      0.03      0.11
+    random-projection floor: 0.23
+
+Two exceptions to writer-generality, both sharp. **L6 is a private writer**:
+no reader reconstructs its couplings well — its 0.16 sits below the
+random-projection floor, so readers agree on L6's coordinates *less* than on
+arbitrary directions. **L17 is a solitary reader**: it shares no writer's
+vocabulary (−0.31 to 0.42, worst fold for every writer) — consistent with its
+§profile as the near-linear output head reading its own narrow code.
+
+Three candidate explanations, each registered, each killed by its own run:
+
+1. **Causality** (upstream readers can't see the writer, so their folds should
+   be weak): refuted — acausal upstream folds pool at 0.51 vs downstream 0.63.
+   Readers' forms agree even about signals they never receive.
+2. **Global weight geometry** (the sharing is in the readers' weights,
+   visible through any projection): refuted as the main story — random-V LORO
+   is 0.23, far under writer-V's 0.64–0.70. Writer coordinates carry a real
+   excess; the global floor exists but is small.
+3. **Communal subspace** (shareability = overlap with the L0/L1 span the
+   λ₁·x₀ re-injection keeps live): refuted, inverted even — L6 has the
+   *highest* communal overlap among mid writers (0.39 vs 0.21/0.19) and the
+   lowest shareability.
+
+What stands: the reader population owns one shared way of acting on most
+writers' coordinate systems — early writers most (0.64–0.70), mid writers
+substantially (0.51–0.54), with exactly one writer whose code the population
+collectively ignores (L6) and one reader that participates in none of it
+(L17). The organizing principle behind those two exceptions is not causality,
+not generic geometry, not communal-subspace membership; it is registered here
+as open. L6's privacy is the sharper puzzle: the model routes a mid-depth
+unit's output *around* the shared vocabulary while keeping it in the most
+communal part of the stream.
