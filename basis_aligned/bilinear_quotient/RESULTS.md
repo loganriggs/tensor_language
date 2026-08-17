@@ -2836,3 +2836,11 @@ attention is NET HARMFUL (-0.036 deleted -- largest deletion-benefit in the
 program). Replication queued.
 
 Full detail in `BILIN18_CONNECTION.md` §137.
+
+### Late-attention harm replicates
+
+L14 -0.035 (96%), L10/L16 negative both times, control intact: three late
+attention blocks reliably subtract value at the frozen point. Signature test
+queued.
+
+Full detail in `BILIN18_CONNECTION.md` §138.

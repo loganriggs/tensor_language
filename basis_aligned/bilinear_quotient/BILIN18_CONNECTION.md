@@ -4363,3 +4363,18 @@ File: `bilin18_attention_profile.py` — the last unmeasured component/operator 
   constraint-release refutations pre-empt any spare-capacity reading), but the
   magnitude demands replication before further interpretation — queued
   (registered: sign holds on disjoint rows, magnitude ≥ 40%).
+
+## 138. Three late attentions are reliably net harmful
+
+File: `bilin18_l14_attention_replicate.py` — full replication on disjoint rows:
+L14 −0.0348 (96% of the original −0.0363), L10 −0.0129, L16 −0.0127 (both
+negative in both measurements), L15 ~0, and the L13 positive control intact
+(+0.0315). A consistent sub-family: **the attention blocks of L10, L14, and L16
+subtract value on held-out data at the frozen operating point** — the
+truncation-as-regularization phenomenon at whole-component scale, an order of
+magnitude larger than the span-level cases (§96). Per the four constraint-release
+refutations, no spare-capacity claim follows; the open question is whether the
+harm has the §98 signature (sharpening easy tokens, overshooting hard ones) —
+queued (registered: (a) deletion benefit ≥60% concentrated in the base model's
+hardest-token quartile; (b) easy quartile hurt or flat; (c) L13-deletion control
+shows the opposite pattern — broad harm).
