@@ -3171,3 +3171,10 @@ depth-fraction law is fully universal: every component, every model, both
 types.
 
 Full detail in `BILIN18_CONNECTION.md` §179.
+
+### swiglu18: atlas perfect, axis membership failed -- verdict withheld
+
+Median displacement 0.333 on the axis instrument; per the ledger-13 lesson the
+direct instrument must report before any law-boundary claim. Queued.
+
+Full detail in `BILIN18_CONNECTION.md` §180.

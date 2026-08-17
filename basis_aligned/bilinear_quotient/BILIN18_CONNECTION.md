@@ -5103,3 +5103,18 @@ Final form of the universality law, now without exceptions among models tested:
 conventional, 12 and 18 layers — assigns token-level causal responsibility at
 its fractional depth.** One causal depth coordinate, three architectures, both
 component types.
+
+## 180. swiglu18: perfect atlas, doesn't join the axis — verdict withheld pending the second instrument
+
+File: `swiglu18_atlas.py`; asset `swiglu18_atlas.pt` (36 components). The atlas
+bars all hold (pairwise 0.08, depth-smooth 36/36, type-marked 0.11 vs 0.07),
+but the fourth-model law test failed on the axis instrument: joint-embedding
+fraction tracking drops to 0.55 and swiglu18's MLP components sit at median
+displacement **0.333** from their fractions. Two readings: (i) the fraction law
+has found its boundary — the gated-bilinear model places function differently;
+(ii) the axis instrument fails when cross-model correlations are weak (exactly
+§178's failure mode, which §179 resolved only by adding the direct instrument).
+Per the ledger-#13 lesson, **no verdict until the direct best-match instrument
+reports** — queued (registered: (a) instruments agree ≥0.5 across swiglu18's 18
+MLP components; (b) if they agree, the direct median displacement decides the
+law's boundary at the 0.08 bar).
