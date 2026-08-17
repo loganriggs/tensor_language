@@ -3029,3 +3029,31 @@ real forms' alignment with the data covariance rather than support density per s
 Registered fix queued: sparse controls built in the whitened basis, isolating support
 density with covariance held equal. Until then: the hypothesis is *supported but not
 isolated*.
+
+## 75. The decisive null: SGD built the vocabulary, inherited everything else
+
+Files: `bilin18_functional_null.py` v2 (weight-shuffled), `bilin18_functional_robustness.py`
+v2 (covariance-matched controls); 13 + 8 s.
+
+**All four registered splits held** on the weight-shuffled null (same weight marginals,
+destroyed structure):
+
+| statistic | trained | weight-shuffled | verdict |
+|---|---|---|---|
+| signed cosines (within/cross) | 0.11 / 0.089 | 0.03 / 0.03 | **generic** — orthogonality is typicality |
+| envelope eff-rank | 2.6 | 2.5 | **generic** — the magnitude template comes from weight marginals |
+| family eff-rank | **80** | 191 | **trained** — 2.4× compression |
+| LORO R² at r=80 | **0.71** | 0.26 | **trained** — the shared vocabulary is learned |
+
+The answer to "why is this structure there": **dense support and near-orthogonality are
+the architecture's defaults — SGD did not select them. What SGD built is the shared
+80-dimensional vocabulary**: compressing a generically ~191-dimensional functional
+family into 80 dimensions that transfer across readers (0.26 → 0.71 out-of-reader).
+Training's fingerprint is the compression and the sharing, nothing else.
+
+**And the robustness hypothesis loses its support under the fixed control**: with
+covariance-matched sparse controls, the targeted-damage advantage shrinks to 1.6×
+(0.25σ vs 0.39σ, below the registered 2× bar → failed) and the isotropic-noise
+discipline check still fails — most of v1's apparent robustness was data-covariance
+alignment, not support density. Consistent with the null: density isn't selected *for*
+anything; it is inherited, and its incidental robustness benefits are modest.

@@ -2282,3 +2282,14 @@ consistent with the program's deepest pattern: mechanisms verify, stories don't,
 the working token lever is the one with no story.
 
 Full detail in `BILIN18_CONNECTION.md` §72.
+
+### SGD built the vocabulary; everything else is inherited
+
+The weight-shuffled null split the functional structure cleanly (all four registered
+bars held): orthogonality and the dense envelope reproduce on shuffled weights
+(generic/typicality); the 80-dim compression (vs 191 generic) and the cross-reader
+sharing (LORO 0.71 vs 0.26) do not — they are training's entire fingerprint. The
+robustness hypothesis lost its main support under covariance-matched controls (1.6×,
+below bar): density is inherited, not selected.
+
+Full detail in `BILIN18_CONNECTION.md` §75.

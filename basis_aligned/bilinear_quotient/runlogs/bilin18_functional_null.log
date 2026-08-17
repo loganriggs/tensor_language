@@ -1,9 +1,9 @@
 RANDOM-INIT bilin18 (trained values in parens):
-  signed cos within 0.00 / cross 0.00   (0.11 / 0.089)
-  envelope eff-rank nan                        (2.6)
-  family eff-rank nan of 240                   (80)
-  LORO R^2 at r=80: 1.00                         (0.71)
+  signed cos within 0.03 / cross 0.03   (0.11 / 0.089)
+  envelope eff-rank 2.5                        (2.6)
+  family eff-rank 191 of 240                   (80)
+  LORO R^2 at r=80: 0.26                         (0.71)
 
-(a) orthogonality generic: HELD | (b) envelope generic: FAILED
-(c) compression trained: FAILED | (d) vocabulary trained: FAILED
-wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_functional_null_results.json (17s)
+(a) orthogonality generic: HELD | (b) envelope generic: HELD
+(c) compression trained: HELD | (d) vocabulary trained: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_functional_null_results.json (13s)
