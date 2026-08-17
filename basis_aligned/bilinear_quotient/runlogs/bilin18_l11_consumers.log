@@ -1,0 +1,12 @@
+L12: real 0.179s | random-shift 0.082s
+L13: real 0.206s | random-shift 0.127s
+L14: real 0.210s | random-shift 0.111s
+L15: real 0.171s | random-shift 0.117s
+L16: real 0.154s | random-shift 0.079s
+L17: real 0.176s | random-shift 0.070s
+
+top consumer: L14 (0.210s vs cross-layer median 0.179s)
+(a) concentration >=3x: FAILED
+(b) adjacent consumer: FAILED
+random-shift control ratio 1.9x: VIOLATED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_l11_consumers_results.json (2s)

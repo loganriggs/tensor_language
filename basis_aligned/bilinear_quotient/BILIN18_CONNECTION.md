@@ -3291,3 +3291,23 @@ artifacts, §85) and a connection flagged by *vocabulary foreignness*. Both are
 load-bearing once the model is allowed to adapt. If a third candidate class is ever
 tried, interchange-leak edges (the product-law cross-terms) are the remaining
 motivated choice.
+
+## 88. The dissident has no dedicated consumer, and the QK code is per-layer
+
+**L11 consumers** (`bilin18_l11_consumers.py`): no concentration. Mean-ablating
+L11's entire MLP write moves downstream coefficients almost uniformly (0.15–0.21σ
+across L12–17; top "consumer" L14 at only 1.2× the cross-layer median; registered
+(a) ≥3× and (b) adjacency both failed). The random-shift control came in at 1.9×,
+below its 2× bar — so roughly half the measured movement is generic response to an
+energy-matched perturbation, and the per-layer numbers are weak evidence. The
+robust finding is the absence: **L11's foreign, load-bearing output is consumed
+diffusely** — no reader owns it. Together with §87 this looks like a distributed
+contribution (calibration-like or genuinely spread mass), not a private channel.
+
+**QK own-family** (`bilin18_qk_family.py`): the 27 heads' couplings have eff-rank
+**15.5** against 26.4 for matched random matrices — a real 1.7× compression,
+at-bar for the registered ≤15 (another float-boundary case, reported as at-bar).
+But leave-one-layer-out reconstruction is weak (median R² 0.18 < 0.3): the sharing
+is mostly **within-layer**. QK reading has its own compact code, organized
+per-layer rather than model-wide — unlike the MLP vocabulary, which crosses
+fourteen of fifteen readers.

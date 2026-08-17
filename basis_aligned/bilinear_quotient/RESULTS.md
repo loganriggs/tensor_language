@@ -2397,3 +2397,12 @@ the shared vocabulary — a foreign code. Pruning its whole MLP plus finetune la
 second candidate class too.
 
 Full detail in `BILIN18_CONNECTION.md` §87.
+
+### No one owns the dissident; QK shares per-layer
+
+Ablating L11's write moves every downstream layer about equally (top consumer only
+1.2x the median; control partially violated) -- its load-bearing output is consumed
+diffusely. QK heads compress 1.7x among themselves (eff-rank 15.5 vs 26.4 random)
+but share within layers, not across them.
+
+Full detail in `BILIN18_CONNECTION.md` §88.
