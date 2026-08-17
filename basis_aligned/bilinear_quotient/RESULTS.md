@@ -1948,3 +1948,14 @@ shape is fixed (as in the 16→17 sweeps). The scalar c is an engineering number
 damage family, not a constant of the edge.
 
 Full detail in `BILIN18_CONNECTION.md` §42.
+
+### Queue-runner era begins; two clean negative results
+
+Experiments now run continuously from a supervisor-managed queue, decoupled from agent
+turns. Its first two results: the coupling operator K does **not** predict the §42
+damage-direction anisotropy (c_K 10.7 vs c_PCA 12.8; registered 1.5× bar failed), so
+C_edge's structure has no weight-side predictor yet; and operating-point scaling failed
+its bar again at n=48 — of the amplification story, only the local error→mismatch link
+(ρ 0.52) stands.
+
+Full detail in `BILIN18_CONNECTION.md` §43.

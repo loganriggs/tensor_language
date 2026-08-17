@@ -2147,3 +2147,20 @@ the 16→17 sweeps did (varying R and k changes the amount, barely the shape) an
 completely: composition coupling is itself a quadratic object, edge-local and
 direction-resolved. The scalar c is a useful engineering number per (edge,
 damage-family); it is not a physical constant of the edge.
+
+## 43. Two queue-runner results: the anisotropy is not in K, and operating-point scaling stays unproven
+
+Files: `bilin18_cedge_direction.py`, `bilin18_opscaling.py` (first runs under the new
+supervisor-managed queue runner; 9 + 21 s).
+
+**The coupling operator does not predict the coupling anisotropy.** Registered: damage
+along K(3→4)'s top-8 eigendirections yields c ≥ 1.5× the PCA-8 value. **Failed**:
+c_K = 10.7 vs c_PCA = 12.8 — K is no better than variance ordering here, consistent
+with §31's transfer result. (The K-bottom control "held" trivially: its d3 is ≈ 0, so
+its c is a divide-by-tiny artifact, recorded as uninformative rather than a win.) The
+§42 anisotropy — the 8–32 band coupling 4× stronger — has no weight-side predictor yet;
+`C_edge`'s structure remains empirical.
+
+**Operating-point scaling failed again at n=48** (§41(b) rerun with 4× the positions).
+The quadratic-sensitivity story for *which positions* amplify most is not supported;
+what stands is only the local error→mismatch link (ρ 0.52, §41(a)).
