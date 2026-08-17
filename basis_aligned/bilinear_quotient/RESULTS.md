@@ -2525,3 +2525,13 @@ linear (0.97/0.95), independently re-drawing the depth map. Queued: does the
 16->17 product law live entirely in L17's 5% nonlinear residue?
 
 Full detail in `BILIN18_CONNECTION.md` §101.
+
+### The product law is a quadratic skin on a linear pipe
+
+Replacing L17's MLP with its fitted linear map (faithful: base +0.10) kills 98%
+of the 16->17 interaction excess while leaving L17's own function intact. The
+model's strongest interaction IS the quadratic cross-term of a 5% nonlinear
+residue. (v1 was void -- hook-order artifact -- and is recorded.) Bonus thread:
+the nonlinearity absorbs upstream damage; compensation test queued.
+
+Full detail in `BILIN18_CONNECTION.md` §102.

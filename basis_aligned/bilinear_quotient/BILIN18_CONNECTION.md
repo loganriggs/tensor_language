@@ -3597,3 +3597,28 @@ law, +0.067 under cut-and-finetune) sits between its two *most linear* layers. I
 replacing L17's MLP with its fitted linear map (R² 0.95) kills the 16→17 excess,
 the whole interaction lives in the 5% nonlinear residue — the product law as a
 thin quadratic skin on a linear pipe.
+
+## 102. The product law is the quadratic skin on a linear pipe
+
+Files: `bilin18_linearized_interchange.py` (v1 VOID — the linear-replacement hook
+ran after the span-ablation hook and overwrote it, making d17 ≡ 0 and the excess
+drop an artifact; recorded), `bilin18_linearized_interchange2.py` (hook order
+fixed). The v2 numbers, all three registered bars held:
+
+| arm | d16 | d17 | joint | excess |
+|---|---|---|---|---|
+| real L17 | +0.212 | +0.490 | +0.844 | **+0.143** |
+| linearized L17 (R² 0.95 stand-in, base within 0.10) | +0.312 | +0.489 | +0.804 | **+0.002** |
+
+Replacing L17's MLP with its fitted linear map kills **98%** of the 16→17
+interaction excess while leaving L17's own function intact (d17 unchanged at
++0.489 — the span's contribution is carried by the linear part). The composition
+product law, the interchange leak, the +0.067 cut-and-finetune load — the model's
+strongest interaction is mechanistically identified as **the quadratic cross-term
+of a 5%-by-variance nonlinear residue** riding on an otherwise linear layer.
+
+One new thread, registered and queued: under linearized L17, upstream damage costs
+*more* (d16 +0.312 vs +0.211) — the nonlinear residue appears to *absorb* upstream
+damage (gain-control/compensation). And the map's causal complement: linearizing
+middle layers (R² 0.52–0.62) should be catastrophic where linearizing L16/17 was
+cheap — queued as the causal version of §101's nonlinearity map.
