@@ -5460,3 +5460,23 @@ bilinear on the *residual* in output-normalized space — warm-started,
 scale-sane. Registered: (a) L1 linear+bilinear-residual (width 64) ≤ +0.90
 (beats rank-64 linear at comparable params); (b) L16 variant ≤ +0.05;
 alternative: a clean class negative, which would close the ladder for good.
+
+## 200. The class lever works: the hillclimb's first real frontier move
+
+File: `bilin18_hillclimb3b.py`, all three bars held. Warm-started (closed-form
+linear base + narrow factored bilinear on the normalized residual):
+
+    L1  width-64: +0.330 at 0.22M   (vs rank-64 linear +1.11 at 0.15M; FULL
+                                     linear +0.29 at 1.33M — matched at 1/6 size)
+    L16 width-16: +0.031 at 0.055M  (vs linear r8 +0.059 at 0.15M)
+
+**Refinement of §198**: the Pareto invariance is a *within-class* law — no
+linear parameterization beats another — but **changing the computation class
+moves the frontier**, by 3.4× at the front. And the class needed is exactly
+what the program's maps said (§§101, 107, 110): genuinely quadratic at the
+front where the real computation lives, nearly anything at the tail. The
+hillclimb has its lever, and it is understanding-shaped after all — not
+*which subspace* (that lost twice) but *which computation class where*. Scale
+recipe, final form: per-layer class selection from the maps (constant /
+low-rank linear / narrow warm-started quadratic), sequential refit, joint
+scoring, harness self-tests. BENCHMARK.md Pareto references updated.

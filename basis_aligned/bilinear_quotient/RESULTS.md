@@ -3324,3 +3324,12 @@ Cold-start Adam couldn't bridge L16's 1e12 output variance; class verdict
 withheld. Round 3b queued (warm-start linear + residual bilinear, normalized).
 
 Full detail in `BILIN18_CONNECTION.md` §199.
+
+### Round 3b: the class lever works (+0.33 at 0.22M for L1)
+
+Warm-started narrow bilinear beats same-budget linear 3.4x at the front and
+nearly matches full linear at 1/6 size. Pareto invariance is within-class only;
+class-where selection is the understanding-shaped lever. Hillclimb arc: the
+recipe is class selection + refit + joint scoring.
+
+Full detail in `BILIN18_CONNECTION.md` §200.
