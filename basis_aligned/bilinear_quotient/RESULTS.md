@@ -2588,3 +2588,12 @@ error lives in the residual stream, not in attention. L1 span-partition test
 queued (is the nonlinearity crown the same fact as the vocabulary crown?).
 
 Full detail in `BILIN18_CONNECTION.md` §108.
+
+### The vocabulary is the linear part
+
+L1's top-48 span (59% of energy, everything downstream reads) carries only 12%
+of its linearization cost; the low-variance complement carries 53%, interaction
+35%. The readable interface is nearly linear; the hidden computation sits below
+the principal spectrum. Spectral localization queued.
+
+Full detail in `BILIN18_CONNECTION.md` §109.

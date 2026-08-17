@@ -3772,3 +3772,29 @@ its top-48 principal span (the coordinates every reader's quadratic consumes),
 or only in the complement. Registered: (a) span-only linearization costs ≥ 60% of
 full; (b) complement-only ≤ 40%; (c) the two parts sum to full within 15%
 (additivity sanity).
+
+## 109. The two crowns are different facts: the vocabulary is the linear part of L1
+
+File: `bilin18_l1_span_linearization.py`. All three registered bars failed, in the
+most informative direction of the whole linearization arc:
+
+| what is linearized | share of write energy | cost | share of full cost |
+|---|---|---|---|
+| top-48 principal span (the vocabulary channel) | 59% | +0.034 | **12%** |
+| complement (1104 low-variance dims) | 41% | +0.150 | 53% |
+| both (full) | 100% | +0.282 | 100% |
+| random-48 control | ~4% | +0.001 | matches energy share |
+
+The vocabulary span — the coordinates every reader's quadratic consumes, the
+target of every steering and naming experiment — is the comparatively **linear**
+part of L1's computation. The functional nonlinearity that makes L1 the model's
+most expensive layer to replace lives in the **low-variance complement** (53%)
+and in the interaction between the halves (the missing 35%: halves sum to 0.183,
+full is 0.282 — superadditive across the split). Variance ≠ function, this time
+spectrally within a single layer: the model's readable interface is nearly
+linearly generable, and its hidden computation sits below the principal spectrum.
+
+Queued: spectral localization — linearization cost of the top-k span for
+k ∈ {48, 128, 256, 512}, with random-k controls. Registered: cost stays ≤30% of
+full through k = 256 (the nonlinearity is deep in the spectrum, not just past 48);
+monotone in k; random controls track energy share.
