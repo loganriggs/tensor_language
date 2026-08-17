@@ -3267,3 +3267,27 @@ are close to indifferent — they transmit L1's principal content barely above a
 uniform-random rate and pay no attention to the coordinates the quadratic code
 works in. The functional vocabulary is a property of MLP-to-MLP reading
 specifically, not of the model's reading in general.
+
+## 87. The dissident is engaged, foreign, and load-bearing; constraint-release refuted twice
+
+Two runs (`bilin18_dissident_l11.py`, `bilin18_prune_l11.py`) close the L11 question
+and give the constraint-release hypothesis its second, structurally motivated test.
+
+**Diagnosis** — L11 is not disengaged: its median coupling norm to L1 is 20.7,
+rank 4 of 16 ascending (range 17.9–42.4; registered "bottom-2" failed). Its own 40
+functionals have eff-rank 27.0, just past the ≤25 coherence bar — a moderately
+diffuse family. So L11 reads L1 at normal strength and computes functionals that
+simply live outside the shared span: **a foreign code, not a weak signal.**
+
+**Constraint-release, candidate two** — if the foreign code were vestigial or
+interfering, removing L11's entire MLP write plus a finetune should beat the
+finetune-only control. It does not: C−B = **+0.033** (registered skeptical bar
+≥ +0.01 held), slightly worse than the tail-span candidates' +0.026. The dissident
+carries ~0.033 nats the finetune cannot rebuild in 200 steps.
+
+The user's residual-stream-constraint hypothesis is now refuted on two structurally
+different candidate classes: connections flagged by *deletion benefit* (shift
+artifacts, §85) and a connection flagged by *vocabulary foreignness*. Both are
+load-bearing once the model is allowed to adapt. If a third candidate class is ever
+tried, interchange-leak edges (the product-law cross-terms) are the remaining
+motivated choice.

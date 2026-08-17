@@ -2388,3 +2388,12 @@ census complete: MLP-quadratic, QK-quadratic, and OV-linear reading are three
 mutually independent codes.
 
 Full detail in `BILIN18_CONNECTION.md` §86.
+
+### The dissident: engaged, foreign, load-bearing
+
+L11 reads L1 at normal strength (coupling norm rank 4/16) with functionals outside
+the shared vocabulary — a foreign code. Pruning its whole MLP plus finetune lands
++0.033 nats worse than the finetune control: constraint-release refuted on its
+second candidate class too.
+
+Full detail in `BILIN18_CONNECTION.md` §87.
