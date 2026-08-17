@@ -5751,3 +5751,32 @@ object in one mid-depth layer that carries most of the layer's output
 variance, trims overshoot when deleted, and is the only code in the measured
 model that the reader population declines to share a vocabulary over. The
 standing anomaly is now localized: not layer 6 — span 6:1–8.
+
+## 213. Span 6:1–8 is not unread — and an instrument confound, caught in-wake
+
+File: `bilin18_span6_consumers.py`. Both registered outcomes technically
+failed, and the run carries an instrument confound stated plainly before any
+conclusion: the random-span controls were drawn from L6's components 9+,
+which hold far less output variance than the top-8 span, so the raw response
+ratios (5.5–11.2×, every downstream layer) are magnitude-inflated — the
+registration should have demanded variance-matched controls. What survives
+the confound is the *shape*, normalized by L7 — the immediately downstream
+layer, whose response is the passive carry-through of whatever was deleted:
+
+    response ratio / L7 baseline:
+    L8-L14: 1.07-1.21     L15: 1.24     L16: 1.66     L17: 2.04
+
+Two things stand. First, the (a) unread-cargo story is dead regardless of
+normalization: span 6:1–8's content demonstrably propagates and every layer's
+output moves with it — the model writes it, the stream carries it, downstream
+computation transforms it. Deletion-improves therefore coexists with genuine
+downstream consumption, as it did for the other regularizer spans. Second,
+the depth profile of span-specific amplification rises toward the output end
+and peaks at L17 at 2× the passive baseline — the direction the registered
+long-shot (b) pointed, but compounding-through-depth is an unexcluded
+alternative reading, so the "solitary reader reads the private span" story
+remains unproven and is NOT claimed. The anomaly's standing description
+after this wake: eight directions that the whole model responds to, that no
+reader shares a vocabulary over, and that help when deleted. Certifying or
+killing the L17 channel needs variance-matched controls plus a
+freeze-intermediate-layers instrument, registered here as the requirement.

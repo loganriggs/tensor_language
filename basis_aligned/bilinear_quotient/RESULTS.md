@@ -3427,3 +3427,11 @@ object -- L6's principal/regularizer span -- is the only private code in the
 model.
 
 Full detail in `BILIN18_CONNECTION.md` §212.
+
+### Span 6:1-8 is not unread cargo
+
+Its content propagates everywhere (confound-corrected by the passive-L7
+baseline); span-specific amplification peaks at L17 (2x) but compounding is
+unexcluded -- the private-channel story stays unproven.
+
+Full detail in `BILIN18_CONNECTION.md` §213.
