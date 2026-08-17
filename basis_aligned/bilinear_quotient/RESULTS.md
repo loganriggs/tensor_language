@@ -3419,3 +3419,11 @@ regularizer-flavored and shares fine. L6's privacy is the cleanest standing
 anomaly.
 
 Full detail in `BILIN18_CONNECTION.md` §211.
+
+### The anomaly narrows: L6's privacy is its top-8 span
+
+Past the span, L6 shares normally (0.41 vs control 0.46). One 8-dimensional
+object -- L6's principal/regularizer span -- is the only private code in the
+model.
+
+Full detail in `BILIN18_CONNECTION.md` §212.

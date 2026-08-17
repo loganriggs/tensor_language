@@ -5729,3 +5729,25 @@ nonetheless declines to share a vocabulary over. Registered for whoever picks
 this up (larger checkpoint or new instrument): the discriminating measurement
 is per-coordinate — whether L6's *non-principal* coords (9–48, past the
 regularizer span) are also unshared, which no current instrument isolates.
+
+## 212. The anomaly narrows to eight directions: L6's privacy is its span, not its code
+
+File: `bilin18_l6_tailcoords.py` — the discriminator §211 wrongly called
+unbuildable, built by restricting the writer coordinates to SVD components
+9–48. All three bars held:
+
+    L6 coords 9-48: LORO 0.41  (full coords: 0.16)   random −0.17
+    L9 coords 9-48: LORO 0.46  (full coords: 0.54)   random −0.20
+
+Past its top-8 span, L6 is a normal writer — its tail code is shared at the
+same level as the control's. The privacy that made L6 the program's cleanest
+anomaly lives entirely in eight directions: the top-8 output span, which is
+also its regularizer span (content-level deletion −0.016). The comparison
+with L9 sharpens rather than kills the refined story: dropping the span
+barely moves L9 (0.54 → 0.46) but transforms L6 (0.16 → 0.41) — L9's
+regularizer span is *shared*, L6's is *private*. So "regularizer ⇒ private"
+stays dead (§211), and what stands is narrower and stranger: one 8-dimensional
+object in one mid-depth layer that carries most of the layer's output
+variance, trims overshoot when deleted, and is the only code in the measured
+model that the reader population declines to share a vocabulary over. The
+standing anomaly is now localized: not layer 6 — span 6:1–8.
