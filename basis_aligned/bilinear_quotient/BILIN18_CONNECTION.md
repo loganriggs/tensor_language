@@ -2592,3 +2592,40 @@ the natural frame, and the two registered next steps are (i) the spectrum of the
 functional family itself — quantifying "overcomplete and diverse" against the rank-≲5
 envelope — and (ii) the causal payoff: single-functional steering with cross-talk
 measured, i.e. path-selective intervention despite dense support.
+
+## 58. Functional coordinates: an 80-dim basis, and a finite steering range
+
+Files: `bilin18_functional_spectrum.py`, `bilin18_functional_steering.py` (11 + 12 s).
+
+**The spectrum quantifies the §57 picture exactly.** Envelope family: effective rank
+**2.6** (one shared template, as predicted). Signed family: effective rank **80** of
+240 sampled functionals — my "≥100, no small basis" prediction *failed in the
+compressive direction*: the readers' functional diversity, though real (top-1 component
+only 7%), is captured by **~80 principal functionals**. That is the functional-
+coordinates compression number for the front of the model: not 240 independent
+measurements, not a handful — eighty.
+
+**Single-functional steering works, with a range.** Perturbing L1's output along the
+top eigenvector of one reader-form's coupling matrix:
+
+| target | own movement | median cross-talk | selectivity |
+|---|---|---|---|
+| L2, form 0 | 1.38σ | 0.07σ | **20.3×** |
+| L2, form 3 | 0.12σ | 0.08σ | 1.5× |
+| L5 (×2) | 0.38 / 0.26σ | ~0.1σ | 3.0 / 2.5× |
+| L13 (×2) | 0.05–0.09σ | ~0.24σ | **0.2–0.4×** |
+
+Registered bars failed (mean 4.6× vs 5; not every case ≥3×) — and the failure has
+clean structure: **selectivity decays with reader depth**. Adjacent, targeted
+intervention despite dense support is real (20× with the random-direction control at
+noise level); by eleven layers of separation the perturbation no longer arrives as the
+functional it left as. Functional coordinates are *local* coordinates — near-
+orthogonality enables surgical intervention on nearby readers, and propagation through
+the quadratic stack (the same product-amplification that governs composition and the
+interchange leak) scrambles the targeting over depth. Secondary observation: L2-form-3
+barely moves even adjacently — steerability also needs appreciable absolute coupling,
+not just an eigvector.
+
+Registered next: the **coherence length** — same-protocol targets at every depth
+L2–L9, decay curve of selectivity, half-range estimate, and the B-norm gate for
+steerability.

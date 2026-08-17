@@ -2126,3 +2126,15 @@ and across attention heads. The compression program re-aims to functional coordi
 the functional-family spectrum and single-functional steering are queued.
 
 Full detail in `BILIN18_CONNECTION.md` §57.
+
+### Functional coordinates: eighty principal functionals, locally steerable
+
+The spectrum: envelope rank 2.6, signed family rank **80** of 240 — the front of the
+model's reading of layer 1 compresses to ~80 principal functionals (my "no small
+basis" bound failed compressively). Steering along single functional eigenvectors is
+surgical adjacently (20× selectivity at L2, control at noise) and dies with depth
+(0.2× by L13): functional coordinates are *local* — the product-amplification that
+governs composition also sets a finite steering range. Coherence-length measurement
+queued.
+
+Full detail in `BILIN18_CONNECTION.md` §58.

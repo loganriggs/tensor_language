@@ -1,0 +1,9 @@
+target 0 (L2): own 1.38s | cross-talk med 0.07s | selectivity 20.3x | random-ctrl 0.08s
+target 1 (L2): own 0.12s | cross-talk med 0.08s | selectivity 1.5x | random-ctrl 0.05s
+target 2 (L5): own 0.38s | cross-talk med 0.13s | selectivity 3.0x | random-ctrl 0.25s
+target 3 (L5): own 0.26s | cross-talk med 0.10s | selectivity 2.5x | random-ctrl 0.18s
+target 4 (L13): own 0.05s | cross-talk med 0.25s | selectivity 0.2x | random-ctrl 0.04s
+target 5 (L13): own 0.09s | cross-talk med 0.23s | selectivity 0.4x | random-ctrl 0.07s
+
+(a) every case >= 3x: FAILED | (b) mean >= 5x: FAILED (mean 4.6x)
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_functional_steering_results.json (12s)
