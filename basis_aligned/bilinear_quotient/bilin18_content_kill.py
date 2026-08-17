@@ -110,7 +110,7 @@ def main():
         spans[li]=(orth(Vh[:8].T),Ybar@orth(Vh[:8].T)) if False else (orth(Vh[:8].T),None)
         Q=spans[li][0]; spans[li]=(Q,Ybar@Q)
     PR.LINS={}
-    lin17=PR.fit_layer(17)
+    lin17_map=PR.fit_layer(17)
     out={}
     arms=[]
     for tag,l17,clamp in (('real_frozen',None,True),('linear_frozen','fit',True)):
