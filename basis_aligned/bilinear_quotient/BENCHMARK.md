@@ -46,8 +46,12 @@ Scoring:
   **balanced gauge point** (balanced_gauge_spec.md) so it cannot be gamed by
   per-unit rescalings. Not bits/quantization — structural rank and sparsity.
 - **Metric:** the (log params, ΔCE) Pareto curve; headline numbers = ΔCE at
-  fixed budgets (1%, 5%, 20% of original params). Reference points from this
-  program: 13 refit linear layers ≈ 5% params at +1.56 nats; §155's ladder.
+  fixed budgets (1%, 5%, 20% of original params). Measured reference points
+  (§157): knowledge assignment (4 constants + 8 rank-8 maps, layers 5-16) =
+  +2.68 nats at 0.15M params; all-full-linear same layers = +1.26 at 15.9M;
+  per-layer ladder in §155. Note: with the λ-mixing instrument fixed, naive
+  joint composition drift is modest (+1.26 vs the sum ~+0.6) — score jointly
+  anyway, but the drift penalty is real, not catastrophic.
 - **Edges:** claimed interaction graph scored against transplant-measured edge
   strengths (the program's instruments: full-write transplants, dilution
   shares, span patches).

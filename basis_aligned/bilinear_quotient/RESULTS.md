@@ -2988,3 +2988,11 @@ writes (0.20-0.43): MLPs write, attention transports, MLPs consume. Ledger #12.
 bilin12 identity confirmed (CE 4.23).
 
 Full detail in `BILIN18_CONNECTION.md` §156.
+
+### First Pareto points
+
+Knowledge assignment: +2.68 at 0.15M params; all-full-linear: +1.26 at 15.9M.
+Also: clean-instrument naive joint is +1.26 -- section 104's superadditivity was
+mostly the lambda bug. BENCHMARK.md updated with the reference curve.
+
+Full detail in `BILIN18_CONNECTION.md` §157.

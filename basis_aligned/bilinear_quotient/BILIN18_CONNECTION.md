@@ -4698,3 +4698,23 @@ than with upstream attention writes (0.20–0.43). (b) held 3/3 but weakly
 bilin12 identity check (user request): base CE 4.23 vs bilin18's 4.00 on the
 same rows — consistent with a half-depth, two-thirds-width sibling; config
 confirms `squared_attn: True`. Right model.
+
+## 157. The benchmark's first Pareto points
+
+File: `bilin18_reference_submission.py`. Both registered bars failed, and the
+numbers are the point:
+
+- Only **4** mid-tail layers qualify for constant stand-ins at the 0.05 bar
+  (L8, L9, L14, L15 at +0.031–0.048 alone); the §155 sample (L9) was the
+  cheapest, not typical — mid-tail rank-0 costs run +0.03–0.10.
+- The knowledge assignment (4 constants + 8 rank-8 maps, layers 5–16) costs
+  **+2.68 nats jointly at 0.15M stand-in params**; all-full-linear on the same
+  layers costs **+1.26 at 15.9M params**. First two points of the
+  fidelity-complexity Pareto: 1% of the parameters buys you 2.1× the damage.
+- Clean-instrument note: the naive joint of full-linear 5–16 is +1.26 — far
+  below §104's contaminated +5.49 and below even the sequential-refit +1.56
+  (which included L17). With the λ-mixing bug gone, composition drift is modest;
+  §104's superadditivity was mostly instrument.
+
+The benchmark now has a measured reference curve: (0.15M, +2.68),
+(15.9M, +1.26), plus §155's per-layer ladder. BENCHMARK.md updated.
