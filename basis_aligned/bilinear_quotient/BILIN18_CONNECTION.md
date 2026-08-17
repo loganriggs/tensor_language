@@ -2515,3 +2515,32 @@ this statistic would still come out uniform-and-identical. The user's path-separ
 hypothesis is NOT refuted at the resolution it was posed — individual forms are
 rank-bounded, hence necessarily structured — only the whole-reader version is dead.
 The per-form version is queued with the aggregation removed.
+
+## 55. Path-separation tested at form resolution: the coupling is genuinely shared
+
+File: `bilin18_perform_coupling.py` (11 s; instrument clean of §54's aggregation
+confound — each form's coupling matrix is rank-bounded and examined individually).
+
+Per-form coupling of L1's top-48 output directions, 32 forms × 6 readers (L2–L17):
+
+- **(a) failed**: per-form top-5% entry mass is 0.15–0.18 — about 3× the uniform
+  baseline (0.05) but far from the registered 0.35. Individual forms couple L1's pairs
+  *diffusely*, not sparsely.
+- **(b) failed**: within-reader cosine between different forms' coupling matrices is
+  **0.63** — different outputs of the same reader largely agree on which L1-pairs
+  matter.
+- **(c) held, weakly informative**: cross-reader cosine 0.60 ≈ within-reader 0.63 —
+  readers agree with each other almost as much as with themselves.
+
+Verdict on the structural-exclusivity hypothesis for MLP readers, now tested at the
+resolution where the architecture reads: **the density is real, not an aggregation
+artifact**. There is a shared coupling template — one dominant pattern of which
+L1-direction pairs interact, common across forms and across all six readers sampled —
+plus modest per-form variation. Layer 1's interaction is dense at every resolution
+tried: whole-model CE (§45), whole-reader (§54, confounded but consistent), and now
+per-form (clean).
+
+Two caveats recorded: the cosines are between **absolute-value** matrices, which
+inflates overlap (all-positive vectors correlate; a signed version is queued and
+predicted lower), and **attention QK readers are untested** — the user's original
+suggestion included them, and heads are the component most likely to specialise.

@@ -1,0 +1,10 @@
+reader L2: per-form top-5% mass median 0.17 | within-reader cos 0.65
+reader L3: per-form top-5% mass median 0.18 | within-reader cos 0.63
+reader L5: per-form top-5% mass median 0.18 | within-reader cos 0.64
+reader L9: per-form top-5% mass median 0.16 | within-reader cos 0.64
+reader L13: per-form top-5% mass median 0.15 | within-reader cos 0.63
+reader L17: per-form top-5% mass median 0.18 | within-reader cos 0.62
+
+overall: per-form top-5% 0.18 | within-reader cos 0.63 | cross-reader cos 0.60
+(a) forms concentrated: FAILED | (b) within-reader disjoint: FAILED | (c) cross <= within: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_perform_coupling_results.json (11s)

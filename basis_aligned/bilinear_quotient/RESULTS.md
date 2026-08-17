@@ -2092,3 +2092,14 @@ path-separation hypothesis is untested at the resolution it was posed; the per-f
 version runs next.
 
 Full detail in `BILIN18_CONNECTION.md` §54.
+
+### Path-separation at form resolution: shared template, real density
+
+The clean per-form test: individual forms couple L1's direction-pairs diffusely (top-5%
+mass 0.15–0.18 vs 0.05 uniform, far from sparse), and both within-reader and
+cross-reader cosines sit at ~0.6 — one shared coupling template across forms and
+readers, plus modest variation. Layer 1's interaction density survives at every
+resolution tested. Caveats queued: signed cosines (abs-matrices inflate overlap) and
+attention QK readers (the component most likely to specialise).
+
+Full detail in `BILIN18_CONNECTION.md` §55.
