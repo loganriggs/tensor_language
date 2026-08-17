@@ -2042,3 +2042,32 @@ do real (small) in-distribution work in exactly the directions the Λ-Gram ident
 that work is fineweb-tuned and inverts to a liability under shift. The shift-fragility
 of the tail is now fully confirmed on both sides of the split, and every negative
 ablation number in this program's pile evaluations should be read through it.
+
+## 39. The coverage curve: causal mass is spread over the whole output space, and the leader-predictor does not generalise to coverage
+
+File: `bilin18_coverage_curve.py` (22 s). Deletion cost of the top-k output span as k
+grows to full rank, layers 1 and 0, two orderings. Gate: both bases agree at k=1152
+(4.9037 / 0.6983 — also layer 1's first operator-C full-delete measurement; §9's 5.65
+was operator A, consistent with the known operator dependence).
+
+| k | L1, PCA | L1, G_lam | L0, PCA | L0, G_lam |
+|---|---|---|---|---|
+| 32 | 0.116 | 0.068 | 0.100 | 0.072 |
+| 128 | 0.568 | 0.366 | 0.221 | 0.166 |
+| 512 | 3.699 | 2.200 | 0.523 | 0.454 |
+| 1152 | 4.904 | 4.904 | 0.698 | 0.698 |
+
+**(a) held, strongly: the causal mass is nearly space-filling.** Layer 1's 128-dim span
+carries 12% of the full cost; 512 dims carry 75%. Per-direction cost actually *peaks in
+the mid-spectrum* (dims 256–512 carry ~0.0095 nats each against 0.0055 for 128–256 and
+0.0019 for the final 640) — the §6 blind-direction theme at its sharpest: this layer
+puts its heaviest causal weight per direction in the *middle* of the variance spectrum,
+not the top. There is no low-dimensional causal core to find at layer 1; the
+direction-level program's <10% coverage was not a sampling failure but the geometry.
+
+**(b) failed, inverted: PCA dominates G_lam for cumulative coverage at every k on both
+layers** — the exact opposite of the leader-identity results (§23/§30). The Λ-Gram is
+the better *leader* predictor and the worse *coverage* ordering; variance ordering wins
+for bulk. Two instruments, two jobs, and my assumption that the first generalised to
+the second is now a recorded failed prediction. Whatever ordering is causally optimal
+is neither — the mid-spectrum peak says both orderings misplace the heavy directions.

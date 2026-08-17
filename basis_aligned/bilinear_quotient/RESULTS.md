@@ -1899,3 +1899,15 @@ real fineweb-tuned work in exactly the directions the Λ-Gram finds; under shift
 work inverts to a liability. Confirmed on both sides of the split.
 
 Full detail in `BILIN18_CONNECTION.md` §37.
+
+### The coverage curve: no core to find, and a failed generalisation
+
+The missing ~90% of early-layer causal effect is genuinely space-filling: layer 1's
+128-dim top span carries 12% of the full deletion cost, 512 dims carry 75%, and
+per-direction cost *peaks mid-spectrum* — the blind-direction theme at its sharpest.
+There is no low-dimensional causal core at layer 1; the <10% coverage was geometry, not
+bad sampling. And a registered prediction failed informatively: the Λ-Gram, best-in-
+class for predicting *leaders*, is *worse than plain variance ordering* for cumulative
+coverage at every k. Two instruments, two jobs.
+
+Full detail in `BILIN18_CONNECTION.md` §39.
