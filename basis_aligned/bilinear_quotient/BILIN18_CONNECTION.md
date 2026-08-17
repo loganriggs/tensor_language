@@ -1877,3 +1877,41 @@ into few variables.** Its existence and orientation are established (§28); its 
 is high-bandwidth by every instrument — output rank, surrogate failure, naming failure,
 and now channel count. For this model, "understand the middle" cannot mean "name its
 variables"; the honest unit is the subspace and its gain, not the coordinate.
+
+---
+
+## 32. The composition gate: surrogates don't compose across the one tested edge
+
+File: `bilin18_composition_gate.py` (10 s). Every compression was verified with the
+rest of the model intact; §27's superadditivity warned that joint installation could
+fail while parts pass alone. Registered prediction: joint ≤ 1.3× the sum, with any
+excess expected on the 16→17 bus edge, separable via a pair arm.
+
+| installed | ΔCE |
+|---|---|
+| L1 leader surrogate | +0.0040 |
+| L16 replacement | +0.0307 |
+| L17 replacement | +0.1018 |
+| **L16 + L17** | +0.1974 |
+| all three | +0.2019 |
+
+**The prediction failed (1.48×) — and the excess is entirely the predicted edge.** The
+16–17 pair interaction is +0.0649; the full three-way excess is +0.0654; the residual
+beyond the pair term is **+0.0005, zero within noise**. L1's surrogate composes
+perfectly with everything. L16's and L17's replacements interfere with each other and
+with nothing else — exactly what the verified L16→L17 syntax-bus edge (§24) requires:
+L17's replacement was fit on inputs produced by an *intact* layer 16, and replacing 16
+shifts the very distribution 17's whitened truncation was optimised for.
+
+Three things this settles:
+
+1. **"Correct compression" needs a composition criterion**, and it is now part of the
+   battery: parts verified alone must be re-gated jointly, and the causal graph tells
+   you which pairs to test (only linked pairs can interact — the unlinked L1 pairs
+   contributed +0.0005).
+2. **The causal graph made a successful advance prediction about a failure mode.**
+   The 16–17 edge was found by steering (§24); it just showed up, quantitatively, in a
+   completely different experiment. That is the strongest validation the graph has.
+3. **The fix is prescribed by the mechanism**: refit L17's replacement on the
+   L16-replaced model (scheduled/sequential fitting, downstream-after-upstream).
+   Registered, not yet run; predicted to recover most of the 0.065.

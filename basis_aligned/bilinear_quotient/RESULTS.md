@@ -1855,3 +1855,16 @@ variables — matching the rank, surrogate, and naming verdicts on the same laye
 middle is high-bandwidth by every instrument.
 
 Full detail in `BILIN18_CONNECTION.md` §31.
+
+### The composition gate: failure exactly where the graph predicted
+
+Installing the three verified surrogates together costs 1.48× the sum of installing
+them alone — my registered ≤1.3× failed — and the excess decomposes perfectly: the
+L16+L17 pair interaction is +0.0649 of the +0.0654 total excess, the L1 surrogate's
+cross-terms are +0.0005 ≈ 0. The one interacting pair is the one pair linked by a
+verified edge (the L16→L17 syntax bus): L17's replacement was fit on intact-L16 inputs,
+and replacing 16 shifts that distribution. Composition is now a standing battery
+criterion, the graph earned an advance prediction about a failure mode, and the fix
+(refit 17's replacement downstream of 16's) is registered.
+
+Full detail in `BILIN18_CONNECTION.md` §32.
