@@ -2785,3 +2785,12 @@ separate institutions, third independent measurement of cross-type separation.
 Write-channel symmetry check queued.
 
 Full detail in `BILIN18_CONNECTION.md` §131.
+
+### The stream is multiplexed
+
+Attention and MLP writes occupy separate channels at every layer (5/5, at/below
+matched null). With section 131: separate watch-lists AND separate write
+channels -- one carrier, two component types, clean separation between them,
+diffuseness only within them.
+
+Full detail in `BILIN18_CONNECTION.md` §132.

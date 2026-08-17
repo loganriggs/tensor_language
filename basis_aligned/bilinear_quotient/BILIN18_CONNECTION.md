@@ -4258,3 +4258,19 @@ independent ways — QK couplings reconstruct below chance from the MLP vocabula
 (§84), OV paths are indifferent to it (§86), and the input watch-lists are
 disjoint (here). The component types divide the stream between them: same
 carrier, separate channels, separate reading institutions.
+
+## 132. Separate write channels too: the stream is multiplexed by component type
+
+File: `bilin18_write_channels.py` — third clean sweep (5/5, instrument
+discriminating): attention writes and MLP writes occupy separate stream
+subspaces at every measured layer (median principal cos 0.08–0.25, at or below
+the covariance-matched nulls of 0.20–0.26; four of five *below* null — mild
+active avoidance). Together with §131 the component-type separation is complete
+on both sides:
+
+> **The residual stream is a multiplexed bus.** At every layer, attention and
+> the MLP each keep their own input watch-list (§131) and their own output
+> channel (here); the quadratic codes of the two types are mutually unreadable
+> (§§84, 86). One carrier, two component types, and essentially no cross-talk in
+> either direction — the "everything is diffuse" theme of this model holds
+> *within* each component type, while *between* types the separation is clean.
