@@ -1565,3 +1565,20 @@ load-bearing — which is interference among ten real parts, not orthogonality o
 and causing. (Enrichment, not identity: 1.8×, one layer, dictionary FVU 0.179.)
 
 Full detail in `BILIN18_CONNECTION.md` §14.
+
+### The ten directions have token structure, not crisp names
+
+Pointing the verified naming instrument at MLP1's six leading Shapley directions: all
+six clear their permutation nulls (ρ up to 0.47, nulls ~0.06), so the causal leaders
+genuinely have token structure — one is a clean determiner-vs-verb axis, another keys on
+sentence-initial discourse openers, the leader fires overwhelmingly on whitespace. But
+none has layer 17's crispness, and this does **not** overturn the repository's "0/32
+nameable": their bar is causal (localised ablation effect), ours is correlational, and
+the honest combined statement is that MLP1's causal directions carry real but diffuse
+token structure — verifiable dependence without single-concept names.
+
+Also caught and recorded: the direction basis must come from the same data as the
+Shapley run — two earlier versions of the script recomputed the SVD from larger corpora
+and the tail directions silently rotated.
+
+Full detail in `BILIN18_CONNECTION.md` §15.

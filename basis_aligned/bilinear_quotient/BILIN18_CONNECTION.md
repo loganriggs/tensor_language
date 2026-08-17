@@ -1058,3 +1058,48 @@ Caveats stated rather than buried: the alignment is a 1.8× enrichment, not iden
 (atoms still hold most of their energy outside the top-10 span); the dictionary explains
 0.82 of output variance (FVU 0.179), so a fifth of the structure is unmodelled; and this
 is one layer of one model.
+
+---
+
+## 15. What the ten directions are — token structure, but not crisp names
+
+File: `bilin18_mlp1_leaders.py` (11 s).
+
+§8.3's verified naming instrument (unembedding alignment tested against measured
+excitation over 262k positions, 200-draw permutation null), pointed at the six leading
+Shapley directions of MLP1.
+
+**A methodological catch first, recorded because it will bite anyone repeating this: the
+direction basis must come from the same data as the Shapley run.** The first two
+versions of this script recomputed the output SVD from their own (larger) corpora, and
+the tail directions visibly rotated — "direction 1" changed its unembedding profile
+between runs that should have differed only in statistical power. Caught because the
+`writes toward` lists changed; fixed by taking the basis from the Shapley run's exact
+data and using the large corpus only for excitation.
+
+All six clear their permutation nulls (ρ up to 0.47 against nulls of ~0.06) — the
+excitation of every causally-leading direction has genuine token structure. But the
+honest reading is weaker than "named":
+
+| rank | share | writes toward | fires on (measured) | ρ |
+|---|---|---|---|---|
+| #1 (27%) | pronouns/numerals ` one, it, I, 2, they, we` | overwhelmingly plain space (16.3×; everything else ≤1.3×) | 0.24 |
+| #2 (9%) | concrete nouns ` grade, line, circuit, plate`; against punctuation | word-fragment suffixes `ines, onse, ower` | 0.29 |
+| #3 (9%) | ` case, method, solution, way`; against `The/the` | ` largest, problem, look, simple` | 0.11 |
+| #4 (5%) | **`the/The`, against finite verbs & pronouns** | markup ` <, ([, }, </` | **0.47** |
+| #5 (5%) | suffix fragments | fragments/space | 0.29 |
+| #6 (5%) | punctuation/suffixes | **sentence-initial discourse openers `As, For, To, One, If`** | 0.29 |
+
+Some of this is legible — #4 is a determiner-vs-verb axis (exactly the kind of feature
+layer 17 also carries), #6 keys on sentence-initial position, #1's firing is dominated
+by whitespace/indentation. But none of the six has the crispness of layer 17's verified
+features, and several read as morphological/positional rather than semantic.
+
+**This does not overturn §74's "0/32 nameable", and should not be quoted as doing so.**
+§74's bar is causal-clearness (mean-ablation effect z ≥ 3 localised at the direction's
+own top firing positions) — a *causal* criterion. This instrument's bar is statistical
+token-dependence of excitation — a *correlational* one, and weaker. The combined honest
+statement: the causally-leading directions of MLP1 have real, verifiable token structure
+(all six, p < 0.05 against permutation), but that structure is diffuse in exactly the
+way §74's stricter causal bar registers as unnameable. Both instruments are right; they
+measure different grades of "having a name".
