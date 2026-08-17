@@ -2071,3 +2071,27 @@ the better *leader* predictor and the worse *coverage* ordering; variance orderi
 for bulk. Two instruments, two jobs, and my assumption that the first generalised to
 the second is now a recorded failed prediction. Whatever ordering is causally optimal
 is neither — the mid-spectrum peak says both orderings misplace the heavy directions.
+
+## 40. The interchange leak resists two hypotheses — and localises to error amplification
+
+Files: `bilin18_leak_origin.py`, `bilin18_leak_rank2.py` (6 s each). §21 left a 32% gap
+between the z→c₀ abstraction's on-distribution repair (92%) and its interchange
+faithfulness (68%). Two registered hypotheses, both failed:
+
+- **Document mixture (predicted ≥85% same-document): FAILED at 60.8%.** Transplanting z
+  within the same document is no more faithful than across documents. The leak is not
+  the ICC-0.56 document component.
+- **The form's second direction (predicted ≥85% with a rank-2 transplant): FAILED at
+  72.5%** (cross-doc; 69.3% same-doc) — despite the rank-2 coefficient fit reaching
+  R² = 0.987 on natural data.
+
+What survives elimination is sharp: a transplant whose coefficient errors are 1.3% in
+variance terms still loses ~27% of the downstream effect. The remaining candidate is
+**position-heavy error amplification** — the mismatch between ĉ₀(source) and c₀(source)
+is small on average but the downstream stack (quadratic layers) amplifies the few
+positions where it is large, so KL-faithfulness saturates well below the R² story.
+Consistent with everything else measured: the composition product law (§35) is exactly
+this amplification mechanism at layer scale, and the coverage curve (§39) says function
+concentrates where variance statistics do not look. Registered next test: per-position
+mismatch distribution (prediction: the top 5% of positions carry >60% of the mismatch
+KL), which would close the leak's accounting without closing the leak.

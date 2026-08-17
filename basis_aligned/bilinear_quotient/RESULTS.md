@@ -1911,3 +1911,15 @@ class for predicting *leaders*, is *worse than plain variance ordering* for cumu
 coverage at every k. Two instruments, two jobs.
 
 Full detail in `BILIN18_CONNECTION.md` §39.
+
+### The interchange leak survives two hypotheses
+
+The 32% z→c₀ abstraction leak is not the document component (same-document transplants:
+60.8% faithful, no better than cross-document) and not the form's second direction
+(rank-2 transplant: 72.5%, despite a 0.987 coefficient fit). A transplant with 1.3%
+coefficient error still loses ~27% of the downstream effect — the surviving hypothesis
+is position-heavy error amplification by the downstream quadratic stack, the same
+mechanism as the composition product law at a different scale. Accounting test
+registered.
+
+Full detail in `BILIN18_CONNECTION.md` §40.
