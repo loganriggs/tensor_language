@@ -4733,3 +4733,23 @@ when fit in sequence. At 1.8% of the full-linear parameter budget the refit
 assignment is within 0.4 nats of it. BENCHMARK.md's reference table updated;
 the frontier-tracing rank sweep is queued (registered: (a) refit-rank-64 joint
 ≤ +1.40; (b) the refit curve dominates the naive curve at every rank tested).
+
+## 159. The Pareto frontier is flat: rank barely matters
+
+File: `bilin18_pareto_curve.py`. (b) and (c) held — refit dominates naive by
+~1.0 nat at every rank, both monotone — and (a)'s failure is the shape of the
+curve:
+
+    refit: rank 4 = +1.81 (0.07M) | rank 16 = +1.66 (0.29M) | rank 64 = +1.54 (1.18M)
+    floor: full linear = +1.26 (15.9M)
+
+Seventeen times the parameters buys 0.27 nats. The mid-tail's replaceable
+function is captured by a *handful* of refit directions plus four constants;
+everything beyond rank ~4 chases a residual that even the full 1152-rank linear
+maps only reduce to +1.26. Benchmark lesson one: the competitive region is below
+0.1M params, and closing the last ~1.3 nats requires a different computation
+class, not more rank. Queued, the ladder's upper rung: does a compact *quadratic*
+stand-in help where linear saturates? Registered skeptical per §113 (the
+residues are diffuse in every natural basis): a rank-32-input quadratic stand-in
+for L16 beats the rank-32 linear by < 0.05 nats; alternative would reopen the
+compressed-quadratic door at the stand-in level.

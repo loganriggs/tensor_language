@@ -1,0 +1,20 @@
+L 5 rank-0 alone: +0.0952
+L 6 rank-0 alone: +0.0617
+L 7 rank-0 alone: +0.0503
+L 8 rank-0 alone: +0.0474
+L 9 rank-0 alone: +0.0312
+L10 rank-0 alone: +0.0641
+L11 rank-0 alone: +0.0725
+L12 rank-0 alone: +0.0581
+L13 rank-0 alone: +0.0618
+L14 rank-0 alone: +0.0478
+L15 rank-0 alone: +0.0320
+
+assignment: constant [8, 9, 14, 15] | rank-8 [5, 6, 7, 10, 11, 12, 13, 16]
+rank   4: naive +2.816 | refit +1.807 (0.07M)
+rank  16: naive +2.611 | refit +1.660 (0.29M)
+rank  64: naive +2.398 | refit +1.541 (1.18M)
+(a) refit-r64 <= 1.40: FAILED
+(b) refit dominates naive: HELD
+(c) monotone in rank: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_pareto_curve_results.json (23s)

@@ -3003,3 +3003,11 @@ Full detail in `BILIN18_CONNECTION.md` §157.
 Frontier rank sweep queued.
 
 Full detail in `BILIN18_CONNECTION.md` §158.
+
+### The frontier is flat
+
+Refit rank-4 (0.07M) = +1.81; rank-64 (1.18M) = +1.54; floor +1.26 (15.9M).
+17x params buys 0.27 nats -- competition lives below 0.1M params. Quadratic
+upper rung queued.
+
+Full detail in `BILIN18_CONNECTION.md` §159.

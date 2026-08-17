@@ -50,7 +50,9 @@ Scoring:
   (§§157-158): naive assignment (4 constants + 8 rank-8) = +2.68 at 0.15M;
   sequentially-REFIT assignment (rank-16) = +1.66 at 0.29M; all-full-linear
   same layers = +1.26 at 15.9M. Sequential refit is the frontier lever (36%
-  cost reduction free);
+  cost reduction free); the traced refit curve is FLAT — rank 4/16/64 give
+  +1.81/+1.66/+1.54, so the competitive region is below 0.1M params and closing
+  the last ~1.3 nats needs a different computation class, not more rank;
   per-layer ladder in §155. Note: with the λ-mixing instrument fixed, naive
   joint composition drift is modest (+1.26 vs the sum ~+0.6) — score jointly
   anyway, but the drift penalty is real, not catastrophic.
