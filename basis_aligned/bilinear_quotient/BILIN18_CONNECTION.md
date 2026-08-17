@@ -1394,3 +1394,47 @@ form than a squared context summary does. The compression each layer admits trac
 it computes — which is itself a finding: **surrogate compressibility is a probe of
 mechanism class** (context-summary features compress to 1–2 terms; token-identity
 features do not).
+
+---
+
+## 21. Phase A′: the variable graph under interchange interventions
+
+File: `bilin18_interchange.py` (8 s). The §19 surrogate implies a causal abstraction:
+`z := u·x̂` (computed, per §18's attribution, mostly by attn1 head 4) → `c₀ := az²+b` →
+`write := c₀d₀`. §19 tested only the output. Interchange interventions test each edge:
+patch the variable's value from a *source* input into a *base* input and demand the
+downstream behaviour match patching the low-level realizer. Base and source pairs come
+from different documents, which makes this deliberately the hard regime (§16/§19 showed
+cross-document transfer is where fits break).
+
+**E2 — the head4 → z edge: verified interventionally.** Swapping head h's attn1 context
+(pre-projection) from source into base, one head at a time, and measuring how much `z`
+moves: **head 4 produces 79.1%** of all z-movement; the runner-up (head 1) 14.3%; no
+other head above 1.7%. §18's on-distribution attribution said 90%. Unlike the layout
+semantics — where attribution and intervention disagreed — this edge holds up when
+actually moved. "Head 4 computes z" is now an interventional claim.
+
+**E1 — the z → c₀ edge: a partial abstraction, and honestly scored.** Replacing
+`c₀(base)` with the true `c₀(source)` changes downstream log-probs by KL 0.0109
+(top-half positions) and flips 218 top-1 predictions. Replacing it with the
+abstraction's value `a·z(source)²+b` instead reproduces that downstream behaviour at
+**68.0% faithfulness** (KL mismatch 0.0035) and matches **61.0%** of the flipped top-1
+predictions. The shuffled-c control sits at 13.3%, so the pairing is doing real work —
+but 68% is far from the 92% CE repair §19 measured on-distribution.
+
+The gap between 92% and 68% is informative rather than embarrassing: interchange
+transports values *across documents*, which is exactly where the surrogate's coefficient
+fit degrades (transfer R² 0.265, §19). On-distribution, z carries c₀'s function almost
+completely; transported across contexts, about a third of c₀'s downstream influence
+comes from parts of the form z does not see. The abstraction is real but leaky, and the
+leak is localised to cross-context generalisation — a sharper statement than either
+previous number alone.
+
+Graph status after Phase A′:
+
+| edge | claim | test | verdict |
+|---|---|---|---|
+| head4 → z | head 4 computes z | context interchange | **79% of z-movement — holds** |
+| z → c₀ | c₀ = az²+b abstracts the form | value interchange | **68% faithful (13% control) — partial** |
+| c₀ → CE | the write is the leader's causal role | ablation + ladder (§19) | **holds, 288× compression** |
+| layout → z | layout tokens drive z | token injection (§19 r3) | **refuted** |

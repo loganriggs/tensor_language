@@ -1673,3 +1673,19 @@ Full detail in `BILIN18_CONNECTION.md` §20. Plan updated (`LAYER_PROGRAM.md`): 
 interchange interventions in the causal-abstraction sense on the named variables, then
 layer 16, then the weights-first theory pass (HOSVD/CP of the bilinear tensor in the
 validated metric, per-head folded operators, and a weights-only prediction protocol).
+
+### The variable graph under interchange
+
+The causal-abstraction pass on layer 1's verified surrogate (`z := u·x̂ → c₀ := az²+b →
+write`), with base/source pairs deliberately drawn from different documents. The
+**head4 → z edge verifies interventionally**: swapping head 4's attention context
+produces 79% of all z-movement (runner-up 14%, everything else ≤2%) — unlike the layout
+semantics, this attribution survives being moved. The **z → c₀ edge is a partial
+abstraction**: patching z's value reproduces 68% of the true coefficient-patch's
+downstream KL and 61% of its top-1 flips (shuffle control: 13%). The gap to §19's 92%
+on-distribution repair is localised to cross-document transport — on-distribution the
+abstraction is nearly complete; transported across contexts a third of the influence
+comes from parts of the form z does not see.
+
+Full detail in `BILIN18_CONNECTION.md` §21. Next: layer 16's battery, then the
+weights-first theory pass.
