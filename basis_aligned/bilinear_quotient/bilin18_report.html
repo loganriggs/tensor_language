@@ -120,7 +120,7 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   <p class="lede">What we found inside a 546M-parameter bilinear transformer: six layers read
   end to end, a causal graph with every edge tested by intervention, a depth map that says
   where the model compresses and where it refuses to, and a weights-only formula that
-  predicted almost all of it. Including the four corrections it took to get here.</p>
+  predicted almost all of it. Including every correction it took to get here — the ledger below runs to ten.</p>
   <nav class="toc" aria-label="Contents"><p class="tochd">Contents</p><ol>
     <li><span class="num">01</span><a href="#model">The model and the method</a></li>
     <li><span class="num">02</span><a href="#depth">The depth map</a></li>
@@ -384,6 +384,9 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   <tr><td>middle superadditivity 2.87×</td><td>1.42× — the original mixed two deletion operators and used stale means</td><td>a gate mismatch in the Shapley run</td></tr>
   <tr><td>layer 4 "writes for downstream"</td><td>layer 4 <em>reads</em> layers 2–3</td><td>the coalition sign-flip sweep</td></tr>
   <tr><td>register semantics of the L1 leader</td><td>correlate, not cause</td><td>token injection + damage profile</td></tr>
+  <tr><td>stand-in costs of §§linearization (v1)</td><td>re-measured — maps were fit on post-mix inputs but applied pre-mix (λ-mixing bug); L5 "outlier" and 2.68× superadditivity withdrawn</td><td>the sequential-refit run's self-consistency</td></tr>
+  <tr><td>"linearizing L17 kills 98% of the 16→17 interaction"</td><td>79% on a consistent instrument — and at content level (final gain frozen) only 21%; the big kills were the norm channel</td><td>the norm-mediation accounting chain</td></tr>
+  <tr><td>"L1 and L5 discard the stream (λ₀ ≈ 0)"</td><td>no layer is embedding-dominated — the λ-weighted stream term still wins; L0's giant write is the real reset</td><td>measuring the λ-term norms on data</td></tr>
   <tr><td>"deep coefficients are unaddressable from L1"</td><td>unaddressable only above ~0.5σ — at quarter magnitude the deep target steers at 4.7× selectivity</td><td>the magnitude sweep the penalized-objective test forced</td></tr>
   <tr><td>two ablation runs (void)</td><td>rerun — one patched a forward never called, one had chance above signal</td><td>identical rungs / null arithmetic</td></tr>
   </tbody></table>

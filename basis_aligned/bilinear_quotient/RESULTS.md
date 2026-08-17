@@ -2693,3 +2693,12 @@ content level L16's span (+0.148) beats L17's (+0.093), and the
 deletion-improves spans get MORE negative. Compensation generality test queued.
 
 Full detail in `BILIN18_CONNECTION.md` §120.
+
+### Compensation is output-end machinery
+
+Not general (3/6, median 24%): cancellation concentrates at L16/L17-involving
+pairs; mid-tail pairs can amplify. All three absorbers are logit-stabilization
+machinery at the model's final stage. L9+L16 joint-negative queued for
+replication.
+
+Full detail in `BILIN18_CONNECTION.md` §121.

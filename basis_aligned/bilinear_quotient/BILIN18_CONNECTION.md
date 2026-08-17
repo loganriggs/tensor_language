@@ -4059,3 +4059,24 @@ Queued, closing the compensation arc: is compound-damage cancellation (§119)
 general? Six random tail-layer span pairs, true joint excess vs synthetic
 superposed-logit excess. Registered: (a) synthetic > true for ≥5 of 6 pairs;
 (b) median cancellation ≥40%.
+
+## 121. Compensation is an output-end phenomenon
+
+File: `bilin18_general_compensation.py`. Registered generality failed (3/6 pairs,
+median cancellation 24%): compound-damage cancellation concentrates at pairs
+involving the output end — L13–L17 (36%), L11–L15 (24%), and L9–L16 (244%: the
+joint deletion is net *negative*, −0.024) — while small mid-tail pairs show
+**anti-compensation** (L7–L13 at −148%: the true joint excess exceeds what loss
+curvature alone predicts; genuine amplifying interaction). Caveat: most mid-tail
+pair effects are small (+0.002–0.007), so their percentages are noisy; the
+16/17-involving numbers are solid.
+
+Reading: the three absorbers found in this arc (L17's quadratic residue §103,
+L17's attention §115, the 16→17 destructive interference §119) are all part of
+the same **output-preparation machinery actively stabilizing logits** — a local
+property of the model's final stage, not a network-wide principle. The mid-tail
+neither absorbs nor amplifies much; it just carries.
+
+The L9–L16 joint-negative (−0.024, deleting the §96 regularizer span together
+with the model's biggest content span *helps* overall) is queued for replication
+on disjoint rows before it earns interpretation.
