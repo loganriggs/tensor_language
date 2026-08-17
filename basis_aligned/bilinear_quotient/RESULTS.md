@@ -3372,3 +3372,11 @@ gated models spread function, bilinear models concentrate it and leave slack.
 The rank-0/rank-4 scan is the first thing to run on any new target.
 
 Full detail in `BILIN18_CONNECTION.md` §205.
+
+### Closing observation: slack contains the regularizers
+
+bilin18's constant-licensed layers {8,9,14,15} contain the regularizer pair
+{9,15}; the gated sibling has neither slack nor regularizers. One phenomenon,
+first seen in section 37, closed in section 205.
+
+Full detail in `BILIN18_CONNECTION.md` §206.

@@ -5583,3 +5583,19 @@ open cell and gives the scale prediction its refined form: what grows with
 model size is the *slack*, and how much slack an architecture accumulates is a
 family trait — worth measuring early on any new target, since it bounds what
 any replacement submission can achieve before the first stand-in is fit.
+
+## 206. Closing observation: the slack layers contain the regularizers
+
+No new run — a connection already present in the recorded numbers. bilin18's
+licensed-constant (slack) layers are {8, 9, 14, 15} (§157's rank-0 scan); its
+deletion-*improves* spans at content level sit at {6, 9, 12, 15} (§120). The
+overlap {9, 15} is exactly the pair whose regularizer character was replicated
+and dissected (§§96–98, 122): the layers whose removal *helps* the frozen model
+are a subset of the layers whose entire function a constant can carry. The
+slack the replacement recipe exploits and the overshoot-trimming the
+regularizer arc characterized are two views of the same low-content tail — and
+the gated sibling, which spreads function uniformly (§205), correspondingly
+showed no deletion-improves layers in any scan. The program's oldest
+observation (truncation-as-regularization, first seen as a shifted-corpus
+curiosity in §37) and its newest (slack as an architecture trait) close as one
+phenomenon.
