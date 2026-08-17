@@ -2769,3 +2769,11 @@ shared-support/private-functional motif possibly extending to attention. Held
 pending the covariance-matched null (the section-55 artifact class).
 
 Full detail in `BILIN18_CONNECTION.md` §129.
+
+### The lexicon is real and per-layer
+
+Within-layer sharing survives the matched null (+0.36 beyond concentration);
+cross-layer does not (+0.06). Shared watch-list + private combinations now
+measured in both component families. One-watchlist unifier queued.
+
+Full detail in `BILIN18_CONNECTION.md` §130.

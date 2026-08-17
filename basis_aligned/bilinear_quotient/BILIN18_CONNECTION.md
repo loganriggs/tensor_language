@@ -4223,3 +4223,24 @@ wrong floor — the same envelope-style artifact the constituency arc caught in
 ball). Registered: (a) within-layer 0.71 exceeds the matched null by ≥ 0.2 (the
 lexicon is real beyond concentration); alternative: a matched null near 0.6 would
 attribute the sharing to covariance concentration and void the claim.
+
+## 130. The attention lexicon is real, and it is a within-layer institution
+
+File: `bilin18_filter_null.py`. The covariance-matched null lands at **0.35** —
+half of §129's raw 0.71 was concentration, and the remaining **+0.36 is genuine
+sharing** (registered ≥ +0.2 held). Cross-layer alignment (0.41) is almost
+entirely concentration (+0.06 above the null): the lexicon does not extend across
+layers. Final statement of the motif, now measured in both component families:
+
+> **Shared watch-list, private combinations.** A layer's nine heads watch
+> substantially the same few stream directions and combine them into per-head
+> score forms (this section + §§125–127); the model's MLP readers watch the same
+> L1 output coordinates and combine them into per-reader functionals (§§49–58).
+> The MLP watch-list is a model-wide institution; the attention watch-list is a
+> per-layer one.
+
+Queued, the unifying question: does a layer's attention lexicon coincide with its
+own MLP's input watch-list (the input-mode Gram's top directions)? Registered:
+(a) alignment exceeds the covariance-matched null by ≥ 0.15 (one watch-list per
+layer, shared across component types); alternative: two separate lexicons — also
+an answer, and it would echo §84's cross-type disjointness.

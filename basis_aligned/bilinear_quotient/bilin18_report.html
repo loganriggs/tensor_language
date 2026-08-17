@@ -445,7 +445,12 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   contextual — attention is the one component of this model that is not token-headed. The
   division of labor in one line: the stream remembers the token, attention reads the
   context, the front MLPs do the nonlinear work, and the output end amplifies and
-  stabilizes. The tail layers 5–15 have fair shares but no profiles. The syntax bus has
+  stabilizes. And one structural motif spans both component families, surviving its
+  covariance-matched null: <strong>shared watch-list, private combinations</strong> — a
+  layer's nine heads watch substantially the same few stream directions (within-layer
+  filter alignment 0.71 vs 0.35 matched null) and combine them into per-head score forms,
+  exactly as the model's MLP readers share L1's coordinates while computing private
+  functionals. The MLP watch-list is model-wide; the attention watch-list is per-layer. The tail layers 5–15 have fair shares but no profiles. The syntax bus has
   two verified stations and unknown origin. And the strongest tool found here — the
   weights-plus-S formula — has now made its <strong>first blind predictions</strong>: on
   four never-profiled tail layers, with the success bar registered in advance, it located
