@@ -4399,3 +4399,31 @@ MLP-spans) show easy+ / hard− under deletion; (b) both early controls (L2
 attention, L2 MLP-span) show hard-mean > easy-mean under deletion (content
 loss lands on hard tokens); (c) the dichotomy is monotone-ish: hard-minus-easy
 delta decreases with depth across all six.
+
+## 140. CORRECTION: the "sharpening" shape is generic damage, not component function
+
+File: `bilin18_dichotomy.py`. All three registered bars failed, and the pattern
+that failed them corrects §§98 and 139's interpretation:
+
+    L2attn: easy +0.278 hard -0.124 | L2mlp8: +0.030/-0.012 | L13attn: +0.020/-0.003
+    L14attn: +0.022/-0.270 | L14mlp8: +0.003/-0.003 | L16mlp8: easy +0.232 hard +0.357
+
+The easy-hurt/hard-relieved deletion profile appears at **every depth**, early
+components included — it is not a "late sharpening function." The likely
+mechanism: damage flattens the output distribution; under a convex loss,
+flattening *helps* wherever the model was confidently wrong (which populates the
+hard quartile) and hurts where it was confidently right (easy). §98's random
+control already showed the same signed shape at small magnitude, supporting the
+generic reading. What *is* component-specific: (1) the net balance (L14's
+attention is the one whose hard-relief outweighs everything — still real, still
+replicated); (2) **hard-token harm**, which only L16's span shows (+0.357) — the
+signature of true content whose loss no flattening can compensate.
+
+> **Correction to §§98/139.** "The spans/late-attention sharpen easy tokens and
+> overshoot hard ones" over-attributed a generic damage signature to component
+> function. Corrected reading: deletion-benefit components are those whose
+> content value is smaller than the generic flattening relief on this
+> distribution; true content components announce themselves by hurting hard
+> tokens. Propagated to the report (ledger #11). Deciding control queued:
+> random spans at matched energy must reproduce the easy+/hard− shape
+> (registered), else the generic-damage story fails too.

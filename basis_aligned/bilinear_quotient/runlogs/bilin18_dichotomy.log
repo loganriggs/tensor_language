@@ -1,0 +1,13 @@
+base 3.8444
+
+L2attn  : easy +0.2775 | hard -0.1238 | h-e -0.4013
+L13attn : easy +0.0202 | hard -0.0030 | h-e -0.0232
+L14attn : easy +0.0222 | hard -0.2704 | h-e -0.2926
+L2mlp8  : easy +0.0298 | hard -0.0120 | h-e -0.0418
+L14mlp8 : easy +0.0033 | hard -0.0033 | h-e -0.0066
+L16mlp8 : easy +0.2317 | hard +0.3571 | h-e +0.1254
+
+(a) late four sharpen (easy+ hard<easy): FAILED
+(b) early two content (hard>easy): FAILED
+(c) h-e decreases with depth (<=1 inversion): FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_dichotomy_results.json (7s)

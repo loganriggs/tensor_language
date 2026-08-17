@@ -2853,3 +2853,12 @@ hard-token accuracy for easy-token sharpness. Early-vs-late dichotomy test
 queued.
 
 Full detail in `BILIN18_CONNECTION.md` §139.
+
+### Correction: sharpening was generic damage
+
+The easy+/hard- deletion shape appears at every depth (even L2) -- it is the
+convex-loss flattening signature, not a component function. Only L16's span
+hurts hard tokens (true content). Sections 98/139 corrected; deciding random
+control queued.
+
+Full detail in `BILIN18_CONNECTION.md` §140.
