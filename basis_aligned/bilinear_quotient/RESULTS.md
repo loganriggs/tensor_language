@@ -3269,3 +3269,11 @@ both 18-layer models (swiglu18 certifies at 12x!) and neither 12-layer model.
 Depth, not architecture, builds the hand-off.
 
 Full detail in `BILIN18_CONNECTION.md` §191.
+
+### Correction: the two interchange signatures dissociate
+
+Causal coupling (normalized) exists in ALL models (bilin12 largest, 4.5);
+token-marking kinship only in 18L models. "Depth feature" withdrawn (ledger
+14); claims must name their signature.
+
+Full detail in `BILIN18_CONNECTION.md` §192.

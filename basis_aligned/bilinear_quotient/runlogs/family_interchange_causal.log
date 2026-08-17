@@ -1,0 +1,8 @@
+swiglu18 L16/L17: d16 +0.016 d17 +0.669 joint +0.696 excess +0.0117
+swiglu18 L8/L13 (control): excess +0.0009
+bilin12 L10/L11: d10 +0.064 d11 +0.314 joint +0.468 excess +0.0906
+
+(a) swiglu18 has the causal interchange (>=0.05): FAILED
+(b) bilin12 lacks it (<=0.02): FAILED
+(c) unlinked control (<=0.02): HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/family_interchange_causal_results.json (14s)

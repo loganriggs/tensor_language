@@ -5308,3 +5308,29 @@ structure is an emergent feature of deep stacks: given enough layers, the last
 attention and the second-to-last MLP form a dedicated hand-off that shallow
 siblings never build. A genuinely comparative finding that none of the
 single-model instruments could have seen.
+
+## 192. CORRECTION: "the interchange is a depth feature" withdrawn — the two signatures dissociate
+
+File: `family_interchange_causal.py` (control clean at +0.0009). The causal
+instrument inverts §191's kinship pattern:
+
+    swiglu18 L16/L17: d 0.016/0.669, excess +0.012  (kinship said CERT, 12×)
+    bilin12  L10/L11: d 0.064/0.314, excess +0.091  (kinship said nothing)
+
+And my registered bars ignored the program's own product law — excess scales
+with d₁·d₂, so raw excess is confounded by damage sizes. Normalized coupling
+c = excess/(d₁·d₂): **bilin18 ≈ 1.4, swiglu18 ≈ 1.1, bilin12 ≈ 4.5** — positive
+everywhere, largest in the shallow bilinear model.
+
+> **Ledger #14.** §191's "the interchange is a depth feature" is withdrawn.
+> What stands: the *token-marking* signature (kinship — the last attention and
+> second-to-last MLP marking the same tokens) appears only in the 18-layer
+> models; the *causal coupling* signature (normalized composition excess
+> between the last MLP pair) exists in every model tested and is strongest in
+> bilin12. The two signatures measure different things — shared token territory
+> versus interaction strength per unit damage — and they dissociate across the
+> family. Neither alone defines "the interchange," and any future claim about
+> it must state which signature it means.
+
+The discipline note: this overclaim lived for one wake before its own protocol
+caught it — the two-instrument rule is doing its job.
