@@ -3285,3 +3285,11 @@ damage (compensation regime). Only the bilin12 > swiglu18 ordering is robust.
 Comparisons must fix (signature, family, size). Comparative arc closed.
 
 Full detail in `BILIN18_CONNECTION.md` §193.
+
+### Sign flip replicates (stronger)
+
+swiglu18 k=4 excess -0.100 on disjoint rows (143%); bilin12 control +0.046.
+Output-stage compensation is family-wide, dominant in the gated sibling at
+small damage. Comparative arc ledger clean.
+
+Full detail in `BILIN18_CONNECTION.md` §194.

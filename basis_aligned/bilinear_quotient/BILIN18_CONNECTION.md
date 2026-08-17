@@ -5353,3 +5353,17 @@ interchange and coupling comparisons are only meaningful per
 called "the interchange strength," within a model or across them. The
 comparative arc closes properly humbled: directionality of the relay is
 universal; everything quantitative about interactions is conditional.
+
+## 194. The sign flip replicates: swiglu18's output pair actively compensates at small damage
+
+File: `signflip_replicate.py`, all three bars held. On disjoint rows, swiglu18's
+k=4 interchange excess is **−0.100** (original −0.070; 143% of magnitude, c =
+−5.8), while bilin12's positive control replicates (+0.046, c = 2.6). The
+§193 cell stands as a real phenomenon: at small damage, swiglu18's L16/L17 pair
+is strongly *sub*additive — its output-stage machinery absorbs joint damage so
+well that breaking both spans together costs less than breaking them
+separately. The compensation motif (bilin18's §§115, 119, 121) is thus not
+only present in the gated sibling but *dominant* at its output pair in the
+small-damage regime — the family's output stages all stabilize, and they differ
+in where the compensation-vs-coupling balance tips. Recorded with its
+replication; the comparative arc's ledger is clean.
