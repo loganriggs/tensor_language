@@ -419,6 +419,42 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
 </section>
 
 <section class="col">
+  <h2 id="circuits">The circuit program</h2>
+  <p>A second campaign, run at scale with parallel agents: instead of asking what each
+  layer is, ask what each <em>prediction</em> uses. Clustering 54,000 predictions by
+  which components' deletion hurts them gave 147 held-out-replicated "ownership
+  circuits" covering 76% of the model's confident predictions — and three rounds of
+  story-writing, red-teaming, and fresh-window confirmation taught us the honest
+  certification unit: supervised <em>function slices</em> (induction, bracket-closing,
+  digit continuation, subword completion, name continuation…), where ownership
+  signatures replicate across document sets at cosine 0.90–1.00.</p>
+  <p>Four function circuits are causally certified (digit: attn8+mlp15; bracket-close:
+  attn13; subword: mlp16+mlp15; name: attn1+attn0), and the mechanism findings came
+  fast: the name circuit does its work <em>at the antecedent</em> (ablating its owners
+  away from name sites destroys name predictions — they build the copy source);
+  counting on synthetic prompts is <em>literally</em> the natural digit circuit (attn8
+  at +2.21 nats, ten times any other component, 100% accuracy); and the component
+  certified as "net-harmful late attention" on average text (attn14) is the one that
+  executes name retrieval when retrieval is the task.</p>
+  <p>The compression payoff: replacing the eight tail MLP span components with
+  per-site-type constants — a ~0.7&nbsp;KB description — recovers 50% of everything they
+  do (55% with an agent-mined 34-class taxonomy); adding rank-8 input-reads for the two
+  contextual classes reaches 95% (oracle-labeled) and 75% fully input-only. Attention
+  splits into two materials: type-constant at structure sites (67–85% replaceable by
+  per-class constants) and irreducibly contextual at copy sites (3%). And the front of
+  the model folds: the first four MLPs are a token-dictionary cascade (68% / 85% / 58%
+  / 44% token-determined), with the crown component mlp1 — the most important MLP in
+  the model — 79% replaceable by a lookup table computed from the weights alone, one
+  forward pass per vocabulary entry, no training data.</p>
+  <p class="q">Honest negatives from the same campaign: the naive match-and-copy
+  stand-in for the induction band was refuted twice (the copy is distributed, not a
+  single-position value injection); the model cannot do single-digit addition; and
+  early story-writing rounds taught, at the cost of two ledger-style corrections, that
+  mechanical certification bars admit gerrymandered stories — the standing protocol is
+  now red-team review plus never-seen-window confirmation.</p>
+</section>
+
+<section class="col">
   <h2 id="open">What's still open</h2>
   <p>The 2→3→4 chain got its abstraction treatment, and the answer is the anticipated
   negative, now measured: the 3→4 edge has <strong>no small variable set</strong> — eight
