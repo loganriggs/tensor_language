@@ -1,0 +1,16 @@
+bilin12: 12 layers, d=768
+channel-vs-mlp4-span overlap 0.656 (random 0.012, floor 0.0104)
+top-4 cut +2.9755 | random-4 -0.0003
+digit   : dmg  2.0% pos  1.6%
+bclose  : dmg  0.3% pos  0.5%
+newline : dmg -2.9% pos  5.3%
+sentend : dmg  0.9% pos  2.9%
+comma   : dmg  0.8% pos  2.7%
+name    : dmg  2.3% pos  1.6%
+rep     : dmg  1.7% pos  6.7%
+subword : dmg 32.6% pos 18.4%
+ind     : dmg 29.0% pos 24.0%
+other   : dmg 33.3% pos 36.2%
+(a) overlap >= 0.07: HELD
+(b) random-4 <= 10%: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/b12_regulator_link_results.json (7s)

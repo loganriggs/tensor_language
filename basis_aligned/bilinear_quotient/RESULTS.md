@@ -3915,3 +3915,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 
 ## Appendix 300: junction anatomy universal (2026-08-18)
 - bilin12: same anatomy (front junctions, narrow mid junction +3.52 at block 5 top-4=85%, free tail). Regulator architecture transports; adjacency to private writer holds with flipped order (consume vs regulate) -- link test queued.
+- bilin12 channel lives IN the span (overlap 0.656, 63x floor); damage signature matches bilin18 class-for-class. ONE conserved complex: private code + narrow adjacent channel, plumbing order the only free parameter. Cross-model arc closed.

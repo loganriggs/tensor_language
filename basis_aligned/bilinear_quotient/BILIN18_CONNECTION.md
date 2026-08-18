@@ -7786,3 +7786,28 @@ mid-depth junction adjacent to the private-writer anatomy, front
 coherence junctions, and a causally free tail. Link test queued for
 bilin12: does its 4-direction channel geometrically overlap mlp4's
 span (consumption), with per-class damage reported?
+
+## 301. One conserved complex: the private span and the narrow junction are the same structure
+
+`b12_regulator_link.py`, both bars HELD emphatically: bilin12's
+four-direction channel overlaps mlp4's span at **0.656** (random 0.012,
+floor 0.0104) -- the channel essentially lives inside the private code's
+subspace -- and the per-class damage profile matches bilin18's junction
+signature almost class for class (subword 33% vs 18% position share,
+induction 29% vs 24%, newline NEGATIVE in both models, clause classes
+at or below share in both).
+
+Family conclusion: the private span and the narrow mid-depth junction
+are two views of ONE conserved structure. In bilin18 the junction sits
+one block upstream of the writer and RANGE-REGULATES the code's
+writing; in bilin12 it sits one block downstream and CARRIES the code
+forward; in both, a ~4-direction channel adjacent to the fraction-1/3
+private writer serves contextual-integration classes and is slightly
+harmful at newlines. The anomaly that consumed sections 210-232 --
+placed, localized, transported, dissociated -- now has its family-level
+identity: a mid-depth private code with a narrow service channel,
+conserved across depths with the plumbing order as the only free
+parameter. Cross-model arc rests at earned scope; the sharpest next
+test remains off-box (the larger checkpoint, where PREREGISTRATION.md
+predicts the writer at fraction 0.33 +/- 0.08 -- to which this arc adds
+the registered expectation of an adjacent narrow junction).
