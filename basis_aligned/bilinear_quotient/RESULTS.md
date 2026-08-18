@@ -3854,3 +3854,6 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 
 ## Appendix 273: round-2 greedy (2026-08-18)
 - mlp8's stand-in collapses to a mean vector too; greedy converged. Frontier 34/36 at +2.749 oracle / +2.953 deploy. a8 still the one dead rung.
+
+## Appendix 274: front marginals (2026-08-18)
+- In-assembly LOO: mlp1 +0.006 (99.9% of its 5.32-nat solo relevance captured); front block total +0.046; tail spans 0.011-0.082. Deploy probe token-prior upgrade refuted (0.686->0.701, no CE change).

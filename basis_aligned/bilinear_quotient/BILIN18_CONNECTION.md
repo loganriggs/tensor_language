@@ -7212,3 +7212,22 @@ genuinely input-dependent). Frontier: **34/36 at +2.7486 oracle /
 The census now: 6 attention/MLP means, 9 attention class dictionaries,
 2 value tables, 4 front table+absorber MLPs, 1 linear MLP, 5 middle
 CP truncations, 8 tail span dictionaries, 1 dropped rung (a8).
+
+## 274. The front is solved: in-assembly marginals for the priced-out rungs
+
+`front_tail_marginals.py` priced the rungs the figures were missing, LOO
+in the round-2 best config (+2.7486): a0 +0.0000 (exact by
+construction), m0 +0.0095, a1v +0.0070, **m1 +0.0060**, m2 +0.0142, m3
++0.0036; tail spans m10-m15 +0.011-0.019, m16 +0.031, m17 +0.082. All
+three registered bars HELD, and (a) held with two orders of magnitude to
+spare: the model's most important component (mlp1, solo relevance 5.32
+nats) costs SIX THOUSANDTHS of a nat to replace in the assembly -- 99.9%
+of its work captured by the token table + quadratic absorber. The entire
+front (a0,m0,a1v,m1,m2,m3 -- which carries ~80% of total module
+relevance) costs +0.046 combined. The assembly's remaining +2.75 nats
+live almost entirely in the middle-attention dictionaries and the CP
+middles' conducted error. Also: `deploy_probe2.py` FAILED both bars --
+adding a current-token class prior moves probe accuracy only 0.686 ->
+0.701 and deploy CE not at all; the class of the NEXT token is not
+readable from the current token id, so the oracle/deploy gap (~0.2)
+stays owned by the stream probe.

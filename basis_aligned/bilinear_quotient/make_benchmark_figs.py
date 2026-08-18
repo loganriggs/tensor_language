@@ -71,6 +71,10 @@ print('wrote bilin18_frontier.png')
 
 # ---- Figure 2: per-module relevance, ranked ----
 marg={  # in-assembly LOO marginal, from the version that introduced it
+ 'attn0':.000,'attn1':.007,'mlp0':.010,'mlp1':.006,'mlp2':.014,
+ 'mlp3':.004,                                                         # 274
+ 'mlp10':.013,'mlp11':.016,'mlp12':.015,'mlp13':.019,'mlp14':.014,
+ 'mlp15':.011,'mlp16':.031,'mlp17':.082,                              # 274
  'mlp4':.19,'mlp5':.02,'mlp6':.11,'mlp7':.14,'mlp8':.12,'mlp9':.13,  # v5
  'attn2':.18,'attn3':.11,'attn4':.14,'attn5':-.38,'attn6':.23,
  'attn7':.28,'attn8':.40,'attn9':.09,                                 # v9
