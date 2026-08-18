@@ -7955,3 +7955,24 @@ MSE. The coverage-fidelity curve is now visibly a genuine trade-off
 with a mechanism, not an engineering backlog: **20 comps @ +1.46 /
 28 @ +2.84 / 34 @ +2.93 fresh**, each point built under matched
 grammar.
+
+## 310. Pricing is local: rungs pay for stream error where they read
+
+`stream_fidelity.py` REFUTED the registered global-fidelity hypothesis
+-- fold streams are BETTER than the empirical twin's at blocks 10 and
+14 (rel-MSE 1.10 vs 1.30, 0.66 vs 0.81) and worse only at block 7
+(2.00 vs 1.69). But the pattern of costs matches a sharper account:
+the motif heads read blocks 2-9, exactly where fold streams are worst,
+and cost 1.04 there; the tail-attention dictionaries read blocks
+10-17, where fold streams are best, and cost LESS on the fold base
+(0.34) than historically (~0.44). Refined principle, registered for
+the control test: **downstream rungs are priced by LOCAL stream error
+at their read sites**, not by global fidelity or upstream CE. Two
+side-facts worth their ink: (i) relative stream error around 100%
+coexists with CE cost of +1.4 -- the model's behavior is extraordinarily
+robust to stream substitution, so "the assembly works" never meant
+"the streams are close"; (ii) the empirical twin is not globally more
+faithful either -- both stand-in families trade local fidelity
+differently. Control queued: motif gains refit and priced on the
+empirical twin base under identical grammar -- local pricing predicts
+a materially lower marginal than the fold base's +1.04.

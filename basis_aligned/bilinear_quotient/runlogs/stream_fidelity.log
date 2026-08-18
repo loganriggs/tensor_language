@@ -1,0 +1,24 @@
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+block  4 input: fold rel-MSE 0.7495 | empirical 0.7523
+block  7 input: fold rel-MSE 1.9987 | empirical 1.6880
+block 10 input: fold rel-MSE 1.1033 | empirical 1.2966
+block 14 input: fold rel-MSE 0.6628 | empirical 0.8140
+(a) fold stream-MSE >= 1.2x empirical at block 10: FAILED
+(b) divergence grows with depth: False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/stream_fidelity_results.json (79s)
