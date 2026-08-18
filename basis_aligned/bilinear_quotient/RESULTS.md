@@ -3851,3 +3851,6 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 - Five attention rungs (a2,a5,a9,a14,a16) do best as plain mean vectors: 34/36 at +2.779 oracle / +2.981 deploy.
 - Ceiling measured: embeddings-only = +11.95 nats. Frontier in %-of-model-work: 88% @ 13 comps, 86% @ 19, 81% @ 27, 77% @ 34.
 - Figures: bilin18_frontier.png, bilin18_module_relevance.png.
+
+## Appendix 273: round-2 greedy (2026-08-18)
+- mlp8's stand-in collapses to a mean vector too; greedy converged. Frontier 34/36 at +2.749 oracle / +2.953 deploy. a8 still the one dead rung.

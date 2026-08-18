@@ -7198,3 +7198,17 @@ figures): mean-ablation cost per component, all 36, plus the ceiling --
 the embeddings-only model sits +11.95 nats above base, anchoring "0% of
 the model's work." Current frontier retains 77% of the model's work with
 34/36 components replaced; v4 retains 88% at 13/36.
+
+## 273. Round-2 greedy: mlp8 joins the scaffolds -- 34/36 at +2.749
+
+`standin_select2.py` extended the greedy sweep to the middle MLPs and
+re-tried everything in the new context. One further swap adopted: **c8 ->
+mean** -- the CP-truncated mlp8 (whose LOO marginal was already negative
+in 264) is best described by a single vector in the assembled context.
+Every other rung kept its richer stand-in (16 keeps), the greedy
+converged, and the a8 rescue failed again (+3.57 -- its function is
+genuinely input-dependent). Frontier: **34/36 at +2.7486 oracle /
++2.9526 deploy**. Registered (a) HELD, (b) FAILED (<= 2.70 not reached).
+The census now: 6 attention/MLP means, 9 attention class dictionaries,
+2 value tables, 4 front table+absorber MLPs, 1 linear MLP, 5 middle
+CP truncations, 8 tail span dictionaries, 1 dropped rung (a8).
