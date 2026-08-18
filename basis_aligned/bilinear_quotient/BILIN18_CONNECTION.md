@@ -6678,3 +6678,21 @@ classes = sharper conditioning); further constants alone will not move the
 frontier. The dictionary program's shape is now fully mapped: type-constant
 content saturates near 55%, input-linear content reaches 95%, and the
 20-point oracle/deployable gap is class-decision information.
+
+## 249. Match-and-copy at the value level: refuted twice, honestly
+
+File: `copy_standin.py` (two runs). Replacing the induction band's
+(attn3/4/5) output at induction sites with an explicit retrieval — full
+attention to the matched successor, its value through c_proj — makes
+things far worse than ablation (raw −327%; per-layer scalar calibration
+fit on window A: −337%). The random-target control is worse still (−390%),
+so the matched position carries real signal, but the single-position
+value-injection is wrong in DIRECTION: this product-attention architecture
+evidently spreads the copy across many positions and the λ-mixed value
+chain (my stand-in also approximated v1 by the layer's own values). The
+board: constants 39% (the band's on-slice floor), naive copy refuted,
+mechanism more distributed than the textbook story. A learned low-rank
+channel from the matched-successor hidden state is the registered
+next-if-pursued rung; for now the induction band keeps its honest label —
+replicable ownership, causally concentrated at task level (counting), and
+NOT yet mechanistically reduced.

@@ -1,4 +1,7 @@
-band ablate on ind sites +0.334 | copy rec -327% | random-target rec -390% | const rec 39%
-(a) copy >=40%: FAILED
+alpha attn3: -0.1931
+alpha attn4: +0.1945
+alpha attn5: +1.7435
+band ablate on ind sites +0.334 | raw copy -327% | CALIBRATED copy -337% | random -390% | const 39%
+(a) calibrated copy >=40%: FAILED
 (b) random <=10%: HELD
-wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/copy_standin_results.json (10s)
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/copy_standin_results.json (13s)

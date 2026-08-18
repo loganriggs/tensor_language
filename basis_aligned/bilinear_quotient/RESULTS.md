@@ -3724,3 +3724,11 @@ Taxonomy 10 -> 34 classes; residual 36% -> 22%; constants recovery 50% ->
 channel saturates; what remains is contextual (the linear rung's domain).
 
 Full detail in `BILIN18_CONNECTION.md` §248.
+
+### Naive match-and-copy refuted
+
+Single-position value injection at induction sites: -327% raw, -337%
+calibrated (random target -390%). The copy is distributed; band keeps
+'not yet mechanistically reduced'.
+
+Full detail in `BILIN18_CONNECTION.md` §249.
