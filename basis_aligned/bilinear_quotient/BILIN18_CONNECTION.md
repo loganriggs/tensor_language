@@ -7072,3 +7072,40 @@ Predictions: (a) v8 oracle <= +2.20 at 27/36; (b) deploy gap <= +0.10;
 (c) all 8 attention rungs survive the drop rule. And cp_controls to make
 261 airtight: random-k and bottom-complement nulls for the unit ranking,
 plus a finer k ladder.
+
+## 266. v8 merges the winners: 27 of 36 at +2.21
+
+`assembled_v8.py` (quad32/P64 absorbers on the front tables, weights-only
+CP-2304 middle, class-dictionary tail attention, tail MLP dictionary):
+**+2.2121 oracle, +2.2544 deployable** -- the 27-component frontier drops
+from +2.55 to +2.21. Registered (a) <= +2.20 FAILED by 0.012 (recorded as
+failed; the direction is confirmed, the bar missed by a hair). (b) deploy
+gap +0.042 <= 0.10 HELD (probe at a10 input: 0.73). (c) all 8 attention
+rungs survive HELD -- but their marginals grew vs v6 (a14 +0.26, a16
++0.31, vs +0.12/+0.13 on the stronger v6 substrate): the cheaper the
+middle stand-ins, the more the attention dictionaries cost in context.
+Substitution costs are not additive across rungs; they share an error
+budget.
+
+## 267. LEDGER 21: the CP ranking was never doing anything -- redundancy was
+
+`cp_controls.py` ran the selection nulls that 261 lacked, and both
+registered nulls came back the WRONG way: random-1152 matches top-1152
+(0/6 at the 2x bar; at L6 and L9 the random subset is BETTER than the
+model, cost negative), and the bottom-3456 beats the top-1152 at all six
+layers (0/6), also sometimes beating the full model. Only (c) held
+(top-576 <= +0.15 everywhere -- but so would random-576, presumably).
+
+**Correction (ledger 21):** 261's claim that the norm product
+||down||*||l||*||r|| "identifies the important quarter" is withdrawn. The
+truth is stronger and less flattering to the instrument: the middle MLPs
+are so redundant that nearly ANY large-enough subset of hidden units
+reproduces them solo, and deleting the loudest units can help -- the
+loud tail contains slack (consistent with the deletion-improves anatomy
+of the flat track). The CP-truncation FRONTIER RESULT (264's 19@+1.68)
+stands -- the stand-in works -- but its mechanism is redundancy, not
+weight-readable importance. Rule added to the ledger: **a selection rule
+is not a finding until its selection null runs; "top-k works" is
+meaningless without "random-k fails."** Open question queued: does the
+ranking matter IN ASSEMBLY (where costs are 3-10x larger)? v7-rand
+re-runs v7 with random-2304 middles, 3 seeds.

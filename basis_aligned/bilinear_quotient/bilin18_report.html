@@ -452,17 +452,24 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   as error <em>firewalls</em> (lossy, stabilizing), input-conditioned stand-ins as error
   <em>conductors</em> (accurate solo, propagating in composition). The assembly frontier
   runs 13 components at +1.39 nats (all fits sequential, front tables typed as
-  firewall-plus-absorber), 19 at +2.10 (the six middle MLPs join at ~0.12 nats each —
-  the old "incompressible middle" verdict turned out to be true only of input-generic
-  replacements), and 27 at +2.55 (tail attention 10–17 replaced by per-class constants
-  at structure sites and per-class linear reads elsewhere; all eight rungs survived
-  their pre-registered drop rule, and the fully input-only version costs just 0.06 more).
+  firewall-plus-absorber), 19 at +1.68 (the six middle MLPs join as weights-only
+  truncations — the old "incompressible middle" verdict turned out to be true only of
+  input-generic replacements), and 27 at +2.21 (tail attention 10–17 replaced by
+  per-class constants at structure sites and per-class linear reads elsewhere; all
+  eight rungs survived their pre-registered drop rule, and the fully input-only
+  version costs just 0.04 more).
   Weight structure sharpened the recipe twice over: because a bilinear MLP is a sum of
-  rank-1 quadratics, a quarter of its hidden units — pickable by a norm product computed
-  from weights alone, no data — carry ~80%+ of every middle MLP, and quadratic absorber
-  features derived from each layer's own read-directions cut the 19-component assembly
-  to +1.99. Two structural hypotheses failed their registered bars and are recorded as
-  negatives: the middle layers do not read a low-dimensional input subspace, and
+  rank-1 quadratics, keeping half of each middle layer's hidden units — with zero fitted
+  parameters — reproduces the middle well enough that the 19-component assembly lands at
+  <strong>+1.68</strong>, and quadratic absorber features derived from each layer's own
+  read-directions independently cut the all-fitted version to +1.99. A correction earned
+  its own ledger entry here: the norm-product ranking we first used to pick the kept
+  units turned out to add nothing — selection nulls showed a random subset does as well,
+  and the bottom three-quarters beats the "top" quarter at all six layers. The truncated
+  stand-in works because the middle is massively redundant, not because importance is
+  readable off the weights (new standing rule: no selection claim without its selection
+  null). Two further structural hypotheses failed their registered bars and are recorded
+  as negatives: the middle layers do not read a low-dimensional input subspace, and
   restricting error-correction to a 64-dim "what downstream reads" interface subspace
   made the assembly worse — the middle's interfaces are broad.</p>
   <p class="q">Honest negatives from the same campaign: the naive match-and-copy

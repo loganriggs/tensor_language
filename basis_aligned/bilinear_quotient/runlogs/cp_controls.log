@@ -1,0 +1,12 @@
+base CE 3.5352
+L4 top576 +0.0848 top1152 +0.0714 top2304 +0.0509 top3456 +0.0276 | rand1152 +0.0778 bot3456 +0.0546
+L5 top576 +0.0649 top1152 +0.0495 top2304 +0.0346 top3456 +0.0247 | rand1152 +0.0196 bot3456 -0.0039
+L6 top576 +0.0237 top1152 +0.0210 top2304 +0.0186 top3456 +0.0097 | rand1152 -0.0069 bot3456 -0.0121
+L7 top576 +0.0288 top1152 +0.0222 top2304 +0.0127 top3456 +0.0057 | rand1152 +0.0258 bot3456 +0.0097
+L8 top576 +0.0238 top1152 +0.0152 top2304 +0.0163 top3456 +0.0055 | rand1152 +0.0135 bot3456 +0.0064
+L9 top576 +0.0359 top1152 +0.0317 top2304 +0.0260 top3456 +0.0165 | rand1152 +0.0051 bot3456 -0.0226
+
+(a) rand >= 2x top at k=1152, 0/6: FAILED
+(b) bottom-3456 worse than top-1152, 0/6: FAILED
+(c) top-576 <= +0.15, 6/6: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/cp_controls_results.json (52s)

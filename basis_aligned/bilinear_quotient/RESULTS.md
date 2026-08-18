@@ -3831,3 +3831,8 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 - v7 (CP middle): k=2304 (half the hidden units, weights-only, zero fitted params) -> 19/36 at +1.678 -- new frontier. k=1152 bar FAILED (+1.912). CP-mlp8 LOO marginal NEGATIVE (-0.044): truncation firewalls off-distribution error; firewall/conductor is a spectrum.
 - Quad ladder: feature count saturates at 16-32 directions; the rank-32 write basis is the binding constraint (P64: +1.934, best fitted-absorber arm).
 - Frontier: 13@+1.39, 19@+1.68, 27@+2.55. v8 merge queued.
+
+## Appendix 266-267: v8 merge + LEDGER 21 (2026-08-18)
+- v8 (quad32/P64 front + CP-2304 middle + attention dicts): 27/36 at +2.212 oracle / +2.254 deploy (bar +2.20 FAILED by 0.012). Attention marginals grow on cheaper substrates -- rungs share an error budget.
+- LEDGER 21: cp_controls selection nulls refute the CP ranking -- random-k matches top-k, bottom-3456 beats top-1152 at 6/6 layers. The 19@+1.68 frontier stands but its mechanism is REDUNDANCY, not weight-readable importance. New rule: no selection claim without its selection null.
+- Frontier: 13@+1.39, 19@+1.68, 27@+2.21.
