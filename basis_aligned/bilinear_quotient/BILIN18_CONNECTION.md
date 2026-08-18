@@ -7811,3 +7811,25 @@ parameter. Cross-model arc rests at earned scope; the sharpest next
 test remains off-box (the larger checkpoint, where PREREGISTRATION.md
 predicts the writer at fraction 0.33 +/- 0.08 -- to which this arc adds
 the registered expectation of an adjacent narrow junction).
+
+## 302. The contrast: junctions are general, the narrow-channel complex is bilinear
+
+`junctions_swiglu18.py`: swiglu18 (same depth/width/data, gated) has
+LARGER front junctions than bilin18 (+2.17 / +1.72 at blocks 0/1 --
+prediction (a) HELD: front handoffs are architecture-general) and, against
+the registered contrast (b) FAILED, a real mid junction at block 7
+(+0.65, 12x its median, fraction 0.39) with a free tail. But contrast
+(e) HELD: its ladder is INTERMEDIATE (top-4 = 28%, top-16 = 45%) --
+nothing like the bilinear models' four-direction channels -- and it is
+3-5x smaller in absolute nats.
+
+Final scoped statement of the junction anatomy across three models:
+"the block's attention feeds its own MLP critically at the front and at
+one mid-depth site, never in the tail" is TRANSFORMER-GENERAL (3/3
+models). What is BILINEAR-SPECIFIC is the concentration: only the
+bilinear models fuse the mid junction into a ~4-direction channel
+carrying a private mid-depth code -- the same
+concentrate-vs-spread architectural dichotomy the flat track certified
+for replaceability (204-205), now visible in the wiring. The junction
+program closes with its claims scoped to the evidence: anatomy general,
+implementation concentrated only where the architecture concentrates.
