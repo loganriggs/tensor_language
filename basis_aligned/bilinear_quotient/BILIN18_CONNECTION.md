@@ -6463,3 +6463,31 @@ old profile as the syntax-bus consumer. The compression instruction from
 this section: digit and subword circuits are site-local and slice-dominant,
 so their owners are candidates for slice-conditioned replacement — the
 first Track-2 targets nominated by certified semantics.
+
+## 240. Slice-conditioned constants carry ~85% of the circuits — the first compression win from certified semantics
+
+File: `circuit_replacement.py`. Rung 0 of slice-conditioned replacement,
+fit on window A, applied on window C, and both registered directions were
+beaten upward — my subword alternative (constants won't suffice) FAILED in
+the informative way:
+
+    digit   (attn8+mlp15): ablation +0.299 → const +0.055  (82% recovered)
+    subword (mlp16+mlp15): ablation +1.182 → const +0.143  (88% recovered)
+    random constants of matched norm: −105% / −323% (much worse than
+    ablation — the content is specific, not just norm)
+
+A fixed 8-number span coefficient per MLP owner and one fixed vector per
+attention owner — conditioned ONLY on "this site is a digit/subword
+continuation" — carries ~85% of what these components do at those sites.
+The description cost is a one-line membership predicate plus a handful of
+numbers, versus the rank-64 refit maps the flat layer-track needed. This is
+the lever the layer-by-layer track structurally could not see: it replaced
+components with input-generic functions, and the honest frontier said the
+middle is high-rank. Slice-conditioning says: high-rank *unconditionally*,
+nearly constant *given the site type*. The model's tail components look
+like conditional-bias machines — "if subword site, write this vector" —
+and the semantic track just paid for itself in the currency the user named:
+ground-truth circuits buying better compression. Next rung queued: the
+conditional-constant DICTIONARY — all ten function slices × all owner
+components as one whole-model Track-2 submission priced at its true
+description length.

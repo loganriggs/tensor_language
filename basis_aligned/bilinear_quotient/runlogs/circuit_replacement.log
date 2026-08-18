@@ -1,0 +1,7 @@
+digit   : ablate +0.299 const +0.055 (rec 82%) rnd-const rec -105%
+subword : ablate +1.182 const +0.143 (rec 88%) rnd-const rec -323%
+
+(a) digit const rec >=40%: HELD
+(b) subword const <40% (alt): no
+(c) random-const rec <=10%: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/circuit_replacement_results.json (20s)

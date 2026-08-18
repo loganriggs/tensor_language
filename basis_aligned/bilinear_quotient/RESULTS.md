@@ -3654,3 +3654,12 @@ Subword completion is most of mlp16+mlp15's total job. Digit and subword
 nominated as first slice-conditioned replacement targets.
 
 Full detail in `BILIN18_CONNECTION.md` §239.
+
+### Slice-conditioned constants: 82-88% recovery
+
+One fixed vector per owner, conditioned on site type, carries ~85% of the
+digit and subword circuits (random-const controls -105%/-323%). The
+compression lever the flat layer-track couldn't see: high-rank
+unconditionally, near-constant given the site type.
+
+Full detail in `BILIN18_CONNECTION.md` §240.
