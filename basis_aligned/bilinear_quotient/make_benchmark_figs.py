@@ -29,7 +29,14 @@ fig,ax=plt.subplots(figsize=(8.6,5.4),facecolor=SURFACE)
 ax.set_facecolor(SURFACE)
 front=sorted([(n,c,l) for n,c,l,f in versions if f])
 fx=[0]+[n for n,_,_ in front]; fy=[0]+[c for _,c,_ in front]
-ax.plot(fx,fy,'-',color=BLUE,lw=2,zorder=2)
+ax.plot(fx,fy,'--',color=MUTED,lw=1.6,zorder=2,
+        label='standard eval window (optimistic, ledger 22)')
+FRESH=[(0,0),(13,1.98),(19,2.02),(27,2.49),(34,2.93)]
+ax.plot([p_[0] for p_ in FRESH],[p_[1] for p_ in FRESH],'-',color=BLUE,
+        lw=2.2,zorder=3,label='fresh never-seen documents (honest)')
+for n,c in FRESH[1:]:
+    ax.scatter([n],[c],s=50,color=DBLUE,zorder=5)
+ax.legend(fontsize=8.5,frameon=False,loc='center right')
 for n,c,l,f in versions:
     if f:
         ax.scatter([n],[c],s=54,color=DBLUE,zorder=4)

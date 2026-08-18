@@ -3881,3 +3881,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 
 ## Appendix 282: per-head motif validation (2026-08-18)
 - Recon null exact 0; 71/74 heads swap individually at <=+0.01; joint +0.45. Motif sentences true per head; composition needs the grammar playbook. v1 control anomaly = real pattern slack.
+- Fresh ladder: front +1.98 / +middle +2.02 (CP middle only +0.04 fresh -- weights-derived stand-ins travel) / +tailatt +2.49 / 34-comp +2.93.

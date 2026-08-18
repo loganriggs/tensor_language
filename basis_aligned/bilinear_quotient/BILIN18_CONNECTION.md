@@ -7418,3 +7418,15 @@ component errors. The motif census is thus VALIDATED as description
 cheap) while whole-repertoire replacement needs the same composition
 machinery (sequential fitting, absorbers) the MLP side needed. The
 pattern side now has its grammar problem, with a known playbook.
+
+## 283. The fresh-window frontier ladder (the honest graph)
+
+`fresh_frontier.py`, every rung on the untouched validation half:
+front +1.984 (bar 1.90 FAILED by 0.08), +middle +2.021, +tail-attention
++2.485, validated-34 +2.925; monotone HELD. The striking number: the
+CP-truncated middle costs only **+0.037 on fresh text** -- the weights-
+only middle stand-ins are essentially free out-of-sample (they are
+weights-derived, so they cannot overfit a window). The fitted rungs
+(front tables +1.98, attention dictionaries +0.46 and +0.44 per band)
+carry all the fresh-window cost. Weights-derived descriptions travel;
+fitted descriptions pay a transfer tax.

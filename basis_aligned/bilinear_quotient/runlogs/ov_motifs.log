@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ov_motifs.py", line 128, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ov_motifs.py", line 81, in main
+    ew,cw=loo_sub(writes,{k:QW[k] for k in keys})
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ov_motifs.py", line 75, in loo_sub
+    es.append(float((M@U).pow(2).sum()/M.pow(2).sum()))
+                     ~^~
+RuntimeError: mat1 and mat2 shapes cannot be multiplied (1152x128 and 1152x256)
