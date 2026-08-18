@@ -311,10 +311,12 @@ def main():
         Y,X,ids=runA(active,m.transformer.h[li].mlp)
         Rr=Y-tb[ids].float()
         _,_,Vh2=torch.linalg.svd(Rr[:30000],full_matrices=False)
-        P=orth(Vh2[:32].T)
+        P=orth(Vh2[:64].T)
+        ft=quadfeat(X,li)
         lam=1e-2*len(X)
-        A=torch.linalg.solve(X.T@X+lam*torch.eye(D,device=DEV),
-                             X.T@(Rr@P))
+        A=torch.linalg.solve(ft.T@ft+lam*torch.eye(ft.shape[1],
+                                                   device=DEV),
+                             ft.T@(Rr@P))
         return ('tableres',li,tb,A,P)
     S2['m0f']=refit_absorber(0,FOLD[0],['a0'])
     S['m0f']=S2['m0f']
