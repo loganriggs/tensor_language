@@ -6759,3 +6759,29 @@ the queued discriminator moves the table to the right interface: replace
 attn0/attn1's c_v outputs with per-token value tables at every position —
 if the heads are lexical transport, value-tables should preserve what
 output-tables cannot.
+
+## 253. attn1's lexicality certified at the value level — and attn0's broadcast is more than lexical
+
+File: `value_tables.py`. Per-token value tables (c_v output replaced by
+the token's mean value vector at every position):
+
+    attn1: 87% recovery  — but shuffled-vocab control 36%, so the honest
+           TOKEN-SPECIFIC margin is ~51 points (the shuffle null was
+           mis-chosen: it preserves the values' typical norm/mean
+           structure; recorded per the null-design rule)
+    attn4: 52% — the induction band's VALUES are half token-determined
+    attn0: −223% — catastrophic
+
+Three conclusions. First, the §239 lexical-infrastructure claim is
+certified at its proper interface: **attn1 is a lexical value store** —
+its values are token-determined (87%, margin 51 over a structure-
+preserving null), its outputs vary only through the mixture weights, which
+is why the output-level table (§252) failed at 23%. Second, attn4's 52%
+reframes the §249 copy-refutation: the band's values are substantially
+tabulable — what my match-and-copy stand-in got wrong was the pattern
+side, not the value side. Third, attn0 is the genuine surprise: its value
+role — which includes seeding the λ-mixed v1 broadcast that every layer
+consumes — is NOT token-mean-approximable at all. The v1 broadcast carries
+something beyond lexical identity (position structure, or per-context
+normalization), and it now joins the private span as a named open object:
+small interface, model-wide reach, not reducible to the obvious hypothesis.

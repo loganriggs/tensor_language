@@ -3756,3 +3756,12 @@ is an MLP phenomenon; lexicality lives at the value level -- v-table
 discriminator queued.
 
 Full detail in `BILIN18_CONNECTION.md` §252.
+
+### attn1 = lexical value store (87%, margin 51 over null)
+
+Value-level tables certify the lexical claim at the right interface;
+attn4's values are half token-determined (the copy failure was the
+pattern, not values); attn0's v1 broadcast is NOT token-approximable
+(-223%) -- a new named open object.
+
+Full detail in `BILIN18_CONNECTION.md` §253.
