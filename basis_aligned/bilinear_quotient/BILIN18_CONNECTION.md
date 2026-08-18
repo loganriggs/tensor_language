@@ -8102,3 +8102,20 @@ fresh stateless subagents, one pack each, writing candidate names and
 mechanistic one-liners for the 68, to be red-teamed per the standing
 story protocol; (iii) the third data tranche (fresh pile documents)
 targeting the 100-circuit mark.
+
+## 318. The accidental harder gate: 35 circuits are corpus-general
+
+`circuit_tree3.py`: 35 leaves (bar 90 FAILED) -- HALF of v2's 68,
+despite 1.5x the data. Diagnosis: appending the 100 fresh pile rows
+after the 212 window rows placed the corpus boundary at the
+document-disjoint split median, so the replication gate silently
+became CROSS-CORPUS: a mode had to reproduce its probe-loading vector
+on travel-guide text AND on general pile text to survive. That is a
+stricter, better test than intended, and its 35 survivors (27
+taxonomy-invisible; child rate 0.60 again) are the census's
+corpus-general tier, with v2's 68 as the within-corpus tier. Two-tier
+census recorded: **68 within-corpus / 35 cross-corpus-stable
+supervised circuits.** v4 queued with corpus-interleaved rows (both
+halves balanced) to measure the intended same-gate scale-up; the
+cross-corpus gate is kept as the tier-2 certification for the final
+census.
