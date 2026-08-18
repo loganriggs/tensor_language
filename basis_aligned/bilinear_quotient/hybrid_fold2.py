@@ -318,6 +318,14 @@ def main():
         best=[(nm+'m' if n==nm else n) for n in best]
     MIDA=[f'a{li}' for li in range(2,10)]
     hyb=[n for n in best if n not in MIDA and n!='a5m']
+    mt=json.load(open(PT+'attn_motifs3_results.json'))['motif_table']
+    prevh={}; selfh={}
+    for li,hd,mo,fr in mt:
+        if 2<=li<=9:
+            if mo=='prev': prevh.setdefault(li,[]).append(hd)
+            if mo=='self': selfh.setdefault(li,[]).append(hd)
+    nsw=sum(len(v) for v in prevh.values())+sum(len(v)
+             for v in selfh.values())
     mod2=sys.modules[type(m.transformer.h[0].attn).__module__]
     are=mod2.apply_rotary_emb
     T=256
