@@ -3566,3 +3566,11 @@ only the span-dominated full value flexes. The ledger-19 sensitivity is
 itself span-localized. P3 tail bar amended to absolute form.
 
 Full detail in `BILIN18_CONNECTION.md` §229.
+
+### Dialects robust in the discriminative regime; audit complete
+
+Gap 0.46-0.79 at ranks <= half the ambient dim, all splits/ensembles;
+saturates by construction at rank 24 (2/3 of the 36-dim space). Control
+flat 12/12. Every landscape headline now carries a robustness statement.
+
+Full detail in `BILIN18_CONNECTION.md` §230.

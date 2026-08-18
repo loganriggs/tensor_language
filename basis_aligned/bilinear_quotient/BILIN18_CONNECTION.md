@@ -6169,3 +6169,27 @@ This upgrades the concentration claim to its ensemble-invariant form —
 where both the privacy and the instrument sensitivity live" — and P3's tail
 sub-bar is amended to the measured invariant (tail >= 0.35 absolute in
 every ensemble, replacing the ratio form whose denominator flexes).
+
+## 230. Dialects are construction-robust in the discriminative regime; the audit closes
+
+File: `bilin18_dialects_sweep.py`, twelve variants. Bar (a) failed only at
+rank 24, and the failure is a mapped instrument boundary, not a fragile
+claim:
+
+    rank 12: gaps +0.48/+0.51/+0.58/+0.54    rank 18: +0.56/+0.55/+0.46/+0.79
+    rank 24: +0.13/+0.08/+0.26/+0.20         control: |gap| <= 0.10 in 12/12
+
+Forms over 8 coordinates live in a 36-dimensional space; at rank 24 the
+population basis spans two-thirds of it, so any content — shared or private —
+reconstructs, and the self/cross distinction saturates away by construction.
+In the discriminative regime (rank <= half the ambient dimension) the
+dialects gap is large and stable across every split and ensemble tested,
+and the control is flat in all twelve variants. §220's headline stands with
+a scope boundary: **dialects are a rank-regime finding — keep the basis rank
+at or below half the form-space dimension.** That rule (the rank analog of
+ledger-17's floor rule) goes into PREREGISTRATION P7. With this, every
+published headline of the sharing-landscape arc has been swept under the
+ledger-19 discipline: the notch (rewritten to relative form), concentration
+(upgraded to invariant form), the whisper's idiosyncrasy (floor-corrected at
+#17), and dialects (rank-scoped here). The audit is complete; the arc's
+claims now all carry construction-robustness statements.

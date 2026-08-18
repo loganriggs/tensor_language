@@ -58,9 +58,11 @@ for a majority of writers; its median fold at L >= 18 layers is <= 0.25
 §§180-190 arc). Component best-match placement across the family tracks
 depth fraction with zero anomalies at the direct-best-match instrument.
 
-**P7 — Whisper structure** (bilin18_dialects.py; §§220-221). Over the new
-model's private span: per-reader self-basis behavioral R^2 exceeds the
-population cross-basis by >= 0.3 at matched rank, and no reader group
+**P7 — Whisper structure** (bilin18_dialects.py; §§220-221, 230). Over the
+new model's private span: per-reader self-basis behavioral R^2 exceeds the
+population cross-basis by >= 0.3 at matched rank, with rank <= HALF the
+form-space ambient dimension (the discriminative regime; at 2/3 ambient the
+instrument saturates by construction -- §230), and no reader group
 (early/deep) transfers above the measured random floor. I.e. structure
 without agreement, idiosyncrasy total.
 
