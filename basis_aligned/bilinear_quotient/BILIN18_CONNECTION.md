@@ -7109,3 +7109,47 @@ is not a finding until its selection null runs; "top-k works" is
 meaningless without "random-k fails."** Open question queued: does the
 ranking matter IN ASSEMBLY (where costs are 3-10x larger)? v7-rand
 re-runs v7 with random-2304 middles, 3 seeds.
+
+## 268. The in-assembly selection null: ranking buys reliability, not quality
+
+`v7_rand_control.py` (registered branch decision): top-ranked middle
++1.692 (replicates 264); random-unit middles +1.646 / +2.034 / +1.719
+across three seeds. Neither registered branch: one random seed BEATS the
+ranking, one blows up by +0.34, spread 0.388. Refining ledger 21: the
+norm-product ranking does not find a better-than-random subset (seed 0
+beat it) -- it finds a reliably-adequate one. Selection value here is
+VARIANCE REDUCTION. For the benchmark frontier the honest statement is:
+"any half of the hidden units, checked once, works."
+
+## 269. v9 takes the middle attention -- and the induction prediction fails
+
+`assembled_v9.py`: attention 2-9 added as class-dictionary rungs, fit in
+true block order. v9 full (all 16 attention rungs + everything else) =
++3.268 oracle; the drop rule removed only a8 (marginal +0.4002, a
+whisker over the bar -- and a8 is the DIGIT owner, whose function is
+genuinely site-conditional); **v9-best = 34 of 36 components at +2.868
+oracle / +3.067 deploy** (only the pattern sides of attn0/attn1 remain
+real, plus a8).
+
+The registered mechanistic prediction FAILED in the most informative way:
+the induction band (a3-a5) was predicted most expensive, but the top
+costs were a8 (+0.40), a7 (+0.28), a6 (+0.23), and **a5's marginal is
+NEGATIVE (-0.38)** -- replacing the certified induction owner attn5 with a
+class dictionary makes the assembly substantially BETTER. Reading: on a
+stream already carrying substitution error, the real induction machinery
+misfires (matches the wrong antecedents) and injects noise; the
+dictionary at least injects the class-typical signal. Same lesson as
+CP-mlp8 (264) and the a14 result (262), now at its strongest: in-context
+replaceability is a property of the ASSEMBLY, not the component. The
+certified circuit facts (attn3-5 own induction on the REAL model) are
+untouched; what failed is transferring them to the substituted context.
+
+## 270. P-rank ladder: monotone, sublinear, not saturated
+
+quad32 absorber totals by write-rank P: 32 -> +1.970, 64 -> +1.934,
+96 -> +1.920, 128 -> +1.899. Registered (a) P96 <= +1.91 FAILED by 0.01;
+(b) monotone HELD. Gains halve per step; the residual the absorbers
+chase has a long flat spectrum -- consistent with the broad-interface
+picture (263).
+
+Frontier after this wave: 13@+1.39, 19@+1.68, 27@+2.21, **34@+2.87**.

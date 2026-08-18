@@ -3836,3 +3836,9 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 - v8 (quad32/P64 front + CP-2304 middle + attention dicts): 27/36 at +2.212 oracle / +2.254 deploy (bar +2.20 FAILED by 0.012). Attention marginals grow on cheaper substrates -- rungs share an error budget.
 - LEDGER 21: cp_controls selection nulls refute the CP ranking -- random-k matches top-k, bottom-3456 beats top-1152 at 6/6 layers. The 19@+1.68 frontier stands but its mechanism is REDUNDANCY, not weight-readable importance. New rule: no selection claim without its selection null.
 - Frontier: 13@+1.39, 19@+1.68, 27@+2.21.
+
+## Appendix 268-270: selection null, v9 middle attention, P-ladder (2026-08-18)
+- In-assembly selection null: random middles straddle the ranked one (spread 0.39) -- ranking = variance reduction, not quality.
+- v9: 34/36 components at +2.868 oracle / +3.067 deploy. Induction-band prediction FAILED informatively: a5 marginal NEGATIVE (-0.38) -- real induction machinery misfires on substituted streams; a8 (digit owner) the only drop (+0.4002).
+- P-rank ladder monotone sublinear (P128: +1.899).
+- Frontier: 13@+1.39, 19@+1.68, 27@+2.21, 34@+2.87.
