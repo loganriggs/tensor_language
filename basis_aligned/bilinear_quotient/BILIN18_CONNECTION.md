@@ -7726,3 +7726,19 @@ queued basis-stability test: if the window-A top-16 basis transfers to
 fresh text at under half the fresh-basis effect, the concentration is
 carried by window-specific token content and both measurements are
 right about their own windows.
+
+## 298. b0: variance basis is not importance basis
+
+`b0_basis_stability.py` refused both registered branches: the two
+windows' top-16 delta subspaces agree well (overlap 0.676 vs floor
+0.014) -- so the directions are NOT window-specific -- yet the window-A
+basis cut on fresh text costs +0.067 vs the fresh basis's +0.495, a 7x
+gap. The resolution must be that the CE-carrying directions sit in the
+roughly one-third of the fresh basis OUTSIDE window-A's span: variance
+concentration and importance concentration are different bases at this
+junction (the program's margin-not-rank / instrument-relative lessons
+in yet another costume). Decisive remainder test queued: cut only the
+component of the fresh basis orthogonal to window-A's span (~5 dims);
+registered: it carries >= 70% of the fresh-basis cut. Either way the
+junction typology stands with b0 labeled "broad, importance-unstable"
+-- an honest, replicated characterization.
