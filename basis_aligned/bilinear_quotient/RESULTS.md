@@ -3905,3 +3905,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 - Span specificity: explosion targeted (span 4.58x, full 1.65x, next-8 directions SHRINK 0.39x). The channel is a targeted range-governor of the private code. Arc complete.
 - Assembly preserves span statistics (0.70 uniform) -- the regulator works through its MEAN, which is why a5's best stand-in is one vector. Arc closed; fresh replication queued.
 - Regulator arc REPLICATES FRESH: junctions +0.96/+1.95/+2.16 vs controls +0.05/+0.004; span explosion 4.33x. Quotable.
+- Block-1 junction INVERTS the rank ladder (top-4 cut +4.08 > full cut +1.95): a coherence junction -- mlp1 tolerates full presence or clean absence, not partial edits. Junction typology: narrow regulator (b5) vs coherence handoff (b1).

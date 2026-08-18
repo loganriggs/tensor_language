@@ -7668,3 +7668,22 @@ certified on fresh data end to end and goes into the published report
 at this boundary. Queued comparison: is block 1's +1.95 junction also
 a narrow channel (the "junction = few directions" motif repeated), or
 is narrowness special to the regulator?
+
+## 295. Block 1 is a coherence junction, not a channel
+
+`handoff1_dissect.py`: the rank ladder INVERTS at block 1 -- cutting
+only the top-4 directions of attn1's contribution costs **+4.08, more
+than double the full cut's +1.95**, and the cost FALLS monotonically
+toward the full cut as more directions are removed (4.08 -> 4.04 ->
+3.20 -> 2.13); random-16 is free. Bars (a),(b) HELD, (c) FAILED by
+inversion -- and the inversion is the finding. Block 5's junction is a
+narrow additive channel (top-4 = 76% of the cost, remainder benign);
+block 1's is a COHERENCE junction: mlp1, the near-token-function crown,
+handles its input at two operating points -- attention fully present or
+fully absent (the clean absence is close to the pure-token regime it is
+79-97% equivalent to) -- but a selectively edited signal is worse than
+either. The composition grammar's deepest lesson (a coherent lossy
+stand-in beats an accurate partial one) reappears at the scale of a
+single junction. Junction typology so far: block 5 = narrow regulator,
+block 1 = coherence-critical handoff; block 0's dissection queued to
+complete the trilogy.
