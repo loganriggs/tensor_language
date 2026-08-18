@@ -6719,3 +6719,27 @@ that table injection is catastrophic. Queued discriminator: EMPIRICAL
 token-conditional mean tables (the best any token-lookup can do, fit on
 window A) for mlp0-3 — separating "token-determined but not context-free-
 foldable" from "genuinely context-dependent."
+
+## 251. The front is a token-dictionary cascade
+
+File: `empirical_tables.py`. Empirical token-conditional mean tables (the
+ceiling for any token-lookup replacement) vs the §250 context-free folds:
+
+    mlp0: 68% empirical (vs 15% fold)   mlp1: 85% (vs 79%)
+    mlp2: 58%                            mlp3: 44%   (shuffled −54%)
+
+The synthesis: **the model's front four MLPs are substantially
+token-dictionaries**, decaying with depth as context mixes in — and they
+differ in HOW their dictionary is stored. mlp1's is context-free: the
+weights-only fold captures nearly the whole token channel (79 of 85) — you
+can read its dictionary straight out of the parameters with one forward
+per vocab entry. mlp0's is context-shifted: 68% token-determined but the
+per-token mean moves with position/attention, so the naive fold misses it
+(15%). mlp2/3 still carry 58%/44% token-determined content that only the
+empirical tables see. For the benchmark's node-complexity language: the
+front's natural interface unit is the vocabulary — per-token vectors are
+the honest description currency there, and the user's fold conjecture is
+confirmed where it was aimed (the early layers), with the mlp1 crown as
+its sharpest instance: the most important MLP in the model is, to four-
+fifths, a dictionary you can compute without ever running the model on
+text.

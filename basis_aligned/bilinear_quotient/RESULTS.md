@@ -3740,3 +3740,11 @@ important MLP at 79%. mlp0 only 15% (position-sensitive); mlp2/3
 catastrophic. Empirical token-table discriminator queued.
 
 Full detail in `BILIN18_CONNECTION.md` §250.
+
+### The front is a token-dictionary cascade
+
+Token-conditional tables: mlp0 68%, mlp1 85% (79% from weights alone),
+mlp2 58%, mlp3 44%. The crown component's dictionary is readable straight
+from the parameters.
+
+Full detail in `BILIN18_CONNECTION.md` §251.

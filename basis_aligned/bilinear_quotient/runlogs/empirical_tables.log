@@ -1,0 +1,10 @@
+tables built 2s
+mlp0: ablate +0.505 table +0.162 rec 68% shuf -54%
+mlp1: ablate +5.785 table +0.840 rec 85%
+mlp2: ablate +0.546 table +0.228 rec 58%
+mlp3: ablate +0.550 table +0.308 rec 44%
+(a) mlp0 >=60%: HELD
+(b) mlp1 within 10 of fold: HELD
+(c) mlp2/3 >=30%: HELD
+(d) shuffled <=0%: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/empirical_tables_results.json (18s)
