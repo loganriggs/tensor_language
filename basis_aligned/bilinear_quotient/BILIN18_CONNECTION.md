@@ -6233,3 +6233,25 @@ methodological arc of the last five wakes, stated once: every claim
 measured under one construction was fragile until proven otherwise; the
 four that survived their sweeps (relative notch depression at 18L, tail
 stability, dialects-in-regime, MLP decline) are the arc's durable core.
+
+## 232. Partial conservation is construction-robust — the audit truly closes
+
+File: `conservation_sweep.py`, four variants (2 span-fit windows × 2 text
+halves), both bars 4/4:
+
+    private pair: 0.14-0.20   shared pair: 0.20-0.27   random max: 0.01-0.05
+
+In every construction the two private spans' token-damage fingerprints
+correlate well above every random pair and below the matched shared pair —
+§217's "partially conserved" survives exactly as published, the only
+landscape claim to pass its sweep without needing a single amendment. With
+this, every published quantitative claim of the sharing-landscape arc has
+now been construction-swept, and the final tally stands: four claims robust
+as published (MLP decline, tail stability, dialects-in-regime, partial
+conservation), two robust in amended form (notch → relative depression at
+18L; concentration → absolute tail form), and three fallen or degraded
+(below-floor categoricity, secession, the bilin12 notch's generality) —
+ledger entries 19 and 20. The arc ends the way this program's arcs end:
+smaller than it looked at its peak, sharper than it looked at its start,
+and with every surviving number carrying its construction-robustness
+statement.

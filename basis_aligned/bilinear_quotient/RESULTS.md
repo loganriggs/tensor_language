@@ -3583,3 +3583,10 @@ stats-row boundary case; identity survives. Durable core: relative 18L
 notch, tail stability, dialects-in-regime, MLP decline.
 
 Full detail in `BILIN18_CONNECTION.md` §231.
+
+### Partial conservation robust 4/4; audit truly closes
+
+The only landscape claim to pass its sweep unamended. Final tally: 4 robust
+as published, 2 robust amended, 3 fallen/degraded (ledgers 19-20).
+
+Full detail in `BILIN18_CONNECTION.md` §232.
