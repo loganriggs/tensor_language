@@ -7029,3 +7029,46 @@ weights-only CP-truncated MLPs (k=1152; zero fitted parameters); prediction
 v5's +0.71, since faithful conductors should compose better than lossy
 firewalls when their solo cost is this low), (c) k=2304 total also
 reported. And quad-capacity ladder: 16/32/48 weight directions.
+
+## 264. v7: the weights-only middle -- 19 components at +1.68
+
+`assembled_v7.py` swapped the six middle table+absorber rungs for the
+CP-truncated real MLPs of 261 (top hidden units by norm product, computed
+from weights alone, zero fitted parameters). Registered bars: k=1152 total
+<= +1.85 FAILED (+1.912 -- beats v5's +2.095 by 0.18 but not by the
+registered margin); middle LOO sum <= +0.35 FAILED (+0.703, same sum as
+v5's firewalls but differently distributed); k=2304 <= k=1152 HELD, and
+decisively: **+1.678 total -- the new 19-component frontier point**, with
+the whole middle described by "keep the loudest half of each layer's
+rank-1 quadratics."
+
+Two economics lessons in the marginals. First, conductor cost is
+layer-specific: CP-mlp4/5 cost +0.26/+0.29 in-context (worse than their
+firewalls) while CP-mlp6-9 cost +0.06/+0.11/-0.04/+0.03 (better). Early
+middle layers amplify conducted upstream error; late middle layers
+tolerate it. Second, **CP-mlp8's marginal is NEGATIVE**: with the
+substituted front, the truncated mlp8 outperforms the real mlp8. The
+truncation drops exactly the quiet units that react worst to
+off-distribution inputs -- a lossy stand-in acting as a partial firewall.
+The firewall/conductor distinction is a spectrum, not a binary.
+
+Frontier: 13@+1.39, 19@+1.68 (weights-only middle, k=2304), 27@+2.55.
+
+## 265. Quad ladder: the write-side rank binds, feature count saturates
+
+`quad_ladder.py`: quad32 = +1.970 (prediction <= +1.94 FAILED -- doubling
+the weight directions bought only 0.023 over quad16's +1.993); quad48 =
++1.973 (saturated, no blowup, HELD); quad32 with a rank-64 residual basis
+= **+1.934** (HELD, the biggest single lever). So the absorbers are not
+starved of input features -- 16-32 weight-derived quadratic directions
+suffice -- they are starved of OUTPUT rank: the rank-32 basis P cannot
+express enough of the residual. Consistent with 261/263: the middle's
+interfaces are broad, so low-rank corrections saturate early on the write
+side, not the read side.
+
+Registered next (v8): merge the winners -- quad32/P64 absorbers on the
+front tables, CP k=2304 middle, v6's attention dictionaries, tail.
+Predictions: (a) v8 oracle <= +2.20 at 27/36; (b) deploy gap <= +0.10;
+(c) all 8 attention rungs survive the drop rule. And cp_controls to make
+261 airtight: random-k and bottom-complement nulls for the unit ranking,
+plus a finer k ladder.

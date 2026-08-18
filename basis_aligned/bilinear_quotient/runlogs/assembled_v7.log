@@ -5,3 +5,11 @@ v7 full (k=1152) +1.9118
 LOO marginal c4: +0.2618
 LOO marginal c5: +0.2894
 LOO marginal c6: +0.0568
+LOO marginal c7: +0.1077
+LOO marginal c8: -0.0443
+LOO marginal c9: +0.0317
+base 3.535 | v7 k=1152 +1.9118 | middle sum +0.7032 | k=2304 +1.6777
+(a) v7 <= +1.85: FAILED
+(b) middle sum <= +0.35: FAILED
+(c) k=2304 <= k=1152: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/assembled_v7_results.json (41s)

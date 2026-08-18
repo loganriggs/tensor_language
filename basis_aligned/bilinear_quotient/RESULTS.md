@@ -3826,3 +3826,8 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 - Assembled v6: tail attention 10-17 replaced by class dictionaries (constants for structure classes, linear reads for contextual) -> 27/36 components at +2.548 oracle / +2.605 deploy; all 8 rungs survive LOO; a14 (deletion-improves) still costs +0.117 (harmful-on-average != free).
 - Quadratic absorber features (weight-derived): +1.993 vs +2.095 baseline; read-subspace absorbers worse than baseline (refuted).
 - Frontier: 13@+1.39, 19@+2.10, 27@+2.55.
+
+## Appendix 264-265: weights-only middle + absorber capacity (2026-08-18)
+- v7 (CP middle): k=2304 (half the hidden units, weights-only, zero fitted params) -> 19/36 at +1.678 -- new frontier. k=1152 bar FAILED (+1.912). CP-mlp8 LOO marginal NEGATIVE (-0.044): truncation firewalls off-distribution error; firewall/conductor is a spectrum.
+- Quad ladder: feature count saturates at 16-32 directions; the rank-32 write basis is the binding constraint (P64: +1.934, best fitted-absorber arm).
+- Frontier: 13@+1.39, 19@+1.68, 27@+2.55. v8 merge queued.

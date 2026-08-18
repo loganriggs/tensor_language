@@ -1,0 +1,8 @@
+quad32     total +1.9703 | R2 {0: 0.67, 2: 0.653, 3: 0.688, 4: 0.754, 5: 0.691, 6: 0.727, 7: 0.659, 8: 0.749, 9: 0.732}
+quad48     total +1.9732 | R2 {0: 0.716, 2: 0.696, 3: 0.73, 4: 0.794, 5: 0.723, 6: 0.737, 7: 0.675, 8: 0.765, 9: 0.758}
+quad32P64  total +1.9343 | R2 {0: 0.622, 2: 0.609, 3: 0.642, 4: 0.717, 5: 0.654, 6: 0.689, 7: 0.606, 8: 0.699, 9: 0.676}
+
+(a) quad32 <= +1.94: FAILED
+(b) quad32P64 beats quad32 by >=0.03: HELD
+(c) quad48 no blowup (<= quad32+0.02): HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/quad_ladder_results.json (123s)
