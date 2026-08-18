@@ -131,7 +131,7 @@ def main():
         lam=1e-2*len(X)
         A=torch.linalg.solve(X.T@X+lam*torch.eye(D,device=DEV),
                              X.T@(Rr@P))
-        r2=1-float(((Rr@P-X@A)**2).sum())/float((Rr@P)**2).sum()
+        r2=1-float(((Rr@P-X@A)**2).sum())/float(((Rr@P)**2).sum())
         print(f'absorber m{li}: residual-subspace R^2 {r2:.2f}',flush=True)
         return ('tableres',li,tb,A,P)
     order=['a0']

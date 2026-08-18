@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/assembled_v4.py", line 217, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/assembled_v4.py", line 139, in main
+    S['m0']=fit_tableres(Y,X,ids,0); order.append('m0')
+            ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/assembled_v4.py", line 134, in fit_tableres
+    r2=1-float(((Rr@P-X@A)**2).sum())/float((Rr@P)**2).sum()
+                                      ^^^^^^^^^^^^^^^^
+ValueError: only one element tensors can be converted to Python scalars
