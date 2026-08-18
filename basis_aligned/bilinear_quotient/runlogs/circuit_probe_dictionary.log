@@ -1,0 +1,5 @@
+probe acc 59% | recovery: oracle -203% probe -120% shuffled-probe -76%
+(a) probe acc >=65%: FAILED
+(b) probe-dict recovery >=70%: FAILED
+(d) shuffled <=10%: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/circuit_probe_dictionary_results.json (25s)

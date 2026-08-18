@@ -38,22 +38,23 @@ def main():
         spans[li]=(orth(Vh[:8].T),Yb.float())
     clsA=classify(CA,CB).to(DEV); clsC=classify(R0,R1).to(DEV)
     def capture(r0,r1,cls_):
-        capsO={li:[] for li in COMPS}; capI=[]
+        capsO={li:[] for li in COMPS}; capsI={li:[] for li in COMPS}
         hs=[]
         for li in COMPS:
             def mk(li=li):
                 def hook(mod,i_,o_):
                     capsO[li].append(o_.detach().reshape(-1,D).float())
-                    if li==COMPS[0]:
-                        capI.append(i_[0].detach().reshape(-1,D).float())
+                    capsI[li].append(i_[0].detach().reshape(-1,D).float())
                 return hook
             hs.append(m.transformer.h[li].mlp.register_forward_hook(mk()))
         for i in range(r0,r1,4):
             bb=FW[i:i+4,:257].to(DEV)
             m(bb[:,:-1].contiguous(), bb[:,1:].contiguous())
         for h in hs: h.remove()
-        return {li:torch.cat(v) for li,v in capsO.items()}, torch.cat(capI)
-    capA,XA=capture(CA,CB,clsA)
+        return ({li:torch.cat(v) for li,v in capsO.items()},
+                {li:torch.cat(v) for li,v in capsI.items()})
+    capA,inA=capture(CA,CB,clsA)
+    XA=inA[COMPS[0]]
     flatA=clsA.reshape(-1)
     Yoh=torch.zeros(len(flatA),10,device=DEV)
     Yoh[torch.arange(len(flatA)),flatA]=1.0
@@ -64,17 +65,16 @@ def main():
         Q,_=spans[li]; C=capA[li]@Q
         DICT[li]=torch.stack([C[flatA==k].mean(0) if (flatA==k).sum()>0
                               else C.mean(0) for k in range(10)])
-    XAfull=XA
     for li in COMPS:
         Q,_=spans[li]; C=capA[li]@Q
         LIN[li]={}
         for k in (8,9):
             mk_=flatA==k
-            Xk=XAfull[mk_]; Ck=C[mk_]
+            Xk=inA[li][mk_]; Ck=C[mk_]
             l2=1e-2*len(Xk)
             LIN[li][k]=torch.linalg.solve(Xk.T@Xk+l2*torch.eye(D,device=DEV),
                                           Xk.T@Ck)
-    del capA, XA
+    del capA, inA, XA
     g=torch.Generator(device=DEV).manual_seed(0)
     permW=W[:,torch.randperm(10,generator=g,device=DEV)]
     cur={'b0':0}
@@ -94,10 +94,11 @@ def main():
                             if mode=='oracle':
                                 kk=clsC[cur['b0']:cur['b0']+B,:T].reshape(-1)
                             else:
-                                Wp=permW if mode=='shuffle' else W
-                                kk=(x@Wp).argmax(1)
-                                if first and mode=='probe':
-                                    store.append(kk)
+                                if first:
+                                    Wp=permW if mode=='shuffle' else W
+                                    cur['kk']=(x@Wp).argmax(1)
+                                    if mode=='probe': store.append(cur['kk'])
+                                kk=cur['kk']
                             tgt=Dq[kk].clone()
                             for k in (8,9):
                                 sel=kk==k
