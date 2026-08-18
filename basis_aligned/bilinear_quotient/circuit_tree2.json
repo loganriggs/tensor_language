@@ -1,0 +1,1439 @@
+{
+ "n_leaves": 68,
+ "n_new": 49,
+ "child_replication_rate": 0.596,
+ "leaves": [
+  {
+   "tag": "r.0",
+   "repl": 0.995,
+   "class_r2": 0.07,
+   "best_class": "newline",
+   "n_members": 8141,
+   "sample_tokens": [
+    "2",
+    " )",
+    "1",
+    "\n",
+    "/",
+    "3"
+   ],
+   "top_probes": [
+    "('comp', 'm2')",
+    "('comp', 'm3')",
+    "('comp', 'a4')",
+    "('comp', 'm0')"
+   ]
+  },
+  {
+   "tag": "r.0.0",
+   "repl": 0.995,
+   "class_r2": 0.253,
+   "best_class": "newline",
+   "n_members": 1222,
+   "sample_tokens": [
+    "6",
+    "tainment",
+    "tainment",
+    "3",
+    " Museum",
+    " House"
+   ],
+   "top_probes": [
+    "('pca', 'm0', 'r.0', (0, 8))",
+    "('pca', 'm0', 'r.0', (32, 64))",
+    "('pca', 'm3', 'r.0', (16, 32))",
+    "('pca', 'm0', 'r.0', (8, 16))"
+   ]
+  },
+  {
+   "tag": "r.0.0.0",
+   "repl": 0.985,
+   "class_r2": 0.501,
+   "best_class": "newline",
+   "n_members": 184,
+   "sample_tokens": [
+    "tainment",
+    "ster",
+    "head",
+    "2",
+    "gate",
+    "tainment"
+   ],
+   "top_probes": [
+    "('pca', 'm0', 'r.0.0', (4, 8))",
+    "('pca', 'm0', 'r.0.0', (0, 4))",
+    "('pca', 'm0', 'r.0.0', (32, 48))",
+    "('pca', 'm0', 'r.0.0', (8, 12))"
+   ]
+  },
+  {
+   "tag": "r.0.0.1",
+   "repl": 0.615,
+   "class_r2": 0.01,
+   "best_class": "name",
+   "n_members": 184,
+   "sample_tokens": [
+    " House",
+    "3",
+    "3",
+    "4",
+    " Abbey",
+    " House"
+   ],
+   "top_probes": [
+    "('pca', 'm0', 'r.0.0', (12, 16))",
+    "('pca', 'm3', 'r.0.0', (24, 32))",
+    "('pca', 'm3', 'r.0.0', (16, 24))",
+    "('pca', 'm0', 'r.0.0', (48, 64))"
+   ]
+  },
+  {
+   "tag": "r.0.0.3",
+   "repl": 0.779,
+   "class_r2": 0.078,
+   "best_class": "name",
+   "n_members": 184,
+   "sample_tokens": [
+    "2",
+    "300",
+    "FE",
+    "d",
+    "ham",
+    "3"
+   ],
+   "top_probes": [
+    "('pca', 'm0', 'r.0.0', (48, 64))",
+    "('pca', 'm0', 'r.0.0', (4, 8))",
+    "('pca', 'm0', 'r.0.0', (32, 48))",
+    "('pca', 'm0', 'r.0.0', (12, 16))"
+   ]
+  },
+  {
+   "tag": "r.0.1",
+   "repl": 0.969,
+   "class_r2": 0.055,
+   "best_class": "newline",
+   "n_members": 1222,
+   "sample_tokens": [
+    "gate",
+    "ham",
+    "2",
+    "3",
+    "\n",
+    "1"
+   ],
+   "top_probes": [
+    "('pca', 'm3', 'r.0', (32, 64))",
+    "('pca', 'm2', 'r.0', (32, 64))",
+    "('head', 4, 8)",
+    "('pca', 'm3', 'r.0', (0, 8))"
+   ]
+  },
+  {
+   "tag": "r.0.2",
+   "repl": 0.62,
+   "class_r2": 0.02,
+   "best_class": "newline",
+   "n_members": 1222,
+   "sample_tokens": [
+    " SHOW",
+    "ISH",
+    " Market",
+    "ities",
+    "4",
+    "\n"
+   ],
+   "top_probes": [
+    "('head', 4, 3)",
+    "('head', 4, 6)",
+    "('head', 4, 8)",
+    "('head', 4, 0)"
+   ]
+  },
+  {
+   "tag": "r.1",
+   "repl": 0.985,
+   "class_r2": 0.039,
+   "best_class": "ind",
+   "n_members": 8141,
+   "sample_tokens": [
+    "\n",
+    "\n",
+    "\n",
+    " o",
+    "ING",
+    "\n"
+   ],
+   "top_probes": [
+    "('comp', 'm13')",
+    "('comp', 'm14')",
+    "('comp', 'm12')",
+    "('comp', 'm11')"
+   ]
+  },
+  {
+   "tag": "r.1.0",
+   "repl": 0.987,
+   "class_r2": 0.245,
+   "best_class": "newline",
+   "n_members": 1222,
+   "sample_tokens": [
+    "\n",
+    "\n",
+    " ",
+    "\n",
+    "\n",
+    "B"
+   ],
+   "top_probes": [
+    "('pca', 'm11', 'r.1', (0, 8))",
+    "('pca', 'm12', 'r.1', (0, 8))",
+    "('pca', 'm13', 'r.1', (0, 8))",
+    "('pca', 'm13', 'r.1', (8, 16))"
+   ]
+  },
+  {
+   "tag": "r.1.0.0",
+   "repl": 0.981,
+   "class_r2": 0.428,
+   "best_class": "newline",
+   "n_members": 184,
+   "sample_tokens": [
+    "\n",
+    "\n",
+    "\n",
+    "\n",
+    "\n",
+    "\n"
+   ],
+   "top_probes": [
+    "('pca', 'm13', 'r.1.0', (0, 4))",
+    "('pca', 'm11', 'r.1.0', (0, 4))",
+    "('pca', 'm12', 'r.1.0', (0, 4))",
+    "('pca', 'm11', 'r.1.0', (4, 8))"
+   ]
+  },
+  {
+   "tag": "r.1.0.1",
+   "repl": 0.883,
+   "class_r2": 0.112,
+   "best_class": "subword",
+   "n_members": 184,
+   "sample_tokens": [
+    " t",
+    " the",
+    " ",
+    " in",
+    " in",
+    " "
+   ],
+   "top_probes": [
+    "('pca', 'm11', 'r.1.0', (4, 8))",
+    "('pca', 'm12', 'r.1.0', (4, 8))",
+    "('pca', 'm13', 'r.1.0', (4, 8))",
+    "('pca', 'm13', 'r.1.0', (8, 12))"
+   ]
+  },
+  {
+   "tag": "r.1.0.2",
+   "repl": 0.858,
+   "class_r2": 0.055,
+   "best_class": "name",
+   "n_members": 184,
+   "sample_tokens": [
+    "LE",
+    "LE",
+    "LE",
+    "LE",
+    "LE",
+    "\n"
+   ],
+   "top_probes": [
+    "('pca', 'm13', 'r.1.0', (8, 12))",
+    "('pca', 'm13', 'r.1.0', (12, 16))",
+    "('pca', 'm11', 'r.1.0', (4, 8))",
+    "('pca', 'm11', 'r.1.0', (0, 4))"
+   ]
+  },
+  {
+   "tag": "r.1.0.3",
+   "repl": 0.974,
+   "class_r2": 0.074,
+   "best_class": "newline",
+   "n_members": 184,
+   "sample_tokens": [
+    "\n",
+    "(",
+    "\n",
+    "\n",
+    "\n",
+    "2"
+   ],
+   "top_probes": [
+    "('pca', 'm13', 'r.1.0', (4, 8))",
+    "('pca', 'm13', 'r.1.0', (12, 16))",
+    "('pca', 'm12', 'r.1.0', (0, 4))",
+    "('pca', 'm11', 'r.1.0', (4, 8))"
+   ]
+  },
+  {
+   "tag": "r.1.1",
+   "repl": 0.976,
+   "class_r2": 0.325,
+   "best_class": "newline",
+   "n_members": 1222,
+   "sample_tokens": [
+    " Rooms",
+    " House",
+    " Tower",
+    "wick",
+    "\n",
+    " Hall"
+   ],
+   "top_probes": [
+    "('pca', 'm14', 'r.1', (0, 8))",
+    "('pca', 'm12', 'r.1', (8, 16))",
+    "('pca', 'm14', 'r.1', (32, 64))",
+    "('pca', 'm14', 'r.1', (16, 32))"
+   ]
+  },
+  {
+   "tag": "r.1.1.0",
+   "repl": 0.955,
+   "class_r2": 0.578,
+   "best_class": "newline",
+   "n_members": 184,
+   "sample_tokens": [
+    "\n",
+    " S",
+    " r",
+    "wick",
+    " S",
+    "\n"
+   ],
+   "top_probes": [
+    "('pca', 'm14', 'r.1.1', (0, 4))",
+    "('pca', 'm14', 'r.1.1', (48, 64))",
+    "('pca', 'm14', 'r.1.1', (16, 24))",
+    "('pca', 'm12', 'r.1.1', (8, 12))"
+   ]
+  },
+  {
+   "tag": "r.1.1.1",
+   "repl": 0.938,
+   "class_r2": 0.101,
+   "best_class": "ind",
+   "n_members": 184,
+   "sample_tokens": [
+    " MAP",
+    " MAP",
+    " MAP",
+    " MAP",
+    " MAP",
+    " MAP"
+   ],
+   "top_probes": [
+    "('pca', 'm14', 'r.1.1', (4, 8))",
+    "('pca', 'm12', 'r.1.1', (8, 12))",
+    "('pca', 'm14', 'r.1.1', (48, 64))",
+    "('pca', 'm14', 'r.1.1', (24, 32))"
+   ]
+  },
+  {
+   "tag": "r.1.1.2",
+   "repl": 0.66,
+   "class_r2": 0.189,
+   "best_class": "rep",
+   "n_members": 184,
+   "sample_tokens": [
+    "ights",
+    " t",
+    "am",
+    " t",
+    " ",
+    " "
+   ],
+   "top_probes": [
+    "('pca', 'm12', 'r.1.1', (12, 16))",
+    "('pca', 'm14', 'r.1.1', (0, 4))",
+    "('pca', 'm12', 'r.1.1', (8, 12))",
+    "('pca', 'm14', 'r.1.1', (48, 64))"
+   ]
+  },
+  {
+   "tag": "r.1.2",
+   "repl": 0.991,
+   "class_r2": 0.005,
+   "best_class": "subword",
+   "n_members": 1222,
+   "sample_tokens": [
+    "-",
+    " G",
+    " Olympic",
+    "-",
+    " G",
+    " G"
+   ],
+   "top_probes": [
+    "('pca', 'm11', 'r.1', (32, 64))",
+    "('pca', 'm12', 'r.1', (32, 64))",
+    "('pca', 'm13', 'r.1', (32, 64))",
+    "('pca', 'm12', 'r.1', (8, 16))"
+   ]
+  },
+  {
+   "tag": "r.1.2.0",
+   "repl": 0.851,
+   "class_r2": 0.02,
+   "best_class": "other",
+   "n_members": 184,
+   "sample_tokens": [
+    ",",
+    " get",
+    ",",
+    " d",
+    " takes",
+    ","
+   ],
+   "top_probes": [
+    "('pca', 'm12', 'r.1.2', (32, 48))",
+    "('pca', 'm13', 'r.1.2', (32, 48))",
+    "('pca', 'm11', 'r.1.2', (48, 64))",
+    "('pca', 'm11', 'r.1.2', (32, 48))"
+   ]
+  },
+  {
+   "tag": "r.1.2.1",
+   "repl": 0.722,
+   "class_r2": 0.005,
+   "best_class": "ind",
+   "n_members": 184,
+   "sample_tokens": [
+    " ",
+    "(",
+    " t",
+    " ",
+    " W",
+    " St"
+   ],
+   "top_probes": [
+    "('pca', 'm12', 'r.1.2', (12, 16))",
+    "('pca', 'm11', 'r.1.2', (48, 64))",
+    "('pca', 'm12', 'r.1.2', (8, 12))",
+    "('pca', 'm12', 'r.1.2', (32, 48))"
+   ]
+  },
+  {
+   "tag": "r.1.3",
+   "repl": 0.96,
+   "class_r2": 0.026,
+   "best_class": "sentend",
+   "n_members": 1222,
+   "sample_tokens": [
+    " t",
+    " t",
+    " Hastings",
+    "LE",
+    " MAP",
+    " Sandwich"
+   ],
+   "top_probes": [
+    "('pca', 'm11', 'r.1', (16, 32))",
+    "('pca', 'm12', 'r.1', (16, 32))",
+    "('pca', 'm11', 'r.1', (8, 16))",
+    "('pca', 'm13', 'r.1', (16, 32))"
+   ]
+  },
+  {
+   "tag": "r.1.3.0",
+   "repl": 0.833,
+   "class_r2": 0.019,
+   "best_class": "bclose",
+   "n_members": 184,
+   "sample_tokens": [
+    "B",
+    "S",
+    " is",
+    "S",
+    " on",
+    " St"
+   ],
+   "top_probes": [
+    "('pca', 'm12', 'r.1.3', (16, 24))",
+    "('pca', 'm12', 'r.1.3', (24, 32))",
+    "('pca', 'm11', 'r.1.3', (24, 32))",
+    "('pca', 'm13', 'r.1.3', (16, 24))"
+   ]
+  },
+  {
+   "tag": "r.2",
+   "repl": 0.959,
+   "class_r2": 0.121,
+   "best_class": "newline",
+   "n_members": 8141,
+   "sample_tokens": [
+    "\n",
+    "\n",
+    "\n",
+    "\n",
+    "\n",
+    " m"
+   ],
+   "top_probes": [
+    "('head', 5, 7)",
+    "('comp', 'm15')",
+    "('comp', 'm16')",
+    "('comp', 'm1')"
+   ]
+  },
+  {
+   "tag": "r.2.0",
+   "repl": 0.997,
+   "class_r2": 0.553,
+   "best_class": "newline",
+   "n_members": 1222,
+   "sample_tokens": [
+    " Rye",
+    " Dover",
+    "opping",
+    "\n",
+    "\n",
+    "tainment"
+   ],
+   "top_probes": [
+    "('pca', 'a5', 'r.2', (0, 4))",
+    "('pca', 'm16', 'r.2', (0, 8))",
+    "('pca', 'm1', 'r.2', (0, 8))",
+    "('pca', 'm15', 'r.2', (32, 64))"
+   ]
+  },
+  {
+   "tag": "r.2.0.0",
+   "repl": 0.991,
+   "class_r2": 0.7,
+   "best_class": "newline",
+   "n_members": 184,
+   "sample_tokens": [
+    " Dover",
+    " Information",
+    "opping",
+    "ights",
+    " Rye",
+    "ights"
+   ],
+   "top_probes": [
+    "('pca', 'a5', 'r.2.0', (0, 2))",
+    "('pca', 'm16', 'r.2.0', (0, 4))",
+    "('pca', 'm16', 'r.2.0', (4, 8))",
+    "('pca', 'a5', 'r.2.0', (2, 4))"
+   ]
+  },
+  {
+   "tag": "r.2.1",
+   "repl": 0.907,
+   "class_r2": 0.042,
+   "best_class": "ind",
+   "n_members": 1222,
+   "sample_tokens": [
+    "child",
+    " Sandwich",
+    " hop",
+    "3",
+    "stairs",
+    "\n"
+   ],
+   "top_probes": [
+    "('pca', 'a5', 'r.2', (4, 16))",
+    "('pca', 'm1', 'r.2', (16, 32))",
+    "('pca', 'm1', 'r.2', (32, 64))",
+    "('pca', 'm15', 'r.2', (32, 64))"
+   ]
+  },
+  {
+   "tag": "r.2.1.0",
+   "repl": 0.983,
+   "class_r2": 0.083,
+   "best_class": "ind",
+   "n_members": 184,
+   "sample_tokens": [
+    "ights",
+    "opping",
+    "ham",
+    "\n",
+    "tainment",
+    "\n"
+   ],
+   "top_probes": [
+    "('pca', 'a5', 'r.2.1', (4, 10))",
+    "('pca', 'm1', 'r.2.1', (24, 32))",
+    "('pca', 'a5', 'r.2.1', (10, 16))",
+    "('pca', 'm1', 'r.2.1', (16, 24))"
+   ]
+  },
+  {
+   "tag": "r.2.1.1",
+   "repl": 0.955,
+   "class_r2": 0.164,
+   "best_class": "newline",
+   "n_members": 184,
+   "sample_tokens": [
+    "ocks",
+    "/",
+    " New",
+    "ISH",
+    " steak",
+    " Ward"
+   ],
+   "top_probes": [
+    "('pca', 'm15', 'r.2.1', (48, 64))",
+    "('pca', 'm15', 'r.2.1', (32, 48))",
+    "('pca', 'm1', 'r.2.1', (32, 48))",
+    "('pca', 'm1', 'r.2.1', (16, 24))"
+   ]
+  },
+  {
+   "tag": "r.2.2",
+   "repl": 0.938,
+   "class_r2": 0.026,
+   "best_class": "subword",
+   "n_members": 1222,
+   "sample_tokens": [
+    "2",
+    "1",
+    "2",
+    "2",
+    "2",
+    "2"
+   ],
+   "top_probes": [
+    "('pca', 'm16', 'r.2', (16, 32))",
+    "('pca', 'm15', 'r.2', (16, 32))",
+    "('pca', 'm16', 'r.2', (32, 64))",
+    "('pca', 'm15', 'r.2', (8, 16))"
+   ]
+  },
+  {
+   "tag": "r.2.2.0",
+   "repl": 0.974,
+   "class_r2": 0.104,
+   "best_class": "subword",
+   "n_members": 184,
+   "sample_tokens": [
+    "D",
+    " London",
+    " d",
+    " ",
+    "To",
+    " m"
+   ],
+   "top_probes": [
+    "('pca', 'm16', 'r.2.2', (24, 32))",
+    "('pca', 'm16', 'r.2.2', (16, 24))",
+    "('pca', 'm15', 'r.2.2', (8, 12))",
+    "('pca', 'm16', 'r.2.2', (32, 48))"
+   ]
+  },
+  {
+   "tag": "r.2.2.1",
+   "repl": 0.723,
+   "class_r2": 0.03,
+   "best_class": "newline",
+   "n_members": 184,
+   "sample_tokens": [
+    " ",
+    "B",
+    "T",
+    "T",
+    "T",
+    " "
+   ],
+   "top_probes": [
+    "('pca', 'm16', 'r.2.2', (48, 64))",
+    "('pca', 'm15', 'r.2.2', (24, 32))",
+    "('pca', 'm15', 'r.2.2', (16, 24))",
+    "('pca', 'm16', 'r.2.2', (16, 24))"
+   ]
+  },
+  {
+   "tag": "r.2.2.2",
+   "repl": 0.73,
+   "class_r2": 0.054,
+   "best_class": "newline",
+   "n_members": 184,
+   "sample_tokens": [
+    "oat",
+    "wick",
+    " bus",
+    " ",
+    "arms",
+    " fisher"
+   ],
+   "top_probes": [
+    "('pca', 'm15', 'r.2.2', (12, 16))",
+    "('pca', 'm16', 'r.2.2', (32, 48))",
+    "('pca', 'm15', 'r.2.2', (8, 12))",
+    "('pca', 'm15', 'r.2.2', (16, 24))"
+   ]
+  },
+  {
+   "tag": "r.2.3",
+   "repl": 0.867,
+   "class_r2": 0.007,
+   "best_class": "rep",
+   "n_members": 1222,
+   "sample_tokens": [
+    " Hotel",
+    "bourne",
+    " Hotel",
+    " ",
+    " Tower",
+    " "
+   ],
+   "top_probes": [
+    "('pca', 'm16', 'r.2', (32, 64))",
+    "('pca', 'm15', 'r.2', (16, 32))",
+    "('pca', 'm1', 'r.2', (32, 64))",
+    "('pca', 'm1', 'r.2', (16, 32))"
+   ]
+  },
+  {
+   "tag": "r.3",
+   "repl": 0.939,
+   "class_r2": 0.139,
+   "best_class": "newline",
+   "n_members": 8141,
+   "sample_tokens": [
+    "T",
+    "4",
+    "urn",
+    "2",
+    "\n",
+    "\n"
+   ],
+   "top_probes": [
+    "('comp', 'a16')",
+    "('head', 7, 0)",
+    "('head', 6, 3)",
+    "('head', 7, 3)"
+   ]
+  },
+  {
+   "tag": "r.3.0",
+   "repl": 0.982,
+   "class_r2": 0.374,
+   "best_class": "newline",
+   "n_members": 1222,
+   "sample_tokens": [
+    " Sandwich",
+    " Rye",
+    " Rooms",
+    " Hastings",
+    "ster",
+    " Entertainment"
+   ],
+   "top_probes": [
+    "('head', 16, 8)",
+    "('pca', 'a6', 'r.3', (0, 4))",
+    "('pca', 'a7', 'r.3', (0, 4))",
+    "('head', 16, 2)"
+   ]
+  },
+  {
+   "tag": "r.3.0.0",
+   "repl": 0.805,
+   "class_r2": 0.587,
+   "best_class": "newline",
+   "n_members": 184,
+   "sample_tokens": [
+    " Sandwich",
+    " Rye",
+    "ights",
+    " Hastings",
+    " Tours",
+    " History"
+   ],
+   "top_probes": [
+    "('pca', 'a7', 'r.3.0', (0, 2))",
+    "('pca', 'a16', 'r.3.0', (0, 4))",
+    "('pca', 'a6', 'r.3.0', (0, 2))",
+    "('pca', 'a6', 'r.3.0', (2, 4))"
+   ]
+  },
+  {
+   "tag": "r.3.0.1",
+   "repl": 0.692,
+   "class_r2": 0.068,
+   "best_class": "ind",
+   "n_members": 184,
+   "sample_tokens": [
+    "don",
+    "gate",
+    " Eating",
+    "head",
+    " Shopping",
+    "\n"
+   ],
+   "top_probes": [
+    "('pca', 'a7', 'r.3.0', (2, 4))",
+    "('pca', 'a16', 'r.3.0', (4, 16))",
+    "('pca', 'a16', 'r.3.0', (0, 4))",
+    "('pca', 'a7', 'r.3.0', (0, 2))"
+   ]
+  },
+  {
+   "tag": "r.3.1",
+   "repl": 0.979,
+   "class_r2": 0.153,
+   "best_class": "newline",
+   "n_members": 1222,
+   "sample_tokens": [
+    " \u2013",
+    " and",
+    " along",
+    "',",
+    " the",
+    ","
+   ],
+   "top_probes": [
+    "('head', 16, 3)",
+    "('pca', 'a7', 'r.3', (0, 4))",
+    "('head', 16, 4)",
+    "('head', 16, 5)"
+   ]
+  },
+  {
+   "tag": "r.3.1.0",
+   "repl": 0.782,
+   "class_r2": 0.569,
+   "best_class": "newline",
+   "n_members": 184,
+   "sample_tokens": [
+    " Sandwich",
+    "\n",
+    "wick",
+    "ating",
+    " Entertainment",
+    ")"
+   ],
+   "top_probes": [
+    "('pca', 'a7', 'r.3.1', (0, 2))",
+    "('pca', 'a16', 'r.3.1', (0, 4))",
+    "('pca', 'a16', 'r.3.1', (4, 16))",
+    "('pca', 'a7', 'r.3.1', (2, 4))"
+   ]
+  },
+  {
+   "tag": "r.3.1.1",
+   "repl": 0.94,
+   "class_r2": 0.044,
+   "best_class": "newline",
+   "n_members": 184,
+   "sample_tokens": [
+    " Eating",
+    "\n",
+    "\n",
+    "uton",
+    "oya",
+    "\n"
+   ],
+   "top_probes": [
+    "('pca', 'a7', 'r.3.1', (2, 4))",
+    "('pca', 'a16', 'r.3.1', (4, 16))",
+    "('pca', 'a16', 'r.3.1', (0, 4))",
+    "('pca', 'a7', 'r.3.1', (0, 2))"
+   ]
+  },
+  {
+   "tag": "r.3.2",
+   "repl": 0.969,
+   "class_r2": 0.011,
+   "best_class": "bclose",
+   "n_members": 1222,
+   "sample_tokens": [
+    "2",
+    "\n",
+    " House",
+    "ights",
+    "\n",
+    "\n"
+   ],
+   "top_probes": [
+    "('pca', 'a7', 'r.3', (4, 16))",
+    "('pca', 'a6', 'r.3', (4, 16))",
+    "('pca', 'a7', 'r.3', (0, 4))",
+    "('head', 16, 5)"
+   ]
+  },
+  {
+   "tag": "r.6",
+   "repl": 0.644,
+   "class_r2": 0.006,
+   "best_class": "bclose",
+   "n_members": 8141,
+   "sample_tokens": [
+    "Le",
+    "eping",
+    "ights",
+    "-",
+    "01",
+    "\n"
+   ],
+   "top_probes": [
+    "('comp', 'a9')",
+    "('head', 6, 3)",
+    "('head', 9, 8)",
+    "('head', 6, 7)"
+   ]
+  },
+  {
+   "tag": "r.6.0",
+   "repl": 0.988,
+   "class_r2": 0.054,
+   "best_class": "newline",
+   "n_members": 1222,
+   "sample_tokens": [
+    "1",
+    " N",
+    "child",
+    ",",
+    "opping",
+    "48"
+   ],
+   "top_probes": [
+    "('pca', 'a9', 'r.6', (0, 4))",
+    "('head', 9, 8)",
+    "('head', 9, 7)",
+    "('head', 9, 0)"
+   ]
+  },
+  {
+   "tag": "r.6.0.0",
+   "repl": 0.998,
+   "class_r2": 0.071,
+   "best_class": "newline",
+   "n_members": 184,
+   "sample_tokens": [
+    "1",
+    ".",
+    " N",
+    "child",
+    "child",
+    "child"
+   ],
+   "top_probes": [
+    "('pca', 'a9', 'r.6.0', (0, 4))",
+    "('pca', 'a9', 'r.6.0', (0, 2))",
+    "('pca', 'a9', 'r.6.0', (2, 4))",
+    "('pca', 'a9', 'r.6.0', (4, 16))"
+   ]
+  },
+  {
+   "tag": "r.6.0.1",
+   "repl": 0.998,
+   "class_r2": 0.011,
+   "best_class": "newline",
+   "n_members": 184,
+   "sample_tokens": [
+    ")",
+    "\n",
+    "OOD",
+    "\n",
+    " Sandwich",
+    " Court"
+   ],
+   "top_probes": [
+    "('pca', 'a9', 'r.6.0', (4, 16))",
+    "('pca', 'a9', 'r.6.0', (0, 2))",
+    "('pca', 'a9', 'r.6.0', (2, 4))",
+    "('pca', 'a9', 'r.6.0', (0, 4))"
+   ]
+  },
+  {
+   "tag": "r.6.0.2",
+   "repl": 0.999,
+   "class_r2": 0.051,
+   "best_class": "newline",
+   "n_members": 184,
+   "sample_tokens": [
+    "child",
+    " sessions",
+    " Sandwich",
+    " steak",
+    " Rye",
+    " S"
+   ],
+   "top_probes": [
+    "('pca', 'a9', 'r.6.0', (2, 4))",
+    "('pca', 'a9', 'r.6.0', (4, 16))",
+    "('pca', 'a9', 'r.6.0', (0, 2))",
+    "('pca', 'a9', 'r.6.0', (0, 4))"
+   ]
+  },
+  {
+   "tag": "r.6.0.3",
+   "repl": 1.0,
+   "class_r2": 0.015,
+   "best_class": "sentend",
+   "n_members": 184,
+   "sample_tokens": [
+    " Sandwich",
+    " E",
+    "child",
+    "org",
+    " N",
+    "."
+   ],
+   "top_probes": [
+    "('pca', 'a9', 'r.6.0', (0, 4))",
+    "('pca', 'a9', 'r.6.0', (0, 2))",
+    "('pca', 'a9', 'r.6.0', (2, 4))",
+    "('pca', 'a9', 'r.6.0', (4, 16))"
+   ]
+  },
+  {
+   "tag": "r.6.1",
+   "repl": 0.93,
+   "class_r2": 0.007,
+   "best_class": "sentend",
+   "n_members": 1222,
+   "sample_tokens": [
+    "ate",
+    " ,",
+    " s",
+    "\n",
+    " in",
+    " 32"
+   ],
+   "top_probes": [
+    "('pca', 'a9', 'r.6', (4, 16))",
+    "('head', 9, 7)",
+    "('pca', 'a9', 'r.6', (0, 4))",
+    "('head', 9, 8)"
+   ]
+  },
+  {
+   "tag": "r.6.1.0",
+   "repl": 0.983,
+   "class_r2": 0.01,
+   "best_class": "bclose",
+   "n_members": 184,
+   "sample_tokens": [
+    " from",
+    " NW",
+    " r",
+    " and",
+    " Ex",
+    " Court"
+   ],
+   "top_probes": [
+    "('pca', 'a9', 'r.6.1', (4, 16))",
+    "('pca', 'a9', 'r.6.1', (4, 10))",
+    "('pca', 'a9', 'r.6.1', (0, 2))",
+    "('pca', 'a9', 'r.6.1', (0, 4))"
+   ]
+  },
+  {
+   "tag": "r.6.1.1",
+   "repl": 0.996,
+   "class_r2": 0.061,
+   "best_class": "newline",
+   "n_members": 184,
+   "sample_tokens": [
+    ".",
+    " trip",
+    "259",
+    " c",
+    "child",
+    "\n"
+   ],
+   "top_probes": [
+    "('pca', 'a9', 'r.6.1', (0, 4))",
+    "('pca', 'a9', 'r.6.1', (0, 2))",
+    "('pca', 'a9', 'r.6.1', (4, 16))",
+    "('pca', 'a9', 'r.6.1', (4, 10))"
+   ]
+  },
+  {
+   "tag": "r.6.2",
+   "repl": 0.831,
+   "class_r2": 0.031,
+   "best_class": "bclose",
+   "n_members": 1222,
+   "sample_tokens": [
+    "ate",
+    "RY",
+    "IUM",
+    "UM",
+    " Battle",
+    "ICAN"
+   ],
+   "top_probes": [
+    "('pca', 'a6', 'r.6', (0, 4))",
+    "('pca', 'a6', 'r.6', (4, 16))",
+    "('head', 9, 8)",
+    "('head', 9, 4)"
+   ]
+  },
+  {
+   "tag": "r.6.2.0",
+   "repl": 0.896,
+   "class_r2": 0.145,
+   "best_class": "newline",
+   "n_members": 184,
+   "sample_tokens": [
+    "opping",
+    "tainment",
+    "tainment",
+    "2",
+    "wick",
+    " Battle"
+   ],
+   "top_probes": [
+    "('pca', 'a6', 'r.6.2', (4, 10))",
+    "('pca', 'a6', 'r.6.2', (0, 2))",
+    "('pca', 'a9', 'r.6.2', (0, 4))",
+    "('pca', 'a9', 'r.6.2', (4, 16))"
+   ]
+  },
+  {
+   "tag": "r.6.2.1",
+   "repl": 0.7,
+   "class_r2": 0.025,
+   "best_class": "bclose",
+   "n_members": 184,
+   "sample_tokens": [
+    " St",
+    "ights",
+    "259",
+    " Court",
+    "\n",
+    "\n"
+   ],
+   "top_probes": [
+    "('pca', 'a9', 'r.6.2', (0, 4))",
+    "('pca', 'a6', 'r.6.2', (2, 4))",
+    "('pca', 'a9', 'r.6.2', (4, 16))",
+    "('pca', 'a6', 'r.6.2', (0, 2))"
+   ]
+  },
+  {
+   "tag": "r.6.2.2",
+   "repl": 0.785,
+   "class_r2": 0.142,
+   "best_class": "newline",
+   "n_members": 184,
+   "sample_tokens": [
+    "opping",
+    "\n",
+    "ating",
+    "Train",
+    " Steps",
+    "193"
+   ],
+   "top_probes": [
+    "('pca', 'a9', 'r.6.2', (4, 16))",
+    "('pca', 'a9', 'r.6.2', (0, 4))",
+    "('pca', 'a6', 'r.6.2', (2, 4))",
+    "('pca', 'a6', 'r.6.2', (10, 16))"
+   ]
+  },
+  {
+   "tag": "r.6.2.3",
+   "repl": 0.872,
+   "class_r2": 0.021,
+   "best_class": "subword",
+   "n_members": 184,
+   "sample_tokens": [
+    " Sandwich",
+    "don",
+    "ate",
+    " Market",
+    "de",
+    " Rye"
+   ],
+   "top_probes": [
+    "('pca', 'a6', 'r.6.2', (2, 4))",
+    "('pca', 'a6', 'r.6.2', (10, 16))",
+    "('pca', 'a9', 'r.6.2', (0, 4))",
+    "('pca', 'a6', 'r.6.2', (4, 10))"
+   ]
+  },
+  {
+   "tag": "r.6.3",
+   "repl": 0.807,
+   "class_r2": 0.005,
+   "best_class": "newline",
+   "n_members": 1222,
+   "sample_tokens": [
+    "RY",
+    "opping",
+    " Steps",
+    "3",
+    "3",
+    "tainment"
+   ],
+   "top_probes": [
+    "('head', 9, 0)",
+    "('head', 9, 7)",
+    "('pca', 'a6', 'r.6', (4, 16))",
+    "('head', 9, 2)"
+   ]
+  },
+  {
+   "tag": "r.6.3.0",
+   "repl": 0.621,
+   "class_r2": 0.015,
+   "best_class": "ind",
+   "n_members": 184,
+   "sample_tokens": [
+    " Sandwich",
+    "\n",
+    "1",
+    "\n",
+    "head",
+    "1"
+   ],
+   "top_probes": [
+    "('pca', 'a6', 'r.6.3', (4, 10))",
+    "('pca', 'a9', 'r.6.3', (4, 16))",
+    "('pca', 'a6', 'r.6.3', (10, 16))",
+    "('pca', 'a9', 'r.6.3', (0, 4))"
+   ]
+  },
+  {
+   "tag": "r.6.3.1",
+   "repl": 0.736,
+   "class_r2": 0.032,
+   "best_class": "newline",
+   "n_members": 184,
+   "sample_tokens": [
+    " usually",
+    "opping",
+    "1",
+    "2",
+    "01",
+    "77"
+   ],
+   "top_probes": [
+    "('pca', 'a9', 'r.6.3', (0, 4))",
+    "('pca', 'a6', 'r.6.3', (10, 16))",
+    "('pca', 'a6', 'r.6.3', (4, 10))",
+    "('pca', 'a9', 'r.6.3', (4, 16))"
+   ]
+  },
+  {
+   "tag": "r.9",
+   "repl": 0.643,
+   "class_r2": 0.008,
+   "best_class": "bclose",
+   "n_members": 8141,
+   "sample_tokens": [
+    "\n",
+    "ISH",
+    "\n",
+    "\n",
+    "Train",
+    "\n"
+   ],
+   "top_probes": [
+    "('head', 6, 0)",
+    "('comp', 'a17')",
+    "('comp', 'm7')",
+    "('head', 7, 8)"
+   ]
+  },
+  {
+   "tag": "r.9.0",
+   "repl": 0.954,
+   "class_r2": 0.239,
+   "best_class": "newline",
+   "n_members": 1222,
+   "sample_tokens": [
+    "wick",
+    "2",
+    "\n",
+    ")",
+    "\n",
+    "77"
+   ],
+   "top_probes": [
+    "('pca', 'a7', 'r.9', (0, 4))",
+    "('pca', 'a6', 'r.9', (4, 16))",
+    "('head', 17, 6)",
+    "('pca', 'm7', 'r.9', (32, 64))"
+   ]
+  },
+  {
+   "tag": "r.9.0.0",
+   "repl": 0.977,
+   "class_r2": 0.175,
+   "best_class": "newline",
+   "n_members": 184,
+   "sample_tokens": [
+    "wick",
+    "B",
+    "3",
+    "ate",
+    "\n",
+    "don"
+   ],
+   "top_probes": [
+    "('pca', 'a7', 'r.9.0', (0, 2))",
+    "('pca', 'a7', 'r.9.0', (2, 4))",
+    "('pca', 'a6', 'r.9.0', (10, 16))",
+    "('pca', 'a17', 'r.9.0', (4, 16))"
+   ]
+  },
+  {
+   "tag": "r.9.0.1",
+   "repl": 0.899,
+   "class_r2": 0.018,
+   "best_class": "bclose",
+   "n_members": 184,
+   "sample_tokens": [
+    "ights",
+    " Rye",
+    " Information",
+    "ights",
+    " Tours",
+    " Museum"
+   ],
+   "top_probes": [
+    "('pca', 'a17', 'r.9.0', (4, 16))",
+    "('pca', 'a17', 'r.9.0', (0, 4))",
+    "('pca', 'a6', 'r.9.0', (4, 10))",
+    "('pca', 'a6', 'r.9.0', (10, 16))"
+   ]
+  },
+  {
+   "tag": "r.9.0.2",
+   "repl": 0.914,
+   "class_r2": 0.183,
+   "best_class": "newline",
+   "n_members": 184,
+   "sample_tokens": [
+    "oring",
+    "oya",
+    "ights",
+    "\n",
+    "ating",
+    "ights"
+   ],
+   "top_probes": [
+    "('pca', 'a6', 'r.9.0', (4, 10))",
+    "('pca', 'm7', 'r.9.0', (32, 48))",
+    "('pca', 'a17', 'r.9.0', (0, 4))",
+    "('pca', 'a17', 'r.9.0', (4, 16))"
+   ]
+  },
+  {
+   "tag": "r.9.1",
+   "repl": 0.921,
+   "class_r2": 0.182,
+   "best_class": "newline",
+   "n_members": 1222,
+   "sample_tokens": [
+    "\n",
+    "\n",
+    "\n",
+    "\n",
+    "\n",
+    "\n"
+   ],
+   "top_probes": [
+    "('pca', 'a7', 'r.9', (4, 16))",
+    "('pca', 'm7', 'r.9', (16, 32))",
+    "('head', 17, 3)",
+    "('head', 17, 6)"
+   ]
+  },
+  {
+   "tag": "r.9.1.0",
+   "repl": 0.937,
+   "class_r2": 0.186,
+   "best_class": "newline",
+   "n_members": 184,
+   "sample_tokens": [
+    " Tower",
+    " House",
+    " House",
+    " Abbey",
+    "opping",
+    " Hall"
+   ],
+   "top_probes": [
+    "('pca', 'm7', 'r.9.1', (16, 24))",
+    "('pca', 'a7', 'r.9.1', (4, 10))",
+    "('pca', 'a17', 'r.9.1', (4, 16))",
+    "('pca', 'm7', 'r.9.1', (24, 32))"
+   ]
+  },
+  {
+   "tag": "r.9.1.1",
+   "repl": 0.894,
+   "class_r2": 0.097,
+   "best_class": "newline",
+   "n_members": 184,
+   "sample_tokens": [
+    "eping",
+    "bourne",
+    " from",
+    " from",
+    "ours",
+    "\n"
+   ],
+   "top_probes": [
+    "('pca', 'm7', 'r.9.1', (24, 32))",
+    "('pca', 'a17', 'r.9.1', (0, 4))",
+    "('pca', 'a7', 'r.9.1', (10, 16))",
+    "('pca', 'a7', 'r.9.1', (4, 10))"
+   ]
+  },
+  {
+   "tag": "r.9.1.2",
+   "repl": 0.962,
+   "class_r2": 0.04,
+   "best_class": "ind",
+   "n_members": 184,
+   "sample_tokens": [
+    "cling",
+    "ating",
+    "2",
+    "IC",
+    "\n",
+    "City"
+   ],
+   "top_probes": [
+    "('pca', 'a17', 'r.9.1', (4, 16))",
+    "('pca', 'a7', 'r.9.1', (10, 16))",
+    "('pca', 'a7', 'r.9.1', (4, 10))",
+    "('pca', 'm7', 'r.9.1', (16, 24))"
+   ]
+  },
+  {
+   "tag": "r.9.3",
+   "repl": 0.648,
+   "class_r2": 0.018,
+   "best_class": "newline",
+   "n_members": 1222,
+   "sample_tokens": [
+    "\n",
+    "\n",
+    "\n",
+    "IC",
+    ".",
+    "\n"
+   ],
+   "top_probes": [
+    "('head', 17, 8)",
+    "('pca', 'm7', 'r.9', (0, 8))",
+    "('pca', 'm7', 'r.9', (32, 64))",
+    "('pca', 'm7', 'r.9', (16, 32))"
+   ]
+  }
+ ],
+ "pred_a": true,
+ "pred_b": true,
+ "pred_c": true,
+ "runtime_s": 583.966438293457
+}

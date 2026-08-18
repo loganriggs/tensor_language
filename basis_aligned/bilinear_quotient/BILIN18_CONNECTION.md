@@ -8081,3 +8081,24 @@ v2 queued with the three scaling levers: all 212 window rows (54k
 tokens), 24 root modes, and a SECOND recursion level (grandchildren,
 with pca-block parents refined by block-halving on the child's slice).
 Same bars re-registered.
+
+## 317. Sixty-eight supervised circuits -- the census quadruples
+
+`circuit_tree2.py`, all three bars HELD: **68 leaves pass the
+document-disjoint replication gate** (from 17 in v1 -- one data/depth
+scaling step quadrupled the census), **49 of the 68 are invisible to
+the 10-class taxonomy** (class R^2 <= 0.15), and the descendant
+replication rate held at 0.60 across both recursion levels. The
+depth-2 gate behaved exactly as designed: grandchild slices of ~180
+tokens mostly fail replication -- the algorithm refuses to
+over-subdivide rather than hallucinating structure, which is the
+honest failure mode the recursion was built around. Yield analysis:
+leaves come predominantly from depths 0-1; the binding constraint on
+further scale is DOCUMENTS (root modes and small slices both starve
+for document diversity, not tokens). Next steps queued: (i) the pack
+builder -- rerun the tree saving member-token indices and +/-10-token
+context windows per leaf into naming packs; (ii) the naming wave --
+fresh stateless subagents, one pack each, writing candidate names and
+mechanistic one-liners for the 68, to be red-teamed per the standing
+story protocol; (iii) the third data tranche (fresh pile documents)
+targeting the 100-circuit mark.
