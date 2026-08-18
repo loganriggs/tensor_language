@@ -477,6 +477,19 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   4.3× while neighboring directions go quiet), a regulatory function carried by the
   channel's <em>average</em> — which is exactly why the assembly can replace that whole
   attention layer with a single mean vector and still preserve the code's statistics.
+  The assembly campaign's closing discovery is an economics: replacing components is
+  priced not by each stand-in's own accuracy but by the <em>local</em> fidelity of the
+  stream at the sites where downstream rungs read — an 18% local stream difference
+  amplified a later rung's cost 2.4×, while global stream error near 100% coexists
+  with only +1.4 nats of behavioral cost (the model's output is extraordinarily
+  robust to internal substitution, so a working assembly never implies close
+  streams). Weights-derived "fold" tables — every vocabulary token run alone through
+  the real prefix, zero training data — beat fitted tables on both windows and
+  carried the best low-coverage point: <strong>20 of 36 components at +1.46 nats on
+  never-seen text (88% of the model's work)</strong>, with the honest
+  coverage-fidelity envelope running 20 @ +1.46, 20 components + 38 one-sentence
+  attention heads @ +2.29, and 34 @ +2.93 — a genuine trade-off curve with a
+  measured mechanism, not an unfinished backlog.
   And this structure is a family trait, not a quirk: the 12-layer sibling shows the
   same anatomy — front junctions, a free tail, and one narrow mid-depth junction
   (top-4 directions carry 85%) whose channel lives inside <em>its</em> private code's
