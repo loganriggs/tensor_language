@@ -1,0 +1,22 @@
+bilin12: 12 layers, d=768
+bilin12 base CE 3.6906
+block  0: +0.4525
+block  1: +0.7298
+block  2: +0.3854
+block  3: +0.5218
+block  4: +1.3549
+block  5: +3.5202
+block  6: +1.0763
+block  7: +0.0320
+block  8: +0.0161
+block  9: +0.0448
+block 10: +0.0362
+block 11: +0.0142
+mid junction candidate: block 5 (+3.5202) | median(2-11) +0.3854
+mid ladder: full +3.5202 top4 +2.9755 top16 +3.2519
+(a) front junction >= +0.5: HELD
+(b) mid junction >= 3x median: HELD
+(c) tail free: HELD
+(d) mid at private writer L4: False
+(e) typology transports (narrow): HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/junctions_bilin12_results.json (14s)

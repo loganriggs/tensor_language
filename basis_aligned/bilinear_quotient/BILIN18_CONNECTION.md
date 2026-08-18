@@ -7764,3 +7764,25 @@ worse than everything). Only b5, the regulator, is **additive-narrow**
 (four directions, mean-carried). The arc rests at earned scope: three
 junctions, two architectures, every claim either fresh-certified or
 explicitly typed by the experiment that refuted its first description.
+
+## 300. The junction anatomy is a family trait
+
+`junctions_bilin12.py` -- all four registered bars HELD. bilin12's
+handoff profile: front junctions (block 0 +0.45, block 1 +0.73), a
+mid-depth ridge rising through +0.52 / +1.35 to a peak at **block 5:
++3.52**, then a cliff -- blocks 7-11 all under +0.045. And the peak
+junction carries the NARROW signature (top-4 directions = 85% of the
+full cut): the additive-narrow regulator architecture transports across
+the family, at a mid junction 3.5x larger relative to its model than
+bilin18's.
+
+One honest structural difference: bilin18's narrow junction (block 5)
+sits one block BEFORE its private writer (mlp6) and range-regulates it;
+bilin12's narrow junction (block 5) sits one block AFTER its private
+writer (mlp4) -- so it cannot regulate the writer's output and, if the
+mechanisms correspond, should CONSUME the private code rather than
+govern it. In both models the family fact is: one narrow, high-value
+mid-depth junction adjacent to the private-writer anatomy, front
+coherence junctions, and a causally free tail. Link test queued for
+bilin12: does its 4-direction channel geometrically overlap mlp4's
+span (consumption), with per-class damage reported?

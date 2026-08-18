@@ -3912,3 +3912,6 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 - Junction types b5 (narrow) and b1 (coherence-inverted) certified fresh; b0's "distributed" amended to window-dependent/broad (token-conditioned junction follows the token mix). Basis-stability test queued.
 - b0 puzzle: subspaces agree (0.676) but cost transfer fails 7x -- variance basis != importance basis. Orthogonal-remainder test queued; b0 labeled broad/importance-unstable.
 - b0 resolved: handoff cost is HOLISTIC (joint cut 6x the sum of parts; no additive decomposition at rank<=16). Final typology: front junctions coherence-holistic (b0 harmless-end, b1 catastrophic-end), b5 additive-narrow regulator. Arc closed.
+
+## Appendix 300: junction anatomy universal (2026-08-18)
+- bilin12: same anatomy (front junctions, narrow mid junction +3.52 at block 5 top-4=85%, free tail). Regulator architecture transports; adjacency to private writer holds with flipped order (consume vs regulate) -- link test queued.
