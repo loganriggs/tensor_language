@@ -7402,3 +7402,19 @@ null (replay with REAL patterns must cost ~0), per-layer recon offsets,
 and a per-head greedy: which individual heads accept their motif
 sentence for free? Registered there: |recon| <= 0.02; >=30/74 heads
 swap at <= +0.01 corrected; adopted set <= +0.10 total.
+
+## 282. Motif sentences are individually true, jointly conductive
+
+`motif_swap2.py`: the reconstruction null is EXACTLY 0.0000 (the v1
+instrument was valid all along -- v1's "control improved CE" was real
+pattern slack: handing random heads a tame one-hot pattern slightly
+helps). Per-head greedy: **71 of 74 named-motif heads accept their
+literal motif pattern at <= +0.01 nats each** (prediction (b) HELD,
+71 >> 30). But the adopted set jointly costs +0.451 (bar +0.10 FAILED):
+the swaps are individually free and collectively expensive -- pattern
+substitution errors conduct and compound exactly like the assembly's
+component errors. The motif census is thus VALIDATED as description
+("head L4h2 is a previous-token head" is true and per-head causally
+cheap) while whole-repertoire replacement needs the same composition
+machinery (sequential fitting, absorbers) the MLP side needed. The
+pattern side now has its grammar problem, with a known playbook.

@@ -3878,3 +3878,6 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 
 ## Appendix 281: motif swap v1 (2026-08-18)
 - Whole-family pattern swaps too expensive (both +1.28, super-additive) and the random-head control IMPROVED CE -- instrument lacks a reconstruction null; v2 queued with null + per-head greedy.
+
+## Appendix 282: per-head motif validation (2026-08-18)
+- Recon null exact 0; 71/74 heads swap individually at <=+0.01; joint +0.45. Motif sentences true per head; composition needs the grammar playbook. v1 control anomaly = real pattern slack.
