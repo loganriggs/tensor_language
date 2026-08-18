@@ -200,3 +200,11 @@ scored by MARGIN over the median other-partner similarity, never by rank --
 rank is dominated by generically loud components on any text window and
 collapsed for a certified edge whose margin simultaneously replicated at
 2x the bar on fresh text.
+
+Frontier point from the circuit track (section 241): the conditional-
+constant dictionary -- eight tail MLP span components replaced by ten
+per-function-class constants (640 numbers + ten predicates) recovers 50%
+of their joint ablation damage cross-window. Slice-conditioning is a
+description class the flat layer ladder could not express; its failure
+modes (copying sites, residual class) are where token-specific content
+lives.

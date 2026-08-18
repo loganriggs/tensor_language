@@ -3663,3 +3663,11 @@ compression lever the flat layer-track couldn't see: high-rank
 unconditionally, near-constant given the site type.
 
 Full detail in `BILIN18_CONNECTION.md` §240.
+
+### Half the tail is a 640-number dictionary
+
+Eight tail MLP spans jointly replaced by per-class constants: 50% total
+recovery (digit 102%, subword 71%; induction -9% -- copying defeats
+constants). Shuffle control -17%. New benchmark frontier point at ~0.7KB.
+
+Full detail in `BILIN18_CONNECTION.md` §241.

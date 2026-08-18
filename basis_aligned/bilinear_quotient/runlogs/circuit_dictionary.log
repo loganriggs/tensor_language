@@ -1,0 +1,24 @@
+span mlp10
+span mlp11
+span mlp12
+span mlp13
+span mlp14
+span mlp15
+span mlp16
+span mlp17
+
+TOTAL: ablate +0.6754 dict +0.3411 (recovery 50%) shuffled rec -17%
+  digit    n=   720 rec 1.02
+  bclose   n=   249 rec -6898.18
+  newline  n=  2428 rec 1769865.2
+  sentend  n=  1323 rec 196295.37
+  comma    n=  1256 rec 179362.66
+  name     n=   759 rec 0.58
+  rep      n=  3100 rec 62322.77
+  subword  n=  8497 rec 0.71
+  ind      n= 11064 rec -0.09
+  other    n= 16684 rec 0.26
+(a) joint recovery >=50%: FAILED
+(b) subword class >=70%: HELD
+(c) shuffled <=10%: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/circuit_dictionary_results.json (23s)

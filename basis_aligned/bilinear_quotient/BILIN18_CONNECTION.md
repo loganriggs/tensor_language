@@ -6491,3 +6491,28 @@ ground-truth circuits buying better compression. Next rung queued: the
 conditional-constant DICTIONARY — all ten function slices × all owner
 components as one whole-model Track-2 submission priced at its true
 description length.
+
+## 241. Half the tail is a 640-number dictionary
+
+File: `circuit_dictionary.py`. All eight tail MLP span components (mlp10-17)
+replaced simultaneously by per-class constants — ten mutually-exclusive
+function classes, fit on window A, applied on window C:
+
+    joint span ablation: +0.675 nats     dictionary: +0.341 (recovery 49.96%
+    — the registered 50% bar missed by rounding; recorded as failed)
+    label-shuffled control: −17% (worse than ablation — assignments matter)
+    description cost: 640 numbers + ten one-line predicates
+
+Per-class (classes with near-zero ablation damage excluded from ratios —
+their denominators blow up; floor note recorded): digit sites recover 102%,
+subword 71% (bar (b) held), name 58%, the unclassified residual 26%, and
+induction sites −9% — the dictionary is NO better than ablation where the
+content must be token-specific (copying), exactly where constants should
+fail. The honest summary of the submission: **half of everything the eight
+tail span components do is "look up the site type, add the type's fixed
+vector" — a ~0.7 KB description — and the unreplaced half concentrates
+precisely in copying sites and the residual class.** The benchmark gains a
+new frontier point purchased by semantics: the flat layer-track priced this
+same content at rank-64 refit maps per layer. Next rung queued: per-class
+linear maps for the two failing classes only (induction, other), priced
+honestly against their parameter cost.
