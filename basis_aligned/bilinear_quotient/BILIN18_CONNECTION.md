@@ -7886,3 +7886,17 @@ window-A token statistics that the fold construction gets from the
 weights, generalization included. Registered merge queued: fold tables
 into the head-hybrid frontier config -- predicted new frontier <= +2.35
 fresh (from +2.543).
+
+## 306. The merge fails by our own grammar -- and gets rebuilt correctly
+
+`hybrid_fold.py`: hot-swapping fold tables into the finished hybrid
+cost +3.76 on both windows -- worse than either ingredient. The failure
+is diagnostic, not mysterious: every downstream fitted piece (attention
+dictionaries, tail spans, mean gains) was fit SEQUENTIALLY under the
+empirical front's stream; swapping the front afterward violates the
+composition grammar's first rule (257: fit each stand-in under its
+actual upstream context), and the conducted mismatch compounds.
+Instrument error of the self-inflicted kind, recorded. The corrected
+merge -- fold tables installed inside the sequential fit chain, so the
+entire downstream stack is fit under the fold front -- is queued with
+the same registered bars (<= +2.35 fresh; beats +2.543 by >= 0.15).

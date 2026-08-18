@@ -1,0 +1,22 @@
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+named heads in 2-9: prev {2: [2, 6, 8], 3: [4, 6, 7], 4: [0, 1, 3, 5, 7], 5: [3, 6, 8], 6: [3], 7: [8], 9: [0, 7]} self {2: [1], 3: [3], 4: [2, 4, 8], 6: [0, 4, 6, 8], 7: [5, 7], 8: [0, 1, 5, 7, 8], 9: [1, 2, 4, 5]} (total 38)
+fresh: empirical hybrid +2.5432 | FOLD hybrid +3.7616 | window C fold-hybrid +3.7642
+(a) fold hybrid <= +2.35: FAILED
+(b) beats empirical by >=0.15: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/hybrid_fold_results.json (81s)
