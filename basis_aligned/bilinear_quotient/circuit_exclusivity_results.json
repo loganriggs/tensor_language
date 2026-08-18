@@ -1,0 +1,45 @@
+{
+ "circuits": {
+  "digit": {
+   "slice_damage_full": 0.3199,
+   "slice_damage_onslice": 0.2994,
+   "slice_damage_offslice": 0.0201,
+   "total_onslice": 0.0043,
+   "total_offslice": 0.0338,
+   "recover_frac": 0.94,
+   "spill_frac": 0.06
+  },
+  "bclose": {
+   "slice_damage_full": 1.1369,
+   "slice_damage_onslice": 0.7277,
+   "slice_damage_offslice": 0.1535,
+   "total_onslice": 0.0042,
+   "total_offslice": 0.1877,
+   "recover_frac": 0.64,
+   "spill_frac": 0.14
+  },
+  "subword": {
+   "slice_damage_full": 1.1583,
+   "slice_damage_onslice": 1.1821,
+   "slice_damage_offslice": 0.0016,
+   "total_onslice": 0.2148,
+   "total_offslice": 0.039,
+   "recover_frac": 1.02,
+   "spill_frac": 0.0
+  },
+  "name": {
+   "slice_damage_full": 1.3356,
+   "slice_damage_onslice": 0.2446,
+   "slice_damage_offslice": 0.8593,
+   "total_onslice": 0.0086,
+   "total_offslice": 0.7922,
+   "recover_frac": 0.18,
+   "spill_frac": 0.64
+  }
+ },
+ "pred_a": true,
+ "pred_b": true,
+ "pred_c_subword_moonlights": false,
+ "longshot_bclose_dedicated": false,
+ "runtime_s": 26.289502143859863
+}

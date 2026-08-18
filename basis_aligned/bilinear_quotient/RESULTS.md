@@ -3645,3 +3645,12 @@ replicable but redundant (not concentrated). 79% of unsupervised clusters
 are these ten functions.
 
 Full detail in `BILIN18_CONNECTION.md` §238.
+
+### Site-specificity: 3/4 local; name circuit works from the antecedent
+
+digit 94%, subword 102%, bclose 64% site-local; name only 18% -- attn0/1
+build the copy SOURCE at earlier mentions (transport, not site-local).
+Subword completion is most of mlp16+mlp15's total job. Digit and subword
+nominated as first slice-conditioned replacement targets.
+
+Full detail in `BILIN18_CONNECTION.md` §239.

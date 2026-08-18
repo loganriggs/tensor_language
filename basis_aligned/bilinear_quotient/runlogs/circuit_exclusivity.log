@@ -1,0 +1,11 @@
+sanity attn-hook full ablation attn1 net +0.2416 (atlas ~+0.05 expected scale)
+digit   : slice dmg full +0.320 | on-only +0.299 (94%) | off-only +0.020 (6%) | moonlight tot off +0.0338 vs on +0.0043
+bclose  : slice dmg full +1.137 | on-only +0.728 (64%) | off-only +0.153 (14%) | moonlight tot off +0.1877 vs on +0.0042
+subword : slice dmg full +1.158 | on-only +1.182 (102%) | off-only +0.002 (0%) | moonlight tot off +0.0390 vs on +0.2148
+name    : slice dmg full +1.336 | on-only +0.245 (18%) | off-only +0.859 (64%) | moonlight tot off +0.7922 vs on +0.0086
+
+(a) site-local >=3/4: HELD (3)
+(b) low spillover >=3/4: HELD (3)
+(c) subword owners moonlight: FAILED
+    long-shot bclose dedicated: no
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/circuit_exclusivity_results.json (26s)

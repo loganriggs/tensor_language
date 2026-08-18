@@ -6432,3 +6432,34 @@ functions — the 147 structural circuits are largely these functions,
 subdivided by ownership. Scope note: IOI and addition have no natural
 support in this web-text corpus; constructed-prompt windows are the
 extension for task-style circuits.
+
+## 239. Site-specificity: three circuits are local, and the name circuit works from the antecedent
+
+File: `circuit_exclusivity.py` (instrument note: the attention module-hook
+ablation agrees with the atlas's manual-forward instrument to four decimals,
++0.2416 = +0.2416). Positional ablation of each certified circuit's top-2
+owners — everywhere vs on-slice-only vs off-slice-only, window C:
+
+    digit   (attn8+mlp15): 94% of slice damage is site-local, 6% spillover
+    subword (mlp16+mlp15): 102% site-local, 0% spillover — perfectly local
+    bclose  (attn13+attn4): 64% local, 14% spillover
+    name    (attn1+attn0):  18% local — 64% of slice damage comes from
+                            ablating the owners at OTHER positions
+
+Bars (a) and (b) held at 3/4, and the one "failure" is the best mechanism
+discovery of the day: **the name-continuation circuit does its work at the
+antecedent, not the prediction site.** Ablating attn0/attn1 away from name
+sites destroys name predictions anyway, because those heads build the token
+identity representations at the name's earlier mention that downstream
+copying reads as its source — cross-position influence in this architecture
+flows only through attention keys/values, so damage at the source position
+arrives at the destination through the copy. attn1 is infrastructure (the
+lexical representation everyone consumes), not a site-local name predictor —
+consistent with its §-era "most important attention" role. Registered
+moonlighting call (c) failed in the informative direction: mlp16+mlp15's
+on-slice total cost (0.215) dwarfs their off-slice cost (0.039) — subword
+completion is most of what those tail MLPs do, which squares with mlp16's
+old profile as the syntax-bus consumer. The compression instruction from
+this section: digit and subword circuits are site-local and slice-dominant,
+so their owners are candidates for slice-conditioned replacement — the
+first Track-2 targets nominated by certified semantics.
