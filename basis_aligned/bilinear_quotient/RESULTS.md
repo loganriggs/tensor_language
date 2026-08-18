@@ -3858,3 +3858,8 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 ## Appendix 274: front marginals (2026-08-18)
 - In-assembly LOO: mlp1 +0.006 (99.9% of its 5.32-nat solo relevance captured); front block total +0.046; tail spans 0.011-0.082. Deploy probe token-prior upgrade refuted (0.686->0.701, no CE change).
 - a8 rescue refuted: digit-linear arm no better than plain dict (+0.62 marginal both). Counting is cross-position transport.
+
+## Appendix 275-276: rank floor + LEDGER 22 fresh-data audit (2026-08-18)
+- Linear arms genuinely high-rank (rank-128 costs +0.087). 
+- Fresh never-seen pile window: best-34 = +3.114 (standard window +2.749 -- ~0.35 optimism bias); only 3/6 greedy swaps replicate; all-means baseline +7.04 (assembly content real); fineweb +3.45.
+- LEDGER 22: within-sample fit/eval splits insufficient; selections must validate out-of-sample. Honest frontier: 34/36 at ~+3.11 fresh (74% of model work).

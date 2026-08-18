@@ -7249,3 +7249,44 @@ at layer 1 the stream is still nearly token-determined, so "linear map on
 a token-determined input" and "token table" nearly coincide -- but the
 census entry was mislabeled and the two descriptions have different
 fitted-bits prices.
+
+## 275. Linear arms are not low-rank; a8 stays dead
+
+`linarm_rank.py`: truncating all dictionary linear arms + m1's map to
+rank 128 costs +0.087 (bar +0.02 FAILED); rank 32 +0.138 (FAILED); rank
+8 +0.20. The fitted-bits hogs cannot be shrunk for free -- the
+contextual-class arms carry genuinely high-rank transport, consistent
+with the broad-interface findings (263). The fitted-bits census stands
+at its honest (large) value for those slots.
+
+## 276. LEDGER 22: the eval window flattered us -- fresh-data audit
+
+User asked whether results survive more data. `fresh_replication.py`
+built a 180-row window from never-seen pile documents (dedup-checked
+against FW) plus the saved fineweb window, and re-scored everything.
+
+- **best-34 on fresh pile: +3.114 oracle / +3.208 deploy** vs +2.749 /
+  +2.953 on the standard eval window. Registered +-0.30 band FAILED by
+  0.07. The standard eval window (FW rows 120-300) comes from the same
+  512-row corpus sample as the fit window (rows 300-512); table means and
+  class constants transfer better within that sample than to fresh text.
+  All frontier numbers are eval-window-optimistic by roughly +0.35.
+- **Only 3 of 6 greedy mean-swaps replicate** (a5, a14, a16). Reverting
+  a2 IMPROVES fresh CE by 0.163; a9 by 0.035; c8 by 0.011. The greedy's
+  0.005 adoption threshold was fitting eval-window noise/particulars.
+- a8 re-add: +0.249 on fresh (direction replicates, size halves; the
+  >=0.3 bar FAILED).
+- **All-means baseline: +7.04** (HELD >= 6) -- a 36-vector model retains
+  only ~41% of the model's work vs the assembly's ~74% (fresh-honest
+  number). The assembly content is real.
+- Fineweb (out-of-domain): base 3.077, best-34 +3.449 -- degrades but
+  works; the dictionaries are corpus-tilted, not corpus-locked.
+
+**LEDGER 22:** a fit/eval split WITHIN one corpus sample does not control
+sample-level correlation; greedy selection on a fixed eval window is
+itself a fit. New standing rules: (i) frontier numbers are quoted with
+their fresh-window value or not at all; (ii) any selection procedure
+(greedy swaps, drop rules) must validate its choices on a window outside
+the sample, with a third window for the final quote. The honest frontier
+today: **34/36 at ~+3.11 oracle on fresh text (74% of the model's work),
+all-means floor +7.04, ceiling +11.95.**
