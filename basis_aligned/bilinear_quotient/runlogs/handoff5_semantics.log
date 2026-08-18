@@ -1,0 +1,13 @@
+dir0 +:['perature', 'everal', ' Replay', ' TABLE', '>.', ' Mutant', 'legram', 'estern']
+dir0 -:['-', '�', 'ist', 'ne', ' �', ' […]', '...', '/']
+dir1 +:[',', '.', ';', ' and', '!', '/', ' of', "'s"]
+dir1 -:[' The', 'the', ' Other', 'The', 'This', ' This', ' You', ' Also']
+dir2 +:['\n', ' the', ' both', ' their', ' which', ' just', ' this', ' not']
+dir2 -:['x', '+', 'ine', 'ix', '-', 'ime', 'ron', '=']
+dir3 +:['.', ' which', '�', ' (', ' –', ' where', ' because', ' however']
+dir3 -:['"]', 'icial', 'BIL', ' Puzz', '");', ' humble', 'perate', '使']
+class R2 per dir: [0.202, 0.144, 0.305, 0.136] null: [0.0, 0.0, 0.0, 0.0]
+overlap: mlp5-span 0.408 mlp6-span 0.376 random 0.009 (floor ~0.007)
+(a) class R2>=0.1 for >=2 dirs (4/4), null clean: HELD
+(b) span overlap >= 10x floor: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/handoff5_semantics_results.json (3s)

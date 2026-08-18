@@ -3897,3 +3897,7 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 ## Appendix 289: narrow handoff + induction third strike (2026-08-18)
 - attn5->mlp5 = a 4-16 direction channel (top-4 carry 76%, random-16 nothing).
 - Matched-successor linear read refuted on the census heads (same-position control wins); exact-mixing rerun queued under three-strikes.
+
+## Appendix 290: convergence (2026-08-18)
+- Induction linear reduction CLOSED at scope (three strikes, exact mixing).
+- The attn5->mlp5 channel is a clause-boundary signal feeding the private span (overlap 40-50x floor; class R^2 up to 0.31, nulls 0). Anomaly arc and circuit arc joined: gather -> encode -> idiosyncratic readout.

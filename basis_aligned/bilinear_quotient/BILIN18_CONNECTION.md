@@ -7568,3 +7568,30 @@ layer-0 values was approximated -- so an exact-mixing rerun is queued
 under the three-strikes rule: if it fails with exact values, the
 program closes the hypothesis class at scope and records induction
 transport as irreducibly the head's own bilinear computation.
+
+## 290. The anomaly finds its upstream: the handoff channel feeds the private span
+
+`induction_channel2.py` (exact v-mixing): unchanged -- channel R^2
+0.245/0.163/0.304, same-position control higher at all three heads.
+**Strike three; the hypothesis class closes at scope.** Induction
+transport in bilin18 is not a linear read of any single position
+(naive copy x2, learned matched-successor channel x2); the head's own
+pattern-times-values computation stands as its minimal description.
+
+`handoff5_semantics.py`: both bars HELD. All four directions of the
+attn5->mlp5 channel carry function-class information (class R^2 0.20 /
+0.14 / 0.31 / 0.14; shuffled nulls exactly 0.0), and the logit lens
+reads as a CLAUSE-BOUNDARY / syntax axis: dir1 separates punctuation
+and connectives from sentence-starters, dir2 newline-and-function-words
+from math/subword symbols, dir3 clause connectives (which / because /
+however / where). And the closure: the channel's overlap with mlp5's
+output span is 0.408 and with mlp6's PRIVATE span 0.376, against a
+0.009 random floor -- 40-50x. **The model's biggest causal junction is
+the upstream source of the private-writer anatomy**: attn5 aggregates
+clause-structure evidence and hands it to mlp5/6, which write the
+contested 8-dim code that every reader understands in a private
+dialect (219-224). The two-hundred-section anomaly arc and the circuit
+arc now meet in one mechanism: gather (attn5, 4 directions) -> encode
+(mlp5/6, 8-dim span) -> idiosyncratic readout (every tail layer, no
+consensus). Causal link test queued: cutting the 4 directions should
+collapse the span code and concentrate CE damage in clause classes.
