@@ -3696,3 +3696,13 @@ points writing content, ~20 points knowing the type. Fit/apply interface
 bug caught by the oracle arm failing to reproduce 95%.
 
 Full detail in `BILIN18_CONNECTION.md` §244.
+
+### Task circuits + families
+
+Counting = the certified digit circuit (attn8 at +2.21, 10x runner-up;
+100% top-1). IOI (58%): executed by LATE attention (attn14 top) while
+early attention builds the source -- attn14 is harmful on average text
+and essential for retrieval. Addition: model can't (0%). 147 circuits
+collapse to 20 owner-function families.
+
+Full detail in `BILIN18_CONNECTION.md` sections 245-246.

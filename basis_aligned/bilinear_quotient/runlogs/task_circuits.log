@@ -1,0 +1,11 @@
+ioi         : top1 58% ce 1.84
+  top owners: [('attn14', 1.0835), ('mlp17', 1.0152), ('attn16', 0.9747), ('mlp5', 0.8283), ('attn13', 0.7047)]
+count       : top1 100% ce 0.26
+  top owners: [('attn8', 2.2069), ('attn3', 0.2199), ('mlp0', 0.1538), ('mlp4', 0.1481), ('attn7', 0.1129)]
+add         : top1 0% ce 3.88
+ioi_shuffled: top1 3% ce 5.99
+
+(a) IOI top1 >=50%: HELD
+(b) IOI owners in copy/induction band: FAILED
+(c) counting owned by digit circuit: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/task_circuits_results.json (29s)

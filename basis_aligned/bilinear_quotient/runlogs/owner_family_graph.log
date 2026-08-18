@@ -1,0 +1,17 @@
+147 circuits -> 20 families
+multiplexed owners (>=3 classes): ['mlp15', 'mlp17', 'mlp9', 'attn2', 'attn5', 'attn15', 'attn9', 'attn7', 'attn14', 'attn8', 'attn0', 'attn1', 'attn12', 'mlp6', 'attn4', 'mlp4', 'mlp7', 'mlp1', 'attn10', 'mlp8', 'mlp14']
+split functions (>=3 owners): ['other', 'ind', 'subword', 'comma', 'newline', 'sentend', 'digit']
+  other   : {'attn5': 8, 'attn17': 6, 'attn9': 6, 'attn4': 5}
+  ind     : {'attn4': 9, 'attn5': 7, 'attn3': 6, 'attn7': 6}
+  subword : {'attn5': 7, 'mlp11': 7, 'attn1': 6, 'attn2': 6}
+  comma   : {'attn15': 2, 'attn10': 2, 'mlp17': 1, 'mlp6': 1}
+  newline : {'attn12': 4, 'mlp17': 4, 'mlp1': 1, 'mlp7': 1}
+  sentend : {'attn10': 4, 'attn15': 2, 'mlp15': 1, 'mlp14': 1}
+  digit   : {'mlp14': 2, 'mlp15': 2, 'attn9': 1, 'attn12': 1}
+  rep     : {'attn5': 1, 'attn4': 1}
+  name    : {'attn0': 1, 'attn1': 1}
+  bclose  : {'attn4': 1, 'attn8': 1}
+(a) >=3 multiplexed: HELD
+(b) subword+ind split: HELD
+(c) families <= 1/3 circuits: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/owner_family_graph_results.json (0s)

@@ -6585,3 +6585,43 @@ the tail itself. That residual is the honest next frontier, and the
 benchmark records the three-rung curve: 50% at 0.7KB (constants), 95% at
 148K oracle-conditioned (decomposition), 75% at 160K input-only
 (deployable).
+
+## 245. Task circuits from constructed prompts: counting IS the digit circuit; IOI is executed by the "harmful" late attention
+
+File: `task_circuits.py`. First constructed-prompt windows (the corpus has
+no natural IOI/arithmetic support):
+
+- **Counting** ("5, 6, 7, 8," → " 9"): the model is perfect (100% top-1)
+  and ownership is the sharpest attribution the program has produced —
+  **attn8 at +2.21 nats, ten times the runner-up**. The certified natural-
+  corpus digit circuit (attn8+mlp15, §§238-240) IS the counting circuit on
+  synthetic prompts. Cross-paradigm validation of a discovered circuit —
+  registered bar (c) held.
+- **IOI-analog** (58% top-1, bar (a) held): ownership at the answer is NOT
+  the early copy band (bar (b) failed informatively) — it is the output
+  end: attn14 +1.08, mlp17 +1.02, attn16 +0.97, mlp5 +0.83, attn13 +0.70.
+  Combined with §239 (attn0/1 build the copy source at the antecedent),
+  the task splits cleanly: early attention writes the source, LATE
+  attention executes the retrieval at the answer. And the top executor is
+  attn14 — the component whose certified Track-1 story is "net-harmful
+  late attention whose deletion relieves confidently-wrong tokens" on
+  natural text. Both are true: the component that hurts average prediction
+  is the one that performs name retrieval when retrieval is the task. The
+  strongest single dissociation between average-text and task-conditional
+  importance in the record.
+- **Addition**: 0% top-1 — the model cannot do single-digit addition;
+  recorded as a capability fact per registration (d), ownership skipped.
+- Shuffled-names control: 3% top-1, CE 5.99 (sane floor).
+
+## 246. Twenty families: the amortization structure of 147 circuits
+
+File: `owner_family_graph.py`. Linking circuits that share both majority
+function class and a top owner: **147 structural circuits collapse to 20
+families** (bar: ≤ 49). Multiplexed owners (≥3 function classes each)
+include the mid-attention generalists (attn4, attn5) and late components;
+subword and induction are split functions (≥3 distinct owner components
+each — depth-multiplexed, matching why fine clusters looked function-
+redundant in §238). The class×owner table is the amortization map the
+benchmark's node-complexity idea wanted: twenty ownership families, ten
+functions, and the certified-circuit list is the product of the two, not
+147 independent facts.
