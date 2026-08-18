@@ -7687,3 +7687,25 @@ stand-in beats an accurate partial one) reappears at the scale of a
 single junction. Junction typology so far: block 5 = narrow regulator,
 block 1 = coherence-critical handoff; block 0's dissection queued to
 complete the trilogy.
+
+## 296. Three junctions, three architectures
+
+`handoff0_dissect.py`: block 0's ladder rises smoothly -- top-4 +0.006,
+top-16 +0.079 (10% of the +0.831 full cut; bar (a) FAILED as
+registered), top-64 +0.335, k=256 +0.977 -- no narrow carrier set at
+all. The lexical handoff (attn0's input is exactly rms(wte), so this
+junction is token-conditioned by construction) is DISTRIBUTED across
+hundreds of directions, matching its value-table character: a
+full-vocabulary object has no four-direction summary.
+
+The junction trilogy is complete, and the answer to "is junction a
+repeated motif?" is precise: the model has exactly three critical
+attn->own-mlp junctions and they use THREE DIFFERENT ARCHITECTURES --
+**block 0: distributed lexical broadcast** (wide, smooth ladder),
+**block 1: coherence-critical handoff** (partial edits cost double the
+full cut), **block 5: narrow regulator** (four directions, mean-
+carried, governs the private span). The wiring motif repeats; the
+implementation does not -- the same shared-function-private-binding
+signature the whole program keeps finding, now at the junction level.
+Fresh-shape certification queued (the three ladder SHAPES on never-seen
+text; the costs themselves already replicated in 294).

@@ -3906,3 +3906,6 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 - Assembly preserves span statistics (0.70 uniform) -- the regulator works through its MEAN, which is why a5's best stand-in is one vector. Arc closed; fresh replication queued.
 - Regulator arc REPLICATES FRESH: junctions +0.96/+1.95/+2.16 vs controls +0.05/+0.004; span explosion 4.33x. Quotable.
 - Block-1 junction INVERTS the rank ladder (top-4 cut +4.08 > full cut +1.95): a coherence junction -- mlp1 tolerates full presence or clean absence, not partial edits. Junction typology: narrow regulator (b5) vs coherence handoff (b1).
+
+## Appendix 295-296: junction typology (2026-08-18)
+- Three critical junctions, three architectures: b0 distributed lexical (no narrow core), b1 coherence-critical (top-4 cut +4.08 > full +1.95), b5 narrow regulator (4 dirs, mean-carried). Shared wiring motif, private implementations. Fresh shape-certification queued.

@@ -1,0 +1,10 @@
+full cut +0.8310
+k=   4 top-dirs cut +0.0063
+k=  16 top-dirs cut +0.0792
+k=  64 top-dirs cut +0.3351
+k= 256 top-dirs cut +0.9765
+random-16 control +0.0003
+(a) top-16 >= 60% of full: FAILED
+(b) random-16 <= 20% of top-16: HELD
+(c) monotone, k=256 >= 90%: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/handoff0_dissect_results.json (10s)
