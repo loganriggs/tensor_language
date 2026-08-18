@@ -7995,3 +7995,19 @@ heads @ +2.29 (empirical base -- dominates the old 26+38 @ +2.54) / 28
 @ +2.84 / 34 @ +2.93.** The benchmark's next moves are now
 principled: pick each rung's substrate by where downstream readers
 look, and spend absorber capacity at read sites, not uniformly.
+
+## 312. The pricing law predicts its second config: high coverage at +2.67
+
+`empirical_L2.py`, both bars HELD: the substrate chosen BY the pricing
+law (empirical base -- faithful in blocks 2-9 where the motif heads
+read) carries the high-coverage stack to **+2.6735 fresh at 28
+components + 38 heads** (effective coverage ~32 of 36), beating the
+fold-L2 (+2.84) and the old 34-component frontier (+2.93). The
+tail-attention increment came in at +0.386, inside the registered
+[0.30, 0.55] band predicted from the substrate's late-stream fidelity
+-- the local pricing law has now called two configurations in advance.
+Updated fresh envelope: 20 @ +1.46 (fold base) / 24-eff @ +2.29 /
+**32-eff @ +2.67** / 34 @ +2.93. The remaining coverage gap to full:
+the 8 middle-attention components' non-motif heads and a8 -- both known
+irreducible-or-expensive, which is now a measured statement about the
+model, not a to-do item.
