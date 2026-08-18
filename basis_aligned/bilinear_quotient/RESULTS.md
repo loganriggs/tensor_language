@@ -3929,3 +3929,6 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 - Fold tables strictly dominate empirical (C: 1.390 vs 1.481; fresh: 1.602 vs 1.926). Transfer tax avoidable. Merging into the frontier config.
 - Naive fold merge FAILED (+3.76) by violating sequential fitting; corrected in-chain refit queued.
 - In-chain fold merge also failed (+4.77): fits under dict-band context, eval with band real. Rule upgraded: fit under the eval config's context. Matched-context merge queued with empirical twin control.
+
+## Appendix 308: matched-context merge (2026-08-18)
+- 20 components at +1.457 fresh / +1.251 C (fold front + CP middles + context-matched tail). Beats the 34-comp frontier by 1.47 nats with 14 fewer components. Fold beats matched empirical twin by 0.40. Ladder rebuild queued.

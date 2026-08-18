@@ -7917,3 +7917,21 @@ different downstream plan still conduct. The matched-context merge
 (front fold fits with attention real, CP middles, tail refit under the
 same, motif gains last, and an empirical-table twin refit identically
 as the controlled comparison) is queued.
+
+## 308. The grammar pays: 20 components at +1.46 fresh
+
+`hybrid_fold3.py`, both bars HELD with margin. Built entirely under the
+upgraded rule (fit every rung in the eval configuration's own context:
+attention real throughout, tail refit under the exact stack), the fold
+arm reads **+1.4565 fresh / +1.2505 window C at 20 components** (fold
+front m0/m2/m3 + a1v + m1 + CP middles + tail spans). The matched
+empirical twin reads +1.8613 fresh -- the fold advantage (0.40) not
+only survives composition, it exceeds its front-only size. Context:
+the old fresh ladder had the 20-component rung at +2.02, and the full
+34-component frontier at +2.93 -- this construction beats the latter by
+1.47 nats with 14 fewer components replaced. Two lessons compounded:
+weights-derived tables travel (305), and context-matched refits recover
+what mismatched chains leak (307). Queued: the matched-context ladder
+back up -- +38 motif heads, then tail-attention dictionaries refit
+under the stack, then the middle-attention band -- each rung fit under
+its own eval context, with registered bars per stage.
