@@ -1,0 +1,102 @@
+[
+ {
+  "circuit_id": 69,
+  "story": "Predicting the next character-level piece, a digit or punctuation mark, inside a compound token such as a decimal number, price, time, URL, or code identifier.",
+  "rule": {"target_class_in": ["digit", "punct"]}
+ },
+ {
+  "circuit_id": 71,
+  "story": "Continuing a multi-token word or phrase whose completion is supplied by an earlier occurrence of the same sequence in the context (induction-style copying).",
+  "rule": {"is_induction": true}
+ },
+ {
+  "circuit_id": 72,
+  "story": "Predicting the comma that closes a long descriptive clause or list item ending in a noun phrase, in running prose of any topic.",
+  "rule": {"target_class_in": ["punct"], "target_in": [","], "is_induction": true}
+ },
+ {
+  "circuit_id": 74,
+  "story": "Predicting the next word of an ordinary mid-sentence prose continuation, often the noun or function word that completes a familiar phrase.",
+  "rule": {"target_class_in": ["space_word", "punct"]}
+ },
+ {
+  "circuit_id": 75,
+  "story": "Predicting the closed-class function word (article, preposition, auxiliary) or sentence-final punctuation that keeps fluent prose going after a verb or preposition.",
+  "rule": {"target_class_in": ["space_word", "punct"]}
+ },
+ {
+  "circuit_id": 80,
+  "story": "Completing a word that was split mid-token or interrupted by a hyphen, producing the remaining tail of the word (Technicol->or, o->atmeal, Mon-->Fri, go-to-->guy).",
+  "rule": {"target_class_in": ["other", "upper_start"]}
+ },
+ {
+  "circuit_id": 81,
+  "story": "Predicting the opening delimiter of the next instance of a recurring structural template in the document, such as the '(' that starts every listing entry or the '###' that starts every heading, copied from earlier instances.",
+  "rule": {"target_class_in": ["punct", "other"], "is_induction": true}
+ },
+ {
+  "circuit_id": 83,
+  "story": "Filling the next slot of a recurring row or list template whose parallel earlier instances fix the answer, like the day-name slot in repeated opening-hours lines or the repeated exponent/number slot in table rows.",
+  "rule": {"target_class_in": ["upper_start", "digit"]}
+ },
+ {
+  "circuit_id": 84,
+  "story": "Predicting the article or auxiliary verb that starts the next noun phrase or predicate in ordinary prose.",
+  "rule": {"target_in": [" the", " a", " are"]}
+ },
+ {
+  "circuit_id": 88,
+  "story": "Continuing a compound token (time, number, reference, or word) whose continuation pattern already occurred earlier in the context, such as the 'pm' after another hour or the next digit of a repeated numeric code.",
+  "rule": {"is_induction": true, "target_class_in": ["digit", "other"]}
+ },
+ {
+  "circuit_id": 89,
+  "story": "Predicting the short linking preposition, most often 'of' or 'to', that connects a noun or verb to its complement.",
+  "rule": {"target_in": [" of", " to"]}
+ },
+ {
+  "circuit_id": 92,
+  "story": "Completing a rare word or proper name that the tokenizer split mid-word, producing the lowercase tail fragment (W->ren, amb->ience, Bridgn->orth, qu->il).",
+  "rule": {"target_class_in": ["other"]}
+ },
+ {
+  "circuit_id": 95,
+  "story": "Predicting the punctuation mark that continues a repeated structured pattern seen earlier in the context, such as the hyphen in ranges, the period in decimals, or the comma in lists.",
+  "rule": {"target_class_in": ["punct"], "is_induction": true}
+ },
+ {
+  "circuit_id": 97,
+  "story": "Copying the continuation of a multi-token name or identifier from its earlier occurrence in the context (strong induction on names, references, and code identifiers).",
+  "rule": {"is_induction": true, "target_class_in": ["other", "upper_start", "punct"]}
+ },
+ {
+  "circuit_id": 98,
+  "story": "Predicting the next connective word or punctuation in flowing mid-sentence prose, without relying on earlier repetition.",
+  "rule": {"target_class_in": ["space_word", "punct"]}
+ },
+ {
+  "circuit_id": 99,
+  "story": "Completing a known multi-token word or proper name from vocabulary knowledge rather than from the context, producing the second half of the name (Sweeney->Todd, Bake->well, Tud->or, immunosorb->ent).",
+  "rule": {"target_class_in": ["other", "upper_start"]}
+ },
+ {
+  "circuit_id": 102,
+  "story": "Predicting the 'and' or comma that continues or closes an enumeration of parallel items.",
+  "rule": {"target_in": [" and", ","]}
+ },
+ {
+  "circuit_id": 104,
+  "story": "Predicting the next low-level piece of a number or an unusual word: the digits after a currency sign or decimal point, or the mid-word fragment of a rare or foreign word.",
+  "rule": {"target_class_in": ["digit", "other"]}
+ },
+ {
+  "circuit_id": 108,
+  "story": "Predicting the token that a recurring document template makes near-deterministic, such as the field separator in repeated listing lines or the repeated second half of a compound term already used in the context.",
+  "rule": {"is_induction": true}
+ },
+ {
+  "circuit_id": 109,
+  "story": "Predicting the highly predictable separator, punctuation, or repeated phrase-completion inside a template or phrase pattern that has already appeared in the context.",
+  "rule": {"is_induction": true}
+ }
+]

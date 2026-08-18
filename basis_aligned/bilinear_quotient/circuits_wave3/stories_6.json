@@ -1,0 +1,102 @@
+[
+ {
+  "circuit_id": 212,
+  "story": "Fires where the text resumes a rhythm the document has already established, predicting a separator or continuation token that appeared earlier in the same context.",
+  "rule": {"is_induction": true}
+ },
+ {
+  "circuit_id": 213,
+  "story": "At the end of a complete descriptive sentence it predicts the closing period or the newline that follows.",
+  "rule": {"target_class_in": ["punct", "newline"]}
+ },
+ {
+  "circuit_id": 216,
+  "story": "Continues a boilerplate template that already occurred earlier in the document (a listing format, figure caption, or code header), copying the next token of the repeated pattern.",
+  "rule": {"is_induction": true}
+ },
+ {
+  "circuit_id": 217,
+  "story": "After a noun phrase it predicts the small grammatical word or punctuation that links it onward (is, are, and, the, or a comma).",
+  "rule": {"target_class_in": ["space_word", "punct"]}
+ },
+ {
+  "circuit_id": 219,
+  "story": "At the end of a long noun-heavy clause it predicts the sentence-final period or clause-separating comma.",
+  "rule": {"target_class_in": ["punct"]}
+ },
+ {
+  "circuit_id": 222,
+  "story": "Completes the second half of a conventional hyphenated pair or range, predicting the token right after a hyphen (the end of a day range or a compound like Top-end).",
+  "rule": {"prev_in": ["-"]}
+ },
+ {
+  "circuit_id": 224,
+  "story": "Continues a word the tokenizer split mid-way, predicting the next subword fragment of an unfinished word or name.",
+  "rule": {"target_class_in": ["other", "digit"]}
+ },
+ {
+  "circuit_id": 226,
+  "story": "Supplies the routine continuation of a stock phrase, usually a short preposition-like function word or the fixed lowercase suffix of a familiar sequence such as .co.uk.",
+  "rule": {"target_class_in": ["space_word", "other"]}
+ },
+ {
+  "circuit_id": 227,
+  "story": "Completes a split word or short alphanumeric code with its next fragment, such as the digit of a postcode-like code or the middle piece of a longer word.",
+  "rule": {"target_class_in": ["other", "digit"]}
+ },
+ {
+  "circuit_id": 228,
+  "story": "Continues a multi-token proper name or technical identifier, usually echoing a name already introduced in the document.",
+  "rule": {"target_class_in": ["upper_start", "other"]}
+ },
+ {
+  "circuit_id": 229,
+  "story": "At the point where a sentence is grammatically complete it predicts the ending punctuation or the newline.",
+  "rule": {"target_class_in": ["punct", "newline"]}
+ },
+ {
+  "circuit_id": 231,
+  "story": "Completes a fixed multi-token name or stock phrase with its memorized next piece (GOOG->LE, Buckingham->Palace, Stow-on->the).",
+  "rule": {"target_class_in": ["other", "upper_start"]}
+ },
+ {
+  "circuit_id": 232,
+  "story": "Predicts the content word that completes a familiar collocation (for -> centuries, 22 -> percent, a possessive followed by its noun).",
+  "rule": {"target_class_in": ["space_word", "other"]}
+ },
+ {
+  "circuit_id": 233,
+  "story": "Inside compound or possessive constructions it predicts the joining punctuation, most often the hyphen of a hyphenated word.",
+  "rule": {"target_class_in": ["punct", "newline"]}
+ },
+ {
+  "circuit_id": 235,
+  "story": "Predicts the punctuation mark or newline that closes off the current word or clause (hyphen, comma, period), in prose and code alike.",
+  "rule": {"target_class_in": ["punct", "newline"]}
+ },
+ {
+  "circuit_id": 239,
+  "story": "In mid-sentence it predicts the comma or the high-frequency function word that carries the clause forward.",
+  "rule": {"target_class_in": ["space_word", "punct"]}
+ },
+ {
+  "circuit_id": 242,
+  "story": "At the end of a short heading or label line it predicts the newline, matching the line-break pattern set by earlier headings in the same document.",
+  "rule": {"target_class_in": ["newline"], "is_induction": true}
+ },
+ {
+  "circuit_id": 244,
+  "story": "During an enumeration or running clause it predicts the list comma or the function word extending the phrase.",
+  "rule": {"target_class_in": ["punct", "space_word"]}
+ },
+ {
+  "circuit_id": 250,
+  "story": "Continues a multi-word term whose completion already appeared earlier in the document, repeating the earlier continuation.",
+  "rule": {"is_induction": true}
+ },
+ {
+  "circuit_id": 253,
+  "story": "Continues a multi-piece proper name or rare technical word, predicting its next subword fragment.",
+  "rule": {"target_class_in": ["other", "upper_start"]}
+ }
+]

@@ -1,0 +1,9 @@
+[
+ {
+  "circuit_id": 254,
+  "story": "The predicted token glues directly onto the preceding fragment with no leading space -- finishing a word split mid-token, an alphanumeric code, a possessive, or a bracket/punctuation run -- often a continuation whose completed form already occurred earlier in the context.",
+  "rule": {
+   "target_class_in": ["other", "punct", "digit"]
+  }
+ }
+]

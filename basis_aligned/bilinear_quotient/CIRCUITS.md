@@ -54,3 +54,16 @@ Wave 1→2→confirmation (2026-08-18):
   window C. No scoring reuse, no adaptive overfitting.
 - Cluster structure transports (249/256) even when stories fail: keep
   structural and semantic scoreboards separate.
+
+Wave 3 + supervised flip (2026-08-18):
+- Function-level stories cannot pass cluster-level precision: one function
+  spans many ownership clusters. Certify at the FUNCTION-slice level
+  (supervised: define sites mechanically, test ownership replication +
+  causal concentration). The unsupervised clusters serve DISCOVERY (they
+  found the depth-band ownership structure and cover the corpus); the
+  supervised slices serve CERTIFICATION.
+- Top-k owner set overlap is brittle across windows; use profile cosine.
+- Concentration failures are informative: replicable-but-unconcentrated =
+  redundant distributed computation (induction, sentence-end, comma).
+- Task circuits (IOI, addition) need constructed-prompt windows; natural
+  corpus supports formatting/copying/continuation circuits.

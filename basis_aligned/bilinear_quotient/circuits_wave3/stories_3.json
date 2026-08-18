@@ -1,0 +1,102 @@
+[
+ {
+  "circuit_id": 110,
+  "story": "Copying the next token of a formulaic multi-token template (map listing headers, markdown reference links, repeated checklist prefixes) that already occurred verbatim earlier in the same document.",
+  "rule": {"is_induction": true}
+ },
+ {
+  "circuit_id": 111,
+  "story": "Emitting the next subword piece that completes a long word already in progress (place names, technical terms, section markers), i.e. a non-space continuation token rather than a new word.",
+  "rule": {"target_class_in": ["other", "upper_start", "punct"]}
+ },
+ {
+  "circuit_id": 112,
+  "story": "Reproducing the next token of a local pattern that appeared earlier in the context - whitespace runs, separators, and word pieces are all continued by copying the token that followed the same prefix before.",
+  "rule": {"is_induction": true}
+ },
+ {
+  "circuit_id": 113,
+  "story": "Predicting the space-prefixed closed-class word (article, pronoun, conjunction) that opens the next phrase in flowing prose.",
+  "rule": {"target_class_in": ["space_word"]}
+ },
+ {
+  "circuit_id": 114,
+  "story": "Placing the comma or period that closes a clause or sentence in running prose, in both travel-guide and technical/news text.",
+  "rule": {"target_class_in": ["punct"], "target_in": [",", "."]}
+ },
+ {
+  "circuit_id": 115,
+  "story": "Continuing structured list-like or directory-like lines (addresses, headers, name sequences) by copying the token that followed the same pattern earlier in the document.",
+  "rule": {"is_induction": true}
+ },
+ {
+  "circuit_id": 116,
+  "story": "Completing a noun phrase: either attaching a common inflectional/derivational suffix (-s, -ed, -ation) to an unfinished word or supplying the space-prefixed head noun it sets up.",
+  "rule": {"target_class_in": ["other", "space_word"]}
+ },
+ {
+  "circuit_id": 118,
+  "story": "Emitting the sentence-final period (or clause-final comma) at the natural end of a complete statement, regardless of topic.",
+  "rule": {"target_class_in": ["punct"], "target_in": [".", ","]}
+ },
+ {
+  "circuit_id": 121,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 122,
+  "story": "Terminating a finished line or sentence: the period that ends a statement or the newline that ends a completed line (prose sentence, code statement, heading block).",
+  "rule": {"target_class_in": ["punct", "newline"], "target_in": [".", "\n"]}
+ },
+ {
+  "circuit_id": 123,
+  "story": "Predicting the space-prefixed grammatical connector (copula, auxiliary, or preposition such as 'is', 'are', 'to', 'of') that links a noun phrase to what follows.",
+  "rule": {"target_class_in": ["space_word"]}
+ },
+ {
+  "circuit_id": 127,
+  "story": "Completing the second half of a hyphenated or compound word (or an otherwise split word) with its next lowercase subword piece.",
+  "rule": {"target_class_in": ["other"]}
+ },
+ {
+  "circuit_id": 128,
+  "story": "Attaching the possessive/contraction 's (apostrophe forms) to a noun or proper name that has just been mentioned.",
+  "rule": {"target_in": ["'s"]}
+ },
+ {
+  "circuit_id": 131,
+  "story": "Continuing highly repetitive boilerplate token sequences (URL fragments, whitespace/padding runs, template headers) by repeating what followed the same sequence earlier in the document.",
+  "rule": {"is_induction": true}
+ },
+ {
+  "circuit_id": 133,
+  "story": "The newline that immediately follows a sentence-ending period at the end of a paragraph line, in any kind of document.",
+  "rule": {"target_class_in": ["newline"], "prev_in": ["."]}
+ },
+ {
+  "circuit_id": 136,
+  "story": "Emitting the next subword piece of an unusual multi-token word or proper name (rare place names, technical coinages, foreign words).",
+  "rule": {"target_class_in": ["other", "upper_start"]}
+ },
+ {
+  "circuit_id": 137,
+  "story": "Supplying the linking token inside an enumeration or range - the comma between items or the 'to'/'of' joining paired elements ('from X to Y', 'ranging from A to B').",
+  "rule": {"target_in": [",", " to", " of", "."]}
+ },
+ {
+  "circuit_id": 139,
+  "story": "Predicting the space-prefixed next word that continues a long descriptive sentence mid-flow, most often a preposition, conjunction, or the noun the sentence structure demands.",
+  "rule": {"target_class_in": ["space_word"]}
+ },
+ {
+  "circuit_id": 140,
+  "story": "After a verb of having/being ('has', 'have', 'is', 'are', 'there's'), predicting the determiner or copula that introduces the following noun phrase.",
+  "rule": {"target_class_in": ["space_word"], "target_in": [" the", " a", " is"]}
+ },
+ {
+  "circuit_id": 141,
+  "story": "Continuing a rare proper name or foreign/technical word with its next non-initial subword piece (names of people, places, classes in code).",
+  "rule": {"target_class_in": ["other", "upper_start"]}
+ }
+]

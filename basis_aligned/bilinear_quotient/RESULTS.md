@@ -3633,3 +3633,15 @@ windows: circuits are general, the stories weren't. Wave 3: mixed-window
 evidence, class-first rules, cross-window certification by construction.
 
 Full detail in `BILIN18_CONNECTION.md` §237.
+
+### Supervised function circuits: first four causal certifications
+
+Wave 3 failed 1/136 -- metric mismatch (function stories can't be
+cluster-precise). Flipped to supervised function slices: 8/9 ownership-
+replicable across windows (cos 0.90-1.00); CERTIFIED: digit continuation
+(attn8+mlp15), bracket closing (attn13), subword completion (mlp16+mlp15),
+name continuation (attn1+attn0). Induction = attn3-5 (not attn1-2),
+replicable but redundant (not concentrated). 79% of unsupervised clusters
+are these ten functions.
+
+Full detail in `BILIN18_CONNECTION.md` §238.

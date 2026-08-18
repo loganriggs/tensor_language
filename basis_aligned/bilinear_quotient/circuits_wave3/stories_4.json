@@ -1,0 +1,154 @@
+[
+ {
+  "circuit_id": 143,
+  "story": "After a content word in flowing prose, the circuit predicts the short function word or comma that links the phrase to what comes next, regardless of topic.",
+  "rule": {
+   "target_class_in": ["space_word", "punct"]
+  }
+ },
+ {
+  "circuit_id": 145,
+  "story": "The circuit predicts the determiner or light punctuation (the/a, comma, hyphen, newline) that opens or separates the next phrase in any running text.",
+  "rule": {
+   "target_class_in": ["space_word", "punct", "newline"],
+   "target_in": [" the", " a", ","]
+  }
+ },
+ {
+  "circuit_id": 148,
+  "story": "In text with repetitive structure, the circuit predicts closing punctuation or a short function word that has already occurred earlier in the same context.",
+  "rule": {
+   "target_class_in": ["punct", "space_word", "newline"],
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 149,
+  "story": "The circuit supplies the next piece of a multi-token proper name, compound, or technical term, usually a word-internal continuation with no leading space whose completion is fixed by the name itself (often seen earlier in the context).",
+  "rule": {
+   "target_class_in": ["other", "upper_start"]
+  }
+ },
+ {
+  "circuit_id": 150,
+  "story": "Inside long list-like sentences, the circuit predicts the comma or coordinating function word that separates or joins the enumerated items.",
+  "rule": {
+   "target_class_in": ["punct", "space_word"],
+   "target_in": [",", " and", " the", "."]
+  }
+ },
+ {
+  "circuit_id": 151,
+  "story": "After a completed subject noun phrase, the circuit predicts the linking word (a copula like 'is' or a preposition like 'to') or the period that closes the clause.",
+  "rule": {
+   "target_class_in": ["space_word", "punct"],
+   "target_in": [" is", " to", "."]
+  }
+ },
+ {
+  "circuit_id": 152,
+  "story": "The circuit continues abbreviated or coded strings such as URLs, postcodes, figure labels and identifiers, producing the short fragment or abbreviation the code-like pattern requires.",
+  "rule": {
+   "target_class_in": ["other", "upper_start", "space_word"]
+  }
+ },
+ {
+  "circuit_id": 154,
+  "story": "The circuit predicts the article or short function word that opens the next noun phrase in ordinary prose sentences.",
+  "rule": {
+   "target_class_in": ["space_word", "punct"],
+   "target_in": [" the", " a", " of", ",", " to", " and"]
+  }
+ },
+ {
+  "circuit_id": 155,
+  "story": "In descriptive second-person prose, the circuit predicts the frequent function word (especially 'the', 'a', 'you') that continues the sentence after a prepositional or verbal lead-in.",
+  "rule": {
+   "target_class_in": ["space_word", "punct"],
+   "target_in": [" the", " a", " you"]
+  }
+ },
+ {
+  "circuit_id": 156,
+  "story": "When a word is split mid-token (inside URLs, identifiers, or long names), the circuit predicts the lowercase word-internal continuation, typically copying the same word from an earlier occurrence in the context.",
+  "rule": {
+   "target_class_in": ["other"]
+  }
+ },
+ {
+  "circuit_id": 160,
+  "story": "The circuit predicts the coordinating connective, most often ' and', that joins clauses or list items and keeps a long sentence going.",
+  "rule": {
+   "target_class_in": ["space_word"],
+   "target_in": [" and", " to", " of", " the", " for", " so"]
+  }
+ },
+ {
+  "circuit_id": 162,
+  "story": "After a noun or pronoun, the circuit predicts an apostrophe continuation: possessive 's, contraction 'll, or a bare quote mark.",
+  "rule": {
+   "target_class_in": ["punct", "other"],
+   "target_in": ["'s", "'ll", "'"]
+  }
+ },
+ {
+  "circuit_id": 164,
+  "story": "The circuit reproduces the next token of a boilerplate template that occurred earlier verbatim in the context, such as listing punctuation or repeated code declarations.",
+  "rule": {
+   "is_induction": true,
+   "target_class_in": ["punct", "space_word", "newline"]
+  }
+ },
+ {
+  "circuit_id": 166,
+  "story": "The circuit predicts the second element of a two-part compound or collocation: either the hyphen inside a hyphenated compound or the content noun that completes a familiar noun-noun pair.",
+  "rule": {
+   "target_class_in": ["space_word", "upper_start", "punct"]
+  }
+ },
+ {
+  "circuit_id": 167,
+  "story": "Within a repeated formatting pattern, the circuit predicts the delimiter (space, semicolon, comma, paren) or short function word that the established template requires next.",
+  "rule": {
+   "is_induction": true,
+   "target_class_in": ["punct", "space_word", "other"]
+  }
+ },
+ {
+  "circuit_id": 168,
+  "story": "The circuit copies the exact whitespace, newline, or punctuation token from an earlier identical passage; it is near-pure induction on formatting tokens in structured text.",
+  "rule": {
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 170,
+  "story": "At the end of a complete descriptive sentence, the circuit predicts the closing token, usually the period, or the newline/semicolon that terminates the line.",
+  "rule": {
+   "target_class_in": ["punct", "newline"],
+   "target_in": [".", "\n", ",", ";"]
+  }
+ },
+ {
+  "circuit_id": 171,
+  "story": "The circuit performs strict verbatim copying: it predicts the next token of a sequence that has repeated exactly earlier in the context (map-listing punctuation, markdown headers, category lines).",
+  "rule": {
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 174,
+  "story": "Immediately after its host word or line, the circuit predicts a word-attached suffix or line-ending token: a contraction like 's/'re/'ll, sentence-final punctuation, or the newline closing a heading.",
+  "rule": {
+   "target_class_in": ["punct", "newline", "other"]
+  }
+ },
+ {
+  "circuit_id": 179,
+  "story": "The circuit predicts the high-frequency punctuation or function word that continues running text, reusing tokens already common earlier in the same context.",
+  "rule": {
+   "target_class_in": ["punct", "space_word"],
+   "is_induction": true
+  }
+ }
+]

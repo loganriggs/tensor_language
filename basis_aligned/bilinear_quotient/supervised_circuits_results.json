@@ -1,0 +1,190 @@
+{
+ "slices": {
+  "ind": {
+   "n": [
+    14689,
+    15620
+   ],
+   "owners": [
+    "attn5",
+    "attn4",
+    "attn3"
+   ],
+   "profile_cos": 0.997,
+   "owner_overlap": 2,
+   "concentration": [
+    0.8,
+    0.7
+   ],
+   "ownership_replicates": true,
+   "causal_certified": false
+  },
+  "rep": {
+   "n": [
+    104,
+    3041
+   ],
+   "owners": [
+    "attn14",
+    "mlp7",
+    "mlp4"
+   ],
+   "profile_cos": 0.899,
+   "owner_overlap": 1,
+   "concentration": [
+    4.9,
+    -1.0
+   ],
+   "ownership_replicates": false,
+   "causal_certified": false
+  },
+  "digit": {
+   "n": [
+    1094,
+    215
+   ],
+   "owners": [
+    "attn8",
+    "mlp15",
+    "attn3"
+   ],
+   "profile_cos": 0.982,
+   "owner_overlap": 1,
+   "concentration": [
+    2.3,
+    2.5
+   ],
+   "ownership_replicates": false,
+   "causal_certified": false
+  },
+  "sentend": {
+   "n": [
+    1880,
+    1156
+   ],
+   "owners": [
+    "attn9",
+    "attn2",
+    "attn5"
+   ],
+   "profile_cos": 0.996,
+   "owner_overlap": 1,
+   "concentration": [
+    0.5,
+    0.6
+   ],
+   "ownership_replicates": false,
+   "causal_certified": false
+  },
+  "newline": {
+   "n": [
+    1172,
+    993
+   ],
+   "owners": [
+    "attn16",
+    "mlp17",
+    "attn12"
+   ],
+   "profile_cos": 0.984,
+   "owner_overlap": 3,
+   "concentration": [
+    -363570.0,
+    -202065.4
+   ],
+   "ownership_replicates": true,
+   "causal_certified": false
+  },
+  "qclose": {
+   "n": [
+    0,
+    19
+   ],
+   "verdict": "underpowered"
+  },
+  "bclose": {
+   "n": [
+    311,
+    215
+   ],
+   "owners": [
+    "attn13",
+    "attn4",
+    "attn7"
+   ],
+   "profile_cos": 0.93,
+   "owner_overlap": 1,
+   "concentration": [
+    3.7,
+    2.2
+   ],
+   "ownership_replicates": false,
+   "causal_certified": false
+  },
+  "subword": {
+   "n": [
+    6785,
+    4954
+   ],
+   "owners": [
+    "mlp16",
+    "mlp15",
+    "attn6"
+   ],
+   "profile_cos": 0.995,
+   "owner_overlap": 1,
+   "concentration": [
+    5.2,
+    5.9
+   ],
+   "ownership_replicates": false,
+   "causal_certified": false
+  },
+  "name": {
+   "n": [
+    827,
+    285
+   ],
+   "owners": [
+    "attn1",
+    "attn0",
+    "mlp17"
+   ],
+   "profile_cos": 0.965,
+   "owner_overlap": 0,
+   "concentration": [
+    5.3,
+    3.5
+   ],
+   "ownership_replicates": false,
+   "causal_certified": false
+  },
+  "comma": {
+   "n": [
+    1541,
+    956
+   ],
+   "owners": [
+    "attn2",
+    "attn5",
+    "attn3"
+   ],
+   "profile_cos": 0.996,
+   "owner_overlap": 2,
+   "concentration": [
+    0.7,
+    0.7
+   ],
+   "ownership_replicates": true,
+   "causal_certified": false
+  }
+ },
+ "rep_ok": 3,
+ "causal_ok": 0,
+ "cluster_coverage": 0.787,
+ "pred_a": false,
+ "pred_b": false,
+ "pred_c": false,
+ "pred_d": true,
+ "runtime_s": 1.046342134475708
+}

@@ -1,0 +1,146 @@
+[
+ {
+  "circuit_id": 0,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 1,
+  "story": "Predicts a very high-frequency function word or comma (the/of/a/to/be, ',') that continues ordinary running prose, almost always a token that already occurred earlier in the context.",
+  "rule": {
+   "target_class_in": ["space_word", "punct"],
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 3,
+  "story": "Predicts the common closed-class word (the/in/and/by/of) or minor punctuation that glues the next phrase onto the current clause, typically re-using a token already present in the context.",
+  "rule": {
+   "target_class_in": ["space_word", "punct"],
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 4,
+  "story": "Predicts the trailing piece of a partially-tokenized word or proper name (Wob->urn, Abergaven->ny, dual-->car), or the newline that ends a short heading line.",
+  "rule": {
+   "target_class_in": ["other", "newline"]
+  }
+ },
+ {
+  "circuit_id": 7,
+  "story": "Predicts the conventional second half of a familiar two-token collocation: the unit after a number (6->pm, 9.30->am) or the head noun after its fixed modifier (HBV->DNA, HepAD38->cells, sucrose->gradient).",
+  "rule": {
+   "target_class_in": ["other", "space_word"]
+  }
+ },
+ {
+  "circuit_id": 8,
+  "story": "At the boundary of a list item, address field, or parenthetical whose format has already appeared in the document, predicts the comma or short function word that continues the enumeration.",
+  "rule": {
+   "target_class_in": ["punct", "space_word"],
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 9,
+  "story": "Repeats a punctuation or symbol token from a formatting pattern already established earlier in the document (';' in listings, '.' in abbreviations and decimals, '**', '(', '=').",
+  "rule": {
+   "is_induction": true,
+   "target_class_in": ["punct", "other"]
+  }
+ },
+ {
+  "circuit_id": 11,
+  "story": "After a long descriptive clause, predicts the comma or high-frequency function word (the/and/a/of/is) that closes or continues the sentence.",
+  "rule": {
+   "target_class_in": ["punct", "space_word"]
+  }
+ },
+ {
+  "circuit_id": 12,
+  "story": "After a verb or preposition mid-sentence, predicts the article, conjunction, or pronoun (a/an/and/the/it) or comma that starts the next phrase.",
+  "rule": {
+   "target_class_in": ["space_word", "punct"]
+  }
+ },
+ {
+  "circuit_id": 13,
+  "story": "Continues a multi-token string (name, URL, identifier, code symbol) that appeared verbatim earlier in the context, copying its next piece (wagam->ama, rep->onse, DBTEAMPOLICIES->Sh, ref-->type).",
+  "rule": {
+   "is_induction": true,
+   "target_class_in": ["other", "punct"]
+  }
+ },
+ {
+  "circuit_id": 14,
+  "story": "Predicts the next word of a multi-word phrase or line format that has already occurred earlier in the document, copying what followed the same tokens before ('U-phase current', 'reponse ...', the space after ';' in repeated listings).",
+  "rule": {
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 15,
+  "story": "Completes the second half of a rare word the tokenizer split mid-word (Chau->cer, Panc->ras, mosa->icism, Hem->i), a continuation that attaches with no leading space and was not seen earlier in the context.",
+  "rule": {
+   "target_class_in": ["other"]
+  }
+ },
+ {
+  "circuit_id": 17,
+  "story": "Inside markup-heavy lists that repeat a bold/emphasis template, predicts the '**' delimiter, spacing token, or repeated head word that filled the same slot earlier in the document.",
+  "rule": {
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 18,
+  "story": "Continues a word or markup token that the tokenizer split (sum->pt, extrace->llular, Cots->w), including repeating the '####' heading marker of a recurring outline format.",
+  "rule": {
+   "target_class_in": ["other", "punct"]
+  }
+ },
+ {
+  "circuit_id": 22,
+  "story": "Predicts the first token of a repeated template slot: the identifier, abbreviation, or field prefix that filled the same position earlier in the document (' G' of GOOGLE MAP, ' h' of opening hours, 'Right' of currentRightAnswer, ' bad' of badAnswers).",
+  "rule": {
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 25,
+  "story": "Predicts the fixed completion of the current word or well-known name from its immediately preceding token (carri->ag, hedon->istic, .co.->uk, Winds->or, the Changing of the ->Guard).",
+  "rule": {
+   "target_class_in": ["other", "upper_start"]
+  }
+ },
+ {
+  "circuit_id": 29,
+  "story": "Mid-sentence, predicts the preposition, conjunction, or other common linking word (at/and/of/over/between) that connects the finished phrase to the next one.",
+  "rule": {
+   "target_class_in": ["space_word", "punct"]
+  }
+ },
+ {
+  "circuit_id": 30,
+  "story": "After a noun phrase or clause, predicts the comma, semicolon, or common continuing word (has/were/of/that) that carries the sentence forward.",
+  "rule": {
+   "target_class_in": ["space_word", "punct"]
+  }
+ },
+ {
+  "circuit_id": 32,
+  "story": "Predicts the token that completes a number expression by echoing the number+unit or table-cell pattern used earlier in the document (5->pm, 15->th, 17th ->century, repeated whitespace fillers in aligned tables).",
+  "rule": {
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 34,
+  "story": "At a clause or list-item boundary, predicts the comma, 'and', or newline that closes the item, re-using a boundary token already present in the surrounding repeated structure.",
+  "rule": {
+   "is_induction": true,
+   "target_class_in": ["punct", "space_word", "newline"]
+  }
+ }
+]

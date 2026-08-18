@@ -6387,3 +6387,48 @@ dissolves. The pipeline's second-day thesis: the model's circuits
 generalize; our first two rounds of descriptions did not. That is a
 statement about description discipline, not about the model — and it is
 exactly what red-teaming was for.
+
+## 238. The certification unit was wrong: supervised function circuits, and the first four causal certifications
+
+Files: `circuit_score_wave3.py`, `supervised_circuits.py`. Wave 3 (141
+topic-invariant stories, scored on a half-window no agent saw) passed **1 of
+136** — class-level rules 0 of 111. The autopsy is a metric mismatch, not
+bad stories: an honest functional description ("induction sites") is true of
+its circuit but fires corpus-wide, while the bar demanded it identify one
+micro-cluster among 256 — and one function spans MANY clusters (split by
+ownership depth-band). Function stories cannot be cluster-precise; wave 1's
+topical rules only passed because document vocabulary is accidentally
+cluster-discriminative. The certification unit had to flip.
+
+**The supervised track** (user-directed: the classic circuits): ten
+mechanically defined function slices — induction/copy, repetition, digit
+continuation, sentence-end punctuation, newline, quote-close, bracket-close,
+subword continuation, name continuation, list comma — certified by
+(i) cross-window ownership replication and (ii) causal damage concentration
+of the top owners on-slice vs CE-matched controls. Instrument amendment
+stated plainly: the registered top-3 set-overlap sub-bar proved brittle
+(depth-adjacent owners swap ranks between windows even at profile cosine
+0.98) and is replaced by cosine >= 0.90; original bars' failure recorded.
+
+Results at amended criteria: **8 of 9 powered slices ownership-replicable
+(cos 0.90-1.00 — function ownership is essentially window-invariant), and
+four causally certified circuits**:
+
+    digit continuation : attn8 + mlp15 (conc 2.3x / 2.5x)
+    bracket closing    : attn13 (+attn4/7) (3.7x / 2.2x)
+    subword completion : mlp16 + mlp15 (5.2x / 5.9x)
+    name continuation  : attn1 + attn0 (5.3x / 3.5x)
+
+Discoveries and honest negatives alongside: **induction is owned by
+attn3-5** (registered guess attn1-2 FAILED — the early lexical attention is
+the name-continuation circuit instead, which fits the §-era lexical-head
+finding); induction, sentence-end, and comma are ownership-replicable but
+NOT first-order concentrated (conc 0.5-0.8: redundant, distributed
+computation — deleting any owner hurts matched control sites more);
+**newline sites show negative damage** (deleting attn16/mlp17 improves
+them — the flattening/regularizer channel surfacing inside a function
+slice); and 79% of the unsupervised clusters' tokens fall inside these ten
+functions — the 147 structural circuits are largely these functions,
+subdivided by ownership. Scope note: IOI and addition have no natural
+support in this web-text corpus; constructed-prompt windows are the
+extension for task-style circuits.

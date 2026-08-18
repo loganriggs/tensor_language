@@ -1,0 +1,102 @@
+[
+ {
+  "circuit_id": 35,
+  "story": "Fires where a proper name is being completed: the model must supply either the rest of a name whose spelling was cut mid-word or the next capitalised word of a multi-word name.",
+  "rule": {"target_class_in": ["other", "upper_start"]}
+ },
+ {
+  "circuit_id": 36,
+  "story": "Fires in the middle of a word that the tokenizer broke apart, predicting the next word-piece that finishes the partially spelled word.",
+  "rule": {"target_class_in": ["other", "upper_start"]}
+ },
+ {
+  "circuit_id": 38,
+  "story": "Fires inside a stretch of text that repeats an earlier pattern, copying the separator or word that already followed the same material earlier in the context.",
+  "rule": {"is_induction": true}
+ },
+ {
+  "circuit_id": 39,
+  "story": "Fires mid-sentence in flowing prose, predicting either the joining punctuation of a compound or the next whole word of the sentence.",
+  "rule": {"target_class_in": ["punct", "space_word"]}
+ },
+ {
+  "circuit_id": 40,
+  "story": "Fires at the end of an item in a repeated list or record, predicting the separator that closed the previous items - a comma, a conjunction, or a line break.",
+  "rule": {"target_class_in": ["punct", "newline", "space_word"], "is_induction": true}
+ },
+ {
+  "circuit_id": 43,
+  "story": "Fires where the next token is a repeat of something already present earlier in the context, typically a short punctuation mark, word-piece, or function word.",
+  "rule": {"is_induction": true}
+ },
+ {
+  "circuit_id": 44,
+  "story": "Fires inside a number or measurement, predicting the punctuation that continues it (the decimal point or time separator after a digit) or the digit that follows.",
+  "rule": {"target_class_in": ["punct", "digit"]}
+ },
+ {
+  "circuit_id": 46,
+  "story": "Fires on the small connector that continues the current item: the hyphen inside a compound, the newline or comma closing an entry, or the next piece of a broken word.",
+  "rule": {"target_class_in": ["punct", "newline", "other"]}
+ },
+ {
+  "circuit_id": 47,
+  "story": "Fires at a clause boundary in prose, predicting the punctuation that ends the clause or the common function word that begins the next one.",
+  "rule": {"target_class_in": ["punct", "space_word"]}
+ },
+ {
+  "circuit_id": 49,
+  "story": "Fires when a capitalised name or title is being extended, predicting the next capitalised word or name-piece.",
+  "rule": {"target_class_in": ["upper_start"]}
+ },
+ {
+  "circuit_id": 50,
+  "story": "Fires inside a literal string that was already spelled out earlier - a URL, identifier, or bracketed reference - and copies its next piece.",
+  "rule": {"target_class_in": ["other", "punct", "digit"], "is_induction": true}
+ },
+ {
+  "circuit_id": 51,
+  "story": "Fires mid-sentence in ordinary prose, predicting the next whole space-prefixed function word such as a determiner or a copula.",
+  "rule": {"target_class_in": ["space_word"]}
+ },
+ {
+  "circuit_id": 53,
+  "story": "Fires where the current phrase needs completing, predicting either the remainder of a split word or the next content word or conjunction of the sentence.",
+  "rule": {"target_class_in": ["space_word", "other"]}
+ },
+ {
+  "circuit_id": 55,
+  "story": "Fires inside a repeated formatted record, reproducing the spacing or punctuation that separated fields the same way earlier in the context.",
+  "rule": {"is_induction": true}
+ },
+ {
+  "circuit_id": 59,
+  "story": "Fires at the close of a self-contained entry or sentence, predicting the line break or full stop that ends it.",
+  "rule": {"target_class_in": ["newline", "punct"]}
+ },
+ {
+  "circuit_id": 60,
+  "story": "Fires at the end of a descriptive statement, predicting the sentence-final punctuation or the line break that follows it.",
+  "rule": {"target_class_in": ["punct", "newline"]}
+ },
+ {
+  "circuit_id": 61,
+  "story": "Fires deep inside a long prose sentence, predicting the next whole space-prefixed word, whether a conjunction, auxiliary, or content word.",
+  "rule": {"target_class_in": ["space_word"]}
+ },
+ {
+  "circuit_id": 63,
+  "story": "Fires where a syntactic unit has just been completed, predicting either the bracket that closes a parenthetical or the verb that follows the finished subject phrase.",
+  "rule": {"target_class_in": ["punct", "space_word"]}
+ },
+ {
+  "circuit_id": 64,
+  "story": "Fires after a preposition or verb that earlier in the same context was followed the same way, predicting the definite article \"the\".",
+  "rule": {"target_in": [" the"], "target_class_in": ["space_word"]}
+ },
+ {
+  "circuit_id": 68,
+  "story": "Fires inside a long or unusual word split across tokens, predicting the suffix word-piece that finishes it rather than copying anything seen earlier.",
+  "rule": {"target_class_in": ["other"]}
+ }
+]

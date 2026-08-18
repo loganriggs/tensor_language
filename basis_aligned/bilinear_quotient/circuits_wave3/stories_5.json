@@ -1,0 +1,102 @@
+[
+ {
+  "circuit_id": 180,
+  "story": "Completes a word or name that was cut off mid-token, predicting the attached suffix piece that finishes the partially written word in any document.",
+  "rule": {"target_class_in": ["other", "upper_start"]}
+ },
+ {
+  "circuit_id": 181,
+  "story": "Continues a multi-token name or compound term by predicting its second piece, whether an attached fragment (TOUR->IST, vir->ions) or the second word of a known compound (Hampton-> Court, instrument-> cluster).",
+  "rule": {"target_class_in": ["other", "upper_start", "space_word"]}
+ },
+ {
+  "circuit_id": 183,
+  "story": "After one or more modifiers or a possessive, predicts the head noun (or the verb) that completes the noun phrase, e.g. 'feeding spot', 'terror-related attacks', 'oyster catching season'.",
+  "rule": {"target_class_in": ["space_word"]}
+ },
+ {
+  "circuit_id": 185,
+  "story": "Predicts the short closed-class function word (preposition, article, particle) that the preceding verb or noun syntactically requires, such as 'expect to', 'digested with', 'analysis of'.",
+  "rule": {"target_class_in": ["space_word", "punct"]}
+ },
+ {
+  "circuit_id": 186,
+  "story": "In repetitively formatted text, reproduces the delimiter or fragment the document's own recurring format used before: the hyphen inside ranges and hyphenated names, the newline ending each list line, the unit token after a number.",
+  "rule": {"is_induction": true}
+ },
+ {
+  "circuit_id": 187,
+  "story": "At the boundary of a completed clause or list item, predicts the connective that links it onward: a comma, the word 'and', or the newline that ends the line.",
+  "rule": {"target_in": [",", " and", "\n"]}
+ },
+ {
+  "circuit_id": 190,
+  "story": "Inside an enumeration of nouns or attributes, predicts the joining glue between items: 'and', 'of', or the comma separating the next item.",
+  "rule": {"target_in": [" and", " of", ","]}
+ },
+ {
+  "circuit_id": 192,
+  "story": "Completes a capitalized proper name or acronym that was cut mid-token, often one belonging to the document's recurring boilerplate (GOO->G, Rievaul->x, Obj- ->C).",
+  "rule": {"target_class_in": ["other", "upper_start"]}
+ },
+ {
+  "circuit_id": 195,
+  "story": "Copies the continuation of a token sequence that already appeared earlier in the context, predicting whatever token followed the same prefix before (classic induction on repeated names and boilerplate strings).",
+  "rule": {"is_induction": true}
+ },
+ {
+  "circuit_id": 196,
+  "story": "Supplies the routine mid-sentence continuation right after a number, price, measurement, or formatted span: the punctuation or common function word that resumes the running text.",
+  "rule": {"target_class_in": ["punct", "space_word"]}
+ },
+ {
+  "circuit_id": 198,
+  "story": "After a completed clause or noun phrase, predicts the high-frequency function word or comma that starts the next phrase of the sentence ('the', 'and', 'a', 'you', ',').",
+  "rule": {"target_class_in": ["space_word", "punct"], "is_induction": true}
+ },
+ {
+  "circuit_id": 199,
+  "story": "In repetitive structured text (numbered lists, markup, boilerplate identifiers), predicts the next piece of the recurring template, most often the next number in an enumeration or the marker token that starts each item.",
+  "rule": {"target_class_in": ["digit", "punct", "other"]}
+ },
+ {
+  "circuit_id": 200,
+  "story": "Predicts the definite article 'the' opening the upcoming noun phrase, regardless of topic.",
+  "rule": {"target_in": [" the"]}
+ },
+ {
+  "circuit_id": 202,
+  "story": "At the end of a long descriptive clause, predicts the comma or period that closes it, or the small function word that carries the sentence on.",
+  "rule": {"target_in": [",", " the", ".", " and", " to"]}
+ },
+ {
+  "circuit_id": 203,
+  "story": "Predicts the preposition or other short function word completing a verb or noun frame ('Allow two hours', 'Home to', 'making the most of', 'for the most'), plus the hyphen or newline when the frame is a compound or heading.",
+  "rule": {"target_class_in": ["space_word", "punct", "newline"]}
+ },
+ {
+  "circuit_id": 204,
+  "story": "After a parenthetical, numeric range, or formatted reference, predicts the punctuation or small function word that resumes the surrounding sentence.",
+  "rule": {"target_class_in": ["punct", "space_word"]}
+ },
+ {
+  "circuit_id": 205,
+  "story": "After a function word or a mid-word cut, predicts the content word that completes the phrase: the noun after a preposition or article, or the meaningful second half of a split word.",
+  "rule": {"target_class_in": ["space_word", "other"]}
+ },
+ {
+  "circuit_id": 206,
+  "story": "Re-predicts a capitalized proper name or entity that already appeared earlier in the document (London, Canterbury, Sanders, RNA), recalling the document's topic entities at their next mention.",
+  "rule": {"target_class_in": ["upper_start"], "is_induction": true}
+ },
+ {
+  "circuit_id": 208,
+  "story": "Predicts the document's own most frequently recurring filler token, whatever it happens to be: commas and 'of' in prose, the whitespace padding cells of a table.",
+  "rule": {"is_induction": true}
+ },
+ {
+  "circuit_id": 209,
+  "story": "Completes a fixed collocation from the immediately preceding word or two ('co.' -> 'uk', 'Bucking' -> 'ham', 'of course' -> ',', 'for less' -> 'than', 'sought after' -> 'by'), a purely local bigram effect whose target can be any token class, so no class or lexical rule captures it.",
+  "rule": null
+ }
+]
