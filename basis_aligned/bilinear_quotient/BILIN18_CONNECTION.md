@@ -6349,3 +6349,41 @@ ownership structure is real (held-out-replicated) but its trigger is
 richer than one-token surface features. Scoreboard: 3 → 27 semantically
 certified circuits in one session; the semantic ceiling is now a measured
 property of the rule language, not of the model or the pipeline.
+
+## 237. Red-team and confirmation: stories were document-bound; the circuits themselves are not
+
+Files: `circuit_wave2_prep.py`, `circuit_score_wave2.py`,
+`circuit_atlas_third.py`, `circuit_confirm.py`; 8 fresh agents (6 refine,
+2 red-team). The full second cycle, with every registered bar and its
+verdict:
+
+**Red-team round** (user-directed): of 27 mechanically certified wave-1
+stories, only **13 survived adversarial review** — 8 gerrymandered (token
+grab-bags passing numerically: a month smuggled into a day-name list, a
+"century" token welded onto a time rule), 6 story-rule mismatches. 12 of
+the 14 proposed fixes re-passed mechanically. Refinement of the 107
+failures with false-positive/missed-member evidence yielded 58 fixed
+rules, 14 passing. Wave-2 provisional total: 39.
+
+**Confirmation on the untouched third window** (rows 120-300): **6 of 39
+confirm**. Failure anatomy: 0 cluster-gone, 22 rule-silent, 10
+fires-wrong, 1 low-recall. And the transport fact that reframes
+everything: **249 of 256 clusters keep healthy membership on the third
+window** — the ownership structure (which components own which prediction
+sites) is document-general, while the stories written for them were
+document-bound: agents described the topical surface of one window's
+documents (£ amounts, map labels, building names), and those topics simply
+do not occur in the other window.
+
+**Scoreboard, stated honestly**: 147 structural circuits (now with
+cross-window transport evidence), 6 FINAL semantically certified, 33
+provisional-failed with diagnosed modes. **Lessons for wave 3, applied**:
+(1) evidence packs mix BOTH windows, forcing topic-invariant stories;
+(2) class-level features first (token-class, induction, repetition), token
+lists capped at 6 and only when the story names the lexical category;
+(3) certification is cross-window BY CONSTRUCTION (rules built from window
+A evidence, scored only on window C) — the adaptive-reuse problem
+dissolves. The pipeline's second-day thesis: the model's circuits
+generalize; our first two rounds of descriptions did not. That is a
+statement about description discipline, not about the model — and it is
+exactly what red-teaming was for.

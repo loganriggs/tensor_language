@@ -3623,3 +3623,13 @@ semantically certified at median 81x precision lift (null 0). 92 failures
 are the rule language's ceiling, not the model's.
 
 Full detail in `BILIN18_CONNECTION.md` §236.
+
+### Red-team + confirmation: 6 FINAL, structure transports
+
+Red-team killed 14/27 wave-1 certifications (gerrymander/mismatch); the
+untouched-window confirmation passed 6/39 -- 22 failures were rule-silent
+(document-bound vocabulary). But 249/256 clusters transport across
+windows: circuits are general, the stories weren't. Wave 3: mixed-window
+evidence, class-first rules, cross-window certification by construction.
+
+Full detail in `BILIN18_CONNECTION.md` §237.

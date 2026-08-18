@@ -1,0 +1,148 @@
+[
+ {
+  "circuit_id": 99,
+  "story": "Completing the next token of a famous British name or place (Tower of London, Trafalgar, Regent, Hampton Court) where the first fragment already implies the rest.",
+  "rule": {
+   "prev_in": [" Reg", " Tud", " Sweeney", " Hampton", " Isle", " Tower", " Trafal", " Turner", " Bott", " van", " Tate", " Hyde"]
+  }
+ },
+ {
+  "circuit_id": 102,
+  "story": "Completing the all-caps category label 'HISTORIC BUILDING' that heads guidebook listing entries.",
+  "rule": {
+   "target_in": ["ING"],
+   "prev_in": ["BUILD"]
+  }
+ },
+ {
+  "circuit_id": 104,
+  "story": "Predicting the first price digit immediately after a pound sign in a listing (mains £[12], £[6].50).",
+  "rule": {
+   "target_class_in": ["digit"],
+   "prev_in": [" £"]
+  }
+ },
+ {
+  "circuit_id": 108,
+  "story": "Predicting listing-line formatting: the double-space spacer after a semicolon or comma, day abbreviations, closing brackets, and the bold '**' marker that opens a highlighted name after 'the'.",
+  "rule": {
+   "target_in": [" ", " Fri", " Sun", " Thu", ").", "),", " **"],
+   "prev_in": [";", ",", " &", "am", ".", " and", " the", " out"],
+   "pos_min": 80
+  }
+ },
+ {
+  "circuit_id": 109,
+  "story": "Predicting the extra space token right after ' MAP' inside the '(  MAP   GOOGLE MAP )' listing boilerplate.",
+  "rule": {
+   "target_in": [" "],
+   "prev_in": [" MAP"]
+  }
+ },
+ {
+  "circuit_id": 110,
+  "story": "Reproducing the ' MAP' token at the start of the repeated '(  MAP   GOOGLE MAP )' boilerplate, but not the ' MAP' that follows the word 'GOOGLE'.",
+  "rule": {
+   "target_in": [" MAP"],
+   "prev_in": [" ", "  ", " (", "(", ";"],
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 111,
+  "story": "Completing the second half of an uncommon word or name split across tokens (MUSE-UM, Inst-itute, EUR-OPE, Wand-ering) from lexical knowledge.",
+  "rule": {
+   "target_in": ["ish", "UM", "ster", "ug", "ering", "hers", "irk", "ory", "ian", "lands", "itute", "OPE"]
+  }
+ },
+ {
+  "circuit_id": 113,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 114,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 115,
+  "story": "Predicting the map-grid digit after a capital column letter in index entries (WahacaF[5], PlaceD[2]) and 'life' completing the recurring 'Drinking & Nightlife' header.",
+  "rule": {
+   "target_in": ["life", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
+   "prev_in": [" Night", "B", "C", "D", "F", "G", "H"]
+  }
+ },
+ {
+  "circuit_id": 116,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 118,
+  "story": "Predicting the period that ends a long descriptive sentence, deep into a context where sentence-final periods have already occurred.",
+  "rule": {
+   "target_in": ["."],
+   "is_induction": true,
+   "pos_min": 60
+  }
+ },
+ {
+  "circuit_id": 121,
+  "story": "Predicting the pound sign that begins a price anywhere in a listing (adult/child £, mains £, from £).",
+  "rule": {
+   "target_in": [" £"]
+  }
+ },
+ {
+  "circuit_id": 122,
+  "story": "Predicting the full stop after a scene-final noun like 'Park', 'seafront' or 'roots' that closes a descriptive sentence.",
+  "rule": {
+   "target_in": ["."],
+   "prev_in": [" Park", " Gardens", " London", " seafront", " excavation", " roots", " character", " Library", " club", " bars", " ages", " Suffolk"]
+  }
+ },
+ {
+  "circuit_id": 123,
+  "story": "Predicting the closing parenthesis after web addresses, dates and month abbreviations at the end of listing parentheticals, but not the ')' of the MAP boilerplate.",
+  "rule": {
+   "target_in": [")", "),", " )"],
+   "prev_in": ["uk", "ep", "Sep", " length", ".", "00", "org", "com"]
+  }
+ },
+ {
+  "circuit_id": 125,
+  "story": "Predicting the newline right after a sentence-final period at the end of a paragraph, late in the context.",
+  "rule": {
+   "target_in": ["\n"],
+   "prev_in": ["."],
+   "is_induction": true,
+   "pos_min": 100
+  }
+ },
+ {
+  "circuit_id": 127,
+  "story": "Completing a well-known collocation or split word from world knowledge (Great Hall, royal residence, Royal Mews, star-lings, head-land, police forces).",
+  "rule": {
+   "target_in": [" Hall", " residence", "ews", "est", "ors", "kers", "ires", "lings", "land", " forces", " crowd", "ourt"]
+  }
+ },
+ {
+  "circuit_id": 128,
+  "story": "Predicting the possessive 's after a place or collective noun (London's, England's, the nation's, the town's).",
+  "rule": {
+   "target_in": ["'s"],
+   "prev_in": [" London", " England", " nation", " there", " town", " Peter", " Europe", " Canterbury", " Garden", " Queen", " country", " city"]
+  }
+ },
+ {
+  "circuit_id": 131,
+  "story": "Completing the repeated web-address ending '.co.uk' and the split 'GOOG-LE' inside the recurring listing boilerplate.",
+  "rule": {
+   "target_in": ["uk", "LE"],
+   "prev_in": [".", "GOOG"],
+   "prev2_in": ["co", " ", "  ", " MAP"],
+   "is_induction": true
+  }
+ }
+]

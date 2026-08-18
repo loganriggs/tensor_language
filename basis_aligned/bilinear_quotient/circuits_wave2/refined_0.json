@@ -1,0 +1,124 @@
+[
+ {
+  "circuit_id": 0,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 1,
+  "story": "Predicting 'the' or 'a'/'an' right after a preposition such as 'of', 'to', 'from', or 'into' (but not 'in', which mostly appears in flowing history prose where this circuit is silent).",
+  "rule": {
+   "target_in": [" the", " a", " an"],
+   "prev_in": [" of", " to", " from", " into", " for", " over", " at", " along", " with", " through", " towards", " near"]
+  }
+ },
+ {
+  "circuit_id": 2,
+  "story": "Predicting a closing or opening emphasis marker (**, _) or a spaced dash after a name or clause whose matching marker or pattern already appeared earlier in the context.",
+  "rule": {
+   "target_in": ["**", "_", " **", " _", " –"],
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 4,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 9,
+  "story": "Predicting the decimal point immediately after a digit in listed prices like 'adult/child £6.50/3.25'.",
+  "rule": {
+   "target_in": ["."],
+   "prev_in": ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+  }
+ },
+ {
+  "circuit_id": 12,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 13,
+  "story": "Completing the word 'GOOGLE' by predicting 'OO' right after the 'G' of the constantly repeated '(  MAP   GOOGLE MAP )' boilerplate.",
+  "rule": {
+   "target_in": ["OO"],
+   "prev_in": [" G", "G"],
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 15,
+  "story": "Predicting the next lowercase fragment of a word the tokenizer split mid-word, like 'Kens'->'ington' or 'gob'->'bled'.",
+  "rule": {
+   "target_class_in": ["other"]
+  }
+ },
+ {
+  "circuit_id": 17,
+  "story": "Predicting the capitalized next word of a multi-word proper name that already appeared earlier in the context, like ' Queen' in 'Great Queen St' or ' Bridge' in 'London Bridge'.",
+  "rule": {
+   "target_class_in": ["upper_start"],
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 18,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 25,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 29,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 34,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 35,
+  "story": "Completing the all-caps category label that follows a venue name, such as TOUR->IST, BO->AT, CIN->EMA, CA->FE, CARN->IV, from stored knowledge of the label words.",
+  "rule": {
+   "target_in": ["IST", "AT", "EMA", "EN", "TA", "FE", "IV", "ATION", "EUM", "ARK", "URE", "ORY"]
+  }
+ },
+ {
+  "circuit_id": 36,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 38,
+  "story": "Repeating listing boilerplate seen earlier in the passage: ' MAP' after 'GOOG-LE' and the dots inside web addresses like www.name.co.uk.",
+  "rule": {
+   "target_in": [" MAP", "."],
+   "prev_in": ["LE", "GLE", "co", "uk", "org", "com", "gov"],
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 46,
+  "story": "Predicting the internal hyphen of a chained compound like 'all-you-can-eat', 'Tate-to-Tate', or 'up-for-it', immediately after the short unspaced joining word.",
+  "rule": {
+   "target_in": ["-"],
+   "prev_in": ["to", "per", "can", "for", "and", "up", "you", "in", "on", "off", "one", "non"]
+  }
+ },
+ {
+  "circuit_id": 47,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 49,
+  "story": "unclear",
+  "rule": null
+ }
+]

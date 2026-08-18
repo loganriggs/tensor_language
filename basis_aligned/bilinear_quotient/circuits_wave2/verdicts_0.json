@@ -1,0 +1,144 @@
+[
+ {
+  "circuit_id": 7,
+  "verdict": "sound",
+  "story": "Predicting 'am'/'pm' or the next digit inside opening-hours and price strings such as 'h10am-5pm' in listing metadata.",
+  "rule": {
+   "target_in": ["pm", "am", "50", "5", "20", "30"],
+   "prev_in": ["5", "10", "30", "11", "6", "-", "0"]
+  },
+  "notes": "Story genuinely names the category (am/pm or digits inside time/price strings) and every rule token belongs to it; the digit subsets are capacity-limited samples of the digit class, not smuggled-in unrelated tokens. False positives are the same time-string boundary cases (e.g. 'h10am-5[->pm]' contexts the circuit does not own), which is honest."
+ },
+ {
+  "circuit_id": 8,
+  "verdict": "story-rule mismatch",
+  "story": "Predicting the comma that follows a day-range abbreviation like 'Mon-Sat' or 'Mon-Fri' in opening-hours strings.",
+  "rule": {
+   "target_in": [","],
+   "prev_in": ["Sat", "Fri", "Thu", "Sun", "Mon", "Tue", "Wed", " Thu", " Tue"]
+  },
+  "notes": "The certified rule sneaks 'pm' into prev_in, so it also fires on commas after time spans ('h10am-6pm[->,]') -- a different pattern the story never claims (several false positives are exactly this). Fix: drop 'pm' from prev_in; the day-name-only rule is what the story actually describes."
+ },
+ {
+  "circuit_id": 14,
+  "verdict": "story-rule mismatch",
+  "story": "Inside guidebook listing lines, predicting the space token that follows a semicolon field separator.",
+  "rule": {
+   "target_in": [" "],
+   "prev_in": [";"]
+  },
+  "notes": "The rule (space after any semicolon) is clean, but the certified story overclaims two ways: it says the semicolon 'ends the hours field' (the rule fires after semicolons ending any field -- prices, addresses, wifi icons, as the false positives show) and it appends an unoperationalized 'occasionally re-predicts a landmark noun' clause that no rule field tests. Fixed story matches what is measured; rule unchanged."
+ },
+ {
+  "circuit_id": 22,
+  "verdict": "sound",
+  "story": "Inside a listing's info line, predicting the icon-letter tokens that open each field: ' h' for hours, ' t' for tube station, ' G' for 'GOOGLE MAP', ' www' for the website.",
+  "rule": {
+   "target_in": [" G", " h", " t", " www"]
+  },
+  "notes": "The four tokens are exactly the field-prefix category the story names, and in this corpus they occur essentially only in listing info lines, so the target-only rule is a fair operationalization. False positives are other listings' field prefixes the circuit does not own -- honest boundary cases."
+ },
+ {
+  "circuit_id": 32,
+  "verdict": "gerrymandered",
+  "story": "Via induction on times seen earlier in the passage, completing time-of-day expressions in opening-hours listings with 'pm', 'am', or the '30' of a half-hour.",
+  "rule": {
+   "target_in": ["pm", "am", "30"],
+   "is_induction": true
+  },
+  "notes": "' century' (fired after '15th'/'16th' etc.) is an unrelated pattern bolted onto a time-completion story purely to lift the numbers; the story does not name centuries as part of the category. The story also claims 'after a digit' but the rule has no prev constraint. Fix: drop ' century'. A prev_in digit list would tighten it further but would also drop legitimate '.30' cases, so target trim plus is_induction is the minimal honest rule."
+ },
+ {
+  "circuit_id": 40,
+  "verdict": "sound",
+  "story": "Predicting the newline that ends a guidebook listing line right after its closing parenthesis (opening hours, tube station, etc.), late in the window where many such lines have already occurred.",
+  "rule": {
+   "target_in": ["\n"],
+   "prev_in": [")"],
+   "pos_min": 120
+  },
+  "notes": "Newline-after-')' is a real named category and the position clause is stated in the story, not hidden. It is the late-window twin of circuit 59; low precision (0.23) shows the circuit is weak, but the explanation is not hollow -- false positives are the same listing-terminator contexts owned by circuit 59 instead."
+ },
+ {
+  "circuit_id": 44,
+  "verdict": "story-rule mismatch",
+  "story": "Predicting the decimal point after a number -- in clock times ('5.30pm'), prices ('£16.25/9.10'), and other figures throughout listing text.",
+  "rule": {
+   "target_in": ["."],
+   "prev_in": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", " 9"]
+  },
+  "notes": "The certified story claims the period is 'inside a clock time... in opening-hours listings', but the rule is simply 'period after any digit' and demonstrably fires on price decimals, measurements ('1.63m'), and URLs ('www.number10[->.]') -- and the circuit's own positives include those non-time cases, so the circuit itself is the broader pattern. Fix the story to the honest broader category; rule unchanged. (Restricting to clock times via prev2_in ['-'] would also cut real members like 'h10.30am-12[->.]'.)"
+ },
+ {
+  "circuit_id": 59,
+  "verdict": "sound",
+  "story": "Predicting the newline that closes a listing's parenthesized info line (hours, prices, tube stop) right after the closing parenthesis, relatively early in the window.",
+  "rule": {
+   "target_in": ["\n"],
+   "prev_in": [")"],
+   "pos_max": 120
+  },
+  "notes": "Same real category as circuit 40 with the complementary position band, stated openly in the story. Precision 0.667 and false positives that are identical listing-terminator contexts owned by the sibling circuit make this a faithful explanation."
+ },
+ {
+  "circuit_id": 80,
+  "verdict": "sound",
+  "story": "Completing weekday ranges in opening hours, above all predicting 'Fri' after the hyphen in 'Mon-Fri'.",
+  "rule": {
+   "target_in": ["Fri"],
+   "prev_in": ["-"]
+  },
+  "notes": "The story explicitly narrows itself to the 'Fri'-after-hyphen core and the rule tests exactly that. Precision 0.833; the two false positives ('Sun-Fri', another 'Mon-Fri') are textbook honest boundary cases."
+ },
+ {
+  "circuit_id": 81,
+  "verdict": "story-rule mismatch",
+  "story": "Advancing the boilerplate skeleton of a listing's details line: the '(' that opens the phone/map/website block after the name-plus-category header, the ';' that follows a closing parenthesis, and the 'www' that starts the website field after a semicolon.",
+  "rule": {
+   "target_in": ["(", " www", " ;"],
+   "prev_in": ["\n", ";", " )"]
+  },
+  "notes": "The certified story claims only 'predicting the opening (' but two of the three targets (' ;' after ' )', ' www' after ';') are mid-line separator continuations, and roughly half the positives and all false positives are those cases -- the rule tests a wider pattern than the story admits. The wider pattern is itself coherent (listing-line boilerplate), so fix the story; rule unchanged."
+ },
+ {
+  "circuit_id": 83,
+  "verdict": "gerrymandered",
+  "story": "Predicting the day-of-week name at the end of an opening-hours clause, e.g. 'to 10.30pm Sun' or '8am-9pm Sat'.",
+  "rule": {
+   "target_in": [" Sun", " Sat", " Fri"],
+   "prev_in": ["pm", "am", ",", " &", "-"]
+  },
+  "notes": "' Nov' is a month, not a day of week -- an off-category token slipped into a day-name list to catch 'Apr-Oct/Nov-Feb' season strings and pad recall; the story does not name months. Fix: drop ' Nov'. The remaining rule is a faithful operationalization and the false positives ('Thu & [->Fri]', 'Sat & [->Sun]') are honest boundary cases."
+ },
+ {
+  "circuit_id": 88,
+  "verdict": "gerrymandered",
+  "story": "Predicting 'am'/'pm' right after the hour digit in opening-times strings.",
+  "rule": {
+   "target_in": ["pm", "am"],
+   "prev_in": ["5", "4", "7", "2", "8", "0", " 9", "6"]
+  },
+  "notes": "The certified rule welds two unrelated patterns together -- am/pm after digits AND 'co' after '.' in URLs -- and the story's parenthetical mention of the 'co' half is a readback of the rule, not a genuine single category (the cross-product also licenses nonsense combos like 'am' after '.'). With precision already at 0.158 the padding is doing certification work. Fix: strip 'co' and '.' to leave the real time-completion core. If the URL behavior is real it belongs to a separate circuit (compare 112)."
+ },
+ {
+  "circuit_id": 112,
+  "verdict": "gerrymandered",
+  "story": "Via induction, continuing URL and web-address boilerplate seen earlier in the passage: the dot after 'www', 'co'/'uk' around the dots of '.co.uk', and 'LE' after 'GOOG'.",
+  "rule": {
+   "target_in": [".", "LE", "uk", "co", "OO"],
+   "prev_in": [" www", "co", "OO", "G", "."],
+   "is_induction": true
+  },
+  "notes": "The certified rule is a grab-bag: targets '-', '\\n', ' of' appear nowhere in the story's named category (URL boilerplate), while the story's own 'uk after .co' example is not even in target_in. The AND-of-lists cross-product then licenses pairs like '\\n' after 'uk' or ' of' after 'am' that have nothing to do with URLs -- most false positives are paragraph-final newlines. Fixed rule keeps only the URL-continuation tokens the story genuinely names."
+ },
+ {
+  "circuit_id": 140,
+  "verdict": "gerrymandered",
+  "story": "Predicting the determiner 'the' or 'a' immediately after a linking verb or possessive ('is', 'was', 'are', 'has', ''s').",
+  "rule": {
+   "target_in": [" the", " a"],
+   "prev_in": ["'s", " is", " has", " was", " are"]
+  },
+  "notes": "The certified rule cross-products six function words with seven preceding words, several of which fit neither half of the story's category (' and', ' in' are not determiners; ' including', ' for' are not linking verbs or possessives) -- an arbitrary token grid dressed up as 'function words after linking verbs', at 0.155 precision. The circuit's positives also contain many non-function-word predictions, so even the trimmed core may be optimistic, but determiner-after-copula is the one real sub-pattern visible in the members; the fixed rule keeps exactly that."
+ }
+]

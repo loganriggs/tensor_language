@@ -1,0 +1,126 @@
+[
+ {
+  "circuit_id": 149,
+  "verdict": "sound",
+  "story": "Predicting ' MAP' after 'GOOGLE' in the constantly repeated '(  MAP   GOOGLE MAP )' guidebook tag.",
+  "rule": {
+   "target_in": [" MAP"],
+   "prev_in": ["LE"]
+  }
+ },
+ {
+  "circuit_id": 164,
+  "verdict": "sound",
+  "story": "predicting the closing ' )' (or following punctuation) of the oft-repeated '(  MAP   GOOGLE MAP )' cross-reference template, copying the pattern from earlier occurrences in the context",
+  "rule": {
+   "target_in": [" )"],
+   "prev_in": [" MAP"],
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 168,
+  "verdict": "sound",
+  "story": "predicting the double-space filler right after '(  MAP' inside the listing template (plus a few other high-frequency continuations), almost always copying an earlier occurrence",
+  "rule": {
+   "target_in": [" ", "\n"],
+   "prev_in": [" MAP"],
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 171,
+  "verdict": "sound",
+  "story": "pure induction on the listing template: after 'GOOGLE MAP )' predicting the ' ;' (or after 'GOOGLE MAP' the ' )') exactly as seen in every earlier listing",
+  "rule": {
+   "target_in": [" ;", " )"],
+   "prev_in": [" )", " MAP"],
+   "is_induction": true,
+   "pos_min": 100
+  }
+ },
+ {
+  "circuit_id": 174,
+  "verdict": "story-rule mismatch",
+  "story": "predicting apostrophe-contraction continuations ('s, 'll, 't, 're) after words that commonly host contractions: the pronouns it/there/you/they and the modal 'can' (can't) in chatty guidebook prose",
+  "rule": {
+   "target_in": ["'s", "'ll", "'t", "'re"],
+   "prev_in": [" it", " It", " there", " There", " you", " You", " they", " They", " can"]
+  }
+ },
+ {
+  "circuit_id": 175,
+  "verdict": "sound",
+  "story": "predicting the paragraph break — a newline after a sentence-ending period, or the capitalized 'The' that opens the next paragraph — early in the context window",
+  "rule": {
+   "target_in": ["\n", "The"],
+   "prev_in": [".", ").", "\n"],
+   "pos_max": 130
+  }
+ },
+ {
+  "circuit_id": 181,
+  "verdict": "gerrymandered",
+  "story": "Completing the second token of split ALL-CAPS category labels in guidebook headers (HOT->EL, HIST->OR, POST-> OFF, CATH->ED, COCK->TA)",
+  "rule": {
+   "target_in": ["EL", "OR", " OFF", "ED", "TA"],
+   "prev_in": ["HOT", "HOST", "HIST", "POST", "CATH", "COCK"]
+  }
+ },
+ {
+  "circuit_id": 192,
+  "verdict": "sound",
+  "story": "spelling out the letter-chunks of ALL-CAPS template words — 'GOO->G->LE' in 'GOOGLE MAP' and label fragments like 'HOST->EL' — as memorized subword sequences",
+  "rule": {
+   "target_in": ["G", "LE", "EL"],
+   "prev_in": ["OO", "G", "OST"]
+  }
+ },
+ {
+  "circuit_id": 199,
+  "verdict": "gerrymandered",
+  "story": "Predicting digits in listing metadata — phone numbers after the % marker, prices and hours after '-' or '/', and numbered map-index entries at the start of a line.",
+  "rule": {
+   "target_class_in": ["digit"],
+   "prev_in": ["\n", "-", " %", "/"]
+  }
+ },
+ {
+  "circuit_id": 215,
+  "verdict": "sound",
+  "story": "Predicting 'com' to finish a web address of the form www.something.[com].",
+  "rule": {
+   "target_in": ["com"],
+   "prev_in": ["."]
+  }
+ },
+ {
+  "circuit_id": 222,
+  "verdict": "gerrymandered",
+  "story": "Completing weekday ranges in opening-hours strings: predicting 'Sat' after the hyphen that follows a weekday abbreviation (overwhelmingly 'Mon-Sat').",
+  "rule": {
+   "target_in": ["Sat"],
+   "prev_in": ["-"],
+   "prev2_in": ["Mon", "Tue", "Wed", "Thu", "Fri"]
+  }
+ },
+ {
+  "circuit_id": 223,
+  "verdict": "story-rule mismatch",
+  "story": "Predicting the paragraph break after a sentence-final period — the newline(s) ending the paragraph, or the capitalized 'The' that opens the next paragraph — with very high induction, since '.\\n' and '\\nThe' have occurred many times earlier in the context.",
+  "rule": {
+   "target_in": ["\n", "The"],
+   "prev_in": [".", ").", "\n"],
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 231,
+  "verdict": "sound",
+  "story": "Completing an all-caps word split across tokens, overwhelmingly the 'LE' of 'GOOGLE' in the recurring '( MAP GOOGLE MAP )' listing boilerplate (also MEDITERR-ANEAN, HOT-EL, LESBI-AN).",
+  "rule": {
+   "target_in": ["LE", "ANE", "AN", "EL"],
+   "prev_in": ["G", "MEDITERR", "HOT", "LESBI"]
+  }
+ }
+]

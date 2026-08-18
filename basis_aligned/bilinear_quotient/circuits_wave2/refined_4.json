@@ -1,0 +1,121 @@
+[
+ {
+  "circuit_id": 185,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 186,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 187,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 190,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 195,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 198,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 200,
+  "story": "Predicting the article ('the' or 'a') that opens a new noun phrase right after a linking word or verb such as 'and', 'but', 'with', 'include', 'is', 'gave', or 'sees' - but not after a bare comma, where such sites are usually outside the circuit.",
+  "rule": {
+   "target_in": [" the", " a", "The", " The"],
+   "prev_in": [" and", ";", " including", " include", " includes", " with", " but", " But", " is", " gave", " sees", " like"]
+  }
+ },
+ {
+  "circuit_id": 202,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 204,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 205,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 206,
+  "story": "Re-predicting a capitalized place or institution name (London, Canterbury, Dover, Westminster, Tower, Palace, Queen...) that already appeared earlier in the passage.",
+  "rule": {
+   "target_in": [" London", " Canterbury", " Dover", " Greenwich", " Westminster", " Camden", " Brick", " Palace", " Cov", " Tud", " Tower", " Queen"],
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 209,
+  "story": "Completing a web address with 'uk' right after '.co.' or '.ac.' - but not after '.org.' or '.gov.', which this circuit does not handle.",
+  "rule": {
+   "target_in": ["uk"],
+   "prev_in": ["."],
+   "prev2_in": ["co", "ac"]
+  }
+ },
+ {
+  "circuit_id": 212,
+  "story": "Predicting the separator (comma, dash, 'and', 'to') that continues an opening-hours or date-range string right after a month or weekday token such as Apr, Sep, Oct, Sun, or Fri.",
+  "rule": {
+   "target_in": [",", " and", "-", ";", " to"],
+   "prev_in": [" Apr", " April", " Sun", "Sun", "Sat", "Fri", "Thu", "Sep", "Oct", "A", "4", " ;"]
+  }
+ },
+ {
+  "circuit_id": 213,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 216,
+  "story": "Predicting the next one-letter boilerplate symbol of the guidebook listing template - '%' before a phone number, 'h' before opening hours, 't' before a tube stop, 'W' for wi-fi - late in a context already full of identical listings.",
+  "rule": {
+   "target_in": [" %", " h", " t", " G", " W"],
+   "is_induction": true,
+   "pos_min": 96
+  }
+ },
+ {
+  "circuit_id": 217,
+  "story": "Predicting the linking verb ('is', 'are', 'has') that comes right after a concrete place-noun subject such as 'museum', 'cathedral', 'inn', or 'Park'.",
+  "rule": {
+   "target_in": [" is", " are", " has"],
+   "prev_in": [" museum", " cathedral", " snacks", " inn", " complex", " gallery", " church", " hotel", " house", " Park", " castle", " attraction"]
+  }
+ },
+ {
+  "circuit_id": 219,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 224,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 226,
+  "story": "Completing the fixed phrases '.co.uk' / '.ac.uk' (but not '.org.uk' or '.gov.uk') and 'of course' after a comma.",
+  "rule": {
+   "target_in": ["uk", " course"],
+   "prev_in": [".", " of"],
+   "prev2_in": ["co", "ac", ","]
+  }
+ }
+]

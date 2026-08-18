@@ -1,0 +1,87 @@
+[
+ {
+  "circuit_id": 227,
+  "story": "Predicting the digit right after a London postcode letter prefix (WC2, SW1, N1) or a map-grid letter (C5, E7) at the end of an address or index line.",
+  "rule": {
+   "target_class_in": ["digit"],
+   "prev_in": [" WC", " SE", " NW", " SW", " EC", " W", " E", " N", "C", "D", "E", "F"]
+  }
+ },
+ {
+  "circuit_id": 228,
+  "story": "Predicting the first lowercase chunk of a website name immediately after 'www.', echoing the venue that was just named.",
+  "rule": {
+   "prev_in": ["."],
+   "prev2_in": ["www", " www"],
+   "target_class_in": ["other"]
+  }
+ },
+ {
+  "circuit_id": 229,
+  "story": "Predicting the full stop that ends a flowing descriptive sentence; the newline target is dropped because newlines after bullet-list lines caused almost all the false alarms.",
+  "rule": {
+   "target_in": ["."],
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 232,
+  "story": "Predicting the pound sign before a price, or a famous English name like 'England' or 'Thames'; ' London' is dropped because it mostly fired on non-member 'Tower of London' repeats.",
+  "rule": {
+   "target_in": [" £", " England", " Thames"]
+  }
+ },
+ {
+  "circuit_id": 233,
+  "story": "Predicting a hyphen wherever it joins a compound, range, or time span (snow-capped, 45-minute, 9am-6pm), not only after ordinals like '19th' which were mostly non-members.",
+  "rule": {
+   "target_in": ["-"]
+  }
+ },
+ {
+  "circuit_id": 235,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 239,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 242,
+  "story": "Predicting the newline right after an all-caps venue-category tag (MUSEUM, CLUB, VENUE, HOTEL, CHURCH, CEMETERY, HARBOUR...) or a 'Getting There & Away' heading in the listing layout.",
+  "rule": {
+   "target_in": ["\n"],
+   "prev_in": ["UM", "FE", "IN", "UB", "UE", "RA", "CH", "EL", "ERY", "ING", "OUR", " Away"],
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 244,
+  "story": "Predicting the comma after a one-word item in a comma-separated list, where the token two back is also a comma (film, music, theatre / Cambridge, Hull, ...), excluding commas after multi-word phrases.",
+  "rule": {
+   "target_in": [","],
+   "prev2_in": [","],
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 250,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 253,
+  "story": "Completing the second piece of a multi-token British place name (King's, St James's, Waterloo, Eastbourne, Southbank, Pentonville, Covent, Kew).",
+  "rule": {
+   "target_in": ["'s", "bourne", "loo", "on", "bank", "ent", "f", "ored", "o", "ic", "ucking", "ew"],
+   "prev_in": [" King", "King", " James", " Water", " Pent", " South", " East", " Black", " Sh", " Cov", " Sl", " K"]
+  }
+ },
+ {
+  "circuit_id": 254,
+  "story": "unclear",
+  "rule": null
+ }
+]

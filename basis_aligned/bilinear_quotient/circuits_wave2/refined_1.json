@@ -1,0 +1,129 @@
+[
+ {
+  "circuit_id": 50,
+  "story": "Copying listing-template pieces seen earlier in the passage: the OO of GOOGLE and day names completing ranges like Mon-Sat or Fri & Sat (the am/Mon completions after clock times belong elsewhere).",
+  "rule": {
+   "target_in": ["OO", " Sat", " Sun", " Tue", " Wed", " Thu", " Fri", " July"],
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 51,
+  "story": "Predicting 'the' or 'a' starting a noun phrase right after a linking verb or 'and' (this pier is the..., and a...), not after prepositions.",
+  "rule": {
+   "target_in": [" the", " a"],
+   "prev_in": [" is", " was", " are", " were", " has", " had", " and"]
+  }
+ },
+ {
+  "circuit_id": 55,
+  "story": "Late in the window, continuing web-address and map boilerplate in listings: the uk of .co.uk, the MAP of GOOGLE MAP, the '/' after uk, and the ' ;' separator after a closing bracket.",
+  "rule": {
+   "target_in": ["uk", " MAP", " GOOGLE", " ;", "/"],
+   "is_induction": true,
+   "pos_min": 130
+  }
+ },
+ {
+  "circuit_id": 60,
+  "story": "Predicting the period that ends a descriptive sentence at its final word in flowing prose (whenever the sun shines., best bars and nightlife.).",
+  "rule": {
+   "target_in": ["."]
+  }
+ },
+ {
+  "circuit_id": 61,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 63,
+  "story": "Closing the parenthesis right after the opening-hours, dates or prices that end a listing's practical details (…10am-5.30pm Mar-Sep), not after prose.",
+  "rule": {
+   "target_in": [")", " )", ").", "),"],
+   "prev_in": ["pm", "am", "50", "Sep", "Oct", "Feb", "Mar", "Sun", "Sat", " hours", "late", " MAP"]
+  }
+ },
+ {
+  "circuit_id": 64,
+  "story": "Predicting 'the' or 'a' immediately after the prepositions 'of', 'at' or 'from' in ordinary prose.",
+  "rule": {
+   "target_in": [" the", " a"],
+   "prev_in": [" of", " at", " from"]
+  }
+ },
+ {
+  "circuit_id": 68,
+  "story": "Late in the window, continuing a word the tokenizer split mid-way (Sax->ons, Belg->rav, Panc->ras), producing a no-space lowercase word fragment.",
+  "rule": {
+   "target_class_in": ["other"],
+   "pos_min": 150
+  }
+ },
+ {
+  "circuit_id": 69,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 71,
+  "story": "Predicting the newline that ends a map-index line after its grid reference digit (47Duke of WellingtonD4, 40Monmouth Coffee CompanyF3).",
+  "rule": {
+   "target_in": ["\n"],
+   "prev_in": ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+  }
+ },
+ {
+  "circuit_id": 72,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 74,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 75,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 77,
+  "story": "Closing a paired delimiter - parenthesis, bold '**', italic '_' or quote - to match the opener that appeared earlier, whatever word precedes it.",
+  "rule": {
+   "target_in": [")", "**", "'", "_", "),", ")."]
+  }
+ },
+ {
+  "circuit_id": 84,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 89,
+  "story": "Early-layer completion of tight two-word habits from the immediately preceding word: Named after, Billed as, Kicking off, Begun in, your fill of, Mountains of, slabs of.",
+  "rule": {
+   "target_in": [" of", " in", " to", " on", " as", " after", " off"],
+   "prev_in": [" over", " as", " fill", " Named", " Billed", " Begun", " Kicking", " Mountains", " slabs", " Duke", " Palace", "down"]
+  }
+ },
+ {
+  "circuit_id": 92,
+  "story": "Early in the window, continuing a word the tokenizer split mid-way (Cam->bridge, amb->ience, bur->les), producing a no-space lowercase word fragment.",
+  "rule": {
+   "target_class_in": ["other"],
+   "pos_max": 150
+  }
+ },
+ {
+  "circuit_id": 95,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 97,
+  "story": "unclear",
+  "rule": null
+ }
+]

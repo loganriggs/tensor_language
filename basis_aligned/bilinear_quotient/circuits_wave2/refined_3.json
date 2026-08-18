@@ -1,0 +1,118 @@
+[
+ {
+  "circuit_id": 133,
+  "story": "Predicting the paragraph-ending newline after the sentence-final punctuation that closes a long attraction description late in the context.",
+  "rule": {
+   "target_in": ["\n"],
+   "prev_in": [".", ").", "?", "**"],
+   "pos_min": 120
+  }
+ },
+ {
+  "circuit_id": 136,
+  "story": "Completing a partly-written proper name or rare word with its next lowercase subword piece early in the document.",
+  "rule": {
+   "target_class_in": ["other"],
+   "pos_max": 180
+  }
+ },
+ {
+  "circuit_id": 137,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 141,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 143,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 145,
+  "story": "Predicting the article 'the' or 'a' immediately after a preposition late in a long stretch of guidebook prose.",
+  "rule": {
+   "target_in": [" the", " a"],
+   "prev_in": [" of", " to", " by", " in", " from", " on", " near", " into"],
+   "pos_min": 120
+  }
+ },
+ {
+  "circuit_id": 148,
+  "story": "Continuing formatted strings: the dot inside web addresses and decimal prices, the hyphen after 'self', and the 's' or dot that follows a bare number.",
+  "rule": {
+   "target_in": [".", "-", "s"],
+   "prev_in": ["gov", "org", "co", "uk", "com", "0", "1", "2", "3", "4", "5", "self"]
+  }
+ },
+ {
+  "circuit_id": 150,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 151,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 154,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 155,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 156,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 160,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 162,
+  "story": "Predicting a possessive or contraction apostrophe piece ('s, 'll, 'd, 're) after a name or pronoun late in the passage.",
+  "rule": {
+   "target_in": ["'s", "'ll", "'d", "'re"],
+   "pos_min": 100
+  }
+ },
+ {
+  "circuit_id": 166,
+  "story": "Predicting the conventional second word of an English compound place or institution name (Gardens, Hall, Museum, Palace, Park...).",
+  "rule": {
+   "target_in": ["card", " Gardens", " Rooms", " Hall", " Museum", " Palace", " Park", " House", " Bridge", " Sq", " Tower", " Castle"]
+  }
+ },
+ {
+  "circuit_id": 167,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 170,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 179,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 180,
+  "story": "Continuing the middle of a long word - museum and restaurant names, URLs, rare vocabulary - with its next lowercase spelling piece.",
+  "rule": {
+   "target_class_in": ["other"]
+  }
+ }
+]

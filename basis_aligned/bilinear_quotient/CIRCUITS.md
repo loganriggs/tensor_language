@@ -39,3 +39,18 @@ Registered predictions with controls and nulls; measure floors before
 bars; pooled aggregation; margin-not-rank for edges; causal numbers for
 certification; two instruments before a verb; every certification gets a
 fresh-data leg before entering the scoreboard.
+
+## Wave lessons (updated after each cycle)
+
+Wave 1→2→confirmation (2026-08-18):
+- Mechanical bars alone admit gerrymandered stories: red-team review killed
+  14/27 before the fresh window killed more. Both gates are now standing.
+- Single-window evidence produces document-bound stories (22/33 confirmed
+  failures were rules that never fire on other documents). Packs must mix
+  windows; stories must be topic-invariant.
+- Class-level rule features (token class, induction, repetition) are the
+  confirmable ones; long token lists are gerrymander bait -- capped at 6.
+- Certify cross-window by construction: build on window A, score only on
+  window C. No scoring reuse, no adaptive overfitting.
+- Cluster structure transports (249/256) even when stories fail: keep
+  structural and semantic scoreboards separate.
