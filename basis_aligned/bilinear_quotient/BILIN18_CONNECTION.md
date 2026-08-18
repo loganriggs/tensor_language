@@ -7383,3 +7383,22 @@ patterns with the LITERAL one-hot previous-token pattern (one fitted
 gain per head), and self-motif heads with one-hot self. If it holds,
 the pattern side of 74 heads compresses to two sentences plus 74
 numbers.
+
+## 281. Motif pattern swap v1: both bars FAILED, and the control indicts the instrument
+
+`motif_pattern_swap.py` replaced the pattern side of the 74 named-motif
+heads with literal one-hot patterns (one fitted gain each): prev-swap
++0.385, self-swap +0.141, both +1.283 -- super-additive, the same
+error-budget interaction the assembly shows everywhere. Registered (a)
+<= +0.15 FAILED decisively. But the control is the real finding: giving
+27 RANDOM non-prev heads the prev-one-hot pattern IMPROVED CE by 0.038,
+so (b) failed vacuously and the instrument is under suspicion -- either
+my recomputed-attention path (fp32 pattern recompute + c_proj replay)
+does not reproduce the model's own arithmetic (a reconstruction null was
+missing, an instrument-design error), or head patterns carry so much
+slack that ANY tame pattern helps (consistent with the slack anatomy,
+but unprovable without the null). v2 (queued) adds the reconstruction
+null (replay with REAL patterns must cost ~0), per-layer recon offsets,
+and a per-head greedy: which individual heads accept their motif
+sentence for free? Registered there: |recon| <= 0.02; >=30/74 heads
+swap at <= +0.01 corrected; adopted set <= +0.10 total.

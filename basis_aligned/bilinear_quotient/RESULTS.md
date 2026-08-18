@@ -3875,3 +3875,6 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 ## Appendix 280: motif census complete (2026-08-18)
 - Four named motifs cover 85/162 heads: self 47 (16 layers), prev 27 (11), induction 9 (7 layers, conditional fraction up to 0.74, null 0.04), first 2. Induction pattern capability broader than causal ownership (redundancy).
 - m0 table grounding quotable: centered fold-vs-empirical cosine 0.841, null -0.02.
+
+## Appendix 281: motif swap v1 (2026-08-18)
+- Whole-family pattern swaps too expensive (both +1.28, super-additive) and the random-head control IMPROVED CE -- instrument lacks a reconstruction null; v2 queued with null + per-head greedy.

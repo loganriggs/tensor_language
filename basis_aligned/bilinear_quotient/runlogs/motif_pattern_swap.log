@@ -1,0 +1,8 @@
+prev heads 27 in [0, 1, 2, 3, 4, 5, 6, 7, 9, 11, 17] | self heads 47 in [1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
+prev     +0.3854
+self     +0.1413
+both     +1.2827
+control  -0.0379
+(a) both-swap <= +0.15: FAILED
+(b) control >= 3x prev: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/motif_pattern_swap_results.json (10s)
