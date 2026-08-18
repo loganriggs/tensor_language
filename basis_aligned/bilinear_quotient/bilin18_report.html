@@ -477,6 +477,15 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   4.3× while neighboring directions go quiet), a regulatory function carried by the
   channel's <em>average</em> — which is exactly why the assembly can replace that whole
   attention layer with a single mean vector and still preserve the code's statistics.
+  And this structure is a family trait, not a quirk: the 12-layer sibling shows the
+  same anatomy — front junctions, a free tail, and one narrow mid-depth junction
+  (top-4 directions carry 85%) whose channel lives inside <em>its</em> private code's
+  subspace (overlap 0.66 vs a 0.01 floor) with the same class-damage signature down
+  to the negative-newline quirk. One conserved complex — a mid-depth private code
+  with a ~4-direction service channel beside its fraction-⅓ writer — with the
+  plumbing order (regulate from upstream vs carry forward from downstream) as the
+  only parameter that varies between models. The larger-checkpoint preregistration
+  now carries this as a registered expectation alongside the writer-depth law.
   Weight structure sharpened the recipe twice over: because a bilinear MLP is a sum of
   rank-1 quadratics, keeping half of each middle layer's hidden units — with zero fitted
   parameters — reproduces the middle well enough that the 19-component assembly lands at
