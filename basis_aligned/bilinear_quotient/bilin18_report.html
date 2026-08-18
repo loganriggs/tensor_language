@@ -466,6 +466,17 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   cover 85 of 162 heads across the depth, 71 of 74 named heads accept their literal
   one-sentence pattern for under a hundredth of a nat individually — though jointly
   the swaps conduct error and compound, the same composition problem the MLPs posed.
+  Three closing structural results, all replicated on never-seen text: the weight
+  matrices themselves are entrywise Gaussian (kurtosis 0.03–0.52, sparsity and
+  privileged coordinates at exact chance) — every structure in this model lives in
+  subspaces and functions, never in entry statistics; the "attention writes, adjacent
+  MLP reads" handoff is causally concentrated in exactly three junctions (blocks 0, 1
+  and 5, at +0.96, +1.95 and +2.16 nats, all other blocks ≈ free); and the largest of
+  these — attn5 to mlp5 — is a four-direction channel that <em>range-regulates</em> the
+  long-mysterious private 8-dim code (cutting it makes that code's variance explode
+  4.3× while neighboring directions go quiet), a regulatory function carried by the
+  channel's <em>average</em> — which is exactly why the assembly can replace that whole
+  attention layer with a single mean vector and still preserve the code's statistics.
   Weight structure sharpened the recipe twice over: because a bilinear MLP is a sum of
   rank-1 quadratics, keeping half of each middle layer's hidden units — with zero fitted
   parameters — reproduces the middle well enough that the 19-component assembly lands at
