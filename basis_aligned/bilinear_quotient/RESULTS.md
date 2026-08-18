@@ -3680,3 +3680,10 @@ token -- a structural decomposition, not yet deployable compression;
 input-only classifier is the registered next rung.
 
 Full detail in `BILIN18_CONNECTION.md` §242.
+
+### Crude context rules hit 31% -- deciding the type is real work
+
+Hand rules can't recover the site class (bars failed as measured). Next:
+linear probe on the tail's input stream + probe-conditioned dictionary.
+
+Full detail in `BILIN18_CONNECTION.md` §243.

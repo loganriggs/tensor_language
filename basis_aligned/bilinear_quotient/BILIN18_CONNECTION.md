@@ -6542,3 +6542,21 @@ fidelity loss from classifier errors priced in. The gap between the
 oracle-conditioned 95% and the input-only number will itself be a
 measurement: how much of the tail's job is deciding WHICH site type it is
 at, versus writing the type's content once decided.
+
+## 243. Deciding the site type is real work: crude context rules hit 31%
+
+File: `class_predictability_floor.py`. All three bars failed, and that is
+the measurement: hand-written input-only rules predict the oracle site
+class at 31% overall agreement (digit precision 0.05, subword 0.38, the
+residual class 0.53). The strong signature classes have decent RECALL from
+context (bclose 0.71, name 0.71) but terrible precision at their tiny base
+rates. Verdict: the target-class information that made the §242 dictionary
+work is not lying on the surface of the context — deciding WHICH site type
+comes next is genuine computation. Which points the next rung at the
+obvious place: the model itself has already made that decision by the time
+the stream reaches mlp10. Queued: a linear probe on the tail's INPUT
+stream predicting the site class (fit window A, applied window C), then
+the probe-conditioned dictionary — fully input-only, honestly priced. The
+gap from oracle-95% to the probe number will split the tail's job into
+"deciding the type" (front-of-model work the tail reads) versus "writing
+the type's content" (the dictionary).

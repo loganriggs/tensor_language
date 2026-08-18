@@ -1,0 +1,59 @@
+{
+ "agreement": 0.308,
+ "per_class": {
+  "digit": {
+   "base": 0.016,
+   "precision": 0.05,
+   "recall": 0.12
+  },
+  "bclose": {
+   "base": 0.005,
+   "precision": 0.05,
+   "recall": 0.71
+  },
+  "newline": {
+   "base": 0.053,
+   "precision": 0.28,
+   "recall": 0.01
+  },
+  "sentend": {
+   "base": 0.029,
+   "precision": 0.0,
+   "recall": 0.0
+  },
+  "comma": {
+   "base": 0.027,
+   "precision": 0.0,
+   "recall": 0.0
+  },
+  "name": {
+   "base": 0.016,
+   "precision": 0.14,
+   "recall": 0.71
+  },
+  "rep": {
+   "base": 0.067,
+   "precision": 0.0,
+   "recall": 0.0
+  },
+  "subword": {
+   "base": 0.184,
+   "precision": 0.38,
+   "recall": 0.26
+  },
+  "ind": {
+   "base": 0.24,
+   "precision": 0.25,
+   "recall": 0.33
+  },
+  "other": {
+   "base": 0.362,
+   "precision": 0.53,
+   "recall": 0.44
+  }
+ },
+ "pred_a": false,
+ "pred_b": false,
+ "pred_c": false,
+ "runtime_s": 0.7913329601287842
+}

@@ -1,0 +1,16 @@
+digit    base 0.016 prec 0.05 rec 0.12
+bclose   base 0.005 prec 0.05 rec 0.71
+newline  base 0.053 prec 0.28 rec 0.01
+sentend  base 0.029 prec 0.00 rec 0.00
+comma    base 0.027 prec 0.00 rec 0.00
+name     base 0.016 prec 0.14 rec 0.71
+rep      base 0.067 prec 0.00 rec 0.00
+subword  base 0.184 prec 0.38 rec 0.26
+ind      base 0.240 prec 0.25 rec 0.33
+other    base 0.362 prec 0.53 rec 0.44
+
+overall agreement 31%
+(a) bclose+digit prec >=0.5: FAILED
+(b) subword prec >=0.4: FAILED
+(c) agreement >=40%: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/class_predictability_floor_results.json (1s)
