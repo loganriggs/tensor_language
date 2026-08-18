@@ -1,0 +1,10 @@
+tables built 0s
+mlp0: ablate +0.505 table +0.428 rec 15% shuf -350%
+mlp1: ablate +5.785 table +1.216 rec 79%
+mlp2: ablate +0.546 table +3.764 rec -589%
+mlp3: ablate +0.550 table +7.308 rec -1229%
+(a) mlp0 >=80%: FAILED
+(b) mlp1 >=50%: HELD
+(c) monotone decay: FAILED
+(d) shuffled <=0%: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/fold_tables_results.json (16s)

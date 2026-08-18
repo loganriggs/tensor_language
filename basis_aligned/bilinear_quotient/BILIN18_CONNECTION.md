@@ -6696,3 +6696,26 @@ channel from the matched-successor hidden state is the registered
 next-if-pursued rung; for now the induction band keeps its honest label —
 replicable ownership, causally concentrated at task level (counting), and
 NOT yet mechanistically reduced.
+
+## 250. The crown component is a lookup table: mlp1 folds at 79%
+
+File: `fold_tables.py` (user-directed weights-first fold). Context-free
+tables — every vocab token run alone through the model, each early MLP's
+output captured — swapped in as full-output replacements on window C:
+
+    mlp0: 15%   mlp1: **79%**   mlp2: −589%   mlp3: −1229%
+    (ablation refs +0.51 / +5.79 / +0.55 / +0.55; shuffled table −350%)
+
+The headline: **mlp1, the most important MLP in the model (+5.8 nats
+ablation, the linearization crown, the vocabulary hub), is 79% a
+token-indexed lookup table.** The single most load-bearing component
+reduces to "look up the current token, emit its vector" for four-fifths of
+its function — computed from weights+embeddings alone, no fitting. The
+registered monotone-decay story failed informatively: mlp0 folds WORSE
+(15%) than mlp1 despite sitting closer to the embeddings — its output is
+evidently position/attention-sensitive in a way mlp1's is not — and at
+mlp2/3 the context-free state is already so far from the running state
+that table injection is catastrophic. Queued discriminator: EMPIRICAL
+token-conditional mean tables (the best any token-lookup can do, fit on
+window A) for mlp0-3 — separating "token-determined but not context-free-
+foldable" from "genuinely context-dependent."

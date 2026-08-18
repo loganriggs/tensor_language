@@ -3732,3 +3732,11 @@ calibrated (random target -390%). The copy is distributed; band keeps
 'not yet mechanistically reduced'.
 
 Full detail in `BILIN18_CONNECTION.md` §249.
+
+### mlp1 is 79% a lookup table
+
+Context-free fold (one forward per vocab token) replaces the model's most
+important MLP at 79%. mlp0 only 15% (position-sensitive); mlp2/3
+catastrophic. Empirical token-table discriminator queued.
+
+Full detail in `BILIN18_CONNECTION.md` §250.
