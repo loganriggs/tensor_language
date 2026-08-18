@@ -178,3 +178,19 @@ both.
   fingerprints correlate 0.34 cross-model vs 0.05 non-analog) — the model-level
   train/test split, with `bilin12_fingerprints.pt` as the held-out target.
 - The canary regression script for scoring-environment stability.
+
+
+## Consensus instruments (from the sharing-landscape arc, sections 208-227)
+
+Behavioral LORO -- leave-one-reader-out reconstruction of a reader's
+coupling forms over a writer's top-K output coordinates, scored by R^2 of
+the form's action y^T M y on held-out fresh-row activations -- is the
+program's consensus score: it measures whether a population of readers
+shares a vocabulary for a writer's code. Three rules bought by ledger
+entries govern its use: (1) register the metric (activation-weighted vs
+matrix-element differ 2.5x); (2) measure the random floor in the same run
+before applying any bar (rank-r bases in small form spaces have large
+floors); (3) before deferring any fork, write the orthogonalization that
+would decide it (borrowed vs intrinsic privacy was one orthogonalization
+away). Standard outputs: per-writer profile, per-fold table, floor. See
+PREREGISTRATION.md for the frozen prediction bundle that uses them.
