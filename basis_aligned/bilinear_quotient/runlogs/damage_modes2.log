@@ -1,0 +1,22 @@
+36 component probes done
+head probes L2 done
+head probes L3 done
+head probes L4 done
+head probes L5 done
+head probes L6 done
+head probes L7 done
+head probes L8 done
+head probes L9 done
+top-8 energy 0.312 vs shuffle null 0.102
+mode 0: class-R2 0.069 (newline) | split-half 0.99 | probes ['m2', 'm3', 'a4', 'm0', 'a5h7'] | tokens ['2', ' )', '1', '/', '\n', ' the']
+mode 1: class-R2 0.046 (ind) | split-half 0.93 | probes ['m13', 'm14', 'm12', 'm11', 'm10'] | tokens ['\n', ' o', 'ING', '\n', '\n', ' l']
+mode 2: class-R2 0.101 (newline) | split-half 0.89 | probes ['a5h7', 'm15', 'm16', 'a8', 'a5h0'] | tokens ['\n', '\n', ' m', '\n', '\n', '\n']
+mode 3: class-R2 0.149 (newline) | split-half 0.89 | probes ['a16', 'a6h3', 'a7h0', 'm7', 'm10'] | tokens ['2', '3', 'ate', 'EL', '\n', 'stairs']
+mode 4: class-R2 0.011 (bclose) | split-half 0.70 | probes ['a9', 'a11', 'a7h1', 'a9h8', 'a7'] | tokens ['opping', 'ford', 'ane', ' 32', ' John', 'rian']
+mode 5: class-R2 0.019 (newline) | split-half 0.30 | probes ['a3h0', 'a6', 'a3h4', 'm1', 'a6h1'] | tokens ['head', ' House', ' Hastings', 'ham', '3', ' House']
+mode 6: class-R2 0.006 (bclose) | split-half 0.57 | probes ['a6h3', 'a9', 'a9h8', 'a4h3', 'a6h4'] | tokens ['Le', 'eping', '-', ' Queen', 'ights', '\n']
+mode 7: class-R2 0.008 (subword) | split-half 0.49 | probes ['m17', 'a17', 'm16', 'a4h0', 'a5h5'] | tokens ['\n', '\n', '\n', '\n', '\n', '\n']
+(a) structure >= 1.5x null: HELD
+(b) >=2 known-class modes: FAILED
+(c) >=1 NEW replicable label: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/damage_modes2_results.json (124s)

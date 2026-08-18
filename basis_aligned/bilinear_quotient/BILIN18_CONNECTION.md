@@ -8043,3 +8043,25 @@ v2 queued: 3x the rows, per-column winsorization (|z|<=3) to tame the
 CE tails, DOCUMENT-DISJOINT split halves (row blocks, not interleaved
 tokens), and the same three bars re-registered on the fixed
 instrument.
+
+## 315. The data-dual works: five new co-dependence circuits, and the taxonomy misses them
+
+`damage_modes2.py` (fixed instrument): structure certified at 3x the
+shuffle null (0.312 vs 0.102); five modes replicate across
+DOCUMENT-DISJOINT halves (0.70-0.99) with class-R^2 <= 0.15 -- bars (a)
+and (c) HELD. Bar (b) FAILED informatively: NO mode aligns with the
+10-class target-token taxonomy above R^2 0.149 -- causal co-dependence
+organizes the data along different lines than next-token type, which
+is precisely why the user's data-dual instrument adds information the
+class dictionaries cannot see. The new labels, readable from their
+probe loadings and sample tokens: mode 0 = the front lexical scaffold
+(m0/m2/m3/a4 co-fail on digits and punctuation); mode 1 = THE TAIL MLP
+BAND AS ONE UNIT (m10-m14 co-fail together -- the span-dictionary band
+is a single causal object); mode 2 = an a5h7 + late-MLP newline-
+adjacent complex (the regulator layer's h7 again); mode 4 = a mid-late
+attention complex (a9, a11, a7h1, a9h8) whose dependent tokens are
+NAME-FRAGMENTS ('ford', 'ane', ' John', 'rian') -- morpheme/surname
+completion machinery the taxonomy has no class for. Certification step
+queued: joint-ablate each mode's top probes on held-out rows and test
+that damage concentrates on mode-scored tokens (>=3x median), with
+random-probe controls.

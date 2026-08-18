@@ -3940,3 +3940,6 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 - Pricing law calls its second config: 28 comps + 38 heads at +2.674 fresh (beats old 34-comp by 0.26 at comparable coverage); increment +0.386 in the registered band. Envelope: 20@1.46 / 24@2.29 / 32@2.67 / 34@2.93.
 - Mixed front: between the pure substrates, beats neither at its coverage; motif marginal orders by mid-band fidelity across 3 substrates (0.43/0.59/1.04) -- pricing law's third confirmation. Envelope unchanged.
 - Damage modes v1: stable modes but document-confounded (one doc dominates; split-half shared docs). v2 queued: 3x rows, winsorized, document-disjoint halves.
+
+## Appendix 315: damage modes certified (2026-08-18)
+- Data-dual instrument works: 5 document-disjoint-replicable co-dependence modes, NONE aligned with the 10-class taxonomy (its blind spot measured). New candidate circuits incl. the tail-MLP band as one causal unit and a name-fragment attention complex. Certification queued.
