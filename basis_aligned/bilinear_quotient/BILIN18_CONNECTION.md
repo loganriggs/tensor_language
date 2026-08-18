@@ -7519,3 +7519,27 @@ Census v3 queued with matched Gaussian baselines + per-family excess
 kurtosis; plus a sparse-pattern experiment: are the hot entries
 ALIGNED across layers (privileged stream coordinates -- the tail-coords
 anatomy from the flat track predicts yes)?
+
+## 288. The weights are entrywise Gaussian: structure lives in function space, not entry statistics
+
+`decomp_census3.py` (the owed null): the sparse sweep of 287 was
+entirely the Gaussian effect. Model sparse-error 0.470-0.798 vs
+shape-matched Gaussian 0.498-0.800 -- within 1-5% of chance at every
+family -- and entry kurtosis 0.03-0.52 (Left/Right at 0.03: as Gaussian
+as matrices get). Both bars FAILED 0/7. (Instrument note: the per-matrix
+"winner" column in v3's log is contaminated -- the diagnostic keys
+leaked into the argmin -- but the verdict uses the explicit
+sparse-vs-null comparison, which is unaffected.) `sparse_pattern.py`
+agrees from the other side: top-entry masks overlap at chance (Jaccard
+0.005-0.013 vs 0.005 floor; only c_proj marginally above), and
+cross-family hot-coordinate correlation is 0 of 21 pairs. No privileged
+stream coordinates exist at the raw-weight level.
+
+Verdict, closing the decomposition-type direction at scope: **bilin18's
+weight matrices are statistically featureless entrywise.** Every
+structure this program has found -- the rank-80 functional basis, the
+four pattern motifs, the three critical handoffs, the class
+dictionaries, the token tables -- lives in SUBSPACES, FUNCTIONS, and
+BEHAVIOR, never in entry statistics. This is 208's lesson (sharing is
+behavioral, not elementwise) at full generality: elementwise views of
+this model are noise; function-space views carry everything.

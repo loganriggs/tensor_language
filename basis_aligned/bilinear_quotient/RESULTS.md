@@ -3892,3 +3892,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 - Causal attn->own-mlp handoff: three critical junctions (blocks 0, 1, 5 at +0.8/+1.9/+2.1), everything else ~0; spearman 0.80 with the subspace wiring map. attn5->mlp5 = the private-writer neighborhood; the assembly bypasses it.
 - Decomposition census: sparse wins 126/126 at matched budget (Gaussian null owed -- v3 running).
 - Two v1 instruments voided honestly (wrong interface / unfair budget) before the science bars.
+- Decomposition-type direction CLOSED: weights entrywise Gaussian (kurtosis 0.03-0.52, sparse advantage = chance, masks unaligned). All structure is functional/subspace-level, never entry-level (208 generalized).

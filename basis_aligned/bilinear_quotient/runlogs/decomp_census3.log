@@ -1,0 +1,10 @@
+c_q    : winner kurt (13/18) | sparse-err 0.474 vs gaussian 0.498 | kurtosis 0.36
+c_k    : winner kurt (14/18) | sparse-err 0.470 vs gaussian 0.498 | kurtosis 0.42
+c_v    : winner kurt (14/18) | sparse-err 0.474 vs gaussian 0.498 | kurtosis 0.35
+c_proj : winner kurt (12/18) | sparse-err 0.473 vs gaussian 0.498 | kurtosis 0.38
+Left   : winner kurt (18/18) | sparse-err 0.798 vs gaussian 0.800 | kurtosis 0.03
+Right  : winner kurt (18/18) | sparse-err 0.798 vs gaussian 0.800 | kurtosis 0.03
+Down   : winner kurt (14/18) | sparse-err 0.796 vs gaussian 0.800 | kurtosis 0.52
+(a) sparse beats gaussian-null 0.8x (0/7): FAILED
+(b) kurtosis > 1 (0/7): FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/decomp_census3_results.json (23s)
