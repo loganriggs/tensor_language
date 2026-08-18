@@ -15,3 +15,10 @@ fit a14
 fit a15
 fit a16
 fit a17
+L1 (+38 heads): C +2.0466 | fresh +2.3191
+mixed base: C +1.4142 fresh +1.7254
+mixed + 38 heads: C +2.0466 fresh +2.3191 (marginal +0.5937)
+(a) mixed base <= +1.65: FAILED
+(b) +38 heads <= +2.20: FAILED
+(c) motif marginal <= +0.60: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mixed_front_results.json (85s)

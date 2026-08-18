@@ -8011,3 +8011,18 @@ Updated fresh envelope: 20 @ +1.46 (fold base) / 24-eff @ +2.29 /
 the 8 middle-attention components' non-motif heads and a8 -- both known
 irreducible-or-expensive, which is now a measured statement about the
 model, not a to-do item.
+
+## 313. Mixing substrates doesn't beat choosing them
+
+`mixed_front.py` (fold m0 + empirical m2/m3): base +1.7254 fresh (bar
+1.65 FAILED), +38 heads +2.3191 (bar 2.20 FAILED -- 0.03 WORSE than the
+pure-empirical stack). Only the marginal bar held (+0.594 <= 0.60), and
+it holds in the most informative way: the motif marginal is now
+measured on three substrates and orders exactly by mid-band stream
+fidelity -- empirical 0.43 < mixed 0.59 < fold 1.04 -- the pricing
+law's third consecutive directional confirmation. But the envelope is
+unmoved: fold-m0's unfaithfulness leaks into the mid-band through the
+refit chain despite empirical m2/m3, so within-front mixing buys
+nothing over picking the pure substrate per coverage target. The
+practical rule stands at its simpler form: fold front for low-coverage
+points, empirical front when stacking the head band.
