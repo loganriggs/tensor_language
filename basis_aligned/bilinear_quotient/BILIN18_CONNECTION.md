@@ -7849,3 +7849,25 @@ and diffuse heads honestly real. Fresh certification queued (ledger
 22) before this replaces the quotable frontier; a8_symbolic requeued
 after a Unicode-digit crash (superscript characters pass isdigit but
 not int -- isdecimal is the correct predicate).
+
+## 304. Fresh frontier: 26 components + 38 heads at +2.54; a8 closes irreducible
+
+`head_hybrid_fresh.py`: the hybrid certifies on never-seen text at
+**+2.5432** -- 0.32 better than the all-dictionary config's +2.866 --
+bars (a),(b) HELD. Bar (c) FAILED honestly: the motif swaps' marginal
+is +0.124 on fresh (window C had it negative at -0.078; the "swaps
+help" sign was partly window luck, though 38 heads for an eighth of a
+nat remains cheap). The quotable frontier is now **26 full components
+plus 38 of 72 middle-attention heads, at +2.54 fresh** (79% of the
+model's work), with per-head descriptions of one sentence and one gain.
+
+`a8_symbolic.py`: the counting-feature rescue is REFUTED with unusual
+cleanness -- the symbolic arm (+3.3707) is indistinguishable from the
+stream-only arm (+3.3704); giving the digit-class read the exact
+symbolic count changes nothing. attn8's in-context function is not
+"a linear read that lacks the count"; it is irreducible to any
+same-position map we have tried (constant, linear, symbolic-augmented
+linear). a8 joins induction transport in the closed class: components
+whose own computation is their minimal description. Next backlog rung
+queued: the front transfer tax (+1.98 of the fresh total) attacked
+with weights-derived FOLD tables, which travel tax-free.

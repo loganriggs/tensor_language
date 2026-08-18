@@ -3922,3 +3922,7 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 
 ## Appendix 303: head hybrid (2026-08-18)
 - 26 comps + 38/72 motif heads = +2.364 window C, beating the all-dict band by 0.27; motif swaps' joint marginal NEGATIVE. Fresh certification queued.
+
+## Appendix 304: new fresh frontier + a8 closed (2026-08-18)
+- Frontier: 26 comps + 38/72 heads at +2.543 fresh (79% of model work). Motif marginal +0.12 fresh (C-window negative was luck).
+- a8 symbolic rescue refuted (identical to stream-only); a8 closed irreducible alongside induction.

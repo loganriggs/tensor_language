@@ -15,14 +15,7 @@ fit a14
 fit a15
 fit a16
 fit a17
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/a8_symbolic.py", line 427, in <module>
-    if __name__=='__main__': main()
-                             ^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/a8_symbolic.py", line 332, in main
-    ISD[t]=True; DVAL[t]=int(st[-1])
-                         ^^^^^^^^^^^
-ValueError: invalid literal for int() with base 10: '²'
+no-a8 +2.7486 | +a8 symbolic +3.3709 | +a8 stream-only +3.3705
+(a) symbolic marginal <= +0.15: FAILED
+(b) stream-only reverts >= +0.4: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/a8_symbolic_results.json (75s)
