@@ -1,0 +1,33 @@
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+fresh rows: 180
+FRESH pile: base 3.3956 | best-34 +3.1138 | deploy +3.2077
+revert a2: -0.1626
+revert a5: +0.0060
+revert a9: -0.0346
+revert a14: +0.0162
+revert a16: +0.0157
+revert c8: -0.0105
+a8 re-add on fresh: +0.2488
+ALL-MEANS (36 vectors): +7.0370
+FINEWEB: base 3.0772 | best-34 +3.4495
+(a) fresh best within +-0.30: FAILED
+(b) >=5/6 swaps replicate (3/6): FAILED
+(c) a8 re-add >= +0.3: FAILED
+(d) all-means >= +6.0: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/fresh_replication_results.json (99s)

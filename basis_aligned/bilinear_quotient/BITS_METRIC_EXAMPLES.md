@@ -13,11 +13,19 @@ The three candidate prices:
 - **fitted bits** — the information taken *from data* (ridge fits, class
   means measured on text); weights-derived pieces cost only their generator.
 
-## 1. mlp1's token table + absorber (the model's most important component)
+## 1. mlp0's token table + absorber (and mlp1's solo fold table)
 
-What it is: "for each vocabulary token, output a fixed vector — computed
-from the weights by one tiny forward pass per token — plus a low-rank
-quadratic correction read from the stream."
+What it is: "for each of the 50,257 vocabulary tokens, one fixed output
+vector, keyed by the CURRENT token at the position — the component ignores
+all context — plus a low-rank quadratic correction read from the stream."
+The rows come from either (i) a weights-program: run the front of the model
+on each token alone (a length-1 forward), no data — this recovers 79% of
+mlp1 solo; or (ii) empirical means of the component's output over the
+token's occurrences in text (the assembly's m0/m2/m3 rungs).
+(Correction, caught in review: mlp1's IN-ASSEMBLY stand-in is a fitted
+linear map, not a table — the table is its solo fold result. At layer 1
+the stream is nearly token-determined, so the two nearly coincide, but
+they carry different fitted-bits prices.)
 
 - artifact bits: 50257 x 1152 halfs ≈ **116 MB** — *larger than the
   component's own weights* (~32 MB). Verdict: absurd. The artifact price
