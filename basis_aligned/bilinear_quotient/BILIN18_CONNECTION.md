@@ -7474,3 +7474,18 @@ attn0's broadcast row >= cross mean (positive control HELD); next-block
 handoff loses to same-block everywhere. The composed unit "attention
 selects, adjacent MLP transforms" is a repeated circuit motif of the
 model's FRONT, not of the model.
+
+## 286. Two instrument failures, recorded
+
+`handoff_causal.py` v1 subtracted raw attention output from the MLP's
+already-normalized input -- wrong interface, wrong scale: every arm
+including the random control cost ~10-12 nats (the all-means range).
+Void. The block computes mlp(rms_norm(x_mixed + attn_out)), so the
+correct counterfactual is mlp(rms_norm(x_mixed)); v2 does that with a
+norm-matched control at the same interface. `decomp_census.py` v1
+crashed on Down's orientation and, worse, gave low-rank 2.5x the budget
+on non-square matrices (rank set for square shapes) -- its one printed
+result (Right: sparse 18/18) survives a fortiori (sparse won even
+against over-budgeted low-rank) but the census is rerun at fair
+budgets. Standing rule reinforced: scale/orientation sanity checks
+(reconstruction null, budget audit) BEFORE the science bars.

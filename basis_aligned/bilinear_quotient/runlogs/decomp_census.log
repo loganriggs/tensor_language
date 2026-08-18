@@ -1,0 +1,17 @@
+c_q    : winner sparse (18/18) all={'sparse': 18}
+c_k    : winner sparse (18/18) all={'sparse': 18}
+c_v    : winner sparse (18/18) all={'sparse': 18}
+c_proj : winner sparse (18/18) all={'sparse': 18}
+Left   : winner sparse (18/18) all={'sparse': 18}
+Right  : winner sparse (18/18) all={'sparse': 18}
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/decomp_census.py", line 127, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/decomp_census.py", line 92, in main
+    Wb=Wm@SB
+       ~~^~~
+RuntimeError: mat1 and mat2 shapes cannot be multiplied (1152x4608 and 1152x1152)
