@@ -3936,3 +3936,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 ## Appendix 309: composition economics (2026-08-18)
 - Motif-head cost is substrate-dependent 9x (0.12 empirical vs 1.04 fold base): stream fidelity, not CE, prices downstream rungs. Frontier: 20@+1.46 / 28@+2.84 / 34@+2.93 fresh. Stream-MSE mechanism test queued.
 - Global stream-fidelity hypothesis refuted; LOCAL read-site pricing fits all four observations (fold worse at 2-9 where motif heads read -> +1.04; better at 10-17 where tail dicts read -> 0.34). CE robust to ~100% relative stream error. Control queued.
+- Local pricing CERTIFIED (0.43 vs 1.04; 18% local fidelity gap -> 2.4x cost). New envelope point: 20 comps + 38 heads @ +2.29 fresh (dominates 26+38 @ +2.54). Composition economics complete.

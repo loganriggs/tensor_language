@@ -7976,3 +7976,22 @@ faithful either -- both stand-in families trade local fidelity
 differently. Control queued: motif gains refit and priced on the
 empirical twin base under identical grammar -- local pricing predicts
 a materially lower marginal than the fold base's +1.04.
+
+## 311. Local pricing certified -- the composition economics are complete
+
+`local_pricing.py`: the 38 motif-head gains on the empirical twin base
+cost **+0.4258 fresh** against +1.04 on the fold base -- under the
+registered 0.6x bar, general-substitution branch rejected. The
+composition economics now stand certified end to end: (1) downstream
+rungs are priced by LOCAL stream error at their read sites -- an 18%
+local fidelity gap (block-7 rel-MSE 2.00 vs 1.69) amplified to a 2.4x
+cost ratio, superlinear sensitivity; (2) stream fidelity and CE
+dissociate completely (~100% relative stream error at +1.4 nats); (3)
+the coverage frontier is therefore substrate-strategic: CE-cheap,
+locally-unfaithful stand-ins (fold) win at low coverage and poison the
+mid-band; faithful-where-it-matters substrates carry high coverage.
+Updated fresh envelope: **20 comps @ +1.46 (fold base) / 20 comps + 38
+heads @ +2.29 (empirical base -- dominates the old 26+38 @ +2.54) / 28
+@ +2.84 / 34 @ +2.93.** The benchmark's next moves are now
+principled: pick each rung's substrate by where downstream readers
+look, and spend absorber capacity at read sites, not uniformly.
