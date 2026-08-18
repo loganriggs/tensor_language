@@ -3540,3 +3540,11 @@ span -- attention is transport, never origin. (Curious: bilin12 attention
 sharing rises with depth while MLP sharing falls.)
 
 Full detail in `BILIN18_CONNECTION.md` §226.
+
+### Gradient story dies as a universal
+
+bilin12's rising attention sharing (+0.82) is its own trait; bilin18's
+attention is flat (-0.13), MLP falls (-0.43). attn17's low value is an
+instrument boundary (all folds acausal), not an anomaly.
+
+Full detail in `BILIN18_CONNECTION.md` §227.

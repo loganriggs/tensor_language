@@ -6086,3 +6086,26 @@ its MLP sharing falls — opposite gradients within one model; untested, noted
 for any future profile work. The private-span dossier closes here: every
 on-box thread is resolved or explicitly scope-noted, and the object's full
 name is stable across twelve sections of adversarial testing.
+
+## 227. The gradient story dies as a universal: bilin12's rising attention is its own trait
+
+File: `bilin18_gradient_test.py`. Completed bilin18 attention profile (ten
+writers, attn6 excluded as borrowed) and the three gradients:
+
+    b18 MLP Spearman(depth)  −0.43   (falls, but missed the −0.5 bar — L7's
+                                      0.52 bump softens the decline)
+    b18 attn                 −0.13   (flat)
+    b12 attn                 +0.82   (rises, strongly — the §226 observation
+                                      confirmed within its own model)
+
+The opposite-gradients pattern is 12-layer-specific, not a family trait —
+registered alternative (c) held. What survives as family statements: MLP
+sharing declines with depth in both models; attention sharing has no
+universal depth shape. One number worth a scoping note rather than a claim:
+attn17 is bilin18's least-shared attention writer (0.15), but every reader in
+its fold set sits upstream of it and no MLP ever reads the final attention
+output — for a last-layer attention writer the LORO instrument is measuring
+purely acausal folds, so this is an instrument boundary, not a new anomaly.
+With this, the profile work is exhausted on both models and both component
+types; the arc's durable yield is the MLP decline (universal), the notch
+(universal, MLP-only), and the seceding last reader (18L-only).

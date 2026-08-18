@@ -1,0 +1,12 @@
+attn 0: LORO +0.309 (random -0.152)
+attn 2: LORO +0.303 (random -0.362)
+attn10: LORO +0.259 (random -0.327)
+attn14: LORO +0.371 (random -0.089)
+attn17: LORO +0.149 (random -0.616)
+
+Spearman(depth): b18 mlp -0.43 | b18 attn -0.13 | b12 attn +0.82
+(a) b18 mlp falls <=-0.5: FAILED
+(b) b12 attn rises >=+0.5: HELD
+(c) b18 attn rises >=+0.3: FAILED (<=0: rise is 12L-specific)
+(d) nulls <=0.1: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_gradient_test_results.json (55s)
