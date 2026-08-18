@@ -6834,3 +6834,26 @@ table exact and the mlp1 table computed from weights without ever running
 the model on text. This is the circuit program's Track-2 capstone: every
 piece of it was nominated by a certified semantic story, and the flat
 layer-track could express none of it.
+
+## 256. The crown's ladder: linear wins, and the table's price is stated honestly
+
+File: `mlp1_ladder.py`. The mlp1 stand-in ladder (sanity rungs exact):
+
+    fold table +1.216   empirical table +0.840   table+rank-32 +0.564
+    full ridge LINEAR: **+0.120**   (bar (a) missed by 0.014; (b) held big)
+
+The crown component is ~97% linear in its input — the old "linearization
+crown" title was still underselling it. The linear map subsumes the token
+table because the stream entering mlp1 carries token identity linearly, so
+a D×D map reads the dictionary AND the context corrections at once.
+
+The honest-accounting note (ledger-#15 discipline): the token tables I have
+been calling "cheap descriptions" cost V×D ≈ 58M raw numbers — more than
+mlp1's own 16M parameters. Their value is INTERPRETIVE (the function IS
+per-token vectors, derivable from weights with zero additional information
+given the model) — but as standalone submissions they are expensive, and
+the benchmark entry for mlp1 is the linear map: +0.12 nats at 1.3M params.
+The two description levels are now stated separately everywhere: "what the
+component is" (dictionary; semantic) vs "cheapest faithful substitute"
+(linear; the Track-2 price). Assembled v2 queued with the crown's linear
+rung swapped in.

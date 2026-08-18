@@ -3780,3 +3780,12 @@ Full detail in `BILIN18_CONNECTION.md` §254.
 assembled cost 0.88x the sum of solos. Two tables weights-computable.
 
 Full detail in `BILIN18_CONNECTION.md` §255.
+
+### mlp1: linear wins at +0.12
+
+Full ridge linear replaces the crown at +0.12 nats (1.3M params), 5x
+better and 40x smaller than the token table (58M raw numbers -- priced
+honestly now: interpretively cheap, parametrically expensive). Assembled
+v2 queued.
+
+Full detail in `BILIN18_CONNECTION.md` §256.
