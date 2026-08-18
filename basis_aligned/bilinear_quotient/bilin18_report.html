@@ -602,7 +602,9 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   private (0.13) — but orthogonalized against the MLP span it recovers to the normal
   range (0.45): the attention was carrying the span's content, exactly as the relay
   picture predicts. The private object is the single eight-dimensional span — its MLP
-  writes it, its attention transports it. The sharpest fact came
+  writes it, its attention transports it (a carrier effect specific to the 18-layer
+  model; the 12-layer sibling shows no attention notch at all — across the family the
+  anomaly is only ever the MLP span, attention transport never origin). The sharpest fact came
   earlier: the sibling 12-layer
   bilinear model has its own private writer, below its own random-projection floor, at
   exactly the same depth fraction (L4/12 = L6/18 = 0.33). The private writer is an
