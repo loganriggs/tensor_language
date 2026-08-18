@@ -7238,3 +7238,14 @@ config, indistinguishable from the plain dict (+0.617). Both bars
 FAILED. attn8's digit function (contextual counting) is not a
 same-position read in any form we have; it joins induction as
 cross-position transport. a8 remains the one honestly-dead rung.
+
+Correction to 274 (caught by user question): m1's in-assembly stand-in is
+the fitted LINEAR map (the assembly's one linear rung, from v3 onward) --
+NOT the token table. The token-table result for mlp1 (79% recoverable
+from a weights-computed lookup, section 256) is its SOLO fold result. The
++0.006 marginal belongs to the linear stand-in. The table+absorber rungs
+in the assembly are m0, m2, m3. The interpretive picture is consistent --
+at layer 1 the stream is still nearly token-determined, so "linear map on
+a token-determined input" and "token table" nearly coincide -- but the
+census entry was mislabeled and the two descriptions have different
+fitted-bits prices.
