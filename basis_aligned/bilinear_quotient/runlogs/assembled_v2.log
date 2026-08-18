@@ -1,0 +1,13 @@
+solo a0  : -0.0000
+solo a1v : +0.0320
+solo m0  : +0.1624
+solo m1  : +0.1198
+solo m2  : +0.2284
+solo m3  : +0.3079
+solo tail: +0.1666
+
+base 3.535 | sum-of-solos +1.017 | ASSEMBLED +2.690 (x2.64)
+(a) <=1.1x sum: FAILED
+(b) assembled <=0.90 nats: FAILED
+(c) solo sanity: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/assembled_v2_results.json (34s)

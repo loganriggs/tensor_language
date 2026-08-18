@@ -3789,3 +3789,10 @@ honestly now: interpretively cheap, parametrically expensive). Assembled
 v2 queued.
 
 Full detail in `BILIN18_CONNECTION.md` §256.
+
+### v2 super-additive (2.64x): sequential-refit lesson crosses tracks
+
+Linear stand-ins fit on clean inputs misfire under upstream substitution;
+tables are id-conditioned and robust. v3 = sequential fitting, queued.
+
+Full detail in `BILIN18_CONNECTION.md` §257.

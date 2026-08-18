@@ -6857,3 +6857,22 @@ The two description levels are now stated separately everywhere: "what the
 component is" (dictionary; semantic) vs "cheapest faithful substitute"
 (linear; the Track-2 price). Assembled v2 queued with the crown's linear
 rung swapped in.
+
+## 257. Assembled v2 super-additive — the sequential-refit lesson crosses tracks
+
+File: `assembled_v2.py`. Swapping the crown's stand-in from fold table
+(solo +1.216) to ridge linear (solo +0.120) made the ASSEMBLED model worse:
+
+    v1 (fold table):  solos sum +2.114 → assembled +1.850 (0.88x)
+    v2 (linear):      solos sum +1.017 → assembled +2.690 (2.64x!)
+
+Diagnosis: the linear map was fit on the CLEAN model's mlp1 inputs; with
+mlp0 replaced upstream, mlp1's input distribution shifts and the map
+misfires — while token tables, conditioning only on ids, are robust to
+upstream substitution. The old layer-track bought this exact lesson as its
+single biggest lever (sequential refit, +36%, §196-era), and the circuit
+track just re-purchased it: **input-conditioned stand-ins must be fit with
+their upstream replacements active.** v3 queued: sequential front-to-back
+fitting of every fitted piece (a0 exact needs none; m0 table; m1 linear on
+the a0+m0-substituted stream; m2/m3 tables likewise; a1 values; tail
+probe+dictionary last). Registered: v3 ≤ +0.90 total.

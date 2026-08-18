@@ -1,0 +1,23 @@
+{
+ "base": 3.5352,
+ "solos": {
+  "a0": -0.0,
+  "a1v": 0.032,
+  "m0": 0.1624,
+  "m1": 0.1198,
+  "m2": 0.2284,
+  "m3": 0.3079,
+  "tail": 0.1666
+ },
+ "sum_solo": 1.0172,
+ "assembled": 2.6902,
+ "compounding": 2.64,
+ "pred_a": false,
+ "pred_b": false,
+ "pred_c": true,
+ "description": {
+  "weights_exact": "attn0 vtable (V x D), mlp1 fold (V x D)",
+  "fitted": "mlp0/2/3 tables (3 V x D), attn1 vtable (V x D), tail dict 640 + probe D x 10 + 2x8 linear maps"
+ },
+ "runtime_s": 34.04538893699646
+}
