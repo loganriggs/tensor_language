@@ -3909,3 +3909,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 
 ## Appendix 295-296: junction typology (2026-08-18)
 - Three critical junctions, three architectures: b0 distributed lexical (no narrow core), b1 coherence-critical (top-4 cut +4.08 > full +1.95), b5 narrow regulator (4 dirs, mean-carried). Shared wiring motif, private implementations. Fresh shape-certification queued.
+- Junction types b5 (narrow) and b1 (coherence-inverted) certified fresh; b0's "distributed" amended to window-dependent/broad (token-conditioned junction follows the token mix). Basis-stability test queued.

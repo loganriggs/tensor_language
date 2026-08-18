@@ -7709,3 +7709,20 @@ implementation does not -- the same shared-function-private-binding
 signature the whole program keeps finding, now at the junction level.
 Fresh-shape certification queued (the three ladder SHAPES on never-seen
 text; the costs themselves already replicated in 294).
+
+## 297. Junction typology: two types certified fresh, one amended
+
+`junction_shapes_fresh.py`: block 5's narrowness (top-4 = 87% of full)
+and block 1's coherence inversion (top-4 +4.30 vs full +1.95) both
+REPLICATE on never-seen text -- those two architecture labels are
+certified. Block 0's "distributed" label FAILED: with a fresh-refit
+basis, top-4 carries 18% and top-16 carries 52% of the full cut, versus
+1%/10% on the standard window. Amendment: block 0's shape is
+WINDOW-DEPENDENT -- expected in hindsight for a junction that is
+token-conditioned by construction (different corpora weight different
+tokens, so "which directions matter" follows the token mix). The label
+drops from "distributed" to "broad, content-following" pending the
+queued basis-stability test: if the window-A top-16 basis transfers to
+fresh text at under half the fresh-basis effect, the concentration is
+carried by window-specific token content and both measurements are
+right about their own windows.
