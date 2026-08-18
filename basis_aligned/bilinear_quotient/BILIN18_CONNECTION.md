@@ -6785,3 +6785,29 @@ consumes — is NOT token-mean-approximable at all. The v1 broadcast carries
 something beyond lexical identity (position structure, or per-context
 normalization), and it now joins the private span as a named open object:
 small interface, model-wide reach, not reducible to the obvious hypothesis.
+
+## 254. Correction: there is no attn0 anomaly — its broadcast is EXACTLY lexical
+
+Files: `attn0_broadcast.py` + the seen-prefix split. §253 named attn0's v1
+broadcast a "new open object carrying more than lexical identity." One
+wake later, the dissection kills that framing with an exact result:
+
+    own-path arm: +0.018    broadcast arm: +0.389    (additive, sanity exact)
+    broadcast damage at positions with fully window-A-seen prefixes: −0.0000
+    at positions with ANY unseen prefix token:                        +0.395
+
+The catastrophe was entirely the table's global-mean fallback for
+vocabulary unseen in the fit window — and since every position's attention
+reads all prefix values, one rare token contaminates the rest of its
+sequence (45,348 of 46,080 positions had at least one). At seen tokens the
+per-token table is EXACT, damage literally zero — which the architecture
+in fact guarantees: at layer 0 the stream is the normalized embedding, so
+c_v's output is a pure function of the token. **attn0's v1 broadcast is
+the most lexical object in the model — exactly, not approximately** — and
+the §253 open-object claim is withdrawn (in-record correction; the claim
+never reached the published report). The practical consequence is pleasant:
+v1 is trivially foldable — a weights-computable V×D table with zero
+approximation error — and the layer-0 value system joins mlp1's dictionary
+in the weights-readable column. Lesson filed: before naming an anomaly,
+split the damage by the stand-in's COVERAGE — fallback cases masquerade as
+mechanism.

@@ -3765,3 +3765,11 @@ pattern, not values); attn0's v1 broadcast is NOT token-approximable
 (-223%) -- a new named open object.
 
 Full detail in `BILIN18_CONNECTION.md` §253.
+
+### Correction: no attn0 anomaly -- exactly lexical
+
+The -223% was the rare-token fallback contaminating sequences (seen-prefix
+damage exactly 0.0000). Layer-0 values are a pure token function by
+architecture: trivially foldable, zero error. 253's open object withdrawn.
+
+Full detail in `BILIN18_CONNECTION.md` §254.
