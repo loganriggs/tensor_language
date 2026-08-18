@@ -3508,3 +3508,11 @@ bilin18 neighbors: L5 0.43, L6 0.16, L7 0.52 (nulls measured, all held) --
 matching bilin12's sharp notch. One layer, top-8 span, fraction 1/3, width 1.
 
 Full detail in `BILIN18_CONNECTION.md` §222.
+
+### The private writer is a private LAYER
+
+attn6 is the least-shared attention writer (0.13, = mlp6's 0.16): the notch
+covers the layer's entire output, both component types. Attention overall
+shares slightly less than MLPs (median 0.38).
+
+Full detail in `BILIN18_CONNECTION.md` §223.

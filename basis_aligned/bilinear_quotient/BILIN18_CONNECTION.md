@@ -5994,3 +5994,29 @@ and the notch is exactly one layer deep. Combined with the placement match
 sharp: **one layer, top-8 span, fraction one-third, notch width one.** The
 landscape profile is complete in both bilinear models, and everything the
 program can measure about the private writer on this box has been measured.
+
+## 223. The private writer is a private LAYER — attention at fraction 1/3 is unshared too
+
+File: `bilin18_attn_landscape.py`. The attention half of the landscape, and
+the registered "privacy is an MLP property" prediction (b) failed in the
+sharpest way:
+
+    attn writers: L1 0.49  L4 0.29  [L6 0.13]  L8 0.35  L12 0.47  L16 0.38
+    (mlp profile:  L5 0.43  [L6 0.16]  L7 0.52; nulls measured, all clean)
+
+Attention at layer 6 is the least-shared attention writer, at the same level
+as its MLP (0.13 vs 0.16). The notch is not the MLP's quadratic content but
+the **layer's entire output** — both component types at fraction 1/3 emit
+low-consensus code. This kills the §219-era framing "privacy is the MLP's
+content" in its narrow form: whatever layer 6 does, its attention transport
+carries it too. Under the relay picture (attention transports upstream MLP
+writes), two readings survive on-box: attn6 selects or transforms cargo into
+the same private register, or attn6 predominantly transports the loud L6-span
+content that saturates those directions. Distinguishing them needs cargo
+attribution beyond this box's measured instruments. Scope notes recorded:
+(a) narrowly failed — attention sharing overall runs slightly below the MLP
+range (median 0.38 vs the 0.40 bar; attn4 also lowish at 0.29), so the
+attention landscape is shallower-shared in general, and the notch claim rests
+on attn6 being the clear minimum, not on the absolute bar. The private
+object's final on-box name: **layer 6, whole output, fraction one-third,
+notch width one, consensus zero.**

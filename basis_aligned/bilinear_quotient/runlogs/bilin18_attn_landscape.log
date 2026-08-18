@@ -1,0 +1,11 @@
+attn writer L 1: LORO +0.485 (random -0.423)
+attn writer L 4: LORO +0.292 (random -0.168)
+attn writer L 6: LORO +0.126 (random -0.275)
+attn writer L 8: LORO +0.347 (random -0.072)
+attn writer L12: LORO +0.474 (random -0.157)
+attn writer L16: LORO +0.384 (random -0.292)
+
+(a) attention shared, median >=0.40: FAILED (+0.384)
+(b) attn6 not private >=0.35: FAILED
+(c) measured nulls <=0.1: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_attn_landscape_results.json (68s)

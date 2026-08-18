@@ -597,7 +597,11 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   by everyone, in fully idiosyncratic private codes — no two readers agree, at any
   depth — and its directions are the stream's most contested, not a reserved wire:
   what's private is the content, not the address.
-  The sharpest fact came earlier: the sibling 12-layer
+  And the privacy is a property of the whole layer,
+  not its MLP alone: layer 6's attention output is the least-shared attention signal in
+  the model (0.13, matching the MLP span's 0.16) — both component types at one-third
+  depth emit code the reader population holds no consensus on. The sharpest fact came
+  earlier: the sibling 12-layer
   bilinear model has its own private writer, below its own random-projection floor, at
   exactly the same depth fraction (L4/12 = L6/18 = 0.33). The private writer is an
   architectural regularity of trained bilinear stacks, not a quirk of this model — The two private spans even damage overlapping token
