@@ -1,0 +1,73 @@
+{
+ "total": {
+  "ablate": 4.477,
+  "recovery": 0.183,
+  "shuffled": 0.123
+ },
+ "per_class": {
+  "digit": {
+   "n": 720,
+   "ablate": 4.3076,
+   "dict": 1.4137,
+   "recovery": 0.67
+  },
+  "bclose": {
+   "n": 249,
+   "ablate": 6.7305,
+   "dict": 0.9768,
+   "recovery": 0.85
+  },
+  "newline": {
+   "n": 2428,
+   "ablate": -1.2833,
+   "dict": -1.6324,
+   "recovery": -0.27
+  },
+  "sentend": {
+   "n": 1323,
+   "ablate": 3.2836,
+   "dict": 0.8962,
+   "recovery": 0.73
+  },
+  "comma": {
+   "n": 1256,
+   "ablate": 1.4879,
+   "dict": 0.4115,
+   "recovery": 0.72
+  },
+  "name": {
+   "n": 759,
+   "ablate": 6.6954,
+   "dict": 3.9499,
+   "recovery": 0.41
+  },
+  "rep": {
+   "n": 3100,
+   "ablate": 6.2314,
+   "dict": 1.0877,
+   "recovery": 0.83
+  },
+  "subword": {
+   "n": 8497,
+   "ablate": 5.9076,
+   "dict": 4.5659,
+   "recovery": 0.23
+  },
+  "ind": {
+   "n": 11064,
+   "ablate": 5.1535,
+   "dict": 5.0038,
+   "recovery": 0.03
+  },
+  "other": {
+   "n": 16684,
+   "ablate": 4.0046,
+   "dict": 4.1323,
+   "recovery": -0.03
+  }
+ },
+ "pred_a": true,
+ "pred_b": false,
+ "pred_c": false,
+ "runtime_s": 8.212167978286743
+}

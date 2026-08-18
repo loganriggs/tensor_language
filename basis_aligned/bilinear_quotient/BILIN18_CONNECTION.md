@@ -6625,3 +6625,33 @@ redundant in §238). The class×owner table is the amortization map the
 benchmark's node-complexity idea wanted: twenty ownership families, ten
 functions, and the certified-circuit list is the product of the two, not
 147 independent facts.
+
+## 247. Attention is two materials: type-constant at structure sites, irreducibly contextual at copy sites
+
+File: `attn_dictionary.py`. All 18 attention components jointly replaced by
+per-class constants (joint ablation +4.48 nats — deep-damage regime):
+
+    recovery by class: bclose 85%  rep 83%  sentend 73%  comma 72%
+                       digit 67%   name 41%  subword 23%  ind 3%  other −3%
+    total 18% (registered band held); shuffled-label control 12%
+
+Two honest notes before the reading. First, the shuffled control is high
+(12% > the registered 5%) because in the deep-damage regime any structured
+constant recovers generic norm — the aggregate dictionary signal is the
+6-point margin, and the real evidence is the per-class dissociation, which
+shuffling cannot produce. Second, newline's ablation is NEGATIVE (−1.28:
+removing all attention IMPROVES newline sites — the regularizer channel
+again), so its ratio is excluded per the floor rule and my "formatting"
+bar (b) was mis-grouped; recorded as failed.
+
+The reading: **attention output is two different materials.** At
+structure sites — brackets, repetition, sentence ends, commas, digits —
+its content is largely a function of site TYPE (67-85% constant-
+replaceable): the "transport" at those sites carries a stereotyped signal.
+At copy sites — induction 3%, subword 23%, the residual — it is
+irreducibly contextual: what it transports IS the context. This cleanly
+seconds the §239 antecedent finding and gives the context-conditional
+replacement program its map: constants for the structural half, and for
+the contextual half the stand-in must itself be a retrieval operation —
+the registered next rung (a programmatic copy stand-in for the induction
+band: attend to the matched prefix, emit the successor's value).

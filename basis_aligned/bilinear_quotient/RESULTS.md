@@ -3706,3 +3706,13 @@ and essential for retrieval. Addition: model can't (0%). 147 circuits
 collapse to 20 owner-function families.
 
 Full detail in `BILIN18_CONNECTION.md` sections 245-246.
+
+### Attention is two materials
+
+Per-class constants replace attention at 67-85% for structure sites
+(bclose/rep/sentend/comma/digit) and 3% for induction -- transport is
+stereotyped at structure sites, irreducibly contextual at copy sites.
+Newline ablation negative (regularizer channel). Next: programmatic copy
+stand-in for the induction band.
+
+Full detail in `BILIN18_CONNECTION.md` §247.

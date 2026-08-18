@@ -1,0 +1,15 @@
+joint attn ablate +4.477 | dict recovery 18% | shuffled 12%
+  digit    n=   720 abl +4.308 rec 0.67
+  bclose   n=   249 abl +6.731 rec 0.85
+  newline  n=  2428 abl -1.283 rec -0.27
+  sentend  n=  1323 abl +3.284 rec 0.73
+  comma    n=  1256 abl +1.488 rec 0.72
+  name     n=   759 abl +6.695 rec 0.41
+  rep      n=  3100 abl +6.231 rec 0.83
+  subword  n=  8497 abl +5.908 rec 0.23
+  ind      n= 11064 abl +5.154 rec 0.03
+  other    n= 16684 abl +4.005 rec -0.03
+(a) recovery in 15-35%: HELD
+(b) formatting>=40%, ind<=10%: FAILED
+(c) shuffled <=5%: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/attn_dictionary_results.json (8s)
