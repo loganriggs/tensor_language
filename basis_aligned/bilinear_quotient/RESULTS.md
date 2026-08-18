@@ -3501,3 +3501,10 @@ floor 0.10). Idiosyncrasy is total. Section 220's depth-graded reading is
 withdrawn; register the metric AND measure the floor first.
 
 Full detail in `BILIN18_CONNECTION.md` §221.
+
+### The notch is one layer wide
+
+bilin18 neighbors: L5 0.43, L6 0.16, L7 0.52 (nulls measured, all held) --
+matching bilin12's sharp notch. One layer, top-8 span, fraction 1/3, width 1.
+
+Full detail in `BILIN18_CONNECTION.md` §222.

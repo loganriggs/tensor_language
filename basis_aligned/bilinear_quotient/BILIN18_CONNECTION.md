@@ -5978,3 +5978,19 @@ relative to the measured floor, and the floor-measurement-first rule now
 joins the registration discipline. The whisper's final description loses its
 last consoling clause: heard by all, understood by each alone, agreed by
 none — at any depth.
+
+## 222. The notch is one layer wide in both models
+
+File: `bilin18_notch_profile.py`, all bars held (nulls measured per the
+ledger-#17 rule: −0.26 to −0.14). bilin18's completed writer profile:
+
+    L0 0.70  L1 0.64  L3 0.43  L5 0.43  [L6 0.16]  L7 0.52  L9 0.54  L12 0.51
+    bilin12: L3 0.32  [L4 -0.08]  L5 0.38
+
+Privacy does not shade in gradually — in both models the immediate neighbors
+of the private writer share normally (L7 actually above the mid-depth trend),
+and the notch is exactly one layer deep. Combined with the placement match
+(fraction 0.33 in both), the object's structural specification is now fully
+sharp: **one layer, top-8 span, fraction one-third, notch width one.** The
+landscape profile is complete in both bilinear models, and everything the
+program can measure about the private writer on this box has been measured.
