@@ -1,0 +1,61 @@
+[
+  {
+    "name": "listing-icon-after-semicolon",
+    "story": "In semicolon-separated info listings (hours, phone, transit), the model predicts the next single-letter field-marker token such as ' t', ' h', or ' %'.",
+    "rule": {
+      "target_in": [" t", " h", " %"]
+    }
+  },
+  {
+    "name": "post-comma-continuation",
+    "story": "Immediately after a comma the model predicts the lowercase word that opens the next list item or clause.",
+    "rule": {
+      "prev_in": [","],
+      "target_class_in": ["space_word"]
+    }
+  },
+  {
+    "name": "preposition-after-noun-phrase",
+    "story": "After completing a noun phrase the model predicts a common preposition (at, in, of, with) that attaches a location, time, or complement.",
+    "rule": {
+      "target_in": [" at", " in", " of", " with"]
+    }
+  },
+  {
+    "name": "indefinite-article",
+    "story": "After a verb, comma, or quantifier the model opens a new noun phrase by predicting the indefinite article 'a' or 'an'.",
+    "rule": {
+      "target_in": [" a", " an", "a", "an"]
+    }
+  },
+  {
+    "name": "the-before-adjective",
+    "story": "Right after the definite article 'the' the model predicts a lowercase modifier or noun beginning the noun phrase.",
+    "rule": {
+      "prev_in": [" the", "the"],
+      "target_class_in": ["space_word"]
+    }
+  },
+  {
+    "name": "verb-after-to-or-modal",
+    "story": "After an infinitive marker, modal, relative pronoun, or coordinator the model predicts the following base verb.",
+    "rule": {
+      "prev_in": [" can", " to", " who", " or"],
+      "target_class_in": ["space_word"]
+    }
+  },
+  {
+    "name": "paren-close-plus-punct",
+    "story": "The model closes a parenthetical with a bracket token that is fused with trailing punctuation or preceded by a space, which the plain bracket-close rule misses.",
+    "rule": {
+      "target_in": [").", "),", " )", ")"]
+    }
+  },
+  {
+    "name": "multi-token-word-start",
+    "story": "The model begins a word that spans multiple subword tokens, emitting a short word-initial fragment like ' mid', ' self', or ' sm' that later tokens will complete.",
+    "rule": {
+      "target_in": [" mid", " self", " Jer", " sm", " lic"]
+    }
+  }
+]

@@ -1,0 +1,55 @@
+[
+  {
+    "name": "word-after-determiner",
+    "story": "Right after a determiner or possessive ('a', 'the', 'this', 'their', 'some') the model predicts the next word of the noun phrase, e.g. 'justify a[-> day]', 'know their[-> cocktails]', 'just the[-> place]'.",
+    "rule": {
+      "prev_in": [" a", " the", " this", " their", " some", "the"],
+      "target_class_in": ["space_word"]
+    }
+  },
+  {
+    "name": "determiner-insertion",
+    "story": "Where syntax requires a new noun phrase to begin (typically after a preposition like 'at' or 'for'), the model predicts an article or demonstrative, e.g. 'arrived in Canterbury in 1174 for[-> a]', 'await at[-> this]'.",
+    "rule": {
+      "target_in": [" a", " the", " this"]
+    }
+  },
+  {
+    "name": "selected-preposition",
+    "story": "A verb, noun, or adjective that lexically selects a particular preposition makes the model predict it, e.g. 'head[-> to]', 'popular[-> with]', 'heart[-> of]', 'dating[-> from]'.",
+    "rule": {
+      "target_in": [" to", " with", " of", " from"]
+    }
+  },
+  {
+    "name": "listing-delimiter",
+    "story": "Inside compact non-prose material such as phone numbers, URLs, prices, and abbreviations, the model predicts the next delimiter character, e.g. '%020[->-]', 'adult[->/]', 'http[->://]', 'B[->&]B'.",
+    "rule": {
+      "target_in": ["-", ";", "/", "://", "&"]
+    }
+  },
+  {
+    "name": "cap-after-clause-punct",
+    "story": "Immediately after a period or comma the model predicts a capitalized word that opens the next sentence or the next item in a list, e.g. 'bathrooms.[-> Wonderful]', 'Liverpool,[-> Carl]isle', 'festivals,[-> Field]'.",
+    "rule": {
+      "prev_in": [",", "."],
+      "target_class_in": ["upper_start"]
+    }
+  },
+  {
+    "name": "noun-after-adjective",
+    "story": "An attributive adjective makes the model predict the head noun it modifies, e.g. 'arresting[-> spectacle]', 'constant[-> state]', 'fantastic[-> beers]', 'trendy[-> basement]'.",
+    "rule": {
+      "prev_in": [" arresting", " constant", " elegant", " fantastic", " trendy", " vast"],
+      "target_class_in": ["space_word", "upper_start"]
+    }
+  },
+  {
+    "name": "noun-after-hyphenated-modifier",
+    "story": "After a hyphenated compound modifier such as 'tablet-controlled', 'tucked-away', '12th-century', or 'line-caught', the model predicts the head noun the compound modifies.",
+    "rule": {
+      "prev2_in": ["-"],
+      "target_class_in": ["space_word"]
+    }
+  }
+]

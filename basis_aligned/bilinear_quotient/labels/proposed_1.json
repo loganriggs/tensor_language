@@ -1,0 +1,61 @@
+[
+  {
+    "name": "preposition-attachment",
+    "story": "The model predicts a common preposition attaching to the noun phrase or verb just completed (e.g. 'example of', 'miles for', 'eatery on').",
+    "rule": {
+      "target_in": [" of", " in", " on", " for", " to"]
+    }
+  },
+  {
+    "name": "prep-object-start",
+    "story": "Immediately after a preposition, the model launches the object noun phrase (e.g. 'state of flux', 'headland in snow', 'owned by an').",
+    "rule": {
+      "prev_in": [" of", " in", " on", " by", " during"],
+      "target_class_in": ["space_word", "upper_start"]
+    }
+  },
+  {
+    "name": "after-semicolon-field",
+    "story": "In semicolon-delimited listing lines (addresses, hours, prices common in web directories), the model predicts the next field's opening token right after the semicolon.",
+    "rule": {
+      "prev_in": [";", "; ", " ;"]
+    }
+  },
+  {
+    "name": "determiner-launch",
+    "story": "After a verb or preposition the model opens a fresh noun phrase with a determiner or possessive (e.g. 'open during the', 'guard your', 'tick all').",
+    "rule": {
+      "target_in": [" the", " a", " an", " all", " your", " this"]
+    }
+  },
+  {
+    "name": "word-after-determiner",
+    "story": "Directly after an article or demonstrative, the model predicts the first content word of the noun phrase (e.g. 'along the white', 'A taxi', 'at this venue').",
+    "rule": {
+      "prev_in": [" the", " The", " a", " an", " this", " A"],
+      "target_class_in": ["space_word", "upper_start"]
+    }
+  },
+  {
+    "name": "numeral-onset",
+    "story": "The model starts a new number after a non-numeric token, as in prices, addresses, years, and phone numbers ('slated for a 2016', 'call 08', 'is 13 miles').",
+    "rule": {
+      "target_class_in": ["digit"]
+    }
+  },
+  {
+    "name": "copula-predicate-start",
+    "story": "Right after a form of 'to be', the model begins the predicate or complement (e.g. 'It was later', 'Daunt is one', 'guides are also').",
+    "rule": {
+      "prev_in": [" is", " was", " are"]
+    }
+  },
+  {
+    "name": "finite-verb-launch",
+    "story": "After a subject pronoun, relative pronoun, quantifier, or pre-verbal adverb/negation, the model predicts the clause's main verb (e.g. 'which has', 'also find', 'not suit', 'some accept').",
+    "rule": {
+      "prev_in": [" which", " also", " you", " not", " some"],
+      "target_class_in": ["space_word"]
+    }
+  }
+]

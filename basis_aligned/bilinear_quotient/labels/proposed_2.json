@@ -1,0 +1,53 @@
+[
+  {
+    "name": "preposition-linker",
+    "story": "A common function preposition attaches a complement or modifier to the preceding noun or verb phrase (e.g. 'fares in', 'known as', 'ambling through', 'prices for').",
+    "rule": {
+      "target_in": [" for", " in", " as", " during", " through"]
+    }
+  },
+  {
+    "name": "of-genitive-object",
+    "story": "The word right after 'of' completes a genitive or fixed phrase ('Houses of Parliament', 'coach of 17..', 'of course', 'exception of London').",
+    "rule": {
+      "prev_in": [" of"]
+    }
+  },
+  {
+    "name": "proper-noun-after-comma",
+    "story": "In addresses and lists, a comma is followed by a new capitalized proper-noun component such as a street, district, or postcode ('Green Street, Upton', 'Belvedere Rd, SE1').",
+    "rule": {
+      "prev_in": [","],
+      "target_class_in": ["upper_start"]
+    }
+  },
+  {
+    "name": "number-start-after-preposition",
+    "story": "A fresh number (a year, hour, or count) begins immediately after a preposition or determiner ('in the 19th century', 'coach of 17..', 'to 6pm', 'to 9pm').",
+    "rule": {
+      "prev_in": [" the", " of", " to", " from", " at", " in"],
+      "target_class_in": ["digit"]
+    }
+  },
+  {
+    "name": "opening-hours-token",
+    "story": "Business-listing opening-hours strings continue with a highly predictable schedule token: a weekday abbreviation after a time or ampersand, 'noon', or the hours-marker 'h' ('10am-5pm Tue', 'Sat & Sun', 'hgrill noon').",
+    "rule": {
+      "target_in": [" Tue", " Thu", " Sun", " noon", " h", "h"]
+    }
+  },
+  {
+    "name": "head-after-adverb",
+    "story": "After a manner or additive adverb ('hugely', 'quaintly', 'instantly', 'also'), the modified head word (adjective, participle, or verb) follows ('hugely entertaining', 'also available', 'instantly elbows').",
+    "rule": {
+      "prev_in": [" hugely", " quaintly", " Incongruously", " instantly", " also"]
+    }
+  },
+  {
+    "name": "listing-field-after-semicolon",
+    "story": "In structured directory-style listings, a semicolon delimiter opens the next metadata field such as a URL, price, tag, or hours block ('East St; snacks', '1680; www', 'Grove; tacos').",
+    "rule": {
+      "prev_in": [";"]
+    }
+  }
+]
