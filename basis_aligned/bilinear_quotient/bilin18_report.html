@@ -447,13 +447,24 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   the model — 79% replaceable by a lookup table computed from the weights alone, one
   forward pass per vocabulary entry, no training data; layer 0's value broadcast is
   exactly lexical (a weights-computable table with literally zero error). Assembled,
-  the certified stand-ins replace thirteen of thirty-six components — and iterating the
-  assembly taught a composition grammar: token-conditioned tables act as error
-  <em>firewalls</em> (lossy, stabilizing), input-conditioned stand-ins as error
-  <em>conductors</em> (accurate solo, propagating in composition). The best assembly
-  fits everything sequentially and types each front table as firewall-plus-absorber
-  (a low-rank read of the substituted input that cancels the table's own error),
-  landing at <strong>+1.39 nats</strong> total.</p>
+  the certified stand-ins now replace <strong>twenty-seven of thirty-six components</strong> —
+  and iterating the assembly taught a composition grammar: token-conditioned tables act
+  as error <em>firewalls</em> (lossy, stabilizing), input-conditioned stand-ins as error
+  <em>conductors</em> (accurate solo, propagating in composition). The assembly frontier
+  runs 13 components at +1.39 nats (all fits sequential, front tables typed as
+  firewall-plus-absorber), 19 at +2.10 (the six middle MLPs join at ~0.12 nats each —
+  the old "incompressible middle" verdict turned out to be true only of input-generic
+  replacements), and 27 at +2.55 (tail attention 10–17 replaced by per-class constants
+  at structure sites and per-class linear reads elsewhere; all eight rungs survived
+  their pre-registered drop rule, and the fully input-only version costs just 0.06 more).
+  Weight structure sharpened the recipe twice over: because a bilinear MLP is a sum of
+  rank-1 quadratics, a quarter of its hidden units — pickable by a norm product computed
+  from weights alone, no data — carry ~80%+ of every middle MLP, and quadratic absorber
+  features derived from each layer's own read-directions cut the 19-component assembly
+  to +1.99. Two structural hypotheses failed their registered bars and are recorded as
+  negatives: the middle layers do not read a low-dimensional input subspace, and
+  restricting error-correction to a 64-dim "what downstream reads" interface subspace
+  made the assembly worse — the middle's interfaces are broad.</p>
   <p class="q">Honest negatives from the same campaign: the naive match-and-copy
   stand-in for the induction band was refuted twice (the copy is distributed, not a
   single-position value injection); the model cannot do single-digit addition; and
