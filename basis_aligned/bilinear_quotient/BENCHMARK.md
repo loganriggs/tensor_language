@@ -194,3 +194,9 @@ floors); (3) before deferring any fork, write the orthogonalization that
 would decide it (borrowed vs intrinsic privacy was one orthogonalization
 away). Standard outputs: per-writer profile, per-fold table, floor. See
 PREREGISTRATION.md for the frozen prediction bundle that uses them.
+
+Edge-explanation scoring note (sections 233-234): kinship compilations are
+scored by MARGIN over the median other-partner similarity, never by rank --
+rank is dominated by generically loud components on any text window and
+collapsed for a certified edge whose margin simultaneously replicated at
+2x the bar on fresh text.

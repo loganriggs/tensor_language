@@ -1,0 +1,22 @@
+mlp 0: |rho| 0.225
+mlp 1: |rho| 0.249
+mlp 2: |rho| 0.130
+mlp 3: |rho| 0.157
+mlp 4: |rho| 0.171
+mlp 5: |rho| 0.193
+mlp 6: |rho| 0.136
+mlp 7: |rho| 0.014
+mlp 8: |rho| 0.123
+mlp 9: |rho| 0.092
+mlp10: |rho| 0.042
+mlp11: |rho| 0.016
+mlp12: |rho| 0.013
+mlp13: |rho| 0.031
+mlp14: |rho| 0.039
+mlp15: |rho| 0.029
+mlp16: |rho| 0.087
+mlp17: |rho| 0.116
+
+attn6~mlp5 0.193 vs median-other 0.092 (margin +0.101; original 0.223 vs 0.087)
+(a) margin >= +0.05: HELD -- E1 kinship leg survives
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_e1_rescore_results.json (21s)

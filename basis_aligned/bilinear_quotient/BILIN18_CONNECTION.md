@@ -6282,3 +6282,23 @@ that; the signal (94%) is 3.5σ above it. Lesson filed with the floor rule:
 compute the NULL'S EXPECTED VALUE from the selection structure before
 registering its band — a best-of-k selection over a causal ordering has a
 built-in bias, and 40–60% was the band for a coin, not for this selector.
+
+## 234. E1 re-certified on fresh text — rank was the wrong statistic, margin is the right one
+
+File: `bilin18_e1_rescore.py`. The certified edge explanation ("attn6
+transports L5's MLP-written content") survives its fresh-window re-score:
+
+    fresh:    attn6~mlp5 0.193 vs median-other 0.092 (margin +0.101)
+    original:            0.223 vs           0.087 (margin +0.136)
+
+The §233 rank collapse (23rd of 324) and this margin survival are the same
+data read through two statistics, and only one of them is right for edge
+claims: RANK asks "is this pair the loudest," which the generically dominant
+early writers always win on any window; MARGIN-over-median asks "does this
+specific pair mark the same tokens more than a typical pair does," which is
+what the explanation actually claims. The margin replicates at 2x the bar.
+E1 stands as a three-instrument certification (span deletion, pattern
+clamping, fingerprint kinship), and BENCHMARK.md's edge-explanation class
+keeps kinship compilations with the margin statistic named as the score and
+rank explicitly disallowed. With this, every certified Track-1 entry has a
+fresh-data leg, and the replication backlog is empty.

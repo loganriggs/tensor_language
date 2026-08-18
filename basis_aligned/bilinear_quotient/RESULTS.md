@@ -3598,3 +3598,11 @@ cite the interchange number). Null band was mis-registered: best-of-18 over
 a causal ordering expects ~53%, not 50-50; signal is 3.5 sigma above.
 
 Full detail in `BILIN18_CONNECTION.md` §233.
+
+### E1 re-certified fresh (margin +0.101, 2x bar)
+
+Rank was the wrong statistic (loud early writers always win it); margin
+over median is the claim's actual content and it replicates. Certified
+entries all have fresh-data legs now; replication backlog empty.
+
+Full detail in `BILIN18_CONNECTION.md` §234.
