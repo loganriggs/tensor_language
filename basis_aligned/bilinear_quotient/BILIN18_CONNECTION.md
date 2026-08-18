@@ -7742,3 +7742,25 @@ component of the fresh basis orthogonal to window-A's span (~5 dims);
 registered: it carries >= 70% of the fresh-basis cut. Either way the
 junction typology stands with b0 labeled "broad, importance-unstable"
 -- an honest, replicated characterization.
+
+## 299. b0 resolved: the cost is holistic -- and the junction typology unifies
+
+`b0_orth_remainder.py`: both sub-cuts are nearly free (orthogonal
+remainder +0.008, shared component +0.066) while the joint 16-direction
+cut costs +0.495 -- six times the sum of its parts. Prediction (a)
+FAILED and the failure is the resolution: at block 0 the handoff cost
+has NO additive decomposition at rank <= 16. Every partial cut leaves a
+coherent-enough signal; only sufficiently complete removal breaks the
+downstream computation, and "sufficiently complete" differs by window
+(which is everything 297-298 observed). The window-dependence and the
+variance-vs-importance gap were both artifacts of asking an additive
+question about a holistic quantity.
+
+Final junction typology, unified: the two FRONT junctions (b0, b1 --
+both token-conditioned, both feeding table-like MLPs) are
+**coherence-holistic**: cost lives in joint removal, with b0 at the
+harmless end (partials free) and b1 at the catastrophic end (partials
+worse than everything). Only b5, the regulator, is **additive-narrow**
+(four directions, mean-carried). The arc rests at earned scope: three
+junctions, two architectures, every claim either fresh-certified or
+explicitly typed by the experiment that refuted its first description.
