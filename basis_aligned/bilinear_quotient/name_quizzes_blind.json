@@ -1,0 +1,1275 @@
+[
+ {
+  "tag": "r.0",
+  "name": "structured listing continuation",
+  "mechanism": "Nearly every position is a highly predictable token inside directory-style listing structure (newlines ending entry lines, map-grid digits, boilerplate like GOOGLE MAP, second halves of familiar names); early MLPs m0/m2/m3 and a4 appear to supply the local template/format recognition that makes these tokens forced.",
+  "items": [
+   " stores are a good bet.\n\nTourist [[ Information]] \n\n",
+   "\nNudging the border with Hampshire and joined at [[ the]]  hip with",
+   " of AgnesA1\n\n5Eating [[\n]] \n16",
+   "A-TATE\n\nTate BoatFER [[RY]] \n\n",
+   " parks are filled with people, there's Trooping [[ the]]  Colour,",
+   "\n2Jewel Tower\n\n3Westminster [[ Abbey]] \n\n",
+   "orde 2G4\n\n29DigitalD4 [[\n]] \n30",
+   " and reggae beats.\n\n#### Islington [[\n]] \nAllow",
+   " The Strand, WC2;  hgall [[eries]]  10am",
+   " BrosC4\n\n37KoyaD4 [[\n]] \n38",
+   "'s history with the assistance of severed heads, the [[ London]]  Tombs",
+   "34RevengeF4\n\n3Entertainment [[\n]] \n35"
+  ]
+ },
+ {
+  "tag": "r.0.0",
+  "name": "completing multi-token list items",
+  "mechanism": "Positions are the continuation of an item begun on the same listing line: word-piece suffixes (Enter->tainment, GOOG->LE, Bletch->ley), the second word of known place names, and digits finishing grid references or populations; m0/m3 PCA directions seem to carry the identity of the partially written item.",
+  "items": [
+   "\n\n### Eastbourne\n\nPop 99, [[000]] \n\n",
+   "34RevengeF4\n\n3Entertainment [[\n]] \n35",
+   "To/From the Airports\n\nGat [[wick]] \n\n",
+   "\n\n### Hastings\n\nPop 90,300 [[\n]] \nFore",
+   " of AgnesA1\n\n5Eating [[\n]] \n16",
+   "'s history with the assistance of severed heads, the [[ London]]  Tombs",
+   " Cue CoB4\n\nPortraitE6 [[\n]] \n45",
+   "34RevengeF4\n\n3Entertainment [[\n]] \n35",
+   " Michael's Churchyard\n\n19Leadenhall [[ Market]] \n\n",
+   "4Tate ModernD1\n\n1S [[ights]] \n\n",
+   "ent Garden (  MAP   GOOG [[LE]]  MAP )",
+   "Spencer House\n\n13Clarence [[ House]] \n\n"
+  ]
+ },
+ {
+  "tag": "r.0.0.0",
+  "name": "word-suffix and grid-digit completion",
+  "mechanism": "The marked token finishes a split word or coordinate: place-name suffixes (Chiche->ster, Rams->gate, Hind->head), heading words (S->ights, Enter->tainment), and the digit right after a map-grid letter or population comma; early-layer m0 directions look like subword-continuation features.",
+  "items": [
+   " RocksG4\n\n26BulldogF3 [[\n]] \n27",
+   "23A BarF4\n\n24AudioF [[4]] \n\n",
+   "inaF6\n\n27BarrafinaD [[3]] \n\n",
+   "#### Ramsgate\n\n#### Sandwich\n\n#### [[ Dover]] \n\n",
+   "Shopping\n\n8Daunt BooksB2 [[\n]] \n9",
+   "Pitt Cue CoB4\n\nPortraitE [[6]] \n\n",
+   " heavenly waft from the cheese room beckons. [[\n]] \nLoc",
+   ".\n\n### Canterbury\n\nPop 151, [[200]] \n\n",
+   "Shopping\n\n8Daunt BooksB2 [[\n]] \n9",
+   "wearebigchill.com; 257- [[259]]  Penton",
+   " the Pitt Rivers Museum in Oxford\n\n2Activ [[ities]] \n\n",
+   "\n\nNorth Central London\n\n1Top S [[ights]] \n\n"
+  ]
+ },
+ {
+  "tag": "r.0.0.1",
+  "name": "second word of proper names",
+  "mechanism": "Most positions are the whole second word of a familiar two-word name in an index line (Jewel Tower, Clarence House, Guards Museum, Hoxton Hotel) plus a few grid digits after a letter; m0/m3 directions appear to encode the memorized name so its second token is retrieved.",
+  "items": [
+   ").\n\n### Hastings\n\nPop 90, [[300]] \n\n",
+   " Ramsgate\n\n#### Sandwich\n\n#### Dover [[\n]] \n####",
+   "\n1Westminster Hall\n\n2Jewel [[ Tower]] \n\n",
+   " June or July.\n\nLoveboxMUS [[IC]] \n\n",
+   " the main car-hire firms, all of which [[ have]]  airport and",
+   " of the United Kingdom\n\n5Cockpit [[ Steps]] \n\n",
+   " ChapelB3\n\n7Roman MuseumC3 [[\n]] \n8",
+   "\n7Guards Museum\n\n8Queen's [[ Gallery]] \n\n",
+   "34Hakkasan Hanway PlaceD2 [[\n]] \n35",
+   "elaF3\n\n31CevicheD [[4]] \n\n",
+   "OOGLE MAP ) ; 10 West St; [[ ]]  h9",
+   "\n\nAZetter Hotel\n\nAHoxton [[ Hotel]] \n\n"
+  ]
+ },
+ {
+  "tag": "r.0.0.3",
+  "name": "listing-formula slot tokens",
+  "mechanism": "A grab-bag of formulaic slots in the guidebook listing template: all-caps category labels (CA->FE, OFF->ICE, CLOTH->ING), 'mains' after a price semicolon, 'dusk' after '7am-', closing punctuation and suffix completions; the m0 directions seem to be generic template-position features rather than one crisp function.",
+  "items": [
+   "\n\n### Farnham\n\nPop 39, [[500]] \n\n",
+   "#### Around Chichester\n\n#### Farnham [[\n]] \n####",
+   "D1\n\n4Tate ModernD1 [[\n]] \n1",
+   " sense of life and community to the palace.\n [[\n]] #### Recommended",
+   "co.uk; 17 Kensington Gardens; m [[ains]]  \u00a36",
+   "\n(www.brighton.co.uk [[)]] \n\n",
+   "\n\n#### Festivals & Events\n\n#### [[ Sleeping]] \n\n",
+   "ryH4\n\n17MoritoG3 [[\n]] \n18",
+   "\n\n#### Leeds Castle\n\n#### Margate [[\n]] \n####",
+   "elaF3\n\n31CevicheD [[4]] \n\n",
+   "\n\nAHaymarket Hotel\n\nAZetter [[ Hotel]] \n\n",
+   "#### Battle\n\n#### Hastings\n\n#### East [[bourne]] \n\n"
+  ]
+ },
+ {
+  "tag": "r.0.1",
+  "name": "newline ending index lines",
+  "mechanism": "The dominant pattern is the newline token that terminates an index/listing line (after a grid reference, category label, or heading), with a few name-suffix completions mixed in; m2/m3 directions and head 4.8 appear to detect that the current listing line is complete.",
+  "items": [
+   "ster\n\n#### Farnham\n\n#### Hind [[head]] \n\n",
+   "\n\n### Broadstairs\n\nPop 24, [[370]] \n\n",
+   " in the world, this monumental accumulation of treasures boasts [[ vast]]  Egyptian,",
+   "corde 2G4\n\n29DigitalD [[4]] \n\n",
+   "\n\nMagdalenMODERN BRITISH [[\n]] \n(",
+   " Cue CoB4\n\nPortraitE6 [[\n]] \n45",
+   "2\n\n26Hummus BrosD3 [[\n]] \nRest",
+   " bomb shelter and a Holocaust exhibition.\n\nSh [[ard]] NOTABLE",
+   "7PurlB3\n\n7Shopping [[\n]] \n8",
+   " too.\n\nElectric DinerAMERICAN [[\n]] \n(",
+   "4pm Mon-Fri; [[ ]]  tS",
+   " call, so book way ahead. Breakfast included. [[\n]] \n###"
+  ]
+ },
+ {
+  "tag": "r.0.2",
+  "name": "copying previously seen items",
+  "mechanism": "Positions complete an item that already occurred earlier in the context or is stock vocabulary (repeated section headings like Activities/Sights, all-caps labels like COCKTAIL BAR, FERRY, recurring place names); the probes are four layer-4 attention heads, consistent with induction-style copying of the earlier occurrence.",
+  "items": [
+   "\n\nBohoINTERNATIONAL\n\n( [[ ]]  MAP ",
+   "# London\n\n#### London Highlights\n\n#### [[ History]] \n\n",
+   "inaF6\n\n27BarrafinaD [[3]] \n\n",
+   "23A BarF4\n\n24AudioF [[4]] \n\n",
+   "** Dover Eastern Docks\n\n**End** [[ Rye]] \n\n",
+   "\n\n1Sights\n\n1Westminster [[ Hall]] \n\n",
+   "uke of WellingtonD4\n\n48EdgeD [[2]] \n\n",
+   "30 to/from central London.\n\nL [[uton]] \n\n",
+   " table.\n\nOpiumCOCKTAIL [[ BAR]] \n\n",
+   "\n\nCanterbury\n\n1Top S [[ights]] \n\n",
+   "#### Arundel\n\n#### Chiche [[ster]] \n\n",
+   " the crooked medieval streets of Sandwich\n\n2Activ [[ities]] \n\n"
+  ]
+ },
+ {
+  "tag": "r.1",
+  "name": "heading-to-body newline transition",
+  "mechanism": "Mostly the single newline right after a section heading or category label, before body text or the next numbered entry, plus a few one-letter icon/glyph tokens in listing formulas; late MLPs m11-m14 handle this late-context structural prediction.",
+  "items": [
+   ", noon-11pm Sat & Sun;  [[ t]] Hoxton",
+   "\n\n8Getting There & Away\n\nBus [[\n]] \nA",
+   "-Sat, noon-5pm Sun;  [[ t]] Highbury",
+   " hourly\n\n### Ramsgate\n\nPop 40 [[,]] 000\n",
+   "1Top Sights\n\n1British LibraryC [[2]] \n\n",
+   "/From the Airports\n\nGatwick [[\n]] \nThere",
+   " at 11am (10am Sunday) and a [[ l]] ite-",
+   " London Highlights\n\n#### History\n\n#### S [[ights]] \n\n",
+   " a Georgian mansion built in 1718 for the wealthy [[ hop]]  merchant and",
+   " Book well ahead.\n\nJubilee House [[B]] &B",
+   " & Albert MuseumC5\n\n1Sights [[\n]] \n4",
+   "\n\n8Getting There & Away\n\nBus [[\n]] \nA"
+  ]
+ },
+ {
+  "tag": "r.1.0",
+  "name": "template whitespace separators",
+  "mechanism": "The affected tokens are whitespace: the newline ending a heading/label line and the bare space tokens inside the '(  MAP' / ';  h' listing templates; m11-m13 directions appear to track exact position within these rigid templates to emit the right separator.",
+  "items": [
+   " Golden Handbag award.\n\n3Entertainment [[\n]] \nBright",
+   "ster\n\n#### Farnham\n\n#### Hind [[head]] \n\n",
+   " ArcadeSHOPPING ARCADE\n\n( [[ ]]  MAP ",
+   " 10pm.\n\n#### Chelsea & Kensington [[\n]] \nKnown",
+   " cookies.\n\nMonmouth Coffee CompanyCAFE [[\n]] \n(",
+   "pm)\n\nSamaritansEMERGENCY [[\n]] \n(",
+   "; tapas \u00a35-18.50; [[ ]]  hnoon",
+   " off it.\n\nTrulloITALIAN [[\n]] \n(",
+   " & Albert MuseumC5\n\n1Sights [[\n]] \n4",
+   "AWallett's Court\n\nAReading [[ Rooms]] \n\n",
+   "2Jewel Tower\n\n3Westminster Abbey [[\n]] \n4",
+   " the time of writing.\n\n#### South Bank [[\n]] \nLondon"
+  ]
+ },
+ {
+  "tag": "r.1.0.0",
+  "name": "single newline after headings",
+  "mechanism": "Almost every position is the lone newline that closes a heading or category-label line (Sights, CLUB, CAFE, Pop 90,300) before the body text starts; m11-m13 directions look like a 'heading line just ended' feature choosing single over double newline.",
+  "items": [
+   " and swing.\n\n606 ClubBLUES, [[ J]] AZZ",
+   " temporary cards are issued immediately.\n\n5E [[ating]] \n\n",
+   "Tate ModernD1\n\n1Sights [[\n]] \n5",
+   " have veggie offerings.\n\n#### West End [[\n]] \nMay",
+   " of Rye, one of England's prettiest towns [[\n]] \n5",
+   " cookies.\n\nMonmouth Coffee CompanyCAFE [[\n]] \n(",
+   "'s Churchyard\n\n19Leadenhall Market [[\n]] \n20",
+   "for-it crowd.\n\nDigitalCLUB [[\n]] \n(",
+   " and reggae beats.\n\n#### Islington [[\n]] \nAllow",
+   " 3 Portman Mews South, W1; [[ m]] ains from",
+   "38, mains \u00a328-42;  [[ h]] noon-",
+   " concerts by international names.\n\nAudioCLUB [[\n]] \n("
+  ]
+ },
+ {
+  "tag": "r.1.0.1",
+  "name": "separators before station and date anchors",
+  "mechanism": "Positions are the predictable filler right before a fixed anchor: the space or ' t' (tube symbol) preceding a station name in hours/transport strings, and prepositions/articles before years ('in 1066', 'the 19th'); m11-m13 directions seem to anticipate the upcoming anchor type.",
+  "items": [
+   "#### Bletchley\n\n#### Wob [[urn]] \n\n",
+   "#### Around Dover\n\n#### Rye\n\n#### [[ Battle]] \n\n",
+   "Oct, to 5pm Nov-Feb;  [[ t]] High St",
+   "righton.com; 10 Marine Pde) [[\n]] \nSome",
+   " constant state of flux.\n\nDFDSFER [[RY]] \n\n",
+   "uk; adult/child \u00a38/free; [[ ]]  h12",
+   " NW1; mains \u00a38-15; [[ ]]  hnoon",
+   "-Sat, noon-5pm Sun;  [[ t]] Highbury",
+   "child \u00a33.50/1.50; [[ ]]  h10",
+   " shuttle coach to the castle.\n\n### Marg [[ate]] \n\n",
+   "; tours adult/child \u00a318/12; [[ ]]  tSt",
+   "\u00e9delC5\n\n30CanelaF [[3]] \n\n"
+  ]
+ },
+ {
+  "tag": "r.1.0.2",
+  "name": "GOOGLE MAP boilerplate completion",
+  "mechanism": "Dominated by the 'LE' token completing 'GOOG->LE' inside the '(  GOOGLE MAP )' boilerplate, with a few heading newlines mixed in; m11/m13 directions appear to recognize this exact recurring template string.",
+  "items": [
+   "34RevengeF4\n\n3Entertainment [[\n]] \n35",
+   " and some of London's best-looking streets. [[\n]] \nMe",
+   "UE HOTEL\n\n(  GOOG [[LE]]  MAP )",
+   "uke of WellingtonD4\n\n48EdgeD [[2]] \n\n",
+   "lloITALIAN\n\n(  GOOG [[LE]]  MAP )",
+   ", riverside Formans boasts prime views over the [[ Olympic]]  stadium alongside",
+   "\nLincoln's Inn (  GOOG [[LE]]  MAP )",
+   ".com; 39a Canonbury Sq, [[ N]] 1;",
+   " Sandwich or an 'oozylicious' _ [[cro]] que-",
+   "e Cheshire CheeseB3\n\n3Enter [[tainment]] \n\n",
+   " BUILDING\n\n(  GOOG [[LE]]  MAP )",
+   "liINDIAN\n\n(  GOOG [[LE]]  MAP )"
+  ]
+ },
+ {
+  "tag": "r.1.0.3",
+  "name": "map-template symbol tokens",
+  "mechanism": "Tokens at various fixed slots of the '(  MAP   GOOGLE MAP )' and hours/price templates: the opening paren, the ' G' starting GOOGLE, tube 't' and 'mains' symbols, and line-ending newlines; m12/m13 directions look like positional features within these boilerplate strings.",
+  "items": [
+   "Shopping\n\n8Daunt BooksB2 [[\n]] \n9",
+   "\n\nMonmouth Coffee CompanyCAFE\n\n [[(]]   MAP",
+   "29DigitalD4\n\n30DorsetE [[1]] \n\n",
+   ", the South Downs National Park.\n\n### [[ Rye]] \n\n",
+   "LANDMARK\n\n(  MAP   [[ G]] OOG",
+   " containing some of London's hippest neighbourhoods.\n [[\n]] Technicol",
+   " included.\n\n### POUND SAVERS [[\n]] \nAs",
+   "corde 2G4\n\n29DigitalD [[4]] \n\n",
+   "Great British Pizza CompanyPIZZA\n\n( [[14]] a Marine",
+   "Westminster AbbeyF3\n\n1Sights [[\n]] \n5",
+   " ArmsF3\n\n34RevengeF4 [[\n]] \n3",
+   " Canterbury\n\n#### Leeds Castle\n\n#### Marg [[ate]] \n\n"
+  ]
+ },
+ {
+  "tag": "r.1.1",
+  "name": "index entry name and line completion",
+  "mechanism": "Positions complete an index/heading entry: the second word of a known name (Jewel Tower, Gat->wick, East->bourne, S->ights, CL->UB) or the newline ending a grid-referenced line; m14 and m12 directions appear to finish memorized entry names and close their lines.",
+  "items": [
+   "34RevengeF4\n\n3Entertainment [[\n]] \n35",
+   " of WellingtonD4\n\n48EdgeD2 [[\n]] \n49",
+   ";  h5am-dusk;  [[ t]] Regent",
+   " Castle\n\n#### Margate\n\n#### Broad [[stairs]] \n\n",
+   "2\n\n36Komedia TheatreE1 [[\n]] \n37",
+   "am Thu, to 2am Fri & Sat; [[ ]]  tAngel",
+   "'s Lane, N6; East Cemetery adult/ [[child]]  \u00a34",
+   "-for-it crowd.\n\nDigitalCL [[UB]] \n\n",
+   "1Top Sights\n\n1British LibraryC [[2]] \n\n",
+   "child \u00a33.50/1.50; [[ ]]  h10",
+   "/From the Airports\n\nGatwick [[\n]] \nThere",
+   "ABleak House\n\nAJeake's [[ House]] \n\n"
+  ]
+ },
+ {
+  "tag": "r.1.1.0",
+  "name": "slot fillers in address templates",
+  "mechanism": "A mixed set of informative slot tokens inside rigid formulas: postcode digits after WC, street numbers after a semicolon, the next heading in a stock sequence (Shopping -> Information), name completions, and heading newlines; the shared function seems to be filling the content slot of a memorized template, but the set is heterogeneous.",
+  "items": [
+   "#### Battle\n\n#### Hastings\n\n#### East [[bourne]] \n\n",
+   " containing some of London's hippest neighbourhoods.\n [[\n]] Technicol",
+   "\n#### Entertainment\n\n#### Shopping\n\n#### [[ Information]] \n\n",
+   "\n\nAHaymarket Hotel\n\nAZetter [[ Hotel]] \n\n",
+   " heavenly waft from the cheese room beckons. [[\n]] \nLoc",
+   ".com; 17-18 Prince Albert St; [[ m]] ains \u00a3",
+   "\n\nHighlights include the enormous early Victorian ** [[Pal]] m House",
+   " Market Bldg, Covent Garden, WC [[2]] ; ",
+   "\n7PurlB3\n\n7Sh [[opping]] \n\n",
+   "museum.org; Great Russell St, WC [[1]] ; ",
+   " each serves different destinations. Most stations have left- [[l]] uggage facilities",
+   "#### Ramsgate\n\n#### Sandwich\n\n#### [[ Dover]] \n\n"
+  ]
+ },
+ {
+  "tag": "r.1.1.1",
+  "name": "MAP token in map boilerplate",
+  "mechanism": "Almost every position is the ' MAP' token immediately after '(  ' in the '(  MAP   GOOGLE MAP )' boilerplate that follows a listing's category label; m14/m12 directions clearly encode this one recurring template continuation.",
+  "items": [
+   "Great Queen StreetBRITISH\n\n(  [[ MAP]]   ",
+   "West Gate TowersMUSEUM\n\n(  [[ MAP]]   ",
+   " DialsSTEAKHOUSE\n\n(  [[ MAP]]   ",
+   " Dickens MuseumF4\n\n4Sleeping [[\n]] \n4",
+   " WaffleBRASSERIE\n\n(  [[ MAP]]   ",
+   " catastrophic fire in 1834. Its roof, added [[ between]]  1394",
+   "#### Around Dover\n\n#### Rye\n\n#### [[ Battle]] \n\n",
+   "\nBrighton RocksBAR\n\n(  [[ MAP]]   ",
+   " suburbs. Further away from the roaring motorways and [[ packed]]  rush-",
+   "38, mains \u00a328-42;  [[ h]] noon-",
+   "#### Dover\n\n#### Around Dover\n\n#### [[ Rye]] \n\n",
+   " Canterbury\n\n#### Leeds Castle\n\n#### Marg [[ate]] \n\n"
+  ]
+ },
+ {
+  "tag": "r.1.1.2",
+  "name": "tokens following MAP in boilerplate",
+  "mechanism": "Positions are the next step of the same map boilerplate (the space after ' MAP' before GOOGLE) plus similar formula tokens elsewhere ('am' after an opening hour digit, tube 't' after a semicolon, street numbers); m12/m14 directions again track position inside these fixed listing formulas.",
+  "items": [
+   "'s history with the assistance of severed heads, the [[ London]]  Tombs",
+   " Queen StreetBRITISH\n\n(  MAP [[ ]]   G",
+   "ches)\n\nSeafront club hosting indie [[,]]  house and",
+   "\nGeorge InnPUB\n\n(  MAP [[ ]]   G",
+   " of AgnesA1\n\n5Eating [[\n]] \n16",
+   "6St James's Park\n\n7Guards [[ Museum]] \n\n",
+   " 4pm Mon-Sat Nov & Dec;  [[ t]] Victoria)",
+   " B&B\n\n(  MAP [[ ]]   G",
+   ".50-30, restaurant 2-/3 [[-]] course \u00a3",
+   "OPPING ARCADE\n\n(  MAP [[ ]]   G",
+   " including delights such as pan-fried Kentish [[ p]] heasant",
+   "e MuseumMUSEUM\n\n(  MAP [[ ]]   G"
+  ]
+ },
+ {
+  "tag": "r.1.2",
+  "name": "listing boilerplate token onset",
+  "mechanism": "Positions are the first token of a highly predictable continuation inside directory-listing templates (the ' G' of 'GOOGLE MAP', tube-marker 't'+station, postcode letters like W1/N1, street abbreviations); mid-layer MLP PCA directions (m11-m13) appear to carry the template state that launches these stock continuations.",
+  "items": [
+   ".uk; Manston Rd;  h10 [[am]] -5",
+   " Navigation CompanyB2\n\n4Sleeping [[\n]] \n13",
+   "\n(www.brighton.co.uk [[)]] \n\n",
+   "D1\n\n4Tate ModernD1 [[\n]] \n1",
+   " RocksBAR\n\n(  MAP   [[ G]] OOG",
+   " h10am-5.50pm;  [[ t]] South Kens",
+   ";  h10am-6pm;  [[ t]] South Kens",
+   "wells.com; 73 Beak St, [[ W]] 1;",
+   ", noon-11pm Sat & Sun;  [[ t]] Hoxton",
+   " so to greatest effect in his best-known work [[,]]  _The",
+   "43-598750; Customs House, Harbour [[ P]] de;",
+   " 4pm Mon-Sat Nov & Dec;  [[ t]] Victoria)"
+  ]
+ },
+ {
+  "tag": "r.1.2.0",
+  "name": "parallel-slot template continuation",
+  "mechanism": "Positions continue a locally recurring parallel pattern (the 'd' double-room price after the 's' single price, the comma between paired prices, the next header in the Sights/Sleeping/Eating cycle), plus some ordinary mid-sentence words; the m11-m13 PCA directions seem to track the repeated slot structure, though the members are mixed.",
+  "items": [
+   " US, Europe, Africa and beyond, and hosts [[ jazz]]  musicians,",
+   "4Tate ModernD1\n\n1S [[ights]] \n\n",
+   "e Cheshire CheeseB3\n\n3Enter [[tainment]] \n\n",
+   "8Queen's Gallery\n\n9Royal Mews [[\n]] \n10",
+   "zebrighton.com; 25 St George's [[ T]] ce;",
+   " bar and cafe, but no kitchen.\n\n [[A]] rosfa",
+   "\n9St Pancras Renaissance London HotelC2 [[\n]] \n10",
+   "ster\n\n#### Farnham\n\n#### Hind [[head]] \n\n",
+   "ivals & Events\n\n#### Sleeping\n\n#### [[ Eating]] \n\n",
+   ".50-30, restaurant 2-/3 [[-]] course \u00a3",
+   " including delights such as pan-fried Kentish [[ p]] heasant",
+   "rye MuseumC1\n\n4Sle [[eping]] \n\n"
+  ]
+ },
+ {
+  "tag": "r.1.2.1",
+  "name": "map-parenthetical symbol tokens",
+  "mechanism": "Positions are the fixed punctuation/whitespace and one-letter symbol tokens of the '(  MAP ...' parenthetical and related listing glyphs (tube 't', postcode letters/digits); the components emit the rigid symbol sequence that opens each listing's info block.",
+  "items": [
+   "; 191 Portobello Rd, W11; [[ m]] ains from",
+   "\n\nBrighton RocksBAR\n\n( [[ ]]  MAP ",
+   "33BarbicanE1\n\n7Sh [[opping]] \n\n",
+   " Anthony Hopkins have all played here.\n\n8 [[Information]] \n\n",
+   ".\n\nGeorge InnPUB\n\n( [[ ]]  MAP ",
+   "ican.org.uk; Silk St, EC [[2]] ; ",
+   "; s/ste from \u00a390/160, [[ d]]  \u00a3100",
+   ", to 12.30am Sun;  t [[T]] ottenham Court",
+   "/78, without bathroom \u00a348/68; [[ ]]  p W",
+   " the South Downs National Park.\n\n### Rye [[\n]] \nPop",
+   "bank CentreCONCERT VENUE\n\n [[(]]   MAP",
+   "4Westminster AbbeyF3\n\n1S [[ights]] \n\n"
+  ]
+ },
+ {
+  "tag": "r.1.3",
+  "name": "memorized phrase completion",
+  "mechanism": "Positions sit inside multi-token fixed strings and complete them ('GOOG'->'LE'->' MAP', 'h10'->'am', next town name in a repeated table-of-contents), i.e. finishing memorized boilerplate rather than composing new text; m11-m13 directions supply the stored continuation.",
+  "items": [
+   "\n7PurlB3\n\n7Sh [[opping]] \n\n",
+   " Sisters boat tours leaving from Sovereign Harbour (take hourly [[ bus]]  51)",
+   "co.uk; 11 Sicilian Ave, WC [[1]] ; m",
+   " CanalCANAL\n\n(  GOOG [[LE]]  MAP )",
+   "#### Ramsgate\n\n#### Sandwich\n\n#### [[ Dover]] \n\n",
+   "'s Lane, N6; East Cemetery adult/ [[child]]  \u00a34",
+   "OSPITAL\n\n(  GOOGLE [[ MAP]]  ) ;",
+   " Market Bldg, Covent Garden, WC [[2]] ; ",
+   " & Hove\n\n#### Arundel [[\n]] \n####",
+   " tours adult/child \u00a318/12;  [[ t]] St John",
+   "03-883847; 65 High St; [[ set]]  lunch/",
+   " Guest HouseB&B\n\n( %019 [[03]] -88"
+  ]
+ },
+ {
+  "tag": "r.1.3.0",
+  "name": "section headers and name copying",
+  "mechanism": "Positions are numbered section-header tokens ('1S'->'ights', '3Enter'->'tainment', newlines in index rows) and copies of proper names seen earlier in the context (Euston->Euston Sq, highgate in a URL); the components look like they reproduce structured index tokens and echo prior names.",
+  "items": [
+   "\n34RevengeF4\n\n3Enter [[tainment]] \n\n",
+   ";  v;  tEuston, [[ E]] uston",
+   " Shoreditch & Spitalfields\n\n1 [[S]] ights\n",
+   " of its most famous holidaymaker.\n\n1 [[S]] ights\n",
+   " still going strong.\n\n### Hampton Court Palace [[\n]] \nHam",
+   " %01293-888780; www. [[s]] ussex",
+   "e Cheshire CheeseB3\n\n3Enter [[tainment]] \n\n",
+   "34RevengeF4\n\n3Entertainment [[\n]] \n35",
+   " ArmsF3\n\n34RevengeF4 [[\n]] \n3",
+   " BooksB2\n\n9SelfridgesB5 [[\n]] \nReg",
+   "Victoria & Albert MuseumC5\n\n1S [[ights]] \n\n",
+   " the museum.\n\n#### LOCAL KNOWLED [[GE]] \n\n"
+  ]
+ },
+ {
+  "tag": "r.2",
+  "name": "end-of-line field transitions",
+  "mechanism": "Positions are overwhelmingly the newline that closes a completed heading or listing line, plus the first letter of the next formulaic field ('m' of 'mains', tube 't'); head 5.7 with early/late MLPs (m1, m15, m16) appears to detect that a structural unit is complete and start the next field.",
+  "items": [
+   "\nKnightsbridge, South Kensington & Chelsea [[\n]] \n1",
+   "\n\n(  MAP   GOOG [[LE]]  MAP )",
+   "\n#### East End & Docklands\n\n40 [[ W]] inksB",
+   " up the awe-inspiring architecture of Westminster Abbey [[\n]] \n5",
+   " blindingly hot peri-peri sauces. [[\n]] \n**",
+   "uk; 149 Piccadilly, Hyde Park [[ C]] nr,",
+   " Cambridge, Hull, York, Newcastle, Scotland. [[\n]] \nA",
+   "6St James's Park\n\n7Guards [[ Museum]] \n\n",
+   ".uk; 11-23 Grand Pde; [[ m]] ains \u00a3",
+   "-6pm, last entry 5pm;  [[ t]] Westminster",
+   "e Cheshire CheeseB3\n\n3Enter [[tainment]] \n\n",
+   " book).\n\nCity CruisesBOAT TOUR [[\n]] \n("
+  ]
+ },
+ {
+  "tag": "r.2.0",
+  "name": "table-of-contents item sequencing",
+  "mechanism": "Positions are the next entry in an ordered heading list (the next town in a '####' itinerary sequence, the next item in numbered Eating/Entertainment/Shopping indexes) and the newlines between entries; the components predict list items from the established sequence.",
+  "items": [
+   "\n\n#### Farnham\n\n#### Hindhead [[\n]] \n#",
+   "#### Around Chichester\n\n#### Farnham [[\n]] \n####",
+   ".com; 8 Seymour St, W1; [[ m]] ains from",
+   "pm)\n\nSamaritansEMERGENCY [[\n]] \n(",
+   "stairs\n\n#### Ramsgate\n\n#### Sandwich [[\n]] \n####",
+   "\n\n16BohoB2\n\n17 [[D]] eeson",
+   " Ramsgate\n\n#### Sandwich\n\n#### Dover [[\n]] \n####",
+   " Pier.\n\nBrighton PierLANDMARK [[\n]] \n(",
+   "2Jewel Tower\n\n3Westminster Abbey [[\n]] \n4",
+   " sit closest to the river.\n\nSouth Bank [[\n]] \n1",
+   ".uk; 11-23 Grand Pde; [[ m]] ains \u00a3",
+   " of AgnesA1\n\n5Eating [[\n]] \n16"
+  ]
+ },
+ {
+  "tag": "r.2.0.0",
+  "name": "standard section-heading cycle",
+  "mechanism": "Positions are the stereotyped guidebook section names themselves ('Sights', 'Eating', 'Shopping', 'Entertainment', 'Information') and the following newlines, i.e. the fixed cycle of section headers every chapter repeats; the a5/m16 directions encode where in the cycle the text is.",
+  "items": [
+   " of ales and ciders on tap.\n [[\n]] #### Bl",
+   "ivals & Events\n\n#### Sleeping\n\n#### [[ Eating]] \n\n",
+   "3\n\n13Hummus BrosD5 [[\n]] \n14",
+   "Pitt Cue CoB4\n\nPortraitE [[6]] \n\n",
+   " HotelB4\n\n5Clink78F [[2]] \n\n",
+   "### Best Places to Stay\n\nAHaymarket [[ Hotel]] \n\n",
+   "museum.org; Great Russell St, WC [[1]] ; ",
+   "\n\n#### Farnham\n\n#### Hindhead [[\n]] \n#",
+   "#### Around Chichester\n\n#### Farnham [[\n]] \n####",
+   ".com; 17-18 Prince Albert St; [[ m]] ains \u00a3",
+   "PERFORMING ARTS\n\n( %01 [[227]] -78",
+   "Victoria & Albert MuseumC5\n\n1S [[ights]] \n\n"
+  ]
+ },
+ {
+  "tag": "r.2.1",
+  "name": "formulaic compound continuation",
+  "mechanism": "A mixed parent pack: positions complete predictable second halves of formulaic compounds and pairs (adult/'child', Broad'stairs', '40,'->'000', phone and grid-reference digits, 'Jeake's House'); plausibly a general finish-the-known-unit function but the members are heterogeneous.",
+  "items": [
+   " visit www.tfl.gov.uk. [[\n]] \nThere",
+   "To/From the Airports\n\nGat [[wick]] \n\n",
+   "ABleak House\n\nAJeake's [[ House]] \n\n",
+   " & Hove\n\n#### Arundel [[\n]] \n####",
+   "\n34RevengeF4\n\n3Enter [[tainment]] \n\n",
+   "House of AgnesA1\n\n5E [[ating]] \n\n",
+   "eston Blumenthal\n\nAFive Fields\n\nAK [[oya]] \n\n",
+   " Dickens MuseumF4\n\n4Sleeping [[\n]] \n4",
+   " Pitt Rivers Museum in Oxford\n\n2Activities [[\n]] \nCy",
+   " hourly\n\n### Ramsgate\n\nPop 40 [[,]] 000\n",
+   "OSTEL\n\n(  GOOGLE [[ MAP]]  ) ;",
+   "33BarbicanE1\n\n7Sh [[opping]] \n\n"
+  ]
+ },
+ {
+  "tag": "r.2.1.0",
+  "name": "heading-name completion",
+  "mechanism": "Positions are second halves of place names and section words inside headings ('Farn'->'ham', 'Rams'->'gate', '1S'->'ights', '3Enter'->'tainment') and the newline right after a heading; components finish the multi-token name a heading has committed to.",
+  "items": [
+   " Castle\n\n#### Margate\n\n#### Broad [[stairs]] \n\n",
+   "elaF3\n\n31CevicheD [[4]] \n\n",
+   "_imax; 1 Charlie Chaplin Walk, [[ SE]] 1;",
+   " 9pm), but you can just show up on [[ Sundays]]  (\u00a310",
+   "90; www.uclh.org; 235 [[ E]] uston",
+   "To/From the Airports\n\nGat [[wick]] \n\n",
+   "34RevengeF4\n\n3Entertainment [[\n]] \n35",
+   ").\n\nBig Chill HouseDJ BAR\n\n [[(]]   MAP",
+   " darkness!\n\n#### WORTH A TRIP [[\n]] \n###",
+   ".\n\nSouth Bank\n\n1Top S [[ights]] \n\n",
+   "MARKET, RESTAURANT\n\n [[(]]   MAP",
+   "ABleak House\n\nAJeake's [[ House]] \n\n"
+  ]
+ },
+ {
+  "tag": "r.2.1.1",
+  "name": "listing field onset tokens",
+  "mechanism": "Positions are mostly the first token of the field that follows an address or price separator (street name after a house number like '77 Ward'our, 'm' of 'mains', 'h' of hours, all-caps category label pieces); a weak but recurring pattern of launching the next listing field.",
+  "items": [
+   "#### Around Dover\n\n#### Rye\n\n#### [[ Battle]] \n\n",
+   "\n\nAHaymarket Hotel\n\nAZetter [[ Hotel]] \n\n",
+   "\n#### Entertainment\n\n#### Shopping\n\n#### [[ Information]] \n\n",
+   " exhibitions (admission sometimes charged).\n\nTT [[ours]] \n\n",
+   "13Hummus BrosD5\n\n14 [[H]] ummus",
+   "4Westminster AbbeyF3\n\n1S [[ights]] \n\n",
+   "\n\n**1066 Country Walk** Heads from [[ Pe]] vensey",
+   " temporary cards are issued immediately.\n\n5E [[ating]] \n\n",
+   "38, mains \u00a328-42;  [[ h]] noon-",
+   "\n34RevengeF4\n\n3Enter [[tainment]] \n\n",
+   ".com; 17-18 Prince Albert St; [[ m]] ains \u00a3",
+   " museum and replanted Roman gardens.\n\n## [[ Surrey]] \n\n"
+  ]
+ },
+ {
+  "tag": "r.2.2",
+  "name": "postcode digit completion",
+  "mechanism": "Positions are dominated by the digit after a London postal-district letter pair ('EC'->'2', 'WC'->'2', 'NW'->'1', 'SE'->'1') at the end of address fields, plus a few adjacent separators; m15/m16 directions supply the digit conventional for the named street/area.",
+  "items": [
+   "co.uk; 1 Aldwych, WC [[2]] ; d",
+   "originaltour.com; adult/child/ [[family]]  \u00a329",
+   "/78, without bathroom \u00a348/68; [[ ]]  p W",
+   " book ahead for dinner or come for lunch (four [[ courses]]  \u00a328",
+   "vern.com; 35 Chalk Farm Rd, [[ NW]] 1;",
+   "hotels.com; 17 Jubilee St; [[ r]]  \u00a370",
+   "co.uk; 27 Monmouth St, WC [[2]] ; pastry",
+   "; Tower 42, 25 Old Broad St, EC [[2]] ; ",
+   ".potli.co.uk; 319- [[321]]  King St",
+   " Market Bldg, Covent Garden, WC [[2]] ; ",
+   ".co.uk; Leicester Sq, WC [[2]] ; ",
+   "tate-boat; one-way adult/ [[child]]  \u00a36"
+  ]
+ },
+ {
+  "tag": "r.2.2.0",
+  "name": "price-field marker letters",
+  "mechanism": "Positions are the single-letter markers that open price fields in listings (the 'm' of 'mains \u00a3', 'd' for the double-room price after singles) and first letters of URLs echoing a known name; components fire the conventional field abbreviation once the address/price context is set.",
+  "items": [
+   "\n### Margate\n\nPop 40,400 [[\n]] \nA",
+   "q; s incl breakfast \u00a355-75, [[ d]]  incl breakfast",
+   ".\n\nGeorge InnPUB\n\n( [[ ]]  MAP ",
+   ".uk; 11-23 Grand Pde; [[ m]] ains \u00a3",
+   "; 164 Shepherd's Bush Rd, W6; [[ m]] ains \u00a3",
+   "tr/f \u00a378/145/175, [[ d]]  \u00a3130",
+   "ches)\n\nSeafront club hosting indie [[,]]  house and",
+   "OOGLE MAP ) ; www.thewhite [[cross]] richmond",
+   " %0845 026 3630; www. [[t]] fl.",
+   ", without bathroom \u00a348/68;  p [[ W]] )\n",
+   "\n\n#### Islington\n\nAllow at least [[ an]]  evening to",
+   ".com; 5 Raphael St, SW7; [[ m]] ains \u00a3"
+  ]
+ },
+ {
+  "tag": "r.2.2.1",
+  "name": "transport-marker separators and labels",
+  "mechanism": "Positions are the separator space before the tube-station glyph ('; '->' tStation') and repeated all-caps category labels ('T'->'OURIST'); components handle the spacing/label tokens that precede transport and category info in listings.",
+  "items": [
+   ", to 10.30pm Sun;  t [[Le]] icester Square",
+   "29DigitalD4\n\n30DorsetE [[1]] \n\n",
+   "\n### CANTERBURY ATTRACTIONS [[ P]] ASSP",
+   " chow down on humungous burgers, full [[-]] monty",
+   " BooksB2\n\n9SelfridgesB5 [[\n]] \nReg",
+   "KoyaD4\n\n38LimaC [[2]] \n\n",
+   " Paul's Churchyard, EC4; adult/ [[child]]  \u00a316",
+   "shotel.com; 6 Frith St, [[ W]] 1;",
+   "\n3Charles Dickens MuseumF4\n\n4 [[S]] leeping",
+   "uk; 149 Piccadilly, Hyde Park [[ C]] nr,",
+   "on.co.uk)\n\nCity Council [[T]] OURIST",
+   "\n#### Windsor & Eton\n\n#### Bray [[\n]] \n####"
+  ]
+ },
+ {
+  "tag": "r.2.2.2",
+  "name": "transport-section tokens",
+  "mechanism": "A mixed cluster leaning on transport structure: headings like 'B'->'oat', 'Gat'->'wick', ' bus' before a route number, and the same pre-tube-glyph separator spaces; a transport/getting-around flavor is visible but the functional core is diffuse.",
+  "items": [
+   "4Westminster AbbeyF3\n\n1S [[ights]] \n\n",
+   "ights\n\n1Madame Tussauds [[B]] 1\n",
+   "; [[ ]]  tGreen",
+   "\n\n#### Leeds Castle\n\n#### Margate [[\n]] \n####",
+   " B&B\n\n(  [[ MAP]]   ",
+   "Concorde 2CLUB\n\n(  [[ MAP]]   ",
+   "elaF3\n\n31CevicheD [[4]] \n\n",
+   " Sat)\n\nThis unmissable, completely [[ c]] uckoo",
+   " WaffleBRASSERIE\n\n(  [[ MAP]]   ",
+   "30pm Sat; [[ ]]  tWest",
+   " Castle\n\n#### Margate\n\n#### Broad [[stairs]] \n\n",
+   "4pm Mon-Fri; [[ ]]  tS"
+  ]
+ },
+ {
+  "tag": "r.2.3",
+  "name": "proper-name head-noun completion",
+  "mechanism": "Positions are the generic head noun finishing a two-word venue name, usually one already seen in the text ('Zetter'->' Hotel', 'Bleak'->' House', 'Jewel'->' Tower', 'East'->'bourne'), plus some '( ' boilerplate spaces; components copy/complete the categorial second word of named entities.",
+  "items": [
+   "wearebigchill.com; 257- [[259]]  Penton",
+   " Garden PiazzaSQUARE\n\n( [[ ]]  MAP ",
+   "co.uk; Belvedere Rd, SE [[1]] ; ",
+   "6St James's Park\n\n7Guards [[ Museum]] \n\n",
+   "HISTORIC BUILDING\n\n( [[ ]]  MAP ",
+   "\n#### Entertainment\n\n#### Shopping\n\n#### [[ Information]] \n\n",
+   "### Best Places to Stay\n\nABleak [[ House]] \n\n",
+   "uk; 149 Piccadilly, Hyde Park [[ C]] nr,",
+   "\n\nAZetter Hotel\n\nAHoxton [[ Hotel]] \n\n",
+   "e Cheshire CheeseB3\n\n3Enter [[tainment]] \n\n",
+   " 32 London Bridge St, SE1; adult/ [[child]]  \u00a329",
+   " Pancras YHAHOSTEL\n\n( [[ ]]  MAP "
+  ]
+ },
+ {
+  "tag": "r.3",
+  "name": "index record terminators",
+  "mechanism": "Positions end a listing record: the map-grid coordinate digit after its letter in index rows ('D'->'4', 'F'->'3'), the newline after the closing ')' of an info block before the prose description, and all-caps category labels; the attention heads (a16, 7.0, 6.3, 7.3) look like they read long-range record structure to close out each entry.",
+  "items": [
+   " h10am-4pm Mon-Sun) [[\n]] \nA",
+   "29DigitalD4\n\n30DorsetE [[1]] \n\n",
+   "\n#### Windsor & Eton\n\n#### Bray [[\n]] \n####",
+   "#### Ramsgate\n\n#### Sandwich\n\n#### [[ Dover]] \n\n",
+   " its place \u2013 from 'tiny' options upwards. [[\n]] \nSeven",
+   "\u00e9delC5\n\n30CanelaF [[3]] \n\n",
+   " office in 2013.\n\nBrighton City Guide [[T]] OURIST",
+   "#### Dover\n\n#### Around Dover\n\n#### [[ Rye]] \n\n",
+   " ; www.boroughmarket.org.uk; [[ 8]]  Southwark",
+   "\n\n#### Leeds Castle\n\n#### Margate [[\n]] \n####",
+   ".uk; 32-34 Old Steine) [[\n]] \nNight",
+   "shotel.com; 6 Frith St, [[ W]] 1;"
+  ]
+ },
+ {
+  "tag": "r.3.0",
+  "name": "Heading-list item continuation",
+  "mechanism": "Positions are the next entry in a repeated heading/index template ('#### X\\n\\n#### Y\\n\\n#### [[Z]]', map-index lines ending in newline); heads 16.8/16.2 with a6/a7 directions appear to track the repeated list structure and emit the next item or line break.",
+  "items": [
+   " Around Eastbourne\n\n#### Brighton & Hove [[\n]] \n####",
+   "\n\nFerries depart for France from the Eastern [[ D]] ocks below",
+   "3\n\n4Canterbury TalesB3 [[\n]] \n5",
+   "\nAAllotment\n\nAIyde [[a]] \n\n",
+   "#### Battle\n\n#### Hastings\n\n#### East [[bourne]] \n\n",
+   "ster\n\n#### Farnham\n\n#### Hind [[head]] \n\n",
+   "2Jewel Tower\n\n3Westminster Abbey [[\n]] \n4",
+   "ADinner by Heston Blumenthal\n\nAFive [[ Fields]] \n\n",
+   "0330 333 7878; www.odeon [[.]] co.",
+   "\n#### Windsor & Eton\n\n#### Bray [[\n]] \n####",
+   "90; www.uclh.org; 235 [[ E]] uston",
+   " Thu-Sat, noon-midnight Sun) [[\n]] \nT"
+  ]
+ },
+ {
+  "tag": "r.3.0.0",
+  "name": "Section-heading sequence continuation",
+  "mechanism": "Almost all positions complete the next '####' heading or the newline ending a map-index line in a run of parallel headings; a6/a7/a16 directions carry the repeated-heading pattern forward.",
+  "items": [
+   "#### Ramsgate\n\n#### Sandwich\n\n#### [[ Dover]] \n\n",
+   "\n\nBohoINTERNATIONAL\n\n( [[ ]]  MAP ",
+   "\n\n#### Drinking & Nightlife\n\n#### [[ Entertainment]] \n\n",
+   "\n\n#### Broadstairs\n\n#### Ramsgate [[\n]] \n####",
+   " Arundel\n\n#### Chichester [[\n]] \n####",
+   "2Jewel Tower\n\n3Westminster Abbey [[\n]] \n4",
+   " Canterbury\n\n#### Leeds Castle\n\n#### Marg [[ate]] \n\n",
+   "\n\n8Getting There & Away\n\nBus [[\n]] \nA",
+   "30 to/from central London.\n\nL [[uton]] \n\n",
+   " ArmsF3\n\n34RevengeF4 [[\n]] \n3",
+   " MuseumC4\n\n2London EyeA2 [[\n]] \n3",
+   " of AgnesA1\n\n5Eating [[\n]] \n16"
+  ]
+ },
+ {
+  "tag": "r.3.0.1",
+  "name": "Listing-line boundary tokens",
+  "mechanism": "Positions are mostly end-of-line or field-separator tokens (newlines, spaces before hours/tube glyphs, semicolons) inside structured listing blocks plus a few heading continuations; the a7/a16 directions seem to mark where a listing field or line ends.",
+  "items": [
+   " the Peter Harrison Planetarium (  GOOG [[LE]]  MAP )",
+   " are chic and understated.\n\n5E [[ating]] \n\n",
+   " BUILDING\n\n(  GOOG [[LE]]  MAP )",
+   " this route between Dover, Lydd and Hastings. [[\n]] \nStarting",
+   "UE HOTEL\n\n(  GOOG [[LE]]  MAP )",
+   " PantryH4\n\n17MoritoG [[3]] \n\n",
+   "xton Hotel\n\nACitizen M\n\nAG [[oring]] \n\n",
+   "1Sights\n\n4Albert MemorialB4 [[\n]] \n5",
+   " Canterbury.\n\nMinistry of SoundCLUB [[\n]] \n(",
+   "\n#### Entertainment\n\n#### Shopping\n\n#### [[ Information]] \n\n",
+   " which have airport and various city locations.\n\n [[Train]] \n\n",
+   ".\n\n### Margate\n\nPop 40 [[,]] 400\n"
+  ]
+ },
+ {
+  "tag": "r.3.1",
+  "name": "Connective before proper noun",
+  "mechanism": "The damaged token is almost always a function word or punctuation immediately preceding a named entity (' the Shard', ', Piccadilly', '### Canterbury'); heads 16.3/16.4/16.5 appear to set up the transition into an upcoming proper-noun mention.",
+  "items": [
+   "dd and Hastings.\n\nStarting at the exit [[ to]]  Dover's",
+   " BooksB2\n\n9SelfridgesB5 [[\n]] \nReg",
+   " aesthetically challenged port town of Dover.\n\n [[###]]  Canterbury\n",
+   ".barbican.org.uk; Silk [[ St]] , EC",
+   " fabulous restaurant rolled into one, this converted warehouse by [[ the]]  Canterbury West",
+   "\n\nNational TheatreTHEATRE\n\n( [[ ]]  MAP ",
+   "\n\nBohoINTERNATIONAL\n\n( [[ ]]  MAP ",
+   "\n\n16BohoB2\n\n17 [[D]] eeson",
+   "ndel and the coast.\n\n1S [[ights]] \n\n",
+   "/78, without bathroom \u00a348/68; [[ ]]  p W",
+   " %0845 026 3630; www. [[t]] fl.",
+   " lays claim to the highest income earners in the UK [[.]]  Kensington"
+  ]
+ },
+ {
+  "tag": "r.3.1.0",
+  "name": "Index-line termination",
+  "mechanism": "Positions are newlines ending map-key index lines ('4Tate ModernD1[[\\n]]'), section-index labels, and heading-list entries; a7/a16 directions detect the end of one numbered index entry so the next can start.",
+  "items": [
+   "co.uk; 17 Kensington Gardens; m [[ains]]  \u00a36",
+   "\n\n#### Festivals & Events\n\n#### [[ Sleeping]] \n\n",
+   " you'll find a sweet garden on the site of [[ 9]]  **St",
+   "GLE MAP ) ;  h7am- [[d]] usk;",
+   " Dickens MuseumF4\n\n4Sleeping [[\n]] \n4",
+   ", 20 Dean's Yard, SW1; m [[ains]]  \u00a39",
+   "-Sat, noon-5pm Sun;  [[ t]] Highbury",
+   "4pm Mon-Fri; [[ ]]  tS",
+   "2\n\n3Shakespeare's GlobeD1 [[\n]] \n4",
+   " & TownhouseH4\n\n5Eating [[\n]] \nB",
+   " Navigation CompanyB2\n\n4Sleeping [[\n]] \n13",
+   "uk; adult/child \u00a38/free; [[ ]]  h12"
+  ]
+ },
+ {
+  "tag": "r.3.1.1",
+  "name": "Listing end-of-line newlines",
+  "mechanism": "Mostly newline (and semicolon) tokens closing lines in listings, indexes, and heading runs; the same a7/a16 subspace as its siblings, here handling the line-break decision itself.",
+  "items": [
+   "4Tate ModernD1\n\n1S [[ights]] \n\n",
+   "Victoria & Albert MuseumC5\n\n1S [[ights]] \n\n",
+   " of WellingtonD4\n\n48EdgeD2 [[\n]] \n49",
+   " \u00a345 and \u00a385.\n\nLondon City [[\n]] \nThe",
+   " Dickens MuseumF4\n\n4Sleeping [[\n]] \n4",
+   " which depart from behind the Old Weaver's House. [[\n]] \nCan",
+   "B3\n\n5Eastbridge HospitalB2 [[\n]] \n6",
+   "3\n\n4Canterbury TalesB3 [[\n]] \n5",
+   "\n#### Festivals & Events\n\n#### Sleeping [[\n]] \n####",
+   "\n#### Eastbourne\n\n#### Around Eastbourne [[\n]] \n####",
+   " River Navigation CompanyB2\n\n4Sle [[eping]] \n\n",
+   "House of AgnesA1\n\n5E [[ating]] \n\n"
+  ]
+ },
+ {
+  "tag": "r.3.2",
+  "name": "Boilerplate label completion",
+  "mechanism": "Positions complete recurring template words split across tokens in index/listing scaffolding ('Enter[[tainment]]', 'Sh[[opping]]', 'GOOGLE[[ MAP]]', 'TOURIST[[ INFORMATION]]'); a6/a7 directions appear to copy the stereotyped section-label vocabulary.",
+  "items": [
+   "34RevengeF4\n\n3Entertainment [[\n]] \n35",
+   "\n\n#### Festivals & Events\n\n#### [[ Sleeping]] \n\n",
+   "8\n\n9Saatchi GalleryE7 [[\n]] \n10",
+   "wells.com; 73 Beak St, [[ W]] 1;",
+   " hostel have created equally commendable budget digs here [[ in]]  Brighton.",
+   " Cheshire CheeseB3\n\n3Entertainment [[\n]] \n33",
+   " Canterbury, one of England's most important religious sites [[\n]] \n3",
+   "e Cheshire CheeseB3\n\n3Enter [[tainment]] \n\n",
+   ".\n\n#### West End\n\nOxford [[ St]]  is the",
+   "ollybushhampstead.co.uk; [[ 22]]  Holly Mount",
+   " Sandwich or an 'oozylicious' _ [[cro]] que-",
+   "RookeryC1\n\n5Eating [[\n]] \n25"
+  ]
+ },
+ {
+  "tag": "r.6",
+  "name": "Memorized multi-token phrase continuation",
+  "mechanism": "A very large, loose root whose common thread is continuing multi-token names and boilerplate mid-word ('Le]]icester', 'Broad[[casting]] House', 'Lamb &[[ Flag]]', 'Sle[[eping]]'); attention layer 9 plus heads 6.3/6.7/9.8 look like general copy/induction machinery, but the set is heterogeneous.",
+  "items": [
+   "Sat, noon-4pm Sun;  t [[Le]] icester S",
+   "Fernandez & WellsC4\n\n33Great [[ Queen]]  StreetG",
+   " park, the South Downs National Park.\n\n [[###]]  Rye\n",
+   "corde 2G4\n\n29DigitalD [[4]] \n\n",
+   " pink peppercorns.\n\nRoti Ch [[ai]] INDIAN",
+   "0330 333 7878; www.odeon [[.]] co.",
+   "ABleak House\n\nAJeake's [[ House]] \n\n",
+   "obello Road Market and the Notting Hill Carnival. [[\n]] \nSc",
+   ", including concerts.\n\nSouthbank CentreCON [[C]] ERT V",
+   " table.\n\nOpiumCOCKTAIL [[ BAR]] \n\n",
+   " MAP ) ; www.royalparks. [[org]] .uk",
+   " Canonbury Sq, N1; adult/ [[child]]  \u00a35"
+  ]
+ },
+ {
+  "tag": "r.6.0",
+  "name": "Listing contact-field tokens",
+  "mechanism": "Positions sit inside formulaic contact/detail fields of venue listings - postcode fragments ('NW[[1]]', '[[ N]]6'), 'adult/[[child]]', street numbers, phone digits, '8[[Information]]'; a9 directions with heads 9.0/9.7/9.8 supply the listing-field format.",
+  "items": [
+   "OOGLE MAP ) ; www.thewhite [[cross]] richmond",
+   " window. No wi-fi.\n\n8 [[Information]] \n\n",
+   "igital.com/brighton; 187- [[193]]  Kings Rd",
+   "co.uk; Belvedere Rd, SE [[1]] ; ",
+   "q; s incl breakfast \u00a355-75, [[ d]]  incl breakfast",
+   "tr/f \u00a378/145/175, [[ d]]  \u00a3130",
+   "lincastle.com; 94 Parkway, [[ NW]] 1;",
+   "\n\n#### Islington\n\nAllow at least [[ an]]  evening to",
+   "italfieldsmarket.com; Commercial St, b [[t]] wn Brush",
+   "uk; 149 Piccadilly, Hyde Park [[ C]] nr,",
+   ", to 10.30pm Sun;  t [[Le]] icester Square",
+   " on quality, hearty dishes and good ingredients \u2013 with [[ perennial]]  delicious st"
+  ]
+ },
+ {
+  "tag": "r.6.0.0",
+  "name": "Adult/child and postcode fields",
+  "mechanism": "Dominated by the 'adult/[[child]]' price template and London postcode digits ('NW[[1]]', 'SE[[1]]') in listing address lines; a9 directions complete these highly stereotyped ticket-price and postcode formats.",
+  "items": [
+   " England MuseumMUSEUM\n\n(  MAP [[ ]]   G",
+   "; 10-12 Kentish Town Rd, NW [[1]] ; m",
+   " most nights in this pub's back room (cover [[ usually]]  \u00a36",
+   " Hotel & TownhouseH4\n\n5E [[ating]] \n\n",
+   "lincastle.com; 94 Parkway, [[ NW]] 1;",
+   ".co.uk; adult/child 30min [[ trip]]  \u00a37",
+   " Queen Elizabeth Olympic Park, E20; adult/ [[child]]  \u00a315",
+   "affleBRASSERIE\n\n(  MAP [[ ]]   G",
+   "e MuseumMUSEUM\n\n(  MAP [[ ]]   G",
+   "co.uk; Belvedere Rd, SE [[1]] ; ",
+   "e Cheshire CheeseB3\n\n3Enter [[tainment]] \n\n",
+   ".\n\nGreat British Pizza CompanyPIZZA [[\n]] \n("
+  ]
+ },
+ {
+  "tag": "r.6.0.1",
+  "name": "Listing header boundaries",
+  "mechanism": "A mixed set of closing parens after URLs, newlines in name indexes, and venue-name continuations; plausibly the boundary tokens of listing header lines, but the common function is diffuse.",
+  "items": [
+   "#### Around Chichester\n\n#### Farnham [[\n]] \n####",
+   "\n\n( %01843-598750 [[;]]  Customs House",
+   "asher neighbours seek to revive and regenerate themselves, quaint [[ little]]  Broadstairs",
+   " the 15th century; the spire dates from [[ the]]  19th",
+   "\n\n#### Farnham\n\n#### Hindhead [[\n]] \n#",
+   "Shopping\n\n8Daunt BooksB2 [[\n]] \n9",
+   " \u00a36).\n\nBarflyLIVE MUS [[IC]] \n\n",
+   "Oct, to 5pm Nov-Feb;  [[ t]] High St",
+   "www.visitkent.co.uk [[)]] \n\n",
+   "7Guards Museum\n\n8Queen's Gallery [[\n]] \n9",
+   "30pm Sat; [[ ]]  tWest",
+   "\n7PurlB3\n\n7Sh [[opping]] \n\n"
+  ]
+ },
+ {
+  "tag": "r.6.0.2",
+  "name": "Priced-item noun before amount",
+  "mechanism": "The damaged token is usually the noun naming what a following pound-price applies to ('[[ steak]] \u00a320', 'tap[[as]] \u00a35', '[[ tacos]] \u00a35', 'four[[ courses]] \u00a328', 'adult/[[child]] \u00a35'); a9 directions appear to predict the unit-being-priced slot in listing price fields.",
+  "items": [
+   "#### Battle\n\n#### Hastings\n\n#### East [[bourne]] \n\n",
+   "; 54 Frith St, W1; tap [[as]]  \u00a35",
+   "4\n\n40Monmouth Coffee CompanyF3 [[\n]] \n41",
+   "stairs\n\n#### Ramsgate\n\n#### Sandwich [[\n]] \n####",
+   " Canonbury Sq, N1; adult/ [[child]]  \u00a35",
+   " ArmsF3\n\n34RevengeF4 [[\n]] \n3",
+   "uk; 149 Piccadilly, Hyde Park [[ C]] nr,",
+   " road and head right to elegant b **St Mary [[-]] le-",
+   "ATRE\n\n( [[ ]]  GOO",
+   "\n(www.arundelcathedral. [[org]] ; London",
+   " Paul's Churchyard, EC4; adult/ [[child]]  \u00a316",
+   "** Dover Eastern Docks\n\n**End** [[ Rye]] \n\n"
+  ]
+ },
+ {
+  "tag": "r.6.0.3",
+  "name": "URL and postcode suffixes",
+  "mechanism": "Positions are domain-suffix tokens in listing URLs ('www.nhm[[.]]ac', '.[[org]].uk') and postcode district tokens ('[[ SE]]1', '[[ N]]6'), plus adult/child fields; a9 directions complete these fixed address-format suffixes.",
+  "items": [
+   "\n\nRoyal London Walking Tour\n\n1S [[ights]] \n\n",
+   ".org; 2 Victoria Pde; adult/ [[child]]  \u00a33",
+   " 4, Church Rd, SW19; adult/ [[child]]  \u00a312",
+   "uk; Stour Rd, Fish Island, E [[3]] ; m",
+   " and enjoy a picturesque, waterside angle on [[ North]]  London,",
+   "58 376183; www.sandwichriverbus [[.]] co.",
+   " ) ; 20 Cornfield Tce; adult/ [[child]]  \u00a35",
+   "org.uk; St Martin's Pl, WC [[2]] ; ",
+   " eclectic restaurants and pubs.\n\nPotliIND [[IAN]] \n\n",
+   " constant state of flux.\n\nDFDSFER [[RY]] \n\n",
+   ".org.uk; The Strand, WC [[2]] ; ",
+   "\n\nFerries depart for France from the Eastern [[ D]] ocks below"
+  ]
+ },
+ {
+  "tag": "r.6.1",
+  "name": "Listing shorthand completion",
+  "mechanism": "A loose mix of split-word name/heading continuations ('Marg[[ate]]', 'P[[ARK]]') and single-letter room-rate abbreviations before prices ('s/[[d]] \u00a3110', '[[ r]] \u00a370'); reads as general completion of listing shorthand, but no single tight function.",
+  "items": [
+   " darkness!\n\n#### WORTH A TRIP [[\n]] \n###",
+   "#### Arundel\n\n#### Chiche [[ster]] \n\n",
+   ".\n\nSouth Bank\n\n1Top S [[ights]] \n\n",
+   "ridgesB5\n\nRegent's ParkP [[ARK]] \n\n",
+   " 109 Mile End Rd, E1; s/ [[d]]  \u00a3110",
+   "ster\n\n#### Farnham\n\n#### Hind [[head]] \n\n",
+   ".barbican.org.uk; Silk [[ St]] , EC",
+   "Oct, to 5pm Nov-Feb;  [[ t]] High St",
+   " Castle\n\n#### Margate\n\n#### Broad [[stairs]] \n\n",
+   " Mon-Sat, noon-6pm Sun; [[ ]]  tOx",
+   "; tours adult/child \u00a318/12; [[ ]]  tSt",
+   "hotels.com; 17 Jubilee St; [[ r]]  \u00a370"
+  ]
+ },
+ {
+  "tag": "r.6.1.0",
+  "name": "Room-rate abbreviation fields",
+  "mechanism": "Many positions are the compressed room-price tokens of accommodation listings ('d[[ from]] \u00a3135', 's/[[d]] \u00a3110', '[[ r]] \u00a370', 'ste[[ from]] \u00a390') mixed with proper-name continuations; a9 directions seem to handle the rate-field shorthand before pound amounts.",
+  "items": [
+   " Cromwell Rd, SW5; s/ste [[ from]]  \u00a390",
+   "Jeake's House\n\nAWallett's [[ Court]] \n\n",
+   " Hansom (inventor of the Hansom [[ cab]] ) in",
+   "-7352 5953; www.606club [[.]] co.",
+   "eston Blumenthal\n\nAFive Fields\n\nAK [[oya]] \n\n",
+   "e Cheshire CheeseB3\n\n3Enter [[tainment]] \n\n",
+   " ; www.the-shard.com; [[ 32]]  London Bridge",
+   "www.visitkent.co.uk [[)]] \n\n",
+   " Canterbury, one of England's most important religious sites [[\n]] \n3",
+   "5Eating\n\nBohoINTERNATIONAL [[\n]] \n(",
+   " 109 Mile End Rd, E1; s/ [[d]]  \u00a3110",
+   "2130 St Mary Axe\n\n22Heron [[ Tower]] \n\n"
+  ]
+ },
+ {
+  "tag": "r.6.1.1",
+  "name": "Adult/child fields and index breaks",
+  "mechanism": "Combines the 'adult/[[child]]' ticket-price template with newlines ending section-index lines ('5Eating[[\\n]]'); the same a9 subspace as its siblings, applied to these two stereotyped listing slots.",
+  "items": [
+   ". The buses loop around interconnecting routes throughout [[ the]]  day,",
+   "; 28 Shad Thames, SE1; adult/ [[child]]  \u00a312",
+   " to become top nation...'\n\n1S [[ights]] \n\n",
+   "\n34RevengeF4\n\n3Enter [[tainment]] \n\n",
+   "\nAAllotment\n\nAIyde [[a]] \n\n",
+   " of AgnesA1\n\n5Eating [[\n]] \n16",
+   "To/From the Airports\n\nGat [[wick]] \n\n",
+   " & TownhouseH4\n\n5Eating [[\n]] \nB",
+   "\n7PurlB3\n\n7Sh [[opping]] \n\n",
+   " temporary cards are issued immediately.\n\n5E [[ating]] \n\n",
+   " ) ; 20 Cornfield Tce; adult/ [[child]]  \u00a35",
+   ", to 10.30pm Sun;  t [[Le]] icester Square"
+  ]
+ },
+ {
+  "tag": "r.6.2",
+  "name": "All-caps category-tag completion",
+  "mechanism": "Positions complete the all-caps venue category tag appended to a name ('FER[[RY]]', 'STAD[[IUM]]', 'MUSE[[UM]]', 'MEX[[ICAN]]', 'CLOTH[[ING]]') and related section labels; a6 directions with heads 9.4/9.8 finish the fixed category-tag vocabulary.",
+  "items": [
+   "tate-boat; one-way adult/ [[child]]  \u00a36",
+   " **Clerkenwell** for international eats, [[ then]]  **Ho",
+   " Southbank Centre, Belvedere Rd, SE [[1]] ; grill",
+   " exhibitions (admission sometimes charged).\n\nTT [[ours]] \n\n",
+   ".org; 2 Victoria Pde; adult/ [[child]]  \u00a33",
+   "To/From the Airports\n\nGat [[wick]] \n\n",
+   " Beachy Head\n\nBeachy HeadLANDM [[ARK]] \n\n",
+   "34RevengeF4\n\n3Entertainment [[\n]] \n35",
+   " (  MAP   GOOGLE MAP [[ )]]  ) is",
+   "bet Hill** (280m), which was once [[ an]]  execution ground",
+   " temporary cards are issued immediately.\n\n5E [[ating]] \n\n",
+   "What's On_.\n\nBrighton RocksB [[AR]] \n\n"
+  ]
+ },
+ {
+  "tag": "r.6.2.0",
+  "name": "Split header-word completion",
+  "mechanism": "Positions complete the trailing piece of a word split across tokens in numbered section headers and all-caps category tags (7Sh->opping, 3Enter->tainment, HOT->EL, FER->RY); the a6/a9 PCA directions appear to carry the word-prefix identity forward to finish the label.",
+  "items": [
+   "23A BarF4\n\n24AudioF [[4]] \n\n",
+   "24RookeryC1\n\n5E [[ating]] \n\n",
+   " June or July.\n\nLoveboxMUS [[IC]] \n\n",
+   "Pitt Cue CoB4\n\nPortraitE [[6]] \n\n",
+   " eclectic restaurants and pubs.\n\nPotliIND [[IAN]] \n\n",
+   " temporary cards are issued immediately.\n\n5E [[ating]] \n\n",
+   " exhibitions (admission sometimes charged).\n\nTT [[ours]] \n\n",
+   "corde 2G4\n\n29DigitalD [[4]] \n\n",
+   " constant state of flux.\n\nDFDSFER [[RY]] \n\n",
+   " of LondonD2\n\n17PinnacleG [[3]] \n\n",
+   "\u00e9delC5\n\n30CanelaF [[3]] \n\n",
+   " restaurant and tavern, too.\n\n5E [[ating]] \n\n"
+  ]
+ },
+ {
+  "tag": "r.6.2.1",
+  "name": "Listing-field continuation",
+  "mechanism": "Positions are the next element inside a directory entry: street-name words (' St', ' Court'), second halves of address ranges (257-259), second words of proper names, and the newline closing a map-key line, suggesting these components track position within the entry template.",
+  "items": [
+   "Shopping\n\n8Daunt BooksB2 [[\n]] \n9",
+   "tr/f \u00a378/145/175, [[ d]]  \u00a3130",
+   " MAP ) ; www.bl.uk; 96 [[ E]] uston",
+   " & light meals \u00a33.50-11; [[ ]]  h11",
+   "icularly south of the river, where tube lines are [[ in]]  shorter supply",
+   " the Pitt Rivers Museum in Oxford\n\n2Activ [[ities]] \n\n",
+   "ower St, WC1; s/tr/ [[f]]  \u00a378",
+   " BooksB2\n\n9SelfridgesB5 [[\n]] \nReg",
+   " ;  %020-7242 0622; [[ 32]]  Great Queen",
+   " Canterbury\n\n#### Leeds Castle\n\n#### Marg [[ate]] \n\n",
+   "8\n\n9Saatchi GalleryE7 [[\n]] \n10",
+   ".com; 17-18 Prince Albert St; [[ m]] ains \u00a3"
+  ]
+ },
+ {
+  "tag": "r.6.2.2",
+  "name": "Section headings and postcodes",
+  "mechanism": "Positions complete standard section-heading words (Eating/Sleeping/Shopping) and the newline right after them, plus the digit of London postcodes (WC2, NW1), i.e. highly predictable slots in the listing boilerplate.",
+  "items": [
+   "PERFORMING ARTS\n\n( %01 [[227]] -78",
+   " of AgnesA1\n\n5Eating [[\n]] \n16",
+   "uk; 11 Langley St, WC2; [[ steak]]  \u00a320",
+   "e Cheshire CheeseB3\n\n3Enter [[tainment]] \n\n",
+   "7PurlB3\n\n7Shopping [[\n]] \n8",
+   "\n\nAZetter Hotel\n\nAHoxton [[ Hotel]] \n\n",
+   "House of AgnesA1\n\n5E [[ating]] \n\n",
+   "\n#### Festivals & Events\n\n#### Sleeping [[\n]] \n####",
+   " & TownhouseH4\n\n5Eating [[\n]] \nB",
+   "\n\nRoyal London Walking Tour\n\n1S [[ights]] \n\n",
+   "\n7PurlB3\n\n7Sh [[opping]] \n\n",
+   "#### Around Dover\n\n#### Rye\n\n#### [[ Battle]] \n\n"
+  ]
+ },
+ {
+  "tag": "r.6.2.3",
+  "name": "TOC place-name items",
+  "mechanism": "Positions predict the next place-name item in '####' table-of-contents runs (#### Rye, #### Sandwich, Marg->ate) and map-grid coordinates after venue names (AudioF4), i.e. items in enumerated index lists.",
+  "items": [
+   "Wellcome CollectionB3\n\n1Sights [[\n]] \n3",
+   "Spencer House\n\n13Clarence [[ House]] \n\n",
+   "24RookeryC1\n\n5E [[ating]] \n\n",
+   "KoyaD4\n\n38LimaC [[2]] \n\n",
+   "#### Arundel\n\n#### Chiche [[ster]] \n\n",
+   "23A BarF4\n\n24AudioF [[4]] \n\n",
+   "#### Dover\n\n#### Around Dover\n\n#### [[ Rye]] \n\n",
+   ".co.uk; Devonshire Park; [[ ]]  hmid",
+   "\n34RevengeF4\n\n3Enter [[tainment]] \n\n",
+   "D3\n\nRestaurant at St Paul [['s]] D3",
+   "orde 2G4\n\n29DigitalD4 [[\n]] \n30",
+   ".brighton-hove.gov.uk [[)]] \n\n"
+  ]
+ },
+ {
+  "tag": "r.6.3",
+  "name": "Index-entry label completion",
+  "mechanism": "Across map-key and review entries, positions complete all-caps category tags (BOOK->S, CL->UB), grid references (F3, D2), and numbered header words; layer-9 attention heads plus a6 directions look like the machinery that recognizes and continues these index labels.",
+  "items": [
+   "\nAAllotment\n\nAIyde [[a]] \n\n",
+   " Queen Elizabeth Olympic Park, E20; adult/ [[child]]  \u00a315",
+   "uke of WellingtonD4\n\n48EdgeD [[2]] \n\n",
+   " most nights in this pub's back room (cover [[ usually]]  \u00a36",
+   "### Best Places to Stay\n\nAHaymarket [[ Hotel]] \n\n",
+   "Pitt Cue CoB4\n\nPortraitE [[6]] \n\n",
+   "; 10-12 Kentish Town Rd, NW [[1]] ; m",
+   "23A BarF4\n\n24AudioF [[4]] \n\n",
+   "man is upstairs.\n\nFoylesBOOK [[S]] \n\n",
+   " most nights in this pub's back room (cover [[ usually]]  \u00a36",
+   " ARTS\n\n( %01227-78 [[77]] 87;",
+   "corde 2G4\n\n29DigitalD [[4]] \n\n"
+  ]
+ },
+ {
+  "tag": "r.6.3.0",
+  "name": "Contact-line digits and separators",
+  "mechanism": "Positions are digits and punctuation inside listing metadata lines: phone-number chunks (%01227-78'77'), postcode digits, grid references, and the semicolons that separate fields, i.e. the formulaic contact/address string format.",
+  "items": [
+   " ArmsF3\n\n34RevengeF4 [[\n]] \n3",
+   "rye.co.uk; 108 High St [[;]]  snacks/",
+   "ent Garden (  MAP   GOOG [[LE]]  MAP )",
+   " Market Bldg, Covent Garden, WC [[2]] ; ",
+   "#### Dover\n\n#### Around Dover\n\n#### [[ Rye]] \n\n",
+   "KoyaD4\n\n38LimaC [[2]] \n\n",
+   "e Cheshire CheeseB3\n\n3Enter [[tainment]] \n\n",
+   "ADinner by Heston Blumenthal\n\nAFive [[ Fields]] \n\n",
+   "7PurlB3\n\n7Shopping [[\n]] \n8",
+   "2\n\n26Hummus BrosD3 [[\n]] \nRest",
+   "\n\n( %01273-605797 [[;]]  www.",
+   "eryC5\n\n43OrchardG1 [[\n]] \n44"
+  ]
+ },
+ {
+  "tag": "r.6.3.1",
+  "name": "Price and ticket fields",
+  "mechanism": "Positions follow the stock admission/rate templates of listings: 'adult/' -> child/family, 's/d' -> ' from' before a price, phone digits, and quantity words before pound amounts, so the components appear to implement the price-field grammar.",
+  "items": [
+   " Cromwell Rd, SW5; s/ste [[ from]]  \u00a390",
+   "Pitt Cue CoB4\n\nPortraitE [[6]] \n\n",
+   " to the public for the first time in history. [[ Tours]]  (\u00a310",
+   ".potli.co.uk; 319- [[321]]  King St",
+   "2130 St Mary Axe\n\n22Heron [[ Tower]] \n\n",
+   "; 10-12 Kentish Town Rd, NW [[1]] ; m",
+   "originaltour.com; adult/child/ [[family]]  \u00a329",
+   " to the public for the first time in history. [[ Tours]]  (\u00a310",
+   "e Cheshire CheeseB3\n\n3Enter [[tainment]] \n\n",
+   " Athens by Lord Elgin (the British ambassador to [[ the]]  Ottoman Empire",
+   ".com; 35 Chalk Farm Rd, NW [[1]] ; ",
+   " 1631 Kew Palace (  GOOG [[LE]]  MAP )"
+  ]
+ },
+ {
+  "tag": "r.9",
+  "name": "Listing-entry boundary structure",
+  "mechanism": "A large parent cluster over the whole listing format: newlines that terminate entries and category tags (PUB\\n, CAFE\\n), standard heading-word completions, and closing punctuation, with mid-layer heads (6.0, 7.8) and a17/m7 marking where one entry ends and the next begins.",
+  "items": [
+   " 2-4pm Thu & Sun Apr-Nov [[)]] \n\n",
+   ".\n\nSeven Dials HotelHOTEL [[\n]] \n",
+   " 3 Portman Mews South, W1; [[ m]] ains from",
+   " tickets \u00a329.50-59.50; [[ ]]  tM",
+   "\nChurch of St Mary the VirginCHURCH [[\n]] \n(",
+   " Canterbury, one of England's most important religious sites [[\n]] \n3",
+   " from the tourist office.\n\n4Sle [[eping]] \n\n",
+   " in Oxford\n\n2Activities\n\nCy [[cling]] \n\n",
+   "; tours adult/child \u00a318/12; [[ ]]  tSt",
+   " Discounts are available for Travelcard holders.\n [[\n]] #### P",
+   "-302 St Paul's Rd, N1; [[ m]] ains \u00a3",
+   " chow down on humungous burgers, full [[-]] monty"
+  ]
+ },
+ {
+  "tag": "r.9.0",
+  "name": "Caps category-tag endings",
+  "mechanism": "Positions complete all-caps venue category tags (NEIGHBOURH->OOD, TOUR, MODERN EUROPEAN) and the newline immediately after the tag, i.e. the end of the 'Name + CATEGORY' review-header pattern.",
+  "items": [
+   " sense of life and community to the palace.\n [[\n]] #### Recommended",
+   "xton Hotel\n\nACitizen M\n\nAG [[oring]] \n\n",
+   ".\n\nCapital Taxi ToursTAXI TOUR [[\n]] \n(",
+   "Royal MewsHISTORIC BUILDING [[\n]] \n(",
+   "\n\n8Information\n\nPost OfficePOST OFF [[ICE]] \n\n",
+   "inaF6\n\n27BarrafinaD [[3]] \n\n",
+   "\n#### Around Chichester\n\n#### Farn [[ham]] \n\n",
+   " table.\n\nOpiumCOCKTAIL [[ BAR]] \n\n",
+   "ights\n\nStadeNEIGHBOURH [[OOD]] \n\n",
+   ";  tKing's Cross St Pancras) [[\n]] \nIn",
+   "\n\nAZetter Hotel\n\nAHoxton [[ Hotel]] \n\n",
+   " the Pitt Rivers Museum in Oxford\n\n2Activ [[ities]] \n\n"
+  ]
+ },
+ {
+  "tag": "r.9.0.0",
+  "name": "All-caps tag completion",
+  "mechanism": "Positions finish split all-caps category tags (PU->B, THEAT->RE, HOST->EL, LANDM->ARK, BRIT->ISH) and split proper names (Gat->wick, Marg->ate); a7/a17 directions seem to hold the partial-word state needed to complete the tag.",
+  "items": [
+   " of imaginative theatre.\n\nYoung VicTHEAT [[RE]] \n\n",
+   "looking streets.\n\nMeiningerHOST [[EL]] \n\n",
+   "#### Dover\n\n#### Around Dover\n\n#### [[ Rye]] \n\n",
+   "inpaul.org; North Holmes Rd; [[ ]]  h11",
+   "** Dover Eastern Docks\n\n**End** [[ Rye]] \n\n",
+   "# London\n\n#### London Highlights\n\n#### [[ History]] \n\n",
+   ".\n\nGreat British Pizza CompanyPIZZA [[\n]] \n(",
+   "pm-6.30am Fri & Sat; [[ ]]  tEle",
+   "ights\n\nStadeNEIGHBOURH [[OOD]] \n\n",
+   "\n\n#### Drinking & Nightlife\n\n#### [[ Entertainment]] \n\n",
+   " between \u00a345 and \u00a385.\n\nLondon [[ City]] \n\n",
+   "ate\n\n#### Broadstairs\n\n#### Rams [[gate]] \n\n"
+  ]
+ },
+ {
+  "tag": "r.9.0.1",
+  "name": "Standard heading-word prediction",
+  "mechanism": "Positions predict the canonical guidebook heading word after '####' or a numbered prefix (Sights, Eating, Tours, Information, Entertainment) and second words of sight names in indexes, i.e. choosing which stock section title comes next.",
+  "items": [
+   " pageantry overload.\n\nField DayMUS [[IC]] \n\n",
+   "us BrosC4\n\n37KoyaD [[4]] \n\n",
+   "e Cheshire CheeseB3\n\n3Enter [[tainment]] \n\n",
+   "#### Ramsgate\n\n#### Sandwich\n\n#### [[ Dover]] \n\n",
+   " the South Downs National Park.\n\n### Rye [[\n]] \nPop",
+   "\n7PurlB3\n\n7Sh [[opping]] \n\n",
+   "34RevengeF4\n\n3Entertainment [[\n]] \n35",
+   "# London\n\n#### London Highlights\n\n#### [[ History]] \n\n",
+   "Spencer House\n\n13Clarence [[ House]] \n\n",
+   ".\n\nSouth Bank\n\n1Top S [[ights]] \n\n",
+   "\n\n### Broadstairs\n\nPop 24, [[370]] \n\n",
+   " the crooked medieval streets of Sandwich\n\n2Activ [[ities]] \n\n"
+  ]
+ },
+ {
+  "tag": "r.9.0.2",
+  "name": "Repeated venue-name recall",
+  "mechanism": "Positions complete venue names in 'A'-bulleted best-of lists (AG->oring, AK->oya, ALed->bury) and heading/entry newlines, which looks like copying names already seen elsewhere in the guide plus generic heading structure; the mix is real, so confidence is limited.",
+  "items": [
+   ", to 12.30am Sun;  t [[T]] ottenham Court",
+   "ADinner by Heston Blumenthal\n\nAFive [[ Fields]] \n\n",
+   " bar and cafe, but no kitchen.\n\n [[A]] rosfa",
+   "#### Entertainment\n\n#### Shopping\n\n#### Information [[\n]] \n#",
+   ")\n\nTottenham HotspurSTADIUM [[\n]] \n(",
+   " Paul's YHAHOSTEL\n\n( [[ ]]  MAP ",
+   "** Dover Eastern Docks\n\n**End** [[ Rye]] \n\n",
+   "-7352 5953; www.606club [[.]] co.",
+   "\n\n#### Sights\n\n#### City Walk [[\n]] \n####",
+   "Wellcome CollectionB3\n\n1Sights [[\n]] \n3",
+   "\n\nBrighton RocksBAR\n\n( [[ ]]  MAP ",
+   "7Guards Museum\n\n8Queen's Gallery [[\n]] \n9"
+  ]
+ },
+ {
+  "tag": "r.9.1",
+  "name": "Entry-terminating newline",
+  "mechanism": "Nearly every position is the newline that closes a numbered map-key or TOC line, right after a grid coordinate or place name; the components appear to detect that the entry is complete and emit the line break.",
+  "items": [
+   "2Jewel Tower\n\n3Westminster Abbey [[\n]] \n4",
+   "#### Ramsgate\n\n#### Sandwich\n\n#### [[ Dover]] \n\n",
+   "\n\nPrincess LouisePUB\n\n( [[ ]]  MAP ",
+   " ChapelB3\n\n7Roman MuseumC3 [[\n]] \n8",
+   "rasserie Z\u00e9del\n\nALed [[bury]] \n\n",
+   "4\n\n40Monmouth Coffee CompanyF3 [[\n]] \n41",
+   " ArmsF3\n\n34RevengeF4 [[\n]] \n3",
+   "\n1Westminster Hall\n\n2Jewel [[ Tower]] \n\n",
+   "G3\n\n4Westminster AbbeyF3 [[\n]] \n1",
+   "uk; 149 Piccadilly, Hyde Park [[ C]] nr,",
+   "\n#### Entertainment\n\n#### Shopping\n\n#### [[ Information]] \n\n",
+   "3\n\n11Serpentine LakeD3 [[\n]] \n12"
+  ]
+ },
+ {
+  "tag": "r.9.1.0",
+  "name": "Multi-word landmark completion",
+  "mechanism": "Positions are the second word of familiar multi-word proper names in numbered indexes (Westminster Abbey, Clarence House, Heron Tower, Hoxton Hotel), so m7/a7 directions look like they retrieve the known continuation of a named entity.",
+  "items": [
+   "#### Arundel\n\n#### Chiche [[ster]] \n\n",
+   "Sat, to midnight Sun;  tChalk [[ Farm]] )",
+   " good place to start exploring the town. Exhib [[itions]]  examine the",
+   "1Sights\n\n4Albert MemorialB4 [[\n]] \n5",
+   " Canterbury\n\n#### Leeds Castle\n\n#### Marg [[ate]] \n\n",
+   "\n\nAZetter Hotel\n\nAHoxton [[ Hotel]] \n\n",
+   " by the Portobello Road Market and the Notting [[ Hill]]  Carnival.",
+   "ivals & Events\n\n#### Sleeping\n\n#### [[ Eating]] \n\n",
+   "; Bedford St, WC2;  h8 [[.]] 30am",
+   "pm-6.30am Fri & Sat; [[ ]]  tEle",
+   "#### Battle\n\n#### Hastings\n\n#### East [[bourne]] \n\n",
+   "\n#### Eastbourne\n\n#### Around Eastbourne [[\n]] \n####"
+  ]
+ },
+ {
+  "tag": "r.9.1.1",
+  "name": "Numeric metadata fields",
+  "mechanism": "Positions are numbers and stock phrases inside listing metadata: 'r/d from' before prices, population figures (Pop 151,200), opening-hour tokens (4pm), and street numbers, i.e. the numeric slots of the listing template.",
+  "items": [
+   " Canterbury\n\n#### Leeds Castle\n\n#### Marg [[ate]] \n\n",
+   " River Navigation CompanyB2\n\n4Sle [[eping]] \n\n",
+   "ryH4\n\n17MoritoG3 [[\n]] \n18",
+   ".\n\n### Canterbury\n\nPop 151, [[200]] \n\n",
+   "xton Hotel\n\nACitizen M\n\nAG [[oring]] \n\n",
+   "90; www.uclh.org; 235 [[ E]] uston",
+   " ) ; 159 Brick Lane, E2; bag [[els]]  \u00a31",
+   "To/From the Airports\n\nGat [[wick]] \n\n",
+   "hiphotel.net; North St; r [[ from]]  \u00a3124",
+   ".\n\n8Getting There & Away\n\n [[Bus]] \n\n",
+   "OOGLE MAP ) ; www.rmg [[.]] co.",
+   " MuseumC4\n\n2London EyeA2 [[\n]] \n3"
+  ]
+ },
+ {
+  "tag": "r.9.3",
+  "name": "Paragraph-final newline",
+  "mechanism": "The dominant positions are the newline after a sentence-ending period that closes a paragraph before a new heading, mixed with some caps category-tag endings; head 17.8 and m7 directions appear to signal paragraph/entry closure.",
+  "items": [
+   "us BrosC4\n\n37KoyaD [[4]] \n\n",
+   " tickets \u00a329.50-59.50; [[ ]]  tM",
+   "\n34RevengeF4\n\n3Enter [[tainment]] \n\n",
+   "ndel and the coast.\n\n1S [[ights]] \n\n",
+   "\n\n### Broadstairs\n\nPop 24, [[370]] \n\n",
+   "D1\n\n4Tate ModernD1 [[\n]] \n1",
+   "ivals & Events\n\n#### Sleeping\n\n#### [[ Eating]] \n\n",
+   "#### Entertainment\n\n#### Shopping\n\n#### Information [[\n]] \n#",
+   " see why the region is a magnet for visitors. [[\n]] \nAlthough",
+   ".\n\n8Information\n\nTourist Office [[T]] OURIST",
+   " office in 2013.\n\nBrighton City Guide [[T]] OURIST",
+   " Canterbury\n\n#### Leeds Castle\n\n#### Marg [[ate]] \n\n"
+  ]
+ }
+]

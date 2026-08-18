@@ -1,0 +1,104 @@
+[
+ {
+  "tag": "r.3.0",
+  "name": "Heading-list item continuation",
+  "mechanism": "Positions are the next entry in a repeated heading/index template ('#### X\\n\\n#### Y\\n\\n#### [[Z]]', map-index lines ending in newline); heads 16.8/16.2 with a6/a7 directions appear to track the repeated list structure and emit the next item or line break.",
+  "confidence": "high"
+ },
+ {
+  "tag": "r.3.0.0",
+  "name": "Section-heading sequence continuation",
+  "mechanism": "Almost all positions complete the next '####' heading or the newline ending a map-index line in a run of parallel headings; a6/a7/a16 directions carry the repeated-heading pattern forward.",
+  "confidence": "high"
+ },
+ {
+  "tag": "r.3.0.1",
+  "name": "Listing-line boundary tokens",
+  "mechanism": "Positions are mostly end-of-line or field-separator tokens (newlines, spaces before hours/tube glyphs, semicolons) inside structured listing blocks plus a few heading continuations; the a7/a16 directions seem to mark where a listing field or line ends.",
+  "confidence": "medium"
+ },
+ {
+  "tag": "r.3.1",
+  "name": "Connective before proper noun",
+  "mechanism": "The damaged token is almost always a function word or punctuation immediately preceding a named entity (' the Shard', ', Piccadilly', '### Canterbury'); heads 16.3/16.4/16.5 appear to set up the transition into an upcoming proper-noun mention.",
+  "confidence": "medium"
+ },
+ {
+  "tag": "r.3.1.0",
+  "name": "Index-line termination",
+  "mechanism": "Positions are newlines ending map-key index lines ('4Tate ModernD1[[\\n]]'), section-index labels, and heading-list entries; a7/a16 directions detect the end of one numbered index entry so the next can start.",
+  "confidence": "medium"
+ },
+ {
+  "tag": "r.3.1.1",
+  "name": "Listing end-of-line newlines",
+  "mechanism": "Mostly newline (and semicolon) tokens closing lines in listings, indexes, and heading runs; the same a7/a16 subspace as its siblings, here handling the line-break decision itself.",
+  "confidence": "medium"
+ },
+ {
+  "tag": "r.3.2",
+  "name": "Boilerplate label completion",
+  "mechanism": "Positions complete recurring template words split across tokens in index/listing scaffolding ('Enter[[tainment]]', 'Sh[[opping]]', 'GOOGLE[[ MAP]]', 'TOURIST[[ INFORMATION]]'); a6/a7 directions appear to copy the stereotyped section-label vocabulary.",
+  "confidence": "medium"
+ },
+ {
+  "tag": "r.6",
+  "name": "Memorized multi-token phrase continuation",
+  "mechanism": "A very large, loose root whose common thread is continuing multi-token names and boilerplate mid-word ('Le]]icester', 'Broad[[casting]] House', 'Lamb &[[ Flag]]', 'Sle[[eping]]'); attention layer 9 plus heads 6.3/6.7/9.8 look like general copy/induction machinery, but the set is heterogeneous.",
+  "confidence": "low"
+ },
+ {
+  "tag": "r.6.0",
+  "name": "Listing contact-field tokens",
+  "mechanism": "Positions sit inside formulaic contact/detail fields of venue listings - postcode fragments ('NW[[1]]', '[[ N]]6'), 'adult/[[child]]', street numbers, phone digits, '8[[Information]]'; a9 directions with heads 9.0/9.7/9.8 supply the listing-field format.",
+  "confidence": "medium"
+ },
+ {
+  "tag": "r.6.0.0",
+  "name": "Adult/child and postcode fields",
+  "mechanism": "Dominated by the 'adult/[[child]]' price template and London postcode digits ('NW[[1]]', 'SE[[1]]') in listing address lines; a9 directions complete these highly stereotyped ticket-price and postcode formats.",
+  "confidence": "high"
+ },
+ {
+  "tag": "r.6.0.1",
+  "name": "Listing header boundaries",
+  "mechanism": "A mixed set of closing parens after URLs, newlines in name indexes, and venue-name continuations; plausibly the boundary tokens of listing header lines, but the common function is diffuse.",
+  "confidence": "low"
+ },
+ {
+  "tag": "r.6.0.2",
+  "name": "Priced-item noun before amount",
+  "mechanism": "The damaged token is usually the noun naming what a following pound-price applies to ('[[ steak]] \u00a320', 'tap[[as]] \u00a35', '[[ tacos]] \u00a35', 'four[[ courses]] \u00a328', 'adult/[[child]] \u00a35'); a9 directions appear to predict the unit-being-priced slot in listing price fields.",
+  "confidence": "medium"
+ },
+ {
+  "tag": "r.6.0.3",
+  "name": "URL and postcode suffixes",
+  "mechanism": "Positions are domain-suffix tokens in listing URLs ('www.nhm[[.]]ac', '.[[org]].uk') and postcode district tokens ('[[ SE]]1', '[[ N]]6'), plus adult/child fields; a9 directions complete these fixed address-format suffixes.",
+  "confidence": "medium"
+ },
+ {
+  "tag": "r.6.1",
+  "name": "Listing shorthand completion",
+  "mechanism": "A loose mix of split-word name/heading continuations ('Marg[[ate]]', 'P[[ARK]]') and single-letter room-rate abbreviations before prices ('s/[[d]] \u00a3110', '[[ r]] \u00a370'); reads as general completion of listing shorthand, but no single tight function.",
+  "confidence": "low"
+ },
+ {
+  "tag": "r.6.1.0",
+  "name": "Room-rate abbreviation fields",
+  "mechanism": "Many positions are the compressed room-price tokens of accommodation listings ('d[[ from]] \u00a3135', 's/[[d]] \u00a3110', '[[ r]] \u00a370', 'ste[[ from]] \u00a390') mixed with proper-name continuations; a9 directions seem to handle the rate-field shorthand before pound amounts.",
+  "confidence": "medium"
+ },
+ {
+  "tag": "r.6.1.1",
+  "name": "Adult/child fields and index breaks",
+  "mechanism": "Combines the 'adult/[[child]]' ticket-price template with newlines ending section-index lines ('5Eating[[\\n]]'); the same a9 subspace as its siblings, applied to these two stereotyped listing slots.",
+  "confidence": "medium"
+ },
+ {
+  "tag": "r.6.2",
+  "name": "All-caps category-tag completion",
+  "mechanism": "Positions complete the all-caps venue category tag appended to a name ('FER[[RY]]', 'STAD[[IUM]]', 'MUSE[[UM]]', 'MEX[[ICAN]]', 'CLOTH[[ING]]') and related section labels; a6 directions with heads 9.4/9.8 finish the fixed category-tag vocabulary.",
+  "confidence": "high"
+ }
+]
