@@ -7654,3 +7654,17 @@ classes), and compressive (the whole junction reduces to one vector in
 the assembly at near-zero cost). Fresh-window replication queued
 (ledger 22) before the arc is quotable: three-junction ranking, the
 targeted explosion, both on never-seen text.
+
+## 294. The regulator arc replicates fresh -- quotable
+
+`regulator_fresh.py` (ledger 22 gate): on 120 never-seen pile rows the
+three junctions replicate exactly -- blocks 0/1/5 at +0.958/+1.952/
++2.160 versus controls at +0.053 (block 3) and +0.004 (block 9) -- and
+the targeted span explosion replicates at 4.33x (standard window:
+4.58x). Both bars HELD. The arc (three junctions; a four-direction
+clause-marked channel; targeted range-regulation of the private span;
+mean-carried function explaining the one-vector stand-in) is now
+certified on fresh data end to end and goes into the published report
+at this boundary. Queued comparison: is block 1's +1.95 junction also
+a narrow channel (the "junction = few directions" motif repeated), or
+is narrowness special to the regulator?

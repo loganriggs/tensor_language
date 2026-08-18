@@ -3904,3 +3904,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 - Handoff->span link: REGULATORY not generative -- span variance x4.6 under the cut (random-4: nothing); damage in contextual classes, clause classes unharmed. Logit-lens semantics != causal payload.
 - Span specificity: explosion targeted (span 4.58x, full 1.65x, next-8 directions SHRINK 0.39x). The channel is a targeted range-governor of the private code. Arc complete.
 - Assembly preserves span statistics (0.70 uniform) -- the regulator works through its MEAN, which is why a5's best stand-in is one vector. Arc closed; fresh replication queued.
+- Regulator arc REPLICATES FRESH: junctions +0.96/+1.95/+2.16 vs controls +0.05/+0.004; span explosion 4.33x. Quotable.
