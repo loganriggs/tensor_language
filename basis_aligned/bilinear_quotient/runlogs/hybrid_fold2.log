@@ -15,20 +15,7 @@ fit a14
 fit a15
 fit a16
 fit a17
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/hybrid_fold2.py", line 487, in <module>
-    if __name__=='__main__': main()
-                             ^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/hybrid_fold2.py", line 469, in main
-    hyF=evalHF(hyb,True)-base           # fold hybrid (fits in-chain)
-        ^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/hybrid_fold2.py", line 452, in evalHF
-    if motif: hs+=motif_hooks()
-                  ^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/hybrid_fold2.py", line 374, in motif_hooks
-    for li in set(list(prevh)+list(selfh)):
-                       ^^^^^
-NameError: name 'prevh' is not defined
+fresh: empirical hybrid +2.5432 | FOLD hybrid +4.7686 | window C fold-hybrid +4.6950
+(a) fold hybrid <= +2.35: FAILED
+(b) beats empirical by >=0.15: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/hybrid_fold2_results.json (75s)

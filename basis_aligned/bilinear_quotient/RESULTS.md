@@ -3928,3 +3928,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 - a8 symbolic rescue refuted (identical to stream-only); a8 closed irreducible alongside induction.
 - Fold tables strictly dominate empirical (C: 1.390 vs 1.481; fresh: 1.602 vs 1.926). Transfer tax avoidable. Merging into the frontier config.
 - Naive fold merge FAILED (+3.76) by violating sequential fitting; corrected in-chain refit queued.
+- In-chain fold merge also failed (+4.77): fits under dict-band context, eval with band real. Rule upgraded: fit under the eval config's context. Matched-context merge queued with empirical twin control.

@@ -7900,3 +7900,20 @@ Instrument error of the self-inflicted kind, recorded. The corrected
 merge -- fold tables installed inside the sequential fit chain, so the
 entire downstream stack is fit under the fold front -- is queued with
 the same registered bars (<= +2.35 fresh; beats +2.543 by >= 0.15).
+
+## 307. Sequential is not enough: fits must match the eval context
+
+`hybrid_fold2.py` (fold tables fit in-chain): +4.77, worse than the
+hot-swap. Diagnosis sharpens 306: the v9 fit chain interleaves the
+attention-dictionary fits, so the front absorbers are fit under
+a2/a3-DICTIONARY streams -- but the hybrid config runs that band REAL.
+The empirical hybrid tolerated this context mismatch (+2.54) because
+empirical tables leave small residuals and their absorbers barely
+matter; fold tables leave larger residuals, their rank-64 quadratic
+absorbers carry real load, and a quadratic read misfiring off-context
+is expensive. Grammar rule upgraded: SEQUENTIAL FITTING MEANS FITTING
+UNDER THE EVAL CONFIGURATION'S OWN CONTEXT -- in-order fits under a
+different downstream plan still conduct. The matched-context merge
+(front fold fits with attention real, CP middles, tail refit under the
+same, motif gains last, and an empirical-table twin refit identically
+as the controlled comparison) is queued.
