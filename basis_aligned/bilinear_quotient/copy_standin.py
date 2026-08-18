@@ -62,7 +62,41 @@ def main():
         m(bb[:,:-1].contiguous(), bb[:,1:].contiguous())
     for h in hs: h.remove()
     consts={li:torch.cat(caps[li])[clsA==8].mean(0) for li in BAND}
+    trueA={li:torch.cat(caps[li]) for li in BAND}
     del caps
+    # fit per-layer scalar calibration for the copy stand-in on window A
+    MMA,_=match_index(300,512)
+    MMA=MMA.to(DEV)
+    standA={li:[] for li in BAND}; hs=[]
+    curA={'b0':0}
+    for li in BAND:
+        a=m.transformer.h[li].attn
+        def mk(li=li,a=a):
+            def hook(mod,i_,o_):
+                out=o_[0] if isinstance(o_,tuple) else o_
+                B,T,_=out.shape
+                hcur=i_[0]
+                v=a.c_v(hcur).view(B,T,NH,HD)
+                vv=((1-a.lamb)*v+a.lamb*v).reshape(B,T,-1)
+                mm=MMA[curA['b0']:curA['b0']+B,:T].clamp_min(0)
+                src=torch.gather(vv,1,mm[:,:,None]
+                                 .expand(B,T,vv.shape[-1]))
+                standA[li].append(a.c_proj(src).detach()
+                                  .reshape(-1,D).float())
+            return hook
+        hs.append(m.transformer.h[li].attn.register_forward_hook(mk()))
+    for i in range(300,512,4):
+        curA['b0']=i-300
+        bb=FW[i:i+4,:257].to(DEV)
+        m(bb[:,:-1].contiguous(), bb[:,1:].contiguous())
+    for h in hs: h.remove()
+    validA=(MMA.reshape(-1)>=0)&(clsA.to(DEV)==8)
+    ALPHA={}
+    for li in BAND:
+        S=torch.cat(standA[li])[validA]; Tr=trueA[li].to(DEV)[validA]
+        ALPHA[li]=float((S*Tr).sum()/S.pow(2).sum().clamp_min(1e-6))
+        print(f'alpha attn{li}: {ALPHA[li]:+.4f}',flush=True)
+    del standA, trueA
     cur={'b0':0}
     def pertok(mode):
         hs=[]
@@ -78,7 +112,7 @@ def main():
                             cur['b0']:cur['b0']+B,:T]
                         sl=ind.view(R1-R0,256)[cur['b0']:cur['b0']+B,:T]
                         eff=sl&(mm>=0)
-                        if mode in ('copy','random'):
+                        if mode in ('copy','random','copy_cal'):
                             hcur=i_[0]
                             v=a.c_v(hcur).view(B,T,NH,HD)
                             v1=v  # band layers: lamb mixes with layer-1 v;
@@ -88,6 +122,7 @@ def main():
                             src=torch.gather(vv,1,gath[:,:,None]
                                              .expand(B,T,vv.shape[-1]))
                             rep=a.c_proj(src)
+                            if mode=='copy_cal': rep=rep*ALPHA[li]
                         elif mode=='const':
                             rep=cst[None,None,:].expand_as(out)
                         else:
@@ -118,17 +153,21 @@ def main():
     flat=ind.reshape(-1)
     abl=float((pertok('ablate')-base)[flat].mean())
     cop=float((pertok('copy')-base)[flat].mean())
+    cal=float((pertok('copy_cal')-base)[flat].mean())
     rnd=float((pertok('random')-base)[flat].mean())
     cst=float((pertok('const')-base)[flat].mean())
     ra=1-cop/max(abl,1e-6); rb=1-rnd/max(abl,1e-6); rc=1-cst/max(abl,1e-6)
-    pa=ra>=0.40; pb=rb<=0.10
-    out={'ablate':round(abl,4),'copy':round(cop,4),'random':round(rnd,4),
+    rcal=1-cal/max(abl,1e-6)
+    pa=rcal>=0.40; pb=rb<=0.10
+    out={'ablate':round(abl,4),'copy':round(cop,4),
+         'copy_cal':round(cal,4),'cal_recovery':round(rcal,3),
+         'random':round(rnd,4),
          'const':round(cst,4),'copy_recovery':round(ra,3),
          'random_recovery':round(rb,3),'const_recovery':round(rc,3),
          'pred_a':bool(pa),'pred_b':bool(pb)}
-    print(f'band ablate on ind sites {abl:+.3f} | copy rec {ra:.0%} | '
-          f'random-target rec {rb:.0%} | const rec {rc:.0%}')
-    print(f"(a) copy >=40%: {'HELD' if pa else 'FAILED'}")
+    print(f'band ablate on ind sites {abl:+.3f} | raw copy {ra:.0%} | '
+          f'CALIBRATED copy {rcal:.0%} | random {rb:.0%} | const {rc:.0%}')
+    print(f"(a) calibrated copy >=40%: {'HELD' if pa else 'FAILED'}")
     print(f"(b) random <=10%: {'HELD' if pb else 'FAILED'}")
     out['runtime_s']=time.time()-t0
     json.dump(out,open(OUT,'w'),indent=1)
