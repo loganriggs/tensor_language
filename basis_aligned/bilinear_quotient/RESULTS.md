@@ -3812,3 +3812,11 @@ Firewall+absorber tables (rank-32 sequential correctors, residual R^2
 ~0.6) beat all-table v1 by 25%. Composition grammar validated.
 
 Full detail in `BILIN18_CONNECTION.md` §259.
+
+### v5: 19/36 components at +2.10
+
+The 'incompressible middle' verdict was true of its description class
+only: firewall+absorber tables replace mlp4-9 at ~0.12 nats each
+(mlp5 +0.02). Frontier: 13 comps @ +1.39; 19 comps @ +2.10.
+
+Full detail in `BILIN18_CONNECTION.md` §260.

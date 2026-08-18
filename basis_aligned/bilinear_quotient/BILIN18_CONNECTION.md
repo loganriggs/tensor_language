@@ -6926,3 +6926,26 @@ maps ≈ 222K parameters on top of the v1 inventory (tables priced per
 thirteen of thirty-six components replaced, +1.39 nats, with the
 composition recipe itself — sequential fitting, firewall+absorb typing —
 as much a product of the program as the numbers.
+
+## 260. v5 takes the middle: 19 of 36 components at +2.10
+
+File: `assembled_v5.py` (one heredoc-quoting stumble fixed in-wake).
+Adding mlp4-9 as sequential firewall+absorber rungs:
+
+    v5: 19/36 components replaced, total +2.095
+    middle marginals (LOO, in-context): m4 +0.19, m5 +0.02, m6 +0.11,
+    m7 +0.14, m8 +0.12, m9 +0.13 — sum +0.71, no component hit the
+    pre-registered +0.4 drop rule; absorber residual-R² 0.61-0.71
+
+The revision this makes to the program's oldest verdict deserves plain
+statement: the flat layer-track concluded the middle was incompressible —
+high-rank content, no cheap stand-ins, the "mezzanine" nobody could
+linearize. That conclusion was true OF ITS DESCRIPTION CLASS
+(input-generic replacements). Under the circuit-track's grammar —
+token-table firewall plus a sequentially-fit rank-32 absorber that reads
+the substituted stream — the middle costs about 0.12 nats per component
+in composition, and mlp5 is nearly free. The frontier curve now has two
+standing points: v4 = 13 components at +1.39, v5 = 19 components at
++2.10. Remaining unreplaced: attention 2-17 (the structure-class
+constants of §247 are the obvious next rungs) and the mid attention
+band's contextual transport.
