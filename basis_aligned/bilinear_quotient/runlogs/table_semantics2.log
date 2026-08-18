@@ -1,0 +1,7 @@
+tokens with >=5 occurrences: 1480
+(1) fold-vs-empirical median cosine 0.841 (shuffled null -0.020)
+(2) within-vs-between class cosine gap 0.083 (within 0.048, between -0.036; shuffled null 0.000)
+per-class within-cosine: {'digit': 0.499, 'punct': 0.281, 'word-start': 0.024, 'subword': 0.101, 'other': 0.207}
+(a) centered fold matches empirical (>=0.5, null<=0.10): HELD
+(b) class structure >= 3x null: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/table_semantics2_results.json (2s)

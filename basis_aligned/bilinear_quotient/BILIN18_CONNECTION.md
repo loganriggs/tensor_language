@@ -7354,3 +7354,32 @@ unconditional argmax fraction stays under 0.25. v3 (queued) scores
 ind/match conditionally on eligible queries; registered: at least one
 conditional-ind head in layers 3-5, else the pattern-level and
 ownership-level pictures are in genuine tension.
+
+## 280. The motif repertoire is real: conditioning finds the induction heads; the table grounding goes quotable
+
+`attn_motifs3.py` (eligibility-conditioned): **9 induction-target heads
+across layers 1-8** (top: L2h5 at 0.74, L3h8 at 0.63, L5h5 at 0.60
+conditional argmax fraction), against a shuffle null of 0.042 vs real
+0.531 -- a 12x margin. All three bars HELD: 3 of 9 sit in the certified
+owner layers 3-5, and prev/self stay multi-layer. v2's zero was pure
+dilution, as suspected. Note the spread: pattern-level induction
+capability exists at seven layers while causal ownership concentrates at
+3-5 -- redundancy at the pattern level mirroring the atlas finding that
+induction is replicable but unconcentrated. Final census: self 47 heads
+(16 layers), prev 27 (11 layers), ind 9 (7 layers), first 2, diffuse 77.
+The attention pattern repertoire is FOUR named motifs covering 85 of 162
+heads.
+
+`table_semantics2.py` (centered instrument): fold-vs-empirical median
+row cosine **0.841 with shuffled null -0.02** -- the m0 token table is
+genuinely weights-derivable row by row (v1's 0.917/0.628 was mean-
+contaminated; this is the quotable form). Class structure survives
+centering (gap 0.083, null 0.000; digit rows tightest at 0.499). Both
+grounding claims from the bits-metric discussion now stand on clean
+instruments.
+
+Registered next: exploit the census -- replace prev-motif heads'
+patterns with the LITERAL one-hot previous-token pattern (one fitted
+gain per head), and self-motif heads with one-hot self. If it holds,
+the pattern side of 74 heads compresses to two sentences plus 74
+numbers.

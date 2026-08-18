@@ -3871,3 +3871,7 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 
 ## Appendix 279: attention motifs (2026-08-18)
 - Cross-layer motif repertoire confirmed at pattern level: prev-token (27 heads, 11 layers), self (51 heads, 16 layers). Mass-based instrument degenerate; argmax-based works. Induction invisible unconditionally -- eligibility-conditioned v3 queued.
+
+## Appendix 280: motif census complete (2026-08-18)
+- Four named motifs cover 85/162 heads: self 47 (16 layers), prev 27 (11), induction 9 (7 layers, conditional fraction up to 0.74, null 0.04), first 2. Induction pattern capability broader than causal ownership (redundancy).
+- m0 table grounding quotable: centered fold-vs-empirical cosine 0.841, null -0.02.
