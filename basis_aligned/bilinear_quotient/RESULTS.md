@@ -3883,3 +3883,7 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 - Recon null exact 0; 71/74 heads swap individually at <=+0.01; joint +0.45. Motif sentences true per head; composition needs the grammar playbook. v1 control anomaly = real pattern slack.
 - Fresh ladder: front +1.98 / +middle +2.02 (CP middle only +0.04 fresh -- weights-derived stand-ins travel) / +tailatt +2.49 / 34-comp +2.93.
 - QK factorization refuted: both score sets carry the same weak preference; the product is coincidence-sharpening (evidence squaring), not selector x gate.
+
+## Appendix 285: OV library + block handoff (2026-08-18)
+- OV subspaces at the random-spread floor (no shared library); private bindings held. Attention motifs live on the pattern side only.
+- Block wiring map: attn->own-mlp handoff ~2x cross-block, front-loaded (fades in tail). attn0 broadcast control held.

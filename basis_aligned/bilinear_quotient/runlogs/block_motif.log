@@ -1,0 +1,23 @@
+attn 0: own 0.292 next 0.102 rowmean 0.078
+attn 1: own 0.196 next 0.109 rowmean 0.073
+attn 2: own 0.192 next 0.089 rowmean 0.070
+attn 3: own 0.218 next 0.071 rowmean 0.066
+attn 4: own 0.145 next 0.042 rowmean 0.058
+attn 5: own 0.169 next 0.079 rowmean 0.075
+attn 6: own 0.069 next 0.043 rowmean 0.066
+attn 7: own 0.109 next 0.084 rowmean 0.076
+attn 8: own 0.030 next 0.029 rowmean 0.048
+attn 9: own 0.165 next 0.089 rowmean 0.088
+attn10: own 0.065 next 0.072 rowmean 0.067
+attn11: own 0.117 next 0.092 rowmean 0.085
+attn12: own 0.075 next 0.070 rowmean 0.065
+attn13: own 0.052 next 0.057 rowmean 0.053
+attn14: own 0.036 next 0.035 rowmean 0.049
+attn15: own 0.056 next 0.064 rowmean 0.058
+attn16: own 0.040 next 0.039 rowmean 0.051
+attn17: own 0.087 next nan rowmean 0.060
+cross-block mean 0.063 (random floor 0.056) | diag mean 0.117 | next mean 0.069 | attn0 row 0.065
+(a) same-block motif (10/18 at 1.3x): FAILED
+(b) attn0 broadcast row >= cross mean: HELD
+(c) next-block 0.069 vs same-block 0.117: same wins (informational)
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/block_motif_results.json (2s)

@@ -7449,3 +7449,28 @@ a genuine motif-algebra fact: the pattern quartic
 model squares its evidence. (Prediction failed, discovery recorded;
 the selector-gate design remains available to models but this one does
 not use it.)
+
+## 285. OV has no shared library; the block handoff motif is front-loaded
+
+`ov_motifs.py`: leave-one-head-out r=256 read energy 0.284 vs random
+control 0.222; write side 0.288 vs 0.222; mean pairwise subspace overlap
+0.116 vs the 0.111 random floor. **Both shared-library predictions
+FAILED cleanly: the 162 heads' OV subspaces are spread essentially as
+far apart as geometry allows.** The private-bindings prediction HELD
+(within-family/across ratios: prev 1.13, self 1.01, ind 1.26). Combined
+with 280/284: bilin18's attention repertoire is a PATTERN-side
+phenomenon -- four repeated ways of choosing where to look -- while what
+each head reads and writes is unshared, per-head content. Shared
+function, private bindings, now measured on weights.
+
+`block_motif.py` (the 18x18 wiring map): same-block coupling
+(attn_i write subspace -> mlp_i read subspace) averages 0.117 vs
+cross-block 0.063 vs random floor 0.056 -- about 2x -- but only 10/18
+blocks clear the registered 1.3x bar (FAILED as registered): the
+handoff motif is STRONG in the front half and fades to cross-block
+levels in the tail (attn13/14/16 own-couplings 0.036-0.056), exactly
+where attention is class-constant and the MLPs are span dictionaries.
+attn0's broadcast row >= cross mean (positive control HELD); next-block
+handoff loses to same-block everywhere. The composed unit "attention
+selects, adjacent MLP transforms" is a repeated circuit motif of the
+model's FRONT, not of the model.
