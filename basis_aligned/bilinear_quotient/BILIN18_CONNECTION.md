@@ -7635,3 +7635,22 @@ The regulator arc rests at earned scope; remaining thread queued: does
 the assembled model (which bypasses this junction entirely) reproduce
 the internal regulation, or achieve the same behavior with different
 internal statistics?
+
+## 293. Why a mean vector suffices: the regulator regulates through its average
+
+`assembly_span_check.py`: registered "different internal traffic" and
+FAILED -- the validated assembly reproduces mlp6's output statistics
+almost exactly in shape (span ratio 0.70, next-8 0.65, full 0.65: a
+mild uniform damping, no differential span distortion). The failure
+completes the mechanism: attn5's regulatory effect on the private span
+is carried by its AVERAGE contribution, which is precisely what the
+assembly's mean-vector stand-in supplies. That is WHY a5's best
+stand-in is one vector (271): the channel's mean is the calibration
+signal; its input-dependent fluctuations are noise the substituted
+context is better off without. The arc closes coherent at every level:
+geometric (channel overlaps span 40-50x), causal (cut -> targeted 4.6x
+explosion; random -> nothing), functional (damage in contextual
+classes), and compressive (the whole junction reduces to one vector in
+the assembly at near-zero cost). Fresh-window replication queued
+(ledger 22) before the arc is quotable: three-junction ranking, the
+targeted explosion, both on never-seen text.
