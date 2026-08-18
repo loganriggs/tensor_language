@@ -6193,3 +6193,43 @@ ledger-19 discipline: the notch (rewritten to relative form), concentration
 (upgraded to invariant form), the whisper's idiosyncrasy (floor-corrected at
 #17), and dialects (rank-scoped here). The audit is complete; the arc's
 claims now all carry construction-robustness statements.
+
+## 231. The v2 validation wave: secession falls (ledger #20), L7 is a boundary case, P5 rewritten
+
+Files: `run_preregistration2.py`, `bilin12_l7_span_replication.py`,
+`bilin18_solitary_sweep.py`. Scorecard v2 (pooled, three ensembles,
+relative bars, replicated fits) ran its bilin12 validation and exposed the
+claims the ledger-19 audit had NOT yet swept — the bilin12-side landscape
+and the solitary reader. Three resolutions:
+
+**1. Ledger #20 — no construction-robust secession.** bilin18's L17, the
+"solitary reader" (§§210, 218, published), is worst-fold 5/5 with median
+0.14 under ensemble A — and 2/5 with median 0.44 under the mid-heavy
+ensemble D. The secession is ensemble-dependent: L17 looks solitary against
+early-heavy reader ensembles and normal against mid-heavy ones. With
+bilin12's ordinal claim also failing its sweep (worst 1/10 in one v2
+ensemble), §218's entire categorical-vs-ordinal contrast falls. Corrected
+statement: last-reader depression exists in some constructions in both
+models and is robust in none. The report is corrected accordingly.
+
+**2. The bilin12 notch degrades further.** v2's mostly-early ensemble
+(0,1,2,5,8,10) gives L4 = 0.52 POOLED — falsifying §228's "robust across
+pooled constructions." bilin12's notch is construction-dependent, period.
+The universality of the private writer now rests on: bilin18's relative
+depression (8/8 constructions, solid) plus a bilin12 depression that
+appears in ensembles containing its {1,5,11}-like core and not otherwise.
+The fraction-0.33 coincidence stands only at that weakened scope.
+
+**3. L7 is a boundary case, not a violation.** Four independent span fits:
+rows 0-60 both improve, rows 60-120 both don't; the §207 instrument
+reproduces its published +0.0305 exactly. The slack-regularizer identity
+survives with a documented stats-row sensitivity at one layer; P2 now
+requires four fits across the full stats window, all agreeing.
+
+PREREGISTRATION updated: P5 rewritten (last-reader depression measured
+across >= 3 ensembles, reported as a distribution, no categorical bar);
+P2 four-fit rule; P3's bilin12-side corroboration note weakened. The
+methodological arc of the last five wakes, stated once: every claim
+measured under one construction was fragile until proven otherwise; the
+four that survived their sweeps (relative notch depression at 18L, tail
+stability, dialects-in-regime, MLP decline) are the arc's durable core.

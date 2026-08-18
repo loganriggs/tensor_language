@@ -3574,3 +3574,12 @@ saturates by construction at rank 24 (2/3 of the 36-dim space). Control
 flat 12/12. Every landscape headline now carries a robustness statement.
 
 Full detail in `BILIN18_CONNECTION.md` §230.
+
+### Ledger 20: no construction-robust secession; the durable core
+
+L17's solitude is ensemble-dependent (5/5 worst in A, 2/5 in D); the 218
+contrast falls. bilin12's notch degrades to core-ensemble-only. L7 is a
+stats-row boundary case; identity survives. Durable core: relative 18L
+notch, tail stability, dialects-in-regime, MLP decline.
+
+Full detail in `BILIN18_CONNECTION.md` §231.

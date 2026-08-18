@@ -120,7 +120,7 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   <p class="lede">What we found inside a 546M-parameter bilinear transformer: six layers read
   end to end, a causal graph with every edge tested by intervention, a depth map that says
   where the model compresses and where it refuses to, and a weights-only formula that
-  predicted almost all of it. Including every correction it took to get here — the ledger below runs to nineteen.</p>
+  predicted almost all of it. Including every correction it took to get here — the ledger below runs to twenty.</p>
   <nav class="toc" aria-label="Contents"><p class="tochd">Contents</p><ol>
     <li><span class="num">01</span><a href="#model">The model and the method</a></li>
     <li><span class="num">02</span><a href="#depth">The depth map</a></li>
@@ -402,6 +402,7 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   <tr><td>"early readers share a code for the private span; deep readers go private"</td><td>no group shares anything — at pair resolution every transfer over the private span sits at the measured random floor (0.31) while the control writer transfers at 0.62–0.82 over a 0.10 floor; the apparent early agreement was the population basis capturing dominant directions of easy test sets</td><td>the registered group test, one wake after the unregistered read</td></tr>
   <tr><td>"privacy is a property of the whole layer — attention at fraction 1/3 is unshared too"</td><td>borrowed, not intrinsic: orthogonalized against the MLP span, attn6 recovers to the normal range (0.13 → 0.45, control unmoved); the private object is the single 8-dim span, written by the MLP and transported by attention</td><td>the orthogonalization fork test, one wake after publication</td></tr>
   <tr><td>"the private writer sits below the random-projection floor (both models)"</td><td>instrument-relative: absolute notch depth moves with reader ensemble, and bilin12's notch vanishes under fold-median aggregation; the construction-independent fact is relative depression to ~half the in-model control (8/8 variants at 18 layers; pooled-only at 12)</td><td>the pre-registration scorecard failing its validation run on the known model</td></tr>
+  <tr><td>"the last reader shares least in both models; at 18 layers it fully secedes"</td><td>ensemble-dependent in both models: L17 is worst-fold 5/5 (median 0.14) against an early-heavy reader ensemble and 2/5 (median 0.44) against a mid-heavy one; no construction-robust secession exists</td><td>the v2 scorecard validation wave sweeping the claims the first audit missed</td></tr>
   <tr><td>two ablation runs (void)</td><td>rerun — one patched a forward never called, one had chance above signal</td><td>identical rungs / null arithmetic</td></tr>
   </tbody></table>
   <p class="q">All caught by the program's own controls, none by luck: gates on every
@@ -617,8 +618,9 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   sensitivities that sweep discovered are localized to the private span itself. The two private spans even damage overlapping token
   sets on shared text (7.5× every random control) while drifting more than shared code
   does — functionally the same kind of object, loosely conserved. The landscape's other
-  exception is graded by depth: the last reader shares least in both models, but only
-  at 18 layers does it fully secede. What computation at one-third depth wants a code
+  candidate exception — a "solitary" last reader — did not survive its ensemble sweep:
+  the deepest reader's isolation appears against early-heavy reader ensembles and
+  vanishes against mid-heavy ones, in both models. What computation at one-third depth wants a code
   nobody else speaks is the program's standing open question.</p>
 </section>
 </div>

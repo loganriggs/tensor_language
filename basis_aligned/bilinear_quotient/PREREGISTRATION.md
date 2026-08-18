@@ -26,9 +26,9 @@ Number of rank-0-licensed tail layers (CE cost <= 0.05) is >= the 18L count
 (4). The rank-0/rank-4 scan is the mandatory first measurement (BENCHMARK.md).
 
 **P2 — Slack-regularizer identity** (family_regularizer_scan.py; §§206-207).
-The deletion-improves span set (top-8 span deletion <= -0.01 on TWO
-independent span fits from disjoint stats rows -- boundary flips on a single
-fit do not count; §228) is a subset of the constant-licensed layer set. Zero
+The deletion-improves span set (top-8 span deletion <= -0.01 on FOUR
+independent span fits spanning the full stats window -- bilin12's L7 flips
+sign between row halves; §231) is a subset of the constant-licensed layer set. Zero
 tolerance on replicated violations.
 
 **P3 — The private writer** (bilin18_behavioral_writers.py + landscape
@@ -49,10 +49,13 @@ that survives orthogonalization is NOT.
 **P4 — MLP sharing declines with depth** (same instrument; §227).
 Spearman(depth, LORO) <= -0.3 over >= 8 MLP writers.
 
-**P5 — Last-reader secession strengthens with depth** (bilin12_solitary_
-reader.py pattern; §§210, 218). The deepest reader is the worst LORO fold
-for a majority of writers; its median fold at L >= 18 layers is <= 0.25
-(secession), at L < 18 merely lowest (ordinal).
+**P5 — Last-reader depression** (REWRITTEN after ledger #20; §231). No
+categorical secession bar: measure the deepest reader's fold across >= 3
+reader ensembles and >= 5 writers and report the distribution
+(worst-fraction and median per ensemble). The registered expectation is
+directional only: the deepest reader's pooled median across ensembles is
+the lowest of all readers'. Single-ensemble solitude claims are not
+admissible (bilin18's own secession claim failed its sweep).
 
 **P6 — Depth-fraction placement law** (family_edge_kinship.py instruments;
 §§180-190 arc). Component best-match placement across the family tracks
