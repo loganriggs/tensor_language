@@ -1,0 +1,32 @@
+absorber m0: residual-subspace R^2 0.57
+absorber m2: residual-subspace R^2 0.58
+absorber m3: residual-subspace R^2 0.61
+absorber m4: residual-subspace R^2 0.64
+absorber m5: residual-subspace R^2 0.62
+absorber m6: residual-subspace R^2 0.71
+absorber m7: residual-subspace R^2 0.61
+absorber m8: residual-subspace R^2 0.70
+absorber m9: residual-subspace R^2 0.67
+a10-input probe acc 0.71
+fit a10 (n per const class [2532, 523, 1974, 1740, 1772, 187])
+fit a11 (n per const class [2532, 523, 1974, 1740, 1772, 187])
+fit a12 (n per const class [2532, 523, 1974, 1740, 1772, 187])
+fit a13 (n per const class [2532, 523, 1974, 1740, 1772, 187])
+fit a14 (n per const class [2532, 523, 1974, 1740, 1772, 187])
+fit a15 (n per const class [2532, 523, 1974, 1740, 1772, 187])
+fit a16 (n per const class [2532, 523, 1974, 1740, 1772, 187])
+fit a17 (n per const class [2532, 523, 1974, 1740, 1772, 187])
+v6 full (oracle) +2.5483
+LOO marginal a10: +0.0464
+LOO marginal a11: +0.0571
+LOO marginal a12: +0.0474
+LOO marginal a13: +0.0955
+LOO marginal a14: +0.1166
+LOO marginal a15: +0.0429
+LOO marginal a16: +0.1304
+LOO marginal a17: +0.0577
+base 3.535 | v6 full +2.5483 | dropped [] | v6-best +2.5483 | deploy full +2.6047 best +2.6047
+(a) >=4/8 rungs survive (8/8): HELD
+(b) v6-best <= +3.0: HELD
+(c) a14 marginal <= +0.10: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/assembled_v6_results.json (73s)

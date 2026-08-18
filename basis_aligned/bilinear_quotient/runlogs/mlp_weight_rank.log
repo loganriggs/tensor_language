@@ -1,0 +1,54 @@
+base CE 3.5352
+L4 zero +0.3566
+L4 r=  16 sub +0.2941 rand +0.3448
+L4 r=  32 sub +0.2653 rand +0.3319
+L4 r=  64 sub +0.2358 rand +0.3119
+L4 r= 128 sub +0.1958 rand +0.2464
+L4 k= 288 cp +0.2787
+L4 k=1152 cp +0.0714
+L4 k=2304 cp +0.0509
+L5 zero +0.0649
+L5 r=  16 sub +0.0465 rand +0.0503
+L5 r=  32 sub +0.0417 rand +0.0815
+L5 r=  64 sub +0.0359 rand +0.0964
+L5 r= 128 sub +0.0301 rand +0.2509
+L5 k= 288 cp +0.0783
+L5 k=1152 cp +0.0495
+L5 k=2304 cp +0.0346
+L6 zero +0.0146
+L6 r=  16 sub +0.0083 rand +0.0072
+L6 r=  32 sub +0.0065 rand +0.0201
+L6 r=  64 sub +0.0057 rand +0.1108
+L6 r= 128 sub +0.0032 rand +0.7151
+L6 k= 288 cp +0.0292
+L6 k=1152 cp +0.0210
+L6 k=2304 cp +0.0186
+L7 zero +0.0409
+L7 r=  16 sub +0.0366 rand +0.0404
+L7 r=  32 sub +0.0363 rand +0.0456
+L7 r=  64 sub +0.0362 rand +0.0586
+L7 r= 128 sub +0.0330 rand +0.1657
+L7 k= 288 cp +0.0327
+L7 k=1152 cp +0.0222
+L7 k=2304 cp +0.0127
+L8 zero +0.0273
+L8 r=  16 sub +0.0246 rand +0.0253
+L8 r=  32 sub +0.0235 rand +0.0259
+L8 r=  64 sub +0.0227 rand +0.0305
+L8 r= 128 sub +0.0201 rand +0.0698
+L8 k= 288 cp +0.0174
+L8 k=1152 cp +0.0152
+L8 k=2304 cp +0.0163
+L9 zero +0.0123
+L9 r=  16 sub +0.0088 rand +0.0082
+L9 r=  32 sub +0.0085 rand +0.0063
+L9 r=  64 sub +0.0079 rand +0.0192
+L9 r= 128 sub +0.0060 rand +0.0390
+L9 k= 288 cp +0.0400
+L9 k=1152 cp +0.0317
+L9 k=2304 cp +0.0260
+
+(a) sub beats rand 2x at r=64, 3/6: FAILED
+(b) r=128 <=25% of r=16, 0/6: FAILED
+(c) CP k=1152 <=0.10, 6/6: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mlp_weight_rank_results.json (103s)

@@ -6949,3 +6949,83 @@ standing points: v4 = 13 components at +1.39, v5 = 19 components at
 +2.10. Remaining unreplaced: attention 2-17 (the structure-class
 constants of §247 are the obvious next rungs) and the mid attention
 band's contextual transport.
+
+## 261. Weight-only compression of the middle MLPs: the CP axis works, the subspace axis does not
+
+Because the bilinear MLP is exactly `Down((Lx)*(Rx))`, compression hypotheses
+can be computed from the weights with no data fitting. We tried two, solo
+(swap one MLP, measure CE cost on the eval window), layers 4-9, with
+registered predictions (`mlp_weight_rank.py`):
+
+- **Input-subspace truncation** (project the input onto the top-r singular
+  directions of the stacked read-weights [L;R]; control = random r-dim
+  subspace): the weight directions are real -- at r=128 the random control is
+  catastrophically worse (L6: 0.003 vs 0.715, and random projection there is
+  worse than deleting the MLP outright) -- but prediction (b) FAILED 0/6:
+  r=128 never reaches 25% of the r=16 cost. The read spectrum is BROAD; the
+  middle MLPs do not read a small subspace. Prediction (a)'s 2x-at-r=64 bar
+  also FAILED (3/6) -- at low rank both arms sit near the deletion floor.
+- **CP truncation** (each hidden unit is a rank-1 quadratic scaled by its
+  Down column; keep the top-k by `||down||*||l||*||r||`): prediction (c)
+  HELD 6/6 -- k=1152 (25% of the 4608 hidden units) costs at most +0.07
+  solo at every layer, recovering ~80% of the deletion cost at the worst
+  layer (L4: 0.071 vs 0.357) and more elsewhere.
+
+So the natural coordinate system of a bilinear MLP is its hidden units (a
+sum of rank-1 quadratics), not an input subspace: a quarter of the terms
+carry nearly the whole function, and that quarter is identified by a norm
+product computed from weights alone.
+
+## 262. v6 takes the tail attention: 27 of 36 components at +2.55
+
+`assembled_v6.py` added attention 10-17 to the v5 assembly as dictionary
+rungs, fit sequentially under the whole front: per-class output constants
+for the six structure classes (the 247 material) and per-class linear reads
+of the substituted stream for the contextual classes (newline, subword,
+induction, other). Labels: oracle arm (target-token classifier) and a
+deployable arm whose labels come from a probe fit at attn10's input
+(accuracy 0.71 -- better than the 0.59 tail-stream probe).
+
+Result: **v6 full = +2.548 oracle, +2.605 deployable, with 27/36 components
+replaced.** ALL EIGHT attention rungs survived the pre-registered drop rule
+-- leave-one-out marginals 0.04-0.13 each (a10 +0.05, a11 +0.06, a12 +0.05,
+a13 +0.10, a14 +0.12, a15 +0.04, a16 +0.13, a17 +0.06). Predictions (a)
+>=4/8 survive and (b) total <= +3.0 HELD; (c) FAILED -- a14, the tail
+attention component whose deletion IMPROVES average text, still costs
++0.117 to replace with its dictionary, above the registered +0.10.
+Harmful-on-average does not mean free-to-replace: in the assembled context
+a14's class-conditional behavior carries real function. The deploy-oracle
+gap is only +0.06 -- the label probe is no longer the bottleneck.
+
+Frontier: 13@+1.39, 19@+2.10, **27@+2.55**.
+
+## 263. Absorber variants: quadratic features pay, the interface subspace does not
+
+`absorber_variants.py` re-ran the full v5 pipeline four times, changing only
+how each MLP rung's absorber is built. Baseline reproduced (+2.0954,
+prediction (a) HELD). The other two arms tested the two theory ideas:
+
+- **QUAD** -- since the table residual is exactly quadratic in the input,
+  add the 136 pairwise products of the layer's own top-16 weight directions
+  as absorber features: total **+1.993**, better than baseline by 0.10, and
+  every absorber R^2 rose (+0.03-0.06). Registered bar <= +1.95 FAILED by
+  0.04 -- the direction is right, the effect at 16 directions too small.
+- **READ** -- choose the absorber basis inside the 64-dim downstream-read
+  subspace (summed trace-normalized Grams of all later layers' input
+  weights + unembedding): total **+2.240 -- worse than baseline** -- and the
+  random-subspace control (+2.261) is only 0.02 behind it. Prediction (c)
+  FAILED cleanly: restricting correction to a low-dim "interface" hurts.
+
+The READ failure and 261's subspace failure are the same fact measured two
+ways: **bilin18's middle interfaces are not low-dimensional.** Downstream
+layers read broadly, so no 64-dim summary of "what the wiring looks at"
+captures where substitution error matters. The connection-SVD idea, in this
+form, is refuted for this model; the exploitable weight structure is the
+CP/hidden-unit axis (261) and the quadratic form itself (QUAD arm).
+
+Registered next: v7 replaces the six middle table+absorber rungs with the
+weights-only CP-truncated MLPs (k=1152; zero fitted parameters); prediction
+(a) v7 <= +1.85 total, (b) middle in-context LOO sum <= +0.35 (half of
+v5's +0.71, since faithful conductors should compose better than lossy
+firewalls when their solo cost is this low), (c) k=2304 total also
+reported. And quad-capacity ladder: 16/32/48 weight directions.

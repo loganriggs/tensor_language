@@ -3820,3 +3820,9 @@ only: firewall+absorber tables replace mlp4-9 at ~0.12 nats each
 (mlp5 +0.02). Frontier: 13 comps @ +1.39; 19 comps @ +2.10.
 
 Full detail in `BILIN18_CONNECTION.md` §260.
+
+## Appendix 261-263: weight-based middle compression + v6 attention rung (2026-08-18)
+- CP truncation from weights alone: top 25% of hidden units (by ||down||*||l||*||r||) recover >=80% of every middle MLP, <=+0.07 solo (6/6 HELD). Input-subspace + downstream-read-subspace hypotheses both FAILED: the middle's read/write interfaces are broad, not low-dimensional (two instruments agree).
+- Assembled v6: tail attention 10-17 replaced by class dictionaries (constants for structure classes, linear reads for contextual) -> 27/36 components at +2.548 oracle / +2.605 deploy; all 8 rungs survive LOO; a14 (deletion-improves) still costs +0.117 (harmful-on-average != free).
+- Quadratic absorber features (weight-derived): +1.993 vs +2.095 baseline; read-subspace absorbers worse than baseline (refuted).
+- Frontier: 13@+1.39, 19@+2.10, 27@+2.55.
