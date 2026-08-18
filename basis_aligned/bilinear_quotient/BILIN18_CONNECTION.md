@@ -7332,3 +7332,25 @@ idiosyncratic dialects -- shared shapes, private bindings, exactly the
 `attn_motifs.py` (running) does the attention side: bucket every head's
 pattern mass into self/first/induction-target/match/offset motifs,
 census the repertoire across all 162 heads, with token-shuffle nulls.
+
+## 279. Attention motif census: prev-token and self ARE cross-layer motifs; induction hides below the argmax bar
+
+Two instrument iterations (`attn_motifs.py`, `attn_motifs2.py`). v1
+bucketed absolute pattern MASS and degenerated (155/162 heads 'other'):
+in unnormalized squared attention the magnitude lives in a diffuse tail,
+so mass fractions measure the noise floor. v2 bucketed the ARGMAX (where
+each head looks hardest, per query) and found real repertoire structure:
+**prev-token: 27 heads across 11 layers; self: 51 heads across 16
+layers**; first-token: 2 heads (layer 5); diffuse: 82. The user's
+conjecture is confirmed for these motifs -- "look back one token" is the
+model's most repeated named pattern-function, appearing from layer 0 to
+layer 17 with (per the dialect results) different bindings each time.
+Registered bars still FAILED as written: only 2 named families cleared
+the >=5-heads multi-layer bar (needed 3), and ZERO induction-target
+heads appeared -- despite certified induction ownership at attn3-5.
+Suspected dilution: induction-eligible queries (those with a real
+earlier match) are a minority of positions, so a genuine induction head's
+unconditional argmax fraction stays under 0.25. v3 (queued) scores
+ind/match conditionally on eligible queries; registered: at least one
+conditional-ind head in layers 3-5, else the pattern-level and
+ownership-level pictures are in genuine tension.

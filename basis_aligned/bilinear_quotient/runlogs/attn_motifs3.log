@@ -1,0 +1,28 @@
+L0 done
+L1 done
+L2 done
+L3 done
+L4 done
+L5 done
+L6 done
+L7 done
+L8 done
+L9 done
+L10 done
+L11 done
+L12 done
+L13 done
+L14 done
+L15 done
+L16 done
+L17 done
+diffuse :  77 heads, layers [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
+self    :  47 heads, layers [1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
+prev    :  27 heads, layers [0, 1, 2, 3, 4, 5, 6, 7, 9, 11, 17]
+ind     :   9 heads, layers [1, 2, 3, 5, 6, 7, 8]
+first   :   2 heads, layers [5]
+top conditional-ind heads: [(2, 5, 0.736), (3, 8, 0.632), (5, 5, 0.604), (7, 3, 0.559), (6, 5, 0.544), (1, 4, 0.457), (8, 4, 0.42), (3, 5, 0.419)]
+(a) conditional-ind head in L3-5 (3/9): HELD
+(b) prev+self multi-layer: HELD
+(c) null <= half (0.042 vs 0.531): HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/attn_motifs3_results.json (1s)
