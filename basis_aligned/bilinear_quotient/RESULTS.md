@@ -3524,3 +3524,10 @@ Orthogonalized against the mlp6 span, attn6 is a normal writer (0.13 ->
 writes it, attn6 carries it.
 
 Full detail in `BILIN18_CONNECTION.md` §224.
+
+### Carrier effect is 18L-specific
+
+bilin12's attn4 barely recovers under orthogonalization (0.23 -> 0.28;
+bilin18: 0.13 -> 0.45). The anomaly's family symmetry is MLP-side only.
+
+Full detail in `BILIN18_CONNECTION.md` §225.

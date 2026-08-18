@@ -6041,3 +6041,25 @@ on-box after §223 called it off-box — the second time this program deferred
 a measurement its own instruments could make (§212's lesson, repeated and
 now generalized in the discipline: before deferring, write down the
 orthogonalization or restriction that would decide it).
+
+## 225. The carrier effect is 18-layer-specific; the family agreement is MLP-side only
+
+File: `bilin12_attn_borrowed.py`. Bars (a), (c), (d) held; (b) failed, and
+the failure scopes ledger-18's finding rather than undermining it:
+
+    bilin12 attn4: raw 0.23 → orthogonalized 0.28   (recovery minimal)
+    bilin18 attn6: raw 0.13 → orthogonalized 0.45   (recovery total)
+    bilin12 control attn8: 0.40 → 0.39 (unmoved); nulls clean
+
+In bilin18 the attention at the notch was fully explained as cargo — remove
+the span's directions and it is a normal writer. In bilin12 the attention at
+the notch is only mildly depressed to begin with (0.23, against an attention
+control of 0.40) and stays depressed after orthogonalization: whatever
+lowers it is not the 8-dim span. So the family symmetry of the anomaly is
+**MLP-side only**: the private span itself matches across models in
+placement, width, concentration, and consensus (exact), while the attention
+story differs — total borrow at 18 layers, mild and unexplained depression
+at 12. Scope note: only two bilin12 attention writers are measured, so
+"mildly depressed" rests on one control; a full bilin12 attention profile
+would firm it, and is noted as the obvious next filler run rather than a
+claim. Ledger #18 stands as written — it was and is a bilin18 statement.
