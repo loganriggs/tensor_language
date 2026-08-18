@@ -1,0 +1,313 @@
+[
+ {
+  "name": "listing-icon-after-semicolon",
+  "story": "In semicolon-separated info listings (hours, phone, transit), the model predicts the next single-letter field-marker token such as ' t', ' h', or ' %'.",
+  "rule": {
+   "target_in": [
+    " t",
+    " h",
+    " %"
+   ]
+  }
+ },
+ {
+  "name": "post-comma-continuation",
+  "story": "Immediately after a comma the model predicts the lowercase word that opens the next list item or clause.",
+  "rule": {
+   "prev_in": [
+    ","
+   ],
+   "target_class_in": [
+    "space_word"
+   ]
+  }
+ },
+ {
+  "name": "preposition-after-noun-phrase",
+  "story": "After completing a noun phrase the model predicts a common preposition (at, in, of, with) that attaches a location, time, or complement.",
+  "rule": {
+   "target_in": [
+    " at",
+    " in",
+    " of",
+    " with"
+   ]
+  }
+ },
+ {
+  "name": "indefinite-article",
+  "story": "After a verb, comma, or quantifier the model opens a new noun phrase by predicting the indefinite article 'a' or 'an'.",
+  "rule": {
+   "target_in": [
+    " a",
+    " an",
+    "a",
+    "an"
+   ]
+  }
+ },
+ {
+  "name": "the-before-adjective",
+  "story": "Right after the definite article 'the' the model predicts a lowercase modifier or noun beginning the noun phrase.",
+  "rule": {
+   "prev_in": [
+    " the",
+    "the"
+   ],
+   "target_class_in": [
+    "space_word"
+   ]
+  }
+ },
+ {
+  "name": "verb-after-to-or-modal",
+  "story": "After an infinitive marker, modal, relative pronoun, or coordinator the model predicts the following base verb.",
+  "rule": {
+   "prev_in": [
+    " can",
+    " to",
+    " who",
+    " or"
+   ],
+   "target_class_in": [
+    "space_word"
+   ]
+  }
+ },
+ {
+  "name": "paren-close-plus-punct",
+  "story": "The model closes a parenthetical with a bracket token that is fused with trailing punctuation or preceded by a space, which the plain bracket-close rule misses.",
+  "rule": {
+   "target_in": [
+    ").",
+    "),",
+    " )",
+    ")"
+   ]
+  }
+ },
+ {
+  "name": "preposition-attachment",
+  "story": "The model predicts a common preposition attaching to the noun phrase or verb just completed (e.g. 'example of', 'miles for', 'eatery on').",
+  "rule": {
+   "target_in": [
+    " of",
+    " in",
+    " on",
+    " for",
+    " to"
+   ]
+  }
+ },
+ {
+  "name": "prep-object-start",
+  "story": "Immediately after a preposition, the model launches the object noun phrase (e.g. 'state of flux', 'headland in snow', 'owned by an').",
+  "rule": {
+   "prev_in": [
+    " of",
+    " in",
+    " on",
+    " by",
+    " during"
+   ],
+   "target_class_in": [
+    "space_word",
+    "upper_start"
+   ]
+  }
+ },
+ {
+  "name": "after-semicolon-field",
+  "story": "In semicolon-delimited listing lines (addresses, hours, prices common in web directories), the model predicts the next field's opening token right after the semicolon.",
+  "rule": {
+   "prev_in": [
+    ";",
+    "; ",
+    " ;"
+   ]
+  }
+ },
+ {
+  "name": "determiner-launch",
+  "story": "After a verb or preposition the model opens a fresh noun phrase with a determiner or possessive (e.g. 'open during the', 'guard your', 'tick all').",
+  "rule": {
+   "target_in": [
+    " the",
+    " a",
+    " an",
+    " all",
+    " your",
+    " this"
+   ]
+  }
+ },
+ {
+  "name": "word-after-determiner",
+  "story": "Directly after an article or demonstrative, the model predicts the first content word of the noun phrase (e.g. 'along the white', 'A taxi', 'at this venue').",
+  "rule": {
+   "prev_in": [
+    " the",
+    " The",
+    " a",
+    " an",
+    " this",
+    " A"
+   ],
+   "target_class_in": [
+    "space_word",
+    "upper_start"
+   ]
+  }
+ },
+ {
+  "name": "numeral-onset",
+  "story": "The model starts a new number after a non-numeric token, as in prices, addresses, years, and phone numbers ('slated for a 2016', 'call 08', 'is 13 miles').",
+  "rule": {
+   "target_class_in": [
+    "digit"
+   ]
+  }
+ },
+ {
+  "name": "copula-predicate-start",
+  "story": "Right after a form of 'to be', the model begins the predicate or complement (e.g. 'It was later', 'Daunt is one', 'guides are also').",
+  "rule": {
+   "prev_in": [
+    " is",
+    " was",
+    " are"
+   ]
+  }
+ },
+ {
+  "name": "finite-verb-launch",
+  "story": "After a subject pronoun, relative pronoun, quantifier, or pre-verbal adverb/negation, the model predicts the clause's main verb (e.g. 'which has', 'also find', 'not suit', 'some accept').",
+  "rule": {
+   "prev_in": [
+    " which",
+    " also",
+    " you",
+    " not",
+    " some"
+   ],
+   "target_class_in": [
+    "space_word"
+   ]
+  }
+ },
+ {
+  "name": "preposition-linker",
+  "story": "A common function preposition attaches a complement or modifier to the preceding noun or verb phrase (e.g. 'fares in', 'known as', 'ambling through', 'prices for').",
+  "rule": {
+   "target_in": [
+    " for",
+    " in",
+    " as",
+    " during",
+    " through"
+   ]
+  }
+ },
+ {
+  "name": "of-genitive-object",
+  "story": "The word right after 'of' completes a genitive or fixed phrase ('Houses of Parliament', 'coach of 17..', 'of course', 'exception of London').",
+  "rule": {
+   "prev_in": [
+    " of"
+   ]
+  }
+ },
+ {
+  "name": "proper-noun-after-comma",
+  "story": "In addresses and lists, a comma is followed by a new capitalized proper-noun component such as a street, district, or postcode ('Green Street, Upton', 'Belvedere Rd, SE1').",
+  "rule": {
+   "prev_in": [
+    ","
+   ],
+   "target_class_in": [
+    "upper_start"
+   ]
+  }
+ },
+ {
+  "name": "number-start-after-preposition",
+  "story": "A fresh number (a year, hour, or count) begins immediately after a preposition or determiner ('in the 19th century', 'coach of 17..', 'to 6pm', 'to 9pm').",
+  "rule": {
+   "prev_in": [
+    " the",
+    " of",
+    " to",
+    " from",
+    " at",
+    " in"
+   ],
+   "target_class_in": [
+    "digit"
+   ]
+  }
+ },
+ {
+  "name": "opening-hours-token",
+  "story": "Business-listing opening-hours strings continue with a highly predictable schedule token: a weekday abbreviation after a time or ampersand, 'noon', or the hours-marker 'h' ('10am-5pm Tue', 'Sat & Sun', 'hgrill noon').",
+  "rule": {
+   "target_in": [
+    " Tue",
+    " Thu",
+    " Sun",
+    " noon",
+    " h",
+    "h"
+   ]
+  }
+ },
+ {
+  "name": "selected-preposition",
+  "story": "A verb, noun, or adjective that lexically selects a particular preposition makes the model predict it, e.g. 'head[-> to]', 'popular[-> with]', 'heart[-> of]', 'dating[-> from]'.",
+  "rule": {
+   "target_in": [
+    " to",
+    " with",
+    " of",
+    " from"
+   ]
+  }
+ },
+ {
+  "name": "listing-delimiter",
+  "story": "Inside compact non-prose material such as phone numbers, URLs, prices, and abbreviations, the model predicts the next delimiter character, e.g. '%020[->-]', 'adult[->/]', 'http[->://]', 'B[->&]B'.",
+  "rule": {
+   "target_in": [
+    "-",
+    ";",
+    "/",
+    "://",
+    "&"
+   ]
+  }
+ },
+ {
+  "name": "cap-after-clause-punct",
+  "story": "Immediately after a period or comma the model predicts a capitalized word that opens the next sentence or the next item in a list, e.g. 'bathrooms.[-> Wonderful]', 'Liverpool,[-> Carl]isle', 'festivals,[-> Field]'.",
+  "rule": {
+   "prev_in": [
+    ",",
+    "."
+   ],
+   "target_class_in": [
+    "upper_start"
+   ]
+  }
+ },
+ {
+  "name": "noun-after-hyphenated-modifier",
+  "story": "After a hyphenated compound modifier such as 'tablet-controlled', 'tucked-away', '12th-century', or 'line-caught', the model predicts the head noun the compound modifies.",
+  "rule": {
+   "prev2_in": [
+    "-"
+   ],
+   "target_class_in": [
+    "space_word"
+   ]
+  }
+ }
+]

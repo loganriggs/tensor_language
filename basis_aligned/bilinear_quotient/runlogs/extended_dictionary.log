@@ -1,0 +1,32 @@
+30 proposals
+  accept listing-icon-after-semicolon n_other=322
+  accept post-comma-continuation      n_other=863
+  accept preposition-after-noun-phrase n_other=564
+  accept indefinite-article           n_other=257
+  accept the-before-adjective         n_other=902
+  accept verb-after-to-or-modal       n_other=333
+  accept paren-close-plus-punct       n_other=209
+  accept preposition-attachment       n_other=740
+  accept prep-object-start            n_other=814
+  accept after-semicolon-field        n_other=613
+  accept determiner-launch            n_other=633
+  accept word-after-determiner        n_other=1877
+  accept numeral-onset                n_other=849
+  accept copula-predicate-start       n_other=391
+  accept finite-verb-launch           n_other=170
+  accept preposition-linker           n_other=407
+  accept of-genitive-object           n_other=463
+  accept proper-noun-after-comma      n_other=335
+  accept number-start-after-preposition n_other=217
+  accept opening-hours-token          n_other=254
+  accept selected-preposition         n_other=611
+  accept listing-delimiter            n_other=465
+  accept cap-after-clause-punct       n_other=790
+  accept noun-after-hyphenated-modifier n_other=238
+
+accepted 24/30 | residual 22% | K=34 | recovery 55.0% (was 50.0%) | shuffled -15%
+(a) >=8 accepted: HELD
+(b) residual <=25%: HELD
+(c) recovery >=55%: FAILED
+(d) shuffled <=10%: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/extended_dictionary_results.json (25s)

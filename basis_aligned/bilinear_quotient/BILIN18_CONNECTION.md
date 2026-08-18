@@ -6655,3 +6655,26 @@ replacement program its map: constants for the structural half, and for
 the contextual half the stand-in must itself be a retrieval operation —
 the registered next rung (a programmatic copy stand-in for the induction
 band: attend to the matched prefix, emit the successor's value).
+
+## 248. Label mining works; constants show diminishing returns — the residual is contextual, not under-labeled
+
+File: `extended_dictionary.py`, fed by four label-mining agents (30
+proposals from 320 decoded residual-class examples). Mechanically accepted:
+24 labels (fires >= 100 residual sites, deduped) — listing delimiters,
+capitals after clause punctuation, hyphenated-modifier heads, and the like.
+The taxonomy grows 10 → 34 classes; the residual share of well-predicted
+sites drops 36% → 22% on the held-out window.
+
+The constants-only tail dictionary improves 50.0% → 55.0% recovery
+(54.96% — the >= 55% bar missed by rounding; recorded failed). The
+economics are the finding: the first ten classes bought 50 points of
+recovery; twenty-four more classes bought 5. Label mining is cheap and
+works (agents produce acceptable function-level labels at a 80% rate), but
+the constant-dictionary channel is near saturation — the remaining
+unrecovered content is CONTEXTUAL (token-specific), which is exactly what
+the rank-8 input-linear rung already captures (95% oracle / 75% deployable,
+§§242-244). Taxonomy refinement helps the deployable probe most (more
+classes = sharper conditioning); further constants alone will not move the
+frontier. The dictionary program's shape is now fully mapped: type-constant
+content saturates near 55%, input-linear content reaches 95%, and the
+20-point oracle/deployable gap is class-decision information.

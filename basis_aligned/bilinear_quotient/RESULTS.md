@@ -3716,3 +3716,11 @@ Newline ablation negative (regularizer channel). Next: programmatic copy
 stand-in for the induction band.
 
 Full detail in `BILIN18_CONNECTION.md` §247.
+
+### Label mining: 24 accepted, constants near saturation
+
+Taxonomy 10 -> 34 classes; residual 36% -> 22%; constants recovery 50% ->
+55%. First ten classes bought 50 points, next 24 bought 5: the constant
+channel saturates; what remains is contextual (the linear rung's domain).
+
+Full detail in `BILIN18_CONNECTION.md` §248.
