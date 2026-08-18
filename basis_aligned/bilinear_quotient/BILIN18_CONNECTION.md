@@ -7543,3 +7543,28 @@ dictionaries, the token tables -- lives in SUBSPACES, FUNCTIONS, and
 BEHAVIOR, never in entry statistics. This is 208's lesson (sharing is
 behavioral, not elementwise) at full generality: elementwise views of
 this model are noise; function-space views carry everything.
+
+## 289. The big handoff is four directions wide; induction refuses linear reduction a third time
+
+`handoff5_dissect.py`: cutting only the top-4 PCA directions of attn5's
+contribution at mlp5's input costs +1.63 of the full cut's +2.14 (76%);
+top-16 costs +2.09 (98%); sixteen RANDOM directions cost +0.0007.
+Predictions (a),(b) HELD decisively ((c) failed on a 0.05 monotonicity
+jitter between k=64 and k=256). **The model's biggest causal junction
+is a four-to-sixteen-direction channel** -- attn5 hands mlp5 a narrow,
+concentrated signal worth two nats, at the private-writer anatomy, and
+it now has a shape small enough to name. Semantic dissection queued
+(logit-lens on the four directions, class correlation, overlap with
+the section-212 private span).
+
+`induction_channel.py`: the registered matched-successor low-rank read
+FAILED again -- channel R^2 0.26/0.15/0.31 on the three strongest
+census heads, and the SAME-POSITION control is higher (0.59/0.46/0.32),
+with shuffled-match nulls deeply negative (valid instrument) and
+rank-32 lossless (what little the channel captures is low-rank). This
+is the third refutation of a linear reduction of induction (naive copy
+x2, now the learned channel). One caveat remains -- the v-mixing with
+layer-0 values was approximated -- so an exact-mixing rerun is queued
+under the three-strikes rule: if it fails with exact values, the
+program closes the hypothesis class at scope and records induction
+transport as irreducibly the head's own bilinear computation.

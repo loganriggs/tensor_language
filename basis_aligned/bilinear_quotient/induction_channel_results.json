@@ -1,0 +1,31 @@
+{
+ "heads": {
+  "L2h5": {
+   "channel": 0.263,
+   "channel_r32": 0.267,
+   "same_pos": 0.585,
+   "shuffled": -1.525,
+   "n": 5390
+  },
+  "L3h8": {
+   "channel": 0.149,
+   "channel_r32": 0.157,
+   "same_pos": 0.457,
+   "shuffled": -1.956,
+   "n": 5390
+  },
+  "L5h5": {
+   "channel": 0.305,
+   "channel_r32": 0.28,
+   "same_pos": 0.323,
+   "shuffled": -1.619,
+   "n": 5390
+  }
+ },
+ "pred_a": false,
+ "pred_b": false,
+ "pred_c": true,
+ "pred_d": true,
+ "note": "v-mixing approximated with own v (lamb mixing with layer-0 values omitted); if channel fails, rerun with exact vm",
+ "runtime_s": 1.0441796779632568
+}

@@ -3893,3 +3893,7 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 - Decomposition census: sparse wins 126/126 at matched budget (Gaussian null owed -- v3 running).
 - Two v1 instruments voided honestly (wrong interface / unfair budget) before the science bars.
 - Decomposition-type direction CLOSED: weights entrywise Gaussian (kurtosis 0.03-0.52, sparse advantage = chance, masks unaligned). All structure is functional/subspace-level, never entry-level (208 generalized).
+
+## Appendix 289: narrow handoff + induction third strike (2026-08-18)
+- attn5->mlp5 = a 4-16 direction channel (top-4 carry 76%, random-16 nothing).
+- Matched-successor linear read refuted on the census heads (same-position control wins); exact-mixing rerun queued under three-strikes.
