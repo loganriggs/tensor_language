@@ -78,7 +78,7 @@ def main():
             ectl.append(float((M@R).pow(2).sum()/M.pow(2).sum()))
         return sum(es)/len(es),sum(ectl)/len(ectl)
     er,cr=loo_sub(reads,QR)
-    ew,cw=loo_sub(writes,{k:QW[k] for k in keys})
+    ew,cw=loo_sub({k:writes[k].T for k in keys},QW)
     print(f'LOO r=256 read energy {er:.3f} (random {cr:.3f}) | '
           f'write {ew:.3f} (random {cw:.3f})',flush=True)
     # pairwise subspace overlaps (read side)

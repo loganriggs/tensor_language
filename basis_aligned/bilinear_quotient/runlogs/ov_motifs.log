@@ -1,14 +1,9 @@
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ov_motifs.py", line 128, in <module>
-    if __name__=='__main__': main()
-                             ^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ov_motifs.py", line 81, in main
-    ew,cw=loo_sub(writes,{k:QW[k] for k in keys})
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ov_motifs.py", line 75, in loo_sub
-    es.append(float((M@U).pow(2).sum()/M.pow(2).sum()))
-                     ~^~
-RuntimeError: mat1 and mat2 shapes cannot be multiplied (1152x128 and 1152x256)
+LOO r=256 read energy 0.284 (random 0.222) | write 0.288 (random 0.222)
+prev: within 0.130 across 0.115 ratio 1.125
+self: within 0.117 across 0.115 ratio 1.014
+ind: within 0.147 across 0.116 ratio 1.26
+mean pairwise read overlap 0.116 (random floor 0.111)
+(a) shared read library: FAILED
+(b) shared write library: FAILED
+(c) private bindings (>=2/3 ratios < 1.15): HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ov_motifs_results.json (3s)

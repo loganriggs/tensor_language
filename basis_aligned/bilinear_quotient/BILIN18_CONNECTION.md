@@ -7430,3 +7430,22 @@ weights-derived, so they cannot overfit a window). The fitted rungs
 (front tables +1.98, attention dictionaries +0.46 and +0.44 per band)
 carry all the fresh-window cost. Weights-derived descriptions travel;
 fitted descriptions pay a transfer tax.
+
+## 284. The double QK circuit is a coincidence sharpener, not a selector-gate
+
+`qk_factor.py` tested the registered factorization hypothesis (one score
+set = positional selector, the other = content gate): **0 of 27 prev
+heads factor; all three bars FAILED** -- and the per-head data says why,
+which is the actual finding. For prev-token heads BOTH score sets peak
+at offset-1 (s1 fractions 0.3-0.6, s2 0.3-0.8), each with top-1
+concentration of only ~0.10; for induction heads both sets carry the
+conditional induction signal (0.2-0.7 on both sides). The product of
+two weak, broad versions of the SAME preference yields the sharp
+argmax behavior of the census: bilin18's two QK circuits implement
+soft-AND agreement -- coincidence detection that suppresses accidents
+either set alone would make -- rather than a division of labor. This is
+a genuine motif-algebra fact: the pattern quartic
+(x_q^T A x_j)(x_q^T B x_j) is used with A ~ B in function, i.e. the
+model squares its evidence. (Prediction failed, discovery recorded;
+the selector-gate design remains available to models but this one does
+not use it.)

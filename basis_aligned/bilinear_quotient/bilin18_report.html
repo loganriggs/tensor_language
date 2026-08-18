@@ -447,17 +447,25 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   the model — 79% replaceable by a lookup table computed from the weights alone, one
   forward pass per vocabulary entry, no training data; layer 0's value broadcast is
   exactly lexical (a weights-computable table with literally zero error). Assembled,
-  the certified stand-ins now replace <strong>twenty-seven of thirty-six components</strong> —
+  the certified stand-ins now replace <strong>thirty-four of thirty-six components</strong> —
   and iterating the assembly taught a composition grammar: token-conditioned tables act
   as error <em>firewalls</em> (lossy, stabilizing), input-conditioned stand-ins as error
-  <em>conductors</em> (accurate solo, propagating in composition). The assembly frontier
-  runs 13 components at +1.39 nats (all fits sequential, front tables typed as
-  firewall-plus-absorber), 19 at +1.68 (the six middle MLPs join as weights-only
-  truncations — the old "incompressible middle" verdict turned out to be true only of
-  input-generic replacements), and 27 at +2.21 (tail attention 10–17 replaced by
-  per-class constants at structure sites and per-class linear reads elsewhere; all
-  eight rungs survived their pre-registered drop rule, and the fully input-only
-  version costs just 0.04 more).
+  <em>conductors</em> (accurate solo, propagating in composition). A data audit then earned
+  its own ledger entry: the standard eval window shares its corpus sample with the fit
+  window and flattered every number by ~0.35 nats, so the frontier is now quoted on
+  never-seen documents, with selection procedures validated out-of-sample. The honest
+  ladder runs: front of the model at +1.98 nats, adding the six middle MLPs as
+  weights-only truncations costs just +0.04 more (weights-derived stand-ins cannot
+  overfit a window, so they travel; fitted tables and dictionaries pay a transfer
+  tax — the old "incompressible middle" verdict was true only of input-generic
+  replacements), tail attention dictionaries bring 27-plus components to +2.49, and
+  the full 34-of-36 assembly lands at <strong>+2.93 nats on fresh text</strong> —
+  75% of the model's work retained, against an all-means floor that retains only 41%
+  and an embeddings-only ceiling of +11.95. Attention's pattern side has its own
+  census now: four named motifs (previous-token, self, induction-target, first-token)
+  cover 85 of 162 heads across the depth, 71 of 74 named heads accept their literal
+  one-sentence pattern for under a hundredth of a nat individually — though jointly
+  the swaps conduct error and compound, the same composition problem the MLPs posed.
   Weight structure sharpened the recipe twice over: because a bilinear MLP is a sum of
   rank-1 quadratics, keeping half of each middle layer's hidden units — with zero fitted
   parameters — reproduces the middle well enough that the 19-component assembly lands at
