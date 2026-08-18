@@ -3516,3 +3516,11 @@ covers the layer's entire output, both component types. Attention overall
 shares slightly less than MLPs (median 0.38).
 
 Full detail in `BILIN18_CONNECTION.md` §223.
+
+### Correction: layer-level privacy was borrowed (ledger 18)
+
+Orthogonalized against the mlp6 span, attn6 is a normal writer (0.13 ->
+0.45; control unmoved). The private object is the single 8-dim span; mlp6
+writes it, attn6 carries it.
+
+Full detail in `BILIN18_CONNECTION.md` §224.

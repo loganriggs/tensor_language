@@ -120,7 +120,7 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   <p class="lede">What we found inside a 546M-parameter bilinear transformer: six layers read
   end to end, a causal graph with every edge tested by intervention, a depth map that says
   where the model compresses and where it refuses to, and a weights-only formula that
-  predicted almost all of it. Including every correction it took to get here — the ledger below runs to seventeen.</p>
+  predicted almost all of it. Including every correction it took to get here — the ledger below runs to eighteen.</p>
   <nav class="toc" aria-label="Contents"><p class="tochd">Contents</p><ol>
     <li><span class="num">01</span><a href="#model">The model and the method</a></li>
     <li><span class="num">02</span><a href="#depth">The depth map</a></li>
@@ -400,6 +400,7 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   <tr><td>"deep coefficients are unaddressable from L1"</td><td>unaddressable only above ~0.5σ — at quarter magnitude the deep target steers at 4.7× selectivity</td><td>the magnitude sweep the penalized-objective test forced</td></tr>
   <tr><td>"strong vocabulary sharing is specific to writer L1"</td><td>writer-general — on the behavioral metric (what the coupling forms do to realized activity, not what their matrix elements are) readers share a vocabulary over every strong writer tested (L0 0.70, L1 0.64, L9 0.54); the elementwise metric had underestimated sharing 2.5×</td><td>re-measuring with the second instrument after the fresh-rows replication exposed the metric gap</td></tr>
   <tr><td>"early readers share a code for the private span; deep readers go private"</td><td>no group shares anything — at pair resolution every transfer over the private span sits at the measured random floor (0.31) while the control writer transfers at 0.62–0.82 over a 0.10 floor; the apparent early agreement was the population basis capturing dominant directions of easy test sets</td><td>the registered group test, one wake after the unregistered read</td></tr>
+  <tr><td>"privacy is a property of the whole layer — attention at fraction 1/3 is unshared too"</td><td>borrowed, not intrinsic: orthogonalized against the MLP span, attn6 recovers to the normal range (0.13 → 0.45, control unmoved); the private object is the single 8-dim span, written by the MLP and transported by attention</td><td>the orthogonalization fork test, one wake after publication</td></tr>
   <tr><td>two ablation runs (void)</td><td>rerun — one patched a forward never called, one had chance above signal</td><td>identical rungs / null arithmetic</td></tr>
   </tbody></table>
   <p class="q">All caught by the program's own controls, none by luck: gates on every
@@ -597,10 +598,11 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   by everyone, in fully idiosyncratic private codes — no two readers agree, at any
   depth — and its directions are the stream's most contested, not a reserved wire:
   what's private is the content, not the address.
-  And the privacy is a property of the whole layer,
-  not its MLP alone: layer 6's attention output is the least-shared attention signal in
-  the model (0.13, matching the MLP span's 0.16) — both component types at one-third
-  depth emit code the reader population holds no consensus on. The sharpest fact came
+  Layer 6's attention output at first looked equally
+  private (0.13) — but orthogonalized against the MLP span it recovers to the normal
+  range (0.45): the attention was carrying the span's content, exactly as the relay
+  picture predicts. The private object is the single eight-dimensional span — its MLP
+  writes it, its attention transports it. The sharpest fact came
   earlier: the sibling 12-layer
   bilinear model has its own private writer, below its own random-projection floor, at
   exactly the same depth fraction (L4/12 = L6/18 = 0.33). The private writer is an

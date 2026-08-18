@@ -6020,3 +6020,24 @@ attention landscape is shallower-shared in general, and the notch claim rests
 on attn6 being the clear minimum, not on the absolute bar. The private
 object's final on-box name: **layer 6, whole output, fraction one-third,
 notch width one, consensus zero.**
+
+## 224. Correction: the layer-level privacy was borrowed — the private object is the span alone (ledger #18)
+
+File: `bilin18_attn6_borrowed.py`. §223's headline ("privacy is a LAYER
+property"), published in the report, lasted one wake — ledger entry #18.
+With attn6's output coordinates orthogonalized against the mlp6 top-8 span,
+its consensus recovers completely:
+
+    attn6:  0.126 raw  →  0.452 orthogonalized   (normal attention range)
+    attn12 control: 0.474 → 0.492 (unmoved)      nulls −0.26/−0.11
+
+Layer 6's attention is a normal writer whose output happened to carry the
+span's content — which is itself the expected behavior under the relay
+picture: attention transports what MLPs write. The correction sharpens the
+final description rather than weakening it: **the private object is the
+single 8-dimensional span; mlp6 writes it, attn6 carries it, every reader
+understands it idiosyncratically, none agree.** The fork was decidable
+on-box after §223 called it off-box — the second time this program deferred
+a measurement its own instruments could make (§212's lesson, repeated and
+now generalized in the discipline: before deferring, write down the
+orthogonalization or restriction that would decide it).
