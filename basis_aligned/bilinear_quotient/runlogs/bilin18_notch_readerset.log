@@ -1,0 +1,9 @@
+set A: L6 pooled +0.159 foldmed +0.340 | L9 pooled +0.482 foldmed +0.514
+set B: L6 pooled +0.182 foldmed +0.287 | L9 pooled +0.520 foldmed +0.611
+set C: L6 pooled +0.247 foldmed +0.308 | L9 pooled +0.527 foldmed +0.619
+set D: L6 pooled +0.264 foldmed +0.282 | L9 pooled +0.541 foldmed +0.591
+
+(a) robust (all <=0.25): FAILED
+(b) fragile (any >=0.4): no
+(c) L9 stable <0.15: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_notch_readerset_results.json (59s)

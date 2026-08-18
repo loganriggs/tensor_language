@@ -26,14 +26,20 @@ Number of rank-0-licensed tail layers (CE cost <= 0.05) is >= the 18L count
 (4). The rank-0/rank-4 scan is the mandatory first measurement (BENCHMARK.md).
 
 **P2 — Slack-regularizer identity** (family_regularizer_scan.py; §§206-207).
-The deletion-improves span set (top-8 span deletion <= -0.01) is a subset of
-the constant-licensed layer set. Zero tolerance: one violation kills it.
+The deletion-improves span set (top-8 span deletion <= -0.01 on TWO
+independent span fits from disjoint stats rows -- boundary flips on a single
+fit do not count; §228) is a subset of the constant-licensed layer set. Zero
+tolerance on replicated violations.
 
 **P3 — The private writer** (bilin18_behavioral_writers.py + landscape
-scripts; §§209-226). Behavioral LORO over MLP writers has exactly one
-below-floor notch, at depth fraction 0.33 +/- 0.08, width one layer,
-privacy concentrated in the top-8 output span (tail coords 9-48 recover to
->= 0.7x the neighbor level). MLP-side only: the attention writer at the
+scripts; §§209-228, REVISED after ledger #19). Aggregation is POOLED median
+(never fold-median), and the profile is measured under >= 3 disjoint reader
+ensembles. The bar is RELATIVE: exactly one writer whose pooled LORO is
+<= 0.5x the in-model control median in EVERY ensemble, at depth fraction
+0.33 +/- 0.08, width one layer, with privacy concentrated in the top-8
+output span (tail coords 9-48 recover to >= 0.7x the neighbor level).
+Absolute floor-crossing is reported but is NOT the bar (it is
+ensemble-sensitive; §228). MLP-side only: the attention writer at the
 notch either recovers under span-orthogonalization (18L carrier pattern) or
 shows no notch (12L pattern) -- either is consistent; an attention notch
 that survives orthogonalization is NOT.

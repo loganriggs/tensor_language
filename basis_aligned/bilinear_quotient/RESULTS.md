@@ -3548,3 +3548,13 @@ attention is flat (-0.13), MLP falls (-0.43). attn17's low value is an
 instrument boundary (all folds acausal), not an anomaly.
 
 Full detail in `BILIN18_CONNECTION.md` §227.
+
+### Ledger 19: the notch's floor-crossing is instrument-relative
+
+Across ensembles/aggregations, bilin18's L6 is robustly ~half its control
+(8/8 constructions); bilin12's L4 depression survives pooled constructions
+but vanishes under fold-median. Downgrade: robust relative depression, not
+below-floor. Preregistration P3 rewritten (pooled, 3 ensembles, relative
+bar); P2 gains a replication requirement.
+
+Full detail in `BILIN18_CONNECTION.md` §228.

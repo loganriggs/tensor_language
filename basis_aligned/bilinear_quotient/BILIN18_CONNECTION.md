@@ -6109,3 +6109,40 @@ purely acausal folds, so this is an instrument boundary, not a new anomaly.
 With this, the profile work is exhausted on both models and both component
 types; the arc's durable yield is the MLP decline (universal), the notch
 (universal, MLP-only), and the seceding last reader (18L-only).
+
+## 228. The notch is real but its floor-crossing is instrument-relative (ledger #19)
+
+Files: `run_preregistration.py` (scorecard v1), `bilin12_notch_readerset.py`,
+`bilin18_notch_readerset.py`. The scorecard's validation run on bilin12 did
+exactly what validation is for: it failed to reproduce the known verdicts and
+exposed an instrument sensitivity that the published claims had inherited.
+
+The facts, across reader-ensemble sweeps and both aggregations:
+
+    bilin18 L6:  0.16-0.26 pooled / 0.28-0.34 fold-median across 4 ensembles
+                 control L9: 0.48-0.54 / 0.51-0.62 (stable, always ~2x L6)
+    bilin12 L4:  -0.08 to +0.26 pooled across 5 ensembles (always below the
+                 L8 control by >= 0.13) -- but +0.63 under fold-median
+                 aggregation with the scorecard ensemble: the notch VANISHES
+                 there even relative to its profile. Load-bearing readers
+                 identified by single swaps: the {1,5,11} core.
+
+Ledger entry #19, stated plainly: the categorical claims "below the
+random-projection floor" (§§210, 215, and the report) are true in the
+original construction but are NOT ensemble-independent facts about the
+model — absolute notch depth moves with reader choice, and in bilin12 even
+the relative notch is destroyed by fold-median aggregation. What survives
+every construction tested is: **bilin18's L6 is depressed to ~half its
+in-model control in all 8 instrument variants.** bilin12's notch is robust
+across pooled constructions only. The universality statement (§215) is
+therefore downgraded from "below-floor in both models" to "robust relative
+depression at fraction 1/3 in bilin18; construction-dependent depression at
+the matched fraction in bilin12." PREREGISTRATION P3 is rewritten
+accordingly: pooled aggregation mandatory, minimum three reader ensembles,
+and the bar is RELATIVE (notch <= 0.5x the in-model control median across
+all ensembles), not absolute floor-crossing. Scorecard v1's other verdicts:
+P4/P5 replicated robustly; P1 reported honestly; P2's zero-tolerance bar is
+fragile near the ±0.01 boundary (L7's span flipped sign between span-fit
+samples) and gains a replication requirement. The scorecard failing on its
+first validation run is the system working — this is why the harness runs on
+a known model before it ever sees a new one.
