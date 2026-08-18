@@ -7871,3 +7871,18 @@ linear). a8 joins induction transport in the closed class: components
 whose own computation is their minimal description. Next backlog rung
 queued: the front transfer tax (+1.98 of the fresh total) attacked
 with weights-derived FOLD tables, which travel tax-free.
+
+## 305. Fold tables strictly dominate: the transfer tax was avoidable all along
+
+`fold_front.py`, both bars HELD with margin: replacing the empirical
+token tables (m0, m2, m3) with FOLD tables -- every vocabulary token
+run alone through the real prefix, zero training data -- is better on
+BOTH windows: window C +1.390 vs +1.481 (the weights-derived table
+beats the fitted one even in-distribution, no trade), fresh +1.602 vs
++1.926 (a third of a nat of transfer tax gone). The 283 principle
+("weights-derived stand-ins travel; fitted ones pay") is not just a
+diagnosis but an optimization: the empirical tables were memorizing
+window-A token statistics that the fold construction gets from the
+weights, generalization included. Registered merge queued: fold tables
+into the head-hybrid frontier config -- predicted new frontier <= +2.35
+fresh (from +2.543).

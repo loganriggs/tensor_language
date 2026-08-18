@@ -15,49 +15,8 @@ fit a14
 fit a15
 fit a16
 fit a17
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/fold_front.py", line 375, in <module>
-    if __name__=='__main__': main()
-                             ^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/fold_front.py", line 321, in main
-    S['m2f']=refit_absorber(2,FOLD[2],['a0','m0f','a1v','m1'])
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/fold_front.py", line 311, in refit_absorber
-    Y,X,ids=runA(active,m.transformer.h[li].mlp)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/fold_front.py", line 175, in runA
-    m(cur['idx'], bb[:,1:].contiguous())
-  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/jacclust/tt_model.py", line 256, in forward
-    x, v1 = block(x, v1, x0)
-            ^^^^^^^^^^^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/jacclust/tt_model.py", line 216, in forward
-    x = x + self.mlp(F.rms_norm(x, (x.size(-1),)))
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1885, in _call_impl
-    return inner()
-           ^^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1846, in inner
-    hook_result = hook(self, args, result)
-                  ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/fold_front.py", line 94, in h
-    new=tb[cur['idx']].float().reshape(-1,D)+(ft@A)@P.T
-                                              ~~^~
-RuntimeError: mat1 and mat2 shapes cannot be multiplied (1024x1680 and 1152x32)
+window C: empirical +1.4814 | fold +1.3904
+fresh   : empirical +1.9256 | fold +1.6023
+(a) fold fresh <= +1.75: HELD
+(b) fold C within +0.25 of empirical: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/fold_front_results.json (82s)
