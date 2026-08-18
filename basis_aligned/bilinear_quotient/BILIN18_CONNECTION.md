@@ -6904,3 +6904,25 @@ should absorb rather than transmit the table errors. The benchmark's
 edge-typing vocabulary (coordinates vs summary vs opaque) was built for
 exactly this distinction, and the assembled experiments are now measuring
 it in composition.
+
+## 259. Assembled v4: +1.39 — the composition grammar validated
+
+File: `assembled_v4.py`. Tables plus sequentially-fit rank-32 residual
+absorbers on m0/m2/m3 (each absorber reads the SUBSTITUTED input and
+cancels the error its table would otherwise transmit):
+
+    v1 +1.850 (all-table)   v2 +2.690 (naive linear)   v3 +1.971
+    (sequential, conductive)   **v4 +1.392** — new frontier
+    absorber residual-R²: 0.57/0.58/0.61; m1 in-context +0.088
+    (bar (a) ≤1.20 missed; (b) held)
+
+The §258 grammar is validated in the constructive direction: converting
+each front table from pure firewall to firewall+absorber — clamp to the
+token's vector, then add a learned low-rank read of the actual
+(substituted) input — recovers half the residual and drops the assembled
+cost 25% below the previous frontier. Description delta: three D×32×2
+maps ≈ 222K parameters on top of the v1 inventory (tables priced per
+§256's two-level rule). The assembled submission now stands at:
+thirteen of thirty-six components replaced, +1.39 nats, with the
+composition recipe itself — sequential fitting, firewall+absorb typing —
+as much a product of the program as the numbers.

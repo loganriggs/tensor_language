@@ -1,14 +1,8 @@
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/assembled_v4.py", line 217, in <module>
-    if __name__=='__main__': main()
-                             ^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/assembled_v4.py", line 139, in main
-    S['m0']=fit_tableres(Y,X,ids,0); order.append('m0')
-            ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/assembled_v4.py", line 134, in fit_tableres
-    r2=1-float(((Rr@P-X@A)**2).sum())/float((Rr@P)**2).sum()
-                                      ^^^^^^^^^^^^^^^^
-ValueError: only one element tensors can be converted to Python scalars
+absorber m0: residual-subspace R^2 0.57
+absorber m2: residual-subspace R^2 0.58
+absorber m3: residual-subspace R^2 0.61
+base 3.535 | ASSEMBLED v4 +1.3916 | without m1 +1.3036 | m1 in-context +0.0880
+(a) <=1.20: FAILED
+(b) beats v3: HELD
+(c) m1 in-context <=0.24: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/assembled_v4_results.json (31s)

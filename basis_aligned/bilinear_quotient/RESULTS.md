@@ -3805,3 +3805,10 @@ components as CONDUCTORS. Composition depends on stand-in type along the
 graph. v4 (tables + sequential residual corrections) registered.
 
 Full detail in `BILIN18_CONNECTION.md` §258.
+
+### v4 = +1.39, new assembled frontier
+
+Firewall+absorber tables (rank-32 sequential correctors, residual R^2
+~0.6) beat all-table v1 by 25%. Composition grammar validated.
+
+Full detail in `BILIN18_CONNECTION.md` §259.
