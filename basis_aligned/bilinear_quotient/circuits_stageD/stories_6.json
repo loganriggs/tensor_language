@@ -1,0 +1,150 @@
+[
+ {
+  "circuit_id": 198,
+  "story": "Predicting the next high-frequency function word or comma (the, and, is, to, ',') that continues guidebook prose right after a noun phrase or clause boundary.",
+  "rule": {
+   "target_in": [",", " the", " and", " is", ";", " to", " a", " which", " this", " from", " in"]
+  }
+ },
+ {
+  "circuit_id": 199,
+  "story": "Predicting digits in listing metadata - phone numbers after the % marker, prices after '-' or '/', and numbered map-index entries.",
+  "rule": {
+   "target_in": ["020", "6", "4", "7", "8", " 5", " 3", " 20", "####"],
+   "prev_in": ["\n", "-", " %", "/", " and", " &"]
+  }
+ },
+ {
+  "circuit_id": 200,
+  "story": "Predicting an article ('the', 'a', 'The') that opens a new noun phrase right after a comma, 'and', 'includes', or similar list/clause connective.",
+  "rule": {
+   "target_in": [" the", " a", "The", " The"],
+   "prev_in": [",", " and", ";", " including", " include", " with", " until", " needed"]
+  }
+ },
+ {
+  "circuit_id": 202,
+  "story": "Predicting the comma (or small function word) that closes off a long descriptive or appositive noun phrase in mid-sentence guidebook prose.",
+  "rule": {
+   "target_in": [",", " the", " to", " for", "pm"],
+   "prev_in": [" of", ",", " 10", " in", " artefacts", " style", " beds", " welcome", " anyway", " recipes", " salad", " buff"]
+  }
+ },
+ {
+  "circuit_id": 203,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 204,
+  "story": "Predicting the semicolon field separator after a URL, postcode, or opening-hours value in Lonely-Planet-style listing boilerplate (with some spillover onto superlatives after \"world's\"/\"country's\").",
+  "rule": {
+   "target_in": [";"],
+   "prev_in": ["com", "uk", "pm", "1", " W1"]
+  }
+ },
+ {
+  "circuit_id": 205,
+  "story": "Predicting the specific content word that completes a hyphenated compound or descriptive phrase seen for the first time ('low-lying', 'palm-tree-lined', 'top end', 'French Gothic').",
+  "rule": {
+   "prev_in": ["-", " French", " top", " for", " a", "'t"],
+   "pos_max": 256
+  }
+ },
+ {
+  "circuit_id": 206,
+  "story": "Re-predicting a proper place name (London, Canterbury, Dover, Greenwich, Camden...) that already appeared earlier in the passage.",
+  "rule": {
+   "target_in": [" London", " Canterbury", " Dover", " Greenwich", " Westminster", " Camden", " Brick", " Palace", " Cov", " Tud"],
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 208,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 209,
+  "story": "Completing split-up words and web addresses - most sharply the 'uk' after '.co.' / '.ac.' in URLs, plus tails of rare words like 'refuelling' and 'omelettes'.",
+  "rule": {
+   "target_in": ["uk", "ers", "lling", "ttes", "at"],
+   "prev_in": [".", "-", "ucking", "ue", "Pettico", "omele"]
+  }
+ },
+ {
+  "circuit_id": 212,
+  "story": "Continuing enumerations and schedule strings with the next separator or item - the final 'and' before the last list item, the range dash or comma inside opening-hours and price sequences.",
+  "rule": {
+   "target_in": [",", " and", "-", ";"],
+   "prev_in": [" Apr", " Sun", "C", " ;", "A", "4", ",", " Gielgud"]
+  }
+ },
+ {
+  "circuit_id": 213,
+  "story": "Ending a completed sentence or listing line - predicting the sentence-final period, or the newline that follows a closing parenthesis or full stop.",
+  "rule": {
+   "target_in": [".", "\n"],
+   "prev_in": [".", ")", " skyline", " advance", " July", " case", " October", "50", "pm", " lift"]
+  }
+ },
+ {
+  "circuit_id": 215,
+  "story": "Predicting 'com' to finish a web address of the form www.something.[com].",
+  "rule": {
+   "target_in": ["com"],
+   "prev_in": ["."]
+  }
+ },
+ {
+  "circuit_id": 216,
+  "story": "Predicting the next boilerplate symbol in the guidebook listing template - the '%' before a phone number, 'h' before hours, 't' before a tube stop, or the ')' / ';' that closes a (MAP GOOGLE MAP) field - late in a context full of identical listings.",
+  "rule": {
+   "target_in": [" %", " h", " t", " G", ")", ";"],
+   "is_induction": true,
+   "pos_min": 96
+  }
+ },
+ {
+  "circuit_id": 217,
+  "story": "Predicting the main verb (are/is/has) or next continuation right after the subject noun phrase of a sentence ('the cakes and snacks are', 'this old coaching inn has').",
+  "rule": {
+   "target_in": [" are", " has", " is", " the"],
+   "prev_in": [" snacks", " inn", " cathedral", " services", " ingredients", ",", "Oct", "30", "am", " St", " noteworthy", " basement"]
+  }
+ },
+ {
+  "circuit_id": 219,
+  "story": "Predicting the period (or clause-final comma) that ends a long descriptive sentence whose last word is a content noun ('...shops and eateries.', '...street entertainers and buskers.').",
+  "rule": {
+   "target_in": [".", ","],
+   "is_induction": true,
+   "pos_min": 64
+  }
+ },
+ {
+  "circuit_id": 222,
+  "story": "Completing weekday ranges in opening-hours strings - overwhelmingly 'Sat' after 'Mon-' - plus adjacent hours/price field separators.",
+  "rule": {
+   "target_in": ["Sat", " daily", ";"],
+   "prev_in": ["-", "Mon", "2", "0"]
+  }
+ },
+ {
+  "circuit_id": 223,
+  "story": "Predicting the newline that ends a paragraph immediately after a sentence-final period (very high induction - the pattern '.\\n' has occurred many times before in the context).",
+  "rule": {
+   "target_in": ["\n", "The"],
+   "prev_in": [".", ").", "\n"],
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 224,
+  "story": "Completing multi-token proper names and abbreviations at their first mention early in the window ('Sloane S->q', 'Motcomb -> St', 'St Katharine D->ocks').",
+  "rule": {
+   "target_in": [" St", "q", "ocks", " Palace", "stated", "er", "ce"],
+   "pos_max": 160
+  }
+ }
+]

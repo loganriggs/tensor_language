@@ -6320,3 +6320,32 @@ fresh-data leg — is now exact rather than defensible: attn14's story
 (score +0.250 fresh), the cargo edge (margin +0.101 fresh), the relay
 directionality (94% fresh), and all the earlier replicated headlines. The
 record is closed at full strictness.
+
+## 236. The circuit pipeline's first day: 147 structural, 27 semantic, and a measured DSL ceiling
+
+Files: `circuit_atlas_big.py`, `circuit_certify.py`, `circuit_stageD_prep.py`,
+`circuit_score_stories.py`, with 8 parallel story-writing agents between
+stages D and E. The circuit-by-circuit track, restarted at scale per the
+user's direction, produced in one pass:
+
+- **Stage A**: all 36 component fingerprints over 54,272 fresh tokens in
+  95 s (sign agreement with the original atlas 33/36); discovery and
+  replication halves split at birth.
+- **Stage B+C**: k=256 distinctive-ownership clustering; **147 of 154
+  powered clusters certified as ownership circuits** by held-out
+  replication (profile cosine ≥ 0.7, owner overlap, cohesion over a
+  measured 0.027 floor), covering 76% of well-predicted tokens.
+- **Stage D**: 8 fresh subagents wrote stories + mechanical membership
+  rules for all 147 (134 non-null; 13 honest "unclear").
+- **Stage E**: **27 semantically certified** on held-out data at
+  precision ≥ max(5× base, 0.15) and recall ≥ 0.15 — median precision
+  lift **81×** base rate, shuffled-null lift 0. Registered bar (a) of 40
+  missed; (b)(c)(d) held.
+
+Failure anatomy (the next rung's blueprint): 4 no-fire, 11 near-miss
+(precise, too narrow), 92 low-precision — the first-order DSL
+(target/prev/induction/position) cannot separate those clusters, i.e. the
+ownership structure is real (held-out-replicated) but its trigger is
+richer than one-token surface features. Scoreboard: 3 → 27 semantically
+certified circuits in one session; the semantic ceiling is now a measured
+property of the rule language, not of the model or the pipeline.

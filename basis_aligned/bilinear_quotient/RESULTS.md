@@ -3614,3 +3614,12 @@ sentence is now exact: every certified claim, score included, has a
 fresh-data leg.
 
 Full detail in `BILIN18_CONNECTION.md` §235.
+
+### Circuit pipeline day one: 147 structural, 27 semantic
+
+54k tokens fingerprinted in 95s; 147/154 ownership circuits held-out
+certified (76% coverage); 8 parallel agents wrote 134 stories; 27
+semantically certified at median 81x precision lift (null 0). 92 failures
+are the rule language's ceiling, not the model's.
+
+Full detail in `BILIN18_CONNECTION.md` §236.

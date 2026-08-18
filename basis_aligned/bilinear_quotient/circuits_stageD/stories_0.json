@@ -1,0 +1,140 @@
+[
+ {
+  "circuit_id": 0,
+  "story": "Predicting a mid-sentence word like 'this', 'its', or 'heading' right after a preposition in guidebook venue descriptions (e.g. 'the decor at this eccentric pad', 'instead of heading').",
+  "rule": {
+   "target_in": [" this", " its", " heading"]
+  }
+ },
+ {
+  "circuit_id": 1,
+  "story": "Predicting a plain function word, usually 'the' or 'a', immediately after a preposition such as 'of', 'in', 'to', or 'from' in flowing guidebook prose.",
+  "rule": {
+   "target_in": [" the", " a", " of"],
+   "prev_in": [" of", " in", " to", " from", " along"]
+  }
+ },
+ {
+  "circuit_id": 2,
+  "story": "Predicting the closing markdown emphasis marker (** or _) or closing bracket right after a place name or title whose matching opening marker appeared earlier in the context.",
+  "rule": {
+   "target_in": ["**", "_", "),", ").", ";"],
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 3,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 4,
+  "story": "Completing tight local word pairs, most visibly the second half of hyphenated compounds like 'first-rate', 'year-round', and 'floor-to-ceiling'.",
+  "rule": {
+   "prev_in": ["-"]
+  }
+ },
+ {
+  "circuit_id": 7,
+  "story": "Predicting 'am'/'pm' or the next digit inside opening-hours and price strings such as 'h10am-5pm' in listing metadata.",
+  "rule": {
+   "target_in": ["pm", "am", "50", "5", "20", "30"],
+   "prev_in": ["5", "10", "30", "11", "6", "-", "0"]
+  }
+ },
+ {
+  "circuit_id": 8,
+  "story": "Predicting the comma that follows a day-range abbreviation like 'Mon-Sat' or 'Mon-Fri' in opening-hours strings.",
+  "rule": {
+   "target_in": [","],
+   "prev_in": ["Sat", "Fri", "Thu", "Sun", "Mon", "Tue", "Wed", " Thu", " Tue", "pm"]
+  }
+ },
+ {
+  "circuit_id": 9,
+  "story": "Predicting the punctuation or separator that ends a listing field, after prices, web addresses, and list entries, usually copying a format already seen earlier in the context.",
+  "rule": {
+   "target_in": [".", ";", "**", ",", ")", " to"],
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 11,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 12,
+  "story": "Predicting an indefinite article ('a'/'an') after a verb or preposition in flowing descriptive sentences ('the result is a...', 'a fine spot for a...').",
+  "rule": {
+   "target_in": [" a", " an"]
+  }
+ },
+ {
+  "circuit_id": 13,
+  "story": "Completing multi-token names and boilerplate the passage has used before, like the 'OO' in 'GOOGLE' or URL fragments such as 'wagamama', by copying the earlier occurrence.",
+  "rule": {
+   "target_in": ["OO", "pm", "am", "ens", ";"],
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 14,
+  "story": "After the semicolon ending a listing's hours field, predicting the spacer token that precedes the transport/facility icon, and occasionally re-predicting a landmark noun ('church', 'Palace') mentioned earlier.",
+  "rule": {
+   "target_in": [" "],
+   "prev_in": [";"]
+  }
+ },
+ {
+  "circuit_id": 15,
+  "story": "Completing the remaining piece of a multi-token word or place name ('Hen'->'ley', 'Panc'->'ras', 'Kens'->'ington'), plus repeating the '####' heading marker after a newline.",
+  "rule": {
+   "target_in": ["####", "ington", "ras", "ILD", "c", "ley", "ia"],
+   "prev_in": ["\n", " Kens", " Panc", " BU", " Pic", " seaf", "Columb"]
+  }
+ },
+ {
+  "circuit_id": 17,
+  "story": "Predicting the bold marker '**' that opens or closes a formatted list entry (e.g. 'A **Dover**' transport lines), copying the formatting of earlier entries in the same list.",
+  "rule": {
+   "target_in": [" **", "**", " ;", " "],
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 18,
+  "story": "Completing the tail of a long word split across tokens ('bohem'->'ian', 'Ham'->'pton', 'seaf'->'ront'), where the previous token is a mid-word fragment.",
+  "rule": {
+   "prev_in": ["hem", "vis", "omet", " lun", "water", " seaf", " Kit", "Ham"]
+  }
+ },
+ {
+  "circuit_id": 22,
+  "story": "Inside a listing's info line, predicting the icon-letter tokens that open each field: ' h' for hours, ' t' for tube station, ' G' for 'GOOGLE MAP', ' www' for the website.",
+  "rule": {
+   "target_in": [" G", " h", " t", " www"]
+  }
+ },
+ {
+  "circuit_id": 25,
+  "story": "Completing recurring boilerplate strings token by token, chiefly 'GOOGLE MAP' and '.co.uk' ('GOO'->'G', 'GOOGLE'->' MAP', '.co.'->'uk').",
+  "rule": {
+   "target_in": [" MAP", "uk", "G"],
+   "prev_in": ["LE", "OO", ".", "u", " Go"]
+  }
+ },
+ {
+  "circuit_id": 29,
+  "story": "Continuing opening-hours strings: predicting the dash, 'pm'/'am', or day name in patterns like '9.30am-9pm Mon-Fri'.",
+  "rule": {
+   "target_in": ["pm", "-", "30", " Mon", "am"],
+   "prev_in": ["30", "am", "pm", " 11", ".", "5"]
+  }
+ },
+ {
+  "circuit_id": 30,
+  "story": "unclear",
+  "rule": null
+ }
+]

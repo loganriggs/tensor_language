@@ -1,0 +1,146 @@
+[
+ {
+  "circuit_id": 32,
+  "story": "Completing time-of-day expressions in opening-hours listings, predicting 'pm', 'am', or the '30' of a half-hour after a digit, usually copying the format of times seen earlier in the same listing.",
+  "rule": {
+   "target_in": ["pm", "am", "30", " century"],
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 34,
+  "story": "Predicting the recurring punctuation and connectives (commas, hyphens, 'and', semicolons) that glue together the guidebook's formulaic list-style entries, repeating separators already used earlier in the passage.",
+  "rule": {
+   "target_in": [",", " and", "-", ";", "\n"],
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 35,
+  "story": "Completing well-known multi-token proper names and all-caps section labels from their first piece (TOUR->IST, Tottenham -> Court, Oliver -> Twist, TAX->I), without needing the name to have appeared earlier.",
+  "rule": {
+   "target_in": ["IST", " Court", " Twist", " Cross", " Lane", "AT", "A", "I"],
+   "prev_in": ["OUR", "ottenham", " Oliver", "TAX", "BO", "PIZZ", "iver", "'s"]
+  }
+ },
+ {
+  "circuit_id": 36,
+  "story": "Continuing rare or unusual words mid-token from a subword fragment (Pim->lic, So->ane, bo->hem, spic->-, Market S->q), spelling out names and words the tokenizer split into pieces.",
+  "rule": {
+   "target_in": ["q", "UR", "ico", "lic", "hem", "ane", "as", "oint"]
+  }
+ },
+ {
+  "circuit_id": 38,
+  "story": "Continuing boilerplate templates the passage has already used many times, chiefly ' MAP' after 'GOOG-LE' and the '.' inside website addresses like www.venuename[.]co.uk.",
+  "rule": {
+   "target_in": [" MAP", "."],
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 39,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 40,
+  "story": "Predicting the newline that ends a guidebook listing line right after its closing parenthesis (opening hours, tube station, etc.), late in the window where many such lines have already occurred.",
+  "rule": {
+   "target_in": ["\n"],
+   "prev_in": [")"],
+   "pos_min": 120
+  }
+ },
+ {
+  "circuit_id": 43,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 44,
+  "story": "Predicting the period inside a clock time (as in 5.30pm or 10.30am) immediately after the hour digit in opening-hours listings.",
+  "rule": {
+   "target_in": ["."],
+   "prev_in": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", " 9"]
+  }
+ },
+ {
+  "circuit_id": 46,
+  "story": "Continuing partially-spelled British place names and uncommon words mid-word (Picc->ad, Portob->ello, Cotsw->olds, stradd->ling, gris->ly), completing the next subword piece.",
+  "rule": {
+   "target_in": ["ad", "ri", "ello", "olds", "hes", "ling", "pering", "acing", "ly"]
+  }
+ },
+ {
+  "circuit_id": 47,
+  "story": "Continuing stock guidebook phrases at their fixed next word, such as 'Located in', 'housed in', and the hyphen of 'Mon-Sat' day ranges.",
+  "rule": {
+   "target_in": [" in", "-"],
+   "prev_in": ["Located", " housed", " Mon", " in"]
+  }
+ },
+ {
+  "circuit_id": 49,
+  "story": "Completing familiar British compound place names from their first word (High -> St, Hyde -> Park, Hampton -> Court, Primrose -> Hill), from stored knowledge rather than by copying the context.",
+  "rule": {
+   "target_in": [" St", " Park", " Court", " Hill", " Castle"],
+   "prev_in": [" High", " Hyde", " Hampton", " Victoria", " Primrose", " Britton", " Chalk"]
+  }
+ },
+ {
+  "circuit_id": 50,
+  "story": "Filling in the fixed pieces of listing boilerplate by copying its template from earlier in the passage: G->OO in GOOGLE, 'am' after the opening hour, and day names after '-' or '&' in ranges like Mon-Sat and Sat & Sun.",
+  "rule": {
+   "target_in": ["OO", "am", " Sat", " Sun", " Mon", " Thu", " Fri", " July"],
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 51,
+  "story": "Predicting the article 'the' or 'a' (or another function word) that starts a noun phrase right after a verb or preposition in ordinary descriptive prose.",
+  "rule": {
+   "target_in": [" the", " a"],
+   "prev_in": [" is", " was", " with", " and", " to", " by", " in", " as"]
+  }
+ },
+ {
+  "circuit_id": 53,
+  "story": "unclear",
+  "rule": null
+ },
+ {
+  "circuit_id": 55,
+  "story": "Late in the window, copying names already seen in the passage into website addresses and boilerplate (predicting the '.' or 'uk' of www.venuename.co.uk after the venue was named just above).",
+  "rule": {
+   "target_in": [".", "uk", " MAP"],
+   "is_induction": true,
+   "pos_min": 130
+  }
+ },
+ {
+  "circuit_id": 59,
+  "story": "Predicting the newline that closes a listing's parenthesized info line (hours, prices, tube stop) right after the closing parenthesis, relatively early in the window.",
+  "rule": {
+   "target_in": ["\n"],
+   "prev_in": [")"],
+   "pos_max": 120
+  }
+ },
+ {
+  "circuit_id": 60,
+  "story": "Predicting the period or comma that closes a descriptive clause at its final noun or verb (…whenever the sun shines[.], …best bars and nightlife[.]) in flowing historical or scene-setting prose.",
+  "rule": {
+   "target_in": [".", ","],
+   "prev_in": [" shines", " nights", " holidays", " evenings", " century", " nightlife", " Dover", "works", "asions"]
+  }
+ },
+ {
+  "circuit_id": 61,
+  "story": "Predicting the small linking words (and, in, or, this) that join clauses and noun phrases mid-sentence in long descriptive passages, typically after a comma, article, or possessive.",
+  "rule": {
+   "target_in": [" and", " in", " this", " or"],
+   "prev_in": [",", " the", "'s", " a", " from"]
+  }
+ }
+]

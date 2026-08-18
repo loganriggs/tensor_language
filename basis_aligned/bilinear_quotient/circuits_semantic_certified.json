@@ -1,0 +1,245 @@
+[
+ {
+  "circuit_id": 7,
+  "story": "Predicting 'am'/'pm' or the next digit inside opening-hours and price strings such as 'h10am-5pm' in listing metadata.",
+  "precision": 0.171,
+  "recall": 0.517,
+  "lift": 38.4,
+  "base_rate": 0.0045,
+  "fires": 181
+ },
+ {
+  "circuit_id": 8,
+  "story": "Predicting the comma that follows a day-range abbreviation like 'Mon-Sat' or 'Mon-Fri' in opening-hours strings.",
+  "precision": 0.425,
+  "recall": 0.436,
+  "lift": 146.5,
+  "base_rate": 0.0029,
+  "fires": 40
+ },
+ {
+  "circuit_id": 14,
+  "story": "After the semicolon ending a listing's hours field, predicting the spacer token that precedes the transport/facility icon, and occasionally re-predicting a landmark noun ('church', 'Palace') mentioned earlier.",
+  "precision": 0.542,
+  "recall": 0.747,
+  "lift": 83.7,
+  "base_rate": 0.0065,
+  "fires": 120
+ },
+ {
+  "circuit_id": 22,
+  "story": "Inside a listing's info line, predicting the icon-letter tokens that open each field: ' h' for hours, ' t' for tube station, ' G' for 'GOOGLE MAP', ' www' for the website.",
+  "precision": 0.5,
+  "recall": 0.67,
+  "lift": 69.3,
+  "base_rate": 0.0072,
+  "fires": 130
+ },
+ {
+  "circuit_id": 32,
+  "story": "Completing time-of-day expressions in opening-hours listings, predicting 'pm', 'am', or the '30' of a half-hour after a digit, usually copying the format of times seen earlier in the same listing.",
+  "precision": 0.277,
+  "recall": 0.472,
+  "lift": 29.8,
+  "base_rate": 0.0093,
+  "fires": 213
+ },
+ {
+  "circuit_id": 40,
+  "story": "Predicting the newline that ends a guidebook listing line right after its closing parenthesis (opening hours, tube station, etc.), late in the window where many such lines have already occurred.",
+  "precision": 0.23,
+  "recall": 0.4,
+  "lift": 88.1,
+  "base_rate": 0.0026,
+  "fires": 61
+ },
+ {
+  "circuit_id": 44,
+  "story": "Predicting the period inside a clock time (as in 5.30pm or 10.30am) immediately after the hour digit in opening-hours listings.",
+  "precision": 0.324,
+  "recall": 0.434,
+  "lift": 82.1,
+  "base_rate": 0.0039,
+  "fires": 71
+ },
+ {
+  "circuit_id": 59,
+  "story": "Predicting the newline that closes a listing's parenthesized info line (hours, prices, tube stop) right after the closing parenthesis, relatively early in the window.",
+  "precision": 0.667,
+  "recall": 0.508,
+  "lift": 151.9,
+  "base_rate": 0.0044,
+  "fires": 45
+ },
+ {
+  "circuit_id": 80,
+  "story": "Completing weekday ranges in opening hours, above all predicting 'Fri' after the hyphen in 'Mon-Fri'.",
+  "precision": 0.833,
+  "recall": 0.345,
+  "lift": 386.2,
+  "base_rate": 0.0022,
+  "fires": 12
+ },
+ {
+  "circuit_id": 81,
+  "story": "At the start of a venue's details line: right after the name-plus-category header, predicting the opening '(' of the phone/map/website block that every listing repeats.",
+  "precision": 0.366,
+  "recall": 0.731,
+  "lift": 73.3,
+  "base_rate": 0.005,
+  "fires": 134
+ },
+ {
+  "circuit_id": 83,
+  "story": "Predicting the day-of-week name at the end of an opening-hours clause, e.g. 'to 10.30pm Sun' or '8am-9pm Sat'.",
+  "precision": 0.439,
+  "recall": 0.862,
+  "lift": 203.3,
+  "base_rate": 0.0022,
+  "fires": 57
+ },
+ {
+  "circuit_id": 88,
+  "story": "Predicting 'am'/'pm' right after the hour digit in opening-times strings (and 'co' after the dot in .co.uk web addresses).",
+  "precision": 0.158,
+  "recall": 0.202,
+  "lift": 23.8,
+  "base_rate": 0.0066,
+  "fires": 114
+ },
+ {
+  "circuit_id": 112,
+  "story": "Continuing URLs and repeated web/boilerplate strings \u2014 the dot after 'www', the 'uk' after '.co', 'LE' after 'GOOG' \u2014 copying patterns already seen in the passage.",
+  "precision": 0.546,
+  "recall": 0.223,
+  "lift": 6.3,
+  "base_rate": 0.0863,
+  "fires": 474
+ },
+ {
+  "circuit_id": 140,
+  "story": "Predicting the determiner or common function word that follows a linking verb or possessive ('London has a', 'the academy has', \"it's the\", 'Carnaby St was the').",
+  "precision": 0.155,
+  "recall": 0.235,
+  "lift": 30.7,
+  "base_rate": 0.0051,
+  "fires": 103
+ },
+ {
+  "circuit_id": 149,
+  "story": "Predicting ' MAP' after 'GOOGLE' in the constantly repeated '(  MAP   GOOGLE MAP )' guidebook tag.",
+  "precision": 0.509,
+  "recall": 0.585,
+  "lift": 72.8,
+  "base_rate": 0.007,
+  "fires": 108
+ },
+ {
+  "circuit_id": 164,
+  "story": "predicting the closing ' )' (or following punctuation) of the oft-repeated '(  MAP   GOOGLE MAP )' cross-reference template, copying the pattern from earlier occurrences in the context",
+  "precision": 0.596,
+  "recall": 0.574,
+  "lift": 148.4,
+  "base_rate": 0.004,
+  "fires": 52
+ },
+ {
+  "circuit_id": 168,
+  "story": "predicting the double-space filler right after '(  MAP' inside the listing template (plus a few other high-frequency continuations), almost always copying an earlier occurrence",
+  "precision": 0.682,
+  "recall": 0.395,
+  "lift": 120.6,
+  "base_rate": 0.0057,
+  "fires": 44
+ },
+ {
+  "circuit_id": 171,
+  "story": "pure induction on the listing template: after 'GOOGLE MAP )' predicting the ' ;' (or after 'GOOGLE MAP' the ' )') exactly as seen in every earlier listing",
+  "precision": 0.289,
+  "recall": 0.65,
+  "lift": 97.1,
+  "base_rate": 0.003,
+  "fires": 90
+ },
+ {
+  "circuit_id": 174,
+  "story": "predicting apostrophe contractions ('s, 'll, 't, 're) after pronouns like it/there/you/they in chatty guidebook prose",
+  "precision": 0.196,
+  "recall": 0.29,
+  "lift": 84.8,
+  "base_rate": 0.0023,
+  "fires": 46
+ },
+ {
+  "circuit_id": 175,
+  "story": "predicting the paragraph break \u2014 a newline after a sentence-ending period, or the capitalized 'The' that opens the next paragraph \u2014 early in the context window",
+  "precision": 0.314,
+  "recall": 0.452,
+  "lift": 50.2,
+  "base_rate": 0.0063,
+  "fires": 121
+ },
+ {
+  "circuit_id": 181,
+  "story": "completing the ALL-CAPS category labels and split proper names of guidebook headers ('Tour->ist', 'POST-> OFF-ICE', 'Guild->hall', 'CATH->ED-RAL')",
+  "precision": 0.367,
+  "recall": 0.153,
+  "lift": 68.4,
+  "base_rate": 0.0054,
+  "fires": 30
+ },
+ {
+  "circuit_id": 192,
+  "story": "spelling out the letter-chunks of ALL-CAPS template words \u2014 'GOO->G->LE' in 'GOOGLE MAP' and label fragments like 'HOST->EL' \u2014 as memorized subword sequences",
+  "precision": 0.273,
+  "recall": 0.756,
+  "lift": 42.7,
+  "base_rate": 0.0064,
+  "fires": 238
+ },
+ {
+  "circuit_id": 199,
+  "story": "Predicting digits in listing metadata - phone numbers after the % marker, prices after '-' or '/', and numbered map-index entries.",
+  "precision": 0.245,
+  "recall": 0.181,
+  "lift": 22.9,
+  "base_rate": 0.0107,
+  "fires": 106
+ },
+ {
+  "circuit_id": 215,
+  "story": "Predicting 'com' to finish a web address of the form www.something.[com].",
+  "precision": 0.712,
+  "recall": 0.725,
+  "lift": 187.5,
+  "base_rate": 0.0038,
+  "fires": 52
+ },
+ {
+  "circuit_id": 222,
+  "story": "Completing weekday ranges in opening-hours strings - overwhelmingly 'Sat' after 'Mon-' - plus adjacent hours/price field separators.",
+  "precision": 0.576,
+  "recall": 0.475,
+  "lift": 193.4,
+  "base_rate": 0.003,
+  "fires": 33
+ },
+ {
+  "circuit_id": 223,
+  "story": "Predicting the newline that ends a paragraph immediately after a sentence-final period (very high induction - the pattern '.\\n' has occurred many times before in the context).",
+  "precision": 0.366,
+  "recall": 0.723,
+  "lift": 59.2,
+  "base_rate": 0.0062,
+  "fires": 164
+ },
+ {
+  "circuit_id": 231,
+  "story": "Completing an all-caps word split across tokens, overwhelmingly the 'LE' of 'GOOGLE' in the recurring '( MAP GOOGLE MAP )' listing boilerplate (also MEDITERR-ANEAN, HOT-EL, LESBI-AN).",
+  "precision": 0.542,
+  "recall": 0.711,
+  "lift": 81.0,
+  "base_rate": 0.0067,
+  "fires": 118
+ }
+]

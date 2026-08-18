@@ -1,0 +1,151 @@
+[
+ {
+  "circuit_id": 63,
+  "story": "Closing the parenthesis (or ending the heading line) at the end of a guidebook listing's practical details such as opening hours, prices, and web addresses.",
+  "rule": {
+   "target_in": [")", " )", ").", "\n"],
+   "prev_in": ["Sep", "Feb", "50", "uk", " MAP", "hours", "Sun", "."]
+  }
+ },
+ {
+  "circuit_id": 64,
+  "story": "Predicting the article 'the' (or 'a') immediately after a preposition like 'of', 'to', 'in', 'at', 'from' in ordinary prose.",
+  "rule": {
+   "target_in": [" the", " a"],
+   "prev_in": [" of", " to", " in", " at", " from"]
+  }
+ },
+ {
+  "circuit_id": 68,
+  "story": "Continuing a long word from its first subword chunk, most often British place and proper names like Limehouse, Belgravia, Marylebone, Saxon, Pancras.",
+  "rule": {
+   "prev_in": [" Sax", " Lime", " Panc", " Belg", " Mary", " ent", " imp", " grav", " Nick", " lav", " dyn", " vill"]
+  }
+ },
+ {
+  "circuit_id": 69,
+  "story": "Predicting the digits of prices and opening times in listing details, e.g. the '50' in £2.50 or the '4' in 11am-4pm.",
+  "rule": {
+   "target_in": ["50", "30", "4", "5", "6", "8", "000", "1"],
+   "prev_in": [".", "-", " £", ","]
+  }
+ },
+ {
+  "circuit_id": 71,
+  "story": "Finishing formulaic listing boilerplate that repeats throughout the guide, such as 'GOOGLE MAP', '.co.uk' web suffixes and am/pm hour endings, by copying earlier occurrences, plus some 'of' after quantity phrases like 'one of' or 'view of'.",
+  "rule": {
+   "target_in": ["OO", "pm", "am", "uk", " of"],
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 72,
+  "story": "Predicting a comma right after a noun phrase whose head word already occurred earlier in the passage (e.g. 'at both stations,', 'the public heart of London,').",
+  "rule": {
+   "target_in": [","],
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 74,
+  "story": "Completing familiar two-token collocations in guidebook text, like 'Apr-Sep', 'adult/child', 'higher education', 'opening hours'.",
+  "rule": {
+   "target_in": ["Sep", "/", " education", " hours", " is", ","],
+   "prev_in": ["-", " adult", " higher", " opening", " return", "'"]
+  }
+ },
+ {
+  "circuit_id": 75,
+  "story": "Predicting common function words that continue mid-sentence prose after verbs and prepositions ('one of the best', 'easy to get', 'is warmed by the').",
+  "rule": {
+   "target_in": [" the", " a", " to", " in", " best", " you"],
+   "prev_in": [" to", "ed", " in", " is", " when", " must"]
+  }
+ },
+ {
+  "circuit_id": 77,
+  "story": "Closing a paired delimiter - parenthesis, bold '**', italic '_' or quote - right after the name or title that the matching opener introduced earlier.",
+  "rule": {
+   "target_in": [")", "**", "'", "_", "),", ")."],
+   "prev_in": [" House", " Room", " Museum", " Hall", " the", "Twist", "only", " courses", "Budget", " Station"]
+  }
+ },
+ {
+  "circuit_id": 80,
+  "story": "Completing weekday ranges in opening hours, above all predicting 'Fri' after the hyphen in 'Mon-Fri'.",
+  "rule": {
+   "target_in": ["Fri"],
+   "prev_in": ["-"]
+  }
+ },
+ {
+  "circuit_id": 81,
+  "story": "At the start of a venue's details line: right after the name-plus-category header, predicting the opening '(' of the phone/map/website block that every listing repeats.",
+  "rule": {
+   "target_in": ["(", " www", " ;"],
+   "prev_in": ["\n", ";", " )"]
+  }
+ },
+ {
+  "circuit_id": 83,
+  "story": "Predicting the day-of-week name at the end of an opening-hours clause, e.g. 'to 10.30pm Sun' or '8am-9pm Sat'.",
+  "rule": {
+   "target_in": [" Sun", " Sat", " Fri", " Nov"],
+   "prev_in": ["pm", "am", ",", " &", "-"]
+  }
+ },
+ {
+  "circuit_id": 84,
+  "story": "Predicting articles and auxiliaries ('the', 'a', 'are', 'been') after conjunctions, commas and prepositions in flowing descriptive prose.",
+  "rule": {
+   "target_in": [" the", " a", " The", " are", " been"],
+   "prev_in": [" and", ",", " in", " by", " has", "."]
+  }
+ },
+ {
+  "circuit_id": 88,
+  "story": "Predicting 'am'/'pm' right after the hour digit in opening-times strings (and 'co' after the dot in .co.uk web addresses).",
+  "rule": {
+   "target_in": ["pm", "am", "co"],
+   "prev_in": ["5", "4", "7", "2", "8", "0", " 9", "6", "."]
+  }
+ },
+ {
+  "circuit_id": 89,
+  "story": "Early-layer completion of tight local word pairs from just the immediately preceding token, e.g. 'chow down on', '9am-', 'accession to', 'had your fill of'.",
+  "rule": {
+   "target_in": ["-", " of", " in", " to", " on", " you", " as"],
+   "prev_in": ["am", " over", " as", " head", "down", "un", " fill"]
+  }
+ },
+ {
+  "circuit_id": 92,
+  "story": "Finishing a word the tokenizer split mid-way ('Cam'->'bridge', 'Sax'->'on', 'amb'->'ience', 'Expl'->'oring'), typically in the earlier part of the window.",
+  "rule": {
+   "prev_in": [" amb", " Expl", "Cam", " Sax", " Ast", " bur", " terr", " rot", "Sh", " nat", " west", " MAP"],
+   "pos_max": 150
+  }
+ },
+ {
+  "circuit_id": 95,
+  "story": "Predicting the hyphen of day and month ranges in opening hours - after 'Mon' or 'Apr' - a format the passage has already repeated many times.",
+  "rule": {
+   "target_in": ["-"],
+   "prev_in": [" Mon", " Apr", "9", "am", "11"],
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 97,
+  "story": "Continuing recurring price and address formulas copied from earlier listings: the '/' in 'adult/child', ' £' after 'mains', repeated street names like 'St Margaret's St'.",
+  "rule": {
+   "target_in": ["/", " £", "ains", " St", "St", " www", " to"],
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 98,
+  "story": "unclear",
+  "rule": null
+ }
+]

@@ -1,0 +1,147 @@
+[
+ {
+  "circuit_id": 164,
+  "story": "predicting the closing ' )' (or following punctuation) of the oft-repeated '(  MAP   GOOGLE MAP )' cross-reference template, copying the pattern from earlier occurrences in the context",
+  "rule": {
+   "target_in": [" )"],
+   "prev_in": [" MAP"],
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 166,
+  "story": "predicting the second half of a compound noun or multi-word proper name ('State Rooms', 'County Hall', 'Travelcard', 'lesbian calendar') from general knowledge of English collocations",
+  "rule": {
+   "target_in": ["card", " Gardens", " Rooms", " Hall", " calendar", " countryside"]
+  }
+ },
+ {
+  "circuit_id": 167,
+  "story": "late-context punctuation of the map-listing template — the ' ;' or ' )' that follows 'GOOGLE MAP' or a closing paren, repeated from earlier listings",
+  "rule": {
+   "target_in": [" ;", " )"],
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 168,
+  "story": "predicting the double-space filler right after '(  MAP' inside the listing template (plus a few other high-frequency continuations), almost always copying an earlier occurrence",
+  "rule": {
+   "target_in": [" ", "\n"],
+   "prev_in": [" MAP"],
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 170,
+  "story": "predicting the sentence-final period (or semicolon) that ends a fact-stating clause, typically after a place name, date, or list of proper nouns",
+  "rule": {
+   "target_in": [".", ";"]
+  }
+ },
+ {
+  "circuit_id": 171,
+  "story": "pure induction on the listing template: after 'GOOGLE MAP )' predicting the ' ;' (or after 'GOOGLE MAP' the ' )') exactly as seen in every earlier listing",
+  "rule": {
+   "target_in": [" ;", " )"],
+   "prev_in": [" )", " MAP"],
+   "is_induction": true,
+   "pos_min": 100
+  }
+ },
+ {
+  "circuit_id": 174,
+  "story": "predicting apostrophe contractions ('s, 'll, 't, 're) after pronouns like it/there/you/they in chatty guidebook prose",
+  "rule": {
+   "target_in": ["'s", "'ll", "'t", "'re", "'"],
+   "prev_in": [" it", " there", " There", " you", " they", " can", "'s"]
+  }
+ },
+ {
+  "circuit_id": 175,
+  "story": "predicting the paragraph break — a newline after a sentence-ending period, or the capitalized 'The' that opens the next paragraph — early in the context window",
+  "rule": {
+   "target_in": ["\n", "The"],
+   "prev_in": [".", ").", "\n"],
+   "pos_max": 130
+  }
+ },
+ {
+  "circuit_id": 179,
+  "story": "predicting the comma, 'and', or period that continues or closes an enumerated list of nouns (burgers, bars, salads, attractions) in descriptive prose",
+  "rule": {
+   "target_in": [",", " and", "."],
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 180,
+  "story": "continuing the middle of a long word split across several tokens — restaurant/museum names, URLs, and ALL-CAPS labels ('Rest->aur', 'britishm->useum', 'hem->isp-heres') — spelling knowledge rather than copying",
+  "rule": {
+   "target_in": ["UM", "ERN", "aur", "et", "ved", "od", "useum", "isp"]
+  }
+ },
+ {
+  "circuit_id": 181,
+  "story": "completing the ALL-CAPS category labels and split proper names of guidebook headers ('Tour->ist', 'POST-> OFF-ICE', 'Guild->hall', 'CATH->ED-RAL')",
+  "rule": {
+   "target_in": ["ist", "OR", "hall", " OFF", "EL", "ED", "ERG", "icester", " End"]
+  }
+ },
+ {
+  "circuit_id": 183,
+  "story": "predicting a specific content word (head noun or verb) that completes a descriptive phrase in prose ('medieval streets', 'rough-and-ready feel') — semantically coherent but with no shared surface signature",
+  "rule": null
+ },
+ {
+  "circuit_id": 185,
+  "story": "predicting the possessive 's after a proper noun or national/place noun (the country's, the UK's, Hadrian's), plus similar mid-phrase continuations",
+  "rule": {
+   "target_in": ["'s"]
+  }
+ },
+ {
+  "circuit_id": 186,
+  "story": "continuing formulaic detail strings inside listings — opening-hours times ('5.->30', '->pm'), web addresses ('.co.->uk'), and the MAP template tokens",
+  "rule": {
+   "target_in": ["pm", " MAP", "30", "uk"]
+  }
+ },
+ {
+  "circuit_id": 187,
+  "story": "predicting the connective function word ('and', 'is', 'the', 'in') that resumes the sentence after a comma, closing paren, or other mid-sentence punctuation",
+  "rule": {
+   "target_in": [" and", " is", " the", " in", " a"],
+   "prev_in": [",", ")", " ;", " of", "_"]
+  }
+ },
+ {
+  "circuit_id": 190,
+  "story": "predicting the linking preposition or conjunction ('of', 'with', 'and', 'in') that glues noun phrases together mid-sentence in descriptive prose",
+  "rule": {
+   "target_in": [" of", " with", " and", " in"]
+  }
+ },
+ {
+  "circuit_id": 192,
+  "story": "spelling out the letter-chunks of ALL-CAPS template words — 'GOO->G->LE' in 'GOOGLE MAP' and label fragments like 'HOST->EL' — as memorized subword sequences",
+  "rule": {
+   "target_in": ["G", "LE", "EL"],
+   "prev_in": ["OO", "G", "OST"]
+  }
+ },
+ {
+  "circuit_id": 195,
+  "story": "late-context copying of the guidebook listing layout — the newline after an all-caps category label ('BRITISH', 'BOAT TOUR'), commas in street addresses, and 'G->OO' fragments — all seen earlier in the window",
+  "rule": {
+   "target_in": ["\n", ",", "OO", "30"],
+   "is_induction": true,
+   "pos_min": 120
+  }
+ },
+ {
+  "circuit_id": 196,
+  "story": "predicting common punctuation and function words (comma, 'and', 'the', 'of') in name-heavy prose — a broad, generic pattern overlapping several other circuits, with no distinctive surface signature of its own",
+  "rule": null
+ }
+]

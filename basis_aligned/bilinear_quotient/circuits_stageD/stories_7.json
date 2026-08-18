@@ -1,0 +1,112 @@
+[
+ {
+  "circuit_id": 226,
+  "story": "Completing familiar fixed phrases and collocations, most often the 'uk' in '.co.uk' web addresses and ' course' in 'and, of course'.",
+  "rule": {
+   "target_in": ["uk", " course"],
+   "prev_in": [".", " of"]
+  }
+ },
+ {
+  "circuit_id": 227,
+  "story": "Predicting the digit of a London postcode district (WC2, SE1, NW1, E2) right after the letter prefix at the end of a street address in a listing.",
+  "rule": {
+   "target_in": ["1", "2", "8"],
+   "prev_in": [" WC", " SE", " NW", " W", " E", " N"]
+  }
+ },
+ {
+  "circuit_id": 228,
+  "story": "Predicting the next chunk of a multi-token proper name, most cleanly the start of a venue's website name after 'www.' where the venue was just named (Fabric -> www.fab..., Camden Passage -> www.cam...).",
+  "rule": {
+   "target_in": ["green", "fab", "cam", "ab", "bar"],
+   "prev_in": ["."]
+  }
+ },
+ {
+  "circuit_id": 229,
+  "story": "Predicting the full stop that ends a long descriptive guidebook sentence, after the final content word (a period the context has already seen many times).",
+  "rule": {
+   "target_in": [".", "\n"],
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 231,
+  "story": "Completing an all-caps word split across tokens, overwhelmingly the 'LE' of 'GOOGLE' in the recurring '( MAP GOOGLE MAP )' listing boilerplate (also MEDITERR-ANEAN, HOT-EL, LESBI-AN).",
+  "rule": {
+   "target_in": ["LE", "ANE", "AN", "EL"],
+   "prev_in": ["G", "MEDITERR", "HOT", "LESBI"]
+  }
+ },
+ {
+  "circuit_id": 232,
+  "story": "Predicting the pound sign before a price in a listing, or a famous place name in superlative phrases like 'one of England's / one of London's ...'.",
+  "rule": {
+   "target_in": [" £", " London", " England"]
+  }
+ },
+ {
+  "circuit_id": 233,
+  "story": "Predicting the hyphen inside compound modifiers, especially after ordinals like '19th'/'20th' before 'century' (also eye-, snow-, three-storey style compounds).",
+  "rule": {
+   "target_in": ["-"],
+   "prev_in": ["th", " eye", " snow", " three"]
+  }
+ },
+ {
+  "circuit_id": 235,
+  "story": "Punctuation and word-piece continuations inside directory listings — the dot after a website's domain name, hyphens and commas in addresses — usually echoing a string already seen in the entry.",
+  "rule": {
+   "target_in": [".", "-", ","],
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 239,
+  "story": "Predicting connective function words and commas that glue flowing guidebook prose together mid-sentence ('finest in the world', 'divides her time', 'grown its exhibition space by').",
+  "rule": {
+   "target_in": [",", " and", " the", " by", " her", " in", " up"],
+   "prev_in": [" in", " the", ",", " Park", " taken", " Buckingham"]
+  }
+ },
+ {
+  "circuit_id": 242,
+  "story": "Predicting the newline immediately after an all-caps category tag (HOTEL, RUIN, CAFE, MUSEUM) or a section heading in the guidebook's listing layout.",
+  "rule": {
+   "target_in": ["\n"],
+   "prev_in": ["UM", "FE", "IN", "ington", " Away", " hourly"],
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 244,
+  "story": "Predicting the comma that continues an enumeration of items already underway ('urns, obelisks,', 'classical, opera,', 'omelettes, ploughman's lunches,').",
+  "rule": {
+   "target_in": [","],
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 250,
+  "story": "Completing the second half of a split word or well-known compound ('stair-well', 'rose-mary', 'open-sand-wich', 'knick-kn-ack', 'Karl Marx').",
+  "rule": {
+   "target_in": ["wich", "well", "ware", "mary", "ack", "ing"]
+  }
+ },
+ {
+  "circuit_id": 253,
+  "story": "Completing multi-token British place names, most often the possessive \"'s\" in King's Cross / King's Rd / Shepherd's Bush (also East-bourne, Port-obello, Pent-onville).",
+  "rule": {
+   "target_in": ["'s", "bourne", "ob", "on", "ova"],
+   "prev_in": [" King", "King", " Shepherd", " East", "Port", "Pent"]
+  }
+ },
+ {
+  "circuit_id": 254,
+  "story": "Predicting 'and' or '&' joining paired items, including the ampersand in guidebook section headings like 'Drinking & Nightlife' and 'Festivals & Events'.",
+  "rule": {
+   "target_in": [" &", " and"]
+  }
+ }
+]

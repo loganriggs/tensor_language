@@ -1,0 +1,157 @@
+[
+ {
+  "circuit_id": 99,
+  "story": "Completing the second token of a multi-token British proper name (Covent Garden, Notting Hill, Sweeney Todd, Tudor), where the first name-fragment strongly implies the rest.",
+  "rule": {
+   "target_in": [" Garden", " Hill", " Court", " Todd", " Chau", "or", "ex", "ius", "'s", " of"],
+   "prev_in": [" Tud", " Reg", " Crom", " Canary", " Notting", " Vis", " Hampton", " Sweeney", " Geoffrey", " Covent", " Isle", " Tate"]
+  }
+ },
+ {
+  "circuit_id": 102,
+  "story": "Predicting the connective or punctuation that glues guidebook prose and listings together — 'and', 'of', a comma, or the next chunk of a time like '4.30'.",
+  "rule": {
+   "target_in": [" and", ",", " of", "-", "30", "ING", " for", " around"],
+   "pos_min": 60
+  }
+ },
+ {
+  "circuit_id": 104,
+  "story": "Completing prices and opening hours: the digits after a decimal point or pound sign (£16.[50]) and 'am' after a clock number.",
+  "rule": {
+   "target_in": ["50", "am", "20", "30", "5", "6", "3", "4", "66"],
+   "prev_in": [".", " £", "-", " (", " 16", " to", " 1", " 3", " 8", " 9"]
+  }
+ },
+ {
+  "circuit_id": 108,
+  "story": "Predicting the formatting tokens inside listing lines: the double-space spacer after a semicolon, and the day abbreviations or closing brackets in opening-hours strings.",
+  "rule": {
+   "target_in": [" ", " Fri", " Sun", " Thu", ").", "),", " to"],
+   "prev_in": [";", ",", " &", "am", " MAP", ".", " and"],
+   "pos_min": 80
+  }
+ },
+ {
+  "circuit_id": 109,
+  "story": "Predicting the extra whitespace token inside the '(  MAP   GOOGLE MAP )' listing boilerplate, plus similar spacer/continuation tokens after commas and brackets late in a listing.",
+  "rule": {
+   "target_in": [" ", "\n", " are", ",", ".", " the"],
+   "prev_in": [" ", ",", ")", ";", "50"],
+   "pos_min": 100
+  }
+ },
+ {
+  "circuit_id": 110,
+  "story": "Reproducing the '(  MAP   GOOGLE MAP ) ;  %phone' boilerplate that repeats verbatim in every guidebook entry — predicting ' MAP', ' %', ' G' at the same spots it appeared before.",
+  "rule": {
+   "target_in": [" MAP", " %", " G", "ATE"],
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 111,
+  "story": "Completing the second half of an uncommon word or name that was split across tokens (Wand-ering, Dunk-irk, Pri-ory, MUSE-UM), from lexical knowledge rather than copying.",
+  "rule": {
+   "target_in": ["ish", "UM", "ster", "ug", "ering", "hers", "irk", "ory", "ian", "lands", "igo", "con"]
+  }
+ },
+ {
+  "circuit_id": 112,
+  "story": "Continuing URLs and repeated web/boilerplate strings — the dot after 'www', the 'uk' after '.co', 'LE' after 'GOOG' — copying patterns already seen in the passage.",
+  "rule": {
+   "target_in": [".", "LE", "G", "-", "\n", " of"],
+   "prev_in": [" www", "co", "OO", "G", "am", ".", "uk"],
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 113,
+  "story": "Predicting the next ordinary function word ('the', 'a', 'you', 'right') in flowing descriptive prose, typically right after a connective or preposition.",
+  "rule": {
+   "target_in": [" the", " right", " you", " place", " a", " and", " its", " other", " find", " home"],
+   "prev_in": [" and", " a", ",", " for", " of", " then", " with", " To"]
+  }
+ },
+ {
+  "circuit_id": 114,
+  "story": "Predicting the punctuation or short linking word that closes off a noun phrase mid-sentence — a comma, period, 'as', 'and', or 'the' right after a content word.",
+  "rule": {
+   "target_in": [",", ".", " the", " of", " as", " and", " is", " Rd"],
+   "pos_min": 50,
+   "pos_max": 200
+  }
+ },
+ {
+  "circuit_id": 115,
+  "story": "Early-layer prediction of listing-detail tokens: 'pm'/'am' after a clock number, and the comma or semicolon after a street name like 'Tooley St'.",
+  "rule": {
+   "target_in": ["pm", "am", ",", ";", " Mon", " Rd", " the"],
+   "prev_in": ["30", " St", "pm", "-", "bury", " G"]
+  }
+ },
+ {
+  "circuit_id": 116,
+  "story": "Finishing a word fragment into a full word, often around a hyphen (triple-gl-azed, flip-fl-ops, sunn-iest, pick-les), or the noun completing a set phrase.",
+  "rule": {
+   "target_in": ["azed", "ops", "iest", "les", "don", "anse", "ocks", "or", "ed", "es", "s", " of"]
+  }
+ },
+ {
+  "circuit_id": 118,
+  "story": "Predicting the full stop that ends a long descriptive sentence, right after its final noun (…as a museum in 1925[.], …from the tourist office[.]).",
+  "rule": {
+   "target_in": [".", ",", " the", " in"],
+   "is_induction": true,
+   "pos_min": 60
+  }
+ },
+ {
+  "circuit_id": 121,
+  "story": "Predicting the pound sign in price listings ('adult/child £', 'r from £', 'mains £') and the stock phrase ending 'bookings are essential'.",
+  "rule": {
+   "target_in": [" £", " essential", " and", " in", "30"],
+   "prev_in": ["child", " from", "ains", " is", " are", ".", "ley"]
+  }
+ },
+ {
+  "circuit_id": 122,
+  "story": "Predicting the period that closes a sentence whose last word is a place or scene noun (…the South Downs National Park[.], …the River Thames[.]).",
+  "rule": {
+   "target_in": [".", ",", "\n"],
+   "prev_in": [" miles", " capital", " shoulders", " Gardens", " chapel", " Thames", " Park", " station", " walls", " archway", " cathedral", " base"]
+  }
+ },
+ {
+  "circuit_id": 123,
+  "story": "Predicting the closing parenthesis of the '(  MAP   GOOGLE MAP )' boilerplate and similar bracket-closing tokens at the end of listing parentheticals.",
+  "rule": {
+   "target_in": [" )", "),", ")"],
+   "prev_in": [" MAP", ")", "ep", "."]
+  }
+ },
+ {
+  "circuit_id": 125,
+  "story": "Predicting the newline after a sentence-final period at the end of a paragraph (…make transport a breeze.[\\n]).",
+  "rule": {
+   "target_in": ["\n", " (", "."],
+   "prev_in": [".", ").", ")"],
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 127,
+  "story": "Completing a well-known collocation or split word from world knowledge — 'Great Hall', 'official London residence', 'dreaming spires', 'bus-kers'.",
+  "rule": {
+   "target_in": [" Hall", " residence", "ews", "est", "kers", "ires", "aser", "ors", "ises", " services", "ic", "amed"]
+  }
+ },
+ {
+  "circuit_id": 128,
+  "story": "Predicting the possessive/contraction \"'s\" after a noun or 'There' (There['s], England['s], the world['s]).",
+  "rule": {
+   "target_in": ["'s", " '"],
+   "prev_in": [" There", "There", " it", " England", " world", " town", " Peter", " Europe", "uk"]
+  }
+ }
+]

@@ -1,0 +1,148 @@
+[
+ {
+  "circuit_id": 131,
+  "story": "Continuing the recurring guidebook-listing boilerplate that repeats across entries, such as 'pm' after opening-hour times, '.co.uk' web addresses, and the ' MAP' in '(  MAP   GOOGLE MAP )' tags.",
+  "rule": {
+   "target_in": [" MAP", "uk", "pm"],
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 133,
+  "story": "Predicting the newline that starts a paragraph break right after sentence-final punctuation at the end of a description.",
+  "rule": {
+   "target_in": ["\n"],
+   "prev_in": [".", ").", "?", "**"]
+  }
+ },
+ {
+  "circuit_id": 136,
+  "story": "Completing multi-token proper names and rare words with their next subword piece the first time they appear (e.g. Marzoc-co, Blackf-ri-ars, Embank-ment, HISTOR-IC, Glou-cester).",
+  "rule": {
+   "target_in": ["IC", "illy", "ment", "co", "ri", "or", "cester", "ze", "ud", "iet", "ings", "field"],
+   "pos_max": 180
+  }
+ },
+ {
+  "circuit_id": 137,
+  "story": "Predicting the small connective or punctuation that follows a content word mid-sentence ('heart of', 'commissioned to', 'entry to', a comma after a clause), where that token has already occurred earlier in the passage.",
+  "rule": {
+   "target_in": [",", " to", " and", ";", " of", "."],
+   "prev_in": [" heart", " entry", " commissioned", " is", "1", " quieter", " decades"],
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 139,
+  "story": "Predicting the second half of familiar set phrases and names at their first occurrence ('Changing of the Guard', 'Book in advance', 'not hard to see why', starting a www. address) - a collocation-completion pattern the available fields cannot capture mechanically.",
+  "rule": null
+ },
+ {
+  "circuit_id": 140,
+  "story": "Predicting the determiner or common function word that follows a linking verb or possessive ('London has a', 'the academy has', \"it's the\", 'Carnaby St was the').",
+  "rule": {
+   "target_in": [" the", " a", " and", " is", " in", " has"],
+   "prev_in": ["'s", " is", " has", " was", " including", " for", " are"]
+  }
+ },
+ {
+  "circuit_id": 141,
+  "story": "Spelling out the next subword piece of rare words, names, and all-caps category labels on their first appearance (MARK-ET, CLOTH-ING, Ros-etta, Hans-ard, hall-owed, plough-man).",
+  "rule": {
+   "target_in": ["ET", "ING", "ACTION", "SP", "owed", "etta", "eed", "ard", "man", "gy", "am", "i"],
+   "pos_max": 180
+  }
+ },
+ {
+  "circuit_id": 143,
+  "story": "Predicting an ordinary function word ('and', 'a', 'to', 'of', 'by') that keeps a plain prose sentence flowing after a determiner, bracket, or noun.",
+  "rule": {
+   "target_in": [" and", " a", " to", " ", " of", " by"],
+   "prev_in": [" the", "(", " most", " up", " with", ".", " Loved", " no", " at"]
+  }
+ },
+ {
+  "circuit_id": 145,
+  "story": "Predicting the article 'the' or 'a' immediately after a preposition ('tour of the', 'lost in the', 'run by a', 'from Limehouse to').",
+  "rule": {
+   "target_in": [" the", " a"],
+   "prev_in": [" of", " to", " by", " in", " from", " on"]
+  }
+ },
+ {
+  "circuit_id": 148,
+  "story": "Continuing formatted items with punctuation or a short suffix: the 's' after decades like '1970s', the hyphen inside compounds like '300-year-old', and the '.' inside web addresses and prices.",
+  "rule": {
+   "target_in": [".", ",", "s", "-"],
+   "is_induction": true
+  }
+ },
+ {
+  "circuit_id": 149,
+  "story": "Predicting ' MAP' after 'GOOGLE' in the constantly repeated '(  MAP   GOOGLE MAP )' guidebook tag.",
+  "rule": {
+   "target_in": [" MAP"],
+   "prev_in": ["LE"]
+  }
+ },
+ {
+  "circuit_id": 150,
+  "story": "Predicting the comma, 'and', or semicolon that continues a list of items or qualities in descriptive prose ('oral histories and', 'medicinal plants and', 'a year,').",
+  "rule": {
+   "target_in": [",", " and", ";"],
+   "prev_in": ["aur", " back", " England", " year", " menu", " histories", " plants", " flavours", " hotel", " Rd", " Park"]
+  }
+ },
+ {
+  "circuit_id": 151,
+  "story": "Predicting the main verb 'is' or 'was' after a long descriptive subject noun phrase ('This understated cathedral was', 'the only remotely chilled-out space ... is').",
+  "rule": {
+   "target_in": [" is", " was"],
+   "pos_min": 100
+  }
+ },
+ {
+  "circuit_id": 152,
+  "story": "A loose grab-bag of continuations of addresses, postcodes, map-index entries, and set phrases, some copied from earlier in the passage - no single mechanical pattern picks these sites out.",
+  "rule": null
+ },
+ {
+  "circuit_id": 154,
+  "story": "Predicting the determiner or connective that follows a verb or comma in flowing sentences ('push open the', 'serves up ... in a', 'they still harbour a').",
+  "rule": {
+   "target_in": [" the", " a", ",", " of", " to", " and"],
+   "prev_in": [",", " up", " enjoy", " between", " what", " open", " harbour", " serves"]
+  }
+ },
+ {
+  "circuit_id": 155,
+  "story": "Predicting 'the' or 'a' after a preposition in guidebook prose, plus completing the sentence-opener 'Des-igned' seen in repeated listing intros.",
+  "rule": {
+   "target_in": [" the", " a", " you", "igned"],
+   "prev_in": [" of", " to", " in", " on", " near", "Des"]
+  }
+ },
+ {
+  "circuit_id": 156,
+  "story": "Spelling out URLs and all-caps headings piece by piece (the 'OO' in G-OO-GLE, 'sandwich-river-bus', 'thenotting-hill', 'CAN-TER-BURY').",
+  "rule": {
+   "target_in": ["OO", "TER", "river", "hill", "bus", "iner", "boat", "RY", " R", "l", "c", "s"],
+   "prev_in": [" G", "FER", ".", "-", " to", " the", "ich", "ing", "ry", "sd", "erry", "te"]
+  }
+ },
+ {
+  "circuit_id": 160,
+  "story": "Predicting the connective or possessive that links clauses in long descriptive sentences ('and', 'this', 'its', 'for', 'includes') after a noun phrase.",
+  "rule": {
+   "target_in": [" and", " this", " its", " for", " includes", " by"],
+   "pos_min": 100
+  }
+ },
+ {
+  "circuit_id": 162,
+  "story": "Predicting an apostrophe continuation - possessive \"'s\" or a contraction (\"'ll\", \"'d\", \"'re\") - after a name, place, or pronoun ('Brighton's', \"You'll\", \"you'd\").",
+  "rule": {
+   "target_in": ["'s", "'ll", "'d", "'re", "'", " '"]
+  }
+ }
+]
