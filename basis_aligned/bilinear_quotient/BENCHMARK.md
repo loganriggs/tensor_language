@@ -215,3 +215,8 @@ Dictionary curve (sections 241-244): tail-span replacement at three rungs
 deployable: stream probe + constants + two per-class linear maps). The
 oracle-deployable gap (~20 points) prices "knowing the site type" as
 distinct from "writing the type's content."
+
+Capstone submission (section 255): the assembled dictionary model --
+attn0+attn1 values, mlp0-3 whole, tail spans via probe-dictionary --
++1.85 nats total, SUB-additive (0.88x sum of solos). Semantics-nominated
+throughout; description ledger in assembled_dictionary_results.json.

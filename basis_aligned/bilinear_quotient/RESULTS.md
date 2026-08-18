@@ -3773,3 +3773,10 @@ damage exactly 0.0000). Layer-0 values are a pure token function by
 architecture: trivially foldable, zero error. 253's open object withdrawn.
 
 Full detail in `BILIN18_CONNECTION.md` §254.
+
+### Assembled dictionary model: +1.85 nats, sub-additive
+
+13/36 components (crown included) replaced by tables + probe + constants;
+assembled cost 0.88x the sum of solos. Two tables weights-computable.
+
+Full detail in `BILIN18_CONNECTION.md` §255.

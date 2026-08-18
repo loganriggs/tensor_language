@@ -6811,3 +6811,26 @@ approximation error — and the layer-0 value system joins mlp1's dictionary
 in the weights-readable column. Lesson filed: before naming an anomaly,
 split the damage by the stand-in's COVERAGE — fallback cases masquerade as
 mechanism.
+
+## 255. The assembled dictionary model: +1.85 nats, sub-additive
+
+File: `assembled_dictionary.py`. Every certified deployable stand-in
+applied at once — attn0's values (weights-exact, solo cost 0.0000), attn1's
+values (+0.032), mlp0/1/2/3 entirely (+0.162/+1.216/+0.228/+0.308, mlp1
+from the weights-only fold), and all eight tail MLP spans via the
+probe-conditioned dictionary (+0.167):
+
+    sum of solo costs: +2.114     ASSEMBLED: +1.850   (0.88x — SUB-additive)
+    base CE 3.535 → dictionary model 5.39; all solo sanities exact
+
+The composition question resolved in the favorable direction: unlike raw
+damage, which compounds multiplicatively (the §172-era product law),
+dictionary REPLACEMENT errors partially absorb each other — the assembled
+model is cheaper than the sum of its substitutions. The submission, stated
+in benchmark terms: **thirteen of thirty-six components — including the
+crown component and the entire model front — replaced by lookup tables,
+one linear probe, and 640 class constants, at +1.85 nats**, with the attn0
+table exact and the mlp1 table computed from weights without ever running
+the model on text. This is the circuit program's Track-2 capstone: every
+piece of it was nominated by a certified semantic story, and the flat
+layer-track could express none of it.

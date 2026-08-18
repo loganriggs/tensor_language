@@ -445,7 +445,10 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   the model folds: the first four MLPs are a token-dictionary cascade (68% / 85% / 58%
   / 44% token-determined), with the crown component mlp1 — the most important MLP in
   the model — 79% replaceable by a lookup table computed from the weights alone, one
-  forward pass per vocabulary entry, no training data.</p>
+  forward pass per vocabulary entry, no training data; layer 0's value broadcast is
+  exactly lexical (a weights-computable table with literally zero error). Assembled,
+  the certified stand-ins replace thirteen of thirty-six components at +1.85 nats
+  total — sub-additive, 0.88× the sum of the individual costs.</p>
   <p class="q">Honest negatives from the same campaign: the naive match-and-copy
   stand-in for the induction band was refuted twice (the copy is distributed, not a
   single-position value injection); the model cannot do single-digit addition; and
