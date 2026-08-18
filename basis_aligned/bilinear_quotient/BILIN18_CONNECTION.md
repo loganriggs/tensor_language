@@ -6560,3 +6560,28 @@ the probe-conditioned dictionary — fully input-only, honestly priced. The
 gap from oracle-95% to the probe number will split the tail's job into
 "deciding the type" (front-of-model work the tail reads) versus "writing
 the type's content" (the dictionary).
+
+## 244. The deployable dictionary: 75% input-only — and the tail's job splits into decide vs write
+
+File: `circuit_probe_dictionary.py` (first run had a fit/apply interface
+bug — linear maps fit on mlp10's input, applied to each component's own;
+the λ-mixing bug class again, caught because the oracle arm failed to
+reproduce §242's 95%. Fixed run reproduces it exactly, validating the
+instrument.) The input-only rung:
+
+    probe (linear, on the stream entering mlp10): 59% top-1 over ten
+      classes (majority-class floor 36%) — bar (a) missed at 65%
+    probe-conditioned dictionary: 75% of joint ablation recovered,
+      fully input-only (oracle: 95%; shuffled probe: −67%)
+
+The description is now deployable: one D×10 linear probe + 640 constants +
+two rank-8 maps per component ≈ 160K params replacing 75% of what the
+eight tail span components do. And the oracle-probe gap prices the split
+the section-243 question asked for: of the tail spans' job, **~75 points
+of recovery is "write the type's content" (dictionary), ~20 points is
+"know the type better than a linear read of your input can"** — type
+information that is either nonlinearly coded in the stream or computed by
+the tail itself. That residual is the honest next frontier, and the
+benchmark records the three-rung curve: 50% at 0.7KB (constants), 95% at
+148K oracle-conditioned (decomposition), 75% at 160K input-only
+(deployable).

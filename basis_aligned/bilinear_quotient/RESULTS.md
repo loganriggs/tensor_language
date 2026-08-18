@@ -3687,3 +3687,12 @@ Hand rules can't recover the site class (bars failed as measured). Next:
 linear probe on the tail's input stream + probe-conditioned dictionary.
 
 Full detail in `BILIN18_CONNECTION.md` §243.
+
+### Deployable dictionary: 75% input-only
+
+Stream probe hits 59% class accuracy (floor 36%); probe-conditioned
+dictionary recovers 75% (oracle 95%, shuffled -67%). Tail job split: ~75
+points writing content, ~20 points knowing the type. Fit/apply interface
+bug caught by the oracle arm failing to reproduce 95%.
+
+Full detail in `BILIN18_CONNECTION.md` §244.

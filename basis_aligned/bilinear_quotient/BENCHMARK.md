@@ -208,3 +208,10 @@ of their joint ablation damage cross-window. Slice-conditioning is a
 description class the flat layer ladder could not express; its failure
 modes (copying sites, residual class) are where token-specific content
 lives.
+
+Dictionary curve (sections 241-244): tail-span replacement at three rungs
+-- 50% recovery at ~0.7KB (oracle constants), 95% at ~148K params
+(oracle-conditioned decomposition), 75% at ~160K params (fully input-only,
+deployable: stream probe + constants + two per-class linear maps). The
+oracle-deployable gap (~20 points) prices "knowing the site type" as
+distinct from "writing the type's content."
