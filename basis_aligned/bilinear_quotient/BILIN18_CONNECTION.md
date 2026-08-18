@@ -7489,3 +7489,33 @@ result (Right: sparse 18/18) survives a fortiori (sparse won even
 against over-budgeted low-rank) but the census is rerun at fair
 budgets. Standing rule reinforced: scale/orientation sanity checks
 (reconstruction null, budget audit) BEFORE the science bars.
+
+## 287. Three critical handoffs; sparse sweeps the census (null owed)
+
+`handoff_causal2.py` (corrected interface): the attn->own-mlp handoff is
+causally concentrated in THREE junctions -- **attn0->mlp0 +0.83,
+attn1->mlp1 +1.95, attn5->mlp5 +2.14** -- with blocks 2-4 at 0.03-0.07,
+blocks 6-17 at zero (several slightly negative). Spearman with the
+wiring-map diagonal 0.802 (HELD); front/tail ratio ~200x (HELD).
+Prediction (c) failed only by bar construction: block 8's real cost is
+-0.01 (nothing to halve); at the one substantive control site (block 2)
+the random perturbation costs 11% of the real cut. The composed-block
+motif is real but rarer and sharper than the subspace map suggested:
+the model has three places where an MLP critically consumes its own
+block's attention output -- and notably attn5->mlp5 sits exactly at the
+private-writer anatomy (mlp5/6), and is invisible to the assembled
+model, whose stand-ins bypass the junction entirely (a5 as a mean, m5
+as a table+absorber, both cheap there). The real model and the
+stand-in model achieve the same next-token behavior through genuinely
+different internal traffic at this junction.
+
+`decomp_census2.py`: at matched budget P=D^2/8, **top-P sparse beats
+low-rank, block-diagonal, and diag+low-rank for all 126 weight
+matrices** (7/7 families at 18/18; both registered bars HELD). Caveat
+before this becomes a claim (ledger-21 pattern): sparse also beats
+low-rank on iid GAUSSIAN matrices at this budget -- the census needs a
+random-matrix null to show the model's sparse advantage EXCEEDS chance.
+Census v3 queued with matched Gaussian baselines + per-family excess
+kurtosis; plus a sparse-pattern experiment: are the hot entries
+ALIGNED across layers (privileged stream coordinates -- the tail-coords
+anatomy from the flat track predicts yes)?

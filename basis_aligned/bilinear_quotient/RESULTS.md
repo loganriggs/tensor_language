@@ -3887,3 +3887,8 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 ## Appendix 285: OV library + block handoff (2026-08-18)
 - OV subspaces at the random-spread floor (no shared library); private bindings held. Attention motifs live on the pattern side only.
 - Block wiring map: attn->own-mlp handoff ~2x cross-block, front-loaded (fades in tail). attn0 broadcast control held.
+
+## Appendix 286-287: handoffs + decomposition census (2026-08-18)
+- Causal attn->own-mlp handoff: three critical junctions (blocks 0, 1, 5 at +0.8/+1.9/+2.1), everything else ~0; spearman 0.80 with the subspace wiring map. attn5->mlp5 = the private-writer neighborhood; the assembly bypasses it.
+- Decomposition census: sparse wins 126/126 at matched budget (Gaussian null owed -- v3 running).
+- Two v1 instruments voided honestly (wrong interface / unfair budget) before the science bars.

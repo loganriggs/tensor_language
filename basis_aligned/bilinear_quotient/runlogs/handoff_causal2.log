@@ -1,0 +1,26 @@
+block  0: handoff cut +0.8310 (map diag 0.292)
+block  1: handoff cut +1.9480 (map diag 0.196)
+block  2: handoff cut +0.0738 (map diag 0.192)
+block  3: handoff cut +0.0338 (map diag 0.218)
+block  4: handoff cut +0.0336 (map diag 0.145)
+block  5: handoff cut +2.1375 (map diag 0.169)
+block  6: handoff cut -0.0065 (map diag 0.069)
+block  7: handoff cut +0.0081 (map diag 0.109)
+block  8: handoff cut -0.0095 (map diag 0.030)
+block  9: handoff cut +0.0013 (map diag 0.165)
+block 10: handoff cut -0.0015 (map diag 0.065)
+block 11: handoff cut +0.0019 (map diag 0.117)
+block 12: handoff cut +0.0024 (map diag 0.075)
+block 13: handoff cut -0.0022 (map diag 0.052)
+block 14: handoff cut +0.0007 (map diag 0.036)
+block 15: handoff cut +0.0015 (map diag 0.056)
+block 16: handoff cut +0.0078 (map diag 0.040)
+block 17: handoff cut +0.0106 (map diag 0.087)
+block  2: random-subtract control +0.0081
+block  8: random-subtract control +0.0015
+block 14: random-subtract control +0.0009
+spearman 0.802 | front +0.5611 tail +0.0025
+(a) spearman >= 0.5: HELD
+(b) front >= 2x tail: HELD
+(c) random control <= half at 2,8: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/handoff_causal2_results.json (30s)
