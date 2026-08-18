@@ -1,1 +1,12 @@
 tables built 2s
+attn0: ablate +0.132 table +0.093 rec 29% shuf -7%
+attn1: ablate +0.242 table +0.186 rec 23%
+attn2: ablate +0.135 table +0.087 rec 36%
+attn3: ablate +0.065 table +0.071 rec -9%
+attn4: ablate +0.157 table +0.134 rec 15%
+attn5: ablate +0.101 table +0.110 rec -9%
+(a) attn0+attn1 >=50%: FAILED
+(b) attn3/4/5 <=20%: HELD
+(c) attn2 boundary (no bar): HELD
+(d) shuffled <=0%: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/attn_tables_results.json (21s)

@@ -3748,3 +3748,11 @@ mlp2 58%, mlp3 44%. The crown component's dictionary is readable straight
 from the parameters.
 
 Full detail in `BILIN18_CONNECTION.md` §251.
+
+### Attention outputs are not token-tables
+
+attn0-5 output tables: 15-36% max (induction band negative). The cascade
+is an MLP phenomenon; lexicality lives at the value level -- v-table
+discriminator queued.
+
+Full detail in `BILIN18_CONNECTION.md` §252.

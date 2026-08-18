@@ -6743,3 +6743,19 @@ confirmed where it was aimed (the early layers), with the mlp1 crown as
 its sharpest instance: the most important MLP in the model is, to four-
 fifths, a dictionary you can compute without ever running the model on
 text.
+
+## 252. Attention outputs are not token-tables — the dictionary cascade is an MLP phenomenon
+
+File: `attn_tables.py`. Empirical token-conditional output tables for
+attn0-5: recoveries 29% / 23% / 36% / −9% / 15% / −9% (shuffled −7%).
+Registered bar (a) — the lexical pair attn0/attn1 at ≥50% — FAILED, and
+the failure is an instrument-interface lesson rather than a refutation of
+lexicality: an attention OUTPUT at position p is a mixture over the whole
+prefix, so even a perfectly lexical head (token-determined keys/values)
+has context-dependent outputs. The §239 infrastructure claim lives one
+interface deeper: at the VALUE level. The dictionary cascade stands as an
+MLP phenomenon (68/85/58/44% for mlp0-3 vs ≤36% for all attention), and
+the queued discriminator moves the table to the right interface: replace
+attn0/attn1's c_v outputs with per-token value tables at every position —
+if the heads are lexical transport, value-tables should preserve what
+output-tables cannot.
